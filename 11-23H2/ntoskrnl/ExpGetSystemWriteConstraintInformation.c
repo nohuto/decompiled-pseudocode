@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetSystemWriteConstraintInformation @ 0x1408623E4
+ * XREFs of ExpGetSystemWriteConstraintInformation @ 0x140862624
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041B660 (ZwCreateEvent.c)
- *     ZwCreateFile @ 0x14041B800 (ZwCreateFile.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x14041B9F0 (ZwCreateEvent.c)
+ *     ZwCreateFile @ 0x14041BB90 (ZwCreateFile.c)
  */
 
 __int64 __fastcall ExpGetSystemWriteConstraintInformation(_QWORD *a1)

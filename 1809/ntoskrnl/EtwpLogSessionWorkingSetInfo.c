@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1408B85C4
+ * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1408B9884
  * Callers:
- *     EtwpLogMemInfoWs @ 0x1408B7FEC (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x1408B92AC (EtwpLogMemInfoWs.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmQuerySessionWorkingSetInformation @ 0x1402B41E4 (MmQuerySessionWorkingSetInformation.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmQuerySessionWorkingSetInformation @ 0x1402B43D4 (MmQuerySessionWorkingSetInformation.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpLogSessionWorkingSetInfo(__int64 a1)

@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwFindAtom(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFindAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(AtomName);
 }

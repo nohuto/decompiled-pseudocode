@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSrcuFree @ 0x1405C0B50
+ * XREFs of KeSrcuFree @ 0x1405BE120
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     KeRemoveQueueDpcEx @ 0x140464090 (KeRemoveQueueDpcEx.c)
- *     KiSrcuNotifyWorkerAcquire @ 0x1405C1450 (KiSrcuNotifyWorkerAcquire.c)
- *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405C15C4 (KiSrcuNotifyWorkerSelectAndQueue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeRemoveQueueDpcEx @ 0x14045A7C0 (KeRemoveQueueDpcEx.c)
+ *     KiSrcuNotifyWorkerAcquire @ 0x1405BEA20 (KiSrcuNotifyWorkerAcquire.c)
+ *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405BEB94 (KiSrcuNotifyWorkerSelectAndQueue.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeSrcuFree(_QWORD *P)
@@ -24,13 +24,13 @@ void __fastcall KeSrcuFree(_QWORD *P)
   __int128 v9; // [rsp+20h] [rbp-20h] BYREF
   char *v10; // [rsp+30h] [rbp-10h]
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140F10050);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140F10310);
   v3 = (_QWORD *)*P;
   if ( *(_QWORD **)(*P + 8LL) != P || (v4 = (PVOID *)P[1], *v4 != P) )
     __fastfail(3u);
   *v4 = v3;
   v3[1] = v4;
-  KeReleaseSpinLock(&qword_140F10050, v2);
+  KeReleaseSpinLock(&qword_140F10310, v2);
   KeRemoveQueueDpcEx((__int64)(P + 10), 1);
   v5 = *((_DWORD *)P + 37);
   v6 = 0LL;
@@ -46,7 +46,7 @@ void __fastcall KeSrcuFree(_QWORD *P)
     *((_QWORD *)&v9 + 1) = (char *)&v9 + 8;
     BYTE2(v9) = 6;
     KiSrcuNotifyWorkerSelectAndQueue(v8, &v9);
-    KeWaitForGate((__int64)&v9, 42LL, 0);
+    KeWaitForGate((__int64)&v9, 42LL);
   }
   ExFreePoolWithTag(P, 0x75635253u);
 }

@@ -6,10 +6,10 @@
  *     <none>
  */
 
-bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
+BOOLEAN __cdecl RtlIsTextUnicode(PVOID Buffer, ULONG Size, PULONG Result)
 {
   int v4; // eax
-  unsigned int v5; // edx
+  ULONG v5; // edx
   int v6; // ebx
   int v8; // r8d
   signed __int32 v9; // edi
@@ -34,8 +34,8 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   bool v28; // zf
   unsigned int v29; // ecx
   int v30; // edi
-  unsigned int v31; // ecx
-  unsigned int v32; // r9d
+  ULONG v31; // ecx
+  ULONG v32; // r9d
   bool v33; // al
   unsigned int v34; // r10d
   int v35; // edx
@@ -48,7 +48,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   int v42; // r8d
   int v43; // ecx
   int v44; // eax
-  int v45; // ecx
+  ULONG v45; // ecx
   unsigned int v47; // r8d
   unsigned int v48; // eax
   __int16 v49; // dx
@@ -90,7 +90,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v4 = 0;
   v58 = 0;
   v67 = 0;
-  v5 = a2 >> 1;
+  v5 = Size >> 1;
   v6 = 0;
   v75 = v5;
   v59 = 0;
@@ -125,38 +125,38 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v81 = 0LL;
   _InterlockedOr(&v51, 0);
   v16 = 0;
-  if ( GlobalRtlNlsState != -535 )
+  if ( GlobalRtlNlsState.CodePage != 0xFDE9 )
   {
     v16 = 0;
-    if ( word_1801CEFD0 != -535 )
+    if ( CodePageTable.CodePage != 0xFDE9 )
     {
       _InterlockedOr(&v51, 0);
       v81 = qword_1801CF020;
       v12 = 0;
-      v85 = word_1801CEF9C != 0;
+      v85 = GlobalRtlNlsState.DBCSCodePage != 0;
     }
   }
   if ( !v5 )
     goto LABEL_94;
-  if ( a2 != 2 )
+  if ( Size != 2 )
   {
-    if ( a2 > 2 && v75 <= 0x100 && (a2 & 1) == 0 )
+    if ( Size > 2 && v75 <= 0x100 && (Size & 1) == 0 )
     {
       v11 = 0;
-      if ( (a1[v5 - 1] & 0xFF00) == 0 )
+      if ( (*((_WORD *)Buffer + v5 - 1) & 0xFF00) == 0 )
         --v5;
     }
-    v17 = a1;
+    v17 = Buffer;
     goto LABEL_10;
   }
-  v17 = a1;
-  if ( *a1 )
+  v17 = Buffer;
+  if ( *(_WORD *)Buffer )
   {
-    if ( !HIBYTE(*a1) )
+    if ( !HIBYTE(*(_WORD *)Buffer) )
     {
 LABEL_94:
-      if ( a3 )
-        *a3 = 5;
+      if ( Result )
+        *Result = 5;
       return 0;
     }
   }
@@ -360,11 +360,11 @@ LABEL_40:
 LABEL_41:
     v30 = v4 - 1;
   }
-  v31 = a2;
+  v31 = Size;
   v32 = 512;
   v33 = v85;
-  if ( a2 <= 0x200 )
-    v32 = a2;
+  if ( Size <= 0x200 )
+    v32 = Size;
   if ( v85 )
   {
     v47 = 0;
@@ -374,7 +374,7 @@ LABEL_41:
       do
       {
         v48 = v34 + 1;
-        v49 = *(_WORD *)(v81 + 2LL * *((unsigned __int8 *)a1 + v47));
+        v49 = *(_WORD *)(v81 + 2LL * *((unsigned __int8 *)Buffer + v47));
         if ( !v49 )
           v48 = v34;
         v34 = v48;
@@ -386,7 +386,7 @@ LABEL_41:
       while ( v50 + 1 < v32 );
       v12 = v55;
       v16 = v54;
-      v31 = a2;
+      v31 = Size;
       v33 = v85;
     }
   }
@@ -417,7 +417,7 @@ LABEL_48:
 LABEL_105:
     v35 = v71;
   }
-  if ( v33 && v34 && a3 && (*a3 & 0x400) != 0 )
+  if ( v33 && v34 && Result && (*Result & 0x400) != 0 )
   {
     if ( v75 <= 0x100 )
       v36 = (unsigned __int64)v31 >> 1;
@@ -449,23 +449,23 @@ LABEL_105:
   if ( v12 + v16 + v15 + v62 || (v43 = v42, v52) && v52 >= v32 / 0x28 )
     v43 = v42 | 0x100;
   v44 = v43 | 0x200;
-  if ( (a2 & 1) == 0 )
+  if ( (Size & 1) == 0 )
     v44 = v43;
   v45 = v44 | 0x1000;
   if ( !v30 )
     v45 = v44;
-  if ( *a1 == 0xFEFF )
+  if ( *(_WORD *)Buffer == 0xFEFF )
   {
     v45 |= 8u;
   }
-  else if ( *a1 == 0xFFFE )
+  else if ( *(_WORD *)Buffer == 0xFFFE )
   {
     v45 |= 0x80u;
   }
-  if ( a3 )
+  if ( Result )
   {
-    *a3 &= v45;
-    v45 = *a3;
+    *Result &= v45;
+    v45 = *Result;
   }
   return (v45 & 0xB08) == 8 || (v45 & 0xF0) == 0 && (v45 & 0xF00) == 0 && (v45 & 0xF00F) != 0;
 }

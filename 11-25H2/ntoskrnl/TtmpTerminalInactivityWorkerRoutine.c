@@ -12,7 +12,7 @@ __int64 TtmpTerminalInactivityWorkerRoutine()
 
   do
   {
-    ZwUpdateWnfStateData((__int64)&WNF_PO_TERMINAL_INACTIVITY, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_TERMINAL_INACTIVITY, 0LL, 0, 0LL, 0LL, 0, 0);
     result = (unsigned int)_InterlockedExchangeAdd(&TtmpTerminalInactivityWorkCount, 0xFFFFFFFF);
   }
   while ( (_DWORD)result != 1 );

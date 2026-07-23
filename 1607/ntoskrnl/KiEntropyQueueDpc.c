@@ -1,17 +1,17 @@
 /*
- * XREFs of KiEntropyQueueDpc @ 0x1400AA984
+ * XREFs of KiEntropyQueueDpc @ 0x1400A8F04
  * Callers:
- *     KiScanInterruptObjectList @ 0x14015ED60 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x14015EF30 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x14015F060 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x14015F190 (KiInterruptSubDispatchNoLockNoEtw.c)
- *     KiHvInterrupt @ 0x140162640 (KiHvInterrupt.c)
- *     KiVmbusInterrupt0 @ 0x1401633F0 (KiVmbusInterrupt0.c)
- *     KiVmbusInterrupt1 @ 0x140163AF0 (KiVmbusInterrupt1.c)
- *     KiVmbusInterrupt2 @ 0x1401641F0 (KiVmbusInterrupt2.c)
- *     KiVmbusInterrupt3 @ 0x1401648F0 (KiVmbusInterrupt3.c)
+ *     KiScanInterruptObjectList @ 0x14015F2D0 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x14015F4A0 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x14015F5D0 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x14015F700 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiHvInterrupt @ 0x140162BB0 (KiHvInterrupt.c)
+ *     KiVmbusInterrupt0 @ 0x140163960 (KiVmbusInterrupt0.c)
+ *     KiVmbusInterrupt1 @ 0x140164060 (KiVmbusInterrupt1.c)
+ *     KiVmbusInterrupt2 @ 0x140164760 (KiVmbusInterrupt2.c)
+ *     KiVmbusInterrupt3 @ 0x140164E60 (KiVmbusInterrupt3.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall KiEntropyQueueDpc(__int64 a1)

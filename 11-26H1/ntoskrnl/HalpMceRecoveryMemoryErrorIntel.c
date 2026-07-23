@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMceRecoveryMemoryErrorIntel @ 0x14058E964
+ * XREFs of HalpMceRecoveryMemoryErrorIntel @ 0x1405910E4
  * Callers:
- *     HalpMceRecoveryMemoryError @ 0x14058E81C (HalpMceRecoveryMemoryError.c)
+ *     HalpMceRecoveryMemoryError @ 0x140590F9C (HalpMceRecoveryMemoryError.c)
  * Callees:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x140585138 (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpMceMemoryErrorRecovery @ 0x14058E528 (HalpMceMemoryErrorRecovery.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x140587658 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceMemoryErrorRecovery @ 0x140590CA8 (HalpMceMemoryErrorRecovery.c)
  */
 
 __int64 __fastcall HalpMceRecoveryMemoryErrorIntel(__int64 a1)
@@ -53,7 +53,7 @@ LABEL_24:
       return v4;
     }
     v7 = HalpMcaPhysicalAddressMask & *(_QWORD *)(a1 + 48) & ~((1LL << v6) - 1);
-    if ( BYTE4(HalpDeviceBlockUnblockPushLock.SchedulerAssist) )
+    if ( BYTE1(HalpDeviceBlockUnblockPushLock.OtherTransferCount) )
     {
       v4 = HalpHvMceConsumedMemoryErrorRecovery(
              *(unsigned int *)(a1 + 16),

@@ -7,48 +7,50 @@
  *     RtlInitCodePageTable @ 0x1800ADD20 (RtlInitCodePageTable.c)
  */
 
-__int64 __fastcall RtlpInitCodePageTables(__int16 a1, __int16 a2)
+__int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 a2)
 {
-  bool v3; // bl
-  void *v5; // rdx
-  void *v6; // rax
+  BOOLEAN v3; // bl
+  ULONG v4; // edi
+  unsigned __int16 *v5; // rdx
+  unsigned __int16 *DBCSOffsets; // rax
   __int64 result; // rax
 
   v3 = 0;
-  if ( a1 != -535 && a2 != -535 )
+  v4 = a2;
+  if ( a1 != 0xFDE9 && a2 != 0xFDE9 )
   {
-    if ( (int)ZwGetNlsSectionPtr() >= 0 )
+    if ( ZwGetNlsSectionPtr(0xBu, a1, 0LL, &TableBase, 0LL) >= 0 )
     {
-      if ( a2 == a1 )
+      if ( (_WORD)v4 == a1 )
       {
-        *((_QWORD *)&xmmword_180181790 + 1) = xmmword_180181790;
+        *(&TableBase + 1) = TableBase;
         goto LABEL_8;
       }
-      if ( (int)ZwGetNlsSectionPtr() >= 0 )
+      if ( ZwGetNlsSectionPtr(0xBu, v4, 0LL, &TableBase + 1, 0LL) >= 0 )
         goto LABEL_8;
     }
-    xmmword_180181790 = 0LL;
+    *(_OWORD *)&TableBase = 0LL;
   }
 LABEL_8:
-  RtlInitCodePageTable((unsigned __int16 *)xmmword_180181790, (__int64)&GlobalRtlNlsState);
-  RtlInitCodePageTable(*((unsigned __int16 **)&xmmword_180181790 + 1), (__int64)&word_180181750);
-  if ( GlobalRtlNlsState == -535 || word_180181750 == -535 )
+  RtlInitCodePageTable((PUSHORT)TableBase, &GlobalRtlNlsState);
+  RtlInitCodePageTable((PUSHORT)*(&TableBase + 1), &CodePageTable);
+  if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
   {
     NlsAnsiCodePage = -535;
     NlsMbCodePageTag = 0;
   }
   else
   {
-    v5 = &NlsEmptyLeadByteInfoTable;
-    NlsAnsiCodePage = GlobalRtlNlsState;
-    v6 = &NlsEmptyLeadByteInfoTable;
-    if ( word_18018171C )
-      v6 = (void *)qword_180181748;
-    NlsMbCodePageTag = word_18018171C != 0;
-    qword_1801817A0 = (__int64)v6;
-    if ( word_18018175C )
-      v5 = (void *)qword_180181788;
-    v3 = word_18018175C != 0;
+    v5 = (unsigned __int16 *)&NlsEmptyLeadByteInfoTable;
+    NlsAnsiCodePage = GlobalRtlNlsState.CodePage;
+    DBCSOffsets = (unsigned __int16 *)&NlsEmptyLeadByteInfoTable;
+    if ( GlobalRtlNlsState.DBCSCodePage )
+      DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
+    NlsMbCodePageTag = GlobalRtlNlsState.DBCSCodePage != 0;
+    qword_1801817A0 = (__int64)DBCSOffsets;
+    if ( CodePageTable.DBCSCodePage )
+      v5 = CodePageTable.DBCSOffsets;
+    v3 = CodePageTable.DBCSCodePage != 0;
     qword_1801817A8 = (__int64)v5;
   }
   result = 0LL;

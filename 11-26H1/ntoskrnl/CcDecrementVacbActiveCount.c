@@ -1,12 +1,12 @@
 /*
- * XREFs of CcDecrementVacbActiveCount @ 0x1402DDBF0
+ * XREFs of CcDecrementVacbActiveCount @ 0x1402BF9B0
  * Callers:
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     CcPinMappedData @ 0x140A54D50 (CcPinMappedData.c)
- *     CcMapAndCopyFromCache @ 0x140A64900 (CcMapAndCopyFromCache.c)
- *     CcMdlRead @ 0x140AED790 (CcMdlRead.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     CcPinMappedData @ 0x140A622F0 (CcPinMappedData.c)
+ *     CcMapAndCopyFromCache @ 0x140A718D0 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x140AF04E0 (CcMdlRead.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 LONG __fastcall CcDecrementVacbActiveCount(__int64 a1)

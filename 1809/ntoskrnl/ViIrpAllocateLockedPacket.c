@@ -1,15 +1,15 @@
 /*
- * XREFs of ViIrpAllocateLockedPacket @ 0x140930768
+ * XREFs of ViIrpAllocateLockedPacket @ 0x140931768
  * Callers:
- *     IovAllocateIrp @ 0x140923810 (IovAllocateIrp.c)
+ *     IovAllocateIrp @ 0x140924810 (IovAllocateIrp.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     IoInitializeIrp @ 0x14011A1A0 (IoInitializeIrp.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
- *     VfPacketCreateAndLock @ 0x14093F3F8 (VfPacketCreateAndLock.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140068560 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140076C00 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     IoInitializeIrp @ 0x14011A210 (IoInitializeIrp.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140925F50 (VeAllocatePoolWithTagPriority.c)
+ *     VfPacketCreateAndLock @ 0x1409403F8 (VfPacketCreateAndLock.c)
  */
 
 __int64 __fastcall ViIrpAllocateLockedPacket(CCHAR a1, int a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpWerFreePool @ 0x14061C2B4
+ * XREFs of DbgkpWerFreePool @ 0x14061C368
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x1401B7A80 (DbgkCaptureLiveKernelDump.c)
- *     DbgkWerAddSecondaryData @ 0x14061B9B0 (DbgkWerAddSecondaryData.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x14061BB3C (DbgkWerCaptureLiveKernelDump.c)
- *     DbgkpWerCleanupContext @ 0x14061C01C (DbgkpWerCleanupContext.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1401B7964 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkWerAddSecondaryData @ 0x14061BA64 (DbgkWerAddSecondaryData.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14061BBF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkpWerCleanupContext @ 0x14061C0D0 (DbgkpWerCleanupContext.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

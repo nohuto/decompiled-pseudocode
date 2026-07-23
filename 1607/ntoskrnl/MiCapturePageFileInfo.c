@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCapturePageFileInfo @ 0x1401593D0
+ * XREFs of MiCapturePageFileInfo @ 0x140159940
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x14003B6F0 (MiCompletePrivateZeroFault.c)
+ *     MiCompletePrivateZeroFault @ 0x14003B270 (MiCompletePrivateZeroFault.c)
  * Callees:
  *     <none>
  */

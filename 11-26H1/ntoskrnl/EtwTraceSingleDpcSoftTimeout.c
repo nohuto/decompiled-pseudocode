@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceSingleDpcSoftTimeout @ 0x1406C4F64
+ * XREFs of EtwTraceSingleDpcSoftTimeout @ 0x1406C8BA4
  * Callers:
- *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405E91A0 (KiLogSingleDpcSoftTimeoutEvent.c)
+ *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405EBB10 (KiLogSingleDpcSoftTimeoutEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceSingleDpcSoftTimeout(
@@ -39,7 +39,7 @@ NTSTATUS __fastcall EtwTraceSingleDpcSoftTimeout(
 
   v26 = a4;
   v25 = a2;
-  if ( qword_140F03598 )
+  if ( *(_QWORD *)&stru_140F03830.SchedulerApc.Type )
   {
     v10 = *(_DWORD *)(a3 + 36);
     v9 = *(_DWORD *)(a1 + 1296);
@@ -60,7 +60,15 @@ NTSTATUS __fastcall EtwTraceSingleDpcSoftTimeout(
     v19 = 4LL;
     v21 = 2LL;
     v24 = 0;
-    return EtwWriteEx(qword_140F03598, &CPU_STARVATION_EVENT_SINGLE_DPC_SOFT_TIMEOUT, 0LL, 0, 0LL, 0LL, 7u, &UserData);
+    return EtwWriteEx(
+             *(REGHANDLE *)&stru_140F03830.SchedulerApc.Type,
+             &CPU_STARVATION_EVENT_SINGLE_DPC_SOFT_TIMEOUT,
+             0LL,
+             0,
+             0LL,
+             0LL,
+             7u,
+             &UserData);
   }
   return result;
 }

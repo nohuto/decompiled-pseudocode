@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInvokePatchCallback @ 0x140870C74
+ * XREFs of MiInvokePatchCallback @ 0x140876FD4
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiInvokePatchCallback(__int64 a1, __int64 a2)

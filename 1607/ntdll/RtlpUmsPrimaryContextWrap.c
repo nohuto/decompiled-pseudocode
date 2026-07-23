@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlpUmsPrimaryContextWrap @ 0x1800AAC70
  * Callers:
- *     RtlEnterUmsSchedulingMode @ 0x1800EC770 (RtlEnterUmsSchedulingMode.c)
+ *     RtlEnterUmsSchedulingMode @ 0x1800EC830 (RtlEnterUmsSchedulingMode.c)
  * Callees:
- *     RtlEndStrongEnumerationHashTable @ 0x180085D20 (RtlEndStrongEnumerationHashTable.c)
+ *     RtlEndStrongEnumerationHashTable @ 0x180085D10 (RtlEndStrongEnumerationHashTable.c)
  */
 
 __int64 __fastcall RtlpUmsPrimaryContextWrap(__int64 a1, __int64 a2)

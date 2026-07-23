@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRecordIoAttribution @ 0x14001F134
+ * XREFs of IopRecordIoAttribution @ 0x14001ECB4
  * Callers:
- *     IoRecordIoAttribution @ 0x14001F26C (IoRecordIoAttribution.c)
+ *     IoRecordIoAttribution @ 0x14001EDEC (IoRecordIoAttribution.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopRecordIoAttribution(KSPIN_LOCK *a1, __int64 a2)

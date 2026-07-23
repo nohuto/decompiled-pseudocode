@@ -3,7 +3,7 @@
  * Callers:
  *     MmInitSystem @ 0x140B443B4 (MmInitSystem.c)
  * Callees:
- *     MiAssignSoftwareWsleRegion @ 0x14039B40C (MiAssignSoftwareWsleRegion.c)
+ *     MiAssignSoftwareWsleRegion @ 0x14039B5EC (MiAssignSoftwareWsleRegion.c)
  *     MiRebaseDynamicRelocationRegions @ 0x140B43F64 (MiRebaseDynamicRelocationRegions.c)
  *     MiInitializeTopLevelBitmap @ 0x140B5FB44 (MiInitializeTopLevelBitmap.c)
  *     MiAssignTopLevelRanges @ 0x140B5FC2C (MiAssignTopLevelRanges.c)

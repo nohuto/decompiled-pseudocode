@@ -1,21 +1,21 @@
 /*
- * XREFs of rapidhash_internal @ 0x14024B730
+ * XREFs of rapidhash_internal @ 0x14024D090
  * Callers:
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14020D0D8 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x140210E90 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     SmHpChunkFree @ 0x140211220 (SmHpChunkFree.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024B0D0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
- *     RtlHashBytes2 @ 0x14024B704 (RtlHashBytes2.c)
- *     ?SmCompressCtxCompleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_WORK_ITEM@1@KKJ@Z @ 0x14024C210 (-SmCompressCtxCompleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU.c)
- *     SmHpBufferProtectEx @ 0x14024CCB0 (SmHpBufferProtectEx.c)
- *     SmHpChunkUnprotect @ 0x14024D5B0 (SmHpChunkUnprotect.c)
- *     SmHpBufferUpdateFullness @ 0x14024DAA0 (SmHpBufferUpdateFullness.c)
- *     SmHpUnprotectListNeighbors @ 0x14024DC94 (SmHpUnprotectListNeighbors.c)
- *     SmHpChunkAlloc @ 0x14024E5B0 (SmHpChunkAlloc.c)
- *     SmHpChunkHeapProtect @ 0x14024F764 (SmHpChunkHeapProtect.c)
- *     MiValidateMdlTracker @ 0x1404EFA3C (MiValidateMdlTracker.c)
- *     MiAddMdlTracker @ 0x1404F3E20 (MiAddMdlTracker.c)
- *     SmStoreHashCompressedData @ 0x140524388 (SmStoreHashCompressedData.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14020D1B8 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x140210F70 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     SmHpChunkFree @ 0x140211300 (SmHpChunkFree.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024CA30 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
+ *     RtlHashBytes2 @ 0x14024D064 (RtlHashBytes2.c)
+ *     ?SmCompressCtxCompleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_WORK_ITEM@1@KKJ@Z @ 0x14024DB70 (-SmCompressCtxCompleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU.c)
+ *     SmHpBufferProtectEx @ 0x14024E610 (SmHpBufferProtectEx.c)
+ *     SmHpChunkUnprotect @ 0x14024EF10 (SmHpChunkUnprotect.c)
+ *     SmHpBufferUpdateFullness @ 0x14024F400 (SmHpBufferUpdateFullness.c)
+ *     SmHpUnprotectListNeighbors @ 0x14024F5F4 (SmHpUnprotectListNeighbors.c)
+ *     SmHpChunkAlloc @ 0x14024FF10 (SmHpChunkAlloc.c)
+ *     SmHpChunkHeapProtect @ 0x1402510C4 (SmHpChunkHeapProtect.c)
+ *     MiValidateMdlTracker @ 0x1404E901C (MiValidateMdlTracker.c)
+ *     MiAddMdlTracker @ 0x1404ED400 (MiAddMdlTracker.c)
+ *     SmStoreHashCompressedData @ 0x1405269F8 (SmStoreHashCompressedData.c)
  * Callees:
  *     <none>
  */

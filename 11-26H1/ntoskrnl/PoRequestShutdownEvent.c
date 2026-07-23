@@ -1,9 +1,9 @@
 /*
- * XREFs of PoRequestShutdownEvent @ 0x140AF1030
+ * XREFs of PoRequestShutdownEvent @ 0x140AF3C70
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestShutdownWait @ 0x140AF1078 (PopRequestShutdownWait.c)
+ *     PopRequestShutdownWait @ 0x140AF3CB8 (PopRequestShutdownWait.c)
  */
 
 NTSTATUS __stdcall PoRequestShutdownEvent(PVOID *Event)
@@ -16,7 +16,7 @@ NTSTATUS __stdcall PoRequestShutdownEvent(PVOID *Event)
   if ( result >= 0 )
   {
     if ( Event )
-      *Event = stru_140F11D08.PriorityFloorCounts;
+      *Event = &PopShutdownEvent;
     return 0;
   }
   return result;

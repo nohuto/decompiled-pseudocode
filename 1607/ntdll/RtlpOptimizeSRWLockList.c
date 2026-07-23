@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpOptimizeSRWLockList @ 0x180076174
+ * XREFs of RtlpOptimizeSRWLockList @ 0x180076164
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpxLookupFunctionTable @ 0x1800362F0 (RtlpxLookupFunctionTable.c)
- *     RtlAcquireSRWLockShared @ 0x180042650 (RtlAcquireSRWLockShared.c)
- *     RtlpQueueWaitBlockToSRWLock @ 0x1800630C4 (RtlpQueueWaitBlockToSRWLock.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpxLookupFunctionTable @ 0x1800362E0 (RtlpxLookupFunctionTable.c)
+ *     RtlAcquireSRWLockShared @ 0x180042640 (RtlAcquireSRWLockShared.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x1800630B4 (RtlpQueueWaitBlockToSRWLock.c)
  * Callees:
- *     RtlpWakeSRWLock @ 0x1800761DC (RtlpWakeSRWLock.c)
+ *     RtlpWakeSRWLock @ 0x1800761CC (RtlpWakeSRWLock.c)
  */
 
 signed __int64 __fastcall RtlpOptimizeSRWLockList(volatile signed __int64 *a1, signed __int64 a2)

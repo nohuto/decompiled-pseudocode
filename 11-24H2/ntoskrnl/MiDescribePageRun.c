@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDescribePageRun @ 0x1407E93FC
+ * XREFs of MiDescribePageRun @ 0x1407E99CC
  * Callers:
- *     MiAllocateInitialMemoryBlocks @ 0x1407E8EA4 (MiAllocateInitialMemoryBlocks.c)
- *     MiCreateNodeLists @ 0x1407E9290 (MiCreateNodeLists.c)
+ *     MiAllocateInitialMemoryBlocks @ 0x1407E9474 (MiAllocateInitialMemoryBlocks.c)
+ *     MiCreateNodeLists @ 0x1407E9860 (MiCreateNodeLists.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiPageToChannel @ 0x1402F3214 (MiPageToChannel.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiPageToChannel @ 0x140258D54 (MiPageToChannel.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
  */
 
 __int64 __fastcall MiDescribePageRun(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

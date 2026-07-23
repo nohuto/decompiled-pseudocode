@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpVirtualBranchIsReplicated @ 0x14090AA24
+ * XREFs of CmpVirtualBranchIsReplicated @ 0x1408E2144
  * Callers:
- *     CmpVEExecuteRealStoreParseLogic @ 0x14090B474 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A5F1F8 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1408E2B94 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A57370 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpUnblockTwoHiveWrites @ 0x14090A9D0 (CmpUnblockTwoHiveWrites.c)
- *     CmpGetMappingHiveForString @ 0x14090AC0C (CmpGetMappingHiveForString.c)
- *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x14090AD90 (CmpGetVirtualizationIDFromFullVirtualPath.c)
- *     CmpBlockTwoHiveWrites @ 0x14090AFE4 (CmpBlockTwoHiveWrites.c)
- *     CmpFindPathByNameEx @ 0x14090B17C (CmpFindPathByNameEx.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpUnblockTwoHiveWrites @ 0x1408E20F0 (CmpUnblockTwoHiveWrites.c)
+ *     CmpGetMappingHiveForString @ 0x1408E232C (CmpGetMappingHiveForString.c)
+ *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x1408E24B0 (CmpGetVirtualizationIDFromFullVirtualPath.c)
+ *     CmpBlockTwoHiveWrites @ 0x1408E2704 (CmpBlockTwoHiveWrites.c)
+ *     CmpFindPathByNameEx @ 0x1408E289C (CmpFindPathByNameEx.c)
  */
 
 bool __fastcall CmpVirtualBranchIsReplicated(__int64 a1, _WORD *a2, char *a3)

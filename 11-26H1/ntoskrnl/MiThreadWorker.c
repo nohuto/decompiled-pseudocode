@@ -1,19 +1,19 @@
 /*
- * XREFs of MiThreadWorker @ 0x1403C32F0
+ * XREFs of MiThreadWorker @ 0x1403CD1F0
  * Callers:
- *     MiDoParentWork @ 0x140503998 (MiDoParentWork.c)
+ *     MiDoParentWork @ 0x1404FD268 (MiDoParentWork.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     MiSetThreadAffinity @ 0x1403C34E0 (MiSetThreadAffinity.c)
- *     MiRevertThreadAffinity @ 0x1403C354C (MiRevertThreadAffinity.c)
- *     MiInitializeAcceleratorDescriptor @ 0x14070F72C (MiInitializeAcceleratorDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     MiSetThreadAffinity @ 0x1403CD3E0 (MiSetThreadAffinity.c)
+ *     MiRevertThreadAffinity @ 0x1403CD44C (MiRevertThreadAffinity.c)
+ *     MiInitializeAcceleratorDescriptor @ 0x140714428 (MiInitializeAcceleratorDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiThreadWorker(__int64 a1)

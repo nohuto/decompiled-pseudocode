@@ -16,19 +16,22 @@ __int64 __fastcall SeCreateClientSecurityFromSubjectContextEx(__int64 a1, __int6
   char v6; // r15
   void *v9; // r11
   int ClientSecurity; // edi
-  bool v12; // [rsp+90h] [rbp+8h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+90h] [rbp+8h] BYREF
 
   v4 = *(void **)a1;
   SourceSid = 0LL;
   v6 = 0;
-  v12 = 0;
+  DominatesTrust = 0;
   if ( !v4 )
     v4 = *(void **)(a1 + 16);
   ObfReferenceObjectWithTag(v4, 0x63436553u);
   if ( *(_QWORD *)a1 )
   {
-    RtlSidDominatesForTrust(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 1104LL), *(_QWORD *)(*(_QWORD *)a1 + 1104LL), &v12);
-    if ( !v12 )
+    RtlSidDominatesForTrust(
+      *(PSID *)(*(_QWORD *)(a1 + 16) + 1104LL),
+      *(PSID *)(*(_QWORD *)a1 + 1104LL),
+      &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v6 = 1;
       SourceSid = v9;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopLogPowerRequestAction @ 0x14062B588
+ * XREFs of PopLogPowerRequestAction @ 0x14066FB30
  * Callers:
- *     PopStatsDeletePowerRequest @ 0x14062B904 (PopStatsDeletePowerRequest.c)
- *     PopStatsCreatePowerRequest @ 0x14062B98C (PopStatsCreatePowerRequest.c)
- *     PdcPoPowerRequestBlockingCallback @ 0x14062BD40 (PdcPoPowerRequestBlockingCallback.c)
- *     PopStatsMarkPowerRequestActive @ 0x14062BDC0 (PopStatsMarkPowerRequestActive.c)
- *     PopStatsMarkPowerRequestInactive @ 0x14062CEE8 (PopStatsMarkPowerRequestInactive.c)
- *     PopStatsNotifyPowerRequestCsState @ 0x1408F6690 (PopStatsNotifyPowerRequestCsState.c)
+ *     PopStatsDeletePowerRequest @ 0x14066FAA8 (PopStatsDeletePowerRequest.c)
+ *     PopStatsCreatePowerRequest @ 0x140670564 (PopStatsCreatePowerRequest.c)
+ *     PdcPoPowerRequestBlockingCallback @ 0x140670910 (PdcPoPowerRequestBlockingCallback.c)
+ *     PopStatsMarkPowerRequestActive @ 0x1406709E8 (PopStatsMarkPowerRequestActive.c)
+ *     PopStatsMarkPowerRequestInactive @ 0x140670DA0 (PopStatsMarkPowerRequestInactive.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x1408F67F0 (PopStatsNotifyPowerRequestCsState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall PopLogPowerRequestAction(const CHAR *a1, __int64 a2)
@@ -48,7 +48,7 @@ int __fastcall PopLogPowerRequestAction(const CHAR *a1, __int64 a2)
     v8 = v5;
     LODWORD(v2) = tlgWriteTransfer_EtwWriteTransfer(
                     (__int64)&dword_140C02228,
-                    (unsigned __int8 *)&byte_140029D77,
+                    (unsigned __int8 *)&byte_140029E37,
                     0LL,
                     0LL,
                     6u,

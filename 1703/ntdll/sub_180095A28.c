@@ -17,12 +17,12 @@
  *     sub_1801005E0 @ 0x1801005E0 (sub_1801005E0.c)
  */
 
-__int64 __fastcall sub_180095A28(int a1, __int64 a2, unsigned __int64 a3, int a4)
+__int64 __fastcall sub_180095A28(int a1, PVOID a2, unsigned __int64 a3, int a4)
 {
   unsigned __int16 v4; // cx
 
   if ( a1 && (v4 = a1 - 1, v4 < 2u) )
-    return ((__int64 (__fastcall *)(__int64, unsigned __int64, int))funcs_180095A64[v4])(a2, a3, a4);
+    return ((__int64 (__fastcall *)(PVOID, unsigned __int64, int))funcs_180095A64[v4])(a2, a3, a4);
   else
     return 3221225473LL;
 }

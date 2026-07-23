@@ -1,25 +1,25 @@
 /*
- * XREFs of CmReplaceKey @ 0x1407DA2E8
+ * XREFs of CmReplaceKey @ 0x1407DA838
  * Callers:
- *     NtReplaceKey @ 0x1407D0990 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x1407D0E80 (NtReplaceKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwFlushBuffersFile @ 0x1406A6D70 (ZwFlushBuffersFile.c)
- *     CmpCmdRenameHive @ 0x1407D5930 (CmpCmdRenameHive.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1407D7EEC (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x1407D7F7C (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpPreserveSystemHiveData @ 0x1407E21A8 (CmpPreserveSystemHiveData.c)
- *     CmpCmdHiveOpen @ 0x14092E91C (CmpCmdHiveOpen.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140BB9A98 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140BB9AB4 (HvLockHiveFlusherExclusive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwFlushBuffersFile @ 0x1406A7D10 (ZwFlushBuffersFile.c)
+ *     CmpCmdRenameHive @ 0x1407D5E20 (CmpCmdRenameHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x1407D8440 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x1407D84D0 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpPreserveSystemHiveData @ 0x1407E26F8 (CmpPreserveSystemHiveData.c)
+ *     CmpCmdHiveOpen @ 0x140930A5C (CmpCmdHiveOpen.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140BBBA98 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140BBBAB4 (HvLockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmReplaceKey(ULONG_PTR BugCheckParameter3, __int64 a2, int a3, const void **a4)
@@ -38,7 +38,7 @@ __int64 __fastcall CmReplaceKey(ULONG_PTR BugCheckParameter3, __int64 a2, int a3
   v7 = 0;
   v8 = 0;
   memset(&ApcState, 0, sizeof(ApcState));
-  Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+  Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 0x1B0uLL, 0x33394D43u);
   if ( !Pool )
   {
     v10 = -1073741670;
@@ -59,7 +59,7 @@ LABEL_5:
     }
     if ( (*(_DWORD *)(BugCheckParameter3 + 4112) & 0x20) == 0 )
     {
-      if ( BugCheckParameter3 == qword_140E09A70 )
+      if ( BugCheckParameter3 == qword_140E09AE0 )
       {
         v10 = CmpPreserveSystemHiveData(BugCheckParameter3, 0LL);
         if ( v10 < 0 )

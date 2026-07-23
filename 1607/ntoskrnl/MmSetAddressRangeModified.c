@@ -1,35 +1,35 @@
 /*
- * XREFs of MmSetAddressRangeModified @ 0x140016FA0
+ * XREFs of MmSetAddressRangeModified @ 0x140016B20
  * Callers:
- *     CcPurgeAndClearCacheSection @ 0x14006C840 (CcPurgeAndClearCacheSection.c)
- *     CcZeroDataInCache @ 0x14006D5D0 (CcZeroDataInCache.c)
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
- *     CcUnpinRepinnedBcb @ 0x1401B1E6C (CcUnpinRepinnedBcb.c)
+ *     CcPurgeAndClearCacheSection @ 0x14006C3C0 (CcPurgeAndClearCacheSection.c)
+ *     CcZeroDataInCache @ 0x14006D150 (CcZeroDataInCache.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
+ *     CcUnpinRepinnedBcb @ 0x1401B1D50 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiSystemCacheVaControlArea @ 0x140018E30 (MiSystemCacheVaControlArea.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxFlushMultipleTb @ 0x1400B5DC8 (KxFlushMultipleTb.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     KiFlushRangeTb @ 0x14012F84C (KiFlushRangeTb.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlFlushRangeListTb @ 0x1401C14F0 (HvlFlushRangeListTb.c)
- *     KeFlushCurrentTbOnly @ 0x1401D60C4 (KeFlushCurrentTbOnly.c)
- *     KiPrepareFlushParameters @ 0x1401D6234 (KiPrepareFlushParameters.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     VmpFlushTb @ 0x140223F84 (VmpFlushTb.c)
- *     ExFlushTb @ 0x14022EB0C (ExFlushTb.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiSystemCacheVaControlArea @ 0x1400189B0 (MiSystemCacheVaControlArea.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxFlushMultipleTb @ 0x1400B3BF0 (KxFlushMultipleTb.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     KiFlushRangeTb @ 0x14012FDBC (KiFlushRangeTb.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlFlushRangeListTb @ 0x1401C13D4 (HvlFlushRangeListTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1401D5EF0 (KeFlushCurrentTbOnly.c)
+ *     KiPrepareFlushParameters @ 0x1401D6060 (KiPrepareFlushParameters.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     VmpFlushTb @ 0x140223DB0 (VmpFlushTb.c)
+ *     ExFlushTb @ 0x14022E938 (ExFlushTb.c)
  */
 
 BOOLEAN __stdcall MmSetAddressRangeModified(PVOID Address, SIZE_T Length)
@@ -140,7 +140,7 @@ BOOLEAN __stdcall MmSetAddressRangeModified(PVOID Address, SIZE_T Length)
   v27 = HIDWORD(v52);
   if ( HIDWORD(v52) )
   {
-    v28 = qword_140326A18;
+    v28 = qword_140326A58;
     if ( (v51 & 2) != 0 )
     {
       v29 = v50;

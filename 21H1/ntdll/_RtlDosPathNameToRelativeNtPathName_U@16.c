@@ -12,15 +12,19 @@
  *     _RtlInitUnicodeStringEx@8 @ 0x4B2D1CE0 (_RtlInitUnicodeStringEx@8.c)
  */
 
-bool __stdcall RtlDosPathNameToRelativeNtPathName_U(int a1, unsigned __int16 *a2, int a3, _DWORD *a4)
+BOOLEAN __cdecl RtlDosPathNameToRelativeNtPathName_U(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  int inited; // eax
+  NTSTATUS inited; // eax
   bool v5; // sf
-  int v7[2]; // [esp+0h] [ebp-8h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+0h] [ebp-8h] BYREF
 
-  inited = RtlInitUnicodeStringEx(v7, a1);
+  inited = RtlInitUnicodeStringEx(&DestinationString, DosFileName);
   v5 = inited < 0;
   if ( inited >= 0 )
-    v5 = RtlpDosPathNameToRelativeNtPathName(2, v7, 0, a2, 0, a3, a4) < 0;
+    v5 = RtlpDosPathNameToRelativeNtPathName(2, &DestinationString, 0, NtFileName, 0, FilePart, RelativeName) < 0;
   return !v5;
 }

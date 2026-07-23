@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaGrowScatterMapBuffers @ 0x140865468
+ * XREFs of HalpDmaGrowScatterMapBuffers @ 0x1408655C8
  * Callers:
- *     HalpGrowMapBufferWorker @ 0x1404B8F60 (HalpGrowMapBufferWorker.c)
- *     HalpAllocateMapRegisters @ 0x1408646B0 (HalpAllocateMapRegisters.c)
+ *     HalpGrowMapBufferWorker @ 0x1404B91A0 (HalpGrowMapBufferWorker.c)
+ *     HalpAllocateMapRegisters @ 0x140864810 (HalpAllocateMapRegisters.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     HalpDmaCommitScatterMapBuffers @ 0x1404C7234 (HalpDmaCommitScatterMapBuffers.c)
- *     HalpDmaAllocateScatterMemory @ 0x1408652A8 (HalpDmaAllocateScatterMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmFreePagesFromMdl @ 0x14024E380 (MmFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x1404C7474 (HalpDmaCommitScatterMapBuffers.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140865408 (HalpDmaAllocateScatterMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpDmaGrowScatterMapBuffers(PHYSICAL_ADDRESS *a1, unsigned int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRepurposeDecayNode @ 0x1402CAD20
+ * XREFs of MiRepurposeDecayNode @ 0x1402ACAE0
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 unsigned int __fastcall MiRepurposeDecayNode(PSLIST_ENTRY ListEntry)
@@ -23,15 +23,15 @@ unsigned int __fastcall MiRepurposeDecayNode(PSLIST_ENTRY ListEntry)
   }
   else
   {
-    v2 = (unsigned __int64)(unsigned int)((int)ListEntry / 48 - qword_140E347B0) >> 3;
-    v3 = ((int)ListEntry / 48 - qword_140E347B0) & 7;
-    if ( ((*(char *)(v2 + qword_140E347E0) >> v3) & 1) != 0 )
+    v2 = (unsigned __int64)(unsigned int)((int)ListEntry / 48 - qword_140E34930) >> 3;
+    v3 = ((int)ListEntry / 48 - qword_140E34930) & 7;
+    if ( ((*(char *)(v2 + qword_140E34960) >> v3) & 1) != 0 )
     {
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E347D0);
-      *(_BYTE *)(v2 + qword_140E347E0) &= ~(1 << v3);
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E347D0);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34950);
+      *(_BYTE *)(v2 + qword_140E34960) &= ~(1 << v3);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34950);
     }
-    return (unsigned int)RtlpInterlockedPushEntrySList(&stru_140E347C0, ListEntry);
+    return (unsigned int)RtlpInterlockedPushEntrySList(&stru_140E34940, ListEntry);
   }
   return result;
 }

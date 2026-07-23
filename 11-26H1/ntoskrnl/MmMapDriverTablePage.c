@@ -1,27 +1,27 @@
 /*
- * XREFs of MmMapDriverTablePage @ 0x14040E640
+ * XREFs of MmMapDriverTablePage @ 0x14045569C
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiGetSecurePageState @ 0x140531F30 (MiGetSecurePageState.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetSecurePageState @ 0x1405343D0 (MiGetSecurePageState.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmMapDriverTablePage(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
@@ -67,8 +67,8 @@ __int64 __fastcall MmMapDriverTablePage(unsigned __int64 a1, __int64 a2, __int64
     LOBYTE(v6) = CurrentIrql;
     KiRaiseIrqlProcessIrqlFlags(v6, v7);
   }
-  MiLockWorkingSetSharedAtDpc((__int64)&unk_140E36E00);
-  MiLockPageTableInternal((signed __int64)&unk_140E36E00, v9, 0);
+  MiLockWorkingSetSharedAtDpc((__int64)&unk_140E36F80);
+  MiLockPageTableInternal((signed __int64)&unk_140E36F80, v9, 0);
   PteShadow = *v8;
   if ( (unsigned __int64)v8 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v8 <= 0xFFFFF6FB7DBED7F8uLL )
     PteShadow = MiReadPteShadow((unsigned __int64)v8, *v8);
@@ -127,9 +127,9 @@ __int64 __fastcall MmMapDriverTablePage(unsigned __int64 a1, __int64 a2, __int64
   *v8 = MiMakeValidPte((unsigned __int64)v8, a2, v22 | 0x20000000u);
   if ( !PteShadow )
     MiIncreaseUsedPtes(v23, v9, 1u, 2);
-  MiUnlockPageTableInternal((__int64)&unk_140E36E00, v9);
+  MiUnlockPageTableInternal((__int64)&unk_140E36F80, v9);
   LOBYTE(v24) = 17;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v24);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v24);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   result = CurrentIrql;

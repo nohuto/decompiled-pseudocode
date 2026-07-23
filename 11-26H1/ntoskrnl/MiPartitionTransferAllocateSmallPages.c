@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPartitionTransferAllocateSmallPages @ 0x14087CBB4
+ * XREFs of MiPartitionTransferAllocateSmallPages @ 0x140882FB4
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140B60228 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140B632C4 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiAddMdlToPartitionTree @ 0x140708130 (MiAddMdlToPartitionTree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiAddMdlToPartitionTree @ 0x14070CDE4 (MiAddMdlToPartitionTree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPartitionTransferAllocateSmallPages(__int64 a1)

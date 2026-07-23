@@ -1,15 +1,15 @@
 /*
- * XREFs of AslPathToSystemPathBuf @ 0x140889860
+ * XREFs of AslPathToSystemPathBuf @ 0x14088FC5C
  * Callers:
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14077EDD0 (AslEnvGetSysNativeDirPathForGuestBuf.c)
- *     SdbpGetPathAppPatch @ 0x140886950 (SdbpGetPathAppPatch.c)
- *     AslPathToSystemPath @ 0x1408897A0 (AslPathToSystemPath.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x140B6A658 (AslEnvGetSystem32DirPathBuf.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x1407818D0 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     SdbpGetPathAppPatch @ 0x14088CD50 (SdbpGetPathAppPatch.c)
+ *     AslPathToSystemPath @ 0x14088FB9C (AslPathToSystemPath.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x140B6D868 (AslEnvGetSystem32DirPathBuf.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1404DEE7C (RtlStringCchCatW.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1404D855C (RtlStringCchCatW.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathToSystemPathBuf(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR pszSrc)

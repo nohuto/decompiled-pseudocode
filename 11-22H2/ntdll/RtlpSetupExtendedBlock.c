@@ -24,9 +24,9 @@ __int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, unsigned __int8 a2, __int6
   unsigned __int16 v15; // ax
   int v16; // eax
   int v17; // eax
-  __int64 v18; // rbx
-  signed __int32 v20; // ebp
-  HANDLE DeferredCriticalSectionEvent; // rdi
+  _RTL_CRITICAL_SECTION *v18; // rbx
+  signed __int32 LockCount; // ebp
+  HANDLE LockSemaphore; // rdi
   int v23; // [rsp+28h] [rbp-20h]
 
   v6 = a5;
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, unsigned __int8 a2, __int6
   {
     if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v9 = 1;
     }
     if ( *(_DWORD *)(a1 + 124) )
@@ -109,27 +109,27 @@ __int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, unsigned __int8 a2, __int6
   *(_DWORD *)(v12 - 8) = v17;
   if ( v9 )
   {
-    v18 = *(_QWORD *)(a1 + 352);
-    if ( (*(_DWORD *)(v18 + 12))-- == 1 )
+    v18 = *(_RTL_CRITICAL_SECTION **)(a1 + 352);
+    if ( v18->RecursionCount-- == 1 )
     {
-      *(_QWORD *)(v18 + 16) = 0LL;
-      v20 = _InterlockedCompareExchange((volatile signed __int32 *)(v18 + 8), -1, -2);
-      if ( v20 != -2 )
+      v18->OwningThread = 0LL;
+      LockCount = _InterlockedCompareExchange(&v18->LockCount, -1, -2);
+      if ( LockCount != -2 )
       {
-        if ( (*(_BYTE *)(v18 + 8) & 1) != 0 )
-          RtlpNotOwnerCriticalSection((const void **)v18);
-        DeferredCriticalSectionEvent = *(HANDLE *)(v18 + 24);
-        if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v18);
+        if ( (v18->LockCount & 1) != 0 )
+          RtlpNotOwnerCriticalSection(v18);
+        LockSemaphore = v18->LockSemaphore;
+        if ( !LockSemaphore )
+          LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)v18);
         a5 = 0;
-        while ( v20 != _InterlockedCompareExchange((volatile signed __int32 *)(v18 + 8), (v20 & 2 | 1) + v20, v20) )
+        while ( LockCount != _InterlockedCompareExchange(&v18->LockCount, (LockCount & 2 | 1) + LockCount, LockCount) )
         {
           RtlBackoff((unsigned int *)&a5);
-          _m_prefetchw((const void *)(v18 + 8));
-          v20 = *(_DWORD *)(v18 + 8);
+          _m_prefetchw(&v18->LockCount);
+          LockCount = v18->LockCount;
         }
-        if ( (v20 & 2) != 0 )
-          RtlpUnWaitCriticalSectionEx(v18, (__int64)DeferredCriticalSectionEvent);
+        if ( (LockCount & 2) != 0 )
+          RtlpUnWaitCriticalSectionEx((__int64)v18, LockSemaphore);
       }
     }
   }

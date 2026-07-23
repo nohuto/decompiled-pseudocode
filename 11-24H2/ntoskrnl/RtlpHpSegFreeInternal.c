@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpSegFreeInternal @ 0x1402B33D0
+ * XREFs of RtlpHpSegFreeInternal @ 0x14035BF90
  * Callers:
- *     RtlpHpSegLfhVsFree @ 0x1402B41B0 (RtlpHpSegLfhVsFree.c)
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpMetadataFree @ 0x140420E2C (RtlpHpMetadataFree.c)
+ *     RtlpHpSegLfhVsFree @ 0x14035CC90 (RtlpHpSegLfhVsFree.c)
+ *     RtlpHpMetadataFree @ 0x140459100 (RtlpHpMetadataFree.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1404D2B7C (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpVsContextFree @ 0x1402B2F20 (RtlpHpVsContextFree.c)
- *     RtlpHpSegPageRangeShrink @ 0x1402BC4B0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsContextFree @ 0x14035BAE0 (RtlpHpVsContextFree.c)
+ *     RtlpHpSegPageRangeShrink @ 0x140363BF0 (RtlpHpSegPageRangeShrink.c)
  */
 
 __int64 __fastcall RtlpHpSegFreeInternal(__int64 *a1, ULONG_PTR a2, __int64 a3, _DWORD *a4)

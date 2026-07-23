@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkPfnTradable @ 0x1404D5758
+ * XREFs of MiMarkPfnTradable @ 0x1404CEFC8
  * Callers:
- *     MiAllocateProcessShadow @ 0x140ABD950 (MiAllocateProcessShadow.c)
+ *     MiAllocateProcessShadow @ 0x140ABFF40 (MiAllocateProcessShadow.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiMarkPfnTradable(__int64 a1, __int64 a2)

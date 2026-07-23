@@ -6,7 +6,7 @@
  *     ExpSetTimer2 @ 0x140370A80 (ExpSetTimer2.c)
  */
 
-__int64 __fastcall NtCancelTimer2(void *a1)
+NTSTATUS __cdecl NtCancelTimer2(HANDLE TimerHandle, PT2_CANCEL_PARAMETERS Parameters)
 {
-  return ExpSetTimer2(a1);
+  return ExpSetTimer2(TimerHandle);
 }

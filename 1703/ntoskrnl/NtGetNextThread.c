@@ -15,20 +15,20 @@
  *     PsSynchronizeWithThreadInsertion @ 0x1406DFCF0 (PsSynchronizeWithThreadInsertion.c)
  */
 
-__int64 __fastcall NtGetNextThread(
-        ULONG_PTR BugCheckParameter1,
-        ULONG_PTR a2,
-        unsigned int a3,
-        int a4,
-        int a5,
-        HANDLE *a6)
+NTSTATUS __cdecl NtGetNextThread(
+        HANDLE ProcessHandle,
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewThreadHandle)
 {
-  unsigned int v6; // esi
+  ACCESS_MASK v6; // esi
   KPROCESSOR_MODE AccessMode; // r13
   ULONG v10; // r12d
   __int64 v11; // rcx
-  __int64 result; // rax
-  NTSTATUS v13; // esi
+  NTSTATUS result; // eax
+  int v13; // esi
   PVOID v14; // r14
   PVOID v15; // rax
   _DWORD *NextProcessThread; // rdi
@@ -40,31 +40,31 @@ __int64 __fastcall NtGetNextThread(
   PVOID v23; // [rsp+50h] [rbp-1F8h] BYREF
   _DWORD *v24; // [rsp+58h] [rbp-1F0h]
   HANDLE Handle; // [rsp+60h] [rbp-1E8h] BYREF
-  HANDLE *v26; // [rsp+68h] [rbp-1E0h]
+  PHANDLE v26; // [rsp+68h] [rbp-1E0h]
   struct _KTHREAD *v27; // [rsp+78h] [rbp-1D0h]
   struct _ACCESS_STATE PassedAccessState; // [rsp+90h] [rbp-1B8h] BYREF
-  char v29[224]; // [rsp+130h] [rbp-118h] BYREF
+  _BYTE v29[224]; // [rsp+130h] [rbp-118h] BYREF
 
-  v6 = a3;
-  v26 = a6;
+  v6 = DesiredAccess;
+  v26 = NewThreadHandle;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v10 = a4 & (AccessMode != 0 ? 7666 : 73714);
+  v10 = HandleAttributes & (AccessMode != 0 ? 7666 : 73714);
   if ( AccessMode )
   {
-    v11 = (__int64)a6;
-    if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+    v11 = (__int64)NewThreadHandle;
+    if ( (unsigned __int64)NewThreadHandle >= 0x7FFFFFFF0000LL )
       v11 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v11 = *(_QWORD *)v11;
   }
-  *a6 = 0LL;
-  if ( a5 )
-    return 3221225485LL;
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 1850045264, (__int64)&Object, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  *NewThreadHandle = 0LL;
+  if ( Flags )
+    return -1073741811;
+  result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessHandle, 1850045264, (__int64)&Object, 0LL, 0LL);
+  if ( result >= 0 )
   {
-    if ( a2 )
+    if ( ThreadHandle )
     {
-      v13 = ObpReferenceObjectByHandleWithTag(a2, 1850045264, (__int64)&v23, 0LL, 0LL);
+      v13 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 1850045264, (__int64)&v23, 0LL, 0LL);
       v14 = Object;
       if ( v13 < 0 )
         goto LABEL_28;
@@ -75,7 +75,7 @@ __int64 __fastcall NtGetNextThread(
         v13 = -1073741811;
         goto LABEL_28;
       }
-      v6 = a3;
+      v6 = DesiredAccess;
     }
     else
     {
@@ -128,18 +128,18 @@ __int64 __fastcall NtGetNextThread(
         NextProcessThread = (_DWORD *)PsGetNextProcessThread(v18, NextProcessThread);
         v24 = NextProcessThread;
         CurrentThread = v27;
-        v6 = a3;
+        v6 = DesiredAccess;
       }
       while ( NextProcessThread );
       v13 = -2147483622;
 LABEL_21:
       ObfDereferenceObjectWithTag(v18, 0x6E457350u);
       if ( !NextProcessThread )
-        return (unsigned int)v13;
+        return v13;
       v19 = NextProcessThread;
 LABEL_23:
       ObfDereferenceObjectWithTag(v19, 0x6E457350u);
-      return (unsigned int)v13;
+      return v13;
     }
     v13 = -2147483622;
 LABEL_28:

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlDrainNonVolatileFlush @ 0x140585BE0
+ * XREFs of RtlDrainNonVolatileFlush @ 0x140585E10
  * Callers:
- *     RtlFlushNonVolatileMemory @ 0x140585C10 (RtlFlushNonVolatileMemory.c)
- *     RtlFlushNonVolatileMemoryRanges @ 0x14058CD80 (RtlFlushNonVolatileMemoryRanges.c)
+ *     RtlFlushNonVolatileMemory @ 0x140585E40 (RtlFlushNonVolatileMemory.c)
+ *     RtlFlushNonVolatileMemoryRanges @ 0x14058CFB0 (RtlFlushNonVolatileMemoryRanges.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlDrainNonVolatileFlush(char a1)
+DWORD __cdecl RtlDrainNonVolatileFlush(PVOID NvToken)
 {
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
   if ( RtlpIsDrainRequired )
   {
-    if ( (a1 & 2) != 0 )
+    if ( ((unsigned __int8)NvToken & 2) != 0 )
       _mm_sfence();
   }
-  return 0LL;
+  return 0;
 }

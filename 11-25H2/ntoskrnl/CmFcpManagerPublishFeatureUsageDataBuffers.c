@@ -31,9 +31,9 @@ NTSTATUS __fastcall CmFcpManagerPublishFeatureUsageDataBuffers(_QWORD *a1)
   HANDLE v10; // rsi
   __int64 *v11; // rax
   __int64 *v12; // rsi
-  HANDLE Handle; // [rsp+60h] [rbp+8h] BYREF
+  HANDLE PortHandle; // [rsp+60h] [rbp+8h] BYREF
 
-  Handle = 0LL;
+  PortHandle = 0LL;
   KeWaitForSingleObject(a1 + 220, Executive, 0, 0, 0LL);
   v2 = (struct _EX_RUNDOWN_REF *)a1[219];
   if ( v2 )
@@ -41,18 +41,18 @@ NTSTATUS __fastcall CmFcpManagerPublishFeatureUsageDataBuffers(_QWORD *a1)
     ExUnsubscribeWnfStateChange(v2);
     a1[219] = 0LL;
   }
-  v3 = CmFcpConnectToAlpcServer(&Handle, 0LL);
+  v3 = CmFcpConnectToAlpcServer(&PortHandle, 0LL);
   if ( v3 == -1073741772 || v3 == -1073740031 )
   {
-    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_USAGE_DATA_PUBLISH_READY, 0LL);
+    result = ZwUpdateWnfStateData(&WNF_CMFC_FEATURE_USAGE_DATA_PUBLISH_READY, 0LL, 0, 0LL, 0LL, 0, 0);
     if ( result < 0 )
     {
 LABEL_29:
-      v10 = Handle;
+      v10 = PortHandle;
       goto LABEL_30;
     }
     LOBYTE(v5) = 1;
-    v3 = CmFcpConnectToAlpcServer(&Handle, v5);
+    v3 = CmFcpConnectToAlpcServer(&PortHandle, v5);
   }
   if ( v3 < 0 || v3 == 258 )
   {
@@ -71,8 +71,8 @@ LABEL_29:
     if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a1 + 175);
     KeAbPostRelease((ULONG_PTR)(a1 + 175));
-    v10 = Handle;
-    if ( (int)CmFcpSendFeatureUsageReportAlpcMessage((__int64)Handle, (__int64)(i + 4), *((_DWORD *)i + 4)) < 0 )
+    v10 = PortHandle;
+    if ( (int)CmFcpSendFeatureUsageReportAlpcMessage(PortHandle, i + 4, *((_DWORD *)i + 4)) < 0 )
     {
       CmFcpManagerArmFeatureUsageProviderPublishTimer((__int64)a1);
       goto LABEL_27;
@@ -88,13 +88,13 @@ LABEL_29:
   if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(a1 + 175);
   KeAbPostRelease((ULONG_PTR)(a1 + 175));
-  v10 = Handle;
+  v10 = PortHandle;
 LABEL_27:
   result = CmFcpManagerOnFeatureUsageDataTransferComplete((__int64)a1);
 LABEL_30:
   if ( v10 )
   {
-    ZwAlpcDisconnectPort((__int64)v10, 0LL);
+    ZwAlpcDisconnectPort(v10, 0);
     return ZwClose(v10);
   }
   return result;

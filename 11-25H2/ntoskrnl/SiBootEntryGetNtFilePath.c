@@ -8,34 +8,38 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, _QWORD *a2)
+__int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, _FILE_PATH **a2)
 {
   __int64 v2; // rax
-  void *Pool2; // rdi
-  int v5; // ebx
-  __int64 v6; // rsi
+  _FILE_PATH *v3; // rdi
+  NTSTATUS v5; // ebx
+  _FILE_PATH *v6; // rsi
+  _FILE_PATH *Pool2; // rax
+  ULONG OutputFilePathLength; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(unsigned int *)(a1 + 20);
-  Pool2 = 0LL;
+  v3 = 0LL;
   if ( (_DWORD)v2 )
   {
-    v6 = a1 + v2;
-    v5 = ZwTranslateFilePath(a1 + v2, 3LL);
+    OutputFilePathLength = 0;
+    v6 = (_FILE_PATH *)(a1 + v2);
+    v5 = ZwTranslateFilePath((PFILE_PATH)(a1 + v2), 3u, 0LL, &OutputFilePathLength);
     if ( v5 == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_FILE_PATH *)ExAllocatePool2(0x100uLL);
+      v3 = Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741801;
-      v5 = ZwTranslateFilePath(v6, 3LL);
+      v5 = ZwTranslateFilePath(v6, 3u, Pool2, &OutputFilePathLength);
     }
     if ( v5 < 0 )
     {
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
+      if ( v3 )
+        ExFreePoolWithTag(v3, 0);
     }
     else
     {
-      *a2 = Pool2;
+      *a2 = v3;
     }
   }
   else

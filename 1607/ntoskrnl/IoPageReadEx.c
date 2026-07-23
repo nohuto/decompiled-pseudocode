@@ -1,24 +1,24 @@
 /*
- * XREFs of IoPageReadEx @ 0x1400E9F10
+ * XREFs of IoPageReadEx @ 0x1400E7D80
  * Callers:
- *     MiIssueHardFaultIo @ 0x1400237A4 (MiIssueHardFaultIo.c)
- *     MiPageRead @ 0x14002390C (MiPageRead.c)
- *     IoPageRead @ 0x14010EDDC (IoPageRead.c)
- *     MiPfIssueCoalescedSupport @ 0x140125220 (MiPfIssueCoalescedSupport.c)
- *     MiMakeOutswappedPageResident @ 0x1401DFDE0 (MiMakeOutswappedPageResident.c)
+ *     MiIssueHardFaultIo @ 0x140023324 (MiIssueHardFaultIo.c)
+ *     MiPageRead @ 0x14002348C (MiPageRead.c)
+ *     IoPageRead @ 0x14010F340 (IoPageRead.c)
+ *     MiPfIssueCoalescedSupport @ 0x140125790 (MiPfIssueCoalescedSupport.c)
+ *     MiMakeOutswappedPageResident @ 0x1401DFC0C (MiMakeOutswappedPageResident.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopSetDiskIoAttributionExtension @ 0x14008E608 (IopSetDiskIoAttributionExtension.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     IopfCallDriver @ 0x1400EBC60 (IopfCallDriver.c)
- *     PsGetBaseIoPriorityThread @ 0x1400EBF30 (PsGetBaseIoPriorityThread.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400EBF60 (IoSetDiskIoAttributionFromThread.c)
- *     MmIsFileObjectAPagingFile @ 0x14010DA6C (MmIsFileObjectAPagingFile.c)
- *     IopAllocateBackpocketIrp @ 0x1401C443C (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x1401C471C (IopAllocateReserveIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14008DD68 (IopSetDiskIoAttributionExtension.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     IopfCallDriver @ 0x1400E9AD0 (IopfCallDriver.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400E9DA0 (PsGetBaseIoPriorityThread.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400E9DD0 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsFileObjectAPagingFile @ 0x14010DFD0 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateBackpocketIrp @ 0x1401C4320 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1401C4600 (IopAllocateReserveIrp.c)
  */
 
 __int64 __fastcall IoPageReadEx(
@@ -87,10 +87,10 @@ __int64 __fastcall IoPageReadEx(
     return 3221225626LL;
 LABEL_6:
   v14 = 0;
-  v15 = ExAcquireSpinLockShared(&dword_140327638);
-  v16 = (_QWORD *)qword_140327630;
+  v15 = ExAcquireSpinLockShared(&dword_140327678);
+  v16 = (_QWORD *)qword_140327670;
   v17 = v15;
-  if ( qword_140327630 )
+  if ( qword_140327670 )
   {
     do
     {
@@ -111,7 +111,7 @@ LABEL_6:
     }
     while ( v16 );
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140327638);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140327678);
   __writecr8(v17);
   if ( v14 || (*(_WORD *)(a2 + 10) & 0x40) != 0 && (v12 & 0x40) != 0 )
     *(_BYTE *)(Irp + 71) |= 0x20u;

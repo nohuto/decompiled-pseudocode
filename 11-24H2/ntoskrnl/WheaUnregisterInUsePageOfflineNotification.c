@@ -1,23 +1,23 @@
 /*
- * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1407C7800
+ * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1407C7CA0
  * Callers:
- *     HvlUnregisterWheaErrorNotification @ 0x14070ECF0 (HvlUnregisterWheaErrorNotification.c)
+ *     HvlUnregisterWheaErrorNotification @ 0x14070C880 (HvlUnregisterWheaErrorNotification.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback)
 {
   char v1; // di
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
+  char *v5; // rax
   signed __int8 v6; // cf
-  _QWORD *v7; // rsi
+  char *v7; // rsi
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY *i; // rcx
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY v9; // rax
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY **v10; // rdx
@@ -27,16 +27,13 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
     return -1073741823;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire((__int64)&WheapInUsePageOfflineNotifyLock, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)&WheapInUsePageOfflineNotifyLock, 0LL);
   v6 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(
-      &WheapInUsePageOfflineNotifyLock,
-      (__int64)v5,
-      (__int64)&WheapInUsePageOfflineNotifyLock);
+    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v5, (__int64)&WheapInUsePageOfflineNotifyLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   for ( i = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)WheapInUsePageOfflineNotifyList;
         i != (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)&WheapInUsePageOfflineNotifyList;
         i = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)*i )

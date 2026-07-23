@@ -1,63 +1,59 @@
 /*
  * XREFs of RtlpLoadPolicyLanguageSpec @ 0x1800F3D64
  * Callers:
- *     RtlpLoadMachineUIByPolicy @ 0x180070B60 (RtlpLoadMachineUIByPolicy.c)
- *     RtlpLoadLanguageConfigList @ 0x1800710C4 (RtlpLoadLanguageConfigList.c)
- *     RtlpLoadUserUIByPolicy @ 0x180071A10 (RtlpLoadUserUIByPolicy.c)
+ *     RtlpLoadMachineUIByPolicy @ 0x180070B50 (RtlpLoadMachineUIByPolicy.c)
+ *     RtlpLoadLanguageConfigList @ 0x1800710B4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadUserUIByPolicy @ 0x180071A00 (RtlpLoadUserUIByPolicy.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlpMuiRegGetOrAddString @ 0x180040D0C (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x180043F70 (RtlCultureNameToLCID.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x180044478 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     LdrpQueryValueKey @ 0x1800716D4 (LdrpQueryValueKey.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlpMuiRegGetOrAddString @ 0x180040CFC (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x180043F60 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x180044468 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     LdrpQueryValueKey @ 0x1800716C4 (LdrpQueryValueKey.c)
  */
 
-__int64 __fastcall RtlpLoadPolicyLanguageSpec(__int64 a1, __int64 a2, _BYTE *a3, _WORD *a4)
+__int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYTE *a3, _WORD *a4)
 {
-  void *Heap; // rdi
+  PVOID Heap; // rdi
   unsigned __int8 v9; // si
   int v10; // eax
   int InstalledLanguageIndex; // ebx
   unsigned __int16 v12; // cx
   __int16 v14[2]; // [rsp+30h] [rbp-20h] BYREF
-  unsigned int v15; // [rsp+34h] [rbp-1Ch] BYREF
-  int v16; // [rsp+38h] [rbp-18h] BYREF
-  int v17; // [rsp+3Ch] [rbp-14h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int16 v19; // [rsp+88h] [rbp+38h] BYREF
+  SIZE_T Size; // [rsp+34h] [rbp-1Ch] BYREF
+  DWORD Lcid; // [rsp+3Ch] [rbp-14h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int16 v18; // [rsp+88h] [rbp+38h] BYREF
 
-  v19 = 0;
+  v18 = 0;
   v14[0] = -1;
   Heap = 0LL;
-  if ( a2 && a1 )
+  if ( a2 && KeyHandle )
   {
     v9 = 1;
-    v15 = 0;
-    v16 = 1;
+    Size = 0x100000000LL;
     RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-    v10 = LdrpQueryValueKey(a1, (__int64)&DestinationString, &v16, 0LL, &v15);
-    if ( !v15 || v10 == -1073741772 )
+    v10 = LdrpQueryValueKey(KeyHandle, &DestinationString, (_DWORD *)&Size + 1, 0LL, (ULONG *)&Size);
+    if ( !(_DWORD)Size || v10 == -1073741772 )
       return (unsigned int)-1073741823;
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v15);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)Size);
     if ( !Heap )
       return (unsigned int)-1073741801;
-    InstalledLanguageIndex = LdrpQueryValueKey(a1, (__int64)&DestinationString, &v16, Heap, &v15);
+    InstalledLanguageIndex = LdrpQueryValueKey(KeyHandle, &DestinationString, (_DWORD *)&Size + 1, Heap, (ULONG *)&Size);
     if ( InstalledLanguageIndex >= 0 )
     {
-      if ( v16 == 1
-        && (RtlInitUnicodeString(&DestinationString, (PCWSTR)Heap), RtlCultureNameToLCID(
-                                                                      &DestinationString.Length,
-                                                                      &v17)) )
+      if ( HIDWORD(Size) == 1
+        && (RtlInitUnicodeString(&DestinationString, (PCWSTR)Heap), RtlCultureNameToLCID(&DestinationString, &Lcid)) )
       {
-        v12 = v17;
-        if ( ((v17 - 4096) & 0xFFFFFBFF) != 0 )
+        v12 = Lcid;
+        if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
           goto LABEL_14;
-        InstalledLanguageIndex = RtlpMuiRegGetOrAddString(a2, DestinationString.Buffer, 0LL, (__int16 *)&v19);
+        InstalledLanguageIndex = RtlpMuiRegGetOrAddString(a2, DestinationString.Buffer, 0LL, (__int16 *)&v18);
         if ( InstalledLanguageIndex >= 0 )
         {
-          v12 = v19;
+          v12 = v18;
           v9 = 3;
 LABEL_14:
           InstalledLanguageIndex = RtlpMuiRegGetInstalledLanguageIndex(a2, v9, v12, v14);
@@ -81,6 +77,6 @@ LABEL_14:
     InstalledLanguageIndex = -1073741811;
   }
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return (unsigned int)InstalledLanguageIndex;
 }

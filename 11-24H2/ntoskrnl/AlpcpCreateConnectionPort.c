@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpCreateConnectionPort @ 0x14086210C
+ * XREFs of AlpcpCreateConnectionPort @ 0x14086671C
  * Callers:
- *     NtCreatePort @ 0x1407414F0 (NtCreatePort.c)
- *     NtCreateWaitablePort @ 0x140741530 (NtCreateWaitablePort.c)
- *     NtAlpcCreatePort @ 0x140861EF0 (NtAlpcCreatePort.c)
+ *     NtCreatePort @ 0x14073F420 (NtCreatePort.c)
+ *     NtCreateWaitablePort @ 0x14073F460 (NtCreateWaitablePort.c)
+ *     NtAlpcCreatePort @ 0x140866500 (NtAlpcCreatePort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     AlpcpCreatePort @ 0x1408623B4 (AlpcpCreatePort.c)
- *     AlpcpSetOwnerProcessPort @ 0x1408633F8 (AlpcpSetOwnerProcessPort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x140863450 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcInitializeHandleTable @ 0x1408636AC (AlpcInitializeHandleTable.c)
- *     AlpcpInitializePort @ 0x140863700 (AlpcpInitializePort.c)
- *     AlpcpAllocateBlob @ 0x14093F8B0 (AlpcpAllocateBlob.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     AlpcpCreatePort @ 0x1408669C4 (AlpcpCreatePort.c)
+ *     AlpcpSetOwnerProcessPort @ 0x140867A08 (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x140867A60 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcInitializeHandleTable @ 0x140867CBC (AlpcInitializeHandleTable.c)
+ *     AlpcpInitializePort @ 0x140867D10 (AlpcpInitializePort.c)
+ *     AlpcpAllocateBlob @ 0x140893EF0 (AlpcpAllocateBlob.c)
  */
 
 __int64 __fastcall AlpcpCreateConnectionPort(HANDLE *a1, __int64 a2, unsigned __int64 a3, int a4, char a5, char a6)

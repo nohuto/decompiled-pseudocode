@@ -1,14 +1,14 @@
 /*
- * XREFs of MiKernelWriteToExecutableMemory @ 0x1404CE618
+ * XREFs of MiKernelWriteToExecutableMemory @ 0x140426B40
  * Callers:
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     MiReleaseFaultState @ 0x1402E0010 (MiReleaseFaultState.c)
- *     MiRelockFaultState @ 0x1403967A0 (MiRelockFaultState.c)
- *     NtWaitLowEventPair @ 0x1406FC0D0 (NtWaitLowEventPair.c)
- *     MiForceCrashForInvalidAccess @ 0x140AB6F10 (MiForceCrashForInvalidAccess.c)
+ *     MiReleaseFaultState @ 0x1402418F0 (MiReleaseFaultState.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRelockFaultState @ 0x140427570 (MiRelockFaultState.c)
+ *     NtWaitLowEventPair @ 0x1406F9D10 (NtWaitLowEventPair.c)
+ *     MiForceCrashForInvalidAccess @ 0x140AB11E8 (MiForceCrashForInvalidAccess.c)
  */
 
 __int64 __fastcall MiKernelWriteToExecutableMemory(__int64 a1, __int64 a2, struct _KPROCESS *a3)
@@ -18,14 +18,15 @@ __int64 __fastcall MiKernelWriteToExecutableMemory(__int64 a1, __int64 a2, struc
   __int64 v8; // rdi
   unsigned __int64 v9; // r12
   __int64 v10; // rbp
-  unsigned int v11; // ebx
+  HANDLE v11; // rcx
+  unsigned int v12; // ebx
 
   ActiveProcessors = a3[2].ActiveProcessors;
   v7 = a1 + 56;
   v8 = ((*(_QWORD *)a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v9 = ActiveProcessors[5].StaticBitmap[8];
-  v10 = MiReleaseFaultState(a1 + 56, 0x11u, 0LL);
-  if ( (int)NtWaitLowEventPair() >= 0 )
+  v10 = MiReleaseFaultState((__int64 *)(a1 + 56), 0x11u, 0LL);
+  if ( NtWaitLowEventPair(v11) >= 0 )
   {
     MiRelockFaultState(v7, v10);
     if ( v9 == ActiveProcessors[5].StaticBitmap[8] && ((*(_BYTE *)(a1 + 69) & 1) == 0 || MmIsAddressValidEx(v8)) )
@@ -36,8 +37,8 @@ __int64 __fastcall MiKernelWriteToExecutableMemory(__int64 a1, __int64 a2, struc
   else
   {
     MiForceCrashForInvalidAccess(a3);
-    v11 = -1073739997;
+    v12 = -1073739997;
     MiRelockFaultState(v7, v10);
   }
-  return v11;
+  return v12;
 }

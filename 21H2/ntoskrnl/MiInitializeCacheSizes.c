@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeCacheSizes @ 0x140A4517C
+ * XREFs of MiInitializeCacheSizes @ 0x140A4617C
  * Callers:
- *     MiInitializeColors @ 0x140A450F4 (MiInitializeColors.c)
+ *     MiInitializeColors @ 0x140A460F4 (MiInitializeColors.c)
  * Callees:
- *     MiInitializeLargePageColorSizes @ 0x1403B1510 (MiInitializeLargePageColorSizes.c)
+ *     MiInitializeLargePageColorSizes @ 0x1403B1680 (MiInitializeLargePageColorSizes.c)
  */
 
 __int64 MiInitializeCacheSizes()
@@ -19,7 +19,7 @@ __int64 MiInitializeCacheSizes()
   __int64 result; // rax
 
   SecondLevelCacheSize = KeGetPcr()->SecondLevelCacheSize;
-  dword_140C4DED8 = SecondLevelCacheSize;
+  dword_140C4DF18 = SecondLevelCacheSize;
   SecondLevelCacheAssociativity = KeGetPcr()->SecondLevelCacheAssociativity;
   if ( (_BYTE)SecondLevelCacheAssociativity )
     SecondLevelCacheSize /= SecondLevelCacheAssociativity;
@@ -30,19 +30,19 @@ __int64 MiInitializeCacheSizes()
   }
   if ( SecondLevelCacheSize - 8 > 0xF8 )
   {
-    if ( qword_140C52890 < 0x80000 )
-      SecondLevelCacheSize = qword_140C52890 < 0x40000 ? 64 : 128;
+    if ( qword_140C528D0 < 0x80000 )
+      SecondLevelCacheSize = qword_140C528D0 < 0x40000 ? 64 : 128;
     else
       SecondLevelCacheSize = 256;
   }
-  dword_140C4DEFC = SecondLevelCacheSize;
-  dword_140C4DEF8 = SecondLevelCacheSize - 1;
+  dword_140C4DF3C = SecondLevelCacheSize;
+  dword_140C4DF38 = SecondLevelCacheSize - 1;
   v3 = SecondLevelCacheSize >> 4;
   if ( (SecondLevelCacheSize & 0xF) != 0 )
     ++v3;
   if ( _BitScanReverse((unsigned int *)&v5, v3) )
     v3 = 1 << v5;
-  dword_140C4DF88 = v3;
+  dword_140C4DFC8 = v3;
   MiInitializeLargePageColorSizes();
   CurrentPrcb = KeGetCurrentPrcb();
   CacheCount = CurrentPrcb->CacheCount;
@@ -52,15 +52,15 @@ __int64 MiInitializeCacheSizes()
     do
     {
       if ( Cache->Level == 1 && (Cache->Type & 0xFFFFFFFD) == 0 )
-        dword_140C4DEDC = Cache->Size;
+        dword_140C4DF1C = Cache->Size;
       ++Cache;
       --CacheCount;
     }
     while ( CacheCount );
   }
   result = 0x4000LL;
-  if ( (unsigned int)dword_140C4DEDC < 0x4000 )
-    dword_140C4DEDC = 0x4000;
-  dword_140C4DF0C = 256;
+  if ( (unsigned int)dword_140C4DF1C < 0x4000 )
+    dword_140C4DF1C = 0x4000;
+  dword_140C4DF4C = 256;
   return result;
 }

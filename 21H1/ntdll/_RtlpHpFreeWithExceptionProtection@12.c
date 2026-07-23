@@ -9,7 +9,7 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-unsigned int __fastcall RtlpHpFreeWithExceptionProtection(int a1, int a2, int a3)
+unsigned int __fastcall RtlpHpFreeWithExceptionProtection(_DWORD *a1, unsigned int a2, int a3)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
     return RtlpHpTagFreeHeap(a3);

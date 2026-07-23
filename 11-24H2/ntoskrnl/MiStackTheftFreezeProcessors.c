@@ -1,19 +1,19 @@
 /*
- * XREFs of MiStackTheftFreezeProcessors @ 0x140675374
+ * XREFs of MiStackTheftFreezeProcessors @ 0x140676544
  * Callers:
- *     MiJumpStackTarget @ 0x140480E20 (MiJumpStackTarget.c)
+ *     MiJumpStackTarget @ 0x14047B8F0 (MiJumpStackTarget.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiStackTheftFreezeProcessors(_QWORD *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall MiStackTheftFreezeProcessors(_QWORD *a1)
   unsigned __int64 v3; // rsi
   __int64 *v4; // rcx
   __int64 v5; // rax
-  __int64 v6; // rcx
+  unsigned __int64 v6; // rcx
   void *v7; // rax
   __int64 v8; // rbx
   unsigned __int8 CurrentIrql; // di
@@ -35,7 +35,7 @@ __int64 __fastcall MiStackTheftFreezeProcessors(_QWORD *a1)
 
   memset_0(v14, 0, 0xD4uLL);
   v2 = a1[1];
-  v3 = MiMapPageInHyperSpaceWorker(v2, 0LL, 0x80000000LL);
+  v3 = MiMapPageInHyperSpaceWorker(v2, 0LL, 0x80000000);
   a1[2] = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v4 = (__int64 *)(*(_QWORD *)(48LL * *a1 - 0x21FFFFFFFFF8LL) | 0x8000000000000000uLL);
   v5 = *v4;

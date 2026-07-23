@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpPublishEventForPcaResolver @ 0x1404F11EC
+ * XREFs of CmpPublishEventForPcaResolver @ 0x1404D32E0
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall CmpPublishEventForPcaResolver(unsigned __int16 *a1)

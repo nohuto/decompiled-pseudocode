@@ -3,10 +3,10 @@
  * Callers:
  *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
  *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
- *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
+ *     CmpCleanupParseContext @ 0x14064A8A0 (CmpCleanupParseContext.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall CmpFreeExtraParameter(_QWORD *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of TppEnqueueTimer @ 0x18006C9E0
+ * XREFs of TppEnqueueTimer @ 0x1800892C0
  * Callers:
- *     TppSingleTimerExpiration @ 0x18006BE80 (TppSingleTimerExpiration.c)
+ *     TppSingleTimerExpiration @ 0x180088760 (TppSingleTimerExpiration.c)
  * Callees:
  *     <none>
  */

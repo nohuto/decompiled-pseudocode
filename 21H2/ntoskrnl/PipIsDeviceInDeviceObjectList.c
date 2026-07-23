@@ -1,16 +1,16 @@
 /*
- * XREFs of PipIsDeviceInDeviceObjectList @ 0x1407378FC
+ * XREFs of PipIsDeviceInDeviceObjectList @ 0x140737ABC
  * Callers:
- *     IopSortRelationListForRemove @ 0x14073720C (IopSortRelationListForRemove.c)
- *     PipVisitDeviceObjectListEntry @ 0x1407373CC (PipVisitDeviceObjectListEntry.c)
- *     IopSetRelationsTag @ 0x140737810 (IopSetRelationsTag.c)
- *     IopAddRelationToList @ 0x140737868 (IopAddRelationToList.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140738200 (PnpDeleteLockedDeviceNodes.c)
- *     IopIsDescendantNode @ 0x140738684 (IopIsDescendantNode.c)
- *     IopCheckIfMergeRequired @ 0x1408B2604 (IopCheckIfMergeRequired.c)
- *     IopIsRelationInList @ 0x1408B270C (IopIsRelationInList.c)
+ *     IopSortRelationListForRemove @ 0x1407373CC (IopSortRelationListForRemove.c)
+ *     PipVisitDeviceObjectListEntry @ 0x14073758C (PipVisitDeviceObjectListEntry.c)
+ *     IopSetRelationsTag @ 0x1407379D0 (IopSetRelationsTag.c)
+ *     IopAddRelationToList @ 0x140737A28 (IopAddRelationToList.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1407383C0 (PnpDeleteLockedDeviceNodes.c)
+ *     IopIsDescendantNode @ 0x140738844 (IopIsDescendantNode.c)
+ *     IopCheckIfMergeRequired @ 0x1408B2764 (IopCheckIfMergeRequired.c)
+ *     IopIsRelationInList @ 0x1408B286C (IopIsRelationInList.c)
  * Callees:
- *     PipDeviceObjectListIndexOf @ 0x140737920 (PipDeviceObjectListIndexOf.c)
+ *     PipDeviceObjectListIndexOf @ 0x140737AE0 (PipDeviceObjectListIndexOf.c)
  */
 
 bool __fastcall PipIsDeviceInDeviceObjectList(unsigned int *a1, __int64 a2, __int64 a3)

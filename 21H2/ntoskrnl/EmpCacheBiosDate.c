@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpCacheBiosDate @ 0x140A4768C
+ * XREFs of EmpCacheBiosDate @ 0x140A4868C
  * Callers:
- *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
+ *     EmInitSystem @ 0x140A4628C (EmInitSystem.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     strtoul @ 0x1403D1500 (strtoul.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
- *     EmpMapPhysicalAddress @ 0x140A477DC (EmpMapPhysicalAddress.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     strtoul @ 0x1403D1670 (strtoul.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
+ *     EmpMapPhysicalAddress @ 0x140A487DC (EmpMapPhysicalAddress.c)
  */
 
 char __fastcall EmpCacheBiosDate(__int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ char __fastcall EmpCacheBiosDate(__int64 a1, __int64 a2)
   Handle = 0LL;
   EmpCachedBiosDate = 0;
   v9 = 0;
-  if ( dword_140C19850 == 1 )
+  if ( dword_140C197B0 == 1 )
   {
     v3 = EmpMapPhysicalAddress(a1, a2, &Handle, &BaseAddress, v13);
     v4 = (_WORD *)v3;
@@ -48,7 +48,7 @@ char __fastcall EmpCacheBiosDate(__int64 a1, __int64 a2)
       v10 = 1;
       v6 = Handle;
       ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-      KiUnstackDetachProcess((__int64)v13, 0);
+      KiUnstackDetachProcess((__int64)v13, 0LL);
       ZwClose(v6);
     }
   }

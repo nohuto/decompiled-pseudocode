@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlFindNextForwardRunClear(__int64 a1, __int64 a2, __int64 a3)
+ULONG __cdecl RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  return RtlFindNextForwardRunClearCapped(a1, a2, a3, a3);
+  return RtlFindNextForwardRunClearCapped(BitMapHeader, FromIndex, StartingRunIndex, StartingRunIndex);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpReadIoSpaceExtended @ 0x140C144C4
+ * XREFs of KdpReadIoSpaceExtended @ 0x140C1A4C4
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpSysReadIoSpace @ 0x1405E42D8 (KdpSysReadIoSpace.c)
+ *     KdpSysReadIoSpace @ 0x1405E6C48 (KdpSysReadIoSpace.c)
  */
 
 __int64 __fastcall KdpReadIoSpaceExtended(__int64 a1)

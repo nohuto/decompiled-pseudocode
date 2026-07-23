@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1404F7980
+ * XREFs of RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1404F0F90
  * Callers:
- *     RtlQueryFeatureConfigurationFromBuffers @ 0x1406178CC (RtlQueryFeatureConfigurationFromBuffers.c)
- *     RtlQueryAllFeatureConfigurations @ 0x1408010D0 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x14061A91C (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x140806B70 (RtlQueryAllFeatureConfigurations.c)
  * Callees:
  *     <none>
  */

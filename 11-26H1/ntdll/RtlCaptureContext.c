@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCaptureContext @ 0x180126D40
+ * XREFs of RtlCaptureContext @ 0x180126AB0
  * Callers:
- *     RtlAssert @ 0x180070F80 (RtlAssert.c)
- *     RtlpPossibleDeadlock @ 0x18007BA50 (RtlpPossibleDeadlock.c)
- *     LdrAppxHandleIntegrityFailure @ 0x1800C1AB0 (LdrAppxHandleIntegrityFailure.c)
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x1801269E0 (__report_gsfailure.c)
- *     __report_securityfailure @ 0x180126B7C (__report_securityfailure.c)
- *     UcOnUnexpectedCodePath @ 0x180157830 (UcOnUnexpectedCodePath.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x18015D848 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     RtlpPossibleDeadlock @ 0x18006A270 (RtlpPossibleDeadlock.c)
+ *     RtlAssert @ 0x1800913D0 (RtlAssert.c)
+ *     LdrAppxHandleIntegrityFailure @ 0x1800BF760 (LdrAppxHandleIntegrityFailure.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x180126750 (__report_gsfailure.c)
+ *     __report_securityfailure @ 0x1801268EC (__report_securityfailure.c)
+ *     UcOnUnexpectedCodePath @ 0x180157700 (UcOnUnexpectedCodePath.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x18015D708 (LdrpLogIntegrityContinuityTelemetry.c)
  * Callees:
  *     <none>
  */

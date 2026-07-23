@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpConcatenateUnicodeStrings @ 0x140538568
+ * XREFs of PnpConcatenateUnicodeStrings @ 0x140538AA8
  * Callers:
- *     IoGetDeviceInstanceName @ 0x14012C56C (IoGetDeviceInstanceName.c)
- *     PiDeviceRegistration @ 0x1404C7D00 (PiDeviceRegistration.c)
- *     PipServiceInstanceToDeviceInstance @ 0x1405383B0 (PipServiceInstanceToDeviceInstance.c)
- *     PiInitializeDevice @ 0x14064AC94 (PiInitializeDevice.c)
+ *     IoGetDeviceInstanceName @ 0x14012CADC (IoGetDeviceInstanceName.c)
+ *     PiDeviceRegistration @ 0x14050F534 (PiDeviceRegistration.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1405388F0 (PipServiceInstanceToDeviceInstance.c)
+ *     PiInitializeDevice @ 0x14064AD78 (PiInitializeDevice.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x1403F2594 (IopAllocateUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x1403F1458 (IopAllocateUnicodeString.c)
  */
 
 __int64 __fastcall PnpConcatenateUnicodeStrings(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)

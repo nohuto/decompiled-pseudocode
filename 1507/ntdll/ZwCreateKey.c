@@ -13,11 +13,18 @@
  *     <none>
  */
 
-__int64 ZwCreateKey()
+NTSTATUS __cdecl ZwCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        PULONG Disposition)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 29LL;
+  result = 29;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -8,23 +8,19 @@
  *     RtlAcquireSRWLockExclusive @ 0x180037EE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-void __fastcall LdrpLockTlsDelayedReclaimTable(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void LdrpLockTlsDelayedReclaimTable()
 {
-  volatile signed __int64 *v4; // rbx
-  __int64 v5; // rdi
+  _RTL_SRWLOCK *v0; // rbx
+  __int64 v1; // rdi
 
-  RtlAcquireSRWLockShared(&LdrpTlsLock, a2, a3, a4);
-  v4 = (volatile signed __int64 *)&unk_180184F08;
-  v5 = 16LL;
+  RtlAcquireSRWLockShared(&LdrpTlsLock);
+  v0 = &stru_180184F08;
+  v1 = 16LL;
   do
   {
-    RtlAcquireSRWLockExclusive(v4);
-    v4 += 2;
-    --v5;
+    RtlAcquireSRWLockExclusive(v0);
+    v0 += 2;
+    --v1;
   }
-  while ( v5 );
+  while ( v1 );
 }

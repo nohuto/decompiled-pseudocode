@@ -1,62 +1,66 @@
 /*
- * XREFs of CcDecrementOpenCount @ 0x1402ABDBC
+ * XREFs of CcDecrementOpenCount @ 0x140279504
  * Callers:
- *     CcPurgeCacheSection @ 0x14023EF70 (CcPurgeCacheSection.c)
- *     CcWriteBehindPreProcess @ 0x1402A8434 (CcWriteBehindPreProcess.c)
- *     CcFlushCachePostProcess @ 0x1402ABF10 (CcFlushCachePostProcess.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402CC554 (CcNotifyOfMappedWriteComplete.c)
- *     CcGetFlushedValidData @ 0x1402CC6C0 (CcGetFlushedValidData.c)
- *     CcNotifyOfMappedWrite @ 0x14036BCAC (CcNotifyOfMappedWrite.c)
- *     CcUnmapInactiveViewsInternal @ 0x1403F877C (CcUnmapInactiveViewsInternal.c)
- *     CcMdlWriteComplete2 @ 0x140461194 (CcMdlWriteComplete2.c)
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
- *     CcPerformReadAhead @ 0x1404DDEB0 (CcPerformReadAhead.c)
- *     CcCompleteAsyncRead @ 0x1404DF87C (CcCompleteAsyncRead.c)
- *     CcMdlWriteAbort @ 0x14057C350 (CcMdlWriteAbort.c)
+ *     CcPurgeCacheSection @ 0x1402070C0 (CcPurgeCacheSection.c)
+ *     CcFlushCachePostProcess @ 0x1402791F0 (CcFlushCachePostProcess.c)
+ *     CcWriteBehindPreProcess @ 0x14027A224 (CcWriteBehindPreProcess.c)
+ *     CcNotifyOfMappedWrite @ 0x1402EDA4C (CcNotifyOfMappedWrite.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1403EE88C (CcUnmapInactiveViewsInternal.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14040B624 (CcNotifyOfMappedWriteComplete.c)
+ *     CcGetFlushedValidData @ 0x14040B790 (CcGetFlushedValidData.c)
+ *     CcMdlWriteComplete2 @ 0x1404567A4 (CcMdlWriteComplete2.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
+ *     CcPerformReadAhead @ 0x1404D78D0 (CcPerformReadAhead.c)
+ *     CcCompleteAsyncRead @ 0x1404D929C (CcCompleteAsyncRead.c)
+ *     CcMdlWriteAbort @ 0x1405797E0 (CcMdlWriteAbort.c)
  * Callees:
- *     CcGetPrivateVolumeCacheMap @ 0x1402CD530 (CcGetPrivateVolumeCacheMap.c)
- *     CcScheduleLazyWriteScan @ 0x14043C9B0 (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x140446E98 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcScheduleLazyWriteScan @ 0x140264F40 (CcScheduleLazyWriteScan.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x1402E6230 (CcGetPrivateVolumeCacheMap.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14043F66C (CcInsertIntoDirtySharedCacheMapList.c)
  */
 
-__int64 __fastcall CcDecrementOpenCount(__int64 a1)
+char __fastcall CcDecrementOpenCount(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
+  _BYTE *v1; // rbx
+  __int64 PrivateVolumeCacheMap; // rax
   __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // rdi
-  _BYTE *v6; // rdx
-  int v7; // edx
-  __int64 v8; // r11
+  _BYTE *v4; // rdi
+  _BYTE *v5; // rdx
+  int v6; // edx
+  char v7; // r9
+  char v8; // r8
+  __int64 v9; // r11
 
   --*(_DWORD *)(a1 + 4);
   --*(_DWORD *)(a1 + 544);
-  v1 = *(_QWORD *)(a1 + 536);
-  result = CcGetPrivateVolumeCacheMap(a1);
-  v5 = result;
+  v1 = *(_BYTE **)(a1 + 536);
+  PrivateVolumeCacheMap = CcGetPrivateVolumeCacheMap();
+  v4 = (_BYTE *)PrivateVolumeCacheMap;
   if ( !*(_DWORD *)(v3 + 4) )
   {
     if ( CcEnablePerVolumeLazyWriter )
-      v6 = (_BYTE *)(*(_QWORD *)(v3 + 600) + 986LL);
+      v5 = (_BYTE *)(*(_QWORD *)(v3 + 600) + 986LL);
     else
-      v6 = (_BYTE *)(v1 + 1050);
-    *v6 = 1;
-    v7 = *(_DWORD *)(v3 + 152);
-    result = *(unsigned int *)(v3 + 112);
-    if ( (v7 & 0x10000) != 0 )
+      v5 = v1 + 1050;
+    *v5 = 1;
+    v6 = *(_DWORD *)(v3 + 152);
+    LODWORD(PrivateVolumeCacheMap) = *(_DWORD *)(v3 + 112);
+    if ( (v6 & 0x10000) != 0 )
     {
-      if ( !(_DWORD)result )
+      if ( !(_DWORD)PrivateVolumeCacheMap )
         CcInsertIntoDirtySharedCacheMapList(v3);
-      LOBYTE(v4) = 1;
-      return CcScheduleLazyWriteScan(v1, v5, v4);
+      v7 = 1;
+      v8 = 1;
+      goto LABEL_12;
     }
-    if ( !(_DWORD)result && (v7 & 0x20) == 0 )
+    if ( !(_DWORD)PrivateVolumeCacheMap && (v6 & 0x20) == 0 )
     {
       CcInsertIntoDirtySharedCacheMapList(v3);
-      LOBYTE(v4) = v8 != 0;
-      return CcScheduleLazyWriteScan(v1, v5, v4);
+      v8 = v9 != 0;
+      v7 = 0;
+LABEL_12:
+      LOBYTE(PrivateVolumeCacheMap) = CcScheduleLazyWriteScan(v1, v4, v8, v7);
     }
   }
-  return result;
+  return PrivateVolumeCacheMap;
 }

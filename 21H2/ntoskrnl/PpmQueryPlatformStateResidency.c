@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmQueryPlatformStateResidency @ 0x1405673CC
+ * XREFs of PpmQueryPlatformStateResidency @ 0x14056760C
  * Callers:
- *     PpmQueryDripsResidency @ 0x1405673B0 (PpmQueryDripsResidency.c)
- *     PopQueryBootSessionStandbyActivationInfo @ 0x140568D78 (PopQueryBootSessionStandbyActivationInfo.c)
- *     PopCalculateIdleInformation @ 0x140570410 (PopCalculateIdleInformation.c)
+ *     PpmQueryDripsResidency @ 0x1405675F0 (PpmQueryDripsResidency.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x140568FB8 (PopQueryBootSessionStandbyActivationInfo.c)
+ *     PopCalculateIdleInformation @ 0x140570650 (PopCalculateIdleInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmQueryPlatformStateResidency(unsigned int a1)

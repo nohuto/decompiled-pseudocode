@@ -1,14 +1,14 @@
 /*
- * XREFs of KeGetNodePrimarySubNode @ 0x1403A86B4
+ * XREFs of KeGetNodePrimarySubNode @ 0x14026FD94
  * Callers:
- *     KeQueryLogicalProcessorRelationship @ 0x140206A10 (KeQueryLogicalProcessorRelationship.c)
- *     MiGetClosestNodeWithProcessors @ 0x1403A85A4 (MiGetClosestNodeWithProcessors.c)
- *     KeQueryNodeActiveAffinity @ 0x1403A8640 (KeQueryNodeActiveAffinity.c)
- *     KiComputeNumaCosts @ 0x140C278AC (KiComputeNumaCosts.c)
+ *     MiGetClosestNodeWithProcessors @ 0x14026FC80 (MiGetClosestNodeWithProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x14026FD20 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x14032DFF0 (KeQueryLogicalProcessorRelationship.c)
+ *     KiComputeNumaCosts @ 0x140C29888 (KiComputeNumaCosts.c)
  * Callees:
- *     KeIsEmptyGroupMask @ 0x140208940 (KeIsEmptyGroupMask.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
+ *     KeIsEmptyGroupMask @ 0x14032FF20 (KeIsEmptyGroupMask.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall KeGetNodePrimarySubNode(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall KeGetNodePrimarySubNode(__int64 a1)
 
   v3 = 0LL;
   RtlCopyVolatileMemory(&v3, (const void *)(a1 + 16), 0x10uLL);
-  if ( (unsigned int)KeIsEmptyGroupMask((unsigned __int64 *)&v3) )
+  if ( (unsigned int)KeIsEmptyGroupMask(&v3) )
     return 0LL;
   else
     return *(_QWORD *)(a1 + 8LL * *(unsigned __int8 *)(a1 + 12) + 32);

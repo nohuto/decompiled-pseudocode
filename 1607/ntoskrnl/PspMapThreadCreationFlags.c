@@ -1,8 +1,8 @@
 /*
- * XREFs of PspMapThreadCreationFlags @ 0x14045902C
+ * XREFs of PspMapThreadCreationFlags @ 0x140457EFC
  * Callers:
- *     PspCreateThread @ 0x140458D18 (PspCreateThread.c)
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
+ *     PspCreateThread @ 0x140457BE8 (PspCreateThread.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
  * Callees:
  *     <none>
  */

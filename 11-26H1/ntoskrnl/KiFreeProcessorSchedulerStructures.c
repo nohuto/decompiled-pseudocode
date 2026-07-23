@@ -1,13 +1,13 @@
 /*
- * XREFs of KiFreeProcessorSchedulerStructures @ 0x1405EB250
+ * XREFs of KiFreeProcessorSchedulerStructures @ 0x1405EDBC0
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KiFreeIdleSearchStructures @ 0x1405EB194 (KiFreeIdleSearchStructures.c)
- *     KiFreeLocalSharedReadyQueue @ 0x1405EB21C (KiFreeLocalSharedReadyQueue.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KiFreeIdleSearchStructures @ 0x1405EDB04 (KiFreeIdleSearchStructures.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x1405EDB8C (KiFreeLocalSharedReadyQueue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiFreeProcessorSchedulerStructures(_QWORD *a1)

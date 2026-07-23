@@ -1,7 +1,7 @@
 /*
- * XREFs of SepComputeSidSignature @ 0x140B0DB5C
+ * XREFs of SepComputeSidSignature @ 0x140B0F2AC
  * Callers:
- *     SepRmReferenceFindCap @ 0x1403BE3D8 (SepRmReferenceFindCap.c)
+ *     SepRmReferenceFindCap @ 0x1403C82D8 (SepRmReferenceFindCap.c)
  * Callees:
  *     <none>
  */

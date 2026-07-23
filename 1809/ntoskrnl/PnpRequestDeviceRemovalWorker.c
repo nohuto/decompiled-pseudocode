@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpRequestDeviceRemovalWorker @ 0x1406ECD48
+ * XREFs of PnpRequestDeviceRemovalWorker @ 0x1406EDFE8
  * Callers:
- *     PnpRequestDeviceRemovalWorker @ 0x1406ECD48 (PnpRequestDeviceRemovalWorker.c)
- *     PnpRequestDeviceRemoval @ 0x1406EF20C (PnpRequestDeviceRemoval.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1406EDFE8 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpRequestDeviceRemoval @ 0x1406F04AC (PnpRequestDeviceRemoval.c)
  * Callees:
  *     PipIsDevNodeDNStarted @ 0x140007294 (PipIsDevNodeDNStarted.c)
- *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
- *     PipRestoreDevNodeState @ 0x14015ACC0 (PipRestoreDevNodeState.c)
- *     PiGetDependentList @ 0x1406EB624 (PiGetDependentList.c)
- *     PnpRequestDeviceRemovalWorker @ 0x1406ECD48 (PnpRequestDeviceRemovalWorker.c)
- *     PiEnumerateDependentListEntry @ 0x140823B18 (PiEnumerateDependentListEntry.c)
+ *     PipSetDevNodeState @ 0x140159ED8 (PipSetDevNodeState.c)
+ *     PipRestoreDevNodeState @ 0x14015ADC0 (PipRestoreDevNodeState.c)
+ *     PiGetDependentList @ 0x1406EC8C4 (PiGetDependentList.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1406EDFE8 (PnpRequestDeviceRemovalWorker.c)
+ *     PiEnumerateDependentListEntry @ 0x140824D18 (PiEnumerateDependentListEntry.c)
  */
 
 char __fastcall PnpRequestDeviceRemovalWorker(int a1, __int64 a2, char a3, int a4, char a5)

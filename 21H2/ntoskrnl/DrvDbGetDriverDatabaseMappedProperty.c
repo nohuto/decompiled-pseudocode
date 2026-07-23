@@ -1,16 +1,16 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x140735830
+ * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x1407359F0
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x14063BE70 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbLoadDatabaseNode @ 0x14063E754 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140630C80 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbLoadDatabaseNode @ 0x140633564 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14063B5DC (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406303EC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbFindDatabaseNode @ 0x1406F1CEC (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735BC4 (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
@@ -215,7 +215,7 @@ LABEL_41:
   }
   while ( v16 < 7 );
   v19 = 0LL;
-  v20 = &off_140004F40;
+  v20 = &off_140004BA0;
   v21 = 0;
   while ( 1 )
   {
@@ -234,7 +234,7 @@ LABEL_41:
       goto LABEL_14;
   }
   v14 = 5LL * v21;
-  v19 = &off_140004F40 + 5 * v21;
+  v19 = &off_140004BA0 + 5 * v21;
 LABEL_14:
   if ( v19 )
   {
@@ -243,16 +243,7 @@ LABEL_16:
     if ( a3 && (!v12 || ((__int64)v12[3].Buffer & 0x10) == 0)
       || (!v12 || ((__int64)v12[3].Buffer & 0x10) == 0
         ? (v24 = DrvDbOpenDriverDatabaseRegKey(v23, a2, 1LL, 0LL, &Handle, 0LL))
-        : (v24 = DrvDbOpenObjectRegKey(
-                   (__int64 *)v23,
-                   *(const UNICODE_STRING **)(v23 + 32),
-                   1u,
-                   a2,
-                   1,
-                   0,
-                   &Handle,
-                   0LL,
-                   0LL)),
+        : (v24 = DrvDbOpenObjectRegKey((__int64 *)v23, *(__int64 **)(v23 + 32), 1u, a2, 1, 0, &Handle, 0LL, 0LL)),
           RegValueMappedProperty = v24,
           v24 >= 0) )
     {
@@ -265,7 +256,7 @@ LABEL_16:
   else
   {
     v19 = 0LL;
-    v41 = &off_140009DF0;
+    v41 = &off_140009E50;
     v42 = 0;
     while ( 1 )
     {
@@ -283,7 +274,7 @@ LABEL_16:
       if ( v42 >= 4 )
         goto LABEL_94;
     }
-    v19 = &off_140009DF0 + 5 * v42;
+    v19 = &off_140009E50 + 5 * v42;
 LABEL_94:
     if ( v19 )
     {

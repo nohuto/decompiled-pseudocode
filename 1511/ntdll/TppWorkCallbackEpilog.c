@@ -7,19 +7,19 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall TppWorkCallbackEpilog(__int64 a1)
+LOGICAL __fastcall TppWorkCallbackEpilog(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 (__fastcall *v2)(__int64); // rdi
+  LOGICAL result; // eax
+  LOGICAL (__fastcall *v2)(PVOID); // rdi
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    v2 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
+    v2 = **(LOGICAL (__fastcall ***)(PVOID))(a1 + 8);
     if ( v2 == TppWorkpFree )
-      return TppWorkpFree(a1);
+      return TppWorkpFree((PVOID)a1);
     else
-      return v2(a1);
+      return v2((PVOID)a1);
   }
   return result;
 }

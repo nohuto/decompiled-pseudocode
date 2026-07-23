@@ -1,13 +1,13 @@
 /*
- * XREFs of FopReadNamingTable @ 0x140A96730
+ * XREFs of FopReadNamingTable @ 0x140A97730
  * Callers:
- *     FopValidateFontNameTable @ 0x140A96228 (FopValidateFontNameTable.c)
+ *     FopValidateFontNameTable @ 0x140A97228 (FopValidateFontNameTable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
- *     FioFwReadBytesAtOffset @ 0x1403B35FC (FioFwReadBytesAtOffset.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     FopReadNameRecord @ 0x140A96858 (FopReadNameRecord.c)
+ *     BgpFwFreeMemory @ 0x14039BEB0 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039C6D4 (BgpFwAllocateMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x1403B376C (FioFwReadBytesAtOffset.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     FopReadNameRecord @ 0x140A97858 (FopReadNameRecord.c)
  */
 
 __int64 __fastcall FopReadNamingTable(__int64 a1, unsigned int a2, __int64 *a3)
@@ -20,25 +20,22 @@ __int64 __fastcall FopReadNamingTable(__int64 a1, unsigned int a2, __int64 *a3)
   __int64 Memory; // rdi
   unsigned int v12; // r14d
   unsigned int v13; // ebp
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  _DWORD *v16; // r9
-  __int128 v18; // [rsp+20h] [rbp-58h] BYREF
-  __int16 v19; // [rsp+30h] [rbp-48h]
+  __int128 v15; // [rsp+20h] [rbp-58h] BYREF
+  __int16 v16; // [rsp+30h] [rbp-48h]
 
-  v19 = 0;
-  v18 = 0LL;
-  NameRecord = FioFwReadBytesAtOffset(a1, a2, 6u, &v18);
+  v16 = 0;
+  v15 = 0LL;
+  NameRecord = FioFwReadBytesAtOffset(a1, a2, 6u, &v15);
   if ( NameRecord >= 0 )
   {
-    LOWORD(v18) = __ROR2__(v18, 8);
-    v7 = __ROR2__(WORD2(v18), 8);
-    WORD1(v18) = __ROR2__(WORD1(v18), 8);
+    LOWORD(v15) = __ROR2__(v15, 8);
+    v7 = __ROR2__(WORD2(v15), 8);
+    WORD1(v15) = __ROR2__(WORD1(v15), 8);
     v8 = 18LL;
-    v9 = WORD1(v18);
-    if ( WORD1(v18) )
+    v9 = WORD1(v15);
+    if ( WORD1(v15) )
     {
-      v10 = 12 * WORD1(v18) + 18;
+      v10 = 12 * WORD1(v15) + 18;
       if ( v10 < 0x12 )
         return (unsigned int)-1073741675;
       v8 = v10;
@@ -48,7 +45,7 @@ __int64 __fastcall FopReadNamingTable(__int64 a1, unsigned int a2, __int64 *a3)
     if ( Memory )
     {
       v12 = a2 + 6;
-      *(_DWORD *)Memory = v18;
+      *(_DWORD *)Memory = v15;
       *(_WORD *)(Memory + 4) = v7;
       v13 = 0;
       if ( v9 )
@@ -63,7 +60,7 @@ __int64 __fastcall FopReadNamingTable(__int64 a1, unsigned int a2, __int64 *a3)
           if ( v13 >= v9 )
             goto LABEL_9;
         }
-        BgpFwFreeMemory(Memory, v14, v15, v16);
+        BgpFwFreeMemory(Memory);
       }
       else
       {

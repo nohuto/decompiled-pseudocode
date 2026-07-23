@@ -1,11 +1,11 @@
 /*
- * XREFs of VfGetDmaAlignment @ 0x14092B2B0
+ * XREFs of VfGetDmaAlignment @ 0x14092C2B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
- *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VF_ASSERT_IRQL @ 0x14092A6A0 (VF_ASSERT_IRQL.c)
+ *     ViGetRealDmaOperation @ 0x14092EB34 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaAlignment(__int64 a1)

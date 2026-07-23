@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetCurrentScheduledThreadProcessor @ 0x14046B354
+ * XREFs of KiGetCurrentScheduledThreadProcessor @ 0x140463F58
  * Callers:
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
  * Callees:
  *     <none>
  */

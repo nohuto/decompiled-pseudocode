@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhOwnerGetSubsegment @ 0x140349720
+ * XREFs of RtlpHpLfhOwnerGetSubsegment @ 0x14034B7A0
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x1403498B0 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x14034B930 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
  */
 
 _QWORD *__fastcall RtlpHpLfhOwnerGetSubsegment(__int64 a1, __int64 a2)
@@ -91,9 +91,9 @@ LABEL_18:
       v25 = (_QWORD **)v7;
     }
   }
+  v7 = v5;
   if ( v5 != &v22 )
   {
-    v7 = v5;
     v9 = 1LL;
     v10 = v5;
     goto LABEL_6;

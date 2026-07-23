@@ -1,104 +1,100 @@
 /*
- * XREFs of RtlDeriveCapabilitySidsFromName @ 0x18003A820
+ * XREFs of RtlDeriveCapabilitySidsFromName @ 0x18001AAA0
  * Callers:
- *     RtlCapabilityCheck @ 0x180039FF0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x18001A270 (RtlCapabilityCheck.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlPrefixUnicodeString @ 0x18008AA00 (RtlPrefixUnicodeString.c)
- *     RtlUpcaseUnicodeString @ 0x1800D06E0 (RtlUpcaseUnicodeString.c)
- *     SymCryptSha256 @ 0x18015A258 (SymCryptSha256.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlPrefixUnicodeString @ 0x1800A64C0 (RtlPrefixUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x1800CDC50 (RtlUpcaseUnicodeString.c)
+ *     SymCryptSha256 @ 0x180158618 (SymCryptSha256.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-__int64 __fastcall RtlDeriveCapabilitySidsFromName(__int64 a1, __int64 a2, _OWORD *a3)
+NTSTATUS __cdecl RtlDeriveCapabilitySidsFromName(
+        PUNICODE_STRING UnicodeString,
+        PSID CapabilityGroupSid,
+        PSID CapabilitySid)
 {
-  _OWORD *v3; // rsi
-  __int64 result; // rax
-  unsigned int v7; // ebx
-  const void *v8; // r14
-  __int64 v9; // r8
-  __int128 v10; // xmm0
-  size_t v11; // rbp
-  const void **v12; // rbx
-  __int128 v13; // xmm0
-  unsigned int v14; // edi
-  char v15; // al
-  int v16; // ecx
-  __int128 v17; // xmm1
-  void *Buf1[2]; // [rsp+20h] [rbp-88h] BYREF
-  __int128 v19; // [rsp+30h] [rbp-78h]
-  __int128 v20; // [rsp+40h] [rbp-68h]
-  __int128 v21; // [rsp+50h] [rbp-58h] BYREF
-  __int128 v22; // [rsp+60h] [rbp-48h]
+  NTSTATUS result; // eax
+  unsigned int Length; // ebx
+  wchar_t *Buffer; // r14
+  __int128 v9; // xmm0
+  size_t v10; // rbp
+  const void **v11; // rbx
+  __int128 v12; // xmm0
+  unsigned int v13; // edi
+  BOOLEAN v14; // al
+  int v15; // ecx
+  __int128 v16; // xmm1
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-88h] BYREF
+  __int128 v18; // [rsp+30h] [rbp-78h]
+  __int128 v19; // [rsp+40h] [rbp-68h]
+  __int128 v20; // [rsp+50h] [rbp-58h] BYREF
+  __int128 v21; // [rsp+60h] [rbp-48h]
 
-  v3 = a3;
-  *(_OWORD *)Buf1 = 0LL;
-  if ( !a1 || !a2 || !a3 )
+  DestinationString = 0LL;
+  if ( !UnicodeString || !CapabilityGroupSid || !CapabilitySid )
     __fastfail(5u);
-  *a3 = 0LL;
-  a3[1] = 0LL;
-  a3[2] = 0LL;
-  LOBYTE(a3) = 1;
-  *(_OWORD *)a2 = 0LL;
-  *(_OWORD *)(a2 + 16) = 0LL;
-  *(_QWORD *)(a2 + 32) = 0LL;
-  *(_DWORD *)(a2 + 40) = 0;
-  result = RtlUpcaseUnicodeString(Buf1, a1, a3);
-  if ( (int)result >= 0 )
+  *(_OWORD *)CapabilitySid = 0LL;
+  *((_OWORD *)CapabilitySid + 1) = 0LL;
+  *((_OWORD *)CapabilitySid + 2) = 0LL;
+  *(_OWORD *)CapabilityGroupSid = 0LL;
+  *((_OWORD *)CapabilityGroupSid + 1) = 0LL;
+  *((_QWORD *)CapabilityGroupSid + 4) = 0LL;
+  *((_DWORD *)CapabilityGroupSid + 10) = 0;
+  result = RtlUpcaseUnicodeString(&DestinationString, UnicodeString, 1u);
+  if ( result >= 0 )
   {
-    v7 = LOWORD(Buf1[0]);
-    v8 = Buf1[1];
-    SymCryptSha256(Buf1[1], LOWORD(Buf1[0]), &v21);
-    v10 = v21;
-    *(_WORD *)a2 = 2305;
-    v11 = v7;
-    v12 = (const void **)&RtlpLegacyApplicationCapabilityNames;
-    *(_DWORD *)(a2 + 2) = RtlpNtAuthority;
-    *(_WORD *)(a2 + 6) = 1280;
-    *(_DWORD *)(a2 + 8) = 32;
-    *(_OWORD *)(a2 + 12) = v10;
-    v19 = v10;
-    v13 = v22;
-    *(_OWORD *)(a2 + 28) = v22;
-    v14 = 0;
-    v20 = v13;
-    while ( (_DWORD)v11 != *(unsigned __int16 *)v12 || memcmp(v8, v12[1], v11) )
+    Length = DestinationString.Length;
+    Buffer = DestinationString.Buffer;
+    SymCryptSha256(DestinationString.Buffer, DestinationString.Length, &v20);
+    v9 = v20;
+    *(_WORD *)CapabilityGroupSid = 2305;
+    v10 = Length;
+    v11 = (const void **)&RtlpLegacyApplicationCapabilityNames;
+    *(_DWORD *)((char *)CapabilityGroupSid + 2) = RtlpNtAuthority;
+    *((_WORD *)CapabilityGroupSid + 3) = 1280;
+    *((_DWORD *)CapabilityGroupSid + 2) = 32;
+    *(_OWORD *)((char *)CapabilityGroupSid + 12) = v9;
+    v18 = v9;
+    v12 = v21;
+    *(_OWORD *)((char *)CapabilityGroupSid + 28) = v21;
+    v13 = 0;
+    v19 = v12;
+    while ( (_DWORD)v10 != *(unsigned __int16 *)v11 || memcmp(Buffer, v11[1], v10) )
     {
-      ++v14;
-      v12 += 2;
-      if ( v14 >= 0xC )
+      ++v13;
+      v11 += 2;
+      if ( v13 >= 0xC )
         goto LABEL_11;
     }
-    *(_WORD *)v3 = 513;
-    *(_DWORD *)((char *)v3 + 2) = RtlpAppPackageAuthority;
-    *((_WORD *)v3 + 3) = 3840;
-    *((_DWORD *)v3 + 2) = 3;
-    *((_DWORD *)v3 + 3) = v14 + 1;
+    *(_WORD *)CapabilitySid = 513;
+    *(_SID_IDENTIFIER_AUTHORITY *)((char *)CapabilitySid + 2) = RtlpAppPackageAuthority;
+    *((_DWORD *)CapabilitySid + 2) = 3;
+    *((_DWORD *)CapabilitySid + 3) = v13 + 1;
 LABEL_11:
-    if ( v8 )
+    if ( Buffer )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Buf1[1]);
-      v20 = v22;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, DestinationString.Buffer);
       v19 = v21;
+      v18 = v20;
     }
-    if ( v14 == 12 )
+    if ( v13 == 12 )
     {
-      *(_WORD *)v3 = 2561;
-      LOBYTE(v9) = 1;
-      *(_DWORD *)((char *)v3 + 2) = RtlpAppPackageAuthority;
-      *((_WORD *)v3 + 3) = 3840;
-      *((_DWORD *)v3 + 2) = 3;
-      v15 = RtlPrefixUnicodeString(&unk_180174AF0, a1, v9);
-      v16 = 0x10000;
-      if ( !v15 )
-        v16 = 1024;
-      *((_DWORD *)v3 + 3) = v16;
-      v17 = v20;
-      v3[1] = v19;
-      v3[2] = v17;
+      *(_WORD *)CapabilitySid = 2561;
+      *(_SID_IDENTIFIER_AUTHORITY *)((char *)CapabilitySid + 2) = RtlpAppPackageAuthority;
+      *((_DWORD *)CapabilitySid + 2) = 3;
+      v14 = RtlPrefixUnicodeString((PUNICODE_STRING)&String1, UnicodeString, 1u);
+      v15 = 0x10000;
+      if ( !v14 )
+        v15 = 1024;
+      *((_DWORD *)CapabilitySid + 3) = v15;
+      v16 = v19;
+      *((_OWORD *)CapabilitySid + 1) = v18;
+      *((_OWORD *)CapabilitySid + 2) = v16;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpSparseBitmapCtxAppendNextRangeToRun @ 0x180100BF4
+ * XREFs of RtlpSparseBitmapCtxAppendNextRangeToRun @ 0x180100B34
  * Callers:
- *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010123C (RtlpSparseBitmapCtxFindRunsInternal.c)
+ *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010117C (RtlpSparseBitmapCtxFindRunsInternal.c)
  * Callees:
- *     RtlpSparseBitmapCtxFindRunsFromNullRange @ 0x180100D6C (RtlpSparseBitmapCtxFindRunsFromNullRange.c)
- *     RtlpSparseBitmapCtxFindRunsFromRange @ 0x180100E94 (RtlpSparseBitmapCtxFindRunsFromRange.c)
+ *     RtlpSparseBitmapCtxFindRunsFromNullRange @ 0x180100CAC (RtlpSparseBitmapCtxFindRunsFromNullRange.c)
+ *     RtlpSparseBitmapCtxFindRunsFromRange @ 0x180100DD4 (RtlpSparseBitmapCtxFindRunsFromRange.c)
  */
 
 __int64 __fastcall RtlpSparseBitmapCtxAppendNextRangeToRun(

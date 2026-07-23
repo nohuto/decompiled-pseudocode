@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteAgg @ 0x1402A1A20 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
+ *     sub_1402A1A20 @ 0x1402A1A20 (sub_1402A1A20.c)
+ *     sub_1402A2000 @ 0x1402A2000 (sub_1402A2000.c)
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
+ *     sub_1402A4E10 @ 0x1402A4E10 (sub_1402A4E10.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -61,7 +61,7 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
       v21[6] = *(_QWORD *)(a2 + 16);
       if ( *(_BYTE *)(a2 + 4) == 0xFF && *(_DWORD *)(a2 + 24) == 1 && (*(_DWORD *)(a2 + 28) & 0x44) != 0 )
       {
-        if ( (unsigned int)dword_140C038D8 > 5 && tlgKeywordOn((__int64)&dword_140C038D8, 0x400000000000LL) )
+        if ( (unsigned int)dword_140C038D8 > 5 && sub_1402A2000((__int64)&dword_140C038D8, 0x400000000000LL) )
         {
           v19 = v12;
           v23 = &v19;
@@ -78,10 +78,10 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
           v20[0] = 0x1000000LL;
           v31 = v20;
           v32 = 8LL;
-          tlgWriteAgg((__int64)&dword_140C038D8, (unsigned __int8 *)&byte_14002AADB, v10, v13 + 3, &v22);
+          sub_1402A1A20((__int64)&dword_140C038D8, (unsigned __int8 *)&byte_14002AADB, v10, v13 + 3, &v22);
         }
         LODWORD(v14) = 0;
-        v5 = FsRtlpOplockBreakByCacheFlags(
+        v5 = sub_1402A4E10(
                v6,
                (__int64)v21,
                0LL,

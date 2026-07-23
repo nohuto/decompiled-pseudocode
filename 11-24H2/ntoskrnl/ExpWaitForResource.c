@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWaitForResource @ 0x140277840
+ * XREFs of ExpWaitForResource @ 0x14022CDD0
  * Callers:
- *     ExpAcquireSharedStarveExclusive @ 0x1402744C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403E8C80 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140229A50 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403D6820 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     ExpApplyRewaitBoost @ 0x1402792D0 (ExpApplyRewaitBoost.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PerfLogExecutiveResourceWait @ 0x1404AF714 (PerfLogExecutiveResourceWait.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExpApplyRewaitBoost @ 0x14022E860 (ExpApplyRewaitBoost.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PerfLogExecutiveResourceWait @ 0x1404AA110 (PerfLogExecutiveResourceWait.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall ExpWaitForResource(_DWORD *a1, __int64 a2, unsigned int a3)
@@ -68,7 +68,7 @@ NTSTATUS __fastcall ExpWaitForResource(_DWORD *a1, __int64 a2, unsigned int a3)
         {
           v7 = 0;
           DbgPrintEx(0, 0, "Possible deadlock. Use !locks %p to determine the resource owner\n", a1);
-          Pool2 = ExAllocatePool2(0x40uLL);
+          Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x6F546552u);
           if ( Pool2 )
           {
             *(_QWORD *)(Pool2 + 16) = ExpResourceTimeoutCaptureLiveDump;

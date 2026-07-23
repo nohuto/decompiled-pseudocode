@@ -1,37 +1,37 @@
 /*
- * XREFs of MiCloneVads @ 0x140559328
+ * XREFs of MiCloneVads @ 0x140559568
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1408D9060 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D91C0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiIsVadLargePrivate @ 0x1402AD514 (MiIsVadLargePrivate.c)
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiReturnFullProcessCharges @ 0x140318370 (MiReturnFullProcessCharges.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
- *     MiFreeForkMaps @ 0x14055A934 (MiFreeForkMaps.c)
- *     MiInitializeForkMaps @ 0x14055B20C (MiInitializeForkMaps.c)
- *     MiInsertClone @ 0x14055B274 (MiInsertClone.c)
- *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
- *     MiReturnFullProcessCommitment @ 0x1406EE838 (MiReturnFullProcessCommitment.c)
- *     MiBuildNewCloneDescriptor @ 0x1408D8F04 (MiBuildNewCloneDescriptor.c)
- *     MiFreeCloneDescriptor @ 0x1408D96E8 (MiFreeCloneDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiIsVadLargePrivate @ 0x14022B870 (MiIsVadLargePrivate.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140321710 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiReturnFullProcessCharges @ 0x1403230C0 (MiReturnFullProcessCharges.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140323130 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
+ *     MiFreeForkMaps @ 0x14055AB74 (MiFreeForkMaps.c)
+ *     MiInitializeForkMaps @ 0x14055B44C (MiInitializeForkMaps.c)
+ *     MiInsertClone @ 0x14055B4B4 (MiInsertClone.c)
+ *     MiUpdateForkMaps @ 0x14055B9E0 (MiUpdateForkMaps.c)
+ *     MiReturnFullProcessCommitment @ 0x140705C18 (MiReturnFullProcessCommitment.c)
+ *     MiBuildNewCloneDescriptor @ 0x1408D9064 (MiBuildNewCloneDescriptor.c)
+ *     MiFreeCloneDescriptor @ 0x1408D9848 (MiFreeCloneDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCloneVads(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _DWORD *a6)
@@ -250,7 +250,7 @@ LABEL_90:
             v35 = (unsigned __int64)*(unsigned __int8 *)(v28 + 34) << 31;
             v78 = (__int64)Address;
             v24 = v34 | v35;
-            if ( v24 < 0x7FFFFFFFDLL && !MiIsVadLargePrivate(v28) )
+            if ( v24 < 0x7FFFFFFFDLL && !(unsigned int)MiIsVadLargePrivate(v28) )
             {
               v37 = v36 + ((v32 >> 9) & 0x7FFFFFFFF8LL);
               v38 = v36

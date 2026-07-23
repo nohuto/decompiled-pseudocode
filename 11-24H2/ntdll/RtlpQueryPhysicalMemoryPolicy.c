@@ -1,9 +1,10 @@
 /*
- * XREFs of RtlpQueryPhysicalMemoryPolicy @ 0x18011AF78
+ * XREFs of RtlpQueryPhysicalMemoryPolicy @ 0x1801191A8
  * Callers:
- *     RtlQueryResourcePolicy @ 0x1800A9730 (RtlQueryResourcePolicy.c)
+ *     RtlpCreateLowFragHeap @ 0x18000C530 (RtlpCreateLowFragHeap.c)
+ *     RtlQueryResourcePolicy @ 0x18010B000 (RtlQueryResourcePolicy.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1800AA990 (RtlGetNtProductType.c)
+ *     RtlGetNtProductType @ 0x18000BB20 (RtlGetNtProductType.c)
  */
 
 __int64 __fastcall RtlpQueryPhysicalMemoryPolicy(int *a1)
@@ -11,10 +12,10 @@ __int64 __fastcall RtlpQueryPhysicalMemoryPolicy(int *a1)
   unsigned __int64 v2; // rax
   bool v3; // cc
   int v4; // eax
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0;
-  if ( !RtlGetNtProductType(&v6) || v6 != 1 )
+  NtProductType = 0;
+  if ( !RtlGetNtProductType(&NtProductType) || NtProductType != NtProductWinNt )
     goto LABEL_6;
   v2 = MEMORY[0x7FFE0310];
   if ( !MEMORY[0x7FFE0310] )

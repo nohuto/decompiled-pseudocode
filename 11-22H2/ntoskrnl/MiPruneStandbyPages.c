@@ -91,10 +91,13 @@ __int64 __fastcall MiPruneStandbyPages(__int64 a1, unsigned int a2, unsigned int
               v19 = (unsigned __int8)MiLockPageInline(48 * v37 - 0x220000000000LL);
               MiInsertPageInFreeOrZeroedList(v37, 2);
               _InterlockedAnd64((volatile signed __int64 *)(48 * v37 - 0x220000000000LL + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 CurrentIrql = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                  && CurrentIrql <= 0xFu
+                  && (unsigned __int8)v19 <= 0xFu
+                  && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -170,10 +173,10 @@ LABEL_44:
     MiInsertPageInFreeOrZeroedList(v33, v11);
     result = 0x7FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v26 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v34 <= 0xFu
         && (unsigned __int8)result >= 2u )

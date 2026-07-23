@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpIsUtf8Process @ 0x180070CD0
+ * XREFs of RtlpIsUtf8Process @ 0x18008D5B0
  * Callers:
- *     RtlUpperChar @ 0x1800708F0 (RtlUpperChar.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180070920 (LdrpSnapKernelBaseExtensions.c)
- *     RtlUnicodeStringToOemString @ 0x1800AF9B0 (RtlUnicodeStringToOemString.c)
- *     RtlDnsHostNameToComputerName @ 0x1800D3E90 (RtlDnsHostNameToComputerName.c)
- *     RtlOemToUnicodeN @ 0x1800D4290 (RtlOemToUnicodeN.c)
- *     RtlUpcaseUnicodeToOemN @ 0x1800D4410 (RtlUpcaseUnicodeToOemN.c)
- *     RtlpDidUnicodeToOemWork @ 0x1800D4484 (RtlpDidUnicodeToOemWork.c)
- *     RtlUnicodeToOemN @ 0x1801073E0 (RtlUnicodeToOemN.c)
- *     RtlConsoleMultiByteToUnicodeN @ 0x180138650 (RtlConsoleMultiByteToUnicodeN.c)
- *     CompareNamesCaseSensitive @ 0x180138930 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x180138AD0 (ComputeNameLength.c)
- *     RtlGenerate8dot3Name @ 0x1801453D0 (RtlGenerate8dot3Name.c)
- *     RtlIsNameLegalDOS8Dot3 @ 0x1801458B0 (RtlIsNameLegalDOS8Dot3.c)
- *     RtlIsValidOemCharacter @ 0x180145A88 (RtlIsValidOemCharacter.c)
+ *     RtlUnicodeStringToOemString @ 0x18007C250 (RtlUnicodeStringToOemString.c)
+ *     RtlUpperChar @ 0x18008D1D0 (RtlUpperChar.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18008D200 (LdrpSnapKernelBaseExtensions.c)
+ *     RtlDnsHostNameToComputerName @ 0x1800CF200 (RtlDnsHostNameToComputerName.c)
+ *     RtlOemToUnicodeN @ 0x1800CF600 (RtlOemToUnicodeN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x1800CF780 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlpDidUnicodeToOemWork @ 0x1800CF7F4 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUnicodeToOemN @ 0x180102310 (RtlUnicodeToOemN.c)
+ *     RtlConsoleMultiByteToUnicodeN @ 0x180136880 (RtlConsoleMultiByteToUnicodeN.c)
+ *     CompareNamesCaseSensitive @ 0x180136B60 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x180136D00 (ComputeNameLength.c)
+ *     RtlGenerate8dot3Name @ 0x180143780 (RtlGenerate8dot3Name.c)
+ *     RtlIsNameLegalDOS8Dot3 @ 0x180143C60 (RtlIsNameLegalDOS8Dot3.c)
+ *     RtlIsValidOemCharacter @ 0x180143E38 (RtlIsValidOemCharacter.c)
  * Callees:
  *     <none>
  */
 
-bool RtlpIsUtf8Process()
+bool __fastcall RtlpIsUtf8Process()
 {
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   _InterlockedOr((volatile signed __int32 *)&retaddr, 0);
-  return GlobalRtlNlsState == -535 || word_1801CCFD0 == -535;
+  return GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9;
 }

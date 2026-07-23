@@ -1,13 +1,13 @@
 /*
- * XREFs of ViCheckPadding @ 0x140B88474
+ * XREFs of ViCheckPadding @ 0x140B8A474
  * Callers:
- *     ViFreeMapRegisterFile @ 0x140B88B9C (ViFreeMapRegisterFile.c)
- *     ViSpecialFreeCommonBuffer @ 0x140B89D3C (ViSpecialFreeCommonBuffer.c)
+ *     ViFreeMapRegisterFile @ 0x140B8AB9C (ViFreeMapRegisterFile.c)
+ *     ViSpecialFreeCommonBuffer @ 0x140B8BD3C (ViSpecialFreeCommonBuffer.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     ViCheckTag @ 0x140B88624 (ViCheckTag.c)
- *     ViHalPreprocessOptions @ 0x140B8921C (ViHalPreprocessOptions.c)
- *     ViHasBufferBeenTouched @ 0x140B89370 (ViHasBufferBeenTouched.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     ViCheckTag @ 0x140B8A624 (ViCheckTag.c)
+ *     ViHalPreprocessOptions @ 0x140B8B21C (ViHalPreprocessOptions.c)
+ *     ViHasBufferBeenTouched @ 0x140B8B370 (ViHasBufferBeenTouched.c)
  */
 
 void __fastcall ViCheckPadding(__int64 a1, unsigned int a2, ULONG_PTR a3, unsigned int a4)
@@ -38,21 +38,21 @@ void __fastcall ViCheckPadding(__int64 a1, unsigned int a2, ULONG_PTR a3, unsign
       if ( HasBufferBeenTouched )
       {
         ViHalPreprocessOptions(
-          byte_140E0E98C,
+          byte_140E0EA28,
           "Padding before allocation at %p has been illegally modified at %p.",
           (const void *)0x1000000F,
           (const void *)4);
-        VfReportIssueWithOptions(0xE6u, 0xFuLL, 4uLL, a3, HasBufferBeenTouched, byte_140E0E98C);
+        VfReportIssueWithOptions(0xE6u, 0xFuLL, 4uLL, a3, HasBufferBeenTouched, byte_140E0EA28);
       }
       v11 = ViHasBufferBeenTouched(v7, v8);
       if ( v11 )
       {
         ViHalPreprocessOptions(
-          byte_140E0E90C,
+          byte_140E0EA2C,
           "Padding after allocation at %p has been illegally modified at %p.",
           (const void *)0x1000000F,
           (const void *)5);
-        VfReportIssueWithOptions(0xE6u, 0xFuLL, 5uLL, a3, v11, byte_140E0E90C);
+        VfReportIssueWithOptions(0xE6u, 0xFuLL, 5uLL, a3, v11, byte_140E0EA2C);
       }
     }
     else
@@ -61,10 +61,10 @@ void __fastcall ViCheckPadding(__int64 a1, unsigned int a2, ULONG_PTR a3, unsign
       if ( v6 )
       {
         ViHalPreprocessOptions(
-          &dword_140E0E990,
+          &dword_140E0EA34,
           "Verified driver or hardware has corrupted memory at %p.",
           (const void *)0x1000000F);
-        VfReportIssueWithOptions(0xE6u, 0xFuLL, 3uLL, v6, 0LL, &dword_140E0E990);
+        VfReportIssueWithOptions(0xE6u, 0xFuLL, 3uLL, v6, 0LL, &dword_140E0EA34);
       }
     }
   }

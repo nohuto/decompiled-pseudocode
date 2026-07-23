@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetBugCheckProgressFlag @ 0x1401C62E0
+ * XREFs of IoSetBugCheckProgressFlag @ 0x1401C6180
  * Callers:
- *     IoWriteCrashDump @ 0x1401C65BC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x1401C645C (IoWriteCrashDump.c)
  * Callees:
- *     KeFrozenProcessorCount @ 0x1401D7C08 (KeFrozenProcessorCount.c)
+ *     KeFrozenProcessorCount @ 0x1401D7A34 (KeFrozenProcessorCount.c)
  */
 
 __int64 __fastcall IoSetBugCheckProgressFlag(int a1)

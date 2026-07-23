@@ -1,8 +1,8 @@
 /*
- * XREFs of KiTryScheduleNextForegroundBoost @ 0x1400F2E64
+ * XREFs of KiTryScheduleNextForegroundBoost @ 0x1400F0CB4
  * Callers:
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
  * Callees:
  *     <none>
  */

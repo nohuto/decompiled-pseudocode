@@ -1,17 +1,17 @@
 /*
- * XREFs of SepAcquireOrderedReadLocks @ 0x140343E00
+ * XREFs of SepAcquireOrderedReadLocks @ 0x1403232E0
  * Callers:
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
- *     SeCompareTokens @ 0x140A235A8 (SeCompareTokens.c)
- *     SepIsSiblingTokenByPointer @ 0x140A318CC (SepIsSiblingTokenByPointer.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
+ *     SeCompareTokens @ 0x140A179B8 (SeCompareTokens.c)
+ *     SepIsSiblingTokenByPointer @ 0x140A25848 (SepIsSiblingTokenByPointer.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     ExIsFastResourceHeldExclusive @ 0x1403436B0 (ExIsFastResourceHeldExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140343DB0 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExIsFastResourceHeldExclusive @ 0x140322B90 (ExIsFastResourceHeldExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140323290 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAcquireOrderedReadLocks(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)

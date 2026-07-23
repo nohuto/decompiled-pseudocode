@@ -9,23 +9,26 @@
  *     _RtlAllocateMemoryBlockLookaside@12 @ 0x4B3A2010 (_RtlAllocateMemoryBlockLookaside@12.c)
  */
 
-void __stdcall RtlpInitializeStackTraceLog()
+void __usercall RtlpInitializeStackTraceLog(int a1@<edi>)
 {
-  int v0; // edi
-  _DWORD *v1; // esi
-  void *v2; // [esp+0h] [ebp-8h] BYREF
-  int v3; // [esp+4h] [ebp-4h] BYREF
+  PVOID v1; // edi
+  _DWORD *v2; // esi
+  size_t v3; // [esp-Ch] [ebp-14h]
+  PVOID Block; // [esp+0h] [ebp-8h] BYREF
+  PVOID MemoryBlockLookaside; // [esp+4h] [ebp-4h] BYREF
 
-  if ( !RtlpHeapStackTraceLog && RtlCreateMemoryBlockLookaside(&v3, 0, 0x10000u, 0xCu, 0xC90u) >= 0 )
+  if ( !RtlpHeapStackTraceLog && RtlCreateMemoryBlockLookaside(&MemoryBlockLookaside, 0, 0x10000u, 0xCu, 0xC90u) >= 0 )
   {
-    v0 = v3;
-    if ( (int)RtlAllocateMemoryBlockLookaside(v3, 3216, &v2) < 0
-      || (v1 = v2,
-          memset(v2, 0, 0xC90u),
-          *v1 = v0,
-          _InterlockedCompareExchange(&RtlpHeapStackTraceLog, (signed __int32)v1, 0)) )
+    HIDWORD(v3) = a1;
+    v1 = MemoryBlockLookaside;
+    if ( RtlAllocateMemoryBlockLookaside(MemoryBlockLookaside, 0xC90u, &Block) < 0
+      || (LODWORD(v3) = 3216,
+          v2 = Block,
+          memset(Block, 0, v3),
+          *v2 = v1,
+          _InterlockedCompareExchange(&RtlpHeapStackTraceLog, (signed __int32)v2, 0)) )
     {
-      RtlDestroyMemoryBlockLookaside(v0);
+      RtlDestroyMemoryBlockLookaside(v1);
     }
   }
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpReport @ 0x1404D5270
+ * XREFs of KdpReport @ 0x1404CE548
  * Callers:
- *     KdpTrap @ 0x140B752B8 (KdpTrap.c)
+ *     KdpTrap @ 0x140B772B8 (KdpTrap.c)
  * Callees:
- *     KiRestoreProcessorControlState @ 0x1406AA140 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x1406AA210 (KiSaveProcessorControlState.c)
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
- *     KdpCopyContext @ 0x140B751E8 (KdpCopyContext.c)
- *     KdpReportExceptionStateChange @ 0x140B7A1E0 (KdpReportExceptionStateChange.c)
- *     KdEnterDebugger @ 0x140B7A96C (KdEnterDebugger.c)
+ *     KiRestoreProcessorControlState @ 0x1406AB0E0 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1406AB1B0 (KiSaveProcessorControlState.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
+ *     KdpCopyContext @ 0x140B771E8 (KdpCopyContext.c)
+ *     KdpReportExceptionStateChange @ 0x140B7C1E0 (KdpReportExceptionStateChange.c)
+ *     KdEnterDebugger @ 0x140B7C96C (KdEnterDebugger.c)
  */
 
 char __fastcall KdpReport(__int64 a1, __int64 a2, int *a3, __int64 a4, int a5, char a6)

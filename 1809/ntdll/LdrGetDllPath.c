@@ -6,7 +6,7 @@
  *     LdrpGetDllPath @ 0x180054338 (LdrpGetDllPath.c)
  */
 
-__int64 __fastcall LdrGetDllPath(const WCHAR *a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl LdrGetDllPath(PCWSTR DllName, ULONG Flags, PWSTR *DllPath, PWSTR *SearchPaths)
 {
-  return LdrpGetDllPath(a1, 0LL, 0LL, a4);
+  return LdrpGetDllPath(DllName, 0LL, 0LL, (__int64)SearchPaths);
 }

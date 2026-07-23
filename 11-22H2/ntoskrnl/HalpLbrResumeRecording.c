@@ -26,7 +26,7 @@ unsigned __int64 __fastcall HalpLbrResumeRecording(char a1)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 15 )
@@ -45,10 +45,10 @@ unsigned __int64 __fastcall HalpLbrResumeRecording(char a1)
       __writemsr(0x1D9u, v5 | 0x800);
       if ( HalpArchLbrSupported )
         __writemsr(0x14CEu, (unsigned int)HalpLbrCtlFlags | 1LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v6 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v8 = CurrentPrcb->SchedulerAssist;

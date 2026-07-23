@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateBootResources @ 0x140816C90
+ * XREFs of IopAllocateBootResources @ 0x140816F60
  * Callers:
  *     IopAllocateLegacyBootResources @ 0x140B3A148 (IopAllocateLegacyBootResources.c)
  *     IopReportBootResources @ 0x140B40AC0 (IopReportBootResources.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x140321430 (KeReleaseSemaphore.c)
- *     IopAllocateBootResourcesInternal @ 0x140816D18 (IopAllocateBootResourcesInternal.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphore @ 0x1403216C0 (KeReleaseSemaphore.c)
+ *     IopAllocateBootResourcesInternal @ 0x140816FE8 (IopAllocateBootResourcesInternal.c)
  */
 
 __int64 __fastcall IopAllocateBootResources(unsigned int a1, __int64 a2)

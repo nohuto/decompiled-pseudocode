@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAddMdlTracker @ 0x14061C4EC
+ * XREFs of MiAddMdlTracker @ 0x14061CA3C
  * Callers:
- *     MiProbeAndLockComplete @ 0x140238870 (MiProbeAndLockComplete.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
+ *     MiProbeAndLockComplete @ 0x140238940 (MiProbeAndLockComplete.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetInstructionPointer @ 0x140617BC0 (MiGetInstructionPointer.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BD90 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiGetInstructionPointer @ 0x140618110 (MiGetInstructionPointer.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067C2E0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
  */
 
 unsigned __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
@@ -102,10 +102,10 @@ unsigned __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int6
           *(_QWORD *)(v8 + 16) += a2;
           result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             result = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
               && (unsigned __int8)result <= 0xFu
               && LockHandle.OldIrql <= 0xFu
               && (unsigned __int8)result >= 2u )

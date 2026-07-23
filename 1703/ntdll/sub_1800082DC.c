@@ -6,9 +6,9 @@
  *     sub_180008378 @ 0x180008378 (sub_180008378.c)
  */
 
-PSLIST_ENTRY __fastcall sub_1800082DC(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall sub_1800082DC(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v2; // rdi
+  _SLIST_HEADER *v2; // rdi
   __int64 v3; // rbp
   ULONGLONG Alignment; // rsi
   __int64 v6; // r14
@@ -35,7 +35,7 @@ PSLIST_ENTRY __fastcall sub_1800082DC(union _SLIST_HEADER *a1)
       }
       sub_180008378(a1, Alignment);
     }
-    v2 = (union _SLIST_HEADER *)((char *)v2 + 8);
+    v2 = (_SLIST_HEADER *)((char *)v2 + 8);
     --v3;
   }
   while ( v3 );

@@ -1,16 +1,16 @@
 /*
- * XREFs of SepBuildObjectSecurityDescriptor @ 0x140694AD0
+ * XREFs of SepBuildObjectSecurityDescriptor @ 0x140694BB4
  * Callers:
- *     SeAdjustObjectAppContainerSecurity @ 0x14069479C (SeAdjustObjectAppContainerSecurity.c)
+ *     SeAdjustObjectAppContainerSecurity @ 0x140694880 (SeAdjustObjectAppContainerSecurity.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     RtlMakeSelfRelativeSD @ 0x1404D6AEC (RtlMakeSelfRelativeSD.c)
- *     SepBuildDaclWithAllApplicationPackageSid @ 0x14069492C (SepBuildDaclWithAllApplicationPackageSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlMakeSelfRelativeSD @ 0x1404BA0F0 (RtlMakeSelfRelativeSD.c)
+ *     SepBuildDaclWithAllApplicationPackageSid @ 0x140694A10 (SepBuildDaclWithAllApplicationPackageSid.c)
  */
 
 NTSTATUS __fastcall SepBuildObjectSecurityDescriptor(__int64 a1, unsigned __int8 *a2, char a3, _QWORD *a4)

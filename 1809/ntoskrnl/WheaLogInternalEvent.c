@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaLogInternalEvent @ 0x14017D360
+ * XREFs of WheaLogInternalEvent @ 0x14017D4A0
  * Callers:
- *     WheapLogInitEvent @ 0x140727EA4 (WheapLogInitEvent.c)
+ *     WheapLogInitEvent @ 0x140729144 (WheapLogInitEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WheaLogInternalEvent(__int64 a1)

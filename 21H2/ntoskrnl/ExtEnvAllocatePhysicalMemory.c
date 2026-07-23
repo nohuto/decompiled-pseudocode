@@ -1,18 +1,18 @@
 /*
- * XREFs of ExtEnvAllocatePhysicalMemory @ 0x1404D5140
+ * XREFs of ExtEnvAllocatePhysicalMemory @ 0x1404D5380
  * Callers:
- *     IvtAllocateContextTable @ 0x1404DF350 (IvtAllocateContextTable.c)
- *     HsaAllocateRemappingTableEntry @ 0x1404E20C0 (HsaAllocateRemappingTableEntry.c)
+ *     IvtAllocateContextTable @ 0x1404DF590 (IvtAllocateContextTable.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E2300 (HsaAllocateRemappingTableEntry.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF7A0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     MmFreeContiguousMemory @ 0x140217BE0 (MmFreeContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalMapIoSpace @ 0x1403AD060 (HalMapIoSpace.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF910 (MmAllocateContiguousMemorySpecifyCacheNode.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpAllocPhysicalMemory @ 0x140A64AC0 (HalpAllocPhysicalMemory.c)
+ *     HalpAllocPhysicalMemory @ 0x140A65AC0 (HalpAllocPhysicalMemory.c)
  */
 
 __int64 __fastcall ExtEnvAllocatePhysicalMemory(
@@ -107,13 +107,13 @@ LABEL_13:
   *(_QWORD *)(v22 + 40) = v17;
   *(_DWORD *)(v22 + 48) = CacheType;
   v23 = KeAcquireSpinLockRaiseToDpc(&ExtEnvAllocationLock);
-  v24 = (__int64 *)qword_140C48E28;
-  if ( *(__int64 **)qword_140C48E28 != &ExtEnvAllocationList )
+  v24 = (__int64 *)qword_140C48E68;
+  if ( *(__int64 **)qword_140C48E68 != &ExtEnvAllocationList )
     __fastfail(3u);
   *(_QWORD *)v22 = &ExtEnvAllocationList;
   *(_QWORD *)(v22 + 8) = v24;
   *v24 = v22;
-  qword_140C48E28 = v22;
+  qword_140C48E68 = v22;
   KxReleaseSpinLock(&ExtEnvAllocationLock);
   if ( KiIrqlFlags )
   {

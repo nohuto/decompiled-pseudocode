@@ -1,23 +1,28 @@
 /*
- * XREFs of RtlpDetachThreadFromUmsCompletionList @ 0x1800F7828
+ * XREFs of RtlpDetachThreadFromUmsCompletionList @ 0x1800F77E8
  * Callers:
- *     RtlEnterUmsSchedulingMode @ 0x1800F7280 (RtlEnterUmsSchedulingMode.c)
+ *     RtlEnterUmsSchedulingMode @ 0x1800F7240 (RtlEnterUmsSchedulingMode.c)
  * Callees:
- *     NtSetInformationThread @ 0x18009D7E0 (NtSetInformationThread.c)
- *     RtlDeleteUmsThreadContext @ 0x1800F7190 (RtlDeleteUmsThreadContext.c)
+ *     NtSetInformationThread @ 0x18009D7A0 (NtSetInformationThread.c)
+ *     RtlDeleteUmsThreadContext @ 0x1800F7150 (RtlDeleteUmsThreadContext.c)
  */
 
-__int64 RtlpDetachThreadFromUmsCompletionList()
+NTSTATUS RtlpDetachThreadFromUmsCompletionList()
 {
   struct _TEB *v0; // rbx
-  __int64 result; // rax
-  __int64 v2; // rcx
+  NTSTATUS result; // eax
+  void *v2; // rcx
+  __int128 ThreadInformation; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v4; // [rsp+30h] [rbp-18h]
 
   v0 = NtCurrentTeb();
-  result = NtSetInformationThread();
-  if ( (int)result >= 0 )
+  ThreadInformation = 0LL;
+  v4 = 0LL;
+  LODWORD(ThreadInformation) = 2;
+  result = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUmsInformation, &ThreadInformation, 0x18u);
+  if ( result >= 0 )
   {
-    v2 = (__int64)v0->TlsSlots[4];
+    v2 = v0->TlsSlots[4];
     v0->TlsSlots[4] = 0LL;
     return RtlDeleteUmsThreadContext(v2);
   }

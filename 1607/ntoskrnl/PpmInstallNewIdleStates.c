@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmInstallNewIdleStates @ 0x1401456F8
+ * XREFs of PpmInstallNewIdleStates @ 0x140145C68
  * Callers:
- *     PpmIdleInstallDefaultStates @ 0x1401456E8 (PpmIdleInstallDefaultStates.c)
+ *     PpmIdleInstallDefaultStates @ 0x140145C58 (PpmIdleInstallDefaultStates.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     PpmDeepestHardwareIdleState @ 0x140145C1C (PpmDeepestHardwareIdleState.c)
- *     PpmResetIdlePolicy @ 0x140145C54 (PpmResetIdlePolicy.c)
- *     PpmUpdateProcessorIdleAccounting @ 0x140145DC4 (PpmUpdateProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     PpmDeepestHardwareIdleState @ 0x14014618C (PpmDeepestHardwareIdleState.c)
+ *     PpmResetIdlePolicy @ 0x1401461C4 (PpmResetIdlePolicy.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x140146334 (PpmUpdateProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

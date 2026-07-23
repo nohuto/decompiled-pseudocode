@@ -8,15 +8,15 @@
 
 errno_t __cdecl _strset_s(char *Destination, size_t DestinationSize, int Value)
 {
-  size_t v3; // eax
+  int v3; // eax
   char *i; // edx
 
   if ( Destination )
   {
     v3 = DestinationSize;
-    if ( DestinationSize )
+    if ( (_DWORD)DestinationSize )
     {
-      for ( i = Destination; *i; *i++ = Value )
+      for ( i = Destination; *i; *i++ = BYTE4(DestinationSize) )
       {
         if ( !--v3 )
           break;

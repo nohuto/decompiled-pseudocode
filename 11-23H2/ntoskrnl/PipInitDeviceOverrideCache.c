@@ -3,13 +3,13 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     RtlHashUnicodeString @ 0x1406D9430 (RtlHashUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x140811070 (IopOpenRegistryKeyEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     RtlHashUnicodeString @ 0x1406D9460 (RtlHashUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x140811340 (IopOpenRegistryKeyEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -61,7 +61,7 @@ LABEL_17:
     goto LABEL_18;
   }
   v2 = 0;
-  v3 = qword_1400200D0;
+  v3 = qword_140020150;
   while ( HIDWORD(KeyInformation_8[2]) >= 3 * *(_DWORD *)v3 )
   {
     ++v2;

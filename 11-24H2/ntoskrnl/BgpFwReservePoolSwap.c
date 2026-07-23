@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFwReservePoolSwap @ 0x140BB1828
+ * XREFs of BgpFwReservePoolSwap @ 0x140BB3828
  * Callers:
- *     ResFwFreeContext @ 0x140BB34C4 (ResFwFreeContext.c)
- *     BgpFwLibraryInitialize @ 0x140BB5400 (BgpFwLibraryInitialize.c)
+ *     ResFwFreeContext @ 0x140BB54C4 (ResFwFreeContext.c)
+ *     BgpFwLibraryInitialize @ 0x140BB7400 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwInitializeReservePool @ 0x140BB1634 (BgpFwInitializeReservePool.c)
+ *     BgpFwInitializeReservePool @ 0x140BB3634 (BgpFwInitializeReservePool.c)
  */
 
 void __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, unsigned int *a4)
@@ -13,16 +13,16 @@ void __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, unsign
   {
     if ( a1 == 1 )
     {
-      qword_140E64E00 = qword_140E64E08;
-      *(_QWORD *)&qword_140E3ED30 = qword_140E3ED28;
-      BitMapHeader = (RTL_BITMAP)xmmword_140E64E28;
+      qword_140E623C8 = qword_140E64F90;
+      *(_QWORD *)&qword_140E3EE74 = qword_140E3EE6C;
+      BitMapHeader = (_RTL_BITMAP)xmmword_140E64FB0;
     }
   }
   else
   {
-    qword_140E3ED28 = *(_QWORD *)&qword_140E3ED30;
-    qword_140E64E08 = qword_140E64E00;
-    xmmword_140E64E28 = (__int128)BitMapHeader;
+    qword_140E3EE6C = *(_QWORD *)&qword_140E3EE74;
+    qword_140E64F90 = qword_140E623C8;
+    xmmword_140E64FB0 = (__int128)BitMapHeader;
     BgpFwInitializeReservePool(a2, a3, a4);
   }
 }

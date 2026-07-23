@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpReferenceCurrentBuffer @ 0x140218A90
+ * XREFs of EtwpReferenceCurrentBuffer @ 0x140218DC0
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x140219C44 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140219CD0 (EtwpLockBufferList.c)
+ *     EtwpUnlockBufferList @ 0x14021A2DC (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14021B348 (EtwpLockBufferList.c)
  */
 
 unsigned __int64 __fastcall EtwpReferenceCurrentBuffer(__int64 a1, signed __int64 *a2)

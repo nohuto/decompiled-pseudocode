@@ -13,7 +13,7 @@ __int64 __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2
 {
   struct _EX_RUNDOWN_REF *v2; // rdi
   unsigned __int64 ExtensionTable; // rbx
-  __int64 v5; // [rsp+68h] [rbp+20h] BYREF
+  __int64 Buffer; // [rsp+68h] [rbp+20h] BYREF
 
   if ( a1 == 1 )
   {
@@ -31,8 +31,8 @@ __int64 __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2
           if ( *(_QWORD *)(ExtensionTable + 128) )
           {
             guard_dispatch_icall_no_overrides(ExWnfCrossVmCallback);
-            v5 = qword_140EF6B78;
-            if ( (int)ZwUpdateWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, (__int64)&v5) >= 0 )
+            Buffer = qword_140EF6B78;
+            if ( ZwUpdateWnfStateData(&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, &Buffer, 8u, 0LL, 0LL, 0, 0) >= 0 )
               byte_140EF6CFB = 1;
           }
         }

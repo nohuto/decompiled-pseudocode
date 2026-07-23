@@ -6,7 +6,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtUnloadKey(int a1)
+NTSTATUS __cdecl NtUnloadKey(POBJECT_ATTRIBUTES TargetKey)
 {
   return Wow64SystemServiceCall();
 }

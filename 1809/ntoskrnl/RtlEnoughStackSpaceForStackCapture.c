@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlEnoughStackSpaceForStackCapture @ 0x1400CCC70
+ * XREFs of RtlEnoughStackSpaceForStackCapture @ 0x1400CCCF0
  * Callers:
- *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
- *     IovpLogStackTrace @ 0x140924998 (IovpLogStackTrace.c)
- *     ViPoolLogStackTrace @ 0x140938198 (ViPoolLogStackTrace.c)
+ *     RtlWalkFrameChain @ 0x1400CCC50 (RtlWalkFrameChain.c)
+ *     IovpLogStackTrace @ 0x140925998 (IovpLogStackTrace.c)
+ *     ViPoolLogStackTrace @ 0x140939198 (ViPoolLogStackTrace.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
+ *     RtlpGetStackLimits @ 0x1400CAC00 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC400 (KeGetCurrentStackPointer.c)
  */
 
 __int64 RtlEnoughStackSpaceForStackCapture()

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxFindDeviceAndAllocateUniqueId @ 0x140B1C46C
+ * XREFs of PopFxFindDeviceAndAllocateUniqueId @ 0x140B1E67C
  * Callers:
- *     PoFxPrepareDevice @ 0x1404A1864 (PoFxPrepareDevice.c)
+ *     PoFxPrepareDevice @ 0x14049B394 (PoFxPrepareDevice.c)
  * Callees:
- *     PopFxQueryBiosDeviceName @ 0x1404E2CAC (PopFxQueryBiosDeviceName.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404FA998 (PopFxFindAcpiDeviceByUniqueId.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopFxQueryBiosDeviceName @ 0x1404DC320 (PopFxQueryBiosDeviceName.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404F3FA8 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxFindDeviceAndAllocateUniqueId(__int64 a1, _QWORD *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PopFxFindDeviceAndAllocateUniqueId(__int64 a1, _QWORD *a2)
   unsigned int v7; // ebx
   int AcpiDeviceByUniqueId; // eax
   UNICODE_STRING P; // [rsp+20h] [rbp-18h] BYREF
-  __int64 *v11; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 *v11; // [rsp+48h] [rbp+10h] BYREF
 
   v11 = 0LL;
   P = 0LL;

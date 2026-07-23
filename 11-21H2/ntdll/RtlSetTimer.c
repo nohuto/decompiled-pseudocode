@@ -7,14 +7,14 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlSetTimer(
-        __int64 a1,
-        _QWORD *a2,
-        __int64 a3,
-        __int64 a4,
-        unsigned int a5,
-        int a6,
-        unsigned int a7)
+NTSTATUS __cdecl RtlSetTimer(
+        HANDLE TimerQueueHandle,
+        PHANDLE Handle,
+        WAITORTIMERCALLBACKFUNC Function,
+        PVOID Context,
+        ULONG DueTime,
+        ULONG Period,
+        ULONG Flags)
 {
-  return RtlCreateTimer(a1, a2, a3, a4, a5, a6, a7);
+  return RtlCreateTimer(TimerQueueHandle, Handle, Function, Context, DueTime, Period, Flags);
 }

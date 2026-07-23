@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAddBinaryInfoEvents @ 0x1406A6618
+ * XREFs of EtwpAddBinaryInfoEvents @ 0x1406A6750
  * Callers:
- *     EtwpFinalizeHeader @ 0x140492C74 (EtwpFinalizeHeader.c)
- *     EtwpAddLogHeader @ 0x140493E48 (EtwpAddLogHeader.c)
+ *     EtwpFinalizeHeader @ 0x140493704 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x1404948D8 (EtwpAddLogHeader.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwpAddEventToBuffer @ 0x140493004 (EtwpAddEventToBuffer.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwpAddEventToBuffer @ 0x140493A94 (EtwpAddEventToBuffer.c)
  */
 
 __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3)

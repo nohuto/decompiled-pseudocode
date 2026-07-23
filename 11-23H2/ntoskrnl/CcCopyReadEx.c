@@ -1,20 +1,20 @@
 /*
- * XREFs of CcCopyReadEx @ 0x140261D60
+ * XREFs of CcCopyReadEx @ 0x140261FF0
  * Callers:
- *     CcCopyRead @ 0x1407E8540 (CcCopyRead.c)
- *     CcFastCopyRead @ 0x140936B20 (CcFastCopyRead.c)
- *     FsRtlCopyRead @ 0x14093CD60 (FsRtlCopyRead.c)
+ *     CcCopyRead @ 0x1407E8810 (CcCopyRead.c)
+ *     CcFastCopyRead @ 0x140936D20 (CcFastCopyRead.c)
+ *     FsRtlCopyRead @ 0x14093CF60 (FsRtlCopyRead.c)
  * Callees:
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402C0F30 (IoReferenceIoAttributionFromThread.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     CcScheduleReadAheadNuma @ 0x140328FBC (CcScheduleReadAheadNuma.c)
- *     CcUpdateSharedCacheMapFlag @ 0x14034C334 (CcUpdateSharedCacheMapFlag.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CcTelemetryBucketizeLatency @ 0x1406F5AB0 (CcTelemetryBucketizeLatency.c)
- *     CcMapAndCopyFromCache @ 0x1406F5C10 (CcMapAndCopyFromCache.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140875774 (CcSetTelemetryPeriodicTimer.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1402C11C0 (IoReferenceIoAttributionFromThread.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     CcScheduleReadAheadNuma @ 0x14032924C (CcScheduleReadAheadNuma.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x14034C4D4 (CcUpdateSharedCacheMapFlag.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcTelemetryBucketizeLatency @ 0x1406F5CC0 (CcTelemetryBucketizeLatency.c)
+ *     CcMapAndCopyFromCache @ 0x1406F5E20 (CcMapAndCopyFromCache.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x1408759B4 (CcSetTelemetryPeriodicTimer.c)
  */
 
 __int64 __fastcall CcCopyReadEx(
@@ -86,7 +86,7 @@ __int64 __fastcall CcCopyReadEx(
   if ( *a2 + (unsigned int)a3 > *(_QWORD *)(v13 + 8) )
     KeBugCheckEx(0x34u, 0x299uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( !a5 )
-    RtlRaiseStatus(3221225704LL);
+    RtlRaiseStatus(-1073741592);
   v15 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] % (unsigned int)CcNumberNumaNodes;
   if ( CcEnablePerVolumeLazyWriter )
   {

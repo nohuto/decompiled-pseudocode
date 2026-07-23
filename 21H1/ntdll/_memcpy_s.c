@@ -14,29 +14,34 @@ errno_t __cdecl memcpy_s(
         const void *const Source,
         const rsize_t SourceSize)
 {
-  errno_t v5; // [esp-Ch] [ebp-10h]
+  int v4; // edi
+  size_t v6; // [esp-Ch] [ebp-10h]
+  errno_t v7; // [esp-Ch] [ebp-10h]
 
-  if ( !SourceSize )
+  if ( !Source )
     return 0;
+  HIDWORD(v6) = v4;
   if ( !Destination )
     goto LABEL_11;
-  if ( Source && DestinationSize >= SourceSize )
+  if ( HIDWORD(DestinationSize) && (unsigned int)DestinationSize >= (unsigned int)Source )
   {
-    memcpy(Destination, Source, SourceSize);
+    LODWORD(v6) = Source;
+    memcpy(Destination, (const void *)HIDWORD(DestinationSize), v6);
     return 0;
   }
-  memset(Destination, 0, DestinationSize);
-  if ( Source )
+  LODWORD(v6) = DestinationSize;
+  memset(Destination, 0, v6);
+  if ( HIDWORD(DestinationSize) )
   {
-    if ( DestinationSize >= SourceSize )
+    if ( (unsigned int)DestinationSize >= (unsigned int)Source )
       return 22;
-    v5 = 34;
+    v7 = 34;
   }
   else
   {
 LABEL_11:
-    v5 = 22;
+    v7 = 22;
   }
   _invalid_parameter();
-  return v5;
+  return v7;
 }

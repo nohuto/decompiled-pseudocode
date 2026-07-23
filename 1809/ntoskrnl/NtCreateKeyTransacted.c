@@ -1,30 +1,30 @@
 /*
- * XREFs of NtCreateKeyTransacted @ 0x140693C70
+ * XREFs of NtCreateKeyTransacted @ 0x140694E30
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmCreateKey @ 0x1405B5A60 (CmCreateKey.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmCreateKey @ 0x1405B6A60 (CmCreateKey.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CmpTransDereferenceTransaction @ 0x140695254 (CmpTransDereferenceTransaction.c)
  */
 
-__int64 __fastcall NtCreateKeyTransacted(
-        HANDLE *a1,
-        int a2,
-        ULONG_PTR a3,
-        __int64 a4,
-        __int128 *a5,
-        int a6,
-        HANDLE Handle,
-        _DWORD *a8)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   struct _KTHREAD *CurrentThread; // r9
-  int Key; // edi
+  NTSTATUS Key; // edi
   NTSTATUS v13; // eax
   __int64 v14; // r9
   __int64 v15; // rbx
@@ -43,7 +43,7 @@ __int64 __fastcall NtCreateKeyTransacted(
     goto LABEL_12;
   }
   v13 = ObReferenceObjectByHandle(
-          Handle,
+          TransactionHandle,
           4u,
           CmRegistryTransactionType,
           KeGetCurrentThread()->PreviousMode,
@@ -54,7 +54,7 @@ __int64 __fastcall NtCreateKeyTransacted(
   if ( v13 == -1073741788 )
   {
     v16 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -69,7 +69,15 @@ __int64 __fastcall NtCreateKeyTransacted(
     v15 = (unsigned __int64)Object | 1;
 LABEL_7:
     if ( Key >= 0 )
-      Key = CmCreateKey(a1, a2, a3, v14, a5, a6, a8, v15);
+      Key = CmCreateKey(
+              KeyHandle,
+              DesiredAccess,
+              (ULONG_PTR)ObjectAttributes,
+              v14,
+              (__int128 *)Class,
+              CreateOptions,
+              Disposition,
+              v15);
   }
   if ( v15 )
     CmpTransDereferenceTransaction(v15);
@@ -77,5 +85,5 @@ LABEL_7:
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
 LABEL_12:
   CmCleanupThreadInfo(v20);
-  return (unsigned int)Key;
+  return Key;
 }

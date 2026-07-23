@@ -13,8 +13,8 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
         void (__fastcall **a3)(volatile signed __int64 *a1, ULONG_PTR a2))
 {
   unsigned int v3; // ebx
-  unsigned __int64 v5; // rdi
-  unsigned __int64 v6; // rax
+  __int64 v5; // rdi
+  __int64 v6; // rax
 
   v3 = 0;
   v5 = 0LL;
@@ -33,7 +33,7 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
   {
     BugCheckParameter2 = &PfGlobals;
   }
-  v6 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
   v5 = v6;
   if ( v6 )
   {

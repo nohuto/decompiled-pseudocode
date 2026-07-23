@@ -1,15 +1,15 @@
 /*
- * XREFs of VrpHandleIoctlGetVirtualRootKey @ 0x140808B0C
+ * XREFs of VrpHandleIoctlGetVirtualRootKey @ 0x140809D0C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140808EC0 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     PsGetJobSilo @ 0x1402EA120 (PsGetJobSilo.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsIsThreadInSilo @ 0x1400CC350 (PsIsThreadInSilo.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     PsGetJobSilo @ 0x1402EA310 (PsGetJobSilo.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlGetVirtualRootKey(

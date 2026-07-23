@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageCalibrateDpc @ 0x140711360
+ * XREFs of MiZeroPageCalibrateDpc @ 0x140716060
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiPerformTimedMemoryZeroing @ 0x14051ED50 (MiPerformTimedMemoryZeroing.c)
- *     MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x1407107F4 (MiInitializeZeroEngineCurrentPassDpcAffinity.c)
- *     MiWakeAllZeroCalibrationProcessors @ 0x140710BE8 (MiWakeAllZeroCalibrationProcessors.c)
- *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140710C20 (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
- *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x140711588 (MiZeroPageCalibrateLastDpcProcessorDone.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiPerformTimedMemoryZeroing @ 0x1405213F4 (MiPerformTimedMemoryZeroing.c)
+ *     MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x1407154F0 (MiInitializeZeroEngineCurrentPassDpcAffinity.c)
+ *     MiWakeAllZeroCalibrationProcessors @ 0x1407158E4 (MiWakeAllZeroCalibrationProcessors.c)
+ *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14071591C (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
+ *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x140716288 (MiZeroPageCalibrateLastDpcProcessorDone.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiZeroPageCalibrateDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3)

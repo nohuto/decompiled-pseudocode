@@ -78,7 +78,7 @@ LABEL_11:
       }
       v12 = 128;
       v28 = (int)EtwpCheckGuidAccess(&PrivateLoggerSecurityGuid, 128LL, 0LL) < 0;
-      *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+      *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
     }
     else
     {

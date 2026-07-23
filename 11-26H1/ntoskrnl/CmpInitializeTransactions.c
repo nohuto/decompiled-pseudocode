@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpInitializeTransactions @ 0x140CEDFDC
+ * XREFs of CmpInitializeTransactions @ 0x140CF4358
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
  */
 
 __int64 *CmpInitializeTransactions()
 {
   unsigned __int64 v0; // rax
   __int64 v1; // r8
-  __int64 v2; // r10
+  struct _LIST_ENTRY *v2; // r10
   _QWORD *v3; // rdx
   const char *v4; // rax
   __int64 v5; // rax
@@ -22,14 +22,14 @@ __int64 *CmpInitializeTransactions()
 
   CmpRmListLock.Count = 1;
   CmpRmListLock.Owner = 0LL;
-  qword_140EF9A68 = (__int64)&CmpRmListHead;
+  qword_140EF9C78 = (__int64)&CmpRmListHead;
   CmpRmListHead = (__int64)&CmpRmListHead;
   CmpRmListLock.Event.Header.WaitListHead.Blink = &CmpRmListLock.Event.Header.WaitListHead;
   CmpRmListLock.Event.Header.WaitListHead.Flink = &CmpRmListLock.Event.Header.WaitListHead;
   CmpTransactionListLock.Event.Header.WaitListHead.Blink = &CmpTransactionListLock.Event.Header.WaitListHead;
   CmpTransactionListLock.Event.Header.WaitListHead.Flink = &CmpTransactionListLock.Event.Header.WaitListHead;
   CmpLazyCommitWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpLazyCommitWorker;
-  qword_140EF9B28 = (__int64)&CmpLazyCommitListHead;
+  qword_140EF9E88 = (__int64)&CmpLazyCommitListHead;
   CmpLazyCommitListHead = (__int64)&CmpLazyCommitListHead;
   CmpRmListLock.Contention = 0;
   LOWORD(CmpRmListLock.Event.Header.Lock) = 1;
@@ -45,18 +45,18 @@ __int64 *CmpInitializeTransactions()
   CmpLazyCommitWorkItem.Parameter = 0LL;
   CmpLazyCommitWorkItem.List.Flink = 0LL;
   _mm_lfence();
-  if ( (void *)qword_140E62570 == CmpRmListLock.Owner )
+  if ( stru_140E62450.ThreadListEntry.Blink == CmpRmListLock.Owner )
   {
     v0 = __rdtsc();
     v1 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v0) << 32) | (unsigned int)v0) >> 4)) ^ 0xFA5LL;
-    qword_140E62570 = v1;
+    stru_140E62450.ThreadListEntry.Blink = (struct _LIST_ENTRY *)v1;
     if ( !v1 )
     {
       v1 = 1LL;
-      qword_140E62570 = 1LL;
+      stru_140E62450.ThreadListEntry.Blink = (struct _LIST_ENTRY *)1;
     }
-    v2 = (41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x537LL;
-    qword_140E62578 = v2;
+    v2 = (struct _LIST_ENTRY *)((41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x537LL);
+    stru_140E62450.MutantListHead.Flink = v2;
     __sidt(v9);
     v3 = (_QWORD *)v10;
     if ( v10 < v10 + 848 )
@@ -73,7 +73,7 @@ __int64 *CmpInitializeTransactions()
     v6 = 848;
     do
     {
-      v1 = __ROR8__(v1 - *v3++, v2);
+      v1 = __ROR8__(v1 - *v3++, (char)v2);
       v6 -= 8;
       --v5;
     }
@@ -82,35 +82,37 @@ __int64 *CmpInitializeTransactions()
     {
       v7 = *(unsigned __int8 *)v3;
       v3 = (_QWORD *)((char *)v3 + 1);
-      v1 = __ROR8__(v1 - v7, v2);
+      v1 = __ROR8__(v1 - v7, (char)v2);
     }
-    qword_140E62588 = v1;
-    qword_140E62580 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+    *(_QWORD *)&stru_140E62450.AbWaitEntryCount = v1;
+    stru_140E62450.MutantListHead.Blink = (struct _LIST_ENTRY *)(KiQueryUnbiasedInterruptTime()
+                                                               + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
+                                                               + 288000000000LL);
   }
   CmpLazyCommitTimer = 8LL;
-  qword_140EF9B58 = (__int64)CmpLazyCommitDpcRoutine;
-  qword_140EF9B90 = (__int64)&qword_140EF9B88;
-  qword_140EF9B88 = (__int64)&qword_140EF9B88;
-  qword_140EF99A8 = (__int64)&CmpDelayFreeRMListHead;
+  qword_140EF9E58 = (__int64)CmpLazyCommitDpcRoutine;
+  qword_140EF9EB0 = (__int64)&qword_140EF9EA8;
+  qword_140EF9EA8 = (__int64)&qword_140EF9EA8;
+  qword_140EF9D28 = (__int64)&CmpDelayFreeRMListHead;
   CmpDelayFreeRMListHead = &CmpDelayFreeRMListHead;
   CmpDelayFreeRMLock.Event.Header.WaitListHead.Blink = &CmpDelayFreeRMLock.Event.Header.WaitListHead;
   CmpDelayFreeRMLock.Event.Header.WaitListHead.Flink = &CmpDelayFreeRMLock.Event.Header.WaitListHead;
   CmpDelayFreeRMWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpDelayFreeRMWorker;
-  qword_140EF99F8 = (__int64)CmpDelayFreeRMDpcRoutine;
-  qword_140EF9A30 = (__int64)&qword_140EF9A28;
-  qword_140EF9A28 = (__int64)&qword_140EF9A28;
+  qword_140EF9D58 = (__int64)CmpDelayFreeRMDpcRoutine;
+  qword_140EF9D90 = (__int64)&qword_140EF9D88;
+  qword_140EF9D88 = (__int64)&qword_140EF9D88;
   result = &CmpLightTransactionList;
   CmpDelayFreeRMTimer = 8LL;
-  qword_140EF9AE8 = (__int64)&CmpLightTransactionList;
+  qword_140EF9E28 = (__int64)&CmpLightTransactionList;
   CmpLightTransactionList = (__int64)&CmpLightTransactionList;
   CmpLazyCommitDpc = 275;
-  qword_140EF9B60 = 0LL;
-  qword_140EF9B78 = 0LL;
-  qword_140EF9B50 = 0LL;
-  qword_140EF9B98 = 0LL;
-  dword_140EF9BBC = 0;
-  word_140EF9BB8 = 0;
-  byte_140EF9BBB = 0;
+  qword_140EF9E60 = 0LL;
+  qword_140EF9E78 = 0LL;
+  qword_140EF9E50 = 0LL;
+  qword_140EF9EB8 = 0LL;
+  dword_140EF9EDC = 0;
+  word_140EF9ED8 = 0;
+  byte_140EF9EDB = 0;
   CmpDelayFreeRMLock.Count = 1;
   CmpDelayFreeRMLock.Owner = 0LL;
   CmpDelayFreeRMLock.Contention = 0;
@@ -120,12 +122,12 @@ __int64 *CmpInitializeTransactions()
   CmpDelayFreeRMWorkItem.Parameter = 0LL;
   CmpDelayFreeRMWorkItem.List.Flink = 0LL;
   CmpDelayFreeRMDpc = 275;
-  qword_140EF9A00 = 0LL;
-  qword_140EF9A18 = 0LL;
-  qword_140EF99F0 = 0LL;
-  qword_140EF9A38 = 0LL;
-  dword_140EF9A5C = 0;
-  word_140EF9A58 = 0;
-  byte_140EF9A5B = 0;
+  qword_140EF9D60 = 0LL;
+  qword_140EF9D78 = 0LL;
+  qword_140EF9D50 = 0LL;
+  qword_140EF9D98 = 0LL;
+  dword_140EF9DBC = 0;
+  word_140EF9DB8 = 0;
+  byte_140EF9DBB = 0;
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkDisplayString @ 0x1405C5450
+ * XREFs of BgkDisplayString @ 0x1405C7CC0
  * Callers:
  *     <none>
  * Callees:
- *     BgkDisplayStringEx @ 0x1405C5504 (BgkDisplayStringEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BgkDisplayStringEx @ 0x1405C7D74 (BgkDisplayStringEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall BgkDisplayString(char *a1)

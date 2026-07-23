@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptPowerCriticalTransitionCallback @ 0x14051A8D0
+ * XREFs of HalpInterruptPowerCriticalTransitionCallback @ 0x14051AE20
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptPowerChange @ 0x14051A7D4 (HalpInterruptPowerChange.c)
+ *     HalpInterruptPowerChange @ 0x14051AD24 (HalpInterruptPowerChange.c)
  */
 
 __int64 __fastcall HalpInterruptPowerCriticalTransitionCallback(ULONG_PTR a1, __int64 a2, char a3)

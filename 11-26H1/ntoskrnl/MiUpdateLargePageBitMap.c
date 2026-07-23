@@ -1,37 +1,37 @@
 /*
- * XREFs of MiUpdateLargePageBitMap @ 0x1403C5418
+ * XREFs of MiUpdateLargePageBitMap @ 0x1403CF324
  * Callers:
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
- *     MiLinkPoolCommitChain @ 0x140365560 (MiLinkPoolCommitChain.c)
- *     MiFreeContiguousPages @ 0x1403C3858 (MiFreeContiguousPages.c)
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     MiGetFastLargePages @ 0x1403C6B68 (MiGetFastLargePages.c)
- *     MiFindLargeNodePage @ 0x1403C99D4 (MiFindLargeNodePage.c)
- *     MiFindContiguousPagesFinish @ 0x1404F702C (MiFindContiguousPagesFinish.c)
- *     MiDeleteSubsectionLargePages @ 0x140510EFC (MiDeleteSubsectionLargePages.c)
- *     MiDeleteDynamicPfns @ 0x1406E81E0 (MiDeleteDynamicPfns.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
- *     MiFreeContiguousLargePageRun @ 0x140701770 (MiFreeContiguousLargePageRun.c)
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
- *     MiChangePagesPartitionId @ 0x140708664 (MiChangePagesPartitionId.c)
- *     MiDemotePfnListChain @ 0x1407117C4 (MiDemotePfnListChain.c)
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
- *     MiCreatePartitionPages @ 0x14087BBEC (MiCreatePartitionPages.c)
- *     MiFreeBootPageTable @ 0x140CF2B30 (MiFreeBootPageTable.c)
- *     MiMarkLargePagePte @ 0x140CF3B20 (MiMarkLargePagePte.c)
- *     MiMarkLargePageRanges @ 0x140CF3BAC (MiMarkLargePageRanges.c)
- *     MiCreateEnclaveRegions @ 0x140CFCF74 (MiCreateEnclaveRegions.c)
- *     MiCreateBootSlabEntries @ 0x140CFE048 (MiCreateBootSlabEntries.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
+ *     MiLinkPoolCommitChain @ 0x140367300 (MiLinkPoolCommitChain.c)
+ *     MiFreeContiguousPages @ 0x1403CD758 (MiFreeContiguousPages.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     MiGetFastLargePages @ 0x1403D0A5C (MiGetFastLargePages.c)
+ *     MiFindLargeNodePage @ 0x1403D3884 (MiFindLargeNodePage.c)
+ *     MiFindContiguousPagesFinish @ 0x1404F063C (MiFindContiguousPagesFinish.c)
+ *     MiDeleteSubsectionLargePages @ 0x14050A96C (MiDeleteSubsectionLargePages.c)
+ *     MiDeleteDynamicPfns @ 0x1406ECE7C (MiDeleteDynamicPfns.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
+ *     MiFreeContiguousLargePageRun @ 0x140706440 (MiFreeContiguousLargePageRun.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
+ *     MiChangePagesPartitionId @ 0x14070D318 (MiChangePagesPartitionId.c)
+ *     MiDemotePfnListChain @ 0x1407164C4 (MiDemotePfnListChain.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
+ *     MiCreatePartitionPages @ 0x140881FEC (MiCreatePartitionPages.c)
+ *     MiFreeBootPageTable @ 0x140CF8EB0 (MiFreeBootPageTable.c)
+ *     MiMarkLargePagePte @ 0x140CF9EA0 (MiMarkLargePagePte.c)
+ *     MiMarkLargePageRanges @ 0x140CF9F2C (MiMarkLargePageRanges.c)
+ *     MiCreateEnclaveRegions @ 0x140D032F4 (MiCreateEnclaveRegions.c)
+ *     MiCreateBootSlabEntries @ 0x140D043F0 (MiCreateBootSlabEntries.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
  */
 
 void __fastcall MiUpdateLargePageBitMap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -196,9 +196,9 @@ LABEL_35:
     {
       v52 = 1;
       if ( (v7 & 4) != 0 )
-        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D930.CurrentRunTime);
+        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2DAB0.CurrentRunTime);
       else
-        OldIrql = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D930.CurrentRunTime);
+        OldIrql = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2DAB0.CurrentRunTime);
     }
     v31 = v11 + a1 + 16712;
     if ( v6 )
@@ -307,8 +307,8 @@ LABEL_75:
   if ( v52 )
   {
     if ( OldIrql == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D930.CurrentRunTime);
+      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2DAB0.CurrentRunTime);
     else
-      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D930.CurrentRunTime, OldIrql);
+      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2DAB0.CurrentRunTime, OldIrql);
   }
 }

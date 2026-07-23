@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpQueryKeyDataFromNode @ 0x140438210
+ * XREFs of CmpQueryKeyDataFromNode @ 0x1404370E0
  * Callers:
- *     CmEnumerateKey @ 0x1404390C0 (CmEnumerateKey.c)
- *     CmpQueryKeyData @ 0x1404BB618 (CmpQueryKeyData.c)
- *     CmpEnumerateLayeredKey @ 0x1405FED24 (CmpEnumerateLayeredKey.c)
+ *     CmEnumerateKey @ 0x140437F90 (CmEnumerateKey.c)
+ *     CmpQueryKeyData @ 0x1404A7348 (CmpQueryKeyData.c)
+ *     CmpEnumerateLayeredKey @ 0x1405FEDD8 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmGetVisibleSubkeyCount @ 0x1403FBF90 (CmGetVisibleSubkeyCount.c)
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmpPopulateBasicInformation @ 0x140438430 (CmpPopulateBasicInformation.c)
- *     CmGetVisibleValueCount @ 0x1404BB8B8 (CmGetVisibleValueCount.c)
- *     CmGetKeyLastWriteTime @ 0x1404BB8EC (CmGetKeyLastWriteTime.c)
- *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1404BB960 (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1404BB9F4 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmListGetPrevElement @ 0x1404BBAA0 (CmListGetPrevElement.c)
- *     CmpPopulateNodeInformation @ 0x1404D2694 (CmpPopulateNodeInformation.c)
- *     CmpPopulateFullInformation @ 0x1404DE4BC (CmpPopulateFullInformation.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmGetVisibleSubkeyCount @ 0x1403FAE50 (CmGetVisibleSubkeyCount.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmpPopulateBasicInformation @ 0x140437300 (CmpPopulateBasicInformation.c)
+ *     CmGetVisibleValueCount @ 0x1404A75E8 (CmGetVisibleValueCount.c)
+ *     CmGetKeyLastWriteTime @ 0x1404A761C (CmGetKeyLastWriteTime.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1404A7690 (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1404A7724 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmListGetPrevElement @ 0x1404A77D0 (CmListGetPrevElement.c)
+ *     CmpPopulateNodeInformation @ 0x1404B6134 (CmpPopulateNodeInformation.c)
+ *     CmpPopulateFullInformation @ 0x1404C1AC0 (CmpPopulateFullInformation.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromNode(

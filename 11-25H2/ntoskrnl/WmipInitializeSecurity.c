@@ -35,7 +35,7 @@ __int64 WmipInitializeSecurity()
   int v12; // [rsp+5Ch] [rbp-15h]
   int v13; // [rsp+64h] [rbp-Dh]
   LONG (__fastcall *v14)(__int64); // [rsp+80h] [rbp+Fh]
-  __int64 (__fastcall *v15)(__int64, int, ULONG *, void *, ULONG *, __int64 *, int, __int64); // [rsp+90h] [rbp+1Fh]
+  __int64 (__fastcall *v15)(__int64, int, DWORD *, void *, ULONG *, __int64 *, int, __int64); // [rsp+90h] [rbp+1Fh]
 
   DestinationString = 0LL;
   v0 = 4

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoFreeIrpWrapper @ 0x1405DF2F0
+ * XREFs of DifIoFreeIrpWrapper @ 0x1405DF860
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeIrp @ 0x1402AF210 (IoFreeIrp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoFreeIrp @ 0x1402AF4A0 (IoFreeIrp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoFreeIrpWrapper(PIRP Irp)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsSystemProcess @ 0x1402A67F0
+ * XREFs of PsIsSystemProcess @ 0x1402A6A80
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

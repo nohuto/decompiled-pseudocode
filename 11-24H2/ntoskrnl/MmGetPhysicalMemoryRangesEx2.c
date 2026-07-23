@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetPhysicalMemoryRangesEx2 @ 0x140AAB930
+ * XREFs of MmGetPhysicalMemoryRangesEx2 @ 0x140AA6B60
  * Callers:
- *     PfpMemoryRangesQuery @ 0x1404C7DA4 (PfpMemoryRangesQuery.c)
- *     MmGetPhysicalMemoryRanges @ 0x1407EA590 (MmGetPhysicalMemoryRanges.c)
- *     MmGetPhysicalMemoryRangesEx @ 0x1407EA5B0 (MmGetPhysicalMemoryRangesEx.c)
+ *     PfpMemoryRangesQuery @ 0x1404C14D8 (PfpMemoryRangesQuery.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1407EAB60 (MmGetPhysicalMemoryRanges.c)
+ *     MmGetPhysicalMemoryRangesEx @ 0x1407EAB80 (MmGetPhysicalMemoryRangesEx.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MiPartitionObjectToPartition @ 0x14041217C (MiPartitionObjectToPartition.c)
- *     MiGetPhysicalMemoryRanges @ 0x140AB2D28 (MiGetPhysicalMemoryRanges.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1403945BC (MiPartitionObjectToPartition.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140AADC98 (MiGetPhysicalMemoryRanges.c)
  */
 
 __int64 __fastcall MmGetPhysicalMemoryRangesEx2(ULONG **a1, unsigned int a2)

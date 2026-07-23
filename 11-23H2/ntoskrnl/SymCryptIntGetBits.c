@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntGetBits @ 0x1403F93EC
+ * XREFs of SymCryptIntGetBits @ 0x1403F95CC
  * Callers:
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptModExpWindowed @ 0x140409380 (SymCryptModExpWindowed.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptModExpWindowed @ 0x140409560 (SymCryptModExpWindowed.c)
  * Callees:
- *     SymCryptFdefIntGetBits @ 0x1404033F8 (SymCryptFdefIntGetBits.c)
+ *     SymCryptFdefIntGetBits @ 0x1404035D8 (SymCryptFdefIntGetBits.c)
  */
 
 __int64 SymCryptIntGetBits()

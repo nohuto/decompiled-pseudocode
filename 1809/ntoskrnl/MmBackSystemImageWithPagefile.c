@@ -1,13 +1,13 @@
 /*
- * XREFs of MmBackSystemImageWithPagefile @ 0x14070D2EC
+ * XREFs of MmBackSystemImageWithPagefile @ 0x14070E58C
  * Callers:
- *     FsRtlSetDriverBacking @ 0x14070D2C0 (FsRtlSetDriverBacking.c)
+ *     FsRtlSetDriverBacking @ 0x14070E560 (FsRtlSetDriverBacking.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MiBackSystemImageWithPagefile @ 0x14070D348 (MiBackSystemImageWithPagefile.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MiBackSystemImageWithPagefile @ 0x14070E5E8 (MiBackSystemImageWithPagefile.c)
  */
 
 __int64 __fastcall MmBackSystemImageWithPagefile(ULONG_PTR BugCheckParameter2)

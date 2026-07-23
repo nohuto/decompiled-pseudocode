@@ -1,16 +1,16 @@
 /*
- * XREFs of ResFwFreeContext @ 0x140C528B8
+ * XREFs of ResFwFreeContext @ 0x140C588B8
  * Callers:
- *     BgFreeContext @ 0x140C4F9A8 (BgFreeContext.c)
+ *     BgFreeContext @ 0x140C559A8 (BgFreeContext.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1403454A0 (MmFreePagesFromMdl.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     LogFwReport @ 0x140C4F030 (LogFwReport.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140C4F3CC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpFwReservePoolSwap @ 0x140C50BC0 (BgpFwReservePoolSwap.c)
- *     ResFwpPageOutBackground @ 0x140C50FE4 (ResFwpPageOutBackground.c)
- *     AnFwFadeCompletion @ 0x140C52980 (AnFwFadeCompletion.c)
- *     BgpTxtCacheDestroy @ 0x140C52AAC (BgpTxtCacheDestroy.c)
+ *     MmFreePagesFromMdl @ 0x140347520 (MmFreePagesFromMdl.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     LogFwReport @ 0x140C55030 (LogFwReport.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140C553CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpFwReservePoolSwap @ 0x140C56BC0 (BgpFwReservePoolSwap.c)
+ *     ResFwpPageOutBackground @ 0x140C56FE4 (ResFwpPageOutBackground.c)
+ *     AnFwFadeCompletion @ 0x140C58980 (AnFwFadeCompletion.c)
+ *     BgpTxtCacheDestroy @ 0x140C58AAC (BgpTxtCacheDestroy.c)
  */
 
 void __fastcall ResFwFreeContext(__int64 a1)
@@ -30,8 +30,8 @@ void __fastcall ResFwFreeContext(__int64 a1)
       ExFreePoolWithTag(*(PVOID *)(a1 + 8), 0);
     }
     *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] &= 0xFFEFF7FD;
-    gLoadedDiffHivesLock.NpxState = (unsigned __int64)WheapPfaLock.SavedApcState.Process;
-    gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Blink;
+    gLoadedDiffHivesLock.NpxState = (unsigned __int64)WheapPfaLock.SchedulerApc.SystemArgument2;
+    gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)WheapPfaLock.SchedulerApc.SystemArgument1;
     gLoadedDiffHivesLock.WaitBlock[0].WaitListEntry.Flink = 0LL;
     gLoadedDiffHivesLock.Timer.TimerListEntry = 0LL;
     *(_OWORD *)&gLoadedDiffHivesLock.Timer.Dpc = 0LL;

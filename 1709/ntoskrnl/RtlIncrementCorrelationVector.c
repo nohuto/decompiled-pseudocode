@@ -11,34 +11,33 @@
  *     RtlpGetCorrelationVectorBufferLength @ 0x140724050 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
-__int64 __fastcall RtlIncrementCorrelationVector(__int64 a1, __int64 a2, __int64 a3)
+DWORD __cdecl RtlIncrementCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
-  unsigned int v3; // ebx
+  DWORD v1; // ebx
   int CorrelationVectorBufferLength; // esi
-  __int64 v5; // rdx
-  __int64 v6; // r11
+  __int64 v3; // rdx
+  __int64 v4; // r11
   int CorrelationVectorLastDotPosition; // eax
-  __int64 v8; // r11
-  int v9; // edi
-  __int64 v10; // rbp
-  int v11; // eax
-  int v13; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v6; // r11
+  int v7; // edi
+  __int64 v8; // rbp
+  int v9; // eax
+  int v11; // [rsp+30h] [rbp-28h] BYREF
   char DstBuf[16]; // [rsp+38h] [rbp-20h] BYREF
 
-  v3 = 0;
-  v13 = 0;
-  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1, a2, a3);
-  CorrelationVectorLastDotPosition = RtlpGetCorrelationVectorLastDotPosition(v6, v5);
-  v9 = CorrelationVectorLastDotPosition;
-  if ( CorrelationVectorLastDotPosition >= 0
-    && (v10 = v8 + CorrelationVectorLastDotPosition + 1, sscanf_s((const char *)(v10 + 1), "%d", &v13) == 1)
-    && (++v13, v11 = snprintf_s(DstBuf, 0xCuLL, 0xCuLL, "%d", v13), v11 < CorrelationVectorBufferLength - v9 - 2) )
-  {
-    strcpy_s((char *)(v10 + 1), v11 + 1, DstBuf);
-  }
-  else
-  {
-    return (unsigned int)-2147483643;
-  }
-  return v3;
+  v1 = 0;
+  v11 = 0;
+  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(CorrelationVector);
+  CorrelationVectorLastDotPosition = RtlpGetCorrelationVectorLastDotPosition(v4, v3);
+  v7 = CorrelationVectorLastDotPosition;
+  if ( CorrelationVectorLastDotPosition < 0 )
+    return -2147483643;
+  v8 = v6 + CorrelationVectorLastDotPosition + 1;
+  if ( sscanf_s((const char *)(v8 + 1), "%d", &v11) != 1 )
+    return -2147483643;
+  v9 = snprintf_s(DstBuf, 0xCuLL, 0xCuLL, "%d", ++v11);
+  if ( v9 >= CorrelationVectorBufferLength - v7 - 2 )
+    return -2147483643;
+  strcpy_s((char *)(v8 + 1), v9 + 1, DstBuf);
+  return v1;
 }

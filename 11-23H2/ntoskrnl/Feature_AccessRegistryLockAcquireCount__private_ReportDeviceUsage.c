@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage @ 0x140419778
+ * XREFs of Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage @ 0x140419B08
  * Callers:
- *     CmpRecordRegistryLockRelease @ 0x14022FAF0 (CmpRecordRegistryLockRelease.c)
- *     CmpRecordRegistryLockAcquire @ 0x14022FB30 (CmpRecordRegistryLockAcquire.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
+ *     CmpRecordRegistryLockRelease @ 0x14022FBE0 (CmpRecordRegistryLockRelease.c)
+ *     CmpRecordRegistryLockAcquire @ 0x14022FC20 (CmpRecordRegistryLockAcquire.c)
+ *     CmpIsRegistryLockAcquired @ 0x14022FC60 (CmpIsRegistryLockAcquired.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage()

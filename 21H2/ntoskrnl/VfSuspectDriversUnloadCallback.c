@@ -1,12 +1,12 @@
 /*
- * XREFs of VfSuspectDriversUnloadCallback @ 0x1409D9FBC
+ * XREFs of VfSuspectDriversUnloadCallback @ 0x1409DAFBC
  * Callers:
- *     VfDriverUnloadImage @ 0x1409C2474 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x1409C3474 (VfDriverUnloadImage.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
- *     VfNotifyVerifierExtensions @ 0x1409C8A88 (VfNotifyVerifierExtensions.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x1409C35B8 (VfDriverLock.c)
+ *     VfNotifyVerifierExtensions @ 0x1409C9A88 (VfNotifyVerifierExtensions.c)
  */
 
 LONG __fastcall VfSuspectDriversUnloadCallback(__int64 a1)
@@ -42,7 +42,7 @@ LONG __fastcall VfSuspectDriversUnloadCallback(__int64 a1)
   {
     if ( RtlEqualUnicodeString((PCUNICODE_STRING)(i + 24), (PCUNICODE_STRING)(a1 + 88), 1u) )
     {
-      ++dword_140C2A894;
+      ++dword_140C2A8D4;
       ++*(_DWORD *)(i + 20);
       VfNotifyVerifierExtensions(2, a1);
       break;

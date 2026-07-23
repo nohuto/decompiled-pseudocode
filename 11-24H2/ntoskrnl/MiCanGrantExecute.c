@@ -1,36 +1,36 @@
 /*
- * XREFs of MiCanGrantExecute @ 0x1404A3418
+ * XREFs of MiCanGrantExecute @ 0x14049E378
  * Callers:
- *     MiLargePageFault @ 0x1403F38B4 (MiLargePageFault.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1404C1204 (MiLargePageFault.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140261370 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1402DEE70 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
+ *     MiLockVadTree @ 0x140240750 (MiLockVadTree.c)
+ *     MiUnlockVadTree @ 0x140291980 (MiUnlockVadTree.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
  */
 
-__int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v3; // ebx
+  unsigned int v4; // ebx
   struct _LIST_ENTRY *Address; // rdi
   int Flink; // ecx
-  __int64 v8; // rdx
+  __int64 v9; // rdx
 
-  v3 = 0;
+  v4 = 0;
   if ( !*(_QWORD *)(a1 + 784) )
     return 0LL;
-  v8 = 332LL;
+  v9 = 332LL;
   if ( *(_WORD *)(a1 + 1772) != 332 )
     return 0LL;
   if ( (KeFeatureBits & 0x40000000) == 0 )
   {
-    LOBYTE(v8) = *(_BYTE *)(a1 + 147);
-    if ( (v8 & 2) == 0 && ((KeFeatureBits & 0x80000000) != 0 || (v8 & 1) != 0) )
+    LOBYTE(v9) = *(_BYTE *)(a1 + 147);
+    if ( (v9 & 2) == 0 && ((KeFeatureBits & 0x80000000) != 0 || (v9 & 1) != 0) )
       return 0LL;
   }
   if ( (a2 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 && (*(_DWORD *)(a1 + 1532) & 1) == 0 )
     return 1LL;
-  MiLockVadTree(1, v8, a3);
+  MiLockVadTree(1, v9, a3, a4);
   Address = MiLocateAddress(a2);
   MiUnlockVadTree(1, 0x11u);
   if ( !Address )
@@ -40,8 +40,8 @@ __int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2, __int64 a3
     return 0LL;
   if ( (Flink & 0x70) == 0x20 )
   {
-    LOBYTE(v3) = (Flink & 0xF80) != 128;
-    return v3;
+    LOBYTE(v4) = (Flink & 0xF80) != 128;
+    return v4;
   }
   return 1LL;
 }

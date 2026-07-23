@@ -1,22 +1,22 @@
 /*
- * XREFs of DifZwAlpcCreatePortSectionWrapper @ 0x1405ED080
+ * XREFs of DifZwAlpcCreatePortSectionWrapper @ 0x1405ED5F0
  * Callers:
  *     <none>
  * Callees:
- *     ZwAlpcCreatePortSection @ 0x14041BCE0 (ZwAlpcCreatePortSection.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwAlpcCreatePortSection @ 0x14041C070 (ZwAlpcCreatePortSection.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAlpcCreatePortSectionWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6)
+NTSTATUS __fastcall DifZwAlpcCreatePortSectionWrapper(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   __int64 v10; // rdx
   __int64 v11; // rcx
@@ -26,7 +26,7 @@ __int64 __fastcall DifZwAlpcCreatePortSectionWrapper(
   int v15; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v19; // rdi
   _QWORD *v20; // rbx
   _QWORD v21[8]; // [rsp+30h] [rbp-40h] BYREF
@@ -60,19 +60,19 @@ LABEL_8:
   }
   v21[0] = 0LL;
 LABEL_10:
-  v21[2] = a5;
-  v21[1] = a6;
-  v21[6] = a1;
-  LODWORD(v21[5]) = a2;
-  v21[4] = a3;
-  v21[3] = a4;
+  v21[2] = AlpcSectionHandle;
+  v21[1] = ActualSectionSize;
+  v21[6] = PortHandle;
+  LODWORD(v21[5]) = Flags;
+  v21[4] = SectionHandle;
+  v21[3] = SectionSize;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v21);
   }
 LABEL_17:
-  result = ZwAlpcCreatePortSection(a1, a2);
+  result = ZwAlpcCreatePortSection(PortHandle, Flags, SectionHandle, SectionSize, AlpcSectionHandle, ActualSectionSize);
   LODWORD(v21[7]) = result;
   if ( APIThunkContextById )
   {
@@ -87,7 +87,7 @@ LABEL_17:
         v20 = (_QWORD *)*v20;
       }
       while ( v20 != v19 );
-      return LODWORD(v21[7]);
+      return v21[7];
     }
   }
   return result;

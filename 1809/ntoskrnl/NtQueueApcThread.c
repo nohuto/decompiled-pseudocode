@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueueApcThread @ 0x140677850
+ * XREFs of NtQueueApcThread @ 0x140678A10
  * Callers:
  *     <none>
  * Callees:
- *     NtQueueApcThreadEx @ 0x140677690 (NtQueueApcThreadEx.c)
+ *     NtQueueApcThreadEx @ 0x140678850 (NtQueueApcThreadEx.c)
  */
 
 NTSTATUS __stdcall NtQueueApcThread(
@@ -16,8 +16,8 @@ NTSTATUS __stdcall NtQueueApcThread(
   return NtQueueApcThreadEx(
            ThreadHandle,
            0LL,
-           (__int64)ApcRoutine,
-           (__int64)NormalContext,
-           (__int64)SystemArgument1,
-           (__int64)SystemArgument2);
+           (PPS_APC_ROUTINE)ApcRoutine,
+           NormalContext,
+           SystemArgument1,
+           SystemArgument2);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLookupElementGenericTableFullAvl @ 0x140264710
+ * XREFs of RtlLookupElementGenericTableFullAvl @ 0x1402527A0
  * Callers:
- *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
- *     PiPnpRtlObjectEventCreate @ 0x1406352B4 (PiPnpRtlObjectEventCreate.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407489A8 (PiDmAddCacheReferenceForObject.c)
+ *     VfAvlLookupTreeNode @ 0x14037E744 (VfAvlLookupTreeNode.c)
+ *     PiPnpRtlObjectEventCreate @ 0x14062A0C4 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140748B68 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableFullAvl(

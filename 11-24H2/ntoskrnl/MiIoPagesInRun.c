@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIoPagesInRun @ 0x140476A4C
+ * XREFs of MiIoPagesInRun @ 0x140472FEC
  * Callers:
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall MiIoPagesInRun(unsigned __int64 a1, __int64 a2)
   v3 = (_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL);
   do
   {
-    if ( a1 <= qword_140E2DBE0 && ((*v3 >> 54) & 1) != 0 )
+    if ( a1 <= qword_140E2DD20 && ((*v3 >> 54) & 1) != 0 )
       break;
     ++v2;
     if ( !--a2 )

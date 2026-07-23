@@ -56,10 +56,13 @@ __int64 __fastcall IoDecrementKeepAliveCount(int a1, int a2)
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)qword_140C5DE30);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));

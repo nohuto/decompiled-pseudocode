@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlCalculateLivedumpSize @ 0x14058A0E0
+ * XREFs of HvlCalculateLivedumpSize @ 0x1405873D0
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x14059A9C0 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140597940 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     VslLiveDumpQuerySecondaryDataSize @ 0x14058D89C (VslLiveDumpQuerySecondaryDataSize.c)
+ *     VslLiveDumpQuerySecondaryDataSize @ 0x14058AB8C (VslLiveDumpQuerySecondaryDataSize.c)
  */
 
 __int64 __fastcall HvlCalculateLivedumpSize(__int64 a1, unsigned __int64 *a2, _QWORD *a3, unsigned __int64 *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall HvlCalculateLivedumpSize(__int64 a1, unsigned __int64 *a2, _Q
   }
   else
   {
-    v11 = (unsigned __int64)(unsigned int)dword_140F8DFD8 << 12;
+    v11 = (unsigned __int64)(unsigned int)dword_140F8E1B8 << 12;
     *a3 = 0LL;
     *a4 = v11;
   }

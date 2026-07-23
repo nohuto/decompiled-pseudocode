@@ -1,11 +1,11 @@
 /*
- * XREFs of PipHardwareConfigGetIndex @ 0x140810BF0
+ * XREFs of PipHardwareConfigGetIndex @ 0x140810EC0
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     PipHardwareConfigOpenKey @ 0x140810A98 (PipHardwareConfigOpenKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     PipHardwareConfigOpenKey @ 0x140810D68 (PipHardwareConfigOpenKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigGetIndex(__int64 a1, void *a2)

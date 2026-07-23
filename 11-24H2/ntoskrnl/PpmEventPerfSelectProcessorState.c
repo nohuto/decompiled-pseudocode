@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventPerfSelectProcessorState @ 0x14042AAD0
+ * XREFs of PpmEventPerfSelectProcessorState @ 0x1403A3000
  * Callers:
- *     PpmPerfSelectProcessorState @ 0x14042A5A8 (PpmPerfSelectProcessorState.c)
+ *     PpmPerfSelectProcessorState @ 0x1403A2AD8 (PpmPerfSelectProcessorState.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventPerfSelectProcessorState(__int64 a1, int a2, int a3, int a4, char a5)

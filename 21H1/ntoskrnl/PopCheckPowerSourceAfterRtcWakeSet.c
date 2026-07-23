@@ -18,5 +18,5 @@ _BOOL8 PopCheckPowerSourceAfterRtcWakeSet()
            (__int64)&PopCheckPowerSourceAfterRtcWakeTimer,
            -10000000LL * (unsigned int)PopCheckPowerSourceAfterRtcWakeTime,
            0LL,
-           v1);
+           (__int64)v1);
 }

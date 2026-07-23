@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCheckForStackTracingExtension @ 0x1407F7ED0
+ * XREFs of EtwpCheckForStackTracingExtension @ 0x1407F81A0
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
  * Callees:
- *     EtwpGetFlagExtension @ 0x1407F7F38 (EtwpGetFlagExtension.c)
- *     EtwpEnableStackCaching @ 0x1408A8238 (EtwpEnableStackCaching.c)
- *     EtwpUpdateStackTracing @ 0x1409E8BC8 (EtwpUpdateStackTracing.c)
+ *     EtwpGetFlagExtension @ 0x1407F8208 (EtwpGetFlagExtension.c)
+ *     EtwpEnableStackCaching @ 0x1408A8488 (EtwpEnableStackCaching.c)
+ *     EtwpUpdateStackTracing @ 0x1409E8E58 (EtwpUpdateStackTracing.c)
  */
 
 __int64 __fastcall EtwpCheckForStackTracingExtension(__int64 a1, __int64 a2)

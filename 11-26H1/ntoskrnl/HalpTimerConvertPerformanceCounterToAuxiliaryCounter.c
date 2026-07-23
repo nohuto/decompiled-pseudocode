@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404EE730
+ * XREFs of HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404E7D10
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpTimerConvertAuxiliaryCounter @ 0x1404D5030 (HalpTimerConvertAuxiliaryCounter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpTimerConvertAuxiliaryCounter @ 0x1404CE8A0 (HalpTimerConvertAuxiliaryCounter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerConvertPerformanceCounterToAuxiliaryCounter(unsigned __int64 a1, _QWORD *a2, _QWORD *a3)

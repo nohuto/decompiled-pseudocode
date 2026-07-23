@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDmObjectAcquireSharedLock @ 0x1404FFB50
+ * XREFs of PiDmObjectAcquireSharedLock @ 0x1404E2AE0
  * Callers:
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1404DE73C (PiDmObjectGetCachedObjectReference.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1404FF354 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmListEnumObjectsWithCallback @ 0x140500AB8 (PiDmListEnumObjectsWithCallback.c)
- *     PiControlGetDeviceInterfaceEnabled @ 0x140500E30 (PiControlGetDeviceInterfaceEnabled.c)
- *     PiDmObjectIsEnumerable @ 0x140501280 (PiDmObjectIsEnumerable.c)
- *     PiDmListAddObject @ 0x140505F64 (PiDmListAddObject.c)
- *     PiDmListAddList @ 0x14062F920 (PiDmListAddList.c)
- *     PiDmListRemoveList @ 0x14062FB14 (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x14062FD08 (PiDmListRemoveObject.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x1404C1D40 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x1404E22E4 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1404E3A48 (PiDmListEnumObjectsWithCallback.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x1404E3DC0 (PiControlGetDeviceInterfaceEnabled.c)
+ *     PiDmObjectIsEnumerable @ 0x1404E4210 (PiDmObjectIsEnumerable.c)
+ *     PiDmListAddObject @ 0x1404E8EF4 (PiDmListAddObject.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     PiDmListAddList @ 0x14062F9D4 (PiDmListAddList.c)
+ *     PiDmListRemoveList @ 0x14062FBC8 (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x14062FDBC (PiDmListRemoveObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 __fastcall PiDmObjectAcquireSharedLock(volatile signed __int64 *a1)

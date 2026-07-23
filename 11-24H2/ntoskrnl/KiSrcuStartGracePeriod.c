@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuStartGracePeriod @ 0x1405C1A2C
+ * XREFs of KiSrcuStartGracePeriod @ 0x1405BEFFC
  * Callers:
- *     KeSrcuSynchronize @ 0x14073C950 (KeSrcuSynchronize.c)
+ *     KeSrcuSynchronize @ 0x14073A880 (KeSrcuSynchronize.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuFlushCompleted @ 0x1405C0EA4 (KiSrcuFlushCompleted.c)
- *     KiSrcuNotifyGracePeriodStarted @ 0x1405C124C (KiSrcuNotifyGracePeriodStarted.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuFlushCompleted @ 0x1405BE474 (KiSrcuFlushCompleted.c)
+ *     KiSrcuNotifyGracePeriodStarted @ 0x1405BE81C (KiSrcuNotifyGracePeriodStarted.c)
  */
 
 void __fastcall KiSrcuStartGracePeriod(KSPIN_LOCK *a1, KSPIN_LOCK *a2)
@@ -14,6 +14,7 @@ void __fastcall KiSrcuStartGracePeriod(KSPIN_LOCK *a1, KSPIN_LOCK *a2)
   KIRQL v4; // al
   __int64 v5; // rdx
   KSPIN_LOCK **v6; // r8
+  __int64 v7; // rdx
 
   v4 = KeAcquireSpinLockRaiseToDpc(a1 + 5);
   _m_prefetchw(a1 + 7);
@@ -29,5 +30,5 @@ void __fastcall KiSrcuStartGracePeriod(KSPIN_LOCK *a1, KSPIN_LOCK *a2)
   a1[7] = v5;
   KeReleaseSpinLock(a1 + 5, v4);
   KiSrcuNotifyGracePeriodStarted((__int64)a1, 0LL);
-  KiSrcuFlushCompleted((__int64)a1);
+  KiSrcuFlushCompleted((__int64)a1, v7);
 }

@@ -1,17 +1,22 @@
 /*
- * XREFs of NtOpenKeyTransactedEx @ 0x1404DEB08
+ * XREFs of NtOpenKeyTransactedEx @ 0x1404C210C
  * Callers:
- *     NtOpenKeyTransacted @ 0x1405F97D0 (NtOpenKeyTransacted.c)
+ *     NtOpenKeyTransacted @ 0x1405F9884 (NtOpenKeyTransacted.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v10; // rdx
@@ -19,7 +24,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   __int64 v12; // r9
   NTSTATUS v13; // eax
   __int64 v14; // rbx
-  int v15; // edi
+  NTSTATUS v15; // edi
   NTSTATUS v16; // eax
   __int64 v17; // rdx
   __int64 v18; // r8
@@ -32,10 +37,10 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   if ( !ExAcquireRundownProtection(&CmpShutdownRundown) )
   {
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v10, v11, v12);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   v13 = ObReferenceObjectByHandle(
-          Handle,
+          TransactionHandle,
           4u,
           CmRegistryTransactionType,
           KeGetCurrentThread()->PreviousMode,
@@ -46,7 +51,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   if ( v13 == -1073741788 )
   {
     v16 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -61,11 +66,11 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
     v14 = (unsigned __int64)Object | 1;
 LABEL_4:
     if ( v15 >= 0 )
-      v15 = CmOpenKey(a1, a2, a3, a4, v14);
+      v15 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, OpenOptions, v14);
   }
   if ( v14 )
     CmpTransDereferenceTransaction(v14);
   ExReleaseRundownProtection(&CmpShutdownRundown);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v17, v18, v19);
-  return (unsigned int)v15;
+  return v15;
 }

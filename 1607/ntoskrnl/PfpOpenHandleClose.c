@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpOpenHandleClose @ 0x14050A308
+ * XREFs of PfpOpenHandleClose @ 0x1404ED298
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1403ECF84 (PfpPrefetchRequestPerform.c)
- *     PfpPrefetchDirectoryStream @ 0x1403ED670 (PfpPrefetchDirectoryStream.c)
- *     PfpVolumeOpenAndVerify @ 0x1403ED8D0 (PfpVolumeOpenAndVerify.c)
- *     PfpPrefetchVolumesCleanup @ 0x1403EDC6C (PfpPrefetchVolumesCleanup.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1404F4E8C (PfSnOpenVolumesForPrefetch.c)
- *     PfSnQueryVolumeInfo @ 0x1404F54AC (PfSnQueryVolumeInfo.c)
- *     PfpPrefetchEntireDirectory @ 0x140508800 (PfpPrefetchEntireDirectory.c)
- *     PfpReadSupportCleanup @ 0x14050921C (PfpReadSupportCleanup.c)
- *     PfpFileBuildReadSupport @ 0x140509310 (PfpFileBuildReadSupport.c)
- *     PfSnCleanupPrefetchHeader @ 0x14050A4E0 (PfSnCleanupPrefetchHeader.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14050A5E4 (PfSnCleanupPrefetchSectionInfo.c)
- *     PfSnGetSectionObject @ 0x14050ACA0 (PfSnGetSectionObject.c)
- *     PfpQueryFileExtentsRequest @ 0x140669118 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchRequestPerform @ 0x1403EE5B4 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchDirectoryStream @ 0x1403EECA0 (PfpPrefetchDirectoryStream.c)
+ *     PfpVolumeOpenAndVerify @ 0x1403EEF00 (PfpVolumeOpenAndVerify.c)
+ *     PfpPrefetchVolumesCleanup @ 0x1403EF29C (PfpPrefetchVolumesCleanup.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1404D7E18 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnQueryVolumeInfo @ 0x1404D8438 (PfSnQueryVolumeInfo.c)
+ *     PfpPrefetchEntireDirectory @ 0x1404EB790 (PfpPrefetchEntireDirectory.c)
+ *     PfpReadSupportCleanup @ 0x1404EC1AC (PfpReadSupportCleanup.c)
+ *     PfpFileBuildReadSupport @ 0x1404EC2A0 (PfpFileBuildReadSupport.c)
+ *     PfSnCleanupPrefetchHeader @ 0x1404ED470 (PfSnCleanupPrefetchHeader.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x1404ED574 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PfSnGetSectionObject @ 0x1404EDC30 (PfSnGetSectionObject.c)
+ *     PfpQueryFileExtentsRequest @ 0x1406691FC (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PfpOpenHandleClose(_QWORD *a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall PfpOpenHandleClose(_QWORD *a1, __int64 a2)
     v5[3] = a1[2];
     v5[0] = a2 + 40;
     _InterlockedIncrement((volatile signed __int32 *)(a2 + 84));
-    (*(void (__fastcall **)(_QWORD *))(qword_140328678 + 8))(v5);
+    (*(void (__fastcall **)(_QWORD *))(qword_1403286B8 + 8))(v5);
   }
   result = 0x800000000LL;
   a1[3] |= 0x800000000uLL;

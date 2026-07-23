@@ -18,14 +18,17 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtMapUserPhysicalPagesScatter(char *a1, unsigned __int64 a2, char *a3)
+NTSTATUS __cdecl NtMapUserPhysicalPagesScatter(
+        PVOID *VirtualAddresses,
+        ULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray)
 {
   struct _KTHREAD *CurrentThread; // r12
   unsigned __int64 *Pool; // r14
   __int64 v9; // r15
   unsigned __int64 *v10; // rbp
   unsigned __int64 *v11; // r13
-  int v12; // edi
+  NTSTATUS v12; // edi
   unsigned __int64 v13; // rbx
   _QWORD *AweNode; // rax
   __int64 v15; // r15
@@ -49,33 +52,34 @@ __int64 __fastcall NtMapUserPhysicalPagesScatter(char *a1, unsigned __int64 a2, 
 
   memset(P, 0, sizeof(P));
   v30 = 0LL;
-  if ( a2 > 0xFFFFFFFFFFFFFLL )
-    return 3221225712LL;
+  if ( NumberOfPages > 0xFFFFFFFFFFFFFLL )
+    return -1073741584;
   CurrentThread = KeGetCurrentThread();
   Pool = (unsigned __int64 *)P;
   v9 = 0LL;
   v10 = 0LL;
-  if ( a2 > 0x200 )
+  if ( NumberOfPages > 0x200 )
   {
     Pool = (unsigned __int64 *)MiAllocatePool(
                                  64,
-                                 a2 * ((((unsigned __int128)-(__int128)(unsigned __int64)a3 >> 64) & 8) + 8),
+                                 NumberOfPages
+                               * ((((unsigned __int128)-(__int128)(unsigned __int64)UserPfnArray >> 64) & 8) + 8),
                                  0x77526D4Du);
     if ( !Pool )
-      return 3221225626LL;
+      return -1073741670;
   }
   v11 = Pool;
-  v12 = MiCaptureUlongPtrArray(Pool, a1, a2);
+  v12 = MiCaptureUlongPtrArray(Pool, (char *)VirtualAddresses, NumberOfPages);
   if ( v12 >= 0 )
   {
-    if ( !a2 )
-      return 0LL;
-    if ( !a3 )
+    if ( !NumberOfPages )
+      return 0;
+    if ( !UserPfnArray )
       goto LABEL_13;
     v10 = (unsigned __int64 *)&v32;
-    if ( a2 > 0x200 )
-      v10 = &Pool[a2];
-    v12 = MiCaptureUlongPtrArray(v10, a3, a2);
+    if ( NumberOfPages > 0x200 )
+      v10 = &Pool[NumberOfPages];
+    v12 = MiCaptureUlongPtrArray(v10, (char *)UserPfnArray, NumberOfPages);
     if ( v12 >= 0 )
     {
 LABEL_13:
@@ -132,10 +136,17 @@ LABEL_38:
           }
           ++v11;
         }
-        while ( v11 < &Pool[a2] );
+        while ( v11 < &Pool[NumberOfPages] );
         v25 = MiLockAwePagesShared(v15, (__int64)CurrentThread);
         if ( v10
-          && (v12 = MiReferenceIncomingPhysicalPages(v15, (__int64)v10, a2, (__int64)Pool, (__int64 *)&v30, v28, 0LL),
+          && (v12 = MiReferenceIncomingPhysicalPages(
+                      v15,
+                      (__int64)v10,
+                      NumberOfPages,
+                      (__int64)Pool,
+                      (__int64 *)&v30,
+                      v28,
+                      0LL),
               v12 < 0) )
         {
           v9 = v28;
@@ -143,7 +154,7 @@ LABEL_38:
         else
         {
           v9 = v28;
-          *((_QWORD *)&v30 + 1) = MiWriteAwePtes(v28, v10, a2, (__int64)Pool, 0LL, 1);
+          *((_QWORD *)&v30 + 1) = MiWriteAwePtes(v28, v10, NumberOfPages, (__int64)Pool, 0LL, 1);
         }
         if ( v25 )
           MiUnlockAweVadsShared((__int64)CurrentThread, v25);
@@ -165,5 +176,5 @@ LABEL_39:
   while ( v27 );
   if ( Pool != (unsigned __int64 *)P )
     ExFreePoolWithTag(Pool, 0);
-  return (unsigned int)v12;
+  return v12;
 }

@@ -51,7 +51,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int 
   int v28; // eax
   unsigned int i; // edx
   __int64 v30; // rdx
-  unsigned __int8 v31; // al
+  BOOLEAN v31; // al
   __int64 v32; // rax
   __int64 result; // rax
   _QWORD *v34; // r14
@@ -63,7 +63,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int 
   struct _KTHREAD *v40; // rdi
   ULONG_PTR SessionId; // r9
   unsigned __int8 v42; // bp
-  __int64 v43; // rdx
+  unsigned int v43; // edx
   bool v44; // zf
   __int64 v45; // rcx
   int v46; // eax
@@ -298,7 +298,7 @@ LABEL_37:
         v30 = v32;
       }
     }
-    RtlRbInsertNodeEx(a1 + 96, v30, v31, v19);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v30, v31, (PRTL_BALANCED_NODE)v19);
     result = *(__int16 *)(a1 + 22);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(result + a1 + 16), (unsigned __int16)~*(_WORD *)(v19 + 28));
     v34 = 0LL;
@@ -344,7 +344,7 @@ LABEL_37:
         SessionId = 0xFFFFFFFFLL;
       --v40->SpecialApcDisable;
       v42 = ++v40->AbAllocationRegionCount;
-      LODWORD(v43) = ((char)v40->AbEntrySummary | (char)v40->AbOrphanedEntrySummary) ^ 0x3F;
+      v43 = ((char)v40->AbEntrySummary | (char)v40->AbOrphanedEntrySummary) ^ 0x3F;
       v44 = !_BitScanReverse((unsigned int *)&v45, v43);
       if ( v44 )
         goto LABEL_76;
@@ -353,7 +353,7 @@ LABEL_37:
         v46 = 1 << v45;
         v47 = v45;
         v48 = &v40->LockEntries[v47];
-        v43 = ~v46 & (unsigned int)v43;
+        v43 &= ~v46;
         if ( (v48->AcquiredByte & 1) != 0
           && (*(_DWORD *)&v48->LockState.0 & 1) == 0
           && (*(_QWORD *)&v48->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 64) & 0x7FFFFFFFFFFFFFFCLL)
@@ -377,7 +377,7 @@ LABEL_76:
       {
         v48->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v48->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree(&v40->LockEntries[v47], v43);
+          KiAbEntryRemoveFromTree(&v40->LockEntries[v47].TreeNode);
         v63 = v48->BoostBitmap.AllFields & 0x1FFFF;
         v48->BoostBitmap.AllFields &= 0xFFFE0000;
         v48->ThreadLocalFlags &= ~1u;

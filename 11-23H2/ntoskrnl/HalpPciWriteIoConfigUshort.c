@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPciWriteIoConfigUshort @ 0x140515770
+ * XREFs of HalpPciWriteIoConfigUshort @ 0x140515CC0
  * Callers:
  *     <none>
  * Callees:

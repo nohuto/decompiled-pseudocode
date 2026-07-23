@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetContextThread @ 0x140AF7E80
+ * XREFs of NtSetContextThread @ 0x140AFA520
  * Callers:
- *     DifNtSetContextThreadWrapper @ 0x14068ACF0 (DifNtSetContextThreadWrapper.c)
+ *     DifNtSetContextThreadWrapper @ 0x14068E8D0 (DifNtSetContextThreadWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     PspSetContextThreadInternal @ 0x1409EC360 (PspSetContextThreadInternal.c)
- *     PspLogAuditSetContextThreadEvent @ 0x140AF7F70 (PspLogAuditSetContextThreadEvent.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     PspSetContextThreadInternal @ 0x1409E8B30 (PspSetContextThreadInternal.c)
+ *     PspLogAuditSetContextThreadEvent @ 0x140AFA610 (PspLogAuditSetContextThreadEvent.c)
  */
 
-__int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
+NTSTATUS __cdecl NtSetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // si
@@ -22,7 +22,7 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
-  v5 = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( v5 >= 0 )
   {
     v7 = IoThreadToProcess(CurrentThread);
@@ -37,10 +37,10 @@ __int64 __fastcall NtSetContextThread(void *a1, __int64 a2)
     }
     else
     {
-      v5 = PspSetContextThreadInternal(v8, a2, PreviousMode, PreviousMode, 1);
+      v5 = PspSetContextThreadInternal(v8, ThreadContext, PreviousMode, PreviousMode, 1);
     }
     ObfDereferenceObject(v8);
   }
   PspLogAuditSetContextThreadEvent((unsigned int)v5);
-  return (unsigned int)v5;
+  return v5;
 }

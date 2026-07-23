@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsBranchConfusionMitigationSupported @ 0x1401D9C20
+ * XREFs of KiIsBranchConfusionMitigationSupported @ 0x1401D9A4C
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x1401D90FC (KeOptimizeSpecCtrlSettings.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401D9CAC (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsSrsoMitigationDesired @ 0x1401D9D44 (KiIsSrsoMitigationDesired.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1401D8F28 (KeOptimizeSpecCtrlSettings.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401D9AD8 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsSrsoMitigationDesired @ 0x1401D9B70 (KiIsSrsoMitigationDesired.c)
  * Callees:
- *     KiIsHyperVCr3RspErrataPresent @ 0x1401D8E8C (KiIsHyperVCr3RspErrataPresent.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1401D8CB8 (KiIsHyperVCr3RspErrataPresent.c)
  */
 
 _BOOL8 __fastcall KiIsBranchConfusionMitigationSupported(__int64 a1, _DWORD *a2)

@@ -1,21 +1,20 @@
 /*
- * XREFs of SepDereferenceCachedHandlesEntryInternal @ 0x140A8BBE8
+ * XREFs of SepDereferenceCachedHandlesEntryInternal @ 0x140A90EB0
  * Callers:
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     SepSetTokenBnoIsolation @ 0x140A2CC04 (SepSetTokenBnoIsolation.c)
- *     SepDeleteCachedHandlesTable @ 0x140AFE698 (SepDeleteCachedHandlesTable.c)
- *     SepTokenDeleteMethod @ 0x140B7CB10 (SepTokenDeleteMethod.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
+ *     SepSetTokenBnoIsolation @ 0x140ADE5CC (SepSetTokenBnoIsolation.c)
+ *     SepDeleteCachedHandlesTable @ 0x140B00708 (SepDeleteCachedHandlesTable.c)
+ *     SepTokenDeleteMethod @ 0x140B85580 (SepTokenDeleteMethod.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x140477880 (RtlRemoveEntryHashTable.c)
- *     SepCloseCachedTokenHandles @ 0x1404D4834 (SepCloseCachedTokenHandles.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlRemoveEntryHashTable @ 0x140471000 (RtlRemoveEntryHashTable.c)
+ *     SepCloseCachedTokenHandles @ 0x1404CE0A4 (SepCloseCachedTokenHandles.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceCachedHandlesEntryInternal(

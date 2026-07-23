@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAddColdPagesToHotRanges @ 0x1402CEA4C
+ * XREFs of MiAddColdPagesToHotRanges @ 0x1402CEC3C
  * Callers:
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
  *     MiInsertLargePageInFreeOrZeroList @ 0x140036320 (MiInsertLargePageInFreeOrZeroList.c)
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
- *     MiAddPageToHeatRanges @ 0x1402CEAD0 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     MiIsFreeZeroPfnCold @ 0x140082360 (MiIsFreeZeroPfnCold.c)
+ *     MiAddPageToHeatRanges @ 0x1402CECC0 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
  */
 
 void __fastcall MiAddColdPagesToHotRanges(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpAdjustCreatorAccessState @ 0x140404050
+ * XREFs of ObpAdjustCreatorAccessState @ 0x140402F10
  * Callers:
- *     ObpGrantAccess @ 0x140405778 (ObpGrantAccess.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
+ *     ObpGrantAccess @ 0x140404638 (ObpGrantAccess.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
  * Callees:
- *     SeComputeCreatorDeniedRights @ 0x14000F980 (SeComputeCreatorDeniedRights.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlMapGenericMask @ 0x140400910 (RtlMapGenericMask.c)
- *     ObpReferenceSecurityDescriptor @ 0x140406EB0 (ObpReferenceSecurityDescriptor.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14041537C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140415490 (SePrivilegeCheck.c)
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
- *     SeAppendPrivileges @ 0x1404C0F9C (SeAppendPrivileges.c)
+ *     SeComputeCreatorDeniedRights @ 0x14000F500 (SeComputeCreatorDeniedRights.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlMapGenericMask @ 0x1403FF7D0 (RtlMapGenericMask.c)
+ *     ObpReferenceSecurityDescriptor @ 0x140405D70 (ObpReferenceSecurityDescriptor.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14041423C (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140414350 (SePrivilegeCheck.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
+ *     SeAppendPrivileges @ 0x1404ACCCC (SeAppendPrivileges.c)
  */
 
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCESSOR_MODE a2, __int64 a3, __int64 a4)

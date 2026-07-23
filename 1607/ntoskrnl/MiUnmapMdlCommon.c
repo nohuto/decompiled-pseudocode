@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnmapMdlCommon @ 0x1401E3CF0
+ * XREFs of MiUnmapMdlCommon @ 0x1401E3B1C
  * Callers:
- *     MmUnmapReservedMapping @ 0x1401E4198 (MmUnmapReservedMapping.c)
- *     MmUnmapLockedRestartPages @ 0x140657488 (MmUnmapLockedRestartPages.c)
+ *     MmUnmapReservedMapping @ 0x1401E3FC4 (MmUnmapReservedMapping.c)
+ *     MmUnmapLockedRestartPages @ 0x14065756C (MmUnmapLockedRestartPages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiInsertLargeTbFlushEntry @ 0x14008B9B4 (MiInsertLargeTbFlushEntry.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14008B0B4 (MiInsertLargeTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiUnmapMdlCommon(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, ULONG_PTR a4)
@@ -63,10 +63,10 @@ void __fastcall MiUnmapMdlCommon(ULONG_PTR BugCheckParameter2, unsigned int a2, 
   }
   else
   {
-    v12 = ExAcquireSpinLockExclusive(&dword_140327568);
-    v13 = (_QWORD *)qword_140327578;
+    v12 = ExAcquireSpinLockExclusive(&dword_1403275A8);
+    v13 = (_QWORD *)qword_1403275B8;
     v14 = 0;
-    v15 = (_QWORD *)qword_140327578;
+    v15 = (_QWORD *)qword_1403275B8;
     if ( a4 >> 9 != 1 )
     {
       do
@@ -76,9 +76,9 @@ void __fastcall MiUnmapMdlCommon(ULONG_PTR BugCheckParameter2, unsigned int a2, 
       }
       while ( v14 < (a4 >> 9) - 1 );
     }
-    qword_140327578 = *v15;
+    qword_1403275B8 = *v15;
     *v15 = 0LL;
-    ExReleaseSpinLockExclusive(&dword_140327568, v12);
+    ExReleaseSpinLockExclusive(&dword_1403275A8, v12);
     v11 = 0xFFFFF68000000000uLL;
   }
   while ( v7 < v25 )

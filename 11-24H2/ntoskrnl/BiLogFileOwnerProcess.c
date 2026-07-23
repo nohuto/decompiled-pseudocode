@@ -1,24 +1,24 @@
 /*
- * XREFs of BiLogFileOwnerProcess @ 0x14069777C
+ * XREFs of BiLogFileOwnerProcess @ 0x1406987FC
  * Callers:
- *     BiLoadSystemStore @ 0x14085F450 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x140A575F0 (BiLoadSystemStore.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwQueryInformationProcess @ 0x1406A6730 (ZwQueryInformationProcess.c)
- *     ZwOpenProcess @ 0x1406A68D0 (ZwOpenProcess.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     IopDmaOverrideConflict @ 0x1406FBD00 (IopDmaOverrideConflict.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwQueryInformationProcess @ 0x1406A76D0 (ZwQueryInformationProcess.c)
+ *     ZwOpenProcess @ 0x1406A7870 (ZwOpenProcess.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     IopDmaOverrideConflict @ 0x1406F9940 (IopDmaOverrideConflict.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   __int128 v3; // xmm0
   unsigned int *v4; // rsi
-  __int64 v5; // rdi
+  _QWORD *v5; // rdi
   __int64 v6; // rcx
   UNICODE_STRING *v7; // r9
   NTSTATUS v8; // eax
@@ -27,7 +27,7 @@ void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
   unsigned int i; // r14d
   NTSTATUS v12; // eax
   unsigned int v13; // eax
-  int v14; // eax
+  NTSTATUS v14; // eax
   const wchar_t *v15; // r9
   CLIENT_ID ClientId; // [rsp+30h] [rbp-49h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-39h] BYREF
@@ -60,7 +60,7 @@ void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
     if ( v8 >= 0 )
     {
       Length = 1024;
-      Pool2 = (unsigned int *)ExAllocatePool2(0x102uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x102uLL, 0x400uLL, 0x4B444342u);
       v4 = Pool2;
       if ( Pool2 )
       {
@@ -87,32 +87,32 @@ void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
                 break;
               }
               Length = 0;
-              v13 = ZwQueryInformationProcess(ProcessHandle, 27LL, 0LL, 0LL, &Length);
+              v13 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, 0LL, 0, &Length);
               if ( v13 != -2147483643 && v13 != -1073741789 && v13 != -1073741820 )
               {
                 BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", v13);
                 break;
               }
-              v5 = ExAllocatePool2(0x102uLL);
+              v5 = (_QWORD *)ExAllocatePool2(0x102uLL, Length, 0x4B444342u);
               if ( !v5 )
               {
                 BiLogMessage(4LL, L"Failed to allocate memory for space for process name.");
                 break;
               }
-              v14 = ZwQueryInformationProcess(ProcessHandle, 27LL, v5, Length, &Length);
+              v14 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, v5, Length, &Length);
               if ( v14 < 0 )
               {
                 BiLogMessage(4LL, L"Failed to query process info. Status: %x", (unsigned int)v14);
                 break;
               }
               if ( *(_WORD *)v5 )
-                v15 = *(const wchar_t **)(v5 + 8);
+                v15 = (const wchar_t *)v5[1];
               else
                 v15 = L"System";
               BiLogMessage(4LL, L"Process Name [%d]: %ws", i, v15);
               ZwClose(ProcessHandle);
               ProcessHandle = 0LL;
-              ExFreePoolWithTag((PVOID)v5, 0x4B444342u);
+              ExFreePoolWithTag(v5, 0x4B444342u);
             }
           }
           else
@@ -137,7 +137,7 @@ void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
     if ( ProcessHandle )
       ZwClose(ProcessHandle);
     if ( v5 )
-      ExFreePoolWithTag((PVOID)v5, 0x4B444342u);
+      ExFreePoolWithTag(v5, 0x4B444342u);
     if ( v4 )
       ExFreePoolWithTag(v4, 0x4B444342u);
     if ( FileHandle )

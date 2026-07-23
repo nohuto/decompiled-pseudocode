@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpSignalAndWait @ 0x140264830
+ * XREFs of AlpcpSignalAndWait @ 0x140263DA0
  * Callers:
- *     AlpcpReceiveSynchronousReply @ 0x1409C0480 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpCompleteDeferSignalRequestAndWait @ 0x140A87DC4 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpReceiveSynchronousReply @ 0x140991460 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x140A8EEF4 (AlpcpCompleteDeferSignalRequestAndWait.c)
  * Callees:
- *     AlpcpSignal @ 0x1402648EC (AlpcpSignal.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     AlpcpLogUnwait @ 0x14077A678 (AlpcpLogUnwait.c)
+ *     AlpcpSignal @ 0x140263E5C (AlpcpSignal.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpLogUnwait @ 0x14077D5A8 (AlpcpLogUnwait.c)
  */
 
 __int64 __fastcall AlpcpSignalAndWait(
@@ -35,7 +35,7 @@ __int64 __fastcall AlpcpSignalAndWait(
   CurrentThread = KeGetCurrentThread();
   v13 = v11;
   --CurrentThread->KernelApcDisable;
-  if ( BYTE4(stru_140E66B30.StackBase) )
+  if ( LOBYTE(stru_140E66D40.CycleTime) )
     AlpcpLogUnwait(v11);
   v14 = *(void **)(a1 + 32);
   if ( v14 )

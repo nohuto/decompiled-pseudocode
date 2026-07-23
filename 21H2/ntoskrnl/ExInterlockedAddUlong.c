@@ -1,22 +1,20 @@
 /*
- * XREFs of ExInterlockedAddUlong @ 0x140379B40
+ * XREFs of ExInterlockedAddUlong @ 0x140379690
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x1402A03F4 (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x1402A04C4 (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x14021D974 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x14021DA44 (ExpAcquireSpinLockDisabled.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 ULONG __stdcall ExInterlockedAddUlong(PULONG Addend, ULONG Increment, PKSPIN_LOCK Lock)
 {
-  __int64 v3; // r9
-  char v7; // al
-  ULONG v8; // ebx
+  char v6; // al
+  ULONG v7; // ebx
 
-  v7 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock, *(__int64 *)&Increment, (__int64)Lock, v3);
-  v8 = *Addend;
+  v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock);
+  v7 = *Addend;
   *Addend += Increment;
-  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v7);
-  return v8;
+  ExpReleaseSpinLockDisabled((volatile signed __int64 *)Lock, v6);
+  return v7;
 }

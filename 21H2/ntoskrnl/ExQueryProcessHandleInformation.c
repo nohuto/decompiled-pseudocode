@@ -1,11 +1,11 @@
 /*
- * XREFs of ExQueryProcessHandleInformation @ 0x14094C8A4
+ * XREFs of ExQueryProcessHandleInformation @ 0x14094CA74
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
- *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ExpGetNextHandleTableEntry @ 0x140685B90 (ExpGetNextHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x1403535B0 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ExpGetNextHandleTableEntry @ 0x1405E3F10 (ExpGetNextHandleTableEntry.c)
  */
 
 __int64 __fastcall ExQueryProcessHandleInformation(__int64 a1, _QWORD *a2, int a3, int *a4)

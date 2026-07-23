@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmStWorkItemGet@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAU1@PEAK@Z @ 0x1402DA268
+ * XREFs of ?SmStWorkItemGet@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAU1@PEAK@Z @ 0x14028B5B8
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D99DC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14028AD2C (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     KeQueryPriorityThread @ 0x1402DA450 (KeQueryPriorityThread.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeQueryPriorityThread @ 0x14028B7A0 (KeQueryPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -26,7 +26,7 @@ __int64 *__fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(__int64 a1, _DWORD *a
   __int64 *v15; // rdi
   struct _KTHREAD *v17; // rsi
   __int64 v18; // rax
-  int v19; // edx
+  __int64 v19; // rdx
   int v20; // eax
   __int64 i; // rcx
   unsigned __int64 v22; // rdx
@@ -59,9 +59,9 @@ __int64 *__fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(__int64 a1, _DWORD *a
         {
           v18 = *(unsigned __int8 *)(a1 + 6022);
           if ( (_DWORD)v18 == 4 )
-            v19 = *(_DWORD *)(a1 + 6728);
+            v19 = *(unsigned int *)(a1 + 6728);
           else
-            v19 = *((_DWORD *)`SMKM_STORE<SM_TRAITS>::SmStGetPriorityByMemoryCondition'::`2'::PriorityByMemoryCondition
+            v19 = *((unsigned int *)`SMKM_STORE<SM_TRAITS>::SmStGetPriorityByMemoryCondition'::`2'::PriorityByMemoryCondition
                   + v18);
           KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 6200), v19);
         }
@@ -91,7 +91,7 @@ __int64 *__fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(__int64 a1, _DWORD *a
           {
             v17 = *(struct _KTHREAD **)(a1 + 6200);
             if ( KeQueryPriorityThread(v17) > 4 )
-              KeSetActualBasePriorityThread((__int64)v17, 4);
+              KeSetActualBasePriorityThread(v17, 4LL);
           }
         }
       }

@@ -1,55 +1,55 @@
 /*
- * XREFs of RtlDeleteAtomFromAtomTable @ 0x1406A1480
+ * XREFs of RtlDeleteAtomFromAtomTable @ 0x140600C10
  * Callers:
- *     NtDeleteAtom @ 0x1406A12F0 (NtDeleteAtom.c)
+ *     NtDeleteAtom @ 0x140600A80 (NtDeleteAtom.c)
  * Callees:
- *     RtlpLookupLowBox @ 0x14025AA58 (RtlpLookupLowBox.c)
- *     RtlpDereferenceAtom @ 0x1402BC6D8 (RtlpDereferenceAtom.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x14061BA60 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpDereferenceAtom @ 0x14023AC68 (RtlpDereferenceAtom.c)
+ *     RtlpLookupLowBox @ 0x14027BFC8 (RtlpLookupLowBox.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     RtlpLockAtomTable @ 0x140685688 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x1406856D0 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
-__int64 __fastcall RtlDeleteAtomFromAtomTable(__int64 a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlDeleteAtomFromAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  unsigned int v4; // ebx
-  unsigned __int64 v5; // rax
+  NTSTATUS v4; // ebx
+  __int64 v5; // rax
   __int64 v6; // rbp
-  __int64 *v7; // rax
+  __int64 v7; // rax
 
-  if ( !RtlpLockAtomTable((_DWORD *)a1) )
-    return 3221225485LL;
+  if ( !(unsigned __int8)RtlpLockAtomTable() )
+    return -1073741811;
   v4 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v4 = 0;
   }
   else
   {
-    v5 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
+    v5 = RtlpAtomMapAtomToHandleEntry(AtomTableHandle, Atom & 0x3FFF);
     v6 = v5;
     if ( v5 )
     {
-      if ( *(_WORD *)(v5 + 10) == a2 )
+      if ( *(_WORD *)(v5 + 10) == Atom )
       {
-        v7 = RtlpLookupLowBox(a1, v5, 1);
+        v7 = RtlpLookupLowBox((__int64)AtomTableHandle, v5, 1);
         if ( v7 )
         {
           v4 = 0;
-          if ( (*((_BYTE *)v7 + 22) & 1) != 0 )
+          if ( (*(_BYTE *)(v7 + 22) & 1) != 0 )
             v4 = 1073741849;
           else
-            RtlpDereferenceAtom(v6, v7, a1);
+            RtlpDereferenceAtom(v6, (__int64 *)v7, (__int64)AtomTableHandle);
         }
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(a1 + 8);
-  KeAbPostRelease(a1 + 8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((char *)AtomTableHandle + 8);
+  KeAbPostRelease((ULONG_PTR)AtomTableHandle + 8);
   KeLeaveCriticalRegion();
   return v4;
 }

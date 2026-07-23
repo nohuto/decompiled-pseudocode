@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComparePteProtections @ 0x1401E9164
+ * XREFs of MiComparePteProtections @ 0x1401E8F90
  * Callers:
- *     MiCheckSecuredVad @ 0x14040C3EC (MiCheckSecuredVad.c)
- *     MiSecureVad @ 0x14042AA80 (MiSecureVad.c)
+ *     MiCheckSecuredVad @ 0x14040B2AC (MiCheckSecuredVad.c)
+ *     MiSecureVad @ 0x140429950 (MiSecureVad.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1400145D8 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1400145F0 (MiLockWorkingSetShared.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
+ *     MiUnlockWorkingSetShared @ 0x140014158 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140014170 (MiLockWorkingSetShared.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
  */
 
 __int64 __fastcall MiComparePteProtections(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3, int a4, int a5)

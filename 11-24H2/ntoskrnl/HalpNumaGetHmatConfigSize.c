@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpNumaGetHmatConfigSize @ 0x140557DF0
+ * XREFs of HalpNumaGetHmatConfigSize @ 0x140555730
  * Callers:
- *     HalpNumaParseHmat @ 0x140C122A0 (HalpNumaParseHmat.c)
+ *     HalpNumaParseHmat @ 0x140C142A0 (HalpNumaParseHmat.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     HalpNumaCalculateSllbiSize @ 0x140557D80 (HalpNumaCalculateSllbiSize.c)
- *     HalpNumaQueryProximityNode @ 0x140558350 (HalpNumaQueryProximityNode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpVerifyHmatEntryValidity @ 0x140C12960 (HalpVerifyHmatEntryValidity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     HalpNumaCalculateSllbiSize @ 0x1405556C0 (HalpNumaCalculateSllbiSize.c)
+ *     HalpNumaQueryProximityNode @ 0x140555C90 (HalpNumaQueryProximityNode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpVerifyHmatEntryValidity @ 0x140C14960 (HalpVerifyHmatEntryValidity.c)
  */
 
 __int64 __fastcall HalpNumaGetHmatConfigSize(__int64 a1, _DWORD *a2, _DWORD *a3, int *a4, _DWORD *a5)
@@ -183,7 +183,7 @@ LABEL_43:
     v38 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E03B08,
-      (unsigned __int8 *)&dword_140042EBC,
+      (unsigned __int8 *)&dword_1400432BC,
       0LL,
       0LL,
       5u,

@@ -1,27 +1,27 @@
 /*
- * XREFs of KiAvailableCpusWorkItemCallbackWrapper @ 0x1405B8640
+ * XREFs of KiAvailableCpusWorkItemCallbackWrapper @ 0x1405B5C20
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall KiAvailableCpusWorkItemCallbackWrapper(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall KiAvailableCpusWorkItemCallbackWrapper(__int64 a1, __int64 a2)
 {
-  signed __int32 v5; // eax
+  signed __int32 v3; // eax
 
   do
   {
     while ( 1 )
     {
-      v5 = *(_DWORD *)(a1 + 40);
-      if ( (v5 & 2) == 0 )
+      v3 = *(_DWORD *)(a1 + 40);
+      if ( (v3 & 2) == 0 )
         break;
       _interlockedbittestandreset((volatile signed __int32 *)(a1 + 40), 1u);
-      guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 56), a2, a3, a4);
+      guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 56), a2);
     }
   }
-  while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v5 & 0xFFFFFFFE, v5) );
+  while ( v3 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v3 & 0xFFFFFFFE, v3) );
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 32));
 }

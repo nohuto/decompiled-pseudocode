@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepAddSecurityAttributeValues @ 0x14035F674
+ * XREFs of AuthzBasepAddSecurityAttributeValues @ 0x1403BA040
  * Callers:
- *     AuthzBasepAddSecurityAttribute @ 0x140357B4C (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1403B8A94 (AuthzBasepAddSecurityAttribute.c)
  * Callees:
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x140360060 (AuthzBasepAllocateSecurityAttributeValue.c)
- *     AuthzBasepFindSecurityAttributeValue @ 0x1403600AC (AuthzBasepFindSecurityAttributeValue.c)
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140360380 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x1403BAA30 (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x1403BAA7C (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1403BAD50 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepAddSecurityAttributeValues(__int64 a1, __int64 a2)

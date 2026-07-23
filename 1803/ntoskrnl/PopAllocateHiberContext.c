@@ -44,7 +44,7 @@ __int64 PopAllocateHiberContext()
   char *v1; // rbx
   unsigned __int64 PteAddress; // rax
   __int16 v3; // dx
-  __int64 v4; // rcx
+  UNICODE_STRING *v4; // rcx
   __int64 v5; // r8
   ULONG_PTR *v6; // r15
   int DumpStack; // esi
@@ -54,10 +54,10 @@ __int64 PopAllocateHiberContext()
   __int64 v11; // rcx
   __int64 v12; // rax
   __int64 v13; // rdx
-  __int64 v14; // rbp
+  HANDLE v14; // rbp
   __int64 v15; // rdx
   __int64 v16; // r8
-  __int64 v17; // rcx
+  void *v17; // rcx
   unsigned __int64 v18; // rax
   unsigned int v19; // edx
   unsigned __int64 v20; // rcx
@@ -77,12 +77,12 @@ __int64 PopAllocateHiberContext()
   __int64 v35; // rcx
   PMDL v36; // rax
   char SystemInformation; // [rsp+70h] [rbp+8h] BYREF
-  unsigned __int64 v38; // [rsp+78h] [rbp+10h] BYREF
-  __int64 v39; // [rsp+80h] [rbp+18h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+78h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+80h] [rbp+18h] BYREF
 
   if ( dword_1403AA088 != 5 )
     return 0;
-  v38 = 0LL;
+  BcdObjectHandle = 0LL;
   HighestPhysicalPage = MmGetHighestPhysicalPage(0);
   v1 = (char *)MemoryMap;
   BugCheckParameter4 = (ULONG_PTR)MemoryMap;
@@ -107,7 +107,7 @@ __int64 PopAllocateHiberContext()
     goto LABEL_41;
   }
   v6 = (ULONG_PTR *)(v1 + 168);
-  DumpStack = IoGetDumpStack(v4, (__int64)(v1 + 168), v5, PopSimulate & 0x10);
+  DumpStack = IoGetDumpStack((__int64)v4, (__int64)(v1 + 168), v5, PopSimulate & 0x10);
   if ( DumpStack < 0 )
     goto LABEL_41;
   v8 = *v6;
@@ -145,14 +145,17 @@ __int64 PopAllocateHiberContext()
   DumpStack = PopLoadResumeContext((__int64)v1);
   if ( DumpStack < 0 )
     goto LABEL_41;
-  DumpStack = BcdOpenStore(v4, 2LL, &v39);
+  DumpStack = BcdOpenStore(v4, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle);
   if ( DumpStack < 0 )
     goto LABEL_41;
-  v14 = v39;
-  DumpStack = PopBcdEstablishResumeObject(v39, &v38);
+  v14 = BcdStoreHandle;
+  DumpStack = PopBcdEstablishResumeObject(BcdStoreHandle);
   v17 = v14;
   if ( DumpStack < 0
-    || (DumpStack = PopBcdSetPendingResume(v14, v15, v16, v38), BcdCloseObject(v38), v17 = v14, DumpStack < 0) )
+    || (DumpStack = PopBcdSetPendingResume(v14, v15, v16, BcdObjectHandle),
+        BcdCloseObject(BcdObjectHandle),
+        v17 = v14,
+        DumpStack < 0) )
   {
     BcdCloseStore(v17);
     goto LABEL_38;
@@ -162,11 +165,11 @@ __int64 PopAllocateHiberContext()
   RtlSetAllBits((PRTL_BITMAP)v1 + 3);
   *((_DWORD *)v1 + 112) = PopGetHwConfigurationSignature();
   PopHiberInitializeResources(v1);
-  if ( (int)PopGetBitlockerKeyLocation((__int64 *)&v38) >= 0 )
+  if ( (int)PopGetBitlockerKeyLocation((__int64 *)&BcdObjectHandle) >= 0 )
   {
-    v29 = v38 >> 12;
-    *((_QWORD *)v1 + 39) = v38 >> 12;
-    PopDiscardRange((struct _RTL_BITMAP *)v1, v29, 4u);
+    v29 = (unsigned __int64)BcdObjectHandle >> 12;
+    *((_QWORD *)v1 + 39) = (unsigned __int64)BcdObjectHandle >> 12;
+    PopDiscardRange((_RTL_BITMAP *)v1, v29, 4u);
   }
   if ( !KdPitchDebugger || KdEventLoggingEnabled )
   {
@@ -246,7 +249,7 @@ __int64 PopAllocateHiberContext()
     }
     while ( v24 );
   }
-  UnHibernatedMdl = PopGenerateUnHibernatedMdl(v4, (unsigned int)PopHiberScratchPages);
+  UnHibernatedMdl = PopGenerateUnHibernatedMdl((__int64)v4, (unsigned int)PopHiberScratchPages);
   *((_QWORD *)v1 + 15) = UnHibernatedMdl;
   if ( !UnHibernatedMdl )
   {
@@ -271,7 +274,7 @@ __int64 PopAllocateHiberContext()
   {
     v1[452] = 0;
   }
-  if ( ZwQuerySystemInformation(SystemObjectInformation|0x80, &SystemInformation, 2u, 0LL) >= 0 )
+  if ( ZwQuerySystemInformation(SystemSecureBootInformation, &SystemInformation, 2u, 0LL) >= 0 )
     v1[453] = SystemInformation;
   if ( (int)BgkResumePrepare(v1) >= 0 )
     PopBgkResumePrepared = 1;

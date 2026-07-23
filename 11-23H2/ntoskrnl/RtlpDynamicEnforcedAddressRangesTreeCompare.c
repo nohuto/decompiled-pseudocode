@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1409C2A28
+ * XREFs of RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1409C2C28
  * Callers:
- *     RtlAddDynamicEnforcedAddressRange @ 0x1409C2608 (RtlAddDynamicEnforcedAddressRange.c)
- *     RtlFindDynamicEnforcedAddressInRanges @ 0x1409C26D0 (RtlFindDynamicEnforcedAddressInRanges.c)
- *     RtlRemoveDynamicEnforcedAddressRange @ 0x1409C2784 (RtlRemoveDynamicEnforcedAddressRange.c)
+ *     RtlAddDynamicEnforcedAddressRange @ 0x1409C2808 (RtlAddDynamicEnforcedAddressRange.c)
+ *     RtlFindDynamicEnforcedAddressInRanges @ 0x1409C28D0 (RtlFindDynamicEnforcedAddressInRanges.c)
+ *     RtlRemoveDynamicEnforcedAddressRange @ 0x1409C2984 (RtlRemoveDynamicEnforcedAddressRange.c)
  * Callees:
  *     <none>
  */

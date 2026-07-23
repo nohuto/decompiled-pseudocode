@@ -1,10 +1,10 @@
 /*
- * XREFs of StRtlIoStorInfoSetNvCachePriority @ 0x14069EF50
+ * XREFs of StRtlIoStorInfoSetNvCachePriority @ 0x1406A0000
  * Callers:
- *     IoAsynchronousPageWrite @ 0x14037286C (IoAsynchronousPageWrite.c)
+ *     IoAsynchronousPageWrite @ 0x14025B12C (IoAsynchronousPageWrite.c)
  * Callees:
- *     IoGetGenericIrpExtension @ 0x140437E70 (IoGetGenericIrpExtension.c)
- *     IoSetGenericIrpExtension @ 0x1404660A0 (IoSetGenericIrpExtension.c)
+ *     IoGetGenericIrpExtension @ 0x14042A8F0 (IoGetGenericIrpExtension.c)
+ *     IoSetGenericIrpExtension @ 0x14045EE30 (IoSetGenericIrpExtension.c)
  */
 
 __int64 __fastcall StRtlIoStorInfoSetNvCachePriority(__int64 a1, unsigned __int8 a2)

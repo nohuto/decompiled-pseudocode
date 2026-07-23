@@ -16,10 +16,10 @@ int __fastcall GetNameFromLangListNode(int a1, _WORD *a2, PUNICODE_STRING Destin
   int v4; // esi
   int v6; // ecx
   int v7; // eax
-  int v8; // edi
+  LCID v8; // edi
   __int16 v9; // ax
   int v10; // ecx
-  char v12; // al
+  BOOLEAN v12; // al
 
   v4 = 0;
   if ( a1 && a2 && DestinationString )

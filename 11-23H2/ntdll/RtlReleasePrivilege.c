@@ -2,8 +2,8 @@
  * XREFs of RtlReleasePrivilege @ 0x180082190
  * Callers:
  *     LdrpMinimalMapModule @ 0x18002C524 (LdrpMinimalMapModule.c)
- *     GetProcessIptTrace @ 0x18012CBD0 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18012CD2C (GetProcessIptTraceSize.c)
+ *     GetProcessIptTrace @ 0x18012CBFC (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18012CD58 (GetProcessIptTraceSize.c)
  * Callees:
  *     RtlFreeHeap @ 0x18003B030 (RtlFreeHeap.c)
  *     NtSetInformationThread @ 0x1800A1050 (NtSetInformationThread.c)
@@ -11,23 +11,23 @@
  *     NtAdjustPrivilegesToken @ 0x1800A16D0 (NtAdjustPrivilegesToken.c)
  */
 
-__int64 __fastcall RtlReleasePrivilege(HANDLE *a1)
+void __cdecl RtlReleasePrivilege(PVOID StatePointer)
 {
-  __int64 v2; // r8
-  HANDLE v4; // rcx
+  char *v2; // r8
+  void *v3; // rcx
 
-  if ( ((_DWORD)a1[4] & 3) != 1 )
-    NtAdjustPrivilegesToken(*a1, 0LL, a1[2]);
-  if ( ((_BYTE)a1[4] & 1) != 0 )
+  if ( (*((_DWORD *)StatePointer + 8) & 3) != 1 )
+    NtAdjustPrivilegesToken(*(HANDLE *)StatePointer, 0, *((PTOKEN_PRIVILEGES *)StatePointer + 2), 0, 0LL, 0LL);
+  if ( (*((_BYTE *)StatePointer + 32) & 1) != 0 )
   {
-    NtSetInformationThread(-2LL, 5LL, a1 + 1);
-    v4 = a1[1];
-    if ( v4 )
-      NtClose(v4);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, (char *)StatePointer + 8, 8u);
+    v3 = (void *)*((_QWORD *)StatePointer + 1);
+    if ( v3 )
+      NtClose(v3);
   }
-  v2 = (__int64)a1[2];
-  if ( (HANDLE *)v2 != (HANDLE *)((char *)a1 + 36) )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2);
-  NtClose(*a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)a1);
+  v2 = (char *)*((_QWORD *)StatePointer + 2);
+  if ( v2 != (char *)StatePointer + 36 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+  NtClose(*(HANDLE *)StatePointer);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, StatePointer);
 }

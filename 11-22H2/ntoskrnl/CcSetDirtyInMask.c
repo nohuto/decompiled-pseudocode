@@ -40,7 +40,7 @@ int __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a3, struct
   __int64 v4; // rbx
   __int64 v5; // r9
   __int64 v7; // rax
-  struct _SLIST_ENTRY *v8; // rsi
+  _SLIST_ENTRY *v8; // rsi
   int v9; // r12d
   int v10; // r8d
   volatile signed __int64 *SchedulerSubNode; // rcx
@@ -99,7 +99,7 @@ int __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a3, struct
   PSLIST_ENTRY v64; // rbx
   struct _KTHREAD *v65; // r10
   PSLIST_ENTRY v66; // rsi
-  struct _SLIST_ENTRY *v67; // rax
+  _SLIST_ENTRY *v67; // rax
   __int64 v68; // rax
   __int64 **v69; // rdx
   __int64 *v70; // rcx
@@ -193,10 +193,13 @@ LABEL_71:
         CcScheduleLazyWriteScan(v76, v97, 0LL, 0);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -301,7 +304,7 @@ LABEL_71:
       memset(ListEntry, 0, 0x400uLL);
       if ( *(_DWORD *)(v26 + 80) )
       {
-        v67 = *(struct _SLIST_ENTRY **)(v26 + 88);
+        v67 = *(_SLIST_ENTRY **)(v26 + 88);
         *v66 = *v67;
         v66[1] = v67[1];
         v66[2] = v67[2];
@@ -417,7 +420,7 @@ LABEL_27:
     LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v98 + 768);
     v35 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v35 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu )
     {
       v60 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v35 == 2 )
@@ -558,10 +561,10 @@ LABEL_27:
     }
 LABEL_66:
     v52 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       SchedulerSubNode = (volatile signed __int64 *)KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)SchedulerSubNode <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)SchedulerSubNode >= 2u )
@@ -614,10 +617,10 @@ LABEL_163:
     *(_DWORD *)(a1 + 152) |= 0x20000u;
     LODWORD(InitializeMbcb) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v83 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(InitializeMbcb) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)InitializeMbcb <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)InitializeMbcb >= 2u )
@@ -642,10 +645,10 @@ LABEL_73:
     v57 = _InterlockedCompareExchange((volatile signed __int32 *)v53, 1, 0);
     if ( v57 )
       ExpReleaseFastMutexContended((volatile signed __int32 *)v53, v57);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v86 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v86 <= 0xFu && (unsigned __int8)v56 <= 0xFu && v86 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v86 <= 0xFu && (unsigned __int8)v56 <= 0xFu && v86 >= 2u )
       {
         v87 = KeGetCurrentPrcb();
         v88 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v56 + 1));
@@ -665,7 +668,7 @@ LABEL_73:
     if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_140CF87D0 )
     {
       ++dword_140CF87E0;
-      LODWORD(InitializeMbcb) = ((__int64 (__fastcall *)(struct _SLIST_ENTRY *))qword_140CF87F8)(v8);
+      LODWORD(InitializeMbcb) = ((__int64 (__fastcall *)(_SLIST_ENTRY *))qword_140CF87F8)(v8);
     }
     else
     {

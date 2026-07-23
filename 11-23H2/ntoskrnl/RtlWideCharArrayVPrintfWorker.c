@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWideCharArrayVPrintfWorker @ 0x14040FB88
+ * XREFs of RtlWideCharArrayVPrintfWorker @ 0x14040FD68
  * Callers:
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
  * Callees:
- *     _vsnwprintf @ 0x1403D89B0 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1403D8B90 (_vsnwprintf.c)
  */
 
 NTSTATUS __stdcall RtlWideCharArrayVPrintfWorker(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIdleWakeNotifyDevicesActive @ 0x14057B678
+ * XREFs of PopIdleWakeNotifyDevicesActive @ 0x14057B8B8
  * Callers:
- *     PopFxPlatformStateAvailable @ 0x14056BA8C (PopFxPlatformStateAvailable.c)
+ *     PopFxPlatformStateAvailable @ 0x14056BCCC (PopFxPlatformStateAvailable.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -22,9 +22,9 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
-  LARGE_INTEGER v12; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v12.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v1 = a1;
   v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v3 = PopIdleWakeContext;
@@ -37,9 +37,9 @@ __int64 __fastcall PopIdleWakeNotifyDevicesActive(unsigned __int8 a1)
       *(_DWORD *)PopIdleWakeContext = v5;
       if ( (v5 & 2) == 0 )
       {
-        RtlGetInterruptTimePrecise(&v12);
-        v6 = v12;
-        v7 = v12.QuadPart - v3[1];
+        RtlGetInterruptTimePrecise(&PerformanceCounter);
+        v6 = PerformanceCounter;
+        v7 = PerformanceCounter.QuadPart - v3[1];
         if ( (_BYTE)v1 )
           v3[4] += v7;
         else

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCopyCell @ 0x1407DDCB0
+ * XREFs of CmpCopyCell @ 0x1407DDF80
  * Callers:
- *     CmpCopyKeyPartial @ 0x1407DD858 (CmpCopyKeyPartial.c)
- *     CmpCopyValue @ 0x1408AB984 (CmpCopyValue.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x140A210D8 (CmpCopyMergeOfLayeredKeyNode.c)
- *     CmpSyncKeyValues @ 0x140A22DD4 (CmpSyncKeyValues.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A25DD4 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpLightWeightCreateSetValueData @ 0x140A28AC4 (CmpLightWeightCreateSetValueData.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A293A0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpCopyKeyPartial @ 0x1407DDB28 (CmpCopyKeyPartial.c)
+ *     CmpCopyValue @ 0x1408ABBD4 (CmpCopyValue.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A21388 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpSyncKeyValues @ 0x140A23084 (CmpSyncKeyValues.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A26084 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpLightWeightCreateSetValueData @ 0x140A28D74 (CmpLightWeightCreateSetValueData.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29650 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvAllocateCell @ 0x14070A3C8 (HvAllocateCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvAllocateCell @ 0x14070A5D8 (HvAllocateCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpCopyCell(

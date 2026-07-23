@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxReferenceDevice @ 0x14029F788
+ * XREFs of PopFxReferenceDevice @ 0x1403AA248
  * Callers:
- *     PopFxQueueWorkOrder @ 0x14029F720 (PopFxQueueWorkOrder.c)
- *     PopFxActivateComponentWorker @ 0x1403B6358 (PopFxActivateComponentWorker.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x14048DAD8 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140490504 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxActivateDevice @ 0x140496080 (PopFxActivateDevice.c)
- *     PopFxClearDeviceConstraints @ 0x1404A6344 (PopFxClearDeviceConstraints.c)
- *     PopFxIdleWorkerTail @ 0x1404EB37C (PopFxIdleWorkerTail.c)
- *     PoFxAddComponentRelation @ 0x1405CFDE0 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x1405D0050 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x1405D0490 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x1405D06F0 (PoFxRemoveDeviceRelation.c)
- *     PopFxGetParentFxDevice @ 0x1405D13FC (PopFxGetParentFxDevice.c)
- *     PopFxIssueDirectedPowerTransition @ 0x1405D168C (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxActivateComponentWorker @ 0x1402AE658 (PopFxActivateComponentWorker.c)
+ *     PopFxQueueWorkOrder @ 0x1403AA1E0 (PopFxQueueWorkOrder.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140488370 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x14048AB44 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxActivateDevice @ 0x140490A10 (PopFxActivateDevice.c)
+ *     PopFxClearDeviceConstraints @ 0x1404CDF98 (PopFxClearDeviceConstraints.c)
+ *     PopFxIdleWorkerTail @ 0x1404E22FC (PopFxIdleWorkerTail.c)
+ *     PoFxAddComponentRelation @ 0x1405CD500 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x1405CD770 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveComponentRelation @ 0x1405CDBB0 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405CDE10 (PoFxRemoveDeviceRelation.c)
+ *     PopFxGetParentFxDevice @ 0x1405CEB1C (PopFxGetParentFxDevice.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x1405CEDAC (PopFxIssueDirectedPowerTransition.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxReferenceDevice(ULONG_PTR BugCheckParameter2, int a2)

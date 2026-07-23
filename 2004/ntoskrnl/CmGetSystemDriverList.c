@@ -36,7 +36,7 @@ HANDLE *__fastcall CmGetSystemDriverList(__int64 a1)
   HANDLE *v4; // r14
   char v5; // r15
   BOOLEAN v6; // r12
-  int DirectoryObject; // eax
+  NTSTATUS v7; // eax
   const UNICODE_STRING *j; // rdi
   PVOID *i; // rbx
   __int64 *v10; // rax
@@ -54,44 +54,48 @@ HANDLE *__fastcall CmGetSystemDriverList(__int64 a1)
   wchar_t *Buffer; // rax
   PVOID *v24; // rbx
   UNICODE_STRING *v25; // rbx
-  __int64 v26; // [rsp+48h] [rbp-C0h]
-  __int64 v27; // [rsp+58h] [rbp-B0h]
-  __int64 v28[2]; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned int Context; // [rsp+30h] [rbp-D8h]
+  PULONG ReturnLength; // [rsp+38h] [rbp-D0h]
+  __int64 v28; // [rsp+48h] [rbp-C0h]
+  __int64 v29; // [rsp+58h] [rbp-B0h]
+  __int64 v30[2]; // [rsp+68h] [rbp-A0h] BYREF
   PVOID P; // [rsp+78h] [rbp-90h] BYREF
   PVOID *p_P; // [rsp+80h] [rbp-88h]
-  __int64 v31; // [rsp+88h] [rbp-80h] BYREF
-  UNICODE_STRING v32; // [rsp+90h] [rbp-78h] BYREF
+  ULONG v33; // [rsp+88h] [rbp-80h] BYREF
+  ULONG v34; // [rsp+8Ch] [rbp-7Ch] BYREF
+  UNICODE_STRING v35; // [rsp+90h] [rbp-78h] BYREF
   HANDLE DirectoryHandle; // [rsp+A0h] [rbp-68h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v35; // [rsp+D8h] [rbp-30h]
+  __int64 v38; // [rsp+D8h] [rbp-30h]
   UNICODE_STRING *PoolWithTag; // [rsp+E0h] [rbp-28h]
   UNICODE_STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
-  ULONG_PTR v38[8]; // [rsp+F8h] [rbp-10h] BYREF
-  _QWORD v39[8]; // [rsp+138h] [rbp+30h] BYREF
-  _OWORD v40[3]; // [rsp+178h] [rbp+70h] BYREF
+  ULONG_PTR v41[8]; // [rsp+F8h] [rbp-10h] BYREF
+  _QWORD v42[8]; // [rsp+138h] [rbp+30h] BYREF
+  _OWORD v43[3]; // [rsp+178h] [rbp+70h] BYREF
 
-  v35 = a1;
+  v38 = a1;
   v1 = a1;
-  v31 = 0LL;
+  v34 = 0;
+  v33 = 0;
   v2 = 0;
   DestinationString = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  memset(v40, 0, sizeof(v40));
-  memset(v38, 0, sizeof(v38));
-  LODWORD(v38[7]) = -1;
-  memset(v39, 0, sizeof(v39));
-  LODWORD(v39[7]) = -1;
+  memset(v43, 0, sizeof(v43));
+  memset(v41, 0, sizeof(v41));
+  LODWORD(v41[7]) = -1;
+  memset(v42, 0, sizeof(v42));
+  LODWORD(v42[7]) = -1;
   p_P = &P;
   DirectoryHandle = 0LL;
   P = &P;
   v3 = 0LL;
-  v32.Buffer = (wchar_t *)&v32;
+  v35.Buffer = (wchar_t *)&v35;
   v4 = 0LL;
   v5 = 0;
-  *(_QWORD *)&v32.Length = &v32;
+  *(_QWORD *)&v35.Length = &v35;
   v6 = 0;
-  v28[1] = (__int64)v28;
-  v28[0] = (__int64)v28;
+  v30[1] = (__int64)v30;
+  v30[0] = (__int64)v30;
   if ( (int)CmpOpenSystemDriverHiveContext(&CmpSystemHiveNameString) >= 0 )
   {
     if ( !CmStateSeparationEnabled
@@ -110,19 +114,19 @@ HANDLE *__fastcall CmGetSystemDriverList(__int64 a1)
         v3 = PoolWithTag;
         if ( PoolWithTag )
         {
-          DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)PoolWithTag);
-          if ( DirectoryObject == -2147483622 )
+          v7 = ZwQueryDirectoryObject(DirectoryHandle, PoolWithTag, 0x400u, 1u, 1u, &v34, &v33);
+          if ( v7 == -2147483622 )
           {
 LABEL_12:
             v6 = CmpAcquireShutdownRundown();
             if ( v6 )
             {
-              CmpAttachToRegistryProcess((__int64)v40);
+              CmpAttachToRegistryProcess((__int64)v43);
               v2 = 1;
               CmpLockRegistryExclusive();
               v5 = 1;
-              if ( (int)CmpAcquireSystemDriverHiveContext((__int64)v38) >= 0
-                && (!v39[4] || (int)CmpAcquireSystemDriverHiveContext((__int64)v39) >= 0) )
+              if ( (int)CmpAcquireSystemDriverHiveContext((__int64)v41) >= 0
+                && (!v42[4] || (int)CmpAcquireSystemDriverHiveContext((__int64)v42) >= 0) )
               {
                 for ( i = (PVOID *)P; i != &P; i = (PVOID *)*i )
                 {
@@ -138,34 +142,34 @@ LABEL_12:
                     *((_OWORD *)v21 + 1) = *((_OWORD *)i + 1);
                     *((_QWORD *)v21 + 4) = i[6];
                     *((_DWORD *)v21 + 10) = *((_DWORD *)i + 14);
-                    Buffer = v32.Buffer;
-                    if ( *(UNICODE_STRING **)v32.Buffer != &v32 )
+                    Buffer = v35.Buffer;
+                    if ( *(UNICODE_STRING **)v35.Buffer != &v35 )
                       goto LABEL_61;
-                    *((_QWORD *)v22 + 1) = v32.Buffer;
-                    *(_QWORD *)v22 = &v32;
+                    *((_QWORD *)v22 + 1) = v35.Buffer;
+                    *(_QWORD *)v22 = &v35;
                     *(_QWORD *)Buffer = v22;
-                    v32.Buffer = v22;
+                    v35.Buffer = v22;
                   }
                 }
                 if ( CmpFindDrivers(
-                       v38[6],
-                       LODWORD(v38[7]),
-                       v39[6],
-                       v39[7],
-                       &v32,
-                       (unsigned int)&v31 + 4,
-                       (__int64)&v31,
-                       (char **)v28,
-                       v26,
+                       v41[6],
+                       LODWORD(v41[7]),
+                       v42[6],
+                       v42[7],
+                       &v35,
+                       Context,
+                       (__int64)ReturnLength,
+                       (char **)v30,
+                       v28,
                        v1,
-                       v27)
-                  && CmpSortDriverList(v38[6], LODWORD(v38[7]), (__int64)v28) )
+                       v29)
+                  && CmpSortDriverList(v41[6], LODWORD(v41[7]), (__int64)v30) )
                 {
                   CmpUnlockRegistry();
-                  v10 = (__int64 *)v28[0];
+                  v10 = (__int64 *)v30[0];
                   v11 = 0;
                   v5 = 0;
-                  while ( v10 != v28 )
+                  while ( v10 != v30 )
                   {
                     v10 = (__int64 *)*v10;
                     ++v11;
@@ -173,9 +177,9 @@ LABEL_12:
                   v4 = (HANDLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)(v11 + 1), 0x32384D43u);
                   if ( !v4 )
                     KeBugCheckEx(0x67u, 2uLL, 1uLL, 0LL, 0LL);
-                  v12 = v28[0];
+                  v12 = v30[0];
                   v13 = 0;
-                  if ( (__int64 *)v28[0] != v28 )
+                  if ( (__int64 *)v30[0] != v30 )
                   {
                     do
                     {
@@ -188,7 +192,7 @@ LABEL_12:
                         ++v13;
                       v12 = *(_QWORD *)v12;
                     }
-                    while ( (__int64 *)v12 != v28 );
+                    while ( (__int64 *)v12 != v30 );
                     v3 = PoolWithTag;
                   }
                   v4[v13] = 0LL;
@@ -198,7 +202,7 @@ LABEL_12:
           }
           else
           {
-            while ( DirectoryObject >= 0 )
+            while ( v7 >= 0 )
             {
               for ( j = v3; j->Length; j += 2 )
               {
@@ -227,10 +231,10 @@ LABEL_61:
                   }
                 }
               }
-              DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v3);
-              if ( DirectoryObject == -2147483622 )
+              v7 = ZwQueryDirectoryObject(DirectoryHandle, v3, 0x400u, 1u, 0, &v34, &v33);
+              if ( v7 == -2147483622 )
               {
-                v1 = v35;
+                v1 = v38;
                 goto LABEL_12;
               }
             }
@@ -240,17 +244,17 @@ LABEL_61:
     }
   }
 LABEL_29:
-  if ( (__int64 *)v28[0] != v28 )
-    CmpFreeDriverList(v38[6], v28);
+  if ( (__int64 *)v30[0] != v30 )
+    CmpFreeDriverList(v41[6], v30);
   if ( v5 )
     CmpUnlockRegistry();
   if ( v2 )
-    CmpDetachFromRegistryProcess((__int64)v40);
+    CmpDetachFromRegistryProcess((__int64)v43);
   if ( v6 )
     CmpReleaseShutdownRundown();
-  CmpCloseSystemDriverHiveContext(v38);
-  if ( v39[4] )
-    CmpCloseSystemDriverHiveContext(v39);
+  CmpCloseSystemDriverHiveContext(v41);
+  if ( v42[4] )
+    CmpCloseSystemDriverHiveContext(v42);
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
   if ( v3 )
@@ -267,8 +271,8 @@ LABEL_29:
     }
     while ( v24 != &P );
   }
-  v15 = *(UNICODE_STRING **)&v32.Length;
-  if ( *(UNICODE_STRING **)&v32.Length != &v32 )
+  v15 = *(UNICODE_STRING **)&v35.Length;
+  if ( *(UNICODE_STRING **)&v35.Length != &v35 )
   {
     do
     {
@@ -276,7 +280,7 @@ LABEL_29:
       ExFreePoolWithTag(v15, 0);
       v15 = v25;
     }
-    while ( v25 != &v32 );
+    while ( v25 != &v35 );
   }
   return v4;
 }

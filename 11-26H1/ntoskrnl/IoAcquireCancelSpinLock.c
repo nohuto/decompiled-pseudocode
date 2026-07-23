@@ -1,17 +1,17 @@
 /*
- * XREFs of IoAcquireCancelSpinLock @ 0x14044F400
+ * XREFs of IoAcquireCancelSpinLock @ 0x140447530
  * Callers:
  *     <none>
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
   __int64 v1; // r8
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   void *ArbitraryUserPointer; // rax
   volatile __int64 *v5; // rdx
   __int64 v6; // rcx
@@ -25,7 +25,7 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
   ArbitraryUserPointer = KeGetPcr()->NtTib.ArbitraryUserPointer;
   v5 = (volatile __int64 *)*((_QWORD *)ArbitraryUserPointer + 15);
   v6 = (__int64)ArbitraryUserPointer + 112;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v7 = _InterlockedExchange64(v5, v6);
     if ( v7 )

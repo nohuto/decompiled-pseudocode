@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfResetHistoryAll @ 0x140AB7554
+ * XREFs of PpmPerfResetHistoryAll @ 0x140AB1824
  * Callers:
- *     PpmCheckReInit @ 0x140A72240 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140A6B620 (PpmCheckReInit.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmPerfResetHistory @ 0x1404099C0 (PpmPerfResetHistory.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmPerfResetHistory @ 0x140401EA0 (PpmPerfResetHistory.c)
  */
 
 void PpmPerfResetHistoryAll()
@@ -25,7 +25,7 @@ void PpmPerfResetHistoryAll()
     {
       _BitScanForward64(&v2, v0);
       v0 &= ~(1LL << v2);
-      Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v1 + (unsigned __int8)v2));
+      Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v1 + (unsigned __int8)v2));
       PpmPerfResetHistory(Prcb + 35248);
     }
     v1 = (unsigned __int16)(v1 + 1);

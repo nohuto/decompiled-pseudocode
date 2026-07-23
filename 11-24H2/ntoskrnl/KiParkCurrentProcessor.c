@@ -1,31 +1,31 @@
 /*
- * XREFs of KiParkCurrentProcessor @ 0x1403E9898
+ * XREFs of KiParkCurrentProcessor @ 0x1403D7544
  * Callers:
- *     KiSearchForNewThread @ 0x140296D10 (KiSearchForNewThread.c)
- *     KeTransitionProcessorParkState @ 0x1403E9560 (KeTransitionProcessorParkState.c)
+ *     KiSearchForNewThread @ 0x1402A59F0 (KiSearchForNewThread.c)
+ *     KeTransitionProcessorParkState @ 0x1403D720C (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x140204120 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiCommitRescheduleContext @ 0x140299450 (KiCommitRescheduleContext.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x14030CC70 (KiTransitionSchedulingGroupGeneration.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAdjustRescheduleContextForParking @ 0x1403C9FA0 (KiAdjustRescheduleContextForParking.c)
- *     KiIsPrcbThread @ 0x1403CA0D0 (KiIsPrcbThread.c)
- *     KiFlushReadyLists @ 0x1403CBD00 (KiFlushReadyLists.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiUpdateThreadPriority @ 0x140429720 (KiUpdateThreadPriority.c)
- *     KiProcessScbTracingList @ 0x1404540D4 (KiProcessScbTracingList.c)
- *     KiGetCurrentScheduledThreadProcessor @ 0x14046B354 (KiGetCurrentScheduledThreadProcessor.c)
- *     EtwTraceParkTransition @ 0x14064DC44 (EtwTraceParkTransition.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiAdjustRescheduleContextForParking @ 0x1402A65D0 (KiAdjustRescheduleContextForParking.c)
+ *     KiIsPrcbThread @ 0x1402A6700 (KiIsPrcbThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiCommitRescheduleContext @ 0x1402A7F40 (KiCommitRescheduleContext.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1402DBCD0 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiUpdateThreadPriority @ 0x1402E0E50 (KiUpdateThreadPriority.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14032B704 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiFlushReadyLists @ 0x1403BC52C (KiFlushReadyLists.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiProcessScbTracingList @ 0x140449184 (KiProcessScbTracingList.c)
+ *     KiGetCurrentScheduledThreadProcessor @ 0x140463F58 (KiGetCurrentScheduledThreadProcessor.c)
+ *     EtwTraceParkTransition @ 0x14064C254 (EtwTraceParkTransition.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KiParkCurrentProcessor(
@@ -42,8 +42,8 @@ char __fastcall KiParkCurrentProcessor(
   char v13; // al
   unsigned __int8 v14; // al
   __int64 CurrentScheduledThreadProcessor; // rax
-  int v16; // edx
-  int v17; // ecx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
   __int64 v18; // r8
   _KSHARED_READY_QUEUE *SharedReadyQueue; // r9
   _KSHARED_READY_QUEUE *v20; // rdi
@@ -166,7 +166,7 @@ LABEL_32:
   if ( v32 )
     KiProcessScbTracingList(a1, &v32);
   result = KiProcessDeferredReadyList(a1, &v31, 2u);
-  if ( (WORD2(xmmword_140FC5B10) & 0x2000) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x2000) != 0 )
     return EtwTraceParkTransition(a1, a5, a4);
   return result;
 }

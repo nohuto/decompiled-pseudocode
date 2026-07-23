@@ -6,7 +6,10 @@
  *     LdrQueryProcessModuleInformationEx @ 0x1800758A4 (LdrQueryProcessModuleInformationEx.c)
  */
 
-__int64 __fastcall LdrQueryProcessModuleInformation(int a1, int a2, __int64 a3)
+NTSTATUS __cdecl LdrQueryProcessModuleInformation(
+        PRTL_PROCESS_MODULES ModuleInformation,
+        ULONG Size,
+        PULONG ReturnedSize)
 {
-  return LdrQueryProcessModuleInformationEx(0, 2, a1, a2, a3);
+  return LdrQueryProcessModuleInformationEx(0, 2, (_DWORD)ModuleInformation, Size, (__int64)ReturnedSize);
 }

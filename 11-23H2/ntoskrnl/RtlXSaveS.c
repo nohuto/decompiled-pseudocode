@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlXSaveS @ 0x14036E4A4
+ * XREFs of RtlXSaveS @ 0x14036E644
  * Callers:
  *     KeSaveExtendedAndSupervisorState @ 0x14020DDDC (KeSaveExtendedAndSupervisorState.c)
  *     KeSaveSupervisorState @ 0x14020E48C (KeSaveSupervisorState.c)
- *     KeContextFromKframes @ 0x14030E120 (KeContextFromKframes.c)
- *     PspGetContext @ 0x140724614 (PspGetContext.c)
+ *     KeContextFromKframes @ 0x14030E3B0 (KeContextFromKframes.c)
+ *     PspGetContext @ 0x140724814 (PspGetContext.c)
  * Callees:
  *     RtlXSave @ 0x14020DFB0 (RtlXSave.c)
- *     XSaveSHelper @ 0x14042A1B0 (XSaveSHelper.c)
+ *     XSaveSHelper @ 0x14042A540 (XSaveSHelper.c)
  */
 
 __int64 __fastcall RtlXSaveS(__int64 _RCX, unsigned __int64 a2)

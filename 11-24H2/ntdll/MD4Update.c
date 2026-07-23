@@ -1,12 +1,12 @@
 /*
- * XREFs of MD4Update @ 0x18015BBD0
+ * XREFs of MD4Update @ 0x180159F90
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptHashAppendInternal @ 0x18015B714 (SymCryptHashAppendInternal.c)
- *     ScRsa32Compat_Md4ExportAndWipe @ 0x18015BCA0 (ScRsa32Compat_Md4ExportAndWipe.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptHashAppendInternal @ 0x180159AD4 (SymCryptHashAppendInternal.c)
+ *     ScRsa32Compat_Md4ExportAndWipe @ 0x18015A060 (ScRsa32Compat_Md4ExportAndWipe.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall MD4Update(__int128 *a1, char *a2, unsigned int a3)

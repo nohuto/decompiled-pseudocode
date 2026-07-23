@@ -12,62 +12,62 @@
  *     CsrpLocalSetupForSecureProcess @ 0x1800C7844 (CsrpLocalSetupForSecureProcess.c)
  */
 
-__int64 __fastcall CsrClientConnectToServer(void *Src, int a2, void *a3, unsigned int a4, _BYTE *a5)
+int __fastcall CsrClientConnectToServer(void *Src, int a2, void *a3, unsigned int a4, _BYTE *a5)
 {
   struct _PEB *v9; // rax
   char v10; // cl
-  __int64 result; // rax
-  __int64 v12; // [rsp+30h] [rbp-28h] BYREF
-  unsigned __int64 v13[4]; // [rsp+38h] [rbp-20h] BYREF
+  int result; // eax
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp-28h] BYREF
+  PVOID DllHandle; // [rsp+38h] [rbp-20h] BYREF
   __int64 v14; // [rsp+70h] [rbp+18h] BYREF
 
   LODWORD(v14) = -1073741823;
   if ( a3 && !a4 )
-    return 3221225485LL;
+    return -1073741811;
   if ( !CsrInitOnceDone )
   {
     v9 = NtCurrentPeb();
     CsrInitOnceDone = 1;
-    CsrHeap = (__int64)v9->ProcessHeap;
+    CsrHeap = v9->ProcessHeap;
   }
   if ( CsrServerApiRoutine && !CsrClientProcess )
   {
 LABEL_23:
     if ( a5 )
       *a5 = 1;
-    return 0LL;
+    return 0;
   }
-  RtlImageNtHeaderEx(3, (unsigned __int64)NtCurrentPeb()->ImageBaseAddress, 0LL, &v12);
+  RtlImageNtHeaderEx(3u, NtCurrentPeb()->ImageBaseAddress, 0LL, &OutHeaders);
   v10 = CsrClientProcess;
-  if ( *(_WORD *)(v12 + 92) != 1 )
+  if ( OutHeaders->OptionalHeader.Subsystem != 1 )
     v10 = 1;
   CsrClientProcess = v10;
   if ( !v10 )
   {
-    result = LdrGetDllHandle(0, 0, (int)&unk_180101AD8, (__int64)v13);
-    if ( (int)result < 0 )
+    result = LdrGetDllHandle(0LL, 0LL, (PUNICODE_STRING)&DllName, &DllHandle);
+    if ( result < 0 )
       return result;
-    result = LdrGetProcedureAddress(v13[0], &qword_180101AE8, 0LL, (__int64)&CsrServerApiRoutine);
-    if ( (int)result < 0 )
+    result = LdrGetProcedureAddress(DllHandle, (PANSI_STRING)&ProcedureName, 0, (PVOID *)&CsrServerApiRoutine);
+    if ( result < 0 )
       return result;
-    CsrPortHeap = (__int64)NtCurrentPeb()->ProcessHeap;
-    CsrPortBaseTag = RtlCreateTagHeap((void *)CsrPortHeap, 0, (__int64)L"CSRPORT!", L"CAPTURE");
+    CsrPortHeap = NtCurrentPeb()->ProcessHeap;
+    CsrPortBaseTag = RtlCreateTagHeap(CsrPortHeap, 0, (PWSTR)L"CSRPORT!", (PWSTR)L"CAPTURE");
     goto LABEL_23;
   }
-  result = 0LL;
+  result = 0;
   if ( LdrpIsSecureProcess )
   {
     if ( a2 == 1 )
       result = CsrpLocalSetupForSecureProcess();
     else
-      result = 3221225659LL;
+      result = -1073741637;
   }
   else if ( a3 )
   {
     if ( CsrPortHandle )
       goto LABEL_19;
     result = CsrpConnectToServer(Src, (__int64)&v14);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     if ( (int)v14 < 0 )
 LABEL_19:

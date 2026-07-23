@@ -1,23 +1,23 @@
 /*
- * XREFs of KeCapturePersistentThreadState @ 0x1402826A0
+ * XREFs of KeCapturePersistentThreadState @ 0x140282890
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14081289C (DbgkpWerCaptureLiveTriageDump.c)
- *     WheapCreateLiveTriageDump @ 0x1408DC57C (WheapCreateLiveTriageDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x140813A9C (DbgkpWerCaptureLiveTriageDump.c)
+ *     WheapCreateLiveTriageDump @ 0x1408DD83C (WheapCreateLiveTriageDump.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1401885C8 (SecureDump_GetSecureDumpSettings.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IoGetLoadedDriverInfo @ 0x14027FF2C (IoGetLoadedDriverInfo.c)
- *     IopGetMaxValidSectionSize @ 0x1402816B0 (IopGetMaxValidSectionSize.c)
- *     IopGetMaxValidSectionSizeDown @ 0x1402816F8 (IopGetMaxValidSectionSizeDown.c)
- *     IopValidateSectionSize @ 0x14028224C (IopValidateSectionSize.c)
- *     IopWriteDriverList @ 0x140282458 (IopWriteDriverList.c)
- *     KdCopyDataBlock @ 0x14028BAB8 (KdCopyDataBlock.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x14012AD10 (RtlGetNtProductType.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140188708 (SecureDump_GetSecureDumpSettings.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IoGetLoadedDriverInfo @ 0x14028011C (IoGetLoadedDriverInfo.c)
+ *     IopGetMaxValidSectionSize @ 0x1402818A0 (IopGetMaxValidSectionSize.c)
+ *     IopGetMaxValidSectionSizeDown @ 0x1402818E8 (IopGetMaxValidSectionSizeDown.c)
+ *     IopValidateSectionSize @ 0x14028243C (IopValidateSectionSize.c)
+ *     IopWriteDriverList @ 0x140282648 (IopWriteDriverList.c)
+ *     KdCopyDataBlock @ 0x14028BCA8 (KdCopyDataBlock.c)
  */
 
 __int64 __fastcall KeCapturePersistentThreadState(

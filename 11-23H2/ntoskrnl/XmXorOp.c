@@ -1,9 +1,9 @@
 /*
- * XREFs of XmXorOp @ 0x1403A3A20
+ * XREFs of XmXorOp @ 0x1403A3C00
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmSetLogicalResult @ 0x1403B8DF0 (XmSetLogicalResult.c)
+ *     XmSetLogicalResult @ 0x1403B8FD0 (XmSetLogicalResult.c)
  */
 
 __int64 __fastcall XmXorOp(__int64 a1)

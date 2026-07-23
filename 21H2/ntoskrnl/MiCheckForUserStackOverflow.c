@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckForUserStackOverflow @ 0x1406955F8
+ * XREFs of MiCheckForUserStackOverflow @ 0x1405F4B48
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
- *     ZwProtectVirtualMemory @ 0x1403FADA0 (ZwProtectVirtualMemory.c)
- *     MiCheckShadowStackOverflow @ 0x14069588C (MiCheckShadowStackOverflow.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x1403FAF80 (ZwProtectVirtualMemory.c)
+ *     MiCheckShadowStackOverflow @ 0x1405F4DDC (MiCheckShadowStackOverflow.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
@@ -35,11 +35,11 @@ __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
   unsigned __int64 v24; // [rsp+48h] [rbp-30h]
   __int64 v25; // [rsp+50h] [rbp-28h]
   unsigned int v26; // [rsp+90h] [rbp+18h] BYREF
-  int v27; // [rsp+98h] [rbp+20h]
+  ULONG OldProtect; // [rsp+98h] [rbp+20h] BYREF
 
   RegionSize = 0LL;
   v26 = 0;
-  v27 = 0;
+  OldProtect = 0;
   v3 = 0LL;
   CurrentThread = KeGetCurrentThread();
   Queue = (char)CurrentThread[1].Queue;
@@ -143,7 +143,7 @@ LABEL_12:
     v21 = v12 + 4096;
   }
   BaseAddress = v21;
-  ZwProtectVirtualMemory(-1LL, (__int64)&BaseAddress);
+  ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &OldProtect);
   v14 = (char *)BaseAddress;
   result = 3221225725LL;
 LABEL_17:

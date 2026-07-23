@@ -1,17 +1,17 @@
 /*
- * XREFs of ViFaultsAddAppNoDuplicates @ 0x1409387D4
+ * XREFs of ViFaultsAddAppNoDuplicates @ 0x1409397D4
  * Callers:
- *     ViFaultsAddAllApps @ 0x14093866C (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllApps @ 0x14093966C (ViFaultsAddAllApps.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlUpcaseUnicodeString @ 0x14064B0A0 (RtlUpcaseUnicodeString.c)
- *     ViFaultsIsAppTarget @ 0x140938CC8 (ViFaultsIsAppTarget.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlUpcaseUnicodeString @ 0x14064C260 (RtlUpcaseUnicodeString.c)
+ *     ViFaultsIsAppTarget @ 0x140939CC8 (ViFaultsIsAppTarget.c)
  */
 
 __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, size_t a2)
@@ -43,13 +43,13 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, size_t a2)
     }
     else
     {
-      v9 = (UNICODE_STRING **)qword_14040D1D8;
-      if ( *(PVOID **)qword_14040D1D8 != &ViFaultApplicationsList )
+      v9 = (UNICODE_STRING **)qword_14040E248;
+      if ( *(PVOID **)qword_14040E248 != &ViFaultApplicationsList )
         __fastfail(3u);
       *(_QWORD *)&v6->Length = &ViFaultApplicationsList;
       v6->Buffer = (wchar_t *)v9;
       *v9 = v6;
-      qword_14040D1D8 = (__int64)v6;
+      qword_14040E248 = (__int64)v6;
     }
     KxReleaseSpinLock(&ViFaultInjectionLock);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v8 < 2u )

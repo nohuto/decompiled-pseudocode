@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferXpressLz @ 0x140400550
+ * XREFs of RtlCompressBufferXpressLz @ 0x1403F22F0
  * Callers:
- *     EtwpFileModeCompress @ 0x1404003A8 (EtwpFileModeCompress.c)
+ *     EtwpFileModeCompress @ 0x1403F2148 (EtwpFileModeCompress.c)
  * Callees:
- *     RtlCompressBufferXpressLzStandard @ 0x140400610 (RtlCompressBufferXpressLzStandard.c)
- *     RtlCompressBufferXpressLzMax @ 0x140401EA0 (RtlCompressBufferXpressLzMax.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x1403F23B0 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressLzMax @ 0x1403F3C50 (RtlCompressBufferXpressLzMax.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLz(

@@ -1,20 +1,20 @@
 /*
- * XREFs of ExGetNextProcess @ 0x140969F30
+ * XREFs of ExGetNextProcess @ 0x14091E590
  * Callers:
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
- *     ExProcessCounterSetCallback @ 0x140969300 (ExProcessCounterSetCallback.c)
- *     PfpPrivSourceEnum @ 0x14096984C (PfpPrivSourceEnum.c)
+ *     ExProcessCounterSetCallback @ 0x14091D960 (ExProcessCounterSetCallback.c)
+ *     PfpPrivSourceEnum @ 0x14091DEAC (PfpPrivSourceEnum.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
  */
 
 LIST_ENTRY *__fastcall ExGetNextProcess(LIST_ENTRY *Object, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -51,8 +51,10 @@ LIST_ENTRY *__fastcall ExGetNextProcess(LIST_ENTRY *Object, char a2, __int64 a3,
       else
         *((_BYTE *)v10 + 10) = 1;
     }
-    for ( i = Object ? (struct _KTHREAD *)Object[29].Blink : PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
-          i != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[24];
+    for ( i = (struct _KTHREAD *)(Object
+                                ? Object[29].Blink
+                                : PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Flink);
+          i != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[96];
           i = *(struct _KTHREAD **)&i->Header.Lock )
     {
       p_WaitListHead = &i[-1].SuspendEvent.Header.WaitListHead;
@@ -66,7 +68,7 @@ LIST_ENTRY *__fastcall ExGetNextProcess(LIST_ENTRY *Object, char a2, __int64 a3,
       ExfReleasePushLockShared((signed __int64 *)&PspActiveProcessLock);
     KeAbPostRelease((unsigned __int64)&PspActiveProcessLock);
     v14 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v14 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v14 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v13, v12);
     if ( Object )
       ObfDereferenceObjectWithTag(Object, 0x6E457350u);

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopStartNextPacketByKeyEx @ 0x140506D08
+ * XREFs of IopStartNextPacketByKeyEx @ 0x140506C88
  * Callers:
- *     IoStartNextPacket @ 0x1405063A0 (IoStartNextPacket.c)
- *     IoStartNextPacketByKey @ 0x1405063F0 (IoStartNextPacketByKey.c)
+ *     IoStartNextPacket @ 0x140506320 (IoStartNextPacket.c)
+ *     IoStartNextPacketByKey @ 0x140506370 (IoStartNextPacketByKey.c)
  * Callees:
- *     IopStartNextPacket @ 0x140506B84 (IopStartNextPacket.c)
- *     IopStartNextPacketByKey @ 0x140506C44 (IopStartNextPacketByKey.c)
+ *     IopStartNextPacket @ 0x140506B04 (IopStartNextPacket.c)
+ *     IopStartNextPacketByKey @ 0x140506BC4 (IopStartNextPacketByKey.c)
  */
 
 __int64 __fastcall IopStartNextPacketByKeyEx(__int64 a1, ULONG a2, int a3)

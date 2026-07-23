@@ -14,126 +14,126 @@
 
 __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a3, char a4)
 {
-  __int64 v6; // rdx
-  __int64 v7; // r15
-  __int64 v8; // rcx
-  __int64 v9; // r14
-  unsigned __int64 v10; // r12
+  __int64 v6; // r15
+  __int64 v7; // rcx
+  __int64 v8; // r14
+  unsigned __int64 v9; // r12
   unsigned __int64 FileSizeFromLoadAsDataTable; // rsi
-  unsigned __int64 v12; // rdi
-  __int64 v13; // rdx
+  unsigned __int64 SizeOfImage; // rdi
+  NTSTATUS VirtualMemory; // ebx
   __int64 v14; // rcx
-  int VirtualMemory; // ebx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v19; // rcx
-  int v20; // [rsp+30h] [rbp-88h]
-  bool v21; // [rsp+34h] [rbp-84h]
-  _QWORD v22[2]; // [rsp+40h] [rbp-78h] BYREF
-  __int64 v23; // [rsp+50h] [rbp-68h] BYREF
-  int v24; // [rsp+58h] [rbp-60h] BYREF
-  const wchar_t *v25; // [rsp+60h] [rbp-58h]
-  _BYTE v26[16]; // [rsp+68h] [rbp-50h] BYREF
-  unsigned __int64 v27; // [rsp+78h] [rbp-40h]
+  int v15; // [rsp+30h] [rbp-88h]
+  bool v16; // [rsp+34h] [rbp-84h]
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-78h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp-68h] BYREF
+  int v19; // [rsp+58h] [rbp-60h] BYREF
+  const wchar_t *v20; // [rsp+60h] [rbp-58h]
+  _BYTE MemoryInformation[16]; // [rsp+68h] [rbp-50h] BYREF
+  unsigned __int64 v22; // [rsp+78h] [rbp-40h]
 
-  LODWORD(v22[0]) = 3670070;
-  v22[1] = L"LdrpResGetMappingSize Enter";
-  v24 = 3538996;
-  v25 = L"LdrpResGetMappingSize Exit";
-  v7 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 555;
+  LODWORD(BaseAddress[0]) = 3670070;
+  BaseAddress[1] = L"LdrpResGetMappingSize Enter";
+  v19 = 3538996;
+  v20 = L"LdrpResGetMappingSize Exit";
+  v6 = 2147353477LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
-    v8 = 2147353477LL;
-  if ( (*(_BYTE *)v8 & 1) != 0 )
+    v7 = 2147353477LL;
+  if ( (*(_BYTE *)v7 & 1) != 0 )
   {
-    v9 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, v6) )
-      v19 = (__int64)NtCurrentPeb()->SharedData + 554;
+    v8 = 2147353476LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v14 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v19 = 2147353476LL;
-    LdrpTraceLoadMUIDll(v22, *(unsigned __int8 *)v19);
+      v14 = 2147353476LL;
+    LdrpTraceLoadMUIDll(BaseAddress, *(unsigned __int8 *)v14);
   }
   else
   {
-    v9 = 2147353476LL;
+    v8 = 2147353476LL;
   }
   if ( a1 && a2 )
   {
-    v10 = 0LL;
+    v9 = 0LL;
     if ( (a3 & 0x20000) != 0 )
-      v10 = *a2;
+      v9 = *a2;
     *a2 = 0LL;
     FileSizeFromLoadAsDataTable = 0LL;
-    v12 = 0LL;
-    v21 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
-    v22[0] = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    VirtualMemory = RtlImageNtHeaderEx(1LL, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v23);
-    v20 = VirtualMemory;
+    SizeOfImage = 0LL;
+    v16 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
+    BaseAddress[0] = (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+    VirtualMemory = RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
+    v15 = VirtualMemory;
     if ( VirtualMemory >= 0 )
     {
-      v14 = 267LL;
-      if ( *(_WORD *)(v23 + 24) == 267 || (v14 = 523LL, *(_WORD *)(v23 + 24) == 523) )
+      if ( OutHeaders->OptionalHeader.Magic == 267 || OutHeaders->OptionalHeader.Magic == 523 )
       {
-        v12 = *(unsigned int *)(v23 + 80);
+        SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
       }
       else
       {
-        v12 = 0LL;
+        SizeOfImage = 0LL;
         VirtualMemory = -1073741701;
-        v20 = -1073741701;
+        v15 = -1073741701;
       }
     }
     if ( VirtualMemory < 0 )
       return (unsigned int)VirtualMemory;
-    if ( !v21 || !v12 )
+    if ( !v16 || !SizeOfImage )
     {
       if ( !a4 )
         FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable(a1);
       if ( FileSizeFromLoadAsDataTable )
       {
         VirtualMemory = 0;
-        v20 = 0;
+        v15 = 0;
       }
       else
       {
-        VirtualMemory = ZwQueryVirtualMemory(-1LL, v22[0], 3LL, v26, 32LL, 0LL);
-        v20 = VirtualMemory;
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          BaseAddress[0],
+                          MemoryRegionInformation,
+                          MemoryInformation,
+                          0x20uLL,
+                          0LL);
+        v15 = VirtualMemory;
         if ( VirtualMemory >= 0 )
-          FileSizeFromLoadAsDataTable = v27;
+          FileSizeFromLoadAsDataTable = v22;
       }
-      if ( FileSizeFromLoadAsDataTable || !v12 )
+      if ( FileSizeFromLoadAsDataTable || !SizeOfImage )
         goto LABEL_18;
       VirtualMemory = 0;
-      v20 = 0;
+      v15 = 0;
     }
-    FileSizeFromLoadAsDataTable = v12;
+    FileSizeFromLoadAsDataTable = SizeOfImage;
 LABEL_18:
     if ( VirtualMemory >= 0 )
     {
-      if ( v10 && v10 < FileSizeFromLoadAsDataTable )
+      if ( v9 && v9 < FileSizeFromLoadAsDataTable )
       {
         VirtualMemory = -1073741793;
-        v20 = -1073741793;
+        v15 = -1073741793;
       }
       else
       {
         *a2 = FileSizeFromLoadAsDataTable;
       }
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v14, v13) )
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v7 = (__int64)NtCurrentPeb()->SharedData + 555;
-      VirtualMemory = v20;
+      v6 = (__int64)NtCurrentPeb()->SharedData + 555;
+      VirtualMemory = v15;
     }
-    if ( (*(_BYTE *)v7 & 1) != 0 )
+    if ( (*(_BYTE *)v6 & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v17, v16) )
+      if ( RtlGetCurrentServiceSessionId() )
       {
-        v9 = (__int64)NtCurrentPeb()->SharedData + 554;
-        VirtualMemory = v20;
+        v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+        VirtualMemory = v15;
       }
-      LdrpTraceLoadMUIDll(&v24, *(unsigned __int8 *)v9);
+      LdrpTraceLoadMUIDll(&v19, *(unsigned __int8 *)v8);
     }
     return (unsigned int)VirtualMemory;
   }

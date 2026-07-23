@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpTranslateNtPath @ 0x140B56AF4
+ * XREFs of ExpTranslateNtPath @ 0x140B597F4
  * Callers:
- *     ExpConvertArcName @ 0x14083AF04 (ExpConvertArcName.c)
- *     NtTranslateFilePath @ 0x140A94C80 (NtTranslateFilePath.c)
+ *     ExpConvertArcName @ 0x140841144 (ExpConvertArcName.c)
+ *     NtTranslateFilePath @ 0x140A2D4D0 (NtTranslateFilePath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     Feature_Mbr2Gpt_FixPartitionOrdering__private_IsEnabledDeviceUsageNoInline @ 0x1406CFEA4 (Feature_Mbr2Gpt_FixPartitionOrdering__private_IsEnabledDeviceUsageNoInline.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpCreateOutputARC @ 0x14083B318 (ExpCreateOutputARC.c)
- *     ExpCreateOutputSIGNATURE @ 0x14083B414 (ExpCreateOutputSIGNATURE.c)
- *     SyspartEnumerateDisks @ 0x140894798 (SyspartEnumerateDisks.c)
- *     ExpCreateOutputEFI @ 0x140A94368 (ExpCreateOutputEFI.c)
- *     ExpTranslateSymbolicLink @ 0x140A95510 (ExpTranslateSymbolicLink.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     Feature_Mbr2Gpt_FixPartitionOrdering__private_IsEnabledDeviceUsageNoInline @ 0x1406D3ED4 (Feature_Mbr2Gpt_FixPartitionOrdering__private_IsEnabledDeviceUsageNoInline.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpCreateOutputARC @ 0x140841558 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputSIGNATURE @ 0x140841654 (ExpCreateOutputSIGNATURE.c)
+ *     SyspartEnumerateDisks @ 0x14089AB98 (SyspartEnumerateDisks.c)
+ *     ExpCreateOutputEFI @ 0x140A2CBBC (ExpCreateOutputEFI.c)
+ *     ExpTranslateSymbolicLink @ 0x140A2DD60 (ExpTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
+int __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
 {
   int v5; // esi
   const WCHAR *v8; // rbx
@@ -28,7 +28,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   unsigned __int64 v11; // rdx
   __int64 v12; // rax
   wchar_t *v13; // r14
-  NTSTATUS result; // eax
+  int result; // eax
   wchar_t *Buffer; // rbx
   int OutputARC; // esi
   NTSTATUS v17; // ebx
@@ -36,7 +36,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   _DWORD *Pool2; // rax
   _DWORD *v20; // rbx
   NTSTATUS v21; // r15d
-  int *v22; // rbx
+  GUID *v22; // rbx
   int v23; // eax
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING v25; // [rsp+58h] [rbp-A8h] BYREF
@@ -49,7 +49,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   __int64 v32; // [rsp+D8h] [rbp-28h] BYREF
   __int64 v33; // [rsp+E0h] [rbp-20h] BYREF
   int v34[6]; // [rsp+E8h] [rbp-18h] BYREF
-  int v35; // [rsp+100h] [rbp+0h] BYREF
+  char v35; // [rsp+100h] [rbp+0h] BYREF
   int v36; // [rsp+1A0h] [rbp+A0h] BYREF
   int v37; // [rsp+1A8h] [rbp+A8h]
 
@@ -134,15 +134,15 @@ LABEL_24:
     ZwClose(FileHandle);
     if ( OutputBuffer == 1 )
     {
-      v22 = &v35;
+      v22 = (GUID *)&v35;
     }
     else
     {
-      v22 = &v36;
+      v22 = (GUID *)&v36;
       v9 = 0;
     }
     if ( v5 != 4 )
-      return ExpCreateOutputSIGNATURE((__int64)a3, a4, (unsigned int *)v22, (unsigned int *)v34, &v32, &v33, v13, v9);
+      return ExpCreateOutputSIGNATURE((__int64)a3, a4, v22, (unsigned int *)v34, &v32, &v33, v13, v9);
     if ( (unsigned int)Feature_Mbr2Gpt_FixPartitionOrdering__private_IsEnabledDeviceUsageNoInline() && v9 )
     {
       v23 = v31;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SmBinaryArrayGrow @ 0x1404D8C8C
+ * XREFs of SmBinaryArrayGrow @ 0x1404D236C
  * Callers:
- *     SmHpBufferAlloc @ 0x14024D95C (SmHpBufferAlloc.c)
+ *     SmHpBufferAlloc @ 0x14024F2BC (SmHpBufferAlloc.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)
@@ -29,7 +29,7 @@ char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)
     if ( !v6 )
     {
       v9 = (unsigned int)(16 * (1 << a1));
-      Pool3 = (char *)ExAllocatePool3(64LL, v9, 1094872435LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+      Pool3 = (char *)ExAllocatePool3(64LL, v9, 1094872435LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
       v6 = Pool3;
       if ( !Pool3 )
         return (char *)v2;

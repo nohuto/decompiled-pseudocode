@@ -23,10 +23,16 @@ __int64 __fastcall MiRemoveImagePageFromSystemWorkingSet(_QWORD *a1, __int64 a2,
   _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v7 = 0;
   v8 = a2 << 25 >> 16;
-  if ( PsNtosImageBase && (v8 >= PsNtosImageBase && v8 < PsNtosImageEnd || v8 >= PsHalImageBase && v8 < PsHalImageEnd) )
+  if ( PsNtosImageBase
+    && (v8 >= (unsigned __int64)PsNtosImageBase && v8 < PsNtosImageEnd
+     || v8 >= (unsigned __int64)PsHalImageBase && v8 < PsHalImageEnd) )
+  {
     _InterlockedDecrement((_DWORD *)&xmmword_14034EA58 + 2);
+  }
   else
+  {
     _InterlockedDecrement((_DWORD *)&xmmword_14034EA58 + 3);
+  }
   if ( (*(_QWORD *)(a3 + 40) & 0x200000000000000LL) != 0 )
   {
     Wsle = MiLocateWsle(v8, (__int64)a1, Wsle);

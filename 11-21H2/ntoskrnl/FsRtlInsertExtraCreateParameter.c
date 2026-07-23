@@ -1,50 +1,50 @@
 /*
  * XREFs of FsRtlInsertExtraCreateParameter @ 0x14066F340
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14066F248 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1406B9EA8 (IopSymlinkAllocateAndAddECP.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x1406EACD8 (IopSymlinkEnforceEnabledTypes.c)
+ *     sub_14066F248 @ 0x14066F248 (sub_14066F248.c)
+ *     sub_1406B9EA8 @ 0x1406B9EA8 (sub_1406B9EA8.c)
+ *     sub_1406EACD8 @ 0x1406EACD8 (sub_1406EACD8.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall FsRtlInsertExtraCreateParameter(PECP_LIST EcpList, PVOID EcpContext)
 {
-  struct _LIST_ENTRY *Flink; // r8
-  _LIST_ENTRY *p_EcpList; // rax
-  struct _LIST_ENTRY *v4; // rcx
-  struct _LIST_ENTRY *Blink; // rdx
-  char *v7; // r9
+  char *v2; // r8
+  char *v3; // rax
+  char *v4; // rcx
+  char **v5; // rdx
+  __int64 v7; // r9
 
-  Flink = EcpList->EcpList.Flink;
-  p_EcpList = &EcpList->EcpList;
-  if ( Flink == &EcpList->EcpList )
+  v2 = (char *)*((_QWORD *)EcpList + 1);
+  v3 = (char *)EcpList + 8;
+  if ( v2 == (char *)EcpList + 8 )
   {
 LABEL_2:
-    v4 = (struct _LIST_ENTRY *)((char *)EcpContext - 64);
-    Blink = p_EcpList->Blink;
-    if ( Blink->Flink != p_EcpList )
+    v4 = (char *)EcpContext - 64;
+    v5 = (char **)*((_QWORD *)v3 + 1);
+    if ( *v5 != v3 )
       __fastfail(3u);
-    v4->Flink = p_EcpList;
-    v4->Blink = Blink;
-    Blink->Flink = v4;
-    p_EcpList->Blink = v4;
+    *(_QWORD *)v4 = v3;
+    *((_QWORD *)v4 + 1) = v5;
+    *v5 = v4;
+    *((_QWORD *)v3 + 1) = v4;
     return 0;
   }
   else
   {
     while ( 1 )
     {
-      v7 = (char *)Flink[1].Flink - *((_QWORD *)EcpContext - 6);
+      v7 = *((_QWORD *)v2 + 2) - *((_QWORD *)EcpContext - 6);
       if ( !v7 )
-        v7 = (char *)Flink[1].Blink - *((_QWORD *)EcpContext - 5);
+        v7 = *((_QWORD *)v2 + 3) - *((_QWORD *)EcpContext - 5);
       if ( !v7 )
         break;
-      Flink = Flink->Flink;
-      if ( Flink == p_EcpList )
+      v2 = *(char **)v2;
+      if ( v2 == v3 )
         goto LABEL_2;
     }
-    LODWORD(Flink[2].Blink) |= 4u;
+    *((_DWORD *)v2 + 10) |= 4u;
     return -1073741811;
   }
 }

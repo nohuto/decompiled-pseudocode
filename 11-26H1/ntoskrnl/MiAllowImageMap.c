@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllowImageMap @ 0x140B1FE0C
+ * XREFs of MiAllowImageMap @ 0x140B2222C
  * Callers:
- *     MiInitializeImageMapParameters @ 0x1409CD514 (MiInitializeImageMapParameters.c)
+ *     MiInitializeImageMapParameters @ 0x14099E4F4 (MiInitializeImageMapParameters.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     SeGetTrustLabelAce @ 0x1402AE120 (SeGetTrustLabelAce.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiGetControlAreaLoadConfig @ 0x140495994 (MiGetControlAreaLoadConfig.c)
- *     PsBlockNonCetBinaries @ 0x1407F0288 (PsBlockNonCetBinaries.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x14082AFF8 (EtwTimLogProhibitLowILImageMap.c)
- *     ObpGetObjectSecurity @ 0x1408EF250 (ObpGetObjectSecurity.c)
- *     ObReleaseObjectSecurityEx @ 0x14093C920 (ObReleaseObjectSecurityEx.c)
- *     MiReferenceFileObjectForMap @ 0x140A66F20 (MiReferenceFileObjectForMap.c)
- *     SeQueryMandatoryLabel @ 0x140AB7D2C (SeQueryMandatoryLabel.c)
- *     EtwpTimLogMitigationForProcess @ 0x140B1C5EC (EtwpTimLogMitigationForProcess.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     SeGetTrustLabelAce @ 0x1403AE560 (SeGetTrustLabelAce.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiGetControlAreaLoadConfig @ 0x14048F4E4 (MiGetControlAreaLoadConfig.c)
+ *     PsBlockNonCetBinaries @ 0x1407F5DE8 (PsBlockNonCetBinaries.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x140831238 (EtwTimLogProhibitLowILImageMap.c)
+ *     ObpGetObjectSecurity @ 0x1408F5810 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurityEx @ 0x1409184C0 (ObReleaseObjectSecurityEx.c)
+ *     MiReferenceFileObjectForMap @ 0x140A73EF0 (MiReferenceFileObjectForMap.c)
+ *     SeQueryMandatoryLabel @ 0x140AB936C (SeQueryMandatoryLabel.c)
+ *     EtwpTimLogMitigationForProcess @ 0x140B1E7FC (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

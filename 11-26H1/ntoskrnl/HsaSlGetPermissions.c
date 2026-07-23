@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaSlGetPermissions @ 0x1405AB8E0
+ * XREFs of HsaSlGetPermissions @ 0x1405AE0F0
  * Callers:
  *     <none>
  * Callees:

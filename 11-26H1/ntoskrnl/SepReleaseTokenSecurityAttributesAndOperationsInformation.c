@@ -1,10 +1,10 @@
 /*
- * XREFs of SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x140AC3A28
+ * XREFs of SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x140AC5698
  * Callers:
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
  * Callees:
- *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140AC3A68 (SepFreeCapturedTokenSecurityAttributesInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140AC56D8 (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepReleaseTokenSecurityAttributesAndOperationsInformation(PVOID *P, char a2)

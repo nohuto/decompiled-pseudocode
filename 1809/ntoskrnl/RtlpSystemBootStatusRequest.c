@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpSystemBootStatusRequest @ 0x14071C4D4
+ * XREFs of RtlpSystemBootStatusRequest @ 0x14071D774
  * Callers:
- *     PopRecordSleepCheckpoint @ 0x1406DEFDC (PopRecordSleepCheckpoint.c)
- *     PopWriteBsdPowerTransition @ 0x14071C468 (PopWriteBsdPowerTransition.c)
- *     PoClearTransitionMarker @ 0x140744FC0 (PoClearTransitionMarker.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
- *     RtlGetSystemBootStatusEx @ 0x140760D00 (RtlGetSystemBootStatusEx.c)
- *     RtlGetSystemBootStatus @ 0x140763080 (RtlGetSystemBootStatus.c)
- *     PopRecordPhysicalPowerButton @ 0x140865FE8 (PopRecordPhysicalPowerButton.c)
- *     PopRecordSleepCheckpointSource @ 0x140866180 (PopRecordSleepCheckpointSource.c)
- *     RtlSetSystemBootStatus @ 0x140895ED0 (RtlSetSystemBootStatus.c)
- *     RtlSetSystemBootStatusEx @ 0x140895F00 (RtlSetSystemBootStatusEx.c)
+ *     PopRecordSleepCheckpoint @ 0x1406E027C (PopRecordSleepCheckpoint.c)
+ *     PopWriteBsdPowerTransition @ 0x14071D708 (PopWriteBsdPowerTransition.c)
+ *     PoClearTransitionMarker @ 0x1407461B0 (PoClearTransitionMarker.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140746338 (PopRecordLongPowerButtonPressDetected.c)
+ *     RtlGetSystemBootStatusEx @ 0x140761EF0 (RtlGetSystemBootStatusEx.c)
+ *     RtlGetSystemBootStatus @ 0x140764270 (RtlGetSystemBootStatus.c)
+ *     PopRecordPhysicalPowerButton @ 0x140867248 (PopRecordPhysicalPowerButton.c)
+ *     PopRecordSleepCheckpointSource @ 0x1408673E0 (PopRecordSleepCheckpointSource.c)
+ *     RtlSetSystemBootStatus @ 0x140897130 (RtlSetSystemBootStatus.c)
+ *     RtlSetSystemBootStatusEx @ 0x140897160 (RtlSetSystemBootStatusEx.c)
  * Callees:
- *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1401B8ED0 (ZwPowerInformation.c)
  */
 
 __int64 __fastcall RtlpSystemBootStatusRequest(unsigned int a1, __int64 a2, unsigned int a3, void *a4)
@@ -36,7 +36,7 @@ LABEL_2:
     InputBuffer[2] = a2;
     InputBuffer[1] = a3;
     InputBuffer[0] = a1;
-    return (unsigned int)ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x18u, a4, OutputBufferLength);
+    return (unsigned int)ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x18u, a4, OutputBufferLength);
   }
   return v6;
 }

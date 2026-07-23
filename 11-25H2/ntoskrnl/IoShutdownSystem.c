@@ -38,7 +38,7 @@ void __fastcall IoShutdownSystem(int a1)
   PVOID *v10; // rbx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-20h] BYREF
-  int v13; // [rsp+80h] [rbp+10h] BYREF
+  int SystemInformation; // [rsp+80h] [rbp+10h] BYREF
 
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
@@ -73,12 +73,13 @@ void __fastcall IoShutdownSystem(int a1)
   }
   else
   {
-    v13 = 0;
-    if ( (int)ZwQuerySystemInformation(151LL, (__int64)&v13) >= 0 && (v13 & 0x20) != 0 )
+    SystemInformation = 0;
+    if ( ZwQuerySystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u, 0LL) >= 0
+      && (SystemInformation & 0x20) != 0 )
     {
       guard_dispatch_icall_no_overrides(0LL);
-      v13 = 0;
-      ZwSetSystemInformation(151LL, (__int64)&v13);
+      SystemInformation = 0;
+      ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u);
     }
     PnpShutdownDevices();
     while ( 1 )
@@ -98,9 +99,9 @@ void __fastcall IoShutdownSystem(int a1)
     }
     if ( (MmVerifierData & 0x10) != 0 )
       IovUnloadDrivers();
-    if ( (v13 & 0x10) != 0 )
+    if ( (SystemInformation & 0x10) != 0 )
       IoNotifyDump(5LL, v5);
-    v13 = 2;
-    ZwSetSystemInformation(151LL, (__int64)&v13);
+    SystemInformation = 2;
+    ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u);
   }
 }

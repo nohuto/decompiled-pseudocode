@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x1404D62B8
+ * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x1404B98BC
  * Callers:
- *     AlpcpCaptureAttributes @ 0x14044C7D0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x14044B6A0 (AlpcpCaptureAttributes.c)
  * Callees:
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1404D6340 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x1404B9944 (AlpcpCaptureSecurityAttributeInternal.c)
  */
 
 __int64 __fastcall AlpcpCaptureSecurityAttribute32(void *a1, __int64 a2, __int64 a3)

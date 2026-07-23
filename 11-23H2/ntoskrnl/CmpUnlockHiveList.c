@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnlockHiveList @ 0x140750938
+ * XREFs of CmpUnlockHiveList @ 0x140750B28
  * Callers:
  *     CmpUnJoinClassOfTrust @ 0x140207A48 (CmpUnJoinClassOfTrust.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x14036E21C (CmpJoinClassOfTrust.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
+ *     CmpJoinClassOfTrust @ 0x14036E3BC (CmpJoinClassOfTrust.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
  */
 
 signed __int32 CmpUnlockHiveList()

@@ -21,7 +21,7 @@
 __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, ULONG_PTR a2)
 {
   REGHANDLE v4; // rbx
-  unsigned __int64 v5; // rax
+  __int64 v5; // rax
   __int64 v6; // rbx
   ULONG_PTR v7; // rax
   REGHANDLE v8; // rbx
@@ -44,14 +44,14 @@ __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, ULONG_PTR a2)
   EventDescriptor = (EVENT_DESCRIPTOR)REGISTRY_PERF_EVENT_HIVE_FLUSH_START_WAIT_FOR_ACTIVE;
   if ( EtwEventEnabled(EtwpRegTraceHandle, &EventDescriptor) )
     EtwWrite(v4, &EventDescriptor, 0LL, 0, 0LL);
-  v5 = KeAbPreAcquire(a2, 0LL, 0LL);
+  v5 = KeAbPreAcquire(a2, 0LL, 0);
   v6 = v5;
   if ( v5 )
     KeAbPreWait(v5);
   KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
   if ( v6 )
   {
-    v7 = KeAbPreAcquire(a2, v6, 0LL);
+    v7 = KeAbPreAcquire(a2, v6, 0);
     KeAbPostReleaseEx(a2, v7);
   }
   v8 = EtwpRegTraceHandle;

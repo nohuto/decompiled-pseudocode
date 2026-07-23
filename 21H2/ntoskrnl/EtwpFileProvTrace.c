@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpFileProvTrace @ 0x1405A8874
+ * XREFs of EtwpFileProvTrace @ 0x1405A8AA4
  * Callers:
- *     EtwpTraceFileIo @ 0x1405A98E0 (EtwpTraceFileIo.c)
+ *     EtwpTraceFileIo @ 0x1405A9B10 (EtwpTraceFileIo.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
  */
 
 char __fastcall EtwpFileProvTrace(PEVENT_DATA_DESCRIPTOR UserData, ULONG UserDataCount, __int16 a3, const GUID *a4)

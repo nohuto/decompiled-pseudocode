@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetEffectiveServerSilo @ 0x140076688
+ * XREFs of PsGetEffectiveServerSilo @ 0x140076708
  * Callers:
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     PsGetJobServerSilo @ 0x140076ECC (PsGetJobServerSilo.c)
- *     MiGetNextSession @ 0x140086628 (MiGetNextSession.c)
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     MmIsSessionInCurrentServerSilo @ 0x1401ECA54 (MmIsSessionInCurrentServerSilo.c)
- *     PspIsSiloInServerSilo @ 0x14020F6C8 (PspIsSiloInServerSilo.c)
- *     PspTerminateProcessesJobCallback @ 0x1404580A8 (PspTerminateProcessesJobCallback.c)
- *     ObpSetSiloDeviceMap @ 0x140579DF0 (ObpSetSiloDeviceMap.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     PsGetJobServerSilo @ 0x140076F4C (PsGetJobServerSilo.c)
+ *     MiGetNextSession @ 0x140087F18 (MiGetNextSession.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     MmIsSessionInCurrentServerSilo @ 0x1401EC880 (MmIsSessionInCurrentServerSilo.c)
+ *     PspIsSiloInServerSilo @ 0x14020F4F4 (PspIsSiloInServerSilo.c)
+ *     PspTerminateProcessesJobCallback @ 0x140456F78 (PspTerminateProcessesJobCallback.c)
+ *     ObpSetSiloDeviceMap @ 0x14057A330 (ObpSetSiloDeviceMap.c)
  * Callees:
- *     PspIsServerSilo @ 0x1400B2DF8 (PspIsServerSilo.c)
+ *     PspIsServerSilo @ 0x1400B0D44 (PspIsServerSilo.c)
  */
 
 __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)

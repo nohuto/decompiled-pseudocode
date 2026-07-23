@@ -1,16 +1,16 @@
 /*
- * XREFs of PipDmgEnforceEnumerationPolicy @ 0x140731B84
+ * XREFs of PipDmgEnforceEnumerationPolicy @ 0x14072FB94
  * Callers:
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A7F278 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A78A28 (PnpSurpriseFailUnsafeDmaDevices.c)
  * Callees:
- *     PipDmaGuardBlockAddDevice @ 0x140731A5C (PipDmaGuardBlockAddDevice.c)
- *     PipDmgReevaluateQueue @ 0x140731E74 (PipDmgReevaluateQueue.c)
- *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x1407323E8 (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
- *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x140735FE8 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
- *     PiIommuIsPassthroughAllowedWhileConsoleLocked @ 0x140736004 (PiIommuIsPassthroughAllowedWhileConsoleLocked.c)
- *     PiDmaGuardQueueInsertEntry @ 0x14073A3A0 (PiDmaGuardQueueInsertEntry.c)
- *     PiCslIsConsoleLocked @ 0x140A7F420 (PiCslIsConsoleLocked.c)
+ *     PipDmaGuardBlockAddDevice @ 0x14072FA6C (PipDmaGuardBlockAddDevice.c)
+ *     PipDmgReevaluateQueue @ 0x14072FE84 (PipDmgReevaluateQueue.c)
+ *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x1407303F8 (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x140733F18 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     PiIommuIsPassthroughAllowedWhileConsoleLocked @ 0x140733F34 (PiIommuIsPassthroughAllowedWhileConsoleLocked.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x1407382D0 (PiDmaGuardQueueInsertEntry.c)
+ *     PiCslIsConsoleLocked @ 0x140A78BD0 (PiCslIsConsoleLocked.c)
  */
 
 __int64 __fastcall PipDmgEnforceEnumerationPolicy(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

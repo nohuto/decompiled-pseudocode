@@ -1,17 +1,17 @@
 /*
- * XREFs of RaspScanConvert @ 0x14017AC50
+ * XREFs of RaspScanConvert @ 0x14017AD50
  * Callers:
- *     RaspRasterize @ 0x14017A998 (RaspRasterize.c)
+ *     RaspRasterize @ 0x14017AA98 (RaspRasterize.c)
  * Callees:
- *     BgpFmRoundUp @ 0x14016F7C0 (BgpFmRoundUp.c)
- *     RaspDestroySegmentList @ 0x14017AA94 (RaspDestroySegmentList.c)
- *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
- *     RaspTestIntersection @ 0x14017B0B0 (RaspTestIntersection.c)
- *     RaspRectangleCreate @ 0x14017B4BC (RaspRectangleCreate.c)
- *     BgpGxInitializeRectangle @ 0x14017B530 (BgpGxInitializeRectangle.c)
- *     RaspCreateSegmentList @ 0x14017BC7C (RaspCreateSegmentList.c)
- *     RaspAllocateMemory @ 0x14017C064 (RaspAllocateMemory.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     BgpFmRoundUp @ 0x14016F8C0 (BgpFmRoundUp.c)
+ *     RaspDestroySegmentList @ 0x14017AB94 (RaspDestroySegmentList.c)
+ *     RaspFreeMemory @ 0x14017AC5C (RaspFreeMemory.c)
+ *     RaspTestIntersection @ 0x14017B1B0 (RaspTestIntersection.c)
+ *     RaspRectangleCreate @ 0x14017B5BC (RaspRectangleCreate.c)
+ *     BgpGxInitializeRectangle @ 0x14017B630 (BgpGxInitializeRectangle.c)
+ *     RaspCreateSegmentList @ 0x14017BD7C (RaspCreateSegmentList.c)
+ *     RaspAllocateMemory @ 0x14017C164 (RaspAllocateMemory.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RaspScanConvert(
@@ -137,9 +137,9 @@ __int64 __fastcall RaspScanConvert(
     v65[2] = v29;
     if ( v10 )
     {
-      v32 = qword_140A1F450;
-      v64 = qword_140A1F450;
-      v14 = BgpGxInitializeRectangle(v65, 1LL, qword_140A1F450, 3140LL);
+      v32 = qword_140A20450;
+      v64 = qword_140A20450;
+      v14 = BgpGxInitializeRectangle(v65, 1LL, qword_140A20450, 3140LL);
       if ( v14 < 0 )
         goto LABEL_32;
     }
@@ -164,7 +164,7 @@ __int64 __fastcall RaspScanConvert(
       {
         if ( v29 <= 104 )
         {
-          Memory = qword_140A1F2B0;
+          Memory = qword_140A202B0;
           goto LABEL_13;
         }
       }
@@ -290,7 +290,7 @@ LABEL_29:
           *a6 = v64;
           *a7 = v68;
           v11 = a8;
-          if ( Memory == qword_140A1F2B0 )
+          if ( Memory == qword_140A202B0 )
             goto LABEL_32;
           v46 = (__int64)Memory;
 LABEL_31:

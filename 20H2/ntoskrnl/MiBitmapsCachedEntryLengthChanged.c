@@ -10,8 +10,8 @@
 
 void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, int a3)
 {
-  bool v3; // bl
-  unsigned __int64 v4; // rdi
+  BOOLEAN v3; // bl
+  unsigned __int64 *v4; // rdi
   unsigned __int64 v6; // r9
   unsigned __int64 i; // r9
   _QWORD *v8; // rdx
@@ -24,7 +24,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   unsigned __int64 v15; // rax
 
   v3 = 0;
-  v4 = (unsigned __int64)a2;
+  v4 = a2;
   if ( a3 )
   {
     v6 = a2[1];
@@ -75,7 +75,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
       return;
   }
   v9 = *(_DWORD *)(v6 + 52);
-  v10 = *(_DWORD *)(v4 + 52);
+  v10 = *((_DWORD *)v4 + 13);
   if ( a3 )
   {
     if ( v9 > v10 )
@@ -86,7 +86,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
     return;
   }
   v13 = a1 + 144;
-  RtlRbRemoveNode((unsigned __int64 *)v13, v4);
+  RtlRbRemoveNode((PRTL_RB_TREE)v13, (PRTL_BALANCED_NODE)v4);
   v14 = *(_QWORD *)v13;
   if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
   {
@@ -99,7 +99,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   {
     while ( 1 )
     {
-      if ( *(_QWORD *)(v4 + 48) < *(_QWORD *)(v14 + 48) )
+      if ( v4[6] < *(_QWORD *)(v14 + 48) )
       {
         v15 = *(_QWORD *)v14;
         if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
@@ -130,5 +130,5 @@ LABEL_37:
       v14 = v15;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)v13, v14, v3, v4);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v13, (PRTL_BALANCED_NODE)v14, v3, (PRTL_BALANCED_NODE)v4);
 }

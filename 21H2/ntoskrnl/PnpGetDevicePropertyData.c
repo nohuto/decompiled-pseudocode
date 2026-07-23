@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpGetDevicePropertyData @ 0x14063A118
+ * XREFs of PnpGetDevicePropertyData @ 0x14062EF28
  * Callers:
- *     IoGetDevicePropertyData @ 0x14063A080 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x14062EE90 (IoGetDevicePropertyData.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     PnpCompareInterruptInformation @ 0x140772BCC (PnpCompareInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     PnpCompareInterruptInformation @ 0x140772D8C (PnpCompareInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x140916180 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpGetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         unsigned int a5,
         void *a6,
@@ -27,14 +27,16 @@ __int64 __fastcall PnpGetDevicePropertyData(
   __int64 v11; // rbx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int ObjectProperty; // ebx
-  __int64 v15; // rax
-  unsigned int *v16; // rdx
-  __int64 v17; // [rsp+60h] [rbp-108h] BYREF
-  _BYTE *v18; // [rsp+68h] [rbp-100h]
-  _BYTE v19[176]; // [rsp+70h] [rbp-F8h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v18; // rax
+  unsigned int *v19; // rdx
+  UNICODE_STRING String; // [rsp+60h] [rbp-108h] BYREF
+  _BYTE v21[176]; // [rsp+70h] [rbp-F8h] BYREF
 
-  memset(v19, 0, 0xAAuLL);
-  v17 = 0LL;
+  memset(v21, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   if ( a1 )
     v11 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -43,14 +45,14 @@ __int64 __fastcall PnpGetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    v18 = v19;
-    WORD1(v17) = 170;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v17) )
+    String.Buffer = (wchar_t *)v21;
+    String.MaximumLength = 170;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v18 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -60,7 +62,7 @@ __int64 __fastcall PnpGetDevicePropertyData(
                      *(_QWORD *)(v11 + 48),
                      1LL,
                      0LL,
-                     (__int64)v18,
+                     (__int64)String.Buffer,
                      a2,
                      a8,
                      (__int64)a6,
@@ -69,21 +71,21 @@ __int64 __fastcall PnpGetDevicePropertyData(
                      0);
   if ( *(_DWORD *)(a2 + 16) == 2 )
   {
-    v15 = *(_QWORD *)a2 - *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1;
+    v18 = *(_QWORD *)a2 - *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1;
     if ( *(_QWORD *)a2 == *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1 )
-      v15 = *(_QWORD *)(a2 + 8) - *(_QWORD *)INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data4;
-    if ( !v15 )
+      v18 = *(_QWORD *)(a2 + 8) - *(_QWORD *)INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data4;
+    if ( !v18 )
     {
       if ( ObjectProperty == -1073741772 || ObjectProperty == -1073741275 )
       {
-        v16 = *(unsigned int **)(*(_QWORD *)(a1 + 312) + 88LL);
-        if ( v16 )
+        v19 = *(unsigned int **)(*(_QWORD *)(a1 + 312) + 88LL);
+        if ( v19 )
         {
           if ( a7 )
-            *a7 = *v16;
-          if ( a5 >= *v16 )
+            *a7 = *v19;
+          if ( a5 >= *v19 )
           {
-            memmove(a6, v16 + 1, *v16);
+            memmove(a6, v19 + 1, *v19);
             ObjectProperty = 0;
           }
           else
@@ -103,7 +105,7 @@ __int64 __fastcall PnpGetDevicePropertyData(
     }
   }
   ExReleaseResourceLite(&PnpDevicePropertyLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
   if ( ObjectProperty == -1073741275 )
     return (unsigned int)-1073741772;
   return ObjectProperty;

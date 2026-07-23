@@ -12,7 +12,7 @@ void __fastcall MiSetVadBits(__int64 a1)
   unsigned int v2; // r8d
   unsigned int v3; // ecx
   unsigned int v4; // r9d
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = (*(_DWORD *)(a1 + 24) >> 4) | (*(unsigned __int8 *)(a1 + 32) << 28);
   v2 = (*(_DWORD *)(a1 + 28) >> 4) | (*(unsigned __int8 *)(a1 + 33) << 28);

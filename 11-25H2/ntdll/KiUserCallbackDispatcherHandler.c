@@ -14,14 +14,14 @@ __int64 __fastcall KiUserCallbackDispatcherHandler(
         PVOID TargetFrame,
         PCONTEXT ContextRecord)
 {
-  int ExceptionCode; // [rsp+30h] [rbp-8h]
-  int v5; // [rsp+30h] [rbp-8h]
+  int Status; // [rsp+30h] [rbp-8h]
+  NTSTATUS Statusa; // [rsp+30h] [rbp-8h]
 
   if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x80000) != 0 )
   {
     if ( (ExceptionRecord->ExceptionFlags & 0x66) == 0 )
     {
-      ExceptionCode = ExceptionRecord->ExceptionCode;
+      Status = ExceptionRecord->ExceptionCode;
       RtlUnwindEx(
         TargetFrame,
         &KiUserCallbackDispatcherContinue,
@@ -29,18 +29,18 @@ __int64 __fastcall KiUserCallbackDispatcherHandler(
         (PVOID)(unsigned int)ExceptionRecord->ExceptionCode,
         ContextRecord,
         0LL);
-      RtlRaiseStatus(ExceptionCode);
+      RtlRaiseStatus(Status);
     }
     if ( (ExceptionRecord->ExceptionFlags & 0x20) == 0 )
     {
-      v5 = ZwCallbackReturn();
-      RtlRaiseStatus(v5);
+      Statusa = ZwCallbackReturn(0LL, 0, ExceptionRecord->ExceptionCode);
+      RtlRaiseStatus(Statusa);
     }
     return 1LL;
   }
   else
   {
-    LdrpLogFatalUserCallbackException(ExceptionRecord, ContextRecord);
+    LdrpLogFatalUserCallbackException(ExceptionRecord, (__int64)ContextRecord);
     return 0LL;
   }
 }

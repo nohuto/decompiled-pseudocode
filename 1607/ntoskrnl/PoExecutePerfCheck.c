@@ -1,10 +1,10 @@
 /*
- * XREFs of PoExecutePerfCheck @ 0x1400DD360
+ * XREFs of PoExecutePerfCheck @ 0x1400DB200
  * Callers:
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     PpmGetIdleConstrainedMask @ 0x1401FFA04 (PpmGetIdleConstrainedMask.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     PpmGetIdleConstrainedMask @ 0x1401FF830 (PpmGetIdleConstrainedMask.c)
  */
 
 void PoExecutePerfCheck()

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlSetLFHDebuggingInformation @ 0x18010B8C0
+ * XREFs of RtlSetLFHDebuggingInformation @ 0x18010B880
  * Callers:
- *     RtlpSetHeapDebuggingInformation @ 0x1800F4AF0 (RtlpSetHeapDebuggingInformation.c)
+ *     RtlpSetHeapDebuggingInformation @ 0x1800F4AB0 (RtlpSetHeapDebuggingInformation.c)
  * Callees:
  *     <none>
  */

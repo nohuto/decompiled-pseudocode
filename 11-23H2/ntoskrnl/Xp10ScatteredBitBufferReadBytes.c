@@ -1,9 +1,9 @@
 /*
- * XREFs of Xp10ScatteredBitBufferReadBytes @ 0x1409C72B4
+ * XREFs of Xp10ScatteredBitBufferReadBytes @ 0x1409C74B4
  * Callers:
- *     Xp10ReadAndValidateCrc @ 0x1409C7070 (Xp10ReadAndValidateCrc.c)
+ *     Xp10ReadAndValidateCrc @ 0x1409C7270 (Xp10ReadAndValidateCrc.c)
  * Callees:
- *     Xp10ScatteredReadBytes @ 0x1409C7718 (Xp10ScatteredReadBytes.c)
+ *     Xp10ScatteredReadBytes @ 0x1409C7918 (Xp10ScatteredReadBytes.c)
  */
 
 __int64 __fastcall Xp10ScatteredBitBufferReadBytes(__int64 a1, _BYTE *a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpVolumeContextUnlockShared @ 0x1407C8F04
+ * XREFs of CmpVolumeContextUnlockShared @ 0x1407C9224
  * Callers:
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407C8E74 (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407C9194 (CmpVolumeContextSendDeviceUsageNotification.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  */
 
 char __fastcall CmpVolumeContextUnlockShared(__int64 a1)

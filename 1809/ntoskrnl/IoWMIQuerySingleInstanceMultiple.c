@@ -1,10 +1,10 @@
 /*
- * XREFs of IoWMIQuerySingleInstanceMultiple @ 0x1408B2110
+ * XREFs of IoWMIQuerySingleInstanceMultiple @ 0x1408B3370
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     WmipQuerySingleMultiple @ 0x1408B3CE8 (WmipQuerySingleMultiple.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     WmipQuerySingleMultiple @ 0x1408B4F6C (WmipQuerySingleMultiple.c)
  */
 
 NTSTATUS __stdcall IoWMIQuerySingleInstanceMultiple(

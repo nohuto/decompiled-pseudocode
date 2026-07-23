@@ -1,26 +1,26 @@
 /*
  * XREFs of MmFreeIndependentPages @ 0x1403E1F14
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140139734 (HvlStartBootLogicalProcessors.c)
- *     HvlpInitializeHvCrashdump @ 0x1401C08E8 (HvlpInitializeHvCrashdump.c)
- *     ExDeletePoolTagTable @ 0x14022CD44 (ExDeletePoolTagTable.c)
- *     HvlDeleteProcessor @ 0x1406203EC (HvlDeleteProcessor.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x140626C5C (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140626FD8 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpReleaseResources @ 0x1406272E8 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x140627610 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x14062782C (IopLiveDumpWriteDumpFileWithHvPages.c)
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
- *     MmFreeIsrStack @ 0x14065B890 (MmFreeIsrStack.c)
+ *     HvlStartBootLogicalProcessors @ 0x140139CA4 (HvlStartBootLogicalProcessors.c)
+ *     HvlpInitializeHvCrashdump @ 0x1401C07CC (HvlpInitializeHvCrashdump.c)
+ *     ExDeletePoolTagTable @ 0x14022CB70 (ExDeletePoolTagTable.c)
+ *     HvlDeleteProcessor @ 0x1406204A0 (HvlDeleteProcessor.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140626D10 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14062708C (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpReleaseResources @ 0x14062739C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1406276C4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1406278E0 (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
+ *     MmFreeIsrStack @ 0x14065B974 (MmFreeIsrStack.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiReturnNonPagedPoolCharges @ 0x140098570 (MiReturnNonPagedPoolCharges.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     MiReturnNonPagedPoolCharges @ 0x140097D70 (MiReturnNonPagedPoolCharges.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 signed __int64 __fastcall MmFreeIndependentPages(unsigned __int64 a1, unsigned __int64 a2)
@@ -66,6 +66,6 @@ signed __int64 __fastcall MmFreeIndependentPages(unsigned __int64 a1, unsigned _
     ++PteAddress;
   }
   while ( PteAddress < v6 );
-  MiReleasePtes((__int64)&qword_140327870, v5, v3);
+  MiReleasePtes((__int64)&qword_1403278B0, v5, v3);
   return MiReturnNonPagedPoolCharges(&v12);
 }

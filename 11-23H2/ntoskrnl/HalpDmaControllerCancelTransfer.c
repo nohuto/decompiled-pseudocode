@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaControllerCancelTransfer @ 0x14051644C
+ * XREFs of HalpDmaControllerCancelTransfer @ 0x14051699C
  * Callers:
- *     HalCancelMappedTransfer @ 0x140514390 (HalCancelMappedTransfer.c)
+ *     HalCancelMappedTransfer @ 0x1405148E0 (HalCancelMappedTransfer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, __int64 a3)
@@ -38,7 +38,10 @@ __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, 
     v9 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(v9);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v9 - 2) <= 0xDu )
+    if ( (_DWORD)KiIrqlFlags
+      && ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)(v9 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == (_BYTE)v9 )
@@ -64,10 +67,10 @@ __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, 
   if ( v8 )
   {
     KxReleaseSpinLock(v12);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v17 = CurrentPrcb->SchedulerAssist;
@@ -75,7 +78,7 @@ __int64 __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, 
         v14 = (v18 & v17[5]) == 0;
         v17[5] &= v18;
         if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     result = CurrentIrql;

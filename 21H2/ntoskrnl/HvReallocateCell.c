@@ -1,18 +1,18 @@
 /*
- * XREFs of HvReallocateCell @ 0x1406663B0
+ * XREFs of HvReallocateCell @ 0x14065B1D0
  * Callers:
- *     CmpSetValueKeyExisting @ 0x140666C88 (CmpSetValueKeyExisting.c)
- *     CmpAddValueToListEx @ 0x140667464 (CmpAddValueToListEx.c)
- *     CmpAddToLeaf @ 0x140669B1C (CmpAddToLeaf.c)
- *     CmpRemoveValueFromList @ 0x1406A54A0 (CmpRemoveValueFromList.c)
- *     CmpSetValueDataExisting @ 0x1406C145C (CmpSetValueDataExisting.c)
- *     CmpSplitLeaf @ 0x140733848 (CmpSplitLeaf.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
+ *     CmpRemoveValueFromList @ 0x1406030D0 (CmpRemoveValueFromList.c)
+ *     CmpSetValueDataExisting @ 0x1406200E0 (CmpSetValueDataExisting.c)
+ *     CmpSetValueKeyExisting @ 0x14065BAA8 (CmpSetValueKeyExisting.c)
+ *     CmpAddValueToListEx @ 0x14065C284 (CmpAddValueToListEx.c)
+ *     CmpAddToLeaf @ 0x14065E93C (CmpAddToLeaf.c)
+ *     CmpSplitLeaf @ 0x140733A08 (CmpSplitLeaf.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvpDoAllocateCell @ 0x140708E68 (HvpDoAllocateCell.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvpDoAllocateCell @ 0x140720248 (HvpDoAllocateCell.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
  */
 
 __int64 __fastcall HvReallocateCell(

@@ -11,8 +11,8 @@ __int64 __fastcall TpDisablePoolCallbackChecks(__int64 a1)
 {
   if ( !a1 )
     return 3221225485LL;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 72));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   *(_DWORD *)(a1 + 436) |= 1u;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   return 0LL;
 }

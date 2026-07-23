@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateWorkingSetSwapSupport @ 0x1400E5934
+ * XREFs of MiAllocateWorkingSetSwapSupport @ 0x1400E59B4
  * Callers:
- *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x1400E58DC (MiReAllocateWorkingSetSwapSupport.c)
- *     MiGetKernelStackSwapSupport @ 0x140124034 (MiGetKernelStackSwapSupport.c)
- *     MmOutSwapVirtualAddresses @ 0x1402CBA90 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x1400E51A8 (MmOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1400E595C (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiGetKernelStackSwapSupport @ 0x140124104 (MiGetKernelStackSwapSupport.c)
+ *     MmOutSwapVirtualAddresses @ 0x1402CBC80 (MmOutSwapVirtualAddresses.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 *__fastcall MiAllocateWorkingSetSwapSupport(unsigned __int64 a1)

@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpGetVolumeClusterSize @ 0x1408B685C
+ * XREFs of CmpGetVolumeClusterSize @ 0x1408BCE30
  * Callers:
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x1403EB070 (IoGetAttachedDeviceReference.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryVolumeInformationFile @ 0x140723D10 (ZwQueryVolumeInformationFile.c)
- *     CmpCreateEvent @ 0x1408B6AC0 (CmpCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1402F8660 (IoGetAttachedDeviceReference.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryVolumeInformationFile @ 0x1407288E0 (ZwQueryVolumeInformationFile.c)
+ *     CmpCreateEvent @ 0x1408BD094 (CmpCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
 {
-  struct _OBJECT_TYPE *v3; // r8
+  struct _OBJECT_TYPE *Flink; // r8
   NTSTATUS result; // eax
   int Event; // eax
   PVOID v7; // r15
@@ -47,7 +47,7 @@ NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
 
   v28 = 0LL;
   v21 = 0LL;
-  v3 = **(struct _OBJECT_TYPE ***)&CmpCallbackListLock.ApcStateFill[40];
+  Flink = (struct _OBJECT_TYPE *)CmpContextListLock.ApcState.ApcListHead[1].Blink->Flink;
   Handle = 0LL;
   v26 = 0;
   Object = 0LL;
@@ -55,7 +55,7 @@ NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
   v24 = 6LL;
   IoStatusBlock = 0LL;
   v25 = 0LL;
-  result = ObReferenceObjectByHandle(FileHandle, 0, v3, 0, &Object, 0LL);
+  result = ObReferenceObjectByHandle(FileHandle, 0, Flink, 0, &Object, 0LL);
   if ( result < 0 )
     return result;
   Event = CmpCreateEvent(NotificationEvent);

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindDefragmentSlabEntriesHelperByIdentity @ 0x140706FB0
+ * XREFs of MiFindDefragmentSlabEntriesHelperByIdentity @ 0x14070BC80
  * Callers:
  *     <none>
  * Callees:
- *     MiCheckSlabEntryForDefrag @ 0x140705F34 (MiCheckSlabEntryForDefrag.c)
+ *     MiCheckSlabEntryForDefrag @ 0x14070AC04 (MiCheckSlabEntryForDefrag.c)
  */
 
 __int64 __fastcall MiFindDefragmentSlabEntriesHelperByIdentity(__int64 a1, __int64 a2, __int64 a3)

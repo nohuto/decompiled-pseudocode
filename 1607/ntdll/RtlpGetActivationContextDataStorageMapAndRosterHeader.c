@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x18006893C
+ * XREFs of RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x18006892C
  * Callers:
- *     RtlGetAssemblyStorageRoot @ 0x180068800 (RtlGetAssemblyStorageRoot.c)
+ *     RtlGetAssemblyStorageRoot @ 0x1800687F0 (RtlGetAssemblyStorageRoot.c)
  * Callees:
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeAnsiString @ 0x1800427E0 (RtlFreeAnsiString.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     RtlpInitializeAssemblyStorageMap @ 0x18006AD58 (RtlpInitializeAssemblyStorageMap.c)
- *     RtlpUninitializeAssemblyStorageMap @ 0x18008623C (RtlpUninitializeAssemblyStorageMap.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeAnsiString @ 0x1800427D0 (RtlFreeAnsiString.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     RtlpInitializeAssemblyStorageMap @ 0x18006AD48 (RtlpInitializeAssemblyStorageMap.c)
+ *     RtlpUninitializeAssemblyStorageMap @ 0x18008622C (RtlpUninitializeAssemblyStorageMap.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -33,12 +33,12 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   volatile signed __int64 v14; // rax
   __int64 v16; // rax
   __int64 v17; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v19; // rdi
+  char *Heap; // rax
+  void *v19; // rdi
   unsigned __int16 v20; // r12
   unsigned __int64 v21; // rax
   unsigned __int64 v22; // rbx
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   _QWORD *v24; // [rsp+50h] [rbp-B0h]
   _QWORD *v25; // [rsp+58h] [rbp-A8h]
   void *Src[2]; // [rsp+60h] [rbp-A0h]
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   if ( (_UNKNOWN *)a3 == &unk_180108498 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed the empty activation context\n",
       "RtlpGetActivationContextDataStorageMapAndRosterHeader");
@@ -75,7 +75,7 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   if ( (a1 & 0xFFFFFFFC) != 0 || !a2 || !v8 || !a5 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters:\n"
       "SXS:    Flags                : 0x%lx\n"
@@ -175,23 +175,23 @@ LABEL_27:
   }
   else
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v10 + 8) + 16);
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v10 + 8) + 16);
     v19 = Heap;
     if ( Heap )
     {
       v7 = RtlpInitializeAssemblyStorageMap(Heap, *(unsigned int *)(v10 + 8), Heap + 16);
       if ( v7 >= 0 )
       {
-        if ( _InterlockedCompareExchange64(v12, v19, 0LL) )
+        if ( _InterlockedCompareExchange64(v12, (signed __int64)v19, 0LL) )
         {
           RtlpUninitializeAssemblyStorageMap(v19);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v19);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
         }
         Buffer = UnicodeString.Buffer;
         v7 = 0;
         goto LABEL_29;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v19);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
     }
     else
     {

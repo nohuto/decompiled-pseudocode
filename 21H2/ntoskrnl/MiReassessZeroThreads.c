@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReassessZeroThreads @ 0x1402BB5C4
+ * XREFs of MiReassessZeroThreads @ 0x1402397D4
  * Callers:
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiReduceZeroingThreads @ 0x1402BB870 (MiReduceZeroingThreads.c)
- *     MiLogZeroPageDecision @ 0x140399128 (MiLogZeroPageDecision.c)
- *     MiAddZeroingThreads @ 0x1403A55A0 (MiAddZeroingThreads.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReduceZeroingThreads @ 0x140239A80 (MiReduceZeroingThreads.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLogZeroPageDecision @ 0x140399278 (MiLogZeroPageDecision.c)
+ *     MiAddZeroingThreads @ 0x1403A56F0 (MiAddZeroingThreads.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -130,7 +130,7 @@ LABEL_6:
       }
       else if ( v12 <= v14 + v14 / 0xA || v14 == -1LL )
       {
-        ++dword_140C2A24C;
+        ++dword_140C2A28C;
         v20 = v16;
         if ( *(_DWORD *)(v2 + 172) )
         {
@@ -195,7 +195,7 @@ LABEL_51:
           goto LABEL_6;
         }
       }
-      ++dword_140C2A250;
+      ++dword_140C2A290;
       if ( *(_DWORD *)(v2 + 172) != 1 )
         *(_QWORD *)(v2 + 172) = 1LL;
       v17 = *(unsigned int *)(v2 + 176);

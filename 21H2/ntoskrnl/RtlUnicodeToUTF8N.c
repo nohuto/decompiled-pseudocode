@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlUnicodeToUTF8N @ 0x1406B92D0
+ * XREFs of RtlUnicodeToUTF8N @ 0x1406188F0
  * Callers:
- *     EtwpQueryPartitionRegistryInformation @ 0x1403AF83C (EtwpQueryPartitionRegistryInformation.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x140585AB8 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlUnicodeToMultiByteSize @ 0x1405EDC80 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeToMultiByteN @ 0x1405EDEA0 (RtlUnicodeToMultiByteN.c)
- *     RtlUnicodeToOemN @ 0x140694CB0 (RtlUnicodeToOemN.c)
- *     EtwpGetAutoLoggerEventNameFilter @ 0x1407C5D1C (EtwpGetAutoLoggerEventNameFilter.c)
- *     RtlUnicodeToCustomCPN @ 0x140910BC0 (RtlUnicodeToCustomCPN.c)
- *     RtlUnicodeStringToUTF8String @ 0x140919880 (RtlUnicodeStringToUTF8String.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x1403AF9AC (EtwpQueryPartitionRegistryInformation.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140585CE8 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlUnicodeToOemN @ 0x1405F4200 (RtlUnicodeToOemN.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1406DD3E0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1406DD600 (RtlUnicodeToMultiByteN.c)
+ *     EtwpGetAutoLoggerEventNameFilter @ 0x1407954E4 (EtwpGetAutoLoggerEventNameFilter.c)
+ *     RtlUnicodeToCustomCPN @ 0x140910D20 (RtlUnicodeToCustomCPN.c)
+ *     RtlUnicodeStringToUTF8String @ 0x1409199E0 (RtlUnicodeStringToUTF8String.c)
  * Callees:
- *     CountUnicodeToUTF8 @ 0x1402CB454 (CountUnicodeToUTF8.c)
+ *     CountUnicodeToUTF8 @ 0x140249BA4 (CountUnicodeToUTF8.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToUTF8N(

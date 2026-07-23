@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxValidateReturnedUnicodeString @ 0x1409860B4
+ * XREFs of PopFxValidateReturnedUnicodeString @ 0x1409862B4
  * Callers:
- *     PopPluginInitializeSocSubsystemStaticInfo @ 0x140986348 (PopPluginInitializeSocSubsystemStaticInfo.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x1409865B4 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x140986548 (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1409867B4 (PopPluginQuerySocSubsystemMetadata.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BEE0 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x14022BFF0 (RtlStringCbLengthW.c)
  */
 
 char __fastcall PopFxValidateReturnedUnicodeString(unsigned __int16 *a1, __int64 a2, unsigned int a3)

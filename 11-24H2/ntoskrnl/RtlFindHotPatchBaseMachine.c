@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindHotPatchBaseMachine @ 0x14082F05C
+ * XREFs of RtlFindHotPatchBaseMachine @ 0x14082F88C
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x1407F2308 (MiCaptureHotPatchInfo.c)
- *     MiPrepareToHotPatchImage @ 0x1407F5540 (MiPrepareToHotPatchImage.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x1407F28D8 (MiCaptureHotPatchInfo.c)
+ *     MiPrepareToHotPatchImage @ 0x1407F5C30 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlFindHotPatchBase @ 0x14082F024 (RtlFindHotPatchBase.c)
- *     RtlGetHotPatchBaseMachine @ 0x14082F308 (RtlGetHotPatchBaseMachine.c)
+ *     RtlFindHotPatchBase @ 0x14082F854 (RtlFindHotPatchBase.c)
+ *     RtlGetHotPatchBaseMachine @ 0x14082FB38 (RtlGetHotPatchBaseMachine.c)
  */
 
 __int64 __fastcall RtlFindHotPatchBaseMachine(unsigned int *a1, __int16 a2)

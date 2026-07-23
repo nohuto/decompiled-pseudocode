@@ -1,8 +1,8 @@
 /*
- * XREFs of StEtaCleanup @ 0x140345BB8
+ * XREFs of StEtaCleanup @ 0x140345E48
  * Callers:
- *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034556C (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmcCacheCleanup @ 0x1409DAAE4 (SmcCacheCleanup.c)
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403457FC (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmcCacheCleanup @ 0x1409DACE4 (SmcCacheCleanup.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

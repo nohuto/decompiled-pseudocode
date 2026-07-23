@@ -31,9 +31,9 @@ unsigned __int64 __fastcall MiUpdateBootHpatPagesInUse(__int64 a1, _QWORD *a2, _
   __int64 v18; // r9
   int IsPfnFromChargedSlabAllocation; // eax
   __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // rt1
-  _DWORD v23[14]; // [rsp+20h] [rbp-38h] BYREF
+  PVOID v21; // rcx
+  PVOID v22; // rt1
+  int v23[14]; // [rsp+20h] [rbp-38h] BYREF
   int v24; // [rsp+78h] [rbp+20h]
 
   if ( !dword_140E3726C )
@@ -99,8 +99,8 @@ unsigned __int64 __fastcall MiUpdateBootHpatPagesInUse(__int64 a1, _QWORD *a2, _
       qword_140E3D6A8 += v14;
     }
     _InterlockedAdd64(&qword_140E2D9A8, v8);
-    v21 = *(_QWORD *)(a1 + 48);
-    v22 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v21 = *(PVOID *)(a1 + 48);
+    v22 = *(PVOID *)&KeNumberProcessorsGroup0[9];
     if ( v21 == v22 || v21 == PsHalImageBase )
       _InterlockedAdd64(&qword_140E37398, v14 - v8);
     else

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x14045BCF0
+ * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x140455520
  * Callers:
- *     KiGetNextClockOwner @ 0x1405EE394 (KiGetNextClockOwner.c)
+ *     KiGetNextClockOwner @ 0x1405F0D04 (KiGetNextClockOwner.c)
  * Callees:
  *     <none>
  */

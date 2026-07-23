@@ -18,16 +18,16 @@
  *     PiAuGetServiceStateSecurityObject @ 0x140729BE0 (PiAuGetServiceStateSecurityObject.c)
  */
 
-__int64 __fastcall PiCreateRedirectedStateRoot(UNICODE_STRING *CreateOptions, int a2, _QWORD *a3)
+__int64 __fastcall PiCreateRedirectedStateRoot(UNICODE_STRING *CreateOptions, ULONG a2, _QWORD *a3)
 {
   void *v4; // rsi
   void *v5; // rdi
   WCHAR *v7; // r14
-  int PersistedStateLocation; // eax
+  NTSTATUS PersistedStateLocation; // eax
   signed int UnicodeString; // ebx
-  int v11; // r12d
-  WCHAR *PoolWithTag; // rax
-  int v13; // eax
+  ULONG BufferLengthIn; // r12d
+  WCHAR *TargetPath; // rax
+  NTSTATUS v13; // eax
   unsigned int v14; // edx
   unsigned int v15; // ecx
   unsigned int v16; // eax
@@ -39,10 +39,10 @@ __int64 __fastcall PiCreateRedirectedStateRoot(UNICODE_STRING *CreateOptions, in
   UNICODE_STRING SourceString; // [rsp+58h] [rbp-21h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-11h] BYREF
   HANDLE Handle; // [rsp+E0h] [rbp+67h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+E8h] [rbp+6Fh] BYREF
+  ULONG Disposition; // [rsp+E8h] [rbp+6Fh] BYREF
   void *v26; // [rsp+F8h] [rbp+7Fh]
 
-  LODWORD(NumberOfBytes) = a2;
+  Disposition = a2;
   v4 = 0LL;
   Handle = 0LL;
   v5 = 0LL;
@@ -55,8 +55,15 @@ __int64 __fastcall PiCreateRedirectedStateRoot(UNICODE_STRING *CreateOptions, in
     UnicodeString = -1073741811;
     goto LABEL_7;
   }
-  LODWORD(NumberOfBytes) = 0;
-  PersistedStateLocation = RtlGetPersistedStateLocation(L"DriverStatePath", 0LL, 0, (__int64)&NumberOfBytes);
+  Disposition = 0;
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             L"DriverStatePath",
+                             0LL,
+                             0LL,
+                             LocationTypeRegistry,
+                             0LL,
+                             0,
+                             &Disposition);
   UnicodeString = PersistedStateLocation;
   if ( PersistedStateLocation >= 0 )
   {
@@ -65,15 +72,22 @@ __int64 __fastcall PiCreateRedirectedStateRoot(UNICODE_STRING *CreateOptions, in
   }
   if ( PersistedStateLocation != -2147483643 )
     goto LABEL_7;
-  v11 = NumberOfBytes;
-  PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
-  v7 = PoolWithTag;
-  if ( !PoolWithTag )
+  BufferLengthIn = Disposition;
+  TargetPath = (WCHAR *)ExAllocatePoolWithTag(PagedPool, Disposition, 0x6F697050u);
+  v7 = TargetPath;
+  if ( !TargetPath )
   {
     UnicodeString = -1073741670;
     goto LABEL_7;
   }
-  v13 = RtlGetPersistedStateLocation(L"DriverStatePath", PoolWithTag, v11, 0LL);
+  v13 = RtlGetPersistedStateLocation(
+          L"DriverStatePath",
+          0LL,
+          0LL,
+          LocationTypeRegistry,
+          TargetPath,
+          BufferLengthIn,
+          0LL);
   UnicodeString = v13;
   if ( v13 == -1073741772 )
     goto LABEL_26;
@@ -81,9 +95,9 @@ __int64 __fastcall PiCreateRedirectedStateRoot(UNICODE_STRING *CreateOptions, in
   {
     v14 = -1;
     v15 = CreateOptions->Length + 2;
-    v16 = v15 + v11;
-    if ( v15 + v11 >= v15 )
-      v14 = v15 + v11;
+    v16 = v15 + BufferLengthIn;
+    if ( v15 + BufferLengthIn >= v15 )
+      v14 = v15 + BufferLengthIn;
     UnicodeString = v16 < v15 ? 0xC0000095 : 0;
     if ( v16 >= v15 )
     {

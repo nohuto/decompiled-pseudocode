@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlOplockFsctrl @ 0x1406A9490
+ * XREFs of FsRtlOplockFsctrl @ 0x140607410
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1406D98D0 (FsRtlpOplockFsctrlInternal.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockFsctrl(POPLOCK Oplock, PIRP Irp, ULONG OpenCount)
 {
-  return FsRtlpOplockFsctrlInternal((__int64 *)Oplock, Irp, OpenCount, 0, 0x7000u);
+  return FsRtlpOplockFsctrlInternal(Oplock, Irp, 28672);
 }

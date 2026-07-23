@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStart @ 0x1408EB288
+ * XREFs of PopDiagTraceSleepStudyStart @ 0x1408EB3E8
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
- *     PopSleepstudyScenarioStopWorker @ 0x1408FA330 (PopSleepstudyScenarioStopWorker.c)
+ *     PopSleepstudyStartNextSession @ 0x140774E98 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyScenarioStopWorker @ 0x1408FA490 (PopSleepstudyScenarioStopWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopGetModernStandbyTransitionReason @ 0x140576500 (PopGetModernStandbyTransitionReason.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140576740 (PopGetModernStandbyTransitionReason.c)
  */
 
 void PopDiagTraceSleepStudyStart()
@@ -62,7 +62,7 @@ void PopDiagTraceSleepStudyStart()
       v9 = 4;
       v8 = &v2;
       v11 = &PopCsConsumption;
-      v14 = &dword_140C4FFD0;
+      v14 = &dword_140C50010;
       v17 = &PopWdiCurrentScenarioInstanceId;
       v20 = 0xFFFFF780000002C4uLL;
       v23 = &v3;

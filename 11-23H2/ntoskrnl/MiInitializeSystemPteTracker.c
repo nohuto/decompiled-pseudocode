@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
  */
 
 _QWORD *MiInitializeSystemPteTracker()

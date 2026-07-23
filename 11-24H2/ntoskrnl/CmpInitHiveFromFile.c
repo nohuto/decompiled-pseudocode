@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpInitHiveFromFile @ 0x14092EC1C
+ * XREFs of CmpInitHiveFromFile @ 0x140930D5C
  * Callers:
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmpCmdHiveOpen @ 0x14092E91C (CmpCmdHiveOpen.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmpCmdHiveOpen @ 0x140930A5C (CmpCmdHiveOpen.c)
  * Callees:
- *     EtwWriteTransfer @ 0x14041C2C0 (EtwWriteTransfer.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiAllocateMemory @ 0x140485138 (CmSiAllocateMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpOpenHiveFiles @ 0x14092F1B0 (CmpOpenHiveFiles.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
- *     CmpLogEvent @ 0x14092FDAC (CmpLogEvent.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140BB9AD0 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140BB9B10 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpIsHiveLoadUnloadRundownActive @ 0x140BB9E48 (CmpIsHiveLoadUnloadRundownActive.c)
+ *     EtwWriteTransfer @ 0x140410100 (EtwWriteTransfer.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiAllocateMemory @ 0x14048071C (CmSiAllocateMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpOpenHiveFiles @ 0x1409312F0 (CmpOpenHiveFiles.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
+ *     CmpLogEvent @ 0x140931EEC (CmpLogEvent.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140BBBAD0 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140BBBB10 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140BBBE48 (CmpIsHiveLoadUnloadRundownActive.c)
  */
 
 __int64 __fastcall CmpInitHiveFromFile(
@@ -66,7 +66,7 @@ __int64 __fastcall CmpInitHiveFromFile(
   __int64 v42; // [rsp+118h] [rbp+18h]
   struct _KAPC_STATE ApcState; // [rsp+120h] [rbp+20h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+150h] [rbp+50h] BYREF
-  __int16 *v45; // [rsp+160h] [rbp+60h]
+  char *v45; // [rsp+160h] [rbp+60h]
   int v46; // [rsp+168h] [rbp+68h]
   int v47; // [rsp+16Ch] [rbp+6Ch]
   __int64 *v48; // [rsp+170h] [rbp+70h]
@@ -91,7 +91,7 @@ __int64 __fastcall CmpInitHiveFromFile(
   memset(&ApcState, 0, sizeof(ApcState));
   *(_OWORD *)Handle = 0LL;
   *(_OWORD *)v36 = 0LL;
-  if ( (unsigned int)dword_140E09EE8 > 4 && (qword_140E09EF8 & 8) != 0 && (qword_140E09F00 & 8) == qword_140E09F00 )
+  if ( (unsigned int)dword_140E09F58 > 4 && (qword_140E09F68 & 8) != 0 && (qword_140E09F70 & 8) == qword_140E09F70 )
   {
     v14 = *((_QWORD *)a1 + 1);
     v15 = *a1;
@@ -99,19 +99,19 @@ __int64 __fastcall CmpInitHiveFromFile(
     v52[1] = 0;
     v51 = v14;
     *(_DWORD *)&EventDescriptor.Level = 260;
-    UserData.Ptr = (ULONGLONG)off_140E09EF0;
+    UserData.Ptr = (ULONGLONG)off_140E09F60;
     v48 = (__int64 *)v52;
     v52[0] = v15;
     v49 = 2;
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 8LL;
-    UserData.Size = *(unsigned __int16 *)off_140E09EF0;
-    v45 = (__int16 *)byte_140055A6B;
+    UserData.Size = *(unsigned __int16 *)off_140E09F60;
+    v45 = &byte_14005658F;
     UserData.Reserved = 2;
     v46 = 31;
     v47 = 1;
     LODWORD(v31) = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-    EtwWriteTransfer(qword_140E09F08, &EventDescriptor, 0LL, 0LL, 4u, &UserData);
+    EtwWriteTransfer(qword_140E09F78, &EventDescriptor, 0LL, 0LL, 4u, &UserData);
     a2 = v29;
     v12 = v33;
     a4 = v32;
@@ -184,7 +184,7 @@ LABEL_24:
               SetFailureLocation((__int64)a10, 1, 28, v26, 48);
           }
         }
-        *(_QWORD *)(v28 + 1848) = CmSiAllocateMemory();
+        *(_QWORD *)(v28 + 1848) = CmSiAllocateMemory(*a1, 0x624E4D43u);
         v25 = v28;
         if ( *(_QWORD *)(v28 + 1848) )
         {
@@ -232,23 +232,23 @@ LABEL_10:
     ZwClose(Handle[1]);
   if ( v36[0] )
     ZwClose(v36[0]);
-  if ( (unsigned int)dword_140E09EE8 > 4 && (qword_140E09EF8 & 8) != 0 && (qword_140E09F00 & 8) == qword_140E09F00 )
+  if ( (unsigned int)dword_140E09F58 > 4 && (qword_140E09F68 & 8) != 0 && (qword_140E09F70 & 8) == qword_140E09F70 )
   {
     v50 = 0;
     v48 = &v31;
     *(_DWORD *)&v34.Level = 516;
-    UserData.Ptr = (ULONGLONG)off_140E09EF0;
+    UserData.Ptr = (ULONGLONG)off_140E09F60;
     LODWORD(v31) = v19;
     v49 = 4;
     *(_DWORD *)&v34.Id = 184549376;
     v34.Keyword = 8LL;
-    UserData.Size = *(unsigned __int16 *)off_140E09EF0;
-    v45 = &word_140055A96;
+    UserData.Size = *(unsigned __int16 *)off_140E09F60;
+    v45 = byte_140056565;
     UserData.Reserved = 2;
     v46 = 30;
     v47 = 1;
     v30 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-    EtwWriteTransfer(qword_140E09F08, &v34, 0LL, 0LL, 3u, &UserData);
+    EtwWriteTransfer(qword_140E09F78, &v34, 0LL, 0LL, 3u, &UserData);
   }
   return v19;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AslDoesFileExistNtPath @ 0x140967BDC
+ * XREFs of AslDoesFileExistNtPath @ 0x140967DBC
  * Callers:
- *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindFirst @ 0x140968CD4 (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
  */
 
 __int64 __fastcall AslDoesFileExistNtPath(PCWSTR SourceString)

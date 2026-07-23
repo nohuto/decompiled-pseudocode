@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwWriteFileGather @ 0x1406A6770
+ * XREFs of ZwWriteFileGather @ 0x1406A7710
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWriteFileGather(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWriteFileGather(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

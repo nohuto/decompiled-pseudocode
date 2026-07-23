@@ -1,11 +1,11 @@
 /*
- * XREFs of PsEstablishWin32Callouts @ 0x1407F0BF0
+ * XREFs of PsEstablishWin32Callouts @ 0x1407F6750
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     ExAllocateCallBack @ 0x140B30CE4 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     ExAllocateCallBack @ 0x140B32EE4 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PsEstablishWin32Callouts(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall PsEstablishWin32Callouts(__int64 a1)
   if ( v1 )
   {
     if ( ExCompareExchangeCallBack((signed __int64 *)&PsWin32CallBack, v1, 0LL) )
-      LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) = 1;
+      BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) = 1;
     else
       ExFreePoolWithTag(v2, 0);
   }

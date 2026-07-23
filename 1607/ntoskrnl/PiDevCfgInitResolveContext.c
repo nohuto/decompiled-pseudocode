@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgInitResolveContext @ 0x140639814
+ * XREFs of PiDevCfgInitResolveContext @ 0x1406398C8
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406358F4 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgVerifyDeviceAllowed @ 0x140641050 (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406359A8 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x140641134 (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiDevCfgFreeResolveContext @ 0x140638EF4 (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgFreeResolveContext @ 0x140638FA8 (PiDevCfgFreeResolveContext.c)
  */
 
 __int64 __fastcall PiDevCfgInitResolveContext(void *a1, void *a2, HANDLE *a3)

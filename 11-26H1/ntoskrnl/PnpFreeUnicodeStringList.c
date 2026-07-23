@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpFreeUnicodeStringList @ 0x1405DCF64
+ * XREFs of PnpFreeUnicodeStringList @ 0x1405DF8CC
  * Callers:
- *     PiInitReleaseCachedGroupInformation @ 0x14077C858 (PiInitReleaseCachedGroupInformation.c)
- *     PnpRegMultiSzToUnicodeStrings @ 0x140CC7664 (PnpRegMultiSzToUnicodeStrings.c)
+ *     PiInitReleaseCachedGroupInformation @ 0x14077F34C (PiInitReleaseCachedGroupInformation.c)
+ *     PnpRegMultiSzToUnicodeStrings @ 0x140CCD754 (PnpRegMultiSzToUnicodeStrings.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpFreeUnicodeStringList(PVOID *P, unsigned int a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x14081E810
+ * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x14081EF50
  * Callers:
- *     _CmGetInstallerClassCompoundFilters @ 0x1409B6D74 (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1409AE104 (_CmGetInstallerClassCompoundFilters.c)
  * Callees:
- *     _CmGetDeclarativeFilterList @ 0x14081E55C (_CmGetDeclarativeFilterList.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140993F58 (_PnpCtxRegQueryInfoKey.c)
- *     _CmMergeFilterLists @ 0x1409B3A24 (_CmMergeFilterLists.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1409B6F24 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _CmGetDeclarativeFilterList @ 0x14081EC9C (_CmGetDeclarativeFilterList.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14097EF98 (_PnpCtxRegQueryInfoKey.c)
+ *     _CmMergeFilterLists @ 0x1409AADB4 (_CmMergeFilterLists.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1409AE2B4 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFiltersWorker(
@@ -78,7 +78,7 @@ LABEL_8:
   if ( (unsigned int)PnpGetObjectProperty(a1, a2, 2, a3, 0LL, (__int64)v16, (__int64)&v28 + 4, 0LL, 0, (__int64)&v28, 0) == -1073741789
     && HIDWORD(v28) == 8210 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)v28, 0x52504E50u);
     v14 = (wchar_t *)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741801;
@@ -117,7 +117,7 @@ LABEL_53:
       return (unsigned int)ObjectProperty;
     return (unsigned int)-1073741275;
   }
-  v13 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  v13 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v28, 0x52504E50u);
   if ( !v13 )
     return (unsigned int)-1073741801;
   ObjectProperty = PnpGetObjectProperty(
@@ -139,7 +139,7 @@ LABEL_53:
     ObjectProperty = -1073741275;
     goto LABEL_45;
   }
-  v25 = (void *)ExAllocatePool2(0x100uLL);
+  v25 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v28, 0x52504E50u);
   v30 = v25;
   if ( !v25 )
   {
@@ -183,7 +183,7 @@ LABEL_44:
         goto LABEL_47;
       goto LABEL_45;
     }
-    v14 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    v14 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v28, 0x52504E50u);
     if ( !v14 )
       goto LABEL_33;
     ObjectProperty = CmGetDeclarativeFilterList(
@@ -223,7 +223,7 @@ LABEL_41:
       goto LABEL_44;
     if ( !(_DWORD)v28 || !a9 )
       goto LABEL_41;
-    P = (PVOID)ExAllocatePool2(0x100uLL);
+    P = (PVOID)ExAllocatePool2(0x100uLL, (unsigned int)v28, 0x52504E50u);
     if ( P )
     {
       ObjectProperty = CmGetInstallerClassMappedPropertyFromRegProp(

@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlxAnsiStringToUnicodeSize @ 0x14075A820
  * Callers:
- *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1406509F8 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ *     sub_1406509F8 @ 0x1406509F8 (sub_1406509F8.c)
  *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     PopAnsiStringToUnicodeString @ 0x1407F0ED0 (PopAnsiStringToUnicodeString.c)
- *     AslStringAnsiToUnicode @ 0x140A14988 (AslStringAnsiToUnicode.c)
+ *     sub_1407F0ED0 @ 0x1407F0ED0 (sub_1407F0ED0.c)
+ *     sub_140A14988 @ 0x140A14988 (sub_140A14988.c)
  * Callees:
  *     RtlMultiByteToUnicodeSize @ 0x14075A850 (RtlMultiByteToUnicodeSize.c)
  */

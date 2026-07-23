@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x1404FF354
+ * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x1404E22E4
  * Callers:
- *     PiDmObjectGetCachedObjectProperty @ 0x1404FEE44 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1404E1DD4 (PiDmObjectGetCachedObjectProperty.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiDmGetCacheKeys @ 0x1404FF4E4 (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x1404FF530 (PiDmGetCachedKeyIndex.c)
- *     PiDmObjectAcquireSharedLock @ 0x1404FFB50 (PiDmObjectAcquireSharedLock.c)
- *     PiDmCacheDataDecode @ 0x1404FFBB0 (PiDmCacheDataDecode.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiDmGetCacheKeys @ 0x1404E2474 (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1404E24C0 (PiDmGetCachedKeyIndex.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1404E2AE0 (PiDmObjectAcquireSharedLock.c)
+ *     PiDmCacheDataDecode @ 0x1404E2B40 (PiDmCacheDataDecode.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(

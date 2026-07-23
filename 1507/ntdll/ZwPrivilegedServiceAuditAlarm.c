@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwPrivilegedServiceAuditAlarm()
+NTSTATUS __cdecl ZwPrivilegedServiceAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PUNICODE_STRING ServiceName,
+        HANDLE ClientToken,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 292LL;
+  result = 292;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,187 +1,187 @@
 /*
- * XREFs of SmKmStoreHelperCommandProcess @ 0x14037AA90
+ * XREFs of SmKmStoreHelperCommandProcess @ 0x1402E7B10
  * Callers:
- *     SmKmStoreHelperWorker @ 0x14045D450 (SmKmStoreHelperWorker.c)
- *     SmKmStoreHelperCommandCleanup @ 0x1404C6288 (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperWorker @ 0x140452510 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x1404BF6E4 (SmKmStoreHelperCommandCleanup.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x140208FD0 (PsGetPagePriorityThread.c)
- *     PsSetPagePriorityThread @ 0x1402098B8 (PsSetPagePriorityThread.c)
- *     SmAcquireReleaseCharges @ 0x140210CF0 (SmAcquireReleaseCharges.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     SmKmFreeMdlForLock @ 0x14037AD84 (SmKmFreeMdlForLock.c)
- *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14037ADB8 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
- *     SmFpAllocate @ 0x14037C660 (SmFpAllocate.c)
- *     SmKmUnlockMdl @ 0x14039C804 (SmKmUnlockMdl.c)
- *     SmFpFree @ 0x14042F2B0 (SmFpFree.c)
- *     SmpFpReleaseResource @ 0x1404F9720 (SmpFpReleaseResource.c)
- *     SmKmVirtualLockCtxLockMemory @ 0x14060DFFC (SmKmVirtualLockCtxLockMemory.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14060E14C (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     ZwUnlockVirtualMemory @ 0x1406A9FD0 (ZwUnlockVirtualMemory.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     MmStoreAllocateVirtualMemory @ 0x140A5115C (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x140A5EAF4 (MmStoreFreeVirtualMemory.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     SmKmFreeMdlForLock @ 0x1402E7E04 (SmKmFreeMdlForLock.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1402E7E38 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     SmFpAllocate @ 0x1402E96E0 (SmFpAllocate.c)
+ *     SmKmUnlockMdl @ 0x1402F9B04 (SmKmUnlockMdl.c)
+ *     PsGetPagePriorityThread @ 0x1403305B0 (PsGetPagePriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x140330E98 (PsSetPagePriorityThread.c)
+ *     SmAcquireReleaseCharges @ 0x14033A050 (SmAcquireReleaseCharges.c)
+ *     SmFpFree @ 0x140421480 (SmFpFree.c)
+ *     SmpFpReleaseResource @ 0x1404F7000 (SmpFpReleaseResource.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x14060C5BC (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14060C70C (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     ZwUnlockVirtualMemory @ 0x1406AAF70 (ZwUnlockVirtualMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1409145E8 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140A56CE4 (MmStoreFreeVirtualMemory.c)
  */
 
-void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3, __int64 a4)
+void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r13
+  int v6; // edx
   int v7; // edx
   int v8; // edx
-  int v9; // edx
-  struct _MDL *v10; // r12
-  int v11; // edx
-  int v12; // ebx
-  int v13; // eax
-  int v14; // edx
-  __int64 v15; // r14
-  void *v16; // rcx
-  int v17; // eax
-  ULONG_PTR v18; // rcx
-  __int64 v19; // rdx
-  void *v20; // rcx
-  int v21; // edx
-  int v22; // r12d
-  int v23; // eax
-  void *VirtualMemory; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v25; // [rsp+38h] [rbp-8h]
+  struct _MDL *v9; // r12
+  __int64 v10; // rdx
+  int v11; // ebx
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // r14
+  PVOID v15; // rcx
+  int v16; // eax
+  ULONG_PTR v17; // rcx
+  __int64 v18; // rdx
+  PVOID v19; // rcx
+  int v20; // edx
+  int v21; // r12d
+  int v22; // eax
+  PVOID BaseAddress; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v24; // [rsp+38h] [rbp-8h]
+  unsigned __int8 v25; // [rsp+88h] [rbp+48h]
   unsigned __int8 v26; // [rsp+88h] [rbp+48h]
-  unsigned __int8 v27; // [rsp+88h] [rbp+48h]
-  int PagePriorityThread; // [rsp+90h] [rbp+50h]
-  unsigned __int64 v29; // [rsp+98h] [rbp+58h] BYREF
+  unsigned int PagePriorityThread; // [rsp+90h] [rbp+50h]
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+58h] BYREF
 
-  VirtualMemory = 0LL;
-  v29 = 0LL;
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v7 = a2 - 2;
-  if ( !v7 )
+  v6 = a2 - 2;
+  if ( !v6 )
   {
-    v19 = *(unsigned int *)(a3 + 24);
-    v29 = *(_QWORD *)(a3 + 8);
-    VirtualMemory = (void *)MmStoreAllocateVirtualMemory(v29, v19);
-    v20 = VirtualMemory;
-    if ( !VirtualMemory )
+    v18 = *(unsigned int *)(a3 + 24);
+    RegionSize = *(_QWORD *)(a3 + 8);
+    BaseAddress = (PVOID)MmStoreAllocateVirtualMemory(RegionSize, v18);
+    v19 = BaseAddress;
+    if ( !BaseAddress )
       goto LABEL_35;
     if ( *(_QWORD *)(a1 + 120) && (*(_DWORD *)(a3 + 40) & 1) == 0 )
     {
-      v27 = CurrentThread[1].SavedApcStateFill[15];
+      v26 = CurrentThread[1].SavedApcStateFill[15];
       CurrentThread[1].SavedApcStateFill[15] = *(_BYTE *)(a1 + 136);
-      v22 = SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), v29, 1, 0);
-      if ( !v22 )
+      v21 = SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), RegionSize, 1LL);
+      if ( !v21 )
       {
-        v12 = -1073741670;
+        v11 = -1073741670;
         goto LABEL_46;
       }
-      v12 = SmKmVirtualLockCtxLockMemory(*(_QWORD *)(a1 + 120));
-      CurrentThread[1].SavedApcStateFill[15] = v27;
-      if ( v12 < 0 )
+      v11 = SmKmVirtualLockCtxLockMemory(*(_QWORD *)(a1 + 120));
+      CurrentThread[1].SavedApcStateFill[15] = v26;
+      if ( v11 < 0 )
       {
 LABEL_46:
-        MmStoreFreeVirtualMemory(VirtualMemory);
-        if ( v22 )
-          SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), v29, 1, 1);
+        MmStoreFreeVirtualMemory(BaseAddress);
+        if ( v21 )
+          SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), RegionSize, 1LL);
         goto LABEL_19;
       }
-      SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), v29, 1, 1);
-      v20 = VirtualMemory;
+      SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), RegionSize, 1LL);
+      v19 = BaseAddress;
     }
-    *(_QWORD *)(a3 + 32) = v20;
+    *(_QWORD *)(a3 + 32) = v19;
+    goto LABEL_16;
+  }
+  v7 = v6 - 1;
+  if ( !v7 )
+  {
+    v15 = *(PVOID *)a3;
+    RegionSize = *(_QWORD *)(a3 + 8);
+    v16 = *(_DWORD *)(a3 + 16);
+    BaseAddress = v15;
+    if ( (v16 & 1) == 0 )
+    {
+      MmStoreFreeVirtualMemory(v15);
+      v17 = *(_QWORD *)(a1 + 120);
+      if ( v17 )
+        SmKmVirtualLockCtxMemoryUnlocked(v17);
+    }
     goto LABEL_16;
   }
   v8 = v7 - 1;
-  if ( !v8 )
+  if ( v8 )
   {
-    v16 = *(void **)a3;
-    v29 = *(_QWORD *)(a3 + 8);
-    v17 = *(_DWORD *)(a3 + 16);
-    VirtualMemory = v16;
-    if ( (v17 & 1) == 0 )
+    v20 = v8 - 1;
+    if ( !v20 )
     {
-      MmStoreFreeVirtualMemory(v16);
-      v18 = *(_QWORD *)(a1 + 120);
-      if ( v18 )
-        SmKmVirtualLockCtxMemoryUnlocked(v18);
-    }
-    goto LABEL_16;
-  }
-  v9 = v8 - 1;
-  if ( v9 )
-  {
-    v21 = v9 - 1;
-    if ( !v21 )
-    {
-      v12 = guard_dispatch_icall_no_overrides(a1, *(_QWORD *)(a3 + 8), 0LL, a4);
+      v11 = guard_dispatch_icall_no_overrides(a1, *(_QWORD *)(a3 + 8));
       goto LABEL_19;
     }
-    if ( v21 != 1 )
+    if ( v20 != 1 )
     {
-      v12 = -1073741811;
+      v11 = -1073741811;
       goto LABEL_19;
     }
-    VirtualMemory = *(void **)a3;
-    v29 = *(_QWORD *)(a3 + 8);
-    ZwUnlockVirtualMemory(-1LL, &VirtualMemory, &v29, 1LL);
+    BaseAddress = *(PVOID *)a3;
+    RegionSize = *(_QWORD *)(a3 + 8);
+    ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     goto LABEL_16;
   }
-  VirtualMemory = *(void **)a3;
-  v29 = *(_QWORD *)(a3 + 8);
-  v10 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
-  if ( !v10 )
+  BaseAddress = *(PVOID *)a3;
+  RegionSize = *(_QWORD *)(a3 + 8);
+  v9 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
+  if ( !v9 )
   {
 LABEL_35:
-    v12 = -1073741670;
+    v11 = -1073741670;
     goto LABEL_19;
   }
   if ( !CurrentThread )
     CurrentThread = KeGetCurrentThread();
-  PagePriorityThread = PsGetPagePriorityThread((__int64)CurrentThread);
-  if ( PagePriorityThread != v11 )
-    PagePriorityThread = PsSetPagePriorityThread((__int64)CurrentThread, v11);
-  v26 = CurrentThread[1].SavedApcStateFill[15];
+  PagePriorityThread = PsGetPagePriorityThread(CurrentThread, *(unsigned int *)(a3 + 16));
+  if ( PagePriorityThread != (_DWORD)v10 )
+    PagePriorityThread = PsSetPagePriorityThread(CurrentThread, v10);
+  v25 = CurrentThread[1].SavedApcStateFill[15];
   CurrentThread[1].SavedApcStateFill[15] = *(_BYTE *)(a1 + 136);
-  v12 = SmKmProbeAndLockAddress(VirtualMemory, v29, v10, 0);
-  if ( v12 == -1073741395 && (*(_DWORD *)(a3 + 20) & 1) != 0 )
+  v11 = SmKmProbeAndLockAddress(BaseAddress, RegionSize, v9, 0);
+  if ( v11 == -1073741395 && (*(_DWORD *)(a3 + 20) & 1) != 0 )
   {
-    v25 = SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), 1);
-    v23 = SmKmProbeAndLockAddress(VirtualMemory, v29, v10, 1u);
-    v12 = v23;
-    if ( v23 >= 0 )
-      v10->Next = (struct _MDL *)v25;
+    v24 = SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), 1);
+    v22 = SmKmProbeAndLockAddress(BaseAddress, RegionSize, v9, 1u);
+    v11 = v22;
+    if ( v22 >= 0 )
+      v9->Next = (struct _MDL *)v24;
     else
-      SmFpFree(*(_QWORD *)(a1 + 128), 4LL, a1, v25);
+      SmFpFree(*(_QWORD *)(a1 + 128), 4LL, a1, v24);
   }
   if ( PagePriorityThread != *(_DWORD *)(a3 + 16) )
   {
-    v13 = PsGetPagePriorityThread((__int64)CurrentThread);
-    if ( v13 != v14 )
-      PsSetPagePriorityThread((__int64)CurrentThread, v14);
+    v12 = PsGetPagePriorityThread(CurrentThread, PagePriorityThread);
+    if ( v12 != (_DWORD)v13 )
+      PsSetPagePriorityThread(CurrentThread, v13);
   }
-  CurrentThread[1].SavedApcStateFill[15] = v26;
-  if ( v12 >= 0 )
+  CurrentThread[1].SavedApcStateFill[15] = v25;
+  if ( v11 >= 0 )
   {
-    VirtualMemory = (void *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
-    if ( VirtualMemory )
+    BaseAddress = (PVOID)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
+    if ( BaseAddress )
     {
-      *(_QWORD *)(a3 + 32) = v10;
+      *(_QWORD *)(a3 + 32) = v9;
 LABEL_16:
-      v12 = 0;
+      v11 = 0;
       goto LABEL_19;
     }
-    v12 = -1073741670;
-    SmKmUnlockMdl(v10, *(PEX_SPIN_LOCK *)(a1 + 128));
+    v11 = -1073741670;
+    SmKmUnlockMdl(v9, *(PEX_SPIN_LOCK *)(a1 + 128));
   }
-  v15 = *(_QWORD *)(a1 + 128);
-  if ( *(_QWORD *)(v15 + 112) == a1 && (unsigned int)SmpFpReleaseResource(*(PEX_SPIN_LOCK *)(a1 + 128)) )
+  v14 = *(_QWORD *)(a1 + 128);
+  if ( *(_QWORD *)(v14 + 112) == a1 && (unsigned int)SmpFpReleaseResource(*(PEX_SPIN_LOCK *)(a1 + 128)) )
   {
-    if ( !*(_BYTE *)(v15 + 94) )
+    if ( !*(_BYTE *)(v14 + 94) )
     {
-      _InterlockedExchange64((volatile __int64 *)(v15 + 112), 0LL);
-      KeSetEvent((PRKEVENT)(v15 + 8), 0, 0);
+      _InterlockedExchange64((volatile __int64 *)(v14 + 112), 0LL);
+      KeSetEvent((PRKEVENT)(v14 + 8), 0, 0);
     }
   }
   else
   {
-    SmKmFreeMdlForLock(*(_QWORD *)(v15 + 32), v10);
+    SmKmFreeMdlForLock(*(_QWORD *)(v14 + 32), v9);
   }
 LABEL_19:
-  *(_DWORD *)(a3 + 48) = v12;
+  *(_DWORD *)(a3 + 48) = v11;
 }

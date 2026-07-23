@@ -13,7 +13,7 @@ void __fastcall sub_18008B500()
   unsigned __int64 v2; // r10
   unsigned __int64 v3; // r10
 
-  v1 = *(_QWORD *)(qword_18016F380 + 8 * (v0 >> 9));
+  v1 = *(_QWORD *)(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] + 8 * (v0 >> 9));
   v2 = v0 >> 3;
   if ( (v0 & 0xF) != 0 )
   {

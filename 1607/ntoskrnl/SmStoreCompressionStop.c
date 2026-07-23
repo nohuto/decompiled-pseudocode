@@ -1,16 +1,16 @@
 /*
- * XREFs of SmStoreCompressionStop @ 0x14054BCFC
+ * XREFs of SmStoreCompressionStop @ 0x14054C23C
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14054BAF8 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14054C038 (MmProcessWorkingSetControl.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x14000321C (SmKmStoreRefFromStoreIndex.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x1400C75D8 (MmQueryProcessWorkingSetSwapPages.c)
- *     SmpKeyedStoreEntryGet @ 0x1400C92BC (SmpKeyedStoreEntryGet.c)
- *     ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x14021CF94 (-SmStTrimWsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z.c)
- *     SmSwapStore @ 0x1403E3434 (SmSwapStore.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140003390 (SmKmStoreRefFromStoreIndex.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1400C5478 (MmQueryProcessWorkingSetSwapPages.c)
+ *     SmpKeyedStoreEntryGet @ 0x1400C715C (SmpKeyedStoreEntryGet.c)
+ *     ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x14021CDC0 (-SmStTrimWsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z.c)
+ *     SmSwapStore @ 0x1403E4A60 (SmSwapStore.c)
  */
 
 int __fastcall SmStoreCompressionStop(int a1)

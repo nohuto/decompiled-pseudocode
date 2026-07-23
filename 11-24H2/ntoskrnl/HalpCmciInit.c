@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpCmciInit @ 0x140B6C938
+ * XREFs of HalpCmciInit @ 0x140B6E1D8
  * Callers:
- *     HalpCmcWorkerRoutine @ 0x140A4DAA0 (HalpCmcWorkerRoutine.c)
+ *     HalpCmcWorkerRoutine @ 0x140A44630 (HalpCmcWorkerRoutine.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     HalpCmciInitializeErrorPacket @ 0x14047CC18 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmciInitProcessor @ 0x14047D1E4 (HalpCmciInitProcessor.c)
- *     HalpCmciLoadThresholdConfiguration @ 0x1404D66BC (HalpCmciLoadThresholdConfiguration.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     HalpCmciInitializeErrorPacket @ 0x140477DA0 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmciInitProcessor @ 0x140478374 (HalpCmciInitProcessor.c)
+ *     HalpCmciLoadThresholdConfiguration @ 0x1404CFB0C (HalpCmciLoadThresholdConfiguration.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void HalpCmciInit()
@@ -21,11 +21,11 @@ void HalpCmciInit()
   ULONG ActiveProcessorCount; // r15d
   __int64 v4; // r14
   char v5; // cl
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rsi
   __int64 v8; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   v0 = HalpCmcErrorSource;
   Affinity = 0LL;

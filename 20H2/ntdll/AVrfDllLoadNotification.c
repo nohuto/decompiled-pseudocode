@@ -14,30 +14,28 @@
 __int64 __fastcall AVrfDllLoadNotification(__int64 a1)
 {
   int NotificationInternal; // esi
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 *v6; // rbx
-  void (__fastcall *v7)(_QWORD, _QWORD, _QWORD, __int64); // rax
+  __int64 *v4; // rbx
+  void (__fastcall *v5)(_QWORD, _QWORD, _QWORD, __int64); // rax
 
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0 )
     return 0LL;
   NotificationInternal = 0;
-  RtlEnterCriticalSection((__int64)&AVrfpVerifierLock);
+  RtlEnterCriticalSection(&AVrfpVerifierLock);
   if ( !(unsigned __int8)AVrfpIsVerifierProviderDll(*(_QWORD *)(a1 + 48)) )
   {
     NotificationInternal = AVrfpDllLoadNotificationInternal(a1);
     if ( NotificationInternal >= 0 )
     {
-      v6 = (__int64 *)AVrfpVerifierProvidersList;
-      while ( v6 != &AVrfpVerifierProvidersList )
+      v4 = (__int64 *)AVrfpVerifierProvidersList;
+      while ( v4 != &AVrfpVerifierProvidersList )
       {
-        v7 = (void (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64))v6[6];
-        v6 = (__int64 *)*v6;
-        if ( v7 )
-          v7(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), a1);
+        v5 = (void (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64))v4[6];
+        v4 = (__int64 *)*v4;
+        if ( v5 )
+          v5(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), a1);
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&AVrfpVerifierLock, v4, v5);
+  RtlLeaveCriticalSection(&AVrfpVerifierLock);
   return (unsigned int)NotificationInternal;
 }

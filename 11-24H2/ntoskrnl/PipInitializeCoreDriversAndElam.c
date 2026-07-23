@@ -1,22 +1,22 @@
 /*
- * XREFs of PipInitializeCoreDriversAndElam @ 0x140C633C4
+ * XREFs of PipInitializeCoreDriversAndElam @ 0x140C65540
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
  * Callees:
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmCallDllInitialize @ 0x1407E7978 (MmCallDllInitialize.c)
- *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140BDEB00 (PnpNotifyEarlyLaunchStatusUpdate.c)
- *     KeInitAmd64SpecificState @ 0x140BDEB80 (KeInitAmd64SpecificState.c)
- *     KeCheckedKernelInitialize @ 0x140BDF44C (KeCheckedKernelInitialize.c)
- *     PipInitializeCoreDriversByGroup @ 0x140C6351C (PipInitializeCoreDriversByGroup.c)
- *     PipInitializeEarlyLaunchDrivers @ 0x140C636C8 (PipInitializeEarlyLaunchDrivers.c)
- *     PipInitializeDriverDependentDLLs @ 0x140C637D8 (PipInitializeDriverDependentDLLs.c)
- *     VslRegisterBootDrivers @ 0x140C6397C (VslRegisterBootDrivers.c)
- *     PipInitComputerIds @ 0x140C63B74 (PipInitComputerIds.c)
- *     VslConnectSwInterrupt @ 0x140C650B0 (VslConnectSwInterrupt.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmCallDllInitialize @ 0x1407E7F48 (MmCallDllInitialize.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140BE0B00 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     KeInitAmd64SpecificState @ 0x140BE0B80 (KeInitAmd64SpecificState.c)
+ *     KeCheckedKernelInitialize @ 0x140BE144C (KeCheckedKernelInitialize.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140C65698 (PipInitializeCoreDriversByGroup.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140C65844 (PipInitializeEarlyLaunchDrivers.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140C65954 (PipInitializeDriverDependentDLLs.c)
+ *     VslRegisterBootDrivers @ 0x140C65AF8 (VslRegisterBootDrivers.c)
+ *     PipInitComputerIds @ 0x140C65CF0 (PipInitComputerIds.c)
+ *     VslConnectSwInterrupt @ 0x140C6722C (VslConnectSwInterrupt.c)
  */
 
 __int64 __fastcall PipInitializeCoreDriversAndElam(__int64 a1)
@@ -44,8 +44,8 @@ __int64 __fastcall PipInitializeCoreDriversAndElam(__int64 a1)
   MmReleaseLoadLock(Lock);
   PipInitializeCoreDriversByGroup(0LL, a1);
   PspPicoRegistrationDisabled = 1;
-  qword_140E08670 = (__int64)off_140E00638;
-  qword_140E08678 = 8LL;
+  qword_140E086D0 = (__int64)off_140E00708;
+  qword_140E086D8 = 8LL;
   KeInitAmd64SpecificState();
   if ( KeHotpatchTestMode )
     KeCheckedKernelInitialize();

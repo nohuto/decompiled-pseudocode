@@ -10,7 +10,7 @@
  *     ExInterlockedInsertTailList @ 0x14010A390 (ExInterlockedInsertTailList.c)
  */
 
-void __fastcall WheapWorkQueueAddItem(__int64 a1, struct _LIST_ENTRY *a2)
+void __fastcall WheapWorkQueueAddItem(__int64 a1, _LIST_ENTRY *a2)
 {
   ExInterlockedInsertTailList((PLIST_ENTRY)a1, a2, (PKSPIN_LOCK)(a1 + 16));
   if ( _InterlockedIncrement((volatile signed __int32 *)(a1 + 24)) == 1 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpClaimDebugResource @ 0x1404BF1A8
+ * XREFs of HalpClaimDebugResource @ 0x1404BF3E8
  * Callers:
- *     HalpReportResourceUsage @ 0x140A39D8C (HalpReportResourceUsage.c)
+ *     HalpReportResourceUsage @ 0x140A3AD8C (HalpReportResourceUsage.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ __int64 __fastcall HalpClaimDebugResource(ULONG_PTR a1, __int64 a2)
       if ( !(_WORD)result )
         return result;
     }
-    v6 = (unsigned __int16)word_1400310D2[2 * v5];
+    v6 = (unsigned __int16)word_140031192[2 * v5];
     v7 = (unsigned int)(v6 + 48);
     HalpIDTUsageFlags[v7] = 35;
     result = 5 * v7;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsCfgBitMapPageShared @ 0x140076150
+ * XREFs of MiIsCfgBitMapPageShared @ 0x140076140
  * Callers:
- *     MiMarkSharedImageCfgBits @ 0x1405F01D0 (MiMarkSharedImageCfgBits.c)
+ *     MiMarkSharedImageCfgBits @ 0x1405F11D0 (MiMarkSharedImageCfgBits.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
@@ -10,12 +10,12 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiIsCfgBitMapPageShared(unsigned __int64 a1, __int64 a2)
@@ -51,7 +51,7 @@ __int64 __fastcall MiIsCfgBitMapPageShared(unsigned __int64 a1, __int64 a2)
   v7 = (__int64)(v4 << 25) >> 16;
   LeafVa = MiGetLeafVa(v7);
   v9 = 1;
-  if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_14043BAC0 && LeafVa <= qword_14043A530 )
+  if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_14043CB80 && LeafVa <= qword_14043B5F0 )
     AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
   else
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
@@ -110,8 +110,8 @@ __int64 __fastcall MiIsCfgBitMapPageShared(unsigned __int64 a1, __int64 a2)
     {
       if ( MiIsPrototypePteVadLookup(v12) )
         goto LABEL_9;
-      if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-        v12 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v12 & 0x10) == 0 )
+        v12 &= ~qword_14043B180;
       if ( v14 == v12 >> 16 )
         goto LABEL_9;
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SmHwAcceleratorCreate @ 0x14081A864
+ * XREFs of SmHwAcceleratorCreate @ 0x140820A74
  * Callers:
- *     SmHwAcceleratorMgrAcquireAccelerators @ 0x14081AA98 (SmHwAcceleratorMgrAcquireAccelerators.c)
+ *     SmHwAcceleratorMgrAcquireAccelerators @ 0x140820CA8 (SmHwAcceleratorMgrAcquireAccelerators.c)
  * Callees:
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     AccelInitializeCompressionWorkspace @ 0x1406DEE34 (AccelInitializeCompressionWorkspace.c)
- *     AccelInitializeDescriptor @ 0x1406DEF84 (AccelInitializeDescriptor.c)
- *     AccelQueryDescriptorSize @ 0x1406DF100 (AccelQueryDescriptorSize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     AccelInitializeCompressionWorkspace @ 0x1406E30D4 (AccelInitializeCompressionWorkspace.c)
+ *     AccelInitializeDescriptor @ 0x1406E3224 (AccelInitializeDescriptor.c)
+ *     AccelQueryDescriptorSize @ 0x1406E33A0 (AccelQueryDescriptorSize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 SmHwAcceleratorCreate(__int64 a1, __int64 *a2, int a3, ...)

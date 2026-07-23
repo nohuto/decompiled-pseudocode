@@ -1,16 +1,19 @@
 /*
  * XREFs of EtwTraceThread @ 0x1406AD060
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
  *     PsGetCurrentThreadTeb @ 0x140211880 (PsGetCurrentThreadTeb.c)
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpPsProvTraceThread @ 0x1409E651C (EtwpPsProvTraceThread.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x1402E17B0 (PsGetPagePriorityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsLockThreadNameShared @ 0x140411700 (PsLockThreadNameShared.c)
+ *     PsUnlockThreadNameShared @ 0x140411718 (PsUnlockThreadNameShared.c)
+ *     Feature_1358681402__private_IsEnabledDeviceUsage @ 0x14041226C (Feature_1358681402__private_IsEnabledDeviceUsage.c)
+ *     EtwpPsProvTraceThread @ 0x1409E67AC (EtwpPsProvTraceThread.c)
  */
 
 __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
@@ -21,17 +24,18 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
   __int64 v9; // rdx
   _DWORD *CurrentThreadTeb; // rdx
   _KPROCESS *Process; // rax
-  int v12; // eax
-  __int16 v13; // cx
-  char v14; // al
-  unsigned __int16 *v15; // rdx
+  __int16 v12; // cx
+  char v13; // al
+  int v14; // eax
+  __int64 v15; // rcx
+  _KPROCESS *v16; // rdx
+  __int16 v17; // r8
+  char v18; // al
+  __int64 v19; // rax
+  unsigned __int16 *v20; // rdx
+  unsigned int v21; // eax
   __int64 ProcessServerSilo; // rax
-  __int64 v18; // rcx
-  _KPROCESS *v19; // rdx
-  __int64 v20; // rax
-  __int16 v21; // r8
-  char v22; // al
-  unsigned int v23; // eax
+  __int64 result; // rax
   __int16 v24; // [rsp+30h] [rbp-C8h]
   int v25; // [rsp+38h] [rbp-C0h]
   _DWORD v26[2]; // [rsp+50h] [rbp-A8h] BYREF
@@ -92,58 +96,60 @@ __int64 __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
     {
       Process = KeGetCurrentThread()->Process;
       if ( !Process[1].Affinity.StaticBitmap[30] )
-        goto LABEL_11;
-      v13 = WORD2(Process[2].Affinity.StaticBitmap[20]);
-      if ( v13 == 332 || (v14 = 0, v13 == 452) )
-        v14 = 1;
-      if ( v14 )
-        v12 = CurrentThreadTeb[3032];
+        goto LABEL_17;
+      v12 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+      if ( v12 == 332 || (v13 = 0, v12 == 452) )
+        v13 = 1;
+      if ( v13 )
+        v14 = CurrentThreadTeb[3032];
       else
-LABEL_11:
-        v12 = CurrentThreadTeb[1480];
-      v34 = v12;
+LABEL_17:
+        v14 = CurrentThreadTeb[1480];
+      v34 = v14;
     }
   }
   else
   {
     v24 = 1282;
     v25 = 72358147;
-    v18 = *(_QWORD *)(a1 + 240);
-    if ( v18 )
+    v15 = *(_QWORD *)(a1 + 240);
+    if ( v15 )
     {
-      v19 = KeGetCurrentThread()->Process;
-      if ( !v19[1].Affinity.StaticBitmap[30] )
-        goto LABEL_24;
-      v21 = WORD2(v19[2].Affinity.StaticBitmap[20]);
-      if ( v21 == 332 || (v22 = 0, v21 == 452) )
-        v22 = 1;
-      if ( v22 )
+      v16 = KeGetCurrentThread()->Process;
+      if ( !v16[1].Affinity.StaticBitmap[30] )
+        goto LABEL_26;
+      v17 = WORD2(v16[2].Affinity.StaticBitmap[20]);
+      if ( v17 == 332 || (v18 = 0, v17 == 452) )
+        v18 = 1;
+      if ( v18 )
       {
-        v34 = *(_DWORD *)(v18 + 12128);
-        v29 = *(unsigned int *)(v18 + 8196);
-        v20 = *(unsigned int *)(v18 + 8200);
+        v34 = *(_DWORD *)(v15 + 12128);
+        v29 = *(unsigned int *)(v15 + 8196);
+        v19 = *(unsigned int *)(v15 + 8200);
       }
       else
       {
-LABEL_24:
-        v34 = *(_DWORD *)(v18 + 5920);
-        v29 = *(_QWORD *)(v18 + 8);
-        v20 = *(_QWORD *)(v18 + 16);
+LABEL_26:
+        v34 = *(_DWORD *)(v15 + 5920);
+        v29 = *(_QWORD *)(v15 + 8);
+        v19 = *(_QWORD *)(v15 + 16);
       }
-      v30 = v20;
+      v30 = v19;
     }
   }
   v40[0] = v26;
   v40[1] = 72LL;
-  v15 = *(unsigned __int16 **)(a1 + 1632);
-  if ( v15 && *((_QWORD *)v15 + 1) )
+  if ( (unsigned int)Feature_1358681402__private_IsEnabledDeviceUsage() )
+    PsLockThreadNameShared();
+  v20 = *(unsigned __int16 **)(a1 + 1632);
+  if ( v20 && *((_QWORD *)v20 + 1) )
   {
-    v23 = 2048;
-    if ( *v15 < 0x800u )
-      v23 = *v15;
-    v41 = (__int64 *)*((_QWORD *)v15 + 1);
-    v42 = v23;
-    if ( !v23 || *(_WORD *)(*((_QWORD *)v15 + 1) + 2 * ((unsigned __int64)v23 >> 1) - 2) )
+    v21 = 2048;
+    if ( *v20 < 0x800u )
+      v21 = *v20;
+    v41 = (__int64 *)*((_QWORD *)v20 + 1);
+    v42 = v21;
+    if ( !v21 || *(_WORD *)(*((_QWORD *)v20 + 1) + 2 * ((unsigned __int64)v21 >> 1) - 2) )
     {
       v43 = &EtwpNull;
       v44 = 2LL;
@@ -156,5 +162,9 @@ LABEL_24:
     v42 = 2LL;
   }
   ProcessServerSilo = PsGetProcessServerSilo(*(_QWORD *)(a1 + 544));
-  return EtwTraceSiloKernelEvent(ProcessServerSilo, (int)v40, v6, 2u, v24, v25);
+  EtwTraceSiloKernelEvent(ProcessServerSilo, (int)v40, v6, 2u, v24, v25);
+  result = Feature_1358681402__private_IsEnabledDeviceUsage();
+  if ( (_DWORD)result )
+    return PsUnlockThreadNameShared();
+  return result;
 }

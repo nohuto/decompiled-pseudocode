@@ -18,170 +18,160 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlInitializeRXact(__int64 a1, char a2, __int64 *a3)
+NTSTATUS __fastcall RtlInitializeRXact(void *a1, char a2, PVOID *a3)
 {
   unsigned int v5; // r14d
   size_t v7; // rax
-  __int64 result; // rax
-  __int64 Heap; // rax
+  NTSTATUS result; // eax
+  _QWORD *Heap; // rax
   HANDLE v10; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rsi
-  int v13; // eax
-  __int64 v14; // r9
-  unsigned int *v15; // rcx
-  int v16; // ebx
-  __int64 v17; // r9
-  size_t v18; // rax
-  __int64 v19; // rbx
-  int v20; // esi
-  __int64 v21; // r9
-  HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v23; // [rsp+48h] [rbp-B8h] BYREF
-  int v24; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v25; // [rsp+50h] [rbp-B0h] BYREF
-  _WORD v26[2]; // [rsp+58h] [rbp-A8h] BYREF
-  int v27; // [rsp+5Ch] [rbp-A4h]
-  const wchar_t *v28; // [rsp+60h] [rbp-A0h]
-  _WORD v29[2]; // [rsp+68h] [rbp-98h] BYREF
-  int v30; // [rsp+6Ch] [rbp-94h]
-  const wchar_t *v31; // [rsp+70h] [rbp-90h]
-  _QWORD v32[2]; // [rsp+78h] [rbp-88h] BYREF
-  _DWORD v33[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v34; // [rsp+90h] [rbp-70h]
-  _WORD *v35; // [rsp+98h] [rbp-68h]
-  int v36; // [rsp+A0h] [rbp-60h]
-  int v37; // [rsp+A4h] [rbp-5Ch]
-  __int128 v38; // [rsp+A8h] [rbp-58h]
-  __int128 v39; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 v40; // [rsp+C8h] [rbp-38h] BYREF
-  int v41; // [rsp+D0h] [rbp-30h]
-  _BYTE v42[128]; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned int *v11; // rax
+  unsigned int *v12; // rsi
+  NTSTATUS v13; // eax
+  unsigned int *v14; // rcx
+  NTSTATUS v15; // ebx
+  size_t v16; // rax
+  unsigned int *v17; // rbx
+  NTSTATUS v18; // esi
+  HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG ResultLength; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG Disposition; // [rsp+4Ch] [rbp-B4h] BYREF
+  ULONG Length; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING v23; // [rsp+58h] [rbp-A8h] BYREF
+  _WORD v24[2]; // [rsp+68h] [rbp-98h] BYREF
+  int v25; // [rsp+6Ch] [rbp-94h]
+  const wchar_t *v26; // [rsp+70h] [rbp-90h]
+  _UNICODE_STRING v27; // [rsp+78h] [rbp-88h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+B8h] [rbp-48h] BYREF
+  __int64 Data; // [rsp+C8h] [rbp-38h] BYREF
+  int v31; // [rsp+D0h] [rbp-30h]
+  char KeyValueInformation[128]; // [rsp+E0h] [rbp-20h] BYREF
 
-  Handle = 0LL;
-  v33[1] = 0;
-  v37 = 0;
-  v40 = 0LL;
+  KeyHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  Data = 0LL;
   v5 = 12;
-  v41 = 0;
-  v24 = 0;
-  v23 = 0;
-  v27 = 0;
-  v32[0] = 0LL;
-  v32[1] = 0LL;
-  v30 = 0;
-  v31 = L"RXACT";
+  v31 = 0;
+  Disposition = 0;
+  ResultLength = 0;
+  *(_DWORD *)(&v23.MaximumLength + 1) = 0;
+  *(_QWORD *)&v27.Length = 0LL;
+  v27.Buffer = 0LL;
+  v25 = 0;
+  v26 = L"RXACT";
   v7 = 2 * wcslen(L"RXACT");
-  v33[0] = 48;
-  v34 = a1;
-  v36 = 192;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = a1;
+  ObjectAttributes.Attributes = 192;
   if ( v7 >= 0xFFFE )
     LOWORD(v7) = -4;
-  v29[0] = v7;
-  v29[1] = v7 + 2;
-  v35 = v29;
-  v38 = 0LL;
-  result = ZwCreateKey(&Handle, 196639LL, v33, 0LL, 0LL, 0, &v24);
-  if ( (int)result < 0 )
+  v24[0] = v7;
+  v24[1] = v7 + 2;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v24;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwCreateKey(&KeyHandle, 0x3001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+  if ( result < 0 )
     return result;
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x20uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x20uLL);
   *a3 = Heap;
   if ( !Heap )
   {
-    NtDeleteKey(Handle);
-    NtClose(Handle);
-    return 3221225495LL;
+    NtDeleteKey(KeyHandle);
+    NtClose(KeyHandle);
+    return -1073741801;
   }
-  *(_QWORD *)(Heap + 8) = Handle;
-  *(_QWORD *)Heap = a1;
-  *(_BYTE *)(Heap + 16) = 1;
-  *(_QWORD *)(Heap + 24) = 0LL;
-  if ( v24 == 1 )
+  Heap[1] = KeyHandle;
+  *Heap = a1;
+  *((_BYTE *)Heap + 16) = 1;
+  Heap[3] = 0LL;
+  if ( Disposition == 1 )
   {
-    LODWORD(v40) = 1;
-    v16 = ZwSetValueKey(Handle, v32, 0LL, 0LL, &v40, 12);
-    if ( v16 >= 0 )
-      return 1073741828LL;
-    NtDeleteKey(Handle);
+    LODWORD(Data) = 1;
+    v15 = ZwSetValueKey(KeyHandle, &v27, 0, 0, &Data, 0xCu);
+    if ( v15 >= 0 )
+      return 1073741828;
+    NtDeleteKey(KeyHandle);
     goto LABEL_12;
   }
-  v10 = Handle;
-  v25 = 24;
-  v39 = 0LL;
-  v11 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
+  v10 = KeyHandle;
+  Length = 24;
+  ValueName = 0LL;
+  v11 = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
   v12 = v11;
   if ( !v11 )
   {
-    v16 = -1073741670;
+    v15 = -1073741670;
     goto LABEL_12;
   }
-  v13 = NtQueryValueKey(v10, &v39, 2LL, v11, v25, &v25);
-  v15 = (unsigned int *)(v12 + 8);
+  v13 = NtQueryValueKey(v10, &ValueName, KeyValuePartialInformation, v11, Length, &Length);
+  v14 = v12 + 2;
   if ( v13 == -1073741772 )
   {
-    v16 = 0;
-    *v15 = 0;
-    *(_DWORD *)(v12 + 4) = 0;
+    v15 = 0;
+    *v14 = 0;
+    v12[1] = 0;
   }
   else
   {
-    v16 = v13;
+    v15 = v13;
     if ( v13 < 0 && v13 != -2147483643 )
       goto LABEL_11;
   }
-  v5 = *v15;
-  if ( v16 >= 0 )
-    memmove(&v40, (const void *)(v12 + 12), v5);
+  v5 = *v14;
+  if ( v15 >= 0 )
+    memmove(&Data, v12 + 3, v5);
 LABEL_11:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12, v14);
-  if ( v16 < 0 )
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
+  if ( v15 < 0 )
   {
 LABEL_12:
-    NtClose(Handle);
+    NtClose(KeyHandle);
 LABEL_13:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *a3, v17);
-    return (unsigned int)v16;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *a3);
+    return v15;
   }
-  if ( v5 != 12 || (_DWORD)v40 != 1 )
+  if ( v5 != 12 || (_DWORD)Data != 1 )
   {
-    v16 = -1073741736;
+    v15 = -1073741736;
     goto LABEL_12;
   }
-  v27 = 0;
-  v28 = L"Log";
-  v18 = 2 * wcslen(L"Log");
-  if ( v18 >= 0xFFFE )
-    LOWORD(v18) = -4;
-  v26[0] = v18;
-  v26[1] = v18 + 2;
-  if ( (int)NtQueryValueKey(Handle, v26, 0LL, v42, 128, &v23) < 0 )
-    return 0LL;
+  *(_DWORD *)(&v23.MaximumLength + 1) = 0;
+  v23.Buffer = (wchar_t *)L"Log";
+  v16 = 2 * wcslen(L"Log");
+  if ( v16 >= 0xFFFE )
+    LOWORD(v16) = -4;
+  v23.Length = v16;
+  v23.MaximumLength = v16 + 2;
+  if ( NtQueryValueKey(KeyHandle, &v23, KeyValueBasicInformation, KeyValueInformation, 0x80u, &ResultLength) < 0 )
+    return 0;
   if ( !a2 )
-    return 2147483672LL;
-  result = NtQueryValueKey(Handle, v26, 1LL, 0LL, 0, &v23);
-  if ( (_DWORD)result == -1073741789 )
+    return -2147483624;
+  result = NtQueryValueKey(KeyHandle, &v23, KeyValueFullInformation, 0LL, 0, &ResultLength);
+  if ( result == -1073741789 )
   {
-    v19 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, v23);
-    if ( v19 )
+    v17 = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, ResultLength);
+    if ( v17 )
     {
-      v20 = NtQueryValueKey(Handle, v26, 1LL, v19, v23, &v23);
-      if ( v20 >= 0 )
+      v18 = NtQueryValueKey(KeyHandle, &v23, KeyValueFullInformation, v17, ResultLength, &ResultLength);
+      if ( v18 >= 0 )
       {
-        *(_QWORD *)(*a3 + 24) = v19 + *(unsigned int *)(v19 + 8);
-        *(_BYTE *)(*a3 + 16) = 0;
-        v20 = RXactpCommit(*a3);
-        if ( v20 >= 0 )
+        *((_QWORD *)*a3 + 3) = (char *)v17 + v17[2];
+        *((_BYTE *)*a3 + 16) = 0;
+        v18 = RXactpCommit(*a3);
+        if ( v18 >= 0 )
         {
-          ZwDeleteValueKey(Handle, v26);
-          *(_QWORD *)(*a3 + 24) = v19;
+          ZwDeleteValueKey(KeyHandle, &v23);
+          *((_QWORD *)*a3 + 3) = v17;
           return RtlAbortRXact(*a3);
         }
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v19, v21);
-      v16 = v20;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
+      v15 = v18;
       goto LABEL_13;
     }
-    return 3221225495LL;
+    return -1073741801;
   }
   return result;
 }

@@ -1,66 +1,65 @@
 /*
- * XREFs of PnpInitializeSessionId @ 0x1404EC988
+ * XREFs of PnpInitializeSessionId @ 0x14050F95C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x140488D1C (_PnpSetObjectProperty.c)
- *     IopGetSessionIdFromPDO @ 0x1404ED078 (IopGetSessionIdFromPDO.c)
+ *     IopGetSessionIdFromPDO @ 0x1404CF1E4 (IopGetSessionIdFromPDO.c)
+ *     _PnpSetObjectProperty @ 0x140511490 (_PnpSetObjectProperty.c)
  */
 
 void __fastcall PnpInitializeSessionId(__int64 a1, __int64 a2, char a3)
 {
   int SessionIdFromPDO; // r10d
   __int64 v5; // rcx
-  __int64 v8; // rcx
-  unsigned int v9; // r8d
-  unsigned int v10; // eax
-  int *v11; // rcx
-  int v12; // edx
-  int v13; // [rsp+70h] [rbp+18h] BYREF
+  struct _DEVICE_OBJECT *v7; // rcx
+  int v8; // r8d
+  int v9; // eax
+  int *v10; // rcx
+  int v11; // edx
+  int v12; // [rsp+70h] [rbp+18h] BYREF
 
   SessionIdFromPDO = -1;
   v5 = *(_QWORD *)(a1 + 16);
-  v13 = -1;
+  v12 = -1;
   if ( v5 )
   {
-    v8 = *(_QWORD *)(v5 + 32);
-    if ( (*(_DWORD *)(*(_QWORD *)(v8 + 312) + 32LL) & 0x400) != 0 )
+    v7 = *(struct _DEVICE_OBJECT **)(v5 + 32);
+    if ( (v7->DeviceObjectExtension->ExtensionFlags & 0x400) != 0 )
     {
-      SessionIdFromPDO = IopGetSessionIdFromPDO(v8);
-      v13 = SessionIdFromPDO;
+      SessionIdFromPDO = IopGetSessionIdFromPDO(v7);
+      v12 = SessionIdFromPDO;
     }
   }
   if ( a3 )
   {
     if ( SessionIdFromPDO == -1 )
       return;
-    v9 = 0x20000;
+    v8 = 0x20000;
   }
   else
   {
-    v9 = 0;
+    v8 = 0;
   }
   if ( SessionIdFromPDO == -1 )
   {
-    v10 = 0;
-    v11 = 0LL;
-    v12 = 0;
+    v9 = 0;
+    v10 = 0LL;
+    v11 = 0;
   }
   else
   {
-    v10 = 4;
-    v11 = &v13;
-    v12 = 7;
+    v9 = 4;
+    v10 = &v12;
+    v11 = 7;
   }
   PnpSetObjectProperty(
-    *(__int64 *)&PiPnpRtlCtx,
+    PiPnpRtlCtx,
     *(_QWORD *)(a1 + 48),
-    1u,
-    a2,
+    1,
     0LL,
     (__int64)&DEVPKEY_Device_SessionId,
-    v12,
-    (__int64)v11,
-    v10,
-    v9);
+    v11,
+    (__int64)v10,
+    v9,
+    v8);
 }

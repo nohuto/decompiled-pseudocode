@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRestoreKey()
+NTSTATUS __cdecl ZwRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 365LL;
+  result = 365;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

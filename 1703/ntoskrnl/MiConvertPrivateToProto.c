@@ -149,7 +149,7 @@ __int64 __fastcall MiConvertPrivateToProto(
   int NestingLevel; // ecx
   void *EtwSupport; // rsi
   unsigned int v87; // r14d
-  struct _SLIST_ENTRY *v88; // r12
+  _SLIST_ENTRY *v88; // r12
   int v89; // eax
   struct _KTHREAD *v90; // rsi
   struct _KTHREAD *v91; // rcx

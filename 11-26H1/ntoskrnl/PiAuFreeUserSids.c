@@ -1,9 +1,9 @@
 /*
- * XREFs of PiAuFreeUserSids @ 0x140CC60DC
+ * XREFs of PiAuFreeUserSids @ 0x140CCC1BC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuFreeUserSids(__int64 a1)

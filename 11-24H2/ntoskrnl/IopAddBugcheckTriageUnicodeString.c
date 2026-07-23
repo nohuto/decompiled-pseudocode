@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAddBugcheckTriageUnicodeString @ 0x14059FE08
+ * XREFs of IopAddBugcheckTriageUnicodeString @ 0x14059CD2C
  * Callers:
- *     IopAddBugcheckTriageDevice @ 0x14059F828 (IopAddBugcheckTriageDevice.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14059F930 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageDevice @ 0x14059C74C (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14059C854 (IopAddBugcheckTriageDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     IopIsAddressRangeValid @ 0x1404ACD58 (IopIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     IopIsAddressRangeValid @ 0x1404A6F64 (IopIsAddressRangeValid.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageUnicodeString(__int64 a1)

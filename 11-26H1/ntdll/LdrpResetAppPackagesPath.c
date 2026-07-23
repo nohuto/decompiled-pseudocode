@@ -1,31 +1,31 @@
 /*
- * XREFs of LdrpResetAppPackagesPath @ 0x1800E05FC
+ * XREFs of LdrpResetAppPackagesPath @ 0x1800DDE9C
  * Callers:
- *     LdrUpdatePackageSearchPath @ 0x1800E0500 (LdrUpdatePackageSearchPath.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800DDDA0 (LdrUpdatePackageSearchPath.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrpResetAppPackagesPath(__int64 a1, __int64 a2)
+__int64 LdrpResetAppPackagesPath()
 {
-  __int64 v2; // rbx
+  void *v0; // rbx
 
-  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock, a2);
+  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
   if ( (_WORD)LdrpAppPackagesPath )
   {
-    v2 = *((_QWORD *)&LdrpAppPackagesPath + 1);
+    v0 = (void *)*((_QWORD *)&LdrpAppPackagesPath + 1);
     ++LdrpAppPackagesPathVersion;
     *((_QWORD *)&LdrpAppPackagesPath + 1) = 0LL;
     LODWORD(LdrpAppPackagesPath) = 0;
   }
   else
   {
-    v2 = 0LL;
+    v0 = 0LL;
   }
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
-  if ( v2 )
-    RtlpSysVolFree(v2);
+  if ( v0 )
+    RtlpSysVolFree(v0);
   return 0LL;
 }

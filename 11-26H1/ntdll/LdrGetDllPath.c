@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrGetDllPath @ 0x18009B5B0
+ * XREFs of LdrGetDllPath @ 0x18009A6E0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpGetDllPath @ 0x18009B5E0 (LdrpGetDllPath.c)
+ *     LdrpGetDllPath @ 0x18009A710 (LdrpGetDllPath.c)
  */
 
-__int64 __fastcall LdrGetDllPath(int a1, int a2, int a3, __int64 a4)
+NTSTATUS __cdecl LdrGetDllPath(PCWSTR DllName, ULONG Flags, PWSTR *DllPath, PWSTR *SearchPaths)
 {
-  return LdrpGetDllPath(a1, a2, a3, 0, 0LL, 0LL, a4);
+  return LdrpGetDllPath(DllName, 0LL, 0LL, (__int64)SearchPaths);
 }

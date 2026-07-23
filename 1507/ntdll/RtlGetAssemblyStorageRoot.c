@@ -27,7 +27,7 @@ __int64 __fastcall RtlGetAssemblyStorageRoot(int a1, void *a2, unsigned int a3, 
   v8 = a3;
   if ( a2 == &unk_1801021A8 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() passed the empty activation context\n", "RtlGetAssemblyStorageRoot");
+    DbgPrintEx(0x33u, 0, "SXS: %s() passed the empty activation context\n", "RtlGetAssemblyStorageRoot");
     return (unsigned int)-1073741811;
   }
   if ( a4 )
@@ -35,7 +35,7 @@ __int64 __fastcall RtlGetAssemblyStorageRoot(int a1, void *a2, unsigned int a3, 
   if ( (a1 & 0xFFFFFFFC) != 0 || !a3 || !a4 || !RtlpAssemblyStorageMapResolutionDefaultCallback )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters:\n"
       "SXS:    Flags              : 0x%lx\n"
@@ -60,7 +60,7 @@ __int64 __fastcall RtlGetAssemblyStorageRoot(int a1, void *a2, unsigned int a3, 
   if ( ActivationContextDataStorageMapAndRosterHeader < 0 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: RtlGetAssemblyStorageRoot() unable to get activation context data, storage map and assembly roster header.  S"
       "tatus = 0x%08lx\n",
@@ -75,7 +75,7 @@ __int64 __fastcall RtlGetAssemblyStorageRoot(int a1, void *a2, unsigned int a3, 
   if ( (unsigned int)v8 >= v11 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters AssemblyRosterIndex 0x%lx >= AssemblyRosterHeader->EntryCount: 0x%lx\n",
       "RtlGetAssemblyStorageRoot",
@@ -86,14 +86,14 @@ __int64 __fastcall RtlGetAssemblyStorageRoot(int a1, void *a2, unsigned int a3, 
   v12 = RtlpResolveAssemblyStorageMapEntry(
           v16,
           a5,
-          v8,
-          (unsigned int)RtlpAssemblyStorageMapResolutionDefaultCallback,
+          (unsigned int)v8,
+          RtlpAssemblyStorageMapResolutionDefaultCallback,
           a6);
   v10 = v12;
   if ( v12 < 0 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: RtlGetAssemblyStorageRoot() unable to resolve storage map entry.  Status = 0x%08lx\n",
       (unsigned int)v12);

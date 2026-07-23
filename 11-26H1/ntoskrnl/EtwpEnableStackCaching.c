@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpEnableStackCaching @ 0x140ABDABC
+ * XREFs of EtwpEnableStackCaching @ 0x140AC00AC
  * Callers:
- *     EtwpCheckForStackTracingExtension @ 0x140A6F1B4 (EtwpCheckForStackTracingExtension.c)
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckForStackTracingExtension @ 0x140AB1F2C (EtwpCheckForStackTracingExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     EtwpFreeStackCache @ 0x140ABDC1C (EtwpFreeStackCache.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpFreeStackCache @ 0x140AC020C (EtwpFreeStackCache.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned int a3, char a4)
@@ -16,10 +16,10 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
   unsigned int v7; // esi
   unsigned int v8; // r15d
   __int64 Pool2; // rax
-  union _SLIST_HEADER *v10; // r14
+  _SLIST_HEADER *v10; // r14
   unsigned __int64 *p_Region; // rax
   __int64 v12; // rdx
-  union _SLIST_HEADER *v13; // rcx
+  _SLIST_HEADER *v13; // rcx
   unsigned int v14; // ebp
   unsigned int v15; // esi
   __int64 v16; // rax
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
     if ( v8 > 0x1000 )
       v8 = 4096;
     Pool2 = ExAllocatePool2(0x40uLL);
-    v10 = (union _SLIST_HEADER *)Pool2;
+    v10 = (_SLIST_HEADER *)Pool2;
     if ( Pool2 )
     {
       *(_DWORD *)(Pool2 + 8) = v8;
@@ -58,7 +58,7 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
         *p_Region = (unsigned __int64)v13;
         *(p_Region - 1) = (unsigned __int64)v13;
         p_Region += 3;
-        v13 = (union _SLIST_HEADER *)((char *)v13 + 24);
+        v13 = (_SLIST_HEADER *)((char *)v13 + 24);
         --v12;
       }
       while ( v12 );

@@ -33,30 +33,29 @@
  *     _guard_dispatch_icall @ 0x1401B3560 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
 {
   int v2; // ebx
   unsigned __int64 v3; // r11
-  LARGE_INTEGER *v4; // rdi
   unsigned int v5; // r9d
   bool i; // zf
-  __int64 v7; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
-  __int64 v10; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v11; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
   v3 = a2;
-  v4 = a1;
   if ( qword_1404668A0 )
   {
     v5 = *(_DWORD *)(qword_1404668A0 + 4188);
-    for ( i = !_BitScanForward((unsigned int *)&a1, v5); !i; i = !_BitScanForward((unsigned int *)&a1, v5) )
+    for ( i = !_BitScanForward((unsigned int *)&v7, v5); !i; i = !_BitScanForward((unsigned int *)&v7, v5) )
     {
       v5 &= v5 - 1;
-      v7 = qword_1404668A0 + 32LL * ((_QWORD)a1 + 132);
-      if ( v7 && ((unsigned int)v3 & *(_DWORD *)(v7 + 4 * (v3 >> 29)) & 0x1FFFFFFF) != 0 )
-        v2 |= 1 << *(_BYTE *)(qword_1404668A0 + 2LL * (_QWORD)a1 + 4173);
+      v8 = qword_1404668A0 + 32 * (v7 + 132);
+      if ( v8 && ((unsigned int)v3 & *(_DWORD *)(v8 + 4 * (v3 >> 29)) & 0x1FFFFFFF) != 0 )
+        v2 |= 1 << *(_BYTE *)(qword_1404668A0 + 2 * v7 + 4173);
     }
   }
   else
@@ -67,31 +66,31 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
   else
     PerformanceCounter.QuadPart = 0LL;
-  *v4 = PerformanceCounter;
+  *a1 = PerformanceCounter;
   if ( (v2 & 4) != 0 )
-    result = RtlGetSystemTimePrecise(a1);
+    result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  v4[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  a1[1] = result;
   if ( (v2 & 8) != 0 )
   {
-    result = __rdtsc();
-    v4[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
-    v4[2].QuadPart = 0LL;
+    a1[2].QuadPart = 0LL;
   }
   if ( (v2 & 0x10) != 0 )
   {
-    v10 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_140398AC0)(&v10);
-    result = v10;
-    v4[3].QuadPart = v10;
+    v11.QuadPart = 0LL;
+    ((void (__fastcall *)(LARGE_INTEGER *))off_140398AC0)(&v11);
+    result = v11;
+    a1[3] = v11;
   }
   else
   {
-    v4[3].QuadPart = 0LL;
+    a1[3].QuadPart = 0LL;
   }
   return result;
 }

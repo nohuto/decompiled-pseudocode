@@ -23,7 +23,7 @@ int __stdcall EtwCreateTraceInstanceId(int a1, _DWORD *a2)
   }
   else
   {
-    RtlSetLastWin32Error((struct _TEB *)0x57);
+    RtlSetLastWin32Error(87);
     return 87;
   }
 }

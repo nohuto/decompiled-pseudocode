@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmListInit @ 0x1407A2DE4
+ * XREFs of PiDmListInit @ 0x1407A2FE4
  * Callers:
- *     PiDmInit @ 0x140A51170 (PiDmInit.c)
+ *     PiDmInit @ 0x140A52170 (PiDmInit.c)
  * Callees:
- *     PiDmEnumObjectsWithCallback @ 0x1406350E8 (PiDmEnumObjectsWithCallback.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140629EF8 (PiDmEnumObjectsWithCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmListInit(int a1)
@@ -15,7 +15,7 @@ __int64 __fastcall PiDmListInit(int a1)
   *(_OWORD *)P = 0LL;
   HIDWORD(P[1]) = a1;
   v1 = PiDmEnumObjectsWithCallback(
-         qword_1400074A0[5 * a1],
+         qword_1400074B0[5 * a1],
          (__int64 (__fastcall *)(void *, __int64, _BYTE *))PiDmListInitEnumCallback,
          (__int64)P);
   if ( P[0] )

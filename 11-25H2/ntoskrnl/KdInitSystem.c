@@ -54,15 +54,15 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned int v27; // esi
   __int64 *v28; // rdi
   __int64 v29; // rdx
-  char *v30; // r9
+  CHAR *v30; // r9
   unsigned int v31; // r8d
-  char v32; // al
+  CHAR v32; // al
   __int64 v33; // rcx
   unsigned int j; // edi
   ULONG_PTR Pool2; // rax
   signed __int32 v37[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v5 = 0;
   v6 = 0;
@@ -321,7 +321,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
         {
           DestinationString = 0LL;
           LODWORD(v29) = 0;
-          v30 = (char *)v28[10];
+          v30 = (CHAR *)v28[10];
           v31 = *((unsigned __int16 *)v28 + 36) >> 1;
           if ( v31 >= 0x100 )
             v31 = 255;

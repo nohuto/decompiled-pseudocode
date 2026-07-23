@@ -3,20 +3,20 @@
  * Callers:
  *     sxsisol_SearchActCtxForDllName @ 0x18001C2B4 (sxsisol_SearchActCtxForDllName.c)
  *     RtlMultiAppendUnicodeStringBuffer @ 0x18006EC20 (RtlMultiAppendUnicodeStringBuffer.c)
- *     RtlNtPathNameToDosPathName @ 0x1800CC4C0 (RtlNtPathNameToDosPathName.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DF58C (sxsisol_ExpandEnvironmentStrings_UEx.c)
- *     sxsisol_RespectDotLocal @ 0x1800DF750 (sxsisol_RespectDotLocal.c)
+ *     RtlNtPathNameToDosPathName @ 0x1800CC480 (RtlNtPathNameToDosPathName.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DF54C (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     sxsisol_RespectDotLocal @ 0x1800DF710 (sxsisol_RespectDotLocal.c)
  * Callees:
  *     NtdllpFreeStringRoutine @ 0x180022E70 (NtdllpFreeStringRoutine.c)
  *     NtdllpAllocateStringRoutine @ 0x18006EBE0 (NtdllpAllocateStringRoutine.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, SIZE_T a3)
 {
   char v5; // bp
-  void *StringRoutine; // rax
-  void *v7; // rsi
+  PVOID StringRoutine; // rax
+  PVOID v7; // rsi
 
   v5 = a1;
   if ( (a1 & 0xFFFFFFFE) != 0 || !a2 )
@@ -28,14 +28,14 @@ __int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
     *(_QWORD *)(a2 + 16) = a3;
     return 0LL;
   }
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(a3);
+  StringRoutine = NtdllpAllocateStringRoutine(a3);
   v7 = StringRoutine;
   if ( StringRoutine )
   {
     if ( (v5 & 1) == 0 )
       memmove(StringRoutine, *(const void **)a2, *(_QWORD *)(a2 + 16));
     if ( *(_QWORD *)a2 != *(_QWORD *)(a2 + 8) )
-      NtdllpFreeStringRoutine(*(_QWORD *)a2);
+      NtdllpFreeStringRoutine(*(void **)a2);
     *(_QWORD *)a2 = v7;
     *(_QWORD *)(a2 + 16) = a3;
     return 0LL;

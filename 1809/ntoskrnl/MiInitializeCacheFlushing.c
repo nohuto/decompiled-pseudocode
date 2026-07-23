@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializeCacheFlushing @ 0x1409BC02C
+ * XREFs of MiInitializeCacheFlushing @ 0x1409BD02C
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF380 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiFlushCacheForAttributeChange @ 0x140138EC8 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF400 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiFlushCacheForAttributeChange @ 0x140138FC8 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x140177150 (KeInvalidateAllCaches.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeCacheFlushing()
@@ -51,8 +51,8 @@ __int64 MiInitializeCacheFlushing()
   __int64 v27; // [rsp+28h] [rbp-60h]
   _BYTE v28[32]; // [rsp+30h] [rbp-58h] BYREF
 
-  if ( ZwQuerySystemInformation((SYSTEM_INFORMATION_CLASS)192, v28, 0x20u, 0LL) >= 0 && (v28[8] & 1) != 0 )
-    byte_14043A07C = 1;
+  if ( ZwQuerySystemInformation(SystemFlushInformation, v28, 0x20u, 0LL) >= 0 && (v28[8] & 1) != 0 )
+    byte_14043B13C = 1;
   result = MiGetPage((__int64)&MiSystemPartition, 0, 0);
   v1 = result;
   if ( result != -1 )
@@ -104,8 +104,8 @@ __int64 MiInitializeCacheFlushing()
     v16 = v2 >> 2;
     if ( v16 )
     {
-      v17 = dword_14043A070;
-      if ( !dword_14043A070 )
+      v17 = dword_14043B130;
+      if ( !dword_14043B130 )
         v17 = 256;
       v18 = 3 * (v17 >> 2);
       PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v18, 0x20206D4Du);
@@ -117,7 +117,7 @@ __int64 MiInitializeCacheFlushing()
           memset(PoolWithTag, 0, v18);
           v21 = __rdtsc();
           _InterlockedOr(v24, 0);
-          ++dword_14043A094;
+          ++dword_14043B154;
           KeInvalidateAllCaches();
           _InterlockedOr(v24, 0);
           v22 = __rdtsc();
@@ -127,7 +127,7 @@ __int64 MiInitializeCacheFlushing()
         }
         while ( v20 );
         ExFreePoolWithTag(PoolWithTag, 0);
-        dword_14043A09C = (v3 & 0xFFFFFFFFFFFFFFFEuLL) / v16;
+        dword_14043B15C = (v3 & 0xFFFFFFFFFFFFFFFEuLL) / v16;
       }
     }
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v15 < 2u )

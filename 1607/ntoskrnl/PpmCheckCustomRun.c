@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckCustomRun @ 0x140111494
+ * XREFs of PpmCheckCustomRun @ 0x1401119F8
  * Callers:
- *     PoLatencySensitivityHint @ 0x1401112E0 (PoLatencySensitivityHint.c)
- *     PpmPerfLatencySensitivityHintWorker @ 0x14013566C (PpmPerfLatencySensitivityHintWorker.c)
- *     PopIntSteerSetMode @ 0x140143630 (PopIntSteerSetMode.c)
- *     PpmCheckApplyParkConstraints @ 0x14014380C (PpmCheckApplyParkConstraints.c)
- *     PpmCheckApplyResetNotification @ 0x14020A2AC (PpmCheckApplyResetNotification.c)
- *     PpmParkSetLpiCap @ 0x14020E108 (PpmParkSetLpiCap.c)
- *     PpmCheckApplyPerfConstraints @ 0x1405447FC (PpmCheckApplyPerfConstraints.c)
+ *     PoLatencySensitivityHint @ 0x140111844 (PoLatencySensitivityHint.c)
+ *     PpmPerfLatencySensitivityHintWorker @ 0x140135BDC (PpmPerfLatencySensitivityHintWorker.c)
+ *     PopIntSteerSetMode @ 0x140143BA0 (PopIntSteerSetMode.c)
+ *     PpmCheckApplyParkConstraints @ 0x140143D7C (PpmCheckApplyParkConstraints.c)
+ *     PpmCheckApplyResetNotification @ 0x14020A0D8 (PpmCheckApplyResetNotification.c)
+ *     PpmParkSetLpiCap @ 0x14020DF34 (PpmParkSetLpiCap.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140544D3C (PpmCheckApplyPerfConstraints.c)
  * Callees:
- *     PpmCheckStart @ 0x1401114D0 (PpmCheckStart.c)
+ *     PpmCheckStart @ 0x140111A34 (PpmCheckStart.c)
  */
 
 __int64 PpmCheckCustomRun()

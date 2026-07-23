@@ -8,25 +8,28 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-char __stdcall RtlDeleteElementGenericTable(int a1, int a2)
+BOOLEAN __cdecl RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  int v3; // edi
-  int v4; // edx
-  _DWORD *v5; // ecx
-  int v6; // [esp+4h] [ebp-4h] BYREF
+  PRTL_SPLAY_LINKS v3; // edi
+  _RTL_SPLAY_LINKS *Parent; // edx
+  _RTL_SPLAY_LINKS *LeftChild; // ecx
+  PRTL_SPLAY_LINKS Links; // [esp+4h] [ebp-4h] BYREF
 
-  if ( FindNodeOrParent(&v6) != 1 )
+  if ( FindNodeOrParent(&Links) != 1 )
     return 0;
-  v3 = v6;
-  *(_DWORD *)a1 = RtlDelete(v6);
-  v4 = *(_DWORD *)(v3 + 12);
-  if ( *(_DWORD *)(v4 + 4) != v3 + 12 || (v5 = *(_DWORD **)(v3 + 16), *v5 != v3 + 12) )
+  v3 = Links;
+  Table->TableRoot = RtlDelete(Links);
+  Parent = v3[1].Parent;
+  if ( Parent->LeftChild != &v3[1] || (LeftChild = v3[1].LeftChild, LeftChild->Parent != &v3[1]) )
     __fastfail(3u);
-  *v5 = v4;
-  *(_DWORD *)(v4 + 4) = v5;
-  --*(_DWORD *)(a1 + 20);
-  *(_DWORD *)(a1 + 16) = 0;
-  *(_DWORD *)(a1 + 12) = a1 + 4;
-  (*(void (__thiscall **)(_DWORD, int, int))(a1 + 32))(*(_DWORD *)(a1 + 32), a1, v3);
+  LeftChild->Parent = Parent;
+  Parent->LeftChild = LeftChild;
+  --Table->NumberGenericTableElements;
+  Table->WhichOrderedElement = 0;
+  Table->OrderedPointer = &Table->InsertOrderList;
+  ((void (__thiscall *)(PRTL_GENERIC_FREE_ROUTINE, PRTL_GENERIC_TABLE, PRTL_SPLAY_LINKS))Table->FreeRoutine)(
+    Table->FreeRoutine,
+    Table,
+    v3);
   return 1;
 }

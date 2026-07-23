@@ -23,64 +23,69 @@
  *     sub_1800FB084 @ 0x1800FB084 (sub_1800FB084.c)
  */
 
-__int64 __fastcall RtlGetUILanguageInfo(int a1, WCHAR *a2, _WORD *a3, unsigned int *a4, int *a5)
+NTSTATUS __cdecl RtlGetUILanguageInfo(
+        ULONG Flags,
+        PCZZWSTR Languages,
+        PZZWSTR FallbackLanguages,
+        PULONG NumberOfFallbackLanguages,
+        PULONG Attributes)
 {
   char v5; // bl
-  _WORD *v7; // r15
+  PZZWSTR v7; // r15
   WCHAR *v8; // rdi
-  unsigned int v9; // r13d
+  ULONG v9; // r13d
   __int64 v10; // rdx
-  int v11; // r12d
+  ULONG v11; // r12d
   int v12; // eax
-  __int64 v13; // rsi
-  unsigned int v14; // ebx
+  PVOID v13; // rsi
+  NTSTATUS v14; // ebx
   __int64 v15; // r15
-  wchar_t *Heap; // rax
+  PVOID Heap; // rax
   int v17; // eax
   __int64 v18; // r9
   __int64 v19; // r12
   const WCHAR *v20; // rdi
   int v22; // r8d
-  int v23; // r15d
+  ULONG v23; // r15d
   int v24; // r9d
   int v25; // eax
   int v26; // eax
   __int16 v27; // [rsp+30h] [rbp-71h] BYREF
-  _WORD *v28; // [rsp+38h] [rbp-69h]
-  unsigned int v29; // [rsp+40h] [rbp-61h] BYREF
+  PZZWSTR v28; // [rsp+38h] [rbp-69h]
+  LCID Lcid; // [rsp+40h] [rbp-61h] BYREF
   int v30; // [rsp+44h] [rbp-5Dh]
-  __int64 v31; // [rsp+48h] [rbp-59h] BYREF
-  int v32; // [rsp+50h] [rbp-51h]
-  int v33; // [rsp+54h] [rbp-4Dh]
+  PVOID v31; // [rsp+48h] [rbp-59h] BYREF
+  ULONG v32; // [rsp+50h] [rbp-51h]
+  ULONG v33; // [rsp+54h] [rbp-4Dh]
   int v34; // [rsp+58h] [rbp-49h]
-  wchar_t *v35; // [rsp+60h] [rbp-41h]
-  UNICODE_STRING v36; // [rsp+68h] [rbp-39h] BYREF
-  int *v37; // [rsp+78h] [rbp-29h]
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-21h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-41h]
+  _UNICODE_STRING String; // [rsp+68h] [rbp-39h] BYREF
+  PULONG v37; // [rsp+78h] [rbp-29h]
+  _UNICODE_STRING DestinationString; // [rsp+80h] [rbp-21h] BYREF
   __int128 v39; // [rsp+90h] [rbp-11h] BYREF
   __int64 v40; // [rsp+A0h] [rbp-1h]
   int v41; // [rsp+A8h] [rbp+7h]
 
-  v5 = a1;
-  v33 = a1;
-  v28 = a3;
-  v37 = a5;
+  v5 = Flags;
+  v33 = Flags;
+  v28 = FallbackLanguages;
+  v37 = Attributes;
   v31 = 0LL;
-  v7 = a3;
+  v7 = FallbackLanguages;
   v27 = -1;
-  v8 = a2;
+  v8 = (WCHAR *)Languages;
   LOBYTE(v30) = 0;
-  v35 = 0LL;
-  if ( a4 )
-    v9 = *a4;
+  BaseAddress = 0LL;
+  if ( NumberOfFallbackLanguages )
+    v9 = *NumberOfFallbackLanguages;
   else
     v9 = 0;
-  if ( !a2 || !*a2 || (a1 & 0xC) == 0xC || (a1 & 0xFFFFFF73) != 0 || v9 && !a3 )
-    return 3221225485LL;
+  if ( !Languages || !*Languages || (Flags & 0xC) == 0xC || (Flags & 0xFFFFFF73) != 0 || v9 && !FallbackLanguages )
+    return -1073741811;
   v10 = 4LL;
-  v11 = a1 & 4;
+  v11 = Flags & 4;
   v32 = v11;
-  if ( (a1 & 4) == 0 )
+  if ( (Flags & 4) == 0 )
     v10 = 85LL;
   if ( (int)sub_18006C99C(v8, v10) < 0 )
     DbgPrint(
@@ -92,10 +97,10 @@ __int64 __fastcall RtlGetUILanguageInfo(int a1, WCHAR *a2, _WORD *a3, unsigned i
     if ( v9 > 1 )
       v7[1] = 0;
   }
-  if ( a4 )
-    *a4 = 2;
-  if ( a5 )
-    *a5 = 0;
+  if ( NumberOfFallbackLanguages )
+    *NumberOfFallbackLanguages = 2;
+  if ( Attributes )
+    *Attributes = 0;
   v34 = v5 & 0x80;
   if ( v5 < 0 )
     v12 = RtlpInitializeLangRegistryInfo(&v31);
@@ -110,11 +115,11 @@ __int64 __fastcall RtlGetUILanguageInfo(int a1, WCHAR *a2, _WORD *a3, unsigned i
       v14 = -1073741823;
       goto LABEL_56;
     }
-    v15 = *(_QWORD *)(v31 + 24);
+    v15 = *((_QWORD *)v31 + 3);
     if ( v11 )
     {
-      Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
-      v35 = Heap;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+      BaseAddress = Heap;
       if ( !Heap )
       {
         v13 = v31;
@@ -123,27 +128,27 @@ LABEL_32:
         v7 = v28;
         goto LABEL_56;
       }
-      v36.Buffer = Heap;
-      *(_DWORD *)&v36.Length = 11141120;
+      String.Buffer = (PWCH)Heap;
+      *(_DWORD *)&String.Length = 11141120;
       RtlInitUnicodeString(&DestinationString, v8);
-      if ( (int)sub_1800EC1D8(&DestinationString, &v29) < 0 || !RtlLCIDToCultureName(v29, (__int64)&v36) )
+      if ( (int)sub_1800EC1D8(&DestinationString, &Lcid) < 0 || !RtlLCIDToCultureName(Lcid, &String) )
       {
         v13 = v31;
         v14 = -1073741811;
         goto LABEL_53;
       }
       v13 = v31;
-      v17 = sub_180045B5C(v31, v29, 1, &v27);
+      v17 = sub_180045B5C((__int64)v31, Lcid, 1, &v27);
     }
     else
     {
-      RtlInitUnicodeString(&v36, v8);
-      if ( !RtlCultureNameToLCID(&v36.Length, &v29) )
+      RtlInitUnicodeString(&String, v8);
+      if ( !RtlCultureNameToLCID(&String, &Lcid) )
       {
         v14 = -1073741811;
         goto LABEL_32;
       }
-      v17 = sub_180044C70(v13, v8, 1, &v27);
+      v17 = sub_180044C70((__int64)v13, v8, 1, &v27);
     }
     v14 = v17;
     if ( v17 < 0 )
@@ -188,10 +193,10 @@ LABEL_52:
           if ( v23 )
           {
             RtlInitUnicodeString(&DestinationString, v20);
-            if ( (int)RtlUnicodeStringToInteger(&DestinationString.Length, 0x10u, (int *)&v29) < 0 )
+            if ( RtlUnicodeStringToInteger(&DestinationString, 0x10u, &Lcid) < 0 )
               break;
             LOBYTE(v24) = 1;
-            v25 = sub_1800FAD34(v13, (unsigned int)&v39, (unsigned __int16)v29, v24, (__int64)&v39);
+            v25 = sub_1800FAD34((_DWORD)v13, (unsigned int)&v39, (unsigned __int16)Lcid, v24, (__int64)&v39);
           }
           else
           {
@@ -222,18 +227,18 @@ LABEL_82:
         v26 = *(_WORD *)v19 & 0x419F;
       *v37 = v26 | 0x40;
     }
-    if ( a4 )
+    if ( NumberOfFallbackLanguages )
     {
       v7 = v28;
-      *a4 = v9;
+      *NumberOfFallbackLanguages = v9;
       if ( (_BYTE)v22 )
-        *a4 = 2;
+        *NumberOfFallbackLanguages = 2;
       else
-        v14 = sub_1800FB084(v33, v13, (unsigned int)&v39, (_DWORD)a4, (__int64)v7);
+        v14 = sub_1800FB084(v33, (_DWORD)v13, (unsigned int)&v39, (_DWORD)NumberOfFallbackLanguages, (__int64)v7);
 LABEL_54:
-      if ( v35 )
+      if ( BaseAddress )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v35);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
         v13 = v31;
       }
       goto LABEL_56;
@@ -245,10 +250,10 @@ LABEL_53:
 LABEL_56:
   if ( v34 && v13 )
     RtlpMuiFreeLangRegistryInfo(v13);
-  if ( !v14 && a4 && *a4 > v9 )
+  if ( !v14 && NumberOfFallbackLanguages && *NumberOfFallbackLanguages > v9 )
   {
     if ( v7 )
-      return (unsigned int)-1073741789;
+      return -1073741789;
   }
   return v14;
 }

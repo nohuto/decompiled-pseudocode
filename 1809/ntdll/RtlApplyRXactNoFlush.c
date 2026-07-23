@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlApplyRXactNoFlush @ 0x180082D10
+ * XREFs of RtlApplyRXactNoFlush @ 0x180082D20
  * Callers:
  *     <none>
  * Callees:
- *     RtlAbortRXact @ 0x180082D40 (RtlAbortRXact.c)
- *     RXactpCommit @ 0x180082D84 (RXactpCommit.c)
+ *     RtlAbortRXact @ 0x180082D50 (RtlAbortRXact.c)
+ *     RXactpCommit @ 0x180082D94 (RXactpCommit.c)
  */
 
 __int64 __fastcall RtlApplyRXactNoFlush(__int64 a1)

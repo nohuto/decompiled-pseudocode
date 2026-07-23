@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrResSearchResource @ 0x14051B158
+ * XREFs of LdrResSearchResource @ 0x1404FE548
  * Callers:
- *     PspLocateInPEManifest @ 0x14051B07C (PspLocateInPEManifest.c)
- *     LdrResFindResource @ 0x140544444 (LdrResFindResource.c)
- *     SeRegisterElamCertResources @ 0x14054F63C (SeRegisterElamCertResources.c)
- *     RtlLoadString @ 0x1406876CC (RtlLoadString.c)
- *     LdrResFindResourceDirectory @ 0x140687B34 (LdrResFindResourceDirectory.c)
- *     AslpFileGetVersionBlock @ 0x1406C80D4 (AslpFileGetVersionBlock.c)
+ *     PspLocateInPEManifest @ 0x1404FE46C (PspLocateInPEManifest.c)
+ *     LdrResFindResource @ 0x140544984 (LdrResFindResource.c)
+ *     SeRegisterElamCertResources @ 0x14054FB7C (SeRegisterElamCertResources.c)
+ *     RtlLoadString @ 0x1406877B0 (RtlLoadString.c)
+ *     LdrResFindResourceDirectory @ 0x140687C18 (LdrResFindResourceDirectory.c)
+ *     AslpFileGetVersionBlock @ 0x1406C820C (AslpFileGetVersionBlock.c)
  *     KeHwPolicyLocateResource @ 0x1407B2CA4 (KeHwPolicyLocateResource.c)
  * Callees:
- *     LdrpResSearchResourceMappedFile @ 0x1400F7358 (LdrpResSearchResourceMappedFile.c)
- *     DownLevelLangIDToLanguageName @ 0x1401323C4 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x1401409B8 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     LdrpResGetMappingSize @ 0x14051B7C4 (LdrpResGetMappingSize.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400F5198 (LdrpResSearchResourceMappedFile.c)
+ *     DownLevelLangIDToLanguageName @ 0x140132934 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x140140F28 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     LdrpResGetMappingSize @ 0x1404FEBB4 (LdrpResGetMappingSize.c)
  */
 
 __int64 __fastcall LdrResSearchResource(

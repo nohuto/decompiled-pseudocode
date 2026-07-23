@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 ZwConnectPort()
+NTSTATUS __cdecl ZwConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 153LL;
+  result = 153;
   __asm { syscall; Low latency system call }
   return result;
 }

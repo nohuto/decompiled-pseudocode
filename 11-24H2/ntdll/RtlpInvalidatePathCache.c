@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInvalidatePathCache @ 0x18010D3AC
+ * XREFs of RtlpInvalidatePathCache @ 0x18010828C
  * Callers:
- *     RtlpSignalSystemDirsModification @ 0x18015E5B4 (RtlpSignalSystemDirsModification.c)
+ *     RtlpSignalSystemDirsModification @ 0x18015C974 (RtlpSignalSystemDirsModification.c)
  * Callees:
  *     <none>
  */

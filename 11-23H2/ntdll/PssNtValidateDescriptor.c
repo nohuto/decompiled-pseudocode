@@ -1,10 +1,10 @@
 /*
- * XREFs of PssNtValidateDescriptor @ 0x180129400
+ * XREFs of PssNtValidateDescriptor @ 0x1801293D0
  * Callers:
- *     PssNtDuplicateSnapshot @ 0x180128CF0 (PssNtDuplicateSnapshot.c)
- *     PssNtFreeSnapshot @ 0x180128F80 (PssNtFreeSnapshot.c)
- *     PssNtQuerySnapshot @ 0x180129150 (PssNtQuerySnapshot.c)
- *     PssNtWalkSnapshot @ 0x180129590 (PssNtWalkSnapshot.c)
+ *     PssNtDuplicateSnapshot @ 0x180128CC0 (PssNtDuplicateSnapshot.c)
+ *     PssNtFreeSnapshot @ 0x180128F50 (PssNtFreeSnapshot.c)
+ *     PssNtQuerySnapshot @ 0x180129120 (PssNtQuerySnapshot.c)
+ *     PssNtWalkSnapshot @ 0x180129560 (PssNtWalkSnapshot.c)
  * Callees:
  *     RtlRaiseException @ 0x180054840 (RtlRaiseException.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)

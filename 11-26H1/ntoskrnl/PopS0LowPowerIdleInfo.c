@@ -1,11 +1,11 @@
 /*
- * XREFs of PopS0LowPowerIdleInfo @ 0x140AF9A54
+ * XREFs of PopS0LowPowerIdleInfo @ 0x140AFBEE0
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopS0LowPowerIdleInfo(__int64 a1)
@@ -70,11 +70,11 @@ __int64 __fastcall PopS0LowPowerIdleInfo(__int64 a1)
     *(_DWORD *)a1 = v1;
     v9 = (PopCsDeviceCompliance[0] == 1) | v8 & 0xFE;
     *(_BYTE *)(a1 + 4) = v9;
-    v10 = (dword_140E67774 != 1 ? 0 : 2) | v9 & 0xFD;
+    v10 = (dword_140E679EC != 1 ? 0 : 2) | v9 & 0xFD;
     *(_BYTE *)(a1 + 4) = v10;
-    v11 = (dword_140E67778 != 1 ? 0 : 4) | v10 & 0xFB;
+    v11 = (dword_140E679F0 != 1 ? 0 : 4) | v10 & 0xFB;
     *(_BYTE *)(a1 + 4) = v11;
-    *(_BYTE *)(a1 + 4) = (dword_140E67780 != 1 ? 0 : 8) | v11 & 0xF7;
+    *(_BYTE *)(a1 + 4) = (dword_140E679F8 != 1 ? 0 : 8) | v11 & 0xF7;
     if ( (unsigned int)(v1 - 3) <= 1 )
       LOBYTE(v7) = v6 | *(_BYTE *)(a1 + 5) & 0xFE | 2;
     else

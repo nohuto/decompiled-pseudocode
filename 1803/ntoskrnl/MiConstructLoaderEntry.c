@@ -354,7 +354,7 @@ LABEL_74:
   }
   *((_QWORD *)v30 + 16) = (char *)v30 + 120;
   *((_QWORD *)v30 + 15) = (char *)v30 + 120;
-  MiProcessLoaderEntry((int *)v11, 1);
+  MiProcessLoaderEntry(v11, 1);
   if ( !v34 )
   {
     if ( v27 )

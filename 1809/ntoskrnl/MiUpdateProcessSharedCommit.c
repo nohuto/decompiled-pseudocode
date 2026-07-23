@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateProcessSharedCommit @ 0x14061DF18
+ * XREFs of MiUpdateProcessSharedCommit @ 0x14061EF18
  * Callers:
- *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
+ *     MiChargeSegmentCommit @ 0x14061F0D0 (MiChargeSegmentCommit.c)
  * Callees:
- *     MiIncludeSharedCommit @ 0x140076780 (MiIncludeSharedCommit.c)
+ *     MiIncludeSharedCommit @ 0x140076770 (MiIncludeSharedCommit.c)
  */
 
 _QWORD *__fastcall MiUpdateProcessSharedCommit(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspEnforceLimits @ 0x1408EBA7C
+ * XREFs of PspEnforceLimits @ 0x14085D2AC
  * Callers:
- *     PspJobTimeLimitsWork @ 0x1408EB3C0 (PspJobTimeLimitsWork.c)
+ *     PspJobTimeLimitsWork @ 0x14085CBF0 (PspJobTimeLimitsWork.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspGetNextJob @ 0x1408EBB60 (PspGetNextJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspClearNoWakeChargeLimitNotification @ 0x1408EDB54 (PspClearNoWakeChargeLimitNotification.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspGetNextJob @ 0x14085D390 (PspGetNextJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspClearNoWakeChargeLimitNotification @ 0x14085F384 (PspClearNoWakeChargeLimitNotification.c)
  */
 
 __int64 __fastcall PspEnforceLimits(char a1)

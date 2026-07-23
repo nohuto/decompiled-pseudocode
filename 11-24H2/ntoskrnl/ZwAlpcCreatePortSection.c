@@ -1,15 +1,21 @@
 /*
- * XREFs of ZwAlpcCreatePortSection @ 0x1406A73D0
+ * XREFs of ZwAlpcCreatePortSection @ 0x1406A8370
  * Callers:
- *     DifZwAlpcCreatePortSectionWrapper @ 0x14063BE40 (DifZwAlpcCreatePortSectionWrapper.c)
- *     CmFcpCreateAlpcSectionView @ 0x140AC0FAC (CmFcpCreateAlpcSectionView.c)
+ *     DifZwAlpcCreatePortSectionWrapper @ 0x14063A400 (DifZwAlpcCreatePortSectionWrapper.c)
+ *     CmFcpCreateAlpcSectionView @ 0x140ABC10C (CmFcpCreateAlpcSectionView.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreatePortSection(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

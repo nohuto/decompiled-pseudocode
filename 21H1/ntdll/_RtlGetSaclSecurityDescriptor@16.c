@@ -6,31 +6,35 @@
  *     <none>
  */
 
-int __stdcall RtlGetSaclSecurityDescriptor(int a1, bool *a2, int *a3, bool *a4)
+NTSTATUS __cdecl RtlGetSaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PBOOLEAN SaclPresent,
+        PACL *Sacl,
+        PBOOLEAN SaclDefaulted)
 {
   __int16 v4; // dx
   __int16 v5; // ax
-  int v6; // ecx
+  ACL *v6; // ecx
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v4 = *(_WORD *)(a1 + 2) & 0x10;
-  *a2 = v4 != 0;
+  v4 = *((_WORD *)SecurityDescriptor + 1) & 0x10;
+  *SaclPresent = v4 != 0;
   if ( v4 )
   {
-    v5 = *(_WORD *)(a1 + 2);
+    v5 = *((_WORD *)SecurityDescriptor + 1);
     if ( (v5 & 0x10) != 0 )
     {
-      v6 = *(_DWORD *)(a1 + 12);
+      v6 = (ACL *)*((_DWORD *)SecurityDescriptor + 3);
       if ( v5 < 0 )
-        v6 = v6 != 0 ? v6 + a1 : 0;
+        v6 = v6 != 0 ? (ACL *)((char *)SecurityDescriptor + (_DWORD)v6) : 0;
     }
     else
     {
       v6 = 0;
     }
-    *a3 = v6;
-    *a4 = (*(_BYTE *)(a1 + 2) & 0x20) != 0;
+    *Sacl = v6;
+    *SaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 0x20) != 0;
   }
   return 0;
 }

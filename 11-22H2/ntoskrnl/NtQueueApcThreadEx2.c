@@ -12,7 +12,14 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall NtQueueApcThreadEx2(void *a1, void *a2, int a3, __int64 a4, __int64 a5, __int64 a6, _DWORD *a7)
+NTSTATUS __cdecl NtQueueApcThreadEx2(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        ULONG ApcFlags,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
   char v10; // r15
   KPROCESSOR_MODE PreviousMode; // bp
@@ -23,7 +30,7 @@ NTSTATUS __fastcall NtQueueApcThreadEx2(void *a1, void *a2, int a3, __int64 a4, 
   char *Pool2; // rbx
   __int64 (__fastcall *v17)(); // r9
   void (__stdcall *v18)(PVOID); // rbp
-  NTSTATUS v19; // ebx
+  int v19; // ebx
   __int16 v20; // ax
   __int64 v21; // rax
   PVOID Object; // [rsp+40h] [rbp-28h] BYREF
@@ -31,19 +38,19 @@ NTSTATUS __fastcall NtQueueApcThreadEx2(void *a1, void *a2, int a3, __int64 a4, 
 
   v10 = 1;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a3 & 0xFFFEFFFE) != 0 )
+  if ( (ApcFlags & 0xFFFEFFFE) != 0 )
     return -1073741811;
-  if ( (a3 & 1) == 0 )
+  if ( (ApcFlags & 1) == 0 )
   {
     v12 = 0;
     goto LABEL_4;
   }
-  if ( a2 )
+  if ( ReserveHandle )
     return -1073741811;
   v12 = 1;
 LABEL_4:
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result < 0 )
     return result;
   v14 = Object;
@@ -51,14 +58,14 @@ LABEL_4:
     || (v14 = Object, Process = KeGetCurrentThread()->ApcState.Process, Process[1].Affinity.StaticBitmap[30])
     && ((v20 = WORD2(Process[2].Affinity.StaticBitmap[20]), v20 == 332) || v20 == 452)
     && ((v21 = *((_QWORD *)Object + 68), !*(_QWORD *)(v21 + 1408)) || *(_WORD *)(v21 + 2412) == 0x8664)
-    && (unsigned __int64)-(a4 >> 2) <= 0xFFFFFFFF )
+    && (unsigned __int64)-((__int64)ApcRoutine >> 2) <= 0xFFFFFFFF )
   {
     v19 = -1073741816;
   }
-  else if ( a2 )
+  else if ( ReserveHandle )
   {
     v23 = 0LL;
-    v19 = ObReferenceObjectByHandle(a2, 2u, PspMemoryReserveObjectTypes, PreviousMode, &v23, 0LL);
+    v19 = ObReferenceObjectByHandle(ReserveHandle, 2u, PspMemoryReserveObjectTypes, PreviousMode, &v23, 0LL);
     if ( v19 >= 0 )
     {
       if ( !_InterlockedCompareExchange((volatile signed __int32 *)v23, 1, 0) )
@@ -68,10 +75,18 @@ LABEL_4:
         v18 = (void (__stdcall *)(PVOID))PspUserApcReserveKernelRoutine;
         Pool2 = (char *)v23 + 8;
 LABEL_11:
-        KeInitializeApc((__int64)Pool2, (__int64)v14, 0, (__int64)v17, (__int64)v18, a4, v10, a5);
-        if ( (a3 & 0x10000) != 0 )
+        KeInitializeApc(
+          (__int64)Pool2,
+          (__int64)v14,
+          0,
+          (__int64)v17,
+          (__int64)v18,
+          (__int64)ApcRoutine,
+          v10,
+          (__int64)ApcArgument1);
+        if ( (ApcFlags & 0x10000) != 0 )
           Pool2[1] |= 1u;
-        if ( (unsigned __int8)KeInsertQueueApc((__int64)Pool2, a6, a7, 0) )
+        if ( (unsigned __int8)KeInsertQueueApc((__int64)Pool2, (__int64)ApcArgument2, ApcArgument3, 0) )
         {
           v19 = 0;
         }

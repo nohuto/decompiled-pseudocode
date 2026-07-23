@@ -11,7 +11,7 @@
 
 __int64 __fastcall PoBlockConsoleSwitch(__int64 a1)
 {
-  unsigned int v2; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v2; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0;
   PoBlockConsoleSwitchEx(a1, &v2, 0LL);

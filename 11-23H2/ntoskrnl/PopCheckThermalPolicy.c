@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCheckThermalPolicy @ 0x140847F48
+ * XREFs of PopCheckThermalPolicy @ 0x140848248
  * Callers:
- *     PopThermalWorker @ 0x140847830 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140847B30 (PopThermalWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopPrintEx @ 0x14032A6AC (PopPrintEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopPrintEx @ 0x14032A93C (PopPrintEx.c)
  */
 
 char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
@@ -44,7 +44,7 @@ char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
   }
   else
   {
-    v11 = &word_140887DD0;
+    v11 = &word_140888010;
   }
   v12 = (unsigned int *)(a1 + 128);
   *(_DWORD *)(a1 + 232) = 1000000 * *(_DWORD *)(a1 + 200);
@@ -52,7 +52,7 @@ char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
   if ( v13 && *v12 >= v13 )
   {
     PopPrintEx(
-      0LL,
+      0,
       (__int64)"Thermal Zone %S (%p): Above critical temperature (_TMP %d, _CRT %d). Shutdown initiated\n",
       v11,
       (const void *)a1,

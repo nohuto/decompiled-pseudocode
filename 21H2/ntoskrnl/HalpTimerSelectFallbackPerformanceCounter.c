@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerSelectFallbackPerformanceCounter @ 0x1404C03B8
+ * XREFs of HalpTimerSelectFallbackPerformanceCounter @ 0x1404C05F8
  * Callers:
- *     HalpTscFallback @ 0x1404C1610 (HalpTscFallback.c)
+ *     HalpTscFallback @ 0x1404C1850 (HalpTscFallback.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpTimerCalculateMaximumAllowableDrift @ 0x1404BFA60 (HalpTimerCalculateMaximumAllowableDrift.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x1404BFCA0 (HalpTimerCalculateMaximumAllowableDrift.c)
  */
 
 unsigned __int64 HalpTimerSelectFallbackPerformanceCounter()

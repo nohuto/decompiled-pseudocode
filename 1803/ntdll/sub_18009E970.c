@@ -7,7 +7,7 @@
  *     ZwCallEnclave @ 0x18009BC90 (ZwCallEnclave.c)
  */
 
-__int64 sub_18009E970()
+NTSTATUS __fastcall sub_18009E970(LPVOID (__cdecl *a1)(LPVOID), void *a2, ULONG a3, PVOID *a4)
 {
-  return ZwCallEnclave();
+  return ZwCallEnclave(a1, a2, a3, a4);
 }

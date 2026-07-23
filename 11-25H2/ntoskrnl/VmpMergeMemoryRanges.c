@@ -32,8 +32,8 @@ __int64 __fastcall VmpMergeMemoryRanges(__int64 SpinLock, unsigned __int64 a2, _
   __int64 v20; // rdx
   unsigned int v21; // ecx
   __int64 *v22; // r14
-  unsigned __int64 *v23; // rdi
-  __int64 v24; // rax
+  _RTL_BALANCED_NODE *v23; // rdi
+  _RTL_BALANCED_NODE *v24; // rax
   __int64 v26; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = 0LL;
@@ -123,23 +123,23 @@ __int64 __fastcall VmpMergeMemoryRanges(__int64 SpinLock, unsigned __int64 a2, _
                   *(_DWORD *)(Next + 72) &= ~1u;
                 }
                 v22 = *(__int64 **)(v9 + 40);
-                v23 = *(unsigned __int64 **)(Next + 40);
+                v23 = *(_RTL_BALANCED_NODE **)(Next + 40);
                 do
                 {
-                  RtlRbRemoveNode(SpinLock + 8, v23 + 3);
-                  v24 = v23[7];
-                  v23[5] = -1LL;
-                  v22[7] = v24;
-                  if ( (v23[8] & 1) != 0 )
+                  RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 8), v23 + 1);
+                  v24 = v23[2].Children[1];
+                  v23[1].ParentValue = -1LL;
+                  v22[7] = (__int64)v24;
+                  if ( (*(_DWORD *)&v23[2].0 & 1) != 0 )
                   {
                     *((_DWORD *)v22 + 16) |= 1u;
-                    *((_DWORD *)v23 + 16) &= ~1u;
+                    *(_DWORD *)&v23[2].0 &= ~1u;
                   }
                   v22 = (__int64 *)*v22;
-                  v23 = (unsigned __int64 *)*v23;
+                  v23 = v23->Children[0];
                 }
                 while ( v22 != (__int64 *)(v9 + 40) );
-                RtlRbRemoveNode(SpinLock + 24, (unsigned __int64 *)Next);
+                RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 24), (PRTL_BALANCED_NODE)Next);
                 *(_QWORD *)(Next + 16) = -1LL;
                 v3 = (void *)Next;
                 *(_QWORD *)(v9 + 32) = *(_QWORD *)(Next + 32);

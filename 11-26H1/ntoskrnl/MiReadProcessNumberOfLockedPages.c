@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReadProcessNumberOfLockedPages @ 0x1404DED10
+ * XREFs of MiReadProcessNumberOfLockedPages @ 0x1404D83F0
  * Callers:
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x1406EAAC0 (MmUpdateMdlTrackerForMdlSwitch.c)
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x1406EF760 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

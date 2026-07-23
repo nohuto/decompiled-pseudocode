@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTraceRegistryTransaction @ 0x140B63E10
+ * XREFs of EtwpTraceRegistryTransaction @ 0x140B66EB0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogTxREvent @ 0x140827ECC (EtwpLogTxREvent.c)
+ *     EtwpLogTxREvent @ 0x14082E10C (EtwpLogTxREvent.c)
  */
 
 _DWORD *__fastcall EtwpTraceRegistryTransaction(

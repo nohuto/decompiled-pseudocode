@@ -1,21 +1,21 @@
 /*
- * XREFs of MiVadMapsLargeImage @ 0x140074A10
+ * XREFs of MiVadMapsLargeImage @ 0x140074A00
  * Callers:
- *     MiGetWsAndInsertVad @ 0x140063E20 (MiGetWsAndInsertVad.c)
- *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
- *     MiInsertVad @ 0x14011016C (MiInsertVad.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1402A3F30 (MiIsVadEligibleForCommitRelease.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7B20 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiRemoveVad @ 0x1402C5120 (MiRemoveVad.c)
- *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
- *     MiScrubProcessLargePages @ 0x1402CFB3C (MiScrubProcessLargePages.c)
- *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiMarkPrivateImageCfgBits @ 0x1406513B4 (MiMarkPrivateImageCfgBits.c)
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
- *     MiMapChildLargePageVads @ 0x14085E8B4 (MiMapChildLargePageVads.c)
+ *     MiGetWsAndInsertVad @ 0x140063E10 (MiGetWsAndInsertVad.c)
+ *     MmOutSwapWorkingSet @ 0x1400E51A8 (MmOutSwapWorkingSet.c)
+ *     MiInsertVad @ 0x1401101EC (MiInsertVad.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x1402A4120 (MiIsVadEligibleForCommitRelease.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1402A7D10 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiRemoveVad @ 0x1402C5310 (MiRemoveVad.c)
+ *     MiCloneVads @ 0x1402C8D58 (MiCloneVads.c)
+ *     MiScrubProcessLargePages @ 0x1402CFD2C (MiScrubProcessLargePages.c)
+ *     MmProtectVirtualMemory @ 0x1405EEFD0 (MmProtectVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140619664 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiMarkPrivateImageCfgBits @ 0x140652574 (MiMarkPrivateImageCfgBits.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085F728 (MiDeletePartialCloneVads.c)
+ *     MiMapChildLargePageVads @ 0x14085FB14 (MiMapChildLargePageVads.c)
  * Callees:
  *     <none>
  */

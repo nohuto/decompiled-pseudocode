@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPageHashBugCheck @ 0x14052F994
+ * XREFs of MiPageHashBugCheck @ 0x140531E94
  * Callers:
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiArePagefileContentsCorrupted @ 0x1402DB9F0 (MiArePagefileContentsCorrupted.c)
- *     MiUpdatePageFileBlockOwner @ 0x14030D080 (MiUpdatePageFileBlockOwner.c)
- *     MiWritePageFileHash @ 0x140470698 (MiWritePageFileHash.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiArePagefileContentsCorrupted @ 0x1402BD7B0 (MiArePagefileContentsCorrupted.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1402EF100 (MiUpdatePageFileBlockOwner.c)
+ *     MiWritePageFileHash @ 0x140469E18 (MiWritePageFileHash.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiPageHashBugCheck(

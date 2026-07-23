@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpGenuinePolicyPostProcess @ 0x14094D9C0
+ * XREFs of ExpGenuinePolicyPostProcess @ 0x14094DB90
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpOsProductCacheProviderHelper @ 0x1407D15A4 (ExpOsProductCacheProviderHelper.c)
- *     sub_14094D46C @ 0x14094D46C (sub_14094D46C.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1403FD000 (ZwQueryLicenseValue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1407D1714 (ExpOsProductCacheProviderHelper.c)
+ *     sub_14094D63C @ 0x14094D63C (sub_14094D63C.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGenuinePolicyPostProcess(
@@ -30,21 +30,22 @@ __int64 __fastcall ExpGenuinePolicyPostProcess(
   int v16; // eax
   _BYTE v18[4]; // [rsp+40h] [rbp-40h] BYREF
   SIZE_T NumberOfBytes; // [rsp+44h] [rbp-3Ch] BYREF
-  _DWORD v20[3]; // [rsp+4Ch] [rbp-34h] BYREF
-  _DWORD *v21; // [rsp+58h] [rbp-28h]
-  __int128 v22; // [rsp+60h] [rbp-20h]
+  int v20; // [rsp+4Ch] [rbp-34h] BYREF
+  ULONG ResultDataSize; // [rsp+50h] [rbp-30h] BYREF
+  _DWORD *v22; // [rsp+58h] [rbp-28h]
+  __int128 v23; // [rsp+60h] [rbp-20h]
 
-  v21 = a5;
-  v20[0] = 0;
+  v22 = a5;
+  v20 = 0;
   *a6 = 0;
   v9 = 0;
   v10 = 0LL;
-  v20[1] = 4;
-  v22 = 0LL;
+  ResultDataSize = 4;
+  v23 = 0LL;
   NumberOfBytes = 0LL;
   if ( *a1 )
   {
-    v9 = sub_14094D46C(a2, a3, a4, a5, 2);
+    v9 = sub_14094D63C(a2, a3, a4, a5, 2);
     *a6 = 1;
     return (unsigned int)v9;
   }
@@ -68,60 +69,60 @@ __int64 __fastcall ExpGenuinePolicyPostProcess(
       return (unsigned int)v9;
   }
 LABEL_11:
-  ZwQueryLicenseValue((__int64)L"JL", 0LL);
-  if ( qword_140D2D418 )
-    v9 = qword_140D2D418(v20);
-  else
-    v9 = -1073741637;
-  if ( v9 >= 0 )
+  v9 = ZwQueryLicenseValue((PUNICODE_STRING)&stru_1409842C8, 0LL, (char *)&NumberOfBytes + 4, 4u, &ResultDataSize);
+  if ( v9 < 0 || HIDWORD(NumberOfBytes) != 1 )
   {
-    if ( qword_140D2D3D8 )
+    v9 = qword_140D2D418 ? qword_140D2D418(&v20) : -1073741637;
+    if ( v9 >= 0 )
     {
-      v9 = ExpOsProductCacheProviderHelper(v12, (UNICODE_STRING *)&qword_1409838A0, 0LL, 0LL, 0, &NumberOfBytes, v18);
-      if ( v9 == -1073741789 )
+      if ( qword_140D2D3D8 )
       {
-        v13 = NumberOfBytes;
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20534C53u);
-        v10 = PoolWithTag;
-        if ( !PoolWithTag )
-          return (unsigned int)-1073741801;
-        v9 = ExpOsProductCacheProviderHelper(
-               v15,
-               (UNICODE_STRING *)&qword_1409838A0,
-               0LL,
-               PoolWithTag,
-               v13,
-               &NumberOfBytes,
-               v18);
+        v9 = ExpOsProductCacheProviderHelper(v12, (UNICODE_STRING *)&qword_140983A80, 0LL, 0LL, 0, &NumberOfBytes, v18);
+        if ( v9 == -1073741789 )
+        {
+          v13 = NumberOfBytes;
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20534C53u);
+          v10 = PoolWithTag;
+          if ( !PoolWithTag )
+            return (unsigned int)-1073741801;
+          v9 = ExpOsProductCacheProviderHelper(
+                 v15,
+                 (UNICODE_STRING *)&qword_140983A80,
+                 0LL,
+                 PoolWithTag,
+                 v13,
+                 &NumberOfBytes,
+                 v18);
+        }
+        if ( v9 < 0 )
+          goto LABEL_32;
+        v16 = qword_140D2D3D8(3LL, v10, 0LL);
+        v9 = v16;
+        if ( v16 >= 0 && (v23 & 0x40) != 0 || v16 == -1073741198 )
+        {
+          v9 = 0;
+          goto LABEL_30;
+        }
+      }
+      else
+      {
+        v9 = -1073741637;
       }
       if ( v9 < 0 )
-        goto LABEL_30;
-      v16 = qword_140D2D3D8(3LL, v10, 0LL);
-      v9 = v16;
-      if ( v16 >= 0 && (v22 & 0x40) != 0 || v16 == -1073741198 )
       {
-        v9 = 0;
-        goto LABEL_28;
+LABEL_32:
+        if ( v10 )
+          ExFreePoolWithTag(v10, 0);
+        return (unsigned int)v9;
       }
-    }
-    else
-    {
-      v9 = -1073741637;
-    }
-    if ( v9 < 0 )
-    {
 LABEL_30:
-      if ( v10 )
-        ExFreePoolWithTag(v10, 0);
-      return (unsigned int)v9;
+      if ( !v20 )
+      {
+        v9 = sub_14094D63C(a2, a3, a4, v22, 2);
+        *a6 = 1;
+      }
+      goto LABEL_32;
     }
-LABEL_28:
-    if ( !v20[0] )
-    {
-      v9 = sub_14094D46C(a2, a3, a4, v21, 2);
-      *a6 = 1;
-    }
-    goto LABEL_30;
   }
   return (unsigned int)v9;
 }

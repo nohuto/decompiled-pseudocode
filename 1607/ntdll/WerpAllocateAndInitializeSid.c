@@ -1,57 +1,55 @@
 /*
- * XREFs of WerpAllocateAndInitializeSid @ 0x180008DB0
+ * XREFs of WerpAllocateAndInitializeSid @ 0x180008DA0
  * Callers:
- *     SendMessageToWERService @ 0x180008BB0 (SendMessageToWERService.c)
+ *     SendMessageToWERService @ 0x180008BA0 (SendMessageToWERService.c)
  * Callees:
- *     WerpFreeSid @ 0x180008E9C (WerpFreeSid.c)
- *     RtlLengthRequiredSid @ 0x18000BB10 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x18000D5F0 (RtlInitializeSid.c)
+ *     WerpFreeSid @ 0x180008E8C (WerpFreeSid.c)
+ *     RtlLengthRequiredSid @ 0x18000BB00 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x18000D5E0 (RtlInitializeSid.c)
  *     ZwAllocateVirtualMemory @ 0x1800A6720 (ZwAllocateVirtualMemory.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
 __int64 __fastcall WerpAllocateAndInitializeSid(
-        __int64 a1,
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        void **a11)
+        int a5,
+        int a6,
+        int a7,
+        int a8,
+        int a9,
+        int a10,
+        PVOID *a11)
 {
-  int v12; // ebx
-  __int64 v13; // r8
-  void *v15; // [rsp+38h] [rbp-20h] BYREF
-  size_t Size[3]; // [rsp+40h] [rbp-18h] BYREF
+  NTSTATUS v12; // ebx
+  PVOID BaseAddress; // [rsp+38h] [rbp-20h] BYREF
+  ULONG_PTR RegionSize[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  Size[0] = (unsigned int)RtlLengthRequiredSid(1LL);
-  v15 = 0LL;
+  RegionSize[0] = RtlLengthRequiredSid(1u);
+  BaseAddress = 0LL;
   if ( !a11 )
     return 3221225485LL;
-  v12 = ZwAllocateVirtualMemory(-1LL, &v15, 0LL, Size, 4096, 4);
+  v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x1000u, 4u);
   if ( v12 < 0 )
     goto LABEL_9;
-  if ( v15 )
+  if ( BaseAddress )
   {
-    memset(v15, 0, Size[0]);
-    LOBYTE(v13) = 1;
-    v12 = RtlInitializeSid(v15, a1, v13);
+    memset(BaseAddress, 0, RegionSize[0]);
+    v12 = RtlInitializeSid(BaseAddress, IdentifierAuthority, 1u);
     if ( v12 >= 0 )
     {
-      *((_DWORD *)v15 + 2) = 18;
-      *a11 = v15;
+      *((_DWORD *)BaseAddress + 2) = 18;
+      *a11 = BaseAddress;
       v12 = 0;
     }
   }
   if ( v12 < 0 )
   {
 LABEL_9:
-    if ( v15 )
-      WerpFreeSid(v15);
+    if ( BaseAddress )
+      WerpFreeSid(BaseAddress);
   }
   return (unsigned int)v12;
 }

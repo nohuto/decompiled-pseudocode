@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLocalTimeToSystemTime @ 0x1800DF050
+ * XREFs of RtlLocalTimeToSystemTime @ 0x1800DF110
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQuerySystemInformation @ 0x1800A6AE0 (NtQuerySystemInformation.c)
  */
 

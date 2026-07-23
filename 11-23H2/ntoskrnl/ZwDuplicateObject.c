@@ -1,12 +1,12 @@
 /*
- * XREFs of ZwDuplicateObject @ 0x14041B4E0
+ * XREFs of ZwDuplicateObject @ 0x14041B870
  * Callers:
- *     SepReferenceCachedTokenHandles @ 0x140371168 (SepReferenceCachedTokenHandles.c)
- *     DifZwDuplicateObjectWrapper @ 0x1405EFB40 (DifZwDuplicateObjectWrapper.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1407DC888 (SeAuditHandleCreation.c)
- *     _SysCtxOpenMachine @ 0x140854FF0 (_SysCtxOpenMachine.c)
- *     SmKmFileInfoDuplicate @ 0x1409D8A24 (SmKmFileInfoDuplicate.c)
+ *     SepReferenceCachedTokenHandles @ 0x140371308 (SepReferenceCachedTokenHandles.c)
+ *     DifZwDuplicateObjectWrapper @ 0x1405F00B0 (DifZwDuplicateObjectWrapper.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     SeAuditHandleCreation @ 0x1407DCB58 (SeAuditHandleCreation.c)
+ *     _SysCtxOpenMachine @ 0x1408552F0 (_SysCtxOpenMachine.c)
+ *     SmKmFileInfoDuplicate @ 0x1409D8C24 (SmKmFileInfoDuplicate.c)
  * Callees:
  *     <none>
  */
@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwDuplicateObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SourceProcessHandle, SourceHandle);
+  return KiServiceInternal(SourceProcessHandle);
 }

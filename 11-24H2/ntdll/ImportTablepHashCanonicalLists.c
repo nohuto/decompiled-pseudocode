@@ -1,13 +1,13 @@
 /*
- * XREFs of ImportTablepHashCanonicalLists @ 0x180134D4C
+ * XREFs of ImportTablepHashCanonicalLists @ 0x180132F7C
  * Callers:
- *     RtlComputeImportTableHash @ 0x180134EA0 (RtlComputeImportTableHash.c)
+ *     RtlComputeImportTableHash @ 0x1801330D0 (RtlComputeImportTableHash.c)
  * Callees:
- *     SymCryptMd5Append @ 0x180158510 (SymCryptMd5Append.c)
- *     SymCryptMd5Init @ 0x180158E10 (SymCryptMd5Init.c)
- *     SymCryptMd5Result @ 0x180158E30 (SymCryptMd5Result.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptMd5Append @ 0x1801568D0 (SymCryptMd5Append.c)
+ *     SymCryptMd5Init @ 0x1801571D0 (SymCryptMd5Init.c)
+ *     SymCryptMd5Result @ 0x1801571F0 (SymCryptMd5Result.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall ImportTablepHashCanonicalLists(_QWORD *a1, __int64 a2)

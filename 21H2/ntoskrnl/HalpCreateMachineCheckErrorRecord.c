@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCreateMachineCheckErrorRecord @ 0x1404B9AF0
+ * XREFs of HalpCreateMachineCheckErrorRecord @ 0x1404B9D30
  * Callers:
- *     HalpCreateErrorRecord @ 0x1404B9AB0 (HalpCreateErrorRecord.c)
+ *     HalpCreateErrorRecord @ 0x1404B9CF0 (HalpCreateErrorRecord.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9C58 (HalpCreateMcaMemoryErrorRecord.c)
- *     HalpCreateMcaProcessorErrorRecord @ 0x1404B9ECC (HalpCreateMcaProcessorErrorRecord.c)
- *     HalpMcaAMDIsMemoryError @ 0x1404BD194 (HalpMcaAMDIsMemoryError.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9E98 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x1404BA10C (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpMcaAMDIsMemoryError @ 0x1404BD3D4 (HalpMcaAMDIsMemoryError.c)
  */
 
 __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -19,8 +19,8 @@ __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __i
   int v11; // eax
   int McaMemoryErrorRecord; // eax
   unsigned int v13; // ebx
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
 
   v4 = *(_WORD *)(a2 + 120);
   Affinity = 0LL;

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiAbDetermineMaxWaiterPriority @ 0x1402EF4E0
+ * XREFs of KiAbDetermineMaxWaiterPriority @ 0x1402FA230
  * Callers:
- *     KiAbProcessThreadLocks @ 0x1402F10C4 (KiAbProcessThreadLocks.c)
- *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
+ *     KiAbProcessThreadLocks @ 0x1402FBE14 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x1403529A0 (KiAbProcessContextSwitch.c)
  * Callees:
  *     <none>
  */

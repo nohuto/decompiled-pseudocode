@@ -1,12 +1,12 @@
 /*
  * XREFs of FsRtlReleaseFileNameInformation @ 0x1406E5900
  * Callers:
- *     EtwpCancelTraceImageUnloadApc @ 0x14062E9B0 (EtwpCancelTraceImageUnloadApc.c)
+ *     sub_14062E9B0 @ 0x14062E9B0 (sub_14062E9B0.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 FsRtlReleaseFileNameInformation()
+__int64 __fastcall FsRtlReleaseFileNameInformation(__int64 a1, __int64 a2)
 {
-  return (*(__int64 (**)(void))(FltMgrCallbacks + 32))();
+  return sub_14042A5E0(a1, a2);
 }

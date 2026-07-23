@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377060 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     EmonFreeCounter @ 0x14037B4EC (EmonFreeCounter.c)
- *     HalpMmAllocateMemory @ 0x14037D6E0 (HalpMmAllocateMemory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EmonInitializePebs @ 0x140A92248 (EmonInitializePebs.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377200 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     EmonFreeCounter @ 0x14037B68C (EmonFreeCounter.c)
+ *     HalpMmAllocateMemory @ 0x14037D880 (HalpMmAllocateMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EmonInitializePebs @ 0x140A920C8 (EmonInitializePebs.c)
  */
 
 __int64 EmonInitializeProfiling()
@@ -114,8 +114,8 @@ __int64 EmonInitializeProfiling()
     }
   }
   v9 = 0LL;
-  v10 = (unsigned __int8 *)&unk_140C04D64;
-  v11 = &unk_140C04C50;
+  v10 = (unsigned __int8 *)&unk_140C04D24;
+  v11 = &unk_140C04C10;
   v12 = 32LL;
   do
   {
@@ -129,8 +129,8 @@ __int64 EmonInitializeProfiling()
            || *((_DWORD *)v10 - 77) == 32 && HalpLbrIsInitialized )
     {
 LABEL_7:
-      result = KeAddProcessorAffinityEx((unsigned __int16 *)&unk_140C04C50 + 160 * v9, Number);
-      v11 = &unk_140C04C50;
+      result = KeAddProcessorAffinityEx((unsigned __int16 *)&unk_140C04C10 + 160 * v9, Number);
+      v11 = &unk_140C04C10;
     }
     v9 = (unsigned int)(v9 + 1);
     v10 += 320;

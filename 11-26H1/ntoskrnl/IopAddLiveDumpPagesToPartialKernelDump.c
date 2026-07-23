@@ -1,20 +1,20 @@
 /*
- * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0
+ * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     DumpCtlCheckErrorLocation @ 0x1405C610C (DumpCtlCheckErrorLocation.c)
- *     DumpCtlCheckExitStatus @ 0x1405C6130 (DumpCtlCheckExitStatus.c)
- *     IoSaveBugCheckProgress @ 0x1405C7540 (IoSaveBugCheckProgress.c)
- *     IopDumpCallAddPagesCallbacks @ 0x1405C8C08 (IopDumpCallAddPagesCallbacks.c)
- *     IopLiveDumpMarkDeviceNode @ 0x1405D02F4 (IopLiveDumpMarkDeviceNode.c)
- *     IoAddProcessesToDump @ 0x1405D4980 (IoAddProcessesToDump.c)
- *     IopMarkPagesForProcessorData @ 0x1405D5CAC (IopMarkPagesForProcessorData.c)
- *     ExAddPrivateDataToCrashDump @ 0x1406CB960 (ExAddPrivateDataToCrashDump.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     MmAddPrivateDataToCrashDump @ 0x1406F677C (MmAddPrivateDataToCrashDump.c)
- *     MmGetDumpRange @ 0x1406F6934 (MmGetDumpRange.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     DumpCtlCheckErrorLocation @ 0x1405C897C (DumpCtlCheckErrorLocation.c)
+ *     DumpCtlCheckExitStatus @ 0x1405C89A0 (DumpCtlCheckExitStatus.c)
+ *     IoSaveBugCheckProgress @ 0x1405C9E10 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1405CB4D8 (IopDumpCallAddPagesCallbacks.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x1405D2B04 (IopLiveDumpMarkDeviceNode.c)
+ *     IoAddProcessesToDump @ 0x1405D7170 (IoAddProcessesToDump.c)
+ *     IopMarkPagesForProcessorData @ 0x1405D849C (IopMarkPagesForProcessorData.c)
+ *     ExAddPrivateDataToCrashDump @ 0x1406CF990 (ExAddPrivateDataToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x1406FB3EC (MmAddPrivateDataToCrashDump.c)
+ *     MmGetDumpRange @ 0x1406FB5A4 (MmGetDumpRange.c)
  */
 
 __int64 __fastcall IopAddLiveDumpPagesToPartialKernelDump(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -84,8 +84,8 @@ __int64 __fastcall IopAddLiveDumpPagesToPartialKernelDump(int a1, __int64 a2, __
       goto LABEL_32;
   }
   v11 = 16842755;
-  *((_QWORD *)&v34 + 1) = *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140FC01F0.116 + 4);
-  *(_QWORD *)&v34 = &stru_140FC01F0.WaitRegister;
+  *((_QWORD *)&v34 + 1) = *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140FC11F0.116 + 4);
+  *(_QWORD *)&v34 = &stru_140FC11F0.WaitRegister;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v39, (unsigned __int16 **)&v34) )
   {
     v15 = IopMarkPagesForProcessorData(v32, v39);

@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpCheckKey @ 0x140A08360
+ * XREFs of CmpCheckKey @ 0x140A1E430
  * Callers:
- *     CmpCheckRegistry2 @ 0x140A079F0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x140A1DAC0 (CmpCheckRegistry2.c)
  * Callees:
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     CmpFindSecurityCellCacheIndex @ 0x140472390 (CmpFindSecurityCellCacheIndex.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x1404C4528 (CmpKeySecurityIncrementReferenceCount.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvIsCellAllocated @ 0x1408D9150 (HvIsCellAllocated.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
- *     CmpCheckValueList @ 0x1408D96A0 (CmpCheckValueList.c)
- *     CmpGetIndexElementSize @ 0x140A0A718 (CmpGetIndexElementSize.c)
- *     CmpCheckLeaf @ 0x140A0A744 (CmpCheckLeaf.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14046BB10 (CmpFindSecurityCellCacheIndex.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x1404BDE08 (CmpKeySecurityIncrementReferenceCount.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvIsCellAllocated @ 0x1408DF710 (HvIsCellAllocated.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
+ *     CmpCheckValueList @ 0x1408DFC60 (CmpCheckValueList.c)
+ *     CmpGetIndexElementSize @ 0x140A207E8 (CmpGetIndexElementSize.c)
+ *     CmpCheckLeaf @ 0x140A20814 (CmpCheckLeaf.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall CmpCheckKey(
@@ -68,7 +68,7 @@ __int64 __fastcall CmpCheckKey(
   __int64 v43; // rdx
   unsigned int v44; // eax
   unsigned int v45; // edi
-  RTL_BITMAP *v46; // r13
+  _RTL_BITMAP *v46; // r13
   unsigned __int64 v47; // rdx
   __int64 v48; // rax
   __int64 v49; // rdi
@@ -339,7 +339,7 @@ LABEL_42:
   {
     v147 = 1;
     v63 = -1073741492;
-    if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+    if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
     {
       SetFailureLocation(a7, 1, 14, -1073741492, 144);
       goto LABEL_140;
@@ -361,7 +361,7 @@ LABEL_42:
   {
     v147 = 1;
     v63 = -1073741492;
-    if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+    if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
     {
       SetFailureLocation(a7, 0, 14, -1073741492, 148);
       goto LABEL_140;
@@ -386,7 +386,7 @@ LABEL_42:
     {
       v147 = 1;
       v63 = -1073741492;
-      if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 492);
         goto LABEL_140;
@@ -425,7 +425,7 @@ LABEL_42:
         HvpReleaseCellPaged(BugCheckParameter3, v139);
       v147 = 1;
       v63 = -1073741492;
-      if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v29 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 156);
         goto LABEL_140;
@@ -454,7 +454,7 @@ LABEL_42:
       goto LABEL_53;
     v63 = -1073741492;
     v147 = 1;
-    if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+    if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
     {
       SetFailureLocation(a7, 0, 14, -1073741492, 228);
       goto LABEL_140;
@@ -483,7 +483,7 @@ LABEL_42:
         v63 = -1073741492;
         v147 = 1;
 LABEL_280:
-        if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+        if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
         {
           SetFailureLocation(v100, 0, 14, -1073741492, 192);
           goto LABEL_140;
@@ -536,7 +536,7 @@ LABEL_284:
   }
   v63 = -1073741492;
   v147 = 1;
-  if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+  if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
   {
     SetFailureLocation(a7, 0, 14, -1073741492, 157);
     goto LABEL_140;
@@ -564,7 +564,7 @@ LABEL_53:
   v36 = v137;
   if ( a4 == -1 )
     goto LABEL_178;
-  if ( !v137 && (BYTE2(NlsMbOemCodePageTag) || (CmpCallbackListLock.ApcStateFill[28] & 6) != 0) && a5 )
+  if ( !v137 && (BYTE2(NlsMbOemCodePageTag) || (CmpContextListLock.ApcStateFill[36] & 6) != 0) && a5 )
   {
     v41 = a7;
     goto LABEL_218;
@@ -583,7 +583,7 @@ LABEL_178:
     {
       v147 = 1;
       v63 = -1073741492;
-      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 480);
         goto LABEL_140;
@@ -609,7 +609,7 @@ LABEL_178:
     {
       v63 = -1073741492;
       v147 = 1;
-      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 352);
         goto LABEL_140;
@@ -645,7 +645,7 @@ LABEL_178:
     {
       v63 = -1073741492;
       v147 = 1;
-      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 370);
         goto LABEL_387;
@@ -668,7 +668,7 @@ LABEL_178:
       goto LABEL_67;
     v63 = -1073741492;
     v147 = 1;
-    if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+    if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
     {
       SetFailureLocation(a7, 0, 14, -1073741492, 376);
 LABEL_387:
@@ -694,7 +694,7 @@ LABEL_67:
     {
       v63 = -1073741492;
       v147 = 1;
-      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 416);
         goto LABEL_140;
@@ -725,7 +725,7 @@ LABEL_71:
     v36 = v137;
     v35 = a4;
 LABEL_218:
-    if ( v36 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+    if ( v36 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
     {
       SetFailureLocation(v41, 0, 14, -1073741492, 304);
       v63 = -1073741492;
@@ -832,7 +832,7 @@ LABEL_144:
   {
     v63 = -1073741492;
     v147 = 1;
-    if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+    if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
     {
       SetFailureLocation(v41, 0, 14, -1073741492, 648);
       goto LABEL_140;
@@ -1003,7 +1003,7 @@ LABEL_268:
 LABEL_269:
       v147 = 1;
       SetFailureLocation(v41, 1, 14, -1073741492, v78);
-      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(v41, 0, 14, -1073741492, 592);
         goto LABEL_140;
@@ -1025,7 +1025,7 @@ LABEL_269:
     {
       v147 = 1;
       v63 = -1073741492;
-      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v137 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 610);
         goto LABEL_140;
@@ -1044,7 +1044,7 @@ LABEL_269:
     {
       v147 = 1;
       v63 = -1073741492;
-      if ( v65 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( v65 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(a7, 0, 14, -1073741492, 614);
         goto LABEL_140;
@@ -1377,7 +1377,7 @@ LABEL_440:
   v61 = -1;
 LABEL_208:
   SetFailureLocation(a7, 1, 14, v63, v90);
-  if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+  if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
   {
 LABEL_236:
     SetFailureLocation(a7, 0, 14, v63, 1040);

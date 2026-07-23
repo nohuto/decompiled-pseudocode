@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCommitInitialVadMetadataBits @ 0x140962EBC
+ * XREFs of MiCommitInitialVadMetadataBits @ 0x140A08D44
  * Callers:
- *     MiMapProcessExecutable @ 0x140962988 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x140A08810 (MiMapProcessExecutable.c)
  * Callees:
- *     MiReferenceVad @ 0x14027E890 (MiReferenceVad.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140405820 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiGetFirstVad @ 0x1404B80E0 (MiGetFirstVad.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     MiCommitVadMetadataBits @ 0x1409C6E14 (MiCommitVadMetadataBits.c)
+ *     MiReferenceVad @ 0x14027DE00 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403FE914 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiGetFirstVad @ 0x1404B1910 (MiGetFirstVad.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     MiCommitVadMetadataBits @ 0x140997DF4 (MiCommitVadMetadataBits.c)
  */
 
 __int64 MiCommitInitialVadMetadataBits()
@@ -53,7 +53,7 @@ __int64 MiCommitInitialVadMetadataBits()
       MiReferenceVad(v10);
       UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, Process);
       MiLockVad((__int64)CurrentThread, (__int64)v9, v11, v12);
-      v7 = MiCommitVadMetadataBits(v9, 0LL);
+      v7 = MiCommitVadMetadataBits((__int64)v9, 0LL, v6);
       MiUnlockAndDereferenceVad(v9);
       if ( v7 < 0 )
         return (unsigned int)v7;

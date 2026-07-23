@@ -50,7 +50,7 @@ char __fastcall CcZeroDataInCache(int a1, __int64 *a2, unsigned int a3, unsigned
     v11 = v14 - v15 + v7;
     MemoryDescriptorList = IoAllocateMdl(VirtualAddress[0], (int)v14 - (int)v15, 0, 0, 0LL);
     if ( !MemoryDescriptorList )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     v8 = BYTE5(KeGetCurrentThread()[1].Queue) + 2;
     BYTE5(KeGetCurrentThread()[1].Queue) = 1;
     MiProbeAndLockPages(MemoryDescriptorList, 0LL, 0LL);

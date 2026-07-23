@@ -1,8 +1,8 @@
 /*
  * XREFs of _get_printf_count_output @ 0x1403E57CC
  * Callers:
- *     _woutput_l @ 0x1403E3D1C (_woutput_l.c)
- *     _output_l @ 0x1403E478C (_output_l.c)
+ *     sub_1403E3D1C @ 0x1403E3D1C (sub_1403E3D1C.c)
+ *     sub_1403E478C @ 0x1403E478C (sub_1403E478C.c)
  * Callees:
  *     <none>
  */

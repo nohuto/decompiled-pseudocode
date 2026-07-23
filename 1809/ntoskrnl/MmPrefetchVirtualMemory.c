@@ -1,24 +1,24 @@
 /*
- * XREFs of MmPrefetchVirtualMemory @ 0x14066BDA8
+ * XREFs of MmPrefetchVirtualMemory @ 0x14066CF68
  * Callers:
- *     MiProcessWsInSwapRanges @ 0x1400E5B58 (MiProcessWsInSwapRanges.c)
- *     MmPrefetchVirtualAddresses @ 0x14066BD10 (MmPrefetchVirtualAddresses.c)
- *     PfpPrefetchPrivatePages @ 0x14086438C (PfpPrefetchPrivatePages.c)
- *     ExpDebuggerWorker @ 0x140915030 (ExpDebuggerWorker.c)
+ *     MiProcessWsInSwapRanges @ 0x1400E5BD8 (MiProcessWsInSwapRanges.c)
+ *     MmPrefetchVirtualAddresses @ 0x14066CED0 (MmPrefetchVirtualAddresses.c)
+ *     PfpPrefetchPrivatePages @ 0x1408655EC (PfpPrefetchPrivatePages.c)
+ *     ExpDebuggerWorker @ 0x140916030 (ExpDebuggerWorker.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiLockAndSelectSessionAttachProcess @ 0x1402AED00 (MiLockAndSelectSessionAttachProcess.c)
- *     ObIsKernelHandle @ 0x1402D2CB0 (ObIsKernelHandle.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA1C0 (MiPrefetchVirtualMemory.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x1402AEEF0 (MiLockAndSelectSessionAttachProcess.c)
+ *     ObIsKernelHandle @ 0x1402D2EA0 (ObIsKernelHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall MmPrefetchVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned __int64 a2, __int64 a3, int a4)

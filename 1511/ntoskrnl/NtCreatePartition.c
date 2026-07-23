@@ -9,48 +9,53 @@
  *     MiCreatePartition @ 0x140624224 (MiCreatePartition.c)
  */
 
-NTSTATUS __fastcall NtCreatePartition(void *a1, __int64 *a2, ACCESS_MASK a3, __int64 a4)
+NTSTATUS __cdecl NtCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
-  __int64 *v6; // r14
+  PHANDLE v7; // r14
   KPROCESSOR_MODE PreviousMode; // si
-  int v8; // edi
-  _QWORD *v9; // rbx
+  NTSTATUS v9; // edi
+  _QWORD *v10; // rbx
   NTSTATUS result; // eax
   PVOID Object; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+50h] [rbp-28h] BYREF
 
-  v6 = a2;
+  v7 = PartitionHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-      a2 = (__int64 *)MmUserProbeAddress;
-    *a2 = *a2;
+    if ( (unsigned __int64)PartitionHandle >= MmUserProbeAddress )
+      PartitionHandle = (PHANDLE)MmUserProbeAddress;
+    *PartitionHandle = *PartitionHandle;
   }
-  v8 = 0;
-  v9 = 0LL;
-  if ( a1 )
+  v9 = 0;
+  v10 = 0LL;
+  if ( ParentPartitionHandle )
   {
-    result = ObReferenceObjectByHandle(a1, 2u, MmPartitionObjectType, PreviousMode, &Object, 0LL);
-    v8 = result;
-    v9 = Object;
+    result = ObReferenceObjectByHandle(ParentPartitionHandle, 2u, MmPartitionObjectType, PreviousMode, &Object, 0LL);
+    v9 = result;
+    v10 = Object;
     if ( result < 0 )
       return result;
     if ( *(int **)Object == MiSystemPartition )
     {
       ObfDereferenceObject(Object);
-      v9 = 0LL;
+      v10 = 0LL;
     }
   }
   if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, PreviousMode) )
-    v8 = -1073741727;
-  if ( v8 >= 0 )
+    v9 = -1073741727;
+  if ( v9 >= 0 )
   {
-    v8 = MiCreatePartition(v9, a3, a4, PreviousMode, &v12);
-    if ( v8 >= 0 )
-      *v6 = v12;
+    v9 = MiCreatePartition(v10, DesiredAccess, (__int64)ObjectAttributes, PreviousMode, &v13);
+    if ( v9 >= 0 )
+      *v7 = (HANDLE)v13;
   }
-  if ( v9 )
-    ObfDereferenceObject(v9);
-  return v8;
+  if ( v10 )
+    ObfDereferenceObject(v10);
+  return v9;
 }

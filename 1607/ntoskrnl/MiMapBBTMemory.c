@@ -3,13 +3,13 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiObtainSystemVa @ 0x1400A3024 (MiObtainSystemVa.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiObtainSystemVa @ 0x1400A194C (MiObtainSystemVa.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 void __fastcall MiMapBBTMemory(__int64 a1)

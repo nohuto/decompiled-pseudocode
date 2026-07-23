@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelper_Initialize @ 0x1408FB410
+ * XREFs of SleepstudyHelper_Initialize @ 0x1408FB570
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperCreateLibrary @ 0x1407CCFD0 (SleepstudyHelperCreateLibrary.c)
+ *     SleepstudyHelperCreateLibrary @ 0x1407CD140 (SleepstudyHelperCreateLibrary.c)
  */
 
 __int64 __fastcall SleepstudyHelper_Initialize(__int64 *a1, __int64 a2)

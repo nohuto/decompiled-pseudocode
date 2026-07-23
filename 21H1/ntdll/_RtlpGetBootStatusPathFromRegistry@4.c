@@ -13,58 +13,64 @@
 
 int __thiscall RtlpGetBootStatusPathFromRegistry(_DWORD *this)
 {
-  int v1; // esi
-  int ValueKey; // eax
-  int Heap; // edi
-  void *v4; // ebx
-  _DWORD v6[6]; // [esp+10h] [ebp-30h] BYREF
-  UNICODE_STRING DestinationString; // [esp+28h] [ebp-18h] BYREF
-  _BYTE v8[4]; // [esp+30h] [ebp-10h] BYREF
-  _DWORD *v9; // [esp+34h] [ebp-Ch]
-  int v10; // [esp+38h] [ebp-8h] BYREF
-  int v11; // [esp+3Ch] [ebp-4h] BYREF
+  NTSTATUS v1; // esi
+  NTSTATUS v2; // eax
+  _DWORD *Heap; // edi
+  PVOID v4; // ebx
+  SIZE_T v6; // [esp-4h] [ebp-44h]
+  SIZE_T v7; // [esp-4h] [ebp-44h]
+  size_t v8; // [esp-4h] [ebp-44h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-30h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+28h] [ebp-18h] BYREF
+  ULONG v11; // [esp+30h] [ebp-10h] BYREF
+  _DWORD *v12; // [esp+34h] [ebp-Ch]
+  HANDLE KeyHandle; // [esp+38h] [ebp-8h] BYREF
+  ULONG ResultLength; // [esp+3Ch] [ebp-4h] BYREF
 
-  v9 = this;
+  v12 = this;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
-  v6[0] = 24;
-  v6[2] = &DestinationString;
-  v6[1] = 0;
-  v6[3] = 64;
-  v6[4] = 0;
-  v6[5] = 0;
-  v1 = ZwOpenKey((int)&v10, 131097, (int)v6);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  v1 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v1 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"OsBootstatPath");
-    ValueKey = ZwQueryValueKey(v10, (int)&DestinationString, 2, 0, 0, (int)&v11);
-    v1 = ValueKey;
-    if ( ValueKey == -1073741789 )
+    v2 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0, 0, &ResultLength);
+    v1 = v2;
+    if ( v2 == -1073741789 )
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v11);
+      LODWORD(v6) = ResultLength;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
       if ( Heap )
       {
-        v1 = ZwQueryValueKey(v10, (int)&DestinationString, 2, Heap, v11, (int)v8);
+        v1 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Heap, ResultLength, &v11);
         if ( v1 >= 0 )
         {
-          v4 = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(Heap + 8));
+          LODWORD(v7) = Heap[2];
+          v4 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
           if ( v4 )
           {
-            memcpy(v4, (const void *)(Heap + 12), *(_DWORD *)(Heap + 8));
-            *v9 = v4;
+            LODWORD(v8) = Heap[2];
+            memcpy(v4, Heap + 3, v8);
+            *v12 = v4;
           }
           else
           {
             v1 = -1073741801;
           }
         }
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
         return -1073741801;
       }
     }
-    else if ( ValueKey >= 0 )
+    else if ( v2 >= 0 )
     {
       return -1073741823;
     }

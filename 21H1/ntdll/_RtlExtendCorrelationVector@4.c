@@ -7,17 +7,17 @@
  *     RtlpGetCorrelationVectorEndPosition @ 0x4B36255C (RtlpGetCorrelationVectorEndPosition.c)
  */
 
-int __stdcall RtlExtendCorrelationVector(int a1)
+DWORD __cdecl RtlExtendCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
-  int v1; // ebx
+  DWORD v1; // ebx
   __int64 CorrelationVectorBufferLength; // rax
 
   v1 = 0;
-  if ( RtlpGetCorrelationVectorEndPosition(a1) < 0 )
+  if ( RtlpGetCorrelationVectorEndPosition(CorrelationVector) < 0 )
     return -2147483643;
-  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1);
+  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(CorrelationVector);
   if ( SHIDWORD(CorrelationVectorBufferLength) >= (int)CorrelationVectorBufferLength - 3 )
     return -2147483643;
-  strcpy((char *)(HIDWORD(CorrelationVectorBufferLength) + a1 + 1), ".0");
+  strcpy(&CorrelationVector->Vector[HIDWORD(CorrelationVectorBufferLength)], ".0");
   return v1;
 }

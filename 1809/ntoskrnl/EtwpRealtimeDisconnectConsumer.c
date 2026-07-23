@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumer @ 0x1406C2F04
+ * XREFs of EtwpRealtimeDisconnectConsumer @ 0x1406C41A4
  * Callers:
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x1406C2A80 (EtwpRealtimeDisconnectConsumerByHandle.c)
- *     EtwpCloseRealTimeConnectionObject @ 0x1406C2AE0 (EtwpCloseRealTimeConnectionObject.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x1406C3D20 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpCloseRealTimeConnectionObject @ 0x1406C3D80 (EtwpCloseRealTimeConnectionObject.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpSynchronizeWithLogger @ 0x1406C2FA8 (EtwpSynchronizeWithLogger.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpSynchronizeWithLogger @ 0x1406C4248 (EtwpSynchronizeWithLogger.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegContextCleanup @ 0x1405B6A20
+ * XREFs of RtlpHpSegContextCleanup @ 0x1405B6F90
  * Callers:
- *     RtlpHpHeapDestroy @ 0x1405B6630 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1405B6BA0 (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpSegSegmentFree @ 0x1403151F4 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegSegmentFree @ 0x140315484 (RtlpHpSegSegmentFree.c)
  */
 
 void __fastcall RtlpHpSegContextCleanup(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSessionDisconnected @ 0x140A3B980
+ * XREFs of PopSessionDisconnected @ 0x1409F73A0
  * Callers:
- *     PopSessionConnectionChangeV2 @ 0x1407DDEB4 (PopSessionConnectionChangeV2.c)
- *     PopSessionConnectionChange @ 0x140B72640 (PopSessionConnectionChange.c)
+ *     PopSessionConnectionChangeV2 @ 0x1407E24E4 (PopSessionConnectionChangeV2.c)
+ *     PopSessionConnectionChange @ 0x140B77620 (PopSessionConnectionChange.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDiagTraceSessionStates @ 0x140A3BA08 (PopDiagTraceSessionStates.c)
- *     PopSetSessionDisplayStatus @ 0x140A3C548 (PopSetSessionDisplayStatus.c)
- *     PopSetSessionUserStatus @ 0x140A3E39C (PopSetSessionUserStatus.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDiagTraceSessionStates @ 0x1409F7428 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionDisplayStatus @ 0x1409F7F68 (PopSetSessionDisplayStatus.c)
+ *     PopSetSessionUserStatus @ 0x1409F9DBC (PopSetSessionUserStatus.c)
  */
 
 __int64 __fastcall PopSessionDisconnected(unsigned int a1, __int64 a2)
@@ -15,11 +15,11 @@ __int64 __fastcall PopSessionDisconnected(unsigned int a1, __int64 a2)
   __int64 result; // rax
 
   PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_DISCONNECTED);
-  if ( *(_DWORD *)&PopAdaptiveStandbyLock.AbWaitEntryCount == a1 && a1 != -1 )
+  if ( dword_140F0C078 == a1 && a1 != -1 )
   {
-    memset_0(&PopAdaptiveStandbyLock.ThreadListEntry.Blink, 0, 0x50uLL);
-    PopAdaptiveStandbyLock.SecureThreadCookie = 3;
-    *(_DWORD *)&PopAdaptiveStandbyLock.AbWaitEntryCount = -1;
+    memset_0(&PopAdaptiveContext, 0, 0x50uLL);
+    dword_140F0C07C = 3;
+    dword_140F0C078 = -1;
   }
   PopSetSessionDisplayStatus(a1, 0LL);
   PopSetSessionUserStatus(a1, 2LL);

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpNumaCalculateSllbiSize @ 0x140557D80
+ * XREFs of HalpNumaCalculateSllbiSize @ 0x1405556C0
  * Callers:
- *     HalpNumaGetHmatConfigSize @ 0x140557DF0 (HalpNumaGetHmatConfigSize.c)
- *     HalpNumaParseHmat @ 0x140C122A0 (HalpNumaParseHmat.c)
+ *     HalpNumaGetHmatConfigSize @ 0x140555730 (HalpNumaGetHmatConfigSize.c)
+ *     HalpNumaParseHmat @ 0x140C142A0 (HalpNumaParseHmat.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of XmGetImmediateSourceValue @ 0x140396FC0
+ * XREFs of XmGetImmediateSourceValue @ 0x140397110
  * Callers:
- *     XmGroup3General @ 0x1403966D0 (XmGroup3General.c)
- *     XmAccumImmediate @ 0x140396770 (XmAccumImmediate.c)
- *     XmMoveRegImmediate @ 0x140396880 (XmMoveRegImmediate.c)
- *     XmGroup1Immediate @ 0x140396F30 (XmGroup1Immediate.c)
- *     XmByteImmediate @ 0x1404E52A0 (XmByteImmediate.c)
- *     XmImulImmediate @ 0x1404E5660 (XmImulImmediate.c)
- *     XmMoveImmediate @ 0x1404E57B0 (XmMoveImmediate.c)
- *     XmPushImmediate @ 0x1404E5890 (XmPushImmediate.c)
+ *     XmGroup3General @ 0x140396820 (XmGroup3General.c)
+ *     XmAccumImmediate @ 0x1403968C0 (XmAccumImmediate.c)
+ *     XmMoveRegImmediate @ 0x1403969D0 (XmMoveRegImmediate.c)
+ *     XmGroup1Immediate @ 0x140397080 (XmGroup1Immediate.c)
+ *     XmByteImmediate @ 0x1404E54E0 (XmByteImmediate.c)
+ *     XmImulImmediate @ 0x1404E58A0 (XmImulImmediate.c)
+ *     XmMoveImmediate @ 0x1404E59F0 (XmMoveImmediate.c)
+ *     XmPushImmediate @ 0x1404E5AD0 (XmPushImmediate.c)
  * Callees:
- *     XmGetCodeByte @ 0x140397368 (XmGetCodeByte.c)
- *     XmGetWordImmediate @ 0x140397440 (XmGetWordImmediate.c)
- *     XmGetLongImmediate @ 0x1403C4ED4 (XmGetLongImmediate.c)
+ *     XmGetCodeByte @ 0x1403974B8 (XmGetCodeByte.c)
+ *     XmGetWordImmediate @ 0x140397590 (XmGetWordImmediate.c)
+ *     XmGetLongImmediate @ 0x1403C5304 (XmGetLongImmediate.c)
  */
 
 __int64 __fastcall XmGetImmediateSourceValue(__int64 a1, int a2)

@@ -6,46 +6,46 @@
  *     RtlCopySid @ 0x180069210 (RtlCopySid.c)
  */
 
-__int64 __fastcall RtlCopySidAndAttributesArray(
-        unsigned int a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        char *a5,
-        _QWORD *a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlCopySidAndAttributesArray(
+        ULONG Count,
+        PSID_AND_ATTRIBUTES Src,
+        ULONG SidAreaSize,
+        PSID_AND_ATTRIBUTES Dest,
+        PSID SidArea,
+        PSID *RemainingSidArea,
+        PULONG RemainingSidAreaSize)
 {
-  unsigned int v8; // r15d
-  _DWORD *v11; // rbx
-  __int64 v12; // rdi
+  ULONG v8; // r15d
+  DWORD *p_Attributes; // rbx
+  signed __int64 v12; // rdi
   unsigned int v13; // r14d
 
   v8 = 0;
-  if ( a1 )
+  if ( Count )
   {
-    v11 = (_DWORD *)(a4 + 8);
-    v12 = a2 - a4;
+    p_Attributes = &Dest->Attributes;
+    v12 = (char *)Src - (char *)Dest;
     while ( 1 )
     {
-      v13 = 4 * *(unsigned __int8 *)(*(_QWORD *)((char *)v11 + v12 - 8) + 1LL) + 8;
-      if ( v13 > a3 )
-        return 3221225507LL;
-      *((_QWORD *)v11 - 1) = a5;
-      *v11 = *(_DWORD *)((char *)v11 + v12);
-      a3 -= v13;
-      RtlCopySid(v13, a5, *(unsigned __int8 **)((char *)v11 + v12 - 8));
+      v13 = 4 * *(unsigned __int8 *)(*(_QWORD *)((char *)p_Attributes + v12 - 8) + 1LL) + 8;
+      if ( v13 > SidAreaSize )
+        return -1073741789;
+      *((_QWORD *)p_Attributes - 1) = SidArea;
+      *p_Attributes = *(DWORD *)((char *)p_Attributes + v12);
+      SidAreaSize -= v13;
+      RtlCopySid(v13, SidArea, *(PSID *)((char *)p_Attributes + v12 - 8));
       ++v8;
-      a5 += v13;
-      v11 += 4;
-      if ( v8 >= a1 )
+      SidArea = (char *)SidArea + v13;
+      p_Attributes += 4;
+      if ( v8 >= Count )
         goto LABEL_5;
     }
   }
   else
   {
 LABEL_5:
-    *a6 = a5;
-    *a7 = a3;
-    return 0LL;
+    *RemainingSidArea = SidArea;
+    *RemainingSidAreaSize = SidAreaSize;
+    return 0;
   }
 }

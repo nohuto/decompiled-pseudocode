@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPausePowerRequestStats @ 0x14062BE30
+ * XREFs of PopPausePowerRequestStats @ 0x140670A58
  * Callers:
- *     PopStatsDeletePowerRequest @ 0x14062B904 (PopStatsDeletePowerRequest.c)
+ *     PopStatsDeletePowerRequest @ 0x14066FAA8 (PopStatsDeletePowerRequest.c)
  * Callees:
- *     PoPauseStopWatch @ 0x140264050 (PoPauseStopWatch.c)
- *     PoIsRunningStopWatch @ 0x14026434C (PoIsRunningStopWatch.c)
- *     PopGetStopWatchByRequestType @ 0x14062BEE8 (PopGetStopWatchByRequestType.c)
+ *     PoPauseStopWatch @ 0x14027149C (PoPauseStopWatch.c)
+ *     PoIsRunningStopWatch @ 0x140272520 (PoIsRunningStopWatch.c)
+ *     PopGetStopWatchByRequestType @ 0x140670B10 (PopGetStopWatchByRequestType.c)
  */
 
 char __fastcall PopPausePowerRequestStats(__int64 a1)

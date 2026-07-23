@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x1407F4E14
+ * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x1407F6014
  * Callers:
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmSaveKey @ 0x140803130 (CmSaveKey.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x1406C9FB0 (CmpCheckKeySecurityDescriptorAccess.c)
- *     CmpCheckKeyNodeStackAccess @ 0x1407F4AA0 (CmpCheckKeyNodeStackAccess.c)
- *     CmpInitializeKeyNodeStack @ 0x1407F9F28 (CmpInitializeKeyNodeStack.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x1407FA5AC (CmpSubtreeEnumeratorAdvance.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x1407FA824 (CmpSubtreeEnumeratorCleanup.c)
- *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x1407FA8A4 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x1407FAA48 (CmpSubtreeEnumeratorStartForKcbStack.c)
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x1407FAA84 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D9920 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x1406CB250 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x1407F5CA0 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407FB128 (CmpInitializeKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x1407FB7AC (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x1407FBA24 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x1407FBAA4 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x1407FBC48 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x1407FBC84 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnLayeredSubtree(

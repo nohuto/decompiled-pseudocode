@@ -1,19 +1,19 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttribute @ 0x14022D0C0
+ * XREFs of AuthzBasepFindSecurityAttribute @ 0x14022D1D0
  * Callers:
- *     AuthzBasepAddSecurityAttribute @ 0x140224C44 (AuthzBasepAddSecurityAttribute.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x140225B10 (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14022C884 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     SepDetermineGlobalTableCheckNeededForQuery @ 0x14022CAD0 (SepDetermineGlobalTableCheckNeededForQuery.c)
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14022CCB0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
- *     SeSecurityAttributePresent @ 0x140297BE0 (SeSecurityAttributePresent.c)
- *     AuthzBasepCopyoutSecurityAttributes @ 0x14033DFA8 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C7464 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A59DA4 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x140224D4C (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140225C20 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14022C994 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SepDetermineGlobalTableCheckNeededForQuery @ 0x14022CBE0 (SepDetermineGlobalTableCheckNeededForQuery.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14022CDC0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     SeSecurityAttributePresent @ 0x140297E70 (SeSecurityAttributePresent.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x14033E238 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C7734 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A5A054 (AuthzBasepCompareSecurityAttributesInformation.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x140225B88 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140362080 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x140225C98 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140362220 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  */
 
 const UNICODE_STRING *__fastcall AuthzBasepFindSecurityAttribute(__int64 a1, const UNICODE_STRING *a2)

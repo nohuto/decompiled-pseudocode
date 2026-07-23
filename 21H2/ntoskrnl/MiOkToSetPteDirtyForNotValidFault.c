@@ -1,9 +1,9 @@
 /*
- * XREFs of MiOkToSetPteDirtyForNotValidFault @ 0x1402ABE84
+ * XREFs of MiOkToSetPteDirtyForNotValidFault @ 0x140229FC4
  * Callers:
- *     MiProbeLeafPteAccess @ 0x14020B6F0 (MiProbeLeafPteAccess.c)
- *     MiResolveTransitionFault @ 0x140216790 (MiResolveTransitionFault.c)
- *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
+ *     MiProbeLeafPteAccess @ 0x1402AFFF0 (MiProbeLeafPteAccess.c)
+ *     MiResolveTransitionFault @ 0x1402BB090 (MiResolveTransitionFault.c)
+ *     MiIssueHardFault @ 0x140319700 (MiIssueHardFault.c)
  * Callees:
  *     <none>
  */

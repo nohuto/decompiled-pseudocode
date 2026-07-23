@@ -1,60 +1,55 @@
 /*
- * XREFs of ArbTestAllocation @ 0x140706690
+ * XREFs of ArbTestAllocation @ 0x140704250
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ArbpBuildAllocationStack @ 0x140706810 (ArbpBuildAllocationStack.c)
- *     RtlCopyRangeList @ 0x140A52170 (RtlCopyRangeList.c)
- *     RtlFreeRangeList @ 0x140A52340 (RtlFreeRangeList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ArbpBuildAllocationStack @ 0x1407043D0 (ArbpBuildAllocationStack.c)
+ *     RtlCopyRangeList @ 0x140A4A0A0 (RtlCopyRangeList.c)
+ *     RtlFreeRangeList @ 0x140A4A270 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbTestAllocation(_QWORD *a1, __int64 ***a2)
 {
-  __int64 **v2; // r8
-  int v5; // eax
-  __int64 v6; // rdx
-  __int64 v7; // r9
-  int v8; // ebx
-  unsigned int v9; // ebp
-  __int64 v10; // r15
+  int v4; // eax
+  __int64 v5; // rdx
+  int v6; // ebx
+  unsigned int v7; // ebp
+  __int64 v8; // r15
   __int64 *i; // rsi
-  __int64 **v12; // r8
+  __int64 **v10; // r8
   unsigned __int64 j; // rbx
-  int v14; // eax
-  __int64 *v15; // rdx
-  char v16; // cl
-  __int64 *v17; // r9
-  __int64 **v18; // rcx
-  __int64 v19; // rax
-  __int64 v20; // r8
-  __int64 v21; // r9
+  int v12; // eax
+  __int64 *v13; // rdx
+  char v14; // cl
+  __int64 *v15; // r9
+  __int64 **v16; // rcx
+  __int64 v17; // rax
   __int64 result; // rax
 
-  v2 = a2[2];
-  if ( v2 )
-    v5 = guard_dispatch_icall_no_overrides(a1, *((unsigned int *)a2 + 2), v2, a1[6]);
+  if ( a2[2] )
+    v4 = guard_dispatch_icall_no_overrides(a1, *((unsigned int *)a2 + 2));
   else
-    v5 = RtlCopyRangeList(a1[6], a1[5]);
-  v8 = v5;
-  if ( v5 < 0 )
+    v4 = RtlCopyRangeList(a1[6], a1[5]);
+  v6 = v4;
+  if ( v4 < 0 )
     goto LABEL_25;
-  v9 = 0;
-  v10 = 0LL;
+  v7 = 0;
+  v8 = 0LL;
   for ( i = **a2; ; i = (__int64 *)*i )
   {
-    v12 = *a2;
+    v10 = *a2;
     if ( *a2 == (__int64 **)i )
       break;
-    ++v9;
+    ++v7;
     if ( !a2[2] )
     {
-      v6 = i[4];
-      if ( v10 != v6 )
+      v5 = i[4];
+      if ( v8 != v5 )
       {
-        v10 = i[4];
-        v8 = guard_dispatch_icall_no_overrides(a1, v6, v12, v7);
-        if ( v8 < 0 )
+        v8 = i[4];
+        v6 = guard_dispatch_icall_no_overrides(a1, v5);
+        if ( v6 < 0 )
           goto LABEL_25;
       }
     }
@@ -63,50 +58,50 @@ __int64 __fastcall ArbTestAllocation(_QWORD *a1, __int64 ***a2)
     {
       for ( j = i[3]; j < i[3] + 32 * (unsigned __int64)*((unsigned int *)i + 4); j += 32LL )
       {
-        v14 = guard_dispatch_icall_no_overrides(j, v6, v12, v7);
-        if ( v14 < 0 )
+        v12 = guard_dispatch_icall_no_overrides(j, v5);
+        if ( v12 < 0 )
         {
-          v8 = -1073741438;
+          v6 = -1073741438;
           goto LABEL_25;
         }
-        i[6] += v14;
+        i[6] += v12;
       }
     }
   }
   do
   {
-    v15 = *v12;
-    v16 = 1;
-    if ( *v12 == (__int64 *)v12 )
+    v13 = *v10;
+    v14 = 1;
+    if ( *v10 == (__int64 *)v10 )
       break;
     do
     {
-      v17 = (__int64 *)*v15;
-      if ( (__int64 **)*v15 == v12 )
+      v15 = (__int64 *)*v13;
+      if ( (__int64 **)*v13 == v10 )
         break;
-      if ( v15[6] > v17[6] )
+      if ( v13[6] > v15[6] )
       {
-        v18 = (__int64 **)v15[1];
-        v19 = *v17;
-        *v18 = v17;
-        *(_QWORD *)(v19 + 8) = v15;
-        *v15 = v19;
-        v15[1] = (__int64)v17;
-        v17[1] = (__int64)v18;
-        v16 = 0;
-        *v17 = (__int64)v15;
+        v16 = (__int64 **)v13[1];
+        v17 = *v15;
+        *v16 = v15;
+        *(_QWORD *)(v17 + 8) = v13;
+        *v13 = v17;
+        v13[1] = (__int64)v15;
+        v15[1] = (__int64)v16;
+        v14 = 0;
+        *v15 = (__int64)v13;
       }
-      v15 = (__int64 *)*v15;
+      v13 = (__int64 *)*v13;
     }
-    while ( v15 != (__int64 *)v12 );
+    while ( v13 != (__int64 *)v10 );
   }
-  while ( !v16 );
-  v8 = ArbpBuildAllocationStack(a1, *a2, v9);
-  if ( v8 < 0 || (result = guard_dispatch_icall_no_overrides(a1, a1[14], v20, v21), v8 = result, (int)result < 0) )
+  while ( !v14 );
+  v6 = ArbpBuildAllocationStack(a1, *a2, v7);
+  if ( v6 < 0 || (result = guard_dispatch_icall_no_overrides(a1, a1[14]), v6 = result, (int)result < 0) )
   {
 LABEL_25:
     RtlFreeRangeList(a1[6]);
-    return (unsigned int)v8;
+    return (unsigned int)v6;
   }
   return result;
 }

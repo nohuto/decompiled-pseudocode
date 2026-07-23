@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetBaseNameFromImageFileName @ 0x1404CD914
+ * XREFs of MiGetBaseNameFromImageFileName @ 0x1404C6CE4
  * Callers:
- *     MiCreateSectionForDriver @ 0x140A1882C (MiCreateSectionForDriver.c)
- *     MiGenerateSystemImageNames @ 0x140ABF64C (MiGenerateSystemImageNames.c)
+ *     MiCreateSectionForDriver @ 0x140A1199C (MiCreateSectionForDriver.c)
+ *     MiGenerateSystemImageNames @ 0x140ABA72C (MiGenerateSystemImageNames.c)
  * Callees:
  *     <none>
  */

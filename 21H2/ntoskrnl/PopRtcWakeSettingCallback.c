@@ -1,10 +1,10 @@
 /*
- * XREFs of PopRtcWakeSettingCallback @ 0x1407D43E0
+ * XREFs of PopRtcWakeSettingCallback @ 0x1407D4550
  * Callers:
  *     <none>
  * Callees:
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopRtcWakeSettingCallback(_QWORD *a1, _DWORD *a2, int a3)

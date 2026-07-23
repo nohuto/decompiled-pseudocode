@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceReadyThread @ 0x14046745A
+ * XREFs of EtwTraceReadyThread @ 0x14046785A
  * Callers:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiProcessThreadWaitList @ 0x140253DC0 (KiProcessThreadWaitList.c)
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
- *     KiFastReadyThread @ 0x1402BB984 (KiFastReadyThread.c)
- *     KiReadyOutSwappedThreads @ 0x14034D1F4 (KiReadyOutSwappedThreads.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiProcessThreadWaitList @ 0x140253E80 (KiProcessThreadWaitList.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
+ *     KiFastReadyThread @ 0x1402BBC14 (KiFastReadyThread.c)
+ *     KiReadyOutSwappedThreads @ 0x14034D394 (KiReadyOutSwappedThreads.c)
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpCoverageSamplerReadyThread @ 0x140604030 (EtwpCoverageSamplerReadyThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x140604580 (EtwpCoverageSamplerReadyThread.c)
  */
 
 __int64 __fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)

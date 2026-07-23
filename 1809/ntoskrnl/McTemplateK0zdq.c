@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zdq @ 0x140289850
+ * XREFs of McTemplateK0zdq @ 0x140289A40
  * Callers:
- *     PnpLogActionQueueEvent @ 0x14015F76C (PnpLogActionQueueEvent.c)
+ *     PnpLogActionQueueEvent @ 0x14015F86C (PnpLogActionQueueEvent.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0zdq(

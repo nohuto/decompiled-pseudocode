@@ -1,33 +1,33 @@
 /*
- * XREFs of MiCreateImageFileMap @ 0x1406D33F4
+ * XREFs of MiCreateImageFileMap @ 0x1406AA6D4
  * Callers:
- *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1406A9EA0 (MiCreateNewSection.c)
  * Callees:
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     MiInitializeImageProtos @ 0x14026DF7C (MiInitializeImageProtos.c)
- *     PsIsCurrentThreadPrefetching @ 0x1402A72A0 (PsIsCurrentThreadPrefetching.c)
- *     MiInitializeImageHeaderPage @ 0x1402E7B5C (MiInitializeImageHeaderPage.c)
- *     MiCopyHeaderIfResident @ 0x1402E8D30 (MiCopyHeaderIfResident.c)
- *     MiFlushDataSection @ 0x1402E8F50 (MiFlushDataSection.c)
- *     IoIsDeviceEjectable @ 0x1402E96BC (IoIsDeviceEjectable.c)
- *     MiLegacyImageArchitecture @ 0x1402E96DC (MiLegacyImageArchitecture.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
- *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     CcZeroEndOfLastPage @ 0x1403570FC (CcZeroEndOfLastPage.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiReadImageHeaders @ 0x1406D195C (MiReadImageHeaders.c)
- *     MiCreateMdl @ 0x1406D3A74 (MiCreateMdl.c)
- *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
- *     MiDeleteImageCreationMdls @ 0x1406D4ED4 (MiDeleteImageCreationMdls.c)
- *     MiBuildImageControlArea @ 0x1406D5038 (MiBuildImageControlArea.c)
- *     MiVerifyImageHeader @ 0x1406D5E2C (MiVerifyImageHeader.c)
- *     MiLogCreateImageFileMapFailure @ 0x1408C76F4 (MiLogCreateImageFileMapFailure.c)
- *     MiAllocateEntireImageFileExtents @ 0x1408CF2A4 (MiAllocateEntireImageFileExtents.c)
- *     MiDeleteImageExtentList @ 0x1408D0010 (MiDeleteImageExtentList.c)
- *     MiInitializeImageExtents @ 0x1408D006C (MiInitializeImageExtents.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1402253E0 (PsIsCurrentThreadPrefetching.c)
+ *     MiInitializeImageProtos @ 0x14025BF1C (MiInitializeImageProtos.c)
+ *     MiInitializeImageHeaderPage @ 0x140298EAC (MiInitializeImageHeaderPage.c)
+ *     MiCopyHeaderIfResident @ 0x14029A080 (MiCopyHeaderIfResident.c)
+ *     MiFlushDataSection @ 0x14029A2A0 (MiFlushDataSection.c)
+ *     IoIsDeviceEjectable @ 0x14029AA0C (IoIsDeviceEjectable.c)
+ *     MiLegacyImageArchitecture @ 0x14029AA2C (MiLegacyImageArchitecture.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     ObFastReplaceObject @ 0x140301BD0 (ObFastReplaceObject.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140302FB0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     CcZeroEndOfLastPage @ 0x140361E4C (CcZeroEndOfLastPage.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiReadImageHeaders @ 0x1406A8C3C (MiReadImageHeaders.c)
+ *     MiCreateMdl @ 0x1406AAD54 (MiCreateMdl.c)
+ *     FsRtlGetFileSize @ 0x1406ABB40 (FsRtlGetFileSize.c)
+ *     MiDeleteImageCreationMdls @ 0x1406AC1B4 (MiDeleteImageCreationMdls.c)
+ *     MiBuildImageControlArea @ 0x1406AC318 (MiBuildImageControlArea.c)
+ *     MiVerifyImageHeader @ 0x1406AD10C (MiVerifyImageHeader.c)
+ *     MiLogCreateImageFileMapFailure @ 0x1408C7854 (MiLogCreateImageFileMapFailure.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408CF404 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteImageExtentList @ 0x1408D0170 (MiDeleteImageExtentList.c)
+ *     MiInitializeImageExtents @ 0x1408D01CC (MiInitializeImageExtents.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MiCreateImageFileMap(
@@ -35,7 +35,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
         __int64 a2,
         unsigned int a3,
         unsigned int a4,
-        __int64 *a5,
+        _QWORD *a5,
         struct _MDL **a6,
         __int64 a7,
         __int128 *a8)
@@ -126,9 +126,9 @@ NTSTATUS __fastcall MiCreateImageFileMap(
   __int128 v96; // [rsp+D0h] [rbp-30h] BYREF
   int v97; // [rsp+E0h] [rbp-20h]
   ULONG_PTR v98; // [rsp+E8h] [rbp-18h] BYREF
-  ULONG_PTR v99; // [rsp+F0h] [rbp-10h]
+  __int64 v99; // [rsp+F0h] [rbp-10h]
   __int128 v100; // [rsp+F8h] [rbp-8h] BYREF
-  __int64 *v101; // [rsp+108h] [rbp+8h]
+  _QWORD *v101; // [rsp+108h] [rbp+8h]
   struct _MDL **v102; // [rsp+110h] [rbp+10h]
   __int128 *v103; // [rsp+118h] [rbp+18h] BYREF
   int v104; // [rsp+120h] [rbp+20h]
@@ -148,7 +148,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
   {
     if ( FileSize.HighPart )
     {
-      dword_140C4CC18 = 34;
+      dword_140C4CC58 = 34;
       return -1073741792;
     }
     v94 = 0LL;
@@ -163,7 +163,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
     MemoryDescriptorList = (struct _MDL *)Mdl;
     if ( !Mdl )
     {
-      dword_140C4CC18 = 35;
+      dword_140C4CC58 = 35;
       return -1073741670;
     }
     *(_QWORD *)(Mdl + 16) = 0LL;
@@ -172,7 +172,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
     ImageHeaders = MiFlushDataSection((__int64)FileObject, &v89);
     if ( ImageHeaders == -1073741740 )
     {
-      dword_140C4CC18 = 36;
+      dword_140C4CC58 = 36;
       goto LABEL_82;
     }
     v79 = 0;
@@ -183,7 +183,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
       v79 = 1;
       if ( PsIsCurrentThreadPrefetching() )
       {
-        dword_140C4CC18 = 37;
+        dword_140C4CC58 = 37;
         ImageHeaders = -1073740749;
         goto LABEL_82;
       }
@@ -203,7 +203,7 @@ NTSTATUS __fastcall MiCreateImageFileMap(
       ImageHeaders = v58;
       if ( v58 < 0 )
       {
-        dword_140C4CC18 = 38;
+        dword_140C4CC58 = 38;
         goto LABEL_171;
       }
       LowPart = FileSize.LowPart;
@@ -246,13 +246,13 @@ LABEL_15:
         ImageHeaders = MiReadImageHeaders(FileObject, v8, (__int64)MemoryDescriptorList, (__int64)&v92);
         if ( ImageHeaders < 0 )
         {
-          dword_140C4CC18 = 40;
+          dword_140C4CC58 = 40;
           goto LABEL_171;
         }
         v19 = *((_QWORD *)&v92 + 1);
         if ( *((_QWORD *)&v92 + 1) != v13 << 12 && *((_QWORD *)&v92 + 1) < 0x40uLL )
         {
-          dword_140C4CC18 = 41;
+          dword_140C4CC58 = 41;
 LABEL_80:
           ImageHeaders = -1073741521;
 LABEL_81:
@@ -291,7 +291,7 @@ LABEL_17:
         if ( (int)v22 + 264 < (unsigned int)v22 )
         {
           ImageHeaders = -1073741520;
-          dword_140C4CC18 = 42;
+          dword_140C4CC58 = 42;
           goto LABEL_81;
         }
         v23 = v22 + 264;
@@ -299,7 +299,7 @@ LABEL_17:
         if ( (unsigned __int64)(v22 + 264) > FileSize.QuadPart )
         {
           ImageHeaders = -1073741520;
-          dword_140C4CC18 = 43;
+          dword_140C4CC58 = 43;
           goto LABEL_81;
         }
         if ( v23 > v13 << 12 )
@@ -316,7 +316,7 @@ LABEL_17:
           if ( !v61 )
           {
             ImageHeaders = -1073741670;
-            dword_140C4CC18 = 44;
+            dword_140C4CC58 = 44;
             v15 = 0LL;
             goto LABEL_83;
           }
@@ -330,7 +330,7 @@ LABEL_17:
             ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v60, v8, &v98);
             if ( ImageHeaders < 0 )
             {
-              dword_140C4CC18 = 128;
+              dword_140C4CC58 = 128;
               goto LABEL_171;
             }
             v8 = v98;
@@ -340,14 +340,14 @@ LABEL_17:
           ImageHeaders = MiReadImageHeaders(FileObject, v8, v62, (__int64)&v92);
           if ( ImageHeaders < 0 )
           {
-            dword_140C4CC18 = 45;
+            dword_140C4CC58 = 45;
             goto LABEL_171;
           }
           v64 = v24 & 0xFFF;
           if ( *((_QWORD *)&v92 + 1) != (unsigned int)v95 && *((_QWORD *)&v92 + 1) < (unsigned __int64)(v64 + 264) )
           {
             ImageHeaders = -1073741520;
-            dword_140C4CC18 = 46;
+            dword_140C4CC58 = 46;
             goto LABEL_81;
           }
           v26 = *((_QWORD *)&v92 + 1) - v64;
@@ -362,7 +362,7 @@ LABEL_17:
           if ( v23 > v19 )
           {
             ImageHeaders = -1073741520;
-            dword_140C4CC18 = 47;
+            dword_140C4CC58 = 47;
             goto LABEL_81;
           }
           v25 = StartVa + (unsigned int)v22;
@@ -381,7 +381,7 @@ LABEL_17:
         if ( !((v30 >> 12) + ((v30 & 0xFFF) != 0)) )
         {
           ImageHeaders = -1073741701;
-          dword_140C4CC18 = 49;
+          dword_140C4CC58 = 49;
           goto LABEL_81;
         }
         v31 = *(_OWORD *)(v25 + 4);
@@ -391,7 +391,7 @@ LABEL_17:
         if ( v27 + v32 + 40 * WORD1(v31) <= v27 )
         {
           ImageHeaders = -1073741701;
-          dword_140C4CC18 = 50;
+          dword_140C4CC58 = 50;
           goto LABEL_81;
         }
         v33 = v32 + v27;
@@ -405,7 +405,7 @@ LABEL_17:
         if ( v37 > v30 )
         {
           ImageHeaders = -1073741701;
-          dword_140C4CC18 = 48;
+          dword_140C4CC58 = 48;
           goto LABEL_81;
         }
         if ( v36 > *((_QWORD *)&v92 + 1) )
@@ -417,7 +417,7 @@ LABEL_17:
           if ( v67 || (v69 = ((unsigned __int64)v68 + 4095) & 0xFFFFFFFFFFFFF000uLL, (unsigned __int64)v68 > v69) )
           {
             ImageHeaders = -1073741701;
-            dword_140C4CC18 = 51;
+            dword_140C4CC58 = 51;
 LABEL_171:
             if ( ImageHeaders >= 0 )
               goto LABEL_62;
@@ -430,7 +430,7 @@ LABEL_172:
           if ( !v84 )
           {
             ImageHeaders = -1073741670;
-            dword_140C4CC18 = 52;
+            dword_140C4CC58 = 52;
             goto LABEL_81;
           }
           *(_QWORD *)(v84 + 16) = v34 >> 12;
@@ -444,7 +444,7 @@ LABEL_172:
             ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v71, v8, &v91);
             if ( ImageHeaders < 0 )
             {
-              dword_140C4CC18 = 129;
+              dword_140C4CC58 = 129;
               goto LABEL_171;
             }
             v8 = v91;
@@ -458,13 +458,13 @@ LABEL_172:
           ImageHeaders = MiReadImageHeaders(v39, v8, (__int64)v70, (__int64)&v92);
           if ( ImageHeaders < 0 )
           {
-            dword_140C4CC18 = 53;
+            dword_140C4CC58 = 53;
             goto LABEL_171;
           }
           if ( *((_QWORD *)&v92 + 1) < (unsigned __int64)v103 )
           {
             ImageHeaders = -1073741701;
-            dword_140C4CC18 = 54;
+            dword_140C4CC58 = 54;
             goto LABEL_81;
           }
           v29 = v86;
@@ -481,13 +481,13 @@ LABEL_172:
           {
             ImageHeaders = -1073741701;
             MiLogCreateImageFileMapFailure(v36, v39, *(unsigned int *)(v29 + 64), DWORD1(v96));
-            dword_140C4CC18 = 55;
+            dword_140C4CC58 = 55;
             goto LABEL_81;
           }
           if ( !MiLegacyImageArchitecture(v96) )
           {
             ImageHeaders = -1073741701;
-            dword_140C4CC18 = 56;
+            dword_140C4CC58 = 56;
             goto LABEL_81;
           }
           a4 |= 0x200000u;
@@ -538,7 +538,7 @@ LABEL_172:
             v15 = (PVOID *)v80;
             v93 = 0LL;
             ImageHeaders = -1073741523;
-            dword_140C4CC18 = 57;
+            dword_140C4CC58 = 57;
             goto LABEL_83;
           }
           _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 7624), v93);
@@ -554,7 +554,7 @@ LABEL_172:
         v51 = 1LL;
         if ( v42 == 1 )
         {
-          MiInitializeImageHeaderPage(v99, *(unsigned int *)(v86 + 24), v41, v45);
+          MiInitializeImageHeaderPage(v99, *(unsigned int *)(v86 + 24));
           v51 = 1LL;
         }
         if ( *(_WORD *)(v86 + 48) == 267 )
@@ -597,7 +597,7 @@ LABEL_172:
           {
             if ( ImageHeaders != -1073741800 )
             {
-              dword_140C4CC18 = 58;
+              dword_140C4CC58 = 58;
               goto LABEL_171;
             }
             *(_DWORD *)(v14 + 56) &= ~0x40000000u;
@@ -633,7 +633,7 @@ LABEL_62:
           ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v78, v8, &v84);
           if ( ImageHeaders < 0 )
           {
-            dword_140C4CC18 = 91;
+            dword_140C4CC58 = 91;
             goto LABEL_171;
           }
           v8 = v84;
@@ -646,7 +646,7 @@ LABEL_62:
     v20 = MemoryDescriptorList;
     goto LABEL_17;
   }
-  dword_140C4CC18 = 33;
+  dword_140C4CC58 = 33;
   if ( result == -1073741638 )
     return -1073741792;
   return result;

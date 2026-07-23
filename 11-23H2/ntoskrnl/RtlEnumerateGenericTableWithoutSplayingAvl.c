@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x140371750
+ * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1403718F0
  * Callers:
- *     RtlEnumerateGenericTableAvl @ 0x140371720 (RtlEnumerateGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403718C0 (RtlEnumerateGenericTableAvl.c)
  * Callees:
- *     RealSuccessor @ 0x1403718BC (RealSuccessor.c)
+ *     RealSuccessor @ 0x140371A5C (RealSuccessor.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)

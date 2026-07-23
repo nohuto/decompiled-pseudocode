@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckForMatch @ 0x140A08780
+ * XREFs of SdbpCheckForMatch @ 0x140A04CB0
  * Callers:
- *     SdbpCheckKObject @ 0x140959920 (SdbpCheckKObject.c)
- *     SdbpCheckExe @ 0x140A08164 (SdbpCheckExe.c)
- *     SdbpSearchDB @ 0x140A08258 (SdbpSearchDB.c)
+ *     SdbpCheckKObject @ 0x1409413E0 (SdbpCheckKObject.c)
+ *     SdbpCheckExe @ 0x140A04694 (SdbpCheckExe.c)
+ *     SdbpSearchDB @ 0x140A04788 (SdbpSearchDB.c)
  * Callees:
- *     Feature_ReduceForceCacheScope__private_IsEnabledDeviceUsageNoInline @ 0x1404F6974 (Feature_ReduceForceCacheScope__private_IsEnabledDeviceUsageNoInline.c)
- *     SdbpGetExeEntryFlags @ 0x140804700 (SdbpGetExeEntryFlags.c)
- *     SdbReadWORDTag @ 0x14095F588 (SdbReadWORDTag.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     SdbpMatchOsVersion @ 0x140A088B4 (SdbpMatchOsVersion.c)
- *     SdbpMatchList @ 0x140AE807C (SdbpMatchList.c)
+ *     Feature_ReduceForceCacheScope__private_IsEnabledDeviceUsageNoInline @ 0x1404F4258 (Feature_ReduceForceCacheScope__private_IsEnabledDeviceUsageNoInline.c)
+ *     SdbpGetExeEntryFlags @ 0x140804E40 (SdbpGetExeEntryFlags.c)
+ *     SdbReadWORDTag @ 0x140947048 (SdbReadWORDTag.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     SdbpMatchOsVersion @ 0x140A04DE4 (SdbpMatchOsVersion.c)
+ *     SdbpMatchList @ 0x140AEB320 (SdbpMatchList.c)
  */
 
 __int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, unsigned int a3, __int64 a4, _DWORD *a5, int *a6)

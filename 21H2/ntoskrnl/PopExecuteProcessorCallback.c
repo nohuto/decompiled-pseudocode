@@ -1,10 +1,10 @@
 /*
- * XREFs of PopExecuteProcessorCallback @ 0x14027B8C0
+ * XREFs of PopExecuteProcessorCallback @ 0x140269860
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueTargetDpc @ 0x14027B910 (PopQueueTargetDpc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopQueueTargetDpc @ 0x1402698B0 (PopQueueTargetDpc.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopExecuteProcessorCallback(PRKDPC Dpc, __int64 a2)

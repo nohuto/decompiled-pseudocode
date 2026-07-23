@@ -1,129 +1,122 @@
 /*
- * XREFs of NtAlpcCreateSecurityContext @ 0x140894C50
+ * XREFs of NtAlpcCreateSecurityContext @ 0x14089D0F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14088DADC (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x140893140 (AlpcpDeleteBlob.c)
- *     AlpcpInsertResourcePort @ 0x140893BB8 (AlpcpInsertResourcePort.c)
- *     PsChargeProcessPagedPoolQuota @ 0x140896630 (PsChargeProcessPagedPoolQuota.c)
- *     AlpcpReferenceBlob @ 0x1408966C0 (AlpcpReferenceBlob.c)
- *     SeCreateClientSecurity @ 0x140896720 (SeCreateClientSecurity.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     AlpcpStartInitialization @ 0x140940834 (AlpcpStartInitialization.c)
- *     AlpcAddHandleTableEntry @ 0x1409408A0 (AlpcAddHandleTableEntry.c)
- *     AlpcpEndInitialization @ 0x140A14170 (AlpcpEndInitialization.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408923C8 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpStartInitialization @ 0x140894E74 (AlpcpStartInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x140894EE0 (AlpcAddHandleTableEntry.c)
+ *     AlpcpInsertResourcePort @ 0x1408966E0 (AlpcpInsertResourcePort.c)
+ *     AlpcpDeleteBlob @ 0x14089CCE0 (AlpcpDeleteBlob.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14089EAD0 (PsChargeProcessPagedPoolQuota.c)
+ *     AlpcpReferenceBlob @ 0x14089EB60 (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
+ *     SeCreateClientSecurity @ 0x14089EDC0 (SeCreateClientSecurity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpEndInitialization @ 0x140A0C980 (AlpcpEndInitialization.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a3)
+NTSTATUS __cdecl NtAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
   ULONG_PTR v5; // r14
   struct _KTHREAD *CurrentThread; // rax
-  KPROCESSOR_MODE PreviousMode; // dl
+  int PreviousMode; // edx
   __int64 v8; // rcx
   unsigned __int64 v9; // xmm1_8
-  struct _SECURITY_QUALITY_OF_SERVICE *v10; // rsi
+  struct _SECURITY_QUALITY_OF_SERVICE *QoS; // rsi
   __int64 v11; // rdx
-  NTSTATUS v12; // edi
+  int v12; // edi
   char *v13; // r13
   PEPROCESS v14; // rdi
   __int64 Pool2; // rax
   ULONG_PTR v16; // rsi
-  __int64 v17; // r8
-  __int64 v18; // r9
-  unsigned __int64 v19; // rax
-  __int64 v20; // rtt
-  PVOID v21; // rdi
-  volatile signed __int64 *v22; // rdi
-  _QWORD *v23; // r14
-  __int64 v24; // rcx
-  __int64 v25; // rax
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v29; // r8
-  __int64 v30; // r9
-  int v31; // edx
-  KPROCESSOR_MODE v32; // [rsp+30h] [rbp-98h]
+  unsigned __int64 v17; // rax
+  __int64 v18; // rtt
+  PVOID v19; // rdi
+  volatile signed __int64 *v20; // rdi
+  char *v21; // r14
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  char v25; // [rsp+30h] [rbp-98h]
   PVOID Object; // [rsp+40h] [rbp-88h] BYREF
-  PVOID v34; // [rsp+48h] [rbp-80h]
-  ULONG_PTR v35; // [rsp+50h] [rbp-78h]
+  PVOID v27; // [rsp+48h] [rbp-80h]
+  ULONG_PTR v28; // [rsp+50h] [rbp-78h]
   PETHREAD ClientThread; // [rsp+58h] [rbp-70h]
-  ULONG_PTR v37; // [rsp+60h] [rbp-68h] BYREF
-  __m128i v38; // [rsp+68h] [rbp-60h]
-  __int64 v39; // [rsp+78h] [rbp-50h]
+  ULONG_PTR v30; // [rsp+60h] [rbp-68h] BYREF
+  __m128i v31; // [rsp+68h] [rbp-60h]
+  ALPC_HANDLE ContextHandle; // [rsp+78h] [rbp-50h]
   struct _SECURITY_QUALITY_OF_SERVICE ClientSecurityQos; // [rsp+80h] [rbp-48h] BYREF
 
-  v38 = 0LL;
-  LODWORD(v39) = 0;
+  v31 = 0LL;
+  LODWORD(ContextHandle) = 0;
   *(_QWORD *)&ClientSecurityQos.Length = 0LL;
   *(_DWORD *)&ClientSecurityQos.ContextTrackingMode = 0;
   v5 = 0LL;
-  v35 = 0LL;
+  v28 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v12 = -1073741811;
     goto LABEL_36;
   }
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v32 = PreviousMode;
-  if ( PreviousMode )
+  PreviousMode = (unsigned __int8)KeGetCurrentThread()->PreviousMode;
+  v25 = PreviousMode;
+  if ( (_BYTE)PreviousMode )
   {
-    if ( ((unsigned __int8)a3 & 7) != 0 )
+    if ( ((unsigned __int8)SecurityAttribute & 7) != 0 )
       ExRaiseDatatypeMisalignment();
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a3;
+    if ( (unsigned __int64)SecurityAttribute < 0x7FFFFFFF0000LL )
+      v8 = (__int64)SecurityAttribute;
     *(_BYTE *)v8 = *(_BYTE *)v8;
     *(_BYTE *)(v8 + 23) = *(_BYTE *)(v8 + 23);
-    v38 = *a3;
-    v39 = a3[1].m128i_i64[0];
-    v9 = _mm_srli_si128(v38, 8).m128i_u64[0];
-    v10 = (struct _SECURITY_QUALITY_OF_SERVICE *)v9;
+    v31 = *(__m128i *)&SecurityAttribute->Flags;
+    ContextHandle = SecurityAttribute->ContextHandle;
+    v9 = _mm_srli_si128(v31, 8).m128i_u64[0];
+    QoS = (struct _SECURITY_QUALITY_OF_SERVICE *)v9;
     if ( v9 )
     {
       v11 = v9;
       if ( v9 >= 0x7FFFFFFF0000LL )
         v11 = 0x7FFFFFFF0000LL;
       RtlCopyVolatileMemory(&ClientSecurityQos, (const void *)v11, 0xCuLL);
-      PreviousMode = v32;
+      LOBYTE(PreviousMode) = v25;
     }
   }
   else
   {
-    v38 = *a3;
-    v39 = a3[1].m128i_i64[0];
-    v10 = (struct _SECURITY_QUALITY_OF_SERVICE *)a3->m128i_i64[1];
-    if ( v10 )
-      ClientSecurityQos = *v10;
+    v31 = *(__m128i *)&SecurityAttribute->Flags;
+    ContextHandle = SecurityAttribute->ContextHandle;
+    QoS = SecurityAttribute->QoS;
+    if ( QoS )
+      ClientSecurityQos = *QoS;
   }
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   v13 = (char *)Object;
   if ( v12 >= 0 )
   {
-    if ( !v10 )
+    if ( !QoS )
       ClientSecurityQos = *(struct _SECURITY_QUALITY_OF_SERVICE *)((char *)Object + 260);
     ClientThread = KeGetCurrentThread();
     v14 = IoThreadToProcess(ClientThread);
-    v34 = v14;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    v27 = v14;
+    Pool2 = ExAllocatePool2(0x100uLL, 0xA0uLL, 0x65536C41u);
     if ( !Pool2 )
       goto LABEL_37;
     *(_WORD *)(Pool2 + 16) = 768;
@@ -143,11 +136,11 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
     _m_prefetchw(&v14[3].ProcessLock);
     while ( 1 )
     {
-      v19 = *(_QWORD *)&v14[3].ProcessLock;
-      if ( v19 < 0xA0 )
+      v17 = *(_QWORD *)&v14[3].ProcessLock;
+      if ( v17 < 0xA0 )
         break;
-      v20 = *(_QWORD *)&v14[3].ProcessLock;
-      if ( v20 == _InterlockedCompareExchange64((volatile signed __int64 *)&v14[3].ProcessLock, v19 - 160, v19) )
+      v18 = *(_QWORD *)&v14[3].ProcessLock;
+      if ( v18 == _InterlockedCompareExchange64((volatile signed __int64 *)&v14[3].ProcessLock, v17 - 160, v17) )
       {
         v12 = 0;
         goto LABEL_20;
@@ -160,71 +153,69 @@ LABEL_20:
       v12 = SeCreateClientSecurity(ClientThread, &ClientSecurityQos, 0, (PSECURITY_CLIENT_CONTEXT)(v16 + 32));
       if ( v12 >= 0 )
       {
-        v21 = v34;
-        ObfReferenceObjectWithTag(v34, 0x63706C41u);
-        *(_QWORD *)(v16 + 16) = v21;
-        v22 = (volatile signed __int64 *)(v13 + 352);
-        v23 = KeAbPreAcquire((__int64)(v13 + 352), 0LL);
+        v19 = v27;
+        ObfReferenceObjectWithTag(v27, 0x63706C41u);
+        *(_QWORD *)(v16 + 16) = v19;
+        v20 = (volatile signed __int64 *)(v13 + 352);
+        v21 = (char *)KeAbPreAcquire((__int64)(v13 + 352), 0LL);
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)v13 + 44, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx((signed __int64 *)v13 + 44, 0, v23, (__int64)(v13 + 352));
-        if ( v23 )
-          *((_BYTE *)v23 + 10) = 1;
+          ExfAcquirePushLockSharedEx((signed __int64 *)v13 + 44, 0, v21, (__int64)(v13 + 352));
+        if ( v21 )
+          v21[10] = 1;
         if ( (*((_DWORD *)v13 + 104) & 0x20) != 0 )
         {
-          if ( _InterlockedCompareExchange64(v22, 0LL, 17LL) != 17 )
+          if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
             ExfReleasePushLockShared((signed __int64 *)v13 + 44);
           KeAbPostRelease((ULONG_PTR)(v13 + 352));
-          v31 = 1;
         }
         else
         {
           AlpcpStartInitialization(v16);
           AlpcpReferenceBlob(v16);
-          v24 = *((_QWORD *)v13 + 2) + 40LL;
-          *(_QWORD *)v16 = v24;
-          v37 = v16;
-          v25 = AlpcAddHandleTableEntry(v24, &v37);
-          *(_QWORD *)(v16 + 8) = v25;
-          if ( v25 != -1 )
+          v22 = *((_QWORD *)v13 + 2) + 40LL;
+          *(_QWORD *)v16 = v22;
+          v30 = v16;
+          v23 = AlpcAddHandleTableEntry(v22, &v30);
+          *(_QWORD *)(v16 + 8) = v23;
+          if ( v23 != -1 )
           {
             PsReferenceSiloContext(v13);
             *(_QWORD *)(v16 + 24) = v13;
             AlpcpInsertResourcePort((__int64)v13, v16);
-            if ( _InterlockedCompareExchange64(v22, 0LL, 17LL) != 17 )
+            if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
               ExfReleasePushLockShared((signed __int64 *)v13 + 44);
             KeAbPostRelease((ULONG_PTR)(v13 + 352));
             AlpcpEndInitialization(v16);
             v5 = v16;
-            v35 = v16;
+            v28 = v16;
             v12 = 0;
             goto LABEL_33;
           }
-          if ( _InterlockedCompareExchange64(v22, 0LL, 17LL) != 17 )
+          if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
             ExfReleasePushLockShared((signed __int64 *)v13 + 44);
           KeAbPostRelease((ULONG_PTR)(v13 + 352));
           *(_QWORD *)v16 = 0LL;
           AlpcpEndInitialization(v16);
-          v31 = 2;
         }
-        AlpcpDereferenceBlobEx(v16, v31, v29, v30);
+        AlpcpDereferenceBlobEx(v16);
 LABEL_37:
         v12 = -1073741670;
 LABEL_35:
         ObfDereferenceObject(v13);
         goto LABEL_36;
       }
-      AlpcpReleasePagedPoolQuota((ULONG_PTR)v34, 0xA0uLL);
+      AlpcpReleasePagedPoolQuota((ULONG_PTR)v27, 0xA0uLL);
     }
-    AlpcpDereferenceBlobEx(v16, 1, v17, v18);
+    AlpcpDereferenceBlobEx(v16);
 LABEL_33:
     if ( v12 >= 0 )
     {
-      a3[1].m128i_i64[0] = *(_QWORD *)(v5 + 8);
-      AlpcpDereferenceBlobEx(v5, 1, v26, v27);
+      SecurityAttribute->ContextHandle = *(ALPC_HANDLE *)(v5 + 8);
+      AlpcpDereferenceBlobEx(v5);
     }
     goto LABEL_35;
   }
 LABEL_36:
   KeLeaveCriticalRegionThread();
-  return (unsigned int)v12;
+  return v12;
 }

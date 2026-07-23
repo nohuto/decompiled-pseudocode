@@ -12,10 +12,10 @@
  *     _RtlpMatchUserLanguage@4 @ 0x4B363547 (_RtlpMatchUserLanguage@4.c)
  */
 
-int __stdcall RtlLocaleNameToLcid(PCWSTR SourceString, int *a2, int a3)
+NTSTATUS __cdecl RtlLocaleNameToLcid(PCWSTR LocaleName, PLCID lcid, ULONG Flags)
 {
   PCWSTR v3; // edi
-  int *v4; // esi
+  PLCID v4; // esi
   int v5; // edx
   int v6; // eax
   int v7; // ebx
@@ -33,13 +33,13 @@ int __stdcall RtlLocaleNameToLcid(PCWSTR SourceString, int *a2, int a3)
   int v20; // [esp+1Ch] [ebp-Ch]
   int i; // [esp+24h] [ebp-4h]
 
-  v3 = SourceString;
-  if ( !SourceString )
+  v3 = LocaleName;
+  if ( !LocaleName )
     return -1073741585;
-  v4 = a2;
-  if ( !a2 )
+  v4 = lcid;
+  if ( !lcid )
     return -1073741584;
-  if ( (a3 & 0xFFFFFFFC) != 0 )
+  if ( (Flags & 0xFFFFFFFC) != 0 )
     return -1073741583;
   v5 = pTblPtrs;
   v19 = pTblPtrs;
@@ -58,7 +58,7 @@ int __stdcall RtlLocaleNameToLcid(PCWSTR SourceString, int *a2, int a3)
 LABEL_33:
     if ( !(unsigned __int8)RtlpIsCustomLocale(v3) )
       return -1073741585;
-    if ( (a3 & 1) != 0 && (unsigned __int8)RtlpMatchUILanguage(v3) )
+    if ( (Flags & 1) != 0 && (unsigned __int8)RtlpMatchUILanguage(v3) )
     {
       *v4 = 5120;
       return 0;
@@ -68,7 +68,7 @@ LABEL_33:
       *v4 = 3072;
       return 0;
     }
-    if ( (a3 & 2) != 0 || (int)RtlpGetCustomCultureData(0, 0) >= 0 )
+    if ( (Flags & 2) != 0 || (int)RtlpGetCustomCultureData(0, 0) >= 0 )
     {
       *v4 = 4096;
       return 0;
@@ -82,9 +82,9 @@ LABEL_33:
   {
     v10 = (v7 + v6) / 2;
     v17 = v10;
-    v11 = *SourceString;
+    v11 = *LocaleName;
     v12 = (unsigned __int16 *)(v9 + 2 * *(unsigned __int16 *)(v8 + 8 * v10) + 2);
-    if ( !*SourceString )
+    if ( !*LocaleName )
       break;
     while ( 1 )
     {
@@ -123,7 +123,7 @@ LABEL_29:
     v7 = v10 - 1;
     v6 = v18;
 LABEL_30:
-    v3 = SourceString;
+    v3 = LocaleName;
     if ( v6 > v7 )
       goto LABEL_32;
     v8 = v20;
@@ -135,16 +135,16 @@ LABEL_20:
     goto LABEL_29;
   if ( v10 < 0 )
   {
-    v3 = SourceString;
+    v3 = LocaleName;
 LABEL_32:
-    v4 = a2;
+    v4 = lcid;
     goto LABEL_33;
   }
-  if ( (a3 & 2) != 0 )
+  if ( (Flags & 2) != 0 )
   {
     v14 = v20;
 LABEL_25:
-    *a2 = *(_DWORD *)(v14 + 8 * v10 + 4) & 0x7FFFFFFF;
+    *lcid = *(_DWORD *)(v14 + 8 * v10 + 4) & 0x7FFFFFFF;
     return 0;
   }
   v16 = v19;

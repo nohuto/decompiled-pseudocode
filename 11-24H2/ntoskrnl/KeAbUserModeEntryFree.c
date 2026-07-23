@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAbUserModeEntryFree @ 0x14046AAD8
+ * XREFs of KeAbUserModeEntryFree @ 0x140463468
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeAbUserModeEntryFree(ULONG_PTR a1, unsigned int a2)
@@ -38,7 +38,7 @@ __int64 __fastcall KeAbUserModeEntryFree(ULONG_PTR a1, unsigned int a2)
       if ( *v8 )
       {
         _disable();
-        KiAbEntryFreeAndEnableInterrupts((__int64)v8, v4, 0LL, 1, 0LL);
+        KiAbEntryFreeAndEnableInterrupts((__int64)v8, v4, 0LL, 1LL, 0LL);
       }
       v9 = *(_QWORD *)(v4 + 800);
       if ( v9 )

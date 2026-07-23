@@ -1,14 +1,14 @@
 /*
- * XREFs of ObReferenceFileObjectForWrite @ 0x140446E50
+ * XREFs of ObReferenceFileObjectForWrite @ 0x140445D20
  * Callers:
- *     NtWriteFile @ 0x140446600 (NtWriteFile.c)
+ *     NtWriteFile @ 0x1404454D0 (NtWriteFile.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140031860 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     PsDereferenceSiloContext @ 0x1400870F4 (PsDereferenceSiloContext.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
- *     ObpReferenceObjectByHandle @ 0x140447040 (ObpReferenceObjectByHandle.c)
- *     ObpAuditObjectAccess @ 0x140665D20 (ObpAuditObjectAccess.c)
+ *     PsDereferenceSiloContext @ 0x1400019C0 (PsDereferenceSiloContext.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1400313E0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
+ *     ObpReferenceObjectByHandle @ 0x140445F10 (ObpReferenceObjectByHandle.c)
+ *     ObpAuditObjectAccess @ 0x140665E04 (ObpAuditObjectAccess.c)
  */
 
 __int64 __fastcall ObReferenceFileObjectForWrite(ULONG_PTR BugCheckParameter1, char a2, _QWORD *a3, _DWORD *a4)

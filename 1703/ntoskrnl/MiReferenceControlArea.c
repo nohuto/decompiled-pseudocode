@@ -53,7 +53,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, _QWORD *a3)
     if ( !*p_DataSectionObject )
     {
       *p_DataSectionObject = a2;
-      v15 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
+      v15 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject, 0LL);
       if ( v15 )
         *(_BYTE *)(v15 + 26) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14036BE00);
@@ -85,7 +85,7 @@ LABEL_33:
   }
   if ( *(_BYTE *)(v9 + 56) & 1 | ((*(_DWORD *)(v9 + 56) & 2) != 0) )
   {
-    v16 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
+    v16 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject, 0LL);
     v17 = (_KLOCK_ENTRY *)v16;
     if ( v16 )
       KeAbPreWait(v16);
@@ -107,7 +107,7 @@ LABEL_33:
     KeWaitForGate((__int64)&v21, 0x12u);
     if ( v17 )
     {
-      KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
+      KeAbPreAcquire((ULONG_PTR)p_DataSectionObject, &v17->TreeNode);
       KeAbPostReleaseEx((ULONG_PTR)p_DataSectionObject, v17);
     }
     *a3 = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTrimAllSystemPagableMemory @ 0x14053C040
+ * XREFs of MiTrimAllSystemPagableMemory @ 0x14053C280
  * Callers:
- *     MmTrimAllSystemPagableMemory @ 0x14053C990 (MmTrimAllSystemPagableMemory.c)
- *     MmVerifierTrimMemory @ 0x1409C5C04 (MmVerifierTrimMemory.c)
+ *     MmTrimAllSystemPagableMemory @ 0x14053CBD0 (MmTrimAllSystemPagableMemory.c)
+ *     MmVerifierTrimMemory @ 0x1409C6C04 (MmVerifierTrimMemory.c)
  * Callees:
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     MiPurgePartitionStandby @ 0x140385004 (MiPurgePartitionStandby.c)
- *     MiEmptyTargetedWorkingSet @ 0x14053B228 (MiEmptyTargetedWorkingSet.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     MiPurgePartitionStandby @ 0x140385154 (MiPurgePartitionStandby.c)
+ *     MiEmptyTargetedWorkingSet @ 0x14053B468 (MiEmptyTargetedWorkingSet.c)
  */
 
 __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
@@ -28,15 +28,15 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
   __int64 v16; // rcx
   ULONG_PTR *v17; // rcx
 
-  v2 = &unk_140C4EE68;
+  v2 = &unk_140C4EEA8;
   SessionVm = 1LL;
-  v4 = &unk_140C4F000;
+  v4 = &unk_140C4F040;
   v6 = 3LL;
   if ( !a1 )
   {
     v7 = 0;
-    v8 = &unk_140C4EE68;
-    v9 = &unk_140C4F000;
+    v8 = &unk_140C4EEA8;
+    v9 = &unk_140C4F040;
     do
     {
       SessionVm = (unsigned __int64)v9;
@@ -55,7 +55,7 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
   v11 = 0;
   CurrentThread = 0LL;
   v13 = 0;
-  if ( _InterlockedIncrement(&dword_140C4EE48) <= 1 && KeAreInterruptsEnabled() )
+  if ( _InterlockedIncrement(&dword_140C4EE88) <= 1 && KeAreInterruptsEnabled() )
   {
     CurrentThread = KeGetCurrentThread();
     v13 = 1;
@@ -91,7 +91,7 @@ LABEL_22:
         if ( a2 == 1 && v11 == 1 )
         {
           if ( a1 == 1 )
-            v17 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
+            v17 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
           else
             v17 = &MiSystemPartition;
           MiPurgePartitionStandby((__int64)v17, 8u, v14, v15);
@@ -106,7 +106,7 @@ LABEL_22:
     goto LABEL_22;
   }
 LABEL_28:
-  _InterlockedAdd(&dword_140C4EE48, 0xFFFFFFFF);
+  _InterlockedAdd(&dword_140C4EE88, 0xFFFFFFFF);
   if ( v13 == 1 )
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v11;

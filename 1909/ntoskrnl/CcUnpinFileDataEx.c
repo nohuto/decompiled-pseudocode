@@ -248,7 +248,7 @@ LABEL_28:
   v26 = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset(v19, 0) )
-    ExpAcquireFastMutexContended(v9 + 280);
+    ExpAcquireFastMutexContended(v9 + 280, (PRTL_BALANCED_NODE)v23);
   if ( v23 )
     *(_BYTE *)(v23 + 26) |= 1u;
   *(_QWORD *)(v9 + 288) = KeGetCurrentThread();

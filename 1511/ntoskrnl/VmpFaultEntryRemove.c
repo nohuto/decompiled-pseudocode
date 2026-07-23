@@ -8,7 +8,7 @@
  *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14004CC40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
-__int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall VmpFaultEntryRemove(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   unsigned __int8 CurrentIrql; // bp
   __int64 result; // rax
@@ -16,7 +16,7 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 *a2)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 56));
-  RtlRbRemoveNode((unsigned __int64 *)(a1 + 40), a2);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), a2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 56));
   result = CurrentIrql;
   __writecr8(CurrentIrql);

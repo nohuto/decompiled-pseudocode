@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInitializeGuardedMutex @ 0x14007D100
+ * XREFs of KeInitializeGuardedMutex @ 0x14007D180
  * Callers:
- *     PiUEventNotifyUserMode @ 0x1403EFE78 (PiUEventNotifyUserMode.c)
- *     PiUEventInitClientRegistrationContext @ 0x14048CE88 (PiUEventInitClientRegistrationContext.c)
- *     ExInitializePoolDescriptor @ 0x140536204 (ExInitializePoolDescriptor.c)
- *     CmpInitSIDToHiveMapping @ 0x14055B694 (CmpInitSIDToHiveMapping.c)
- *     CmpInitializeDelayedCloseTable @ 0x14055B6A0 (CmpInitializeDelayedCloseTable.c)
- *     CmpInitDelayDerefKCBEngine @ 0x14055B6E8 (CmpInitDelayDerefKCBEngine.c)
- *     PfTInitialize @ 0x140571904 (PfTInitialize.c)
- *     PiDqObjectManagerInit @ 0x14057C724 (PiDqObjectManagerInit.c)
- *     EtwpInitializeProviderTraits @ 0x1405814DC (EtwpInitializeProviderTraits.c)
+ *     PiUEventNotifyUserMode @ 0x14048D5A4 (PiUEventNotifyUserMode.c)
+ *     PiUEventInitClientRegistrationContext @ 0x14048D918 (PiUEventInitClientRegistrationContext.c)
+ *     ExInitializePoolDescriptor @ 0x140536744 (ExInitializePoolDescriptor.c)
+ *     CmpInitSIDToHiveMapping @ 0x14055BBD4 (CmpInitSIDToHiveMapping.c)
+ *     CmpInitializeDelayedCloseTable @ 0x14055BBE0 (CmpInitializeDelayedCloseTable.c)
+ *     CmpInitDelayDerefKCBEngine @ 0x14055BC28 (CmpInitDelayDerefKCBEngine.c)
+ *     PfTInitialize @ 0x140571E44 (PfTInitialize.c)
+ *     PiDqObjectManagerInit @ 0x14057CBD0 (PiDqObjectManagerInit.c)
+ *     EtwpInitializeProviderTraits @ 0x140581988 (EtwpInitializeProviderTraits.c)
  * Callees:
  *     <none>
  */

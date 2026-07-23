@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryFullAttributesFile @ 0x1403FCC80
+ * XREFs of ZwQueryFullAttributesFile @ 0x1403FCE60
  * Callers:
  *     <none>
  * Callees:
@@ -12,5 +12,5 @@ NTSTATUS __stdcall ZwQueryFullAttributesFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, FileInformation);
+  return KiServiceInternal(ObjectAttributes);
 }

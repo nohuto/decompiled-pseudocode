@@ -14,76 +14,76 @@
  *     RtlReleaseSRWLockShared @ 0x18004F120 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 __fastcall LdrAddRefDll(int a1, unsigned __int64 a2)
+NTSTATUS __cdecl LdrAddRefDll(ULONG Flags, PVOID DllHandle)
 {
   char v3; // si
-  __int64 v4; // rdi
-  unsigned __int64 v5; // rax
+  volatile signed __int32 *v4; // rdi
+  unsigned __int64 Root; // rax
   unsigned __int64 v6; // rcx
   __int64 v7; // rax
-  unsigned int Count; // eax
-  unsigned int v9; // ebx
+  NTSTATUS Count; // eax
+  NTSTATUS v9; // ebx
 
-  v3 = a1;
-  if ( (a1 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
+  v3 = Flags;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
   v4 = 0LL;
-  if ( !a2 )
-    return 3221225781LL;
-  if ( a2 == LdrpSystemDllBase )
+  if ( !DllHandle )
+    return -1073741515;
+  if ( DllHandle == LdrpSystemDllBase )
   {
-    v4 = LdrpNtDllDataTableEntry;
+    v4 = (volatile signed __int32 *)LdrpNtDllDataTableEntry;
     goto LABEL_19;
   }
   RtlAcquireSRWLockShared(&LdrpModuleDatatableLock);
-  v5 = LdrpModuleBaseAddressIndex;
-  if ( (qword_1801D44B0 & 1) != 0 )
+  Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( !LdrpModuleBaseAddressIndex )
+    if ( !LdrpModuleBaseAddressIndex.Root )
       goto LABEL_18;
-    v5 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
   }
-  if ( !v5 )
+  if ( !Root )
     goto LABEL_18;
   do
   {
-    if ( a2 >= *(_QWORD *)(v5 - 152) )
+    if ( (unsigned __int64)DllHandle >= *(_QWORD *)(Root - 152) )
     {
-      if ( a2 <= *(_QWORD *)(v5 - 152) )
+      if ( (unsigned __int64)DllHandle <= *(_QWORD *)(Root - 152) )
         break;
-      v6 = *(_QWORD *)(v5 + 8);
-      if ( (qword_1801D44B0 & 1) != 0 && v6 )
+      v6 = *(_QWORD *)(Root + 8);
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v6 )
       {
-        v5 ^= v6;
+        Root ^= v6;
         continue;
       }
 LABEL_12:
-      v5 = v6;
+      Root = v6;
       continue;
     }
-    v6 = *(_QWORD *)v5;
-    if ( (qword_1801D44B0 & 1) == 0 || !v6 )
+    v6 = *(_QWORD *)Root;
+    if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) == 0 || !v6 )
       goto LABEL_12;
-    v5 ^= v6;
+    Root ^= v6;
   }
-  while ( v5 );
-  if ( v5 )
+  while ( Root );
+  if ( Root )
   {
-    v4 = v5 - 200;
-    v7 = *(_QWORD *)(v5 - 48);
+    v4 = (volatile signed __int32 *)(Root - 200);
+    v7 = *(_QWORD *)(Root - 48);
     if ( *(_DWORD *)(v7 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v7 - 56LL) & 0x20) == 0 )
-      _InterlockedIncrement((volatile signed __int32 *)(v4 + 276));
+      _InterlockedIncrement(v4 + 69);
   }
 LABEL_18:
   RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
 LABEL_19:
   if ( !v4 )
-    return 3221225781LL;
+    return -1073741515;
   if ( (v3 & 1) != 0 )
     Count = LdrpPinModule(v4);
   else
     Count = LdrpIncrementModuleLoadCount(v4);
   v9 = Count;
-  LdrpDereferenceModule(v4);
+  LdrpDereferenceModule((PVOID)v4);
   return v9;
 }

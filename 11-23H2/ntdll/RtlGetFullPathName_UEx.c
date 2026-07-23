@@ -9,29 +9,34 @@
  *     RtlGetFullPathName_Ustr @ 0x18001C0C0 (RtlGetFullPathName_Ustr.c)
  */
 
-__int64 __fastcall RtlGetFullPathName_UEx(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, _DWORD *a5)
+NTSTATUS __cdecl RtlGetFullPathName_UEx(
+        PCWSTR FileName,
+        ULONG BufferLength,
+        PWSTR Buffer,
+        PWSTR *FilePart,
+        ULONG *BytesRequired)
 {
-  _DWORD *v5; // rbx
-  __int64 result; // rax
-  int FullPathName_Ustr; // eax
-  _BYTE v11[24]; // [rsp+30h] [rbp-18h] BYREF
+  ULONG *v5; // rbx
+  NTSTATUS result; // eax
+  ULONG FullPathName_Ustr; // eax
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a5;
-  if ( a5 )
-    *a5 = 0;
-  result = RtlInitUnicodeStringEx(v11, a1);
-  if ( (int)result >= 0 )
+  v5 = BytesRequired;
+  if ( BytesRequired )
+    *BytesRequired = 0;
+  result = RtlInitUnicodeStringEx(&DestinationString, FileName);
+  if ( result >= 0 )
   {
-    FullPathName_Ustr = RtlGetFullPathName_Ustr(v11, a2, a3, a4, 0LL, &a5);
+    FullPathName_Ustr = RtlGetFullPathName_Ustr(&DestinationString, BufferLength, Buffer, FilePart, 0LL, &BytesRequired);
     if ( FullPathName_Ustr )
     {
       if ( v5 )
         *v5 = FullPathName_Ustr;
-      return 0LL;
+      return 0;
     }
     else
     {
-      return 3221225523LL;
+      return -1073741773;
     }
   }
   return result;

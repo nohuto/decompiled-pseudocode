@@ -1,15 +1,15 @@
 /*
- * XREFs of EmProviderDeregister @ 0x14061CE10
+ * XREFs of EmProviderDeregister @ 0x14061CEC4
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x14013CC5C (EmpQueueRuleUpdateState.c)
- *     EmpProviderDeregisterEntry @ 0x1401B8090 (EmpProviderDeregisterEntry.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EmpQueueRuleUpdateState @ 0x14013D1CC (EmpQueueRuleUpdateState.c)
+ *     EmpProviderDeregisterEntry @ 0x1401B7F74 (EmpProviderDeregisterEntry.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

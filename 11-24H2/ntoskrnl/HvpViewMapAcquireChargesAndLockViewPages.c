@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpViewMapAcquireChargesAndLockViewPages @ 0x140980280
+ * XREFs of HvpViewMapAcquireChargesAndLockViewPages @ 0x140968A90
  * Callers:
- *     HvpViewMapMakeViewRangeValid @ 0x140980000 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140968810 (HvpViewMapMakeViewRangeValid.c)
  * Callees:
- *     CmSiAcquireProcessLockedPagesCharge @ 0x1403CCFA8 (CmSiAcquireProcessLockedPagesCharge.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1403CD0AC (CmSiReleaseProcessLockedPagesCharge.c)
- *     CmSiLockViewOfSection @ 0x140494F5C (CmSiLockViewOfSection.c)
+ *     CmSiAcquireProcessLockedPagesCharge @ 0x14046C798 (CmSiAcquireProcessLockedPagesCharge.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14046C89C (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiLockViewOfSection @ 0x14048F81C (CmSiLockViewOfSection.c)
  */
 
-__int64 __fastcall HvpViewMapAcquireChargesAndLockViewPages(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapAcquireChargesAndLockViewPages(__int64 a1, void **a2, void *a3, ULONG_PTR a4)
 {
-  __int64 v7; // rcx
+  ULONG_PTR v7; // rcx
   int locked; // ebx
 
   locked = CmSiAcquireProcessLockedPagesCharge(a2, a4);

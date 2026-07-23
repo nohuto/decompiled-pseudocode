@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLocateSubsectionNode @ 0x140316AE0
+ * XREFs of MiLocateSubsectionNode @ 0x140321830
  * Callers:
- *     MiReferenceDataSubsections @ 0x1402FD12C (MiReferenceDataSubsections.c)
- *     MiAdvanceVadView @ 0x1402FE5F4 (MiAdvanceVadView.c)
- *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
- *     MiComputeDataFlushRange @ 0x1403152C0 (MiComputeDataFlushRange.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     MiDereferenceDataSubsections @ 0x140554E28 (MiDereferenceDataSubsections.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiReferenceDataSubsections @ 0x140307E7C (MiReferenceDataSubsections.c)
+ *     MiAdvanceVadView @ 0x140309344 (MiAdvanceVadView.c)
+ *     MiRemoveMappedPtes @ 0x140313250 (MiRemoveMappedPtes.c)
+ *     MiComputeDataFlushRange @ 0x140320010 (MiComputeDataFlushRange.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     MiDereferenceDataSubsections @ 0x140555068 (MiDereferenceDataSubsections.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 _QWORD *__fastcall MiLocateSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)

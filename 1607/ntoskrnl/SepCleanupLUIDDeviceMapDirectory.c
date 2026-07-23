@@ -1,25 +1,25 @@
 /*
- * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x140549C74
+ * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x14054A1B4
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1404E50DC (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x140533094 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x1404C7CF8 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x1405335D4 (SepDeleteLogonSessionTrack.c)
  * Callees:
- *     PsGetServerSiloServiceSessionId @ 0x140007F34 (PsGetServerSiloServiceSessionId.c)
- *     PsDetachSiloFromCurrentThread @ 0x140009D20 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140009D40 (PsAttachSiloToCurrentThread.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcscmp @ 0x14014EF64 (wcscmp.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14015A780 (ZwOpenDirectoryObject.c)
- *     ZwMakeTemporaryObject @ 0x14015BCE0 (ZwMakeTemporaryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x14015C040 (ZwOpenSymbolicLinkObject.c)
- *     ZwQueryDirectoryObject @ 0x14015C2A0 (ZwQueryDirectoryObject.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1400098A0 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x1400098C0 (PsAttachSiloToCurrentThread.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1400860B0 (PsGetServerSiloServiceSessionId.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcscmp @ 0x14014F524 (wcscmp.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x14015ACF0 (ZwOpenDirectoryObject.c)
+ *     ZwMakeTemporaryObject @ 0x14015C250 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14015C5B0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQueryDirectoryObject @ 0x14015C810 (ZwQueryDirectoryObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -62,7 +62,7 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, __int64 a2)
     ObfDereferenceObjectWithTag(KeGetCurrentThread()->ApcState.Process, 0x4D526553u);
   else
     KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v26);
-  ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId();
+  ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(a2);
   swprintf_s(Dst, 0x40uLL, L"\\Sessions\\%d\\DosDevices\\%08x-%08x", ServerSiloServiceSessionId, a1[1], *a1);
   RtlInitUnicodeString(&DestinationString, Dst);
   ObjectAttributes.Length = 48;

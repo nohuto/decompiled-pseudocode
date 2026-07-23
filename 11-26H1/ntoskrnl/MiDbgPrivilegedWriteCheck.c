@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDbgPrivilegedWriteCheck @ 0x1406FEA20
+ * XREFs of MiDbgPrivilegedWriteCheck @ 0x1407036F0
  * Callers:
- *     MiDbgWriteCheck @ 0x1406FED48 (MiDbgWriteCheck.c)
+ *     MiDbgWriteCheck @ 0x140703A18 (MiDbgWriteCheck.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiDbgIsPfn @ 0x1406FE024 (MiDbgIsPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiDbgIsPfn @ 0x140702CF4 (MiDbgIsPfn.c)
  */
 
 __int64 __fastcall MiDbgPrivilegedWriteCheck(int *a1)
@@ -42,7 +42,7 @@ __int64 __fastcall MiDbgPrivilegedWriteCheck(int *a1)
       }
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) )
       {
-        stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x200u;
+        stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x200u;
         return 0LL;
       }
       v4 = 1;
@@ -71,7 +71,7 @@ LABEL_20:
       else
       {
         v7 = 0;
-        stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x100u;
+        stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x100u;
       }
       goto LABEL_23;
     }

@@ -14,60 +14,58 @@
 
 int __fastcall LdrpGetParentLangId(unsigned __int16 a1, _WORD *a2)
 {
-  int v3; // esi
-  int v4; // eax
-  int ParentLocaleName; // eax
-  int v6; // esi
-  int v8; // [esp+10h] [ebp-58h] BYREF
-  PCWSTR v9; // [esp+14h] [ebp-54h]
-  int v10; // [esp+18h] [ebp-50h] BYREF
-  PCWSTR SourceString; // [esp+1Ch] [ebp-4Ch]
-  int v12; // [esp+20h] [ebp-48h] BYREF
-  _BYTE v13[32]; // [esp+24h] [ebp-44h] BYREF
-  _BYTE v14[32]; // [esp+44h] [ebp-24h] BYREF
+  LCID v3; // esi
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // esi
+  _UNICODE_STRING ParentLocaleName; // [esp+10h] [ebp-58h] BYREF
+  _UNICODE_STRING LocaleName; // [esp+18h] [ebp-50h] BYREF
+  DWORD lcid; // [esp+20h] [ebp-48h] BYREF
+  _BYTE v11[32]; // [esp+24h] [ebp-44h] BYREF
+  _BYTE v12[32]; // [esp+44h] [ebp-24h] BYREF
 
-  v8 = 0;
-  v9 = 0;
-  v10 = 0;
-  SourceString = 0;
+  *(_DWORD *)&ParentLocaleName.Length = 0;
+  ParentLocaleName.Buffer = 0;
+  *(_DWORD *)&LocaleName.Length = 0;
+  LocaleName.Buffer = 0;
   if ( !a2 )
     return -1073741811;
   v3 = a1;
   *a2 = 0;
-  SourceString = (PCWSTR)v14;
-  HIWORD(v10) = 30;
-  v4 = RtlLcidToLocaleName(a1, &v10, 2, 0);
+  LocaleName.Buffer = (wchar_t *)v12;
+  LocaleName.MaximumLength = 30;
+  v4 = RtlLcidToLocaleName(a1, &LocaleName, 2u, 0);
   if ( v4 >= 0 )
     goto LABEL_3;
   if ( v4 == -1073741789 )
   {
-    SourceString = 0;
-    HIWORD(v10) = 0;
-    v4 = RtlLcidToLocaleName(v3, &v10, 2, 1);
+    LocaleName.Buffer = 0;
+    LocaleName.MaximumLength = 0;
+    v4 = RtlLcidToLocaleName(v3, &LocaleName, 2u, 1u);
   }
   if ( v4 >= 0 )
   {
 LABEL_3:
-    v9 = (PCWSTR)v13;
-    HIWORD(v8) = 30;
-    ParentLocaleName = RtlGetParentLocaleName(SourceString, (int)&v8, 6, 0);
-    v6 = ParentLocaleName;
-    if ( ParentLocaleName >= 0 )
+    ParentLocaleName.Buffer = (wchar_t *)v11;
+    ParentLocaleName.MaximumLength = 30;
+    v5 = RtlGetParentLocaleName((PCWSTR)LocaleName.Buffer, &ParentLocaleName, 6u, 0);
+    v6 = v5;
+    if ( v5 >= 0 )
       goto LABEL_23;
-    if ( ParentLocaleName == -1073741789 )
+    if ( v5 == -1073741789 )
     {
-      v9 = 0;
-      HIWORD(v8) = 0;
-      v6 = RtlGetParentLocaleName(SourceString, (int)&v8, 6, 1);
+      ParentLocaleName.Buffer = 0;
+      ParentLocaleName.MaximumLength = 0;
+      v6 = RtlGetParentLocaleName((PCWSTR)LocaleName.Buffer, &ParentLocaleName, 6u, 1u);
     }
     if ( v6 >= 0 )
     {
 LABEL_23:
-      if ( (_WORD)v8 )
+      if ( ParentLocaleName.Length )
       {
-        v6 = RtlLocaleNameToLcid(v9, (int)&v12, 3);
+        v6 = RtlLocaleNameToLcid((PCWSTR)ParentLocaleName.Buffer, &lcid, 3u);
         if ( v6 >= 0 )
-          *a2 = v12;
+          *a2 = lcid;
       }
     }
   }
@@ -75,9 +73,9 @@ LABEL_23:
   {
     v6 = -1073741811;
   }
-  if ( v9 != (PCWSTR)v13 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
-  if ( SourceString != (PCWSTR)v14 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, SourceString);
+  if ( (_BYTE *)ParentLocaleName.Buffer != v11 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ParentLocaleName.Buffer);
+  if ( (_BYTE *)LocaleName.Buffer != v12 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, LocaleName.Buffer);
   return v6;
 }

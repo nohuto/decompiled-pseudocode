@@ -1,5 +1,5 @@
 /*
- * XREFs of VfUtilGetSPAllocSizeLimit @ 0x1409C2030
+ * XREFs of VfUtilGetSPAllocSizeLimit @ 0x1409C3030
  * Callers:
  *     <none>
  * Callees:

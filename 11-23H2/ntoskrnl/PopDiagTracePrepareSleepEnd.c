@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTracePrepareSleepEnd @ 0x140991450
+ * XREFs of PopDiagTracePrepareSleepEnd @ 0x140991650
  * Callers:
- *     PopPrepareSleep @ 0x14058F47C (PopPrepareSleep.c)
+ *     PopPrepareSleep @ 0x14058F96C (PopPrepareSleep.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140367640 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403677E0 (PopDiagTraceEventNoPayload.c)
  */
 
 void PopDiagTracePrepareSleepEnd()

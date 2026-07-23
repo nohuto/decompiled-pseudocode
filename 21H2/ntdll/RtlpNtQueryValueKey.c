@@ -5,27 +5,27 @@
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
- *     NtQueryValueKey @ 0x18009D920 (NtQueryValueKey.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     NtQueryValueKey @ 0x18009D8E0 (NtQueryValueKey.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall RtlpNtQueryValueKey(__int64 a1, _DWORD *a2, void *a3, int *a4)
+__int64 __fastcall RtlpNtQueryValueKey(HANDLE KeyHandle, _DWORD *a2, void *a3, int *a4)
 {
   int v8; // eax
-  __int64 Heap; // rbx
-  int v10; // edi
-  _WORD v12[20]; // [rsp+30h] [rbp-28h] BYREF
-  int v13; // [rsp+78h] [rbp+20h] BYREF
+  char *Heap; // rbx
+  NTSTATUS v10; // edi
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-28h] BYREF
+  ULONG Length; // [rsp+78h] [rbp+20h] BYREF
 
   v8 = 0;
   if ( a4 )
     v8 = *a4;
-  v13 = v8 + 12;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(v8 + 12));
+  Length = v8 + 12;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(v8 + 12));
   if ( !Heap )
     return 3221225626LL;
-  v12[0] = 0;
-  v10 = NtQueryValueKey(a1, v12, 2LL, Heap, v13, &v13);
+  ValueName.Length = 0;
+  v10 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Length, &Length);
   if ( v10 == -1073741772 )
   {
     v10 = 0;
@@ -34,15 +34,15 @@ __int64 __fastcall RtlpNtQueryValueKey(__int64 a1, _DWORD *a2, void *a3, int *a4
   if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
   {
     if ( a4 )
-      *a4 = *(_DWORD *)(Heap + 8);
+      *a4 = *((_DWORD *)Heap + 2);
     if ( a2 )
-      *a2 = *(_DWORD *)(Heap + 4);
+      *a2 = *((_DWORD *)Heap + 1);
   }
   if ( v10 >= 0 )
   {
     if ( a3 )
-      memmove(a3, (const void *)(Heap + 12), *(unsigned int *)(Heap + 8));
+      memmove(a3, Heap + 12, *((unsigned int *)Heap + 2));
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return (unsigned int)v10;
 }

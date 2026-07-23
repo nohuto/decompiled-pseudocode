@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlpOplockUpperLowerCompatible @ 0x140A9B81C
+ * XREFs of FsRtlpOplockUpperLowerCompatible @ 0x140A9E410
  * Callers:
- *     FsRtlpRequestExclusiveOplock @ 0x1403FC3F4 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpRequestShareableOplock @ 0x1403FEDE8 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x1405B6114 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1405B6350 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlCheckUpperOplock @ 0x14078E550 (FsRtlCheckUpperOplock.c)
- *     FsRtlUpperOplockFsctrl @ 0x14078EA50 (FsRtlUpperOplockFsctrl.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403F8BE4 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x140514FAC (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1405B8984 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1405B8BC0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlCheckUpperOplock @ 0x140791080 (FsRtlCheckUpperOplock.c)
+ *     FsRtlUpperOplockFsctrl @ 0x140791580 (FsRtlUpperOplockFsctrl.c)
  * Callees:
  *     <none>
  */

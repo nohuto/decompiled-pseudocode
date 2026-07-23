@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x14030005C
+ * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x14030024C
  * Callers:
- *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x140639100 (SeTokenCanImpersonate.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066DA18 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int64 a2)
@@ -47,7 +47,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v2 = (int *)Process[1].ActiveProcessors.Bitmap[15];
   EtwpQueryProcessCommandLine(Process, &v11);
   v6 = P;
-  if ( stru_140400278.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400278, 0x400000000000uLL) )
+  if ( stru_140401278.LevelPlus1 > 5 && TlgKeywordOn(&stru_140401278, 0x400000000000uLL) )
   {
     v7 = *(_QWORD *)(a2 + 216);
     v9 = *(_DWORD *)(*(_QWORD *)(a1 + 216) + 32LL);
@@ -67,7 +67,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v25 = 2LL;
     v26 = v6;
     v27[1] = 0;
-    TlgWrite(&stru_140400278, &unk_140372C9D, 0LL, 0LL, 8u, &pData);
+    TlgWrite(&stru_140401278, &unk_140373C2D, 0LL, 0LL, 8u, &pData);
   }
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

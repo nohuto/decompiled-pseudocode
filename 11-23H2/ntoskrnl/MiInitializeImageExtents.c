@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeImageExtents @ 0x140A33E8C
+ * XREFs of MiInitializeImageExtents @ 0x140A3413C
  * Callers:
- *     MiEnableImageDirectMap @ 0x14063CC50 (MiEnableImageDirectMap.c)
+ *     MiEnableImageDirectMap @ 0x14063D1A0 (MiEnableImageDirectMap.c)
  * Callees:
  *     MiDeleteSegmentPages @ 0x140219670 (MiDeleteSegmentPages.c)
  *     MiGetCommittedPages @ 0x1402197C0 (MiGetCommittedPages.c)
- *     MiDereferencePerSessionProtos @ 0x1407B5BB8 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1407B5D00 (MiCreatePerSessionProtos.c)
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
+ *     MiDereferencePerSessionProtos @ 0x1407B5E98 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1407B5FE0 (MiCreatePerSessionProtos.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiInitializeImageExtents(__int64 a1)

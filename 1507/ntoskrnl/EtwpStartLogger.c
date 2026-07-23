@@ -171,14 +171,14 @@ __int64 __fastcall EtwpStartLogger(__int64 a1)
     {
       goto LABEL_152;
     }
-    v39 = *(_QWORD *)(a1 + 24) - SystemTraceControlGuid;
+    v39 = *(_QWORD *)(a1 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v39 )
-      v39 = *(_QWORD *)(a1 + 32) - 0x3969A8086000829ALL;
+      v39 = *(_QWORD *)(a1 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( !v39 )
       goto LABEL_152;
-    v40 = *(_QWORD *)(a1 + 24) - CKCLGuid;
+    v40 = *(_QWORD *)(a1 + 24) - *(_QWORD *)&CKCLGuid.Data1;
     if ( !v40 )
-      v40 = *(_QWORD *)(a1 + 32) - 0x74F156D0633E71AFLL;
+      v40 = *(_QWORD *)(a1 + 32) - *(_QWORD *)CKCLGuid.Data4;
     if ( !v40 || (v4 & 4) != 0 )
       goto LABEL_152;
   }
@@ -241,21 +241,21 @@ LABEL_193:
   }
   v8 = *(_QWORD *)&Uuid.Data1;
   v9 = *(_QWORD *)Uuid.Data4;
-  v10 = *(_QWORD *)&Uuid.Data1 - SystemTraceControlGuid;
-  if ( *(_QWORD *)&Uuid.Data1 == SystemTraceControlGuid )
-    v10 = *(_QWORD *)Uuid.Data4 - 0x3969A8086000829ALL;
+  v10 = *(_QWORD *)&Uuid.Data1 - *(_QWORD *)&SystemTraceControlGuid.Data1;
+  if ( *(_QWORD *)&Uuid.Data1 == *(_QWORD *)&SystemTraceControlGuid.Data1 )
+    v10 = *(_QWORD *)Uuid.Data4 - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v10 )
     goto LABEL_155;
-  v11 = *(_QWORD *)&Uuid.Data1 - CKCLGuid;
-  if ( *(_QWORD *)&Uuid.Data1 == CKCLGuid )
-    v11 = *(_QWORD *)Uuid.Data4 - 0x74F156D0633E71AFLL;
+  v11 = *(_QWORD *)&Uuid.Data1 - *(_QWORD *)&CKCLGuid.Data1;
+  if ( *(_QWORD *)&Uuid.Data1 == *(_QWORD *)&CKCLGuid.Data1 )
+    v11 = *(_QWORD *)Uuid.Data4 - *(_QWORD *)CKCLGuid.Data4;
   if ( !v11 )
   {
 LABEL_155:
     RtlFreeAnsiString(&DestinationString);
-    v41 = v8 - SystemTraceControlGuid;
+    v41 = v8 - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v41 )
-      v41 = v9 - 0x3969A8086000829ALL;
+      v41 = v9 - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( v41 )
     {
       v42 = 2;
@@ -310,9 +310,9 @@ LABEL_152:
     FileName = -1073741811;
     goto LABEL_240;
   }
-  v13 = *(_QWORD *)&Uuid.Data1 - AuditLoggerGuid;
-  if ( *(_QWORD *)&Uuid.Data1 == AuditLoggerGuid )
-    v13 = *(_QWORD *)Uuid.Data4 + 0x6A2DF162E6CE8D6ELL;
+  v13 = *(_QWORD *)&Uuid.Data1 - *(_QWORD *)&AuditLoggerGuid.Data1;
+  if ( *(_QWORD *)&Uuid.Data1 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+    v13 = *(_QWORD *)Uuid.Data4 - *(_QWORD *)AuditLoggerGuid.Data4;
   if ( !v13 )
   {
     if ( (v4 & 0x1000000) == 0 )
@@ -368,9 +368,9 @@ LABEL_215:
   }
   if ( !wcsicmp(DestinationString.Buffer, L"Eventlog-Security") )
   {
-    v51 = v8 - AuditLoggerGuid;
-    if ( v8 == AuditLoggerGuid )
-      v51 = v9 + 0x6A2DF162E6CE8D6ELL;
+    v51 = v8 - *(_QWORD *)&AuditLoggerGuid.Data1;
+    if ( v8 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+      v51 = v9 - *(_QWORD *)AuditLoggerGuid.Data4;
     if ( v51 )
       goto LABEL_193;
   }
@@ -421,7 +421,7 @@ LABEL_58:
     goto LABEL_239;
   if ( (*(_DWORD *)(a1 + 64) & 0x2000000) != 0 && v59 == 8 )
   {
-    FileName = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+    FileName = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
     if ( FileName < 0 )
       goto LABEL_239;
     v52 = 2;
@@ -643,14 +643,14 @@ LABEL_111:
         }
       }
     }
-    v35 = HeapGuid - *(_QWORD *)(StartContext + 292);
-    if ( HeapGuid == *(_QWORD *)(StartContext + 292) )
-      v35 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(StartContext + 300);
+    v35 = *(_QWORD *)&HeapGuid.Data1 - *(_QWORD *)(StartContext + 292);
+    if ( *(_QWORD *)&HeapGuid.Data1 == *(_QWORD *)(StartContext + 292) )
+      v35 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(StartContext + 300);
     if ( v35 )
     {
-      v36 = CritSecGuid - *(_QWORD *)(StartContext + 292);
-      if ( CritSecGuid == *(_QWORD *)(StartContext + 292) )
-        v36 = 0x6B81390EF58D1581LL - *(_QWORD *)(StartContext + 300);
+      v36 = *(_QWORD *)&CritSecGuid.Data1 - *(_QWORD *)(StartContext + 292);
+      if ( *(_QWORD *)&CritSecGuid.Data1 == *(_QWORD *)(StartContext + 292) )
+        v36 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(StartContext + 300);
       if ( v36 )
         goto LABEL_120;
       v57 = 1LL;

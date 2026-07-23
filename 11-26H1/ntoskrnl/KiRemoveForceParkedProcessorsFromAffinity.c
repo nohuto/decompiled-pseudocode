@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveForceParkedProcessorsFromAffinity @ 0x1403EE15C
+ * XREFs of KiRemoveForceParkedProcessorsFromAffinity @ 0x140452C8C
  * Callers:
- *     KiUpdateProcessAvailableCpuState @ 0x1405E5BB8 (KiUpdateProcessAvailableCpuState.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405E5CF4 (KiUpdateSystemAvailableCpuState.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x1405E8528 (KiUpdateProcessAvailableCpuState.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405E8664 (KiUpdateSystemAvailableCpuState.c)
  * Callees:
- *     KeEnumerateNextNodeInSystem @ 0x1403EE250 (KeEnumerateNextNodeInSystem.c)
+ *     KeEnumerateNextNodeInSystem @ 0x140452D80 (KeEnumerateNextNodeInSystem.c)
  */
 
 void __fastcall KiRemoveForceParkedProcessorsFromAffinity(_WORD *a1)

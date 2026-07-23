@@ -1,5 +1,5 @@
 /*
- * XREFs of WinSqmGetInstrumentationProperty @ 0x180134A70
+ * XREFs of WinSqmGetInstrumentationProperty @ 0x180132CA0
  * Callers:
  *     <none>
  * Callees:

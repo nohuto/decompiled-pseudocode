@@ -1,10 +1,10 @@
 /*
- * XREFs of VfBelow4gbPluginEntry @ 0x140614670
+ * XREFs of VfBelow4gbPluginEntry @ 0x140612C30
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x140618BD0 (DifRegisterPlugin.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x140617190 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 VfBelow4gbPluginEntry()

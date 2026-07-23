@@ -7,24 +7,24 @@
  *     RtlpxLookupFunctionTable @ 0x18001E620 (RtlpxLookupFunctionTable.c)
  */
 
-__int64 __fastcall RtlpLookupFunctionEntryForStackWalks(
-        unsigned __int64 a1,
-        signed __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(char *BaseAddress, signed __int64 a2, char *a3, char *a4)
 {
   __int64 v6; // r10
   unsigned int v7; // r9d
-  unsigned __int64 v8; // rdi
+  char *v8; // rdi
   unsigned int *v9; // rdx
   int v10; // r8d
   int v11; // r9d
   int v12; // r11d
 
-  if ( a1 >= *(_QWORD *)(a2 + 8) && a1 < *(_QWORD *)(a2 + 8) + (unsigned __int64)*(unsigned int *)(a2 + 16) )
+  if ( (unsigned __int64)BaseAddress >= *(_QWORD *)(a2 + 8)
+    && (unsigned __int64)BaseAddress < *(_QWORD *)(a2 + 8) + (unsigned __int64)*(unsigned int *)(a2 + 16) )
+  {
     goto LABEL_3;
-  if ( a1 >= *((_QWORD *)&xmmword_18017A500 + 1)
-    && a1 < *((_QWORD *)&xmmword_18017A500 + 1) + (unsigned __int64)(unsigned int)qword_18017A510 )
+  }
+  if ( (unsigned __int64)BaseAddress >= *((_QWORD *)&xmmword_18017A500 + 1)
+    && (unsigned __int64)BaseAddress < *((_QWORD *)&xmmword_18017A500 + 1)
+                                     + (unsigned __int64)(unsigned int)qword_18017A510 )
   {
     *(_OWORD *)a2 = xmmword_18017A500;
     *(_QWORD *)(a2 + 16) = qword_18017A510;
@@ -32,16 +32,16 @@ LABEL_3:
     v6 = *(_QWORD *)a2;
     goto LABEL_4;
   }
-  v6 = RtlpxLookupFunctionTable(a1, a2, a3, a4);
+  v6 = RtlpxLookupFunctionTable((unsigned __int64)BaseAddress, a2, a3, a4);
 LABEL_4:
   if ( v6 )
   {
     v7 = *(_DWORD *)(a2 + 20) / 0xCu;
     if ( !v7 )
       goto LABEL_19;
-    v8 = a1 - *(_QWORD *)(a2 + 8);
+    v8 = &BaseAddress[-*(_QWORD *)(a2 + 8)];
     v9 = (unsigned int *)(v6 + 12LL * (v7 - 1));
-    if ( v8 < *v9 )
+    if ( (unsigned __int64)v8 < *v9 )
     {
       v10 = 0;
       v11 = v7 - 2;
@@ -49,27 +49,27 @@ LABEL_4:
       {
         v12 = (v11 + v10) >> 1;
         v9 = (unsigned int *)(v6 + 12LL * v12);
-        if ( v8 < *v9 )
+        if ( (unsigned __int64)v8 < *v9 )
         {
           v11 = v12 - 1;
         }
         else
         {
-          if ( v8 < v9[3] )
+          if ( (unsigned __int64)v8 < v9[3] )
             break;
           v10 = v12 + 1;
         }
       }
     }
-    if ( v8 < *v9 || v8 >= v9[1] )
+    if ( (unsigned __int64)v8 < *v9 || (unsigned __int64)v8 >= v9[1] )
 LABEL_19:
       v9 = 0LL;
     if ( v9 )
     {
       if ( (v9[2] & 1) != 0 )
-        return *(_QWORD *)(a2 + 8) - 1LL + v9[2];
+        return (unsigned int *)(*(_QWORD *)(a2 + 8) - 1LL + v9[2]);
     }
-    return (__int64)v9;
+    return v9;
   }
   else
   {

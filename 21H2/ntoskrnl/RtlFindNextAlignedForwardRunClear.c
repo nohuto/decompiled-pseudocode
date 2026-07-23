@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindNextAlignedForwardRunClear @ 0x140266854
+ * XREFs of RtlFindNextAlignedForwardRunClear @ 0x1402547F4
  * Callers:
- *     EtwpFindUserBufferSpace @ 0x140646044 (EtwpFindUserBufferSpace.c)
+ *     EtwpFindUserBufferSpace @ 0x14063AE30 (EtwpFindUserBufferSpace.c)
  * Callees:
  *     <none>
  */
@@ -33,7 +33,7 @@ LABEL_4:
   {
     v11 = v4;
     v4 &= 0xFFFFFFE0;
-    v12 = *i | *((_DWORD *)qword_140011C70 + (v11 & 0x1F));
+    v12 = *i | *((_DWORD *)qword_140012120 + (v11 & 0x1F));
     if ( (v12 & v8) != v8 )
     {
       v13 = 0;

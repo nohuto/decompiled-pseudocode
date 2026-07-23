@@ -1,15 +1,15 @@
 /*
- * XREFs of IopLiveDumpAllocateDumpBuffers @ 0x14081FCA8
+ * XREFs of IopLiveDumpAllocateDumpBuffers @ 0x140820EA8
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14081F700 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140820900 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x140285B98 (IopLiveDumpIsUnderMemoryPressure.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14081FFA4 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140820038 (IopLiveDumpFreeDumpBuffers.c)
+ *     MmAllocateIndependentPages @ 0x140109020 (MmAllocateIndependentPages.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x140285D88 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x1408211A4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140821238 (IopLiveDumpFreeDumpBuffers.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateDumpBuffers(_QWORD *a1)

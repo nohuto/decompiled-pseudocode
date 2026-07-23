@@ -3,14 +3,14 @@
  * Callers:
  *     HalRequestClockInterrupt @ 0x14022F2D0 (HalRequestClockInterrupt.c)
  *     HalRequestIpi @ 0x14023DD20 (HalRequestIpi.c)
- *     KiIntRedirectQueueRequestOnProcessor @ 0x1402943C0 (KiIntRedirectQueueRequestOnProcessor.c)
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiIpiSendRequest @ 0x1402FFB70 (KiIpiSendRequest.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140340300 (KiFlushSoftwareInterruptBatch.c)
- *     KiProcessThreadWaitList @ 0x140340390 (KiProcessThreadWaitList.c)
- *     HalpInterruptResetAllProcessors @ 0x14051F9A8 (HalpInterruptResetAllProcessors.c)
+ *     sub_1402943C0 @ 0x1402943C0 (sub_1402943C0.c)
+ *     sub_1402B0820 @ 0x1402B0820 (sub_1402B0820.c)
+ *     sub_1402FFB70 @ 0x1402FFB70 (sub_1402FFB70.c)
+ *     sub_140340300 @ 0x140340300 (sub_140340300.c)
+ *     sub_140340390 @ 0x140340390 (sub_140340390.c)
+ *     sub_14051F9A8 @ 0x14051F9A8 (sub_14051F9A8.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x1402ADD00 (HalpInterruptSendIpi.c)
+ *     sub_1402ADD00 @ 0x1402ADD00 (sub_1402ADD00.c)
  */
 
 __int64 __fastcall HalRequestIpiSpecifyVector(int a1, _WORD *a2, unsigned int a3)
@@ -33,7 +33,7 @@ __int64 __fastcall HalRequestIpiSpecifyVector(int a1, _WORD *a2, unsigned int a3
       }
       LODWORD(v5) = 2;
       *((_QWORD *)&v5 + 1) = a2;
-      return HalpInterruptSendIpi((int *)&v5, a3);
+      return sub_1402ADD00((int *)&v5, a3);
     }
     return 3221225485LL;
   }
@@ -44,8 +44,8 @@ __int64 __fastcall HalRequestIpiSpecifyVector(int a1, _WORD *a2, unsigned int a3
   {
     if ( v4 == 1 )
       LODWORD(v5) = 3;
-    return HalpInterruptSendIpi((int *)&v5, a3);
+    return sub_1402ADD00((int *)&v5, a3);
   }
   LODWORD(v5) = 4;
-  return HalpInterruptSendIpi((int *)&v5, a3);
+  return sub_1402ADD00((int *)&v5, a3);
 }

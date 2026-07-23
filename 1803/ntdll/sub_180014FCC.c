@@ -15,10 +15,10 @@ char __fastcall sub_180014FCC(__int64 a1, __int64 a2)
 {
   char v3; // di
   bool v4; // bl
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v6; // rcx
-  _DWORD *v7; // rcx
-  __int64 v8; // rcx
+  PSILO_USER_SHARED_DATA v7; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   unsigned __int16 v10; // ax
 
   if ( !*(_WORD *)(a2 + 32) )
@@ -28,16 +28,16 @@ char __fastcall sub_180014FCC(__int64 a1, __int64 a2)
     && (v10 = *(_WORD *)(a1 + 172), v10 <= 0x70u)
     && *(_DWORD *)(a1 + 160) >= 16 * (unsigned int)(unsigned __int16)word_180118FE0[v10]
     && *(_WORD *)(a2 + 32) < (unsigned int)(*(_WORD *)(a2 + 40) >> 2);
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
   else
     v6 = 2147353482LL;
   if ( *(_BYTE *)v6
-    || ((v7 = NtCurrentPeb()->HotpatchInformation) == 0LL || !*v7
-      ? (v8 = 2147353472LL)
-      : (v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 550),
-        *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 1) != 0) )
+    || ((v7 = NtCurrentPeb()->SharedData) == 0LL || !v7->ServiceSessionId
+      ? (UserModeGlobalLogger = 2147353472LL)
+      : (UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger),
+        *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0) )
   {
     if ( !v4 )
       return v3;

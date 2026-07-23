@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x140B3F65C
+ * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x140B4168C
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x140B3F37C (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140B413AC (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     DbgkpWerAllocateNonpagedPool @ 0x1405B4754 (DbgkpWerAllocateNonpagedPool.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateTimer @ 0x140724D50 (ZwCreateTimer.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     DbgkpWerAllocateNonpagedPool @ 0x1405B6F64 (DbgkpWerAllocateNonpagedPool.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateTimer @ 0x140729920 (ZwCreateTimer.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
@@ -36,8 +36,8 @@ __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
     Object = 0LL;
     v5 = ObpReferenceObjectByHandleWithTag(
            (ULONG_PTR)TimerHandle,
-           2031619LL,
-           (POBJECT_TYPE *)ExTimerObjectType,
+           2031619,
+           ExTimerObjectType,
            0,
            0x57676244u,
            &Object,

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProcessorIdle @ 0x140A6E344
+ * XREFs of PpmEventTraceProcessorIdle @ 0x140A67844
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
@@ -47,7 +47,7 @@ void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
     }
     v5 = 2 * v3 + 5;
     v19 = v4;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 16 * v5 + 37 * v3, 0x654D5050u);
     UserData = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
     if ( Pool2 )
     {

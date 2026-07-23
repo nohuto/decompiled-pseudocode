@@ -1,13 +1,13 @@
 /*
- * XREFs of HalCancelAdapterChannel @ 0x14050EEA0
+ * XREFs of HalCancelAdapterChannel @ 0x14050F3F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaRemoveAdapterFromMasterQueue @ 0x140500550 (HalpDmaRemoveAdapterFromMasterQueue.c)
- *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x140500674 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
- *     HalpDmaRemoveWcb @ 0x140500778 (HalpDmaRemoveWcb.c)
- *     IoFreeAdapterChannelV3 @ 0x140510200 (IoFreeAdapterChannelV3.c)
- *     HalpDmaRemoveAdapterFromChannelQueue @ 0x140516F44 (HalpDmaRemoveAdapterFromChannelQueue.c)
+ *     HalpDmaRemoveAdapterFromMasterQueue @ 0x140500AA0 (HalpDmaRemoveAdapterFromMasterQueue.c)
+ *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x140500BC4 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
+ *     HalpDmaRemoveWcb @ 0x140500CC8 (HalpDmaRemoveWcb.c)
+ *     IoFreeAdapterChannelV3 @ 0x140510750 (IoFreeAdapterChannelV3.c)
+ *     HalpDmaRemoveAdapterFromChannelQueue @ 0x140517494 (HalpDmaRemoveAdapterFromChannelQueue.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

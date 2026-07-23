@@ -1,22 +1,22 @@
 /*
  * XREFs of ZwQueryVirtualMemory @ 0x14041BBC0
  * Callers:
- *     RtlpHpFixedHeapCreate @ 0x14036FD8C (RtlpHpFixedHeapCreate.c)
- *     SepGetStackTraceHash @ 0x140374FC8 (SepGetStackTraceHash.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x14056E34C (KiVerifyContextXStateCetUEnabled.c)
- *     RtlCheckXfgFailureInformation @ 0x1405EE7E0 (RtlCheckXfgFailureInformation.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x1405F7344 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1405F7B94 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     LdrpResGetMappingSize @ 0x1406734EC (LdrpResGetMappingSize.c)
- *     EtwpTiQueryVad @ 0x1406D98F8 (EtwpTiQueryVad.c)
- *     WbVerifyVirtualAddressSignature @ 0x1407E4008 (WbVerifyVirtualAddressSignature.c)
+ *     sub_14036FD8C @ 0x14036FD8C (sub_14036FD8C.c)
+ *     sub_140374FC8 @ 0x140374FC8 (sub_140374FC8.c)
+ *     sub_14056E34C @ 0x14056E34C (sub_14056E34C.c)
+ *     sub_1405EE7E0 @ 0x1405EE7E0 (sub_1405EE7E0.c)
+ *     sub_1405F7344 @ 0x1405F7344 (sub_1405F7344.c)
+ *     sub_1405F7B94 @ 0x1405F7B94 (sub_1405F7B94.c)
+ *     sub_1406734EC @ 0x1406734EC (sub_1406734EC.c)
+ *     sub_1406D98F8 @ 0x1406D98F8 (sub_1406D98F8.c)
+ *     sub_1407E4008 @ 0x1407E4008 (sub_1407E4008.c)
  *     RtlCreateHeap @ 0x1407F3B40 (RtlCreateHeap.c)
- *     PspFreeUserFiberShadowStack @ 0x1409AF728 (PspFreeUserFiberShadowStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x1409B16A8 (PspFreeCurrentThreadUserShadowStack.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E6BB0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409E7AD4 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409E8614 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140AA4550 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     sub_1409AF728 @ 0x1409AF728 (sub_1409AF728.c)
+ *     sub_1409B16A8 @ 0x1409B16A8 (sub_1409B16A8.c)
+ *     sub_1409E6BB0 @ 0x1409E6BB0 (sub_1409E6BB0.c)
+ *     sub_1409E7AD4 @ 0x1409E7AD4 (sub_1409E7AD4.c)
+ *     sub_1409E8614 @ 0x1409E8614 (sub_1409E8614.c)
+ *     sub_140AA4550 @ 0x140AA4550 (sub_140AA4550.c)
  * Callees:
  *     <none>
  */
@@ -31,5 +31,5 @@ NTSTATUS __stdcall ZwQueryVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return sub_140433F80(ProcessHandle, BaseAddress);
 }

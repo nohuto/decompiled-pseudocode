@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmListRemoveList @ 0x140B6C54C
+ * XREFs of PiDmListRemoveList @ 0x140B6F648
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     CmpUnlockSiloKeyLockTracker @ 0x1409A604C (CmpUnlockSiloKeyLockTracker.c)
- *     PiDmObjectAcquireSharedLock @ 0x1409A7358 (PiDmObjectAcquireSharedLock.c)
- *     KsepCacheLock @ 0x1409A73D0 (KsepCacheLock.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1409D90D0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListRemoveObjectWorker @ 0x140AF4068 (PiDmListRemoveObjectWorker.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140966AAC (CmpUnlockSiloKeyLockTracker.c)
+ *     PiDmObjectAcquireSharedLock @ 0x140967DB8 (PiDmObjectAcquireSharedLock.c)
+ *     KsepCacheLock @ 0x140967E30 (KsepCacheLock.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1409A9FC0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmListRemoveObjectWorker @ 0x140B16674 (PiDmListRemoveObjectWorker.c)
  */
 
 __int64 __fastcall PiDmListRemoveList(__int64 a1, __int64 a2, __int64 a3, signed __int64 *a4)

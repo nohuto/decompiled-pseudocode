@@ -1,12 +1,12 @@
 /*
- * XREFs of CcAddDirtyPagesToExternalCache @ 0x14013426C
+ * XREFs of CcAddDirtyPagesToExternalCache @ 0x1401347DC
  * Callers:
  *     <none>
  * Callees:
- *     CcChargeDirtyPages @ 0x14006FBF4 (CcChargeDirtyPages.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     CcChargeDirtyPages @ 0x14006F774 (CcChargeDirtyPages.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 void __fastcall CcAddDirtyPagesToExternalCache(__int64 a1, unsigned __int64 a2)

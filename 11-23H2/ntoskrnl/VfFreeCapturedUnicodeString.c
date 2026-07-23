@@ -1,7 +1,7 @@
 /*
- * XREFs of VfFreeCapturedUnicodeString @ 0x140AC20F4
+ * XREFs of VfFreeCapturedUnicodeString @ 0x140AC20E4
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpLangFallbackListAppendNode @ 0x180031E20
+ * XREFs of LdrpLangFallbackListAppendNode @ 0x180012EE0
  * Callers:
- *     RtlpAddNeutralsToMergedList @ 0x180033B90 (RtlpAddNeutralsToMergedList.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x180034340 (LdrpMergeParentBaseLanguagesToList.c)
- *     LdrpMergeLangFallbackLists @ 0x1800356C0 (LdrpMergeLangFallbackLists.c)
- *     RtlpFilterandReplaceConsoleLanguages @ 0x1800D9B58 (RtlpFilterandReplaceConsoleLanguages.c)
+ *     RtlpAddNeutralsToMergedList @ 0x180012510 (RtlpAddNeutralsToMergedList.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x1800145C0 (LdrpMergeParentBaseLanguagesToList.c)
+ *     LdrpMergeLangFallbackLists @ 0x180015940 (LdrpMergeLangFallbackLists.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x1800C798C (RtlpFilterandReplaceConsoleLanguages.c)
  * Callees:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpNlsGetNameIndex @ 0x180033300 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x1800333EC (RtlpLoadNlsData.c)
- *     RtlpMatchUILanguage @ 0x1800D0FEC (RtlpMatchUILanguage.c)
- *     RtlpMatchUserLanguage @ 0x1800D10DC (RtlpMatchUserLanguage.c)
- *     RtlpIsCustomLocale @ 0x1800F77DC (RtlpIsCustomLocale.c)
- *     __report_rangecheckfailure @ 0x180120A2C (__report_rangecheckfailure.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpNlsGetNameIndex @ 0x1800143C0 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x1800144AC (RtlpLoadNlsData.c)
+ *     RtlpMatchUserLanguage @ 0x18009A410 (RtlpMatchUserLanguage.c)
+ *     RtlpMatchUILanguage @ 0x18009A584 (RtlpMatchUILanguage.c)
+ *     RtlpIsCustomLocale @ 0x1800F2354 (RtlpIsCustomLocale.c)
+ *     __report_rangecheckfailure @ 0x18011EC5C (__report_rangecheckfailure.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall LdrpLangFallbackListAppendNode(__int64 *a1, __int64 a2, char a3, __int16 *a4, wchar_t *String)
@@ -28,7 +28,7 @@ __int64 __fastcall LdrpLangFallbackListAppendNode(__int64 *a1, __int64 a2, char 
   size_t v10; // rax
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rdi
-  __int64 v13; // r14
+  _QWORD *v13; // r14
   __int64 v14; // r13
   __int64 v15; // r14
   int v16; // edi
@@ -88,12 +88,12 @@ LABEL_47:
     String2[v12] = 0;
     if ( v13 )
     {
-      v14 = *(_QWORD *)(v13 + 24);
+      v14 = v13[3];
       if ( v14 )
       {
         if ( *(_QWORD *)(v14 + 16) && String2[0] )
         {
-          v15 = *(_QWORD *)(v13 + 32);
+          v15 = v13[4];
           if ( v15 )
           {
             v16 = 0;

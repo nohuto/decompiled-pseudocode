@@ -13,9 +13,6 @@ __int64 __fastcall PoSetUserPresent(__int64 a1)
   unsigned int v1; // edi
   unsigned __int8 CurrentIrql; // bl
   __int64 result; // rax
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
 
   v1 = a1;
   CurrentIrql = KeGetCurrentIrql();
@@ -23,6 +20,6 @@ __int64 __fastcall PoSetUserPresent(__int64 a1)
     PopAcquirePolicyLock(a1);
   result = PopSetSystemState(4LL, v1);
   if ( CurrentIrql < 2u )
-    return PopReleasePolicyLock(v5, v4, v6);
+    return PopReleasePolicyLock();
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140887F4C
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14088BDFC
  * Callers:
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
  * Callees:
- *     SepCaptureTokenSecurityOperations @ 0x14047E068 (SepCaptureTokenSecurityOperations.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1408880F8 (SepCaptureTokenSecurityAttributesInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140A3FDDC (SepFreeCapturedTokenSecurityAttributesInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SepCaptureTokenSecurityOperations @ 0x140479258 (SepCaptureTokenSecurityOperations.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x14088BFA8 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140A356B0 (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(_QWORD *a1, char a2, _QWORD *a3)
@@ -68,7 +68,7 @@ LABEL_13:
       }
       else
       {
-        Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x6F416553u);
         v13 = v16;
         v14 = P;
         if ( !Pool2 )

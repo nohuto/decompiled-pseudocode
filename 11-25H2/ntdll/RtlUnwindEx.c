@@ -48,10 +48,10 @@ void __stdcall RtlUnwindEx(
         PUNWIND_HISTORY_TABLE HistoryTable)
 {
   PCONTEXT p_Key; // r14
-  unsigned int v9; // ebx
+  ULONG v9; // ebx
   unsigned __int64 v10; // r12
   unsigned __int64 v11; // rdi
-  int v12; // eax
+  ULONG v12; // eax
   void *v13; // r14
   int v14; // esi
   DWORD ContextFlags; // r9d
@@ -62,10 +62,10 @@ void __stdcall RtlUnwindEx(
   unsigned int P3Home_high; // r9d
   int v21; // r8d
   ULONG64 v22; // r14
-  int v23; // eax
+  NTSTATUS v23; // eax
   unsigned __int64 v24; // rcx
   int v25; // esi
-  unsigned int v26; // edi
+  ULONG v26; // edi
   struct _EXCEPTION_RECORD *v27; // rcx
   DWORD64 v28; // rax
   DWORD v29; // edi
@@ -79,236 +79,238 @@ void __stdcall RtlUnwindEx(
   struct _CONTEXT *v37; // rax
   struct _EXCEPTION_RECORD *v38; // rsi
   int ExceptionCode; // eax
-  __int64 v40; // rdx
+  ULONG_PTR CfgBitMap; // rdx
   unsigned __int64 v41; // rbx
-  unsigned __int64 v42; // rdi
+  void *v42; // rdi
   int v43; // ebx
   __int64 Config; // rax
   rsize_t v45; // r8
-  unsigned __int64 v46; // rdi
-  unsigned __int64 v47; // rbx
-  __int64 v48; // rax
-  __int64 v49; // rdx
-  rsize_t v50; // r8
-  unsigned int v51; // eax
-  unsigned __int64 v52; // rbx
-  ULONG64 v53; // rsi
-  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v54; // rdi
-  PEXCEPTION_ROUTINE v55; // rax
-  char v56; // bl
-  int v57; // eax
-  int v58; // edi
-  __int64 v59; // r8
-  bool v60; // zf
-  int v61; // ebx
-  unsigned __int64 v62; // rcx
-  unsigned __int64 v63; // rcx
-  void *v64; // rsp
-  void *v65; // rsp
-  __int64 v66; // rsi
+  void *v46; // rdi
+  int v47; // eax
+  unsigned __int64 v48; // rbx
+  __int64 v49; // rax
+  __int64 v50; // rdx
+  rsize_t v51; // r8
+  unsigned int v52; // eax
+  unsigned __int64 v53; // rbx
+  int v54; // eax
+  ULONG64 v55; // rsi
+  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v56; // rdi
+  PEXCEPTION_ROUTINE v57; // rax
+  char v58; // bl
+  int v59; // eax
+  ULONG v60; // edi
+  ULONG64 v61; // r8
+  bool v62; // zf
+  int v63; // ebx
+  unsigned __int64 v64; // rcx
+  unsigned __int64 v65; // rcx
+  void *v66; // rsp
+  void *v67; // rsp
+  __int64 v68; // rsi
   __int64 XStateChunk; // rax
-  char v68; // r11
-  __int64 v69; // r10
-  __int64 v70; // rdx
-  unsigned int v71; // ecx
-  __int64 v72; // rax
-  unsigned __int64 v73; // rcx
-  unsigned __int64 v74; // rcx
-  void *v75; // rsp
-  void *v76; // rsp
-  __int64 v77; // rbx
-  _QWORD *v78; // rax
-  unsigned int Key; // [rsp+60h] [rbp+0h] BYREF
+  char v70; // r11
+  __int64 v71; // r10
+  __int64 v72; // rdx
+  unsigned int v73; // ecx
+  __int64 v74; // rax
+  unsigned __int64 v75; // rcx
+  unsigned __int64 v76; // rcx
+  void *v77; // rsp
+  void *v78; // rsp
+  __int64 v79; // rbx
+  _QWORD *v80; // rax
+  ULONG Key; // [rsp+60h] [rbp+0h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+68h] [rbp+8h] BYREF
-  PCONTEXT v81; // [rsp+70h] [rbp+10h]
-  int v82; // [rsp+78h] [rbp+18h] BYREF
-  void *v83; // [rsp+80h] [rbp+20h] BYREF
-  PEXCEPTION_ROUTINE v84; // [rsp+88h] [rbp+28h] BYREF
+  PCONTEXT v83; // [rsp+70h] [rbp+10h]
+  int v84; // [rsp+78h] [rbp+18h] BYREF
+  void *v85; // [rsp+80h] [rbp+20h] BYREF
+  PEXCEPTION_ROUTINE v86; // [rsp+88h] [rbp+28h] BYREF
   PVOID HandlerData; // [rsp+90h] [rbp+30h] BYREF
-  PUNWIND_HISTORY_TABLE v86; // [rsp+98h] [rbp+38h]
+  PUNWIND_HISTORY_TABLE v88; // [rsp+98h] [rbp+38h]
   struct _EXCEPTION_RECORD *ExceptionRecorda; // [rsp+A0h] [rbp+40h]
-  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v88; // [rsp+A8h] [rbp+48h] BYREF
-  __int128 v89; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v90; // [rsp+C0h] [rbp+60h]
+  PCONTEXT_EX ContextEx; // [rsp+A8h] [rbp+48h] BYREF
+  __int128 v91; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v92; // [rsp+C0h] [rbp+60h]
   unsigned __int64 ImageBase; // [rsp+C8h] [rbp+68h] BYREF
-  unsigned __int64 v92; // [rsp+D0h] [rbp+70h] BYREF
-  PCONTEXT v93; // [rsp+D8h] [rbp+78h]
-  PVOID v94; // [rsp+E0h] [rbp+80h]
-  PVOID v95; // [rsp+E8h] [rbp+88h]
+  unsigned __int64 v94; // [rsp+D0h] [rbp+70h] BYREF
+  PCONTEXT v95; // [rsp+D8h] [rbp+78h]
+  PVOID v96; // [rsp+E0h] [rbp+80h]
+  PVOID v97; // [rsp+E8h] [rbp+88h]
   ULONG64 ControlPc; // [rsp+F0h] [rbp+90h] BYREF
-  ULONG64 v97; // [rsp+F8h] [rbp+98h]
+  ULONG64 v99; // [rsp+F8h] [rbp+98h]
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+100h] [rbp+A0h]
-  unsigned __int64 v99; // [rsp+108h] [rbp+A8h]
-  PVOID v100; // [rsp+110h] [rbp+B0h]
-  struct _CONTEXT *v101; // [rsp+118h] [rbp+B8h]
-  EXCEPTION_ROUTINE *v102; // [rsp+120h] [rbp+C0h]
-  PVOID v103; // [rsp+128h] [rbp+C8h]
-  struct _UNWIND_HISTORY_TABLE *v104; // [rsp+130h] [rbp+D0h]
-  int v105; // [rsp+138h] [rbp+D8h]
-  int v106; // [rsp+140h] [rbp+E0h] BYREF
-  __int64 v107; // [rsp+148h] [rbp+E8h]
+  unsigned __int64 v101; // [rsp+108h] [rbp+A8h]
+  PVOID v102; // [rsp+110h] [rbp+B0h]
+  struct _CONTEXT *v103; // [rsp+118h] [rbp+B8h]
+  EXCEPTION_DISPOSITION (__cdecl *v104)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+120h] [rbp+C0h]
+  PVOID v105; // [rsp+128h] [rbp+C8h]
+  struct _UNWIND_HISTORY_TABLE *v106; // [rsp+130h] [rbp+D0h]
+  int v107; // [rsp+138h] [rbp+D8h]
+  int v108; // [rsp+140h] [rbp+E0h] BYREF
+  __int64 v109; // [rsp+148h] [rbp+E8h]
   DWORD64 Rip; // [rsp+150h] [rbp+F0h]
-  int v109; // [rsp+158h] [rbp+F8h]
+  int v111; // [rsp+158h] [rbp+F8h]
 
   p_Key = ContextRecord;
-  v95 = TargetIp;
+  v97 = TargetIp;
   ExceptionRecorda = ExceptionRecord;
-  v94 = ReturnValue;
-  v81 = ContextRecord;
-  v86 = HistoryTable;
+  v96 = ReturnValue;
+  v83 = ContextRecord;
+  v88 = HistoryTable;
   memset_thunk_772440563353939046(&ControlPc, 0, 0x50uLL);
-  memset_thunk_772440563353939046(&v106, 0, 0x98uLL);
+  memset_thunk_772440563353939046(&v108, 0, 0x98uLL);
   v9 = 0;
-  v84 = 0LL;
+  v86 = 0LL;
   Key = 0;
   HandlerData = 0LL;
-  v83 = 0LL;
+  v85 = 0LL;
   ImageBase = 0LL;
-  v92 = 0LL;
-  if ( !RtlpGetStackLimits(&v92, &v83) )
+  v94 = 0LL;
+  if ( !RtlpGetStackLimits(&v94, &v85) )
 LABEL_2:
-    RtlRaiseStatus(3221225512LL);
+    RtlRaiseStatus(-1073741784);
   RtlpSanitizeContext(ContextRecord);
-  if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) != 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
   {
-    v56 = 1;
-    v57 = 1264;
-    v58 = 1048587;
-    v59 = 0LL;
+    v58 = 1;
+    v59 = 1264;
+    v60 = 1048587;
+    v61 = 0LL;
 LABEL_121:
-    v60 = (v56 & 4) == 0;
-    v81 = p_Key;
-    v61 = v57 + 32;
-    if ( v60 )
-      v61 = v57;
-    v9 = v61 + 15;
+    v62 = (v58 & 4) == 0;
+    v83 = p_Key;
+    v63 = v59 + 32;
+    if ( v62 )
+      v63 = v59;
+    v9 = v63 + 15;
     goto LABEL_124;
   }
-  v58 = 1048651;
-  v66 = 2048LL;
+  v60 = 1048651;
+  v68 = 2048LL;
   if ( (ContextRecord->ContextFlags & 0x100040) == 0x100040
     && ((MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0x800LL) != 0
     && (MEMORY[0x7FFE03EC] & 0xFFFFFFF8) == 0 )
   {
     XStateChunk = RtlpLocateXStateChunk(&ContextRecord[1]);
-    v69 = XStateChunk;
+    v71 = XStateChunk;
     if ( XStateChunk )
     {
-      if ( (v68 & 2) == 0 )
+      if ( (v70 & 2) == 0 )
       {
-        v72 = MEMORY[0x7FFE0448];
+        v74 = MEMORY[0x7FFE0448];
         goto LABEL_173;
       }
-      v70 = *(_QWORD *)(XStateChunk + 8);
-      if ( (v70 & 0x800) != 0 )
+      v72 = *(_QWORD *)(XStateChunk + 8);
+      if ( (v72 & 0x800) != 0 )
       {
-        v71 = 576;
-        if ( (v70 & 4) != 0 )
-          v71 = MEMORY[0x7FFE060C] + 576;
-        if ( (v70 & 8) != 0 )
+        v73 = 576;
+        if ( (v72 & 4) != 0 )
+          v73 = MEMORY[0x7FFE060C] + 576;
+        if ( (v72 & 8) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 8) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE0610];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE0610];
         }
-        if ( (v70 & 0x10) != 0 )
+        if ( (v72 & 0x10) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 0x10) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE0614];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE0614];
         }
-        if ( (v70 & 0x20) != 0 )
+        if ( (v72 & 0x20) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 0x20) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE0618];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE0618];
         }
-        if ( (v70 & 0x40) != 0 )
+        if ( (v72 & 0x40) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 0x40) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE061C];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE061C];
         }
-        if ( (v70 & 0x80u) != 0LL )
+        if ( (v72 & 0x80u) != 0LL )
         {
           if ( MEMORY[0x7FFE05F8] < 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE0620];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE0620];
         }
-        if ( (v70 & 0x100) != 0 )
+        if ( (v72 & 0x100) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 0x100) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE0624];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE0624];
         }
-        if ( (v70 & 0x200) != 0 )
+        if ( (v72 & 0x200) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 0x200) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE0628];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE0628];
         }
-        if ( (v70 & 0x400) != 0 )
+        if ( (v72 & 0x400) != 0 )
         {
           if ( (MEMORY[0x7FFE05F8] & 0x400) != 0 )
-            v71 = (v71 + 63) & 0xFFFFFFC0;
-          v71 += MEMORY[0x7FFE062C];
+            v73 = (v73 + 63) & 0xFFFFFFC0;
+          v73 += MEMORY[0x7FFE062C];
         }
         if ( (MEMORY[0x7FFE05F8] & 0x800) != 0 )
-          v71 = (v71 + 63) & 0xFFFFFFC0;
-        v72 = v71;
+          v73 = (v73 + 63) & 0xFFFFFFC0;
+        v74 = v73;
 LABEL_173:
-        if ( v69 + v72 != 512 )
+        if ( v71 + v74 != 512 )
           goto LABEL_177;
       }
     }
   }
-  RtlGetExtendedContextLength2(1048651, &Key, 2048LL);
+  RtlGetExtendedContextLength2(0x10004Bu, &Key, 0x800uLL);
   v9 = Key;
-  v73 = Key + 15LL;
-  if ( v73 <= Key )
-    v73 = 0xFFFFFFFFFFFFFF0LL;
-  v74 = v73 & 0xFFFFFFFFFFFFFFF0uLL;
-  v75 = alloca(v74);
-  v76 = alloca(v74);
+  v75 = Key + 15LL;
+  if ( v75 <= Key )
+    v75 = 0xFFFFFFFFFFFFFF0LL;
+  v76 = v75 & 0xFFFFFFFFFFFFFFF0uLL;
+  v77 = alloca(v76);
+  v78 = alloca(v76);
   p_Key = (PCONTEXT)&Key;
-  v81 = (PCONTEXT)&Key;
-  RtlInitializeExtendedContext2((__int64)&Key, 1048651, &v88, 2048LL);
+  v83 = (PCONTEXT)&Key;
+  RtlInitializeExtendedContext2((PCONTEXT)&Key, 0x10004Bu, &ContextEx, 0x800uLL);
 LABEL_177:
-  v59 = 2048LL;
+  v61 = 2048LL;
   if ( MEMORY[0x7FFE03D8] )
   {
-    v56 = 3;
+    v58 = 3;
     if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
-      v66 = (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0x800LL;
-    v57 = RtlpGetEntireXStateAreaLength(v66) + 800;
+      v68 = (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0x800LL;
+    v59 = RtlpGetEntireXStateAreaLength(v68) + 800;
     goto LABEL_121;
   }
 LABEL_124:
-  v62 = v9 + 15LL;
-  if ( v62 <= v9 )
-    v62 = 0xFFFFFFFFFFFFFF0LL;
-  v63 = v62 & 0xFFFFFFFFFFFFFFF0uLL;
-  v64 = alloca(v63);
-  v65 = alloca(v63);
+  v64 = v9 + 15LL;
+  if ( v64 <= v9 )
+    v64 = 0xFFFFFFFFFFFFFF0LL;
+  v65 = v64 & 0xFFFFFFFFFFFFFFF0uLL;
+  v66 = alloca(v65);
+  v67 = alloca(v65);
   v34 = (PCONTEXT)&Key;
-  v93 = (PCONTEXT)&Key;
-  RtlInitializeExtendedContext2((__int64)&Key, v58, &v88, v59);
+  v95 = (PCONTEXT)&Key;
+  RtlInitializeExtendedContext2((PCONTEXT)&Key, v60, &ContextEx, v61);
   v33 = p_Key;
   RtlCaptureContext2(p_Key);
-  v36 = v86;
-  if ( v86 )
-    v86->Search = 1;
+  v36 = v88;
+  if ( v88 )
+    v88->Search = 1;
   if ( !ExceptionRecord )
   {
-    v106 = -1073741785;
-    v107 = 0LL;
+    v108 = -1073741785;
+    v109 = 0LL;
     Rip = p_Key->Rip;
-    ExceptionRecorda = (struct _EXCEPTION_RECORD *)&v106;
-    v109 = 0;
-    v81 = p_Key;
+    ExceptionRecorda = (struct _EXCEPTION_RECORD *)&v108;
+    v111 = 0;
+    v83 = p_Key;
   }
-  v10 = (unsigned __int64)v83;
-  v11 = v92;
+  v10 = (unsigned __int64)v85;
+  v11 = v94;
   v12 = 2;
   EstablisherFrame = 0LL;
   if ( !TargetFrame )
@@ -317,13 +319,13 @@ LABEL_124:
   while ( 1 )
   {
     v13 = (void *)v33->Rip;
-    v83 = v13;
-    v88 = RtlLookupFunctionEntry((ULONG64)v13, &ImageBase, v36);
-    v14 = (int)v88;
+    v85 = v13;
+    ContextEx = (PCONTEXT_EX)RtlLookupFunctionEntry((ULONG64)v13, &ImageBase, v36);
+    v14 = (int)ContextEx;
     RtlpCopyContext(v34, v33);
     ContextFlags = v34->ContextFlags;
-    v90 = 0LL;
-    v89 = 0LL;
+    v92 = 0LL;
+    v91 = 0LL;
     if ( (ContextFlags & 0x27FFFF80) != 0x10000
       && (ContextFlags & 0x7FFFF20) != 0x100000
       && (ContextFlags & 0x7FFFFF0) != 0x200000
@@ -368,11 +370,11 @@ LABEL_20:
             0LL,
             (__int64)&HandlerData,
             (__int64)&EstablisherFrame,
-            (__int64)&v84,
-            (__int64)&v89,
+            (__int64)&v86,
+            (__int64)&v91,
             0);
     if ( v23 < 0 )
-      RtlRaiseStatus((unsigned int)v23);
+      RtlRaiseStatus(v23);
     v24 = EstablisherFrame;
     if ( (EstablisherFrame & 7) != 0
       || EstablisherFrame >= v10
@@ -381,11 +383,11 @@ LABEL_20:
     {
       goto LABEL_2;
     }
-    if ( v84 )
+    if ( v86 )
     {
       v25 = 0;
       v26 = Key;
-      v100 = v95;
+      v102 = v97;
       do
       {
         if ( TargetFrame == (PVOID)v24 )
@@ -394,18 +396,18 @@ LABEL_20:
           Key = v26;
         }
         v27 = ExceptionRecorda;
-        v28 = (DWORD64)v94;
+        v28 = (DWORD64)v96;
         ExceptionRecorda->ExceptionFlags = v26;
         v33->Rax = v28;
-        ControlPc = (ULONG64)v83;
-        FunctionEntry = v88;
-        v102 = v84;
-        v103 = HandlerData;
+        ControlPc = (ULONG64)v85;
+        FunctionEntry = (PRUNTIME_FUNCTION)ContextEx;
         v104 = v86;
-        v97 = v22;
-        v99 = EstablisherFrame;
-        v101 = v33;
-        v105 = v25;
+        v105 = HandlerData;
+        v106 = v88;
+        v99 = v22;
+        v101 = EstablisherFrame;
+        v103 = v33;
+        v107 = v25;
         v29 = v33->ContextFlags;
         v30 = RtlpExecuteHandlerForUnwind(v27, EstablisherFrame, v33, &ControlPc);
         if ( (v29 & 0x100040) != 0x100040 && (v33->ContextFlags & 0x100040) == 0x100040 )
@@ -416,35 +418,35 @@ LABEL_20:
         if ( v31 )
         {
           if ( v31 != 2 )
-            RtlRaiseStatus(3221225510LL);
-          v53 = ControlPc;
-          v22 = v97;
-          v54 = FunctionEntry;
-          v83 = (void *)ControlPc;
-          ImageBase = v97;
-          v88 = FunctionEntry;
-          RtlpCopyContext(v81, v101);
-          v33 = v81;
-          v34 = v93;
-          RtlpCopyContext(v93, v81);
-          v55 = RtlVirtualUnwind(2u, v22, v53, v54, v34, &HandlerData, &EstablisherFrame, 0LL);
-          v84 = v55;
-          if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 12) & 3) == 1 )
+            RtlRaiseStatus(-1073741786);
+          v55 = ControlPc;
+          v22 = v99;
+          v56 = FunctionEntry;
+          v85 = (void *)ControlPc;
+          ImageBase = v99;
+          ContextEx = (PCONTEXT_EX)FunctionEntry;
+          RtlpCopyContext(v83, v103);
+          v33 = v83;
+          v34 = v95;
+          RtlpCopyContext(v95, v83);
+          v57 = RtlVirtualUnwind(2u, v22, v55, v56, v34, &HandlerData, &EstablisherFrame, 0LL);
+          v86 = v57;
+          if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
           {
-            if ( v55 != v102 || (v24 = EstablisherFrame, EstablisherFrame != v99) || HandlerData != v103 )
+            if ( v57 != v104 || (v24 = EstablisherFrame, EstablisherFrame != v101) || HandlerData != v105 )
               __fastfail(0x27u);
           }
           else
           {
-            v24 = v99;
-            v84 = v102;
-            HandlerData = v103;
-            EstablisherFrame = v99;
+            v24 = v101;
+            v86 = v104;
+            HandlerData = v105;
+            EstablisherFrame = v101;
           }
           v26 = Key | 0x40;
-          v25 = v105;
+          v25 = v107;
           Key |= 0x40u;
-          v86 = v104;
+          v88 = v106;
         }
         else
         {
@@ -455,7 +457,7 @@ LABEL_20:
             v34 = v32;
           }
           v35 = _mm_getcsr();
-          v82 = v35;
+          v84 = v35;
           v33->MxCsr = v35;
           v33->FltSave.MxCsr = v35;
           if ( v33->FltSave.ControlWord != 639 || (v33->FltSave.StatusWord & 0xB880) != 0 || v33->FltSave.TagWord )
@@ -464,7 +466,7 @@ LABEL_20:
         }
       }
       while ( (v26 & 0x40) != 0 );
-      v11 = v92;
+      v11 = v94;
     }
     else if ( (PVOID)EstablisherFrame != TargetFrame )
     {
@@ -476,16 +478,16 @@ LABEL_20:
       break;
     if ( (PVOID)v24 == TargetFrame )
       goto LABEL_57;
-    v36 = v86;
+    v36 = v88;
   }
   if ( (PVOID)v24 == TargetFrame )
   {
 LABEL_57:
     v38 = ExceptionRecorda;
-    v33->Rax = (DWORD64)v94;
+    v33->Rax = (DWORD64)v96;
     if ( v38->ExceptionCode != -2147483607 )
     {
-      v33->Rip = (DWORD64)v95;
+      v33->Rip = (DWORD64)v97;
       if ( v38->ExceptionCode != -2147483610 )
         v38->ExceptionCode = -1073741785;
     }
@@ -493,47 +495,48 @@ LABEL_57:
     ExceptionCode = v38->ExceptionCode;
     if ( v38->ExceptionCode == -2147483610 )
     {
-      v40 = qword_1801EC4F8;
+      CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
       v41 = v38->ExceptionInformation[0];
-      if ( qword_1801EC4F8 && (dword_1801EC4DC & 1) == 0 )
+      if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
       {
         if ( RtlGuardIsValidStackPointer(*(_QWORD *)(v41 + 16)) )
         {
-          v40 = qword_1801EC4F8;
+          CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
           goto LABEL_65;
         }
 LABEL_108:
         __fastfail(0xDu);
       }
 LABEL_65:
-      if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) != 1 )
+      if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
       {
-        v42 = *(_QWORD *)(v41 + 80);
+        v42 = *(void **)(v41 + 80);
         Key = 0;
-        if ( v40 )
+        if ( CfgBitMap )
         {
-          if ( (dword_1801EC4DC & 1) == 0 )
+          if ( (LdrSystemDllInitBlock.Flags & 1) == 0 )
           {
-            v90 = 0LL;
-            v89 = 0LL;
-            if ( v42 < *((_QWORD *)&xmmword_1801E9430 + 1)
-              || v42 >= *((_QWORD *)&xmmword_1801E9430 + 1) + (unsigned __int64)(unsigned int)qword_1801E9440 )
+            v92 = 0LL;
+            v91 = 0LL;
+            if ( (unsigned __int64)v42 < *((_QWORD *)&xmmword_1801E9430 + 1)
+              || (unsigned __int64)v42 >= *((_QWORD *)&xmmword_1801E9430 + 1)
+                                        + (unsigned __int64)(unsigned int)qword_1801E9440 )
             {
-              RtlpxLookupFunctionTable(v42, &v89);
+              RtlpxLookupFunctionTable(v42);
             }
             else
             {
-              v89 = xmmword_1801E9430;
+              v91 = xmmword_1801E9430;
             }
-            v43 = DWORD2(v89);
-            if ( *((_QWORD *)&v89 + 1) )
+            v43 = DWORD2(v91);
+            if ( *((_QWORD *)&v91 + 1) )
             {
-              Config = LdrImageDirectoryEntryToLoadConfig(*((__int64 *)&v89 + 1));
+              Config = LdrImageDirectoryEntryToLoadConfig(*((void **)&v91 + 1));
               if ( Config )
               {
                 if ( *(_DWORD *)Config >= 0xC0u && (*(_DWORD *)(Config + 144) & 0x10000) != 0 )
                 {
-                  Key = v42 - v43;
+                  Key = (_DWORD)v42 - v43;
                   v45 = *(_QWORD *)(Config + 184);
                   if ( !v45
                     || !bsearch_s(
@@ -554,20 +557,20 @@ LABEL_65:
               if ( !RtlpProtectedPolicies )
                 goto LABEL_118;
               RtlAcquireSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-              v78 = bsearch(
+              v80 = bsearch(
                       &unk_18017B5F8,
                       RtlpProtectedPolicies,
                       (unsigned int)RtlpProtectedPoliciesActiveCount,
                       0x18uLL,
                       RtlpCompareProtectedPolicyEntry);
-              if ( !v78 )
+              if ( !v80 )
               {
                 RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
                 goto LABEL_118;
               }
-              v77 = v78[2];
+              v79 = v80[2];
               RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-              if ( !v77 )
+              if ( !v79 )
 LABEL_118:
                 RtlFailFast2(38LL, v42);
             }
@@ -581,49 +584,52 @@ LABEL_118:
       {
         if ( v38->NumberParameters )
         {
-          v52 = v38->ExceptionInformation[0];
-          if ( LdrControlFlowGuardEnforced() )
+          v53 = v38->ExceptionInformation[0];
+          LOBYTE(v54) = LdrControlFlowGuardEnforced();
+          if ( v54 )
           {
             if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
-              LdrpValidateUserCallTargetES(v52);
+              LdrpValidateUserCallTargetES(v53);
             else
-              LdrpValidateUserCallTarget(v52);
+              LdrpValidateUserCallTarget(v53);
           }
         }
       }
       else if ( ExceptionCode == -1073741785 )
       {
-        if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) != 1 )
+        if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
         {
-          v46 = v33->Rip;
-          if ( LdrControlFlowGuardEnforced() )
+          v46 = (void *)v33->Rip;
+          LOBYTE(v47) = LdrControlFlowGuardEnforced();
+          if ( v47 )
           {
-            v90 = 0LL;
-            v89 = 0LL;
-            if ( v46 < *((_QWORD *)&xmmword_1801E9430 + 1)
-              || v46 >= *((_QWORD *)&xmmword_1801E9430 + 1) + (unsigned __int64)(unsigned int)qword_1801E9440 )
+            v92 = 0LL;
+            v91 = 0LL;
+            if ( (unsigned __int64)v46 < *((_QWORD *)&xmmword_1801E9430 + 1)
+              || (unsigned __int64)v46 >= *((_QWORD *)&xmmword_1801E9430 + 1)
+                                        + (unsigned __int64)(unsigned int)qword_1801E9440 )
             {
-              RtlpxLookupFunctionTable(v46, &v89);
+              RtlpxLookupFunctionTable(v46);
             }
             else
             {
-              v89 = xmmword_1801E9430;
+              v91 = xmmword_1801E9430;
             }
-            v47 = *((_QWORD *)&v89 + 1);
-            if ( *((_QWORD *)&v89 + 1) )
+            v48 = *((_QWORD *)&v91 + 1);
+            if ( *((_QWORD *)&v91 + 1) )
             {
-              v48 = LdrImageDirectoryEntryToLoadConfig(*((__int64 *)&v89 + 1));
-              v49 = v48;
-              if ( v48 )
+              v49 = LdrImageDirectoryEntryToLoadConfig(*((void **)&v91 + 1));
+              v50 = v49;
+              if ( v49 )
               {
-                if ( *(_DWORD *)v48 >= 0x118u
-                  && (*(_DWORD *)(v48 + 144) & 0x400000) != 0
-                  && *(_QWORD *)(v48 + 264) > v47 )
+                if ( *(_DWORD *)v49 >= 0x118u
+                  && (*(_DWORD *)(v49 + 144) & 0x400000) != 0
+                  && *(_QWORD *)(v49 + 264) > v48 )
                 {
-                  v82 = v46 - v47;
-                  v50 = *(_QWORD *)(v48 + 272);
-                  v51 = (*(_DWORD *)(v48 + 144) >> 28) + 4;
-                  if ( !v50 || !bsearch_s(&v82, *(const void **)(v49 + 264), v50, v51, RtlpTargetCompare, 0LL) )
+                  v84 = (_DWORD)v46 - v48;
+                  v51 = *(_QWORD *)(v49 + 272);
+                  v52 = (*(_DWORD *)(v49 + 144) >> 28) + 4;
+                  if ( !v51 || !bsearch_s(&v84, *(const void **)(v50 + 264), v51, v52, RtlpTargetCompare, 0LL) )
                     RtlFailFast2(38LL, v46);
                 }
               }
@@ -632,16 +638,20 @@ LABEL_118:
         }
         goto LABEL_100;
       }
-      if ( qword_1801EC4F8 && (dword_1801EC4DC & 1) == 0 && !RtlGuardIsValidStackPointer(v33->Rsp) )
+      if ( LdrSystemDllInitBlock.CfgBitMap
+        && (LdrSystemDllInitBlock.Flags & 1) == 0
+        && !RtlGuardIsValidStackPointer(v33->Rsp) )
+      {
         goto LABEL_108;
+      }
     }
 LABEL_100:
     RtlRestoreContext(v33, v38);
   }
   else
   {
-    if ( v83 == (void *)v33->Rip )
-      RtlRaiseStatus(3221225727LL);
-    ZwRaiseException(ExceptionRecorda, v33, 0LL);
+    if ( v85 == (void *)v33->Rip )
+      RtlRaiseStatus(-1073741569);
+    ZwRaiseException(ExceptionRecorda, v33, 0);
   }
 }

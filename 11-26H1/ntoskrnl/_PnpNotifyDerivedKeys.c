@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpNotifyDerivedKeys @ 0x140A94180
+ * XREFs of _PnpNotifyDerivedKeys @ 0x140A98CD0
  * Callers:
- *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140899AF0 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
- *     _PnpUpdateInterfacesCallback @ 0x140B3C010 (_PnpUpdateInterfacesCallback.c)
+ *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x14089FEF0 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
+ *     _PnpUpdateInterfacesCallback @ 0x140B3E290 (_PnpUpdateInterfacesCallback.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnpNotifyDerivedKeys(

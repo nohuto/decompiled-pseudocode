@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCoalesceFreeLargePages @ 0x140090810
+ * XREFs of MiCoalesceFreeLargePages @ 0x140090750
  * Callers:
- *     MiProcessLargeCoalesceList @ 0x14009069C (MiProcessLargeCoalesceList.c)
+ *     MiProcessLargeCoalesceList @ 0x1400905DC (MiProcessLargeCoalesceList.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiUnlinkNodeLargePageHelper @ 0x140064700 (MiUnlinkNodeLargePageHelper.c)
- *     MiConstructNewLargeFreePage @ 0x1400911B0 (MiConstructNewLargeFreePage.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1400646F0 (MiUnlinkNodeLargePageHelper.c)
+ *     MiConstructNewLargeFreePage @ 0x1400910F0 (MiConstructNewLargeFreePage.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCoalesceFreeLargePages(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -110,7 +110,7 @@ LABEL_11:
         if ( (*(_BYTE *)(v19 + 34) & 7u) > 1
           || (*(_QWORD *)(v19 + 40) & 0xFFFFFFFFFLL) != v10
           || *(__int64 *)(v19 + 8) >= 0
-          || *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v19 + 40) >> 40) & 0x3FFLL)) != a1 )
+          || *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v19 + 40) >> 40) & 0x3FFLL)) != a1 )
         {
           break;
         }
@@ -154,7 +154,7 @@ LABEL_20:
           break;
         if ( *(__int64 *)(v24 + 8) >= 0 )
           break;
-        if ( *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL)) != a1 )
+        if ( *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v24 + 40) >> 40) & 0x3FFLL)) != a1 )
           break;
         ++j;
       }
@@ -214,7 +214,7 @@ LABEL_40:
        && (*(_BYTE *)(v14 + 34) & 7u) <= 1
        && (*(_QWORD *)(v14 + 40) & 0xFFFFFFFFFLL) == v10
        && *(__int64 *)(v14 + 8) < 0
-       && *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v14 + 40) >> 40) & 0x3FFLL)) == a1 )
+       && *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v14 + 40) >> 40) & 0x3FFLL)) == a1 )
   {
     ++v12;
     v13 += v8;

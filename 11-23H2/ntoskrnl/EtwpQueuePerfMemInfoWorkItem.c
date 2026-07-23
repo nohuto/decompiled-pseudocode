@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x140467E68
+ * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x140468268
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x140467A10 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x140467E10 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

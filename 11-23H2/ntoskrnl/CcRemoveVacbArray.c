@@ -1,9 +1,9 @@
 /*
- * XREFs of CcRemoveVacbArray @ 0x140538168
+ * XREFs of CcRemoveVacbArray @ 0x1405386B8
  * Callers:
- *     CcDereferenceVacbArray @ 0x140537F3C (CcDereferenceVacbArray.c)
+ *     CcDereferenceVacbArray @ 0x14053848C (CcDereferenceVacbArray.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 unsigned int **__fastcall CcRemoveVacbArray(unsigned int *a1)

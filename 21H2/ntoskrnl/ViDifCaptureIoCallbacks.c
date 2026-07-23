@@ -1,8 +1,8 @@
 /*
- * XREFs of ViDifCaptureIoCallbacks @ 0x1405A0CA8
+ * XREFs of ViDifCaptureIoCallbacks @ 0x1405A0ED8
  * Callers:
- *     VfDifCaptureIoCallbacks @ 0x14037DF40 (VfDifCaptureIoCallbacks.c)
- *     IovAttachDeviceToDeviceStack @ 0x1409C4A4C (IovAttachDeviceToDeviceStack.c)
+ *     VfDifCaptureIoCallbacks @ 0x14037DA90 (VfDifCaptureIoCallbacks.c)
+ *     IovAttachDeviceToDeviceStack @ 0x1409C5A4C (IovAttachDeviceToDeviceStack.c)
  * Callees:
  *     <none>
  */

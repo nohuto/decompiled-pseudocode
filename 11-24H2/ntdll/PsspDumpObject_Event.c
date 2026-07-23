@@ -1,16 +1,16 @@
 /*
- * XREFs of PsspDumpObject_Event @ 0x18010A9F0
+ * XREFs of PsspDumpObject_Event @ 0x180105560
  * Callers:
- *     PsspWalkHandleTable @ 0x1800C425C (PsspWalkHandleTable.c)
+ *     PsspWalkHandleTable @ 0x1800BBE1C (PsspWalkHandleTable.c)
  * Callees:
- *     NtQueryEvent @ 0x180162750 (NtQueryEvent.c)
+ *     NtQueryEvent @ 0x180160B10 (NtQueryEvent.c)
  */
 
-__int64 __fastcall PsspDumpObject_Event(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall PsspDumpObject_Event(void *a1, void *a2, unsigned int a3, ULONG *ReturnLength)
 {
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 8 )
-    return 3221225507LL;
+    return -1073741789;
   else
-    return NtQueryEvent(a1, 0LL, a2, 8LL, a4);
+    return NtQueryEvent(a1, EventBasicInformation, a2, 8u, ReturnLength);
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of CcPostWorkQueue @ 0x1402A7488
+ * XREFs of CcPostWorkQueue @ 0x14027AE6C
  * Callers:
- *     CcRepostToSynchronousLazywriter @ 0x1402A93E4 (CcRepostToSynchronousLazywriter.c)
- *     CcNotifyOfMappedWrite @ 0x14036BCAC (CcNotifyOfMappedWrite.c)
- *     CcLazyWriteScan @ 0x14043BAE8 (CcLazyWriteScan.c)
- *     CcQueueLazyWriteScanThreadForVolume @ 0x14043C240 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
- *     CcQueueLazyWriteScanThread @ 0x14057A5C0 (CcQueueLazyWriteScanThread.c)
+ *     CcLazyWriteScan @ 0x1402654C8 (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x140265C20 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcRepostToSynchronousLazywriter @ 0x14027B688 (CcRepostToSynchronousLazywriter.c)
+ *     CcNotifyOfMappedWrite @ 0x1402EDA4C (CcNotifyOfMappedWrite.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
+ *     CcQueueLazyWriteScanThread @ 0x140577A50 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     CcPostWorkQueueRegular @ 0x1402A74B4 (CcPostWorkQueueRegular.c)
- *     CcPostWorkQueueCachemapUninit @ 0x1402A7944 (CcPostWorkQueueCachemapUninit.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x14027973C (CcPostWorkQueueCachemapUninit.c)
+ *     CcPostWorkQueueRegular @ 0x14027AE98 (CcPostWorkQueueRegular.c)
  */
 
-__int64 __fastcall CcPostWorkQueue(__int64 a1, __int64 a2)
+void __fastcall CcPostWorkQueue(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  if ( *(_QWORD *)(a1 + 152) + 120LL == a2 )
-    return CcPostWorkQueueCachemapUninit();
+  if ( a1[19] + 120LL == a2 )
+    CcPostWorkQueueCachemapUninit(a1, a2, a3, a4);
   else
-    return CcPostWorkQueueRegular();
+    CcPostWorkQueueRegular();
 }

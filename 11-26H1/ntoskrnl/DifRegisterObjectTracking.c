@@ -1,13 +1,13 @@
 /*
- * XREFs of DifRegisterObjectTracking @ 0x14064B1A0
+ * XREFs of DifRegisterObjectTracking @ 0x14064ED80
  * Callers:
  *     <none>
  * Callees:
- *     DifGetAvailableSystemPages @ 0x14064C72C (DifGetAvailableSystemPages.c)
- *     DifInitSegContext @ 0x14064CF8C (DifInitSegContext.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     DifGetAvailableSystemPages @ 0x14065030C (DifGetAvailableSystemPages.c)
+ *     DifInitSegContext @ 0x140650B6C (DifInitSegContext.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DifRegisterObjectTracking(unsigned int a1, int a2, __int64 a3, __int64 a4)
@@ -22,8 +22,8 @@ __int64 __fastcall DifRegisterObjectTracking(unsigned int a1, int a2, __int64 a3
   unsigned __int64 v11; // rbx
   int inited; // ebx
   _QWORD *v13; // rsi
-  __int64 (__fastcall **v14)(__int64, __int64, __int64); // r14
-  $AA7B8230874764A53E1F7A8CE5E032EC *v15; // r15
+  unsigned __int64 *p_KcsanThread; // r14
+  unsigned __int64 *Spare35; // r15
   __int64 v16; // r13
   unsigned __int64 AvailableSystemPages; // [rsp+20h] [rbp-48h]
 
@@ -69,20 +69,20 @@ LABEL_24:
   }
   if ( !_InterlockedCompareExchange(&DifObjTrkInitialized, 1, 0) )
   {
-    memset_0(stru_140E27B08.Spare35, 0, 0x380uLL);
-    v14 = (__int64 (__fastcall **)(__int64, __int64, __int64))&unk_140E27FC8;
-    v15 = &stru_140E27B08.1144;
+    memset_0(&stru_140E27C48.InGlobalUpdateVpThreadPriorityList, 0, 0x380uLL);
+    p_KcsanThread = &stru_140E27C48.KcsanThread;
+    Spare35 = stru_140E27C48.Spare35;
     v16 = 5LL;
     do
     {
-      memset_0(v15, 0, 0x68uLL);
-      *(v14 - 9) = (__int64 (__fastcall *)(__int64, __int64, __int64))v15;
-      *v14 = DifObjTrkCompareNode;
-      v15 += 15;
-      v14[3] = 0LL;
-      v14[1] = (__int64 (__fastcall *)(__int64, __int64, __int64))DifObjTrkAllocNode;
-      v14[2] = (__int64 (__fastcall *)(__int64, __int64, __int64))DifObjTrkFreeNode;
-      v14 += 15;
+      memset_0(Spare35, 0, 0x68uLL);
+      *(p_KcsanThread - 9) = (unsigned __int64)Spare35;
+      *p_KcsanThread = (unsigned __int64)DifObjTrkCompareNode;
+      Spare35 += 15;
+      p_KcsanThread[3] = 0LL;
+      p_KcsanThread[1] = (unsigned __int64)DifObjTrkAllocNode;
+      p_KcsanThread[2] = (unsigned __int64)DifObjTrkFreeNode;
+      p_KcsanThread += 15;
       --v16;
     }
     while ( v16 );
@@ -99,10 +99,10 @@ LABEL_24:
   v13[1] = v5;
   v13[2] = v4;
   *(_QWORD *)(Pool2 + 24) = v13;
-  qword_140E28280 = (32 * v11) & 0x1FFFFFFFFFFFFFFLL;
-  if ( (unsigned __int64)qword_140E28280 > 0x3D09000 )
-    qword_140E28280 = 64000000LL;
-  inited = DifInitSegContext(&stru_140E27B08.ReservedPreviousReadyTimeValue, 16LL, 64LL);
+  qword_140E28380 = (32 * v11) & 0x1FFFFFFFFFFFFFFLL;
+  if ( (unsigned __int64)qword_140E28380 > 0x3D09000 )
+    qword_140E28380 = 64000000LL;
+  inited = DifInitSegContext(&DifObjTrkSegContext, 16LL, 64LL);
   if ( inited < 0 )
   {
     ExFreePoolWithTag(v13, 0x4E666944u);

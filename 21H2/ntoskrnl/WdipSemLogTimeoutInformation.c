@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipSemLogTimeoutInformation @ 0x1409304B0
+ * XREFs of WdipSemLogTimeoutInformation @ 0x140930610
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x1406B5FF0 (WdipTimeoutCheckRoutine.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406154B0 (WdipTimeoutCheckRoutine.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     WdipSemWriteTimeoutEvent @ 0x140930844 (WdipSemWriteTimeoutEvent.c)
- *     WdipSemSqmEnabled @ 0x140930BE0 (WdipSemSqmEnabled.c)
- *     WdipSemSqmLogTimeoutDataPoints @ 0x140930CD0 (WdipSemSqmLogTimeoutDataPoints.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     WdipSemWriteTimeoutEvent @ 0x1409309A4 (WdipSemWriteTimeoutEvent.c)
+ *     WdipSemSqmEnabled @ 0x140930D40 (WdipSemSqmEnabled.c)
+ *     WdipSemSqmLogTimeoutDataPoints @ 0x140930E30 (WdipSemSqmLogTimeoutDataPoints.c)
  */
 
 __int64 __fastcall WdipSemLogTimeoutInformation(__int64 a1, unsigned __int16 a2, __int64 a3)

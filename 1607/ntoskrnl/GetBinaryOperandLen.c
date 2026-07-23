@@ -1,7 +1,7 @@
 /*
- * XREFs of GetBinaryOperandLen @ 0x1406CCCEC
+ * XREFs of GetBinaryOperandLen @ 0x1406CCE24
  * Callers:
- *     GetOperandValue @ 0x1406CCF20 (GetOperandValue.c)
+ *     GetOperandValue @ 0x1406CD058 (GetOperandValue.c)
  * Callees:
  *     <none>
  */

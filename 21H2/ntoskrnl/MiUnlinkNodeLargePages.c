@@ -1,23 +1,23 @@
 /*
  * XREFs of MiUnlinkNodeLargePages @ 0x1403F70E8
  * Callers:
- *     MiGetHugePageToZero @ 0x14022FCB0 (MiGetHugePageToZero.c)
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
- *     MiTimeSingleLargePageZeroWorker @ 0x1403B0728 (MiTimeSingleLargePageZeroWorker.c)
+ *     MiGetHugePageToZero @ 0x1402D4500 (MiGetHugePageToZero.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403B0898 (MiTimeSingleLargePageZeroWorker.c)
  *     MiGetFreeZeroLargePages @ 0x1403F6914 (MiGetFreeZeroLargePages.c)
- *     MiGetPagesToZero @ 0x14054FD4C (MiGetPagesToZero.c)
- *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
+ *     MiGetPagesToZero @ 0x14054FF8C (MiGetPagesToZero.c)
+ *     MiScrubNodeLargePageList @ 0x140557078 (MiScrubNodeLargePageList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     MiUnlockPage @ 0x1402AF34C (MiUnlockPage.c)
- *     MiChangePageAttributeContiguous @ 0x1402CF8B8 (MiChangePageAttributeContiguous.c)
- *     MiBeginPageAccessor @ 0x140314E48 (MiBeginPageAccessor.c)
- *     MiUnlinkNodeLargePageHelper @ 0x140318F30 (MiUnlinkNodeLargePageHelper.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     MiUnlockPage @ 0x14022D6AC (MiUnlockPage.c)
+ *     MiChangePageAttributeContiguous @ 0x14024DC38 (MiChangePageAttributeContiguous.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D1370 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiBeginPageAccessor @ 0x14031FB98 (MiBeginPageAccessor.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x140323C80 (MiUnlinkNodeLargePageHelper.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -27,7 +27,7 @@ __int64 __fastcall MiUnlinkNodeLargePages(
         __int64 a3,
         unsigned int a4,
         int a5,
-        unsigned int a6,
+        signed int a6,
         __int64 a7,
         char a8,
         unsigned __int64 a9)
@@ -93,10 +93,10 @@ __int64 __fastcall MiUnlinkNodeLargePages(
   struct _KPRCB *v67; // r10
   _DWORD *v68; // r9
   int v69; // eax
-  struct _KPRCB *v70; // r9
-  __int64 v71; // rcx
-  __int64 v72; // rdi
-  unsigned __int8 v73; // al
+  __int64 v70; // rcx
+  __int64 v71; // rdi
+  unsigned __int8 v72; // al
+  struct _KPRCB *v73; // r9
   _DWORD *v74; // r8
   int v75; // eax
   __int64 v76; // rsi
@@ -142,7 +142,7 @@ __int64 __fastcall MiUnlinkNodeLargePages(
     return 0LL;
   v12 = &v11[134 * a2];
   v105 = MiLargePageSizes[a2];
-  v91 = dword_140C4DF80[a2];
+  v91 = dword_140C4DFC0[a2];
   v88 = v12;
   if ( (a8 & 4) != 0 )
     v92 = 0x100000000LL;
@@ -155,7 +155,7 @@ __int64 __fastcall MiUnlinkNodeLargePages(
   v15 = ((a8 & 2) != 0) + 1;
   v86 = v15;
 LABEL_7:
-  v16 = (int)a6;
+  v16 = a6;
   v17 = 0;
   while ( 1 )
   {
@@ -224,7 +224,7 @@ LABEL_7:
           }
         }
         __writecr8(v14);
-        KeWaitForGate((__int64)v101, 18);
+        KeWaitForGate((__int64)v101, 0x12u);
 LABEL_41:
         v17 = 0;
         goto LABEL_48;
@@ -326,16 +326,16 @@ LABEL_52:
       ++v37;
       v39 = (__int64 *)((char *)v39 + 4);
       v95 = v16;
-      v16 = (int)a6;
+      v16 = a6;
       if ( v37 < v86 )
         goto LABEL_52;
       v35 = v87;
-      v16 = (int)a6;
+      v16 = a6;
       v36 = v89 + 1;
       v89 = v36;
       if ( v36 <= v93 )
         goto LABEL_51;
-      v16 = (int)a6;
+      v16 = a6;
       ++v21;
       v89 = v36;
       if ( v21 != v22 )
@@ -500,7 +500,7 @@ LABEL_85:
   _InterlockedAnd64(v59, 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_111:
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  v71 = v94;
+  v70 = v94;
   if ( !v94 )
   {
 LABEL_117:
@@ -508,16 +508,16 @@ LABEL_117:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v73 = KeGetCurrentIrql();
-        if ( v73 <= 0xFu && v14 <= 0xFu && v73 >= 2u )
+        v72 = KeGetCurrentIrql();
+        if ( v72 <= 0xFu && v14 <= 0xFu && v72 >= 2u )
         {
-          v70 = KeGetCurrentPrcb();
-          v74 = v70->SchedulerAssist;
+          v73 = KeGetCurrentPrcb();
+          v74 = v73->SchedulerAssist;
           v75 = ~(unsigned __int16)(-1LL << (v14 + 1));
           v27 = (v75 & v74[5]) == 0;
           v74[5] &= v75;
           if ( v27 )
-            KiRemoveSystemWorkPriorityKick((__int64)v70);
+            KiRemoveSystemWorkPriorityKick((__int64)v73);
         }
       }
     }
@@ -528,17 +528,17 @@ LABEL_117:
   {
     if ( a9 )
     {
-      v72 = 0LL;
+      v71 = 0LL;
       goto LABEL_114;
     }
-    v72 = *(_QWORD *)v71;
-    if ( *(_QWORD *)v71 )
-      _InterlockedAnd64((volatile signed __int64 *)(v71 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    v71 = *(_QWORD *)v70;
+    if ( *(_QWORD *)v70 )
+      _InterlockedAnd64((volatile signed __int64 *)(v70 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     else
 LABEL_114:
-      MiUnlockPage(v71, 2u);
-    v71 = v72;
-    if ( v72 )
+      MiUnlockPage(v70, 2u);
+    v70 = v71;
+    if ( v71 )
       continue;
     break;
   }
@@ -557,7 +557,7 @@ LABEL_125:
         v79 = 0LL;
       else
         v79 = (_QWORD *)*v78;
-      MiChangePageAttributeContiguous((__int64)(v78 + 0xB000000000LL) / 48, v77, a6, v70);
+      MiChangePageAttributeContiguous((__int64)(v78 + 0xB000000000LL) / 48, v77, a6);
       v98 = v78[2];
       MiSetOriginalPtePfnFromFreeList(&v98);
       v78[2] = v98;

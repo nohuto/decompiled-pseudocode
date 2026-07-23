@@ -1,12 +1,12 @@
 /*
- * XREFs of MmTrimSection @ 0x140370AB4
+ * XREFs of MmTrimSection @ 0x1404724C4
  * Callers:
- *     CcPurgeCacheSection @ 0x14023EF70 (CcPurgeCacheSection.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x1404DD130 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcPurgeCacheSection @ 0x1402070C0 (CcPurgeCacheSection.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1404D6B50 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
- *     MiComputeFlushRange @ 0x14022F1B8 (MiComputeFlushRange.c)
- *     MiTrimSection @ 0x1402B9B70 (MiTrimSection.c)
- *     MiFlushRelease @ 0x1403710F0 (MiFlushRelease.c)
+ *     MiFlushRelease @ 0x1402594B0 (MiFlushRelease.c)
+ *     MiComputeFlushRange @ 0x140302AC8 (MiComputeFlushRange.c)
+ *     MiTrimSection @ 0x1403612B0 (MiTrimSection.c)
  */
 
 __int64 __fastcall MmTrimSection(__int64 *a1, __int64 *a2, int a3, char a4)
@@ -37,7 +37,7 @@ __int64 __fastcall MmTrimSection(__int64 *a1, __int64 *a2, int a3, char a4)
   if ( (_DWORD)result )
   {
     v7 = MiTrimSection(&v8, 0LL, 0, v4);
-    MiFlushRelease(v8, *((_QWORD *)&v9 + 1), v10);
+    MiFlushRelease(v8, *((_QWORD **)&v9 + 1), (_QWORD *)v10);
     return v7;
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of SeRegisterLogonSessionTerminatedRoutineEx @ 0x140793330
+ * XREFs of SeRegisterLogonSessionTerminatedRoutineEx @ 0x1407933D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SeRegisterLogonSessionTerminatedRoutineEx(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall SeRegisterLogonSessionTerminatedRoutineEx(__int64 a1, __int64
 
   if ( !a1 )
     return 3221225485LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x18uLL, 0x53466553u);
   if ( !Pool2 )
     return 3221225626LL;
   CurrentThread = KeGetCurrentThread();

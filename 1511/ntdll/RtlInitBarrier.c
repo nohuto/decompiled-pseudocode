@@ -8,19 +8,19 @@
  *     ZwCreateEvent @ 0x1800A59C0 (ZwCreateEvent.c)
  */
 
-__int64 __fastcall RtlInitBarrier(__int64 a1, int a2, int a3)
+NTSTATUS __cdecl RtlInitBarrier(PRTL_BARRIER Barrier, ULONG TotalThreads, ULONG SpinCount)
 {
-  int v3; // ebx
-  int v6; // edx
+  DWORD v3; // ebx
+  DWORD v6; // edx
   __int64 i; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int Event; // ebx
   __int64 v10; // [rsp+30h] [rbp-38h] BYREF
   __int64 v11; // [rsp+40h] [rbp-28h]
 
-  *(_DWORD *)(a1 + 4) = a2;
+  Barrier->Reserved2 = TotalThreads;
   v3 = 0;
-  *(_DWORD *)a1 = a2;
+  Barrier->Reserved1 = TotalThreads;
   if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBasicInformation, &v10, 0x30u, 0LL) >= 0 )
   {
     for ( i = v11; i; i &= i - 1 )
@@ -31,22 +31,22 @@ __int64 __fastcall RtlInitBarrier(__int64 a1, int a2, int a3)
   {
     v6 = 1;
   }
-  *(_DWORD *)(a1 + 24) = v6;
-  if ( a3 == -1 )
-    a3 = 2000;
-  *(_DWORD *)(a1 + 28) = a3;
-  result = ZwCreateEvent();
-  if ( (int)result >= 0 )
+  Barrier->Reserved4 = v6;
+  if ( SpinCount == -1 )
+    SpinCount = 2000;
+  Barrier->Reserved5 = SpinCount;
+  result = ZwCreateEvent((PHANDLE)Barrier->Reserved3, 0x100003u, 0LL, NotificationEvent, 0);
+  if ( result >= 0 )
   {
-    Event = ZwCreateEvent();
+    Event = ZwCreateEvent((PHANDLE)&Barrier->Reserved3[1], 0x100003u, 0LL, NotificationEvent, 0);
     if ( Event >= 0 )
     {
-      return 0LL;
+      return 0;
     }
     else
     {
-      NtClose(*(HANDLE *)(a1 + 8));
-      return (unsigned int)Event;
+      NtClose((HANDLE)Barrier->Reserved3[0]);
+      return Event;
     }
   }
   return result;

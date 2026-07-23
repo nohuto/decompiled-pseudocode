@@ -1,17 +1,17 @@
 /*
- * XREFs of MmIdentifyPhysicalMemory @ 0x140868394
+ * XREFs of MmIdentifyPhysicalMemory @ 0x14086E774
  * Callers:
- *     EtwpSetMark @ 0x140775508 (EtwpSetMark.c)
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
+ *     EtwpSetMark @ 0x140778508 (EtwpSetMark.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiIdentifyPfnWrapper @ 0x1402F0D20 (MiIdentifyPfnWrapper.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     EtwTraceSiloDcEvent @ 0x1404BB2C4 (EtwTraceSiloDcEvent.c)
- *     MiReferencePagePartition @ 0x1406F0A6C (MiReferencePagePartition.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiIdentifyPfnWrapper @ 0x1402D2DA0 (MiIdentifyPfnWrapper.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     EtwTraceSiloDcEvent @ 0x1404B4AA4 (EtwTraceSiloDcEvent.c)
+ *     MiReferencePagePartition @ 0x1406F56DC (MiReferencePagePartition.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmIdentifyPhysicalMemory(__int64 a1, unsigned int a2, unsigned __int16 a3, int a4)
@@ -166,7 +166,7 @@ LABEL_40:
   {
     LODWORD(v30) = v30 & 0xFFFFFFE0;
     *((_QWORD *)&v30 + 1) = MmPfnDatabase;
-    v31 = qword_140E2D700;
+    v31 = qword_140E2D880;
     *(_QWORD *)&v34 = &v30;
     *((_QWORD *)&v34 + 1) = 24LL;
     EtwTraceSiloDcEvent((__int64)&v34, 1u, v5, v4, 0x27Bu, 0x501804u);

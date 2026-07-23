@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     __C_specific_handler @ 0x180096EA0 (__C_specific_handler.c)
- *     __GSHandlerCheckCommon @ 0x18009CC28 (__GSHandlerCheckCommon.c)
+ *     __C_specific_handler @ 0x180096E90 (__C_specific_handler.c)
+ *     __GSHandlerCheckCommon @ 0x18009CC18 (__GSHandlerCheckCommon.c)
  */
 
 __int64 __fastcall _GSHandlerCheck_SEH(

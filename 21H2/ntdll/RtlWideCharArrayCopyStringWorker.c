@@ -3,7 +3,7 @@
  * Callers:
  *     RtlUnicodeStringCbCatStringN @ 0x18006A110 (RtlUnicodeStringCbCatStringN.c)
  *     RtlUnicodeStringCbCopyStringN @ 0x18006A1AC (RtlUnicodeStringCbCopyStringN.c)
- *     RtlUnicodeStringCopyString @ 0x1800CC6C8 (RtlUnicodeStringCopyString.c)
+ *     RtlUnicodeStringCopyString @ 0x1800CC688 (RtlUnicodeStringCopyString.c)
  * Callees:
  *     <none>
  */

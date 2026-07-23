@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpCapture @ 0x14094DE5C
+ * XREFs of IopLiveDumpCapture @ 0x14094E05C
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x140A9A8B8 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x140A9B19C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140A9A728 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9B00C (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEnterCorralledState @ 0x140A9B15C (IopLiveDumpEnterCorralledState.c)
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEnterCorralledState @ 0x140A9AFCC (IopLiveDumpEnterCorralledState.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  */
 
 __int64 __fastcall IopLiveDumpCapture(__int64 a1)

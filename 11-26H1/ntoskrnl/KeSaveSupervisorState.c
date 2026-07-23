@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSaveSupervisorState @ 0x1405ECAD4
+ * XREFs of KeSaveSupervisorState @ 0x1405EF444
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x1404A70C8 (IopLiveDumpProcessCorralStateChange.c)
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiFreezeTargetExecution @ 0x1405F5E50 (KiFreezeTargetExecution.c)
- *     KdEnterDebugger @ 0x140C17858 (KdEnterDebugger.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1404A0758 (IopLiveDumpProcessCorralStateChange.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiFreezeTargetExecution @ 0x1405F8810 (KiFreezeTargetExecution.c)
+ *     KdEnterDebugger @ 0x140C1D858 (KdEnterDebugger.c)
  * Callees:
- *     RtlXSaveS @ 0x1403D45AC (RtlXSaveS.c)
- *     KiSaveIptState @ 0x1404FB5B8 (KiSaveIptState.c)
+ *     RtlXSaveS @ 0x1403D757C (RtlXSaveS.c)
+ *     KiSaveIptState @ 0x1404F4AA0 (KiSaveIptState.c)
  */
 
 void __fastcall KeSaveSupervisorState(__int64 a1, __int64 a2)

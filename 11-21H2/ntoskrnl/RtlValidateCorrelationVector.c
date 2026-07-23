@@ -4,71 +4,71 @@
  *     RtlIncrementCorrelationVector @ 0x1409BB750 (RtlIncrementCorrelationVector.c)
  * Callees:
  *     strncmp @ 0x1403E0910 (strncmp.c)
- *     RtlpGetCorrelationVectorEndPosition @ 0x1405EC264 (RtlpGetCorrelationVectorEndPosition.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BBA8C (RtlpGetCorrelationVectorBufferLength.c)
- *     RtlpGetLastContiguosBase64Position @ 0x1409BBAB0 (RtlpGetLastContiguosBase64Position.c)
+ *     sub_1405EC264 @ 0x1405EC264 (sub_1405EC264.c)
+ *     sub_1409BBA8C @ 0x1409BBA8C (sub_1409BBA8C.c)
+ *     sub_1409BBAB0 @ 0x1409BBAB0 (sub_1409BBAB0.c)
  */
 
-__int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a3)
+DWORD __cdecl RtlValidateCorrelationVector(PCORRELATION_VECTOR Vector)
 {
-  int LastContiguosBase64Position; // esi
-  __int64 v5; // rdx
-  int CorrelationVectorEndPosition; // eax
-  int v8; // esi
-  __int64 v9; // rbx
-  __int64 v10; // rbp
-  int v11; // ecx
-  __int64 v12; // r8
-  _BYTE *v13; // rdx
+  int v2; // esi
+  __int64 v3; // rdx
+  int v4; // eax
+  int v6; // esi
+  __int64 v7; // rbx
+  __int64 v8; // rbp
+  int v9; // ecx
+  __int64 v10; // r8
+  CHAR *v11; // rdx
 
-  if ( !a1 )
-    return 3221225485LL;
-  if ( (int)RtlpGetCorrelationVectorBufferLength(a1, a2, a3) < 0 )
-    return 3221225485LL;
-  LastContiguosBase64Position = RtlpGetLastContiguosBase64Position(a1);
-  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition((__int64)a1, v5);
-  if ( CorrelationVectorEndPosition < 0 )
-    return 3221225485LL;
-  if ( *a1 == 1 )
+  if ( !Vector )
+    return -1073741811;
+  if ( (int)sub_1409BBA8C(Vector) < 0 )
+    return -1073741811;
+  v2 = sub_1409BBAB0(Vector);
+  v4 = sub_1405EC264((__int64)Vector, v3);
+  if ( v4 < 0 )
+    return -1073741811;
+  if ( Vector->Version == 1 )
   {
-    if ( LastContiguosBase64Position != 15 )
-      return 3221225485LL;
+    if ( v2 != 15 )
+      return -1073741811;
   }
-  else if ( *a1 == 2 && LastContiguosBase64Position != 21 )
+  else if ( Vector->Version == 2 && v2 != 21 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
-  v8 = LastContiguosBase64Position + 1;
-  v9 = v8;
-  if ( a1[v8 + 1] != 46 )
-    return 3221225485LL;
-  v10 = CorrelationVectorEndPosition;
-  while ( v9 < v10 )
+  v6 = v2 + 1;
+  v7 = v6;
+  if ( Vector->Vector[v6] != 46 )
+    return -1073741811;
+  v8 = v4;
+  while ( v7 < v8 )
   {
-    if ( a1[v9 + 1] == 46 )
+    if ( Vector->Vector[v7] == 46 )
     {
-      ++v8;
-      ++v9;
-      v11 = 0;
-      v12 = v8;
-      if ( v9 < v10 )
+      ++v6;
+      ++v7;
+      v9 = 0;
+      v10 = v6;
+      if ( v7 < v8 )
       {
-        v13 = &a1[v9 + 1];
+        v11 = &Vector->Vector[v7];
         do
         {
-          if ( (unsigned __int8)(*v13 - 48) > 9u )
+          if ( (unsigned __int8)(*v11 - 48) > 9u )
             break;
-          ++v8;
-          ++v9;
-          ++v13;
+          ++v6;
+          ++v7;
           ++v11;
+          ++v9;
         }
-        while ( v9 < v10 );
-        if ( v11 && v11 <= 10 && (v11 != 10 || strncmp(&a1[v12 + 1], "2147483647", 0xAuLL) <= 0) )
+        while ( v7 < v8 );
+        if ( v9 && v9 <= 10 && (v9 != 10 || strncmp(&Vector->Vector[v10], "2147483647", 0xAuLL) <= 0) )
           continue;
       }
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  return 0LL;
+  return 0;
 }

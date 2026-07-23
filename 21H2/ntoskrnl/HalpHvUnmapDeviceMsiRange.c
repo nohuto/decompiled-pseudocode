@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvUnmapDeviceMsiRange @ 0x1409A73A0
+ * XREFs of HalpHvUnmapDeviceMsiRange @ 0x1409A82D0
  * Callers:
- *     HalpInterruptUnmap @ 0x140761838 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x1407619F8 (HalpInterruptUnmap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpHvBuildDeviceId @ 0x1409A70C8 (HalpHvBuildDeviceId.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpHvBuildDeviceId @ 0x1409A7FF8 (HalpHvBuildDeviceId.c)
  */
 
 __int64 __fastcall HalpHvUnmapDeviceMsiRange(__int64 a1, __int64 a2, int *a3, char a4)
@@ -22,5 +22,5 @@ __int64 __fastcall HalpHvUnmapDeviceMsiRange(__int64 a1, __int64 a2, int *a3, ch
   v8[2] = v5;
   v8[3] = *(unsigned __int16 *)(v4 + 52);
   v8[0] = 1;
-  return ((__int64 (__fastcall *)(__int64, _DWORD *))qword_140C4A1B0)(v7, v8);
+  return ((__int64 (__fastcall *)(__int64, _DWORD *))qword_140C4A1F0)(v7, v8);
 }

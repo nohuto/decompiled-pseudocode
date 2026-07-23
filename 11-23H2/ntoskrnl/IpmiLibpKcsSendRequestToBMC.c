@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsSendRequestToBMC @ 0x1406784D8
+ * XREFs of IpmiLibpKcsSendRequestToBMC @ 0x140678A28
  * Callers:
- *     IpmiLibpKcsBmcTransact @ 0x140678074 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibpKcsBmcTransact @ 0x1406785C4 (IpmiLibpKcsBmcTransact.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x140677C6C (IpmiLibReadOneByte.c)
- *     IpmiLibWriteOneByte @ 0x140677CAC (IpmiLibWriteOneByte.c)
- *     IpmiLibpKcsSpinRegister @ 0x1406786C0 (IpmiLibpKcsSpinRegister.c)
- *     IpmiLibpHandleSendInterrupt @ 0x140678940 (IpmiLibpHandleSendInterrupt.c)
+ *     IpmiLibReadOneByte @ 0x1406781BC (IpmiLibReadOneByte.c)
+ *     IpmiLibWriteOneByte @ 0x1406781FC (IpmiLibWriteOneByte.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140678C10 (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpHandleSendInterrupt @ 0x140678E90 (IpmiLibpHandleSendInterrupt.c)
  */
 
 __int64 __fastcall IpmiLibpKcsSendRequestToBMC(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4)
@@ -21,14 +21,14 @@ __int64 __fastcall IpmiLibpKcsSendRequestToBMC(__int64 a1, __int64 a2, unsigned 
   __int64 v14; // rcx
   unsigned int v15; // r9d
 
-  dword_140C2CC74 = 7;
+  dword_140C2CC34 = 7;
   v7 = 0;
   if ( (unsigned int)IpmiLibpKcsSpinRegister(a1, a4, 2LL) )
     goto LABEL_22;
   IpmiLibReadOneByte(v8, 0);
-  dword_140C2CC74 = 0;
+  dword_140C2CC34 = 0;
   IpmiLibWriteOneByte(v9, 1u, 0x61u);
-  if ( (dword_140C2CC40 & 1) != 0 )
+  if ( (dword_140C2CC00 & 1) != 0 )
   {
     if ( (unsigned int)IpmiLibpHandleSendInterrupt(v8, a4) )
       goto LABEL_22;
@@ -39,11 +39,11 @@ __int64 __fastcall IpmiLibpKcsSendRequestToBMC(__int64 a1, __int64 a2, unsigned 
   if ( OneByte >= 0 || (OneByte & 0x40) != 0 )
     goto LABEL_22;
   IpmiLibReadOneByte(v8, 0);
-  dword_140C2CC74 = 1;
+  dword_140C2CC34 = 1;
   while ( a3 > 1u )
   {
     IpmiLibWriteOneByte(v11, 0, *(_BYTE *)(v7 + a2));
-    if ( (dword_140C2CC40 & 1) != 0 && (unsigned int)IpmiLibpHandleSendInterrupt(v8, a4) )
+    if ( (dword_140C2CC00 & 1) != 0 && (unsigned int)IpmiLibpHandleSendInterrupt(v8, a4) )
       goto LABEL_22;
     if ( (unsigned int)IpmiLibpKcsSpinRegister(v8, a4, 2LL) )
       goto LABEL_22;
@@ -54,7 +54,7 @@ __int64 __fastcall IpmiLibpKcsSendRequestToBMC(__int64 a1, __int64 a2, unsigned 
     ++v7;
     --a3;
   }
-  if ( (IpmiLibWriteOneByte(v11, 1u, 0x62u), dword_140C2CC74 = 2, (dword_140C2CC40 & 1) != 0)
+  if ( (IpmiLibWriteOneByte(v11, 1u, 0x62u), dword_140C2CC34 = 2, (dword_140C2CC00 & 1) != 0)
     && (unsigned int)IpmiLibpHandleSendInterrupt(v8, a4)
     || (unsigned int)IpmiLibpKcsSpinRegister(v8, a4, 2LL)
     || (v13 = IpmiLibReadOneByte(v8, 1u), v13 >= 0)
@@ -67,7 +67,7 @@ LABEL_22:
   {
     IpmiLibReadOneByte(v8, 0);
     IpmiLibWriteOneByte(v14, 0, *(_BYTE *)(v7 + a2));
-    dword_140C2CC74 = 3;
+    dword_140C2CC34 = 3;
     return 0;
   }
   return v15;

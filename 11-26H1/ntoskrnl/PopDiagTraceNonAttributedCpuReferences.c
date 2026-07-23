@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceNonAttributedCpuReferences @ 0x14042D0EC
+ * XREFs of PopDiagTraceNonAttributedCpuReferences @ 0x1404217BC
  * Callers:
- *     PopUpdateNonAttributedCpuTimeReference @ 0x14042D038 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140421708 (PopUpdateNonAttributedCpuTimeReference.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceNonAttributedCpuReferences(int a1)
@@ -14,23 +14,13 @@ void __fastcall PopDiagTraceNonAttributedCpuReferences(int a1)
   int v2; // [rsp+70h] [rbp+8h] BYREF
 
   v2 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_NON_ATTRIBUTED_CPU_REFERENCES) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_NON_ATTRIBUTED_CPU_REFERENCES) )
     {
       UserData.Ptr = (ULONGLONG)&v2;
       *(_QWORD *)&UserData.Size = 4LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_NON_ATTRIBUTED_CPU_REFERENCES,
-        0LL,
-        1u,
-        0LL,
-        0LL,
-        1u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_NON_ATTRIBUTED_CPU_REFERENCES, 0LL, 1u, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

@@ -11,34 +11,34 @@
  *     NtClose @ 0x1800939F0 (NtClose.c)
  */
 
-__int64 __fastcall ResFindClose(unsigned __int64 a1)
+__int64 __fastcall ResFindClose(_RTL_CRITICAL_SECTION *BaseAddress)
 {
-  __int64 *v3; // rdi
-  unsigned __int64 v4; // r8
+  _RTL_CRITICAL_SECTION *v3; // rdi
+  void *v4; // r8
 
-  if ( a1 == 1 )
+  if ( BaseAddress == (_RTL_CRITICAL_SECTION *)1 )
     return 1LL;
-  if ( a1 == -1LL )
+  if ( BaseAddress == (_RTL_CRITICAL_SECTION *)-1LL )
   {
-    RtlSetLastWin32Error(6u);
+    RtlSetLastWin32Error(6);
     return 0LL;
   }
   else
   {
-    v3 = (__int64 *)(a1 + 40);
-    RtlEnterCriticalSection(a1 + 40);
-    if ( NtClose(*(HANDLE *)a1) < 0 )
+    v3 = BaseAddress + 1;
+    RtlEnterCriticalSection(BaseAddress + 1);
+    if ( NtClose(BaseAddress->DebugInfo) < 0 )
     {
-      RtlLeaveCriticalSection((__int64)v3);
+      RtlLeaveCriticalSection(v3);
       return 0LL;
     }
     else
     {
-      v4 = *(_QWORD *)(a1 + 8);
+      v4 = *(void **)&BaseAddress->LockCount;
       if ( v4 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
       RtlDeleteCriticalSection(v3);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       return 1LL;
     }
   }

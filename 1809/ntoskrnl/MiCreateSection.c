@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateSection @ 0x1405DDAC0
+ * XREFs of MiCreateSection @ 0x1405DEAC0
  * Callers:
- *     MiCreateSystemSection @ 0x1400F591C (MiCreateSystemSection.c)
- *     MmCreateCacheManagerSection @ 0x1405DD6DC (MmCreateCacheManagerSection.c)
- *     MiCreateSectionCommon @ 0x1405DD7A0 (MiCreateSectionCommon.c)
- *     MmCreateSpecialImageSection @ 0x14060A404 (MmCreateSpecialImageSection.c)
- *     MmCreateSectionEx @ 0x14061B34C (MmCreateSectionEx.c)
+ *     MiCreateSystemSection @ 0x1400F599C (MiCreateSystemSection.c)
+ *     MmCreateCacheManagerSection @ 0x1405DE6DC (MmCreateCacheManagerSection.c)
+ *     MiCreateSectionCommon @ 0x1405DE7A0 (MiCreateSectionCommon.c)
+ *     MmCreateSpecialImageSection @ 0x14060B404 (MmCreateSpecialImageSection.c)
+ *     MmCreateSectionEx @ 0x14061C34C (MmCreateSectionEx.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiInitializeCreateSectionPacket @ 0x1405DDDB0 (MiInitializeCreateSectionPacket.c)
- *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
- *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
- *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
- *     MiLogSectionObjectEvent @ 0x14084E868 (MiLogSectionObjectEvent.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiInitializeCreateSectionPacket @ 0x1405DEDB0 (MiInitializeCreateSectionPacket.c)
+ *     MiFinishCreateSection @ 0x1405DF0B0 (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x1405DF390 (MiCreateImageOrDataSection.c)
+ *     MmExtendSection @ 0x14061D8CC (MmExtendSection.c)
+ *     MiCreatePagingFileMap @ 0x14061FB18 (MiCreatePagingFileMap.c)
+ *     MiLogSectionObjectEvent @ 0x14084FAC8 (MiLogSectionObjectEvent.c)
  */
 
 __int64 __fastcall MiCreateSection(

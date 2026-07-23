@@ -1,18 +1,18 @@
 /*
- * XREFs of NtWorkerFactoryWorkerReady @ 0x1401227F0
+ * XREFs of NtWorkerFactoryWorkerReady @ 0x1401228C0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
+NTSTATUS __cdecl NtWorkerFactoryWorkerReady(HANDLE WorkerFactoryHandle)
 {
-  NTSTATUS v1; // edi
+  int v1; // edi
   _DWORD *v2; // rbx
   int v3; // eax
   int v4; // eax
@@ -22,7 +22,7 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
   PVOID Object; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = ObReferenceObjectByHandle(
-         a1,
+         WorkerFactoryHandle,
          0x10u,
          ExpWorkerFactoryObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -64,5 +64,5 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
     __writecr8(OldIrql);
     ObfDereferenceObjectWithTag(v2, 0x746C6644u);
   }
-  return (unsigned int)v1;
+  return v1;
 }

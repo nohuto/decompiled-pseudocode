@@ -1,22 +1,22 @@
 /*
- * XREFs of MiEmptyDecayClusterTimers @ 0x14025AF20
+ * XREFs of MiEmptyDecayClusterTimers @ 0x14025B1B0
  * Callers:
  *     MiWorkingSetManager @ 0x14021D5F0 (MiWorkingSetManager.c)
  * Callees:
  *     MiRelinkDecayClusterTimer @ 0x14021A99C (MiRelinkDecayClusterTimer.c)
- *     MiRelinkStandbyPage @ 0x14025A760 (MiRelinkStandbyPage.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x14025B400 (ExpAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     MiUnlinkDecayClusterTimer @ 0x140347BA0 (MiUnlinkDecayClusterTimer.c)
- *     MiDecayNodeNowEmpty @ 0x14034AA40 (MiDecayNodeNowEmpty.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiRelinkStandbyPage @ 0x14025A9F0 (MiRelinkStandbyPage.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14025B690 (ExpAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     MiUnlinkDecayClusterTimer @ 0x140347E30 (MiUnlinkDecayClusterTimer.c)
+ *     MiDecayNodeNowEmpty @ 0x14034ABE0 (MiDecayNodeNowEmpty.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 unsigned __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
@@ -81,7 +81,7 @@ unsigned __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & v3) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & v3) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -95,10 +95,10 @@ unsigned __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
     {
       *(_DWORD *)(v1 + 15776) = v5;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68180);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v23 = CurrentPrcb->SchedulerAssist;
@@ -113,10 +113,10 @@ unsigned __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
       goto LABEL_7;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68180);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
       {
         v27 = KeGetCurrentPrcb();
         v28 = v27->SchedulerAssist;
@@ -134,7 +134,7 @@ unsigned __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
   {
     v10 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
     {
       v19 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v10 == 2 )
@@ -181,10 +181,10 @@ unsigned __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
         ExReleaseSpinLockSharedFromDpcLevel(v9);
 LABEL_29:
         _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_30;
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) == 0 || v36 > 0xFu || v10 > 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v36 > 0xFu || v10 > 0xFu )
           goto LABEL_30;
         v35 = v36 < 2u;
       }
@@ -209,10 +209,10 @@ LABEL_29:
         }
         ExReleaseSpinLockSharedFromDpcLevel(v9);
         _InterlockedAnd64(v15, 0x7FFFFFFFFFFFFFFFuLL);
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_30;
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) == 0 || v34 > 0xFu || v10 > 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v34 > 0xFu || v10 > 0xFu )
           goto LABEL_30;
         v35 = v34 < 2u;
       }
@@ -230,10 +230,10 @@ LABEL_29:
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68180);
     ExReleaseSpinLockSharedFromDpcLevel(v9);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v10 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v10 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;
@@ -251,10 +251,10 @@ LABEL_30:
   *(_DWORD *)(v44 + 15776) = v45;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68180);
   ExReleaseSpinLockSharedFromDpcLevel(v9);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v39 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && v10 <= 0xFu && v39 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && v10 <= 0xFu && v39 >= 2u )
     {
       v40 = KeGetCurrentPrcb();
       v41 = v40->SchedulerAssist;

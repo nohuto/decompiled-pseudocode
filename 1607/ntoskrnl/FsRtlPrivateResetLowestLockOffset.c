@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlPrivateResetLowestLockOffset @ 0x1400C5690
+ * XREFs of FsRtlPrivateResetLowestLockOffset @ 0x1400C3530
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x1400AB1A8 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x1400C51B4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x1400C530C (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x1400A9728 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1400C3054 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1400C31AC (FsRtlFastUnlockSingleShared.c)
  * Callees:
  *     <none>
  */

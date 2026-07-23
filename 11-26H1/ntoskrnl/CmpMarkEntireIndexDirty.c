@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpMarkEntireIndexDirty @ 0x140A2F40C
+ * XREFs of CmpMarkEntireIndexDirty @ 0x140A41298
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpLightWeightDuplicateParentLists @ 0x140A2E958 (CmpLightWeightDuplicateParentLists.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140A407E4 (CmpLightWeightDuplicateParentLists.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvLockHiveWriter @ 0x1408DAEB0 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x1408DAF14 (HvUnlockHiveWriter.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvLockHiveWriter @ 0x1408E1470 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x1408E14D4 (HvUnlockHiveWriter.c)
  */
 
 __int64 __fastcall CmpMarkEntireIndexDirty(ULONG_PTR BugCheckParameter3, int a2)

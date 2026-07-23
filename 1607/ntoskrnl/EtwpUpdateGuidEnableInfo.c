@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpUpdateGuidEnableInfo @ 0x140491A10
+ * XREFs of EtwpUpdateGuidEnableInfo @ 0x1404924A0
  * Callers:
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpReferenceGuidEntry @ 0x14040E5A0 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
- *     EtwpUpdateFilterData @ 0x140491C98 (EtwpUpdateFilterData.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpReferenceGuidEntry @ 0x14040D460 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
+ *     EtwpUpdateFilterData @ 0x140492728 (EtwpUpdateFilterData.c)
  */
 
 __int64 __fastcall EtwpUpdateGuidEnableInfo(

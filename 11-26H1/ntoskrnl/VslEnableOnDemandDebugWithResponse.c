@@ -1,13 +1,13 @@
 /*
- * XREFs of VslEnableOnDemandDebugWithResponse @ 0x1407921FC
+ * XREFs of VslEnableOnDemandDebugWithResponse @ 0x140794D2C
  * Callers:
- *     PsIumEnableOnDemandDebugWithResponse @ 0x140776964 (PsIumEnableOnDemandDebugWithResponse.c)
+ *     PsIumEnableOnDemandDebugWithResponse @ 0x14077980C (PsIumEnableOnDemandDebugWithResponse.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslEnableOnDemandDebugWithResponse(__int64 a1, void *a2, unsigned int a3)

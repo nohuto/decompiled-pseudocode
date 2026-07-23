@@ -13,70 +13,67 @@
  *     ZwGetNlsSectionPtr @ 0x1800A6E10 (ZwGetNlsSectionPtr.c)
  */
 
-__int64 __fastcall RtlpGetNormalization(unsigned int a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpGetNormalization(unsigned int a1, __int64 *a2)
 {
   __int64 result; // rax
-  __int64 v7; // rcx
-  __int64 v8; // rsi
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  int NlsSectionPtr; // ebx
-  __int64 Heap; // rax
-  unsigned __int64 v13; // rbx
+  __int64 v5; // rcx
+  __int64 v6; // rsi
+  __int64 v7; // rax
+  NTSTATUS NlsSectionPtr; // ebx
+  _QWORD *Heap; // rax
+  _QWORD *v10; // rbx
   int Tables; // ebp
-  unsigned __int64 *v15; // rax
-  __int64 v16; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v17; // [rsp+60h] [rbp+18h] BYREF
+  _UNKNOWN ***v12; // rax
+  __int64 SectionSize; // [rsp+58h] [rbp+10h] BYREF
+  PVOID SectionPointer; // [rsp+60h] [rbp+18h] BYREF
 
   if ( !a2 )
     return 3221225712LL;
-  RtlAcquireSRWLockExclusive((unsigned __int64)NormalizationListLock, a2, a3, a4);
-  v8 = NormalizationList__Lookup(a1);
-  if ( !v8 )
+  RtlAcquireSRWLockExclusive(&NormalizationListLock);
+  v6 = NormalizationList__Lookup(a1);
+  if ( !v6 )
   {
-    LODWORD(v7) = v7 ^ 0x100;
-    v9 = NormalizationList__Lookup(v7);
-    if ( v9 )
+    LODWORD(v5) = v5 ^ 0x100;
+    v7 = NormalizationList__Lookup(v5);
+    if ( v7 )
     {
-      v17 = *(_QWORD *)(v9 + 8);
-      v16 = *(_QWORD *)(v9 + 16);
+      SectionPointer = *(PVOID *)(v7 + 8);
+      SectionSize = *(_QWORD *)(v7 + 16);
     }
     else
     {
-      v10 = a1;
-      LODWORD(v10) = a1 & 0xFFFFFEFF;
-      NlsSectionPtr = ZwGetNlsSectionPtr(12LL, v10, 0LL, &v17, &v16);
+      NlsSectionPtr = ZwGetNlsSectionPtr(0xCu, a1 & 0xFFFFFEFF, 0LL, &SectionPointer, (PULONG)&SectionSize);
       if ( NlsSectionPtr < 0 )
         goto LABEL_12;
     }
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 144LL);
-    v13 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x90uLL);
+    v10 = Heap;
     if ( !Heap )
     {
       NlsSectionPtr = -1073741801;
 LABEL_12:
-      RtlReleaseSRWLockExclusive(NormalizationListLock);
+      RtlReleaseSRWLockExclusive(&NormalizationListLock);
       return (unsigned int)NlsSectionPtr;
     }
-    v8 = Heap + 24;
-    Tables = Normalization__LoadTables(a1, v17, v16, Heap + 24);
+    v6 = (__int64)(Heap + 3);
+    Tables = Normalization__LoadTables(a1, SectionPointer, SectionSize, Heap + 3);
     if ( Tables < 0 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
       NlsSectionPtr = Tables;
       goto LABEL_12;
     }
-    *(_DWORD *)(v13 + 16) = a1;
-    v15 = (unsigned __int64 *)off_180142998[0];
-    *(_QWORD *)v13 = &NormalizationListHead;
-    *(_QWORD *)(v13 + 8) = v15;
-    if ( (_UNKNOWN **)*v15 != &NormalizationListHead )
+    *((_DWORD *)v10 + 4) = a1;
+    v12 = (_UNKNOWN ***)off_180142998[0];
+    *v10 = &NormalizationListHead;
+    v10[1] = v12;
+    if ( *v12 != &NormalizationListHead )
       __fastfail(3u);
-    *v15 = v13;
-    off_180142998[0] = (_UNKNOWN **)v13;
+    *v12 = (_UNKNOWN **)v10;
+    off_180142998[0] = (_UNKNOWN **)v10;
   }
-  RtlReleaseSRWLockExclusive(NormalizationListLock);
+  RtlReleaseSRWLockExclusive(&NormalizationListLock);
   result = 0LL;
-  *(_QWORD *)a2 = v8;
+  *a2 = v6;
   return result;
 }

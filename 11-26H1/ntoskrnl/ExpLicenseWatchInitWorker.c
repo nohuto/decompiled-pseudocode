@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpLicenseWatchInitWorker @ 0x140D01C04
+ * XREFs of ExpLicenseWatchInitWorker @ 0x140D07FA4
  * Callers:
- *     ExpWatchProductTypeInitialization @ 0x140CE4EEC (ExpWatchProductTypeInitialization.c)
+ *     ExpWatchProductTypeInitialization @ 0x140CEB28C (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x1404851C8 (HvlQueryVsmConnection.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvlQueryVsmConnection @ 0x14047EB38 (HvlQueryVsmConnection.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 ExpLicenseWatchInitWorker()
@@ -26,7 +26,7 @@ __int64 ExpLicenseWatchInitWorker()
   *(_QWORD *)(KiProcessorBlock[0] + 120) = 0LL;
   *(_QWORD *)(v0 + 112) = 0LL;
   VsmConnection = HvlQueryVsmConnection(0LL);
-  v5 = (_DWORD)InitSafeBootMode != v4 && VsmConnection == 0;
+  v5 = InitSafeBootMode != v4 && VsmConnection == 0;
   v6 = v4 + 1;
   v7 = __rdtsc() >> 3;
   result = 100 * ((unsigned int)v7 / 0x64);

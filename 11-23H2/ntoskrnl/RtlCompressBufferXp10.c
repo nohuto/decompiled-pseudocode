@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCompressBufferXp10 @ 0x1409C3000
+ * XREFs of RtlCompressBufferXp10 @ 0x1409C3200
  * Callers:
  *     <none>
  * Callees:
- *     Xp10CompressBuffer @ 0x1409C49B8 (Xp10CompressBuffer.c)
+ *     Xp10CompressBuffer @ 0x1409C4BB8 (Xp10CompressBuffer.c)
  */
 
 __int64 __fastcall RtlCompressBufferXp10(__int16 a1)

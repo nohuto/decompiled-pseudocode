@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAllocateUserStack @ 0x140694420
+ * XREFs of MmAllocateUserStack @ 0x1405F3970
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     PspReserveAndCommitUserShadowStack @ 0x14090A318 (PspReserveAndCommitUserShadowStack.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x14090A478 (PspReserveAndCommitUserShadowStack.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1406944E8 (MiAllocateVirtualMemoryCommon.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1405F3A38 (MiAllocateVirtualMemoryCommon.c)
  */
 
 __int64 __fastcall MmAllocateUserStack(int a1, int a2, int a3, int a4, int a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfAirplaneModeCallback @ 0x1405CFB80
+ * XREFs of PopWnfAirplaneModeCallback @ 0x1405CD2F0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfAirplaneModeCallback(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall PopWnfAirplaneModeCallback(__int64 a1)
     if ( v4 >= 0xC )
     {
       v2 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-      byte_140F0BAA4 = (_DWORD)v6 == 0;
+      byte_140F0B3E4 = (_DWORD)v6 == 0;
       KeReleaseSpinLock(&PopCsResiliencyStatsLock, v2);
     }
     else

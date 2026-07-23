@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeInitializeMutantNoReboot @ 0x1409DAC30
+ * XREFs of VerifierKeInitializeMutantNoReboot @ 0x1409DBC30
  * Callers:
  *     <none>
  * Callees:
- *     ViKeInitializeMutantCommon @ 0x1409DBFF0 (ViKeInitializeMutantCommon.c)
+ *     ViKeInitializeMutantCommon @ 0x1409DCFF0 (ViKeInitializeMutantCommon.c)
  */
 
 __int64 VerifierKeInitializeMutantNoReboot()

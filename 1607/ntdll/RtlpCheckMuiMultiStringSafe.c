@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCheckMuiMultiStringSafe @ 0x180010648
+ * XREFs of RtlpCheckMuiMultiStringSafe @ 0x180010638
  * Callers:
- *     RtlSetThreadPreferredUILanguages @ 0x180013860 (RtlSetThreadPreferredUILanguages.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088A20 (RtlSetProcessPreferredUILanguages.c)
- *     RtlGetUILanguageInfo @ 0x1800E5AC0 (RtlGetUILanguageInfo.c)
- *     RtlpSetPreferredUILanguages @ 0x1800E7E30 (RtlpSetPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180013850 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088A10 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlGetUILanguageInfo @ 0x1800E5B80 (RtlGetUILanguageInfo.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800E7EF0 (RtlpSetPreferredUILanguages.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x180040BCC (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x180040BBC (RtlStringCchLengthW.c)
  */
 
 __int64 __fastcall RtlpCheckMuiMultiStringSafe(_WORD *a1, __int64 a2)

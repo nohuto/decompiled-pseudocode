@@ -32,7 +32,7 @@ void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)
   __writecr8(2uLL);
   v3 = 4;
   BugCheckParameter4 = 0LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -61,10 +61,10 @@ void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)
     *(_DWORD *)(BugCheckParameter1 + 1028) = 32;
   }
   *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

@@ -76,10 +76,13 @@ __int64 MiRetryNonPagedAllocation()
     KeResetEvent(&Object);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 MiRetryNonPagedAllocation()
 LABEL_29:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v14 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && LockHandle.OldIrql <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && LockHandle.OldIrql <= 0xFu && v15 >= 2u )
     {
       v16 = KeGetCurrentPrcb();
       v17 = v16->SchedulerAssist;

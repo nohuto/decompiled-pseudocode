@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefSizeofModElementFromModulus @ 0x1405223FC
+ * XREFs of SymCryptFdefSizeofModElementFromModulus @ 0x14051FD40
  * Callers:
- *     SymCryptSizeofModElementFromModulus @ 0x140524014 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptEcpointSetValue @ 0x14052ABC0 (SymCryptEcpointSetValue.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14052192C (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptEcpointSetValue @ 0x1405283D0 (SymCryptEcpointSetValue.c)
  * Callees:
  *     <none>
  */

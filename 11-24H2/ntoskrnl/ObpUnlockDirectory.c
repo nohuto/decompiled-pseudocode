@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpUnlockDirectory @ 0x1408424A0
+ * XREFs of ObpUnlockDirectory @ 0x14083E760
  * Callers:
- *     ObpCreateSymbolicLinkName @ 0x1406F8670 (ObpCreateSymbolicLinkName.c)
- *     ObpDecrementHandleCount @ 0x1408410A0 (ObpDecrementHandleCount.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ObpDeleteNameCheck @ 0x14089B690 (ObpDeleteNameCheck.c)
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x1409E4C18 (ObpMarkDirectoryObjectsTemporary.c)
- *     NtSetInformationObject @ 0x1409FB980 (NtSetInformationObject.c)
+ *     ObpCreateSymbolicLinkName @ 0x1407421D0 (ObpCreateSymbolicLinkName.c)
+ *     ObpDecrementHandleCount @ 0x14083D360 (ObpDecrementHandleCount.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ObpDeleteNameCheck @ 0x1408A3D30 (ObpDeleteNameCheck.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1409DF678 (ObpMarkDirectoryObjectsTemporary.c)
+ *     NtSetInformationObject @ 0x1409F46C0 (NtSetInformationObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall ObpUnlockDirectory(__int64 a1)

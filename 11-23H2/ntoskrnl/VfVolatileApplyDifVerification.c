@@ -1,11 +1,11 @@
 /*
- * XREFs of VfVolatileApplyDifVerification @ 0x140ADDA40
+ * XREFs of VfVolatileApplyDifVerification @ 0x140ADDA30
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     VfSuspectDifRemoveEntry @ 0x140ADA37C (VfSuspectDifRemoveEntry.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADA3C4 (VfSuspectDriversAllocateEntry.c)
- *     MmEnableOrDisableVerifierForDriver @ 0x140AE806C (MmEnableOrDisableVerifierForDriver.c)
+ *     VfSuspectDifRemoveEntry @ 0x140ADA36C (VfSuspectDifRemoveEntry.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140ADA3B4 (VfSuspectDriversAllocateEntry.c)
+ *     MmEnableOrDisableVerifierForDriver @ 0x140AE805C (MmEnableOrDisableVerifierForDriver.c)
  */
 
 __int64 __fastcall VfVolatileApplyDifVerification(const void **a1)
@@ -15,7 +15,7 @@ __int64 __fastcall VfVolatileApplyDifVerification(const void **a1)
   int v5; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     return (unsigned int)-1073738742;
   }

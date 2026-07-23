@@ -1,20 +1,20 @@
 /*
- * XREFs of RawMountVolume @ 0x1403EE6BC
+ * XREFs of RawMountVolume @ 0x1403EFCEC
  * Callers:
- *     RawFileSystemControl @ 0x1404EEE50 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x1404D0F18 (RawFileSystemControl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IoCreateStreamFileObjectLite @ 0x1403ECB08 (IoCreateStreamFileObjectLite.c)
- *     RawCleanupVcb @ 0x1403EE474 (RawCleanupVcb.c)
- *     FsRtlNotifyVolumeEventEx @ 0x1403F1234 (FsRtlNotifyVolumeEventEx.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     RawInitializeVcb @ 0x1404C167C (RawInitializeVcb.c)
- *     RawScanDeletedList @ 0x1404EF3DC (RawScanDeletedList.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IoCreateStreamFileObjectLite @ 0x1403EE138 (IoCreateStreamFileObjectLite.c)
+ *     RawCleanupVcb @ 0x1403EFAA4 (RawCleanupVcb.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x1403F00F8 (FsRtlNotifyVolumeEventEx.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     RawInitializeVcb @ 0x1404AD3AC (RawInitializeVcb.c)
+ *     RawScanDeletedList @ 0x1404D14A0 (RawScanDeletedList.c)
  */
 
 NTSTATUS __fastcall RawMountVolume(_QWORD *a1)

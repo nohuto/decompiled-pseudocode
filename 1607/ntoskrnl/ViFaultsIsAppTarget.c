@@ -4,7 +4,7 @@
  *     ViCreateProcessCallbackInternal @ 0x140711044 (ViCreateProcessCallbackInternal.c)
  *     ViFaultsAddAppNoDuplicates @ 0x140711268 (ViFaultsAddAppNoDuplicates.c)
  * Callees:
- *     VfUtilEqualUnicodeString @ 0x140702DAC (VfUtilEqualUnicodeString.c)
+ *     VfUtilEqualUnicodeString @ 0x140702DDC (VfUtilEqualUnicodeString.c)
  */
 
 __int64 __fastcall ViFaultsIsAppTarget(__int64 a1)

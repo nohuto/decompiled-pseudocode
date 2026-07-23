@@ -11,17 +11,17 @@
  *     BiAcquireBcdSyncMutant @ 0x140570224 (BiAcquireBcdSyncMutant.c)
  */
 
-NTSTATUS __fastcall BcdDeleteObject(HANDLE Handle)
+NTSTATUS __cdecl BcdDeleteObject(HANDLE BcdObjectHandle)
 {
   char IsOfflineHandle; // di
   NTSTATUS result; // eax
-  int v4; // ebx
+  NTSTATUS v4; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle((char)Handle);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdObjectHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    v4 = BiDeleteKey(Handle);
+    v4 = BiDeleteKey(BcdObjectHandle);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return v4;
   }

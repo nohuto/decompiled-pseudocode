@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmContinueActiveTimeAccumulation @ 0x140434024
+ * XREFs of PpmContinueActiveTimeAccumulation @ 0x14037009C
  * Callers:
- *     PpmContinueTimeAccumulation @ 0x14029F2E8 (PpmContinueTimeAccumulation.c)
- *     PpmInstallFeedbackCounters @ 0x140433E50 (PpmInstallFeedbackCounters.c)
+ *     PpmContinueTimeAccumulation @ 0x1402AD8FC (PpmContinueTimeAccumulation.c)
+ *     PpmInstallFeedbackCounters @ 0x1404C362C (PpmInstallFeedbackCounters.c)
  * Callees:
- *     PpmUpdatePerformanceFeedback @ 0x1403505D0 (PpmUpdatePerformanceFeedback.c)
- *     PpmUpdateTimeAccumulation @ 0x140434060 (PpmUpdateTimeAccumulation.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14036EAB0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmUpdateTimeAccumulation @ 0x1403700D0 (PpmUpdateTimeAccumulation.c)
  */
 
 char __fastcall PpmContinueActiveTimeAccumulation(__int64 a1, __int64 a2, __int64 a3)

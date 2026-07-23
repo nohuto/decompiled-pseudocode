@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNotifySessionUserPowerRequestDeleted @ 0x1405886DC
+ * XREFs of PopNotifySessionUserPowerRequestDeleted @ 0x1405896DC
  * Callers:
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
  * Callees:
- *     TtmNotifySessionPowerRequestDeleted @ 0x14087FDC8 (TtmNotifySessionPowerRequestDeleted.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x140881028 (TtmNotifySessionPowerRequestDeleted.c)
  */
 
 __int64 PopNotifySessionUserPowerRequestDeleted()

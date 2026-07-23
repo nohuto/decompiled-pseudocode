@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhBucketCheckAndUpdate @ 0x1800BF1B0
+ * XREFs of RtlpHpLfhBucketCheckAndUpdate @ 0x180071D60
  * Callers:
- *     RtlpHpAllocateHeap @ 0x180071440 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
- *     RtlpHpAllocateHeapInternal @ 0x1800DF844 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeap @ 0x180091890 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800DC7B4 (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpLfhBucketActivate @ 0x1800BF28C (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhBucketActivate @ 0x180071E3C (RtlpHpLfhBucketActivate.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketCheckAndUpdate(__int64 a1, unsigned int a2)

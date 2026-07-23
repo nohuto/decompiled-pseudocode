@@ -12,7 +12,7 @@
 void __stdcall ExFlushLookasideListEx(PLOOKASIDE_LIST_EX Lookaside)
 {
   PSLIST_ENTRY v2; // r14
-  struct _SLIST_ENTRY *Next; // r15
+  _SLIST_ENTRY *Next; // r15
   ULONG_PTR v4; // r9
   unsigned __int64 v5; // rbx
   _BYTE *v6; // rsi

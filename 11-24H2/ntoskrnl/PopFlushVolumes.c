@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFlushVolumes @ 0x140B67D40
+ * XREFs of PopFlushVolumes @ 0x140B69E80
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x140428294 (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PopDiagTraceEventNoPayload @ 0x14048C7B4 (PopDiagTraceEventNoPayload.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwFlushKey @ 0x1406A8250 (ZwFlushKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsCreateSystemThread @ 0x140A22450 (PsCreateSystemThread.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140B6A3B4 (PoDelistPowerStateTransitionBlocker.c)
- *     PopFlushVolumeWorker @ 0x140B6BC10 (PopFlushVolumeWorker.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14041C424 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404874D4 (PopDiagTraceEventNoPayload.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwFlushKey @ 0x1406A91F0 (ZwFlushKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsCreateSystemThread @ 0x1408F8C00 (PsCreateSystemThread.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140B6BAC4 (PoDelistPowerStateTransitionBlocker.c)
+ *     PopFlushVolumeWorker @ 0x140B6D040 (PopFlushVolumeWorker.c)
  */
 
 void __fastcall PopFlushVolumes(int a1)
@@ -77,7 +77,7 @@ void __fastcall PopFlushVolumes(int a1)
   else
   {
     v2 = PopFlushPolicy;
-    if ( byte_140F0AD80 )
+    if ( byte_140F0BBC0 )
       v2 = 3;
   }
   v3 = v2 | 0x10;
@@ -162,14 +162,14 @@ LABEL_21:
               goto LABEL_21;
             *v21 = v20;
             *(_QWORD *)(v20 + 8) = v21;
-            v22 = (_QWORD *)qword_140F0BB08;
-            if ( *(__int64 **)qword_140F0BB08 != &PopVolumeDevices )
+            v22 = (_QWORD *)qword_140F0B478;
+            if ( *(__int64 **)qword_140F0B478 != &PopVolumeDevices )
               goto LABEL_21;
             *v16 = &PopVolumeDevices;
             --v6;
             v16[1] = v22;
             *v22 = v16;
-            qword_140F0BB08 = (__int64)v16;
+            qword_140F0B478 = (__int64)v16;
           }
         }
       }
@@ -205,11 +205,11 @@ LABEL_21:
       ZwClose(ThreadHandle);
     }
     v23 = PopPushPowerStateTransitionRecordWithCallback(
-            (__int64)KeGetCurrentThread()->ApcState.Process,
-            (__int64)KeGetCurrentThread(),
-            (__int64)&StartContext,
-            1,
-            (__int64)PopFlushVolumeBlameResolverCallback);
+            (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process,
+            (LONGLONG)KeGetCurrentThread(),
+            (LARGE_INTEGER)&StartContext,
+            1u,
+            (LARGE_INTEGER)PopFlushVolumeBlameResolverCallback);
     PopFlushVolumeWorker(&StartContext);
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     if ( v23 >= 0 )

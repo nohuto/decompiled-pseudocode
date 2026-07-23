@@ -1,6 +1,6 @@
 # Decompiled Pseudocode
 
-Used for the [diff](https://noverse.dev/diff) section & [win-config](https://noverse.dev/docs/win-config/) (whenever referring functions).
+Created using [Winbindex](https://winbindex.m417z.com/), PDBs (and [PHNT types](https://github.com/Dump-GUY/IDA_PHNT_TYPES)) & IDA to analyze each binary and export every function. Used for the [diff](https://noverse.dev/diff) section & [win-config](https://noverse.dev/docs/win-config/) (whenever referring functions).
 
 ## Versions & Build Reference
 

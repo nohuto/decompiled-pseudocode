@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpWaitOnAddress @ 0x18007B580
+ * XREFs of RtlpWaitOnAddress @ 0x180069DA0
  * Callers:
- *     RtlUpdateSwapReference @ 0x180014034 (RtlUpdateSwapReference.c)
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18006E910 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x180079AC0 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlpCSparseBitmapPageCommit @ 0x18008B400 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x180111428 (RtlpHpEnvAcquireGlobalLockExclusive.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x1801212E4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
- *     RtlPosixBarrier @ 0x180141868 (RtlPosixBarrier.c)
- *     RtlRcuSynchronize @ 0x180149A40 (RtlRcuSynchronize.c)
+ *     RtlUpdateSwapReference @ 0x18005F764 (RtlUpdateSwapReference.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x1800682E0 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x18006E838 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18008ED60 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x180110FA8 (RtlpHpEnvAcquireGlobalLockExclusive.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x180121080 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     RtlPosixBarrier @ 0x180141768 (RtlPosixBarrier.c)
+ *     RtlRcuSynchronize @ 0x1801498F0 (RtlRcuSynchronize.c)
  * Callees:
- *     RtlpOptimizeWaitOnAddressWaitList @ 0x18007B820 (RtlpOptimizeWaitOnAddressWaitList.c)
- *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18007B880 (RtlpWaitOnAddressRemoveWaitBlock.c)
- *     NtWaitForAlertByThreadId @ 0x180162BB0 (NtWaitForAlertByThreadId.c)
+ *     RtlpOptimizeWaitOnAddressWaitList @ 0x18006A040 (RtlpOptimizeWaitOnAddressWaitList.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18006A0A0 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     NtWaitForAlertByThreadId @ 0x180162AB0 (NtWaitForAlertByThreadId.c)
  */
 
 __int64 __fastcall RtlpWaitOnAddress(
         unsigned __int64 a1,
         _QWORD *a2,
         __int64 a3,
-        __int64 a4,
+        LARGE_INTEGER *a4,
         unsigned int a5,
-        __int64 a6)
+        PVOID Address)
 {
   unsigned int v6; // edi
   struct _TEB *v11; // rcx
@@ -36,14 +36,14 @@ __int64 __fastcall RtlpWaitOnAddress(
   __int64 v20; // rbx
   __int64 v21; // rbx
   bool v24; // zf
-  __int64 v25; // rsi
+  void *v25; // rsi
   unsigned __int64 v26; // r9
   unsigned __int64 v27; // r8
   unsigned __int64 v28; // rcx
   unsigned __int64 v29; // rax
   int i; // edx
-  unsigned int v31; // ebx
-  unsigned int v32; // eax
+  unsigned __int32 v31; // ebx
+  unsigned __int32 v32; // eax
   _QWORD v33[5]; // [rsp+20h] [rbp-48h] BYREF
   __int32 v34[8]; // [rsp+48h] [rbp-20h] BYREF
 
@@ -110,7 +110,7 @@ LABEL_15:
     {
       goto LABEL_15;
     }
-    v25 = a6;
+    v25 = Address;
     if ( MEMORY[0x7FFE036A] > 1u )
     {
       if ( MEMORY[0x7FFE0297] )
@@ -138,8 +138,8 @@ LABEL_15:
     }
     if ( !_interlockedbittestandreset(v34, 0) )
       return v6;
-    if ( !a6 )
-      v25 = v33[0];
+    if ( !Address )
+      v25 = (void *)v33[0];
     v31 = NtWaitForAlertByThreadId(v25, a4);
     if ( v31 == 258 )
     {

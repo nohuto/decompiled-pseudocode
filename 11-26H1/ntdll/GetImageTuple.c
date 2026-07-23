@@ -1,10 +1,10 @@
 /*
- * XREFs of GetImageTuple @ 0x18006DF50
+ * XREFs of GetImageTuple @ 0x18008E3A0
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x18006D830 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x18008DC80 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
- *     GetModuleFullPathName @ 0x1800353CC (GetModuleFullPathName.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     GetModuleFullPathName @ 0x18002052C (GetModuleFullPathName.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 char __fastcall GetImageTuple(__int64 a1, char *a2, __int64 a3, _DWORD *a4, _DWORD *a5)

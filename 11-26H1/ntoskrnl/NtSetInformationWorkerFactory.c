@@ -1,45 +1,49 @@
 /*
- * XREFs of NtSetInformationWorkerFactory @ 0x1403DE960
+ * XREFs of NtSetInformationWorkerFactory @ 0x1403E1B50
  * Callers:
- *     DifNtSetInformationWorkerFactoryWrapper @ 0x14068CF80 (DifNtSetInformationWorkerFactoryWrapper.c)
+ *     DifNtSetInformationWorkerFactoryWrapper @ 0x140690B60 (DifNtSetInformationWorkerFactoryWrapper.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269BD0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x1402C2960 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402C2B40 (ExpWorkerFactoryCheckCreate.c)
- *     ExpWorkerFactoryCreateThread @ 0x1402C303C (ExpWorkerFactoryCreateThread.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x1403DF6B0 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     KeTimeOutQueueWaiters @ 0x1403E00A8 (KeTimeOutQueueWaiters.c)
- *     ExpRemoveCurrentThreadFromThreadHistory @ 0x1404B0784 (ExpRemoveCurrentThreadFromThreadHistory.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpDeregisterObject @ 0x140779D4C (ObpDeregisterObject.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObpRemoveObjectRoutine @ 0x140923BC0 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140A5A090 (ObpHandleRevocationBlockRemoveObject.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269140 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x14030D620 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x14030D800 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryCreateThread @ 0x14030DCFC (ExpWorkerFactoryCreateThread.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x1403E28A0 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KeTimeOutQueueWaiters @ 0x1403E3298 (KeTimeOutQueueWaiters.c)
+ *     ExpRemoveCurrentThreadFromThreadHistory @ 0x1404A9E14 (ExpRemoveCurrentThreadFromThreadHistory.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpDeregisterObject @ 0x14077CC7C (ObpDeregisterObject.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObpRemoveObjectRoutine @ 0x1408FF6D0 (ObpRemoveObjectRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140A67000 (ObpHandleRevocationBlockRemoveObject.c)
  */
 
-NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, int *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  int v9; // edx
+  ULONG v9; // edx
   int ULongFromUser; // eax
   NTSTATUS result; // eax
   __int64 v12; // rdx
@@ -51,7 +55,7 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, int *a3
   __int64 v18; // rdx
   unsigned int v19; // eax
   PKSPIN_LOCK *v20; // rcx
-  int Thread; // r12d
+  NTSTATUS Thread; // r12d
   char v22; // si
   signed __int64 v23; // rbx
   bool v24; // cc
@@ -76,45 +80,45 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, int *a3
   _QWORD v43[3]; // [rsp+78h] [rbp-160h] BYREF
   __int64 Src; // [rsp+90h] [rbp-148h] BYREF
 
-  v43[0] = a3;
+  v43[0] = WorkerFactoryInformation;
   memset(&LockHandle, 0, sizeof(LockHandle));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset_0(&Src, 0, 0x100uLL);
-  if ( a2 == 11 )
+  if ( WorkerFactoryInformationClass == WorkerFactoryThreadBasePriority )
   {
 LABEL_2:
     v9 = 4;
 LABEL_3:
-    if ( a4 != v9 )
+    if ( WorkerFactoryInformationLength != v9 )
       return -1073741820;
-    switch ( a2 )
+    switch ( WorkerFactoryInformationClass )
     {
-      case 9:
+      case WorkerFactoryCallbackType:
         if ( PreviousMode )
         {
-          if ( ((unsigned __int8)a3 & 3) != 0 )
+          if ( ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          LODWORD(Src) = RtlReadULongFromUser(a3);
+          LODWORD(Src) = RtlReadULongFromUser(WorkerFactoryInformation);
         }
         else
         {
-          RtlCopyVolatileMemory(&Src, a3, 4uLL);
+          RtlCopyVolatileMemory(&Src, WorkerFactoryInformation, 4uLL);
         }
         break;
-      case 3:
+      case WorkerFactoryBindingCount:
         if ( PreviousMode )
-          ULongFromUser = RtlReadULongFromUser(a3);
+          ULongFromUser = RtlReadULongFromUser(WorkerFactoryInformation);
         else
-          ULongFromUser = *a3;
+          ULongFromUser = *(_DWORD *)WorkerFactoryInformation;
         LODWORD(Src) = ULongFromUser;
         break;
-      case 2:
-        JUMPOUT(0x1403DEA78LL);
+      case WorkerFactoryIdleTimeout:
+        JUMPOUT(0x1403E1C68LL);
       default:
         __fastfail(0x25u);
     }
     Object = 0LL;
-    result = ObReferenceObjectByHandle(Handle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+    result = ObReferenceObjectByHandle(WorkerFactoryHandle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
     if ( result >= 0 )
     {
       v14 = 0;
@@ -132,7 +136,7 @@ LABEL_3:
         KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v12);
       }
       LockHandle.OldIrql = CurrentIrql;
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         v18 = _InterlockedExchange64((volatile __int64 *)v16, (__int64)&LockHandle);
         if ( v18 )
@@ -142,11 +146,11 @@ LABEL_3:
       {
         KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)v16);
       }
-      if ( a2 != 9 )
+      if ( WorkerFactoryInformationClass != WorkerFactoryCallbackType )
       {
-        switch ( a2 )
+        switch ( WorkerFactoryInformationClass )
         {
-          case 2:
+          case WorkerFactoryIdleTimeout:
             v20 = v40;
             if ( *((_BYTE *)*v40 + 33) )
             {
@@ -175,7 +179,7 @@ LABEL_3:
               }
             }
             goto LABEL_30;
-          case 3:
+          case WorkerFactoryBindingCount:
             v29 = v15[101];
             v30 = (unsigned int)Src;
             if ( (int)Src < 0 )
@@ -219,7 +223,7 @@ LABEL_3:
               goto LABEL_32;
             }
             goto LABEL_29;
-          case 4:
+          case WorkerFactoryThreadMinimum:
             v20 = v40;
             if ( !*((_BYTE *)*v40 + 33) )
             {
@@ -254,7 +258,7 @@ LABEL_108:
             }
             Thread = 128;
             break;
-          case 5:
+          case WorkerFactoryThreadMaximum:
             v20 = v40;
             v34 = *v40;
             if ( *((_BYTE *)*v40 + 33) )
@@ -423,30 +427,30 @@ LABEL_32:
   }
   else
   {
-    if ( a2 != 6 )
+    if ( WorkerFactoryInformationClass != WorkerFactoryPaused )
     {
-      switch ( a2 )
+      switch ( WorkerFactoryInformationClass )
       {
-        case 2:
+        case WorkerFactoryIdleTimeout:
           v9 = 8;
           goto LABEL_3;
-        case 3:
-        case 4:
-        case 5:
-        case 8:
-        case 9:
-        case 12:
-        case 13:
-        case 14:
+        case WorkerFactoryBindingCount:
+        case WorkerFactoryThreadMinimum:
+        case WorkerFactoryThreadMaximum:
+        case WorkerFactoryAdjustThreadGoal:
+        case WorkerFactoryCallbackType:
+        case WorkerFactoryTimeoutWaiters:
+        case WorkerFactoryFlags:
+        case WorkerFactoryThreadSoftMaximum:
           goto LABEL_2;
-        case 10:
+        case WorkerFactoryStackInformation:
           v9 = 16;
           goto LABEL_3;
-        case 15:
-          if ( a4 >= 0x100 )
+        case WorkerFactoryThreadCpuSets:
+          if ( WorkerFactoryInformationLength >= 0x100 )
             v9 = 256;
           else
-            v9 = a4 + (a4 & 7);
+            v9 = WorkerFactoryInformationLength + (WorkerFactoryInformationLength & 7);
           goto LABEL_3;
         default:
           return -1073741821;

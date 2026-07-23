@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDriverStarted @ 0x14053859C
+ * XREFs of PnpDriverStarted @ 0x140538ADC
  * Callers:
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
  * Callees:
- *     PnpIsAnyDeviceInstanceEnabled @ 0x1405385F8 (PnpIsAnyDeviceInstanceEnabled.c)
- *     PnpDriverLoadingFailed @ 0x14057F858 (PnpDriverLoadingFailed.c)
+ *     PnpIsAnyDeviceInstanceEnabled @ 0x140538B38 (PnpIsAnyDeviceInstanceEnabled.c)
+ *     PnpDriverLoadingFailed @ 0x14057FD04 (PnpDriverLoadingFailed.c)
  */
 
 __int64 __fastcall PnpDriverStarted(__int64 a1, void *a2, __int64 a3)

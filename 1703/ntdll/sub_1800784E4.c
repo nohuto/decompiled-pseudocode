@@ -98,7 +98,7 @@ void __fastcall sub_1800784E4(__int64 a1, unsigned __int64 a2)
                       __fastfail(3u);
                     *v12 = v13;
                     *(_QWORD *)(v13 + 8) = v12;
-                    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)(v8 - 1));
+                    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8 - 1);
                   }
                   v8 = v12;
                 }

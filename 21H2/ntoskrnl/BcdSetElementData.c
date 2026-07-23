@@ -1,12 +1,12 @@
 /*
- * XREFs of BcdSetElementData @ 0x14096F448
+ * XREFs of BcdSetElementData @ 0x14096F628
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x1405BC750 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToBcd @ 0x1405BC980 (WheaPersistBadPageToBcd.c)
  * Callees:
- *     BcdSetElementDataWithFlags @ 0x140783FDC (BcdSetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x14078419C (BcdSetElementDataWithFlags.c)
  */
 
-__int64 __fastcall BcdSetElementData(void *a1, unsigned int a2, __int64 a3, unsigned int a4)
+NTSTATUS __cdecl BcdSetElementData(HANDLE BcdObjectHandle, ULONG BcdElement, PVOID Buffer, ULONG BufferSize)
 {
-  return BcdSetElementDataWithFlags(a1, a2, a3, a3, a4);
+  return BcdSetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)Buffer, Buffer, BufferSize);
 }

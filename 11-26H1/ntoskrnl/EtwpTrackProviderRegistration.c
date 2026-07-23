@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTrackProviderRegistration @ 0x140936F80
+ * XREFs of EtwpTrackProviderRegistration @ 0x140912B20
  * Callers:
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
- *     EtwpRegisterKMProvider @ 0x14093B298 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x140916E38 (EtwpRegisterKMProvider.c)
  * Callees:
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpProviderArrivalCallback @ 0x14093C304 (EtwpProviderArrivalCallback.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     EtwpProviderArrivalCallback @ 0x140917EA4 (EtwpProviderArrivalCallback.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)
   __int64 v8; // rdx
   __int64 v9; // rdi
   __int64 v10; // rdx
-  unsigned int *v11; // rbp
+  __int64 v11; // rbp
   __int64 v12; // rdx
   __int64 v13; // rbp
 
@@ -33,7 +33,7 @@ __int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)
   {
     if ( (*(_BYTE *)(v3 + 91) & 1) != 0 )
     {
-      result = (__int64)EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(v3 + 648), *(unsigned __int16 *)(v3 + 88), 0);
+      result = EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(v3 + 648), *(unsigned __int16 *)(v3 + 88), 0LL);
       v9 = result;
       if ( result )
       {
@@ -51,13 +51,13 @@ __int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)
     {
       if ( (*(unsigned __int16 *)(a1 + 100) & (1 << v6)) != 0 )
       {
-        v11 = EtwpAcquireLoggerContextByLoggerId(v5, *(unsigned __int16 *)(v3 + v7 + 134), 0);
+        v11 = EtwpAcquireLoggerContextByLoggerId(v5, *(unsigned __int16 *)(v3 + v7 + 134), 0LL);
         if ( v11 )
         {
           if ( (*(_BYTE *)(a1 + 98) & 0x10) != 0
             || (unsigned int)Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline()
             && _bittest16((const signed __int16 *)(a1 + 98), 0xAu)
-            || (v11[204] & 0x2000000) != 0 )
+            || (*(_DWORD *)(v11 + 816) & 0x2000000) != 0 )
           {
             LOBYTE(v10) = v4;
             EtwpProviderArrivalCallback(v11, v10, a1);
@@ -68,10 +68,10 @@ __int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)
       result = *(unsigned __int16 *)(a1 + 104);
       if ( ((unsigned int)result & (1 << v6)) != 0 )
       {
-        result = (__int64)EtwpAcquireLoggerContextByLoggerId(
-                            EtwpHostSiloState,
-                            *(unsigned __int16 *)(*(_QWORD *)(v3 + 656) + v7 + 134),
-                            0);
+        result = EtwpAcquireLoggerContextByLoggerId(
+                   EtwpHostSiloState,
+                   *(unsigned __int16 *)(*(_QWORD *)(v3 + 656) + v7 + 134),
+                   0LL);
         v13 = result;
         if ( result )
         {

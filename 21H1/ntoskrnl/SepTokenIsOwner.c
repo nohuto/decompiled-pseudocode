@@ -13,28 +13,28 @@
 
 char __fastcall SepTokenIsOwner(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  __int64 v5; // rax
-  void *v6; // rbx
-  __int64 v7; // rax
+  __int64 v6; // rax
+  void *v7; // rbx
+  PSID_AND_ATTRIBUTES v8; // rax
 
   if ( *(__int16 *)(a2 + 2) >= 0 )
   {
-    v6 = *(void **)(a2 + 8);
+    v7 = *(void **)(a2 + 8);
   }
   else
   {
-    v5 = *(unsigned int *)(a2 + 4);
-    if ( (_DWORD)v5 )
-      v6 = (void *)(a2 + v5);
+    v6 = *(unsigned int *)(a2 + 4);
+    if ( (_DWORD)v6 )
+      v7 = (void *)(a2 + v6);
     else
-      v6 = 0LL;
+      v7 = 0LL;
   }
-  if ( a4 && v6 && RtlEqualSid(SeAliasAdminsSid, v6) )
+  if ( a4 && v7 && RtlEqualSid(SeAliasAdminsSid, v7) )
     return 0;
-  v7 = RtlSidHashLookup(a1 + 232, v6);
-  if ( !v7 || (v7 != *(_QWORD *)(a1 + 240) || (*(_DWORD *)(v7 + 8) & 0x10) != 0) && (*(_DWORD *)(v7 + 8) & 4) == 0 )
+  v8 = RtlSidHashLookup((PSID_AND_ATTRIBUTES_HASH)(a1 + 232), v7);
+  if ( !v8 || (v8 != *(PSID_AND_ATTRIBUTES *)(a1 + 240) || (v8->Attributes & 0x10) != 0) && (v8->Attributes & 4) == 0 )
     return 0;
   if ( *(_DWORD *)(a1 + 128) )
-    return SepSidInToken(a1, 0LL, (__int64)v6, 0LL, 1);
+    return SepSidInToken(a1, 0LL, (__int64)v7, 0LL, 1, 0, a4);
   return 1;
 }

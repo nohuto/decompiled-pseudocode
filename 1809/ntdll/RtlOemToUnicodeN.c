@@ -7,49 +7,54 @@
  *     RtlUTF8ToUnicodeN @ 0x180068120 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlOemToUnicodeN(_WORD *a1, unsigned int a2, char *a3, char *a4, unsigned int a5)
+NTSTATUS __cdecl RtlOemToUnicodeN(
+        PWSTR UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCCH OemString,
+        ULONG BytesInOemString)
 {
-  unsigned int v5; // ebx
-  _WORD *v7; // r10
-  unsigned int v8; // r8d
-  unsigned int v9; // edx
-  unsigned int v10; // ecx
+  NTSTATUS v5; // ebx
+  PWSTR v7; // r10
+  ULONG v8; // r8d
+  ULONG v9; // edx
+  ULONG v10; // ecx
   __int64 v11; // rdi
   __int64 v12; // r11
   __int64 v13; // rax
-  char *v15; // r8
-  int v16; // eax
+  ULONG *v15; // r8
+  NTSTATUS v16; // eax
   __int64 v17; // r14
   __int64 v18; // r15
   __int64 v19; // rax
   unsigned __int16 v20; // si
-  __int16 v21; // ax
+  WCHAR v21; // ax
   char v22; // [rsp+30h] [rbp-18h] BYREF
 
   v5 = 0;
-  v7 = a1;
+  v7 = UnicodeString;
   if ( NlsOemCodePageIsUTF8 )
   {
-    v15 = &v22;
-    if ( a3 )
-      v15 = a3;
-    if ( a5 )
+    v15 = (ULONG *)&v22;
+    if ( BytesInUnicodeString )
+      v15 = BytesInUnicodeString;
+    if ( BytesInOemString )
     {
-      v16 = RtlUTF8ToUnicodeN(a1, a2, v15, a4, a5);
+      v16 = RtlUTF8ToUnicodeN(UnicodeString, MaxBytesInUnicodeString, v15, OemString, BytesInOemString);
     }
     else
     {
-      *(_DWORD *)v15 = 0;
+      *v15 = 0;
       v16 = 0;
     }
     if ( v16 == -1073741789 )
-      return (unsigned int)-2147483643;
+      return -2147483643;
     return v5;
   }
   else
   {
-    v8 = a5;
-    v9 = a2 >> 1;
+    v8 = BytesInOemString;
+    v9 = MaxBytesInUnicodeString >> 1;
     if ( NlsMbOemCodePageTag )
     {
       v17 = NlsMbOemCodePageTables;
@@ -58,7 +63,7 @@ __int64 __fastcall RtlOemToUnicodeN(_WORD *a1, unsigned int a2, char *a3, char *
         v18 = NlsOemToUnicodeData;
         while ( v8 )
         {
-          v19 = (unsigned __int8)*a4;
+          v19 = *(unsigned __int8 *)OemString;
           --v9;
           --v8;
           v20 = NlsOemLeadByteInfoTable[v19];
@@ -70,38 +75,38 @@ __int64 __fastcall RtlOemToUnicodeN(_WORD *a1, unsigned int a2, char *a3, char *
               LODWORD(v7) = (_DWORD)v7 + 2;
               break;
             }
-            ++a4;
+            ++OemString;
             --v8;
-            v21 = *(_WORD *)(v17 + 2 * (v20 + (unsigned __int64)(unsigned __int8)*a4));
+            v21 = *(_WORD *)(v17 + 2 * (v20 + (unsigned __int64)*(unsigned __int8 *)OemString));
           }
           else
           {
             v21 = *(_WORD *)(v18 + 2 * v19);
           }
           *v7 = v21;
-          ++a4;
+          ++OemString;
           ++v7;
           if ( !v9 )
             break;
         }
       }
-      if ( a3 )
-        *(_DWORD *)a3 = (_DWORD)v7 - (_DWORD)a1;
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = (_DWORD)v7 - (_DWORD)UnicodeString;
     }
     else
     {
-      v10 = a5;
-      if ( v9 < a5 )
+      v10 = BytesInOemString;
+      if ( v9 < BytesInOemString )
         v10 = v9;
-      if ( a3 )
-        *(_DWORD *)a3 = 2 * v10;
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = 2 * v10;
       v11 = NlsOemToUnicodeData;
       if ( v10 )
       {
         v12 = v10;
         do
         {
-          v13 = (unsigned __int8)*a4++;
+          v13 = *(unsigned __int8 *)OemString++;
           *v7++ = *(_WORD *)(v11 + 2 * v13);
           --v12;
         }

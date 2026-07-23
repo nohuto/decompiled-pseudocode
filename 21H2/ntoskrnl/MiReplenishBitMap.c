@@ -1,368 +1,367 @@
 /*
- * XREFs of MiReplenishBitMap @ 0x140288BB0
+ * XREFs of MiReplenishBitMap @ 0x140205D50
  * Callers:
- *     MiInsertCachedPte @ 0x140245C00 (MiInsertCachedPte.c)
- *     MiEmptyPteBins @ 0x14030F280 (MiEmptyPteBins.c)
+ *     MiInsertCachedPte @ 0x1402EA450 (MiInsertCachedPte.c)
+ *     MiEmptyPteBins @ 0x140319FD0 (MiEmptyPteBins.c)
  * Callees:
- *     MiFlushTbListEarly @ 0x140289258 (MiFlushTbListEarly.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiAttemptCoalesce @ 0x140348EC0 (MiAttemptCoalesce.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiFlushTbListEarly @ 0x1402063F8 (MiFlushTbListEarly.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiAttemptCoalesce @ 0x140353C10 (MiAttemptCoalesce.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiReplenishBitMap(__int64 a1, ULONG_PTR a2, int a3)
 {
   ULONG_PTR v4; // rdi
   __int64 v5; // r14
-  __int64 v6; // rdx
   unsigned __int64 Process; // rcx
-  unsigned __int64 v8; // r8
-  __int64 v9; // r13
-  unsigned int v10; // r15d
-  int v11; // r12d
-  unsigned __int64 v12; // r10
-  ULONG_PTR v13; // rsi
+  __int64 v7; // r13
+  unsigned int v8; // r15d
+  int v9; // r12d
+  unsigned __int64 v10; // r10
+  ULONG_PTR v11; // rsi
   ULONG_PTR BugCheckParameter4; // rbp
-  unsigned __int64 v15; // r9
-  unsigned __int64 v16; // rdi
-  ULONG_PTR v17; // r11
-  struct _LIST_ENTRY *v18; // rdx
-  __int64 v19; // rax
-  __int64 v20; // rdx
-  __int64 v21; // rdx
-  unsigned __int64 v22; // rdx
-  struct _LIST_ENTRY *v23; // rax
-  __int64 v24; // rax
+  __int64 v13; // r9
+  unsigned __int64 v14; // rdi
+  ULONG_PTR v15; // r11
+  struct _LIST_ENTRY *v16; // rdx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rdx
+  unsigned __int64 v20; // rdx
+  unsigned __int64 v21; // r8
+  struct _LIST_ENTRY *v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // r8
   ULONG_PTR v25; // rdi
-  unsigned __int64 v26; // rdx
-  __int64 v27; // rax
-  unsigned __int64 v28; // rdx
-  struct _LIST_ENTRY *v29; // rax
-  __int64 v30; // rax
+  __int64 v26; // rdx
+  unsigned __int64 v27; // r9
+  struct _LIST_ENTRY *v28; // r8
+  __int64 v29; // rax
+  __int16 v30; // r8
   __int64 v31; // rdx
-  __int64 v32; // r9
-  ULONG_PTR v33; // rax
-  unsigned __int64 v34; // rdx
-  bool v35; // zf
-  _QWORD *v36; // rax
-  unsigned __int64 v37; // rdx
-  ULONG_PTR v38; // rbx
-  ULONG_PTR v39; // r10
-  unsigned __int64 v40; // r9
-  unsigned int v41; // eax
-  signed __int32 v43[8]; // [rsp+0h] [rbp-158h] BYREF
-  int v44; // [rsp+30h] [rbp-128h]
-  __int64 v45; // [rsp+38h] [rbp-120h]
-  ULONG_PTR v46; // [rsp+40h] [rbp-118h]
-  _QWORD v47[24]; // [rsp+50h] [rbp-108h] BYREF
+  unsigned __int64 v32; // rdx
+  unsigned __int64 v33; // r8
+  struct _LIST_ENTRY *v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // r8
+  __int64 v37; // rdx
+  __int64 v38; // r9
+  _QWORD *v39; // rax
+  _QWORD *v40; // r8
+  bool v41; // zf
+  _QWORD *v42; // rax
+  unsigned __int64 v43; // rdx
+  ULONG_PTR v44; // rbx
+  __int64 v45; // rdx
+  ULONG_PTR v46; // r10
+  unsigned __int64 v47; // r9
+  volatile signed __int32 *v48; // r8
+  unsigned int v49; // eax
+  unsigned __int64 v50; // rdx
+  signed __int32 v52[8]; // [rsp+0h] [rbp-158h] BYREF
+  int v53; // [rsp+30h] [rbp-128h]
+  __int64 v54; // [rsp+38h] [rbp-120h]
+  ULONG_PTR v55; // [rsp+40h] [rbp-118h]
+  _QWORD v56[24]; // [rsp+50h] [rbp-108h] BYREF
 
-  v46 = a2;
+  v55 = a2;
   v4 = a2;
-  v45 = a1;
+  v54 = a1;
   v5 = a1;
-  memset(v47, 0, 0xB8uLL);
-  v9 = 0LL;
-  v10 = 0;
+  memset(v56, 0, 0xB8uLL);
+  v7 = 0LL;
+  v8 = 0;
   if ( a3 == 1 )
   {
-    LODWORD(v47[1]) = 20;
-    v47[3] = 0LL;
-    _InterlockedOr(v43, 0);
-    v11 = KiTbFlushTimeStamp;
+    LODWORD(v56[1]) = 20;
+    v56[3] = 0LL;
+    _InterlockedOr(v52, 0);
+    v9 = KiTbFlushTimeStamp;
   }
   else
   {
-    v10 = 1;
-    v11 = 0;
+    v8 = 1;
+    v9 = 0;
   }
-  v44 = v11;
-  v12 = 0xFFFFF6FB7DBED000uLL;
+  v53 = v9;
+  v10 = 0xFFFFF6FB7DBED000uLL;
   do
   {
-    v13 = 0LL;
+    v11 = 0LL;
     BugCheckParameter4 = v4;
     while ( 1 )
     {
-      v15 = *(_QWORD *)(v5 + 16);
-      v16 = *(_QWORD *)(v15 + 8 * BugCheckParameter4);
-      v17 = v15 + 8 * BugCheckParameter4;
-      if ( v17 >= v12
-        && v17 <= 0xFFFFF6FB7DBED7F8uLL
-        && (unsigned int)MiPteHasShadow(Process, v6, v8, v15)
-        && (v16 & 1) != 0
-        && ((v16 & 0x20) == 0 || (v16 & 0x42) == 0) )
+      v13 = *(_QWORD *)(v5 + 16);
+      v14 = *(_QWORD *)(v13 + 8 * BugCheckParameter4);
+      v15 = v13 + 8 * BugCheckParameter4;
+      if ( v15 >= v10
+        && v15 <= 0xFFFFF6FB7DBED7F8uLL
+        && (unsigned int)((__int64 (*)(void))MiPteHasShadow)()
+        && (v14 & 1) != 0
+        && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
       {
         Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-        v18 = *(struct _LIST_ENTRY **)(Process + 1928);
-        if ( v18 )
+        v16 = *(struct _LIST_ENTRY **)(Process + 1928);
+        if ( v16 )
         {
-          v19 = *((_QWORD *)&v18->Flink + ((v17 >> 3) & 0x1FF));
-          v20 = v16 | 0x20;
-          Process = (unsigned __int8)v19;
-          LOBYTE(Process) = v19 & 0x20;
-          if ( (v19 & 0x20) == 0 )
-            v20 = v16;
-          v16 = v20;
-          if ( (v19 & 0x42) != 0 )
-            v16 = v20 | 0x42;
+          v17 = *((_QWORD *)&v16->Flink + ((v15 >> 3) & 0x1FF));
+          v18 = v14 | 0x20;
+          Process = (unsigned __int8)v17;
+          LOBYTE(Process) = v17 & 0x20;
+          if ( (v17 & 0x20) == 0 )
+            v18 = v14;
+          v14 = v18;
+          if ( (v17 & 0x42) != 0 )
+            v14 = v18 | 0x42;
         }
       }
-      if ( (v16 & 0xF000) == 0x1000 )
+      if ( (v14 & 0xF000) == 0x1000 )
       {
-        v21 = 1LL;
+        v19 = 1LL;
       }
       else
       {
-        v22 = *(_QWORD *)(v17 + 8);
-        v8 = v17 + 8;
-        if ( v17 + 8 >= v12
-          && v8 <= 0xFFFFF6FB7DBED7F8uLL
-          && (unsigned int)MiPteHasShadow(Process, v22, v8, v15)
-          && (v22 & 1) != 0
-          && ((v22 & 0x20) == 0 || (v22 & 0x42) == 0) )
+        v20 = *(_QWORD *)(v15 + 8);
+        if ( v15 + 8 >= v10
+          && v15 + 8 <= 0xFFFFF6FB7DBED7F8uLL
+          && (unsigned int)MiPteHasShadow(Process, v20)
+          && (v20 & 1) != 0
+          && ((v20 & 0x20) == 0 || (v20 & 0x42) == 0) )
         {
           Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-          v23 = *(struct _LIST_ENTRY **)(Process + 1928);
-          if ( v23 )
+          v22 = *(struct _LIST_ENTRY **)(Process + 1928);
+          if ( v22 )
           {
-            v24 = *((_QWORD *)&v23->Flink + ((v8 >> 3) & 0x1FF));
-            v8 = v22 | 0x20;
-            Process = (unsigned __int8)v24;
-            LOBYTE(Process) = v24 & 0x20;
-            if ( (v24 & 0x20) == 0 )
-              v8 = v22;
-            v22 = v8;
-            if ( (v24 & 0x42) != 0 )
-              v22 = v8 | 0x42;
+            v23 = *((_QWORD *)&v22->Flink + ((v21 >> 3) & 0x1FF));
+            v24 = v20 | 0x20;
+            Process = (unsigned __int8)v23;
+            LOBYTE(Process) = v23 & 0x20;
+            if ( (v23 & 0x20) == 0 )
+              v24 = v20;
+            v20 = v24;
+            if ( (v23 & 0x42) != 0 )
+              v20 = v24 | 0x42;
           }
         }
-        if ( qword_140C4DF40 && (v22 & 0x10) == 0 )
-          v22 &= ~qword_140C4DF40;
-        v21 = HIDWORD(v22);
+        if ( qword_140C4DF80 && (v20 & 0x10) == 0 )
+          v20 &= ~qword_140C4DF80;
+        v19 = HIDWORD(v20);
       }
-      v13 += v21;
-      if ( qword_140C4DF40 && (v16 & 0x10) == 0 )
-        v16 &= ~qword_140C4DF40;
-      v25 = HIDWORD(v16);
+      v11 += v19;
+      if ( qword_140C4DF80 && (v14 & 0x10) == 0 )
+        v14 &= ~qword_140C4DF80;
+      v25 = HIDWORD(v14);
       if ( v25 )
       {
-        v26 = *(_QWORD *)(v15 + 8 * v25);
-        v15 += 8 * v25;
-        if ( v15 >= v12
-          && v15 <= 0xFFFFF6FB7DBED7F8uLL
-          && (unsigned int)MiPteHasShadow(Process, v26, v8, v15)
+        v26 = *(_QWORD *)(v13 + 8 * v25);
+        v27 = v13 + 8 * v25;
+        if ( v27 >= v10
+          && v27 <= 0xFFFFF6FB7DBED7F8uLL
+          && (unsigned int)MiPteHasShadow(Process, v26)
           && (v26 & 1) != 0
           && ((v26 & 0x20) == 0 || (v26 & 0x42) == 0) )
         {
           Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-          v8 = *(_QWORD *)(Process + 1928);
-          if ( v8 )
+          v28 = *(struct _LIST_ENTRY **)(Process + 1928);
+          if ( v28 )
           {
-            v27 = *(_QWORD *)(v8 + 8 * ((v15 >> 3) & 0x1FF));
-            v8 = v26 | 0x20;
-            Process = (unsigned __int8)v27;
-            LOBYTE(Process) = v27 & 0x20;
-            if ( (v27 & 0x20) == 0 )
-              v8 = v26;
-            LOWORD(v26) = v8;
-            if ( (v27 & 0x42) != 0 )
-              LOWORD(v26) = v8 | 0x42;
+            v29 = *((_QWORD *)&v28->Flink + ((v27 >> 3) & 0x1FF));
+            v30 = v26 | 0x20;
+            Process = (unsigned __int8)v29;
+            LOBYTE(Process) = v29 & 0x20;
+            if ( (v29 & 0x20) == 0 )
+              v30 = v26;
+            LOWORD(v26) = v30;
+            if ( (v29 & 0x42) != 0 )
+              LOWORD(v26) = v30 | 0x42;
           }
         }
         if ( (v26 & 0xF000) == 0x1000 )
         {
-          v6 = 1LL;
+          v31 = 1LL;
         }
         else
         {
-          v28 = *(_QWORD *)(v15 + 8);
-          v8 = v15 + 8;
-          if ( v15 + 8 >= v12
-            && v8 <= 0xFFFFF6FB7DBED7F8uLL
-            && (unsigned int)MiPteHasShadow(Process, v28, v8, v15)
-            && (v28 & 1) != 0
-            && ((v28 & 0x20) == 0 || (v28 & 0x42) == 0) )
+          v32 = *(_QWORD *)(v27 + 8);
+          if ( v27 + 8 >= v10
+            && v27 + 8 <= 0xFFFFF6FB7DBED7F8uLL
+            && (unsigned int)MiPteHasShadow(Process, v32)
+            && (v32 & 1) != 0
+            && ((v32 & 0x20) == 0 || (v32 & 0x42) == 0) )
           {
             Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-            v29 = *(struct _LIST_ENTRY **)(Process + 1928);
-            if ( v29 )
+            v34 = *(struct _LIST_ENTRY **)(Process + 1928);
+            if ( v34 )
             {
-              v30 = *((_QWORD *)&v29->Flink + ((v8 >> 3) & 0x1FF));
-              v8 = v28 | 0x20;
-              Process = (unsigned __int8)v30;
-              LOBYTE(Process) = v30 & 0x20;
-              if ( (v30 & 0x20) == 0 )
-                v8 = v28;
-              v28 = v8;
-              if ( (v30 & 0x42) != 0 )
-                v28 = v8 | 0x42;
+              v35 = *((_QWORD *)&v34->Flink + ((v33 >> 3) & 0x1FF));
+              v36 = v32 | 0x20;
+              Process = (unsigned __int8)v35;
+              LOBYTE(Process) = v35 & 0x20;
+              if ( (v35 & 0x20) == 0 )
+                v36 = v32;
+              v32 = v36;
+              if ( (v35 & 0x42) != 0 )
+                v32 = v36 | 0x42;
             }
           }
-          if ( qword_140C4DF40 && (v28 & 0x10) == 0 )
-            v28 &= ~qword_140C4DF40;
-          v6 = HIDWORD(v28);
+          if ( qword_140C4DF80 && (v32 & 0x10) == 0 )
+            v32 &= ~qword_140C4DF80;
+          v31 = HIDWORD(v32);
         }
-        if ( v25 + v6 == BugCheckParameter4 )
+        if ( v25 + v31 == BugCheckParameter4 )
           goto LABEL_117;
       }
       if ( BugCheckParameter4 >= *(_QWORD *)v5 )
         goto LABEL_123;
-      if ( v13 > 1 )
+      if ( v11 > 1 )
       {
-        if ( *(_QWORD *)v5 - BugCheckParameter4 < v13 )
+        if ( *(_QWORD *)v5 - BugCheckParameter4 < v11 )
           goto LABEL_123;
-        v31 = *(_QWORD *)(v5 + 8);
-        v32 = *(_QWORD *)(v31 + 8 * (BugCheckParameter4 >> 6));
-        v33 = v31 + 8 * (BugCheckParameter4 >> 6);
-        v8 = v31 + 8 * ((v13 + BugCheckParameter4 - 1) >> 6);
-        if ( v33 == v8 )
+        v37 = *(_QWORD *)(v5 + 8);
+        v38 = *(_QWORD *)(v37 + 8 * (BugCheckParameter4 >> 6));
+        v39 = (_QWORD *)(v37 + 8 * (BugCheckParameter4 >> 6));
+        v40 = (_QWORD *)(v37 + 8 * ((v11 + BugCheckParameter4 - 1) >> 6));
+        if ( v39 == v40 )
         {
           Process = BugCheckParameter4;
-          v34 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v13) << BugCheckParameter4;
-          v15 = v34 & v32;
-          v35 = v15 == v34;
+          v41 = ((0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v11) << BugCheckParameter4) & v38) == 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v11) << BugCheckParameter4;
         }
         else
         {
-          v15 = (-1LL << BugCheckParameter4) & v32;
-          if ( v15 != -1LL << BugCheckParameter4 )
+          if ( ((-1LL << BugCheckParameter4) & v38) != -1LL << BugCheckParameter4 )
             goto LABEL_123;
-          v36 = (_QWORD *)(v33 + 8);
-          if ( v36 != (_QWORD *)v8 )
+          v42 = v39 + 1;
+          if ( v42 != v40 )
           {
-            while ( *v36 == -1LL )
+            while ( *v42 == -1LL )
             {
-              if ( ++v36 == (_QWORD *)v8 )
+              if ( ++v42 == v40 )
                 goto LABEL_79;
             }
 LABEL_123:
-            KeBugCheckEx(0xDAu, 0x504uLL, v17, v13, BugCheckParameter4);
+            KeBugCheckEx(0xDAu, 0x504uLL, v15, v11, BugCheckParameter4);
           }
 LABEL_79:
-          v37 = 0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v13 + (unsigned __int8)BugCheckParameter4 - 1);
-          Process = v37 & *v36;
-          v35 = Process == v37;
+          v43 = 0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v11 + (unsigned __int8)BugCheckParameter4 - 1);
+          Process = v43 & *v42;
+          v41 = Process == v43;
         }
-        if ( !v35 )
+        if ( !v41 )
           goto LABEL_123;
-        v12 = 0xFFFFF6FB7DBED000uLL;
+        v10 = 0xFFFFF6FB7DBED000uLL;
       }
-      else if ( v13 != 1 || !_bittest64(*(const signed __int64 **)(v5 + 8), BugCheckParameter4) )
+      else if ( v11 != 1 || !_bittest64(*(const signed __int64 **)(v5 + 8), BugCheckParameter4) )
       {
         goto LABEL_123;
       }
-      if ( !v10 )
+      if ( !v8 )
         break;
-      v38 = v13;
+      v44 = v11;
       do
       {
-        v6 = ZeroPte;
-        if ( v17 < v12 || v17 > 0xFFFFF6FB7DBED7F8uLL )
+        v45 = ZeroPte;
+        if ( v15 < v10 || v15 > 0xFFFFF6FB7DBED7F8uLL )
           goto LABEL_99;
-        if ( !(unsigned int)MiPteHasShadow(Process, ZeroPte, v8, v15) )
+        if ( !(unsigned int)MiPteHasShadow(Process, ZeroPte) )
         {
           Process = (unsigned __int64)KeGetCurrentThread()->ApcState.Process;
-          if ( (*(_DWORD *)(Process + 2172) & 0x1000) != 0 && (v6 & 1) != 0 )
-            v6 |= 0x8000000000000000uLL;
+          if ( (*(_DWORD *)(Process + 2172) & 0x1000) != 0 && (v45 & 1) != 0 )
+            v45 |= 0x8000000000000000uLL;
 LABEL_99:
-          *(_QWORD *)v17 = v6;
+          *(_QWORD *)v15 = v45;
           goto LABEL_100;
         }
-        if ( !HIBYTE(word_140C4E008) && (v6 & 1) != 0 )
-          v6 |= 0x8000000000000000uLL;
-        *(_QWORD *)v17 = v6;
-        MiWritePteShadow(v17, v6);
-        v12 = 0xFFFFF6FB7DBED000uLL;
+        if ( !HIBYTE(word_140C4E048) && (v45 & 1) != 0 )
+          v45 |= 0x8000000000000000uLL;
+        *(_QWORD *)v15 = v45;
+        MiWritePteShadow(v15);
+        v10 = 0xFFFFF6FB7DBED000uLL;
 LABEL_100:
-        v17 += 8LL;
-        --v38;
+        v15 += 8LL;
+        --v44;
       }
-      while ( v38 );
-      v5 = v45;
-      v11 = v44;
-      v39 = BugCheckParameter4 & 0x1F;
+      while ( v44 );
+      v5 = v54;
+      v9 = v53;
+      v46 = BugCheckParameter4 & 0x1F;
       Process = BugCheckParameter4 >> 5;
-      v40 = v13;
-      v8 = *(_QWORD *)(v45 + 8) + 4 * (BugCheckParameter4 >> 5);
-      if ( v39 + v13 > 0x20 )
+      v47 = v11;
+      v48 = (volatile signed __int32 *)(*(_QWORD *)(v54 + 8) + 4 * (BugCheckParameter4 >> 5));
+      if ( v46 + v11 > 0x20 )
       {
         if ( (BugCheckParameter4 & 0x1F) != 0 )
         {
-          v6 = 32 - (unsigned int)(BugCheckParameter4 & 0x1F);
           Process = BugCheckParameter4 & 0x1F;
-          _InterlockedAnd((volatile signed __int32 *)v8, ~(((1 << (32 - (BugCheckParameter4 & 0x1F))) - 1) << v39));
-          v40 = v13 - v6;
-          v8 += 4LL;
+          _InterlockedAnd(v48, ~(((1 << (32 - (BugCheckParameter4 & 0x1F))) - 1) << v46));
+          v47 = v11 - (32 - (unsigned int)(BugCheckParameter4 & 0x1F));
+          ++v48;
         }
-        if ( v40 >= 0x20 )
+        if ( v47 >= 0x20 )
         {
-          v6 = v40 >> 5;
-          v40 += -32LL * (v40 >> 5);
+          v50 = v47 >> 5;
+          v47 += -32LL * (v47 >> 5);
           do
           {
-            *(_DWORD *)v8 = 0;
-            v8 += 4LL;
-            --v6;
+            *v48++ = 0;
+            --v50;
           }
-          while ( v6 );
+          while ( v50 );
         }
-        if ( v40 )
+        if ( v47 )
         {
-          Process = v40;
-          v41 = -1 << v40;
+          Process = v47;
+          v49 = -1 << v47;
           goto LABEL_112;
         }
       }
       else
       {
-        if ( v13 == 32 )
+        if ( v11 == 32 )
         {
-          *(_DWORD *)v8 = 0;
+          *v48 = 0;
           goto LABEL_113;
         }
         Process = BugCheckParameter4 & 0x1F;
-        v41 = ~(((1 << v13) - 1) << v39);
+        v49 = ~(((1 << v11) - 1) << v46);
 LABEL_112:
-        _InterlockedAnd((volatile signed __int32 *)v8, v41);
+        _InterlockedAnd(v48, v49);
       }
 LABEL_113:
       if ( *(_QWORD *)(v5 + 88) > 0x40000uLL )
-        MiAttemptCoalesce(v5, BugCheckParameter4, v13);
-      v9 += v13;
+        MiAttemptCoalesce(v5, BugCheckParameter4, v11, v47);
+      v7 += v11;
 LABEL_116:
-      v13 = 0LL;
-      v12 = 0xFFFFF6FB7DBED000uLL;
+      v11 = 0LL;
+      v10 = 0xFFFFF6FB7DBED000uLL;
 LABEL_117:
       BugCheckParameter4 = v25;
       if ( !v25 )
       {
-        if ( !v10 )
+        if ( !v8 )
           goto LABEL_119;
         goto LABEL_121;
       }
     }
-    MiInsertTbFlushEntry(v47, (__int64)(v17 << 25) >> 16, v13, 0LL);
-    if ( (unsigned int)MiFlushTbListEarly(v47, 1LL) != 1 )
+    MiInsertTbFlushEntry(v56, (__int64)(v15 << 25) >> 16, v11, 0LL);
+    if ( (unsigned int)MiFlushTbListEarly(v56, 1LL) != 1 )
       goto LABEL_116;
-    _InterlockedOr(v43, 0);
-    if ( (unsigned int)(KiTbFlushTimeStamp - v11) <= 2
-      && ((v11 & 1) != 0 || (unsigned int)(KiTbFlushTimeStamp - v11) < 2) )
-    {
+    _InterlockedOr(v52, 0);
+    if ( (unsigned int)(KiTbFlushTimeStamp - v9) <= 2 && ((v9 & 1) != 0 || (unsigned int)(KiTbFlushTimeStamp - v9) < 2) )
       goto LABEL_116;
-    }
 LABEL_119:
-    if ( HIDWORD(v47[1]) )
-      MiFlushTbList(v47);
+    if ( HIDWORD(v56[1]) )
+      MiFlushTbList(v56);
 LABEL_121:
-    v4 = v46;
-    ++v10;
-    v12 = 0xFFFFF6FB7DBED000uLL;
+    v4 = v55;
+    ++v8;
+    v10 = 0xFFFFF6FB7DBED000uLL;
   }
-  while ( v10 < 2 );
-  return v9;
+  while ( v8 < 2 );
+  return v7;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkFindAPIContextByName @ 0x1409D900C
+ * XREFs of ViThunkFindAPIContextByName @ 0x1409DA00C
  * Callers:
- *     ViThunkSnapSharedExportByName @ 0x1409C234C (ViThunkSnapSharedExportByName.c)
+ *     ViThunkSnapSharedExportByName @ 0x1409C334C (ViThunkSnapSharedExportByName.c)
  * Callees:
- *     _stricmp @ 0x1403D1DD0 (_stricmp.c)
+ *     _stricmp @ 0x1403D1F40 (_stricmp.c)
  */
 
 void __fastcall ViThunkFindAPIContextByName(char *Str2, _QWORD *a2)

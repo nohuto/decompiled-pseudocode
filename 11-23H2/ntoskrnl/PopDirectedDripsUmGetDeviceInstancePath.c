@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsUmGetDeviceInstancePath @ 0x14099F838
+ * XREFs of PopDirectedDripsUmGetDeviceInstancePath @ 0x14099FA38
  * Callers:
- *     PopDirectedDripsUmTestDeviceCompare @ 0x14099FAD0 (PopDirectedDripsUmTestDeviceCompare.c)
+ *     PopDirectedDripsUmTestDeviceCompare @ 0x14099FCD0 (PopDirectedDripsUmTestDeviceCompare.c)
  * Callees:
  *     <none>
  */

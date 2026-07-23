@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetDumpHiberRanges @ 0x14055057C
+ * XREFs of IoGetDumpHiberRanges @ 0x140550C3C
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4980 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA47F0 (PopSaveHiberContext.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
  */
 
 void __fastcall IoGetDumpHiberRanges(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ void __fastcall IoGetDumpHiberRanges(__int64 a1, __int64 a2)
   __int64 v7; // rbp
   void *v8; // r8
   ULONG_PTR v9; // r9
-  __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   __int64 ***v11; // rdi
   __int64 **j; // rbx
 
@@ -65,8 +65,8 @@ LABEL_18:
 LABEL_19:
   if ( CrashdmpImageBase )
   {
-    v10 = RtlImageNtHeader((__int64)CrashdmpImageBase);
-    PoSetHiberRange(0LL, 0x10000u, CrashdmpImageBase, *(unsigned int *)(v10 + 80), 0x676D4944u);
+    v10 = RtlImageNtHeader(CrashdmpImageBase);
+    PoSetHiberRange(0LL, 0x10000u, CrashdmpImageBase, v10->OptionalHeader.SizeOfImage, 0x676D4944u);
   }
   v11 = (__int64 ***)(a2 + 296);
   for ( j = *v11; j != (__int64 **)v11; j = (__int64 **)*j )

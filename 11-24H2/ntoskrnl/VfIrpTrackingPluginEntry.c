@@ -1,12 +1,12 @@
 /*
- * XREFs of VfIrpTrackingPluginEntry @ 0x1406A4140
+ * XREFs of VfIrpTrackingPluginEntry @ 0x1406A5140
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x140618BD0 (DifRegisterPlugin.c)
- *     VfDdiInit @ 0x140B84374 (VfDdiInit.c)
- *     VfIrpLogInit @ 0x140B9B63C (VfIrpLogInit.c)
- *     VfIsRuleClassEnabled @ 0x140BA7550 (VfIsRuleClassEnabled.c)
+ *     DifRegisterPlugin @ 0x140617190 (DifRegisterPlugin.c)
+ *     VfDdiInit @ 0x140B86374 (VfDdiInit.c)
+ *     VfIrpLogInit @ 0x140B9D63C (VfIrpLogInit.c)
+ *     VfIsRuleClassEnabled @ 0x140BA9550 (VfIsRuleClassEnabled.c)
  */
 
 __int64 VfIrpTrackingPluginEntry()

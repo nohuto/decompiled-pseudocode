@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetSaclSecurityDescriptor @ 0x140AAC210
+ * XREFs of RtlGetSaclSecurityDescriptor @ 0x140AA97C0
  * Callers:
- *     AdtpGetCapID @ 0x14052E6DC (AdtpGetCapID.c)
- *     RtlReplaceSidInSd @ 0x140804260 (RtlReplaceSidInSd.c)
- *     CmpCopySaclToVirtualKey @ 0x14085AD20 (CmpCopySaclToVirtualKey.c)
- *     CmpExamineSaclForAuditEvent @ 0x14085B068 (CmpExamineSaclForAuditEvent.c)
+ *     AdtpGetCapID @ 0x140530BFC (AdtpGetCapID.c)
+ *     RtlReplaceSidInSd @ 0x140809D00 (RtlReplaceSidInSd.c)
+ *     CmpCopySaclToVirtualKey @ 0x140861014 (CmpCopySaclToVirtualKey.c)
+ *     CmpExamineSaclForAuditEvent @ 0x14086135C (CmpExamineSaclForAuditEvent.c)
  * Callees:
  *     <none>
  */

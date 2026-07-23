@@ -1,33 +1,33 @@
 /*
- * XREFs of MiSwapNumaStandbyPage @ 0x1401F3ACC
+ * XREFs of MiSwapNumaStandbyPage @ 0x1401F38F8
  * Callers:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiPruneStandbyPages @ 0x1401F37A0 (MiPruneStandbyPages.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiPruneStandbyPages @ 0x1401F35CC (MiPruneStandbyPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     MiIsDecayPfn @ 0x1400A3DF8 (MiIsDecayPfn.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiSetPfnTbFlushStamp @ 0x1400E7490 (MiSetPfnTbFlushStamp.c)
- *     MiCanPageMove @ 0x14010745C (MiCanPageMove.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
- *     MiCopyPfnEntry @ 0x140107B40 (MiCopyPfnEntry.c)
- *     MiUnlinkNumaStandbyPage @ 0x140120E54 (MiUnlinkNumaStandbyPage.c)
- *     KeMakeKernelDirectoryTableBase @ 0x1401DBB88 (KeMakeKernelDirectoryTableBase.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateTransitionPteFrame @ 0x1401F2A38 (MiUpdateTransitionPteFrame.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
- *     MiInsertNumaStandbyPage @ 0x1401F3258 (MiInsertNumaStandbyPage.c)
- *     MiReuseStandbyPage @ 0x1401F3A84 (MiReuseStandbyPage.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     MiIsDecayPfn @ 0x1400A2720 (MiIsDecayPfn.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiSetPfnTbFlushStamp @ 0x1400E5330 (MiSetPfnTbFlushStamp.c)
+ *     MiCanPageMove @ 0x1401051DC (MiCanPageMove.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
+ *     MiCopyPfnEntry @ 0x1401058C0 (MiCopyPfnEntry.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1401213C4 (MiUnlinkNumaStandbyPage.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1401DB9B4 (KeMakeKernelDirectoryTableBase.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401F2864 (MiUpdateTransitionPteFrame.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
+ *     MiInsertNumaStandbyPage @ 0x1401F3084 (MiInsertNumaStandbyPage.c)
+ *     MiReuseStandbyPage @ 0x1401F38B0 (MiReuseStandbyPage.c)
  */
 
 ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2)
@@ -239,11 +239,11 @@ LABEL_31:
   }
   if ( MiCanPageMove(48 * v22 - 0x58000000000LL) )
   {
-    if ( dword_140327060 != 1 )
+    if ( dword_1403270A0 != 1 )
       goto LABEL_47;
     v27 = v22 & 0x1F;
     LOBYTE(v28) = 1;
-    v29 = (volatile signed __int32 *)(qword_140327080 + 4 * (v22 >> 5));
+    v29 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v22 >> 5);
     if ( v27 + 1 > 0x20 )
     {
       if ( (v22 & 0x1F) != 0 )

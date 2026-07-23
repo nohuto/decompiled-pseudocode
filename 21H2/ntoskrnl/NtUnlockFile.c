@@ -1,29 +1,29 @@
 /*
- * XREFs of NtUnlockFile @ 0x14068F570
+ * XREFs of NtUnlockFile @ 0x1405EF3E0
  * Callers:
  *     <none>
  * Callees:
- *     IopVerifierExAllocatePool_0 @ 0x1402B6C78 (IopVerifierExAllocatePool_0.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
- *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopVerifierExAllocatePoolWithQuota_4 @ 0x1405087A0 (IopVerifierExAllocatePoolWithQuota_4.c)
+ *     IopVerifierExAllocatePool_0 @ 0x140234E58 (IopVerifierExAllocatePool_0.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IopResetEvent @ 0x14035CB30 (IopResetEvent.c)
+ *     IoGetAttachedDevice @ 0x14035E490 (IoGetAttachedDevice.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopVerifierExAllocatePoolWithQuota_4 @ 0x1405089DC (IopVerifierExAllocatePoolWithQuota_4.c)
  *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
- *     IopSynchronousApiServiceTail @ 0x140698FCC (IopSynchronousApiServiceTail.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     VfFastIoCheckState @ 0x1409C99B4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
+ *     IopSynchronousApiServiceTail @ 0x1405F7CBC (IopSynchronousApiServiceTail.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     VfFastIoCheckState @ 0x1409CA9B4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409CAA8C (VfFastIoSnapState.c)
  */
 
 NTSTATUS __stdcall NtUnlockFile(
@@ -46,7 +46,7 @@ NTSTATUS __stdcall NtUnlockFile(
   char v18; // r14
   struct _KTHREAD *v19; // rax
   __int64 v20; // rbx
-  __int64 v21; // rax
+  PRTL_BALANCED_NODE v21; // rax
   __int64 v22; // rdx
   __int64 v23; // r8
   _DWORD *v24; // r9
@@ -159,7 +159,7 @@ NTSTATUS __stdcall NtUnlockFile(
     else
     {
       if ( v21 )
-        *(_BYTE *)(v21 + 26) |= 1u;
+        BYTE2(v21[1].Left) |= 1u;
       v9 = *(struct _FILE_OBJECT **)&DmaAdapter[7];
       ObfReferenceObject(*(PVOID *)&DmaAdapter[7]);
       v25 = 0;

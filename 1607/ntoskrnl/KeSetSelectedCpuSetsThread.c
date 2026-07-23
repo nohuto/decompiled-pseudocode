@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetSelectedCpuSetsThread @ 0x1401D7844
+ * XREFs of KeSetSelectedCpuSetsThread @ 0x1401D7670
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiGetThreadCpuSetMaskPointer @ 0x1400F22A4 (KiGetThreadCpuSetMaskPointer.c)
- *     KiValidateCpuSetMasks @ 0x140111198 (KiValidateCpuSetMasks.c)
- *     KiUpdateThreadCpuSets @ 0x1401D7B0C (KiUpdateThreadCpuSets.c)
- *     KiWriteCpuSetMasks @ 0x1401D7BB4 (KiWriteCpuSetMasks.c)
- *     KiAcquireProcessLockShared @ 0x1401DAF50 (KiAcquireProcessLockShared.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiGetThreadCpuSetMaskPointer @ 0x1400F00F4 (KiGetThreadCpuSetMaskPointer.c)
+ *     KiValidateCpuSetMasks @ 0x1401116FC (KiValidateCpuSetMasks.c)
+ *     KiUpdateThreadCpuSets @ 0x1401D7938 (KiUpdateThreadCpuSets.c)
+ *     KiWriteCpuSetMasks @ 0x1401D79E0 (KiWriteCpuSetMasks.c)
+ *     KiAcquireProcessLockShared @ 0x1401DAD7C (KiAcquireProcessLockShared.c)
  */
 
 __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char *a3)

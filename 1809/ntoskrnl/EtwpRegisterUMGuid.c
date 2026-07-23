@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpRegisterUMGuid @ 0x1405C3970
+ * XREFs of EtwpRegisterUMGuid @ 0x1405C4970
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -9,20 +9,20 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
- *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
- *     EtwpTrackProviderRegistration @ 0x1405C1F34 (EtwpTrackProviderRegistration.c)
- *     EtwpUpdateEnableMask @ 0x1405C209C (EtwpUpdateEnableMask.c)
- *     EtwpGetSchematizedFilterSize @ 0x1405C3DE8 (EtwpGetSchematizedFilterSize.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
- *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
- *     EtwpApplyScopeFilters @ 0x1405C42D0 (EtwpApplyScopeFilters.c)
- *     EtwpAddUmRegEntry @ 0x1405C44C0 (EtwpAddUmRegEntry.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x1405C539C (EtwpComputeRegEntryEnableInfo.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1408BAF90 (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpCopySchematizedFilters @ 0x1408C1EA4 (EtwpCopySchematizedFilters.c)
+ *     KeEnterCriticalRegion @ 0x1400B9B40 (KeEnterCriticalRegion.c)
+ *     EtwpAddGuidEntry @ 0x1405C1A0C (EtwpAddGuidEntry.c)
+ *     EtwpTrackProviderRegistration @ 0x1405C2F34 (EtwpTrackProviderRegistration.c)
+ *     EtwpUpdateEnableMask @ 0x1405C309C (EtwpUpdateEnableMask.c)
+ *     EtwpGetSchematizedFilterSize @ 0x1405C4DE8 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405C5098 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1405C5190 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpApplyScopeFilters @ 0x1405C52D0 (EtwpApplyScopeFilters.c)
+ *     EtwpAddUmRegEntry @ 0x1405C54C0 (EtwpAddUmRegEntry.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1405C639C (EtwpComputeRegEntryEnableInfo.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1408BC250 (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1408C3164 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, char a4, _DWORD *a5)
@@ -61,11 +61,11 @@ __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, c
 
   v6 = *(_DWORD *)(a2 + 16);
   AccessStatus[1] = *(_DWORD *)(a2 + 20);
-  v9 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v9 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v38 = 0LL;
   Object = 0LL;
   LOBYTE(v40) = 0;
-  if ( v9 && *(_QWORD *)(a2 + 8) == *((_QWORD *)&SecurityProviderGuid + 1) )
+  if ( v9 && *(_QWORD *)(a2 + 8) == *(_QWORD *)SecurityProviderGuid.Data4 )
     return 3221225506LL;
   GuidEntryByGuid = (__int64 *)EtwpFindGuidEntryByGuid(a1, a2, (unsigned int)(v6 - 2) > 1);
   if ( GuidEntryByGuid || (GuidEntryByGuid = EtwpAddGuidEntry(a1, (_DWORD *)a2, (unsigned int)(v6 - 2) > 1)) != 0LL )

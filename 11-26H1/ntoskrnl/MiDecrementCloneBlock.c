@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDecrementCloneBlock @ 0x14036A250
+ * XREFs of MiDecrementCloneBlock @ 0x14036BFF0
  * Callers:
- *     MiDecommitSharedPageTail @ 0x1402DBF60 (MiDecommitSharedPageTail.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
- *     MiDecrementCloneBlockReference @ 0x1404AFB30 (MiDecrementCloneBlockReference.c)
+ *     MiDecommitSharedPageTail @ 0x1402BDD20 (MiDecommitSharedPageTail.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
+ *     MiDecrementCloneBlockReference @ 0x1404A91C0 (MiDecrementCloneBlockReference.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiVaToPfnEx @ 0x14024DF10 (MiVaToPfnEx.c)
- *     MiUpdateNonPagedPoolNoSteal @ 0x14024E3BC (MiUpdateNonPagedPoolNoSteal.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
- *     MiDeleteMergedPte @ 0x14033C800 (MiDeleteMergedPte.c)
- *     MiLockCloneBlockAtDpc @ 0x14036A800 (MiLockCloneBlockAtDpc.c)
- *     MiReturnCloneCharges @ 0x14036CAA4 (MiReturnCloneCharges.c)
- *     MiUpdateCloneReducedCommit @ 0x14049AD5C (MiUpdateCloneReducedCommit.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiVaToPfnEx @ 0x14024F870 (MiVaToPfnEx.c)
+ *     MiUpdateNonPagedPoolNoSteal @ 0x14024FD1C (MiUpdateNonPagedPoolNoSteal.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
+ *     MiDeleteMergedPte @ 0x14033E880 (MiDeleteMergedPte.c)
+ *     MiLockCloneBlockAtDpc @ 0x14036C5A0 (MiLockCloneBlockAtDpc.c)
+ *     MiReturnCloneCharges @ 0x14036E844 (MiReturnCloneCharges.c)
+ *     MiUpdateCloneReducedCommit @ 0x1404948AC (MiUpdateCloneReducedCommit.c)
  */
 
 __int64 __fastcall MiDecrementCloneBlock(__int64 a1, __int64 a2, unsigned __int64 a3, char a4, _DWORD *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall MiDecrementCloneBlock(__int64 a1, __int64 a2, unsigned __int6
 
   *a5 = 0;
   if ( a2 )
-    v8 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a2 + 174));
+    v8 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a2 + 174));
   else
     v8 = a1;
   v9 = 0;

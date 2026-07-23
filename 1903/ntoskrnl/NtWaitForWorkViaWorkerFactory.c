@@ -26,42 +26,42 @@
  *     ExRaiseDatatypeMisalignment @ 0x140913EC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtWaitForWorkViaWorkerFactory(
-        HANDLE Handle,
-        volatile void *a2,
-        unsigned int a3,
-        _DWORD *a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  unsigned int v6; // r14d
+  ULONG v6; // r14d
   unsigned __int8 v8; // si
   __int64 v9; // rcx
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   PKSPIN_LOCK *v11; // rdi
   _BYTE *PoolWithTag; // r12
   PKSPIN_LOCK v13; // rcx
   int HandleInformation; // [rsp+28h] [rbp-170h]
-  int v16; // [rsp+38h] [rbp-160h]
+  int Timeout; // [rsp+38h] [rbp-160h]
   __int64 v17; // [rsp+40h] [rbp-158h] BYREF
   PVOID P; // [rsp+48h] [rbp-150h]
-  unsigned int v19; // [rsp+50h] [rbp-148h]
+  ULONG v19; // [rsp+50h] [rbp-148h]
   volatile void *Address; // [rsp+58h] [rbp-140h]
   PVOID v21; // [rsp+60h] [rbp-138h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-130h] BYREF
   _BYTE v23[40]; // [rsp+80h] [rbp-118h] BYREF
   HANDLE v24; // [rsp+A8h] [rbp-F0h]
-  volatile void *v25; // [rsp+B0h] [rbp-E8h]
-  _DWORD *v26; // [rsp+B8h] [rbp-E0h]
+  PFILE_IO_COMPLETION_INFORMATION v25; // [rsp+B0h] [rbp-E8h]
+  PULONG v26; // [rsp+B8h] [rbp-E0h]
   PVOID Object; // [rsp+C0h] [rbp-D8h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+C8h] [rbp-D0h]
   _BYTE v29[128]; // [rsp+D0h] [rbp-C8h] BYREF
 
-  v6 = a3;
-  Address = a2;
-  v24 = Handle;
-  v25 = a2;
-  v19 = a3;
-  v26 = a4;
+  v6 = Count;
+  Address = MiniPackets;
+  v24 = WorkerFactoryHandle;
+  v25 = MiniPackets;
+  v19 = Count;
+  v26 = PacketsReturned;
   memset(v23, 0, sizeof(v23));
   memset(&LockHandle, 0, sizeof(LockHandle));
   HIDWORD(v17) = 0;
@@ -80,23 +80,21 @@ LABEL_48:
   if ( v8 )
   {
     ProbeForWrite(Address, 32LL * v6, 8u);
-    v9 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)PacketsReturned;
+    if ( (unsigned __int64)PacketsReturned >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    if ( (a5 & 7) != 0 )
+    if ( ((unsigned __int8)DeferredWork & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a5 + 24 > 0x7FFFFFFF0000LL || a5 + 24 < a5 )
+    if ( (unsigned __int64)&DeferredWork[1] > 0x7FFFFFFF0000LL || &DeferredWork[1] < DeferredWork )
       MEMORY[0x7FFFFFFF0000] = 0;
-    *(_OWORD *)&v23[16] = *(_OWORD *)a5;
-    *(_QWORD *)&v23[32] = *(_QWORD *)(a5 + 16);
+    *(_WORKER_FACTORY_DEFERRED_WORK *)&v23[16] = *DeferredWork;
   }
   else
   {
-    *(_OWORD *)&v23[16] = *(_OWORD *)a5;
-    *(_QWORD *)&v23[32] = *(_QWORD *)(a5 + 16);
+    *(_WORKER_FACTORY_DEFERRED_WORK *)&v23[16] = *DeferredWork;
   }
-  v10 = ObReferenceObjectByHandle(Handle, 2u, ExpWorkerFactoryObjectType, v8, &Object, 0LL);
+  v10 = ObReferenceObjectByHandle(WorkerFactoryHandle, 2u, ExpWorkerFactoryObjectType, v8, &Object, 0LL);
   v11 = (PKSPIN_LOCK *)Object;
   v21 = Object;
   if ( v10 < 0 )
@@ -135,7 +133,7 @@ LABEL_48:
     {
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       ExpWorkerFactoryStartDeferredWork(v23, v8);
-      LOBYTE(v16) = 1;
+      LOBYTE(Timeout) = 1;
       LOBYTE(HandleInformation) = v8;
       v10 = IoRemoveIoCompletion(
               v11[2][1],
@@ -145,7 +143,7 @@ LABEL_48:
               (char *)&v17 + 4,
               HandleInformation,
               0LL,
-              v16,
+              Timeout,
               v17);
       if ( (v23[36] & 1) != 0 )
       {
@@ -179,7 +177,7 @@ LABEL_23:
     else
       KeReleaseInStackQueuedSpinLock(&LockHandle);
     if ( !v10 )
-      *a4 = HIDWORD(v17);
+      *PacketsReturned = HIDWORD(v17);
   }
 LABEL_29:
   if ( PoolWithTag != v29 )
@@ -188,13 +186,13 @@ LABEL_29:
     ObfDereferenceObject(v21);
   if ( (v23[36] & 1) != 0 )
     NtAlpcSendWaitReceivePort(
-      *(_QWORD *)&v23[24],
-      *(unsigned int *)&v23[32],
-      *(_QWORD *)&v23[16],
+      *(HANDLE *)&v23[24],
+      *(ULONG *)&v23[32],
+      *(PPORT_MESSAGE *)&v23[16],
       0LL,
       0LL,
       0LL,
       0LL,
       0LL);
-  return (unsigned int)v10;
+  return v10;
 }

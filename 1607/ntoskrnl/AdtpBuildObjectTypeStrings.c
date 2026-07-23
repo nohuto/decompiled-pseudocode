@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpBuildObjectTypeStrings @ 0x1406D1B10
+ * XREFs of AdtpBuildObjectTypeStrings @ 0x1406D1C48
  * Callers:
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     qsort @ 0x14014DF60 (qsort.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     qsort @ 0x14014E520 (qsort.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     AdtpBuildGuidString @ 0x1406D02A8 (AdtpBuildGuidString.c)
- *     AdtpAppendString @ 0x1406D149C (AdtpAppendString.c)
- *     AdtpAppendZString @ 0x1406D1638 (AdtpAppendZString.c)
- *     AdtpBuildAccessesString @ 0x1406D1680 (AdtpBuildAccessesString.c)
+ *     AdtpBuildGuidString @ 0x1406D03E0 (AdtpBuildGuidString.c)
+ *     AdtpAppendString @ 0x1406D15D4 (AdtpAppendString.c)
+ *     AdtpAppendZString @ 0x1406D1770 (AdtpAppendZString.c)
+ *     AdtpBuildAccessesString @ 0x1406D17B8 (AdtpBuildAccessesString.c)
  */
 
 __int64 __fastcall AdtpBuildObjectTypeStrings(
@@ -44,7 +44,7 @@ __int64 __fastcall AdtpBuildObjectTypeStrings(
   v22 = 0;
   v7 = a4;
   v8 = a3;
-  RtlInitUnicodeString(DestinationString, &word_140583CF0);
+  RtlInitUnicodeString(DestinationString, &word_1405841A0);
   v9 = (__int64)a6;
   *a6 = 0;
   if ( !(_DWORD)v7 )

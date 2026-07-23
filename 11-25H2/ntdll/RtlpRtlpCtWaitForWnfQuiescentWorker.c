@@ -7,12 +7,9 @@
  *     NtWaitForSingleObject @ 0x1801632A0 (NtWaitForSingleObject.c)
  */
 
-__int64 __fastcall RtlpRtlpCtWaitForWnfQuiescentWorker(__int64 a1, __int64 a2)
+void __fastcall RtlpRtlpCtWaitForWnfQuiescentWorker(PTP_CALLBACK_INSTANCE a1, HANDLE *a2, PTP_WORK a3)
 {
-  __int64 v3; // rdx
-  __int64 v4; // r8
-
-  NtWaitForSingleObject(*(HANDLE *)(a2 + 16), 0, 0LL);
-  RtlpCtContextFree((__int64 *)a2, v3, v4);
-  return (unsigned int)_InterlockedExchange(&RtlpCtPublishInProgress, 0);
+  NtWaitForSingleObject(a2[2], 0, 0LL);
+  RtlpCtContextFree((__int64)a2);
+  _InterlockedExchange(&RtlpCtPublishInProgress, 0);
 }

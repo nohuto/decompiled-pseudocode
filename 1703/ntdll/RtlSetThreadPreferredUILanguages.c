@@ -31,16 +31,16 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, __int64 a2, int *a3)
   __int64 v15; // rax
   __int64 v16; // rax
   __int64 v17; // rax
-  char v18; // [rsp+40h] [rbp-20h] BYREF
-  _WORD *v19; // [rsp+48h] [rbp-18h] BYREF
+  ULONG NumberOfLanguages; // [rsp+40h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-18h] BYREF
   __int64 v20; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v21; // [rsp+A0h] [rbp+40h] BYREF
-  int v22; // [rsp+B8h] [rbp+58h] BYREF
+  ULONG ReturnLength; // [rsp+B8h] [rbp+58h] BYREF
 
   v21 = 0;
-  v22 = 0;
+  ReturnLength = 0;
   v5 = a1;
-  v19 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
   v20 = 0LL;
   if ( (a1 & 0xFFFF7CF2) != 0 )
@@ -79,18 +79,18 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, __int64 a2, int *a3)
       return (unsigned int)-1073741811;
     if ( v21 < 2 || *(_WORD *)a2 || *(_WORD *)(a2 + 2) )
     {
-      if ( (int)sub_1800470C4((__int64 *)&v19, v20, 5u, 0) < 0 || !v19 )
+      if ( (int)sub_1800470C4((__int64 *)&BaseAddress, v20, 5u, 0) < 0 || !BaseAddress )
         return (unsigned int)-1073741801;
-      v8 = sub_180045810(qword_18015BF90, (const WCHAR *)a2, v21, v5 | 2u, 26, 5u, (__int64 *)&v19);
+      v8 = sub_180045810((__int64)qword_18015BF90, (const WCHAR *)a2, v21, v5 | 2u, 26, 5u, (__int64 *)&BaseAddress);
       if ( v8 < 0 )
       {
-        sub_180040BA0((unsigned __int64)v19);
+        sub_180040BA0(BaseAddress);
         goto LABEL_21;
       }
-      v14 = v19[2];
+      v14 = *((_WORD *)BaseAddress + 2);
       if ( !v14 )
       {
-        sub_180040BA0((unsigned __int64)v19);
+        sub_180040BA0(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
@@ -99,10 +99,10 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, __int64 a2, int *a3)
   }
   if ( NtCurrentTeb()->PreferredLanguages )
   {
-    sub_180040BA0((unsigned __int64)NtCurrentTeb()->PreferredLanguages);
+    sub_180040BA0(NtCurrentTeb()->PreferredLanguages);
     NtCurrentTeb()->PreferredLanguages = 0LL;
   }
-  NtCurrentTeb()->PreferredLanguages = v19;
+  NtCurrentTeb()->PreferredLanguages = BaseAddress;
 LABEL_18:
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
@@ -182,6 +182,6 @@ LABEL_30:
   }
   *(_DWORD *)(v11 + 40) &= 0xFFFFFFF9;
 LABEL_34:
-  RtlGetThreadPreferredUILanguages(v5 | 0x30, (struct _TEB *)&v18, 0LL, &v22);
+  RtlGetThreadPreferredUILanguages(v5 | 0x30, &NumberOfLanguages, 0LL, &ReturnLength);
   return (unsigned int)v8;
 }

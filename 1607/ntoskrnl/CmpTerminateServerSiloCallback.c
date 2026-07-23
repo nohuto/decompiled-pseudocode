@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpTerminateServerSiloCallback @ 0x1405FF3F0
+ * XREFs of CmpTerminateServerSiloCallback @ 0x1405FF4A4
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14043735C (CmpDelayDerefKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x14043622C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
  */
 
 void __fastcall CmpTerminateServerSiloCallback(__int64 a1)

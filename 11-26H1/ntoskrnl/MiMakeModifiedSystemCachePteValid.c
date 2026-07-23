@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMakeModifiedSystemCachePteValid @ 0x14048BB40
+ * XREFs of MiMakeModifiedSystemCachePteValid @ 0x140485680
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     PfSnLogPageFault @ 0x140374EF0 (PfSnLogPageFault.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     PfSnLogPageFault @ 0x140376CA0 (PfSnLogPageFault.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
  */
 
 void __fastcall MiMakeModifiedSystemCachePteValid(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
@@ -76,13 +76,13 @@ void __fastcall MiMakeModifiedSystemCachePteValid(__int64 a1, ULONG_PTR a2, unsi
     if ( (v12 & 8) != 0 )
       ValidPte = MiMakeValidPte(a2, v5, 536870913);
     v14 = ValidPte & 0xFFFFFFFFFFFFFEFBuLL;
-    v15 = v14 | ((unsigned __int64)(BYTE4(stru_140E2D930.Header.WaitListHead.Blink) & 1) << 8);
+    v15 = v14 | ((unsigned __int64)(BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) & 1) << 8);
     if ( (v27 & 8) != 0 && (v8[5] & 0x20000000000000LL) != 0 )
-      v15 = v14 & 0xFFFFFFFFFFFFFFBDuLL | ((unsigned __int64)(BYTE4(stru_140E2D930.Header.WaitListHead.Blink) & 1) << 8);
+      v15 = v14 & 0xFFFFFFFFFFFFFFBDuLL | ((unsigned __int64)(BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) & 1) << 8);
     v16 = v8[2];
     v17 = v8[1] | 0x8000000000000000uLL;
     MiAllocateWsle(a1, (signed __int64 *)a2, v8, 0, v15, 0, 0LL);
-    if ( LODWORD(stru_140E66FF0.ThreadLock) && (v16 & 0x400) != 0 )
+    if ( LODWORD(stru_140E67200.ThreadLock) && (v16 & 0x400) != 0 )
       v9 = 1;
   }
   MiUnlockPageTableInternal(a1, v24);

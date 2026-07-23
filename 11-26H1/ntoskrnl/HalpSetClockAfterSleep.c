@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpSetClockAfterSleep @ 0x140451214
+ * XREFs of HalpSetClockAfterSleep @ 0x140449344
  * Callers:
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
- *     HalpDpPostReplace @ 0x140BEDF84 (HalpDpPostReplace.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
+ *     HalpDpPostReplace @ 0x140BF3F84 (HalpDpPostReplace.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 HalpSetClockAfterSleep()
 {
-  unsigned __int8 QueuePriority; // cl
+  unsigned __int8 v0; // cl
   __int64 v1; // rcx
 
   HalpAcquireCmosSpinLock(0LL);
-  QueuePriority = HalpDeviceBlockUnblockPushLock.QueuePriority;
+  v0 = BYTE4(HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo);
   __outbyte(0x70u, 0xAu);
-  __outbyte(0x71u, QueuePriority);
-  LOBYTE(v1) = BYTE1(HalpDeviceBlockUnblockPushLock.QueuePriority) & 0xDF;
+  __outbyte(0x71u, v0);
+  LOBYTE(v1) = BYTE5(HalpDeviceBlockUnblockPushLock.LastXStateSaveDebugInfo) & 0xDF;
   __outbyte(0x70u, 0xBu);
   LOBYTE(v1) = v1 | 2;
   __outbyte(0x71u, v1);

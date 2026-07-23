@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAdtLogAuditFailureEvent @ 0x140812DF4
+ * XREFs of SepAdtLogAuditFailureEvent @ 0x140818C54
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SepAdtLogAuditFailureEvent(unsigned int a1, char a2)
@@ -23,15 +23,17 @@ __int64 __fastcall SepAdtLogAuditFailureEvent(unsigned int a1, char a2)
 
   v3 = a1;
   memset_0(Src, 0, 0x418uLL);
-  if ( !BYTE5(RtlpBootStatHandleLock.QueuedScb) || a2 || LODWORD(RtlpBootStatHandleLock.QueuedScb) >= 0x32 )
+  if ( !*((_BYTE *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue + 4)
+    || a2
+    || RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue >= 0x32 )
   {
     v10 = 524390;
-    BYTE5(RtlpBootStatHandleLock.QueuedScb) = 1;
+    *((_BYTE *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue + 4) = 1;
     Src[0] = 1;
     Src[1] = 521;
     v11 = 2;
-    v4 = _InterlockedExchange((volatile __int32 *)&RtlpBootStatHandleLock.QueuedScb, 0);
-    v5 = *(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags;
+    v4 = _InterlockedExchange((volatile __int32 *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue, 0);
+    v5 = *(__int64 *)((char *)&RtlpBootStatHandleLock.116 + 4);
     if ( a2 )
     {
       v11 = 18;
@@ -46,7 +48,7 @@ LABEL_7:
       v12[8 * v9 + 1] = 4;
       *(_QWORD *)&v12[8 * v9++ + 2] = v3;
       v12[8 * v9] = 3;
-      v6 = BYTE4(RtlpBootStatHandleLock.QueuedScb);
+      v6 = *((unsigned __int8 *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue + 5);
       v12[8 * v9 + 1] = 1;
       *(_QWORD *)&v12[8 * v9++ + 2] = v6;
       v12[8 * v9] = 3;

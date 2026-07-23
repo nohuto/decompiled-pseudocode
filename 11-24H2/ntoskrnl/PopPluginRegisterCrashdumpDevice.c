@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPluginRegisterCrashdumpDevice @ 0x1404CEEB4
+ * XREFs of PopPluginRegisterCrashdumpDevice @ 0x1404C8080
  * Callers:
- *     PoFxRegisterCrashdumpDevice @ 0x140AAACE0 (PoFxRegisterCrashdumpDevice.c)
+ *     PoFxRegisterCrashdumpDevice @ 0x140AA5F10 (PoFxRegisterCrashdumpDevice.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PopPluginRegisterCrashdumpDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall PopPluginRegisterCrashdumpDevice(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v4; // ebx
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v3; // ebx
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = 0;
-  v7[1] = a2;
-  v7[0] = 0LL;
-  if ( (unsigned __int8)guard_dispatch_icall_no_overrides(25LL, v7, a3, a4) && v7[0] )
-    *(_QWORD *)(a3 + 632) = v7[0];
+  v3 = 0;
+  v6[1] = a2;
+  v6[0] = 0LL;
+  if ( (unsigned __int8)guard_dispatch_icall_no_overrides(25LL, v6) && v6[0] )
+    *(_QWORD *)(a3 + 632) = v6[0];
   else
     return (unsigned int)-1073741637;
-  return v4;
+  return v3;
 }

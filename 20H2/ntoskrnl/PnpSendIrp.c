@@ -17,7 +17,7 @@ __int64 __fastcall PnpSendIrp(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __
   int v8; // ebp
   unsigned int v9; // eax
   unsigned int v10; // ebx
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   PreviousAffinity = 0LL;
   v8 = PnpSetDeviceAffinityThread(a1, &PreviousAffinity);

@@ -8,18 +8,18 @@
  *     _RtlpFreeTebLanguageList@4 @ 0x4B2EBD41 (_RtlpFreeTebLanguageList@4.c)
  */
 
-int __stdcall RtlCleanUpTEBLangLists()
+void RtlCleanUpTEBLangLists(void)
 {
   struct _TEB *v0; // ecx
   struct _TEB *v1; // ecx
 
-  RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->MergedPrefLanguages);
+  RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
   v0 = NtCurrentTeb();
   v0->MergedPrefLanguages = 0;
   RtlpFreeTebLanguageList(v0->UserPrefLanguages);
   v1 = NtCurrentTeb();
   v1->UserPrefLanguages = 0;
-  RtlpMuiRegFreeLanguageList((_BYTE *)v1->PreferredLanguages);
+  RtlpMuiRegFreeLanguageList(v1->PreferredLanguages);
   NtCurrentTeb()->PreferredLanguages = 0;
-  return LdrpCleanUpTebData();
+  LdrpCleanUpTebData();
 }

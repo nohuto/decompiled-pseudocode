@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeMutant @ 0x14033ADEC
+ * XREFs of KiInitializeMutant @ 0x14033B07C
  * Callers:
- *     KeInitializeMutex @ 0x14033ADB0 (KeInitializeMutex.c)
- *     KeInitializeMutantEx @ 0x14033ADD0 (KeInitializeMutantEx.c)
- *     NtdllRunOnceInitMuiCrits @ 0x1403B64A0 (NtdllRunOnceInitMuiCrits.c)
- *     KeInitializeMutant @ 0x1403D7190 (KeInitializeMutant.c)
- *     DifKeInitializeMutantWrapper @ 0x1405E3460 (DifKeInitializeMutantWrapper.c)
- *     DifKeInitializeMutexWrapper @ 0x1405E3580 (DifKeInitializeMutexWrapper.c)
+ *     KeInitializeMutex @ 0x14033B040 (KeInitializeMutex.c)
+ *     KeInitializeMutantEx @ 0x14033B060 (KeInitializeMutantEx.c)
+ *     NtdllRunOnceInitMuiCrits @ 0x1403B6680 (NtdllRunOnceInitMuiCrits.c)
+ *     KeInitializeMutant @ 0x1403D7370 (KeInitializeMutant.c)
+ *     DifKeInitializeMutantWrapper @ 0x1405E39D0 (DifKeInitializeMutantWrapper.c)
+ *     DifKeInitializeMutexWrapper @ 0x1405E3AF0 (DifKeInitializeMutexWrapper.c)
  *     sub_140B38B4C @ 0x140B38B4C (sub_140B38B4C.c)
  *     WmipDriverEntry @ 0x140B38E50 (WmipDriverEntry.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
@@ -15,9 +15,9 @@
  *     EtwpInitializeRegistration @ 0x140B73E10 (EtwpInitializeRegistration.c)
  *     ExpProfileInitialization @ 0x140B74754 (ExpProfileInitialization.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiInitializeMutant(__int64 a1, char a2, char a3, char a4)
@@ -47,7 +47,7 @@ char __fastcall KiInitializeMutant(__int64 a1, char a2, char a3, char a4)
     *(_QWORD *)(a1 + 40) = CurrentThread;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v14) = 4;
@@ -71,10 +71,10 @@ char __fastcall KiInitializeMutant(__int64 a1, char a2, char a3, char a4)
     Blink->Flink = v12;
     CurrentThread->MutantListHead.Blink = v12;
     CurrentThread->ThreadLock = 0LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v17 = CurrentPrcb->SchedulerAssist;

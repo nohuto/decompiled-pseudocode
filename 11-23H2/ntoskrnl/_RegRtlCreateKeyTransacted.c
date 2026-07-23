@@ -1,17 +1,17 @@
 /*
- * XREFs of _RegRtlCreateKeyTransacted @ 0x140797F3C
+ * XREFs of _RegRtlCreateKeyTransacted @ 0x14079812C
  * Callers:
- *     _RegRtlCreateTreeTransacted @ 0x140797A30 (_RegRtlCreateTreeTransacted.c)
- *     _PnpCtxRegCreateKey @ 0x140797EC0 (_PnpCtxRegCreateKey.c)
- *     _SysCtxOpenControlSet @ 0x140855228 (_SysCtxOpenControlSet.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A698 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlCreateTreeTransacted @ 0x140797C20 (_RegRtlCreateTreeTransacted.c)
+ *     _PnpCtxRegCreateKey @ 0x1407980B0 (_PnpCtxRegCreateKey.c)
+ *     _SysCtxOpenControlSet @ 0x140855528 (_SysCtxOpenControlSet.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A6A948 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     _RegRtlIsPredefinedKey @ 0x1406CEE8C (_RegRtlIsPredefinedKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085C2FC (_RegRtlOpenPredefinedKey.c)
- *     NtCreateKeyTransacted_Stub @ 0x140A6AD6C (NtCreateKeyTransacted_Stub.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     _RegRtlIsPredefinedKey @ 0x1406CEEBC (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14085C53C (_RegRtlOpenPredefinedKey.c)
+ *     NtCreateKeyTransacted_Stub @ 0x140A6B01C (NtCreateKeyTransacted_Stub.c)
  */
 
 __int64 __fastcall RegRtlCreateKeyTransacted(

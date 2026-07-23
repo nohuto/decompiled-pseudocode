@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpAddDummyBinToHive @ 0x1406123A0
+ * XREFs of HvpAddDummyBinToHive @ 0x140612454
  * Callers:
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpPointMapEntriesToBuffer @ 0x140513AF8 (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x140513E48 (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1404F6EE8 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x1404F7238 (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
  */
 
 __int64 __fastcall HvpAddDummyBinToHive(ULONG_PTR BugCheckParameter2, _OWORD *a2, int a3, _QWORD *a4)

@@ -1,57 +1,57 @@
 /*
- * XREFs of RtlGetPersistedStateLocation @ 0x1409CC0E0
+ * XREFs of RtlGetPersistedStateLocation @ 0x1409B4B60
  * Callers:
- *     PopOpenThermalLoggingKey @ 0x1404C1D4C (PopOpenThermalLoggingKey.c)
- *     PipUpdateDeviceProducts @ 0x1405A36C0 (PipUpdateDeviceProducts.c)
- *     RtlpGetPersistedRegistryLocation @ 0x1405EF3DC (RtlpGetPersistedRegistryLocation.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14065ABEC (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x140737D20 (PiDrvDbQuerySyncNodesUpdated.c)
- *     PopOpenPersistedRegistryKey @ 0x140749570 (PopOpenPersistedRegistryKey.c)
- *     PopInitHiberPersistedRegValues @ 0x14075282C (PopInitHiberPersistedRegValues.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x1407A6158 (WmipSaveGuidSecurityDescriptor.c)
- *     EtwpInitializeAutoLoggers @ 0x1407AF194 (EtwpInitializeAutoLoggers.c)
- *     SpRegOpenRedirectedKey @ 0x1407BB144 (SpRegOpenRedirectedKey.c)
- *     ExpUuidLoadSequenceNumber @ 0x1407C0B68 (ExpUuidLoadSequenceNumber.c)
- *     ExpUuidSaveSequenceNumber @ 0x1407C0CD4 (ExpUuidSaveSequenceNumber.c)
- *     CmpRecordShutdownStopTime @ 0x1407D553C (CmpRecordShutdownStopTime.c)
- *     IopUpdateSecureDeviceClassState @ 0x1409A1648 (IopUpdateSecureDeviceClassState.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1409CA218 (KGetAppModelStateSeparatedRegKeyPath.c)
- *     PiCreateDriverRedirectedStateKey @ 0x1409CB1EC (PiCreateDriverRedirectedStateKey.c)
- *     PiGetStateRootPath @ 0x1409CB310 (PiGetStateRootPath.c)
- *     WmipGetGuidSecurityDescriptor @ 0x1409CBEF4 (WmipGetGuidSecurityDescriptor.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1409DBBB4 (RtlpGetTimeZoneInfoHandle.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
- *     IopGetPersistedStateLocation @ 0x140ABA0BC (IopGetPersistedStateLocation.c)
- *     PopInitializePowerButtonHold @ 0x140C320F0 (PopInitializePowerButtonHold.c)
- *     EtwpInitializeSecurity @ 0x140C3E2EC (EtwpInitializeSecurity.c)
+ *     PopOpenThermalLoggingKey @ 0x1404BD33C (PopOpenThermalLoggingKey.c)
+ *     PipUpdateDeviceProducts @ 0x1405A0600 (PipUpdateDeviceProducts.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x1405EC9BC (RtlpGetPersistedRegistryLocation.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14065930C (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x140735C50 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     PopOpenPersistedRegistryKey @ 0x1407478A0 (PopOpenPersistedRegistryKey.c)
+ *     PopInitHiberPersistedRegValues @ 0x140750B4C (PopInitHiberPersistedRegValues.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x1407A6298 (WmipSaveGuidSecurityDescriptor.c)
+ *     EtwpInitializeAutoLoggers @ 0x1407AF5E4 (EtwpInitializeAutoLoggers.c)
+ *     SpRegOpenRedirectedKey @ 0x1407BB594 (SpRegOpenRedirectedKey.c)
+ *     ExpUuidLoadSequenceNumber @ 0x1407C0FB8 (ExpUuidLoadSequenceNumber.c)
+ *     ExpUuidSaveSequenceNumber @ 0x1407C1124 (ExpUuidSaveSequenceNumber.c)
+ *     CmpRecordShutdownStopTime @ 0x1407D5A2C (CmpRecordShutdownStopTime.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x1409B4974 (WmipGetGuidSecurityDescriptor.c)
+ *     PiGetStateRootPath @ 0x1409B55E8 (PiGetStateRootPath.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1409B5838 (PiCreateDriverRedirectedStateKey.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1409B6330 (RtlpGetTimeZoneInfoHandle.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1409B68D0 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     IopUpdateSecureDeviceClassState @ 0x140A60830 (IopUpdateSecureDeviceClassState.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
+ *     IopGetPersistedStateLocation @ 0x140AB50D8 (IopGetPersistedStateLocation.c)
+ *     PopInitializePowerButtonHold @ 0x140C34230 (PopInitializePowerButtonHold.c)
+ *     EtwpInitializeSecurity @ 0x140C4043C (EtwpInitializeSecurity.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlGetPersistedStateLocation(
-        PCWSTR SourceString,
-        const WCHAR *a2,
-        _WORD *a3,
-        unsigned int a4,
-        void *a5,
-        unsigned int a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  _DWORD *Pool2; // rdi
-  signed int v11; // ebx
+  WCHAR *Pool2; // rdi
+  NTSTATUS v11; // ebx
   __int64 v12; // rax
   unsigned int v13; // eax
   unsigned int v14; // ecx
-  const void *v16; // rdx
+  PCWSTR v16; // rdx
   NTSTATUS v17; // eax
   NTSTATUS v18; // eax
-  unsigned int v19; // esi
+  ULONG v19; // esi
   ULONG Length; // ebx
   NTSTATUS v21; // eax
   unsigned __int64 v22; // rax
@@ -67,16 +67,16 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   Pool2 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  if ( a4 > 1 )
-    return 3221225713LL;
-  if ( byte_140E67878 )
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
+    return -1073741583;
+  if ( byte_140E67A31 )
   {
     v11 = -1073741772;
   }
   else
   {
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140B3C1D8[2 * (int)a4];
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140B3DFB8[2 * StateLocationType];
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -84,13 +84,13 @@ __int64 __fastcall RtlGetPersistedStateLocation(
     v11 = v17;
     if ( v17 == -1073741772 )
     {
-      byte_140E67878 = 1;
+      byte_140E67A31 = 1;
     }
     else
     {
       if ( v17 < 0 )
         goto LABEL_9;
-      RtlInitUnicodeString(&DestinationString, SourceString);
+      RtlInitUnicodeString(&DestinationString, SourceID);
       ObjectAttributes.RootDirectory = KeyHandle;
       ObjectAttributes.Length = 48;
       ObjectAttributes.ObjectName = &DestinationString;
@@ -102,14 +102,14 @@ __int64 __fastcall RtlGetPersistedStateLocation(
       {
         if ( v18 < 0 )
           goto LABEL_9;
-        if ( !a2 )
-          a2 = L"TargetNtPath";
-        RtlInitUnicodeString(&DestinationString, a2);
-        v19 = a6;
-        Length = a6 + 16;
-        if ( a6 + 16 < a6 )
+        if ( !CustomValue )
+          CustomValue = L"TargetNtPath";
+        RtlInitUnicodeString(&DestinationString, CustomValue);
+        v19 = BufferLengthIn;
+        Length = BufferLengthIn + 16;
+        if ( BufferLengthIn + 16 < BufferLengthIn )
           goto LABEL_8;
-        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, Length, 0x70657373u);
         if ( !Pool2 )
         {
           v11 = -1073741801;
@@ -122,14 +122,14 @@ __int64 __fastcall RtlGetPersistedStateLocation(
           if ( v21 != -2147483643 )
             goto LABEL_9;
         }
-        else if ( Pool2[1] != 1 )
+        else if ( *((_DWORD *)Pool2 + 1) != 1 )
         {
           v11 = -1073741788;
           goto LABEL_9;
         }
-        v14 = Pool2[2];
+        v14 = *((_DWORD *)Pool2 + 2);
         ResultLength = v14;
-        if ( v21 >= 0 && *((_WORD *)Pool2 + ((unsigned __int64)v14 >> 1) + 5) )
+        if ( v21 >= 0 && Pool2[((unsigned __int64)v14 >> 1) + 5] )
         {
           v22 = v14 + 2;
           ResultLength = v22;
@@ -140,25 +140,25 @@ __int64 __fastcall RtlGetPersistedStateLocation(
           }
           else
           {
-            *((_WORD *)Pool2 + (v22 >> 1) + 5) = 0;
+            Pool2[(v22 >> 1) + 5] = 0;
             v14 = ResultLength;
           }
         }
-        if ( a7 )
-          *a7 = v14;
+        if ( BufferLengthOut )
+          *BufferLengthOut = v14;
         if ( v11 < 0 )
           goto LABEL_9;
-        v16 = Pool2 + 3;
+        v16 = Pool2 + 6;
         goto LABEL_20;
       }
     }
   }
-  if ( a3 )
+  if ( DefaultPath )
   {
     v12 = -1LL;
     do
       ++v12;
-    while ( a3[v12] );
+    while ( DefaultPath[v12] );
     v13 = v12 + 1;
     v14 = 2 * v13;
     ResultLength = 2 * v13;
@@ -168,14 +168,14 @@ LABEL_8:
       v11 = -1073741675;
       goto LABEL_9;
     }
-    v11 = a6 < v14 ? 0x80000005 : 0;
-    if ( a7 )
-      *a7 = v14;
-    if ( v14 > a6 )
+    v11 = BufferLengthIn < v14 ? 0x80000005 : 0;
+    if ( BufferLengthOut )
+      *BufferLengthOut = v14;
+    if ( v14 > BufferLengthIn )
       goto LABEL_9;
-    v16 = a3;
+    v16 = DefaultPath;
 LABEL_20:
-    memmove(a5, v16, v14);
+    memmove(TargetPath, v16, v14);
   }
 LABEL_9:
   if ( KeyHandle )
@@ -184,5 +184,5 @@ LABEL_9:
     ZwClose(Handle);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v11;
+  return v11;
 }

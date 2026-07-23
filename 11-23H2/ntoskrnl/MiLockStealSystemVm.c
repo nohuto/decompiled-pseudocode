@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLockStealSystemVm @ 0x140398A4C
+ * XREFs of MiLockStealSystemVm @ 0x140398C2C
  * Callers:
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiSynchronizeSystemVa @ 0x1402619B0 (MiSynchronizeSystemVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiReferenceOwningSession @ 0x14034904C (MiReferenceOwningSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     MiSmallVaStillMapsFrame @ 0x1403A8F90 (MiSmallVaStillMapsFrame.c)
- *     MiVaIsPageFileHash @ 0x1403BC380 (MiVaIsPageFileHash.c)
- *     MiUnlockStealVm @ 0x1403BDA80 (MiUnlockStealVm.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSynchronizeSystemVa @ 0x140261C40 (MiSynchronizeSystemVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiReferenceOwningSession @ 0x1403492DC (MiReferenceOwningSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403A9170 (MiSmallVaStillMapsFrame.c)
+ *     MiVaIsPageFileHash @ 0x1403BC560 (MiVaIsPageFileHash.c)
+ *     MiUnlockStealVm @ 0x1403BDC60 (MiUnlockStealVm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigned __int64 a3, __int64 a4)
@@ -82,10 +82,13 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( (v18 & 0x10) != 0 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v6 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -99,10 +102,10 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
         __writecr8(v6);
         return 0LL;
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;
@@ -121,10 +124,10 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
     case 1u:
       *(_QWORD *)(a4 + 56) = MiReferenceOwningSession(a1);
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v29 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v29 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v29 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -152,10 +155,10 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
       return 0LL;
     case 6u:
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v35 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v35 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v35 >= 2u )
         {
           v36 = KeGetCurrentPrcb();
           v37 = v36->SchedulerAssist;
@@ -173,10 +176,10 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
       break;
     case 0xCu:
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v39 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v39 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v39 >= 2u )
         {
           v40 = KeGetCurrentPrcb();
           v41 = v40->SchedulerAssist;
@@ -195,10 +198,10 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
       if ( SystemRegionType != 9 || !MiVaIsPageFileHash(v7, v8) )
       {
         _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v47 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v47 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v47 >= 2u )
           {
             v48 = KeGetCurrentPrcb();
             v49 = v48->SchedulerAssist;
@@ -216,10 +219,10 @@ __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigne
       v13 = MiGetAnyMultiplexedVm(3);
       *(_DWORD *)(a4 + 48) = 2;
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v43 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v43 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v43 >= 2u )
         {
           v44 = KeGetCurrentPrcb();
           v45 = v44->SchedulerAssist;

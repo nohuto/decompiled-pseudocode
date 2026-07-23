@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpHandleRevocationBlockRemoveObject @ 0x140691B60
+ * XREFs of ObpHandleRevocationBlockRemoveObject @ 0x140692D20
  * Callers:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
- *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406919C0 (ObpProcessRemoveObjectQueue.c)
+ *     NtSetInformationFile @ 0x140100F10 (NtSetInformationFile.c)
+ *     NtSetInformationWorkerFactory @ 0x140106180 (NtSetInformationWorkerFactory.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140692B80 (ObpProcessRemoveObjectQueue.c)
  * Callees:
- *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x140861260 (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408624C0 (ObpHandleRevocationBlockRemoveInsertedObject.c)
  */
 
 __int64 __fastcall ObpHandleRevocationBlockRemoveObject(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpInitializeGraphRecurse @ 0x1800E81A0
+ * XREFs of LdrpInitializeGraphRecurse @ 0x1800E73B0
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
- *     AVrfInitializeVerifier @ 0x1801163F0 (AVrfInitializeVerifier.c)
- *     LdrpInitializeShimDllDependencies @ 0x18011901C (LdrpInitializeShimDllDependencies.c)
- *     LdrpPrepareModuleForExecution @ 0x18011ADA0 (LdrpPrepareModuleForExecution.c)
- *     LdrpInitializeImportRedirection @ 0x18011D004 (LdrpInitializeImportRedirection.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
+ *     AVrfInitializeVerifier @ 0x180115BD0 (AVrfInitializeVerifier.c)
+ *     LdrpInitializeShimDllDependencies @ 0x180118DCC (LdrpInitializeShimDllDependencies.c)
+ *     LdrpPrepareModuleForExecution @ 0x18011AB50 (LdrpPrepareModuleForExecution.c)
+ *     LdrpInitializeImportRedirection @ 0x18011CDB4 (LdrpInitializeImportRedirection.c)
  * Callees:
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
- *     LdrpInitializeNode @ 0x18011A300 (LdrpInitializeNode.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
+ *     LdrpInitializeNode @ 0x18011A0B0 (LdrpInitializeNode.c)
  */
 
 __int64 __fastcall LdrpInitializeGraphRecurse(__int64 *a1, __int64 a2, _BYTE *a3)

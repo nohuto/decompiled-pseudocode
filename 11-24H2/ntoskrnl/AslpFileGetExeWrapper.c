@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetExeWrapper @ 0x14080D664
+ * XREFs of AslpFileGetExeWrapper @ 0x14080DDA4
  * Callers:
- *     AslpFileGetExeWrapperAttribute @ 0x14080D7F0 (AslpFileGetExeWrapperAttribute.c)
+ *     AslpFileGetExeWrapperAttribute @ 0x14080DF30 (AslpFileGetExeWrapperAttribute.c)
  * Callees:
- *     AslpFileGetImageNtHeader @ 0x14080DFA4 (AslpFileGetImageNtHeader.c)
- *     AslpFileHasActiveMarkWrapper @ 0x14080F02C (AslpFileHasActiveMarkWrapper.c)
- *     AslpFileHasSecuromWrapper @ 0x14080F15C (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x14080FDC8 (AslpHasStarForceWrapper.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x14080E6E4 (AslpFileGetImageNtHeader.c)
+ *     AslpFileHasActiveMarkWrapper @ 0x14080F76C (AslpFileHasActiveMarkWrapper.c)
+ *     AslpFileHasSecuromWrapper @ 0x14080F89C (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x140810508 (AslpHasStarForceWrapper.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetExeWrapper(_DWORD *a1, __int64 a2)

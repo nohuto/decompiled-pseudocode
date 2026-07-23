@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFcUpdateGovernedFeaturesEffectiveStates @ 0x140781DD8
+ * XREFs of RtlpFcUpdateGovernedFeaturesEffectiveStates @ 0x140781D08
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x1407E40E0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x1407E474C (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x1407E4630 (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x1407E4C9C (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D18C (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
- *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408289BC (FseInitializeGovernedFeaturesEffectiveStates.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D0BC (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
+ *     FseInitializeGovernedFeaturesEffectiveStates @ 0x14082918C (FseInitializeGovernedFeaturesEffectiveStates.c)
  */
 
 __int64 __fastcall RtlpFcUpdateGovernedFeaturesEffectiveStates(

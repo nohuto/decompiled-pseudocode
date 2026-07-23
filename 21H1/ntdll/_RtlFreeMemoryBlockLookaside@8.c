@@ -6,8 +6,8 @@
  *     @RtlpInterlockedPushEntrySList@8 @ 0x4B2C2090 (@RtlpInterlockedPushEntrySList@8.c)
  */
 
-int __stdcall RtlFreeMemoryBlockLookaside(int a1, int a2)
+NTSTATUS __cdecl RtlFreeMemoryBlockLookaside(PVOID MemoryBlockLookaside, PVOID Block)
 {
-  RtlpInterlockedPushEntrySList(*(_DWORD *)(a2 - 4), (_DWORD *)(a2 - 16));
+  RtlpInterlockedPushEntrySList(*((_DWORD *)Block - 1), (_DWORD *)Block - 4);
   return 0;
 }

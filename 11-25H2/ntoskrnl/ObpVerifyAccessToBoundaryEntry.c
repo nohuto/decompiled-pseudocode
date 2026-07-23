@@ -19,25 +19,24 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
 {
   int v4; // eax
   unsigned __int8 **v5; // rax
-  unsigned __int8 *v6; // r9
+  void *v6; // r9
   __int16 v7; // ax
   PSID *v10; // rdx
   int v11; // eax
-  __int64 v12; // rdx
-  unsigned int v13; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v12; // [rsp+60h] [rbp-A0h] BYREF
   __int128 SecurityDescriptor; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v15; // [rsp+78h] [rbp-88h]
-  int *v16; // [rsp+88h] [rbp-78h]
+  __int128 v14; // [rsp+78h] [rbp-88h]
+  int *v15; // [rsp+88h] [rbp-78h]
   ACL Acl; // [rsp+90h] [rbp-70h] BYREF
-  int v18[2]; // [rsp+F0h] [rbp-10h] BYREF
-  _BYTE v19[152]; // [rsp+F8h] [rbp-8h] BYREF
+  int v17[2]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v18[152]; // [rsp+F8h] [rbp-8h] BYREF
 
-  v13 = 0;
+  v12 = 0;
   memset_0(&Acl, 0, 0x54uLL);
-  v16 = 0LL;
+  v15 = 0LL;
   v4 = *(_DWORD *)a1;
   SecurityDescriptor = 0LL;
-  v15 = 0LL;
+  v14 = 0LL;
   if ( v4 != 2 )
   {
     if ( v4 != 3 )
@@ -50,10 +49,9 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
       return 1LL;
     }
     RtlCreateAcl(&Acl, 0x54u, 2u);
-    RtlAddMandatoryAce((__int64)&Acl, 2u, 0, a1 + 8, 17, 7);
+    RtlAddMandatoryAce(&Acl, 2u, 0, a1 + 8, 0x11u, 7u);
     RtlCreateSecurityDescriptor(&SecurityDescriptor, 1u);
-    LOBYTE(v12) = 1;
-    RtlSetSaclSecurityDescriptor(&SecurityDescriptor, v12, &Acl, 0LL);
+    RtlSetSaclSecurityDescriptor(&SecurityDescriptor, 1u, &Acl, 0);
     return SeAccessCheckWithHint(
              (__int64)&SecurityDescriptor,
              1,
@@ -64,29 +62,29 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
              0LL,
              &ObpDirectoryObjectType->TypeInfo.GenericMapping.GenericRead,
              KeGetCurrentThread()->PreviousMode,
-             &v13,
+             &v12,
              (int *)(a2 + 48));
   }
-  if ( !RtlIsPackageSid((__int64)(a1 + 8)) )
+  if ( !RtlIsPackageSid(a1 + 8) )
   {
-    memset_0(v19, 0, sizeof(v19));
-    *(_QWORD *)v18 = 10485762LL;
-    RtlpAddKnownAce((__int64)v18, 2u, 0, 983055, a1 + 8, 0);
+    memset_0(v18, 0, sizeof(v18));
+    *(_QWORD *)v17 = 10485762LL;
+    RtlpAddKnownAce((ACL *)v17, 2u, 0, 983055, a1 + 8, 0);
     v5 = *(unsigned __int8 ***)(a2 + 32);
     if ( v5 )
-      RtlpAddKnownAce((__int64)v18, 2u, 0, 983055, *v5, 0);
-    v6 = *(unsigned __int8 **)(a2 + 40);
+      RtlpAddKnownAce((ACL *)v17, 2u, 0, 983055, *v5, 0);
+    v6 = *(void **)(a2 + 40);
     Acl = (ACL)5505026LL;
-    RtlAddMandatoryAce((__int64)&Acl, 2u, 0, v6, 17, 7);
+    RtlAddMandatoryAce(&Acl, 2u, 0, v6, 0x11u, 7u);
     LOBYTE(SecurityDescriptor) = 1;
     if ( (SWORD1(SecurityDescriptor) & 0x8000u) == 0 )
     {
-      v16 = v18;
+      v15 = v17;
       v7 = WORD1(SecurityDescriptor) & 0xFFF3 | 4;
       WORD1(SecurityDescriptor) = v7;
       if ( v7 >= 0 )
       {
-        *((_QWORD *)&v15 + 1) = &Acl;
+        *((_QWORD *)&v14 + 1) = &Acl;
         WORD1(SecurityDescriptor) = v7 & 0xFFCF | 0x10;
       }
     }
@@ -100,7 +98,7 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
              0LL,
              &ObpDirectoryObjectType->TypeInfo.GenericMapping.GenericRead,
              KeGetCurrentThread()->PreviousMode,
-             &v13,
+             &v12,
              (int *)(a2 + 48));
   }
   v10 = *(PSID **)(a2 + 32);

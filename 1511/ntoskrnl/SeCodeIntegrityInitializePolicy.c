@@ -24,7 +24,7 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
   _BYTE v13[32]; // [rsp+70h] [rbp-38h] BYREF
 
   if ( !SeILSigningPolicy
-    && ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL) >= 0
+    && ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL) >= 0
     && (SystemInformation[20] & 4) != 0 )
   {
     SeILSigningPolicy = 8;
@@ -34,7 +34,7 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
     SeCiDebugOptions |= 2u;
   if ( SeILSigningPolicy )
   {
-    if ( (v6 = ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, v10, 0x18u, 0LL), v7 = v6, v6 >= 0)
+    if ( (v6 = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, v10, 0x18u, 0LL), v7 = v6, v6 >= 0)
       && (v11 & 0x10) != 0
       || v6 == -2143092730 )
     {
@@ -64,7 +64,7 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
 LABEL_12:
     if ( !SeILSigningPolicy )
     {
-      if ( ZwQuerySystemInformation(SystemContextSwitchInformation|0x80, v13, 0x20u, 0LL) >= 0 && (v13[0] & 0x10) != 0 )
+      if ( ZwQuerySystemInformation(SystemCodeIntegrityPolicyInformation, v13, 0x20u, 0LL) >= 0 && (v13[0] & 0x10) != 0 )
         SeILSigningPolicy = 2;
       return 0;
     }

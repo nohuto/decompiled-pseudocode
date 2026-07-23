@@ -1,14 +1,14 @@
 /*
- * XREFs of MiConvertStandbyToProto @ 0x140359E80
+ * XREFs of MiConvertStandbyToProto @ 0x14035A020
  * Callers:
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
  * Callees:
  *     MiCreateCombineAnchor @ 0x14021503C (MiCreateCombineAnchor.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiDecrementCombinedPteEx @ 0x1402F3B18 (MiDecrementCombinedPteEx.c)
- *     MiMapArbitraryPage @ 0x140359F9C (MiMapArbitraryPage.c)
- *     MiReleaseArbitraryPage @ 0x14035A0D8 (MiReleaseArbitraryPage.c)
- *     MiCombineWithStandbyExisting @ 0x14035A17C (MiCombineWithStandbyExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x1402F3DA8 (MiDecrementCombinedPteEx.c)
+ *     MiMapArbitraryPage @ 0x14035A13C (MiMapArbitraryPage.c)
+ *     MiReleaseArbitraryPage @ 0x14035A278 (MiReleaseArbitraryPage.c)
+ *     MiCombineWithStandbyExisting @ 0x14035A31C (MiCombineWithStandbyExisting.c)
  */
 
 __int64 __fastcall MiConvertStandbyToProto(__int64 a1, __int64 a2)

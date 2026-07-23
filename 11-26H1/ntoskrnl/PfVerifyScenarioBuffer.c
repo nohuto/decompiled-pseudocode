@@ -1,12 +1,12 @@
 /*
- * XREFs of PfVerifyScenarioBuffer @ 0x1409B62C0
+ * XREFs of PfVerifyScenarioBuffer @ 0x140987380
  * Callers:
- *     PfSnGetPrefetchInstructions @ 0x1409B5FA0 (PfSnGetPrefetchInstructions.c)
+ *     PfSnGetPrefetchInstructions @ 0x140987060 (PfSnGetPrefetchInstructions.c)
  * Callees:
- *     StringCbLengthW @ 0x1404837EC (StringCbLengthW.c)
- *     StringCchPrintfW @ 0x1404AC750 (StringCchPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PfVerifyScenarioId @ 0x1409B6D3C (PfVerifyScenarioId.c)
+ *     StringCbLengthW @ 0x14047D11C (StringCbLengthW.c)
+ *     StringCchPrintfW @ 0x1404A5DE0 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PfVerifyScenarioId @ 0x140987DFC (PfVerifyScenarioId.c)
  */
 
 __int64 __fastcall PfVerifyScenarioBuffer(unsigned __int64 a1, unsigned int a2, int *a3)

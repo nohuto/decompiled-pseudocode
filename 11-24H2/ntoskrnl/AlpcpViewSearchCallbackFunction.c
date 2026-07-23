@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpViewSearchCallbackFunction @ 0x1409E6C18
+ * XREFs of AlpcpViewSearchCallbackFunction @ 0x1409E1BD8
  * Callers:
- *     AlpcpEnumerateResourcesPort @ 0x1409E6B60 (AlpcpEnumerateResourcesPort.c)
+ *     AlpcpEnumerateResourcesPort @ 0x1409E1B20 (AlpcpEnumerateResourcesPort.c)
  * Callees:
- *     AlpcpReferenceBlob @ 0x1408966C0 (AlpcpReferenceBlob.c)
+ *     AlpcpReferenceBlob @ 0x14089EB60 (AlpcpReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpViewSearchCallbackFunction(ULONG_PTR a1, _QWORD *a2)

@@ -3,30 +3,25 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwUnloadKey2 @ 0x14041E860 (ZwUnloadKey2.c)
- *     IopUnloadDriver @ 0x140857938 (IopUnloadDriver.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwUnloadKey2 @ 0x14041EBF0 (ZwUnloadKey2.c)
+ *     IopUnloadDriver @ 0x140857B78 (IopUnloadDriver.c)
  */
 
-__int64 __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)
+NTSTATUS __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   UNICODE_STRING *v2; // rdi
   UNICODE_STRING *v3; // rbx
   UNICODE_STRING *v4; // rcx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  _DWORD v6[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v7; // [rsp+38h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+40h] [rbp-20h]
-  int v9; // [rsp+48h] [rbp-18h]
-  int v10; // [rsp+4Ch] [rbp-14h]
-  __int128 v11; // [rsp+50h] [rbp-10h]
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+30h] [rbp-30h] BYREF
 
-  result = 0LL;
+  result = 0;
   v2 = a1 + 4;
-  v10 = 0;
+  *(&TargetKey.Attributes + 1) = 0;
   v3 = *(UNICODE_STRING **)&a1[4].Length;
-  v6[1] = 0;
+  *(&TargetKey.Length + 1) = 0;
   DestinationString = 0LL;
   if ( v3 != &a1[4] )
   {
@@ -39,12 +34,12 @@ __int64 __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)
     }
     while ( v3 != v2 );
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\ELAM");
-    v7 = 0LL;
-    p_DestinationString = &DestinationString;
-    v6[0] = 48;
-    v9 = 576;
-    v11 = 0LL;
-    return ZwUnloadKey2((__int64)v6, 1LL);
+    TargetKey.RootDirectory = 0LL;
+    TargetKey.ObjectName = &DestinationString;
+    TargetKey.Length = 48;
+    TargetKey.Attributes = 576;
+    *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+    return ZwUnloadKey2(&TargetKey, 1u);
   }
   return result;
 }

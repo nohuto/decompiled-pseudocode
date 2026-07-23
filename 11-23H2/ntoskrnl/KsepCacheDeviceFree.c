@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCacheDeviceFree @ 0x1409776A0
+ * XREFs of KsepCacheDeviceFree @ 0x1409778A0
  * Callers:
- *     KseQueryDeviceData @ 0x140808000 (KseQueryDeviceData.c)
- *     KsepDbCacheReadDevice @ 0x14080851C (KsepDbCacheReadDevice.c)
- *     KseQueryDeviceDataList @ 0x140976900 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x1408082D0 (KseQueryDeviceData.c)
+ *     KsepDbCacheReadDevice @ 0x1408087EC (KsepDbCacheReadDevice.c)
+ *     KseQueryDeviceDataList @ 0x140976B00 (KseQueryDeviceDataList.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)

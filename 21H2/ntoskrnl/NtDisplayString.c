@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDisplayString @ 0x14094C480
+ * XREFs of NtDisplayString @ 0x14094C650
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     BgkDisplayStringEx @ 0x1404FF7A4 (BgkDisplayStringEx.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     BgkDisplayStringEx @ 0x1404FF724 (BgkDisplayStringEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtDisplayString(unsigned __int64 a1)
+NTSTATUS __cdecl NtDisplayString(PUNICODE_STRING String)
 {
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v4; // rax
@@ -18,31 +18,31 @@ __int64 __fastcall NtDisplayString(unsigned __int64 a1)
   unsigned __int64 v6; // rax
   _WORD *PoolWithTag; // rax
   _WORD *v8; // rdi
-  _WORD *v9; // rax
-  __int64 v10; // rcx
+  wchar_t *Buffer; // rax
+  __int64 MaximumLength; // rcx
   _WORD *v11; // rax
   char v12; // bl
   int P; // [rsp+40h] [rbp+8h]
 
-  if ( !a1 )
-    return 3221225485LL;
+  if ( !String )
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   if ( PreviousMode )
   {
     v4 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v4 = a1;
+    if ( (unsigned __int64)String < 0x7FFFFFFF0000LL )
+      v4 = (__int64)String;
     P = *(_DWORD *)v4;
     v5 = *(_WORD **)(v4 + 8);
     if ( !v5 || !HIWORD(*(_DWORD *)v4) )
-      return 0LL;
+      return 0;
     v6 = (unsigned __int64)v5 + HIWORD(P);
     if ( v6 > 0x7FFFFFFF0000LL || v6 < (unsigned __int64)v5 )
       MEMORY[0x7FFFFFFF0000] = 0;
     if ( !*v5 )
-      return 0LL;
+      return 0;
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, HIWORD(P) + 2LL, 0x67727453u);
     v8 = PoolWithTag;
     if ( PoolWithTag )
@@ -51,24 +51,24 @@ __int64 __fastcall NtDisplayString(unsigned __int64 a1)
       v8[(unsigned __int64)HIWORD(P) >> 1] = 0;
       goto LABEL_24;
     }
-    return 3221225495LL;
+    return -1073741801;
   }
-  v9 = *(_WORD **)(a1 + 8);
-  if ( !v9 )
-    return 0LL;
-  v10 = *(unsigned __int16 *)(a1 + 2);
-  if ( !(_WORD)v10 || !*v9 )
-    return 0LL;
-  v11 = ExAllocatePoolWithTag(NonPagedPoolNx, v10 + 2, 0x67727453u);
+  Buffer = String->Buffer;
+  if ( !Buffer )
+    return 0;
+  MaximumLength = String->MaximumLength;
+  if ( !(_WORD)MaximumLength || !*Buffer )
+    return 0;
+  v11 = ExAllocatePoolWithTag(NonPagedPoolNx, MaximumLength + 2, 0x67727453u);
   v8 = v11;
   if ( !v11 )
-    return 3221225495LL;
-  memmove(v11, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 2));
-  v8[(unsigned __int64)*(unsigned __int16 *)(a1 + 2) >> 1] = 0;
+    return -1073741801;
+  memmove(v11, String->Buffer, String->MaximumLength);
+  v8[(unsigned __int64)String->MaximumLength >> 1] = 0;
 LABEL_24:
   v12 = BgkDisplayStringEx(v8);
   ExFreePoolWithTag(v8, 0);
   if ( !v12 )
-    return 3221225473LL;
-  return 0LL;
+    return -1073741823;
+  return 0;
 }

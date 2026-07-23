@@ -1,96 +1,96 @@
 /*
- * XREFs of RtlValidAcl @ 0x140736880
+ * XREFs of RtlValidAcl @ 0x140736A70
  * Callers:
- *     SepCheckAcl @ 0x1406BA460 (SepCheckAcl.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14070DB20 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlpNewSecurityObject @ 0x14072A400 (RtlpNewSecurityObject.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlAddAce @ 0x140736740 (RtlAddAce.c)
- *     RtlAddProcessTrustLabelAce @ 0x1407369D0 (RtlAddProcessTrustLabelAce.c)
- *     SeCaptureSecurityDescriptor @ 0x140736B50 (SeCaptureSecurityDescriptor.c)
- *     SeValidSecurityDescriptor @ 0x1407B3F60 (SeValidSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1407B4D10 (RtlValidSecurityDescriptor.c)
- *     RtlDeleteAce @ 0x1407EF120 (RtlDeleteAce.c)
- *     RtlAddMandatoryAce @ 0x1407F2E70 (RtlAddMandatoryAce.c)
- *     SddlAddMandatoryAce @ 0x1408A6832 (SddlAddMandatoryAce.c)
- *     RtlAddAccessFilterAce @ 0x1409BAEA0 (RtlAddAccessFilterAce.c)
- *     RtlAddResourceAttributeAce @ 0x1409BB1C0 (RtlAddResourceAttributeAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409BB4F0 (RtlpAddKnownObjectAce.c)
- *     SddlAddAccessFilterAce @ 0x1409D24E0 (SddlAddAccessFilterAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x1409D271C (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x1409D287C (SddlAddScopedPolicyIDAce.c)
- *     CMFCreateSecurityDescriptor @ 0x140A01B4C (CMFCreateSecurityDescriptor.c)
+ *     SepCheckAcl @ 0x1406BA490 (SepCheckAcl.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14070DD30 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlpNewSecurityObject @ 0x14072A600 (RtlpNewSecurityObject.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlAddAce @ 0x140736930 (RtlAddAce.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140736BC0 (RtlAddProcessTrustLabelAce.c)
+ *     SeCaptureSecurityDescriptor @ 0x140736D40 (SeCaptureSecurityDescriptor.c)
+ *     SeValidSecurityDescriptor @ 0x1407B4150 (SeValidSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1407B4FF0 (RtlValidSecurityDescriptor.c)
+ *     RtlDeleteAce @ 0x1407EF3F0 (RtlDeleteAce.c)
+ *     RtlAddMandatoryAce @ 0x1407F3140 (RtlAddMandatoryAce.c)
+ *     SddlAddMandatoryAce @ 0x1408A6A82 (SddlAddMandatoryAce.c)
+ *     RtlAddAccessFilterAce @ 0x1409BB0A0 (RtlAddAccessFilterAce.c)
+ *     RtlAddResourceAttributeAce @ 0x1409BB3C0 (RtlAddResourceAttributeAce.c)
+ *     RtlpAddKnownObjectAce @ 0x1409BB6F0 (RtlpAddKnownObjectAce.c)
+ *     SddlAddAccessFilterAce @ 0x1409D26E0 (SddlAddAccessFilterAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x1409D291C (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x1409D2A7C (SddlAddScopedPolicyIDAce.c)
+ *     CMFCreateSecurityDescriptor @ 0x140A01DDC (CMFCreateSecurityDescriptor.c)
  * Callees:
- *     RtlpValidAttributeAce @ 0x14085AF20 (RtlpValidAttributeAce.c)
- *     RtlpValidAccessFilterAce @ 0x1409BBA04 (RtlpValidAccessFilterAce.c)
- *     RtlpValidCompoundAce @ 0x1409BBC04 (RtlpValidCompoundAce.c)
- *     RtlpValidObjectAce @ 0x1409BBC74 (RtlpValidObjectAce.c)
+ *     RtlpValidAttributeAce @ 0x14085B160 (RtlpValidAttributeAce.c)
+ *     RtlpValidAccessFilterAce @ 0x1409BBC04 (RtlpValidAccessFilterAce.c)
+ *     RtlpValidCompoundAce @ 0x1409BBE04 (RtlpValidCompoundAce.c)
+ *     RtlpValidObjectAce @ 0x1409BBE74 (RtlpValidObjectAce.c)
  */
 
-char __fastcall RtlValidAcl(__int64 a1)
+BOOLEAN __cdecl RtlValidAcl(PACL Acl)
 {
-  _WORD *v2; // rsi
+  USHORT *p_AclSize; // rsi
   unsigned int v3; // ebp
-  unsigned __int8 *v4; // rdi
+  PACL v4; // rdi
   int v6; // r15d
-  unsigned __int64 v7; // rdx
-  unsigned __int16 *v8; // r14
+  ACL *v7; // rdx
+  USHORT *v8; // r14
   unsigned __int64 v9; // rcx
-  unsigned int v10; // edx
-  __int64 v11; // rax
+  unsigned int AclRevision; // edx
+  __int64 Sbz1; // rax
 
-  if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 2u )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u )
   {
-    v2 = (_WORD *)(a1 + 2);
-    if ( ((a1 + 3) & 0xFFFFFFFFFFFFFFFEuLL) == a1 + 2 && *v2 >= 8u )
+    p_AclSize = &Acl->AclSize;
+    if ( (USHORT *)(((unsigned __int64)&Acl->AclSize + 1) & 0xFFFFFFFFFFFFFFFEuLL) == &Acl->AclSize && *p_AclSize >= 8u )
     {
       v3 = 0;
-      v4 = (unsigned __int8 *)(a1 + 8);
-      if ( !*(_WORD *)(a1 + 4) )
+      v4 = Acl + 1;
+      if ( !Acl->AceCount )
         return 1;
       v6 = 1730063;
       while ( 1 )
       {
-        v7 = a1 + (unsigned __int16)*v2;
-        if ( (unsigned __int64)(v4 + 4) >= v7 )
+        v7 = (PACL)((char *)Acl + *p_AclSize);
+        if ( &v4->AceCount >= (USHORT *)v7 )
           break;
-        v8 = (unsigned __int16 *)(v4 + 2);
-        if ( (unsigned __int8 *)((unsigned __int64)(v4 + 3) & 0xFFFFFFFFFFFFFFFEuLL) != v4 + 2 )
+        v8 = &v4->AclSize;
+        if ( (USHORT *)(((unsigned __int64)&v4->AclSize + 1) & 0xFFFFFFFFFFFFFFFEuLL) != &v4->AclSize )
           break;
         v9 = *v8;
-        if ( (unsigned __int64)&v4[v9] > v7 )
+        if ( (PACL)((char *)v4 + v9) > v7 )
           break;
-        v10 = *v4;
-        if ( (unsigned __int8)v10 <= 0x14u && _bittest(&v6, v10) )
+        AclRevision = v4->AclRevision;
+        if ( (unsigned __int8)AclRevision <= 0x14u && _bittest(&v6, AclRevision) )
         {
           if ( ((v9 + 3) & 0xFFFFFFFFFFFFFFFCuLL) != v9 )
             return 0;
           if ( (unsigned int)v9 < 0x10 )
             return 0;
-          if ( v4[8] != 1 )
+          if ( v4[1].AclRevision != 1 )
             return 0;
-          v11 = v4[9];
-          if ( (unsigned __int8)v11 > 0xFu || v9 < 4 * v11 + 16 )
+          Sbz1 = v4[1].Sbz1;
+          if ( (unsigned __int8)Sbz1 > 0xFu || v9 < 4 * Sbz1 + 16 )
             return 0;
         }
-        else if ( (_BYTE)v10 == 4 )
+        else if ( (_BYTE)AclRevision == 4 )
         {
-          if ( *(_BYTE *)a1 < 3u || !(unsigned __int8)RtlpValidCompoundAce(v4) )
+          if ( Acl->AclRevision < 3u || !(unsigned __int8)RtlpValidCompoundAce(v4) )
             return 0;
         }
-        else if ( (unsigned __int8)(v10 - 5) <= 3u
-               || (unsigned __int8)(v10 - 11) <= 1u
-               || (unsigned __int8)(v10 - 15) <= 1u )
+        else if ( (unsigned __int8)(AclRevision - 5) <= 3u
+               || (unsigned __int8)(AclRevision - 11) <= 1u
+               || (unsigned __int8)(AclRevision - 15) <= 1u )
         {
-          if ( *(_BYTE *)a1 < 4u || !(unsigned __int8)RtlpValidObjectAce(v4) )
+          if ( Acl->AclRevision < 4u || !(unsigned __int8)RtlpValidObjectAce(v4) )
             return 0;
         }
-        else if ( (_BYTE)v10 == 18 )
+        else if ( (_BYTE)AclRevision == 18 )
         {
           if ( !(unsigned __int8)RtlpValidAttributeAce(v4) )
             return 0;
         }
-        else if ( (_BYTE)v10 == 21 )
+        else if ( (_BYTE)AclRevision == 21 )
         {
           if ( !(unsigned __int8)RtlpValidAccessFilterAce(v4) )
             return 0;
@@ -100,8 +100,8 @@ char __fastcall RtlValidAcl(__int64 a1)
           return 0;
         }
         ++v3;
-        v4 += *v8;
-        if ( v3 >= *(unsigned __int16 *)(a1 + 4) )
+        v4 = (PACL)((char *)v4 + *v8);
+        if ( v3 >= Acl->AceCount )
           return 1;
       }
     }

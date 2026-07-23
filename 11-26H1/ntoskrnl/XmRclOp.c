@@ -1,9 +1,9 @@
 /*
- * XREFs of XmRclOp @ 0x1405ACE10
+ * XREFs of XmRclOp @ 0x1405AF620
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 __int64 __fastcall XmRclOp(_DWORD *a1)

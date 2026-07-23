@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpDumpEntryInfo @ 0x1801210B8
+ * XREFs of RtlpDumpEntryInfo @ 0x180120E68
  * Callers:
- *     RtlpScanHeapAllocBlocks @ 0x1800C497C (RtlpScanHeapAllocBlocks.c)
+ *     RtlpScanHeapAllocBlocks @ 0x1800C213C (RtlpScanHeapAllocBlocks.c)
  * Callees:
- *     RtlSizeHeap @ 0x18001A7D0 (RtlSizeHeap.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
+ *     RtlSizeHeap @ 0x1800058B0 (RtlSizeHeap.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
  */
 
-__int64 __fastcall RtlpDumpEntryInfo(__int64 a1, unsigned __int64 a2)
+ULONG __fastcall RtlpDumpEntryInfo(_DWORD *a1, unsigned __int8 *a2)
 {
   int v2; // edi
   unsigned __int8 *v3; // rbx
   int v4; // eax
 
-  v2 = a1;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  v2 = (int)a1;
+  if ( a1[4] == -571548178 )
   {
-    v3 = (unsigned __int8 *)a2;
+    v3 = a2;
   }
   else
   {
-    v3 = (unsigned __int8 *)(a2 - 16);
-    _m_prefetchw((const void *)(a2 - 16));
-    if ( *(_BYTE *)(a2 - 16 + 15) == 5 )
+    v3 = a2 - 16;
+    _m_prefetchw(a2 - 16);
+    if ( *(a2 - 1) == 5 )
       v3 -= 16 * v3[14];
   }
   v4 = RtlSizeHeap(a1, 0, a2);

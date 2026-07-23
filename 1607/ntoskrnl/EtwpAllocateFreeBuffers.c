@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAllocateFreeBuffers @ 0x14008565C
+ * XREFs of EtwpAllocateFreeBuffers @ 0x140086F48
  * Callers:
- *     EtwpSwitchBuffer @ 0x1400ED3E0 (EtwpSwitchBuffer.c)
- *     EtwpAdjustFreeBuffers @ 0x1404901C0 (EtwpAdjustFreeBuffers.c)
- *     EtwpAllocateTraceBufferPool @ 0x140493074 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpSwitchBuffer @ 0x1400EB250 (EtwpSwitchBuffer.c)
+ *     EtwpAdjustFreeBuffers @ 0x140490C50 (EtwpAdjustFreeBuffers.c)
+ *     EtwpAllocateTraceBufferPool @ 0x140493B04 (EtwpAllocateTraceBufferPool.c)
  * Callees:
- *     EtwpInitializeBufferHeader @ 0x140085844 (EtwpInitializeBufferHeader.c)
- *     EtwpLockBufferList @ 0x1400EB6C0 (EtwpLockBufferList.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1400ED1E0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpUnlockBufferList @ 0x1400ED370 (EtwpUnlockBufferList.c)
+ *     EtwpInitializeBufferHeader @ 0x140087134 (EtwpInitializeBufferHeader.c)
+ *     EtwpLockBufferList @ 0x1400E9530 (EtwpLockBufferList.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1400EB050 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpUnlockBufferList @ 0x1400EB1E0 (EtwpUnlockBufferList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -77,6 +77,6 @@ LABEL_8:
     _InterlockedDecrement((volatile signed __int32 *)(a1 + 232));
   }
 LABEL_16:
-  _InterlockedExchangeAdd(&dword_1402FD834[*(_DWORD *)(a1 + 300) & 1], *(_DWORD *)(a1 + 4) * v3);
+  _InterlockedExchangeAdd(&dword_1402FD814[*(_DWORD *)(a1 + 300) & 1], *(_DWORD *)(a1 + 4) * v3);
   return v3;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptMarkProcessorStarted @ 0x1403A40AC
+ * XREFs of HalpInterruptMarkProcessorStarted @ 0x1403A41FC
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3E5C (HalpInterruptInitializeLocalUnit.c)
  * Callees:
  *     <none>
  */

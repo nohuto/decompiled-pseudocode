@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ModernWpp__private_IsEnabledFallback @ 0x1406C6548
+ * XREFs of Feature_ModernWpp__private_IsEnabledFallback @ 0x1406CA244
  * Callers:
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_ModernWpp__private_IsEnabledFallback(__int64 a1, unsigned int a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiAllocateEnclaveVad @ 0x140A3CC88
+ * XREFs of MiAllocateEnclaveVad @ 0x140A3CF38
  * Callers:
- *     MiCreateEnclave @ 0x140A3D66C (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x140A3D91C (MiCreateEnclave.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140214D94 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiReferenceVad @ 0x140275454 (MiReferenceVad.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiInsertVad @ 0x140287C90 (MiInsertVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiUpdateVadStartVpn @ 0x14029C908 (MiUpdateVadStartVpn.c)
- *     LOCK_ADDRESS_SPACE @ 0x14029C94C (LOCK_ADDRESS_SPACE.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiIsVaRangeAvailable @ 0x1406AF7FC (MiIsVaRangeAvailable.c)
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x14071F960 (MiAdvanceVadHint.c)
- *     MiSelectUserAddress @ 0x14071FCC0 (MiSelectUserAddress.c)
- *     MiGetUserReservationHighestAddress @ 0x140721FD0 (MiGetUserReservationHighestAddress.c)
+ *     MiReferenceVad @ 0x1402756E4 (MiReferenceVad.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiInsertVad @ 0x140287F20 (MiInsertVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiUpdateVadStartVpn @ 0x14029CB98 (MiUpdateVadStartVpn.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14029CBDC (LOCK_ADDRESS_SPACE.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiIsVaRangeAvailable @ 0x1406AF82C (MiIsVaRangeAvailable.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x14071FB60 (MiAdvanceVadHint.c)
+ *     MiSelectUserAddress @ 0x14071FEC0 (MiSelectUserAddress.c)
+ *     MiGetUserReservationHighestAddress @ 0x1407221D0 (MiGetUserReservationHighestAddress.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

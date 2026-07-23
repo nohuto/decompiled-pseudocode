@@ -1,12 +1,12 @@
 /*
- * XREFs of PiRestartRemovalRelations @ 0x14073358C
+ * XREFs of PiRestartRemovalRelations @ 0x14073374C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpRestartDeviceNode @ 0x140731838 (PnpRestartDeviceNode.c)
- *     IopEnumerateRelations @ 0x1407384F0 (IopEnumerateRelations.c)
- *     PipClearDevNodeProblem @ 0x140739754 (PipClearDevNodeProblem.c)
- *     IopQueryDeviceState @ 0x140749C2C (IopQueryDeviceState.c)
+ *     PnpRestartDeviceNode @ 0x1407319F8 (PnpRestartDeviceNode.c)
+ *     IopEnumerateRelations @ 0x1407386B0 (IopEnumerateRelations.c)
+ *     PipClearDevNodeProblem @ 0x140739914 (PipClearDevNodeProblem.c)
+ *     IopQueryDeviceState @ 0x140749DEC (IopQueryDeviceState.c)
  */
 
 __int64 __fastcall PiRestartRemovalRelations(__int64 a1, int a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxEnableWorkOrderWatchdog @ 0x140311CE8
+ * XREFs of PopFxEnableWorkOrderWatchdog @ 0x140311F78
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x140311B84 (PopFxDispatchPluginWorkOnce.c)
- *     PopFxHandleDirectedPowerTransition @ 0x14058A4A0 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x140311E14 (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14058A990 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
@@ -33,18 +33,21 @@ __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
       *(_QWORD *)(v2 + 152) = 0LL;
       *(_QWORD *)(v2 + 160) = v3;
       v4 = KeAcquireSpinLockRaiseToDpc(&PopWorkOrderLock);
-      v5 = (__int64 *)qword_140C3EBC8;
-      if ( *(__int64 **)qword_140C3EBC8 != &PopWorkOrderList )
+      v5 = (__int64 *)qword_140C3EC48;
+      if ( *(__int64 **)qword_140C3EC48 != &PopWorkOrderList )
         __fastfail(3u);
       *(_QWORD *)v2 = &PopWorkOrderList;
       *(_QWORD *)(v2 + 8) = v5;
       *v5 = v2;
-      qword_140C3EBC8 = v2;
+      qword_140C3EC48 = v2;
       KxReleaseSpinLock((volatile signed __int64 *)&PopWorkOrderLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v4 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

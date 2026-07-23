@@ -6,7 +6,7 @@
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
  */
 
 __int64 __fastcall MiPickClusterForMappedFileFault(
@@ -64,9 +64,9 @@ __int64 __fastcall MiPickClusterForMappedFileFault(
     goto LABEL_47;
   if ( *(__int64 *)(a1 + 7360) < 160 )
     goto LABEL_47;
-  if ( dword_14043ADA4 )
+  if ( dword_14043BE64 )
   {
-    --dword_14043ADA4;
+    --dword_14043BE64;
 LABEL_47:
     i = v12;
     v18 = v12;
@@ -101,9 +101,9 @@ LABEL_47:
     v20 = MiStartingOffset(v8, v12, a5);
     v17 = 0LL;
     v16 = a4;
-    v32 = v20 & (dword_14043ADAC - 1);
-    if ( v18 > v12 + 8 * (((unsigned int)(dword_14043ADAC - v32) >> 12) - 1LL) )
-      v18 = v12 + 8 * (((unsigned int)(dword_14043ADAC - v32) >> 12) - 1LL);
+    v32 = v20 & (dword_14043BE6C - 1);
+    if ( v18 > v12 + 8 * (((unsigned int)(dword_14043BE6C - v32) >> 12) - 1LL) )
+      v18 = v12 + 8 * (((unsigned int)(dword_14043BE6C - v32) >> 12) - 1LL);
   }
   else
   {
@@ -165,7 +165,7 @@ LABEL_47:
     v25 = v24;
     if ( (*(_DWORD *)(v38 + 56) & 0x20000000) != 0 )
     {
-      v33 = (v20 >> 12) & ((unsigned int)(dword_14043ADAC - 1) >> 12);
+      v33 = (v20 >> 12) & ((unsigned int)(dword_14043BE6C - 1) >> 12);
       if ( v24 < v12 - 8 * v33 )
         v25 = v12 - 8 * v33;
     }

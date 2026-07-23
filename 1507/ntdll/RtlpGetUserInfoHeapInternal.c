@@ -18,7 +18,12 @@
  *     RtlpAnalyzeHeapFailure @ 0x1800EEA14 (RtlpAnalyzeHeapFailure.c)
  */
 
-char __fastcall RtlpGetUserInfoHeapInternal(__int64 a1, int a2, unsigned __int64 a3, _QWORD *a4, _DWORD *a5)
+char __fastcall RtlpGetUserInfoHeapInternal(
+        PRTL_CRITICAL_SECTION *BaseAddress,
+        int a2,
+        unsigned __int64 a3,
+        _QWORD *a4,
+        PULONG a5)
 {
   unsigned __int64 v6; // rbx
   int v8; // r15d
@@ -39,16 +44,16 @@ char __fastcall RtlpGetUserInfoHeapInternal(__int64 a1, int a2, unsigned __int64
 
   v6 = a3;
   v22 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)BaseAddress + 4) == -571548178 )
   {
     v23 = RtlpHpConvertFlagsToSegmentFlags(a2);
-    v17 = *(unsigned int *)(a1 + 40);
+    v17 = *((unsigned int *)BaseAddress + 10);
     v10 = 1;
     if ( (_DWORD)v17 && (_DWORD)v17 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
       v23 |= 1u;
     if ( (RtlpHpAppCompatFlags & 2) != 0 && v6 && !((_WORD)v6 ? 0 : RtlSparseBitmapCtxCheckBitsInternal(v17, v6 >> 16)) )
       v6 -= 16LL;
-    v18 = RtlpHpExtrasGet(a1, v6, v23 | *(_DWORD *)(a1 + 20));
+    v18 = RtlpHpExtrasGet(BaseAddress, v6, v23 | *((_DWORD *)BaseAddress + 5));
     if ( a4 && v18 )
       *a4 = *(_QWORD *)(v18 + 8);
     if ( a5 )
@@ -60,21 +65,21 @@ char __fastcall RtlpGetUserInfoHeapInternal(__int64 a1, int a2, unsigned __int64
     }
     return v10;
   }
-  v8 = *(_DWORD *)(a1 + 116) | a2;
+  v8 = *((_DWORD *)BaseAddress + 29) | a2;
   if ( (v8 & 0x61000000) != 0 && (v8 & 0x10000000) == 0 )
-    return RtlDebugGetUserInfoHeap(a1, v8, a3, (_DWORD)a4, (__int64)a5);
+    return RtlDebugGetUserInfoHeap(BaseAddress, a5);
   if ( (v8 & 0x800) != 0 )
   {
-    v9 = RtlpProbeUserBufferSafe(a1, a3);
+    v9 = RtlpProbeUserBufferSafe(BaseAddress, a3);
     v10 = 1;
 LABEL_5:
     v11 = v9;
     goto LABEL_6;
   }
   v10 = 1;
-  if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+  if ( ((_BYTE)BaseAddress[15] & 1) != 0 )
   {
-    v9 = RtlpProbeUserBufferSafe(a1, a3);
+    v9 = RtlpProbeUserBufferSafe(BaseAddress, a3);
     goto LABEL_5;
   }
   if ( (a3 & 0xF) != 0 )
@@ -92,7 +97,7 @@ LABEL_5:
     LODWORD(a3) = v11;
     v20 = 8;
   }
-  RtlpLogHeapFailure(v20, a1, a3, 0, 0LL, 0LL);
+  RtlpLogHeapFailure(v20, (_DWORD)BaseAddress, a3, 0, 0LL, 0LL);
   v11 = 0LL;
 LABEL_6:
   if ( v11 )
@@ -107,14 +112,14 @@ LABEL_6:
       v24 = v13;
       if ( (v8 & 1) == 0 )
       {
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlEnterCriticalSection(BaseAddress[44]);
         v22 = 1;
       }
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( *((_DWORD *)BaseAddress + 31) )
       {
-        *(_DWORD *)(v13 + 8) ^= *(_DWORD *)(a1 + 136);
+        *(_DWORD *)(v13 + 8) ^= *((_DWORD *)BaseAddress + 34);
         if ( *(_BYTE *)(v13 + 11) != (*(_BYTE *)(v13 + 8) ^ (unsigned __int8)(*(_BYTE *)(v13 + 9) ^ *(_BYTE *)(v13 + 10))) )
-          RtlpAnalyzeHeapFailure(a1, v13);
+          RtlpAnalyzeHeapFailure(BaseAddress, v13);
       }
       if ( (*(_BYTE *)(v13 + 15) & 0x3F) != 0 )
       {
@@ -135,13 +140,13 @@ LABEL_6:
         v13 = v24;
         v10 = 0;
       }
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( *((_DWORD *)BaseAddress + 31) )
       {
         *(_BYTE *)(v13 + 11) = *(_BYTE *)(v13 + 8) ^ *(_BYTE *)(v13 + 9) ^ *(_BYTE *)(v13 + 10);
-        *(_DWORD *)(v13 + 8) ^= *(_DWORD *)(a1 + 136);
+        *(_DWORD *)(v13 + 8) ^= *((_DWORD *)BaseAddress + 34);
       }
       if ( v22 )
-        RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlLeaveCriticalSection(BaseAddress[44]);
       return v10;
     }
     if ( (v12 & 0x3F) != 0 )

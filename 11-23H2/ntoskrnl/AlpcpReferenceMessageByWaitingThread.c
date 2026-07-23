@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpReferenceMessageByWaitingThread @ 0x140979C10
+ * XREFs of AlpcpReferenceMessageByWaitingThread @ 0x140979E10
  * Callers:
- *     AlpcpPortQueryServerInfo @ 0x1409790C8 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpPortQueryServerInfo @ 0x1409792C8 (AlpcpPortQueryServerInfo.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectSafe @ 0x140337710 (ObReferenceObjectSafe.c)
- *     AlpcpReferenceMessageByWaitingThreadPort @ 0x140979D24 (AlpcpReferenceMessageByWaitingThreadPort.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ObReferenceObjectSafe @ 0x1403379A0 (ObReferenceObjectSafe.c)
+ *     AlpcpReferenceMessageByWaitingThreadPort @ 0x140979F24 (AlpcpReferenceMessageByWaitingThreadPort.c)
  */
 
 __int64 __fastcall AlpcpReferenceMessageByWaitingThread(__int64 a1, __int64 *a2)

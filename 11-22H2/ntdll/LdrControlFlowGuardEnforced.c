@@ -27,7 +27,7 @@
  *     <none>
  */
 
-_BOOL8 LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
-  return qword_1801993B8 && (dword_18019939C & 1) == 0;
+  return LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiScanQueues @ 0x140322DF0
+ * XREFs of KiScanQueues @ 0x140322FE0
  * Callers:
  *     <none>
  * Callees:
- *     KiMcaDeferredRecoveryService @ 0x1401C7BF0 (KiMcaDeferredRecoveryService.c)
+ *     KiMcaDeferredRecoveryService @ 0x1401C7D50 (KiMcaDeferredRecoveryService.c)
  */
 
 void __fastcall __noreturn KiScanQueues(

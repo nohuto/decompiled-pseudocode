@@ -1,8 +1,8 @@
 /*
- * XREFs of IopLiveDumpIsChunkInIOSpaceBuffer @ 0x1405D01E8
+ * XREFs of IopLiveDumpIsChunkInIOSpaceBuffer @ 0x1405D29F8
  * Callers:
- *     IopLiveDumpBufferDumpData @ 0x1405CDF10 (IopLiveDumpBufferDumpData.c)
- *     IopLiveDumpIsChunkInIOSpace @ 0x1405D01AC (IopLiveDumpIsChunkInIOSpace.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405D0720 (IopLiveDumpBufferDumpData.c)
+ *     IopLiveDumpIsChunkInIOSpace @ 0x1405D29BC (IopLiveDumpIsChunkInIOSpace.c)
  * Callees:
  *     <none>
  */

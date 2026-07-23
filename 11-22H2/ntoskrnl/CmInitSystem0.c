@@ -8,12 +8,12 @@
  *     CmpGetSystemControlValues @ 0x140B5C934 (CmpGetSystemControlValues.c)
  */
 
-__int64 __fastcall CmInitSystem0(__int64 a1, __int64 a2)
+NTSTATUS __fastcall CmInitSystem0(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
   __int64 ***v4; // rax
   __int64 **v5; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   CmpGetSystemControlValues(*(_DWORD **)(a1 + 168), a2, 0);
   v4 = (__int64 ***)(*(_QWORD *)(a1 + 240) + 312LL);
@@ -25,15 +25,15 @@ __int64 __fastcall CmInitSystem0(__int64 a1, __int64 a2)
     v5 = (__int64 **)*v5;
     v4 = (__int64 ***)(*(_QWORD *)(a1 + 240) + 312LL);
   }
-  result = (__int64)wil_details_ShouldRegisterFeatureStagingChangeNotification();
-  if ( (_DWORD)result )
+  result = (unsigned int)wil_details_ShouldRegisterFeatureStagingChangeNotification();
+  if ( result )
   {
     result = RtlRegisterFeatureConfigurationChangeNotification(
-               (__int64)wil_details_ReevaluateOnFeatureConfigurationChange,
+               (PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK)wil_details_ReevaluateOnFeatureConfigurationChange,
                0LL,
                0LL,
-               (__int64)&g_wil_details_featureChangeNotification);
-    if ( (_DWORD)result )
+               &g_wil_details_featureChangeNotification);
+    if ( result )
       g_wil_details_featureChangeNotification = 0LL;
   }
   return result;

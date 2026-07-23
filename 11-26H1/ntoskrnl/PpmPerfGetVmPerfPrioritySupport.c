@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfGetVmPerfPrioritySupport @ 0x1407CE2A0
+ * XREFs of PpmPerfGetVmPerfPrioritySupport @ 0x1407D1340
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
  */
 
 LONG __fastcall PpmPerfGetVmPerfPrioritySupport(__int64 a1, __int64 a2, unsigned int a3)
@@ -12,7 +12,7 @@ LONG __fastcall PpmPerfGetVmPerfPrioritySupport(__int64 a1, __int64 a2, unsigned
   bool v4; // zf
   unsigned int VmThrottlePriorityCount; // eax
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   v4 = PpmPerfVmPerfSelectionSupported == 0;
   *(_QWORD *)a1 = 0LL;
   if ( !v4 )
@@ -21,5 +21,5 @@ LONG __fastcall PpmPerfGetVmPerfPrioritySupport(__int64 a1, __int64 a2, unsigned
     *(_DWORD *)(a1 + 4) = VmThrottlePriorityCount;
     *(_BYTE *)a1 = VmThrottlePriorityCount != 0;
   }
-  return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
 }

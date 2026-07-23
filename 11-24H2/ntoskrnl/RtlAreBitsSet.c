@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAreBitsSet @ 0x140449470
+ * XREFs of RtlAreBitsSet @ 0x140441BC0
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x1407F5540 (MiPrepareToHotPatchImage.c)
- *     MiReleaseDriverPtes @ 0x140A67CE4 (MiReleaseDriverPtes.c)
- *     MiReserveExistingDriverPtes @ 0x140A71AD8 (MiReserveExistingDriverPtes.c)
+ *     MiPrepareToHotPatchImage @ 0x1407F5C30 (MiPrepareToHotPatchImage.c)
+ *     MiReleaseDriverPtes @ 0x140A611E4 (MiReleaseDriverPtes.c)
+ *     MiReserveExistingDriverPtes @ 0x140A6AEB8 (MiReserveExistingDriverPtes.c)
  * Callees:
  *     <none>
  */

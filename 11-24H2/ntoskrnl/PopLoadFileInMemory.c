@@ -1,15 +1,15 @@
 /*
- * XREFs of PopLoadFileInMemory @ 0x1407493F4
+ * XREFs of PopLoadFileInMemory @ 0x140747724
  * Callers:
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopLoadFileInMemory(UNICODE_STRING *a1, _QWORD *a2, ULONG *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall PopLoadFileInMemory(UNICODE_STRING *a1, _QWORD *a2, ULONG *a3
       else
       {
         Length = DWORD2(FileInformation);
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, DWORD2(FileInformation), 0x206D654Du);
         if ( Pool2 )
         {
           v6 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Pool2, Length, 0LL, 0LL);

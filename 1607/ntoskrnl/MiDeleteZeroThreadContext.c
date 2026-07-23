@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDeleteZeroThreadContext @ 0x14013F1EC
+ * XREFs of MiDeleteZeroThreadContext @ 0x14013F75C
  * Callers:
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
- *     MiZeroNodePages @ 0x14013A830 (MiZeroNodePages.c)
- *     MiCreateZeroThreadContext @ 0x14013AB00 (MiCreateZeroThreadContext.c)
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
- *     MiZeroLargePageThread @ 0x14013F190 (MiZeroLargePageThread.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
+ *     MiZeroNodePages @ 0x14013ADA0 (MiZeroNodePages.c)
+ *     MiCreateZeroThreadContext @ 0x14013B070 (MiCreateZeroThreadContext.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
+ *     MiZeroLargePageThread @ 0x14013F700 (MiZeroLargePageThread.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiGetUltraMapping @ 0x14013F7E4 (MiGetUltraMapping.c)
- *     MiDecrementHugeContext @ 0x140140E7C (MiDecrementHugeContext.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiGetUltraMapping @ 0x14013FD54 (MiGetUltraMapping.c)
+ *     MiDecrementHugeContext @ 0x1401413EC (MiDecrementHugeContext.c)
  */
 
 void __fastcall MiDeleteZeroThreadContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -36,7 +36,7 @@ void __fastcall MiDeleteZeroThreadContext(__int64 a1, __int64 a2, __int64 a3, __
     if ( v5 )
     {
       KeAcquireInStackQueuedSpinLock(
-        (PKSPIN_LOCK)(qword_140323570 + 2152 + 2184LL * *(unsigned int *)(v5 + 184)),
+        (PKSPIN_LOCK)(qword_1403235B0 + 2152 + 2184LL * *(unsigned int *)(v5 + 184)),
         &LockHandle);
       MiDecrementHugeContext(a1);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
@@ -67,7 +67,7 @@ void __fastcall MiDeleteZeroThreadContext(__int64 a1, __int64 a2, __int64 a3, __
   while ( v6 <= 1 );
   v9 = *(_QWORD *)(a1 + 136);
   if ( v9 )
-    MiReleasePtes((__int64)&qword_140327870, v9, 0x100u);
+    MiReleasePtes((__int64)&qword_1403278B0, v9, 0x100u);
   v10 = *(_QWORD *)(a1 + 144);
   if ( v10 && *(_DWORD *)(v10 + 84) && _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 84), 0xFFFFFFFF) == 1 )
     KeSignalGate(v10 + 88, 1u);

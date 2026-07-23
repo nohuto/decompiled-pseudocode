@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x14071A0B4
+ * XREFs of MiCheckSecuredVad @ 0x14071A2B4
  * Callers:
- *     MiResetVirtualMemory @ 0x140367324 (MiResetVirtualMemory.c)
- *     MiFindPlaceholderVadToReplace @ 0x140660D00 (MiFindPlaceholderVadToReplace.c)
- *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1406F9770 (MmProtectVirtualMemory.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A4A8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiUnmapViewOfSection @ 0x14071EFC0 (MiUnmapViewOfSection.c)
- *     MmFreeVirtualMemory @ 0x1407450C0 (MmFreeVirtualMemory.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x1407E6160 (MiUnmapLockedPagesInUserSpace.c)
- *     MiCoalescePlaceholderAllocations @ 0x140A32038 (MiCoalescePlaceholderAllocations.c)
+ *     MiResetVirtualMemory @ 0x1403674C4 (MiResetVirtualMemory.c)
+ *     MiFindPlaceholderVadToReplace @ 0x140661250 (MiFindPlaceholderVadToReplace.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7430 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1406F9980 (MmProtectVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A6A8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiUnmapViewOfSection @ 0x14071F1C0 (MiUnmapViewOfSection.c)
+ *     MmFreeVirtualMemory @ 0x1407452B0 (MmFreeVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x1407E6430 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A322E8 (MiCoalescePlaceholderAllocations.c)
  * Callees:
- *     MiGetVadPageSize @ 0x140275674 (MiGetVadPageSize.c)
- *     MiComparePteProtections @ 0x140348EFC (MiComparePteProtections.c)
+ *     MiGetVadPageSize @ 0x140275904 (MiGetVadPageSize.c)
+ *     MiComparePteProtections @ 0x14034918C (MiComparePteProtections.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned int a4, char a5)

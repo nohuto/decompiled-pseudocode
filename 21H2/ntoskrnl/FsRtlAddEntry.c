@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlAddEntry @ 0x14029DB44
+ * XREFs of FsRtlAddEntry @ 0x14021A688
  * Callers:
- *     FsRtlRemoveBaseMcbEntry @ 0x14029D1B0 (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14029D580 (FsRtlAddBaseMcbEntryEx.c)
- *     FsRtlSplitBaseMcb @ 0x1404EF400 (FsRtlSplitBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x140219CF0 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x14021A0C0 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x1404EF640 (FsRtlSplitBaseMcb.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall FsRtlAddEntry(__int64 a1, unsigned int a2, int a3)
@@ -74,6 +74,6 @@ LABEL_12:
     }
   }
   if ( (*(_BYTE *)(a1 + 10) & 1) != 0 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return 0;
 }

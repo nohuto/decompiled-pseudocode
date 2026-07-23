@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapArbitraryPage @ 0x14010EA10
+ * XREFs of MiMapArbitraryPage @ 0x14010EA90
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
+ *     MiCombinePte @ 0x140088F00 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D5450 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiCombineCandidate @ 0x1400B2610 (MiCombineCandidate.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMapArbitraryPage(__int64 *a1, _QWORD *a2, __int64 a3, int a4, int a5)
@@ -93,7 +93,7 @@ LABEL_36:
   {
     if ( (unsigned int)MiPteHasShadow(v17, ValidPte) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (ValidPte & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (ValidPte & 1) != 0 )
         ValidPte |= 0x8000000000000000uLL;
       *v7 = ValidPte;
       MiWritePteShadow(v7);

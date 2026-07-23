@@ -75,7 +75,7 @@ void __fastcall MiDereferenceExtendInfo(__int64 a1, __int64 a2)
         {
           v14->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v14->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v13]);
+            KiAbEntryRemoveFromTree(&v7->LockEntries[v13].TreeNode);
           v17 = v14->BoostBitmap.AllFields & 0x1FFFF;
           v14->BoostBitmap.AllFields &= 0xFFFE0000;
           v14->ThreadLocalFlags &= ~1u;

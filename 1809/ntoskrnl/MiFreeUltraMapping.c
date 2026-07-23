@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeUltraMapping @ 0x14018FBF8
+ * XREFs of MiFreeUltraMapping @ 0x14018FD38
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
- *     MiReleaseLargeZeroingVa @ 0x1402C1C60 (MiReleaseLargeZeroingVa.c)
+ *     MiReleaseLargeZeroingVa @ 0x1402C1E50 (MiReleaseLargeZeroingVa.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeUltraMapping(unsigned __int64 a1)
@@ -25,15 +25,15 @@ __int64 __fastcall MiFreeUltraMapping(unsigned __int64 a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = (__int64 *)(((a1 >> 27) & 0x1FFFF8) - 0x90482600000LL);
-  v2 = (a1 - qword_14043ACB0) >> 30;
-  KeAcquireInStackQueuedSpinLock(&qword_14043ACA8, &LockHandle);
-  _bittestandset64((signed __int64 *)qword_14043ACD8, v2);
+  v2 = (a1 - qword_14043BD70) >> 30;
+  KeAcquireInStackQueuedSpinLock(&qword_14043BD68, &LockHandle);
+  _bittestandset64((signed __int64 *)qword_14043BD98, v2);
   if ( MiPteInShadowRange((unsigned __int64)v1) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v4 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_2;
       v7 = (v3 & 1) == 0;
     }

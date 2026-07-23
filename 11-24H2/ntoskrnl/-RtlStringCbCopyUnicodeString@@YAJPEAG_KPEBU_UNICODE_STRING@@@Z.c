@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x14060D23C
+ * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x14060B7FC
  * Callers:
- *     SmKmKeyGenStart @ 0x14079A3D4 (SmKmKeyGenStart.c)
+ *     SmKmKeyGenStart @ 0x14079A4E4 (SmKmKeyGenStart.c)
  * Callees:
  *     <none>
  */

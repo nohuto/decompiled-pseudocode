@@ -1,16 +1,16 @@
 /*
- * XREFs of MmUpdateSlabRangeType @ 0x140C596EC
+ * XREFs of MmUpdateSlabRangeType @ 0x140C5B87C
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiInsertSlabEntry @ 0x140413D28 (MiInsertSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x140414068 (MiRemoveSlabEntry.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
- *     MiSetSlabTypeIdentifiers @ 0x14048CE9C (MiSetSlabTypeIdentifiers.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiInsertSlabEntry @ 0x14021E754 (MiInsertSlabEntry.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveSlabEntry @ 0x14043C298 (MiRemoveSlabEntry.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
+ *     MiSetSlabTypeIdentifiers @ 0x140487BBC (MiSetSlabTypeIdentifiers.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
@@ -19,18 +19,18 @@ __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR
   ULONG_PTR BugCheckParameter4; // r12
   unsigned int v7; // eax
   __int64 v8; // rbx
-  unsigned __int64 v9; // r15
+  __int64 v9; // r15
   ULONG_PTR v10; // r9
   __int64 v11; // r14
   __int64 v12; // r13
   unsigned int v13; // eax
   KIRQL v14; // bl
   ULONG_PTR v15; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v16; // [rsp+38h] [rbp-30h]
+  __int64 v16; // [rsp+38h] [rbp-30h]
   __int64 v17; // [rsp+88h] [rbp+20h]
 
-  result = (unsigned int)dword_140E38C04;
-  if ( (dword_140E38C04 & 8) != 0 )
+  result = (unsigned int)dword_140E38D44;
+  if ( (dword_140E38D44 & 8) != 0 )
   {
     BugCheckParameter4 = a3;
     while ( BugCheckParameter3 )
@@ -56,7 +56,7 @@ __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR
       v13 = *(_DWORD *)(v11 + 128);
       if ( v13 <= 4 && v13 != 2 )
         KeBugCheckEx(0x1Au, 0x3030315uLL, BugCheckParameter2, *(_QWORD *)(v16 + 56), *(int *)(v11 + 128));
-      result = 57216 * v8 + 232LL * MmSlabTypeToMiSlabType[BugCheckParameter4] + qword_140E38C10 + 15696;
+      result = 57216 * v8 + 232LL * MmSlabTypeToMiSlabType[BugCheckParameter4] + qword_140E38D50 + 15696;
       v17 = result;
       if ( result != v11 )
       {

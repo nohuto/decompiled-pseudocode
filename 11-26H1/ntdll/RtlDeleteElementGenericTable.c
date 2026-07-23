@@ -1,50 +1,53 @@
 /*
- * XREFs of RtlDeleteElementGenericTable @ 0x1800B7870
+ * XREFs of RtlDeleteElementGenericTable @ 0x1800B4D90
  * Callers:
  *     <none>
  * Callees:
- *     RtlDelete @ 0x1800B7940 (RtlDelete.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlDelete @ 0x1800B4E60 (RtlDelete.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-char __fastcall RtlDeleteElementGenericTable(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  _QWORD *v2; // rbx
+  PRTL_SPLAY_LINKS TableRoot; // rbx
   int v5; // eax
-  _QWORD *v6; // rax
-  __int64 v8; // rdx
-  _QWORD *v9; // rcx
-  void (__fastcall *v10)(__int64, _QWORD *); // rax
+  _RTL_SPLAY_LINKS *LeftChild; // rax
+  _RTL_SPLAY_LINKS *Parent; // rdx
+  _RTL_SPLAY_LINKS *v9; // rcx
+  PRTL_GENERIC_FREE_ROUTINE FreeRoutine; // rax
 
-  v2 = *(_QWORD **)a1;
-  if ( !*(_QWORD *)a1 )
+  TableRoot = Table->TableRoot;
+  if ( !Table->TableRoot )
     return 0;
   while ( 1 )
   {
-    v5 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD *))(a1 + 40))(a1, a2, v2 + 5);
+    v5 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
+           Table,
+           Buffer,
+           &TableRoot[1].RightChild);
     if ( v5 )
       break;
-    v6 = (_QWORD *)v2[1];
+    LeftChild = TableRoot->LeftChild;
 LABEL_4:
-    v2 = v6;
-    if ( !v6 )
+    TableRoot = LeftChild;
+    if ( !LeftChild )
       return 0;
   }
   if ( v5 == 1 )
   {
-    v6 = (_QWORD *)v2[2];
+    LeftChild = TableRoot->RightChild;
     goto LABEL_4;
   }
-  *(_QWORD *)a1 = RtlDelete(v2);
-  v8 = v2[3];
-  if ( *(_QWORD **)(v8 + 8) != v2 + 3 || (v9 = (_QWORD *)v2[4], (_QWORD *)*v9 != v2 + 3) )
+  Table->TableRoot = RtlDelete(TableRoot);
+  Parent = TableRoot[1].Parent;
+  if ( Parent->LeftChild != &TableRoot[1] || (v9 = TableRoot[1].LeftChild, v9->Parent != &TableRoot[1]) )
     __fastfail(3u);
-  *v9 = v8;
-  *(_QWORD *)(v8 + 8) = v9;
-  --*(_DWORD *)(a1 + 36);
-  *(_QWORD *)(a1 + 24) = a1 + 8;
-  v10 = *(void (__fastcall **)(__int64, _QWORD *))(a1 + 56);
-  *(_DWORD *)(a1 + 32) = 0;
-  v10(a1, v2);
+  v9->Parent = Parent;
+  Parent->LeftChild = v9;
+  --Table->NumberGenericTableElements;
+  Table->OrderedPointer = &Table->InsertOrderList;
+  FreeRoutine = Table->FreeRoutine;
+  Table->WhichOrderedElement = 0;
+  ((void (__fastcall *)(PRTL_GENERIC_TABLE, PRTL_SPLAY_LINKS))FreeRoutine)(Table, TableRoot);
   return 1;
 }

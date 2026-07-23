@@ -1,23 +1,22 @@
 /*
- * XREFs of PpmHeteroHgsCpuSupportedForContainment @ 0x1405D6DB0
+ * XREFs of PpmHeteroHgsCpuSupportedForContainment @ 0x1405D437C
  * Callers:
- *     PpmHeteroHgsDetectContainmentPresence @ 0x1405D6E5C (PpmHeteroHgsDetectContainmentPresence.c)
+ *     PpmHeteroHgsDetectContainmentPresence @ 0x1405D4400 (PpmHeteroHgsDetectContainmentPresence.c)
  * Callees:
- *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B5004 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
- *     KeQueryActiveNodeCount @ 0x1405BA964 (KeQueryActiveNodeCount.c)
- *     Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline @ 0x1405D6D08 (Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B2278 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
+ *     KeQueryActiveNodeCount @ 0x1405B7F94 (KeQueryActiveNodeCount.c)
  */
 
-bool __fastcall PpmHeteroHgsCpuSupportedForContainment(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+bool PpmHeteroHgsCpuSupportedForContainment()
 {
-  char v4; // bl
+  bool v0; // bl
   unsigned __int64 IsEnabledNoReportingNoInline; // rax
-  struct _KPRCB *CurrentPrcb; // rdi
+  struct _KPRCB *CurrentPrcb; // rcx
   unsigned __int8 CpuModel; // al
-  __int64 v8; // rcx
+  __int64 v4; // rdx
 
-  v4 = 0;
-  IsEnabledNoReportingNoInline = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline(a1, a2, a3, a4);
+  v0 = 0;
+  IsEnabledNoReportingNoInline = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline();
   if ( !(_DWORD)IsEnabledNoReportingNoInline
     || (unsigned __int16)KiActiveGroups <= 1u
     && (IsEnabledNoReportingNoInline = KeQueryActiveNodeCount(), (unsigned __int16)IsEnabledNoReportingNoInline <= 1u) )
@@ -26,20 +25,11 @@ bool __fastcall PpmHeteroHgsCpuSupportedForContainment(__int64 a1, __int64 a2, _
     if ( CurrentPrcb->CpuVendor == 2 && CurrentPrcb->CpuType == 6 )
     {
       CpuModel = CurrentPrcb->CpuModel;
-      if ( CpuModel == 0xAA
+      v0 = CpuModel == 0xAA
         || (LOBYTE(IsEnabledNoReportingNoInline) = CpuModel + 84, (unsigned __int8)IsEnabledNoReportingNoInline <= 0x21u)
-        && (v8 = 0x306030201LL, _bittest64(&v8, IsEnabledNoReportingNoInline)) )
-      {
-        v4 = 1;
-      }
-    }
-    if ( (unsigned int)Feature_WclContainmentOptIn__private_IsEnabledDeviceUsageNoInline()
-      && !v4
-      && CurrentPrcb->CpuVendor == 2
-      && CurrentPrcb->CpuType == 6 )
-    {
-      return CurrentPrcb->CpuModel == 0xD5;
+        && (v4 = 0x306030201LL, _bittest64(&v4, IsEnabledNoReportingNoInline))
+        || CurrentPrcb->CpuModel == 0xD5;
     }
   }
-  return v4;
+  return v0;
 }

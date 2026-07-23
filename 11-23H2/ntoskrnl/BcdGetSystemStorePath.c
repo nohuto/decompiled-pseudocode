@@ -1,25 +1,25 @@
 /*
- * XREFs of BcdGetSystemStorePath @ 0x14080316C
+ * XREFs of BcdGetSystemStorePath @ 0x14080343C
  * Callers:
- *     BiLoadSystemStore @ 0x140802124 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x1408023F4 (BiLoadSystemStore.c)
  * Callees:
- *     wcscat_s @ 0x1403DFCF0 (wcscat_s.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     BiGetSystemPartition @ 0x140802308 (BiGetSystemPartition.c)
- *     BiGetFirmwareType @ 0x140804030 (BiGetFirmwareType.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
+ *     wcscat_s @ 0x1403DFED0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     BiGetSystemPartition @ 0x1408025D8 (BiGetSystemPartition.c)
+ *     BiGetFirmwareType @ 0x140804300 (BiGetFirmwareType.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
+NTSTATUS __cdecl BcdGetSystemStorePath(PWSTR *BcdSystemStorePath)
 {
   wchar_t *v2; // rdi
   int FirmwareType; // eax
   const wchar_t *v4; // rbp
   int SystemPartition; // eax
   wchar_t *v6; // rsi
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   __int64 v8; // rax
   __int64 v9; // rcx
   unsigned int v10; // r14d
@@ -39,7 +39,7 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     {
       v7 = -1073741637;
       BiLogMessage(4LL, L"Failed to get system store path. Status: %x", 3221225659LL);
-      return (unsigned int)v7;
+      return v7;
     }
     v4 = L"\\EFI\\Microsoft\\Boot\\BCD";
   }
@@ -69,7 +69,7 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     {
       wcscpy_s(Pool2, v10, v6);
       wcscat_s(v2, v10, v4);
-      *a1 = v2;
+      *BcdSystemStorePath = v2;
     }
     else
     {
@@ -80,5 +80,5 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     ExFreePoolWithTag(v6, 0x4B444342u);
   if ( v7 < 0 && v2 )
     ExFreePoolWithTag(v2, 0x4B444342u);
-  return (unsigned int)v7;
+  return v7;
 }

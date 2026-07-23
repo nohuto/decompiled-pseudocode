@@ -1,29 +1,29 @@
 /*
- * XREFs of MiFillSystemPtes @ 0x140226EF0
+ * XREFs of MiFillSystemPtes @ 0x1402CB7F0
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x140295824 (MiMapContiguousMemory.c)
- *     MmMapMdl @ 0x1405375B0 (MmMapMdl.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x1408CC88C (MiMapHotPatchImageInSystemSpace.c)
- *     MiLockAndMapEntireDriver @ 0x1408D0AF4 (MiLockAndMapEntireDriver.c)
+ *     MiMapContiguousMemory @ 0x1402174E4 (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapMdl @ 0x1405377F0 (MmMapMdl.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1408CC9EC (MiMapHotPatchImageInSystemSpace.c)
+ *     MiLockAndMapEntireDriver @ 0x1408D0C54 (MiLockAndMapEntireDriver.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
- *     MiIoSpaceRunIsConstant @ 0x140294DA8 (MiIoSpaceRunIsConstant.c)
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MiZeroAndFlushPtes @ 0x140297640 (MiZeroAndFlushPtes.c)
- *     MiUserPdeOrAbove @ 0x1402ABED4 (MiUserPdeOrAbove.c)
- *     MiIoPagesInRun @ 0x1402C4A44 (MiIoPagesInRun.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiAssignInitialPageAttribute @ 0x1403C6BC0 (MiAssignInitialPageAttribute.c)
+ *     MiIoSpaceRunIsConstant @ 0x140216A68 (MiIoSpaceRunIsConstant.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MiZeroAndFlushPtes @ 0x1402180C0 (MiZeroAndFlushPtes.c)
+ *     MiUserPdeOrAbove @ 0x14022A014 (MiUserPdeOrAbove.c)
+ *     MiIoPagesInRun @ 0x140242FC4 (MiIoPagesInRun.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1402E020C (MiMakeProtectionPfnCompatible.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiAssignInitialPageAttribute @ 0x1403C6D60 (MiAssignInitialPageAttribute.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1403F6B08 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiShowBadMapper @ 0x14052D1EC (MiShowBadMapper.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiShowBadMapper @ 0x14052D42C (MiShowBadMapper.c)
  */
 
-__int64 __fastcall MiFillSystemPtes(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, _DWORD *a6)
+__int64 __fastcall MiFillSystemPtes(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, _DWORD *a6)
 {
   ULONG_PTR BugCheckParameter4; // r11
   unsigned int ProtectionPfnCompatible; // esi
@@ -45,10 +45,10 @@ __int64 __fastcall MiFillSystemPtes(unsigned __int64 a1, __int64 a2, __int64 a3,
   unsigned __int64 v25; // rcx
   __int64 v26; // rdx
   char v27; // r8
-  ULONG_PTR v28; // r15
-  ULONG_PTR v29; // rdi
+  __int64 v28; // r15
+  unsigned __int64 v29; // rdi
   int v30; // ecx
-  ULONG_PTR v31; // rax
+  __int64 *v31; // rax
   __int64 v32; // rbx
   int v33; // edx
   __int64 v34; // rcx
@@ -81,17 +81,17 @@ __int64 __fastcall MiFillSystemPtes(unsigned __int64 a1, __int64 a2, __int64 a3,
   v53 = 1;
   *a6 = 0;
   v11 = a2;
-  if ( (_DWORD)a4 )
+  if ( a4 )
   {
-    if ( (_DWORD)a4 != 31 )
+    if ( a4 != 31 )
     {
-      if ( (unsigned int)a4 >> 3 == 3 )
+      if ( a4 >> 3 == 3 )
       {
         if ( (a4 & 7) != 0 )
           v53 = 2;
         goto LABEL_9;
       }
-      v9 = (unsigned int)a4 >> 3 != 1;
+      v9 = a4 >> 3 != 1;
     }
     v53 = v9;
   }
@@ -118,7 +118,7 @@ LABEL_9:
       {
         v12 = MmProtectToPteMask[a4 & 0x1F] & 0x7FFF000000000E5ELL | 0x21;
       }
-      v14 = MiUserPdeOrAbove(a1, a2, a3, a4);
+      v14 = MiUserPdeOrAbove(a1);
       v11 = a2;
       if ( v14 )
         v12 |= 4uLL;
@@ -128,17 +128,17 @@ LABEL_9:
     if ( a1 > 0xFFFFF6BFFFFFFF78uLL )
       v15 = v12;
     if ( (ProtectionPfnCompatible & 0x4000000) != 0 )
-      LeafVa = MiGetLeafVa((__int64)(a1 << 25) >> 16, a2, a3, v15);
+      LeafVa = MiGetLeafVa((__int64)(a1 << 25) >> 16);
     if ( LeafVa >= 0xFFFF800000000000uLL )
     {
-      if ( byte_140C4F9C8[((LeafVa >> 39) & 0x1FF) - 256] == 1 )
+      if ( byte_140C4FA08[((LeafVa >> 39) & 0x1FF) - 256] == 1 )
       {
         v16 = BugCheckParameter4;
       }
       else if ( LeafVa < 0xFFFFF68000000000uLL || LeafVa > 0xFFFFF6FFFFFFFFFFuLL )
       {
-        if ( LeafVa < qword_140C4FB38 || (v16 = HIBYTE(word_140C4E008), LeafVa > qword_140C4E368) )
-          v16 = (unsigned __int8)word_140C4E008;
+        if ( LeafVa < qword_140C4FB78 || (v16 = HIBYTE(word_140C4E048), LeafVa > qword_140C4E3A8) )
+          v16 = (unsigned __int8)word_140C4E048;
       }
       else
       {
@@ -147,7 +147,7 @@ LABEL_9:
     }
     else
     {
-      v16 = HIBYTE(word_140C4E008);
+      v16 = HIBYTE(word_140C4E048);
     }
     v17 = v15 | 0x100;
     if ( !v16 )
@@ -163,7 +163,7 @@ LABEL_9:
   if ( (ProtectionPfnCompatible & 0x40000000) == 0 )
     v21 = v18;
   v22 = v18 & 0xFFFFFFFFFFFFFFFBuLL;
-  v23 = ((unsigned __int16)((unsigned __int8)word_140C4E008 << 8) ^ v21) & 0x100;
+  v23 = ((unsigned __int16)((unsigned __int8)word_140C4E048 << 8) ^ v21) & 0x100;
   if ( (ProtectionPfnCompatible & 0x40000000) == 0 )
     v22 = v18;
   v24 = v22 ^ v23;
@@ -192,15 +192,15 @@ LABEL_9:
       v29 = *(_QWORD *)(v28 + 8);
     else
       ++v29;
-    v31 = v28 + 8;
+    v31 = (__int64 *)(v28 + 8);
     if ( !v28 )
       v31 = 0LL;
-    v28 = v31;
-    if ( v30 && v29 == qword_140C4ED78 )
+    v28 = (__int64)v31;
+    if ( v30 && v29 == qword_140C4EDB8 )
       goto LABEL_110;
     if ( v29 > 0xFFFFFFFFFLL || ((*(_QWORD *)(48 * v29 - 0x57FFFFFFFD8LL) >> 50) & 1) == 0 )
     {
-      if ( IsConstant || (IsConstant = MiIoSpaceRunIsConstant(v29, v31, v20, 0xFFFFFA8000000028uLL)) != 0 )
+      if ( IsConstant || (IsConstant = MiIoSpaceRunIsConstant(v29, v31, v20)) != 0 )
       {
         if ( IsConstant > 1 )
         {
@@ -235,7 +235,7 @@ LABEL_103:
           v44 = 1LL;
         else
           v44 = MiIoPagesInRun(v29, v20);
-        v37 = MiReferenceIoPages(1, v29, v44, v53, 0LL, (__int64)&v49);
+        v37 = MiReferenceIoPages(1u, v29, v44, v53, 0LL, &v49);
         if ( v37 < 0 )
           goto LABEL_74;
         *a6 |= 1u;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmTryAcquireLock @ 0x14036D9F8
+ * XREFs of PpmTryAcquireLock @ 0x14036DB98
  * Callers:
- *     PoLatencySensitivityHint @ 0x14036D860 (PoLatencySensitivityHint.c)
+ *     PoLatencySensitivityHint @ 0x14036DA00 (PoLatencySensitivityHint.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KiSetSystemPriorityThread @ 0x140355ED0 (KiSetSystemPriorityThread.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x140356070 (KiSetSystemPriorityThread.c)
  */
 
 char __fastcall PpmTryAcquireLock(__int64 a1)
@@ -24,7 +24,7 @@ char __fastcall PpmTryAcquireLock(__int64 a1)
   --CurrentThread->KernelApcDisable;
   Timeout.QuadPart = 0LL;
   KiSetSystemPriorityThread((ULONG_PTR)KeGetCurrentThread(), 22, 0);
-  v3 = KeWaitForSingleObject(&word_140C3D628, Executive, 0, 0, &Timeout);
+  v3 = KeWaitForSingleObject(&word_140C3D5A8, Executive, 0, 0, &Timeout);
   v4 = KeGetCurrentThread();
   if ( v3 )
   {

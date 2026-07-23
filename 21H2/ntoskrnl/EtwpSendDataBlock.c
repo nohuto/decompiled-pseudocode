@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpSendDataBlock @ 0x1406E4054
+ * XREFs of EtwpSendDataBlock @ 0x1406BB334
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406E1144 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpDisallowedGuidAddition @ 0x140933C04 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
- *     SendCaptureStateNotificationsWorker @ 0x14093F940 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406B8424 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933DD4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1409340BC (EtwpDisallowedGuidRemoval.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093FB10 (SendCaptureStateNotificationsWorker.c)
  * Callees:
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     KeQueryTimeIncrement @ 0x14024C490 (KeQueryTimeIncrement.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     EtwpQueueNotification @ 0x1406E424C (EtwpQueueNotification.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     KeQueryTimeIncrement @ 0x1402F0CE0 (KeQueryTimeIncrement.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     EtwpQueueNotification @ 0x1406BB52C (EtwpQueueNotification.c)
  */
 
 __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
   int v22; // r10d
   void (__fastcall *v23)(__int64, __int64, __int16 *, __int64); // rax
   int *v24; // rax
-  _KPROCESS *SessionById; // rax
+  ULONG_PTR SessionById; // rax
   int v26; // eax
   __int64 v27; // r9
   __int64 v28; // rax
@@ -81,11 +81,11 @@ __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
       v10 = MEMORY[0xFFFFF78000000320];
       if ( (*(_BYTE *)(a1 + 98) & 0x10) != 0 )
       {
-        SessionById = (_KPROCESS *)MmGetSessionById(*(unsigned int *)(a1 + 56), v9);
+        SessionById = MmGetSessionById(*(unsigned int *)(a1 + 56), v9);
         v6 = (struct _DMA_ADAPTER *)SessionById;
         if ( !SessionById )
           return (unsigned int)-1073741275;
-        v7 = MmAttachSession(SessionById, (__int64)v40);
+        v7 = MmAttachSession(SessionById);
         if ( v7 < 0 )
         {
           HalPutDmaAdapter(v6);
@@ -168,7 +168,7 @@ LABEL_10:
         v46 = v28 + 40;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02BF0,
-          (unsigned __int8 *)byte_14002D8D1,
+          (unsigned __int8 *)byte_14002D991,
           0LL,
           0LL,
           5u,
@@ -178,7 +178,7 @@ LABEL_10:
   }
   else if ( (v2 & 2) != 0 )
   {
-    return (unsigned int)EtwpQueueNotification(*(PVOID *)(a1 + 80));
+    return (unsigned int)EtwpQueueNotification(*(_QWORD *)(a1 + 80), a2, a1);
   }
   return (unsigned int)v7;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpLockBufferList @ 0x1402280C8
+ * XREFs of EtwpLockBufferList @ 0x1402281D8
  * Callers:
- *     EtwpDequeueFreeBuffer @ 0x140227DF0 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140227FA8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x140228520 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14036D7C8 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x1403713D8 (EtwpAllocateFreeBuffers.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140602708 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpReenableCompression @ 0x1406029B4 (EtwpReenableCompression.c)
+ *     EtwpDequeueFreeBuffer @ 0x140227F00 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402280B8 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140228630 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpReserveTraceBuffer @ 0x1402341D0 (EtwpReserveTraceBuffer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14036D968 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x140371578 (EtwpAllocateFreeBuffers.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140602C58 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReenableCompression @ 0x140602F04 (EtwpReenableCompression.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  */
 
 void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2)
@@ -28,7 +28,7 @@ void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )

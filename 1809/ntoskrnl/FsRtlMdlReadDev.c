@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlMdlReadDev @ 0x140814880
+ * XREFs of FsRtlMdlReadDev @ 0x140815A80
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     IoGetTopLevelIrp @ 0x14001C610 (IoGetTopLevelIrp.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CcMdlRead @ 0x140663D50 (CcMdlRead.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlReadDev(

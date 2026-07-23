@@ -1,24 +1,24 @@
 /*
- * XREFs of DifNtSetInformationVirtualMemoryWrapper @ 0x14068CDD0
+ * XREFs of DifNtSetInformationVirtualMemoryWrapper @ 0x1406909B0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtSetInformationVirtualMemory @ 0x1408F18A0 (NtSetInformationVirtualMemory.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtSetInformationVirtualMemory @ 0x1408F7E60 (NtSetInformationVirtualMemory.c)
  */
 
 __int64 __fastcall DifNtSetInformationVirtualMemoryWrapper(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        void *Src,
-        int a6)
+        void *a1,
+        VIRTUAL_MEMORY_INFORMATION_CLASS a2,
+        ULONG_PTR a3,
+        _MEMORY_RANGE_ENTRY *a4,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -31,12 +31,12 @@ __int64 __fastcall DifNtSetInformationVirtualMemoryWrapper(
   BOOLEAN v17; // di
   __int128 *j; // rbx
   PVOID v20; // [rsp+30h] [rbp-40h] BYREF
-  int v21; // [rsp+38h] [rbp-38h]
-  void *v22; // [rsp+40h] [rbp-30h]
-  __int64 v23; // [rsp+48h] [rbp-28h]
-  __int64 v24; // [rsp+50h] [rbp-20h]
-  int v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h]
+  ULONG v21; // [rsp+38h] [rbp-38h]
+  PVOID v22; // [rsp+40h] [rbp-30h]
+  _MEMORY_RANGE_ENTRY *v23; // [rsp+48h] [rbp-28h]
+  ULONG_PTR v24; // [rsp+50h] [rbp-20h]
+  VIRTUAL_MEMORY_INFORMATION_CLASS v25; // [rsp+58h] [rbp-18h]
+  void *v26; // [rsp+60h] [rbp-10h]
   unsigned int v27; // [rsp+68h] [rbp-8h]
   void *retaddr; // [rsp+98h] [rbp+28h]
 
@@ -60,8 +60,8 @@ __int64 __fastcall DifNtSetInformationVirtualMemoryWrapper(
 LABEL_7:
   v14 = 0;
   v26 = a1;
-  v22 = Src;
-  v21 = a6;
+  v22 = VmInformation;
+  v21 = VmInformationLength;
   v25 = a2;
   v24 = a3;
   v23 = a4;
@@ -77,7 +77,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v27 = NtSetInformationVirtualMemory(a1, a2, a3, a4, Src, a6);
+  v27 = NtSetInformationVirtualMemory(a1, a2, a3, a4, VmInformation, VmInformationLength);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

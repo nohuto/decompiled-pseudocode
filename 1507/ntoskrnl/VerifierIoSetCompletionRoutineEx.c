@@ -22,7 +22,7 @@ __int64 __fastcall VerifierIoSetCompletionRoutineEx(
   int v13; // edi
   _OWORD *PoolWithTagPriority; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8
-  struct _SLIST_ENTRY *v16; // rcx
+  _SLIST_ENTRY *v16; // rcx
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   v11 = 0;
@@ -42,7 +42,7 @@ __int64 __fastcall VerifierIoSetCompletionRoutineEx(
     if ( PoolWithTagPriority )
     {
       CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-      v16 = (struct _SLIST_ENTRY *)CurrentStackLocation[-1].Context;
+      v16 = (_SLIST_ENTRY *)CurrentStackLocation[-1].Context;
       *PoolWithTagPriority = *v16;
       PoolWithTagPriority[1] = v16[1];
       CurrentStackLocation[-1].Context = PoolWithTagPriority;

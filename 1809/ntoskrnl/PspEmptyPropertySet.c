@@ -1,10 +1,10 @@
 /*
- * XREFs of PspEmptyPropertySet @ 0x1405F7DBC
+ * XREFs of PspEmptyPropertySet @ 0x1405F8DBC
  * Callers:
- *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
+ *     PspJobDelete @ 0x14008FD50 (PspJobDelete.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
  * Callees:
- *     PspRemoveProperty @ 0x14010F08C (PspRemoveProperty.c)
+ *     PspRemoveProperty @ 0x14010F10C (PspRemoveProperty.c)
  */
 
 _QWORD *__fastcall PspEmptyPropertySet(_QWORD *a1)

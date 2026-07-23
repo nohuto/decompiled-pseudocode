@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeZeroingDomains @ 0x1406B297C
+ * XREFs of MiInitializeZeroingDomains @ 0x1406B29AC
  * Callers:
  *     MiAbsorbPossibleEngineChanges @ 0x140221054 (MiAbsorbPossibleEngineChanges.c)
  * Callees:
  *     MiGetProcessorDomain @ 0x140221C04 (MiGetProcessorDomain.c)
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void __fastcall MiInitializeZeroingDomains(__int64 a1)

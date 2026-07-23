@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlLengthCurrentClearRunBackwardEx @ 0x18013D910
+ * XREFs of RtlLengthCurrentClearRunBackwardEx @ 0x18013BB00
  * Callers:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x18009335C (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x18009DEEC (RtlCSparseBitmapFindBitSetCapped.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall RtlLengthCurrentClearRunBackwardEx(__int64 a1, unsig
   v6 = 31 - v5;
   v8 = 0LL;
   v9 = &v3[v4];
-  LODWORD(a1) = dword_180181050[v5] & *v9;
+  LODWORD(a1) = dword_18017F850[v5] & *v9;
   while ( !(_DWORD)a1 )
   {
     v8 += 32LL;

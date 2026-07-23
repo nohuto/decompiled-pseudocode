@@ -1,13 +1,13 @@
 /*
- * XREFs of KdLogDbgPrint @ 0x140B78C20
+ * XREFs of KdLogDbgPrint @ 0x140B7AC20
  * Callers:
- *     KdpPrint @ 0x140B78F08 (KdpPrint.c)
- *     KdpPrompt @ 0x140B790AC (KdpPrompt.c)
+ *     KdpPrint @ 0x140B7AF08 (KdpPrint.c)
+ *     KdpPrompt @ 0x140B7B0AC (KdpPrompt.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KdpCopyMemoryChunks @ 0x140B7AACC (KdpCopyMemoryChunks.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KdpCopyMemoryChunks @ 0x140B7CACC (KdpCopyMemoryChunks.c)
  */
 
 struct _KPRCB *__fastcall KdLogDbgPrint(void **a1)
@@ -27,7 +27,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(void **a1)
 
   LODWORD(v13) = 0;
   result = KeGetCurrentPrcb();
-  if ( (struct _KPRCB *)qword_140E66388 == result )
+  if ( (struct _KPRCB *)qword_140E664A8 == result )
   {
     _InterlockedIncrement(&KdPrintSkippedCount);
     return result;

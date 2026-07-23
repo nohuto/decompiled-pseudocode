@@ -1,32 +1,33 @@
 /*
- * XREFs of RtlRcuReadLock @ 0x180147CB0
+ * XREFs of RtlRcuReadLock @ 0x180146060
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlpRcuCurrentThreadData @ 0x180147E48 (RtlpRcuCurrentThreadData.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlpRcuCurrentThreadData @ 0x1801461F8 (RtlpRcuCurrentThreadData.c)
  */
 
-_QWORD *__fastcall RtlRcuReadLock(__int64 a1, _QWORD *a2)
+void __fastcall RtlRcuReadLock(_RTL_SRWLOCK *a1, _QWORD *a2)
 {
-  _QWORD *result; // rax
-  _QWORD *v5; // rdx
-  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
+  _QWORD *v4; // rax
+  signed __int32 v5[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  result = (_QWORD *)RtlpRcuCurrentThreadData(a1, 1LL);
-  *a2 = result;
-  v5 = result;
-  if ( !result )
-    return (_QWORD *)RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 120));
-  if ( ++*result == 1LL )
+  v4 = (_QWORD *)RtlpRcuCurrentThreadData(a1, 1LL);
+  *a2 = v4;
+  if ( v4 )
   {
-    result = (_QWORD *)(*(_QWORD *)(a1 + 16) & 0xFFFFFFFFFFFFFFFEuLL);
-    v5[2] = result;
-    _InterlockedOr(v6, 0);
+    if ( ++*v4 == 1LL )
+    {
+      v4[2] = a1[2].Value & 0xFFFFFFFFFFFFFFFEuLL;
+      _InterlockedOr(v5, 0);
+    }
+    else if ( !*v4 )
+    {
+      __fastfail(0xEu);
+    }
   }
-  else if ( !*result )
+  else
   {
-    __fastfail(0xEu);
+    RtlAcquireSRWLockShared(a1 + 15);
   }
-  return result;
 }

@@ -239,7 +239,7 @@ char __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
   MiInitializeDecayPfns();
   if ( ((unsigned __int8)&stru_140C4EA10 & 0xF) != 0 )
 LABEL_86:
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   stru_140C4EA10 = 0LL;
   MiInitializeSections((__int64)&MiSystemPartition);
   MiInitializeCommitment((__int64)&MiSystemPartition);

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsRemoveLoadImageNotifyRoutine @ 0x14070CC94
+ * XREFs of VerifierPsRemoveLoadImageNotifyRoutine @ 0x14070CCC4
  * Callers:
  *     <none>
  * Callees:

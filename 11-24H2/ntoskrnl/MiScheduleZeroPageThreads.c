@@ -1,14 +1,14 @@
 /*
- * XREFs of MiScheduleZeroPageThreads @ 0x1402D36A0
+ * XREFs of MiScheduleZeroPageThreads @ 0x140354918
  * Callers:
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiIsCalibrationWorthwhile @ 0x1402D1A6C (MiIsCalibrationWorthwhile.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     MiReduceZeroingThreads @ 0x1403C7FBC (MiReduceZeroingThreads.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiReduceZeroingThreads @ 0x140413BFC (MiReduceZeroingThreads.c)
+ *     MiIsCalibrationWorthwhile @ 0x140490824 (MiIsCalibrationWorthwhile.c)
  */
 
 LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
@@ -93,12 +93,12 @@ LABEL_20:
         {
           if ( QuadPart - v13.QuadPart < 0x9C400 )
           {
-            ++dword_140EF4C5C;
+            ++dword_140EF4E7C;
           }
           else
           {
-            v14 = (unsigned int *)(v12 + *(_QWORD *)(384LL * v4 + qword_140E2DAF8 + 376) + 128LL);
-            IsCalibrationWorthwhile = MiIsCalibrationWorthwhile((__int64)v14, *v14, v4, 0);
+            v14 = (unsigned int *)(v12 + *(_QWORD *)(384LL * v4 + qword_140E2DC38 + 376) + 128LL);
+            IsCalibrationWorthwhile = MiIsCalibrationWorthwhile(v14, *v14, v4, 0LL);
             v16 = v25;
             if ( IsCalibrationWorthwhile )
               v16 = 1;
@@ -113,15 +113,15 @@ LABEL_20:
                   v17 = MiReduceZeroingThreads(&v10[-13], 1LL, &v26);
                   if ( v17 == 7 )
                   {
-                    ++dword_140EF4C68;
+                    ++dword_140EF4E88;
                   }
                   else if ( v17 == 5 )
                   {
-                    ++dword_140EF4C64;
+                    ++dword_140EF4E84;
                   }
                   else
                   {
-                    ++dword_140EF4C6C;
+                    ++dword_140EF4E8C;
                   }
                   v20.QuadPart = 0LL;
                   v18 = KeQueryPerformanceCounter(&v20);
@@ -131,18 +131,18 @@ LABEL_20:
                 }
                 else
                 {
-                  ++dword_140EF4C60;
+                  ++dword_140EF4E80;
                 }
               }
             }
             else
             {
-              ++dword_140EF4C54;
+              ++dword_140EF4E74;
             }
           }
           goto LABEL_16;
         }
-        ++dword_140EF4C58;
+        ++dword_140EF4E78;
       }
 LABEL_16:
       ++v11;

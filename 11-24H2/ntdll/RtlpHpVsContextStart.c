@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsContextStart @ 0x18011CC54
+ * XREFs of RtlpHpVsContextStart @ 0x18011AE84
  * Callers:
- *     RtlpHpHeapCreate @ 0x1800A6374 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180026120 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpSegLfhExtendContext @ 0x1800A5130 (RtlpHpSegLfhExtendContext.c)
- *     RtlpHpVsSlotCreate @ 0x18011CD30 (RtlpHpVsSlotCreate.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpSegLfhExtendContext @ 0x1800D6AA0 (RtlpHpSegLfhExtendContext.c)
+ *     RtlpHpVsSlotCreate @ 0x18011AF60 (RtlpHpVsSlotCreate.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpVsContextStart(__int64 a1)
@@ -14,40 +14,38 @@ __int64 __fastcall RtlpHpVsContextStart(__int64 a1)
   int v1; // r14d
   __int64 v3; // rcx
   __int64 v4; // r14
-  unsigned __int64 (__fastcall *v5)(__int64, __int64); // rax
-  __int64 v6; // rdx
-  _WORD *v7; // rax
-  unsigned int v8; // edi
-  _WORD *v9; // rbx
-  __int64 v10; // rax
-  _WORD *v11; // rdx
+  __int64 (__fastcall *v5)(__int64); // rax
+  _WORD *v6; // rax
+  unsigned int v7; // edi
+  _WORD *v8; // rbx
+  __int64 v9; // rax
+  _WORD *v10; // rdx
 
   v1 = *(unsigned __int8 *)(a1 + 2);
   v3 = *(_QWORD *)(a1 + 8) ^ a1;
   v4 = (unsigned int)(v1 + 1);
-  v5 = (unsigned __int64 (__fastcall *)(__int64, __int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 48));
-  v6 = 4 * (_DWORD)v4 - ((4 * (_BYTE)v4 - 1) & 0x3Fu) + 63;
+  v5 = (__int64 (__fastcall *)(__int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 48));
   if ( v5 == RtlpHpSegLfhExtendContext )
-    v7 = (_WORD *)RtlpHpSegLfhExtendContext(v3, v6);
+    v6 = (_WORD *)RtlpHpSegLfhExtendContext(v3);
   else
-    v7 = (_WORD *)v5(v3, v6);
-  v8 = 0;
-  v9 = v7;
-  if ( v7
-    && (memset_thunk_772440563353939046(v7, 0, 4 * (_DWORD)v4 - ((4 * (_BYTE)v4 - 1) & 0x3Fu) + 63),
-        *(_WORD *)a1 = ((unsigned __int64)v9 - a1) >> 6,
-        (v10 = RtlpHpVsSlotCreate(a1)) != 0) )
+    v6 = (_WORD *)((__int64 (__fastcall *)(__int64, _QWORD))v5)(v3, 4 * (_DWORD)v4 - ((4 * (_BYTE)v4 - 1) & 0x3Fu) + 63);
+  v7 = 0;
+  v8 = v6;
+  if ( v6
+    && (memset_thunk_772440563353939046(v6, 0, 4 * (_DWORD)v4 - ((4 * (_BYTE)v4 - 1) & 0x3Fu) + 63),
+        *(_WORD *)a1 = ((unsigned __int64)v8 - a1) >> 6,
+        (v9 = RtlpHpVsSlotCreate(a1)) != 0) )
   {
-    v11 = &v9[2 * v4];
-    while ( v9 < v11 )
+    v10 = &v8[2 * v4];
+    while ( v8 < v10 )
     {
-      *v9 = (unsigned __int64)(v10 - a1) >> 6;
-      v9 += 2;
+      *v8 = (unsigned __int64)(v9 - a1) >> 6;
+      v8 += 2;
     }
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v8;
+  return v7;
 }

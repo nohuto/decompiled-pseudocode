@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLockAddressSpaceToo @ 0x14028952C
+ * XREFs of MiLockAddressSpaceToo @ 0x1402897BC
  * Callers:
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiPrepareVadDelete @ 0x14076D4F4 (MiPrepareVadDelete.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiPrepareVadDelete @ 0x14076D6E4 (MiPrepareVadDelete.c)
  * Callees:
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14029C94C (LOCK_ADDRESS_SPACE.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnlockNestedVad @ 0x140A47BF8 (MiUnlockNestedVad.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14029CBDC (LOCK_ADDRESS_SPACE.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockNestedVad @ 0x140A47EA8 (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiLockAddressSpaceToo(__int64 a1, __int64 a2, __int64 a3)

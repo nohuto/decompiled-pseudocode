@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpCmosWriteByte @ 0x1403720A0
+ * XREFs of HalpCmosWriteByte @ 0x140372240
  * Callers:
- *     HalpGetSetCmosData @ 0x1403A540C (HalpGetSetCmosData.c)
+ *     HalpGetSetCmosData @ 0x1403A55EC (HalpGetSetCmosData.c)
  * Callees:
  *     <none>
  */

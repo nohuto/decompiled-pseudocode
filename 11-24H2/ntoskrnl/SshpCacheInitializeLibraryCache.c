@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpCacheInitializeLibraryCache @ 0x140AB80C8
+ * XREFs of SshpCacheInitializeLibraryCache @ 0x140AB247C
  * Callers:
- *     SleepstudyHelperCreateLibraryEx @ 0x1404B06D0 (SleepstudyHelperCreateLibraryEx.c)
+ *     SleepstudyHelperCreateLibraryEx @ 0x1404AAF60 (SleepstudyHelperCreateLibraryEx.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14045C170 (RtlInitializeGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x140451510 (RtlInitializeGenericTableAvl.c)
  */
 
 void __fastcall SshpCacheInitializeLibraryCache(char *TableContext, int a2)

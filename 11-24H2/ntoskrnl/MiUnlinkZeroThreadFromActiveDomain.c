@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkZeroThreadFromActiveDomain @ 0x1403C7D5C
+ * XREFs of MiUnlinkZeroThreadFromActiveDomain @ 0x14041399C
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiAddZeroingThreads @ 0x1403C73C8 (MiAddZeroingThreads.c)
- *     MiSelectBestZeroingProcessor @ 0x1403C7C00 (MiSelectBestZeroingProcessor.c)
- *     MiRemoveThreadFromEngineLists @ 0x1403C81EC (MiRemoveThreadFromEngineLists.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiAddZeroingThreads @ 0x140413008 (MiAddZeroingThreads.c)
+ *     MiSelectBestZeroingProcessor @ 0x140413840 (MiSelectBestZeroingProcessor.c)
+ *     MiRemoveThreadFromEngineLists @ 0x140413E2C (MiRemoveThreadFromEngineLists.c)
  * Callees:
- *     MiUpdateDomainAvailableAffinity @ 0x1403C7DE8 (MiUpdateDomainAvailableAffinity.c)
+ *     MiUpdateDomainAvailableAffinity @ 0x140413A28 (MiUpdateDomainAvailableAffinity.c)
  */
 
 __int64 __fastcall MiUnlinkZeroThreadFromActiveDomain(__int64 a1)

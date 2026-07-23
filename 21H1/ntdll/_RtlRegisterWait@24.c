@@ -18,60 +18,64 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlRegisterWait(_DWORD *a1, int a2, int a3, int a4, unsigned int a5, unsigned int a6)
+NTSTATUS __cdecl RtlRegisterWait(
+        PHANDLE WaitHandle,
+        HANDLE Handle,
+        WAITORTIMERCALLBACKFUNC Function,
+        PVOID Context,
+        ULONG Milliseconds,
+        ULONG Flags)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v7; // esi
-  _DWORD *Heap; // eax
-  _DWORD *v9; // edi
+  HANDLE *Heap; // eax
+  HANDLE *v9; // edi
   int v10; // eax
-  _DWORD v11[6]; // [esp+10h] [ebp-50h] BYREF
-  int (__stdcall *v12)(int, int); // [esp+28h] [ebp-38h]
-  int v13; // [esp+2Ch] [ebp-34h]
-  int v14; // [esp+30h] [ebp-30h]
-  int v15; // [esp+34h] [ebp-2Ch]
-  int v16; // [esp+38h] [ebp-28h] BYREF
-  _DWORD *v17; // [esp+3Ch] [ebp-24h]
-  int v18; // [esp+40h] [ebp-20h]
-  char v19; // [esp+47h] [ebp-19h]
+  SIZE_T v11; // [esp-4h] [ebp-64h]
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [esp+10h] [ebp-50h] BYREF
+  HANDLE TokenHandle; // [esp+38h] [ebp-28h] BYREF
+  HANDLE *v14; // [esp+3Ch] [ebp-24h]
+  int v15; // [esp+40h] [ebp-20h]
+  char v16; // [esp+47h] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+48h] [ebp-18h]
 
-  v19 = 0;
-  result = -1073741823;
-  v18 = -1073741823;
   v16 = 0;
-  v17 = 0;
+  result = -1073741823;
+  v15 = -1073741823;
+  TokenHandle = 0;
+  v14 = 0;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
     return result;
-  if ( !a2 || a2 == -1 || a2 == -2 || !a3 )
+  if ( !Handle || Handle == (HANDLE)-1 || Handle == (HANDLE)-2 || !Function )
     return -1073741811;
-  *a1 = 0;
+  *WaitHandle = 0;
   ms_exc.registration.TryLevel = 0;
-  v7 = RtlpTpRevertCapture((HANDLE *)&v16, a6 & 0x100);
-  v18 = v7;
+  v7 = RtlpTpRevertCapture(&TokenHandle, Flags & 0x100);
+  v15 = v7;
   if ( v7 < 0 )
   {
-    v9 = v17;
+    v9 = v14;
   }
   else
   {
-    Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 56);
+    LODWORD(v11) = 56;
+    Heap = (HANDLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
     v9 = Heap;
-    v17 = Heap;
+    v14 = Heap;
     if ( Heap )
     {
       Heap[6] = 0;
-      v7 = RtlpTpInitializeData(Heap, a6, v16);
-      v18 = v7;
+      v7 = RtlpTpInitializeData(Heap, Flags, TokenHandle);
+      v15 = v7;
       if ( v7 < 0 )
         goto LABEL_18;
-      v19 = 1;
+      v16 = 1;
       v9[2] = 0;
       v9[3] = 0;
-      v9[4] = a3;
-      v9[5] = a4;
-      v9[7] = a2;
-      if ( a5 == -1 )
+      v9[4] = Function;
+      v9[5] = Context;
+      v9[7] = Handle;
+      if ( Milliseconds == -1 )
       {
         v9[8] = 0;
         v9[9] = 0;
@@ -79,61 +83,59 @@ int __stdcall RtlRegisterWait(_DWORD *a1, int a2, int a3, int a4, unsigned int a
       }
       else
       {
-        v9[8] = a5;
+        v9[8] = (HANDLE)Milliseconds;
         v9[9] = 0;
-        *((_QWORD *)v9 + 4) = -10000LL * a5;
+        *((_QWORD *)v9 + 4) = -10000LL * Milliseconds;
         v9[10] = v9 + 8;
       }
       v9[11] = 0;
       v9[12] = 0;
-      v11[0] = 3;
-      memset(&v11[1], 0, 20);
-      v12 = 0;
-      v13 = 0;
-      v14 = 1;
-      v15 = 40;
+      CallbackEnviron.Version = 3;
+      memset(&CallbackEnviron.Pool, 0, 28);
+      CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+      CallbackEnviron.Size = 40;
       v10 = 0;
-      if ( (a6 & 0xC4) != 0 )
+      if ( (Flags & 0xC4) != 0 )
       {
         v10 = 2;
-        v13 = 2;
+        CallbackEnviron.u.Flags = 2;
       }
-      if ( (a6 & 0x10) != 0 )
-        v13 = v10 | 1;
-      v12 = RtlpTpWaitFinalizationCallback;
-      v7 = TpAllocWait(v9 + 6, RtlpTpWaitCallback, v9, v11);
-      v18 = v7;
+      if ( (Flags & 0x10) != 0 )
+        CallbackEnviron.u.Flags = v10 | 1;
+      CallbackEnviron.FinalizationCallback = (void (__stdcall *)(struct _TP_CALLBACK_INSTANCE *, void *))RtlpTpWaitFinalizationCallback;
+      v7 = TpAllocWait((PTP_WAIT *)v9 + 6, (PTP_WAIT_CALLBACK)RtlpTpWaitCallback, v9, &CallbackEnviron);
+      v15 = v7;
       if ( v7 < 0 )
         goto LABEL_18;
-      RtlAcquireSRWLockExclusive(v9 + 2);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v9 + 2);
       ms_exc.registration.TryLevel = 1;
-      *a1 = v9;
-      TpSetWaitEx(v9[6], a2, v9[10], 0);
+      *WaitHandle = v9;
+      TpSetWaitEx((PTP_WAIT)v9[6], Handle, (PLARGE_INTEGER)v9[10], 0);
       ms_exc.registration.TryLevel = 0;
-      RtlReleaseSRWLockExclusive(v9 + 2);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v9 + 2);
       v9 = 0;
-      v17 = 0;
+      v14 = 0;
       v7 = 0;
     }
     else
     {
       v7 = -1073741801;
     }
-    v18 = v7;
+    v15 = v7;
   }
 LABEL_18:
   ms_exc.registration.TryLevel = -2;
   if ( v9 )
   {
-    if ( v19 )
+    if ( v16 )
     {
       if ( *v9 )
-        NtClose((HANDLE)*v9);
+        NtClose(*v9);
     }
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
-    v17 = 0;
-    v7 = v18;
+    v14 = 0;
+    v7 = v15;
   }
-  RtlpTpResumeImpersonation(v16, 1261117879);
+  RtlpTpResumeImpersonation(TokenHandle, 1261117879);
   return v7;
 }

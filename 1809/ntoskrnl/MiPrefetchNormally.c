@@ -1,8 +1,8 @@
 /*
  * XREFs of MiPrefetchNormally @ 0x140031280
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
  * Callees:
  *     MiCommitmentAvailable @ 0x140030FA4 (MiCommitmentAvailable.c)
  *     MiGetAvailablePagesBelowPriority @ 0x140030FC4 (MiGetAvailablePagesBelowPriority.c)

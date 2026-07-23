@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPowerVerifyIrpStackUpward @ 0x140BA6050
+ * XREFs of VfPowerVerifyIrpStackUpward @ 0x140BA8050
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x140612574 (ViErrorReport1.c)
+ *     ViErrorReport1 @ 0x140610B34 (ViErrorReport1.c)
  */
 
 __int64 __fastcall VfPowerVerifyIrpStackUpward(const void **a1, __int64 a2, __int64 a3, __int64 a4)

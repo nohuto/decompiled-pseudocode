@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleDefaultExecute @ 0x140602100
+ * XREFs of PpmIdleDefaultExecute @ 0x140604BB0
  * Callers:
  *     <none>
  * Callees:
- *     HalProcessorIdle @ 0x140722A90 (HalProcessorIdle.c)
- *     KeExecuteVerw @ 0x14073D300 (KeExecuteVerw.c)
+ *     HalProcessorIdle @ 0x140727660 (HalProcessorIdle.c)
+ *     KeExecuteVerw @ 0x140741F00 (KeExecuteVerw.c)
  */
 
 __int64 __fastcall PpmIdleDefaultExecute(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

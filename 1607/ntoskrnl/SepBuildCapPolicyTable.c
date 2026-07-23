@@ -1,17 +1,17 @@
 /*
- * XREFs of SepBuildCapPolicyTable @ 0x140144EF0
+ * XREFs of SepBuildCapPolicyTable @ 0x140145460
  * Callers:
- *     SepRmCapUpdateWrkr @ 0x14056B7B4 (SepRmCapUpdateWrkr.c)
+ *     SepRmCapUpdateWrkr @ 0x14056BCF4 (SepRmCapUpdateWrkr.c)
  * Callees:
- *     RtlCreateHashTable @ 0x1400A955C (RtlCreateHashTable.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlCreateHashTable @ 0x1400A7ADC (RtlCreateHashTable.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepRegOpenKey @ 0x140476484 (SepRegOpenKey.c)
- *     SepReadAndPopulateCapes @ 0x14056BD0C (SepReadAndPopulateCapes.c)
- *     SepReadAndInsertCaps @ 0x140696138 (SepReadAndInsertCaps.c)
- *     SepRmDestroyCapTable @ 0x140696798 (SepRmDestroyCapTable.c)
+ *     SepRegOpenKey @ 0x140475354 (SepRegOpenKey.c)
+ *     SepReadAndPopulateCapes @ 0x14056C24C (SepReadAndPopulateCapes.c)
+ *     SepReadAndInsertCaps @ 0x14069621C (SepReadAndInsertCaps.c)
+ *     SepRmDestroyCapTable @ 0x14069687C (SepRmDestroyCapTable.c)
  */
 
 __int64 __fastcall SepBuildCapPolicyTable(__int64 a1, PRTL_DYNAMIC_HASH_TABLE *a2)
@@ -19,8 +19,8 @@ __int64 __fastcall SepBuildCapPolicyTable(__int64 a1, PRTL_DYNAMIC_HASH_TABLE *a
   int inserted; // ebx
   unsigned int v4; // edi
   PVOID v6; // rdi
-  struct _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE *v8; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rax
+  _RTL_DYNAMIC_HASH_TABLE *v8; // rbx
   PVOID v9; // rax
   BOOLEAN v10; // al
   PRTL_DYNAMIC_HASH_TABLE v11; // rsi
@@ -58,7 +58,7 @@ __int64 __fastcall SepBuildCapPolicyTable(__int64 a1, PRTL_DYNAMIC_HASH_TABLE *a
   v4 = (unsigned int)HashTable;
   if ( !(_DWORD)HashTable )
     goto LABEL_6;
-  PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x70536553u);
+  PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x70536553u);
   HashTable = PoolWithTag;
   v8 = PoolWithTag;
   if ( !PoolWithTag )

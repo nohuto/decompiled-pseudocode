@@ -1,12 +1,12 @@
 /*
- * XREFs of SepExpandDynamic @ 0x140A4FCE4
+ * XREFs of SepExpandDynamic @ 0x140A46A94
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140364418 (SepAppendAceToTokenDefaultDacl.c)
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1403EAEE8 (SepAppendAceToTokenDefaultDacl.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepExpandDynamic(__int64 a1, unsigned int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall SepExpandDynamic(__int64 a1, unsigned int a2)
     v4 += *(unsigned __int16 *)(v5 + 2);
   if ( a2 <= v4 )
     return 0LL;
-  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, a2, 0x64546553u);
   v7 = Pool2;
   if ( Pool2 )
   {

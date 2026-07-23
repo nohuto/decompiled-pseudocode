@@ -2,16 +2,16 @@
  * XREFs of ExProtectPoolEx @ 0x14000DED8
  * Callers:
  *     ExProtectPool @ 0x14000DEB8 (ExProtectPool.c)
- *     CmpProtectPool @ 0x14013B38C (CmpProtectPool.c)
- *     SmHpBufferProtectEx @ 0x14014A270 (SmHpBufferProtectEx.c)
- *     HvpSetRangeProtection @ 0x1405FBD30 (HvpSetRangeProtection.c)
+ *     CmpProtectPool @ 0x14013B48C (CmpProtectPool.c)
+ *     SmHpBufferProtectEx @ 0x14014A370 (SmHpBufferProtectEx.c)
+ *     HvpSetRangeProtection @ 0x1405FCD30 (HvpSetRangeProtection.c)
  * Callees:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
- *     MiDeterminePoolType @ 0x14007BF30 (MiDeterminePoolType.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeterminePoolType @ 0x14007BF20 (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

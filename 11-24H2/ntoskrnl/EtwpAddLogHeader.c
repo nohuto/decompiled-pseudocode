@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpAddLogHeader @ 0x1409DAEEC
+ * XREFs of EtwpAddLogHeader @ 0x1409D59FC
  * Callers:
- *     EtwpPreserveLogger @ 0x1407AFA4C (EtwpPreserveLogger.c)
- *     EtwpUpdateFileHeader @ 0x1409DAB48 (EtwpUpdateFileHeader.c)
+ *     EtwpPreserveLogger @ 0x1407AFE9C (EtwpPreserveLogger.c)
+ *     EtwpUpdateFileHeader @ 0x1409D5658 (EtwpUpdateFileHeader.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14024CFF4 (EtwpQueryUsedProcessorCount.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x1409DB994 (RtlpQueryTimeZoneInformationWorker.c)
- *     EtwpPrepareHeader @ 0x1409DBC94 (EtwpPrepareHeader.c)
- *     EtwpIsWow64Logger @ 0x1409DC0DC (EtwpIsWow64Logger.c)
- *     EtwpAddDebugInfoEvents @ 0x1409DC100 (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x1409DC3D4 (EtwpAddBinaryInfoEvents.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14027D604 (EtwpQueryUsedProcessorCount.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x1409B66B0 (RtlpQueryTimeZoneInformationWorker.c)
+ *     EtwpPrepareHeader @ 0x1409D64A4 (EtwpPrepareHeader.c)
+ *     EtwpIsWow64Logger @ 0x1409D68EC (EtwpIsWow64Logger.c)
+ *     EtwpAddDebugInfoEvents @ 0x1409D6910 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1409D6BE4 (EtwpAddBinaryInfoEvents.c)
  */
 
 unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
@@ -49,9 +49,9 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
   __int64 v31; // rcx
   __int128 v32; // xmm1
   LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp-40h] BYREF
-  int v34; // [rsp+38h] [rbp-38h] BYREF
+  int v34; // [rsp+38h] [rbp-38h]
   void *v35; // [rsp+40h] [rbp-30h]
-  __int64 v36; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v36; // [rsp+58h] [rbp-18h]
   unsigned int v37; // [rsp+60h] [rbp-10h]
 
   v34 = 0;
@@ -63,7 +63,7 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
   v7 = *(_WORD *)(v6 + 152) + *(_WORD *)(v6 + 136) + (v4 ? 276 : 284);
   if ( result >= (unsigned __int64)v7 + 104 )
   {
-    if ( (int)guard_dispatch_icall_no_overrides(25LL, 12LL, &v36, &v34) < 0 )
+    if ( (int)guard_dispatch_icall_no_overrides(25LL, 12LL) < 0 )
     {
       v36 = 0LL;
       v37 = 0;
@@ -140,7 +140,7 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
       v19 = 16LL;
     }
     v20 = &a2[v19 + 26];
-    RtlpQueryTimeZoneInformationWorker(v20, 0xACuLL);
+    RtlpQueryTimeZoneInformationWorker((char *)v20, 0xACuLL);
     v21 = *(_QWORD *)(v20 + 17);
     v22 = _mm_srli_si128(*(__m128i *)(v20 + 17), 8).m128i_u64[0];
     *((_WORD *)v20 + 34) = v21;

@@ -1,16 +1,16 @@
 /*
- * XREFs of HviIsAnyHypervisorPresent @ 0x14013123C
+ * XREFs of HviIsAnyHypervisorPresent @ 0x1401317AC
  * Callers:
- *     HviIsHypervisorVendorMicrosoft @ 0x14013CF88 (HviIsHypervisorVendorMicrosoft.c)
- *     HviGetHypervisorInterface @ 0x14014AF90 (HviGetHypervisorInterface.c)
- *     KiApplyProcessorErrata @ 0x1401D74D8 (KiApplyProcessorErrata.c)
- *     KiDetectAmdNonArchSsbdSupport @ 0x1401D9730 (KiDetectAmdNonArchSsbdSupport.c)
- *     KiDetectHardwareSpecControlFeatures @ 0x1401D989C (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsBranchConfusionPresent @ 0x1401D9C44 (KiIsBranchConfusionPresent.c)
- *     KiIsTsaMitigationSupported @ 0x1401D9DD8 (KiIsTsaMitigationSupported.c)
- *     KiIsTsaPresent @ 0x1401D9E54 (KiIsTsaPresent.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x140231F40 (HviGetHypervisorVendorAndMaxFunction.c)
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x14013D4F8 (HviIsHypervisorVendorMicrosoft.c)
+ *     HviGetHypervisorInterface @ 0x14014B500 (HviGetHypervisorInterface.c)
+ *     KiApplyProcessorErrata @ 0x1401D7304 (KiApplyProcessorErrata.c)
+ *     KiDetectAmdNonArchSsbdSupport @ 0x1401D955C (KiDetectAmdNonArchSsbdSupport.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1401D96C8 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsBranchConfusionPresent @ 0x1401D9A70 (KiIsBranchConfusionPresent.c)
+ *     KiIsTsaMitigationSupported @ 0x1401D9C04 (KiIsTsaMitigationSupported.c)
+ *     KiIsTsaPresent @ 0x1401D9C80 (KiIsTsaPresent.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x140231D6C (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  *     ViFilterIsDeviceExcluded @ 0x14071B0D0 (ViFilterIsDeviceExcluded.c)
  *     KeInitSystem @ 0x140791AC4 (KeInitSystem.c)
  *     KiIntSteerDetermineSteeringEnabled @ 0x140792718 (KiIntSteerDetermineSteeringEnabled.c)
@@ -18,7 +18,7 @@
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     InitializeDynamicPartitioningPolicy @ 0x1407BC99C (InitializeDynamicPartitioningPolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 bool HviIsAnyHypervisorPresent()

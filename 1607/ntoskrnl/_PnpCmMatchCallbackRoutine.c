@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCmMatchCallbackRoutine @ 0x1406DFC40
+ * XREFs of _PnpCmMatchCallbackRoutine @ 0x1406DFD78
  * Callers:
  *     <none>
  * Callees:
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x1404FE32C (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1404E12BC (_CmMapCmObjectTypeToPnpObjectType.c)
  */
 
 __int64 __fastcall PnpCmMatchCallbackRoutine(__int64 a1, __int64 a2, int a3)

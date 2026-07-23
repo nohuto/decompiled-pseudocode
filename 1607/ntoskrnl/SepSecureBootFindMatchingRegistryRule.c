@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSecureBootFindMatchingRegistryRule @ 0x1406941C4
+ * XREFs of SepSecureBootFindMatchingRegistryRule @ 0x1406942A8
  * Callers:
- *     SeQuerySecureBootPolicyValue @ 0x1405816DC (SeQuerySecureBootPolicyValue.c)
+ *     SeQuerySecureBootPolicyValue @ 0x140581B88 (SeQuerySecureBootPolicyValue.c)
  * Callees:
- *     SepEqualAsciiWideStringCaseInSensitive @ 0x140693F68 (SepEqualAsciiWideStringCaseInSensitive.c)
+ *     SepEqualAsciiWideStringCaseInSensitive @ 0x14069404C (SepEqualAsciiWideStringCaseInSensitive.c)
  */
 
 _DWORD *__fastcall SepSecureBootFindMatchingRegistryRule(__int64 a1, unsigned __int16 *a2, unsigned __int16 *a3)
@@ -17,7 +17,7 @@ _DWORD *__fastcall SepSecureBootFindMatchingRegistryRule(__int64 a1, unsigned __
   unsigned __int16 *v12; // [rsp+28h] [rbp-10h]
 
   v4 = (_DWORD *)qword_1403581B8;
-  v6 = qword_1403581B8 + 16LL * *((unsigned __int16 *)qword_140341C00 + 19);
+  v6 = qword_1403581B8 + 16LL * *((unsigned __int16 *)qword_140341C48 + 19);
   while ( 1 )
   {
     if ( (unsigned __int64)v4 >= v6 )

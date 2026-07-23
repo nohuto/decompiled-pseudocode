@@ -63,7 +63,7 @@
  * 000000014040FDAF: test    byte ptr [rbp+0F0h], 1
  * 000000014040FDB6: jz      short loc_14040FDBD
  * 000000014040FDB8: call    KiUmsExceptionEntry
- * 000000014040FDBD: lea     rax, [rsp+1D8h+var_A0]
+ * 000000014040FDBD: lea     rax, [rsp+1D8h+ExceptionRecord]
  * 000000014040FDC5: mov     [rax], ecx
  * 000000014040FDC7: xor     ecx, ecx
  * 000000014040FDC9: mov     [rax+4], ecx
@@ -75,10 +75,10 @@
  * 000000014040FDDF: mov     [rax+30h], r11
  * 000000014040FDE3: mov     r9b, [rbp+0F0h]
  * 000000014040FDEA: and     r9b, 1
- * 000000014040FDEE: mov     [rsp+1D8h+var_1B8], 1
+ * 000000014040FDEE: mov     [rsp+1D8h+var_1B8], 1; char
  * 000000014040FDF3: lea     r8, [rbp-80h]
  * 000000014040FDF7: mov     rdx, rsp
- * 000000014040FDFA: mov     rcx, rax
+ * 000000014040FDFA: mov     rcx, rax; ExceptionRecord
  * 000000014040FDFD: jnz     short loc_14040FE67
  * 000000014040FDFF: mov     r10, cr8
  * 000000014040FE03: mov     r11, 2

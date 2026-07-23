@@ -30,7 +30,7 @@ __int64 __fastcall VfAddVerifierEntry(const void **String2)
   int v11; // [rsp+48h] [rbp+10h] BYREF
 
   DestinationString = 0LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     v2 = -1073738742;
   }

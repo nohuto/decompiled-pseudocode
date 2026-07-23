@@ -1,24 +1,24 @@
 /*
  * XREFs of PopScanIdleList @ 0x140010050
  * Callers:
- *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
+ *     PopPolicySystemIdle @ 0x1405B14E0 (PopPolicySystemIdle.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     PopGetPowerSettingValue @ 0x140003B10 (PopGetPowerSettingValue.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     PopDiagTraceEventNoPayload @ 0x140135A60 (PopDiagTraceEventNoPayload.c)
- *     PopRequestPowerIrp @ 0x140172560 (PopRequestPowerIrp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCoalescingCheck @ 0x1402DB82C (PopCoalescingCheck.c)
- *     PopDiagTraceDiskIdleCheck @ 0x1402E0188 (PopDiagTraceDiskIdleCheck.c)
- *     PopDiagTraceIoCoalescingDiskIdle @ 0x1402E1930 (PopDiagTraceIoCoalescingDiskIdle.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     PopDiagTraceEventNoPayload @ 0x140135B30 (PopDiagTraceEventNoPayload.c)
+ *     PopRequestPowerIrp @ 0x140172660 (PopRequestPowerIrp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCoalescingCheck @ 0x1402DBA1C (PopCoalescingCheck.c)
+ *     PopDiagTraceDiskIdleCheck @ 0x1402E0378 (PopDiagTraceDiskIdleCheck.c)
+ *     PopDiagTraceIoCoalescingDiskIdle @ 0x1402E1B20 (PopDiagTraceIoCoalescingDiskIdle.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValue @ 0x14058C338 (PopSetPowerSettingValue.c)
  */
 
 __int64 __fastcall PopScanIdleList()
@@ -93,8 +93,8 @@ __int64 __fastcall PopScanIdleList()
   char *v68; // [rsp+138h] [rbp+30h]
   __int64 v69; // [rsp+140h] [rbp+38h]
 
-  v1 = dword_1404180E8;
-  v42 = dword_1404180E4;
+  v1 = dword_1404191A8;
+  v42 = dword_1404191A4;
   LOBYTE(v0) = 0;
   v2 = 0;
   Src = 0;
@@ -102,10 +102,10 @@ __int64 __fastcall PopScanIdleList()
   v39 = 0;
   v40 = *((_DWORD *)PopPolicy + 53);
   v41 = PopCurrentCoalescingSpindownTimeout;
-  v45 = dword_1404180E8;
+  v45 = dword_1404191A8;
   v3 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
   v36 = v3;
-  if ( !byte_14043C524 )
+  if ( !byte_14043D5E4 )
   {
     PopDiagTraceEventNoPayload(&POP_ETW_EVENT_DEVICE_IDLE_START);
     v4 = (__int64 *)PopIdleDetectList;
@@ -179,7 +179,7 @@ __int64 __fastcall PopScanIdleList()
           {
             *((_DWORD *)v12 + 3) = 0;
             v24 = *((_DWORD *)v12 + 13);
-            ++dword_14043C520;
+            ++dword_14043D5E0;
             *((_DWORD *)v12 + 14) = v24;
           }
         }
@@ -265,9 +265,9 @@ __int64 __fastcall PopScanIdleList()
       v6 = --PopIdleBackgroundIgnoreCount;
     if ( PopBackgroundTaskIgnoreCount )
       --PopBackgroundTaskIgnoreCount;
-    v7 = dword_140417648 % (unsigned int)PopIdleScanInterval;
-    v8 = dword_140417648 / (unsigned int)PopIdleScanInterval;
-    if ( dword_14041764C )
+    v7 = dword_1404186C8 % (unsigned int)PopIdleScanInterval;
+    v8 = dword_1404186C8 / (unsigned int)PopIdleScanInterval;
+    if ( dword_1404186CC )
     {
       v7 = (PopIdleScanInterval + 179) % (unsigned int)PopIdleScanInterval;
       v9 = (PopIdleScanInterval + 179) / (unsigned int)PopIdleScanInterval;
@@ -281,7 +281,7 @@ __int64 __fastcall PopScanIdleList()
 LABEL_11:
         if ( !v2 || (_BYTE)v0 )
         {
-          if ( !v6 && !dword_1404180CC )
+          if ( !v6 && !dword_14041918C )
           {
             PopGetPowerSettingValue((__int64)&GUID_IDLE_BACKGROUND_TASK, v7, 3u, &Src, (__int64)ActivityId, &v46);
             ++Src;
@@ -289,7 +289,7 @@ LABEL_11:
             v7 = (PopIdleScanInterval + 59) % (unsigned int)PopIdleScanInterval;
             PopIdleBackgroundIgnoreCount = (PopIdleScanInterval + 59) / (unsigned int)PopIdleScanInterval;
           }
-          if ( PopBackgroundTaskAllowed && PopSIdle >= 50 && !PopBackgroundTaskIgnoreCount && !dword_1404180CC )
+          if ( PopBackgroundTaskAllowed && PopSIdle >= 50 && !PopBackgroundTaskIgnoreCount && !dword_14041918C )
           {
             PopGetPowerSettingValue((__int64)&GUID_BACKGROUND_TASK_NOTIFICATION, v7, 0, &Src, (__int64)ActivityId, &v46);
             ++Src;

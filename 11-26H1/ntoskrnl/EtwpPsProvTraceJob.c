@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPsProvTraceJob @ 0x140A77D98
+ * XREFs of EtwpPsProvTraceJob @ 0x140A07FA4
  * Callers:
- *     EtwTraceJob @ 0x140A77CC8 (EtwTraceJob.c)
+ *     EtwTraceJob @ 0x140A07238 (EtwTraceJob.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceJob(__int64 a1, int a2, __int16 a3)
@@ -35,5 +35,5 @@ NTSTATUS __fastcall EtwpPsProvTraceJob(__int64 a1, int a2, __int16 a3)
   v6 = a1 + 1468;
   v8 = &v10;
   v9 = 4LL;
-  return EtwWrite(EtwpPsProvRegHandle, v3, 0LL, 3u, &UserData);
+  return EtwWrite((REGHANDLE)stru_140F03830.Affinity, v3, 0LL, 3u, &UserData);
 }

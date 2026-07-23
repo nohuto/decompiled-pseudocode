@@ -1,17 +1,27 @@
 /*
  * XREFs of ZwFsControlFile @ 0x1800A6B40
  * Callers:
- *     RtlpReferenceCurrentDirectory @ 0x18007936C (RtlpReferenceCurrentDirectory.c)
- *     RtlUnlockBootStatusData @ 0x1800898D0 (RtlUnlockBootStatusData.c)
+ *     RtlpReferenceCurrentDirectory @ 0x18007935C (RtlpReferenceCurrentDirectory.c)
+ *     RtlUnlockBootStatusData @ 0x1800898C0 (RtlUnlockBootStatusData.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwFsControlFile()
+NTSTATUS __cdecl ZwFsControlFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG FsControlCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 57LL;
+  result = 57;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,29 +1,29 @@
 /*
- * XREFs of CcDeleteSharedCacheMap @ 0x140299FC0
+ * XREFs of CcDeleteSharedCacheMap @ 0x14029A250
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
- *     CcWriteBehindPostProcess @ 0x14029B038 (CcWriteBehindPostProcess.c)
- *     CcUninitializeCacheMap @ 0x14029BC40 (CcUninitializeCacheMap.c)
- *     CcDeleteSectionsForPartition @ 0x140538F54 (CcDeleteSectionsForPartition.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
+ *     CcWriteBehindPostProcess @ 0x14029B2C8 (CcWriteBehindPostProcess.c)
+ *     CcUninitializeCacheMap @ 0x14029BED0 (CcUninitializeCacheMap.c)
+ *     CcDeleteSectionsForPartition @ 0x1405394A4 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementVolumeUseCountWithDelete @ 0x140299DE0 (CcDecrementVolumeUseCountWithDelete.c)
- *     CcUnmapAndPurge @ 0x140299F38 (CcUnmapAndPurge.c)
- *     ObFastReplaceObject @ 0x14029A578 (ObFastReplaceObject.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x14029A5DC (CcDecrementPrivateVolumeUseCount.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     CcDeleteMbcb @ 0x1402F3E04 (CcDeleteMbcb.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     CcPostPVCMForDeleteToPartition @ 0x1403C4410 (CcPostPVCMForDeleteToPartition.c)
- *     CcDeleteBcbs @ 0x1403C6668 (CcDeleteBcbs.c)
- *     CcFreeSharedCacheMapIgnoreNull @ 0x14040FA90 (CcFreeSharedCacheMapIgnoreNull.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlReleaseFile @ 0x140723910 (FsRtlReleaseFile.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x14029A070 (CcDecrementVolumeUseCountWithDelete.c)
+ *     CcUnmapAndPurge @ 0x14029A1C8 (CcUnmapAndPurge.c)
+ *     ObFastReplaceObject @ 0x14029A808 (ObFastReplaceObject.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x14029A86C (CcDecrementPrivateVolumeUseCount.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcDeleteMbcb @ 0x1402F4094 (CcDeleteMbcb.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1403C45F0 (CcPostPVCMForDeleteToPartition.c)
+ *     CcDeleteBcbs @ 0x1403C6848 (CcDeleteBcbs.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x14040FC70 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     FsRtlReleaseFile @ 0x140723B10 (FsRtlReleaseFile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -159,10 +159,13 @@ LABEL_87:
 LABEL_30:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)a3);
   v25 = *(unsigned __int8 *)(a3 + 16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v25 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v25 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -178,10 +181,10 @@ LABEL_30:
   {
     KxReleaseQueuedSpinLock(LockHandle);
     v31 = *((unsigned __int8 *)LockHandle + 16);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v31 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v31 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;
@@ -235,10 +238,10 @@ LABEL_30:
     ++CcSectionDeletionSequencePhase2;
     KxReleaseQueuedSpinLock(LockHandle);
     v42 = *((unsigned __int8 *)LockHandle + 16);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v43 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v42 <= 0xFu && v43 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v42 <= 0xFu && v43 >= 2u )
       {
         v44 = KeGetCurrentPrcb();
         v45 = v44->SchedulerAssist;

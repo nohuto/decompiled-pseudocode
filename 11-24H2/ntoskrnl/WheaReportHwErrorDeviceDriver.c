@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaReportHwErrorDeviceDriver @ 0x1407C7110
+ * XREFs of WheaReportHwErrorDeviceDriver @ 0x1407C75B0
  * Callers:
  *     <none>
  * Callees:
- *     WheaReportHwErrorDeviceDriverEx @ 0x14065C4F0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14065AC10 (WheaReportHwErrorDeviceDriverEx.c)
  */
 
 __int64 __fastcall WheaReportHwErrorDeviceDriver(

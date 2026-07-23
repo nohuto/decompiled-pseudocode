@@ -1,10 +1,10 @@
 /*
- * XREFs of PspJobDeleteStorageArrays @ 0x14067F464
+ * XREFs of PspJobDeleteStorageArrays @ 0x1405D9F04
  * Callers:
- *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     PspJobDelete @ 0x1402046D0 (PspJobDelete.c)
  * Callees:
- *     PspFreeStorage @ 0x14090EDD8 (PspFreeStorage.c)
- *     PspStorageEmptyArray @ 0x14090EEB4 (PspStorageEmptyArray.c)
+ *     PspFreeStorage @ 0x14090EF38 (PspFreeStorage.c)
+ *     PspStorageEmptyArray @ 0x14090F014 (PspStorageEmptyArray.c)
  */
 
 __int64 __fastcall PspJobDeleteStorageArrays(__int64 a1)

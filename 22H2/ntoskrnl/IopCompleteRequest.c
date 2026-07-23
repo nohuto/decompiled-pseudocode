@@ -43,7 +43,7 @@
 
 void __fastcall IopCompleteRequest(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR *a4, _QWORD *a5)
 {
-  struct _SLIST_ENTRY *v6; // r14
+  _SLIST_ENTRY *v6; // r14
   ULONG_PTR v7; // rsi
   int v8; // eax
   unsigned __int64 v9; // r12
@@ -115,13 +115,13 @@ void __fastcall IopCompleteRequest(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR
   char v75; // al
   struct _KTHREAD *CurrentThread; // [rsp+48h] [rbp-70h]
   __int64 v77; // [rsp+50h] [rbp-68h]
-  struct _SLIST_ENTRY *v78; // [rsp+58h] [rbp-60h]
+  _SLIST_ENTRY *v78; // [rsp+58h] [rbp-60h]
   void *retaddr; // [rsp+B8h] [rbp+0h]
   char v80; // [rsp+C0h] [rbp+8h]
   struct _DMA_ADAPTER *Object; // [rsp+D8h] [rbp+20h]
 
-  v6 = (struct _SLIST_ENTRY *)(a1 - 120);
-  v78 = (struct _SLIST_ENTRY *)(a1 - 120);
+  v6 = (_SLIST_ENTRY *)(a1 - 120);
+  v78 = (_SLIST_ENTRY *)(a1 - 120);
   CurrentThread = KeGetCurrentThread();
   v7 = *a4;
   if ( !a3 || (v80 = 1, *a3 != 1LL) )

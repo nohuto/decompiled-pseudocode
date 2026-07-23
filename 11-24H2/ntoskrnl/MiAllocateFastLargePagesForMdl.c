@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAllocateFastLargePagesForMdl @ 0x1403A7798
+ * XREFs of MiAllocateFastLargePagesForMdl @ 0x14026EEC8
  * Callers:
- *     MiFindPagesForMdl @ 0x140412AB4 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x140394EF4 (MiFindPagesForMdl.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiInsertDpcGang @ 0x1403A7B20 (MiInsertDpcGang.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
- *     MiInitializeDpcGang @ 0x1403A80A0 (MiInitializeDpcGang.c)
- *     MiStartDpcGang @ 0x1403A875C (MiStartDpcGang.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MiInsertDpcGang @ 0x14026F250 (MiInsertDpcGang.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeDpcGang @ 0x14026F77C (MiInitializeDpcGang.c)
+ *     MiStartDpcGang @ 0x140270670 (MiStartDpcGang.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned int a2, char a3)
+__int64 __fastcall MiAllocateFastLargePagesForMdl(unsigned __int64 *a1, unsigned int a2, char a3)
 {
   __int64 v4; // rbx
-  __int64 v6; // rsi
+  unsigned __int64 v6; // rsi
   int v7; // eax
   int v8; // edx
   unsigned __int64 v9; // r13
@@ -47,7 +47,7 @@ __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned int a2, 
   int v35; // [rsp+44h] [rbp-BCh]
   __int64 v36; // [rsp+48h] [rbp-B8h]
   __int128 v37; // [rsp+50h] [rbp-B0h]
-  __int64 *v38; // [rsp+60h] [rbp-A0h]
+  unsigned __int64 *v38; // [rsp+60h] [rbp-A0h]
   unsigned __int64 v39; // [rsp+68h] [rbp-98h]
   _QWORD *v40; // [rsp+70h] [rbp-90h]
   ULONG_PTR BugCheckParameter2[23]; // [rsp+80h] [rbp-80h] BYREF
@@ -104,9 +104,9 @@ __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned int a2, 
   v35 = v8;
   while ( 1 )
   {
-    v14 = qword_140E2EBF0;
+    v14 = qword_140E2ED30;
     result = *a1;
-    if ( (unsigned __int64)a1[2] < *(_QWORD *)(*a1 + 18504) )
+    if ( a1[2] < *(_QWORD *)(*a1 + 18504) )
       return result;
     v16 = v43;
     v17 = 4LL;
@@ -122,11 +122,11 @@ __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned int a2, 
     result = MiAllocateLargeZeroPages(v33);
     if ( !v39 )
       return result;
-    if ( v14 == qword_140E2EBF0 )
+    if ( v14 == qword_140E2ED30 )
     {
       v19 = 0LL;
       v20 = 4;
-      v21 = (unsigned int *)(*(_QWORD *)(384 * v4 + qword_140E2DAF8 + 376) + 128LL);
+      v21 = (unsigned int *)(*(_QWORD *)(384 * v4 + qword_140E2DC38 + 376) + 128LL);
       while ( 1 )
       {
         v22 = (__int64 *)*((_QWORD *)v21 + 6);

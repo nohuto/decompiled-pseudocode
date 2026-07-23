@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpDereferenceNamedObject @ 0x1403C1AC8
+ * XREFs of ObpDereferenceNamedObject @ 0x1403B0688
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403C3480 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     ObpDeleteNameCheck @ 0x14089B690 (ObpDeleteNameCheck.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403B2040 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     ObpDeleteNameCheck @ 0x1408A3D30 (ObpDeleteNameCheck.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
  */
 
 signed __int64 __fastcall ObpDereferenceNamedObject(__int64 a1)

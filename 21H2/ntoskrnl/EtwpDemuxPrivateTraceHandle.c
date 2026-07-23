@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpDemuxPrivateTraceHandle @ 0x14093F01C
+ * XREFs of EtwpDemuxPrivateTraceHandle @ 0x14093F1EC
  * Callers:
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     PidNodeCompare @ 0x14093F920 (PidNodeCompare.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PidNodeCompare @ 0x14093FAF0 (PidNodeCompare.c)
  */
 
 __int64 __fastcall EtwpDemuxPrivateTraceHandle(__int64 a1, __int64 a2, _WORD *a3)
@@ -26,7 +26,10 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(__int64 a1, __int64 a2, _WORD *a3
   unsigned __int64 v15; // rax
   __int64 **v16; // rbx
   __int64 *i; // rax
-  int v18; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  int v21; // [rsp+48h] [rbp+10h] BYREF
 
   v4 = a2;
   v5 = a1;
@@ -38,7 +41,7 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(__int64 a1, __int64 a2, _WORD *a3
     v9 = v7 + 4096;
     ExAcquirePushLockExclusiveEx(v7 + 4096, 0LL);
     v10 = v7 + 4080;
-    v18 = v5;
+    v21 = v5;
     v11 = *(_QWORD *)(v7 + 4080);
     v12 = 0;
     if ( (*(_BYTE *)(v10 + 8) & 1) != 0 )
@@ -53,7 +56,7 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(__int64 a1, __int64 a2, _WORD *a3
     {
       do
       {
-        v14 = PidNodeCompare(&v18, v11);
+        v14 = PidNodeCompare(&v21, v11);
         if ( v14 >= 0 )
         {
           if ( v14 <= 0 )
@@ -86,7 +89,7 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(__int64 a1, __int64 a2, _WORD *a3
     v12 = -1073741162;
 LABEL_23:
     ExReleasePushLockEx(v9, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
     return v12;
   }
   else

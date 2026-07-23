@@ -1,20 +1,20 @@
 /*
- * XREFs of PoEnergyContextUpdateComponentPower @ 0x140603FCC
+ * XREFs of PoEnergyContextUpdateComponentPower @ 0x140604FCC
  * Callers:
- *     PsUpdateComponentPower @ 0x14008F910 (PsUpdateComponentPower.c)
- *     NtSetThreadExecutionState @ 0x1405872F0 (NtSetThreadExecutionState.c)
- *     PopProcessDisplayRequiredChange @ 0x1405886FC (PopProcessDisplayRequiredChange.c)
+ *     PsUpdateComponentPower @ 0x14008F830 (PsUpdateComponentPower.c)
+ *     NtSetThreadExecutionState @ 0x1405882F0 (NtSetThreadExecutionState.c)
+ *     PopProcessDisplayRequiredChange @ 0x1405896FC (PopProcessDisplayRequiredChange.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     RtlTimelineBitmapUpdate @ 0x14008FA24 (RtlTimelineBitmapUpdate.c)
- *     RtlStateDurationUpdate @ 0x14008FD7C (RtlStateDurationUpdate.c)
- *     KeQueryTimelineBitmapTime @ 0x1400ACF90 (KeQueryTimelineBitmapTime.c)
- *     RtlTimelineBitmapUpdateRange @ 0x14011ED98 (RtlTimelineBitmapUpdateRange.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopEtEnergyContextSetState @ 0x14060464C (PopEtEnergyContextSetState.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1406069F0 (PopEtEnergyContextProcessStateUpdate.c)
+ *     RtlTimelineBitmapUpdate @ 0x14008F944 (RtlTimelineBitmapUpdate.c)
+ *     RtlStateDurationUpdate @ 0x14008FCBC (RtlStateDurationUpdate.c)
+ *     KeQueryTimelineBitmapTime @ 0x1400ACED0 (KeQueryTimelineBitmapTime.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x14011EE08 (RtlTimelineBitmapUpdateRange.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopEtEnergyContextSetState @ 0x14060564C (PopEtEnergyContextSetState.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1406079F0 (PopEtEnergyContextProcessStateUpdate.c)
  */
 
 void __fastcall PoEnergyContextUpdateComponentPower(__int64 a1, int a2, unsigned __int64 a3)

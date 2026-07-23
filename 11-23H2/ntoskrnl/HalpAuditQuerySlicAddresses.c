@@ -3,8 +3,8 @@
  * Callers:
  *     HalpAuditAcpiTables @ 0x140B65A08 (HalpAuditAcpiTables.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

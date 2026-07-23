@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerRequestFindEntryById @ 0x140589950
+ * XREFs of PopPowerRequestFindEntryById @ 0x14058A950
  * Callers:
  *     PopProcessPowerRequestOverrideQueryResponse @ 0x14000327C (PopProcessPowerRequestOverrideQueryResponse.c)
  * Callees:

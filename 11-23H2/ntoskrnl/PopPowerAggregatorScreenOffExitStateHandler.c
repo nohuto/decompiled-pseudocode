@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x140993EA0
+ * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x1409940A0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140877CD4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
- *     PopPdcAreAllPhasesDisengaged @ 0x140883998 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140877F14 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x140883BD8 (PopPdcAreAllPhasesDisengaged.c)
  */
 
-__int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
+__int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(LARGE_INTEGER *a1)
 {
   char v2; // bl
   _OWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( *(_QWORD *)(a1 + 64) == *(_QWORD *)(a1 + 32) )
+  if ( a1[8].QuadPart == a1[4].QuadPart )
   {
     PopReleaseRwLock(&PopPowerAggregatorLock);
     v2 = PopPdcAreAllPhasesDisengaged();
@@ -29,7 +29,7 @@ __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
   }
   else
   {
-    PopPowerAggregatorEnterScreenOff(a1);
+    PopPowerAggregatorEnterScreenOff((__int64)a1);
   }
   return 0LL;
 }

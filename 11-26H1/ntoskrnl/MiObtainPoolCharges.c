@@ -1,13 +1,13 @@
 /*
- * XREFs of MiObtainPoolCharges @ 0x140366384
+ * XREFs of MiObtainPoolCharges @ 0x140368124
  * Callers:
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
- *     MiGetLargePoolPages @ 0x1403C7CA8 (MiGetLargePoolPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
+ *     MiGetLargePoolPages @ 0x1403D1B98 (MiGetLargePoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiObtainPoolCharges(unsigned __int64 a1, int a2)
@@ -17,7 +17,7 @@ __int64 __fastcall MiObtainPoolCharges(unsigned __int64 a1, int a2)
   unsigned __int32 v6; // ett
   volatile signed __int64 *p_Dpc; // rax
 
-  if ( !qword_140E3D858 )
+  if ( !qword_140E3D9D8 )
     return 1LL;
   if ( (unsigned int)MiChargeCommit(&MiSystemPartition, a1, 1u) )
   {
@@ -39,9 +39,9 @@ __int64 __fastcall MiObtainPoolCharges(unsigned __int64 a1, int a2)
       return 0LL;
     }
 LABEL_7:
-    p_Dpc = (volatile signed __int64 *)&stru_140E36558.Timer.Dpc;
+    p_Dpc = (volatile signed __int64 *)&stru_140E366D8.Timer.Dpc;
     if ( a2 )
-      p_Dpc = (volatile signed __int64 *)&stru_140E36558.Timer.Processor;
+      p_Dpc = (volatile signed __int64 *)&stru_140E366D8.Timer.Processor;
     _InterlockedAdd64(p_Dpc, a1);
     return 1LL;
   }

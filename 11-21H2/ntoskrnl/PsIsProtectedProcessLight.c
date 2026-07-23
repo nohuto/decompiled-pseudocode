@@ -1,7 +1,7 @@
 /*
  * XREFs of PsIsProtectedProcessLight @ 0x140242520
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     sub_14070BD10 @ 0x14070BD10 (sub_14070BD10.c)
  * Callees:
  *     <none>
  */

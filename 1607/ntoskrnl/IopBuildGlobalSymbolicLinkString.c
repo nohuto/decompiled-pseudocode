@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBuildGlobalSymbolicLinkString @ 0x1403F2484
+ * XREFs of IopBuildGlobalSymbolicLinkString @ 0x1403F1348
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1403F26A4 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1403F1568 (IopProcessSetInterfaceState.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopAllocateUnicodeString @ 0x1403F2594 (IopAllocateUnicodeString.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x1403F25E4 (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PnpUnicodeStringToWstrFree @ 0x140500F80 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140500FB4 (PnpUnicodeStringToWstr.c)
+ *     IopAllocateUnicodeString @ 0x1403F1458 (IopAllocateUnicodeString.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x1403F14A8 (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1404E3F10 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1404E3F44 (PnpUnicodeStringToWstr.c)
  */
 
 __int64 __fastcall IopBuildGlobalSymbolicLinkString(__int64 a1, UNICODE_STRING *a2)

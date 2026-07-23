@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpHeatRegisterVolume @ 0x14070D6DC
+ * XREFs of FsRtlpHeatRegisterVolume @ 0x14070B27C
  * Callers:
- *     FsRtlHeatInit @ 0x14070D410 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x14070AFB0 (FsRtlHeatInit.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     McTemplateK0jq_EtwWriteTransfer @ 0x140581F18 (McTemplateK0jq_EtwWriteTransfer.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14057F298 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned int *a3)
@@ -22,9 +22,9 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
   __int128 v12; // xmm0
   __int64 *v13; // rcx
   __int64 v14; // rdx
-  __int64 v16; // [rsp+20h] [rbp-28h]
+  void *ExplicitScope; // [rsp+20h] [rbp-28h]
 
-  ExAcquireResourceExclusiveLite(&stru_140F8E190, 1u);
+  ExAcquireResourceExclusiveLite(&stru_140F8E370, 1u);
   for ( i = (PVOID *)FsRtlTieringHeatData; i != &FsRtlTieringHeatData; i = (PVOID *)*i )
   {
     v7 = *(char **)((char *)i + 20) - *(_QWORD *)a1;
@@ -37,7 +37,7 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
       goto LABEL_21;
     }
   }
-  Pool2 = ExAllocatePool2(0x102uLL);
+  Pool2 = ExAllocatePool2(0x102uLL, 0x28uLL, 0x68745346u);
   if ( !Pool2 )
   {
     v9 = -1073741670;
@@ -79,15 +79,15 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
 LABEL_21:
   v9 = 0;
 LABEL_22:
-  ExReleaseResourceLite(&stru_140F8E190);
+  ExReleaseResourceLite(&stru_140F8E370);
   if ( v9 >= 0 )
   {
     if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 1) != 0 )
     {
-      LODWORD(v16) = *a3;
-      McTemplateK0jq_EtwWriteTransfer(MS_StorageTiering_Provider_Context, v14, a2, a1, v16);
+      LODWORD(ExplicitScope) = *a3;
+      McTemplateK0jq_EtwWriteTransfer(MS_StorageTiering_Provider_Context, v14, a2, a1, (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetIptInfo @ 0x14039BE40
+ * XREFs of KiGetIptInfo @ 0x14039C020
  * Callers:
- *     KiInitializeXSave @ 0x140A8FF30 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x140A8FDB0 (KiInitializeXSave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HviGetIptFeatures @ 0x1406154EC (HviGetIptFeatures.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HviGetIptFeatures @ 0x140615A3C (HviGetIptFeatures.c)
  *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
  */
 

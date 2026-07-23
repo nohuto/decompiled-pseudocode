@@ -1,17 +1,17 @@
 /*
- * XREFs of Pdcv2ActivationClientRenewActivation @ 0x14078DB14
+ * XREFs of Pdcv2ActivationClientRenewActivation @ 0x14078DA44
  * Callers:
- *     PopAdaptiveStandbyActivatorCallback @ 0x1405DB0E0 (PopAdaptiveStandbyActivatorCallback.c)
- *     PopWin32kActivatorCallback @ 0x14074D2F0 (PopWin32kActivatorCallback.c)
+ *     PopAdaptiveStandbyActivatorCallback @ 0x1405D83C0 (PopAdaptiveStandbyActivatorCallback.c)
+ *     PopWin32kActivatorCallback @ 0x14074B620 (PopWin32kActivatorCallback.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     PdcPortSendMessageSynchronously @ 0x14048F5DC (PdcPortSendMessageSynchronously.c)
- *     PdcpResizeDiagnosticContext @ 0x1406075C0 (PdcpResizeDiagnosticContext.c)
- *     Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION @ 0x140607DA0 (Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     Pdcv2pValidateActivationParameters @ 0x1409EE374 (Pdcv2pValidateActivationParameters.c)
- *     PdcAcquireRwLockExclusive2 @ 0x140A4F154 (PdcAcquireRwLockExclusive2.c)
- *     PdcReleaseRwLockExclusive2 @ 0x140A5AF2C (PdcReleaseRwLockExclusive2.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     PdcPortSendMessageSynchronously @ 0x1404897EC (PdcPortSendMessageSynchronously.c)
+ *     PdcpResizeDiagnosticContext @ 0x140604BC8 (PdcpResizeDiagnosticContext.c)
+ *     Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION @ 0x1406053A8 (Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     Pdcv2pValidateActivationParameters @ 0x1409EBDB4 (Pdcv2pValidateActivationParameters.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x140A45F04 (PdcAcquireRwLockExclusive2.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x140A52844 (PdcReleaseRwLockExclusive2.c)
  */
 
 __int64 __fastcall Pdcv2ActivationClientRenewActivation(__int64 a1, __int64 a2, unsigned int *a3)

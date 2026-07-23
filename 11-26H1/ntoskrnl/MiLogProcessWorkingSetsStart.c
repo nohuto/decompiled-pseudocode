@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogProcessWorkingSetsStart @ 0x1404E17A4
+ * XREFs of MiLogProcessWorkingSetsStart @ 0x1404DAE84
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiGenerateCompatibleWorkingSetRequestFlags @ 0x1404E1974 (MiGenerateCompatibleWorkingSetRequestFlags.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiGenerateCompatibleWorkingSetRequestFlags @ 0x1404DB054 (MiGenerateCompatibleWorkingSetRequestFlags.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogProcessWorkingSetsStart(__int64 a1, __int64 a2, __int64 a3)
@@ -52,9 +52,9 @@ char __fastcall MiLogProcessWorkingSetsStart(__int64 a1, __int64 a2, __int64 a3)
   }
   v11 = *(_QWORD *)(v7 + 23248);
   v12 = *(_QWORD *)(v7 + 23456);
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    LOBYTE(CompatibleWorkingSetRequestFlags) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1LL);
+    LOBYTE(CompatibleWorkingSetRequestFlags) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1LL);
     if ( (_BYTE)CompatibleWorkingSetRequestFlags )
     {
       v22 = *v15;
@@ -89,7 +89,7 @@ char __fastcall MiLogProcessWorkingSetsStart(__int64 a1, __int64 a2, __int64 a3)
       v30[23] = 8LL;
       LOBYTE(CompatibleWorkingSetRequestFlags) = tlgWriteEx_EtwWriteEx(
                                                    v14,
-                                                   (int)&byte_140057E33,
+                                                   (int)&word_140058FF6,
                                                    v14,
                                                    v13,
                                                    v18,

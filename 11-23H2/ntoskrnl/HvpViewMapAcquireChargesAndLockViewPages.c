@@ -5,12 +5,12 @@
  * Callees:
  *     CmSiLockViewOfSection @ 0x140207D4C (CmSiLockViewOfSection.c)
  *     CmSiAcquireProcessLockedPagesCharge @ 0x140207D84 (CmSiAcquireProcessLockedPagesCharge.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9BBC (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9E4C (CmSiReleaseProcessLockedPagesCharge.c)
  */
 
-__int64 __fastcall HvpViewMapAcquireChargesAndLockViewPages(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapAcquireChargesAndLockViewPages(__int64 a1, void **a2, void *a3, ULONG_PTR a4)
 {
-  __int64 v7; // rcx
+  ULONG_PTR v7; // rcx
   int locked; // ebx
 
   locked = CmSiAcquireProcessLockedPagesCharge(a2, a4);

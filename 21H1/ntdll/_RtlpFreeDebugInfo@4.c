@@ -11,15 +11,19 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __fastcall RtlpFreeDebugInfo(char *a1)
+void __thiscall RtlpFreeDebugInfo(char *BaseAddress)
 {
-  if ( (unsigned __int16)dword_4B3A49C4 >= 0xAu && (a1 < RtlpStaticDebugInfo || a1 >= &RtlpForceCSDebugInfoCreation) )
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
-  RtlAcquireSRWLockExclusive((char *)&RtlpSlistLockedAltLocks + 4
-                                                              * (((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F));
-  *(_DWORD *)a1 = RtlCriticalSectionDebugSList;
-  LOWORD(dword_4B3A49C4) = dword_4B3A49C4 + 1;
-  RtlCriticalSectionDebugSList = (int)a1;
-  return RtlReleaseSRWLockExclusive((char *)&RtlpSlistLockedAltLocks + 4
-                                                                     * (((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F));
+  if ( (unsigned __int16)dword_4B3A49C4 < 0xAu
+    || BaseAddress >= RtlpStaticDebugInfo && BaseAddress < &RtlpForceCSDebugInfoCreation )
+  {
+    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F));
+    *(_DWORD *)BaseAddress = RtlCriticalSectionDebugSList;
+    LOWORD(dword_4B3A49C4) = dword_4B3A49C4 + 1;
+    RtlCriticalSectionDebugSList = (int)BaseAddress;
+    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F));
+  }
+  else
+  {
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+  }
 }

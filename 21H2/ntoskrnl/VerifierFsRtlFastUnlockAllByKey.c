@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierFsRtlFastUnlockAllByKey @ 0x1409D2140
+ * XREFs of VerifierFsRtlFastUnlockAllByKey @ 0x1409D3140
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierFsRtlFastUnlockAllByKey(__int64 a1)

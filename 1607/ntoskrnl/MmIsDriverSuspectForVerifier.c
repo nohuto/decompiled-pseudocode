@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
  *     ViIsDriverSuspectForVerifier @ 0x1406FE3EC (ViIsDriverSuspectForVerifier.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
  */

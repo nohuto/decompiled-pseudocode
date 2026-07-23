@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeKsrSupport @ 0x140C3E954
+ * XREFs of EtwpInitializeKsrSupport @ 0x140C40AA4
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x1404B3D50 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x140A64310 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x1404AE560 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x140A5CC10 (ExCreateCallback.c)
  */
 
 NTSTATUS EtwpInitializeKsrSupport()

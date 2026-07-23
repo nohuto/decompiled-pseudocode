@@ -1,16 +1,16 @@
 /*
- * XREFs of KeOrAffinityEx @ 0x1400968D0
+ * XREFs of KeOrAffinityEx @ 0x1400960D0
  * Callers:
- *     KeQueryLogicalProcessorRelationship @ 0x14007D290 (KeQueryLogicalProcessorRelationship.c)
- *     KiForwardTick @ 0x1400D89C0 (KiForwardTick.c)
- *     PpmPerfApplyProcessorStates @ 0x14012F1C0 (PpmPerfApplyProcessorStates.c)
- *     KiStartProfileTarget @ 0x1401D7154 (KiStartProfileTarget.c)
- *     PpmUpdateProcessorPolicy @ 0x1405454EC (PpmUpdateProcessorPolicy.c)
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x140569DD0 (PpmCheckInitProcessors.c)
- *     PpmHeteroDetectFavoredCores @ 0x14056A874 (PpmHeteroDetectFavoredCores.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x14007D310 (KeQueryLogicalProcessorRelationship.c)
+ *     KiForwardTick @ 0x1400D6860 (KiForwardTick.c)
+ *     PpmPerfApplyProcessorStates @ 0x14012F730 (PpmPerfApplyProcessorStates.c)
+ *     KiStartProfileTarget @ 0x1401D6F80 (KiStartProfileTarget.c)
+ *     PpmUpdateProcessorPolicy @ 0x140545A2C (PpmUpdateProcessorPolicy.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x14056A310 (PpmCheckInitProcessors.c)
+ *     PpmHeteroDetectFavoredCores @ 0x14056ADB4 (PpmHeteroDetectFavoredCores.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeOrAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

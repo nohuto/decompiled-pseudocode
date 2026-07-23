@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReplicatePteChangeToProcess @ 0x14070BB80
+ * XREFs of MiReplicatePteChangeToProcess @ 0x140710830
  * Callers:
- *     MiReplicatePteChange @ 0x140528570 (MiReplicatePteChange.c)
+ *     MiReplicatePteChange @ 0x14052ABE0 (MiReplicatePteChange.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiShadowTopLevelPxes @ 0x1403422E0 (MiShadowTopLevelPxes.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE @ 0x1406F2468 (MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiShadowTopLevelPxes @ 0x140344360 (MiShadowTopLevelPxes.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE @ 0x1406F70D8 (MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE.c)
  */
 
 void __fastcall MiReplicatePteChangeToProcess(__int64 a1, ULONG_PTR a2)

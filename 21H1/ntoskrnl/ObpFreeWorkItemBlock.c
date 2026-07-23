@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObpFreeWorkItemBlock(struct _SLIST_ENTRY *P)
+__int64 __fastcall ObpFreeWorkItemBlock(_SLIST_ENTRY *P)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v3; // rdx

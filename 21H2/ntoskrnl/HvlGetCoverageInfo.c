@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlGetCoverageInfo @ 0x1404F19B0
+ * XREFs of HvlGetCoverageInfo @ 0x1404F1930
  * Callers:
- *     ExpCovQueryHypervisorInformation @ 0x140957570 (ExpCovQueryHypervisorInformation.c)
+ *     ExpCovQueryHypervisorInformation @ 0x140957740 (ExpCovQueryHypervisorInformation.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
  */
 
 char __fastcall HvlGetCoverageInfo(_OWORD *a1, __int64 a2, _DWORD *a3, _DWORD *a4)

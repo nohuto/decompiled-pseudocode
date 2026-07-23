@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlIsNotifyOnList @ 0x140A01FD0
+ * XREFs of FsRtlIsNotifyOnList @ 0x1409FEFA0
  * Callers:
- *     FsRtlNotifyFilterChangeDirectory @ 0x140A011F0 (FsRtlNotifyFilterChangeDirectory.c)
- *     FsRtlNotifyCleanup @ 0x140A01F30 (FsRtlNotifyCleanup.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x1409FE1C0 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyCleanup @ 0x1409FEF00 (FsRtlNotifyCleanup.c)
  * Callees:
  *     <none>
  */

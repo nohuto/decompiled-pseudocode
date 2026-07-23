@@ -1,21 +1,21 @@
 /*
- * XREFs of SshpSetCollectionActive @ 0x14057FE3C
+ * XREFs of SshpSetCollectionActive @ 0x14058007C
  * Callers:
- *     PdcPoSleepStudyHelperSetPhaseActive @ 0x1407D52A0 (PdcPoSleepStudyHelperSetPhaseActive.c)
- *     SshpPowerSettingCallback @ 0x1408FBAF0 (SshpPowerSettingCallback.c)
+ *     PdcPoSleepStudyHelperSetPhaseActive @ 0x1407D5410 (PdcPoSleepStudyHelperSetPhaseActive.c)
+ *     SshpPowerSettingCallback @ 0x1408FBC50 (SshpPowerSettingCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     SshpStopBlockerAccounting @ 0x14058011C (SshpStopBlockerAccounting.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x1407D5458 (CmpVolumeManagerLockContextListExclusive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     SshpStopBlockerAccounting @ 0x14058035C (SshpStopBlockerAccounting.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x1407D55C8 (CmpVolumeManagerLockContextListExclusive.c)
  */
 
 char __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
@@ -35,17 +35,15 @@ char __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
   struct _KTHREAD *CurrentThread; // rbx
   unsigned int SessionId; // edx
   unsigned __int8 v18; // bp
-  _DWORD *v19; // r9
-  unsigned int v20; // r8d
-  __int64 v21; // rdi
-  __int64 v22; // rcx
-  int v23; // eax
-  unsigned int v24; // ecx
-  __int64 v25; // rdx
-  $C459BD0D405E8E46662177FB3D0A143F *v26; // rax
-  __int64 v27; // rcx
-  int v29; // [rsp+70h] [rbp+8h] BYREF
-  int v30; // [rsp+78h] [rbp+10h]
+  unsigned int v19; // r8d
+  __int64 v20; // rdi
+  __int64 v21; // rcx
+  int v22; // eax
+  unsigned int v23; // ecx
+  __int64 v24; // rdx
+  $C459BD0D405E8E46662177FB3D0A143F *v25; // rax
+  int v27; // [rsp+70h] [rbp+8h] BYREF
+  int v28; // [rsp+78h] [rbp+10h]
 
   CmpVolumeManagerLockContextListExclusive();
   if ( *(_BYTE *)(BugCheckParameter2 + 8) != a2 )
@@ -94,7 +92,7 @@ char __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(BugCheckParameter2);
-  v29 = 0;
+  v27 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
     SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
@@ -102,56 +100,55 @@ char __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
     SessionId = -1;
   --CurrentThread->SpecialApcDisable;
   v18 = ++CurrentThread->AbAllocationRegionCount;
-  v19 = (_DWORD *)(BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL);
-  v20 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v19 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v15 = !_BitScanReverse((unsigned int *)&v22, v20);
-    v30 = v22;
+    v15 = !_BitScanReverse((unsigned int *)&v21, v19);
+    v28 = v21;
     if ( v15 )
       goto LABEL_30;
-    v21 = (__int64)&CurrentThread->LockEntries[v22];
-    v20 &= ~(1 << v22);
-    if ( (*(_BYTE *)(v21 + 26) & 1) != 0
-      && (*(_DWORD *)(v21 + 32) & 1) == 0
-      && (_DWORD *)(*(_QWORD *)(v21 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v19
-      && *(_DWORD *)(v21 + 40) == SessionId )
+    v20 = (__int64)&CurrentThread->LockEntries[v21];
+    v19 &= ~(1 << v21);
+    if ( (*(_BYTE *)(v20 + 26) & 1) != 0
+      && (*(_DWORD *)(v20 + 32) & 1) == 0
+      && (*(_QWORD *)(v20 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v20 + 40) == SessionId )
     {
-      *(_BYTE *)(v21 + 26) &= ~1u;
-      if ( *(_QWORD *)(v21 + 32) )
+      *(_BYTE *)(v20 + 26) &= ~1u;
+      if ( *(_QWORD *)(v20 + 32) )
         break;
     }
   }
-  if ( !v21 )
+  if ( !v20 )
   {
 LABEL_30:
     if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
       KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, SessionId, 0LL);
     goto LABEL_37;
   }
-  *(_BYTE *)(v21 + 32) |= 2u;
-  if ( *(__int64 *)(v21 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v21);
-  v23 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
-  v24 = *(_DWORD *)(v21 + 88) & 0xFFFE0000;
-  *(_BYTE *)(v21 + 25) &= ~1u;
-  v29 = v23;
-  *(_DWORD *)(v21 + 88) = v24;
-  *(_QWORD *)(v21 + 32) = 0LL;
-  v25 = (signed __int64)(v21 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  *(_BYTE *)(v20 + 32) |= 2u;
+  if ( *(__int64 *)(v20 + 32) < 0 )
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
+  v22 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
+  v23 = *(_DWORD *)(v20 + 88) & 0xFFFE0000;
+  *(_BYTE *)(v20 + 25) &= ~1u;
+  v27 = v22;
+  *(_DWORD *)(v20 + 88) = v23;
+  *(_QWORD *)(v20 + 32) = 0LL;
+  v24 = (signed __int64)(v20 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v18 == 1 )
-    CurrentThread->AbEntrySummary |= 1 << v25;
+    CurrentThread->AbEntrySummary |= 1 << v24;
   else
-    _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v25);
+    _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v24);
 LABEL_37:
   --CurrentThread->AbAllocationRegionCount;
-  LOBYTE(v26) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, BugCheckParameter2, (__int64)&v29, v19);
+  LOBYTE(v25) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, BugCheckParameter2, (unsigned int *)&v27);
   v15 = CurrentThread->SpecialApcDisable++ == -1;
   if ( v15 )
   {
-    v26 = &CurrentThread->152;
-    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v26->ApcState.ApcListHead[0].Flink != v26 )
-      LOBYTE(v26) = KiCheckForKernelApcDelivery(v27);
+    v25 = &CurrentThread->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v25->ApcState.ApcListHead[0].Flink != v25 )
+      LOBYTE(v25) = KiCheckForKernelApcDelivery();
   }
-  return (char)v26;
+  return (char)v25;
 }

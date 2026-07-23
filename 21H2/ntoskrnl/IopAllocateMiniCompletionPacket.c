@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAllocateMiniCompletionPacket @ 0x1406D4C3C
+ * XREFs of IopAllocateMiniCompletionPacket @ 0x1406ABF1C
  * Callers:
- *     NtReleaseWorkerFactoryWorker @ 0x140242B70 (NtReleaseWorkerFactoryWorker.c)
- *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
- *     IoSetIoCompletionEx @ 0x14028FFC0 (IoSetIoCompletionEx.c)
- *     IoAllocateMiniCompletionPacket @ 0x1406D4C00 (IoAllocateMiniCompletionPacket.c)
+ *     IoSetIoCompletionEx @ 0x14020DF30 (IoSetIoCompletionEx.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402E73C0 (NtReleaseWorkerFactoryWorker.c)
+ *     IoSetIoCompletionEx2 @ 0x1402EAA80 (IoSetIoCompletionEx2.c)
+ *     IoAllocateMiniCompletionPacket @ 0x1406ABEE0 (IoAllocateMiniCompletionPacket.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
  */
 
 _BYTE *__fastcall IopAllocateMiniCompletionPacket(char a1, char a2)

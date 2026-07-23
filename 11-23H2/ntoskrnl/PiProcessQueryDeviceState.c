@@ -1,23 +1,23 @@
 /*
- * XREFs of PiProcessQueryDeviceState @ 0x14079328C
+ * XREFs of PiProcessQueryDeviceState @ 0x14079347C
  * Callers:
- *     PipProcessStartPhase3 @ 0x14079B9C4 (PipProcessStartPhase3.c)
- *     PiProcessRequeryDeviceState @ 0x1408542F4 (PiProcessRequeryDeviceState.c)
+ *     PipProcessStartPhase3 @ 0x14079BBB4 (PipProcessStartPhase3.c)
+ *     PiProcessRequeryDeviceState @ 0x1408545F4 (PiProcessRequeryDeviceState.c)
  * Callees:
- *     PoFxActivateDevice @ 0x140322C44 (PoFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x140322F7C (PoFxIdleDevice.c)
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PnpCheckForActiveDependencies @ 0x1406CBCBC (PnpCheckForActiveDependencies.c)
- *     PiPnpRtlEndOperation @ 0x1407887CC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x1407889D0 (PiPnpRtlBeginOperation.c)
- *     PipSetDevNodeUserFlags @ 0x1407906BC (PipSetDevNodeUserFlags.c)
- *     PiUpdateGuestAssignedState @ 0x1407925C8 (PiUpdateGuestAssignedState.c)
- *     PipClearDevNodeUserFlags @ 0x1407933E0 (PipClearDevNodeUserFlags.c)
- *     IopQueryDeviceState @ 0x140793450 (IopQueryDeviceState.c)
- *     IopIncDisableableDepends @ 0x1407E6C5C (IopIncDisableableDepends.c)
- *     PnpRequestDeviceRemoval @ 0x1408673BC (PnpRequestDeviceRemoval.c)
- *     IopDecDisableableDepends @ 0x14096CCD0 (IopDecDisableableDepends.c)
- *     PiUpdateDeviceResourceLists @ 0x14096F20C (PiUpdateDeviceResourceLists.c)
+ *     PoFxActivateDevice @ 0x140322ED4 (PoFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14032320C (PoFxIdleDevice.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PnpCheckForActiveDependencies @ 0x1406CBCEC (PnpCheckForActiveDependencies.c)
+ *     PiPnpRtlEndOperation @ 0x1407889BC (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140788BC0 (PiPnpRtlBeginOperation.c)
+ *     PipSetDevNodeUserFlags @ 0x1407908AC (PipSetDevNodeUserFlags.c)
+ *     PiUpdateGuestAssignedState @ 0x1407927B8 (PiUpdateGuestAssignedState.c)
+ *     PipClearDevNodeUserFlags @ 0x1407935D0 (PipClearDevNodeUserFlags.c)
+ *     IopQueryDeviceState @ 0x140793640 (IopQueryDeviceState.c)
+ *     IopIncDisableableDepends @ 0x1407E6F2C (IopIncDisableableDepends.c)
+ *     PnpRequestDeviceRemoval @ 0x1408675FC (PnpRequestDeviceRemoval.c)
+ *     IopDecDisableableDepends @ 0x14096CED0 (IopDecDisableableDepends.c)
+ *     PiUpdateDeviceResourceLists @ 0x14096F40C (PiUpdateDeviceResourceLists.c)
  */
 
 __int64 __fastcall PiProcessQueryDeviceState(_QWORD *Object)

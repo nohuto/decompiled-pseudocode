@@ -8,7 +8,11 @@
  *     RtlGetControlSecurityDescriptor @ 0x14063EC50 (RtlGetControlSecurityDescriptor.c)
  */
 
-int __fastcall SepHasCriticalAcesRemoved(void *a1, void *a2, _BYTE *a3, _BYTE *a4)
+int __fastcall SepHasCriticalAcesRemoved(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSECURITY_DESCRIPTOR a2,
+        _BYTE *a3,
+        _BYTE *a4)
 {
   __int64 AclSize; // rax
   PACL v9; // r14
@@ -20,10 +24,10 @@ int __fastcall SepHasCriticalAcesRemoved(void *a1, void *a2, _BYTE *a3, _BYTE *a
   unsigned int v15; // r14d
   PACL v16; // rbx
   unsigned int i; // r13d
-  _WORD v19[2]; // [rsp+20h] [rbp-20h] BYREF
+  WORD Control[2]; // [rsp+20h] [rbp-20h] BYREF
   __int16 v20; // [rsp+24h] [rbp-1Ch]
   unsigned int v21; // [rsp+28h] [rbp-18h]
-  int v22; // [rsp+2Ch] [rbp-14h] BYREF
+  ULONG Revision; // [rsp+2Ch] [rbp-14h] BYREF
   PACL Dacl; // [rsp+30h] [rbp-10h] BYREF
   PACL v24; // [rsp+38h] [rbp-8h] BYREF
   BOOLEAN DaclPresent; // [rsp+90h] [rbp+50h] BYREF
@@ -32,11 +36,11 @@ int __fastcall SepHasCriticalAcesRemoved(void *a1, void *a2, _BYTE *a3, _BYTE *a
   Dacl = 0LL;
   v24 = 0LL;
   DaclPresent = 0;
-  v19[0] = 0;
+  Control[0] = 0;
   *a3 = 0;
   if ( a4 )
     *a4 = 0;
-  LODWORD(AclSize) = RtlGetDaclSecurityDescriptor(a1, &DaclPresent, &Dacl, (PBOOLEAN)&DaclDefaulted);
+  LODWORD(AclSize) = RtlGetDaclSecurityDescriptor(SecurityDescriptor, &DaclPresent, &Dacl, (PBOOLEAN)&DaclDefaulted);
   if ( (int)AclSize >= 0 )
   {
     if ( DaclPresent )
@@ -44,18 +48,18 @@ int __fastcall SepHasCriticalAcesRemoved(void *a1, void *a2, _BYTE *a3, _BYTE *a
       v9 = Dacl;
       if ( Dacl )
       {
-        LODWORD(AclSize) = RtlGetControlSecurityDescriptor(a1, v19, &v22);
+        LODWORD(AclSize) = RtlGetControlSecurityDescriptor(SecurityDescriptor, Control, &Revision);
         if ( (int)AclSize >= 0 )
         {
           DaclPresent = 0;
-          v20 = v19[0] & 0x400;
+          v20 = Control[0] & 0x400;
           RtlGetDaclSecurityDescriptor(a2, &DaclPresent, &v24, (PBOOLEAN)&DaclDefaulted);
-          RtlGetControlSecurityDescriptor(a2, v19, &v22);
+          RtlGetControlSecurityDescriptor(a2, Control, &Revision);
           v10 = v9 + 1;
-          v22 = 0;
+          Revision = 0;
           LODWORD(AclSize) = v9->AceCount;
-          DaclDefaulted = v19[0] & 0x400;
-          v19[0] &= 0x1000u;
+          DaclDefaulted = Control[0] & 0x400;
+          Control[0] &= 0x1000u;
           v21 = AclSize;
           if ( (_DWORD)AclSize )
           {
@@ -74,8 +78,8 @@ int __fastcall SepHasCriticalAcesRemoved(void *a1, void *a2, _BYTE *a3, _BYTE *a
               }
 LABEL_11:
               v10 = (PACL)((char *)v10 + v10->AclSize);
-              LODWORD(AclSize) = v22 + 1;
-              v22 = AclSize;
+              LODWORD(AclSize) = Revision + 1;
+              Revision = AclSize;
               if ( (unsigned int)AclSize >= v12 )
                 return AclSize;
             }
@@ -102,7 +106,7 @@ LABEL_11:
               }
             }
             *a3 = 1;
-            if ( a4 && v20 && v19[0] && DaclDefaulted )
+            if ( a4 && v20 && Control[0] && DaclDefaulted )
               *a4 = 1;
           }
         }

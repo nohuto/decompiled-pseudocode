@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpEventInitialization @ 0x1409DE9DC
+ * XREFs of ExpEventInitialization @ 0x1409DF9DC
  * Callers:
- *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x1409B1434 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectType @ 0x140729BB0 (ObCreateObjectType.c)
  */
 
 bool ExpEventInitialization()

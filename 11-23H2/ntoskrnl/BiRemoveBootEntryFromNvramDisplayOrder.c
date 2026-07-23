@@ -1,32 +1,32 @@
 /*
- * XREFs of BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5EC38
+ * XREFs of BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5EEE8
  * Callers:
- *     BiBindEfiEntries @ 0x1408037E8 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x140803AB8 (BiBindEfiEntries.c)
  * Callees:
- *     BiQueryBootEntryOrder @ 0x140806F2C (BiQueryBootEntryOrder.c)
- *     BiSetBootEntryOrder @ 0x140A5ECEC (BiSetBootEntryOrder.c)
+ *     BiQueryBootEntryOrder @ 0x1408071FC (BiQueryBootEntryOrder.c)
+ *     BiSetBootEntryOrder @ 0x140A5EF9C (BiSetBootEntryOrder.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiRemoveBootEntryFromNvramDisplayOrder(__int64 a1)
 {
   int v2; // eax
-  PVOID v3; // rbx
+  ULONG *v3; // rbx
   unsigned int v4; // ebp
   __int64 v5; // r8
-  unsigned int v6; // r9d
+  ULONG v6; // r9d
   _DWORD *v7; // rcx
-  __int64 v8; // rdx
+  ULONG v8; // edx
   _DWORD *v9; // rsi
   __int64 v10; // rcx
   _DWORD *v11; // rdi
-  unsigned int v13; // [rsp+48h] [rbp+10h] BYREF
+  ULONG v13; // [rsp+48h] [rbp+10h] BYREF
   PVOID P; // [rsp+50h] [rbp+18h] BYREF
 
   v13 = 0;
   P = 0LL;
-  v2 = BiQueryBootEntryOrder(&P, &v13);
-  v3 = P;
+  v2 = BiQueryBootEntryOrder((ULONG **)&P, &v13);
+  v3 = (ULONG *)P;
   v4 = v2;
   if ( v2 >= 0 )
   {
@@ -47,10 +47,10 @@ __int64 __fastcall BiRemoveBootEntryFromNvramDisplayOrder(__int64 a1)
     if ( (_DWORD)v5 != v13 )
     {
       v8 = v13 - 1;
-      if ( (unsigned int)v5 < (unsigned int)v8 )
+      if ( (unsigned int)v5 < v13 - 1 )
       {
         v9 = (char *)P + 4 * (unsigned int)(v5 + 1);
-        v10 = (unsigned int)(v8 - v5);
+        v10 = v8 - (unsigned int)v5;
         v11 = (char *)P + 4 * v5;
         while ( v10 )
         {
@@ -58,7 +58,7 @@ __int64 __fastcall BiRemoveBootEntryFromNvramDisplayOrder(__int64 a1)
           --v10;
         }
       }
-      if ( v6 != (_DWORD)v8 )
+      if ( v6 != v8 )
         v4 = BiSetBootEntryOrder(v3, v8);
     }
   }

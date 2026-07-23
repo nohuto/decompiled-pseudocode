@@ -1,15 +1,15 @@
 /*
- * XREFs of PopResizeHiberFile @ 0x14052EEAC
+ * XREFs of PopResizeHiberFile @ 0x14052F3EC
  * Callers:
- *     PopAdjustHiberFile @ 0x14052EA18 (PopAdjustHiberFile.c)
- *     PopEnlargeHiberFile @ 0x14052F134 (PopEnlargeHiberFile.c)
+ *     PopAdjustHiberFile @ 0x14052EF58 (PopAdjustHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x14052F674 (PopEnlargeHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     PopValidateHiberFileSize @ 0x14052EFE0 (PopValidateHiberFileSize.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140546D48 (FsRtlIssueFileNotificationFsctl.c)
- *     PopSanityCheckHiberFile @ 0x1405479CC (PopSanityCheckHiberFile.c)
- *     PopSetHiberFileMcb @ 0x1405483F4 (PopSetHiberFileMcb.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     PopValidateHiberFileSize @ 0x14052F520 (PopValidateHiberFileSize.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140547288 (FsRtlIssueFileNotificationFsctl.c)
+ *     PopSanityCheckHiberFile @ 0x140547F0C (PopSanityCheckHiberFile.c)
+ *     PopSetHiberFileMcb @ 0x140548934 (PopSetHiberFileMcb.c)
  */
 
 __int64 __fastcall PopResizeHiberFile(signed __int64 a1, _QWORD *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall PopResizeHiberFile(signed __int64 a1, _QWORD *a2)
 
   if ( !FileObject )
     goto LABEL_17;
-  if ( qword_140303590 == a1 )
+  if ( qword_1403034D0 == a1 )
   {
 LABEL_15:
     Status = 0;
@@ -72,7 +72,7 @@ LABEL_17:
         Status = PopSetHiberFileMcb(P, (unsigned int)NumberOfBytes);
         if ( Status >= 0 )
         {
-          qword_140303590 = v12;
+          qword_1403034D0 = v12;
           FsRtlIssueFileNotificationFsctl((PFILE_OBJECT)FileObject);
           goto LABEL_15;
         }
@@ -80,6 +80,6 @@ LABEL_17:
     }
   }
 LABEL_16:
-  *a2 = qword_140303590;
+  *a2 = qword_1403034D0;
   return (unsigned int)Status;
 }

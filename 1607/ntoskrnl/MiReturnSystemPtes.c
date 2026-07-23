@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnSystemPtes @ 0x1400C07D0
+ * XREFs of MiReturnSystemPtes @ 0x1400BE660
  * Callers:
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReplenishBitMap @ 0x140089320 (MiReplenishBitMap.c)
- *     MiAttemptCoalesce @ 0x1400C06A0 (MiAttemptCoalesce.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReplenishBitMap @ 0x140088A20 (MiReplenishBitMap.c)
+ *     MiAttemptCoalesce @ 0x1400BE530 (MiAttemptCoalesce.c)
  * Callees:
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiReturnSystemPtes(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpResizeBigPageTable @ 0x1403752C0
+ * XREFs of ExpResizeBigPageTable @ 0x140374E10
  * Callers:
- *     ExpAddTagForBigPages @ 0x14033BDC0 (ExpAddTagForBigPages.c)
- *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
+ *     ExpAddTagForBigPages @ 0x140346B10 (ExpAddTagForBigPages.c)
+ *     ExpResizeBigPageTable @ 0x140374E10 (ExpResizeBigPageTable.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
- *     ExAllocateHeapPages @ 0x1403756C8 (ExAllocateHeapPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     ExpResizeBigPageTable @ 0x140374E10 (ExpResizeBigPageTable.c)
+ *     ExAllocateHeapPages @ 0x140375218 (ExAllocateHeapPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)
@@ -51,7 +51,7 @@ __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)
   __int64 v34; // rax
   int v35; // ecx
   unsigned __int64 OldIrql; // rbx
-  __m128i *HeapFromVA; // rax
+  __int64 HeapFromVA; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -67,9 +67,9 @@ __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)
   v5 = a1 & 0x20;
   if ( v5 )
   {
-    v6 = *(_QWORD **)(qword_140C4DDE0 + 992);
-    v7 = (int *)(qword_140C4DDE0 + 864);
-    v8 = *(_QWORD *)(qword_140C4DDE0 + 1000);
+    v6 = *(_QWORD **)(qword_140C4DE20 + 992);
+    v7 = (int *)(qword_140C4DE20 + 864);
+    v8 = *(_QWORD *)(qword_140C4DE20 + 1000);
     if ( !PoolBigPageTableSize )
       return 0LL;
   }
@@ -147,7 +147,7 @@ __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)
       v17 = PoolBigPageTableSize - 1;
       goto LABEL_16;
     }
-    HeapFromVA = (__m128i *)ExGetHeapFromVA(v13);
+    HeapFromVA = ExGetHeapFromVA(v13);
     RtlpHpFreeHeap(HeapFromVA, v13, 0);
     return 0LL;
   }
@@ -174,8 +174,8 @@ LABEL_16:
   _InterlockedIncrement(&ExpPoolBigEntriesInUse);
   if ( v5 )
   {
-    *(_QWORD *)(qword_140C4DDE0 + 992) = v13;
-    *(_QWORD *)(qword_140C4DDE0 + 1000) = v9;
+    *(_QWORD *)(qword_140C4DE20 + 992) = v13;
+    *(_QWORD *)(qword_140C4DE20 + 1000) = v9;
   }
   else
   {

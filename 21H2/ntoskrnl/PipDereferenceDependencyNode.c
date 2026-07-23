@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDereferenceDependencyNode @ 0x14074CAC0
+ * XREFs of PipDereferenceDependencyNode @ 0x14074CC80
  * Callers:
- *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
- *     PipFreeDependencyEdge @ 0x14050C720 (PipFreeDependencyEdge.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     IoResolveDependency @ 0x1403BF8D0 (IoResolveDependency.c)
+ *     PipFreeDependencyEdge @ 0x14050C960 (PipFreeDependencyEdge.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B72C (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
- *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     PipDeleteDependencyNode @ 0x1407CD820 (PipDeleteDependencyNode.c)
  */
 
 __int64 __fastcall PipDereferenceDependencyNode(_DWORD *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpSetValueDataNew @ 0x140880B3C
+ * XREFs of CmpSetValueDataNew @ 0x1408849EC
  * Callers:
- *     CmpSetValueKeyExisting @ 0x14087FE74 (CmpSetValueKeyExisting.c)
- *     CmpCopyValue @ 0x1408816B4 (CmpCopyValue.c)
- *     CmpAddValueKeyNew @ 0x140881A60 (CmpAddValueKeyNew.c)
+ *     CmpSetValueKeyExisting @ 0x140883D24 (CmpSetValueKeyExisting.c)
+ *     CmpCopyValue @ 0x140885564 (CmpCopyValue.c)
+ *     CmpAddValueKeyNew @ 0x140885910 (CmpAddValueKeyNew.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1408822D8 (HvAllocateCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x140886188 (HvAllocateCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpSetValueDataNew(ULONG_PTR BugCheckParameter3, char *Src, size_t Size, int a4, _DWORD *a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiZeroVaToActiveEntry @ 0x14042DC28
+ * XREFs of MiZeroVaToActiveEntry @ 0x14041F958
  * Callers:
- *     MiTryZeroMemory @ 0x14020BD20 (MiTryZeroMemory.c)
- *     MiGetZeroExceptionInfo @ 0x14042DBA8 (MiGetZeroExceptionInfo.c)
+ *     MiTryZeroMemory @ 0x140331A60 (MiTryZeroMemory.c)
+ *     MiGetZeroExceptionInfo @ 0x14041F8D8 (MiGetZeroExceptionInfo.c)
  * Callees:
- *     MiGetZeroingContext @ 0x14042DCB0 (MiGetZeroingContext.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiGetZeroingContext @ 0x14041F9E0 (MiGetZeroingContext.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiZeroVaToActiveEntry(__int64 a1)

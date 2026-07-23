@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelpBuildHuffmanEncoding @ 0x140665DA0
+ * XREFs of AccelpBuildHuffmanEncoding @ 0x140664690
  * Callers:
- *     AccelCompressBuffer @ 0x1406656FC (AccelCompressBuffer.c)
+ *     AccelCompressBuffer @ 0x140663FEC (AccelCompressBuffer.c)
  * Callees:
- *     qsort @ 0x1404FED20 (qsort.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall AccelpBuildHuffmanEncoding(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceFileName @ 0x1403B8EE0
+ * XREFs of EtwpTraceFileName @ 0x1403B9050
  * Callers:
  *     <none>
  * Callees:
- *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
- *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
+ *     EtwTraceSiloKernelEvent @ 0x14027BDBC (EtwTraceSiloKernelEvent.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     PsGetThreadServerSilo @ 0x1402AAE70 (PsGetThreadServerSilo.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D74 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 void __fastcall EtwpTraceFileName(
@@ -38,7 +38,7 @@ void __fastcall EtwpTraceFileName(
   {
     ThreadServerSilo = *(_QWORD *)(a1 + 2160);
   }
-  else if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(0LL, a2) )
+  else if ( (unsigned int)KeIsExecutingInArbitraryThreadContext() )
   {
     ThreadServerSilo = 0LL;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpResizeBigPageTable @ 0x140440304
+ * XREFs of ExpResizeBigPageTable @ 0x1403E8ED4
  * Callers:
- *     ExpAddTagForBigPages @ 0x1402C4180 (ExpAddTagForBigPages.c)
+ *     ExpAddTagForBigPages @ 0x14021A4A0 (ExpAddTagForBigPages.c)
  * Callees:
- *     ExpInsertPoolTracker @ 0x1402C4BA8 (ExpInsertPoolTracker.c)
- *     ExAllocateHeapPages @ 0x140440774 (ExAllocateHeapPages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExpInsertPoolTracker @ 0x14021BE10 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPages @ 0x1403E9344 (ExAllocateHeapPages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiReleaseSecondaryPassiveConnectLock @ 0x1401D5F88
+ * XREFs of KiReleaseSecondaryPassiveConnectLock @ 0x1401D5DB4
  * Callers:
- *     KiConnectSecondaryInterrupt @ 0x1401D5A88 (KiConnectSecondaryInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x1401D5BD8 (KiDisconnectSecondaryInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x1401D58B4 (KiConnectSecondaryInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x1401D5A04 (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 __int64 __fastcall KiReleaseSecondaryPassiveConnectLock(__int64 a1)

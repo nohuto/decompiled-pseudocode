@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetSinglePageToZero @ 0x1402C1918
+ * XREFs of MiGetSinglePageToZero @ 0x1402C1B08
  * Callers:
- *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     MiGetPagesToZero @ 0x1401853A0 (MiGetPagesToZero.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiBeginPageAccessor @ 0x140064A20 (MiBeginPageAccessor.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiBeginPageAccessor @ 0x140064A10 (MiBeginPageAccessor.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetSinglePageToZero(__int64 a1, unsigned __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MiGetSinglePageToZero(__int64 a1, unsigned __int64 a2)
     v7 = *(_QWORD *)(v4 + 40LL * v2 + 16);
     if ( v7 != 0xFFFFFFFFFLL )
       break;
-    v2 = dword_14043A040 & (v2 + 1) | v2 & ~dword_14043A040;
+    v2 = dword_14043B100 & (v2 + 1) | v2 & ~dword_14043B100;
     *(_DWORD *)(a2 + 244) = v2;
 LABEL_14:
     v8 = 0LL;

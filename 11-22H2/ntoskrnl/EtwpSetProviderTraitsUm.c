@@ -22,7 +22,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   __int64 v10; // rax
   unsigned __int64 v11; // rcx
   __int64 Pool2; // rax
-  void *v13; // rbx
+  _RTL_BALANCED_NODE *Node; // rbx
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r8
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
           MEMORY[0x7FFFFFFF0000] = 0;
       }
       Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)(a1 + 16) + 28LL, 1417114693LL);
-      v13 = (void *)Pool2;
+      Node = (_RTL_BALANCED_NODE *)Pool2;
       if ( Pool2 )
       {
         memmove((void *)(Pool2 + 28), *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
@@ -65,10 +65,10 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
                a2,
                a3,
                (int)v6,
-               v13,
+               Node,
                *(unsigned __int16 *)(a1 + 16),
                &EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {

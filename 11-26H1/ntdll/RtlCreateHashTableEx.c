@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCreateHashTableEx @ 0x180146280
+ * XREFs of RtlCreateHashTableEx @ 0x180146130
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-char __fastcall RtlCreateHashTableEx(__int64 *a1, unsigned int a2, int a3, int a4)
+char __fastcall RtlCreateHashTableEx(PVOID *a1, unsigned int a2, int a3, int a4)
 {
   return RtlpCreateHashTable(a1, a2, a3, a4);
 }

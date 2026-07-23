@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14031C020
+ * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14031C210
  * Callers:
- *     MmReadProcessPageTables @ 0x1402BB89C (MmReadProcessPageTables.c)
+ *     MmReadProcessPageTables @ 0x1402BBA8C (MmReadProcessPageTables.c)
  * Callees:
- *     ExpTryAcquireSpinLockShared @ 0x1400AFC20 (ExpTryAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C360 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockShared @ 0x1400AFB60 (ExpTryAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C550 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall ExTryAcquireSpinLockSharedAtDpcLevel(_DWORD *a1)

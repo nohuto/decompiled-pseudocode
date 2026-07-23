@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCancelIrpsInCurrentThreadListApcRoutine @ 0x140A716C0
+ * XREFs of IopCancelIrpsInCurrentThreadListApcRoutine @ 0x140A6AAA0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     IopCancelIrpsInCurrentThreadList @ 0x140418AB4 (IopCancelIrpsInCurrentThreadList.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IopCancelIrpsInCurrentThreadList @ 0x140408864 (IopCancelIrpsInCurrentThreadList.c)
  */
 
 LONG __fastcall IopCancelIrpsInCurrentThreadListApcRoutine(__int64 a1)

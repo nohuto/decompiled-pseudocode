@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCheckImageMapping @ 0x14068BFF8
+ * XREFs of MmCheckImageMapping @ 0x1405EBE68
  * Callers:
- *     MiInitializeWowPeb @ 0x14068BBB4 (MiInitializeWowPeb.c)
- *     PspLocateInPEManifest @ 0x14068C03C (PspLocateInPEManifest.c)
+ *     MiInitializeWowPeb @ 0x1405EBA24 (MiInitializeWowPeb.c)
+ *     PspLocateInPEManifest @ 0x1405EBEAC (PspLocateInPEManifest.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall MmCheckImageMapping(__int64 a1)

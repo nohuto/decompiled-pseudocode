@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSendTargetDeviceRemoveCompleteNotification @ 0x140912B50
+ * XREFs of PiSendTargetDeviceRemoveCompleteNotification @ 0x1409B4C30
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpNotifyTargetDeviceChange @ 0x1409DD2BC (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyTargetDeviceChange @ 0x140A1A56C (PnpNotifyTargetDeviceChange.c)
  */
 
 __int64 __fastcall PiSendTargetDeviceRemoveCompleteNotification(_QWORD **a1, unsigned int a2)

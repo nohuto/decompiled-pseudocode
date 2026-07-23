@@ -18,12 +18,12 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall NtStartProfile(void *a1)
+NTSTATUS __cdecl NtStartProfile(HANDLE ProfileHandle)
 {
   KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
   _QWORD *v3; // rbx
-  int started; // edi
+  NTSTATUS started; // edi
   SIZE_T v5; // rax
   __int64 Pool2; // rax
   void *v7; // rsi
@@ -36,7 +36,7 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ProfileHandle, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     KeWaitForSingleObject(&ExpProfileStateMutex, Executive, 0, 0, 0LL);

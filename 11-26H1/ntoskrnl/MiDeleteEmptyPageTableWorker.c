@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteEmptyPageTableWorker @ 0x14029F288
+ * XREFs of MiDeleteEmptyPageTableWorker @ 0x14029E7D8
  * Callers:
- *     MiDeleteEmptyPageTable @ 0x14029F270 (MiDeleteEmptyPageTable.c)
+ *     MiDeleteEmptyPageTable @ 0x14029E7C0 (MiDeleteEmptyPageTable.c)
  * Callees:
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiDecommitHandleValidPte @ 0x14029F85C (MiDecommitHandleValidPte.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiDecommitHandleValidPte @ 0x14029EDAC (MiDecommitHandleValidPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiDeleteEmptyPageTableWorker(__int64 a1, unsigned __int64 a2, int a3)

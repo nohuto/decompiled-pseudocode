@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmWmiIdleAccountingProcedure @ 0x1402E4680
+ * XREFs of PpmWmiIdleAccountingProcedure @ 0x1402E4870
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 void PpmWmiIdleAccountingProcedure()

@@ -48,7 +48,7 @@ void __stdcall RtlFreeAnsiString(PUNICODE_STRING UnicodeString)
 {
   if ( UnicodeString->Buffer )
   {
-    RtlDeleteBoundaryDescriptor((int)UnicodeString->Buffer);
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)UnicodeString->Buffer);
     *(_DWORD *)&UnicodeString->Length = 0;
     UnicodeString->Buffer = 0;
   }

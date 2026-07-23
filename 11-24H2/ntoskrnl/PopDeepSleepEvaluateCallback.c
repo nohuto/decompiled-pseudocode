@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDeepSleepEvaluateCallback @ 0x14049DC40
+ * XREFs of PopDeepSleepEvaluateCallback @ 0x140498A40
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x1403B5638 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PopDiagTraceIdleResiliencyStart @ 0x14049DD00 (PopDiagTraceIdleResiliencyStart.c)
- *     PopDiagTraceIdleResiliencyEnd @ 0x14049DDC0 (PopDiagTraceIdleResiliencyEnd.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402AD9A8 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PopDiagTraceIdleResiliencyStart @ 0x140498B00 (PopDiagTraceIdleResiliencyStart.c)
+ *     PopDiagTraceIdleResiliencyEnd @ 0x140498BC0 (PopDiagTraceIdleResiliencyEnd.c)
  */
 
 void PopDeepSleepEvaluateCallback()
@@ -34,12 +34,12 @@ void PopDeepSleepEvaluateCallback()
     if ( PopDeepSleepDisengageReasonMask )
       PopDiagTraceIdleResiliencyEnd(v2, (unsigned int)(v3 + 2));
     else
-      PopDiagTraceIdleResiliencyStart(v2, (unsigned int)(v3 + 2), 0x1Eu / KeMaximumIncrement + 1);
+      PopDiagTraceIdleResiliencyStart(v2, (unsigned int)(v3 + 2), 0x1E / KeMaximumIncrement + 1);
     PopDeepSleepIsEngaged = v4;
     KeReleaseSpinLock(&PopDeepSleepDisengageReasonLock, v1);
-    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock, v5, v6);
+    PpmAcquireLock(&PopFxSystemLatencyLock, v5, v6);
     PoFxSendSystemLatencyUpdate();
-    PpmReleaseLock(&PopFxSystemLatencyLock);
+    PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
   }
   PopDeepSleepEvaluateWorkItemQueued = 0;
   KeReleaseSpinLock(&PopDeepSleepDisengageReasonLock, v0);

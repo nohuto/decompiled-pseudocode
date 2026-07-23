@@ -1,11 +1,11 @@
 /*
- * XREFs of FopFreeFontData @ 0x140BB2800
+ * XREFs of FopFreeFontData @ 0x140BB4800
  * Callers:
- *     BgpFoDestroy @ 0x140BB273C (BgpFoDestroy.c)
- *     FopInitializeFonts @ 0x140C701EC (FopInitializeFonts.c)
+ *     BgpFoDestroy @ 0x140BB473C (BgpFoDestroy.c)
+ *     FopInitializeFonts @ 0x140C7234C (FopInitializeFonts.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14037DE10 (BgpFwFreeMemory.c)
- *     FopFreeMappingTable @ 0x140BB28AC (FopFreeMappingTable.c)
+ *     BgpFwFreeMemory @ 0x14045EC7C (BgpFwFreeMemory.c)
+ *     FopFreeMappingTable @ 0x140BB48AC (FopFreeMappingTable.c)
  */
 
 void __fastcall FopFreeFontData(_QWORD *a1)

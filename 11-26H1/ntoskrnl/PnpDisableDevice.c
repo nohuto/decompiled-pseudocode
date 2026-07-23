@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpDisableDevice @ 0x1407A4630
+ * XREFs of PnpDisableDevice @ 0x1407A7170
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
- *     PnpIsDeviceInstanceEnabled @ 0x140AF6F40 (PnpIsDeviceInstanceEnabled.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x140AF95E0 (PnpIsDeviceInstanceEnabled.c)
  * Callees:
- *     IopRemoveDevice @ 0x14090FCA8 (IopRemoveDevice.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     IopReleaseDeviceResources @ 0x140A8AE94 (IopReleaseDeviceResources.c)
- *     PiIrpQueryRemoveDevice @ 0x140AE3FF4 (PiIrpQueryRemoveDevice.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     IopRemoveDevice @ 0x1409B1DD8 (IopRemoveDevice.c)
+ *     IopReleaseDeviceResources @ 0x1409B7CB4 (IopReleaseDeviceResources.c)
+ *     PiIrpQueryRemoveDevice @ 0x140AE1AFC (PiIrpQueryRemoveDevice.c)
  */
 
 __int64 __fastcall PnpDisableDevice(__int64 a1, unsigned int a2)

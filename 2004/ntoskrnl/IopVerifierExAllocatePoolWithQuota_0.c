@@ -30,6 +30,6 @@ PVOID __fastcall IopVerifierExAllocatePoolWithQuota_0(__int64 a1, SIZE_T a2)
              0x20206F49u,
              (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
   if ( !result )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   return result;
 }

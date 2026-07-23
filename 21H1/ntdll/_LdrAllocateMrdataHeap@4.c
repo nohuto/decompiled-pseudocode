@@ -7,11 +7,27 @@
  *     _LdrControlFlowGuardEnforced@0 @ 0x4B2D0100 (_LdrControlFlowGuardEnforced@0.c)
  */
 
-int __fastcall LdrAllocateMrdataHeap(unsigned int a1)
+PVOID __fastcall LdrAllocateMrdataHeap(unsigned int a1)
 {
-  if ( !LdrControlFlowGuardEnforced() )
-    return RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
-  if ( a1 >= 0x7F000 )
-    return 0;
-  return RtlAllocateHeap(LdrpMrdataHeap, 0, a1);
+  int v2; // eax
+  SIZE_T v4; // [esp-4h] [ebp-8h]
+
+  LOBYTE(v2) = LdrControlFlowGuardEnforced();
+  if ( v2 )
+  {
+    if ( a1 >= 0x7F000 )
+    {
+      return 0;
+    }
+    else
+    {
+      LODWORD(v4) = a1;
+      return RtlAllocateHeap(LdrpMrdataHeap, 0, v4);
+    }
+  }
+  else
+  {
+    LODWORD(v4) = a1;
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+  }
 }

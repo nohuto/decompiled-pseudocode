@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDisplayBurstEventHandler @ 0x1408761E0
+ * XREFs of PopDisplayBurstEventHandler @ 0x140877440
  * Callers:
  *     <none>
  * Callees:

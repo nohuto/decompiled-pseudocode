@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryInformationWorkerFactory @ 0x140725F70
+ * XREFs of ZwQueryInformationWorkerFactory @ 0x14072AB40
  * Callers:
- *     DifZwQueryInformationWorkerFactoryWrapper @ 0x1406B2130 (DifZwQueryInformationWorkerFactoryWrapper.c)
+ *     DifZwQueryInformationWorkerFactoryWrapper @ 0x1406B5D10 (DifZwQueryInformationWorkerFactoryWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationWorkerFactory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

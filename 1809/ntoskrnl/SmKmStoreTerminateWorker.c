@@ -1,21 +1,21 @@
 /*
- * XREFs of SmKmStoreTerminateWorker @ 0x140307750
+ * XREFs of SmKmStoreTerminateWorker @ 0x140307940
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
- *     SmEtwEnabled @ 0x1400E3E28 (SmEtwEnabled.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     ZwSetSystemInformation @ 0x1401BB5F0 (ZwSetSystemInformation.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SmKmEtwAppendObjectName @ 0x1403071BC (SmKmEtwAppendObjectName.c)
- *     SmKmEtwAppendProductName @ 0x140307338 (SmKmEtwAppendProductName.c)
- *     SmKmSqmAddToStream @ 0x140309634 (SmKmSqmAddToStream.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E12A8 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x1400E3EA8 (SmEtwEnabled.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     ZwSetSystemInformation @ 0x1401BB750 (ZwSetSystemInformation.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SmKmEtwAppendObjectName @ 0x1403073AC (SmKmEtwAppendObjectName.c)
+ *     SmKmEtwAppendProductName @ 0x140307528 (SmKmEtwAppendProductName.c)
+ *     SmKmSqmAddToStream @ 0x140309824 (SmKmSqmAddToStream.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SmKmStoreTerminateWorker(PVOID P)
@@ -58,11 +58,7 @@ void __fastcall SmKmStoreTerminateWorker(PVOID P)
   v22 = (__int64 *)v30;
   v23 = 68LL;
   v30[0] = 1;
-  if ( ZwQuerySystemInformation(
-         SystemVerifierFaultsInformation|SystemLocksInformation,
-         &SystemInformation,
-         0x18u,
-         ReturnLength) >= 0
+  if ( ZwQuerySystemInformation(SystemStoreInformation, &SystemInformation, 0x18u, ReturnLength) >= 0
     && (SystemInformation = 0xD00000001LL,
         v22 = (__int64 *)v31,
         LODWORD(v23) = 1128,
@@ -75,11 +71,7 @@ void __fastcall SmKmStoreTerminateWorker(PVOID P)
     {
       v3 = v2;
       v31[1] = v30[v2 + 1];
-      if ( ZwQuerySystemInformation(
-             SystemVerifierFaultsInformation|SystemLocksInformation,
-             &SystemInformation,
-             0x18u,
-             ReturnLength) >= 0 )
+      if ( ZwQuerySystemInformation(SystemStoreInformation, &SystemInformation, 0x18u, ReturnLength) >= 0 )
       {
         v4 = 0;
         if ( v31[4] )
@@ -134,7 +126,7 @@ LABEL_9:
     HIDWORD(v24) = v30[v3 + 1];
     LODWORD(v23) = 8;
     LODWORD(v24) = 1;
-    if ( ZwSetSystemInformation(SystemVerifierFaultsInformation|SystemLocksInformation, &SystemInformation, 0x18uLL) >= 0 )
+    if ( ZwSetSystemInformation(SystemStoreInformation, &SystemInformation, 0x18uLL) >= 0 )
     {
       if ( v8 )
       {

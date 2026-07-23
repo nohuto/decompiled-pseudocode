@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPlRegisterDevice @ 0x1404EF6AC
+ * XREFs of PopPlRegisterDevice @ 0x1404E8C8C
  * Callers:
- *     PopPlRegisterDeviceIterator @ 0x140612A00 (PopPlRegisterDeviceIterator.c)
- *     PopFxRegisterDeviceWorker @ 0x140B1BA40 (PopFxRegisterDeviceWorker.c)
+ *     PopPlRegisterDeviceIterator @ 0x140615840 (PopPlRegisterDeviceIterator.c)
+ *     PopFxRegisterDeviceWorker @ 0x140B1DC50 (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     PopPlLookupDevicePowerProfile @ 0x1406126C0 (PopPlLookupDevicePowerProfile.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     PopPlLookupDevicePowerProfile @ 0x140615500 (PopPlLookupDevicePowerProfile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
@@ -39,7 +39,7 @@ bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
       *(_QWORD *)(a1 + 1224) = v5;
     }
   }
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
     v14 = 2LL;
     v13 = &v9;
@@ -56,7 +56,7 @@ bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
     v21 = &v11;
     v20 = 4LL;
     v22 = 4LL;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140E07598, (unsigned __int8 *)&byte_140050033, a3, 1u, v7, v8, 7u, &v12);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140E07560, (unsigned __int8 *)&byte_140051277, a3, 1u, v7, v8, 7u, &v12);
   }
   return *(_QWORD *)(a1 + 1224) != 0LL;
 }

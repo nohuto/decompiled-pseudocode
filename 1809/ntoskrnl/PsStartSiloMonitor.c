@@ -1,5 +1,5 @@
 /*
- * XREFs of PsStartSiloMonitor @ 0x1407556F0
+ * XREFs of PsStartSiloMonitor @ 0x1407568E0
  * Callers:
  *     <none>
  * Callees:
@@ -7,14 +7,14 @@
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PspGetServerSiloStatePointer @ 0x1402E9680 (PspGetServerSiloStatePointer.c)
- *     PspGetNextSilo @ 0x140600968 (PspGetNextSilo.c)
- *     PspInvokeCreateCallback @ 0x140755894 (PspInvokeCreateCallback.c)
- *     PspInvokeTerminateCallback @ 0x14088BC5C (PspInvokeTerminateCallback.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PspGetServerSiloStatePointer @ 0x1402E9870 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextSilo @ 0x140601968 (PspGetNextSilo.c)
+ *     PspInvokeCreateCallback @ 0x140756A84 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x14088CEBC (PspInvokeTerminateCallback.c)
  */
 
 __int64 __fastcall PsStartSiloMonitor(__int64 a1)
@@ -120,14 +120,14 @@ LABEL_8:
         }
         else
         {
-          v11 = (__int64 *)qword_14040E328;
-          if ( *(__int64 **)qword_14040E328 != &PspSiloMonitorList )
+          v11 = (__int64 *)qword_14040F388;
+          if ( *(__int64 **)qword_14040F388 != &PspSiloMonitorList )
             __fastfail(3u);
           *(_QWORD *)a1 = &PspSiloMonitorList;
           v2 = 0;
           *(_QWORD *)(a1 + 8) = v11;
           *v11 = a1;
-          qword_14040E328 = a1;
+          qword_14040F388 = a1;
         }
       }
     }

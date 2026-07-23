@@ -13,11 +13,11 @@
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  */
 
-__int64 __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
+NTSTATUS __fastcall RtlpMoveHeapBetweenLists(__int64 a1, int a2, int a3, int a4)
 {
   int v8; // edi
   int v9; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !a4 )
     result = RtlEnterCriticalSection(&RtlpProcessHeapsListLock);

@@ -1,43 +1,46 @@
 /*
- * XREFs of CmpHandlePageFileOpenNotification @ 0x1407C8D38
+ * XREFs of CmpHandlePageFileOpenNotification @ 0x1407C9058
  * Callers:
- *     NtInitializeRegistry @ 0x14078D500 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14078D6C0 (NtInitializeRegistry.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     CmpRecheckHiveVolumePolicy @ 0x140362080 (CmpRecheckHiveVolumePolicy.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407C8E74 (CmpVolumeContextSendDeviceUsageNotification.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x1407C8F54 (CmpVolumeManagerGetContextForFilePath.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F73C0 (CmpRecheckHiveVolumePolicy.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407C9194 (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x1407C9274 (CmpVolumeManagerGetContextForFilePath.c)
  */
 
 __int64 CmpHandlePageFileOpenNotification()
 {
   unsigned int v0; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  int v4; // edi
-  int v5; // esi
-  __int64 **v6; // rax
-  _QWORD *v7; // r14
-  __int64 v8; // rdx
-  _DWORD *v9; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  int v6; // edi
+  int v7; // esi
+  __int64 **v8; // rax
+  _QWORD *v9; // r14
   struct _EX_RUNDOWN_REF *i; // rcx
   __int64 *NextActiveHive; // rax
   struct _EX_RUNDOWN_REF *v12; // rdi
-  __int128 v14; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v15; // [rsp+30h] [rbp-38h]
-  __int128 v16; // [rsp+40h] [rbp-28h]
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int128 v17; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v18; // [rsp+30h] [rbp-38h]
+  __int128 v19; // [rsp+40h] [rbp-28h]
 
-  v14 = 0LL;
+  v17 = 0LL;
   v0 = 0;
-  v15 = 0LL;
-  v16 = 0LL;
+  v18 = 0LL;
+  v19 = 0LL;
   if ( _InterlockedExchange(&CmpBootPageFilesCreated, 1) )
   {
     return (unsigned int)-1073741790;
@@ -46,37 +49,37 @@ __int64 CmpHandlePageFileOpenNotification()
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
     {
-      v4 = 0;
-      v5 = 0;
+      v6 = 0;
+      v7 = 0;
       if ( CmpWellKnownVolumeList )
       {
-        v6 = &CmpWellKnownVolumeList;
+        v8 = &CmpWellKnownVolumeList;
         do
         {
-          v7 = v6 + 1;
+          v9 = v8 + 1;
           if ( (int)CmpVolumeManagerGetContextForFilePath(
-                      v2,
-                      *v6,
                       v3,
-                      v6 + 1,
-                      v14,
-                      *((_QWORD *)&v14 + 1),
-                      v15,
-                      *((_QWORD *)&v15 + 1),
-                      v16,
-                      *((_QWORD *)&v16 + 1)) >= 0
-            && (int)CmpVolumeContextSendDeviceUsageNotification(*v7) >= 0 )
+                      *v8,
+                      v4,
+                      v8 + 1,
+                      v17,
+                      *((_QWORD *)&v17 + 1),
+                      v18,
+                      *((_QWORD *)&v18 + 1),
+                      v19,
+                      *((_QWORD *)&v19 + 1)) >= 0
+            && (int)CmpVolumeContextSendDeviceUsageNotification(*v9) >= 0 )
           {
-            ++v4;
+            ++v6;
           }
-          v6 = &(&CmpWellKnownVolumeList)[2 * (unsigned int)++v5];
+          v8 = &(&CmpWellKnownVolumeList)[2 * (unsigned int)++v7];
         }
-        while ( *v6 );
-        if ( v4 )
+        while ( *v8 );
+        if ( v6 )
         {
-          CmpAttachToRegistryProcess((__int64)&v14, v8, v3, v9);
+          CmpAttachToRegistryProcess((__int64)&v17);
           for ( i = 0LL; ; i = v12 )
           {
             NextActiveHive = CmpGetNextActiveHive(i);
@@ -85,15 +88,15 @@ __int64 CmpHandlePageFileOpenNotification()
               break;
             CmpRecheckHiveVolumePolicy((__int64)NextActiveHive);
           }
-          KiUnstackDetachProcess((__int64)&v14, 0);
+          KiUnstackDetachProcess((__int64)&v17, 0LL);
         }
       }
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
     }
     else
     {
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v4, v5);
       return (unsigned int)-1073741431;
     }
   }

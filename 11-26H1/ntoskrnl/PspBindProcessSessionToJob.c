@@ -1,11 +1,11 @@
 /*
- * XREFs of PspBindProcessSessionToJob @ 0x140AECEF8
+ * XREFs of PspBindProcessSessionToJob @ 0x140AEFF08
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1407F836C (PspEstablishJobHierarchy.c)
- *     PspSetUILimitJobObject @ 0x1407F9E58 (PspSetUILimitJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x1407FDE6C (PspEstablishJobHierarchy.c)
+ *     PspSetUILimitJobObject @ 0x1407FF958 (PspSetUILimitJobObject.c)
  * Callees:
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     PspConvertJobToMixed @ 0x140775724 (PspConvertJobToMixed.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     PspConvertJobToMixed @ 0x140778724 (PspConvertJobToMixed.c)
  */
 
 __int64 __fastcall PspBindProcessSessionToJob(__int64 a1, __int64 a2)

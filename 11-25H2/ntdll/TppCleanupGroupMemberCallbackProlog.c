@@ -15,7 +15,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 a2)
+int __fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 a2)
 {
   bool v4; // zf
   __int64 v5; // rsi
@@ -35,15 +35,15 @@ struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 
   void *SubProcessTag; // r8
   _DWORD *SharedData; // rdx
   __int64 v21; // rdx
-  struct _TEB *result; // rax
+  struct _TEB *v22; // rax
   struct _TEB **v23; // rbx
-  __int64 v24; // rcx
-  int v25; // [rsp+20h] [rbp-68h] BYREF
-  signed __int64 v26; // [rsp+28h] [rbp-60h]
-  int v27; // [rsp+30h] [rbp-58h] BYREF
-  _OWORD v28[2]; // [rsp+38h] [rbp-50h] BYREF
-  int v29; // [rsp+58h] [rbp-30h]
-  int v30; // [rsp+5Ch] [rbp-2Ch]
+  void *v24; // rcx
+  int WorkerFactoryInformation; // [rsp+20h] [rbp-68h] BYREF
+  signed __int64 v27; // [rsp+28h] [rbp-60h]
+  int PortInformation; // [rsp+30h] [rbp-58h] BYREF
+  _OWORD Fields[2]; // [rsp+38h] [rbp-50h] BYREF
+  int v30; // [rsp+58h] [rbp-30h]
+  int v31; // [rsp+5Ch] [rbp-2Ch]
 
   if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
@@ -57,7 +57,7 @@ struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 
   if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
   {
     v4 = *(_DWORD *)(a1 + 72) == 0;
-    v25 = 0;
+    WorkerFactoryInformation = 0;
     if ( v4 )
     {
       v5 = *(_QWORD *)(a1 + 184);
@@ -65,19 +65,19 @@ struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 
         v6 = *(_QWORD *)(v5 + 144);
       else
         v6 = *(_QWORD *)(a1 + 128);
-      if ( v6 && TppPoolpSerializedPool != v6 )
+      if ( v6 && TppPoolpSerializedPool != (PVOID)v6 )
       {
         v7 = _InterlockedDecrement((volatile signed __int32 *)(v6 + 416));
         _InterlockedIncrement((volatile signed __int32 *)(v6 + 420));
         _m_prefetchw((const void *)(v6 + 8));
         v8 = *(_QWORD *)(v6 + 8);
-        v26 = v8;
+        v27 = v8;
         do
         {
-          LODWORD(v26) = ((__int16)v8 + 1) ^ (v8 ^ ((__int16)v8 + 1)) & 0xFFFF0000;
+          LODWORD(v27) = ((__int16)v8 + 1) ^ (v8 ^ ((__int16)v8 + 1)) & 0xFFFF0000;
           v9 = v8;
-          v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 8), v26, v8);
-          v26 = v8;
+          v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 8), v27, v8);
+          v27 = v8;
         }
         while ( v9 != v8 );
         *(_DWORD *)(a1 + 144) |= 0x10u;
@@ -97,16 +97,16 @@ struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 
               break;
             if ( v12 == _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 284), v15, v12) )
             {
-              v24 = *(_QWORD *)(v10 + 272);
-              v27 = v13 + v14;
-              NtAlpcSetInformation(v24, 8LL, &v27);
+              v24 = *(void **)(v10 + 272);
+              PortInformation = v13 + v14;
+              NtAlpcSetInformation(v24, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
             }
           }
         }
         if ( !v7 )
         {
-          v25 = 1;
-          NtSetInformationWorkerFactory(*(_QWORD *)(v6 + 56), 9LL, &v25);
+          WorkerFactoryInformation = 1;
+          NtSetInformationWorkerFactory(*(HANDLE *)(v6 + 56), WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
         }
       }
     }
@@ -130,29 +130,33 @@ struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 
       v21 = 2147353488LL;
     if ( *(_BYTE *)v21 && v16 != SubProcessTag )
     {
-      memset(v28, 0, sizeof(v28));
-      WORD3(v28[0]) = 1349;
-      v29 = (int)SubProcessTag;
-      v30 = (int)v16;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      memset(Fields, 0, sizeof(Fields));
+      WORD3(Fields[0]) = 1349;
+      v30 = (int)SubProcessTag;
+      v31 = (int)v16;
+      if ( RtlGetCurrentServiceSessionId() )
         v17 = (__int64)NtCurrentPeb()->SharedData + 566;
-      NtTraceEvent(*(unsigned __int8 *)v17, 1026LL, 8LL, v28);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v17, 0x402u, 8u, Fields);
     }
   }
-  result = NtCurrentTeb();
-  result->ActivityId = *(_GUID *)(a2 + 112);
+  v22 = NtCurrentTeb();
+  v22->ActivityId = *(_GUID *)(a2 + 112);
   v23 = (struct _TEB **)(a2 + 128);
   if ( v23 )
   {
-    if ( *(struct _TEB **)NtCurrentTeb()->WorkingOnBehalfTicket != *v23 )
+    if ( *(struct _TEB **)NtCurrentTeb()->WorkingOnBehalfTicket == *v23 )
     {
-      result = (struct _TEB *)NtSetInformationThread(-2LL, 44LL, v23);
-      if ( (int)result < 0 )
-        return result;
-      *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v23;
+LABEL_28:
+      v22 = *v23;
+      *(_QWORD *)(a1 + 248) = *v23;
+      return (int)v22;
     }
-    result = *v23;
-    *(_QWORD *)(a1 + 248) = *v23;
+    LODWORD(v22) = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v23, 8u);
+    if ( (int)v22 >= 0 )
+    {
+      *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v23;
+      goto LABEL_28;
+    }
   }
-  return result;
+  return (int)v22;
 }

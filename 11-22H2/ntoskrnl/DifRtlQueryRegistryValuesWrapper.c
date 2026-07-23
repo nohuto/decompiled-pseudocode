@@ -9,7 +9,12 @@
  *     RtlQueryRegistryValuesEx @ 0x1406C7B10 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall DifRtlQueryRegistryValuesWrapper(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __fastcall DifRtlQueryRegistryValuesWrapper(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -20,7 +25,7 @@ __int64 __fastcall DifRtlQueryRegistryValuesWrapper(unsigned int a1, __int64 a2,
   int v15; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v19; // rdi
   _QWORD *v20; // rbx
   __int128 v21; // [rsp+30h] [rbp-30h] BYREF
@@ -60,18 +65,18 @@ LABEL_8:
   }
   *(_QWORD *)&v21 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v21 + 1) = a5;
-  DWORD2(v23) = a1;
-  *(_QWORD *)&v23 = a2;
-  *((_QWORD *)&v22 + 1) = a3;
-  *(_QWORD *)&v22 = a4;
+  *((_QWORD *)&v21 + 1) = Environment;
+  DWORD2(v23) = RelativeTo;
+  *(_QWORD *)&v23 = Path;
+  *((_QWORD *)&v22 + 1) = QueryTable;
+  *(_QWORD *)&v22 = Context;
   for ( i = (__int64 *)v14[4]; i != v14 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v21);
   }
 LABEL_17:
-  result = RtlQueryRegistryValuesEx(a1, a2, a3, a4, a5);
+  result = RtlQueryRegistryValuesEx(RelativeTo, Path, QueryTable, Context, Environment);
   HIDWORD(v23) = result;
   if ( v14 )
   {

@@ -12,50 +12,55 @@
  *     _RtlUpcaseUnicodeStringToCountedOemString@12 @ 0x4B34DE20 (_RtlUpcaseUnicodeStringToCountedOemString@12.c)
  */
 
-int __thiscall RtlUpcaseUnicodeStringToCountedOemString(
-        void *this,
-        unsigned __int16 *a2,
-        unsigned __int16 *a3,
-        char a4)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToCountedOemString(
+        POEM_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v4; // eax
-  int StringRoutine; // eax
-  signed int v7; // esi
-  unsigned int v8; // [esp+10h] [ebp-24h] BYREF
+  void *v3; // ecx
+  ULONG v4; // eax
+  char *StringRoutine; // eax
+  int v7; // esi
+  ULONG BytesInOemString; // [esp+10h] [ebp-24h] BYREF
   int v9; // [esp+14h] [ebp-20h]
   int v10; // [esp+18h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
-  v4 = RtlxUnicodeStringToOemSize(this, (PWCH *)a3) - 1;
+  v4 = RtlxUnicodeStringToOemSize(v3, (PWCH *)SourceString) - 1;
   if ( !v4 )
   {
-    *(_DWORD *)a2 = 0;
-    *((_DWORD *)a2 + 1) = 0;
+    *(_DWORD *)&DestinationString->Length = 0;
+    DestinationString->Buffer = 0;
     return 0;
   }
   if ( v4 > 0xFFFF )
     return -1073741584;
-  *a2 = v4;
-  if ( a4 )
+  DestinationString->Length = v4;
+  if ( AllocateDestinationString )
   {
-    a2[1] = v4;
-    StringRoutine = NtdllpAllocateStringRoutine(v4);
-    *((_DWORD *)a2 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v4;
+    StringRoutine = (char *)NtdllpAllocateStringRoutine(v4);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
       return -1073741801;
   }
-  else if ( (unsigned __int16)v4 > a2[1] )
+  else if ( (unsigned __int16)v4 > DestinationString->MaximumLength )
   {
     return -2147483643;
   }
   v10 = 0;
   ms_exc.registration.TryLevel = 0;
   v9 = 1;
-  v7 = RtlUpcaseUnicodeToOemN(*((_DWORD *)a2 + 1), *a2, &v8, *((_DWORD *)a3 + 1), *a3);
+  v7 = RtlUpcaseUnicodeToOemN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInOemString,
+         (PCWCH)SourceString->Buffer,
+         SourceString->Length);
   v10 = v7;
   if ( v7 >= 0 )
   {
-    if ( !RtlpDidUnicodeToOemWork(a2, (int)a3) )
+    if ( !RtlpDidUnicodeToOemWork(&DestinationString->Length, (int)SourceString) )
     {
       v7 = -1073741470;
       v10 = -1073741470;
@@ -70,10 +75,10 @@ int __thiscall RtlUpcaseUnicodeStringToCountedOemString(
   v9 = 0;
   if ( v7 < 0 )
   {
-    if ( a4 )
+    if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(*((_DWORD *)a2 + 1));
-      *((_DWORD *)a2 + 1) = 0;
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+      DestinationString->Buffer = 0;
     }
   }
   return v7;

@@ -28,7 +28,7 @@ __int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, unsign
   v8 = (unsigned __int64)((a2 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v7;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v15) = 4;
@@ -56,6 +56,6 @@ __int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, unsign
     }
   }
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v4;
 }

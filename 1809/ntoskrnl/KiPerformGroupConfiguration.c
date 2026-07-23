@@ -1,19 +1,19 @@
 /*
- * XREFs of KiPerformGroupConfiguration @ 0x1409B65EC
+ * XREFs of KiPerformGroupConfiguration @ 0x1409B75EC
  * Callers:
- *     KePerformGroupConfiguration @ 0x1409B5C1C (KePerformGroupConfiguration.c)
+ *     KePerformGroupConfiguration @ 0x1409B6C1C (KePerformGroupConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HviGetImplementationLimits @ 0x140322460 (HviGetImplementationLimits.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     KiAssignAllNodesToGroup0 @ 0x1409B685C (KiAssignAllNodesToGroup0.c)
- *     KiAssignAdjustableNodes @ 0x1409F6638 (KiAssignAdjustableNodes.c)
- *     KiAssignFixedNodes @ 0x1409F66E0 (KiAssignFixedNodes.c)
- *     KiShuffleAssignedNodes @ 0x1409F68D8 (KiShuffleAssignedNodes.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HviGetImplementationLimits @ 0x140322650 (HviGetImplementationLimits.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     KiAssignAllNodesToGroup0 @ 0x1409B785C (KiAssignAllNodesToGroup0.c)
+ *     KiAssignAdjustableNodes @ 0x1409F7638 (KiAssignAdjustableNodes.c)
+ *     KiAssignFixedNodes @ 0x1409F76E0 (KiAssignFixedNodes.c)
+ *     KiShuffleAssignedNodes @ 0x1409F78D8 (KiShuffleAssignedNodes.c)
  */
 
 __int64 __fastcall KiPerformGroupConfiguration(__int64 a1)
@@ -92,7 +92,7 @@ __int64 __fastcall KiPerformGroupConfiguration(__int64 a1)
   {
     do
     {
-      ((void (__fastcall *)(_QWORD, int *))KiNumaQueryNodeCapacity)(v7, &v53);
+      ((void (__fastcall *)(_QWORD, int *))KiNumaQueryNodeCapacity[0])(v7, &v53);
       v8 = KeNodeBlock[v7];
       *(_BYTE *)(v8 + 172) = v53;
       v4 += v53;
@@ -133,7 +133,7 @@ __int64 __fastcall KiPerformGroupConfiguration(__int64 a1)
     {
       for ( i = 0; i < v10; *((_DWORD *)KeNodeDistance + v13 + v11 * (unsigned __int16)KeNumberNodes) = v56 )
       {
-        ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))KiNumaQueryNodeDistance[0])(v11, i, &v56);
+        ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))KiNumaQueryNodeDistance)(v11, i, &v56);
         v10 = KeNumberNodes;
         v13 = i++;
       }

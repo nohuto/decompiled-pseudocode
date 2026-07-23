@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInitializePagedLookasideListInternal @ 0x140498DA0
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x1404928F0
  * Callers:
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x14078D880 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     AlpcpInitSystem @ 0x1407C1414 (AlpcpInitSystem.c)
- *     ExInitializePagedLookasideList @ 0x140B31D30 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407903B0 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x1407C3E88 (AlpcpInitSystem.c)
+ *     ExInitializePagedLookasideList @ 0x140B33F30 (ExInitializePagedLookasideList.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
  */
 
 char __fastcall ExInitializePagedLookasideListInternal(
@@ -26,8 +26,8 @@ char __fastcall ExInitializePagedLookasideListInternal(
   PVOID (__fastcall *v13)(int, SIZE_T, ULONG); // rax
   void (__stdcall *v14)(PVOID); // rax
   KIRQL v15; // dl
-  struct _LIST_ENTRY ****v16; // rcx
-  struct _LIST_ENTRY ***v17; // rax
+  _QWORD *v16; // rcx
+  _QWORD *v17; // rax
   char result; // al
   unsigned int v19; // r10d
 
@@ -49,7 +49,7 @@ char __fastcall ExInitializePagedLookasideListInternal(
     v14 = a3;
   *(_QWORD *)(a1 + 56) = v14;
   *(_QWORD *)(a1 + 80) = 0LL;
-  v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExSaPageGroupDescriptorArrayLock.1008);
+  v15 = KeAcquireSpinLockRaiseToDpc(&ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask);
   if ( a8 )
   {
     *(_WORD *)(a1 + 16) = a7;
@@ -59,15 +59,15 @@ char __fastcall ExInitializePagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v16 = *(struct _LIST_ENTRY *****)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
-  v17 = (struct _LIST_ENTRY ***)(a1 + 64);
-  if ( **(struct _KTHREAD ***)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.InGlobalUpdateVpThreadPriorityList )
+  v16 = *(_QWORD **)&ExSaPageGroupDescriptorArrayLock.Spare36;
+  v17 = (_QWORD *)(a1 + 64);
+  if ( **(struct _KTHREAD ***)&ExSaPageGroupDescriptorArrayLock.Spare36 != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.Spare35[1] )
     __fastfail(3u);
-  *(_QWORD *)(a1 + 72) = *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor;
-  *v17 = &ExSaPageGroupDescriptorArrayLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
+  *(_QWORD *)(a1 + 72) = *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.Spare36;
+  *v17 = &ExSaPageGroupDescriptorArrayLock.Spare35[1];
   *v16 = v17;
-  *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistPriorityFloor = a1 + 64;
-  KeReleaseSpinLock((PKSPIN_LOCK)&ExSaPageGroupDescriptorArrayLock.1008, v15);
+  *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.Spare36 = a1 + 64;
+  KeReleaseSpinLock(&ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask, v15);
   result = DifObjTrkIsKvEnabledForPlugin(48LL);
   if ( result )
     return DifObjTrkInsertItem(v19, a1, 128LL, 0LL);

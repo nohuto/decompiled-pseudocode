@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeTbFlushStamps @ 0x14011187C
+ * XREFs of MiInitializeTbFlushStamps @ 0x1401118EC
  * Callers:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MiDeleteNonPagedPoolPte @ 0x1401115B0 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteNonPagedPoolPte @ 0x140111620 (MiDeleteNonPagedPoolPte.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 struct _KTHREAD *__fastcall MiInitializeTbFlushStamps(unsigned __int64 a1)
@@ -45,12 +45,12 @@ struct _KTHREAD *__fastcall MiInitializeTbFlushStamps(unsigned __int64 a1)
     }
   }
   _InterlockedOr(v13, 0);
-  if ( v1 && qword_14043A0C0 )
+  if ( v1 && qword_14043B180 )
   {
     if ( (v1 & 0x10) != 0 )
       LODWORD(v1) = v1 & 0xFFFFFFEF;
     else
-      LODWORD(v1) = ~(_DWORD)qword_14043A0C0 & v1;
+      LODWORD(v1) = ~(_DWORD)qword_14043B180 & v1;
   }
   result = (struct _KTHREAD *)MiSwizzleInvalidPte(((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 32) | (unsigned int)v1);
   v6 = 0;
@@ -61,7 +61,7 @@ struct _KTHREAD *__fastcall MiInitializeTbFlushStamps(unsigned __int64 a1)
     if ( (_DWORD)result )
     {
       v6 = v12;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_4;
     }
     else

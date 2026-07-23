@@ -4,8 +4,8 @@
  *     CmpInitializeDriverStores @ 0x140B37A4C (CmpInitializeDriverStores.c)
  *     CmpInitializePreloadedHive @ 0x140B37CBC (CmpInitializePreloadedHive.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
  */
 
 const wchar_t *__fastcall CmpGetSystemRelativeRegistryHiveFilePath(const wchar_t *a1)

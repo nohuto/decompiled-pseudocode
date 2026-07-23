@@ -3,7 +3,7 @@
  * Callers:
  *     MiStoreUpdateMemoryConditions @ 0x140222F70 (MiStoreUpdateMemoryConditions.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308FE0 (KiIsThreadRankNonZero.c)
+ *     KiIsThreadRankNonZero @ 0x140309270 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KeQueryEffectiveBasePriorityThread(__int64 a1)

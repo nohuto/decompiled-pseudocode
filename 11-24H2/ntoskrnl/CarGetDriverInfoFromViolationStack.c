@@ -1,10 +1,10 @@
 /*
- * XREFs of CarGetDriverInfoFromViolationStack @ 0x140615EC8
+ * XREFs of CarGetDriverInfoFromViolationStack @ 0x140614488
  * Callers:
- *     CarInitializeTelemetryData @ 0x140616BA0 (CarInitializeTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x140615160 (CarInitializeTelemetryData.c)
  * Callees:
- *     CarCopyDriverName @ 0x140615750 (CarCopyDriverName.c)
- *     VfTargetDriversGetVerifierData @ 0x140BA7E7C (VfTargetDriversGetVerifierData.c)
+ *     CarCopyDriverName @ 0x140613D10 (CarCopyDriverName.c)
+ *     VfTargetDriversGetVerifierData @ 0x140BA9E7C (VfTargetDriversGetVerifierData.c)
  */
 
 void __fastcall CarGetDriverInfoFromViolationStack(

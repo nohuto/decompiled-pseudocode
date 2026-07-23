@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitPhase2 @ 0x140C3516C
+ * XREFs of PspInitPhase2 @ 0x140C372AC
  * Callers:
- *     PsInitSystem @ 0x140BDE7F8 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140BE07F8 (PsInitSystem.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     RtlGetSystemTimePrecise @ 0x14034EB80 (RtlGetSystemTimePrecise.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     PspInitializeProtectedProcessParameters @ 0x140771C38 (PspInitializeProtectedProcessParameters.c)
- *     RtlRandom @ 0x140A4F590 (RtlRandom.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PspInitializeSystemDlls @ 0x140C35894 (PspInitializeSystemDlls.c)
+ *     RtlGetSystemTimePrecise @ 0x14036D060 (RtlGetSystemTimePrecise.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     PspInitializeProtectedProcessParameters @ 0x140771E58 (PspInitializeProtectedProcessParameters.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     RtlRandom @ 0x140A46340 (RtlRandom.c)
+ *     PspInitializeSystemDlls @ 0x140C379D4 (PspInitializeSystemDlls.c)
  */
 
 bool PspInitPhase2()
@@ -23,9 +23,9 @@ bool PspInitPhase2()
   void *ServerSiloGlobals; // rax
   ULONG Seed; // [rsp+38h] [rbp+10h] BYREF
 
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E085C0, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E08630, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[3].ContextSwitches = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = (_KSCHEDULING_GROUP *)KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

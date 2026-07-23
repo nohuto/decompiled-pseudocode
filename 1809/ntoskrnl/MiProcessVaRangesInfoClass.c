@@ -1,14 +1,14 @@
 /*
- * XREFs of MiProcessVaRangesInfoClass @ 0x1406BCC38
+ * XREFs of MiProcessVaRangesInfoClass @ 0x1406BDED8
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1405F6680 (NtSetInformationVirtualMemory.c)
- *     MmSetPriorityVaRanges @ 0x14084F274 (MmSetPriorityVaRanges.c)
+ *     NtSetInformationVirtualMemory @ 0x1405F7680 (NtSetInformationVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x1408504D4 (MmSetPriorityVaRanges.c)
  * Callees:
- *     MiIsVadLarge @ 0x140070D90 (MiIsVadLarge.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
- *     MiWalkVaRange @ 0x140093C90 (MiWalkVaRange.c)
+ *     MiIsVadLarge @ 0x140070D80 (MiIsVadLarge.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140074A30 (MiMoveDirtyBitsToPfns.c)
+ *     MiWalkVaRange @ 0x140093BD0 (MiWalkVaRange.c)
  */
 
 __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2, int a3, unsigned int a4)

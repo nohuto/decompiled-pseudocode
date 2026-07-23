@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPowerVerifyNewRequest @ 0x140940EE0
+ * XREFs of VfPowerVerifyNewRequest @ 0x140941EE0
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport1 @ 0x14030B12C (ViErrorReport1.c)
  */
 
 __int64 __fastcall VfPowerVerifyNewRequest(

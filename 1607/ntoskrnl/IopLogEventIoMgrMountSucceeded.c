@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLogEventIoMgrMountSucceeded @ 0x140135408
+ * XREFs of IopLogEventIoMgrMountSucceeded @ 0x140135978
  * Callers:
- *     IopMountVolume @ 0x1403EC2AC (IopMountVolume.c)
+ *     IopMountVolume @ 0x1403ED8DC (IopMountVolume.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall IopLogEventIoMgrMountSucceeded(LPCGUID ActivityId, ULONGLONG a2, unsigned __int16 *a3)

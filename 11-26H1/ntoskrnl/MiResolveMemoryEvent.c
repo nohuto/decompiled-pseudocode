@@ -1,10 +1,10 @@
 /*
- * XREFs of MiResolveMemoryEvent @ 0x140AF2F20
+ * XREFs of MiResolveMemoryEvent @ 0x140AF5710
  * Callers:
  *     <none>
  * Callees:
- *     MiGetThreadPartition @ 0x14046BE90 (MiGetThreadPartition.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiGetThreadPartition @ 0x140465610 (MiGetThreadPartition.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 MiResolveMemoryEvent()
@@ -21,7 +21,7 @@ __int64 MiResolveMemoryEvent()
   *(_WORD *)(v2 + 2) -= 2;
   return ObpReferenceObjectByHandleWithTag(
            *(_QWORD *)(ThreadPartition + 304),
-           983055LL,
+           983055,
            0LL,
            0,
            0x6F506D4Du,

@@ -37,10 +37,13 @@ char HalpInterruptLocalErrorService()
   HalpInterruptLocalUnitErrorLog[v2] = v0;
   HalpInterruptLocalUnitErrorLogProcessor[v2] = KeGetPcr()->Prcb.Number;
   KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLocalUnitErrorLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

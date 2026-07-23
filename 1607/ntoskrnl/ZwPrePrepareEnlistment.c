@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrePrepareEnlistment @ 0x14015C120
+ * XREFs of ZwPrePrepareEnlistment @ 0x14015C690
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwPrePrepareEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock, v2);
+  return KiServiceInternal(EnlistmentHandle);
 }

@@ -1,14 +1,14 @@
 /*
  * XREFs of ObpReleaseLookupContext @ 0x140016078
  * Callers:
- *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
- *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
- *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
- *     ObpCreateSymbolicLinkName @ 0x1406C4440 (ObpCreateSymbolicLinkName.c)
- *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
+ *     ObpDeleteNameCheck @ 0x1405AA740 (ObpDeleteNameCheck.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObReferenceObjectByName @ 0x1405C9DA0 (ObReferenceObjectByName.c)
+ *     ObCloseHandleTableEntry @ 0x1405E7360 (ObCloseHandleTableEntry.c)
+ *     ObReferenceObjectByNameEx @ 0x14061245C (ObReferenceObjectByNameEx.c)
+ *     ObpCreateSymbolicLinkName @ 0x1406C56E0 (ObpCreateSymbolicLinkName.c)
+ *     ObCreateObjectTypeEx @ 0x140729BCC (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x1409B2964 (ObInitSystem.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

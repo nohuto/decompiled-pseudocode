@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyStats @ 0x140AB7B74
+ * XREFs of PopDiagTraceCsResiliencyStats @ 0x140AB1F28
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x140ABD324 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140AB8394 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCsResiliencyStats(int *a1)
@@ -92,9 +92,9 @@ void __fastcall PopDiagTraceCsResiliencyStats(int *a1)
   v4 = 0LL;
   if ( v3 )
     v4 = *((_QWORD *)a1 + 16);
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    if ( (qword_140E07700 & 0x400000000000LL) == 0 || (v5 = 1, (qword_140E07708 & 0x400000000000LL) != qword_140E07708) )
+    if ( (qword_140E07690 & 0x400000000000LL) == 0 || (v5 = 1, (qword_140E07698 & 0x400000000000LL) != qword_140E07698) )
       v5 = 0;
     if ( v5 )
     {
@@ -167,8 +167,8 @@ void __fastcall PopDiagTraceCsResiliencyStats(int *a1)
       v72 = 4LL;
       v74 = 88LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)byte_14004896D,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)&word_140048D4E,
         0LL,
         0LL,
         0x19u,

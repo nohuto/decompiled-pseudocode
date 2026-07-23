@@ -29,7 +29,7 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1, __int64 a2, __int64 a3, _
   __int64 v14; // r9
   int v15; // ecx
   int v16; // ecx
-  void *v17; // rcx
+  const WNF_STATE_NAME *v17; // rcx
   __int64 v18; // rax
   __int64 v19; // rdi
   unsigned __int8 v20; // si
@@ -37,10 +37,13 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1, __int64 a2, __int64 a3, _
   unsigned __int8 v22; // di
   signed __int32 v23; // eax
   void *SessionById; // rdi
-  void *v25; // rcx
-  int v26; // ecx
+  int *ExplicitScope; // rax
+  const WNF_STATE_NAME *v26; // rcx
   int v27; // ecx
   int v28; // ecx
+  int v29; // ecx
+  int v30; // [rsp+88h] [rbp+10h] BYREF
+  int v31; // [rsp+90h] [rbp+18h] BYREF
 
   v5 = 0;
   do
@@ -70,13 +73,13 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1, __int64 a2, __int64 a3, _
       v15 = v10[5];
       if ( v15 )
       {
-        v26 = v15 - 1;
-        if ( v26 )
+        v27 = v15 - 1;
+        if ( v27 )
         {
-          v27 = v26 - 1;
-          if ( v27 )
+          v28 = v27 - 1;
+          if ( v28 )
           {
-            if ( v27 == 1 )
+            if ( v28 == 1 )
               PiUEventBroadcastPortsChangedEvent((unsigned int)v10[6], v10 + 7, v10 + 11);
           }
           else
@@ -86,16 +89,18 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1, __int64 a2, __int64 a3, _
         }
         else
         {
-          v28 = v10[6];
-          if ( v28 == -1 )
+          v29 = v10[6];
+          v30 = v29;
+          if ( v29 == -1 )
           {
-            v17 = &WNF_PNPA_VOLUMES_CHANGED;
+            v17 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED;
             goto LABEL_12;
           }
-          SessionById = (void *)MmGetSessionById(v28);
+          SessionById = (void *)MmGetSessionById(v29);
           if ( SessionById )
           {
-            v25 = &WNF_PNPA_VOLUMES_CHANGED_SESSION;
+            ExplicitScope = &v30;
+            v26 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED_SESSION;
             goto LABEL_27;
           }
         }
@@ -103,19 +108,21 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1, __int64 a2, __int64 a3, _
       else
       {
         v16 = v10[6];
+        v31 = v16;
         if ( v16 == -1 )
         {
           v17 = &WNF_PNPA_DEVNODES_CHANGED;
 LABEL_12:
-          ZwUpdateWnfStateData((__int64)v17, 0LL, 0LL);
+          ZwUpdateWnfStateData(v17, 0LL, 0, 0LL, 0LL, 0, 0);
           goto LABEL_13;
         }
         SessionById = (void *)MmGetSessionById(v16);
         if ( SessionById )
         {
-          v25 = &WNF_PNPA_DEVNODES_CHANGED_SESSION;
+          ExplicitScope = &v31;
+          v26 = &WNF_PNPA_DEVNODES_CHANGED_SESSION;
 LABEL_27:
-          ZwUpdateWnfStateData((__int64)v25, 0LL, 0LL);
+          ZwUpdateWnfStateData(v26, 0LL, 0, 0LL, ExplicitScope, 0, 0);
           ObfDereferenceObject(SessionById);
         }
       }

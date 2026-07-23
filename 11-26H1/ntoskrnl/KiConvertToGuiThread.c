@@ -1,9 +1,9 @@
 /*
- * XREFs of KiConvertToGuiThread @ 0x140729780
+ * XREFs of KiConvertToGuiThread @ 0x14072E350
  * Callers:
- *     KiSystemCall64 @ 0x14073B680 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140740280 (KiSystemCall64.c)
  * Callees:
- *     PsConvertToGuiThread @ 0x140A40AE0 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x1409FC500 (PsConvertToGuiThread.c)
  */
 
 __int64 KiConvertToGuiThread()

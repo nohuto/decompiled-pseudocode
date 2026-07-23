@@ -14,31 +14,31 @@
  *     NtClose @ 0x18009EFD0 (NtClose.c)
  */
 
-__int64 __fastcall TppPoolpFree(__int64 a1)
+LOGICAL __fastcall TppPoolpFree(char *BaseAddress)
 {
   void *v2; // rcx
-  __int64 v3; // r8
-  _QWORD *v4; // rdx
+  char **v3; // r8
+  PVOID *v4; // rdx
 
-  v2 = *(void **)(a1 + 56);
+  v2 = (void *)*((_QWORD *)BaseAddress + 7);
   if ( v2 )
   {
     NtClose(v2);
-    *(_QWORD *)(a1 + 56) = 0LL;
+    *((_QWORD *)BaseAddress + 7) = 0LL;
   }
-  TppDestroyTimerSubQueue(a1 + 120);
-  TppDestroyTimerSubQueue(a1 + 240);
-  NtClose(*(HANDLE *)(a1 + 64));
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_QWORD *)(a1 + 16));
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_QWORD *)(a1 + 40));
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_QWORD *)(a1 + 48));
+  TppDestroyTimerSubQueue(BaseAddress + 120);
+  TppDestroyTimerSubQueue(BaseAddress + 240);
+  NtClose(*((HANDLE *)BaseAddress + 8));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *((PVOID *)BaseAddress + 2));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *((PVOID *)BaseAddress + 5));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *((PVOID *)BaseAddress + 6));
   RtlAcquireSRWLockExclusive(&TppPoolpListLock);
-  v3 = *(_QWORD *)(a1 + 384);
-  v4 = *(_QWORD **)(a1 + 392);
-  if ( *(_QWORD *)(v3 + 8) != a1 + 384 || *v4 != a1 + 384 )
+  v3 = (char **)*((_QWORD *)BaseAddress + 48);
+  v4 = (PVOID *)*((_QWORD *)BaseAddress + 49);
+  if ( v3[1] != BaseAddress + 384 || *v4 != BaseAddress + 384 )
     __fastfail(3u);
   *v4 = v3;
-  *(_QWORD *)(v3 + 8) = v4;
+  v3[1] = (char *)v4;
   RtlReleaseSRWLockExclusive(&TppPoolpListLock);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, BaseAddress);
 }

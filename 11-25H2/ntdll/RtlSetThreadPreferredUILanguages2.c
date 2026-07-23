@@ -13,35 +13,31 @@
  *     RtlpMuiRegFreeLanguageList @ 0x18008D870 (RtlpMuiRegFreeLanguageList.c)
  */
 
-__int64 __fastcall RtlSetThreadPreferredUILanguages2(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
+__int64 __fastcall RtlSetThreadPreferredUILanguages2(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v7; // ebx
-  __int64 Heap; // rdi
+  _QWORD *Heap; // rdi
   __int64 v10; // rax
   _QWORD *v11; // rax
   int v12; // ebx
   __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // r9
-  _DWORD v18[10]; // [rsp+20h] [rbp-28h] BYREF
-  int v19; // [rsp+68h] [rbp+20h] BYREF
+  ULONG NumberOfLanguages[10]; // [rsp+20h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+68h] [rbp+20h] BYREF
 
   v7 = a1;
   if ( !a4 )
     return RtlSetThreadPreferredUILanguages(a1, a2, a3);
   *a4 = 0LL;
-  v18[0] = 0;
-  v19 = 0;
-  RtlGetThreadPreferredUILanguages(a1 | 0x30, v18, 0LL, &v19);
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
+  NumberOfLanguages[0] = 0;
+  ReturnLength = 0;
+  RtlGetThreadPreferredUILanguages(a1 | 0x30, NumberOfLanguages, 0LL, &ReturnLength);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
   if ( Heap )
   {
     if ( NtCurrentTeb()->PreferredLanguages )
     {
       v13 = RtlpMuiRegDupLanguageList(NtCurrentTeb()->PreferredLanguages);
-      *(_QWORD *)Heap = v13;
+      *Heap = v13;
       if ( !v13 )
         goto LABEL_17;
       *(_DWORD *)(v13 + 40) &= ~0x40u;
@@ -49,7 +45,7 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages2(__int64 a1, __int64 a2, __i
     if ( NtCurrentTeb()->MergedPrefLanguages )
     {
       v10 = RtlpMuiRegDupLanguageList(NtCurrentTeb()->MergedPrefLanguages);
-      *(_QWORD *)(Heap + 8) = v10;
+      Heap[1] = v10;
       if ( !v10 )
         goto LABEL_17;
       *(_DWORD *)(v10 + 40) &= ~0x40u;
@@ -57,12 +53,12 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages2(__int64 a1, __int64 a2, __i
     if ( !NtCurrentTeb()->UserPrefLanguages )
       goto LABEL_11;
     v11 = RtlpDupTebLanguageList((_QWORD *)NtCurrentTeb()->UserPrefLanguages);
-    *(_QWORD *)(Heap + 16) = v11;
+    Heap[2] = v11;
     if ( v11 )
     {
       *(_DWORD *)(*v11 + 40LL) &= ~0x40u;
 LABEL_11:
-      *(_DWORD *)(Heap + 24) = NtCurrentTeb()->ClientId.UniqueThread;
+      *((_DWORD *)Heap + 6) = NtCurrentTeb()->ClientId.UniqueThread;
       v12 = RtlSetThreadPreferredUILanguages(v7, a2, a3);
       if ( v12 >= 0 )
       {
@@ -70,10 +66,10 @@ LABEL_11:
         return (unsigned int)v12;
       }
 LABEL_18:
-      RtlpMuiRegFreeLanguageList(*(_QWORD *)Heap);
-      RtlpMuiRegFreeLanguageList(*(_QWORD *)(Heap + 8));
-      RtlpFreeTebLanguageList(*(__int64 **)(Heap + 16), v14, v15, v16);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v17);
+      RtlpMuiRegFreeLanguageList(*Heap);
+      RtlpMuiRegFreeLanguageList(Heap[1]);
+      RtlpFreeTebLanguageList((__int64 *)Heap[2]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return (unsigned int)v12;
     }
 LABEL_17:

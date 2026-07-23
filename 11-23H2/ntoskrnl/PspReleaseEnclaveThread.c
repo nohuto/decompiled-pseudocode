@@ -1,9 +1,9 @@
 /*
- * XREFs of PspReleaseEnclaveThread @ 0x1409B7AB0
+ * XREFs of PspReleaseEnclaveThread @ 0x1409B7CB0
  * Callers:
- *     PsCallEnclave @ 0x1409B6800 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x1409B6A00 (PsCallEnclave.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 int __fastcall PspReleaseEnclaveThread(__int64 a1)

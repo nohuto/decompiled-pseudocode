@@ -11,30 +11,29 @@
  *     sub_18010E294 @ 0x18010E294 (sub_18010E294.c)
  */
 
-unsigned __int64 __fastcall sub_18010E330(unsigned __int64 a1, __int64 a2)
+_QWORD *__fastcall sub_18010E330(_QWORD *BaseAddress, __int64 a2)
 {
-  __int64 v4; // rcx
-  int v5; // edx
-  unsigned __int64 v6; // rdi
-  _BYTE v7[20]; // [rsp+28h] [rbp-40h] BYREF
-  __int64 v8; // [rsp+3Ch] [rbp-2Ch]
-  int v9; // [rsp+48h] [rbp-20h]
+  const WCHAR *v4; // rcx
+  __int64 v5; // rdi
+  _BYTE v6[20]; // [rsp+28h] [rbp-40h] BYREF
+  __int64 v7; // [rsp+3Ch] [rbp-2Ch]
+  int v8; // [rsp+48h] [rbp-20h]
 
-  if ( !a1 )
+  if ( !BaseAddress )
   {
-    RtlSetLastWin32Error(0x57u);
-    return a1;
+    RtlSetLastWin32Error(87);
+    return BaseAddress;
   }
-  v4 = *(_QWORD *)(a1 + 40);
+  v4 = (const WCHAR *)BaseAddress[5];
   if ( !v4
-    || !(unsigned int)sub_18010D1BC(v4, a2, (__int64)v7)
-    || *(_DWORD *)(a1 + 48) == v9 && *(_QWORD *)(a1 + 56) == v8 )
+    || !(unsigned int)sub_18010D1BC(v4, a2, (__int64)v6)
+    || *((_DWORD *)BaseAddress + 12) == v8 && BaseAddress[7] == v7 )
   {
-    return a1;
+    return BaseAddress;
   }
-  v6 = sub_18010E294(*(_WORD **)(a1 + 40), v5);
-  if ( !v6 )
-    return a1;
-  sub_18010E10C(a1);
-  return v6;
+  v5 = sub_18010E294((WCHAR *)BaseAddress[5]);
+  if ( !v5 )
+    return BaseAddress;
+  sub_18010E10C(BaseAddress);
+  return (_QWORD *)v5;
 }

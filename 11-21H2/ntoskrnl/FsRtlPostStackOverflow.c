@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpPostStackOverflow @ 0x140542FC4 (FsRtlpPostStackOverflow.c)
+ *     sub_140542FC4 @ 0x140542FC4 (sub_140542FC4.c)
  */
 
 void __stdcall FsRtlPostStackOverflow(PVOID Context, PKEVENT Event, PFSRTL_STACK_OVERFLOW_ROUTINE StackOverflowRoutine)
 {
-  FsRtlpPostStackOverflow(Context, Event, StackOverflowRoutine, 0LL);
+  sub_140542FC4(Context, Event, StackOverflowRoutine, 0LL);
 }

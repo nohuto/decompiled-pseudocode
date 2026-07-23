@@ -24,13 +24,14 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtSaveKeyEx(int a1, HANDLE a2, int a3)
+NTSTATUS __cdecl NtSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Format)
 {
+  int v3; // r15d
   struct _KTHREAD *CurrentThread; // rcx
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v8; // rdx
   __int64 v9; // r8
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   __int64 v11; // rdx
   PVOID v12; // rcx
   int v13; // r8d
@@ -58,6 +59,7 @@ __int64 __fastcall NtSaveKeyEx(int a1, HANDLE a2, int a3)
   Object = 0LL;
   Handle = 0LL;
   v29[1] = v29;
+  v3 = (int)KeyHandle;
   v29[0] = v29;
   v30 = 0LL;
   v31 = 0LL;
@@ -81,31 +83,31 @@ LABEL_31:
       v10 = -1073741727;
       goto LABEL_31;
     }
-    if ( ((a3 - 1) & 0xFFFFFFFC) != 0 || a3 == 3 )
+    if ( ((Format - 1) & 0xFFFFFFFC) != 0 || Format == 3 )
     {
       v10 = -1073741811;
       goto LABEL_31;
     }
     if ( PreviousMode == 1 )
     {
-      v15 = IoConvertFileHandleToKernelHandle(a2, 1, 2, 0, &Handle);
+      v15 = IoConvertFileHandleToKernelHandle(FileHandle, 1, 2, 0, &Handle);
       v16 = Handle;
       v10 = v15;
       if ( v15 < 0 )
       {
 LABEL_27:
-        if ( v16 && v16 != a2 )
+        if ( v16 && v16 != FileHandle )
           ZwClose(v16);
         goto LABEL_31;
       }
     }
     else
     {
-      v16 = a2;
-      Handle = a2;
+      v16 = FileHandle;
+      Handle = FileHandle;
     }
     LOBYTE(v14) = PreviousMode;
-    v10 = CmObReferenceObjectByHandle(a1, 0, v13, v14, (__int64)&Object, 0LL);
+    v10 = CmObReferenceObjectByHandle(v3, 0, v13, v14, (__int64)&Object, 0LL);
     if ( v10 >= 0 )
     {
       v17 = KeGetCurrentThread();
@@ -116,13 +118,13 @@ LABEL_27:
         || CmpIsRegistryLockAcquired()
         || (*(_QWORD *)&v31 = v18,
             *((_QWORD *)&v31 + 1) = v19,
-            LODWORD(v32) = a3,
+            LODWORD(v32) = Format,
             v20 = CmpCallCallBacksEx(0x2Bu, &v31, 0LL, 1, 0x2Cu, 0LL, (__int64)v29),
             v10 = v20,
             v20 >= 0) )
       {
         CmpAttachToRegistryProcess(v34);
-        if ( a3 == 4 )
+        if ( Format == 4 )
         {
           LOBYTE(v21) = PreviousMode;
           v23 = CmDumpKeyToFile((__int64)v18, v21, v19, v22);
@@ -130,7 +132,7 @@ LABEL_27:
         else
         {
           v24 = 5;
-          if ( a3 != 2 )
+          if ( Format != 2 )
             v24 = 3;
           v23 = CmSaveKey((__int64)v18, (__int64)v19, v24, PreviousMode);
         }
@@ -153,5 +155,5 @@ LABEL_27:
   v10 = -1073741431;
 LABEL_32:
   CmCleanupThreadInfo((__int64 *)&v30);
-  return (unsigned int)v10;
+  return v10;
 }

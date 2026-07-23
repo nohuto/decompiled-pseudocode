@@ -18,19 +18,19 @@ __int64 __fastcall sub_18001A7F0(__int64 a1)
   if ( !a1 )
     return 0LL;
   sub_18001A790();
-  RtlEnterCriticalSection(&unk_180164300);
+  RtlEnterCriticalSection(&stru_180164300);
   v3 = dword_180164330;
   if ( dword_180164330 )
   {
     while ( v3 > 0 )
     {
-      if ( *(_QWORD *)(qword_180164328 + 48LL * --v3) == a1 )
+      if ( *((_QWORD *)qword_180164328 + 6 * --v3) == a1 )
       {
-        v2 = *(_QWORD *)(qword_180164328 + 48LL * v3 + 16);
+        v2 = *((_QWORD *)qword_180164328 + 6 * v3 + 2);
         break;
       }
     }
   }
-  RtlLeaveCriticalSection(&unk_180164300);
+  RtlLeaveCriticalSection(&stru_180164300);
   return v2;
 }

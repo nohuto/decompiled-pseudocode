@@ -17,10 +17,10 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpLoadDll(unsigned __int16 *a1, int a2, unsigned int a3, __int64 *a4)
+__int64 __fastcall LdrpLoadDll(unsigned __int16 *a1, int a2, int a3, PVOID *a4)
 {
-  unsigned int v8; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v9; // [rsp+58h] [rbp-A8h] BYREF
+  int v8; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v9; // [rsp+58h] [rbp-A8h] BYREF
   int v10; // [rsp+60h] [rbp-A0h] BYREF
   _WORD *v11; // [rsp+68h] [rbp-98h]
   _WORD v12[128]; // [rsp+70h] [rbp-90h] BYREF
@@ -30,14 +30,14 @@ __int64 __fastcall LdrpLoadDll(unsigned __int16 *a1, int a2, unsigned int a3, __
   v10 = 0x1000000;
   v11 = v12;
   v12[0] = 0;
-  v9 = LdrpPreprocessDllName(a1, (unsigned __int16 *)&v10, 0LL, (int *)&v8);
-  if ( (v9 & 0x80000000) == 0 )
+  LODWORD(v9) = LdrpPreprocessDllName(a1, (unsigned __int16 *)&v10, 0LL, &v8);
+  if ( (int)v9 >= 0 )
     LdrpLoadDllInternal((__int64)&v10, a2, v8, 4, 0LL, 0LL, a4, (int *)&v9, 0LL);
   if ( v12 != v11 )
-    NtdllpFreeStringRoutine((__int64)v11);
+    NtdllpFreeStringRoutine(v11);
   v10 = 0x1000000;
   v11 = v12;
   v12[0] = 0;
   LdrpLogDllState(0LL, a1, 5289LL);
-  return v9;
+  return (unsigned int)v9;
 }

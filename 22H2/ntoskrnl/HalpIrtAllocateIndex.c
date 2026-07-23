@@ -32,7 +32,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
   unsigned int v13; // ebx
   __int64 v14; // rsi
   __int64 v15; // rdx
-  RTL_BITMAP *v16; // r14
+  _RTL_BITMAP *v16; // r14
   ULONG ClearBitsAndSet; // esi
   ULONG v18; // edx
   ULONG v19; // ebx
@@ -76,7 +76,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
       goto LABEL_30;
     ExAcquireFastMutex(&HalpIrtLock);
   }
-  v16 = (RTL_BITMAP *)((char *)&HalpIrtRanges + 8 * v14);
+  v16 = (_RTL_BITMAP *)((char *)&HalpIrtRanges + 8 * v14);
   if ( (HalpIrtAllocationFlags & 1) != 0 )
   {
     v18 = v8 * HalpIrtEntriesPerDeviceAperture % HalpIrtEntriesPerRange;

@@ -3,7 +3,7 @@
  * Callers:
  *     MmFreePoolMemory @ 0x140212224 (MmFreePoolMemory.c)
  * Callees:
- *     MiFreeExcessSegments @ 0x140624A1C (MiFreeExcessSegments.c)
+ *     MiFreeExcessSegments @ 0x140624F6C (MiFreeExcessSegments.c)
  */
 
 unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a3)

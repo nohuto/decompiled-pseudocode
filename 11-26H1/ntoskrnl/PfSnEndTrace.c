@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnEndTrace @ 0x140AA3588
+ * XREFs of PfSnEndTrace @ 0x140AA6328
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x140AA3570 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x140AA6310 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PfpPartitionDereferenceParent @ 0x140381780 (PfpPartitionDereferenceParent.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     PfpPartitionReferenceParentSafeByProcess @ 0x1404471E0 (PfpPartitionReferenceParentSafeByProcess.c)
- *     PfSnDeactivateTrace @ 0x140463740 (PfSnDeactivateTrace.c)
- *     PfFbBufferListFlushStandby @ 0x1404AC388 (PfFbBufferListFlushStandby.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PfSnBuildDumpFromTrace @ 0x140AA38E0 (PfSnBuildDumpFromTrace.c)
- *     PfSnLogEndTrace @ 0x140AA3B48 (PfSnLogEndTrace.c)
- *     PfSnCleanupTrace @ 0x140AA3C54 (PfSnCleanupTrace.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PfpPartitionDereferenceParent @ 0x140383530 (PfpPartitionDereferenceParent.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     PfpPartitionReferenceParentSafeByProcess @ 0x14043FCD0 (PfpPartitionReferenceParentSafeByProcess.c)
+ *     PfSnDeactivateTrace @ 0x14045C700 (PfSnDeactivateTrace.c)
+ *     PfFbBufferListFlushStandby @ 0x1404A5A18 (PfFbBufferListFlushStandby.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PfSnBuildDumpFromTrace @ 0x140AA6680 (PfSnBuildDumpFromTrace.c)
+ *     PfSnLogEndTrace @ 0x140AA68E8 (PfSnLogEndTrace.c)
+ *     PfSnCleanupTrace @ 0x140AA69F4 (PfSnCleanupTrace.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnEndTrace(char *P)
@@ -86,7 +86,7 @@ __int64 __fastcall PfSnEndTrace(char *P)
     v36 = v21;
     v38 = v21;
     v40 = 1LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&dword_140049704, 0LL, 0LL, 7u, v31);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&dword_140049D04, 0LL, 0LL, 7u, v31);
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   KeGetCurrentThread()->PreviousMode = 0;
@@ -100,7 +100,7 @@ __int64 __fastcall PfSnEndTrace(char *P)
     v9 = v8;
   }
   v10 = *((int *)P + 82);
-  if ( (int)v10 >= *(int *)&stru_140E66B30.KeReferenceCount )
+  if ( (int)v10 >= *(int *)&stru_140E66D40.KeReferenceCount )
   {
     if ( (int)v10 > 10 )
     {
@@ -137,44 +137,44 @@ __int64 __fastcall PfSnEndTrace(char *P)
   {
     if ( v15 && v27 && *(_DWORD *)(v27 + 608) < *(_DWORD *)(v27 + 612) )
       PfFbBufferListFlushStandby(v27, v27 + 288);
-    ExAcquireFastMutex((PKGUARDED_MUTEX)((char *)&stru_140E66FF0.116 + 4));
-    if ( *(_DWORD *)&stru_140E66FF0.ApcStateFill[28] == 1 )
+    ExAcquireFastMutex((PKGUARDED_MUTEX)((char *)&stru_140E67200.116 + 4));
+    if ( *(_DWORD *)&stru_140E67200.ApcStateFill[28] == 1 )
     {
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E66FF0.116 + 4));
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E67200.116 + 4));
       ExFreePoolWithTag(v2, 0);
     }
     else
     {
-      v16 = *(_QWORD **)&stru_140E66FF0.WaitRegister.Flags;
-      if ( **(struct _KTHREAD ***)&stru_140E66FF0.WaitRegister.Flags != (struct _KTHREAD *)&stru_140E66FF0.SchedulingGroup )
+      v16 = *(_QWORD **)&stru_140E67200.WaitRegister.Flags;
+      if ( **(struct _KTHREAD ***)&stru_140E67200.WaitRegister.Flags != (struct _KTHREAD *)&stru_140E67200.SchedulingGroup )
 LABEL_13:
         __fastfail(3u);
-      v2[1] = *(_QWORD *)&stru_140E66FF0.WaitRegister.Flags;
-      *v2 = &stru_140E66FF0.SchedulingGroup;
+      v2[1] = *(_QWORD *)&stru_140E67200.WaitRegister.Flags;
+      *v2 = &stru_140E67200.SchedulingGroup;
       *v16 = v2;
-      v17 = *(_DWORD *)&stru_140E66FF0.ApcStateFill[24] + 1;
-      *(_QWORD *)&stru_140E66FF0.WaitRegister.Flags = v2;
+      v17 = *(_DWORD *)&stru_140E67200.ApcStateFill[24] + 1;
+      *(_QWORD *)&stru_140E67200.WaitRegister.Flags = v2;
       while ( 1 )
       {
-        *(_DWORD *)&stru_140E66FF0.ApcStateFill[24] = v17;
-        if ( v17 <= HIDWORD(stru_140E66B30.LastXStateSaveDebugInfo) )
+        *(_DWORD *)&stru_140E67200.ApcStateFill[24] = v17;
+        if ( v17 <= HIDWORD(stru_140E66D40.LastXStateSaveDebugInfo) )
           break;
-        SchedulingGroup = stru_140E66FF0.SchedulingGroup;
-        if ( (_KSCHEDULING_GROUP *volatile *)stru_140E66FF0.SchedulingGroup == &stru_140E66FF0.SchedulingGroup )
+        SchedulingGroup = stru_140E67200.SchedulingGroup;
+        if ( (_KSCHEDULING_GROUP *volatile *)stru_140E67200.SchedulingGroup == &stru_140E67200.SchedulingGroup )
           break;
-        if ( *(struct _KTHREAD **)&stru_140E66FF0.SchedulingGroup->RelativeWeight != (struct _KTHREAD *)&stru_140E66FF0.SchedulingGroup )
+        if ( *(struct _KTHREAD **)&stru_140E67200.SchedulingGroup->RelativeWeight != (struct _KTHREAD *)&stru_140E67200.SchedulingGroup )
           goto LABEL_13;
-        Policy = stru_140E66FF0.SchedulingGroup->Policy;
-        if ( *(_KSCHEDULING_GROUP *volatile *)(*(_QWORD *)&stru_140E66FF0.SchedulingGroup->Policy + 8LL) != stru_140E66FF0.SchedulingGroup )
+        Policy = stru_140E67200.SchedulingGroup->Policy;
+        if ( *(_KSCHEDULING_GROUP *volatile *)(*(_QWORD *)&stru_140E67200.SchedulingGroup->Policy + 8LL) != stru_140E67200.SchedulingGroup )
           goto LABEL_13;
-        stru_140E66FF0.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)stru_140E66FF0.SchedulingGroup->Policy;
-        *(_QWORD *)(*(_QWORD *)&Policy + 8LL) = &stru_140E66FF0.SchedulingGroup;
+        stru_140E67200.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)stru_140E67200.SchedulingGroup->Policy;
+        *(_QWORD *)(*(_QWORD *)&Policy + 8LL) = &stru_140E67200.SchedulingGroup;
         ExFreePoolWithTag(SchedulingGroup, 0);
-        v17 = *(_DWORD *)&stru_140E66FF0.ApcStateFill[24] - 1;
+        v17 = *(_DWORD *)&stru_140E67200.ApcStateFill[24] - 1;
       }
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E66FF0.116 + 4));
-      if ( stru_140E66FF0.ApcState.Process )
-        KeSetEvent((PRKEVENT)stru_140E66FF0.ApcState.Process, 0, 0);
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E67200.116 + 4));
+      if ( stru_140E67200.ApcState.Process )
+        KeSetEvent((PRKEVENT)stru_140E67200.ApcState.Process, 0, 0);
       v13 = 0;
     }
   }
@@ -190,7 +190,7 @@ LABEL_13:
     v35 = &v24;
     v24 = HIDWORD(v30);
     v36 = v22;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&byte_1400496C7, 0LL, 0LL, 5u, v31);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07398, (unsigned __int8 *)&byte_140049CC7, 0LL, 0LL, 5u, v31);
   }
   return (unsigned int)v13;
 }

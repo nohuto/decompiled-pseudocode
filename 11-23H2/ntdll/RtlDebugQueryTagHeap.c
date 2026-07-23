@@ -13,81 +13,81 @@
  *     RtlpNotOwnerCriticalSection @ 0x1800F4D50 (RtlpNotOwnerCriticalSection.c)
  *     RtlQueryTagHeap @ 0x1800FEE20 (RtlQueryTagHeap.c)
  *     RtlpValidateHeap @ 0x180107E20 (RtlpValidateHeap.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
- *     RtlpHeapExceptionFilter @ 0x1801228D8 (RtlpHeapExceptionFilter.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
+ *     RtlpHeapExceptionFilter @ 0x1801228A8 (RtlpHeapExceptionFilter.c)
  */
 
-void *__fastcall RtlDebugQueryTagHeap(__int64 a1, int a2, unsigned __int16 a3, char a4, _DWORD *a5)
+PWSTR __fastcall RtlDebugQueryTagHeap(_DWORD *HeapHandle, ULONG a2, USHORT a3, BOOLEAN a4, PRTL_HEAP_TAG_INFO TagInfo)
 {
   char v9; // si
-  int v10; // ebx
-  __int64 v11; // rbx
-  _BYTE *v13; // rdi
+  ULONG v10; // ebx
+  _RTL_CRITICAL_SECTION *v11; // rbx
+  int *p_LockCount; // rdi
   signed __int32 v14; // esi
-  HANDLE DeferredCriticalSectionEvent; // r10
+  HANDLE LockSemaphore; // r10
   int v16; // eax
   signed __int32 v18[8]; // [rsp+30h] [rbp-78h] BYREF
   char v19; // [rsp+60h] [rbp-48h]
-  void *TagHeap; // [rsp+70h] [rbp-38h]
-  __int64 v21; // [rsp+B0h] [rbp+8h] BYREF
-  int v22; // [rsp+B8h] [rbp+10h]
+  PWSTR TagHeap; // [rsp+70h] [rbp-38h]
+  _DWORD *v21; // [rsp+B0h] [rbp+8h] BYREF
+  ULONG v22; // [rsp+B8h] [rbp+10h]
 
   v22 = a2;
-  v21 = a1;
+  v21 = HeapHandle;
   v9 = 0;
   v19 = 0;
   TagHeap = 0LL;
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlQueryTagHeap") )
+  if ( RtlpCheckHeapSignature(HeapHandle, "RtlQueryTagHeap") )
   {
-    v10 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v10 = HeapHandle[29] | 0x10000000 | a2;
     v22 = v10;
     if ( (v10 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       v9 = 1;
       v19 = 1;
       v10 |= 1u;
       v22 = v10;
     }
-    if ( (unsigned __int8)RtlpValidateHeap(a1, 0LL) )
-      TagHeap = RtlQueryTagHeap(a1, v10, a3, a4, a5);
+    if ( (unsigned __int8)RtlpValidateHeap((_DWORD)HeapHandle) )
+      TagHeap = RtlQueryTagHeap(HeapHandle, v10, a3, a4, TagInfo);
   }
   if ( v9 )
   {
-    v11 = *(_QWORD *)(a1 + 352);
-    if ( (*(_DWORD *)(v11 + 12))-- == 1 )
+    v11 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+    if ( v11->RecursionCount-- == 1 )
     {
-      *(_QWORD *)(v11 + 16) = 0LL;
-      v13 = (_BYTE *)(v11 + 8);
-      v14 = _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 8), -1, -2);
+      v11->OwningThread = 0LL;
+      p_LockCount = &v11->LockCount;
+      v14 = _InterlockedCompareExchange(&v11->LockCount, -1, -2);
       if ( v14 != -2 )
       {
-        if ( (*v13 & 1) != 0 )
-          RtlpNotOwnerCriticalSection((const void **)v11);
-        DeferredCriticalSectionEvent = *(HANDLE *)(v11 + 24);
-        if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v11);
+        if ( (*(_BYTE *)p_LockCount & 1) != 0 )
+          RtlpNotOwnerCriticalSection(v11);
+        LockSemaphore = v11->LockSemaphore;
+        if ( !LockSemaphore )
+          LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)v11);
         LODWORD(v21) = 0;
-        while ( v14 != _InterlockedCompareExchange((volatile signed __int32 *)v13, (v14 & 2 | 1) + v14, v14) )
+        while ( v14 != _InterlockedCompareExchange(p_LockCount, (v14 & 2 | 1) + v14, v14) )
         {
           RtlBackoff((unsigned int *)&v21);
-          _m_prefetchw(v13);
-          v14 = *(_DWORD *)v13;
+          _m_prefetchw(p_LockCount);
+          v14 = *p_LockCount;
         }
         if ( (v14 & 2) != 0 )
         {
-          if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
+          if ( LockSemaphore == (HANDLE)-1LL )
           {
             _InterlockedOr(v18, 0);
-            RtlpWakeByAddress(v11 + 8, 0);
+            RtlpWakeByAddress((unsigned __int64)&v11->LockCount, 0);
             v16 = 0;
           }
           else
           {
-            v16 = ZwSetEvent();
+            v16 = ZwSetEvent(LockSemaphore, 0LL);
           }
           if ( v16 < 0 )
-            RtlRaiseStatus((unsigned int)v16);
+            RtlRaiseStatus(v16);
         }
       }
     }

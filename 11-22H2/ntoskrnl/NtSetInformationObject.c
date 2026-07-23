@@ -13,12 +13,16 @@
  *     ObSetHandleAttributes @ 0x14073FE00 (ObSetHandleAttributes.c)
  */
 
-__int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, __int16 *a3, int a4)
+NTSTATUS __cdecl NtSetInformationObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength)
 {
-  NTSTATUS v5; // edi
-  int v6; // edx
+  int v5; // edi
+  __int32 v6; // edx
   char v7; // cl
-  int v9; // edx
+  __int32 v9; // edx
   KPROCESSOR_MODE PreviousMode; // bl
   unsigned int CurrentProcessSessionId; // eax
   __int64 v12; // rdx
@@ -33,14 +37,14 @@ __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, __int16 *a3, in
 
   v20 = 0;
   v5 = -1073741821;
-  v6 = a2 - 4;
+  v6 = ObjectInformationClass - 4;
   if ( v6 )
   {
     v9 = v6 - 1;
     if ( v9 )
     {
       if ( v9 != 1 )
-        return (unsigned int)v5;
+        return v5;
       PreviousMode = KeGetCurrentThread()->PreviousMode;
       if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
       {
@@ -74,7 +78,7 @@ LABEL_16:
 LABEL_17:
           ObfDereferenceObject(v14);
         }
-        return (unsigned int)v5;
+        return v5;
       }
     }
     else
@@ -86,7 +90,7 @@ LABEL_17:
         Object = 0LL;
         v5 = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, v15, &Object, &HandleInformation);
         if ( v5 < 0 )
-          return (unsigned int)v5;
+          return v5;
         v18 = 0LL;
         v19 = 0LL;
         v14 = Object;
@@ -95,16 +99,19 @@ LABEL_17:
         goto LABEL_16;
       }
     }
-    return (unsigned int)-1073741727;
+    return -1073741727;
   }
-  if ( a4 == 2 )
+  if ( ObjectInformationLength == 2 )
   {
     v7 = KeGetCurrentThread()->PreviousMode;
-    if ( v7 && ((unsigned __int64)(a3 + 1) > 0x7FFFFFFF0000LL || a3 + 1 < a3) )
+    if ( v7
+      && ((unsigned __int64)ObjectInformation + 2 > 0x7FFFFFFF0000LL || (char *)ObjectInformation + 2 < ObjectInformation) )
+    {
       MEMORY[0x7FFFFFFF0000] = 0;
-    v20 = *a3;
-    LOBYTE(a3) = v7;
-    return (unsigned int)ObSetHandleAttributes(Handle, &v20, a3);
+    }
+    v20 = *(_WORD *)ObjectInformation;
+    LOBYTE(ObjectInformation) = v7;
+    return ObSetHandleAttributes(Handle, &v20, ObjectInformation);
   }
-  return 3221225476LL;
+  return -1073741820;
 }

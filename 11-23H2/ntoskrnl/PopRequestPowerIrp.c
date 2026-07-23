@@ -1,21 +1,21 @@
 /*
- * XREFs of PopRequestPowerIrp @ 0x14028F230
+ * XREFs of PopRequestPowerIrp @ 0x14028F4C0
  * Callers:
- *     PopFxReleasePowerIrp @ 0x14028DD44 (PopFxReleasePowerIrp.c)
- *     PoRequestPowerIrp @ 0x14028F200 (PoRequestPowerIrp.c)
- *     PopScanIdleList @ 0x14032C910 (PopScanIdleList.c)
- *     DifPoRequestPowerIrpWrapper @ 0x1405EA210 (DifPoRequestPowerIrpWrapper.c)
+ *     PopFxReleasePowerIrp @ 0x14028DFD4 (PopFxReleasePowerIrp.c)
+ *     PoRequestPowerIrp @ 0x14028F490 (PoRequestPowerIrp.c)
+ *     PopScanIdleList @ 0x14032CBA0 (PopScanIdleList.c)
+ *     DifPoRequestPowerIrpWrapper @ 0x1405EA780 (DifPoRequestPowerIrpWrapper.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PopPepDeviceWaitWake @ 0x14028CF84 (PopPepDeviceWaitWake.c)
- *     IofCallDriverSpecifyReturn @ 0x14028D160 (IofCallDriverSpecifyReturn.c)
- *     PopFxGetDeviceDStateReason @ 0x14028DB04 (PopFxGetDeviceDStateReason.c)
- *     PopFxNotifyPreDIrpIssue @ 0x14028DEB8 (PopFxNotifyPreDIrpIssue.c)
- *     PopQueueQuerySetIrp @ 0x14028E9CC (PopQueueQuerySetIrp.c)
- *     PopDiagTraceIrpStart @ 0x14028EBA0 (PopDiagTraceIrpStart.c)
- *     PopAllocateIrp @ 0x14028F434 (PopAllocateIrp.c)
- *     PopLogNotifyDevice @ 0x14046302A (PopLogNotifyDevice.c)
- *     PopMapInternalActionToIrpAction @ 0x1405871F4 (PopMapInternalActionToIrpAction.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PopPepDeviceWaitWake @ 0x14028D214 (PopPepDeviceWaitWake.c)
+ *     IofCallDriverSpecifyReturn @ 0x14028D3F0 (IofCallDriverSpecifyReturn.c)
+ *     PopFxGetDeviceDStateReason @ 0x14028DD94 (PopFxGetDeviceDStateReason.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x14028E148 (PopFxNotifyPreDIrpIssue.c)
+ *     PopQueueQuerySetIrp @ 0x14028EC5C (PopQueueQuerySetIrp.c)
+ *     PopDiagTraceIrpStart @ 0x14028EE30 (PopDiagTraceIrpStart.c)
+ *     PopAllocateIrp @ 0x14028F6C4 (PopAllocateIrp.c)
+ *     PopLogNotifyDevice @ 0x14046342A (PopLogNotifyDevice.c)
+ *     PopMapInternalActionToIrpAction @ 0x1405876E4 (PopMapInternalActionToIrpAction.c)
  */
 
 __int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, ULONG a3, int a4, __int64 a5, char a6, PIRP Irp)

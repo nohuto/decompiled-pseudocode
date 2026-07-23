@@ -1,9 +1,9 @@
 /*
- * XREFs of KiParseLoadOptions @ 0x140B57170
+ * XREFs of KiParseLoadOptions @ 0x140B591F0
  * Callers:
- *     KiInitializeXSaveConfiguration @ 0x140B56AA0 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeXSaveConfiguration @ 0x140B58B20 (KiInitializeXSaveConfiguration.c)
  * Callees:
- *     KiMatchLoadOption @ 0x140B57128 (KiMatchLoadOption.c)
+ *     KiMatchLoadOption @ 0x140B591A8 (KiMatchLoadOption.c)
  */
 
 void __fastcall KiParseLoadOptions(const char *a1)

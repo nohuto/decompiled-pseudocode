@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x1407F12BC
+ * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x1407F24BC
  * Callers:
- *     CmpSearchKeyControlBlockTree @ 0x1407F12A0 (CmpSearchKeyControlBlockTree.c)
- *     CmKeyBodyReplicateToVirtual @ 0x1407F1C74 (CmKeyBodyReplicateToVirtual.c)
- *     CmpCommitDiscardReplacePost @ 0x1407F9A60 (CmpCommitDiscardReplacePost.c)
- *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140803A84 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpSearchKeyControlBlockTree @ 0x1407F24A0 (CmpSearchKeyControlBlockTree.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1407F2E74 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpCommitDiscardReplacePost @ 0x1407FAC60 (CmpCommitDiscardReplacePost.c)
+ *     CmpRefreshHive @ 0x140803FAC (CmpRefreshHive.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140804C84 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
- *     CmpRemoveFromDelayedClose @ 0x140692D4C (CmpRemoveFromDelayedClose.c)
- *     CmpLockHashEntryByIndexExclusive @ 0x1407F952C (CmpLockHashEntryByIndexExclusive.c)
- *     CmpUnlockHashEntryByIndex @ 0x1407F95A4 (CmpUnlockHashEntryByIndex.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpFreeKeyControlBlock @ 0x140693DB4 (CmpFreeKeyControlBlock.c)
+ *     CmpRemoveFromDelayedClose @ 0x140693F0C (CmpRemoveFromDelayedClose.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x1407FA72C (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpUnlockHashEntryByIndex @ 0x1407FA7A4 (CmpUnlockHashEntryByIndex.c)
  */
 
 char __fastcall CmpSearchKeyControlBlockTreeEx(

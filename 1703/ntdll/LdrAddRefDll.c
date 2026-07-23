@@ -14,35 +14,30 @@
  *     sub_180030264 @ 0x180030264 (sub_180030264.c)
  */
 
-__int64 __fastcall LdrAddRefDll(int a1, __int64 a2)
+NTSTATUS __cdecl LdrAddRefDll(ULONG Flags, PVOID DllHandle)
 {
   char v2; // di
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   bool v4; // zf
-  __int64 v5; // rdi
-  int v6; // eax
+  PVOID v5; // rdi
+  NTSTATUS v6; // eax
   char v8; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v9; // [rsp+40h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v2 = a1;
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  v2 = Flags;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  v3 = sub_180030264(DllHandle, &BaseAddress, &v8);
+  if ( v3 >= 0 )
   {
-    return (unsigned int)-1073741811;
+    v4 = (v2 & 1) == 0;
+    v5 = BaseAddress;
+    if ( v4 )
+      v6 = sub_18001BDBC(BaseAddress);
+    else
+      v6 = sub_18001A084((__int64)BaseAddress);
+    v3 = v6;
+    sub_18003015C(v5);
   }
-  else
-  {
-    v3 = sub_180030264(a2, &v9, &v8);
-    if ( v3 >= 0 )
-    {
-      v4 = (v2 & 1) == 0;
-      v5 = v9;
-      if ( v4 )
-        v6 = sub_18001BDBC(v9);
-      else
-        v6 = sub_18001A084(v9);
-      v3 = v6;
-      sub_18003015C(v5);
-    }
-  }
-  return (unsigned int)v3;
+  return v3;
 }

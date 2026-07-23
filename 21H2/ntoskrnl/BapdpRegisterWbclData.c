@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpRegisterWbclData @ 0x140A41620
+ * XREFs of BapdpRegisterWbclData @ 0x140A42620
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4217C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     BapdRegisterSiData @ 0x14099AD08 (BapdRegisterSiData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     BapdpQueryData @ 0x140A41734 (BapdpQueryData.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     BapdRegisterSiData @ 0x14099BD08 (BapdRegisterSiData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A42734 (BapdpQueryData.c)
  */
 
 void __fastcall BapdpRegisterWbclData(__int64 a1)

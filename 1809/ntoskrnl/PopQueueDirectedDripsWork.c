@@ -1,15 +1,15 @@
 /*
- * XREFs of PopQueueDirectedDripsWork @ 0x1402D6B68
+ * XREFs of PopQueueDirectedDripsWork @ 0x1402D6D58
  * Callers:
- *     PopDirectedDripsTimerCallbackRoutine @ 0x1402D6AF0 (PopDirectedDripsTimerCallbackRoutine.c)
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140867AC8 (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsIdleResiliencyCallback @ 0x140867D18 (PopDirectedDripsIdleResiliencyCallback.c)
- *     PopDirectedDripsPdcLpeNotification @ 0x1408683C0 (PopDirectedDripsPdcLpeNotification.c)
- *     PopDirectedDripsSetDisengageReason @ 0x1408686B8 (PopDirectedDripsSetDisengageReason.c)
- *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
+ *     PopDirectedDripsTimerCallbackRoutine @ 0x1402D6CE0 (PopDirectedDripsTimerCallbackRoutine.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x140868D28 (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x140868F78 (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopDirectedDripsPdcLpeNotification @ 0x140869620 (PopDirectedDripsPdcLpeNotification.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x140869918 (PopDirectedDripsSetDisengageReason.c)
+ *     PopDripsWatchdogTakeAction @ 0x14087A9E8 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 int __fastcall PopQueueDirectedDripsWork(struct _KEVENT *a1, unsigned __int64 a2)

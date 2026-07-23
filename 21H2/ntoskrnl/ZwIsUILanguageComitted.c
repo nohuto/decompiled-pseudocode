@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwIsUILanguageComitted @ 0x1403FC420
+ * XREFs of ZwIsUILanguageComitted @ 0x1403FC600
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwIsUILanguageComitted(__int64 a1, __int64 a2)
+NTSTATUS ZwIsUILanguageComitted(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(v0);
 }

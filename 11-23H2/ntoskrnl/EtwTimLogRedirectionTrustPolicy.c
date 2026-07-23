@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1409EA688
+ * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1409EA918
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1403D1030 (IoCheckRedirectionTrustLevel.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1403D1210 (IoCheckRedirectionTrustLevel.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlWalkFrameChain @ 0x140227760 (RtlWalkFrameChain.c)
- *     RtlStringCbCopyW @ 0x14022B004 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041B1C0 (ZwQueryVirtualMemory.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpQueryProcessCommandLine @ 0x140754BE8 (EtwpQueryProcessCommandLine.c)
+ *     RtlWalkFrameChain @ 0x140227870 (RtlWalkFrameChain.c)
+ *     RtlStringCbCopyW @ 0x14022B114 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillProcessIdentity @ 0x1403041E4 (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x14041B550 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpQueryProcessCommandLine @ 0x140754DD8 (EtwpQueryProcessCommandLine.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -267,7 +267,7 @@ void __fastcall EtwTimLogRedirectionTrustPolicy(
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    *v20,
-                   (MEMORY_INFORMATION_CLASS)2,
+                   MemoryMappedFilenameInformation,
                    v19,
                    0x218uLL,
                    0LL) < 0
@@ -460,7 +460,7 @@ LABEL_34:
       EtwWrite(EtwSecurityMitigationsRegHandle, EventDescriptor, 0LL, v43, &UserData);
       if ( v8 )
       {
-        if ( (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
+        if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
         {
           v83 = 0x2000000LL;
           v92 = &v83;
@@ -535,15 +535,15 @@ LABEL_34:
           v133[1] = 0;
           v135 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C04320,
-            (unsigned __int8 *)byte_1400356F1,
+            (__int64)&dword_140C066C0,
+            (unsigned __int8 *)byte_140035B90,
             0LL,
             0LL,
             0x18u,
             &v91);
         }
       }
-      else if ( (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
+      else if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
       {
         v79 = 0x2000000LL;
         v137 = &v79;
@@ -563,8 +563,8 @@ LABEL_34:
         v148[0] = v47;
         v148[1] = 0;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04320,
-          (unsigned __int8 *)&dword_140035694,
+          (__int64)&dword_140C066C0,
+          (unsigned __int8 *)&dword_14003577C,
           0LL,
           0LL,
           8u,

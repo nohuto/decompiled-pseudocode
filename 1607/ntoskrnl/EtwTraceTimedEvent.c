@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwTraceTimedEvent @ 0x14009E50C
+ * XREFs of EtwTraceTimedEvent @ 0x14009DEB8
  * Callers:
  *     IopTimerDispatch @ 0x1400017F4 (IopTimerDispatch.c)
- *     PfHardFaultLog @ 0x14009E3F4 (PfHardFaultLog.c)
- *     KiFinalizeTimer2Disablement @ 0x1400A2760 (KiFinalizeTimer2Disablement.c)
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x1400F79FC (KeDisableTimer2.c)
- *     KiProcessExpiredTimerList @ 0x14010CEBC (KiProcessExpiredTimerList.c)
- *     EtwTraceCpuCacheFlush @ 0x140225A4C (EtwTraceCpuCacheFlush.c)
- *     EtwpTraceFltTimedIo @ 0x1402271D4 (EtwpTraceFltTimedIo.c)
- *     PerfInfoLogIpi @ 0x140227790 (PerfInfoLogIpi.c)
+ *     PfHardFaultLog @ 0x14009DDA0 (PfHardFaultLog.c)
+ *     KiFinalizeTimer2Disablement @ 0x1400A1088 (KiFinalizeTimer2Disablement.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
+ *     KeDisableTimer2 @ 0x1400F583C (KeDisableTimer2.c)
+ *     KiProcessExpiredTimerList @ 0x14010D420 (KiProcessExpiredTimerList.c)
+ *     EtwTraceCpuCacheFlush @ 0x140225878 (EtwTraceCpuCacheFlush.c)
+ *     EtwpTraceFltTimedIo @ 0x140227000 (EtwpTraceFltTimedIo.c)
+ *     PerfInfoLogIpi @ 0x1402275BC (PerfInfoLogIpi.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceTimedEvent(

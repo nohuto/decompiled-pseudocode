@@ -1,55 +1,55 @@
 /*
- * XREFs of MiFlushSectionInternal @ 0x140275750
+ * XREFs of MiFlushSectionInternal @ 0x1402759E0
  * Callers:
  *     MiCleanSection @ 0x1402016FC (MiCleanSection.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x140624534 (MiFlushControlArea.c)
- *     MmFlushVirtualMemory @ 0x1407B4258 (MmFlushVirtualMemory.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x140624A84 (MiFlushControlArea.c)
+ *     MmFlushVirtualMemory @ 0x1407B4538 (MmFlushVirtualMemory.c)
  * Callees:
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
  *     MiRemoveUnusedSubsection @ 0x14021B974 (MiRemoveUnusedSubsection.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     IoSynchronousPageWriteEx @ 0x140250F80 (IoSynchronousPageWriteEx.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiEndingOffset @ 0x140279F08 (MiEndingOffset.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiIncrementSubsectionViewCount @ 0x1402891F0 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertUnusedSubsection @ 0x14028BD00 (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A23F0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiReadyFlushMdlToWrite @ 0x1402DFCC4 (MiReadyFlushMdlToWrite.c)
- *     MiChargePartitionResidentAvailable @ 0x1402E6278 (MiChargePartitionResidentAvailable.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     MiClearPfnImageVerified @ 0x1403353B8 (MiClearPfnImageVerified.c)
- *     MiUnlockFlushMdl @ 0x14033ED10 (MiUnlockFlushMdl.c)
- *     MiWaitForPageWriteCompletion @ 0x14034ACC4 (MiWaitForPageWriteCompletion.c)
- *     MiExpandFlushMdl @ 0x140355108 (MiExpandFlushMdl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     MiFlushWaitForReadInProgress @ 0x140635F38 (MiFlushWaitForReadInProgress.c)
- *     MiIssueAsynchronousFlush @ 0x140636054 (MiIssueAsynchronousFlush.c)
- *     MiWaitForAsynchronousFlushes @ 0x140636354 (MiWaitForAsynchronousFlushes.c)
- *     MiFlushFileOnlyMdl @ 0x14063D500 (MiFlushFileOnlyMdl.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     IoSynchronousPageWriteEx @ 0x140251040 (IoSynchronousPageWriteEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiEndingOffset @ 0x14027A198 (MiEndingOffset.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiIncrementSubsectionViewCount @ 0x140289480 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertUnusedSubsection @ 0x14028BF90 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1402A2680 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x1402DC0C0 (MiCheckProtoPtePageState.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiReadyFlushMdlToWrite @ 0x1402DFF54 (MiReadyFlushMdlToWrite.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402E6508 (MiChargePartitionResidentAvailable.c)
+ *     MiIsRetryIoStatus @ 0x1402F4C28 (MiIsRetryIoStatus.c)
+ *     MiClearPfnImageVerified @ 0x140335648 (MiClearPfnImageVerified.c)
+ *     MiUnlockFlushMdl @ 0x14033EFA0 (MiUnlockFlushMdl.c)
+ *     MiWaitForPageWriteCompletion @ 0x14034AE64 (MiWaitForPageWriteCompletion.c)
+ *     MiExpandFlushMdl @ 0x1403552A8 (MiExpandFlushMdl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     MiFlushWaitForReadInProgress @ 0x140636488 (MiFlushWaitForReadInProgress.c)
+ *     MiIssueAsynchronousFlush @ 0x1406365A4 (MiIssueAsynchronousFlush.c)
+ *     MiWaitForAsynchronousFlushes @ 0x1406368A4 (MiWaitForAsynchronousFlushes.c)
+ *     MiFlushFileOnlyMdl @ 0x14063DA50 (MiFlushFileOnlyMdl.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -344,10 +344,13 @@ LABEL_8:
   if ( !*(_QWORD *)(v12 + 32) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v21 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v21 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -426,10 +429,10 @@ LABEL_14:
   if ( (*(_BYTE *)(BugCheckParameter2 + 34) & 8) != 0 )
     MiRemoveUnusedSubsection(BugCheckParameter2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v76 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v76 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v76 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v76 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v76 >= 2u )
     {
       v77 = KeGetCurrentPrcb();
       v78 = v77->SchedulerAssist;
@@ -870,10 +873,10 @@ LABEL_85:
   }
 LABEL_90:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v89 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v89 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v89 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v89 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v89 >= 2u )
     {
       v90 = KeGetCurrentPrcb();
       v91 = v90->SchedulerAssist;

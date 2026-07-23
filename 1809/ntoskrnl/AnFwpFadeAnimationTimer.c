@@ -1,15 +1,15 @@
 /*
- * XREFs of AnFwpFadeAnimationTimer @ 0x14094F440
+ * XREFs of AnFwpFadeAnimationTimer @ 0x140950440
  * Callers:
  *     <none>
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     BgpFwReleaseLock @ 0x14016F208 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14016F258 (BgpFwAcquireLock.c)
- *     LogFwStat @ 0x14094F754 (LogFwStat.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     BgpGxDrawRectangle @ 0x14016EF30 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     BgpFwReleaseLock @ 0x14016F308 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14016F358 (BgpFwAcquireLock.c)
+ *     LogFwStat @ 0x140950754 (LogFwStat.c)
  */
 
 void __fastcall AnFwpFadeAnimationTimer(
@@ -78,30 +78,30 @@ void __fastcall AnFwpFadeAnimationTimer(
   _BYTE v61[16]; // [rsp+40h] [rbp-38h] BYREF
 
   BgpFwAcquireLock();
-  if ( byte_1404C64E1 )
+  if ( byte_1404C75A1 )
   {
     LogFwStat(1LL, 6LL, 0LL);
     LogFwStat(1LL, 4LL, 0LL);
-    v4 = dword_1404039E4;
-    v5 = qword_140403A20;
-    v6 = qword_140403A30;
-    v7 = byte_1404039F0;
-    v8 = byte_1404039F1;
-    v9 = byte_1404039F2;
-    v59 = qword_1404039E8;
-    v58 = qword_140403A60;
-    v57 = qword_140403A20;
-    v60 = qword_140403A30;
-    v10 = 10 * (dword_1404039E0 - dword_1404039E0 / (unsigned int)(dword_140405AD4 - dword_1404039E4));
+    v4 = dword_1404049E4;
+    v5 = qword_140404A20;
+    v6 = qword_140404A30;
+    v7 = byte_1404049F0;
+    v8 = byte_1404049F1;
+    v9 = byte_1404049F2;
+    v59 = qword_1404049E8;
+    v58 = qword_140404A60;
+    v57 = qword_140404A20;
+    v60 = qword_140404A30;
+    v10 = 10 * (dword_1404049E0 - dword_1404049E0 / (unsigned int)(dword_140406AD4 - dword_1404049E4));
     v13 = 0;
     if ( (unsigned int)BgpGetBitsPerPixel() == 24 )
     {
       if ( !v9 )
       {
-        v33 = qword_140403A28;
+        v33 = qword_140404A28;
         v34 = 0LL;
         v35 = *(_QWORD *)(v6 + 24);
-        for ( i = *(_QWORD *)(qword_140403A28 + 24);
+        for ( i = *(_QWORD *)(qword_140404A28 + 24);
               (unsigned int)v34 < *(_DWORD *)(v33 + 12);
               v34 = (unsigned int)(v34 + 1) )
         {
@@ -155,10 +155,10 @@ void __fastcall AnFwpFadeAnimationTimer(
     {
       if ( !v9 )
       {
-        v14 = qword_140403A28;
+        v14 = qword_140404A28;
         v15 = 0LL;
         v16 = *(_QWORD *)(v6 + 24);
-        for ( m = *(_QWORD *)(qword_140403A28 + 24);
+        for ( m = *(_QWORD *)(qword_140404A28 + 24);
               (unsigned int)v15 < *(_DWORD *)(v14 + 12);
               v15 = (unsigned int)(v15 + 4) )
         {
@@ -247,29 +247,29 @@ void __fastcall AnFwpFadeAnimationTimer(
     }
     if ( !v7 )
     {
-      if ( !v4 && !v23 || (BgpGxDrawRectangle(v57, (__int64)&xmmword_140403A00), !v23) )
+      if ( !v4 && !v23 || (BgpGxDrawRectangle(v57, (__int64)&xmmword_140404A00), !v23) )
         v7 = 1;
     }
     if ( !v8 )
     {
-      if ( !v4 && !v32 || (BgpGxDrawRectangle(v58, (__int64)&xmmword_140403A38), !v32) )
+      if ( !v4 && !v32 || (BgpGxDrawRectangle(v58, (__int64)&xmmword_140404A38), !v32) )
         v8 = 1;
     }
     LogFwStat(0LL, 3LL, 0LL);
     LogFwStat(0LL, 6LL, v61);
     if ( v13 || v32 || v23 )
     {
-      byte_1404039F0 = v7;
-      byte_1404039F1 = v8;
-      dword_1404039E0 = v10 / 0xA;
-      dword_1404039E4 = v4 + 1;
-      byte_1404039F2 = v9;
+      byte_1404049F0 = v7;
+      byte_1404049F1 = v8;
+      dword_1404049E0 = v10 / 0xA;
+      dword_1404049E4 = v4 + 1;
+      byte_1404049F2 = v9;
     }
     else
     {
-      byte_1404C64E1 = 0;
+      byte_1404C75A1 = 0;
       KeCancelTimer(&Timer);
-      KeSetEvent(&stru_1404DBDD0, 0, 0);
+      KeSetEvent(&stru_1404DCE90, 0, 0);
     }
   }
   BgpFwReleaseLock();

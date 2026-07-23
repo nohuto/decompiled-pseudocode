@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSystemIdleEventHandler @ 0x140B38970
+ * XREFs of PopSystemIdleEventHandler @ 0x140B3AB80
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     PopAdaptiveGetBootTargetSystemState @ 0x140B389CC (PopAdaptiveGetBootTargetSystemState.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     PopAdaptiveGetBootTargetSystemState @ 0x140B3ABDC (PopAdaptiveGetBootTargetSystemState.c)
  */
 
 __int64 __fastcall PopSystemIdleEventHandler(char a1, _DWORD *a2, _DWORD *a3)

@@ -55,7 +55,7 @@ __int64 __fastcall MiUpControlAreaRefs(__int64 a1, int a2)
   unsigned __int8 v28; // r15
   unsigned int v29; // r8d
   __int64 v30; // rcx
-  unsigned __int64 v31; // rsi
+  __int64 v31; // rsi
   __int64 v32; // rdx
   __int64 v33; // rcx
   int v34; // [rsp+30h] [rbp-38h]
@@ -224,7 +224,7 @@ LABEL_41:
       v9 = !_BitScanReverse((unsigned int *)&v30, v29);
       if ( v9 )
         break;
-      v31 = (unsigned __int64)&v26->LockEntries[v30];
+      v31 = (__int64)&v26->LockEntries[v30];
       v29 &= ~(1 << v30);
       if ( (*(_BYTE *)(v31 + 26) & 1) != 0
         && (*(_DWORD *)(v31 + 32) & 1) == 0
@@ -238,12 +238,12 @@ LABEL_41:
           {
             *(_BYTE *)(v31 + 32) |= 2u;
             if ( *(__int64 *)(v31 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v31);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31);
             v43 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
             *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v31 + 25) &= ~1u;
             *(_QWORD *)(v31 + 32) = 0LL;
-            v32 = (__int64)(v31 - (unsigned __int64)v26->LockEntries) / 96;
+            v32 = (signed __int64)(v31 - (unsigned __int64)v26->LockEntries) / 96;
             if ( v28 == 1 )
               v26->AbEntrySummary |= 1 << v32;
             else

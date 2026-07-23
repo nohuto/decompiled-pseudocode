@@ -13,11 +13,8 @@
 
 void __fastcall PopThermalSxExit(__int64 a1)
 {
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
   struct _KTHREAD *CurrentThread; // rax
-  PVOID *v5; // rdi
+  PVOID *v2; // rdi
 
   if ( PoResumeFromHibernate )
   {
@@ -25,25 +22,25 @@ void __fastcall PopThermalSxExit(__int64 a1)
     if ( PopThermalHibernateInitiated )
     {
       PopThermalHibernateInitiated = 0;
-      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0LL);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
-    PopReleasePolicyLock(v2, v1, v3);
+    PopReleasePolicyLock();
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopPolicyDeviceLock, 0LL);
-  v5 = (PVOID *)PopThermal;
+  v2 = (PVOID *)PopThermal;
   if ( PopThermal != &PopThermal )
   {
     do
     {
-      PopAcquireRwLockExclusive((ULONG_PTR)(v5 + 54));
-      v5[64] = (PVOID)MEMORY[0xFFFFF78000000008];
-      *((_BYTE *)v5 + 504) = 0;
-      PopReleaseRwLock((ULONG_PTR)(v5 + 54));
-      v5 = (PVOID *)*v5;
+      PopAcquireRwLockExclusive((ULONG_PTR)(v2 + 54));
+      v2[64] = (PVOID)MEMORY[0xFFFFF78000000008];
+      *((_BYTE *)v2 + 504) = 0;
+      PopReleaseRwLock((ULONG_PTR)(v2 + 54));
+      v2 = (PVOID *)*v2;
     }
-    while ( v5 != &PopThermal );
+    while ( v2 != &PopThermal );
   }
   PopReleaseRwLock((ULONG_PTR)&PopPolicyDeviceLock);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x1403524BC
+ * XREFs of RtlpHpMetadataFree @ 0x140354540
  * Callers:
- *     RtlpHpLargeAlloc @ 0x140351D9C (RtlpHpLargeAlloc.c)
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140637AF0 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x140637E68 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpHeapDestroy @ 0x1406386F4 (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x14063A8D0 (RtlpHpLargeAllocationDestroy.c)
- *     ExpSecurePoolCreate @ 0x1406D103C (ExpSecurePoolCreate.c)
- *     ExpPoolCreate @ 0x14077DC90 (ExpPoolCreate.c)
- *     ExpPoolDestroy @ 0x140846574 (ExpPoolDestroy.c)
- *     ExpPoolHeapCreate @ 0x1408465EC (ExpPoolHeapCreate.c)
- *     ExpPoolHeapDestroy @ 0x1408466CC (ExpPoolHeapDestroy.c)
+ *     RtlpHpLargeAlloc @ 0x140353E20 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x14063AAF4 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x14063AE6C (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpHeapDestroy @ 0x14063B6F8 (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x14063D8E0 (RtlpHpLargeAllocationDestroy.c)
+ *     ExpSecurePoolCreate @ 0x1406D506C (ExpSecurePoolCreate.c)
+ *     ExpPoolCreate @ 0x140780790 (ExpPoolCreate.c)
+ *     ExpPoolDestroy @ 0x14084C7D4 (ExpPoolDestroy.c)
+ *     ExpPoolHeapCreate @ 0x14084C84C (ExpPoolHeapCreate.c)
+ *     ExpPoolHeapDestroy @ 0x14084C92C (ExpPoolHeapDestroy.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLfhContextFree @ 0x140353D70 (RtlpHpLfhContextFree.c)
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpLogHeapFreeEvent @ 0x140625EA0 (RtlpLogHeapFreeEvent.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLfhContextFree @ 0x140355DF0 (RtlpHpLfhContextFree.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFreeEvent @ 0x140628EF0 (RtlpLogHeapFreeEvent.c)
  */
 
 __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
@@ -41,16 +41,14 @@ __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
   v2 = 0;
   v3 = (unsigned __int8)BYTE1(*a2);
   v16 = 0;
-  v5 = qword_140E6BC18[2 * (unsigned int)dword_140022438[v3]];
+  v5 = qword_140E6BF18[2 * (unsigned int)dword_140021C58[v3]];
   if ( (_WORD)a1 )
   {
     v6 = 0;
   }
   else
   {
-    v15 = RtlCSparseBitmapBitmaskRead(
-            (__int64)&ExpUuidLock.ThreadLock,
-            2 * ((a1 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+    v15 = RtlCSparseBitmapBitmaskRead((__int64)&ExpUuidLock.CycleTime, 2 * ((a1 - ExpUuidLock.ThreadLock) >> 20));
     if ( !v15 || (v6 = v15 - 1, (_DWORD)v15 == 3) )
     {
       RtlpHpLargeFree(v5, a1);

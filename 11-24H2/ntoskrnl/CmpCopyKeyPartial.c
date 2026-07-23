@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpCopyKeyPartial @ 0x140880F10
+ * XREFs of CmpCopyKeyPartial @ 0x140884DC0
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x1407CE060 (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x1407CE610 (CmpLoadHiveVolatile.c)
- *     CmpCopySyncTree2 @ 0x1408838F4 (CmpCopySyncTree2.c)
- *     CmpReorganizeHive @ 0x1409310B0 (CmpReorganizeHive.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A1F3F0 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x1407CE550 (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x1407CEB00 (CmpLoadHiveVolatile.c)
+ *     CmpCopySyncTree2 @ 0x1408877A4 (CmpCopySyncTree2.c)
+ *     CmpReorganizeHive @ 0x1409331F0 (CmpReorganizeHive.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140A144F0 (CmpLightWeightPrepareAddKeyUoW.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14041FBC0 (CmpFindSecurityCellCacheIndex.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x14088067C (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1408808B4 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1408808E4 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpAddValueToListEx @ 0x14088137C (CmpAddValueToListEx.c)
- *     CmpCopyValue @ 0x1408816B4 (CmpCopyValue.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     CmpCopyCell @ 0x140881F30 (CmpCopyCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140415340 (CmpFindSecurityCellCacheIndex.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14088452C (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x140884764 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x140884794 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpAddValueToListEx @ 0x14088522C (CmpAddValueToListEx.c)
+ *     CmpCopyValue @ 0x140885564 (CmpCopyValue.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     CmpCopyCell @ 0x140885DE0 (CmpCopyCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpCopyKeyPartial(

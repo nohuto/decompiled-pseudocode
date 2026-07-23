@@ -1,13 +1,13 @@
 /*
- * XREFs of PspResumeProcessVirtualTimers @ 0x140617104
+ * XREFs of PspResumeProcessVirtualTimers @ 0x14061A0F4
  * Callers:
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpTimerResume @ 0x1404C03C4 (ExpTimerResume.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpTimerResume @ 0x1404B9C14 (ExpTimerResume.c)
  */
 
 void __fastcall PspResumeProcessVirtualTimers(__int64 a1)

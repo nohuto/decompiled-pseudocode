@@ -1,25 +1,25 @@
 /*
- * XREFs of MiLoadHotPatch @ 0x1408559D8
+ * XREFs of MiLoadHotPatch @ 0x140856C38
  * Callers:
- *     MiApplyRequiredDriverHotPatches @ 0x140681DE0 (MiApplyRequiredDriverHotPatches.c)
- *     NtManageHotPatch @ 0x140858450 (NtManageHotPatch.c)
- *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
+ *     MiApplyRequiredDriverHotPatches @ 0x140682FA0 (MiApplyRequiredDriverHotPatches.c)
+ *     NtManageHotPatch @ 0x1408596B0 (NtManageHotPatch.c)
+ *     MmRegisterHotPatch @ 0x1409F81D0 (MmRegisterHotPatch.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     VslApplyHotPatch @ 0x14027ACF8 (VslApplyHotPatch.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     VslDetermineHotPatchType @ 0x140818500 (VslDetermineHotPatchType.c)
- *     MiAllocateHotPatchRecord @ 0x140853FFC (MiAllocateHotPatchRecord.c)
- *     MiApplyHotPatchToDriver @ 0x140854324 (MiApplyHotPatchToDriver.c)
- *     MiHotPatchAllProcesses @ 0x140855288 (MiHotPatchAllProcesses.c)
- *     MiInsertHotPatchRecord @ 0x140855890 (MiInsertHotPatchRecord.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
- *     MiPromoteControlAreaToStrongCode @ 0x1408578A0 (MiPromoteControlAreaToStrongCode.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     VslApplyHotPatch @ 0x14027AEE8 (VslApplyHotPatch.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     VslDetermineHotPatchType @ 0x140819700 (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x14085525C (MiAllocateHotPatchRecord.c)
+ *     MiApplyHotPatchToDriver @ 0x140855584 (MiApplyHotPatchToDriver.c)
+ *     MiHotPatchAllProcesses @ 0x1408564E8 (MiHotPatchAllProcesses.c)
+ *     MiInsertHotPatchRecord @ 0x140856AF0 (MiInsertHotPatchRecord.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
+ *     MiPromoteControlAreaToStrongCode @ 0x140858B00 (MiPromoteControlAreaToStrongCode.c)
  */
 
 __int64 __fastcall MiLoadHotPatch(const void **a1, int a2, int *a3, unsigned int *a4)
@@ -42,7 +42,7 @@ __int64 __fastcall MiLoadHotPatch(const void **a1, int a2, int *a3, unsigned int
   HANDLE Handle; // [rsp+50h] [rbp-10h] BYREF
   PVOID Object; // [rsp+58h] [rbp-8h] BYREF
 
-  if ( !dword_140438E74 )
+  if ( !dword_140439F34 )
     return 3221225485LL;
   v23 = 0LL;
   HotPatchRecord = 0LL;

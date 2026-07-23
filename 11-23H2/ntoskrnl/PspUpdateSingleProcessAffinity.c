@@ -1,14 +1,14 @@
 /*
- * XREFs of PspUpdateSingleProcessAffinity @ 0x1409AFC00
+ * XREFs of PspUpdateSingleProcessAffinity @ 0x1409AFE00
  * Callers:
- *     PsUpdateActiveProcessAffinity @ 0x1409AE7A4 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinityUpdateMode @ 0x1409AFA18 (PspSetProcessAffinityUpdateMode.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1409AE9A4 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinityUpdateMode @ 0x1409AFC18 (PspSetProcessAffinityUpdateMode.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PspWritePebAffinityInfo @ 0x1407A26FC (PspWritePebAffinityInfo.c)
- *     PspSetProcessAffinitySafe @ 0x1409AF8C0 (PspSetProcessAffinitySafe.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PspWritePebAffinityInfo @ 0x1407A28EC (PspWritePebAffinityInfo.c)
+ *     PspSetProcessAffinitySafe @ 0x1409AFAC0 (PspSetProcessAffinitySafe.c)
  */
 
 void __fastcall PspUpdateSingleProcessAffinity(__int64 a1, __int64 a2, unsigned __int16 *a3)

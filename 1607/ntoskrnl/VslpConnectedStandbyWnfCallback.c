@@ -1,11 +1,11 @@
 /*
- * XREFs of VslpConnectedStandbyWnfCallback @ 0x140620C78
+ * XREFs of VslpConnectedStandbyWnfCallback @ 0x140620D2C
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1404E1320 (ExQueryWnfStateData.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1404C4924 (ExQueryWnfStateData.c)
  */
 
 NTSTATUS __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)

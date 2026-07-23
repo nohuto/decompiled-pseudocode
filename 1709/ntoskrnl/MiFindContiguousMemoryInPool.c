@@ -18,7 +18,7 @@ ULONG_PTR __fastcall MiFindContiguousMemoryInPool(
 {
   unsigned __int64 v6; // rbx
   unsigned int v7; // ebp
-  union _SLIST_HEADER *v8; // rdi
+  _SLIST_HEADER *v8; // rdi
   unsigned __int64 Alignment; // rax
   unsigned __int64 v11; // rcx
   __int64 v12; // rax

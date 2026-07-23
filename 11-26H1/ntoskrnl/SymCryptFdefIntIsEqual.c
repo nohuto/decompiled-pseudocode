@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntIsEqual @ 0x140570BE4
+ * XREFs of SymCryptFdefIntIsEqual @ 0x14056FDC4
  * Callers:
- *     SymCryptIntIsEqual @ 0x14055C31C (SymCryptIntIsEqual.c)
+ *     SymCryptIntIsEqual @ 0x14055E804 (SymCryptIntIsEqual.c)
  * Callees:
  *     <none>
  */

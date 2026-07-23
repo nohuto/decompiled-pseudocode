@@ -7,10 +7,13 @@
  *     ZwSetInformationFile @ 0x18009F2D0 (ZwSetInformationFile.c)
  */
 
-__int64 __fastcall LdrpResSetFilePointer(__int64 a1)
+NTSTATUS __fastcall LdrpResSetFilePointer(char *a1, __int64 a2)
 {
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-18h] BYREF
+  __int64 FileInformation; // [rsp+50h] [rbp+8h] BYREF
+
   if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225480LL;
-  else
-    return ZwSetInformationFile();
+    return -1073741816;
+  FileInformation = a2;
+  return ZwSetInformationFile(a1, &IoStatusBlock, &FileInformation, 8u, FilePositionInformation);
 }

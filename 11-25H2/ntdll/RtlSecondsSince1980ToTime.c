@@ -6,11 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSecondsSince1980ToTime(unsigned int a1, __int64 *a2)
+void __cdecl RtlSecondsSince1980ToTime(ULONG ElapsedSeconds, PLARGE_INTEGER Time)
 {
-  __int64 result; // rax
-
-  result = 10000000 * (a1 + SecondsToStartOf1980);
-  *a2 = result;
-  return result;
+  Time->QuadPart = 10000000 * (ElapsedSeconds + SecondsToStartOf1980);
 }

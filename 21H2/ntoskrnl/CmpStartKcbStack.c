@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpStartKcbStack @ 0x1406FB380
+ * XREFs of CmpStartKcbStack @ 0x140712760
  * Callers:
- *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpSubtreeEnumeratorStart @ 0x14072A08C (CmpSubtreeEnumeratorStart.c)
- *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
- *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x1408802C8 (CmpPromoteKey.c)
+ *     CmpIsKeyDeleted @ 0x140667410 (CmpIsKeyDeleted.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpSubtreeEnumeratorStart @ 0x14072A53C (CmpSubtreeEnumeratorStart.c)
+ *     CmpDoBuildVirtualStack @ 0x1408700FC (CmpDoBuildVirtualStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880220 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x140880428 (CmpPromoteKey.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x140414200 (memset.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall CmpStartKcbStack(__int64 a1, __int16 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)

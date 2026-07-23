@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbUnloadDatabaseNode @ 0x1408773D8
+ * XREFs of DrvDbUnloadDatabaseNode @ 0x140877618
  * Callers:
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14086624C (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866384 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140876DBC (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbLoadDatabaseNode @ 0x140877120 (DrvDbLoadDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A6D950 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x14086648C (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408665C4 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140876FFC (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbLoadDatabaseNode @ 0x140877360 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6DC00 (DrvDbDestroyDatabaseNode.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DrvDbUnloadDatabaseNode(__int64 a1, __int64 a2)

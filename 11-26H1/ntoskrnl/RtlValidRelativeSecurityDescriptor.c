@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlValidRelativeSecurityDescriptor @ 0x14094DC20
+ * XREFs of RtlValidRelativeSecurityDescriptor @ 0x1409C9570
  * Callers:
- *     CmpVerifyLogRecord @ 0x14085E8EC (CmpVerifyLogRecord.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x140897348 (_CmSetInstallerClassRegPropWorker.c)
- *     _CmSetDeviceRegPropWorker @ 0x14090A2C0 (_CmSetDeviceRegPropWorker.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1409153D4 (PipGetRegistrySecurityWithFallback.c)
- *     ExpWnfLookupPermanentName @ 0x14094D528 (ExpWnfLookupPermanentName.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x14094D7E0 (CmpValidateHiveSecurityDescriptors.c)
- *     _PnpValidatePropertyData @ 0x1409DC3B4 (_PnpValidatePropertyData.c)
+ *     CmpVerifyLogRecord @ 0x140864BDC (CmpVerifyLogRecord.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x14089D748 (_CmSetInstallerClassRegPropWorker.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14096FE40 (PipGetRegistrySecurityWithFallback.c)
+ *     _CmSetDeviceRegPropWorker @ 0x1409AC878 (_CmSetDeviceRegPropWorker.c)
+ *     ExpWnfLookupPermanentName @ 0x1409C8E98 (ExpWnfLookupPermanentName.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1409C9150 (CmpValidateHiveSecurityDescriptors.c)
+ *     _PnpValidatePropertyData @ 0x140A19604 (_PnpValidatePropertyData.c)
  * Callees:
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
  */
 
 BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
@@ -87,7 +87,7 @@ LABEL_20:
         || SecurityDescriptorLength - (unsigned int)v12 < 8
         || (v12 & 3) != 0
         || SecurityDescriptorLength - (unsigned int)v12 < *(unsigned __int16 *)((char *)SecurityDescriptorInput + v12 + 2)
-        || !RtlValidAcl((__int64)SecurityDescriptorInput + v12) )
+        || !RtlValidAcl((PACL)((char *)SecurityDescriptorInput + v12)) )
       {
         return 0;
       }
@@ -105,5 +105,5 @@ LABEL_20:
   v14 = SecurityDescriptorLength - v15;
   if ( v14 < 8 || (v15 & 3) != 0 || v14 < *(unsigned __int16 *)((char *)SecurityDescriptorInput + v15 + 2) )
     return 0;
-  return RtlValidAcl((__int64)SecurityDescriptorInput + v15) != 0;
+  return RtlValidAcl((PACL)((char *)SecurityDescriptorInput + v15)) != 0;
 }

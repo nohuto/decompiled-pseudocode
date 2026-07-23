@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpEventTracingCounterSetCallback @ 0x140982BC0
+ * XREFs of EtwpEventTracingCounterSetCallback @ 0x140982DA0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     PcwAddInstance @ 0x140687F00 (PcwAddInstance.c)
- *     EtwpGetNextGuidEntry @ 0x1406E100C (EtwpGetNextGuidEntry.c)
- *     WmiQueryTraceInformation @ 0x140788A80 (WmiQueryTraceInformation.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PcwAddInstance @ 0x1405E7060 (PcwAddInstance.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpGetNextGuidEntry @ 0x1406B82EC (EtwpGetNextGuidEntry.c)
+ *     WmiQueryTraceInformation @ 0x140788C40 (WmiQueryTraceInformation.c)
  */
 
 __int64 __fastcall EtwpEventTracingCounterSetCallback(int a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpEventTracingCounterSetCallback(int a1, __int64 a2, __int6
   __int64 v5; // rcx
   struct _PCW_BUFFER *v6; // r15
   _DWORD *v7; // rdi
-  __int64 *i; // rdx
+  signed __int64 *i; // rdx
   signed __int64 *NextGuidEntry; // rax
   NTSTATUS v10; // r14d
   unsigned int v11; // ebx

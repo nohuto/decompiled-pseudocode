@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpInitializeHvCrashdump @ 0x140277E5C
+ * XREFs of HvlpInitializeHvCrashdump @ 0x14027804C
  * Callers:
- *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x140193B34 (HvlPhase1Initialize.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140173260 (KeRegisterBugCheckReasonCallback.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiRegisterNmiSxCallback @ 0x14028F554 (KiRegisterNmiSxCallback.c)
- *     MmAllocateMappingAddress @ 0x1406F92E0 (MmAllocateMappingAddress.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140173360 (KeRegisterBugCheckReasonCallback.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiRegisterNmiSxCallback @ 0x14028F744 (KiRegisterNmiSxCallback.c)
+ *     MmAllocateMappingAddress @ 0x1406FA580 (MmAllocateMappingAddress.c)
  */
 
 __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
@@ -22,11 +22,11 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
   v1 = *(_DWORD *)(a1 + 4);
   v2 = -1073741823;
   v3 = *(_QWORD *)(a1 + 16);
-  dword_14043751C = *(_DWORD *)a1;
-  qword_140437520 = *(_QWORD *)(a1 + 8);
-  dword_140437518 = v1;
-  qword_140437510 = v3;
-  if ( !v1 || (qword_140437508 = (void *)MmMapIoSpaceEx(v3, (unsigned int)(v1 << 12), 2u)) != 0LL )
+  dword_1404385DC = *(_DWORD *)a1;
+  qword_1404385E0 = *(_QWORD *)(a1 + 8);
+  dword_1404385D8 = v1;
+  qword_1404385D0 = v3;
+  if ( !v1 || (qword_1404385C8 = (void *)MmMapIoSpaceEx(v3, (unsigned int)(v1 << 12), 2u)) != 0LL )
   {
     IndependentPages = (void *)MmAllocateIndependentPagesEx(0x1000uLL, -1, 0LL, 0);
     HvlpFallbackScratchPage = IndependentPages;
@@ -41,38 +41,38 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
               KbCallbackSecondaryDumpData,
               (PUCHAR)"HypervisorCrashdumpArea") )
         goto LABEL_16;
-      stru_140437478.State = 0;
+      stru_140438538.State = 0;
       if ( !KeRegisterBugCheckReasonCallback(
-              &stru_140437478,
+              &stru_140438538,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddPagesCallbackRoutine,
               KbCallbackAddPages,
               (PUCHAR)"HypervisorCrashdumpArea2") )
         goto LABEL_16;
       HvlpCrashdumpData = KiRegisterNmiSxCallback(HvlCrashdumpCallbackRoutine, 0LL);
-      qword_140437528 = MmAllocateMappingAddress(0x1000uLL, 0x204C5648u);
-      if ( !qword_140437528 )
+      qword_1404385E8 = MmAllocateMappingAddress(0x1000uLL, 0x204C5648u);
+      if ( !qword_1404385E8 )
         goto LABEL_16;
       if ( !VslVsmEnabled )
         return 0;
     }
-    stru_1404374A8.State = 0;
+    stru_140438568.State = 0;
     if ( KeRegisterBugCheckReasonCallback(
-           &stru_1404374A8,
+           &stru_140438568,
            (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlSkBugCheckCallbackRoutine,
            KbCallbackSecondaryDumpData,
            (PUCHAR)"SecureKernelCrashdumpArea") )
     {
       if ( (HvlpFlags & 2) == 0
-        || (stru_140437478.State = 0,
+        || (stru_140438538.State = 0,
             KeRegisterBugCheckReasonCallback(
-              &stru_140437478,
+              &stru_140438538,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddSecureHvPagesCallbackRoutine,
               KbCallbackAddPages,
               (PUCHAR)"HypervisorCrashdumpArea2")) )
       {
-        stru_1404374D8.State = 0;
+        stru_140438598.State = 0;
         if ( KeRegisterBugCheckReasonCallback(
-               &stru_1404374D8,
+               &stru_140438598,
                (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddSecureSkPagesCallbackRoutine,
                KbCallbackAddPages,
                (PUCHAR)"SecureKernelCrashdumpArea2") )

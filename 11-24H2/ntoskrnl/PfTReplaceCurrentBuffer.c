@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTReplaceCurrentBuffer @ 0x140950344
+ * XREFs of PfTReplaceCurrentBuffer @ 0x140972854
  * Callers:
- *     PfpCopyEvent @ 0x14094F68C (PfpCopyEvent.c)
- *     PfpFlushBuffers @ 0x14094F8D0 (PfpFlushBuffers.c)
- *     PfpLogPageAccess @ 0x14094FC80 (PfpLogPageAccess.c)
+ *     PfpCopyEvent @ 0x140971B9C (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x140971DE0 (PfpFlushBuffers.c)
+ *     PfpLogPageAccess @ 0x140972190 (PfpLogPageAccess.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PfTGetFreeBuffer @ 0x140950400 (PfTGetFreeBuffer.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PfTGetFreeBuffer @ 0x140972910 (PfTGetFreeBuffer.c)
  */
 
 __int64 __fastcall PfTReplaceCurrentBuffer(__int64 a1, __int64 a2)

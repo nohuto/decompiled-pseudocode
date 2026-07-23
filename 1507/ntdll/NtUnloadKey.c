@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtUnloadKey()
+NTSTATUS __cdecl NtUnloadKey(POBJECT_ATTRIBUTES TargetKey)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 426LL;
+  result = 426;
   __asm { syscall; Low latency system call }
   return result;
 }

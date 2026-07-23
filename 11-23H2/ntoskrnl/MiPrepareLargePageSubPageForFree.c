@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPrepareLargePageSubPageForFree @ 0x140669474
+ * XREFs of MiPrepareLargePageSubPageForFree @ 0x1406699C4
  * Callers:
- *     MiReadyLargePageToFree @ 0x1402E7730 (MiReadyLargePageToFree.c)
+ *     MiReadyLargePageToFree @ 0x1402E79C0 (MiReadyLargePageToFree.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiClearPfnImageVerified @ 0x1403353B8 (MiClearPfnImageVerified.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiClearPfnImageVerified @ 0x140335648 (MiClearPfnImageVerified.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPrepareLargePageSubPageForFree(ULONG_PTR BugCheckParameter2)
@@ -41,10 +41,13 @@ __int64 __fastcall MiPrepareLargePageSubPageForFree(ULONG_PTR BugCheckParameter2
     {
       *v1 |= 0x4000000000000000uLL;
       _InterlockedAnd64(v1, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v3 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -59,10 +62,10 @@ __int64 __fastcall MiPrepareLargePageSubPageForFree(ULONG_PTR BugCheckParameter2
       return 0LL;
     }
     _InterlockedAnd64(v1, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v10 >= 2u )
       {
         v11 = KeGetCurrentPrcb();
         v12 = v11->SchedulerAssist;
@@ -80,10 +83,10 @@ __int64 __fastcall MiPrepareLargePageSubPageForFree(ULONG_PTR BugCheckParameter2
     v14 = (unsigned __int8)MiLockPageInline(BugCheckParameter2);
     MiClearPfnImageVerified(BugCheckParameter2, 12);
     _InterlockedAnd64(v1, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
       {
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;
@@ -101,10 +104,10 @@ __int64 __fastcall MiPrepareLargePageSubPageForFree(ULONG_PTR BugCheckParameter2
     v19 = (unsigned __int8)MiLockPageInline(BugCheckParameter2);
     MiSetPfnIdentity(BugCheckParameter2, 0);
     _InterlockedAnd64(v1, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v19 <= 0xFu && v20 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v19 <= 0xFu && v20 >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));

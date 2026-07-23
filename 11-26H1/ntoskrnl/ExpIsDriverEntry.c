@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpIsDriverEntry @ 0x14083BA30
+ * XREFs of ExpIsDriverEntry @ 0x140841C70
  * Callers:
  *     <none>
  * Callees:
- *     ExpTranslateDriverEntryNameToId @ 0x14083CCD8 (ExpTranslateDriverEntryNameToId.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x140842F18 (ExpTranslateDriverEntryNameToId.c)
  */
 
 bool __fastcall ExpIsDriverEntry(_QWORD *a1, __int64 a2)

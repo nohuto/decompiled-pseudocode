@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeReleaseQueuedSpinLock @ 0x14070CA54
+ * XREFs of VerifierKeReleaseQueuedSpinLock @ 0x14070CA84
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  *     ViKeLowerIrqlSanityChecks @ 0x140712FC8 (ViKeLowerIrqlSanityChecks.c)
  */
 

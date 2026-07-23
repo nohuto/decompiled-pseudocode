@@ -28,11 +28,11 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   __int64 v8; // r8
   __int64 v9; // r9
   const wchar_t *v10; // rcx
-  unsigned int v11; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
-  v11 = 0;
+  ReturnLength = 0;
   v1 = a1[8];
   ExFreePoolWithTag(a1, 0);
   CurrentThread = KeGetCurrentThread();
@@ -84,7 +84,7 @@ LABEL_9:
       case 4:
 LABEL_16:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(2u, dword_140C1A1F0, dword_140C1A1F0[0], dword_140C1A1F0, dword_140C1A1F0[0], &v11);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         goto LABEL_11;
       case 5:
         v10 = L"Diagnostics\\Performance\\SecondaryLogonCKCLSettings";

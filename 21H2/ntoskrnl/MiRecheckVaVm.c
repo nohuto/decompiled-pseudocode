@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRecheckVaVm @ 0x140369594
+ * XREFs of MiRecheckVaVm @ 0x140369744
  * Callers:
- *     MiCrcStillIntact @ 0x140367B74 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiCrcStillIntact @ 0x140367D24 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiRecheckVaVm(__int64 a1, unsigned __int64 a2)

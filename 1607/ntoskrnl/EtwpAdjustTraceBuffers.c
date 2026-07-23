@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAdjustTraceBuffers @ 0x140085490
+ * XREFs of EtwpAdjustTraceBuffers @ 0x140086D7C
  * Callers:
  *     <none>
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     EtwpLockBufferList @ 0x1400EB6C0 (EtwpLockBufferList.c)
- *     EtwpUnlockBufferList @ 0x1400ED370 (EtwpUnlockBufferList.c)
- *     EtwpDequeueBuffer @ 0x1400ED754 (EtwpDequeueBuffer.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     EtwpRemoveBufferFromGlobalList @ 0x140229014 (EtwpRemoveBufferFromGlobalList.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpLockBufferList @ 0x1400E9530 (EtwpLockBufferList.c)
+ *     EtwpUnlockBufferList @ 0x1400EB1E0 (EtwpUnlockBufferList.c)
+ *     EtwpDequeueBuffer @ 0x1400EB5C4 (EtwpDequeueBuffer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     EtwpRemoveBufferFromGlobalList @ 0x140228E40 (EtwpRemoveBufferFromGlobalList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
  */
 
 PSLIST_ENTRY EtwpAdjustTraceBuffers()
@@ -53,7 +53,7 @@ PSLIST_ENTRY EtwpAdjustTraceBuffers()
           {
             _InterlockedDecrement((volatile signed __int32 *)(v4 + 232));
             _InterlockedDecrement((volatile signed __int32 *)(v4 + 228));
-            _InterlockedExchangeAdd(&dword_1402FD834[*(_DWORD *)(v4 + 300) & 1], -*(_DWORD *)(v4 + 4));
+            _InterlockedExchangeAdd(&dword_1402FD814[*(_DWORD *)(v4 + 300) & 1], -*(_DWORD *)(v4 + 4));
             ExFreePoolWithTag(v9, 0);
             if ( v2 )
               ExFreePoolWithTag(v2, 0);
@@ -63,8 +63,8 @@ PSLIST_ENTRY EtwpAdjustTraceBuffers()
       EtwpReleaseLoggerContext(v4, 0LL);
     }
   }
-  result = (PSLIST_ENTRY)(unsigned int)dword_1403292D4;
-  if ( dword_1403292D4 > 2 * dword_1403292D0 * (int)KeNumberProcessors_0 )
+  result = (PSLIST_ENTRY)(unsigned int)dword_140329314;
+  if ( dword_140329314 > 2 * dword_140329310 * (int)KeNumberProcessors_0 )
   {
     do
     {
@@ -72,9 +72,9 @@ PSLIST_ENTRY EtwpAdjustTraceBuffers()
       if ( !result )
         break;
       ExFreePoolWithTag(result, 0);
-      result = (PSLIST_ENTRY)(unsigned int)dword_1403292D0;
+      result = (PSLIST_ENTRY)(unsigned int)dword_140329310;
     }
-    while ( _InterlockedDecrement(&dword_1403292D4) > 2 * dword_1403292D0 * (int)KeNumberProcessors_0 );
+    while ( _InterlockedDecrement(&dword_140329314) > 2 * dword_140329310 * (int)KeNumberProcessors_0 );
   }
   _InterlockedExchange(&EtwpBufferAdjustmentActive, 0);
   return result;

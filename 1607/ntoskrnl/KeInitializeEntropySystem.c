@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeEntropySystem @ 0x14057DC64
+ * XREFs of KeInitializeEntropySystem @ 0x14057E110
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
  *     <none>
  */

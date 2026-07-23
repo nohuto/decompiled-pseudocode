@@ -3,8 +3,8 @@
  * Callers:
  *     ExDeleteResourceLite @ 0x140020F50 (ExDeleteResourceLite.c)
  *     ExReleaseResourceAndLeaveCriticalRegion @ 0x14004F450 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     ExReinitializeResourceLite @ 0x14010A110 (ExReinitializeResourceLite.c)
- *     ExpSetResourceOwnerPointerEx @ 0x14010A2C0 (ExpSetResourceOwnerPointerEx.c)
+ *     ExReinitializeResourceLite @ 0x14010A190 (ExReinitializeResourceLite.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x14010A340 (ExpSetResourceOwnerPointerEx.c)
  * Callees:
  *     <none>
  */

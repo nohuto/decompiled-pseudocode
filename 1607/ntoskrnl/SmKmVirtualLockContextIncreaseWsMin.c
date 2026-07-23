@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x1402210D8
+ * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x140220F04
  * Callers:
- *     SmKmVirtualLockCtxLockMemory @ 0x140221228 (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x140221054 (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MmQueryWorkingSetInformation @ 0x1400A04E8 (MmQueryWorkingSetInformation.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MmAdjustWorkingSetSize @ 0x1401E2B40 (MmAdjustWorkingSetSize.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MmQueryWorkingSetInformation @ 0x14009EE10 (MmQueryWorkingSetInformation.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MmAdjustWorkingSetSize @ 0x1401E296C (MmAdjustWorkingSetSize.c)
  */
 
 __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(

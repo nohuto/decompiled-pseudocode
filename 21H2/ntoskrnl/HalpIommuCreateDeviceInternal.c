@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuCreateDeviceInternal @ 0x1404C5484
+ * XREFs of HalpIommuCreateDeviceInternal @ 0x1404C56C4
  * Callers:
- *     HalpIommuCreateDevice @ 0x1408649C4 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateDevice @ 0x140864B24 (HalpIommuCreateDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuCreateDeviceInternal(__int64 a1, int a2, _QWORD *a3, __int64 *a4, _BYTE *a5)

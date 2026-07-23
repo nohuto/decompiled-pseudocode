@@ -1,9 +1,9 @@
 /*
- * XREFs of PopBatteryReleaseLock @ 0x1408ED604
+ * XREFs of PopBatteryReleaseLock @ 0x1408ED764
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
  */
 
 void PopBatteryReleaseLock()

@@ -1,21 +1,29 @@
 /*
- * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x1405071B0
+ * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x140500B80
  * Callers:
- *     wil_details_RegisterFeatureStagingChangeNotification @ 0x14085517C (wil_details_RegisterFeatureStagingChangeNotification.c)
+ *     wil_details_RegisterFeatureStagingChangeNotification @ 0x14085B4DC (wil_details_RegisterFeatureStagingChangeNotification.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14077A728 (CmFcRegisterFeatureConfigurationChangeNotification.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14077D658 (CmFcRegisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlRegisterFeatureConfigurationChangeNotification(
+        PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK Callback,
+        PVOID Context,
+        PRTL_FEATURE_CHANGE_STAMP ObservedChangeStamp,
+        PRTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
   if ( KeGetEffectiveIrql()
-    && (((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 || BYTE1(stru_140F10828.WriteOperationCount)) )
+    && (((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 || PoPowerDownActionInProgress) )
   {
-    return 3221225659LL;
+    return -1073741637;
   }
   else
   {
-    return CmFcRegisterFeatureConfigurationChangeNotification(a1, a2, a3, a4);
+    return CmFcRegisterFeatureConfigurationChangeNotification(
+             Callback,
+             Context,
+             ObservedChangeStamp,
+             RegistrationHandle);
   }
 }

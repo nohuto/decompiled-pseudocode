@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAddSIDToBoundaryDescriptor(__int64 a1, _BYTE *a2)
+NTSTATUS __cdecl RtlAddSIDToBoundaryDescriptor(POBJECT_BOUNDARY_DESCRIPTOR *BoundaryDescriptor, PSID RequiredSid)
 {
-  return RtlAddSIDToBoundaryDescriptorEx(a1, a2, 0);
+  return RtlAddSIDToBoundaryDescriptorEx((__int64)BoundaryDescriptor, (unsigned __int8 *)RequiredSid, 0);
 }

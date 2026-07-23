@@ -1,8 +1,8 @@
 /*
- * XREFs of IopLiveDumpAllocNonPagedPool @ 0x1401CAEA8
+ * XREFs of IopLiveDumpAllocNonPagedPool @ 0x1401CAD8C
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x140627610 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x14062782C (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1406276C4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1406278E0 (IopLiveDumpWriteDumpFileWithHvPages.c)
  * Callees:
  *     <none>
  */

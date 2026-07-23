@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtUpdateTranslationStructures @ 0x140528FA8
+ * XREFs of IvtUpdateTranslationStructures @ 0x14052B598
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1405A5968 (IvtAttachDeviceDomainInternal.c)
- *     IvtProcessDeviceExceptions @ 0x140BF0684 (IvtProcessDeviceExceptions.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140BF130C (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1405A8178 (IvtAttachDeviceDomainInternal.c)
+ *     IvtProcessDeviceExceptions @ 0x140BF6684 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140BF730C (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     IvtUpdateScalableModeTranslationStructures @ 0x1405001A0 (IvtUpdateScalableModeTranslationStructures.c)
- *     IvtUpdateContextEntry @ 0x1405002A0 (IvtUpdateContextEntry.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x1404F9990 (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtUpdateContextEntry @ 0x1404F9A90 (IvtUpdateContextEntry.c)
  */
 
 __int64 __fastcall IvtUpdateTranslationStructures(

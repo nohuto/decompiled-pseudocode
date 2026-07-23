@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpValidateInterface @ 0x1407842D0
+ * XREFs of HalpValidateInterface @ 0x140786E04
  * Callers:
- *     HalpRegisterSecondaryIcInterface @ 0x14058FA8C (HalpRegisterSecondaryIcInterface.c)
+ *     HalpRegisterSecondaryIcInterface @ 0x14059220C (HalpRegisterSecondaryIcInterface.c)
  * Callees:
  *     <none>
  */

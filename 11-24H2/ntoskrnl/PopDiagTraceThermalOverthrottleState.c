@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceThermalOverthrottleState @ 0x1405D56F0
+ * XREFs of PopDiagTraceThermalOverthrottleState @ 0x1405D2D04
  * Callers:
- *     PopUpdateOverThrottledCount @ 0x140754B64 (PopUpdateOverThrottledCount.c)
+ *     PopUpdateOverThrottledCount @ 0x140752E84 (PopUpdateOverThrottledCount.c)
  * Callees:
- *     PopDiagTraceThermalStateChange @ 0x1405D5728 (PopDiagTraceThermalStateChange.c)
+ *     PopDiagTraceThermalStateChange @ 0x1405D2D3C (PopDiagTraceThermalStateChange.c)
  */
 
 __int64 __fastcall PopDiagTraceThermalOverthrottleState(__int64 a1, __int64 a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x1404A4820
+ * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x14049DEB0
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
- *     RawMountVolume @ 0x140A35E6C (RawMountVolume.c)
- *     FsRtlNotifyVolumeEventEx @ 0x140AE63A0 (FsRtlNotifyVolumeEventEx.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
+ *     RawMountVolume @ 0x14091B1FC (RawMountVolume.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x140AE4160 (FsRtlNotifyVolumeEventEx.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpSetCustomTargetEvent @ 0x1409094C8 (PnpSetCustomTargetEvent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpSetCustomTargetEvent @ 0x1409AB088 (PnpSetCustomTargetEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetAutoAlignmentProcess @ 0x140A2FD18
+ * XREFs of KeSetAutoAlignmentProcess @ 0x140A24758
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

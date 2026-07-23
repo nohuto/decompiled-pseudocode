@@ -1,7 +1,7 @@
 /*
- * XREFs of SdbpInitializeMatchers @ 0x14095BBD4
+ * XREFs of SdbpInitializeMatchers @ 0x140943694
  * Callers:
- *     SdbInitDatabaseInMemory @ 0x14095D30C (SdbInitDatabaseInMemory.c)
+ *     SdbInitDatabaseInMemory @ 0x140944DCC (SdbInitDatabaseInMemory.c)
  * Callees:
  *     <none>
  */
@@ -16,10 +16,10 @@ __int64 __fastcall SdbpInitializeMatchers(__int64 a1)
   __int64 v6; // rcx
   __int64 result; // rax
 
-  v1 = (char *)&qword_140002290 - a1;
-  v2 = (char *)&off_140002298 - a1;
-  v3 = (char *)&qword_1400022A0 - a1;
-  v4 = (char *)&qword_1400022A8 - a1;
+  v1 = (char *)&qword_1400022E0 - a1;
+  v2 = (char *)&off_1400022E8 - a1;
+  v3 = (char *)&qword_1400022F0 - a1;
+  v4 = (char *)&qword_1400022F8 - a1;
   v5 = a1 + 600;
   v6 = 25LL;
   do

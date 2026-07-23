@@ -1,28 +1,28 @@
 /*
- * XREFs of CcFreeWorkQueueEntry @ 0x1402A7E6C
+ * XREFs of CcFreeWorkQueueEntry @ 0x140279C5C
  * Callers:
- *     CcCachemapUninitWorkerThread @ 0x1402A7660 (CcCachemapUninitWorkerThread.c)
- *     CcWriteBehind @ 0x1402A7ADC (CcWriteBehind.c)
- *     CcAsyncLazywriteWorker @ 0x1402A8E24 (CcAsyncLazywriteWorker.c)
- *     CcWaitForUninitializeCacheMap @ 0x14045A120 (CcWaitForUninitializeCacheMap.c)
- *     CcSerializeWithLazyWriter @ 0x1404AADF4 (CcSerializeWithLazyWriter.c)
- *     CcQuickLazyWriteScanForVolume @ 0x1404B54A0 (CcQuickLazyWriteScanForVolume.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x1404C768C (CcAsyncLazywriteWorkerMulti.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     CcWorkerThread @ 0x1404DB3D0 (CcWorkerThread.c)
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
- *     CcAsyncReadWorker @ 0x1404DF280 (CcAsyncReadWorker.c)
- *     CcCompleteAsyncReadWorker @ 0x1404DFBA0 (CcCompleteAsyncReadWorker.c)
- *     CcPostWorkQueueAsyncRead @ 0x1404DFCEC (CcPostWorkQueueAsyncRead.c)
- *     CcCompleteAsyncWriteBehind @ 0x14057E074 (CcCompleteAsyncWriteBehind.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14027372C (CcPostWorkQueueAsyncRead.c)
+ *     CcWriteBehind @ 0x1402798D4 (CcWriteBehind.c)
+ *     CcCachemapUninitWorkerThread @ 0x14027AAB0 (CcCachemapUninitWorkerThread.c)
+ *     CcAsyncLazywriteWorker @ 0x14027B0C8 (CcAsyncLazywriteWorker.c)
+ *     CcWaitForUninitializeCacheMap @ 0x14044F570 (CcWaitForUninitializeCacheMap.c)
+ *     CcSerializeWithLazyWriter @ 0x1404A4FF4 (CcSerializeWithLazyWriter.c)
+ *     CcQuickLazyWriteScanForVolume @ 0x1404AFD40 (CcQuickLazyWriteScanForVolume.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404C0AEC (CcAsyncLazywriteWorkerMulti.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     CcWorkerThread @ 0x1404D4DF0 (CcWorkerThread.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
+ *     CcAsyncReadWorker @ 0x1404D8CA0 (CcAsyncReadWorker.c)
+ *     CcCompleteAsyncReadWorker @ 0x1404D95C0 (CcCompleteAsyncReadWorker.c)
+ *     CcCompleteAsyncWriteBehind @ 0x14057B504 (CcCompleteAsyncWriteBehind.c)
  * Callees:
- *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     CcDereferencePartition @ 0x140279D10 (CcDereferencePartition.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
-__int64 __fastcall CcFreeWorkQueueEntry(struct _SLIST_ENTRY *P, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CcFreeWorkQueueEntry(_SLIST_ENTRY *P, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KPRCB *CurrentPrcb; // r8
   __int64 v6; // rdi

@@ -4,8 +4,8 @@
  *     CmpSetSystemBiosInformation @ 0x1407ACD84 (CmpSetSystemBiosInformation.c)
  *     CmpSetVideoBiosInformation @ 0x1407AD088 (CmpSetVideoBiosInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strstr @ 0x14014CF38 (strstr.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
  */
 
 char __fastcall CmpGetBiosVersion(__int64 a1, unsigned int a2, __int64 a3)

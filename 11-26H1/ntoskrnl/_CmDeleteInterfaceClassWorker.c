@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmDeleteInterfaceClassWorker @ 0x140896F8C
+ * XREFs of _CmDeleteInterfaceClassWorker @ 0x14089D38C
  * Callers:
- *     _CmDeleteInterfaceClass @ 0x140896E34 (_CmDeleteInterfaceClass.c)
+ *     _CmDeleteInterfaceClass @ 0x14089D234 (_CmDeleteInterfaceClass.c)
  * Callees:
- *     _CmRaiseDeleteEvent @ 0x140774BCC (_CmRaiseDeleteEvent.c)
- *     _CmDeleteInterfaceClassRegKey @ 0x140896F60 (_CmDeleteInterfaceClassRegKey.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14089BF50 (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x14089C414 (_CmSetInterfaceClassMappedProperty.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140A8AF9C (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _CmRaiseDeleteEvent @ 0x140777BCC (_CmRaiseDeleteEvent.c)
+ *     _CmDeleteInterfaceClassRegKey @ 0x14089D360 (_CmDeleteInterfaceClassRegKey.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x1408A2350 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x1408A2814 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B7DBC (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 a3)

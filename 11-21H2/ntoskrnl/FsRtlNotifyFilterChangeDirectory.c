@@ -4,14 +4,14 @@
  *     FsRtlNotifyChangeDirectory @ 0x14092FF60 (FsRtlNotifyChangeDirectory.c)
  *     FsRtlNotifyFullChangeDirectory @ 0x1409300F0 (FsRtlNotifyFullChangeDirectory.c)
  * Callees:
- *     FsRtlNotifySetCancelRoutine @ 0x140233104 (FsRtlNotifySetCancelRoutine.c)
+ *     sub_140233104 @ 0x140233104 (sub_140233104.c)
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
  *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     FsRtlNotifyCompleteIrp @ 0x1406ABC90 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlIsNotifyOnList @ 0x1406AC108 (FsRtlIsNotifyOnList.c)
+ *     sub_1406ABC90 @ 0x1406ABC90 (sub_1406ABC90.c)
+ *     sub_1406AC108 @ 0x1406AC108 (sub_1406AC108.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     FsRtlCheckNotifyForDelete @ 0x14092FEAC (FsRtlCheckNotifyForDelete.c)
+ *     sub_14092FEAC @ 0x14092FEAC (sub_14092FEAC.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -32,7 +32,7 @@ void __stdcall FsRtlNotifyFilterChangeDirectory(
   struct _KTHREAD *CurrentThread; // rsi
   unsigned int v16; // r9d
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
-  __int64 IsNotifyOnList; // rax
+  __int64 v18; // rax
   ULONG_PTR Pool2; // rdx
   __int16 v20; // ax
   struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *p_ListEntry; // rax
@@ -53,7 +53,7 @@ void __stdcall FsRtlNotifyFilterChangeDirectory(
   ++*((_DWORD *)NotifySync + 16);
   if ( !NotifyIrp )
   {
-    FsRtlCheckNotifyForDelete(NotifyList, FsContext);
+    sub_14092FEAC(NotifyList, FsContext);
     goto LABEL_36;
   }
   CurrentStackLocation = NotifyIrp->Tail.Overlay.CurrentStackLocation;
@@ -61,11 +61,11 @@ void __stdcall FsRtlNotifyFilterChangeDirectory(
   NotifyIrp->IoStatus.Information = 0LL;
   if ( (CurrentStackLocation->FileObject->Flags & 0x4000) != 0 )
     goto LABEL_22;
-  IsNotifyOnList = FsRtlIsNotifyOnList(NotifyList, FsContext);
-  Pool2 = IsNotifyOnList;
-  if ( IsNotifyOnList )
+  v18 = sub_1406AC108(NotifyList, FsContext);
+  Pool2 = v18;
+  if ( v18 )
   {
-    v20 = *(_WORD *)(IsNotifyOnList + 72);
+    v20 = *(_WORD *)(v18 + 72);
     if ( (v20 & 4) == 0 )
     {
       if ( (v20 & 0x20) == 0 )
@@ -80,7 +80,7 @@ void __stdcall FsRtlNotifyFilterChangeDirectory(
         if ( *(_DWORD *)(Pool2 + 104) && (v20 & 8) == 0 )
         {
           *(_QWORD *)(Pool2 + 104) = 0LL;
-          FsRtlNotifyCompleteIrp(NotifyIrp, 0);
+          sub_1406ABC90(NotifyIrp, 0);
           goto LABEL_36;
         }
         goto LABEL_11;
@@ -132,7 +132,7 @@ LABEL_22:
   *(_DWORD *)(Pool2 + 76) = CompletionFilter;
   if ( !IgnoreBuffer )
     *(_DWORD *)(Pool2 + 96) = CurrentStackLocation->Parameters.Read.Length;
-  *(_QWORD *)(Pool2 + 120) = NotifyIrp->Tail.Overlay.Thread->Process;
+  *(_QWORD *)(Pool2 + 120) = *((_QWORD *)NotifyIrp->Tail.Overlay.Thread + 68);
   v23 = (struct _LIST_ENTRY *)(Pool2 + 32);
   Blink = NotifyList->Blink;
   if ( Blink->Flink != NotifyList )
@@ -156,7 +156,7 @@ LABEL_11:
   v22->Flink = &p_ListEntry->ListEntry;
   *(_QWORD *)(Pool2 + 56) = p_ListEntry;
   _InterlockedAdd((volatile signed __int32 *)(Pool2 + 112), v16);
-  FsRtlNotifySetCancelRoutine((__int64)NotifyIrp, 0LL);
+  sub_140233104((__int64)NotifyIrp, 0LL);
 LABEL_36:
   if ( (*((_DWORD *)NotifySync + 16))-- == 1 )
   {

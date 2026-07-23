@@ -1,13 +1,13 @@
 /*
- * XREFs of PspLockProcessThreadListShared @ 0x140095CDC
+ * XREFs of PspLockProcessThreadListShared @ 0x1400954DC
  * Callers:
- *     PspNotifyProcessBackgroundTransition @ 0x140095BBC (PspNotifyProcessBackgroundTransition.c)
- *     PsQueryTotalCycleTimeProcess @ 0x1404B9E68 (PsQueryTotalCycleTimeProcess.c)
- *     PsQueryRuntimeProcess @ 0x1404B9F30 (PsQueryRuntimeProcess.c)
- *     PsQueryProcessEnergyValues @ 0x1405160D0 (PsQueryProcessEnergyValues.c)
+ *     PspNotifyProcessBackgroundTransition @ 0x1400953BC (PspNotifyProcessBackgroundTransition.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x1404A5B98 (PsQueryTotalCycleTimeProcess.c)
+ *     PsQueryRuntimeProcess @ 0x1404A5C60 (PsQueryRuntimeProcess.c)
+ *     PsQueryProcessEnergyValues @ 0x1404F94C0 (PsQueryProcessEnergyValues.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockProcessThreadListShared(__int64 a1, __int64 a2)

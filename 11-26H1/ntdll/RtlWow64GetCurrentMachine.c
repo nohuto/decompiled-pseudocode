@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlWow64GetCurrentMachine @ 0x1800B3F20
+ * XREFs of RtlWow64GetCurrentMachine @ 0x1800B1440
  * Callers:
  *     <none>
  * Callees:
- *     RtlWow64GetCpuAreaInfo @ 0x1800B4750 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1800B1C70 (RtlWow64GetCpuAreaInfo.c)
  */
 
-__int64 RtlWow64GetCurrentMachine()
+USHORT RtlWow64GetCurrentMachine(void)
 {
-  unsigned __int16 v0; // bx
+  USHORT v0; // bx
   _BYTE v2[32]; // [rsp+20h] [rbp-38h] BYREF
   __int128 v3; // [rsp+40h] [rbp-18h]
 

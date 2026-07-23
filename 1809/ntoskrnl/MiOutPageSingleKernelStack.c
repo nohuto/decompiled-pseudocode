@@ -1,5 +1,5 @@
 /*
- * XREFs of MiOutPageSingleKernelStack @ 0x14007FAB0
+ * XREFs of MiOutPageSingleKernelStack @ 0x14007FAA0
  * Callers:
  *     <none>
  * Callees:
@@ -9,19 +9,19 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiOutSwapKernelStackPage @ 0x1400E503C (MiOutSwapKernelStackPage.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCreateKernelStackNode @ 0x1402AB4F4 (MiCreateKernelStackNode.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiOutSwapKernelStackPage @ 0x1400E50BC (MiOutSwapKernelStackPage.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCreateKernelStackNode @ 0x1402AB6E4 (MiCreateKernelStackNode.c)
  */
 
 __int64 __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3)
@@ -107,10 +107,10 @@ __int64 __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3
   v11 = *(_QWORD *)(a1 + 544);
   v12 = *(unsigned __int16 *)(v11 + 1454);
   v13 = v11 + 1280;
-  v14 = *(_QWORD *)(qword_14043A748 + 8 * v12);
+  v14 = *(_QWORD *)(qword_14043B808 + 8 * v12);
   if ( (ULONG_PTR *)v14 != &MiSystemPartition )
   {
-    result = MiCreateKernelStackNode(*(_QWORD *)(qword_14043A748 + 8 * v12), a2);
+    result = MiCreateKernelStackNode(*(_QWORD *)(qword_14043B808 + 8 * v12), a2);
     if ( !result )
       return result;
     v7 = v62;
@@ -148,7 +148,7 @@ __int64 __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3
       if ( (unsigned int)MiPteHasShadow(v22, v21) )
       {
         v23 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_8;
         v50 = (v49 & 1) == 0;
       }
@@ -209,7 +209,7 @@ LABEL_8:
         if ( (unsigned int)MiPteHasShadow(v52, v51) )
         {
           v53 = v57;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
           {
 LABEL_52:
             *(_QWORD *)v26 = v54;
@@ -233,7 +233,7 @@ LABEL_52:
         if ( (unsigned int)MiPteHasShadow(v37, v24) )
         {
           v39 = v58;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
             goto LABEL_58;
         }
         else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

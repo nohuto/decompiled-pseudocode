@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpRegisterUncProvider @ 0x1408567A8 (FsRtlpRegisterUncProvider.c)
+ *     sub_1408567A8 @ 0x1408567A8 (sub_1408567A8.c)
  */
 
 NTSTATUS __stdcall FsRtlRegisterUncProviderEx(
@@ -16,5 +16,5 @@ NTSTATUS __stdcall FsRtlRegisterUncProviderEx(
 
   v5[1] = Flags;
   v5[0] = 16842760;
-  return FsRtlpRegisterUncProvider((__int64)RedirDevName, (__int64)DeviceObject, (__int64)v5, MupHandle);
+  return sub_1408567A8((__int64)RedirDevName, (__int64)DeviceObject, (__int64)v5, MupHandle);
 }

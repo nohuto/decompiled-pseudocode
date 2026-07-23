@@ -1,9 +1,9 @@
 /*
- * XREFs of KiConfigureDynamicProcessor @ 0x140B58068
+ * XREFs of KiConfigureDynamicProcessor @ 0x140B5A0E8
  * Callers:
- *     KiInitDynamicProcessorIpi @ 0x1405BC5F0 (KiInitDynamicProcessorIpi.c)
+ *     KiInitDynamicProcessorIpi @ 0x1405B9C20 (KiInitDynamicProcessorIpi.c)
  * Callees:
- *     KiEnableXSave @ 0x140B4B020 (KiEnableXSave.c)
+ *     KiEnableXSave @ 0x140B4D11C (KiEnableXSave.c)
  */
 
 void __noreturn KiConfigureDynamicProcessor()

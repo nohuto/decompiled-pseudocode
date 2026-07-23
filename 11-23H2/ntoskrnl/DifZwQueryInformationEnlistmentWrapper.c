@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwQueryInformationEnlistmentWrapper @ 0x1405F43C0
+ * XREFs of DifZwQueryInformationEnlistmentWrapper @ 0x1405F4930
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryInformationEnlistment @ 0x14041D7C0 (ZwQueryInformationEnlistment.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwQueryInformationEnlistment @ 0x14041DB50 (ZwQueryInformationEnlistment.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwQueryInformationEnlistmentWrapper(

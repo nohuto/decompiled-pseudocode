@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvAttachPasidSubDeviceDomain @ 0x14059DDF4
+ * XREFs of IommupHvAttachPasidSubDeviceDomain @ 0x1405A0574
  * Callers:
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
  * Callees:
- *     IommupHvSetUpDomainConfig @ 0x14059E92C (IommupHvSetUpDomainConfig.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IommupHvSetUpDomainConfig @ 0x1405A110C (IommupHvSetUpDomainConfig.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvAttachPasidSubDeviceDomain(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlSparseArrayElementAllocated @ 0x1402C276C
+ * XREFs of RtlSparseArrayElementAllocated @ 0x14035D950
  * Callers:
- *     RtlpHpVaMgrCtxFree @ 0x140421038 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrRangeFind @ 0x14042160C (RtlpHpVaMgrRangeFind.c)
- *     RtlpHpVaMgrRangeCommitProcess @ 0x14048EEC4 (RtlpHpVaMgrRangeCommitProcess.c)
- *     RtlpHpVaMgrCtxCommit @ 0x140605A74 (RtlpHpVaMgrCtxCommit.c)
- *     RtlpHpVaMgrCtxDecommit @ 0x140605AF0 (RtlpHpVaMgrCtxDecommit.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14045930C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrRangeFind @ 0x1404598E0 (RtlpHpVaMgrRangeFind.c)
+ *     RtlpHpVaMgrRangeCommitProcess @ 0x1404892C4 (RtlpHpVaMgrRangeCommitProcess.c)
+ *     RtlpHpVaMgrCtxCommit @ 0x1406030B4 (RtlpHpVaMgrCtxCommit.c)
+ *     RtlpHpVaMgrCtxDecommit @ 0x140603130 (RtlpHpVaMgrCtxDecommit.c)
  * Callees:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x1402C28B4 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x14035DA98 (RtlCSparseBitmapFindBitSetCapped.c)
  */
 
 __int64 __fastcall RtlSparseArrayElementAllocated(__int64 a1, __int64 a2)

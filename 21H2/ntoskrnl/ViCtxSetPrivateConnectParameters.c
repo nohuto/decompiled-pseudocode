@@ -1,9 +1,9 @@
 /*
- * XREFs of ViCtxSetPrivateConnectParameters @ 0x1409E462C
+ * XREFs of ViCtxSetPrivateConnectParameters @ 0x1409E562C
  * Callers:
- *     VfCtxHookAndConnectInterruptEx @ 0x1409E40A0 (VfCtxHookAndConnectInterruptEx.c)
+ *     VfCtxHookAndConnectInterruptEx @ 0x1409E50A0 (VfCtxHookAndConnectInterruptEx.c)
  * Callees:
- *     ViCtxAllocateIsrContext @ 0x1409E4250 (ViCtxAllocateIsrContext.c)
+ *     ViCtxAllocateIsrContext @ 0x1409E5250 (ViCtxAllocateIsrContext.c)
  */
 
 __int64 __fastcall ViCtxSetPrivateConnectParameters(__int64 a1, __int128 *a2, _QWORD *a3)

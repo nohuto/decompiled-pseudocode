@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpInitializeStackLookasideList @ 0x140865D74
+ * XREFs of EtwpInitializeStackLookasideList @ 0x140865FB4
  * Callers:
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
  */
 
-union _SLIST_HEADER *EtwpInitializeStackLookasideList()
+_SLIST_HEADER *EtwpInitializeStackLookasideList()
 {
-  union _SLIST_HEADER *result; // rax
+  _SLIST_HEADER *result; // rax
 
   result = &EtwpStackLookAsideList;
   if ( ((unsigned __int8)&EtwpStackLookAsideList & 0xF) != 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetupTimeIncrement @ 0x1405E53C8
+ * XREFs of KiSetupTimeIncrement @ 0x1405E7D38
  * Callers:
- *     KeInitializeClock @ 0x140D0B7A4 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x140D117AC (KeInitializeClock.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlGenerateQpcToIncrementConstants @ 0x1404F4860 (RtlGenerateQpcToIncrementConstants.c)
- *     RtlpComputeFraction @ 0x1405330F0 (RtlpComputeFraction.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x1404EDE40 (RtlGenerateQpcToIncrementConstants.c)
+ *     RtlpComputeFraction @ 0x140535570 (RtlpComputeFraction.c)
  */
 
 __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
     KiMaxDynamicTickDuration = v5;
   KiTickOffset = v3;
   v14 = 0;
-  *(_QWORD *)&stru_140FC01F0.SavedApcStateFill[40] = RtlpComputeFraction(1LL, v3, &v14);
+  stru_140FC11F0.SavedApcState.Process = (_KPROCESS *)RtlpComputeFraction(1LL, v3, &v14);
   KiMaximumIncrementShiftCount = -v14;
   v7 = KeQueryPerformanceCounter(&PerformanceFrequency);
   v8 = PerformanceFrequency;
@@ -65,8 +65,8 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   *(_BYTE *)(MmWriteableSharedUserData + 872) = MEMORY[0xFFFFF78000000369];
   *(LARGE_INTEGER *)(MmWriteableSharedUserData + 840) = v9;
   *(LARGE_INTEGER *)(MmWriteableSharedUserData + 848) = v9;
-  result = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerPeriod = 0x989680u / KeMaximumIncrement;
-  *(_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[96] = 0x989680u / KeMaximumIncrement;
+  result = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerPeriod = 0x989680 / KeMaximumIncrement;
+  *(_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Type = 0x989680 / KeMaximumIncrement;
   return result;
 }

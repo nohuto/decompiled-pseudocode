@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlGetAce @ 0x140227A60
+ * XREFs of RtlGetAce @ 0x140227B70
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x14037046C (SepAppendAceToTokenDefaultDacl.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x1406702CC (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x14037060C (SepAppendAceToTokenDefaultDacl.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067081C (AdtpBuildAccessReasonAuditStringInternal.c)
  *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
- *     PopCreateHiberFileSecurityDescriptor @ 0x14080090C (PopCreateHiberFileSecurityDescriptor.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14080C110 (CmpHiveRootSecurityDescriptor.c)
- *     ObpGetDosDevicesProtection @ 0x140858910 (ObpGetDosDevicesProtection.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14087EB00 (PiDevCfgGetKeySecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BE6B4 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406BD140 (SepAppendAceToTokenObjectAcl.c)
+ *     PopCreateHiberFileSecurityDescriptor @ 0x140800BDC (PopCreateHiberFileSecurityDescriptor.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x14080C3E0 (CmpHiveRootSecurityDescriptor.c)
+ *     ObpGetDosDevicesProtection @ 0x140858B50 (ObpGetDosDevicesProtection.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14087ED40 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BE8B4 (RtlpSysVolCheckOwnerAndSecurity.c)
  *     ObInitSystem @ 0x140B4B2F8 (ObInitSystem.c)
  * Callees:
  *     <none>

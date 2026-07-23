@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWorkerFactoryInitialization @ 0x140C436D8
+ * XREFs of ExpWorkerFactoryInitialization @ 0x140C45D44
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeRegisterObjectNotification @ 0x140205AB0 (KeRegisterObjectNotification.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     KeInitializeQueue @ 0x140475830 (KeInitializeQueue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     PsCreateSystemThread @ 0x140A22450 (PsCreateSystemThread.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeRegisterObjectNotification @ 0x14032D090 (KeRegisterObjectNotification.c)
+ *     KeInitializeQueue @ 0x1404717A0 (KeInitializeQueue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     PsCreateSystemThread @ 0x1408F8C00 (PsCreateSystemThread.c)
  */
 
 __int64 ExpWorkerFactoryInitialization()
@@ -78,7 +78,7 @@ __int64 ExpWorkerFactoryInitialization()
   v9 = 672;
   v6 = ExpWorkerFactoryMapping;
   v7 = 983295;
-  v1 = ObCreateObjectType((const UNICODE_STRING *)&qword_140C71DF0, &v4, 0LL, (__int64)&ExpWorkerFactoryObjectType);
+  v1 = ObCreateObjectType((const UNICODE_STRING *)&qword_140C73F40, &v4, 0LL, (__int64)&ExpWorkerFactoryObjectType);
   if ( v1 >= 0 )
   {
     v1 = PsCreateSystemThread(

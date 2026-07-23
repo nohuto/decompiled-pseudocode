@@ -12,76 +12,72 @@
  *     RtlEnterCriticalSection @ 0x18002F9C0 (RtlEnterCriticalSection.c)
  */
 
-__int64 __fastcall sub_18000C298(__int64 a1)
+__int64 __fastcall sub_18000C298(PRTL_CRITICAL_SECTION *HeapHandle)
 {
-  __int64 v3; // rax
-  unsigned __int64 v4; // rdx
-  int v5; // edi
-  __int64 v6; // r14
-  __int64 v7; // rcx
-  char v9; // [rsp+20h] [rbp-28h]
-  char v10; // [rsp+21h] [rbp-27h]
+  PRTL_CRITICAL_SECTION v3; // rax
+  int v4; // edi
+  __int64 v5; // r14
+  char v7; // [rsp+20h] [rbp-28h]
+  char v8; // [rsp+21h] [rbp-27h]
 
-  v10 = 0;
-  v9 = 0;
-  if ( (*(_DWORD *)(a1 + 112) & 0x75010F61) == 0
-    && (*(_BYTE *)(a1 + 112) & 2) != 0
+  v8 = 0;
+  v7 = 0;
+  if ( ((_DWORD)HeapHandle[14] & 0x75010F61) == 0
+    && ((_BYTE)HeapHandle[14] & 2) != 0
     && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-    v9 = 1;
-    if ( *(_BYTE *)(a1 + 386) == 2 )
-      v3 = *(_QWORD *)(a1 + 376);
+    RtlEnterCriticalSection(HeapHandle[44]);
+    v7 = 1;
+    if ( *((_BYTE *)HeapHandle + 386) == 2 )
+      v3 = HeapHandle[47];
     else
       v3 = 0LL;
     if ( v3 )
     {
-      v5 = 0;
+      v4 = 0;
     }
-    else if ( *(_WORD *)(a1 + 384) )
+    else if ( *((_WORD *)HeapHandle + 192) )
     {
-      v5 = -1073741794;
+      v4 = -1073741794;
     }
     else
     {
-      *(_WORD *)(a1 + 384) = 1;
-      v10 = 1;
-      v4 = (unsigned __int64)qword_180158678 >> 4;
-      LOWORD(v4) = ((unsigned __int64)qword_180158678 >> 4) + 2;
-      v5 = sub_18000FCB0(a1, v4);
-      if ( v5 >= 0 )
+      *((_WORD *)HeapHandle + 192) = 1;
+      v8 = 1;
+      v4 = sub_18000FCB0(HeapHandle);
+      if ( v4 >= 0 )
       {
-        sub_18000C480(a1, *(_QWORD *)(a1 + 312));
-        *(_QWORD *)(a1 + 376) = 0LL;
-        *(_BYTE *)(a1 + 386) = 0;
-        RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-        v6 = sub_18000C540(a1);
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-        if ( v6 )
+        sub_18000C480(HeapHandle);
+        HeapHandle[47] = 0LL;
+        *((_BYTE *)HeapHandle + 386) = 0;
+        RtlLeaveCriticalSection(HeapHandle[44]);
+        v5 = sub_18000C540(HeapHandle);
+        RtlEnterCriticalSection(HeapHandle[44]);
+        if ( v5 )
         {
-          *(_QWORD *)(a1 + 376) = v6;
-          *(_WORD *)(a1 + 386) = 514;
-          if ( (RtlGetSuiteMask(v7) & 0x10000) == 0 )
-            *(_QWORD *)(a1 + 176) = (unsigned __int64)qword_180158678 >> 4;
+          HeapHandle[47] = (PRTL_CRITICAL_SECTION)v5;
+          *((_WORD *)HeapHandle + 193) = 514;
+          if ( (RtlGetSuiteMask() & 0x10000) == 0 )
+            HeapHandle[22] = (PRTL_CRITICAL_SECTION)((unsigned __int64)qword_180158678 >> 4);
         }
         else
         {
-          v5 = -1073741801;
+          v4 = -1073741801;
         }
-        --*(_WORD *)(a1 + 384);
-        v10 = 0;
-        v9 = 0;
-        RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+        --*((_WORD *)HeapHandle + 192);
+        v8 = 0;
+        v7 = 0;
+        RtlLeaveCriticalSection(HeapHandle[44]);
       }
     }
   }
   else
   {
-    v5 = -1073741811;
+    v4 = -1073741811;
   }
-  if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  if ( v10 )
-    --*(_WORD *)(a1 + 384);
-  return (unsigned int)v5;
+  if ( v7 )
+    RtlLeaveCriticalSection(HeapHandle[44]);
+  if ( v8 )
+    --*((_WORD *)HeapHandle + 192);
+  return (unsigned int)v4;
 }

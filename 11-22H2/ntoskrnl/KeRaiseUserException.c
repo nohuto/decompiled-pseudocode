@@ -44,7 +44,7 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
   }
   if ( CurrentIrql < v4 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & v4) != 0 && (unsigned __int8)(v6 - 2) <= 0xDu )

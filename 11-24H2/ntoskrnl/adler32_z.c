@@ -1,12 +1,12 @@
 /*
- * XREFs of adler32_z @ 0x140602074
+ * XREFs of adler32_z @ 0x1405FF6B4
  * Callers:
- *     inflate @ 0x1405F3FB0 (inflate.c)
- *     deflate @ 0x1405F52F8 (deflate.c)
- *     deflateResetKeep @ 0x1405F5664 (deflateResetKeep.c)
- *     read_buf @ 0x1405F728C (read_buf.c)
+ *     inflate @ 0x1405F15F0 (inflate.c)
+ *     deflate @ 0x1405F2938 (deflate.c)
+ *     deflateResetKeep @ 0x1405F2CA4 (deflateResetKeep.c)
+ *     read_buf @ 0x1405F48CC (read_buf.c)
  * Callees:
- *     adler32_simd_ @ 0x14060401C (adler32_simd_.c)
+ *     adler32_simd_ @ 0x14060165C (adler32_simd_.c)
  */
 
 __int64 __fastcall adler32_z(unsigned int a1, unsigned __int8 *a2, unsigned __int64 a3)

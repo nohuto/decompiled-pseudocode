@@ -1,8 +1,8 @@
 /*
- * XREFs of AccelpCacheCompressionHeaderFooterInformation @ 0x1406DF6E4
+ * XREFs of AccelpCacheCompressionHeaderFooterInformation @ 0x1406E3964
  * Callers:
- *     AccelpSiovIaaSetCompressionWorkspace @ 0x1406E0518 (AccelpSiovIaaSetCompressionWorkspace.c)
- *     AccelpQatSetCompressionWorkspace @ 0x1406E0F2C (AccelpQatSetCompressionWorkspace.c)
+ *     AccelpSiovIaaSetCompressionWorkspace @ 0x1406E4798 (AccelpSiovIaaSetCompressionWorkspace.c)
+ *     AccelpQatSetCompressionWorkspace @ 0x1406E51AC (AccelpQatSetCompressionWorkspace.c)
  * Callees:
  *     <none>
  */

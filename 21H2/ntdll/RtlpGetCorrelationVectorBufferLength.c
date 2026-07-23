@@ -5,8 +5,8 @@
  *     RtlpGetCorrelationVectorEndPosition @ 0x1800851A4 (RtlpGetCorrelationVectorEndPosition.c)
  *     RtlIncrementCorrelationVector @ 0x1800851F0 (RtlIncrementCorrelationVector.c)
  *     RtlpGetCorrelationVectorLastDotPosition @ 0x1800852D4 (RtlpGetCorrelationVectorLastDotPosition.c)
- *     RtlValidateCorrelationVector @ 0x1800FC230 (RtlValidateCorrelationVector.c)
- *     RtlpGetLastContiguosBase64Position @ 0x1800FC314 (RtlpGetLastContiguosBase64Position.c)
+ *     RtlValidateCorrelationVector @ 0x1800FC1F0 (RtlValidateCorrelationVector.c)
+ *     RtlpGetLastContiguosBase64Position @ 0x1800FC2D4 (RtlpGetLastContiguosBase64Position.c)
  * Callees:
  *     <none>
  */

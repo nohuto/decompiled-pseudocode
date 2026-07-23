@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateWorkingSetPrivateSize @ 0x1400BDD70
+ * XREFs of MiUpdateWorkingSetPrivateSize @ 0x1400BBC00
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FDEF0 (MiRemoveImagePageFromSystemWorkingSet.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FBC70 (MiRemoveImagePageFromSystemWorkingSet.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiCheckRuntimeHistoryHashTableCleanup @ 0x140335ADC
+ * XREFs of KiCheckRuntimeHistoryHashTableCleanup @ 0x140337B0C
  * Callers:
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall KiCheckRuntimeHistoryHashTableCleanup(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)

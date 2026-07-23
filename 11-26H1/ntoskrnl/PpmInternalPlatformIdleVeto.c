@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInternalPlatformIdleVeto @ 0x14052EA84
+ * XREFs of PpmInternalPlatformIdleVeto @ 0x140530FA4
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

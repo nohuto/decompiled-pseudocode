@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryProcessorInitValues @ 0x140711860
+ * XREFs of IopQueryProcessorInitValues @ 0x14070F3F0
  * Callers:
- *     IoInitializeProcessor @ 0x1407115FC (IoInitializeProcessor.c)
- *     PspInitializeQuotaBlock @ 0x140773C50 (PspInitializeQuotaBlock.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitializeProcessor @ 0x14070F18C (IoInitializeProcessor.c)
+ *     PspInitializeQuotaBlock @ 0x140773E70 (PspInitializeQuotaBlock.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1404A8FD0 (MmIsThisAnNtAsSystem.c)
+ *     MmIsThisAnNtAsSystem @ 0x1404A33F0 (MmIsThisAnNtAsSystem.c)
  */
 
 __int64 __fastcall IopQueryProcessorInitValues(__int64 a1)

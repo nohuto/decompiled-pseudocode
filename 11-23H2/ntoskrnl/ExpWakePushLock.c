@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWakePushLock @ 0x1402BD990
+ * XREFs of ExpWakePushLock @ 0x1402BDC20
  * Callers:
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockExclusive @ 0x1402BD910 (ExfReleasePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExpOptimizePushLockList @ 0x1402FD330 (ExpOptimizePushLockList.c)
- *     ExfReleasePushLockSharedEx @ 0x1403268D8 (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockExclusive @ 0x1402BDBA0 (ExfReleasePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExpOptimizePushLockList @ 0x1402FD5C0 (ExpOptimizePushLockList.c)
+ *     ExfReleasePushLockSharedEx @ 0x140326B68 (ExfReleasePushLockSharedEx.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeAbPreWakeupHandle @ 0x1402BDD98 (KeAbPreWakeupHandle.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeAbPreWakeupHandle @ 0x1402BE028 (KeAbPreWakeupHandle.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)
@@ -65,10 +65,10 @@ LABEL_7:
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          LODWORD(v7) = KiIrqlFlags;
-          if ( KiIrqlFlags )
+          LODWORD(v7) = (_DWORD)KiIrqlFlags;
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               LODWORD(v7) = 4;
@@ -94,10 +94,10 @@ LABEL_7:
         while ( Blink );
         if ( CurrentIrql != 2 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v14 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v16 = CurrentPrcb->SchedulerAssist;

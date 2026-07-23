@@ -1,18 +1,18 @@
 /*
- * XREFs of ExRaiseAccessViolation @ 0x1409560F0
+ * XREFs of ExRaiseAccessViolation @ 0x1409562C0
  * Callers:
- *     IopValidateQueryInformationParameters @ 0x1405FB810 (IopValidateQueryInformationParameters.c)
- *     NtQuerySecurityAttributesToken @ 0x1406011C0 (NtQuerySecurityAttributesToken.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     NtAlpcQueryInformation @ 0x140681F90 (NtAlpcQueryInformation.c)
- *     KeUserModeCallback @ 0x1406F0030 (KeUserModeCallback.c)
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
- *     NtQueryKey @ 0x1406F8570 (NtQueryKey.c)
+ *     NtAlpcQueryInformation @ 0x1405DCFD0 (NtAlpcQueryInformation.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     IopValidateQueryInformationParameters @ 0x1406EAF70 (IopValidateQueryInformationParameters.c)
+ *     NtQuerySecurityAttributesToken @ 0x1406F0920 (NtQuerySecurityAttributesToken.c)
+ *     KeUserModeCallback @ 0x140707410 (KeUserModeCallback.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
+ *     NtQueryKey @ 0x14070F950 (NtQueryKey.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
  */
 
 void __noreturn ExRaiseAccessViolation(void)
 {
-  RtlRaiseStatus(0xC0000005);
+  RtlRaiseStatus(-1073741819);
 }

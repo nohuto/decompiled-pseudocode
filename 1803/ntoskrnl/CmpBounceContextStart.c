@@ -87,7 +87,7 @@ LABEL_13:
     TransientPoolWithQuotaTag = RtlpInterlockedPopEntrySList(&CmpBounceBufferLookaside);
     if ( TransientPoolWithQuotaTag
       || (++dword_1403D1E18,
-          (TransientPoolWithQuotaTag = (void *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_1403D1E30)(
+          (TransientPoolWithQuotaTag = (void *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_1403D1E30)(
                                                  (unsigned int)dword_1403D1E24,
                                                  (unsigned int)dword_1403D1E2C,
                                                  (unsigned int)dword_1403D1E28,

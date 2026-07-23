@@ -26,8 +26,8 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
 {
   unsigned int *v3; // r12
   unsigned int i; // r14d
-  struct _FILE_PATH *v6; // r15
-  struct _FILE_PATH *v7; // r13
+  _FILE_PATH *v6; // r15
+  _FILE_PATH *v7; // r13
   KPROCESSOR_MODE PreviousMode; // dl
   unsigned int *v9; // rcx
   SIZE_T v10; // rbx
@@ -41,7 +41,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
   char *v19; // rsi
   int v20; // eax
   __int64 v21; // r8
-  struct _FILE_PATH *v22; // rax
+  _FILE_PATH *v22; // rax
   ULONG Length; // eax
   unsigned int v24; // ebx
   PVOID v25; // rax
@@ -125,7 +125,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
     if ( v20 == -1 )
       goto LABEL_25;
     LODWORD(Size) = 2 * v20 + 2;
-    v6 = (struct _FILE_PATH *)((char *)v16 + v21);
+    v6 = (_FILE_PATH *)((char *)v16 + v21);
     EnvironmentVariable = ExpVerifyFilePath((char *)v16 + v21);
     if ( EnvironmentVariable < 0 )
       goto LABEL_58;
@@ -146,7 +146,7 @@ LABEL_25:
       EnvironmentVariable = ZwTranslateFilePath(v6, 4u, 0LL, (ULONG)&OutputFilePathLength);
       if ( EnvironmentVariable == -1073741789 )
       {
-        v22 = (struct _FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
+        v22 = (_FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
         v7 = v22;
         if ( !v22 )
         {

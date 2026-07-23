@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpReadTimeZoneInformation @ 0x140836298
+ * XREFs of ExpReadTimeZoneInformation @ 0x14083C4D8
  * Callers:
- *     ExpReadSiloTimeZoneMarker @ 0x140836264 (ExpReadSiloTimeZoneMarker.c)
- *     ExpTimeZoneInitSiloState @ 0x1408364F8 (ExpTimeZoneInitSiloState.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x14083C4A4 (ExpReadSiloTimeZoneMarker.c)
+ *     ExpTimeZoneInitSiloState @ 0x14083C738 (ExpTimeZoneInitSiloState.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall ExpReadTimeZoneInformation(__int64 a1, int a2, __int64 a3)

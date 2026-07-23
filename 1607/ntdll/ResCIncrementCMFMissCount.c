@@ -1,7 +1,7 @@
 /*
- * XREFs of ResCIncrementCMFMissCount @ 0x18008A3F4
+ * XREFs of ResCIncrementCMFMissCount @ 0x18008A3E4
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x180012AB0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180012AA0 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 ResCIncrementCMFMissCount()
 
   if ( !ResRuntimeView )
     return 0LL;
-  v0 = *(_QWORD *)(ResRuntimeView + 16);
+  v0 = *((_QWORD *)ResRuntimeView + 2);
   if ( !v0 )
     return 0LL;
   v1 = *(_QWORD *)(v0 + 24);

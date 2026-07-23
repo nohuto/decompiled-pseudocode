@@ -1,13 +1,13 @@
 /*
- * XREFs of CcRemoveExternalCache @ 0x1405371EC
+ * XREFs of CcRemoveExternalCache @ 0x14053773C
  * Callers:
- *     CcUnregisterExternalCache @ 0x1405373F0 (CcUnregisterExternalCache.c)
+ *     CcUnregisterExternalCache @ 0x140537940 (CcUnregisterExternalCache.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcRemoveExternalCache(_QWORD *a1)
@@ -44,10 +44,10 @@ __int64 __fastcall CcRemoveExternalCache(_QWORD *a1)
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&CcExternalCacheListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -58,7 +58,7 @@ __int64 __fastcall CcRemoveExternalCache(_QWORD *a1)
       v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v10 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

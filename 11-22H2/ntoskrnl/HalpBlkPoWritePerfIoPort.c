@@ -59,10 +59,13 @@ __int64 __fastcall HalpBlkPoWritePerfIoPort(unsigned int a1, __int16 a2, __int16
   if ( v14 < 0 )
     KeBugCheckEx(0x1DAu, 4uLL, 4uLL, v8, v10 + 2216);
   KxReleaseSpinLock((volatile signed __int64 *)(v10 + 2216));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

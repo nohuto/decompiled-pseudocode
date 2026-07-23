@@ -27,12 +27,14 @@ __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __i
   _DWORD *SchedulerAssist; // r9
   int v16; // eax
   bool v17; // zf
-  __int64 v18; // rcx
-  __int64 v20; // [rsp+20h] [rbp-10h]
-  unsigned __int64 v21; // [rsp+28h] [rbp-8h]
-  unsigned __int64 v22; // [rsp+78h] [rbp+48h] BYREF
+  ULONG_PTR v18; // r9
+  __int64 v19; // rcx
+  ULONG_PTR RegionSize; // [rsp+20h] [rbp-10h] BYREF
+  unsigned __int64 v22; // [rsp+28h] [rbp-8h]
+  PVOID BaseAddress; // [rsp+78h] [rbp+48h] BYREF
 
-  v22 = 0LL;
+  RegionSize = 0LL;
+  BaseAddress = 0LL;
   v4 = KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5];
   if ( !v4 )
     NT_ASSERT("ProcessContext != ((void *)0)");
@@ -41,7 +43,7 @@ __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __i
   v5 = a1 >> 12;
   v6 = (unsigned __int64 *)(v4 + 8);
   v7 = 0LL;
-  v21 = (a1 >> 12) + a2 - 1;
+  v22 = (a1 >> 12) + a2 - 1;
   do
   {
     v8 = VmpProcessContextLockShared((PEX_SPIN_LOCK)v4);
@@ -67,17 +69,17 @@ __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __i
     }
     if ( !v9 || (v11 = (_QWORD *)(v9 - 24), v9 == 24) )
       NT_ASSERT("GpaMemoryRange != ((void *)0)");
-    v22 = *(_QWORD *)(v11[2] + 24LL);
-    v22 = v5 + v22 - v11[6];
+    BaseAddress = *(PVOID *)(v11[2] + 24LL);
+    BaseAddress = (char *)BaseAddress + v5 - v11[6];
     v12 = v11[7];
-    if ( v12 >= v21 )
-      v12 = v21;
-    v20 = v12 - v5 + 1;
+    if ( v12 >= v22 )
+      v12 = v22;
+    RegionSize = v12 - v5 + 1;
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -89,12 +91,17 @@ __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __i
       }
     }
     __writecr8(v8);
-    v7 += v20;
-    v5 += v20;
+    v18 = RegionSize;
+    v7 += RegionSize;
+    v5 += RegionSize;
     if ( VmpTraceLoggingProvider && *(_DWORD *)VmpTraceLoggingProvider && tlgKeywordOn(VmpTraceLoggingProvider, 4LL) )
-      VmpLogColdHint(v18, v5, v22);
-    v22 <<= 12;
-    ZwUnlockVirtualMemory(-1LL, (__int64)&v22);
+    {
+      VmpLogColdHint(v19, v5, BaseAddress);
+      v18 = RegionSize;
+    }
+    BaseAddress = (PVOID)((_QWORD)BaseAddress << 12);
+    RegionSize = v18 << 12;
+    ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
   }
   while ( v7 < a2 );
   return 0LL;

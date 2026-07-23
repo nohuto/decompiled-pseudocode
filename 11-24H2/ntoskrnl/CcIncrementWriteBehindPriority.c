@@ -1,13 +1,13 @@
 /*
- * XREFs of CcIncrementWriteBehindPriority @ 0x1404DB060
+ * XREFs of CcIncrementWriteBehindPriority @ 0x1404D4A80
  * Callers:
- *     CcLazyWriteScan @ 0x14043BAE8 (CcLazyWriteScan.c)
- *     CcLazyWriteScanVolume @ 0x1404B5560 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1402654C8 (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x1404AFE00 (CcLazyWriteScanVolume.c)
  * Callees:
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD5E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402E62E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
  */
 
 char __fastcall CcIncrementWriteBehindPriority(__int64 a1)

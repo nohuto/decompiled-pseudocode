@@ -1,22 +1,22 @@
 /*
- * XREFs of SmHwAcceleratorPartitionMgrGetDescriptor @ 0x14024B6A0
+ * XREFs of SmHwAcceleratorPartitionMgrGetDescriptor @ 0x14024D000
  * Callers:
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024B0D0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
- *     SmStoreDecompressBuffer @ 0x1403905E0 (SmStoreDecompressBuffer.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024CA30 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
+ *     SmStoreDecompressBuffer @ 0x140392390 (SmStoreDecompressBuffer.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     MmGetNextNode @ 0x14045D380 (MmGetNextNode.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     MmGetNextNode @ 0x140456D80 (MmGetNextNode.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall SmHwAcceleratorPartitionMgrGetDescriptor(__int64 a1, char a2, unsigned int a3)
@@ -32,8 +32,8 @@ PSLIST_ENTRY __fastcall SmHwAcceleratorPartitionMgrGetDescriptor(__int64 a1, cha
   unsigned int v14; // r9d
   __int64 v15; // rdx
   unsigned int NextNode; // eax
-  union _SLIST_HEADER *v17; // rcx
-  union _SLIST_HEADER *i; // rax
+  _SLIST_HEADER *v17; // rcx
+  _SLIST_HEADER *i; // rax
   PSLIST_ENTRY v19; // rax
   _DWORD *v20; // r13
   int v21; // r13d
@@ -54,9 +54,9 @@ PSLIST_ENTRY __fastcall SmHwAcceleratorPartitionMgrGetDescriptor(__int64 a1, cha
   volatile unsigned __int8 *v36; // rdx
   unsigned int v37; // r9d
   LARGE_INTEGER Timeout; // [rsp+30h] [rbp-78h] BYREF
-  union _SLIST_HEADER *v39; // [rsp+38h] [rbp-70h]
-  union _SLIST_HEADER *v40; // [rsp+40h] [rbp-68h]
-  struct _SLIST_ENTRY *v41; // [rsp+48h] [rbp-60h]
+  _SLIST_HEADER *v39; // [rsp+38h] [rbp-70h]
+  _SLIST_HEADER *v40; // [rsp+40h] [rbp-68h]
+  _SLIST_ENTRY *v41; // [rsp+48h] [rbp-60h]
   __int128 Object; // [rsp+50h] [rbp-58h] BYREF
   __int128 v43; // [rsp+60h] [rbp-48h] BYREF
   int v44; // [rsp+B0h] [rbp+8h]
@@ -105,9 +105,9 @@ LABEL_12:
   NextNode = a3;
   v47 = 0;
 LABEL_14:
-  v17 = (union _SLIST_HEADER *)(v6 + 16LL * NextNode);
+  v17 = (_SLIST_HEADER *)(v6 + 16LL * NextNode);
   v40 = v17;
-  for ( i = (union _SLIST_HEADER *)v17->Alignment; ; i = (union _SLIST_HEADER *)v39->Alignment )
+  for ( i = (_SLIST_HEADER *)v17->Alignment; ; i = (_SLIST_HEADER *)v39->Alignment )
   {
     v39 = i;
     if ( i == v17 )
@@ -116,7 +116,7 @@ LABEL_14:
       {
         NextNode = MmGetNextNode(a3, &v47);
         v21 = v44;
-        if ( (union _SLIST_HEADER *)v40->Alignment != v40 )
+        if ( (_SLIST_HEADER *)v40->Alignment != v40 )
           v21 = 0;
         v44 = v21;
         if ( NextNode != -1 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetFaultClusterContextBlockEntryState @ 0x14046E324
+ * XREFs of MiSetFaultClusterContextBlockEntryState @ 0x140467AA4
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
- *     MiPerformFaultClusterMaintenance @ 0x1402EB0D0 (MiPerformFaultClusterMaintenance.c)
- *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
- *     MiLockAndConfirmFaultClusterDescriptor @ 0x14039F79C (MiLockAndConfirmFaultClusterDescriptor.c)
- *     MiClearFaultClusterContext @ 0x14046E104 (MiClearFaultClusterContext.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
+ *     MiPerformFaultClusterMaintenance @ 0x1402CD110 (MiPerformFaultClusterMaintenance.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402CEDB0 (MiConfirmFaultClusterDescriptor.c)
+ *     MiLockAndConfirmFaultClusterDescriptor @ 0x1403A14FC (MiLockAndConfirmFaultClusterDescriptor.c)
+ *     MiClearFaultClusterContext @ 0x140467884 (MiClearFaultClusterContext.c)
  * Callees:
  *     <none>
  */

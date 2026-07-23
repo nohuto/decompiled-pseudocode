@@ -1,28 +1,28 @@
 /*
- * XREFs of DifNtNotifyChangeKeyWrapper @ 0x14067C410
+ * XREFs of DifNtNotifyChangeKeyWrapper @ 0x14067FFF0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtNotifyChangeKey @ 0x14097A110 (NtNotifyChangeKey.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtNotifyChangeKey @ 0x14093C120 (NtNotifyChangeKey.c)
  */
 
 __int64 __fastcall DifNtNotifyChangeKeyWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        char a7,
-        __int64 a8,
-        int a9,
-        char a10)
+        void *a1,
+        void *a2,
+        void (__stdcall *a3)(PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved),
+        void *a4,
+        struct _IO_STATUS_BLOCK *IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v14; // rdx
@@ -35,15 +35,17 @@ __int64 __fastcall DifNtNotifyChangeKeyWrapper(
   BOOLEAN v21; // di
   __int128 *j; // rbx
   PVOID v24; // [rsp+58h] [rbp-49h] BYREF
-  __int64 v25; // [rsp+60h] [rbp-41h]
-  __int64 v26; // [rsp+68h] [rbp-39h]
-  __int64 v27; // [rsp+70h] [rbp-31h]
-  __int64 v28; // [rsp+78h] [rbp-29h]
-  __int64 v29; // [rsp+80h] [rbp-21h]
-  __int64 v30; // [rsp+88h] [rbp-19h]
-  __int64 v31; // [rsp+90h] [rbp-11h]
-  __int64 v32; // [rsp+98h] [rbp-9h]
-  unsigned int v33; // [rsp+A0h] [rbp-1h]
+  BOOLEAN v25; // [rsp+60h] [rbp-41h]
+  ULONG v26; // [rsp+64h] [rbp-3Dh]
+  PVOID v27; // [rsp+68h] [rbp-39h]
+  BOOLEAN v28; // [rsp+70h] [rbp-31h]
+  ULONG v29; // [rsp+74h] [rbp-2Dh]
+  struct _IO_STATUS_BLOCK *v30; // [rsp+78h] [rbp-29h]
+  void *v31; // [rsp+80h] [rbp-21h]
+  void (__stdcall *v32)(PVOID, PIO_STATUS_BLOCK, ULONG); // [rsp+88h] [rbp-19h]
+  void *v33; // [rsp+90h] [rbp-11h]
+  void *v34; // [rsp+98h] [rbp-9h]
+  unsigned int v35; // [rsp+A0h] [rbp-1h]
   void *retaddr; // [rsp+D0h] [rbp+2Fh]
 
   memset_0(&v24, 0, 0x50uLL);
@@ -65,16 +67,16 @@ __int64 __fastcall DifNtNotifyChangeKeyWrapper(
   v24 = ReturnAddressForWrappers;
 LABEL_7:
   v18 = 0;
-  v32 = a1;
-  v28 = a5;
-  HIDWORD(v27) = a6;
-  LOBYTE(v27) = a7;
-  v26 = a8;
-  HIDWORD(v25) = a9;
-  LOBYTE(v25) = a10;
-  v31 = a2;
-  v30 = a3;
-  v29 = a4;
+  v34 = a1;
+  v30 = IoStatusBlock;
+  v29 = CompletionFilter;
+  v28 = WatchTree;
+  v27 = Buffer;
+  v26 = BufferSize;
+  v25 = Asynchronous;
+  v33 = a2;
+  v32 = a3;
+  v31 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
     || (v18 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
@@ -87,7 +89,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v33 = NtNotifyChangeKey(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, v24, v25, v26, v27, v28, v29, v30, v31, v32);
+  v35 = NtNotifyChangeKey(a1, a2, a3, a4, IoStatusBlock, CompletionFilter, WatchTree, Buffer, BufferSize, Asynchronous);
   if ( v15 )
   {
     if ( (v21 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
@@ -102,5 +104,5 @@ LABEL_17:
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v33;
+  return v35;
 }

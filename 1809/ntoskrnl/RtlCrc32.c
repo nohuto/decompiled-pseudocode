@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCrc32 @ 0x1402EFD10
+ * XREFs of RtlCrc32 @ 0x1402EFF00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpComputeCrcInternal @ 0x14015C93C (RtlpComputeCrcInternal.c)
+ *     RtlpComputeCrcInternal @ 0x14015CA3C (RtlpComputeCrcInternal.c)
  */
 
-__int64 __fastcall RtlCrc32(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
+DWORD __cdecl RtlCrc32(const void *Buffer, size_t Size, DWORD InitialCrc)
 {
-  return RtlpComputeCrcInternal(a1, a2, a3, &Crc32Ctrl);
+  return RtlpComputeCrcInternal((unsigned __int64)Buffer, Size, InitialCrc, &Crc32Ctrl);
 }

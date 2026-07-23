@@ -3,8 +3,8 @@
  * Callers:
  *     PspValidateJobChainLimits @ 0x1406A048C (PspValidateJobChainLimits.c)
  * Callees:
- *     PspSendJobNotification @ 0x14036DF48 (PspSendJobNotification.c)
- *     PspCheckJobAccessState @ 0x1409B209C (PspCheckJobAccessState.c)
+ *     PspSendJobNotification @ 0x14036E0E8 (PspSendJobNotification.c)
+ *     PspCheckJobAccessState @ 0x1409B229C (PspCheckJobAccessState.c)
  */
 
 __int64 __fastcall PspValidateJobAssignmentProcessLimits(__int64 a1, __int64 a2, int a3)

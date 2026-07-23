@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x180171028
+ * XREFs of RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x180170028
  * Callers:
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x1801710F0 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1801717F0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x1801700F0 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1801707F0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     RtlFindLowerBoundInSortedArray @ 0x180171370 (RtlFindLowerBoundInSortedArray.c)
- *     RtlpFcLinearSearchInSortedArray @ 0x1801716C8 (RtlpFcLinearSearchInSortedArray.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x180170370 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlpFcLinearSearchInSortedArray @ 0x1801706C8 (RtlpFcLinearSearchInSortedArray.c)
  */
 
 __int64 __fastcall RtlpFcGetFeatureHasSubscriptionsFromBuffer(int a1, __int64 a2, __int64 a3, int a4)

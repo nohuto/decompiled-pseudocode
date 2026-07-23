@@ -1,14 +1,14 @@
 /*
- * XREFs of IopQueryProcessIdsUsingFile @ 0x140895A08
+ * XREFs of IopQueryProcessIdsUsingFile @ 0x140895B68
  * Callers:
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
- *     ExEnumHandleTable @ 0x140685A70 (ExEnumHandleTable.c)
- *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
- *     MmIsFileMapped @ 0x1408D1020 (MmIsFileMapped.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ExEnumHandleTable @ 0x1405E3DF0 (ExEnumHandleTable.c)
+ *     PsGetNextProcess @ 0x1406A5A80 (PsGetNextProcess.c)
+ *     ObReferenceProcessHandleTable @ 0x1406E4F14 (ObReferenceProcessHandleTable.c)
+ *     MmIsFileMapped @ 0x1408D1180 (MmIsFileMapped.c)
  */
 
 __int64 __fastcall IopQueryProcessIdsUsingFile(__int64 a1, _DWORD *a2, int a3, _DWORD *a4)
@@ -42,10 +42,10 @@ __int64 __fastcall IopQueryProcessIdsUsingFile(__int64 a1, _DWORD *a2, int a3, _
       LOBYTE(v16) = v11 == (struct _EX_RUNDOWN_REF *)KeGetCurrentThread()->ApcState.Process;
       v13 = ExEnumHandleTable(
               v12,
-              (__int64 (__fastcall *)(__int64, __int64 *, _QWORD, __int64))IopIsFileOpenOrSection,
+              (__int64 (__fastcall *)(__int64, __int64 *, __int64, __int64))IopIsFileOpenOrSection,
               (__int64)&v15,
               0LL);
-      ExReleaseRundownProtection_0(v11 + 139);
+      ExReleaseRundownProtection(v11 + 139);
     }
     else
     {

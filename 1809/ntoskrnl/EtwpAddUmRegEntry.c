@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddUmRegEntry @ 0x1405C44C0
+ * XREFs of EtwpAddUmRegEntry @ 0x1405C54C0
  * Callers:
- *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
+ *     EtwpRegisterUMGuid @ 0x1405C4970 (EtwpRegisterUMGuid.c)
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwpReferenceGuidEntry @ 0x1405C4288 (EtwpReferenceGuidEntry.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwpReferenceGuidEntry @ 0x1405C5288 (EtwpReferenceGuidEntry.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall EtwpAddUmRegEntry(

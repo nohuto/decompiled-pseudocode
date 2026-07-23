@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@@Z @ 0x140003134
+ * XREFs of ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@@Z @ 0x1400032A8
  * Callers:
- *     MiStoreUpdateMemoryConditions @ 0x1400BF048 (MiStoreUpdateMemoryConditions.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400BCED8 (MiStoreUpdateMemoryConditions.c)
  * Callees:
- *     SmKmStoreDereference @ 0x140002F88 (SmKmStoreDereference.c)
- *     SmKmStoreReferenceEx @ 0x1400031E4 (SmKmStoreReferenceEx.c)
- *     KeQueryPriorityThread @ 0x1400C73C0 (KeQueryPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14011E01C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     SmKmStoreDereference @ 0x1400030FC (SmKmStoreDereference.c)
+ *     SmKmStoreReferenceEx @ 0x140003358 (SmKmStoreReferenceEx.c)
+ *     KeQueryPriorityThread @ 0x1400C5260 (KeQueryPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14011E58C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
  */
 
 void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmUpdateMemoryConditions(__int64 a1, int a2)

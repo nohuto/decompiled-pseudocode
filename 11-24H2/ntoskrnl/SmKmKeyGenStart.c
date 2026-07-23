@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmKeyGenStart @ 0x14079A3D4
+ * XREFs of SmKmKeyGenStart @ 0x14079A4E4
  * Callers:
- *     SmcCacheManagerStart @ 0x14079D188 (SmcCacheManagerStart.c)
+ *     SmcCacheManagerStart @ 0x14079D298 (SmcCacheManagerStart.c)
  * Callees:
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x14060D23C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x14060B7FC (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall SmKmKeyGenStart(__int64 a1, const struct _UNICODE_STRING *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall SmKmKeyGenStart(__int64 a1, const struct _UNICODE_STRING *a2)
   if ( a2 )
   {
     Length = a2->Length;
-    v6 = (char *)SmAllocEx(Length + 2, 1196125555LL, -1);
+    v6 = (char *)SmAllocEx(Length + 2, 0x474B6D73u, -1);
     v7 = v6;
     if ( v6 )
     {

@@ -14,47 +14,47 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiQueryBootEntryOrder(_QWORD *a1, unsigned int *a2)
+__int64 __fastcall BiQueryBootEntryOrder(ULONG **a1, ULONG *a2)
 {
-  void *v2; // rdi
-  int BootEntryOrder; // ebx
-  PVOID PoolWithTag; // rax
-  unsigned int v8; // [rsp+50h] [rbp+18h] BYREF
+  ULONG *v2; // rdi
+  NTSTATUS v5; // ebx
+  ULONG *PoolWithTag; // rax
+  ULONG Count; // [rsp+50h] [rbp+18h] BYREF
   __int64 v9; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0LL;
   v2 = 0LL;
-  v8 = 0;
-  BootEntryOrder = BiAcquirePrivilege(0x16u, (__int64)&v9);
-  if ( BootEntryOrder >= 0 )
+  Count = 0;
+  v5 = BiAcquirePrivilege(0x16u, (__int64)&v9);
+  if ( v5 >= 0 )
   {
-    BootEntryOrder = ZwQueryBootEntryOrder(0LL, (__int64)&v8);
-    if ( BootEntryOrder != -1073741789 )
+    v5 = ZwQueryBootEntryOrder(0LL, &Count);
+    if ( v5 != -1073741789 )
       goto LABEL_6;
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4LL * v8, 0x4B444342u);
+    PoolWithTag = (ULONG *)ExAllocatePoolWithTag(PagedPool, 4LL * Count, 0x4B444342u);
     v2 = PoolWithTag;
     if ( !PoolWithTag )
     {
-      BootEntryOrder = -1073741670;
+      v5 = -1073741670;
 LABEL_10:
       BiReleasePrivilege((unsigned int *)&v9);
-      return (unsigned int)BootEntryOrder;
+      return (unsigned int)v5;
     }
-    BootEntryOrder = ZwQueryBootEntryOrder((__int64)PoolWithTag, (__int64)&v8);
-    if ( BootEntryOrder < 0 )
+    v5 = ZwQueryBootEntryOrder(PoolWithTag, &Count);
+    if ( v5 < 0 )
     {
 LABEL_6:
-      BiLogMessage(4LL, L"Failed to query boot entry order. Status: %x", (unsigned int)BootEntryOrder);
-      if ( BootEntryOrder < 0 )
+      BiLogMessage(4LL, L"Failed to query boot entry order. Status: %x", (unsigned int)v5);
+      if ( v5 < 0 )
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0x4B444342u);
         goto LABEL_10;
       }
     }
-    *a2 = v8;
+    *a2 = Count;
     *a1 = v2;
     goto LABEL_10;
   }
-  return (unsigned int)BootEntryOrder;
+  return (unsigned int)v5;
 }

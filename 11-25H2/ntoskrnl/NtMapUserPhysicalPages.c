@@ -20,7 +20,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, unsigned int *a3)
+NTSTATUS __cdecl NtMapUserPhysicalPages(PVOID VirtualAddress, ULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
   unsigned int *v3; // r15
   struct _KTHREAD *CurrentThread; // r12
@@ -28,7 +28,7 @@ __int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, unsig
   ULONG_PTR v7; // r13
   __int64 v8; // rbp
   _QWORD *Pool; // rdi
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   _QWORD *AweNode; // rax
   __int64 v13; // rbx
   unsigned __int64 AweViewPageSize; // r9
@@ -47,28 +47,28 @@ __int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, unsig
   _BYTE P[4096]; // [rsp+60h] [rbp-1048h] BYREF
 
   v27 = 0LL;
-  v3 = a3;
+  v3 = (unsigned int *)UserPfnArray;
   v26 = 0LL;
-  if ( a2 - 1 > 0xFFFFFFFFFFFFELL )
-    return 3221225712LL;
+  if ( NumberOfPages - 1 > 0xFFFFFFFFFFFFELL )
+    return -1073741584;
   CurrentThread = KeGetCurrentThread();
-  v6 = a1 & 0xFFFFFFFFFFFFF000uLL;
+  v6 = (unsigned __int64)VirtualAddress & 0xFFFFFFFFFFFFF000uLL;
   v7 = 0LL;
   v8 = 0LL;
   Pool = 0LL;
-  if ( !a3 )
+  if ( !UserPfnArray )
     goto LABEL_6;
-  if ( a2 > 0x200 )
+  if ( NumberOfPages > 0x200 )
   {
-    Pool = (_QWORD *)MiAllocatePool(0x40uLL, 8 * a2, 2001890637);
+    Pool = (_QWORD *)MiAllocatePool(0x40uLL, 8 * NumberOfPages, 2001890637);
     if ( !Pool )
-      return 3221225626LL;
+      return -1073741670;
   }
   else
   {
     Pool = P;
   }
-  v10 = MiCaptureUlongPtrArray(Pool, v3, a2);
+  v10 = MiCaptureUlongPtrArray(Pool, v3, NumberOfPages);
   if ( v10 >= 0 )
   {
 LABEL_6:
@@ -84,7 +84,7 @@ LABEL_6:
       MiPageSizeToPteLevel(AweViewPageSize);
       if ( v16 == 1 || (((v15 << 12) - 1) & v6) == 0 )
       {
-        v18 = v6 + ((v16 * a2) << 12) - 1;
+        v18 = v6 + ((v16 * NumberOfPages) << 12) - 1;
         if ( v18 <= v6 )
         {
           v10 = -1073741584;
@@ -103,15 +103,22 @@ LABEL_6:
           }
           v24 = MiLockAwePagesShared(v13, (__int64)CurrentThread);
           if ( !Pool
-            || (v10 = MiReferenceIncomingPhysicalPages(v13, (__int64)Pool, a2, 0LL, (__int64)&v26, v8, (__int64)v23),
+            || (v10 = MiReferenceIncomingPhysicalPages(
+                        v13,
+                        (__int64)Pool,
+                        NumberOfPages,
+                        0LL,
+                        (__int64)&v26,
+                        v8,
+                        (__int64)v23),
                 v10 >= 0) )
           {
-            MiWriteAwePtes(v8, (__int64)Pool, a2, 0LL, v23, 1, (__int64)&v26);
+            MiWriteAwePtes(v8, (__int64)Pool, NumberOfPages, 0LL, v23, 1, (__int64)&v26);
             v10 = 0;
           }
           if ( v24 )
             MiUnlockAweVadsShared((__int64)CurrentThread, v24);
-          v3 = a3;
+          v3 = (unsigned int *)UserPfnArray;
           goto LABEL_27;
         }
       }
@@ -128,5 +135,5 @@ LABEL_27:
     if ( Pool != (_QWORD *)P )
       ExFreePoolWithTag(Pool, 0);
   }
-  return (unsigned int)v10;
+  return v10;
 }

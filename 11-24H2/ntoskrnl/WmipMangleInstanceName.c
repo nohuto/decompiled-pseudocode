@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipMangleInstanceName @ 0x1409D040C
+ * XREFs of WmipMangleInstanceName @ 0x1409B0854
  * Callers:
- *     WmipBuildInstanceSet @ 0x1409D00F4 (WmipBuildInstanceSet.c)
+ *     WmipBuildInstanceSet @ 0x1409B053C (WmipBuildInstanceSet.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     WmipFindGEByGuid @ 0x1409CD8B0 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
- *     WmipFindISinGEbyName @ 0x1409D0B10 (WmipFindISinGEbyName.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     WmipFindISinGEbyName @ 0x1409AFB60 (WmipFindISinGEbyName.c)
+ *     WmipFindGEByGuid @ 0x1409B2884 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
  */
 
 __int64 __fastcall WmipMangleInstanceName(__int64 a1, const wchar_t *a2, size_t a3, wchar_t *a4)
@@ -16,12 +16,12 @@ __int64 __fastcall WmipMangleInstanceName(__int64 a1, const wchar_t *a2, size_t 
   const wchar_t *v8; // rax
   unsigned int v9; // ecx
   __int64 v10; // rsi
-  _QWORD *v11; // r11
-  volatile signed __int64 *GEByGuid; // rbp
+  __int64 v11; // r11
+  __int64 GEByGuid; // rbp
   __int64 v14; // rsi
   __int16 i; // di
-  volatile signed __int64 *ISinGEbyName; // rax
-  int v17; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR ISinGEbyName; // rax
+  unsigned int v17; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = 0;
   v17 = 0;
@@ -42,16 +42,16 @@ __int64 __fastcall WmipMangleInstanceName(__int64 a1, const wchar_t *a2, size_t 
   if ( !v7 )
     return v9;
   RtlStringCchCopyW(a4, a3, a2);
-  GEByGuid = WmipFindGEByGuid(v11, 0);
+  GEByGuid = WmipFindGEByGuid(v11, 0LL);
   if ( GEByGuid )
   {
     v14 = v10 - 1;
     for ( i = 90; ; a4[v14] = i )
     {
-      ISinGEbyName = (volatile signed __int64 *)WmipFindISinGEbyName(GEByGuid, a4, &v17);
+      ISinGEbyName = WmipFindISinGEbyName(GEByGuid, a4, &v17);
       if ( !ISinGEbyName )
         break;
-      WmipUnreferenceEntry((__int64)&WmipISChunkInfo, ISinGEbyName);
+      WmipUnreferenceEntry(&WmipISChunkInfo, ISinGEbyName);
       if ( i == 90 )
       {
         ++v14;
@@ -68,7 +68,7 @@ __int64 __fastcall WmipMangleInstanceName(__int64 a1, const wchar_t *a2, size_t 
         ++i;
       }
     }
-    WmipUnreferenceEntry((__int64)&WmipGEChunkInfo, GEByGuid);
+    WmipUnreferenceEntry(&WmipGEChunkInfo, GEByGuid);
   }
   return v4;
 }

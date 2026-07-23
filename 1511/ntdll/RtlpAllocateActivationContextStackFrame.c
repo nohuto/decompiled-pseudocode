@@ -19,7 +19,7 @@ __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a
   unsigned int v9; // ecx
   _BYTE *v10; // rax
   __int64 v11; // rax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   __int64 v14; // rdx
   __int64 v15; // r8
   __int64 *v16; // r8
@@ -66,7 +66,7 @@ __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a
 LABEL_17:
       ;
     }
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 3104LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xC20uLL);
     if ( Heap )
     {
       RtlpInitializeActivationContextStackFrameList(Heap, v14, Heap);

@@ -1,23 +1,23 @@
 /*
- * XREFs of HvReallocateCell @ 0x140709DB0
+ * XREFs of HvReallocateCell @ 0x140709FC0
  * Callers:
- *     CmpRemoveValueFromList @ 0x140708358 (CmpRemoveValueFromList.c)
- *     CmpAddToLeaf @ 0x1407089F4 (CmpAddToLeaf.c)
- *     CmpAddValueToListEx @ 0x140709AB4 (CmpAddValueToListEx.c)
- *     CmpSetValueKeyExisting @ 0x14070B704 (CmpSetValueKeyExisting.c)
- *     CmpSetValueDataExisting @ 0x1407E5A14 (CmpSetValueDataExisting.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
- *     CmpSplitLeaf @ 0x140A24A2C (CmpSplitLeaf.c)
+ *     CmpRemoveValueFromList @ 0x140708568 (CmpRemoveValueFromList.c)
+ *     CmpAddToLeaf @ 0x140708C04 (CmpAddToLeaf.c)
+ *     CmpAddValueToListEx @ 0x140709CC4 (CmpAddValueToListEx.c)
+ *     CmpSetValueKeyExisting @ 0x14070B914 (CmpSetValueKeyExisting.c)
+ *     CmpSetValueDataExisting @ 0x1407E5CE4 (CmpSetValueDataExisting.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
+ *     CmpSplitLeaf @ 0x140A24CDC (CmpSplitLeaf.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvpDoAllocateCell @ 0x14070A440 (HvpDoAllocateCell.c)
- *     HvpGetCellContextMove @ 0x14070AA08 (HvpGetCellContextMove.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvpDoAllocateCell @ 0x14070A650 (HvpDoAllocateCell.c)
+ *     HvpGetCellContextMove @ 0x14070AC18 (HvpGetCellContextMove.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall HvReallocateCell(

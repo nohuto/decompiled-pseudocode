@@ -1,10 +1,10 @@
 /*
- * XREFs of ScRsa32Compat_Sha1Import @ 0x180158B58
+ * XREFs of ScRsa32Compat_Sha1Import @ 0x180158A28
  * Callers:
- *     RtlpA_SHAUpdate @ 0x18013B4C0 (RtlpA_SHAUpdate.c)
- *     A_SHAFinal @ 0x1801587A8 (A_SHAFinal.c)
+ *     RtlpA_SHAUpdate @ 0x18013B230 (RtlpA_SHAUpdate.c)
+ *     A_SHAFinal @ 0x180158678 (A_SHAFinal.c)
  * Callees:
- *     SymCryptSha1Init @ 0x180039D20 (SymCryptSha1Init.c)
+ *     SymCryptSha1Init @ 0x180024290 (SymCryptSha1Init.c)
  */
 
 unsigned __int64 __fastcall ScRsa32Compat_Sha1Import(__int64 a1, __int64 a2)

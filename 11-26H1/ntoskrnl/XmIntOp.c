@@ -1,11 +1,11 @@
 /*
- * XREFs of XmIntOp @ 0x1405AD8E0
+ * XREFs of XmIntOp @ 0x1405B00F0
  * Callers:
  *     <none>
  * Callees:
- *     XmPushStack @ 0x1404A834C (XmPushStack.c)
- *     x86BiosTranslateAddress @ 0x1404A8B20 (x86BiosTranslateAddress.c)
- *     XmExecuteInt1a @ 0x1405AF854 (XmExecuteInt1a.c)
+ *     XmPushStack @ 0x1404A19DC (XmPushStack.c)
+ *     x86BiosTranslateAddress @ 0x1404A21B0 (x86BiosTranslateAddress.c)
+ *     XmExecuteInt1a @ 0x1405B2064 (XmExecuteInt1a.c)
  */
 
 __int64 __fastcall XmIntOp(__int64 a1)

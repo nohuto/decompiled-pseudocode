@@ -1,9 +1,9 @@
 /*
- * XREFs of IoDemoteToTriageDump @ 0x14054FB4C
+ * XREFs of IoDemoteToTriageDump @ 0x14055020C
  * Callers:
- *     KiCaptureDumpPreRecovery @ 0x14057ACEC (KiCaptureDumpPreRecovery.c)
+ *     KiCaptureDumpPreRecovery @ 0x14057B1DC (KiCaptureDumpPreRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 bool IoDemoteToTriageDump()

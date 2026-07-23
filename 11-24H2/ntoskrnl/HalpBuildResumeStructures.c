@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBuildResumeStructures @ 0x140B4CE28
+ * XREFs of HalpBuildResumeStructures @ 0x140B4EE68
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x1404BD3D0 (HalpDispatchSystemStateTransition.c)
- *     HalpDpReplaceBegin @ 0x1407029B0 (HalpDpReplaceBegin.c)
+ *     HalpDispatchSystemStateTransition @ 0x1404B8540 (HalpDispatchSystemStateTransition.c)
+ *     HalpDpReplaceBegin @ 0x1407005F0 (HalpDpReplaceBegin.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpMmUpdateTiledMemoryMapTargetStub @ 0x1405592F4 (HalpMmUpdateTiledMemoryMapTargetStub.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     HalpMmUpdateTiledMemoryMapTargetStub @ 0x140556F24 (HalpMmUpdateTiledMemoryMapTargetStub.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 HalpBuildResumeStructures()

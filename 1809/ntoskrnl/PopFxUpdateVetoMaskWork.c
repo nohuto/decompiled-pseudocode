@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxUpdateVetoMaskWork @ 0x14086A8E0
+ * XREFs of PopFxUpdateVetoMaskWork @ 0x14086BB40
  * Callers:
  *     <none>
  * Callees:
- *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
- *     PoFxActivateDevice @ 0x14015A08C (PoFxActivateDevice.c)
- *     PopFxReleaseDevice @ 0x1402D9304 (PopFxReleaseDevice.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x1402DE010 (PopPepUpdateDripsDeviceVetoMask.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PoFxIdleDevice @ 0x14015A028 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14015A18C (PoFxActivateDevice.c)
+ *     PopFxReleaseDevice @ 0x1402D94F4 (PopFxReleaseDevice.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x1402DE200 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxUpdateVetoMaskWork(unsigned int *P)

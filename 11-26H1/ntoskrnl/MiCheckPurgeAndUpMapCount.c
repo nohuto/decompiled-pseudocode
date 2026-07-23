@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCheckPurgeAndUpMapCount @ 0x140442A20
+ * XREFs of MiCheckPurgeAndUpMapCount @ 0x14043B530
  * Callers:
- *     MiCreateUserPhysicalView @ 0x140878ADC (MiCreateUserPhysicalView.c)
- *     MiMapViewInSystemSpace @ 0x1409B7280 (MiMapViewInSystemSpace.c)
- *     AlpcpCreateView @ 0x1409C2150 (AlpcpCreateView.c)
- *     MiPrepareDataViewSubsections @ 0x1409C4B70 (MiPrepareDataViewSubsections.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
- *     KsepSdbMapToMemory @ 0x1409E6578 (KsepSdbMapToMemory.c)
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     NtGetNlsSectionPtr @ 0x140A97650 (NtGetNlsSectionPtr.c)
+ *     MiCreateUserPhysicalView @ 0x14087EEBC (MiCreateUserPhysicalView.c)
+ *     MiMapViewInSystemSpace @ 0x140988260 (MiMapViewInSystemSpace.c)
+ *     AlpcpCreateView @ 0x140993130 (AlpcpCreateView.c)
+ *     MiPrepareDataViewSubsections @ 0x140995B50 (MiPrepareDataViewSubsections.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
+ *     KsepSdbMapToMemory @ 0x1409D65BC (KsepSdbMapToMemory.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     NtGetNlsSectionPtr @ 0x140A9B7D0 (NtGetNlsSectionPtr.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
@@ -44,7 +44,7 @@ char __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
     __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v4 = 0;
     if ( _interlockedbittestandset(v2, 0x1Fu) )
@@ -84,14 +84,14 @@ char __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
       HIDWORD(v9) = 0;
       if ( CurrentIrql == 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v2 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v2, retaddr);
       }
       else
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v2 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v2, retaddr);
@@ -110,19 +110,14 @@ char __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
                             _mm_loadu_si128((const __m128i *)(a1 + 40)));
   if ( CurrentIrql == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (LOBYTE(v6) = stru_140F11D08.WaitStatus, LODWORD(stru_140F11D08.WaitStatus)) )
-    {
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (LOBYTE(v6) = PopHibernateInProgress, PopHibernateInProgress) )
       *v2 = 0;
-    }
     else
-    {
       LOBYTE(v6) = ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v2, retaddr);
-    }
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v2 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v2, retaddr);

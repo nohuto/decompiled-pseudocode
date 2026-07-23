@@ -8,5 +8,8 @@
 
 int __cdecl RtlpSearchProtectedPolicyEntry(void *Buf1, void *Buf2)
 {
-  return memcmp(Buf1, Buf2, 0x10u);
+  size_t _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  LODWORD(_FFFFFFFC) = 16;
+  return memcmp(Buf1, Buf2, _FFFFFFFC);
 }

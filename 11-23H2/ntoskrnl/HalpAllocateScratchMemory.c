@@ -3,7 +3,7 @@
  * Callers:
  *     HalpKdSetupDebuggingDevice @ 0x140AB2250 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     HalpMapPhysicalMemory64 @ 0x14040F750 (HalpMapPhysicalMemory64.c)
+ *     HalpMapPhysicalMemory64 @ 0x14040F930 (HalpMapPhysicalMemory64.c)
  *     HalpAllocPhysicalMemory @ 0x140B4893C (HalpAllocPhysicalMemory.c)
  */
 

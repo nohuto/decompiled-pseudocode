@@ -1,25 +1,25 @@
 /*
- * XREFs of LdrGetFileNameFromLoadAsDataTable @ 0x1800E0FC0
+ * XREFs of LdrGetFileNameFromLoadAsDataTable @ 0x1800E0F80
  * Callers:
  *     <none>
  * Callees:
  *     LdrpGetLoadAsEntry @ 0x180053918 (LdrpGetLoadAsEntry.c)
  */
 
-__int64 __fastcall LdrGetFileNameFromLoadAsDataTable(__int64 a1, _QWORD *a2)
+NTSTATUS __cdecl LdrGetFileNameFromLoadAsDataTable(PVOID Module, PVOID *pFileNamePrt)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int128 v4; // [rsp+20h] [rbp-38h] BYREF
 
-  if ( !a1 || !a2 )
-    return 3221225485LL;
-  result = LdrpGetLoadAsEntry(a1, &v4);
-  if ( (int)result >= 0 )
+  if ( !Module || !pFileNamePrt )
+    return -1073741811;
+  result = LdrpGetLoadAsEntry((__int64)Module, &v4);
+  if ( result >= 0 )
   {
     if ( *((_QWORD *)&v4 + 1) )
-      *a2 = *((_QWORD *)&v4 + 1);
+      *pFileNamePrt = (PVOID)*((_QWORD *)&v4 + 1);
     else
-      return 3221225473LL;
+      return -1073741823;
   }
   return result;
 }

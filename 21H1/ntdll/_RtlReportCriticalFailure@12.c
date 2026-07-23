@@ -18,7 +18,7 @@ void __fastcall __noreturn RtlReportCriticalFailure(int a1, int a2, int a3)
 
   if ( NtCurrentPeb()->BeingDebugged || (MEMORY[0x7FFE02D4] & 3) == 3 )
   {
-    DbgPrintEx(101, 0, "Critical error detected %lx\n", a1);
+    DbgPrintEx(0x65u, 0, (int)"Critical error detected %lx\n", a1);
     if ( a3 )
     {
       __debugbreak();

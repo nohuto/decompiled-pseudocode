@@ -5,8 +5,8 @@
  * Callees:
  *     RtlpHeapGenerateRandomValue64 @ 0x18000E97C (RtlpHeapGenerateRandomValue64.c)
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x1800A09A0 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x1800A09C0 (NtQuerySystemInformation.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

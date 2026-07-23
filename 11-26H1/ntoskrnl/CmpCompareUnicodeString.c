@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCompareUnicodeString @ 0x140A842C8
+ * XREFs of CmpCompareUnicodeString @ 0x140A8961C
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1408BA354 (CmpGetSymbolicLinkTarget.c)
- *     CmpCompareKeysByName @ 0x140A46F20 (CmpCompareKeysByName.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1408C0924 (CmpGetSymbolicLinkTarget.c)
+ *     CmpCompareKeysByName @ 0x140A50214 (CmpCompareKeysByName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)

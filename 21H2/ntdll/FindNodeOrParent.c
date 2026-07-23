@@ -6,9 +6,9 @@
  *     RtlLookupElementGenericTableFullAvl @ 0x18005D0F0 (RtlLookupElementGenericTableFullAvl.c)
  *     RtlLookupElementGenericTableAvl @ 0x18005D130 (RtlLookupElementGenericTableAvl.c)
  *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x18008A640 (RtlLookupFirstMatchingElementGenericTableAvl.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1800F7960 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1800F7920 (RtlEnumerateGenericTableLikeADirectory.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FindNodeOrParent(__int64 a1, __int64 a2, _QWORD *a3)

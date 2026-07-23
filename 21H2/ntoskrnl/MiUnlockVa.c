@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockVa @ 0x14026FB00
+ * XREFs of MiUnlockVa @ 0x14025DAA0
  * Callers:
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiMakeVaRangeNoAccess @ 0x1402C8854 (MiMakeVaRangeNoAccess.c)
- *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402470B4 (MiMakeVaRangeNoAccess.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140338C80 (NtUnlockVirtualMemory.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
  * Callees:
- *     MiUnlockWsle @ 0x14026FC1C (MiUnlockWsle.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiUnlockWsle @ 0x14025DBBC (MiUnlockWsle.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiUnlockVa(__int64 a1, unsigned __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall MiUnlockVa(__int64 a1, unsigned __int64 a2)
 
   v4 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v5 = *(_QWORD *)v4;
-  if ( (unsigned int)MiPteInShadowRange(v4, a2)
+  if ( (unsigned int)MiPteInShadowRange(v4)
     && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
     && (v5 & 1) != 0

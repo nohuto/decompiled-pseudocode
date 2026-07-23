@@ -19,20 +19,20 @@ NTSTATUS __stdcall NtQueryDirectoryFile(
         PUNICODE_STRING FileName,
         BOOLEAN RestartScan)
 {
-  char v11; // r10
+  unsigned __int8 v11; // r10
 
   v11 = (ReturnSingleEntry != 0 ? 2 : 0) | 1;
   if ( !RestartScan )
     v11 = ReturnSingleEntry != 0 ? 2 : 0;
   return NtQueryDirectoryFileEx(
-           (_DWORD)FileHandle,
-           (_DWORD)Event,
-           (_DWORD)ApcRoutine,
-           (_DWORD)ApcContext,
-           (__int64)IoStatusBlock,
-           (__int64)FileInformation,
+           FileHandle,
+           Event,
+           ApcRoutine,
+           ApcContext,
+           IoStatusBlock,
+           FileInformation,
            Length,
            FileInformationClass,
            v11,
-           (__int64)FileName);
+           FileName);
 }

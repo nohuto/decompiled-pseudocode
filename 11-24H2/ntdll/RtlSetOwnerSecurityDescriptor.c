@@ -1,29 +1,32 @@
 /*
- * XREFs of RtlSetOwnerSecurityDescriptor @ 0x1800CE600
+ * XREFs of RtlSetOwnerSecurityDescriptor @ 0x1800C61C0
  * Callers:
- *     RtlCreateAndSetSD @ 0x1800CE250 (RtlCreateAndSetSD.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800CEBBC (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x180144470 (RtlpSysVolTakeOwnership.c)
+ *     RtlCreateAndSetSD @ 0x1800C5E10 (RtlCreateAndSetSD.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800C677C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolTakeOwnership @ 0x180142820 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetOwnerSecurityDescriptor(__int64 a1, __int64 a2, char a3)
+NTSTATUS __cdecl RtlSetOwnerSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID Owner,
+        BOOLEAN OwnerDefaulted)
 {
   __int16 v3; // ax
   __int16 v4; // ax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  v3 = *(_WORD *)(a1 + 2);
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v3 = *((_WORD *)SecurityDescriptor + 1);
   if ( v3 < 0 )
-    return 3221225593LL;
-  *(_QWORD *)(a1 + 8) = 0LL;
-  if ( a2 )
-    *(_QWORD *)(a1 + 8) = a2;
+    return -1073741703;
+  *((_QWORD *)SecurityDescriptor + 1) = 0LL;
+  if ( Owner )
+    *((_QWORD *)SecurityDescriptor + 1) = Owner;
   v4 = v3 & 0xFFFE;
-  *(_WORD *)(a1 + 2) = v4;
-  if ( a3 )
-    *(_WORD *)(a1 + 2) = v4 | 1;
-  return 0LL;
+  *((_WORD *)SecurityDescriptor + 1) = v4;
+  if ( OwnerDefaulted )
+    *((_WORD *)SecurityDescriptor + 1) = v4 | 1;
+  return 0;
 }

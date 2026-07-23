@@ -1,9 +1,9 @@
 /*
- * XREFs of PspHandleTableWalker @ 0x140074E40
+ * XREFs of PspHandleTableWalker @ 0x140074EC0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockHandleTableEntry @ 0x14045EDD4 (ExUnlockHandleTableEntry.c)
+ *     ExUnlockHandleTableEntry @ 0x14045DCA4 (ExUnlockHandleTableEntry.c)
  */
 
 char __fastcall PspHandleTableWalker(__int64 a1, __int64 a2, int a3, __int64 a4)

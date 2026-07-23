@@ -1,8 +1,8 @@
 /*
- * XREFs of KiThreadSetUnusualBoost @ 0x1404EA320
+ * XREFs of KiThreadSetUnusualBoost @ 0x1402E0094
  * Callers:
- *     KiSetPriorityBoost @ 0x140338930 (KiSetPriorityBoost.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiSetPriorityBoost @ 0x1402DFE70 (KiSetPriorityBoost.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
  *     <none>
  */

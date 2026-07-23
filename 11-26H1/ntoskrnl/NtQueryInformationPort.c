@@ -1,62 +1,57 @@
 /*
- * XREFs of NtQueryInformationPort @ 0x1407BFCB0
+ * XREFs of NtQueryInformationPort @ 0x1407C2D10
  * Callers:
- *     DifNtQueryInformationPortWrapper @ 0x140682F60 (DifNtQueryInformationPortWrapper.c)
+ *     DifNtQueryInformationPortWrapper @ 0x140686B40 (DifNtQueryInformationPortWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQueryInformationPort(
-        HANDLE Handle,
-        __int64 a2,
-        volatile void *a3,
-        unsigned int a4,
-        unsigned int *a5)
+NTSTATUS __cdecl NtQueryInformationPort(
+        HANDLE PortHandle,
+        PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  unsigned int *v7; // rbx
+  PULONG v7; // rbx
   int ULongFromUser; // eax
-  NTSTATUS v9; // edi
+  int v9; // edi
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    v7 = a5;
-    if ( a5 )
+    ProbeForWrite(PortInformation, Length, 4u);
+    v7 = ReturnLength;
+    if ( ReturnLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, ULongFromUser);
     }
   }
   else
   {
-    v7 = a5;
+    v7 = ReturnLength;
   }
-  if ( Handle )
+  if ( !PortHandle )
+    return -1073741821;
+  Object = 0LL;
+  v9 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  if ( v9 >= 0 )
   {
-    Object = 0LL;
-    v9 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
-    if ( v9 >= 0 )
+    if ( v7 )
     {
-      if ( v7 )
-      {
-        if ( PreviousMode )
-          RtlWriteULongToUser(v7, 0);
-        else
-          *v7 = 0;
-      }
-      ObfDereferenceObject(Object);
+      if ( PreviousMode )
+        RtlWriteULongToUser(v7, 0);
+      else
+        *v7 = 0;
     }
+    ObfDereferenceObject(Object);
   }
-  else
-  {
-    return (unsigned int)-1073741821;
-  }
-  return (unsigned int)v9;
+  return v9;
 }

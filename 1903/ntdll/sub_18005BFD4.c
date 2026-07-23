@@ -10,18 +10,18 @@
 
 char __fastcall sub_18005BFD4(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rax
-  _QWORD *v4; // rbx
-  void *v6; // [rsp+30h] [rbp+8h] BYREF
+  _RTL_HANDLE_TABLE_ENTRY *v3; // rax
+  PRTL_HANDLE_TABLE_ENTRY v4; // rbx
+  PRTL_HANDLE_TABLE_ENTRY Handle; // [rsp+30h] [rbp+8h] BYREF
 
-  LOBYTE(v3) = RtlIsValidIndexHandle(a1 + 16, *(unsigned __int16 *)(a2 + 8), &v6);
+  LOBYTE(v3) = RtlIsValidIndexHandle((PRTL_HANDLE_TABLE)(a1 + 16), *(unsigned __int16 *)(a2 + 8), &Handle);
   if ( (_BYTE)v3 )
   {
-    v4 = v6;
-    memset(v6, 0, *(unsigned int *)(a1 + 20));
-    v3 = *(_QWORD *)(a1 + 32);
-    *v4 = v3;
+    v4 = Handle;
+    memset(Handle, 0, *(unsigned int *)(a1 + 20));
+    v3 = *(_RTL_HANDLE_TABLE_ENTRY **)(a1 + 32);
+    v4->NextFree = v3;
     *(_QWORD *)(a1 + 32) = v4;
   }
-  return v3;
+  return (char)v3;
 }

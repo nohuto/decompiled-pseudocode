@@ -1,21 +1,21 @@
 /*
- * XREFs of PsQueryProcessEnergyValues @ 0x140952980
+ * XREFs of PsQueryProcessEnergyValues @ 0x1409CE2C0
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407DC800 (PopEtProcessEnumSnapshotCallback.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1409521A4 (PopEtEnergyContextProcessStateUpdate.c)
- *     PspFoldProcessAccountingIntoJob @ 0x14095224C (PspFoldProcessAccountingIntoJob.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x140952420 (PspQueryProcessAccountingInformationCallback.c)
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407E0A20 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1409CDAE4 (PopEtEnergyContextProcessStateUpdate.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1409CDB8C (PspFoldProcessAccountingIntoJob.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x1409CDD60 (PspQueryProcessAccountingInformationCallback.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     PspUnlockProcessThreadListShared @ 0x140271AF0 (PspUnlockProcessThreadListShared.c)
- *     RtlTimelineBitmapMerge @ 0x14041D2F0 (RtlTimelineBitmapMerge.c)
- *     RtlStateDurationCapture @ 0x14043C100 (RtlStateDurationCapture.c)
- *     PspLockProcessThreadListShared @ 0x14044BF00 (PspLockProcessThreadListShared.c)
- *     RtlTimelineBitmapUpdateRange @ 0x14045E570 (RtlTimelineBitmapUpdateRange.c)
- *     PoEnergyEstimationEnabled @ 0x14047C5D0 (PoEnergyEstimationEnabled.c)
- *     KeQueryTimelineBitmapTime @ 0x140485178 (KeQueryTimelineBitmapTime.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PspUnlockProcessThreadListShared @ 0x140271060 (PspUnlockProcessThreadListShared.c)
+ *     RtlTimelineBitmapMerge @ 0x140414B40 (RtlTimelineBitmapMerge.c)
+ *     RtlStateDurationCapture @ 0x14042E9B0 (RtlStateDurationCapture.c)
+ *     PspLockProcessThreadListShared @ 0x140444020 (PspLockProcessThreadListShared.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x140458110 (RtlTimelineBitmapUpdateRange.c)
+ *     PoEnergyEstimationEnabled @ 0x140475F40 (PoEnergyEstimationEnabled.c)
+ *     KeQueryTimelineBitmapTime @ 0x14047EAE8 (KeQueryTimelineBitmapTime.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)

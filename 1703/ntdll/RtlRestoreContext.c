@@ -17,7 +17,7 @@ void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD 
   if ( !ExceptionRecord )
   {
 LABEL_2:
-    if ( qword_18016B370 && !sub_180036954((PVOID)ContextRecord->Rsp) )
+    if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] && !sub_180036954((PVOID)ContextRecord->Rsp) )
       __fastfail(0xDu);
     goto LABEL_4;
   }
@@ -25,7 +25,7 @@ LABEL_2:
   {
     if ( ExceptionRecord->ExceptionCode == -2147483607 && ExceptionRecord->NumberParameters )
     {
-      if ( !qword_18016B370 )
+      if ( !LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] )
         goto LABEL_4;
       if ( sub_180030138() )
         sub_180096200();
@@ -35,9 +35,9 @@ LABEL_2:
     goto LABEL_2;
   }
   v4 = ExceptionRecord->ExceptionInformation[0];
-  if ( qword_18016B370 && !sub_180036954(*(PVOID *)(v4 + 16)) )
+  if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] && !sub_180036954(*(PVOID *)(v4 + 16)) )
     __fastfail(0xDu);
-  RtlGuardCheckLongJumpTarget(*(_QWORD *)(v4 + 80), 0, 0LL);
+  RtlGuardCheckLongJumpTarget(*(PVOID *)(v4 + 80), 0, 0LL);
 LABEL_4:
   sub_1800A9270(ContextRecord, ExceptionRecord);
 }

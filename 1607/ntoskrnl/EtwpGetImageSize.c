@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpGetImageSize @ 0x1404D1340
+ * XREFs of EtwpGetImageSize @ 0x1404B4DE0
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
  * Callees:
  *     <none>
  */

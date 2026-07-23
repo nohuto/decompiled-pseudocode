@@ -1,29 +1,29 @@
 /*
- * XREFs of NtManageHotPatch @ 0x140AE7000
+ * XREFs of NtManageHotPatch @ 0x140AE9BD0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     RtlDuplicateUnicodeString @ 0x140926680 (RtlDuplicateUnicodeString.c)
- *     MiQuerySingleLoadedPatch @ 0x140A32534 (MiQuerySingleLoadedPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140A9F6C0 (MiLoadHotPatchForUserSid.c)
- *     MiLoadHotPatch @ 0x140A9F9D4 (MiLoadHotPatch.c)
- *     MiQueryLoadedPatches @ 0x140AA6168 (MiQueryLoadedPatches.c)
- *     MiCreatePatchSectionRequest @ 0x140AAB9A8 (MiCreatePatchSectionRequest.c)
- *     MiQueryProcessActivePatches @ 0x140AAE3A8 (MiQueryProcessActivePatches.c)
- *     MiLogHotPatchManagement @ 0x140AE6CB4 (MiLogHotPatchManagement.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     RtlDuplicateUnicodeString @ 0x1409287C0 (RtlDuplicateUnicodeString.c)
+ *     MiQuerySingleLoadedPatch @ 0x140A2654C (MiQuerySingleLoadedPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A9AA90 (MiLoadHotPatchForUserSid.c)
+ *     MiLoadHotPatch @ 0x140A9ADA4 (MiLoadHotPatch.c)
+ *     MiQueryLoadedPatches @ 0x140AA11D8 (MiQueryLoadedPatches.c)
+ *     MiQueryProcessActivePatches @ 0x140AA9284 (MiQueryProcessActivePatches.c)
+ *     MiCreatePatchSectionRequest @ 0x140AE969C (MiCreatePatchSectionRequest.c)
+ *     MiLogHotPatchManagement @ 0x140AE987C (MiLogHotPatchManagement.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtManageHotPatch(int a1, volatile void *a2, unsigned int a3, unsigned __int64 a4)
@@ -72,9 +72,9 @@ __int64 __fastcall NtManageHotPatch(int a1, volatile void *a2, unsigned int a3, 
   Size = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v21 = PreviousMode;
-  if ( (dword_140E374B4 & 1) == 0 )
+  if ( (dword_140E375F4 & 1) == 0 )
     goto LABEL_2;
-  if ( !byte_140E374A8 )
+  if ( !byte_140E375E8 )
   {
     active = -1073741661;
     goto LABEL_3;

@@ -1,48 +1,48 @@
 /*
- * XREFs of MiFlushSingleTbEntry @ 0x140285050
+ * XREFs of MiFlushSingleTbEntry @ 0x1402845B0
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetPageChainSmallPageProcess @ 0x140287AA0 (MiGetPageChainSmallPageProcess.c)
- *     MiFillPhysicalPages @ 0x140289560 (MiFillPhysicalPages.c)
- *     MiMakeTradeVaReadOnly @ 0x140293834 (MiMakeTradeVaReadOnly.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiTradePageWritePte @ 0x14029F8EC (MiTradePageWritePte.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiPrepareToTradeUsingAccessedBit @ 0x140314C54 (MiPrepareToTradeUsingAccessedBit.c)
- *     MiWsleFlush @ 0x14032A510 (MiWsleFlush.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     MiMapSinglePage @ 0x14036A87C (MiMapSinglePage.c)
- *     MiCopyOnWriteUpdatePte @ 0x14036B2E0 (MiCopyOnWriteUpdatePte.c)
- *     MiValidateInPageEntries @ 0x14038C410 (MiValidateInPageEntries.c)
- *     MiNoFaultFound @ 0x1403A6898 (MiNoFaultFound.c)
- *     MiValidFault @ 0x1403A7338 (MiValidFault.c)
- *     MiLargePageFault @ 0x1403A7860 (MiLargePageFault.c)
- *     MiTradeStackPageFast @ 0x140415F18 (MiTradeStackPageFast.c)
- *     MiUpdateImagePfnImportRelocations @ 0x140480C40 (MiUpdateImagePfnImportRelocations.c)
- *     MmStealTopLevelPage @ 0x1404C2F84 (MmStealTopLevelPage.c)
- *     MiMakeProtoPoolReadOnly @ 0x1404C57B8 (MiMakeProtoPoolReadOnly.c)
- *     MiCopyKstack @ 0x140513484 (MiCopyKstack.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiReleaseFaultPte @ 0x140525E2C (MiReleaseFaultPte.c)
- *     MiFillPhysicalPagesWithPtes @ 0x1406E72C0 (MiFillPhysicalPagesWithPtes.c)
- *     MiDbgUnmapPhysicalAddress @ 0x1406FEC6C (MiDbgUnmapPhysicalAddress.c)
- *     MiMarkBootGuardPage @ 0x1406FF204 (MiMarkBootGuardPage.c)
- *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
- *     MiRelocateImagePfn @ 0x1409CEA4C (MiRelocateImagePfn.c)
- *     MmInvalidateDumpAddresses @ 0x140C01550 (MmInvalidateDumpAddresses.c)
- *     MiProtectSharedUserPage @ 0x140CF3E10 (MiProtectSharedUserPage.c)
- *     MxCopyPage @ 0x140CF5774 (MxCopyPage.c)
- *     MiInitializeBootShadowStackPage @ 0x140CFC214 (MiInitializeBootShadowStackPage.c)
- *     MiTradeBootImagePage @ 0x140D00E4C (MiTradeBootImagePage.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140287000 (MiGetPageChainSmallPageProcess.c)
+ *     MiFillPhysicalPages @ 0x140288AC0 (MiFillPhysicalPages.c)
+ *     MiMakeTradeVaReadOnly @ 0x140292D94 (MiMakeTradeVaReadOnly.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiTradePageWritePte @ 0x14029EE3C (MiTradePageWritePte.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiPrepareToTradeUsingAccessedBit @ 0x140316C84 (MiPrepareToTradeUsingAccessedBit.c)
+ *     MiWsleFlush @ 0x14032C540 (MiWsleFlush.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     MiMapSinglePage @ 0x14036C61C (MiMapSinglePage.c)
+ *     MiCopyOnWriteUpdatePte @ 0x14036D080 (MiCopyOnWriteUpdatePte.c)
+ *     MiValidateInPageEntries @ 0x14038E1C0 (MiValidateInPageEntries.c)
+ *     MiNoFaultFound @ 0x1403A85F8 (MiNoFaultFound.c)
+ *     MiValidFault @ 0x1403A9098 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1403A95C0 (MiLargePageFault.c)
+ *     MiTradeStackPageFast @ 0x14040A528 (MiTradeStackPageFast.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14047A5B0 (MiUpdateImagePfnImportRelocations.c)
+ *     MmStealTopLevelPage @ 0x1404BC7D4 (MmStealTopLevelPage.c)
+ *     MiMakeProtoPoolReadOnly @ 0x1404BF168 (MiMakeProtoPoolReadOnly.c)
+ *     MiCopyKstack @ 0x14050CEF4 (MiCopyKstack.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiReleaseFaultPte @ 0x14052849C (MiReleaseFaultPte.c)
+ *     MiFillPhysicalPagesWithPtes @ 0x1406EBF70 (MiFillPhysicalPagesWithPtes.c)
+ *     MiDbgUnmapPhysicalAddress @ 0x14070393C (MiDbgUnmapPhysicalAddress.c)
+ *     MiMarkBootGuardPage @ 0x140703ED4 (MiMarkBootGuardPage.c)
+ *     MiShareValidPage @ 0x1407096FC (MiShareValidPage.c)
+ *     MiRelocateImagePfn @ 0x14099FA2C (MiRelocateImagePfn.c)
+ *     MmInvalidateDumpAddresses @ 0x140C07760 (MmInvalidateDumpAddresses.c)
+ *     MiProtectSharedUserPage @ 0x140CFA190 (MiProtectSharedUserPage.c)
+ *     MxCopyPage @ 0x140CFBAF4 (MxCopyPage.c)
+ *     MiInitializeBootShadowStackPage @ 0x140D02594 (MiInitializeBootShadowStackPage.c)
+ *     MiTradeBootImagePage @ 0x140D071EC (MiTradeBootImagePage.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiCompressTbFlushList @ 0x1404DAB9C (MiCompressTbFlushList.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiCompressTbFlushList @ 0x1404D427C (MiCompressTbFlushList.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFlushSingleTbEntry(unsigned __int64 a1, __int64 a2)
@@ -108,8 +108,8 @@ __int64 __fastcall MiFlushSingleTbEntry(unsigned __int64 a1, __int64 a2)
   }
   if ( v3 >= 0xFFFF800000000000uLL )
   {
-    if ( v3 > qword_140E2DE50 || v3 < qword_140E2DE40 )
-      v4 = (unsigned __int8)byte_140E37A70[((v3 >> 39) & 0x1FF) - 256];
+    if ( v3 > qword_140E2DFD0 || v3 < qword_140E2DFC0 )
+      v4 = (unsigned __int8)byte_140E37BF0[((v3 >> 39) & 0x1FF) - 256];
     else
       v4 = 1LL;
   }
@@ -120,7 +120,7 @@ __int64 __fastcall MiFlushSingleTbEntry(unsigned __int64 a1, __int64 a2)
   v5 = MiSystemVaTypeToVm(v4, a2);
   v27 = 20;
   v29 = v7;
-  v8 = (struct _LIST_ENTRY **)&unk_140E371C0;
+  v8 = (struct _LIST_ENTRY **)&unk_140E37340;
   if ( v5 )
     v8 = (struct _LIST_ENTRY **)v5;
   v25 = v8;

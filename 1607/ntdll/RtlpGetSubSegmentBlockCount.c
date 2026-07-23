@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetSubSegmentBlockCount @ 0x180042510
+ * XREFs of RtlpGetSubSegmentBlockCount @ 0x180042500
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x180041F0C (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x180041EFC (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
  *     <none>
  */

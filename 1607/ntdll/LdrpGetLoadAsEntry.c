@@ -1,44 +1,44 @@
 /*
- * XREFs of LdrpGetLoadAsEntry @ 0x18002CAB8
+ * XREFs of LdrpGetLoadAsEntry @ 0x18002CAA8
  * Callers:
- *     LdrpGetDataModulePath @ 0x18002C940 (LdrpGetDataModulePath.c)
- *     LdrpIsReparsePoint @ 0x180075EF4 (LdrpIsReparsePoint.c)
- *     LdrGetFileNameFromLoadAsDataTable @ 0x1800DBF20 (LdrGetFileNameFromLoadAsDataTable.c)
+ *     LdrpGetDataModulePath @ 0x18002C930 (LdrpGetDataModulePath.c)
+ *     LdrpIsReparsePoint @ 0x180075EE4 (LdrpIsReparsePoint.c)
+ *     LdrGetFileNameFromLoadAsDataTable @ 0x1800DBFE0 (LdrGetFileNameFromLoadAsDataTable.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     LdrpInitMuiCrits @ 0x180030344 (LdrpInitMuiCrits.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     LdrpInitMuiCrits @ 0x180030334 (LdrpInitMuiCrits.c)
  */
 
 __int64 __fastcall LdrpGetLoadAsEntry(__int64 a1, _OWORD *a2)
 {
   unsigned int v4; // edi
   int v5; // ecx
-  __int64 v6; // r8
+  _OWORD *v6; // r8
 
   if ( !a1 || !a2 )
     return 3221225485LL;
   v4 = -1073741823;
   LdrpInitMuiCrits(&DataLoadLockCount, &LoadAsDataCrits);
-  RtlEnterCriticalSection((__int64)&LoadAsDataCrits);
+  RtlEnterCriticalSection(&LoadAsDataCrits);
   v5 = LoadAsDataTableCount;
   if ( LoadAsDataTableCount )
   {
     v6 = LoadAsDataTable;
     while ( v5 > 0 )
     {
-      if ( *(_QWORD *)(v6 + 48LL * --v5) == a1 )
+      if ( *(_QWORD *)&v6[3 * --v5] == a1 )
       {
-        if ( *(_QWORD *)(v6 + 48LL * v5 + 8) )
+        if ( *((_QWORD *)&v6[3 * v5] + 1) )
         {
-          *a2 = *(_OWORD *)(v6 + 48LL * v5);
-          a2[1] = *(_OWORD *)(v6 + 48LL * v5 + 16);
-          a2[2] = *(_OWORD *)(v6 + 48LL * v5 + 32);
+          *a2 = v6[3 * v5];
+          a2[1] = v6[3 * v5 + 1];
+          a2[2] = v6[3 * v5 + 2];
           v4 = 0;
         }
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&LoadAsDataCrits);
+  RtlLeaveCriticalSection(&LoadAsDataCrits);
   return v4;
 }

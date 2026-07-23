@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobPagePriorityLimitPreCallback @ 0x1407F9860
+ * XREFs of PspSetJobPagePriorityLimitPreCallback @ 0x1407FF360
  * Callers:
  *     <none>
  * Callees:
- *     PspUpdateJobEffectivePriorityLimits @ 0x1407FA07C (PspUpdateJobEffectivePriorityLimits.c)
+ *     PspUpdateJobEffectivePriorityLimits @ 0x1407FFAAC (PspUpdateJobEffectivePriorityLimits.c)
  */
 
 __int64 __fastcall PspSetJobPagePriorityLimitPreCallback(__int64 a1)

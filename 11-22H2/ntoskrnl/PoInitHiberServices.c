@@ -32,19 +32,16 @@ __int64 (*PoInitHiberServices())(void)
   __int64 v3; // rdx
   __int64 v4; // rcx
   __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rbx
+  HANDLE v6; // rbx
   __int64 (*result)(void); // rax
-  int v11; // eax
-  __int64 v12; // rbx
-  char v13; // [rsp+40h] [rbp+10h] BYREF
-  __int64 v14; // [rsp+48h] [rbp+18h] BYREF
-  __int64 v15; // [rsp+50h] [rbp+20h] BYREF
+  NTSTATUS v8; // eax
+  HANDLE v9; // rbx
+  char v10; // [rsp+40h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+48h] [rbp+18h] BYREF
+  HANDLE v12; // [rsp+50h] [rbp+20h] BYREF
 
-  v14 = 0LL;
-  v13 = 0;
+  BcdStoreHandle = 0LL;
+  v10 = 0;
   RtlInitUnicodeString(&PoHiberFileRoot, L"\\OSDataRoot");
   PopInitializeHibernateGlobals();
   v0 = PopHiberFileTypeReg;
@@ -55,17 +52,19 @@ __int64 (*PoInitHiberServices())(void)
   v2 = PopAllowHibernateReg;
   LOBYTE(v3) = 1;
   LOBYTE(v4) = 1;
-  PopHibernateEvaluation(v4, v3, &v13);
-  PopReleasePolicyLock(v6, v5, v7);
+  PopHibernateEvaluation(v4, v3, &v10);
+  PopReleasePolicyLock();
   PopReleaseTransitionLock(2);
-  LOBYTE(v8) = v13;
-  PopTraceHibernatePolicyUpdate(v2, v8);
-  if ( !ExIsSoftBoot() && (v13 || !PopHiberBootOptimizationEnabledReg) && (int)BcdOpenStore(0LL, 2LL, &v14) >= 0 )
+  LOBYTE(v5) = v10;
+  PopTraceHibernatePolicyUpdate(v2, v5);
+  if ( !ExIsSoftBoot()
+    && (v10 || !PopHiberBootOptimizationEnabledReg)
+    && BcdOpenStore(0LL, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
   {
-    v9 = v14;
-    PopBcdEstablishResumeObject(v14, 0LL);
-    PopBcdClearPendingResume(v9);
-    BcdCloseStore(v9);
+    v6 = BcdStoreHandle;
+    PopBcdEstablishResumeObject(BcdStoreHandle);
+    PopBcdClearPendingResume(v6);
+    BcdCloseStore(v6);
   }
   if ( (int)ExSubscribeWnfStateChange(
               (__int64)&PopHibernatePolicyWnfSubscription,
@@ -75,24 +74,24 @@ __int64 (*PoInitHiberServices())(void)
               (__int64)PopWnfHibernatePolicyCallback,
               (__int64)&PopAllowHibernateReg) < 0 )
     PopHibernatePolicyWnfSubscription = 0LL;
-  v15 = -1LL;
-  v14 = -1LL;
+  v12 = (HANDLE)-1LL;
+  BcdStoreHandle = (HANDLE)-1LL;
   if ( byte_140D53289 )
   {
-    v11 = BcdOpenStore(0LL, 2LL, &v15);
-    v12 = v15;
-    if ( v11 >= 0 )
+    v8 = BcdOpenStore(0LL, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &v12);
+    v9 = v12;
+    if ( v8 >= 0 )
     {
-      if ( (int)BcdOpenObject(v15, &GUID_CURRENT_BOOT_ENTRY, &v14) >= 0 )
+      if ( BcdOpenObject(v12, &GUID_CURRENT_BOOT_ENTRY, &BcdStoreHandle) >= 0 )
       {
-        BiDeleteElement(v14, 620757338LL);
-        BcdFlushStore(v12);
+        BiDeleteElement(BcdStoreHandle, 620757338LL);
+        BcdFlushStore(v9);
       }
-      if ( v14 != -1 )
-        BcdCloseObject(v14);
+      if ( BcdStoreHandle != (HANDLE)-1LL )
+        BcdCloseObject(BcdStoreHandle);
     }
-    if ( v12 != -1 )
-      BcdCloseStore(v12);
+    if ( v9 != (HANDLE)-1LL )
+      BcdCloseStore(v9);
   }
   result = qword_140C6B018;
   if ( qword_140C6B018 )

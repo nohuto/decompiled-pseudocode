@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDeferDoze @ 0x1407718E0
+ * XREFs of PopDeferDoze @ 0x1407748E0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PopPrintEx @ 0x1404C33A8 (PopPrintEx.c)
- *     PopDiagTraceDozeDeferralDecision @ 0x140771AE0 (PopDiagTraceDozeDeferralDecision.c)
- *     PopFindPowerSettingConfiguration @ 0x140A3E9D0 (PopFindPowerSettingConfiguration.c)
- *     PopIsDozeSupported @ 0x140B2E7C8 (PopIsDozeSupported.c)
- *     PopIsWakeTimerImminent @ 0x140B6C904 (PopIsWakeTimerImminent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PopPrintEx @ 0x1404BCBF8 (PopPrintEx.c)
+ *     PopDiagTraceDozeDeferralDecision @ 0x140774AE0 (PopDiagTraceDozeDeferralDecision.c)
+ *     PopFindPowerSettingConfiguration @ 0x1409FA3F0 (PopFindPowerSettingConfiguration.c)
+ *     PopIsDozeSupported @ 0x140B30718 (PopIsDozeSupported.c)
+ *     PopIsWakeTimerImminent @ 0x140B6FA00 (PopIsWakeTimerImminent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
@@ -44,15 +44,15 @@ char __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
   v7 = 0;
   v8 = 0;
   v9 = 0;
-  IsDozeSupported = PopIsDozeSupported(&stru_140F10828.WaitBlockFill11[24]);
+  IsDozeSupported = PopIsDozeSupported(&PpmIdlePolicyLock.Padding[1]);
   v26 = v12;
   v13 = v11 | 0x10;
   if ( IsDozeSupported )
     v13 = v11;
   v14 = v13 | 0x20;
-  if ( *((_DWORD *)qword_140F105C0 + 22) )
+  if ( *(_DWORD *)(PpmIdlePolicyLock.WriteOperationCount + 88) )
     v14 = v13;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  ExAcquireFastMutex(&PopSettingLock);
   PowerSettingConfiguration = PopFindPowerSettingConfiguration(&GUID_LEGACY_RTC_MITIGATION, 0xFFFFFFFFLL);
   if ( PowerSettingConfiguration )
   {
@@ -74,7 +74,7 @@ char __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
       }
     }
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  KeReleaseGuardedMutex(&PopSettingLock);
   if ( v26 )
   {
     v7 = v8;

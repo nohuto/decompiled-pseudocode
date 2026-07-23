@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAddInstanceIdToLogFileName @ 0x18008D82C
+ * XREFs of EtwpAddInstanceIdToLogFileName @ 0x1800A92EC
  * Callers:
- *     EtwpUpdateUmLogger @ 0x18008CAC4 (EtwpUpdateUmLogger.c)
- *     EtwpInitLoggerContext @ 0x18008D330 (EtwpInitLoggerContext.c)
- *     EtwpFlushUmLogger @ 0x18008E070 (EtwpFlushUmLogger.c)
+ *     EtwpUpdateUmLogger @ 0x1800A8584 (EtwpUpdateUmLogger.c)
+ *     EtwpInitLoggerContext @ 0x1800A8DF0 (EtwpInitLoggerContext.c)
+ *     EtwpFlushUmLogger @ 0x1800A9B30 (EtwpFlushUmLogger.c)
  * Callees:
- *     RtlCreateUnicodeString @ 0x180028050 (RtlCreateUnicodeString.c)
- *     StringCchPrintfW @ 0x18008D948 (StringCchPrintfW.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlCreateUnicodeString @ 0x180054A50 (RtlCreateUnicodeString.c)
+ *     StringCchPrintfW @ 0x1800A9408 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3)
+wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   void *UniqueProcess; // rax
   wchar_t *v5; // r8
@@ -23,15 +23,15 @@ wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a
   int v12; // [rsp+20h] [rbp-828h]
   wchar_t pszDest[1024]; // [rsp+30h] [rbp-818h] BYREF
 
-  *a3 = 0LL;
-  a3[1] = 0LL;
+  *(_QWORD *)&a3->Length = 0LL;
+  a3->Buffer = 0LL;
   UniqueProcess = NtCurrentTeb()->ClientId.UniqueProcess;
   v5 = *(wchar_t **)(a1 + 136);
   *(_DWORD *)(a1 + 100) = (_DWORD)UniqueProcess;
   if ( a2 == 1 )
   {
     v7 = v5;
-    return RtlCreateUnicodeString((__int64)a3, v7) == 0 ? (wchar_t *)8 : 0LL;
+    return RtlCreateUnicodeString(a3, v7) == 0 ? (wchar_t *)8 : 0LL;
   }
   if ( *(_WORD *)(a1 + 130) > 0x800u )
   {
@@ -63,7 +63,7 @@ wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a
   if ( (int)result >= 0 )
   {
     v7 = pszDest;
-    return RtlCreateUnicodeString((__int64)a3, v7) == 0 ? (wchar_t *)8 : 0LL;
+    return RtlCreateUnicodeString(a3, v7) == 0 ? (wchar_t *)8 : 0LL;
   }
   return (wchar_t *)(unsigned __int16)result;
 }

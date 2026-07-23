@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReserveDriverPtes @ 0x14075FEA4
+ * XREFs of MiReserveDriverPtes @ 0x140760064
  * Callers:
- *     MiSelectSystemImageAddress @ 0x14075FE58 (MiSelectSystemImageAddress.c)
- *     MmMapLockedRestartPages @ 0x1408C4AC0 (MmMapLockedRestartPages.c)
+ *     MiSelectSystemImageAddress @ 0x140760018 (MiSelectSystemImageAddress.c)
+ *     MmMapLockedRestartPages @ 0x1408C4C20 (MmMapLockedRestartPages.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     MiUnlockDriverMappings @ 0x1403729C8 (MiUnlockDriverMappings.c)
- *     MiLockDriverMappings @ 0x140372BBC (MiLockDriverMappings.c)
- *     MiMakeZeroedPageTables @ 0x14039DE40 (MiMakeZeroedPageTables.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiObtainSystemVa @ 0x140231990 (MiObtainSystemVa.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     MiReturnSystemVa @ 0x140305338 (MiReturnSystemVa.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     MiUnlockDriverMappings @ 0x140372518 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x14037270C (MiLockDriverMappings.c)
+ *     MiMakeZeroedPageTables @ 0x14039DF90 (MiMakeZeroedPageTables.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int a3)
@@ -29,11 +29,11 @@ unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int
   ULONG ClearBitsAndSet; // ecx
   ULONG v11; // r12d
   __int64 v12; // r8
-  RTL_BITMAP *Pool; // r15
+  _RTL_BITMAP *Pool; // r15
   unsigned int v14; // ebx
   unsigned __int64 v15; // rax
   __int64 PteAddress; // rsi
-  RTL_BITMAP *v17; // rcx
+  _RTL_BITMAP *v17; // rcx
   unsigned __int64 v18; // [rsp+20h] [rbp-58h]
   unsigned __int64 v20; // [rsp+98h] [rbp+20h]
 
@@ -60,7 +60,7 @@ unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int
   }
   v11 = (unsigned __int8)ExGenRandom(1);
   v20 = (16 * (v6 + v11) + 511) & 0xFFFFFE00;
-  Pool = (RTL_BITMAP *)MiAllocatePool((_DWORD)InitializationPhase != 0 ? 256 : 64, (v20 >> 7) + 40, 0x70446D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool((_DWORD)InitializationPhase != 0 ? 256 : 64, (v20 >> 7) + 40, 0x70446D4Du);
   if ( !Pool )
   {
 LABEL_8:

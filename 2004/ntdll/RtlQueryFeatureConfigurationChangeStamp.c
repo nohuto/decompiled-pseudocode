@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlQueryFeatureConfigurationChangeStamp()
+RTL_FEATURE_CHANGE_STAMP RtlQueryFeatureConfigurationChangeStamp(void)
 {
   return MEMORY[0x7FFE0710];
 }

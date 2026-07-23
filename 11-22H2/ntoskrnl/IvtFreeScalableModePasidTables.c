@@ -34,7 +34,7 @@ __int64 __fastcall IvtFreeScalableModePasidTables(__int64 a1, unsigned __int64 a
   memset(&LockHandle, 0, sizeof(LockHandle));
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -61,10 +61,10 @@ __int64 __fastcall IvtFreeScalableModePasidTables(__int64 a1, unsigned __int64 a
   *(_QWORD *)(v9 + 8) = v10;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v11 = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = (unsigned int)CurrentIrql + 1;

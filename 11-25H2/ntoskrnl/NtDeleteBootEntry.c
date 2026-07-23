@@ -14,25 +14,25 @@
  *     SeSinglePrivilegeCheck @ 0x140858330 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 __fastcall NtDeleteBootEntry(unsigned int a1)
+NTSTATUS __cdecl NtDeleteBootEntry(ULONG Id)
 {
   KPROCESSOR_MODE PreviousMode; // dl
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int EnvironmentVariable; // edi
+  NTSTATUS EnvironmentVariable; // edi
   int v6; // [rsp+30h] [rbp-38h] BYREF
   wchar_t Dst[12]; // [rsp+38h] [rbp-30h] BYREF
 
   if ( dword_140EFE810 == 2 && !PsIsCurrentThreadInServerSilo() )
   {
-    if ( a1 > 0xFFFF )
-      return 3221225485LL;
+    if ( Id > 0xFFFF )
+      return -1073741811;
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-    swprintf_s(Dst, 9uLL, L"Boot%04X", a1);
+    swprintf_s(Dst, 9uLL, L"Boot%04X", Id);
     v6 = 0;
     EnvironmentVariable = IoGetEnvironmentVariableEx(
                             (unsigned int)Dst,
@@ -42,14 +42,14 @@ __int64 __fastcall NtDeleteBootEntry(unsigned int a1)
                             0LL);
     if ( EnvironmentVariable == -1073741568 )
     {
-      if ( ((2 * ((a1 | (2 * a1)) & 0xC4444444)) & a1) == 0 )
+      if ( ((2 * ((Id | (2 * Id)) & 0xC4444444)) & Id) == 0 )
       {
 LABEL_14:
         ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
         KeLeaveCriticalRegion();
         return EnvironmentVariable;
       }
-      swprintf_s(Dst, 9uLL, L"Boot%04x", a1);
+      swprintf_s(Dst, 9uLL, L"Boot%04x", Id);
       v6 = 0;
       EnvironmentVariable = IoGetEnvironmentVariableEx(
                               (unsigned int)Dst,
@@ -62,5 +62,5 @@ LABEL_14:
       EnvironmentVariable = IoSetEnvironmentVariableEx((unsigned int)Dst, (unsigned int)&EfiBootVariablesGuid, 0, 0, 1);
     goto LABEL_14;
   }
-  return 3221225474LL;
+  return -1073741822;
 }

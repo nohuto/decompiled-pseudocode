@@ -1,12 +1,12 @@
 /*
- * XREFs of ViWdIrpTimerDpcRoutine @ 0x140B9CC20
+ * XREFs of ViWdIrpTimerDpcRoutine @ 0x140B9EC20
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     ViWdStartTimer @ 0x140B9CD4C (ViWdStartTimer.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     ViWdStartTimer @ 0x140B9ED4C (ViWdStartTimer.c)
  */
 
 void __fastcall ViWdIrpTimerDpcRoutine(
@@ -57,7 +57,7 @@ void __fastcall ViWdIrpTimerDpcRoutine(
     {
       for ( i = VfWdIrpListHead; (__int64 *)i != &VfWdIrpListHead; i = *(_QWORD *)i )
         *(_BYTE *)(i + 28) = 0;
-      qword_140FFCBF8 = (__int64)&VfWdIrpListHead;
+      qword_140FFDBF8 = (__int64)&VfWdIrpListHead;
       VfWdIrpListHead = (__int64)&VfWdIrpListHead;
       ViWdIrpListLength = 0;
     }

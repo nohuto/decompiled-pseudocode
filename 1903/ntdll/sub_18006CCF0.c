@@ -35,11 +35,11 @@ __int64 __fastcall sub_18006CCF0(int a1, _OWORD *a2, _QWORD *a3)
     }
     if ( a1 == 1 )
     {
-      RtlAcquireSRWLockShared(&qword_180166488, (unsigned __int64)pShimData, (unsigned __int64)a3, 0LL);
+      RtlAcquireSRWLockShared(&stru_180166488);
       v8 = *((_OWORD *)v6 + 4);
       *a3 = *(_QWORD *)v6;
       *a2 = v8;
-      RtlReleaseSRWLockShared(&qword_180166488);
+      RtlReleaseSRWLockShared(&stru_180166488);
       return 1;
     }
   }

@@ -8,7 +8,7 @@
  *     BcdOpenStore @ 0x14073C588 (BcdOpenStore.c)
  */
 
-__int64 __fastcall PopBcdOpen(__int64 a1)
+NTSTATUS __fastcall PopBcdOpen(UNICODE_STRING *BcdStoreHandle)
 {
-  return BcdOpenStore(a1, 2u, a1);
+  return BcdOpenStore(BcdStoreHandle, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, (PHANDLE)BcdStoreHandle);
 }

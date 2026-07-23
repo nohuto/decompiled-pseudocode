@@ -1,11 +1,11 @@
 /*
- * XREFs of PspRemoveQuotaBlock @ 0x1409E0DC0
+ * XREFs of PspRemoveQuotaBlock @ 0x1409B9030
  * Callers:
- *     PspDereferenceQuotaBlock @ 0x140924100 (PspDereferenceQuotaBlock.c)
- *     PsReturnSharedPoolQuota @ 0x1409E0BA0 (PsReturnSharedPoolQuota.c)
+ *     PspDereferenceQuotaBlock @ 0x1408FFC10 (PspDereferenceQuotaBlock.c)
+ *     PsReturnSharedPoolQuota @ 0x1409B8E10 (PsReturnSharedPoolQuota.c)
  * Callees:
- *     PspLockQuotaListExclusive @ 0x140504D74 (PspLockQuotaListExclusive.c)
- *     PspUnlockQuotaListExclusive @ 0x140509360 (PspUnlockQuotaListExclusive.c)
+ *     PspLockQuotaListExclusive @ 0x1404FE6B4 (PspLockQuotaListExclusive.c)
+ *     PspUnlockQuotaListExclusive @ 0x140502E10 (PspUnlockQuotaListExclusive.c)
  */
 
 __int64 __fastcall PspRemoveQuotaBlock(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

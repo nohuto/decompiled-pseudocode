@@ -1,18 +1,18 @@
 /*
- * XREFs of SepQueueWorkItem @ 0x1402BDE30
+ * XREFs of SepQueueWorkItem @ 0x14023C470
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
- *     SepInformLsaOfDeletedLogon @ 0x1406A57FC (SepInformLsaOfDeletedLogon.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2884 (SepAdtLogAuditRecord.c)
+ *     SepInformLsaOfDeletedLogon @ 0x14060342C (SepInformLsaOfDeletedLogon.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PsGetServerSiloState @ 0x1402BDFAC (PsGetServerSiloState.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsGetServerSiloState @ 0x14023C5EC (PsGetServerSiloState.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)

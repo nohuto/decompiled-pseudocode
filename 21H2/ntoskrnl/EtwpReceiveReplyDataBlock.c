@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReceiveReplyDataBlock @ 0x1406C1360
+ * XREFs of EtwpReceiveReplyDataBlock @ 0x1406BCA6C
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     KeRemoveQueue @ 0x140202DD0 (KeRemoveQueue.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeRemoveQueue @ 0x1402A7710 (KeRemoveQueue.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406BBC64 (EtwpUnreferenceDataBlock.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpReceiveReplyDataBlock(unsigned int *a1, unsigned int a2, unsigned int *a3)
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(unsigned int *a1, unsigned int a2, 
           v8 = 0;
         }
         *a3 = Flink_high;
-        EtwpUnreferenceDataBlock(Flink);
+        EtwpUnreferenceDataBlock((volatile signed __int32 *)Flink);
         ExFreePoolWithTag(v11, 0);
       }
     }

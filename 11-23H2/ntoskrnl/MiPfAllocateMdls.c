@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPfAllocateMdls @ 0x1407460A0
+ * XREFs of MiPfAllocateMdls @ 0x140746290
  * Callers:
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiEndingOffsetWithLock @ 0x140279E50 (MiEndingOffsetWithLock.c)
- *     MiGetSubsectionDriverProtos @ 0x1402A26E4 (MiGetSubsectionDriverProtos.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiSetInPagePriority @ 0x1402E35D8 (MiSetInPagePriority.c)
- *     MmCreateMdl @ 0x140356AF0 (MmCreateMdl.c)
- *     MiGetSharedProtos @ 0x140369D8C (MiGetSharedProtos.c)
+ *     MiEndingOffsetWithLock @ 0x14027A0E0 (MiEndingOffsetWithLock.c)
+ *     MiGetSubsectionDriverProtos @ 0x1402A2974 (MiGetSubsectionDriverProtos.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiSetInPagePriority @ 0x1402E3868 (MiSetInPagePriority.c)
+ *     MmCreateMdl @ 0x140356C90 (MmCreateMdl.c)
+ *     MiGetSharedProtos @ 0x140369F2C (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, _SLIST_ENTRY *a3, __int64 a4)

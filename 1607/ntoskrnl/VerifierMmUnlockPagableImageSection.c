@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmUnlockPagableImageSection @ 0x14070CB70
+ * XREFs of VerifierMmUnlockPagableImageSection @ 0x14070CBA0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvFlushDeviceDomainVaList @ 0x14059E360
+ * XREFs of IommupHvFlushDeviceDomainVaList @ 0x1405A0B38
  * Callers:
- *     IommuFlushDomainVaList @ 0x140787030 (IommuFlushDomainVaList.c)
+ *     IommuFlushDomainVaList @ 0x140789B60 (IommuFlushDomainVaList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 IommupHvFlushDeviceDomainVaList(int a1, __int64 a2, __int64 a3, ...)

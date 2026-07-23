@@ -1,12 +1,12 @@
 /*
  * XREFs of HalInitializeProcessor @ 0x1403BFB00
  * Callers:
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
+ *     sub_140A57680 @ 0x140A57680 (sub_140A57680.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140A56C48 (HalpInitSystemHelper.c)
+ *     sub_140A56C48 @ 0x140A56C48 (sub_140A56C48.c)
  */
 
 __int64 __fastcall HalInitializeProcessor(int a1)
 {
-  return HalpInitSystemHelper(a1 != 0 ? 4 : 0);
+  return sub_140A56C48(a1 != 0 ? 4 : 0);
 }

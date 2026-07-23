@@ -9,5 +9,7 @@
 // attributes: thunk
 BOOLEAN __stdcall LdrUnloadAlternateResourceModule(PVOID BaseAddress)
 {
-  return LdrUnloadAlternateResourceModuleEx(BaseAddress);
+  ULONG v1; // edx
+
+  return LdrUnloadAlternateResourceModuleEx(BaseAddress, v1);
 }

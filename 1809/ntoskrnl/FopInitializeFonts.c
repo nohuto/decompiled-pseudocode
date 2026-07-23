@@ -1,16 +1,16 @@
 /*
- * XREFs of FopInitializeFonts @ 0x1409FA994
+ * XREFs of FopInitializeFonts @ 0x1409FB994
  * Callers:
- *     BgpFoInitialize @ 0x1409FA898 (BgpFoInitialize.c)
+ *     BgpFoInitialize @ 0x1409FB898 (BgpFoInitialize.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140179E88 (FioFwReadUlongAtOffset.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     FopFreeFontData @ 0x1409511C0 (FopFreeFontData.c)
- *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
- *     BgpRasInitializeRasterizer @ 0x1409FAF80 (BgpRasInitializeRasterizer.c)
- *     FopGetTableOffsetAndSize @ 0x1409FB2E8 (FopGetTableOffsetAndSize.c)
+ *     BgpFwAllocateMemory @ 0x14016F5D8 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x140179F88 (FioFwReadUlongAtOffset.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     FopFreeFontData @ 0x1409521C0 (FopFreeFontData.c)
+ *     FopReadMappingTable @ 0x1409FBABC (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x1409FBC8C (FopValidateFontNameTable.c)
+ *     BgpRasInitializeRasterizer @ 0x1409FBF80 (BgpRasInitializeRasterizer.c)
+ *     FopGetTableOffsetAndSize @ 0x1409FC2E8 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall FopInitializeFonts(__int64 a1)

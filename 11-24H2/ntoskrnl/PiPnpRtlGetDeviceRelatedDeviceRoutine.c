@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x140A22B30
+ * XREFs of PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x140A16F40
  * Callers:
  *     <none>
  * Callees:
- *     ZwPlugPlayControl @ 0x1406A8BB0 (ZwPlugPlayControl.c)
+ *     ZwPlugPlayControl @ 0x1406A9B50 (ZwPlugPlayControl.c)
  */
 
-__int64 __fastcall PiPnpRtlGetDeviceRelatedDeviceRoutine(
+NTSTATUS __fastcall PiPnpRtlGetDeviceRelatedDeviceRoutine(
         __int64 a1,
         __int128 *a2,
         int a3,
@@ -16,8 +16,8 @@ __int64 __fastcall PiPnpRtlGetDeviceRelatedDeviceRoutine(
         int a7)
 {
   __int128 v7; // xmm0
-  __int64 result; // rax
-  __int128 v9; // [rsp+20h] [rbp-38h] BYREF
+  NTSTATUS result; // eax
+  __int128 PnPControlData; // [rsp+20h] [rbp-38h] BYREF
   int v10; // [rsp+30h] [rbp-28h]
   int v11; // [rsp+34h] [rbp-24h]
   __int64 v12; // [rsp+38h] [rbp-20h]
@@ -25,15 +25,15 @@ __int64 __fastcall PiPnpRtlGetDeviceRelatedDeviceRoutine(
   int v14; // [rsp+44h] [rbp-14h]
 
   if ( !a2 || !a6 || a7 )
-    return 3221225485LL;
+    return -1073741811;
   v7 = *a2;
   v10 = a3;
   v11 = 0;
   v14 = 0;
-  v9 = v7;
+  PnPControlData = v7;
   v12 = a4;
   v13 = a5;
-  result = ZwPlugPlayControl(12LL, (__int64)&v9);
+  result = ZwPlugPlayControl(PlugPlayControlGetRelatedDevice, &PnPControlData, 0x28u);
   *a6 = v13 + 1;
   return result;
 }

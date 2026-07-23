@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCheckShadowStackOverflow @ 0x14069588C
+ * XREFs of MiCheckShadowStackOverflow @ 0x1405F4DDC
  * Callers:
- *     MiCheckForUserStackOverflow @ 0x1406955F8 (MiCheckForUserStackOverflow.c)
+ *     MiCheckForUserStackOverflow @ 0x1405F4B48 (MiCheckForUserStackOverflow.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall MiCheckShadowStackOverflow(unsigned __int64 a1, _DWORD *a2)
 {
   unsigned int v2; // ebp
-  volatile signed __int32 *v6; // rax
+  __int64 v6; // rax
   char *v7; // rbx
   unsigned __int64 v8; // rdi
   void *v9; // rax
@@ -28,10 +28,10 @@ __int64 __fastcall MiCheckShadowStackOverflow(unsigned __int64 a1, _DWORD *a2)
     v7 = (char *)v6;
     if ( v6 )
     {
-      if ( (v6[12] & 0x5100000) == 0x4100000 )
+      if ( (*(_DWORD *)(v6 + 48) & 0x5100000) == 0x4100000 )
       {
         v2 = 1;
-        v8 = (*((unsigned int *)v6 + 6) | ((unsigned __int64)*((unsigned __int8 *)v6 + 32) << 32)) << 12;
+        v8 = (*(unsigned int *)(v6 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 32) << 32)) << 12;
         MiUnlockAndDereferenceVadShared((char *)v6);
         *a2 = -1073741571;
         v7 = 0LL;

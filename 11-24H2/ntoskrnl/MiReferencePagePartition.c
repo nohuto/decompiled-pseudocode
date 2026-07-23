@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferencePagePartition @ 0x140673404
+ * XREFs of MiReferencePagePartition @ 0x1406745D4
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
- *     MmRemovePhysicalMemory @ 0x1407EA5D0 (MmRemovePhysicalMemory.c)
- *     MmIdentifyPhysicalMemory @ 0x1407EBB48 (MmIdentifyPhysicalMemory.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmRemovePhysicalMemory @ 0x1407EABA0 (MmRemovePhysicalMemory.c)
+ *     MmIdentifyPhysicalMemory @ 0x1407EC118 (MmIdentifyPhysicalMemory.c)
  * Callees:
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
  */
 
-__int64 __fastcall MiReferencePagePartition(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall MiReferencePagePartition(__int64 a1, int a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
   __int64 v6; // r8
@@ -18,9 +18,9 @@ __int64 __fastcall MiReferencePagePartition(__int64 a1, __int64 a2, _QWORD *a3)
 
   v3 = 0;
   *a3 = 0LL;
-  if ( !(_DWORD)a2 && MiSafeLockPage(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4), a2, (__int64)a3) == 17 )
+  if ( !a2 && MiSafeLockPage(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4)) == 17 )
     return 3221225485LL;
-  if ( PsReferencePartitionSafe(*(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL))
+  if ( PsReferencePartitionSafe(*(_QWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL))
                                           + 184LL)) )
     *a3 = v6;
   else

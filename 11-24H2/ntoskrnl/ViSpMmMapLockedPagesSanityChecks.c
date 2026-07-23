@@ -1,11 +1,11 @@
 /*
- * XREFs of ViSpMmMapLockedPagesSanityChecks @ 0x140BA4B60
+ * XREFs of ViSpMmMapLockedPagesSanityChecks @ 0x140BA6B60
  * Callers:
- *     ViSpMmMapLockedPages_Entry @ 0x1406A3CB0 (ViSpMmMapLockedPages_Entry.c)
- *     ViSpMmMapLockedPagesSpecifyCache_Entry @ 0x140BA4CF0 (ViSpMmMapLockedPagesSpecifyCache_Entry.c)
+ *     ViSpMmMapLockedPages_Entry @ 0x1406A4CB0 (ViSpMmMapLockedPages_Entry.c)
+ *     ViSpMmMapLockedPagesSpecifyCache_Entry @ 0x140BA6CF0 (ViSpMmMapLockedPagesSpecifyCache_Entry.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     MmIsMdlPageLocked @ 0x140BA46F8 (MmIsMdlPageLocked.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     MmIsMdlPageLocked @ 0x140BA66F8 (MmIsMdlPageLocked.c)
  */
 
 __int64 __fastcall ViSpMmMapLockedPagesSanityChecks(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)

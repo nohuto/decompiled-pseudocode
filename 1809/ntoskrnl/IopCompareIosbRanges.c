@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCompareIosbRanges @ 0x1408199B0
+ * XREFs of IopCompareIosbRanges @ 0x14081ABB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall IopCompareIosbRanges(struct _RTL_AVL_TABLE *Table, _QWORD *FirstStruct, _QWORD *SecondStruct)
+__int64 __fastcall IopCompareIosbRanges(_RTL_AVL_TABLE *a1, _QWORD *a2, _QWORD *a3)
 {
-  if ( *SecondStruct <= *FirstStruct )
-    return 2 - (unsigned int)(*SecondStruct < *FirstStruct);
+  if ( *a3 <= *a2 )
+    return 2 - (unsigned int)(*a3 < *a2);
   else
     return 0LL;
 }

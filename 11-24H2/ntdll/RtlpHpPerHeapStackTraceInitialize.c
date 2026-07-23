@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpPerHeapStackTraceInitialize @ 0x18014B910
+ * XREFs of RtlpHpPerHeapStackTraceInitialize @ 0x180149CC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpMetadataAlloc @ 0x180010830 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpMetadataAlloc @ 0x18003D230 (RtlpHpMetadataAlloc.c)
  */
 
-__int64 __fastcall RtlpHpPerHeapStackTraceInitialize(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall RtlpHpPerHeapStackTraceInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   _QWORD *v4; // rcx
   __int64 result; // rax

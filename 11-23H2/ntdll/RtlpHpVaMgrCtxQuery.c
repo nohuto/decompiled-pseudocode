@@ -4,7 +4,7 @@
  *     RtlpHpQueryVA @ 0x18006462C (RtlpHpQueryVA.c)
  * Callees:
  *     RtlSparseArrayElementAllocated @ 0x1800648B4 (RtlSparseArrayElementAllocated.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, __int64 a2, __int64 a3)

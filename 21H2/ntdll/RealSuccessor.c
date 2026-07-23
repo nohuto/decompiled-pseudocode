@@ -1,8 +1,8 @@
 /*
- * XREFs of RealSuccessor @ 0x1800F7914
+ * XREFs of RealSuccessor @ 0x1800F78D4
  * Callers:
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1800F7960 (RtlEnumerateGenericTableLikeADirectory.c)
- *     RtlGetElementGenericTableAvl @ 0x1800F7A90 (RtlGetElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1800F7920 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlGetElementGenericTableAvl @ 0x1800F7A50 (RtlGetElementGenericTableAvl.c)
  * Callees:
  *     <none>
  */

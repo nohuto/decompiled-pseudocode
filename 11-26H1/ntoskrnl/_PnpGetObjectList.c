@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpGetObjectList @ 0x140A8676C
+ * XREFs of _PnpGetObjectList @ 0x140A8B6EC
  * Callers:
- *     PiDmObjectManagerPopulate @ 0x1407A77A8 (PiDmObjectManagerPopulate.c)
- *     PiCMGetObjectList @ 0x140999DA8 (PiCMGetObjectList.c)
+ *     PiDmObjectManagerPopulate @ 0x1407AA358 (PiDmObjectManagerPopulate.c)
+ *     PiCMGetObjectList @ 0x14095A808 (PiCMGetObjectList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PnpGetObjectList(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6, __int64 a7, int a8)

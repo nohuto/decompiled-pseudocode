@@ -320,9 +320,9 @@
  *     RtlpValidateLFHBlock @ 0x1800F0B70 (RtlpValidateLFHBlock.c)
  */
 
-__int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, unsigned __int64 a3)
+LOGICAL __cdecl RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned int v6; // esi
+  LOGICAL v6; // esi
   unsigned __int64 v7; // rbp
   int v9; // ecx
   __int64 v10; // rax
@@ -332,68 +332,68 @@ __int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, unsigned __int64 a3)
   int v14; // eax
   unsigned __int16 v15; // ax
   __int64 v16; // rcx
-  __int64 v17; // rcx
+  char *v17; // rcx
   struct _TEB *v18; // rbx
   int v19; // [rsp+38h] [rbp-20h]
   int v20; // [rsp+38h] [rbp-20h]
 
-  if ( !a3 )
-    return 1LL;
-  if ( *(_DWORD *)(a1 + 16) != -571548178 )
+  if ( !BaseAddress )
+    return 1;
+  if ( *((_DWORD *)HeapHandle + 4) != -571548178 )
   {
     if ( (RtlpHpHeapFeatures & 2) != 0 )
-      return (unsigned int)RtlpHpVirtFreeHeap(a1, a3, a2);
+      return RtlpHpVirtFreeHeap(HeapHandle, BaseAddress, Flags);
     v6 = 0;
     v7 = 0LL;
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-      return (unsigned __int8)RtlpFreeHeap(a1, a2 | 2, v7, a3);
-    if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
+      return (unsigned __int8)RtlpFreeHeap(HeapHandle);
+    if ( (*((_BYTE *)HeapHandle + 120) & 1) != 0 )
     {
-      v7 = RtlpProbeUserBufferSafe(a1, a3);
+      v7 = RtlpProbeUserBufferSafe(HeapHandle, BaseAddress);
     }
-    else if ( (a3 & 0xF) != 0 )
+    else if ( ((unsigned __int8)BaseAddress & 0xF) != 0 )
     {
-      RtlpLogHeapFailure(9, a1, a3, 0, 0LL, 0LL);
+      RtlpLogHeapFailure(9, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
     }
     else
     {
-      v7 = a3 - 16;
-      _m_prefetchw((const void *)(a3 - 16));
-      if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+      v7 = (unsigned __int64)BaseAddress - 16;
+      _m_prefetchw((char *)BaseAddress - 16);
+      if ( *((char *)BaseAddress - 1) == 5 )
         v7 -= 16LL * *(unsigned __int8 *)(v7 + 14);
       if ( (*(_BYTE *)(v7 + 15) & 0x3F) == 0 )
       {
-        RtlpLogHeapFailure(8, a1, v7, 0, 0LL, 0LL);
+        RtlpLogHeapFailure(8, (_DWORD)HeapHandle, v7, 0, 0LL, 0LL);
         v7 = 0LL;
       }
     }
     if ( v7 )
     {
-      if ( *(_BYTE *)(a3 - 1) != 5 )
+      if ( *((char *)BaseAddress - 1) != 5 )
         goto LABEL_13;
       if ( *(char *)(v7 + 15) >= 0 )
       {
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
-          v9 = *(_DWORD *)(a1 + 136) ^ *(_DWORD *)(v7 + 8);
+          v9 = *((_DWORD *)HeapHandle + 34) ^ *(_DWORD *)(v7 + 8);
           if ( HIBYTE(v9) != (BYTE2(v9) ^ (unsigned __int8)(BYTE1(v9) ^ v9)) )
             goto LABEL_47;
         }
       }
-      else if ( !(unsigned __int8)RtlpValidateLFHBlock(a1, v7) )
+      else if ( !(unsigned __int8)RtlpValidateLFHBlock(HeapHandle, v7) )
       {
 LABEL_47:
-        RtlpLogHeapFailure(3, a1, v7, a3, 0LL, 0LL);
+        RtlpLogHeapFailure(3, (_DWORD)HeapHandle, v7, (_DWORD)BaseAddress, 0LL, 0LL);
         goto LABEL_53;
       }
       if ( *(char *)(v7 + 15) >= 0 )
       {
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           v12 = *(_DWORD *)(v7 + 8);
           LOWORD(v19) = v12;
-          if ( (v12 & *(_DWORD *)(a1 + 124)) != 0 )
-            v19 = *(_DWORD *)(a1 + 136) ^ v12;
+          if ( (v12 & *((_DWORD *)HeapHandle + 31)) != 0 )
+            v19 = *((_DWORD *)HeapHandle + 34) ^ v12;
           v13 = v19;
         }
         else
@@ -404,21 +404,21 @@ LABEL_47:
       }
       else
       {
-        if ( *(_WORD *)(v7 + 8) ^ (unsigned __int16)(RtlpLFHKey ^ a1 ^ (v7 >> 4)) )
+        if ( *(_WORD *)(v7 + 8) ^ (unsigned __int16)(RtlpLFHKey ^ (unsigned __int16)HeapHandle ^ (v7 >> 4)) )
           v10 = 0LL;
         else
           v10 = *(_QWORD *)(v7
-                          - ((unsigned __int64)(*(_DWORD *)(v7 + 8) ^ (unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ (unsigned int)(v7 >> 4)) >> 12));
+                          - ((unsigned __int64)(*(_DWORD *)(v7 + 8) ^ (unsigned int)RtlpLFHKey ^ (unsigned int)HeapHandle ^ (unsigned int)(v7 >> 4)) >> 12));
         v11 = *(unsigned __int16 *)(v10 + 36);
       }
       if ( *(_BYTE *)(v7 + 15) == 4 )
       {
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           v14 = *(_DWORD *)(v7 + 8);
           LOWORD(v20) = v14;
-          if ( (v14 & *(_DWORD *)(a1 + 124)) != 0 )
-            v20 = *(_DWORD *)(a1 + 136) ^ v14;
+          if ( (v14 & *((_DWORD *)HeapHandle + 31)) != 0 )
+            v20 = *((_DWORD *)HeapHandle + 34) ^ v14;
           v15 = v20;
         }
         else
@@ -431,19 +431,26 @@ LABEL_47:
       {
         v16 = 16LL * v11;
       }
-      if ( v16 + v7 < a3 )
+      if ( v16 + v7 < (unsigned __int64)BaseAddress )
         goto LABEL_47;
-      if ( (a2 & 0x3C000102) != 0
-        || (*(_BYTE *)(a3 - 1) != 5 ? (v17 = 0LL) : (v17 = a3 - 16LL * *(unsigned __int8 *)(a3 - 16 + 14)),
-            (int)RtlpCallInterceptRoutine(*(_DWORD *)(a3 - 8), a1, a3, 3, v17) >= 0) )
+      if ( (Flags & 0x3C000102) != 0
+        || (*((char *)BaseAddress - 1) != 5
+          ? (v17 = 0LL)
+          : (v17 = (char *)BaseAddress - 16 * (unsigned __int8)*((char *)BaseAddress - 2)),
+            (int)RtlpCallInterceptRoutine(
+                   *((_DWORD *)BaseAddress - 2),
+                   (_DWORD)HeapHandle,
+                   (_DWORD)BaseAddress,
+                   3,
+                   (__int64)v17) >= 0) )
       {
 LABEL_13:
         if ( *(char *)(v7 + 15) < 0 )
         {
-          RtlpLowFragHeapFree(a1, v7);
+          RtlpLowFragHeapFree(HeapHandle, v7);
           return 1;
         }
-        return (unsigned __int8)RtlpFreeHeap(a1, a2 | 2, v7, a3);
+        return (unsigned __int8)RtlpFreeHeap(HeapHandle);
       }
     }
 LABEL_53:
@@ -452,5 +459,5 @@ LABEL_53:
     v18->LastErrorValue = RtlNtStatusToDosError(-1073741811);
     return v6;
   }
-  return RtlpHpFreeWithExceptionProtection(a1, a3, a2);
+  return RtlpHpFreeWithExceptionProtection(HeapHandle);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteRotateVa @ 0x1403CDA5C
+ * XREFs of MiDeleteRotateVa @ 0x14038DD68
  * Callers:
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
  * Callees:
- *     MiRotatedToFrameBuffer @ 0x140238E74 (MiRotatedToFrameBuffer.c)
- *     MiReduceShareCount @ 0x14023EDC0 (MiReduceShareCount.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetContainingPageTable @ 0x1402ECE30 (MiGetContainingPageTable.c)
- *     MiUnmapFrameBuffer @ 0x1403CE530 (MiUnmapFrameBuffer.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1404F31F8 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x140202774 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiReduceShareCount @ 0x140206F10 (MiReduceShareCount.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiRotatedToFrameBuffer @ 0x140213AD4 (MiRotatedToFrameBuffer.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetContainingPageTable @ 0x14034E470 (MiGetContainingPageTable.c)
+ *     MiUnmapFrameBuffer @ 0x14038E570 (MiUnmapFrameBuffer.c)
  */
 
 __int64 __fastcall MiDeleteRotateVa(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -20,7 +20,7 @@ __int64 __fastcall MiDeleteRotateVa(__int64 a1, unsigned __int64 a2, unsigned in
   __int64 v7; // rsi
   int v8; // ecx
   __int64 v10; // rbx
-  unsigned __int64 v11; // rbx
+  __int64 v11; // rbx
   unsigned int v12; // edi
 
   v3 = *(__int64 **)(a1 + 184);
@@ -60,7 +60,7 @@ __int64 __fastcall MiDeleteRotateVa(__int64 a1, unsigned __int64 a2, unsigned in
     {
       v8 = *(_DWORD *)(v7 + 48);
       if ( (v8 & 0x600000) == 0x600000 && (v8 & 4) == 0 )
-        MiCaptureWriteWatchDirtyBit(KeGetCurrentThread()->ApcState.Process, (__int64)(a2 << 25) >> 16, v7);
+        MiCaptureWriteWatchDirtyBit((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)(a2 << 25) >> 16, v7);
     }
     return 0LL;
   }

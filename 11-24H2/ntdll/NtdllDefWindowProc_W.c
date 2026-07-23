@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDefWindowProc_W @ 0x180161960
+ * XREFs of NtdllDefWindowProc_W @ 0x18015FD20
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllDefWindowProc_W()
 {
-  off_1801E7210();
+  off_1801E6210();
 }

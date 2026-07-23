@@ -1,8 +1,8 @@
 /*
- * XREFs of ?KiXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354DE0
+ * XREFs of ?KiXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2B10
  * Callers:
- *     PpmParkReportParkedCores @ 0x1403547C0 (PpmParkReportParkedCores.c)
- *     KeXorAffinityEx2 @ 0x140354F38 (KeXorAffinityEx2.c)
+ *     PpmParkReportParkedCores @ 0x1402B24F0 (PpmParkReportParkedCores.c)
+ *     KeXorAffinityEx2 @ 0x1402B2C68 (KeXorAffinityEx2.c)
  * Callees:
  *     <none>
  */

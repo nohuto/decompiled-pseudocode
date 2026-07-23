@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
+ *     sub_140300B40 @ 0x140300B40 (sub_140300B40.c)
  */
 
 __int64 __fastcall PsGetThreadSessionId(__int64 a1)
 {
-  return MmGetSessionId(*(_QWORD *)(a1 + 544));
+  return sub_140300B40(*(_QWORD *)(a1 + 544));
 }

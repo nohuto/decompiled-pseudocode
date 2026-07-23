@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxIsDripsBlockingDevice @ 0x140490978
+ * XREFs of PopFxIsDripsBlockingDevice @ 0x14048AFB8
  * Callers:
- *     PopFxBuildDripsBlockingDeviceList @ 0x140490504 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x14048AB44 (PopFxBuildDripsBlockingDeviceList.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char __fastcall PopFxIsDripsBlockingDevice(__int64 a1, unsigned __int64 a2, _DWORD *a3)

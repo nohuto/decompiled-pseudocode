@@ -1,8 +1,8 @@
 /*
- * XREFs of KsepCacheInsert @ 0x1404E37E0
+ * XREFs of KsepCacheInsert @ 0x14050B568
  * Callers:
- *     KseAddHardwareId @ 0x1404E3884 (KseAddHardwareId.c)
- *     KsepDbCacheInsertDevice @ 0x14057DABC (KsepDbCacheInsertDevice.c)
+ *     KseAddHardwareId @ 0x14050D830 (KseAddHardwareId.c)
+ *     KsepDbCacheInsertDevice @ 0x14057DF68 (KsepDbCacheInsertDevice.c)
  * Callees:
  *     <none>
  */

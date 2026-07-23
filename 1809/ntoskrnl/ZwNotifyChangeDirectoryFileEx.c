@@ -1,14 +1,24 @@
 /*
- * XREFs of ZwNotifyChangeDirectoryFileEx @ 0x1401BA3D0
+ * XREFs of ZwNotifyChangeDirectoryFileEx @ 0x1401BA530
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwNotifyChangeDirectoryFileEx(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwNotifyChangeDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        DIRECTORY_NOTIFY_INFORMATION_CLASS DirectoryNotifyInformationClass)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(FileHandle);
 }

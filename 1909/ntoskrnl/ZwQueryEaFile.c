@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwQueryEaFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, Buffer);
+  return KiServiceInternal(FileHandle);
 }

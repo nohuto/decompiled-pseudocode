@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFreeMdlPageRun @ 0x1402C89E0
+ * XREFs of MiFreeMdlPageRun @ 0x1402C8C70
  * Callers:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiFreePartitionPageRun @ 0x140659CFC (MiFreePartitionPageRun.c)
- *     MiDeleteAweInfoPages @ 0x140A41A90 (MiDeleteAweInfoPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MiFreePartitionPageRun @ 0x14065A24C (MiFreePartitionPageRun.c)
+ *     MiDeleteAweInfoPages @ 0x140A41D40 (MiDeleteAweInfoPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiResidentPageDangleFree @ 0x14038E9EC (MiResidentPageDangleFree.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403B8360 (MiConvertSmallPageRangeToLarge.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiResidentPageDangleFree @ 0x14038EBCC (MiResidentPageDangleFree.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B8540 (MiConvertSmallPageRangeToLarge.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeMdlPageRun(ULONG_PTR a1, unsigned __int64 a2, char a3, __int64 a4)
@@ -90,7 +90,7 @@ LABEL_4:
       v10 = 48 * a1 - 0x220000000000LL;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -179,10 +179,10 @@ LABEL_14:
       if ( CurrentIrql != 17 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v39 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v41 = CurrentPrcb->SchedulerAssist;
@@ -280,10 +280,10 @@ LABEL_85:
         v30 = (unsigned __int8)MiLockPageInline(v24);
         *(_BYTE *)(v24 + 34) = *(_BYTE *)(v24 + 34) & 0xF8 | 5;
         _InterlockedAnd64((volatile signed __int64 *)(v24 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
           {
             v32 = KeGetCurrentPrcb();
             v33 = v32->SchedulerAssist;

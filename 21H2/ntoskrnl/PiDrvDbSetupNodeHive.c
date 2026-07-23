@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDrvDbSetupNodeHive @ 0x1408B7E64
+ * XREFs of PiDrvDbSetupNodeHive @ 0x1408B7FC4
  * Callers:
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140725DB0 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDrvDbSetupNodes @ 0x1407A35EC (PiDrvDbSetupNodes.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140725F80 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodes @ 0x1407A37EC (PiDrvDbSetupNodes.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     CmIsStateSeparationEnabled @ 0x1402C9DF8 (CmIsStateSeparationEnabled.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
- *     PiDrvDbUnloadHive @ 0x140726048 (PiDrvDbUnloadHive.c)
- *     PiDrvDbLoadHive @ 0x140726094 (PiDrvDbLoadHive.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     PiDrvDbOverlayNodeHive @ 0x1408B66B8 (PiDrvDbOverlayNodeHive.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x1408B795C (PiDrvDbResolveNodeFilePaths.c)
- *     RtlSuffixUnicodeString @ 0x14090FC40 (RtlSuffixUnicodeString.c)
+ *     CmIsStateSeparationEnabled @ 0x1402486E8 (CmIsStateSeparationEnabled.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     PiDrvDbUnloadHive @ 0x140726218 (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x140726264 (PiDrvDbLoadHive.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1408B6818 (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x1408B7ABC (PiDrvDbResolveNodeFilePaths.c)
+ *     RtlSuffixUnicodeString @ 0x14090FDA0 (RtlSuffixUnicodeString.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
@@ -141,7 +141,7 @@ LABEL_37:
         appended = RtlAppendUnicodeStringToString(&Destination, &DestinationString);
         if ( appended >= 0 )
         {
-          v11 = PiDrvDbLoadHive(&Destination, (__int64)&UnicodeString, 0x2000LL, &KeyHandle);
+          v11 = PiDrvDbLoadHive(&Destination, &UnicodeString, 0x2000, &KeyHandle);
           appended = v11;
           if ( v11 != -1073741772 )
           {
@@ -172,7 +172,7 @@ LABEL_38:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v3 )
-    PiDrvDbUnloadHive((__int64)&Destination, 0LL);
+    PiDrvDbUnloadHive(&Destination, 0LL);
   RtlFreeAnsiString(&UnicodeString);
   RtlFreeAnsiString(&Destination);
   return (unsigned int)appended;

@@ -6,9 +6,9 @@
  *     RtlpHpLfhSubsegmentFree @ 0x18004F164 (RtlpHpLfhSubsegmentFree.c)
  */
 
-__int64 __fastcall RtlpHpLfhOwnerCleanup(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpLfhOwnerCleanup(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  __int64 v4; // rbp
+  __int64 Value; // rbp
   __int64 result; // rax
   __int64 **v6; // rbx
   __int64 *v7; // rdx
@@ -19,7 +19,7 @@ __int64 __fastcall RtlpHpLfhOwnerCleanup(unsigned __int64 a1, __int64 a2)
   _QWORD **v12; // rcx
   _QWORD *v13; // r8
 
-  v4 = *(_QWORD *)(a1 + 8LL * *(unsigned __int8 *)(a2 + 1) + 192);
+  Value = a1[*(unsigned __int8 *)(a2 + 1) + 24].Value;
   result = a2 + 40;
   if ( *(_QWORD *)result != result )
   {
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpHpLfhOwnerCleanup(unsigned __int64 a1, __int64 a2)
       --*(_QWORD *)(a2 + 8);
     *((_WORD *)v7 + 16) = *((_WORD *)v7 + 17);
     *((_BYTE *)v7 + 38) = 2;
-    result = RtlpHpLfhSubsegmentFree(a1, (__int64)v7, v4, 1);
+    result = RtlpHpLfhSubsegmentFree(a1, (__int64)v7, Value, 1);
   }
   return result;
 }

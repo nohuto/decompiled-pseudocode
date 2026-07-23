@@ -1,23 +1,23 @@
 /*
- * XREFs of KeResumeClockTimerFromIdle @ 0x140224BE0
+ * XREFs of KeResumeClockTimerFromIdle @ 0x1402C94E0
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x14022A190 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KiSendClockInterruptToClockOwner @ 0x140292B04 (KiSendClockInterruptToClockOwner.c)
- *     KiEventClockStateChange @ 0x140293778 (KiEventClockStateChange.c)
- *     KiRestoreClockTickRate @ 0x1402937B8 (KiRestoreClockTickRate.c)
- *     KiSetPendingTick @ 0x1402937FC (KiSetPendingTick.c)
- *     KiUpdateTimeAssist @ 0x1402AB2E0 (KiUpdateTimeAssist.c)
- *     KiGetPendingTick @ 0x1402BC9E0 (KiGetPendingTick.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeFindFirstSetRightAffinityEx @ 0x140513590 (KeFindFirstSetRightAffinityEx.c)
- *     KiAdjustTimersAfterDripsExit @ 0x140513F5C (KiAdjustTimersAfterDripsExit.c)
- *     KiResetForceIdle @ 0x140523620 (KiResetForceIdle.c)
- *     KiGetPastDueIRTimerInfo @ 0x140523A74 (KiGetPastDueIRTimerInfo.c)
- *     ExRecordOneTimerExpiry @ 0x1405B6730 (ExRecordOneTimerExpiry.c)
+ *     KiSendClockInterruptToClockOwner @ 0x140210A74 (KiSendClockInterruptToClockOwner.c)
+ *     KiEventClockStateChange @ 0x1402116E8 (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x140211728 (KiRestoreClockTickRate.c)
+ *     KiSetPendingTick @ 0x14021176C (KiSetPendingTick.c)
+ *     KiUpdateTimeAssist @ 0x140229420 (KiUpdateTimeAssist.c)
+ *     KiGetPendingTick @ 0x14023AF70 (KiGetPendingTick.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x1402CEA40 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x1405137D0 (KeFindFirstSetRightAffinityEx.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x14051419C (KiAdjustTimersAfterDripsExit.c)
+ *     KiResetForceIdle @ 0x140523860 (KiResetForceIdle.c)
+ *     KiGetPastDueIRTimerInfo @ 0x140523CB4 (KiGetPastDueIRTimerInfo.c)
+ *     ExRecordOneTimerExpiry @ 0x1405B6960 (ExRecordOneTimerExpiry.c)
  */
 
 void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
@@ -71,7 +71,7 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
       goto LABEL_6;
     _mm_pause();
   }
-  KiUpdateTimeAssist(0LL, &v17, &v20);
+  KiUpdateTimeAssist(0LL, (__int64)&v17, (__int64)&v20);
   KiClockTimerOneShotEndTime = v17;
   if ( KeMinimumIncrement - 1 + (int)v17 - (int)KiLastNonHrTimerExpiration >= (unsigned int)KeNonHrTimeIncrement )
     KiLastNonHrTimerExpiration = v17;
@@ -129,13 +129,13 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
       {
         CurrentPrcb->ClockOwner = 1;
         LODWORD(KiClockTimerOwner) = v12;
-        if ( !(unsigned __int8)KiGetPendingTick() )
+        if ( !KiGetPendingTick() )
           off_140C00880[0]();
       }
       v13 = 0;
-      KiRestoreClockTickRate(v9, &v18, &v19);
+      KiRestoreClockTickRate(v9, &v18);
       KiClockTimerNextTickTime = v9 + (unsigned int)KeTimeIncrement;
-      KiEventClockStateChange(0LL, 1LL, &v19, &v18);
+      KiEventClockStateChange(0, 1, &v19, &v18);
       goto LABEL_42;
     }
   }
@@ -145,7 +145,7 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
   }
   ++qword_140C31B98;
   v13 = 2;
-  KiEventClockStateChange(2LL, 1LL, 0LL, 0LL);
+  KiEventClockStateChange(2, 1, 0LL, 0LL);
   if ( v3 )
   {
     LODWORD(KiClockTimerOwner) = Number;
@@ -165,7 +165,7 @@ LABEL_42:
     v24[0] = &v21;
     v21 = v9;
     v24[1] = 16LL;
-    EtwTraceKernelEvent((unsigned int)v24, 1, 1074790400, 3928, 1538);
+    EtwTraceKernelEvent((int)v24, 1, 0x40100000u, 3928, 1538);
   }
   _InterlockedExchange(&KiClockState, v13);
 LABEL_6:
@@ -198,6 +198,6 @@ LABEL_6:
   if ( !ClockOwner && (CurrentPrcb->PendingTickFlags & 1) != 0 )
   {
     off_140C00888[0]();
-    KiSetPendingTick(0LL);
+    KiSetPendingTick(0);
   }
 }

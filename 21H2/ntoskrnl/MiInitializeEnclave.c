@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializeEnclave @ 0x1408D2F90
+ * XREFs of MiInitializeEnclave @ 0x1408D30F0
  * Callers:
- *     NtInitializeEnclave @ 0x1408D4170 (NtInitializeEnclave.c)
+ *     NtInitializeEnclave @ 0x1408D42D0 (NtInitializeEnclave.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     KeInitializeEnclave @ 0x1408BB6E8 (KeInitializeEnclave.c)
- *     MiInitializeVsmEnclave @ 0x1408D3098 (MiInitializeVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x1409B0D60 (MiReturnReservedEnclavePages.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     KeInitializeEnclave @ 0x1408BB848 (KeInitializeEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x1408D31F8 (MiInitializeVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x1409B1C90 (MiReturnReservedEnclavePages.c)
  */
 
 __int64 __fastcall MiInitializeEnclave(PEPROCESS Process, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)
 {
-  volatile signed __int32 *v8; // rax
+  __int64 v8; // rax
   __int64 v9; // r8
-  volatile signed __int32 *v10; // rdi
+  __int64 v10; // rdi
   int v12; // ebx
   int v13; // eax
   int v14; // [rsp+20h] [rbp-28h]
@@ -25,9 +25,9 @@ __int64 __fastcall MiInitializeEnclave(PEPROCESS Process, unsigned __int64 a2, _
   v10 = v8;
   if ( !v8 )
     return v15[0];
-  if ( (v8[12] & 0x3100000) == 0x2100000 )
+  if ( (*(_DWORD *)(v8 + 48) & 0x3100000) == 0x2100000 )
   {
-    v13 = *((_DWORD *)v8 + 16);
+    v13 = *(_DWORD *)(v8 + 64);
     if ( (v13 & 2) != 0 )
     {
       v12 = -1073740528;
@@ -36,11 +36,11 @@ __int64 __fastcall MiInitializeEnclave(PEPROCESS Process, unsigned __int64 a2, _
     {
       if ( a4 == 4096 )
       {
-        v12 = KeInitializeEnclave((__int64)(*((_QWORD *)v10 + 10) << 25) >> 16, a3, v9, a3 + 2048, v14, a5);
+        v12 = KeInitializeEnclave((__int64)(*(_QWORD *)(v10 + 80) << 25) >> 16, a3, v9, a3 + 2048, v14, a5);
         if ( v12 >= 0 )
         {
           MiReturnReservedEnclavePages(v10, -1LL);
-          *((_DWORD *)v10 + 16) |= 2u;
+          *(_DWORD *)(v10 + 64) |= 2u;
           v12 = 0;
         }
       }

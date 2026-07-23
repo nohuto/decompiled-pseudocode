@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReserveFaultPte @ 0x140634184
+ * XREFs of MiReserveFaultPte @ 0x1406346D4
  * Callers:
- *     MiValidateImagePfn @ 0x1406B0FF8 (MiValidateImagePfn.c)
+ *     MiValidateImagePfn @ 0x1406B1028 (MiValidateImagePfn.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiReserveFaultPte()
@@ -18,7 +18,7 @@ __int64 MiReserveFaultPte()
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
   bool v6; // zf
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE v9; // [rsp+30h] [rbp-28h] BYREF
 
   BitMapHeader.SizeOfBitMap = 16;
@@ -29,10 +29,10 @@ __int64 MiReserveFaultPte()
   ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, 1u, 0);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v9);
   OldIrql = v9.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

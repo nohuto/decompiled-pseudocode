@@ -94,11 +94,16 @@ __int64 __fastcall MiSplitDirectMapPage(unsigned __int16 *a1, __int64 a2, ULONG_
   if ( (v11 & 0x40) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_20;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v10 > 0xFu || CurrentIrql < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
+      || CurrentIrql > 0xFu
+      || (unsigned __int8)v10 > 0xFu
+      || CurrentIrql < 2u )
+    {
       goto LABEL_20;
+    }
     CurrentPrcb = KeGetCurrentPrcb();
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
     v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
@@ -116,10 +121,10 @@ LABEL_20:
   if ( (v11 & 0x10) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_20;
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v18 > 0xFu || (unsigned __int8)v10 > 0xFu || v18 < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v18 > 0xFu || (unsigned __int8)v10 > 0xFu || v18 < 2u )
       goto LABEL_20;
     CurrentPrcb = KeGetCurrentPrcb();
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -218,10 +223,10 @@ LABEL_35:
     MiInsertPageInFreeOrZeroedList(v36, 2);
   }
   _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v38 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v38 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v38 >= 2u )
     {
       v39 = KeGetCurrentPrcb();
       v40 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

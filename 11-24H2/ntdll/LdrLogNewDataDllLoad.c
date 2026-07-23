@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrLogNewDataDllLoad @ 0x180074410
+ * XREFs of LdrLogNewDataDllLoad @ 0x180090CF0
  * Callers:
- *     LdrAddLoadAsDataTable @ 0x180064190 (LdrAddLoadAsDataTable.c)
+ *     LdrAddLoadAsDataTable @ 0x180079D70 (LdrAddLoadAsDataTable.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogNewDllLoadInternal @ 0x1800745A0 (LdrpLogNewDllLoadInternal.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpLogNewDllLoadInternal @ 0x180090E80 (LdrpLogNewDllLoadInternal.c)
  */
 
-unsigned int *__fastcall LdrLogNewDataDllLoad(__int64 a1, __int64 a2)
+int __fastcall LdrLogNewDataDllLoad(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi
   _DWORD *SharedData; // rdx
@@ -18,7 +18,7 @@ unsigned int *__fastcall LdrLogNewDataDllLoad(__int64 a1, __int64 a2)
   __int64 v10; // r9
   __int64 v11; // r9
   __int64 v12; // r8
-  unsigned int *result; // rax
+  struct _PEB *v13; // rax
 
   v4 = 2147353476LL;
   SharedData = NtCurrentPeb()->SharedData;
@@ -37,22 +37,22 @@ unsigned int *__fastcall LdrLogNewDataDllLoad(__int64 a1, __int64 a2)
     if ( (*(_BYTE *)v9 & 0x10) != 0 )
       goto LABEL_7;
   }
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v13) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v13 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v4 = *((_QWORD *)result + 18) + 554LL;
+    v13 = NtCurrentPeb();
+    v4 = (__int64)v13->SharedData + 554;
   }
   if ( *(_BYTE *)v4 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 4) != 0 )
+    v13 = NtCurrentPeb();
+    if ( (v13->TracingFlags & 4) != 0 )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v13) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v13 )
       {
-        result = (unsigned int *)NtCurrentPeb();
-        v7 = *((_QWORD *)result + 18) + 555LL;
+        v13 = NtCurrentPeb();
+        v7 = (__int64)v13->SharedData + 555;
       }
       if ( (*(_BYTE *)v7 & 0x20) != 0 )
       {
@@ -71,9 +71,9 @@ LABEL_7:
         {
           v12 = 6LL;
         }
-        return (unsigned int *)LdrpLogNewDllLoadInternal(a1, 0LL, v12, v11, a2);
+        LODWORD(v13) = LdrpLogNewDllLoadInternal(a1, 0LL, v12, v11, a2);
       }
     }
   }
-  return result;
+  return (int)v13;
 }

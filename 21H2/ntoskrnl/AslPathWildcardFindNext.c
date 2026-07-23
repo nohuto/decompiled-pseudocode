@@ -1,21 +1,21 @@
 /*
- * XREFs of AslPathWildcardFindNext @ 0x1409690C4
+ * XREFs of AslPathWildcardFindNext @ 0x1409692A4
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
- *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965260 (SdbpCheckMatchingWildcardFiles.c)
+ *     AslPathWildcardFindFirst @ 0x140968CD4 (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyNW @ 0x14027F1B8 (RtlStringCbCopyNW.c)
- *     ZwQueryDirectoryFile @ 0x1403FAA40 (ZwQueryDirectoryFile.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlStringCbCatNW @ 0x1405C0B40 (RtlStringCbCatNW.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140969C60 (AslpPathWildcardAllocMatchNode.c)
- *     AslpPathWildcardFreeMatchNode @ 0x140969F54 (AslpPathWildcardFreeMatchNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyNW @ 0x14026D5E8 (RtlStringCbCopyNW.c)
+ *     ZwQueryDirectoryFile @ 0x1403FAC20 (ZwQueryDirectoryFile.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlStringCbCatNW @ 0x1405C0D70 (RtlStringCbCatNW.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969E40 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x14096A134 (AslpPathWildcardFreeMatchNode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AslPathWildcardFindNext(wchar_t *a1, __int64 a2, unsigned __int64 *a3)

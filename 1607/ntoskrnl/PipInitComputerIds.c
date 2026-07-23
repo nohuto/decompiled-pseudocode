@@ -3,23 +3,23 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x14009B870 (MmMapIoSpaceEx.c)
- *     RtlUnicodeStringCopyStringEx @ 0x14013BFF4 (RtlUnicodeStringCopyStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x14009B070 (MmMapIoSpaceEx.c)
+ *     RtlUnicodeStringCopyStringEx @ 0x14013C564 (RtlUnicodeStringCopyStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlStringFromGUIDEx @ 0x1403F7E8C (RtlStringFromGUIDEx.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     _PnpSetObjectProperty @ 0x140488D1C (_PnpSetObjectProperty.c)
- *     RtlUpcaseUnicodeString @ 0x140514D50 (RtlUpcaseUnicodeString.c)
- *     IopCreateRegistryKeyEx @ 0x1405391F8 (IopCreateRegistryKeyEx.c)
- *     _PnpCtxRegDeleteTree @ 0x140550618 (_PnpCtxRegDeleteTree.c)
- *     IopOpenRegistryKeyEx @ 0x14055064C (IopOpenRegistryKeyEx.c)
+ *     RtlStringFromGUIDEx @ 0x1403F6D4C (RtlStringFromGUIDEx.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x1404F8140 (RtlUpcaseUnicodeString.c)
+ *     _PnpSetObjectProperty @ 0x140511490 (_PnpSetObjectProperty.c)
+ *     IopCreateRegistryKeyEx @ 0x140539738 (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxRegDeleteTree @ 0x140550B58 (_PnpCtxRegDeleteTree.c)
+ *     IopOpenRegistryKeyEx @ 0x140550B8C (IopOpenRegistryKeyEx.c)
  *     PipCreateComputerId @ 0x14079A240 (PipCreateComputerId.c)
  *     PipSmBiosGetString @ 0x14079A3B4 (PipSmBiosGetString.c)
  *     PipSmBiosFindStruct @ 0x14079A4DC (PipSmBiosFindStruct.c)
@@ -336,10 +336,7 @@ LABEL_102:
                 ComputerId = RtlUnicodeStringCopyStringEx(&RemainingString, L"ComputerMetadata\\", &RemainingString, 0);
                 if ( ComputerId < 0 )
                   break;
-                ComputerId = RtlStringFromGUIDEx(
-                               (unsigned int *)&UnicodeString[v62 + 8].Length,
-                               (__int64)&RemainingString,
-                               0);
+                ComputerId = RtlStringFromGUIDEx((PGUID)&UnicodeString[v62 + 8], &RemainingString, 0);
                 if ( ComputerId < 0 )
                   break;
                 ComputerId = RtlUpcaseUnicodeString(&RemainingString, &RemainingString, 0);

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFreeIrp @ 0x1403B5EEC
+ * XREFs of PopFreeIrp @ 0x1403BFDEC
  * Callers:
- *     PopRequestCompletion @ 0x1403B45B0 (PopRequestCompletion.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x1403B46F0 (PopHandleDevicePowerIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140C0DBB0 (PopSystemIrpCompletion.c)
+ *     PopRequestCompletion @ 0x1403BE4B0 (PopRequestCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403BE5F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140C13DC0 (PopSystemIrpCompletion.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     PopFxReleasePowerIrp @ 0x1403B60D8 (PopFxReleasePowerIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     PopFxReleasePowerIrp @ 0x1403BFFD8 (PopFxReleasePowerIrp.c)
  */
 
 LONG_PTR __fastcall PopFreeIrp(PIRP Irp)
@@ -28,14 +28,14 @@ LONG_PTR __fastcall PopFreeIrp(PIRP Irp)
   v3 = v2[25];
   v4 = (void *)v2[4];
   v5 = (void *)v2[3];
-  KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
   v6 = *v2;
-  stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  PopIrpLockThread = (__int64)KeGetCurrentThread();
   if ( *(__int64 **)(v6 + 8) != v2 || (v7 = (__int64 **)v2[1], *v7 != v2) )
     __fastfail(3u);
   *v7 = (__int64 *)v6;
   *(_QWORD *)(v6 + 8) = v7;
-  stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+  PopIrpLockThread = 0LL;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v3 && *((_BYTE *)v2 + 184) == 2 && *((_DWORD *)v2 + 47) == 1 )
   {

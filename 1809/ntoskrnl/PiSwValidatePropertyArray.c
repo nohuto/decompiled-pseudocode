@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwValidatePropertyArray @ 0x1406D7C10
+ * XREFs of PiSwValidatePropertyArray @ 0x1406D8EB0
  * Callers:
- *     PiSwValidateCreateData @ 0x1406D7370 (PiSwValidateCreateData.c)
- *     PiSwIrpInterfacePropertySet @ 0x1406D777C (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpPropertySet @ 0x14071D214 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x140753FAC (PiSwIrpInterfaceRegister.c)
+ *     PiSwValidateCreateData @ 0x1406D8610 (PiSwValidateCreateData.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1406D8A1C (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpPropertySet @ 0x14071E4B4 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x14075519C (PiSwIrpInterfaceRegister.c)
  * Callees:
- *     _PnpValidatePropertyData @ 0x1406A31C4 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x1406A4464 (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PiSwValidatePropertyArray(__int64 a1, unsigned int a2)

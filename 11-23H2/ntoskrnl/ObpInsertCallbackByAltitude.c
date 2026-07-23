@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpInsertCallbackByAltitude @ 0x14085817C
+ * XREFs of ObpInsertCallbackByAltitude @ 0x1408583BC
  * Callers:
- *     ObRegisterCallbacks @ 0x140857FB0 (ObRegisterCallbacks.c)
+ *     ObRegisterCallbacks @ 0x1408581F0 (ObRegisterCallbacks.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlCompareAltitudes @ 0x14034FA00 (RtlCompareAltitudes.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlCompareAltitudes @ 0x14034FBA0 (RtlCompareAltitudes.c)
  */
 
 __int64 __fastcall ObpInsertCallbackByAltitude(__int64 a1, _QWORD *a2)

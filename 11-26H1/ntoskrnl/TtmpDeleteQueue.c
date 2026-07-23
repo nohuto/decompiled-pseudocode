@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpDeleteQueue @ 0x1407ED2A0
+ * XREFs of TtmpDeleteQueue @ 0x1407F2E00
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1407E6ED0 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogQueueDestroyed @ 0x1407E9EF0 (TtmiLogQueueDestroyed.c)
- *     TtmpAcquireSessionLock @ 0x140A3ACCC (TtmpAcquireSessionLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1407ECA28 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogQueueDestroyed @ 0x1407EFA50 (TtmiLogQueueDestroyed.c)
+ *     TtmpAcquireSessionLock @ 0x1409F68CC (TtmpAcquireSessionLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmpDeleteQueue(__int64 *a1)
@@ -29,7 +29,7 @@ LABEL_9:
     __fastfail(3u);
   *v4 = v2;
   v2[1] = (__int64)v4;
-  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
   KeLeaveCriticalRegion();
   TtmpDereferenceSessionMaybeLast(v3);
   ExDeleteResourceLite((PERESOURCE)(a1 + 3));

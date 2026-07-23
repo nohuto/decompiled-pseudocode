@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpExposeAttributesInSenderContext @ 0x1409C0C60
+ * XREFs of AlpcpExposeAttributesInSenderContext @ 0x140991C40
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     AlpcpExposeViewAttributeInSenderContext @ 0x1409C0C80 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140991C60 (AlpcpExposeViewAttributeInSenderContext.c)
  */
 
 __int64 __fastcall AlpcpExposeAttributesInSenderContext(__int64 a1, __int64 a2)

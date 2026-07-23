@@ -1,16 +1,16 @@
 /*
- * XREFs of PspStorageReplaceObject @ 0x14077C720
+ * XREFs of PspStorageReplaceObject @ 0x14077C5D0
  * Callers:
- *     PsReplaceSiloContext @ 0x140772230 (PsReplaceSiloContext.c)
+ *     PsReplaceSiloContext @ 0x140772450 (PsReplaceSiloContext.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PspGetStorageArray @ 0x1409E23B8 (PspGetStorageArray.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PspGetStorageArray @ 0x1409DC168 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageReplaceObject(__int64 a1, __int64 a2, void *a3, unsigned __int64 *a4)
@@ -19,8 +19,8 @@ __int64 __fastcall PspStorageReplaceObject(__int64 a1, __int64 a2, void *a3, uns
   unsigned int v7; // ebp
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v9; // rdi
-  _QWORD *v10; // rax
-  _QWORD *v11; // rsi
+  char *v10; // rax
+  char *v11; // rsi
   unsigned __int64 v12; // rsi
   void *v13; // rcx
   unsigned int v14; // [rsp+20h] [rbp-28h] BYREF
@@ -36,12 +36,12 @@ __int64 __fastcall PspStorageReplaceObject(__int64 a1, __int64 a2, void *a3, uns
     CurrentThread = KeGetCurrentThread();
     v9 = (unsigned __int64 *)(v15[0] + 16LL * v14);
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire((__int64)v9, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)v9, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v9, (__int64)v10, (__int64)v9);
+      ExfAcquirePushLockExclusiveEx(v9, v10, (__int64)v9);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     v12 = v9[1];
     if ( (v12 & 1) != 0 )
     {

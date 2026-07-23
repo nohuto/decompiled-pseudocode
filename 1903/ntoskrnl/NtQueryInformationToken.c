@@ -104,8 +104,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   unsigned int v63; // r9d
   unsigned int j; // ecx
   ULONG v65; // ecx
-  struct _SID_AND_ATTRIBUTES *v66; // r9
-  struct _SID_AND_ATTRIBUTES *v67; // rdi
+  _SID_AND_ATTRIBUTES *v66; // r9
+  _SID_AND_ATTRIBUTES *v67; // rdi
   __int64 v68; // rbx
   ULONG v69; // r15d
   PVOID v70; // rax
@@ -148,7 +148,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   _QWORD *v107; // [rsp+E0h] [rbp-C8h] BYREF
   PVOID v108; // [rsp+E8h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+F0h] [rbp-B8h] BYREF
-  struct _SID_AND_ATTRIBUTES Src; // [rsp+F8h] [rbp-B0h] BYREF
+  _SID_AND_ATTRIBUTES Src; // [rsp+F8h] [rbp-B0h] BYREF
   PSID_AND_ATTRIBUTES Dest; // [rsp+108h] [rbp-A0h]
   _QWORD v112[6]; // [rsp+110h] [rbp-98h] BYREF
   _OWORD v113[3]; // [rsp+140h] [rbp-68h] BYREF
@@ -184,7 +184,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
     switch ( TokenInformationClass )
     {
       case TokenGroups:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v72 = 1;
@@ -217,7 +217,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
           (PULONG)&RemainingSidArea);
         goto LABEL_13;
       case TokenPrivileges:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -233,7 +233,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         SepConvertTokenPrivileges((__int64)Object, TokenInformation);
         goto LABEL_13;
       case TokenOwner:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -250,7 +250,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         RtlCopySid(v44 - 8, (char *)TokenInformation + 8, *(PSID *)(*((_QWORD *)v20 + 19) + 16LL * v20[36]));
         goto LABEL_13;
       case TokenPrimaryGroup:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -265,7 +265,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         RtlCopySid(v28 - 8, (char *)TokenInformation + 8, *((PSID *)v20 + 21));
         goto LABEL_13;
       case TokenDefaultDacl:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 8;
@@ -298,7 +298,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         v18 = (struct _ERESOURCE *)*((_QWORD *)v30 + 6);
         goto LABEL_15;
       case TokenSource:
-        result = SepReferenceTokenByHandle(TokenHandle, 0x10u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 0x10u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 16;
@@ -309,7 +309,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *(_OWORD *)TokenInformation = *(_OWORD *)Object;
         goto LABEL_17;
       case TokenType:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 4;
@@ -320,7 +320,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *(_DWORD *)TokenInformation = *((_DWORD *)Object + 48);
         goto LABEL_17;
       case TokenImpersonationLevel:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v14 = Object;
@@ -336,7 +336,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *(_DWORD *)TokenInformation = v14[49];
         goto LABEL_17;
       case TokenStatistics:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 56;
@@ -367,7 +367,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *((_QWORD *)TokenInformation + 6) = *((_QWORD *)Object + 7);
         goto LABEL_14;
       case TokenRestrictedSids:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -399,7 +399,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
           (PULONG)&RemainingSidArea);
         goto LABEL_13;
       case TokenSessionId:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         *v11 = 4;
@@ -411,7 +411,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *v11 = 4;
         goto LABEL_16;
       case TokenGroupsAndPrivileges:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -446,13 +446,13 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v49 + 3);
         *((_DWORD *)TokenInformation + 1) = v59;
         *(_DWORD *)TokenInformation = *((_DWORD *)v49 + 31);
-        v66 = (struct _SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
+        v66 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
         *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
         *((_DWORD *)TokenInformation + 5) = v62;
         *((_DWORD *)TokenInformation + 4) = *((_DWORD *)v49 + 32);
         if ( *((_DWORD *)v49 + 32) )
         {
-          v67 = (struct _SID_AND_ATTRIBUTES *)((char *)v66 + ((v59 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
+          v67 = (_SID_AND_ATTRIBUTES *)((char *)v66 + ((v59 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
           *((_QWORD *)TokenInformation + 3) = v67;
         }
         else
@@ -484,7 +484,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         SepConvertTokenPrivilegesToLuidAndAttributes(Object, v68);
         goto LABEL_13;
       case TokenSandBoxInert:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         *v11 = 4;
@@ -496,7 +496,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
       case TokenAuditPolicy:
         if ( !SeSinglePrivilegeCheck(SeSecurityPrivilege, PreviousMode) )
           return -1073741727;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         *v11 = 30;
@@ -511,7 +511,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *((_WORD *)TokenInformation + 14) = *((_WORD *)v17 + 58);
         goto LABEL_14;
       case TokenOrigin:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         *v11 = 8;
@@ -520,7 +520,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
         *(_QWORD *)TokenInformation = *((_QWORD *)Object + 28);
         goto LABEL_16;
       case TokenElevationType:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 4;
@@ -544,7 +544,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
       case TokenLinkedToken:
         v108 = 0LL;
         memset(v113, 0, sizeof(v113));
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         *v11 = 8;
@@ -592,7 +592,7 @@ LABEL_76:
         *v11 = 4;
         if ( TokenInformationLength != 4 )
           return -1073741820;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -605,7 +605,7 @@ LABEL_76:
           {
             if ( IsElevatedRid )
               break;
-            IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)v47 + 19) + 16LL * (unsigned int)v9);
+            IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)v47 + 19) + 16LL * (unsigned int)v9));
             LODWORD(v9) = v9 + 1;
             v47 = Object;
           }
@@ -616,7 +616,7 @@ LABEL_76:
         *(_DWORD *)TokenInformation = IsElevatedRid;
         goto LABEL_16;
       case TokenHasRestrictions:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 1;
@@ -627,7 +627,7 @@ LABEL_76:
         *(_BYTE *)TokenInformation = (*((_DWORD *)Object + 50) & 0x810) != 0;
         goto LABEL_17;
       case TokenAccessInformation:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -671,8 +671,8 @@ LABEL_76:
       case TokenVirtualizationEnabled:
       case TokenUIAccess:
       case TokenIsRestricted:
-      case TokenIsRestricted|TokenGroups:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+      case TokenPrivateNameSpace:
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 4;
@@ -706,7 +706,7 @@ LABEL_140:
         *(_DWORD *)TokenInformation = v9;
         break;
       case TokenIntegrityLevel:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -734,7 +734,7 @@ LABEL_52:
         v29 = (struct _ERESOURCE *)*((_QWORD *)v33 + 6);
         goto LABEL_53;
       case TokenMandatoryPolicy:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 4;
@@ -745,7 +745,7 @@ LABEL_52:
         v96 = inserted;
         goto LABEL_76;
       case TokenLogonSid:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -790,7 +790,7 @@ LABEL_188:
           (PULONG)&RemainingSidArea);
         goto LABEL_13;
       case TokenIsAppContainer:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 4;
@@ -802,7 +802,7 @@ LABEL_188:
         *(_DWORD *)TokenInformation = v9;
         goto LABEL_17;
       case TokenCapabilities:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -839,7 +839,7 @@ LABEL_121:
         goto LABEL_13;
       case TokenAppContainerSid:
         v19 = 8;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -863,7 +863,7 @@ LABEL_121:
         }
         goto LABEL_34;
       case TokenAppContainerNumber:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         v90 = 4;
@@ -881,7 +881,7 @@ LABEL_121:
         goto LABEL_16;
       case TokenUserClaimAttributes:
       case TokenDeviceClaimAttributes:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -916,7 +916,7 @@ LABEL_121:
         v96 = inserted;
         goto LABEL_75;
       case TokenDeviceGroups:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -967,7 +967,7 @@ LABEL_121:
         v18 = (struct _ERESOURCE *)*((_QWORD *)v15 + 6);
         goto LABEL_15;
       case TokenSecurityAttributes:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -999,9 +999,9 @@ LABEL_121:
                      &v90);
         v96 = inserted;
         goto LABEL_75;
-      case MaxTokenInfoClass:
+      case TokenProcessTrustLevel:
         v34 = 8;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -1037,8 +1037,8 @@ LABEL_45:
 LABEL_34:
         v18 = (struct _ERESOURCE *)*((_QWORD *)v20 + 6);
         goto LABEL_15;
-      case MaxTokenInfoClass|TokenGroups:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+      case TokenSingletonAttributes:
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -1057,8 +1057,8 @@ LABEL_75:
         ExReleaseResourceLite(*((PERESOURCE *)Object + 6));
         KeLeaveCriticalRegion();
         goto LABEL_76;
-      case TokenIsRestricted|TokenOwner:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+      case TokenBnoIsolation:
+        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
         if ( result < 0 )
           return result;
         KeEnterCriticalRegion();
@@ -1095,14 +1095,14 @@ LABEL_75:
         }
         v18 = (struct _ERESOURCE *)*((_QWORD *)v70 + 6);
         goto LABEL_15;
-      case MaxTokenInfoClass|TokenDefaultDacl:
+      case TokenIsSandboxed:
         v90 = 4;
         *v11 = 4;
         if ( TokenInformationLength < 4 )
           return -1073741789;
         *(_DWORD *)TokenInformation = (unsigned __int8)RtlIsSandboxedTokenHandle(TokenHandle);
         return 0;
-      case TokenAppContainerNumber|TokenAuditPolicy:
+      case TokenIsAppSilo:
         Feature_PPLEnforcement__private_IsEnabledPreCheck();
         return -1073741821;
       default:
@@ -1110,7 +1110,7 @@ LABEL_75:
     }
     goto LABEL_17;
   }
-  result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, (__int64 *)&SourceSid);
+  result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v88, &SourceSid);
   if ( result < 0 )
     return result;
   KeEnterCriticalRegion();

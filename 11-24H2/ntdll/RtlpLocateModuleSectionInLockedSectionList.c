@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpLocateModuleSectionInLockedSectionList @ 0x180001F00
+ * XREFs of RtlpLocateModuleSectionInLockedSectionList @ 0x1800AAC10
  * Callers:
- *     RtlUnlockModuleSection @ 0x180001D20 (RtlUnlockModuleSection.c)
- *     RtlLockModuleSection @ 0x180001DD0 (RtlLockModuleSection.c)
+ *     RtlUnlockModuleSection @ 0x1800AAA30 (RtlUnlockModuleSection.c)
+ *     RtlLockModuleSection @ 0x1800AAAE0 (RtlLockModuleSection.c)
  * Callees:
  *     <none>
  */

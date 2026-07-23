@@ -1,20 +1,20 @@
 /*
- * XREFs of PipMigratePnpState @ 0x140A51084
+ * XREFs of PipMigratePnpState @ 0x140A52084
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
- *     _CmGetMatchingDeviceList @ 0x140773920 (_CmGetMatchingDeviceList.c)
- *     _PnpCtxOpenMachine @ 0x1407A455C (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
- *     _PnpCtxCloseMachine @ 0x140974534 (_PnpCtxCloseMachine.c)
- *     _PnpCtxRegCopyTree @ 0x14097486C (_PnpCtxRegCopyTree.c)
- *     _PnpCtxRegSetValue @ 0x140974944 (_PnpCtxRegSetValue.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     _PnpCtxRegQueryValue @ 0x14061A094 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegCreateKey @ 0x140630370 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmGetMatchingDeviceList @ 0x140773AE0 (_CmGetMatchingDeviceList.c)
+ *     _PnpCtxOpenMachine @ 0x1407A475C (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1628 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxCloseMachine @ 0x140974714 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxRegCopyTree @ 0x140974A4C (_PnpCtxRegCopyTree.c)
+ *     _PnpCtxRegSetValue @ 0x140974B24 (_PnpCtxRegSetValue.c)
  */
 
 __int64 PipMigratePnpState()
@@ -24,7 +24,7 @@ __int64 PipMigratePnpState()
   int v2; // eax
   __int64 v3; // rcx
   int CachedContextBaseKey; // ebx
-  int v6; // eax
+  int Value; // eax
   int v7; // eax
   int v8; // eax
   int v9; // eax
@@ -42,7 +42,7 @@ __int64 PipMigratePnpState()
   PERESOURCE *v21; // [rsp+70h] [rbp+7h] BYREF
   void *v22; // [rsp+78h] [rbp+Fh] BYREF
   _QWORD Source1[8]; // [rsp+80h] [rbp+17h] BYREF
-  unsigned int v24; // [rsp+D0h] [rbp+67h] BYREF
+  int v24; // [rsp+D0h] [rbp+67h] BYREF
   int v25; // [rsp+D8h] [rbp+6Fh] BYREF
   int v26; // [rsp+E0h] [rbp+77h] BYREF
   int v27; // [rsp+E8h] [rbp+7Fh] BYREF
@@ -74,11 +74,11 @@ __int64 PipMigratePnpState()
   if ( v2 >= 0 )
   {
     v24 = 4;
-    v6 = PnpCtxRegQueryValue(v3, v16, L"MigrationStatus", &v25, &v26, &v24);
-    CachedContextBaseKey = v6;
-    if ( v6 != -1073741772 )
+    Value = PnpCtxRegQueryValue(v3, v16, (__int64)L"MigrationStatus", (__int64)&v25, (__int64)&v26, (__int64)&v24);
+    CachedContextBaseKey = Value;
+    if ( Value != -1073741772 )
     {
-      if ( v6 < 0 )
+      if ( Value < 0 )
         goto LABEL_3;
       if ( v25 != 4 || v24 != 4 )
       {
@@ -106,7 +106,13 @@ LABEL_2:
       if ( CachedContextBaseKey >= 0 )
       {
         v24 = 8;
-        CachedContextBaseKey = PnpCtxRegQueryValue(v3, v15, L"MigrationTime", &v25, &Source2, &v24);
+        CachedContextBaseKey = PnpCtxRegQueryValue(
+                                 v3,
+                                 v15,
+                                 (__int64)L"MigrationTime",
+                                 (__int64)&v25,
+                                 (__int64)&Source2,
+                                 (__int64)&v24);
         if ( CachedContextBaseKey >= 0 )
         {
           if ( v25 == 3 && v24 == 8 )
@@ -128,7 +134,7 @@ LABEL_2:
             if ( CachedContextBaseKey < 0 )
               goto LABEL_3;
             v24 = 8;
-            v8 = PnpCtxRegQueryValue(v3, v15, L"MigrationTime", &v25, Source1, &v24);
+            v8 = PnpCtxRegQueryValue(v3, v15, (__int64)L"MigrationTime", (__int64)&v25, (__int64)Source1, (__int64)&v24);
             CachedContextBaseKey = v8;
             if ( v8 == -1073741772 )
               goto LABEL_32;
@@ -151,7 +157,13 @@ LABEL_32:
                 goto LABEL_3;
               v24 = 4;
               v0 = 1;
-              CachedContextBaseKey = PnpCtxRegQueryValue(v3, v16, L"TargetVersion", &v25, &v27, &v24);
+              CachedContextBaseKey = PnpCtxRegQueryValue(
+                                       v3,
+                                       v16,
+                                       (__int64)L"TargetVersion",
+                                       (__int64)&v25,
+                                       (__int64)&v27,
+                                       (__int64)&v24);
               if ( CachedContextBaseKey < 0 )
                 goto LABEL_50;
               if ( v25 != 4 || v24 != 4 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetHotPlugMemoryInfo @ 0x140C0E710
+ * XREFs of HalpGetHotPlugMemoryInfo @ 0x140C10710
  * Callers:
- *     HalpDpInitDiscard @ 0x140C0F0F0 (HalpDpInitDiscard.c)
+ *     HalpDpInitDiscard @ 0x140C110F0 (HalpDpInitDiscard.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalpGetHotPlugMemoryInfo(__int64 a1)
@@ -17,8 +17,8 @@ __int64 __fastcall HalpGetHotPlugMemoryInfo(__int64 a1)
   __int64 v8; // r9
   __int64 v9; // rcx
 
-  Table = HalpAcpiGetTable(a1, 1413567059, 0LL, 0LL);
-  result = HalpAcpiGetTable(a1, 1413698381, 0LL, 0LL);
+  Table = HalpAcpiGetTable(a1, 1413567059, 0, 0);
+  result = HalpAcpiGetTable(a1, 1413698381, 0, 0);
   v4 = result;
   if ( Table )
   {

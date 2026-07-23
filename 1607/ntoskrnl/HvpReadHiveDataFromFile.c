@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpReadHiveDataFromFile @ 0x140481DEC
+ * XREFs of HvpReadHiveDataFromFile @ 0x140480B40
  * Callers:
- *     HvpMapHiveImage @ 0x140513C14 (HvpMapHiveImage.c)
+ *     HvpMapHiveImage @ 0x1404F7004 (HvpMapHiveImage.c)
  * Callees:
  *     <none>
  */

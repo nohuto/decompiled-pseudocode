@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindUserSidHotPatchContext @ 0x1407F279C
+ * XREFs of MiFindUserSidHotPatchContext @ 0x1407F2D6C
  * Callers:
- *     MiFindProcessImageHotPatchRecord @ 0x140A326F0 (MiFindProcessImageHotPatchRecord.c)
- *     MiQueryLoadedPatches @ 0x140AA6168 (MiQueryLoadedPatches.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A26708 (MiFindProcessImageHotPatchRecord.c)
+ *     MiQueryLoadedPatches @ 0x140AA11D8 (MiQueryLoadedPatches.c)
  * Callees:
- *     RtlHashBytes2 @ 0x1404331E0 (RtlHashBytes2.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     MiCompareUserSidHotPatchNodes @ 0x1407F24B4 (MiCompareUserSidHotPatchNodes.c)
+ *     RtlHashBytes2 @ 0x140425320 (RtlHashBytes2.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     MiCompareUserSidHotPatchNodes @ 0x1407F2A84 (MiCompareUserSidHotPatchNodes.c)
  */
 
 _QWORD *__fastcall MiFindUserSidHotPatchContext(_QWORD *a1)
@@ -17,12 +17,12 @@ _QWORD *__fastcall MiFindUserSidHotPatchContext(_QWORD *a1)
   int v6; // eax
   _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !qword_140E37470 )
+  if ( !qword_140E375B0 )
     return 0LL;
   v3 = RtlLengthSid(a1);
   v4 = RtlHashBytes2(a1, v3, 0LL);
   v7[1] = a1;
-  v5 = (_QWORD *)qword_140E37470;
+  v5 = (_QWORD *)qword_140E375B0;
   v7[0] = v4;
   while ( v5 )
   {

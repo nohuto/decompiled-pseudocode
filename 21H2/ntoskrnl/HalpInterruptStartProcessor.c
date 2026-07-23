@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptStartProcessor @ 0x140999F74
+ * XREFs of HalpInterruptStartProcessor @ 0x14099AF74
  * Callers:
- *     HalStartNextProcessor @ 0x1403A14A0 (HalStartNextProcessor.c)
- *     HalStartDynamicProcessor @ 0x1404BC2E0 (HalStartDynamicProcessor.c)
- *     HalpDpStartProcessor @ 0x1409A8A54 (HalpDpStartProcessor.c)
- *     HalpBlkStartBlockedProcessor @ 0x1409A95A4 (HalpBlkStartBlockedProcessor.c)
+ *     HalStartNextProcessor @ 0x1403A15F0 (HalStartNextProcessor.c)
+ *     HalStartDynamicProcessor @ 0x1404BC520 (HalStartDynamicProcessor.c)
+ *     HalpDpStartProcessor @ 0x1409A9984 (HalpDpStartProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x1409AA4D4 (HalpBlkStartBlockedProcessor.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     HalpInterruptWaitForProcessorStartUp @ 0x1403A150C (HalpInterruptWaitForProcessorStartUp.c)
- *     HalpInterruptBuildStartupStub @ 0x1403A1580 (HalpInterruptBuildStartupStub.c)
- *     HalpHvVpStartEnabled @ 0x1403A1980 (HalpHvVpStartEnabled.c)
- *     HalpInterruptGetNextProcessorLocalId @ 0x1403A22B4 (HalpInterruptGetNextProcessorLocalId.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x1404D1A88 (HalpInterruptSetProblemEx.c)
- *     HalpHvStartProcessor @ 0x1404D208C (HalpHvStartProcessor.c)
- *     HalpMmFreeTiledMemoryMap @ 0x14099A150 (HalpMmFreeTiledMemoryMap.c)
- *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x1403A165C (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpInterruptBuildStartupStub @ 0x1403A16D0 (HalpInterruptBuildStartupStub.c)
+ *     HalpHvVpStartEnabled @ 0x1403A1AD0 (HalpHvVpStartEnabled.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x1403A2404 (HalpInterruptGetNextProcessorLocalId.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D1CC8 (HalpInterruptSetProblemEx.c)
+ *     HalpHvStartProcessor @ 0x1404D22CC (HalpHvStartProcessor.c)
+ *     HalpMmFreeTiledMemoryMap @ 0x14099B150 (HalpMmFreeTiledMemoryMap.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099B1BC (HalpMmBuildTiledMemoryMap.c)
  */
 
 __int64 __fastcall HalpInterruptStartProcessor(unsigned int a1, unsigned int a2, char a3, const void *a4)

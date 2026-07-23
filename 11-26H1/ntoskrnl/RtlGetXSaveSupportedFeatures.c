@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetXSaveSupportedFeatures @ 0x140622C1C
+ * XREFs of RtlGetXSaveSupportedFeatures @ 0x140625C6C
  * Callers:
- *     KiInitializeXSaveConfiguration @ 0x140BF44A0 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeXSaveConfiguration @ 0x140BFA4A0 (KiInitializeXSaveConfiguration.c)
  * Callees:
  *     <none>
  */

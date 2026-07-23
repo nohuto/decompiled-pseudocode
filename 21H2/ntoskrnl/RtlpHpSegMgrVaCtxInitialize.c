@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x1402A53B4
+ * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x1402227F4
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x1402A4DCC (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrReserve @ 0x14022220C (RtlpHpSegMgrReserve.c)
  * Callees:
- *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
+ *     RtlpHpQueryVA @ 0x1402230E4 (RtlpHpQueryVA.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrVaCtxInitialize(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

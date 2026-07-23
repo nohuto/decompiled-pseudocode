@@ -74,7 +74,7 @@ __int64 DbgkpSetProcessDebugObject(PRKPROCESS PROCESS, PRKEVENT Event, int a3, .
       KeReleaseGuardedMutex(&DbgkpProcessDebugPortMutex);
       v27 = 0;
       ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-      v4 = DbgkpPostFakeThreadMessages(PROCESS, Event, (__int64)NextProcessThread, &v21, (PVOID *)Objecta);
+      v4 = DbgkpPostFakeThreadMessages((__int64)PROCESS, Event, (__int64)NextProcessThread, &v21, (PVOID *)Objecta);
       if ( v4 < 0 )
       {
         v7 = 0LL;

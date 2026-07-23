@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeTransitionPteValid @ 0x14021B700
+ * XREFs of MiMakeTransitionPteValid @ 0x140248450
  * Callers:
- *     MiResolveTransitionFault @ 0x14021A2F0 (MiResolveTransitionFault.c)
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
- *     MiMakeFaultPfnActive @ 0x140462FB4 (MiMakeFaultPfnActive.c)
- *     MiResolveProtoCombine @ 0x140481604 (MiResolveProtoCombine.c)
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
+ *     MiResolveTransitionFault @ 0x140247040 (MiResolveTransitionFault.c)
+ *     MiMakeFaultPfnActive @ 0x14025A13C (MiMakeFaultPfnActive.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiResolveProtoCombine @ 0x14047C8C4 (MiResolveProtoCombine.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
  * Callees:
- *     MiUserPdeOrAbove @ 0x140238638 (MiUserPdeOrAbove.c)
+ *     MiUserPdeOrAbove @ 0x1402127C8 (MiUserPdeOrAbove.c)
  */
 
 unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
   unsigned __int64 v1; // rbx
   __int64 v3; // rax
   __int64 v4; // rax
-  __int64 v5; // rbx
+  int v5; // ebx
   unsigned __int64 v6; // rdi
   __int64 v7; // rcx
   unsigned __int64 v8; // rsi
@@ -50,20 +50,20 @@ unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
     }
   }
   v4 = v1;
-  if ( qword_140E2DB80 && (v1 & 0x10) == 0 )
-    v4 = v1 & ~qword_140E2DB80;
+  if ( qword_140E2DCC0 && (v1 & 0x10) == 0 )
+    v4 = v1 & ~qword_140E2DCC0;
   v5 = (v1 >> 5) & 0x1F;
-  v6 = v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[(unsigned int)v5] & 0xFFF0000000000E7FuLL | 0x21;
+  v6 = v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[v5] & 0xFFF0000000000E7FuLL | 0x21;
   if ( a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL )
   {
-    v10 = v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[(unsigned int)v5] & 0xFFF0000000000E7FuLL | 0x121;
+    v10 = v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[v5] & 0xFFF0000000000E7FuLL | 0x121;
     goto LABEL_21;
   }
   if ( a1 >= 0xFFFFF6FB40000000uLL && a1 <= 0xFFFFF6FB7FFFFFFFuLL )
   {
     v6 = a1 == 0xFFFFF6FB7DBEDF68uLL
-       ? v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[(unsigned int)v5] & 0xFFF0000000000E7FuLL | 0x8000000000000021uLL
-       : v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[(unsigned int)v5] & 0x7FF0000000000E7FLL | 0x21;
+       ? v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[v5] & 0xFFF0000000000E7FuLL | 0x8000000000000021uLL
+       : v4 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[v5] & 0x7FF0000000000E7FLL | 0x21;
     if ( (unsigned int)MiUserPdeOrAbove(a1) )
       v6 |= 4uLL;
   }
@@ -74,14 +74,14 @@ unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
   if ( v8 < 0xFFFF800000000000uLL )
   {
 LABEL_18:
-    v9 = HIBYTE(word_140E2ED84);
+    v9 = HIBYTE(word_140E2EEC4);
     goto LABEL_19;
   }
   if ( v8 < 0xFFFFF68000000000uLL || v8 > 0xFFFFF6FFFFFFFFFFuLL )
   {
-    if ( v8 < qword_140E2F280 || v8 > qword_140E2F290 )
+    if ( v8 < qword_140E2F3C0 || v8 > qword_140E2F3D0 )
     {
-      v9 = (unsigned __int8)word_140E2ED84;
+      v9 = (unsigned __int8)word_140E2EEC4;
       goto LABEL_19;
     }
     goto LABEL_18;
@@ -93,7 +93,7 @@ LABEL_19:
     v10 = v7;
 LABEL_21:
   v11 = v10 | 0x42;
-  if ( (int)v5 >= 0 || (v5 & 5) != 4 )
+  if ( v5 >= 0 || (v5 & 5) != 4 )
     v11 = v10;
   return v11 & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
 }

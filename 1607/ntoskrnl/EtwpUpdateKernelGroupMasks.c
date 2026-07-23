@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpUpdateKernelGroupMasks @ 0x140495D10
+ * XREFs of EtwpUpdateKernelGroupMasks @ 0x1404967A0
  * Callers:
- *     EtwpUpdateGroupMasks @ 0x14049582C (EtwpUpdateGroupMasks.c)
- *     EtwpUpdateKernelGroupsWork @ 0x14054C9E0 (EtwpUpdateKernelGroupsWork.c)
- *     EtwDereferenceSpinLockCounters @ 0x1406A5578 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1406A55C8 (EtwReferenceSpinLockCounters.c)
+ *     EtwpUpdateGroupMasks @ 0x1404962BC (EtwpUpdateGroupMasks.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x14054CF20 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1406A56B0 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1406A5700 (EtwReferenceSpinLockCounters.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpEnableKernelTrace @ 0x140495E58 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1404960E4 (EtwpDisableKernelTrace.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpEnableKernelTrace @ 0x1404968E8 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x140496B74 (EtwpDisableKernelTrace.c)
  */
 
 __int64 __fastcall EtwpUpdateKernelGroupMasks(unsigned int a1, unsigned int a2)

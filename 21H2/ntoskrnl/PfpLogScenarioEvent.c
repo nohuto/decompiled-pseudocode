@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpLogScenarioEvent @ 0x140776764
+ * XREFs of PfpLogScenarioEvent @ 0x140776924
  * Callers:
- *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x14078D158 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x1409919B4 (PfPowerActionNotify.c)
  * Callees:
- *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
- *     PfTSetTraceWorkerPriority @ 0x140382DA4 (PfTSetTraceWorkerPriority.c)
- *     PfGenerateTrace @ 0x140776874 (PfGenerateTrace.c)
- *     MmPerformMemoryListCommand @ 0x14099AB4C (MmPerformMemoryListCommand.c)
+ *     PfLogEvent @ 0x140273ADC (PfLogEvent.c)
+ *     PfTSetTraceWorkerPriority @ 0x140382F54 (PfTSetTraceWorkerPriority.c)
+ *     PfGenerateTrace @ 0x140776A34 (PfGenerateTrace.c)
+ *     MmPerformMemoryListCommand @ 0x14099BB4C (MmPerformMemoryListCommand.c)
  */
 
 __int64 __fastcall PfpLogScenarioEvent(int a1, char a2, char a3, unsigned __int16 a4, char a5)
@@ -25,7 +25,7 @@ __int64 __fastcall PfpLogScenarioEvent(int a1, char a2, char a3, unsigned __int1
   v11[1] = a2 & 3 | (4 * (a4 | ((unsigned __int8)(a3 & 3) << 16)));
   result = PfLogEvent(
              27,
-             dword_140C502DC
+             dword_140C5031C
            + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                            + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
              v11,

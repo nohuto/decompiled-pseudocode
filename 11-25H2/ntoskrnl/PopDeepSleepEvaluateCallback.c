@@ -34,7 +34,7 @@ void PopDeepSleepEvaluateCallback()
     if ( PopDeepSleepDisengageReasonMask )
       PopDiagTraceIdleResiliencyEnd(v2, (unsigned int)(v3 + 2));
     else
-      PopDiagTraceIdleResiliencyStart(v2, (unsigned int)(v3 + 2), 0x1Eu / KeMaximumIncrement + 1);
+      PopDiagTraceIdleResiliencyStart(v2, (unsigned int)(v3 + 2), 0x1E / KeMaximumIncrement + 1);
     PopDeepSleepIsEngaged = v4;
     KeReleaseSpinLock(&PopDeepSleepDisengageReasonLock, v1);
     PpmAcquireLock(&PopFxSystemLatencyLock, v5, v6);

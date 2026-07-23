@@ -18,7 +18,7 @@ __int64 __fastcall sub_1800222E4(__int64 a1, __int64 a2)
   v6 = 0;
   if ( a1 )
   {
-    RtlAcquireSRWLockExclusive(&qword_1801660B0);
+    RtlAcquireSRWLockExclusive(&stru_1801660B0);
     if ( *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) || (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
       sub_180021D94(a1, a2, 0LL, &v6);
@@ -28,7 +28,7 @@ __int64 __fastcall sub_1800222E4(__int64 a1, __int64 a2)
     {
       v2 = -1073741515;
     }
-    RtlReleaseSRWLockExclusive(&qword_1801660B0);
+    RtlReleaseSRWLockExclusive(&stru_1801660B0);
   }
   return v2;
 }

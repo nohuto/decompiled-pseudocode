@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializePageTradePacket @ 0x140293510
+ * XREFs of MiInitializePageTradePacket @ 0x140292A70
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiLockStealSystemVm @ 0x140455630 (MiLockStealSystemVm.c)
- *     MiLockStealUserVm @ 0x14045EF90 (MiLockStealUserVm.c)
- *     MiHyperSpaceSize @ 0x14047F578 (MiHyperSpaceSize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiLockStealSystemVm @ 0x14044D760 (MiLockStealSystemVm.c)
+ *     MiLockStealUserVm @ 0x140458690 (MiLockStealUserVm.c)
+ *     MiHyperSpaceSize @ 0x140478EE8 (MiHyperSpaceSize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializePageTradePacket(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -58,17 +58,17 @@ __int64 __fastcall MiInitializePageTradePacket(__int64 a1, __int64 a2, __int64 a
   *(_QWORD *)(a1 + 256) = v16;
   *(_QWORD *)(a1 + 248) = -1LL;
   v18 = *(_QWORD *)(a1 + 184);
-  *(_QWORD *)(a1 + 216) = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
+  *(_QWORD *)(a1 + 216) = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
   if ( v18 < 0xFFFF800000000000uLL )
     goto LABEL_4;
-  if ( v18 <= qword_140E2DE50 && v18 >= qword_140E2DE40 )
+  if ( v18 <= qword_140E2DFD0 && v18 >= qword_140E2DFC0 )
   {
     v21 = *(_DWORD *)(a1 + 16);
     if ( (v21 & 1) != 0 )
     {
       *(_DWORD *)(a1 + 16) = v21 | 0xA;
-      if ( *(_QWORD *)(a1 + 176) >= (unsigned __int64)qword_140E2DE48
-        && *(_QWORD *)(a1 + 176) < (unsigned __int64)(qword_140E2DE48 + MiHyperSpaceSize()) )
+      if ( *(_QWORD *)(a1 + 176) >= (unsigned __int64)qword_140E2DFC8
+        && *(_QWORD *)(a1 + 176) < (unsigned __int64)(qword_140E2DFC8 + MiHyperSpaceSize()) )
       {
         *(_DWORD *)(a1 + 16) |= 0x80u;
       }
@@ -104,7 +104,7 @@ LABEL_4:
       {
         if ( (v11 & 0x10000000) != 0 )
         {
-          _InterlockedIncrement(&dword_140EF8D5C);
+          _InterlockedIncrement(&dword_140EF90BC);
           MiUnlockStealVm(v10);
           return 1LL;
         }
@@ -117,8 +117,8 @@ LABEL_4:
       return 0LL;
     }
   }
-  _InterlockedIncrement(&dword_140EF8CE8);
+  _InterlockedIncrement(&dword_140EF9048);
   result = v19;
-  _InterlockedExchange64(&qword_140EF8CF0, v8 / 48);
+  _InterlockedExchange64(&qword_140EF9050, v8 / 48);
   return result;
 }

@@ -7,8 +7,8 @@
  *     _RtlReportException@12 @ 0x4B33A4D0 (_RtlReportException@12.c)
  */
 
-int __thiscall TppReportExceptionFilter(int *this)
+int __thiscall TppReportExceptionFilter(int this)
 {
-  RtlReportException(*this, this[1], 3);
+  RtlReportException(*(PEXCEPTION_RECORD *)this, *(PCONTEXT *)(this + 4), 3u);
   return 0;
 }

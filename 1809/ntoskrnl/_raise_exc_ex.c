@@ -1,12 +1,12 @@
 /*
- * XREFs of _raise_exc_ex @ 0x140199F44
+ * XREFs of _raise_exc_ex @ 0x14019A084
  * Callers:
- *     _raise_exc @ 0x140199F14 (_raise_exc.c)
- *     _raise_excf @ 0x14019A1D4 (_raise_excf.c)
+ *     _raise_exc @ 0x14019A054 (_raise_exc.c)
+ *     _raise_excf @ 0x14019A314 (_raise_excf.c)
  * Callees:
- *     RaiseException @ 0x140199E80 (RaiseException.c)
- *     _clrfp @ 0x14019A230 (_clrfp.c)
- *     _statfp @ 0x14019A300 (_statfp.c)
+ *     RaiseException @ 0x140199FC0 (RaiseException.c)
+ *     _clrfp @ 0x14019A370 (_clrfp.c)
+ *     _statfp @ 0x14019A440 (_statfp.c)
  */
 
 __int64 __fastcall raise_exc_ex(
@@ -18,7 +18,7 @@ __int64 __fastcall raise_exc_ex(
         unsigned int *a6,
         int a7)
 {
-  int v7; // ebp
+  DWORD v7; // ebp
   int v11; // ecx
   int v12; // eax
   int v13; // ecx
@@ -27,13 +27,13 @@ __int64 __fastcall raise_exc_ex(
   unsigned int v16; // eax
   unsigned int v17; // eax
   unsigned int *v18; // rsi
-  unsigned int *v19; // rcx
-  unsigned int v20; // eax
+  _DWORD *v19; // rcx
+  int v20; // eax
   unsigned __int64 v21; // rax
   __int64 result; // rax
-  unsigned int *v23; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR Arguments; // [rsp+30h] [rbp+8h] BYREF
 
-  v23 = a1;
+  Arguments = (ULONG_PTR)a1;
   v7 = 0;
   a1[1] = 0;
   a1[2] = 0;
@@ -118,9 +118,9 @@ LABEL_27:
     *((_QWORD *)a1 + 10) = *(_QWORD *)v18;
   }
   clrfp();
-  RaiseException(v7, 0, 1LL, &v23);
-  v19 = v23;
-  v20 = v23[2];
+  RaiseException(v7, 0, 1u, &Arguments);
+  v19 = (_DWORD *)Arguments;
+  v20 = *(_DWORD *)(Arguments + 8);
   if ( (v20 & 0x10) != 0 )
   {
     *a2 &= ~0x80uLL;
@@ -145,24 +145,24 @@ LABEL_27:
     *a2 &= ~0x1000uLL;
   switch ( *v19 & 3 )
   {
-    case 0u:
+    case 0:
       *a2 &= 0xFFFFFFFFFFFF9FFFuLL;
       break;
-    case 1u:
+    case 1:
       v21 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x2000;
       goto LABEL_49;
-    case 2u:
+    case 2:
       v21 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x4000;
 LABEL_49:
       *a2 = v21;
       break;
-    case 3u:
+    case 3:
       *a2 |= 0x6000uLL;
       break;
   }
   if ( a7 )
   {
-    result = v19[20];
+    result = (unsigned int)v19[20];
     *v18 = result;
   }
   else

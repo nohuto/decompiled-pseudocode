@@ -1,9 +1,9 @@
 /*
- * XREFs of iswspace @ 0x14014DD8C
+ * XREFs of iswspace @ 0x14014E2FC
  * Callers:
- *     GetNextNoneWhiteSpace @ 0x1406CCEAC (GetNextNoneWhiteSpace.c)
- *     LocalGetConditionForString @ 0x1406CE13C (LocalGetConditionForString.c)
- *     LocalGetRelativeAttributeForString @ 0x1406CE88C (LocalGetRelativeAttributeForString.c)
+ *     GetNextNoneWhiteSpace @ 0x1406CCFE4 (GetNextNoneWhiteSpace.c)
+ *     LocalGetConditionForString @ 0x1406CE274 (LocalGetConditionForString.c)
+ *     LocalGetRelativeAttributeForString @ 0x1406CE9C4 (LocalGetRelativeAttributeForString.c)
  * Callees:
  *     <none>
  */

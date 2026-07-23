@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeSystemPtesAppear @ 0x1402A5C9C
+ * XREFs of MiMakeSystemPtesAppear @ 0x1402A5094
  * Callers:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
  * Callees:
- *     MiPteBinsNeedTrimming @ 0x1402A5EF8 (MiPteBinsNeedTrimming.c)
- *     MiEmptyPteBins @ 0x14035F190 (MiEmptyPteBins.c)
+ *     MiPteBinsNeedTrimming @ 0x1402A52F0 (MiPteBinsNeedTrimming.c)
+ *     MiEmptyPteBins @ 0x140360F30 (MiEmptyPteBins.c)
  */
 
 __int64 __fastcall MiMakeSystemPtesAppear(__int64 a1, __int64 a2, _DWORD *a3)

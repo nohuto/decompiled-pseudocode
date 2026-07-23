@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHandleForkZeroPte @ 0x14030AD68
+ * XREFs of MiHandleForkZeroPte @ 0x1402ECDE8
  * Callers:
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
  * Callees:
- *     MiFindZeroCloneBlock @ 0x14049AC08 (MiFindZeroCloneBlock.c)
- *     MiWriteSharedDemandZeroPte @ 0x14049AC34 (MiWriteSharedDemandZeroPte.c)
+ *     MiFindZeroCloneBlock @ 0x140494758 (MiFindZeroCloneBlock.c)
+ *     MiWriteSharedDemandZeroPte @ 0x140494784 (MiWriteSharedDemandZeroPte.c)
  */
 
 void __fastcall MiHandleForkZeroPte(__int64 a1)

@@ -10,7 +10,7 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall sub_1800FB36C(volatile signed __int64 *a1)
+char __fastcall sub_1800FB36C(_RTL_SRWLOCK *a1)
 {
   if ( !byte_180165408 )
     RtlAcquireSRWLockExclusive(a1);

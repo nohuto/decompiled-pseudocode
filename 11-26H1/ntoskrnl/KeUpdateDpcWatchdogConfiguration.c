@@ -1,21 +1,21 @@
 /*
- * XREFs of KeUpdateDpcWatchdogConfiguration @ 0x1405E8E50
+ * XREFs of KeUpdateDpcWatchdogConfiguration @ 0x1405EB7C0
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeGenericProcessorCallback @ 0x140379F74 (KeGenericProcessorCallback.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiCreateDpcLimitsProcessorConfiguration @ 0x1405E909C (KiCreateDpcLimitsProcessorConfiguration.c)
- *     KiValidateDpcWatchdogConfiguration @ 0x1405E9288 (KiValidateDpcWatchdogConfiguration.c)
- *     KiApplyDpcVerificationScaleSettings @ 0x1405EA234 (KiApplyDpcVerificationScaleSettings.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeGenericProcessorCallback @ 0x14037BD24 (KeGenericProcessorCallback.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCreateDpcLimitsProcessorConfiguration @ 0x1405EBA0C (KiCreateDpcLimitsProcessorConfiguration.c)
+ *     KiValidateDpcWatchdogConfiguration @ 0x1405EBBF8 (KiValidateDpcWatchdogConfiguration.c)
+ *     KiApplyDpcVerificationScaleSettings @ 0x1405ECBA4 (KiApplyDpcVerificationScaleSettings.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -75,14 +75,14 @@ __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size, __in
       v14 = 266240;
     }
     KeDpcWatchdogProfileBufferSizeBytes = v14;
-    dword_140FBE3EC = v14 >> 3;
+    dword_140FBF3EC = v14 >> 3;
     KiApplyDpcVerificationScaleSettings();
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
     KiCreateDpcLimitsProcessorConfiguration(v17, v13, v14);
     KeGenericProcessorCallback(
-      (__int64 *)&stru_140FC01F0.WaitRegister,
+      (__int64 *)&stru_140FC11F0.WaitRegister,
       (__int64)KiUpdateProcessorDpcWatchdogConfiguration,
       (__int64)v17,
       2);

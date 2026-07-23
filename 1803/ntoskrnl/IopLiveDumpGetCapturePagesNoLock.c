@@ -8,7 +8,7 @@
  */
 
 __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
-        unsigned __int64 *a1,
+        PRTL_BITMAP_EX BitMapHeader,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -17,9 +17,9 @@ __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
 {
   __int64 result; // rax
   __int64 v7; // rdi
-  unsigned __int64 v8; // rbp
+  ULONG64 v8; // rbp
   char v12; // r14
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   __int64 v14; // rcx
   __int64 v15; // rcx
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
@@ -33,7 +33,7 @@ __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
     v12 = 1;
     while ( 1 )
     {
-      SetBits = RtlFindSetBitsEx(a1, 1uLL, v8);
+      SetBits = RtlFindSetBitsEx(BitMapHeader, 1uLL, v8);
       if ( SetBits < v8 || SetBits == -1LL )
         break;
       v14 = (unsigned int)*a5;

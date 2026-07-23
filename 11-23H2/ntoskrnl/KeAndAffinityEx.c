@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAndAffinityEx @ 0x14056F330
+ * XREFs of KeAndAffinityEx @ 0x14056F870
  * Callers:
  *     <none>
  * Callees:
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
  */
 
 __int64 __fastcall KeAndAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

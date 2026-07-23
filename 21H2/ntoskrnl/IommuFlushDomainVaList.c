@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuFlushDomainVaList @ 0x1408667F0
+ * XREFs of IommuFlushDomainVaList @ 0x140866950
  * Callers:
  *     <none>
  * Callees:
- *     xKdEnumerateDebuggingDevices @ 0x1403D0440 (xKdEnumerateDebuggingDevices.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403D05B0 (xKdEnumerateDebuggingDevices.c)
  */
 
 __int64 __fastcall IommuFlushDomainVaList(__int64 a1)

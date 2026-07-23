@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaGetNextWcb @ 0x140392D88
+ * XREFs of HalpDmaGetNextWcb @ 0x14038C6B8
  * Callers:
- *     HalpContinueProcessingWaitQueue @ 0x140392D2C (HalpContinueProcessingWaitQueue.c)
+ *     HalpContinueProcessingWaitQueue @ 0x14038C65C (HalpContinueProcessingWaitQueue.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 _QWORD *__fastcall HalpDmaGetNextWcb(__int64 a1)

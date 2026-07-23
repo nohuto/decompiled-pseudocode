@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlReadPerformanceStateCounters @ 0x1404770B0
+ * XREFs of HvlReadPerformanceStateCounters @ 0x140470830
  * Callers:
  *     <none>
  * Callees:
@@ -27,8 +27,8 @@ LABEL_5:
         _mm_lfence();
         Blink = p_ThreadListEntry[1].Blink;
         v7 = a2;
-        v8 = *((unsigned int *)&stru_140E3E928.InGlobalForegroundList + 2 * a2 + 1);
-        *a3 = *((_QWORD *)&Blink->Flink + *((unsigned int *)&stru_140E3E928.InGlobalForegroundList + 2 * v7));
+        v8 = *((unsigned int *)&stru_140E3EAA8.InGlobalForegroundList + 2 * a2 + 1);
+        *a3 = *((_QWORD *)&Blink->Flink + *((unsigned int *)&stru_140E3EAA8.InGlobalForegroundList + 2 * v7));
         *a4 = *((_QWORD *)&Blink->Flink + v8);
         return;
       }
@@ -44,7 +44,7 @@ LABEL_5:
       }
       if ( !a1 )
       {
-        p_ThreadListEntry = &stru_140E3E928.ThreadListEntry;
+        p_ThreadListEntry = &stru_140E3EAA8.ThreadListEntry;
         goto LABEL_5;
       }
     }

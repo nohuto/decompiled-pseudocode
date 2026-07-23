@@ -1,16 +1,16 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess2 @ 0x14057ED38
+ * XREFs of MmInitializeHandBuiltProcess2 @ 0x14057F1E4
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     MiGetWsAndInsertVad @ 0x140030AE0 (MiGetWsAndInsertVad.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiGetWsAndMakePageTablesNx @ 0x14014B648 (MiGetWsAndMakePageTablesNx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiAllocateVad @ 0x14046D108 (MiAllocateVad.c)
- *     MiInitializeLockedPagesTracking @ 0x140656EC8 (MiInitializeLockedPagesTracking.c)
+ *     MiGetWsAndInsertVad @ 0x140030660 (MiGetWsAndInsertVad.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x14014BBB8 (MiGetWsAndMakePageTablesNx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiAllocateVad @ 0x14046BFD8 (MiAllocateVad.c)
+ *     MiInitializeLockedPagesTracking @ 0x140656FAC (MiInitializeLockedPagesTracking.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess2(_KPROCESS *BugCheckParameter1)

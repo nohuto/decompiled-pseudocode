@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwQueryInformationResourceManager @ 0x14041E1C0
  * Callers:
- *     DifZwQueryInformationResourceManagerWrapper @ 0x140624BE0 (DifZwQueryInformationResourceManagerWrapper.c)
+ *     sub_140624BE0 @ 0x140624BE0 (sub_140624BE0.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwQueryInformationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
+  return sub_140433F80(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
 }

@@ -1,135 +1,138 @@
 /*
- * XREFs of RtlImageDirectoryEntryToData @ 0x14042CAF0
+ * XREFs of RtlImageDirectoryEntryToData @ 0x1402EEB70
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x140280BA0 (RtlpLookupUserFunctionTable.c)
- *     RtlInsertInvertedFunctionTable @ 0x14042C8CC (RtlInsertInvertedFunctionTable.c)
- *     RtlCaptureImageExceptionValues @ 0x14042CAB0 (RtlCaptureImageExceptionValues.c)
- *     KiIsPgiKernel @ 0x1405BDF38 (KiIsPgiKernel.c)
- *     RtlpGetKernelScpFunctionTable @ 0x1405F0E94 (RtlpGetKernelScpFunctionTable.c)
- *     LdrImageDirectoryEntryToLoadConfigEx @ 0x1405F3AA8 (LdrImageDirectoryEntryToLoadConfigEx.c)
- *     MmProtectDriverSection @ 0x14066B7C0 (MmProtectDriverSection.c)
- *     MiReplaceImportEntry @ 0x14066C12C (MiReplaceImportEntry.c)
- *     MiLockPatchIatForDV @ 0x14067BF00 (MiLockPatchIatForDV.c)
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067C118 (MiReapplyImportOptimizationForDriverVerifier.c)
- *     MiReplacePatchImportEntry @ 0x14067D820 (MiReplacePatchImportEntry.c)
- *     KsepPatchDriverImportsTable @ 0x14073F684 (KsepPatchDriverImportsTable.c)
- *     LdrEnumResources @ 0x14077E370 (LdrEnumResources.c)
- *     MmReplaceImportEntriesForVerifier @ 0x1407ED3B0 (MmReplaceImportEntriesForVerifier.c)
- *     RtlFindHotPatchInformation @ 0x14082F0C4 (RtlFindHotPatchInformation.c)
- *     EtwpFindDebugId @ 0x140837968 (EtwpFindDebugId.c)
- *     RtlFindExportedRoutineByName @ 0x1408B0E30 (RtlFindExportedRoutineByName.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1408F3470 (MiCaptureRetpolineRelocationTables.c)
- *     MiInitializeWowPeb @ 0x1409C2B2C (MiInitializeWowPeb.c)
- *     LdrpSearchResourceSection_U @ 0x140A0253C (LdrpSearchResourceSection_U.c)
- *     LdrpAccessResourceData @ 0x140A0307C (LdrpAccessResourceData.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140A03160 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     MiResolveImageReferences @ 0x140A17C94 (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x140A180B4 (MiSnapThunk.c)
- *     MiSnapUnresolvedImport @ 0x140A184E8 (MiSnapUnresolvedImport.c)
- *     MiMarkKernelImageCfgBits @ 0x140A3DD40 (MiMarkKernelImageCfgBits.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x140A659F0 (MiProcessKernelCfgImageLoadConfig.c)
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A8760C (MiApplyImportOptimizationToRuntimeDriver.c)
- *     MiMarkKernelCfgAddressTakenImports @ 0x140A8A44C (MiMarkKernelCfgAddressTakenImports.c)
- *     MiSetImportTableProtection @ 0x140AAB19C (MiSetImportTableProtection.c)
- *     MiCacheImageSymbols @ 0x140ABFD60 (MiCacheImageSymbols.c)
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
- *     MmCreatePeb @ 0x140AE79AC (MmCreatePeb.c)
- *     ViXdvDriverLoadImage @ 0x140B8A9B0 (ViXdvDriverLoadImage.c)
- *     VfThunkApplyDriverAddedThunks @ 0x140B97018 (VfThunkApplyDriverAddedThunks.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140B971AC (VfThunkApplyThunksCurrentSession.c)
- *     ViThunkApplyPristineCurrentSession @ 0x140B972F4 (ViThunkApplyPristineCurrentSession.c)
- *     ViThunkFindAllThunkedImports @ 0x140B97688 (ViThunkFindAllThunkedImports.c)
- *     ViThunkSnapSharedExportByName @ 0x140BA65CC (ViThunkSnapSharedExportByName.c)
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
- *     ViThunkFindExportAddress @ 0x140C3BBD4 (ViThunkFindExportAddress.c)
- *     MiApplyDynamicRelocations @ 0x140C58C4C (MiApplyDynamicRelocations.c)
- *     MiBuildImportsForBootDrivers @ 0x140C5A924 (MiBuildImportsForBootDrivers.c)
+ *     RtlpLookupUserFunctionTable @ 0x140236130 (RtlpLookupUserFunctionTable.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1402EE3CC (RtlInsertInvertedFunctionTable.c)
+ *     RtlCaptureImageExceptionValues @ 0x1402EEB24 (RtlCaptureImageExceptionValues.c)
+ *     KiIsPgiKernel @ 0x1405BB568 (KiIsPgiKernel.c)
+ *     RtlpGetKernelScpFunctionTable @ 0x1405EE4D4 (RtlpGetKernelScpFunctionTable.c)
+ *     LdrImageDirectoryEntryToLoadConfigEx @ 0x1405F10E8 (LdrImageDirectoryEntryToLoadConfigEx.c)
+ *     MmProtectDriverSection @ 0x14066C990 (MmProtectDriverSection.c)
+ *     MiReplaceImportEntry @ 0x14066D2FC (MiReplaceImportEntry.c)
+ *     MiLockPatchIatForDV @ 0x14067D0E0 (MiLockPatchIatForDV.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067D2F8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReplacePatchImportEntry @ 0x14067EA20 (MiReplacePatchImportEntry.c)
+ *     KsepPatchDriverImportsTable @ 0x14073D5B4 (KsepPatchDriverImportsTable.c)
+ *     LdrEnumResources @ 0x14077E2A0 (LdrEnumResources.c)
+ *     MmReplaceImportEntriesForVerifier @ 0x1407ED980 (MmReplaceImportEntriesForVerifier.c)
+ *     RtlFindHotPatchInformation @ 0x14082F8F4 (RtlFindHotPatchInformation.c)
+ *     MiInitializeWowPeb @ 0x1408DCF04 (MiInitializeWowPeb.c)
+ *     MmCreatePeb @ 0x1408DDBA4 (MmCreatePeb.c)
+ *     RtlFindExportedRoutineByName @ 0x140907090 (RtlFindExportedRoutineByName.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x14093F254 (MiCaptureRetpolineRelocationTables.c)
+ *     LdrpSearchResourceSection_U @ 0x1409B999C (LdrpSearchResourceSection_U.c)
+ *     LdrpAccessResourceData @ 0x1409BA4DC (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1409BA5C0 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     EtwpFindDebugId @ 0x1409F9534 (EtwpFindDebugId.c)
+ *     MiResolveImageReferences @ 0x140A10E04 (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x140A11224 (MiSnapThunk.c)
+ *     MiSnapUnresolvedImport @ 0x140A11658 (MiSnapUnresolvedImport.c)
+ *     MiMarkKernelImageCfgBits @ 0x140A33650 (MiMarkKernelImageCfgBits.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x140A5E1C0 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A83AFC (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiMarkKernelCfgAddressTakenImports @ 0x140A8678C (MiMarkKernelCfgAddressTakenImports.c)
+ *     MiSetImportTableProtection @ 0x140AA63CC (MiSetImportTableProtection.c)
+ *     MiCacheImageSymbols @ 0x140ABAE40 (MiCacheImageSymbols.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
+ *     ViXdvDriverLoadImage @ 0x140B8C9B0 (ViXdvDriverLoadImage.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x140B99018 (VfThunkApplyDriverAddedThunks.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140B991AC (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyPristineCurrentSession @ 0x140B992F4 (ViThunkApplyPristineCurrentSession.c)
+ *     ViThunkFindAllThunkedImports @ 0x140B99688 (ViThunkFindAllThunkedImports.c)
+ *     ViThunkSnapSharedExportByName @ 0x140BA85CC (ViThunkSnapSharedExportByName.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
+ *     ViThunkFindExportAddress @ 0x140C3DD2C (ViThunkFindExportAddress.c)
+ *     MiApplyDynamicRelocations @ 0x140C5ADDC (MiApplyDynamicRelocations.c)
+ *     MiBuildImportsForBootDrivers @ 0x140C5CAB4 (MiBuildImportsForBootDrivers.c)
  * Callees:
- *     RtlpImageDirectoryEntryToData32 @ 0x14042CE00 (RtlpImageDirectoryEntryToData32.c)
- *     RtlAddressInSectionTable @ 0x14042CEAC (RtlAddressInSectionTable.c)
+ *     RtlpImageDirectoryEntryToData32 @ 0x1402EEE80 (RtlpImageDirectoryEntryToData32.c)
+ *     RtlAddressInSectionTable @ 0x1402EEF2C (RtlAddressInSectionTable.c)
  */
 
-__int64 __fastcall RtlImageDirectoryEntryToData(unsigned __int64 a1, char a2, unsigned __int16 a3, _DWORD *a4)
+PVOID __cdecl RtlImageDirectoryEntryToData(
+        PVOID BaseOfImage,
+        BOOLEAN MappedAsImage,
+        USHORT DirectoryEntry,
+        PULONG Size)
 {
-  char v4; // r11
-  unsigned __int64 v6; // r10
+  BOOLEAN v4; // r11
+  _IMAGE_NT_HEADERS64 *v6; // r10
   bool v7; // zf
-  char v8; // cl
-  unsigned __int64 v9; // rcx
-  __int16 v10; // ax
-  int v11; // edx
-  __int64 v12; // r9
-  __int64 v13; // r8
-  signed int v14; // edx
-  __int64 result; // rax
-  unsigned __int64 v16; // rax
-  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
+  BOOLEAN v8; // cl
+  _IMAGE_NT_HEADERS64 *NtHeaders; // rcx
+  unsigned __int16 Magic; // ax
+  __int64 v11; // r9
+  __int64 VirtualAddress; // r8
+  signed int v13; // edx
+  PVOID result; // rax
+  unsigned __int64 v15; // rax
+  __int64 v16; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = a2;
-  v17 = 0LL;
-  v6 = a1;
-  if ( (a1 & 3) != 0 )
+  v4 = MappedAsImage;
+  v16 = 0LL;
+  v6 = (_IMAGE_NT_HEADERS64 *)BaseOfImage;
+  if ( ((unsigned __int8)BaseOfImage & 3) != 0 )
   {
-    v6 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v7 = (a1 & 1) == 0;
+    v6 = (_IMAGE_NT_HEADERS64 *)((unsigned __int64)BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+    v7 = ((unsigned __int8)BaseOfImage & 1) == 0;
     v8 = 0;
     if ( v7 )
-      v8 = a2;
+      v8 = MappedAsImage;
     v4 = v8;
   }
-  if ( v6 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
+  if ( (unsigned __int64)&v6[-1].OptionalHeader.DataDirectory[15].Size + 3 > 0xFFFFFFFFFFFFFFFDuLL )
   {
 LABEL_26:
-    v14 = -1073741811;
+    v13 = -1073741811;
     goto LABEL_17;
   }
-  if ( *(_WORD *)v6 != 23117
-    || (v9 = v6 + *(unsigned int *)(v6 + 60), v9 < v6)
-    || v6 <= 0x7FFFFFFEFFFFLL && (v9 + 263 < v9 || v9 + 263 > 0x7FFFFFFEFFFFLL)
-    || *(_DWORD *)v9 != 17744 )
+  if ( LOWORD(v6->Signature) != 23117
+    || (NtHeaders = (_IMAGE_NT_HEADERS64 *)((char *)v6 + v6->OptionalHeader.FileAlignment), NtHeaders < v6)
+    || (unsigned __int64)v6 <= 0x7FFFFFFEFFFFLL
+    && ((_IMAGE_NT_HEADERS64 *)((char *)&NtHeaders->OptionalHeader.DataDirectory[15].Size + 3) < NtHeaders
+     || (unsigned __int64)&NtHeaders->OptionalHeader.DataDirectory[15].Size + 3 > 0x7FFFFFFEFFFFLL)
+    || NtHeaders->Signature != 17744 )
   {
-    v14 = -1073741701;
+    v13 = -1073741701;
     goto LABEL_17;
   }
-  v10 = *(_WORD *)(v9 + 24);
-  v11 = 267;
-  if ( v10 == 267 )
+  Magic = NtHeaders->OptionalHeader.Magic;
+  if ( Magic == 267 )
   {
-    LOBYTE(v11) = v4;
-    v14 = RtlpImageDirectoryEntryToData32(v6, v11, a3, (_DWORD)a4, v9, (__int64)&v17);
+    v13 = RtlpImageDirectoryEntryToData32(v6, NtHeaders, (__int64)&v16);
   }
   else
   {
-    if ( v10 != 523 || (unsigned int)a3 >= *(_DWORD *)(v9 + 132) )
+    if ( Magic != 523 || DirectoryEntry >= NtHeaders->OptionalHeader.NumberOfRvaAndSizes )
       goto LABEL_26;
-    v12 = a3;
-    v13 = *(unsigned int *)(v9 + 8LL * a3 + 136);
-    if ( !(_DWORD)v13 )
+    v11 = DirectoryEntry;
+    VirtualAddress = NtHeaders->OptionalHeader.DataDirectory[DirectoryEntry].VirtualAddress;
+    if ( !(_DWORD)VirtualAddress )
     {
-      v14 = -1073741822;
+      v13 = -1073741822;
       goto LABEL_17;
     }
-    if ( v6 <= 0x7FFFFFFEFFFFLL )
+    if ( (unsigned __int64)v6 <= 0x7FFFFFFEFFFFLL )
     {
-      v16 = v13 + v6 - 1;
-      if ( v16 > 0x7FFFFFFEFFFFLL || v16 < v6 )
+      v15 = (unsigned __int64)&v6[-1].OptionalHeader.DataDirectory[15].Size + VirtualAddress + 3;
+      if ( v15 > 0x7FFFFFFEFFFFLL || v15 < (unsigned __int64)v6 )
         goto LABEL_26;
     }
-    *a4 = *(_DWORD *)(v9 + 8 * v12 + 140);
-    if ( v4 || (unsigned int)v13 < *(_DWORD *)(v9 + 84) )
+    *Size = NtHeaders->OptionalHeader.DataDirectory[v11].Size;
+    if ( v4 || (unsigned int)VirtualAddress < NtHeaders->OptionalHeader.SizeOfHeaders )
     {
-      v14 = 0;
-      v17 = v13 + v6;
+      v13 = 0;
+      v16 = (__int64)v6 + VirtualAddress;
     }
     else
     {
-      v17 = RtlAddressInSectionTable(v9, v6);
-      v14 = v17 == 0 ? 0xC000000D : 0;
+      v16 = (__int64)RtlAddressInSectionTable(NtHeaders, v6, VirtualAddress);
+      v13 = v16 == 0 ? 0xC000000D : 0;
     }
   }
 LABEL_17:
-  result = v17;
-  if ( v14 < 0 )
+  result = (PVOID)v16;
+  if ( v13 < 0 )
     return 0LL;
   return result;
 }

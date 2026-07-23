@@ -1,7 +1,7 @@
 /*
- * XREFs of AVrfpEnableHeapVerifier @ 0x180138268
+ * XREFs of AVrfpEnableHeapVerifier @ 0x180137FD8
  * Callers:
- *     AVrfpEnableVerifierOptions @ 0x180120F94 (AVrfpEnableVerifierOptions.c)
+ *     AVrfpEnableVerifierOptions @ 0x180120D44 (AVrfpEnableVerifierOptions.c)
  * Callees:
  *     <none>
  */

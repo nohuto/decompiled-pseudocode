@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpConsoleScrollScreen @ 0x140953C10
+ * XREFs of BgpConsoleScrollScreen @ 0x140954C10
  * Callers:
- *     BgpConsoleDisplayCharacterEx @ 0x140953724 (BgpConsoleDisplayCharacterEx.c)
+ *     BgpConsoleDisplayCharacterEx @ 0x140954724 (BgpConsoleDisplayCharacterEx.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140327A64 (BgpDisplayCharacterEx.c)
  */
 
 __int64 BgpConsoleScrollScreen()
@@ -39,11 +39,11 @@ __int64 BgpConsoleScrollScreen()
   int v28; // [rsp+B0h] [rbp+18h] BYREF
   int v29; // [rsp+B8h] [rbp+20h] BYREF
 
-  v0 = qword_1404C64D8;
+  v0 = qword_1404C7598;
   v1 = 0;
   v2 = 0LL;
-  v3 = (_DWORD *)(qword_1404C64D8 + 60);
-  v4 = (_DWORD *)(qword_1404C64D8 + 48);
+  v3 = (_DWORD *)(qword_1404C7598 + 60);
+  v4 = (_DWORD *)(qword_1404C7598 + 48);
   do
   {
     v5 = 0;
@@ -67,10 +67,10 @@ __int64 BgpConsoleScrollScreen()
           v14 = *v3 + v1 * *v4;
           v27 = *(_DWORD *)(v0 + 12 * (v2 + v6 + 7));
           v15 = BgpDisplayCharacterEx(v8, v12, v14, v13, v27, v26, &v29, &v28, v25);
-          v0 = qword_1404C64D8;
+          v0 = qword_1404C7598;
           if ( v15 >= 0 )
           {
-            *(_WORD *)(qword_1404C64D8 + 4 * v10 + 88) = v8;
+            *(_WORD *)(qword_1404C7598 + 4 * v10 + 88) = v8;
             *(_DWORD *)(v0 + 12 * (v2 + v7 + 7)) = v27;
             *(_DWORD *)(v0 + 4 * v10 + 80) = v26;
           }
@@ -100,12 +100,12 @@ __int64 BgpConsoleScrollScreen()
             &v27,
             &v26,
             v25);
-    v0 = qword_1404C64D8;
+    v0 = qword_1404C7598;
     if ( v21 >= 0 )
     {
       v22 = v20 + v18;
       v23 = 3 * v22;
-      *(_WORD *)(qword_1404C64D8 + 4 * v23 + 88) = 32;
+      *(_WORD *)(qword_1404C7598 + 4 * v23 + 88) = 32;
       *(_DWORD *)(v0 + 12 * v22 + 84) = v17;
       *(_DWORD *)(v0 + 4 * v23 + 80) = v19;
     }

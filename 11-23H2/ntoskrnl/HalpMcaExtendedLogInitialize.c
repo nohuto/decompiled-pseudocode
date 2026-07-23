@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaExtendedLogInitialize @ 0x1405030DC
+ * XREFs of HalpMcaExtendedLogInitialize @ 0x14050362C
  * Callers:
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x140502FCC (HalpMcaExtendedLogGetL1DirectoryBase.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x14050351C (HalpMcaExtendedLogGetL1DirectoryBase.c)
  */
 
 __int64 HalpMcaExtendedLogInitialize()

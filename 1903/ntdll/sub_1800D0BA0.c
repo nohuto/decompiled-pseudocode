@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800D0BA0(__int64 a1, _WORD *a2)
+__int64 __fastcall sub_1800D0BA0(__int64 a1, const WCHAR *a2)
 {
   __int64 v2; // rax
   __int64 result; // rax
@@ -22,7 +22,7 @@ __int64 __fastcall sub_1800D0BA0(__int64 a1, _WORD *a2)
   }
   *(_DWORD *)(a1 + 12) = 0;
   if ( !a2 )
-    a2 = &unk_18011C2FC;
+    a2 = &word_18011C2FC;
   result = (unsigned int)(2 * v2 + 2);
   *(_QWORD *)a1 = a2;
   *(_DWORD *)(a1 + 8) = result;

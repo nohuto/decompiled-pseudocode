@@ -20,13 +20,13 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
 {
   _QWORD *v3; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v8; // rsi
+  PRTL_BALANCED_NODE v8; // rsi
   int v9; // esi
   struct _KTHREAD *v11; // rax
-  __int64 v12; // rax
+  _RTL_BALANCED_NODE *v12; // rax
   int v13; // r8d
   signed __int8 v14; // cf
-  __int64 v15; // rsi
+  _RTL_BALANCED_NODE *v15; // rsi
   _QWORD *v16; // r14
   _QWORD *v17; // [rsp+88h] [rbp+20h] BYREF
 
@@ -38,7 +38,7 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14046B878, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&qword_14046B878, v8, (ULONG_PTR)&qword_14046B878);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = sub_1405CAC90(a1, &v17);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14046B878, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&qword_14046B878);
@@ -59,7 +59,7 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
     if ( v14 )
       ExfAcquirePushLockExclusiveEx(&qword_14046B878, v12, (ULONG_PTR)&qword_14046B878);
     if ( v15 )
-      *(_BYTE *)(v15 + 26) |= 1u;
+      BYTE2(v15[1].Left) |= 1u;
     v16 = v17;
     v9 = sub_1406AF340((unsigned int)&qword_14046B850, (_DWORD)v17, v13, *v17, 8, -1);
     if ( v9 >= 0 )

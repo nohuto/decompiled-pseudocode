@@ -1,19 +1,19 @@
 /*
- * XREFs of ViAllocateContiguousMemory @ 0x140B87CF0
+ * XREFs of ViAllocateContiguousMemory @ 0x140B89CF0
  * Callers:
- *     ViHookDmaAdapter @ 0x140B893E8 (ViHookDmaAdapter.c)
+ *     ViHookDmaAdapter @ 0x140B8B3E8 (ViHookDmaAdapter.c)
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     MmAllocateContiguousNodeMemory @ 0x140411690 (MmAllocateContiguousNodeMemory.c)
- *     RtlClearAllBits @ 0x140448960 (RtlClearAllBits.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403958D0 (MmAllocateContiguousNodeMemory.c)
+ *     RtlClearAllBits @ 0x140441080 (RtlClearAllBits.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR __fastcall ViAllocateContiguousMemory(__int64 a1)
+__int64 __fastcall ViAllocateContiguousMemory(__int64 a1)
 {
   int v2; // eax
   int v3; // edi
-  ULONG_PTR result; // rax
+  __int64 result; // rax
   ULONG v5; // ebp
   __int64 v6; // r14
   int v7; // [rsp+50h] [rbp+8h]

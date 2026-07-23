@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalTelemetryCallback @ 0x1402DC430
+ * XREFs of PopThermalTelemetryCallback @ 0x1402DC620
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
  */
 
 char PopThermalTelemetryCallback()
 {
-  return PopQueueWorkItem((__int64)&unk_140417208, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&unk_1404182A8, DelayedWorkQueue);
 }

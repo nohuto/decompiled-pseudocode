@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateSkipPagesForMdl @ 0x140414774
+ * XREFs of MiAllocateSkipPagesForMdl @ 0x1403968B8
  * Callers:
- *     MiFindPagesForMdl @ 0x140412AB4 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x140394EF4 (MiFindPagesForMdl.c)
  * Callees:
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiInitializeBestCandidatesContext @ 0x140414BC4 (MiInitializeBestCandidatesContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiInitializeBestCandidatesContext @ 0x1403973B0 (MiInitializeBestCandidatesContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiAllocateSkipPagesForMdl(__int64 a1, unsigned int a2, int a3)

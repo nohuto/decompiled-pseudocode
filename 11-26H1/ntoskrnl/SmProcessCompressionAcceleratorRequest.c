@@ -1,15 +1,15 @@
 /*
- * XREFs of SmProcessCompressionAcceleratorRequest @ 0x140819228
+ * XREFs of SmProcessCompressionAcceleratorRequest @ 0x14081F438
  * Callers:
- *     SmQueryStoreInformation @ 0x140B26304 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140B28564 (SmQueryStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessCompressionAcceleratorRequest(char *a1, size_t Size, _DWORD *a3, char a4)

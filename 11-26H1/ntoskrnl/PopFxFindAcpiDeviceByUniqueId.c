@@ -1,38 +1,42 @@
 /*
- * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x1404FA998
+ * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x1404F3FA8
  * Callers:
- *     PopFxAcpiPrepareDevice @ 0x1406121A4 (PopFxAcpiPrepareDevice.c)
- *     PopFxRegisterDeviceWorker @ 0x140B1BA40 (PopFxRegisterDeviceWorker.c)
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x140B1C46C (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxAcpiPrepareDevice @ 0x140614FE4 (PopFxAcpiPrepareDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x140B1DC50 (PopFxRegisterDeviceWorker.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x140B1E67C (PopFxFindDeviceAndAllocateUniqueId.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IoAcquireRemoveLockEx @ 0x1404578E0 (IoAcquireRemoveLockEx.c)
- *     RtlCompareUnicodeString @ 0x1409E1590 (RtlCompareUnicodeString.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IoAcquireRemoveLockEx @ 0x14044F150 (IoAcquireRemoveLockEx.c)
+ *     RtlCompareUnicodeString @ 0x1409DE5A0 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall PopFxFindAcpiDeviceByUniqueId(
         PCUNICODE_STRING String2,
-        __int64 **a2,
+        unsigned __int64 **a2,
         __int64 a3,
         struct _KLOCK_ENTRIES *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v7; // rdi
+  unsigned __int64 *p_InGlobalUpdateVpThreadPriorityList; // rdi
   NTSTATUS v8; // esi
   LegacyAutoBoost *v9; // rbx
-  __int64 *i; // rbx
+  struct _KTHREAD *i; // rbx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = 0LL;
+  p_InGlobalUpdateVpThreadPriorityList = 0LL;
   v8 = -1073741275;
-  v9 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&qword_140F123D0, 0LL, 0LL, a4);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F123D0, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140F123D0.Header.Lock, 0, v9, &qword_140F123D0);
+  v9 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock.Teb, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(
+      (signed __int64 *)&PopFxBlockingDeviceListLock.Teb,
+      0,
+      v9,
+      (struct _KTHREAD *)&PopFxBlockingDeviceListLock.Teb);
   if ( v9 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -40,23 +44,31 @@ __int64 __fastcall PopFxFindAcpiDeviceByUniqueId(
     else
       *((_BYTE *)v9 + 10) = 1;
   }
-  for ( i = (__int64 *)qword_140F123C0; i != &qword_140F123C0; i = (__int64 *)*i )
+  for ( i = *(struct _KTHREAD **)&PopFxBlockingDeviceListLock.PriorityFloorSummary;
+        i != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.PriorityFloorSummary;
+        i = *(struct _KTHREAD **)&i->Header.Lock )
   {
-    v7 = i - 25;
-    if ( i[3] && !RtlCompareUnicodeString((PCUNICODE_STRING)(v7 + 27), String2, 0) )
+    p_InGlobalUpdateVpThreadPriorityList = &i[-1].InGlobalUpdateVpThreadPriorityList;
+    if ( i->SListFaultAddress
+      && !RtlCompareUnicodeString((PCUNICODE_STRING)(p_InGlobalUpdateVpThreadPriorityList + 27), String2, 0) )
     {
       if ( a2 )
-        v8 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v7 + 39), (PVOID)0x66466F50, &File, 1u, 0x20u);
+        v8 = IoAcquireRemoveLockEx(
+               (PIO_REMOVE_LOCK)(p_InGlobalUpdateVpThreadPriorityList + 39),
+               (PVOID)0x66466F50,
+               &File,
+               1u,
+               0x20u);
       else
         v8 = 0;
       break;
     }
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F123D0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140F123D0.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F123D0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&PopFxBlockingDeviceListLock.Teb);
+  KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock.Teb);
   KeLeaveCriticalRegion();
   if ( v8 >= 0 && a2 )
-    *a2 = v7;
+    *a2 = p_InGlobalUpdateVpThreadPriorityList;
   return (unsigned int)v8;
 }

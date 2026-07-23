@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpExecutiveResourceConfigRunDown @ 0x1409EEB9C
+ * XREFs of EtwpExecutiveResourceConfigRunDown @ 0x1409EEE2C
  * Callers:
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpExecutiveResourceConfigRunDown(__int64 a1, char a2)

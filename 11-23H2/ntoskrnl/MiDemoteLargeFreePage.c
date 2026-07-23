@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x1403A0A68
+ * XREFs of MiDemoteLargeFreePage @ 0x1403A0C48
  * Callers:
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiInsertDemotedPages @ 0x1402EA178 (MiInsertDemotedPages.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A0B7C (MiTryUnlinkNodeLargePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiInsertDemotedPages @ 0x1402EA408 (MiInsertDemotedPages.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1403A0D5C (MiTryUnlinkNodeLargePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3, char a4, __int64 a5)
@@ -34,10 +34,10 @@ __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3
   if ( result )
   {
     MiInsertDemotedPages(v12, result, a3, a3 + 1, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

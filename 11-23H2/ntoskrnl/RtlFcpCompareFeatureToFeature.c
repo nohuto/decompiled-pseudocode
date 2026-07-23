@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFcpCompareFeatureToFeature @ 0x1405B4B20
+ * XREFs of RtlFcpCompareFeatureToFeature @ 0x1405B5090
  * Callers:
- *     RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C8544 (RtlpFcValidateFeatureConfigurationBuffer.c)
+ *     RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C8744 (RtlpFcValidateFeatureConfigurationBuffer.c)
  * Callees:
  *     <none>
  */

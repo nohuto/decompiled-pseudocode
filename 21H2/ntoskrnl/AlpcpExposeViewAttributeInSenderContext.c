@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x140661B50
+ * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x140656970
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x1405E4440 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1406D3BA0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
- *     AlpcpRestoreWriteAccess @ 0x14061F950 (AlpcpRestoreWriteAccess.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpCreateView @ 0x140660B40 (AlpcpCreateView.c)
- *     AlpcpLocateView @ 0x140661CE0 (AlpcpLocateView.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     AlpcpDeleteView @ 0x140662558 (AlpcpDeleteView.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpCreateView @ 0x140655960 (AlpcpCreateView.c)
+ *     AlpcpLocateView @ 0x140656B00 (AlpcpLocateView.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140657018 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     AlpcpDeleteView @ 0x140657378 (AlpcpDeleteView.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
+ *     AlpcpRestoreWriteAccess @ 0x1406895C0 (AlpcpRestoreWriteAccess.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1406D6FE0 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcpExposeViewAttributeInSenderContext(_QWORD *Object, __int64 a2)
@@ -28,24 +28,19 @@ __int64 __fastcall AlpcpExposeViewAttributeInSenderContext(_QWORD *Object, __int
   ULONG_PTR v8; // rbx
   int v9; // eax
   __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  _DWORD *v13; // r9
-  int v15; // eax
-  __int64 v16; // rax
-  _DWORD *v17; // r9
-  _DWORD *v18; // r9
-  ULONG_PTR v19; // [rsp+20h] [rbp-40h] BYREF
-  _OWORD v20[3]; // [rsp+28h] [rbp-38h] BYREF
+  int v12; // eax
+  __int64 v13; // rax
+  ULONG_PTR v14; // [rsp+20h] [rbp-40h] BYREF
+  _OWORD v15[3]; // [rsp+28h] [rbp-38h] BYREF
 
   v2 = *(_QWORD *)(a2 + 144);
-  memset(v20, 0, sizeof(v20));
+  memset(v15, 0, sizeof(v15));
   v5 = 0;
   for ( i = *(_QWORD *)(v2 + 16); ; AlpcpUnlockBlob(i) )
   {
     AlpcpLockForCachedReferenceBlob(i);
     View = AlpcpLocateView(i, Object);
-    v19 = View;
+    v14 = View;
     v8 = View;
     if ( !View || AlpcpReferenceBlob(View) > 0 )
       break;
@@ -62,42 +57,42 @@ LABEL_12:
     }
     if ( v8 && v8 == *(_QWORD *)(i + 72) )
     {
-      v15 = *(_DWORD *)(v2 + 72);
-      if ( (v15 & 8) == 0 )
+      v12 = *(_DWORD *)(v2 + 72);
+      if ( (v12 & 8) == 0 )
       {
-        v16 = MmSecureVirtualMemoryAgainstWrites(*(_QWORD *)(v2 + 32), *(_QWORD *)(v2 + 40), *(_QWORD *)(v2 + 48));
-        if ( !v16 )
+        v13 = MmSecureVirtualMemoryAgainstWrites(*(_QWORD *)(v2 + 32), *(_QWORD *)(v2 + 40), *(_QWORD *)(v2 + 48));
+        if ( !v13 )
         {
           if ( *(_QWORD *)(v8 + 64) )
           {
-            KiStackAttachProcess(*(_KPROCESS **)(v8 + 32), 0LL, (__int64)v20, v17);
+            KiStackAttachProcess(*(_KPROCESS **)(v8 + 32), 0, (__int64)v15);
             MmUnsecureVirtualMemory(*(HANDLE *)(v8 + 64));
-            KiUnstackDetachProcess((__int64)v20, 0);
+            KiUnstackDetachProcess((__int64)v15, 0LL);
             *(_QWORD *)(v8 + 64) = 0LL;
           }
           *(_DWORD *)(v8 + 72) |= 1u;
-          AlpcpDereferenceBlobEx(v8, 1);
+          AlpcpDereferenceBlobEx(v8);
           *(_QWORD *)(i + 72) = 0LL;
           *(_QWORD *)(i + 80) = 0LL;
           *(_DWORD *)(i + 48) &= ~1u;
           goto LABEL_12;
         }
-        *(_QWORD *)(v2 + 64) = v16;
-        v15 = *(_DWORD *)(v2 + 72);
+        *(_QWORD *)(v2 + 64) = v13;
+        v12 = *(_DWORD *)(v2 + 72);
       }
-      *(_DWORD *)(v2 + 72) = v15 & 0xFFFFFFFE;
+      *(_DWORD *)(v2 + 72) = v12 & 0xFFFFFFFE;
       AlpcpReferenceBlob(v2);
       if ( *(_QWORD *)(v8 + 64) )
       {
-        KiStackAttachProcess(*(_KPROCESS **)(v8 + 32), 0LL, (__int64)v20, v18);
+        KiStackAttachProcess(*(_KPROCESS **)(v8 + 32), 0, (__int64)v15);
         MmUnsecureVirtualMemory(*(HANDLE *)(v8 + 64));
-        KiUnstackDetachProcess((__int64)v20, 0);
+        KiUnstackDetachProcess((__int64)v15, 0LL);
         *(_QWORD *)(v8 + 64) = 0LL;
       }
       *(_DWORD *)(v8 + 72) |= 1u;
       *(_QWORD *)(i + 72) = v2;
       *(_QWORD *)(i + 80) = v8;
-      AlpcpDereferenceBlobEx(v8, 1);
+      AlpcpDereferenceBlobEx(v8);
       goto LABEL_12;
     }
     v9 = *(_DWORD *)(v2 + 72);
@@ -118,11 +113,11 @@ LABEL_9:
         *(_QWORD *)(i + 80) = v8;
         goto LABEL_12;
       }
-      v5 = AlpcpCreateView(i, Object, &v19);
+      v5 = AlpcpCreateView(i, Object, &v14);
       if ( v5 >= 0 )
         goto LABEL_11;
-      AlpcpRestoreWriteAccess(v2, v11, v12, v13);
-      AlpcpDereferenceBlobEx(v2, 1);
+      AlpcpRestoreWriteAccess(v2);
+      AlpcpDereferenceBlobEx(v2);
       goto LABEL_35;
     }
     *(_QWORD *)(i + 72) = 0LL;
@@ -133,11 +128,11 @@ LABEL_9:
   {
     goto LABEL_12;
   }
-  v5 = AlpcpCreateView(i, Object, &v19);
+  v5 = AlpcpCreateView(i, Object, &v14);
   if ( v5 >= 0 )
   {
 LABEL_11:
-    v8 = v19;
+    v8 = v14;
     goto LABEL_12;
   }
 LABEL_35:
@@ -150,6 +145,6 @@ LABEL_13:
     *(_DWORD *)(v2 + 72) &= ~2u;
   }
   AlpcpUnlockBlob(i);
-  AlpcpDereferenceBlobEx(v2, 1);
+  AlpcpDereferenceBlobEx(v2);
   return (unsigned int)v5;
 }

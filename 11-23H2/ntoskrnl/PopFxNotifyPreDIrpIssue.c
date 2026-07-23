@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxNotifyPreDIrpIssue @ 0x14028DEB8
+ * XREFs of PopFxNotifyPreDIrpIssue @ 0x14028E148
  * Callers:
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponent @ 0x140287300 (PopFxActivateComponent.c)
- *     PopFxNextParentRelationSafe @ 0x140351AD8 (PopFxNextParentRelationSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x140287590 (PopFxActivateComponent.c)
+ *     PopFxNextParentRelationSafe @ 0x140351C78 (PopFxNextParentRelationSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
@@ -64,10 +64,13 @@ bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
       v2 = 0LL;
     }
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -90,10 +93,10 @@ bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
       v16 = v15;
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 1160));
       KxReleaseSpinLock((volatile signed __int64 *)(a1 + 1152));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v17 >= 2u )
         {
           v18 = KeGetCurrentPrcb();
           v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));

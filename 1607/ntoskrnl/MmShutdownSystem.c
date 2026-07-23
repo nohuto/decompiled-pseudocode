@@ -4,8 +4,8 @@
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmTrimAllSystemPagableMemory @ 0x1401EA4F4 (MmTrimAllSystemPagableMemory.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmTrimAllSystemPagableMemory @ 0x1401EA320 (MmTrimAllSystemPagableMemory.c)
  *     MiShutdownSystem @ 0x1403DE8F8 (MiShutdownSystem.c)
  */
 
@@ -18,15 +18,15 @@ char __fastcall MmShutdownSystem(int a1)
     return MiShutdownSystem();
   if ( a1 == 1 )
   {
-    if ( (unsigned int)dword_140327014 < 2 )
+    if ( (unsigned int)dword_140327054 < 2 )
     {
-      dword_140327014 = 2;
+      dword_140327054 = 2;
       if ( (PopShutdownCleanly & 2) != 0 )
       {
         MmTrimAllSystemPagableMemory(1);
         if ( Count )
         {
-          v2 = qword_140324DE0;
+          v2 = qword_140324E20;
           v3 = Count;
           do
           {
@@ -40,9 +40,9 @@ char __fastcall MmShutdownSystem(int a1)
       }
     }
   }
-  else if ( (unsigned int)dword_140327014 < 3 )
+  else if ( (unsigned int)dword_140327054 < 3 )
   {
-    dword_140327014 = 3;
+    dword_140327054 = 3;
   }
   return 1;
 }

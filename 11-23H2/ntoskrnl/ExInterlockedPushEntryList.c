@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInterlockedPushEntryList @ 0x14060CB20
+ * XREFs of ExInterlockedPushEntryList @ 0x14060D070
  * Callers:
- *     WheapPushPendingOfflineWrapper @ 0x140A09BD8 (WheapPushPendingOfflineWrapper.c)
- *     WheapTrackPendingPage @ 0x140A09C08 (WheapTrackPendingPage.c)
+ *     WheapPushPendingOfflineWrapper @ 0x140A09E88 (WheapPushPendingOfflineWrapper.c)
+ *     WheapTrackPendingPage @ 0x140A09EB8 (WheapTrackPendingPage.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x140352048 (ExpAcquireSpinLockDisabled.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1403521E8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
@@ -14,7 +14,7 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PKSPIN_LOCK Lock)
 {
   bool v6; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rbp
+  _SINGLE_LIST_ENTRY *Next; // rbp
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v10; // eax

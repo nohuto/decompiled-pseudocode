@@ -1,20 +1,20 @@
 /*
- * XREFs of MiIncreaseCommitLimits @ 0x140396064
+ * XREFs of MiIncreaseCommitLimits @ 0x140396244
  * Callers:
- *     MiInitializeCommitment @ 0x140395B94 (MiInitializeCommitment.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiInsertPageFileInList @ 0x140834090 (MiInsertPageFileInList.c)
- *     MiMapNewPfns @ 0x140A2C910 (MiMapNewPfns.c)
- *     MiExtendPagingFiles @ 0x140A32A3C (MiExtendPagingFiles.c)
- *     MiFreePartitionPhysicalPages @ 0x140A44AF4 (MiFreePartitionPhysicalPages.c)
+ *     MiInitializeCommitment @ 0x140395D74 (MiInitializeCommitment.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiInsertPageFileInList @ 0x140834390 (MiInsertPageFileInList.c)
+ *     MiMapNewPfns @ 0x140A2CBC0 (MiMapNewPfns.c)
+ *     MiExtendPagingFiles @ 0x140A32CEC (MiExtendPagingFiles.c)
+ *     MiFreePartitionPhysicalPages @ 0x140A44DA4 (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUpdatePageFileList @ 0x140395E00 (MiUpdatePageFileList.c)
- *     MiComputeCommitThresholds @ 0x140396178 (MiComputeCommitThresholds.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRestockOverCommit @ 0x140656638 (MiRestockOverCommit.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUpdatePageFileList @ 0x140395FE0 (MiUpdatePageFileList.c)
+ *     MiComputeCommitThresholds @ 0x140396358 (MiComputeCommitThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRestockOverCommit @ 0x140656B88 (MiRestockOverCommit.c)
  */
 
 __int64 __fastcall MiIncreaseCommitLimits(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -67,10 +67,10 @@ __int64 __fastcall MiIncreaseCommitLimits(__int64 a1, unsigned __int64 a2, __int
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v19);
   OldIrql = v19.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v19.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v19.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

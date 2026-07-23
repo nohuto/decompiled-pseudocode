@@ -1,31 +1,31 @@
 /*
- * XREFs of SepInitializationPhase1 @ 0x140810284
+ * XREFs of SepInitializationPhase1 @ 0x140815D14
  * Callers:
- *     SeInitServerSilo @ 0x1408100DC (SeInitServerSilo.c)
- *     SeInitSystem @ 0x140CDD158 (SeInitSystem.c)
+ *     SeInitServerSilo @ 0x140815B6C (SeInitServerSilo.c)
+ *     SeInitSystem @ 0x140CE34F0 (SeInitSystem.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     SepInitProcessAuditSd @ 0x14063AA70 (SepInitProcessAuditSd.c)
- *     SddlBaseInitialize @ 0x14063BF24 (SddlBaseInitialize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateEvent @ 0x140723CF0 (ZwCreateEvent.c)
- *     ZwCreateDirectoryObject @ 0x140724970 (ZwCreateDirectoryObject.c)
- *     SepInitializeCodeIntegrity @ 0x14080FD8C (SepInitializeCodeIntegrity.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     SepInitializeAuthorizationCallbacks @ 0x140CDD238 (SepInitializeAuthorizationCallbacks.c)
- *     SeMakeAnonymousLogonToken @ 0x140CDD2F0 (SeMakeAnonymousLogonToken.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140CDD570 (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SepInitializeSingletonAttributesStructures @ 0x140CDE3D0 (SepInitializeSingletonAttributesStructures.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     SepInitProcessAuditSd @ 0x14063DADC (SepInitProcessAuditSd.c)
+ *     SddlBaseInitialize @ 0x14063FB00 (SddlBaseInitialize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1407288C0 (ZwCreateEvent.c)
+ *     ZwCreateDirectoryObject @ 0x140729540 (ZwCreateDirectoryObject.c)
+ *     SepInitializeCodeIntegrity @ 0x14081581C (SepInitializeCodeIntegrity.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     SepInitializeAuthorizationCallbacks @ 0x140CE35D0 (SepInitializeAuthorizationCallbacks.c)
+ *     SeMakeAnonymousLogonToken @ 0x140CE3688 (SeMakeAnonymousLogonToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140CE3908 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140CE4768 (SepInitializeSingletonAttributesStructures.c)
  */
 
 char SepInitializationPhase1()
@@ -58,7 +58,7 @@ char SepInitializationPhase1()
       0LL,
       0LL);
     PspSiloMonitorLock.Padding[0] = SeMakeAnonymousLogonToken();
-    PspSiloMonitorLock.WaitBlock[3].Thread = (struct _KTHREAD *)SeMakeAnonymousLogonTokenNoEveryone();
+    *(_QWORD *)&PspSiloMonitorLock.WaitBlockFill11[160] = SeMakeAnonymousLogonTokenNoEveryone();
   }
   RtlInitAnsiString(&DestinationString, "\\Security");
   RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
@@ -68,9 +68,9 @@ char SepInitializationPhase1()
   if ( !Pool2 )
     return 0;
   RtlCreateAcl(Pool2, 0x100u, 2u);
-  RtlpAddKnownAce((int)v2, 2, 0, 983055, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+  RtlpAddKnownAce((int)v2, 2, 0, 983055, *(void **)((char *)&RtlpBootStatHandleLock.116 + 4), 0);
   RtlpAddKnownAce((int)v2, 2, 0, 131075, SeAliasAdminsSid, 0);
-  RtlpAddKnownAce((int)v2, 2, 0, 2, RtlpBootStatHandleLock.StateSaveArea, 0);
+  RtlpAddKnownAce((int)v2, 2, 0, 2, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
   RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v2, 0);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &UnicodeString;
@@ -86,7 +86,7 @@ char SepInitializationPhase1()
   ObjectAttributes.RootDirectory = DirectoryHandle;
   ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = &UnicodeString;
-  ObjectAttributes.SecurityDescriptor = *(PVOID *)&PspSiloMonitorLock.WaitBlockFill11[160];
+  ObjectAttributes.SecurityDescriptor = PspSiloMonitorLock.WaitBlock[3].Thread;
   ObjectAttributes.Attributes = 80;
   ObjectAttributes.SecurityQualityOfService = 0LL;
   ZwCreateEvent(&EventHandle, 0x40000000u, &ObjectAttributes, NotificationEvent, 0);

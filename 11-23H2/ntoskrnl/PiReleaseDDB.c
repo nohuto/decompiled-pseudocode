@@ -3,8 +3,8 @@
  * Callers:
  *     PiLookupInDDB @ 0x140692E10 (PiLookupInDDB.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x14041B2A0 (ZwUnmapViewOfSection.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x14041B630 (ZwUnmapViewOfSection.c)
  *     SdbReleaseDatabase @ 0x140695574 (SdbReleaseDatabase.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAdjustTimerDueTimes @ 0x14012A614
+ * XREFs of KiAdjustTimerDueTimes @ 0x14012AB84
  * Callers:
- *     KiSetSystemTimeDpc @ 0x14012A438 (KiSetSystemTimeDpc.c)
- *     KiAdjustTimersAfterDripsExit @ 0x1401D25A4 (KiAdjustTimersAfterDripsExit.c)
+ *     KiSetSystemTimeDpc @ 0x14012A9A8 (KiSetSystemTimeDpc.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x1401D23D0 (KiAdjustTimersAfterDripsExit.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiTimerWaitTest @ 0x140058C90 (KiTimerWaitTest.c)
- *     KiInsertTimerTable @ 0x140059E30 (KiInsertTimerTable.c)
- *     KiRemoveEntryTimer @ 0x140110D34 (KiRemoveEntryTimer.c)
- *     KiAdjustTimer2DueTimes @ 0x14012A824 (KiAdjustTimer2DueTimes.c)
- *     KiTraceSetTimer @ 0x1401DACC0 (KiTraceSetTimer.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiTimerWaitTest @ 0x140058810 (KiTimerWaitTest.c)
+ *     KiInsertTimerTable @ 0x1400599B0 (KiInsertTimerTable.c)
+ *     KiRemoveEntryTimer @ 0x140111298 (KiRemoveEntryTimer.c)
+ *     KiAdjustTimer2DueTimes @ 0x14012AD94 (KiAdjustTimer2DueTimes.c)
+ *     KiTraceSetTimer @ 0x1401DAAEC (KiTraceSetTimer.c)
  */
 
 _QWORD *__fastcall KiAdjustTimerDueTimes(__int64 a1, __int64 a2, __int64 a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlCheckTokenMembership @ 0x14027F430
+ * XREFs of RtlCheckTokenMembership @ 0x14026D6E0
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406BAC8C (ExCheckFullProcessInformationAccess.c)
- *     ExpCheckIRTimerAccess @ 0x1407728E8 (ExpCheckIRTimerAccess.c)
- *     PopIsRunningAsLocalSystem @ 0x14077A3E8 (PopIsRunningAsLocalSystem.c)
- *     PopValidateContextMembership @ 0x14078E220 (PopValidateContextMembership.c)
- *     PopNetUpdateStandbyRequest @ 0x1408F202C (PopNetUpdateStandbyRequest.c)
- *     RtlCapabilityCheck @ 0x140913350 (RtlCapabilityCheck.c)
- *     NtFilterBootOption @ 0x140923DA0 (NtFilterBootOption.c)
- *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B0EC (EtwpUserInAdminOrLogUsersGroup.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140619F60 (ExCheckFullProcessInformationAccess.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
+ *     ExpCheckIRTimerAccess @ 0x140772AA8 (ExpCheckIRTimerAccess.c)
+ *     PopIsRunningAsLocalSystem @ 0x14077A5A8 (PopIsRunningAsLocalSystem.c)
+ *     PopValidateContextMembership @ 0x14078E3E0 (PopValidateContextMembership.c)
+ *     PopNetUpdateStandbyRequest @ 0x1408F218C (PopNetUpdateStandbyRequest.c)
+ *     RtlCapabilityCheck @ 0x1409134B0 (RtlCapabilityCheck.c)
+ *     NtFilterBootOption @ 0x140923F00 (NtFilterBootOption.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B2BC (EtwpUserInAdminOrLogUsersGroup.c)
  * Callees:
- *     RtlCheckTokenMembershipEx @ 0x14027F450 (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenMembershipEx @ 0x14026D700 (RtlCheckTokenMembershipEx.c)
  */
 
-__int64 __fastcall RtlCheckTokenMembership(void *a1, void *a2)
+NTSTATUS __cdecl RtlCheckTokenMembership(HANDLE TokenHandle, PSID SidToCheck, PBOOLEAN IsMember)
 {
-  return RtlCheckTokenMembershipEx(a1, a2);
+  return RtlCheckTokenMembershipEx(TokenHandle, SidToCheck, 0, IsMember);
 }

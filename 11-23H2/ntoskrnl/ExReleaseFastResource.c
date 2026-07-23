@@ -1,12 +1,12 @@
 /*
- * XREFs of ExReleaseFastResource @ 0x1403CAE50
+ * XREFs of ExReleaseFastResource @ 0x1403CB030
  * Callers:
- *     ExpFastResourceLegacyRelease @ 0x1403CA7A0 (ExpFastResourceLegacyRelease.c)
+ *     ExpFastResourceLegacyRelease @ 0x1403CA980 (ExpFastResourceLegacyRelease.c)
  * Callees:
- *     ExpReleaseFastResourceShared @ 0x1403CAF80 (ExpReleaseFastResourceShared.c)
- *     ExpReleaseFastResourceExclusive @ 0x1403CB3B4 (ExpReleaseFastResourceExclusive.c)
- *     ExReleaseFastResource2 @ 0x1404140CC (ExReleaseFastResource2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpReleaseFastResourceShared @ 0x1403CB160 (ExpReleaseFastResourceShared.c)
+ *     ExpReleaseFastResourceExclusive @ 0x1403CB594 (ExpReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResource2 @ 0x140414460 (ExReleaseFastResource2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

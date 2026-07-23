@@ -1,27 +1,27 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyKeys @ 0x140919888
+ * XREFs of _PnpGetGenericStorePropertyKeys @ 0x1409742E8
  * Callers:
- *     PiDevCfgCopyObjectProperties @ 0x14098BB38 (PiDevCfgCopyObjectProperties.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A2D44C (DrvDbDeleteObjectSubKey.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x140AB4038 (PiDqPnPGetObjectPropertyKeys.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x140AB4328 (_PnpGetObjectPropertyKeysWorker.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140B48EE0 (PiCreateDriverSwDeviceCallback.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A3EE58 (DrvDbDeleteObjectSubKey.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140A46258 (PiDevCfgCopyObjectProperties.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x140AB53D8 (PiDqPnPGetObjectPropertyKeys.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x140AB56C8 (_PnpGetObjectPropertyKeysWorker.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140B4AC70 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _RegRtlEnumKey @ 0x14091A1C0 (_RegRtlEnumKey.c)
- *     RtlUnicodeStringToInteger @ 0x14091AAE0 (RtlUnicodeStringToInteger.c)
- *     _RegRtlEnumValue @ 0x14091AFB0 (_RegRtlEnumValue.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     _RegRtlEnumKey @ 0x140974C20 (_RegRtlEnumKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140975540 (RtlUnicodeStringToInteger.c)
+ *     _RegRtlEnumValue @ 0x140975A14 (_RegRtlEnumValue.c)
  */
 
 __int64 __fastcall PnpGetGenericStorePropertyKeys(
         __int64 a1,
-        int a2,
+        __int64 a2,
         const WCHAR *a3,
         char a4,
         __int64 a5,
@@ -47,26 +47,27 @@ __int64 __fastcall PnpGetGenericStorePropertyKeys(
   __int64 v25; // rax
   __int64 v26; // rbx
   NTSTATUS v27; // eax
-  unsigned int v29; // [rsp+44h] [rbp-BCh] BYREF
-  HANDLE v30; // [rsp+48h] [rbp-B8h] BYREF
-  HANDLE KeyHandle; // [rsp+50h] [rbp-B0h]
-  __int64 v32; // [rsp+58h] [rbp-A8h] BYREF
+  int v28; // [rsp+28h] [rbp-D8h]
+  unsigned int v30; // [rsp+44h] [rbp-BCh] BYREF
+  HANDLE v31; // [rsp+48h] [rbp-B8h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v33; // [rsp+58h] [rbp-A8h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  int v34; // [rsp+68h] [rbp-98h]
+  int v35; // [rsp+68h] [rbp-98h]
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v36; // [rsp+80h] [rbp-80h]
+  __int64 v37; // [rsp+80h] [rbp-80h]
   GUID Guid; // [rsp+88h] [rbp-78h] BYREF
-  WCHAR v38[12]; // [rsp+98h] [rbp-68h] BYREF
+  WCHAR v39[12]; // [rsp+98h] [rbp-68h] BYREF
   WCHAR SourceString[40]; // [rsp+B0h] [rbp-50h] BYREF
-  _BYTE v40[176]; // [rsp+100h] [rbp+0h] BYREF
+  _BYTE v41[176]; // [rsp+100h] [rbp+0h] BYREF
 
   v7 = 0;
-  v36 = a5;
+  v37 = a5;
   *a7 = 0;
   KeyHandle = 0LL;
-  v30 = 0LL;
+  v31 = 0LL;
   Handle = 0LL;
-  v32 = 0LL;
+  v33 = 0LL;
   Guid = 0LL;
   DestinationString = 0LL;
   if ( !a3 )
@@ -85,7 +86,7 @@ __int64 __fastcall PnpGetGenericStorePropertyKeys(
   if ( v11 )
   {
 LABEL_2:
-    result = PnpOpenPropertiesKey(a1, a2, 0, 9, 0);
+    result = PnpOpenPropertiesKey(a1, a2, 0LL, 9LL, 0, v28, &KeyHandle);
     if ( (_DWORD)result == -1073741772 )
     {
       return 0LL;
@@ -97,9 +98,9 @@ LABEL_2:
       {
         do
         {
-          v29 = 39;
+          v30 = 39;
           v14 = RegRtlEnumKey(KeyHandle);
-          v34 = ++v13;
+          v35 = ++v13;
         }
         while ( v14 == -1073741789 );
         if ( v14 )
@@ -111,44 +112,44 @@ LABEL_2:
             v16 = *(_QWORD *)(v15 + 8);
           else
             v16 = 0LL;
-          if ( (int)RegRtlOpenKeyTransacted(KeyHandle, SourceString, 0LL, 9LL, &v30, v16) >= 0 )
+          if ( (int)RegRtlOpenKeyTransacted((char *)KeyHandle, SourceString, 0, 9u, &v31, v16) >= 0 )
           {
             v17 = 0;
             while ( 1 )
             {
               do
               {
-                v29 = 9;
-                v18 = RegRtlEnumKey(v30);
+                v30 = 9;
+                v18 = RegRtlEnumKey(v31);
                 ++v17;
               }
               while ( v18 == -1073741789 );
               if ( v18 )
                 break;
-              if ( RtlInitUnicodeStringEx(&DestinationString, v38) >= 0
-                && RtlUnicodeStringToInteger(&DestinationString, 0x10u, (PULONG)&v32 + 1) >= 0 )
+              if ( RtlInitUnicodeStringEx(&DestinationString, v39) >= 0
+                && RtlUnicodeStringToInteger(&DestinationString, 0x10u, (PULONG)&v33 + 1) >= 0 )
               {
                 if ( a1 && (v19 = *(_QWORD *)(a1 + 224)) != 0 )
                   v20 = *(_QWORD *)(v19 + 8);
                 else
                   v20 = 0LL;
-                if ( (int)RegRtlOpenKeyTransacted(v30, v38, 0LL, 1LL, &Handle, v20) >= 0 )
+                if ( (int)RegRtlOpenKeyTransacted((char *)v31, v39, 0, 1u, &Handle, v20) >= 0 )
                 {
                   if ( a4 )
                   {
                     v22 = 0;
                     do
                     {
-                      v29 = 85;
-                      v23 = RegRtlEnumValue(Handle, v22++, v40, (__int64)&v32, 0LL, 0LL);
+                      v30 = 85;
+                      v23 = RegRtlEnumValue(Handle, v22++, v41, (__int64)&v33, 0LL, 0LL);
                     }
                     while ( v23 == -1073741789 );
                     v7 = v23 == 0;
                   }
                   else
                   {
-                    v29 = 0;
-                    v27 = PnpCtxRegQueryValue(v21, Handle, a3, &v32, 0LL, &v29);
+                    v30 = 0;
+                    v27 = PnpCtxRegQueryValue(v21, Handle, a3, &v33, 0LL, &v30);
                     if ( !v27 || v27 == -1073741789 )
                       v7 = 1;
                   }
@@ -160,9 +161,9 @@ LABEL_2:
                     v25 = *a7;
                     if ( (unsigned int)v25 < a6 )
                     {
-                      v26 = v36;
-                      *(GUID *)(v36 + 20 * v25) = Guid;
-                      *(_DWORD *)(v26 + 20LL * *a7 + 16) = HIDWORD(v32);
+                      v26 = v37;
+                      *(GUID *)(v37 + 20 * v25) = Guid;
+                      *(_DWORD *)(v26 + 20LL * *a7 + 16) = HIDWORD(v33);
                     }
                     ++*a7;
                     v7 = 0;
@@ -170,8 +171,8 @@ LABEL_2:
                 }
               }
             }
-            ZwClose(v30);
-            v13 = v34;
+            ZwClose(v31);
+            v13 = v35;
           }
         }
       }

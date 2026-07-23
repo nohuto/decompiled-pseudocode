@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCommitPageTablesForVad @ 0x140430A30
+ * XREFs of MiCommitPageTablesForVad @ 0x14042F900
  * Callers:
- *     MiCommitExistingVad @ 0x14002AC20 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiSplitPrivatePage @ 0x1400988C0 (MiSplitPrivatePage.c)
- *     MiCloneReserveVadCommit @ 0x14010CB38 (MiCloneReserveVadCommit.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
+ *     MiCommitExistingVad @ 0x14002A7A0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiSplitPrivatePage @ 0x1400980C0 (MiSplitPrivatePage.c)
+ *     MiCloneReserveVadCommit @ 0x14010A8B8 (MiCloneReserveVadCommit.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiVadPureReserve @ 0x14002BA90 (MiVadPureReserve.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiWriteDemandZeroPte @ 0x14007BCA0 (MiWriteDemandZeroPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiChargeFullProcessCommitment @ 0x140430960 (MiChargeFullProcessCommitment.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiVadPureReserve @ 0x14002B610 (MiVadPureReserve.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiWriteDemandZeroPte @ 0x14007BD20 (MiWriteDemandZeroPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeFullProcessCommitment @ 0x14042F830 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -85,7 +85,7 @@ __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, uns
     v3 = a3;
     a2 = v46;
   }
-  v5 = qword_140327F90 + 276840448;
+  v5 = qword_140327FD0 + 276840448;
   v6 = 0LL;
   v7 = a2 >> 21;
   v8 = (unsigned int)v7;
@@ -94,7 +94,7 @@ __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, uns
   v45 = v7;
   v49 = v3 >> 21;
   v50 = v3 >> 21;
-  v43 = qword_140327F90 + 276840448;
+  v43 = qword_140327FD0 + 276840448;
   do
   {
     v44 = 2 - v9;
@@ -160,7 +160,7 @@ LABEL_13:
     return (unsigned int)v23;
   v24 = *(_DWORD *)(a1 + 48);
   v25 = 0;
-  v26 = qword_140327F90;
+  v26 = qword_140327FD0;
   if ( (v24 & 0x8000) != 0 )
   {
     if ( (v24 & 7) != 5 )

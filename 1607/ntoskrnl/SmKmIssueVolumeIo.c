@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmIssueVolumeIo @ 0x140220B4C
+ * XREFs of SmKmIssueVolumeIo @ 0x140220978
  * Callers:
- *     SmKmIssueIo @ 0x140220A68 (SmKmIssueIo.c)
+ *     SmKmIssueIo @ 0x140220894 (SmKmIssueIo.c)
  * Callees:
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     MmMdlPageContentsState @ 0x1400A5E44 (MmMdlPageContentsState.c)
- *     IoAllocateIrp @ 0x1400C611C (IoAllocateIrp.c)
- *     MmBuildMdlForNonPagedPool @ 0x1400FCBB0 (MmBuildMdlForNonPagedPool.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     MmMdlPageContentsState @ 0x1400A43BC (MmMdlPageContentsState.c)
+ *     IoAllocateIrp @ 0x1400C3FBC (IoAllocateIrp.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1400FA930 (MmBuildMdlForNonPagedPool.c)
  */
 
 __int64 __fastcall SmKmIssueVolumeIo(__int64 a1, __int64 a2, LARGE_INTEGER *a3, IO_COMPLETION_ROUTINE *a4, void *a5)

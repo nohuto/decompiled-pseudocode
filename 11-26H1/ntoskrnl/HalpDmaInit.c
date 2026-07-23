@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaInit @ 0x140CB0700
+ * XREFs of HalpDmaInit @ 0x140CB6740
  * Callers:
- *     HalpDmaInitSystem @ 0x140BEBA70 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x140BF1A70 (HalpDmaInitSystem.c)
  * Callees:
- *     Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline @ 0x1405857EC (Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline.c)
- *     HalpDmaCvmMakeMasterAdapterMapRegistersShared @ 0x1405892CC (HalpDmaCvmMakeMasterAdapterMapRegistersShared.c)
- *     HalpDmaInitializeControllers @ 0x14058B92C (HalpDmaInitializeControllers.c)
- *     HalpDmaAllocateEmergencyResources @ 0x140CB0100 (HalpDmaAllocateEmergencyResources.c)
- *     HalpDmaAllocateMappingResources @ 0x140CB0220 (HalpDmaAllocateMappingResources.c)
- *     HalpDmaInitializeCvmSupport @ 0x140CB0B80 (HalpDmaInitializeCvmSupport.c)
- *     HalpDmaInitializeMasterAdapter @ 0x140CB0C78 (HalpDmaInitializeMasterAdapter.c)
+ *     Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline @ 0x140587D0C (Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline.c)
+ *     HalpDmaCvmMakeMasterAdapterMapRegistersShared @ 0x14058B99C (HalpDmaCvmMakeMasterAdapterMapRegistersShared.c)
+ *     HalpDmaInitializeControllers @ 0x14058E0AC (HalpDmaInitializeControllers.c)
+ *     HalpDmaAllocateEmergencyResources @ 0x140CB6140 (HalpDmaAllocateEmergencyResources.c)
+ *     HalpDmaAllocateMappingResources @ 0x140CB6260 (HalpDmaAllocateMappingResources.c)
+ *     HalpDmaInitializeCvmSupport @ 0x140CB6BC0 (HalpDmaInitializeCvmSupport.c)
+ *     HalpDmaInitializeMasterAdapter @ 0x140CB6CB8 (HalpDmaInitializeMasterAdapter.c)
  */
 
 void HalpDmaInit()
@@ -33,20 +33,20 @@ void HalpDmaInit()
      && (HalpDmaCvmMakeMasterAdapterMapRegistersShared(), v3 >= 0)
      && (HalpDmaCvmMakeMasterAdapterMapRegistersShared(), v4 >= 0)) )
   {
-    if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapter24V2, qword_140FBCE68, dword_140FBCE60, v0) >= 0 )
+    if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapter24V2, qword_140FBD208, dword_140FBD200, v0) >= 0 )
     {
-      qword_140FBCE30 = 0xFFFFFFLL;
-      dword_140FBCE3C = 2;
-      if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapter24V3, qword_140FBD048, dword_140FBD040, v5) >= 0 )
+      qword_140FBD1D0 = 0xFFFFFFLL;
+      dword_140FBD1DC = 2;
+      if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapter24V3, qword_140FBD3E8, dword_140FBD3E0, v5) >= 0 )
       {
-        qword_140FBD010 = 0xFFFFFFLL;
-        dword_140FBD01C = 3;
-        if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapterV2, qword_140FBCF48, dword_140FBCF40, v6) >= 0 )
+        qword_140FBD3B0 = 0xFFFFFFLL;
+        dword_140FBD3BC = 3;
+        if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapterV2, qword_140FBD2E8, dword_140FBD2E0, v6) >= 0 )
         {
-          dword_140FBCF1C = 2;
-          if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapterV3, qword_140FBD128, dword_140FBD120, v7) >= 0 )
+          dword_140FBD2BC = 2;
+          if ( (int)HalpDmaInitializeMasterAdapter((unsigned int)&MasterAdapterV3, qword_140FBD4C8, dword_140FBD4C0, v7) >= 0 )
           {
-            dword_140FBD0FC = 3;
+            dword_140FBD49C = 3;
             if ( (int)HalpDmaAllocateEmergencyResources(v8) >= 0 && (int)HalpDmaAllocateMappingResources() >= 0 )
               HalpDmaInitializeControllers();
           }

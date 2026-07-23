@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCheckInterruptType @ 0x1404FA72C
+ * XREFs of HalpCheckInterruptType @ 0x1404F800C
  * Callers:
- *     HalpDisableSecondaryInterrupt @ 0x14047EC50 (HalpDisableSecondaryInterrupt.c)
- *     HalpEnableSecondaryInterrupt @ 0x1406FB490 (HalpEnableSecondaryInterrupt.c)
+ *     HalpDisableSecondaryInterrupt @ 0x140375450 (HalpDisableSecondaryInterrupt.c)
+ *     HalpEnableSecondaryInterrupt @ 0x1406F90D0 (HalpEnableSecondaryInterrupt.c)
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403BA150 (HalpIsInterruptTypeSecondary.c)
+ *     HalpIsInterruptTypeSecondary @ 0x140372B20 (HalpIsInterruptTypeSecondary.c)
  */
 
 bool __fastcall HalpCheckInterruptType(_DWORD *a1)

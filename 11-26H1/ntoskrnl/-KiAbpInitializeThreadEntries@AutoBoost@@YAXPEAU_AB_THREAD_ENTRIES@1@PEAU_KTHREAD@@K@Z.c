@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiAbpInitializeThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@K@Z @ 0x140497BAC
+ * XREFs of ?KiAbpInitializeThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@K@Z @ 0x1404916FC
  * Callers:
- *     ?KiAbpInitializeThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x140497B4C (-KiAbpInitializeThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
+ *     ?KiAbpInitializeThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x14049169C (-KiAbpInitializeThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
  * Callees:
  *     <none>
  */

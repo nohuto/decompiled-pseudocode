@@ -1,7 +1,7 @@
 /*
- * XREFs of PopSqmThermalHibernate @ 0x140676A54
+ * XREFs of PopSqmThermalHibernate @ 0x140676B38
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140146EF4 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140147464 (PopCheckAndHandleThermalConditions.c)
  * Callees:
  *     <none>
  */

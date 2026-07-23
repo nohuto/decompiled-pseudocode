@@ -14,7 +14,12 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-bool __stdcall RtlEqualSid(unsigned __int8 *Buf1, _WORD *Buf2)
+BOOLEAN __cdecl RtlEqualSid(PSID Sid1, PSID Sid2)
 {
-  return *(_WORD *)Buf1 == *Buf2 && memcmp(Buf1, Buf2, 4 * Buf1[1] + 8) == 0;
+  size_t _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  if ( *(_WORD *)Sid1 != *(_WORD *)Sid2 )
+    return 0;
+  LODWORD(_FFFFFFFC) = 4 * *((unsigned __int8 *)Sid1 + 1) + 8;
+  return memcmp(Sid1, Sid2, _FFFFFFFC) == 0;
 }

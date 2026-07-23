@@ -36,7 +36,7 @@ void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
   char *v20; // rax
   char *v21; // rdi
   __int16 v22; // di
-  STRING SourceString; // [rsp+20h] [rbp-E0h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v25[32]; // [rsp+40h] [rbp-C0h] BYREF
 

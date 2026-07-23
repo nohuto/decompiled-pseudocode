@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAlertResumeThread()
+NTSTATUS __cdecl ZwAlertResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 108LL;
+  result = 108;
   __asm { syscall; Low latency system call }
   return result;
 }

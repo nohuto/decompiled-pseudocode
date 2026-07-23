@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCheckBackupApplicationAttributes @ 0x1408824A0
+ * XREFs of SdbpCheckBackupApplicationAttributes @ 0x1408888A0
  * Callers:
  *     <none>
  * Callees:
- *     SdbpCheckApplicationTypeAttributes @ 0x140714174 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x140718E64 (SdbpCheckApplicationTypeAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckBackupApplicationAttributes(

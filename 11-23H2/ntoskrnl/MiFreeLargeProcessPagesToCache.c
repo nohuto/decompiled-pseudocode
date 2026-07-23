@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFreeLargeProcessPagesToCache @ 0x140668644
+ * XREFs of MiFreeLargeProcessPagesToCache @ 0x140668B94
  * Callers:
- *     MiFreeLargePages @ 0x140668250 (MiFreeLargePages.c)
+ *     MiFreeLargePages @ 0x1406687A0 (MiFreeLargePages.c)
  * Callees:
  *     MiFreeLargeZeroPages @ 0x140212098 (MiFreeLargeZeroPages.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14065D4EC (MiCoalesceActivePagesIntoFree.c)
- *     MiAppendTailList @ 0x14066767C (MiAppendTailList.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14065DA3C (MiCoalesceActivePagesIntoFree.c)
+ *     MiAppendTailList @ 0x140667BCC (MiAppendTailList.c)
  */
 
 void __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
@@ -141,10 +141,10 @@ LABEL_14:
           goto LABEL_36;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v17);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)CurrentIrql <= 0xFu
           && (unsigned __int8)v18 <= 0xFu
           && (unsigned __int8)CurrentIrql >= 2u )
@@ -178,10 +178,10 @@ LABEL_14:
   {
 LABEL_36:
     ExReleaseSpinLockExclusiveFromDpcLevel(v17);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v27 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v27 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmPerfControlExecuteAction @ 0x140131E60
+ * XREFs of PpmPerfControlExecuteAction @ 0x1401323D0
  * Callers:
- *     PpmCheckAcquireProcessorPerformance @ 0x1400D47C0 (PpmCheckAcquireProcessorPerformance.c)
- *     PpmPerfCommitPerformance @ 0x140131E54 (PpmPerfCommitPerformance.c)
+ *     PpmCheckAcquireProcessorPerformance @ 0x1400D2660 (PpmCheckAcquireProcessorPerformance.c)
+ *     PpmPerfCommitPerformance @ 0x1401323C4 (PpmPerfCommitPerformance.c)
  * Callees:
  *     <none>
  */

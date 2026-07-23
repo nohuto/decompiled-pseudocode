@@ -1,9 +1,9 @@
 /*
- * XREFs of PspPrepareEnclaveThreadWait @ 0x1409B7A1C
+ * XREFs of PspPrepareEnclaveThreadWait @ 0x1409B7C1C
  * Callers:
- *     PsCallEnclave @ 0x1409B6800 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x1409B6A00 (PsCallEnclave.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

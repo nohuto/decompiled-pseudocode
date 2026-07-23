@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSizeOfAffinityEx @ 0x18013FBE0
+ * XREFs of RtlSizeOfAffinityEx @ 0x18013FAE0
  * Callers:
  *     <none>
  * Callees:

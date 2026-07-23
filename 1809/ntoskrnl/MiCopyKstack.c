@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCopyKstack @ 0x14015EC00
+ * XREFs of MiCopyKstack @ 0x14015ED00
  * Callers:
- *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x14015E910 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x14012D250 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x14015EA10 (MiJumpStackTarget.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEBAC (MiWriteValidPteNewPage.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
  */
 
 __int64 __fastcall MiCopyKstack(__int64 a1, __int64 a2, __int64 a3)

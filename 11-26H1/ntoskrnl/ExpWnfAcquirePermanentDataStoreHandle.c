@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfAcquirePermanentDataStoreHandle @ 0x140AFA544
+ * XREFs of ExpWnfAcquirePermanentDataStoreHandle @ 0x140AFC7AC
  * Callers:
- *     ExpWnfDeletePermanentStateData @ 0x140847008 (ExpWnfDeletePermanentStateData.c)
- *     ExpWnfWriteStateData @ 0x14094BAC4 (ExpWnfWriteStateData.c)
- *     ExpWnfPopulateStateData @ 0x140950088 (ExpWnfPopulateStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x14084D268 (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfWriteStateData @ 0x1409C7434 (ExpWnfWriteStateData.c)
+ *     ExpWnfPopulateStateData @ 0x1409CB9C8 (ExpWnfPopulateStateData.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140AFA6BC (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140AFC924 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
  */
 
 __int64 __fastcall ExpWnfAcquirePermanentDataStoreHandle(__int64 a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

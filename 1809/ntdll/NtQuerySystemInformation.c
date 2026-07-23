@@ -1,13 +1,13 @@
 /*
- * XREFs of NtQuerySystemInformation @ 0x1800A09A0
+ * XREFs of NtQuerySystemInformation @ 0x1800A09C0
  * Callers:
  *     EtwpStartUmLogger @ 0x18004FFC8 (EtwpStartUmLogger.c)
  *     EtwpAddLogHeaderToLogFile @ 0x1800514D0 (EtwpAddLogHeaderToLogFile.c)
  *     TpInitializePackage @ 0x180059DC0 (TpInitializePackage.c)
  *     RtlCreateHeap @ 0x18005F7E0 (RtlCreateHeap.c)
- *     RtlSystemTimeToLocalTime @ 0x180081430 (RtlSystemTimeToLocalTime.c)
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E184 (RtlpQueryPseudoEnvironmentVariable.c)
- *     RtlpHpEnvQueryProcessorCount @ 0x18009F73C (RtlpHpEnvQueryProcessorCount.c)
+ *     RtlSystemTimeToLocalTime @ 0x180081440 (RtlSystemTimeToLocalTime.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E194 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlpHpEnvQueryProcessorCount @ 0x18009F75C (RtlpHpEnvQueryProcessorCount.c)
  *     CsrpLocalSetupForSecureProcess @ 0x1800CD524 (CsrpLocalSetupForSecureProcess.c)
  *     LdrpLogIntegrityContinuityTelemetry @ 0x1800D1770 (LdrpLogIntegrityContinuityTelemetry.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)

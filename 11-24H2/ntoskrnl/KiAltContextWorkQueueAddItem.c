@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAltContextWorkQueueAddItem @ 0x1405C9B28
+ * XREFs of KiAltContextWorkQueueAddItem @ 0x1405C7258
  * Callers:
- *     KiMcheckAlternateReturn @ 0x1405C9C80 (KiMcheckAlternateReturn.c)
+ *     KiMcheckAlternateReturn @ 0x1405C73B0 (KiMcheckAlternateReturn.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeSetTargetProcessorDpcEx @ 0x140352B60 (KeSetTargetProcessorDpcEx.c)
- *     KeGetProcessorNumberFromIndex @ 0x1403B41E0 (KeGetProcessorNumberFromIndex.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1404015D0 (KeGetCurrentProcessorNumberEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     ExInterlockedInsertTailList @ 0x14042EC00 (ExInterlockedInsertTailList.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1403703F0 (KeSetTargetProcessorDpcEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140370900 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1403FBF40 (KeGetCurrentProcessorNumberEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     ExInterlockedInsertTailList @ 0x140420930 (ExInterlockedInsertTailList.c)
  */
 
 void __fastcall KiAltContextWorkQueueAddItem(PLIST_ENTRY ListEntry)
@@ -19,7 +19,7 @@ void __fastcall KiAltContextWorkQueueAddItem(PLIST_ENTRY ListEntry)
   __int16 v3; // [rsp+30h] [rbp-10h]
   int v4; // [rsp+32h] [rbp-Eh]
   __int16 v5; // [rsp+36h] [rbp-Ah]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+58h] [rbp+18h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+58h] [rbp+18h] BYREF
   ULONG ProcIndex; // [rsp+60h] [rbp+20h] BYREF
 
   ProcNumber = 0;
@@ -27,7 +27,7 @@ void __fastcall KiAltContextWorkQueueAddItem(PLIST_ENTRY ListEntry)
   {
     if ( KeGetCurrentIrql() < 2u )
     {
-      ExQueueWorkItem(&stru_140F0F938, CriticalWorkQueue);
+      ExQueueWorkItem(&stru_140F0FBF8, CriticalWorkQueue);
     }
     else
     {
@@ -47,9 +47,9 @@ void __fastcall KiAltContextWorkQueueAddItem(PLIST_ENTRY ListEntry)
           break;
         }
       }
-      KeSetTargetProcessorDpcEx(&stru_140F0F8F8, &ProcNumber);
-      stru_140F0F8F8.Importance = 2;
-      KeInsertQueueDpc(&stru_140F0F8F8, 0LL, 0LL);
+      KeSetTargetProcessorDpcEx(&stru_140F0FBB8, &ProcNumber);
+      stru_140F0FBB8.Importance = 2;
+      KeInsertQueueDpc(&stru_140F0FBB8, 0LL, 0LL);
     }
   }
 }

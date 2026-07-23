@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckAttribute @ 0x1407B223C
+ * XREFs of SdbpCheckAttribute @ 0x1407B23DC
  * Callers:
- *     SdbpCheckAllAttributes @ 0x1407B1FFC (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1407B219C (SdbpCheckAllAttributes.c)
  * Callees:
- *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F989C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
  *     SdbpCheckFromStringVersion @ 0x1405D2014 (SdbpCheckFromStringVersion.c)
  *     SdbpCheckUptoStringVersion @ 0x1405D2140 (SdbpCheckUptoStringVersion.c)
- *     AslStringPatternMatchW @ 0x14075371C (AslStringPatternMatchW.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbpCheckUptoVersion @ 0x1407B3754 (SdbpCheckUptoVersion.c)
- *     SdbpCheckFromVersion @ 0x1409676B0 (SdbpCheckFromVersion.c)
- *     SdbpCheckVersion @ 0x1409676F4 (SdbpCheckVersion.c)
+ *     AslStringPatternMatchW @ 0x1407538DC (AslStringPatternMatchW.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbpCheckUptoVersion @ 0x1407B38F4 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckFromVersion @ 0x140967890 (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x1409678D4 (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckAttribute(

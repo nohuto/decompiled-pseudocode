@@ -277,7 +277,7 @@ LABEL_9:
   if ( v19 <= 0 )
   {
     *((_QWORD *)&v13 + 1) = 1LL;
-    v19 += (unsigned int)KeMaximumIncrement;
+    v19 += KeMaximumIncrement;
     if ( v19 <= 0 )
     {
       v44 = KeNumberProcessorsGroup0[1];

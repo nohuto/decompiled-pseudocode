@@ -1,23 +1,23 @@
 /*
- * XREFs of TtmDispatchApi @ 0x140881700
+ * XREFs of TtmDispatchApi @ 0x140882960
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpDispatchAssignDevice @ 0x140881AE0 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x140881B7C (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x140881CA8 (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x140881D8C (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchGetTerminalEvent @ 0x140881E2C (TtmpDispatchGetTerminalEvent.c)
- *     TtmpDispatchOpenTerminal @ 0x140881EF0 (TtmpDispatchOpenTerminal.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140881F88 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayPowerRequest @ 0x140882038 (TtmpDispatchSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x1408820D8 (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x140882180 (TtmpDispatchSetDisplayTimeouts.c)
- *     TtmiLogDispatchApiStart @ 0x140883B44 (TtmiLogDispatchApiStart.c)
- *     TtmiLogDispatchApiStop @ 0x140883C14 (TtmiLogDispatchApiStop.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpDispatchAssignDevice @ 0x140882D40 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140882DDC (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x140882F08 (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x140882FEC (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x14088308C (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchOpenTerminal @ 0x140883150 (TtmpDispatchOpenTerminal.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1408831E8 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x140883298 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x140883338 (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x1408833E0 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmiLogDispatchApiStart @ 0x140884DA4 (TtmiLogDispatchApiStart.c)
+ *     TtmiLogDispatchApiStop @ 0x140884E74 (TtmiLogDispatchApiStop.c)
  */
 
 __int64 __fastcall TtmDispatchApi(

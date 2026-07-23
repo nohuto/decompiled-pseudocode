@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlpOplockKeysEqual @ 0x1403DA0A0
+ * XREFs of FsRtlpOplockKeysEqual @ 0x1403CE290
  * Callers:
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140330618 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlOplockKeysEqual @ 0x1403DA080 (FsRtlOplockKeysEqual.c)
- *     FsRtlCheckOplockEx2 @ 0x1403DA5B0 (FsRtlCheckOplockEx2.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404E0638 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1404E1388 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToII @ 0x1404E3964 (FsRtlpOplockBreakToII.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1404E4608 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpRequestShareableOplock @ 0x1404E4EB0 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockBreakToNone @ 0x1405813CC (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1402B8E90 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlOplockKeysEqual @ 0x1403CE270 (FsRtlOplockKeysEqual.c)
+ *     FsRtlpOplockBreakToII @ 0x1403CE520 (FsRtlpOplockBreakToII.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403CE7F0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403CF664 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404D9C50 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1404DAE94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1404DB6D0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockBreakToNone @ 0x14057E780 (FsRtlpOplockBreakToNone.c)
  * Callees:
- *     IoGetOplockKeyContextEx @ 0x1403DB0D0 (IoGetOplockKeyContextEx.c)
+ *     IoGetOplockKeyContextEx @ 0x1403CDA50 (IoGetOplockKeyContextEx.c)
  */
 
 char __fastcall FsRtlpOplockKeysEqual(__int64 a1, __int64 a2, char a3)
@@ -34,7 +34,7 @@ char __fastcall FsRtlpOplockKeysEqual(__int64 a1, __int64 a2, char a3)
       return 0;
     if ( !*(_QWORD *)(v12 + 136) )
       return 0;
-    OplockKeyContext = IoGetOplockKeyContextEx();
+    OplockKeyContext = IoGetOplockKeyContextEx(a1);
     if ( !OplockKeyContext )
       return 0;
     if ( (*(_BYTE *)(OplockKeyContext + 2) & 1) == 0 )

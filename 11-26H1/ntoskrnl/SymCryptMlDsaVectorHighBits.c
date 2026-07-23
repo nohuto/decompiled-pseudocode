@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptMlDsaVectorHighBits @ 0x1405743F8
+ * XREFs of SymCryptMlDsaVectorHighBits @ 0x14057365C
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaMakeHint @ 0x140572BE0 (SymCryptMlDsaMakeHint.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaMakeHint @ 0x140571DEC (SymCryptMlDsaMakeHint.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of NtWriteFile @ 0x1408FB6D0
+ * XREFs of NtWriteFile @ 0x14092B660
  * Callers:
- *     DifNtWriteFileWrapper @ 0x140691B70 (DifNtWriteFileWrapper.c)
+ *     DifNtWriteFileWrapper @ 0x140695750 (DifNtWriteFileWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExSlowReplenishHandleTableEntry @ 0x14044D280 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExHandleLogBadReference @ 0x14046C9F0 (ExHandleLogBadReference.c)
- *     ExFastReplenishHandleTableEntry @ 0x1404ACB20 (ExFastReplenishHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     IoComputeDesiredAccessFileObject @ 0x1408FB670 (IoComputeDesiredAccessFileObject.c)
- *     IopWriteFile @ 0x1409B19A0 (IopWriteFile.c)
- *     PsIsProcessAppContainer @ 0x1409D6220 (PsIsProcessAppContainer.c)
- *     ObpAuditObjectAccess @ 0x1409FA54C (ObpAuditObjectAccess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1404453A0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExHandleLogBadReference @ 0x140466170 (ExHandleLogBadReference.c)
+ *     ExFastReplenishHandleTableEntry @ 0x1404A61B0 (ExFastReplenishHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ObpAuditObjectAccess @ 0x14091F14C (ObpAuditObjectAccess.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     IoComputeDesiredAccessFileObject @ 0x14092B600 (IoComputeDesiredAccessFileObject.c)
+ *     IopWriteFile @ 0x140982A60 (IopWriteFile.c)
+ *     PsIsProcessAppContainer @ 0x1409A7110 (PsIsProcessAppContainer.c)
  */
 
 NTSTATUS __stdcall NtWriteFile(
@@ -31,7 +31,7 @@ NTSTATUS __stdcall NtWriteFile(
         PLARGE_INTEGER ByteOffset,
         PULONG Key)
 {
-  ULONG_PTR v9; // rbp
+  unsigned __int64 v9; // rbp
   struct _KTHREAD *CurrentThread; // r15
   _KPROCESS *Process; // rax
   ULONG_PTR KernelTime; // r13
@@ -62,7 +62,7 @@ NTSTATUS __stdcall NtWriteFile(
   unsigned __int64 v38[12]; // [rsp+78h] [rbp-60h] BYREF
   char PreviousMode; // [rsp+E0h] [rbp+8h]
 
-  v9 = (ULONG_PTR)FileHandle;
+  v9 = (unsigned __int64)FileHandle;
   CurrentThread = KeGetCurrentThread();
   v37 = 0;
   PreviousMode = CurrentThread->PreviousMode;
@@ -197,10 +197,7 @@ LABEL_47:
       }
     }
   }
-  if ( (v29 & 4) != 0
-    && v37
-    && PreviousMode
-    && !(unsigned __int8)ObpAuditObjectAccess(KernelTime, v9, (_DWORD)v14, HandlePointer, v37) )
+  if ( (v29 & 4) != 0 && v37 && PreviousMode && !ObpAuditObjectAccess(KernelTime, v9, v14, HandlePointer, v37) )
   {
     v35 = (void *)(HandlePointer + 48);
     v21 = -1073741816;

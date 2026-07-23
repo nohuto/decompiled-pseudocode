@@ -1,7 +1,7 @@
 /*
- * XREFs of DsaValidateDescriptorFlags @ 0x1404BFA38
+ * XREFs of DsaValidateDescriptorFlags @ 0x1404B9288
  * Callers:
- *     AccelpSiovDsaOperationHandler @ 0x1404BF8A4 (AccelpSiovDsaOperationHandler.c)
+ *     AccelpSiovDsaOperationHandler @ 0x1404B90F4 (AccelpSiovDsaOperationHandler.c)
  * Callees:
  *     <none>
  */

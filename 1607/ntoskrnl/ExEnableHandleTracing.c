@@ -1,17 +1,17 @@
 /*
- * XREFs of ExEnableHandleTracing @ 0x1406AD3A4
+ * XREFs of ExEnableHandleTracing @ 0x1406AD4DC
  * Callers:
- *     PsSetProcessHandleTracingInformation @ 0x14067D42C (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x14067D510 (PsSetProcessHandleTracingInformation.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140029BD0 (PsChargeProcessNonPagedPoolQuota.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     MmGetMaximumNonPagedPoolInBytes @ 0x140085B64 (MmGetMaximumNonPagedPoolInBytes.c)
- *     ExpUnlockHandleTableExclusive @ 0x1400A8A44 (ExpUnlockHandleTableExclusive.c)
- *     ExpLockHandleTableExclusive @ 0x1400A8A84 (ExpLockHandleTableExclusive.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140029750 (PsChargeProcessNonPagedPoolQuota.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     MmGetMaximumNonPagedPoolInBytes @ 0x140087454 (MmGetMaximumNonPagedPoolInBytes.c)
+ *     ExpUnlockHandleTableExclusive @ 0x1400A6FC4 (ExpUnlockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x1400A7004 (ExpLockHandleTableExclusive.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExDereferenceHandleDebugInfo @ 0x1406AD34C (ExDereferenceHandleDebugInfo.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1406AD484 (ExDereferenceHandleDebugInfo.c)
  */
 
 __int64 __fastcall ExEnableHandleTracing(__int64 a1, unsigned int a2)

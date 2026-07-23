@@ -1,31 +1,31 @@
 /*
- * XREFs of IopWriteFileGather @ 0x140B01CE0
+ * XREFs of IopWriteFileGather @ 0x140B03A10
  * Callers:
- *     IopIoRingDispatchWriteGather @ 0x140798974 (IopIoRingDispatchWriteGather.c)
- *     NtWriteFileGather @ 0x140B01BE0 (NtWriteFileGather.c)
+ *     IopIoRingDispatchWriteGather @ 0x14079B4A4 (IopIoRingDispatchWriteGather.c)
+ *     NtWriteFileGather @ 0x140B03910 (NtWriteFileGather.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     IopResetEvent @ 0x140455C40 (IopResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14046E3C0 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     MmUpdateMdlTracker @ 0x1404E047C (MmUpdateMdlTracker.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     IopExceptionFilter @ 0x1405CA834 (IopExceptionFilter.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
- *     IopExceptionCleanupEx @ 0x1409B6D64 (IopExceptionCleanupEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     IopResetEvent @ 0x14044DD70 (IopResetEvent.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x140467B40 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     MmUpdateMdlTracker @ 0x1404D9B5C (MmUpdateMdlTracker.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     IopExceptionFilter @ 0x1405CD104 (IopExceptionFilter.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopExceptionCleanupEx @ 0x140924ADC (IopExceptionCleanupEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopWriteFileGather(
@@ -35,7 +35,7 @@ __int64 __fastcall IopWriteFileGather(
         void *a4,
         unsigned int *a5,
         unsigned int a6,
-        union _FILE_SEGMENT_ELEMENT *Address,
+        _FILE_SEGMENT_ELEMENT *Address,
         ULONG Length,
         __int64 a9,
         unsigned int *a10,
@@ -53,7 +53,7 @@ __int64 __fastcall IopWriteFileGather(
   ULONG v21; // ebx
   unsigned __int64 v22; // rcx
   __int64 v23; // r12
-  union _FILE_SEGMENT_ELEMENT *Pool2; // r15
+  _FILE_SEGMENT_ELEMENT *Pool2; // r15
   KPROCESSOR_MODE v25; // cl
   IRP *v26; // rax
   PVOID v27; // rbx
@@ -63,7 +63,7 @@ __int64 __fastcall IopWriteFileGather(
   struct _MDL *Mdl; // rax
   unsigned __int64 v32; // r15
   __int64 MajorFunction; // r12
-  union _FILE_SEGMENT_ELEMENT *v34; // r15
+  _FILE_SEGMENT_ELEMENT *v34; // r15
   _DWORD *FileObjectExtension; // rax
   int v36; // ebx
   _KPROCESS *Process; // rcx
@@ -78,7 +78,7 @@ __int64 __fastcall IopWriteFileGather(
   char v47; // [rsp+41h] [rbp-97h]
   char v48; // [rsp+42h] [rbp-96h]
   __int64 ULong64FromUser; // [rsp+48h] [rbp-90h]
-  union _FILE_SEGMENT_ELEMENT *P; // [rsp+50h] [rbp-88h]
+  _FILE_SEGMENT_ELEMENT *P; // [rsp+50h] [rbp-88h]
   unsigned int v51; // [rsp+58h] [rbp-80h]
   PVOID v52; // [rsp+60h] [rbp-78h] BYREF
   PFILE_SEGMENT_ELEMENT SegmentArray; // [rsp+68h] [rbp-70h]
@@ -184,7 +184,7 @@ LABEL_52:
   ProbeForRead(Address, v42, v41);
   if ( Length )
   {
-    Pool2 = (union _FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
+    Pool2 = (_FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
     P = Pool2;
     v55 = Pool2;
     RtlCopyFromUser(Pool2, SegmentArray, v42);

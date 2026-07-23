@@ -1,19 +1,19 @@
 /*
- * XREFs of EmonAddProfileSource @ 0x14051C8F0
+ * XREFs of EmonAddProfileSource @ 0x14051CE40
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2AB0 (KiOrAffinityEx.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     wcsnlen @ 0x1403DBAE0 (wcsnlen.c)
- *     wcsncpy_s @ 0x1403DFF30 (wcsncpy_s.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpInsertProfileSource @ 0x14050782C (HalpInsertProfileSource.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KiOrAffinityEx @ 0x1402C2D40 (KiOrAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     wcsnlen @ 0x1403DBCC0 (wcsnlen.c)
+ *     wcsncpy_s @ 0x1403E0110 (wcsncpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpInsertProfileSource @ 0x140507D7C (HalpInsertProfileSource.c)
  */
 
 __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
@@ -93,10 +93,13 @@ __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
     if ( a2 )
       *a2 = *(_DWORD *)v14;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v19 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -104,7 +107,7 @@ __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
         v25 = (v24 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v24;
         if ( v25 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v19);
@@ -125,10 +128,10 @@ __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
     }
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
     v28 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v19 <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v19 <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v28 = (unsigned int)(v19 + 1);
@@ -137,7 +140,7 @@ __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)
         v25 = (v32 & v31[5]) == 0;
         v31[5] &= v32;
         if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v30);
+          KiRemoveSystemWorkPriorityKick((__int64)v30);
       }
     }
     __writecr8(v19);

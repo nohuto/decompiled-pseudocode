@@ -1,17 +1,17 @@
 /*
- * XREFs of PopReadPagesFromHiberFile @ 0x140988B2C
+ * XREFs of PopReadPagesFromHiberFile @ 0x140988D2C
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     PopReadResumeContext @ 0x140988D88 (PopReadResumeContext.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     PopReadResumeContext @ 0x140988F88 (PopReadResumeContext.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2A0 (IoAllocateMdl.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IoPageRead @ 0x1403D59D0 (IoPageRead.c)
- *     RtlLongLongAdd @ 0x14058F0D0 (RtlLongLongAdd.c)
+ *     IoAllocateMdl @ 0x14022E3B0 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     IoPageRead @ 0x1403D5BB0 (IoPageRead.c)
+ *     RtlLongLongAdd @ 0x14058F5C0 (RtlLongLongAdd.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -42,7 +42,7 @@ __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, P
   if ( !BYTE8(PopCapabilities)
     || (char *)PopHiberInfo - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
     || (char *)FileObject - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
-    || qword_140C3CDD0 < 0x1000 )
+    || qword_140C3CF70 < 0x1000 )
   {
     Status = -1073741637;
     goto LABEL_26;

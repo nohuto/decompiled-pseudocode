@@ -3,12 +3,12 @@
  * Callers:
  *     ExpInitializeMemoryMirroring @ 0x140B75BDC (ExpInitializeMemoryMirroring.c)
  * Callees:
- *     ZwManagePartition @ 0x14041D080 (ZwManagePartition.c)
+ *     ZwManagePartition @ 0x14041D410 (ZwManagePartition.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall ExpAddNonMirroredRanges(__int64 a1, unsigned int a2, __int64 *a3, char a4)
+__int64 __fastcall ExpAddNonMirroredRanges(HANDLE TargetHandle, unsigned int a2, __int64 *a3, char a4)
 {
   __int64 v6; // rsi
   int *Pool2; // rax
@@ -43,7 +43,7 @@ __int64 __fastcall ExpAddNonMirroredRanges(__int64 a1, unsigned int a2, __int64 
       }
       while ( v6 );
     }
-    v11 = ZwManagePartition(a1, 0LL);
+    v11 = ZwManagePartition(TargetHandle, 0LL, SystemMemoryPartitionInitialAddMemory, v10, 0x40u);
     ExFreePoolWithTag(v10, 0);
   }
   else

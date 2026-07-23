@@ -1,9 +1,9 @@
 /*
- * XREFs of MmCreateThread @ 0x140ADCF00
+ * XREFs of MmCreateThread @ 0x140ADA450
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     MiAllocateThreadFaultClusterContext @ 0x1404A582C (MiAllocateThreadFaultClusterContext.c)
+ *     MiAllocateThreadFaultClusterContext @ 0x14049EEBC (MiAllocateThreadFaultClusterContext.c)
  */
 
 __int64 __fastcall MmCreateThread(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

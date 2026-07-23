@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpLeaveDmaDomain @ 0x140512D54
+ * XREFs of HalpLeaveDmaDomain @ 0x1405132A4
  * Callers:
- *     HalpDmaFreeChildAdapter @ 0x140511170 (HalpDmaFreeChildAdapter.c)
- *     HalLeaveDmaDomain @ 0x140512380 (HalLeaveDmaDomain.c)
+ *     HalpDmaFreeChildAdapter @ 0x1405116C0 (HalpDmaFreeChildAdapter.c)
+ *     HalLeaveDmaDomain @ 0x1405128D0 (HalLeaveDmaDomain.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaDereferenceDomainObject @ 0x1405127A8 (HalpDmaDereferenceDomainObject.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140512CF8 (HalpDmaDereferenceDomainObject.c)
  */
 
 __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)

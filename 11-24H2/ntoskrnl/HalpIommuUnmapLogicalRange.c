@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuUnmapLogicalRange @ 0x1403AC6FC
+ * XREFs of HalpIommuUnmapLogicalRange @ 0x14039AF08
  * Callers:
- *     HalpIommuDomainUnmapIdentityRange @ 0x1403AC118 (HalpIommuDomainUnmapIdentityRange.c)
- *     HalpIommuDomainMapIdentityRange @ 0x1403AC308 (HalpIommuDomainMapIdentityRange.c)
- *     HalpIommuMapLogical @ 0x1403AC998 (HalpIommuMapLogical.c)
- *     IommuUnmapLogicalRange @ 0x1403AD4C0 (IommuUnmapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1403AD858 (HalpIommuDomainUnmapLogicalRange.c)
- *     HalpIommuMapLogicalRange @ 0x140567D28 (HalpIommuMapLogicalRange.c)
+ *     HalpIommuDomainUnmapIdentityRange @ 0x14039A828 (HalpIommuDomainUnmapIdentityRange.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x14039AB14 (HalpIommuDomainMapIdentityRange.c)
+ *     HalpIommuMapLogical @ 0x14039B1A4 (HalpIommuMapLogical.c)
+ *     IommuUnmapLogicalRange @ 0x14039BCD0 (IommuUnmapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x14039C068 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuMapLogicalRange @ 0x140565818 (HalpIommuMapLogicalRange.c)
  * Callees:
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1403AC6DC (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14039AEE8 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpIommuUnmapLogicalRange(__int64 a1, unsigned __int64 *a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwGetProviderIdFromHandle @ 0x14017376C
+ * XREFs of EtwGetProviderIdFromHandle @ 0x14017386C
  * Callers:
- *     EtwWriteEndScenario @ 0x1407165A0 (EtwWriteEndScenario.c)
- *     EtwWriteStartScenario @ 0x140716650 (EtwWriteStartScenario.c)
- *     WdiDispatchControl @ 0x14071745C (WdiDispatchControl.c)
+ *     EtwWriteEndScenario @ 0x140717840 (EtwWriteEndScenario.c)
+ *     EtwWriteStartScenario @ 0x1407178F0 (EtwWriteStartScenario.c)
+ *     WdiDispatchControl @ 0x1407186FC (WdiDispatchControl.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReferenceGuidEntry @ 0x1405C4288 (EtwpReferenceGuidEntry.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405C5098 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpReferenceGuidEntry @ 0x1405C5288 (EtwpReferenceGuidEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall EtwGetProviderIdFromHandle(PVOID *a1, char a2, _OWORD *a3)

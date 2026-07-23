@@ -1,14 +1,14 @@
 /*
- * XREFs of PspQueryProcessAccountingInformationCallback @ 0x140600010
+ * XREFs of PspQueryProcessAccountingInformationCallback @ 0x140601010
  * Callers:
  *     <none>
  * Callees:
- *     PsAddProcessEnergyValues @ 0x14008E740 (PsAddProcessEnergyValues.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PspAddAccountingValues @ 0x1405FE264 (PspAddAccountingValues.c)
- *     PsQueryStatisticsProcess @ 0x1405FE700 (PsQueryStatisticsProcess.c)
- *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
+ *     PsAddProcessEnergyValues @ 0x14008E660 (PsAddProcessEnergyValues.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACEC0 (PoEnergyEstimationEnabled.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PspAddAccountingValues @ 0x1405FF264 (PspAddAccountingValues.c)
+ *     PsQueryStatisticsProcess @ 0x1405FF700 (PsQueryStatisticsProcess.c)
+ *     PsQueryProcessEnergyValues @ 0x1406382C0 (PsQueryProcessEnergyValues.c)
  */
 
 __int64 __fastcall PspQueryProcessAccountingInformationCallback(__int64 a1, __int64 a2)

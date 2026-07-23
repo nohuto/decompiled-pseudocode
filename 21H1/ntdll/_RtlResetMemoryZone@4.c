@@ -7,14 +7,14 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __stdcall RtlResetMemoryZone(int a1)
+NTSTATUS __cdecl RtlResetMemoryZone(PVOID MemoryZone)
 {
-  int *i; // edx
+  volatile __int32 *i; // edx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 16));
-  for ( i = *(int **)(a1 + 24); i != (int *)a1; i = (int *)*i )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  for ( i = (volatile __int32 *)*((_DWORD *)MemoryZone + 6); i != MemoryZone; i = (volatile __int32 *)*i )
     _InterlockedExchange(i + 2, (__int32)(i + 4));
-  _InterlockedExchange((volatile __int32 *)(a1 + 8), a1 + 28);
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 16));
+  _InterlockedExchange((volatile __int32 *)MemoryZone + 2, (__int32)MemoryZone + 28);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
   return 0;
 }

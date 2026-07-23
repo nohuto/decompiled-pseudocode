@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlDedupChangeUninit @ 0x14078FA70
+ * XREFs of FsRtlDedupChangeUninit @ 0x1407925A0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     McTemplateK0jjq_EtwWriteTransfer @ 0x1405B7998 (McTemplateK0jjq_EtwWriteTransfer.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     McTemplateK0jjq_EtwWriteTransfer @ 0x1405BA208 (McTemplateK0jjq_EtwWriteTransfer.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlDedupChangeUninit(_DWORD *a1, _QWORD *a2, __int64 a3)
@@ -20,9 +20,9 @@ void __fastcall FsRtlDedupChangeUninit(_DWORD *a1, _QWORD *a2, __int64 a3)
   __int64 v12; // r8
   __int64 v13; // [rsp+28h] [rbp-10h]
 
-  ExAcquireResourceExclusiveLite((PERESOURCE)&VslpReservedTransferLock.UserWaitTime, 1u);
-  for ( i = *(struct _KTHREAD **)&VslpReservedTransferLock.ReservedPreviousReadyTimeValue;
-        i != (struct _KTHREAD *)&VslpReservedTransferLock.ReservedPreviousReadyTimeValue;
+  ExAcquireResourceExclusiveLite((PERESOURCE)&VslpReservedTransferLock.KernelShadowStackBase, 1u);
+  for ( i = (struct _KTHREAD *)VslpReservedTransferLock.KernelShadowStack;
+        i != (struct _KTHREAD *)&VslpReservedTransferLock.KernelShadowStack;
         i = *(struct _KTHREAD **)&i->Header.Lock )
   {
     v7 = (char *)i->Header.WaitListHead.Blink - *a2;
@@ -42,8 +42,8 @@ void __fastcall FsRtlDedupChangeUninit(_DWORD *a1, _QWORD *a2, __int64 a3)
       break;
     }
   }
-  ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.UserWaitTime);
-  if ( ((__int64)VslpReservedTransferLock.AbWaitObject & 8) != 0 )
+  ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.KernelShadowStackBase);
+  if ( (VslpReservedTransferLock.SchedulerAssistPriorityFloor & 8) != 0 )
   {
     LODWORD(v13) = *a1;
     McTemplateK0jjq_EtwWriteTransfer(v11, v10, v12, (__int64)a2, a3, v13);

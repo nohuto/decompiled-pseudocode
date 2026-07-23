@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetSystemCacheReverseMap @ 0x1402E46F0
+ * XREFs of MiGetSystemCacheReverseMap @ 0x1402C6730
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1402A71F0 (MiReleaseSystemCacheView.c)
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     MmMapViewInSystemCache @ 0x1402E29A0 (MmMapViewInSystemCache.c)
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
- *     MiComputePxeWalkAction @ 0x1403283D0 (MiComputePxeWalkAction.c)
- *     MiTrimViewVaIsCandidate @ 0x14046C408 (MiTrimViewVaIsCandidate.c)
- *     MmFreeSystemCacheReserveView @ 0x14086AA70 (MmFreeSystemCacheReserveView.c)
- *     MmHardFaultBytesRequired @ 0x140A67490 (MmHardFaultBytesRequired.c)
+ *     MiReleaseSystemCacheView @ 0x1402A6600 (MiReleaseSystemCacheView.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     MmMapViewInSystemCache @ 0x1402C4A60 (MmMapViewInSystemCache.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
+ *     MiComputePxeWalkAction @ 0x14032A400 (MiComputePxeWalkAction.c)
+ *     MiTrimViewVaIsCandidate @ 0x140465B88 (MiTrimViewVaIsCandidate.c)
+ *     MmFreeSystemCacheReserveView @ 0x140870E50 (MmFreeSystemCacheReserveView.c)
+ *     MmHardFaultBytesRequired @ 0x140A74460 (MmHardFaultBytesRequired.c)
  * Callees:
  *     <none>
  */
@@ -34,7 +34,7 @@ __int64 __fastcall MiGetSystemCacheReverseMap(unsigned __int64 a1)
   }
   else
   {
-    result = qword_140E37B90 + 16 * (result - 1);
+    result = qword_140E37D10 + 16 * (result - 1);
   }
   if ( result )
     result += 40 * ((a1 >> 18) & 7);

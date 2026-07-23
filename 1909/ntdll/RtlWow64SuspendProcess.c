@@ -14,41 +14,42 @@
  *     ZwSuspendProcess @ 0x1800A0520 (ZwSuspendProcess.c)
  */
 
-__int64 __fastcall RtlWow64SuspendProcess(void *a1)
+__int64 __fastcall RtlWow64SuspendProcess(HANDLE ProcessHandle)
 {
   int SharedInfoProcess; // ebx
-  bool IsCurrentProcess; // al
-  int v4; // eax
+  BOOLEAN IsCurrentProcess; // al
+  NTSTATUS v4; // eax
   HANDLE v5; // rdi
-  __int64 v7; // [rsp+30h] [rbp-E8h]
+  int v7; // [rsp+30h] [rbp-E8h]
   _BYTE v8[8]; // [rsp+60h] [rbp-B8h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-B0h] BYREF
   _BYTE v10[40]; // [rsp+70h] [rbp-A8h] BYREF
-  int v11; // [rsp+98h] [rbp-80h]
-  int v12; // [rsp+CCh] [rbp-4Ch]
+  int ThreadInformation[12]; // [rsp+98h] [rbp-80h] BYREF
+  _BYTE ObjectInformation[4]; // [rsp+C8h] [rbp-50h] BYREF
+  int v13; // [rsp+CCh] [rbp-4Ch]
 
   Handle = 0LL;
-  SharedInfoProcess = RtlWow64GetSharedInfoProcess(a1, v8, (__int64)v10);
+  SharedInfoProcess = RtlWow64GetSharedInfoProcess(ProcessHandle, v8, v10);
   if ( SharedInfoProcess >= 0 )
   {
     if ( v8[0] && (v10[4] & 2) != 0 )
     {
-      SharedInfoProcess = ZwQueryObject();
+      SharedInfoProcess = ZwQueryObject(ProcessHandle, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL);
       if ( SharedInfoProcess >= 0 )
       {
-        if ( (v12 & 0x800) != 0 )
+        if ( (v13 & 0x800) != 0 )
         {
-          IsCurrentProcess = RtlIsCurrentProcess((__int64)a1);
+          IsCurrentProcess = RtlIsCurrentProcess(ProcessHandle);
           v4 = RtlpCreateUserThreadEx(
-                 (__int64)a1,
+                 ProcessHandle,
                  0LL,
                  102,
                  0,
                  0LL,
                  0LL,
                  v7,
-                 (__int64)RtlpWow64SuspendLocalProcess,
-                 !IsCurrentProcess,
+                 RtlpWow64SuspendLocalProcess,
+                 (PVOID)(IsCurrentProcess == 0),
                  &Handle,
                  0LL);
           v5 = Handle;
@@ -56,8 +57,8 @@ __int64 __fastcall RtlWow64SuspendProcess(void *a1)
           if ( v4 >= 0 )
           {
             NtWaitForSingleObject(Handle, 0, 0LL);
-            ZwQueryInformationThread();
-            SharedInfoProcess = v11;
+            ZwQueryInformationThread(v5, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
+            SharedInfoProcess = ThreadInformation[0];
           }
           if ( v5 )
             NtClose(v5);
@@ -70,7 +71,7 @@ __int64 __fastcall RtlWow64SuspendProcess(void *a1)
     }
     else
     {
-      return (unsigned int)ZwSuspendProcess();
+      return (unsigned int)ZwSuspendProcess(ProcessHandle);
     }
   }
   return (unsigned int)SharedInfoProcess;

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpValidateContextXStateDisabledFeatures @ 0x1403D3D48
+ * XREFs of RtlpValidateContextXStateDisabledFeatures @ 0x1403D6D18
  * Callers:
- *     KyRaiseException @ 0x1403D3E8C (KyRaiseException.c)
- *     PspGetSetContextInternal @ 0x140A31AF0 (PspGetSetContextInternal.c)
+ *     KyRaiseException @ 0x1403D6E5C (KyRaiseException.c)
+ *     PspGetSetContextInternal @ 0x140A4CA50 (PspGetSetContextInternal.c)
  * Callees:
  *     <none>
  */

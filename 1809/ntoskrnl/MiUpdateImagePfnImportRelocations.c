@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateImagePfnImportRelocations @ 0x1401B51AC
+ * XREFs of MiUpdateImagePfnImportRelocations @ 0x1401B52EC
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5454 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5594 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
@@ -12,11 +12,11 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiUpdateRetpolineImportFixups @ 0x1401B56EC (MiUpdateRetpolineImportFixups.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiUpdateRetpolineImportFixups @ 0x1401B582C (MiUpdateRetpolineImportFixups.c)
  */
 
 __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
@@ -53,7 +53,7 @@ __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int6
           goto LABEL_22;
         }
         v12 = a2;
-        v11 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+        v11 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
         if ( !v11 )
         {
           if ( !v7 )
@@ -68,7 +68,7 @@ __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int6
           if ( (unsigned int)MiPteHasShadow() )
           {
             v15 = 1;
-            if ( HIBYTE(word_14043A1AC) == (_BYTE)v5 )
+            if ( HIBYTE(word_14043B26C) == (_BYTE)v5 )
             {
 LABEL_18:
               if ( (a2 & 1) != 0 )
@@ -110,7 +110,7 @@ LABEL_22:
           return 0LL;
         if ( v11 != v12 )
         {
-          MiReleasePtes((__int64)&qword_14043AFA0, v11, 1u);
+          MiReleasePtes((__int64)&qword_14043C060, v11, 1u);
           return 0LL;
         }
         if ( MiPteInShadowRange(v11) )
@@ -118,7 +118,7 @@ LABEL_22:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v19 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
 LABEL_37:
               if ( (v18 & 1) != 0 )

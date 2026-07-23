@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAssignCpuPartitionsToProcess @ 0x1407F28E8
+ * XREFs of PspAssignCpuPartitionsToProcess @ 0x1407F8448
  * Callers:
- *     PspAssignJobCpuPartitionToProcess @ 0x140B3D5A4 (PspAssignJobCpuPartitionToProcess.c)
- *     PspAssignCpuPartitionsToProcessByHandle @ 0x140B6E144 (PspAssignCpuPartitionsToProcessByHandle.c)
+ *     PspAssignJobCpuPartitionToProcess @ 0x140B3F674 (PspAssignJobCpuPartitionToProcess.c)
+ *     PspAssignCpuPartitionsToProcessByHandle @ 0x140B715F4 (PspAssignCpuPartitionsToProcessByHandle.c)
  * Callees:
- *     KeRecomputeCpuSetAffinityProcess @ 0x140525C20 (KeRecomputeCpuSetAffinityProcess.c)
- *     KeAssignCpuPartitionsToProcess @ 0x1405F35E0 (KeAssignCpuPartitionsToProcess.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x140528290 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405F5FA0 (KeAssignCpuPartitionsToProcess.c)
  */
 
 __int64 __fastcall PspAssignCpuPartitionsToProcess(__int64 a1, __int64 a2, unsigned int a3, char a4)

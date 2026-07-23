@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpCreateNamespaceNode @ 0x140929B68
+ * XREFs of VrpCreateNamespaceNode @ 0x14092BCA8
  * Callers:
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408293FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14092974C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpPreLoadKey @ 0x140A73F7C (VrpPreLoadKey.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140829C2C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14092B88C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpPreLoadKey @ 0x140A6D8DC (VrpPreLoadKey.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VrpBuildKeyPath @ 0x140928C80 (VrpBuildKeyPath.c)
- *     VrpFindBestMatchNamespaceNode @ 0x14092925C (VrpFindBestMatchNamespaceNode.c)
- *     VrpGetNextToken @ 0x140929E20 (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x140929EE0 (VrpStripTrailingCharacters.c)
- *     VrpCountPathComponents @ 0x140929F20 (VrpCountPathComponents.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VrpBuildKeyPath @ 0x14092ADC0 (VrpBuildKeyPath.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x14092B39C (VrpFindBestMatchNamespaceNode.c)
+ *     VrpGetNextToken @ 0x14092BF60 (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x14092C020 (VrpStripTrailingCharacters.c)
+ *     VrpCountPathComponents @ 0x14092C060 (VrpCountPathComponents.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpCreateNamespaceNode(
@@ -68,7 +68,7 @@ __int64 __fastcall VrpCreateNamespaceNode(
   if ( !RtlEqualUnicodeString(&String1, &VrpRegistryString, 1u) )
     return (unsigned int)-1073741811;
   VrpGetNextToken(a2, &v36, &String1);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x48uLL, 0x67655256u);
   v14 = Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;
@@ -77,7 +77,7 @@ __int64 __fastcall VrpCreateNamespaceNode(
   if ( v7 )
     v15 = v7;
   *(_DWORD *)(v14 + 60) = v15;
-  v16 = ExAllocatePool2(0x100uLL);
+  v16 = ExAllocatePool2(0x100uLL, *((unsigned __int16 *)a2 + 1), 0x67655256u);
   *(_QWORD *)(v14 + 8) = v16;
   v17 = (void *)v16;
   if ( v16 )
@@ -87,7 +87,7 @@ __int64 __fastcall VrpCreateNamespaceNode(
     *(_WORD *)v14 = v18;
     memmove(v17, a2[1], *(unsigned __int16 *)a2);
     v19 = (PVOID *)(v14 + 32);
-    v20 = (void *)ExAllocatePool2(0x100uLL);
+    v20 = (void *)ExAllocatePool2(0x100uLL, *((unsigned __int16 *)a4 + 1), 0x67655256u);
     *(_QWORD *)(v14 + 32) = v20;
     if ( v20 )
     {

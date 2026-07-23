@@ -27,7 +27,7 @@ __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
   {
     v8 = 1;
     FsRtlAcquirePushLockExclusive((unsigned __int64 *)&Blink[7].Blink);
-    v10 = VmpRemoveMemoryRange((PEX_SPIN_LOCK)Blink, a2 >> 12, a1 >> 12, a3, a4);
+    v10 = VmpRemoveMemoryRange((PEX_SPIN_LOCK)Blink, (_RTL_BALANCED_NODE *)(a2 >> 12), a1 >> 12, a3, a4);
     if ( v10 >= 0 )
       v10 = 0;
   }

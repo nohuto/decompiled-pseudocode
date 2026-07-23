@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTryConvertKcbLockSharedToExclusive @ 0x1405CF40C
+ * XREFs of CmpTryConvertKcbLockSharedToExclusive @ 0x1405D040C
  * Callers:
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpCompareNewValueDataAgainstKCBCache @ 0x1405CD560 (CmpCompareNewValueDataAgainstKCBCache.c)
- *     CmEnumerateValueKey @ 0x1405D4080 (CmEnumerateValueKey.c)
- *     CmpCreateKeyBody @ 0x1405E0970 (CmpCreateKeyBody.c)
- *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x1405CE560 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmEnumerateValueKey @ 0x1405D5080 (CmEnumerateValueKey.c)
+ *     CmpCreateKeyBody @ 0x1405E1970 (CmpCreateKeyBody.c)
+ *     CmQueryValueKey @ 0x1406461B0 (CmQueryValueKey.c)
  * Callees:
  *     <none>
  */

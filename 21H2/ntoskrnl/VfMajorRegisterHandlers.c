@@ -1,7 +1,7 @@
 /*
- * XREFs of VfMajorRegisterHandlers @ 0x1409D7B5C
+ * XREFs of VfMajorRegisterHandlers @ 0x1409D8B5C
  * Callers:
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
  * Callees:
  *     <none>
  */

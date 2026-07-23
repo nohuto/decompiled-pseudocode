@@ -14,7 +14,7 @@
  *     LdrpQueueWork @ 0x180073560 (LdrpQueueWork.c)
  */
 
-signed __int64 __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
+void __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
 {
   __int64 v4; // r8
   __int64 v5; // rdi
@@ -28,7 +28,7 @@ signed __int64 __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
   _QWORD *i; // rdx
   _QWORD **v14; // rax
   int v15; // eax
-  _QWORD *v18; // rcx
+  _QWORD *v17; // rcx
 
   RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 56) + 152LL);
@@ -46,7 +46,7 @@ signed __int64 __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
       *(_QWORD *)(v4 + 48) = 0LL;
     else
       *v7 = (_QWORD *)*v8;
-    LdrpDereferenceModule(a2);
+    LdrpDereferenceModule((char *)a2);
     v9 = v8[1] & 0xFFFFFFFFFFFFFFF8uLL;
     v10 = *(_QWORD *)(*(_QWORD *)v9 + 16LL);
     if ( LdrpDependencyExist(v9, v5) )
@@ -65,17 +65,17 @@ signed __int64 __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
       v15 = *(_DWORD *)(v5 + 24);
       if ( v15 != -1 )
         *(_DWORD *)(v5 + 24) = v15 - 1;
-      RtlFreeHeap(LdrpHeap, 0, (__int64)v11);
+      RtlFreeHeap(LdrpHeap, 0, v11);
       v11 = 0LL;
     }
     else
     {
       v11[1] = v5;
-      v18 = *(_QWORD **)(v5 + 48);
-      if ( v18 )
+      v17 = *(_QWORD **)(v5 + 48);
+      if ( v17 )
       {
-        *v8 = *v18;
-        *v18 = v8;
+        *v8 = *v17;
+        *v17 = v8;
       }
       else
       {
@@ -89,5 +89,5 @@ signed __int64 __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
       LdrpQueueWork(v10);
     }
   }
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

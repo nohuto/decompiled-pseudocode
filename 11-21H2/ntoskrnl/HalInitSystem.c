@@ -1,13 +1,13 @@
 /*
  * XREFs of HalInitSystem @ 0x140A56BD0
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     sub_140AFB264 @ 0x140AFB264 (sub_140AFB264.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
  * Callees:
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HalpInitSystemPhase1 @ 0x140A56C0C (HalpInitSystemPhase1.c)
- *     __security_init_cookie @ 0x140AD62E8 (__security_init_cookie.c)
- *     HalpInitSystemPhase0 @ 0x140AFB108 (HalpInitSystemPhase0.c)
+ *     sub_140A56C0C @ 0x140A56C0C (sub_140A56C0C.c)
+ *     sub_140AD62E8 @ 0x140AD62E8 (sub_140AD62E8.c)
+ *     sub_140AFB108 @ 0x140AFB108 (sub_140AFB108.c)
  */
 
 __int64 __fastcall HalInitSystem(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -16,11 +16,11 @@ __int64 __fastcall HalInitSystem(ULONG_PTR BugCheckParameter3, __int64 a2)
   {
     if ( (_DWORD)BugCheckParameter3 != 1 )
       KeBugCheckEx(0x5Cu, 0x8200uLL, 0xFFFFFFFFC000000DuLL, (unsigned int)BugCheckParameter3, 0LL);
-    return HalpInitSystemPhase1(a2);
+    return sub_140A56C0C(a2);
   }
   else
   {
-    _security_init_cookie();
-    return HalpInitSystemPhase0(a2);
+    sub_140AD62E8();
+    return sub_140AFB108(a2);
   }
 }

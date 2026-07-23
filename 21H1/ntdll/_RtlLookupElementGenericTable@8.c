@@ -6,10 +6,10 @@
  *     _RtlLookupElementGenericTableFull@16 @ 0x4B2A7F10 (_RtlLookupElementGenericTableFull@16.c)
  */
 
-int __stdcall RtlLookupElementGenericTable(int a1, int a2)
+PVOID __cdecl RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  _BYTE v3[4]; // [esp+0h] [ebp-8h] BYREF
-  _BYTE v4[4]; // [esp+4h] [ebp-4h] BYREF
+  PVOID NodeOrParent; // [esp+0h] [ebp-8h] BYREF
+  TABLE_SEARCH_RESULT SearchResult; // [esp+4h] [ebp-4h] BYREF
 
-  return RtlLookupElementGenericTableFull(a1, a2, v3, v4);
+  return RtlLookupElementGenericTableFull(Table, Buffer, &NodeOrParent, &SearchResult);
 }

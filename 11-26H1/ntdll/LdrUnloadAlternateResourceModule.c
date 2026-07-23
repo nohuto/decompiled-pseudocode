@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrUnloadAlternateResourceModule @ 0x1800FC380
+ * XREFs of LdrUnloadAlternateResourceModule @ 0x1800FBAD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall LdrUnloadAlternateResourceModule(__int64 a1)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModule(PVOID DllHandle)
 {
-  return LdrUnloadAlternateResourceModuleEx(a1, 0);
+  return LdrUnloadAlternateResourceModuleEx(DllHandle, 0);
 }

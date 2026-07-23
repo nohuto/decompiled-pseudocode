@@ -9,27 +9,32 @@
  *     _bsearch @ 0x4B2F8160 (_bsearch.c)
  */
 
-int __stdcall RtlQueryProtectedPolicy(void *Key, _DWORD *a2)
+NTSTATUS __cdecl RtlQueryProtectedPolicy(PGUID PolicyGuid, PULONG_PTR PolicyValue)
 {
-  int v2; // esi
-  _DWORD *v3; // eax
+  int v2; // edi
+  NTSTATUS v3; // esi
+  _DWORD *v4; // eax
+  size_t v6; // [esp-8h] [ebp-Ch]
+  int (__cdecl *v7)(const void *, const void *); // [esp+0h] [ebp-4h]
 
-  v2 = -1073741275;
+  v3 = -1073741275;
   if ( RtlpProtectedPolicies )
   {
+    HIDWORD(v6) = v2;
     RtlAcquireSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-    v3 = bsearch(
-           Key,
+    LODWORD(v6) = RtlpSearchProtectedPolicyEntry;
+    v4 = bsearch(
+           PolicyGuid,
            RtlpProtectedPolicies,
-           RtlpProtectedPoliciesActiveCount,
-           0x14u,
-           (_CoreCrtNonSecureSearchSortCompareFunction)RtlpSearchProtectedPolicyEntry);
-    if ( v3 )
+           (unsigned int)RtlpProtectedPoliciesActiveCount | 0x1400000000LL,
+           v6,
+           v7);
+    if ( v4 )
     {
-      v2 = 0;
-      *a2 = v3[4];
+      v3 = 0;
+      *(_DWORD *)PolicyValue = v4[4];
     }
     RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
   }
-  return v2;
+  return v3;
 }

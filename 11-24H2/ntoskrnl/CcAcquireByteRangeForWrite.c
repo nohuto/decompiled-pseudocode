@@ -1,29 +1,29 @@
 /*
- * XREFs of CcAcquireByteRangeForWrite @ 0x1404DC470
+ * XREFs of CcAcquireByteRangeForWrite @ 0x1404D5E90
  * Callers:
- *     CcFlushCacheAcquireRange @ 0x1402ABBD0 (CcFlushCacheAcquireRange.c)
- *     CcNotifyOfMappedWrite @ 0x14036BCAC (CcNotifyOfMappedWrite.c)
+ *     CcFlushCacheAcquireRange @ 0x140276EF0 (CcFlushCacheAcquireRange.c)
+ *     CcNotifyOfMappedWrite @ 0x1402EDA4C (CcNotifyOfMappedWrite.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14024DD90 (PsBoostThreadIoEx.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcDeductDirtyPages @ 0x1402CD7A8 (CcDeductDirtyPages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     CcGetBcbListHeadLargeOffset @ 0x140427130 (CcGetBcbListHeadLargeOffset.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x14044ADDC (CcInsertIntoCleanSharedCacheMapList.c)
- *     FsRtlIsNtstatusExpected @ 0x140456400 (FsRtlIsNtstatusExpected.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     PsBoostThreadIoEx @ 0x14027E3A0 (PsBoostThreadIoEx.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     CcDeductDirtyPages @ 0x1402E53FC (CcDeductDirtyPages.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14041AFB0 (CcGetBcbListHeadLargeOffset.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x140441F1C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     FsRtlIsNtstatusExpected @ 0x14044B3D0 (FsRtlIsNtstatusExpected.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 bool __fastcall CcAcquireByteRangeForWrite(
         __int64 a1,
         __int64 *a2,
-        __int64 a3,
+        unsigned int a3,
         _QWORD *a4,
         _QWORD *a5,
         unsigned int *a6,
@@ -32,7 +32,6 @@ bool __fastcall CcAcquireByteRangeForWrite(
         __int64 *a9)
 {
   _QWORD *v9; // r12
-  unsigned int v11; // edi
   __int64 *i; // rsi
   __int64 v13; // r15
   __int64 v14; // rbx
@@ -76,53 +75,48 @@ bool __fastcall CcAcquireByteRangeForWrite(
   __int64 v52; // rdi
   __int64 v53; // rax
   unsigned int v54; // ecx
-  __int64 v55; // r8
+  _QWORD *v55; // rcx
   __int64 v56; // r9
-  _QWORD *v57; // rcx
-  __int64 v58; // r9
-  unsigned int v59; // edi
-  int v60; // eax
-  unsigned int v61; // eax
-  __int64 v62; // rax
-  int v64; // [rsp+50h] [rbp-108h]
-  int v65; // [rsp+54h] [rbp-104h]
-  __int64 v66; // [rsp+58h] [rbp-100h]
-  unsigned __int64 v67; // [rsp+60h] [rbp-F8h]
-  _DWORD *v68; // [rsp+68h] [rbp-F0h]
-  int v69; // [rsp+70h] [rbp-E8h]
-  __int64 v70; // [rsp+A8h] [rbp-B0h]
-  __int64 v71; // [rsp+B0h] [rbp-A8h]
+  unsigned int v57; // edi
+  int v58; // eax
+  unsigned int v59; // eax
+  __int64 v60; // rax
+  int v62; // [rsp+50h] [rbp-108h]
+  int v63; // [rsp+54h] [rbp-104h]
+  __int64 v64; // [rsp+58h] [rbp-100h]
+  unsigned __int64 v65; // [rsp+60h] [rbp-F8h]
+  _DWORD *v66; // [rsp+68h] [rbp-F0h]
+  int v67; // [rsp+70h] [rbp-E8h]
+  __int64 v68; // [rsp+A8h] [rbp-B0h]
+  __int64 v69; // [rsp+B0h] [rbp-A8h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+F0h] [rbp-68h] BYREF
-  unsigned int v74; // [rsp+170h] [rbp+18h]
 
-  v74 = a3;
   v9 = a4;
-  v11 = a3;
-  v65 = 0;
+  v63 = 0;
   i = 0LL;
-  v67 = 0LL;
-  v68 = 0LL;
-  v64 = 0;
-  v13 = 0LL;
+  v65 = 0LL;
   v66 = 0LL;
-  v69 = 0;
+  v62 = 0;
+  v13 = 0LL;
+  v64 = 0LL;
+  v67 = 0;
   v14 = 0x7FFFFFFFFFFFFFFFLL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a8 )
-    PsBoostThreadIoEx((__int64)KeGetCurrentThread(), 0, 0LL, 0LL);
-  v70 = *(_QWORD *)(a1 + 536);
+    PsBoostThreadIoEx((__int64)KeGetCurrentThread(), 0, 0, 0LL);
+  v68 = *(_QWORD *)(a1 + 536);
   *a5 = 0LL;
   v15 = a6;
   *a6 = 0;
   if ( v9 )
   {
-    guard_dispatch_icall_no_overrides(**(_QWORD **)(a1 + 248), *v9, a3, a4);
+    guard_dispatch_icall_no_overrides(**(_QWORD **)(a1 + 248), *v9);
     v9 = 0LL;
   }
   ExAcquireFastMutex((PKGUARDED_MUTEX)(a1 + 288));
   v16 = *(_QWORD *)(a1 + 168);
-  v71 = v16;
-  if ( !v16 || !*(_DWORD *)(v16 + 8) || !*(_DWORD *)(v16 + 4) && !v74 )
+  v69 = v16;
+  if ( !v16 || !*(_DWORD *)(v16 + 8) || !*(_DWORD *)(v16 + 4) && !a3 )
   {
 LABEL_58:
     v17 = a2;
@@ -132,9 +126,9 @@ LABEL_58:
   if ( a2 )
   {
     v13 = *a2 >> 12;
-    v66 = v13;
-    v18 = v74;
-    v14 = (v74 + *a2 - 1) >> 12;
+    v64 = v13;
+    v18 = a3;
+    v14 = (a3 + *a2 - 1) >> 12;
     v19 = (_QWORD *)v13;
     *(_QWORD *)(v16 + 40) = -1LL;
     v20 = (__int64 *)(v16 + 16);
@@ -161,7 +155,7 @@ LABEL_58:
         v25 = v24 + 4 * (v21 >> 5);
       else
         v25 = v24 + 4 * (((unsigned __int64)(v14 - v22) >> 5) & 0x7FFFFFF);
-      v26 = v74;
+      v26 = a3;
       goto LABEL_35;
     }
 LABEL_59:
@@ -179,7 +173,7 @@ LABEL_59:
       v45 = HIDWORD(*v43);
       if ( !*v43 )
       {
-        v13 = v66;
+        v13 = v64;
         goto LABEL_87;
       }
       v46 = 0;
@@ -236,7 +230,7 @@ LABEL_83:
         while ( *(_WORD *)v42 == 765 );
       }
 LABEL_84:
-      v13 = v66;
+      v13 = v64;
       if ( !v46 )
         v42 = *(_QWORD *)(v42 + 24) - 16LL;
 LABEL_87:
@@ -248,7 +242,7 @@ LABEL_87:
             goto LABEL_123;
           if ( (*(_DWORD *)(a1 + 152) & 0x1000000) != 0 && a4 && *(_QWORD *)(v42 + 48) > *a4 )
             break;
-          if ( v17 && *v17 + v74 <= *(_QWORD *)(v42 + 8) )
+          if ( v17 && *v17 + a3 <= *(_QWORD *)(v42 + 8) )
             goto LABEL_127;
           v15 = a6;
           v49 = *(_BYTE *)(v42 + 2);
@@ -274,7 +268,7 @@ LABEL_87:
             {
               goto LABEL_123;
             }
-            if ( v65 && v13 <= (unsigned int)(*(__int64 *)(v42 + 8) >> 12) )
+            if ( v63 && v13 <= (unsigned int)(*(__int64 *)(v42 + 8) >> 12) )
               goto LABEL_142;
           }
           ++*(_DWORD *)(v42 + 64);
@@ -284,7 +278,7 @@ LABEL_87:
             CcUnpinFileDataEx((char *)v42, 1, 2);
             ExAcquireFastMutex((PKGUARDED_MUTEX)(a1 + 288));
 LABEL_118:
-            v65 = 0;
+            v63 = 0;
             if ( !*a6 )
               *a5 = *(_QWORD *)(v42 + 8);
             *a7 = v42;
@@ -328,12 +322,12 @@ LABEL_127:
       v51 = a5;
 LABEL_128:
       v15 = a6;
-      if ( v65 )
+      if ( v63 )
       {
         v17 = a2;
 LABEL_142:
-        v39 = v64;
-        v32 = v68;
+        v39 = v62;
+        v32 = v66;
         goto LABEL_143;
       }
       v53 = *a6;
@@ -352,10 +346,10 @@ LABEL_137:
         KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 288));
         if ( v41 )
         {
-          v57 = *(_QWORD **)(a1 + 248);
+          v55 = *(_QWORD **)(a1 + 248);
           if ( (*(_DWORD *)(a1 + 152) & 0x2000000) == 0 )
-            v57 = (_QWORD *)*v57;
-          guard_dispatch_icall_no_overrides(v57, v41, v55, v56);
+            v55 = (_QWORD *)*v55;
+          guard_dispatch_icall_no_overrides(v55, v41);
         }
         goto LABEL_176;
       }
@@ -373,8 +367,8 @@ LABEL_69:
     goto LABEL_70;
   }
   v13 = (__int64)v9;
-  v26 = v74;
-  if ( !v74 )
+  v26 = a3;
+  if ( !a3 )
     v13 = *(_QWORD *)(v16 + 32);
   if ( a9 )
     v13 = *a9 >> 12;
@@ -399,30 +393,30 @@ LABEL_69:
   if ( v13 > (__int64)(v29 + v28) )
     v13 = v29 + *((unsigned int *)i + 6);
   v25 = i[5] + 4 * (v28 >> 5);
-  v18 = v11;
+  v18 = a3;
 LABEL_35:
-  v67 = v25;
+  v65 = v25;
   v30 = i[2];
   v31 = v30 + *((unsigned int *)i + 6);
   if ( v13 >= v31 )
     v31 = v13;
   v13 = v31;
-  v66 = v31;
-  v69 = v31 - v30;
+  v64 = v31;
+  v67 = v31 - v30;
   v32 = (_DWORD *)(i[5] + 4 * ((unsigned __int64)(unsigned int)(v31 - v30) >> 5));
-  v68 = v32;
-  v64 = -1 << (v31 % 32);
+  v66 = v32;
+  v62 = -1 << (v31 % 32);
   v33 = *v32;
-  if ( (*v32 & v64) == 0 )
+  if ( (*v32 & v62) == 0 )
   {
-    v64 = -1;
+    v62 = -1;
     v13 = v31 & 0xFFFFFFFFFFFFFFE0uLL;
     v34 = v31 - v30;
     while ( 1 )
     {
-      v68 = ++v32;
+      v66 = ++v32;
       v13 += 32LL;
-      v66 = v13;
+      v64 = v13;
       if ( (unsigned __int64)v32 > v25 )
       {
         if ( !v26 )
@@ -447,22 +441,22 @@ LABEL_35:
           goto LABEL_58;
         v38 = i[5];
         v32 = (_DWORD *)(v38 + 4 * ((unsigned __int64)(unsigned int)v35 >> 5));
-        v68 = v32;
-        v67 = v38 + 4 * (v37 >> 5);
+        v66 = v32;
+        v65 = v38 + 4 * (v37 >> 5);
         v13 = v36 + ((unsigned int)v35 & 0xFFFFFFE0);
-        v66 = v13;
+        v64 = v13;
         v34 = *((_DWORD *)i + 6);
-        v69 = v34;
-        v25 = v67;
+        v67 = v34;
+        v25 = v65;
       }
       v33 = *v32;
       if ( *v32 )
         break;
-      v26 = v74;
+      v26 = a3;
     }
   }
-  v39 = -v64;
-  v64 = v39;
+  v39 = -v62;
+  v62 = v39;
   if ( (v33 & v39) == 0 )
   {
     do
@@ -471,9 +465,9 @@ LABEL_35:
       ++v13;
     }
     while ( (v33 & v39) == 0 );
-    v64 = v39;
-    v66 = v13;
-    v18 = v11;
+    v62 = v39;
+    v64 = v13;
+    v18 = a3;
   }
   v17 = a2;
   if ( a2 )
@@ -482,7 +476,7 @@ LABEL_35:
     {
       if ( *(_QWORD *)(a1 + 16) == a1 + 16 )
         goto LABEL_143;
-      v65 = 1;
+      v63 = 1;
     }
     goto LABEL_59;
   }
@@ -490,16 +484,16 @@ LABEL_143:
   if ( (gCcTrace & 1) != 0 )
   {
     if ( v17 )
-      v58 = *v17;
+      v56 = *v17;
     else
-      v58 = 0LL;
-    v59 = v74;
+      v56 = 0LL;
+    v57 = a3;
     DbgPrintEx(
       0x7Fu,
       0,
       "CcAcquireByteRange (AcceptPage) [0x%I64x, 0x%x]: %p (0x%I64x) BM:%p Dirty: 0x%x\n",
-      v58,
-      v74,
+      v56,
+      a3,
       (const void *)a1,
       v13,
       i,
@@ -507,11 +501,11 @@ LABEL_143:
   }
   else
   {
-    v59 = v74;
+    v57 = a3;
   }
   while ( (v39 & *v32) != 0 )
   {
-    if ( a2 && v13 + *v15 >= (unsigned int)((*a2 + 4095 + v59) >> 12) )
+    if ( a2 && v13 + *v15 >= (unsigned int)((*a2 + 4095 + v57) >> 12) )
       break;
     if ( (unsigned __int64)v32 > i[5] + 4 * ((unsigned __int64)*((unsigned int *)i + 7) >> 5) )
       KeBugCheckEx(0x34u, 0x128EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
@@ -524,52 +518,52 @@ LABEL_143:
     {
       ++v32;
       v39 = 1;
-      if ( (unsigned __int64)v32 > v67 )
+      if ( (unsigned __int64)v32 > v65 )
         break;
     }
   }
-  v60 = *(_DWORD *)(v71 + 4) - *v15;
-  if ( *v15 >= *(_DWORD *)(v71 + 4) )
-    v60 = 0;
-  *(_DWORD *)(v71 + 4) = v60;
-  v61 = *(_DWORD *)(v71 + 8);
-  if ( v61 < *v15 )
+  v58 = *(_DWORD *)(v69 + 4) - *v15;
+  if ( *v15 >= *(_DWORD *)(v69 + 4) )
+    v58 = 0;
+  *(_DWORD *)(v69 + 4) = v58;
+  v59 = *(_DWORD *)(v69 + 8);
+  if ( v59 < *v15 )
     KeBugCheckEx(0x34u, 0x12BDuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  *(_DWORD *)(v71 + 8) = v61 - *v15;
+  *(_DWORD *)(v69 + 8) = v59 - *v15;
   *((_DWORD *)i + 8) -= *v15;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v70 + 768), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v68 + 768), &LockHandle);
   CcDeductDirtyPages(a1, *v15);
-  if ( *(_DWORD *)(v70 + 976) <= *v15 )
-    *(_DWORD *)(v70 + 976) = 0;
+  if ( *(_DWORD *)(v68 + 976) <= *v15 )
+    *(_DWORD *)(v68 + 976) = 0;
   else
-    *(_DWORD *)(v70 + 976) -= *v15;
+    *(_DWORD *)(v68 + 976) -= *v15;
   if ( !*(_DWORD *)(a1 + 112) )
     CcInsertIntoCleanSharedCacheMapList(a1);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( *((_DWORD *)i + 8) )
   {
-    if ( *((_DWORD *)i + 6) == v69 )
+    if ( *((_DWORD *)i + 6) == v67 )
       *((_DWORD *)i + 6) = v13 + *v15 - *((_DWORD *)i + 4);
-    if ( v59 )
+    if ( v57 )
       goto LABEL_173;
-    v62 = v13 + *v15;
+    v60 = v13 + *v15;
   }
   else
   {
     *((_DWORD *)i + 6) = -1;
     *((_DWORD *)i + 7) = 0;
-    v62 = i[2] + 0x2000;
+    v60 = i[2] + 0x2000;
   }
-  *(_QWORD *)(v71 + 32) = v62;
+  *(_QWORD *)(v69 + 32) = v60;
 LABEL_173:
   if ( *(_QWORD *)(a1 + 16) == a1 + 16 )
-    *(_DWORD *)(a1 + 200) = *(_DWORD *)(v71 + 4);
+    *(_DWORD *)(a1 + 200) = *(_DWORD *)(v69 + 4);
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 288));
   *v15 <<= 12;
   *a5 = v13 << 12;
   *a7 = 0LL;
 LABEL_176:
   if ( a8 )
-    PsBoostThreadIoEx((__int64)KeGetCurrentThread(), 1, 0LL, 0LL);
+    PsBoostThreadIoEx((__int64)KeGetCurrentThread(), 1, 0, 0LL);
   return *v15 != 0;
 }

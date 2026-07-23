@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ExpLookasideMgrPerProcWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140ADB5B0
+ * XREFs of ?ExpLookasideMgrPerProcWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140AD8060
  * Callers:
  *     <none>
  * Callees:
- *     ?ExpScanProcessorLookasideLists@@YAXKK@Z @ 0x140ADB648 (-ExpScanProcessorLookasideLists@@YAXKK@Z.c)
+ *     ?ExpScanProcessorLookasideLists@@YAXKK@Z @ 0x140AD80F8 (-ExpScanProcessorLookasideLists@@YAXKK@Z.c)
  */
 
 void __fastcall ExpLookasideMgrPerProcWorkerRoutine(struct _EXP_LOOKASIDE_MGR_WORKER *a1)
@@ -24,8 +24,7 @@ void __fastcall ExpLookasideMgrPerProcWorkerRoutine(struct _EXP_LOOKASIDE_MGR_WO
       _BitScanForward64(&v5, v2);
       v2 &= ~(1LL << v5);
       ExpScanProcessorLookasideLists(
-        *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-        + 64 * i
+        *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
         + (unsigned int)(unsigned __int8)v5),
         v3);
     }

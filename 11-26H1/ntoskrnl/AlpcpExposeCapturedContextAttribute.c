@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpExposeCapturedContextAttribute @ 0x140AE6768
+ * XREFs of AlpcpExposeCapturedContextAttribute @ 0x140AE4528
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x1408F7730 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveMessage @ 0x1408F806C (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1409276C0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x140927FFC (AlpcpReceiveMessage.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     AlpcpContextAttribute64to32 @ 0x140AE686C (AlpcpContextAttribute64to32.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     AlpcpContextAttribute64to32 @ 0x140AE462C (AlpcpContextAttribute64to32.c)
  */
 
 void __fastcall AlpcpExposeCapturedContextAttribute(int a1, _QWORD *a2, __int64 a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAddBugcheckTriageIrp @ 0x14059FA20
+ * XREFs of IopAddBugcheckTriageIrp @ 0x14059C944
  * Callers:
- *     IopAddBugcheckPowerTriageData @ 0x14059F6DC (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14059F930 (IopAddBugcheckTriageDeviceNode.c)
- *     IopAddBugcheckTriagePowerIrps @ 0x14059FC4C (IopAddBugcheckTriagePowerIrps.c)
- *     IopAddBugcheckTriageThread @ 0x14059FD0C (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14059C600 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14059C854 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriagePowerIrps @ 0x14059CB70 (IopAddBugcheckTriagePowerIrps.c)
+ *     IopAddBugcheckTriageThread @ 0x14059CC30 (IopAddBugcheckTriageThread.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     IopIsAddressRangeValid @ 0x1404ACD58 (IopIsAddressRangeValid.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14059F930 (IopAddBugcheckTriageDeviceNode.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     IopIsAddressRangeValid @ 0x1404A6F64 (IopIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14059C854 (IopAddBugcheckTriageDeviceNode.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageIrp(__int64 MaxDataSize, char a2)

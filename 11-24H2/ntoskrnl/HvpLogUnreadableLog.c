@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpLogUnreadableLog @ 0x1409838E8
+ * XREFs of HvpLogUnreadableLog @ 0x14096C0F8
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall HvpLogUnreadableLog(char a1, int a2)
@@ -19,7 +19,7 @@ void __fastcall HvpLogUnreadableLog(char a1, int a2)
   int v10; // [rsp+78h] [rbp-20h]
   int v11; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140E09EE8 > 5 && (qword_140E09EF8 & 8) != 0 && (qword_140E09F00 & 8) == qword_140E09F00 )
+  if ( (unsigned int)dword_140E09F58 > 5 && (qword_140E09F68 & 8) != 0 && (qword_140E09F70 & 8) == qword_140E09F70 )
   {
     v8 = 0;
     v11 = 0;
@@ -29,6 +29,6 @@ void __fastcall HvpLogUnreadableLog(char a1, int a2)
     v4 = a2;
     v10 = 4;
     v7 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055E9B, 0LL, 0LL, 4u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)word_14005694A, 0LL, 0LL, 4u, &v5);
   }
 }

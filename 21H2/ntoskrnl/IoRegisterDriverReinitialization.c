@@ -1,12 +1,12 @@
 /*
- * XREFs of IoRegisterDriverReinitialization @ 0x1407C6CC0
+ * XREFs of IoRegisterDriverReinitialization @ 0x1407C6FE0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopInterlockedInsertTailList @ 0x1403C9490 (IopInterlockedInsertTailList.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopInterlockedInsertTailList @ 0x1403C9630 (IopInterlockedInsertTailList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall IoRegisterDriverReinitialization(

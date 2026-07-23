@@ -2,8 +2,8 @@
  * XREFs of VrpStripTrailingCharacters @ 0x14068E650
  * Callers:
  *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
- *     VrpPreLoadKey @ 0x14077A444 (VrpPreLoadKey.c)
- *     VrpCreateNamespaceNode @ 0x14077B818 (VrpCreateNamespaceNode.c)
+ *     VrpPreLoadKey @ 0x14077A634 (VrpPreLoadKey.c)
+ *     VrpCreateNamespaceNode @ 0x14077BA08 (VrpCreateNamespaceNode.c)
  * Callees:
  *     <none>
  */

@@ -3,16 +3,16 @@
  * Callers:
  *     BgLibraryInitialize @ 0x140725CB8 (BgLibraryInitialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     BgpFwLibraryEnable @ 0x140126FDC (BgpFwLibraryEnable.c)
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     BgpGxProcessQrCodeBitmap @ 0x14014BEC4 (BgpGxProcessQrCodeBitmap.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     BgpFwLibraryEnable @ 0x14012754C (BgpFwLibraryEnable.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x14014C434 (BgpGxProcessQrCodeBitmap.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     BgpFwReservePoolSwap @ 0x140725168 (BgpFwReservePoolSwap.c)
  *     AnFwProgressIndicatorTransition @ 0x140725550 (AnFwProgressIndicatorTransition.c)
  *     LogFwInitialize @ 0x1407255A8 (LogFwInitialize.c)
@@ -123,7 +123,7 @@ LABEL_10:
     v7 = *(_QWORD *)(a1 + 224);
     if ( !v7 || !*(_DWORD *)(a1 + 232) )
       return 3221225626LL;
-    BgpFwInitializeReservePool(v7, 0x4000u, dword_14033FBA0);
+    BgpFwInitializeReservePool(v7, 0x4000u, dword_14033FBE0);
     v8 = BgpFwLibraryEnable(a1 + 32);
     if ( v8 < 0 )
       goto LABEL_78;

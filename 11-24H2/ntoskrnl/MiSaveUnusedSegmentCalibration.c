@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSaveUnusedSegmentCalibration @ 0x1403F7E48
+ * XREFs of MiSaveUnusedSegmentCalibration @ 0x1403EDDB8
  * Callers:
- *     MiIssueSegmentDereferenceWork @ 0x1403F7920 (MiIssueSegmentDereferenceWork.c)
+ *     MiIssueSegmentDereferenceWork @ 0x1403ED890 (MiIssueSegmentDereferenceWork.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 ULONG __fastcall MiSaveUnusedSegmentCalibration(ULONG *a1, unsigned __int64 a2)
@@ -45,7 +45,7 @@ ULONG __fastcall MiSaveUnusedSegmentCalibration(ULONG *a1, unsigned __int64 a2)
     while ( v6 );
     if ( v9 )
     {
-      v10 = (char *)&unk_140E2CC28 + 32 * (_InterlockedExchangeAdd(&dword_140E2CC20, 1u) & 0x3F);
+      v10 = (char *)&unk_140E2CD68 + 32 * (_InterlockedExchangeAdd(&dword_140E2CD60, 1u) & 0x3F);
       *(_QWORD *)v10 = QuadPart - a2;
       *((_QWORD *)v10 + 1) = v9;
       *((_QWORD *)v10 + 2) = v8;

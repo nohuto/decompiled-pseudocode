@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceSchedulingGroup @ 0x14064DF08
+ * XREFs of EtwTraceSchedulingGroup @ 0x14064C518
  * Callers:
- *     KeSetSchedulingGroupRankBias @ 0x14030ED08 (KeSetSchedulingGroupRankBias.c)
- *     KeInsertSchedulingGroup @ 0x14030F2B8 (KeInsertSchedulingGroup.c)
- *     KeSetSchedulingGroupCpuRates @ 0x140310954 (KeSetSchedulingGroupCpuRates.c)
- *     KeSetSchedulingGroupWeights @ 0x140310E70 (KeSetSchedulingGroupWeights.c)
- *     KeRemoveSchedulingGroup @ 0x1404A45D8 (KeRemoveSchedulingGroup.c)
+ *     KeSetSchedulingGroupWeights @ 0x14045C2E8 (KeSetSchedulingGroupWeights.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x14045C5E8 (KeSetSchedulingGroupCpuRates.c)
+ *     KeInsertSchedulingGroup @ 0x14045CB04 (KeInsertSchedulingGroup.c)
+ *     KeSetSchedulingGroupRankBias @ 0x14045D344 (KeSetSchedulingGroupRankBias.c)
+ *     KeRemoveSchedulingGroup @ 0x14049F368 (KeRemoveSchedulingGroup.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwpConstructSchedulingGroupEvent @ 0x14064E498 (EtwpConstructSchedulingGroupEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     EtwpConstructSchedulingGroupEvent @ 0x14064CAA8 (EtwpConstructSchedulingGroupEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceSchedulingGroup(__int64 a1)

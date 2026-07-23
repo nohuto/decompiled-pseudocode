@@ -15,20 +15,21 @@
 __int64 __fastcall SbpResolveBasedOnName(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
-  __int64 v5; // [rsp+30h] [rbp-D0h] BYREF
-  __int128 v6; // [rsp+38h] [rbp-C8h] BYREF
-  wchar_t v7[256]; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID DllHandle; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  WCHAR SourceString[256]; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE v8[2048]; // [rsp+250h] [rbp+150h] BYREF
 
   v3 = 0LL;
-  v5 = 0LL;
-  v6 = 0LL;
+  DllHandle = 0LL;
+  DestinationString = 0LL;
   if ( a1
-    && (unsigned int)SbpParseFuncName(a1, v7, a3, v8)
-    && (int)RtlInitUnicodeStringEx((__int64)&v6, v7) >= 0
-    && ((int)LdrGetDllHandleEx(1, 1LL, 0LL, (__int64)&v6, &v5) >= 0 || (int)LdrLoadDll(0LL, 0LL, (__int64)&v6, &v5) >= 0) )
+    && (unsigned int)SbpParseFuncName(a1, SourceString, a3, v8)
+    && RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0
+    && (LdrGetDllHandleEx(1u, (PWSTR)1, 0LL, &DestinationString, &DllHandle) >= 0
+     || LdrLoadDll(0LL, 0LL, &DestinationString, &DllHandle) >= 0) )
   {
-    return SbpLookup(v5, v8);
+    return SbpLookup(DllHandle, v8);
   }
   return v3;
 }

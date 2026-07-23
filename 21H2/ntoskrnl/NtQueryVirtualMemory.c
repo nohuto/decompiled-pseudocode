@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryVirtualMemory @ 0x14061E8F0
+ * XREFs of NtQueryVirtualMemory @ 0x140688560
  * Callers:
- *     NtPssCaptureVaSpaceBulk @ 0x14095BF40 (NtPssCaptureVaSpaceBulk.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x14095C110 (NtPssCaptureVaSpaceBulk.c)
  * Callees:
- *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406885A0 (MmQueryVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtQueryVirtualMemory(

@@ -1,24 +1,24 @@
 /*
- * XREFs of SshpSessionManagerOpenControlTrace @ 0x140767400
+ * XREFs of SshpSessionManagerOpenControlTrace @ 0x140766E60
  * Callers:
- *     SshpAlpcProcessMessage @ 0x140768068 (SshpAlpcProcessMessage.c)
+ *     SshpAlpcProcessMessage @ 0x140768288 (SshpAlpcProcessMessage.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SshpWorkItemQueue @ 0x14047C8CC (SshpWorkItemQueue.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14048939C (SSHSupportReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A6E1F0 (IoConvertFileHandleToKernelHandle.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     SshpWorkItemQueue @ 0x140477ADC (SshpWorkItemQueue.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404843BC (SSHSupportReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A676F0 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall SshpSessionManagerOpenControlTrace(__int64 a1, __int64 a2)
 {
   int v2; // ebx
   NTSTATUS v3; // eax
-  _QWORD *v4; // rax
-  _QWORD *v5; // rbx
+  char *v4; // rax
+  char *v5; // rbx
   LARGE_INTEGER ByteOffset; // [rsp+60h] [rbp+1Fh] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp+27h] BYREF
   __int128 Buffer; // [rsp+78h] [rbp+37h] BYREF
@@ -47,23 +47,23 @@ __int64 __fastcall SshpSessionManagerOpenControlTrace(__int64 a1, __int64 a2)
            && (unsigned int)(v10 - HIDWORD(Buffer)) <= HIDWORD(v10)
            && HIDWORD(Buffer) < HIDWORD(v10) )
     {
-      v4 = KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
+      v4 = (char *)KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
       v5 = v4;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, (__int64)v4, (__int64)&SshpSessionManagerLock);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v4, (__int64)&SshpSessionManagerLock);
       if ( v5 )
-        *((_BYTE *)v5 + 10) = 1;
+        v5[10] = 1;
       if ( FileHandle )
       {
         v2 = -1073741791;
       }
       else
       {
-        xmmword_140F05DB8 = Buffer;
+        xmmword_140F06098 = Buffer;
         FileHandle = 0LL;
-        qword_140F05DC8 = v10;
-        if ( (_DWORD)dword_140F05DE8 )
-          SshpWorkItemQueue((struct _WORK_QUEUE_ITEM *)&qword_140F05D90);
+        qword_140F060A8 = v10;
+        if ( (_DWORD)dword_140F060C8 )
+          SshpWorkItemQueue((struct _WORK_QUEUE_ITEM *)&qword_140F06070);
         v2 = 0;
       }
       SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&SshpSessionManagerLock);

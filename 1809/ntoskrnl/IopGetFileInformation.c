@@ -1,19 +1,19 @@
 /*
- * XREFs of IopGetFileInformation @ 0x140661910
+ * XREFs of IopGetFileInformation @ 0x140662AD0
  * Callers:
- *     IopQueryNameInternal @ 0x1406605A4 (IopQueryNameInternal.c)
- *     IopGetBasicInformationFile @ 0x14068BC70 (IopGetBasicInformationFile.c)
- *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
- *     IopGetRelatedFileName @ 0x140819C0C (IopGetRelatedFileName.c)
+ *     IopQueryNameInternal @ 0x140661764 (IopQueryNameInternal.c)
+ *     IopGetBasicInformationFile @ 0x14068CE30 (IopGetBasicInformationFile.c)
+ *     IopGraftName @ 0x1406AD50C (IopGraftName.c)
+ *     IopGetRelatedFileName @ 0x14081AE0C (IopGetRelatedFileName.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
  */
 
 __int64 __fastcall IopGetFileInformation(struct _FILE_OBJECT *Object, ULONG a2, ULONG a3, struct _IRP *a4, _DWORD *a5)

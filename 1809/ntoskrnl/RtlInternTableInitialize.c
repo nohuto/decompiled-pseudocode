@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInternTableInitialize @ 0x14075BF24
+ * XREFs of RtlInternTableInitialize @ 0x14075D114
  * Callers:
- *     PopEtInit @ 0x1409D8A28 (PopEtInit.c)
+ *     PopEtInit @ 0x1409D9A28 (PopEtInit.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlInternTableInitialize(_QWORD *a1, __int64 a2)

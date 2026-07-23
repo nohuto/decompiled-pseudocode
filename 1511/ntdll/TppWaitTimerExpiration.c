@@ -10,9 +10,9 @@
 
 char __fastcall TppWaitTimerExpiration(__int64 a1)
 {
-  unsigned int v2; // eax
+  unsigned __int32 v2; // eax
 
-  v2 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 360), 0LL);
+  v2 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 360), 0);
   if ( v2 )
   {
     if ( v2 != -1073741536 && v2 != 259 )

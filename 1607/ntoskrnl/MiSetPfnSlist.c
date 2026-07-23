@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetPfnSlist @ 0x1401F2FF8
+ * XREFs of MiSetPfnSlist @ 0x1401F2E24
  * Callers:
- *     MiReplenishPageSlist @ 0x140064330 (MiReplenishPageSlist.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReplenishPageSlist @ 0x140063EB0 (MiReplenishPageSlist.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiSetPfnSlist(__int64 a1, __int16 a2)

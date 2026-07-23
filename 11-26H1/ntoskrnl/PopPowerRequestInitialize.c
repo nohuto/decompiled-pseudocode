@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerRequestInitialize @ 0x140CD0850
+ * XREFs of PopPowerRequestInitialize @ 0x140CD69F8
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     PopInitializeTimer @ 0x1407C8C18 (PopInitializeTimer.c)
- *     PopInitializeWorkItem @ 0x1407C8C6C (PopInitializeWorkItem.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     PopPowerRequestStatsInitialize @ 0x140CD6B54 (PopPowerRequestStatsInitialize.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     PopInitializeTimer @ 0x1407CBCB8 (PopInitializeTimer.c)
+ *     PopInitializeWorkItem @ 0x1407CBD0C (PopInitializeWorkItem.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     PopPowerRequestStatsInitialize @ 0x140CDCEA8 (PopPowerRequestStatsInitialize.c)
  */
 
 __int64 PopPowerRequestInitialize()
 {
   __int64 result; // rax
-  unsigned __int64 v1; // r8
+  void *v1; // r8
   char *v2; // rcx
   char *v3; // r8
   __int64 v4; // rdx
@@ -46,26 +46,26 @@ __int64 PopPowerRequestInitialize()
   result = ObCreateObjectType(&DestinationString, &v7, 0LL, (__int64)&PopPowerRequestObjectType);
   if ( (int)result >= 0 )
   {
-    stru_140F12D20.Header.WaitListHead.Flink = 0LL;
-    *(_QWORD *)&stru_140F12D20.Header.Lock = 0LL;
-    stru_140F12D20.Header.WaitListHead.Blink = 0LL;
+    stru_140F12EA0.SchedulerAssist = 0LL;
+    stru_140F12EA0.TracingPrivate[0] = 0LL;
+    stru_140F12EA0.QueuedScb = 0LL;
     PopInitializeWorkItem(
-      (__int64)&stru_140F12D20.SystemCallNumber,
+      (__int64)&stru_140F12EA0.KernelWaitTime,
       (__int64)PopPowerRequestCallbackWorker,
-      (__int64)&stru_140F12D20.ThreadLock);
-    stru_140F12D20.CycleTime = v1;
-    stru_140F12D20.ThreadLock = v1;
-    stru_140F12D20.InitialStack = &stru_140F12D20.QuantumTarget;
-    stru_140F12D20.QuantumTarget = (unsigned __int64)&stru_140F12D20.QuantumTarget;
-    memset_0(&stru_140F12D20.ApcStateFill[40], 0, 0x68uLL);
-    *(_QWORD *)&stru_140F12D20.ApcStateFill[40] = &stru_140F12D20.ApcStateFill[40];
-    stru_140F12D20.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)PopPowerRequestTableCompare;
+      (__int64)&stru_140F12EA0.KernelShadowStackInitial);
+    stru_140F12EA0.KernelShadowStackBase = v1;
+    stru_140F12EA0.KernelShadowStackInitial = v1;
+    stru_140F12EA0.Spare35[0] = (unsigned __int64)&stru_140F12EA0.WpsFeedback;
+    stru_140F12EA0.WpsFeedback = (_KTHREAD_WPS_FEEDBACK *)&stru_140F12EA0.WpsFeedback;
+    memset_0(&stru_140F12EA0.PriorityFloorCounts[8], 0, 0x68uLL);
+    *(_QWORD *)&stru_140F12EA0.PriorityFloorCounts[8] = &stru_140F12EA0.PriorityFloorCounts[8];
+    stru_140F12EA0.WriteOperationCount = (__int64)PopPowerRequestTableCompare;
     v2 = (char *)&unk_140E019F8;
-    stru_140F12D20.Timer.TimerListEntry.Flink = 0LL;
-    stru_140F12D20.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)PopPowerRequestTableAllocate;
+    stru_140F12EA0.WriteTransferCount = 0LL;
+    stru_140F12EA0.OtherOperationCount = (__int64)PopPowerRequestTableAllocate;
     v3 = (char *)&unk_140E01A00;
     v4 = 6LL;
-    stru_140F12D20.Timer.DueTime.QuadPart = (unsigned __int64)PopPowerRequestTableFree;
+    stru_140F12EA0.ReadTransferCount = (__int64)PopPowerRequestTableFree;
     do
     {
       *(_WORD *)v2 = 0;
@@ -79,22 +79,22 @@ __int64 PopPowerRequestInitialize()
       --v4;
     }
     while ( v4 );
-    *(_OWORD *)&stru_140F12D20.StateSaveArea = 0LL;
+    *(_OWORD *)&stru_140F12EA0.Spare35[1] = 0LL;
     PopInitializeTimer(
-      (__int64)&stru_140F12D20.512,
+      (__int64)&stru_140F12EA0.WaitBlock[2].Object,
       (__int64)PopPowerRequestExecutionRequiredTimeoutCallback,
       0LL,
       (__int64)PopPowerRequestExecutionRequiredTimeoutWorker,
       0LL);
     PopInitializeTimer(
-      (__int64)&stru_140F12D20.320,
+      (__int64)&stru_140F12EA0.SavedApcStateFill[40],
       (__int64)PopPowerRequestDebounceTimerCallback,
       0LL,
       (__int64)PopPowerRequestDebounceTimerWorker,
       0LL);
     PopPowerRequestStatsInitialize();
     if ( TtmIsEnabled() )
-      LODWORD(stru_140F12D20.Timer.TimerListEntry.Blink) = 1;
+      LODWORD(stru_140F12EA0.IoSelfBoostsEntry.Next) = 1;
     return 0LL;
   }
   return result;

@@ -1,27 +1,31 @@
 /*
- * XREFs of NtSignalAndWaitForSingleObject @ 0x1405827D0
+ * XREFs of NtSignalAndWaitForSingleObject @ 0x140582CC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     KeReleaseMutantEx @ 0x1404105DC (KeReleaseMutantEx.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1407331A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseMutantEx @ 0x14041083C (KeReleaseMutantEx.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140733390 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a3, unsigned __int64 a4)
+NTSTATUS __cdecl NtSignalAndWaitForSingleObject(
+        HANDLE SignalHandle,
+        HANDLE WaitHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   LARGE_INTEGER *v7; // r12
   __int64 v8; // rax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   PVOID v10; // rsi
   struct _OBJECT_TYPE *v11; // r8
   __int64 DefaultObject; // rdi
   POBJECT_TYPE *v13; // rcx
-  int v14; // eax
+  NTSTATUS v14; // eax
   PVOID Object; // [rsp+48h] [rbp-40h] BYREF
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+50h] [rbp-38h] BYREF
   PVOID v18; // [rsp+58h] [rbp-30h] BYREF
@@ -32,24 +36,24 @@ __int64 __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a3
   v19 = 0LL;
   v18 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v7 = (LARGE_INTEGER *)a4;
-  if ( a4 && PreviousMode )
+  v7 = Timeout;
+  if ( Timeout && PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( a4 < 0x7FFFFFFF0000LL )
-      v8 = a4;
+    if ( (unsigned __int64)Timeout < 0x7FFFFFFF0000LL )
+      v8 = (__int64)Timeout;
     v19 = *(_QWORD *)v8;
     v7 = (LARGE_INTEGER *)&v19;
   }
-  v9 = ObReferenceObjectByHandleWithTag(a1, 0, 0LL, PreviousMode, 0x7457624Fu, &Object, &HandleInformation);
+  v9 = ObReferenceObjectByHandleWithTag(SignalHandle, 0, 0LL, PreviousMode, 0x7457624Fu, &Object, &HandleInformation);
   if ( v9 >= 0 )
   {
-    v9 = ObReferenceObjectByHandleWithTag(a2, 0x100000u, 0LL, PreviousMode, 0x7457624Fu, &v18, 0LL);
+    v9 = ObReferenceObjectByHandleWithTag(WaitHandle, 0x100000u, 0LL, PreviousMode, 0x7457624Fu, &v18, 0LL);
     if ( v9 < 0 )
     {
 LABEL_32:
       ObfDereferenceObjectWithTag(Object, 0x7457624Fu);
-      return (unsigned int)v9;
+      return v9;
     }
     v10 = v18;
     v11 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)v18 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v18 - 48) >> 8)];
@@ -101,7 +105,7 @@ LABEL_16:
         if ( v9 == -1073741753 )
           goto LABEL_31;
 LABEL_29:
-        v9 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, PreviousMode, a3, v7);
+        v9 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, PreviousMode, Alertable, v7);
 LABEL_31:
         ObfDereferenceObjectWithTag(v10, 0x7457624Fu);
         goto LABEL_32;
@@ -110,5 +114,5 @@ LABEL_31:
     v9 = -1073741788;
     goto LABEL_31;
   }
-  return (unsigned int)v9;
+  return v9;
 }

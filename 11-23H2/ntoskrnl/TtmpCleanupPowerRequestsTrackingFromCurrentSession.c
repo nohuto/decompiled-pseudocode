@@ -1,7 +1,7 @@
 /*
- * XREFs of TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A50A0
+ * XREFs of TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A52A0
  * Callers:
- *     TtmCleanupCurrentSession @ 0x1409A3E90 (TtmCleanupCurrentSession.c)
+ *     TtmCleanupCurrentSession @ 0x1409A4090 (TtmCleanupCurrentSession.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

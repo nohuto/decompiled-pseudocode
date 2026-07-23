@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveSlabEntry @ 0x1402A9800
+ * XREFs of MiRemoveSlabEntry @ 0x1402A8C10
  * Callers:
- *     MiFreeSlabEntries @ 0x1402A76DC (MiFreeSlabEntries.c)
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x1407067E0 (MiDeleteSlabEntriesForIdentity.c)
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
- *     MmUpdateSlabRangeType @ 0x140CFE76C (MmUpdateSlabRangeType.c)
+ *     MiFreeSlabEntries @ 0x1402A6AEC (MiFreeSlabEntries.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x14070B4B0 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
+ *     MmUpdateSlabRangeType @ 0x140D04B0C (MmUpdateSlabRangeType.c)
  * Callees:
- *     MiClearHintSlabEntry @ 0x1402A9900 (MiClearHintSlabEntry.c)
- *     MiUpdateSlabTypeAvailablePages @ 0x14036A0D8 (MiUpdateSlabTypeAvailablePages.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     MiClearHintSlabEntry @ 0x1402A8D10 (MiClearHintSlabEntry.c)
+ *     MiUpdateSlabTypeAvailablePages @ 0x14036BE78 (MiUpdateSlabTypeAvailablePages.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall MiRemoveSlabEntry(__int64 a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall MiRemoveSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = *(unsigned int *)(a3 + 84);
   v7 = LODWORD(MiPageSizes[((unsigned __int64)*(unsigned __int16 *)(a2 + 136) >> 3) & 3]);
-  RtlRbRemoveNode(a2, a3);
+  RtlRbRemoveNode((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)a3);
   if ( *(_DWORD *)(a2 + 128) == 8 )
   {
     v10 = *(_QWORD *)(a3 + 24);

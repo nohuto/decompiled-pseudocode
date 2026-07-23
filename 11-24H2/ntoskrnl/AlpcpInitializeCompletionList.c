@@ -1,28 +1,28 @@
 /*
- * XREFs of AlpcpInitializeCompletionList @ 0x140A0AC54
+ * XREFs of AlpcpInitializeCompletionList @ 0x140A07184
  * Callers:
- *     NtAlpcSetInformation @ 0x140A0A340 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x140A06870 (NtAlpcSetInformation.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     AlpcGetHeaderSize @ 0x140448810 (AlpcGetHeaderSize.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x140470198 (AlpcpFreeCompletionPacketLookaside.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140A0AA80 (AlpcpAllocateCompletionPacketLookaside.c)
- *     AlpcpRegisterCompletionListDatabase @ 0x140A0B190 (AlpcpRegisterCompletionListDatabase.c)
- *     AlpcpUnregisterCompletionListDatabase @ 0x140A0B2E8 (AlpcpUnregisterCompletionListDatabase.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     AlpcGetHeaderSize @ 0x140440F30 (AlpcGetHeaderSize.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x14046A5C0 (AlpcpFreeCompletionPacketLookaside.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x140A06FB0 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     AlpcpRegisterCompletionListDatabase @ 0x140A076C0 (AlpcpRegisterCompletionListDatabase.c)
+ *     AlpcpUnregisterCompletionListDatabase @ 0x140A07818 (AlpcpUnregisterCompletionListDatabase.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int a5, int a6)
+__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int Flags, int a6)
 {
   size_t v6; // rbx
   char v8; // r15
@@ -39,14 +39,14 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   __int64 v19; // rax
   int v20; // eax
   int v21; // ecx
-  int v22; // eax
-  int v23; // ecx
-  int HeaderSize; // eax
+  ULONG v22; // eax
+  ULONG v23; // ecx
+  ULONG HeaderSize; // eax
   char *v25; // rcx
   __int64 v26; // rax
   unsigned __int64 v27; // r8
-  _QWORD *v28; // rax
-  _QWORD *v29; // r13
+  char *v28; // rax
+  char *v29; // r13
   __int64 v30; // rdx
   _DWORD *CompletionPacketLookaside; // r13
   unsigned int v32; // ebx
@@ -65,14 +65,14 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   if ( ((unsigned __int16)a2 & 0xFFF) != 0LL
     || (a3 & 0xFFF) != 0
     || a3 - 0x4000 > 0x3FFFC000
-    || (a5 & 0x55FFFFFF) != 0
+    || (Flags & 0x55FFFFFF) != 0
     || !a4 )
   {
     v33 = 0;
     v32 = -1073741811;
     goto LABEL_37;
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0xA0uLL, 0x6E496C41u);
   v10 = Pool2;
   if ( !Pool2 )
     goto LABEL_46;
@@ -131,28 +131,28 @@ LABEL_47:
     *((_QWORD *)v10 + 5) = a2;
     *((_QWORD *)v10 + 6) = v40;
     *((_QWORD *)v10 + 7) = &a2[v18 + 4096 + v16];
-    *((_DWORD *)v10 + 37) = a5;
+    *((_DWORD *)v10 + 37) = Flags;
     if ( a6 )
     {
-      v20 = ((a5 >> 31) & 0xC) + 24;
-      if ( (a5 & 0x40000000) == 0 )
-        v20 = ((a5 >> 31) & 0xC) + 8;
+      v20 = ((Flags >> 31) & 0xC) + 24;
+      if ( (Flags & 0x40000000) == 0 )
+        v20 = ((Flags >> 31) & 0xC) + 8;
       v21 = v20 + 20;
-      if ( (a5 & 0x20000000) == 0 )
+      if ( (Flags & 0x20000000) == 0 )
         v21 = v20;
       v22 = v21 + 16;
-      if ( (a5 & 0x10000000) == 0 )
+      if ( (Flags & 0x10000000) == 0 )
         v22 = v21;
       v23 = v22 + 24;
-      if ( (a5 & 0x8000000) == 0 )
+      if ( (Flags & 0x8000000) == 0 )
         v23 = v22;
       HeaderSize = v23 + 8;
-      if ( (a5 & 0x2000000) == 0 )
+      if ( (Flags & 0x2000000) == 0 )
         HeaderSize = v23;
     }
     else
     {
-      HeaderSize = AlpcGetHeaderSize(a5);
+      HeaderSize = AlpcGetHeaderSize(Flags);
       LODWORD(v16) = v36;
       LODWORD(v18) = v37;
     }
@@ -176,12 +176,12 @@ LABEL_47:
       v27 = 0LL;
     if ( v27 )
       memset_0(v25, -1, 4 * v27);
-    v28 = KeAbPreAcquire(a1 + 352, 0LL);
+    v28 = (char *)KeAbPreAcquire(a1 + 352, 0LL);
     v29 = v28;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 352), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 352), (__int64)v28, a1 + 352);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 352), v28, a1 + 352);
     if ( v29 )
-      *((_BYTE *)v29 + 10) = 1;
+      v29[10] = 1;
     v8 = 1;
     if ( *(_QWORD *)(a1 + 360) )
     {

@@ -1,26 +1,26 @@
 /*
- * XREFs of MmProtectVirtualMemory @ 0x1408DCA30
+ * XREFs of MmProtectVirtualMemory @ 0x1408DAC60
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     KiTpWriteUmMemory @ 0x1405C97BC (KiTpWriteUmMemory.c)
- *     NtProtectVirtualMemory @ 0x1408DC680 (NtProtectVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     KiTpWriteUmMemory @ 0x1405C6EEC (KiTpWriteUmMemory.c)
+ *     NtProtectVirtualMemory @ 0x1408DA8B0 (NtProtectVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x140404B60 (MiVadMapsLargeImage.c)
- *     MiGetVadPageSize @ 0x1404272B0 (MiGetVadPageSize.c)
- *     MiAllowProtectionChange @ 0x140441E14 (MiAllowProtectionChange.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
- *     MiProtectEnclavePages @ 0x1404CACEC (MiProtectEnclavePages.c)
- *     xHalUnmaskInterrupt @ 0x1404D6880 (xHalUnmaskInterrupt.c)
- *     MiIsRangeFullyCommitted @ 0x1408DD80C (MiIsRangeFullyCommitted.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
- *     MiCommitVadMetadataBits @ 0x1408FA9B0 (MiCommitVadMetadataBits.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadMapsLargeImage @ 0x1403C7440 (MiVadMapsLargeImage.c)
+ *     MiGetVadPageSize @ 0x14041B130 (MiGetVadPageSize.c)
+ *     MiAllowProtectionChange @ 0x1404389E8 (MiAllowProtectionChange.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
+ *     MiProtectEnclavePages @ 0x1404C420C (MiProtectEnclavePages.c)
+ *     xHalUnmaskInterrupt @ 0x1404CFCD0 (xHalUnmaskInterrupt.c)
+ *     MiIsRangeFullyCommitted @ 0x1408DBA3C (MiIsRangeFullyCommitted.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
+ *     MiCommitVadMetadataBits @ 0x14091D290 (MiCommitVadMetadataBits.c)
  */
 
 __int64 __fastcall MmProtectVirtualMemory(
@@ -37,10 +37,10 @@ __int64 __fastcall MmProtectVirtualMemory(
   __int64 v9; // r9
   unsigned int v10; // r15d
   unsigned int v11; // ebx
-  int ProtectionMask; // r12d
+  unsigned int ProtectionMask; // r12d
   unsigned __int64 v13; // r14
   unsigned __int64 v14; // r13
-  ULONG_PTR v15; // rax
+  __int64 v15; // rax
   ULONG_PTR v16; // rdi
   char v17; // r9
   unsigned int v18; // edx
@@ -152,7 +152,7 @@ LABEL_5:
       }
       P = 0LL;
       v55 = v13 >> 12;
-      v15 = MiObtainReferencedVadEx(v14, 0LL, (int *)&v39);
+      v15 = MiObtainReferencedVadEx(v14, 0LL, (int *)&v39, v9);
       v16 = v15;
       v54 = v15;
       if ( v15 )

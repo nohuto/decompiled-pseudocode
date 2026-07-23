@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUpdateLinkShareAccess @ 0x140796DC0
+ * XREFs of IoUpdateLinkShareAccess @ 0x1407998F0
  * Callers:
  *     <none>
  * Callees:
- *     IoUpdateLinkShareAccessEx @ 0x140A7F650 (IoUpdateLinkShareAccessEx.c)
+ *     IoUpdateLinkShareAccessEx @ 0x140A854C0 (IoUpdateLinkShareAccessEx.c)
  */
 
 __int64 __fastcall IoUpdateLinkShareAccess(__int64 a1, __int64 a2, __int64 a3)

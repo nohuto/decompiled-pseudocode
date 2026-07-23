@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x140422584
+ * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x140416434
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
  * Callees:
- *     PpmHeteroComputeUnparkCount @ 0x140422884 (PpmHeteroComputeUnparkCount.c)
- *     PpmHeteroComputeCoreParkingUtilities @ 0x14042303C (PpmHeteroComputeCoreParkingUtilities.c)
- *     PpmEventTraceMultiClassHeteroResponse @ 0x140423A2C (PpmEventTraceMultiClassHeteroResponse.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404ED1C8 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PpmHeteroComputeUnparkCount @ 0x140416734 (PpmHeteroComputeUnparkCount.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x140416EEC (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x1404178DC (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404E49EC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(
@@ -66,7 +66,7 @@ __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(
     v12 = 1;
     for ( *(_QWORD *)(a1 + 1192) = 0LL;
           v12 < *(unsigned __int8 *)(a1 + 12);
-          *(_QWORD *)(640 * v13 + *(_QWORD *)(a1 + 1280) + 16) = 0LL )
+          *(_QWORD *)(640 * v13 + *(_QWORD *)(a1 + 1288) + 16) = 0LL )
     {
       v13 = v12++;
     }
@@ -81,7 +81,7 @@ __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(
   {
     v19 = v14 - 1;
     v20 = v40;
-    v21 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1280) + 640LL);
+    v21 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1288) + 640LL);
     do
     {
       v20 |= *((_QWORD *)v21 + 3);
@@ -99,7 +99,7 @@ __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(
         break;
       *(_DWORD *)&v35[8] = 0;
       *(_QWORD *)v35 = v11 + 1;
-      v22 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1280) + 640LL * v11);
+      v22 = (unsigned __int16 *)(*(_QWORD *)(a1 + 1288) + 640LL * v11);
       v16 -= v22[4];
       v18 -= *v22;
       if ( *(_DWORD *)v35 == (unsigned __int8)v14 )
@@ -145,7 +145,7 @@ __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(
       do
       {
         v29 = *(_QWORD *)(a1 + 1192);
-        v30 = *(_QWORD *)(a1 + 1280) + 640LL * v28;
+        v30 = *(_QWORD *)(a1 + 1288) + 640LL * v28;
         if ( !v29 )
           v29 = 1LL;
         *(_QWORD *)(a1 + 1192) = v29;

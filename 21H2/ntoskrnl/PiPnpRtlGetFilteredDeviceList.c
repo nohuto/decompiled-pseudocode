@@ -1,15 +1,15 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x14063ACF4
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x14062FB04
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     PiDmGetCmObjectConstraintListFromCache @ 0x140639FE8 (PiDmGetCmObjectConstraintListFromCache.c)
- *     PiDmGetCmObjectListFromCache @ 0x1406C0324 (PiDmGetCmObjectListFromCache.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140253448 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     PiDmGetCmObjectListFromCache @ 0x14061F234 (PiDmGetCmObjectListFromCache.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x14062EDF8 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
@@ -20,11 +20,11 @@ __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
   bool v5; // cf
   char v6; // al
   _WORD *v7; // rax
-  NTSTATUS inited; // ebx
+  int inited; // ebx
   const WCHAR *v11; // rdx
   __int64 v12; // r9
   char v13; // al
-  NTSTATUS CmObjectListFromCache; // eax
+  int CmObjectListFromCache; // eax
   PVOID v15; // rcx
   ULONG v16; // edx
   __int64 v17; // r9
@@ -128,8 +128,8 @@ LABEL_30:
                 HIBYTE(v33) = 0;
                 inited = PiDmGetCmObjectListFromCache(
                            1,
-                           (unsigned int)&PiPnpRtlEnumeratorFilterCallback,
-                           (unsigned int)&v33,
+                           (__int64)PiPnpRtlEnumeratorFilterCallback,
+                           (__int64)&v33,
                            v23,
                            pcchRemaininga,
                            dwFlagsc);
@@ -159,8 +159,8 @@ LABEL_30:
         HIBYTE(v33) = 0;
         return (unsigned int)PiDmGetCmObjectListFromCache(
                                1,
-                               (unsigned int)&PiPnpRtlEnumeratorFilterCallback,
-                               (unsigned int)&v33,
+                               (__int64)PiPnpRtlEnumeratorFilterCallback,
+                               (__int64)&v33,
                                v17,
                                v19,
                                dwFlagsb);
@@ -183,7 +183,7 @@ LABEL_30:
         return (unsigned int)PiDmGetCmObjectConstraintListFromCache(
                                5,
                                v4,
-                               (__int64)&PiPnpRtlEnumeratorFilterCallback,
+                               (__int64)PiPnpRtlEnumeratorFilterCallback,
                                (__int64)&v33,
                                v7,
                                dwFlags,
@@ -212,8 +212,8 @@ LABEL_30:
       P = 0LL;
       CmObjectListFromCache = PiDmGetCmObjectListFromCache(
                                 1,
-                                (unsigned int)PiPnpRtlServiceFilterCallback,
-                                (unsigned int)&p_DestinationString,
+                                (__int64)PiPnpRtlServiceFilterCallback,
+                                (__int64)&p_DestinationString,
                                 v12,
                                 pcchRemaining,
                                 dwFlagsa);

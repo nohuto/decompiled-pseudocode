@@ -1,24 +1,24 @@
 /*
- * XREFs of PopFxActivateDevice @ 0x140322C60
+ * XREFs of PopFxActivateDevice @ 0x140322EF0
  * Callers:
- *     PoFxActivateDevice @ 0x140322C44 (PoFxActivateDevice.c)
- *     PoFxStartDevicePowerManagement @ 0x1403979C0 (PoFxStartDevicePowerManagement.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x140587654 (PoFxActivateDeviceForSystemTransition.c)
- *     PoFxAddDeviceRelation @ 0x140587A90 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140588500 (PoFxRemoveDeviceRelation.c)
- *     PopFxActivateDevicesForSx @ 0x140588A44 (PopFxActivateDevicesForSx.c)
- *     PopFxClearDeviceConstraints @ 0x140589280 (PopFxClearDeviceConstraints.c)
- *     PopPepPlatformStateRegistered @ 0x14059F994 (PopPepPlatformStateRegistered.c)
- *     PopPlActivateDeviceIterator @ 0x1405A1160 (PopPlActivateDeviceIterator.c)
+ *     PoFxActivateDevice @ 0x140322ED4 (PoFxActivateDevice.c)
+ *     PoFxStartDevicePowerManagement @ 0x140397BA0 (PoFxStartDevicePowerManagement.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x140587B44 (PoFxActivateDeviceForSystemTransition.c)
+ *     PoFxAddDeviceRelation @ 0x140587F80 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405889F0 (PoFxRemoveDeviceRelation.c)
+ *     PopFxActivateDevicesForSx @ 0x140588F34 (PopFxActivateDevicesForSx.c)
+ *     PopFxClearDeviceConstraints @ 0x140589770 (PopFxClearDeviceConstraints.c)
+ *     PopPepPlatformStateRegistered @ 0x14059FE84 (PopPepPlatformStateRegistered.c)
+ *     PopPlActivateDeviceIterator @ 0x1405A1650 (PopPlActivateDeviceIterator.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     PoFxActivateComponent @ 0x140287290 (PoFxActivateComponent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     PoFxActivateComponent @ 0x140287520 (PoFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
@@ -65,10 +65,13 @@ void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
   if ( (v10 & 4) != 0 && (*(_DWORD *)(*(_QWORD *)(v5 + 80) + 824LL) & 1) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 88));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -101,10 +104,10 @@ void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)
         PoFxActivateComponent(v12, i, 2);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
       {
         v24 = KeGetCurrentPrcb();
         v25 = v24->SchedulerAssist;

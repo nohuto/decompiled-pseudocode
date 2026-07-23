@@ -1,326 +1,321 @@
 /*
- * XREFs of KiWaitForAllObjects @ 0x14029A090
+ * XREFs of KiWaitForAllObjects @ 0x14022A600
  * Callers:
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KiBeginThreadWait @ 0x140242630 (KiBeginThreadWait.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiCheckWaitNext @ 0x140257970 (KiCheckWaitNext.c)
- *     KiCheckDueTimeExpired @ 0x140257A60 (KiCheckDueTimeExpired.c)
- *     KiFastExitThreadWait @ 0x140278248 (KiFastExitThreadWait.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KiWaitSatisfyAny @ 0x14029A47C (KiWaitSatisfyAny.c)
- *     KiUnlockKobjectArray @ 0x14029A548 (KiUnlockKobjectArray.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     KiWaitSatisfyAny @ 0x14022A9EC (KiWaitSatisfyAny.c)
+ *     KiUnlockKobjectArray @ 0x14022AAB8 (KiUnlockKobjectArray.c)
+ *     KiFastExitThreadWait @ 0x1402661E8 (KiFastExitThreadWait.c)
+ *     KiCheckWaitNext @ 0x140278EE0 (KiCheckWaitNext.c)
+ *     KiCheckDueTimeExpired @ 0x140278FD0 (KiCheckDueTimeExpired.c)
+ *     KiBeginThreadWait @ 0x1402E6E80 (KiBeginThreadWait.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KiWaitForAllObjects(
         unsigned int a1,
         ULONG_PTR *a2,
-        int a3,
+        unsigned int a3,
         char a4,
         char a5,
         __int64 a6,
         __int64 a7)
 {
-  int v7; // esi
+  unsigned int v7; // esi
   unsigned int v9; // edi
   unsigned __int64 v10; // r13
   char v11; // r14
-  volatile signed __int32 *v12; // rax
+  ULONG_PTR v12; // rax
   unsigned int v13; // r9d
-  unsigned __int64 *v14; // r11
-  volatile signed __int32 **v15; // rbx
-  unsigned __int64 v16; // r10
+  ULONG_PTR *v14; // r11
+  ULONG_PTR *v15; // rbx
+  ULONG_PTR v16; // r10
   unsigned int v17; // r8d
   struct _KTHREAD *CurrentThread; // rbx
-  char v19; // r15
-  __int64 v20; // rdx
-  volatile __int64 WaitStatus; // rsi
-  __int64 v22; // r8
-  __int64 v23; // r9
-  struct _KPRCB *CurrentPrcb; // r14
-  volatile signed __int32 *v25; // rsi
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v29; // rcx
-  volatile signed __int32 **v30; // r15
-  char v31; // r8
-  __int64 v32; // r10
-  __int64 v33; // rcx
-  ULONG_PTR *v34; // rdx
-  _BYTE *v35; // rax
-  int v36; // edx
-  ULONG_PTR v37; // rcx
-  __int64 *v38; // r11
-  unsigned int v39; // r8d
-  __int64 *v40; // rcx
-  __int64 v41; // rax
-  __int64 **v42; // rdx
-  unsigned __int64 v43; // r15
-  unsigned int v44; // eax
-  __int64 v45; // r13
-  unsigned __int8 CurrentIrql; // r10
-  __int64 v47; // rcx
-  __int64 v48; // rsi
-  __int64 v49; // r8
-  __int64 v50; // r9
-  volatile unsigned __int8 DpcRoutineActive; // al
-  struct _KTHREAD *v53; // r8
-  unsigned int v54; // edi
-  unsigned __int64 v55; // rax
-  char v56; // r14
-  __int64 v57; // rax
-  __int64 v58; // rsi
-  __int64 v59; // rdx
-  __int64 v60; // rax
-  unsigned __int64 v61; // rax
-  unsigned __int8 v62; // cl
-  _KLOCK_ENTRY *v63; // r14
+  __int64 v19; // rdx
   _DWORD *SchedulerAssist; // r9
-  __int64 v65; // r8
-  __int64 v66; // r9
-  __int64 v67; // r8
-  __int64 v68; // r9
-  char v69; // [rsp+30h] [rbp-D0h]
-  bool v70; // [rsp+30h] [rbp-D0h]
-  int v72; // [rsp+34h] [rbp-CCh] BYREF
-  __int64 v73; // [rsp+38h] [rbp-C8h]
-  unsigned int v74; // [rsp+40h] [rbp-C0h]
-  int v75; // [rsp+44h] [rbp-BCh]
-  int v76; // [rsp+48h] [rbp-B8h]
-  int v77; // [rsp+4Ch] [rbp-B4h]
-  unsigned __int64 v78; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v79; // [rsp+58h] [rbp-A8h]
-  volatile signed __int32 *v80; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v81[512]; // [rsp+68h] [rbp-98h] BYREF
+  char v21; // r15
+  volatile __int64 WaitStatus; // rsi
+  struct _KPRCB *CurrentPrcb; // r14
+  ULONG_PTR v24; // rsi
+  __int64 v25; // rcx
+  ULONG_PTR *v26; // r15
+  char v27; // r8
+  __int64 v28; // r10
+  __int64 v29; // rcx
+  ULONG_PTR *v30; // rdx
+  _BYTE *v31; // rax
+  int v32; // edx
+  ULONG_PTR v33; // rcx
+  __int64 *v34; // r11
+  unsigned int v35; // r8d
+  __int64 *v36; // rcx
+  __int64 v37; // rax
+  __int64 **v38; // rdx
+  unsigned __int64 v39; // r15
+  unsigned int v40; // eax
+  __int64 v41; // r13
+  unsigned __int8 CurrentIrql; // r10
+  __int64 v43; // rcx
+  __int64 v44; // rsi
+  __int64 v45; // r8
+  volatile unsigned __int8 DpcRoutineActive; // al
+  struct _KTHREAD *v48; // r8
+  unsigned int v49; // edi
+  unsigned __int64 v50; // rax
+  char v51; // r14
+  __int64 v52; // rax
+  __int64 v53; // rsi
+  __int64 v54; // rdx
+  __int64 v55; // rax
+  unsigned __int64 v56; // rax
+  unsigned __int8 v57; // cl
+  _KLOCK_ENTRY *v58; // r14
+  __int64 v59; // r8
+  __int64 v60; // r8
+  char v61; // [rsp+30h] [rbp-D0h]
+  bool v62; // [rsp+30h] [rbp-D0h]
+  unsigned int v64; // [rsp+34h] [rbp-CCh] BYREF
+  __int64 v65; // [rsp+38h] [rbp-C8h]
+  unsigned int v66; // [rsp+40h] [rbp-C0h]
+  int v67; // [rsp+44h] [rbp-BCh]
+  int v68; // [rsp+48h] [rbp-B8h]
+  unsigned int v69; // [rsp+4Ch] [rbp-B4h]
+  __int64 v70; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v71; // [rsp+58h] [rbp-A8h]
+  ULONG_PTR v72; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v73[512]; // [rsp+68h] [rbp-98h] BYREF
 
   v7 = a3;
-  v77 = a3;
+  v69 = a3;
   v9 = a1;
-  v74 = a1;
+  v66 = a1;
   v10 = 0LL;
-  v79 = a7;
-  v78 = 0LL;
+  v71 = a7;
+  v70 = 0LL;
   v11 = a4;
-  memset(v81, 0, 0x1F8uLL);
-  v12 = (volatile signed __int32 *)*a2;
+  memset(v73, 0, 0x1F8uLL);
+  v12 = *a2;
   v13 = 1;
-  v72 = 0;
-  v80 = v12;
+  v64 = 0;
+  v72 = v12;
   if ( v9 > 1 )
   {
     v14 = a2 + 1;
-    v15 = &v80;
+    v15 = &v72;
     do
     {
       v16 = *v14;
       v17 = v13;
-      if ( (unsigned __int64)*v15 > *v14 )
+      if ( *v15 > *v14 )
       {
         do
         {
-          v47 = v17--;
-          *(_QWORD *)&v81[8 * v47 - 8] = *(_QWORD *)&v81[8 * v17 - 8];
+          v43 = v17--;
+          *(_QWORD *)&v73[8 * v43 - 8] = *(_QWORD *)&v73[8 * v17 - 8];
         }
-        while ( v17 && (unsigned __int64)*(&v80 + v17 - 1) > v16 );
+        while ( v17 && *(&v72 + v17 - 1) > v16 );
       }
       ++v13;
       ++v15;
       ++v14;
-      *(_QWORD *)&v81[8 * v17 - 8] = v16;
+      *(_QWORD *)&v73[8 * v17 - 8] = v16;
     }
     while ( v13 < v9 );
   }
   CurrentThread = KeGetCurrentThread();
-  v19 = KiCheckWaitNext((__int64)CurrentThread, a6, 0, &v78, &v72);
-  v69 = v19;
+  v21 = KiCheckWaitNext((_DWORD)CurrentThread, a6, 0, (unsigned int)&v70, (__int64)&v64);
+  v61 = v21;
 LABEL_6:
-  LODWORD(WaitStatus) = KiBeginThreadWait((__int64)CurrentThread, v11, v7, a5);
+  LOBYTE(SchedulerAssist) = a5;
+  LOBYTE(v19) = v11;
+  LODWORD(WaitStatus) = KiBeginThreadWait(CurrentThread, v19, v7, SchedulerAssist);
   if ( !(_DWORD)WaitStatus )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v25 = v80;
-    KiAcquireKobjectLockSafe(v80, v20, v22, v23);
+    v24 = v72;
+    KiAcquireKobjectLockSafe(v72);
     if ( v9 > 1 )
     {
-      v29 = v9 - 1;
-      v73 = v29;
-      v30 = (volatile signed __int32 **)v81;
+      v25 = v9 - 1;
+      v65 = v25;
+      v26 = (ULONG_PTR *)v73;
       do
       {
-        if ( *v30 != v25 )
+        if ( *v26 != v24 )
         {
-          v25 = *v30;
-          KiAcquireKobjectLockSafe(*v30, v26, v27, v28);
-          v29 = v73;
+          v24 = *v26;
+          KiAcquireKobjectLockSafe(*v26);
+          v25 = v65;
         }
-        ++v30;
-        v73 = --v29;
+        ++v26;
+        v65 = --v25;
       }
-      while ( v29 );
-      v19 = v69;
+      while ( v25 );
+      v21 = v61;
     }
     if ( v9 )
     {
-      v31 = 0;
-      v32 = v9;
-      v33 = v79 + 17;
-      v34 = a2;
+      v27 = 0;
+      v28 = v9;
+      v29 = v71 + 17;
+      v30 = a2;
       do
       {
-        v35 = (_BYTE *)*v34;
-        *(_BYTE *)(v33 - 1) = 0;
-        *(_BYTE *)v33 = 4;
-        *(_WORD *)(v33 + 1) = 0;
+        v31 = (_BYTE *)*v30;
+        *(_BYTE *)(v29 - 1) = 0;
+        *(_BYTE *)v29 = 4;
+        *(_WORD *)(v29 + 1) = 0;
         if ( CurrentThread )
-          *(_QWORD *)(v33 + 7) = CurrentThread;
-        *(_QWORD *)(v33 + 15) = v35;
-        v33 += 48LL;
-        if ( (*(_BYTE *)*v34 & 0x7F) == 2 && (*(_BYTE *)(*v34 + 48) & 2) != 0 )
-          v10 |= 1LL << v31;
-        ++v31;
-        ++v34;
-        --v32;
+          *(_QWORD *)(v29 + 7) = CurrentThread;
+        *(_QWORD *)(v29 + 15) = v31;
+        v29 += 48LL;
+        if ( (*(_BYTE *)*v30 & 0x7F) == 2 && (*(_BYTE *)(*v30 + 48) & 2) != 0 )
+          v10 |= 1LL << v27;
+        ++v27;
+        ++v30;
+        --v28;
       }
-      while ( v32 );
+      while ( v28 );
     }
     CurrentThread->WaitStatus = 0LL;
-    v36 = 0;
+    v32 = 0;
     CurrentThread->AbWaitObject = 0LL;
     while ( 1 )
     {
-      v37 = a2[v36];
-      if ( (*(_BYTE *)v37 & 0x7F) == 2 )
+      v33 = a2[v32];
+      if ( (*(_BYTE *)v33 & 0x7F) == 2 )
       {
         DpcRoutineActive = CurrentPrcb->DpcRoutineActive;
-        v53 = *(struct _KTHREAD **)(v37 + 40);
-        if ( CurrentThread == v53 && *(_BYTE *)(v37 + 2) == DpcRoutineActive && *(_DWORD *)(v37 + 4) == 0x80000000 )
+        v48 = *(struct _KTHREAD **)(v33 + 40);
+        if ( CurrentThread == v48 && *(_BYTE *)(v33 + 2) == DpcRoutineActive && *(_DWORD *)(v33 + 4) == 0x80000000 )
         {
-          KiUnlockKobjectArray(&v80, v9);
-          LOBYTE(v65) = v19;
-          KiFastExitThreadWait((__int64)CurrentPrcb, (__int64)CurrentThread, v65, v66);
-          RtlRaiseStatus(3221225873LL);
+          KiUnlockKobjectArray(&v72, v9);
+          LOBYTE(v59) = v21;
+          KiFastExitThreadWait(CurrentPrcb, CurrentThread, v59);
+          RtlRaiseStatus(-1073741423);
         }
-        if ( *(int *)(v37 + 4) <= 0 && (CurrentThread != v53 || *(_BYTE *)(v37 + 2) != DpcRoutineActive) )
+        if ( *(int *)(v33 + 4) <= 0 && (CurrentThread != v48 || *(_BYTE *)(v33 + 2) != DpcRoutineActive) )
         {
 LABEL_23:
-          if ( v36 == v9 )
+          if ( v32 == v9 )
           {
             if ( v9 )
             {
-              v48 = v9;
+              v44 = v9;
               do
               {
                 KiWaitSatisfyAny(*a2++);
-                --v48;
+                --v44;
               }
-              while ( v48 );
+              while ( v44 );
             }
-            KiUnlockKobjectArray(&v80, v9);
+            KiUnlockKobjectArray(&v72, v9);
             WaitStatus = CurrentThread->WaitStatus;
-            LOBYTE(v49) = v19;
+            LOBYTE(v45) = v21;
             CurrentThread->AbWaitObject = 0LL;
-            KiFastExitThreadWait((__int64)CurrentPrcb, (__int64)CurrentThread, v49, v50);
+            KiFastExitThreadWait(CurrentPrcb, CurrentThread, v45);
           }
-          else if ( (unsigned int)KiCheckDueTimeExpired((__int64)CurrentThread, v72, v78) )
+          else if ( (unsigned int)KiCheckDueTimeExpired(CurrentThread, v64, v70) )
           {
-            KiUnlockKobjectArray(&v80, v9);
-            LOBYTE(v67) = v19;
-            KiFastExitThreadWait((__int64)CurrentPrcb, (__int64)CurrentThread, v67, v68);
+            KiUnlockKobjectArray(&v72, v9);
+            LOBYTE(v60) = v21;
+            KiFastExitThreadWait(CurrentPrcb, CurrentThread, v60);
             LODWORD(WaitStatus) = 258;
           }
           else
           {
-            v39 = 0;
+            v35 = 0;
             if ( v9 )
             {
-              v40 = v38;
+              v36 = v34;
               do
               {
-                v41 = v40[4] + 8;
-                v42 = *(__int64 ***)(v40[4] + 16);
-                if ( *v42 != (__int64 *)v41 )
+                v37 = v36[4] + 8;
+                v38 = *(__int64 ***)(v36[4] + 16);
+                if ( *v38 != (__int64 *)v37 )
                   __fastfail(3u);
-                *v40 = v41;
-                ++v39;
-                v40[1] = (__int64)v42;
-                *v42 = v40;
-                *(_QWORD *)(v41 + 8) = v40;
-                v40 += 6;
+                *v36 = v37;
+                ++v35;
+                v36[1] = (__int64)v38;
+                *v38 = v36;
+                *(_QWORD *)(v37 + 8) = v36;
+                v36 += 6;
               }
-              while ( v39 < v9 );
+              while ( v35 < v9 );
             }
-            KiUnlockKobjectArray(&v80, v9);
+            KiUnlockKobjectArray(&v72, v9);
             CurrentThread->WaitBlockCount = v9;
-            v43 = 0LL;
+            v39 = 0LL;
             if ( v10 )
             {
-              v54 = 0;
+              v49 = 0;
               do
               {
-                _BitScanForward64(&v55, v10);
-                v56 = v55;
-                v75 = v55;
-                _bittestandreset64((__int64 *)&v10, (unsigned int)v55);
-                v57 = KeAbPreAcquire(a2[v55]);
-                v58 = v57;
-                if ( !v57 )
+                _BitScanForward64(&v50, v10);
+                v51 = v50;
+                v67 = v50;
+                _bittestandreset64((__int64 *)&v10, (unsigned int)v50);
+                v52 = KeAbPreAcquire(a2[v50], 0LL);
+                v53 = v52;
+                if ( !v52 )
                   break;
-                v43 |= 1LL << v56;
-                KeAbPreWait(v57);
-                v59 = (unsigned __int128)((v58 - *(_QWORD *)(v58 - 16LL * *(unsigned __int8 *)(v58 + 24) + 800))
+                v39 |= 1LL << v51;
+                KeAbPreWait(v52);
+                v54 = (unsigned __int128)((v53 - *(_QWORD *)(v53 - 16LL * *(unsigned __int8 *)(v53 + 24) + 800))
                                         * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
-                v60 = v54++;
-                v81[v60 + 504] = (2 * ((v59 < 0) + (v59 >> 4))) | 1;
+                v55 = v49++;
+                v73[v55 + 504] = (2 * ((v54 < 0) + (v54 >> 4))) | 1;
               }
               while ( v10 );
-              v9 = v74;
+              v9 = v66;
             }
-            v44 = KiCommitThreadWait((_DWORD)CurrentThread, v79, v72, v78, 0LL);
-            LODWORD(WaitStatus) = v44;
-            v70 = v44 <= 0x3F || v44 - 128 <= 0x3F;
-            v45 = 0LL;
+            v40 = KiCommitThreadWait((_DWORD)CurrentThread, v71, v64, v70, 0LL);
+            LODWORD(WaitStatus) = v40;
+            v62 = v40 <= 0x3F || v40 - 128 <= 0x3F;
+            v41 = 0LL;
             CurrentThread->AbWaitObject = 0LL;
-            if ( v43 )
+            if ( v39 )
             {
               do
               {
-                _BitScanForward64(&v61, v43);
-                v62 = v81[v45 + 504] >> 1;
-                v76 = v61;
-                v43 &= ~(1LL << v61);
-                v73 = (unsigned int)v61;
-                v63 = &KeGetCurrentThread()->LockEntries[v62];
-                KeAbPreAcquire(a2[(unsigned int)v61]);
-                if ( v70 )
-                  v63->AcquiredByte |= 1u;
+                _BitScanForward64(&v56, v39);
+                v57 = v73[v41 + 504] >> 1;
+                v68 = v56;
+                v39 &= ~(1LL << v56);
+                v65 = (unsigned int)v56;
+                v58 = &KeGetCurrentThread()->LockEntries[v57];
+                KeAbPreAcquire(a2[(unsigned int)v56], &v58->TreeNode);
+                if ( v62 )
+                  v58->AcquiredByte |= 1u;
                 else
-                  KeAbPostReleaseEx(a2[v73], (ULONG_PTR)v63);
-                v45 = (unsigned int)(v45 + 1);
+                  KeAbPostReleaseEx(a2[v65], (ULONG_PTR)v58);
+                v41 = (unsigned int)(v41 + 1);
               }
-              while ( v43 );
-              v9 = v74;
+              while ( v39 );
+              v9 = v66;
             }
             if ( (_DWORD)WaitStatus == 256 )
             {
               v10 = 0LL;
-              v19 = 0;
-              v69 = 0;
+              v21 = 0;
+              v61 = 0;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
               if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-                SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
+                v19 = SchedulerAssist[5] | ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4u;
+                SchedulerAssist[5] = v19;
               }
-              v7 = v77;
+              v7 = v69;
               v11 = a4;
               CurrentThread->WaitIrql = CurrentIrql;
               goto LABEL_6;
@@ -329,11 +324,11 @@ LABEL_23:
           return (unsigned int)WaitStatus;
         }
       }
-      else if ( *(int *)(v37 + 4) <= 0 )
+      else if ( *(int *)(v33 + 4) <= 0 )
       {
         goto LABEL_23;
       }
-      if ( ++v36 >= v9 )
+      if ( ++v32 >= v9 )
         goto LABEL_23;
     }
   }

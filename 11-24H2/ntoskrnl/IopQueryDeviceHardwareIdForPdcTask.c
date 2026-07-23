@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryDeviceHardwareIdForPdcTask @ 0x1409ED7C0
+ * XREFs of IopQueryDeviceHardwareIdForPdcTask @ 0x1409EB200
  * Callers:
- *     IopProcessInvalidateBusRelationsRequest @ 0x1409EDC68 (IopProcessInvalidateBusRelationsRequest.c)
+ *     IopProcessInvalidateBusRelationsRequest @ 0x1409EB6A8 (IopProcessInvalidateBusRelationsRequest.c)
  * Callees:
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall IopQueryDeviceHardwareIdForPdcTask(PDEVICE_OBJECT DeviceObject)
@@ -17,7 +17,7 @@ void *__fastcall IopQueryDeviceHardwareIdForPdcTask(PDEVICE_OBJECT DeviceObject)
   Pool2 = 0LL;
   if ( IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, 0, 0LL, &BufferLength) == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, BufferLength, 0x6F697050u);
     if ( Pool2 )
     {
       if ( IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, BufferLength, Pool2, &BufferLength) < 0 )

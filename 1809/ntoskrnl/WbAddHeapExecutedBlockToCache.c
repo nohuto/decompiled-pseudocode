@@ -1,25 +1,25 @@
 /*
- * XREFs of WbAddHeapExecutedBlockToCache @ 0x14069156C
+ * XREFs of WbAddHeapExecutedBlockToCache @ 0x14069272C
  * Callers:
- *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
+ *     WbGetHeapExecutedBlock @ 0x14062592C (WbGetHeapExecutedBlock.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     sub_1406245B4 @ 0x1406245B4 (sub_1406245B4.c)
- *     sub_140624D6C @ 0x140624D6C (sub_140624D6C.c)
- *     WbAddHeapExecutedBlockToLRU @ 0x14069167C (WbAddHeapExecutedBlockToLRU.c)
- *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     sub_1406255D4 @ 0x1406255D4 (sub_1406255D4.c)
+ *     sub_140625D8C @ 0x140625D8C (sub_140625D8C.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x14069283C (WbAddHeapExecutedBlockToLRU.c)
+ *     sub_14069290C @ 0x14069290C (sub_14069290C.c)
  */
 
 __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rbx
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rbx
   int v10; // eax
   int v11; // r8d
   int v12; // ebx
@@ -37,8 +37,8 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     ExfAcquirePushLockExclusiveEx(v7, v8, (ULONG_PTR)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
-  v10 = sub_140624D6C(a1, *(_QWORD *)(a2 + 48), &v16, (__int64)&v15);
+    BYTE2(v9[1].Left) |= 1u;
+  v10 = sub_140625D8C(a1, *(_QWORD *)(a2 + 48), &v16, (__int64)&v15);
   v12 = v10;
   if ( v10 >= 0 )
   {
@@ -47,10 +47,10 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   }
   else if ( v10 == -1073741198 )
   {
-    v12 = sub_14069174C((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v15);
+    v12 = sub_14069290C((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v15);
     if ( v12 >= 0 )
     {
-      v12 = sub_1406245B4(a2);
+      v12 = sub_1406255D4(a2);
       if ( v12 >= 0 )
       {
         if ( a3 )

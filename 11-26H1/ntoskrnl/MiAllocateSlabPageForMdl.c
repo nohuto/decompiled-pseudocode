@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateSlabPageForMdl @ 0x14033A080
+ * XREFs of MiAllocateSlabPageForMdl @ 0x14033C100
  * Callers:
- *     MiAllocateMdlPagesByLists @ 0x140337F84 (MiAllocateMdlPagesByLists.c)
- *     MiAllocateMostlyContiguousPagesForMdl @ 0x1403382F4 (MiAllocateMostlyContiguousPagesForMdl.c)
+ *     MiAllocateMdlPagesByLists @ 0x14033A004 (MiAllocateMdlPagesByLists.c)
+ *     MiAllocateMostlyContiguousPagesForMdl @ 0x14033A374 (MiAllocateMostlyContiguousPagesForMdl.c)
  * Callees:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     MiAsyncSlabReplenish @ 0x1402A5984 (MiAsyncSlabReplenish.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     MiAsyncSlabReplenish @ 0x1402A4ED4 (MiAsyncSlabReplenish.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
  */
 
 __int64 __fastcall MiAllocateSlabPageForMdl(int a1, int a2, char a3, int a4, _DWORD *a5)

@@ -1,16 +1,16 @@
 /*
  * XREFs of KeQuerySystemTimePrecise @ 0x1402F08A0
  * Callers:
- *     EtwpInitializeTimeStamp @ 0x1406EFBC8 (EtwpInitializeTimeStamp.c)
- *     EtwpInitLoggerContext @ 0x1406EFD44 (EtwpInitLoggerContext.c)
- *     EtwpFinalizeHeader @ 0x1406F1AC4 (EtwpFinalizeHeader.c)
- *     PspUserThreadStartup @ 0x140702420 (PspUserThreadStartup.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     sub_1406EFBC8 @ 0x1406EFBC8 (sub_1406EFBC8.c)
+ *     sub_1406EFD44 @ 0x1406EFD44 (sub_1406EFD44.c)
+ *     sub_1406F1AC4 @ 0x1406F1AC4 (sub_1406F1AC4.c)
+ *     sub_140702420 @ 0x140702420 (sub_140702420.c)
+ *     sub_14070BD10 @ 0x14070BD10 (sub_14070BD10.c)
  *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
- *     PspAllocateThread @ 0x1407A34A0 (PspAllocateThread.c)
- *     EtwTraceLpacAccessFailure @ 0x1407F6600 (EtwTraceLpacAccessFailure.c)
- *     EtwpTraceSystemShutdown @ 0x1409E3E74 (EtwpTraceSystemShutdown.c)
+ *     sub_1407A0088 @ 0x1407A0088 (sub_1407A0088.c)
+ *     sub_1407A34A0 @ 0x1407A34A0 (sub_1407A34A0.c)
+ *     sub_1407F6600 @ 0x1407F6600 (sub_1407F6600.c)
+ *     sub_1409E3E74 @ 0x1409E3E74 (sub_1409E3E74.c)
  * Callees:
  *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
  */

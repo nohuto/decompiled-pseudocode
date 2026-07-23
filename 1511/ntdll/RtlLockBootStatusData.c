@@ -9,14 +9,14 @@
  *     NtOpenFile @ 0x1800A5720 (NtOpenFile.c)
  */
 
-NTSTATUS __fastcall RtlLockBootStatusData(_QWORD *a1)
+NTSTATUS __cdecl RtlLockBootStatusData(PHANDLE FileHandle)
 {
   HANDLE v2; // rbx
   NTSTATUS result; // eax
-  HANDLE FileHandle; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-88h] BYREF
+  HANDLE FileHandlea; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-88h] BYREF
   wchar_t Destination[264]; // [rsp+90h] [rbp-70h] BYREF
 
   wcscpy_s(Destination, 0x101uLL, L"\\SystemRoot\\bootstat.dat");
@@ -27,9 +27,9 @@ NTSTATUS __fastcall RtlLockBootStatusData(_QWORD *a1)
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 192;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  result = NtOpenFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 0, 0x20u);
+  result = NtOpenFile(&FileHandlea, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 0, 0x20u);
   if ( result >= 0 )
-    v2 = FileHandle;
-  *a1 = v2;
+    v2 = FileHandlea;
+  *FileHandle = v2;
   return result;
 }

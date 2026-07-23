@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgpInsertDebugPrintCallback @ 0x1402ECA50
+ * XREFs of DbgpInsertDebugPrintCallback @ 0x1402ECC40
  * Callers:
- *     DbgSetDebugPrintCallback @ 0x1402EC9F0 (DbgSetDebugPrintCallback.c)
+ *     DbgSetDebugPrintCallback @ 0x1402ECBE0 (DbgSetDebugPrintCallback.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgpInsertDebugPrintCallback(KSPIN_LOCK a1)
@@ -31,14 +31,14 @@ __int64 __fastcall DbgpInsertDebugPrintCallback(KSPIN_LOCK a1)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
   ExAcquireSpinLockExclusiveAtDpcLevel(&RtlpDebugPrintCallbackLock);
-  v6 = (KSPIN_LOCK **)off_140400270;
+  v6 = (KSPIN_LOCK **)off_140401270;
   v7 = v3 + 3;
-  if ( *off_140400270 != (_UNKNOWN *)&RtlpDebugPrintCallbackList )
+  if ( *off_140401270 != (_UNKNOWN *)&RtlpDebugPrintCallbackList )
     __fastfail(3u);
   *v7 = (KSPIN_LOCK)&RtlpDebugPrintCallbackList;
   v7[1] = (KSPIN_LOCK)v6;
   *v6 = v7;
-  off_140400270 = (_UNKNOWN **)v7;
+  off_140401270 = (_UNKNOWN **)v7;
   RtlpDebugPrintCallbacksActive = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpDebugPrintCallbackLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )

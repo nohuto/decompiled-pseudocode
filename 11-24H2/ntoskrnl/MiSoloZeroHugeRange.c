@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSoloZeroHugeRange @ 0x140685E14
+ * XREFs of MiSoloZeroHugeRange @ 0x140686F44
  * Callers:
- *     MiHugePageOperation @ 0x140685BC0 (MiHugePageOperation.c)
+ *     MiHugePageOperation @ 0x140686CF0 (MiHugePageOperation.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiFillMemory @ 0x14040A5D0 (MiFillMemory.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiReleaseProcessorHugeMappingAtDpc @ 0x140685DBC (MiReleaseProcessorHugeMappingAtDpc.c)
- *     MiUseProcessorHugeMappingAtDpc @ 0x140685FC4 (MiUseProcessorHugeMappingAtDpc.c)
- *     MiAllocateAcceleratorDescriptor @ 0x140690914 (MiAllocateAcceleratorDescriptor.c)
- *     RtlCompareMemoryUlong @ 0x1406B3A10 (RtlCompareMemoryUlong.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     MiFillMemory @ 0x140402AB0 (MiFillMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiReleaseProcessorHugeMappingAtDpc @ 0x140686EEC (MiReleaseProcessorHugeMappingAtDpc.c)
+ *     MiUseProcessorHugeMappingAtDpc @ 0x1406870F4 (MiUseProcessorHugeMappingAtDpc.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1406919E4 (MiAllocateAcceleratorDescriptor.c)
+ *     RtlCompareMemoryUlong @ 0x1406B49B0 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiSoloZeroHugeRange(
@@ -48,7 +48,7 @@ __int64 __fastcall MiSoloZeroHugeRange(
   v22[0] = 0LL;
   v23 = 17;
   v13 = 0LL;
-  if ( *(_WORD *)(*(_QWORD *)(384LL * a5 + qword_140E2DAF8 + 376) + 24LL) )
+  if ( *(_WORD *)(*(_QWORD *)(384LL * a5 + qword_140E2DC38 + 376) + 24LL) )
   {
     AcceleratorDescriptor = MiAllocateAcceleratorDescriptor(0LL, a5, 1LL, v22);
     v6 = v25;

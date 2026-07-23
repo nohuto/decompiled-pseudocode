@@ -1,20 +1,21 @@
 /*
- * XREFs of MiInitializeEnclavePfn @ 0x1404740A8
+ * XREFs of MiInitializeEnclavePfn @ 0x14046DD14
  * Callers:
- *     MiAddPagesToEnclave @ 0x140473CEC (MiAddPagesToEnclave.c)
- *     MiCreateHardwareEnclave @ 0x1407F719C (MiCreateHardwareEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x1408DA288 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x14046D958 (MiAddPagesToEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x1407F7910 (MiCreateHardwareEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A29D18 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
  */
 
-__int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3, int a4)
+__int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  char v4; // r15
   _KPROCESS *Process; // r14
   __int64 v7; // rbx
   volatile signed __int32 *v8; // rdi
@@ -22,10 +23,11 @@ __int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3, int a
   unsigned int v10; // esi
   int v12; // [rsp+68h] [rbp+20h]
 
+  v4 = a3;
   Process = KeGetCurrentThread()->ApcState.Process;
   v7 = 48 * a1 - 0x220000000000LL;
   v8 = (volatile signed __int32 *)(v7 + 24);
-  if ( a4 )
+  if ( (_DWORD)a4 )
   {
     v9 = 17;
     v10 = 0;
@@ -49,7 +51,7 @@ __int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3, int a
   }
   else
   {
-    v9 = MiLockPageInline(48 * a1 - 0x220000000000LL);
+    v9 = MiLockPageInline(48 * a1 - 0x220000000000LL, a2, a3, a4);
   }
   *(_QWORD *)v7 = ((unsigned __int64)Process >> 3) ^ (*(_QWORD *)v7 ^ ((unsigned __int64)Process >> 3)) & 0xFFFFF00000000001uLL;
   v12 = *(_DWORD *)(v7 + 32);
@@ -61,6 +63,6 @@ __int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3, int a
   *(_DWORD *)(v7 + 32) = v12;
   MiSetPfnModified(v7, 1);
   *(_QWORD *)(v7 + 8) = a2;
-  *(_QWORD *)(v7 + 16) = MiMakeDemandZeroPte(a3);
+  *(_QWORD *)(v7 + 16) = MiMakeDemandZeroPte(v4);
   return MiUnlockPage(v7, v9);
 }

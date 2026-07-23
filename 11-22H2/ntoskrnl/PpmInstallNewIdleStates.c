@@ -228,8 +228,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
         else
         {
           v31 = a1;
-          *(_QWORD *)(v26 + 24) = (unsigned int)KeMaximumIncrement
-                                * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
+          *(_QWORD *)(v26 + 24) = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
         }
         PpmResetIdlePolicy(v45);
         if ( v30 )

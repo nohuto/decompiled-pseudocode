@@ -38,16 +38,16 @@ __int64 __fastcall SepCreateTokenEx(
         int a6,
         __int64 a7,
         _QWORD *a8,
-        struct _SID_AND_ATTRIBUTES *a9,
+        _SID_AND_ATTRIBUTES *a9,
         ULONG Count,
-        struct _SID_AND_ATTRIBUTES *a11,
+        _SID_AND_ATTRIBUTES *a11,
         unsigned int a12,
         unsigned int a13,
         __int64 a14,
         PSID a15,
         void *a16,
         void *a17,
-        struct _SID_AND_ATTRIBUTES *a18,
+        _OWORD *a18,
         __int64 a19,
         __int64 a20,
         int a21,
@@ -81,7 +81,7 @@ __int64 __fastcall SepCreateTokenEx(
   int v47; // r9d
   unsigned int v48; // r11d
   int v49; // edx
-  unsigned __int64 v50; // r10
+  __int64 v50; // r10
   __int64 v51; // rdi
   __int64 v52; // r11
   unsigned int v53; // r9d
@@ -102,14 +102,14 @@ __int64 __fastcall SepCreateTokenEx(
   NTSTATUS inserted; // ebx
   struct _ERESOURCE *v69; // rcx
   _QWORD *v70; // rbx
-  struct _SID_AND_ATTRIBUTES *v71; // rdi
+  char *v71; // rdi
   _QWORD *v72; // rax
   __int64 v73; // rax
   ULONG v74; // r12d
-  void *v75; // rax
+  __int64 v75; // rax
   __int64 v76; // rcx
   int v77; // esi
-  struct _SID_AND_ATTRIBUTES *v78; // rdx
+  _SID_AND_ATTRIBUTES *v78; // rdx
   char *v79; // rax
   char *v80; // rsi
   unsigned __int8 *v81; // r14
@@ -143,7 +143,7 @@ __int64 __fastcall SepCreateTokenEx(
   PHANDLE Handle; // [rsp+B8h] [rbp-48h]
   void *v110; // [rsp+C0h] [rbp-40h]
   __int64 v111; // [rsp+C8h] [rbp-38h]
-  void *v112; // [rsp+D0h] [rbp-30h]
+  __int64 v112; // [rsp+D0h] [rbp-30h]
   __int64 v113; // [rsp+D8h] [rbp-28h]
   __int64 v114; // [rsp+E0h] [rbp-20h]
   __int64 v115; // [rsp+E8h] [rbp-18h]
@@ -320,10 +320,10 @@ LABEL_21:
         *v54 = v56;
         if ( (unsigned int)v55 > 0x23 )
           return 3221225568LL;
-        if ( _bittest64((const __int64 *)&v50, v55) )
+        if ( _bittest64(&v50, v55) )
           return 3221225894LL;
         v50 |= 1LL << v55;
-        v112 = (void *)v50;
+        v112 = v50;
         if ( (v56 & 2) != 0 )
         {
           _bittestandset64(&v51, (unsigned int)v55);
@@ -403,78 +403,78 @@ LABEL_41:
           v70 = Object;
           *((_QWORD *)Object + 6) = Resource;
           ExInitializeResourceLite(v69);
-          v71 = (struct _SID_AND_ATTRIBUTES *)Object;
+          v71 = (char *)Object;
           v70[2] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
-          v71[2].Sid = 0LL;
+          *((_QWORD *)v71 + 4) = 0LL;
           v72 = (_QWORD *)v111;
-          v71[14].Sid = 0LL;
+          *((_QWORD *)v71 + 28) = 0LL;
           Resource = 0LL;
-          *(_QWORD *)&v71[1].Attributes = *v72;
+          *((_QWORD *)v71 + 3) = *v72;
           v73 = v105;
-          *((_BYTE *)&v71[12].Attributes + 4) = 0;
-          *(_QWORD *)&v71[3].Attributes = v73;
-          *(_QWORD *)&v71[2].Attributes = *a8;
-          LODWORD(v71[12].Sid) = a5;
-          HIDWORD(v71[12].Sid) = a6;
+          v71[204] = 0;
+          *((_QWORD *)v71 + 7) = v73;
+          *((_QWORD *)v71 + 5) = *a8;
+          *((_DWORD *)v71 + 48) = a5;
+          *((_DWORD *)v71 + 49) = a6;
           LODWORD(v73) = v94;
-          *v71 = *a18;
-          v71[12].Attributes = v73;
+          *(_OWORD *)v71 = *a18;
+          *((_DWORD *)v71 + 50) = v73;
           LODWORD(v73) = v101;
-          v71[7].Attributes = 0;
+          *((_DWORD *)v71 + 30) = 0;
           LODWORD(v73) = v73 - v65;
           v74 = SidAreaSize;
-          *(_QWORD *)&v71[71].Attributes = 0LL;
-          v71[8].Attributes = v73;
+          *((_QWORD *)v71 + 143) = 0LL;
+          *((_DWORD *)v71 + 34) = v73;
           LODWORD(v73) = v96;
-          *(&v71[8].Attributes + 1) = 0;
-          LODWORD(v71[9].Sid) = v73;
+          *((_DWORD *)v71 + 35) = 0;
+          *((_DWORD *)v71 + 36) = v73;
           LODWORD(v73) = v98;
-          *(_QWORD *)&v71[11].Attributes = 0LL;
-          v71[70].Sid = 0LL;
-          *(_QWORD *)&v71[70].Attributes = 0LL;
-          HIDWORD(v71[8].Sid) = v74;
-          LODWORD(v71[13].Sid) = v73;
+          *((_QWORD *)v71 + 23) = 0LL;
+          *((_QWORD *)v71 + 140) = 0LL;
+          *((_QWORD *)v71 + 141) = 0LL;
+          *((_DWORD *)v71 + 33) = v74;
+          *((_DWORD *)v71 + 52) = v73;
           v75 = v112;
-          HIDWORD(v71[13].Sid) = 0;
-          v71[4].Sid = v75;
-          *(_QWORD *)&v71[4].Attributes = v113;
-          v71[5].Sid = (PSID)v102;
-          LODWORD(v71[50].Sid) = 0;
-          *(_QWORD *)&v71[49].Attributes = 0LL;
-          v71[49].Sid = 0LL;
-          *(_QWORD *)&v71[67].Attributes = 0LL;
-          v71[68].Sid = 0LL;
-          memset(&v71[50].Attributes, 0, 0x110uLL);
-          v71[69].Sid = 0LL;
-          *(_QWORD *)&v71[69].Attributes = 0LL;
-          v71[71].Sid = 0LL;
+          *((_DWORD *)v71 + 53) = 0;
+          *((_QWORD *)v71 + 8) = v75;
+          *((_QWORD *)v71 + 9) = v113;
+          *((_QWORD *)v71 + 10) = v102;
+          *((_DWORD *)v71 + 200) = 0;
+          *((_QWORD *)v71 + 99) = 0LL;
+          *((_QWORD *)v71 + 98) = 0LL;
+          *((_QWORD *)v71 + 135) = 0LL;
+          *((_QWORD *)v71 + 136) = 0LL;
+          memset(v71 + 808, 0, 0x110uLL);
+          *((_QWORD *)v71 + 138) = 0LL;
+          *((_QWORD *)v71 + 139) = 0LL;
+          *((_QWORD *)v71 + 142) = 0LL;
           if ( a23 )
-            HIDWORD(v71[13].Sid) = *a23;
+            *((_DWORD *)v71 + 53) = *a23;
           if ( !v91 )
           {
-            *(_QWORD *)&v71[4].Attributes &= 0xFFFFFFFEDFE9F97BuLL;
-            v71[5].Sid = (PSID)((unsigned __int64)v71[5].Sid & 0xFFFFFFFEDFE9F97BuLL);
+            *((_QWORD *)v71 + 9) &= 0xFFFFFFFEDFE9F97BuLL;
+            *((_QWORD *)v71 + 10) &= 0xFFFFFFFEDFE9F97BuLL;
           }
           if ( v92 == 1 )
           {
-            *(_QWORD *)&v71[4].Attributes &= 0x202800000uLL;
-            v71[5].Sid = (PSID)((unsigned __int64)v71[5].Sid & 0x202800000LL);
+            *((_QWORD *)v71 + 9) &= 0x202800000uLL;
+            *((_QWORD *)v71 + 10) &= 0x202800000uLL;
           }
           v76 = v111;
-          *(_QWORD *)&v71[5].Attributes = 0LL;
-          v71[6].Sid = 0LL;
-          *(_QWORD *)&v71[6].Attributes = 0LL;
-          LODWORD(v71[7].Sid) = 0;
-          WORD2(v71[7].Sid) = 0;
-          BYTE6(v71[7].Sid) = 0;
-          *(_QWORD *)&v71[48].Attributes = v58;
-          *(_QWORD *)&v71[68].Attributes = 0LL;
-          v71[11].Sid = 0LL;
-          v77 = SepReferenceLogonSession(v76, &v71[13].Attributes);
+          *((_QWORD *)v71 + 11) = 0LL;
+          *((_QWORD *)v71 + 12) = 0LL;
+          *((_QWORD *)v71 + 13) = 0LL;
+          *((_DWORD *)v71 + 28) = 0;
+          *((_WORD *)v71 + 58) = 0;
+          v71[118] = 0;
+          *((_QWORD *)v71 + 97) = v58;
+          *((_QWORD *)v71 + 137) = 0LL;
+          *((_QWORD *)v71 + 22) = 0LL;
+          v77 = SepReferenceLogonSession(v76, v71 + 216);
           if ( v77 < 0 )
           {
-            v71[12].Attributes |= 0x20u;
-            *(_QWORD *)&v71[13].Attributes = 0LL;
+            *((_DWORD *)v71 + 50) |= 0x20u;
+            *((_QWORD *)v71 + 27) = 0LL;
             ObfDereferenceObjectWithTag(v71, 0x746C6644u);
             return (unsigned int)v77;
           }
@@ -487,30 +487,47 @@ LABEL_41:
           }
           else
           {
-            *(_QWORD *)&v71[9].Attributes = v71 + 72;
-            *(&v71[7].Attributes + 1) = v28 + 1;
-            SidArea = &v71[v28 + 73];
+            *((_QWORD *)v71 + 19) = v71 + 1152;
+            *((_DWORD *)v71 + 31) = v28 + 1;
+            SidArea = &v71[16 * v28 + 1168];
             SidAreaSize = -16 - v60 + v74;
-            RtlCopySidAndAttributesArray(1u, v78, SidAreaSize, v71 + 72, SidArea, &SidArea, &SidAreaSize);
-            RtlCopySidAndAttributesArray(v28, v106, SidAreaSize, v71 + 73, SidArea, &SidArea, &SidAreaSize);
+            RtlCopySidAndAttributesArray(
+              1u,
+              v78,
+              SidAreaSize,
+              (PSID_AND_ATTRIBUTES)v71 + 72,
+              SidArea,
+              &SidArea,
+              &SidAreaSize);
+            RtlCopySidAndAttributesArray(
+              v28,
+              v106,
+              SidAreaSize,
+              (PSID_AND_ATTRIBUTES)v71 + 73,
+              SidArea,
+              &SidArea,
+              &SidAreaSize);
           }
-          RtlSidHashInitialize(*(_QWORD *)&v71[9].Attributes, *(&v71[7].Attributes + 1), &v71[14].Attributes);
-          v71[10].Sid = 0LL;
-          LODWORD(v71[8].Sid) = 0;
+          RtlSidHashInitialize(
+            *((PSID_AND_ATTRIBUTES *)v71 + 19),
+            *((_DWORD *)v71 + 31),
+            (PSID_AND_ATTRIBUTES_HASH)(v71 + 232));
+          *((_QWORD *)v71 + 20) = 0LL;
+          *((_DWORD *)v71 + 32) = 0;
           v79 = (char *)ExAllocatePoolWithTag(PagedPool, v64, 0x64546553u);
-          v71[11].Sid = v79;
+          *((_QWORD *)v71 + 22) = v79;
           v80 = v79;
           if ( v79 )
           {
             v81 = (unsigned __int8 *)Sid1;
-            *(_QWORD *)&v71[10].Attributes = v79;
+            *((_QWORD *)v71 + 21) = v79;
             v82 = RtlLengthRequiredSid(v81[1]);
             RtlCopySid(v82, v80, v81);
             v83 = &v80[(v82 + 3) & 0xFFFFFFFC];
             v84 = (unsigned __int16 *)v110;
             if ( v110 )
             {
-              *(_QWORD *)&v71[11].Attributes = v83;
+              *((_QWORD *)v71 + 23) = v83;
               memmove(v83, v84, v84[1]);
             }
             v85 = SepSetTokenClaims((_DWORD)v71, v115, v117, a21, v114);

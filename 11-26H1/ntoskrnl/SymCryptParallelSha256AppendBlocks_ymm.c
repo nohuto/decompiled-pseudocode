@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptParallelSha256AppendBlocks_ymm @ 0x140558D74
+ * XREFs of SymCryptParallelSha256AppendBlocks_ymm @ 0x14055B204
  * Callers:
- *     SymCryptParallelSha256Append @ 0x140554EE0 (SymCryptParallelSha256Append.c)
+ *     SymCryptParallelSha256Append @ 0x140557370 (SymCryptParallelSha256Append.c)
  * Callees:
  *     <none>
  */
@@ -465,26 +465,26 @@ __int64 __fastcall SymCryptParallelSha256AppendBlocks_ymm(__int64 *a1, __int64 *
       while ( (__int64)_RBX < (__int64)((char *)&_xmm + 8) );
       __asm
       {
-        vpaddd  ymm0, ymm13, ymmword ptr [r9+60h]
-        vmovdqu ymmword ptr [r9+160h], ymm0
-        vpaddd  ymm1, ymm14, ymmword ptr [r9+40h]
-        vmovdqu ymmword ptr [r9+60h], ymm0
-        vmovdqu ymmword ptr [r9+140h], ymm1
-        vpaddd  ymm0, ymm15, ymmword ptr [r9+20h]
-        vmovdqu ymmword ptr [r9+40h], ymm1
-        vmovdqu ymmword ptr [r9+120h], ymm0
-        vpaddd  ymm1, ymm9, ymmword ptr [r9]
-        vmovdqu ymmword ptr [r9+20h], ymm0
-        vmovdqu ymmword ptr [r9+100h], ymm1
-        vmovdqu ymmword ptr [r9], ymm1
-        vmovdqu ymm0, ymmword ptr [r9+8E0h]
-        vpaddd  ymm1, ymm0, ymmword ptr [r9+0E0h]
+        vpaddd  ymm1, ymm13, ymmword ptr [r9+60h]
+        vmovdqu ymmword ptr [r9+160h], ymm1
+        vpaddd  ymm0, ymm14, ymmword ptr [r9+40h]
+        vmovdqu ymmword ptr [r9+60h], ymm1
+        vmovdqu ymmword ptr [r9+140h], ymm0
+        vpaddd  ymm1, ymm15, ymmword ptr [r9+20h]
+        vmovdqu ymmword ptr [r9+40h], ymm0
+        vmovdqu ymmword ptr [r9+120h], ymm1
+        vpaddd  ymm0, ymm9, ymmword ptr [r9]
+        vmovdqu ymmword ptr [r9+20h], ymm1
+        vmovdqu ymmword ptr [r9+100h], ymm0
+        vmovdqu ymmword ptr [r9], ymm0
+        vmovdqu ymm0, ymmword ptr [r9+0E0h]
+        vpaddd  ymm1, ymm0, ymmword ptr [r9+8E0h]
         vmovdqu ymmword ptr [r9+0E0h], ymm1
         vmovdqu ymm2, ymmword ptr [r9+8C0h]
         vpaddd  ymm0, ymm2, ymmword ptr [r9+0C0h]
-        vmovdqu ymm1, ymmword ptr [r9+0A0h]
         vmovdqu ymmword ptr [r9+0C0h], ymm0
-        vpaddd  ymm2, ymm1, ymmword ptr [r9+8A0h]
+        vmovdqu ymm1, ymmword ptr [r9+8A0h]
+        vpaddd  ymm2, ymm1, ymmword ptr [r9+0A0h]
         vmovdqu ymmword ptr [r9+0A0h], ymm2
         vmovdqu ymm0, ymmword ptr [r9+880h]
         vpaddd  ymm9, ymm0, ymmword ptr [r9+80h]

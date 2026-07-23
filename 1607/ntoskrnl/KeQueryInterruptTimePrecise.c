@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryInterruptTimePrecise @ 0x14012A430
+ * XREFs of KeQueryInterruptTimePrecise @ 0x14012A9A0
  * Callers:
- *     MiSessionCreateInternal @ 0x140536508 (MiSessionCreateInternal.c)
- *     PdcPoCsEnterExitReason @ 0x14066F990 (PdcPoCsEnterExitReason.c)
+ *     MiSessionCreateInternal @ 0x140536A48 (MiSessionCreateInternal.c)
+ *     PdcPoCsEnterExitReason @ 0x14066FA74 (PdcPoCsEnterExitReason.c)
  * Callees:
  *     <none>
  */
 
 // attributes: thunk
-__int64 __fastcall KeQueryInterruptTimePrecise(LARGE_INTEGER *a1)
+LARGE_INTEGER __cdecl KeQueryInterruptTimePrecise(PLARGE_INTEGER PerformanceCounter)
 {
-  return RtlGetInterruptTimePrecise(a1);
+  return RtlGetInterruptTimePrecise(PerformanceCounter);
 }

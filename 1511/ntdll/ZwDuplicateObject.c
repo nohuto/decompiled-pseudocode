@@ -19,11 +19,18 @@
  *     <none>
  */
 
-__int64 ZwDuplicateObject()
+NTSTATUS __cdecl ZwDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 60LL;
+  result = 60;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

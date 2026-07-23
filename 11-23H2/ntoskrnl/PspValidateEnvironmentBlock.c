@@ -1,7 +1,7 @@
 /*
- * XREFs of PspValidateEnvironmentBlock @ 0x1407ADE00
+ * XREFs of PspValidateEnvironmentBlock @ 0x1407ADFF0
  * Callers:
- *     PspCaptureUserProcessParameters @ 0x1407AD690 (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x1407AD880 (PspCaptureUserProcessParameters.c)
  * Callees:
  *     <none>
  */

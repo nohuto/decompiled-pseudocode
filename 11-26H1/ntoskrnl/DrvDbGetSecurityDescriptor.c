@@ -1,24 +1,24 @@
 /*
- * XREFs of DrvDbGetSecurityDescriptor @ 0x14089FB2C
+ * XREFs of DrvDbGetSecurityDescriptor @ 0x1408A5F2C
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x14091DE9C (DrvDbLoadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1409788FC (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14047F970 (RtlSubAuthoritySid.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x1409D8260 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlInitializeSid @ 0x140A6AF80 (RtlInitializeSid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140AABBB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x1404792E0 (RtlSubAuthoritySid.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1409A9150 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlInitializeSid @ 0x140A77920 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140AA9160 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void *DrvDbGetSecurityDescriptor()
@@ -41,9 +41,9 @@ void *DrvDbGetSecurityDescriptor()
   void *v15; // rbx
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-30h] BYREF
   __int64 v18; // [rsp+50h] [rbp-10h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+A0h] [rbp+40h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v20; // [rsp+A8h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v21; // [rsp+B0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+A0h] [rbp+40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v20; // [rsp+A8h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v21; // [rsp+B0h] [rbp+50h] BYREF
 
   v0 = 0LL;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

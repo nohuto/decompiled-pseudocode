@@ -1,14 +1,14 @@
 /*
- * XREFs of ExUninitializeDeviceAts @ 0x1406D045C
+ * XREFs of ExUninitializeDeviceAts @ 0x1406D448C
  * Callers:
- *     PiIommuUninitializeDeviceAts @ 0x1404FF4C0 (PiIommuUninitializeDeviceAts.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1404F8CB0 (PiIommuUninitializeDeviceAts.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExpAtsDereferenceDevice @ 0x1406D05D8 (ExpAtsDereferenceDevice.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExpAtsDereferenceDevice @ 0x1406D4608 (ExpAtsDereferenceDevice.c)
  */
 
 __int64 __fastcall ExUninitializeDeviceAts(struct _LIST_ENTRY *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,14 +23,14 @@ __int64 __fastcall ExUninitializeDeviceAts(struct _LIST_ENTRY *a1, __int64 a2, _
   v4 = 0;
   if ( a1 )
   {
-    v6 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1], 0LL, 0LL, a4);
-    v8 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[16], 0LL);
+    v6 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.152, 0LL, 0LL, a4);
+    v8 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.152, 0LL);
     v9 = v6;
     if ( v8 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1],
+        (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
         v6,
-        (__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+        (__int64)&ExSaPageGroupDescriptorArrayLock.152);
     if ( v9 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -38,8 +38,8 @@ __int64 __fastcall ExUninitializeDeviceAts(struct _LIST_ENTRY *a1, __int64 a2, _
       else
         *((_BYTE *)v9 + 10) = 1;
     }
-    for ( i = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink;
-          i != (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.152;
+    for ( i = ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink;
+          i != (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[8];
           i = i->Flink )
     {
       if ( i[1].Blink == a1 )
@@ -50,10 +50,10 @@ __int64 __fastcall ExUninitializeDeviceAts(struct _LIST_ENTRY *a1, __int64 a2, _
       }
     }
     if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Flink,
+            (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
             0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-    KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+      ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152);
+    KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.152);
   }
   else
   {

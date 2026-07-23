@@ -1,5 +1,5 @@
 /*
- * XREFs of KiOp_PREFETCH3 @ 0x1405F8500
+ * XREFs of KiOp_PREFETCH3 @ 0x1405FAF20
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ __int64 __fastcall KiOp_PREFETCH3(__int64 a1)
 
   v1 = (unsigned int)(*(_DWORD *)(a1 + 16) - *(_DWORD *)a1);
   v2 = *(_QWORD *)(a1 + 24);
-  ++LODWORD(KsepShimDbLock.InGlobalForegroundList);
+  ++HIDWORD(KsepShimDbLock.KernelWaitTime);
   *(_QWORD *)(v2 + 248) += v1;
   result = 0LL;
   *(_BYTE *)(a1 + 96) = 1;

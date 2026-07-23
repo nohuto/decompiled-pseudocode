@@ -1,28 +1,29 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromComposite @ 0x140918784
+ * XREFs of _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409731E4
  * Callers:
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14089BAD4 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedProperty @ 0x14091855C (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408A1ED4 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x140972FBC (_CmGetInstallerClassMappedProperty.c)
  * Callees:
- *     _CmGetInstallerClassCompoundFilters @ 0x140918A78 (_CmGetInstallerClassCompoundFilters.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1409734D8 (_CmGetInstallerClassCompoundFilters.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
-        int a1,
-        int a2,
-        int a3,
+        __int64 a1,
+        __int64 a2,
+        char *a3,
         __int64 a4,
         _DWORD *a5,
         __int64 a6,
-        unsigned int a7,
-        unsigned int *a8)
+        ULONG a7,
+        ULONG *a8)
 {
   _DWORD *v8; // r15
-  unsigned int *v9; // rsi
+  ULONG *v9; // rsi
   __int64 v11; // r14
+  int v13; // r11d
   unsigned int v14; // r10d
-  unsigned int v15; // ebp
+  ULONG v15; // ebp
   unsigned int v16; // eax
   __int64 v17; // rcx
   __int64 v19; // rax
@@ -31,12 +32,13 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
   __int64 v22; // rax
   unsigned int v23; // eax
   unsigned int v24; // eax
-  unsigned int v26; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG v26; // [rsp+B8h] [rbp+20h] BYREF
 
   v8 = a5;
   v9 = a8;
   v11 = a6;
   v26 = 0;
+  v13 = a1;
   *a5 = 0;
   v14 = 0;
   *v9 = 0;
@@ -66,7 +68,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
                          a3,
                          0LL,
                          (__int64)&DEVPKEY_DeviceClass_Name,
-                         (__int64)v8,
+                         v8,
                          v11,
                          v15,
                          (__int64)&v26,
@@ -86,7 +88,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
                   a3,
                   0LL,
                   (__int64)&DEVPKEY_DeviceClass_ClassName,
-                  (__int64)v8,
+                  v8,
                   v11,
                   v15,
                   (__int64)&v26,
@@ -108,7 +110,15 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
         if ( *(_QWORD *)a4 == DEVPKEY_DeviceClass_CompoundUpperFilters )
           v17 = *(_QWORD *)(a4 + 8) - 0x4B88D2ECD9DBB9A9LL;
         if ( !v17 )
-          return (unsigned int)CmGetInstallerClassCompoundFilters(a1, a2, a3, a4, (__int64)v8, v11, v15, (__int64)v9);
+          return (unsigned int)CmGetInstallerClassCompoundFilters(
+                                 v13,
+                                 a2,
+                                 (_DWORD)a3,
+                                 a4,
+                                 (__int64)v8,
+                                 v11,
+                                 v15,
+                                 (__int64)v9);
       }
       if ( v16 == 21 )
       {
@@ -116,7 +126,15 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
         if ( *(_QWORD *)a4 == DEVPKEY_DeviceClass_CompoundLowerFilters )
           v19 = *(_QWORD *)(a4 + 8) - 0x4B88D2ECD9DBB9A9LL;
         if ( !v19 )
-          return (unsigned int)CmGetInstallerClassCompoundFilters(a1, a2, a3, a4, (__int64)v8, v11, v15, (__int64)v9);
+          return (unsigned int)CmGetInstallerClassCompoundFilters(
+                                 v13,
+                                 a2,
+                                 (_DWORD)a3,
+                                 a4,
+                                 (__int64)v8,
+                                 v11,
+                                 v15,
+                                 (__int64)v9);
       }
       return v14;
     }
@@ -132,7 +150,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
               a3,
               0LL,
               (__int64)DEVPKEY_DeviceClass_ConfigurableOverride,
-              (__int64)v8,
+              v8,
               v11,
               v15,
               (__int64)&v26,
@@ -149,7 +167,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
                   a3,
                   0LL,
                   (__int64)&DEVPKEY_DeviceClass_ClassInstaller,
-                  (__int64)v8,
+                  v8,
                   0LL,
                   0,
                   (__int64)&v26,
@@ -162,7 +180,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(
                     a3,
                     0LL,
                     (__int64)&DEVPKEY_DeviceClass_ClassCoInstallers,
-                    (__int64)v8,
+                    v8,
                     0LL,
                     0,
                     (__int64)&v26,

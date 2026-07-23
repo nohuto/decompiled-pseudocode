@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpReviveDiscardedBin @ 0x14061089C
+ * XREFs of HvpReviveDiscardedBin @ 0x140610950
  * Callers:
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpProtectBin @ 0x140513DE0 (HvpProtectBin.c)
- *     HvpAllocateBin @ 0x140513E48 (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpProtectBin @ 0x1404F71D0 (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x1404F7238 (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
  */
 
 __int64 __fastcall HvpReviveDiscardedBin(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3, int a4)

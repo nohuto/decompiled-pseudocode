@@ -3,10 +3,15 @@
  * Callers:
  *     RtlpInitializeStackTraceDatabase @ 0x1800FDD70 (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x1800A06A0 (ZwFreeVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1800A06C0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 RtlStdDeleteStackDatabase()
+NTSTATUS __fastcall RtlStdDeleteStackDatabase(_QWORD *a1)
 {
-  return ZwFreeVirtualMemory();
+  PVOID v2; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v3; // [rsp+38h] [rbp+10h] BYREF
+
+  v2 = a1;
+  v3 = a1[23] - (_QWORD)a1;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v2, &v3, 0x8000u);
 }

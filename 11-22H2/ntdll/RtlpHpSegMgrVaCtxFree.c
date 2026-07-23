@@ -8,7 +8,7 @@
  *     RtlpHpQueryVA @ 0x18006475C (RtlpHpQueryVA.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD *a3)
+unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(_RTL_SRWLOCK *a1, __int64 a2, _QWORD *a3)
 {
   unsigned __int64 v5; // rbp
   unsigned __int16 *v7; // rbx
@@ -17,7 +17,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
   int v10; // r11d
   __int16 v11; // r9
   unsigned __int64 v12; // r8
-  unsigned __int16 *v13; // rax
+  unsigned __int16 *Value; // rax
   unsigned __int16 *v14; // rcx
   unsigned __int16 *v15; // rax
   __int16 *v17; // [rsp+50h] [rbp+8h] BYREF
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
   v7 = 0LL;
   RtlpHpQueryVA(a2 & 0xFFFFFFFFFFE00000uLL, a2, &v17, 0LL);
   v8 = (a2 - v5) / *a3;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 112));
+  RtlAcquireSRWLockExclusive(a1 + 14);
   v9 = v17;
   v10 = (unsigned __int16)(v17[1] ^ (1 << v8));
   v17[1] = v10;
@@ -40,15 +40,15 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
         *v9 = v11 ^ (v11 ^ (v11 - 1)) & 0x7FF;
       while ( 1 )
       {
-        v13 = *(unsigned __int16 **)(a1 + 8 * v12 + 120);
-        if ( !v13 )
+        Value = (unsigned __int16 *)a1[v12 + 15].Value;
+        if ( !Value )
           NT_ASSERT("Link != ((void *)0)");
-        v14 = *(unsigned __int16 **)v13;
-        *(_QWORD *)(a1 + 8 * v12 + 120) = *(_QWORD *)v13;
-        if ( v13 == (unsigned __int16 *)(v9 + 4) )
+        v14 = *(unsigned __int16 **)Value;
+        a1[v12 + 15] = *(_RTL_SRWLOCK *)Value;
+        if ( Value == (unsigned __int16 *)(v9 + 4) )
           break;
-        *(_QWORD *)v13 = v7;
-        v7 = v13;
+        *(_QWORD *)Value = v7;
+        v7 = Value;
       }
       while ( 1 )
       {
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
           break;
         v7 = *(unsigned __int16 **)v7;
         *(_QWORD *)v15 = v14;
-        *(_QWORD *)(a1 + 8 * v12 + 120) = v15;
+        a1[v12 + 15].Value = (unsigned __int64)v15;
         v14 = v15;
       }
     }
@@ -66,12 +66,12 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
   {
     if ( ((v10 - 1) & v10) == 0 )
     {
-      *((_QWORD *)v9 + 1) = *(_QWORD *)(a1 + 8 * v12 + 120);
-      *(_QWORD *)(a1 + 8 * v12 + 120) = v9 + 4;
+      *((_RTL_SRWLOCK *)v9 + 1) = a1[v12 + 15];
+      a1[v12 + 15].Value = (unsigned __int64)(v9 + 4);
     }
     v5 = 0LL;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 112));
+  RtlReleaseSRWLockExclusive(a1 + 14);
   if ( v5 )
     *a3 = 0x200000LL;
   return v5;

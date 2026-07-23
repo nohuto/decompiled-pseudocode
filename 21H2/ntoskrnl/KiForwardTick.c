@@ -1,15 +1,15 @@
 /*
- * XREFs of KiForwardTick @ 0x140227FD0
+ * XREFs of KiForwardTick @ 0x1402CC8D0
  * Callers:
- *     KiUpdateTime @ 0x140227730 (KiUpdateTime.c)
+ *     KiUpdateTime @ 0x1402CC030 (KiUpdateTime.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140220210 (HalpInterruptSendIpi.c)
- *     KeOrAffinityEx @ 0x14022B850 (KeOrAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     HalpInterruptSendIpi @ 0x1402C4B10 (HalpInterruptSendIpi.c)
+ *     KeOrAffinityEx @ 0x1402D0100 (KeOrAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KiForwardTick(__int64 a1, unsigned int a2, __int64 a3, char a4, char *a5)
@@ -198,7 +198,7 @@ LABEL_27:
   }
   if ( PoSkipTickMode )
   {
-    result = KeCountSetBitsAffinityEx(a5);
+    result = KeCountSetBitsAffinityEx((unsigned __int16 *)a5);
     if ( (unsigned int)result > 3 )
     {
       v6 = 1;

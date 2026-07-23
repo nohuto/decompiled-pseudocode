@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmIsRootDevice @ 0x140991F84
+ * XREFs of _CmIsRootDevice @ 0x1409529E4
  * Callers:
- *     PiDcResetChildDeviceContainerCallback @ 0x1407A7DB0 (PiDcResetChildDeviceContainerCallback.c)
- *     PiCMDeleteDeviceWorker @ 0x1407B0854 (PiCMDeleteDeviceWorker.c)
- *     _CmSetDeviceRegPropWorker @ 0x14090A2C0 (_CmSetDeviceRegPropWorker.c)
- *     PiCMDeviceAction @ 0x14098CC84 (PiCMDeviceAction.c)
- *     _CmGetDeviceParent @ 0x140991D0C (_CmGetDeviceParent.c)
- *     PiCMGetRelatedDeviceInstance @ 0x140998C60 (PiCMGetRelatedDeviceInstance.c)
- *     _CmUpdateDevicePanel @ 0x1409D97C8 (_CmUpdateDevicePanel.c)
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
- *     PiCMQueryRemove @ 0x140B2D27C (PiCMQueryRemove.c)
- *     PiCMCreateDevice @ 0x140B5A67C (PiCMCreateDevice.c)
+ *     PiDcResetChildDeviceContainerCallback @ 0x1407AA960 (PiDcResetChildDeviceContainerCallback.c)
+ *     PiCMDeleteDeviceWorker @ 0x1407B38B4 (PiCMDeleteDeviceWorker.c)
+ *     PiCMDeviceAction @ 0x14094D6E4 (PiCMDeviceAction.c)
+ *     _CmGetDeviceParent @ 0x14095276C (_CmGetDeviceParent.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1409596C0 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmSetDeviceRegPropWorker @ 0x1409AC878 (_CmSetDeviceRegPropWorker.c)
+ *     _CmUpdateDevicePanel @ 0x140A16A1C (_CmUpdateDevicePanel.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
+ *     PiCMQueryRemove @ 0x140B2F2FC (PiCMQueryRemove.c)
+ *     PiCMCreateDevice @ 0x140B5D998 (PiCMCreateDevice.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
  */
 
 char __fastcall CmIsRootDevice(PCWSTR SourceString)

@@ -1,11 +1,11 @@
 /*
  * XREFs of PoSetPowerState @ 0x1403A5380
  * Callers:
- *     IopPowerDispatch @ 0x140395B50 (IopPowerDispatch.c)
+ *     sub_140395B50 @ 0x140395B50 (sub_140395B50.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_TYPE Type, POWER_STATE State)
@@ -17,13 +17,13 @@ POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_T
   int v9; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v13; // r9
   int v14; // edx
   bool v15; // zf
 
   DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
   v6 = 0;
-  v7 = KeAcquireSpinLockRaiseToDpc(&PopIrpSerialLock);
+  v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C23000);
   if ( Type == SystemPowerState )
   {
     v6 = DeviceObjectExtension->PowerFlags & 0xF;
@@ -45,21 +45,21 @@ LABEL_5:
     }
   }
 LABEL_6:
-  KxReleaseSpinLock(&PopIrpSerialLock);
-  if ( KiIrqlFlags )
+  KeReleaseSpinLockFromDpcLevel(&qword_140C23000);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = *((_QWORD *)CurrentPrcb + 4375);
         v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
+        v15 = (v14 & *(_DWORD *)(v13 + 20)) == 0;
+        *(_DWORD *)(v13 + 20) &= v14;
         if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }

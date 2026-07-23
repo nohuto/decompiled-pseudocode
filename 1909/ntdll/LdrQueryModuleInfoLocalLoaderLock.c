@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall LdrQueryModuleInfoLocalLoaderLock(__int64 a1)
+__int64 LdrQueryModuleInfoLocalLoaderLock()
 {
-  return LdrpAcquireLoaderLock(a1);
+  return LdrpAcquireLoaderLock();
 }

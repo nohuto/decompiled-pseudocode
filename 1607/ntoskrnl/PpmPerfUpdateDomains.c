@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfUpdateDomains @ 0x140544794
+ * XREFs of PpmPerfUpdateDomains @ 0x140544CD4
  * Callers:
- *     PopPerfBoostPowerRequest @ 0x140544740 (PopPerfBoostPowerRequest.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
+ *     PopPerfBoostPowerRequest @ 0x140544C80 (PopPerfBoostPowerRequest.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall PpmPerfUpdateDomains(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetHpatEntryAddress @ 0x14067ACD0
+ * XREFs of RtlGetHpatEntryAddress @ 0x14067B220
  * Callers:
- *     RtlApplyHotPatch @ 0x140AAD770 (RtlApplyHotPatch.c)
+ *     RtlApplyHotPatch @ 0x140AAD5E0 (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

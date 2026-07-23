@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFileReadEx @ 0x1400848A0
+ * XREFs of CmpFileReadEx @ 0x140082A00
  * Callers:
- *     CmpFileRead @ 0x140481E7C (CmpFileRead.c)
+ *     CmpFileRead @ 0x140480BD0 (CmpFileRead.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ZwReadFile @ 0x140159D40 (ZwReadFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     CmpCreateEvent @ 0x1403F9948 (CmpCreateEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ZwReadFile @ 0x14015A2B0 (ZwReadFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     CmpCreateEvent @ 0x1403F8808 (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpFileReadEx(__int64 a1, unsigned int a2, ULONG *a3, char *a4, ULONG a5)

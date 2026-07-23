@@ -40,7 +40,7 @@ __int64 __fastcall RtlTraceDatabaseCreate(
   *(_QWORD *)(v10 + 24) = a2;
   *(_QWORD *)(v10 + 32) = 0x10000LL;
   memset((void *)(v10 + 128), 0, 0x40uLL);
-  RtlInitializeCriticalSectionEx(v11 + 48, 0, 0);
+  RtlInitializeCriticalSectionEx((PRTL_CRITICAL_SECTION)(v11 + 48), 0, 0);
   v13 = (void *)(v12 + 56);
   *(_DWORD *)(v11 + 88) = a1;
   v14 = sub_1800F7840;

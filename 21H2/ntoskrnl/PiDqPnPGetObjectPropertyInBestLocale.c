@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyInBestLocale @ 0x140638D94
+ * XREFs of PiDqPnPGetObjectPropertyInBestLocale @ 0x14062DBA4
  * Callers:
- *     PiDqActionDataGetRequestedProperties @ 0x14063AAFC (PiDqActionDataGetRequestedProperties.c)
- *     PiDqActionDataGetChangedProperties @ 0x140771174 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A44E0 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x14062F90C (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140771334 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A4640 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
- *     PnpFreeDevProperty @ 0x1406336E0 (PnpFreeDevProperty.c)
- *     PiDqPnPGetObjectProperty @ 0x140637F94 (PiDqPnPGetObjectProperty.c)
+ *     PnpFreeDevProperty @ 0x1406288A8 (PnpFreeDevProperty.c)
+ *     PiDqPnPGetObjectProperty @ 0x14062CDA4 (PiDqPnPGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDqPnPGetObjectPropertyInBestLocale(

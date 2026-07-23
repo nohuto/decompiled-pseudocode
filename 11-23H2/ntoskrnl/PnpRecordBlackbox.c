@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpRecordBlackbox @ 0x1407855CC
+ * XREFs of PnpRecordBlackbox @ 0x1407857BC
  * Callers:
- *     PnpDisableWatchdog @ 0x14078266C (PnpDisableWatchdog.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x14078554C (PnpDisableAndFreeEventWatchdog.c)
- *     PnpCallAddDevice @ 0x14079262C (PnpCallAddDevice.c)
- *     PnpCallDriverEntry @ 0x1407E1BC8 (PnpCallDriverEntry.c)
- *     PnpDelayedRemoveWorker @ 0x140881690 (PnpDelayedRemoveWorker.c)
- *     PnpWatchdogFirstChanceCallback @ 0x140957AE0 (PnpWatchdogFirstChanceCallback.c)
+ *     PnpDisableWatchdog @ 0x14078285C (PnpDisableWatchdog.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14078573C (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCallAddDevice @ 0x14079281C (PnpCallAddDevice.c)
+ *     PnpCallDriverEntry @ 0x1407E1E98 (PnpCallDriverEntry.c)
+ *     PnpDelayedRemoveWorker @ 0x1408818D0 (PnpDelayedRemoveWorker.c)
+ *     PnpWatchdogFirstChanceCallback @ 0x140957CE0 (PnpWatchdogFirstChanceCallback.c)
  * Callees:
- *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x1407826BC (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
- *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x140783E84 (PnpRecordBlackboxPnpEventWorkerInformation.c)
- *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x14096ECEC (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
+ *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x1407828AC (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
+ *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x140784074 (PnpRecordBlackboxPnpEventWorkerInformation.c)
+ *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x14096EEEC (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
  */
 
 void __fastcall PnpRecordBlackbox(__int64 a1, int a2)

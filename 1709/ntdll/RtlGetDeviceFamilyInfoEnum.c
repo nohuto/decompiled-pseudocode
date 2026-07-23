@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlGetDeviceFamilyInfoEnum()
+void __cdecl RtlGetDeviceFamilyInfoEnum(ULONGLONG *pullUAPInfo, DWORD *pulDeviceFamily, DWORD *pulDeviceForm)
 {
-  return RtlpGetDeviceFamilyInfoEnum();
+  RtlpGetDeviceFamilyInfoEnum(pullUAPInfo, pulDeviceFamily, pulDeviceForm);
 }

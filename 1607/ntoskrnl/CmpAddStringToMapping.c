@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddStringToMapping @ 0x14057F170
+ * XREFs of CmpAddStringToMapping @ 0x14057F61C
  * Callers:
- *     CmpVEAddHiveToSIDMappingTable @ 0x1406019D0 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x140601A84 (CmpVEAddHiveToSIDMappingTable.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
  */
 
 __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)

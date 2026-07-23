@@ -1,9 +1,9 @@
 /*
- * XREFs of Uart16550LegacyInitializePort @ 0x14067CE30
+ * XREFs of Uart16550LegacyInitializePort @ 0x14067D380
  * Callers:
  *     <none>
  * Callees:
- *     Uart16550InitializePortCommon @ 0x14067CD74 (Uart16550InitializePortCommon.c)
+ *     Uart16550InitializePortCommon @ 0x14067D2C4 (Uart16550InitializePortCommon.c)
  */
 
 char __fastcall Uart16550LegacyInitializePort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of SeReleaseSid @ 0x1406112AC
+ * XREFs of SeReleaseSid @ 0x1406122AC
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     NtCreateTokenEx @ 0x1405BC550 (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F814 (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     AlpcpConnectPort @ 0x1406144A4 (AlpcpConnectPort.c)
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x14068EB8C (AlpcpPortQueryConnectedSidInfo.c)
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A93B0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     NtCreateTokenEx @ 0x1405BD550 (NtCreateTokenEx.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x140610814 (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     AlpcpConnectPort @ 0x1406154A4 (AlpcpConnectPort.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x14068FD4C (AlpcpPortQueryConnectedSidInfo.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeReleaseSid(void *a1, char a2, char a3)

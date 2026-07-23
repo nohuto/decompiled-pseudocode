@@ -1,7 +1,7 @@
 /*
- * XREFs of ViDeadlockAddParticipant @ 0x140C36ABC
+ * XREFs of ViDeadlockAddParticipant @ 0x140C3CACC
  * Callers:
- *     ViDeadlockAnalyze @ 0x140C36E58 (ViDeadlockAnalyze.c)
+ *     ViDeadlockAnalyze @ 0x140C3CE68 (ViDeadlockAnalyze.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpLoadMicrocodeSerialized @ 0x140934CD8
+ * XREFs of HalpLoadMicrocodeSerialized @ 0x140934ED8
  * Callers:
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpMcUpdateMicrocode @ 0x14037FF58 (HalpMcUpdateMicrocode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMcUpdateMicrocode @ 0x1403800F8 (HalpMcUpdateMicrocode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void HalpLoadMicrocodeSerialized()
@@ -20,8 +20,8 @@ void HalpLoadMicrocodeSerialized()
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

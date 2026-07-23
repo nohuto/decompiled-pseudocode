@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQuerySidToken @ 0x14062D3C4
+ * XREFs of AlpcpQuerySidToken @ 0x1405E3454
  * Callers:
- *     AlpcpQuerySidMessage @ 0x14062D314 (AlpcpQuerySidMessage.c)
+ *     AlpcpQuerySidMessage @ 0x1405E33A4 (AlpcpQuerySidMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
  */
 
 __int64 __fastcall AlpcpQuerySidToken(__int64 a1, void *a2, __int64 a3, _DWORD *a4)

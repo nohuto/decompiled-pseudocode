@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpFastReplenishReference @ 0x140444700
+ * XREFs of ObpFastReplenishReference @ 0x14043D210
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall ObpFastReplenishReference(signed __int64 *a1, ULONG_PTR a2)

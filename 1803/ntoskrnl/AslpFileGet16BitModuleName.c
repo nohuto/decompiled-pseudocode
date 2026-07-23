@@ -18,7 +18,7 @@ __int64 __fastcall AslpFileGet16BitModuleName(wchar_t **a1, __int64 a2)
   unsigned int v7; // ebx
   int v8; // [rsp+20h] [rbp-128h]
   int v9; // [rsp+20h] [rbp-128h]
-  char v10[256]; // [rsp+30h] [rbp-118h] BYREF
+  CHAR v10[256]; // [rsp+30h] [rbp-118h] BYREF
 
   if ( *(_DWORD *)(a2 + 64) == 5 )
   {

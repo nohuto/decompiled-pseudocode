@@ -1,14 +1,14 @@
 /*
- * XREFs of MmInitializeImageViewExtension @ 0x140CFA084
+ * XREFs of MmInitializeImageViewExtension @ 0x140D00404
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
- *     MmUnsecureVirtualMemory @ 0x1409C1B90 (MmUnsecureVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     MiMapSecurePureReserveView @ 0x140AC4500 (MiMapSecurePureReserveView.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140CFA144 (MmInitializeImageViewExtensionCfg.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x140992B70 (MmUnsecureVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     MiMapSecurePureReserveView @ 0x140AC6170 (MiMapSecurePureReserveView.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140D004C4 (MmInitializeImageViewExtensionCfg.c)
  */
 
 __int64 __fastcall MmInitializeImageViewExtension(int a1)
@@ -24,25 +24,25 @@ __int64 __fastcall MmInitializeImageViewExtension(int a1)
     v4 = 0LL;
     if ( (int)MiMapSecurePureReserveView(
                 (ULONG_PTR)PsInitialSystemProcess,
-                *(ULONG_PTR *)&stru_140E2D150.WaitBlockFill11[16],
-                &qword_140E2D648,
+                *(ULONG_PTR *)&stru_140E2D2D0.WaitBlockFill11[16],
+                &qword_140E2D7C8,
                 &v4,
                 &SecureHandle) < 0 )
       MxInstallMoreMemory(49);
     MmUnsecureVirtualMemory(SecureHandle);
-    MiUnmapViewOfSection(PsInitialSystemProcess, qword_140E2D648, 0, 0);
+    MiUnmapViewOfSection(PsInitialSystemProcess, qword_140E2D7C8, 0LL, 0);
     LOBYTE(v2) = 1;
     MmInitializeImageViewExtensionCfg(v2);
-    result = LODWORD(stru_140E2D150.QueueListEntry.Flink);
-    *(_DWORD *)&stru_140E2D150.BamQosLevel = stru_140E2D150.QueueListEntry.Flink;
+    result = LODWORD(stru_140E2D2D0.QueueListEntry.Flink);
+    *(_DWORD *)&stru_140E2D2D0.BamQosLevel = stru_140E2D2D0.QueueListEntry.Flink;
   }
   else
   {
-    LODWORD(stru_140E2D150.LastXStateSaveDebugInfo) = 0;
-    result = (unsigned int)(HIDWORD(stru_140E36558.SListFaultAddress) + 4096);
-    LODWORD(stru_140E2D150.QueueListEntry.Flink) = HIDWORD(stru_140E36558.SListFaultAddress) + 4096;
-    if ( HIDWORD(stru_140E36558.SListFaultAddress) )
-      stru_140E2D150.ThreadFlags2 = 4096;
+    LODWORD(stru_140E2D2D0.LastXStateSaveDebugInfo) = 0;
+    result = (unsigned int)(HIDWORD(stru_140E366D8.SListFaultAddress) + 4096);
+    LODWORD(stru_140E2D2D0.QueueListEntry.Flink) = HIDWORD(stru_140E366D8.SListFaultAddress) + 4096;
+    if ( HIDWORD(stru_140E366D8.SListFaultAddress) )
+      stru_140E2D2D0.ThreadFlags2 = 4096;
   }
   return result;
 }

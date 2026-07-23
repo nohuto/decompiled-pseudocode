@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpSectionTableFromVirtualAddress @ 0x14068D86C
+ * XREFs of LdrpSectionTableFromVirtualAddress @ 0x1405ED6DC
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x14068C6A4 (LdrpResSearchResourceInsideDirectory.c)
- *     LdrpResGetResourceDirectory @ 0x14068D314 (LdrpResGetResourceDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1405EC514 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResGetResourceDirectory @ 0x1405ED184 (LdrpResGetResourceDirectory.c)
  * Callees:
  *     <none>
  */

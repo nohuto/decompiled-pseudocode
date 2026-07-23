@@ -1,53 +1,51 @@
 /*
- * XREFs of EtwpGetPrivateLoggerContextByName @ 0x180077320
+ * XREFs of EtwpGetPrivateLoggerContextByName @ 0x180065B40
  * Callers:
- *     EtwpStartUmLogger @ 0x180076EBC (EtwpStartUmLogger.c)
- *     EtwpGetPrivateLoggerContext @ 0x180077F10 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpStartUmLogger @ 0x1800656DC (EtwpStartUmLogger.c)
+ *     EtwpGetPrivateLoggerContext @ 0x180066730 (EtwpGetPrivateLoggerContext.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x180011110 (EtwpDemuxUmTraceHandle.c)
- *     RtlEqualUnicodeString @ 0x1800A5A70 (RtlEqualUnicodeString.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18005C840 (EtwpDemuxUmTraceHandle.c)
+ *     RtlEqualUnicodeString @ 0x1800A4BA0 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall EtwpGetPrivateLoggerContextByName(PUNICODE_STRING String2, _QWORD *a2)
 {
   unsigned int i; // ebx
-  unsigned int v7; // eax
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  __int64 v11; // [rsp+20h] [rbp-8h]
-  unsigned int v12; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v5; // eax
+  __int64 v6; // rcx
+  __int64 v7; // rsi
+  unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
 
   *a2 = 0LL;
-  if ( a1 )
+  if ( String2 )
   {
     for ( i = 0; ; ++i )
     {
       if ( i >= 0x40 )
         return 4201LL;
-      v7 = i & 0xFFFF7FFF;
-      v12 = i & 0xFFFF7FFF;
+      v5 = i & 0xFFFF7FFF;
+      v9 = i & 0xFFFF7FFF;
       if ( EtwpLoggerArray )
       {
-        if ( v7 >= 0x40 )
+        if ( v5 >= 0x40 )
         {
-          if ( (unsigned int)EtwpDemuxUmTraceHandle(i, &v12) )
+          if ( (unsigned int)EtwpDemuxUmTraceHandle(i, &v9) )
             continue;
-          v7 = v12;
+          v5 = v9;
         }
-        v8 = 16LL * v7;
-        _InterlockedIncrement((volatile signed __int32 *)(v8 + EtwpLoggerArray + 8));
-        v9 = *(_QWORD *)(v8 + EtwpLoggerArray);
-        if ( (v9 & 1) == 0 )
+        v6 = 16LL * v5;
+        _InterlockedIncrement((volatile signed __int32 *)(v6 + EtwpLoggerArray + 8));
+        v7 = *(_QWORD *)(v6 + EtwpLoggerArray);
+        if ( (v7 & 1) == 0 )
         {
-          LOBYTE(a3) = 1;
-          if ( (unsigned __int8)RtlEqualUnicodeString(v9 + 136, a1, a3, a4, v11) )
+          if ( RtlEqualUnicodeString((PUNICODE_STRING)(v7 + 136), String2, 1u) )
           {
-            *a2 = v9;
+            *a2 = v7;
             return 0LL;
           }
-          v8 = 16LL * i;
+          v6 = 16LL * i;
         }
-        _InterlockedDecrement((volatile signed __int32 *)(v8 + EtwpLoggerArray + 8));
+        _InterlockedDecrement((volatile signed __int32 *)(v6 + EtwpLoggerArray + 8));
       }
     }
   }

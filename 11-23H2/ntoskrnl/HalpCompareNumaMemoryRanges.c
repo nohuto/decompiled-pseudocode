@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpCompareNumaMemoryRanges @ 0x14051ADA0
+ * XREFs of HalpCompareNumaMemoryRanges @ 0x14051B2F0
  * Callers:
  *     <none>
  * Callees:

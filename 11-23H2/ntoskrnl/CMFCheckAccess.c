@@ -1,20 +1,20 @@
 /*
- * XREFs of CMFCheckAccess @ 0x140A018E4
+ * XREFs of CMFCheckAccess @ 0x140A01B74
  * Callers:
- *     NtMapCMFModule @ 0x140A03210 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140A034A0 (NtMapCMFModule.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeCreateAccessState @ 0x1406C2E60 (SeCreateAccessState.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     SePrivilegeCheck @ 0x14072F2B0 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeAppendPrivileges @ 0x1407B63E0 (SeAppendPrivileges.c)
- *     CMFCreateSecurityDescriptor @ 0x140A01B4C (CMFCreateSecurityDescriptor.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeCreateAccessState @ 0x1406C2E90 (SeCreateAccessState.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     SePrivilegeCheck @ 0x14072F4B0 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeAppendPrivileges @ 0x1407B66C0 (SeAppendPrivileges.c)
+ *     CMFCreateSecurityDescriptor @ 0x140A01DDC (CMFCreateSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

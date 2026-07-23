@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertLargeUserMapping @ 0x14036ECE0
+ * XREFs of MiInsertLargeUserMapping @ 0x14026AC6C
  * Callers:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
  * Callees:
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiWriteLargePte @ 0x1403090A0 (MiWriteLargePte.c)
- *     MiGetLargePteAddress @ 0x14036EE90 (MiGetLargePteAddress.c)
- *     MiInitializeLargeUserBasePfn @ 0x1404F5550 (MiInitializeLargeUserBasePfn.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiGetLargePteAddress @ 0x14026AE10 (MiGetLargePteAddress.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiWriteLargePte @ 0x140312F80 (MiWriteLargePte.c)
+ *     MiInitializeLargeUserBasePfn @ 0x1404F2E50 (MiInitializeLargeUserBasePfn.c)
  */
 
 int __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, _QWORD **a3, unsigned int a4, unsigned int a5)
@@ -26,12 +26,12 @@ int __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, _QWORD 
   unsigned int v16; // edi
   _QWORD *v17; // rcx
   _QWORD *v18; // rax
-  __int64 v19; // rsi
+  unsigned __int64 v19; // rsi
   unsigned int i; // edx
   unsigned int v21; // ecx
   _KPROCESS *Process; // [rsp+60h] [rbp+8h]
   unsigned __int64 v23; // [rsp+70h] [rbp+18h]
-  int v25; // [rsp+80h] [rbp+28h]
+  unsigned int v25; // [rsp+80h] [rbp+28h]
 
   v5 = a4;
   v7 = a2;
@@ -74,6 +74,6 @@ int __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, _QWORD 
     LeafVa += v8 << 12;
   }
   if ( v16 )
-    return MiIncreaseUsedPtes((__int64)v17, ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v16, 2);
+    return MiIncreaseUsedPtes(v17, ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v16);
   return result;
 }

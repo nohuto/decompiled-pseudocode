@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140A4EB08
+ * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140A4EDB8
  * Callers:
- *     SdbGetMergeRedirectPath @ 0x140A4E100 (SdbGetMergeRedirectPath.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4E3B0 (SdbGetMergeRedirectPath.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwEnumerateValueKey @ 0x14041AFC0 (ZwEnumerateValueKey.c)
- *     SdbpGetMergeSdbsDisabled @ 0x14066DCF4 (SdbpGetMergeSdbsDisabled.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x14041B350 (ZwEnumerateValueKey.c)
+ *     SdbpGetMergeSdbsDisabled @ 0x14066E244 (SdbpGetMergeSdbsDisabled.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  *     RtlGetNtSystemRoot @ 0x140695E40 (RtlGetNtSystemRoot.c)
- *     AslStringDuplicate @ 0x1406D49F8 (AslStringDuplicate.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslRegistryGetKey @ 0x14084E44C (AslRegistryGetKey.c)
- *     AslPathToSystemPath @ 0x140A55328 (AslPathToSystemPath.c)
+ *     AslStringDuplicate @ 0x1406D4A28 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslRegistryGetKey @ 0x14084E74C (AslRegistryGetKey.c)
+ *     AslPathToSystemPath @ 0x140A555D8 (AslPathToSystemPath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -157,7 +157,7 @@ LABEL_26:
           MergeSdbsDisabled = -1073741789;
           goto LABEL_44;
         }
-        NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+        NtSystemRoot = RtlGetNtSystemRoot();
         v21 = NtSystemRoot;
         v22 = -1LL;
         do

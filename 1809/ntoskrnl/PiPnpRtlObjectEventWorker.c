@@ -1,8 +1,8 @@
 /*
- * XREFs of PiPnpRtlObjectEventWorker @ 0x1406F1F20
+ * XREFs of PiPnpRtlObjectEventWorker @ 0x1406F31C0
  * Callers:
- *     PiDqIrpPropertySet @ 0x1406D58DC (PiDqIrpPropertySet.c)
- *     PiPnpRtlObjectEventCallback @ 0x1406F1EF0 (PiPnpRtlObjectEventCallback.c)
+ *     PiDqIrpPropertySet @ 0x1406D6B7C (PiDqIrpPropertySet.c)
+ *     PiPnpRtlObjectEventCallback @ 0x1406F3190 (PiPnpRtlObjectEventCallback.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
@@ -11,22 +11,22 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiPnpRtlObjectEventDispatch @ 0x140595C5C (PiPnpRtlObjectEventDispatch.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlObjectEventCreate @ 0x1405980E4 (PiPnpRtlObjectEventCreate.c)
- *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     PiDmObjectProcessPropertyChange @ 0x1406F221C (PiDmObjectProcessPropertyChange.c)
- *     PiDqGetObjectManagerForPnpObjectType @ 0x1406F9510 (PiDqGetObjectManagerForPnpObjectType.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1406F9730 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDqObjectManagerMakeInconsistent @ 0x14082AEE8 (PiDqObjectManagerMakeInconsistent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x140596C5C (PiPnpRtlObjectEventDispatch.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1405990E4 (PiPnpRtlObjectEventCreate.c)
+ *     PnpAllocatePWSTR @ 0x14059B42C (PnpAllocatePWSTR.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406F34BC (PiDmObjectProcessPropertyChange.c)
+ *     PiDqGetObjectManagerForPnpObjectType @ 0x1406FA7B0 (PiDqGetObjectManagerForPnpObjectType.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1406FA9D0 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDqObjectManagerMakeInconsistent @ 0x14082C0E8 (PiDqObjectManagerMakeInconsistent.c)
  */
 
 void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, unsigned int a2, int a3, __int64 a4, unsigned int a5)
@@ -52,7 +52,7 @@ void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, unsigned int a2, int a3, _
   const wchar_t *v27; // rdx
   _DWORD *PoolWithTag; // rax
   _DWORD *v29; // rbx
-  struct _RTL_AVL_TABLE *v30; // rcx
+  _RTL_AVL_TABLE *v30; // rcx
   int v31; // eax
   ULONG_PTR v32; // rcx
   struct _KTHREAD *v33; // rax
@@ -274,7 +274,7 @@ LABEL_19:
           if ( PoolWithTag )
           {
             memmove(PoolWithTag, Src, 32LL * *((unsigned int *)Src + 19) + 80);
-            v30 = (struct _RTL_AVL_TABLE *)((char *)P + 24);
+            v30 = (_RTL_AVL_TABLE *)((char *)P + 24);
             v29[18] *= 2;
             *(_QWORD *)RtlLookupElementGenericTableAvl(v30, &Src) = v29;
             ExFreePoolWithTag(Src, 0x41706E50u);

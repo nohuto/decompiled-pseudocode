@@ -1,14 +1,14 @@
 /*
- * XREFs of MmAllocateIndependentPagesEx @ 0x140108FBC
+ * XREFs of MmAllocateIndependentPagesEx @ 0x14010903C
  * Callers:
- *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
- *     KeAllocateInterrupt @ 0x14016DA28 (KeAllocateInterrupt.c)
- *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
- *     HvlpInitializeHvCrashdump @ 0x140277E5C (HvlpInitializeHvCrashdump.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
- *     InitializePool @ 0x1409B6DF8 (InitializePool.c)
- *     InitializePagedPool @ 0x1409B7280 (InitializePagedPool.c)
+ *     MmAllocateIndependentPages @ 0x140109020 (MmAllocateIndependentPages.c)
+ *     KeAllocateInterrupt @ 0x14016DB28 (KeAllocateInterrupt.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EBD0 (HvlStartBootLogicalProcessors.c)
+ *     HvlpInitializeHvCrashdump @ 0x14027804C (HvlpInitializeHvCrashdump.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
+ *     InitializePool @ 0x1409B7DF8 (InitializePool.c)
+ *     InitializePagedPool @ 0x1409B8280 (InitializePagedPool.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
@@ -17,13 +17,13 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
- *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     MiInitializePfn @ 0x1401094B0 (MiInitializePfn.c)
+ *     MiObtainPoolCharges @ 0x140109864 (MiObtainPoolCharges.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MmAllocateIndependentPagesEx(unsigned __int64 a1, int a2, _QWORD *a3, unsigned int a4)
@@ -53,15 +53,15 @@ __int64 __fastcall MmAllocateIndependentPagesEx(unsigned __int64 a1, int a2, _QW
   BOOL v29; // [rsp+B0h] [rbp+8h]
 
   v6 = (a1 >> 12) + ((a1 & 0xFFF) != 0);
-  v7 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v6);
+  v7 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v6);
   if ( !v7 )
     return 0LL;
   if ( !(unsigned int)MiObtainPoolCharges(v6, 1LL) )
   {
-    MiReleasePtes((__int64)&qword_14043AFA0, v7, v6);
+    MiReleasePtes((__int64)&qword_14043C060, v7, v6);
     return 0LL;
   }
-  v29 = a3 && (dword_14043C944 & 8) != 0 && (a2 == -1 || KeNumberNodes == 1);
+  v29 = a3 && (dword_14043DA04 & 8) != 0 && (a2 == -1 || KeNumberNodes == 1);
   v24 = (__int64)(v7 << 25) >> 16;
   ValidPte = MiMakeValidPte(v7, 0LL, -1610612732);
   MiInitializePageColorBase(0LL, a2 + 1, (__int64)&v25);
@@ -116,7 +116,7 @@ LABEL_9:
       if ( (unsigned int)MiPteHasShadow(v17, v16) )
       {
         v18 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_10;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

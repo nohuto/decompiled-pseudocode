@@ -26,7 +26,9 @@ __int64 __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)
   MmLockLoadedModuleListExclusive(&v10);
   RtlxRemoveInvertedFunctionTable(v2, a1);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v10;
     if ( v10 <= 0xFu && CurrentIrql >= 2u )

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPfnIsActivePageTable @ 0x1403A77A8
+ * XREFs of MiPfnIsActivePageTable @ 0x1403A9508
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
- *     MiValidWriteFaultProcess @ 0x1403A76E0 (MiValidWriteFaultProcess.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
+ *     MiValidWriteFaultProcess @ 0x1403A9440 (MiValidWriteFaultProcess.c)
  * Callees:
- *     MiPfnIsPageTable @ 0x1403A77E0 (MiPfnIsPageTable.c)
+ *     MiPfnIsPageTable @ 0x1403A9540 (MiPfnIsPageTable.c)
  */
 
 __int64 __fastcall MiPfnIsActivePageTable(__int64 a1)

@@ -16,95 +16,89 @@
 
 __int64 __fastcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
 {
-  unsigned __int16 v2; // dx
+  USHORT v2; // dx
   __int16 v3; // di
-  _WORD *Heap; // rax
+  WCHAR *Heap; // rax
   unsigned __int16 v5; // ax
-  int v6; // ebx
-  void *ProcessHeap; // rcx
+  NTSTATUS v6; // ebx
+  PVOID ProcessHeap; // rcx
   struct _PEB *v8; // rcx
-  __int64 v9; // r8
-  _WORD v11[4]; // [rsp+60h] [rbp-29h] BYREF
-  _WORD *v12; // [rsp+68h] [rbp-21h]
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
-  _BYTE v14[16]; // [rsp+80h] [rbp-9h] BYREF
-  int v15; // [rsp+90h] [rbp+7h] BYREF
-  __int64 v16; // [rsp+98h] [rbp+Fh]
-  _WORD *v17; // [rsp+A0h] [rbp+17h]
-  int v18; // [rsp+A8h] [rbp+1Fh]
-  __int64 v19; // [rsp+B0h] [rbp+27h]
-  __int64 v20; // [rsp+B8h] [rbp+2Fh]
-  __int64 v21; // [rsp+F0h] [rbp+67h] BYREF
-  __int64 v22; // [rsp+F8h] [rbp+6Fh] BYREF
-  __int64 v23; // [rsp+100h] [rbp+77h] BYREF
+  void *Buffer; // r8
+  _UNICODE_STRING v11; // [rsp+60h] [rbp-29h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+80h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp+7h] BYREF
+  HANDLE FileHandle; // [rsp+F0h] [rbp+67h] BYREF
+  PVOID v16; // [rsp+F8h] [rbp+6Fh] BYREF
+  PVOID v17; // [rsp+100h] [rbp+77h] BYREF
 
   RtlInitUnicodeString(&DestinationString, L"System Volume Information");
   v2 = DestinationString.Length + *a1;
-  v11[0] = v2;
+  v11.Length = v2;
   if ( v2 < *a1 || v2 < DestinationString.Length )
     return 3221225485LL;
   v3 = *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*a1 >> 1) - 2);
   if ( v3 != 92 )
   {
     v2 += 2;
-    v11[0] = v2;
+    v11.Length = v2;
   }
-  v11[1] = v2 + 2;
-  Heap = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int16)(v2 + 2));
-  v12 = Heap;
+  v11.MaximumLength = v2 + 2;
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned __int16)(v2 + 2));
+  v11.Buffer = Heap;
   if ( !Heap )
     return 3221225626LL;
   memmove(Heap, *((const void **)a1 + 1), *a1);
   v5 = *a1;
-  v11[0] = *a1;
+  v11.Length = *a1;
   if ( v3 != 92 )
   {
-    v12[(unsigned __int64)v5 >> 1] = 92;
-    v5 = v11[0] + 2;
-    v11[0] += 2;
+    v11.Buffer[(unsigned __int64)v5 >> 1] = 92;
+    v5 = v11.Length + 2;
+    v11.Length += 2;
   }
-  memmove((char *)v12 + v5, DestinationString.Buffer, DestinationString.Length);
-  v11[0] += DestinationString.Length;
-  v12[(unsigned __int64)v11[0] >> 1] = 0;
-  v6 = sub_1800868A8(&v22, &v23);
+  memmove((char *)v11.Buffer + v5, DestinationString.Buffer, DestinationString.Length);
+  v11.Length += DestinationString.Length;
+  v11.Buffer[(unsigned __int64)v11.Length >> 1] = 0;
+  v6 = sub_1800868A8(&v16, &v17);
   if ( v6 < 0 )
   {
     v8 = NtCurrentPeb();
-    v9 = (__int64)v12;
+    Buffer = v11.Buffer;
   }
   else
   {
-    v17 = v11;
-    v15 = 48;
-    v16 = 0LL;
-    v18 = 576;
-    v19 = v22;
-    v20 = 0LL;
-    if ( (int)ZwCreateFile(&v21, 0x10000LL, &v15, v14, 0LL, 0, 7, 1, 2101344, 0LL, 0) >= 0 )
-      ZwClose(v21);
-    v6 = ZwCreateFile(&v21, 1966080LL, &v15, v14, 0LL, 6, 7, 3, 33, 0LL, 0);
+    ObjectAttributes.ObjectName = &v11;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.SecurityDescriptor = v16;
+    ObjectAttributes.SecurityQualityOfService = 0LL;
+    if ( ZwCreateFile(&FileHandle, 0x10000u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x201060u, 0LL, 0) >= 0 )
+      ZwClose(FileHandle);
+    v6 = ZwCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0LL, 6u, 7u, 3u, 0x21u, 0LL, 0);
     if ( v6 < 0 )
     {
-      sub_1800862C4((__int64)v11);
-      v6 = ZwCreateFile(&v21, 1966080LL, &v15, v14, 0LL, 6, 7, 3, 33, 0LL, 0);
+      sub_1800862C4(&v11);
+      v6 = ZwCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0LL, 6u, 7u, 3u, 0x21u, 0LL, 0);
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v12);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11.Buffer);
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
     if ( v6 < 0 )
     {
-      RtlFreeHeap((__int64)ProcessHeap, 0, v23);
+      RtlFreeHeap(ProcessHeap, 0, v17);
       v8 = NtCurrentPeb();
-      v9 = v22;
+      Buffer = v16;
     }
     else
     {
-      RtlFreeHeap((__int64)ProcessHeap, 0, v22);
-      v6 = sub_180086A04(v21, v23);
-      ZwClose(v21);
+      RtlFreeHeap(ProcessHeap, 0, v16);
+      v6 = sub_180086A04(FileHandle, (PACL)v17);
+      ZwClose(FileHandle);
       v8 = NtCurrentPeb();
-      v9 = v23;
+      Buffer = v17;
     }
   }
-  RtlFreeHeap((__int64)v8->ProcessHeap, 0, v9);
+  RtlFreeHeap(v8->ProcessHeap, 0, Buffer);
   return (unsigned int)v6;
 }

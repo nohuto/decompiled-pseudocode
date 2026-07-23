@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLookupImageSectionByName @ 0x14058CF04
+ * XREFs of RtlLookupImageSectionByName @ 0x14058D134
  * Callers:
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5054C (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5154C (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     strncmp @ 0x1403D1540 (strncmp.c)
+ *     strncmp @ 0x1403D16B0 (strncmp.c)
  */
 
 const char *__fastcall RtlLookupImageSectionByName(__int64 a1, const char *a2)

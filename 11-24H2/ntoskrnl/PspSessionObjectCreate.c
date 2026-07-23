@@ -1,24 +1,24 @@
 /*
- * XREFs of PspSessionObjectCreate @ 0x14077BDCC
+ * XREFs of PspSessionObjectCreate @ 0x14077BC7C
  * Callers:
- *     PsSessionCreate @ 0x1406F73F8 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x1406F53F8 (PsSessionCreate.c)
  * Callees:
- *     KeInsertSchedulingGroup @ 0x14030F2B8 (KeInsertSchedulingGroup.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     KeGetSchedulingGroupSize @ 0x1404AD2E0 (KeGetSchedulingGroupSize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     KeInsertSchedulingGroup @ 0x14045CB04 (KeInsertSchedulingGroup.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     KeGetSchedulingGroupSize @ 0x1404A79C0 (KeGetSchedulingGroupSize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS PspSessionObjectCreate()
@@ -32,33 +32,34 @@ NTSTATUS PspSessionObjectCreate()
   ACL *v6; // rcx
   unsigned __int64 CycleTime; // rdi
   int Object; // esi
-  struct _KSCHEDULING_GROUP *v9; // rax
-  NTSTATUS v10; // ebx
-  __int64 v11; // [rsp+68h] [rbp-A0h] BYREF
-  _DWORD v12[2]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v13; // [rsp+78h] [rbp-90h]
+  unsigned int SchedulingGroupSize; // eax
+  struct _KSCHEDULING_GROUP *v10; // rax
+  NTSTATUS v11; // ebx
+  __int64 v12; // [rsp+68h] [rbp-A0h] BYREF
+  _DWORD v13[2]; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v14; // [rsp+78h] [rbp-90h]
   UNICODE_STRING *p_DestinationString; // [rsp+80h] [rbp-88h]
-  int v15; // [rsp+88h] [rbp-80h]
-  int v16; // [rsp+8Ch] [rbp-7Ch]
-  _OWORD *v17; // [rsp+90h] [rbp-78h]
-  __int64 v18; // [rsp+98h] [rbp-70h]
+  int v16; // [rsp+88h] [rbp-80h]
+  int v17; // [rsp+8Ch] [rbp-7Ch]
+  _OWORD *v18; // [rsp+90h] [rbp-78h]
+  __int64 v19; // [rsp+98h] [rbp-70h]
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-68h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 v21; // [rsp+D0h] [rbp-38h]
+  __int64 v22; // [rsp+D0h] [rbp-38h]
   wchar_t pszDest[128]; // [rsp+D8h] [rbp-30h] BYREF
 
-  v11 = 0LL;
-  v12[1] = 0;
-  v16 = 0;
+  v12 = 0LL;
+  v13[1] = 0;
+  v17 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v21 = 0LL;
+  v22 = 0LL;
   DestinationString = 0LL;
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   if ( result < 0 )
     return result;
   v1 = RtlLengthSid(SeAliasAdminsSid);
   v2 = v1 + RtlLengthSid(SeLocalSystemSid) + 32;
-  Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+  Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v2, 0x6C636144u);
   v4 = Pool2;
   if ( !Pool2 )
     return -1073741670;
@@ -85,12 +86,12 @@ LABEL_5:
   }
   RtlInitUnicodeString(&DestinationString, pszDest);
   p_DestinationString = &DestinationString;
-  v12[0] = 48;
-  v17 = SecurityDescriptor;
-  v13 = 0LL;
-  v15 = 512;
-  v18 = 0LL;
-  Object = ObCreateObjectEx(0, (_DWORD)MmSessionObjectType, (unsigned int)v12, 0);
+  v13[0] = 48;
+  v18 = SecurityDescriptor;
+  v14 = 0LL;
+  v16 = 512;
+  v19 = 0LL;
+  Object = ObCreateObjectEx(0, (_DWORD)MmSessionObjectType, (unsigned int)v13, 0);
   ExFreePoolWithTag(v4, 0);
   if ( Object < 0 )
     return Object;
@@ -99,28 +100,28 @@ LABEL_5:
   MEMORY[0x20] = 0LL;
   if ( PsCpuFairShareEnabled && *(_DWORD *)(CycleTime + 8) )
   {
-    KeGetSchedulingGroupSize();
-    v9 = (struct _KSCHEDULING_GROUP *)ExAllocatePool2(0x48uLL);
-    MEMORY[0x20] = v9;
-    if ( !v9 )
+    SchedulingGroupSize = KeGetSchedulingGroupSize();
+    v10 = (struct _KSCHEDULING_GROUP *)ExAllocatePool2(0x48uLL, SchedulingGroupSize, 0x70724753u);
+    MEMORY[0x20] = v10;
+    if ( !v10 )
     {
       ObfDereferenceObjectWithTag(0LL, 0x73536D4Du);
       return -1073741670;
     }
-    KeInsertSchedulingGroup(v9, (_KSCHEDULING_GROUP_POLICY)5LL, 0LL);
+    KeInsertSchedulingGroup(v10, (_KSCHEDULING_GROUP_POLICY)5LL, 0LL);
   }
-  result = ObInsertObjectEx(0LL, 0, 0LL, (__int64)&v11);
-  v10 = result;
+  result = ObInsertObjectEx(0LL, 0, 0LL, (__int64)&v12);
+  v11 = result;
   if ( result >= 0 )
   {
     *(_DWORD *)(CycleTime + 4) |= 4u;
     _InterlockedIncrement((volatile signed __int32 *)(CycleTime + 12));
-    *(_QWORD *)(CycleTime + 40) = v11;
+    *(_QWORD *)(CycleTime + 40) = v12;
     *(_QWORD *)(CycleTime + 32) = 0LL;
     *(_DWORD *)(CycleTime + 128) = 2;
     *(_DWORD *)(CycleTime + 132) = 1;
     KeInitializeEvent((PRKEVENT)(CycleTime + 136), SynchronizationEvent, 1u);
-    return v10;
+    return v11;
   }
   return result;
 }

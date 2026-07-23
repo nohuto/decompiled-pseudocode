@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCheckPreferredHeteroProcessor @ 0x1400DD2C0
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x1400DB160
  * Callers:
- *     KiQuantumEnd @ 0x1400D1780 (KiQuantumEnd.c)
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
+ *     KiQuantumEnd @ 0x1400CF620 (KiQuantumEnd.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
  * Callees:
- *     KiGetHeteroCpuPolicyThread @ 0x1400CEF4C (KiGetHeteroCpuPolicyThread.c)
- *     KiGenerateHeteroSets @ 0x1401D7ED8 (KiGenerateHeteroSets.c)
+ *     KiGetHeteroCpuPolicyThread @ 0x1400CCDEC (KiGetHeteroCpuPolicyThread.c)
+ *     KiGenerateHeteroSets @ 0x1401D7D04 (KiGenerateHeteroSets.c)
  */
 
 __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2)

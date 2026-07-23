@@ -1,10 +1,10 @@
 /*
- * XREFs of VfQueryDeviceContext @ 0x1405A0920
+ * XREFs of VfQueryDeviceContext @ 0x1405A0B50
  * Callers:
  *     <none>
  * Callees:
- *     ViIsContextIdValid @ 0x1409C8534 (ViIsContextIdValid.c)
- *     ViQueryObjectContext @ 0x1409C85A4 (ViQueryObjectContext.c)
+ *     ViIsContextIdValid @ 0x1409C9534 (ViIsContextIdValid.c)
+ *     ViQueryObjectContext @ 0x1409C95A4 (ViQueryObjectContext.c)
  */
 
 __int64 __fastcall VfQueryDeviceContext(__int64 a1, __int64 a2)

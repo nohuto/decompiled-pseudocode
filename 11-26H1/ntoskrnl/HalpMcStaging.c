@@ -1,26 +1,26 @@
 /*
- * XREFs of HalpMcStaging @ 0x140593950
+ * XREFs of HalpMcStaging @ 0x1405960D0
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1404DA4D0 (KeQueryLogicalProcessorRelationship.c)
- *     HalpMcStagePayload @ 0x1405938EC (HalpMcStagePayload.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1404D3BB0 (KeQueryLogicalProcessorRelationship.c)
+ *     HalpMcStagePayload @ 0x14059606C (HalpMcStagePayload.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 HalpMcStaging()
 {
   char v0; // r14
   NTSTATUS i; // ebx
-  struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *Pool2; // rax
-  struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *v3; // rdi
+  _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *Pool2; // rax
+  _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *v3; // rdi
   ULONG v4; // esi
   unsigned __int64 v5; // rcx
   LARGE_INTEGER v6; // rax
   __int64 Size; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-20h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-10h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-10h] BYREF
   ULONG Length; // [rsp+60h] [rbp+20h] BYREF
 
   Length = 0;
@@ -29,14 +29,14 @@ __int64 HalpMcStaging()
   i = KeQueryLogicalProcessorRelationship(0LL, RelationProcessorPackage, 0LL, &Length);
   if ( i == -1073741820 && Length )
   {
-    Pool2 = (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)ExAllocatePool2(0x100uLL);
     v3 = Pool2;
     if ( Pool2 )
     {
       v4 = 0;
       for ( i = KeQueryLogicalProcessorRelationship(0LL, RelationProcessorPackage, Pool2, &Length);
             v4 < Length;
-            v3 = (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)((char *)v3 + Size) )
+            v3 = (_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)((char *)v3 + Size) )
       {
         _BitScanForward64(&v5, v3->Processor.GroupMask[0].Mask);
         Affinity.Group = v3->Processor.GroupMask[0].Group;

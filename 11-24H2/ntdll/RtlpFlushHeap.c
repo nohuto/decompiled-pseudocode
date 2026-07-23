@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpFlushHeap @ 0x180095D3C
+ * XREFs of RtlpFlushHeap @ 0x1800A05AC
  * Callers:
- *     RtlpFlushHeapsCallback @ 0x180095D20 (RtlpFlushHeapsCallback.c)
- *     RtlSetHeapInformation @ 0x180096E70 (RtlSetHeapInformation.c)
+ *     RtlSetHeapInformation @ 0x18002BE70 (RtlSetHeapInformation.c)
+ *     RtlpFlushHeapsCallback @ 0x1800A0590 (RtlpFlushHeapsCallback.c)
  * Callees:
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlTryEnterCriticalSection @ 0x18002EEA0 (RtlTryEnterCriticalSection.c)
- *     RtlpCollectFreeBlocks @ 0x180031150 (RtlpCollectFreeBlocks.c)
- *     RtlpLowFragHeapFlushCaches @ 0x180095D9C (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpCollectFreeBlocks @ 0x18000F7E0 (RtlpCollectFreeBlocks.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlTryEnterCriticalSection @ 0x1800A09E0 (RtlTryEnterCriticalSection.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x1800A0AC0 (RtlpLowFragHeapFlushCaches.c)
  */
 
-__int64 __fastcall RtlpFlushHeap(__int64 a1)
+__int64 __fastcall RtlpFlushHeap(unsigned __int64 a1)
 {
-  if ( (*(_BYTE *)(a1 + 112) & 1) == 0 && (unsigned int)RtlTryEnterCriticalSection(*(_QWORD *)(a1 + 352)) )
+  if ( (*(_BYTE *)(a1 + 112) & 1) == 0 && RtlTryEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352)) )
   {
     if ( *(_BYTE *)(a1 + 418) == 2 && *(_QWORD *)(a1 + 408) )
       RtlpLowFragHeapFlushCaches();
     RtlpCollectFreeBlocks(a1);
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   }
   return 0LL;
 }

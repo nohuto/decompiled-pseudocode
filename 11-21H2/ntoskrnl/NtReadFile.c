@@ -1,14 +1,14 @@
 /*
  * XREFs of NtReadFile @ 0x14073A320
  * Callers:
- *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x1405FB258 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
- *     PfSnGetPrefetchInstructions @ 0x1407D84EC (PfSnGetPrefetchInstructions.c)
+ *     sub_1405FB258 @ 0x1405FB258 (sub_1405FB258.c)
+ *     sub_1407D84EC @ 0x1407D84EC (sub_1407D84EC.c)
  * Callees:
- *     IopFileObjectRevoked @ 0x1402AC840 (IopFileObjectRevoked.c)
+ *     sub_1402AC840 @ 0x1402AC840 (sub_1402AC840.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     FeatureServicing_40851744_EnableKey @ 0x14065863C (FeatureServicing_40851744_EnableKey.c)
+ *     sub_14065863C @ 0x14065863C (sub_14065863C.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     IopReadFile @ 0x14073A450 (IopReadFile.c)
+ *     sub_14073A450 @ 0x14073A450 (sub_14073A450.c)
  */
 
 NTSTATUS __stdcall NtReadFile(
@@ -22,21 +22,21 @@ NTSTATUS __stdcall NtReadFile(
         PLARGE_INTEGER ByteOffset,
         PULONG Key)
 {
-  KPROCESSOR_MODE PreviousMode; // r9
+  KPROCESSOR_MODE v10; // r9
   NTSTATUS result; // eax
   PVOID v12; // rbx
   SIZE_T v13; // [rsp+30h] [rbp-58h]
   PVOID Object; // [rsp+70h] [rbp-18h] BYREF
 
-  if ( (unsigned int)EnableFeatureServicing_40851744 >= 2 )
-    FeatureServicing_40851744_EnableKey();
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( (unsigned int)dword_140C0959C >= 2 )
+    sub_14065863C();
+  v10 = *((_BYTE *)KeGetCurrentThread() + 562);
   Object = 0LL;
-  result = ObReferenceObjectByHandle(FileHandle, 1u, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(FileHandle, 1u, (POBJECT_TYPE)IoFileObjectType, v10, &Object, 0LL);
   if ( result >= 0 )
   {
     v12 = Object;
-    if ( IopFileObjectRevoked((__int64)Object) )
+    if ( sub_1402AC840((__int64)Object) )
     {
       ObfDereferenceObject(v12);
       return -1073739504;
@@ -44,7 +44,17 @@ NTSTATUS __stdcall NtReadFile(
     else
     {
       LODWORD(v13) = Length;
-      return IopReadFile(v12, (__int64)IoStatusBlock, Buffer, v13, (__int64)ByteOffset, (__int64)Key, 0LL, 0LL, 0, 0LL);
+      return sub_14073A450(
+               v12,
+               (__int64)IoStatusBlock,
+               Buffer,
+               v13,
+               (__int64)ByteOffset,
+               (__int64)Key,
+               0LL,
+               0LL,
+               0,
+               0LL);
     }
   }
   return result;

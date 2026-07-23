@@ -7,21 +7,20 @@
  *     NtSetInformationThread @ 0x1801633C0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlDisableThreadProfiling(__int64 a1)
+NTSTATUS __cdecl RtlDisableThreadProfiling(PVOID PerformanceDataHandle)
 {
   int v2; // ebx
-  __int64 v3; // r9
-  __int64 v5; // [rsp+20h] [rbp-28h] BYREF
-  int v6; // [rsp+28h] [rbp-20h]
-  int v7; // [rsp+2Ch] [rbp-1Ch]
-  __int64 v8; // [rsp+30h] [rbp-18h]
+  __int64 v4; // [rsp+20h] [rbp-28h] BYREF
+  int v5; // [rsp+28h] [rbp-20h]
+  int v6; // [rsp+2Ch] [rbp-1Ch]
+  PVOID v7; // [rsp+30h] [rbp-18h]
 
-  v5 = 0LL;
+  v4 = 0LL;
+  v5 = 0;
   v6 = 0;
-  v7 = 0;
-  v8 = a1;
-  v2 = NtSetInformationThread(-2LL, 32LL, &v5);
+  v7 = PerformanceDataHandle;
+  v2 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadCounterProfiling, &v4, 0x18u);
   if ( v2 >= 0 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, v3);
-  return (unsigned int)v2;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, PerformanceDataHandle);
+  return v2;
 }

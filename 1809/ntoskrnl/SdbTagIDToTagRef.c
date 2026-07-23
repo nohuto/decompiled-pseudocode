@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbTagIDToTagRef @ 0x14075D694
+ * XREFs of SdbTagIDToTagRef @ 0x14075E884
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x14067C960 (SdbGetDatabaseMatchEx.c)
- *     SdbGetDatabaseMatch @ 0x14067E7FC (SdbGetDatabaseMatch.c)
- *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
+ *     SdbGetDatabaseMatchEx @ 0x14067DB20 (SdbGetDatabaseMatchEx.c)
+ *     SdbGetDatabaseMatch @ 0x14067F9BC (SdbGetDatabaseMatch.c)
+ *     KsepDbGetShimInfo @ 0x140848A68 (KsepDbGetShimInfo.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbpFindLocalDatabaseByPDB @ 0x14075D6EC (SdbpFindLocalDatabaseByPDB.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbpFindLocalDatabaseByPDB @ 0x14075E8DC (SdbpFindLocalDatabaseByPDB.c)
  */
 
 __int64 __fastcall SdbTagIDToTagRef(__int64 a1, __int64 a2, __int64 a3, int *a4)

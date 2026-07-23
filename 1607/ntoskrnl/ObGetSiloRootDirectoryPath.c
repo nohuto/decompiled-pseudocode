@@ -1,17 +1,17 @@
 /*
- * XREFs of ObGetSiloRootDirectoryPath @ 0x1406E6284
+ * XREFs of ObGetSiloRootDirectoryPath @ 0x1406E63BC
  * Callers:
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
- *     PspConvertSiloToServerSilo @ 0x14067E520 (PspConvertSiloToServerSilo.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
+ *     PspConvertSiloToServerSilo @ 0x14067E604 (PspConvertSiloToServerSilo.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlIntegerToUnicodeString @ 0x1403F5E20 (RtlIntegerToUnicodeString.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
- *     PsGetSiloIdentifier @ 0x140581118 (PsGetSiloIdentifier.c)
+ *     RtlIntegerToUnicodeString @ 0x1403F4CE4 (RtlIntegerToUnicodeString.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
+ *     PsGetSiloIdentifier @ 0x1405815C4 (PsGetSiloIdentifier.c)
  */
 
 int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)

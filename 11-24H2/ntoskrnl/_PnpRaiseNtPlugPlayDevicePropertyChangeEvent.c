@@ -1,28 +1,28 @@
 /*
- * XREFs of _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1408B94C4
+ * XREFs of _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1408B6E6C
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404926CC (PnpRemoveLockedDeviceNode.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     PipRestoreDevNodeState @ 0x1404E6BC4 (PipRestoreDevNodeState.c)
- *     PipNotifyDependenciesChanged @ 0x1406FA368 (PipNotifyDependenciesChanged.c)
- *     IopDecDisableableDepends @ 0x1407339E8 (IopDecDisableableDepends.c)
- *     PiInitializeDevice @ 0x140734A0C (PiInitializeDevice.c)
- *     PipEnumerateCompleted @ 0x1408B9260 (PipEnumerateCompleted.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PipClearDevNodeUserFlags @ 0x14098E9D4 (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
- *     PipProcessStartPhase3 @ 0x14099006C (PipProcessStartPhase3.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     PipClearDevNodeProblem @ 0x1409C5678 (PipClearDevNodeProblem.c)
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140A0EDE0 (PnpUnlinkDeviceRemovalRelations.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
- *     IopIncDisableableDepends @ 0x140A89FB4 (IopIncDisableableDepends.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140A9D8CC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PipSetDevNodeUserFlags @ 0x140AC3794 (PipSetDevNodeUserFlags.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14048D53C (PnpRemoveLockedDeviceNode.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     PipRestoreDevNodeState @ 0x1404DD2C0 (PipRestoreDevNodeState.c)
+ *     PipNotifyDependenciesChanged @ 0x1406F7FA8 (PipNotifyDependenciesChanged.c)
+ *     IopDecDisableableDepends @ 0x14073191C (IopDecDisableableDepends.c)
+ *     PiInitializeDevice @ 0x14073293C (PiInitializeDevice.c)
+ *     PipEnumerateCompleted @ 0x1408B6C08 (PipEnumerateCompleted.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140979A0C (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
+ *     PipProcessStartPhase3 @ 0x14097B0A4 (PipProcessStartPhase3.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
+ *     PipClearDevNodeProblem @ 0x14098187C (PipClearDevNodeProblem.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409BD1E4 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
+ *     IopIncDisableableDepends @ 0x140A863B4 (IopIncDisableableDepends.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140A98E3C (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PipSetDevNodeUserFlags @ 0x140ABF118 (PipSetDevNodeUserFlags.c)
  * Callees:
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1408B97F8 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _CmRaisePropertyChangeEvent @ 0x1409D4494 (_CmRaisePropertyChangeEvent.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1408B71A0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1409C42C4 (_CmRaisePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PnpRaiseNtPlugPlayDevicePropertyChangeEvent(__int64 a1, int a2, int a3)
@@ -41,7 +41,7 @@ __int64 __fastcall PnpRaiseNtPlugPlayDevicePropertyChangeEvent(__int64 a1, int a
     _mm_lfence();
     v5 = 0;
     v6 = &CmDeviceRegPropMap;
-    v7 = qword_14000C130[a3];
+    v7 = qword_14000C480[a3];
     do
     {
       v8 = *v6;

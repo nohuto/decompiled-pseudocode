@@ -9,64 +9,72 @@
  *     _CountUnicodeToUTF8@12 @ 0x4B2E47B1 (_CountUnicodeToUTF8@12.c)
  */
 
-int __stdcall RtlUnicodeStringToUTF8String(unsigned __int16 *a1, char **a2, char a3)
+NTSTATUS __cdecl RtlUnicodeStringToUTF8String(
+        PUTF8_STRING DestinationString,
+        PCUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  int result; // eax
-  int v4; // eax
+  NTSTATUS result; // eax
+  ULONG v4; // eax
   unsigned __int16 v5; // cx
-  int StringRoutine; // eax
-  unsigned __int16 v7; // dx
-  unsigned __int16 v8; // ax
+  char *StringRoutine; // eax
+  unsigned __int16 Length; // dx
+  unsigned __int16 MaximumLength; // ax
   unsigned __int16 v9; // ax
   int v10; // edi
-  unsigned int v11; // [esp+4h] [ebp-8h] BYREF
+  ULONG UTF8StringActualByteCount; // [esp+4h] [ebp-8h] BYREF
   int v12; // [esp+8h] [ebp-4h]
 
   v12 = 0;
-  result = CountUnicodeToUTF8(a2[1], *(unsigned __int16 *)a2 + 2, &v11);
+  result = CountUnicodeToUTF8((char *)SourceString->Buffer, SourceString->Length + 2, &UTF8StringActualByteCount);
   if ( result >= 0 )
   {
-    v4 = v11;
-    if ( v11 > 0xFFFF )
+    v4 = UTF8StringActualByteCount;
+    if ( UTF8StringActualByteCount > 0xFFFF )
       return -1073741584;
-    v5 = v11 - 1;
-    *a1 = v11 - 1;
-    if ( a3 )
+    v5 = UTF8StringActualByteCount - 1;
+    DestinationString->Length = UTF8StringActualByteCount - 1;
+    if ( AllocateDestinationString )
     {
-      a1[1] = v4;
-      StringRoutine = NtdllpAllocateStringRoutine(v4);
-      *((_DWORD *)a1 + 1) = StringRoutine;
+      DestinationString->MaximumLength = v4;
+      StringRoutine = (char *)NtdllpAllocateStringRoutine(v4);
+      DestinationString->Buffer = StringRoutine;
       if ( !StringRoutine )
         return -1073741801;
-      v7 = *a1;
+      Length = DestinationString->Length;
     }
     else
     {
-      v8 = a1[1];
-      v7 = v5;
-      if ( v5 >= v8 )
+      MaximumLength = DestinationString->MaximumLength;
+      Length = v5;
+      if ( v5 >= MaximumLength )
       {
-        if ( !v8 )
+        if ( !MaximumLength )
           return -2147483643;
-        v9 = v8 - 1;
+        v9 = MaximumLength - 1;
         v12 = -2147483643;
-        *a1 = v9;
-        v7 = v9;
+        DestinationString->Length = v9;
+        Length = v9;
       }
     }
-    v10 = RtlUnicodeToUTF8N(*((_BYTE **)a1 + 1), v7, &v11, (unsigned int *)a2[1], *(unsigned __int16 *)a2);
+    v10 = RtlUnicodeToUTF8N(
+            DestinationString->Buffer,
+            Length,
+            &UTF8StringActualByteCount,
+            (PCWCH)SourceString->Buffer,
+            SourceString->Length);
     if ( v10 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        RtlDeleteBoundaryDescriptor(*((_DWORD *)a1 + 1));
-        *((_DWORD *)a1 + 1) = 0;
+        RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+        DestinationString->Buffer = 0;
       }
     }
     else
     {
       v10 = v12;
-      *(_BYTE *)(v11 + *((_DWORD *)a1 + 1)) = 0;
+      DestinationString->Buffer[UTF8StringActualByteCount] = 0;
     }
     return v10;
   }

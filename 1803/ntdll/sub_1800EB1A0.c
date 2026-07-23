@@ -43,7 +43,7 @@ __int64 __fastcall sub_1800EB1A0(__int64 a1)
   v4 = dword_18015A43C;
   if ( (dword_18015A43C & 0x40) != 0 )
   {
-    qword_18015AAA8 = -10000000LL;
+    DueTime.QuadPart = -10000000LL;
     sub_1800ECD38(a1);
     v4 = dword_18015A43C;
   }
@@ -51,7 +51,7 @@ __int64 __fastcall sub_1800EB1A0(__int64 a1)
   if ( (int)RtlQueryResourcePolicy(0, 0, (__int64)&v9, 4LL) >= 0 && v9 > 10 )
   {
     dword_18015A43C |= 0x60u;
-    qword_18015AAA8 = -10000000LL;
+    DueTime.QuadPart = -10000000LL;
   }
   if ( (dword_18015D040 & 8) != 0 )
     byte_18015D028 &= ~1u;
@@ -72,8 +72,8 @@ __int64 __fastcall sub_1800EB1A0(__int64 a1)
   v2->MaximumNumberOfHeaps = 16;
   v2->NumberOfHeaps = 0;
   dword_18015D014 = v7 != 0 ? v6 : 0;
-  v2->ProcessHeaps = (void **)&unk_18015AB20;
-  RtlInitializeCriticalSectionEx((__int64)&unk_18015AAC0, 0, 0x10000000);
+  v2->ProcessHeaps = (PVOID *)&unk_18015AB20;
+  RtlInitializeCriticalSectionEx(&stru_18015AAC0, 0, 0x10000000u);
   qword_18015D758 = sub_18005C774();
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {

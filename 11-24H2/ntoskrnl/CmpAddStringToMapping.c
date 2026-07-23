@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddStringToMapping @ 0x140A8A09C
+ * XREFs of CmpAddStringToMapping @ 0x140A8649C
  * Callers:
- *     CmpVEAddHiveToSIDMappingTable @ 0x140A8A000 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x140A86400 (CmpVEAddHiveToSIDMappingTable.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
     if ( CmpSIDToHiveMappingCount + 1 >= (unsigned int)CmpSIDToHiveMappingSize )
     {
       v5 = CmpSIDToHiveMapping;
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, 32LL * (unsigned int)(CmpSIDToHiveMappingSize + 4), 0x65564D43u);
       CmpSIDToHiveMapping = Pool2;
       if ( !Pool2 )
       {
@@ -50,7 +50,7 @@ LABEL_6:
     *(_QWORD *)((char *)CmpSIDToHiveMapping + v8 + 24) = a2;
     *(_WORD *)&v7[v8] = *(_WORD *)a1;
     *(_WORD *)&v7[v8 + 2] = *(_WORD *)a1;
-    v9 = (void *)ExAllocatePool2(0x100uLL);
+    v9 = (void *)ExAllocatePool2(0x100uLL, *(unsigned __int16 *)a1, 0x65564D43u);
     *((_QWORD *)CmpSIDToHiveMapping + 4 * (unsigned int)CmpSIDToHiveMappingCount + 1) = v9;
     if ( v9 )
     {

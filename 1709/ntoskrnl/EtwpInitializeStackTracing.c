@@ -10,11 +10,11 @@
 
 void __fastcall EtwpInitializeStackTracing(__int64 a1)
 {
-  struct _SLIST_ENTRY *v2; // rdi
+  _SLIST_ENTRY *v2; // rdi
   __int64 v3; // rbp
 
   InitializeSListHead((PSLIST_HEADER)(a1 + 96));
-  v2 = (struct _SLIST_ENTRY *)(a1 + 112);
+  v2 = (_SLIST_ENTRY *)(a1 + 112);
   v3 = 12LL;
   do
   {

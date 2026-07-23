@@ -10,61 +10,70 @@
  *     ZwTraceEvent @ 0x1800A5EB0 (ZwTraceEvent.c)
  */
 
-__int64 __fastcall EtwEventWriteTransfer(
-        __int64 a1,
-        __int128 *a2,
-        struct _GUID *a3,
-        __int128 *a4,
-        unsigned int a5,
-        __int64 a6)
+ULONG __cdecl EtwEventWriteTransfer(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  unsigned int v9; // edi
-  __int64 v10; // rbx
-  __int64 v11; // rdx
+  ULONG v9; // edi
+  REGHANDLE v10; // rbx
+  ULONGLONG Keyword; // rdx
   char v12; // si
-  unsigned __int8 v13; // al
-  struct _GUID ActivityId; // xmm0
-  __int64 v15; // rcx
+  UCHAR v13; // al
+  GUID v14; // xmm0
+  void *v15; // rcx
   NTSTATUS v16; // eax
-  unsigned __int8 v18; // cl
-  __int128 v19; // xmm0
-  _BYTE v20[4]; // [rsp+50h] [rbp-B0h] BYREF
+  UCHAR v18; // cl
+  GUID v19; // xmm0
+  _BYTE Fields[4]; // [rsp+50h] [rbp-B0h] BYREF
   int v21; // [rsp+54h] [rbp-ACh]
-  __int128 v22; // [rsp+78h] [rbp-88h]
-  struct _GUID v23; // [rsp+90h] [rbp-70h]
+  EVENT_DESCRIPTOR v22; // [rsp+78h] [rbp-88h]
+  GUID v23; // [rsp+90h] [rbp-70h]
   char v24; // [rsp+A0h] [rbp-60h]
   __int16 v25; // [rsp+A2h] [rbp-5Eh]
-  unsigned int v26; // [rsp+A4h] [rbp-5Ch]
-  __int64 v27; // [rsp+A8h] [rbp-58h]
-  __int128 v28; // [rsp+B0h] [rbp-50h]
+  ULONG v26; // [rsp+A4h] [rbp-5Ch]
+  PEVENT_DATA_DESCRIPTOR v27; // [rsp+A8h] [rbp-58h]
+  GUID v28; // [rsp+B0h] [rbp-50h]
   int v29; // [rsp+C0h] [rbp-40h]
   _BYTE v30[144]; // [rsp+D0h] [rbp-30h] BYREF
 
   v9 = 0;
-  if ( !a2 )
+  if ( !EventDescriptor )
     return 87;
-  v22 = *a2;
-  if ( !HIWORD(a1) )
+  v22 = *EventDescriptor;
+  if ( !HIWORD(RegHandle) )
     return 6;
-  v10 = a1 & 0xFFFFFFFFFFFFLL;
-  if ( (a1 & 1) != 0 || HIWORD(a1) != *(_WORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x60) )
+  v10 = RegHandle & 0xFFFFFFFFFFFFLL;
+  if ( (RegHandle & 1) != 0 || HIWORD(RegHandle) != *(_WORD *)((RegHandle & 0xFFFFFFFFFFFFLL) + 0x60) )
     return 6;
-  v11 = *((_QWORD *)&v22 + 1);
-  if ( *(_BYTE *)((a1 & 0xFFFFFFFFFFFFLL) + 0xF4)
-    && ((v18 = *(_BYTE *)((a1 & 0xFFFFFFFFFFFFLL) + 0xF5), BYTE4(v22) <= v18) || !v18)
-    && ((*(_BYTE *)(v10 + 240) & 0x40) != 0 && !*((_QWORD *)&v22 + 1)
-     || (*((_QWORD *)&v22 + 1) & *(_QWORD *)(v10 + 232)) != 0LL
-     && (*((_QWORD *)&v22 + 1) & *(_QWORD *)(v10 + 224)) == *(_QWORD *)(v10 + 224)) )
+  Keyword = v22.Keyword;
+  if ( *(_BYTE *)((RegHandle & 0xFFFFFFFFFFFFLL) + 0xF4)
+    && ((v18 = *(_BYTE *)((RegHandle & 0xFFFFFFFFFFFFLL) + 0xF5), v22.Level <= v18) || !v18)
+    && ((*(_BYTE *)(v10 + 240) & 0x40) != 0 && !v22.Keyword
+     || (v22.Keyword & *(_QWORD *)(v10 + 232)) != 0 && (v22.Keyword & *(_QWORD *)(v10 + 224)) == *(_QWORD *)(v10 + 224)) )
   {
     v12 = 1;
-    v9 = sub_18005E3C8((unsigned __int16 *)v10, a2, 0, 0, 0, a3, a4, a5, a6, (__int64)v30);
+    v9 = sub_18005E3C8(
+           (unsigned __int16 *)v10,
+           EventDescriptor,
+           0,
+           0,
+           0,
+           (GUID *)ActivityId,
+           RelatedActivityId,
+           UserDataCount,
+           (__int64)UserData,
+           (__int64)v30);
     if ( v9 )
     {
 LABEL_28:
       sub_18005E37C(v9, (__int64)v30);
       return v9;
     }
-    v11 = *((_QWORD *)&v22 + 1);
+    Keyword = v22.Keyword;
   }
   else
   {
@@ -73,29 +82,29 @@ LABEL_28:
   if ( *(_BYTE *)(v10 + 124) )
   {
     v13 = *(_BYTE *)(v10 + 125);
-    if ( (BYTE4(v22) <= v13 || !v13)
-      && ((*(_BYTE *)(v10 + 120) & 0x40) != 0 && !v11
-       || (v11 & *(_QWORD *)(v10 + 112)) != 0 && (v11 & *(_QWORD *)(v10 + 104)) == *(_QWORD *)(v10 + 104)) )
+    if ( (v22.Level <= v13 || !v13)
+      && ((*(_BYTE *)(v10 + 120) & 0x40) != 0 && !Keyword
+       || (Keyword & *(_QWORD *)(v10 + 112)) != 0 && (Keyword & *(_QWORD *)(v10 + 104)) == *(_QWORD *)(v10 + 104)) )
     {
       v21 = 0;
-      v26 = a5;
-      v27 = a6;
-      if ( a3 )
-        ActivityId = *a3;
+      v26 = UserDataCount;
+      v27 = UserData;
+      if ( ActivityId )
+        v14 = *ActivityId;
       else
-        ActivityId = NtCurrentTeb()->ActivityId;
+        v14 = NtCurrentTeb()->ActivityId;
       v24 = 0;
-      v23 = ActivityId;
-      if ( a4 )
+      v23 = v14;
+      if ( RelatedActivityId )
       {
-        v19 = *a4;
+        v19 = *RelatedActivityId;
         v24 = 1;
         v28 = v19;
       }
-      v15 = *(_QWORD *)(v10 + 88);
+      v15 = *(void **)(v10 + 88);
       v25 = 0;
       v29 = 0;
-      v16 = ZwTraceEvent(v15, 768LL, 120LL, v20);
+      v16 = ZwTraceEvent(v15, 0x300u, 0x78u, Fields);
       if ( v16 )
         v9 = RtlNtStatusToDosError(v16);
       else

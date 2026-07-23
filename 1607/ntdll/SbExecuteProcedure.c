@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SbSelectProcedure @ 0x18002E9C0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x18002E9B0 (SbSelectProcedure.c)
  */
 
 __int64 (__fastcall *__fastcall SbExecuteProcedure(

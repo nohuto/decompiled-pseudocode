@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreePagedPoolPages @ 0x140161A50
+ * XREFs of MiFreePagedPoolPages @ 0x140161B50
  * Callers:
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
- *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
+ *     MiAllocatePagedPoolPages @ 0x140162D70 (MiAllocatePagedPoolPages.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,14 +12,14 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     RtlSetBitsEx @ 0x14008AF10 (RtlSetBitsEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR a1, ULONG_PTR a2)
@@ -36,7 +36,7 @@ PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR a1, ULONG_PTR a2)
   unsigned __int64 *v11; // r12
   unsigned __int64 v12; // r14
   unsigned __int64 v13; // rdx
-  union _SLIST_HEADER *v14; // rcx
+  _SLIST_HEADER *v14; // rcx
   unsigned __int64 v15; // r11
   unsigned __int64 v16; // r9
   unsigned __int64 v17; // r8
@@ -91,7 +91,7 @@ PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR a1, ULONG_PTR a2)
   unsigned __int64 SessionVm; // rax
   unsigned __int64 v67; // rdi
   __int64 v68; // rcx
-  struct _SLIST_ENTRY *v69; // rdx
+  _SLIST_ENTRY *v69; // rdx
   unsigned __int64 v70; // rdx
   unsigned __int64 v71; // [rsp+30h] [rbp-29h]
   int v72; // [rsp+38h] [rbp-21h] BYREF
@@ -116,8 +116,8 @@ PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR a1, ULONG_PTR a2)
   if ( SystemRegionType == 6 )
   {
     v75 = 6;
-    v79 = (unsigned __int16 *)&unk_14043B2A0;
-    v9 = (ULONG_PTR)&qword_14043AF58;
+    v79 = (unsigned __int16 *)&unk_14043C360;
+    v9 = (ULONG_PTR)&qword_14043C018;
     v10 = BugCheckParameter4;
     if ( v7 == 1951624525 || v7 == 1816358221 )
       v8 = 1;
@@ -148,7 +148,7 @@ PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR a1, ULONG_PTR a2)
       v5 = BugCheckParameter2;
     }
 LABEL_130:
-    KeBugCheckEx(0xC2u, 0x50uLL, v5, v12, qword_14043AF98 << 12);
+    KeBugCheckEx(0xC2u, 0x50uLL, v5, v12, qword_14043C058 << 12);
   }
   v42 = *(_QWORD *)(v9 + 16);
   v43 = *(_QWORD *)(v42 + 8 * (v12 >> 6));
@@ -181,11 +181,11 @@ LABEL_69:
 LABEL_8:
   if ( !v10 && !v6 && v2 == 1 && !v8 )
   {
-    v14 = &qword_14043A058[25 * KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0]];
-    if ( LOWORD(v14->Alignment) < (unsigned int)dword_140438AD0 )
+    v14 = &qword_14043B118[25 * KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0]];
+    if ( LOWORD(v14->Alignment) < (unsigned int)dword_140439B90 )
     {
-      v69 = (struct _SLIST_ENTRY *)BugCheckParameter2;
-      *(_QWORD *)BugCheckParameter2 = BugCheckParameter2 ^ qword_14043AEC0;
+      v69 = (_SLIST_ENTRY *)BugCheckParameter2;
+      *(_QWORD *)BugCheckParameter2 = BugCheckParameter2 ^ qword_14043BF80;
       return RtlpInterlockedPushEntrySList(v14, v69 + 1);
     }
   }
@@ -373,7 +373,7 @@ LABEL_123:
     {
       v63->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v63->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v56->LockEntries[v62], v59);
+        KiAbEntryRemoveFromTree(&v56->LockEntries[v62].TreeNode, v59);
       v72 = 0;
       v72 = v63->BoostBitmap.AllFields & 0x1FFFF;
       v63->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -397,14 +397,14 @@ LABEL_123:
   {
     if ( v75 == 6 )
     {
-      v27 = qword_14043AF98 - qword_14043AF88;
-      if ( qword_14043AF98 - qword_14043AF88 > (unsigned __int64)qword_140438AC0 )
+      v27 = qword_14043C058 - qword_14043C048;
+      if ( qword_14043C058 - qword_14043C048 > (unsigned __int64)qword_140439B80 )
       {
-        v28 = *(_QWORD *)(qword_14043A748 + 8LL * v79[87]);
+        v28 = *(_QWORD *)(qword_14043B808 + 8LL * v79[87]);
         v29 = *(struct _KEVENT **)(v28 + 240);
         if ( v29->Header.SignalState )
           KeResetEvent(v29);
-        if ( v27 >= qword_140438AC8 )
+        if ( v27 >= qword_140439B88 )
         {
           v30 = *(struct _KEVENT **)(v28 + 248);
           if ( !v30->Header.SignalState )
@@ -457,7 +457,7 @@ LABEL_65:
     {
       v38->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v38->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v31->LockEntries[v37], v34);
+        KiAbEntryRemoveFromTree(&v31->LockEntries[v37].TreeNode, v34);
       v73 = 0;
       v73 = v38->BoostBitmap.AllFields & 0x1FFFF;
       v38->BoostBitmap.AllFields &= 0xFFFE0000;

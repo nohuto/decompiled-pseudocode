@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpStackWalkDpc @ 0x1405FFD80
+ * XREFs of EtwpStackWalkDpc @ 0x1406002F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpQueueStackWalkApc @ 0x140468A86 (EtwpQueueStackWalkApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpQueueStackWalkApc @ 0x140468E86 (EtwpQueueStackWalkApc.c)
  */
 
 void __fastcall EtwpStackWalkDpc(

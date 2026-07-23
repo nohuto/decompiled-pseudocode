@@ -17,18 +17,18 @@ __int64 RtlpFcStartSubscriptionManager()
   v1 = 0;
   v2 = RtlpFcWnfTypeId;
   result = RtlQueryWnfStateDataWithExplicitScope(
-             (unsigned int)&v1,
+             (int)&v1,
              WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
              0,
-             (unsigned int)WinSqmCheckEscalationSetString,
+             (int)WinSqmCheckEscalationSetString,
              0LL,
-             (__int64)&v2);
+             (PCWNF_TYPE_ID)&v2);
   if ( (int)result >= 0 )
     return RtlpSubscribeWnfStateChangeNotificationInternal(
              (unsigned int)&unk_1801D5DD8,
              WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
              v1,
-             (unsigned int)RtlpFcWnfCallback,
+             (unsigned int)&RtlpFcWnfCallback,
              (__int64)&RtlpFcProcessManager,
              0LL,
              0,

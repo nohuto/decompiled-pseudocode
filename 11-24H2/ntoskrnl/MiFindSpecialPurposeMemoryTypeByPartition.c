@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFindSpecialPurposeMemoryTypeByPartition @ 0x1407FE2A8
+ * XREFs of MiFindSpecialPurposeMemoryTypeByPartition @ 0x1407FEA18
  * Callers:
- *     MmManagePartitionMoveMemory @ 0x1407FCEC4 (MmManagePartitionMoveMemory.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x1407FECA8 (MiSpecialPurposeMemoryRemoved.c)
- *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x1407FEF40 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ *     MmManagePartitionMoveMemory @ 0x1407FD634 (MmManagePartitionMoveMemory.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x1407FF418 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x1407FF6B0 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
- *     MiFindSpecialPurposeMemoryType @ 0x14068E758 (MiFindSpecialPurposeMemoryType.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiFindSpecialPurposeMemoryType @ 0x14068F888 (MiFindSpecialPurposeMemoryType.c)
  */
 
 _QWORD *__fastcall MiFindSpecialPurposeMemoryTypeByPartition(__int64 a1, __int64 *a2, volatile signed __int64 **a3)
@@ -22,12 +22,10 @@ _QWORD *__fastcall MiFindSpecialPurposeMemoryTypeByPartition(__int64 a1, __int64
   _QWORD *v8; // rbx
   __int64 v9; // r15
   volatile signed __int64 *v10; // rdi
-  _QWORD *v11; // rax
-  _QWORD *v12; // rbx
+  char *v11; // rax
+  char *v12; // rbx
   _QWORD *SpecialPurposeMemoryType; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  bool v16; // zf
+  bool v14; // zf
 
   CurrentThread = KeGetCurrentThread();
   v5 = *(__int64 **)(a1 + 17624);
@@ -39,12 +37,12 @@ _QWORD *__fastcall MiFindSpecialPurposeMemoryTypeByPartition(__int64 a1, __int64
     v9 = *v5;
     --CurrentThread->SpecialApcDisable;
     v10 = (volatile signed __int64 *)(v9 + 17672);
-    v11 = KeAbPreAcquire(v9 + 17672, 0LL);
+    v11 = (char *)KeAbPreAcquire(v9 + 17672, 0LL);
     v12 = v11;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 17672), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v9 + 17672), (__int64)v11, v9 + 17672);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v9 + 17672), v11, v9 + 17672);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      v12[10] = 1;
     SpecialPurposeMemoryType = MiFindSpecialPurposeMemoryType(v9, (const void *)(a1 + 17640));
     v8 = SpecialPurposeMemoryType;
     if ( SpecialPurposeMemoryType && SpecialPurposeMemoryType[8] == a1 )
@@ -60,11 +58,11 @@ _QWORD *__fastcall MiFindSpecialPurposeMemoryTypeByPartition(__int64 a1, __int64
         if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock((volatile signed __int64 *)(v9 + 17672));
         KeAbPostRelease(v9 + 17672);
-        v16 = CurrentThread->SpecialApcDisable++ == -1;
-        if ( v16
-          && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        v14 = CurrentThread->SpecialApcDisable++ == -1;
+        if ( v14
+          && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
-          KiCheckForKernelApcDelivery(v15, v14);
+          KiCheckForKernelApcDelivery();
         }
       }
       PsDereferencePartition((__int64)v5);

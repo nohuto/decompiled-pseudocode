@@ -1,38 +1,38 @@
 /*
- * XREFs of MiGetPageChain @ 0x140285DD0
+ * XREFs of MiGetPageChain @ 0x140285330
  * Callers:
- *     MiCreateSharedZeroPages @ 0x140283980 (MiCreateSharedZeroPages.c)
- *     MiGetPageChainForFault @ 0x140284C30 (MiGetPageChainForFault.c)
- *     MiGetPageToTrade @ 0x1402951E0 (MiGetPageToTrade.c)
- *     MiResolvePrivateZeroFault @ 0x1402D5420 (MiResolvePrivateZeroFault.c)
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
- *     MiAllocatePageFileReadResources @ 0x1403719F8 (MiAllocatePageFileReadResources.c)
- *     MiGetHardFaultPages @ 0x140372958 (MiGetHardFaultPages.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
+ *     MiCreateSharedZeroPages @ 0x140282EF0 (MiCreateSharedZeroPages.c)
+ *     MiGetPageChainForFault @ 0x140284190 (MiGetPageChainForFault.c)
+ *     MiGetPageToTrade @ 0x140294740 (MiGetPageToTrade.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B71E0 (MiResolvePrivateZeroFault.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
+ *     MiAllocatePageFileReadResources @ 0x1403737A8 (MiAllocatePageFileReadResources.c)
+ *     MiGetHardFaultPages @ 0x140374708 (MiGetHardFaultPages.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetLargePagesForChain @ 0x140284A5C (MiGetLargePagesForChain.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetPageChainSmallPageProcess @ 0x140287AA0 (MiGetPageChainSmallPageProcess.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiPageAvailable @ 0x1402AA7BC (MiPageAvailable.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiGetPageChainYield @ 0x140318260 (MiGetPageChainYield.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiPerformFinalZeroing @ 0x140513B9C (MiPerformFinalZeroing.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetLargePagesForChain @ 0x140283FC4 (MiGetLargePagesForChain.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140287000 (MiGetPageChainSmallPageProcess.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiPageAvailable @ 0x1402A9BBC (MiPageAvailable.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiGetPageChainYield @ 0x14031A290 (MiGetPageChainYield.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiPerformFinalZeroing @ 0x14050D60C (MiPerformFinalZeroing.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 int __fastcall MiGetPageChain(_QWORD *a1)
@@ -135,7 +135,7 @@ int __fastcall MiGetPageChain(_QWORD *a1)
     if ( v6 >= (unsigned __int16)KeNumberNodes )
       goto LABEL_50;
     v4 &= ~1u;
-    v9 = *(_DWORD *)(qword_140E2D690 + 4LL * (v6 + v7 * (unsigned __int16)KeNumberNodes));
+    v9 = *(_DWORD *)(qword_140E2D810 + 4LL * (v6 + v7 * (unsigned __int16)KeNumberNodes));
     *((_DWORD *)a1 + 12) ^= ((unsigned __int16)*((_DWORD *)a1 + 12) ^ (unsigned __int16)((_WORD)v9 << 9)) & 0x7E00;
     if ( (*((_BYTE *)a1 + 28) & 0xF) == 9 )
     {
@@ -209,7 +209,7 @@ LABEL_12:
       v22 = 48 * v16 - 0x220000000000LL;
       v23 = (v21 >> 22) & 3;
       v72 = v22;
-      if ( v23 == (_DWORD)v20 || ((unsigned __int8)((1 << v23) | (1 << v20)) & (unsigned __int8)byte_140E2D798) == 0 )
+      if ( v23 == (_DWORD)v20 || ((unsigned __int8)((1 << v23) | (1 << v20)) & (unsigned __int8)byte_140E2D918) == 0 )
       {
         v24 = 0;
         v25 = 16 * (v18 & 1);
@@ -222,7 +222,7 @@ LABEL_12:
           v66 = 8 * v19 - 0x220000000000LL;
           v68 = v27;
           v65 = v26 != 0 ? 0x10 : 0;
-          v28 = *(_DWORD *)(qword_140E2D6B8
+          v28 = *(_DWORD *)(qword_140E2D838
                           + 384LL * (unsigned int)MiPageToNode(8 * v19 / 48)
                           + 4 * (v63 + 4LL * ((*(_DWORD *)(v66 + 32) >> 22) & 3))
                           + 120);
@@ -358,8 +358,8 @@ LABEL_33:
       goto LABEL_36;
     }
     v52 = 15LL;
-    if ( (unsigned int)dword_140E2D78C < 0xFuLL )
-      v52 = (unsigned int)dword_140E2D78C;
+    if ( (unsigned int)dword_140E2D90C < 0xFuLL )
+      v52 = (unsigned int)dword_140E2D90C;
     v53 = v52 & v12;
     v66 = v52;
     a1[7] = v53;

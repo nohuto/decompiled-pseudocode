@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwUmsThreadYield()
+NTSTATUS __cdecl ZwUmsThreadYield(PVOID SchedulerParam)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 424LL;
+  result = 424;
   __asm { syscall; Low latency system call }
   return result;
 }

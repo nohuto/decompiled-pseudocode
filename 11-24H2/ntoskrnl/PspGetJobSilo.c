@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetJobSilo @ 0x14040EFB0
+ * XREFs of PspGetJobSilo @ 0x1404071B0
  * Callers:
- *     PsGetProcessSilo @ 0x14040EEC0 (PsGetProcessSilo.c)
- *     PsIsProcessInSilo @ 0x14040EF20 (PsIsProcessInSilo.c)
- *     PsGetJobSilo @ 0x14040EF70 (PsGetJobSilo.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x1409B2680 (CmpGetRegistryNamespaceRootForSilo.c)
- *     PsGetParentSilo @ 0x140A59700 (PsGetParentSilo.c)
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     PsGetProcessSilo @ 0x1404070C0 (PsGetProcessSilo.c)
+ *     PsIsProcessInSilo @ 0x140407120 (PsIsProcessInSilo.c)
+ *     PsGetJobSilo @ 0x140407170 (PsGetJobSilo.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x1409A9A10 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     PsGetParentSilo @ 0x140A50EA0 (PsGetParentSilo.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
  *     <none>
  */

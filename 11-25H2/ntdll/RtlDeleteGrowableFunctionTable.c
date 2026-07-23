@@ -14,73 +14,86 @@
  *     NtSetInformationProcess @ 0x1801635A0 (NtSetInformationProcess.c)
  */
 
-__int64 __fastcall RtlDeleteGrowableFunctionTable(__int64 a1)
+void __cdecl RtlDeleteGrowableFunctionTable(PVOID DynamicTable)
 {
   bool v1; // zf
   int v3; // eax
-  int v4; // edi
-  __int64 v5; // rdx
-  _QWORD *v6; // rax
-  __int64 v7; // r9
-  void *ProcessHeap; // rcx
-  int v9; // edx
-  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
+  int v4; // eax
+  int v5; // edi
+  _QWORD *v6; // rdx
+  PVOID *v7; // rax
+  int v8; // eax
+  PVOID ProcessHeap; // rcx
+  int v10; // eax
+  int v11; // edx
+  __int128 ProcessInformation; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 80) == 3;
-  v11 = 0LL;
+  v1 = *((_DWORD *)DynamicTable + 20) == 3;
+  ProcessInformation = 0LL;
   if ( !v1 )
     RtlRaiseStatus(-1073741811);
-  *(_QWORD *)&v11 = a1;
-  BYTE8(v11) = 1;
-  v3 = NtSetInformationProcess(-1LL, 53LL, &v11, 16LL);
+  *(_QWORD *)&ProcessInformation = DynamicTable;
+  BYTE8(ProcessInformation) = 1;
+  v3 = NtSetInformationProcess(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         ProcessDynamicFunctionTableInformation,
+         &ProcessInformation,
+         0x10u);
   if ( v3 < 0 )
     RtlRaiseStatus(v3);
   LdrProtectMrdata(0);
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v4) = LdrControlFlowGuardEnforced();
+  if ( v4 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-    v4 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v5 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      if ( v4 == -1 )
+      if ( v5 == -1 )
         goto LABEL_13;
     }
     else
     {
-      RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
+      RtlProtectHeap(LdrpMrdataHeap, 0);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v4 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v5 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpDynamicFunctionTableLock);
-  RtlAvlRemoveNode(&RtlpDynamicFunctionTableTreeMin, a1 + 88);
-  RtlAvlRemoveNode(&RtlpDynamicFunctionTableTreeMax, a1 + 112);
-  v5 = *(_QWORD *)a1;
-  if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) != a1 || (v6 = *(_QWORD **)(a1 + 8), *v6 != a1) )
+  RtlAcquireSRWLockExclusive(&RtlpDynamicFunctionTableLock);
+  RtlAvlRemoveNode(&RtlpDynamicFunctionTableTreeMin, (char *)DynamicTable + 88);
+  RtlAvlRemoveNode(&RtlpDynamicFunctionTableTreeMax, (char *)DynamicTable + 112);
+  v6 = *(_QWORD **)DynamicTable;
+  if ( *(PVOID *)(*(_QWORD *)DynamicTable + 8LL) != DynamicTable
+    || (v7 = (PVOID *)*((_QWORD *)DynamicTable + 1), *v7 != DynamicTable) )
+  {
     __fastfail(3u);
-  *v6 = v5;
-  *(_QWORD *)(v5 + 8) = v6;
+  }
+  *v7 = v6;
+  v6[1] = v7;
   RtlReleaseSRWLockExclusive(&RtlpDynamicFunctionTableLock);
-  if ( LdrControlFlowGuardEnforced() )
-    ProcessHeap = (void *)LdrpMrdataHeap;
+  LOBYTE(v8) = LdrControlFlowGuardEnforced();
+  if ( v8 )
+    ProcessHeap = LdrpMrdataHeap;
   else
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  RtlFreeHeap((__int64)ProcessHeap, 0, a1, v7);
-  if ( LdrControlFlowGuardEnforced() )
+  RtlFreeHeap(ProcessHeap, 0, DynamicTable);
+  LOBYTE(v10) = LdrControlFlowGuardEnforced();
+  if ( v10 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-    v9 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v11 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v9 - 1;
-      if ( v9 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v11 - 1;
+      if ( v11 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
-      return LdrProtectMrdata(1);
+      goto LABEL_21;
     }
 LABEL_13:
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     __fastfail(0xEu);
   }
-  return LdrProtectMrdata(1);
+LABEL_21:
+  LdrProtectMrdata(1);
 }

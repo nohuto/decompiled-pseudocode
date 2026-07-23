@@ -12,7 +12,7 @@ LONG __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Termin
   unsigned int *v5; // esi
   int v6; // ebx
   BOOLEAN v7; // dl
-  WCHAR v8; // bx
+  unsigned __int16 v8; // bx
   char v9; // cl
   unsigned int v10; // eax
   int v12; // eax
@@ -51,7 +51,7 @@ LONG __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Termin
     }
     else
     {
-      v12 = *S;
+      v12 = *(unsigned __int16 *)S;
       if ( v12 != 120 && v12 != 88 )
       {
         v27 = 1;
@@ -151,7 +151,7 @@ LABEL_52:
     v23 = v22 | v21;
 LABEL_54:
     *Terminator = S;
-    Addr->S_un.S_addr = _byteswap_ulong(v23);
+    *(_DWORD *)Addr = _byteswap_ulong(v23);
     return 0;
   }
   if ( v20 == 1 && v28 <= 0xFF && v29 <= 0xFF && v30 <= 0xFF && v31 <= 0xFF )

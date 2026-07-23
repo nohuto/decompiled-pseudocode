@@ -1,32 +1,32 @@
 /*
- * XREFs of TtmNotifyConsoleUserPresent @ 0x140A3C5F8
+ * XREFs of TtmNotifyConsoleUserPresent @ 0x1409F8018
  * Callers:
- *     PopNotifyConsoleUserPresent @ 0x140A3DB40 (PopNotifyConsoleUserPresent.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409F9560 (PopNotifyConsoleUserPresent.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiResetTerminalTimeouts @ 0x1407EC080 (TtmiResetTerminalTimeouts.c)
- *     TtmpAcquireSessionById @ 0x140A3AA34 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     TtmiLogConsoleUserPresent @ 0x140A3ACFC (TtmiLogConsoleUserPresent.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiResetTerminalTimeouts @ 0x1407F1BE4 (TtmiResetTerminalTimeouts.c)
+ *     TtmpAcquireSessionById @ 0x1409F6634 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     TtmiLogConsoleUserPresent @ 0x1409F68FC (TtmiLogConsoleUserPresent.c)
  */
 
-void __fastcall TtmNotifyConsoleUserPresent(unsigned int a1, int a2, __int64 a3)
+void __fastcall TtmNotifyConsoleUserPresent(int a1, int a2)
 {
-  int v4; // eax
-  _QWORD *v5; // [rsp+50h] [rbp+18h] BYREF
+  int v3; // eax
+  _QWORD *v4; // [rsp+50h] [rbp+18h] BYREF
 
-  v5 = 0LL;
-  v4 = TtmpAcquireSessionById((void **)&v5, a1, a3);
-  if ( v4 >= 0 )
+  v4 = 0LL;
+  v3 = TtmpAcquireSessionById((void **)&v4, a1);
+  if ( v3 >= 0 )
   {
-    TtmiResetTerminalTimeouts((int)v5, v5[4], a2, 1347765070, 1);
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    TtmiResetTerminalTimeouts((int)v4, v4[4], a2, 1347765070, 1);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   else
   {
-    TtmiLogError("TtmNotifyConsoleUserPresent", 3297, v4, -1);
+    TtmiLogError("TtmNotifyConsoleUserPresent", 3297, v3, -1);
   }
   TtmiLogConsoleUserPresent();
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIntSteerLogState @ 0x14012D718
+ * XREFs of KiIntSteerLogState @ 0x14012DC88
  * Callers:
- *     PpmParkSteerInterrupts @ 0x1400D7A40 (PpmParkSteerInterrupts.c)
- *     KiIntSteerDisable @ 0x140123F48 (KiIntSteerDisable.c)
- *     KiIntSteerConnect @ 0x14012D37C (KiIntSteerConnect.c)
- *     KiIntSteerLogStatus @ 0x1401DA8BC (KiIntSteerLogStatus.c)
+ *     PpmParkSteerInterrupts @ 0x1400D58E0 (PpmParkSteerInterrupts.c)
+ *     KiIntSteerDisable @ 0x1401244B8 (KiIntSteerDisable.c)
+ *     KiIntSteerConnect @ 0x14012D8EC (KiIntSteerConnect.c)
+ *     KiIntSteerLogStatus @ 0x1401DA6E8 (KiIntSteerLogStatus.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KiIntSteerEtwEventEnabled @ 0x14012D778 (KiIntSteerEtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KiIntSteerEtwEventEnabled @ 0x14012DCE8 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall KiIntSteerLogState(__int64 a1, const EVENT_DESCRIPTOR *a2)

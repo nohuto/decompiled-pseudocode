@@ -3,9 +3,9 @@
  * Callers:
  *     _splitpath_s @ 0x1403E6760 (_splitpath_s.c)
  *     HalGetEnvironmentVariable @ 0x140508580 (HalGetEnvironmentVariable.c)
- *     CmpGetToken @ 0x140B18C50 (CmpGetToken.c)
+ *     sub_140B18C50 @ 0x140B18C50 (sub_140B18C50.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl strncpy_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)
@@ -30,7 +30,7 @@ errno_t __cdecl strncpy_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_
     if ( SizeInBytes )
     {
 LABEL_4:
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return 22;
     }
     return 0;
@@ -96,6 +96,6 @@ LABEL_25:
   v6 = 22;
 LABEL_29:
   *a1 = 0;
-  xHalTimerWatchdogStop();
+  _misaligned_access();
   return v6;
 }

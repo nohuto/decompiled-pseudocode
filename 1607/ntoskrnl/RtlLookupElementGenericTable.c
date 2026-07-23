@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLookupElementGenericTable @ 0x1400C5970
+ * XREFs of RtlLookupElementGenericTable @ 0x1400C3810
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1400C59E0 (RtlSplay.c)
+ *     RtlSplay @ 0x1400C3880 (RtlSplay.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)

@@ -1,22 +1,22 @@
 /*
- * XREFs of BgpFwDisplayBugCheckScreen @ 0x1407180B4
+ * XREFs of BgpFwDisplayBugCheckScreen @ 0x14071CDA4
  * Callers:
- *     KiDisplayBlueScreen @ 0x1405E7FF4 (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x1405EA964 (KiDisplayBlueScreen.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     BgpGxDrawRectangle @ 0x1404BFC2C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x1404C009C (BgpGetBitsPerPixel.c)
- *     IoSaveBugCheckProgress @ 0x1405C7540 (IoSaveBugCheckProgress.c)
- *     BgpClearScreen @ 0x140715B44 (BgpClearScreen.c)
- *     BcpDisplayCriticalCharacter @ 0x140716734 (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x14071681C (BcpDisplayCriticalString.c)
- *     BcpDisplayErrorInformation @ 0x140716F38 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140717534 (BcpDisplayProgress.c)
- *     BcpGetComponentOffsets @ 0x140717990 (BcpGetComponentOffsets.c)
- *     BcpGetDisplayType @ 0x140717B10 (BcpGetDisplayType.c)
- *     BcpSetCursorPosition @ 0x140717E1C (BcpSetCursorPosition.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x140D144DC (BcpDisplayEarlyBugCheckScreen.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     BgpGxDrawRectangle @ 0x1404B947C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1404B98EC (BgpGetBitsPerPixel.c)
+ *     IoSaveBugCheckProgress @ 0x1405C9E10 (IoSaveBugCheckProgress.c)
+ *     BgpClearScreen @ 0x14071A834 (BgpClearScreen.c)
+ *     BcpDisplayCriticalCharacter @ 0x14071B424 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x14071B50C (BcpDisplayCriticalString.c)
+ *     BcpDisplayErrorInformation @ 0x14071BC28 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x14071C224 (BcpDisplayProgress.c)
+ *     BcpGetComponentOffsets @ 0x14071C680 (BcpGetComponentOffsets.c)
+ *     BcpGetDisplayType @ 0x14071C800 (BcpGetDisplayType.c)
+ *     BcpSetCursorPosition @ 0x14071CB0C (BcpSetCursorPosition.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x140D1A6A4 (BcpDisplayEarlyBugCheckScreen.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckScreen(__int64 a1, __int64 a2, __int64 a3, void ***a4, char a5)
@@ -68,39 +68,39 @@ __int64 __fastcall BgpFwDisplayBugCheckScreen(__int64 a1, __int64 a2, __int64 a3
   v31[2] = HIDWORD(gLoadedDiffHivesLock.Timer.TimerListEntry.Blink);
   DisplayType = (int)BcpGetDisplayType(v31);
   v11 = 21 * DisplayType;
-  v12 = *(_QWORD *)(*(_QWORD *)&stru_140E3E928.Timer.Processor + 24LL);
+  v12 = *(_QWORD *)(*(_QWORD *)&stru_140E3EAA8.Timer.Processor + 24LL);
   if ( v7 == 456 )
     *(_DWORD *)(v12 + 40) = -16777216;
   BgpClearScreen(*(_DWORD *)(v12 + 40));
   IoSaveBugCheckProgress(133);
-  BcpSetCursorPosition(dword_140E0F020[v11 + 4], dword_140E0F020[v11 + 5], &dword_140E0F020[v11 + 5]);
+  BcpSetCursorPosition(dword_140E0F0A0[v11 + 4], dword_140E0F0A0[v11 + 5], &dword_140E0F0A0[v11 + 5]);
   if ( (*(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] & 0x20000) == 0 )
   {
-    v14 = &qword_14000F0B8;
+    v14 = &qword_14000F3E8;
     if ( v7 == 456 )
-      v14 = &qword_14000F290;
-    BcpDisplayCriticalString(v14, dword_140E0F020[v11 + 3], v13, DisplayType);
+      v14 = &qword_14000F5A0;
+    BcpDisplayCriticalString(v14, dword_140E0F0A0[v11 + 3], v13, DisplayType);
   }
   BcpSetCursorPosition(
-    dword_140E0F020[v11 + 4] + dword_140E0F020[v11 + 8],
-    *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24] + dword_140E0F020[v11 + 9],
+    dword_140E0F0A0[v11 + 4] + dword_140E0F0A0[v11 + 8],
+    LODWORD(WheapPfaLock.ThreadListEntry.Blink) + dword_140E0F0A0[v11 + 9],
     0LL);
   if ( v7 == 456 )
   {
-    p_WaitListHead = &stru_140E3E928.Timer.Header.WaitListHead;
+    p_WaitListHead = &stru_140E3EAA8.Timer.Header.WaitListHead;
   }
   else
   {
-    p_WaitListHead = &stru_140E3E928.RelativeTimerBias;
+    p_WaitListHead = &stru_140E3EAA8.RelativeTimerBias;
     if ( (*(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] & 0x10000000) == 0 )
       p_WaitListHead = v16;
   }
-  BcpDisplayCriticalString(p_WaitListHead, dword_140E0F020[v11 + 2], v15, DisplayType);
-  BcpDisplayCriticalCharacter(v18, dword_140E0F020[v11 + 2], v19);
+  BcpDisplayCriticalString(p_WaitListHead, dword_140E0F0A0[v11 + 2], v15, DisplayType);
+  BcpDisplayCriticalCharacter(v18, dword_140E0F0A0[v11 + 2], v19);
   v21 = 1;
   if ( v7 == 456 )
   {
-    p_DueTime = &stru_140E3E928.Timer.DueTime;
+    p_DueTime = &stru_140E3EAA8.Timer.DueTime;
   }
   else
   {
@@ -108,18 +108,18 @@ __int64 __fastcall BgpFwDisplayBugCheckScreen(__int64 a1, __int64 a2, __int64 a3
       goto LABEL_25;
     if ( (a5 & 2) != 0 )
     {
-      p_CycleTime = &stru_140E3E928.CycleTime;
-      p_DueTime = &stru_140E3E928.SchedulingGroup;
+      p_CycleTime = &stru_140E3EAA8.CycleTime;
+      p_DueTime = &stru_140E3EAA8.SchedulingGroup;
     }
     else
     {
-      p_DueTime = &stru_140E3E928.KernelStack;
-      p_CycleTime = &stru_140E3E928.StackBase;
+      p_DueTime = &stru_140E3EAA8.KernelStack;
+      p_CycleTime = &stru_140E3EAA8.StackBase;
     }
     if ( (a5 & 4) == 0 )
       p_DueTime = p_CycleTime;
   }
-  BcpDisplayCriticalString(p_DueTime, dword_140E0F020[v11 + 2], v20, DisplayType);
+  BcpDisplayCriticalString(p_DueTime, dword_140E0F0A0[v11 + 2], v20, DisplayType);
 LABEL_25:
   v24 = 0;
   if ( !*(_QWORD *)&gLoadedDiffHivesLock.NextProcessor
@@ -133,7 +133,7 @@ LABEL_25:
     v24 = *(_DWORD *)(v26 + 4);
   }
   ComponentOffsets = BcpGetComponentOffsets(
-                       (unsigned int *)&gLoadedDiffHivesLock.ApcStateFill[24],
+                       (unsigned int *)&gLoadedDiffHivesLock.SwapListEntry + 2,
                        &gLoadedDiffHivesLock.Teb,
                        (int *)&v30,
                        DisplayType,
@@ -163,16 +163,16 @@ LABEL_25:
     else
     {
       BcpSetCursorPosition(
-        *(int *)&gLoadedDiffHivesLock.ApcStateFill[24],
-        *(int *)&gLoadedDiffHivesLock.ApcStateFill[28],
-        &gLoadedDiffHivesLock.ApcStateFill[32]);
+        *((int *)&gLoadedDiffHivesLock.SwapListEntry + 2),
+        *((int *)&gLoadedDiffHivesLock.SwapListEntry + 3),
+        &gLoadedDiffHivesLock.Queue);
       BcpDisplayProgress(0, DisplayType, v28);
-      gLoadedDiffHivesLock.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeQueryPerformanceCounter(0LL).QuadPart;
-      gLoadedDiffHivesLock.ApcState.ApcListHead[0].Blink = gLoadedDiffHivesLock.ApcState.ApcListHead[1].Flink;
-      HIDWORD(gLoadedDiffHivesLock.RelativeTimerBias) = 0;
+      gLoadedDiffHivesLock.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)KeQueryPerformanceCounter(0LL).QuadPart;
+      gLoadedDiffHivesLock.ApcState.ApcListHead[0].Blink = gLoadedDiffHivesLock.ApcState.ApcListHead[0].Flink;
+      *(_DWORD *)&gLoadedDiffHivesLock.ApcStateFill[16] = 0;
     }
-    *a4 = &stru_140E3E928.SListFaultAddress;
-    a4[1] = &stru_140E3E928.InitialStack;
+    *a4 = &stru_140E3EAA8.SListFaultAddress;
+    a4[1] = &stru_140E3EAA8.InitialStack;
   }
   return (unsigned int)ComponentOffsets;
 }

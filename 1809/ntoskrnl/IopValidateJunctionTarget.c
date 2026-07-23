@@ -1,23 +1,23 @@
 /*
- * XREFs of IopValidateJunctionTarget @ 0x14081B6BC
+ * XREFs of IopValidateJunctionTarget @ 0x14081C8BC
  * Callers:
- *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x1405E9BD0 (IopXxxControlFile.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140101D38 (IopVerifierExAllocatePoolWithQuota_0.c)
- *     FsRtlValidateReparsePointBuffer @ 0x14011CBB0 (FsRtlValidateReparsePointBuffer.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoVolumeDeviceToGuidPath @ 0x1405A4540 (IoVolumeDeviceToGuidPath.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
- *     IoVolumeDeviceToDosName @ 0x140661A40 (IoVolumeDeviceToDosName.c)
+ *     IopReferenceFileObject @ 0x14008C7DC (IopReferenceFileObject.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140101DB8 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     FsRtlValidateReparsePointBuffer @ 0x14011CC20 (FsRtlValidateReparsePointBuffer.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoVolumeDeviceToGuidPath @ 0x1405A5540 (IoVolumeDeviceToGuidPath.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x140662C00 (IoVolumeDeviceToDosName.c)
  */
 
 __int64 __fastcall IopValidateJunctionTarget(
@@ -32,10 +32,10 @@ __int64 __fastcall IopValidateJunctionTarget(
   void *v9; // r15
   char *PoolWithTag; // r14
   ULONG v11; // r12d
-  struct _REPARSE_DATA_BUFFER *PoolWithQuota_0; // rax
+  _REPARSE_DATA_BUFFER *PoolWithQuota_0; // rax
   const void *v13; // rdx
   size_t v14; // r8
-  struct _REPARSE_DATA_BUFFER *v15; // rsi
+  _REPARSE_DATA_BUFFER *v15; // rsi
   int appended; // ebx
   PDEVICE_OBJECT *v17; // r12
   _DWORD *v18; // r13
@@ -53,7 +53,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   __int64 v31; // [rsp+60h] [rbp-108h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-F8h] BYREF
   UNICODE_STRING String1; // [rsp+80h] [rbp-E8h] BYREF
-  struct _REPARSE_DATA_BUFFER *v34; // [rsp+90h] [rbp-D8h]
+  _REPARSE_DATA_BUFFER *v34; // [rsp+90h] [rbp-D8h]
   PVOID Object; // [rsp+98h] [rbp-D0h] BYREF
   int v36; // [rsp+A0h] [rbp-C8h]
   _OWORD *v37; // [rsp+A8h] [rbp-C0h]
@@ -82,9 +82,9 @@ __int64 __fastcall IopValidateJunctionTarget(
   {
     v11 = v6 - 32;
     v36 = v6 - 32;
-    PoolWithQuota_0 = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(
-                                                       NonPagedPoolNx,
-                                                       (unsigned int)(v6 - 32));
+    PoolWithQuota_0 = (_REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(
+                                                NonPagedPoolNx,
+                                                (unsigned int)(v6 - 32));
     v13 = a2 + 2;
     v14 = (unsigned int)(v6 - 32);
   }
@@ -92,7 +92,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   {
     v11 = v6;
     v36 = v6;
-    PoolWithQuota_0 = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v6);
+    PoolWithQuota_0 = (_REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v6);
     v14 = v6;
     v13 = a2;
   }

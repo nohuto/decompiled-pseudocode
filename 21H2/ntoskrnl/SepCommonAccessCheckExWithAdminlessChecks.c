@@ -1,36 +1,36 @@
 /*
- * XREFs of SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074
+ * XREFs of SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4
  * Callers:
- *     SepCommonAccessCheckEx @ 0x14037303C (SepCommonAccessCheckEx.c)
+ *     SepCommonAccessCheckEx @ 0x140372B8C (SepCommonAccessCheckEx.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepFreeResourceInfo @ 0x14027E088 (SepFreeResourceInfo.c)
- *     SepMandatoryToDiscretionary @ 0x14027E2D0 (SepMandatoryToDiscretionary.c)
- *     SepTrustLevelCheck @ 0x14027E310 (SepTrustLevelCheck.c)
- *     SepTokenIsOwner @ 0x14027E590 (SepTokenIsOwner.c)
- *     RtlpOwnerAcesPresent @ 0x14029C4D0 (RtlpOwnerAcesPresent.c)
- *     AuthzBasepSetAccessReasons @ 0x1402A2630 (AuthzBasepSetAccessReasons.c)
- *     SepLocateTokenTrustLevel @ 0x1402AAB88 (SepLocateTokenTrustLevel.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepConstrainByMandatory @ 0x1402B8C54 (SepConstrainByMandatory.c)
- *     SeLogAccessFailure @ 0x1402BAB40 (SeLogAccessFailure.c)
- *     SepLpacCausedAccessFailure @ 0x1402C7B88 (SepLpacCausedAccessFailure.c)
- *     SepMandatoryIntegrityCheck @ 0x14034E820 (SepMandatoryIntegrityCheck.c)
- *     SepFilterCheck @ 0x14034ECD0 (SepFilterCheck.c)
- *     SepAccessCheckEx @ 0x1403737C0 (SepAccessCheckEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SepBuildCapeSecurityDescriptor @ 0x140595F6C (SepBuildCapeSecurityDescriptor.c)
- *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
- *     SepLogLpacAccessFailure @ 0x140596228 (SepLogLpacAccessFailure.c)
- *     SepRmDereferenceCapTable @ 0x140596390 (SepRmDereferenceCapTable.c)
- *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
- *     AuthzBasepMergeAccessReasons @ 0x1405C1660 (AuthzBasepMergeAccessReasons.c)
- *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
- *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlpOwnerAcesPresent @ 0x140214630 (RtlpOwnerAcesPresent.c)
+ *     AuthzBasepSetAccessReasons @ 0x14021FA70 (AuthzBasepSetAccessReasons.c)
+ *     SepLocateTokenTrustLevel @ 0x140228CC8 (SepLocateTokenTrustLevel.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepConstrainByMandatory @ 0x140236E64 (SepConstrainByMandatory.c)
+ *     SeLogAccessFailure @ 0x140238D50 (SeLogAccessFailure.c)
+ *     SepLpacCausedAccessFailure @ 0x1402463DC (SepLpacCausedAccessFailure.c)
+ *     SepFreeResourceInfo @ 0x14026C028 (SepFreeResourceInfo.c)
+ *     SepMandatoryToDiscretionary @ 0x14026C270 (SepMandatoryToDiscretionary.c)
+ *     SepTrustLevelCheck @ 0x14026C2B0 (SepTrustLevelCheck.c)
+ *     SepTokenIsOwner @ 0x14026C530 (SepTokenIsOwner.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMandatoryIntegrityCheck @ 0x140359570 (SepMandatoryIntegrityCheck.c)
+ *     SepFilterCheck @ 0x140359A20 (SepFilterCheck.c)
+ *     SepAccessCheckEx @ 0x140373310 (SepAccessCheckEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x14059619C (SepBuildCapeSecurityDescriptor.c)
+ *     SepGetScopedPolicySid @ 0x1405962F8 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x140596458 (SepLogLpacAccessFailure.c)
+ *     SepRmDereferenceCapTable @ 0x1405965C0 (SepRmDereferenceCapTable.c)
+ *     SepRmReferenceFindCap @ 0x140598084 (SepRmReferenceFindCap.c)
+ *     AuthzBasepMergeAccessReasons @ 0x1405C1890 (AuthzBasepMergeAccessReasons.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140693BD0 (SepAdtAuditThisEventWithContext.c)
+ *     SeLockSubjectContext @ 0x14070D210 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14070D270 (SeUnlockSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
@@ -56,7 +56,7 @@ char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
   __int64 v21; // rdx
   int v22; // eax
   int v23; // eax
-  struct _KTHREAD *v24; // r8
+  _DWORD *v24; // r8
   __int64 v25; // r10
   int *v26; // rdx
   int v27; // ebx
@@ -70,7 +70,7 @@ char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
   int v35; // eax
   char v36; // bl
   char v37; // cl
-  LONG v38; // eax
+  int v38; // eax
   char v39; // al
   char IsOwner; // al
   int v41; // ebx
@@ -123,7 +123,7 @@ char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
   __int64 v89; // rcx
   __int16 v90; // dx
   __int64 v91; // rax
-  __int64 v92; // rax
+  ACL *v92; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v95; // rdx
@@ -409,7 +409,7 @@ char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
   v30 = *(_QWORD *)(a3 + 8);
   if ( (*(_DWORD *)(v30 + 4) & 4) == 0 )
   {
-    v31 = SepFilterCheck(*(_QWORD *)(v30 + 8), (__int64 *)&P, ClientToken, 0, &v217);
+    v31 = SepFilterCheck(*(_QWORD *)(v30 + 8), &P, ClientToken, 0, &v217);
     v25 = 0LL;
     **(_DWORD **)(a4 + 16) = v31;
     v32 = *(int **)(a4 + 16);
@@ -477,7 +477,7 @@ LABEL_34:
     **(_DWORD **)(a4 + 16) = SepMandatoryIntegrityCheck(
                                *(int **)(a3 + 32),
                                *(_QWORD *)(v34 + 8),
-                               v24,
+                               (char)v24,
                                ClientToken,
                                0,
                                a8,
@@ -485,7 +485,7 @@ LABEL_34:
     if ( **(int **)(a4 + 16) >= 0 )
     {
       v38 = SepMandatoryToDiscretionary(&v218, *(_DWORD *)(a3 + 16));
-      v24->Header.LockNV = v38;
+      *v24 = v38;
       if ( **(_DWORD **)(a4 + 16) >= (int)v25 )
       {
         if ( (*(_DWORD *)(a3 + 16) & 0x2000000) != 0 && (*(_DWORD *)(ClientToken + 200) & 0x4000) != 0 )
@@ -530,7 +530,7 @@ LABEL_40:
     goto LABEL_41;
   if ( v90 >= 0 )
   {
-    v92 = *(_QWORD *)(v89 + 24);
+    v92 = *(ACL **)(v89 + 24);
   }
   else
   {
@@ -540,9 +540,9 @@ LABEL_40:
       v213 = v25;
       goto LABEL_41;
     }
-    v92 = v89 + v91;
+    v92 = (ACL *)(v89 + v91);
   }
-  v213 = v92;
+  v213 = (__int64)v92;
   if ( v92 )
   {
     ScopedPolicySid = (void *)SepGetScopedPolicySid(v92);
@@ -955,7 +955,7 @@ LABEL_240:
     v113 = P;
     if ( !P )
     {
-      v114 = AuthzBasepInitializeResourceClaimsFromSacl(v213, (__int64 *)&P);
+      v114 = AuthzBasepInitializeResourceClaimsFromSacl(v213, &P);
       v113 = P;
       v115 = (unsigned __int8)v201;
       if ( v114 < 0 )

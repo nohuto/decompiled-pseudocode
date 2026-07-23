@@ -1,22 +1,22 @@
 /*
- * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x1408DA370
+ * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x1408DB630
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQueryAuxiliaryCounterFrequency(_QWORD *a1)
+NTSTATUS __cdecl NtQueryAuxiliaryCounterFrequency(PLARGE_INTEGER AuxiliaryCounterFrequency)
 {
-  __int64 result; // rax
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LONGLONG v3; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !KeGetCurrentThread()->PreviousMode )
-    return off_1403FE670[0]();
-  ProbeForWrite(a1, 8uLL, 4u);
-  result = ((__int64 (__fastcall *)(__int64 *))off_1403FE670[0])(&v3);
-  if ( (int)result >= 0 )
-    *a1 = v3;
+    return off_1403FF670[0]();
+  ProbeForWrite(AuxiliaryCounterFrequency, 8uLL, 4u);
+  result = ((__int64 (__fastcall *)(LONGLONG *))off_1403FF670[0])(&v3);
+  if ( result >= 0 )
+    AuxiliaryCounterFrequency->QuadPart = v3;
   return result;
 }

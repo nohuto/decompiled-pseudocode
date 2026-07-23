@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitializeSystemPartitionPhase0 @ 0x140CD9228
+ * XREFs of PspInitializeSystemPartitionPhase0 @ 0x140CDF5A8
  * Callers:
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
- *     PsCreatePartition @ 0x1407FDA4C (PsCreatePartition.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsCreatePartition @ 0x14080347C (PsCreatePartition.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PspInitializeSystemPartitionPhase0()

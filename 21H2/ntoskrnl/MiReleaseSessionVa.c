@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseSessionVa @ 0x1402D124C
+ * XREFs of MiReleaseSessionVa @ 0x14024F6DC
  * Callers:
- *     MiMakeSystemRangeAvailable @ 0x1402FD514 (MiMakeSystemRangeAvailable.c)
+ *     MiMakeSystemRangeAvailable @ 0x140308264 (MiMakeSystemRangeAvailable.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
@@ -29,10 +29,9 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
   __int64 v12; // rcx
   __int64 v13; // rdi
   __int64 v14; // rdx
-  __int64 v15; // rcx
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (unsigned __int64)(a1 - qword_140C4CDA0) >> 21;
+  v3 = (unsigned __int64)(a1 - qword_140C4CDE0) >> 21;
   v5 = CurrentThread->ApcState.Process[1].AffinityPadding[5];
   --CurrentThread->SpecialApcDisable;
   ExAcquirePushLockExclusiveEx(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 824, 0LL);
@@ -70,7 +69,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
         {
           *(_BYTE *)(v13 + 32) |= 2u;
           if ( *(__int64 *)(v13 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v13);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
           *(_DWORD *)(v13 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v13 + 25) &= ~1u;
           *(_QWORD *)(v13 + 32) = 0LL;
@@ -92,6 +91,6 @@ LABEL_19:
   KiAbThreadRemoveBoosts((ULONG_PTR)v7);
   v11 = v7->SpecialApcDisable++ == -1;
   if ( v11 && ($C459BD0D405E8E46662177FB3D0A143F *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
-    KiCheckForKernelApcDelivery(v15);
+    KiCheckForKernelApcDelivery();
   return KiLeaveGuardedRegionUnsafe(CurrentThread);
 }

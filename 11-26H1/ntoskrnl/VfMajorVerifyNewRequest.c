@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorVerifyNewRequest @ 0x140C31898
+ * XREFs of VfMajorVerifyNewRequest @ 0x140C378A8
  * Callers:
- *     IovpCallDriver1 @ 0x140C2B2B8 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140C312C8 (IovpCallDriver1.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VfMajorVerifyNewRequest(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)
@@ -15,10 +15,10 @@ __int64 __fastcall VfMajorVerifyNewRequest(__int64 a1, __int64 a2, __int64 a3, _
     v6 = (*a4 != 0xFF) + 28LL;
   else
     v6 = (unsigned __int8)*a4;
-  if ( *((_QWORD *)&unk_140FF25E8 + 12 * v6) )
+  if ( *((_QWORD *)&unk_140FF35E8 + 12 * v6) )
     guard_dispatch_icall_no_overrides(a1, a2);
-  result = qword_140FF3068;
-  if ( qword_140FF3068 )
+  result = qword_140FF4068;
+  if ( qword_140FF4068 )
     return guard_dispatch_icall_no_overrides(a1, a2);
   return result;
 }

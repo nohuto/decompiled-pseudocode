@@ -1,24 +1,24 @@
 /*
- * XREFs of SepDeleteLogonSessionTrack @ 0x140533094
+ * XREFs of SepDeleteLogonSessionTrack @ 0x1405335D4
  * Callers:
- *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x14053306C (SepRmInteractiveLogoffLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x14068CAF4 (SeInitServerSilo.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140693740 (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     SepRmDeleteLogonSessionWrkr @ 0x140693B20 (SepRmDeleteLogonSessionWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x1405335AC (SepRmInteractiveLogoffLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14068CBD8 (SeInitServerSilo.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140693824 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepRmDeleteLogonSessionWrkr @ 0x140693C04 (SepRmDeleteLogonSessionWrkr.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     SepDeleteSessionLowboxEntries @ 0x1400AFF8C (SepDeleteSessionLowboxEntries.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     SepDeleteSessionLowboxEntries @ 0x1400AE144 (SepDeleteSessionLowboxEntries.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObfDereferenceDeviceMap @ 0x140422458 (ObfDereferenceDeviceMap.c)
- *     ObDestroyHandleRevocationBlock @ 0x1404E5328 (ObDestroyHandleRevocationBlock.c)
- *     SepDeleteLogonSessionClaims @ 0x1404E53E4 (SepDeleteLogonSessionClaims.c)
- *     ObRevokeHandles @ 0x140533174 (ObRevokeHandles.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x140549C74 (SepCleanupLUIDDeviceMapDirectory.c)
- *     SepDeleteLogonSessionSidValues @ 0x140692EB8 (SepDeleteLogonSessionSidValues.c)
+ *     ObfDereferenceDeviceMap @ 0x140421318 (ObfDereferenceDeviceMap.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1404C7F44 (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteLogonSessionClaims @ 0x1404C8000 (SepDeleteLogonSessionClaims.c)
+ *     ObRevokeHandles @ 0x1405336B4 (ObRevokeHandles.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x14054A1B4 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     SepDeleteLogonSessionSidValues @ 0x140692F9C (SepDeleteLogonSessionSidValues.c)
  */
 
 __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)

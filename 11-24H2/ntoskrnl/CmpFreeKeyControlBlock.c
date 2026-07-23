@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFreeKeyControlBlock @ 0x1409D6920
+ * XREFs of CmpFreeKeyControlBlock @ 0x1409C69A0
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1407DAAC8 (CmpCloneToUnbackedKcb.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x1407DB018 (CmpCloneToUnbackedKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
  * Callees:
- *     ExFreeToLookasideListEx @ 0x1402CD350 (ExFreeToLookasideListEx.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeToLookasideListEx @ 0x1402E6050 (ExFreeToLookasideListEx.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
@@ -30,6 +30,6 @@ void __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
     CmpFreeTransientPoolWithTag((void *)v3, 0x624E4D43u);
   *(_DWORD *)(BugCheckParameter2 + 8) |= 0x10000u;
   *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
-  ExFreeToLookasideListEx(&CmpKcbLookaside, (PVOID)BugCheckParameter2);
-  _InterlockedDecrement64(qword_140FD9430);
+  ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside, (PVOID)BugCheckParameter2);
+  _InterlockedDecrement64(qword_140FDA440);
 }

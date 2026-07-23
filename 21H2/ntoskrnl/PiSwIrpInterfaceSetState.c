@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwIrpInterfaceSetState @ 0x1407CEDBC
+ * XREFs of PiSwIrpInterfaceSetState @ 0x1407CEF2C
  * Callers:
- *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14074DB50 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     PiSwUnlock @ 0x140747030 (PiSwUnlock.c)
- *     PiSwLock @ 0x1407470C4 (PiSwLock.c)
- *     PiSwDeviceOperationsAllowed @ 0x14074D08C (PiSwDeviceOperationsAllowed.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x14074D0B8 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwDeviceInterfaceSetState @ 0x14074D430 (PiSwDeviceInterfaceSetState.c)
- *     MIDL_user_free @ 0x140980320 (MIDL_user_free.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     PiSwUnlock @ 0x1407471F0 (PiSwUnlock.c)
+ *     PiSwLock @ 0x140747284 (PiSwLock.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14074D24C (PiSwDeviceOperationsAllowed.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x14074D278 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceInterfaceSetState @ 0x14074D5F0 (PiSwDeviceInterfaceSetState.c)
+ *     MIDL_user_free @ 0x140980500 (MIDL_user_free.c)
  */
 
 __int64 __fastcall PiSwIrpInterfaceSetState(PIRP Irp)
@@ -33,7 +33,7 @@ __int64 __fastcall PiSwIrpInterfaceSetState(PIRP Irp)
   v4 = MesDecodeBufferHandleCreate(Irp->AssociatedIrp.MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v9);
   if ( v4 < 0 )
     goto LABEL_9;
-  NdrMesTypeDecode3(v9, "TP 3\a", &off_1409839E8, &off_140C01A60, 3, &v8);
+  NdrMesTypeDecode3(v9, "TP 3\a", &off_140983BC8, &off_140C01A60, 3, &v8);
   if ( v8 && *(_QWORD *)v8 )
   {
     PiSwLock();

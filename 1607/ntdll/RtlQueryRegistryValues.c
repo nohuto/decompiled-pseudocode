@@ -1,12 +1,18 @@
 /*
- * XREFs of RtlQueryRegistryValues @ 0x1800E5430
+ * XREFs of RtlQueryRegistryValues @ 0x1800E54F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1800579F4 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1800579E4 (RtlpQueryRegistryValues.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValues(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, __int64 a5)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlQueryRegistryValues(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  return RtlpQueryRegistryValues(a1, a2, a3, a4, a5, 0);
+  return RtlpQueryRegistryValues(*(__int64 *)&RelativeTo, Path, (__int64)QueryTable, (__int64)Context, Environment, 0);
 }

@@ -27,9 +27,9 @@ int __thiscall LdrpGetFileSizeFromLoadAsDataTable(void *this)
   {
     while ( v3 > 0 )
     {
-      if ( *(void **)(24 * v3 + LoadAsDataTable - 24) == this )
+      if ( *((void **)LoadAsDataTable + 6 * v3 - 6) == this )
       {
-        v2 = *(_DWORD *)(24 * v3 + LoadAsDataTable - 16);
+        v2 = *((_DWORD *)LoadAsDataTable + 6 * v3 - 4);
         break;
       }
       --v3;

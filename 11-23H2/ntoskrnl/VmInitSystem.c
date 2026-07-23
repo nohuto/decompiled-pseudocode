@@ -5,8 +5,8 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
  *     ExInitializeLookasideListExInternal @ 0x140222220 (ExInitializeLookasideListExInternal.c)
- *     ExRegisterHost @ 0x140821610 (ExRegisterHost.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExRegisterHost @ 0x140821910 (ExRegisterHost.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 __fastcall VmInitSystem(int a1, __int64 a2)
@@ -35,16 +35,7 @@ __int64 __fastcall VmInitSystem(int a1, __int64 a2)
     result = ExRegisterHost(&VmpExtensionHost, a2, (unsigned __int16 *)v3);
     if ( (int)result < 0 )
       return result;
-    ExInitializeLookasideListExInternal(
-      &VmpLargeFaultBatchLookasideList.L.ListHead,
-      0LL,
-      0LL,
-      512,
-      0,
-      0x8020uLL,
-      1649175894,
-      0,
-      0);
+    ExInitializeLookasideListExInternal(&VmpLargeFaultBatchLookasideList, 0LL, 0LL, 512, 0, 0x8020uLL, 1649175894, 0, 0);
   }
   return 0LL;
 }

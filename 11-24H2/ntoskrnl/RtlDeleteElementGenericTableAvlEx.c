@@ -1,45 +1,41 @@
 /*
- * XREFs of RtlDeleteElementGenericTableAvlEx @ 0x1403F0930
+ * XREFs of RtlDeleteElementGenericTableAvlEx @ 0x1403E4650
  * Callers:
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x140617E90 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x140616450 (DifObjTrkQeuryInvokeDeleteRange.c)
  * Callees:
- *     RebalanceNode @ 0x1403F0D50 (RebalanceNode.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PiPnpRtlOperationFreeGenericTableEntry @ 0x140A2EEF0 (PiPnpRtlOperationFreeGenericTableEntry.c)
- *     SshpCacheDatabaseFree @ 0x140A61420 (SshpCacheDatabaseFree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RebalanceNode @ 0x1403E4A70 (RebalanceNode.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PiPnpRtlOperationFreeGenericTableEntry @ 0x140A23930 (PiPnpRtlOperationFreeGenericTableEntry.c)
+ *     SshpCacheDatabaseFree @ 0x140A59C00 (SshpCacheDatabaseFree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall RtlDeleteElementGenericTableAvlEx(
-        struct _RTL_AVL_TABLE *Table,
-        _RTL_BALANCED_LINKS *Buffer,
-        __int64 a3,
-        __int64 a4)
+void __fastcall RtlDeleteElementGenericTableAvlEx(_RTL_AVL_TABLE *a1, _RTL_BALANCED_LINKS *a2)
 {
   _RTL_BALANCED_LINKS *LeftChild; // rax
   _RTL_BALANCED_LINKS *j; // rcx
-  _RTL_BALANCED_LINKS *v8; // rax
+  _RTL_BALANCED_LINKS *v6; // rax
   _RTL_BALANCED_LINKS *RightChild; // rdi
   _RTL_BALANCED_LINKS *Parent; // rax
-  char v11; // dl
+  char v9; // dl
+  _RTL_BALANCED_LINKS *v10; // rcx
+  _RTL_BALANCED_LINKS *v11; // r8
   _RTL_BALANCED_LINKS *v12; // rcx
-  _RTL_BALANCED_LINKS *v13; // r8
-  _RTL_BALANCED_LINKS *v14; // rcx
-  _RTL_BALANCED_LINKS *v15; // rcx
-  _RTL_BALANCED_LINKS *v16; // r14
+  _RTL_BALANCED_LINKS *v13; // rcx
+  _RTL_BALANCED_LINKS *v14; // r14
   char Balance; // al
   void (__stdcall *FreeRoutine)(PVOID, ULONG); // rax
-  bool v19; // zf
+  bool v17; // zf
   _RTL_BALANCED_LINKS *i; // rcx
-  _RTL_BALANCED_LINKS *v21; // rcx
-  _RTL_BALANCED_LINKS *v22; // rax
-  _RTL_BALANCED_LINKS *v23; // rax
+  _RTL_BALANCED_LINKS *v19; // rcx
+  _RTL_BALANCED_LINKS *v20; // rax
+  _RTL_BALANCED_LINKS *v21; // rax
   _RTL_BALANCED_LINKS *m; // rax
   _RTL_BALANCED_LINKS *k; // rax
 
-  if ( Buffer == Table->RestartKey )
+  if ( a2 == a1->RestartKey )
   {
-    LeftChild = Buffer->LeftChild;
+    LeftChild = a2->LeftChild;
     if ( LeftChild )
     {
       for ( i = LeftChild->RightChild; i; i = i->RightChild )
@@ -47,22 +43,22 @@ void __fastcall RtlDeleteElementGenericTableAvlEx(
     }
     else
     {
-      LeftChild = Buffer->Parent;
-      for ( j = Buffer; LeftChild->LeftChild == j; LeftChild = LeftChild->Parent )
+      LeftChild = a2->Parent;
+      for ( j = a2; LeftChild->LeftChild == j; LeftChild = LeftChild->Parent )
         j = LeftChild;
       if ( LeftChild->RightChild != j || LeftChild->Parent == LeftChild )
         LeftChild = 0LL;
     }
-    Table->RestartKey = LeftChild;
+    a1->RestartKey = LeftChild;
   }
-  ++Table->DeleteCount;
-  v8 = Buffer->LeftChild;
-  if ( v8 && (RightChild = Buffer->RightChild) != 0LL )
+  ++a1->DeleteCount;
+  v6 = a2->LeftChild;
+  if ( v6 && (RightChild = a2->RightChild) != 0LL )
   {
-    if ( Buffer->Balance < 0 )
+    if ( a2->Balance < 0 )
     {
-      RightChild = Buffer->LeftChild;
-      for ( k = v8->RightChild; k; k = k->RightChild )
+      RightChild = a2->LeftChild;
+      for ( k = v6->RightChild; k; k = k->RightChild )
         RightChild = k;
     }
     else
@@ -73,103 +69,103 @@ void __fastcall RtlDeleteElementGenericTableAvlEx(
   }
   else
   {
-    RightChild = Buffer;
+    RightChild = a2;
   }
   Parent = RightChild->Parent;
-  v11 = -1;
-  v12 = RightChild->LeftChild;
-  v13 = RightChild->Parent->LeftChild;
-  if ( v12 )
+  v9 = -1;
+  v10 = RightChild->LeftChild;
+  v11 = RightChild->Parent->LeftChild;
+  if ( v10 )
   {
-    if ( v13 == RightChild )
+    if ( v11 == RightChild )
+    {
+      Parent->LeftChild = v10;
+    }
+    else
+    {
+      Parent->RightChild = v10;
+      v9 = 1;
+    }
+    v13 = RightChild->LeftChild;
+  }
+  else
+  {
+    v12 = RightChild->RightChild;
+    if ( v11 == RightChild )
     {
       Parent->LeftChild = v12;
     }
     else
     {
       Parent->RightChild = v12;
-      v11 = 1;
+      v9 = 1;
     }
-    v15 = RightChild->LeftChild;
-  }
-  else
-  {
-    v14 = RightChild->RightChild;
-    if ( v13 == RightChild )
-    {
-      Parent->LeftChild = v14;
-    }
-    else
-    {
-      Parent->RightChild = v14;
-      v11 = 1;
-    }
-    v15 = RightChild->RightChild;
-    if ( !v15 )
+    v13 = RightChild->RightChild;
+    if ( !v13 )
       goto LABEL_15;
   }
-  v15->Parent = RightChild->Parent;
+  v13->Parent = RightChild->Parent;
 LABEL_15:
-  Table->BalancedRoot.Balance = 0;
-  v16 = RightChild->Parent;
+  a1->BalancedRoot.Balance = 0;
+  v14 = RightChild->Parent;
   while ( 1 )
   {
-    Balance = v16->Balance;
-    if ( Balance == v11 )
+    Balance = v14->Balance;
+    if ( Balance == v9 )
     {
-      v16->Balance = 0;
+      v14->Balance = 0;
       goto LABEL_24;
     }
     if ( !Balance )
       break;
-    if ( (unsigned int)RebalanceNode(v16) )
+    if ( (unsigned int)RebalanceNode(v14) )
       goto LABEL_20;
-    v16 = v16->Parent;
+    v14 = v14->Parent;
 LABEL_24:
-    v11 = 1;
-    v19 = v16->Parent->RightChild == v16;
-    v16 = v16->Parent;
-    if ( !v19 )
-      v11 = -1;
+    v9 = 1;
+    v17 = v14->Parent->RightChild == v14;
+    v14 = v14->Parent;
+    if ( !v17 )
+      v9 = -1;
   }
-  v16->Balance = -v11;
-  if ( Table->BalancedRoot.Balance )
-    --Table->DepthOfTree;
+  v14->Balance = -v9;
+  if ( a1->BalancedRoot.Balance )
+    --a1->DepthOfTree;
 LABEL_20:
-  if ( Buffer != RightChild )
+  if ( a2 != RightChild )
   {
-    *(_OWORD *)&RightChild->Parent = *(_OWORD *)&Buffer->Parent;
-    *(_OWORD *)&RightChild->RightChild = *(_OWORD *)&Buffer->RightChild;
-    v21 = RightChild->Parent;
-    if ( Buffer->Parent->LeftChild == Buffer )
-      v21->LeftChild = RightChild;
+    *(_OWORD *)&RightChild->Parent = *(_OWORD *)&a2->Parent;
+    *(_OWORD *)&RightChild->RightChild = *(_OWORD *)&a2->RightChild;
+    v19 = RightChild->Parent;
+    if ( a2->Parent->LeftChild == a2 )
+      v19->LeftChild = RightChild;
     else
-      v21->RightChild = RightChild;
-    v22 = RightChild->LeftChild;
-    if ( v22 )
-      v22->Parent = RightChild;
-    v23 = RightChild->RightChild;
-    if ( v23 )
-      v23->Parent = RightChild;
+      v19->RightChild = RightChild;
+    v20 = RightChild->LeftChild;
+    if ( v20 )
+      v20->Parent = RightChild;
+    v21 = RightChild->RightChild;
+    if ( v21 )
+      v21->Parent = RightChild;
   }
-  --Table->NumberGenericTableElements;
-  FreeRoutine = (void (__stdcall *)(PVOID, ULONG))Table->FreeRoutine;
-  Table->WhichOrderedElement = 0;
-  Table->OrderedPointer = 0LL;
+  --a1->NumberGenericTableElements;
+  FreeRoutine = (void (__stdcall *)(PVOID, ULONG))a1->FreeRoutine;
+  a1->WhichOrderedElement = 0;
+  a1->OrderedPointer = 0LL;
   if ( (char *)FreeRoutine == (char *)PiPnpRtlOperationFreeGenericTableEntry )
   {
-    PiPnpRtlOperationFreeGenericTableEntry(Table, Buffer);
+    PiPnpRtlOperationFreeGenericTableEntry(a1, a2);
   }
   else if ( (char *)FreeRoutine == (char *)SshpCacheDatabaseFree )
   {
-    SshpCacheDatabaseFree(Table, Buffer);
+    SshpCacheDatabaseFree(a1, a2);
   }
   else if ( FreeRoutine == ExFreePoolWithTag )
   {
-    ExFreePoolWithTag(Table, (ULONG)Buffer);
+    ExFreePoolWithTag(a1, (ULONG)a2);
   }
   else
   {
-    guard_dispatch_icall_no_overrides(Table, Buffer, v13, a4);
+    guard_dispatch_icall_no_overrides(a1, a2);
   }
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ComputeNameLength @ 0x140687D38
+ * XREFs of ComputeNameLength @ 0x140687E1C
  * Callers:
- *     PfxFindPrefix @ 0x140687DB4 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x140687E8C (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x140687E98 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140687F70 (PfxInsertPrefix.c)
  * Callees:
  *     <none>
  */

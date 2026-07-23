@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpOsProductCacheProviderHelper @ 0x140838DA8
+ * XREFs of ExpOsProductCacheProviderHelper @ 0x14083EFE8
  * Callers:
- *     ExpCloudbookHardwareIDProvider @ 0x140838070 (ExpCloudbookHardwareIDProvider.c)
- *     ExpCloudbookHardwareLockedProvider @ 0x140838170 (ExpCloudbookHardwareLockedProvider.c)
- *     ExpGenuinePolicyPostProcess @ 0x1408386E0 (ExpGenuinePolicyPostProcess.c)
- *     ExpOsProductContentIdCacheProvider @ 0x140838F00 (ExpOsProductContentIdCacheProvider.c)
- *     ExpOsProductPfnCacheProvider @ 0x140838F40 (ExpOsProductPfnCacheProvider.c)
+ *     ExpCloudbookHardwareIDProvider @ 0x14083E2B0 (ExpCloudbookHardwareIDProvider.c)
+ *     ExpCloudbookHardwareLockedProvider @ 0x14083E3B0 (ExpCloudbookHardwareLockedProvider.c)
+ *     ExpGenuinePolicyPostProcess @ 0x14083E920 (ExpGenuinePolicyPostProcess.c)
+ *     ExpOsProductContentIdCacheProvider @ 0x14083F140 (ExpOsProductContentIdCacheProvider.c)
+ *     ExpOsProductPfnCacheProvider @ 0x14083F180 (ExpOsProductPfnCacheProvider.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SpRegOpenRedirectedKey @ 0x14083A6F0 (SpRegOpenRedirectedKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SpRegOpenRedirectedKey @ 0x140840930 (SpRegOpenRedirectedKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpOsProductCacheProviderHelper(

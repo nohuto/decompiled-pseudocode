@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbProcessThreadPriorityModification @ 0x1402888B0
+ * XREFs of KiAbProcessThreadPriorityModification @ 0x140205A50
  * Callers:
- *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
+ *     KiDirectSwitchThread @ 0x1402F1090 (KiDirectSwitchThread.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
  */
 
 void __fastcall KiAbProcessThreadPriorityModification(__int64 a1, char a2, int a3)

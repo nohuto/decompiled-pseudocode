@@ -1,13 +1,13 @@
 /*
- * XREFs of bsearch_s @ 0x1403D2590
+ * XREFs of bsearch_s @ 0x1403D2700
  * Callers:
- *     RtlGuardCheckExceptionHandler @ 0x140277304 (RtlGuardCheckExceptionHandler.c)
- *     RtlGuardCheckLongJumpTarget @ 0x14058F448 (RtlGuardCheckLongJumpTarget.c)
- *     RtlVerifyUserUnwindTarget @ 0x14091A994 (RtlVerifyUserUnwindTarget.c)
- *     SeQuerySecureBootPlatformManifest @ 0x1409240F0 (SeQuerySecureBootPlatformManifest.c)
+ *     RtlGuardCheckExceptionHandler @ 0x1402652A4 (RtlGuardCheckExceptionHandler.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x14058F678 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlVerifyUserUnwindTarget @ 0x14091AAF4 (RtlVerifyUserUnwindTarget.c)
+ *     SeQuerySecureBootPlatformManifest @ 0x140924250 (SeQuerySecureBootPlatformManifest.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall @ 0x140408560 (_guard_check_icall.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     _guard_check_icall @ 0x140408740 (_guard_check_icall.c)
  */
 
 void *__cdecl bsearch_s(

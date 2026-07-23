@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefIntCopyMixedSize @ 0x1404057D0
+ * XREFs of SymCryptFdefIntCopyMixedSize @ 0x1404059B0
  * Callers:
- *     SymCryptIntCopyMixedSize @ 0x1403F9330 (SymCryptIntCopyMixedSize.c)
+ *     SymCryptIntCopyMixedSize @ 0x1403F9510 (SymCryptIntCopyMixedSize.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall SymCryptFdefIntCopyMixedSize(__int64 a1, __int64 a2)

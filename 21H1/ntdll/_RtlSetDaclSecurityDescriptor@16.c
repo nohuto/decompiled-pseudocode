@@ -10,27 +10,31 @@
  *     <none>
  */
 
-int __stdcall RtlSetDaclSecurityDescriptor(int a1, char a2, int a3, char a4)
+NTSTATUS __cdecl RtlSetDaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        BOOLEAN DaclPresent,
+        PACL Dacl,
+        BOOLEAN DaclDefaulted)
 {
   __int16 v4; // cx
   __int16 v5; // cx
   __int16 v6; // cx
   __int16 v8; // cx
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v4 = *(_WORD *)(a1 + 2);
+  v4 = *((_WORD *)SecurityDescriptor + 1);
   if ( v4 >= 0 )
   {
-    if ( a2 )
+    if ( DaclPresent )
     {
-      *(_DWORD *)(a1 + 16) = 0;
+      *((_DWORD *)SecurityDescriptor + 4) = 0;
       v5 = v4 | 4;
-      if ( a3 )
-        *(_DWORD *)(a1 + 16) = a3;
+      if ( Dacl )
+        *((_DWORD *)SecurityDescriptor + 4) = Dacl;
       v6 = v5 & 0xFFF7;
-      *(_WORD *)(a1 + 2) = v6;
-      if ( !a4 )
+      *((_WORD *)SecurityDescriptor + 1) = v6;
+      if ( !DaclDefaulted )
         return 0;
       v8 = v6 | 8;
     }
@@ -38,7 +42,7 @@ int __stdcall RtlSetDaclSecurityDescriptor(int a1, char a2, int a3, char a4)
     {
       v8 = v4 & 0xFFFB;
     }
-    *(_WORD *)(a1 + 2) = v8;
+    *((_WORD *)SecurityDescriptor + 1) = v8;
     return 0;
   }
   return -1073741703;

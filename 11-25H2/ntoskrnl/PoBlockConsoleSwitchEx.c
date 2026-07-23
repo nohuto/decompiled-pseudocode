@@ -13,12 +13,12 @@
  *     PopDispatchStateCallout @ 0x140A2C7C0 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PoBlockConsoleSwitchEx(__int64 a1, _DWORD *a2, _QWORD *a3)
+__int64 __fastcall PoBlockConsoleSwitchEx(__int64 a1, ULONG *a2, _QWORD *a3)
 {
   unsigned __int64 v3; // rdi
   unsigned int i; // esi
   int v7; // ebx
-  int ActiveConsoleId; // [rsp+60h] [rbp+18h] BYREF
+  ULONG ActiveConsoleId; // [rsp+60h] [rbp+18h] BYREF
   LARGE_INTEGER Interval; // [rsp+68h] [rbp+20h] BYREF
 
   ActiveConsoleId = 0;

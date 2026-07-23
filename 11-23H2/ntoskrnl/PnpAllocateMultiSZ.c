@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpAllocateMultiSZ @ 0x14081968C
+ * XREFs of PnpAllocateMultiSZ @ 0x14081995C
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x140818AD0 (PiSwPdoPnPDispatch.c)
- *     PiSwPnPInfoInit @ 0x1408195D0 (PiSwPnPInfoInit.c)
+ *     PiSwPdoPnPDispatch @ 0x140818DA0 (PiSwPdoPnPDispatch.c)
+ *     PiSwPnPInfoInit @ 0x1408198A0 (PiSwPnPInfoInit.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpGetMultiSzLength @ 0x140819758 (PnpGetMultiSzLength.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpGetMultiSzLength @ 0x140819A28 (PnpGetMultiSzLength.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

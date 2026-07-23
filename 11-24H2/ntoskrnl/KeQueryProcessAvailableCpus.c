@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryProcessAvailableCpus @ 0x1405B82AC
+ * XREFs of KeQueryProcessAvailableCpus @ 0x1405B588C
  * Callers:
- *     PsQueryProcessAvailableCpus @ 0x1405E55E0 (PsQueryProcessAvailableCpus.c)
- *     PsQueryProcessAvailableCpusCount @ 0x1405E5630 (PsQueryProcessAvailableCpusCount.c)
+ *     PsQueryProcessAvailableCpus @ 0x1405E2B90 (PsQueryProcessAvailableCpus.c)
+ *     PsQueryProcessAvailableCpusCount @ 0x1405E2BE0 (PsQueryProcessAvailableCpusCount.c)
  * Callees:
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
- *     RtlBeginReadTickLock @ 0x14029D200 (RtlBeginReadTickLock.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlBeginReadTickLock @ 0x1402ABCF0 (RtlBeginReadTickLock.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
  */
 
 __int64 __fastcall KeQueryProcessAvailableCpus(
@@ -35,7 +35,7 @@ __int64 __fastcall KeQueryProcessAvailableCpus(
   }
   else
   {
-    KiUpdateProcessAvailableCpuState(a1, 0, (__int64)a3);
+    KiUpdateProcessAvailableCpuState(a1, 0);
   }
   do
   {

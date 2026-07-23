@@ -4,10 +4,10 @@
  *     KiRemoveThreadFromSchedulingGroup @ 0x140204C14 (KiRemoveThreadFromSchedulingGroup.c)
  *     KiRemoveThreadFromAnyReadyQueue @ 0x14020666C (KiRemoveThreadFromAnyReadyQueue.c)
  *     KiGroupSchedulingMoveThread @ 0x1402066D0 (KiGroupSchedulingMoveThread.c)
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1402435C0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140243690 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
  * Callees:
  *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x140305700 (KiResortScbQueue.c)
+ *     KiResortScbQueue @ 0x140305990 (KiResortScbQueue.c)
  */
 
 int __fastcall KiRemoveThreadFromScbQueue(__int64 a1, __int64 a2, __int64 a3, char a4)

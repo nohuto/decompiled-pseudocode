@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpTruncateBins @ 0x140721484
+ * XREFs of HvpTruncateBins @ 0x1406F8CDC
  * Callers:
- *     HvStoreModifiedData @ 0x140721060 (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x1406F88B8 (HvStoreModifiedData.c)
  * Callees:
- *     ExIsResourceAcquiredExclusiveLite @ 0x14028AC20 (ExIsResourceAcquiredExclusiveLite.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     HvFreeHivePartial @ 0x14072153C (HvFreeHivePartial.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140207DC0 (ExIsResourceAcquiredExclusiveLite.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HvFreeHivePartial @ 0x1406F8D94 (HvFreeHivePartial.c)
+ *     HvpMapEntryGetFreeBin @ 0x14071F4EC (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
  */
 
 char __fastcall HvpTruncateBins(ULONG_PTR BugCheckParameter2)
@@ -16,8 +16,10 @@ char __fastcall HvpTruncateBins(ULONG_PTR BugCheckParameter2)
   int i; // ebx
   int v4; // edi
   int v5; // r8d
-  _BYTE *CellMap; // rax
-  unsigned int v7; // r10d
+  __int64 CellMap; // rax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  unsigned int v9; // r10d
   __int64 FreeBin; // rax
 
   v2 = (int *)(BugCheckParameter2 + 272);
@@ -29,10 +31,10 @@ char __fastcall HvpTruncateBins(ULONG_PTR BugCheckParameter2)
       v5 = i << 31;
       do
       {
-        CellMap = (_BYTE *)HvpGetCellMap(BugCheckParameter2, v5 + v4 - 4096);
+        CellMap = HvpGetCellMap(BugCheckParameter2, (unsigned int)(v5 + v4 - 4096));
         if ( !CellMap )
-          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v7, 0x138FuLL);
-        FreeBin = HvpMapEntryGetFreeBin(CellMap);
+          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v9, 0x138FuLL);
+        FreeBin = HvpMapEntryGetFreeBin(CellMap, v7, v8);
         if ( !FreeBin )
           break;
         v4 = *(_DWORD *)(FreeBin + 20);

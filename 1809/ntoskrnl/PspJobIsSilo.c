@@ -1,8 +1,8 @@
 /*
- * XREFs of PspJobIsSilo @ 0x14008F5D8
+ * XREFs of PspJobIsSilo @ 0x14008F4F8
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspJobClose @ 0x1406065F0 (PspJobClose.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     PspJobClose @ 0x1406075F0 (PspJobClose.c)
  * Callees:
  *     <none>
  */

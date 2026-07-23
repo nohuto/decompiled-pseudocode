@@ -18,10 +18,9 @@
  *     EtwTraceCpuCacheFlush @ 0x1405A7504 (EtwTraceCpuCacheFlush.c)
  */
 
-char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, __int64 a3, __int64 a4)
+char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3, __int64 a4)
 {
   PVOID v4; // rax
-  char v5; // bp
   unsigned __int8 CurrentIrql; // r15
   __int64 v9; // r12
   char v10; // si
@@ -29,13 +28,12 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, __int64 
   _OWORD v13[2]; // [rsp+30h] [rbp-58h] BYREF
 
   LOBYTE(v4) = KiSystemFullyCoherent;
-  v5 = a3;
   memset(v13, 0, sizeof(v13));
   if ( !KiSystemFullyCoherent )
   {
     CurrentIrql = KeGetCurrentIrql();
     v9 = *(unsigned int *)(BugCheckParameter4 + 40);
-    if ( (_BYTE)a3 || a2 )
+    if ( a3 || a2 )
     {
       v10 = 1;
       if ( (*(_BYTE *)(BugCheckParameter4 + 10) & 5) != 0 )
@@ -50,14 +48,14 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, __int64 
       if ( !v11 && CurrentIrql == 15 )
         KeBugCheckEx(0x55u, 0x86uLL, 0xBADuLL, 0LL, 0LL);
       if ( (xmmword_140CFC490 & 0x4000000) != 0 )
-        LOBYTE(v4) = EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v13, 2214592512LL, a3, a4);
+        LOBYTE(v4) = EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v13, 0x84000000).LowPart;
       else
         v10 = 0;
       if ( v11 )
       {
-        LOBYTE(v4) = KiFlushRangeAllCaches(BugCheckParameter4, v11, v9, v5);
+        LOBYTE(v4) = KiFlushRangeAllCaches(BugCheckParameter4, v11, v9, a3);
       }
-      else if ( v5 )
+      else if ( a3 )
       {
         LOBYTE(v4) = KeInvalidateAllCaches();
       }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KeDisconnectInterrupt @ 0x140423CA0
+ * XREFs of KeDisconnectInterrupt @ 0x140430D90
  * Callers:
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
- *     IoDisconnectInterrupt @ 0x140A986C0 (IoDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140A9C840 (IoDisconnectInterrupt.c)
  * Callees:
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037B2F0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x140395420 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
- *     KiIntSteerDisable @ 0x140423AAC (KiIntSteerDisable.c)
- *     KiDisconnectInterruptCommon @ 0x140423DC4 (KiDisconnectInterruptCommon.c)
- *     KiDisconnectSecondaryInterrupt @ 0x140424278 (KiDisconnectSecondaryInterrupt.c)
- *     KeMaskInterrupt @ 0x140424930 (KeMaskInterrupt.c)
- *     KiIsInterruptTypeSecondary @ 0x140424BA4 (KiIsInterruptTypeSecondary.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037D0A0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403971A0 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     KiIntSteerDisable @ 0x140430B9C (KiIntSteerDisable.c)
+ *     KiDisconnectInterruptCommon @ 0x140430EB4 (KiDisconnectInterruptCommon.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x140431368 (KiDisconnectSecondaryInterrupt.c)
+ *     KeMaskInterrupt @ 0x140431A20 (KeMaskInterrupt.c)
+ *     KiIsInterruptTypeSecondary @ 0x140431C94 (KiIsInterruptTypeSecondary.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)

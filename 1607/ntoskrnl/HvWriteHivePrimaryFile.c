@@ -1,22 +1,22 @@
 /*
- * XREFs of HvWriteHivePrimaryFile @ 0x140483AA4
+ * XREFs of HvWriteHivePrimaryFile @ 0x1404827F8
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     HvSynchronizeAndDropTemporaryBins @ 0x1400B4C7C (HvSynchronizeAndDropTemporaryBins.c)
- *     HvViewMapCopyToFileOffset @ 0x1401B6684 (HvViewMapCopyToFileOffset.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     HvSynchronizeAndDropTemporaryBins @ 0x1400B2AB4 (HvSynchronizeAndDropTemporaryBins.c)
+ *     HvViewMapCopyToFileOffset @ 0x1401B6568 (HvViewMapCopyToFileOffset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpFindNextDirtyBlock @ 0x1404815C8 (HvpFindNextDirtyBlock.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
- *     HvpFinishPrimaryWrite @ 0x140483C48 (HvpFinishPrimaryWrite.c)
- *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140483CE8 (CmpTraceHiveFlushWrotePrimaryFile.c)
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
- *     HvViewMapAddressForFileOffset @ 0x14060FA68 (HvViewMapAddressForFileOffset.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
+ *     HvpFindNextDirtyBlock @ 0x14048031C (HvpFindNextDirtyBlock.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
+ *     HvpFinishPrimaryWrite @ 0x14048299C (HvpFinishPrimaryWrite.c)
+ *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140482A3C (CmpTraceHiveFlushWrotePrimaryFile.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
+ *     HvViewMapAddressForFileOffset @ 0x14060FB1C (HvViewMapAddressForFileOffset.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
  */
 
 __int64 __fastcall HvWriteHivePrimaryFile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)

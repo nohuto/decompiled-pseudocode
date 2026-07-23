@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDiagRundownRegisterCallback @ 0x14062CDC0
+ * XREFs of PnpDiagRundownRegisterCallback @ 0x14062CE74
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     PipForDeviceNodeSubtree @ 0x14051D928 (PipForDeviceNodeSubtree.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x140487410 (PipForDeviceNodeSubtree.c)
  */
 
 void __fastcall PnpDiagRundownRegisterCallback(

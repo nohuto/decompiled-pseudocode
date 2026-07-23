@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerClockPowerChange @ 0x1405811D0
+ * XREFs of HalpTimerClockPowerChange @ 0x1405836F0
  * Callers:
- *     HalpTimerPowerChange @ 0x140582BE4 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x140585104 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpSetTimerAnyMode @ 0x1404E3060 (HalpSetTimerAnyMode.c)
- *     HalpTimerClockStop @ 0x1404F9F10 (HalpTimerClockStop.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpTimerClockInitialize @ 0x140581160 (HalpTimerClockInitialize.c)
- *     KeGetNextClockTickDuration @ 0x1405ED1F0 (KeGetNextClockTickDuration.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpSetTimerAnyMode @ 0x140435C08 (HalpSetTimerAnyMode.c)
+ *     HalpTimerClockStop @ 0x1404F3520 (HalpTimerClockStop.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpTimerClockInitialize @ 0x140583680 (HalpTimerClockInitialize.c)
+ *     KeGetNextClockTickDuration @ 0x1405EFB60 (KeGetNextClockTickDuration.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 ULONG_PTR __fastcall HalpTimerClockPowerChange(ULONG_PTR BugCheckParameter3, char a2)

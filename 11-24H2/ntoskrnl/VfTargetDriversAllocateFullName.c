@@ -1,11 +1,11 @@
 /*
- * XREFs of VfTargetDriversAllocateFullName @ 0x140B8B234
+ * XREFs of VfTargetDriversAllocateFullName @ 0x140B8D234
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140B9AB3C (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140B9CB3C (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     RtlUShortAdd @ 0x14046B240 (RtlUShortAdd.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlUShortAdd @ 0x140463CC0 (RtlUShortAdd.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall VfTargetDriversAllocateFullName(__int64 a1, __int64 a2)

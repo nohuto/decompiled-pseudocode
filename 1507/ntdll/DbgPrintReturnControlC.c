@@ -11,5 +11,5 @@ __int64 DbgPrintReturnControlC(char *a1, ...)
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
   va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal(byte_180101572, 0x65u, 0, a1, va, 0);
+  return vDbgPrintExWithPrefixInternal(&Flags, 0x65u, 0, a1, va, 0);
 }

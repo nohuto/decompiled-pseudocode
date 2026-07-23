@@ -25,7 +25,7 @@ _DWORD *__stdcall RtlpComputeDllPathWithOptions(__int16 a1, wchar_t *a2)
   if ( (a1 & 0x400) != 0 )
   {
     v6[v2++] = 6;
-    if ( (_WORD)LdrpDllDirectory )
+    if ( LdrpDllDirectory.Length )
       v6[v2++] = 0;
   }
   if ( (a1 & 0x4800) != 0 )

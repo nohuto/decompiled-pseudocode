@@ -9,16 +9,16 @@
 
 void __fastcall MBR_ENTRY::ComputeChs(MBR_ENTRY *this, struct _DISK_GEOMETRY *a2)
 {
-  ULONG v2; // ebp
+  DWORD v2; // ebp
   _BYTE **v3; // rdi
   ULONG *v5; // rbx
   __int64 v6; // r14
   ULONG v7; // esi
   ULONG v8; // eax
-  ULONG v9; // ecx
+  DWORD v9; // ecx
   unsigned int v10; // r10d
   unsigned int v11; // r11d
-  ULONG SectorsPerTrack; // r8d
+  DWORD SectorsPerTrack; // r8d
   _BYTE *v13; // rdx
   _DWORD v14[2]; // [rsp+0h] [rbp-28h] BYREF
   _QWORD v15[4]; // [rsp+8h] [rbp-20h] BYREF

@@ -7,16 +7,16 @@
  *     ZwSetInformationThread @ 0x18009C880 (ZwSetInformationThread.c)
  */
 
-__int64 __fastcall RtlSetThreadWorkOnBehalfTicket(void **a1)
+NTSTATUS __fastcall RtlSetThreadWorkOnBehalfTicket(_QWORD *ThreadInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( !a1 )
-    return 3221225485LL;
-  if ( NtCurrentTeb()->SystemReserved1[53] == *a1 )
-    return 0LL;
-  result = ZwSetInformationThread(-2LL, 44LL, a1);
-  if ( (int)result >= 0 )
-    NtCurrentTeb()->SystemReserved1[53] = *a1;
+  if ( !ThreadInformation )
+    return -1073741811;
+  if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket == *ThreadInformation )
+    return 0;
+  result = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, ThreadInformation, 8u);
+  if ( result >= 0 )
+    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *ThreadInformation;
   return result;
 }

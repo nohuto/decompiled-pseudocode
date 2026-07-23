@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProtectAweUnlock @ 0x140702224
+ * XREFs of MiProtectAweUnlock @ 0x140706EF4
  * Callers:
- *     MiProtectAweRegion @ 0x140701F34 (MiProtectAweRegion.c)
+ *     MiProtectAweRegion @ 0x140706C04 (MiProtectAweRegion.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiProtectAweUnlock(__int64 a1)

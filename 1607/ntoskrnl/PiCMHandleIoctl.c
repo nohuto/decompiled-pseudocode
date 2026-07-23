@@ -1,7 +1,7 @@
 /*
- * XREFs of PiCMHandleIoctl @ 0x1404FC77C
+ * XREFs of PiCMHandleIoctl @ 0x1404DF70C
  * Callers:
- *     PiCMFastIoDeviceDispatch @ 0x1404FC714 (PiCMFastIoDeviceDispatch.c)
+ *     PiCMFastIoDeviceDispatch @ 0x1404DF6A4 (PiCMFastIoDeviceDispatch.c)
  * Callees:
  *     <none>
  */

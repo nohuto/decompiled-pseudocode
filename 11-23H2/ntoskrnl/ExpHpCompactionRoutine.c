@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpHpCompactionRoutine @ 0x140337AD0
+ * XREFs of ExpHpCompactionRoutine @ 0x140337D60
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHeapFromVA @ 0x1402AC3F0 (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpHeapCompact @ 0x140337CF4 (RtlpHpHeapCompact.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
+ *     ExGetHeapFromVA @ 0x1402AC680 (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpHeapCompact @ 0x140337F84 (RtlpHpHeapCompact.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall ExpHpCompactionRoutine(int a1)

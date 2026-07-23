@@ -1,15 +1,15 @@
 /*
- * XREFs of SepRemoveTokenLogonSession @ 0x1408A2B00
+ * XREFs of SepRemoveTokenLogonSession @ 0x1408A3D60
  * Callers:
- *     SepLinkLogonSessions @ 0x140176E18 (SepLinkLogonSessions.c)
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     SepTokenDeleteMethod @ 0x1405DEE70 (SepTokenDeleteMethod.c)
- *     SepSetServerSiloToken @ 0x14089BFE0 (SepSetServerSiloToken.c)
+ *     SepLinkLogonSessions @ 0x140176F18 (SepLinkLogonSessions.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x1405DFE70 (SepTokenDeleteMethod.c)
+ *     SepSetServerSiloToken @ 0x14089D240 (SepSetServerSiloToken.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepRemoveTokenLogonSession(__int64 a1)

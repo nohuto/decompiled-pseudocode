@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInternEntryCreate @ 0x140698A98
+ * XREFs of RtlpInternEntryCreate @ 0x1405F7790
  * Callers:
- *     RtlInternTableIntern @ 0x1406982C0 (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1405F6FB8 (RtlInternTableIntern.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 _WORD *__fastcall RtlpInternEntryCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

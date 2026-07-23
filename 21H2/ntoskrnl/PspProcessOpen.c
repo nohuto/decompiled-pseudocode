@@ -1,10 +1,10 @@
 /*
- * XREFs of PspProcessOpen @ 0x140607480
+ * XREFs of PspProcessOpen @ 0x140696F10
  * Callers:
  *     <none>
  * Callees:
- *     PspIsParentProcess @ 0x140252390 (PspIsParentProcess.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140607578 (PsTestProtectedProcessIncompatibility.c)
+ *     PspIsParentProcess @ 0x140285248 (PspIsParentProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140697008 (PsTestProtectedProcessIncompatibility.c)
  */
 
 __int64 __fastcall PspProcessOpen(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4, int *a5)

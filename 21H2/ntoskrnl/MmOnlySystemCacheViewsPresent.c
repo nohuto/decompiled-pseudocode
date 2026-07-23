@@ -1,10 +1,10 @@
 /*
- * XREFs of MmOnlySystemCacheViewsPresent @ 0x1402EEC14
+ * XREFs of MmOnlySystemCacheViewsPresent @ 0x1402F9964
  * Callers:
- *     CcCoherencyFlushAndPurgeCache @ 0x1402EF550 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1402FA2A0 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1402628E4 (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

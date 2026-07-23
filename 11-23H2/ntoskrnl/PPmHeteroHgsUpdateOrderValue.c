@@ -1,12 +1,12 @@
 /*
- * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x14059E4DC
+ * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x14059E9CC
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140393334 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140393514 (PpmHeteroUpdateHgsConfiguration.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
  */
 
 char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, unsigned int a3, char a4)
@@ -49,7 +49,7 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, unsigned in
   v8 = a1;
   if ( (unsigned int)KeIsEmptyAffinityEx((_WORD *)a1) )
   {
-    v32 = qword_140C0BE68[0];
+    v32 = qword_140C0BE78[0];
     v31 = (unsigned __int16 *)&PpmCheckRegistered;
     v33 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v29, &v31) )

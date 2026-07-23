@@ -1,13 +1,13 @@
 /*
- * XREFs of DifRegisterKernelPlugins @ 0x14064BA0C
+ * XREFs of DifRegisterKernelPlugins @ 0x14064F5EC
  * Callers:
- *     VfVolatileSetDifRuleClass @ 0x140647B64 (VfVolatileSetDifRuleClass.c)
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
+ *     VfVolatileSetDifRuleClass @ 0x14064B744 (VfVolatileSetDifRuleClass.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     CarRegisterDefaultRuleClassConfiguration @ 0x140649FD0 (CarRegisterDefaultRuleClassConfiguration.c)
- *     CarSetCustomRuleIdRange @ 0x14064A630 (CarSetCustomRuleIdRange.c)
- *     DifUtilDbgPrint @ 0x14064AD50 (DifUtilDbgPrint.c)
- *     DifCallPluginEntry @ 0x14064B4C0 (DifCallPluginEntry.c)
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x14064DBB0 (CarRegisterDefaultRuleClassConfiguration.c)
+ *     CarSetCustomRuleIdRange @ 0x14064E210 (CarSetCustomRuleIdRange.c)
+ *     DifUtilDbgPrint @ 0x14064E930 (DifUtilDbgPrint.c)
+ *     DifCallPluginEntry @ 0x14064F0A0 (DifCallPluginEntry.c)
  */
 
 void DifRegisterKernelPlugins()
@@ -48,7 +48,7 @@ void DifRegisterKernelPlugins()
 
   v5 = 39;
   v6 = VfLwSPEntry;
-  v0 = (unsigned int *)&unk_140E0EB4C;
+  v0 = (unsigned int *)&unk_140E0EBBC;
   v7 = 0;
   v8 = VfSpecialPoolEntry;
   v1 = 4LL;

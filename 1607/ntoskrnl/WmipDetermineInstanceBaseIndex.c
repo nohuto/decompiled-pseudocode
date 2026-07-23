@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipDetermineInstanceBaseIndex @ 0x140537690
+ * XREFs of WmipDetermineInstanceBaseIndex @ 0x140537BD0
  * Callers:
- *     WmipBuildInstanceSet @ 0x140537360 (WmipBuildInstanceSet.c)
+ *     WmipBuildInstanceSet @ 0x1405378A0 (WmipBuildInstanceSet.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     WmipFindGEByGuid @ 0x1404746D0 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     WmipFindGEByGuid @ 0x1404735A0 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
  */
 
 __int64 __fastcall WmipDetermineInstanceBaseIndex(_QWORD *a1, char *a2)

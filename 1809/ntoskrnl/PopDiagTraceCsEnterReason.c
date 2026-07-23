@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceCsEnterReason @ 0x140871154
+ * XREFs of PopDiagTraceCsEnterReason @ 0x1408723B4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char PopDiagTraceCsEnterReason()
@@ -65,13 +65,13 @@ char PopDiagTraceCsEnterReason()
   v2 = (unsigned __int8)PopLidOpened;
   v3 = PopPdcLastCsEnterReason;
   v4 = PopCsConsumption;
-  v5 = dword_14043C460;
+  v5 = dword_14043D520;
   v7 = PopWnfCsEnterScenarioId;
   v9 = PopPdcLastCsEnterReason;
   v10 = (unsigned __int8)PopConsoleExternalDisplayConnected;
   v11 = (unsigned __int8)PopLidOpened;
   v12 = PopCsConsumption;
-  v13 = dword_14043C460;
+  v13 = dword_14043D520;
   if ( PopDiagHandleRegistered )
   {
     v6 = PopDiagHandle;
@@ -125,7 +125,7 @@ char PopDiagTraceCsEnterReason()
       v42 = 4LL;
       v44 = 4LL;
       v46 = 4LL;
-      return TlgWrite(&pCallbackContext, &unk_140370C08, 0LL, 0LL, 8u, &pData);
+      return TlgWrite(&pCallbackContext, &unk_140371A21, 0LL, 0LL, 8u, &pData);
     }
   }
   return result;

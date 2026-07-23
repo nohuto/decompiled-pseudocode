@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLockVadShared @ 0x140275530
+ * XREFs of MiLockVadShared @ 0x1402757C0
  * Callers:
- *     MiCleanCfg @ 0x140363D74 (MiCleanCfg.c)
- *     MiWaitForRotateToComplete @ 0x140633C04 (MiWaitForRotateToComplete.c)
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4CF0 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     NtAreMappedFilesTheSame @ 0x140871690 (NtAreMappedFilesTheSame.c)
- *     MiHotPatchProcess @ 0x140A374C4 (MiHotPatchProcess.c)
- *     MmIsFileMapped @ 0x140A3C5EC (MmIsFileMapped.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140A47CF8 (MiFinishPlaceholderVadReplacement.c)
+ *     MiCleanCfg @ 0x140363F14 (MiCleanCfg.c)
+ *     MiWaitForRotateToComplete @ 0x140634154 (MiWaitForRotateToComplete.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4EE0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     NtAreMappedFilesTheSame @ 0x1408718D0 (NtAreMappedFilesTheSame.c)
+ *     MiHotPatchProcess @ 0x140A37774 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x140A3C89C (MmIsFileMapped.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A47FA8 (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockVadShared(__int64 a1, __int64 a2)

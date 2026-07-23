@@ -36,7 +36,7 @@ __int64 __fastcall KeThawMultiProcess(__int64 a1, char a2, unsigned int a3)
   v4 = (_QWORD **)(a1 + 48);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v18) = 4;
@@ -62,10 +62,10 @@ __int64 __fastcall KeThawMultiProcess(__int64 a1, char a2, unsigned int a3)
     {
 LABEL_8:
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;

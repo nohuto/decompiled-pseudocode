@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpQuerySystemMemoryNumaPerformanceInformation @ 0x140B6C088
+ * XREFs of ExpQuerySystemMemoryNumaPerformanceInformation @ 0x140B6F184
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExpGetHalNumaQueryDataType @ 0x1408468D8 (ExpGetHalNumaQueryDataType.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExpGetHalNumaQueryDataType @ 0x14084CB38 (ExpGetHalNumaQueryDataType.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQuerySystemMemoryNumaPerformanceInformation(__int128 *a1, unsigned int a2, __int64 a3, int a4)

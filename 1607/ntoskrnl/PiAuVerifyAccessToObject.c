@@ -1,14 +1,14 @@
 /*
- * XREFs of PiAuVerifyAccessToObject @ 0x1404F7F30
+ * XREFs of PiAuVerifyAccessToObject @ 0x1404DAEBC
  * Callers:
- *     PiUEventApplyAdditionalFilters @ 0x1403F0920 (PiUEventApplyAdditionalFilters.c)
- *     PiAuDoesClientHaveAccess @ 0x1404F6100 (PiAuDoesClientHaveAccess.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x1404F9F88 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiPnpRtlIsDeviceEnumerableForUser @ 0x1404FA15C (PiPnpRtlIsDeviceEnumerableForUser.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14048AB98 (PiUEventApplyAdditionalFilters.c)
+ *     PiAuDoesClientHaveAccess @ 0x1404D908C (PiAuDoesClientHaveAccess.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1404DCF14 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlIsDeviceEnumerableForUser @ 0x1404DD0E8 (PiPnpRtlIsDeviceEnumerableForUser.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall PiAuVerifyAccessToObject(

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1409E2100
+ * XREFs of VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1409E3100
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DE5C8 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall VerifierExEnterPriorityRegionAndAcquireResourceExclusive(ULONG_PTR a1)

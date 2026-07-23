@@ -8,7 +8,7 @@
  *     SepParseElamCertResources @ 0x14081238C (SepParseElamCertResources.c)
  */
 
-NTSTATUS __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a3)
+NTSTATUS __fastcall SeRegisterElamCertResources(unsigned __int64 a1, __int64 a2, char a3)
 {
   NTSTATUS result; // eax
   _QWORD v4[5]; // [rsp+40h] [rbp-28h] BYREF

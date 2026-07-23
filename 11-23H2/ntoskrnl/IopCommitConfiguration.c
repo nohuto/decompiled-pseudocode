@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCommitConfiguration @ 0x14084FDD8
+ * XREFs of IopCommitConfiguration @ 0x1408500D8
  * Callers:
- *     PnpAllocateResources @ 0x14078F4C4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x14096D548 (PnpReallocateResources.c)
- *     PnpRestoreResourcesInternal @ 0x14096D734 (PnpRestoreResourcesInternal.c)
- *     PnpRebalance @ 0x14096E8B8 (PnpRebalance.c)
+ *     PnpAllocateResources @ 0x14078F6B4 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14096D748 (PnpReallocateResources.c)
+ *     PnpRestoreResourcesInternal @ 0x14096D934 (PnpRestoreResourcesInternal.c)
+ *     PnpRebalance @ 0x14096EAB8 (PnpRebalance.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopCommitConfiguration(_QWORD **a1)

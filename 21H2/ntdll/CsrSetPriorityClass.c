@@ -1,5 +1,5 @@
 /*
- * XREFs of CsrSetPriorityClass @ 0x1800D54A0
+ * XREFs of CsrSetPriorityClass @ 0x1800D5460
  * Callers:
  *     <none>
  * Callees:

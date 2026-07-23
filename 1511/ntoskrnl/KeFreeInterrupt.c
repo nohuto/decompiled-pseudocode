@@ -7,7 +7,7 @@
  *     <none>
  */
 
-PSLIST_ENTRY __fastcall KeFreeInterrupt(struct _SLIST_ENTRY *a1)
+PSLIST_ENTRY __fastcall KeFreeInterrupt(_SLIST_ENTRY *a1)
 {
   return RtlpInterlockedPushEntrySList((PSLIST_HEADER)&a1[16].Next[1534], a1);
 }

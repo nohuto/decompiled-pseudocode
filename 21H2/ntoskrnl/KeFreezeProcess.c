@@ -1,14 +1,14 @@
 /*
- * XREFs of KeFreezeProcess @ 0x1402830E8
+ * XREFs of KeFreezeProcess @ 0x14023A64C
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x14052C368 (MiReAcquireOutSwappedProcessCommit.c)
- *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C5A8 (MiReAcquireOutSwappedProcessCommit.c)
+ *     PsFreezeProcess @ 0x140600364 (PsFreezeProcess.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KiFreezeSingleThread @ 0x1402831E8 (KiFreezeSingleThread.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiFreezeSingleThread @ 0x14023A74C (KiFreezeSingleThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -43,7 +43,7 @@ __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)
   v8 = v7 + ((*(_DWORD *)(a1 + 632) >> 3) & 1);
   if ( a2 )
   {
-    *(_QWORD *)(a1 + 72) = KiQueryUnbiasedInterruptTime();
+    *(_QWORD *)(a1 + 72) = KiQueryUnbiasedInterruptTime(0LL);
     _interlockedbittestandset((volatile signed __int32 *)(a1 + 632), 3u);
   }
   else

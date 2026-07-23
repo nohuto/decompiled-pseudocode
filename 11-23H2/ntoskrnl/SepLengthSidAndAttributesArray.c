@@ -1,11 +1,11 @@
 /*
- * XREFs of SepLengthSidAndAttributesArray @ 0x1406BD564
+ * XREFs of SepLengthSidAndAttributesArray @ 0x1406BD594
  * Callers:
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     SepCreateClaimAttributes @ 0x1407CF434 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1409D1444 (SepDuplicateClaimAttributes.c)
+ *     SepSetTokenCapabilities @ 0x1406BD648 (SepSetTokenCapabilities.c)
+ *     SepCreateClaimAttributes @ 0x1407CF704 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409D1644 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     SeCaptureSidAndAttributesArray @ 0x1406BCC50 (SeCaptureSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1406BCC80 (SeCaptureSidAndAttributesArray.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

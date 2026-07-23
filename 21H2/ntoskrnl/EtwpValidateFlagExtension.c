@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpValidateFlagExtension @ 0x1406DD7E0
+ * XREFs of EtwpValidateFlagExtension @ 0x1406B4AC0
  * Callers:
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140796F68 (EtwpUpdateTrace.c)
  * Callees:
- *     Feature_3257204026__private_IsEnabledDeviceUsage @ 0x1403F92A8 (Feature_3257204026__private_IsEnabledDeviceUsage.c)
+ *     Feature_3257204026__private_IsEnabledDeviceUsage @ 0x1403F9428 (Feature_3257204026__private_IsEnabledDeviceUsage.c)
  */
 
 __int64 __fastcall EtwpValidateFlagExtension(unsigned int *a1)

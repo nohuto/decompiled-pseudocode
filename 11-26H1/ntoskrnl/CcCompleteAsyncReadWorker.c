@@ -1,24 +1,24 @@
 /*
- * XREFs of CcCompleteAsyncReadWorker @ 0x1404BEB80
+ * XREFs of CcCompleteAsyncReadWorker @ 0x1404B83D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcFindNextWorkQueueEntry @ 0x1403852F0 (CcFindNextWorkQueueEntry.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcCompleteAsyncRead @ 0x14039E848 (CcCompleteAsyncRead.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcFindNextWorkQueueEntry @ 0x1403870A0 (CcFindNextWorkQueueEntry.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcCompleteAsyncRead @ 0x1403A05A8 (CcCompleteAsyncRead.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
 {
   __int64 v1; // rbp
   __int64 v2; // r15
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rsi
+  _SLIST_ENTRY *NextWorkQueueEntry; // rsi
   unsigned __int64 *v4; // rdi
   __int64 v5; // r13
   char v6; // bl
@@ -36,7 +36,7 @@ void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
   {
     v1 = *(_QWORD *)(a1 + 56);
     v2 = *(_QWORD *)(a1 + 72);
-    NextWorkQueueEntry = *(struct _SLIST_ENTRY **)(a1 + 48);
+    NextWorkQueueEntry = *(_SLIST_ENTRY **)(a1 + 48);
     v4 = (unsigned __int64 *)(*(_QWORD *)(a1 + 64) + 1160LL);
     v16 = *(_QWORD *)(a1 + 64);
     if ( !CcEnablePerVolumeLazyWriter )
@@ -67,7 +67,7 @@ void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
       }
       else
       {
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v9, v2, v11);
+        NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v9, v2, v11);
       }
       _m_prefetchw(v4);
       v12 = *v4;

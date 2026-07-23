@@ -10,9 +10,9 @@
  *     memset @ 0x1800A4180 (memset.c)
  */
 
-__int64 __fastcall AVrfpSnapDllImports(__int64 a1)
+int __fastcall AVrfpSnapDllImports(__int64 a1)
 {
-  __int64 result; // rax
+  int result; // eax
   __int64 *v3; // rbx
   __int64 v4; // rax
   __int64 v5; // r12
@@ -29,14 +29,15 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
   _QWORD *v16; // [rsp+38h] [rbp-110h]
   _QWORD v17[33]; // [rsp+40h] [rbp-108h] BYREF
   int v19; // [rsp+158h] [rbp+10h] BYREF
-  __int64 v20; // [rsp+168h] [rbp+20h]
+  ULONG OldProtect; // [rsp+160h] [rbp+18h] BYREF
+  __int64 v21; // [rsp+168h] [rbp+20h]
 
   if ( !AVrfpEnabled )
-    return 3221225506LL;
+    return -1073741790;
   memset(v17, 0, 0xC0uLL);
   v17[7] = a1;
   result = LdrpPrepareImportAddressTableForSnap((__int64)v17);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v3 = (__int64 *)v17[13];
     if ( v17[13] )
@@ -45,7 +46,7 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
       if ( (unsigned int)(v17[14] >> 3) )
       {
         v5 = (unsigned int)v4;
-        v20 = (unsigned int)v4;
+        v21 = (unsigned int)v4;
         do
         {
           if ( *v3 )
@@ -103,19 +104,19 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
                 }
               }
               while ( v6 != &AVrfpVerifierProvidersList );
-              v5 = v20;
+              v5 = v21;
             }
           }
           ++v3;
-          v20 = --v5;
+          v21 = --v5;
         }
         while ( v5 );
       }
-      return ZwProtectVirtualMemory();
+      return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v17[13], &v17[14], v17[17], &OldProtect);
     }
     else
     {
-      return 0LL;
+      return 0;
     }
   }
   return result;

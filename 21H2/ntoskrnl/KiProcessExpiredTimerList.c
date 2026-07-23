@@ -1,22 +1,22 @@
 /*
- * XREFs of KiProcessExpiredTimerList @ 0x140247AA0
+ * XREFs of KiProcessExpiredTimerList @ 0x1402EC2F0
  * Callers:
- *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
- *     KiExpireTimerTable @ 0x1403894B0 (KiExpireTimerTable.c)
+ *     KiRetireDpcList @ 0x1402EAF00 (KiRetireDpcList.c)
+ *     KiExpireTimerTable @ 0x140389600 (KiExpireTimerTable.c)
  * Callees:
- *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
- *     KiReadyThread @ 0x140248640 (KiReadyThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x1402AEDFC (EtwTraceTimedEvent.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwTraceReadyThread @ 0x1405A7F70 (EtwTraceReadyThread.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402129F0 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14022D15C (EtwTraceTimedEvent.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KiTimerWaitTest @ 0x1402EC640 (KiTimerWaitTest.c)
+ *     KiReadyThread @ 0x1402ECE90 (KiReadyThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiProcessThreadWaitList @ 0x1402EFB20 (KiProcessThreadWaitList.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTraceReadyThread @ 0x1405A81A0 (EtwTraceReadyThread.c)
  */
 
 __int64 __fastcall KiProcessExpiredTimerList(__int64 a1, int *a2, __int64 a3, unsigned int a4)
@@ -99,14 +99,14 @@ __int64 __fastcall KiProcessExpiredTimerList(__int64 a1, int *a2, __int64 a3, un
         BYTE8(v37) = *(_BYTE *)(v11 + 1) >> 2;
         v35[0] = &v36;
         v35[1] = 32LL;
-        result = EtwTraceKernelEvent((unsigned int)v35, 1, 1073872896, 3921, 1538);
+        result = EtwTraceKernelEvent((int)v35, 1, 0x40020000u, 3921, 1538);
       }
       if ( v12 )
       {
         if ( *(_QWORD *)(a1 + 11528) )
           KiProcessThreadWaitList(a1, 1LL, 0LL, 2LL);
         if ( v5 )
-          EtwGetKernelTraceTimestamp(v38, 536871040LL);
+          EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v38, 0x20000080u);
         v13 = *v6;
         BugCheckParameter2 = *(_QWORD *)(v12 + 24);
         v14 = BugCheckParameter2;
@@ -132,7 +132,7 @@ __int64 __fastcall KiProcessExpiredTimerList(__int64 a1, int *a2, __int64 a3, un
         if ( (_DWORD)v18 != (_DWORD)result )
           KeBugCheckEx(0xC7u, 5uLL, BugCheckParameter2, v18, *(unsigned int *)(v33 + 484));
         if ( v5 )
-          result = EtwTraceTimedEvent(3909, 536871040, (unsigned int)&BugCheckParameter2, 8, 4196866, (__int64)v38);
+          result = EtwTraceTimedEvent(3909, 0x20000080u, (__int64)&BugCheckParameter2, 8, 4196866, (__int64)v38);
       }
     }
     if ( v8 >= BugCheckParameter3_4 )

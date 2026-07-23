@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExpandFlushMdl @ 0x140465CB0
+ * XREFs of MiExpandFlushMdl @ 0x140272448
  * Callers:
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
     return 0LL;
   if ( (unsigned int)v4 > a2 )
     v4 = a2;
-  Pool = (void *)MiAllocatePool(0x40uLL, 8 * v4 + 48, 1816554829);
+  Pool = (void *)MiAllocatePool(0x40uLL, 8 * v4 + 48);
   v6 = (__int64)Pool;
   if ( !Pool )
     return 0LL;

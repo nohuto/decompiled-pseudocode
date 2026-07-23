@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFlushDirtyBitsToPfn @ 0x14012C20C
+ * XREFs of MiFlushDirtyBitsToPfn @ 0x14012C2DC
  * Callers:
- *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1406B7EBC (MmFlushVirtualMemory.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiFlushDirtyBitsToPfn(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
@@ -56,7 +56,7 @@ void __fastcall MiFlushDirtyBitsToPfn(unsigned __int64 a1, unsigned __int64 a2, 
   __int64 v38; // [rsp+78h] [rbp-88h]
 
   v3 = 0;
-  if ( !byte_14043A07C )
+  if ( !byte_14043B13C )
   {
     v36 = 20LL;
     v34 = 1;

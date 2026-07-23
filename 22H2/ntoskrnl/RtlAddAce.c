@@ -28,10 +28,10 @@ NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex
   NTSTATUS result; // eax
   __int64 v21; // r10
   bool v22; // cf
-  __int64 v23[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  v23[0] = 0LL;
-  if ( !RtlValidAcl((__int64)Acl) || !RtlFirstFreeAce((__int64)Acl, v23) )
+  FirstFree = 0LL;
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741811;
   v9 = (char *)AceList;
   AclRevision = AceRevision;
@@ -68,7 +68,7 @@ LABEL_7:
   }
   if ( v9 > v12 )
     return -1073741811;
-  if ( !v23[0] || (unsigned __int64)AceListLength + v23[0] > (unsigned __int64)Acl + Acl->AclSize )
+  if ( !FirstFree || (char *)FirstFree + AceListLength > (char *)Acl + Acl->AclSize )
     return -1073741789;
   v15 = 0;
   for ( i = Acl + 1; v15 < StartingAceIndex; i = (PACL)((char *)i + i->AclSize) )
@@ -77,7 +77,7 @@ LABEL_7:
       break;
     ++v15;
   }
-  v17 = LODWORD(v23[0]) - (_DWORD)i - 1;
+  v17 = (_DWORD)FirstFree - (_DWORD)i - 1;
   v18 = v17;
   if ( v17 >= 0 )
   {

@@ -7,10 +7,14 @@
  *     ZwQueryWnfStateNameInformation @ 0x18009D630 (ZwQueryWnfStateNameInformation.c)
  */
 
-__int64 __fastcall RtlQueryWnfMetaNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlQueryWnfMetaNotification(
+        PVOID InfoBuffer,
+        WNF_STATE_NAME_INFORMATION a2,
+        WNF_STATE_NAME a3,
+        const void *a4)
 {
-  __int64 v5; // [rsp+30h] [rbp-18h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a3;
-  return ZwQueryWnfStateNameInformation(&v5, a2, a4, a1, 4);
+  StateName = a3;
+  return ZwQueryWnfStateNameInformation(&StateName, a2, a4, InfoBuffer, 4u);
 }

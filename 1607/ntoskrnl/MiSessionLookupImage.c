@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSessionLookupImage @ 0x1400865D4
+ * XREFs of MiSessionLookupImage @ 0x140087EC4
  * Callers:
- *     MiMakeDriverPagesPrivate @ 0x140086098 (MiMakeDriverPagesPrivate.c)
- *     MiSessionUpdateImageCharges @ 0x14012C9D8 (MiSessionUpdateImageCharges.c)
- *     MiSessionRemoveImage @ 0x140130440 (MiSessionRemoveImage.c)
- *     MiSessionReferenceImage @ 0x140131878 (MiSessionReferenceImage.c)
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
- *     MmEnumerateSystemImages @ 0x140498F00 (MmEnumerateSystemImages.c)
- *     MmIsDriverLoadedCurrentSession @ 0x1404990DC (MmIsDriverLoadedCurrentSession.c)
- *     MiSessionUnloadAllImages @ 0x140531F68 (MiSessionUnloadAllImages.c)
- *     MiUnloadApproved @ 0x14054453C (MiUnloadApproved.c)
+ *     MiMakeDriverPagesPrivate @ 0x140087988 (MiMakeDriverPagesPrivate.c)
+ *     MiSessionUpdateImageCharges @ 0x14012CF48 (MiSessionUpdateImageCharges.c)
+ *     MiSessionRemoveImage @ 0x1401309B0 (MiSessionRemoveImage.c)
+ *     MiSessionReferenceImage @ 0x140131DE8 (MiSessionReferenceImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
+ *     MmEnumerateSystemImages @ 0x140499990 (MmEnumerateSystemImages.c)
+ *     MmIsDriverLoadedCurrentSession @ 0x140499B6C (MmIsDriverLoadedCurrentSession.c)
+ *     MiSessionUnloadAllImages @ 0x1405324A8 (MiSessionUnloadAllImages.c)
+ *     MiUnloadApproved @ 0x140544A7C (MiUnloadApproved.c)
  * Callees:
  *     <none>
  */

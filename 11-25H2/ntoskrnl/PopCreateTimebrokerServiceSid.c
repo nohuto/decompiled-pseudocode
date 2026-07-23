@@ -15,7 +15,7 @@ __int64 PopCreateTimebrokerServiceSid()
   _DWORD *Pool2; // rax
   _DWORD *v2; // rbx
   NTSTATUS v3; // edi
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
@@ -37,7 +37,7 @@ __int64 PopCreateTimebrokerServiceSid()
       v2[5] = 1717734767;
       v2[6] = -1973635081;
       v2[7] = -539001157;
-      PopTimeBrokerServiceSid = (__int64)v2;
+      PopTimeBrokerServiceSid = v2;
     }
   }
   else

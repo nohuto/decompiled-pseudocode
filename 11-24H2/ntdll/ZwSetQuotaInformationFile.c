@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwSetQuotaInformationFile @ 0x180165380
+ * XREFs of ZwSetQuotaInformationFile @ 0x180163740
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetQuotaInformationFile()
+NTSTATUS __cdecl ZwSetQuotaInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 440LL;
+  result = 440;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

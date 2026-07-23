@@ -1,17 +1,17 @@
 /*
- * XREFs of IoGetLegacyVetoList @ 0x1409B9120
+ * XREFs of IoGetLegacyVetoList @ 0x14099F770
  * Callers:
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
- *     ExpQueryLegacyDriverInformation @ 0x1407B4FE8 (ExpQueryLegacyDriverInformation.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
+ *     ExpQueryLegacyDriverInformation @ 0x1407B5438 (ExpQueryLegacyDriverInformation.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     IopAppendLegacyVeto @ 0x1407330BC (IopAppendLegacyVeto.c)
- *     IopGetLegacyVetoListDrivers @ 0x1409B9634 (IopGetLegacyVetoListDrivers.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409B98DC (IopGetLegacyVetoListDeviceNode.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     IopAppendLegacyVeto @ 0x140730FF0 (IopAppendLegacyVeto.c)
+ *     IopGetLegacyVetoListDrivers @ 0x14099FC84 (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x14099FF2C (IopGetLegacyVetoListDeviceNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoGetLegacyVetoList(const void **a1, _DWORD *a2)
@@ -59,7 +59,7 @@ __int64 __fastcall IoGetLegacyVetoList(const void **a1, _DWORD *a2)
   if ( *a2 && a1 )
   {
     LODWORD(v7[0]) = 0x20000;
-    v7[1] = &word_140AEA890;
+    v7[1] = &word_140AEDAC0;
     IopAppendLegacyVeto(&v8, v7);
     result = v13;
   }

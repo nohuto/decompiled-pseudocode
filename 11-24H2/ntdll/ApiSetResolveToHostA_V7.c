@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetResolveToHostA_V7 @ 0x180135C28
+ * XREFs of ApiSetResolveToHostA_V7 @ 0x180133E58
  * Callers:
- *     ApiSetResolveToHost2 @ 0x180135420 (ApiSetResolveToHost2.c)
+ *     ApiSetResolveToHost2 @ 0x180133650 (ApiSetResolveToHost2.c)
  * Callees:
- *     ApiSetpResolveHost @ 0x180135C7C (ApiSetpResolveHost.c)
+ *     ApiSetpResolveHost @ 0x180133EAC (ApiSetpResolveHost.c)
  */
 
 __int64 __fastcall ApiSetResolveToHostA_V7(int a1, __int64 a2, _BYTE *a3, _OWORD *a4)

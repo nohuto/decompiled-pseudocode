@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpPrepareNewSvmDevice @ 0x14022F1BC
+ * XREFs of ExpPrepareNewSvmDevice @ 0x14022EFE8
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x14022EB68 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x14022E994 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IoQueryInterface @ 0x1405761A0 (IoQueryInterface.c)
+ *     IoQueryInterface @ 0x1405766E0 (IoQueryInterface.c)
  */
 
 __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, _QWORD *a3)

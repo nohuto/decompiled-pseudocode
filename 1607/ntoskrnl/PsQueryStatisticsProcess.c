@@ -1,20 +1,20 @@
 /*
- * XREFs of PsQueryStatisticsProcess @ 0x14044EBC0
+ * XREFs of PsQueryStatisticsProcess @ 0x14044DA90
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     PspEnforceLimitsProcessCallback @ 0x1404695D4 (PspEnforceLimitsProcessCallback.c)
- *     PspRemoveProcessFromJobChain @ 0x140469654 (PspRemoveProcessFromJobChain.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x140469B4C (PspQueryProcessAccountingInformationCallback.c)
- *     EtwTraceAppStateChange @ 0x1404A3048 (EtwTraceAppStateChange.c)
- *     ExpCopyProcessInfo @ 0x140507350 (ExpCopyProcessInfo.c)
- *     EtwpPsProvTraceProcess @ 0x14054B508 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     PspEnforceLimitsProcessCallback @ 0x1404684A4 (PspEnforceLimitsProcessCallback.c)
+ *     PspRemoveProcessFromJobChain @ 0x140468524 (PspRemoveProcessFromJobChain.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140468A1C (PspQueryProcessAccountingInformationCallback.c)
+ *     ExpCopyProcessInfo @ 0x1404EA2E0 (ExpCopyProcessInfo.c)
+ *     EtwTraceAppStateChange @ 0x14051B448 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvTraceProcess @ 0x14054BA48 (EtwpPsProvTraceProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeQueryValuesThread @ 0x140069D50 (KeQueryValuesThread.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeQueryValuesThread @ 0x1400698D0 (KeQueryValuesThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)

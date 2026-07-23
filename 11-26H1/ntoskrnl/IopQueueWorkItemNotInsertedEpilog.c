@@ -1,10 +1,10 @@
 /*
- * XREFs of IopQueueWorkItemNotInsertedEpilog @ 0x1405CBB74
+ * XREFs of IopQueueWorkItemNotInsertedEpilog @ 0x1405CE3E4
  * Callers:
- *     IoQueueWorkItemToNode @ 0x140202EB0 (IoQueueWorkItemToNode.c)
- *     IoTryQueueWorkItem @ 0x1405CBA50 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140202F90 (IoQueueWorkItemToNode.c)
+ *     IoTryQueueWorkItem @ 0x1405CE2C0 (IoTryQueueWorkItem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall IopQueueWorkItemNotInsertedEpilog(__int64 a1)

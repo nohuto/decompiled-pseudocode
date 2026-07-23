@@ -31,9 +31,9 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
         MEMORY_CACHING_TYPE *a6,
         int a7,
         _QWORD *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
-  PVOID v9; // r12
+  _RTL_BALANCED_NODE *v9; // r12
   struct _MDL *v12; // r15
   int CommonBufferEntry; // r14d
   __int64 v14; // rax
@@ -178,7 +178,7 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
                                         (unsigned int)v25,
                                         &BaseAddress,
                                         &v40);
-      v9 = BaseAddress;
+      v9 = (_RTL_BALANCED_NODE *)BaseAddress;
       CommonBufferEntry = ContiguousVirtualBufferShared;
       CvmDebugLog();
       if ( CommonBufferEntry < 0 )
@@ -190,7 +190,7 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
     }
     else
     {
-      v9 = BaseAddress;
+      v9 = (_RTL_BALANCED_NODE *)BaseAddress;
     }
     if ( *(_QWORD *)v37 == v25 )
       goto LABEL_41;
@@ -223,7 +223,7 @@ LABEL_36:
   v12 = PagesForMdl;
   if ( !PagesForMdl )
     goto LABEL_57;
-  v9 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v36, 0LL, 0, 0x40000010u);
+  v9 = (_RTL_BALANCED_NODE *)MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v36, 0LL, 0, 0x40000010u);
 LABEL_41:
   if ( !v9 )
     goto LABEL_57;
@@ -248,13 +248,7 @@ LABEL_41:
     {
       v33 = 1;
 LABEL_51:
-      CommonBufferEntry = HalpAllocateCommonBufferEntry(
-                            (__int64)v12,
-                            (unsigned __int64)v9,
-                            QuadPart,
-                            a1,
-                            1,
-                            (__int64)v41);
+      CommonBufferEntry = HalpAllocateCommonBufferEntry((__int64)v12, v9, QuadPart, a1, 1, (__int64)v41);
       if ( CommonBufferEntry >= 0 )
       {
         *a8 = QuadPart;

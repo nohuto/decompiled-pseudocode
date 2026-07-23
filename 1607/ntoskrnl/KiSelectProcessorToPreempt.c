@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSelectProcessorToPreempt @ 0x1401D8220
+ * XREFs of KiSelectProcessorToPreempt @ 0x1401D804C
  * Callers:
- *     KiHeteroChooseTargetProcessor @ 0x1401D7F44 (KiHeteroChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x1401D7D70 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall KiSelectProcessorToPreempt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

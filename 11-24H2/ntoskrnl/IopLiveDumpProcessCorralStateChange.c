@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpProcessCorralStateChange @ 0x140467B1C
+ * XREFs of IopLiveDumpProcessCorralStateChange @ 0x14045F638
  * Callers:
- *     IopLiveDumpCorralDpc @ 0x14059A5F0 (IopLiveDumpCorralDpc.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x14059B99C (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpCorralDpc @ 0x140597570 (IopLiveDumpCorralDpc.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x14059891C (IopLiveDumpInitiateCorralStateChange.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     IopLiveDumpBufferDumpData @ 0x140599878 (IopLiveDumpBufferDumpData.c)
- *     KeRestoreSupervisorState @ 0x1405B87E0 (KeRestoreSupervisorState.c)
- *     KeSaveSupervisorState @ 0x1405B8864 (KeSaveSupervisorState.c)
- *     KeResumeClockTimerSafe @ 0x1405B9F4C (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x1405B9FAC (KeSuspendClockTimerSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405967F8 (IopLiveDumpBufferDumpData.c)
+ *     KeRestoreSupervisorState @ 0x1405B5E20 (KeRestoreSupervisorState.c)
+ *     KeSaveSupervisorState @ 0x1405B5EA4 (KeSaveSupervisorState.c)
+ *     KeResumeClockTimerSafe @ 0x1405B757C (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x1405B75DC (KeSuspendClockTimerSafe.c)
  */
 
 char __fastcall IopLiveDumpProcessCorralStateChange(__int64 a1, __int64 a2)

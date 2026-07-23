@@ -1,34 +1,35 @@
 /*
- * XREFs of KiIdleSchedule @ 0x140256BD0
+ * XREFs of KiIdleSchedule @ 0x140278140
  * Callers:
- *     KiIdleLoop @ 0x140402950 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140402B30 (KiIdleLoop.c)
  * Callees:
- *     KiEndThreadCycleAccumulation @ 0x14022E080 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x140231260 (KiStartThreadCycleAccumulation.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiSearchForNewThread @ 0x140256CB8 (KiSearchForNewThread.c)
+ *     KiSearchForNewThread @ 0x140278228 (KiSearchForNewThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402D28D0 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402D5AB0 (KiStartThreadCycleAccumulation.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x14051FF30 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140520170 (KiSendHeteroRescheduleIntRequest.c)
  */
 
-__int64 __fastcall KiIdleSchedule(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiIdleSchedule(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rdi
   _DWORD *SchedulerAssist; // rcx
-  __int64 v7; // rdx
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // rdi
+  __int64 v7; // r8
   __int64 v8; // rdx
-  __int64 v9; // rdi
-  __int64 v10; // rdx
-  struct _KPRCB *v12; // rcx
-  _DWORD *v13; // rdx
-  _DWORD *v14; // rcx
+  struct _KPRCB *v10; // rcx
+  _DWORD *v11; // rdx
+  _DWORD *v12; // rcx
+  int v13; // eax
+  int v14; // eax
   int v15; // eax
-  int v16; // eax
-  int v17; // eax
-  int v18; // [rsp+30h] [rbp+8h] BYREF
+  int v16; // [rsp+30h] [rbp+8h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v18 = 0;
+  v16 = 0;
   while ( 1 )
   {
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -36,51 +37,51 @@ __int64 __fastcall KiIdleSchedule(__int64 a1, __int64 a2, __int64 a3, __int64 a4
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v15 = SchedulerAssist[6];
-        SchedulerAssist[6] = v15 + 1;
-        if ( v15 == -1 )
+        v13 = SchedulerAssist[6];
+        SchedulerAssist[6] = v13 + 1;
+        if ( v13 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 48), 0LL) )
       break;
-    v14 = CurrentPrcb->SchedulerAssist;
-    if ( v14 )
+    v12 = CurrentPrcb->SchedulerAssist;
+    if ( v12 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v16 = v14[6] - 1;
-        v14[6] = v16;
-        if ( !v16 )
+        v14 = v12[6] - 1;
+        v12[6] = v14;
+        if ( !v14 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v18, a2, a3, a4);
+      KeYieldProcessorEx(&v16);
     while ( *(_QWORD *)(a1 + 48) );
   }
   *(_BYTE *)(a1 + 12587) = 0;
-  v7 = *(_QWORD *)(a1 + 24);
-  if ( *(_QWORD *)(a1 + 16) == v7 )
+  v4 = *(_QWORD *)(a1 + 24);
+  if ( *(_QWORD *)(a1 + 16) == v4 )
     *(_QWORD *)(a1 + 16) = 0LL;
   _disable();
-  KiEndThreadCycleAccumulation(a1, v7, 0LL);
+  KiEndThreadCycleAccumulation(a1, v4, 0LL);
   _enable();
-  LOBYTE(v8) = 1;
-  v9 = KiSearchForNewThread(a1, v8);
-  if ( v9 )
+  LOBYTE(v5) = 1;
+  v6 = KiSearchForNewThread(a1, v5);
+  if ( v6 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 48), 0LL);
-    v12 = KeGetCurrentPrcb();
-    v13 = v12->SchedulerAssist;
-    if ( v13 )
+    v10 = KeGetCurrentPrcb();
+    v11 = v10->SchedulerAssist;
+    if ( v11 )
     {
-      if ( v12->NestingLevel <= 1u )
+      if ( v10->NestingLevel <= 1u )
       {
-        v17 = v13[6] - 1;
-        v13[6] = v17;
-        if ( !v17 )
-          KiRemoveSystemWorkPriorityKick(v12);
+        v15 = v11[6] - 1;
+        v11[6] = v15;
+        if ( !v15 )
+          KiRemoveSystemWorkPriorityKick(v10);
       }
     }
   }
@@ -88,10 +89,11 @@ __int64 __fastcall KiIdleSchedule(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   {
     if ( KeHeteroSystem && !KeHeteroSystemVirtual )
       KiSendHeteroRescheduleIntRequest(a1);
-    v10 = *(_QWORD *)(a1 + 24);
+    v8 = *(_QWORD *)(a1 + 24);
     _disable();
-    KiStartThreadCycleAccumulation(a1, v10, 1);
+    LOBYTE(v7) = 1;
+    KiStartThreadCycleAccumulation(a1, v8, v7);
     _enable();
   }
-  return v9;
+  return v6;
 }

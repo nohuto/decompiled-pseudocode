@@ -1,14 +1,14 @@
 /*
- * XREFs of SepRmCapUpdateWrkr @ 0x14085CF30
+ * XREFs of SepRmCapUpdateWrkr @ 0x14085D170
  * Callers:
- *     SepRmCommandServerThread @ 0x14082B780 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x14082BA80 (SepRmCommandServerThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SepBuildCapPolicyTable @ 0x1403AE56C (SepBuildCapPolicyTable.c)
- *     SepRmDereferenceCapTable @ 0x1405B7EB0 (SepRmDereferenceCapTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SepBuildCapPolicyTable @ 0x1403AE74C (SepBuildCapPolicyTable.c)
+ *     SepRmDereferenceCapTable @ 0x1405B8420 (SepRmDereferenceCapTable.c)
  */
 
 __int64 __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
@@ -46,7 +46,7 @@ __int64 __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
     v6 = (volatile signed __int64 *)SepRmCapTable;
     SepRmCapTable = (PRTL_DYNAMIC_HASH_TABLE)v10;
     SepRmEnforceCap = v10 != 0;
-    if ( v10 && (_DWORD)InitSafeBootMode == 1 )
+    if ( v10 && InitSafeBootMode == 1 )
     {
       SepRmDereferenceCapTable((volatile signed __int64 *)SepRmCapTable);
       SepRmCapTable = 0LL;

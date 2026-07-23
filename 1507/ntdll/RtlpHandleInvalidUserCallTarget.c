@@ -7,9 +7,9 @@
  *     RtlpGuardIsSuppressedAddress @ 0x1800E57F0 (RtlpGuardIsSuppressedAddress.c)
  */
 
-__int64 __fastcall RtlpHandleInvalidUserCallTarget(unsigned __int64 a1)
+NTSTATUS __fastcall RtlpHandleInvalidUserCallTarget(void *a1)
 {
   if ( !RtlGuardAllowSuppressedCalls || !RtlpGuardIsSuppressedAddress(a1) )
     RtlFailFast2(0xAu);
-  return RtlpGuardGrantSuppressedCallAccess(a1);
+  return RtlpGuardGrantSuppressedCallAccess((__int64)a1);
 }

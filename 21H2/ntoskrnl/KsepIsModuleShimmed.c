@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepIsModuleShimmed @ 0x14075B8D8
+ * XREFs of KsepIsModuleShimmed @ 0x14075BA98
  * Callers:
- *     KsepGetShimCallbacksForDriver @ 0x140758650 (KsepGetShimCallbacksForDriver.c)
- *     KsepGetShimsForDriver @ 0x140758B78 (KsepGetShimsForDriver.c)
- *     KseDriverUnloadImage @ 0x140772EF4 (KseDriverUnloadImage.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140758810 (KsepGetShimCallbacksForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140758D38 (KsepGetShimsForDriver.c)
+ *     KseDriverUnloadImage @ 0x1407730B4 (KseDriverUnloadImage.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
@@ -25,7 +25,7 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
   CurrentThread = KeGetCurrentThread();
   *a3 = 0LL;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C50610, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C50650, 0LL);
   v8 = (_QWORD **)(a1 + 32);
   v9 = *v8;
   while ( v9 != v8 )
@@ -39,9 +39,9 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
       break;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C50610, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C50610);
-  KeAbPostRelease((ULONG_PTR)&qword_140C50610);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C50650, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C50650);
+  KeAbPostRelease((ULONG_PTR)&qword_140C50650);
   KeLeaveCriticalRegion();
   return v3;
 }

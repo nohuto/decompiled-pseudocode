@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14053EC5C
+ * XREFs of FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14053F31C
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BFC24 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053E1A0 (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpOplockBreakToNone @ 0x14053E8F0 (FsRtlpOplockBreakToNone.c)
- *     FsRtlCheckUpperOplock @ 0x14093DBD0 (FsRtlCheckUpperOplock.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpRequestShareableOplock @ 0x140301BB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403BFE04 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053E6F0 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053EFB8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlCheckUpperOplock @ 0x14093DDD0 (FsRtlCheckUpperOplock.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall FsRtlpRemoveAndCompleteReadOnlyIrp(_QWORD *a1, int a2, unsigned int a3, __int64 a4)
@@ -56,7 +56,7 @@ void __fastcall FsRtlpRemoveAndCompleteReadOnlyIrp(_QWORD *a1, int a2, unsigned 
     v24 = 8LL;
     v26 = 4LL;
     v28 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)byte_14002A3A8, 0LL, 0LL, 6u, v20);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)byte_14002A2B9, 0LL, 0LL, 6u, v20);
   }
   v9 = (IRP *)(a1 - 21);
   v10 = a1[2];
@@ -109,6 +109,6 @@ void __fastcall FsRtlpRemoveAndCompleteReadOnlyIrp(_QWORD *a1, int a2, unsigned 
     v25 = &v16;
     v24 = 8LL;
     v26 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)word_14002A1BA, 0LL, 0LL, 5u, v20);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)byte_14002A42B, 0LL, 0LL, 5u, v20);
   }
 }

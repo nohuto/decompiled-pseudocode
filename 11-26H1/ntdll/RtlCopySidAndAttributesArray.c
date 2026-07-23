@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlCopySidAndAttributesArray @ 0x18013CCD0
+ * XREFs of RtlCopySidAndAttributesArray @ 0x18013CB80
  * Callers:
  *     <none>
  * Callees:
- *     RtlCopySid @ 0x1800C8CC0 (RtlCopySid.c)
+ *     RtlCopySid @ 0x1800C6480 (RtlCopySid.c)
  */
 
-__int64 __fastcall RtlCopySidAndAttributesArray(
-        unsigned int a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        char *a5,
-        _QWORD *a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlCopySidAndAttributesArray(
+        ULONG Count,
+        PSID_AND_ATTRIBUTES Src,
+        ULONG SidAreaSize,
+        PSID_AND_ATTRIBUTES Dest,
+        PSID SidArea,
+        PSID *RemainingSidArea,
+        PULONG RemainingSidAreaSize)
 {
-  unsigned int i; // esi
+  ULONG i; // esi
   unsigned int v13; // ebp
 
-  for ( i = 0; i < a1; ++i )
+  for ( i = 0; i < Count; ++i )
   {
-    v13 = 4 * *(unsigned __int8 *)(*(_QWORD *)(a2 + 16LL * i) + 1LL) + 8;
-    if ( v13 > a3 )
-      return 3221225507LL;
-    *(_QWORD *)(a4 + 16LL * i) = a5;
-    *(_DWORD *)(a4 + 16LL * i + 8) = *(_DWORD *)(a2 + 16LL * i + 8);
-    a3 -= v13;
-    RtlCopySid(v13, a5, *(unsigned __int8 **)(a2 + 16LL * i));
-    a5 += v13;
+    v13 = 4 * *((unsigned __int8 *)Src[i].Sid + 1) + 8;
+    if ( v13 > SidAreaSize )
+      return -1073741789;
+    Dest[i].Sid = SidArea;
+    Dest[i].Attributes = Src[i].Attributes;
+    SidAreaSize -= v13;
+    RtlCopySid(v13, SidArea, Src[i].Sid);
+    SidArea = (char *)SidArea + v13;
   }
-  *a6 = a5;
-  *a7 = a3;
-  return 0LL;
+  *RemainingSidArea = SidArea;
+  *RemainingSidAreaSize = SidAreaSize;
+  return 0;
 }

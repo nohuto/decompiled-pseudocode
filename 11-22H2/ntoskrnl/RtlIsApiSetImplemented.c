@@ -10,13 +10,13 @@
  *     PsQueryCurrentApiSetSchema @ 0x1407D468C (PsQueryCurrentApiSetSchema.c)
  */
 
-__int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
+NTSTATUS __cdecl RtlIsApiSetImplemented(PCSTR ApiSetName)
 {
   char v1; // si
   bool v2; // di
-  NTSTATUS v3; // ebx
+  int v3; // ebx
   __int64 CurrentApiSetSchema; // rax
-  NTSTATUS v5; // eax
+  int v5; // eax
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-20h] BYREF
   STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   char v9; // [rsp+68h] [rbp+28h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
   v9 = 0;
   v10 = 0;
   DestinationString = 0LL;
-  RtlInitAnsiString(&DestinationString, SourceString);
+  RtlInitAnsiString(&DestinationString, ApiSetName);
   UnicodeString = 0LL;
   v3 = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
   if ( v3 >= 0 )
@@ -41,6 +41,6 @@ __int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
   if ( UnicodeString.Buffer )
     RtlFreeUnicodeString(&UnicodeString);
   if ( v3 >= 0 && (!v1 || !v2) )
-    return (unsigned int)-1073741275;
-  return (unsigned int)v3;
+    return -1073741275;
+  return v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpDereferenceSessionMaybeLast @ 0x140880950
+ * XREFs of TtmpDereferenceSessionMaybeLast @ 0x140881BB0
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x14087EBEC (TtmiSessionTerminalListWorker.c)
- *     TtmCleanupCurrentSession @ 0x14087F71C (TtmCleanupCurrentSession.c)
- *     TtmpSessionWorker @ 0x1408810C0 (TtmpSessionWorker.c)
- *     TtmpDeleteQueue @ 0x140882760 (TtmpDeleteQueue.c)
+ *     TtmiSessionTerminalListWorker @ 0x14087FE4C (TtmiSessionTerminalListWorker.c)
+ *     TtmCleanupCurrentSession @ 0x14088097C (TtmCleanupCurrentSession.c)
+ *     TtmpSessionWorker @ 0x140882320 (TtmpSessionWorker.c)
+ *     TtmpDeleteQueue @ 0x1408839C0 (TtmpDeleteQueue.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmpDereferenceSessionMaybeLast(volatile signed __int32 *a1)

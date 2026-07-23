@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSetFileObjectExtensionFlag @ 0x140079F70
+ * XREFs of IopSetFileObjectExtensionFlag @ 0x140079FF0
  * Callers:
- *     IopCheckInitiatorHint @ 0x14009CF4C (IopCheckInitiatorHint.c)
- *     IopRevokeFileObjectForProcess @ 0x1401CA16C (IopRevokeFileObjectForProcess.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x14046B43C (IopAllocateFoExtensionsOnCreate.c)
- *     IoRegisterContainerNotification @ 0x14057C124 (IoRegisterContainerNotification.c)
- *     IoSetFileObjectIgnoreSharing @ 0x1406239F8 (IoSetFileObjectIgnoreSharing.c)
+ *     IopCheckInitiatorHint @ 0x14009C74C (IopCheckInitiatorHint.c)
+ *     IopRevokeFileObjectForProcess @ 0x1401CA00C (IopRevokeFileObjectForProcess.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14046A30C (IopAllocateFoExtensionsOnCreate.c)
+ *     IoRegisterContainerNotification @ 0x14057C5D0 (IoRegisterContainerNotification.c)
+ *     IoSetFileObjectIgnoreSharing @ 0x140623AAC (IoSetFileObjectIgnoreSharing.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x1400EB590 (IopAllocateFileObjectExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x1400E9400 (IopAllocateFileObjectExtension.c)
  */
 
 __int64 __fastcall IopSetFileObjectExtensionFlag(__int64 a1, int a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsManufacturingModeEnabled @ 0x140B50070
+ * XREFs of ExIsManufacturingModeEnabled @ 0x140B52900
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140D04488 (IopInitializeSystemDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140D0A758 (IopInitializeSystemDrivers.c)
  * Callees:
  *     <none>
  */
 
 char ExIsManufacturingModeEnabled()
 {
-  return ExpSysDbgLock.SchedulerApc.ApcStateIndex & 1;
+  return (__int64)ExpSysDbgLock.MutantListHead.Blink & 1;
 }

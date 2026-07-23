@@ -1,21 +1,21 @@
 /*
- * XREFs of pIoQueryBusDescription @ 0x1407CEA28
+ * XREFs of pIoQueryBusDescription @ 0x1407CECF8
  * Callers:
- *     IoQueryDeviceDescription @ 0x1407CE470 (IoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEA28 (pIoQueryBusDescription.c)
+ *     IoQueryDeviceDescription @ 0x1407CE740 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x1407CECF8 (pIoQueryBusDescription.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     pIoQueryDeviceDescription @ 0x1407CE584 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEA28 (pIoQueryBusDescription.c)
- *     IopGetRegistryKeyInformation @ 0x1407CED98 (IopGetRegistryKeyInformation.c)
- *     IopOpenRegistryKey @ 0x1407CEF1C (IopOpenRegistryKey.c)
- *     IopGetRegistryValues @ 0x1407CF034 (IopGetRegistryValues.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     pIoQueryDeviceDescription @ 0x1407CE854 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x1407CECF8 (pIoQueryBusDescription.c)
+ *     IopGetRegistryKeyInformation @ 0x1407CF068 (IopGetRegistryKeyInformation.c)
+ *     IopOpenRegistryKey @ 0x1407CF1EC (IopOpenRegistryKey.c)
+ *     IopGetRegistryValues @ 0x1407CF304 (IopGetRegistryValues.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

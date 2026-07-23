@@ -18,36 +18,39 @@ __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, int a2)
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
+  __int64 v8; // r9
   unsigned int started; // eax
-  unsigned int v9; // ebx
-  _BYTE v11[88]; // [rsp+40h] [rbp-58h] BYREF
+  unsigned int v10; // ebx
+  __int64 v12; // [rsp+20h] [rbp-78h]
+  __int64 v13; // [rsp+28h] [rbp-70h]
+  _BYTE v14[88]; // [rsp+40h] [rbp-58h] BYREF
 
-  memset(v11, 0, 0x4CuLL);
+  memset(v14, 0, 0x4CuLL);
   PopAcquirePolicyLock(v4);
-  PopFilterCapabilities(&PopCapabilities, (__int64)v11);
-  if ( v11[20] )
+  PopFilterCapabilities(&PopCapabilities, (__int64)v14);
+  if ( v14[20] )
   {
     started = PopTriggerMonitorPowerEvent(a1 == 0, a2);
 LABEL_8:
-    v9 = started;
+    v10 = started;
     goto LABEL_9;
   }
-  if ( v11[3] || v11[4] || v11[5] )
+  if ( v14[3] || v14[4] || v14[5] )
   {
     started = PopStartStopTtmSxTranstion(a1);
     goto LABEL_8;
   }
-  v9 = 0;
+  v10 = 0;
 LABEL_9:
-  PopReleasePolicyLock(v6, v5, v7);
-  if ( v11[20]
+  PopReleasePolicyLock(v6, v5, v7, v8, v12, v13);
+  if ( v14[20]
     && !a1
-    && (!v9 || v9 == 259)
+    && (!v10 || v10 == 259)
     && PopLastStandbyExitScenarioId != PopWdiCurrentScenarioInstanceId
     && !PopConsoleDisplayState )
   {
     PopLastStandbyExitScenarioId = PopWdiCurrentScenarioInstanceId;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, (__int64)&PopWdiCurrentScenarioInstanceId);
+    ZwUpdateWnfStateData(&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, &PopWdiCurrentScenarioInstanceId, 8u, 0LL, 0LL, 0, 0);
   }
-  return v9;
+  return v10;
 }

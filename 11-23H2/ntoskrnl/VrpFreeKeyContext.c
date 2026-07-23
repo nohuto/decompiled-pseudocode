@@ -3,10 +3,10 @@
  * Callers:
  *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
  *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A068 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x14077A444 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A258 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPreLoadKey @ 0x14077A634 (VrpPreLoadKey.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
  *     VrpDecommissionKeyContext @ 0x14068EC6C (VrpDecommissionKeyContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiBuildMdlForMappedFileFault @ 0x1402DFD70
+ * XREFs of MiBuildMdlForMappedFileFault @ 0x1402E0000
  * Callers:
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReduceMappedFileReadAhead @ 0x140294644 (MiReduceMappedFileReadAhead.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MiAdvanceFaultList @ 0x1402EE7F4 (MiAdvanceFaultList.c)
- *     MiReduceMappedFileReadBehind @ 0x140353310 (MiReduceMappedFileReadBehind.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReduceMappedFileReadAhead @ 0x1402948D4 (MiReduceMappedFileReadAhead.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiGetHardFaultPages @ 0x1402DF504 (MiGetHardFaultPages.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E17F0 (MiProtectionToCacheAttribute.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     MiAdvanceFaultList @ 0x1402EEA84 (MiAdvanceFaultList.c)
+ *     MiReduceMappedFileReadBehind @ 0x1403534B0 (MiReduceMappedFileReadBehind.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiBuildMdlForMappedFileFault(
@@ -122,7 +122,7 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
   __int128 v100; // [rsp+F0h] [rbp-10h]
   __int128 v101; // [rsp+100h] [rbp+0h]
   __int128 v102; // [rsp+110h] [rbp+10h]
-  RTL_BITMAP BitMapHeader; // [rsp+120h] [rbp+20h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+120h] [rbp+20h] BYREF
   _OWORD v104[3]; // [rsp+130h] [rbp+30h] BYREF
   __int64 v105; // [rsp+160h] [rbp+60h]
   int v106; // [rsp+168h] [rbp+68h]

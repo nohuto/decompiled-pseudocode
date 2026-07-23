@@ -1,10 +1,10 @@
 /*
- * XREFs of ReadStringDelimited_0 @ 0x18009C9AC
+ * XREFs of ReadStringDelimited_0 @ 0x18009C9BC
  * Callers:
- *     _input_s @ 0x18009CB6C (_input_s.c)
+ *     _input_s @ 0x18009CB7C (_input_s.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ReadString_0 @ 0x18009C800 (ReadString_0.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ReadString_0 @ 0x18009C810 (ReadString_0.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExAllocateCallBack @ 0x14054CCD0
+ * XREFs of ExAllocateCallBack @ 0x14054D210
  * Callers:
- *     KeRegisterBoundCallback @ 0x1401D2A80 (KeRegisterBoundCallback.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x14054CC44 (PspSetCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140575954 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkLkmdRegisterCallback @ 0x14057CDB4 (DbgkLkmdRegisterCallback.c)
- *     PsSetLoadImageNotifyRoutine @ 0x14057D778 (PsSetLoadImageNotifyRoutine.c)
- *     PsEstablishWin32Callouts @ 0x1405813D8 (PsEstablishWin32Callouts.c)
+ *     KeRegisterBoundCallback @ 0x1401D28AC (KeRegisterBoundCallback.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x14054D184 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140575E94 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdRegisterCallback @ 0x14057D260 (DbgkLkmdRegisterCallback.c)
+ *     PsSetLoadImageNotifyRoutine @ 0x14057DC24 (PsSetLoadImageNotifyRoutine.c)
+ *     PsEstablishWin32Callouts @ 0x140581884 (PsEstablishWin32Callouts.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDeleteFileExtentList @ 0x1407705B4
+ * XREFs of MiDeleteFileExtentList @ 0x1407735B4
  * Callers:
- *     MiDeleteCachedSubsections @ 0x1404A6F5C (MiDeleteCachedSubsections.c)
- *     MiDeleteSubsectionExtents @ 0x1404B6680 (MiDeleteSubsectionExtents.c)
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
- *     MiEntireSubsectionIsPurged @ 0x140529CA0 (MiEntireSubsectionIsPurged.c)
- *     MiEnableImageDirectMap @ 0x1406F9834 (MiEnableImageDirectMap.c)
- *     MiCreateImageMapFreeResources @ 0x140A55C50 (MiCreateImageMapFreeResources.c)
- *     MiDeleteFileExtents @ 0x140AC35A8 (MiDeleteFileExtents.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     MiDeleteCachedSubsections @ 0x1404A05EC (MiDeleteCachedSubsections.c)
+ *     MiDeleteSubsectionExtents @ 0x1404AFAD0 (MiDeleteSubsectionExtents.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
+ *     MiEntireSubsectionIsPurged @ 0x14052C1C0 (MiEntireSubsectionIsPurged.c)
+ *     MiEnableImageDirectMap @ 0x1406FE504 (MiEnableImageDirectMap.c)
+ *     MiCreateImageMapFreeResources @ 0x140A631D8 (MiCreateImageMapFreeResources.c)
+ *     MiDeleteFileExtents @ 0x140AC5218 (MiDeleteFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiGetExtentTable @ 0x14053308C (MiGetExtentTable.c)
- *     MiLockFileExtentsExclusive @ 0x140770630 (MiLockFileExtentsExclusive.c)
- *     MiUnlockFileExtentsExclusive @ 0x1407706A8 (MiUnlockFileExtentsExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiGetExtentTable @ 0x14053550C (MiGetExtentTable.c)
+ *     MiLockFileExtentsExclusive @ 0x140773630 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x1407736A8 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteFileExtentList(_DWORD *P)

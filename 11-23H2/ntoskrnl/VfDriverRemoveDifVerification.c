@@ -1,16 +1,16 @@
 /*
- * XREFs of VfDriverRemoveDifVerification @ 0x140ACA7A8
+ * XREFs of VfDriverRemoveDifVerification @ 0x140ACA798
  * Callers:
- *     MmEnableOrDisableVerifierForDriver @ 0x140AE806C (MmEnableOrDisableVerifierForDriver.c)
+ *     MmEnableOrDisableVerifierForDriver @ 0x140AE805C (MmEnableOrDisableVerifierForDriver.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     ExClearPoolFlags @ 0x140606C5C (ExClearPoolFlags.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfSuspectDifRemoveEntry @ 0x140ADA37C (VfSuspectDifRemoveEntry.c)
- *     VfSuspectRemoveDifVolatileVerification @ 0x140ADACA4 (VfSuspectRemoveDifVolatileVerification.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     ExClearPoolFlags @ 0x1406071AC (ExClearPoolFlags.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfSuspectDifRemoveEntry @ 0x140ADA36C (VfSuspectDifRemoveEntry.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140ADAC94 (VfSuspectRemoveDifVolatileVerification.c)
  */
 
 __int64 __fastcall VfDriverRemoveDifVerification(__int64 a1)

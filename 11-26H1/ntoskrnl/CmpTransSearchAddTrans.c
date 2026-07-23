@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpTransSearchAddTrans @ 0x1408EC150
+ * XREFs of CmpTransSearchAddTrans @ 0x1408F2710
  * Callers:
- *     CmpTransInitializeTransaction @ 0x1408AC920 (CmpTransInitializeTransaction.c)
- *     CmQueryKey @ 0x1408C5660 (CmQueryKey.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1408ECB1C (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpQueryKeySecurity @ 0x1408ED790 (CmpQueryKeySecurity.c)
- *     CmpTransSearchAddTransFromRm @ 0x140AE0F20 (CmpTransSearchAddTransFromRm.c)
+ *     CmpTransInitializeTransaction @ 0x1408B2D64 (CmpTransInitializeTransaction.c)
+ *     CmQueryKey @ 0x1408CBC30 (CmQueryKey.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1408F30DC (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpQueryKeySecurity @ 0x1408F3D50 (CmpQueryKeySecurity.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140ADE378 (CmpTransSearchAddTransFromRm.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExBlockOnAddressPushLock @ 0x14047EBC0 (ExBlockOnAddressPushLock.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     CmpTransInitializeTransaction @ 0x1408AC920 (CmpTransInitializeTransaction.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
- *     CmpTransDereferenceTransaction @ 0x1408ECC08 (CmpTransDereferenceTransaction.c)
- *     CmpTransReferenceTransaction @ 0x1408EE304 (CmpTransReferenceTransaction.c)
- *     CmpSearchForTrans @ 0x140ABEAA4 (CmpSearchForTrans.c)
- *     CmpTransAllocateTrans @ 0x140AC3B1C (CmpTransAllocateTrans.c)
- *     CmpBindHiveToTrans @ 0x140AC3BE8 (CmpBindHiveToTrans.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExBlockOnAddressPushLock @ 0x140478530 (ExBlockOnAddressPushLock.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     CmpTransInitializeTransaction @ 0x1408B2D64 (CmpTransInitializeTransaction.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
+ *     CmpTransDereferenceTransaction @ 0x1408F31C8 (CmpTransDereferenceTransaction.c)
+ *     CmpTransReferenceTransaction @ 0x1408F48C4 (CmpTransReferenceTransaction.c)
+ *     CmpSearchForTrans @ 0x140AC0B44 (CmpSearchForTrans.c)
+ *     CmpTransAllocateTrans @ 0x140AC578C (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x140AC5858 (CmpBindHiveToTrans.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTrans(
@@ -44,7 +44,7 @@ __int64 __fastcall CmpTransSearchAddTrans(
   __int64 v21; // rdx
   _QWORD *v22; // rax
   signed __int32 v23[8]; // [rsp+0h] [rbp-58h] BYREF
-  int v24; // [rsp+60h] [rbp+8h] BYREF
+  int Blink_high; // [rsp+60h] [rbp+8h] BYREF
 
   Trans = 0LL;
   v7 = 0;
@@ -82,7 +82,7 @@ LABEL_8:
           *Trans = a3 + 16;
           *v18 = Trans;
           *(_QWORD *)(a3 + 24) = Trans;
-          ++*((_DWORD *)&WheapPfaLock.SwapListEntry + 2);
+          ++HIDWORD(WheapPfaLock.Timer.Header.WaitListHead.Blink);
           ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
           KeLeaveCriticalRegion();
           v14 = 0;
@@ -99,7 +99,7 @@ LABEL_26:
             __fastfail(3u);
           *v22 = v21;
           *(_QWORD *)(v21 + 8) = v22;
-          --*((_DWORD *)&WheapPfaLock.SwapListEntry + 2);
+          --HIDWORD(WheapPfaLock.Timer.Header.WaitListHead.Blink);
           ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
           KeLeaveCriticalRegion();
           _InterlockedOr(v23, 0);
@@ -137,10 +137,15 @@ LABEL_11:
       goto LABEL_8;
     if ( !v13 )
       break;
-    v24 = *((_DWORD *)&WheapPfaLock.SwapListEntry + 2);
+    Blink_high = HIDWORD(WheapPfaLock.Timer.Header.WaitListHead.Blink);
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
     KeLeaveCriticalRegion();
-    ExBlockOnAddressPushLock(&CmpTransactionInitializingEvent, (_BYTE *)&WheapPfaLock.SwapListEntry + 8, &v24, 4LL, 0LL);
+    ExBlockOnAddressPushLock(
+      &CmpTransactionInitializingEvent,
+      (_BYTE *)&WheapPfaLock.Timer.Header.WaitListHead.Blink + 4,
+      &Blink_high,
+      4LL,
+      0LL);
   }
 LABEL_22:
   v12 = -1072103422;

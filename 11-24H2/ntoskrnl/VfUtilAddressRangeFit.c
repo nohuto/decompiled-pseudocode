@@ -1,11 +1,11 @@
 /*
- * XREFs of VfUtilAddressRangeFit @ 0x140B83148
+ * XREFs of VfUtilAddressRangeFit @ 0x140B85148
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x140613FD8 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x140614138 (ViDeadlockRemoveMemoryRangeThreads.c)
- *     ViDeadlockSearchResource @ 0x140B9A0E0 (ViDeadlockSearchResource.c)
- *     ViDeadlockSearchThread @ 0x140B9A1BC (ViDeadlockSearchThread.c)
- *     ViIrpDatabaseFindPointer @ 0x140BA4150 (ViIrpDatabaseFindPointer.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x140612598 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1406126F8 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockSearchResource @ 0x140B9C0E0 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x140B9C1BC (ViDeadlockSearchThread.c)
+ *     ViIrpDatabaseFindPointer @ 0x140BA6150 (ViIrpDatabaseFindPointer.c)
  * Callees:
  *     <none>
  */

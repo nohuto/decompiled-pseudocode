@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLockAppHiveLoadList @ 0x1407D70B4
+ * XREFs of CmpLockAppHiveLoadList @ 0x1407D7384
  * Callers:
- *     CmLoadAppKey @ 0x140769640 (CmLoadAppKey.c)
+ *     CmLoadAppKey @ 0x140769830 (CmLoadAppKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 CmpLockAppHiveLoadList()

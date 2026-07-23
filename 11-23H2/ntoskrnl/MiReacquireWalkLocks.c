@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReacquireWalkLocks @ 0x14046B9C8
+ * XREFs of MiReacquireWalkLocks @ 0x14046BDC8
  * Callers:
- *     MiQueryEPTAccessedState @ 0x14046C08C (MiQueryEPTAccessedState.c)
- *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
+ *     MiQueryEPTAccessedState @ 0x14046C48C (MiQueryEPTAccessedState.c)
+ *     MiProtectDriverSectionPte @ 0x14061A9F0 (MiProtectDriverSectionPte.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiLockLowestValidPageTable @ 0x14025A290 (MiLockLowestValidPageTable.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiLockLowestValidPageTable @ 0x14025A520 (MiLockLowestValidPageTable.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiReacquireWalkLocks(__int64 a1, __int64 a2, int a3, __int64 a4)

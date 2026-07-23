@@ -7,32 +7,32 @@
  *     RtlRealSuccessor @ 0x180065960 (RtlRealSuccessor.c)
  */
 
-__int64 __fastcall RtlEnumerateGenericTable(__int64 *a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTable(PRTL_GENERIC_TABLE Table, BOOLEAN Restart)
 {
-  __int64 v2; // rbx
-  __int64 i; // rax
-  __int64 v5; // rcx
-  __int64 v7; // rax
+  PRTL_SPLAY_LINKS TableRoot; // rbx
+  _RTL_SPLAY_LINKS *i; // rax
+  _RTL_SPLAY_LINKS *v5; // rcx
+  PRTL_SPLAY_LINKS v7; // rax
 
-  v2 = *a1;
-  if ( *a1 )
+  TableRoot = Table->TableRoot;
+  if ( Table->TableRoot )
   {
-    if ( a2 )
+    if ( Restart )
     {
-      for ( i = *(_QWORD *)(v2 + 8); i; i = *(_QWORD *)(i + 8) )
-        v2 = i;
-      v5 = v2;
+      for ( i = TableRoot->LeftChild; i; i = i->LeftChild )
+        TableRoot = i;
+      v5 = TableRoot;
     }
     else
     {
-      v7 = RtlRealSuccessor(*a1);
-      v2 = v7;
+      v7 = RtlRealSuccessor(Table->TableRoot);
+      TableRoot = v7;
       if ( !v7 )
-        return (v2 + 40) & -(__int64)(v2 != 0);
+        return (PVOID)((unsigned __int64)&TableRoot[1].RightChild & -(__int64)(TableRoot != 0LL));
       v5 = v7;
     }
-    *a1 = RtlSplay(v5);
-    return (v2 + 40) & -(__int64)(v2 != 0);
+    Table->TableRoot = RtlSplay(v5);
+    return (PVOID)((unsigned __int64)&TableRoot[1].RightChild & -(__int64)(TableRoot != 0LL));
   }
   return 0LL;
 }

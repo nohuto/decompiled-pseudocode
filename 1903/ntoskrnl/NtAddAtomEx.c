@@ -11,62 +11,62 @@
  *     ExRaiseDatatypeMisalignment @ 0x140913EC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAddAtomEx(char *Src, size_t Size, _WORD *a3, unsigned int a4)
+NTSTATUS __cdecl NtAddAtomEx(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom, ULONG Flags)
 {
   size_t v6; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   char PreviousMode; // r15
-  char *v10; // r14
+  WCHAR *v10; // r14
   __int64 v11; // rcx
-  __int64 result; // rax
-  __int16 v13; // [rsp+20h] [rbp-268h] BYREF
+  NTSTATUS result; // eax
+  USHORT v13; // [rsp+20h] [rbp-268h] BYREF
   __int64 v14; // [rsp+28h] [rbp-260h] BYREF
-  char *v15; // [rsp+30h] [rbp-258h]
+  PWSTR v15; // [rsp+30h] [rbp-258h]
   _WORD v16[256]; // [rsp+40h] [rbp-248h] BYREF
 
-  v6 = (unsigned int)Size;
+  v6 = Length;
   v14 = 0LL;
-  if ( (a4 & 0xFFFFFFFD) != 0 )
-    return 3221225485LL;
+  if ( (Flags & 0xFFFFFFFD) != 0 )
+    return -1073741811;
   Win32Callouts = MmSessionGetWin32Callouts();
   ExCallCallBack((signed __int64 *)Win32Callouts, 2LL, (__int64)&v14);
   if ( !v14 )
-    return 3221225506LL;
+    return -1073741790;
   if ( (unsigned int)v6 > 0x1FE )
-    return 3221225485LL;
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v10 = Src;
-  v15 = Src;
+  v10 = AtomName;
+  v15 = AtomName;
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( Atom )
     {
-      v11 = (__int64)a3;
-      if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+      v11 = (__int64)Atom;
+      if ( (unsigned __int64)Atom >= 0x7FFFFFFF0000LL )
         v11 = 0x7FFFFFFF0000LL;
       *(_WORD *)v11 = *(_WORD *)v11;
       v10 = v15;
     }
-    if ( Src )
+    if ( AtomName )
     {
       if ( (_DWORD)v6 )
       {
-        if ( ((unsigned __int8)Src & 1) != 0 )
+        if ( ((unsigned __int8)AtomName & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&Src[v6] > 0x7FFFFFFF0000LL || &Src[v6] < Src )
+        if ( (unsigned __int64)AtomName + v6 > 0x7FFFFFFF0000LL || (PWSTR)((char *)AtomName + v6) < AtomName )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      v10 = (char *)v16;
-      v15 = (char *)v16;
-      memmove(v16, Src, v6);
+      v10 = v16;
+      v15 = v16;
+      memmove(v16, AtomName, v6);
       v16[v6 >> 1] = 0;
     }
   }
-  LODWORD(result) = RtlAddAtomToAtomTableEx(v14, v10, &v13, a4);
-  if ( a3 )
+  result = RtlAddAtomToAtomTableEx(v14, v10, &v13, Flags);
+  if ( Atom )
   {
-    if ( (int)result >= 0 )
-      *a3 = v13;
+    if ( result >= 0 )
+      *Atom = v13;
   }
-  return (unsigned int)result;
+  return result;
 }

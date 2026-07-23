@@ -15,7 +15,7 @@
  *     _RtlpStackDbStackComparitor@8 @ 0x4B38B0F2 (_RtlpStackDbStackComparitor@8.c)
  */
 
-int __fastcall RtlStackDbStackAdd(_DWORD *a1, unsigned __int8 *a2, int a3)
+int __fastcall RtlStackDbStackAdd(_RTL_SRWLOCK *a1, unsigned __int8 *a2, int a3)
 {
   int v3; // edi
   unsigned int v4; // esi
@@ -31,10 +31,10 @@ int __fastcall RtlStackDbStackAdd(_DWORD *a1, unsigned __int8 *a2, int a3)
   unsigned int v14; // esi
   unsigned int v15; // ebx
   int v16; // esi
-  unsigned int v17; // eax
+  unsigned int Value; // eax
   int v18; // ecx
-  volatile signed __int32 *v19; // esi
-  _DWORD *v20; // edx
+  _RTL_SRWLOCK *v19; // esi
+  unsigned int *v20; // edx
   unsigned int v21; // eax
   _DWORD *v22; // ecx
   unsigned int v23; // edi
@@ -55,7 +55,7 @@ int __fastcall RtlStackDbStackAdd(_DWORD *a1, unsigned __int8 *a2, int a3)
   char v38; // cl
   int v39; // edx
   int v40; // ecx
-  volatile signed __int32 *v42; // [esp-4h] [ebp-48h]
+  _RTL_SRWLOCK *v42; // [esp-4h] [ebp-48h]
   _DWORD v43[2]; // [esp+10h] [ebp-34h] BYREF
   void (__thiscall *v44)(_DWORD, int, unsigned int); // [esp+18h] [ebp-2Ch]
   _DWORD *v45; // [esp+1Ch] [ebp-28h]
@@ -65,9 +65,9 @@ int __fastcall RtlStackDbStackAdd(_DWORD *a1, unsigned __int8 *a2, int a3)
   unsigned int v49; // [esp+2Ch] [ebp-18h]
   _DWORD *v50; // [esp+30h] [ebp-14h]
   _DWORD *v51; // [esp+34h] [ebp-10h] BYREF
-  volatile signed __int32 *v52; // [esp+38h] [ebp-Ch]
+  PRTL_SRWLOCK SRWLock; // [esp+38h] [ebp-Ch]
   unsigned int v53; // [esp+3Ch] [ebp-8h]
-  _DWORD *v54; // [esp+40h] [ebp-4h]
+  _RTL_SRWLOCK *v54; // [esp+40h] [ebp-4h]
 
   v54 = a1;
   if ( !a1 || !a3 || !a2 )
@@ -138,24 +138,24 @@ LABEL_16:
     goto LABEL_16;
   }
 LABEL_22:
-  v52 = a1 + 6;
+  SRWLock = a1 + 6;
   RtlAcquireSRWLockShared(a1 + 6);
   v15 = 0;
   v16 = 0;
   while ( 1 )
   {
     v53 = -1;
-    v17 = v54[4];
-    v53 = -1 << (v17 & 0x1F);
+    Value = v54[4].Value;
+    v53 = -1 << (Value & 0x1F);
     v18 = v53 & v3;
     v50 = (_DWORD *)(v53 & v3);
     v51 = (_DWORD *)(v53 & v3);
     if ( v16 )
       goto LABEL_26;
-    v48 = v17 >> 5;
-    if ( !(v17 >> 5) )
+    v48 = Value >> 5;
+    if ( !(Value >> 5) )
       break;
-    v16 = v54[5]
+    v16 = v54[5].Value
         + 4
         * ((37 * (BYTE2(v51) + 37 * (BYTE1(v50) + 37 * (unsigned __int8)v18)) + HIBYTE(v51) + 374026047) & (v48 - 1));
     v18 = (int)v50;
@@ -180,8 +180,8 @@ LABEL_34:
   if ( !v16 )
   {
 LABEL_38:
-    v19 = v52;
-    RtlReleaseSRWLockShared(v52);
+    v19 = SRWLock;
+    RtlReleaseSRWLockShared(SRWLock);
     v48 = RtlpStackDbEntryCreate(v3);
     if ( !v48 )
       return 0;
@@ -189,9 +189,9 @@ LABEL_38:
     v16 = 0;
     while ( 1 )
     {
-      v20 = v54;
+      v20 = (unsigned int *)v54;
       v53 = -1;
-      v21 = v54[4];
+      v21 = v54[4].Value;
       v53 = -1 << (v21 & 0x1F);
       v22 = (_DWORD *)(v3 & v53);
       v51 = (_DWORD *)(v3 & v53);
@@ -201,7 +201,7 @@ LABEL_38:
       v49 = v21 >> 5;
       if ( !(v21 >> 5) )
         break;
-      v16 = v54[5]
+      v16 = v54[5].Value
           + 4
           * ((37 * (BYTE2(v50) + 37 * (BYTE1(v51) + 37 * (unsigned __int8)v22)) + HIBYTE(v50) + 374026047) & (v49 - 1));
       v22 = v51;
@@ -220,7 +220,7 @@ LABEL_48:
         goto LABEL_55;
       if ( RtlpStackDbStackComparitor(v16, v43) )
       {
-        v20 = v54;
+        v20 = (unsigned int *)v54;
         goto LABEL_51;
       }
     }
@@ -231,7 +231,7 @@ LABEL_51:
       if ( RtlpStackDbRefCountIncrement(v16 + 8) )
       {
 LABEL_79:
-        RtlReleaseSRWLockExclusive(v52);
+        RtlReleaseSRWLockExclusive(SRWLock);
         RtlpStackDbEntryCleanup(v54, v48);
         return v16;
       }
@@ -309,7 +309,7 @@ LABEL_55:
         if ( v36 )
         {
           v44(v44, v36, v49);
-          v24 = v54[4];
+          v24 = v54[4].Value;
         }
       }
       else
@@ -322,7 +322,7 @@ LABEL_55:
     v37 = v24;
     v38 = v24 & 0x1F;
     v16 = v48;
-    v42 = v52;
+    v42 = SRWLock;
     v48 = *(_DWORD *)(v48 + 4) & (-1 << v38);
     v39 = (HIBYTE(v48) + 37 * (BYTE2(v48) + 37 * (BYTE1(v48) + 37 * ((unsigned __int8)v48 + 11623883)))) & ((v37 >> 5) - 1);
     v40 = *(_DWORD *)(v23 + 8);
@@ -334,6 +334,6 @@ LABEL_55:
   }
   if ( !RtlpStackDbRefCountIncrement(v16 + 8) )
     v16 = 0;
-  RtlReleaseSRWLockShared(v52);
+  RtlReleaseSRWLockShared(SRWLock);
   return v16;
 }

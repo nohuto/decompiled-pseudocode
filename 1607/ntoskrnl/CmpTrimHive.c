@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpTrimHive @ 0x1404A1058
+ * XREFs of CmpTrimHive @ 0x140519464
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpUpdatePhaseAccessBit @ 0x14057C880 (CmpUpdatePhaseAccessBit.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpUpdatePhaseAccessBit @ 0x14057CD2C (CmpUpdatePhaseAccessBit.c)
  * Callees:
- *     HvpMapEntryIsNewAlloc @ 0x14000B330 (HvpMapEntryIsNewAlloc.c)
- *     HvpMapEntryIsDiscardable @ 0x14002D6D0 (HvpMapEntryIsDiscardable.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     HvpMapEntryMarkTrimmed @ 0x140171700 (HvpMapEntryMarkTrimmed.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     MmTrimPagedPool @ 0x14065A268 (MmTrimPagedPool.c)
+ *     HvpMapEntryIsNewAlloc @ 0x14000AEB0 (HvpMapEntryIsNewAlloc.c)
+ *     HvpMapEntryIsDiscardable @ 0x14002D250 (HvpMapEntryIsDiscardable.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     HvpMapEntryMarkTrimmed @ 0x140171C00 (HvpMapEntryMarkTrimmed.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     MmTrimPagedPool @ 0x14065A34C (MmTrimPagedPool.c)
  */
 
 void __fastcall CmpTrimHive(__int64 a1)

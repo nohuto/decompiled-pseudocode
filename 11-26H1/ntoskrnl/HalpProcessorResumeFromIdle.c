@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpProcessorResumeFromIdle @ 0x140580A90
+ * XREFs of HalpProcessorResumeFromIdle @ 0x140582FB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 struct _KPRCB *__fastcall HalpProcessorResumeFromIdle(__int64 a1, __int64 a2)

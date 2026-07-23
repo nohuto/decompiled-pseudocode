@@ -1,21 +1,21 @@
 /*
- * XREFs of BgpFwDisplayBugCheckScreenModernized @ 0x14069A6B0
+ * XREFs of BgpFwDisplayBugCheckScreenModernized @ 0x14069B730
  * Callers:
- *     KiDisplayBlueScreen @ 0x1405B38C0 (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x1405B0834 (KiDisplayBlueScreen.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     IoSaveBugCheckProgress @ 0x140591F10 (IoSaveBugCheckProgress.c)
- *     BgpClearScreen @ 0x140697E28 (BgpClearScreen.c)
- *     BgpFoGetStringAdvanceWidth @ 0x1406986E8 (BgpFoGetStringAdvanceWidth.c)
- *     BcpDisplayCriticalStringCentered @ 0x140698E30 (BcpDisplayCriticalStringCentered.c)
- *     BcpDisplayErrorInformationModernized @ 0x140699454 (BcpDisplayErrorInformationModernized.c)
- *     BcpDisplayProgressModernized @ 0x140699A04 (BcpDisplayProgressModernized.c)
- *     BcpGetDisplayType @ 0x140699DC0 (BcpGetDisplayType.c)
- *     BcpSetCursorPosition @ 0x14069A0C8 (BcpSetCursorPosition.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x140C7097C (BcpDisplayEarlyBugCheckScreen.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     IoSaveBugCheckProgress @ 0x14058EF30 (IoSaveBugCheckProgress.c)
+ *     BgpClearScreen @ 0x140698EA8 (BgpClearScreen.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x140699768 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpDisplayCriticalStringCentered @ 0x140699EB0 (BcpDisplayCriticalStringCentered.c)
+ *     BcpDisplayErrorInformationModernized @ 0x14069A4D4 (BcpDisplayErrorInformationModernized.c)
+ *     BcpDisplayProgressModernized @ 0x14069AA84 (BcpDisplayProgressModernized.c)
+ *     BcpGetDisplayType @ 0x14069AE40 (BcpGetDisplayType.c)
+ *     BcpSetCursorPosition @ 0x14069B148 (BcpSetCursorPosition.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x140C72ADC (BcpDisplayEarlyBugCheckScreen.c)
  */
 
 NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
@@ -75,13 +75,13 @@ NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
   PerformanceFrequency.QuadPart = 0LL;
   LOBYTE(v39) = 0;
   LOBYTE(v40) = 0;
-  if ( (dword_140EF0050 & 4) != 0 && (dword_140EF0050 & 0x400000) == 0 )
+  if ( (dword_140EF0270 & 4) != 0 && (dword_140EF0270 & 0x400000) == 0 )
   {
     StringAdvanceWidth = BcpDisplayEarlyBugCheckScreen(a1, a2, a4);
     IoSaveBugCheckProgress(131);
     return StringAdvanceWidth;
   }
-  if ( (dword_140EF0050 & 0x400000) != 0 || (dword_140EF0050 & 0x10) == 0 )
+  if ( (dword_140EF0270 & 0x400000) != 0 || (dword_140EF0270 & 0x10) == 0 )
   {
     BgpClearScreen(0xFF000000);
     IoSaveBugCheckProgress(132);
@@ -94,16 +94,16 @@ NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
   LODWORD(Destination.Buffer) = HIDWORD(BgInternal);
   DisplayType = BcpGetDisplayType(&Destination);
   v12 = 84LL * DisplayType;
-  v13 = *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 80);
-  v14 = *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 32);
-  *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 20) = 0;
-  *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 16) = 0;
+  v13 = *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 80);
+  v14 = *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 32);
+  *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 20) = 0;
+  *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 16) = 0;
   v15 = v9 - 2 * v13;
   v16 = v10 - 2 * v14;
-  *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 24) = v15;
-  v17 = qword_140E3EAA0;
-  *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 28) = v16;
-  v18 = v14 + (v16 >> 1) - *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 72);
+  *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 24) = v15;
+  v17 = qword_140E3EBE0;
+  *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 28) = v16;
+  v18 = v14 + (v16 >> 1) - *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 72);
   v19 = v13 + (v15 >> 1);
   v20 = *(_QWORD *)(v17 + 24);
   v42 = v19;
@@ -119,9 +119,9 @@ NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
       goto LABEL_38;
     if ( (a5 & 2) != 0 )
     {
-      v6 = &stru_140E3E9D0;
+      v6 = &stru_140E3EB10;
       if ( (a5 & 4) == 0 )
-        v6 = &stru_140E3E9B0;
+        v6 = &stru_140E3EAF0;
     }
     else
     {
@@ -134,15 +134,15 @@ NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
     if ( BcpTextBoxRightEdgeOverride )
       v26 = *(_DWORD *)BcpTextBoxRightEdgeOverride;
     else
-      v26 = *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 80)
-          + *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 16)
-          + *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 24);
-    v44 = *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 80) + *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 16);
+      v26 = *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 80)
+          + *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 16)
+          + *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 24);
+    v44 = *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 80) + *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 16);
     v27 = v44;
     BcpSetCursorPosition(v44, *(&BcpCursor + 1), 0LL);
-    v29 = *(_QWORD *)(qword_140E3EAA0 + 24);
+    v29 = *(_QWORD *)(qword_140E3EBE0 + 24);
     *(_DWORD *)(v29 + 56) = *(_DWORD *)(v12 + v28 + 8);
-    *(_DWORD *)(qword_140E3EAA0 + 8) = *(_DWORD *)(v12 + v28 + 8);
+    *(_DWORD *)(qword_140E3EBE0 + 8) = *(_DWORD *)(v12 + v28 + 8);
     *(_QWORD *)&Destination.Length = v29 + 40;
     if ( (int)BgpFoGetStringAdvanceWidth((int)v29 + 40, v30, v37, v28) >= 0 )
     {
@@ -165,8 +165,8 @@ NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
     {
       *(_QWORD *)&Destination.Length = 0LL;
       Destination.MaximumLength = pusResult;
-      Destination.Buffer = (wchar_t *)qword_140E3EAE0;
-      result = RtlAppendUnicodeStringToString(&Destination, &stru_140E3E980);
+      Destination.Buffer = (wchar_t *)qword_140E3EC20;
+      result = RtlAppendUnicodeStringToString(&Destination, &stru_140E3EAC0);
       if ( result < 0 )
         return result;
       result = RtlAppendUnicodeToString(&Destination, L" ");
@@ -176,17 +176,17 @@ NTSTATUS __fastcall BgpFwDisplayBugCheckScreenModernized(
       StringAdvanceWidth = result;
       if ( result < 0 )
         return result;
-      BcpDisplayCriticalStringCentered(&Destination, *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 8), v34, DisplayType);
+      BcpDisplayCriticalStringCentered(&Destination, *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 8), v34, DisplayType);
 LABEL_41:
-      v35 = dword_140EEFAE8
-          + *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 76)
-          + *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 32);
-      dword_140EEFFA4 = dword_140EEFAE8 + *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 76);
-      dword_140EEFF54 = v35;
-      dword_140EEFF58 = v35;
+      v35 = dword_140EEFD38
+          + *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 76)
+          + *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 32);
+      dword_140EF01E4 = dword_140EEFD38 + *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 76);
+      dword_140EF01B4 = v35;
+      dword_140EF01B8 = v35;
       BcpProgressOffset = v42;
       BcpErrorMessageOffset = v42;
-      BcpSetCursorPosition(v42, v35, &dword_140EEFF58);
+      BcpSetCursorPosition(v42, v35, &dword_140EF01B8);
       if ( v46 != 456 )
         BcpDisplayErrorInformationModernized(DisplayType, v46, a2, a3, a4, a5);
       if ( (a5 & 4) != 0 )
@@ -199,43 +199,43 @@ LABEL_41:
       }
       else
       {
-        BcpSetCursorPosition(BcpProgressOffset, dword_140EEFFA4, (int *)&unk_140EEFFA8);
+        BcpSetCursorPosition(BcpProgressOffset, dword_140EF01E4, &dword_140EF01E8);
         BcpDisplayProgressModernized(0, DisplayType);
         PerformanceCounter = KeQueryPerformanceCounter(0LL);
         BcpLastProgressDisplayed = 0;
         BcpStartTicks = PerformanceCounter.QuadPart;
         BcpLastProgressUpdateTicks = PerformanceCounter.QuadPart;
       }
-      *(_QWORD *)&a4->Length = &stru_140E3E980;
-      a4->Buffer = (wchar_t *)&stru_140E3E990;
+      *(_QWORD *)&a4->Length = &stru_140E3EAC0;
+      a4->Buffer = (wchar_t *)&stru_140E3EAD0;
       return StringAdvanceWidth;
     }
     v19 = v42;
 LABEL_38:
-    BcpDisplayCriticalStringCentered(&stru_140E3E980, *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 8), v22, DisplayType);
+    BcpDisplayCriticalStringCentered(&stru_140E3EAC0, *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 8), v22, DisplayType);
     if ( v6 )
     {
-      BcpSetCursorPosition(v19, dword_140EEFAE8, 0LL);
+      BcpSetCursorPosition(v19, dword_140EEFD38, 0LL);
       p_Destination = (UNICODE_STRING *)v6;
-      v24 = *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 8);
+      v24 = *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 8);
       goto LABEL_40;
     }
     goto LABEL_41;
   }
   *(_QWORD *)&Destination.Length = 0LL;
-  Destination.MaximumLength = word_140E3EAD8;
-  Destination.Buffer = (wchar_t *)qword_140E3EAD0;
-  result = RtlAppendUnicodeStringToString(&Destination, &stru_140E3EA70);
+  Destination.MaximumLength = word_140E3EC18;
+  Destination.Buffer = (wchar_t *)qword_140E3EC10;
+  result = RtlAppendUnicodeStringToString(&Destination, &stru_140E3EBB0);
   if ( result >= 0 )
   {
     result = RtlAppendUnicodeToString(&Destination, L" ");
     if ( result >= 0 )
     {
-      result = RtlAppendUnicodeStringToString(&Destination, &stru_140E3EA80);
+      result = RtlAppendUnicodeStringToString(&Destination, &stru_140E3EBC0);
       StringAdvanceWidth = result;
       if ( result >= 0 )
       {
-        v24 = *(_DWORD *)((char *)&unk_140E0EED0 + v12 + 8);
+        v24 = *(_DWORD *)((char *)&unk_140E0EFA0 + v12 + 8);
         p_Destination = &Destination;
 LABEL_40:
         BcpDisplayCriticalStringCentered(p_Destination, v24, v23, DisplayType);

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPreInitializeSystemImagePage @ 0x140104440
+ * XREFs of MiPreInitializeSystemImagePage @ 0x1401021C0
  * Callers:
- *     MiAllocateDriverPage @ 0x140526790 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x1405097F0 (MiAllocateDriverPage.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
  */
 
 __int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1)

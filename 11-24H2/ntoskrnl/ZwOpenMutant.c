@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenMutant @ 0x1406A89F0
+ * XREFs of ZwOpenMutant @ 0x1406A9990
  * Callers:
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenMutant(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenMutant(PHANDLE MutantHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MutantHandle);
 }

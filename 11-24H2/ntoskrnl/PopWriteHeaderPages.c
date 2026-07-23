@@ -1,14 +1,14 @@
 /*
- * XREFs of PopWriteHeaderPages @ 0x140B5E6C4
+ * XREFs of PopWriteHeaderPages @ 0x140B60744
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1406B3530 (tcpxsum.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1406B44D0 (tcpxsum.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopWriteHiberPages @ 0x140B60AA8 (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
@@ -51,7 +51,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
     if ( v11 != v10 )
     {
       DbgPrint("Checksum for resume context page changed from %lx to %lx\n", v11, v10);
-      KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[279], v12, 0x22B6uLL);
+      KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[279], v12, 0x22C8uLL);
     }
   }
   v13 = (unsigned __int64)*v3 << 12;
@@ -66,7 +66,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
   if ( v15 != v14 )
   {
     DbgPrint("Checksum for context page changed from %lx to %lx\n", v15, v14);
-    KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[20], v16, 0x22CCuLL);
+    KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[20], v16, 0x22DEuLL);
   }
   v17 = tcpxsum(0, (const char *)v4, 0x1000u);
   v18 = a2[20];
@@ -74,7 +74,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
   if ( v18 != v17 )
   {
     DbgPrint("Checksum for partial context page %lx doesn't match full %lx\n", v18, v17);
-    KeBugCheckEx(0xA0u, 4uLL, (unsigned int)a2[20], v19, 0x22D3uLL);
+    KeBugCheckEx(0xA0u, 4uLL, (unsigned int)a2[20], v19, 0x22E5uLL);
   }
   return 0LL;
 }

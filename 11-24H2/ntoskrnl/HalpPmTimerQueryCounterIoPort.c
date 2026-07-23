@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPmTimerQueryCounterIoPort @ 0x140560600
+ * XREFs of HalpPmTimerQueryCounterIoPort @ 0x14055E230
  * Callers:
  *     <none>
  * Callees:

@@ -3,7 +3,7 @@
  * Callers:
  *     VfTriageSystem @ 0x1407B9FB0 (VfTriageSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
  */
 
 _DWORD *__fastcall ViFindTriageRule(_DWORD *a1, __int64 a2, int a3)

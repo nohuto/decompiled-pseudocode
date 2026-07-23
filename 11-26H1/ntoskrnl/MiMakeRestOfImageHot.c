@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakeRestOfImageHot @ 0x14087B2B4
+ * XREFs of MiMakeRestOfImageHot @ 0x1408816B4
  * Callers:
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
  * Callees:
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiWalkEntireImage @ 0x140AC8434 (MiWalkEntireImage.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiWalkEntireImage @ 0x140ACA024 (MiWalkEntireImage.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMakeRestOfImageHot(__int64 *a1)

@@ -17,11 +17,11 @@
  *     AlpcpEnterStateChangeEventMessageLog @ 0x14069EA84 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, __m128i *a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r12
-  int v7; // r15d
+  NTSTATUS v7; // r15d
   __int64 v8; // rdx
   __int64 v9; // r8
   __int64 v10; // r9
@@ -49,16 +49,16 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, __m128i *a2,
   __int16 v32; // ax
   PVOID Object; // [rsp+30h] [rbp-68h] BYREF
   __m128i v35; // [rsp+38h] [rbp-60h]
-  __int64 v36; // [rsp+48h] [rbp-50h]
-  __m128i v37; // [rsp+50h] [rbp-48h]
-  __m128i v38; // [rsp+60h] [rbp-38h]
-  __int64 v39; // [rsp+70h] [rbp-28h]
+  HANDLE UniqueThread; // [rsp+48h] [rbp-50h]
+  __int128 v37; // [rsp+50h] [rbp-48h]
+  __int128 v38; // [rsp+60h] [rbp-38h]
+  unsigned __int64 ClientViewSize; // [rsp+70h] [rbp-28h]
   ULONG_PTR BugCheckParameter2; // [rsp+B8h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v7 = ObReferenceObjectByHandle(a1, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v7 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v7 < 0 )
     goto LABEL_56;
   if ( (*((_BYTE *)Object + 416) & 6) != 6
@@ -68,36 +68,36 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(void *a1, __m128i *a2,
   }
   if ( PreviousMode )
   {
-    if ( (a3 & 0xC0000000) == 0x80000000 )
+    if ( (Flags & 0xC0000000) == 0x80000000 )
     {
-      if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        a2 = (__m128i *)MmUserProbeAddress;
-      v35 = *a2;
-      v36 = a2[1].m128i_i64[0];
-      v37.m128i_i16[0] = _mm_cvtsi128_si32(v35);
-      v37.m128i_i16[1] = v35.m128i_i16[0] + 40;
-      v37.m128i_i32[1] = _mm_cvtsi128_si32(_mm_srli_si128(v35, 4));
-      v37.m128i_i64[1] = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v35, 8));
-      v38.m128i_i64[0] = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v35, 12));
-      v38.m128i_i32[2] = v36;
-      v39 = HIDWORD(v36);
+      if ( (unsigned __int64)Message >= MmUserProbeAddress )
+        Message = (PPORT_MESSAGE)MmUserProbeAddress;
+      v35 = *(__m128i *)&Message->u1.s1.DataLength;
+      UniqueThread = Message->ClientId.UniqueThread;
+      LOWORD(v37) = _mm_cvtsi128_si32(v35);
+      WORD1(v37) = v35.m128i_i16[0] + 40;
+      DWORD1(v37) = _mm_cvtsi128_si32(_mm_srli_si128(v35, 4));
+      *((_QWORD *)&v37 + 1) = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v35, 8));
+      *(_QWORD *)&v38 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v35, 12));
+      DWORD2(v38) = (_DWORD)UniqueThread;
+      ClientViewSize = HIDWORD(UniqueThread);
     }
     else
     {
-      if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        a2 = (__m128i *)MmUserProbeAddress;
-      v37 = *a2;
-      v38 = a2[1];
-      v39 = a2[2].m128i_i64[0];
+      if ( (unsigned __int64)Message >= MmUserProbeAddress )
+        Message = (PPORT_MESSAGE)MmUserProbeAddress;
+      v37 = *(_OWORD *)&Message->u1.s1.DataLength;
+      v38 = *(__int128 *)((char *)&Message->8 + 8);
+      ClientViewSize = Message->ClientViewSize;
     }
   }
   else
   {
-    v37 = *a2;
-    v38 = a2[1];
-    v39 = a2[2].m128i_i64[0];
+    v37 = *(_OWORD *)&Message->u1.s1.DataLength;
+    v38 = *(__int128 *)((char *)&Message->8 + 8);
+    ClientViewSize = Message->ClientViewSize;
   }
-  v7 = AlpcpLookupMessage((__int64)Object, v38.m128i_i32[2], v39, &BugCheckParameter2);
+  v7 = AlpcpLookupMessage((__int64)Object, SDWORD2(v38), ClientViewSize, &BugCheckParameter2);
   if ( v7 >= 0 )
   {
     v11 = BugCheckParameter2;
@@ -206,5 +206,5 @@ LABEL_56:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v7;
+  return v7;
 }

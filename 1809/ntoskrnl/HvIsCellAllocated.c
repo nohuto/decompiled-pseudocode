@@ -1,12 +1,12 @@
 /*
- * XREFs of HvIsCellAllocated @ 0x1405DBB00
+ * XREFs of HvIsCellAllocated @ 0x1405DCB00
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckValueList @ 0x1405D9450 (CmpCheckValueList.c)
- *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1405AC0AC (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckValueList @ 0x1405DA450 (CmpCheckValueList.c)
+ *     CmpCheckKey @ 0x1405DB210 (CmpCheckKey.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char __fastcall HvIsCellAllocated(__int64 a1, unsigned int a2, __int64 a3)

@@ -14,5 +14,5 @@
 
 NTSTATUS __stdcall RtlStringFromGUID(const GUID *const Guid, PUNICODE_STRING GuidString)
 {
-  return RtlStringFromGUIDEx(&Guid->Data1, (__int64)GuidString, 1);
+  return RtlStringFromGUIDEx((PGUID)Guid, GuidString, 1u);
 }

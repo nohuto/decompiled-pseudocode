@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1405D449C
+ * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1405D549C
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpCloneToUnbackedKcb @ 0x1407F0AB0 (CmpCloneToUnbackedKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x1405D6EB0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x1407F1CB0 (CmpCloneToUnbackedKcb.c)
  * Callees:
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     CmpLockNameHashEntryExclusive @ 0x1405D66DC (CmpLockNameHashEntryExclusive.c)
- *     CmpUnlockNameHashEntry @ 0x1405D671C (CmpUnlockNameHashEntry.c)
+ *     CmpLockNameHashEntryExclusive @ 0x1405D76DC (CmpLockNameHashEntryExclusive.c)
+ *     CmpUnlockNameHashEntry @ 0x1405D771C (CmpUnlockNameHashEntry.c)
  */
 
 __int64 __fastcall CmpDereferenceNameControlBlockWithLock(unsigned int *a1)

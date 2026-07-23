@@ -1,39 +1,39 @@
 /*
- * XREFs of NtClearEvent @ 0x1408F8EE0
+ * XREFs of NtClearEvent @ 0x140928E70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     ExpResetCrossVmEvent @ 0x140778038 (ExpResetCrossVmEvent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     ExpResetCrossVmEvent @ 0x14077AED8 (ExpResetCrossVmEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtClearEvent(HANDLE Handle)
+NTSTATUS __cdecl NtClearEvent(HANDLE EventHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bp
   NTSTATUS v3; // eax
   PVOID v4; // rbx
-  unsigned int v5; // edi
+  NTSTATUS v5; // edi
   NTSTATUS v7; // eax
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v3 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+  v3 = ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v4 = Object;
   v5 = v3;
   if ( v3 < 0 )
   {
     if ( v3 == -1073741788 )
     {
-      if ( *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] )
+      if ( WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
       {
         Object = 0LL;
         v7 = ObReferenceObjectByHandle(
-               Handle,
+               EventHandle,
                2u,
-               *(POBJECT_TYPE *)&WheapConfigTableLock.WaitBlockFill11[64],
+               (POBJECT_TYPE)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink,
                PreviousMode,
                &Object,
                0LL);

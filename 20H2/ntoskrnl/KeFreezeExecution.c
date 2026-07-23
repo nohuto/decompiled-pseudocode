@@ -137,9 +137,9 @@ LABEL_25:
       MEMORY[0xFFFFF78000000008] = v15;
       if ( KeMaximumIncrement )
       {
-        KiTickOffset = KeMaximumIncrement * (v15 / (unsigned int)KeMaximumIncrement + 1) - v15;
-        MEMORY[0xFFFFF78000000328] = (v15 / (unsigned int)KeMaximumIncrement) >> 32;
-        MEMORY[0xFFFFF78000000320] = v15 / (unsigned int)KeMaximumIncrement;
+        KiTickOffset = KeMaximumIncrement * (v15 / KeMaximumIncrement + 1) - v15;
+        MEMORY[0xFFFFF78000000328] = (v15 / KeMaximumIncrement) >> 32;
+        MEMORY[0xFFFFF78000000320] = v15 / KeMaximumIncrement;
       }
       ++MEMORY[0xFFFFF78000000340];
     }

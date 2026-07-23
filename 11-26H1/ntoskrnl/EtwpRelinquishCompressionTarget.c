@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRelinquishCompressionTarget @ 0x1406C8310
+ * XREFs of EtwpRelinquishCompressionTarget @ 0x1406CC2F0
  * Callers:
- *     EtwpFreeCompression @ 0x140423294 (EtwpFreeCompression.c)
- *     EtwpBufferingModeCompressionFlush @ 0x1406C791C (EtwpBufferingModeCompressionFlush.c)
- *     EtwpCompressionProc @ 0x1406C7EC0 (EtwpCompressionProc.c)
- *     EtwpDisableCompression @ 0x1406C8138 (EtwpDisableCompression.c)
+ *     EtwpFreeCompression @ 0x140430384 (EtwpFreeCompression.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x1406CB8FC (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpCompressionProc @ 0x1406CBEA0 (EtwpCompressionProc.c)
+ *     EtwpDisableCompression @ 0x1406CC118 (EtwpDisableCompression.c)
  * Callees:
- *     EtwpEnqueueAvailableBuffer @ 0x1402195F8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140219758 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
  */
 
 void __fastcall EtwpRelinquishCompressionTarget(__int64 a1)

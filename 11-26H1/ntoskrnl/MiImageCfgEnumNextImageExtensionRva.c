@@ -1,9 +1,9 @@
 /*
- * XREFs of MiImageCfgEnumNextImageExtensionRva @ 0x14077D11C
+ * XREFs of MiImageCfgEnumNextImageExtensionRva @ 0x14077FC10
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1409C8560 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiImageCfgEnumRvaListFirst @ 0x1409CA158 (MiImageCfgEnumRvaListFirst.c)
+ *     MiCopyToCfgBitMap @ 0x140999540 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiImageCfgEnumRvaListFirst @ 0x14099B138 (MiImageCfgEnumRvaListFirst.c)
  * Callees:
  *     <none>
  */

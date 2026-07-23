@@ -1,41 +1,41 @@
 /*
- * XREFs of MiLockTransitionLeafPageEx @ 0x140347CA8
+ * XREFs of MiLockTransitionLeafPageEx @ 0x140347F38
  * Callers:
  *     MiOutSwapWorkingSetPte @ 0x140215660 (MiOutSwapWorkingSetPte.c)
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
- *     MiGetPageProtection @ 0x140272A20 (MiGetPageProtection.c)
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiSetSystemCodeProtection @ 0x140284310 (MiSetSystemCodeProtection.c)
- *     MiReservePageFileSpaceForPage @ 0x140284E70 (MiReservePageFileSpaceForPage.c)
- *     MiActOnPte @ 0x1402940D4 (MiActOnPte.c)
- *     MmProtectPool @ 0x140296FC0 (MmProtectPool.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiTryDeleteTransitionPte @ 0x1402F4108 (MiTryDeleteTransitionPte.c)
- *     MiUpdatePrefetchPriority @ 0x1403339DC (MiUpdatePrefetchPriority.c)
- *     MiAccessCheck @ 0x1403510BC (MiAccessCheck.c)
- *     MiSetProtectionOnTransitionPte @ 0x140358670 (MiSetProtectionOnTransitionPte.c)
- *     MiReplacePageTablePage @ 0x140394E4C (MiReplacePageTablePage.c)
- *     MiCheckPteForWriteCluster @ 0x14046C612 (MiCheckPteForWriteCluster.c)
- *     MiCheckCommitReleaseFromVad @ 0x140617C30 (MiCheckCommitReleaseFromVad.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
- *     MiWalkResetCommitPte @ 0x140619740 (MiWalkResetCommitPte.c)
- *     MiClearDriverHotPatchPtes @ 0x140641DEC (MiClearDriverHotPatchPtes.c)
- *     MiQueryVaPhysicalContiguity @ 0x140648F4C (MiQueryVaPhysicalContiguity.c)
- *     MiMakeTransitionHeatBatch @ 0x1406542B8 (MiMakeTransitionHeatBatch.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14065D6C0 (MiMakeVaRangePhysicallyContiguous.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiHandleForkTransitionPte @ 0x140664948 (MiHandleForkTransitionPte.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
+ *     MiGetPageProtection @ 0x140272CB0 (MiGetPageProtection.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiSetSystemCodeProtection @ 0x1402845A0 (MiSetSystemCodeProtection.c)
+ *     MiReservePageFileSpaceForPage @ 0x140285100 (MiReservePageFileSpaceForPage.c)
+ *     MiActOnPte @ 0x140294364 (MiActOnPte.c)
+ *     MmProtectPool @ 0x140297250 (MmProtectPool.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
+ *     MiTranslatePageForCopy @ 0x1402EE0D4 (MiTranslatePageForCopy.c)
+ *     MiGetWorkingSetInfoList @ 0x1402F1BE4 (MiGetWorkingSetInfoList.c)
+ *     MiTryDeleteTransitionPte @ 0x1402F4398 (MiTryDeleteTransitionPte.c)
+ *     MiUpdatePrefetchPriority @ 0x140333C6C (MiUpdatePrefetchPriority.c)
+ *     MiAccessCheck @ 0x14035125C (MiAccessCheck.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140358810 (MiSetProtectionOnTransitionPte.c)
+ *     MiReplacePageTablePage @ 0x14039502C (MiReplacePageTablePage.c)
+ *     MiCheckPteForWriteCluster @ 0x14046CA12 (MiCheckPteForWriteCluster.c)
+ *     MiCheckCommitReleaseFromVad @ 0x140618180 (MiCheckCommitReleaseFromVad.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
+ *     MiWalkResetCommitPte @ 0x140619C90 (MiWalkResetCommitPte.c)
+ *     MiClearDriverHotPatchPtes @ 0x14064233C (MiClearDriverHotPatchPtes.c)
+ *     MiQueryVaPhysicalContiguity @ 0x14064949C (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeTransitionHeatBatch @ 0x140654808 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065DC10 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiHandleForkTransitionPte @ 0x140664E98 (MiHandleForkTransitionPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1402DC440 (MiInvalidPteConforms.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1402DC6D0 (MiInvalidPteConforms.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
  */
 
 __int64 __fastcall MiLockTransitionLeafPageEx(ULONG_PTR BugCheckParameter2, _BYTE *a2, char a3)
@@ -128,10 +128,13 @@ __int64 __fastcall MiLockTransitionLeafPageEx(ULONG_PTR BugCheckParameter2, _BYT
     {
       v16 = (unsigned __int8)*a2;
       _InterlockedAnd64((volatile signed __int64 *)v11, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v16 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -156,10 +159,10 @@ __int64 __fastcall MiLockTransitionLeafPageEx(ULONG_PTR BugCheckParameter2, _BYT
       if ( (unsigned __int64)a2 > 1 )
       {
         v23 = (unsigned __int8)*a2;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v24 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v24 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v24 >= 2u )
           {
             v25 = KeGetCurrentPrcb();
             v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));

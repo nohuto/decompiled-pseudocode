@@ -1,17 +1,17 @@
 /*
- * XREFs of SshpSessionManagerOpenControlTrace @ 0x1407E4148
+ * XREFs of SshpSessionManagerOpenControlTrace @ 0x1407E959C
  * Callers:
- *     SshpAlpcProcessAlpcMessage @ 0x1407E48A4 (SshpAlpcProcessAlpcMessage.c)
+ *     SshpAlpcProcessAlpcMessage @ 0x1407EA404 (SshpAlpcProcessAlpcMessage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SshpWorkItemQueue @ 0x14049BC60 (SshpWorkItemQueue.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1407234B0 (ZwReadFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A77400 (IoConvertFileHandleToKernelHandle.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SshpWorkItemQueue @ 0x1404957B0 (SshpWorkItemQueue.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x140728080 (ZwReadFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A80120 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall SshpSessionManagerOpenControlTrace(__int64 a1, __int64 a2)
@@ -49,17 +49,10 @@ __int64 __fastcall SshpSessionManagerOpenControlTrace(__int64 a1, __int64 a2)
            && (unsigned int)(v11 - HIDWORD(Buffer)) <= HIDWORD(v11)
            && HIDWORD(Buffer) < HIDWORD(v11) )
     {
-      v4 = (AutoBoost *)KeAbPreAcquire(
-                          (__int64)&PsAltSystemCallRegistrationLock.Spare35[1],
-                          0LL,
-                          0LL,
-                          (struct _KLOCK_ENTRIES *)DWORD2(Buffer));
+      v4 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F0A858, 0LL, 0LL, (struct _KLOCK_ENTRIES *)DWORD2(Buffer));
       v6 = v4;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL) )
-        ExfAcquirePushLockExclusiveEx(
-          &PsAltSystemCallRegistrationLock.Spare35[1],
-          v4,
-          (__int64)&PsAltSystemCallRegistrationLock.Spare35[1]);
+      if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140F0A858, 0LL) )
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F0A858, v4, (__int64)&qword_140F0A858);
       if ( v6 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -67,20 +60,20 @@ __int64 __fastcall SshpSessionManagerOpenControlTrace(__int64 a1, __int64 a2)
         else
           *((_BYTE *)v6 + 10) = 1;
       }
-      if ( *(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36 )
+      if ( qword_140F0A860 )
       {
         v2 = -1073741791;
       }
       else
       {
-        *(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36 = 0LL;
-        *(_OWORD *)&PsAltSystemCallRegistrationLock.Spare32 = Buffer;
-        *(_QWORD *)&PsAltSystemCallRegistrationLock.SchedulerAssistYieldCounter = v11;
-        if ( LODWORD(PsAltSystemCallRegistrationLock.Padding[2]) )
-          SshpWorkItemQueue((struct _WORK_QUEUE_ITEM *)&PsAltSystemCallRegistrationLock.SystemAffinityTokenListHead);
+        qword_140F0A860 = 0LL;
+        xmmword_140F0A890 = Buffer;
+        qword_140F0A8A0 = v11;
+        if ( (_DWORD)dword_140F0A8C0 )
+          SshpWorkItemQueue((struct _WORK_QUEUE_ITEM *)&qword_140F0A868);
         v2 = 0;
       }
-      SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Spare35[1]);
+      SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&qword_140F0A858);
     }
     else
     {

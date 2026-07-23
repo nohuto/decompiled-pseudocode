@@ -17,7 +17,7 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08B0 (_guard_dispatch_icall_nop.c)
  */
 
-unsigned __int64 __fastcall LdrpMapAndSnapDependency(__int64 a1)
+void __fastcall LdrpMapAndSnapDependency(__int64 a1)
 {
   __int64 v1; // rbp
   __int64 v2; // rbx
@@ -30,15 +30,17 @@ unsigned __int64 __fastcall LdrpMapAndSnapDependency(__int64 a1)
   _DWORD *v9; // r8
   __int64 v10; // rcx
   int v11; // edx
-  unsigned __int64 result; // rax
+  PVOID Heap; // rax
   unsigned int v13; // r15d
   __int64 v14; // rdx
   __int64 v15; // rcx
   bool v16; // zf
   char *v17; // rcx
-  char v18; // al
-  STRING SourceString; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+88h] [rbp+10h] BYREF
+  unsigned __int64 v18; // rax
+  __int64 v19; // rax
+  char v20; // al
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+10h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
   v2 = a1;
@@ -58,15 +60,15 @@ unsigned __int64 __fastcall LdrpMapAndSnapDependency(__int64 a1)
   {
     if ( (*(_BYTE *)(v1 + 104) & 1) == 0 )
     {
-      v18 = 0;
+      v20 = 0;
 LABEL_43:
-      if ( !v18 )
+      if ( !v20 )
         goto LABEL_7;
     }
   }
   else if ( LdrpRedirectionCalloutFunc )
   {
-    v18 = LdrpRedirectionCalloutFunc(*(_QWORD *)(v1 + 80));
+    v20 = LdrpRedirectionCalloutFunc(*(_QWORD *)(v1 + 80));
     goto LABEL_43;
   }
   *(_DWORD *)(v2 + 32) |= 0x2000000u;
@@ -94,23 +96,21 @@ LABEL_7:
   v2 = a1;
   if ( !v4 )
     goto LABEL_30;
-  result = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8u, 8LL * v7);
-  *(_QWORD *)(a1 + 88) = result;
-  if ( result )
+  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8LL * v7);
+  *(_QWORD *)(a1 + 88) = Heap;
+  if ( Heap )
   {
     *(_DWORD *)(a1 + 96) = v7;
-    result = (unsigned int)(v4 + 1);
-    *(_DWORD *)(a1 + 100) = result;
+    *(_DWORD *)(a1 + 100) = v4 + 1;
     v13 = 0;
     *(_QWORD *)(a1 + 128) = v6;
-    v21 = 0LL;
+    BaseAddress = 0LL;
     if ( *v8 )
     {
       while ( v8[1] )
       {
         v14 = *(_QWORD *)(v1 + 48);
-        result = v8[1];
-        if ( *(_QWORD *)(result + v14) )
+        if ( *(_QWORD *)(v8[1] + v14) )
         {
           v15 = *v8;
           v16 = v14 + v15 == 0;
@@ -119,21 +119,23 @@ LABEL_7:
           SourceString.Buffer = v17;
           if ( !v16 )
           {
-            result = -1LL;
+            v18 = -1LL;
             do
-              ++result;
-            while ( v17[result] );
-            if ( result > 0xFFFE )
+              ++v18;
+            while ( v17[v18] );
+            if ( v18 > 0xFFFE )
             {
               DllActivationContext = -1073741562;
               break;
             }
-            SourceString.Length = result;
-            SourceString.MaximumLength = result + 1;
+            SourceString.Length = v18;
+            SourceString.MaximumLength = v18 + 1;
           }
-          result = LdrpLoadDependentModule(&SourceString, *(_QWORD *)(a1 + 88) + 8LL * v13, (__int64)&v21);
-          DllActivationContext = result;
-          if ( (result & 0x80000000) != 0LL )
+          DllActivationContext = LdrpLoadDependentModule(
+                                   &SourceString,
+                                   *(_QWORD *)(a1 + 88) + 8LL * v13,
+                                   (__int64)&BaseAddress);
+          if ( DllActivationContext < 0 )
             break;
         }
         v8 += 5;
@@ -141,14 +143,14 @@ LABEL_7:
         if ( !*v8 )
           break;
       }
-      if ( v21 )
-        result = RtlFreeHeap(LdrpHeap, 0LL, v21);
+      if ( BaseAddress )
+        RtlFreeHeap(LdrpHeap, 0, BaseAddress);
     }
     if ( DllActivationContext >= 0 )
     {
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
       v4 = --*(_DWORD *)(a1 + 100);
-      result = RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+      RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     }
   }
   else
@@ -158,30 +160,21 @@ LABEL_7:
   if ( !v4 )
   {
 LABEL_30:
-    result = *(_QWORD *)(v1 + 152);
+    v19 = *(_QWORD *)(v1 + 152);
     if ( *(_QWORD *)(v2 + 104) )
     {
-      *(_DWORD *)(result + 56) = 4;
+      *(_DWORD *)(v19 + 56) = 4;
       if ( *(_QWORD *)(v2 + 48) )
-      {
-        result = LdrpQueueWork(v2);
-      }
+        LdrpQueueWork(v2);
       else
-      {
-        result = LdrpSnapModule(v2);
-        DllActivationContext = result;
-      }
+        DllActivationContext = LdrpSnapModule(v2);
     }
     else
     {
-      *(_DWORD *)(result + 56) = 5;
+      *(_DWORD *)(v19 + 56) = 5;
     }
   }
   if ( DllActivationContext < 0 )
-  {
 LABEL_37:
-    result = *(_QWORD *)(v2 + 40);
-    *(_DWORD *)result = DllActivationContext;
-  }
-  return result;
+    **(_DWORD **)(v2 + 40) = DllActivationContext;
 }

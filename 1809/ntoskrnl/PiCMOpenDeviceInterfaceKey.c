@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMOpenDeviceInterfaceKey @ 0x14083847C
+ * XREFs of PiCMOpenDeviceInterfaceKey @ 0x1408396DC
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PiCMReleaseRegistryInputData @ 0x1406A71E4 (PiCMReleaseRegistryInputData.c)
- *     PiCMReturnHandleResultData @ 0x1406A7214 (PiCMReturnHandleResultData.c)
- *     PiCMCaptureRegistryInputData @ 0x1406A72A0 (PiCMCaptureRegistryInputData.c)
- *     PiCMDuplicateRegistryHandle @ 0x1406A74B4 (PiCMDuplicateRegistryHandle.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14059C4E8 (_CmOpenDeviceInterfaceRegKey.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PiCMReleaseRegistryInputData @ 0x1406A8484 (PiCMReleaseRegistryInputData.c)
+ *     PiCMReturnHandleResultData @ 0x1406A84B4 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x1406A8540 (PiCMCaptureRegistryInputData.c)
+ *     PiCMDuplicateRegistryHandle @ 0x1406A8754 (PiCMDuplicateRegistryHandle.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
  */
 
 __int64 __fastcall PiCMOpenDeviceInterfaceKey(

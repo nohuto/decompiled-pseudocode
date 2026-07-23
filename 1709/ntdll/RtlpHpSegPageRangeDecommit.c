@@ -18,8 +18,8 @@ __int64 __fastcall RtlpHpSegPageRangeDecommit(__int64 a1, __int64 a2, int a3, in
   unsigned int v6; // ebx
   __int64 v7; // r8
   __int64 v8; // rcx
-  __int64 v10; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-8h] BYREF
   int v12; // [rsp+70h] [rbp+30h] BYREF
   int v13; // [rsp+78h] [rbp+38h] BYREF
 
@@ -29,18 +29,18 @@ __int64 __fastcall RtlpHpSegPageRangeDecommit(__int64 a1, __int64 a2, int a3, in
   if ( v6 )
   {
     v7 = a2 & *(_QWORD *)a1;
-    v10 = (unsigned int)(v13 << 12);
-    v11 = v7 + ((a2 - v7) >> 5 << *(_BYTE *)(a1 + 8)) + (unsigned int)(v12 << 12);
-    ZwFreeVirtualMemory(-1LL, &v11, &v10, 0x4000LL);
+    RegionSize = (unsigned int)(v13 << 12);
+    BaseAddress = (PVOID)(v7 + ((a2 - v7) >> 5 << *(_BYTE *)(a1 + 8)) + (unsigned int)(v12 << 12));
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
     if ( (RtlpHpHeapFeatures & 8) != 0 )
-      RtlpHpTlLogVAChange(0x4000LL, v10, v11);
+      RtlpHpTlLogVAChange(0x4000LL, RegionSize, BaseAddress);
     RtlpHpSegUpdateCommit(a1, a2, v6);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v8 = 2147353472LL;
     if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapDecommit(*(_QWORD *)(a1 + 96), v11, v10, 13LL);
+      RtlpLogHeapDecommit(*(_QWORD *)(a1 + 96), BaseAddress, RegionSize, 13LL);
   }
   return -v6;
 }

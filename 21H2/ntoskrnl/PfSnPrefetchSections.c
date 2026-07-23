@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnPrefetchSections @ 0x1406C6724
+ * XREFs of PfSnPrefetchSections @ 0x140675014
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x1406C66A4 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x140674F94 (PfSnAsyncPrefetchStep.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     KeQueryPriorityThread @ 0x1402DA450 (KeQueryPriorityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmPrefetchPagesEx @ 0x14061C354 (MmPrefetchPagesEx.c)
- *     PfSnPrefetchSectionsCleanup @ 0x1406C69D0 (PfSnPrefetchSectionsCleanup.c)
- *     PfSnLogGetReadListsStop @ 0x1406C6AC0 (PfSnLogGetReadListsStop.c)
- *     PfSnLogGetReadListsStart @ 0x1406C6B38 (PfSnLogGetReadListsStart.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     KeQueryPriorityThread @ 0x14028B7A0 (KeQueryPriorityThread.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x1406752C0 (PfSnPrefetchSectionsCleanup.c)
+ *     PfSnLogGetReadListsStop @ 0x1406753B0 (PfSnLogGetReadListsStop.c)
+ *     PfSnLogGetReadListsStart @ 0x140675428 (PfSnLogGetReadListsStart.c)
+ *     MmPrefetchPagesEx @ 0x140685FC4 (MmPrefetchPagesEx.c)
  */
 
 __int64 __fastcall PfSnPrefetchSections(__int64 *a1, WORK_QUEUE_TYPE a2, int a3, __int64 a4, __int64 a5)
@@ -170,7 +170,7 @@ LABEL_8:
       *(_QWORD *)(v15 - 11) = 0LL;
       *(_QWORD *)(v15 - 7) = PfSnPopulateReadList;
       *(_QWORD *)(v15 - 5) = v15 - 11;
-      ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)SpinLock);
+      ExAcquireRundownProtection((PEX_RUNDOWN_REF)SpinLock);
       ExQueueWorkItem((PWORK_QUEUE_ITEM)(v15 - 11), v16);
       v15 += 12;
       --v17;
@@ -194,7 +194,7 @@ LABEL_8:
     }
     if ( DWORD1(v37) )
     {
-      v18 = MmPrefetchPagesEx(DWORD2(v36), (__int64)v39, v6 + 13);
+      v18 = MmPrefetchPagesEx(DWORD2(v36), v39, v6 + 13);
       if ( v18 >= 0 && !v6[13] )
         v18 = -2147483622;
     }

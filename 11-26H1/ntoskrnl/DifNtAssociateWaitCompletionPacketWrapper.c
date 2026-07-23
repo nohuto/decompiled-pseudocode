@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtAssociateWaitCompletionPacketWrapper @ 0x14066DCB0
+ * XREFs of DifNtAssociateWaitCompletionPacketWrapper @ 0x140671890
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     NtAssociateWaitCompletionPacket @ 0x14051B900 (NtAssociateWaitCompletionPacket.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     NtAssociateWaitCompletionPacket @ 0x140515EB0 (NtAssociateWaitCompletionPacket.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifNtAssociateWaitCompletionPacketWrapper(
         void *a1,
         void *a2,
         void *a3,
-        KSPIN_LOCK a4,
-        KSPIN_LOCK a5,
-        int a6,
-        KSPIN_LOCK a7,
-        char *a8)
+        void *a4,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        BOOLEAN *AlreadySignaled)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -33,9 +33,9 @@ __int64 __fastcall DifNtAssociateWaitCompletionPacketWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   _QWORD v22[3]; // [rsp+48h] [rbp-39h] BYREF
-  int v23; // [rsp+60h] [rbp-21h]
-  KSPIN_LOCK v24; // [rsp+68h] [rbp-19h]
-  KSPIN_LOCK v25; // [rsp+70h] [rbp-11h]
+  NTSTATUS v23; // [rsp+60h] [rbp-21h]
+  PVOID v24; // [rsp+68h] [rbp-19h]
+  void *v25; // [rsp+70h] [rbp-11h]
   void *v26; // [rsp+78h] [rbp-9h]
   void *v27; // [rsp+80h] [rbp-1h]
   void *v28; // [rsp+88h] [rbp+7h]
@@ -62,10 +62,10 @@ __int64 __fastcall DifNtAssociateWaitCompletionPacketWrapper(
 LABEL_7:
   v16 = 0;
   v28 = a1;
-  v24 = a5;
-  v23 = a6;
-  v22[2] = a7;
-  v22[1] = a8;
+  v24 = ApcContext;
+  v23 = IoStatus;
+  v22[2] = IoStatusInformation;
+  v22[1] = AlreadySignaled;
   v27 = a2;
   v26 = a3;
   v25 = a4;
@@ -81,7 +81,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v29 = NtAssociateWaitCompletionPacket(a1, a2, a3, a4, a5, a6, a7, a8);
+  v29 = NtAssociateWaitCompletionPacket(a1, a2, a3, a4, ApcContext, IoStatus, IoStatusInformation, AlreadySignaled);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

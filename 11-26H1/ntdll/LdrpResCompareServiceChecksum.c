@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpResCompareServiceChecksum @ 0x1800AA28C
+ * XREFs of LdrpResCompareServiceChecksum @ 0x1800A93BC
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1800A80C0 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1800A71F0 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     LdrResGetRCConfig @ 0x1800A77A0 (LdrResGetRCConfig.c)
+ *     LdrResGetRCConfig @ 0x1800A68D0 (LdrResGetRCConfig.c)
  */
 
 bool __fastcall LdrpResCompareServiceChecksum(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

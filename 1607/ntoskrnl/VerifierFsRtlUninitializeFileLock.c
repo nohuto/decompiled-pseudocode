@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlUninitializeFileLock @ 0x14070C704
+ * XREFs of VerifierFsRtlUninitializeFileLock @ 0x14070C734
  * Callers:
  *     <none>
  * Callees:

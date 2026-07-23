@@ -1,21 +1,21 @@
 /*
- * XREFs of PiUpdateDriverDBCache @ 0x140A24D48
+ * XREFs of PiUpdateDriverDBCache @ 0x140A37858
  * Callers:
- *     PiIsDriverBlocked @ 0x140A250AC (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x140A3814C (PiIsDriverBlocked.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403B88C0 (RtlInsertElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     RtlNumberGenericTableElementsAvl @ 0x14048DA40 (RtlNumberGenericTableElementsAvl.c)
- *     wcsrchr @ 0x140538350 (wcsrchr.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403C27C0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x140487580 (RtlNumberGenericTableElementsAvl.c)
+ *     wcsrchr @ 0x14053A7D0 (wcsrchr.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int128 *a5)
+_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, void *a2, __int64 a3, int a4, __int128 *a5)
 {
   _QWORD *result; // rax
   _QWORD *v8; // r15
@@ -45,7 +45,7 @@ _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, unsigned __int64 a2, __int6
   v8 = result;
   if ( !result )
     return result;
-  qword_140FD74D0 = 1LL;
+  qword_140FD84E0 = 1LL;
   v9 = wcsrchr(*(const wchar_t **)(a1 + 8), 0x5Cu);
   if ( v9 )
     v10 = v9 + 1;

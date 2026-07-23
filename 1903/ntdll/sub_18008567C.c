@@ -27,7 +27,7 @@ __int64 __fastcall sub_18008567C(unsigned __int16 a1, unsigned __int16 *a2, unsi
   unsigned int i; // ecx
   int v16; // r12d
   struct _TEB *v17; // rax
-  unsigned __int64 *v18; // r9
+  LARGE_INTEGER *v18; // r9
   char *v19; // rax
   char *v20; // rsi
   unsigned int j; // r15d
@@ -55,7 +55,7 @@ __int64 __fastcall sub_18008567C(unsigned __int16 a1, unsigned __int16 *a2, unsi
   char *v43; // [rsp+80h] [rbp-168h]
   struct _TEB *v44; // [rsp+88h] [rbp-160h]
   struct _TEB *v45; // [rsp+90h] [rbp-158h]
-  struct _CLIENT_ID *p_ClientId; // [rsp+98h] [rbp-150h]
+  CLIENT_ID *p_ClientId; // [rsp+98h] [rbp-150h]
   void *Src[32]; // [rsp+A0h] [rbp-148h] BYREF
 
   v37 = a4;
@@ -135,7 +135,7 @@ LABEL_5:
       v16 = v10 & 0x200;
       v17 = NtCurrentTeb();
       v44 = v17;
-      v18 = &v40;
+      v18 = (LARGE_INTEGER *)&v40;
       if ( v16 )
         v18 = 0LL;
       v6 = v32;

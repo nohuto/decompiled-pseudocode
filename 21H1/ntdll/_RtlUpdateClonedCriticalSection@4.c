@@ -6,14 +6,10 @@
  *     <none>
  */
 
-void *__stdcall RtlUpdateClonedCriticalSection(_DWORD *a1)
+void __cdecl RtlUpdateClonedCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  void *result; // eax
-
-  result = NtCurrentTeb()->ClientId.UniqueThread;
-  a1[3] = result;
-  a1[1] = -2;
-  a1[2] = 1;
-  a1[4] = 0;
-  return result;
+  CriticalSection->OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+  CriticalSection->LockCount = -2;
+  CriticalSection->RecursionCount = 1;
+  CriticalSection->LockSemaphore = 0;
 }

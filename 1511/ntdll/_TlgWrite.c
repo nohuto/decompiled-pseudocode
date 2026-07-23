@@ -15,18 +15,17 @@ TLG_STATUS __stdcall TlgWrite(
         EVENT_DATA_DESCRIPTOR *pData)
 {
   unsigned int v6; // ecx
-  _DWORD v8[2]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-10h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF
 
-  v8[0] = ((_DWORD)pEventMetadata - (unsigned int)&TraceLoggingMetadata) | (*(unsigned __int8 *)pEventMetadata << 24);
-  v8[1] = *(unsigned __int16 *)((char *)pEventMetadata + 1);
-  v9 = *(_QWORD *)((char *)pEventMetadata + 3);
-  pData->Ptr = (unsigned __int64)off_180142178;
-  v6 = *(unsigned __int16 *)off_180142178;
+  *(_DWORD *)&EventDescriptor.Id = ((_DWORD)pEventMetadata - (unsigned int)&TraceLoggingMetadata) | (*(unsigned __int8 *)pEventMetadata << 24);
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)((char *)pEventMetadata + 1);
+  EventDescriptor.Keyword = *(_QWORD *)((char *)pEventMetadata + 3);
+  pData->Ptr = (unsigned __int64)EventInformation;
+  v6 = *(unsigned __int16 *)EventInformation;
   pData[1].Ptr = (unsigned __int64)pEventMetadata + 11;
   pData->Size = v6;
   pData->Reserved = 2;
   pData[1].Size = *(unsigned __int16 *)((char *)pEventMetadata + 11);
   pData[1].Reserved = 1;
-  return EtwEventWriteTransfer(qword_180142190, (unsigned int)v8, 0, 0, cData, (__int64)pData);
+  return EtwEventWriteTransfer(RegHandle, &EventDescriptor, 0LL, 0LL, cData, pData);
 }

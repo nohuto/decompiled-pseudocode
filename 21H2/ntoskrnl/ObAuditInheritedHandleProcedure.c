@@ -1,10 +1,10 @@
 /*
- * XREFs of ObAuditInheritedHandleProcedure @ 0x1408DC400
+ * XREFs of ObAuditInheritedHandleProcedure @ 0x1408DC560
  * Callers:
  *     <none>
  * Callees:
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     SeAuditHandleDuplication @ 0x14091DACC (SeAuditHandleDuplication.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     SeAuditHandleDuplication @ 0x14091DC2C (SeAuditHandleDuplication.c)
  */
 
 char __fastcall ObAuditInheritedHandleProcedure(__int64 a1, volatile signed __int64 *a2, __int64 a3, _QWORD *a4)

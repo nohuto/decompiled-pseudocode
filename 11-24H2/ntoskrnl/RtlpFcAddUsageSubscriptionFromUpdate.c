@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcAddUsageSubscriptionFromUpdate @ 0x14078CDC4
+ * XREFs of RtlpFcAddUsageSubscriptionFromUpdate @ 0x14078CCF4
  * Callers:
- *     RtlpFcUpdateUsageTriggers @ 0x140A35AEC (RtlpFcUpdateUsageTriggers.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x140A2B008 (RtlpFcUpdateUsageTriggers.c)
  * Callees:
  *     <none>
  */

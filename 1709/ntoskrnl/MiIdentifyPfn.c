@@ -336,7 +336,7 @@ LABEL_116:
             }
           }
           if ( PsNtosImageBase
-            && (v48 >= PsNtosImageBase && v48 < PsNtosImageEnd
+            && (v48 >= (unsigned __int64)PsNtosImageBase && v48 < PsNtosImageEnd
              || v48 >= (unsigned __int64)PsHalImageBase && v48 < PsHalImageEnd) )
           {
 LABEL_115:

@@ -1,14 +1,14 @@
 /*
- * XREFs of RaspGetCompositeGlyphList @ 0x14023AAD4
+ * XREFs of RaspGetCompositeGlyphList @ 0x14023A9B8
  * Callers:
- *     RaspLoadCompositeGlyphData @ 0x14023B160 (RaspLoadCompositeGlyphData.c)
+ *     RaspLoadCompositeGlyphData @ 0x14023B044 (RaspLoadCompositeGlyphData.c)
  * Callees:
- *     RaspMapGlyphIndexToLocation @ 0x140128A70 (RaspMapGlyphIndexToLocation.c)
- *     FioFwReadUshortAtOffset @ 0x140128B08 (FioFwReadUshortAtOffset.c)
- *     RaspAllocateMemory @ 0x1401294CC (RaspAllocateMemory.c)
- *     RaspFreeMemory @ 0x140129678 (RaspFreeMemory.c)
- *     RaspLoadGlyphData @ 0x140129874 (RaspLoadGlyphData.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RaspMapGlyphIndexToLocation @ 0x140128FE0 (RaspMapGlyphIndexToLocation.c)
+ *     FioFwReadUshortAtOffset @ 0x140129078 (FioFwReadUshortAtOffset.c)
+ *     RaspAllocateMemory @ 0x140129A3C (RaspAllocateMemory.c)
+ *     RaspFreeMemory @ 0x140129BE8 (RaspFreeMemory.c)
+ *     RaspLoadGlyphData @ 0x140129DE4 (RaspLoadGlyphData.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall RaspGetCompositeGlyphList(

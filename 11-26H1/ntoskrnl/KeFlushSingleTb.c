@@ -1,18 +1,18 @@
 /*
- * XREFs of KeFlushSingleTb @ 0x1405F0DF4
+ * XREFs of KeFlushSingleTb @ 0x1405F3764
  * Callers:
- *     MiDbgUnmapPhysicalAddress @ 0x1406FEC6C (MiDbgUnmapPhysicalAddress.c)
+ *     MiDbgUnmapPhysicalAddress @ 0x14070393C (MiDbgUnmapPhysicalAddress.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlFlushRangeListTb @ 0x14032B100 (HvlFlushRangeListTb.c)
- *     ExFlushTb @ 0x14041D5A8 (ExFlushTb.c)
- *     VmFlushTb @ 0x14041D644 (VmFlushTb.c)
- *     KiIsSecureFlushRequired @ 0x14041D708 (KiIsSecureFlushRequired.c)
- *     KiPreprocessFlushTb @ 0x140430BB0 (KiPreprocessFlushTb.c)
- *     KiPrepareFlushParameters @ 0x140470450 (KiPrepareFlushParameters.c)
- *     KiFlushAffinity @ 0x14047DAF0 (KiFlushAffinity.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KxFlushSingleTb @ 0x1405FC9F8 (KxFlushSingleTb.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlFlushRangeListTb @ 0x14032D130 (HvlFlushRangeListTb.c)
+ *     ExFlushTb @ 0x140414DF8 (ExFlushTb.c)
+ *     VmFlushTb @ 0x140414E94 (VmFlushTb.c)
+ *     KiIsSecureFlushRequired @ 0x140414F58 (KiIsSecureFlushRequired.c)
+ *     KiPreprocessFlushTb @ 0x14041DBE0 (KiPreprocessFlushTb.c)
+ *     KiPrepareFlushParameters @ 0x140469BD0 (KiPrepareFlushParameters.c)
+ *     KiFlushAffinity @ 0x140477460 (KiFlushAffinity.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxFlushSingleTb @ 0x1405FF448 (KxFlushSingleTb.c)
  */
 
 void __fastcall KeFlushSingleTb(unsigned __int64 a1)
@@ -22,8 +22,8 @@ void __fastcall KeFlushSingleTb(unsigned __int64 a1)
   int IsSecureFlushRequired; // eax
   __int64 v5; // r9
   volatile _KAFFINITY_EX *v6; // rax
-  unsigned __int8 v7; // r9
-  unsigned int v8; // r10d
+  unsigned int v7; // r10d
+  unsigned __int8 v8; // r9
   unsigned __int8 CurrentIrql; // bl
   char v10; // [rsp+40h] [rbp-20h] BYREF
   unsigned __int8 v11[7]; // [rsp+41h] [rbp-1Fh] BYREF
@@ -51,7 +51,7 @@ void __fastcall KeFlushSingleTb(unsigned __int64 a1)
     KiPrepareFlushParameters(0, (unsigned __int64 *)&v13, &v10);
     v6 = KiFlushAffinity(2);
     v14 = a1 & 0xFFFFFFFFFFFFF000uLL;
-    v2 |= HvlFlushRangeListTb(v13, (unsigned __int64)v6, v10, v8, v7, 1u, (__int64 *)&v14);
+    v2 |= HvlFlushRangeListTb(v13, (unsigned __int64)v6, v10, v7, v8, 1u, (__int64 *)&v14);
   }
   if ( !v2 )
     KxFlushSingleTb(a1, 0LL, 2LL, v5);

@@ -10,7 +10,7 @@
 
 __int64 LdrpThreadTokenUnsetMainThreadToken()
 {
-  unsigned int v0; // ebx
+  unsigned __int32 v0; // ebx
 
   v0 = NtClose(LdrpMainThreadToken);
   LdrpMainThreadToken = 0LL;

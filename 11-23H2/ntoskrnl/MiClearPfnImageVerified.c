@@ -1,28 +1,28 @@
 /*
- * XREFs of MiClearPfnImageVerified @ 0x1403353B8
+ * XREFs of MiClearPfnImageVerified @ 0x140335648
  * Callers:
  *     MiDeleteClusterSection @ 0x1402189B0 (MiDeleteClusterSection.c)
- *     MiProbeLeafPteAccess @ 0x140236C50 (MiProbeLeafPteAccess.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiDeleteClusterPage @ 0x1402D6220 (MiDeleteClusterPage.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
- *     MiDeletePerSessionProtos @ 0x14033EBC4 (MiDeletePerSessionProtos.c)
- *     MiReferencePageForModifiedWrite @ 0x140349DE8 (MiReferencePageForModifiedWrite.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiPrepareLargePageSubPageForFree @ 0x140669474 (MiPrepareLargePageSubPageForFree.c)
- *     MmChangeImageProtection @ 0x140723E40 (MmChangeImageProtection.c)
+ *     MiProbeLeafPteAccess @ 0x140236D20 (MiProbeLeafPteAccess.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiDeleteClusterPage @ 0x1402D64B0 (MiDeleteClusterPage.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
+ *     MiDeletePerSessionProtos @ 0x14033EE54 (MiDeletePerSessionProtos.c)
+ *     MiReferencePageForModifiedWrite @ 0x140349F80 (MiReferencePageForModifiedWrite.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiPrepareLargePageSubPageForFree @ 0x1406699C4 (MiPrepareLargePageSubPageForFree.c)
+ *     MmChangeImageProtection @ 0x140724040 (MmChangeImageProtection.c)
  *     MiTradeBootImagePage @ 0x140B46E5C (MiTradeBootImagePage.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeSetPagePrivilege @ 0x1403D4D14 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KeSetPagePrivilege @ 0x1403D4EF4 (KeSetPagePrivilege.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall MiClearPfnImageVerified(ULONG_PTR BugCheckParameter2, char a2)
@@ -76,10 +76,10 @@ char __fastcall MiClearPfnImageVerified(ULONG_PTR BugCheckParameter2, char a2)
     if ( v5 != 17 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

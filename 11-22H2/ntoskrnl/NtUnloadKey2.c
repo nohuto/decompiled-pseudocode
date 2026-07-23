@@ -8,16 +8,16 @@
  *     CmUnloadKey @ 0x140698DD8 (CmUnloadKey.c)
  */
 
-__int64 NtUnloadKey2()
+NTSTATUS __cdecl NtUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)
 {
-  unsigned int v0; // r10d
-  __int64 v1; // r11
-  unsigned int v2; // r8d
-  __int64 v4[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v2; // r10d
+  __int64 v3; // r11
+  NTSTATUS v4; // r8d
+  __int64 v6[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_OWORD *)v4 = 0LL;
-  CmpInitializeThreadInfo((__int64)v4);
-  CmUnloadKey(v1, v0, 0LL, 0LL);
-  CmCleanupThreadInfo(v4);
-  return v2;
+  *(_OWORD *)v6 = 0LL;
+  CmpInitializeThreadInfo((__int64)v6);
+  CmUnloadKey(v3, v2, 0LL, 0LL);
+  CmCleanupThreadInfo(v6);
+  return v4;
 }

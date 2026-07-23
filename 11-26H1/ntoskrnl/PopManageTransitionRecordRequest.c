@@ -1,13 +1,13 @@
 /*
- * XREFs of PopManageTransitionRecordRequest @ 0x140AE4334
+ * XREFs of PopManageTransitionRecordRequest @ 0x140AE1E44
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060769C (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140BFD138 (PoDelistPowerStateTransitionBlocker.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060A1F8 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140C03138 (PoDelistPowerStateTransitionBlocker.c)
  */
 
 __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64
     return (unsigned int)-1073741811;
   if ( (unsigned int)a3 < 0x38 )
     return (unsigned int)-1073741789;
-  if ( (unsigned int)(dword_140F0FD14 - 1) > 1 )
+  if ( (unsigned int)(dword_140F105D4 - 1) > 1 )
     return (unsigned int)-1073741101;
   v7 = *(unsigned int *)(a2 + 8);
   if ( (_DWORD)v7 )

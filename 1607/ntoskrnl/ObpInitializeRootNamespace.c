@@ -1,25 +1,25 @@
 /*
- * XREFs of ObpInitializeRootNamespace @ 0x140579974
+ * XREFs of ObpInitializeRootNamespace @ 0x140579EB4
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x1406E6004 (ObCreateSiloRootDirectory.c)
+ *     ObCreateSiloRootDirectory @ 0x1406E613C (ObCreateSiloRootDirectory.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14015A780 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObject @ 0x14015B000 (ZwCreateDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x14015B020 (ZwCreateDirectoryObjectEx.c)
- *     ZwCreateSymbolicLinkObject @ 0x14015B320 (ZwCreateSymbolicLinkObject.c)
- *     ZwSetInformationSymbolicLink @ 0x14015CD60 (ZwSetInformationSymbolicLink.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x14015ACF0 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObject @ 0x14015B570 (ZwCreateDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x14015B590 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x14015B890 (ZwCreateSymbolicLinkObject.c)
+ *     ZwSetInformationSymbolicLink @ 0x14015D2D0 (ZwSetInformationSymbolicLink.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
- *     ObpCreateDosDevicesDirectory @ 0x140579BE8 (ObpCreateDosDevicesDirectory.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14057A128 (ObpCreateDosDevicesDirectory.c)
  */
 
 NTSTATUS __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
@@ -31,17 +31,17 @@ NTSTATUS __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
   ULONG v10; // ebx
   ACL *PoolWithTag; // rax
   ACL *v12; // rdi
-  int Acl; // ebx
+  NTSTATUS Acl; // ebx
   bool v14; // sf
-  HANDLE Handle; // [rsp+30h] [rbp-39h] BYREF
-  HANDLE DirectoryHandle; // [rsp+38h] [rbp-31h] BYREF
+  HANDLE DirectoryHandle; // [rsp+30h] [rbp-39h] BYREF
+  HANDLE ShadowDirectoryHandle; // [rsp+38h] [rbp-31h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-29h] BYREF
   PVOID Object; // [rsp+70h] [rbp+7h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+78h] [rbp+Fh] BYREF
-  int v20; // [rsp+E8h] [rbp+7Fh] BYREF
+  int SymbolicLinkInformation; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  Handle = 0LL;
   DirectoryHandle = 0LL;
+  ShadowDirectoryHandle = 0LL;
   IsHostSilo = PsIsHostSilo(a1);
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   if ( result < 0 )
@@ -74,7 +74,7 @@ NTSTATUS __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
                   ObjectAttributes.Length = 48,
                   ObjectAttributes.Attributes = 592,
                   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
-                  Acl = ZwOpenDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes),
+                  Acl = ZwOpenDirectoryObject(&ShadowDirectoryHandle, 0xF000Fu, &ObjectAttributes),
                   Acl >= 0) )
             {
               ObjectAttributes.SecurityQualityOfService = 0LL;
@@ -83,11 +83,11 @@ NTSTATUS __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
               ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
               ObjectAttributes.RootDirectory = a2;
               ObjectAttributes.Attributes = 592;
-              Acl = ZwCreateDirectoryObjectEx((__int64)&Handle, 983055LL, (__int64)&ObjectAttributes);
+              Acl = ZwCreateDirectoryObjectEx(&DirectoryHandle, 0xF000Fu, &ObjectAttributes, ShadowDirectoryHandle, 0);
               if ( Acl >= 0 )
               {
-                ZwClose(Handle);
-                Handle = 0LL;
+                ZwClose(DirectoryHandle);
+                DirectoryHandle = 0LL;
                 ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpObjectTypesNameString;
                 ObjectAttributes.Length = 48;
                 ObjectAttributes.RootDirectory = a2;
@@ -95,10 +95,10 @@ NTSTATUS __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
                 *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
                 if ( IsHostSilo )
                 {
-                  Acl = ZwCreateDirectoryObject(&Handle, 0xF000Fu, &ObjectAttributes);
+                  Acl = ZwCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
                   if ( Acl >= 0 )
                   {
-                    Acl = ObReferenceObjectByHandle(Handle, 0, ObpDirectoryObjectType, 0, &Object, 0LL);
+                    Acl = ObReferenceObjectByHandle(DirectoryHandle, 0, ObpDirectoryObjectType, 0, &Object, 0LL);
                     ObpTypeDirectoryObject = Object;
                     v14 = Acl < 0;
                     goto LABEL_13;
@@ -107,14 +107,18 @@ NTSTATUS __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)
                 else
                 {
                   Acl = ZwCreateSymbolicLinkObject(
-                          &Handle,
+                          &DirectoryHandle,
                           0xF0001u,
                           &ObjectAttributes,
                           (PUNICODE_STRING)&ObpObjectTypesPathString);
                   if ( Acl >= 0 )
                   {
-                    v20 = 0;
-                    Acl = ZwSetInformationSymbolicLink((__int64)Handle, 1LL, (__int64)&v20);
+                    SymbolicLinkInformation = 0;
+                    Acl = ZwSetInformationSymbolicLink(
+                            DirectoryHandle,
+                            SymbolicLinkGlobalInformation,
+                            &SymbolicLinkInformation,
+                            4u);
                     v14 = Acl < 0;
 LABEL_13:
                     if ( !v14 )
@@ -128,10 +132,10 @@ LABEL_13:
       }
     }
   }
-  if ( Handle )
-    ZwClose(Handle);
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
+  if ( ShadowDirectoryHandle )
+    ZwClose(ShadowDirectoryHandle);
   ExFreePoolWithTag(v12, 0x6C636144u);
   return Acl;
 }

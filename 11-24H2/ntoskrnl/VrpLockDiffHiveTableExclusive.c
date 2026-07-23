@@ -1,26 +1,26 @@
 /*
- * XREFs of VrpLockDiffHiveTableExclusive @ 0x14092AD7C
+ * XREFs of VrpLockDiffHiveTableExclusive @ 0x14092CEBC
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092A8CC (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
- *     VrpDereferenceDiffHiveEntry @ 0x14092AA88 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092CA0C (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14092CBC8 (VrpDereferenceDiffHiveEntry.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
-__int64 VrpLockDiffHiveTableExclusive()
+char *VrpLockDiffHiveTableExclusive()
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 result; // rax
-  __int64 v2; // rbx
+  char *result; // rax
+  char *v2; // rbx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  result = (__int64)KeAbPreAcquire((__int64)&gLoadedDiffHivesLock, 0LL);
+  result = (char *)KeAbPreAcquire((__int64)&gLoadedDiffHivesLock, 0LL);
   v2 = result;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&gLoadedDiffHivesLock, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(&gLoadedDiffHivesLock, result, (__int64)&gLoadedDiffHivesLock);
+    result = (char *)ExfAcquirePushLockExclusiveEx(&gLoadedDiffHivesLock, result, (__int64)&gLoadedDiffHivesLock);
   if ( v2 )
-    *(_BYTE *)(v2 + 10) = 1;
+    v2[10] = 1;
   return result;
 }

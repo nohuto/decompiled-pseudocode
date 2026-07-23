@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoReconcileNextHive @ 0x1405B0F90
+ * XREFs of CmpDoReconcileNextHive @ 0x1405B1F90
  * Callers:
  *     <none>
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1405A60DC (HvGetEffectiveLogSizeCapForHive.c)
- *     CmpIsHiveEligibleForLazyReconcile @ 0x1405B0ED8 (CmpIsHiveEligibleForLazyReconcile.c)
- *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C770C (CmpFlushUnsupportedOperationTelemetry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1405A70DC (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x1405B1ED8 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     CmpGetNextActiveHive @ 0x1405B2474 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C89AC (CmpFlushUnsupportedOperationTelemetry.c)
  */
 
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
@@ -22,7 +22,7 @@ char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
   unsigned __int64 v10; // rcx
 
   v2 = 0;
-  v3 = 10000000LL * (unsigned int)dword_1403FE9B4;
+  v3 = 10000000LL * (unsigned int)dword_1403FF9B4;
   if ( !CmpNoWrite )
   {
     v6 = 0LL;
@@ -39,7 +39,7 @@ char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
         if ( (int)CmpFlushHive(NextActiveHive) < 0 )
         {
           *a1 = 1;
-          v8 = UnbiasedInterruptTime + 10000000LL * (unsigned int)dword_1403FE9BC;
+          v8 = UnbiasedInterruptTime + 10000000LL * (unsigned int)dword_1403FF9BC;
         }
       }
       else if ( *(_DWORD *)(NextActiveHive + 128) )
@@ -47,7 +47,7 @@ char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
         if ( (*(_DWORD *)(NextActiveHive + 160) & 0x8001) == 0 )
         {
           v2 = 1;
-          v10 = *(_QWORD *)(NextActiveHive + 4184) + 10000000LL * (unsigned int)dword_1403FE9B0;
+          v10 = *(_QWORD *)(NextActiveHive + 4184) + 10000000LL * (unsigned int)dword_1403FF9B0;
           if ( UnbiasedInterruptTime < v10 )
             v8 = v10 - UnbiasedInterruptTime;
         }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x1407687E4
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x1407689A4
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyExW @ 0x1402C2960 (RtlStringCbCopyExW.c)
- *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
- *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
- *     _CmValidateDeviceName @ 0x140642270 (_CmValidateDeviceName.c)
- *     PiGetRelatedDevice @ 0x1406AE154 (PiGetRelatedDevice.c)
- *     _CmGetDeviceParent @ 0x1406B09D4 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyExW @ 0x140240E00 (RtlStringCbCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     PiGetRelatedDevice @ 0x14060C9F4 (PiGetRelatedDevice.c)
+ *     _CmGetDeviceParent @ 0x14060F984 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     PiCMReturnBufferResultData @ 0x14062C594 (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x14062D950 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14062D984 (PiCMCaptureObjectInputData.c)
+ *     _CmValidateDeviceName @ 0x140637080 (_CmValidateDeviceName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(
@@ -80,7 +80,7 @@ __int64 __fastcall PiCMGetRelatedDeviceInstance(
       {
         case 1:
           v20 = v14 >> 1;
-          DeviceParent = CmGetDeviceParent(*(__int64 *)&PiPnpRtlCtx, SourceString[0], PoolWithTag, &v20);
+          DeviceParent = CmGetDeviceParent(PiPnpRtlCtx, SourceString[0], PoolWithTag, &v20);
           v9 = v20;
           inited = DeviceParent;
 LABEL_15:

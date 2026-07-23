@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProcessKernelCfgImage @ 0x1404F8C10
+ * XREFs of MiProcessKernelCfgImage @ 0x1404F2220
  * Callers:
- *     MiFinalizeDriverCfgState @ 0x140AC7330 (MiFinalizeDriverCfgState.c)
- *     MiInitializeKernelCfgImages @ 0x140CFEAB0 (MiInitializeKernelCfgImages.c)
+ *     MiFinalizeDriverCfgState @ 0x140AC8F20 (MiFinalizeDriverCfgState.c)
+ *     MiInitializeKernelCfgImages @ 0x140D04E50 (MiInitializeKernelCfgImages.c)
  * Callees:
- *     MiMarkKernelImageCfgBits @ 0x140AC705C (MiMarkKernelImageCfgBits.c)
- *     MiProcessKernelCfgAddressTakenImports @ 0x140B30D4C (MiProcessKernelCfgAddressTakenImports.c)
+ *     MiMarkKernelImageCfgBits @ 0x140AC8C4C (MiMarkKernelImageCfgBits.c)
+ *     MiProcessKernelCfgAddressTakenImports @ 0x140B32F4C (MiProcessKernelCfgAddressTakenImports.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgImage(__int64 a1, char a2, __int64 a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeDriverPatchState @ 0x1408C4D04
+ * XREFs of MiInitializeDriverPatchState @ 0x1408C4E64
  * Callers:
- *     MmWriteSystemImageTracepoint @ 0x14053F6F8 (MmWriteSystemImageTracepoint.c)
- *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054452C (MmRemoveImportOptimizationForDriverVerifier.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F938 (MmWriteSystemImageTracepoint.c)
+ *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054476C (MmRemoveImportOptimizationForDriverVerifier.c)
  * Callees:
  *     <none>
  */

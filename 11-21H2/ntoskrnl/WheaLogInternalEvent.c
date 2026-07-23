@@ -1,30 +1,30 @@
 /*
  * XREFs of WheaLogInternalEvent @ 0x1403D2A90
  * Callers:
- *     HalpCmcLogPollingTimeoutEvent @ 0x14050634C (HalpCmcLogPollingTimeoutEvent.c)
- *     HalpCmciHandler @ 0x140509620 (HalpCmciHandler.c)
- *     IoSaveBugCheckProgress @ 0x140552B40 (IoSaveBugCheckProgress.c)
- *     IoSaveBugCheckRecoveryStatus @ 0x140552C20 (IoSaveBugCheckRecoveryStatus.c)
- *     KiMcheckAlternateReturn @ 0x14057C3C0 (KiMcheckAlternateReturn.c)
+ *     sub_14050634C @ 0x14050634C (sub_14050634C.c)
+ *     sub_140509620 @ 0x140509620 (sub_140509620.c)
+ *     sub_140552B40 @ 0x140552B40 (sub_140552B40.c)
+ *     sub_140552C20 @ 0x140552C20 (sub_140552C20.c)
+ *     ?Process@CPullPin@@AEAAXXZ @ 0x14057C3C0 (-Process@CPullPin@@AEAAXXZ.c)
  *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
- *     WheapInitErrorReportDeviceDriver @ 0x140644930 (WheapInitErrorReportDeviceDriver.c)
- *     WheaPersistBadPageToRegistry @ 0x140644EEC (WheaPersistBadPageToRegistry.c)
- *     WheapCreateRecordFromGenericErrorData @ 0x140645708 (WheapCreateRecordFromGenericErrorData.c)
- *     WheapGenerateETWEvents @ 0x140645F80 (WheapGenerateETWEvents.c)
- *     WheapProcessOfflineList @ 0x140646C90 (WheapProcessOfflineList.c)
+ *     sub_140644930 @ 0x140644930 (sub_140644930.c)
+ *     sub_140644EEC @ 0x140644EEC (sub_140644EEC.c)
+ *     sub_140645708 @ 0x140645708 (sub_140645708.c)
+ *     sub_140645F80 @ 0x140645F80 (sub_140645F80.c)
+ *     sub_140646C90 @ 0x140646C90 (sub_140646C90.c)
  *     WheaAddErrorSource @ 0x14084E510 (WheaAddErrorSource.c)
- *     WheapLogInitEvent @ 0x14084E760 (WheapLogInitEvent.c)
- *     WheapProcessWaitingETWEvents @ 0x140860F60 (WheapProcessWaitingETWEvents.c)
- *     HalpCmcWorkerRoutine @ 0x140908680 (HalpCmcWorkerRoutine.c)
+ *     sub_14084E760 @ 0x14084E760 (sub_14084E760.c)
+ *     sub_140860F60 @ 0x140860F60 (sub_140860F60.c)
+ *     sub_140908680 @ 0x140908680 (sub_140908680.c)
  *     WheaRemoveErrorSource @ 0x140A08880 (WheaRemoveErrorSource.c)
  *     WheaRemoveErrorSourceDeviceDriver @ 0x140A08A50 (WheaRemoveErrorSourceDeviceDriver.c)
- *     WheapAttemptPhysicalPageOffline @ 0x140A08FFC (WheapAttemptPhysicalPageOffline.c)
- *     WheapClearPoison @ 0x140A092FC (WheapClearPoison.c)
- *     WheapLogPolicyTelemetry @ 0x140A09A80 (WheapLogPolicyTelemetry.c)
- *     WheapPfaLogPageMonitorRemoval @ 0x140A09F1C (WheapPfaLogPageMonitorRemoval.c)
- *     WheapTrackPendingPage @ 0x140A0A490 (WheapTrackPendingPage.c)
- *     HalpInitGenericErrorSourceEntry @ 0x140A5AEB0 (HalpInitGenericErrorSourceEntry.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x140A61D50 (HalpInitGenericErrorSourceEntryV2.c)
+ *     sub_140A08FFC @ 0x140A08FFC (sub_140A08FFC.c)
+ *     sub_140A092FC @ 0x140A092FC (sub_140A092FC.c)
+ *     sub_140A09A80 @ 0x140A09A80 (sub_140A09A80.c)
+ *     sub_140A09F1C @ 0x140A09F1C (sub_140A09F1C.c)
+ *     sub_140A0A490 @ 0x140A0A490 (sub_140A0A490.c)
+ *     sub_140A5AEB0 @ 0x140A5AEB0 (sub_140A5AEB0.c)
+ *     sub_140A61D50 @ 0x140A61D50 (sub_140A61D50.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
@@ -32,8 +32,8 @@
  *     WheaIsCriticalState @ 0x1403D2BA0 (WheaIsCriticalState.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     WheaSelLogEvent @ 0x140643064 (WheaSelLogEvent.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     sub_140643064 @ 0x140643064 (sub_140643064.c)
+ *     sub_14074F950 @ 0x14074F950 (sub_14074F950.c)
  */
 
 LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
@@ -45,7 +45,7 @@ LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
   _QWORD *v6; // rdi
   _QWORD *v7; // rax
   __int64 v8; // rax
-  _QWORD InputBuffer[4]; // [rsp+40h] [rbp-49h] BYREF
+  _QWORD v9[4]; // [rsp+40h] [rbp-49h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-29h] BYREF
   char *v11; // [rsp+70h] [rbp-19h]
   __int64 v12; // [rsp+78h] [rbp-11h]
@@ -59,7 +59,7 @@ LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
   int v20; // [rsp+B8h] [rbp+2Fh]
   int v21; // [rsp+BCh] [rbp+33h]
 
-  if ( WheapEventingInitialized )
+  if ( dword_140C10AF8 )
   {
     v2 = Src + 6;
     if ( (Src[6] & 2) != 0 && !(unsigned __int8)WheaIsCriticalState() )
@@ -77,52 +77,44 @@ LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
       v18 = 4LL;
       v19 = Src;
       v21 = 0;
-      EtwWriteEx(
-        (REGHANDLE)WheapDispatchPtr.Queue.Wcb.DeviceRoutine,
-        &EVENT_WHEA_LOG_ENTRY,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        6u,
-        &UserData);
+      EtwWriteEx((REGHANDLE)stru_140C0E9A8.Queue.Wcb.DeviceRoutine, &stru_140012C30, 0LL, 0, 0LL, 0LL, 6u, &UserData);
     }
     result = *v2;
     if ( (*v2 & 4) != 0 )
     {
       v8 = (unsigned int)Src[2];
-      InputBuffer[2] = 0LL;
-      InputBuffer[3] = 15LL;
-      InputBuffer[0] = Src;
-      InputBuffer[1] = v8;
-      NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
+      v9[2] = 0LL;
+      v9[3] = 15LL;
+      v9[0] = Src;
+      v9[1] = v8;
+      sub_14074F950(94, (unsigned int)v9, 32, 0, 0);
       result = Src[6];
     }
     if ( (result & 8) != 0 )
-      return WheaSelLogEvent(Src);
+      return sub_140643064(Src);
   }
   else
   {
     result = KeGetCurrentIrql();
     if ( (unsigned __int8)result < 2u )
     {
-      KeWaitForSingleObject(&WheapDeferredInternalLogsEventLock, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&stru_140C10AE0, Executive, 0, 0, 0LL);
       v4 = (unsigned int)Src[7];
-      v5 = v4 + WheapDeferredEventTotalBytes + 48;
+      v5 = v4 + dword_140D04C90 + 48;
       if ( v5 < 0x1000 )
       {
-        v6 = (_QWORD *)((char *)&WheapDeferredEventBuffer + (unsigned int)WheapDeferredEventTotalBytes);
+        v6 = (_QWORD *)((char *)&unk_140C0FAE0 + (unsigned int)dword_140D04C90);
         memmove(v6 + 2, Src, v4 + 32);
         v7 = (_QWORD *)qword_140C0FA48;
-        WheapDeferredEventTotalBytes = v5;
-        if ( *(__int64 **)qword_140C0FA48 != &WheapDeferredInternalLogs )
+        dword_140D04C90 = v5;
+        if ( *(__int64 **)qword_140C0FA48 != &qword_140C0FA40 )
           __fastfail(3u);
-        *v6 = &WheapDeferredInternalLogs;
+        *v6 = &qword_140C0FA40;
         v6[1] = v7;
         *v7 = v6;
         qword_140C0FA48 = (__int64)v6;
       }
-      return KeSetEvent(&WheapDeferredInternalLogsEventLock, 0, 0);
+      return KeSetEvent(&stru_140C10AE0, 0, 0);
     }
   }
   return result;

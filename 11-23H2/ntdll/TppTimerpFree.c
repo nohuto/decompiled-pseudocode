@@ -6,8 +6,8 @@
  *     TppDestroyTimer @ 0x18007B3AC (TppDestroyTimer.c)
  */
 
-__int64 __fastcall TppTimerpFree(__int64 a1)
+LOGICAL __fastcall TppTimerpFree(void *a1)
 {
   TppDestroyTimer();
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x100000, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x100000, a1);
 }

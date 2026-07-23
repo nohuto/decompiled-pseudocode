@@ -13,7 +13,7 @@ LONG __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_
 {
   wint_t v3; // bx
   const wchar_t *v4; // rax
-  int v5; // edx
+  unsigned int v5; // edx
   PCWSTR v7; // r12
   int v8; // r14d
   char v9; // r8
@@ -27,7 +27,7 @@ LONG __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_
   unsigned int v18; // eax
   wchar_t *String; // [rsp+20h] [rbp-48h]
   char v20; // [rsp+70h] [rbp+8h]
-  int v22; // [rsp+88h] [rbp+20h]
+  unsigned int v22; // [rsp+88h] [rbp+20h]
 
   v3 = *S;
   v4 = 0LL;
@@ -110,7 +110,7 @@ LABEL_23:
         v22 = v5 + 1;
         ++v7;
         v8 = 2;
-        Addr->u.Word[v5] = 0;
+        *((_WORD *)Addr + v5) = 0;
         v4 = String;
         goto LABEL_14;
       }
@@ -147,7 +147,7 @@ LABEL_14:
       v17 = wcstol(v4, 0LL, 10);
       if ( v17 > 0xFF )
         return -1073741811;
-      Addr->u.Byte[2 * v22 - 1 + v11] = v17;
+      *((_BYTE *)Addr + 2 * v22 + v11 - 1) = v17;
 LABEL_29:
       v9 = v20;
       v4 = String;
@@ -159,7 +159,7 @@ LABEL_30:
       return -1073741811;
     v14 = wcstol(v4, 0LL, 16);
     v9 = v20;
-    Addr->u.Word[v22] = __ROR2__(v14, 8);
+    *((_WORD *)Addr + v22) = __ROR2__(v14, 8);
     v5 = v22 + 1;
     v4 = String;
     ++v22;
@@ -183,7 +183,7 @@ LABEL_25:
   {
     if ( v8 == 2 )
     {
-      Addr->u.Word[v22] = 0;
+      *((_WORD *)Addr + v22) = 0;
       goto LABEL_53;
     }
     return -1073741811;
@@ -195,7 +195,7 @@ LABEL_25:
       v18 = wcstol(v4, 0LL, 10);
       if ( v18 <= 0xFF )
       {
-        Addr->u.Byte[2 * v22 + v11] = v18;
+        *((_BYTE *)Addr + 2 * v22 + v11) = v18;
         goto LABEL_53;
       }
     }
@@ -203,11 +203,11 @@ LABEL_25:
   }
   if ( v12 > 4 )
     return -1073741811;
-  Addr->u.Word[v22] = __ROR2__(wcstol(v4, 0LL, 16), 8);
+  *((_WORD *)Addr + v22) = __ROR2__(wcstol(v4, 0LL, 16), 8);
 LABEL_53:
   if ( v13 )
   {
-    memmove((char *)&Addr[1] + 2 * (v13 - v10), (char *)Addr + 2 * v13, 2LL * (v10 - v13));
+    memmove((char *)Addr + 2 * (v13 - v10) + 16, (char *)Addr + 2 * v13, 2LL * (v10 - v13));
     memset((char *)Addr + 2 * v13, 0, 2LL * (8 - v10));
   }
   return 0;

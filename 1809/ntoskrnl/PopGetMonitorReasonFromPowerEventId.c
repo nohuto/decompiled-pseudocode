@@ -1,8 +1,8 @@
 /*
- * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x1402E37D4
+ * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x1402E39C4
  * Callers:
- *     PopPowerAggregatorExecuteActiveCallback @ 0x140875B50 (PopPowerAggregatorExecuteActiveCallback.c)
- *     PopPowerAggregatorExecuteModernStandbyCallback @ 0x140875BF0 (PopPowerAggregatorExecuteModernStandbyCallback.c)
+ *     PopPowerAggregatorExecuteActiveCallback @ 0x140876DB0 (PopPowerAggregatorExecuteActiveCallback.c)
+ *     PopPowerAggregatorExecuteModernStandbyCallback @ 0x140876E50 (PopPowerAggregatorExecuteModernStandbyCallback.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall PopGetMonitorReasonFromPowerEventId(int a1)
   __int64 v3; // rax
 
   v1 = 0;
-  v2 = &unk_140540784;
+  v2 = &unk_140541784;
   v3 = 0LL;
   while ( *v2 != a1 )
   {

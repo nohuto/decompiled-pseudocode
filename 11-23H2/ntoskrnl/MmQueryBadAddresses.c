@@ -1,17 +1,17 @@
 /*
- * XREFs of MmQueryBadAddresses @ 0x140A2FDD8
+ * XREFs of MmQueryBadAddresses @ 0x140A30088
  * Callers:
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiGetListOfPendingBadPages @ 0x140629FF8 (MiGetListOfPendingBadPages.c)
- *     MiUpdateBadPfnIdentity @ 0x14062B2EC (MiUpdateBadPfnIdentity.c)
- *     MiLocateSharedPageViews @ 0x1406364E0 (MiLocateSharedPageViews.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     MiDeleteTrimViewInfoList @ 0x14085FB74 (MiDeleteTrimViewInfoList.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiGetListOfPendingBadPages @ 0x14062A548 (MiGetListOfPendingBadPages.c)
+ *     MiUpdateBadPfnIdentity @ 0x14062B83C (MiUpdateBadPfnIdentity.c)
+ *     MiLocateSharedPageViews @ 0x140636A30 (MiLocateSharedPageViews.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     MiDeleteTrimViewInfoList @ 0x14085FDB4 (MiDeleteTrimViewInfoList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCompleteDirectSwitchThread @ 0x1404399F8
+ * XREFs of KiCompleteDirectSwitchThread @ 0x14042C2A8
  * Callers:
- *     KiInsertQueue @ 0x140267CA0 (KiInsertQueue.c)
- *     AlpcpQueueIoCompletionPort @ 0x140268A70 (AlpcpQueueIoCompletionPort.c)
- *     AlpcpQueueIoCompletion @ 0x140269140 (AlpcpQueueIoCompletion.c)
- *     KeReleaseSemaphoreEx @ 0x1404396D0 (KeReleaseSemaphoreEx.c)
+ *     KiInsertQueue @ 0x140267210 (KiInsertQueue.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140267FE0 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpQueueIoCompletion @ 0x1402686B0 (AlpcpQueueIoCompletion.c)
+ *     KeReleaseSemaphoreEx @ 0x14042BF80 (KeReleaseSemaphoreEx.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiRemoveBoostThread @ 0x1402742E0 (KiRemoveBoostThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveBoostThread @ 0x140273850 (KiRemoveBoostThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiCompleteDirectSwitchThread(struct _KPRCB *a1, __int64 a2)

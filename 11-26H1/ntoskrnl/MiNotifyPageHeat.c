@@ -1,11 +1,11 @@
 /*
- * XREFs of MiNotifyPageHeat @ 0x14052F470
+ * XREFs of MiNotifyPageHeat @ 0x140531990
  * Callers:
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     HvlNotifyPageHeat @ 0x140517DA4 (HvlNotifyPageHeat.c)
- *     MiLogNotifyPageHeat @ 0x140704DD0 (MiLogNotifyPageHeat.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     HvlNotifyPageHeat @ 0x140511814 (HvlNotifyPageHeat.c)
+ *     MiLogNotifyPageHeat @ 0x140709AA0 (MiLogNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiNotifyPageHeat(_DWORD *a1)
@@ -13,9 +13,9 @@ __int64 __fastcall MiNotifyPageHeat(_DWORD *a1)
   __int64 v2; // rcx
   __int64 result; // rax
 
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 64LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 64LL) )
   {
     MiLogNotifyPageHeat(v2, a1);
   }

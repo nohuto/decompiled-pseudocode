@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetCurrentPrcb @ 0x140381010
+ * XREFs of KeGetCurrentPrcb @ 0x1403811B0
  * Callers:
  *     <none>
  * Callees:

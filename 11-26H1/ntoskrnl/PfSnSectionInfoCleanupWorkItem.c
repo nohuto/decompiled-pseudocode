@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x1409B8ED0
+ * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x140989EB0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x1409BA1B4 (PfSnCleanupPrefetchSectionInfo.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x14098B194 (PfSnCleanupPrefetchSectionInfo.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1, __int64 a2, __int64 a3)

@@ -9,18 +9,18 @@
  *     _RtlMultiByteToUnicodeN@20 @ 0x4B2E1E50 (_RtlMultiByteToUnicodeN@20.c)
  */
 
-__int16 __stdcall RtlAnsiCharToUnicodeChar(unsigned __int8 **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
-  __int16 v1; // si
-  unsigned __int8 v2; // al
+  WCHAR v1; // si
+  UCHAR v2; // al
   int v3; // ebx
-  int v4; // ebx
+  ULONG v4; // ebx
   int v6; // [esp-4h] [ebp-14h]
-  __int16 v7; // [esp+Ch] [ebp-4h] BYREF
+  WCHAR UnicodeString; // [esp+Ch] [ebp-4h] BYREF
 
   v1 = 32;
-  v7 = 32;
-  v2 = **a1;
+  UnicodeString = 32;
+  v2 = **SourceCharacter;
   if ( !NlsActiveCodePageIsUTF8 )
   {
     v3 = NlsLeadByteInfoTable[v2] != 0;
@@ -50,8 +50,8 @@ LABEL_3:
     v4 = 1;
   }
 LABEL_4:
-  if ( (int)RtlMultiByteToUnicodeN(&v7, 2, 0, *a1, v4) >= 0 )
-    v1 = v7;
-  *a1 += v4;
+  if ( RtlMultiByteToUnicodeN(&UnicodeString, 2u, 0, (PCSTR)*SourceCharacter, v4) >= 0 )
+    v1 = UnicodeString;
+  *SourceCharacter += v4;
   return v1;
 }

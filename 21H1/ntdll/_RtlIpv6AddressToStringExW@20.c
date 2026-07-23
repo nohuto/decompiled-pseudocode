@@ -21,9 +21,12 @@ LONG __stdcall RtlIpv6AddressToStringExW(
   unsigned __int16 v7; // ax
   ULONG v8; // eax
   ULONG v9; // esi
+  size_t v11; // [esp-Ch] [ebp-A8h]
+  size_t v12; // [esp-Ch] [ebp-A8h]
+  size_t v13; // [esp-4h] [ebp-A0h]
   WCHAR S; // [esp+14h] [ebp-88h] BYREF
-  char v12; // [esp+16h] [ebp-86h] BYREF
-  _BYTE v13[2]; // [esp+96h] [ebp-6h] BYREF
+  char v15; // [esp+16h] [ebp-86h] BYREF
+  _BYTE v16[2]; // [esp+96h] [ebp-6h] BYREF
 
   if ( !Address || !AddressStringLength || !AddressString && *AddressStringLength )
     return -1073741811;
@@ -31,22 +34,29 @@ LONG __stdcall RtlIpv6AddressToStringExW(
   if ( Port )
   {
     S = 91;
-    p_S = (WCHAR *)&v12;
+    p_S = (WCHAR *)&v15;
   }
-  v6 = RtlIpv6AddressToStringW(Address, p_S);
+  v6 = (wchar_t *)RtlIpv6AddressToStringW(Address, p_S);
   if ( ScopeId )
-    v6 += swprintf_s(v6, (v13 - (_BYTE *)v6) >> 1, L"%%%u", ScopeId);
+  {
+    HIDWORD(v11) = L"%%%u";
+    LODWORD(v11) = (v16 - (_BYTE *)v6) >> 1;
+    v6 += swprintf_s(v6, v11, (const wchar_t *const)ScopeId);
+  }
   if ( Port )
   {
     LOBYTE(v7) = HIBYTE(Port);
     HIBYTE(v7) = Port;
-    v6 += swprintf_s(v6, (v13 - (_BYTE *)v6) >> 1, L"]:%u", v7);
+    HIDWORD(v12) = L"]:%u";
+    LODWORD(v12) = (v16 - (_BYTE *)v6) >> 1;
+    v6 += swprintf_s(v6, v12, (const wchar_t *const)v7);
   }
   v8 = *AddressStringLength;
-  v9 = v6 - &S + 1;
+  v9 = (((char *)v6 - (char *)&S) >> 1) + 1;
   *AddressStringLength = v9;
   if ( v8 < v9 )
     return -1073741811;
-  memcpy(AddressString, &S, 2 * v9);
+  LODWORD(v13) = 2 * v9;
+  memcpy(AddressString, &S, v13);
   return 0;
 }

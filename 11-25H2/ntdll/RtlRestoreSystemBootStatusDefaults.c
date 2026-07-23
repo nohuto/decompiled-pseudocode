@@ -6,12 +6,12 @@
  *     NtPowerInformation @ 0x180163DF0 (NtPowerInformation.c)
  */
 
-__int64 RtlRestoreSystemBootStatusDefaults()
+NTSTATUS RtlRestoreSystemBootStatusDefaults(void)
 {
   _QWORD v1[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v1[0] = 35LL;
   v1[1] = 0LL;
   v1[2] = 0LL;
-  return NtPowerInformation(87LL, v1);
+  return NtPowerInformation(PowerInformationInternal, v1, 0x18u, 0LL, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetThreadLangIdByIndex @ 0x1800EF010
+ * XREFs of RtlGetThreadLangIdByIndex @ 0x1800EEFD0
  * Callers:
  *     <none>
  * Callees:

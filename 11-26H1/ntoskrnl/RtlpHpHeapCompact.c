@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpHeapCompact @ 0x1403473E4
+ * XREFs of RtlpHpHeapCompact @ 0x140349464
  * Callers:
- *     ExpHpCompactHeapCallback @ 0x140346EF0 (ExpHpCompactHeapCallback.c)
+ *     ExpHpCompactHeapCallback @ 0x140348F70 (ExpHpCompactHeapCallback.c)
  * Callees:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
- *     RtlpHpLfhContextCompact @ 0x140347628 (RtlpHpLfhContextCompact.c)
- *     RtlpHpVsContextCompact @ 0x140347BE4 (RtlpHpVsContextCompact.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x1403496A8 (RtlpHpLfhContextCompact.c)
+ *     RtlpHpVsContextCompact @ 0x140349C64 (RtlpHpVsContextCompact.c)
  */
 
 __int64 __fastcall RtlpHpHeapCompact(__int64 a1)

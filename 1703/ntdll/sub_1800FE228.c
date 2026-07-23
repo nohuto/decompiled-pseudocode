@@ -21,7 +21,7 @@ __int64 sub_1800FE228()
   qword_18015C2E8 = (__int64)sub_1800076D0;
   result = 1LL;
   qword_18015C2D0 = 0LL;
-  qword_18015C2F0 = *(_QWORD *)&qword_18015BFE0;
+  qword_18015C2F0 = (__int64)qword_18015BFE0;
   dword_18015C2A8 = 2;
   return result;
 }

@@ -6,7 +6,7 @@
  *     ZwUpdateWnfStateData @ 0x1401C39D0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PiUEventBroadcastAwaitingResponseEvent(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall PiUEventBroadcastAwaitingResponseEvent(void *Buffer, ULONG Length)
 {
-  return ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, a1, a2);
+  return ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, Buffer, Length, 0LL, 0LL, 0, 0);
 }

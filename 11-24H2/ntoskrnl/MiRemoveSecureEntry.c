@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveSecureEntry @ 0x1404F1C5C
+ * XREFs of MiRemoveSecureEntry @ 0x1404EF6FC
  * Callers:
- *     MmUnsecureVirtualMemory @ 0x1408E51C0 (MmUnsecureVirtualMemory.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x140A61744 (MiUnmapLockedPagesInUserSpace.c)
+ *     MmUnsecureVirtualMemory @ 0x140896BF0 (MmUnsecureVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A59F24 (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiSetVadFlags @ 0x1402B8D5C (MiSetVadFlags.c)
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     MiUnlockVadCore @ 0x140429670 (MiUnlockVadCore.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x140A1AB7C (MiUnsecureVirtualMemoryAgainstWrites.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiSetVadFlags @ 0x14036049C (MiSetVadFlags.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     MiUnlockVadCore @ 0x14041D7C0 (MiUnlockVadCore.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x140A133BC (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, _QWORD *BugCheckParameter3)
@@ -20,6 +20,7 @@ void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, _QWORD *BugChe
   unsigned __int8 v7; // dl
   unsigned __int64 i; // r8
   unsigned __int64 v9; // rcx
+  __int64 v10; // r9
 
   v4 = 0;
   v5 = 0;
@@ -48,6 +49,6 @@ void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, _QWORD *BugChe
   if ( (BugCheckParameter3[1] & 0x10) != 0 )
     MiUnsecureVirtualMemoryAgainstWrites(BugCheckParameter2, BugCheckParameter3[1], BugCheckParameter3[2]);
   if ( v4 == 1 )
-    MiSetVadFlags(BugCheckParameter2, 1LL, 0);
+    MiSetVadFlags(BugCheckParameter2, 1LL, 0LL, v10);
   ExFreePoolWithTag(BugCheckParameter3, 0);
 }

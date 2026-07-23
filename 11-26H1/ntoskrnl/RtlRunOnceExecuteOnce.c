@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x1409E7CD0
+ * XREFs of RtlRunOnceExecuteOnce @ 0x1409D46E0
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x140352250 (RtlpHpMetadataAlloc.c)
- *     LdrpInitMuiCrits @ 0x1403DD614 (LdrpInitMuiCrits.c)
- *     ExPoolSetLimit @ 0x1406CBD38 (ExPoolSetLimit.c)
- *     ExpCheckTestsigningEnabled @ 0x14077C8E8 (ExpCheckTestsigningEnabled.c)
- *     SdbGetIndex @ 0x1409E6C78 (SdbGetIndex.c)
- *     ExCheckFullProcessInformationAccess @ 0x1409E78E0 (ExCheckFullProcessInformationAccess.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x1409E7B3C (SdbpGetStringTableItemFromStringRef.c)
- *     RtlpLogCapabilityCheckLatency @ 0x140B2C5E0 (RtlpLogCapabilityCheckLatency.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x140B46CC8 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExQueryBootEntropyInformation @ 0x140B6CB9C (ExQueryBootEntropyInformation.c)
+ *     RtlpHpMetadataAlloc @ 0x1403542D4 (RtlpHpMetadataAlloc.c)
+ *     LdrpInitMuiCrits @ 0x1403E0804 (LdrpInitMuiCrits.c)
+ *     ExPoolSetLimit @ 0x1406CFD68 (ExPoolSetLimit.c)
+ *     ExpCheckTestsigningEnabled @ 0x14077F3DC (ExpCheckTestsigningEnabled.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409D42F8 (ExCheckFullProcessInformationAccess.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x1409D4554 (SdbpGetStringTableItemFromStringRef.c)
+ *     SdbGetIndex @ 0x1409D5FF0 (SdbGetIndex.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x140B2E660 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140B48CF8 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExQueryBootEntropyInformation @ 0x140B6FF6C (ExQueryBootEntropyInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlpRunOnceWaitForInit @ 0x1408092D8 (RtlpRunOnceWaitForInit.c)
- *     RtlRunOnceComplete @ 0x1409E73A0 (RtlRunOnceComplete.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpRunOnceWaitForInit @ 0x14080ED68 (RtlpRunOnceWaitForInit.c)
+ *     RtlRunOnceComplete @ 0x1409D58C0 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlRunOnceExecuteOnce(
   NTSTATUS v9; // ebx
   signed __int64 v11; // rcx
   signed __int64 v12; // rcx
-  NTSTATUS v13; // edi
+  int v13; // edi
   PVOID v14; // r8
 
   CurrentThread = KeGetCurrentThread();
@@ -82,12 +82,12 @@ LABEL_2:
     if ( v13 < 0 )
     {
 LABEL_10:
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)InitFn, (__int64)Parameter);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       RtlRaiseStatus(v13);
     }
   }
   v9 = 0;
 LABEL_5:
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)InitFn, (__int64)Parameter);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v9;
 }

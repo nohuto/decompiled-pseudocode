@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetControlAreaPtes @ 0x1402E3790
+ * XREFs of MiGetControlAreaPtes @ 0x1402C57D0
  * Callers:
- *     MmMapViewInSystemCache @ 0x1402E29A0 (MmMapViewInSystemCache.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     MiPrepareDataViewSubsections @ 0x1409C4B70 (MiPrepareDataViewSubsections.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
+ *     MmMapViewInSystemCache @ 0x1402C4A60 (MmMapViewInSystemCache.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     MiPrepareDataViewSubsections @ 0x140995B50 (MiPrepareDataViewSubsections.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 unsigned __int64 __fastcall MiGetControlAreaPtes(__int64 a1)

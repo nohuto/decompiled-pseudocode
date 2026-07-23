@@ -4,7 +4,7 @@
  *     RtlpHpHeapCreate @ 0x18000821C (RtlpHpHeapCreate.c)
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x18009DD00 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformation @ 0x18009DCC0 (NtQuerySystemInformation.c)
  */
 
 __int64 RtlpHpEnvQueryProcessorCount()

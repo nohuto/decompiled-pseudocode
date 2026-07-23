@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestTableInsertEntry @ 0x140B01B10
+ * XREFs of PopPowerRequestTableInsertEntry @ 0x140B03840
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403B88C0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403C27C0 (RtlInsertElementGenericTableAvl.c)
  */
 
 PVOID __fastcall PopPowerRequestTableInsertEntry(int a1)
@@ -13,5 +13,5 @@ PVOID __fastcall PopPowerRequestTableInsertEntry(int a1)
 
   v2 = 0LL;
   DWORD2(v2) = a1;
-  return RtlInsertElementGenericTableAvl((PRTL_AVL_TABLE)&stru_140F12D20.ApcStateFill[40], &v2, 0x10u, &v3);
+  return RtlInsertElementGenericTableAvl((PRTL_AVL_TABLE)&stru_140F12EA0.PriorityFloorCounts[8], &v2, 0x10u, &v3);
 }

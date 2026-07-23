@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWheaInitProcessorGenericSection @ 0x1404D7A30
+ * XREFs of HalpWheaInitProcessorGenericSection @ 0x1404D7C70
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpWheaInitProcessorGenericSection(__int64 a1, __int64 *a2)

@@ -1,11 +1,11 @@
 /*
  * XREFs of HalpGetNumaProcMemoryCount @ 0x140B911A0
  * Callers:
- *     HalpNumaSwapP0NodeToFront @ 0x1403A53B8 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x1403A5598 (HalpNumaSwapP0NodeToFront.c)
  *     HalpNumaInitializeStaticConfiguration @ 0x140B65B38 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
- *     HalpParseChannelCount @ 0x1403A54EC (HalpParseChannelCount.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HalpParseChannelCount @ 0x1403A56CC (HalpParseChannelCount.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     HalpUpdateConfigurationFromMsct @ 0x140B91664 (HalpUpdateConfigurationFromMsct.c)
  *     HalpVerifySratEntryLengthAndFlag @ 0x140B91A28 (HalpVerifySratEntryLengthAndFlag.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFinalizeImageRetpolineState @ 0x14075CC88
+ * XREFs of MiFinalizeImageRetpolineState @ 0x14075CE48
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiIsRetpolineEnabled @ 0x14035E904 (MiIsRetpolineEnabled.c)
- *     MiMapRetpolineStubs @ 0x14054403C (MiMapRetpolineStubs.c)
- *     MiLogRetpolineImageLoadEvents @ 0x14075CCC0 (MiLogRetpolineImageLoadEvents.c)
- *     MiMarkKernelImageRetpolineBits @ 0x1408D0C68 (MiMarkKernelImageRetpolineBits.c)
+ *     MiIsRetpolineEnabled @ 0x1402A3834 (MiIsRetpolineEnabled.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiMapRetpolineStubs @ 0x14054427C (MiMapRetpolineStubs.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x14075CE80 (MiLogRetpolineImageLoadEvents.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x1408D0DC8 (MiMarkKernelImageRetpolineBits.c)
  */
 
 __int64 __fastcall MiFinalizeImageRetpolineState(__int64 a1)

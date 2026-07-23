@@ -35,7 +35,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
   _OWORD *v10; // r15
   char v11; // si
   char v13; // r14
-  ULONG_PTR v14; // rbx
+  void *v14; // rbx
   int v15; // r8d
   int v16; // ecx
   int v17; // eax
@@ -58,7 +58,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
   unsigned __int64 v34; // [rsp+12Dh] [rbp+2Dh]
   unsigned __int64 v35; // [rsp+135h] [rbp+35h]
   struct _KAPC_STATE ApcState; // [rsp+150h] [rbp+50h] BYREF
-  _BYTE v37[672]; // [rsp+180h] [rbp+80h] BYREF
+  WCHAR PackageSize[336]; // [rsp+180h] [rbp+80h] BYREF
 
   memset_0(v30, 0, 0x62uLL);
   memset(v27, 0, sizeof(v27));
@@ -119,7 +119,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
       && (qword_140E09020 & 0x400000000000LL) != 0
       && (qword_140E09028 & 0x400000000000LL) == qword_140E09028 )
     {
-      memset_0(v37, 0, sizeof(v37));
+      memset_0(PackageSize, 0, sizeof(PackageSize));
       v20 = 0LL;
       v19 = 0;
       *(_OWORD *)P = 0LL;
@@ -137,9 +137,9 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
           v11 = 0;
         }
       }
-      v14 = PsReferencePrimaryTokenWithTag((__int64)PROCESS, 0x746C6644u);
-      EtwpQueryTokenPackageInfo(v14, (__int64)v37, &v19);
-      ObFastDereferenceObject((__int64 *)&PROCESS[73], v14, 1953261124LL);
+      v14 = (void *)PsReferencePrimaryTokenWithTag((__int64)PROCESS, 0x746C6644u);
+      EtwpQueryTokenPackageInfo(v14, PackageSize, &v19);
+      ObFastDereferenceObject((__int64 *)&PROCESS[73], (ULONG_PTR)v14, 1953261124LL);
       if ( v11 )
       {
         if ( PROCESS[92].Count && (unsigned __int8)EtwpAppStateChangeSummaryShouldLogCommandLine(PROCESS) )
@@ -155,7 +155,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
         (_DWORD)PROCESS,
         (unsigned int)v30,
         (_DWORD)v10,
-        (unsigned int)v37,
+        (unsigned int)PackageSize,
         (__int64)&v20,
         (__int64)P);
       if ( P[1] )

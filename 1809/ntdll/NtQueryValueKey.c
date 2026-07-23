@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryValueKey @ 0x1800A05C0
+ * XREFs of NtQueryValueKey @ 0x1800A05E0
  * Callers:
  *     RtlGetPersistedStateLocation @ 0x1800296A0 (RtlGetPersistedStateLocation.c)
  *     QueryRegistryValue @ 0x180032F5C (QueryRegistryValue.c)
@@ -11,16 +11,16 @@
  *     RtlpQueryRegistryValues @ 0x180053704 (RtlpQueryRegistryValues.c)
  *     RtlpLookupCurDirSetting @ 0x180058040 (RtlpLookupCurDirSetting.c)
  *     WerpGlobalFlagsForProcess @ 0x18006D8F0 (WerpGlobalFlagsForProcess.c)
- *     RtlpProcessIFEOKeyFilter @ 0x18007948C (RtlpProcessIFEOKeyFilter.c)
- *     ReadUlongFromKey @ 0x18007AB94 (ReadUlongFromKey.c)
- *     RtlQueryImageFileKeyOption @ 0x18007ECC0 (RtlQueryImageFileKeyOption.c)
- *     LdrpCodeAuthzInitialize @ 0x18007FC08 (LdrpCodeAuthzInitialize.c)
- *     RtlpNtQueryValueKey @ 0x180080580 (RtlpNtQueryValueKey.c)
- *     RtlpTestHookInitialize @ 0x180080F00 (RtlpTestHookInitialize.c)
- *     RtlpIsCustomLocale @ 0x18008A4DC (RtlpIsCustomLocale.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x18008AEB0 (RtlpGetNtProductTypeFromRegistry.c)
- *     RtlInitializeRXact @ 0x18008DDA0 (RtlInitializeRXact.c)
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008EA70 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x18007949C (RtlpProcessIFEOKeyFilter.c)
+ *     ReadUlongFromKey @ 0x18007ABA4 (ReadUlongFromKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x18007ECD0 (RtlQueryImageFileKeyOption.c)
+ *     LdrpCodeAuthzInitialize @ 0x18007FC18 (LdrpCodeAuthzInitialize.c)
+ *     RtlpNtQueryValueKey @ 0x180080590 (RtlpNtQueryValueKey.c)
+ *     RtlpTestHookInitialize @ 0x180080F10 (RtlpTestHookInitialize.c)
+ *     RtlpIsCustomLocale @ 0x18008A4EC (RtlpIsCustomLocale.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x18008AEC0 (RtlpGetNtProductTypeFromRegistry.c)
+ *     RtlInitializeRXact @ 0x18008DDB0 (RtlInitializeRXact.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008EA80 (RtlpVerifyAndCommitUILanguageSettings.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CD7D0 (LdrAppxHandleIntegrityFailure.c)
  *     LdrpAppxGetBinaryNameKeyInformation @ 0x1800CDB60 (LdrpAppxGetBinaryNameKeyInformation.c)
  *     LdrpInitializeApplicationVerifierPackage @ 0x1800D2B8C (LdrpInitializeApplicationVerifierPackage.c)
@@ -42,16 +42,22 @@
  *     RtlQueryValidationRunlevel @ 0x1800FE460 (RtlQueryValidationRunlevel.c)
  *     _RtlpMuiRegPopulateBaseLanguages @ 0x180102A28 (_RtlpMuiRegPopulateBaseLanguages.c)
  *     RtlpHpApplySegmentHeapConfigurations @ 0x18010C22C (RtlpHpApplySegmentHeapConfigurations.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180116C88 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180116C24 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryValueKey()
+NTSTATUS __cdecl NtQueryValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 23LL;
+  result = 23;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

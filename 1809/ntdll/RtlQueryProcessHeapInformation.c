@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlQueryProcessHeapInformation @ 0x1800D9600
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x180014020 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x180014370 (RtlEnterCriticalSection.c)
  *     RtlStringCbCopyW @ 0x180041540 (RtlStringCbCopyW.c)
- *     RtlQueryHeapInformation @ 0x18007B040 (RtlQueryHeapInformation.c)
- *     RtlpEnumProcessHeaps @ 0x18007B33C (RtlpEnumProcessHeaps.c)
- *     RtlpCommitQueryDebugInfo @ 0x18007DD5C (RtlpCommitQueryDebugInfo.c)
+ *     RtlQueryHeapInformation @ 0x18007B050 (RtlQueryHeapInformation.c)
+ *     RtlpEnumProcessHeaps @ 0x18007B34C (RtlpEnumProcessHeaps.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18007DD6C (RtlpCommitQueryDebugInfo.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlStringCbPrintfW @ 0x1800D9E30 (RtlStringCbPrintfW.c)
@@ -19,7 +19,7 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   char *DebugInfo; // rax
   char *v3; // rdi
   unsigned int v4; // r13d
-  int HeapInformation; // ebx
+  int v6; // ebx
   __int64 v7; // r14
   char *v8; // rax
   char *v9; // r15
@@ -36,7 +36,7 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   unsigned int j; // ecx
   int v21; // ecx
   _QWORD v22[4]; // [rsp+50h] [rbp-A8h] BYREF
-  _QWORD v23[2]; // [rsp+70h] [rbp-88h] BYREF
+  _QWORD HeapInformation[2]; // [rsp+70h] [rbp-88h] BYREF
   int v24; // [rsp+80h] [rbp-78h]
   __int64 (__fastcall *v25)(); // [rsp+88h] [rbp-70h]
   _QWORD *v26; // [rsp+90h] [rbp-68h]
@@ -52,9 +52,9 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
     return 3221225495LL;
   *(_DWORD *)DebugInfo = 0;
   *(_QWORD *)(a1 + 112) = DebugInfo;
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-  HeapInformation = RtlpEnumProcessHeaps((__int64)RtlpQueryProcessEnumHeapsRoutine, a1, 2);
-  if ( HeapInformation < 0 )
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+  v6 = RtlpEnumProcessHeaps((__int64)RtlpQueryProcessEnumHeapsRoutine, a1, 2);
+  if ( v6 < 0 )
   {
     *(_QWORD *)(a1 + 112) = 0LL;
   }
@@ -75,7 +75,7 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
         goto LABEL_10;
       }
 LABEL_8:
-      HeapInformation = -1073741801;
+      v6 = -1073741801;
       goto LABEL_32;
     }
 LABEL_10:
@@ -136,13 +136,13 @@ LABEL_10:
       ++v4;
     }
   }
-  if ( HeapInformation >= 0 )
+  if ( v6 >= 0 )
   {
     v21 = *(_DWORD *)(a1 + 64);
     if ( (v21 & 0x210) != 0 )
     {
-      v23[0] = -1LL;
-      v23[1] = *(_QWORD *)(a1 + 128);
+      HeapInformation[0] = -1LL;
+      HeapInformation[1] = *(_QWORD *)(a1 + 128);
       v25 = RtlpWalkCallbackRoutine;
       v26 = v22;
       v24 = (v21 & 0x10) != 0 ? 5 : 3;
@@ -151,10 +151,10 @@ LABEL_10:
       v22[1] = v3;
       LODWORD(v22[2]) = 0;
       v22[3] = v3 + 8;
-      HeapInformation = RtlQueryHeapInformation(0LL, 2, v23, 0x58uLL, 0LL);
+      v6 = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, HeapInformation, 0x58uLL, 0LL);
     }
   }
 LABEL_32:
-  RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
-  return (unsigned int)HeapInformation;
+  RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
+  return (unsigned int)v6;
 }

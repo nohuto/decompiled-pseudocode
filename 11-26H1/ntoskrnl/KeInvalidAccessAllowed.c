@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInvalidAccessAllowed @ 0x1403A6D10
+ * XREFs of KeInvalidAccessAllowed @ 0x1403A8A70
  * Callers:
- *     MiResolveMappedFileFaultInitialize @ 0x14036F9B8 (MiResolveMappedFileFaultInitialize.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiRaisedIrqlFault @ 0x1403A2A28 (MiRaisedIrqlFault.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     MiResolveProtoPteFault @ 0x1403A5DAC (MiResolveProtoPteFault.c)
- *     MiCheckSystemPageTables @ 0x1403A6808 (MiCheckSystemPageTables.c)
- *     MiAllowGuardFault @ 0x1403A6CA0 (MiAllowGuardFault.c)
- *     MiValidFault @ 0x1403A7338 (MiValidFault.c)
+ *     MiResolveMappedFileFaultInitialize @ 0x140371768 (MiResolveMappedFileFaultInitialize.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiRaisedIrqlFault @ 0x1403A4788 (MiRaisedIrqlFault.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     MiResolveProtoPteFault @ 0x1403A7B0C (MiResolveProtoPteFault.c)
+ *     MiCheckSystemPageTables @ 0x1403A8568 (MiCheckSystemPageTables.c)
+ *     MiAllowGuardFault @ 0x1403A8A00 (MiAllowGuardFault.c)
+ *     MiValidFault @ 0x1403A9098 (MiValidFault.c)
  * Callees:
- *     KiRspInIstStack @ 0x1403A6E58 (KiRspInIstStack.c)
+ *     KiRspInIstStack @ 0x1403A8BB8 (KiRspInIstStack.c)
  */
 
 char __fastcall KeInvalidAccessAllowed(__int64 a1, char a2)
@@ -48,8 +48,8 @@ char __fastcall KeInvalidAccessAllowed(__int64 a1, char a2)
 LABEL_16:
           v6 = &ExpInterlockedPopEntrySListFault;
           if ( KiDynamicTraceEnabled
-            && (v11 = *(_QWORD *)(a1 + 360), v11 < stru_140FC01F0.WriteTransferCount)
-            && v11 >= stru_140FC01F0.ReadTransferCount
+            && (v11 = *(_QWORD *)(a1 + 360), v11 < stru_140FC11F0.WriteTransferCount)
+            && v11 >= stru_140FC11F0.ReadTransferCount
             && KeGetCurrentIrql() == 15 )
           {
             result = 1;
@@ -68,7 +68,7 @@ LABEL_16:
   }
   if ( v4 != 51 )
     return 0;
-  v6 = *(void **)&stru_140FC01F0.SchedulerAssistPriorityFloor;
+  v6 = *(void **)&stru_140FC11F0.SchedulerAssistPriorityFloor;
   v7 = (void **)(a1 + 360);
 LABEL_5:
   if ( (a2 & 1) == 0 && *v7 == v6 )

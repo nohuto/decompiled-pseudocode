@@ -1,24 +1,24 @@
 /*
- * XREFs of MmDeleteKernelStack @ 0x1400F1B80
+ * XREFs of MmDeleteKernelStack @ 0x1400EF9D0
  * Callers:
- *     MiAdjustCachedStacks @ 0x1400BEBA4 (MiAdjustCachedStacks.c)
- *     PspDeleteKernelStack @ 0x1400F0C24 (PspDeleteKernelStack.c)
+ *     MiAdjustCachedStacks @ 0x1400BCA34 (MiAdjustCachedStacks.c)
+ *     PspDeleteKernelStack @ 0x1400EEA74 (PspDeleteKernelStack.c)
  *     KeInitThread @ 0x1403C8E74 (KeInitThread.c)
- *     KeUserModeCallback @ 0x140515D20 (KeUserModeCallback.c)
- *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
- *     KeFreeCalloutStack @ 0x140532E30 (KeFreeCalloutStack.c)
- *     KeAllocateCalloutStackEx @ 0x1405416E4 (KeAllocateCalloutStackEx.c)
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KeUserModeCallback @ 0x1404F9110 (KeUserModeCallback.c)
+ *     PspInsertThread @ 0x1404F9B40 (PspInsertThread.c)
+ *     KeFreeCalloutStack @ 0x140533370 (KeFreeCalloutStack.c)
+ *     KeAllocateCalloutStackEx @ 0x140541C24 (KeAllocateCalloutStackEx.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiDeleteKernelStack @ 0x1400A1598 (MiDeleteKernelStack.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1401EEE90 (MiLogKernelStackEvent.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiDeleteKernelStack @ 0x14009FEC0 (MiDeleteKernelStack.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1401EECBC (MiLogKernelStackEvent.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ void __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2, __int6
   __int64 v21; // rcx
   __int64 v22; // rax
   __int64 v23; // r13
-  union _SLIST_HEADER *v24; // rcx
+  _SLIST_HEADER *v24; // rcx
   __int64 v25; // r14
   __int64 v26; // rax
   int v27; // esi
@@ -63,7 +63,7 @@ void __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2, __int6
     v7 = (a2 & 1) == 0;
     v8 = 18LL;
     if ( v7 )
-      v8 = (unsigned __int8)byte_140327540;
+      v8 = (unsigned __int8)byte_140327580;
     MiLogKernelStackEvent(a1 - (unsigned int)((_DWORD)v8 << 12), v8, 0LL);
   }
   v9 = (a1 >> 9) & 0x7FFFFFFFF8LL;
@@ -113,12 +113,12 @@ void __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2, __int6
     *(_QWORD *)(((unsigned __int64)&v36 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18) = v13;
     while ( 1 )
     {
-      v24 = &qword_1403269B0[2 * v22 + 7 + 2 * v23];
+      v24 = &qword_1403269F0[2 * v22 + 7 + 2 * v23];
       *(_QWORD *)(((unsigned __int64)&v36 & 0xFFFFFFFFFFFFFFC0uLL) + 0x48) = v24;
       if ( LOWORD(v24->Alignment) < SLODWORD(v24[1].Alignment) )
       {
         v25 = (__int64)((v10 << 25) - (v12 << 25)) >> 16;
-        v26 = v25 ^ qword_140327780;
+        v26 = v25 ^ qword_1403277C0;
         *(_QWORD *)(((unsigned __int64)&v36 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30) = v25;
         *(_QWORD *)(v25 + 4064) = v26;
         if ( v23 == 1 )
@@ -130,8 +130,8 @@ void __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2, __int6
         __writecr8(2uLL);
         v27 = -1;
         v28 = 1;
-        v29 = v10 - 8LL * (unsigned __int8)byte_140327540;
-        v30 = v29 + 8LL * ((unsigned int)(unsigned __int8)byte_140327540 + 1);
+        v29 = v10 - 8LL * (unsigned __int8)byte_140327580;
+        v30 = v29 + 8LL * ((unsigned int)(unsigned __int8)byte_140327580 + 1);
         v31 = v29 + 8;
         if ( v31 >= v30 )
           goto LABEL_34;

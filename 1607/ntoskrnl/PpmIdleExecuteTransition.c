@@ -1,41 +1,41 @@
 /*
- * XREFs of PpmIdleExecuteTransition @ 0x1400DA540
+ * XREFs of PpmIdleExecuteTransition @ 0x1400D83E0
  * Callers:
- *     PoIdle @ 0x1400D9F40 (PoIdle.c)
+ *     PoIdle @ 0x1400D7DE0 (PoIdle.c)
  * Callees:
- *     PpmGetExitSamplingCountdown @ 0x14000A50C (PpmGetExitSamplingCountdown.c)
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     PsGetCurrentProcess @ 0x140014680 (PsGetCurrentProcess.c)
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeWakeProcessor @ 0x1400B1D48 (KeWakeProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1400D8260 (KxWaitForSpinLockAndAcquire.c)
- *     KePrepareClockTimerForIdle @ 0x1400D8760 (KePrepareClockTimerForIdle.c)
- *     PpmUpdatePerformanceFeedback @ 0x1400DB9C0 (PpmUpdatePerformanceFeedback.c)
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
- *     KeResumeClockTimerFromIdle @ 0x1400DCA70 (KeResumeClockTimerFromIdle.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x14015E8F0 (KiSetUserTbFlushPending.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KdCallPowerHandlers @ 0x1401D1458 (KdCallPowerHandlers.c)
- *     KdPowerTransition @ 0x1401D1768 (KdPowerTransition.c)
- *     KiAcquireSpinLockInstrumented @ 0x1401D3CDC (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x1401D3D8C (KiReleaseSpinLockInstrumented.c)
- *     KeFlushCurrentTbImmediately @ 0x1401D60A0 (KeFlushCurrentTbImmediately.c)
- *     PpmExitCoordinatedIdleState @ 0x1401FF900 (PpmExitCoordinatedIdleState.c)
- *     PpmIdleCompleteExitLatencyTrace @ 0x1402003CC (PpmIdleCompleteExitLatencyTrace.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402007A8 (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmIdleSetSynchronizationState @ 0x14020099C (PpmIdleSetSynchronizationState.c)
- *     PpmIdleTransitionStall @ 0x140200AF8 (PpmIdleTransitionStall.c)
- *     PpmTestAndLockProcessor @ 0x140201240 (PpmTestAndLockProcessor.c)
- *     PpmUpdatePlatformIdleAccounting @ 0x140201964 (PpmUpdatePlatformIdleAccounting.c)
- *     PpmEventCoordinatedIdleTransition @ 0x14020BC18 (PpmEventCoordinatedIdleTransition.c)
- *     PpmEventEnterPlatformIdleState @ 0x14020BD90 (PpmEventEnterPlatformIdleState.c)
+ *     PpmGetExitSamplingCountdown @ 0x14000A08C (PpmGetExitSamplingCountdown.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     PsGetCurrentProcess @ 0x140014200 (PsGetCurrentProcess.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeWakeProcessor @ 0x1400AFC88 (KeWakeProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1400D6100 (KxWaitForSpinLockAndAcquire.c)
+ *     KePrepareClockTimerForIdle @ 0x1400D6600 (KePrepareClockTimerForIdle.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1400D9860 (PpmUpdatePerformanceFeedback.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
+ *     KeResumeClockTimerFromIdle @ 0x1400DA910 (KeResumeClockTimerFromIdle.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x14015EE60 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KdCallPowerHandlers @ 0x1401D1284 (KdCallPowerHandlers.c)
+ *     KdPowerTransition @ 0x1401D1594 (KdPowerTransition.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1401D3B08 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x1401D3BB8 (KiReleaseSpinLockInstrumented.c)
+ *     KeFlushCurrentTbImmediately @ 0x1401D5ECC (KeFlushCurrentTbImmediately.c)
+ *     PpmExitCoordinatedIdleState @ 0x1401FF72C (PpmExitCoordinatedIdleState.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x1402001F8 (PpmIdleCompleteExitLatencyTrace.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402005D4 (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmIdleSetSynchronizationState @ 0x1402007C8 (PpmIdleSetSynchronizationState.c)
+ *     PpmIdleTransitionStall @ 0x140200924 (PpmIdleTransitionStall.c)
+ *     PpmTestAndLockProcessor @ 0x14020106C (PpmTestAndLockProcessor.c)
+ *     PpmUpdatePlatformIdleAccounting @ 0x140201790 (PpmUpdatePlatformIdleAccounting.c)
+ *     PpmEventCoordinatedIdleTransition @ 0x14020BA44 (PpmEventCoordinatedIdleTransition.c)
+ *     PpmEventEnterPlatformIdleState @ 0x14020BBBC (PpmEventEnterPlatformIdleState.c)
  */
 
 __int64 __fastcall PpmIdleExecuteTransition(
@@ -364,7 +364,7 @@ LABEL_33:
     }
     if ( *(_BYTE *)(v7 + 7) )
     {
-      v36 = PpmCurrentProfile[174 * dword_140303E0C + 17];
+      v36 = PpmCurrentProfile[174 * dword_140303D4C + 17];
       if ( v34 >= a6 + (unsigned __int64)(unsigned int)(10 * v36) )
         v34 = a6 + (unsigned int)(10 * v36);
     }
@@ -471,7 +471,7 @@ LABEL_63:
         v53 = v134;
       }
       if ( CurrentPrcb->Number == v55 )
-        ++dword_14030DD88;
+        ++dword_14030DDC8;
       if ( CurrentPrcb->ClockOwner )
         CurrentPrcb->ClockOwner = 0;
     }
@@ -566,8 +566,8 @@ LABEL_88:
       {
         v69 = PpmPlatformStates + 384LL * v145;
         PpmEventEnterPlatformIdleState(v145);
-        if ( !qword_140328900 && v145 == dword_140328940 )
-          _InterlockedCompareExchange64(&qword_140328900, MEMORY[0xFFFFF78000000008], 0LL);
+        if ( !qword_140328940 && v145 == dword_140328980 )
+          _InterlockedCompareExchange64(&qword_140328940, MEMORY[0xFFFFF78000000008], 0LL);
         if ( a4 )
           ++*(_DWORD *)(*(_QWORD *)(PpmPlatformStates + 48) + 8LL);
         if ( *(_BYTE *)(v69 + 112) )
@@ -655,14 +655,14 @@ LABEL_88:
             v88->DeepSleep = 1;
             _InterlockedOr64(
               (volatile signed __int64 *)(8LL * ((unsigned int)KiProcessorIndexToNumberMappingTable[Number] >> 6)
-                                        + 3177384
+                                        + 3177448
                                         + 0x140000000LL),
               1LL << (KiProcessorIndexToNumberMappingTable[Number] & 0x3F));
             if ( !v88->DeepSleep )
             {
               _InterlockedAnd64(
                 (volatile signed __int64 *)(8LL * ((unsigned int)KiProcessorIndexToNumberMappingTable[v88->Number] >> 6)
-                                          + 3177384
+                                          + 3177448
                                           + 0x140000000LL),
                 ~(1LL << (KiProcessorIndexToNumberMappingTable[v88->Number] & 0x3F)));
               if ( KiFlushPcid )
@@ -719,7 +719,7 @@ LABEL_88:
           v95 = v94->Number;
           v94->DeepSleep = 0;
           _InterlockedAnd64(
-            &qword_140307BA8[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v95] >> 6],
+            &qword_140307BE8[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v95] >> 6],
             ~(1LL << (KiProcessorIndexToNumberMappingTable[v95] & 0x3F)));
           KeFlushCurrentTbImmediately();
           v93 = v136;

@@ -1,20 +1,20 @@
 /*
- * XREFs of HalGetAdapterV2 @ 0x140783920
+ * XREFs of HalGetAdapterV2 @ 0x140786454
  * Callers:
- *     HalpGetAdapter @ 0x140780C9C (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x14078379C (HalpGetAdapter.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     HalpDmaGetAdapterVersion @ 0x14035C9B8 (HalpDmaGetAdapterVersion.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     ObReferenceObjectByPointer @ 0x14045F750 (ObReferenceObjectByPointer.c)
- *     HalpAddAdapterToList @ 0x14057A2A0 (HalpAddAdapterToList.c)
- *     HalpDmaFindAdapterByDeviceObject @ 0x14057A35C (HalpDmaFindAdapterByDeviceObject.c)
- *     HalpDmaIsAutomaticDomain @ 0x14058AD58 (HalpDmaIsAutomaticDomain.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpGetCacheCoherency @ 0x140780DA0 (HalpGetCacheCoherency.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140783D5C (HalpDmaAllocateChildAdapterV2.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HalpDmaGetAdapterVersion @ 0x14035E758 (HalpDmaGetAdapterVersion.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     ObReferenceObjectByPointer @ 0x140458E50 (ObReferenceObjectByPointer.c)
+ *     HalpAddAdapterToList @ 0x14057C7D0 (HalpAddAdapterToList.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x14057C88C (HalpDmaFindAdapterByDeviceObject.c)
+ *     HalpDmaIsAutomaticDomain @ 0x14058D4E0 (HalpDmaIsAutomaticDomain.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpGetCacheCoherency @ 0x1407838A0 (HalpGetCacheCoherency.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140786890 (HalpDmaAllocateChildAdapterV2.c)
  */
 
 __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
@@ -128,10 +128,10 @@ LABEL_22:
       v38 = v15;
       v16 = v15;
     }
-    v17 = dword_140FBCF40;
+    v17 = dword_140FBD2E0;
     v14 = v16;
     if ( !v9 )
-      v17 = dword_140FBCE60;
+      v17 = dword_140FBD200;
     if ( !v10 )
     {
       v18 = v17 >> 13;

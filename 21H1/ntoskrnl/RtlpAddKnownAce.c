@@ -49,26 +49,26 @@
  *     RtlValidAcl @ 0x140606620 (RtlValidAcl.c)
  */
 
-__int64 __fastcall RtlpAddKnownAce(__int64 a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, char a6)
+__int64 __fastcall RtlpAddKnownAce(PACL Acl, unsigned int a2, int a3, int a4, unsigned __int8 *Src, UCHAR a6)
 {
-  char v7; // bp
-  unsigned __int8 v9; // cl
-  char v10; // si
+  UCHAR v7; // bp
+  UCHAR AclRevision; // cl
+  UCHAR v10; // si
   unsigned int v11; // eax
-  unsigned __int64 v12; // rcx
+  PACL v12; // rcx
   unsigned int v13; // edx
-  unsigned __int64 v14; // r8
-  unsigned __int16 v15; // dx
+  ACL *v14; // r8
+  USHORT v15; // dx
   __int64 result; // rax
 
   v7 = a3;
   if ( (unsigned __int64)Src <= 0x7FFFFFFF0000LL || (*Src & 0xF) != 1 || Src[1] > 0xFu )
     return 3221225592LL;
-  v9 = *(_BYTE *)a1;
-  if ( v9 > 4u || a2 > 4 )
+  AclRevision = Acl->AclRevision;
+  if ( AclRevision > 4u || a2 > 4 )
     return 3221225561LL;
-  v10 = v9;
-  if ( v9 <= (unsigned __int8)a2 )
+  v10 = AclRevision;
+  if ( AclRevision <= (unsigned __int8)a2 )
     v10 = a2;
   v11 = a3 & 0xFFFFFFE0;
   if ( (a3 & 0xFFFFFFE0) != 0 )
@@ -84,35 +84,35 @@ __int64 __fastcall RtlpAddKnownAce(__int64 a1, unsigned int a2, int a3, int a4, 
     if ( v11 )
       return 3221225485LL;
   }
-  if ( !(unsigned __int8)RtlValidAcl(a1) )
+  if ( !RtlValidAcl(Acl) )
     return 3221225591LL;
-  v12 = a1 + 8;
+  v12 = Acl + 1;
   v13 = 0;
-  if ( *(_WORD *)(a1 + 4) )
+  if ( Acl->AceCount )
   {
-    while ( v12 < a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+    while ( v12 < (PACL)((char *)Acl + Acl->AclSize) )
     {
       ++v13;
-      v12 += *(unsigned __int16 *)(v12 + 2);
-      if ( v13 >= *(unsigned __int16 *)(a1 + 4) )
+      v12 = (PACL)((char *)v12 + v12->AclSize);
+      if ( v13 >= Acl->AceCount )
         goto LABEL_13;
     }
     return 3221225591LL;
   }
 LABEL_13:
-  v14 = a1 + *(unsigned __int16 *)(a1 + 2);
+  v14 = (PACL)((char *)Acl + Acl->AclSize);
   if ( v12 > v14 )
     v12 = 0LL;
   v15 = 4 * (Src[1] + 4);
-  if ( !v12 || v12 + v15 > v14 )
+  if ( !v12 || (PACL)((char *)v12 + v15) > v14 )
     return 3221225625LL;
-  *(_WORD *)(v12 + 2) = v15;
-  *(_BYTE *)(v12 + 1) = v7;
-  *(_BYTE *)v12 = a6;
-  *(_DWORD *)(v12 + 4) = a4;
-  memmove((void *)(v12 + 8), Src, 4LL * Src[1] + 8);
-  ++*(_WORD *)(a1 + 4);
+  v12->AclSize = v15;
+  v12->Sbz1 = v7;
+  v12->AclRevision = a6;
+  *(_DWORD *)&v12->AceCount = a4;
+  memmove(&v12[1], Src, 4LL * Src[1] + 8);
+  ++Acl->AceCount;
   result = 0LL;
-  *(_BYTE *)a1 = v10;
+  Acl->AclRevision = v10;
   return result;
 }

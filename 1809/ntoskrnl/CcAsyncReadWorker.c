@@ -1,23 +1,23 @@
 /*
- * XREFs of CcAsyncReadWorker @ 0x1401403B0
+ * XREFs of CcAsyncReadWorker @ 0x1401404B0
  * Callers:
- *     CcAsyncReadWorkerThread @ 0x14013FAD0 (CcAsyncReadWorkerThread.c)
+ *     CcAsyncReadWorkerThread @ 0x14013FBD0 (CcAsyncReadWorkerThread.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
- *     CcFreeWorkQueueEntry @ 0x14007EDF0 (CcFreeWorkQueueEntry.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     CcCompleteAsyncRead @ 0x1400DF334 (CcCompleteAsyncRead.c)
- *     CcAsyncReadPrefetch @ 0x1400DFACC (CcAsyncReadPrefetch.c)
- *     CcPostWorkQueueAsyncRead @ 0x1400E00D8 (CcPostWorkQueueAsyncRead.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1400E02DC (CcShouldSpinAsyncReadWorkerThread.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x1400E03DC (MmWaitMultipleForCacheManagerPrefetch.c)
- *     CcFindNextWorkQueueEntry @ 0x14011FDFC (CcFindNextWorkQueueEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     CcDereferencePartition @ 0x14007C988 (CcDereferencePartition.c)
+ *     CcFreeWorkQueueEntry @ 0x14007EDE0 (CcFreeWorkQueueEntry.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     CcCompleteAsyncRead @ 0x1400DF3B4 (CcCompleteAsyncRead.c)
+ *     CcAsyncReadPrefetch @ 0x1400DFB4C (CcAsyncReadPrefetch.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1400E0158 (CcPostWorkQueueAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1400E035C (CcShouldSpinAsyncReadWorkerThread.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x1400E045C (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcFindNextWorkQueueEntry @ 0x14011FE6C (CcFindNextWorkQueueEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcAsyncReadWorker(_DWORD *StartContext)
@@ -33,7 +33,7 @@ void __fastcall CcAsyncReadWorker(_DWORD *StartContext)
   unsigned int v10; // ebx
   __int64 v11; // r14
   _QWORD *v12; // rdx
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rbx
+  _SLIST_ENTRY *NextWorkQueueEntry; // rbx
   _SLIST_ENTRY *v14; // rcx
   __int64 *v15; // rcx
   __int64 v16; // r14
@@ -169,7 +169,7 @@ LABEL_19:
       ExAcquirePushLockExclusiveEx((ULONG_PTR)(v5 + 104), 0LL);
       break;
     }
-    NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry((__int64)v5, v12);
+    NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry((__int64)v5, v12);
     ExReleasePushLockEx((ULONG_PTR)(v5 + 104), 0LL);
     if ( !CcAsyncReadPrefetch((__int64)NextWorkQueueEntry) )
       goto LABEL_41;

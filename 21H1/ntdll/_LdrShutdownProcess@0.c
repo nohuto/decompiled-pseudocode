@@ -18,14 +18,14 @@
  *     _TraceLoggingUnregister_EtwEventUnregister@4 @ 0x4B330EB8 (_TraceLoggingUnregister_EtwEventUnregister@4.c)
  */
 
-void __stdcall LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // edi
   _PEB *ProcessEnvironmentBlock; // ebx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // ecx
   wchar_t *Buffer; // eax
   _RTL_USER_PROCESS_PARAMETERS *v4; // ecx
-  _DWORD *FlsData; // edx
+  PVOID *FlsData; // edx
   int *v6; // edi
   int *v7; // edx
   int v8; // edi
@@ -72,7 +72,7 @@ void __stdcall LdrShutdownProcess()
                                                                  32 - (MEMORY[0x7FFE0330] & 0x1F)));
       v10(v10);
     }
-    FlsData = v0->FlsData;
+    FlsData = (PVOID *)v0->FlsData;
     if ( FlsData )
       RtlpFlsDataCleanup(FlsData, (struct _RTLP_FLS_CONTEXT *)1, v11, v12);
     if ( (LdrpPolicyBits & 2) != 0

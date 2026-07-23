@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIsUserQueryVmCallerTrusted @ 0x1407D037C
+ * XREFs of MiIsUserQueryVmCallerTrusted @ 0x1407D064C
  * Callers:
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PsReferenceEffectiveToken @ 0x14071D6EC (PsReferenceEffectiveToken.c)
- *     SePrivilegeCheck @ 0x14072F2B0 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     SeTokenIsAdmin @ 0x1407D04A0 (SeTokenIsAdmin.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsReferenceEffectiveToken @ 0x14071D8EC (PsReferenceEffectiveToken.c)
+ *     SePrivilegeCheck @ 0x14072F4B0 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     SeTokenIsAdmin @ 0x1407D0770 (SeTokenIsAdmin.c)
  */
 
 _BOOL8 __fastcall MiIsUserQueryVmCallerTrusted(PETHREAD Thread)

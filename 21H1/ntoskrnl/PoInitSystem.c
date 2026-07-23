@@ -123,47 +123,20 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
   unsigned __int8 v14; // di
   int v15; // edx
   __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  unsigned __int8 v38; // zf
-  __int64 v39; // rdx
-  __int64 v40; // rcx
-  __int64 v41; // r8
-  __int64 v42; // rdx
-  __int64 v43; // rcx
-  __int64 v44; // r8
-  int v45; // [rsp+40h] [rbp-30h] BYREF
+  unsigned __int8 v17; // zf
+  int Buffer; // [rsp+40h] [rbp-30h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v47; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v48; // [rsp+58h] [rbp-18h] BYREF
-  __int64 v49; // [rsp+68h] [rbp-8h]
-  int v50; // [rsp+B0h] [rbp+40h] BYREF
-  int v51; // [rsp+C0h] [rbp+50h] BYREF
-  int v52; // [rsp+C8h] [rbp+58h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v21; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-8h]
+  int v23; // [rsp+B0h] [rbp+40h] BYREF
+  int v24; // [rsp+C0h] [rbp+50h] BYREF
+  int v25; // [rsp+C8h] [rbp+58h] BYREF
 
   PopOsInitPhase = a1;
   PerformanceFrequency.QuadPart = 0LL;
-  v49 = 0LL;
-  v48 = 0LL;
+  v22 = 0LL;
+  v21 = 0LL;
   if ( !a1 )
   {
     KeQueryPerformanceCounter(&PerformanceFrequency);
@@ -424,13 +397,13 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
         if ( TimebrokerServiceSid >= 0 )
         {
           PopInitDripsWakeAccounting();
-          TimebrokerServiceSid = EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 2u, &v47);
+          TimebrokerServiceSid = EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 2u, &v20);
           if ( TimebrokerServiceSid >= 0 )
           {
-            v50 = 1;
+            v23 = 1;
             PopErrataDisablePrimaryDeviceFastResume = 0;
-            EmClientQueryRuleState(&GUID_EM_RULE_DISABLE_DEVICE_FAST_RESUME, &v50);
-            if ( v50 != 2 )
+            EmClientQueryRuleState(&GUID_EM_RULE_DISABLE_DEVICE_FAST_RESUME, &v23);
+            if ( v23 != 2 )
             {
 LABEL_5:
               TimebrokerServiceSid = 0;
@@ -481,9 +454,9 @@ LABEL_3:
               if ( PopSkipTickPolicy == 1 )
               {
                 v14 = 0;
-                if ( (int)HalGetInterruptTargetInformation(2, 0, (__int64)&v48) >= 0 )
+                if ( (int)HalGetInterruptTargetInformation(2, 0, (__int64)&v21) >= 0 )
                 {
-                  PopApicMode = HIDWORD(v49);
+                  PopApicMode = HIDWORD(v22);
                   if ( PopCheckSkipTick() )
                   {
                     PoSkipTickMode = 0;
@@ -533,30 +506,30 @@ LABEL_37:
                     PopInitializeAdpm();
                     PopEsInit(3LL);
                     PopInitilizeAcDcSettings();
-                    v45 = 1;
+                    Buffer = 1;
                     PopUpdateConsoleDisplayState(1u);
-                    ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v45);
+                    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
                     PopNetInitialize(3);
                     PopReleasePolicyLock();
                     PopIdleInitAoAcDozeS4Timer();
-                    PopCreateIdlePhaseWatchdog(v17, v16, v18);
-                    PopInitializeSystemIdleDetection(v20, v19, v21);
+                    PopCreateIdlePhaseWatchdog();
+                    PopInitializeSystemIdleDetection();
                     PopInitializePreSleepNotifications();
-                    v22 = *(_QWORD *)(a2 + 240);
-                    PopHiberLoaderScratchPages = *(_DWORD *)(v22 + 272);
-                    PopHiberResumeXhciHandoffSkip = (*(_DWORD *)(v22 + 132) & 0x10000000) != 0;
+                    v16 = *(_QWORD *)(a2 + 240);
+                    PopHiberLoaderScratchPages = *(_DWORD *)(v16 + 272);
+                    PopHiberResumeXhciHandoffSkip = (*(_DWORD *)(v16 + 132) & 0x10000000) != 0;
                     PopSetupHighPerfPowerRequest();
                     PpmEnableWmiInterface();
                     PopAcquirePolicyLock();
-                    PopCoalescingInitialize(v24, v23, v25);
+                    PopCoalescingInitialize();
                     PopReleasePolicyLock();
                     PopInitializeDirectedDrips(3LL);
                     ExInitializeResourceLite(&PopDripsWatchdogContext);
                     if ( PopPlatformAoAc )
                     {
-                      if ( (int)PopDripsWatchdogInitializeActions(v27, v26, v28) < 0
-                        || (int)PopDripsWatchdogInitializeCallbackTimer(v40, v39, v41) < 0
-                        || (int)PopDripsWatchdogInitializeDiagnosticTimer(v43, v42, v44) < 0 )
+                      if ( (int)PopDripsWatchdogInitializeActions() < 0
+                        || (int)PopDripsWatchdogInitializeCallbackTimer() < 0
+                        || (int)PopDripsWatchdogInitializeDiagnosticTimer() < 0 )
                       {
                         goto LABEL_56;
                       }
@@ -577,25 +550,25 @@ LABEL_56:
                     TtmInit();
                     if ( PopPlatformAoAc )
                     {
-                      v51 = 1;
-                      EmClientQueryRuleState(EM_RULE_IGNORE_INCORRECT_LID_NOTIFICATIONS, &v51);
-                      if ( v51 == 2 )
+                      v24 = 1;
+                      EmClientQueryRuleState(EM_RULE_IGNORE_INCORRECT_LID_NOTIFICATIONS, &v24);
+                      if ( v24 == 2 )
                         PopErrataReportingIncorrectLidState = 1;
                       if ( PopPlatformAoAc )
                       {
                         if ( PopLidStateForInputSuppressionOverride != -1 )
                           PopIgnoreLidStateForInputSuppression = PopLidStateForInputSuppressionOverride != 0;
-                        v52 = 1;
-                        EmClientQueryRuleState(&GUID_EM_RULE_ALLOW_INPUT_SUPPRESSION_NOTIFICATION, &v52);
-                        PopEnableInputSuppression = v52 == 2;
-                        if ( v52 != 2 && PopEnableInputSuppressionOverride != -1 )
+                        v25 = 1;
+                        EmClientQueryRuleState(&GUID_EM_RULE_ALLOW_INPUT_SUPPRESSION_NOTIFICATION, &v25);
+                        PopEnableInputSuppression = v25 == 2;
+                        if ( v25 != 2 && PopEnableInputSuppressionOverride != -1 )
                           PopEnableInputSuppression = PopEnableInputSuppressionOverride != 0;
                       }
                     }
                     PopBatteryQueueWork(1u);
-                    PopSetupKsrCallbacks(v30, v29, v31);
-                    PopHiberEvaluateSkippingMemoryMapValidation(v33, v32, v34);
-                    PopReadErrataSkipMemoryOverwriteRequestControlLockAction(v36, v35, v37);
+                    PopSetupKsrCallbacks();
+                    PopHiberEvaluateSkippingMemoryMapValidation();
+                    PopReadErrataSkipMemoryOverwriteRequestControlLockAction();
                     goto LABEL_5;
                   }
                   v13 = 1;
@@ -607,14 +580,14 @@ LABEL_56:
               }
             }
             PoSkipTickMode = v13;
-            v38 = v13 == 2;
+            v17 = v13 == 2;
             if ( v13 != 2 )
             {
               if ( !v14 )
                 goto LABEL_37;
-              v38 = v13 == 2;
+              v17 = v13 == 2;
             }
-            PopDiagTraceSkipTick(v38, v14);
+            PopDiagTraceSkipTick(v17, v14);
             goto LABEL_37;
           }
         }

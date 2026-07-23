@@ -15,37 +15,37 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiGetDeviceRegProperty(int a1, __int64 a2, int a3, int a4, void *a5, int *a6)
+__int64 __fastcall PiGetDeviceRegProperty(int a1, __int64 a2, int a3, int a4, void *a5, PULONG ReturnLength)
 {
   wchar_t *v9; // r13
   int DeviceRegProp; // eax
   unsigned int v11; // ebx
-  _WORD *Pool2; // rax
-  _WORD *v13; // rdi
-  unsigned int v14; // r15d
-  const wchar_t *v15; // rsi
+  wchar_t *Pool2; // rax
+  wchar_t *v13; // rdi
+  ULONG v14; // r15d
+  wchar_t *v15; // rsi
   char v16; // cl
   _WORD *v18; // rsi
-  _WORD *v19; // rcx
+  wchar_t *v19; // rcx
   int v20; // edx
   __int16 v21; // ax
   wchar_t *v22; // rax
   int v23; // eax
   __int64 v24; // rcx
-  __int64 v25; // r13
+  va_list v25; // r13
   wchar_t *v26; // rcx
   unsigned int i; // r13d
   wchar_t *v28; // rax
-  __int64 v29; // rax
+  va_list v29; // rax
   __int64 v30; // rcx
   size_t Size; // [rsp+54h] [rbp-ACh] BYREF
   wchar_t *Str; // [rsp+60h] [rbp-A0h]
   void *Src; // [rsp+68h] [rbp-98h]
-  __int64 v34; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v35[152]; // [rsp+78h] [rbp-88h] BYREF
+  va_list Arguments; // [rsp+70h] [rbp-90h] BYREF
+  char v35[152]; // [rsp+78h] [rbp-88h] BYREF
 
   Src = a5;
-  Size = (unsigned int)*a6;
+  Size = *ReturnLength;
   v9 = 0LL;
   DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, a1, 0, a4, (__int64)&Size + 4, (__int64)a5, (__int64)&Size, 0);
   v11 = DeviceRegProp;
@@ -60,7 +60,7 @@ __int64 __fastcall PiGetDeviceRegProperty(int a1, __int64 a2, int a3, int a4, vo
     {
       return v11;
     }
-    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
     v13 = Pool2;
     if ( Pool2 )
     {
@@ -74,7 +74,7 @@ __int64 __fastcall PiGetDeviceRegProperty(int a1, __int64 a2, int a3, int a4, vo
       if ( v23 < 0 )
       {
         if ( v23 == -1073741789 )
-          *a6 = Size;
+          *ReturnLength = Size;
       }
       else
       {
@@ -112,19 +112,19 @@ LABEL_12:
                   if ( v15[v24] == 41 )
                   {
                     *v22 = 0;
-                    v25 = (__int64)(v22 + 2);
+                    v25 = (va_list)(v22 + 2);
                     v15[v24] = 0;
                     Str = v22 + 2;
                     memset_0(v35, 0, sizeof(v35));
                     v26 = Str;
-                    v34 = v25;
+                    Arguments = v25;
                     for ( i = 1; ; ++i )
                     {
                       v28 = wcschr(v26, 0x2Cu);
                       if ( !v28 )
                         break;
                       *v28 = 0;
-                      v29 = (__int64)(v28 + 1);
+                      v29 = (va_list)(v28 + 1);
                       if ( i >= 0x13 )
                       {
                         v9 = Str;
@@ -148,7 +148,7 @@ LABEL_12:
           v15 = v13;
           v16 = 0;
 LABEL_15:
-          if ( *a6 < v14 )
+          if ( *ReturnLength < v14 )
           {
             v11 = -1073741789;
           }
@@ -157,13 +157,13 @@ LABEL_15:
             if ( v16 )
               v11 = -1073741619;
             else
-              v11 = RtlFormatMessageEx((int)v15, 0, 0, 0, 1, (__int64)&v34, (NTSTRSAFE_PWSTR)Src, *a6, (__int64)a6);
+              v11 = RtlFormatMessageEx(v15, 0, 0, 0, 1u, &Arguments, (PWSTR)Src, *ReturnLength, ReturnLength, 0LL);
           }
           else
           {
             memmove(Src, v15, v14);
           }
-          *a6 = v14;
+          *ReturnLength = v14;
           goto LABEL_19;
         }
         v11 = -1073741584;
@@ -186,6 +186,6 @@ LABEL_19:
   }
   if ( DeviceRegProp == -1073741789 )
 LABEL_4:
-    *a6 = Size;
+    *ReturnLength = Size;
   return v11;
 }

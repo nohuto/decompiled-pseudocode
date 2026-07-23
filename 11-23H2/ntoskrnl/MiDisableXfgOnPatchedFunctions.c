@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDisableXfgOnPatchedFunctions @ 0x140642560
+ * XREFs of MiDisableXfgOnPatchedFunctions @ 0x140642AB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlDisableXfgOnTarget @ 0x1405B1D58 (RtlDisableXfgOnTarget.c)
- *     MiValidateXfgUserCallTarget @ 0x1406566C0 (MiValidateXfgUserCallTarget.c)
- *     MiIsProcessXfgEnabled @ 0x140A43C5C (MiIsProcessXfgEnabled.c)
+ *     RtlDisableXfgOnTarget @ 0x1405B22C8 (RtlDisableXfgOnTarget.c)
+ *     MiValidateXfgUserCallTarget @ 0x140656C10 (MiValidateXfgUserCallTarget.c)
+ *     MiIsProcessXfgEnabled @ 0x140A43F0C (MiIsProcessXfgEnabled.c)
  */
 
 char __fastcall MiDisableXfgOnPatchedFunctions(__int64 a1, unsigned int *a2, int a3, unsigned __int8 a4)

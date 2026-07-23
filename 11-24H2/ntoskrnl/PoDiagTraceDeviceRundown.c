@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDiagTraceDeviceRundown @ 0x140A44AC8
+ * XREFs of PoDiagTraceDeviceRundown @ 0x140A3A358
  * Callers:
- *     IoDiagTraceDevicesRundown @ 0x140A44A50 (IoDiagTraceDevicesRundown.c)
+ *     IoDiagTraceDevicesRundown @ 0x140A3A2E0 (IoDiagTraceDevicesRundown.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PoDiagTraceDeviceRundown(__int64 a1, unsigned __int16 *a2, unsigned __int16 *a3, char a4)

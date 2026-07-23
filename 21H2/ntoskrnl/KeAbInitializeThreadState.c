@@ -1,7 +1,7 @@
 /*
- * XREFs of KeAbInitializeThreadState @ 0x140278E00
+ * XREFs of KeAbInitializeThreadState @ 0x140266DA0
  * Callers:
- *     KeInitThread @ 0x14098F2E0 (KeInitThread.c)
+ *     KeInitThread @ 0x140990D94 (KeInitThread.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRegisterProcessorChangeCallback @ 0x140822690
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x140822990
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExRegisterCallback @ 0x1403678A0 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14036E6A0 (ExUnregisterCallback.c)
- *     HalGetProcessorIdByNtNumber @ 0x140384B00 (HalGetProcessorIdByNtNumber.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExRegisterCallback @ 0x140367A40 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x14036E840 (ExUnregisterCallback.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140384CE0 (HalGetProcessorIdByNtNumber.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
  */
 
 PVOID __stdcall KeRegisterProcessorChangeCallback(

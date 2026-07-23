@@ -1,19 +1,19 @@
 /*
- * XREFs of MiZeroInParallelWorker @ 0x140109B40
+ * XREFs of MiZeroInParallelWorker @ 0x1401078C0
  * Callers:
- *     MiZeroInParallel @ 0x14010C2DC (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x14010A05C (MiZeroInParallel.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     KeSetIdealProcessorThreadEx @ 0x1400CA3A4 (KeSetIdealProcessorThreadEx.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1400C8244 (KeSetIdealProcessorThreadEx.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 void __fastcall MiZeroInParallelWorker(volatile signed __int32 *StartContext, __int64 a2, unsigned __int64 a3)
@@ -89,7 +89,7 @@ void __fastcall MiZeroInParallelWorker(volatile signed __int32 *StartContext, __
             v13 = 0x4000LL;
           while ( 1 )
           {
-            v14 = MiReservePtes((__int64)&qword_140327870, (unsigned int)v13, a3);
+            v14 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)v13, a3);
             v15 = v14;
             if ( v14 )
               break;
@@ -129,7 +129,7 @@ void __fastcall MiZeroInParallelWorker(volatile signed __int32 *StartContext, __
           }
           *(v8 - 1) = (_QWORD *)((char *)*(v8 - 1) - v13);
           KeZeroPages(v15 << 25 >> 16, v13 << 12);
-          MiReleasePtes((__int64)&qword_140327870, v15, v13);
+          MiReleasePtes((__int64)&qword_1403278B0, v15, v13);
           v5 = v26;
 LABEL_25:
           ;

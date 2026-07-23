@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpCheckKnownDllFullPath @ 0x180082A50
+ * XREFs of LdrpCheckKnownDllFullPath @ 0x180079DF0
  * Callers:
- *     LdrpLoadKnownDll @ 0x180082910 (LdrpLoadKnownDll.c)
+ *     LdrpLoadKnownDll @ 0x180079CB0 (LdrpLoadKnownDll.c)
  * Callees:
  *     <none>
  */
@@ -13,14 +13,14 @@ char __fastcall LdrpCheckKnownDllFullPath(__int64 a1, __int64 a2)
   __int64 v5; // rdx
   __int16 v6; // ax
   __int64 v7; // r8
-  unsigned __int16 *v8; // r10
+  char *v8; // r10
   unsigned __int16 v9; // r8
-  unsigned __int16 *v10; // r11
-  __int64 v11; // rbx
+  char *v10; // r11
+  char *v11; // rbx
   unsigned __int64 v12; // r8
   unsigned __int64 v13; // r9
 
-  if ( !LdrpKnownDllPath )
+  if ( !LdrpKnownDllPath.Length )
     return 0;
   for ( i = *(_WORD *)a1 >> 1; i; --i )
   {
@@ -36,30 +36,30 @@ char __fastcall LdrpCheckKnownDllFullPath(__int64 a1, __int64 a2)
   *(_QWORD *)(a2 + 8) = v7;
   *(_WORD *)a2 = *(_WORD *)a1 - v6;
   *(_WORD *)(a2 + 2) = *(_WORD *)(a1 + 2) - v6;
-  v8 = *(unsigned __int16 **)(a1 + 8);
+  v8 = *(char **)(a1 + 8);
   v9 = v7 - (_WORD)v8 - 2;
-  if ( v9 != (unsigned __int16)LdrpKnownDllPath )
+  if ( v9 != LdrpKnownDllPath.Length )
     return 0;
-  v10 = (unsigned __int16 *)((char *)v8 + v9);
-  v11 = qword_1801CB828 - (_QWORD)v8;
+  v10 = &v8[v9];
+  v11 = (char *)((char *)LdrpKnownDllPath.Buffer - v8);
   while ( v8 < v10 )
   {
-    v12 = *v8;
-    v13 = *(unsigned __int16 *)((char *)v8 + v11);
+    v12 = *(unsigned __int16 *)v8;
+    v13 = *(unsigned __int16 *)&v11[(_QWORD)v8];
     if ( (_WORD)v12 != (_WORD)v13 )
     {
       if ( (unsigned int)v12 >= 0x61 )
       {
         if ( (unsigned int)v12 > 0x7A )
         {
-          if ( qword_1801C6038 && (unsigned __int16)v12 >= 0xC0u )
-            LOWORD(v12) = *(_WORD *)(qword_1801C6038
+          if ( qword_1801C5038 && (unsigned __int16)v12 >= 0xC0u )
+            LOWORD(v12) = *(_WORD *)(qword_1801C5038
                                    + 2
                                    * ((v12 & 0xF)
-                                    + *(unsigned __int16 *)(qword_1801C6038
+                                    + *(unsigned __int16 *)(qword_1801C5038
                                                           + 2LL
                                                           * (((unsigned __int8)v12 >> 4)
-                                                           + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                           + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                + 2 * (v12 >> 8))))))
                         + v12;
         }
@@ -72,16 +72,16 @@ char __fastcall LdrpCheckKnownDllFullPath(__int64 a1, __int64 a2)
       {
         if ( (unsigned int)v13 > 0x7A )
         {
-          if ( qword_1801C6038 )
+          if ( qword_1801C5038 )
           {
             if ( (unsigned __int16)v13 >= 0xC0u )
-              LOWORD(v13) = *(_WORD *)(qword_1801C6038
+              LOWORD(v13) = *(_WORD *)(qword_1801C5038
                                      + 2
                                      * ((v13 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801C6038
+                                      + *(unsigned __int16 *)(qword_1801C5038
                                                             + 2LL
                                                             * (((unsigned __int8)v13 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                  + 2 * (v13 >> 8))))))
                           + v13;
           }
@@ -94,7 +94,7 @@ char __fastcall LdrpCheckKnownDllFullPath(__int64 a1, __int64 a2)
       if ( (_WORD)v12 != (_WORD)v13 )
         return 0;
     }
-    ++v8;
+    v8 += 2;
   }
   return 1;
 }

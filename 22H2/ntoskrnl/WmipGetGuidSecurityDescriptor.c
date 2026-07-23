@@ -14,21 +14,21 @@
 
 __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
 {
-  unsigned int v4; // esi
-  PVOID PoolWithTag; // rdi
+  ULONG BufferLengthIn; // esi
+  WCHAR *TargetPath; // rdi
   int RegistryValues; // eax
-  int PersistedStateLocation; // eax
+  NTSTATUS PersistedStateLocation; // eax
   PVOID v8; // rcx
-  __int64 v10; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG BufferLengthOut; // [rsp+40h] [rbp-C0h] BYREF
   PVOID P; // [rsp+48h] [rbp-B8h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor[2]; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD v13[22]; // [rsp+60h] [rbp-A0h] BYREF
 
   SecurityDescriptor[0] = 0LL;
   P = 0LL;
-  v4 = 0;
-  LODWORD(v10) = 0;
-  PoolWithTag = 0LL;
+  BufferLengthIn = 0;
+  BufferLengthOut = 0;
+  TargetPath = 0LL;
   memset(v13, 0, 0xA8uLL);
   LODWORD(v13[8]) = 0;
   v13[0] = WmipSDRegistryQueryRoutine;
@@ -45,28 +45,28 @@ __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
     goto LABEL_14;
   while ( 1 )
   {
-    if ( v4 )
+    if ( BufferLengthIn )
     {
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4, 0x70696D57u);
-      if ( !PoolWithTag )
+      TargetPath = (WCHAR *)ExAllocatePoolWithTag(PagedPool, BufferLengthIn, 0x70696D57u);
+      if ( !TargetPath )
         return 3221225626LL;
     }
     PersistedStateLocation = RtlGetPersistedStateLocation(
                                L"ETWSecurityPath",
                                0LL,
                                0LL,
-                               0,
-                               PoolWithTag,
-                               v4,
-                               (unsigned int *)&v10);
+                               LocationTypeRegistry,
+                               TargetPath,
+                               BufferLengthIn,
+                               &BufferLengthOut);
     if ( PersistedStateLocation != -2147483643 )
       break;
-    if ( PoolWithTag )
+    if ( TargetPath )
     {
-      ExFreePoolWithTag(PoolWithTag, 0);
-      PoolWithTag = 0LL;
+      ExFreePoolWithTag(TargetPath, 0);
+      TargetPath = 0LL;
     }
-    v4 = v10;
+    BufferLengthIn = BufferLengthOut;
   }
   if ( !PersistedStateLocation )
   {
@@ -80,7 +80,7 @@ __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
       v13[12] = &P;
       LODWORD(v13[13]) = RtlLengthSecurityDescriptor(P);
     }
-    RtlpQueryRegistryValues(0LL, PoolWithTag, v13, 0LL);
+    RtlpQueryRegistryValues(0LL, TargetPath, v13, 0LL);
   }
   if ( SecurityDescriptor[0] )
   {
@@ -96,7 +96,7 @@ __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
   if ( !*a2 )
 LABEL_14:
     *a2 = (PVOID)WmipDefaultAccessSd;
-  if ( PoolWithTag )
-    ExFreePoolWithTag(PoolWithTag, 0);
+  if ( TargetPath )
+    ExFreePoolWithTag(TargetPath, 0);
   return 0LL;
 }

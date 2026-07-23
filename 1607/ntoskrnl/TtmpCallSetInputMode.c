@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpCallSetInputMode @ 0x140677390
+ * XREFs of TtmpCallSetInputMode @ 0x140677474
  * Callers:
- *     TtmpPushTerminalState @ 0x140677528 (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x14067760C (TtmpPushTerminalState.c)
  * Callees:
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpStartCallout @ 0x14067764C (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1406776BC (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpStartCallout @ 0x140677730 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1406777A0 (TtmpStopCallout.c)
  */
 
 void __fastcall TtmpCallSetInputMode(int a1, __int64 a2, unsigned int a3)

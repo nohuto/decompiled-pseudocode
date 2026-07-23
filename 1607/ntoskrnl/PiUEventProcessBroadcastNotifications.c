@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventProcessBroadcastNotifications @ 0x1403EF550
+ * XREFs of PiUEventProcessBroadcastNotifications @ 0x140489978
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1403EF31C (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x140489744 (PiUEventProcessEventWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiUEventQueueBroadcastEventEntry @ 0x1404EB59C (PiUEventQueueBroadcastEventEntry.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140543198 (IopGetSessionIdFromSymbolicName.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x1404887EC (PiUEventQueueBroadcastEventEntry.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1405436D8 (IopGetSessionIdFromSymbolicName.c)
  */
 
 __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)
   __int64 v12; // rax
   char *v13; // rax
   char *v14; // r14
-  _DWORD *v15; // rcx
+  __int64 v15; // rcx
   __int64 v16; // rax
   __int64 v17; // rax
   __int64 v18; // rax
@@ -195,7 +195,7 @@ LABEL_15:
       *((_DWORD *)v14 + 6) = IopGetSessionIdFromSymbolicName(&pcchLength);
     }
 LABEL_23:
-    v15 = v14;
+    v15 = (__int64)v14;
 LABEL_24:
     PiUEventQueueBroadcastEventEntry(v15);
     return (unsigned int)ObjectProperty;
@@ -245,7 +245,7 @@ LABEL_24:
           v24[6] = -1;
           ObjectProperty = 0;
         }
-        v15 = v24;
+        v15 = (__int64)v24;
         goto LABEL_24;
       }
       return (unsigned int)-1073741670;

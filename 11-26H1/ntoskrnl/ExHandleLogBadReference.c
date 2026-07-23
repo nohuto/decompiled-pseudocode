@@ -1,22 +1,22 @@
 /*
- * XREFs of ExHandleLogBadReference @ 0x14046C9F0
+ * XREFs of ExHandleLogBadReference @ 0x140466170
  * Callers:
- *     ObReferenceFileObjectForWrite @ 0x1408F9590 (ObReferenceFileObjectForWrite.c)
- *     ObpCloseHandle @ 0x1408F9C70 (ObpCloseHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObpReferenceObjectByHandle @ 0x1408FA460 (ObpReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     NtWriteFile @ 0x1408FB6D0 (NtWriteFile.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpLookupMessage @ 0x1409BEA70 (AlpcpLookupMessage.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1409C1390 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcpFreeMessageFunction @ 0x140A86940 (AlpcpFreeMessageFunction.c)
+ *     ObReferenceFileObjectForWrite @ 0x140929520 (ObReferenceFileObjectForWrite.c)
+ *     ObpCloseHandle @ 0x140929C00 (ObpCloseHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObpReferenceObjectByHandle @ 0x14092A3F0 (ObpReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtWriteFile @ 0x14092B660 (NtWriteFile.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpLookupMessage @ 0x14098FA50 (AlpcpLookupMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x140992370 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpFreeMessageFunction @ 0x140A8B8C0 (AlpcpFreeMessageFunction.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KeRaiseUserException @ 0x140529EA0 (KeRaiseUserException.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpUpdateDebugInfo @ 0x14092C6E0 (ExpUpdateDebugInfo.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KeRaiseUserException @ 0x14052C3C0 (KeRaiseUserException.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpUpdateDebugInfo @ 0x140908210 (ExpUpdateDebugInfo.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 struct _KTHREAD *__fastcall ExHandleLogBadReference(

@@ -1,16 +1,20 @@
 /*
- * XREFs of RtlQueryWnfMetaNotification @ 0x1800FDCA0
+ * XREFs of RtlQueryWnfMetaNotification @ 0x1800FD3F0
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryWnfStateNameInformation @ 0x180161D70 (NtQueryWnfStateNameInformation.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     NtQueryWnfStateNameInformation @ 0x180161C70 (NtQueryWnfStateNameInformation.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlQueryWnfMetaNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlQueryWnfMetaNotification(
+        PVOID InfoBuffer,
+        WNF_STATE_NAME_INFORMATION a2,
+        WNF_STATE_NAME a3,
+        const void *a4)
 {
-  __int64 v5; // [rsp+30h] [rbp-18h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a3;
-  return NtQueryWnfStateNameInformation(&v5, a2, a4, a1, 4);
+  StateName = a3;
+  return NtQueryWnfStateNameInformation(&StateName, a2, a4, InfoBuffer, 4u);
 }

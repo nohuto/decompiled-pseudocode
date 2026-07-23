@@ -1,15 +1,15 @@
 /*
- * XREFs of PdcTaskClientRequest @ 0x140A8B894
+ * XREFs of PdcTaskClientRequest @ 0x140A87D84
  * Callers:
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x140754120 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopUserShutdownCalloutDelayTimerWorker @ 0x140754280 (PopUserShutdownCalloutDelayTimerWorker.c)
- *     PopUserShutdownScenarioNotifyWinlogonCallout @ 0x1407542C0 (PopUserShutdownScenarioNotifyWinlogonCallout.c)
- *     PopPowerAggregatorSessionSwitchWorker @ 0x140759CB0 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x140752440 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopUserShutdownCalloutDelayTimerWorker @ 0x1407525A0 (PopUserShutdownCalloutDelayTimerWorker.c)
+ *     PopUserShutdownScenarioNotifyWinlogonCallout @ 0x1407525E0 (PopUserShutdownScenarioNotifyWinlogonCallout.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x140758100 (PopPowerAggregatorSessionSwitchWorker.c)
  * Callees:
- *     PdcPortSendMessageSynchronously @ 0x14048F5DC (PdcPortSendMessageSynchronously.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PdcReleaseRwLockExclusive @ 0x1406FBAF8 (PdcReleaseRwLockExclusive.c)
- *     PdcAcquireRwLockExclusive @ 0x14078E148 (PdcAcquireRwLockExclusive.c)
+ *     PdcPortSendMessageSynchronously @ 0x1404897EC (PdcPortSendMessageSynchronously.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PdcReleaseRwLockExclusive @ 0x1406F9738 (PdcReleaseRwLockExclusive.c)
+ *     PdcAcquireRwLockExclusive @ 0x14078E078 (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)

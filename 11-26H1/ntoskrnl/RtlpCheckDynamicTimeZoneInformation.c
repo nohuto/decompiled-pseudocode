@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x140804D4C
+ * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x14080A7EC
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlpFindRegTziForCurrentYear @ 0x140619C44 (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x140804F78 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x14061CC94 (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14080AA18 (RtlpGetDynamicTimeZoneInfoHandle.c)
  */
 
 char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
@@ -52,7 +52,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   v34 = 0LL;
   if ( (int)RtlpGetDynamicTimeZoneInfoHandle((NTSTRSAFE_PCWSTR)Buf2 + 86) >= 0 )
   {
-    if ( (int)RtlpFindRegTziForCurrentYear((__int64)&v33, 0LL, a2) >= 0 )
+    if ( (int)RtlpFindRegTziForCurrentYear(&v33, 0LL, a2) >= 0 )
     {
       v5 = *((_OWORD *)Buf2 + 1);
       Buf1 = *(_OWORD *)Buf2;

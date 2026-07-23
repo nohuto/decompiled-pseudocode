@@ -1,33 +1,33 @@
 /*
- * XREFs of NtMapViewOfSectionEx @ 0x1406CAB70
+ * XREFs of NtMapViewOfSectionEx @ 0x1406CBE10
  * Callers:
  *     <none>
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x140677DD0 (MiMapViewOfSectionExCommon.c)
  */
 
-__int64 __fastcall NtMapViewOfSectionEx(
-        __int64 a1,
-        ULONG_PTR a2,
-        __int64 *a3,
-        _QWORD *a4,
-        _QWORD *a5,
-        int a6,
-        int a7,
-        unsigned __int64 *a8,
-        unsigned int a9)
+NTSTATUS __cdecl NtMapViewOfSectionEx(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   return MiMapViewOfSectionExCommon(
-           a1,
-           a2,
+           (__int64)SectionHandle,
+           (ULONG_PTR)ProcessHandle,
            0,
-           a3,
-           a4,
-           a5,
-           a6,
-           a7,
-           a8,
-           a9,
+           (__int64 *)BaseAddress,
+           SectionOffset,
+           ViewSize,
+           AllocationType,
+           PageProtection,
+           (unsigned __int64 *)ExtendedParameters,
+           ExtendedParameterCount,
            0,
            0LL,
            KeGetCurrentThread()->PreviousMode,

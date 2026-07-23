@@ -1,9 +1,9 @@
 /*
- * XREFs of KiMaskInterruptDpc @ 0x14051AD80
+ * XREFs of KiMaskInterruptDpc @ 0x14051AFC0
  * Callers:
  *     <none>
  * Callees:
- *     KiMaskInterruptInternal @ 0x1403A731C (KiMaskInterruptInternal.c)
+ *     KiMaskInterruptInternal @ 0x1403A746C (KiMaskInterruptInternal.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerSourceChangeCallback @ 0x1404FD400
+ * XREFs of PopPowerSourceChangeCallback @ 0x1404F6940
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x1407D69C0 (PopPowerAggregatorForceSessionSwitch.c)
- *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1407D6BE0 (PopPowerAggregatorNotifyAcDcStateChange.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
- *     TtmNotifySessionDisplayBurst @ 0x140A3A998 (TtmNotifySessionDisplayBurst.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     PopBroadcastSessionInfo @ 0x140ABC7F4 (PopBroadcastSessionInfo.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x1407D9B50 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1407D9D50 (PopPowerAggregatorNotifyAcDcStateChange.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1409F6598 (TtmNotifySessionDisplayBurst.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     PopBroadcastSessionInfo @ 0x140ABE614 (PopBroadcastSessionInfo.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopPowerSourceChangeCallback(__int64 *a1, int *a2, int a3)
@@ -66,13 +66,13 @@ __int64 __fastcall PopPowerSourceChangeCallback(__int64 *a1, int *a2, int a3)
     v14 = *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4 - a1[1];
   if ( !v14 )
   {
-    if ( *(_DWORD *)&stru_140E66FF0.WaitBlockFill11[80] && stru_140E66FF0.WaitBlockFill6[84] )
+    if ( *(_DWORD *)&stru_140E67200.WaitBlockFill11[88] && stru_140E67200.WaitBlockFill6[80] )
     {
       v15 = v13;
       if ( *a2 == 1 )
         v15 = 1;
       v13 = v15;
-      if ( unk_140F12AA8 )
+      if ( PopDisableDisplayBurstOnPowerSourceChange )
         v13 = 1;
     }
     v10 = *(_QWORD *)&GUID_BATTERY_COUNT.Data1;

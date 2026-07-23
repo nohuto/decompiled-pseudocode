@@ -1,6 +1,0 @@
-[EXCEPTION] RtlpLockStack @ 0x1800023BC: Hex-Rays returned no pseudocode for 0x1800023BC
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800023BC'), <traceback object at 0x00000200EE146480>)
-
-[EXCEPTION] TppCritResetThread @ 0x1800865B4: Hex-Rays returned no pseudocode for 0x1800865B4
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800865B4'), <traceback object at 0x00000200F3223F80>)
-

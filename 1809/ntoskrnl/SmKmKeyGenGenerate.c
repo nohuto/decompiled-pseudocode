@@ -1,16 +1,16 @@
 /*
- * XREFs of SmKmKeyGenGenerate @ 0x1408ACD9C
+ * XREFs of SmKmKeyGenGenerate @ 0x1408ADFFC
  * Callers:
- *     SmcStoreCreate @ 0x1408AF0F0 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x1408B0350 (SmcStoreCreate.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     SmKmKeyGenKeyDelete @ 0x1408ACEAC (SmKmKeyGenKeyDelete.c)
- *     SmKmKeyGenKeyFind @ 0x1408ACF3C (SmKmKeyGenKeyFind.c)
- *     SmKmKeyGenNewKey @ 0x1408AD0F0 (SmKmKeyGenNewKey.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     SmKmKeyGenKeyDelete @ 0x1408AE10C (SmKmKeyGenKeyDelete.c)
+ *     SmKmKeyGenKeyFind @ 0x1408AE19C (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenNewKey @ 0x1408AE350 (SmKmKeyGenNewKey.c)
  */
 
 __int64 __fastcall SmKmKeyGenGenerate(signed __int64 *BugCheckParameter2, void *a2, void *a3, unsigned int a4)

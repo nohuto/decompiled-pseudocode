@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpEnableRootVirtualProcessor @ 0x14062056C
+ * XREFs of HvlpEnableRootVirtualProcessor @ 0x140620620
  * Callers:
- *     HvlInitializeProcessor @ 0x14054E4D8 (HvlInitializeProcessor.c)
+ *     HvlInitializeProcessor @ 0x14054E878 (HvlInitializeProcessor.c)
  * Callees:
- *     HvlpGetLpcbByApicId @ 0x1401BB968 (HvlpGetLpcbByApicId.c)
- *     HvlpCreateRootVirtualProcessor @ 0x140620478 (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x1401BB84C (HvlpGetLpcbByApicId.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14062052C (HvlpCreateRootVirtualProcessor.c)
  */
 
 __int64 __fastcall HvlpEnableRootVirtualProcessor(__int64 a1, int a2)

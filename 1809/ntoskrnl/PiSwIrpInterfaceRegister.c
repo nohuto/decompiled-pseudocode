@@ -1,23 +1,23 @@
 /*
- * XREFs of PiSwIrpInterfaceRegister @ 0x140753FAC
+ * XREFs of PiSwIrpInterfaceRegister @ 0x14075519C
  * Callers:
- *     PiSwDispatch @ 0x1406D7640 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x1406D88E0 (PiSwDispatch.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiSwPropertySet @ 0x1406D7950 (PiSwPropertySet.c)
- *     PiSwUpdateArrayProperties @ 0x1406D7A70 (PiSwUpdateArrayProperties.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x1406D7B84 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwDeviceOperationsAllowed @ 0x1406D7BE4 (PiSwDeviceOperationsAllowed.c)
- *     PiSwValidatePropertyArray @ 0x1406D7C10 (PiSwValidatePropertyArray.c)
- *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
- *     PiSwDeviceInterfaceSetState @ 0x140754324 (PiSwDeviceInterfaceSetState.c)
- *     PiSwInterfaceCreate @ 0x1407543EC (PiSwInterfaceCreate.c)
- *     PiSwInterfaceFree @ 0x140835D60 (PiSwInterfaceFree.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiSwPropertySet @ 0x1406D8BF0 (PiSwPropertySet.c)
+ *     PiSwUpdateArrayProperties @ 0x1406D8D10 (PiSwUpdateArrayProperties.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x1406D8E24 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1406D8E84 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwValidatePropertyArray @ 0x1406D8EB0 (PiSwValidatePropertyArray.c)
+ *     IopRegisterDeviceInterface @ 0x14070AD74 (IopRegisterDeviceInterface.c)
+ *     PiSwDeviceInterfaceSetState @ 0x140755514 (PiSwDeviceInterfaceSetState.c)
+ *     PiSwInterfaceCreate @ 0x1407555DC (PiSwInterfaceCreate.c)
+ *     PiSwInterfaceFree @ 0x140836FC0 (PiSwInterfaceFree.c)
  */
 
 __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp)
@@ -66,7 +66,7 @@ __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp)
   updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, v24);
   if ( updated >= 0 )
   {
-    NdrMesTypeDecode3(v24[0], "TP 3\a", &off_140908F28, &off_1403FF530, 2, &P);
+    NdrMesTypeDecode3(v24[0], "TP 3\a", &off_14090A1E8, &off_140400530, 2, &P);
     if ( P
       && *(_QWORD *)P
       && ((v7 = *((_QWORD *)P + 3)) != 0 || !*((_DWORD *)P + 4))

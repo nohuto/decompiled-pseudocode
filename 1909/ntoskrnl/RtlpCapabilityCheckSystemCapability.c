@@ -13,13 +13,13 @@
  *     RtlpIsAppContainer @ 0x1408D2C74 (RtlpIsAppContainer.c)
  */
 
-__int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandle, PCUNICODE_STRING Source, _BYTE *a3)
+__int64 __fastcall RtlpCapabilityCheckSystemCapability(PACCESS_TOKEN Token, PCUNICODE_STRING Source, _BYTE *a3)
 {
   int PolicyValueForSystemCapability; // eax
-  int IsAppContainer; // ebx
-  char v8; // [rsp+20h] [rbp-40h] BYREF
+  NTSTATUS IsAppContainer; // ebx
+  BOOLEAN IsMember; // [rsp+20h] [rbp-40h] BYREF
   char v9; // [rsp+21h] [rbp-3Fh]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+24h] [rbp-3Ch] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+24h] [rbp-3Ch] BYREF
   UNICODE_STRING String1; // [rsp+30h] [rbp-30h] BYREF
   _BYTE Sid[16]; // [rsp+40h] [rbp-20h] BYREF
 
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandl
   *(_QWORD *)&String1.Length = 0LL;
   String1.Buffer = 0LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  v8 = 0;
+  IsMember = 0;
   v9 = 0;
   PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(Source, &String1);
   IsAppContainer = PolicyValueForSystemCapability;
@@ -56,12 +56,12 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandl
         *RtlSubAuthoritySid(Sid, 0) = 32;
         *RtlSubAuthoritySid(Sid, 1u) = 583;
       }
-      IsAppContainer = RtlCheckTokenMembershipEx(ExistingTokenHandle, Sid, 2, &v8);
+      IsAppContainer = RtlCheckTokenMembershipEx(Token, Sid, 2u, &IsMember);
       if ( IsAppContainer >= 0 )
       {
-        if ( v8 )
+        if ( IsMember )
         {
-          IsAppContainer = RtlpIsAppContainer(ExistingTokenHandle);
+          IsAppContainer = RtlpIsAppContainer(Token);
           if ( IsAppContainer >= 0 )
           {
             if ( v9 )

@@ -11,7 +11,7 @@
 
 char __fastcall sub_1800CC2EC(unsigned __int16 *a1, __int64 a2, __int64 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   __int64 v7; // rcx
   __int64 v8; // r8
   __int64 v9; // r9
@@ -31,11 +31,7 @@ char __fastcall sub_1800CC2EC(unsigned __int16 *a1, __int64 a2, __int64 a3)
   __int64 v24; // [rsp+B8h] [rbp+37h]
   __int64 v25; // [rsp+C0h] [rbp+3Fh]
 
-  v6 = RtlRunOnceExecuteOnce(
-         &qword_18015D080,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))sub_180082590,
-         0LL,
-         0LL);
+  v6 = RtlRunOnceExecuteOnce(&stru_18015D080, (PRTL_RUN_ONCE_INIT_FN)sub_180082590, 0LL, 0LL);
   if ( v6 >= 0 && (unsigned int)dword_180156530 > 5 )
   {
     LOBYTE(v6) = sub_18007A45C((__int64)&dword_180156530, 0x200000000000LL);
@@ -56,7 +52,7 @@ char __fastcall sub_1800CC2EC(unsigned __int16 *a1, __int64 a2, __int64 a3)
       v23 = 2LL;
       v24 = a3;
       v25 = 16LL;
-      LOBYTE(v6) = sub_1800886A4(v7, byte_18012371D, v8, v9, 8, (__int64)v13);
+      LOBYTE(v6) = sub_1800886A4(v7, (unsigned __int8 *)dword_18012371D, v8, v9, 8u, (PEVENT_DATA_DESCRIPTOR)v13);
     }
   }
   return v6;

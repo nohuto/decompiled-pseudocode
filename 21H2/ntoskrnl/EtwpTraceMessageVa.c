@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpTraceMessageVa @ 0x14025D560
+ * XREFs of EtwpTraceMessageVa @ 0x14027F090
  * Callers:
- *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
- *     WmiTraceMessage @ 0x1402CFEC0 (WmiTraceMessage.c)
- *     WmiTraceMessageVa @ 0x1405A67D0 (WmiTraceMessageVa.c)
+ *     WmiTraceMessage @ 0x14024E240 (WmiTraceMessage.c)
+ *     NtTraceEvent @ 0x14027E790 (NtTraceEvent.c)
+ *     WmiTraceMessageVa @ 0x1405A6A00 (WmiTraceMessageVa.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x14025DC40 (EtwpReleaseTraceBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14036CDBC (EtwpGetReserveTraceBufferStatus.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1405AB678 (EtwpInvokeEventCallback.c)
+ *     EtwpOpenLogger @ 0x14027F6C8 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x14027F770 (EtwpReleaseTraceBuffer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402A5670 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14036CF6C (EtwpGetReserveTraceBufferStatus.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpSendTraceEvent @ 0x1405AAD98 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB8A8 (EtwpInvokeEventCallback.c)
  */
 
 __int64 __fastcall EtwpTraceMessageVa(
@@ -404,7 +404,7 @@ LABEL_86:
   if ( v47 )
   {
     ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v11 + 448) + 8LL * v7), 1u);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread(KeGetCurrentThread());
     return v46;
   }
   return result;

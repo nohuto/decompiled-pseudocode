@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAllowAwayModeSettingCallback @ 0x140B6A070
+ * XREFs of PopAllowAwayModeSettingCallback @ 0x140B6D280
  * Callers:
  *     <none>
  * Callees:
- *     PopSetSystemState @ 0x1404383B4 (PopSetSystemState.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopSetSystemState @ 0x1404272D4 (PopSetSystemState.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -31,12 +31,12 @@ __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a
       {
         if ( *a2 )
         {
-          byte_140F106D2 = 1;
+          BYTE2(PpmIdlePolicyLock.IoSelfBoostsEntry.Next) = 1;
         }
         else
         {
-          byte_140F106D2 = 0;
-          if ( byte_140F106D1 )
+          BYTE2(PpmIdlePolicyLock.IoSelfBoostsEntry.Next) = 0;
+          if ( BYTE1(PpmIdlePolicyLock.IoSelfBoostsEntry.Next) )
             PopSetSystemState(4LL, 7LL);
         }
         v6 = 0;

@@ -11,7 +11,7 @@
 
 NTSTATUS TpInitializePackage()
 {
-  int TagHeap; // eax
+  ULONG TagHeap; // eax
   NTSTATUS result; // eax
   unsigned __int16 MaximumGroupCount; // ax
   struct _PEB *v3; // rax
@@ -19,7 +19,7 @@ NTSTATUS TpInitializePackage()
   ULONG ReturnLength; // [rsp+440h] [rbp+8h] BYREF
 
   memset_thunk_772440563353939046(SystemInformation, 0, 0x408uLL);
-  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap);
+  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
   ReturnLength = 0;
   TppHeapTag = TagHeap;
   result = NtQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x140425F5C
+ * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x14043306C
  * Callers:
- *     HalpInterruptSetDestination @ 0x140425E10 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140432F20 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpHvRetargetIoApicDeviceInterrupt @ 0x140425D3C (HalpHvRetargetIoApicDeviceInterrupt.c)
- *     HalpHvRetargetDeviceMsiInterrupt @ 0x1404260C0 (HalpHvRetargetDeviceMsiInterrupt.c)
- *     HalpInterruptFindControllerAndLineState @ 0x140426644 (HalpInterruptFindControllerAndLineState.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140426C08 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpHvRetargetIoApicDeviceInterrupt @ 0x140432E4C (HalpHvRetargetIoApicDeviceInterrupt.c)
+ *     HalpHvRetargetDeviceMsiInterrupt @ 0x1404331D0 (HalpHvRetargetDeviceMsiInterrupt.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x140433754 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140433D18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *a2, __int64 a3)
@@ -74,9 +74,9 @@ __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *
     {
       v16[0] = LinesForGsiRange[4];
       v16[1] = v12 + LinesForGsiRange[5] - LinesForGsiRange[7];
-      v14 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+      v14 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
       v7 = HalpInterruptSetLineStateInternal(v10, (__int64)v16, v15);
-      HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v14);
+      HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v14);
       return v7;
     }
     HalpInterruptSetProblemEx(

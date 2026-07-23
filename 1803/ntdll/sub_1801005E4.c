@@ -22,45 +22,41 @@
  *     sub_18010473C @ 0x18010473C (sub_18010473C.c)
  */
 
-__int64 __fastcall sub_1801005E4(_DWORD *Src, int a2, __int64 a3, unsigned __int64 a4)
+char *__fastcall sub_1801005E4(_DWORD *Src, int a2, char *a3, SIZE_T a4)
 {
-  __int64 v8; // rsi
+  char *v8; // rsi
   int v10; // r14d
   __int64 v11; // rax
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rdx
   struct _PEB *v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int16 v17; // r8
-  int v18; // edx
-  unsigned __int16 v19; // cx
-  wchar_t *v20; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v22; // r14
-  int v23; // edx
-  _WORD *v24; // rax
-  _WORD *v25; // r15
-  unsigned __int16 v26; // ax
-  struct _PEB *v27; // rax
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  wchar_t *v30; // rax
-  char v31; // [rsp+30h] [rbp-48h]
-  unsigned __int16 v32; // [rsp+34h] [rbp-44h]
-  __int64 v33; // [rsp+38h] [rbp-40h]
-  unsigned __int64 v34; // [rsp+40h] [rbp-38h]
-  int v35; // [rsp+88h] [rbp+10h]
+  __int16 v15; // r8
+  int v16; // edx
+  unsigned __int16 v17; // cx
+  wchar_t *v18; // rax
+  char *Heap; // rax
+  unsigned __int64 v20; // r14
+  int v21; // edx
+  _WORD *v22; // rax
+  _WORD *v23; // r15
+  unsigned __int16 v24; // ax
+  struct _PEB *v25; // rax
+  wchar_t *v26; // rax
+  char v27; // [rsp+30h] [rbp-48h]
+  unsigned __int16 v28; // [rsp+34h] [rbp-44h]
+  char *v29; // [rsp+38h] [rbp-40h]
+  unsigned __int64 v30; // [rsp+40h] [rbp-38h]
+  int Flags; // [rsp+88h] [rbp+10h]
 
-  v31 = 0;
+  v27 = 0;
   v8 = 0LL;
-  v33 = 0LL;
+  v29 = 0LL;
   if ( (Src[29] & 0x1000000) != 0 )
-    return _guard_dispatch_icall_fptr();
+    return (char *)_guard_dispatch_icall_fptr();
   if ( !sub_18001FC58(Src, "RtlReAllocateHeap") )
     goto LABEL_68;
   v10 = Src[29] | 0x10000100 | a2;
-  v35 = v10;
+  Flags = v10;
   v11 = a4;
   if ( !a4 )
     v11 = 1LL;
@@ -76,23 +72,23 @@ LABEL_68:
     v8 = 0LL;
     goto LABEL_69;
   }
-  v32 = 0;
+  v28 = 0;
   if ( (v10 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*((_QWORD *)Src + 44));
-    v31 = 1;
-    v35 = v10 | 1;
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
+    v27 = 1;
+    Flags = v10 | 1;
   }
-  sub_18010120C(Src, 0LL);
-  v13 = a3 - 16;
-  _m_prefetchw((const void *)(a3 - 16));
-  if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+  sub_18010120C((_DWORD)Src);
+  v13 = (unsigned __int64)(a3 - 16);
+  _m_prefetchw(a3 - 16);
+  if ( *(a3 - 1) == 5 )
     v13 -= 16LL * *(unsigned __int8 *)(v13 + 14);
-  v34 = v13;
+  v30 = v13;
   if ( sub_180072588((unsigned __int64)Src, v13, "RtlReAllocateHeap") )
   {
     v14 = NtCurrentPeb();
-    if ( a3 == qword_18015A7D0 )
+    if ( a3 == (char *)qword_18015A7D0 )
     {
       if ( v14->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -104,90 +100,90 @@ LABEL_68:
     {
       if ( (v14->NtGlobalFlag & 0x800) == 0 )
         goto LABEL_36;
-      v17 = dword_18015A7D8;
+      v15 = dword_18015A7D8;
       if ( !dword_18015A7D8 )
         goto LABEL_36;
       if ( Src[31] )
       {
-        v18 = *(_DWORD *)(v34 + 8) ^ Src[34];
-        *(_DWORD *)(v34 + 8) = v18;
-        if ( HIBYTE(v18) != ((unsigned __int8)v18 ^ (unsigned __int8)(BYTE1(v18) ^ BYTE2(v18))) )
+        v16 = *(_DWORD *)(v30 + 8) ^ Src[34];
+        *(_DWORD *)(v30 + 8) = v16;
+        if ( HIBYTE(v16) != ((unsigned __int8)v16 ^ (unsigned __int8)(BYTE1(v16) ^ BYTE2(v16))) )
         {
-          sub_1800FC010((__int64)Src, v34);
-          v17 = dword_18015A7D8;
+          sub_1800FC010((__int64)Src, v30);
+          v15 = dword_18015A7D8;
         }
       }
-      if ( (*(_BYTE *)(v34 + 10) & 2) != 0 )
-        v19 = *(_WORD *)(sub_180063B6C(v34) + 2);
+      if ( (*(_BYTE *)(v30 + 10) & 2) != 0 )
+        v17 = *(_WORD *)(sub_180063B6C(v30) + 2);
       else
-        v19 = *(unsigned __int8 *)(v34 + 11);
-      v32 = v19;
+        v17 = *(unsigned __int8 *)(v30 + 11);
+      v28 = v17;
       if ( Src[31] )
       {
-        *(_BYTE *)(v34 + 11) = *(_BYTE *)(v34 + 8) ^ *(_BYTE *)(v34 + 9) ^ *(_BYTE *)(v34 + 10);
-        *(_DWORD *)(v34 + 8) ^= Src[34];
+        *(_BYTE *)(v30 + 11) = *(_BYTE *)(v30 + 8) ^ *(_BYTE *)(v30 + 9) ^ *(_BYTE *)(v30 + 10);
+        *(_DWORD *)(v30 + 8) ^= Src[34];
       }
-      if ( !v19 || v19 != v17 || *((_WORD *)Src + 104) != HIWORD(dword_18015A7D8) )
+      if ( !v17 || v17 != v15 || *((_WORD *)Src + 104) != HIWORD(dword_18015A7D8) )
         goto LABEL_36;
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      v20 = sub_1800EC9CC((__int64)Src, v32);
-      DbgPrint("About to rellocate block at %p to 0x%Ix bytes with tag %ws\n", a3, a4, v20);
+      v18 = sub_1800EC9CC((__int64)Src, v28);
+      DbgPrint("About to rellocate block at %p to 0x%Ix bytes with tag %ws\n", a3, a4, v18);
     }
-    sub_1801011EC(v16, v15);
+    sub_1801011EC();
 LABEL_36:
-    Heap = RtlReAllocateHeap((__int64)Src, v35, a3, a4);
+    Heap = (char *)RtlReAllocateHeap(Src, Flags, a3, a4);
     v8 = Heap;
-    v33 = Heap;
+    v29 = Heap;
     if ( Heap )
     {
-      v22 = Heap - 16;
-      _m_prefetchw((const void *)(Heap - 16));
-      if ( *(_BYTE *)(Heap - 16 + 15) == 5 )
-        v22 -= 16LL * *(unsigned __int8 *)(v22 + 14);
+      v20 = (unsigned __int64)(Heap - 16);
+      _m_prefetchw(Heap - 16);
+      if ( *(Heap - 1) == 5 )
+        v20 -= 16LL * *(unsigned __int8 *)(v20 + 14);
       if ( Src[31] )
       {
-        v23 = *(_DWORD *)(v22 + 8) ^ Src[34];
-        *(_DWORD *)(v22 + 8) = v23;
-        if ( HIBYTE(v23) != ((unsigned __int8)v23 ^ (unsigned __int8)(BYTE1(v23) ^ BYTE2(v23))) )
-          sub_1800FC010((__int64)Src, v22);
+        v21 = *(_DWORD *)(v20 + 8) ^ Src[34];
+        *(_DWORD *)(v20 + 8) = v21;
+        if ( HIBYTE(v21) != ((unsigned __int8)v21 ^ (unsigned __int8)(BYTE1(v21) ^ BYTE2(v21))) )
+          sub_1800FC010((__int64)Src, v20);
       }
-      if ( (*(_BYTE *)(v22 + 10) & 2) != 0 )
+      if ( (*(_BYTE *)(v20 + 10) & 2) != 0 )
       {
-        v24 = (_WORD *)sub_180063B6C(v22);
-        v25 = v24;
+        v22 = (_WORD *)sub_180063B6C(v20);
+        v23 = v22;
         if ( (Src[28] & 0x8000000) != 0 )
-          *v24 = sub_1800244C4(1u);
+          *v22 = sub_1800244C4(1u);
         else
-          *v24 = 0;
-        v26 = v25[1];
+          *v22 = 0;
+        v24 = v23[1];
       }
       else
       {
-        v26 = *(unsigned __int8 *)(v22 + 11);
+        v24 = *(unsigned __int8 *)(v20 + 11);
       }
-      v32 = v26;
+      v28 = v24;
       if ( Src[31] )
       {
-        *(_BYTE *)(v22 + 11) = *(_BYTE *)(v22 + 8) ^ *(_BYTE *)(v22 + 9) ^ *(_BYTE *)(v22 + 10);
-        *(_DWORD *)(v22 + 8) ^= Src[34];
+        *(_BYTE *)(v20 + 11) = *(_BYTE *)(v20 + 8) ^ *(_BYTE *)(v20 + 9) ^ *(_BYTE *)(v20 + 10);
+        *(_DWORD *)(v20 + 8) ^= Src[34];
       }
     }
     sub_18010180C(Src);
-    sub_18010120C(Src, 0LL);
+    sub_18010120C((_DWORD)Src);
   }
   if ( v8 )
   {
-    v27 = NtCurrentPeb();
-    v8 = v33;
-    if ( v33 == qword_18015A7D0 )
+    v25 = NtCurrentPeb();
+    v8 = v29;
+    if ( v29 == (char *)qword_18015A7D0 )
     {
-      if ( v27->Ldr )
+      if ( v25->Ldr )
       {
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-        v8 = v33;
+        v8 = v29;
       }
       else
       {
@@ -195,23 +191,23 @@ LABEL_36:
       }
       DbgPrint("Just reallocated block at %p to %Ix bytes\n", (const void *)qword_18015A7D0, a4);
 LABEL_57:
-      sub_1801011EC(v29, v28);
+      sub_1801011EC();
       goto LABEL_69;
     }
-    if ( (v27->NtGlobalFlag & 0x800) != 0 && __PAIR32__(*((_WORD *)Src + 104), v32) == dword_18015A7D8 )
+    if ( (v25->NtGlobalFlag & 0x800) != 0 && __PAIR32__(*((_WORD *)Src + 104), v28) == dword_18015A7D8 )
     {
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      v30 = sub_1800EC9CC((__int64)Src, v32);
-      v8 = v33;
-      DbgPrint("Just reallocated block at %p to 0x%Ix bytes with tag %ws\n", v33, a4, v30);
+      v26 = sub_1800EC9CC((__int64)Src, v28);
+      v8 = v29;
+      DbgPrint("Just reallocated block at %p to 0x%Ix bytes with tag %ws\n", v29, a4, v26);
       goto LABEL_57;
     }
   }
 LABEL_69:
-  if ( v31 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+  if ( v27 )
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
   return v8;
 }

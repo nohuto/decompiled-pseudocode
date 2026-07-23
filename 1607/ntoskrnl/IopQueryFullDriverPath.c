@@ -1,10 +1,10 @@
 /*
- * XREFs of IopQueryFullDriverPath @ 0x1401CA0E4
+ * XREFs of IopQueryFullDriverPath @ 0x1401C9F84
  * Callers:
- *     IoQueryFullDriverPath @ 0x1401C9A34 (IoQueryFullDriverPath.c)
+ *     IoQueryFullDriverPath @ 0x1401C98D4 (IoQueryFullDriverPath.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

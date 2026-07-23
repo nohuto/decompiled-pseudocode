@@ -1,14 +1,14 @@
 /*
- * XREFs of IopIrpExtensionControl @ 0x14027F1CC
+ * XREFs of IopIrpExtensionControl @ 0x14027F3BC
  * Callers:
- *     IopEtwEnableCallback @ 0x140819B00 (IopEtwEnableCallback.c)
- *     IoRegisterIoTracking @ 0x14081DF80 (IoRegisterIoTracking.c)
- *     IoUnregisterIoTracking @ 0x14081E090 (IoUnregisterIoTracking.c)
+ *     IopEtwEnableCallback @ 0x14081AD00 (IopEtwEnableCallback.c)
+ *     IoRegisterIoTracking @ 0x14081F180 (IoRegisterIoTracking.c)
+ *     IoUnregisterIoTracking @ 0x14081F290 (IoUnregisterIoTracking.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     IopUpdateFunctionPointers @ 0x14027F484 (IopUpdateFunctionPointers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x14027F674 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IopIrpExtensionControl(int a1, int a2)
@@ -27,9 +27,9 @@ __int64 __fastcall IopIrpExtensionControl(int a1, int a2)
     v6 = IopIrpExtensionStatus == 0;
     IopIrpExtensionStatus |= a1;
     if ( (a1 & 1) != 0 )
-      ++dword_1404DC3A4;
+      ++dword_1404DD474;
     if ( (a1 & 2) != 0 )
-      ++dword_1404DC3A8;
+      ++dword_1404DD478;
     if ( v6 )
     {
       LOBYTE(v4) = 1;
@@ -40,9 +40,9 @@ LABEL_16:
   }
   else
   {
-    if ( (a1 & 1) != 0 && !--dword_1404DC3A4 )
+    if ( (a1 & 1) != 0 && !--dword_1404DD474 )
       IopIrpExtensionStatus &= ~1u;
-    if ( (a1 & 2) != 0 && !--dword_1404DC3A8 )
+    if ( (a1 & 2) != 0 && !--dword_1404DD478 )
       IopIrpExtensionStatus &= ~2u;
     if ( !IopIrpExtensionStatus )
     {

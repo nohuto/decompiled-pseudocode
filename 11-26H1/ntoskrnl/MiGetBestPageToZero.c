@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetBestPageToZero @ 0x1403C497C
+ * XREFs of MiGetBestPageToZero @ 0x1403CE888
  * Callers:
- *     MiGetSinglePageToZero @ 0x1403C47E4 (MiGetSinglePageToZero.c)
+ *     MiGetSinglePageToZero @ 0x1403CE6F0 (MiGetSinglePageToZero.c)
  * Callees:
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiSetPageZeroInProgress @ 0x1403C4C00 (MiSetPageZeroInProgress.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiSetPageZeroInProgress @ 0x1403CEB0C (MiSetPageZeroInProgress.c)
  */
 
 __int64 __fastcall MiGetBestPageToZero(__int64 a1, __int64 a2, unsigned int a3)
@@ -74,7 +74,7 @@ __int64 __fastcall MiGetBestPageToZero(__int64 a1, __int64 a2, unsigned int a3)
   v5 = a2 + ((unsigned __int64)(HIWORD(a3) & 3) << 10);
   v54 = 0LL;
   v59 = 0;
-  if ( (unsigned __int8)byte_140E2D718 > 1u )
+  if ( (unsigned __int8)byte_140E2D898 > 1u )
     v7 = (_QWORD *)(a2 + 16LL * (BYTE1(a3) & 1) + 14072);
   else
     v7 = (_QWORD *)(v5 + 16);
@@ -92,7 +92,7 @@ __int64 __fastcall MiGetBestPageToZero(__int64 a1, __int64 a2, unsigned int a3)
   v9 = (a3 >> 15) & 1;
   v10 = (a3 >> 18) & 3;
   v11 = HIWORD(a3) & 3;
-  if ( (unsigned __int8)byte_140E2D718 > 1u )
+  if ( (unsigned __int8)byte_140E2D898 > 1u )
     v12 = v3 & 1;
   else
     v12 = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F814
+ * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x140610814
  * Callers:
- *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
+ *     NtUpdateWnfStateData @ 0x14060FBB0 (NtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x1406103C0 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B6170 (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14075F710 (NtDeleteWnfStateData.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     SeReleaseSid @ 0x1406112AC (SeReleaseSid.c)
+ *     SeReleaseSid @ 0x1406122AC (SeReleaseSid.c)
  */
 
 __int64 __fastcall ExpWnfReleaseCapturedScopeInstanceId(int a1, PVOID *a2, char a3)

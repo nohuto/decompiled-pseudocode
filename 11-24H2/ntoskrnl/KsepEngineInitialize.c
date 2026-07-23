@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepEngineInitialize @ 0x140C2B2F0
+ * XREFs of KsepEngineInitialize @ 0x140C2D410
  * Callers:
- *     KseInitialize @ 0x140C2B3FC (KseInitialize.c)
+ *     KseInitialize @ 0x140C2D51C (KseInitialize.c)
  * Callees:
- *     RtlAssert @ 0x1405E9340 (RtlAssert.c)
- *     KsepCacheInitialize @ 0x14074059C (KsepCacheInitialize.c)
- *     KsepEngineReadFlags @ 0x140C2C160 (KsepEngineReadFlags.c)
+ *     RtlAssert @ 0x1405E6890 (RtlAssert.c)
+ *     KsepCacheInitialize @ 0x14073E4CC (KsepCacheInitialize.c)
+ *     KsepEngineReadFlags @ 0x140C2E280 (KsepEngineReadFlags.c)
  */
 
 __int64 __fastcall KsepEngineInitialize(_QWORD *a1)

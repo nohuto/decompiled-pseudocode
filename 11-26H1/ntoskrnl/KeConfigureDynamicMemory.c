@@ -1,13 +1,13 @@
 /*
- * XREFs of KeConfigureDynamicMemory @ 0x1405EBDBC
+ * XREFs of KeConfigureDynamicMemory @ 0x1405EE72C
  * Callers:
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140866D5C (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14086D13C (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     VslConfigureDynamicMemory @ 0x1405C2AD8 (VslConfigureDynamicMemory.c)
- *     HvlConfigureDynamicMemory @ 0x14071E40C (HvlConfigureDynamicMemory.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     VslConfigureDynamicMemory @ 0x1405C5348 (VslConfigureDynamicMemory.c)
+ *     HvlConfigureDynamicMemory @ 0x14072309C (HvlConfigureDynamicMemory.c)
  */
 
 __int64 __fastcall KeConfigureDynamicMemory(__int64 a1, __int64 a2, unsigned int a3)
@@ -15,7 +15,7 @@ __int64 __fastcall KeConfigureDynamicMemory(__int64 a1, __int64 a2, unsigned int
   int v6; // edi
 
   if ( (a3 & 0xFFFFFFFD) == 0
-    && (ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SystemAffinityTokenListHead), a3 == 2)
+    && (ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.KcsanThread), a3 == 2)
     || ((a3 - 4) & 0xFFFFFFFB) == 0 )
   {
     v6 = VslConfigureDynamicMemory(a1, a2, a3);
@@ -31,7 +31,7 @@ __int64 __fastcall KeConfigureDynamicMemory(__int64 a1, __int64 a2, unsigned int
       goto LABEL_12;
     }
 LABEL_13:
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SystemAffinityTokenListHead);
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.KcsanThread);
     return (unsigned int)v6;
   }
   v6 = HvlConfigureDynamicMemory(a1, a2, a3);

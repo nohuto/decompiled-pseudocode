@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementSub @ 0x140573620
+ * XREFs of SymCryptMlDsaPolyElementSub @ 0x14057282C
  * Callers:
- *     SymCryptMlDsaVectorSub @ 0x140574790 (SymCryptMlDsaVectorSub.c)
+ *     SymCryptMlDsaVectorSub @ 0x1405739F4 (SymCryptMlDsaVectorSub.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmMovOp @ 0x1404684B0
+ * XREFs of XmMovOp @ 0x140460E60
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 __int64 __fastcall XmMovOp(__int64 a1)

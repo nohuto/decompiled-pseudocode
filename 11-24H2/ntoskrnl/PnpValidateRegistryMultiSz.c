@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpValidateRegistryMultiSz @ 0x1404D2868
+ * XREFs of PnpValidateRegistryMultiSz @ 0x1404CBA24
  * Callers:
- *     PiDevCfgQueryIncludedDriverNode @ 0x14072AC78 (PiDevCfgQueryIncludedDriverNode.c)
- *     PiDevCfgResolveVariableFormatString @ 0x14072B770 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14099CA94 (PiDevCfgResolveMultiSzValue.c)
- *     PiDevCfgResolveVariableExpression @ 0x140A91630 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x140728A48 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x140729760 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x1409CF204 (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgResolveVariableExpression @ 0x140A8DDE0 (PiDevCfgResolveVariableExpression.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1404B3254 (PnpValidateMultiSzData.c)
+ *     PnpValidateMultiSzData @ 0x1404ADA64 (PnpValidateMultiSzData.c)
  */
 
 bool __fastcall PnpValidateRegistryMultiSz(_DWORD *a1)

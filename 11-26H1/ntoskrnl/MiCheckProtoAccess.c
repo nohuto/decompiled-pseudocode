@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckProtoAccess @ 0x140431F30
+ * XREFs of MiCheckProtoAccess @ 0x14041EF60
  * Callers:
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiCheckUserVirtualAddress @ 0x1402D1920 (MiCheckUserVirtualAddress.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiCheckUserVirtualAddress @ 0x1402B36E0 (MiCheckUserVirtualAddress.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, __int64 a2)
@@ -80,17 +80,17 @@ LABEL_59:
       v12 = v11 & 0x7FFFFFFFF000LL;
       if ( (v11 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
       {
-        v10 = qword_140E2D628;
+        v10 = qword_140E2D7A8;
         goto LABEL_59;
       }
-      if ( v12 == qword_140E2D638 && v12 )
+      if ( v12 == qword_140E2D7B8 && v12 )
       {
-        v10 = qword_140E2D630;
+        v10 = qword_140E2D7B0;
         goto LABEL_59;
       }
     }
     v13 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw(v13);
       v15 = *v13 & 0x7FFFFFFF;
@@ -150,7 +150,7 @@ LABEL_40:
 LABEL_50:
         v22 = (volatile signed __int32 *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8]
             + 1;
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         {
           _InterlockedAnd(v22, 0xBFFFFFFF);
           _InterlockedDecrement(v22);
@@ -162,7 +162,7 @@ LABEL_50:
         if ( Flink )
         {
           v10 = MiCheckUserVirtualAddress(v11, Flink, 1, &v27);
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           {
             _InterlockedAnd((volatile signed __int32 *)(Flink + 64), 0xBFFFFFFF);
             _InterlockedDecrement((volatile signed __int32 *)(Flink + 64));
@@ -176,7 +176,7 @@ LABEL_50:
       }
       Process[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)Flink;
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw((const void *)(Flink + 64));
       v21 = *(_DWORD *)(Flink + 64) & 0x7FFFFFFF;

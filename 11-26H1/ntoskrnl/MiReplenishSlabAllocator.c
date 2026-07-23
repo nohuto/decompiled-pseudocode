@@ -1,28 +1,28 @@
 /*
- * XREFs of MiReplenishSlabAllocator @ 0x14020607C
+ * XREFs of MiReplenishSlabAllocator @ 0x14020615C
  * Callers:
- *     MiFastReplenishWithAsync @ 0x1402A5938 (MiFastReplenishWithAsync.c)
- *     MiSharePagePrepare @ 0x140307910 (MiSharePagePrepare.c)
- *     MiAllocateSlabPageForMdl @ 0x14033A080 (MiAllocateSlabPageForMdl.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiReplenishSlabAllocatorWorker @ 0x1404C9090 (MiReplenishSlabAllocatorWorker.c)
- *     MmAllocateSecureKernelPages @ 0x1404E93EC (MmAllocateSecureKernelPages.c)
- *     MiProtectDriverSectionPte @ 0x1406E5D50 (MiProtectDriverSectionPte.c)
- *     MiInitialSlabPopulate @ 0x140707210 (MiInitialSlabPopulate.c)
+ *     MiFastReplenishWithAsync @ 0x1402A4E88 (MiFastReplenishWithAsync.c)
+ *     MiSharePagePrepare @ 0x1402E9990 (MiSharePagePrepare.c)
+ *     MiAllocateSlabPageForMdl @ 0x14033C100 (MiAllocateSlabPageForMdl.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiReplenishSlabAllocatorWorker @ 0x1404C2AB0 (MiReplenishSlabAllocatorWorker.c)
+ *     MmAllocateSecureKernelPages @ 0x1404E279C (MmAllocateSecureKernelPages.c)
+ *     MiProtectDriverSectionPte @ 0x1406EAA00 (MiProtectDriverSectionPte.c)
+ *     MiInitialSlabPopulate @ 0x14070BEE0 (MiInitialSlabPopulate.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiFreeSlabEntry @ 0x1402A7A6C (MiFreeSlabEntry.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037B2F0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x140395420 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
- *     MiInsertSlabEntry @ 0x1404C33F4 (MiInsertSlabEntry.c)
- *     MiReplenishSlabAllocatorByIdentity @ 0x140506498 (MiReplenishSlabAllocatorByIdentity.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiFreeSlabEntry @ 0x1402A6E7C (MiFreeSlabEntry.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037D0A0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403971A0 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     MiInsertSlabEntry @ 0x1404BCC44 (MiInsertSlabEntry.c)
+ *     MiReplenishSlabAllocatorByIdentity @ 0x1404FFD48 (MiReplenishSlabAllocatorByIdentity.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiReplenishSlabAllocator(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
@@ -128,7 +128,7 @@ LABEL_9:
       KiClearSystemPriority((ULONG_PTR)CurrentThread, &v21);
     }
     if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
       KiCheckForKernelApcDelivery();
     }

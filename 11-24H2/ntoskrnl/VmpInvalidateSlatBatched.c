@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpInvalidateSlatBatched @ 0x14047F01C
+ * XREFs of VmpInvalidateSlatBatched @ 0x140479E38
  * Callers:
- *     VmpRemoveMemoryRange @ 0x14047ED34 (VmpRemoveMemoryRange.c)
- *     VmpUnpinMemoryRangeHelper @ 0x14064B360 (VmpUnpinMemoryRangeHelper.c)
+ *     VmpRemoveMemoryRange @ 0x140479B50 (VmpRemoveMemoryRange.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x140649920 (VmpUnpinMemoryRangeHelper.c)
  * Callees:
- *     VmpProcessContextLockExclusive @ 0x1403B0458 (VmpProcessContextLockExclusive.c)
- *     VmpInvalidateOutstandingFaults @ 0x1403B1140 (VmpInvalidateOutstandingFaults.c)
- *     VmpInsertInvalidateListRange @ 0x1403B12F8 (VmpInsertInvalidateListRange.c)
- *     VmpProcessContextUnlockExclusive @ 0x14047F1E4 (VmpProcessContextUnlockExclusive.c)
- *     VmpProcessInvalidateList @ 0x1404A9F18 (VmpProcessInvalidateList.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x14064A7D4 (VmpFindNextPinnedPageStateHelper.c)
+ *     VmpProcessContextLockExclusive @ 0x14039EC68 (VmpProcessContextLockExclusive.c)
+ *     VmpInvalidateOutstandingFaults @ 0x14039F950 (VmpInvalidateOutstandingFaults.c)
+ *     VmpInsertInvalidateListRange @ 0x14039FB08 (VmpInsertInvalidateListRange.c)
+ *     VmpProcessContextUnlockExclusive @ 0x14047A000 (VmpProcessContextUnlockExclusive.c)
+ *     VmpProcessInvalidateList @ 0x1404A41E8 (VmpProcessInvalidateList.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x140648D94 (VmpFindNextPinnedPageStateHelper.c)
  */
 
 __int64 __fastcall VmpInvalidateSlatBatched(

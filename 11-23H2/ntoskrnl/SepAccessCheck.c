@@ -1,16 +1,16 @@
 /*
- * XREFs of SepAccessCheck @ 0x140232CA0
+ * XREFs of SepAccessCheck @ 0x140232D70
  * Callers:
- *     SeAccessCheckWithHint @ 0x1402316C0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x140231790 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     SepMaximumAccessCheck @ 0x14022A160 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheck @ 0x140233540 (SepNormalAccessCheck.c)
- *     SepPrivilegeCheck @ 0x1402AF690 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SepAssemblePrivileges @ 0x1407CB764 (SepAssemblePrivileges.c)
+ *     SepMaximumAccessCheck @ 0x14022A270 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x140233610 (SepNormalAccessCheck.c)
+ *     SepPrivilegeCheck @ 0x1402AF920 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SepAssemblePrivileges @ 0x1407CBA34 (SepAssemblePrivileges.c)
  */
 
 __int64 __fastcall SepAccessCheck(

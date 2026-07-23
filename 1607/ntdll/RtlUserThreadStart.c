@@ -1,23 +1,27 @@
 /*
- * XREFs of RtlUserThreadStart @ 0x180051D50
+ * XREFs of RtlUserThreadStart @ 0x180051D40
  * Callers:
  *     <none>
  * Callees:
- *     RtlDecodePointer @ 0x180051BE0 (RtlDecodePointer.c)
- *     RtlExitUserThread @ 0x180052930 (RtlExitUserThread.c)
+ *     RtlDecodePointer @ 0x180051BD0 (RtlDecodePointer.c)
+ *     RtlExitUserThread @ 0x180052920 (RtlExitUserThread.c)
  *     ZwTerminateProcess @ 0x1800A69A0 (ZwTerminateProcess.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     RtlUnhandledExceptionFilter2 @ 0x1800F1DF0 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 (__fastcall *a1)(__int64), __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int v3; // eax
+  NTSTATUS v2; // eax
 
   if ( !Kernel32ThreadInitThunkFunction )
   {
-    v3 = a1(a2);
-    RtlExitUserThread(v3);
+    v2 = ((__int64 (__fastcall *)(PVOID))Function)(Parameter);
+    RtlExitUserThread(v2);
   }
-  return Kernel32ThreadInitThunkFunction(0LL, a1, a2, a1);
+  ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID, PTHREAD_START_ROUTINE))Kernel32ThreadInitThunkFunction)(
+    0LL,
+    Function,
+    Parameter,
+    Function);
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCombineIdenticalPages @ 0x1406D1578
+ * XREFs of MiCombineIdenticalPages @ 0x1406D2818
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     MmManagePartitionCombineMemory @ 0x140860914 (MmManagePartitionCombineMemory.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     MmManagePartitionCombineMemory @ 0x140861B74 (MmManagePartitionCombineMemory.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetNextPageColor @ 0x140031260 (MiGetNextPageColor.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
- *     MiCombiningInProgress @ 0x14013C3DC (MiCombiningInProgress.c)
- *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
- *     MiCombineWorkingSet @ 0x14013DB80 (MiCombineWorkingSet.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E188C (MiDeleteUltraThreadContext.c)
+ *     MiCombiningInProgress @ 0x14013C4DC (MiCombiningInProgress.c)
+ *     MiCreateUltraThreadContext @ 0x14013CBE4 (MiCreateUltraThreadContext.c)
+ *     MiCombineWorkingSet @ 0x14013DC80 (MiCombineWorkingSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D5450 (MiCombineAllPhysicalMemory.c)
  */
 
 __int64 __fastcall MiCombineIdenticalPages(
@@ -78,7 +78,7 @@ LABEL_6:
   {
     return (unsigned int)-1073741811;
   }
-  if ( (dword_140540178 & 1) != 0 )
+  if ( (dword_140541178 & 1) != 0 )
     return (unsigned int)-1073741637;
   if ( !a2
     || (v19 = ObReferenceObjectByHandle(a2, 1u, (POBJECT_TYPE)ExEventObjectType, AccessMode, &v20, 0LL),
@@ -113,8 +113,8 @@ LABEL_23:
       LODWORD(v27[6]) = 0;
       if ( (a3 & 4) != 0 )
       {
-        v24[0] = qword_14043ADF8;
-        v24[1] = qword_14043AE00;
+        v24[0] = qword_14043BEB8;
+        v24[1] = qword_14043BEC0;
         v27[5] = v24;
         LODWORD(v27[6]) = 2;
       }

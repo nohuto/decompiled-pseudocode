@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocateAutoExpandPushLock @ 0x1406CD940
+ * XREFs of ExAllocateAutoExpandPushLock @ 0x1406D1970
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _QWORD *__fastcall ExAllocateAutoExpandPushLock(char a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnReservedEnclavePages @ 0x140C01D98
+ * XREFs of MiReturnReservedEnclavePages @ 0x140C07FA8
  * Callers:
- *     MiAddPagesToEnclave @ 0x1403414DC (MiAddPagesToEnclave.c)
- *     MiInitializeEnclave @ 0x140AB757C (MiInitializeEnclave.c)
- *     MiDeleteEnclavePages @ 0x140C01AD8 (MiDeleteEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14034355C (MiAddPagesToEnclave.c)
+ *     MiInitializeEnclave @ 0x140AB8BBC (MiInitializeEnclave.c)
+ *     MiDeleteEnclavePages @ 0x140C07CE8 (MiDeleteEnclavePages.c)
  * Callees:
- *     MiReturnEnclavePage @ 0x140341F44 (MiReturnEnclavePage.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
+ *     MiReturnEnclavePage @ 0x140343FC4 (MiReturnEnclavePage.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
  */
 
 void __fastcall MiReturnReservedEnclavePages(__int64 a1, __int64 a2)

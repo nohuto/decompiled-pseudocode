@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteZeroThreadContext @ 0x1401850B4
+ * XREFs of MiDeleteZeroThreadContext @ 0x1401851F4
  * Callers:
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiZeroNodePages @ 0x14017F400 (MiZeroNodePages.c)
- *     MiZeroLargePageThread @ 0x140185040 (MiZeroLargePageThread.c)
- *     MiInitializePartitionThreads @ 0x140851E50 (MiInitializePartitionThreads.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiZeroNodePages @ 0x14017F540 (MiZeroNodePages.c)
+ *     MiZeroLargePageThread @ 0x140185180 (MiZeroLargePageThread.c)
+ *     MiInitializePartitionThreads @ 0x1408530B0 (MiInitializePartitionThreads.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E188C (MiDeleteUltraThreadContext.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     MiDecrementHugeContext @ 0x140185B88 (MiDecrementHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteZeroThreadContext(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiDeleteZeroThreadContext(__int64 a1)
     memset(&LockHandle, 0, sizeof(LockHandle));
     if ( v2 )
     {
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(qword_14043C950 + 1984LL * v2[46] + 1904), &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(qword_14043DA10 + 1984LL * v2[46] + 1904), &LockHandle);
       MiDecrementHugeContext(v2);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfAction @ 0x1402532A0
+ * XREFs of PpmPerfAction @ 0x140254C00
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyProcessorState @ 0x140252C88 (PpmPerfApplyProcessorState.c)
- *     PpmParkReportUnparkedCore @ 0x14025336C (PpmParkReportUnparkedCore.c)
- *     PpmCheckContinueExecution @ 0x1402533F8 (PpmCheckContinueExecution.c)
- *     PpmParkReportParkedCore @ 0x140253514 (PpmParkReportParkedCore.c)
- *     PpmPerfSnapDeliveredPerformance @ 0x140253660 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmParkReportSoftParkChange @ 0x14042BF38 (PpmParkReportSoftParkChange.c)
- *     PpmParkReportForceParkChange @ 0x14042C088 (PpmParkReportForceParkChange.c)
+ *     PpmPerfApplyProcessorState @ 0x1402545E8 (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportUnparkedCore @ 0x140254CCC (PpmParkReportUnparkedCore.c)
+ *     PpmCheckContinueExecution @ 0x140254D58 (PpmCheckContinueExecution.c)
+ *     PpmParkReportParkedCore @ 0x140254E74 (PpmParkReportParkedCore.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140254FC0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmParkReportSoftParkChange @ 0x140420608 (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportForceParkChange @ 0x140420758 (PpmParkReportForceParkChange.c)
  */
 
 void __fastcall PpmPerfAction(
@@ -44,6 +44,6 @@ void __fastcall PpmPerfAction(
     PpmParkReportSoftParkChange(DeferredContext);
   if ( (v5 & 0x40) != 0 )
     DeferredContext->PowerState.IdlePolicy.ForceLightIdle = 0;
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)&PopSleepstudySessionLock.ApcStateFill[8], 0xFFFFFFFF) == 1 )
+  if ( _InterlockedExchangeAdd(&PpmCheckActionCount, 0xFFFFFFFF) == 1 )
     PpmCheckContinueExecution(Dpc, DeferredContext, SystemArgument1, SystemArgument2);
 }

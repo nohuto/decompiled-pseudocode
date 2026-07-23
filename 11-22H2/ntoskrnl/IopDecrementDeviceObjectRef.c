@@ -45,7 +45,7 @@ __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, cha
   v4 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -103,10 +103,10 @@ __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, cha
   }
   KiReleaseQueuedSpinLockInstrumented(v9, retaddr);
 LABEL_10:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v18 = CurrentPrcb->SchedulerAssist;

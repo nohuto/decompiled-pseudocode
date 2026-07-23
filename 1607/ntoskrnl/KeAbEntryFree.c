@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAbEntryFree @ 0x14002C430
+ * XREFs of KeAbEntryFree @ 0x14002BFB0
  * Callers:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
  * Callees:
- *     KiAbEntryRemoveFromTree @ 0x140031030 (KiAbEntryRemoveFromTree.c)
- *     KiAbThreadUnboostCpuPriority @ 0x1400A13E8 (KiAbThreadUnboostCpuPriority.c)
- *     KiAbThreadUnboostIoPriority @ 0x1400B2E3C (KiAbThreadUnboostIoPriority.c)
- *     EtwTraceAutoBoostClearFloor @ 0x140225908 (EtwTraceAutoBoostClearFloor.c)
+ *     KiAbEntryRemoveFromTree @ 0x140030BB0 (KiAbEntryRemoveFromTree.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x14009FD10 (KiAbThreadUnboostCpuPriority.c)
+ *     KiAbThreadUnboostIoPriority @ 0x1400B0D88 (KiAbThreadUnboostIoPriority.c)
+ *     EtwTraceAutoBoostClearFloor @ 0x140225734 (EtwTraceAutoBoostClearFloor.c)
  */
 
 __int64 __fastcall KeAbEntryFree(__int64 a1, ULONG_PTR a2)
@@ -16,7 +16,7 @@ __int64 __fastcall KeAbEntryFree(__int64 a1, ULONG_PTR a2)
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree(a1);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1);
   result = *(unsigned int *)(a1 + 88);
   if ( (result & 0x1FFFF) != 0 )
   {

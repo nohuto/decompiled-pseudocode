@@ -1,12 +1,12 @@
 /*
- * XREFs of SmHpBufferAlloc @ 0x1402C22B4
+ * XREFs of SmHpBufferAlloc @ 0x140240754
  * Callers:
- *     SmHpChunkAlloc @ 0x1402D6EDC (SmHpChunkAlloc.c)
+ *     SmHpChunkAlloc @ 0x14028822C (SmHpChunkAlloc.c)
  * Callees:
- *     SmBinaryArrayGrow @ 0x1402C23E0 (SmBinaryArrayGrow.c)
- *     SmHpBufferUpdateFullness @ 0x1402D6F68 (SmHpBufferUpdateFullness.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SmBinaryArrayGrow @ 0x140240880 (SmBinaryArrayGrow.c)
+ *     SmHpBufferUpdateFullness @ 0x1402882B8 (SmHpBufferUpdateFullness.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmHpBufferAlloc(_DWORD *a1)

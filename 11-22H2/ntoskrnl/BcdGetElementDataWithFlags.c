@@ -30,22 +30,27 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, _DWORD *a5)
+NTSTATUS __cdecl BcdGetElementDataWithFlags(
+        HANDLE BcdObjectHandle,
+        ULONG BcdElement,
+        BCD_FLAGS BcdFlags,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
   __int64 v6; // rcx
   char v7; // r15
   int v8; // eax
   __int64 v9; // rsi
-  wchar_t *Buffer; // rdi
+  wchar_t *v10; // rdi
   int v11; // eax
-  unsigned int v12; // ebx
+  NTSTATUS v12; // ebx
   int v13; // eax
   unsigned int v14; // eax
   int RegistryValue; // eax
   PVOID v16; // r15
   __int64 v17; // rcx
   __int64 v19; // rcx
-  unsigned int v20; // r8d
+  NTSTATUS v20; // r8d
   __int64 v21; // [rsp+20h] [rbp-91h]
   char v22; // [rsp+40h] [rbp-71h]
   unsigned int v24; // [rsp+48h] [rbp-69h] BYREF
@@ -54,17 +59,17 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
   __int64 v27; // [rsp+60h] [rbp-51h] BYREF
   PVOID P; // [rsp+68h] [rbp-49h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-41h] BYREF
-  __int64 v30; // [rsp+80h] [rbp-31h]
-  __int128 v31; // [rsp+88h] [rbp-29h] BYREF
+  GUID *v30; // [rsp+80h] [rbp-31h]
+  GUID Guid; // [rsp+88h] [rbp-29h] BYREF
   wchar_t DstBuf[24]; // [rsp+98h] [rbp-19h] BYREF
 
-  v30 = a4;
+  v30 = (GUID *)Buffer;
   v24 = 0;
   DestinationString = 0LL;
-  v31 = 0LL;
-  if ( !a5 || !a4 && *a5 )
-    return 3221225485LL;
-  LOBYTE(v6) = BiIsOfflineHandle(a1);
+  Guid = 0LL;
+  if ( !BufferSize || !Buffer && *BufferSize )
+    return -1073741811;
+  LOBYTE(v6) = BiIsOfflineHandle((char)BcdObjectHandle);
   v22 = v6;
   v7 = v6;
   v8 = BiAcquireBcdSyncMutant(v6);
@@ -80,23 +85,23 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
     v9 = 0LL;
     P = 0LL;
     RtlInitUnicodeString(&DestinationString, 0LL);
-    Buffer = L"N/A";
-    if ( (int)BiGetObjectIdentifier(a1, &v31) >= 0
-      && (int)RtlStringFromGUIDEx((unsigned int *)&v31, (__int64)&DestinationString, 1) >= 0 )
+    v10 = L"N/A";
+    if ( (int)BiGetObjectIdentifier(BcdObjectHandle, &Guid) >= 0
+      && RtlStringFromGUIDEx(&Guid, &DestinationString, 1u) >= 0 )
     {
-      Buffer = DestinationString.Buffer;
+      v10 = DestinationString.Buffer;
     }
-    v11 = BiOpenKey(a1, L"Elements", 131097LL, &v25);
+    v11 = BiOpenKey(BcdObjectHandle, L"Elements", 131097LL, &v25);
     v12 = v11;
     if ( v11 < 0 )
     {
       BiLogMessage(
         4LL,
         L"BcdGetElementDataWithFlags: Failed to open elements key.Object: %ws Status: %x",
-        Buffer,
+        v10,
         (unsigned int)v11);
     }
-    else if ( ultow_s(a2, DstBuf, 0x16uLL, 16) )
+    else if ( ultow_s(BcdElement, DstBuf, 0x16uLL, 16) )
     {
       v12 = -1073741823;
     }
@@ -111,7 +116,7 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
         BiLogMessage(
           v19,
           L"BcdGetElementDataWithFlags: Failed to open key.Object: %ws Type: %ws Status: %x",
-          Buffer,
+          v10,
           DstBuf,
           v13);
         v9 = v27;
@@ -119,7 +124,7 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
       }
       else
       {
-        v14 = BiConvertElementFormatToValueType(HIBYTE(a2) & 0xF);
+        v14 = BiConvertElementFormatToValueType(HIBYTE(BcdElement) & 0xF);
         v9 = v27;
         v26 = v14;
         RegistryValue = BiGetRegistryValue(v27, L"Element", 0LL, v14, &P, &v24);
@@ -131,13 +136,13 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
           BiLogMessage(
             4LL,
             L"BcdGetElementDataWithFlags: Failed to get registry value.Object: %ws Reg type: %lu Status: %x",
-            Buffer,
+            v10,
             v26,
             v21);
         }
         else
         {
-          v12 = BiConvertRegistryDataToElement(a1, P, v24, a2, 0, v30, a5);
+          v12 = BiConvertRegistryDataToElement(BcdObjectHandle, (PCWSTR)P, v24, 0, v30, (__int64)BufferSize);
         }
         if ( v16 )
           ExFreePoolWithTag(v16, 0x4B444342u);

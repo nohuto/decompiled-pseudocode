@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipLinkDataSourceToList @ 0x140A0CC1C
+ * XREFs of WmipLinkDataSourceToList @ 0x140A0C4DC
  * Callers:
- *     WmipUpdateAddGuid @ 0x140824088 (WmipUpdateAddGuid.c)
- *     WmipAddDataSource @ 0x140A0BC24 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x14082A2D4 (WmipUpdateAddGuid.c)
+ *     WmipAddDataSource @ 0x140A0ABF4 (WmipAddDataSource.c)
  * Callees:
- *     WmipRegisterEtwProvider @ 0x140823D44 (WmipRegisterEtwProvider.c)
- *     WmipAllocGuidEntry @ 0x140A0B548 (WmipAllocGuidEntry.c)
- *     WmipFindGEByGuid @ 0x140A0E624 (WmipFindGEByGuid.c)
+ *     WmipRegisterEtwProvider @ 0x140829F90 (WmipRegisterEtwProvider.c)
+ *     WmipAllocGuidEntry @ 0x140A0A774 (WmipAllocGuidEntry.c)
+ *     WmipFindGEByGuid @ 0x140A0D800 (WmipFindGEByGuid.c)
  */
 
-__int64 __fastcall WmipLinkDataSourceToList(_QWORD *a1, char a2, __int64 a3)
+__int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
 {
   _QWORD *v3; // r15
   _QWORD *v5; // r14
@@ -17,13 +17,13 @@ __int64 __fastcall WmipLinkDataSourceToList(_QWORD *a1, char a2, __int64 a3)
   _QWORD *v9; // rdi
   _QWORD *GEByGuid; // rcx
   _QWORD *v11; // rdx
-  _QWORD *AbWaitObject; // rax
-  void *volatile *v13; // rcx
-  __int64 *KernelShadowStackInitial; // rax
+  __int64 v12; // rax
+  _QWORD *v13; // rcx
+  __int64 v15; // rax
   __int64 v16; // rdx
 
-  v3 = a1 + 5;
-  v5 = (_QWORD *)a1[5];
+  v3 = (_QWORD *)(a1 + 40);
+  v5 = *(_QWORD **)(a1 + 40);
   v8 = 0;
   while ( v5 != v3 )
   {
@@ -36,15 +36,15 @@ __int64 __fastcall WmipLinkDataSourceToList(_QWORD *a1, char a2, __int64 a3)
         GEByGuid = WmipAllocGuidEntry();
         if ( !GEByGuid )
           return (unsigned int)-1073741670;
-        KernelShadowStackInitial = (__int64 *)EtwpSecurityLock.KernelShadowStackInitial;
+        v15 = WmipGEHeadPtr;
         *(_OWORD *)(GEByGuid + 9) = *(_OWORD *)v9[7];
-        v16 = *KernelShadowStackInitial;
-        if ( *(__int64 **)(*KernelShadowStackInitial + 8) != KernelShadowStackInitial )
+        v16 = *(_QWORD *)v15;
+        if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) != v15 )
           goto LABEL_6;
         *GEByGuid = v16;
-        GEByGuid[1] = KernelShadowStackInitial;
+        GEByGuid[1] = v15;
         *(_QWORD *)(v16 + 8) = GEByGuid;
-        *KernelShadowStackInitial = (__int64)GEByGuid;
+        *(_QWORD *)v15 = GEByGuid;
       }
       *((_DWORD *)v9 + 4) &= ~8u;
       v9[7] = GEByGuid;
@@ -63,16 +63,16 @@ __int64 __fastcall WmipLinkDataSourceToList(_QWORD *a1, char a2, __int64 a3)
   }
   if ( a2 )
   {
-    AbWaitObject = EtwpSecurityLock.AbWaitObject;
-    *((_DWORD *)a1 + 4) |= 0x40000000u;
-    v13 = (void *volatile *)AbWaitObject[1];
-    if ( *(_QWORD **)v13 != AbWaitObject )
+    v12 = WmipDSHeadPtr;
+    *(_DWORD *)(a1 + 16) |= 0x40000000u;
+    v13 = *(_QWORD **)(v12 + 8);
+    if ( *v13 != v12 )
 LABEL_6:
       __fastfail(3u);
-    *a1 = AbWaitObject;
-    a1[1] = v13;
+    *(_QWORD *)a1 = v12;
+    *(_QWORD *)(a1 + 8) = v13;
     *v13 = a1;
-    AbWaitObject[1] = a1;
+    *(_QWORD *)(v12 + 8) = a1;
   }
   return v8;
 }

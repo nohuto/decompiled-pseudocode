@@ -27,7 +27,7 @@ signed __int64 PspJobNotificationWorker()
       _m_prefetchw((const void *)(v0 + 1296));
       v2 = _InterlockedAnd((volatile signed __int32 *)(v0 + 1296), 0xFFFDDFFF);
       if ( (v2 & 0x2000) != 0 )
-        ZwUpdateWnfStateData(v0 + 888, 0LL, 0LL);
+        ZwUpdateWnfStateData((PCWNF_STATE_NAME)(v0 + 888), 0LL, 0, 0LL, 0LL, 0, 0);
       if ( (v2 & 0x20000) != 0 )
       {
         CurrentThread = KeGetCurrentThread();

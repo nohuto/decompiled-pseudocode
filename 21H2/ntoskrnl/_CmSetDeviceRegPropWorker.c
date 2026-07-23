@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmSetDeviceRegPropWorker @ 0x140744178
+ * XREFs of _CmSetDeviceRegPropWorker @ 0x140744338
  * Callers:
- *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1407441D0 (_CmSetDeviceRegProp.c)
  * Callees:
- *     _CmDevicePropertyRead @ 0x1402657C4 (_CmDevicePropertyRead.c)
- *     _MapCmDevicePropertyToRegValue @ 0x14026586C (_MapCmDevicePropertyToRegValue.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     _MapCmDevicePropertyToRegType @ 0x1402D0450 (_MapCmDevicePropertyToRegType.c)
- *     _CmDevicePropertyWrite @ 0x14036F7BC (_CmDevicePropertyWrite.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     _CmRaisePropertyChangeEvent @ 0x1407443D4 (_CmRaisePropertyChangeEvent.c)
- *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
+ *     _MapCmDevicePropertyToRegType @ 0x14024E7D0 (_MapCmDevicePropertyToRegType.c)
+ *     _CmDevicePropertyRead @ 0x140253764 (_CmDevicePropertyRead.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x14025380C (_MapCmDevicePropertyToRegValue.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     _CmDevicePropertyWrite @ 0x14036F96C (_CmDevicePropertyWrite.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x140662AA0 (RtlValidRelativeSecurityDescriptor.c)
+ *     _CmRaisePropertyChangeEvent @ 0x140744594 (_CmRaisePropertyChangeEvent.c)
+ *     _RegRtlSetValue @ 0x140768CB4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceRegPropWorker(

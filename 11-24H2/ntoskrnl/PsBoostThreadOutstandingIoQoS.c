@@ -1,16 +1,16 @@
 /*
- * XREFs of PsBoostThreadOutstandingIoQoS @ 0x1402788E0
+ * XREFs of PsBoostThreadOutstandingIoQoS @ 0x14022DE70
  * Callers:
- *     KiAbProcessThreadLocks @ 0x1402509C0 (KiAbProcessThreadLocks.c)
- *     KiAbDeferredProcessingWorker @ 0x140253050 (KiAbDeferredProcessingWorker.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExpApplyPriorityBoost @ 0x140277A10 (ExpApplyPriorityBoost.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExpApplyPriorityBoost @ 0x14022CFA0 (ExpApplyPriorityBoost.c)
+ *     KiAbProcessThreadLocks @ 0x140280FD0 (KiAbProcessThreadLocks.c)
+ *     KiAbDeferredProcessingWorker @ 0x140283660 (KiAbDeferredProcessingWorker.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
  * Callees:
- *     ExfReleaseRundownProtection @ 0x1402456A0 (ExfReleaseRundownProtection.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExfReleaseRundownProtection @ 0x14020DE80 (ExfReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PsBoostThreadOutstandingIoQoS(__int64 a1)
@@ -27,7 +27,7 @@ void __fastcall PsBoostThreadOutstandingIoQoS(__int64 a1)
     v2 = IopIoRateExtensionHost;
     if ( IopIoRateExtensionHost )
     {
-      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 88)) && *(_QWORD *)(v2 + 96) )
+      if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 88)) && *(_QWORD *)(v2 + 96) )
       {
         guard_dispatch_icall_no_overrides(a1, v3, v4, v5);
         v6 = (struct _EX_RUNDOWN_REF *)(IopIoRateExtensionHost + 88);

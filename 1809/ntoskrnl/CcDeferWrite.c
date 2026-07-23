@@ -1,19 +1,19 @@
 /*
- * XREFs of CcDeferWrite @ 0x140269780
+ * XREFs of CcDeferWrite @ 0x140269970
  * Callers:
  *     <none>
  * Callees:
- *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcGetPartitionFromFileObject @ 0x1400E0FD0 (CcGetPartitionFromFileObject.c)
- *     ExInterlockedInsertHeadList @ 0x14010BED0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x14010BF50 (ExInterlockedInsertTailList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     CcDereferencePartition @ 0x14007C988 (CcDereferencePartition.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcGetPartitionFromFileObject @ 0x1400E1050 (CcGetPartitionFromFileObject.c)
+ *     ExInterlockedInsertHeadList @ 0x14010BF50 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x14010BFD0 (ExInterlockedInsertTailList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall CcDeferWrite(
@@ -31,8 +31,8 @@ void __stdcall CcDeferWrite(
   unsigned __int8 OldIrql; // si
   struct _KPRCB *CurrentPrcb; // rcx
   KSPIN_LOCK *v16; // r8
-  struct _LIST_ENTRY *v17; // rdx
-  struct _LIST_ENTRY *v18; // rcx
+  _LIST_ENTRY *v17; // rdx
+  _LIST_ENTRY *v18; // rcx
   unsigned __int8 v19; // di
   struct _KPRCB *v20; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
@@ -58,8 +58,8 @@ void __stdcall CcDeferWrite(
       __fastfail(0xEu);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
     v16 = (KSPIN_LOCK *)(PartitionFromFileObject + 768);
-    v17 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
-    v18 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 744);
+    v17 = (_LIST_ENTRY *)(PoolWithTag + 24);
+    v18 = (_LIST_ENTRY *)(PartitionFromFileObject + 744);
     *((_QWORD *)PoolWithTag + 9) = PartitionFromFileObject;
     *(_DWORD *)PoolWithTag = 5243644;
     *((_QWORD *)PoolWithTag + 1) = FileObject;

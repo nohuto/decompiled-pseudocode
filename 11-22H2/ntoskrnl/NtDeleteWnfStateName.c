@@ -18,17 +18,17 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v2; // r14
-  int v3; // esi
+  NTSTATUS v3; // esi
   char v4; // r9
   __int64 v5; // rbx
   unsigned __int64 v6; // r13
   unsigned __int64 v7; // rcx
   unsigned __int64 v8; // r15
-  BOOL v9; // r12d
+  _BOOL8 v9; // r12
   _KPROCESS *Process; // rax
   int v11; // r13d
   __int64 v12; // r8
@@ -50,7 +50,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
   v2 = 0LL;
   *(_QWORD *)v15 = 0LL;
   v14 = 0LL;
-  v3 = ExpCaptureWnfStateName(a1, &v16, PreviousMode);
+  v3 = ExpCaptureWnfStateName((__int64 *)StateName, &v16, PreviousMode);
   if ( v3 >= 0 )
   {
     v5 = v16;
@@ -74,7 +74,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
         v3 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), 0x10000u);
         if ( v3 < 0 )
           goto LABEL_19;
-        v9 = 1;
+        LODWORD(v9) = 1;
       }
       v3 = ExpWnfDeletePermanentName(v5);
       if ( v3 < 0 )
@@ -118,7 +118,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
             v3 = ExpWnfCheckCallerAccess(v14[9].Ptr, 0x10000u);
             if ( v3 < 0 )
               goto LABEL_19;
-            v9 = 1;
+            LODWORD(v9) = 1;
           }
           if ( v11 == 3LL && (_KPROCESS *)v14[19].Count != v21 )
           {
@@ -159,5 +159,5 @@ LABEL_19:
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v3;
+  return v3;
 }

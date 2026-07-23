@@ -92,7 +92,7 @@ char __fastcall PopPepWork(char a1, __int64 a2)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -197,10 +197,10 @@ LABEL_21:
   started = 0;
   v22 = 0;
 LABEL_29:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v32 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v34 = CurrentPrcb->SchedulerAssist;

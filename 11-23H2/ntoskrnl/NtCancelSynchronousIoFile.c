@@ -1,14 +1,17 @@
 /*
- * XREFs of NtCancelSynchronousIoFile @ 0x140947EE0
+ * XREFs of NtCancelSynchronousIoFile @ 0x1409480E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     IopCancelSynchronousIrpsForThread @ 0x1409444D4 (IopCancelSynchronousIrpsForThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x1409446D4 (IopCancelSynchronousIrpsForThread.c)
  */
 
-NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtCancelSynchronousIoFile(
+        HANDLE ThreadHandle,
+        PIO_STATUS_BLOCK IoRequestToCancel,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   __int64 v6; // r8
@@ -16,27 +19,29 @@ NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __i
   struct _KTHREAD *CurrentThread; // rax
   PVOID v9; // rsi
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
-  unsigned int v11; // [rsp+68h] [rbp+20h]
+  NTSTATUS v11; // [rsp+68h] [rbp+20h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v6 = a3;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v6 = (__int64)IoStatusBlock;
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ThreadHandle, 1u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     ++CurrentThread->OtherOperationCount;
     __incgsdword(0x2EE4u);
     v9 = Object;
-    v11 = (unsigned int)IopCancelSynchronousIrpsForThread((__int64)Object, a2) == 0 ? 0xC0000225 : 0;
-    *(_DWORD *)a3 = v11;
-    *(_QWORD *)(a3 + 8) = 0LL;
+    v11 = (unsigned int)IopCancelSynchronousIrpsForThread((__int64)Object, (__int64)IoRequestToCancel) == 0
+        ? 0xC0000225
+        : 0;
+    IoStatusBlock->Status = v11;
+    IoStatusBlock->Information = 0LL;
     ObfDereferenceObject(v9);
     return v11;
   }

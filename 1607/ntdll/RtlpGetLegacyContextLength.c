@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetLegacyContextLength @ 0x1800765DC
+ * XREFs of RtlpGetLegacyContextLength @ 0x1800765CC
  * Callers:
- *     RtlGetExtendedContextLength @ 0x180076430 (RtlGetExtendedContextLength.c)
- *     RtlWow64GetCpuAreaInfo @ 0x180076530 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlGetExtendedContextLength @ 0x180076420 (RtlGetExtendedContextLength.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x180076520 (RtlWow64GetCpuAreaInfo.c)
  * Callees:
  *     <none>
  */

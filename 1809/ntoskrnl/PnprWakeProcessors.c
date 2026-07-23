@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprWakeProcessors @ 0x14057AD5C
+ * XREFs of PnprWakeProcessors @ 0x14057BD5C
  * Callers:
- *     PnprEndMirroring @ 0x140579740 (PnprEndMirroring.c)
- *     PnprInitiateReplaceOperation @ 0x140579814 (PnprInitiateReplaceOperation.c)
+ *     PnprEndMirroring @ 0x14057A740 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x14057A814 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
- *     KeRestoreMtrrBroadcast @ 0x140573264 (KeRestoreMtrrBroadcast.c)
- *     PnprGetMillisecondCounter @ 0x1405797BC (PnprGetMillisecondCounter.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KeResumeClockTimerSafe @ 0x14028EAF4 (KeResumeClockTimerSafe.c)
+ *     KeRestoreMtrrBroadcast @ 0x140574264 (KeRestoreMtrrBroadcast.c)
+ *     PnprGetMillisecondCounter @ 0x14057A7BC (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprWakeProcessors()
@@ -27,9 +27,9 @@ __int64 PnprWakeProcessors()
     *(_DWORD *)(v1 + 200) = 6;
   }
   KeRestoreMtrrBroadcast();
-  ((void (__fastcall *)(_QWORD, _QWORD))off_1403FE3F0[0])(0LL, 0LL);
+  ((void (__fastcall *)(_QWORD, _QWORD))off_1403FF3F0[0])(0LL, 0LL);
   KeResumeClockTimerSafe();
-  ((void (__fastcall *)(__int64, _QWORD))off_1403FE3C8[0])(2LL, *(_QWORD *)(PnprContext + 20872));
+  ((void (__fastcall *)(__int64, _QWORD))off_1403FF3C8[0])(2LL, *(_QWORD *)(PnprContext + 20872));
   v2 = PnprGetMillisecondCounter(0);
   v3 = PnprContext;
   *(_QWORD *)(PnprContext + 20992) = 10000 * (v2 - *(_QWORD *)(PnprContext + 20992));
@@ -37,6 +37,6 @@ __int64 PnprWakeProcessors()
   _InterlockedIncrement((volatile signed __int32 *)(v3 + 188));
   result = PnprContext;
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 )
-    return off_1403FE420[0]();
+    return off_1403FF420[0]();
   return result;
 }

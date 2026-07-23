@@ -1,16 +1,19 @@
 /*
- * XREFs of ZwOpenEventPair @ 0x1800A25B0
+ * XREFs of ZwOpenEventPair @ 0x1800A25D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwOpenEventPair()
+NTSTATUS __cdecl ZwOpenEventPair(
+        PHANDLE EventPairHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 279LL;
+  result = 279;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDcContainerRequiresConfiguration @ 0x140B04F50
+ * XREFs of PiDcContainerRequiresConfiguration @ 0x140B06B60
  * Callers:
- *     PiDcHandleSystemFirmwareUpdate @ 0x1407A7AE0 (PiDcHandleSystemFirmwareUpdate.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x140909994 (PiDcUpdateDeviceContainerMembership.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409DD768 (PiDcHandleCustomDeviceEvent.c)
- *     PiDcHandleDeviceEvent @ 0x140AD7178 (PiDcHandleDeviceEvent.c)
- *     PiDcHandleInterfaceEvent @ 0x140B04E50 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x1407AA690 (PiDcHandleSystemFirmwareUpdate.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x1409ABF4C (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x140A1AA20 (PiDcHandleCustomDeviceEvent.c)
+ *     PiDcHandleDeviceEvent @ 0x140AD3C20 (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x140B06A60 (PiDcHandleInterfaceEvent.c)
  * Callees:
- *     wcscmp @ 0x140537FF0 (wcscmp.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
+ *     wcscmp @ 0x14053A470 (wcscmp.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
@@ -52,7 +52,7 @@ __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
                          4u,
                          0);
       if ( ObjectProperty >= 0 )
-        ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+        ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
   }
   return (unsigned int)ObjectProperty;

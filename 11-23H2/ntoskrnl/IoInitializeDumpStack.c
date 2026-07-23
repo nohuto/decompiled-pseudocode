@@ -1,11 +1,11 @@
 /*
- * XREFs of IoInitializeDumpStack @ 0x14055079C
+ * XREFs of IoInitializeDumpStack @ 0x140550E5C
  * Callers:
- *     PopRestoreHiberContext @ 0x140AA450C (PopRestoreHiberContext.c)
- *     PopSaveHiberContext @ 0x140AA4980 (PopSaveHiberContext.c)
+ *     PopRestoreHiberContext @ 0x140AA437C (PopRestoreHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA47F0 (PopSaveHiberContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopDumpTraceInitializeDumpStackFailure @ 0x140552D88 (IopDumpTraceInitializeDumpStackFailure.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopDumpTraceInitializeDumpStackFailure @ 0x140553448 (IopDumpTraceInitializeDumpStackFailure.c)
  */
 
 __int64 __fastcall IoInitializeDumpStack(__int64 a1)

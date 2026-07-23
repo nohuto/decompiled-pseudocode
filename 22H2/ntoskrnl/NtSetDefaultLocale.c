@@ -15,153 +15,151 @@
  *     ExCheckFullProcessInformationAccess @ 0x14069DFCC (ExCheckFullProcessInformationAccess.c)
  */
 
-__int64 __fastcall NtSetDefaultLocale(__int16 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetDefaultLocale(BOOLEAN UserProfile, LCID DefaultLocaleId)
 {
   int v2; // edi
-  char v3; // si
-  __int64 result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  NTSTATUS v7; // ebx
-  int *v8; // rdx
+  NTSTATUS result; // eax
+  ULONG v5; // ecx
+  int v6; // ebx
+  int *v7; // rdx
   unsigned int i; // r9d
-  int v10; // ecx
-  unsigned int v11; // eax
+  int v9; // ecx
+  unsigned int v10; // eax
   _KPROCESS *Process; // rdx
-  unsigned __int64 v13; // rcx
-  unsigned int v14; // r9d
+  unsigned __int64 v12; // rcx
+  unsigned int v13; // r9d
+  _WORD *v14; // r8
   _WORD *v15; // r8
-  _WORD *v16; // r8
-  _WORD *v17; // rdx
-  unsigned int v18; // ecx
-  __int16 v19; // ax
+  _WORD *v16; // rdx
+  unsigned int v17; // ecx
+  __int16 v18; // ax
   HANDLE KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
   ULONG ResultLength[2]; // [rsp+40h] [rbp-C8h] BYREF
   HANDLE DestinationString; // [rsp+48h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+50h] [rbp-B8h] BYREF
-  UNICODE_STRING v24; // [rsp+60h] [rbp-A8h] BYREF
+  UNICODE_STRING v23; // [rsp+60h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-98h] BYREF
   _WORD KeyValueInformation[2]; // [rsp+A8h] [rbp-60h] BYREF
-  int v27; // [rsp+ACh] [rbp-5Ch]
-  unsigned int v28; // [rsp+B0h] [rbp-58h]
-  int v29; // [rsp+B4h] [rbp-54h] BYREF
+  int v26; // [rsp+ACh] [rbp-5Ch]
+  unsigned int v27; // [rsp+B0h] [rbp-58h]
+  int v28; // [rsp+B4h] [rbp-54h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v2 = a2;
+  v2 = DefaultLocaleId;
   DestinationString = 0LL;
-  v3 = a1;
   KeyHandle = 0LL;
   ResultLength[0] = 0;
-  v24 = 0LL;
+  v23 = 0LL;
   DestinationString_8 = 0LL;
-  if ( (_BYTE)a1 )
+  if ( UserProfile )
   {
-    result = OpenGlobalizationUserSettingsKey(a1, a2, &DestinationString);
-    if ( (int)result < 0 )
+    result = OpenGlobalizationUserSettingsKey(UserProfile, *(__int64 *)&DefaultLocaleId, &DestinationString);
+    if ( result < 0 )
       return result;
     RtlInitUnicodeString(&DestinationString_8, L"Locale");
-    RtlInitUnicodeString(&v24, L"Control Panel\\International");
-    v6 = 1600LL;
+    RtlInitUnicodeString(&v23, L"Control Panel\\International");
+    v5 = 1600;
   }
   else
   {
     result = ExCheckFullProcessInformationAccess(KeGetCurrentThread()->PreviousMode);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     RtlInitUnicodeString(&DestinationString_8, L"Default");
-    RtlInitUnicodeString(&v24, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Nls\\Language");
-    v6 = 576LL;
+    RtlInitUnicodeString(&v23, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Nls\\Language");
+    v5 = 576;
   }
   ObjectAttributes.RootDirectory = DestinationString;
-  ObjectAttributes.ObjectName = &v24;
+  ObjectAttributes.ObjectName = &v23;
   ObjectAttributes.Length = 48;
-  ObjectAttributes.Attributes = v6;
+  ObjectAttributes.Attributes = v5;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( v2 )
   {
-    if ( !v3 || RtlIsMultiSessionSku(v6, v5) )
+    if ( !UserProfile || RtlIsMultiSessionSku() )
     {
-      v7 = ZwOpenKey(&KeyHandle, 0x40000000u, &ObjectAttributes);
-      if ( v7 < 0 )
+      v6 = ZwOpenKey(&KeyHandle, 0x40000000u, &ObjectAttributes);
+      if ( v6 < 0 )
         goto LABEL_17;
-      v14 = v2;
-      v15 = (_WORD *)((char *)KeyValueInformation + (v3 != 0 ? 16LL : 8LL));
-      *v15 = 0;
-      v16 = v15 - 1;
-      if ( v16 >= KeyValueInformation )
+      v13 = v2;
+      v14 = (_WORD *)((char *)KeyValueInformation + (UserProfile != 0 ? 16LL : 8LL));
+      *v14 = 0;
+      v15 = v14 - 1;
+      if ( v15 >= KeyValueInformation )
       {
         do
         {
-          v17 = v16 - 1;
-          v18 = v14 & 0xF;
-          v19 = 48;
-          if ( v18 > 9 )
-            v19 = 55;
-          v14 >>= 4;
-          *v16-- = v18 + v19;
+          v16 = v15 - 1;
+          v17 = v13 & 0xF;
+          v18 = 48;
+          if ( v17 > 9 )
+            v18 = 55;
+          v13 >>= 4;
+          *v15-- = v17 + v18;
         }
-        while ( v17 >= KeyValueInformation );
+        while ( v16 >= KeyValueInformation );
       }
-      v7 = ZwSetValueKey(KeyHandle, &DestinationString_8, 0, 1u, KeyValueInformation, v3 != 0 ? 18 : 10);
+      v6 = ZwSetValueKey(KeyHandle, &DestinationString_8, 0, 1u, KeyValueInformation, UserProfile != 0 ? 18 : 10);
     }
     else
     {
-      v7 = ZwOpenKey(&KeyHandle, 0x40000000u, &ObjectAttributes);
-      if ( v7 < 0 )
+      v6 = ZwOpenKey(&KeyHandle, 0x40000000u, &ObjectAttributes);
+      if ( v6 < 0 )
         goto LABEL_17;
       ZwDeleteValueKey(KeyHandle, &DestinationString_8);
     }
     goto LABEL_16;
   }
-  v7 = ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes);
-  if ( v7 >= 0 )
+  v6 = ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes);
+  if ( v6 >= 0 )
   {
-    v7 = ZwQueryValueKey(
+    v6 = ZwQueryValueKey(
            KeyHandle,
            &DestinationString_8,
            KeyValuePartialInformation,
            KeyValueInformation,
            0x100u,
            ResultLength);
-    if ( v7 >= 0 )
+    if ( v6 >= 0 )
     {
-      if ( v27 == 1 )
+      if ( v26 == 1 )
       {
-        v8 = &v29;
-        for ( i = 0; i < v28; v2 = v11 | (16 * v2) )
+        v7 = &v28;
+        for ( i = 0; i < v27; v2 = v10 | (16 * v2) )
         {
-          v10 = *(unsigned __int16 *)v8;
-          v8 = (int *)((char *)v8 + 2);
-          if ( (unsigned __int16)(v10 - 48) > 9u )
+          v9 = *(unsigned __int16 *)v7;
+          v7 = (int *)((char *)v7 + 2);
+          if ( (unsigned __int16)(v9 - 48) > 9u )
           {
-            if ( (unsigned __int16)(v10 - 65) <= 5u )
+            if ( (unsigned __int16)(v9 - 65) <= 5u )
             {
-              v11 = v10 - 55;
+              v10 = v9 - 55;
             }
             else
             {
-              if ( (unsigned __int16)(v10 - 97) > 5u )
+              if ( (unsigned __int16)(v9 - 97) > 5u )
                 break;
-              v11 = v10 - 87;
+              v10 = v9 - 87;
             }
           }
           else
           {
-            v11 = v10 - 48;
+            v10 = v9 - 48;
           }
-          if ( v11 >= 0x10 )
+          if ( v10 >= 0x10 )
             break;
           i += 2;
         }
       }
-      else if ( v27 == 4 && v28 == 4 )
+      else if ( v26 == 4 && v27 == 4 )
       {
-        v2 = v29;
+        v2 = v28;
       }
       else
       {
-        v7 = -1073741823;
+        v6 = -1073741823;
       }
     }
 LABEL_16:
@@ -170,21 +168,21 @@ LABEL_16:
 LABEL_17:
   if ( DestinationString )
     ZwClose(DestinationString);
-  if ( v7 >= 0 )
+  if ( v6 >= 0 )
   {
-    if ( v3 )
+    if ( UserProfile )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
-      v13 = Process[1].AffinityPadding[5];
-      if ( !v13 || (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+      v12 = Process[1].AffinityPadding[5];
+      if ( !v12 || (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
         PsDefaultThreadLocaleId = v2;
       else
-        *(_DWORD *)(v13 + 96) = v2;
+        *(_DWORD *)(v12 + 96) = v2;
     }
     else
     {
       PsDefaultSystemLocaleId = v2;
     }
   }
-  return (unsigned int)v7;
+  return v6;
 }

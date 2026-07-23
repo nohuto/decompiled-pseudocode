@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlOplockFsctrlEx @ 0x140A20DB0
+ * XREFs of FsRtlOplockFsctrlEx @ 0x1409E0F40
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpOplockFsctrlInternal @ 0x140A20DD0 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1409E0F60 (FsRtlpOplockFsctrlInternal.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockFsctrlEx(POPLOCK Oplock, PIRP Irp, ULONG OpenCount, ULONG Flags)

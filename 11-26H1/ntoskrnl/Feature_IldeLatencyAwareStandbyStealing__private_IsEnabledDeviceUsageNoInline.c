@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405E94C4
+ * XREFs of Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405EBE34
  * Callers:
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
  * Callees:
- *     Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback @ 0x1405E9500 (Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback.c)
+ *     Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback @ 0x1405EBE70 (Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline()

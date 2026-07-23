@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfGetCurrentFrequency @ 0x1400C8360
+ * XREFs of PpmPerfGetCurrentFrequency @ 0x1400C82A0
  * Callers:
- *     KiChooseTargetProcessor @ 0x1400C43D0 (KiChooseTargetProcessor.c)
- *     KiRetireDpcList @ 0x1400C64C0 (KiRetireDpcList.c)
- *     PpmPerfGetCurrentState @ 0x140131DC4 (PpmPerfGetCurrentState.c)
- *     PoGetFrequencyBucket @ 0x1402D3760 (PoGetFrequencyBucket.c)
+ *     KiChooseTargetProcessor @ 0x1400C4310 (KiChooseTargetProcessor.c)
+ *     KiRetireDpcList @ 0x1400C6400 (KiRetireDpcList.c)
+ *     PpmPerfGetCurrentState @ 0x140131E94 (PpmPerfGetCurrentState.c)
+ *     PoGetFrequencyBucket @ 0x1402D3950 (PoGetFrequencyBucket.c)
  * Callees:
  *     <none>
  */

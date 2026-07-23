@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAllocateFileObjectExtensionSlow @ 0x14046BB40
+ * XREFs of IopAllocateFileObjectExtensionSlow @ 0x1404652C0
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopAllocRealFileObject @ 0x1409337E0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x14090F390 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateFileObjectExtensionSlow(__int64 a1, __int64 **a2, char a3)
@@ -18,7 +18,7 @@ __int64 __fastcall IopAllocateFileObjectExtensionSlow(__int64 a1, __int64 **a2, 
   Pool2 = (__int64 *)ExAllocatePool2(0x40uLL);
   if ( !Pool2 )
   {
-    v9 = qword_140019060;
+    v9 = qword_1400137E0;
     v6 = -1073741670;
     if ( !a3 )
       v9 = 0LL;
@@ -26,7 +26,7 @@ __int64 __fastcall IopAllocateFileObjectExtensionSlow(__int64 a1, __int64 **a2, 
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
   {
-    if ( Pool2 && Pool2 != qword_140019060 )
+    if ( Pool2 && Pool2 != qword_1400137E0 )
       ExFreePoolWithTag(Pool2, 0);
     *a2 = *(__int64 **)(a1 + 208);
   }

@@ -1,40 +1,40 @@
 /*
- * XREFs of EtwpRegisterPrivateSession @ 0x1409EC85C
+ * XREFs of EtwpRegisterPrivateSession @ 0x1409ECAEC
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A980 (ObReferenceObjectByPointer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF8A0 (PsGetCurrentThreadProcessId.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     PidNodeCompare @ 0x1409ECDB0 (PidNodeCompare.c)
+ *     ObReferenceObjectByPointer @ 0x14022AA90 (ObReferenceObjectByPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402AFB30 (PsGetCurrentThreadProcessId.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     PidNodeCompare @ 0x1409ED040 (PidNodeCompare.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _WORD *a3, _DWORD *a4)
 {
-  unsigned __int64 *v4; // r13
+  _RTL_RB_TREE *v4; // r13
   bool v6; // zf
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v9; // rdi
-  bool v10; // si
+  _RTL_BALANCED_NODE *Root; // rdi
+  BOOLEAN v10; // si
   int v11; // eax
-  __int64 *v12; // rax
-  unsigned __int64 Pool2; // rax
-  __int64 *v14; // rbx
+  _RTL_BALANCED_NODE *v12; // rax
+  __int64 Pool2; // rax
+  _RTL_BALANCED_NODE *v14; // rbx
   unsigned int inserted; // edi
-  __int64 *v16; // r14
-  __int64 *i; // rsi
+  _RTL_BALANCED_NODE **v16; // r14
+  _RTL_BALANCED_NODE *i; // rsi
   char *v18; // r12
-  _WORD *v19; // rcx
-  _QWORD *v20; // rax
+  _RTL_BALANCED_NODE *v19; // rcx
+  _RTL_BALANCED_NODE *v20; // rax
   __int64 v21; // [rsp+28h] [rbp-69h]
   int CurrentThreadProcessId; // [rsp+58h] [rbp-39h] BYREF
   PVOID Object; // [rsp+60h] [rbp-31h] BYREF
@@ -45,7 +45,7 @@ __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _
   __int128 v28; // [rsp+90h] [rbp-1h]
   __int128 v29; // [rsp+A0h] [rbp+Fh]
 
-  v4 = (unsigned __int64 *)(a1 + 4080);
+  v4 = (_RTL_RB_TREE *)(a1 + 4080);
   *(_QWORD *)&v29 = 0LL;
   DWORD2(v29) = 0;
   v24 = 0LL;
@@ -61,30 +61,30 @@ __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _
   CurrentThreadProcessId = PsGetCurrentThreadProcessId();
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  BugCheckParameter2 = (ULONG_PTR)(v4 + 2);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v4 + 2), 0LL);
-  v9 = (__int64 *)*v4;
+  BugCheckParameter2 = (ULONG_PTR)&v4[1];
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&v4[1], 0LL);
+  Root = v4->Root;
   v10 = 0;
-  if ( *v4 )
+  if ( v4->Root )
   {
     while ( 1 )
     {
-      v11 = PidNodeCompare(&CurrentThreadProcessId, v9);
+      v11 = PidNodeCompare(&CurrentThreadProcessId, Root);
       if ( v11 <= 0 )
       {
         if ( v11 >= 0 )
         {
-          v14 = v9;
+          v14 = Root;
 LABEL_15:
-          v16 = v14 + 4;
-          for ( i = (__int64 *)v14[4]; i != v16; i = (__int64 *)*i )
+          v16 = &v14[1].Children[1];
+          for ( i = v14[1].Children[1]; i != (_RTL_BALANCED_NODE *)v16; i = i->Children[0] )
           {
-            if ( *((_WORD *)i + 8) == a2 )
+            if ( *(_WORD *)&i->0 == a2 )
             {
               inserted = -1073741811;
               goto LABEL_24;
             }
-            if ( *((_WORD *)i + 8) > a2 )
+            if ( *(_WORD *)&i->0 > a2 )
               break;
           }
           LODWORD(v27) = 48;
@@ -96,15 +96,15 @@ LABEL_15:
           if ( !inserted )
           {
             v18 = (char *)Object;
-            v19 = Object;
+            v19 = (_RTL_BALANCED_NODE *)Object;
             *((_WORD *)Object + 8) = a2;
-            v19[10] = ++*(_WORD *)(a1 + 4104);
-            *((_QWORD *)v19 + 3) = v14;
-            v20 = (_QWORD *)i[1];
-            i[1] = (__int64)v19;
-            *v20 = v19;
-            *((_QWORD *)v19 + 1) = v20;
-            *(_QWORD *)v19 = i;
+            WORD2(v19->ParentValue) = ++*(_WORD *)(a1 + 4104);
+            v19[1].Children[0] = v14;
+            v20 = i->Children[1];
+            i->Children[1] = v19;
+            v20->Children[0] = v19;
+            v19->Children[1] = v20;
+            v19->Children[0] = i;
             ObReferenceObjectByPointer(v19, 0, EtwpSessionDemuxObjectType, 0);
             inserted = ObInsertObjectEx(v18, 0LL, 0, 0, 0, (PVOID *)&v25, &v24);
             if ( !inserted )
@@ -115,37 +115,37 @@ LABEL_15:
             }
           }
 LABEL_24:
-          if ( v14 && (__int64 *)*v16 == v16 )
+          if ( v14 && *v16 == (_RTL_BALANCED_NODE *)v16 )
           {
-            RtlRbRemoveNode(v4, (unsigned __int64)v14);
+            RtlRbRemoveNode(v4, v14);
             ExFreePoolWithTag(v14, 0);
           }
           goto LABEL_27;
         }
-        v12 = (__int64 *)*v9;
-        if ( !*v9 )
+        v12 = Root->Children[0];
+        if ( !Root->Children[0] )
           break;
       }
       else
       {
-        v12 = (__int64 *)v9[1];
+        v12 = Root->Children[1];
         if ( !v12 )
         {
           v10 = 1;
           break;
         }
       }
-      v9 = v12;
+      Root = v12;
     }
   }
   Pool2 = ExAllocatePool2(256LL, 48LL, 1215788101LL);
-  v14 = (__int64 *)Pool2;
+  v14 = (_RTL_BALANCED_NODE *)Pool2;
   if ( Pool2 )
   {
     *(_DWORD *)(Pool2 + 24) = CurrentThreadProcessId;
     *(_QWORD *)(Pool2 + 40) = Pool2 + 32;
     *(_QWORD *)(Pool2 + 32) = Pool2 + 32;
-    RtlRbInsertNodeEx(v4, (unsigned __int64)v9, v10, Pool2);
+    RtlRbInsertNodeEx(v4, Root, v10, (PRTL_BALANCED_NODE)Pool2);
     goto LABEL_15;
   }
   inserted = -1073741801;

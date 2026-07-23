@@ -1,12 +1,12 @@
 /*
- * XREFs of VfZwSetValueKey @ 0x1409EC3C0
+ * XREFs of VfZwSetValueKey @ 0x1409ED3C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckUnicodeString @ 0x1409EC8AC (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckUnicodeString @ 0x1409ED8AC (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwSetValueKey(

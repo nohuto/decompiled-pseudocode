@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_MapReportingKind @ 0x1404C5968
+ * XREFs of wil_details_MapReportingKind @ 0x1404BF318
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
  * Callees:
  *     <none>
  */

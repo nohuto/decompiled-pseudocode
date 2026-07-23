@@ -45,7 +45,7 @@ __int64 __fastcall RtlpInitializeUserList(__int64 a1, _QWORD *UserPrefLanguages)
   __int64 v32; // rax
   char v33; // [rsp+68h] [rbp+10h] BYREF
   __int64 LanguageList; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v35; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v35; // [rsp+78h] [rbp+20h]
 
   LanguageList = 0LL;
   v35 = 0LL;
@@ -108,7 +108,7 @@ LABEL_6:
       v11 = (struct _TEB *)((char *)v11 + v12);
     MuiImpersonation = v11->MuiImpersonation;
   }
-  if ( MuiImpersonation || (result = RtlpLoadLanguageConfigList(8LL, &v35, a1), (int)result >= 0) )
+  if ( MuiImpersonation || (result = RtlpLoadLanguageConfigList(8u), (int)result >= 0) )
   {
     v14 = LanguageList;
     *(_DWORD *)(LanguageList + 40) |= 0x10u;
@@ -118,7 +118,7 @@ LABEL_6:
     }
     else
     {
-      Heap = (_QWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
       v16 = Heap;
       if ( !Heap )
       {

@@ -1,28 +1,28 @@
 /*
  * XREFs of MiCreatePrototypePtes @ 0x14021BA80
  * Callers:
- *     MiAddViewsForSection @ 0x140288770 (MiAddViewsForSection.c)
+ *     MiAddViewsForSection @ 0x140288A00 (MiAddViewsForSection.c)
  * Callees:
  *     MiControlAreaRequiresCharge @ 0x140214CC4 (MiControlAreaRequiresCharge.c)
  *     MiGetCommittedPages @ 0x1402197C0 (MiGetCommittedPages.c)
  *     MiUpdateSystemProtoPtesTree @ 0x14021BF30 (MiUpdateSystemProtoPtesTree.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiIncrementSubsectionViewCount @ 0x1402891F0 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSubsectionCharges @ 0x14066B1A8 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiInitializePrototypePtes @ 0x1406B0EE4 (MiInitializePrototypePtes.c)
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
- *     MiChargeLargeProtoSubsection @ 0x140A33644 (MiChargeLargeProtoSubsection.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x140289480 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSubsectionCharges @ 0x14066B6F8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiInitializePrototypePtes @ 0x1406B0F14 (MiInitializePrototypePtes.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
+ *     MiChargeLargeProtoSubsection @ 0x140A338F4 (MiChargeLargeProtoSubsection.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -249,10 +249,13 @@ LABEL_25:
         CommittedPages = MiGetCommittedPages((_QWORD *)v5);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
       v11 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v15 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           v41 = KeGetCurrentPrcb();
           v11 = (unsigned int)(v15 + 1);
@@ -305,10 +308,10 @@ LABEL_77:
     if ( v16 == 1 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v46 >= 2u )
         {
           v47 = KeGetCurrentPrcb();
           v48 = v47->SchedulerAssist;
@@ -331,10 +334,10 @@ LABEL_77:
     {
       v19 = 1;
       ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v50 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v50 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v50 >= 2u )
         {
           v51 = KeGetCurrentPrcb();
           v52 = v51->SchedulerAssist;
@@ -370,10 +373,10 @@ LABEL_77:
         MiUpdateSystemProtoPtesTree(BugCheckParameter2 + ((unsigned __int64)v72 << 6) + 56, 1LL);
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v58 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v58 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v58 >= 2u )
         {
           v59 = KeGetCurrentPrcb();
           v60 = v59->SchedulerAssist;
@@ -392,10 +395,10 @@ LABEL_77:
     SubsectionCharges = -1073741302;
     v34 = MiDecrementSubsectionViewCount(BugCheckParameter2);
     ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v54 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v54 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v54 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v54 >= 2u )
       {
         v55 = KeGetCurrentPrcb();
         v56 = v55->SchedulerAssist;

@@ -13,7 +13,7 @@
  *     RtlpCreateProcessRegistryInfo @ 0x18003F300 (RtlpCreateProcessRegistryInfo.c)
  *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x18003FB5C (RtlpMuiRegAddMultiSzToLangFallbackList.c)
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     RtlpUpdateTEBLanguage @ 0x180080C90 (RtlpUpdateTEBLanguage.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080CA0 (RtlpUpdateTEBLanguage.c)
  */
 
 __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
@@ -34,16 +34,16 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
   __int64 v18; // rax
   __int64 v19; // rax
   __int64 v20; // rax
-  _BYTE v21[8]; // [rsp+40h] [rbp-20h] BYREF
-  _WORD *v22; // [rsp+48h] [rbp-18h] BYREF
+  ULONG NumberOfLanguages; // [rsp+40h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-18h] BYREF
   __int64 v23; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v24; // [rsp+A0h] [rbp+40h] BYREF
-  int v25; // [rsp+B8h] [rbp+58h] BYREF
+  ULONG ReturnLength; // [rsp+B8h] [rbp+58h] BYREF
 
   v24 = 0;
-  v25 = 0;
+  ReturnLength = 0;
   v5 = a1;
-  v22 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
   v23 = 0LL;
   if ( (a1 & 0xFFFF7CF2) != 0 )
@@ -82,18 +82,18 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
       return (unsigned int)-1073741811;
     if ( v24 < 2 || *a2 || a2[1] )
     {
-      if ( (int)LdrpCreateLangFallbackList(&v22, v23, 5LL, 0LL) < 0 || !v22 )
+      if ( (int)LdrpCreateLangFallbackList(&BaseAddress, v23, 5LL, 0LL) < 0 || !BaseAddress )
         return (unsigned int)-1073741801;
-      updated = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v24, v5 | 2u, 26, 5, &v22);
+      updated = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v24, v5 | 2u, 26, 5, &BaseAddress);
       if ( updated < 0 )
       {
-        RtlpMuiRegFreeLanguageList(v22);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         goto LABEL_21;
       }
-      v17 = v22[2];
+      v17 = *((_WORD *)BaseAddress + 2);
       if ( !v17 )
       {
-        RtlpMuiRegFreeLanguageList(v22);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
@@ -105,7 +105,7 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
     RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
     NtCurrentTeb()->PreferredLanguages = 0LL;
   }
-  NtCurrentTeb()->PreferredLanguages = v22;
+  NtCurrentTeb()->PreferredLanguages = BaseAddress;
 LABEL_18:
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
@@ -190,6 +190,6 @@ LABEL_36:
   }
   *(_DWORD *)(v13 + 40) = v14 & 0xFFFFFFF9;
 LABEL_40:
-  RtlGetThreadPreferredUILanguages(v5 | 0x30u, v21, 0LL, &v25);
+  RtlGetThreadPreferredUILanguages(v5 | 0x30, &NumberOfLanguages, 0LL, &ReturnLength);
   return (unsigned int)updated;
 }

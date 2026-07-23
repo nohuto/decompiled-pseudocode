@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEnumerateProcessorDpcs @ 0x140293FDC
+ * XREFs of KeEnumerateProcessorDpcs @ 0x1402941CC
  * Callers:
- *     DbgkpLkmdSnapGlobals @ 0x14026DABC (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapGlobals @ 0x14026DCAC (DbgkpLkmdSnapGlobals.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)

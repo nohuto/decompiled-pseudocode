@@ -1,7 +1,7 @@
 /*
  * XREFs of MiCapturePfnVm @ 0x140215CDC
  * Callers:
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x1406B0300 (MiProcessCrcList.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
  *     MiHashIsCommon @ 0x140215F30 (MiHashIsCommon.c)
@@ -9,12 +9,12 @@
  *     MiProcessSuitableForCombining @ 0x140216D54 (MiProcessSuitableForCombining.c)
  *     MiGetCombineDomain @ 0x140217408 (MiGetCombineDomain.c)
  *     MiCheckProcessCombineSequence @ 0x140217420 (MiCheckProcessCombineSequence.c)
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiReferenceOwningSession @ 0x14034904C (MiReferenceOwningSession.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmCheckPageCombine @ 0x1408A6A40 (VmCheckPageCombine.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiReferenceOwningSession @ 0x1403492DC (MiReferenceOwningSession.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmCheckPageCombine @ 0x1408A6C90 (VmCheckPageCombine.c)
  */
 
 __int64 __fastcall MiCapturePfnVm(
@@ -108,10 +108,13 @@ LABEL_24:
     }
 LABEL_12:
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v13 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -136,10 +139,10 @@ LABEL_12:
     return AnyMultiplexedVm;
   }
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

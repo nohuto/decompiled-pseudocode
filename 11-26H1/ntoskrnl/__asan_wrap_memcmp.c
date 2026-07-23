@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_wrap_memcmp @ 0x1405E17C0
+ * XREFs of __asan_wrap_memcmp @ 0x1405E4130
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 int __fastcall _asan_wrap_memcmp(ULONG_PTR BugCheckParameter1, const void *a2, ULONG_PTR BugCheckParameter2)

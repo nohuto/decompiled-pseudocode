@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpHwidAuthenticateHardwareId @ 0x1404F61F0
+ * XREFs of ExpHwidAuthenticateHardwareId @ 0x1404D917C
  * Callers:
- *     ExpHwidProcessInterface @ 0x1404DB0E4 (ExpHwidProcessInterface.c)
- *     sub_1404F587C @ 0x1404F587C (sub_1404F587C.c)
+ *     ExpHwidProcessInterface @ 0x1404BE6E8 (ExpHwidProcessInterface.c)
+ *     sub_1404D8808 @ 0x1404D8808 (sub_1404D8808.c)
  * Callees:
- *     sub_1404F6140 @ 0x1404F6140 (sub_1404F6140.c)
- *     ExpHwidGetDevicePropertyDataFixed @ 0x1404F710C (ExpHwidGetDevicePropertyDataFixed.c)
- *     ExpHwidGetDevicePropertyData @ 0x1404F7188 (ExpHwidGetDevicePropertyData.c)
+ *     sub_1404D90CC @ 0x1404D90CC (sub_1404D90CC.c)
+ *     ExpHwidGetDevicePropertyDataFixed @ 0x1404DA098 (ExpHwidGetDevicePropertyDataFixed.c)
+ *     ExpHwidGetDevicePropertyData @ 0x1404DA114 (ExpHwidGetDevicePropertyData.c)
  */
 
 __int64 __fastcall ExpHwidAuthenticateHardwareId(PDEVICE_OBJECT Pdo, __int64 a2)
@@ -61,8 +61,8 @@ LABEL_7:
     else
     {
       v11 = 0;
-      if ( sub_1404F6140(&v11, (__int16 *)(a2 + 56)) >= 0
-        && sub_1404F6140(&v11, (__int16 *)(a2 + 72)) >= 0
+      if ( sub_1404D90CC(&v11, (__int16 *)(a2 + 56)) >= 0
+        && sub_1404D90CC(&v11, (__int16 *)(a2 + 72)) >= 0
         && v11 == v12 )
       {
         v4 |= 1u;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpSanitizeContextFlags @ 0x180018BC0
+ * XREFs of RtlpSanitizeContextFlags @ 0x1800455C0
  * Callers:
- *     RtlCaptureContext2 @ 0x180120D40 (RtlCaptureContext2.c)
+ *     RtlCaptureContext2 @ 0x18011EF70 (RtlCaptureContext2.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x180017E20 (RtlpValidateContextFlags.c)
+ *     RtlpValidateContextFlags @ 0x180044820 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlpSanitizeContextFlags(unsigned int *a1, char a2)

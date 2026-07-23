@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCSparseBitmapCleanup @ 0x14038CCA0
+ * XREFs of RtlCSparseBitmapCleanup @ 0x14038CDF0
  * Callers:
- *     ExCleanupSessionHeapManager @ 0x140389810 (ExCleanupSessionHeapManager.c)
+ *     ExCleanupSessionHeapManager @ 0x140389960 (ExCleanupSessionHeapManager.c)
  * Callees:
- *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
- *     RtlpEnvRegisterFaultRange @ 0x14039DABC (RtlpEnvRegisterFaultRange.c)
+ *     RtlpHpEnvFreeVA @ 0x140305554 (RtlpHpEnvFreeVA.c)
+ *     RtlpEnvRegisterFaultRange @ 0x14039DC0C (RtlpEnvRegisterFaultRange.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapCleanup(__int64 a1)

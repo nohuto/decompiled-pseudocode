@@ -1,7 +1,7 @@
 /*
- * XREFs of __except_validate_jump_buffer @ 0x18009CE28
+ * XREFs of __except_validate_jump_buffer @ 0x18009CE18
  * Callers:
- *     longjmp @ 0x18009A570 (longjmp.c)
+ *     longjmp @ 0x18009A560 (longjmp.c)
  * Callees:
  *     <none>
  */

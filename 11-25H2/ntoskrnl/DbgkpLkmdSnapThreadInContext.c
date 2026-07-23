@@ -14,7 +14,7 @@ __int64 __fastcall DbgkpLkmdSnapThreadInContext(__int64 *a1, __int64 a2, _DWORD 
   __int64 result; // rax
   char v7; // di
   __int64 v8; // rcx
-  struct _CONTEXT ContextRecord; // [rsp+40h] [rbp-4F8h] BYREF
+  _CONTEXT ContextRecord; // [rsp+40h] [rbp-4F8h] BYREF
 
   result = DbgkpLkmdSnapDataEx((__int64)a1);
   if ( (int)result >= 0 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpStartDumpDataBuffering @ 0x1409AD558
+ * XREFs of IopLiveDumpStartDumpDataBuffering @ 0x1409AE488
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ACE10 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     KdEncodeDataBlock @ 0x1403B5728 (KdEncodeDataBlock.c)
- *     IopLiveDumpTrace @ 0x140508A88 (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x140508E20 (IopLiveDumpTraceCaptureDumpDataBufferingDuration.c)
- *     KdDecodeDataBlock @ 0x140510804 (KdDecodeDataBlock.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x1409AC958 (IopLiveDumpInitiateCorralStateChange.c)
+ *     KdEncodeDataBlock @ 0x1403B5898 (KdEncodeDataBlock.c)
+ *     IopLiveDumpTrace @ 0x140508CC4 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x14050905C (IopLiveDumpTraceCaptureDumpDataBufferingDuration.c)
+ *     KdDecodeDataBlock @ 0x140510A44 (KdDecodeDataBlock.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1409AD888 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
 char __fastcall IopLiveDumpStartDumpDataBuffering(const GUID *a1)

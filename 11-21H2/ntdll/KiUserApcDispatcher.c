@@ -11,42 +11,40 @@
 void __noreturn KiUserApcDispatcher()
 {
   unsigned __int64 v0; // rcx
-  int v1; // eax
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  int v4; // esi
-  unsigned __int64 v5; // rcx
+  NTSTATUS v1; // eax
+  NTSTATUS v2; // esi
+  unsigned __int64 v3; // rcx
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
-  __int64 v7; // [rsp+8h] [rbp+8h]
-  __int64 v8; // [rsp+10h] [rbp+10h]
-  __int64 v9; // [rsp+18h] [rbp+18h]
-  unsigned int v10; // [rsp+20h] [rbp+20h]
+  __int64 v5; // [rsp+8h] [rbp+8h]
+  __int64 v6; // [rsp+10h] [rbp+10h]
+  __int64 v7; // [rsp+18h] [rbp+18h]
+  unsigned int v8; // [rsp+20h] [rbp+20h]
 
   while ( 1 )
   {
-    v0 = __ROL8__(-(v9 >> 2), 32);
+    v0 = __ROL8__(-(v7 >> 2), 32);
     if ( (_DWORD)v0 )
     {
       KiUserCallForwarder();
     }
     else
     {
-      v5 = (unsigned int)retaddr | v0;
+      v3 = (unsigned int)retaddr | v0;
       if ( Wow64ApcRoutine )
       {
-        Wow64ApcRoutine(v5, ((unsigned __int64)v10 << 32) | v7, v8, &retaddr);
-        v4 = -1073741811;
+        Wow64ApcRoutine(v3, ((unsigned __int64)v8 << 32) | v5, v6, &retaddr);
+        v2 = -1073741811;
         goto LABEL_7;
       }
     }
-    v1 = ZwContinueEx();
+    v1 = ZwContinueEx((PCONTEXT)&retaddr, &STACK[0x4F0]);
     if ( v1 )
     {
       if ( v1 == -1073740278 )
         __fastfail(0x30u);
-      v4 = v1;
+      v2 = v1;
 LABEL_7:
-      RtlRaiseStatus(v4, v2, v3);
+      RtlRaiseStatus(v2);
     }
   }
 }

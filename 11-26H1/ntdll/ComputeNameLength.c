@@ -1,10 +1,10 @@
 /*
- * XREFs of ComputeNameLength @ 0x18013C828
+ * XREFs of ComputeNameLength @ 0x18013C6E8
  * Callers:
- *     PfxFindPrefix @ 0x18013C8E0 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x18013C9E0 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x18013C790 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x18013C890 (PfxInsertPrefix.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1800832B0 (RtlpIsUtf8Process.c)
+ *     RtlpIsUtf8Process @ 0x18007A650 (RtlpIsUtf8Process.c)
  */
 
 __int64 ComputeNameLength()
@@ -17,9 +17,9 @@ __int64 ComputeNameLength()
   bool v5; // zf
   unsigned int v6; // edx
   unsigned int v7; // r9d
-  __int64 v8; // rbx
-  __int64 v9; // r11
-  int v10; // r8d
+  __int64 v8; // r11
+  __int64 v9; // r8
+  int v10; // eax
   unsigned int v11; // eax
   _BYTE *v12; // rax
   __int64 v13; // r8
@@ -29,8 +29,8 @@ __int64 ComputeNameLength()
   if ( !RtlpIsUtf8Process() )
   {
     _InterlockedOr(v16, 0);
-    v3 = qword_1801C6020;
-    v0 = word_1801C5F9C != 0;
+    v3 = qword_1801C5020;
+    v0 = GlobalRtlNlsState.DBCSCodePage != 0;
   }
   v4 = *v1 - 1;
   v5 = !v0;
@@ -69,10 +69,10 @@ __int64 ComputeNameLength()
         else
         {
           v11 = v6 + 1;
-          v10 = 1;
           if ( (_BYTE)v9 != 92 )
             v11 = v6;
           v6 = v11;
+          v10 = 1;
         }
         v7 += v10;
       }

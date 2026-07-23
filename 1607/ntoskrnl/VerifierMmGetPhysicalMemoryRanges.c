@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmGetPhysicalMemoryRanges @ 0x14070CB28
+ * XREFs of VerifierMmGetPhysicalMemoryRanges @ 0x14070CB58
  * Callers:
  *     <none>
  * Callees:

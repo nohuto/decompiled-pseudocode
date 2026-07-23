@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnapplyDriverHotPatch @ 0x1408CE6A0
+ * XREFs of MiUnapplyDriverHotPatch @ 0x1408CE800
  * Callers:
- *     MiApplyHotPatchToDriver @ 0x1408C9114 (MiApplyHotPatchToDriver.c)
+ *     MiApplyHotPatchToDriver @ 0x1408C9274 (MiApplyHotPatchToDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     VslRevertHotPatch @ 0x1404FD72C (VslRevertHotPatch.c)
- *     VslDetermineHotPatchUndoTableSize @ 0x14088F684 (VslDetermineHotPatchUndoTableSize.c)
- *     VslObtainHotPatchUndoTable @ 0x14088FFD8 (VslObtainHotPatchUndoTable.c)
- *     MiPrepareDriverPatchState @ 0x1408C4D3C (MiPrepareDriverPatchState.c)
- *     MiUnlockDriverPages @ 0x1408C4DC0 (MiUnlockDriverPages.c)
- *     MiLockHotPatchUndoPages @ 0x1408CB234 (MiLockHotPatchUndoPages.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     VslRevertHotPatch @ 0x1404FD6AC (VslRevertHotPatch.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x14088F7E4 (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x140890138 (VslObtainHotPatchUndoTable.c)
+ *     MiPrepareDriverPatchState @ 0x1408C4E9C (MiPrepareDriverPatchState.c)
+ *     MiUnlockDriverPages @ 0x1408C4F20 (MiUnlockDriverPages.c)
+ *     MiLockHotPatchUndoPages @ 0x1408CB394 (MiLockHotPatchUndoPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
@@ -70,7 +70,7 @@ __int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
       }
     }
   }
-  MiUnlockDriverPages((unsigned __int64 *)v10);
+  MiUnlockDriverPages(v10);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
   if ( v7 >= 0 )

@@ -1,34 +1,34 @@
 /*
- * XREFs of PopFreeRegistration @ 0x140778E14
+ * XREFs of PopFreeRegistration @ 0x140778FD4
  * Callers:
- *     PopDispatchNotificationsToList @ 0x14067BFD4 (PopDispatchNotificationsToList.c)
- *     PopFreeSessionState @ 0x140778D60 (PopFreeSessionState.c)
+ *     PopDispatchNotificationsToList @ 0x14066F714 (PopDispatchNotificationsToList.c)
+ *     PopFreeSessionState @ 0x140778F20 (PopFreeSessionState.c)
  * Callees:
- *     ZwDeleteWnfStateName @ 0x1403FBEC0 (ZwDeleteWnfStateName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ZwDeleteWnfStateName @ 0x1403FC0A0 (ZwDeleteWnfStateName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopFreeRegistration(_DWORD *P, __int64 a2)
+void __fastcall PopFreeRegistration(WNF_STATE_NAME *P)
 {
-  _DWORD **v3; // rbx
-  __int64 v4; // rsi
-  _DWORD *v5; // rcx
+  WNF_STATE_NAME *v2; // rbx
+  __int64 v3; // rsi
+  _DWORD *v4; // rcx
 
-  v3 = (_DWORD **)(P + 16);
-  v4 = 3LL;
+  v2 = P + 8;
+  v3 = 3LL;
   do
   {
-    v5 = *v3;
-    if ( *v3 )
+    v4 = (_DWORD *)*v2;
+    if ( *v2 )
     {
-      if ( (*v5)-- == 1 )
-        ExFreePoolWithTag(v5, 0x74655350u);
+      if ( (*v4)-- == 1 )
+        ExFreePoolWithTag(v4, 0x74655350u);
     }
-    ++v3;
-    --v4;
+    ++v2;
+    --v3;
   }
-  while ( v4 );
-  if ( P[14] || P[15] )
-    ZwDeleteWnfStateName((__int64)(P + 14), a2);
+  while ( v3 );
+  if ( P[7].Data[0] || P[7].Data[1] )
+    ZwDeleteWnfStateName(P + 7);
   ExFreePoolWithTag(P, 0x74655350u);
 }

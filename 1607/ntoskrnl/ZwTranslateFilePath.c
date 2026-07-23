@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwTranslateFilePath @ 0x14015D280
+ * XREFs of ZwTranslateFilePath @ 0x14015D7F0
  * Callers:
- *     ExpSetBootEntry @ 0x1406B16BC (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1406B1E74 (ExpSetDriverEntry.c)
- *     BiTranslateFilePath @ 0x1406D58FC (BiTranslateFilePath.c)
- *     SiGetEspFromFirmware @ 0x1406D67C8 (SiGetEspFromFirmware.c)
+ *     ExpSetBootEntry @ 0x1406B17F4 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1406B1FAC (ExpSetDriverEntry.c)
+ *     BiTranslateFilePath @ 0x1406D5A34 (BiTranslateFilePath.c)
+ *     SiGetEspFromFirmware @ 0x1406D6900 (SiGetEspFromFirmware.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwTranslateFilePath(
         PFILE_PATH InputFilePath,
         ULONG OutputType,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwTranslateFilePath(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(InputFilePath, *(_QWORD *)&OutputType, OutputFilePath);
+  return KiServiceInternal(InputFilePath);
 }

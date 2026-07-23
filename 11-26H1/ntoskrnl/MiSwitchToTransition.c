@@ -1,34 +1,34 @@
 /*
- * XREFs of MiSwitchToTransition @ 0x1402A2130
+ * XREFs of MiSwitchToTransition @ 0x1402A1680
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x140AECA38 (MiReplaceRotateWithDemandZero.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140AEFA48 (MiReplaceRotateWithDemandZero.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiPageAttributeBatchChangeNeeded @ 0x1402A1E60 (MiPageAttributeBatchChangeNeeded.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiObtainFaultCharges @ 0x1402F6350 (MiObtainFaultCharges.c)
- *     MiSwitchValidPteToTransition @ 0x14030ED40 (MiSwitchValidPteToTransition.c)
- *     MiUnlockOpportunisticPagesInPageTable @ 0x14031391C (MiUnlockOpportunisticPagesInPageTable.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReturnFaultCharges @ 0x140338D0C (MiReturnFaultCharges.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiGetEffectivePagePriorityThread @ 0x1403719B0 (MiGetEffectivePagePriorityThread.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     MiAddMdlTracker @ 0x1404F3E20 (MiAddMdlTracker.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiGetReadyInPageBlock @ 0x140B3C89C (MiGetReadyInPageBlock.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x1402A13B0 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiObtainFaultCharges @ 0x1402D83D0 (MiObtainFaultCharges.c)
+ *     MiSwitchValidPteToTransition @ 0x1402F0DC0 (MiSwitchValidPteToTransition.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiUnlockOpportunisticPagesInPageTable @ 0x14031594C (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReturnFaultCharges @ 0x14033AD8C (MiReturnFaultCharges.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140373760 (MiGetEffectivePagePriorityThread.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     MiAddMdlTracker @ 0x1404ED400 (MiAddMdlTracker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiGetReadyInPageBlock @ 0x140B3EB1C (MiGetReadyInPageBlock.c)
  */
 
 __int64 __fastcall MiSwitchToTransition(ULONG_PTR a1, __int64 a2, unsigned int a3)
@@ -116,7 +116,7 @@ __int64 __fastcall MiSwitchToTransition(ULONG_PTR a1, __int64 a2, unsigned int a
   v59 = 0LL;
   *(_QWORD *)&v42 = 0x7FFFFFFFFFLL;
   v58 = 0LL;
-  v11 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high);
+  v11 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high);
   v47 = v11;
   v12 = MiObtainFaultCharges(v11, v7 >> 12, 2LL);
   v13 = (_QWORD *)v58;

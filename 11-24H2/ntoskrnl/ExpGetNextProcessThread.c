@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpGetNextProcessThread @ 0x140959450
+ * XREFs of ExpGetNextProcessThread @ 0x140940F10
  * Callers:
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2)
@@ -22,7 +22,7 @@ _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2)
   int v6; // r12d
   _QWORD **v7; // r14
   signed __int64 *v8; // r15
-  _QWORD *v9; // rbx
+  char *v9; // rbx
   _QWORD *v10; // rbx
   _QWORD *v12; // rcx
   _QWORD *v13; // rax
@@ -64,11 +64,11 @@ _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2)
     v7 = (_QWORD **)(a1 + 880);
     v8 = (signed __int64 *)(a1 + 456);
     --CurrentThread->KernelApcDisable;
-    v9 = KeAbPreAcquire((__int64)(a1 + 456), 0LL);
+    v9 = (char *)KeAbPreAcquire((__int64)(a1 + 456), 0LL);
     if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v8, 0, v9, (__int64)v8);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     if ( a2 )
       v10 = (_QWORD *)a2[175];
     else

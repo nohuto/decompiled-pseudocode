@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwOpenThreadToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenThreadToken(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        PHANDLE TokenHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

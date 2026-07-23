@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmDeleteInstallerClassRegKey @ 0x140818B44
+ * XREFs of _CmDeleteInstallerClassRegKey @ 0x140819284
  * Callers:
- *     _CmDeleteInstallerClassWorker @ 0x140818B70 (_CmDeleteInstallerClassWorker.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1408192B0 (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     _CmDeleteCommonClassRegKey @ 0x140817E8C (_CmDeleteCommonClassRegKey.c)
+ *     _CmDeleteCommonClassRegKey @ 0x1408185CC (_CmDeleteCommonClassRegKey.c)
  */
 
 __int64 __fastcall CmDeleteInstallerClassRegKey(__int64 a1, __int64 a2, int a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlRealSuccessor @ 0x140248410
+ * XREFs of RtlRealSuccessor @ 0x1402E2650
  * Callers:
- *     FsRtlCheckNoExclusiveConflict @ 0x1402479FC (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x140247B34 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     RtlEnumerateGenericTable @ 0x1402483A0 (RtlEnumerateGenericTable.c)
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140248CD8 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x1402490B4 (FsRtlPrivateInsertExclusiveLock.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x1402498C0 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingle @ 0x140249B60 (FsRtlFastUnlockSingle.c)
- *     FsRtlFastUnlockSingleShared @ 0x14024A1C0 (FsRtlFastUnlockSingleShared.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14024D62C (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlSplitLocks @ 0x14047A758 (FsRtlSplitLocks.c)
- *     RtlEnumerateGenericTableWithoutSplaying @ 0x1404916D0 (RtlEnumerateGenericTableWithoutSplaying.c)
- *     FsRtlGetNextFileLock @ 0x1405800A0 (FsRtlGetNextFileLock.c)
- *     FsRtlDeleteKeyFromTunnelCache @ 0x140A43B50 (FsRtlDeleteKeyFromTunnelCache.c)
- *     RtlNextUnicodePrefix @ 0x140A4A500 (RtlNextUnicodePrefix.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14027DC3C (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x1402E1DD0 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1402E1F08 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     RtlEnumerateGenericTable @ 0x1402E25E0 (RtlEnumerateGenericTable.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402E2F18 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x1402E32F4 (FsRtlPrivateInsertExclusiveLock.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402E3B00 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingle @ 0x1402E3DA0 (FsRtlFastUnlockSingle.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402E4400 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlSplitLocks @ 0x140475DD8 (FsRtlSplitLocks.c)
+ *     RtlEnumerateGenericTableWithoutSplaying @ 0x14048C390 (RtlEnumerateGenericTableWithoutSplaying.c)
+ *     FsRtlGetNextFileLock @ 0x14057D4E0 (FsRtlGetNextFileLock.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x140A393E0 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     RtlNextUnicodePrefix @ 0x140A41220 (RtlNextUnicodePrefix.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax
-  RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *v2; // rdx
   _RTL_SPLAY_LINKS *v3; // r8
   _RTL_SPLAY_LINKS *i; // rcx
 

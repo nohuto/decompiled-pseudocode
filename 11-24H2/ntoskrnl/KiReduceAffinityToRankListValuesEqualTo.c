@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReduceAffinityToRankListValuesEqualTo @ 0x140461E08
+ * XREFs of KiReduceAffinityToRankListValuesEqualTo @ 0x140457418
  * Callers:
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  * Callees:
  *     <none>
  */

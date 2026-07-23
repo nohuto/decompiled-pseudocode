@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpQueryInterface @ 0x1407FD240
+ * XREFs of PnpQueryInterface @ 0x1407FD510
  * Callers:
- *     PnprQueryReplaceFeatures @ 0x1405630A8 (PnprQueryReplaceFeatures.c)
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
- *     PiIommuGetInterface @ 0x1407FCB54 (PiIommuGetInterface.c)
- *     PnpGetDeviceLocationStrings @ 0x1407FCC08 (PnpGetDeviceLocationStrings.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x140828138 (PiGetDmaAdapterFromBusInterface.c)
- *     IoQueryInterface @ 0x140828780 (IoQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x1408287D0 (IopQueryInterfaceRecurseUp.c)
- *     PnprIdentifyUnits @ 0x14096605C (PnprIdentifyUnits.c)
- *     IopQueryBusResourceUpdateInterface @ 0x14096CED8 (IopQueryBusResourceUpdateInterface.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x14096F508 (PiProcessDriversLoadedOnSecureDevice.c)
- *     PipUnprotectDevice @ 0x14096F5D8 (PipUnprotectDevice.c)
+ *     PnprQueryReplaceFeatures @ 0x140563768 (PnprQueryReplaceFeatures.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
+ *     PiIommuGetInterface @ 0x1407FCE24 (PiIommuGetInterface.c)
+ *     PnpGetDeviceLocationStrings @ 0x1407FCED8 (PnpGetDeviceLocationStrings.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x140828438 (PiGetDmaAdapterFromBusInterface.c)
+ *     IoQueryInterface @ 0x140828A80 (IoQueryInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x140828AD0 (IopQueryInterfaceRecurseUp.c)
+ *     PnprIdentifyUnits @ 0x14096625C (PnprIdentifyUnits.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x14096D0D8 (IopQueryBusResourceUpdateInterface.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x14096F708 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PipUnprotectDevice @ 0x14096F7D8 (PipUnprotectDevice.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IopBuildSynchronousFsdRequest @ 0x1407FD3C0 (IopBuildSynchronousFsdRequest.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140302E90 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407FD690 (IopBuildSynchronousFsdRequest.c)
  */
 
 __int64 __fastcall PnpQueryInterface(

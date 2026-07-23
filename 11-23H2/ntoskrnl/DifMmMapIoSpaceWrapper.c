@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmMapIoSpaceWrapper @ 0x1405E7510
+ * XREFs of DifMmMapIoSpaceWrapper @ 0x1405E7A80
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpace @ 0x140335550 (MmMapIoSpace.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     MmMapIoSpace @ 0x1403357E0 (MmMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 PVOID __fastcall DifMmMapIoSpaceWrapper(

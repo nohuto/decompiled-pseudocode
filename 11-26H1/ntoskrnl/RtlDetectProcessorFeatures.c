@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDetectProcessorFeatures @ 0x140BFE6A4
+ * XREFs of RtlDetectProcessorFeatures @ 0x140C048AC
  * Callers:
- *     KiSetProcessorSignature @ 0x1405F6C84 (KiSetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405F9644 (KiSetProcessorSignature.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlGetProcessorSignature @ 0x140BFEEB4 (RtlGetProcessorSignature.c)
- *     RtlpGetSpecificProcessorFlags @ 0x140BFF094 (RtlpGetSpecificProcessorFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetProcessorSignature @ 0x140C050BC (RtlGetProcessorSignature.c)
+ *     RtlpGetSpecificProcessorFlags @ 0x140C052A4 (RtlpGetSpecificProcessorFlags.c)
  */
 
 __int64 __fastcall RtlDetectProcessorFeatures(int a1, unsigned __int64 *a2, unsigned __int64 *a3, _DWORD *a4)
@@ -203,9 +203,9 @@ LABEL_41:
   for ( i = 0LL; (unsigned int)i < 2; i = (unsigned int)(i + 1) )
   {
     v20 = 3 * i;
-    v37 = (unsigned int *)(0x140000000LL + 24 * i + 54704);
+    v37 = (unsigned int *)(0x140000000LL + 24 * i + 55376);
     v55 = v37;
-    v38 = *(_DWORD *)(0x140000004LL + 24 * i + 54704);
+    v38 = *(_DWORD *)(0x140000004LL + 24 * i + 55376);
     if ( (v38 & 2) == 0 )
     {
       v20 = HIBYTE(v38);
@@ -221,12 +221,12 @@ LABEL_41:
             continue;
           v39 = v18;
         }
-        v20 = *(_QWORD *)(0x140000010LL + 24 * i + 54704);
+        v20 = *(_QWORD *)(0x140000010LL + 24 * i + 55376);
         if ( (v39 & v20) == v20 )
         {
-          v20 = __readmsr(*(_DWORD *)(0x140000000LL + 24 * i + 54704));
+          v20 = __readmsr(*(_DWORD *)(0x140000000LL + 24 * i + 55376));
           v59 = v20;
-          v40 = *(_QWORD *)(0x140000008LL + 24 * i + 54704);
+          v40 = *(_QWORD *)(0x140000008LL + 24 * i + 55376);
           if ( *(_QWORD *)v40 )
           {
             v41 = v53[4];

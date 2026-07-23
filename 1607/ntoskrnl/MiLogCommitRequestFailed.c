@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogCommitRequestFailed @ 0x1401ECE34
+ * XREFs of MiLogCommitRequestFailed @ 0x1401ECC60
  * Callers:
- *     MiCommitRequestFailed @ 0x1401ECDEC (MiCommitRequestFailed.c)
+ *     MiCommitRequestFailed @ 0x1401ECC18 (MiCommitRequestFailed.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
- *     EtwGetProcessAppSessionGuid @ 0x14054BF40 (EtwGetProcessAppSessionGuid.c)
- *     PsQueryProcessPageFileQuota @ 0x140581AE0 (PsQueryProcessPageFileQuota.c)
- *     PsQueryJobMemoryUsageByProcess @ 0x140680098 (PsQueryJobMemoryUsageByProcess.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
+ *     EtwGetProcessAppSessionGuid @ 0x14054C480 (EtwGetProcessAppSessionGuid.c)
+ *     PsQueryProcessPageFileQuota @ 0x140581F8C (PsQueryProcessPageFileQuota.c)
+ *     PsQueryJobMemoryUsageByProcess @ 0x14068017C (PsQueryJobMemoryUsageByProcess.c)
  */
 
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
@@ -71,7 +71,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
   _UNKNOWN *retaddr; // [rsp+200h] [rbp+F8h] BYREF
 
   v3 = (int *)&retaddr;
-  if ( hProvider )
+  if ( qword_1403277E0 )
   {
     _m_prefetchw((const void *)(a1 + 1740));
     LODWORD(v3) = *(_DWORD *)(a1 + 1740);
@@ -92,9 +92,9 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
       PsQueryJobMemoryUsageByProcess(v9, (unsigned int)&v18, (unsigned int)&v19, (unsigned int)&v20, (__int64)&v21);
       v3 = MiPartitionIdToPointer(*(_WORD *)(a1 + 1444));
       v10 = *((_QWORD *)v3 + 901);
-      if ( hProvider->LevelPlus1 > 5 )
+      if ( qword_1403277E0->LevelPlus1 > 5 )
       {
-        LOBYTE(v3) = TlgKeywordOn(hProvider, 0x400000000000uLL);
+        LOBYTE(v3) = TlgKeywordOn(qword_1403277E0, 0x400000000000uLL);
         if ( (_BYTE)v3 )
         {
           v23 = v16;
@@ -135,7 +135,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
           v56 = 8LL;
           v58 = 8LL;
           v60 = 8LL;
-          LOBYTE(v3) = TlgWriteEx(v12, &unk_14027C6D1, 0LL, 1u, 0LL, 0LL, 0xFu, &pData);
+          LOBYTE(v3) = TlgWriteEx(v12, &unk_14027C7D1, 0LL, 1u, 0LL, 0LL, 0xFu, &pData);
         }
       }
     }

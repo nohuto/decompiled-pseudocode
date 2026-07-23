@@ -1,22 +1,22 @@
 /*
- * XREFs of CcScheduleLazyWriteScan @ 0x14007091C
+ * XREFs of CcScheduleLazyWriteScan @ 0x14007049C
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14002078C (CcNotifyOfMappedWrite.c)
- *     CcCanIWrite @ 0x1400209F0 (CcCanIWrite.c)
- *     CcRescheduleLazyWriteScan @ 0x14006E8D8 (CcRescheduleLazyWriteScan.c)
- *     CcSetDirtyPinnedData @ 0x14006F270 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x14006F660 (CcSetDirtyInMask.c)
- *     CcChargeDirtyPages @ 0x14006FBF4 (CcChargeDirtyPages.c)
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x14010F010 (CcWaitForCurrentLazyWriterActivity.c)
- *     CcAddDirtyPagesToExternalCache @ 0x14013426C (CcAddDirtyPagesToExternalCache.c)
- *     CcCoalescingCallBack @ 0x1401B1598 (CcCoalescingCallBack.c)
- *     CcDeferWrite @ 0x1401B1A08 (CcDeferWrite.c)
+ *     CcNotifyOfMappedWrite @ 0x14002030C (CcNotifyOfMappedWrite.c)
+ *     CcCanIWrite @ 0x140020570 (CcCanIWrite.c)
+ *     CcRescheduleLazyWriteScan @ 0x14006E458 (CcRescheduleLazyWriteScan.c)
+ *     CcSetDirtyPinnedData @ 0x14006EDF0 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x14006F1E0 (CcSetDirtyInMask.c)
+ *     CcChargeDirtyPages @ 0x14006F774 (CcChargeDirtyPages.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x14010F574 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1401347DC (CcAddDirtyPagesToExternalCache.c)
+ *     CcCoalescingCallBack @ 0x1401B147C (CcCoalescingCallBack.c)
+ *     CcDeferWrite @ 0x1401B18EC (CcDeferWrite.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     CcNotifyWriteBehind @ 0x1400AB9E0 (CcNotifyWriteBehind.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     CcNotifyWriteBehind @ 0x1400A9F48 (CcNotifyWriteBehind.c)
  */
 
 char __fastcall CcScheduleLazyWriteScan(char a1, char a2)
@@ -43,14 +43,14 @@ char __fastcall CcScheduleLazyWriteScan(char a1, char a2)
     }
     else
     {
-      if ( byte_1403231C0 )
+      if ( byte_1403231E0 )
         goto LABEL_6;
       result = KiSetTimerEx((__int64)&Timer, CcFirstDelay, 0, 0, (__int64)&LazyWriter);
     }
     v2 = CcCoalescingState;
 LABEL_6:
     if ( !v2 )
-      byte_1403231C0 = 1;
+      byte_1403231E0 = 1;
   }
   return result;
 }

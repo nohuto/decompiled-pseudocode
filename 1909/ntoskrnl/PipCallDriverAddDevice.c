@@ -85,7 +85,7 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
   int v42; // eax
   __int64 v43; // rdx
   __int64 v44; // rdx
-  char *v45; // rbx
+  const WNF_STATE_NAME *v45; // rbx
   unsigned int v46; // esi
   __int64 v47; // rdx
   int v48; // eax
@@ -384,12 +384,11 @@ LABEL_118:
         {
           if ( v62 == 4099 && (NumberOfBytes_4 & 7) == 0 && NumberOfBytes_4 )
           {
-            v45 = (char *)P;
+            v45 = (const WNF_STATE_NAME *)P;
             v46 = NumberOfBytes_4 >> 3;
             do
             {
-              ZwUpdateWnfStateData((__int64)v45, 0LL, 0LL);
-              v45 += 8;
+              ZwUpdateWnfStateData(v45++, 0LL, 0, 0LL, 0LL, 0, 0);
               --v46;
             }
             while ( v46 );

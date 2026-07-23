@@ -1,13 +1,13 @@
 /*
- * XREFs of MmInSwapVirtualAddresses @ 0x140A43460
+ * XREFs of MmInSwapVirtualAddresses @ 0x140A43710
  * Callers:
- *     SmPerformStoreSwapOperation @ 0x1405CD6BC (SmPerformStoreSwapOperation.c)
+ *     SmPerformStoreSwapOperation @ 0x1405CDC2C (SmPerformStoreSwapOperation.c)
  * Callees:
  *     MiProcessWsInSwapSupport @ 0x140200298 (MiProcessWsInSwapSupport.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     MiContractWsSwapPageFile @ 0x140681680 (MiContractWsSwapPageFile.c)
- *     EtwTraceWorkingSetSwap @ 0x1407B71A8 (EtwTraceWorkingSetSwap.c)
+ *     EtwTraceWorkingSetSwap @ 0x1407B7488 (EtwTraceWorkingSetSwap.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

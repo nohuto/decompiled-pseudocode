@@ -1,43 +1,43 @@
 /*
- * XREFs of MiReturnSystemVa @ 0x1402429F4
+ * XREFs of MiReturnSystemVa @ 0x14020AB44
  * Callers:
- *     MiReleasePteMappings @ 0x140241200 (MiReleasePteMappings.c)
- *     MiReturnSystemPtes @ 0x140241AE0 (MiReturnSystemPtes.c)
- *     MiObtainSystemCacheView @ 0x140241D90 (MiObtainSystemCacheView.c)
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
- *     MiRemoveFromSystemSpace @ 0x14026086C (MiRemoveFromSystemSpace.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402D24DC (MiReturnSystemCacheRegionsToKva.c)
- *     MiExpandPtes @ 0x1403A5438 (MiExpandPtes.c)
- *     MiGetPageTablesForLargeMap @ 0x1403A6BE4 (MiGetPageTablesForLargeMap.c)
- *     MiExpandSystemCache @ 0x1403A7378 (MiExpandSystemCache.c)
- *     MiReleaseLargePdeMappings @ 0x140491DC4 (MiReleaseLargePdeMappings.c)
- *     MiUnmapLargePages @ 0x1404D8B98 (MiUnmapLargePages.c)
- *     MiDeleteBootRange @ 0x140669130 (MiDeleteBootRange.c)
- *     MmFreeSecurePoolMemory @ 0x14067CCC0 (MmFreeSecurePoolMemory.c)
- *     MiReleaseDriverPtes @ 0x140A67CE4 (MiReleaseDriverPtes.c)
- *     MiReserveDriverPtes @ 0x140AB636C (MiReserveDriverPtes.c)
+ *     MiReleasePteMappings @ 0x140209350 (MiReleasePteMappings.c)
+ *     MiReturnSystemPtes @ 0x140209C30 (MiReturnSystemPtes.c)
+ *     MiObtainSystemCacheView @ 0x140209EE0 (MiObtainSystemCacheView.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
+ *     MiExpandSystemCache @ 0x14026B918 (MiExpandSystemCache.c)
+ *     MiGetPageTablesForLargeMap @ 0x14026C224 (MiGetPageTablesForLargeMap.c)
+ *     MiExpandPtes @ 0x14026C728 (MiExpandPtes.c)
+ *     MiRemoveFromSystemSpace @ 0x140290E7C (MiRemoveFromSystemSpace.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x140353754 (MiReturnSystemCacheRegionsToKva.c)
+ *     MiReleaseLargePdeMappings @ 0x14048CC64 (MiReleaseLargePdeMappings.c)
+ *     MiUnmapLargePages @ 0x1404D1FE8 (MiUnmapLargePages.c)
+ *     MiDeleteBootRange @ 0x14066A308 (MiDeleteBootRange.c)
+ *     MmFreeSecurePoolMemory @ 0x14067DEA0 (MmFreeSecurePoolMemory.c)
+ *     MiReserveDriverPtes @ 0x140A555D0 (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x140A611E4 (MiReleaseDriverPtes.c)
  * Callees:
- *     MiDecommitSystemPageTables @ 0x1402342AC (MiDecommitSystemPageTables.c)
- *     MiMakeSystemRangeAvailable @ 0x1403A5094 (MiMakeSystemRangeAvailable.c)
+ *     MiMakeSystemRangeAvailable @ 0x14026C384 (MiMakeSystemRangeAvailable.c)
+ *     MiDecommitSystemPageTables @ 0x14045B6DC (MiDecommitSystemPageTables.c)
  */
 
-__int64 __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v3; // rdi
+  unsigned __int64 v2; // rdi
   __int64 result; // rax
-  unsigned __int64 v5; // rbx
-  __int64 v6; // rdi
-  __int64 v7; // rbx
+  unsigned __int64 v4; // rbx
+  ULONG_PTR v5; // rdi
+  __int64 v6; // rbx
 
-  v3 = (((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFF001LL) & 0xFFFFFFFFFFFFF000uLL;
+  v2 = (((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFF001LL) & 0xFFFFFFFFFFFFF000uLL;
   result = 0xFFFFF68000000000uLL;
-  v5 = (((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0xFFFFFFFFFFFFF000uLL;
-  if ( v3 < v5 )
+  v4 = (((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0xFFFFFFFFFFFFF000uLL;
+  if ( v2 < v4 )
   {
-    v6 = (__int64)(v3 << 25) >> 16;
-    v7 = (__int64)(v5 << 25) >> 16;
-    MiDecommitSystemPageTables(v6, v7, a3);
-    return MiMakeSystemRangeAvailable(v6, v7 - v6);
+    v5 = (__int64)(v2 << 25) >> 16;
+    v6 = (__int64)(v4 << 25) >> 16;
+    MiDecommitSystemPageTables(v5, v6);
+    return MiMakeSystemRangeAvailable(v5, v6 - v5);
   }
   return result;
 }

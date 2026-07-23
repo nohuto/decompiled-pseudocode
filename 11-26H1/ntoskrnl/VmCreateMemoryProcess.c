@@ -1,15 +1,15 @@
 /*
- * XREFs of VmCreateMemoryProcess @ 0x140B4F050
+ * XREFs of VmCreateMemoryProcess @ 0x140B518E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     VmpLogCreateMemoryProcess @ 0x14081E534 (VmpLogCreateMemoryProcess.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     VmpLogCreateMemoryProcess @ 0x140824744 (VmpLogCreateMemoryProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a4, void *a5, __int64 a6, _QWORD *a7)
@@ -83,9 +83,9 @@ __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a
       }
     }
   }
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL) )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL) )
   {
     VmpLogCreateMemoryProcess(v20, v22, v23, v10, v9, (__int64)a5, v7, v21, (struct _KPROCESS *)a1, v14);
   }

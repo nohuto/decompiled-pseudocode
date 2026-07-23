@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDecrementAweMapCount @ 0x140649648
+ * XREFs of MiDecrementAweMapCount @ 0x140649B98
  * Callers:
- *     MiFreePhysicalPages @ 0x14064A540 (MiFreePhysicalPages.c)
- *     MiUnmapLegacyAwePage @ 0x14064BED8 (MiUnmapLegacyAwePage.c)
- *     MiWriteAwePtes @ 0x14064C5BC (MiWriteAwePtes.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140A41DB8 (MiReferenceIncomingPhysicalPages.c)
+ *     MiFreePhysicalPages @ 0x14064AA90 (MiFreePhysicalPages.c)
+ *     MiUnmapLegacyAwePage @ 0x14064C428 (MiUnmapLegacyAwePage.c)
+ *     MiWriteAwePtes @ 0x14064CB0C (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140A42068 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiValidateAndLockAweMapCountPage @ 0x14064C18C (MiValidateAndLockAweMapCountPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x14064C6DC (MiValidateAndLockAweMapCountPage.c)
  */
 
 __int64 __fastcall MiDecrementAweMapCount(__int64 a1, unsigned __int64 a2, __int64 *a3, char a4)
@@ -106,10 +106,10 @@ LABEL_9:
   if ( v9 )
   {
     _InterlockedAnd64(v15, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_38;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_38;
     if ( CurrentIrql > 0xFu )
       goto LABEL_38;
@@ -131,10 +131,10 @@ LABEL_9:
     _InterlockedAnd(
       (volatile signed __int32 *)(qword_140C67DF8 + 4 * (((((__int64)v13 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
       ~(1 << ((((__int64)v13 - qword_140C67DF0) >> 3) & 0x1F)));
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_38;
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_38;
     if ( v26 > 0xFu )
       goto LABEL_38;

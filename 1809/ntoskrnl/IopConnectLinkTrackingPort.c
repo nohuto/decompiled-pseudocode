@@ -1,14 +1,14 @@
 /*
- * XREFs of IopConnectLinkTrackingPort @ 0x1408199D0
+ * XREFs of IopConnectLinkTrackingPort @ 0x14081ABD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  */
 
 LONG __fastcall IopConnectLinkTrackingPort(__int64 a1)

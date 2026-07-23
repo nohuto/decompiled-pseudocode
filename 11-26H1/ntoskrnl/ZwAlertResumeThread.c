@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlertResumeThread @ 0x1407241D0
+ * XREFs of ZwAlertResumeThread @ 0x140728DA0
  * Callers:
- *     DifZwAlertResumeThreadWrapper @ 0x1406992B0 (DifZwAlertResumeThreadWrapper.c)
+ *     DifZwAlertResumeThreadWrapper @ 0x14069CE90 (DifZwAlertResumeThreadWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlertResumeThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlertResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

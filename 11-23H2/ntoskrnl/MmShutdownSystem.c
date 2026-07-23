@@ -1,12 +1,12 @@
 /*
- * XREFs of MmShutdownSystem @ 0x140AABFD0
+ * XREFs of MmShutdownSystem @ 0x140AABE40
  * Callers:
- *     PopGracefulShutdown @ 0x140AA0A60 (PopGracefulShutdown.c)
- *     PoBroadcastSystemState @ 0x140AA6A68 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x140AA08D0 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x140AA68D8 (PoBroadcastSystemState.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmTrimAllSystemPagableMemory @ 0x140635680 (MmTrimAllSystemPagableMemory.c)
- *     MiShutdownSystem @ 0x140AABB70 (MiShutdownSystem.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmTrimAllSystemPagableMemory @ 0x140635BD0 (MmTrimAllSystemPagableMemory.c)
+ *     MiShutdownSystem @ 0x140AAB9E0 (MiShutdownSystem.c)
  */
 
 char __fastcall MmShutdownSystem(int a1)

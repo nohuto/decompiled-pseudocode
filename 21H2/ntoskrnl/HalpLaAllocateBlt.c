@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLaAllocateBlt @ 0x1404DAE04
+ * XREFs of HalpLaAllocateBlt @ 0x1404DB044
  * Callers:
- *     HalpDomainLaAllocate @ 0x1404C4D14 (HalpDomainLaAllocate.c)
+ *     HalpDomainLaAllocate @ 0x1404C4F54 (HalpDomainLaAllocate.c)
  * Callees:
- *     HalpLaBltAdd @ 0x1404DAFF8 (HalpLaBltAdd.c)
- *     HalpLaBltFindFree @ 0x1404DB034 (HalpLaBltFindFree.c)
- *     HalpLapDeleteSubtree @ 0x1404DB5F0 (HalpLapDeleteSubtree.c)
- *     HalpLapSplitNode @ 0x1404DB6AC (HalpLapSplitNode.c)
+ *     HalpLaBltAdd @ 0x1404DB238 (HalpLaBltAdd.c)
+ *     HalpLaBltFindFree @ 0x1404DB274 (HalpLaBltFindFree.c)
+ *     HalpLapDeleteSubtree @ 0x1404DB830 (HalpLapDeleteSubtree.c)
+ *     HalpLapSplitNode @ 0x1404DB8EC (HalpLapSplitNode.c)
  */
 
 __int64 __fastcall HalpLaAllocateBlt(

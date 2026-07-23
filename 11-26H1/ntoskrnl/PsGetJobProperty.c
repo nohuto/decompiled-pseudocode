@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetJobProperty @ 0x14045D8B0
+ * XREFs of PsGetJobProperty @ 0x140457450
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PsGetJobProperty(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall PsGetJobProperty(__int64 a1, __int64 a2)
         __writecr8(2uLL);
       if ( KiIrqlFlags )
         KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v3 + 1528), 0LL) )
           KxWaitForSpinLockAndAcquire((volatile signed __int32 *)(v3 + 1528));
@@ -59,7 +59,7 @@ __int64 __fastcall PsGetJobProperty(__int64 a1, __int64 a2)
         }
         v7 = (__int64 *)*v7;
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         _InterlockedAnd64((volatile signed __int64 *)(v3 + 1528), 0LL);
       else
         KiReleaseSpinLockInstrumented((volatile signed __int64 *)(v3 + 1528), retaddr);

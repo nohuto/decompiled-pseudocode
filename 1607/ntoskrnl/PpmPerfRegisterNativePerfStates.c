@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmPerfRegisterNativePerfStates @ 0x1405694F0
+ * XREFs of PpmPerfRegisterNativePerfStates @ 0x140569A30
  * Callers:
  *     <none>
  * Callees:

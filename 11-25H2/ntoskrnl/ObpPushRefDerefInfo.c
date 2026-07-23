@@ -35,7 +35,7 @@ void __fastcall ObpPushRefDerefInfo(
   __int64 v18; // rcx
   __int64 v19; // rdx
   __int64 v20; // rsi
-  struct _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *Pool2; // rax
   unsigned __int16 *v22; // [rsp+20h] [rbp-38h] BYREF
 
   v22 = 0LL;
@@ -84,7 +84,7 @@ void __fastcall ObpPushRefDerefInfo(
     {
       do
       {
-        Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x40uLL);
+        Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(0x40uLL);
         if ( Pool2 )
           RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, Pool2);
         --v20;

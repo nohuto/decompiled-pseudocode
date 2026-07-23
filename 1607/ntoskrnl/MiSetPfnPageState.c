@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetPfnPageState @ 0x1401F2FEC
+ * XREFs of MiSetPfnPageState @ 0x1401F2E18
  * Callers:
- *     MiUpdateLargePageSectionPfn @ 0x1401E5B78 (MiUpdateLargePageSectionPfn.c)
+ *     MiUpdateLargePageSectionPfn @ 0x1401E59A4 (MiUpdateLargePageSectionPfn.c)
  * Callees:
  *     <none>
  */

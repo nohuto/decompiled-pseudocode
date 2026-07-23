@@ -8,28 +8,28 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-char __fastcall RtlDeleteElementGenericTable(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  __int64 v3; // rsi
-  __int64 v4; // rdx
-  _QWORD *v5; // rcx
-  void (__fastcall *v6)(__int64, __int64); // rbx
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  PRTL_SPLAY_LINKS v3; // rsi
+  _RTL_SPLAY_LINKS *Parent; // rdx
+  _RTL_SPLAY_LINKS *LeftChild; // rcx
+  PRTL_GENERIC_FREE_ROUTINE FreeRoutine; // rbx
+  PRTL_SPLAY_LINKS Links; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (unsigned int)FindNodeOrParent_0(a1, a2, &v8) != 1 )
+  if ( (unsigned int)FindNodeOrParent_0(Table, Buffer, &Links) != 1 )
     return 0;
-  v3 = v8;
-  *(_QWORD *)a1 = RtlDelete(v8);
-  v4 = *(_QWORD *)(v3 + 24);
-  v5 = *(_QWORD **)(v3 + 32);
-  if ( *(_QWORD *)(v4 + 8) != v3 + 24 || *v5 != v3 + 24 )
+  v3 = Links;
+  Table->TableRoot = RtlDelete(Links);
+  Parent = v3[1].Parent;
+  LeftChild = v3[1].LeftChild;
+  if ( Parent->LeftChild != &v3[1] || LeftChild->Parent != &v3[1] )
     __fastfail(3u);
-  *v5 = v4;
-  *(_QWORD *)(v4 + 8) = v5;
-  v6 = *(void (__fastcall **)(__int64, __int64))(a1 + 56);
-  --*(_DWORD *)(a1 + 36);
-  *(_DWORD *)(a1 + 32) = 0;
-  *(_QWORD *)(a1 + 24) = a1 + 8;
-  v6(a1, v3);
+  LeftChild->Parent = Parent;
+  Parent->LeftChild = LeftChild;
+  FreeRoutine = Table->FreeRoutine;
+  --Table->NumberGenericTableElements;
+  Table->WhichOrderedElement = 0;
+  Table->OrderedPointer = &Table->InsertOrderList;
+  ((void (__fastcall *)(PRTL_GENERIC_TABLE, PRTL_SPLAY_LINKS))FreeRoutine)(Table, v3);
   return 1;
 }

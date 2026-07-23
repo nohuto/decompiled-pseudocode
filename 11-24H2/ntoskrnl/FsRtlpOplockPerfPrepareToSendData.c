@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpOplockPerfPrepareToSendData @ 0x14070BD04
+ * XREFs of FsRtlpOplockPerfPrepareToSendData @ 0x140709898
  * Callers:
- *     FsRtlpOplockPerfSendData @ 0x14070BDB4 (FsRtlpOplockPerfSendData.c)
+ *     FsRtlpOplockPerfSendData @ 0x140709948 (FsRtlpOplockPerfSendData.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     FsRtlpOplockPerfCleanupData @ 0x14070BB9C (FsRtlpOplockPerfCleanupData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     FsRtlpOplockPerfCleanupData @ 0x140709730 (FsRtlpOplockPerfCleanupData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char FsRtlpOplockPerfPrepareToSendData()
@@ -18,20 +18,20 @@ char FsRtlpOplockPerfPrepareToSendData()
 
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = UnbiasedInterruptTime;
-  if ( byte_140E65B21 && UnbiasedInterruptTime - qword_140E65B48 >= (unsigned __int64)qword_140E65B40 )
+  if ( byte_140E65D81 && UnbiasedInterruptTime - qword_140E65DA8 >= (unsigned __int64)qword_140E65DA0 )
   {
-    byte_140E65B20 = v1;
-    g_OplockPerfSummaryContext = ExAllocatePool2(0x100uLL);
+    byte_140E65D80 = v1;
+    g_OplockPerfSummaryContext = ExAllocatePool2(0x100uLL, 0x100uLL, 0x6F725346u);
     if ( g_OplockPerfSummaryContext )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
-      qword_140E65B28 = Pool2;
+      Pool2 = ExAllocatePool2(0x100uLL, 0x100uLL, 0x6F725346u);
+      qword_140E65D88 = Pool2;
       if ( Pool2 )
       {
-        *(_QWORD *)&xmmword_140E65B30 = Pool2;
-        *((_QWORD *)&xmmword_140E65B30 + 1) = Pool2 + 128;
+        *(_QWORD *)&xmmword_140E65D90 = Pool2;
+        *((_QWORD *)&xmmword_140E65D90 + 1) = Pool2 + 128;
         result = 1;
-        qword_140E65B48 = v2;
+        qword_140E65DA8 = v2;
         return result;
       }
     }
@@ -39,7 +39,7 @@ char FsRtlpOplockPerfPrepareToSendData()
   }
   else
   {
-    byte_140E65B20 = 0;
+    byte_140E65D80 = 0;
   }
   return 0;
 }

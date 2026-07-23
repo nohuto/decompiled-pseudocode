@@ -1,49 +1,54 @@
 /*
- * XREFs of NtCallEnclave @ 0x140731220
+ * XREFs of NtCallEnclave @ 0x140735DF0
  * Callers:
- *     DifNtCallEnclaveWrapper @ 0x14066DE80 (DifNtCallEnclaveWrapper.c)
+ *     DifNtCallEnclaveWrapper @ 0x140671A60 (DifNtCallEnclaveWrapper.c)
  * Callees:
- *     KiUpdateStibpPairing @ 0x140402530 (KiUpdateStibpPairing.c)
- *     KiSynchronizeUserIsolationDomainEntry @ 0x140402A00 (KiSynchronizeUserIsolationDomainEntry.c)
- *     KiRestoreDebugRegisterState @ 0x140533C30 (KiRestoreDebugRegisterState.c)
- *     KiCopyCounters @ 0x1405F3410 (KiCopyCounters.c)
- *     KiRestoreSetContextState @ 0x140728090 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x14072CBF0 (KiInitiateUserApc.c)
- *     NtCallEnclave @ 0x140731220 (NtCallEnclave.c)
- *     PsCallEnclave @ 0x1407FE1F0 (PsCallEnclave.c)
+ *     KiUpdateStibpPairing @ 0x1403F42E0 (KiUpdateStibpPairing.c)
+ *     KiSynchronizeUserIsolationDomainEntry @ 0x1403FBB00 (KiSynchronizeUserIsolationDomainEntry.c)
+ *     KiRestoreDebugRegisterState @ 0x1405360B0 (KiRestoreDebugRegisterState.c)
+ *     KiCopyCounters @ 0x1405F5DD0 (KiCopyCounters.c)
+ *     KiRestoreSetContextState @ 0x14072CC60 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x1407317C0 (KiInitiateUserApc.c)
+ *     NtCallEnclave @ 0x140735DF0 (NtCallEnclave.c)
+ *     PsCallEnclave @ 0x140803C20 (PsCallEnclave.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall NtCallEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+NTSTATUS __cdecl NtCallEnclave(PENCLAVE_ROUTINE Routine, PVOID Reserved, ULONG Flags, PVOID *RoutineParamReturn)
 {
-  __int64 v5; // rbp
-  __int64 result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdi
-  __int64 v11; // rsi
+  __int64 v4; // rbp
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rdi
+  __int64 v10; // rsi
   struct _KTHREAD *CurrentThread; // rcx
-  struct _KTHREAD *v15; // rcx
+  struct _KTHREAD *v14; // rcx
   unsigned __int16 BpbUserSpecCtrl; // ax
-  unsigned __int8 v19; // cf
+  unsigned __int8 v18; // cf
+  char v24; // [rsp+50h] [rbp+28h]
 
-  *(_DWORD *)(v5 - 72) = 0;
-  *(_DWORD *)(v5 - 64) = 0;
-  *(_DWORD *)(v5 - 56) = 0;
-  *(_DWORD *)(v5 - 48) = 0;
-  *(_DWORD *)(v5 - 40) = 0;
-  *(_DWORD *)(v5 - 32) = 0;
-  *(_OWORD *)(v5 - 16) = 0LL;
-  *(_OWORD *)v5 = 0LL;
-  *(_OWORD *)(v5 + 16) = 0LL;
-  *(_OWORD *)(v5 + 32) = 0LL;
-  *(_OWORD *)(v5 + 48) = 0LL;
-  *(_OWORD *)(v5 + 64) = 0LL;
-  result = PsCallEnclave();
-  *(_QWORD *)(v5 - 80) = result;
-  v10 = *(_QWORD *)(v5 + 200);
-  v11 = *(_QWORD *)(v5 + 208);
+  *(_DWORD *)(v4 - 72) = 0;
+  *(_DWORD *)(v4 - 64) = 0;
+  *(_DWORD *)(v4 - 56) = 0;
+  *(_DWORD *)(v4 - 48) = 0;
+  *(_DWORD *)(v4 - 40) = 0;
+  *(_DWORD *)(v4 - 32) = 0;
+  *(_OWORD *)(v4 - 16) = 0LL;
+  *(_OWORD *)v4 = 0LL;
+  *(_OWORD *)(v4 + 16) = 0LL;
+  *(_OWORD *)(v4 + 32) = 0LL;
+  *(_OWORD *)(v4 + 48) = 0LL;
+  *(_OWORD *)(v4 + 64) = 0LL;
+  v5 = ((__int64 (__fastcall *)(PENCLAVE_ROUTINE, PVOID, ULONG, PVOID *))PsCallEnclave)(
+         Routine,
+         Reserved,
+         Flags,
+         RoutineParamReturn);
+  *(_QWORD *)(v4 - 80) = v5;
+  v9 = *(_QWORD *)(v4 + 200);
+  v10 = *(_QWORD *)(v4 + 208);
   _disable();
   __asm { rdsspq  rcx }
   if ( _RCX )
@@ -51,17 +56,17 @@ __int64 __fastcall NtCallEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
     _RCX = 1LL;
     __asm { incsspq rcx }
   }
-  if ( (KiTrapFeatures & 2) != 0 && (*(_BYTE *)(v5 + 240) & 1) != 0 )
+  if ( (KiTrapFeatures & 2) != 0 && (*(_BYTE *)(v4 + 240) & 1) != 0 )
   {
-    *(_QWORD *)(v5 + 192) = *(_QWORD *)(v5 + 192);
-    *(_QWORD *)(v5 + 208) = v11;
-    *(_QWORD *)(v5 + 200) = v10;
+    *(_QWORD *)(v4 + 192) = *(_QWORD *)(v4 + 192);
+    *(_QWORD *)(v4 + 208) = v10;
+    *(_QWORD *)(v4 + 200) = v9;
   }
   else
   {
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v4 + 240) & 1) == 0 )
     {
-      _mm_setcsr(*(_DWORD *)(v5 - 84));
+      _mm_setcsr(*(_DWORD *)(v4 - 84));
       __asm { iretq }
     }
     if ( (KiTrapFeatures & 8) != 0 )
@@ -81,20 +86,20 @@ __int64 __fastcall NtCallEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
       }
     }
     while ( (CurrentThread->Header.Reserved1 & 0x80u) != 0
-         && (unsigned int)KiSynchronizeUserIsolationDomainEntry((__int64)CurrentThread, v7, v8, v9) );
+         && (unsigned int)KiSynchronizeUserIsolationDomainEntry((__int64)CurrentThread, v6, v7, v8) );
     if ( (KeGetPcr()->Prcb.PrcbPad12a[2] & 2) != 0 )
-      KiUpdateStibpPairing(0LL, v7, v8);
+      KiUpdateStibpPairing(0LL, v6, v7);
     if ( (KeGetCurrentThread()->Header.LockNV & 0x8000000) != 0 )
       ((void (*)(void))KiRestoreSetContextState)();
-    v15 = KeGetCurrentThread();
-    if ( (v15->Header.LockNV & 0x10000) != 0 && (v15->Header.Size & 1) != 0 )
+    v14 = KeGetCurrentThread();
+    if ( (v14->Header.LockNV & 0x10000) != 0 && (v14->Header.Size & 1) != 0 )
     {
-      KiCopyCounters((__int64)v15);
-      v15 = KeGetCurrentThread();
+      KiCopyCounters((__int64)v14);
+      v14 = KeGetCurrentThread();
     }
-    _mm_setcsr(*(_DWORD *)(v5 - 84));
-    if ( *(_WORD *)(v5 + 128) )
-      ((void (__fastcall *)(struct _KTHREAD *))KiRestoreDebugRegisterState)(v15);
+    _mm_setcsr(*(_DWORD *)(v4 - 84));
+    if ( *(_WORD *)(v4 + 128) )
+      ((void (__fastcall *)(struct _KTHREAD *))KiRestoreDebugRegisterState)(v14);
     if ( _bittest((const signed __int32 *)&KeGetCurrentThread()->116, 0x16u) )
     {
       __asm { rdsspq  rcx }
@@ -115,11 +120,11 @@ __int64 __fastcall NtCallEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
       __writegsword(0x8A6u, BpbUserSpecCtrl);
       __writemsr(0x48u, BpbUserSpecCtrl);
     }
-    v19 = _bittestandreset16(MK_FP(__GS__, 2200LL), 2u);
-    if ( v19 )
+    v18 = _bittestandreset16(MK_FP(__GS__, 2200LL), 2u);
+    if ( v18 )
       __writemsr(0x49u, 1uLL);
-    v19 = _bittestandreset16(MK_FP(__GS__, 2200LL), 5u);
-    if ( v19 )
+    v18 = _bittestandreset16(MK_FP(__GS__, 2200LL), 5u);
+    if ( v18 )
     {
       _RAX = 56026LL;
       if ( (KeGetPcr()->Prcb.BpbFeatures.AllFlags & 8) != 0 )
@@ -138,7 +143,12 @@ __int64 __fastcall NtCallEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
         iretq
       }
     }
-    return KiKernelExit(*(_QWORD *)(v5 - 72), *(_QWORD *)(v5 - 64), *(_QWORD *)(v5 - 56), *(_QWORD *)(v5 - 48), a5);
+    LODWORD(v5) = KiKernelExit(
+                    *(_QWORD *)(v4 - 72),
+                    *(_QWORD *)(v4 - 64),
+                    *(_QWORD *)(v4 - 56),
+                    *(_QWORD *)(v4 - 48),
+                    v24);
   }
-  return result;
+  return v5;
 }

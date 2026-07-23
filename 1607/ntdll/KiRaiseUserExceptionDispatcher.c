@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
  */
 
 __int64 __fastcall KiRaiseUserExceptionDispatcher()

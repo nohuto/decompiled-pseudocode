@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLookupUserFunctionTableInverted @ 0x14043BF20
+ * XREFs of RtlpLookupUserFunctionTableInverted @ 0x14042E7D0
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x1402E9910 (RtlpLookupUserFunctionTable.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x14043BE50 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpLookupUserFunctionTable @ 0x1402CB950 (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x14042E700 (RtlGetImageBaseAndLoadConfig.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 volatile void *__fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a1, __int64 a2)
@@ -38,10 +38,10 @@ volatile void *__fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a
   v2 = a2;
   *(_OWORD *)Address = 0LL;
   Length = 0LL;
-  KernelShadowStackBase = (char *)stru_140FC01F0.KernelShadowStackBase;
-  v5 = (char *)stru_140FC01F0.KernelShadowStackBase + 8;
-  v26 = (char *)stru_140FC01F0.KernelShadowStackBase + 8;
-  ULongFromUser = RtlReadULongFromUser((char *)stru_140FC01F0.KernelShadowStackBase + 8);
+  KernelShadowStackBase = (char *)stru_140FC11F0.KernelShadowStackBase;
+  v5 = (char *)stru_140FC11F0.KernelShadowStackBase + 8;
+  v26 = (char *)stru_140FC11F0.KernelShadowStackBase + 8;
+  ULongFromUser = RtlReadULongFromUser((char *)stru_140FC11F0.KernelShadowStackBase + 8);
   v25 = ULongFromUser;
   v19 = 0;
   v20 = 0;

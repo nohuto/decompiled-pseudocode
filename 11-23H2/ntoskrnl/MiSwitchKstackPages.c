@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSwitchKstackPages @ 0x14062D678
+ * XREFs of MiSwitchKstackPages @ 0x14062DBC8
  * Callers:
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
- *     MiStackTheftIsr @ 0x14062D460 (MiStackTheftIsr.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
+ *     MiStackTheftIsr @ 0x14062D9B0 (MiStackTheftIsr.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiCopyPfnEntryEx @ 0x140219D60 (MiCopyPfnEntryEx.c)

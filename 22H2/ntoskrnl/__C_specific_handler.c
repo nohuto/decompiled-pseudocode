@@ -15,45 +15,45 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
         struct _CONTEXT *ContextRecord,
         struct _DISPATCHER_CONTEXT *DispatcherContext)
 {
-  __int64 v8; // r15
+  DWORD64 ImageBase; // r15
   unsigned __int64 v9; // rbp
-  unsigned int *v10; // rbx
-  unsigned int v11; // edi
+  DWORD *HandlerData; // rbx
+  DWORD ScopeIndex; // edi
   __int64 v12; // rax
   int v13; // eax
-  unsigned int v15; // r10d
+  DWORD v15; // r10d
   unsigned __int64 v16; // rsi
-  unsigned int v17; // edx
+  DWORD v17; // edx
   __int64 v18; // rcx
-  unsigned int i; // r9d
+  DWORD i; // r9d
   __int64 v20; // rax
   _QWORD v21[2]; // [rsp+30h] [rbp-38h] BYREF
 
   KeCheckStackAndTargetAddress(ContextRecord->Rip, ContextRecord->Rsp);
-  v8 = *((_QWORD *)DispatcherContext + 1);
-  v9 = *(_QWORD *)DispatcherContext - v8;
-  v10 = (unsigned int *)*((_QWORD *)DispatcherContext + 7);
-  v11 = *((_DWORD *)DispatcherContext + 18);
+  ImageBase = DispatcherContext->ImageBase;
+  v9 = DispatcherContext->ControlPc - ImageBase;
+  HandlerData = (DWORD *)DispatcherContext->HandlerData;
+  ScopeIndex = DispatcherContext->ScopeIndex;
   if ( (ExceptionRecord->ExceptionFlags & 0x66) != 0 )
   {
-    v15 = *v10;
-    v16 = *((_QWORD *)DispatcherContext + 4) - v8;
-    if ( v11 < *v10 )
+    v15 = *HandlerData;
+    v16 = DispatcherContext->TargetIp - ImageBase;
+    if ( ScopeIndex < *HandlerData )
     {
-      v17 = *v10;
+      v17 = *HandlerData;
       do
       {
         v18 = v17;
-        if ( v9 >= v10[4 * v11 + 1] && v9 < v10[4 * v11 + 2] )
+        if ( v9 >= HandlerData[4 * ScopeIndex + 1] && v9 < HandlerData[4 * ScopeIndex + 2] )
         {
           if ( (ExceptionRecord->ExceptionFlags & 0x20) != 0 )
           {
             for ( i = 0; i < v17; ++i )
             {
-              if ( v16 >= v10[4 * i + 1]
-                && v16 < v10[4 * i + 2]
-                && v10[4 * i + 4] == v10[4 * v11 + 4]
-                && v10[4 * i + 3] == v10[4 * v11 + 3] )
+              if ( v16 >= HandlerData[4 * i + 1]
+                && v16 < HandlerData[4 * i + 2]
+                && HandlerData[4 * i + 4] == HandlerData[4 * ScopeIndex + 4]
+                && HandlerData[4 * i + 3] == HandlerData[4 * ScopeIndex + 3] )
               {
                 break;
               }
@@ -62,7 +62,7 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
             if ( i != v15 )
               return 1;
           }
-          v20 = v10[4 * v11 + 4];
+          v20 = HandlerData[4 * ScopeIndex + 4];
           if ( (_DWORD)v20 )
           {
             if ( v16 == v20 )
@@ -70,48 +70,50 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
           }
           else
           {
-            *((_DWORD *)DispatcherContext + 18) = v11 + 1;
+            DispatcherContext->ScopeIndex = ScopeIndex + 1;
             LOBYTE(v18) = 1;
-            ((void (__fastcall *)(__int64, void *))(v8 + v10[4 * v11 + 3]))(v18, EstablisherFrame);
-            v15 = *v10;
-            LODWORD(v18) = *v10;
+            ((void (__fastcall *)(__int64, void *))(ImageBase + HandlerData[4 * ScopeIndex + 3]))(v18, EstablisherFrame);
+            v15 = *HandlerData;
+            LODWORD(v18) = *HandlerData;
           }
         }
-        ++v11;
+        ++ScopeIndex;
         v17 = v18;
       }
-      while ( v11 < (unsigned int)v18 );
+      while ( ScopeIndex < (unsigned int)v18 );
     }
   }
   else
   {
     v21[0] = ExceptionRecord;
     v21[1] = ContextRecord;
-    while ( v11 < *v10 )
+    while ( ScopeIndex < *HandlerData )
     {
-      if ( v9 >= v10[4 * v11 + 1] && v9 < v10[4 * v11 + 2] && v10[4 * v11 + 4] )
+      if ( v9 >= HandlerData[4 * ScopeIndex + 1]
+        && v9 < HandlerData[4 * ScopeIndex + 2]
+        && HandlerData[4 * ScopeIndex + 4] )
       {
-        v12 = v10[4 * v11 + 3];
+        v12 = HandlerData[4 * ScopeIndex + 3];
         if ( (_DWORD)v12 == 1 )
           goto LABEL_10;
-        v13 = ((__int64 (__fastcall *)(_QWORD *, void *))(v8 + v12))(v21, EstablisherFrame);
+        v13 = ((__int64 (__fastcall *)(_QWORD *, void *))(ImageBase + v12))(v21, EstablisherFrame);
         if ( v13 < 0 )
           return 0;
         if ( v13 > 0 )
         {
 LABEL_10:
-          NLG_Notify(v8 + v10[4 * v11 + 4], EstablisherFrame, 1LL);
+          NLG_Notify(ImageBase + HandlerData[4 * ScopeIndex + 4], EstablisherFrame, 1LL);
           RtlUnwindEx(
-            (unsigned __int64)EstablisherFrame,
-            v8 + v10[4 * v11 + 4],
+            EstablisherFrame,
+            (PVOID)(ImageBase + HandlerData[4 * ScopeIndex + 4]),
             ExceptionRecord,
-            ExceptionRecord->ExceptionCode,
-            *((_QWORD *)DispatcherContext + 5),
-            *((_QWORD *)DispatcherContext + 8));
+            (PVOID)ExceptionRecord->ExceptionCode,
+            DispatcherContext->ContextRecord,
+            DispatcherContext->HistoryTable);
           _NLG_Return2();
         }
       }
-      ++v11;
+      ++ScopeIndex;
     }
   }
   return 1;

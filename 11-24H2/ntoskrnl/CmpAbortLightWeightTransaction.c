@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpAbortLightWeightTransaction @ 0x140A06250
+ * XREFs of CmpAbortLightWeightTransaction @ 0x140A02780
  * Callers:
- *     CmpRollbackLightWeightTransaction @ 0x140A061B8 (CmpRollbackLightWeightTransaction.c)
- *     CmpCommitLightWeightTransaction @ 0x140A064F0 (CmpCommitLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x140A026E8 (CmpRollbackLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A02A20 (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpCleanupLightWeightTransaction @ 0x140A063A0 (CmpCleanupLightWeightTransaction.c)
- *     CmpTransMgrRollback @ 0x140A06460 (CmpTransMgrRollback.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140A028D0 (CmpCleanupLightWeightTransaction.c)
+ *     CmpTransMgrRollback @ 0x140A02990 (CmpTransMgrRollback.c)
  */
 
 void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
@@ -22,24 +22,24 @@ void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
 
   v5 = 0;
   v2 = 1;
-  if ( (unsigned int)dword_140E09EE8 > 5 && (qword_140E09EF8 & 1) != 0 && (qword_140E09F00 & 1) == qword_140E09F00 )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)word_1400550A2, 0LL, 0LL, 2u, v6);
+  if ( (unsigned int)dword_140E09F58 > 5 && (qword_140E09F68 & 1) != 0 && (qword_140E09F70 & 1) == qword_140E09F70 )
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)&word_140055C7E, 0LL, 0LL, 2u, v6);
   v4 = *(_QWORD *)(a1 + 16);
   if ( v4 )
   {
     CmpTransMgrRollback(v4, &v5);
     CmpCleanupLightWeightTransaction(v4);
   }
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
-    if ( (qword_140E09EF8 & 1) == 0 || (qword_140E09F00 & 1) != qword_140E09F00 )
+    if ( (qword_140E09F68 & 1) == 0 || (qword_140E09F70 & 1) != qword_140E09F70 )
       v2 = 0;
     if ( v2 )
     {
       v9 = 0;
       v8 = 4;
       v7 = &v5;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)&word_1400550CE, 0LL, 0LL, 3u, v6);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)byte_140055BA3, 0LL, 0LL, 3u, v6);
     }
   }
 }

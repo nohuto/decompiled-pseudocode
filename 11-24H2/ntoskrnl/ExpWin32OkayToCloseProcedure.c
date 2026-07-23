@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWin32OkayToCloseProcedure @ 0x140934C50
+ * XREFs of ExpWin32OkayToCloseProcedure @ 0x1408F3ED0
  * Callers:
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
  * Callees:
- *     PsSessionGetWin32Callouts @ 0x14046B2A0 (PsSessionGetWin32Callouts.c)
- *     PspUpdateCalloutParameters @ 0x1404EEDCC (PspUpdateCalloutParameters.c)
- *     ExCallCallBack @ 0x1409358AC (ExCallCallBack.c)
+ *     PsSessionGetWin32Callouts @ 0x140463D20 (PsSessionGetWin32Callouts.c)
+ *     PspUpdateCalloutParameters @ 0x1404E64C0 (PspUpdateCalloutParameters.c)
+ *     ExCallCallBack @ 0x1408F47CC (ExCallCallBack.c)
  */
 
 bool __fastcall ExpWin32OkayToCloseProcedure(unsigned __int64 a1, int *a2, unsigned __int64 a3, char a4)
@@ -14,7 +14,7 @@ bool __fastcall ExpWin32OkayToCloseProcedure(unsigned __int64 a1, int *a2, unsig
   unsigned __int64 v5; // r11
   POBJECT_TYPE *v6; // rax
   int v7; // r10d
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v9; // r10
   __int128 v11; // [rsp+30h] [rbp-30h] BYREF
   __int128 v12; // [rsp+40h] [rbp-20h]

@@ -1,23 +1,23 @@
 /*
- * XREFs of ObLogSecurityDescriptor @ 0x140838F50
+ * XREFs of ObLogSecurityDescriptor @ 0x140836B60
  * Callers:
- *     ObpInitObjectTypeSD @ 0x1407444C8 (ObpInitObjectTypeSD.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x14083042C (EtwpInitializeLoggerSecurityDescriptor.c)
- *     ExpWnfCreateNameInstance @ 0x140837E90 (ExpWnfCreateNameInstance.c)
- *     EtwpAllocGuidEntry @ 0x140838E48 (EtwpAllocGuidEntry.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140A5AC1C (IopSetDeviceSecurityDescriptor.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A9290C (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     ObpInitObjectTypeSD @ 0x1407427B8 (ObpInitObjectTypeSD.c)
+ *     ExpWnfCreateNameInstance @ 0x140835DA0 (ExpWnfCreateNameInstance.c)
+ *     EtwpAllocGuidEntry @ 0x140836A58 (EtwpAllocGuidEntry.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x1409CF810 (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140A524DC (IopSetDeviceSecurityDescriptor.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A8F0BC (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObLogSecurityDescriptor(__int16 *Buf1, _QWORD *a2, unsigned int a3)
@@ -40,7 +40,7 @@ __int64 __fastcall ObLogSecurityDescriptor(__int16 *Buf1, _QWORD *a2, unsigned i
   signed __int64 *Pool2; // r12
   signed __int64 *v20; // r15
   volatile signed __int64 *v21; // r14
-  _QWORD *v22; // rdi
+  char *v22; // rdi
   signed __int64 v23; // rdi
 
   v4 = Buf1[1];
@@ -117,11 +117,11 @@ LABEL_23:
 LABEL_26:
   --CurrentThread->KernelApcDisable;
   v21 = v20 + 1;
-  v22 = KeAbPreAcquire((__int64)v20, 0LL);
+  v22 = (char *)KeAbPreAcquire((__int64)v20, 0LL);
   if ( _InterlockedCompareExchange64(v20, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v20, 0, v22, (__int64)v20);
   if ( v22 )
-    *((_BYTE *)v22 + 10) = 1;
+    v22[10] = 1;
   while ( 1 )
   {
     v23 = *v21;
@@ -136,7 +136,7 @@ LABEL_33:
       KeLeaveCriticalRegionThread();
       if ( v5 + 40 < v5 )
         return 3221225626LL;
-      Pool2 = (signed __int64 *)ExAllocatePool2(0x108uLL);
+      Pool2 = (signed __int64 *)ExAllocatePool2(0x108uLL, v5 + 40, 0x6353624Fu);
       if ( !Pool2 )
         return 3221225626LL;
       Pool2[1] = a3;

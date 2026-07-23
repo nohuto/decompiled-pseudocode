@@ -10,22 +10,14 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpReleaseWork(int a1)
+void __cdecl TpReleaseWork(PTP_WORK Work)
 {
-  int result; // eax
   _UNKNOWN *retaddr; // [esp+8h] [ebp+4h]
 
-  result = TppWorkpValidateWork(0);
-  if ( result )
+  if ( TppWorkpValidateWork(0) && TppCleanupGroupMemberRelease((int)Work, 1) )
   {
-    result = TppCleanupGroupMemberRelease(a1, 1);
-    if ( result )
-    {
-      *(_DWORD *)(a1 + 112) = retaddr;
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( !result )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
-    }
+    *((_DWORD *)Work + 28) = retaddr;
+    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)Work, 0xFFFFFFFF) )
+      (**((void (__thiscall ***)(_DWORD, PTP_WORK))Work + 1))(**((_DWORD **)Work + 1), Work);
   }
-  return result;
 }

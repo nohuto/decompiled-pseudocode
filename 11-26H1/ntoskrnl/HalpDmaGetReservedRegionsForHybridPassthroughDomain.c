@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x14058AAC4
+ * XREFs of HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x14058D24C
  * Callers:
- *     HalpDmaAllocateDomain @ 0x14058A460 (HalpDmaAllocateDomain.c)
+ *     HalpDmaAllocateDomain @ 0x14058CB90 (HalpDmaAllocateDomain.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpDmaGetReservedRegionsForHybridPassthroughDomain(__int64 a1)

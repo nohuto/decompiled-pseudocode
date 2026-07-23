@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSectionDelete @ 0x14042E240
+ * XREFs of MiSectionDelete @ 0x14042D110
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiLogSectionObjectEvent @ 0x14065930C (MiLogSectionObjectEvent.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiLogSectionObjectEvent @ 0x1406593F0 (MiLogSectionObjectEvent.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
  */
 
 __int64 __fastcall MiSectionDelete(__int64 a1)
@@ -32,16 +32,16 @@ __int64 __fastcall MiSectionDelete(__int64 a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326560, 0LL, 0);
+    v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403265A0, 0LL, 0);
     v9 = v8;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326560, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&qword_140326560, v8, (ULONG_PTR)&qword_140326560);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_1403265A0, 0LL) )
+      ExfAcquirePushLockExclusiveEx(&qword_1403265A0, v8, (ULONG_PTR)&qword_1403265A0);
     if ( v9 )
       v9[26] |= 1u;
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140326558, a1);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-    KeAbPostRelease((ULONG_PTR)&qword_140326560);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140326598, a1);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+    KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   v5 = *(_QWORD *)(a1 + 40);

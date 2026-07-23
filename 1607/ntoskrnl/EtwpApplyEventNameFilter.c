@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpApplyEventNameFilter @ 0x1402299E4
+ * XREFs of EtwpApplyEventNameFilter @ 0x140229810
  * Callers:
- *     EtwpEventWriteFull @ 0x140073CE0 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140510920 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140073860 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1404F38B0 (EtwpWriteUserEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     EtwpEventNameFilterSearch @ 0x140229D40 (EtwpEventNameFilterSearch.c)
- *     EtwpGetEventNameFromEventMetadata @ 0x140229F94 (EtwpGetEventNameFromEventMetadata.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     EtwpEventNameFilterSearch @ 0x140229B6C (EtwpEventNameFilterSearch.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x140229DC0 (EtwpGetEventNameFromEventMetadata.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 char __fastcall EtwpApplyEventNameFilter(

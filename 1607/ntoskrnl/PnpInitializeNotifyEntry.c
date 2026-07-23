@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpInitializeNotifyEntry @ 0x14052BF78
+ * XREFs of PnpInitializeNotifyEntry @ 0x14052AE60
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x14052BB14 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x14052A9FC (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwOpenSession @ 0x14015C020 (ZwOpenSession.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwOpenSession @ 0x14015C590 (ZwOpenSession.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -21,19 +21,18 @@ __int64 __fastcall PnpInitializeNotifyEntry(
         __int64 a5,
         __int64 a6)
 {
-  __int64 v7; // rsi
+  HANDLE v7; // rsi
   unsigned int v11; // r14d
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   unsigned int SessionId; // eax
   struct _ERESOURCE *PoolWithTag; // rax
-  __int64 v16; // [rsp+28h] [rbp-E0h] BYREF
+  HANDLE SessionHandle; // [rsp+28h] [rbp-E0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D8h] BYREF
-  _QWORD v18[3]; // [rsp+40h] [rbp-C8h] BYREF
-  _DWORD v19[8]; // [rsp+58h] [rbp-B0h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-C8h] BYREF
   wchar_t Dst[256]; // [rsp+78h] [rbp-90h] BYREF
 
   v7 = 0LL;
-  v16 = 0LL;
+  SessionHandle = 0LL;
   v11 = 0;
   v12 = 0;
   if ( !MmIsSessionAddress(a3) )
@@ -44,13 +43,13 @@ __int64 __fastcall PnpInitializeNotifyEntry(
     return (unsigned int)-1073741811;
   swprintf_s(Dst, 0x100uLL, L"\\KernelObjects\\Session%d", SessionId);
   RtlInitUnicodeString(&DestinationString, Dst);
-  v18[1] = 0LL;
-  v18[2] = &DestinationString;
-  LODWORD(v18[0]) = 48;
-  v19[0] = 512;
-  *(_OWORD *)&v19[2] = 0LL;
-  v12 = ZwOpenSession((__int64)&v16, 0LL, (__int64)v18);
-  if ( v12 < 0 || (v7 = v16) == 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 512;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v12 = ZwOpenSession(&SessionHandle, 0, &ObjectAttributes);
+  if ( v12 < 0 || (v7 = SessionHandle) == 0LL )
   {
     return (unsigned int)-1073741811;
   }

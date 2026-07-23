@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecommitInitializePacket @ 0x1402899B0
+ * XREFs of MiDecommitInitializePacket @ 0x1402995B0
  * Callers:
- *     MiDecommitPages @ 0x140288300 (MiDecommitPages.c)
- *     MiDeletePagablePteRange @ 0x1403CC1D4 (MiDeletePagablePteRange.c)
- *     MiDeleteEmptyPageTables @ 0x140405978 (MiDeleteEmptyPageTables.c)
- *     MiStoreDiscardPoisonedPage @ 0x14068BF88 (MiStoreDiscardPoisonedPage.c)
+ *     MiDeletePagablePteRange @ 0x1402663A4 (MiDeletePagablePteRange.c)
+ *     MiDecommitPages @ 0x140297F00 (MiDecommitPages.c)
+ *     MiDeleteEmptyPageTables @ 0x1403C7ED4 (MiDeleteEmptyPageTables.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14068D0B8 (MiStoreDiscardPoisonedPage.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiVadPureReserve @ 0x140236380 (MiVadPureReserve.c)
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiDecommitComputeCheckPte @ 0x14040E840 (MiDecommitComputeCheckPte.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiVadPureReserve @ 0x140210510 (MiVadPureReserve.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiDecommitComputeCheckPte @ 0x140406A40 (MiDecommitComputeCheckPte.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiDecommitInitializePacket(
@@ -29,9 +29,9 @@ __int64 __fastcall MiDecommitInitializePacket(
   __int64 v11; // rbx
   __int64 v12; // r14
   __int64 v13; // r12
-  unsigned __int16 *v14; // r8
+  __int64 v14; // r8
   __int64 v15; // rax
-  unsigned __int16 *v16; // rax
+  __int64 v16; // rax
   int v17; // ecx
   __int64 v18; // r8
   int v19; // ecx
@@ -64,30 +64,30 @@ __int64 __fastcall MiDecommitInitializePacket(
   v13 = 528LL;
   if ( a5 )
   {
-    v14 = (unsigned __int16 *)(a5 + 1024);
+    v14 = a5 + 1024;
     *(_QWORD *)(a1 + 32) = a5 + 1024;
-    *(_QWORD *)(a1 + 8) = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a5 + 1198));
+    *(_QWORD *)(a1 + 8) = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a5 + 1198));
     if ( (a7 & 0x20) == 0 )
     {
       v15 = 512LL;
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         v15 = 528LL;
-        if ( (qword_140E2DB80 & 0x200) == 0 )
-          v15 = qword_140E2DB80 | 0x200;
+        if ( (qword_140E2DCC0 & 0x200) == 0 )
+          v15 = qword_140E2DCC0 | 0x200;
       }
       *(_QWORD *)(a1 + 168) = v15;
     }
   }
   else
   {
-    v16 = (unsigned __int16 *)MiVaToFlushVm(a2 << 25 >> 16);
+    v16 = MiVaToFlushVm(a2 << 25 >> 16);
     v9 = v29[0];
     v14 = v16;
     *(_QWORD *)(a1 + 32) = v16;
-    *(_QWORD *)(a1 + 8) = *((_QWORD *)qword_140E2FF88 + v16[87]);
+    *(_QWORD *)(a1 + 8) = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(v16 + 174));
   }
-  v17 = *((_DWORD *)v14 + 46);
+  v17 = *(_DWORD *)(v14 + 184);
   v18 = 0LL;
   v19 = v17 & 0xF;
   *(_DWORD *)(a1 + 40) = v19;
@@ -97,10 +97,10 @@ __int64 __fastcall MiDecommitInitializePacket(
     {
       if ( (a7 & 0x20) == 0 )
       {
-        if ( qword_140E2DB80 )
+        if ( qword_140E2DCC0 )
         {
-          if ( (qword_140E2DB80 & 0x200) == 0 )
-            v13 = qword_140E2DB80 | 0x200;
+          if ( (qword_140E2DCC0 & 0x200) == 0 )
+            v13 = qword_140E2DCC0 | 0x200;
           v11 = v13;
         }
         *(_QWORD *)(a1 + 168) = v11;
@@ -159,7 +159,7 @@ LABEL_18:
   }
   if ( (a7 & 0x20) == 0 )
   {
-    DemandZeroPte = MiMakeDemandZeroPte((*(_DWORD *)(a6 + 48) >> 7) & 0x1F);
+    DemandZeroPte = MiMakeDemandZeroPte((*(_DWORD *)(a6 + 48) >> 7) & 0x1F, 0x7FFFFFFFELL, 0LL, a4);
     *(_QWORD *)(a1 + 168) = DemandZeroPte;
     *(_QWORD *)(a1 + 176) = DemandZeroPte;
   }

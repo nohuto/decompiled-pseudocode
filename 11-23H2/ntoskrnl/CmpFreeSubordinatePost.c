@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeSubordinatePost @ 0x1407678DC
+ * XREFs of CmpFreeSubordinatePost @ 0x140767ACC
  * Callers:
- *     CmpPostNotify @ 0x140766860 (CmpPostNotify.c)
- *     CmNotifyRunDown @ 0x14076E5E4 (CmNotifyRunDown.c)
- *     CmpPostApc @ 0x1407D4AD0 (CmpPostApc.c)
- *     CmpPostApcRunDown @ 0x140A0F720 (CmpPostApcRunDown.c)
+ *     CmpPostNotify @ 0x140766A50 (CmpPostNotify.c)
+ *     CmNotifyRunDown @ 0x14076E7D4 (CmNotifyRunDown.c)
+ *     CmpPostApc @ 0x1407D4DA0 (CmpPostApc.c)
+ *     CmpPostApcRunDown @ 0x140A0F9D0 (CmpPostApcRunDown.c)
  * Callees:
- *     CmpFreePostBlock @ 0x140768350 (CmpFreePostBlock.c)
+ *     CmpFreePostBlock @ 0x140768540 (CmpFreePostBlock.c)
  */
 
 _QWORD *__fastcall CmpFreeSubordinatePost(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlHashUnicodeString @ 0x1409862A0
+ * XREFs of RtlHashUnicodeString @ 0x14096EAB0
  * Callers:
- *     PiUEventHashStringIntoBucket @ 0x14047B794 (PiUEventHashStringIntoBucket.c)
- *     KsepCacheHwIdHash @ 0x1404B3360 (KsepCacheHwIdHash.c)
- *     CarLiveDumpCallBack @ 0x140619C10 (CarLiveDumpCallBack.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x14074DC98 (PopFxInitializeSocSubsystemStaticInfo.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x14074F88C (PopPluginQuerySocSubsystemMetadata.c)
- *     SepComputeCachedHandlesEntrySignature @ 0x1408F2D10 (SepComputeCachedHandlesEntrySignature.c)
- *     KsepCacheDeviceHash @ 0x140985E30 (KsepCacheDeviceHash.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x140985E5C (PiDevCfgBuildDriverNodeStrongName.c)
- *     PopPluginQuerySocSubsystemBlockingTime @ 0x1409861C4 (PopPluginQuerySocSubsystemBlockingTime.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140AA3320 (PiCreateDriverSwDeviceCallback.c)
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
- *     PipInitDeviceOverrideCache @ 0x140C210A8 (PipInitDeviceOverrideCache.c)
+ *     PiUEventHashStringIntoBucket @ 0x140477414 (PiUEventHashStringIntoBucket.c)
+ *     KsepCacheHwIdHash @ 0x1404ADBD0 (KsepCacheHwIdHash.c)
+ *     CarLiveDumpCallBack @ 0x1406181D0 (CarLiveDumpCallBack.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x14074BFC8 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x14074DBBC (PopPluginQuerySocSubsystemMetadata.c)
+ *     SepComputeCachedHandlesEntrySignature @ 0x14091435C (SepComputeCachedHandlesEntrySignature.c)
+ *     KsepCacheDeviceHash @ 0x14096E640 (KsepCacheDeviceHash.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x14096E66C (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x14096E9D4 (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140A9E6B0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
+ *     PipInitDeviceOverrideCache @ 0x140C230E8 (PipInitDeviceOverrideCache.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
  */
 
 NTSTATUS __stdcall RtlHashUnicodeString(

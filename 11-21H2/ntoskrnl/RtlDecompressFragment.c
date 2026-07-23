@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 NTSTATUS __stdcall RtlDecompressFragment(
@@ -19,14 +19,6 @@ NTSTATUS __stdcall RtlDecompressFragment(
   if ( (unsigned __int8)CompressionFormat < 2u )
     return -1073741811;
   if ( (unsigned __int8)CompressionFormat <= 5u )
-    return ((__int64 (__fastcall *)(PUCHAR, _QWORD, PUCHAR, _QWORD, ULONG, _DWORD, PULONG, PVOID))RtlDecompressFragmentProcs[(unsigned __int8)CompressionFormat])(
-             UncompressedFragment,
-             UncompressedFragmentSize,
-             CompressedBuffer,
-             CompressedBufferSize,
-             FragmentOffset,
-             0,
-             FinalUncompressedSize,
-             WorkSpace);
+    return sub_14042A5E0(UncompressedFragment, UncompressedFragmentSize);
   return -1073741217;
 }

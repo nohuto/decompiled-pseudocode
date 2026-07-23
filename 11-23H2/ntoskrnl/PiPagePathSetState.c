@@ -1,24 +1,24 @@
 /*
- * XREFs of PiPagePathSetState @ 0x140853C48
+ * XREFs of PiPagePathSetState @ 0x140853F48
  * Callers:
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     PpPagePathAssign @ 0x140853C30 (PpPagePathAssign.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x1408541AC (CmpVolumeContextSendDeviceUsageNotification.c)
- *     CmpVolumeContextCleanup @ 0x140862C14 (CmpVolumeContextCleanup.c)
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     PpPagePathAssign @ 0x140853F30 (PpPagePathAssign.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x1408544AC (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeContextCleanup @ 0x140862E54 (CmpVolumeContextCleanup.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoQueueThreadIrp @ 0x1403C7780 (IoQueueThreadIrp.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     IoGetRelatedTargetDevice @ 0x14079459C (IoGetRelatedTargetDevice.c)
- *     PpIrpAllocateDeviceUsageNotification @ 0x140853D30 (PpIrpAllocateDeviceUsageNotification.c)
- *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x140853DE0 (PoDirectedDripsNotifyPagingDeviceUsage.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoQueueThreadIrp @ 0x1403C7960 (IoQueueThreadIrp.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     IoGetRelatedTargetDevice @ 0x14079478C (IoGetRelatedTargetDevice.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x140854030 (PpIrpAllocateDeviceUsageNotification.c)
+ *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x1408540E0 (PoDirectedDripsNotifyPagingDeviceUsage.c)
  */
 
 __int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *Object, char a2)

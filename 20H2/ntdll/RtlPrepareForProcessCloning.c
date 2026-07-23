@@ -21,36 +21,25 @@
 __int64 RtlPrepareForProcessCloning()
 {
   struct _RTLP_FLS_CONTEXT *v0; // rcx
-  unsigned __int64 v1; // rdx
-  unsigned __int64 v2; // r8
-  unsigned __int64 v3; // r9
-  unsigned __int64 v4; // rdx
-  int v5; // ebx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r9
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  struct _RTLP_FLS_CONTEXT *v10; // rcx
+  int v1; // ebx
+  struct _RTLP_FLS_CONTEXT *v2; // rcx
   __int64 result; // rax
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // r9
 
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   RtlpFlsClonePrepare(v0);
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   LdrpLockTlsDelayedReclaimTable();
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpProtectedPoliciesSRWLock, v1, v2, v3);
+  RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   LdrForkMrdata(0LL);
-  v5 = RtlLockHeapManagerForCloning();
-  if ( v5 >= 0 )
+  v1 = RtlLockHeapManagerForCloning();
+  if ( v1 >= 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlCriticalSectionLock, v4, v6, v7);
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpForkActiveLock, v12, v13, v14);
+    RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+    RtlAcquireSRWLockExclusive(&LdrpForkActiveLock);
     result = 0LL;
     LdrpForkInProgress = 1;
   }
@@ -59,10 +48,10 @@ __int64 RtlPrepareForProcessCloning()
     LdrForkMrdata(2LL);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock, v8, v9);
-    RtlpFlsCloneComplete(v10, 0);
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlpFlsCloneComplete(v2, 0);
     LdrpCompleteProcessCloning(0LL);
-    return (unsigned int)v5;
+    return (unsigned int)v1;
   }
   return result;
 }

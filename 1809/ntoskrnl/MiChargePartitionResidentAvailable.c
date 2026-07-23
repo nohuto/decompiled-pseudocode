@@ -10,8 +10,8 @@
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  */
@@ -69,7 +69,7 @@ LABEL_35:
       if ( a3 != 0xFFFFFFFFLL )
       {
 LABEL_36:
-        ++dword_14043A894;
+        ++dword_14043B954;
         if ( v6 )
           _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7360), v6);
         return 0LL;
@@ -116,6 +116,6 @@ LABEL_9:
     }
     return (unsigned int)(v9 + 2);
   }
-  ++dword_14043A890;
+  ++dword_14043B950;
   return 0LL;
 }

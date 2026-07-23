@@ -1,47 +1,47 @@
 /*
- * XREFs of PiSwIrpStartCreateWorker @ 0x140A7B9C8
+ * XREFs of PiSwIrpStartCreateWorker @ 0x140A8CB08
  * Callers:
- *     PiSwStartCreate @ 0x1407B06FC (PiSwStartCreate.c)
- *     PiSwIrpStartCreate @ 0x140A7B85C (PiSwIrpStartCreate.c)
+ *     PiSwStartCreate @ 0x1407B375C (PiSwStartCreate.c)
+ *     PiSwIrpStartCreate @ 0x140A8C99C (PiSwIrpStartCreate.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInsertElementGenericTableAvl @ 0x1403B88C0 (RtlInsertElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     PsGetCurrentThreadProcessId @ 0x1404575B0 (PsGetCurrentThreadProcessId.c)
- *     RtlStringCbLengthW @ 0x14047EE24 (RtlStringCbLengthW.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14049E7E8 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140525230 (McTemplateK0zz_EtwWriteTransfer.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     McTemplateK0zztt_EtwWriteTransfer @ 0x1405DC23C (McTemplateK0zztt_EtwWriteTransfer.c)
- *     McTemplateK0zzzdzzq_EtwWriteTransfer @ 0x1405DC558 (McTemplateK0zzzdzzq_EtwWriteTransfer.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PiSwQueuedCreateInfoCreate @ 0x1407B05E8 (PiSwQueuedCreateInfoCreate.c)
- *     PiSwLock @ 0x14090DC3C (PiSwLock.c)
- *     PnpFreeDevPropertyArray @ 0x140990C90 (PnpFreeDevPropertyArray.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwPropertySet @ 0x1409DAD84 (PiSwPropertySet.c)
- *     PiSwQueuedCreateInfoFree @ 0x140A7AE8C (PiSwQueuedCreateInfoFree.c)
- *     PiSwIrpCleanup @ 0x140A7AF04 (PiSwIrpCleanup.c)
- *     PiSwBusRelationRemove @ 0x140A7B204 (PiSwBusRelationRemove.c)
- *     PiSwFindPdoAssociation @ 0x140A7B3A4 (PiSwFindPdoAssociation.c)
- *     PiSwDeviceDereference @ 0x140A7B3F4 (PiSwDeviceDereference.c)
- *     PiSwPnPInfoFree @ 0x140A7B6F0 (PiSwPnPInfoFree.c)
- *     PiSwFreeInterfaceList @ 0x140A7B794 (PiSwFreeInterfaceList.c)
- *     PiSwDeviceCreate @ 0x140A7BEBC (PiSwDeviceCreate.c)
- *     PiSwValidateCreateData @ 0x140A7BF28 (PiSwValidateCreateData.c)
- *     PiSwPnPInfoInit @ 0x140A7C254 (PiSwPnPInfoInit.c)
- *     PiSwInstanceInfoInit @ 0x140A7C318 (PiSwInstanceInfoInit.c)
- *     PiSwBusRelationAdd @ 0x140A7C3EC (PiSwBusRelationAdd.c)
- *     PnpCopyDevPropertyArray @ 0x140A7C5A0 (PnpCopyDevPropertyArray.c)
- *     PiSwDoesCreateChangesRequireReEnum @ 0x140B3C214 (PiSwDoesCreateChangesRequireReEnum.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403C27C0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     PsGetCurrentThreadProcessId @ 0x14044EE20 (PsGetCurrentThreadProcessId.c)
+ *     RtlStringCbLengthW @ 0x140478794 (RtlStringCbLengthW.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140498338 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405278A0 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     McTemplateK0zztt_EtwWriteTransfer @ 0x1405DEAEC (McTemplateK0zztt_EtwWriteTransfer.c)
+ *     McTemplateK0zzzdzzq_EtwWriteTransfer @ 0x1405DEE08 (McTemplateK0zzzdzzq_EtwWriteTransfer.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x1407B3648 (PiSwQueuedCreateInfoCreate.c)
+ *     PnpFreeDevPropertyArray @ 0x1409516F0 (PnpFreeDevPropertyArray.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwLock @ 0x1409AFD6C (PiSwLock.c)
+ *     PiSwPropertySet @ 0x140A17FD4 (PiSwPropertySet.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140A8BFD0 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwIrpCleanup @ 0x140A8C048 (PiSwIrpCleanup.c)
+ *     PiSwBusRelationRemove @ 0x140A8C348 (PiSwBusRelationRemove.c)
+ *     PiSwFindPdoAssociation @ 0x140A8C4E8 (PiSwFindPdoAssociation.c)
+ *     PiSwDeviceDereference @ 0x140A8C538 (PiSwDeviceDereference.c)
+ *     PiSwPnPInfoFree @ 0x140A8C830 (PiSwPnPInfoFree.c)
+ *     PiSwFreeInterfaceList @ 0x140A8C8D4 (PiSwFreeInterfaceList.c)
+ *     PiSwDeviceCreate @ 0x140A8CFFC (PiSwDeviceCreate.c)
+ *     PiSwValidateCreateData @ 0x140A8D068 (PiSwValidateCreateData.c)
+ *     PiSwPnPInfoInit @ 0x140A8D384 (PiSwPnPInfoInit.c)
+ *     PiSwInstanceInfoInit @ 0x140A8D448 (PiSwInstanceInfoInit.c)
+ *     PiSwBusRelationAdd @ 0x140A8D51C (PiSwBusRelationAdd.c)
+ *     PnpCopyDevPropertyArray @ 0x140A8D6D0 (PnpCopyDevPropertyArray.c)
+ *     PiSwDoesCreateChangesRequireReEnum @ 0x140B3E494 (PiSwDoesCreateChangesRequireReEnum.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
@@ -107,7 +107,7 @@ __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
   Data = PiSwValidateCreateData();
   if ( Data < 0 )
     goto LABEL_7;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzzdzzq_EtwWriteTransfer(
       v9,
       v8,
@@ -142,7 +142,7 @@ __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
         goto LABEL_61;
       v18 = (const wchar_t **)*inserted;
       P = *inserted;
-      if ( (byte_140EF3DCC & 0x40) != 0 )
+      if ( (byte_140EF412C & 0x40) != 0 )
       {
         McTemplateK0zzd_EtwWriteTransfer(
           (__int64)v18,
@@ -208,7 +208,7 @@ LABEL_61:
         Data = -1073741771;
         goto LABEL_6;
       }
-      if ( (byte_140EF3DCC & 0x40) != 0 )
+      if ( (byte_140EF412C & 0x40) != 0 )
       {
         McTemplateK0zztt_EtwWriteTransfer(
           (*((_DWORD *)P + 1) >> 1) & 1,
@@ -232,7 +232,7 @@ LABEL_61:
             {
               v51 = 0;
               v47 = 0LL;
-              if ( (byte_140EF3DCC & 0x40) != 0 )
+              if ( (byte_140EF412C & 0x40) != 0 )
                 McTemplateK0zz_EtwWriteTransfer(
                   v26,
                   (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_PropertyUpdate,
@@ -261,7 +261,7 @@ LABEL_61:
             }
             v23 = P;
           }
-          if ( (byte_140EF3DCC & 0x40) != 0 )
+          if ( (byte_140EF412C & 0x40) != 0 )
           {
             McTemplateK0zz_EtwWriteTransfer(
               v26,
@@ -292,7 +292,7 @@ LABEL_61:
       {
         ObfDereferenceObject(v33);
         v3 = 0LL;
-        if ( (byte_140EF3DCC & 0x40) != 0 )
+        if ( (byte_140EF412C & 0x40) != 0 )
           McTemplateK0zz_EtwWriteTransfer(
             v34,
             (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_QueueCreate,
@@ -358,7 +358,7 @@ LABEL_45:
 LABEL_62:
         if ( NewElement != (_BYTE)v17 )
         {
-          if ( (byte_140EF3DCC & 0x40) != 0 )
+          if ( (byte_140EF412C & 0x40) != 0 )
             McTemplateK0zz_EtwWriteTransfer(
               (__int64)v14,
               (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_InstanceTable_Remove,
@@ -461,7 +461,7 @@ LABEL_7:
   }
   else if ( Data >= 0 )
   {
-    if ( (byte_140EF3DCC & 0x40) != 0 )
+    if ( (byte_140EF412C & 0x40) != 0 )
       McTemplateK0zztt_EtwWriteTransfer(
         v9,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_LifetimeChanged,

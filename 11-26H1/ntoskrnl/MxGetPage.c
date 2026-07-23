@@ -1,13 +1,13 @@
 /*
- * XREFs of MxGetPage @ 0x140CF6D70
+ * XREFs of MxGetPage @ 0x140CFD0F0
  * Callers:
- *     MxCreateFreePageNode @ 0x140CF5A8C (MxCreateFreePageNode.c)
- *     MxGetPage @ 0x140CF6D70 (MxGetPage.c)
- *     MxMapVa @ 0x140CF7FB0 (MxMapVa.c)
+ *     MxCreateFreePageNode @ 0x140CFBE0C (MxCreateFreePageNode.c)
+ *     MxGetPage @ 0x140CFD0F0 (MxGetPage.c)
+ *     MxMapVa @ 0x140CFE330 (MxMapVa.c)
  * Callees:
- *     MxGetFreePageDescriptor @ 0x140CF6CA0 (MxGetFreePageDescriptor.c)
- *     MxGetPage @ 0x140CF6D70 (MxGetPage.c)
- *     MxUpdateBootNodeFreePageCount @ 0x140CF85D8 (MxUpdateBootNodeFreePageCount.c)
+ *     MxGetFreePageDescriptor @ 0x140CFD020 (MxGetFreePageDescriptor.c)
+ *     MxGetPage @ 0x140CFD0F0 (MxGetPage.c)
+ *     MxUpdateBootNodeFreePageCount @ 0x140CFE958 (MxUpdateBootNodeFreePageCount.c)
  */
 
 __int64 __fastcall MxGetPage(unsigned int a1, int a2)
@@ -119,8 +119,8 @@ LABEL_6:
       v6[24] = v24;
     }
     if ( (a2 & 8) != 0 )
-      ++qword_14101EC10;
-    ++qword_14101EC18;
+      ++qword_14101FC10;
+    ++qword_14101FC18;
     goto LABEL_45;
   }
   v14 = v6[20];
@@ -145,9 +145,9 @@ LABEL_40:
   v6[24] = 0LL;
 LABEL_24:
   if ( (a2 & 8) != 0 )
-    qword_14101EC10 += v15;
-  qword_14101EC18 += v15;
+    qword_14101FC10 += v15;
+  qword_14101FC18 += v15;
 LABEL_45:
-  ++qword_14101EC20;
+  ++qword_14101FC20;
   return v16;
 }

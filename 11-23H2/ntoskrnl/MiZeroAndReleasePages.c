@@ -1,26 +1,26 @@
 /*
- * XREFs of MiZeroAndReleasePages @ 0x1402D3030
+ * XREFs of MiZeroAndReleasePages @ 0x1402D32C0
  * Callers:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
  * Callees:
  *     MiChangePageAttributeContiguous @ 0x14021A6A0 (MiChangePageAttributeContiguous.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     MiProcessPageGroupInfo @ 0x14032F510 (MiProcessPageGroupInfo.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiPfnBestZeroAttribute @ 0x14033956C (MiPfnBestZeroAttribute.c)
- *     MiCreatePageChains @ 0x14035B780 (MiCreatePageChains.c)
- *     MiSyncCommitSignals @ 0x1403961E0 (MiSyncCommitSignals.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRestockOverCommit @ 0x140656638 (MiRestockOverCommit.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     MiZeroLargePage @ 0x1402EC31C (MiZeroLargePage.c)
+ *     MiProcessPageGroupInfo @ 0x14032F7A0 (MiProcessPageGroupInfo.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiPfnBestZeroAttribute @ 0x1403397FC (MiPfnBestZeroAttribute.c)
+ *     MiCreatePageChains @ 0x14035B920 (MiCreatePageChains.c)
+ *     MiSyncCommitSignals @ 0x1403963C0 (MiSyncCommitSignals.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiRestockOverCommit @ 0x140656B88 (MiRestockOverCommit.c)
  */
 
 volatile signed __int32 *__fastcall MiZeroAndReleasePages(__int64 a1, int a2)
@@ -199,7 +199,7 @@ LABEL_113:
           v21 = 1LL;
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -274,10 +274,10 @@ LABEL_113:
             v31 = MiRestockOverCommit(v28, v25);
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
             OldIrql = LockHandle.OldIrql;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v54 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v54 <= 0xFu && LockHandle.OldIrql <= 0xFu && v54 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu && LockHandle.OldIrql <= 0xFu && v54 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v56 = CurrentPrcb->SchedulerAssist;
@@ -362,10 +362,10 @@ LABEL_33:
           }
 LABEL_36:
           _InterlockedAnd64((volatile signed __int64 *)v23, 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v58 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
             {
               v59 = KeGetCurrentPrcb();
               v60 = v59->SchedulerAssist;

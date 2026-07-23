@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeUnmappedPageTables @ 0x140340950
+ * XREFs of MiFreeUnmappedPageTables @ 0x140340BE0
  * Callers:
- *     MiDeleteSystemPageTableTail @ 0x1403408A0 (MiDeleteSystemPageTableTail.c)
+ *     MiDeleteSystemPageTableTail @ 0x140340B30 (MiDeleteSystemPageTableTail.c)
  * Callees:
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeUnmappedPageTables(__int64 a1, _QWORD *a2)
@@ -34,10 +34,10 @@ __int64 __fastcall MiFreeUnmappedPageTables(__int64 a1, _QWORD *a2)
         ++a2[1];
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v7 <= 0xFu
           && (unsigned __int8)result >= 2u )

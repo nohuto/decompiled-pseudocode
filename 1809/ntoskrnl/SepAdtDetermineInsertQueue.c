@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtDetermineInsertQueue @ 0x140190BA0
+ * XREFs of SepAdtDetermineInsertQueue @ 0x140190CE0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     SepAdtGenerateDiscardAudit @ 0x14089E1C0 (SepAdtGenerateDiscardAudit.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     SepAdtGenerateDiscardAudit @ 0x14089F420 (SepAdtGenerateDiscardAudit.c)
  */
 
 char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
@@ -23,7 +23,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
   {
     if ( SepAdtDiscardingAudits )
     {
-      if ( dword_1404402A0 >= (unsigned int)SepAdtMinListLength )
+      if ( dword_140441370 >= (unsigned int)SepAdtMinListLength )
       {
         ++SepAdtCountEventsDiscarded;
         return v1;
@@ -52,7 +52,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
       }
       SepAdtCountEventsDiscarded = 0;
     }
-    if ( dword_1404402A0 >= (unsigned int)SepAdtMaxListLength )
+    if ( dword_140441370 >= (unsigned int)SepAdtMaxListLength )
     {
       SepAdtDiscardingAudits = 1;
       SepAdtCountEventsDiscarded = 1;

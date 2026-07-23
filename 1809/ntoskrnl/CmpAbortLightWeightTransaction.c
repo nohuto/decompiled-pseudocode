@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAbortLightWeightTransaction @ 0x140693990
+ * XREFs of CmpAbortLightWeightTransaction @ 0x140694B50
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140693544 (CmpCommitLightWeightTransaction.c)
- *     CmpRollbackLightWeightTransaction @ 0x1406938F0 (CmpRollbackLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140694704 (CmpCommitLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x140694AB0 (CmpRollbackLightWeightTransaction.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpCleanupLightWeightTransaction @ 0x140693A3C (CmpCleanupLightWeightTransaction.c)
- *     CmpTransMgrRollback @ 0x1406941F4 (CmpTransMgrRollback.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140694BFC (CmpCleanupLightWeightTransaction.c)
+ *     CmpTransMgrRollback @ 0x1406953B4 (CmpTransMgrRollback.c)
  */
 
 void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
@@ -23,23 +23,23 @@ void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
   EVENT_DATA_DESCRIPTOR pData; // [rsp+68h] [rbp-30h] BYREF
 
   v3 = 0;
-  if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
-    TlgWrite(&stru_1403FFAA0, &unk_14036C077, 0LL, 0LL, 2u, &pData);
+  if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 1uLL) )
+    TlgWrite(&stru_140400AA0, &unk_14036D007, 0LL, 0LL, 2u, &pData);
   v2 = *(_QWORD *)(a1 + 16);
   if ( v2 )
   {
     CmpTransMgrRollback(v2, &v3);
     CmpCleanupLightWeightTransaction(v2);
   }
-  if ( stru_1403FFAA0.LevelPlus1 > 5 )
+  if ( stru_140400AA0.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
+    if ( TlgKeywordOn(&stru_140400AA0, 1uLL) )
     {
       v8 = 0;
       v4 = v3;
       v6 = &v4;
       v7 = 4;
-      TlgWrite(&stru_1403FFAA0, &unk_14036C041, 0LL, 0LL, 3u, &v5);
+      TlgWrite(&stru_140400AA0, &unk_14036CFD1, 0LL, 0LL, 3u, &v5);
     }
   }
 }

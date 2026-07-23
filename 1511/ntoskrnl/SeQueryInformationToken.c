@@ -74,8 +74,8 @@ NTSTATUS __stdcall SeQueryInformationToken(
   int v30; // edx
   struct _KTHREAD *CurrentThread; // rax
   ULONG v32; // r15d
-  struct _SID_AND_ATTRIBUTES *PoolWithTag; // rax
-  struct _SID_AND_ATTRIBUTES *v34; // rdi
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  _SID_AND_ATTRIBUTES *v34; // rdi
   struct _KTHREAD *v35; // rax
   unsigned int v36; // ecx
   ULONG v37; // edi
@@ -122,7 +122,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   __int64 v78; // r8
   __int64 v79; // rax
   char *v80; // rax
-  struct _SID_AND_ATTRIBUTES *v81; // r9
+  _SID_AND_ATTRIBUTES *v81; // r9
   struct _KTHREAD *v82; // rax
   __int64 v83; // rax
   unsigned int v84; // eax
@@ -187,7 +187,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
         v32 = 4 * *(unsigned __int8 *)(**((_QWORD **)Token + 19) + 1LL) + 24;
-        PoolWithTag = (struct _SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v32, 0x20206553u);
+        PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v32, 0x20206553u);
         v34 = PoolWithTag;
         if ( !PoolWithTag )
           goto LABEL_74;
@@ -394,7 +394,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
         v12 = v80;
         if ( !v80 )
           goto LABEL_74;
-        v81 = (struct _SID_AND_ATTRIBUTES *)(v80 + 56);
+        v81 = (_SID_AND_ATTRIBUTES *)(v80 + 56);
         *((_QWORD *)v80 + 6) = *((_QWORD *)Token + 3);
         *((_DWORD *)v80 + 1) = v70;
         *(_DWORD *)v80 = *((_DWORD *)Token + 31);

@@ -1,18 +1,18 @@
 /*
- * XREFs of EmonAddProfileSource @ 0x14055A820
+ * XREFs of EmonAddProfileSource @ 0x140558450
  * Callers:
  *     <none>
  * Callees:
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     wcsnlen @ 0x140500090 (wcsnlen.c)
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     HalpInsertProfileSource @ 0x140545D38 (HalpInsertProfileSource.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     wcsnlen @ 0x1404FD950 (wcsnlen.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     HalpInsertProfileSource @ 0x1405435F8 (HalpInsertProfileSource.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall EmonAddProfileSource(unsigned __int8 *a1, _DWORD *a2)

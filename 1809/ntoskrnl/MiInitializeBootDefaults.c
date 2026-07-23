@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeBootDefaults @ 0x1409DBEF0
+ * XREFs of MiInitializeBootDefaults @ 0x1409DCEF0
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     MmIsVerifierEnabled @ 0x140921490 (MmIsVerifierEnabled.c)
+ *     KiInitializeMutant @ 0x1400DD3F8 (KiInitializeMutant.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     MmIsVerifierEnabled @ 0x140922490 (MmIsVerifierEnabled.c)
  */
 
 __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
@@ -27,8 +27,8 @@ __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
     MmLargePageDriverBufferLength = -1;
     MmSpecialPoolTag = 0;
     MmProtectFreedNonPagedPool = 0;
-    byte_14043AED5 = 1;
-    dword_14054017C = 0;
+    byte_14043BF95 = 1;
+    dword_14054117C = 0;
     MEMORY[0xFFFFF780000002EC] = 1;
   }
   else
@@ -67,26 +67,26 @@ __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
   Dpc.DpcData = 0LL;
   Dpc.ProcessorHistory = 0LL;
   KiInitializeMutant((__int64)&Mutant, 0LL, 0LL);
-  qword_140438F30 = 0LL;
-  v5 = byte_14043ADA0;
+  qword_140439FF0 = 0LL;
+  v5 = byte_14043BE60;
   for ( i = 0; i < 2; ++i )
   {
-    InitializeSListHead(&stru_14043AD80[i]);
+    InitializeSListHead(&stru_14043BE40[i]);
     if ( i )
-      v7 = 2 * byte_14043ADA0[i - 1];
+      v7 = 2 * byte_14043BE60[i - 1];
     else
       v7 = 8;
     *v5++ = v7;
   }
-  dword_14043A8EC = 5;
-  qword_140439FF0 = (__int64)&qword_140439FE8;
-  qword_140439FE8 = (__int64)&qword_140439FE8;
-  qword_140439FE0 = -10000000LL * dword_140540194;
+  dword_14043B9AC = 5;
+  qword_14043B0B0 = (__int64)&qword_14043B0A8;
+  qword_14043B0A8 = (__int64)&qword_14043B0A8;
+  qword_14043B0A0 = -10000000LL * dword_140541194;
   SpinLock = 0LL;
-  qword_14043AE80 = 0LL;
-  qword_140438BD0 = 0LL;
-  qword_140438BE8 = 0x7FF5FFFFFFFFLL;
+  qword_14043BF40 = 0LL;
+  qword_140439C90 = 0LL;
+  qword_140439CA8 = 0x7FF5FFFFFFFFLL;
   result = (unsigned __int8)ExGenRandom(1) << 16;
-  qword_140438BE8 += 0xFFFFFFFDFF800000uLL - result;
+  qword_140439CA8 += 0xFFFFFFFDFF800000uLL - result;
   return result;
 }

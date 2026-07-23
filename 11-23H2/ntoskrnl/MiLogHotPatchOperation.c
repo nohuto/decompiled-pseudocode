@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogHotPatchOperation @ 0x140A38AFC
+ * XREFs of MiLogHotPatchOperation @ 0x140A38DAC
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MiFillLogProcessInfo @ 0x14025B460 (MiFillLogProcessInfo.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiFillLogProcessInfo @ 0x14025B6F0 (MiFillLogProcessInfo.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchOperation(
@@ -107,7 +107,7 @@ char __fastcall MiLogHotPatchOperation(
           v41 = 4LL;
           tlgCreate1Sz_char((__int64)v42, v36);
           v43 = &v34;
-          v16 = (unsigned __int8 *)&byte_140038F91;
+          v16 = (unsigned __int8 *)&byte_140039191;
           v34 = a7;
           v45 = &v33;
           v47 = &v32;
@@ -157,7 +157,7 @@ char __fastcall MiLogHotPatchOperation(
         v41 = 4LL;
         tlgCreate1Sz_char((__int64)v42, v36);
         v43 = &v25;
-        v16 = (unsigned __int8 *)byte_140038E5B;
+        v16 = (unsigned __int8 *)byte_14003905B;
         v25 = a7;
         v45 = &v26;
         v47 = &v27;

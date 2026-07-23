@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuAllocateAndZeroPageTable @ 0x1403ABF8C
+ * XREFs of HalpIommuAllocateAndZeroPageTable @ 0x14039A69C
  * Callers:
- *     HalpIommuMapLogical @ 0x1403AC998 (HalpIommuMapLogical.c)
- *     HalpIommuInitializeDmarPageTable @ 0x140567B64 (HalpIommuInitializeDmarPageTable.c)
- *     HalpIommuMapLogicalRange @ 0x140567D28 (HalpIommuMapLogicalRange.c)
+ *     HalpIommuMapLogical @ 0x14039B1A4 (HalpIommuMapLogical.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x140565654 (HalpIommuInitializeDmarPageTable.c)
+ *     HalpIommuMapLogicalRange @ 0x140565818 (HalpIommuMapLogicalRange.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1403AC6DC (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     HalMapIoSpace @ 0x14055FE80 (HalMapIoSpace.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140C673EC (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14039AEE8 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     HalMapIoSpace @ 0x14055DAB0 (HalMapIoSpace.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140C69568 (HalpAllocPhysicalMemoryEx.c)
  */
 
 void *__fastcall HalpIommuAllocateAndZeroPageTable(__int64 a1, unsigned int a2, __int64 a3)

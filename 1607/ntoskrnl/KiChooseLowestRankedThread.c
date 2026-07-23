@@ -1,14 +1,14 @@
 /*
- * XREFs of KiChooseLowestRankedThread @ 0x140099144
+ * XREFs of KiChooseLowestRankedThread @ 0x140098944
  * Callers:
- *     KiSelectReadyThreadEx @ 0x14005DF30 (KiSelectReadyThreadEx.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D20C0 (KiGroupSchedulingQuantumEnd.c)
+ *     KiSelectReadyThreadEx @ 0x14005DAB0 (KiSelectReadyThreadEx.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400CFF60 (KiGroupSchedulingQuantumEnd.c)
  * Callees:
- *     KiSelectReadyThread @ 0x14005C1C0 (KiSelectReadyThread.c)
- *     KiSelectThreadFromSchedulingGroup @ 0x14009939C (KiSelectThreadFromSchedulingGroup.c)
- *     KiSelectThreadFromScbQueue @ 0x14009982C (KiSelectThreadFromScbQueue.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D0220 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiSelectReadyThread @ 0x14005BD40 (KiSelectReadyThread.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x140098B9C (KiSelectThreadFromSchedulingGroup.c)
+ *     KiSelectThreadFromScbQueue @ 0x14009902C (KiSelectThreadFromScbQueue.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400CE0C0 (KiGetThreadEffectiveRankNonZero.c)
  */
 
 unsigned __int64 *__fastcall KiChooseLowestRankedThread(struct _KPRCB *a1, _KTHREAD *a2, unsigned int a3)

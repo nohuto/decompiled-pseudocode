@@ -10,25 +10,25 @@
 __int64 __fastcall EtwGetTraceLoggerHandle(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v3; // rcx
+  LONG v3; // ecx
 
   if ( !a1 )
   {
-    v3 = 87LL;
+    v3 = 87;
 LABEL_6:
     RtlSetLastWin32Error(v3);
     return -1LL;
   }
   if ( *(_DWORD *)a1 < 0x30u )
   {
-    v3 = 24LL;
+    v3 = 24;
     goto LABEL_6;
   }
   v1 = *(_QWORD *)(a1 + 8);
   if ( (unsigned __int16)v1 >= (unsigned int)EtwpGetMaxLogger() && (_WORD)v1 != 0xFFFF )
   {
     v1 = -1LL;
-    RtlSetLastWin32Error(6LL);
+    RtlSetLastWin32Error(6);
   }
   return v1;
 }

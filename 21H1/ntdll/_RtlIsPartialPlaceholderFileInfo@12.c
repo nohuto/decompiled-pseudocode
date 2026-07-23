@@ -6,34 +6,41 @@
  *     <none>
  */
 
-int __stdcall RtlIsPartialPlaceholderFileInfo(int *a1, int a2, bool *a3)
+NTSTATUS __cdecl RtlIsPartialPlaceholderFileInfo(
+        PVOID InfoBuffer,
+        FILE_INFORMATION_CLASS InfoClass,
+        PBOOLEAN IsPartialPlaceholder)
 {
   int v3; // eax
 
-  if ( a2 > 60 )
+  if ( InfoClass > FileIdExtdDirectoryInformation )
   {
-    if ( a2 == 63 || a2 == 68 || a2 == 70 )
-      goto LABEL_8;
-    return a2 < 76 ? -1073741637 : -1073741821;
-  }
-  if ( a2 != 60 )
-  {
-    if ( a2 < 2 )
-      return a2 < 76 ? -1073741637 : -1073741821;
-    if ( a2 > 3 )
+    if ( InfoClass == FileIdExtdBothDirectoryInformation
+      || InfoClass == FileStatInformation
+      || InfoClass == FileStatLxInformation )
     {
-      if ( a2 == 35 )
+      goto LABEL_8;
+    }
+    return InfoClass < FileMaximumInformation ? -1073741637 : -1073741821;
+  }
+  if ( InfoClass != FileIdExtdDirectoryInformation )
+  {
+    if ( InfoClass < FileFullDirectoryInformation )
+      return InfoClass < FileMaximumInformation ? -1073741637 : -1073741821;
+    if ( InfoClass > FileBothDirectoryInformation )
+    {
+      if ( InfoClass == FileAttributeTagInformation )
       {
-        v3 = *a1;
+        v3 = *(_DWORD *)InfoBuffer;
         goto LABEL_9;
       }
-      if ( a2 <= 36 || a2 > 38 )
-        return a2 < 76 ? -1073741637 : -1073741821;
+      if ( InfoClass <= FileTrackingInformation || InfoClass > FileIdFullDirectoryInformation )
+        return InfoClass < FileMaximumInformation ? -1073741637 : -1073741821;
     }
   }
 LABEL_8:
-  v3 = a1[14];
+  v3 = *((_DWORD *)InfoBuffer + 14);
 LABEL_9:
-  *a3 = (v3 & 0x440000) != 0;
+  *IsPartialPlaceholder = (v3 & 0x440000) != 0;
   return 0;
 }

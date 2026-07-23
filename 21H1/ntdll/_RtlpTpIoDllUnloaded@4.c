@@ -10,11 +10,10 @@
  *     _RtlpTpIoDllUnloaded@4 @ 0x4B3859C1 (_RtlpTpIoDllUnloaded@4.c)
  */
 
-signed __int32 __thiscall RtlpTpIoDllUnloaded(int *this)
+void __thiscall RtlpTpIoDllUnloaded(_DWORD *this)
 {
-  int v2; // ecx
-  unsigned int v3; // edi
-  signed __int32 result; // eax
+  PRTL_SPLAY_LINKS v2; // ecx
+  unsigned int LeftChild; // edi
 
   if ( (*(_BYTE *)this & 1) == 0 )
   {
@@ -22,21 +21,20 @@ signed __int32 __thiscall RtlpTpIoDllUnloaded(int *this)
     v2 = RtlpTpIoTree;
     while ( v2 )
     {
-      v3 = *(_DWORD *)(v2 - 56);
-      if ( v3 < this[3] )
+      LeftChild = (unsigned int)v2[-5].LeftChild;
+      if ( LeftChild < this[3] )
         goto LABEL_10;
-      if ( v3 < this[3] + this[4] )
+      if ( LeftChild < this[3] + this[4] )
       {
-        RtlpTpIoDllProcessUnloads(this, (unsigned int *)(v2 - 56));
-        return RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+        RtlpTpIoDllProcessUnloads((int)this, (int)&v2[-5].LeftChild);
+        break;
       }
-      if ( v3 >= this[3] )
-        v2 = *(_DWORD *)(v2 + 4);
+      if ( LeftChild >= this[3] )
+        v2 = v2->LeftChild;
       else
 LABEL_10:
-        v2 = *(_DWORD *)(v2 + 8);
+        v2 = v2->RightChild;
     }
-    return RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+    RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
   }
-  return result;
 }

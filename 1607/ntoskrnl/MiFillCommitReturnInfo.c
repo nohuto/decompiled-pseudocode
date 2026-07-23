@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFillCommitReturnInfo @ 0x1400284E8
+ * XREFs of MiFillCommitReturnInfo @ 0x140028068
  * Callers:
- *     MiRemoveVadCharges @ 0x14042FB20 (MiRemoveVadCharges.c)
- *     MiDecommitRegion @ 0x140430190 (MiDecommitRegion.c)
+ *     MiRemoveVadCharges @ 0x14042E9F0 (MiRemoveVadCharges.c)
+ *     MiDecommitRegion @ 0x14042F060 (MiDecommitRegion.c)
  * Callees:
  *     <none>
  */

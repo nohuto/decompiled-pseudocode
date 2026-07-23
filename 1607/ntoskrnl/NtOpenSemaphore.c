@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenSemaphore @ 0x1404DBBA8
+ * XREFs of NtOpenSemaphore @ 0x1404BF1AC
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall NtOpenSemaphore(

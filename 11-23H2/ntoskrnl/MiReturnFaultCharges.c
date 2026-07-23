@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReturnFaultCharges @ 0x14035FEC0
+ * XREFs of MiReturnFaultCharges @ 0x140360060
  * Callers:
  *     MiGetPageForHeader @ 0x14021A4D4 (MiGetPageForHeader.c)
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiPrefetchPagesViable @ 0x14033E5E4 (MiPrefetchPagesViable.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiFreeReadListPages @ 0x1407213E0 (MiFreeReadListPages.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiPrefetchPagesViable @ 0x14033E874 (MiPrefetchPagesViable.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiFreeReadListPages @ 0x1407215E0 (MiFreeReadListPages.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
  */
 
 void __fastcall MiReturnFaultCharges(__int64 a1, __int64 a2, char a3)

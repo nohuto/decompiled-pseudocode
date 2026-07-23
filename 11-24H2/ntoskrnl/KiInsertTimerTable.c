@@ -1,19 +1,17 @@
 /*
- * XREFs of KiInsertTimerTable @ 0x140334E60
+ * XREFs of KiInsertTimerTable @ 0x140316F50
  * Callers:
- *     KiResumeThread @ 0x14029646C (KiResumeThread.c)
- *     ExpSetTimerObject @ 0x1403329C0 (ExpSetTimerObject.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     KeSetTimer @ 0x140335230 (KeSetTimer.c)
- *     KiTimerWaitTest @ 0x140335E10 (KiTimerWaitTest.c)
- *     KiCommitThreadWait @ 0x140340C20 (KiCommitThreadWait.c)
- *     KiAdjustTimerDueTimes @ 0x1404017B8 (KiAdjustTimerDueTimes.c)
+ *     KiResumeThread @ 0x1402DD2DC (KiResumeThread.c)
+ *     KeSetTimer @ 0x1403161F0 (KeSetTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KiTimerWaitTest @ 0x140317320 (KiTimerWaitTest.c)
+ *     KiCommitThreadWait @ 0x140320100 (KiCommitThreadWait.c)
+ *     KiAdjustTimerDueTimes @ 0x1404E0430 (KiAdjustTimerDueTimes.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSendClockInterruptToTargetProcessor @ 0x1402A0034 (KiSendClockInterruptToTargetProcessor.c)
- *     KiRemoveEntryTimer @ 0x140401A80 (KiRemoveEntryTimer.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x1403179A4 (KiSendClockInterruptToTargetProcessor.c)
+ *     KiRemoveEntryTimer @ 0x1403FC130 (KiRemoveEntryTimer.c)
  */
 
 _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)
@@ -68,7 +66,7 @@ _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigne
         {
           v20 = *(_BYTE *)(a1 + 209);
           _BitScanForward64(&v21, __ROR8__(v19, v20));
-          v9 = *((_DWORD *)qword_140F21E78 + 64 * *(unsigned __int8 *)(a1 + 208) + (((unsigned __int8)v21 + v20) & 0x3F));
+          v9 = *((_DWORD *)qword_140F22998 + 64 * *(unsigned __int8 *)(a1 + 208) + (((unsigned __int8)v21 + v20) & 0x3F));
         }
       }
     }
@@ -110,7 +108,7 @@ _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigne
     v17 = *(v16 - 1);
     if ( v10 > v17 )
     {
-      if ( v10 - v17 <= (unsigned __int64)(unsigned int)KeMaximumIncrement >> 2 )
+      if ( v10 - v17 <= (unsigned __int64)KeMaximumIncrement >> 2 )
       {
         v22 = *(_QWORD **)(v13 + 16);
         v15 = v16;
@@ -166,7 +164,7 @@ _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigne
   else
   {
     v27 = a4;
-    v28 = qword_140FC7508[2 * *(unsigned __int8 *)(v24 + 208)];
+    v28 = qword_140FC8568[2 * *(unsigned __int8 *)(v24 + 208)];
     if ( KiSerializeTimerExpiration )
     {
       v29 = a4 & 0x3F;
@@ -208,7 +206,7 @@ LABEL_52:
 LABEL_35:
   _InterlockedAnd64(v34, 0LL);
   if ( v8 >= 8 )
-    KiSendClockInterruptToTargetProcessor(*(_DWORD *)(v24 + 36));
+    KiSendClockInterruptToTargetProcessor(*(unsigned int *)(v24 + 36));
   if ( a5 )
     *a5 = v25;
   return (v8 & 1) == 0;

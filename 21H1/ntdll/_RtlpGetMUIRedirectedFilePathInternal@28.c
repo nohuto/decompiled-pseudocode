@@ -12,87 +12,88 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __fastcall RtlpGetMUIRedirectedFilePathInternal(
-        const unsigned __int16 *a1,
-        void *a2,
+NTSTATUS __fastcall RtlpGetMUIRedirectedFilePathInternal(
+        const WCHAR *a1,
+        const WCHAR *a2,
         _DWORD *a3,
         char a4,
         void *a5,
-        const void *a6,
-        int a7)
+        UNICODE_STRING Source)
 {
-  const unsigned __int16 *v7; // esi
-  int v8; // ebx
-  _WORD *v9; // edx
-  int appended; // esi
-  void *Heap; // eax
-  int v14; // [esp+14h] [ebp-30h] BYREF
-  void *Src; // [esp+18h] [ebp-2Ch]
-  void *v16; // [esp+1Ch] [ebp-28h]
-  void *v17; // [esp+24h] [ebp-20h]
-  int v18; // [esp+28h] [ebp-1Ch]
+  const WCHAR *v6; // esi
+  void *v7; // ebx
+  _WORD *v8; // edx
+  NTSTATUS appended; // esi
+  PVOID Heap; // eax
+  SIZE_T v13; // [esp-4h] [ebp-48h]
+  size_t v14; // [esp-4h] [ebp-48h]
+  _UNICODE_STRING Destination; // [esp+14h] [ebp-30h] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-28h]
+  PCWSTR v17; // [esp+24h] [ebp-20h]
+  NTSTATUS v18; // [esp+28h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+2Ch] [ebp-18h]
 
   v17 = a2;
-  v7 = a1;
-  v8 = 0;
+  v6 = a1;
+  v7 = 0;
   if ( !a1 || !a2 )
   {
     appended = -1073741811;
     goto LABEL_27;
   }
-  v9 = a1 + 1;
+  v8 = a1 + 1;
   while ( *a1++ )
     ;
-  if ( (unsigned int)(a1 - v9) < 0x104 )
+  if ( (unsigned int)(a1 - v8) < 0x104 )
   {
-    Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 520);
-    v8 = (int)Heap;
-    v16 = Heap;
+    LODWORD(v13) = 520;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v13);
+    v7 = Heap;
+    BaseAddress = Heap;
     if ( !Heap )
     {
       appended = -1073741801;
       goto LABEL_27;
     }
     ms_exc.registration.TryLevel = 0;
-    v14 = 34078720;
-    Src = Heap;
-    appended = RtlAppendUnicodeToString((unsigned __int16 *)&v14, v7);
+    Destination.Length = 0;
+    Destination.MaximumLength = 520;
+    Destination.Buffer = (wchar_t *)Heap;
+    appended = RtlAppendUnicodeToString(&Destination, v6);
     v18 = appended;
     if ( appended >= 0 )
     {
-      appended = RtlAppendUnicodeToString((unsigned __int16 *)&v14, L"\\");
+      appended = RtlAppendUnicodeToString(&Destination, L"\\");
       v18 = appended;
       if ( appended >= 0 )
       {
-        appended = RtlAppendUnicodeStringToString((unsigned __int16 *)&v14, &a6);
+        appended = RtlAppendUnicodeStringToString(&Destination, &Source);
         v18 = appended;
         if ( appended >= 0 )
         {
-          appended = RtlAppendUnicodeToString((unsigned __int16 *)&v14, L"\\");
+          appended = RtlAppendUnicodeToString(&Destination, L"\\");
           v18 = appended;
           if ( appended >= 0 )
           {
-            appended = RtlAppendUnicodeToString((unsigned __int16 *)&v14, (const unsigned __int16 *)v17);
+            appended = RtlAppendUnicodeToString(&Destination, v17);
             v18 = appended;
             if ( appended >= 0 )
             {
-              if ( !a4
-                || (appended = RtlAppendUnicodeToString((unsigned __int16 *)&v14, L".mui"), v18 = appended,
-                                                                                            appended >= 0) )
+              if ( !a4 || (appended = RtlAppendUnicodeToString(&Destination, L".mui"), v18 = appended, appended >= 0) )
               {
-                if ( RtlDoesFileExists_UEx(Src, 1) )
+                if ( RtlDoesFileExists_UEx((PCWSTR)Destination.Buffer, 1) )
                 {
                   if ( !a5 )
                   {
                     if ( a3 )
-                      *a3 = ((unsigned __int16)v14 >> 1) + 1;
+                      *a3 = (Destination.Length >> 1) + 1;
                     goto LABEL_10;
                   }
-                  v17 = (void *)((unsigned __int16)v14 >> 1);
+                  v17 = (PCWSTR)(Destination.Length >> 1);
                   if ( *a3 >= (unsigned int)v17 + 1 )
                   {
-                    memcpy(a5, Src, (unsigned __int16)v14);
+                    LODWORD(v14) = Destination.Length;
+                    memcpy(a5, Destination.Buffer, v14);
                     *((_WORD *)a5 + (_DWORD)v17) = 0;
                     goto LABEL_10;
                   }
@@ -118,9 +119,9 @@ LABEL_10:
 LABEL_27:
   v18 = appended;
 LABEL_28:
-  if ( v8 )
+  if ( v7 )
   {
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     return v18;
   }
   return appended;

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtSetEventEx @ 0x140A52C20
+ * XREFs of NtSetEventEx @ 0x140A5BF10
  * Callers:
- *     DifNtSetEventExWrapper @ 0x14068B160 (DifNtSetEventExWrapper.c)
- *     NtSetEvent @ 0x140A52C00 (NtSetEvent.c)
+ *     DifNtSetEventExWrapper @ 0x14068ED40 (DifNtSetEventExWrapper.c)
+ *     NtSetEvent @ 0x140A5BEF0 (NtSetEvent.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeSetEventBoostPriorityEx @ 0x140421E18 (KeSetEventBoostPriorityEx.c)
- *     KeAbIsValidUserModeLockAddress @ 0x140457F30 (KeAbIsValidUserModeLockAddress.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExpSetCrossVmEvent @ 0x140B6101C (ExpSetCrossVmEvent.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeSetEventBoostPriorityEx @ 0x140419658 (KeSetEventBoostPriorityEx.c)
+ *     KeAbIsValidUserModeLockAddress @ 0x14044F7A0 (KeAbIsValidUserModeLockAddress.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExpSetCrossVmEvent @ 0x140B640BC (ExpSetCrossVmEvent.c)
  */
 
 __int64 __fastcall NtSetEventEx(HANDLE Handle, unsigned int *a2, struct _KTHREAD *a3)
@@ -45,13 +45,13 @@ __int64 __fastcall NtSetEventEx(HANDLE Handle, unsigned int *a2, struct _KTHREAD
   {
     if ( v8 == -1073741788 )
     {
-      if ( *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] )
+      if ( WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
       {
         Object[0] = 0LL;
         v9 = ObReferenceObjectByHandle(
                Handle,
                2u,
-               *(POBJECT_TYPE *)&WheapConfigTableLock.WaitBlockFill11[64],
+               (POBJECT_TYPE)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink,
                PreviousMode,
                Object,
                0LL);

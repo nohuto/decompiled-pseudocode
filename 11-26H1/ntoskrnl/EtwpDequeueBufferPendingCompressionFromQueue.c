@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpDequeueBufferPendingCompressionFromQueue @ 0x1406C80C8
+ * XREFs of EtwpDequeueBufferPendingCompressionFromQueue @ 0x1406CC0A8
  * Callers:
- *     EtwpDequeueBufferPendingCompression @ 0x1406C7FC4 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x1406CBFA4 (EtwpDequeueBufferPendingCompression.c)
  * Callees:
- *     EtwpBufferQueueRemoveAfter @ 0x140495DFC (EtwpBufferQueueRemoveAfter.c)
+ *     EtwpBufferQueueRemoveAfter @ 0x14048F94C (EtwpBufferQueueRemoveAfter.c)
  */
 
 __int64 __fastcall EtwpDequeueBufferPendingCompressionFromQueue(_QWORD *a1, volatile signed __int32 *a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSetSystemState @ 0x1404383F0
+ * XREFs of PopDiagTraceSetSystemState @ 0x140427310
  * Callers:
- *     PoSetUserPresent @ 0x1404382E0 (PoSetUserPresent.c)
- *     PopSetSystemState @ 0x1404383B4 (PopSetSystemState.c)
+ *     PoSetUserPresent @ 0x140427200 (PoSetUserPresent.c)
+ *     PopSetSystemState @ 0x1404272D4 (PopSetSystemState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSetSystemState(int a1, int a2)
@@ -19,23 +19,15 @@ void __fastcall PopDiagTraceSetSystemState(int a1, int a2)
 
   v6 = a2;
   v5 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_SETSYSTEMSTATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SETSYSTEMSTATE) )
     {
       UserData.Ptr = (ULONGLONG)&v5;
       *(_QWORD *)&UserData.Size = 4LL;
       v3 = &v6;
       v4 = 4LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_SETSYSTEMSTATE,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        2u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_SETSYSTEMSTATE, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
 }

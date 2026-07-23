@@ -43,14 +43,14 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
   __int64 v12; // r8
   __int64 v13; // r9
   _QWORD *AweInfo; // rdi
-  _QWORD *inserted; // r12
+  _RTL_BITMAP_EX **inserted; // r12
   NTSTATUS v16; // r14d
   HANDLE v17; // r12
   _QWORD *v18; // rcx
-  _QWORD *v19; // rdi
+  _RTL_BITMAP_EX *v19; // rdi
   __int64 v20; // r14
-  _QWORD *PoolWithTag; // rax
-  unsigned __int64 v22; // rdi
+  _RTL_BITMAP_EX *PoolWithTag; // rax
+  unsigned __int64 SizeOfBitMap; // rdi
   _QWORD *v23; // r12
   __int16 v24; // dx
   __int16 *ProcessPartition; // r10
@@ -73,10 +73,10 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
   __int16 *v43; // [rsp+80h] [rbp-E8h]
   _QWORD *v44; // [rsp+88h] [rbp-E0h]
   SIZE_T v45; // [rsp+90h] [rbp-D8h]
-  unsigned __int64 v46; // [rsp+98h] [rbp-D0h]
+  unsigned __int64 Buffer; // [rsp+98h] [rbp-D0h]
   unsigned __int64 v47; // [rsp+A0h] [rbp-C8h]
   unsigned __int64 v48; // [rsp+A8h] [rbp-C0h]
-  _QWORD *v49; // [rsp+B0h] [rbp-B8h]
+  _RTL_BITMAP_EX *v49; // [rsp+B0h] [rbp-B8h]
   PVOID v50; // [rsp+B8h] [rbp-B0h]
   PULONG_PTR v51; // [rsp+C0h] [rbp-A8h]
   struct _KTHREAD *v52; // [rsp+C8h] [rbp-A0h]
@@ -143,7 +143,7 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
   }
   v38 = 0LL;
   AweInfo = 0LL;
-  inserted = (_QWORD *)v11[1].ActiveProcessors.Bitmap[3];
+  inserted = (_RTL_BITMAP_EX **)v11[1].ActiveProcessors.Bitmap[3];
   if ( inserted )
   {
     if ( *inserted )
@@ -167,7 +167,7 @@ LABEL_26:
       goto LABEL_23;
     }
     if ( AweInfo )
-      inserted = (_QWORD *)MiInsertAweInfo((__int64)v11, (__int64)AweInfo);
+      inserted = (_RTL_BITMAP_EX **)MiInsertAweInfo((__int64)v11, (__int64)AweInfo);
     if ( !(unsigned int)MiChargeProcessPhysicalPages((__int64)v11, v9)
       || (v4 |= 0x10u, !(unsigned int)MiChargeProcessCommitment(v18, v9)) )
     {
@@ -175,20 +175,20 @@ LABEL_26:
       goto LABEL_23;
     }
     v4 |= 8u;
-    v19 = (_QWORD *)*inserted;
+    v19 = *inserted;
     v49 = v19;
     if ( !v19 )
     {
       v20 = qword_14034EC10 + 1;
       v45 = 8 * (((((_BYTE)qword_14034EC10 + 1) & 0x3F) != 0) + ((unsigned __int64)(qword_14034EC10 + 1) >> 6)) + 16;
-      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v45, 0x4C646156u);
+      PoolWithTag = (_RTL_BITMAP_EX *)ExAllocatePoolWithTag(NonPagedPoolNx, v45, 0x4C646156u);
       v19 = PoolWithTag;
       v49 = PoolWithTag;
       if ( !PoolWithTag )
         goto LABEL_22;
-      *PoolWithTag = v20;
-      PoolWithTag[1] = PoolWithTag + 2;
-      RtlClearAllBitsEx((__int64)PoolWithTag);
+      PoolWithTag->SizeOfBitMap = v20;
+      PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap;
+      RtlClearAllBitsEx(PoolWithTag);
       v16 = PsChargeProcessNonPagedPoolQuota((__int64)v11, v45);
       if ( v16 < 0 )
       {
@@ -197,7 +197,7 @@ LABEL_26:
       }
       *inserted = v19;
     }
-    v22 = *v19;
+    SizeOfBitMap = v19->SizeOfBitMap;
     if ( (v4 & 1) != 0 )
     {
       UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)v11);
@@ -212,11 +212,11 @@ LABEL_26:
     v23 = 0LL;
     v50 = 0LL;
     v45 = 0LL;
-    if ( v11[1].ActiveProcessors.Bitmap[7] && v22 > 0x100000000LL )
-      v22 = 0x100000000LL;
+    if ( v11[1].ActiveProcessors.Bitmap[7] && SizeOfBitMap > 0x100000000LL )
+      SizeOfBitMap = 0x100000000LL;
     ProcessPartition = MiGetProcessPartition((__int64)v11);
     v43 = ProcessPartition;
-    v26 = (v22 - 1) << 12;
+    v26 = (SizeOfBitMap - 1) << 12;
     v16 = 0;
     while ( 1 )
     {
@@ -229,7 +229,7 @@ LABEL_26:
       v48 = v28;
       if ( v28 >= 0x200 && (v4 & 0x20) == 0 )
       {
-        v46 = v28 & 0xFFFFFFFFFFFFFE00uLL;
+        Buffer = v28 & 0xFFFFFFFFFFFFFE00uLL;
         PagesForMdl = MiAllocatePagesForMdl(
                         (__int64)ProcessPartition,
                         0LL,
@@ -244,7 +244,7 @@ LABEL_26:
         v24 = v36;
         if ( PagesForMdl )
         {
-          v28 = v46;
+          v28 = Buffer;
         }
         else
         {
@@ -262,7 +262,7 @@ LABEL_26:
       v48 = (unsigned __int64)*((unsigned int *)PagesForMdl + 10) >> 12;
       v47 = v48;
       v44 = PagesForMdl + 6;
-      v46 = v49[1];
+      Buffer = (unsigned __int64)v49->Buffer;
       LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)v11, v12, v13);
       if ( (*v54 & 0x20) != 0 )
       {
@@ -277,7 +277,7 @@ LABEL_26:
       v30 = &v44[v48];
       do
       {
-        _InterlockedOr((volatile signed __int32 *)(v46 + 4LL * (*v29 >> 5)), 1 << (*v29 & 0x1F));
+        _InterlockedOr((volatile signed __int32 *)(Buffer + 4LL * (*v29 >> 5)), 1 << (*v29 & 0x1F));
         v29 = v44 + 1;
         v44 = v29;
       }

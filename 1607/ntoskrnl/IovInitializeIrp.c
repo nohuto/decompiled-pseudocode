@@ -1,9 +1,9 @@
 /*
  * XREFs of IovInitializeIrp @ 0x14070101C
  * Callers:
- *     IoInitializeIrp @ 0x14009D234 (IoInitializeIrp.c)
+ *     IoInitializeIrp @ 0x14009CA34 (IoInitializeIrp.c)
  * Callees:
- *     VfIoInitializeIrp @ 0x14070BE00 (VfIoInitializeIrp.c)
+ *     VfIoInitializeIrp @ 0x14070BE30 (VfIoInitializeIrp.c)
  */
 
 __int64 __fastcall IovInitializeIrp(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

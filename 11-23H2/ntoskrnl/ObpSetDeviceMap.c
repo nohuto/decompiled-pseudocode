@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpSetDeviceMap @ 0x1407AFABC
+ * XREFs of ObpSetDeviceMap @ 0x1407AFCAC
  * Callers:
- *     SeGetTokenDeviceMap @ 0x1407AF750 (SeGetTokenDeviceMap.c)
- *     ObpSetSiloDeviceMap @ 0x1408588A4 (ObpSetSiloDeviceMap.c)
- *     ObSetProcessDeviceMap @ 0x14097C42C (ObSetProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1407AF940 (SeGetTokenDeviceMap.c)
+ *     ObpSetSiloDeviceMap @ 0x140858AE4 (ObpSetSiloDeviceMap.c)
+ *     ObSetProcessDeviceMap @ 0x14097C62C (ObSetProcessDeviceMap.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
- *     ObpDeleteDeviceMap @ 0x1407AFF84 (ObpDeleteDeviceMap.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
+ *     ObpDeleteDeviceMap @ 0x1407B0174 (ObpDeleteDeviceMap.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

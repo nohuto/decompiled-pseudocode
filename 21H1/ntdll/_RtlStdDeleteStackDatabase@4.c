@@ -6,11 +6,11 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __thiscall RtlStdDeleteStackDatabase(void *this, int a2)
+NTSTATUS __thiscall RtlStdDeleteStackDatabase(void *this, _DWORD *BaseAddress)
 {
-  void *v3; // [esp+0h] [ebp-4h] BYREF
+  ULONG_PTR RegionSize; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = this;
-  v3 = (void *)(*(_DWORD *)(a2 + 100) - a2);
-  return NtFreeVirtualMemory(-1, (int)&a2, (int)&v3, 0x8000);
+  LODWORD(RegionSize) = this;
+  LODWORD(RegionSize) = BaseAddress[25] - (_DWORD)BaseAddress;
+  return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&BaseAddress, &RegionSize, 0x8000u);
 }

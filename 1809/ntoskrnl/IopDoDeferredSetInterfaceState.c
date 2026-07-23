@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDoDeferredSetInterfaceState @ 0x1406FD6CC
+ * XREFs of IopDoDeferredSetInterfaceState @ 0x1406FE96C
  * Callers:
- *     PipProcessStartPhase2 @ 0x1406FD624 (PipProcessStartPhase2.c)
- *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     PipProcessStartPhase2 @ 0x1406FE8C4 (PipProcessStartPhase2.c)
+ *     IoReportDetectedDevice @ 0x14072E410 (IoReportDetectedDevice.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PpMarkDeviceStackExtensionFlag @ 0x14015FDC0 (PpMarkDeviceStackExtensionFlag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopProcessSetInterfaceState @ 0x14070F8F8 (IopProcessSetInterfaceState.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PpMarkDeviceStackExtensionFlag @ 0x14015FEC0 (PpMarkDeviceStackExtensionFlag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopProcessSetInterfaceState @ 0x140710B98 (IopProcessSetInterfaceState.c)
  */
 
 __int64 __fastcall IopDoDeferredSetInterfaceState(__int64 a1)

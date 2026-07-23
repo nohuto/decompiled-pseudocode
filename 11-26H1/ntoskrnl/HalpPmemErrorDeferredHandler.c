@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPmemErrorDeferredHandler @ 0x14058F2A8
+ * XREFs of HalpPmemErrorDeferredHandler @ 0x140591A28
  * Callers:
- *     HalpErrorDeferredHandler @ 0x14058EE00 (HalpErrorDeferredHandler.c)
+ *     HalpErrorDeferredHandler @ 0x140591580 (HalpErrorDeferredHandler.c)
  * Callees:
- *     HalpHvInvokeWheaErrorNotificationCallback @ 0x140585D34 (HalpHvInvokeWheaErrorNotificationCallback.c)
- *     MmGetPageBadStatus @ 0x1406F2340 (MmGetPageBadStatus.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1408480E0 (WheaAttemptPhysicalPageOffline.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalpHvInvokeWheaErrorNotificationCallback @ 0x140588254 (HalpHvInvokeWheaErrorNotificationCallback.c)
+ *     MmGetPageBadStatus @ 0x1406F6FB0 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14084E3B0 (WheaAttemptPhysicalPageOffline.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpPmemErrorDeferredHandler(_QWORD *a1, __int64 a2)

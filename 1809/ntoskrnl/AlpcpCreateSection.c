@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpCreateSection @ 0x14061AF74
+ * XREFs of AlpcpCreateSection @ 0x14061BF74
  * Callers:
- *     NtAlpcCreatePortSection @ 0x14061B620 (NtAlpcCreatePortSection.c)
- *     AlpcpMapLegacyPortView @ 0x14061CCE4 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreatePortSection @ 0x14061C620 (NtAlpcCreatePortSection.c)
+ *     AlpcpMapLegacyPortView @ 0x14061DCE4 (AlpcpMapLegacyPortView.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpInsertResourcePort @ 0x140617F98 (AlpcpInsertResourcePort.c)
- *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x14061849C (AlpcpAllocateBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpEndInitialization @ 0x140618DAC (AlpcpEndInitialization.c)
- *     AlpcAddHandleTableEntry @ 0x140618DEC (AlpcAddHandleTableEntry.c)
- *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     AlpcpInsertResourcePort @ 0x140618F98 (AlpcpInsertResourcePort.c)
+ *     AlpcpReferenceBlob @ 0x140619428 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x14061949C (AlpcpAllocateBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpEndInitialization @ 0x140619DAC (AlpcpEndInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x140619DEC (AlpcAddHandleTableEntry.c)
+ *     MmCreateSection @ 0x14061C2D0 (MmCreateSection.c)
  */
 
 __int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3, void *a4, __int64 a5, ULONG_PTR *a6)

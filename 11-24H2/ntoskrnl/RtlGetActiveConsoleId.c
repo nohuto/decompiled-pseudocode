@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlGetActiveConsoleId @ 0x14042F190
+ * XREFs of RtlGetActiveConsoleId @ 0x140421360
  * Callers:
- *     PoBlockConsoleSwitchEx @ 0x14042F0D4 (PoBlockConsoleSwitchEx.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     PfpProcessScenarioPhase @ 0x14093289C (PfpProcessScenarioPhase.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
- *     PiCMQueryRemove @ 0x140ABB70C (PiCMQueryRemove.c)
+ *     PoBlockConsoleSwitchEx @ 0x140420E04 (PoBlockConsoleSwitchEx.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     PfpProcessScenarioPhase @ 0x1408F77E8 (PfpProcessScenarioPhase.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
+ *     PiCMQueryRemove @ 0x140AB672C (PiCMQueryRemove.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   if ( (unsigned __int8)PsIsCurrentThreadInServerSilo() )
     return HIDWORD(PsGetCurrentServerSiloGlobals()[80].Blink->Flink);

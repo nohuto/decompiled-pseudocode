@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptModNeg @ 0x1403F9930
+ * XREFs of SymCryptModNeg @ 0x1403F9B10
  * Callers:
- *     SymCryptTwistedEdwardsIsEqual @ 0x1404002B0 (SymCryptTwistedEdwardsIsEqual.c)
- *     SymCryptTwistedEdwardsNegate @ 0x140400520 (SymCryptTwistedEdwardsNegate.c)
- *     SymCryptShortWeierstrassIsEqual @ 0x140402640 (SymCryptShortWeierstrassIsEqual.c)
- *     SymCryptShortWeierstrassNegate @ 0x1404028F0 (SymCryptShortWeierstrassNegate.c)
+ *     SymCryptTwistedEdwardsIsEqual @ 0x140400490 (SymCryptTwistedEdwardsIsEqual.c)
+ *     SymCryptTwistedEdwardsNegate @ 0x140400700 (SymCryptTwistedEdwardsNegate.c)
+ *     SymCryptShortWeierstrassIsEqual @ 0x140402820 (SymCryptShortWeierstrassIsEqual.c)
+ *     SymCryptShortWeierstrassNegate @ 0x140402AD0 (SymCryptShortWeierstrassNegate.c)
  * Callees:
  *     <none>
  */

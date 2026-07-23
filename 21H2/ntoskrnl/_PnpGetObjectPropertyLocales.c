@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpGetObjectPropertyLocales @ 0x140976C08
+ * XREFs of _PnpGetObjectPropertyLocales @ 0x140976DE8
  * Callers:
- *     PiDqPnPGetObjectPropertyLocales @ 0x1408A4A64 (PiDqPnPGetObjectPropertyLocales.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x1408A4BC4 (PiDqPnPGetObjectPropertyLocales.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x140976D7C (_PnpGetObjectPropertyLocalesWorker.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x140976F5C (_PnpGetObjectPropertyLocalesWorker.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyLocales(

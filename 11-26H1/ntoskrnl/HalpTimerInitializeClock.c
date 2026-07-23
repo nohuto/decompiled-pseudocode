@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpTimerInitializeClock @ 0x14058144C
+ * XREFs of HalpTimerInitializeClock @ 0x14058396C
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
- *     HalpTimerInitializeClock @ 0x14058144C (HalpTimerInitializeClock.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
+ *     HalpTimerInitializeClock @ 0x14058396C (HalpTimerInitializeClock.c)
  * Callees:
- *     HalpSetTimer @ 0x1402086B0 (HalpSetTimer.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpTimerInitializeClock @ 0x14058144C (HalpTimerInitializeClock.c)
- *     HalpTimerConfigureInterrupt @ 0x1405819FC (HalpTimerConfigureInterrupt.c)
- *     HalpTimerUnmapInterrupt @ 0x140582FB0 (HalpTimerUnmapInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x140594700 (HalpInterruptSetIdtEntry.c)
+ *     HalpSetTimer @ 0x140208790 (HalpSetTimer.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpTimerInitializeClock @ 0x14058396C (HalpTimerInitializeClock.c)
+ *     HalpTimerConfigureInterrupt @ 0x140583F1C (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerUnmapInterrupt @ 0x1405854D0 (HalpTimerUnmapInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x140596E80 (HalpInterruptSetIdtEntry.c)
  */
 
 __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _DWORD *v4; // rbx
   int v5; // r8d
-  int v6; // ecx
+  volatile LONG Lock; // ecx
   int v7; // r9d
   int v8; // r8d
   int v9; // r9d
@@ -33,9 +33,9 @@ __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, 
   v15 = 0LL;
   HalpInterruptSetIdtEntry(210, (unsigned int)HalpTimerClockIpiRoutine, 13, a4, -3LL);
   LOBYTE(v5) = 13;
-  v6 = **(_DWORD **)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112];
-  *((_QWORD *)&v15 + 1) = (unsigned __int16)(**(_DWORD **)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] >> 6);
-  *(_QWORD *)&v15 = 1LL << v6;
+  Lock = KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock;
+  *((_QWORD *)&v15 + 1) = (unsigned __int16)((unsigned int)KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock >> 6);
+  *(_QWORD *)&v15 = 1LL << Lock;
   v10 = HalpTimerConfigureInterrupt(
           (_DWORD)v4,
           209,

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryCpuSetsThread @ 0x140507A18
+ * XREFs of KeQueryCpuSetsThread @ 0x1405013E8
  * Callers:
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsThread(__int64 a1, char *a2, int a3)

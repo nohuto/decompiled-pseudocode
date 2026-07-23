@@ -37,7 +37,9 @@ __int64 __fastcall KiMaskSecondaryInterruptInternal(int a1, unsigned int a2)
   if ( *(_BYTE *)(v4 + KiGlobalSecondaryIDT + 32) || (v13 = *(_QWORD *)(v4 + KiGlobalSecondaryIDT + 40)) == 0 )
   {
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v7 = v20;
       if ( v20 <= 0xFu && CurrentIrql >= 2u )
@@ -74,7 +76,7 @@ __int64 __fastcall KiMaskSecondaryInterruptInternal(int a1, unsigned int a2)
     v3 = 296;
 LABEL_17:
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags && (v15 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v15 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v15 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v15 <= 0xFu )
     {
       v16 = v20;
       if ( v20 <= 0xFu && v15 >= 2u )

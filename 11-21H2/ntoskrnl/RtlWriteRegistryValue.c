@@ -1,25 +1,25 @@
 /*
  * XREFs of RtlWriteRegistryValue @ 0x1406D76C0
  * Callers:
- *     KseKPSOHookDriverTargeted @ 0x14057F1F0 (KseKPSOHookDriverTargeted.c)
+ *     sub_14057F1F0 @ 0x14057F1F0 (sub_14057F1F0.c)
  *     RtlSetPortableOperatingSystem @ 0x1405E7040 (RtlSetPortableOperatingSystem.c)
- *     DifRtlWriteRegistryValueWrapper @ 0x14061C4B0 (DifRtlWriteRegistryValueWrapper.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x140807EA4 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
- *     EtwpEnumerateKeyProviders @ 0x140818934 (EtwpEnumerateKeyProviders.c)
- *     EtwpEnableAutoLoggerProvider @ 0x1408226C0 (EtwpEnableAutoLoggerProvider.c)
- *     RtlpUpdateDynamicTimeZones @ 0x140836228 (RtlpUpdateDynamicTimeZones.c)
- *     RtlSetActiveTimeBias @ 0x1408364C4 (RtlSetActiveTimeBias.c)
- *     EtwpEnumerateAutologgerPath @ 0x1408515A8 (EtwpEnumerateAutologgerPath.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x140862E50 (WmipSaveGuidSecurityDescriptor.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1409BA71C (RtlpSetTimeZoneInformationWorker.c)
- *     ExpSetTimeZoneInformation @ 0x1409F76FC (ExpSetTimeZoneInformation.c)
- *     WheapCommitPolicy @ 0x140A0980C (WheapCommitPolicy.c)
+ *     sub_14061C4B0 @ 0x14061C4B0 (sub_14061C4B0.c)
+ *     sub_140807EA4 @ 0x140807EA4 (sub_140807EA4.c)
+ *     sub_140817CD8 @ 0x140817CD8 (sub_140817CD8.c)
+ *     sub_140818934 @ 0x140818934 (sub_140818934.c)
+ *     sub_1408226C0 @ 0x1408226C0 (sub_1408226C0.c)
+ *     sub_140836228 @ 0x140836228 (sub_140836228.c)
+ *     sub_1408364C4 @ 0x1408364C4 (sub_1408364C4.c)
+ *     sub_1408515A8 @ 0x1408515A8 (sub_1408515A8.c)
+ *     sub_140862E50 @ 0x140862E50 (sub_140862E50.c)
+ *     sub_1409BA71C @ 0x1409BA71C (sub_1409BA71C.c)
+ *     sub_1409F76FC @ 0x1409F76FC (sub_1409F76FC.c)
+ *     sub_140A0980C @ 0x140A0980C (sub_140A0980C.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     RtlpGetRegistryHandle @ 0x14077FDA0 (RtlpGetRegistryHandle.c)
+ *     sub_14077FDA0 @ 0x14077FDA0 (sub_14077FDA0.c)
  */
 
 NTSTATUS __stdcall RtlWriteRegistryValue(
@@ -40,7 +40,7 @@ NTSTATUS __stdcall RtlWriteRegistryValue(
   v7 = ValueName;
   LOBYTE(ValueName) = 1;
   DestinationString = 0LL;
-  result = RtlpGetRegistryHandle(RelativeTo, Path, ValueName, &KeyHandle);
+  result = sub_14077FDA0(RelativeTo, Path, ValueName, &KeyHandle);
   if ( result >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, v7);

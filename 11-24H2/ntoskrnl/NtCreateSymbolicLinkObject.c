@@ -1,24 +1,28 @@
 /*
- * XREFs of NtCreateSymbolicLinkObject @ 0x140A299C0
+ * XREFs of NtCreateSymbolicLinkObject @ 0x140A1E380
  * Callers:
- *     CreateSystemRootLink @ 0x140C0A3F8 (CreateSystemRootLink.c)
- *     IopReassignSystemRoot @ 0x140C1CFA0 (IopReassignSystemRoot.c)
+ *     CreateSystemRootLink @ 0x140C0C3F8 (CreateSystemRootLink.c)
+ *     IopReassignSystemRoot @ 0x140C1EFE0 (IopReassignSystemRoot.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObCreateSymbolicLink @ 0x140A29CE8 (ObCreateSymbolicLink.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObCreateSymbolicLink @ 0x140A1E6A8 (ObCreateSymbolicLink.c)
  */
 
-__int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3, UNICODE_STRING *a4)
+NTSTATUS __cdecl NtCreateSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LinkTarget)
 {
   char PreviousMode; // r9
   __int64 v9; // rcx
-  __m128i v10; // xmm1
+  UNICODE_STRING v10; // xmm1
   unsigned __int16 epi16; // ax
   unsigned __int16 v12; // di
-  unsigned int SymbolicLink; // ebx
+  NTSTATUS SymbolicLink; // ebx
   REGHANDLE v14; // r10
   unsigned int v15; // r9d
   __int64 v16; // rax
@@ -31,12 +35,12 @@ __int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int
   UNICODE_STRING *v24; // rax
   __int16 v25; // [rsp+30h] [rbp-F8h] BYREF
   UNICODE_STRING v26; // [rsp+38h] [rbp-F0h] BYREF
-  int v27; // [rsp+48h] [rbp-E0h] BYREF
-  unsigned int v28; // [rsp+50h] [rbp-D8h] BYREF
+  ACCESS_MASK v27; // [rsp+48h] [rbp-E0h] BYREF
+  NTSTATUS v28; // [rsp+50h] [rbp-D8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-D0h] BYREF
-  UNICODE_STRING *v30; // [rsp+68h] [rbp-C0h]
+  UNICODE_STRING *ObjectName; // [rsp+68h] [rbp-C0h]
   __int64 v31; // [rsp+70h] [rbp-B8h] BYREF
-  __m128i v32; // [rsp+78h] [rbp-B0h]
+  UNICODE_STRING v32; // [rsp+78h] [rbp-B0h]
   struct _EVENT_DATA_DESCRIPTOR UserData[6]; // [rsp+90h] [rbp-98h] BYREF
 
   v26 = 0LL;
@@ -47,46 +51,51 @@ __int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ObjectAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v9 = 0x7FFFFFFF0000LL;
-    v30 = *(UNICODE_STRING **)(a3 + 16);
-    if ( v30 )
-      DestinationString = *v30;
-    v26 = *a4;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v9 = a1;
+    ObjectName = ObjectAttributes->ObjectName;
+    if ( ObjectName )
+      DestinationString = *ObjectName;
+    v26 = *LinkTarget;
+    if ( (unsigned __int64)LinkHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)LinkHandle;
     *(_QWORD *)v9 = *(_QWORD *)v9;
-    v10 = (__m128i)v26;
+    v10 = v26;
   }
   else
   {
-    v10 = *(__m128i *)a4;
-    v26 = *a4;
-    v24 = *(UNICODE_STRING **)(a3 + 16);
+    v10 = *LinkTarget;
+    v26 = *LinkTarget;
+    v24 = ObjectAttributes->ObjectName;
     if ( v24 )
       DestinationString = *v24;
   }
-  if ( (v10.m128i_i8[2] & 1) != 0 )
+  if ( (v10.MaximumLength & 1) != 0 )
   {
-    epi16 = v10.m128i_i16[1] & 0xFFFE;
-    v26.MaximumLength = v10.m128i_i16[1] & 0xFFFE;
-    v10 = (__m128i)v26;
+    epi16 = v10.MaximumLength & 0xFFFE;
+    v26.MaximumLength = v10.MaximumLength & 0xFFFE;
+    v10 = v26;
   }
   else
   {
-    epi16 = _mm_extract_epi16(v10, 1);
+    epi16 = _mm_extract_epi16((__m128i)v10, 1);
   }
   if ( !epi16 )
-    return 3221225485LL;
-  v12 = _mm_cvtsi128_si32(v10);
-  if ( v12 > epi16 || (_mm_cvtsi128_si32(v10) & 1) != 0 )
-    return 3221225485LL;
+    return -1073741811;
+  v12 = _mm_cvtsi128_si32((__m128i)v10);
+  if ( v12 > epi16 || (_mm_cvtsi128_si32((__m128i)v10) & 1) != 0 )
+    return -1073741811;
   v31 = 4LL;
   v32 = v10;
-  SymbolicLink = ObCreateSymbolicLink(a1, a2, a3, (unsigned int)&v31, PreviousMode);
+  SymbolicLink = ObCreateSymbolicLink(
+                   (_DWORD)LinkHandle,
+                   DesiredAccess,
+                   (_DWORD)ObjectAttributes,
+                   (unsigned int)&v31,
+                   PreviousMode);
   v28 = SymbolicLink;
-  v27 = a2;
+  v27 = DesiredAccess;
   v14 = EtwApiCallsProvRegHandle;
   if ( EtwApiCallsProvRegHandle )
   {

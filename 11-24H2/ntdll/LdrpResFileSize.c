@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpResFileSize @ 0x180078EC0
+ * XREFs of LdrpResFileSize @ 0x180095274
  * Callers:
- *     LdrpResSearchResourceHandle @ 0x1800D1ACC (LdrpResSearchResourceHandle.c)
- *     LdrpResMapFile @ 0x18010E614 (LdrpResMapFile.c)
+ *     LdrpResSearchResourceHandle @ 0x18009856C (LdrpResSearchResourceHandle.c)
+ *     LdrpResMapFile @ 0x180109564 (LdrpResMapFile.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpTraceLoadMUIDll @ 0x1800790FC (LdrpTraceLoadMUIDll.c)
- *     NtQueryInformationFile @ 0x180161EB0 (NtQueryInformationFile.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpTraceLoadMUIDll @ 0x18009540C (LdrpTraceLoadMUIDll.c)
+ *     NtQueryInformationFile @ 0x180160270 (NtQueryInformationFile.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpResFileSize(__int64 a1, _QWORD *a2)
+NTSTATUS __fastcall LdrpResFileSize(char *FileHandle, _QWORD *a2)
 {
   __int64 v4; // rsi
   __int64 v5; // rcx
   __int64 v6; // rbx
   __int64 v7; // rcx
-  __int64 result; // rax
-  unsigned int v9; // edi
+  NTSTATUS result; // eax
+  int v9; // edi
   _QWORD v10[2]; // [rsp+30h] [rbp-50h] BYREF
   _QWORD v11[2]; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v12; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v13; // [rsp+60h] [rbp-20h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-30h] BYREF
+  __int128 FileInformation; // [rsp+60h] [rbp-20h] BYREF
   __int64 v14; // [rsp+70h] [rbp-10h]
 
   v10[0] = 3145774LL;
@@ -29,39 +29,39 @@ __int64 __fastcall LdrpResFileSize(__int64 a1, _QWORD *a2)
   v11[0] = 3014700LL;
   v10[1] = L"LdrResGetRCConfig Enter";
   v11[1] = L"LdrResGetRCConfig Exit";
-  v12 = 0LL;
-  v13 = 0LL;
+  IoStatusBlock = 0LL;
+  FileInformation = 0LL;
   v4 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v5 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v5 = 2147353477LL;
   v6 = 2147353476LL;
   if ( (*(_BYTE *)v5 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v7 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v7 = 2147353476LL;
     LdrpTraceLoadMUIDll(v10, *(unsigned __int8 *)v7);
   }
-  if ( a2 && (unsigned __int64)(a1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+  if ( a2 && (unsigned __int64)(FileHandle - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    result = NtQueryInformationFile(a1, &v12, &v13, 24LL, 5);
+    result = NtQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
     v9 = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    *a2 = *((_QWORD *)&v13 + 1);
+    *a2 = *((_QWORD *)&FileInformation + 1);
   }
   else
   {
     v9 = -1073741811;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v4 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v4 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v6 = (__int64)NtCurrentPeb()->SharedData + 554;
     LdrpTraceLoadMUIDll(v11, *(unsigned __int8 *)v6);
   }

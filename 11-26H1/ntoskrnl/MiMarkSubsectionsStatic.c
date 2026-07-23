@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMarkSubsectionsStatic @ 0x140489070
+ * XREFs of MiMarkSubsectionsStatic @ 0x140482BB0
  * Callers:
- *     MiFinishExtendAppend @ 0x140488E60 (MiFinishExtendAppend.c)
+ *     MiFinishExtendAppend @ 0x1404829A0 (MiFinishExtendAppend.c)
  * Callees:
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 int __fastcall MiMarkSubsectionsStatic(__int64 a1, unsigned int a2)

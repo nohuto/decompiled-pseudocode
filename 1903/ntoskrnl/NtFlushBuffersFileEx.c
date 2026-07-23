@@ -19,24 +19,30 @@
  *     IopAllocateIrpCleanup @ 0x140853634 (IopAllocateIrpCleanup.c)
  */
 
-signed int __fastcall NtFlushBuffersFileEx(void *a1, char a2, __int64 a3, int a4, struct _IO_STATUS_BLOCK *a5)
+NTSTATUS __cdecl NtFlushBuffersFileEx(
+        HANDLE FileHandle,
+        ULONG Flags,
+        PVOID Parameters,
+        ULONG ParametersSize,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
+  char v5; // r12
   char v7; // r15
   struct _KTHREAD *CurrentThread; // r13
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v10; // rcx
-  signed int result; // eax
+  NTSTATUS result; // eax
   struct _FILE_OBJECT *v12; // rdi
   unsigned int v13; // esi
   char v14; // si
   struct _KTHREAD *v15; // rax
   volatile __int32 *v16; // rbx
   _KLOCK_ENTRY *v17; // rax
-  int v18; // ebx
+  NTSTATUS v18; // ebx
   struct _KEVENT *v19; // rsi
   __int64 Irp; // rax
   IRP *v21; // rbx
-  struct _IO_STATUS_BLOCK *v22; // rax
+  PIO_STATUS_BLOCK v22; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
   struct _KEVENT *Pool_0; // rax
   PVOID Object; // [rsp+40h] [rbp-48h] BYREF
@@ -44,22 +50,23 @@ signed int __fastcall NtFlushBuffersFileEx(void *a1, char a2, __int64 a3, int a4
   _QWORD v27[2]; // [rsp+50h] [rbp-38h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+18h] BYREF
 
+  v5 = Flags;
   v27[0] = 0LL;
   v27[1] = 0LL;
   v7 = 0;
   v26 = 0LL;
-  if ( a3 || a4 )
+  if ( Parameters || ParametersSize )
     return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v10 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-      v10 = (__int64)a5;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v10 = (__int64)IoStatusBlock;
     *(_DWORD *)v10 = *(_DWORD *)v10;
   }
-  result = IopReferenceFileObject(a1, 0, PreviousMode, &Object, &v26);
+  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, &Object, &v26);
   if ( result >= 0 )
   {
     v12 = (struct _FILE_OBJECT *)Object;
@@ -119,12 +126,12 @@ LABEL_16:
             if ( v7 )
             {
               *(_QWORD *)(Irp + 80) = 0LL;
-              v22 = a5;
+              v22 = IoStatusBlock;
             }
             else
             {
               *(_QWORD *)(Irp + 80) = v19;
-              v22 = (struct _IO_STATUS_BLOCK *)v27;
+              v22 = (PIO_STATUS_BLOCK)v27;
               v21->Flags = 4;
             }
             v21->UserIosb = v22;
@@ -132,21 +139,21 @@ LABEL_16:
             CurrentStackLocation = v21->Tail.Overlay.CurrentStackLocation;
             CurrentStackLocation[-1].MajorFunction = 9;
             CurrentStackLocation[-1].FileObject = v12;
-            if ( (a2 & 1) != 0 )
+            if ( (v5 & 1) != 0 )
             {
               CurrentStackLocation[-1].MinorFunction = 2;
             }
-            else if ( (a2 & 2) != 0 )
+            else if ( (v5 & 2) != 0 )
             {
               CurrentStackLocation[-1].MinorFunction = 3;
             }
-            else if ( (a2 & 4) != 0 )
+            else if ( (v5 & 4) != 0 )
             {
               CurrentStackLocation[-1].MinorFunction = 4;
             }
             result = IopSynchronousServiceTail(DeviceObject, v21, (__int64)v12, 0, PreviousMode, v7, 2u);
             if ( !v7 )
-              return IopSynchronousApiServiceTail(result, v19, v21, PreviousMode, (unsigned int *)v27, a5);
+              return IopSynchronousApiServiceTail(result, v19, v21, PreviousMode, (unsigned int *)v27, IoStatusBlock);
           }
           else
           {

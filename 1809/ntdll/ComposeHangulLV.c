@@ -1,7 +1,7 @@
 /*
  * XREFs of ComposeHangulLV @ 0x1800FBDF4
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptDivisorCreate @ 0x14052373C
+ * XREFs of SymCryptDivisorCreate @ 0x140521054
  * Callers:
- *     SymCryptRsakeySetValueInternal @ 0x140521B70 (SymCryptRsakeySetValueInternal.c)
- *     SymCryptIntExtendedGcd @ 0x140529024 (SymCryptIntExtendedGcd.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14051F4C4 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptIntExtendedGcd @ 0x140526944 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefDivisorCreate @ 0x14053702C (SymCryptFdefDivisorCreate.c)
+ *     SymCryptFdefDivisorCreate @ 0x1405314CC (SymCryptFdefDivisorCreate.c)
  */
 
 __int64 SymCryptDivisorCreate()

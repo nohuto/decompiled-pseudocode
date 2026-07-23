@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLookupFirstMatchingElementGenericTableAvl @ 0x1403B8250
+ * XREFs of RtlLookupFirstMatchingElementGenericTableAvl @ 0x1403C2150
  * Callers:
  *     <none>
  * Callees:
- *     FindNodeOrParent @ 0x1403B82F0 (FindNodeOrParent.c)
- *     RealPredecessor @ 0x1403B914C (RealPredecessor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     FindNodeOrParent @ 0x1403C21F0 (FindNodeOrParent.c)
+ *     RealPredecessor @ 0x1403C304C (RealPredecessor.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID __stdcall RtlLookupFirstMatchingElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer, PVOID *RestartKey)

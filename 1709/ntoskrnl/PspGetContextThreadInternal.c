@@ -27,24 +27,24 @@
  *     RtlpWriteExtendedContext @ 0x140515A64 (RtlpWriteExtendedContext.c)
  */
 
-__int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // rdi
   unsigned int v10; // esi
-  __int64 result; // rax
-  __int64 v12; // r13
+  int result; // eax
+  PCONTEXT_EX v12; // r13
   char v13; // cl
   __int64 v14; // rcx
   bool v15; // zf
-  unsigned int v16; // ecx
+  int v16; // ecx
   __int64 v17; // rax
   unsigned __int64 v18; // rcx
   unsigned __int64 v19; // rcx
   void *v20; // rsp
   void *v21; // rsp
   int v22; // ecx
-  _DWORD v23[2]; // [rsp+40h] [rbp+0h] BYREF
-  __int64 v24; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextLength[2]; // [rsp+40h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _QWORD v25[48]; // [rsp+50h] [rbp+10h] BYREF
   _BYTE v26[24]; // [rsp+1D0h] [rbp+190h] BYREF
 
@@ -56,21 +56,21 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v17 = 0x7FFFFFFF0000LL;
     v10 = *(_DWORD *)v17;
-    v23[1] = *(_DWORD *)v17;
+    ContextLength[1] = *(_DWORD *)v17;
   }
   else
   {
     v10 = *(_DWORD *)(a2 + 48);
   }
   result = RtlpValidateContextFlags(v10, 0LL);
-  if ( (int)result < 0 || (v10 & 0x100000) != 0 )
+  if ( result < 0 || (v10 & 0x100000) != 0 )
   {
-    if ( (_DWORD)result != -1073741811 )
+    if ( result != -1073741811 )
       goto LABEL_6;
   }
   else
   {
-    result = 3221225485LL;
+    result = -1073741811;
   }
   if ( a3 )
   {
@@ -78,76 +78,71 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
     goto LABEL_7;
   }
 LABEL_6:
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
 LABEL_7:
   if ( !a3 )
   {
     v25[15] = a2;
-    v12 = a2 + 1232;
+    v12 = (PCONTEXT_EX)(a2 + 1232);
     goto LABEL_9;
   }
-  result = RtlGetExtendedContextLength(v10);
-  if ( (int)result >= 0 )
+  result = RtlGetExtendedContextLength(v10, ContextLength);
+  if ( result >= 0 )
   {
-    v18 = v23[0] + 15LL;
-    if ( v18 <= v23[0] )
+    v18 = ContextLength[0] + 15LL;
+    if ( v18 <= ContextLength[0] )
       v18 = 0xFFFFFFFFFFFFFF0LL;
     v19 = v18 & 0xFFFFFFFFFFFFFFF0uLL;
     v20 = alloca(v19);
     v21 = alloca(v19);
-    v25[15] = v23;
-    result = RtlInitializeExtendedContext((__int64)v23, v10, &v24);
-    if ( (int)result >= 0 )
+    v25[15] = ContextLength;
+    result = RtlInitializeExtendedContext((PCONTEXT)ContextLength, v10, &ContextEx);
+    if ( result >= 0 )
     {
-      v12 = v24;
-      v25[15] = v24 - 1232;
-      result = RtlpReadExtendedContext(v22, 0, v24, v10, a2, (__int64)v26);
-      if ( (int)result >= 0 )
+      v12 = ContextEx;
+      v25[15] = (char *)ContextEx - 1232;
+      result = RtlpReadExtendedContext(v22, 0, (_DWORD)ContextEx, v10, a2, (__int64)v26);
+      if ( result >= 0 )
       {
 LABEL_9:
         if ( a4 && (*(_DWORD *)(a1 + 116) & 0x400) != 0 )
+          return -1073741776;
+        LOBYTE(v25[11]) = a4;
+        v13 = (BYTE1(v25[11]) ^ (2 * a5)) & 2 ^ BYTE1(v25[11]);
+        if ( (struct _KTHREAD *)a1 == CurrentThread )
         {
-          return (unsigned int)-1073741776;
-        }
-        else
-        {
-          LOBYTE(v25[11]) = a4;
-          v13 = (BYTE1(v25[11]) ^ (2 * a5)) & 2 ^ BYTE1(v25[11]);
-          if ( (struct _KTHREAD *)a1 == CurrentThread )
+          v25[8] = 0LL;
+          v25[9] = a1;
+          BYTE1(v25[11]) = v13 & 0xFE;
+          --CurrentThread->SpecialApcDisable;
+          PspGetSetContextSpecialApc((__int64)v25, 0LL, 0LL, &v25[8]);
+          v15 = CurrentThread->SpecialApcDisable++ == -1;
+          if ( v15
+            && ($B476B70DB57F76B110DA5B9238C3E934 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
-            v25[8] = 0LL;
-            v25[9] = a1;
-            BYTE1(v25[11]) = v13 & 0xFE;
-            --CurrentThread->SpecialApcDisable;
-            PspGetSetContextSpecialApc((__int64)v25, 0LL, 0LL, &v25[8]);
-            v15 = CurrentThread->SpecialApcDisable++ == -1;
-            if ( v15
-              && ($B476B70DB57F76B110DA5B9238C3E934 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-            {
-              KiCheckForKernelApcDelivery(v14);
-            }
-            goto LABEL_13;
+            KiCheckForKernelApcDelivery(v14);
           }
-          BYTE1(v25[11]) = v13 | 1;
-          KeInitializeGate((__int64)&v25[12]);
-          KeInitializeApc((__int64)v25, a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
-          if ( KeInsertQueueApc((__int64)v25, 0LL, a1, 2u) )
-          {
-            KeWaitForGate((__int64)&v25[12], 0);
+          goto LABEL_13;
+        }
+        BYTE1(v25[11]) = v13 | 1;
+        KeInitializeGate((__int64)&v25[12]);
+        KeInitializeApc((__int64)v25, a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
+        if ( KeInsertQueueApc((__int64)v25, 0LL, a1, 2u) )
+        {
+          KeWaitForGate((__int64)&v25[12], 0);
 LABEL_13:
-            v16 = HIDWORD(v25[11]);
-            if ( v25[11] >= 0 && v25[15] != a2 )
-              return (unsigned int)RtlpWriteExtendedContext(
-                                     HIDWORD(v25[11]),
-                                     (int)a2 + 1232,
-                                     (unsigned int)v26,
-                                     *(_DWORD *)(v25[15] + 48LL),
-                                     v12);
-            return v16;
-          }
-          return (unsigned int)-1073741823;
+          v16 = HIDWORD(v25[11]);
+          if ( v25[11] >= 0 && v25[15] != a2 )
+            return RtlpWriteExtendedContext(
+                     HIDWORD(v25[11]),
+                     (int)a2 + 1232,
+                     (unsigned int)v26,
+                     *(_DWORD *)(v25[15] + 48LL),
+                     (__int64)v12);
+          return v16;
         }
+        return -1073741823;
       }
     }
   }

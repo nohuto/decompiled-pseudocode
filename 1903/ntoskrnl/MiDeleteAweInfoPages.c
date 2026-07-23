@@ -17,21 +17,21 @@
  *     MiGetAweInfoPartition @ 0x140896848 (MiGetAweInfoPartition.c)
  */
 
-__int64 __fastcall MiDeleteAweInfoPages(_DWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiDeleteAweInfoPages(_RTL_BITMAP_EX *a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rdi
   __int64 v4; // rbx
   __int64 v5; // r15
   unsigned __int64 v6; // r14
-  _DWORD *v7; // r12
+  _RTL_BITMAP_EX *v7; // r12
   __int64 v8; // rax
-  unsigned __int64 *v9; // r13
-  unsigned __int64 v10; // r12
+  _RTL_BITMAP_EX *v9; // r13
+  ULONG64 v10; // r12
   __int64 v11; // rbp
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   unsigned __int64 v13; // rsi
   unsigned __int64 NextForwardRunClear; // rax
-  unsigned __int64 v15; // rdi
+  unsigned __int64 SizeOfBitMap; // rdi
   unsigned __int64 v16; // r12
   unsigned __int64 v17; // rdi
   ULONG_PTR *v18; // rbp
@@ -48,8 +48,8 @@ __int64 __fastcall MiDeleteAweInfoPages(_DWORD *a1, __int64 a2, __int64 a3)
   AweInfoPartition = MiGetAweInfoPartition(a1, a2, a3);
   MiLockAwePagesExclusive((__int64)v7, (__int64)CurrentThread);
   v8 = ExGetCallBackBlockRoutine((__int64)v7);
-  v9 = (unsigned __int64 *)(v7 + 4);
-  if ( (*v7 & 1) == 0 || KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[11] )
+  v9 = v7 + 1;
+  if ( (v7->SizeOfBitMap & 1) == 0 || KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[11] )
   {
     v10 = 0LL;
     v11 = v8;
@@ -60,17 +60,17 @@ __int64 __fastcall MiDeleteAweInfoPages(_DWORD *a1, __int64 a2, __int64 a3)
       if ( SetBits < v10 || SetBits == -1LL )
         break;
       NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)v9, SetBits, &v22);
-      v15 = v22;
+      SizeOfBitMap = v22;
       v16 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v15 = *v9;
-      v17 = v15 - v13;
+        SizeOfBitMap = v9->SizeOfBitMap;
+      v17 = SizeOfBitMap - v13;
       RtlClearBitsEx((__int64)v9, v13, v17);
       v10 = v13 + v17 + v16;
       v5 += v11 * v17;
       v6 += MiFreeMdlPageRun(v11 * v13, v11 * v17);
     }
-    while ( v10 < *v9 );
+    while ( v10 < v9->SizeOfBitMap );
     v18 = (ULONG_PTR *)AweInfoPartition;
     v7 = a1;
     if ( v5 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x140AB07F4
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x140AAE7D8
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1409A2C44 (PiDmGetCmObjectConstraintListFromCache.c)
- *     PiDmGetObjectList @ 0x140AB0C18 (PiDmGetObjectList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x1409636A4 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetObjectList @ 0x140AAEBFC (PiDmGetObjectList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)

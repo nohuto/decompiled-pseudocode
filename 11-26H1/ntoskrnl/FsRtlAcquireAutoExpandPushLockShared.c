@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlAcquireAutoExpandPushLockShared @ 0x1402C1350
+ * XREFs of FsRtlAcquireAutoExpandPushLockShared @ 0x14030C010
  * Callers:
- *     FsRtlLookupPerStreamContextInternal @ 0x1402C1230 (FsRtlLookupPerStreamContextInternal.c)
- *     FsRtlLookupPerFileContext @ 0x14046F460 (FsRtlLookupPerFileContext.c)
+ *     FsRtlLookupPerStreamContextInternal @ 0x14030BEF0 (FsRtlLookupPerStreamContextInternal.c)
+ *     FsRtlLookupPerFileContext @ 0x140468BE0 (FsRtlLookupPerFileContext.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
  */
 
 __int64 __fastcall FsRtlAcquireAutoExpandPushLockShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

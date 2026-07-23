@@ -4,7 +4,7 @@
  *     PoCaptureReasonContext @ 0x140209BF8 (PoCaptureReasonContext.c)
  * Callees:
  *     PopSafeCopyUnicodeString @ 0x140209618 (PopSafeCopyUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -13,14 +13,21 @@
 
 __int64 __fastcall ExCheckFullProcessInformationAccess(char a1)
 {
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
   PVOID Context; // [rsp+38h] [rbp+10h] BYREF
 
   Context = 0LL;
-  if ( a1 == 1 )
+  IsMember = 0;
+  if ( a1 == 1
+    && (RtlRunOnceExecuteOnce(&ExpFullProcessInfoInit, ExpInitFullProcessSecurityInfo, 0LL, &Context) >= 0
+     && RtlCheckTokenMembership(0LL, Context, &IsMember) >= 0
+     && IsMember
+     || RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) >= 0 && IsMember) )
   {
-    if ( RtlRunOnceExecuteOnce(&ExpFullProcessInfoInit, ExpInitFullProcessSecurityInfo, 0LL, &Context) >= 0 )
-      RtlCheckTokenMembership(0LL, Context);
-    RtlCheckTokenMembership(0LL, SeAliasAdminsSid);
+    return 0LL;
   }
-  return 3221225506LL;
+  else
+  {
+    return 3221225506LL;
+  }
 }

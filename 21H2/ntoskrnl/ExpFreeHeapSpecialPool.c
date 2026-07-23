@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpFreeHeapSpecialPool @ 0x1405BA0E0
+ * XREFs of ExpFreeHeapSpecialPool @ 0x1405BA310
  * Callers:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
  * Callees:
- *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1402B7FB0 (ExpRemovePoolTrackerExpansion.c)
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     VerifierFreeTrackedPool @ 0x1405A1CA0 (VerifierFreeTrackedPool.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     ExpFreePoolChecks @ 0x14021898C (ExpFreePoolChecks.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x1402361C0 (ExpRemovePoolTrackerExpansion.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     VerifierFreeTrackedPool @ 0x1405A1ED0 (VerifierFreeTrackedPool.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
-__int64 __fastcall ExpFreeHeapSpecialPool(__m128i *a1, ULONG_PTR a2)
+__int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, ULONG_PTR a2)
 {
   int v4; // eax
   __int16 v5; // r14

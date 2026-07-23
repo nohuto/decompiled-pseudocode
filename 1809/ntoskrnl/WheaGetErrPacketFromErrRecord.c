@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaGetErrPacketFromErrRecord @ 0x14031FC48
+ * XREFs of WheaGetErrPacketFromErrRecord @ 0x14031FE38
  * Callers:
- *     WheapAttemptErrorRecovery @ 0x140320218 (WheapAttemptErrorRecovery.c)
+ *     WheapAttemptErrorRecovery @ 0x140320408 (WheapAttemptErrorRecovery.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
  */
 
 PWHEA_ERROR_PACKET __stdcall WheaGetErrPacketFromErrRecord(PWHEA_ERROR_RECORD Record)

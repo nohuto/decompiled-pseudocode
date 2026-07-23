@@ -16,7 +16,7 @@ char __fastcall SeAccessCheckFromStateEx(
         __int64 a7,
         char a8,
         int *a9,
-        int *a10)
+        NTSTATUS *a10)
 {
   __int64 v11; // [rsp+60h] [rbp-28h] BYREF
   __int64 v12; // [rsp+68h] [rbp-20h]

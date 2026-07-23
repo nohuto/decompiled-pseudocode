@@ -16,10 +16,10 @@ __int64 __fastcall SepReferenceTokenByHandle(
         KPROCESSOR_MODE a3,
         PACCESS_TOKEN *a4,
         _BYTE *Object,
-        __int64 *a6)
+        _QWORD *a6)
 {
   _BYTE *v7; // r8
-  __int64 *v9; // r9
+  _QWORD *v9; // r9
   unsigned int v10; // ecx
   __int64 result; // rax
 

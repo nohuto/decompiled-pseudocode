@@ -1,13 +1,13 @@
 /*
- * XREFs of MiResolveSharedZeroFault @ 0x140274050
+ * XREFs of MiResolveSharedZeroFault @ 0x1402742E0
  * Callers:
- *     MiZeroFault @ 0x140232320 (MiZeroFault.c)
+ *     MiZeroFault @ 0x1402323F0 (MiZeroFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int64 __fastcall MiResolveSharedZeroFault(unsigned int *a1)

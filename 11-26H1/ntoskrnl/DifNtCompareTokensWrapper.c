@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtCompareTokensWrapper @ 0x14066F240
+ * XREFs of DifNtCompareTokensWrapper @ 0x140672E20
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtCompareTokens @ 0x140A2A4A0 (NtCompareTokens.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtCompareTokens @ 0x140A3D530 (NtCompareTokens.c)
  */
 
-__int64 __fastcall DifNtCompareTokensWrapper(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall DifNtCompareTokensWrapper(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -45,9 +45,9 @@ __int64 __fastcall DifNtCompareTokensWrapper(__int64 a1, __int64 a2, __int64 a3)
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = a1;
-    *(_QWORD *)&v18 = a2;
-    *((_QWORD *)&v17 + 1) = a3;
+    *((_QWORD *)&v18 + 1) = FirstTokenHandle;
+    *(_QWORD *)&v18 = SecondTokenHandle;
+    *((_QWORD *)&v17 + 1) = Equal;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -60,7 +60,7 @@ __int64 __fastcall DifNtCompareTokensWrapper(__int64 a1, __int64 a2, __int64 a3)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = NtCompareTokens(a1, a2, a3);
+  LODWORD(v19) = NtCompareTokens(FirstTokenHandle, SecondTokenHandle, Equal);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaGetIommuInterface @ 0x1404B7984
+ * XREFs of HalpDmaGetIommuInterface @ 0x1404B7BC4
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C3BC8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IoQueryInterface @ 0x140765590 (IoQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IoQueryInterface @ 0x140765750 (IoQueryInterface.c)
  */
 
 __int64 __fastcall HalpDmaGetIommuInterface(__int64 a1, __int64 a2)

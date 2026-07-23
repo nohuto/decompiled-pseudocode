@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x1402C257C
+ * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x14035E43C
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x1402C21D4 (RtlpHpSegMgrCommit.c)
- *     RtlpHpLargeAlloc @ 0x140420250 (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrCommit @ 0x14035E694 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpLargeAlloc @ 0x1404585E4 (RtlpHpLargeAlloc.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpSegHeapCheckCommitLimit(__int64 a1, _QWORD *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall RtlpHpSegHeapCheckCommitLimit(__int64 a1, _QWORD *a2)
   v2 = a2 + 4;
   v3 = 0;
   v4 = a2[4];
-  if ( (v4 || (v4 = qword_140E28218, v2 = &qword_140E28218, qword_140E28218)) && ((a2[17] + a2[12]) << 12) + a1 > v4 )
+  if ( (v4 || (v4 = qword_140E28358, v2 = &qword_140E28358, qword_140E28358)) && ((a2[17] + a2[12]) << 12) + a1 > v4 )
   {
     v6 = v2[1];
     if ( v6 )

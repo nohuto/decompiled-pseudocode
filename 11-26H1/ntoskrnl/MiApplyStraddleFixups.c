@@ -1,9 +1,9 @@
 /*
- * XREFs of MiApplyStraddleFixups @ 0x140467B30
+ * XREFs of MiApplyStraddleFixups @ 0x140461280
  * Callers:
- *     MiPerformFixups @ 0x1409CED50 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x14099FD30 (MiPerformFixups.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall MiApplyStraddleFixups(__int64 a1, char *a2, int a3, __int64 a4, __int64 a5, char a6)

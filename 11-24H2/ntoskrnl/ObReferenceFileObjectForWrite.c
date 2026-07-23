@@ -1,22 +1,22 @@
 /*
- * XREFs of ObReferenceFileObjectForWrite @ 0x140988C30
+ * XREFs of ObReferenceFileObjectForWrite @ 0x140863440
  * Callers:
- *     NtCopyFileChunk @ 0x1409886C0 (NtCopyFileChunk.c)
- *     IopIoRingReferenceFileObject @ 0x140ABAC5C (IopIoRingReferenceFileObject.c)
+ *     IopIoRingReferenceFileObject @ 0x140AB5C7C (IopIoRingReferenceFileObject.c)
+ *     NtCopyFileChunk @ 0x140ABE950 (NtCopyFileChunk.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140340450 (ObpTraceObjectReferenceIfActive.c)
- *     ObpIncrPointerCountEx @ 0x140419440 (ObpIncrPointerCountEx.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     ExHandleLogBadReference @ 0x14043AC30 (ExHandleLogBadReference.c)
- *     ExSlowReplenishHandleTableEntry @ 0x140445670 (ExSlowReplenishHandleTableEntry.c)
- *     ExFastReplenishHandleTableEntry @ 0x140472650 (ExFastReplenishHandleTableEntry.c)
- *     HalPutDmaAdapter @ 0x1404833B0 (HalPutDmaAdapter.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
- *     ObpAuditObjectAccess @ 0x140989024 (ObpAuditObjectAccess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x14031F930 (ObpTraceObjectReferenceIfActive.c)
+ *     ObpIncrPointerCountEx @ 0x1404091E0 (ObpIncrPointerCountEx.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     ExHandleLogBadReference @ 0x14042D470 (ExHandleLogBadReference.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x14043D820 (ExSlowReplenishHandleTableEntry.c)
+ *     ExFastReplenishHandleTableEntry @ 0x14046E920 (ExFastReplenishHandleTableEntry.c)
+ *     HalPutDmaAdapter @ 0x14047E920 (HalPutDmaAdapter.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
+ *     ObpAuditObjectAccess @ 0x140863834 (ObpAuditObjectAccess.c)
  */
 
 __int64 __fastcall ObReferenceFileObjectForWrite(

@@ -1,24 +1,24 @@
 /*
- * XREFs of IoPageReadEx @ 0x14031C130
+ * XREFs of IoPageReadEx @ 0x140326E80
  * Callers:
- *     MiIssueHardFaultIo @ 0x1402AF824 (MiIssueHardFaultIo.c)
- *     MiPageRead @ 0x1402FCACC (MiPageRead.c)
- *     IoPageRead @ 0x14037F8F0 (IoPageRead.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
- *     MiPfIssueCoalescedSupport @ 0x1405392A8 (MiPfIssueCoalescedSupport.c)
+ *     MiIssueHardFaultIo @ 0x14022DB84 (MiIssueHardFaultIo.c)
+ *     MiPageRead @ 0x14030781C (MiPageRead.c)
+ *     IoPageRead @ 0x14037F440 (IoPageRead.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x1405394E8 (MiPfIssueCoalescedSupport.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1402EDF0C (IopSetDiskIoAttributionExtension.c)
- *     IopSetDriverFlagsExtension @ 0x1402EDF88 (IopSetDriverFlagsExtension.c)
- *     IoSetDiskIoAttributionFromThread @ 0x14031BFE0 (IoSetDiskIoAttributionFromThread.c)
- *     MmIsRecursiveIoFault @ 0x14031C380 (MmIsRecursiveIoFault.c)
- *     MmIsFileObjectAPagingFile @ 0x14031C454 (MmIsFileObjectAPagingFile.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IopAllocateBackpocketIrp @ 0x1405000D0 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140500370 (IopAllocateReserveIrp.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14020D8DC (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDriverFlagsExtension @ 0x14020D958 (IopSetDriverFlagsExtension.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x140326D30 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsRecursiveIoFault @ 0x1403270D0 (MmIsRecursiveIoFault.c)
+ *     MmIsFileObjectAPagingFile @ 0x1403271A4 (MmIsFileObjectAPagingFile.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IopAllocateBackpocketIrp @ 0x140500050 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1405002F0 (IopAllocateReserveIrp.c)
  */
 
 NTSTATUS __fastcall IoPageReadEx(

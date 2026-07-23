@@ -1,10 +1,10 @@
 /*
- * XREFs of MiTryLockVad @ 0x1404D5B40
+ * XREFs of MiTryLockVad @ 0x1404CF304
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

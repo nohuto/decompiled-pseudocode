@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepIsCompareRelevantAttribute @ 0x140A29384
+ * XREFs of AuthzBasepIsCompareRelevantAttribute @ 0x140A3C424
  * Callers:
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A292B8 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A3C358 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
  * Callees:
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
  */
 
 bool __fastcall AuthzBasepIsCompareRelevantAttribute(__int64 a1)

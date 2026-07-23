@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRemoveThreadFromScbQueue @ 0x1402EB78C
+ * XREFs of KiRemoveThreadFromScbQueue @ 0x14029CADC
  * Callers:
- *     KiRemoveThreadFromAnyReadyQueue @ 0x1402EA570 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiGroupSchedulingMoveThread @ 0x1402EB678 (KiGroupSchedulingMoveThread.c)
- *     KiSelectThreadFromSchedulingGroup @ 0x1402EB73C (KiSelectThreadFromSchedulingGroup.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1402EC1B8 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x14029B8C0 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiGroupSchedulingMoveThread @ 0x14029C9C8 (KiGroupSchedulingMoveThread.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x14029CA8C (KiSelectThreadFromSchedulingGroup.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x14029D508 (KiRemoveThreadFromSchedulingGroup.c)
  * Callees:
- *     KiRemoveSchedulingGroupQueue @ 0x1402EB83C (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x1402EBF2C (KiResortScbQueue.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x14029CB8C (KiRemoveSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x14029D27C (KiResortScbQueue.c)
  */
 
 int __fastcall KiRemoveThreadFromScbQueue(__int64 a1, __int64 a2, __int64 a3, char a4)

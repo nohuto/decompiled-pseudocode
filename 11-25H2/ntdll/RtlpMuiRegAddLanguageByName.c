@@ -13,7 +13,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, __int64 a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
+__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, void *a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 result; // rax
   __int16 v10; // ax

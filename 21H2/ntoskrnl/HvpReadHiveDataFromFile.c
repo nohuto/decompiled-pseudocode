@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpReadHiveDataFromFile @ 0x14087463C
+ * XREFs of HvpReadHiveDataFromFile @ 0x14087479C
  * Callers:
- *     HvpMapHiveImage @ 0x140873E94 (HvpMapHiveImage.c)
+ *     HvpMapHiveImage @ 0x140873FF4 (HvpMapHiveImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvpReadHiveDataFromFile(_QWORD *a1, _QWORD *a2, unsigned int *a3)

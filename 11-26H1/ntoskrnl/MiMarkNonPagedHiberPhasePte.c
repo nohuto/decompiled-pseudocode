@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkNonPagedHiberPhasePte @ 0x140C00D60
+ * XREFs of MiMarkNonPagedHiberPhasePte @ 0x140C06F70
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfn @ 0x14042D9E0 (MiIsPfn.c)
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     MiIsPfn @ 0x14041A8F0 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkNonPagedHiberPhasePte(__int64 a1, unsigned __int64 *a2, int a3)

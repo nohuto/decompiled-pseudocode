@@ -9,16 +9,16 @@
 
 __int64 __fastcall LdrpFindMessageInAlternateModule(
         unsigned __int64 a1,
-        unsigned int *a2,
+        ULONG *a2,
         unsigned __int64 a3,
         unsigned int a4,
         char a5)
 {
-  unsigned int *v7; // rax
+  ULONG *v7; // rax
   __int64 result; // rax
   unsigned int *v9; // r8
   __int64 v10; // rdx
-  unsigned int *v11; // [rsp+30h] [rbp+8h] BYREF
+  ULONG *v11; // [rsp+30h] [rbp+8h] BYREF
 
   v7 = a2;
   if ( !a1 || !a2 )

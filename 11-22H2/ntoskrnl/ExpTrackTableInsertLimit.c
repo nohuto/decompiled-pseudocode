@@ -20,7 +20,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
   int v3; // esi
   unsigned int *Pool2; // rdi
   unsigned int v5; // esi
-  __int64 v6; // r15
+  _WNF_STATE_NAME *v6; // r15
   __int64 v7; // r8
   unsigned int *v8; // rcx
   __int64 *v9; // r8
@@ -50,7 +50,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
   void *v33; // rcx
   __int64 v35; // [rsp+40h] [rbp-40h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v37; // [rsp+70h] [rbp-10h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+70h] [rbp-10h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v1 = 0LL;
@@ -66,12 +66,12 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
       {
         while ( 1 )
         {
-          v6 = ExAllocatePool2(64LL, 112LL, 1819242320LL);
+          v6 = (_WNF_STATE_NAME *)ExAllocatePool2(64LL, 112LL, 1819242320LL);
           v7 = 14LL * v5;
           *(_QWORD *)&Pool2[v7 + 2] = v6;
           if ( !v6 )
             break;
-          *(_QWORD *)(v6 + 8) = *(unsigned int *)(48LL * v5 + a1 + 8);
+          v6[1] = (_WNF_STATE_NAME)*(unsigned int *)(48LL * v5 + a1 + 8);
           v8 = &Pool2[v7 + 6];
           v9 = (__int64 *)(48LL * v5 + a1 + 24);
           v10 = 2LL;
@@ -85,9 +85,9 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
             --v10;
           }
           while ( v10 );
-          v37 = 0LL;
-          if ( (int)ZwCreateWnfStateName((__int64)&v37, 3LL) >= 0 )
-            *(_QWORD *)(v6 + 64) = v37;
+          StateName = 0LL;
+          if ( ZwCreateWnfStateName(&StateName, WnfTemporaryStateName, WnfDataScopeSystem, 0, 0LL, 4u, &unk_140CF81D0) >= 0 )
+            v6[8] = StateName;
           if ( ++v5 >= *(_DWORD *)(a1 + 4) )
             goto LABEL_11;
         }
@@ -153,10 +153,13 @@ LABEL_20:
         }
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

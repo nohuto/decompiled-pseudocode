@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpRedirectDelayloadFailure @ 0x1800847DC
+ * XREFs of LdrpRedirectDelayloadFailure @ 0x1800847EC
  * Callers:
  *     LdrpHandleProtectedDelayload @ 0x180007CB0 (LdrpHandleProtectedDelayload.c)
  *     LdrpHandleUnprotectedDelayLoad @ 0x1800D0A78 (LdrpHandleUnprotectedDelayLoad.c)
  * Callees:
- *     RtlNtStatusToDosErrorNoTeb @ 0x180078300 (RtlNtStatusToDosErrorNoTeb.c)
- *     LdrpGetDelayloadAPIInfo @ 0x1800848BC (LdrpGetDelayloadAPIInfo.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180078310 (RtlNtStatusToDosErrorNoTeb.c)
+ *     LdrpGetDelayloadAPIInfo @ 0x1800848CC (LdrpGetDelayloadAPIInfo.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  */
@@ -18,7 +18,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 (__fastcall *a4)(__int64, _QWORD *),
         __int64 (__fastcall *a5)(__int64, const char *),
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v7; // r12
   __int64 v10; // rdi
@@ -56,7 +56,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
       v18,
       v20,
       v11 + 88,
-      a7);
+      Status);
     v12 = LdrpDebugFlags;
   }
   if ( (v12 & 0x10) != 0 )
@@ -84,7 +84,7 @@ LABEL_7:
   LODWORD(v19[0]) = 72;
   v19[3] = v7;
   v19[6] = v15;
-  LODWORD(v19[8]) = RtlNtStatusToDosErrorNoTeb(a7);
+  LODWORD(v19[8]) = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v14 )
   {
     LODWORD(v19[4]) = 1;

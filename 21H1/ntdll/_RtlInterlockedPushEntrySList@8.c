@@ -9,13 +9,13 @@
 
 PSLIST_ENTRY __stdcall RtlInterlockedPushEntrySList(PSLIST_HEADER ListHead, PSLIST_ENTRY ListEntry)
 {
-  struct _SINGLE_LIST_ENTRY *Next; // esi
+  _SINGLE_LIST_ENTRY *Next; // esi
 
-  RtlAcquireSRWLockExclusive((char *)&RtlpSlistLockedAltLocks + 4 * (((unsigned int)ListHead >> 2) & 0x1F));
+  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)ListHead >> 2) & 0x1F));
   Next = ListHead->Next.Next;
-  ListEntry->Next = (_SINGLE_LIST_ENTRY *)ListHead->Next;
+  ListEntry->Next = (_SLIST_ENTRY *)ListHead->Next.Next;
   ++ListHead->Depth;
-  ListHead->Next.Next = ListEntry;
-  RtlReleaseSRWLockExclusive((char *)&RtlpSlistLockedAltLocks + 4 * (((unsigned int)ListHead >> 2) & 0x1F));
-  return Next;
+  ListHead->Next.Next = (_SINGLE_LIST_ENTRY *)ListEntry;
+  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)ListHead >> 2) & 0x1F));
+  return (PSLIST_ENTRY)Next;
 }

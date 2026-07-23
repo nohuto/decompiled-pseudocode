@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateExclusiveSecure @ 0x1404B8DBC
+ * XREFs of MiLocateExclusiveSecure @ 0x1404B25EC
  * Callers:
- *     MiAddSecureEntry @ 0x14095D9B8 (MiAddSecureEntry.c)
- *     MiInitializeDataVad @ 0x1409C5B30 (MiInitializeDataVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409CA420 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiInitializeDataVad @ 0x140996B10 (MiInitializeDataVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14099B400 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAddSecureEntry @ 0x140A03278 (MiAddSecureEntry.c)
  * Callees:
  *     <none>
  */

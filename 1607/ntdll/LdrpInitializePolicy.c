@@ -1,37 +1,37 @@
 /*
- * XREFs of LdrpInitializePolicy @ 0x18005DE2C
+ * XREFs of LdrpInitializePolicy @ 0x18005DE1C
  * Callers:
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
  *     LdrSetDllDirectory @ 0x180001540 (LdrSetDllDirectory.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     AppModelPolicy_GetPolicy @ 0x18005DF44 (AppModelPolicy_GetPolicy.c)
- *     LdrSetDefaultDllDirectories @ 0x18005E8A0 (LdrSetDefaultDllDirectories.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     AppModelPolicy_GetPolicy @ 0x18005DF34 (AppModelPolicy_GetPolicy.c)
+ *     LdrSetDefaultDllDirectories @ 0x18005E890 (LdrSetDefaultDllDirectories.c)
  */
 
 char LdrpInitializePolicy()
 {
   struct _PEB *v0; // rbx
-  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdi
+  _UNICODE_STRING *ProcessParameters; // rdi
   __int64 v2; // rcx
   int Policy; // eax
-  UNICODE_STRING DllPath; // xmm0
+  _UNICODE_STRING v4; // xmm0
   __int64 v5; // rcx
   __int64 v6; // rcx
   __int64 v7; // rcx
   int v9; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = NtCurrentPeb();
-  ProcessParameters = v0->ProcessParameters;
+  ProcessParameters = (_UNICODE_STRING *)v0->ProcessParameters;
   RtlInitUnicodeString(&LdrpAppPackagesPath, 0LL);
   LOBYTE(Policy) = v0->BitField;
-  if ( (Policy & 0x10) != 0 && ProcessParameters->DllPath.Length )
+  if ( (Policy & 0x10) != 0 && ProcessParameters[5].Length )
   {
-    DllPath = ProcessParameters->DllPath;
+    v4 = ProcessParameters[5];
     LdrpPolicyBits = 41;
-    LdrpAppPackagesPath = DllPath;
+    LdrpAppPackagesPath = v4;
     if ( (int)AppModelPolicy_GetPolicy(v2, 4LL, &v9) < 0 || v9 == 262145 )
-      LdrSetDefaultDllDirectories(4096LL);
+      LdrSetDefaultDllDirectories(0x1000u);
     else
       LdrpPolicyBits &= ~1u;
     if ( (int)AppModelPolicy_GetPolicy(v5, 7LL, &v9) >= 0 && v9 == 458753 )
@@ -44,11 +44,11 @@ char LdrpInitializePolicy()
   }
   else if ( (Policy & 2) != 0 )
   {
-    ProcessParameters->DllPath.Length = 0;
+    ProcessParameters[5].Length = 0;
   }
-  else if ( ProcessParameters->DllPath.Length )
+  else if ( ProcessParameters[5].Length )
   {
-    LOBYTE(Policy) = LdrSetDllDirectory((__int64)&ProcessParameters->DllPath);
+    LOBYTE(Policy) = LdrSetDllDirectory(ProcessParameters + 5);
   }
   return Policy;
 }

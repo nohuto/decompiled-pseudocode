@@ -13,7 +13,7 @@
  *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
+_SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v5; // r11d
   __int64 v6; // r10
@@ -26,7 +26,7 @@ struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, 
   PSLIST_ENTRY v13; // rbx
   _SLIST_ENTRY **v14; // rdx
   __int16 Number; // ax
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   char v17; // [rsp+80h] [rbp+18h]
   char v18; // [rsp+88h] [rbp+20h]
 
@@ -90,7 +90,7 @@ struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, 
     ++P->TotalFrees;
     ExFreePoolWithTag(v13, 0);
 LABEL_25:
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x20707249u);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v8, 0x20707249u);
     v13 = result;
     if ( !result )
       return result;

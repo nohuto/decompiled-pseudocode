@@ -13,26 +13,30 @@
  *     _RtlpGetCustomCultureData@16 @ 0x4B3631F6 (_RtlpGetCustomCultureData@16.c)
  */
 
-int __stdcall RtlGetParentLocaleName(PCWSTR SourceString, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlGetParentLocaleName(
+        PCWSTR LocaleName,
+        PUNICODE_STRING ParentLocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
   int v4; // edi
   int NameIndex; // eax
   int v6; // edi
   int v7; // ecx
-  int result; // eax
+  NTSTATUS result; // eax
   int v9; // [esp+10h] [ebp-8h] BYREF
-  int v10; // [esp+14h] [ebp-4h]
+  ULONG v10; // [esp+14h] [ebp-4h]
 
-  if ( !SourceString )
+  if ( !LocaleName )
     return -1073741585;
-  if ( !a2 || !*(_DWORD *)(a2 + 4) )
+  if ( !ParentLocaleName || !ParentLocaleName->Buffer )
     return -1073741584;
-  if ( (a3 & 0xFFFFFFF9) != 0 )
+  if ( (Flags & 0xFFFFFFF9) != 0 )
     return -1073741583;
-  v10 = a3 & 4;
-  if ( (a3 & 4) != 0
-    || !(unsigned __int8)RtlpIsCustomLocale(SourceString)
-    || (result = RtlpGetCustomCultureData(a4, a2), result < 0) )
+  v10 = Flags & 4;
+  if ( (Flags & 4) != 0
+    || !(unsigned __int8)RtlpIsCustomLocale(LocaleName)
+    || (result = RtlpGetCustomCultureData(AllocateDestinationString, ParentLocaleName), result < 0) )
   {
     v4 = pTblPtrs;
     if ( !pTblPtrs )
@@ -41,10 +45,10 @@ int __stdcall RtlGetParentLocaleName(PCWSTR SourceString, int a2, int a3, int a4
         return -1073741823;
       v4 = pTblPtrs;
     }
-    NameIndex = RtlpNlsGetNameIndex(SourceString);
+    NameIndex = RtlpNlsGetNameIndex(LocaleName);
     if ( NameIndex >= 0 )
     {
-      if ( (a3 & 2) == 0 )
+      if ( (Flags & 2) == 0 )
       {
         _mm_lfence();
         if ( (*(_BYTE *)(*(unsigned __int16 *)(v4 + 28)
@@ -64,15 +68,15 @@ int __stdcall RtlGetParentLocaleName(PCWSTR SourceString, int a2, int a3, int a4
       {
         if ( (int)RtlStringLengthWorkerW(&v9) >= 0 )
         {
-          LOBYTE(v7) = a4;
-          return RtlpInitUnicodeStringUsingBuffer(v7, v6, v9, a2);
+          LOBYTE(v7) = AllocateDestinationString;
+          return RtlpInitUnicodeStringUsingBuffer(v7, v6, v9, ParentLocaleName);
         }
         return -1073741823;
       }
     }
-    if ( !v10 || !(unsigned __int8)RtlpIsCustomLocale(SourceString) )
+    if ( !v10 || !(unsigned __int8)RtlpIsCustomLocale(LocaleName) )
       return -1073741585;
-    return RtlpGetCustomCultureData(a4, a2);
+    return RtlpGetCustomCultureData(AllocateDestinationString, ParentLocaleName);
   }
   return result;
 }

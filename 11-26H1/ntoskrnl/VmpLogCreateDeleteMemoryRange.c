@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpLogCreateDeleteMemoryRange @ 0x14081E2F4
+ * XREFs of VmpLogCreateDeleteMemoryRange @ 0x140824504
  * Callers:
- *     VmCreateMemoryRange @ 0x14081BDE0 (VmCreateMemoryRange.c)
- *     VmDeleteMemoryRange @ 0x140B080E0 (VmDeleteMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x140821FF0 (VmCreateMemoryRange.c)
+ *     VmDeleteMemoryRange @ 0x140B0A210 (VmDeleteMemoryRange.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogCreateDeleteMemoryRange(
@@ -21,7 +21,7 @@ char __fastcall VmpLogCreateDeleteMemoryRange(
         unsigned int a8)
 {
   _UNKNOWN **v8; // rax
-  unsigned __int64 QuantumTarget; // rbx
+  void *InitialStack; // rbx
   __int64 v12; // r8
   __int64 v13; // r8
   int v15; // [rsp+28h] [rbp-E0h]
@@ -51,12 +51,12 @@ char __fastcall VmpLogCreateDeleteMemoryRange(
   _UNKNOWN *retaddr; // [rsp+120h] [rbp+18h] BYREF
 
   v8 = &retaddr;
-  QuantumTarget = stru_140F066E8.QuantumTarget;
+  InitialStack = stru_140F06A28.InitialStack;
   if ( a2 )
   {
-    if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u )
+    if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u )
     {
-      LOBYTE(v8) = tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL);
+      LOBYTE(v8) = tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL);
       if ( (_BYTE)v8 )
       {
         ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
@@ -77,13 +77,21 @@ char __fastcall VmpLogCreateDeleteMemoryRange(
         v32 = 8LL;
         v34 = 8LL;
         v36 = 4LL;
-        LOBYTE(v8) = tlgWriteEx_EtwWriteEx(QuantumTarget, (unsigned __int8 *)&word_140053216, v12, 0, v15, v16, 8u, v24);
+        LOBYTE(v8) = tlgWriteEx_EtwWriteEx(
+                       (__int64)InitialStack,
+                       (unsigned __int8 *)byte_140054219,
+                       v12,
+                       0,
+                       v15,
+                       v16,
+                       8u,
+                       v24);
       }
     }
   }
-  else if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u )
+  else if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u )
   {
-    LOBYTE(v8) = tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL);
+    LOBYTE(v8) = tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL);
     if ( (_BYTE)v8 )
     {
       v18 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
@@ -107,7 +115,15 @@ char __fastcall VmpLogCreateDeleteMemoryRange(
       v34 = 8LL;
       v36 = 8LL;
       v38 = 4LL;
-      LOBYTE(v8) = tlgWriteEx_EtwWriteEx(QuantumTarget, (unsigned __int8 *)&word_1400531A6, v13, 0, v15, v16, 9u, v24);
+      LOBYTE(v8) = tlgWriteEx_EtwWriteEx(
+                     (__int64)InitialStack,
+                     (unsigned __int8 *)&byte_14005444D,
+                     v13,
+                     0,
+                     v15,
+                     v16,
+                     9u,
+                     v24);
     }
   }
   return (char)v8;

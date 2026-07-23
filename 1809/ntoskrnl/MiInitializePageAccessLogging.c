@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializePageAccessLogging @ 0x140114924
+ * XREFs of MiInitializePageAccessLogging @ 0x140114994
  * Callers:
- *     MiAllocateAccessLog @ 0x140114810 (MiAllocateAccessLog.c)
- *     MiGetCcAccessLog @ 0x140662A68 (MiGetCcAccessLog.c)
+ *     MiAllocateAccessLog @ 0x140114880 (MiAllocateAccessLog.c)
+ *     MiGetCcAccessLog @ 0x140663C28 (MiGetCcAccessLog.c)
  * Callees:
  *     <none>
  */

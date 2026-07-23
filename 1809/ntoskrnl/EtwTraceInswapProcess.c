@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceInswapProcess @ 0x14030FE88
+ * XREFs of EtwTraceInswapProcess @ 0x140310078
  * Callers:
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceInswapProcess(__int64 a1)

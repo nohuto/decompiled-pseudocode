@@ -18,27 +18,27 @@ __int64 __fastcall SepTrustLevelCheck(
         __int64 a2,
         struct _SECURITY_SUBJECT_CONTEXT *a3,
         __int64 a4,
-        __int64 a5,
+        PSID Sid1,
         char a6,
         int *a7)
 {
-  int v7; // esi
+  NTSTATUS v7; // esi
   char v10; // r15
   __int64 TrustLabelAce; // rax
   int v13; // r14d
-  __int64 v14; // r12
+  void *v14; // r12
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v16; // rbp
-  _BYTE v17[56]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
+  PSID v16; // rbp
+  BOOLEAN v17[56]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 DominatesTrust; // [rsp+60h] [rbp+8h] BYREF
 
-  v18 = a1;
+  DominatesTrust = a1;
   v7 = 0;
   v17[0] = 0;
-  LOBYTE(v18) = 0;
+  LOBYTE(DominatesTrust) = 0;
   v10 = 0;
   TrustLabelAce = SeGetTrustLabelAce(a2);
-  if ( !TrustLabelAce || (v13 = *(_DWORD *)(TrustLabelAce + 4), v14 = TrustLabelAce + 8, TrustLabelAce == -8) )
+  if ( !TrustLabelAce || (v13 = *(_DWORD *)(TrustLabelAce + 4), v14 = (void *)(TrustLabelAce + 8), TrustLabelAce == -8) )
   {
     *a7 = -1;
     return (unsigned int)v7;
@@ -59,13 +59,13 @@ __int64 __fastcall SepTrustLevelCheck(
   }
   if ( a4 )
   {
-    v16 = a5;
+    v16 = Sid1;
     goto LABEL_15;
   }
   if ( !a3->ClientToken )
   {
 LABEL_14:
-    v16 = *((_QWORD *)a3->PrimaryToken + 138);
+    v16 = (PSID)*((_QWORD *)a3->PrimaryToken + 138);
 LABEL_15:
     v7 = RtlSidDominatesForTrust(v16, v14, v17);
     if ( v7 >= 0 )
@@ -77,11 +77,11 @@ LABEL_15:
     }
     goto LABEL_19;
   }
-  v16 = *((_QWORD *)a3->ClientToken + 138);
-  v7 = RtlSidDominatesForTrust(*((_QWORD *)a3->PrimaryToken + 138), v16, &v18);
+  v16 = (PSID)*((_QWORD *)a3->ClientToken + 138);
+  v7 = RtlSidDominatesForTrust(*((PSID *)a3->PrimaryToken + 138), v16, (PBOOLEAN)&DominatesTrust);
   if ( v7 >= 0 )
   {
-    if ( (_BYTE)v18 )
+    if ( (_BYTE)DominatesTrust )
       goto LABEL_15;
     goto LABEL_14;
   }

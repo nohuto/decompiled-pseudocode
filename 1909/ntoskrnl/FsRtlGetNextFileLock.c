@@ -18,7 +18,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   PRTL_SPLAY_LINKS LastReturnedLock; // rdi
   char v6; // r14
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  struct _RTL_SPLAY_LINKS *v8; // rcx
+  _RTL_SPLAY_LINKS *v8; // rcx
   __int64 v9; // r14
   __int64 v10; // r15
   __int32 v11; // r12d
@@ -27,12 +27,12 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int64 v14; // rcx
   __int64 j; // rax
   __int128 v16; // xmm0
-  struct _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
   PRTL_SPLAY_LINKS v18; // rcx
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v20; // cf
   PRTL_SPLAY_LINKS v21; // rax
-  struct _RTL_SPLAY_LINKS *v22; // rax
+  _RTL_SPLAY_LINKS *v22; // rax
   __int64 v23; // rax
   __int64 i; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
@@ -66,7 +66,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   v38 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v22 = (struct _RTL_SPLAY_LINKS *)LockInformation[5];
+    v22 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v22 )
     {
       do
@@ -167,12 +167,12 @@ LABEL_22:
     }
     goto LABEL_23;
   }
-  FirstOverlappingSharedNode = (struct _RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                            LockInformation[4],
-                                                            (unsigned __int64 *)&v30,
-                                                            &v31.m256i_u64[3],
-                                                            &Links,
-                                                            &v39);
+  FirstOverlappingSharedNode = (_RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
+                                                     LockInformation[4],
+                                                     (unsigned __int64 *)&v30,
+                                                     &v31.m256i_u64[3],
+                                                     &Links,
+                                                     &v39);
   if ( FirstOverlappingSharedNode )
   {
     v18 = FirstOverlappingSharedNode;

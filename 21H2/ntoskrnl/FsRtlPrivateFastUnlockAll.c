@@ -1,24 +1,24 @@
 /*
- * XREFs of FsRtlPrivateFastUnlockAll @ 0x14029FA64
+ * XREFs of FsRtlPrivateFastUnlockAll @ 0x14021CFE4
  * Callers:
- *     FsRtlFastUnlockAll @ 0x14029FA40 (FsRtlFastUnlockAll.c)
- *     FsRtlFastUnlockAllByKey @ 0x1404EF990 (FsRtlFastUnlockAllByKey.c)
- *     FsRtlProcessFileLock @ 0x1404EFF90 (FsRtlProcessFileLock.c)
+ *     FsRtlFastUnlockAll @ 0x14021CFC0 (FsRtlFastUnlockAll.c)
+ *     FsRtlFastUnlockAllByKey @ 0x1404EF910 (FsRtlFastUnlockAllByKey.c)
+ *     FsRtlProcessFileLock @ 0x1404EFF10 (FsRtlProcessFileLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x14029FD70 (RtlRealSuccessor.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlSplitLocks @ 0x1402A0228 (FsRtlSplitLocks.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
- *     RtlDelete @ 0x140359960 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x140359A00 (FsRtlPrivateResetLowestLockOffset.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x14021D2F0 (RtlRealSuccessor.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14021D334 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlSplitLocks @ 0x14021D7A8 (FsRtlSplitLocks.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoGetRequestorProcess @ 0x140363F10 (IoGetRequestorProcess.c)
+ *     RtlDelete @ 0x1403646B0 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x140364750 (FsRtlPrivateResetLowestLockOffset.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     FsRtlCompleteLockIrpReal @ 0x1404EF930 (FsRtlCompleteLockIrpReal.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF8B0 (FsRtlCompleteLockIrpReal.c)
  */
 
 __int64 __fastcall FsRtlPrivateFastUnlockAll(
@@ -33,19 +33,19 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   _RTL_SPLAY_LINKS *v7; // rdi
   KSPIN_LOCK *v8; // rsi
   KIRQL v9; // al
-  RTL_SPLAY_LINKS *v10; // r8
-  RTL_SPLAY_LINKS *v11; // r14
+  _RTL_SPLAY_LINKS *v10; // r8
+  _RTL_SPLAY_LINKS *v11; // r14
   KIRQL v12; // bp
   unsigned int v13; // ebx
   _RTL_SPLAY_LINKS *i; // rax
   PRTL_SPLAY_LINKS v15; // rax
-  RTL_SPLAY_LINKS *v16; // rcx
+  _RTL_SPLAY_LINKS *v16; // rcx
   _RTL_SPLAY_LINKS *Parent; // r15
   _RTL_SPLAY_LINKS *v18; // rbx
-  RTL_SPLAY_LINKS *v19; // r13
-  RTL_SPLAY_LINKS *v20; // rdx
+  _RTL_SPLAY_LINKS *v19; // r13
+  _RTL_SPLAY_LINKS *v20; // rdx
   _RTL_SPLAY_LINKS *v21; // r9
-  RTL_SPLAY_LINKS *v22; // rcx
+  _RTL_SPLAY_LINKS *v22; // rcx
   PRTL_SPLAY_LINKS v23; // rbx
   void *v24; // rdi
   void **v25; // r15
@@ -84,7 +84,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   __int64 v59; // [rsp+38h] [rbp-80h]
   _RTL_SPLAY_LINKS *v60; // [rsp+40h] [rbp-78h] BYREF
   PRTL_SPLAY_LINKS v61; // [rsp+48h] [rbp-70h]
-  RTL_SPLAY_LINKS *v62; // [rsp+50h] [rbp-68h]
+  _RTL_SPLAY_LINKS *v62; // [rsp+50h] [rbp-68h]
   _RTL_SPLAY_LINKS *v63; // [rsp+58h] [rbp-60h] BYREF
   PVOID Entry; // [rsp+60h] [rbp-58h]
   char v65; // [rsp+C0h] [rbp+8h]
@@ -100,7 +100,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   v8 = (KSPIN_LOCK *)(v6 + 24);
   a2[5].Parent = 0LL;
   v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 24));
-  v11 = *(RTL_SPLAY_LINKS **)(v6 + 32);
+  v11 = *(_RTL_SPLAY_LINKS **)(v6 + 32);
   v12 = v9;
   if ( !v11 && !*(_QWORD *)(v6 + 40) )
   {
@@ -235,7 +235,7 @@ LABEL_20:
     (*(void (__fastcall **)(__int64, char *))(v59 + 16))(a6, (char *)Entry + 8);
     v12 = KeAcquireSpinLockRaiseToDpc(v8);
     ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v39);
-    v22 = (RTL_SPLAY_LINKS *)v8[1];
+    v22 = (_RTL_SPLAY_LINKS *)v8[1];
     v65 = 0;
     if ( v22 )
     {

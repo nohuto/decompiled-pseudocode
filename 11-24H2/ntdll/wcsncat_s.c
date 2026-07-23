@@ -1,9 +1,9 @@
 /*
- * XREFs of wcsncat_s @ 0x18012DFF0
+ * XREFs of wcsncat_s @ 0x18012C220
  * Callers:
- *     _AppendCumulativeOverlayFilePath @ 0x1800B30BC (_AppendCumulativeOverlayFilePath.c)
+ *     _AppendCumulativeOverlayFilePath @ 0x18007F95C (_AppendCumulativeOverlayFilePath.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcsncat_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source, rsize_t MaxCount)

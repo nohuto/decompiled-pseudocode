@@ -7,9 +7,9 @@
  *     sub_18004FC74 @ 0x18004FC74 (sub_18004FC74.c)
  */
 
-bool __fastcall sub_18004FC4C(__int64 a1)
+bool __fastcall sub_18004FC4C(void *a1)
 {
-  char v2; // [rsp+38h] [rbp+10h] BYREF
+  char v2; // [rsp+38h] [rbp+10h]
 
-  return (unsigned __int8)sub_18004FC74(a1, &v2) && (v2 & 3) == 2;
+  return (unsigned __int8)sub_18004FC74(a1) && (v2 & 3) == 2;
 }

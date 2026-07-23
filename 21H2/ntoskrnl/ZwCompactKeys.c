@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwCompactKeys @ 0x1403FB6E0
+ * XREFs of ZwCompactKeys @ 0x1403FB8C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompactKeys(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Count);
 }

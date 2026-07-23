@@ -24,29 +24,29 @@ char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)
   char v7; // r8
   __int16 v8; // ax
   _QWORD *v9; // rbx
-  LARGE_INTEGER v11; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 136);
   v2 = *(_BYTE *)(v1 + 41);
   InternalData = HalpTimerGetInternalData(HalpAlwaysOnTimer);
   (*(void (__fastcall **)(__int64))(v4 + 120))(InternalData);
   v5 = 3LL * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *((_QWORD *)&HalpClockTickLog + v5) = RtlGetInterruptTimePrecise(&v11);
-  *((_DWORD *)&HalpClockTickLog + 2 * v5 + 2) = KeGetPcr()->Prcb.Number;
-  *((_DWORD *)&HalpClockTickLog + 2 * v5 + 3) = KiClockTimerOwner;
-  *((_BYTE *)&HalpClockTickLog + 8 * v5 + 16) = 0;
+  HalpClockTickLog[v5] = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  HalpClockTickLog[v5 + 1].LowPart = KeGetPcr()->Prcb.Number;
+  HalpClockTickLog[v5 + 1].HighPart = KiClockTimerOwner;
+  LOBYTE(HalpClockTickLog[v5 + 2].LowPart) = 0;
   v6 = KeGetCurrentPrcb()->PendingTickFlags & 1;
-  *((_BYTE *)&HalpClockTickLog + 8 * v5 + 16) = v6;
+  LOBYTE(HalpClockTickLog[v5 + 2].LowPart) = v6;
   v7 = v6 | KeGetCurrentPrcb()->PendingTickFlags & 2;
-  *((_BYTE *)&HalpClockTickLog + 8 * v5 + 16) = v7;
+  LOBYTE(HalpClockTickLog[v5 + 2].LowPart) = v7;
   if ( BYTE2(KeGetPcr()->HalReserved[5]) )
   {
     v7 |= 4u;
-    *((_BYTE *)&HalpClockTickLog + 8 * v5 + 16) = v7;
+    LOBYTE(HalpClockTickLog[v5 + 2].LowPart) = v7;
   }
   if ( KeGetCurrentPrcb()->ClockOwner )
     v7 |= 8u;
-  *((_BYTE *)&HalpClockTickLog + 8 * v5 + 16) = v7 | 0x10;
+  LOBYTE(HalpClockTickLog[v5 + 2].LowPart) = v7 | 0x10;
   if ( (KeGetCurrentPrcb()->PendingTickFlags & 2) != 0 )
   {
     HalpTimerSwitchToNormalClock(1);

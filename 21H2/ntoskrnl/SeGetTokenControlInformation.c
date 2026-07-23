@@ -1,13 +1,13 @@
 /*
- * XREFs of SeGetTokenControlInformation @ 0x140922AE4
+ * XREFs of SeGetTokenControlInformation @ 0x140922C44
  * Callers:
- *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x1408C23EC (AlpcpQueryTokenModifiedIdMessage.c)
- *     SepUpdateSiloInClientSecurity @ 0x140922668 (SepUpdateSiloInClientSecurity.c)
+ *     SepCreateClientSecurityEx @ 0x140652F80 (SepCreateClientSecurityEx.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1408C254C (AlpcpQueryTokenModifiedIdMessage.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1409227C8 (SepUpdateSiloInClientSecurity.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
  */
 
 void __fastcall SeGetTokenControlInformation(__int64 a1, __int64 a2)

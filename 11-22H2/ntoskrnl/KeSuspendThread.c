@@ -28,7 +28,7 @@ __int64 __fastcall KeSuspendThread(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;
@@ -43,10 +43,10 @@ __int64 __fastcall KeSuspendThread(__int64 a1)
   if ( v5 == 127 )
   {
     _InterlockedAnd(v4, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;
@@ -58,12 +58,12 @@ __int64 __fastcall KeSuspendThread(__int64 a1)
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(3221225546LL);
+    RtlRaiseStatus(-1073741750);
   }
   ++*(_BYTE *)(a1 + 644);
   if ( !(unsigned __int8)KiSuspendThread(a1, CurrentPrcb) )
     --*(_BYTE *)(a1 + 644);
   _InterlockedAnd(v4, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v5;
 }

@@ -14,27 +14,23 @@
  *     RtlImageNtHeaderEx @ 0x18003CF10 (RtlImageNtHeaderEx.c)
  */
 
-_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfig(__int64 a1)
+_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfig(void *a1)
 {
-  int v2; // edx
-  int v3; // r8d
-  int v4; // eax
-  _DWORD *v5; // rdx
-  int v7; // [rsp+40h] [rbp+8h] BYREF
-  _DWORD *v8; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  int v2; // eax
+  _DWORD *v3; // rdx
+  int v5; // [rsp+40h] [rbp+8h]
+  _DWORD *v6; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS v7; // [rsp+50h] [rbp+18h] BYREF
 
-  RtlImageNtHeaderEx(1LL, a1, 0LL, &v9);
+  RtlImageNtHeaderEx(1u, a1, 0LL, &v7);
   if ( !a1 )
     return 0LL;
-  LOWORD(v3) = 10;
-  LOBYTE(v2) = 1;
-  v4 = RtlpImageDirectoryEntryToDataEx(a1, v2, v3, (unsigned int)&v7, (__int64)&v8);
-  v5 = v8;
-  if ( v4 < 0 )
-    v5 = 0LL;
-  if ( v5 && v7 && v7 == *v5 && *(_WORD *)(v9 + 4) == 0x8664 )
-    return v5;
+  v2 = RtlpImageDirectoryEntryToDataEx(a1, (PIMAGE_NT_HEADERS)&v6);
+  v3 = v6;
+  if ( v2 < 0 )
+    v3 = 0LL;
+  if ( v3 && v5 && v5 == *v3 && v7->FileHeader.Machine == 0x8664 )
+    return v3;
   else
     return 0LL;
 }

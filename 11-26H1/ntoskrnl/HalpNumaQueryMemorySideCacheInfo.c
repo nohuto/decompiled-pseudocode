@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpNumaQueryMemorySideCacheInfo @ 0x140784D40
+ * XREFs of HalpNumaQueryMemorySideCacheInfo @ 0x140787870
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaCompareMemorySideCacheNodeAndLevel @ 0x140784D14 (HalpNumaCompareMemorySideCacheNodeAndLevel.c)
+ *     HalpNumaCompareMemorySideCacheNodeAndLevel @ 0x140787848 (HalpNumaCompareMemorySideCacheNodeAndLevel.c)
  */
 
 __int64 __fastcall HalpNumaQueryMemorySideCacheInfo(unsigned int a1, int a2, __int64 a3, int a4)

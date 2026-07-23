@@ -1,11 +1,11 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerParentHandle @ 0x1404B0B20
+ * XREFs of SleepstudyHelperSetBlockerParentHandle @ 0x1404AA1B0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     SshpDereferenceBlocker @ 0x14049BA90 (SshpDereferenceBlocker.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpDereferenceBlocker @ 0x1404955E0 (SshpDereferenceBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelperSetBlockerParentHandle(__int64 a1, __int64 a2)

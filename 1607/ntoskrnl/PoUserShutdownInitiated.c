@@ -1,13 +1,13 @@
 /*
- * XREFs of PoUserShutdownInitiated @ 0x1405341E0
+ * XREFs of PoUserShutdownInitiated @ 0x140534720
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     PpmBeginHighPerfRequest @ 0x140131E88 (PpmBeginHighPerfRequest.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     PpmBeginHighPerfRequest @ 0x1401323F8 (PpmBeginHighPerfRequest.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
  */
@@ -28,14 +28,14 @@ char PoUserShutdownInitiated()
     else
     {
       PopUserShutdownInProgress = 1;
-      if ( !byte_1403040E4 )
+      if ( !byte_140304104 )
       {
         PopUserShutdownDelayWorker.Parameter = 0LL;
         PopUserShutdownDelayWorker.List.Flink = 0LL;
         PopUserShutdownDelayWorker.WorkerRoutine = (void (__fastcall *)(void *))PopUserShutdownDelayWorkerCallback;
         KeInitializeTimerEx(&PopUserShutdownDelayTimer, NotificationTimer);
         KeInitializeDpc(&PopUserShutdownDelayDpc, (PKDEFERRED_ROUTINE)PopUserShutdownDelayDpcCallback, 0LL);
-        byte_1403040E4 = 1;
+        byte_140304104 = 1;
       }
       PopBsdShutdownInProgress = 1;
       PopReleasePolicyLock();

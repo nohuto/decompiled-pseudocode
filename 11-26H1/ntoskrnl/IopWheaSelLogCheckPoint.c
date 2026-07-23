@@ -1,11 +1,11 @@
 /*
- * XREFs of IopWheaSelLogCheckPoint @ 0x1405C9FC0
+ * XREFs of IopWheaSelLogCheckPoint @ 0x1405CC890
  * Callers:
  *     <none>
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheaSelLogCheckPointNoLock @ 0x1406D43F0 (WheaSelLogCheckPointNoLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     WheaSelLogCheckPointNoLock @ 0x1406D8470 (WheaSelLogCheckPointNoLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopWheaSelLogCheckPoint(unsigned int a1, unsigned int a2)
@@ -20,7 +20,7 @@ __int64 __fastcall IopWheaSelLogCheckPoint(unsigned int a1, unsigned int a2)
   unsigned int v11; // [rsp+40h] [rbp-18h]
 
   v2 = 0;
-  if ( LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+  if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
   {
     Src[0] = 1733060695;
     Src[1] = 1;

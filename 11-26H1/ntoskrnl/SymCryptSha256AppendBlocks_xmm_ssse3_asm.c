@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_xmm_ssse3_asm @ 0x140556490
+ * XREFs of SymCryptSha256AppendBlocks_xmm_ssse3_asm @ 0x140558920
  * Callers:
- *     SymCryptSha256AppendBlocks @ 0x1405535A0 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256AppendBlocks @ 0x140555A30 (SymCryptSha256AppendBlocks.c)
  * Callees:
  *     <none>
  */
@@ -503,7 +503,7 @@ __int64 __fastcall SymCryptSha256AppendBlocks_xmm_ssse3_asm(
       v62 += 8;
       v63 += 8;
     }
-    while ( v63 < (unsigned int *)&xmmword_1400242C0 );
+    while ( v63 < (unsigned int *)&xmmword_140023BC0 );
     do
     {
       *v62 = _mm_add_epi32(_mm_shuffle_epi32(_mm_cvtsi32_si128(*v63), 0), _mm_load_si128(v62));
@@ -899,7 +899,7 @@ __int64 __fastcall SymCryptSha256AppendBlocks_xmm_ssse3_asm(
                    v125));
         v211 = _mm_add_epi32(_mm_load_si128(v126 + 3), v130);
       }
-      while ( v126 < (const __m128i *)&xmmword_1400242C0 );
+      while ( v126 < (const __m128i *)&xmmword_140023BC0 );
       v190 = &v208;
       do
       {

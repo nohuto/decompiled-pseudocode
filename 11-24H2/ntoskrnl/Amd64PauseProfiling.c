@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64PauseProfiling @ 0x14056C440
+ * XREFs of Amd64PauseProfiling @ 0x1405698D0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64PauseProfilingInternal @ 0x14056C47C (Amd64PauseProfilingInternal.c)
+ *     Amd64PauseProfilingInternal @ 0x14056990C (Amd64PauseProfilingInternal.c)
  */
 
 __int64 Amd64PauseProfiling()

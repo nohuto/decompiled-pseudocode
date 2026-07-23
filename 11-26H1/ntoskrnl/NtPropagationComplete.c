@@ -1,5 +1,5 @@
 /*
- * XREFs of NtPropagationComplete @ 0x140534230
+ * XREFs of NtPropagationComplete @ 0x1405366B0
  * Callers:
  *     <none>
  * Callees:

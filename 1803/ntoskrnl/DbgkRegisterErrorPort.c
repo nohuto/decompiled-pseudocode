@@ -27,8 +27,8 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
   unsigned __int16 v2; // di
   size_t v4; // rsi
   wchar_t *PoolWithQuotaTag; // rax
-  _DWORD *v7; // r15
-  int v8; // edi
+  HANDLE *v7; // r15
+  NTSTATUS v8; // edi
   struct _KTHREAD *CurrentThread; // rdi
   __int64 Process; // r13
   __int64 ProcessServerSilo; // r12
@@ -37,47 +37,55 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
   __int64 v14; // r8
   __int64 v15; // r9
   __int64 v16; // r14
-  __int64 v17; // r8
-  UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-F8h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-E8h]
-  int v20; // [rsp+78h] [rbp-E0h] BYREF
-  __int64 v21; // [rsp+80h] [rbp-D8h]
-  __int64 v22; // [rsp+88h] [rbp-D0h]
-  int v23; // [rsp+90h] [rbp-C8h]
-  __int128 v24; // [rsp+98h] [rbp-C0h]
-  _QWORD v25[14]; // [rsp+A8h] [rbp-B0h] BYREF
+  UNICODE_STRING PortName; // [rsp+60h] [rbp-F8h] BYREF
+  ULONG_PTR BufferLength; // [rsp+70h] [rbp-E8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-E0h] BYREF
+  _PORT_MESSAGE ConnectionMessage; // [rsp+A8h] [rbp-B0h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+D0h] [rbp-88h] BYREF
 
   v2 = Size;
   if ( !(_DWORD)Size || (Size & 1) != 0 || (unsigned int)Size > 0xFFFF )
     return 3221225485LL;
   v4 = (unsigned int)Size;
   PoolWithQuotaTag = (wchar_t *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)Size, 0x50676244u);
-  UnicodeString.Buffer = PoolWithQuotaTag;
+  PortName.Buffer = PoolWithQuotaTag;
   if ( !PoolWithQuotaTag )
     return 3221225626LL;
-  UnicodeString.MaximumLength = v2;
-  UnicodeString.Length = v2;
+  PortName.MaximumLength = v2;
+  PortName.Length = v2;
   memmove(PoolWithQuotaTag, Src, v4);
-  v7 = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x10uLL, 0x50676244u);
+  v7 = (HANDLE *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x10uLL, 0x50676244u);
   if ( v7 )
   {
-    memset(v25, 0, sizeof(v25));
-    *(_DWORD *)((char *)v25 + 2) = -2147483608;
-    v19 = 40LL;
-    v25[7] = 272LL;
-    v25[9] = 8704LL;
-    LODWORD(v25[5]) = 0x100000;
-    v20 = 48;
-    v21 = 0LL;
-    v23 = 512;
-    v22 = 0LL;
-    v24 = 0LL;
-    v8 = ZwAlpcConnectPort((__int64)(v7 + 2), (__int64)&UnicodeString, (__int64)&v20);
+    memset(&ConnectionMessage, 0, sizeof(ConnectionMessage));
+    *(unsigned int *)((char *)&ConnectionMessage.u1.Length + 2) = -2147483608;
+    BufferLength = 40LL;
+    memset(&PortAttributes, 0, sizeof(PortAttributes));
+    PortAttributes.MaxMessageLength = 272LL;
+    PortAttributes.MaxPoolUsage = 8704LL;
+    PortAttributes.Flags = 0x100000;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 512;
+    ObjectAttributes.ObjectName = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v8 = ZwAlpcConnectPort(
+           v7 + 1,
+           &PortName,
+           &ObjectAttributes,
+           &PortAttributes,
+           0x20000u,
+           0LL,
+           &ConnectionMessage,
+           &BufferLength,
+           0LL,
+           0LL,
+           0LL);
     if ( v8 >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
-      *v7 = 1;
-      v7[1] = 0;
+      *(_DWORD *)v7 = 1;
+      *((_DWORD *)v7 + 1) = 0;
       Process = (__int64)CurrentThread->ApcState.Process;
       ProcessServerSilo = PsGetProcessServerSilo(Process);
       v12 = (char *)PsGetServerSiloGlobals(ProcessServerSilo) + 960;
@@ -97,7 +105,7 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
       if ( v16 )
       {
         if ( !_interlockedbittestandset((volatile signed __int32 *)(v16 + 4), 0) )
-          ZwAlpcDisconnectPort(*(_QWORD *)(v16 + 8), 0LL, v17);
+          ZwAlpcDisconnectPort(*(HANDLE *)(v16 + 8), 0);
         if ( _InterlockedExchangeAdd((volatile signed __int32 *)v16, 0xFFFFFFFF) == 1 )
           DbgkpDeleteErrorPort((HANDLE *)v16);
       }
@@ -110,6 +118,6 @@ __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
   {
     v8 = -1073741670;
   }
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&PortName);
   return (unsigned int)v8;
 }

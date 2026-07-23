@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpUpdateDynamicTimeZones @ 0x1407AA15C
+ * XREFs of RtlpUpdateDynamicTimeZones @ 0x1407AA35C
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlpFindRegTziForCurrentYear @ 0x1403B7EC4 (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     RtlpGetRegistryHandle @ 0x140642460 (RtlpGetRegistryHandle.c)
- *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1403B8034 (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FABC0 (ZwEnumerateKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlWriteRegistryValue @ 0x140613DB0 (RtlWriteRegistryValue.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     RtlpGetRegistryHandle @ 0x140637270 (RtlpGetRegistryHandle.c)
  */
 
 char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
@@ -24,7 +24,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
   ULONG ResultLength[2]; // [rsp+38h] [rbp-D0h] BYREF
   HANDLE Handle; // [rsp+40h] [rbp-C8h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
-  HANDLE DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  WCHAR *DestinationString; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+58h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD v12[14]; // [rsp+98h] [rbp-70h] BYREF
@@ -79,7 +79,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
       ObjectAttributes_8.ObjectName = &DestinationString_8;
       ObjectAttributes_8.Attributes = 576;
       *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-      if ( ZwOpenKey(&DestinationString, 0x20019u, &ObjectAttributes_8) >= 0 )
+      if ( ZwOpenKey((PHANDLE)&DestinationString, 0x20019u, &ObjectAttributes_8) >= 0 )
       {
         Buf2 = 0LL;
         LODWORD(Buf2) = -44;
@@ -87,7 +87,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
         v15 = 0LL;
         v16 = 0;
         if ( (int)RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)Handle, (__int64)v12, 0LL) >= 0
-          && (int)RtlpFindRegTziForCurrentYear((__int64)Buf1, (__int64)DestinationString, a1) >= 0
+          && (int)RtlpFindRegTziForCurrentYear(Buf1, DestinationString, a1) >= 0
           && memcmp(Buf1, &Buf2, 0x2CuLL) )
         {
           RtlWriteRegistryValue(0x40000000u, (PCWSTR)Handle, L"TZI", 3u, Buf1, 0x2Cu);

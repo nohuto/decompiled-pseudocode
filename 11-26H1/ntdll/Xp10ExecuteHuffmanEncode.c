@@ -1,15 +1,15 @@
 /*
- * XREFs of Xp10ExecuteHuffmanEncode @ 0x1801520FC
+ * XREFs of Xp10ExecuteHuffmanEncode @ 0x180151FCC
  * Callers:
- *     Xp10CompressBuffer @ 0x180151ADC (Xp10CompressBuffer.c)
+ *     Xp10CompressBuffer @ 0x1801519AC (Xp10CompressBuffer.c)
  * Callees:
- *     RtlCopyBitMap @ 0x180140A00 (RtlCopyBitMap.c)
- *     Xp10BuildAndWriteHuffmanEncodings @ 0x1801516FC (Xp10BuildAndWriteHuffmanEncodings.c)
+ *     RtlCopyBitMap @ 0x180140900 (RtlCopyBitMap.c)
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x1801515CC (Xp10BuildAndWriteHuffmanEncodings.c)
  */
 
 __int64 __fastcall Xp10ExecuteHuffmanEncode(
         __int16 **a1,
-        __int64 a2,
+        unsigned int *a2,
         int a3,
         unsigned __int16 *a4,
         unsigned int a5,
@@ -19,7 +19,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   int v8; // esi
   __int64 v10; // rbx
   __int16 v12; // dx
-  unsigned int v13; // r14d
+  ULONG v13; // r14d
   int v14; // ecx
   unsigned int v15; // eax
   int v16; // r13d
@@ -32,7 +32,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   __int16 **v23; // r12
   unsigned int v24; // esi
   unsigned int v25; // r11d
-  __int64 v26; // rax
+  unsigned int *v26; // rax
   _DWORD *v27; // rax
   unsigned __int64 v28; // r15
   unsigned int v29; // r9d
@@ -87,21 +87,19 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   __int64 v78; // rdx
   _BYTE *v79; // r9
   unsigned __int64 v80; // rax
-  _DWORD v81[2]; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v82; // [rsp+48h] [rbp-18h]
-  unsigned int v83[2]; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v84; // [rsp+58h] [rbp-8h]
-  unsigned int v87; // [rsp+B8h] [rbp+58h] BYREF
+  _RTL_BITMAP Destination; // [rsp+40h] [rbp-20h] BYREF
+  _RTL_BITMAP Source; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v85; // [rsp+B8h] [rbp+58h] BYREF
 
   v8 = *((_DWORD *)a1 + 6);
   v10 = a6;
   v12 = **a1;
-  v81[1] = 0;
+  *(&Destination.SizeOfBitMap + 1) = 0;
   v13 = *(_DWORD *)(a6 + 8);
   v14 = v12 & 0x1F;
-  v83[1] = 0;
+  *(&Source.SizeOfBitMap + 1) = 0;
   v15 = (1 << v14) - ((unsigned __int8)v12 >> 5) - 246;
-  v87 = 0;
+  v85 = 0;
   LODWORD(a6) = 0;
   _BitScanReverse((unsigned int *)&v16, v15);
   v17 = v15 & (v15 - 1);
@@ -112,10 +110,10 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
              0LL,
              (unsigned int *)a1 + 7,
              v10,
-             &v87);
+             &v85);
   if ( (int)result >= 0 )
   {
-    v20 = v87 + v8;
+    v20 = v85 + v8;
     v21 = v16 + 1;
     v22 = v17 == 0;
     v23 = a1;
@@ -128,22 +126,22 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
                v19,
                (unsigned int *)a1 + 711,
                v10,
-               &v87);
+               &v85);
     if ( (int)result >= 0 )
     {
-      v24 = v87 + v20;
+      v24 = v85 + v20;
       v25 = *(_DWORD *)(v10 + 12);
       if ( v24 >= 8 * a3 )
       {
         *(_DWORD *)(v10 + 8) = v13;
         if ( 8 * a3 + v13 <= v25 )
         {
-          v84 = a2;
-          v26 = *(_QWORD *)v10;
-          v83[0] = 8 * a3;
-          v82 = v26;
-          v81[0] = v25;
-          RtlCopyBitMap(v83, (__int64)v81, v13);
+          Source.Buffer = a2;
+          v26 = *(unsigned int **)v10;
+          Source.SizeOfBitMap = 8 * a3;
+          Destination.Buffer = v26;
+          Destination.SizeOfBitMap = v25;
+          RtlCopyBitMap(&Source, &Destination, v13);
           v27 = a7;
           *(_DWORD *)(v10 + 8) += 8 * a3;
           *(_OWORD *)(a1 + 1) = 0LL;
@@ -175,7 +173,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
           v36 = v35;
           if ( v33 < v35 )
             v36 = v33;
-          v37 = byte_1801830A0[4 * v36];
+          v37 = byte_180181FE0[4 * v36];
           v38 = v35;
           *v31 |= ((unsigned __int8)v34 & (unsigned __int8)v37) << v32;
           if ( v33 < v35 )
@@ -197,7 +195,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
             while ( v42 );
           }
           if ( v40 )
-            *v41 |= (unsigned __int8)v39 & byte_1801830A0[4 * v40];
+            *v41 |= (unsigned __int8)v39 & byte_180181FE0[4 * v40];
           v29 += v35;
           *(_DWORD *)(v10 + 8) = v29;
         }
@@ -216,7 +214,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
             v50 = v48;
             if ( v46 < v48 )
               v50 = v46;
-            v51 = byte_1801830A0[4 * v50];
+            v51 = byte_180181FE0[4 * v50];
             v52 = v48;
             *v47 |= ((unsigned __int8)v49 & (unsigned __int8)v51) << v45;
             if ( v46 < v48 )
@@ -239,7 +237,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
               v29 = *(_DWORD *)(v10 + 8);
             }
             if ( (_DWORD)v54 )
-              *v55 |= (unsigned __int8)v53 & byte_1801830A0[4 * v54];
+              *v55 |= (unsigned __int8)v53 & byte_180181FE0[4 * v54];
             v43 = v29 + v48;
             *(_DWORD *)(v10 + 8) = v29 + v48;
           }
@@ -256,7 +254,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
               v62 = v58;
               if ( v61 < v58 )
                 v62 = v61;
-              v63 = byte_1801830A0[4 * v62];
+              v63 = byte_180181FE0[4 * v62];
               v64 = v58;
               *v59 |= ((unsigned __int8)v57 & (unsigned __int8)v63) << v60;
               if ( v61 < v58 )
@@ -279,7 +277,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
                 v43 = *(_DWORD *)(v10 + 8);
               }
               if ( (_DWORD)v66 )
-                *v67 |= (unsigned __int8)v65 & byte_1801830A0[4 * v66];
+                *v67 |= (unsigned __int8)v65 & byte_180181FE0[4 * v66];
               v43 += v58;
               *(_DWORD *)(v10 + 8) = v43;
             }
@@ -300,7 +298,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
             v74 = v72;
             if ( v73 < v72 )
               v74 = v73;
-            v75 = byte_1801830A0[4 * v74];
+            v75 = byte_180181FE0[4 * v74];
             v76 = v72;
             *v70 |= ((unsigned __int8)v69 & (unsigned __int8)v75) << v71;
             if ( v73 < v72 )
@@ -323,7 +321,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
               v43 = *(_DWORD *)(v10 + 8);
             }
             if ( (_DWORD)v78 )
-              *v79 |= (unsigned __int8)v77 & byte_1801830A0[4 * v78];
+              *v79 |= (unsigned __int8)v77 & byte_180181FE0[4 * v78];
             *(_DWORD *)(v10 + 8) = v43 + v72;
           }
           a4 += 2;

@@ -215,9 +215,9 @@ __int64 __fastcall ObpCreateHandle(
   __int64 v150; // rdx
   int v151; // esi
   _DWORD *v152; // rdx
-  PACCESS_TOKEN ClientToken; // rdi
+  char *ClientToken; // rdi
   struct _KTHREAD *v154; // rax
-  PACCESS_TOKEN PrimaryToken; // rsi
+  char *PrimaryToken; // rsi
   struct _KTHREAD *v156; // rax
   struct _ERESOURCE *v157; // rcx
   struct _KTHREAD *v158; // rax
@@ -1269,11 +1269,11 @@ LABEL_280:
     v129 = v181;
     if ( !v151 && (v181 == CmKeyObjectType || v181 == IoFileObjectType) )
     {
-      ClientToken = v142->SubjectSecurityContext.ClientToken;
+      ClientToken = (char *)v142->SubjectSecurityContext.ClientToken;
       if ( ClientToken )
       {
         v154 = KeGetCurrentThread();
-        PrimaryToken = AccessState->SubjectSecurityContext.PrimaryToken;
+        PrimaryToken = (char *)AccessState->SubjectSecurityContext.PrimaryToken;
         --v154->KernelApcDisable;
         if ( PrimaryToken >= ClientToken )
         {
@@ -1294,7 +1294,14 @@ LABEL_280:
           && *((int *)ClientToken + 49) >= 2
           && !RtlEqualSid(**((PSID **)PrimaryToken + 19), **((PSID **)ClientToken + 19))
           && OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(v78)
-          && SepSidInTokenSidHash((__int64)PrimaryToken + 808, 0LL, SeConstrainedImpersonationCapabilitySid, 0, 1, 0, 0) )
+          && SepSidInTokenSidHash(
+               (PSID_AND_ATTRIBUTES_HASH)(PrimaryToken + 808),
+               0LL,
+               SeConstrainedImpersonationCapabilitySid,
+               0,
+               1,
+               0,
+               0) )
         {
           ObHandleRevocationBlockAddObject(*((_QWORD *)ClientToken + 27) + 128LL, Object);
         }

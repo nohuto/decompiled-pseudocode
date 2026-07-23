@@ -17,7 +17,7 @@ __int64 __fastcall sub_18002A370(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx
   int v7; // edi
-  int v8; // eax
+  NTSTATUS v8; // eax
   __int64 v9; // rcx
   int v11; // eax
   __int64 v12; // r13
@@ -27,14 +27,14 @@ __int64 __fastcall sub_18002A370(__int64 a1, __int64 a2, int a3)
   int v16; // eax
   __int64 v17; // rbx
   __int64 v18; // rcx
-  __int64 v19; // rcx
-  int v20; // eax
-  char v21; // al
-  int v22; // r8d
-  int v23; // r9d
+  int v19; // eax
+  char v20; // al
+  int v21; // r8d
+  int v22; // r9d
+  USHORT *v23; // rcx
   int v24; // r8d
   int v25; // r9d
-  int v26; // [rsp+70h] [rbp+8h] BYREF
+  DWORD v26; // [rsp+70h] [rbp+8h] BYREF
   __int64 v27; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 56);
@@ -51,10 +51,10 @@ __int64 __fastcall sub_18002A370(__int64 a1, __int64 a2, int a3)
   v11 = *(_DWORD *)(v3 + 104) | 0x400000;
   *(_DWORD *)(v3 + 104) = v11;
   if ( (*(_BYTE *)(v9 + 16) & 1) == 0
-    || (v19 = *(_QWORD *)(v3 + 48),
+    || (v18 = *(_QWORD *)(v3 + 48),
         *(_DWORD *)(v3 + 104) = v11 | 0x1000000,
-        v20 = sub_180083AF0(v19),
-        (v7 = v20, v20 >= 0)
+        v19 = sub_180083AF0(v18),
+        (v7 = v19, v19 >= 0)
      && ((*(_DWORD *)(a1 + 32) & 0x200000) == 0 || (v7 = sub_1800CEDF8(*(_QWORD *)(v3 + 48)), v7 >= 0))) )
   {
 LABEL_4:
@@ -66,37 +66,36 @@ LABEL_4:
         {
           v12 = *(_QWORD *)(v3 + 48);
           v13 = 2147353476LL;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId((unsigned int)(a3 - 1073741827)) )
-            v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+          if ( RtlGetCurrentServiceSessionId() )
+            v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
           else
             v14 = 2147353476LL;
           v15 = 2147353477LL;
           if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
           {
-            v14 = (unsigned int)RtlGetCurrentServiceSessionId(v14)
-                ? (__int64)NtCurrentPeb()->HotpatchInformation + 555
-                : 2147353477LL;
-            if ( (*(_BYTE *)v14 & 0x20) != 0 )
+            v23 = RtlGetCurrentServiceSessionId()
+                ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+                : (USHORT *)2147353477;
+            if ( (*(_BYTE *)v23 & 0x20) != 0 )
             {
-              LOBYTE(v23) = -1;
               LOBYTE(v22) = -1;
-              sub_1800CFA48(5264, v12, v22, v23, 0LL, 0LL);
+              LOBYTE(v21) = -1;
+              sub_1800CFA48(5264, v12, v21, v22, 0LL, 0LL);
             }
           }
-          if ( a3 == 1073741827
-            && (v16 = sub_1800820B0(*(_QWORD *)(v3 + 48), *(_QWORD *)(a1 + 160), a2, v3 + 72), v7 = v16, v16 < 0) )
+          if ( a3 == 1073741827 && (v16 = sub_1800820B0(*(_QWORD *)(v3 + 48)), v7 = v16, v16 < 0) )
           {
             sub_18007E384((unsigned int)v16, 5264LL, 0LL, v3 + 72);
           }
           else
           {
             v17 = *(_QWORD *)(v3 + 48);
-            if ( (unsigned int)RtlGetCurrentServiceSessionId(v14) )
-              v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+            if ( RtlGetCurrentServiceSessionId() )
+              v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
             if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
             {
-              if ( (unsigned int)RtlGetCurrentServiceSessionId(v18) )
-                v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+              if ( RtlGetCurrentServiceSessionId() )
+                v15 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
               if ( (*(_BYTE *)v15 & 0x20) != 0 )
               {
                 LOBYTE(v25) = -1;
@@ -109,7 +108,7 @@ LABEL_4:
       }
       else
       {
-        v21 = dword_18015FAB0;
+        v20 = dword_18015FAB0;
         if ( (dword_18015FAB0 & 3) != 0 )
         {
           sub_1800CE318(
@@ -119,9 +118,9 @@ LABEL_4:
             0,
             (__int64)"Could not validate the crypto signature for DLL %wZ\n",
             v3 + 72);
-          v21 = dword_18015FAB0;
+          v20 = dword_18015FAB0;
         }
-        if ( (v21 & 0x10) != 0 )
+        if ( (v20 & 0x10) != 0 )
           __debugbreak();
         return (unsigned int)-1073740760;
       }

@@ -1,39 +1,39 @@
 /*
- * XREFs of IopGetLegacyVetoListDrivers @ 0x14094522C
+ * XREFs of IopGetLegacyVetoListDrivers @ 0x1409C0B9C
  * Callers:
- *     ExpQueryLegacyDriverInformation @ 0x14077038C (ExpQueryLegacyDriverInformation.c)
- *     IoGetLegacyVetoList @ 0x140944C40 (IoGetLegacyVetoList.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
+ *     ExpQueryLegacyDriverInformation @ 0x14077338C (ExpQueryLegacyDriverInformation.c)
+ *     IoGetLegacyVetoList @ 0x1409C05B0 (IoGetLegacyVetoList.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x140723EF0 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x140725DD0 (ZwQueryDirectoryObject.c)
- *     IopAppendLegacyVeto @ 0x1407B21C4 (IopAppendLegacyVeto.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140728AC0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x14072A9A0 (ZwQueryDirectoryObject.c)
+ *     IopAppendLegacyVeto @ 0x1407B5224 (IopAppendLegacyVeto.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopGetLegacyVetoListDrivers(__int64 a1)
 {
   _QWORD *Pool2; // rdi
-  char v3; // r15
+  BOOLEAN RestartScan; // r15
   NTSTATUS v4; // ecx
-  wchar_t *v5; // rax
-  int DirectoryObject; // eax
-  unsigned __int16 v7; // ax
-  unsigned __int16 v8; // si
-  wchar_t *v9; // rcx
-  PVOID v10; // rsi
-  __int64 v11; // [rsp+20h] [rbp-59h]
+  ULONG v5; // r14d
+  wchar_t *v6; // rax
+  NTSTATUS v7; // eax
+  unsigned __int16 v8; // ax
+  unsigned __int16 v9; // si
+  wchar_t *v10; // rcx
+  PVOID v11; // rsi
   PVOID Object; // [rsp+40h] [rbp-39h] BYREF
   NTSTRSAFE_PWSTR pszDest[2]; // [rsp+48h] [rbp-31h] BYREF
   _QWORD v14[2]; // [rsp+58h] [rbp-21h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-11h] BYREF
-  int v16; // [rsp+E8h] [rbp+6Fh] BYREF
-  int v17; // [rsp+F0h] [rbp+77h] BYREF
+  ULONG Length; // [rsp+E8h] [rbp+6Fh] BYREF
+  ULONG Context; // [rsp+F0h] [rbp+77h] BYREF
   HANDLE DirectoryHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
@@ -41,12 +41,12 @@ void __fastcall IopGetLegacyVetoListDrivers(__int64 a1)
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   v14[1] = L"\\Driver";
   v14[0] = 1048590LL;
-  v16 = 0;
-  v17 = 0;
+  Length = 0;
+  Context = 0;
   DirectoryHandle = 0LL;
   Pool2 = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  v3 = 1;
+  RestartScan = 1;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v14;
   *(_OWORD *)pszDest = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -57,56 +57,56 @@ void __fastcall IopGetLegacyVetoListDrivers(__int64 a1)
   }
   else
   {
+    v5 = 202;
     Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
     if ( Pool2 )
     {
       LODWORD(pszDest[0]) = 12320768;
-      v5 = (wchar_t *)ExAllocatePool2(0x100uLL);
-      pszDest[1] = v5;
-      if ( v5 )
+      v6 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      pszDest[1] = v6;
+      if ( v6 )
       {
-        *v5 = 0;
+        *v6 = 0;
         while ( 1 )
         {
-          LOBYTE(v11) = v3;
-          DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)Pool2);
-          if ( DirectoryObject == -1073741789 )
+          v7 = ZwQueryDirectoryObject(DirectoryHandle, Pool2, v5, 1u, RestartScan, &Context, &Length);
+          if ( v7 == -1073741789 )
           {
+            v5 = Length;
             ExFreePoolWithTag(Pool2, 0);
             Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
             if ( !Pool2 )
               goto LABEL_13;
-            LOBYTE(v11) = v3;
-            DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)Pool2);
+            v7 = ZwQueryDirectoryObject(DirectoryHandle, Pool2, v5, 1u, RestartScan, &Context, &Length);
           }
-          v3 = 0;
-          if ( DirectoryObject < 0 )
+          RestartScan = 0;
+          if ( v7 < 0 )
             break;
-          v7 = WORD1(pszDest[0]);
-          v8 = *(_WORD *)Pool2 + 18;
-          v9 = pszDest[1];
-          if ( v8 > WORD1(pszDest[0]) )
+          v8 = WORD1(pszDest[0]);
+          v9 = *(_WORD *)Pool2 + 18;
+          v10 = pszDest[1];
+          if ( v9 > WORD1(pszDest[0]) )
           {
             ExFreePoolWithTag(pszDest[1], 0);
-            WORD1(pszDest[0]) = v8;
+            WORD1(pszDest[0]) = v9;
             pszDest[1] = (NTSTRSAFE_PWSTR)ExAllocatePool2(0x100uLL);
-            v9 = pszDest[1];
+            v10 = pszDest[1];
             if ( !pszDest[1] )
               goto LABEL_13;
-            v7 = WORD1(pszDest[0]);
+            v8 = WORD1(pszDest[0]);
           }
-          LOWORD(pszDest[0]) = v8 - 2;
-          RtlStringCbPrintfW(v9, v7, L"\\Driver\\%ws", Pool2[1], v11, &v17, &v16);
+          LOWORD(pszDest[0]) = v9 - 2;
+          RtlStringCbPrintfW(v10, v8, L"\\Driver\\%ws", Pool2[1]);
           if ( (int)ObReferenceObjectByName((__int64)pszDest, 576, 0LL, 0, (__int64)IoDriverObjectType, 0, 0LL, &Object) >= 0 )
           {
-            v10 = Object;
+            v11 = Object;
             if ( (*((_DWORD *)Object + 4) & 0x40) != 0 )
             {
               **(_DWORD **)(a1 + 16) = 11;
               if ( *(_QWORD *)a1 )
                 IopAppendLegacyVeto((const void ***)a1, (const void **)Pool2);
             }
-            ObfDereferenceObject(v10);
+            ObfDereferenceObject(v11);
             if ( **(_DWORD **)(a1 + 16) == 11 && !*(_QWORD *)a1 )
               break;
             if ( **(int **)(a1 + 24) < 0 )

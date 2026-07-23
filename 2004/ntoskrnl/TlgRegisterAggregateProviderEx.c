@@ -54,7 +54,7 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(
   }
   else
   {
-    v9 = KeAbPreAcquire((ULONG_PTR)&qword_140CDB310, 0LL, 0LL);
+    v9 = KeAbPreAcquire((ULONG_PTR)&qword_140CDB310, 0LL, 0);
     v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140CDB310, 0LL);
     v11 = v9;
     if ( v10 )

@@ -1,21 +1,21 @@
 /*
- * XREFs of WbDispatchOperation @ 0x140625364
+ * XREFs of WbDispatchOperation @ 0x140626384
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WbDecryptEncryptionSegment @ 0x140583E04 (WbDecryptEncryptionSegment.c)
- *     WbReEncryptEncryptionSegment @ 0x140583EC8 (WbReEncryptEncryptionSegment.c)
- *     WbRemoveWarbirdProcess @ 0x140608988 (WbRemoveWarbirdProcess.c)
- *     WbHeapExecuteCall @ 0x140624ABC (WbHeapExecuteCall.c)
- *     sub_140624C6C @ 0x140624C6C (sub_140624C6C.c)
- *     WbAlloc @ 0x140624D14 (WbAlloc.c)
- *     sub_14062554C @ 0x14062554C (sub_14062554C.c)
- *     WbGetWarbirdProcess @ 0x140625584 (WbGetWarbirdProcess.c)
- *     WbProcessModuleUnload @ 0x1406B09C4 (WbProcessModuleUnload.c)
- *     WbProcessStartup @ 0x1406CFDF4 (WbProcessStartup.c)
+ *     PsGetProcessId @ 0x1400A5650 (PsGetProcessId.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WbDecryptEncryptionSegment @ 0x140584E04 (WbDecryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x140584EC8 (WbReEncryptEncryptionSegment.c)
+ *     WbRemoveWarbirdProcess @ 0x140609988 (WbRemoveWarbirdProcess.c)
+ *     WbHeapExecuteCall @ 0x140625ADC (WbHeapExecuteCall.c)
+ *     sub_140625C8C @ 0x140625C8C (sub_140625C8C.c)
+ *     WbAlloc @ 0x140625D34 (WbAlloc.c)
+ *     sub_14062656C @ 0x14062656C (sub_14062656C.c)
+ *     WbGetWarbirdProcess @ 0x1406265A4 (WbGetWarbirdProcess.c)
+ *     WbProcessModuleUnload @ 0x1406B1C64 (WbProcessModuleUnload.c)
+ *     WbProcessStartup @ 0x1406D1094 (WbProcessStartup.c)
  */
 
 __int64 __fastcall WbDispatchOperation(char *Src, SIZE_T NumberOfBytes)
@@ -78,7 +78,7 @@ __int64 __fastcall WbDispatchOperation(char *Src, SIZE_T NumberOfBytes)
     case 4:
       if ( !P )
       {
-        v11 = sub_140624C6C((__int64)v14, v10);
+        v11 = sub_140625C8C((__int64)v14, v10);
 LABEL_17:
         WarbirdProcess = v11;
         goto LABEL_18;
@@ -100,7 +100,7 @@ LABEL_17:
   }
   WarbirdProcess = -1073741811;
 LABEL_18:
-  sub_14062554C(v14);
+  sub_14062656C(v14);
   if ( P )
     ExFreePoolWithTag(P, 0x42524157u);
   return (unsigned int)WarbirdProcess;

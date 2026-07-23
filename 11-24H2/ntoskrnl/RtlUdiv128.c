@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUdiv128 @ 0x1405F0850
+ * XREFs of RtlUdiv128 @ 0x1405EDE30
  * Callers:
- *     HalpInitializeTimers @ 0x14053A610 (HalpInitializeTimers.c)
+ *     HalpInitializeTimers @ 0x140537E50 (HalpInitializeTimers.c)
  * Callees:
  *     <none>
  */

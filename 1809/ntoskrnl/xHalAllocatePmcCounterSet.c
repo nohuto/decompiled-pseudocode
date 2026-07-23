@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalAllocatePmcCounterSet @ 0x1406D3E40
+ * XREFs of xHalAllocatePmcCounterSet @ 0x1406D50E0
  * Callers:
  *     <none>
  * Callees:

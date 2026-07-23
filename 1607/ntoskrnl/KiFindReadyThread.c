@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFindReadyThread @ 0x1400CEF5C
+ * XREFs of KiFindReadyThread @ 0x1400CCDFC
  * Callers:
- *     KiSearchForNewThreadOnProcessor @ 0x14005BD20 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x14005B8A0 (KiSearchForNewThreadOnProcessor.c)
  * Callees:
- *     KiGetHeteroCpuPolicyThread @ 0x1400CEF4C (KiGetHeteroCpuPolicyThread.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x1400CF04C (KiRemoveThreadFromSharedReadyQueue.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1400D02E8 (KiCheckForMaxOverQuotaScb.c)
- *     KiRemoveThreadFromReadyQueue @ 0x1401102FC (KiRemoveThreadFromReadyQueue.c)
+ *     KiGetHeteroCpuPolicyThread @ 0x1400CCDEC (KiGetHeteroCpuPolicyThread.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x1400CCEEC (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1400CE188 (KiCheckForMaxOverQuotaScb.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x140110860 (KiRemoveThreadFromReadyQueue.c)
  */
 
 _QWORD *__fastcall KiFindReadyThread(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

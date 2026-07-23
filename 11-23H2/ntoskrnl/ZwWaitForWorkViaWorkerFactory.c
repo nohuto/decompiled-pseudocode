@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwWaitForWorkViaWorkerFactory @ 0x14041E9C0
+ * XREFs of ZwWaitForWorkViaWorkerFactory @ 0x14041ED50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWaitForWorkViaWorkerFactory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLoadManufacturingProfileServicesNode @ 0x140A8EE84
+ * XREFs of CmpLoadManufacturingProfileServicesNode @ 0x140A8FE84
  * Callers:
- *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140A61F64 (CmpFindDrivers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
- *     CmpLoadManufacturingProfileNode @ 0x140A8EDBC (CmpLoadManufacturingProfileNode.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407ACAD4 (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140A8FDBC (CmpLoadManufacturingProfileNode.c)
  */
 
 bool __fastcall CmpLoadManufacturingProfileServicesNode(

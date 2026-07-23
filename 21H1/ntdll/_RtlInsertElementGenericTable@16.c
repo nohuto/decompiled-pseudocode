@@ -7,12 +7,15 @@
  *     FindNodeOrParent @ 0x4B2A7F4E (FindNodeOrParent.c)
  */
 
-int __thiscall RtlInsertElementGenericTable(void *this, int a2, void *Src, size_t Size, int a5)
+PVOID __cdecl RtlInsertElementGenericTable(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement)
 {
-  int NodeOrParent; // eax
-  int v7; // [esp+0h] [ebp-4h] BYREF
+  TABLE_SEARCH_RESULT v4; // eax
+  PVOID NodeOrParent; // [esp+0h] [ebp-4h] BYREF
 
-  v7 = (int)this;
-  NodeOrParent = FindNodeOrParent(&v7);
-  return RtlInsertElementGenericTableFull(a2, Src, Size, a5, v7, NodeOrParent);
+  v4 = FindNodeOrParent(&NodeOrParent);
+  return RtlInsertElementGenericTableFull(Table, Buffer, BufferSize, NewElement, NodeOrParent, v4);
 }

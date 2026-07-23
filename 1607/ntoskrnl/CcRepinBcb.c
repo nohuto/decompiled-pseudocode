@@ -1,10 +1,10 @@
 /*
- * XREFs of CcRepinBcb @ 0x1401B1C9C
+ * XREFs of CcRepinBcb @ 0x1401B1B80
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall CcRepinBcb(PVOID Bcb)

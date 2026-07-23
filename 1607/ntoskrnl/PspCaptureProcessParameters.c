@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCaptureProcessParameters @ 0x1404B14B0
+ * XREFs of PspCaptureProcessParameters @ 0x14049B890
  * Callers:
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
  * Callees:
- *     PspCaptureUserProcessParameters @ 0x1404B1504 (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x14049B8E4 (PspCaptureUserProcessParameters.c)
  */
 
 __int64 __fastcall PspCaptureProcessParameters(char a1, __int64 a2, __int64 a3)

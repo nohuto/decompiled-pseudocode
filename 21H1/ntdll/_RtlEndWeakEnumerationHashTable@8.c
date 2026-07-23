@@ -7,7 +7,9 @@
  */
 
 // attributes: thunk
-_DWORD *__stdcall RtlEndWeakEnumerationHashTable(int a1, int a2)
+void __cdecl RtlEndWeakEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  return RtlEndEnumerationHashTable(a1, a2);
+  RtlEndEnumerationHashTable(HashTable, Enumerator);
 }

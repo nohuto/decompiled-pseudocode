@@ -1,24 +1,24 @@
 /*
- * XREFs of MmCallDllInitialize @ 0x1407AC490
+ * XREFs of MmCallDllInitialize @ 0x1407AC690
  * Callers:
- *     MiLoadImportDll @ 0x1407AC3E0 (MiLoadImportDll.c)
- *     PipInitializeDriverDependentDLLs @ 0x140A5D5DC (PipInitializeDriverDependentDLLs.c)
+ *     MiLoadImportDll @ 0x1407AC5E0 (MiLoadImportDll.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140A5E5DC (PipInitializeDriverDependentDLLs.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlFindExportedRoutineByName @ 0x140612560 (RtlFindExportedRoutineByName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     VfDriverInitStarting @ 0x1409C1F70 (VfDriverInitStarting.c)
- *     VfDriverInitSuccess @ 0x1409C27AC (VfDriverInitSuccess.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlFindExportedRoutineByName @ 0x1406A2010 (RtlFindExportedRoutineByName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     VfDriverInitStarting @ 0x1409C2F70 (VfDriverInitStarting.c)
+ *     VfDriverInitSuccess @ 0x1409C37AC (VfDriverInitSuccess.c)
  */
 
-unsigned __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
+__int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rcx
-  unsigned __int64 result; // rax
+  void *v4; // rcx
+  __int64 result; // rax
   __int64 (__fastcall *v6)(UNICODE_STRING *); // r14
   unsigned __int16 v7; // ax
   wchar_t *Pool; // rax
@@ -33,10 +33,10 @@ unsigned __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
   UNICODE_STRING Destination; // [rsp+20h] [rbp-20h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-10h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 48);
+  v4 = *(void **)(a1 + 48);
   Destination = 0LL;
   Source = 0LL;
-  result = RtlFindExportedRoutineByName(v4, "DllInitialize");
+  result = (__int64)RtlFindExportedRoutineByName(v4, "DllInitialize");
   v6 = (__int64 (__fastcall *)(UNICODE_STRING *))result;
   if ( result )
   {
@@ -85,7 +85,7 @@ unsigned __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
             inited = VfDriverInitStarting(v14);
             v16 = v6(&Destination);
             ExFreePoolWithTag(Destination.Buffer, 0);
-            if ( v16 >= 0 && !byte_140C4CCE8 )
+            if ( v16 >= 0 && !byte_140C4CD28 )
               VfDriverInitSuccess(inited, a2);
             return (unsigned int)v16;
           }

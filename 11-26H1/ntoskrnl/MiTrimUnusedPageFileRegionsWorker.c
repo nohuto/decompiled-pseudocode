@@ -1,26 +1,26 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x140404DD0
+ * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x1403FDED0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     MiUnlockWsSwapExclusive @ 0x1404051D4 (MiUnlockWsSwapExclusive.c)
- *     MiLockWsSwapExclusive @ 0x1404058B0 (MiLockWsSwapExclusive.c)
- *     MiPageFileLargestBitmapsRun @ 0x140405994 (MiPageFileLargestBitmapsRun.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x140723B10 (ZwFsControlFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiContractWsSwapPageFile @ 0x140AF3E5C (MiContractWsSwapPageFile.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403FE2C8 (MiUnlockWsSwapExclusive.c)
+ *     MiLockWsSwapExclusive @ 0x1403FE9A4 (MiLockWsSwapExclusive.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1403FEA88 (MiPageFileLargestBitmapsRun.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1407286E0 (ZwFsControlFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiContractWsSwapPageFile @ 0x140AF687C (MiContractWsSwapPageFile.c)
  */
 
 void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
@@ -77,7 +77,7 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
   {
     MiLockWsSwapExclusive(CurrentThread, a1);
     v6 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v6 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v6 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v5, v4);
     v7 = *(_DWORD *)(a1 + 22296);
     v8 = 0;
@@ -137,30 +137,25 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
               v12 = MiTransferSoftwarePte(PageFilePte, v10, DWORD2(v23), 3);
               v13 = v12;
               v14 = v12;
-              if ( qword_140E2D740 )
-              {
-                if ( (v12 & 0x10) != 0 )
-                  v14 = v12 & 0xFFFFFFFFFFFFFFEFuLL;
-                else
-                  v14 = v12 & qword_140E2D748;
-              }
+              if ( qword_140E2D8C0 && (v12 & 0x10) == 0 )
+                v14 = v12 & qword_140E2D8C8;
               v15 = HIDWORD(v14);
               if ( HIDWORD(v23) )
               {
                 v16 = HIDWORD(v23);
                 do
                 {
-                  MiReleasePageFileInfo((struct _KEVENT *)a1, v13, 2);
+                  MiReleasePageFileInfo((struct _KEVENT *)a1, v13, 2LL);
                   LODWORD(v15) = v15 + 1;
                   if ( v13 )
                   {
                     v17 = v13;
-                    if ( qword_140E2D740 )
+                    if ( qword_140E2D8C0 )
                     {
                       if ( (v13 & 0x10) != 0 )
                         v17 = v13 & 0xFFFFFFEF;
                       else
-                        v17 = v13 & qword_140E2D748;
+                        v17 = v13 & qword_140E2D8C8;
                     }
                   }
                   else
@@ -168,12 +163,12 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
                     v17 = 0;
                   }
                   v13 = v17 | ((unsigned __int64)(unsigned int)v15 << 32);
-                  if ( qword_140E2D740 )
+                  if ( qword_140E2D8C0 )
                   {
-                    if ( (qword_140E2D740 & v13) != 0 )
+                    if ( (qword_140E2D8C0 & v13) != 0 )
                       v13 |= 0x10uLL;
                     else
-                      v13 |= qword_140E2D740;
+                      v13 |= qword_140E2D8C0;
                   }
                   --v16;
                 }

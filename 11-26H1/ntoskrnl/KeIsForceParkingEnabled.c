@@ -1,15 +1,15 @@
 /*
- * XREFs of KeIsForceParkingEnabled @ 0x14043DBE0
+ * XREFs of KeIsForceParkingEnabled @ 0x1404366F0
  * Callers:
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022AB98 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     KiAttemptToStealStandbyThread @ 0x14022B800 (KiAttemptToStealStandbyThread.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiSearchForNewThread @ 0x14023E3D0 (KiSearchForNewThread.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x14025B888 (PpmHeteroUpdateHgsConfiguration.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiUpdateProcessAvailableCpuState @ 0x1405E5BB8 (KiUpdateProcessAvailableCpuState.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405E5CF4 (KiUpdateSystemAvailableCpuState.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022C528 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiAttemptToStealStandbyThread @ 0x14022D190 (KiAttemptToStealStandbyThread.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiSearchForNewThread @ 0x14023FD30 (KiSearchForNewThread.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140517458 (PpmHeteroUpdateHgsConfiguration.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x1405E8528 (KiUpdateProcessAvailableCpuState.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405E8664 (KiUpdateSystemAvailableCpuState.c)
  * Callees:
  *     <none>
  */

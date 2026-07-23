@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockMirrorWritePages @ 0x1404AF09C
+ * XREFs of MiUnlockMirrorWritePages @ 0x1404A872C
  * Callers:
- *     MiWriteBrownPages @ 0x1404AEFB0 (MiWriteBrownPages.c)
+ *     MiWriteBrownPages @ 0x1404A8640 (MiWriteBrownPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUnlockMirrorWritePages(__int64 a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockMirrorWritePages @ 0x140522AD4
+ * XREFs of MiLockMirrorWritePages @ 0x140525140
  * Callers:
- *     MiWriteBrownPages @ 0x1404AEFB0 (MiWriteBrownPages.c)
+ *     MiWriteBrownPages @ 0x1404A8640 (MiWriteBrownPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiPfnReferenceCountIsZero @ 0x14031C374 (MiPfnReferenceCountIsZero.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiPfnReferenceCountIsZero @ 0x14031E3A4 (MiPfnReferenceCountIsZero.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiLockMirrorWritePages(_QWORD *a1, ULONG_PTR a2, unsigned __int64 a3)
@@ -87,7 +87,7 @@ LABEL_76:
       {
         v29 = a2 & 0x1F;
         LOBYTE(v30) = 1;
-        v31 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
+        v31 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
         if ( v29 + 1 <= 0x20 )
         {
           v32 = 1 << v29;
@@ -121,11 +121,11 @@ LABEL_65:
         v21 = a1[2] == -1LL;
         goto LABEL_67;
       }
-      if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v15 + 16) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v15 + 16) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
       {
         v16 = a2 & 0x1F;
         LOBYTE(v17) = 1;
-        v18 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
+        v18 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
         if ( v16 + 1 <= 0x20 )
         {
           v19 = 1 << v16;
@@ -179,7 +179,7 @@ LABEL_67:
       }
       v24 = a2 & 0x1F;
       LOBYTE(v25) = 1;
-      v26 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
+      v26 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
       if ( v24 + 1 > 0x20 )
       {
         if ( (a2 & 0x1F) != 0 )
@@ -237,7 +237,7 @@ LABEL_68:
     }
   }
   v6 = a2 & 0x1F;
-  v7 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
+  v7 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (a2 >> 5);
   result = v6 + a3;
   if ( v6 + a3 <= 0x20 )
   {

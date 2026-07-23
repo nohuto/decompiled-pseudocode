@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpProcessorResumeFromIdle @ 0x140546350
+ * XREFs of HalpProcessorResumeFromIdle @ 0x140543C10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-struct _KPRCB *__fastcall HalpProcessorResumeFromIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+struct _KPRCB *__fastcall HalpProcessorResumeFromIdle(__int64 a1, __int64 a2)
 {
   struct _KPRCB *result; // rax
 
@@ -18,7 +18,7 @@ struct _KPRCB *__fastcall HalpProcessorResumeFromIdle(__int64 a1, __int64 a2, __
     {
       result = (struct _KPRCB *)HalpProfileInterface[10];
       if ( result )
-        return (struct _KPRCB *)guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+        return (struct _KPRCB *)guard_dispatch_icall_no_overrides(a1, a2);
     }
   }
   return result;

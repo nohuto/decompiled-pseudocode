@@ -1,15 +1,15 @@
 /*
- * XREFs of _SysCtxOpenControlSet @ 0x14073BC98
+ * XREFs of _SysCtxOpenControlSet @ 0x14073CE88
  * Callers:
- *     _SysCtxOpenMachine @ 0x14073BA68 (_SysCtxOpenMachine.c)
+ *     _SysCtxOpenMachine @ 0x14073CC58 (_SysCtxOpenMachine.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
- *     _RegRtlOpenKeyTransacted @ 0x1405C7B4C (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlCreateKeyTransacted @ 0x1406D37BC (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1405C89A8 (_RegRtlQueryValue.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1405C8B4C (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1406D4A5C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlSetValue @ 0x1406FDE48 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall SysCtxOpenControlSet(__int64 a1, char *a2, __int64 a3, HANDLE *a4)

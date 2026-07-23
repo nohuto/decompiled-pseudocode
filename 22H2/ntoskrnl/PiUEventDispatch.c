@@ -11,14 +11,12 @@
 __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)
 {
   int Status; // edi
-  IRP *v3; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
   UCHAR MajorFunction; // al
   IRP *v6; // rcx
   char *FsContext2; // rcx
 
   Status = a2->IoStatus.Status;
-  v3 = a2;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   if ( Status >= 0 )
   {
@@ -30,13 +28,12 @@ __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)
         FsContext2 = (char *)CurrentStackLocation->FileObject->FsContext2;
         if ( FsContext2 )
         {
-          LOBYTE(a2) = 1;
-          PiUEventFreeClientRegistrationContext(FsContext2, (__int64)a2);
+          PiUEventFreeClientRegistrationContext(FsContext2, 1);
           CurrentStackLocation->FileObject->FsContext2 = 0LL;
         }
         Status = 0;
-        v6 = v3;
-        v3->IoStatus.Status = 0;
+        v6 = a2;
+        a2->IoStatus.Status = 0;
         goto LABEL_9;
       }
       v6 = a2;

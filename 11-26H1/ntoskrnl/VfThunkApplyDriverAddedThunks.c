@@ -1,15 +1,15 @@
 /*
- * XREFs of VfThunkApplyDriverAddedThunks @ 0x140C35250
+ * XREFs of VfThunkApplyDriverAddedThunks @ 0x140C3B260
  * Callers:
- *     ViDriverReApplyVerifierForAll @ 0x140C284F8 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x140C2E500 (ViDriverReApplyVerifierForAll.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x140C357CC (ViThunkFindAllSpecialTables.c)
- *     ViThunkFindDriverImportEntry @ 0x140C35940 (ViThunkFindDriverImportEntry.c)
- *     MmApplyVerifierToRunningImage @ 0x140C43750 (MmApplyVerifierToRunningImage.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x140C3B7DC (ViThunkFindAllSpecialTables.c)
+ *     ViThunkFindDriverImportEntry @ 0x140C3B950 (ViThunkFindDriverImportEntry.c)
+ *     MmApplyVerifierToRunningImage @ 0x140C49760 (MmApplyVerifierToRunningImage.c)
  */
 
 __int64 __fastcall VfThunkApplyDriverAddedThunks(ULONG_PTR BugCheckParameter2)
@@ -26,21 +26,21 @@ __int64 __fastcall VfThunkApplyDriverAddedThunks(ULONG_PTR BugCheckParameter2)
   __int64 DriverImportEntry; // rdx
   int v12; // r11d
   __int64 v13; // rcx
-  __int64 v14; // [rsp+58h] [rbp+10h] BYREF
+  __int64 Size; // [rsp+58h] [rbp+10h] BYREF
 
-  LODWORD(v14) = 0;
+  LODWORD(Size) = 0;
   v2 = 0LL;
   v3 = 0;
   Pool2 = (void *)ExAllocatePool2(64LL, 24LL * (unsigned int)VfNumberOfClassDriverThunks, 0x6D4D7644u);
   if ( !Pool2 )
     return 3221225495LL;
   memset_0(Pool2, 0, 24LL * (unsigned int)VfNumberOfClassDriverThunks);
-  result = RtlImageDirectoryEntryToData(*(_QWORD *)(BugCheckParameter2 + 48), 1, 0xCu, &v14);
+  result = (__int64)RtlImageDirectoryEntryToData(*(PVOID *)(BugCheckParameter2 + 48), 1u, 0xCu, (PULONG)&Size);
   v6 = (__int64 *)result;
   if ( result )
   {
-    v7 = (unsigned int)v14 >> 3;
-    AllSpecialTables = (__int64 *)ViThunkFindAllSpecialTables(result, (unsigned int)v14 >> 3);
+    v7 = (unsigned int)Size >> 3;
+    AllSpecialTables = (__int64 *)ViThunkFindAllSpecialTables(result, (unsigned int)Size >> 3);
     if ( !v7 )
       goto LABEL_15;
     while ( 1 )
@@ -69,7 +69,7 @@ LABEL_15:
         return v3;
       }
     }
-    v14 = *v6;
+    Size = *v6;
     while ( 1 )
     {
       DriverImportEntry = ViThunkFindDriverImportEntry(v9 + 24);

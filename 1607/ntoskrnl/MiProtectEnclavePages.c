@@ -1,21 +1,21 @@
 /*
- * XREFs of MiProtectEnclavePages @ 0x14065F614
+ * XREFs of MiProtectEnclavePages @ 0x14065F6F8
  * Callers:
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14008BE60 (ExReleaseAutoExpandPushLockShared.c)
- *     MiInitializeTbFlushList @ 0x1400B5A30 (MiInitializeTbFlushList.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1400C7740 (ExAcquireAutoExpandPushLockShared.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiUpdateEnclavePfnProtection @ 0x1401F075C (MiUpdateEnclavePfnProtection.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14008B5C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     MiInitializeTbFlushList @ 0x1400B3858 (MiInitializeTbFlushList.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1400C55E0 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiUpdateEnclavePfnProtection @ 0x1401F0588 (MiUpdateEnclavePfnProtection.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiProtectEnclavePages(
@@ -76,7 +76,7 @@ LABEL_8:
   v18 = CurrentThread->ApcState.Process[1].ActiveProcessors.Bitmap[3];
   --CurrentThread->SpecialApcDisable;
   BugCheckParameter2 = ExAcquireAutoExpandPushLockShared(v18 + 16, 0LL);
-  v19 = (unsigned __int64)(HIBYTE(word_140326AA8) & 1) << 8;
+  v19 = (unsigned __int64)(HIBYTE(word_140326AE8) & 1) << 8;
   v20 = v19 | MmProtectToPteMask[v9] & 0xFFFFFFFFFFFFFF7FuLL | 0xFFFFFFFFF025LL;
   if ( (v9 & 4) != 0 )
     v20 = v19 | MmProtectToPteMask[v9] & 0xFFFFFFFFFFFFFF7FuLL | 0xFFFFFFFFF067LL;

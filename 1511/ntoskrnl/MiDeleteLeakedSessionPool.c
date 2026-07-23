@@ -20,7 +20,7 @@ unsigned __int64 MiDeleteLeakedSessionPool()
   bool v6; // zf
   ULONG SizeOfBitMap; // eax
   unsigned int v8; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-30h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-30h] BYREF
   __int64 v10; // [rsp+30h] [rbp-20h] BYREF
   __int64 v11; // [rsp+38h] [rbp-18h]
   __int64 v12; // [rsp+40h] [rbp-10h]

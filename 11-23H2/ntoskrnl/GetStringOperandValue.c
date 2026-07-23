@@ -1,9 +1,9 @@
 /*
- * XREFs of GetStringOperandValue @ 0x1409D4628
+ * XREFs of GetStringOperandValue @ 0x1409D4828
  * Callers:
- *     GetOperandValue @ 0x1409D35CC (GetOperandValue.c)
+ *     GetOperandValue @ 0x1409D37CC (GetOperandValue.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmTraceExitLatency @ 0x1402013E4
+ * XREFs of PpmTraceExitLatency @ 0x140201210
  * Callers:
- *     PpmIdleCompleteExitLatencyTrace @ 0x1402003CC (PpmIdleCompleteExitLatencyTrace.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x1402001F8 (PpmIdleCompleteExitLatencyTrace.c)
  * Callees:
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmTraceExitLatency(

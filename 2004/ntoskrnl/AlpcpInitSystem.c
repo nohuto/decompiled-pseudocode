@@ -21,13 +21,13 @@ __int64 AlpcpInitSystem()
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KEVENT *PoolWithTag; // rax
-  int SystemInformation; // ebx
+  int v2; // ebx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   __int128 v5[8]; // [rsp+50h] [rbp-B0h] BYREF
-  _DWORD v6[16]; // [rsp+D0h] [rbp-30h] BYREF
+  _DWORD SystemInformation[16]; // [rsp+D0h] [rbp-30h] BYREF
 
   DestinationString = 0LL;
-  memset(v6, 0, sizeof(v6));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x6E496C41u);
@@ -50,13 +50,8 @@ __int64 AlpcpInitSystem()
     BYTE2(v5[0]) = BYTE2(v5[0]) & 0xCB | 0x10;
     *(__int128 *)((char *)v5 + 12) = AlpcpPortMapping;
     HIDWORD(v5[1]) = 2031617;
-    SystemInformation = ObCreateObjectTypeEx(
-                          &DestinationString,
-                          v5,
-                          0LL,
-                          (__int16 *)0xF9,
-                          (__int64 *)&AlpcPortObjectType);
-    if ( SystemInformation >= 0 )
+    v2 = ObCreateObjectTypeEx(&DestinationString, v5, 0LL, (__int16 *)0xF9, (__int64 *)&AlpcPortObjectType);
+    if ( v2 >= 0 )
     {
       AlpcMessageTable = ExCreateHandleTable(0LL, 0LL);
       ExInitializePagedLookasideList(
@@ -77,11 +72,11 @@ __int64 AlpcpInitSystem()
         0x20u);
       ExInitializePagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140CEBCC0, 0LL, 0LL, 0, 0x80uLL, 0x61486C41u, 0x20u);
       ExInitializeNPagedLookasideList(&AlpcpNPLookasides, 0LL, 0LL, 0x200u, 0x20uLL, 0x65536C41u, 0x20u);
-      SystemInformation = NtQuerySystemInformation(0LL, (__int64)v6, 64, 0LL);
-      if ( SystemInformation >= 0 )
+      v2 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+      if ( v2 >= 0 )
       {
-        AlpcpRegionGranularity = v6[6];
-        AlpcpViewGranularity = v6[2];
+        AlpcpRegionGranularity = SystemInformation[6];
+        AlpcpViewGranularity = SystemInformation[2];
       }
       if ( AlpcpMessageLogEnabled )
       {
@@ -104,8 +99,8 @@ __int64 AlpcpInitSystem()
   }
   else
   {
-    SystemInformation = -1073741670;
+    v2 = -1073741670;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v2;
 }

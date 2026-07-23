@@ -8,12 +8,12 @@
  *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
  */
 
-struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, struct _GROUP_AFFINITY *a3)
+struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, _GROUP_AFFINITY *a3)
 {
   __int64 v4; // rcx
   unsigned __int8 CurrentIrql; // r10
   struct _KPRCB *result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   v4 = KiProcessorBlock[a1];

@@ -1,12 +1,12 @@
 /*
- * XREFs of TppAlpcpValidateAlpc @ 0x1800C99AC
+ * XREFs of TppAlpcpValidateAlpc @ 0x1800C712C
  * Callers:
- *     TpAlpcUnregisterCompletionList @ 0x1800C9770 (TpAlpcUnregisterCompletionList.c)
- *     TpWaitForAlpcCompletion @ 0x1800C97B0 (TpWaitForAlpcCompletion.c)
- *     TpReleaseAlpcCompletion @ 0x1800C9940 (TpReleaseAlpcCompletion.c)
+ *     TpAlpcUnregisterCompletionList @ 0x1800C6EF0 (TpAlpcUnregisterCompletionList.c)
+ *     TpWaitForAlpcCompletion @ 0x1800C6F30 (TpWaitForAlpcCompletion.c)
+ *     TpReleaseAlpcCompletion @ 0x1800C70C0 (TpReleaseAlpcCompletion.c)
  * Callees:
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppValidateCleanupGroupMember @ 0x1800C9A20 (TppValidateCleanupGroupMember.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppValidateCleanupGroupMember @ 0x1800C71A0 (TppValidateCleanupGroupMember.c)
  */
 
 __int64 __fastcall TppAlpcpValidateAlpc(__int64 a1, __int64 a2, __int64 a3)

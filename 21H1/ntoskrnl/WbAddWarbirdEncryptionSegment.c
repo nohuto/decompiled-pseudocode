@@ -45,7 +45,7 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   v8 = (unsigned __int64 *)(a1 + 176);
-  v9 = KeAbPreAcquire(a1 + 176, 0LL, 0LL);
+  v9 = KeAbPreAcquire(a1 + 176, 0LL, 0);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
     ExfAcquirePushLockExclusiveEx(v8, v9, (ULONG_PTR)v8);

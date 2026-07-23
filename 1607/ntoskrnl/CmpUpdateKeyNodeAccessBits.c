@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpUpdateKeyNodeAccessBits @ 0x140402AD0
+ * XREFs of CmpUpdateKeyNodeAccessBits @ 0x140401990
  * Callers:
- *     CmpCreateTombstone @ 0x1401B6260 (CmpCreateTombstone.c)
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmQueryMultipleValueKey @ 0x140402254 (CmQueryMultipleValueKey.c)
- *     CmpGetKeyNodeForKcb @ 0x140402930 (CmpGetKeyNodeForKcb.c)
- *     CmpCompareNewValueDataAgainstKCBCache @ 0x140402E58 (CmpCompareNewValueDataAgainstKCBCache.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1405FE35C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1405FE7F4 (CmSetLastWriteTimeKey.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x1406026C8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpCreateTombstone @ 0x1401B6144 (CmpCreateTombstone.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmQueryMultipleValueKey @ 0x140401114 (CmQueryMultipleValueKey.c)
+ *     CmpGetKeyNodeForKcb @ 0x1404017F0 (CmpGetKeyNodeForKcb.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x140401D18 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1405FE410 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1405FE8A8 (CmSetLastWriteTimeKey.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14060277C (CmpGetSecurityDescriptorNodeEx.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 void __fastcall CmpUpdateKeyNodeAccessBits(ULONG_PTR a1, __int64 a2, unsigned int a3)

@@ -183,14 +183,14 @@ __int64 __fastcall EtwpStartLogger(__int64 a1, __int64 a2)
     {
       goto LABEL_129;
     }
-    v47 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+    v47 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v47 )
-      v47 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+      v47 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( !v47 )
       goto LABEL_129;
-    v48 = *(_QWORD *)(a2 + 24) - CKCLGuid;
+    v48 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&CKCLGuid.Data1;
     if ( !v48 )
-      v48 = *(_QWORD *)(a2 + 32) - 0x74F156D0633E71AFLL;
+      v48 = *(_QWORD *)(a2 + 32) - *(_QWORD *)CKCLGuid.Data4;
     if ( !v48 || (v7 & 4) != 0 )
       goto LABEL_129;
   }
@@ -256,23 +256,23 @@ LABEL_177:
   }
   v11 = *(_QWORD *)&Buf2.Data1;
   v12 = *(_QWORD *)(a1 + 424);
-  v13 = *(_QWORD *)&Buf2.Data1 - SystemTraceControlGuid;
+  v13 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&SystemTraceControlGuid.Data1;
   v14 = *(_QWORD *)Buf2.Data4;
   v68 = v12;
-  if ( *(_QWORD *)&Buf2.Data1 == SystemTraceControlGuid )
-    v13 = *(_QWORD *)Buf2.Data4 - 0x3969A8086000829ALL;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&SystemTraceControlGuid.Data1 )
+    v13 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v13 )
     goto LABEL_193;
-  v15 = *(_QWORD *)&Buf2.Data1 - CKCLGuid;
-  if ( *(_QWORD *)&Buf2.Data1 == CKCLGuid )
-    v15 = *(_QWORD *)Buf2.Data4 - 0x74F156D0633E71AFLL;
+  v15 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&CKCLGuid.Data1;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&CKCLGuid.Data1 )
+    v15 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)CKCLGuid.Data4;
   if ( !v15 )
   {
 LABEL_193:
     RtlFreeUnicodeString(&DestinationString);
-    v53 = v11 - SystemTraceControlGuid;
+    v53 = v11 - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v53 )
-      v53 = v14 - 0x3969A8086000829ALL;
+      v53 = v14 - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( v53 )
     {
       v54 = 2;
@@ -326,9 +326,9 @@ LABEL_129:
     FileName = -1073741811;
     goto LABEL_233;
   }
-  v17 = *(_QWORD *)&Buf2.Data1 - AuditLoggerGuid;
-  if ( *(_QWORD *)&Buf2.Data1 == AuditLoggerGuid )
-    v17 = *(_QWORD *)Buf2.Data4 + 0x6A2DF162E6CE8D6ELL;
+  v17 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&AuditLoggerGuid.Data1;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+    v17 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)AuditLoggerGuid.Data4;
   if ( !v17 )
   {
     v61 = 3;
@@ -349,9 +349,9 @@ LABEL_201:
   }
   if ( !wcsicmp(DestinationString.Buffer, L"Eventlog-Security") )
   {
-    v51 = v11 - AuditLoggerGuid;
-    if ( v11 == AuditLoggerGuid )
-      v51 = v14 + 0x6A2DF162E6CE8D6ELL;
+    v51 = v11 - *(_QWORD *)&AuditLoggerGuid.Data1;
+    if ( v11 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+      v51 = v14 - *(_QWORD *)AuditLoggerGuid.Data4;
     if ( v51 )
       goto LABEL_177;
   }
@@ -425,9 +425,9 @@ LABEL_57:
   FileName = EtwpAccessCheck(SecurityDescriptor, DesiredAccess, 0LL);
   if ( FileName < 0 )
     goto LABEL_232;
-  v27 = HeapGuid - *(_QWORD *)&Buf2.Data1;
-  if ( HeapGuid == *(_QWORD *)&Buf2.Data1 )
-    v27 = 0x4AA2F2756B3425A8LL - *(_QWORD *)Buf2.Data4;
+  v27 = *(_QWORD *)&HeapGuid.Data1 - *(_QWORD *)&Buf2.Data1;
+  if ( *(_QWORD *)&HeapGuid.Data1 == *(_QWORD *)&Buf2.Data1 )
+    v27 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)Buf2.Data4;
   if ( v27 )
     v60 = memcmp(&CritSecGuid, &Buf2, 0x10uLL) != 0 ? 9 : 1;
   else

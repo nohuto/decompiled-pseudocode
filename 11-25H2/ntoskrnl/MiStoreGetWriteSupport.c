@@ -8,7 +8,7 @@
  *     VfHandlePoolAlloc @ 0x140B98AC0 (VfHandlePoolAlloc.c)
  */
 
-PSLIST_ENTRY __fastcall MiStoreGetWriteSupport(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall MiStoreGetWriteSupport(_SLIST_HEADER *a1)
 {
   PSLIST_ENTRY result; // rax
   ULONG_PTR v2; // r9

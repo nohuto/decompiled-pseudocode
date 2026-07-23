@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegGetDescriptorValidateSafe @ 0x1801236BC
+ * XREFs of RtlpHpSegGetDescriptorValidateSafe @ 0x18012368C
  * Callers:
  *     RtlpHpSizeHeap @ 0x18003ACD0 (RtlpHpSizeHeap.c)
  *     RtlpHpFreeHeap @ 0x18003B1F0 (RtlpHpFreeHeap.c)
@@ -9,7 +9,7 @@
  *     RtlpHpSegFree @ 0x180043CE4 (RtlpHpSegFree.c)
  *     RtlpHpSegLfhVsCommit @ 0x180046B90 (RtlpHpSegLfhVsCommit.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x1801228D8 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapExceptionFilter @ 0x1801228A8 (RtlpHeapExceptionFilter.c)
  */
 
 __int64 __fastcall RtlpHpSegGetDescriptorValidateSafe(__int64 a1, __int64 a2)

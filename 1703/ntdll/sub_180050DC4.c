@@ -14,8 +14,8 @@ __int64 __fastcall sub_180050DC4(__int64 a1, int a2)
   __int64 result; // rax
 
   *(_DWORD *)(a1 + 332) |= a2;
-  ZwSetEvent(*(_QWORD *)(a1 + 128), 0LL);
-  ZwWaitForSingleObject(*(_QWORD *)(a1 + 136), 0LL, 0LL);
+  ZwSetEvent(*(HANDLE *)(a1 + 128), 0LL);
+  ZwWaitForSingleObject(*(HANDLE *)(a1 + 136), 0, 0LL);
   result = *(unsigned int *)(a1 + 40);
   *(_DWORD *)(a1 + 332) &= ~a2;
   *(_DWORD *)(a1 + 40) = 0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCreateLayerLink @ 0x140A79A78
+ * XREFs of CmpCreateLayerLink @ 0x140A819B8
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
  * Callees:
- *     CmpAllocateLayerInfoForKcb @ 0x140A79B08 (CmpAllocateLayerInfoForKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x140A79B80 (CmpReferenceKeyControlBlock.c)
+ *     CmpAllocateLayerInfoForKcb @ 0x140A81A48 (CmpAllocateLayerInfoForKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x140A81AC0 (CmpReferenceKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpCreateLayerLink(ULONG_PTR BugCheckParameter2, __int64 a2)

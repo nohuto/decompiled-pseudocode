@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiOpenDefaultTerminal @ 0x1409AB09C
+ * XREFs of TtmiOpenDefaultTerminal @ 0x1409AB29C
  * Callers:
- *     TtmpDispatchOpenTerminal @ 0x1409A67CC (TtmpDispatchOpenTerminal.c)
+ *     TtmpDispatchOpenTerminal @ 0x1409A69CC (TtmpDispatchOpenTerminal.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiOpenDefaultTerminal(__int64 a1, ACCESS_MASK a2, KPROCESSOR_MODE a3, HANDLE *a4)

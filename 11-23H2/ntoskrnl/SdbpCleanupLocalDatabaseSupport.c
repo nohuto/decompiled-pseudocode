@@ -3,7 +3,7 @@
  * Callers:
  *     SdbReleaseDatabase @ 0x140695574 (SdbReleaseDatabase.c)
  * Callees:
- *     SdbpCloseLocalDatabaseEx @ 0x140A52434 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x140A526E4 (SdbpCloseLocalDatabaseEx.c)
  */
 
 __int64 __fastcall SdbpCleanupLocalDatabaseSupport(__int64 a1, __int64 a2)

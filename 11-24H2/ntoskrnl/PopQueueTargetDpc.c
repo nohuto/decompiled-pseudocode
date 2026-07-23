@@ -1,13 +1,13 @@
 /*
- * XREFs of PopQueueTargetDpc @ 0x140352A60
+ * XREFs of PopQueueTargetDpc @ 0x1403702F0
  * Callers:
- *     PoGetIdleTimes @ 0x140351EF0 (PoGetIdleTimes.c)
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
- *     PopExecuteProcessorCallback @ 0x140352C00 (PopExecuteProcessorCallback.c)
- *     PpmCapturePerformanceDistribution @ 0x14047F450 (PpmCapturePerformanceDistribution.c)
+ *     PoGetIdleTimes @ 0x14036F560 (PoGetIdleTimes.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteProcessorCallback @ 0x140370490 (PopExecuteProcessorCallback.c)
+ *     PpmCapturePerformanceDistribution @ 0x14047A270 (PpmCapturePerformanceDistribution.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
  */
 
 BOOLEAN __fastcall PopQueueTargetDpc(PRKDPC Dpc, __int64 a2)
@@ -41,7 +41,7 @@ BOOLEAN __fastcall PopQueueTargetDpc(PRKDPC Dpc, __int64 a2)
   }
   _BitScanForward64(&v9, v7);
   v2[1] = (unsigned __int16 *)(v7 & ~(1LL << v9));
-  v10 = *((_DWORD *)qword_140F21E78 + 64 * v8 + (unsigned int)(unsigned __int8)v9);
+  v10 = *((_DWORD *)qword_140F22998 + 64 * v8 + (unsigned int)(unsigned __int8)v9);
   Dpc->DeferredRoutine = (PKDEFERRED_ROUTINE)PopExecuteProcessorCallback;
   Dpc->TargetInfoAsUlong = 787;
   Dpc->DeferredContext = (PVOID)a2;

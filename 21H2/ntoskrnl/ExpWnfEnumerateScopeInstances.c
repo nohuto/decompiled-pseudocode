@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWnfEnumerateScopeInstances @ 0x1406C0B18
+ * XREFs of ExpWnfEnumerateScopeInstances @ 0x14061FA28
  * Callers:
- *     NtDeleteWnfStateName @ 0x14060D3C0 (NtDeleteWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x14069CE70 (NtDeleteWnfStateName.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(__int64 a1, struct _EX_RUNDOWN_REF *a2)
@@ -22,7 +22,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(__int64 a1, str
   __int64 v6; // rdx
   unsigned __int64 *v7; // rdi
   struct _EX_RUNDOWN_REF **v8; // r14
-  __int64 v9; // rbx
+  PRTL_BALANCED_NODE v9; // rbx
   struct _EX_RUNDOWN_REF *Count; // rbx
   __int64 v12; // rax
 
@@ -46,7 +46,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(__int64 a1, str
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v9, (ULONG_PTR)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   if ( a2 )
     Count = (struct _EX_RUNDOWN_REF *)a2[4].Count;
   else
@@ -56,7 +56,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(__int64 a1, str
   while ( Count != (struct _EX_RUNDOWN_REF *)v8 )
   {
     v4 = Count - 4;
-    if ( ExAcquireRundownProtection_0(Count - 3) )
+    if ( ExAcquireRundownProtection(Count - 3) )
       break;
     Count = (struct _EX_RUNDOWN_REF *)Count->Count;
     v4 = 0LL;
@@ -65,6 +65,6 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(__int64 a1, str
     ExfReleasePushLockShared((signed __int64 *)v7);
   KeAbPostRelease((ULONG_PTR)v7);
   if ( a2 )
-    ExReleaseRundownProtection_0(a2 + 1);
+    ExReleaseRundownProtection(a2 + 1);
   return v4;
 }

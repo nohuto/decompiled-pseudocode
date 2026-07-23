@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetSecurityDescriptorInformation @ 0x140AF85A4
+ * XREFs of IopGetSecurityDescriptorInformation @ 0x140AFAC84
  * Callers:
- *     IoCreateDeviceSecure @ 0x140AF8350 (IoCreateDeviceSecure.c)
- *     IopQuerySecureDeviceClassState @ 0x140B2F62C (IopQuerySecureDeviceClassState.c)
+ *     IoCreateDeviceSecure @ 0x140AFAA30 (IoCreateDeviceSecure.c)
+ *     IopQuerySecureDeviceClassState @ 0x140B3140C (IopQuerySecureDeviceClassState.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140486620 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x14047FDF0 (RtlGetDaclSecurityDescriptor.c)
  */
 
 NTSTATUS __fastcall IopGetSecurityDescriptorInformation(_WORD *a1, BOOLEAN *a2, _DWORD *a3)

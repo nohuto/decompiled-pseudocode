@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDebugContinue @ 0x14041C800
+ * XREFs of ZwDebugContinue @ 0x14041CB90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDebugContinue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DebugObjectHandle);
 }

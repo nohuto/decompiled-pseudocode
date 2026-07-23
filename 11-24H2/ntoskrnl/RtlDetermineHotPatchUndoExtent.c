@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlDetermineHotPatchUndoExtent @ 0x14082EF3C
+ * XREFs of RtlDetermineHotPatchUndoExtent @ 0x14082F76C
  * Callers:
- *     MiPrepareDriverForHotPatch @ 0x1407F5414 (MiPrepareDriverForHotPatch.c)
- *     MiProcessHotPatchUndoTable @ 0x1407F5C40 (MiProcessHotPatchUndoTable.c)
+ *     MiPrepareDriverForHotPatch @ 0x1407F5B04 (MiPrepareDriverForHotPatch.c)
+ *     MiProcessHotPatchUndoTable @ 0x1407F6330 (MiProcessHotPatchUndoTable.c)
  * Callees:
  *     <none>
  */

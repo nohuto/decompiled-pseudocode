@@ -1,10 +1,10 @@
 /*
- * XREFs of EmpProviderDeregisterEntry @ 0x14053C7A0
+ * XREFs of EmpProviderDeregisterEntry @ 0x14053CCF0
  * Callers:
- *     EmProviderDeregister @ 0x14093C6B0 (EmProviderDeregister.c)
- *     EmProviderDeregisterEntry @ 0x14093C860 (EmProviderDeregisterEntry.c)
+ *     EmProviderDeregister @ 0x14093C8B0 (EmProviderDeregister.c)
+ *     EmProviderDeregisterEntry @ 0x14093CA60 (EmProviderDeregisterEntry.c)
  * Callees:
- *     EmpQueueRuleUpdateState @ 0x14038B334 (EmpQueueRuleUpdateState.c)
+ *     EmpQueueRuleUpdateState @ 0x14038B514 (EmpQueueRuleUpdateState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     HvlQueryVsmConnection @ 0x140294D28 (HvlQueryVsmConnection.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
+ *     sub_140294D28 @ 0x140294D28 (sub_140294D28.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -16,14 +16,14 @@ char __fastcall VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma(int a1, c
   _DWORD v10[28]; // [rsp+20h] [rbp-A8h] BYREF
 
   memset(v10, 0, 0x68uLL);
-  if ( !HvlQueryVsmConnection(0LL) )
+  if ( !sub_140294D28(0LL) )
     return -1;
   v10[2] = a1;
   LOBYTE(v10[3]) = a2;
   BYTE1(v10[3]) = a3;
   BYTE2(v10[3]) = a4;
   v10[4] = 2;
-  v8 = (int)VslpEnterIumSecureMode(2u, 263, 0, (__int64)v10) < 0;
+  v8 = (int)sub_140358A20(2u, 263, 0, (__int64)v10) < 0;
   result = v10[4];
   if ( v8 )
     return -1;

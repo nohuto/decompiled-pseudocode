@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWnfCreateProcessContext @ 0x1407D0124
+ * XREFs of ExpWnfCreateProcessContext @ 0x1407D03F4
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x140713368 (ExpWnfResolveScopeInstance.c)
- *     NtSetWnfProcessNotificationEvent @ 0x1407D0050 (NtSetWnfProcessNotificationEvent.c)
+ *     ExpWnfResolveScopeInstance @ 0x140713578 (ExpWnfResolveScopeInstance.c)
+ *     NtSetWnfProcessNotificationEvent @ 0x1407D0320 (NtSetWnfProcessNotificationEvent.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExpWnfDeleteProcessContext @ 0x1407CC628 (ExpWnfDeleteProcessContext.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExpWnfDeleteProcessContext @ 0x1407CC8F8 (ExpWnfDeleteProcessContext.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

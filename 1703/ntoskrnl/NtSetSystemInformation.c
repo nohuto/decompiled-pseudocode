@@ -247,11 +247,11 @@ NTSTATUS __stdcall NtSetSystemInformation(
   updated = 0;
   if ( v5 > SystemHypervisorInformation )
   {
-    if ( v5 > (SystemPagedPoolInformation|0x80) )
+    if ( v5 > SystemCriticalProcessErrorLogInformation )
     {
-      if ( v5 <= (SystemPlugPlayBusInformation|0x80) )
+      if ( v5 <= SystemAllowedCpuSetsInformation )
       {
-        if ( v5 == (SystemPlugPlayBusInformation|0x80) )
+        if ( v5 == SystemAllowedCpuSetsInformation )
         {
           if ( (SystemInformationLength & 7) != 0 || SystemInformationLength > 0xA0 )
             return -1073741820;
@@ -380,7 +380,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
     }
     else
     {
-      if ( v5 == (SystemPagedPoolInformation|0x80) )
+      if ( v5 == SystemCriticalProcessErrorLogInformation )
       {
         if ( SystemInformationLength != 48 )
           return -1073741820;
@@ -419,7 +419,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
         xmmword_140344B00 = v83;
         return 0;
       }
-      if ( v5 > (MaxSystemInfoClass|SystemLocksInformation) )
+      if ( v5 > SystemRegistryAppendString )
       {
         v19 = v5 - 111;
         if ( v19 )
@@ -530,7 +530,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
         }
         return -1073741790;
       }
-      if ( v5 == (MaxSystemInfoClass|SystemLocksInformation) )
+      if ( v5 == SystemRegistryAppendString )
         return -1073741822;
       v33 = v5 - 92;
       if ( !v33 )
@@ -1052,7 +1052,7 @@ LABEL_189:
       }
       if ( v5 <= SystemPrioritySeperation )
         return -1073741821;
-      if ( v5 > SystemDockInformation )
+      if ( v5 > SystemVerifierRemoveDriverInformation )
       {
         if ( v5 == SystemTimeSlipNotification )
         {

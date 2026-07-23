@@ -1,21 +1,21 @@
 /*
- * XREFs of IopAllocateIrpExtension @ 0x1402EE1B0
+ * XREFs of IopAllocateIrpExtension @ 0x14020DB80
  * Callers:
- *     IopSetDiskIoAttributionExtension @ 0x1402EDF0C (IopSetDiskIoAttributionExtension.c)
- *     IopSetDriverFlagsExtension @ 0x1402EDF88 (IopSetDriverFlagsExtension.c)
- *     IoPropagateIrpExtensionEx @ 0x1402EE000 (IoPropagateIrpExtensionEx.c)
- *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
- *     IoSetGenericIrpExtension @ 0x14037A120 (IoSetGenericIrpExtension.c)
- *     IopSetCopyInformationExtension @ 0x1403F15CC (IopSetCopyInformationExtension.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140507AF0 (IoClearAdapterCryptoEngineExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140507BF0 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x140507C50 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140507CF0 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x140507FC0 (IopPerfCallDriver.c)
- *     ViGetContextPointer @ 0x1409C84D4 (ViGetContextPointer.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14020D8DC (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDriverFlagsExtension @ 0x14020D958 (IopSetDriverFlagsExtension.c)
+ *     IoPropagateIrpExtensionEx @ 0x14020D9D0 (IoPropagateIrpExtensionEx.c)
+ *     IoSetActivityIdIrp @ 0x140378D50 (IoSetActivityIdIrp.c)
+ *     IoSetGenericIrpExtension @ 0x140379C70 (IoSetGenericIrpExtension.c)
+ *     IopSetCopyInformationExtension @ 0x1403F149C (IopSetCopyInformationExtension.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140507A70 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140507B70 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x140507BD0 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140507C70 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x140507F40 (IopPerfCallDriver.c)
+ *     ViGetContextPointer @ 0x1409C94D4 (ViGetContextPointer.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall IopAllocateIrpExtension(__int64 a1, int a2)

@@ -10,17 +10,17 @@
  *     MmFreeNonChargedSecurePages @ 0x140657D28 (MmFreeNonChargedSecurePages.c)
  */
 
-__int64 __fastcall PspIumFreePartitionPages(__int64 a1, int a2, __int64 a3)
+void __fastcall PspIumFreePartitionPages(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // r12
   __int64 v6; // rbx
   unsigned __int64 v7; // rbp
   __int64 v8; // rax
   unsigned int v9; // edi
-  __int64 result; // rax
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v13; // eax
   bool v14; // zf
 
   v3 = *(_QWORD *)(a1 + 160);
@@ -37,23 +37,24 @@ __int64 __fastcall PspIumFreePartitionPages(__int64 a1, int a2, __int64 a3)
     *(_DWORD *)(a1 + 156) += v9;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 88));
-  result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+      v14 = (v13 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v13;
       if ( v14 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);
   if ( (_DWORD)v6 )
-    return MmFreeNonChargedSecurePages(*(_QWORD *)(a1 + 8));
-  return result;
+    MmFreeNonChargedSecurePages(*(_QWORD *)(a1 + 8));
 }

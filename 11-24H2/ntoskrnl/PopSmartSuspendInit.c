@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSmartSuspendInit @ 0x140C31EA0
+ * XREFs of PopSmartSuspendInit @ 0x140C33FE0
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PopSmartSuspendResetData @ 0x1406FBD60 (PopSmartSuspendResetData.c)
+ *     PopSmartSuspendResetData @ 0x1406F99A0 (PopSmartSuspendResetData.c)
  */
 
 __int64 PopSmartSuspendInit()

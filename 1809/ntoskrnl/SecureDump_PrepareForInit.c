@@ -1,12 +1,12 @@
 /*
- * XREFs of SecureDump_PrepareForInit @ 0x14019146C
+ * XREFs of SecureDump_PrepareForInit @ 0x1401915AC
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     SecureDump_ReadRegistry @ 0x140191580 (SecureDump_ReadRegistry.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SecureDump_LogErrorEvent @ 0x140286950 (SecureDump_LogErrorEvent.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     SecureDump_ReadRegistry @ 0x1401916C0 (SecureDump_ReadRegistry.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SecureDump_LogErrorEvent @ 0x140286B40 (SecureDump_LogErrorEvent.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
@@ -35,7 +35,7 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
   if ( !a2 )
     return;
   *a2 = 0;
-  memset(&dword_1404389D8, 0, 0x20uLL);
+  memset(&dword_140439A98, 0, 0x20uLL);
   Registry = SecureDump_ReadRegistry(
                (unsigned int)&v8,
                (unsigned int)L"GuardedHost",
@@ -44,10 +44,10 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
                (__int64)&v12);
   if ( Registry >= 0 )
   {
-    dword_1404389D8 = *(_DWORD *)P;
+    dword_140439A98 = *(_DWORD *)P;
     ExFreePoolWithTag(P, 0);
     P = 0LL;
-    if ( !dword_1404389D8 )
+    if ( !dword_140439A98 )
     {
 LABEL_4:
       v5 = SecureDump_ReadRegistry(
@@ -58,9 +58,9 @@ LABEL_4:
              (__int64)&v12);
       if ( v5 >= 0 )
       {
-        dword_1404389DC = *(_DWORD *)P;
+        dword_140439A9C = *(_DWORD *)P;
         ExFreePoolWithTag(P, 0);
-        if ( !dword_1404389DC
+        if ( !dword_140439A9C
           || (*a2 = 1,
               (int)SecureDump_ReadRegistry(
                      (unsigned int)&v6,
@@ -72,8 +72,8 @@ LABEL_4:
                     (unsigned int)&v6,
                     (unsigned int)L"Thumbprint",
                     1,
-                    (unsigned int)&qword_1404389F0,
-                    (__int64)&dword_1404389EC) >= 0 )
+                    (unsigned int)&qword_140439AB0,
+                    (__int64)&dword_140439AAC) >= 0 )
         {
           ForceDumpDisabled = 0;
           goto LABEL_8;

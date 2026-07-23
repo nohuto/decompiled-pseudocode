@@ -21,7 +21,7 @@ int HalpMcaInitializePcrContext()
   __int64 v4; // rdi
   ULONG_PTR v5; // rdi
   void *v6; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   LODWORD(v0) = KeGetCurrentProcessorNumberEx(&ProcNumber);

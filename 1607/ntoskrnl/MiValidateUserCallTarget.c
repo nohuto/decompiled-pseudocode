@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateUserCallTarget @ 0x140661784
+ * XREFs of MiValidateUserCallTarget @ 0x140661868
  * Callers:
- *     MmValidateUserCallTarget @ 0x1406617CC (MmValidateUserCallTarget.c)
+ *     MmValidateUserCallTarget @ 0x1406618B0 (MmValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

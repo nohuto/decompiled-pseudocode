@@ -6,7 +6,14 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwCreateWnfStateName(int a1, int a2, int a3, int a4, int a5, int a6, int a7)
+NTSTATUS __cdecl ZwCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   return Wow64SystemServiceCall();
 }

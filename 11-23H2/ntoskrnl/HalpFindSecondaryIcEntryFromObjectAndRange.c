@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFindSecondaryIcEntryFromObjectAndRange @ 0x140519E14
+ * XREFs of HalpFindSecondaryIcEntryFromObjectAndRange @ 0x14051A364
  * Callers:
- *     HalpUnregisterSecondaryIcInterface @ 0x14051A540 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x14051AA90 (HalpUnregisterSecondaryIcInterface.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpFindSecondaryIcEntryFromObjectAndRange(__int64 a1, int a2, int a3)
@@ -35,10 +35,13 @@ __int64 __fastcall HalpFindSecondaryIcEntryFromObjectAndRange(__int64 a1, int a2
     v7 = *(_QWORD *)v7;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&SecondaryIcListSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -46,7 +49,7 @@ __int64 __fastcall HalpFindSecondaryIcEntryFromObjectAndRange(__int64 a1, int a2
       v14 = (v13 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v9);

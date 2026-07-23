@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSectionInitialization @ 0x1409BA060
+ * XREFs of MiSectionInitialization @ 0x1409BB060
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObCreateObject @ 0x1405BD820 (ObCreateObject.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObCreateObject @ 0x1405BE820 (ObCreateObject.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ObInsertObject @ 0x14061C280 (ObInsertObject.c)
+ *     ObCreateObjectType @ 0x140729BB0 (ObCreateObjectType.c)
  */
 
 __int64 MiSectionInitialization()
@@ -28,8 +28,8 @@ __int64 MiSectionInitialization()
   _QWORD v12[16]; // [rsp+A0h] [rbp-60h] BYREF
   HANDLE Object; // [rsp+130h] [rbp+30h] BYREF
 
-  dword_14043ADAC = -1;
-  qword_140438BC8 = 0LL;
+  dword_14043BE6C = -1;
+  qword_140439C88 = 0LL;
   v4.Buffer = L"Section";
   *(_DWORD *)&v4.Length = 1048590;
   v6 = L"\\Device\\PhysicalMemory";
@@ -53,15 +53,15 @@ __int64 MiSectionInitialization()
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, 0x48uLL);
-      memset(&qword_140438BF0, 0, 0x110uLL);
+      memset(&qword_140439CB0, 0, 0x110uLL);
       v1[5] = 0LL;
-      dword_140438CB8 |= 0x400u;
+      dword_140439D78 |= 0x400u;
       v8 = 0LL;
       v9 = &v5;
-      qword_140438BF0 = (__int64)&qword_140438C80;
-      qword_140438C80 = (__int64)v1;
-      qword_140438C98 = 1LL;
-      *v1 = &qword_140438C80;
+      qword_140439CB0 = (__int64)&qword_140439D40;
+      qword_140439D40 = (__int64)v1;
+      qword_140439D58 = 1LL;
+      *v1 = &qword_140439D40;
       v7 = 48;
       v10 = 65552;
       v11 = 0LL;
@@ -72,7 +72,7 @@ __int64 MiSectionInitialization()
       else
       {
         v2 = Object;
-        *((_QWORD *)Object + 5) = &qword_140438C80;
+        *((_QWORD *)Object + 5) = &qword_140439D40;
         v2[6] = 0xFFFFFFFFFFFFLL;
         *((_DWORD *)v2 + 14) = 0;
         *((_DWORD *)v2 + 15) = *((_DWORD *)v2 + 15) & 0xFFFFF000 | 0x40;

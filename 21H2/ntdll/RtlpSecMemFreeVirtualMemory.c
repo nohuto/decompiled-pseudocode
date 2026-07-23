@@ -11,23 +11,21 @@
  *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
  *     RtlpCreateLowFragHeap @ 0x1800447E8 (RtlpCreateLowFragHeap.c)
  *     RtlpHpAllocVirtBlockCommitFirst @ 0x18009CDC8 (RtlpHpAllocVirtBlockCommitFirst.c)
- *     RtlValidateProcessHeaps @ 0x1800F3350 (RtlValidateProcessHeaps.c)
- *     RtlDebugDestroyHeap @ 0x1800F9328 (RtlDebugDestroyHeap.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
+ *     RtlValidateProcessHeaps @ 0x1800F3310 (RtlValidateProcessHeaps.c)
+ *     RtlDebugDestroyHeap @ 0x1800F92E8 (RtlDebugDestroyHeap.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x18009DA00 (ZwFreeVirtualMemory.c)
- *     RtlFlushSecureMemoryCache @ 0x1800F7C70 (RtlFlushSecureMemoryCache.c)
+ *     ZwFreeVirtualMemory @ 0x18009D9C0 (ZwFreeVirtualMemory.c)
+ *     RtlFlushSecureMemoryCache @ 0x1800F7C30 (RtlFlushSecureMemoryCache.c)
  */
 
-__int64 __fastcall RtlpSecMemFreeVirtualMemory(__int64 a1, _QWORD *a2, _QWORD *a3, __int64 a4)
+NTSTATUS __fastcall RtlpSecMemFreeVirtualMemory(__int64 a1, PVOID *a2, ULONG_PTR *a3, ULONG a4)
 {
-  unsigned int v4; // ebp
-  unsigned int v7; // esi
+  NTSTATUS v7; // esi
 
-  v4 = a4;
-  v7 = ZwFreeVirtualMemory(-1LL, a2, a3, a4);
-  if ( v7 == -1073741755 && (unsigned __int8)RtlFlushSecureMemoryCache(*a2, *a3) )
-    return ZwFreeVirtualMemory(-1LL, a2, a3, v4);
+  v7 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, a4);
+  if ( v7 == -1073741755 && RtlFlushSecureMemoryCache(*a2, *a3) )
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, a4);
   else
     return v7;
 }

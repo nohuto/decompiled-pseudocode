@@ -61,7 +61,7 @@ int __stdcall RtlQueryProcessLockInformation(int a1)
         v4[7] = v7[7];
         v4[8] = v7[9];
       }
-      else if ( (unsigned __int8)RtlIsAnyDebuggerPresent() )
+      else if ( RtlIsAnyDebuggerPresent() )
       {
         __debugbreak();
       }

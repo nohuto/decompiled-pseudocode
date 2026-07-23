@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAddLastDroppedEvent @ 0x1404A6D34
+ * XREFs of EtwpAddLastDroppedEvent @ 0x1404A1604
  * Callers:
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14024CFF4 (EtwpQueryUsedProcessorCount.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpAddEventToBuffer @ 0x1409DC354 (EtwpAddEventToBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14027D604 (EtwpQueryUsedProcessorCount.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpAddEventToBuffer @ 0x1409D6B64 (EtwpAddEventToBuffer.c)
  */
 
 __int64 __fastcall EtwpAddLastDroppedEvent(__int64 a1, __int64 a2)

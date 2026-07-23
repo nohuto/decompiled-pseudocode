@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEnumerateHotPatchPatches @ 0x14091AE98
+ * XREFs of RtlEnumerateHotPatchPatches @ 0x14091AFF8
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x1408CD638 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD798 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x14058FD0C (RtlGetHotPatchSize.c)
- *     MiPrepareToHotPatchImagePatchCallback @ 0x1408CDB00 (MiPrepareToHotPatchImagePatchCallback.c)
+ *     RtlGetHotPatchSize @ 0x14058FF3C (RtlGetHotPatchSize.c)
+ *     MiPrepareToHotPatchImagePatchCallback @ 0x1408CDC60 (MiPrepareToHotPatchImagePatchCallback.c)
  */
 
 char __fastcall RtlEnumerateHotPatchPatches(_DWORD *a1, unsigned int *a2, __int64 a3, _DWORD *a4)

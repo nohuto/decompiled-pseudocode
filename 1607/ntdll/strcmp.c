@@ -1,5 +1,5 @@
 /*
- * XREFs of strcmp @ 0x18009B3B0
+ * XREFs of strcmp @ 0x18009B3A0
  * Callers:
  *     <none>
  * Callees:

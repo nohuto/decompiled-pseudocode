@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpReadMessageData @ 0x1404B3420
+ * XREFs of AlpcpReadMessageData @ 0x14049D800
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x140448B60 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveMessage @ 0x1404494D0 (AlpcpReceiveMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x14044B990 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpProcessConnectionRequest @ 0x1404B26D4 (AlpcpProcessConnectionRequest.c)
- *     AlpcpGetDataFromMessage @ 0x1404B2E20 (AlpcpGetDataFromMessage.c)
- *     AlpcpReceiveLegacyMessage @ 0x1404B3100 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140447A30 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1404483A0 (AlpcpReceiveMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14044A860 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpProcessConnectionRequest @ 0x14049CAB4 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpGetDataFromMessage @ 0x14049D200 (AlpcpGetDataFromMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x14049D4E0 (AlpcpReceiveLegacyMessage.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 void *__fastcall AlpcpReadMessageData(__int64 a1, char *a2)

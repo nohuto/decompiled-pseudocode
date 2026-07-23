@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpUpdateHiveRootCellFlags @ 0x1406B5C14
+ * XREFs of CmpUpdateHiveRootCellFlags @ 0x1406150D4
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpUpdateHiveRootCellFlags(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

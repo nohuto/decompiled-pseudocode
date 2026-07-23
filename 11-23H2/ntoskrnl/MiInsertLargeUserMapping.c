@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInsertLargeUserMapping @ 0x140668AF0
+ * XREFs of MiInsertLargeUserMapping @ 0x140669040
  * Callers:
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x140668DC0 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x140669310 (MiMapUserLargePages.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUsedPtesHandle @ 0x1402E5A70 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x1402F18D4 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiInitializeLargeUserBasePfn @ 0x140668A60 (MiInitializeLargeUserBasePfn.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUsedPtesHandle @ 0x1402E5D00 (MiGetUsedPtesHandle.c)
+ *     MiIncreaseUsedPtesCount @ 0x1402F1B64 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiInitializeLargeUserBasePfn @ 0x140668FB0 (MiInitializeLargeUserBasePfn.c)
  */
 
 char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, _QWORD **a3, int a4, unsigned int a5)

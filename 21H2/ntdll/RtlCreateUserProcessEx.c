@@ -1,44 +1,47 @@
 /*
  * XREFs of RtlCreateUserProcessEx @ 0x180088F70
  * Callers:
- *     RtlCreateUserProcess @ 0x1800E19A0 (RtlCreateUserProcess.c)
+ *     RtlCreateUserProcess @ 0x1800E1960 (RtlCreateUserProcess.c)
  * Callees:
  *     RtlpCreateUserProcess @ 0x180089030 (RtlpCreateUserProcess.c)
  *     RtlNormalizeProcessParams @ 0x180089310 (RtlNormalizeProcessParams.c)
  */
 
-__int64 __fastcall RtlCreateUserProcessEx(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlCreateUserProcessEx(
+        PUNICODE_STRING NtImagePathName,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        BOOLEAN InheritHandles,
+        PRTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  int v7; // edi
-  __int64 v8; // rax
+  PRTL_USER_PROCESS_PARAMETERS v8; // rax
   int v9; // edx
-  int v10; // r9d
+  unsigned int Flags; // r9d
   int v11; // ecx
-  int v12; // edx
-  int v13; // r8d
+  unsigned int v12; // edx
+  __int64 v13; // r8
 
-  v7 = a1;
-  if ( !a1 )
-    return 3221225485LL;
-  if ( !a2 )
-    return 3221225485LL;
-  v8 = RtlNormalizeProcessParams(a2);
+  if ( !NtImagePathName )
+    return -1073741811;
+  if ( !ProcessParameters )
+    return -1073741811;
+  v8 = RtlNormalizeProcessParams(ProcessParameters);
   if ( !v8 )
-    return 3221225485LL;
+    return -1073741811;
   v9 = 0;
-  if ( a3 )
+  if ( InheritHandles )
     v9 = 4;
   else
-    *(_QWORD *)(v8 + 72) = 0LL;
-  v10 = *(_DWORD *)(v8 + 8);
+    v8->CurrentDirectory.Handle = 0LL;
+  Flags = v8->Flags;
   v11 = v9 | 0x80;
-  if ( (v10 & 0x40000) == 0 )
+  if ( (Flags & 0x40000) == 0 )
     v11 = v9;
   v12 = v11 | 0x40;
-  if ( (v10 & 0x400000) == 0 )
+  if ( (Flags & 0x400000) == 0 )
     v12 = v11;
   v13 = v12 | 0x40000;
-  if ( (v10 & 0x800000) == 0 )
+  if ( (Flags & 0x800000) == 0 )
     v13 = v12;
-  return RtlpCreateUserProcess(v7, v8, v13, 1, a4, a5);
+  return RtlpCreateUserProcess(NtImagePathName, v8, v13, 1LL, ProcessExtendedParameters, ProcessInformation);
 }

@@ -8,10 +8,10 @@
  *     RtlEqualUnicodeString @ 0x18001FC70 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall sub_18003888C(unsigned __int16 *a1, unsigned __int16 *a2, char a3, _QWORD *a4, int a5)
+__int64 __fastcall sub_18003888C(PUNICODE_STRING String1, PUNICODE_STRING a2, char a3, _QWORD *a4, int a5)
 {
   _QWORD **v8; // rsi
-  char v10; // r9
+  BOOLEAN v10; // r9
   _QWORD *i; // rdi
   _QWORD *v13; // rbx
   __int64 v14; // rax
@@ -25,11 +25,11 @@ __int64 __fastcall sub_18003888C(unsigned __int16 *a1, unsigned __int16 *a2, cha
     {
       if ( a2 )
       {
-        v10 = RtlEqualUnicodeString(a2, (unsigned __int16 *)v13 + 36, 1);
+        v10 = RtlEqualUnicodeString(a2, (PUNICODE_STRING)(v13 + 9), 1u);
       }
       else
       {
-        if ( (v13[13] & 0x10000000) == 0 && RtlEqualUnicodeString(a1, (unsigned __int16 *)v13 + 44, 1) )
+        if ( (v13[13] & 0x10000000) == 0 && RtlEqualUnicodeString(String1, (PUNICODE_STRING)(v13 + 11), 1u) )
         {
           v10 = 1;
 LABEL_11:

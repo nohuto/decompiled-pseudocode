@@ -1,23 +1,27 @@
 /*
- * XREFs of NtWaitForDebugEvent @ 0x140886450
+ * XREFs of NtWaitForDebugEvent @ 0x1408865B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     DbgkpConvertKernelToUserStateChange @ 0x140884954 (DbgkpConvertKernelToUserStateChange.c)
- *     DbgkpOpenHandles @ 0x140884C34 (DbgkpOpenHandles.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     DbgkpConvertKernelToUserStateChange @ 0x140884AB4 (DbgkpConvertKernelToUserStateChange.c)
+ *     DbgkpOpenHandles @ 0x140884D94 (DbgkpOpenHandles.c)
  */
 
-NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER *a3, _OWORD *a4)
+NTSTATUS __cdecl NtWaitForDebugEvent(
+        HANDLE DebugObjectHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout,
+        PDBGUI_WAIT_STATE_CHANGE WaitStateChange)
 {
   char v7; // r14
   KPROCESSOR_MODE PreviousMode; // r15
@@ -30,48 +34,48 @@ NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER
   __int64 v15; // rbx
   int v16; // r8d
   _QWORD *v17; // rcx
-  NTSTATUS v18; // ebx
+  int v18; // ebx
   bool v19; // sf
-  _OWORD *v20; // rsi
+  unsigned __int64 *v20; // rsi
   LONGLONG QuadPart; // [rsp+38h] [rbp-150h] BYREF
-  PLARGE_INTEGER Timeout; // [rsp+40h] [rbp-148h]
+  PLARGE_INTEGER Timeouta; // [rsp+40h] [rbp-148h]
   PVOID Object; // [rsp+48h] [rbp-140h] BYREF
   __int64 v25; // [rsp+50h] [rbp-138h]
   PVOID v26; // [rsp+58h] [rbp-130h]
   PVOID v27; // [rsp+60h] [rbp-128h]
   _OWORD v28[12]; // [rsp+80h] [rbp-108h] BYREF
 
-  Timeout = a3;
+  Timeouta = Timeout;
   v7 = 0;
   QuadPart = 0LL;
   v25 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset(v28, 0, 0xB8uLL);
-  if ( Timeout )
+  if ( Timeouta )
   {
-    QuadPart = Timeout->QuadPart;
-    Timeout = (PLARGE_INTEGER)&QuadPart;
+    QuadPart = Timeouta->QuadPart;
+    Timeouta = (PLARGE_INTEGER)&QuadPart;
     v25 = MEMORY[0xFFFFF78000000014];
   }
   if ( PreviousMode )
   {
-    v9 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)WaitStateChange;
+    if ( (unsigned __int64)WaitStateChange >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_BYTE *)v9 = *(_BYTE *)v9;
     *(_BYTE *)(v9 + 183) = *(_BYTE *)(v9 + 183);
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(DebugObjectHandle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v26 = 0LL;
     v27 = 0LL;
-    v11 = a2;
+    v11 = Alertable;
     v12 = (char *)Object;
     while ( 1 )
     {
-      v18 = KeWaitForSingleObject(v12, Executive, PreviousMode, v11, Timeout);
+      v18 = KeWaitForSingleObject(v12, Executive, PreviousMode, v11, Timeouta);
       if ( v18 < 0 || v18 == 192 || (unsigned int)(v18 - 257) <= 1 )
         break;
       ExAcquireFastMutex((PFAST_MUTEX)(v12 + 24));
@@ -144,22 +148,22 @@ LABEL_24:
           break;
         }
       }
-      v11 = a2;
+      v11 = Alertable;
     }
     HalPutDmaAdapter((PADAPTER_OBJECT)v12);
-    *a4 = v28[0];
-    a4[1] = v28[1];
-    a4[2] = v28[2];
-    a4[3] = v28[3];
-    a4[4] = v28[4];
-    a4[5] = v28[5];
-    a4[6] = v28[6];
-    v20 = a4 + 8;
-    *(v20 - 1) = v28[7];
-    *v20 = v28[8];
-    v20[1] = v28[9];
-    v20[2] = v28[10];
-    *((_QWORD *)v20 + 6) = *(_QWORD *)&v28[11];
+    *(_OWORD *)&WaitStateChange->NewState = v28[0];
+    *(_OWORD *)&WaitStateChange->AppClientId.UniqueThread = v28[1];
+    *(_OWORD *)(&WaitStateChange->StateInfo.UnloadDll + 1) = v28[2];
+    *(_OWORD *)(&WaitStateChange->StateInfo.UnloadDll + 3) = v28[3];
+    *(_OWORD *)(&WaitStateChange->StateInfo.UnloadDll + 5) = v28[4];
+    *(_OWORD *)(&WaitStateChange->StateInfo.UnloadDll + 7) = v28[5];
+    *(_OWORD *)(&WaitStateChange->StateInfo.UnloadDll + 9) = v28[6];
+    v20 = &WaitStateChange->StateInfo.Exception.ExceptionRecord.ExceptionInformation[9];
+    *((_OWORD *)v20 - 1) = v28[7];
+    *(_OWORD *)v20 = v28[8];
+    *((_OWORD *)v20 + 1) = v28[9];
+    *((_OWORD *)v20 + 2) = v28[10];
+    v20[6] = *(_QWORD *)&v28[11];
     return v18;
   }
   return result;

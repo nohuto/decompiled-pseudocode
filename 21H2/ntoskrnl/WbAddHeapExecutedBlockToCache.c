@@ -1,25 +1,25 @@
 /*
- * XREFs of WbAddHeapExecutedBlockToCache @ 0x140688030
+ * XREFs of WbAddHeapExecutedBlockToCache @ 0x1405E7190
  * Callers:
- *     WbGetHeapExecutedBlock @ 0x14064D984 (WbGetHeapExecutedBlock.c)
+ *     WbGetHeapExecutedBlock @ 0x1406427A4 (WbGetHeapExecutedBlock.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     sub_14064D450 @ 0x14064D450 (sub_14064D450.c)
- *     sub_14064E6A4 @ 0x14064E6A4 (sub_14064E6A4.c)
- *     WbAddHeapExecutedBlockToLRU @ 0x140688144 (WbAddHeapExecutedBlockToLRU.c)
- *     sub_140688214 @ 0x140688214 (sub_140688214.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x1405E72A4 (WbAddHeapExecutedBlockToLRU.c)
+ *     sub_1405E7374 @ 0x1405E7374 (sub_1405E7374.c)
+ *     sub_140642270 @ 0x140642270 (sub_140642270.c)
+ *     sub_1406434C4 @ 0x1406434C4 (sub_1406434C4.c)
  */
 
 __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rbx
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rbx
   int v10; // eax
   int v11; // r8d
   int v12; // ebx
@@ -37,8 +37,8 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     ExfAcquirePushLockExclusiveEx(v7, v8, (ULONG_PTR)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
-  v10 = sub_14064E6A4(a1, *(_QWORD *)(a2 + 48), &v16, (__int64)&v15);
+    BYTE2(v9[1].Left) |= 1u;
+  v10 = sub_1406434C4(a1, *(_QWORD *)(a2 + 48), &v16, &v15);
   v12 = v10;
   if ( v10 >= 0 )
   {
@@ -47,10 +47,10 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   }
   else if ( v10 == -1073741198 )
   {
-    v12 = sub_140688214((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v15);
+    v12 = sub_1405E7374((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v15);
     if ( v12 >= 0 )
     {
-      v12 = sub_14064D450(a2);
+      v12 = sub_140642270(a2);
       if ( v12 >= 0 )
       {
         if ( a3 )

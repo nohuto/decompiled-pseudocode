@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1409B355C
+ * XREFs of _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1409AA8EC
  * Callers:
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PnpIsValidGuidString @ 0x1408B7FF0 (PnpIsValidGuidString.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PnpIsValidGuidString @ 0x1408B5960 (PnpIsValidGuidString.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceListWorker(
@@ -74,7 +74,7 @@ LABEL_10:
   }
   else if ( v15 >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x5B8uLL, 0x52504E50u);
     v11 = Pool2;
     if ( Pool2 )
     {

@@ -11,10 +11,12 @@
 
 char __fastcall RtlDebugWalkHeap(_DWORD *a1)
 {
+  int v1; // edi
   char v2; // bl
 
+  v1 = (int)a1;
   v2 = 0;
   if ( RtlpCheckHeapSignature(a1, "RtlWalkHeap") )
-    return RtlpValidateHeap(a1, 0LL);
+    return RtlpValidateHeap(v1);
   return v2;
 }

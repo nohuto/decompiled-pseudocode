@@ -39,7 +39,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   unsigned int v3; // edi
   PIMAGE_NT_HEADERS v4; // rax
   __int64 v5; // r9
-  ULONG_PTR v6; // rdx
+  PVOID v6; // rdx
   PIMAGE_NT_HEADERS v7; // rsi
   unsigned int VirtualAddress; // ecx
   unsigned __int64 v9; // rcx
@@ -120,7 +120,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1)
       v6 = PsNtosImageBase;
       v7 = v4;
       v50 = v4;
-      if ( PsNtosImageBase != *(_QWORD *)(v2 + 48) )
+      if ( PsNtosImageBase != *(PVOID *)(v2 + 48) )
       {
         MiProcessLoadConfigForDriver(v2);
         v6 = PsNtosImageBase;
@@ -148,7 +148,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1)
       v60 = v12;
       v57 = v11;
       v59 = v12 + v48;
-      if ( v9 == v6 || v9 == PsHalImageBase )
+      if ( (PVOID)v9 == v6 || (PVOID)v9 == PsHalImageBase )
         goto LABEL_73;
       v7->OptionalHeader.ImageBase = v9;
       v13 = ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

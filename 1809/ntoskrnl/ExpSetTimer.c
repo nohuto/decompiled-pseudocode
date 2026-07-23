@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSetTimer @ 0x1401402B8
+ * XREFs of ExpSetTimer @ 0x1401403B8
  * Callers:
- *     NtSetTimer @ 0x140140160 (NtSetTimer.c)
+ *     NtSetTimer @ 0x140140260 (NtSetTimer.c)
  * Callees:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExpSetTimerObject2 @ 0x1400FC0D8 (ExpSetTimerObject2.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ExpSetTimerObject2 @ 0x1400FC158 (ExpSetTimerObject2.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer(

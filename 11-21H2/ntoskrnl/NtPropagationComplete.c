@@ -13,5 +13,5 @@ NTSTATUS __stdcall NtPropagationComplete(
         ULONG BufferLength,
         PVOID Buffer)
 {
-  return __imp_NtPropagationComplete(ResourceManagerHandle, RequestCookie, BufferLength, Buffer);
+  return NtPropagationComplete_0(ResourceManagerHandle, RequestCookie, BufferLength, Buffer);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PspLimitViolationRateControlToleranceLimitField @ 0x140615CA4
+ * XREFs of PspLimitViolationRateControlToleranceLimitField @ 0x14067F904
  * Callers:
- *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1406804E0 (NtQueryInformationJobObject.c)
  * Callees:
  *     <none>
  */

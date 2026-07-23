@@ -15,102 +15,102 @@
  *     ZwUnmapViewOfSection @ 0x18009B000 (ZwUnmapViewOfSection.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  __int16 v4; // r12
-  char v6; // bl
-  unsigned int v7; // edi
-  int v8; // esi
-  int v9; // r13d
-  __int64 v10; // r14
-  _QWORD *v11; // rbx
-  __int64 v12; // rdx
-  unsigned __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 Heap; // rax
+  __int16 v2; // r12
+  BOOLEAN v4; // bl
+  unsigned int v5; // edi
+  int v6; // esi
+  int v7; // r13d
+  char *v8; // r14
+  _QWORD *v9; // rbx
+  __int64 v10; // rdx
+  void *v11; // rdx
+  void *v12; // rcx
+  PVOID Heap; // rax
   int i; // [rsp+24h] [rbp-34h]
-  __int64 v18; // [rsp+60h] [rbp+8h]
+  char *v16; // [rsp+60h] [rbp+8h]
 
-  v4 = a2;
-  v6 = 0;
-  if ( !a1 )
+  v2 = Flags;
+  v4 = 0;
+  if ( !DllHandle )
     return 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D3E8, a2, a3, a4);
-  v7 = dword_18015B2A0;
+  RtlAcquireSRWLockExclusive(&stru_18015D3E8);
+  v5 = dword_18015B2A0;
   if ( dword_18015B2A0 )
   {
-    v8 = dword_18015B2A0;
-    for ( i = dword_18015B2A0; ; i = v9 )
+    v6 = dword_18015B2A0;
+    for ( i = dword_18015B2A0; ; i = v7 )
     {
-      if ( v8 <= 0 )
+      if ( v6 <= 0 )
         goto LABEL_30;
-      v9 = v8 - 1;
-      v10 = qword_18015B298 + ((__int64)(v8 - 1) << 6);
-      if ( *(_QWORD *)(v10 + 8) == a1 )
+      v7 = v6 - 1;
+      v8 = (char *)BaseAddress + 64 * (__int64)(v6 - 1);
+      if ( *((PVOID *)v8 + 1) == DllHandle )
         break;
 LABEL_6:
-      v8 = v9;
+      v6 = v7;
     }
-    v18 = qword_18015B298 + ((__int64)v9 << 6);
-    v11 = (_QWORD *)(v10 + 32);
-    v12 = *(_QWORD *)(v10 + 32);
-    if ( v12 && (!v4 || v4 == *(_WORD *)v10) && v12 != -1 )
+    v16 = (char *)BaseAddress + 64 * (__int64)v7;
+    v9 = v8 + 32;
+    v10 = *((_QWORD *)v8 + 4);
+    if ( v10 && (!v2 || v2 == *(_WORD *)v8) && v10 != -1 )
     {
-      v13 = v12 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( *(_DWORD *)(v10 + 56) == -1073741799 )
+      v11 = (void *)(v10 & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( *((_DWORD *)v8 + 14) == -1073741799 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
-        v8 = i;
-        v10 = v18;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
+        v6 = i;
+        v8 = v16;
       }
       else
       {
-        ZwUnmapViewOfSection(-1LL);
+        ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v11);
       }
-      v14 = *(_QWORD *)(v10 + 40);
-      if ( v14 )
+      v12 = (void *)*((_QWORD *)v8 + 5);
+      if ( v12 )
       {
-        ZwClose(v14);
-        *(_QWORD *)(v10 + 40) = 0LL;
+        ZwClose(v12);
+        *((_QWORD *)v8 + 5) = 0LL;
       }
-      *v11 = 0LL;
-      v7 = dword_18015B2A0;
+      *v9 = 0LL;
+      v5 = dword_18015B2A0;
     }
-    if ( v8 != v7 )
-      sub_1800486A8((unsigned int)(v8 - 1));
-    dword_18015B2A0 = --v7;
-    if ( v7 )
+    if ( v6 != v5 )
+      sub_1800486A8((unsigned int)(v6 - 1));
+    dword_18015B2A0 = --v5;
+    if ( v5 )
     {
-      if ( v7 >= dword_18015B2A4 - 32 )
+      if ( v5 >= dword_18015B2A4 - 32 )
       {
 LABEL_19:
-        v6 = 1;
+        v4 = 1;
         goto LABEL_6;
       }
       Heap = RtlReAllocateHeap(
-               (__int64)NtCurrentPeb()->ProcessHeap,
+               NtCurrentPeb()->ProcessHeap,
                0,
-               qword_18015B298,
+               BaseAddress,
                (unsigned __int64)(unsigned int)(dword_18015B2A4 - 32) << 6);
       if ( !Heap )
       {
-        v6 = 0;
+        v4 = 0;
         goto LABEL_30;
       }
-      qword_18015B298 = Heap;
+      BaseAddress = Heap;
       dword_18015B2A4 -= 32;
     }
     else
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, qword_18015B298);
-      qword_18015B298 = 0LL;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+      BaseAddress = 0LL;
       dword_18015B2A4 = 0;
     }
-    v7 = dword_18015B2A0;
+    v5 = dword_18015B2A0;
     goto LABEL_19;
   }
-  v6 = 1;
+  v4 = 1;
 LABEL_30:
-  RtlReleaseSRWLockExclusive(&qword_18015D3E8);
-  return v6;
+  RtlReleaseSRWLockExclusive(&stru_18015D3E8);
+  return v4;
 }

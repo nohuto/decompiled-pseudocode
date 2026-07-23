@@ -1,15 +1,14 @@
 /*
- * XREFs of HalpIsCmciImplemented @ 0x140B4C2F4
+ * XREFs of HalpIsCmciImplemented @ 0x140B4E334
  * Callers:
- *     HalpCorrectErrSrc @ 0x140B4B800 (HalpCorrectErrSrc.c)
- *     HalpInitializeCmc @ 0x140B4BAE8 (HalpInitializeCmc.c)
- *     HalpMcaSetFeatureFlags @ 0x140B4C414 (HalpMcaSetFeatureFlags.c)
- *     HalpPostSleepMP @ 0x140B6886C (HalpPostSleepMP.c)
- *     HalpMcaResumeProcessorConfig @ 0x140B68E20 (HalpMcaResumeProcessorConfig.c)
+ *     HalpCorrectErrSrc @ 0x140B4D840 (HalpCorrectErrSrc.c)
+ *     HalpInitializeCmc @ 0x140B4DB28 (HalpInitializeCmc.c)
+ *     HalpMcaSetFeatureFlags @ 0x140B4E454 (HalpMcaSetFeatureFlags.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140B6D4AC (HalpMcaResumeProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
- *     HalpInterruptIsCmciSupported @ 0x14054249C (HalpInterruptIsCmciSupported.c)
- *     HalpInterruptIsDeferredErrorSupported @ 0x1405424E4 (HalpInterruptIsDeferredErrorSupported.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
+ *     HalpInterruptIsCmciSupported @ 0x14053FDEC (HalpInterruptIsCmciSupported.c)
+ *     HalpInterruptIsDeferredErrorSupported @ 0x14053FE34 (HalpInterruptIsDeferredErrorSupported.c)
  */
 
 char HalpIsCmciImplemented()

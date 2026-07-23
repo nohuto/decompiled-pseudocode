@@ -1,26 +1,26 @@
 /*
- * XREFs of IoRemoveIoCompletion @ 0x1402043D0
+ * XREFs of IoRemoveIoCompletion @ 0x1402A8D10
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     NtRemoveIoCompletion @ 0x1405E3F70 (NtRemoveIoCompletion.c)
- *     NtRemoveIoCompletionEx @ 0x1405E41A0 (NtRemoveIoCompletionEx.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtRemoveIoCompletion @ 0x1406D36D0 (NtRemoveIoCompletion.c)
+ *     NtRemoveIoCompletionEx @ 0x1406D3900 (NtRemoveIoCompletionEx.c)
  * Callees:
- *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     IopInterlockedAdd @ 0x1402C493C (IopInterlockedAdd.c)
- *     IopDropIrp @ 0x1402E9444 (IopDropIrp.c)
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopInterlockedAdd @ 0x140242EBC (IopInterlockedAdd.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     IopDropIrp @ 0x14029A794 (IopDropIrp.c)
+ *     KeRemoveQueueEx @ 0x1402A9110 (KeRemoveQueueEx.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140363010 (KxWaitForSpinLockAndAcquire.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
- *     IopFreeMiniCompletionPacket @ 0x1405E4380 (IopFreeMiniCompletionPacket.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140516ACC (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516BD8 (KiReleaseSpinLockInstrumented.c)
+ *     IopFreeMiniCompletionPacket @ 0x1406D3AE0 (IopFreeMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoRemoveIoCompletion(
@@ -50,7 +50,7 @@ __int64 __fastcall IoRemoveIoCompletion(
   _DWORD *v22; // rdx
   struct _LIST_ENTRY **p_Blink; // rbx
   int v24; // eax
-  ULONG_PTR v25; // r13
+  unsigned __int64 v25; // r13
   _DWORD *v26; // rcx
   _DWORD *SchedulerAssist; // r9
   int v28; // eax
@@ -241,12 +241,12 @@ LABEL_16:
       }
       else
       {
-        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v25 + 1112)) )
+        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v25 + 1112)) )
         {
-          KiStackAttachProcess(v25);
+          KiStackAttachProcess((_KPROCESS *)v25, 0, (__int64)v50);
           IopCompleteRequest((_DWORD)v42, (unsigned int)&v43, (unsigned int)&v38, (_DWORD)p_Blink + 192, (__int64)&v38);
           KiUnstackDetachProcess(v50, 0LL);
-          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v25 + 1112));
+          ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v25 + 1112));
         }
         else
         {
@@ -257,7 +257,7 @@ LABEL_16:
         v9 = a2;
       }
     }
-    else if ( (v24 & 0x8000) == 0 || !(unsigned int)IopInterlockedAdd(p_Blink + 11, 0xFFFFFFFFLL) )
+    else if ( (v24 & 0x8000) == 0 || !(unsigned int)IopInterlockedAdd((volatile signed __int64 *)p_Blink + 11, -1) )
     {
       IoFreeIrp((PIRP)p_Blink);
     }

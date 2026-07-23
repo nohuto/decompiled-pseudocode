@@ -1,15 +1,15 @@
 /*
- * XREFs of PoFxReportDevicePoweredOn @ 0x1401246D0
+ * XREFs of PoFxReportDevicePoweredOn @ 0x140124C40
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     PopFxCompleteDevicePowerRequired @ 0x1400C1204 (PopFxCompleteDevicePowerRequired.c)
- *     PopFxIdleComponent @ 0x1400C1B10 (PopFxIdleComponent.c)
- *     PopDiagTraceFxDevicePowerState @ 0x14012BB10 (PopDiagTraceFxDevicePowerState.c)
- *     PopPepDeviceDState @ 0x14012C2A0 (PopPepDeviceDState.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x1400BF094 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxIdleComponent @ 0x1400BF9A0 (PopFxIdleComponent.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x14012C080 (PopDiagTraceFxDevicePowerState.c)
+ *     PopPepDeviceDState @ 0x14012C810 (PopPepDeviceDState.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 void __fastcall PoFxReportDevicePoweredOn(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of DifKeLowerIrqlWrapper @ 0x14062E800
+ * XREFs of DifKeLowerIrqlWrapper @ 0x14062CDC0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall DifKeLowerIrqlWrapper(unsigned __int8 a1)
@@ -16,62 +16,60 @@ void __fastcall DifKeLowerIrqlWrapper(unsigned __int8 a1)
   unsigned __int64 v1; // rbp
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 *v6; // rsi
-  int v7; // eax
-  BOOLEAN v8; // di
+  __int64 *v4; // rsi
+  int v5; // eax
+  BOOLEAN v6; // di
   __int64 *i; // rbx
-  BOOLEAN v10; // di
-  _QWORD **v11; // rsi
+  BOOLEAN v8; // di
+  _QWORD **v9; // rsi
   _QWORD *j; // rbx
-  __int128 v13; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
   v1 = a1;
-  v13 = 0LL;
+  v11 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(272);
-  v6 = APIThunkContextById;
+  v4 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v7 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v7 & 0x18) != 0 )
+    v5 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v5 & 0x18) != 0 )
     {
-      *(_QWORD *)&v13 = retaddr;
+      *(_QWORD *)&v11 = retaddr;
     }
-    else if ( (v7 & 4) != 0 )
+    else if ( (v5 & 4) != 0 )
     {
-      *(_QWORD *)&v13 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v11 = DifGetReturnAddressForWrappers();
     }
-    v8 = 0;
-    BYTE8(v13) = v1;
+    v6 = 0;
+    BYTE8(v11) = v1;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v8 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v6 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v6[4]; i != v6 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v4[4]; i != v4 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v13, v3, v4, v5);
+          guard_dispatch_icall_no_overrides(&v11, v3);
       }
-      if ( v8 )
+      if ( v6 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v1);
   __writecr8(v1);
-  if ( v6 )
+  if ( v4 )
   {
-    if ( (v10 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v10 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v8 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v11 = (_QWORD **)(v6 + 6);
-      for ( j = *v11; j != v11; j = (_QWORD *)*j )
+      v9 = (_QWORD **)(v4 + 6);
+      for ( j = *v9; j != v9; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v13, v3, v4, v5);
+          guard_dispatch_icall_no_overrides(&v11, v3);
       }
-      if ( v10 )
+      if ( v8 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }

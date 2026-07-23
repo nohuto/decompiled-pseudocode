@@ -11,7 +11,7 @@
  *     RtlRbRemoveNode @ 0x1400F6290 (RtlRbRemoveNode.c)
  */
 
-char __fastcall KiAddThreadToScbQueue(__int64 a1, __int64 a2, __int64 a3, int a4)
+char __fastcall KiAddThreadToScbQueue(_RTL_RB_TREE *a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int v4; // r10d
   __int64 v5; // rbx
@@ -28,7 +28,7 @@ char __fastcall KiAddThreadToScbQueue(__int64 a1, __int64 a2, __int64 a3, int a4
   __int64 v17; // rcx
   __int64 *v18; // rdi
   __int64 v19; // rax
-  __int64 v20; // rax
+  _RTL_RB_TREE *v20; // rax
 
   v4 = *(char *)(a3 + 195);
   v5 = a2;
@@ -127,11 +127,11 @@ LABEL_39:
         v18 = (__int64 *)(v17 + 392);
         v19 = *(_QWORD *)(v17 + 392);
         if ( v19 )
-          v20 = v19 + 376;
+          v20 = (_RTL_RB_TREE *)(v19 + 376);
         else
-          v20 = a1 + 22768;
+          v20 = a1 + 1423;
         *(_BYTE *)(v17 + 112) &= ~1u;
-        RtlRbRemoveNode(v20, v17 + 88);
+        RtlRbRemoveNode(v20, (PRTL_BALANCED_NODE)(v17 + 88));
         v17 = *v18;
       }
       while ( *v18 && (*(_BYTE *)(v17 + 112) & 1) != 0 && !*(_QWORD *)(v17 + 376) && !*(_WORD *)(v17 + 114) );

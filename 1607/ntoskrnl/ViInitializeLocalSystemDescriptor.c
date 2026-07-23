@@ -1,15 +1,15 @@
 /*
- * XREFs of ViInitializeLocalSystemDescriptor @ 0x1407030B0
+ * XREFs of ViInitializeLocalSystemDescriptor @ 0x1407030E0
  * Callers:
- *     VfUtilIsLocalSystem @ 0x140702DE8 (VfUtilIsLocalSystem.c)
+ *     VfUtilIsLocalSystem @ 0x140702E18 (VfUtilIsLocalSystem.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
 PSECURITY_DESCRIPTOR ViInitializeLocalSystemDescriptor()

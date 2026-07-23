@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBadMemoryLogger @ 0x140869EF0
+ * XREFs of MiBadMemoryLogger @ 0x1408702D0
  * Callers:
  *     <none>
  * Callees:
- *     IoWriteErrorLogEntry @ 0x1404E5DA0 (IoWriteErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1405CAD68 (IoAllocateGenericErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x1404DF340 (IoWriteErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x1405CD638 (IoAllocateGenericErrorLogEntry.c)
  */
 
 void __fastcall MiBadMemoryLogger(__int64 a1)

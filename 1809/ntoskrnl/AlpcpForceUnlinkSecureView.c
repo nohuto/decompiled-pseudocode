@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpForceUnlinkSecureView @ 0x14084B188
+ * XREFs of AlpcpForceUnlinkSecureView @ 0x14084C3E8
  * Callers:
- *     AlpcpCleanupProcessViews @ 0x14060805C (AlpcpCleanupProcessViews.c)
+ *     AlpcpCleanupProcessViews @ 0x14060905C (AlpcpCleanupProcessViews.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmUnsecureVirtualMemory @ 0x1405F4430 (MmUnsecureVirtualMemory.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x140617E4C (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockBlob @ 0x140638060 (AlpcpUnlockBlob.c)
  */
 
 void __fastcall AlpcpForceUnlinkSecureView(ULONG_PTR a1)

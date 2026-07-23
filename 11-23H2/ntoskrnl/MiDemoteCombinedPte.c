@@ -1,31 +1,31 @@
 /*
- * XREFs of MiDemoteCombinedPte @ 0x1402F37B4
+ * XREFs of MiDemoteCombinedPte @ 0x1402F3A44
  * Callers:
- *     MiResetAccessBitPte @ 0x14027BA20 (MiResetAccessBitPte.c)
- *     MiAgePte @ 0x14027BD60 (MiAgePte.c)
- *     NtUnlockVirtualMemory @ 0x140283160 (NtUnlockVirtualMemory.c)
- *     MiActOnPte @ 0x1402940D4 (MiActOnPte.c)
- *     MiWalkVaCheckCommon @ 0x1402E3860 (MiWalkVaCheckCommon.c)
- *     MiDeprioritizeVirtualAddresses @ 0x14062D6CC (MiDeprioritizeVirtualAddresses.c)
+ *     MiResetAccessBitPte @ 0x14027BCB0 (MiResetAccessBitPte.c)
+ *     MiAgePte @ 0x14027BFF0 (MiAgePte.c)
+ *     NtUnlockVirtualMemory @ 0x1402833F0 (NtUnlockVirtualMemory.c)
+ *     MiActOnPte @ 0x140294364 (MiActOnPte.c)
+ *     MiWalkVaCheckCommon @ 0x1402E3AF0 (MiWalkVaCheckCommon.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062DC1C (MiDeprioritizeVirtualAddresses.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiUnlockPageTableCharges @ 0x1402E2B40 (MiUnlockPageTableCharges.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1402ED354 (MiUpdateWorkingSetPrivateSize.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     MiDecrementCombinedPteEx @ 0x1402F3B18 (MiDecrementCombinedPteEx.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogCombinedPteDelete @ 0x14065368C (MiLogCombinedPteDelete.c)
- *     MiUpdatePageFileBlockOwner @ 0x140666C9C (MiUpdatePageFileBlockOwner.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiUnlockPageTableCharges @ 0x1402E2DD0 (MiUnlockPageTableCharges.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1402ED5E4 (MiUpdateWorkingSetPrivateSize.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     MiDecrementCombinedPteEx @ 0x1402F3DA8 (MiDecrementCombinedPteEx.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogCombinedPteDelete @ 0x140653BDC (MiLogCombinedPteDelete.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1406671EC (MiUpdatePageFileBlockOwner.c)
  */
 
 __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -103,10 +103,10 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   v33 = v14;
   v35 = v15 != 1 && (v15 != 2 || (*(_BYTE *)(v10 + 34) & 8) == 0);
   _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -149,7 +149,7 @@ __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 
   if ( v36 )
     MiIdentifyPfn(v9, &v42);
   _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags && (v31 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v31 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v31 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v31 <= 0xFu )
   {
     v24 = v34;
     if ( v34 <= 0xFu && v31 >= 2u )

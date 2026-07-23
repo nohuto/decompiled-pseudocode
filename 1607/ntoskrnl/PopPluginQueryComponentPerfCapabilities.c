@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPluginQueryComponentPerfCapabilities @ 0x140204610
+ * XREFs of PopPluginQueryComponentPerfCapabilities @ 0x14020443C
  * Callers:
- *     PopFxPepPerfInfoQuery @ 0x14066CEF4 (PopFxPepPerfInfoQuery.c)
+ *     PopFxPepPerfInfoQuery @ 0x14066CFD8 (PopFxPepPerfInfoQuery.c)
  * Callees:
  *     <none>
  */

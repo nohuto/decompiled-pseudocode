@@ -3,7 +3,7 @@
  * Callers:
  *     PopMarkComponentsBootPhase @ 0x1403CAFB4 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
  */
 
 void KdMarkHiberPhase()

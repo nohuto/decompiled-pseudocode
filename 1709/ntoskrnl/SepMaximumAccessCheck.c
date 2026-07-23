@@ -77,7 +77,7 @@ __int64 __fastcall SepMaximumAccessCheck(
   __int64 v56; // rcx
   char *v57; // r8
   unsigned __int8 *v58; // rdx
-  __int64 v59; // rcx
+  _SID_AND_ATTRIBUTES_HASH *v59; // rcx
   __int64 v60; // rcx
   unsigned int v61; // r8d
   __int64 v62; // rcx
@@ -262,7 +262,7 @@ LABEL_30:
               if ( !v16 )
                 v56 = 232LL;
               v58 = v22;
-              v59 = v18 + v56;
+              v59 = (_SID_AND_ATTRIBUTES_HASH *)(v18 + v56);
 LABEL_94:
               v13 = a7;
               if ( !SepSidInTokenSidHash(v59, v58, v57, 0, v66, v67) )
@@ -279,7 +279,13 @@ LABEL_22:
             v60 = 504LL;
             if ( !v16 )
               v60 = 232LL;
-            if ( !SepSidInTokenSidHash(v18 + v60, v22, &v20[16 * (v54 & 1) + ((8LL * (v54 & 2)) | 0xC)], 0, v16, a12) )
+            if ( !SepSidInTokenSidHash(
+                    (PSID_AND_ATTRIBUTES_HASH)(v18 + v60),
+                    v22,
+                    &v20[16 * (v54 & 1) + ((8LL * (v54 & 2)) | 0xC)],
+                    0,
+                    v16,
+                    a12) )
               goto LABEL_30;
             if ( (unsigned __int8)AuthzBasepObjectInTypeList(v55, a8, a7, &v69) )
             {
@@ -297,19 +303,25 @@ LABEL_31:
             v62 = 504LL;
             if ( !v16 )
               v62 = 232LL;
-            if ( !SepSidInTokenSidHash(v18 + v62, v22, &v20[4 * (unsigned __int8)v20[13] + 20], 0, v16, a12) )
+            if ( !SepSidInTokenSidHash(
+                    (PSID_AND_ATTRIBUTES_HASH)(v18 + v62),
+                    v22,
+                    &v20[4 * (unsigned __int8)v20[13] + 20],
+                    0,
+                    v16,
+                    a12) )
               goto LABEL_30;
             v67 = a12;
             v58 = 0LL;
             v66 = 0;
             v57 = v20 + 12;
-            v59 = v17 + 232;
+            v59 = (_SID_AND_ATTRIBUTES_HASH *)(v17 + 232);
             goto LABEL_94;
           case 1:
             v45 = 504LL;
             if ( !v16 )
               v45 = 232LL;
-            if ( !SepSidInTokenSidHash(v18 + v45, v22, v20 + 8, 1, v16, a12) )
+            if ( !SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v18 + v45), v22, v20 + 8, 1, v16, a12) )
               goto LABEL_31;
             v46 = a8;
             if ( v13 == 1 )
@@ -325,7 +337,7 @@ LABEL_106:
             if ( !v16 )
               v63 = 232LL;
             if ( !SepSidInTokenSidHash(
-                    v18 + v63,
+                    (PSID_AND_ATTRIBUTES_HASH)(v18 + v63),
                     v22,
                     &v20[16 * (*((_DWORD *)v20 + 2) & 1) + ((8LL * (*((_DWORD *)v20 + 2) & 2)) | 0xC)],
                     1,
@@ -406,7 +418,7 @@ LABEL_129:
                 v65 = 232LL;
 LABEL_130:
                 v13 = a7;
-                if ( SepSidInTokenSidHash(v65 + v18, v22, v20 + 8, 0, v16, a12) )
+                if ( SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v65 + v18), v22, v20 + 8, 0, v16, a12) )
                   AuthzBasepAddAccessTypeList(a8, a7, 0, v21, *((_DWORD *)v20 + 1), 1);
                 goto LABEL_31;
               }

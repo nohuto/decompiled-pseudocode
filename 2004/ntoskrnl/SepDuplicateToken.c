@@ -73,14 +73,14 @@ __int64 __fastcall SepDuplicateToken(
   int i; // eax
   __int64 v29; // rax
   _QWORD *v30; // rax
-  unsigned int j; // ecx
+  ULONG j; // ecx
   __int64 v32; // rax
   unsigned int v33; // ecx
   size_t v34; // r12
   char *v35; // r14
   __int64 v36; // rax
   char *v37; // r14
-  unsigned int v38; // r9d
+  ULONG v38; // r9d
   unsigned __int8 *v39; // rdx
   __int64 v40; // rcx
   __int64 v41; // rcx
@@ -99,7 +99,7 @@ __int64 __fastcall SepDuplicateToken(
   __int64 v54; // [rsp+88h] [rbp-60h]
   __int64 v55; // [rsp+90h] [rbp-58h]
   __int64 v56; // [rsp+98h] [rbp-50h]
-  __int64 v57; // [rsp+A0h] [rbp-48h]
+  PSID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+A0h] [rbp-48h]
   __int64 v58; // [rsp+A8h] [rbp-40h]
   ULONG pulResult; // [rsp+108h] [rbp+20h] BYREF
 
@@ -216,7 +216,7 @@ LABEL_8:
   MEMORY[0x310] = 0LL;
   v58 = 800LL;
   MEMORY[0x320] = 0;
-  v57 = 808LL;
+  SidAttrHash = (PSID_AND_ATTRIBUTES_HASH)808;
   memset((void *)0x328, 0, 0x110uLL);
   MEMORY[0xB0] = 0LL;
   v51 = 176LL;
@@ -394,10 +394,10 @@ LABEL_80:
   }
   if ( a3 )
     SepMakeTokenEffectiveOnly(0LL);
-  RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (_QWORD *)0xE8);
-  RtlSidHashInitialize(MEMORY[0xA0], *(_DWORD *)v50, (_QWORD *)0x1F8);
+  RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (PSID_AND_ATTRIBUTES_HASH)0xE8);
+  RtlSidHashInitialize(MEMORY[0xA0], *(_DWORD *)v50, (PSID_AND_ATTRIBUTES_HASH)0x1F8);
   if ( *(_QWORD *)v56 )
-    RtlSidHashInitialize(*(__int64 **)v56, *(_DWORD *)v58, (_QWORD *)v57);
+    RtlSidHashInitialize(*(PSID_AND_ATTRIBUTES *)v56, *(_DWORD *)v58, SidAttrHash);
   if ( SeTokenLeakTracking )
   {
     if ( SepTokenLeakMethodWatch == 13

@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipBuildInstanceSet @ 0x14086A3D4
+ * XREFs of WmipBuildInstanceSet @ 0x14086A614
  * Callers:
- *     WmipUpdateModifyGuid @ 0x1407FFC18 (WmipUpdateModifyGuid.c)
- *     WmipAddDataSource @ 0x14086A0E0 (WmipAddDataSource.c)
- *     WmipUpdateAddGuid @ 0x1409E1B6C (WmipUpdateAddGuid.c)
+ *     WmipUpdateModifyGuid @ 0x1407FFEE8 (WmipUpdateModifyGuid.c)
+ *     WmipAddDataSource @ 0x14086A320 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x1409E1DFC (WmipUpdateAddGuid.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     WmipValidateWmiRegInfoString @ 0x14086A814 (WmipValidateWmiRegInfoString.c)
- *     WmipDetermineInstanceBaseIndex @ 0x14086A84C (WmipDetermineInstanceBaseIndex.c)
- *     WmipMangleInstanceName @ 0x14086AF54 (WmipMangleInstanceName.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     RtlStringCchCopyNW @ 0x1402F815C (RtlStringCchCopyNW.c)
+ *     WmipValidateWmiRegInfoString @ 0x14086AA54 (WmipValidateWmiRegInfoString.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x14086AA8C (WmipDetermineInstanceBaseIndex.c)
+ *     WmipMangleInstanceName @ 0x14086B194 (WmipMangleInstanceName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

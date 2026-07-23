@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQuerySecurityPolicy @ 0x140726130
+ * XREFs of ZwQuerySecurityPolicy @ 0x14072AD00
  * Callers:
- *     DifZwQuerySecurityPolicyWrapper @ 0x1406B3CB0 (DifZwQuerySecurityPolicyWrapper.c)
+ *     DifZwQuerySecurityPolicyWrapper @ 0x1406B7890 (DifZwQuerySecurityPolicyWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySecurityPolicy(__int64 a1, __int64 a2)
+__int64 __fastcall ZwQuerySecurityPolicy(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

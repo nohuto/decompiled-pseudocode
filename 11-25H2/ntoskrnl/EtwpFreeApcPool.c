@@ -12,7 +12,7 @@
 void __fastcall EtwpFreeApcPool(__int64 a1)
 {
   PSLIST_ENTRY v2; // rdi
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v3; // rcx
 
   if ( *(int *)(a1 + 176) > 0 )
     KeBugCheck(0x11Du);

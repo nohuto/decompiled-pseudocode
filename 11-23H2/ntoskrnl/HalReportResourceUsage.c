@@ -4,7 +4,7 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
  *     HalpInitSystemHelper @ 0x140A8BAF8 (HalpInitSystemHelper.c)
  *     HalpReportResourceUsage @ 0x140B40B3C (HalpReportResourceUsage.c)
  */

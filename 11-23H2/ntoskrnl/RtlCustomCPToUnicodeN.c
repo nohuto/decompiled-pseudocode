@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCustomCPToUnicodeN @ 0x140773E60
+ * XREFs of RtlCustomCPToUnicodeN @ 0x140774050
  * Callers:
- *     RtlMultiByteToUnicodeN @ 0x140773D90 (RtlMultiByteToUnicodeN.c)
- *     RtlOemToUnicodeN @ 0x140774330 (RtlOemToUnicodeN.c)
+ *     RtlMultiByteToUnicodeN @ 0x140773F80 (RtlMultiByteToUnicodeN.c)
+ *     RtlOemToUnicodeN @ 0x140774520 (RtlOemToUnicodeN.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x1406DA5D0 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406DA600 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlCustomCPToUnicodeN(

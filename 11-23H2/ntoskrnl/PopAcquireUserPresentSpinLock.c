@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAcquireUserPresentSpinLock @ 0x14058DE7C
+ * XREFs of PopAcquireUserPresentSpinLock @ 0x14058E36C
  * Callers:
- *     PopSetSystemAwayMode @ 0x14098A890 (PopSetSystemAwayMode.c)
+ *     PopSetSystemAwayMode @ 0x14098AA90 (PopSetSystemAwayMode.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 KIRQL __fastcall PopAcquireUserPresentSpinLock(KIRQL *a1)

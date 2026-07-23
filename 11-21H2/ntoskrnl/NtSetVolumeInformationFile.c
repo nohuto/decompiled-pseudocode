@@ -4,22 +4,22 @@
  *     <none>
  * Callees:
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IopResetEvent @ 0x1402AABB0 (IopResetEvent.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
+ *     sub_1402AABB0 @ 0x1402AABB0 (sub_1402AABB0.c)
+ *     sub_1402AACA0 @ 0x1402AACA0 (sub_1402AACA0.c)
  *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IopReferenceFileObject @ 0x1402AC790 (IopReferenceFileObject.c)
+ *     sub_1402AC790 @ 0x1402AC790 (sub_1402AC790.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     IopExceptionCleanupEx @ 0x140658670 (IopExceptionCleanupEx.c)
- *     IopSynchronousApiServiceTail @ 0x1406BF8BC (IopSynchronousApiServiceTail.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140709FAC (IopWaitAndAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     IoGetRelatedTargetDevice @ 0x14074C9D8 (IoGetRelatedTargetDevice.c)
+ *     sub_140658670 @ 0x140658670 (sub_140658670.c)
+ *     sub_1406BF8BC @ 0x1406BF8BC (sub_1406BF8BC.c)
+ *     sub_140709FAC @ 0x140709FAC (sub_140709FAC.c)
+ *     sub_140731680 @ 0x140731680 (sub_140731680.c)
+ *     sub_14074C9D8 @ 0x14074C9D8 (sub_14074C9D8.c)
  *     IoReportTargetDeviceChange @ 0x1407FB910 (IoReportTargetDeviceChange.c)
- *     IopAllocateIrpCleanup @ 0x140933BA4 (IopAllocateIrpCleanup.c)
+ *     sub_140933BA4 @ 0x140933BA4 (sub_140933BA4.c)
  *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -35,15 +35,15 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
   size_t v5; // rbx
   struct _KEVENT *v7; // r12
   struct _KTHREAD *CurrentThread; // r11
-  KPROCESSOR_MODE PreviousMode; // r13
+  KPROCESSOR_MODE v9; // r13
   ULONG v10; // eax
   NTSTATUS result; // eax
   __int64 v12; // rcx
-  _KPROCESS *Process; // rax
+  __int64 v13; // rax
   __int16 v14; // ax
   char v15; // al
   struct _FILE_OBJECT *v16; // rsi
-  int RelatedTargetDevice; // eax
+  int v17; // eax
   struct _DEVICE_OBJECT *v18; // rdi
   bool v19; // r14
   struct _KTHREAD *v20; // rax
@@ -78,7 +78,7 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
   PIRP Irp; // [rsp+88h] [rbp-80h]
   __int128 v50; // [rsp+90h] [rbp-78h] BYREF
   int NotificationStructure; // [rsp+A0h] [rbp-68h] BYREF
-  GUID v52; // [rsp+A4h] [rbp-64h]
+  __int128 v52; // [rsp+A4h] [rbp-64h]
   int v53; // [rsp+B4h] [rbp-54h]
   __int64 v54; // [rsp+B8h] [rbp-50h]
   int v55; // [rsp+C0h] [rbp-48h]
@@ -94,13 +94,13 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
   Object = 0LL;
   CurrentThread = KeGetCurrentThread();
   v46 = CurrentThread;
-  PreviousMode = CurrentThread->PreviousMode;
-  v40[1] = PreviousMode;
-  if ( PreviousMode )
+  v9 = *((_BYTE *)CurrentThread + 562);
+  v40[1] = v9;
+  if ( v9 )
   {
     if ( (unsigned int)FsInformationClass >= FileFsMaximumInformation )
       return -1073741821;
-    v10 = *((unsigned __int8 *)IopSetFsOperationLength + (int)FsInformationClass);
+    v10 = *((unsigned __int8 *)qword_140A38000 + (int)FsInformationClass);
     if ( !(_BYTE)v10 )
       return -1073741821;
     if ( Length < v10 )
@@ -109,10 +109,9 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
     if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
       v12 = (__int64)IoStatusBlock;
     *(_DWORD *)v12 = *(_DWORD *)v12;
-    Process = CurrentThread->ApcState.Process;
-    if ( Process[1].Affinity.StaticBitmap[30]
-      && ((v14 = WORD2(Process[2].Affinity.StaticBitmap[20]), v14 == 332) || v14 == 452 ? (v15 = 1) : (v15 = 0),
-          (v40[2] = v15) != 0) )
+    v13 = *((_QWORD *)CurrentThread + 23);
+    if ( *(_QWORD *)(v13 + 1408)
+      && ((v14 = *(_WORD *)(v13 + 2412), v14 == 332) || v14 == 452 ? (v15 = 1) : (v15 = 0), (v40[2] = v15) != 0) )
     {
       if ( !Length )
         goto LABEL_24;
@@ -123,20 +122,20 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
     {
       if ( !Length )
         goto LABEL_24;
-      if ( ((*((unsigned __int8 *)IopQuerySetFsAlignmentRequirement + (int)FsInformationClass) - 1LL) & (unsigned __int64)FsInformation) != 0 )
+      if ( ((*((unsigned __int8 *)qword_140A38438 + (int)FsInformationClass) - 1LL) & (unsigned __int64)FsInformation) != 0 )
         ExRaiseDatatypeMisalignment();
     }
     if ( (unsigned __int64)FsInformation + Length > 0x7FFFFFFF0000LL || (char *)FsInformation + Length < FsInformation )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
 LABEL_24:
-  result = IopReferenceFileObject(FileHandle, IopSetFsOperationAccess[FsInformationClass], PreviousMode, &v41, 0LL);
+  result = sub_1402AC790(FileHandle, dword_140A39850[FsInformationClass], v9, &v41, 0LL);
   if ( result < 0 )
     return result;
   v16 = (struct _FILE_OBJECT *)v41;
-  RelatedTargetDevice = IoGetRelatedTargetDevice((struct _FILE_OBJECT *)v41, &Object);
+  v17 = sub_14074C9D8((struct _FILE_OBJECT *)v41, &Object);
   v18 = (struct _DEVICE_OBJECT *)Object;
-  if ( RelatedTargetDevice < 0 )
+  if ( v17 < 0 )
     v18 = 0LL;
   Object = v18;
   p_Flags = &v16->Flags;
@@ -144,16 +143,16 @@ LABEL_24:
   {
     v19 = (v16->Flags & 4) != 0;
     v20 = KeGetCurrentThread();
-    --v20->KernelApcDisable;
+    --*((_WORD *)v20 + 242);
     v21 = (volatile __int32 *)v41;
-    v22 = KeAbPreAcquire((__int64)v41 + 128, 0LL);
+    v22 = sub_140347C10((__int64)v41 + 128, 0LL);
     v40[0] = 0;
     if ( _InterlockedExchange(v21 + 29, 1) )
     {
       LOBYTE(v24) = v19;
-      LOBYTE(v23) = PreviousMode;
+      LOBYTE(v23) = v9;
       v16 = (struct _FILE_OBJECT *)v41;
-      v25 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)v41, v23, v24, v22, v40);
+      v25 = sub_140709FAC((volatile signed __int32 *)v41, v23, v24, v22, v40);
     }
     else
     {
@@ -194,17 +193,17 @@ LABEL_45:
     v27 = 0;
   }
   v40[0] = v27;
-  IopResetEvent((__int64)v16);
+  sub_1402AABB0((__int64)v16);
   DeviceObject = IoGetRelatedDeviceObject(v16);
   LOBYTE(v29) = DeviceObject->StackSize;
-  v30 = (IRP *)IopAllocateIrpExReturn((__int64)DeviceObject, v29, 0LL);
+  v30 = (IRP *)sub_1402AACA0((__int64)DeviceObject, v29, 0LL);
   v31 = v30;
   Irp = v30;
   if ( !v30 )
   {
     if ( (*p_Flags & 2) == 0 )
       ExFreePoolWithTag(v7, 0);
-    IopAllocateIrpCleanup(v16, 0LL);
+    sub_140933BA4(v16, 0LL);
     goto LABEL_45;
   }
   v30->Tail.Overlay.OriginalFileObject = v16;
@@ -242,9 +241,9 @@ LABEL_59:
     CurrentStackLocation[-1].Parameters.Read.Length = v38;
     CurrentStackLocation[-1].Parameters.Create.Options = FsInformationClass;
     v39 = v40[0];
-    v25 = IopSynchronousServiceTail(DeviceObject, v31, v16, 0, v36, v40[0], 2u);
+    v25 = sub_140731680(DeviceObject, v31, v16, 0, v36, v40[0], 2u);
     if ( !v39 )
-      v25 = IopSynchronousApiServiceTail(v25, v7, v31, v40[1], (unsigned int *)&v50, v43);
+      v25 = sub_1406BF8BC(v25, v7, v31, v40[1], (unsigned int *)&v50, v43);
     if ( !v18 )
       return v25;
     if ( v25 >= 0 )
@@ -254,7 +253,7 @@ LABEL_59:
       NotificationStructure = 2359297;
       v54 = 0LL;
       v55 = -1;
-      v52 = GUID_IO_VOLUME_CHANGE;
+      v52 = xmmword_140023AD0;
       IoReportTargetDeviceChange(v18, &NotificationStructure);
     }
     v26 = v18;
@@ -267,7 +266,7 @@ LABEL_59:
     if ( (unsigned int)(v37 + 4) <= *(_DWORD *)&v40[4] )
       goto LABEL_59;
   }
-  IopExceptionCleanupEx((volatile __int32 *)&v16->Type, v31, 0LL, v7, (v16->Flags & 2) != 0);
+  sub_140658670((volatile __int32 *)&v16->Type, v31, 0LL, v7, (v16->Flags & 2) != 0);
   if ( v18 )
     ObfDereferenceObject(v18);
   return -1073741811;

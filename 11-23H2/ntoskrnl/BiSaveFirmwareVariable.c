@@ -1,9 +1,9 @@
 /*
- * XREFs of BiSaveFirmwareVariable @ 0x140A5D424
+ * XREFs of BiSaveFirmwareVariable @ 0x140A5D6D4
  * Callers:
- *     BiUpdateBcdObject @ 0x140804304 (BiUpdateBcdObject.c)
+ *     BiUpdateBcdObject @ 0x1408045D4 (BiUpdateBcdObject.c)
  * Callees:
- *     BiSetRegistryValue @ 0x140803A1C (BiSetRegistryValue.c)
+ *     BiSetRegistryValue @ 0x140803CEC (BiSetRegistryValue.c)
  */
 
 __int64 __fastcall BiSaveFirmwareVariable(__int64 a1, void *a2, ULONG a3)

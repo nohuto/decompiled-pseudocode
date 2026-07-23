@@ -1,7 +1,7 @@
 /*
  * XREFs of MiSetProbePagesAhead @ 0x140029710
  * Callers:
- *     MiProbeLeafFrame @ 0x140094C6C (MiProbeLeafFrame.c)
+ *     MiProbeLeafFrame @ 0x140094BAC (MiProbeLeafFrame.c)
  * Callees:
  *     MiLegitimatePageForDriversToMap @ 0x1400298DC (MiLegitimatePageForDriversToMap.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -53,9 +53,9 @@ char __fastcall MiSetProbePagesAhead(__int64 a1)
           LOBYTE(v2) = 40;
           if ( ((*(_QWORD *)(v10 - 0x57FFFFFFFD8LL) >> 53) & 1) == 0 )
             break;
-          v11 = (_QWORD *)qword_14043A188;
+          v11 = (_QWORD *)qword_14043B248;
           v12 = v10 - 0x58000000000LL;
-          if ( qword_14043A188 && ((*(_QWORD *)(v12 + 40) >> 54) & 7) == 1 )
+          if ( qword_14043B248 && ((*(_QWORD *)(v12 + 40) >> 54) & 7) == 1 )
           {
             v14 = (__int64)((unsigned __int128)(v10 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
             v15 = (v14 >> 63) + v14;

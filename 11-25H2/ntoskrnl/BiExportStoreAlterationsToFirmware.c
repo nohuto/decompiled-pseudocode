@@ -8,7 +8,7 @@
  *     BiGetFirmwareType @ 0x140A27F84 (BiGetFirmwareType.c)
  */
 
-__int64 __fastcall BiExportStoreAlterationsToFirmware(__int64 a1)
+__int64 __fastcall BiExportStoreAlterationsToFirmware(void *a1)
 {
   int v2; // eax
   int v3; // eax

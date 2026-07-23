@@ -10,7 +10,7 @@
 
 void *__stdcall MD5Update(unsigned int *a1, char *Src, unsigned int a3)
 {
-  size_t v3; // ebx
+  unsigned int v3; // ebx
   unsigned int *v4; // edi
   unsigned int v5; // esi
   int v6; // edx
@@ -18,37 +18,39 @@ void *__stdcall MD5Update(unsigned int *a1, char *Src, unsigned int a3)
   char *v8; // esi
   void *result; // eax
   _DWORD *v10; // ecx
-  size_t v11; // edi
+  unsigned int v11; // edi
   char *v12; // edx
   bool v13; // zf
-  unsigned int v14; // [esp+14h] [ebp-Ch]
-  size_t v15; // [esp+14h] [ebp-Ch]
-  int v16; // [esp+18h] [ebp-8h]
-  char *v17; // [esp+1Ch] [ebp-4h]
+  size_t v14; // [esp-4h] [ebp-24h]
+  unsigned int v15; // [esp+14h] [ebp-Ch]
+  unsigned int v16; // [esp+14h] [ebp-Ch]
+  int v17; // [esp+18h] [ebp-8h]
+  char *v18; // [esp+1Ch] [ebp-4h]
 
   v3 = a3;
   v4 = a1;
   v5 = a1[1];
   v6 = (*a1 >> 3) & 0x3F;
   v7 = *a1 + 8 * a3;
-  v16 = v6;
+  v17 = v6;
   *a1 = v7;
   if ( v7 < 8 * a3 )
     ++v5;
   a1[1] = v5 + (a3 >> 29);
-  if ( v6 && (v14 = v6 + a3, v6 + a3 >= 0x40) )
+  if ( v6 && (v15 = v6 + a3, v6 + a3 >= 0x40) )
   {
-    memcpy((char *)a1 + v6 + 24, Src, 64 - v6);
-    v3 = v14 - 64;
-    v8 = &Src[64 - v16];
-    v17 = v8;
+    LODWORD(v14) = 64 - v6;
+    memcpy((char *)a1 + v6 + 24, Src, v14);
+    v3 = v15 - 64;
+    v8 = &Src[64 - v17];
+    v18 = v8;
     TransformMD5(a1 + 2, a1 + 6);
-    v16 = 0;
+    v17 = 0;
   }
   else
   {
     v8 = Src;
-    v17 = Src;
+    v18 = Src;
   }
   result = (void *)((unsigned __int8)v8 & 3);
   if ( v3 >= 0x40 )
@@ -56,16 +58,16 @@ void *__stdcall MD5Update(unsigned int *a1, char *Src, unsigned int a3)
     if ( ((unsigned __int8)v8 & 3) != 0 )
     {
       v12 = (char *)(a1 + 6);
-      v15 = v3 >> 6;
+      v16 = v3 >> 6;
       do
       {
         qmemcpy(v12, v8, 0x40u);
         result = (void *)TransformMD5(a1 + 2, v12);
         v3 -= 64;
         v12 = (char *)(a1 + 6);
-        v8 = v17 + 64;
-        v13 = v15-- == 1;
-        v17 += 64;
+        v8 = v18 + 64;
+        v13 = v16-- == 1;
+        v18 += 64;
       }
       while ( !v13 );
     }
@@ -86,6 +88,9 @@ void *__stdcall MD5Update(unsigned int *a1, char *Src, unsigned int a3)
     v4 = a1;
   }
   if ( v3 )
-    return memcpy((char *)v4 + v16 + 24, v8, v3);
+  {
+    LODWORD(v14) = v3;
+    return memcpy((char *)v4 + v17 + 24, v8, v14);
+  }
   return result;
 }

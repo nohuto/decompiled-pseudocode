@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCoalescingNotify @ 0x14066E074
+ * XREFs of PopCoalescingNotify @ 0x14066E158
  * Callers:
- *     PopPolicyWorkerThread @ 0x140009874 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1400093E8 (PopPolicyWorkerThread.c)
  * Callees:
- *     KeAreApcsDisabled @ 0x140009B90 (KeAreApcsDisabled.c)
- *     PopPrintEx @ 0x140081AE0 (PopPrintEx.c)
- *     PopDiagTraceEventNoPayload @ 0x1400B06CC (PopDiagTraceEventNoPayload.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     PopCoalescingSetTimer @ 0x1402055F0 (PopCoalescingSetTimer.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x140205660 (PopEnsureCoalescingWorkerWillRun.c)
+ *     KeAreApcsDisabled @ 0x140009710 (KeAreApcsDisabled.c)
+ *     PopPrintEx @ 0x140084C64 (PopPrintEx.c)
+ *     PopDiagTraceEventNoPayload @ 0x1400AE73C (PopDiagTraceEventNoPayload.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     PopCoalescingSetTimer @ 0x14020541C (PopCoalescingSetTimer.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14020548C (PopEnsureCoalescingWorkerWillRun.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
  */

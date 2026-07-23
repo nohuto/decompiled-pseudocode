@@ -3,7 +3,7 @@
  * Callers:
  *     RtlGetFileMUIPath @ 0x1800468F0 (RtlGetFileMUIPath.c)
  *     RtlpCreateTraverseNodes @ 0x1800586B0 (RtlpCreateTraverseNodes.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x1800EF824 (RtlpAddLanguagesToMultiSZ.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x1800EF7E4 (RtlpAddLanguagesToMultiSZ.c)
  * Callees:
  *     <none>
  */

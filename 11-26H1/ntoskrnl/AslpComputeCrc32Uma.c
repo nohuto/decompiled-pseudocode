@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpComputeCrc32Uma @ 0x1408887C8
+ * XREFs of AslpComputeCrc32Uma @ 0x14088EBC4
  * Callers:
- *     AslComputeCrc32 @ 0x14088805C (AslComputeCrc32.c)
+ *     AslComputeCrc32 @ 0x14088E458 (AslComputeCrc32.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     AslpComputeCrc32Impl @ 0x14088878C (AslpComputeCrc32Impl.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     AslpComputeCrc32Impl @ 0x14088EB88 (AslpComputeCrc32Impl.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 __fastcall AslpComputeCrc32Uma(__int64 a1, char *a2, unsigned int a3)

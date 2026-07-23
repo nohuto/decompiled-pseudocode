@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckFatalAccessViolation @ 0x1404A08F4
+ * XREFs of MiCheckFatalAccessViolation @ 0x14049A444
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
  * Callees:
- *     MiIsStoreProcess @ 0x140404810 (MiIsStoreProcess.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiIsStoreProcess @ 0x1403FD910 (MiIsStoreProcess.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckFatalAccessViolation(ULONG_PTR BugCheckParameter2, __int64 a2, ULONG_PTR a3, __int64 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLogAuditIoRegisterNotificationEvent @ 0x140714F18
+ * XREFs of IopLogAuditIoRegisterNotificationEvent @ 0x140712AA8
  * Callers:
- *     IoRegisterLastChanceShutdownNotification @ 0x140714700 (IoRegisterLastChanceShutdownNotification.c)
- *     IoRegisterShutdownNotification @ 0x140714780 (IoRegisterShutdownNotification.c)
+ *     IoRegisterLastChanceShutdownNotification @ 0x140712290 (IoRegisterLastChanceShutdownNotification.c)
+ *     IoRegisterShutdownNotification @ 0x140712310 (IoRegisterShutdownNotification.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall IopLogAuditIoRegisterNotificationEvent(PCEVENT_DESCRIPTOR EventDescriptor, __int64 a2)

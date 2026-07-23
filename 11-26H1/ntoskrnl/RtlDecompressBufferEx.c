@@ -1,21 +1,28 @@
 /*
- * XREFs of RtlDecompressBufferEx @ 0x14046A3B0
+ * XREFs of RtlDecompressBufferEx @ 0x140463B30
  * Callers:
- *     SmStoreDecompressBuffer @ 0x1403905E0 (SmStoreDecompressBuffer.c)
- *     SmDecompressBuffer @ 0x14046A1B4 (SmDecompressBuffer.c)
- *     QatSubmitWorkToCpu @ 0x1406E10B0 (QatSubmitWorkToCpu.c)
- *     IaaSubmitWorkToCpu @ 0x1406E1748 (IaaSubmitWorkToCpu.c)
- *     PopDecompressHiberBlocks @ 0x140BFA2A4 (PopDecompressHiberBlocks.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     SmStoreDecompressBuffer @ 0x140392390 (SmStoreDecompressBuffer.c)
+ *     SmDecompressBuffer @ 0x140463934 (SmDecompressBuffer.c)
+ *     QatSubmitWorkToCpu @ 0x1406E5330 (QatSubmitWorkToCpu.c)
+ *     IaaSubmitWorkToCpu @ 0x1406E59C8 (IaaSubmitWorkToCpu.c)
+ *     PopDecompressHiberBlocks @ 0x140C002A4 (PopDecompressHiberBlocks.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall RtlDecompressBufferEx(unsigned __int8 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlDecompressBufferEx(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedBuffer,
+        ULONG UncompressedBufferSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        PULONG FinalUncompressedSize,
+        PVOID WorkSpace)
 {
-  if ( a1 < 2u )
-    return 3221225485LL;
-  if ( a1 > 8u )
-    return 3221226079LL;
-  return guard_dispatch_icall_no_overrides(a2, a3);
+  if ( (unsigned __int8)CompressionFormat < 2u )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormat > 8u )
+    return -1073741217;
+  return guard_dispatch_icall_no_overrides(UncompressedBuffer, UncompressedBufferSize);
 }

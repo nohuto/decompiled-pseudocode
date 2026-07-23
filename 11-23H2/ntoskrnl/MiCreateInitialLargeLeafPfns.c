@@ -2,8 +2,8 @@
  * XREFs of MiCreateInitialLargeLeafPfns @ 0x140219E80
  * Callers:
  *     MiDeleteClusterSection @ 0x1402189B0 (MiDeleteClusterSection.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiInitializeNewPfns @ 0x140375770 (MiInitializeNewPfns.c)
+ *     MiCoalesceFreePages @ 0x1402D4C00 (MiCoalesceFreePages.c)
+ *     MiInitializeNewPfns @ 0x140375910 (MiInitializeNewPfns.c)
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  * Callees:
  *     <none>

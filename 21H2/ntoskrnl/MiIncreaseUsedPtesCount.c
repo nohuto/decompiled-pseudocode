@@ -1,24 +1,24 @@
 /*
- * XREFs of MiIncreaseUsedPtesCount @ 0x1403097D4
+ * XREFs of MiIncreaseUsedPtesCount @ 0x140314524
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiReservePageFileSpaceForPage @ 0x14023D660 (MiReservePageFileSpaceForPage.c)
- *     MiInsertPhysicalPteMapping @ 0x140298318 (MiInsertPhysicalPteMapping.c)
- *     MiUpdatePageTableUseCount @ 0x1402CF7F4 (MiUpdatePageTableUseCount.c)
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
- *     MiSplitPrivatePage @ 0x14030CFB0 (MiSplitPrivatePage.c)
- *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
- *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiUpdatePrivateDemandZeroView @ 0x14052D398 (MiUpdatePrivateDemandZeroView.c)
- *     MiCommitHotPatchTable @ 0x14053E8C0 (MiCommitHotPatchTable.c)
- *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
- *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
- *     MiInsertLargeUserMapping @ 0x14055E578 (MiInsertLargeUserMapping.c)
+ *     MiInsertPhysicalPteMapping @ 0x140218D98 (MiInsertPhysicalPteMapping.c)
+ *     MiUpdatePageTableUseCount @ 0x14024DB74 (MiUpdatePageTableUseCount.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiReservePageFileSpaceForPage @ 0x1402E1EB0 (MiReservePageFileSpaceForPage.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
+ *     MiSplitPrivatePage @ 0x140317D00 (MiSplitPrivatePage.c)
+ *     MiProtectPrivateMemory @ 0x140318750 (MiProtectPrivateMemory.c)
+ *     MiCompleteRestrictedImageFault @ 0x140327DF0 (MiCompleteRestrictedImageFault.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14052D5D8 (MiUpdatePrivateDemandZeroView.c)
+ *     MiCommitHotPatchTable @ 0x14053EB00 (MiCommitHotPatchTable.c)
+ *     MiUpdateAwePageTable @ 0x14054E274 (MiUpdateAwePageTable.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
+ *     MiUpdateForkMaps @ 0x14055B9E0 (MiUpdateForkMaps.c)
+ *     MiInsertLargeUserMapping @ 0x14055E7B8 (MiInsertLargeUserMapping.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall MiIncreaseUsedPtesCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -123,63 +123,63 @@
  *     AlpcGetMessageFromCompletionList @ 0x180072B30 (AlpcGetMessageFromCompletionList.c)
  *     RtlDeleteAtomFromAtomTable @ 0x180072E60 (RtlDeleteAtomFromAtomTable.c)
  *     RtlQueryAtomInAtomTable @ 0x180072F60 (RtlQueryAtomInAtomTable.c)
- *     RtlAddAtomToAtomTableEx @ 0x18007319C (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x1800733B0 (RtlLookupAtomInAtomTable.c)
- *     TpReleaseCleanupGroupMembers @ 0x1800739E0 (TpReleaseCleanupGroupMembers.c)
- *     TppBarrierAdjust @ 0x180073CB8 (TppBarrierAdjust.c)
- *     RtlpLowFragHeapAllocateFromZone @ 0x180075C94 (RtlpLowFragHeapAllocateFromZone.c)
- *     EtwpSetProviderTraits @ 0x1800760E4 (EtwpSetProviderTraits.c)
- *     RtlProcessFlsData @ 0x180076270 (RtlProcessFlsData.c)
- *     LdrpCleanupThreadTlsData @ 0x180076A78 (LdrpCleanupThreadTlsData.c)
- *     RtlRemoveInvertedFunctionTable @ 0x180076BDC (RtlRemoveInvertedFunctionTable.c)
- *     LdrpFindLoadedDllByMapping @ 0x180076F60 (LdrpFindLoadedDllByMapping.c)
- *     EtwpEventApiCallback @ 0x180077B20 (EtwpEventApiCallback.c)
- *     RtlUnlockMemoryBlockLookaside @ 0x180079860 (RtlUnlockMemoryBlockLookaside.c)
- *     RtlUnlockMemoryZone @ 0x1800798C0 (RtlUnlockMemoryZone.c)
- *     RtlpUnregisterLockedMemoryZone @ 0x180079950 (RtlpUnregisterLockedMemoryZone.c)
- *     RtlpUnregisterLockedMemoryBlockLookaside @ 0x180079990 (RtlpUnregisterLockedMemoryBlockLookaside.c)
- *     RtlLockMemoryBlockLookaside @ 0x1800799F0 (RtlLockMemoryBlockLookaside.c)
- *     RtlLockMemoryZone @ 0x180079A60 (RtlLockMemoryZone.c)
- *     RtlpRegisterLockedMemoryZone @ 0x180079B0C (RtlpRegisterLockedMemoryZone.c)
- *     RtlpRegisterLockedMemoryBlockLookaside @ 0x180079B9C (RtlpRegisterLockedMemoryBlockLookaside.c)
- *     RtlUnlockModuleSection @ 0x180079C30 (RtlUnlockModuleSection.c)
- *     RtlLockModuleSection @ 0x180079CE0 (RtlLockModuleSection.c)
- *     TppPoolAddWorker @ 0x18007D030 (TppPoolAddWorker.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x18007E914 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     TppPoolRemoveWorker @ 0x18007F0A0 (TppPoolRemoveWorker.c)
- *     TppDirectExecuteCallback @ 0x18007F430 (TppDirectExecuteCallback.c)
- *     TppPoolUpdateTrimmedWorker @ 0x18007F628 (TppPoolUpdateTrimmedWorker.c)
- *     LdrpReleaseTlsEntry @ 0x1800818BC (LdrpReleaseTlsEntry.c)
- *     RtlAcquireReleaseSRWLockExclusive @ 0x180082080 (RtlAcquireReleaseSRWLockExclusive.c)
- *     LdrGetDllDirectory @ 0x180082750 (LdrGetDllDirectory.c)
- *     TpReleasePool @ 0x180082870 (TpReleasePool.c)
- *     TppPoolpFree @ 0x180082A8C (TppPoolpFree.c)
- *     LdrSetDllDirectory @ 0x1800835A0 (LdrSetDllDirectory.c)
- *     LdrpInsertModuleToIndex @ 0x1800836E0 (LdrpInsertModuleToIndex.c)
- *     RtlSetProtectedPolicy @ 0x180083730 (RtlSetProtectedPolicy.c)
- *     RtlpGetNormalization @ 0x180083E44 (RtlpGetNormalization.c)
- *     RtlpAddVectoredHandler @ 0x180084200 (RtlpAddVectoredHandler.c)
- *     EtwpRegisterGuidsApiCallback @ 0x180085380 (EtwpRegisterGuidsApiCallback.c)
- *     RtlpRemoveVectoredHandler @ 0x180085520 (RtlpRemoveVectoredHandler.c)
- *     RtlpInitializeStaticCriticalSection @ 0x180086770 (RtlpInitializeStaticCriticalSection.c)
- *     RtlDeleteTimerQueueEx @ 0x180087090 (RtlDeleteTimerQueueEx.c)
- *     TpDisablePoolCallbackChecks @ 0x1800882E0 (TpDisablePoolCallbackChecks.c)
- *     TppStopWaitCallbackGeneration @ 0x180089110 (TppStopWaitCallbackGeneration.c)
- *     TppQueueRemoveHead @ 0x18008AE4C (TppQueueRemoveHead.c)
- *     RtlDestroyAtomTable @ 0x18008B5A0 (RtlDestroyAtomTable.c)
- *     RtlEmptyAtomTable @ 0x18008B660 (RtlEmptyAtomTable.c)
- *     RtlpTpIoDllLoaded @ 0x18008BAA8 (RtlpTpIoDllLoaded.c)
- *     RtlpTpIoDllUnloaded @ 0x18008BB58 (RtlpTpIoDllUnloaded.c)
- *     RtlSetIoCompletionCallback @ 0x18008BC90 (RtlSetIoCompletionCallback.c)
- *     RtlpTpIoLookup @ 0x18008BDE0 (RtlpTpIoLookup.c)
- *     EtwpTrackProviderBinary @ 0x18008D2F4 (EtwpTrackProviderBinary.c)
- *     LdrFlushAlternateResourceModules @ 0x18008E080 (LdrFlushAlternateResourceModules.c)
- *     LdrAddDllDirectory @ 0x18008F910 (LdrAddDllDirectory.c)
- *     LdrRemoveDllDirectory @ 0x18008FB10 (LdrRemoveDllDirectory.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x18009F788 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsContextAllocateInternal @ 0x18009F7FC (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpVsContextFreeInternal @ 0x18009FBDC (RtlpHpVsContextFreeInternal.c)
- *     RtlpHpVsContextFreeList @ 0x18009FD74 (RtlpHpVsContextFreeList.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1800731AC (RtlAddAtomToAtomTableEx.c)
+ *     RtlLookupAtomInAtomTable @ 0x1800733C0 (RtlLookupAtomInAtomTable.c)
+ *     TpReleaseCleanupGroupMembers @ 0x1800739F0 (TpReleaseCleanupGroupMembers.c)
+ *     TppBarrierAdjust @ 0x180073CC8 (TppBarrierAdjust.c)
+ *     RtlpLowFragHeapAllocateFromZone @ 0x180075CA4 (RtlpLowFragHeapAllocateFromZone.c)
+ *     EtwpSetProviderTraits @ 0x1800760F4 (EtwpSetProviderTraits.c)
+ *     RtlProcessFlsData @ 0x180076280 (RtlProcessFlsData.c)
+ *     LdrpCleanupThreadTlsData @ 0x180076A88 (LdrpCleanupThreadTlsData.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x180076BEC (RtlRemoveInvertedFunctionTable.c)
+ *     LdrpFindLoadedDllByMapping @ 0x180076F70 (LdrpFindLoadedDllByMapping.c)
+ *     EtwpEventApiCallback @ 0x180077B30 (EtwpEventApiCallback.c)
+ *     RtlUnlockMemoryBlockLookaside @ 0x180079870 (RtlUnlockMemoryBlockLookaside.c)
+ *     RtlUnlockMemoryZone @ 0x1800798D0 (RtlUnlockMemoryZone.c)
+ *     RtlpUnregisterLockedMemoryZone @ 0x180079960 (RtlpUnregisterLockedMemoryZone.c)
+ *     RtlpUnregisterLockedMemoryBlockLookaside @ 0x1800799A0 (RtlpUnregisterLockedMemoryBlockLookaside.c)
+ *     RtlLockMemoryBlockLookaside @ 0x180079A00 (RtlLockMemoryBlockLookaside.c)
+ *     RtlLockMemoryZone @ 0x180079A70 (RtlLockMemoryZone.c)
+ *     RtlpRegisterLockedMemoryZone @ 0x180079B1C (RtlpRegisterLockedMemoryZone.c)
+ *     RtlpRegisterLockedMemoryBlockLookaside @ 0x180079BAC (RtlpRegisterLockedMemoryBlockLookaside.c)
+ *     RtlUnlockModuleSection @ 0x180079C40 (RtlUnlockModuleSection.c)
+ *     RtlLockModuleSection @ 0x180079CF0 (RtlLockModuleSection.c)
+ *     TppPoolAddWorker @ 0x18007D040 (TppPoolAddWorker.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x18007E924 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     TppPoolRemoveWorker @ 0x18007F0B0 (TppPoolRemoveWorker.c)
+ *     TppDirectExecuteCallback @ 0x18007F440 (TppDirectExecuteCallback.c)
+ *     TppPoolUpdateTrimmedWorker @ 0x18007F638 (TppPoolUpdateTrimmedWorker.c)
+ *     LdrpReleaseTlsEntry @ 0x1800818CC (LdrpReleaseTlsEntry.c)
+ *     RtlAcquireReleaseSRWLockExclusive @ 0x180082090 (RtlAcquireReleaseSRWLockExclusive.c)
+ *     LdrGetDllDirectory @ 0x180082760 (LdrGetDllDirectory.c)
+ *     TpReleasePool @ 0x180082880 (TpReleasePool.c)
+ *     TppPoolpFree @ 0x180082A9C (TppPoolpFree.c)
+ *     LdrSetDllDirectory @ 0x1800835B0 (LdrSetDllDirectory.c)
+ *     LdrpInsertModuleToIndex @ 0x1800836F0 (LdrpInsertModuleToIndex.c)
+ *     RtlSetProtectedPolicy @ 0x180083740 (RtlSetProtectedPolicy.c)
+ *     RtlpGetNormalization @ 0x180083E54 (RtlpGetNormalization.c)
+ *     RtlpAddVectoredHandler @ 0x180084210 (RtlpAddVectoredHandler.c)
+ *     EtwpRegisterGuidsApiCallback @ 0x180085390 (EtwpRegisterGuidsApiCallback.c)
+ *     RtlpRemoveVectoredHandler @ 0x180085530 (RtlpRemoveVectoredHandler.c)
+ *     RtlpInitializeStaticCriticalSection @ 0x180086780 (RtlpInitializeStaticCriticalSection.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800870A0 (RtlDeleteTimerQueueEx.c)
+ *     TpDisablePoolCallbackChecks @ 0x1800882F0 (TpDisablePoolCallbackChecks.c)
+ *     TppStopWaitCallbackGeneration @ 0x180089120 (TppStopWaitCallbackGeneration.c)
+ *     TppQueueRemoveHead @ 0x18008AE5C (TppQueueRemoveHead.c)
+ *     RtlDestroyAtomTable @ 0x18008B5B0 (RtlDestroyAtomTable.c)
+ *     RtlEmptyAtomTable @ 0x18008B670 (RtlEmptyAtomTable.c)
+ *     RtlpTpIoDllLoaded @ 0x18008BAB8 (RtlpTpIoDllLoaded.c)
+ *     RtlpTpIoDllUnloaded @ 0x18008BB68 (RtlpTpIoDllUnloaded.c)
+ *     RtlSetIoCompletionCallback @ 0x18008BCA0 (RtlSetIoCompletionCallback.c)
+ *     RtlpTpIoLookup @ 0x18008BDF0 (RtlpTpIoLookup.c)
+ *     EtwpTrackProviderBinary @ 0x18008D304 (EtwpTrackProviderBinary.c)
+ *     LdrFlushAlternateResourceModules @ 0x18008E090 (LdrFlushAlternateResourceModules.c)
+ *     LdrAddDllDirectory @ 0x18008F920 (LdrAddDllDirectory.c)
+ *     LdrRemoveDllDirectory @ 0x18008FB20 (LdrRemoveDllDirectory.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x18009F7A8 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x18009F81C (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18009FBFC (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeList @ 0x18009FD94 (RtlpHpVsContextFreeList.c)
  *     LdrQueryModuleServiceTags @ 0x1800CFF90 (LdrQueryModuleServiceTags.c)
  *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800D0C80 (LdrpCheckComponentOnDemandEtwEvent.c)
  *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D77A0 (LdrpUnlockTlsDelayedReclaimTable.c)
@@ -227,39 +227,38 @@
  *     TpSetDefaultPoolMaxThreads @ 0x180110320 (TpSetDefaultPoolMaxThreads.c)
  *     TppAdjustRunningThreadGoal @ 0x180110414 (TppAdjustRunningThreadGoal.c)
  *     TppDirectUnposted @ 0x1801104D0 (TppDirectUnposted.c)
- *     RtlStackDbContextSerialize @ 0x1801155BC (RtlStackDbContextSerialize.c)
- *     RtlStackDbStackAdd @ 0x1801158F0 (RtlStackDbStackAdd.c)
- *     RtlStackDbStackRemove @ 0x180115FB4 (RtlStackDbStackRemove.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x180116420 (RtlpStackDbSegmentFindOrCreate.c)
- *     RtlpStackDbSegmentRemoveRef @ 0x180116AD4 (RtlpStackDbSegmentRemoveRef.c)
+ *     RtlStackDbContextSerialize @ 0x180115558 (RtlStackDbContextSerialize.c)
+ *     RtlStackDbStackAdd @ 0x18011588C (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackRemove @ 0x180115F50 (RtlStackDbStackRemove.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x1801163BC (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbSegmentRemoveRef @ 0x180116A70 (RtlpStackDbSegmentRemoveRef.c)
  * Callees:
  *     <none>
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   signed __int64 v2; // r8
   __int64 v3; // rdx
   signed __int64 v4; // rdx
   signed __int64 v5; // rtt
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 1LL);
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
+  if ( v1 != 1 )
   {
     do
     {
-      v2 = result & 6;
+      v2 = v1 & 6;
       v3 = 3LL;
       if ( v2 != 2 )
         v3 = -1LL;
-      v4 = result + v3;
-      v5 = result;
-      result = _InterlockedCompareExchange64(a1, v4, result);
+      v4 = v1 + v3;
+      v5 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v4, v1);
     }
-    while ( v5 != result );
+    while ( v5 != v1 );
     if ( v2 == 2 )
-      return RtlpWakeSRWLock(a1, v4, 0LL);
+      RtlpWakeSRWLock(SRWLock, v4, 0LL);
   }
-  return result;
 }

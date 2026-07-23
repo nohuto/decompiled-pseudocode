@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetVadWakeList @ 0x140029A00
+ * XREFs of MiGetVadWakeList @ 0x140029580
  * Callers:
- *     MiRemoveVadCharges @ 0x14042FB20 (MiRemoveVadCharges.c)
- *     MiFreeRotateView @ 0x140659C34 (MiFreeRotateView.c)
- *     MiFreeVadEventBitmap @ 0x140659D2C (MiFreeVadEventBitmap.c)
- *     MiFreeLargePageView @ 0x140662878 (MiFreeLargePageView.c)
+ *     MiRemoveVadCharges @ 0x14042E9F0 (MiRemoveVadCharges.c)
+ *     MiFreeRotateView @ 0x140659D18 (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x140659E10 (MiFreeVadEventBitmap.c)
+ *     MiFreeLargePageView @ 0x14066295C (MiFreeLargePageView.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     MiPreUnlockWorkingSetExclusive @ 0x1401F2A6C (MiPreUnlockWorkingSetExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     MiPreUnlockWorkingSetExclusive @ 0x1401F2898 (MiPreUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 *__fastcall MiGetVadWakeList(__int64 a1, int a2)
@@ -29,10 +29,10 @@ __int64 *__fastcall MiGetVadWakeList(__int64 a1, int a2)
   __int64 *v14; // rdx
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v2 = &dword_140327C80;
+  v2 = &dword_140327CC0;
   v3 = 0LL;
   v4 = (__int64 **)(a1 + 56);
-  p_Blink = &dword_140327C80;
+  p_Blink = &dword_140327CC0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( ((__int64)Process[2].Header.WaitListHead.Flink & 7) != 2 )
     p_Blink = (LONG *)&Process[2].Header.WaitListHead.Blink;

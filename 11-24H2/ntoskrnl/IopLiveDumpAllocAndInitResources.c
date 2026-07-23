@@ -1,27 +1,27 @@
 /*
- * XREFs of IopLiveDumpAllocAndInitResources @ 0x1405982F0
+ * XREFs of IopLiveDumpAllocAndInitResources @ 0x140595270
  * Callers:
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x14049A8E4 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x14049ACB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     RtlSetAllBitsEx @ 0x14049F1F0 (RtlSetAllBitsEx.c)
- *     IopGetPhysicalMemoryBlock @ 0x14059473C (IopGetPhysicalMemoryBlock.c)
- *     IopLiveDumpAllocAndInitProcessFilters @ 0x140598250 (IopLiveDumpAllocAndInitProcessFilters.c)
- *     IopLiveDumpAllocateExtraBuffers @ 0x1405989DC (IopLiveDumpAllocateExtraBuffers.c)
- *     IopLiveDumpAllocateIptBuffers @ 0x1405995D4 (IopLiveDumpAllocateIptBuffers.c)
- *     IopLiveDumpAllocateMappingResources @ 0x1405997A8 (IopLiveDumpAllocateMappingResources.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x14059A9C0 (IopLiveDumpEstimateMemoryPages.c)
- *     IopLiveDumpReleaseResources @ 0x14059CE5C (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpTraceBufferAllocation @ 0x14059D1D0 (IopLiveDumpTraceBufferAllocation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404952D4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1404956A4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     RtlSetAllBitsEx @ 0x14049A020 (RtlSetAllBitsEx.c)
+ *     IopGetPhysicalMemoryBlock @ 0x140591760 (IopGetPhysicalMemoryBlock.c)
+ *     IopLiveDumpAllocAndInitProcessFilters @ 0x1405951D0 (IopLiveDumpAllocAndInitProcessFilters.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14059595C (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x140596554 (IopLiveDumpAllocateIptBuffers.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x140596728 (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140597940 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpReleaseResources @ 0x140599DDC (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpTraceBufferAllocation @ 0x14059A150 (IopLiveDumpTraceBufferAllocation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
   __int64 Pool2; // rax
   __int64 v11; // rax
   unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // r14
+  ULONG_PTR v13; // r14
   __int64 v14; // rax
   _QWORD *v15; // r15
   unsigned __int64 v16; // rax
@@ -50,10 +50,10 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
   __int64 v23; // rax
   __int64 i; // rdi
   unsigned int v25; // r12d
-  unsigned __int64 v26; // r15
+  ULONG_PTR v26; // r15
   __int64 v27; // rax
   __int64 v28; // rax
-  unsigned __int64 v29; // rsi
+  ULONG_PTR v29; // rsi
   __int64 j; // r14
   __int64 v31; // rax
   __int64 v32; // rax
@@ -113,7 +113,7 @@ __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
     v8 = v5[2 * (unsigned int)(v7 - 1) + 2] + v5[2 * (unsigned int)(v7 - 1) + 3];
     *(_QWORD *)(a1 + 88) = v8;
     v9 = (((unsigned __int64)(v8 + 7) >> 3) + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
     *(_QWORD *)(a1 + 592) = Pool2;
     if ( !Pool2 )
       goto LABEL_6;
@@ -138,7 +138,7 @@ LABEL_8:
         v12 += v9;
     }
     v13 = (v12 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    v14 = ExAllocatePool2(0x40uLL);
+    v14 = ExAllocatePool2(0x40uLL, v13, 0x706D644Cu);
     *(_QWORD *)(a1 + 560) = v14;
     if ( v14 )
     {
@@ -153,7 +153,7 @@ LABEL_8:
       *(_QWORD *)(a1 + 552) = v15 + 1031;
       memset_0(v15 + 1031, 0, 4 * ((v16 >> 5) + ((v16 & 0x1F) != 0)));
       IopLiveDumpDiscardVirtualAddressRange(a1, *(char **)(a1 + 560), *(_QWORD *)(a1 + 568));
-      v17 = ExAllocatePool2(0x40uLL);
+      v17 = ExAllocatePool2(0x40uLL, (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
       *(_QWORD *)(a1 + 648) = v17;
       if ( v17 )
       {
@@ -183,7 +183,7 @@ LABEL_8:
           *(_QWORD *)(a1 + 632) = *(_QWORD *)(a1 + 88);
           *(_QWORD *)(a1 + 640) = v21;
         }
-        v22 = ExAllocatePool2(0x40uLL);
+        v22 = ExAllocatePool2(0x40uLL, (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x706D644Cu);
         *(_QWORD *)(a1 + 672) = v22;
         if ( v22 )
         {
@@ -215,7 +215,7 @@ LABEL_8:
           }
           v25 = KeNumberProcessors_0;
           v26 = 8LL * (unsigned int)KeNumberProcessors_0;
-          v27 = ExAllocatePool2(0x40uLL);
+          v27 = ExAllocatePool2(0x40uLL, v26, 0x706D644Cu);
           *(_QWORD *)(a1 + 1120) = v27;
           if ( v27 )
           {
@@ -224,15 +224,15 @@ LABEL_8:
             v29 = (8 * v28 + 4095) & 0xFFFFFFFFFFFFF000uLL;
             for ( j = 0LL; (unsigned int)j < v25; j = (unsigned int)(j + 1) )
             {
-              *(_QWORD *)(*(_QWORD *)(a1 + 1120) + 8 * j) = ExAllocatePool2(0x40uLL);
+              *(_QWORD *)(*(_QWORD *)(a1 + 1120) + 8 * j) = ExAllocatePool2(0x40uLL, v29, 0x706D644Cu);
               if ( !*(_QWORD *)(*(_QWORD *)(a1 + 1120) + 8 * j) )
                 goto LABEL_6;
             }
-            v31 = ExAllocatePool2(0x40uLL);
+            v31 = ExAllocatePool2(0x40uLL, v29, 0x706D644Cu);
             *(_QWORD *)(a1 + 1128) = v31;
             if ( v31 )
             {
-              v32 = ExAllocatePool2(0x40uLL);
+              v32 = ExAllocatePool2(0x40uLL, v29, 0x706D644Cu);
               *(_QWORD *)(a1 + 1136) = v32;
               if ( v32 )
               {
@@ -298,7 +298,7 @@ LABEL_50:
     v64 = &v46;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E06E80,
-      (unsigned __int8 *)&dword_140045D9C,
+      (unsigned __int8 *)&word_140045DDE,
       (const GUID *)(a1 + 968),
       (const GUID *)(a1 + 952),
       0xBu,

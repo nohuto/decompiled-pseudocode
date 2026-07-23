@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMDIClientWndProc_A @ 0x1800A00D0
+ * XREFs of NtdllMDIClientWndProc_A @ 0x1800A00F0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoDetachDevice @ 0x14070C7A4
+ * XREFs of VerifierIoDetachDevice @ 0x14070C7D4
  * Callers:
  *     <none>
  * Callees:

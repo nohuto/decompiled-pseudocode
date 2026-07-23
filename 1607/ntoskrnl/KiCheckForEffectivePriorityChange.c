@@ -1,13 +1,13 @@
 /*
- * XREFs of KiCheckForEffectivePriorityChange @ 0x1400A6E74
+ * XREFs of KiCheckForEffectivePriorityChange @ 0x1400A53EC
  * Callers:
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KeSetSchedulingGroupRankBias @ 0x1400A6B30 (KeSetSchedulingGroupRankBias.c)
- *     KiUpdateCpuTargetByRate @ 0x1400A6C70 (KiUpdateCpuTargetByRate.c)
- *     KiUpdateCpuTargetByWeight @ 0x1400A6F04 (KiUpdateCpuTargetByWeight.c)
- *     KiComputeGroupSchedulingRank @ 0x1400D0304 (KiComputeGroupSchedulingRank.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1400A50A8 (KeSetSchedulingGroupRankBias.c)
+ *     KiUpdateCpuTargetByRate @ 0x1400A51E8 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x1400A547C (KiUpdateCpuTargetByWeight.c)
+ *     KiComputeGroupSchedulingRank @ 0x1400CE1A4 (KiComputeGroupSchedulingRank.c)
  * Callees:
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
  */
 
 void __fastcall KiCheckForEffectivePriorityChange(__int64 a1, __int64 a2)

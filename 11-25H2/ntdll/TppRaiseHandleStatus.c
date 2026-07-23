@@ -14,7 +14,7 @@
 void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // rsi
-  void (__fastcall *v6)(__int64, __int64, __int64, unsigned int); // r8
+  void (__fastcall *v6)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int); // r8
   __int64 v7; // rax
   EXCEPTION_RECORD ExceptionRecord; // [rsp+28h] [rbp-59h] BYREF
 
@@ -22,7 +22,7 @@ void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int
   memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
   if ( a3 )
   {
-    v6 = *(void (__fastcall **)(__int64, __int64, __int64, unsigned int))(a3 + 80);
+    v6 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, __int64 *, PTP_WAIT, unsigned int))(a3 + 80);
     ExceptionRecord.NumberParameters = 5;
     if ( v6 == RtlpTpWaitCallback && (v7 = *(_QWORD *)(a3 + 88), *(_QWORD *)(v7 + 32)) )
       ExceptionRecord.ExceptionInformation[4] = *(_QWORD *)(v7 + 32);

@@ -12,8 +12,8 @@
 __int64 __fastcall RtlpSparseBitmapCtxUpdateBits(
         __int64 a1,
         volatile signed __int32 *a2,
-        unsigned int a3,
-        unsigned int a4,
+        ULONG a3,
+        ULONG a4,
         __int64 a5,
         __int64 a6,
         int a7,
@@ -21,8 +21,8 @@ __int64 __fastcall RtlpSparseBitmapCtxUpdateBits(
 {
   __int64 v12; // rcx
   unsigned __int8 v13; // r13
-  int v14; // esi
-  struct _RTL_BITMAP *v15; // rcx
+  ULONG v14; // esi
+  _RTL_BITMAP *v15; // rcx
   __int64 v16; // rcx
 
   v13 = RtlpSparseBitmapCtxLockExclusive(a1, a2);
@@ -30,7 +30,7 @@ __int64 __fastcall RtlpSparseBitmapCtxUpdateBits(
     v14 = RtlpSparseBitmapCtxCountRangeBits(v12, (__int64)a2, a3, a4, a7);
   else
     v14 = 0;
-  v15 = (struct _RTL_BITMAP *)(a2 + 2);
+  v15 = (_RTL_BITMAP *)(a2 + 2);
   if ( a7 )
     RtlSetBits(v15, a3, a4);
   else

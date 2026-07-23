@@ -47,7 +47,7 @@ __int64 __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __in
   {
 LABEL_11:
     if ( a2 )
-      EtwpCovSampCaptureBufferRelease(a1, (struct _SLIST_ENTRY *)a2);
+      EtwpCovSampCaptureBufferRelease(a1, (_SLIST_ENTRY *)a2);
     return EtwpCovSampReleaseSamplerRundown(v3);
   }
   EtwpCovSampProcessMapAddresses(

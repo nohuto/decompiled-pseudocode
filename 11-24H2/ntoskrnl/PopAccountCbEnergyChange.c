@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountCbEnergyChange @ 0x140A9BD1C
+ * XREFs of PopAccountCbEnergyChange @ 0x140A9728C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int PopAccountCbEnergyChange()
@@ -97,36 +97,36 @@ int PopAccountCbEnergyChange()
   int v85; // [rsp+1E8h] [rbp+E8h]
   int v86; // [rsp+1ECh] [rbp+ECh]
 
-  v0 = (__int64 *)qword_140F0AE60;
+  v0 = (__int64 *)qword_140F0BCA0;
   v1 = 0LL;
   v38 = 0uLL;
-  if ( (__int64 *)qword_140F0AE60 != &qword_140F0AE60 )
+  if ( (__int64 *)qword_140F0BCA0 != &qword_140F0BCA0 )
   {
     do
     {
       v1 += v0[29];
       v0 = (__int64 *)*v0;
     }
-    while ( v0 != &qword_140F0AE60 );
+    while ( v0 != &qword_140F0BCA0 );
     *((_QWORD *)&v38 + 1) = v1;
   }
-  v2 = qword_140F0AE70;
+  v2 = qword_140F0BCB0;
   v3 = 0;
   LODWORD(v38) = 0;
-  if ( (__int64 *)qword_140F0AE70 != &qword_140F0AE70 )
+  if ( (__int64 *)qword_140F0BCB0 != &qword_140F0BCB0 )
   {
     do
     {
       v3 |= *(_DWORD *)(v2 + 160);
       v2 = *(_QWORD *)v2;
     }
-    while ( (__int64 *)v2 != &qword_140F0AE70 );
+    while ( (__int64 *)v2 != &qword_140F0BCB0 );
     LODWORD(v38) = v3;
   }
-  if ( v3 != (_DWORD)xmmword_140F0B0C8 || v1 != *((_QWORD *)&xmmword_140F0B0C8 + 1) )
+  if ( v3 != (_DWORD)xmmword_140F0BF08 || v1 != *((_QWORD *)&xmmword_140F0BF08 + 1) )
   {
-    xmmword_140F0B0C8 = v38;
-    if ( (unsigned int)dword_140E076F0 > 5 )
+    xmmword_140F0BF08 = v38;
+    if ( (unsigned int)dword_140E07680 > 5 )
     {
       v49 = 0;
       v45 = v1;
@@ -153,9 +153,9 @@ int PopAccountCbEnergyChange()
       v59 = 0;
       v16 = "AC Power";
       v54 = &v38;
-      v39 = dword_140F0AE54;
+      v39 = dword_140F0BC94;
       v57 = &v39;
-      if ( ((unsigned __int8)xmmword_140F0AE80 & v17) == 0 )
+      if ( ((unsigned __int8)xmmword_140F0BCC0 & v17) == 0 )
         v16 = "DC Power";
       *(_QWORD *)&v38 = v14;
       v55 = v15;
@@ -190,20 +190,20 @@ int PopAccountCbEnergyChange()
         v31 = "-";
       tlgCreate1Sz_char((__int64)v67, v31);
       v34 = "Platform BCL Enabled";
-      if ( (v33 & (unsigned __int8)byte_140F0B0D8) == 0 )
+      if ( (v33 & (unsigned __int8)byte_140F0BF18) == 0 )
         v34 = "-";
       tlgCreate1Sz_char((__int64)v68, v34);
-      if ( HIDWORD(qword_140F0AEB4) )
-        v35 = (unsigned int)(100 * DWORD1(xmmword_140F0AE80) + (HIDWORD(qword_140F0AEB4) >> 1))
-            / HIDWORD(qword_140F0AEB4);
+      if ( HIDWORD(qword_140F0BCF4) )
+        v35 = (unsigned int)(100 * DWORD1(xmmword_140F0BCC0) + (HIDWORD(qword_140F0BCF4) >> 1))
+            / HIDWORD(qword_140F0BCF4);
       else
         v35 = 0;
       v71 = 0;
       v40 = v35;
       v69 = &v40;
       v70 = v8;
-      if ( HIDWORD(qword_140F0AEB4) )
-        v36 = 100000 * (unsigned __int64)DWORD1(xmmword_140F0AE80) / HIDWORD(qword_140F0AEB4);
+      if ( HIDWORD(qword_140F0BCF4) )
+        v36 = 100000 * (unsigned __int64)DWORD1(xmmword_140F0BCC0) / HIDWORD(qword_140F0BCF4);
       else
         LODWORD(v36) = 0;
       v74 = 0;
@@ -213,21 +213,21 @@ int PopAccountCbEnergyChange()
       v86 = 0;
       v41 = v36;
       v72 = &v41;
-      v42 = DWORD1(xmmword_140F0AE80);
+      v42 = DWORD1(xmmword_140F0BCC0);
       v75 = &v42;
       v78 = &v43;
-      v44 = *((_QWORD *)&xmmword_140F0AE80 + 1);
+      v44 = *((_QWORD *)&xmmword_140F0BCC0 + 1);
       v81 = &v44;
       v84 = (char *)&v44 + 4;
-      v43 = HIDWORD(qword_140F0AEB4);
+      v43 = HIDWORD(qword_140F0BCF4);
       v73 = v8;
       v76 = v8;
       v79 = v8;
       v82 = v8;
       v85 = v8;
       LODWORD(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140E076F0,
-                      (unsigned __int8 *)byte_14004BE00,
+                      (__int64)&dword_140E07680,
+                      (unsigned __int8 *)word_14004C41A,
                       0LL,
                       0LL,
                       0x18u,

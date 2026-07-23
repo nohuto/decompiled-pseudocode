@@ -1,12 +1,12 @@
 /*
- * XREFs of RawFileSystemControl @ 0x140A35E00
+ * XREFs of RawFileSystemControl @ 0x14091AB10
  * Callers:
- *     RawDispatch @ 0x140A35180 (RawDispatch.c)
+ *     RawDispatch @ 0x140919E90 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     RawVerifyVolume @ 0x14061753C (RawVerifyVolume.c)
- *     RawMountVolume @ 0x140A35E6C (RawMountVolume.c)
- *     RawUserFsCtrl @ 0x140A367BC (RawUserFsCtrl.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     RawVerifyVolume @ 0x14061A588 (RawVerifyVolume.c)
+ *     RawUserFsCtrl @ 0x140919C34 (RawUserFsCtrl.c)
+ *     RawMountVolume @ 0x14091B1FC (RawMountVolume.c)
  */
 
 __int64 __fastcall RawFileSystemControl(__int64 a1, IRP *a2, __int64 a3)
@@ -32,7 +32,7 @@ __int64 __fastcall RawFileSystemControl(__int64 a1, IRP *a2, __int64 a3)
   }
   else
   {
-    v4 = RawUserFsCtrl(a2, a3, a1);
+    v4 = RawUserFsCtrl((__int64)a2, a3, a1);
   }
   v5 = v4;
 LABEL_5:

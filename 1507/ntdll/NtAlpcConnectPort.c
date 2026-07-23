@@ -7,11 +7,22 @@
  *     <none>
  */
 
-__int64 NtAlpcConnectPort()
+NTSTATUS __cdecl NtAlpcConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 117LL;
+  result = 117;
   __asm { syscall; Low latency system call }
   return result;
 }

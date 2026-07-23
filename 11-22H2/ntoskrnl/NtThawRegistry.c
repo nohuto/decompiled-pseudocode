@@ -12,9 +12,9 @@
  *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
-  unsigned int v0; // ebx
+  NTSTATUS v0; // ebx
   __int128 v2; // [rsp+20h] [rbp-58h] BYREF
   _OWORD v3[3]; // [rsp+30h] [rbp-48h] BYREF
 

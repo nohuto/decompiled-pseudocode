@@ -65,10 +65,20 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-int __stdcall UninitUser32Proc()
-{
-  DbgPrintEx(0, 0, "User32 init not called");
-  __debugbreak();
-  ZwTerminateProcess(-1, -1073741811);
-  return 0;
-}
+/*
+ * Hex-Rays decompilation failed for _UninitUser32Proc@0 @ 0x4B2F4820
+ * Reason: Hex-Rays returned no pseudocode for 0x4B2F4820
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 000000004B2F4820: push    offset aUser32InitNotC; "User32 init not called"
+ * 000000004B2F4825: push    0; Level
+ * 000000004B2F4827: push    0; int
+ * 000000004B2F4829: call    _DbgPrintEx
+ * 000000004B2F482E: add     esp, 0Ch
+ * 000000004B2F4831: int     3; Trap to Debugger
+ * 000000004B2F4832: push    0C000000Dh; ExitStatus
+ * 000000004B2F4837: push    0FFFFFFFFh; ProcessHandle
+ * 000000004B2F4839: call    _ZwTerminateProcess@8; ZwTerminateProcess(x,x)
+ * 000000004B2F483E: xor     eax, eax
+ * 000000004B2F4840: retn
+ */

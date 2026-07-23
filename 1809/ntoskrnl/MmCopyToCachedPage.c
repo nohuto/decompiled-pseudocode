@@ -14,21 +14,21 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiMakeSystemCachePteValid @ 0x1400D7A80 (MiMakeSystemCachePteValid.c)
- *     MiUnlinkStandbyPfn @ 0x1401204A4 (MiUnlinkStandbyPfn.c)
- *     MiDirtySystemCachePte @ 0x140128F04 (MiDirtySystemCachePte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlCopyMemoryNonTemporal @ 0x1401C5C80 (RtlCopyMemoryNonTemporal.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiMapFrame @ 0x1402ABDB4 (MiMapFrame.c)
- *     MiMapSystemCachePage @ 0x1402ABEC0 (MiMapSystemCachePage.c)
- *     MiFreeTransitionPageHeatList @ 0x1402CEB90 (MiFreeTransitionPageHeatList.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
- *     MiProcessTransitionHeatBatch @ 0x1402CEF74 (MiProcessTransitionHeatBatch.c)
- *     MiReplenishTransitionPageHeatList @ 0x1402CF0D0 (MiReplenishTransitionPageHeatList.c)
- *     MiMapCacheExceptionFilter @ 0x14084EFF8 (MiMapCacheExceptionFilter.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiMakeSystemCachePteValid @ 0x1400D7B00 (MiMakeSystemCachePteValid.c)
+ *     MiUnlinkStandbyPfn @ 0x140120514 (MiUnlinkStandbyPfn.c)
+ *     MiDirtySystemCachePte @ 0x140128FD4 (MiDirtySystemCachePte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlCopyMemoryNonTemporal @ 0x1401C5DE0 (RtlCopyMemoryNonTemporal.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiMapFrame @ 0x1402ABFA4 (MiMapFrame.c)
+ *     MiMapSystemCachePage @ 0x1402AC0B0 (MiMapSystemCachePage.c)
+ *     MiFreeTransitionPageHeatList @ 0x1402CED80 (MiFreeTransitionPageHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
+ *     MiProcessTransitionHeatBatch @ 0x1402CF164 (MiProcessTransitionHeatBatch.c)
+ *     MiReplenishTransitionPageHeatList @ 0x1402CF2C0 (MiReplenishTransitionPageHeatList.c)
+ *     MiMapCacheExceptionFilter @ 0x140850258 (MiMapCacheExceptionFilter.c)
  */
 
 __int64 __fastcall MmCopyToCachedPage(
@@ -67,7 +67,7 @@ __int64 __fastcall MmCopyToCachedPage(
   unsigned __int64 v32; // rax
   int v33; // r14d
   int v34; // r15d
-  struct _SLIST_ENTRY *v35; // rdi
+  _SLIST_ENTRY *v35; // rdi
   int v36; // ebx
   __int64 v37; // rcx
   int v38; // edi
@@ -159,7 +159,7 @@ __int64 __fastcall MmCopyToCachedPage(
     v13 = v12;
   v14 = *v13;
   v67 = v14;
-  v15 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v14 + 60) & 0x3FF)) + 7424LL;
+  v15 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v14 + 60) & 0x3FF)) + 7424LL;
   v68 = v15;
   if ( BugCheckParameter4 + v5 > 0x1000 || BugCheckParameter4 + v5 < v5 )
     KeBugCheckEx(0x1Au, 0x776uLL, v8, v5, BugCheckParameter4);
@@ -169,7 +169,7 @@ __int64 __fastcall MmCopyToCachedPage(
     return 3221226612LL;
   if ( (a5 & 8) != 0 )
   {
-    v18 = MiReservePtes(&qword_14043AFA0, 1LL);
+    v18 = MiReservePtes(&qword_14043C060, 1LL);
     v62 = v18;
     if ( !v18 )
       return 3221225626LL;
@@ -244,12 +244,12 @@ LABEL_15:
         goto LABEL_65;
       }
     }
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v20 & 0x10) != 0 )
         v20 &= ~0x10uLL;
       else
-        v20 &= ~qword_14043A0C0;
+        v20 &= ~qword_14043B180;
     }
     v21 = v20 >> 16;
     while ( 1 )
@@ -426,7 +426,7 @@ LABEL_60:
     v55 = MI_READ_PTE_LOCK_FREE(v62);
     v56 = v55;
     v69[0] = v55;
-    MiReleasePtes(&qword_14043AFA0, v57, 1LL);
+    MiReleasePtes(&qword_14043C060, v57, 1LL);
     if ( (v56 & 1) != 0 )
     {
       v58 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v69) >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;

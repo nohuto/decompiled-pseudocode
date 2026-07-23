@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInitializeTriageDumpData @ 0x14084E890
+ * XREFs of IopInitializeTriageDumpData @ 0x14084EB90
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
- *     KeAddTriageDumpDataBlock @ 0x1403A8100 (KeAddTriageDumpDataBlock.c)
- *     KeInitializeTriageDumpDataArray @ 0x1403A8430 (KeInitializeTriageDumpDataArray.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
+ *     KeAddTriageDumpDataBlock @ 0x1403A82E0 (KeAddTriageDumpDataBlock.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1403A8610 (KeInitializeTriageDumpDataArray.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

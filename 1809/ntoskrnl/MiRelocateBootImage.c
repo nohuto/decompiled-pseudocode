@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRelocateBootImage @ 0x1409B82CC
+ * XREFs of MiRelocateBootImage @ 0x1409B92CC
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     LdrRelocateImage @ 0x14072A744 (LdrRelocateImage.c)
- *     VslReserveProtectedPages @ 0x140818D5C (VslReserveProtectedPages.c)
- *     MiFreeBootDriverPage @ 0x1409B83FC (MiFreeBootDriverPage.c)
- *     MiUpdateThunks @ 0x1409B853C (MiUpdateThunks.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     LdrRelocateImage @ 0x14072B934 (LdrRelocateImage.c)
+ *     VslReserveProtectedPages @ 0x140819F5C (VslReserveProtectedPages.c)
+ *     MiFreeBootDriverPage @ 0x1409B93FC (MiFreeBootDriverPage.c)
+ *     MiUpdateThunks @ 0x1409B953C (MiUpdateThunks.c)
  */
 
 signed int __fastcall MiRelocateBootImage(

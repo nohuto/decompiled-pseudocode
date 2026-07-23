@@ -17,7 +17,7 @@
 __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v4; // rdx
   __int64 v5; // rbp
   unsigned __int8 CurrentIrql; // si
@@ -37,10 +37,10 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
   int v20; // eax
   bool v21; // zf
   unsigned __int64 v22; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v23; // [rsp+38h] [rbp-50h] BYREF
+  LARGE_INTEGER v23; // [rsp+38h] [rbp-50h] BYREF
   char v24[32]; // [rsp+40h] [rbp-48h] BYREF
 
-  v23 = 0LL;
+  v23.QuadPart = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   InterruptTimePrecise = RtlGetInterruptTimePrecise(&v23);
   v4 = -1LL;
@@ -48,13 +48,13 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
   v5 = -1LL;
   if ( !KiSerializeTimerExpiration )
   {
-    NextTimerDueTime = KiFindNextTimerDueTime((__int64)CurrentPrcb, InterruptTimePrecise, 0, &v22);
+    NextTimerDueTime = KiFindNextTimerDueTime((__int64)CurrentPrcb, InterruptTimePrecise.QuadPart, 0, &v22);
     v4 = v22;
     v5 = NextTimerDueTime;
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -102,10 +102,10 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
   }
   NextTickDueTime = CurrentPrcb->ClockTimerState.NextTickDueTime;
 LABEL_20:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

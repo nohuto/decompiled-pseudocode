@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepResolveApplicableShimsForDriver @ 0x140653468
+ * XREFs of KsepResolveApplicableShimsForDriver @ 0x14065354C
  * Callers:
- *     KsepGetShimsForDriver @ 0x140484638 (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x1405139C0 (KsepGetShimsForDriver.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KsepLoadShimProvider @ 0x1401DCA88 (KsepLoadShimProvider.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepLogError @ 0x1401DCEA4 (KsepLogError.c)
- *     KsepIsShimRegistered @ 0x14057060C (KsepIsShimRegistered.c)
- *     KsepGetLoadedModulesList @ 0x140570784 (KsepGetLoadedModulesList.c)
- *     KsepResolveShimHooks @ 0x140652F74 (KsepResolveShimHooks.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     KsepLoadShimProvider @ 0x1401DC8B4 (KsepLoadShimProvider.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1401DCCD0 (KsepLogError.c)
+ *     KsepIsShimRegistered @ 0x140570B4C (KsepIsShimRegistered.c)
+ *     KsepGetLoadedModulesList @ 0x140570CC4 (KsepGetLoadedModulesList.c)
+ *     KsepResolveShimHooks @ 0x140653058 (KsepResolveShimHooks.c)
  */
 
 __int64 __fastcall KsepResolveApplicableShimsForDriver(_QWORD *a1, unsigned int a2)
@@ -81,11 +81,11 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(_QWORD *a1, unsigned int 
   v6 = a2;
   v54 = 0;
   --CurrentThread->KernelApcDisable;
-  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
-  v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL);
+  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
+  v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL);
   v11 = v8;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx(&qword_140328F20, v8, (ULONG_PTR)&qword_140328F20);
+    ExfAcquirePushLockExclusiveEx(&qword_140328F60, v8, (ULONG_PTR)&qword_140328F60);
   if ( v11 )
     v11[26] |= 1u;
   if ( (_DWORD)v6 )
@@ -116,9 +116,9 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(_QWORD *a1, unsigned int 
     v4 = v54;
     LoadedModulesList = 0;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-  KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+  KeAbPostRelease((ULONG_PTR)&qword_140328F60);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v16, v17, v18);
   if ( !v4 )
   {
@@ -130,11 +130,11 @@ LABEL_41:
         goto LABEL_63;
       v38 = KeGetCurrentThread();
       --v38->KernelApcDisable;
-      v39 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
-      v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL);
+      v39 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
+      v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL);
       v40 = v39;
       if ( v10 )
-        ExfAcquirePushLockExclusiveEx(&qword_140328F20, v39, (ULONG_PTR)&qword_140328F20);
+        ExfAcquirePushLockExclusiveEx(&qword_140328F60, v39, (ULONG_PTR)&qword_140328F60);
       if ( v40 )
         v40[26] |= 1u;
       v41 = 0LL;
@@ -151,13 +151,13 @@ LABEL_41:
           if ( (unsigned int)v41 >= (unsigned int)v6 )
             goto LABEL_51;
         }
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-        KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+        KeAbPostRelease((ULONG_PTR)&qword_140328F60);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v46, v47, v48);
         v49 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
         v50 = KsepDebugFlag;
-        dword_140307424[2 * v49] = LoadedModulesList;
+        dword_140307464[2 * v49] = LoadedModulesList;
         KsepHistoryErrors[2 * v49] = 459288;
         if ( (v50 & 2) != 0 )
           KsepDebugPrint(
@@ -174,9 +174,9 @@ LABEL_41:
       else
       {
 LABEL_51:
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-        KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+        KeAbPostRelease((ULONG_PTR)&qword_140328F60);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v43, v44, v45);
       }
     }
@@ -201,7 +201,7 @@ LABEL_51:
     }
     v31 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
     v32 = KsepDebugFlag;
-    dword_140307424[2 * v31] = LoadedModulesList;
+    dword_140307464[2 * v31] = LoadedModulesList;
     KsepHistoryErrors[2 * v31] = 459211;
     if ( (v32 & 2) != 0 )
       KsepDebugPrint(
@@ -230,20 +230,20 @@ LABEL_59:
 LABEL_22:
   v21 = KeGetCurrentThread();
   --v21->KernelApcDisable;
-  v22 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
-  v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL);
+  v22 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
+  v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL);
   v24 = v22;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx(&qword_140328F20, v22, (ULONG_PTR)&qword_140328F20);
+    ExfAcquirePushLockExclusiveEx(&qword_140328F60, v22, (ULONG_PTR)&qword_140328F60);
   if ( v24 )
     v24[26] |= 1u;
   v25 = 0LL;
   if ( !(_DWORD)v6 )
   {
 LABEL_30:
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-    KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+    KeAbPostRelease((ULONG_PTR)&qword_140328F60);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v28, v29, v30);
     goto LABEL_41;
   }
@@ -257,14 +257,14 @@ LABEL_30:
     if ( (unsigned int)v25 >= (unsigned int)v6 )
       goto LABEL_30;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-  KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+  KeAbPostRelease((ULONG_PTR)&qword_140328F60);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v33, v34, v35);
   LoadedModulesList = -1073740782;
   v36 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
   v37 = KsepDebugFlag;
-  dword_140307424[2 * v36] = -1073740782;
+  dword_140307464[2 * v36] = -1073740782;
   KsepHistoryErrors[2 * v36] = 459240;
   if ( (v37 & 2) != 0 )
     KsepDebugPrint(6LL, "KSE: The provider did not register shim [0x%08X] in time\n", LODWORD(a1[10 * v25]));

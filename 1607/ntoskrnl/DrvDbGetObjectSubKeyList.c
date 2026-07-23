@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbGetObjectSubKeyList @ 0x1406E1DE4
+ * XREFs of DrvDbGetObjectSubKeyList @ 0x1406E1F1C
  * Callers:
- *     DrvDbGetObjectList @ 0x1406E18F0 (DrvDbGetObjectList.c)
+ *     DrvDbGetObjectList @ 0x1406E1A28 (DrvDbGetObjectList.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140562F74 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1405634B4 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall DrvDbGetObjectSubKeyList(

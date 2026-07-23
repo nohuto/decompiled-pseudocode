@@ -23,11 +23,11 @@ __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTR
 {
   unsigned int v4; // esi
   struct _KTHREAD *CurrentThread; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE *v6; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v6; // rbx
   ULONG_PTR v7; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v9; // rdi
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Context, 0, sizeof(Context));
   *a2 = 0LL;

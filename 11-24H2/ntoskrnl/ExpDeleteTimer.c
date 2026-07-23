@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpDeleteTimer @ 0x140331F50
+ * XREFs of ExpDeleteTimer @ 0x1402BCCD0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PsRemoveVirtualizedTimer @ 0x140331E64 (PsRemoveVirtualizedTimer.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     PsRemoveVirtualizedTimer @ 0x1402BCBE8 (PsRemoveVirtualizedTimer.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
@@ -26,9 +26,6 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   __int64 v9; // rbp
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
 
   p_WaitListHead = &a1[4].Header.WaitListHead;
   if ( a1[4].Header.WaitListHead.Flink )
@@ -55,7 +52,7 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWakeTimerLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&ExpWakeTimerLock);
     KeAbPostRelease((ULONG_PTR)&ExpWakeTimerLock);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v12, v13, v14);
+    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
     if ( v5 )
       PoDestroyReasonContext(v5);
   }

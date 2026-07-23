@@ -1,12 +1,12 @@
 /*
- * XREFs of ViAddVerifierSpecialThunks @ 0x14061032C
+ * XREFs of ViAddVerifierSpecialThunks @ 0x14060E8EC
  * Callers:
- *     DifRegisterClassDriverPlugin @ 0x14060FCF0 (DifRegisterClassDriverPlugin.c)
+ *     DifRegisterClassDriverPlugin @ 0x14060E2B0 (DifRegisterClassDriverPlugin.c)
  * Callees:
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     VfThunkAddSpecialDriverThunks @ 0x140B96ED4 (VfThunkAddSpecialDriverThunks.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x140B98ED4 (VfThunkAddSpecialDriverThunks.c)
  */
 
 __int64 __fastcall ViAddVerifierSpecialThunks(unsigned __int64 a1, __int64 a2, unsigned int a3)

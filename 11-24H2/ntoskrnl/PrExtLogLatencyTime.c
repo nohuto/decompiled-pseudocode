@@ -1,7 +1,7 @@
 /*
- * XREFs of PrExtLogLatencyTime @ 0x140664234
+ * XREFs of PrExtLogLatencyTime @ 0x140662B24
  * Callers:
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
  * Callees:
  *     <none>
  */

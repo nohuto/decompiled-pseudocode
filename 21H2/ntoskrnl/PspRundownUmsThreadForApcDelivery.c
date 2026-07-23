@@ -1,22 +1,22 @@
 /*
- * XREFs of PspRundownUmsThreadForApcDelivery @ 0x14090EBCC
+ * XREFs of PspRundownUmsThreadForApcDelivery @ 0x14090ED2C
  * Callers:
- *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
- *     KiSuspendUmsThread @ 0x1408BD8C8 (KiSuspendUmsThread.c)
- *     PspUmsUnInitThread @ 0x14090A89C (PspUmsUnInitThread.c)
+ *     PspGetSetContextInternal @ 0x14063E6D0 (PspGetSetContextInternal.c)
+ *     KiSuspendUmsThread @ 0x1408BDA28 (KiSuspendUmsThread.c)
+ *     PspUmsUnInitThread @ 0x14090A9FC (PspUmsUnInitThread.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeInitializeGate @ 0x1402D2C10 (KeInitializeGate.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsLookupThreadByThreadId @ 0x140625630 (PsLookupThreadByThreadId.c)
- *     KeClearUmsThreadKernelLock @ 0x1408BD474 (KeClearUmsThreadKernelLock.c)
- *     KeSetUmsThreadKernelLock @ 0x1408BD618 (KeSetUmsThreadKernelLock.c)
- *     KeSynchronizeUmsThread @ 0x1408BD688 (KeSynchronizeUmsThread.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeInitializeGate @ 0x140251190 (KeInitializeGate.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsLookupThreadByThreadId @ 0x14068F2A0 (PsLookupThreadByThreadId.c)
+ *     KeClearUmsThreadKernelLock @ 0x1408BD5D4 (KeClearUmsThreadKernelLock.c)
+ *     KeSetUmsThreadKernelLock @ 0x1408BD778 (KeSetUmsThreadKernelLock.c)
+ *     KeSynchronizeUmsThread @ 0x1408BD7E8 (KeSynchronizeUmsThread.c)
  */
 
 __int64 __fastcall PspRundownUmsThreadForApcDelivery(__int64 a1, _DWORD *a2, __int64 a3, char a4)

@@ -13,14 +13,14 @@ void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
   _KSCB *Parent; // rbx
   _RTL_RB_TREE *p_ChildScbQueue; // rbx
   unsigned __int64 Root; // rdx
-  bool v9; // r8
+  BOOLEAN v9; // r8
   unsigned int Rank; // r10d
   int v11; // eax
   unsigned int ReadySummary; // eax
   unsigned int v13; // r8d
   int v14; // r9d
   int v15; // eax
-  unsigned __int64 v16; // rax
+  _RTL_BALANCED_NODE *v16; // rax
 
   Parent = a2->Parent;
   a2->PrcbLockFlags |= 1u;
@@ -56,12 +56,12 @@ void __fastcall KiInsertSchedulingGroupQueue(struct _KPRCB *a1, struct _KSCB *a2
       if ( Rank || a2->GenerationCycles > *(_QWORD *)(Root - 88) )
       {
 LABEL_20:
-        v16 = *(_QWORD *)(Root + 8);
+        v16 = *(_RTL_BALANCED_NODE **)(Root + 8);
         if ( (*(_BYTE *)&p_ChildScbQueue->0 & 1) != 0 )
         {
           if ( !v16 )
             goto LABEL_22;
-          v16 ^= Root;
+          v16 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v16);
         }
         if ( !v16 )
         {
@@ -72,12 +72,12 @@ LABEL_22:
         goto LABEL_19;
       }
 LABEL_15:
-      v16 = *(_QWORD *)Root;
+      v16 = *(_RTL_BALANCED_NODE **)Root;
       if ( (*(_BYTE *)&p_ChildScbQueue->0 & 1) != 0 )
       {
         if ( !v16 )
           goto LABEL_32;
-        v16 ^= Root;
+        v16 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v16);
       }
       if ( !v16 )
       {
@@ -86,7 +86,7 @@ LABEL_32:
         goto LABEL_23;
       }
 LABEL_19:
-      Root = v16;
+      Root = (unsigned __int64)v16;
     }
     v13 = *(unsigned __int16 *)(Root + 32);
     _BitScanReverse((unsigned int *)&v14, ReadySummary);
@@ -100,7 +100,7 @@ LABEL_14:
     goto LABEL_15;
   }
 LABEL_23:
-  RtlRbInsertNodeEx((__int64 *)p_ChildScbQueue, Root, v9, (unsigned __int64)&a2->QueueNode);
+  RtlRbInsertNodeEx(p_ChildScbQueue, (PRTL_BALANCED_NODE)Root, v9, &a2->QueueNode);
   if ( a3 )
     a2->InsertTime = MEMORY[0xFFFFF78000000008];
 }

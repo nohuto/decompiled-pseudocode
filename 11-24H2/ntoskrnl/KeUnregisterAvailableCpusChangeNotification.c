@@ -1,46 +1,43 @@
 /*
- * XREFs of KeUnregisterAvailableCpusChangeNotification @ 0x14073BD68
+ * XREFs of KeUnregisterAvailableCpusChangeNotification @ 0x140739C98
  * Callers:
- *     PsUnregisterAvailableCpusChangeNotification @ 0x140774740 (PsUnregisterAvailableCpusChangeNotification.c)
+ *     PsUnregisterAvailableCpusChangeNotification @ 0x140774960 (PsUnregisterAvailableCpusChangeNotification.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiRundownAvailableCpusWorkItem @ 0x14043A3D8 (KiRundownAvailableCpusWorkItem.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiRundownAvailableCpusWorkItem @ 0x1402B9C1C (KiRundownAvailableCpusWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeUnregisterAvailableCpusChangeNotification(struct _EX_RUNDOWN_REF *P)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   struct _EX_RUNDOWN_REF **Count; // rdx
   PVOID *v7; // rcx
   _QWORD *v8; // rbp
   unsigned __int64 *v9; // rdi
-  _QWORD *v10; // rax
-  _QWORD *v11; // r14
+  char *v10; // rax
+  char *v11; // r14
   unsigned __int64 v12; // rdx
   struct _EX_RUNDOWN_REF **v13; // rcx
   __int64 v14; // rdi
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&KiAvailableCpusSubscriptionLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&KiAvailableCpusSubscriptionLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&KiAvailableCpusSubscriptionLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(
-      &KiAvailableCpusSubscriptionLock,
-      (__int64)v3,
-      (__int64)&KiAvailableCpusSubscriptionLock);
+    ExfAcquirePushLockExclusiveEx(&KiAvailableCpusSubscriptionLock, v3, (__int64)&KiAvailableCpusSubscriptionLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   Count = (struct _EX_RUNDOWN_REF **)P[3].Count;
   if ( Count[1] != &P[3] )
     goto LABEL_20;
@@ -56,12 +53,12 @@ void __fastcall KeUnregisterAvailableCpusChangeNotification(struct _EX_RUNDOWN_R
   if ( P->Count )
   {
     v9 = (unsigned __int64 *)(v8[56] + 32LL);
-    v10 = KeAbPreAcquire((__int64)v9, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)v9, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v9, (__int64)v10, (__int64)v9);
+      ExfAcquirePushLockExclusiveEx(v9, v10, (__int64)v9);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     v12 = P[1].Count;
     if ( *(struct _EX_RUNDOWN_REF **)(v12 + 8) == &P[1] )
     {

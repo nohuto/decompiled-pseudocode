@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipEnumerateMofResources @ 0x1404E738C
+ * XREFs of WmipEnumerateMofResources @ 0x1404C9900
  * Callers:
- *     WmipIoControl @ 0x1404749C4 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140473894 (WmipIoControl.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
  */
 
 __int64 __fastcall WmipEnumerateMofResources(_DWORD *a1, unsigned int a2, _DWORD *a3)

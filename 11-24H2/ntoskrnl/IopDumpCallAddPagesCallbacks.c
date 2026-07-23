@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpCallAddPagesCallbacks @ 0x140593AAC
+ * XREFs of IopDumpCallAddPagesCallbacks @ 0x140590AD0
  * Callers:
- *     IoWriteCrashDump @ 0x1405927D4 (IoWriteCrashDump.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IoWriteCrashDump @ 0x14058F7F8 (IoWriteCrashDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     IoSetBugCheckProgressFlag @ 0x1405922C0 (IoSetBugCheckProgressFlag.c)
- *     IopAddPageDumpRange @ 0x14059345C (IopAddPageDumpRange.c)
- *     KeValidateBugCheckCallbackRecord @ 0x1405B2970 (KeValidateBugCheckCallbackRecord.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoSetBugCheckProgressFlag @ 0x14058F2E0 (IoSetBugCheckProgressFlag.c)
+ *     IopAddPageDumpRange @ 0x140590480 (IopAddPageDumpRange.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1405AF8E0 (KeValidateBugCheckCallbackRecord.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall IopDumpCallAddPagesCallbacks(int a1)
@@ -43,7 +43,7 @@ char __fastcall IopDumpCallAddPagesCallbacks(int a1)
         v7 = 0uLL;
         DWORD2(v6) = 0;
         v9 = 0;
-        guard_dispatch_icall_no_overrides(4LL, v3, &v6, 32LL);
+        guard_dispatch_icall_no_overrides(4LL, v3);
         if ( v4 >= 0 && *((_QWORD *)&v7 + 1) )
           v4 = IopAddPageDumpRange((__int64)&v6, &v9);
       }

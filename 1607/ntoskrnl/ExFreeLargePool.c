@@ -1,37 +1,37 @@
 /*
- * XREFs of ExFreeLargePool @ 0x140010BE0
+ * XREFs of ExFreeLargePool @ 0x140010760
  * Callers:
- *     MmFreeContiguousMemory @ 0x14009ABB8 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x14009A3B8 (MmFreeContiguousMemory.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     MiInsertNonPagedPoolOnSlist @ 0x1400114D0 (MiInsertNonPagedPoolOnSlist.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiClearNonPagedPtes @ 0x140024520 (MiClearNonPagedPtes.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     MiFreePagedPoolPages @ 0x14004BBA0 (MiFreePagedPoolPages.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiReturnPhysicalPoolPages @ 0x140098380 (MiReturnPhysicalPoolPages.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1400AE30C (ExpRemovePoolTrackerExpansion.c)
- *     KxWaitForLockChainValid @ 0x1400F9530 (KxWaitForLockChainValid.c)
- *     MiReturnNonPagedPoolVa @ 0x140103670 (MiReturnNonPagedPoolVa.c)
- *     MmIsNonPagedPoolNx @ 0x140133BB0 (MmIsNonPagedPoolNx.c)
- *     EtwTracePool @ 0x1401596BC (EtwTracePool.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeCheckForTimer @ 0x1401D3640 (KeCheckForTimer.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3B5C (KiReleaseQueuedSpinLockInstrumented.c)
- *     VerifierFreeTrackedPool @ 0x1401EEE28 (VerifierFreeTrackedPool.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExpCheckForResource @ 0x14022DBC8 (ExpCheckForResource.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DEBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpCheckForLookaside @ 0x14022E52C (ExpCheckForLookaside.c)
- *     ExpCheckForWorker @ 0x14022E8A4 (ExpCheckForWorker.c)
- *     MiSessionPoolVector @ 0x14041BF20 (MiSessionPoolVector.c)
- *     VfFreePoolNotification @ 0x140710968 (VfFreePoolNotification.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     MiInsertNonPagedPoolOnSlist @ 0x140011050 (MiInsertNonPagedPoolOnSlist.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiClearNonPagedPtes @ 0x1400240A0 (MiClearNonPagedPtes.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     MiFreePagedPoolPages @ 0x14004B720 (MiFreePagedPoolPages.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiReturnPhysicalPoolPages @ 0x140097B80 (MiReturnPhysicalPoolPages.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x1400AC874 (ExpRemovePoolTrackerExpansion.c)
+ *     KxWaitForLockChainValid @ 0x1400F7370 (KxWaitForLockChainValid.c)
+ *     MiReturnNonPagedPoolVa @ 0x1401013F0 (MiReturnNonPagedPoolVa.c)
+ *     MmIsNonPagedPoolNx @ 0x140134120 (MmIsNonPagedPoolNx.c)
+ *     EtwTracePool @ 0x140159C2C (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeCheckForTimer @ 0x1401D346C (KeCheckForTimer.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3988 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     VerifierFreeTrackedPool @ 0x1401EEC54 (VerifierFreeTrackedPool.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     ExpCheckForResource @ 0x14022D9F4 (ExpCheckForResource.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DCE8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpCheckForLookaside @ 0x14022E358 (ExpCheckForLookaside.c)
+ *     ExpCheckForWorker @ 0x14022E6D0 (ExpCheckForWorker.c)
+ *     MiSessionPoolVector @ 0x14041ADE0 (MiSessionPoolVector.c)
+ *     VfFreePoolNotification @ 0x140710998 (VfFreePoolNotification.c)
  */
 
 void __fastcall ExFreeLargePool(ULONG_PTR BugCheckParameter2, _DWORD *a2, ULONG_PTR *a3, int a4)
@@ -143,9 +143,9 @@ void __fastcall ExFreeLargePool(ULONG_PTR BugCheckParameter2, _DWORD *a2, ULONG_
 LABEL_9:
   if ( (v5 & 0x20) != 0 )
   {
-    v15 = *(_QWORD *)(qword_140326918 + 8072);
-    v16 = (volatile signed __int32 *)(qword_140326918 + 7936);
-    v17 = *(_QWORD *)(qword_140326918 + 8080);
+    v15 = *(_QWORD *)(qword_140326958 + 8072);
+    v16 = (volatile signed __int32 *)(qword_140326958 + 7936);
+    v17 = *(_QWORD *)(qword_140326958 + 8080);
   }
   else
   {
@@ -164,9 +164,9 @@ LABEL_11:
         if ( (v5 & 0x21) == 0 && v15 == PoolBigPageTable )
         {
           if ( (unsigned int)MmGetSessionIdEx(KeGetCurrentThread()->ApcState.Process) == -1
-            || (v15 = *(_QWORD *)(qword_140326918 + 8072),
-                v16 = (volatile signed __int32 *)(qword_140326918 + 7936),
-                v17 = *(_QWORD *)(qword_140326918 + 8080),
+            || (v15 = *(_QWORD *)(qword_140326958 + 8072),
+                v16 = (volatile signed __int32 *)(qword_140326958 + 7936),
+                v17 = *(_QWORD *)(qword_140326958 + 8080),
                 !v15) )
           {
             v6 = BugCheckParameter2;
@@ -527,7 +527,7 @@ LABEL_70:
   {
     if ( !a3 )
     {
-      if ( BugCheckParameter2 < qword_140327F20 || BugCheckParameter2 >= qword_140327F20 + 0x100000000000LL )
+      if ( BugCheckParameter2 < qword_140327F60 || BugCheckParameter2 >= qword_140327F60 + 0x100000000000LL )
       {
         MiFreePagedPoolPages(BugCheckParameter2);
       }

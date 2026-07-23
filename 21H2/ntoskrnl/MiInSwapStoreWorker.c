@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInSwapStoreWorker @ 0x1407104D0
+ * XREFs of MiInSwapStoreWorker @ 0x1406BEB20
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwTraceWorkingSetInSwapStoreFail @ 0x140710328 (EtwTraceWorkingSetInSwapStoreFail.c)
- *     MiInSwapStoreContextDereference @ 0x140710578 (MiInSwapStoreContextDereference.c)
- *     SmSwapStore @ 0x14071059C (SmSwapStore.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwTraceWorkingSetInSwapStoreFail @ 0x1406BE978 (EtwTraceWorkingSetInSwapStoreFail.c)
+ *     MiInSwapStoreContextDereference @ 0x1406BEBC8 (MiInSwapStoreContextDereference.c)
+ *     SmSwapStore @ 0x1406BEBEC (SmSwapStore.c)
  */
 
-__int64 __fastcall MiInSwapStoreWorker(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall MiInSwapStoreWorker(__int64 a1)
 {
-  _KPROCESS *v5; // rcx
-  int v6; // edi
-  _OWORD v8[3]; // [rsp+20h] [rbp-48h] BYREF
+  _KPROCESS *v2; // rcx
+  int v3; // edi
+  _OWORD v5[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  v5 = *(_KPROCESS **)(a1 + 32);
-  memset(v8, 0, sizeof(v8));
-  KiStackAttachProcess(v5, 0LL, (__int64)v8, a4);
-  v6 = SmSwapStore(2LL);
+  v2 = *(_KPROCESS **)(a1 + 32);
+  memset(v5, 0, sizeof(v5));
+  KiStackAttachProcess(v2, 0, (__int64)v5);
+  v3 = SmSwapStore(2LL);
   KeSetEvent((PRKEVENT)(a1 + 40), 0, 0);
-  if ( v6 < 0 )
-    EtwTraceWorkingSetInSwapStoreFail(*(PEPROCESS *)(a1 + 32), v6);
-  KiUnstackDetachProcess((__int64)v8, 0);
+  if ( v3 < 0 )
+    EtwTraceWorkingSetInSwapStoreFail(*(PEPROCESS *)(a1 + 32), v3);
+  KiUnstackDetachProcess((__int64)v5, 0LL);
   ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 32), 0x73576D4Du);
   return MiInSwapStoreContextDereference(a1);
 }

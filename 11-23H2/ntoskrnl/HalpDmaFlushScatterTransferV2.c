@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaFlushScatterTransferV2 @ 0x14045E08C
+ * XREFs of HalpDmaFlushScatterTransferV2 @ 0x14045E48C
  * Callers:
- *     IoFlushAdapterBuffersV2 @ 0x14045D560 (IoFlushAdapterBuffersV2.c)
+ *     IoFlushAdapterBuffersV2 @ 0x14045D960 (IoFlushAdapterBuffersV2.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B980C (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x14045B428 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaSyncMapBuffers @ 0x14045CAF2 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaFlushBuffer @ 0x140510C10 (HalpDmaFlushBuffer.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B99EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x14045B828 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x14045CEF2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFlushBuffer @ 0x140511160 (HalpDmaFlushBuffer.c)
  */
 
 void __fastcall HalpDmaFlushScatterTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwThawRegistry @ 0x180165700
+ * XREFs of ZwThawRegistry @ 0x180163AC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwThawRegistry()
+NTSTATUS ZwThawRegistry(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 468LL;
+  result = 468;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

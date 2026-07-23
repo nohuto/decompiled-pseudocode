@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventLPICoreParking @ 0x14060E510
+ * XREFs of PpmEventLPICoreParking @ 0x140611610
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x14025C720 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x14025D070 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventLPICoreParking(__int64 a1, int a2)
@@ -22,24 +22,14 @@ BOOLEAN __fastcall PpmEventLPICoreParking(__int64 a1, int a2)
   v3 = PpmParkLpiCap;
   if ( PpmEtwRegistered )
   {
-    result = EtwEventEnabled(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_LPI_CORE_PARK);
+    result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_LPI_CORE_PARK);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v3;
       *(_QWORD *)&UserData.Size = 4LL;
       v5 = &v7;
       v6 = 4LL;
-      return EtwWriteEx(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_LPI_CORE_PARK,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               2u,
-               &UserData);
+      return EtwWriteEx(PpmEtwHandle, &PPM_ETW_LPI_CORE_PARK, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return result;

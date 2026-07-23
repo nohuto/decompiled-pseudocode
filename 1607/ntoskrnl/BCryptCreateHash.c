@@ -1,10 +1,10 @@
 /*
- * XREFs of BCryptCreateHash @ 0x14055049C
+ * XREFs of BCryptCreateHash @ 0x1405509DC
  * Callers:
- *     RtlGenerateClass5Guid @ 0x1405501AC (RtlGenerateClass5Guid.c)
+ *     RtlGenerateClass5Guid @ 0x1405506EC (RtlGenerateClass5Guid.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x1400B6E88 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1400B6E94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1400B4CB0 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1400B4CBC (ExGetExtensionTable.c)
  */
 
 NTSTATUS __stdcall BCryptCreateHash(

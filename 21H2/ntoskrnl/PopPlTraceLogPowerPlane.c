@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlTraceLogPowerPlane @ 0x14057EBD4
+ * XREFs of PopPlTraceLogPowerPlane @ 0x14057EE14
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x14057EA24 (PopPlRegisterPowerPlane.c)
- *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
+ *     PopPlRegisterPowerPlane @ 0x14057EC64 (PopPlRegisterPowerPlane.c)
+ *     PopDiagTraceControlCallback @ 0x140671060 (PopDiagTraceControlCallback.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64 a3)
@@ -94,7 +94,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
     v66[1] = 0;
     v68 = 4LL;
     v70 = 4LL;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&word_14002A436, a3, 1u, v13, v14, 7u, &v60);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A1D1, a3, 1u, v13, v14, 7u, &v60);
   }
   v4 = *((_QWORD *)a1 + 6);
   for ( i = 0LL; i < v4; ++i )
@@ -126,7 +126,15 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
       v37 = 4LL;
       v39 = 2LL;
       v41 = 32LL;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&word_14002A39E, a3, 1u, v13, v14, 0xBu, &v23);
+      tlgWriteEx_EtwWriteEx(
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&dword_14002A2BC,
+        a3,
+        1u,
+        v13,
+        v14,
+        0xBu,
+        &v23);
     }
     v4 = *((_QWORD *)a1 + 6);
   }
@@ -170,7 +178,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
             v59 = 0;
             LODWORD(v4) = tlgWriteEx_EtwWriteEx(
                             (__int64)&dword_140C02228,
-                            (unsigned __int8 *)&byte_14002A311,
+                            (unsigned __int8 *)&byte_14002A22F,
                             a3,
                             1u,
                             v13,

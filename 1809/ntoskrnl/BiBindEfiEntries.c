@@ -1,26 +1,26 @@
 /*
- * XREFs of BiBindEfiEntries @ 0x1408F2194
+ * XREFs of BiBindEfiEntries @ 0x1408F3454
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1408F23CC (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiNamespaceObjects @ 0x1408F368C (BiBindEfiNamespaceObjects.c)
  * Callees:
- *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
- *     BcdDeleteObject @ 0x1408F0880 (BcdDeleteObject.c)
- *     BiIsPortableWorkspaceBoot @ 0x1408F1444 (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1E84 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiBindEfiEntryToBcdObject @ 0x1408F22D8 (BiBindEfiEntryToBcdObject.c)
- *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x1408F32E4 (BiDeleteBootEntry.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F4490 (BiRemoveBootEntryFromNvramDisplayOrder.c)
- *     BiUpdateBcdObject @ 0x1408F48E8 (BiUpdateBcdObject.c)
+ *     BcdOpenObject @ 0x1407140C4 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
+ *     BcdDeleteObject @ 0x1408F1B40 (BcdDeleteObject.c)
+ *     BiIsPortableWorkspaceBoot @ 0x1408F2704 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F3144 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1408F3598 (BiBindEfiEntryToBcdObject.c)
+ *     BiCreateEfiEntry @ 0x1408F4060 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x1408F45A4 (BiDeleteBootEntry.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F5750 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiUpdateBcdObject @ 0x1408F5BA8 (BiUpdateBcdObject.c)
  */
 
-__int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
+__int64 __fastcall BiBindEfiEntries(HANDLE BcdStoreHandle, __int64 *a2)
 {
   __int64 v2; // rbx
-  int updated; // edi
+  NTSTATUS updated; // edi
   int v6; // eax
-  void *v8; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = *a2;
   updated = 0;
@@ -39,8 +39,8 @@ __int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
             goto LABEL_20;
           goto LABEL_6;
         }
-        updated = BiBindEfiEntryToBcdObject(a1, v2);
-        if ( updated < 0 || (updated = BiUpdateBcdObject(a1, v2), updated < 0) )
+        updated = BiBindEfiEntryToBcdObject(BcdStoreHandle, v2);
+        if ( updated < 0 || (updated = BiUpdateBcdObject(BcdStoreHandle, v2), updated < 0) )
         {
 LABEL_22:
           BiLogMessage(4LL, L"BiBindEfiEntries failed %x", (unsigned int)updated);
@@ -51,13 +51,13 @@ LABEL_22:
       {
         if ( (v6 & 8) != 0 )
         {
-          updated = BcdOpenObject(a1, (unsigned int *)(v2 + 16), &v8);
+          updated = BcdOpenObject(BcdStoreHandle, (const GUID *)(v2 + 16), &BcdObjectHandle);
           if ( updated < 0 )
             goto LABEL_22;
-          BcdDeleteObject(v8);
+          BcdDeleteObject(BcdObjectHandle);
           *(_DWORD *)(v2 + 48) &= 0xFFFFFFF9;
         }
-        else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(a1, v2) >= 0 )
+        else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(BcdStoreHandle, v2) >= 0 )
         {
           BiAddBootEntryToNvramDisplayOrder(v2);
         }

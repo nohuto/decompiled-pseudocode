@@ -1,58 +1,58 @@
 /*
- * XREFs of RtlCultureNameToLCID @ 0x180004710
+ * XREFs of RtlCultureNameToLCID @ 0x18004FE40
  * Callers:
- *     RtlpLoadInstallLanguageFallback @ 0x18000144C (RtlpLoadInstallLanguageFallback.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x180001F90 (RtlpMuiRegGetLanguageSpec.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x1800028FC (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlGetNeutralFallback @ 0x180004170 (RtlGetNeutralFallback.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x180005A20 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180007380 (RtlGetThreadPreferredUILanguages.c)
- *     LdrResFallbackLangList @ 0x1800094E0 (LdrResFallbackLangList.c)
- *     GetLCIDFromLangListNodeWithLICCheck @ 0x180009A70 (GetLCIDFromLangListNodeWithLICCheck.c)
- *     GetLCIDFromLangListNode @ 0x180009EA0 (GetLCIDFromLangListNode.c)
- *     RtlGetUILanguageInfo @ 0x18000A1D0 (RtlGetUILanguageInfo.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18000AC20 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x18000CFC4 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpPopulateLanguageConfigList @ 0x18000D360 (RtlpPopulateLanguageConfigList.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x18002DF70 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpSearchResourceSection_U @ 0x18002E860 (LdrpSearchResourceSection_U.c)
- *     RtlGetFileMUIPath @ 0x180035550 (RtlGetFileMUIPath.c)
- *     LdrpConvertLangFallbackListToMultiSz @ 0x180039EC0 (LdrpConvertLangFallbackListToMultiSz.c)
- *     RtlpMuiRegTryToAppendLangId @ 0x18003C6F0 (RtlpMuiRegTryToAppendLangId.c)
- *     LdrResSearchResource @ 0x1800AB1B0 (LdrResSearchResource.c)
- *     RtlpMuiRegLoadLicInformation @ 0x1800DDFB0 (RtlpMuiRegLoadLicInformation.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1800E0938 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1800E0C44 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     LdrLoadAlternateResourceModule @ 0x1800E4F90 (LdrLoadAlternateResourceModule.c)
- *     RtlpGetLCIDFromLangInfoNode @ 0x1800FDCF0 (RtlpGetLCIDFromLangInfoNode.c)
- *     RtlpMUIEnumerateFolder @ 0x18010288C (RtlpMUIEnumerateFolder.c)
- *     LdrResRelease @ 0x180103100 (LdrResRelease.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010EB40 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
- *     _RtlMuiRegAddLIPParent @ 0x18011346C (_RtlMuiRegAddLIPParent.c)
- *     RtlpConvertCultureNamesToLCIDs @ 0x1801262E0 (RtlpConvertCultureNamesToLCIDs.c)
- *     RtlpSetInstallLanguage @ 0x180142B80 (RtlpSetInstallLanguage.c)
- *     RtlpSetPreferredUILanguages @ 0x1801431B0 (RtlpSetPreferredUILanguages.c)
- *     RtlpRefreshCachedUILanguage @ 0x18014DB60 (RtlpRefreshCachedUILanguage.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x18014DFF0 (_RtlpMuiRegInitAnyLanguage.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x180019070 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpSearchResourceSection_U @ 0x180019960 (LdrpSearchResourceSection_U.c)
+ *     RtlGetFileMUIPath @ 0x1800206B0 (RtlGetFileMUIPath.c)
+ *     RtlpMUIEnumerateFolder @ 0x180022388 (RtlpMUIEnumerateFolder.c)
+ *     LdrpConvertLangFallbackListToMultiSz @ 0x180024430 (LdrpConvertLangFallbackListToMultiSz.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180026C60 (RtlpMuiRegTryToAppendLangId.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18004CB84 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x18004D6C0 (RtlpMuiRegGetLanguageSpec.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x18004E02C (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlGetNeutralFallback @ 0x18004F8A0 (RtlGetNeutralFallback.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x180051150 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180052AB0 (RtlGetThreadPreferredUILanguages.c)
+ *     LdrResFallbackLangList @ 0x180054C10 (LdrResFallbackLangList.c)
+ *     GetLCIDFromLangListNodeWithLICCheck @ 0x1800551A0 (GetLCIDFromLangListNodeWithLICCheck.c)
+ *     GetLCIDFromLangListNode @ 0x1800555D0 (GetLCIDFromLangListNode.c)
+ *     RtlGetUILanguageInfo @ 0x180055900 (RtlGetUILanguageInfo.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180056350 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1800586F4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180058A90 (RtlpPopulateLanguageConfigList.c)
+ *     LdrResSearchResource @ 0x1800AA2E0 (LdrResSearchResource.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1800DAF20 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1800DE1D8 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x1800DE4E4 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     LdrLoadAlternateResourceModule @ 0x1800E2E40 (LdrLoadAlternateResourceModule.c)
+ *     RtlpGetLCIDFromLangInfoNode @ 0x1800FD440 (RtlpGetLCIDFromLangInfoNode.c)
+ *     LdrResRelease @ 0x180102480 (LdrResRelease.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010E690 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     _RtlMuiRegAddLIPParent @ 0x180112F1C (_RtlMuiRegAddLIPParent.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x180126050 (RtlpConvertCultureNamesToLCIDs.c)
+ *     RtlpSetInstallLanguage @ 0x180142A80 (RtlpSetInstallLanguage.c)
+ *     RtlpSetPreferredUILanguages @ 0x1801430B0 (RtlpSetPreferredUILanguages.c)
+ *     RtlpRefreshCachedUILanguage @ 0x18014DA10 (RtlpRefreshCachedUILanguage.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x18014DEA0 (_RtlpMuiRegInitAnyLanguage.c)
  * Callees:
- *     RtlpIsCustomLocale @ 0x180001008 (RtlpIsCustomLocale.c)
- *     RtlpMatchUserLanguage @ 0x18000113C (RtlpMatchUserLanguage.c)
- *     RtlpNlsGetNameIndex @ 0x180004930 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlpMatchUILanguage @ 0x180112DD4 (RtlpMatchUILanguage.c)
- *     __report_rangecheckfailure @ 0x180126B60 (__report_rangecheckfailure.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpIsCustomLocale @ 0x18004C740 (RtlpIsCustomLocale.c)
+ *     RtlpMatchUserLanguage @ 0x18004C874 (RtlpMatchUserLanguage.c)
+ *     RtlpNlsGetNameIndex @ 0x180050060 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlpMatchUILanguage @ 0x180112884 (RtlpMatchUILanguage.c)
+ *     __report_rangecheckfailure @ 0x1801268D0 (__report_rangecheckfailure.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, int *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // r9
-  size_t v4; // r8
+  BOOLEAN v2; // r9
+  size_t Length; // r8
   unsigned __int16 v5; // bp
-  const void *v6; // rdx
+  wchar_t *Buffer; // rdx
   unsigned __int64 v7; // rbx
   __int64 v8; // rdx
   wchar_t *v9; // rcx
@@ -68,31 +68,31 @@ char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, int *a2)
   wchar_t String2[88]; // [rsp+20h] [rbp-E8h] BYREF
 
   v2 = 0;
-  if ( !a1 )
+  if ( !String )
     return v2;
-  if ( !a2 )
+  if ( !Lcid )
     return v2;
-  v4 = *a1;
+  Length = String->Length;
   v5 = 0;
-  if ( !(_WORD)v4 )
+  if ( !(_WORD)Length )
     return v2;
-  v6 = (const void *)*((_QWORD *)a1 + 1);
-  if ( !v6 || (unsigned int)(v4 + 2) > 0x55 )
+  Buffer = String->Buffer;
+  if ( !Buffer || (unsigned int)(Length + 2) > 0x55 )
     return v2;
-  v7 = *a1;
-  memmove(String2, v6, v4);
+  v7 = String->Length;
+  memmove(String2, Buffer, Length);
   v10 = v7 >> 1;
   if ( v10 >= 85 )
     _report_rangecheckfailure();
   String2[v10] = 0;
   if ( g_RegInfo )
   {
-    v11 = *(_QWORD *)(g_RegInfo + 24);
+    v11 = *((_QWORD *)g_RegInfo + 3);
     if ( v11 )
     {
       if ( *(_QWORD *)(v11 + 16) && g_RegInfo && String2[0] )
       {
-        v12 = *(_QWORD *)(g_RegInfo + 32);
+        v12 = *((_QWORD *)g_RegInfo + 4);
         if ( v12 )
         {
           v13 = 0;
@@ -120,7 +120,7 @@ LABEL_19:
             v15 = *(_QWORD *)(v11 + 16);
             if ( *(_WORD *)(v8 + v15 + 6) == (_WORD)v13 )
             {
-              *a2 = *(unsigned __int16 *)(v8 + v15 + 4);
+              *Lcid = *(unsigned __int16 *)(v8 + v15 + 4);
               return 1;
             }
             ++v5;
@@ -146,16 +146,16 @@ LABEL_19:
         matched = RtlpMatchUserLanguage(String2);
         v2 = 1;
         if ( matched )
-          *a2 = 3072;
+          *Lcid = 3072;
         else
-          *a2 = 4096;
+          *Lcid = 4096;
         return v2;
       }
-      *a2 = 5120;
+      *Lcid = 5120;
       return 1;
     }
     return 0;
   }
-  *a2 = *(_DWORD *)(*(_QWORD *)(v17 + 24) + 8LL * NameIndex + 4) & 0x7FFFFFFF;
+  *Lcid = *(_DWORD *)(*(_QWORD *)(v17 + 24) + 8LL * NameIndex + 4) & 0x7FFFFFFF;
   return 1;
 }

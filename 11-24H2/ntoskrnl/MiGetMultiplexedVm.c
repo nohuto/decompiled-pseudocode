@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetMultiplexedVm @ 0x140240018
+ * XREFs of MiGetMultiplexedVm @ 0x140208168
  * Callers:
- *     MiSynchronizeSystemVa @ 0x14022AD58 (MiSynchronizeSystemVa.c)
- *     MmSetAddressRangeModifiedEx @ 0x140240600 (MmSetAddressRangeModifiedEx.c)
- *     MiMakeSystemCacheRangeValid @ 0x140243570 (MiMakeSystemCacheRangeValid.c)
- *     MiTrimSharedPageFromViews @ 0x1402BB5D0 (MiTrimSharedPageFromViews.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140208750 (MmSetAddressRangeModifiedEx.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14020BFD0 (MiMakeSystemCacheRangeValid.c)
+ *     MiSynchronizeSystemVa @ 0x1402FDFC8 (MiSynchronizeSystemVa.c)
+ *     MiTrimSharedPageFromViews @ 0x140362D10 (MiTrimSharedPageFromViews.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall MiGetMultiplexedVm(__int64 a1, unsigned __int64 a2)
     }
     else
     {
-      v5 = qword_140E38AB8 + 16 * (v5 - 1);
+      v5 = qword_140E38BF8 + 16 * (v5 - 1);
     }
     if ( v5 )
       v5 += 40 * ((a2 >> 18) & 7);
@@ -43,5 +43,5 @@ __int64 __fastcall MiGetMultiplexedVm(__int64 a1, unsigned __int64 a2)
   v7 = v6 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( (v6 & 1) == 0 )
     v7 = v6;
-  return *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(*(_QWORD *)v7 + 60LL) & 0x3FF)) + 18816LL;
+  return *((_QWORD *)qword_140E300C8 + (*(_WORD *)(*(_QWORD *)v7 + 60LL) & 0x3FF)) + 18816LL;
 }

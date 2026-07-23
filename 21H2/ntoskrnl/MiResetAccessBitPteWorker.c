@@ -1,14 +1,14 @@
 /*
- * XREFs of MiResetAccessBitPteWorker @ 0x14053BA80
+ * XREFs of MiResetAccessBitPteWorker @ 0x14053BCC0
  * Callers:
- *     MiResetAccessBitsEPTCallback @ 0x14053BB80 (MiResetAccessBitsEPTCallback.c)
+ *     MiResetAccessBitsEPTCallback @ 0x14053BDC0 (MiResetAccessBitsEPTCallback.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiFlushTbListEarly @ 0x140289258 (MiFlushTbListEarly.c)
- *     MiGetVaAge @ 0x1403090F0 (MiGetVaAge.c)
- *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
- *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
- *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
+ *     MiFlushTbListEarly @ 0x1402063F8 (MiFlushTbListEarly.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiGetVaAge @ 0x140313E40 (MiGetVaAge.c)
+ *     MiSetVaAgeList @ 0x140338400 (MiSetVaAgeList.c)
+ *     MiClearPteAccessed @ 0x140344B50 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x1403453A0 (MiLogPageAccess.c)
  */
 
 void __fastcall MiResetAccessBitPteWorker(
@@ -24,7 +24,7 @@ void __fastcall MiResetAccessBitPteWorker(
   __int64 v12; // rbx
 
   VaAge = (unsigned __int8)MiGetVaAge(a1, a3);
-  if ( VaAge == 7 && (unsigned int)MiGetPfnPriority(a4) < dword_140C4E82C )
+  if ( VaAge == 7 && (unsigned int)MiGetPfnPriority(a4) < dword_140C4E86C )
   {
     v11 = 0;
   }
@@ -32,7 +32,7 @@ void __fastcall MiResetAccessBitPteWorker(
   {
     v11 = 1;
     if ( (unsigned int)(VaAge - 1) <= 5 )
-      MiSetVaAgeList(a1, a3, 1LL, 0);
+      MiSetVaAgeList(a1, a3, 1u, 0);
   }
   v12 = 0LL;
   if ( (a6 & 4) == 0 )

@@ -17,9 +17,9 @@ __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
   __int64 v2; // r14
   volatile signed __int32 *v4; // rbx
   unsigned int v5; // ebp
-  __int64 v6; // rsi
-  _BYTE *v7; // rax
-  _BYTE *v8; // rsi
+  PRTL_BALANCED_NODE v6; // rsi
+  PRTL_BALANCED_NODE v7; // rax
+  PRTL_BALANCED_NODE v8; // rsi
   __int64 v9; // rax
   __int64 v10; // rax
   __int64 v11; // rax
@@ -35,15 +35,15 @@ __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
   {
     v4 = (volatile signed __int32 *)((char *)&WheapSourceConfiguration + 48 * (int)a1);
     v5 = -1073741823;
-    v6 = KeAbPreAcquire((ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData, 0LL, 0LL);
+    v6 = KeAbPreAcquire((ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData, 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapDispatchPtr.Dpc.DpcData, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(
         (signed __int64 *)&WheapDispatchPtr.Dpc.DpcData,
         v6,
         (ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData);
     if ( v6 )
-      *(_BYTE *)(v6 + 26) |= 1u;
-    v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 48 * v2, 0LL, 0LL);
+      BYTE2(v6[1].Left) |= 1u;
+    v7 = KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 48 * v2, 0LL, 0);
     v8 = v7;
     if ( _interlockedbittestandset64(v4, 0LL) )
       ExfAcquirePushLockExclusiveEx(
@@ -51,7 +51,7 @@ __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
         v7,
         (ULONG_PTR)&WheapSourceConfiguration + 48 * v2);
     if ( v8 )
-      v8[26] |= 1u;
+      BYTE2(v8[1].Left) |= 1u;
     if ( !*((_BYTE *)v4 + 8) )
     {
       *((_DWORD *)v4 + 3) = *(_DWORD *)a2;

@@ -1,27 +1,27 @@
 /*
- * XREFs of HdlspDispatch @ 0x140BAD320
+ * XREFs of HdlspDispatch @ 0x140BAF320
  * Callers:
- *     HeadlessDispatch @ 0x140653C90 (HeadlessDispatch.c)
- *     HdlspKernelAddLogEntry @ 0x140BADD70 (HdlspKernelAddLogEntry.c)
+ *     HeadlessDispatch @ 0x1406523F0 (HeadlessDispatch.c)
+ *     HdlspKernelAddLogEntry @ 0x140BAFD70 (HdlspKernelAddLogEntry.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x140504170 (sprintf_s.c)
- *     InbvPortGetByte @ 0x1406A13BC (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x1406A1570 (InbvPortPollOnly.c)
- *     InbvPortPutByte @ 0x1406A15D8 (InbvPortPutByte.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     strcmp @ 0x1406C0400 (strcmp.c)
- *     HdlspAddLogEntry @ 0x140BAD008 (HdlspAddLogEntry.c)
- *     HdlspBugCheckProcessing @ 0x140BAD1F8 (HdlspBugCheckProcessing.c)
- *     HdlspEnableTerminal @ 0x140BAD9D4 (HdlspEnableTerminal.c)
- *     HdlspGetLine @ 0x140BADAA4 (HdlspGetLine.c)
- *     HdlspProcessDumpCommand @ 0x140BADFDC (HdlspProcessDumpCommand.c)
- *     HdlspPutString @ 0x140BAE2F0 (HdlspPutString.c)
- *     HdlspPutWideString @ 0x140BAE468 (HdlspPutWideString.c)
- *     HdlspSendBlueScreenInfo @ 0x140BAE528 (HdlspSendBlueScreenInfo.c)
- *     HdlspSendStringAtBaud @ 0x140BAE5CC (HdlspSendStringAtBaud.c)
- *     HdlspSetBlueScreenInformation @ 0x140BAE600 (HdlspSetBlueScreenInformation.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x140501A30 (sprintf_s.c)
+ *     InbvPortGetByte @ 0x1406A2414 (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x1406A25C8 (InbvPortPollOnly.c)
+ *     InbvPortPutByte @ 0x1406A2630 (InbvPortPutByte.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     strcmp @ 0x1406C1300 (strcmp.c)
+ *     HdlspAddLogEntry @ 0x140BAF008 (HdlspAddLogEntry.c)
+ *     HdlspBugCheckProcessing @ 0x140BAF1F8 (HdlspBugCheckProcessing.c)
+ *     HdlspEnableTerminal @ 0x140BAF9D4 (HdlspEnableTerminal.c)
+ *     HdlspGetLine @ 0x140BAFAA4 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x140BAFFDC (HdlspProcessDumpCommand.c)
+ *     HdlspPutString @ 0x140BB02F0 (HdlspPutString.c)
+ *     HdlspPutWideString @ 0x140BB0468 (HdlspPutWideString.c)
+ *     HdlspSendBlueScreenInfo @ 0x140BB0528 (HdlspSendBlueScreenInfo.c)
+ *     HdlspSendStringAtBaud @ 0x140BB05CC (HdlspSendStringAtBaud.c)
+ *     HdlspSetBlueScreenInformation @ 0x140BB0600 (HdlspSetBlueScreenInformation.c)
  */
 
 __int64 __fastcall HdlspDispatch(int a1, int *a2, unsigned __int64 a3, __int64 a4, _QWORD *a5)
@@ -271,7 +271,7 @@ LABEL_85:
           if ( !a4 || !a5 || *a5 != 1LL )
             goto LABEL_134;
           if ( ((unsigned __int8)*((_DWORD *)HeadlessGlobals + 12) & (unsigned __int8)(a1 - 11)) != 0
-            && InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14), v14, a3, a4) )
+            && InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14)) )
           {
             InbvPortGetByte(*((_DWORD *)HeadlessGlobals + 14), (_BYTE *)a4);
             goto LABEL_135;
@@ -282,7 +282,7 @@ LABEL_85:
           goto LABEL_134;
         if ( (HeadlessGlobals[6] & 1) != 0 )
         {
-          Line = InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14), v14, a3, a4);
+          Line = InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14));
 LABEL_65:
           *(_BYTE *)a4 = Line;
           goto LABEL_135;
@@ -325,7 +325,7 @@ LABEL_65:
               do
               {
                 LOBYTE(v14) = *((_BYTE *)a2 + v31);
-                InbvPortPutByte(*((_DWORD *)HeadlessGlobals + 14), v14, a3, a4);
+                InbvPortPutByte(*((_DWORD *)HeadlessGlobals + 14), v14);
                 v31 = ++v30;
               }
               while ( v30 < a3 );

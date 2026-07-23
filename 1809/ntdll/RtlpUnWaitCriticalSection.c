@@ -5,14 +5,14 @@
  * Callees:
  *     RtlpWakeByAddress @ 0x18005E81C (RtlpWakeByAddress.c)
  *     RtlpCreateDeferredCriticalSectionEvent @ 0x18005F030 (RtlpCreateDeferredCriticalSectionEvent.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwSetEvent @ 0x1800A04A0 (ZwSetEvent.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwSetEvent @ 0x1800A04C0 (ZwSetEvent.c)
  */
 
-__int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
+int __fastcall RtlpUnWaitCriticalSection(__int64 a1)
 {
   HANDLE DeferredCriticalSectionEvent; // rax
-  __int64 result; // rax
+  int result; // eax
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
   DeferredCriticalSectionEvent = *(HANDLE *)(a1 + 24);
@@ -22,13 +22,13 @@ __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
   {
     _InterlockedOr(v4, 0);
     RtlpWakeByAddress(a1 + 8, 0);
-    result = 0LL;
+    result = 0;
   }
   else
   {
-    result = ZwSetEvent();
+    result = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
   }
-  if ( (int)result < 0 )
+  if ( result < 0 )
     RtlRaiseStatus(result);
   return result;
 }

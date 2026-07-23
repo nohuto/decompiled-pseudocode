@@ -4,8 +4,8 @@
  *     RtlCopyExtendedContext @ 0x1800F4EE0 (RtlCopyExtendedContext.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x180008730 (RtlpValidateContextFlags.c)
- *     RtlpCopyLegacyContext @ 0x18008A768 (RtlpCopyLegacyContext.c)
- *     RtlpCopyXStateChunk @ 0x18008A9AC (RtlpCopyXStateChunk.c)
+ *     RtlpCopyLegacyContext @ 0x18008A778 (RtlpCopyLegacyContext.c)
+ *     RtlpCopyXStateChunk @ 0x18008A9BC (RtlpCopyXStateChunk.c)
  */
 
 __int64 __fastcall RtlpCopyExtendedContext(char a1, __int64 a2, __int64 a3, int a4, __int64 a5)

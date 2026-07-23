@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipRegisterDevice @ 0x1409D0548
+ * XREFs of WmipRegisterDevice @ 0x140A49D98
  * Callers:
- *     IoWMIRegistrationControl @ 0x1409D0C80 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x140A49C40 (IoWMIRegistrationControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x14041D070 (IoGetAttachedDeviceReference.c)
- *     ObReferenceObjectByPointer @ 0x140432520 (ObReferenceObjectByPointer.c)
- *     WmipFindRegEntryByDevice @ 0x140463970 (WmipFindRegEntryByDevice.c)
- *     WmipDeregisterRegEntry @ 0x14046FAA4 (WmipDeregisterRegEntry.c)
- *     WmipUnreferenceRegEntry @ 0x14046FC2C (WmipUnreferenceRegEntry.c)
- *     WmipAllocRegEntry @ 0x1404AC7D8 (WmipAllocRegEntry.c)
- *     WmipUpdateDeviceStackSize @ 0x1409CF85C (WmipUpdateDeviceStackSize.c)
- *     WmipRegisterOrUpdateDS @ 0x1409D06C8 (WmipRegisterOrUpdateDS.c)
- *     WmipQueueRegWork @ 0x1409D0968 (WmipQueueRegWork.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDeviceReference @ 0x140411960 (IoGetAttachedDeviceReference.c)
+ *     ObReferenceObjectByPointer @ 0x140424A50 (ObReferenceObjectByPointer.c)
+ *     WmipFindRegEntryByDevice @ 0x14045A0A4 (WmipFindRegEntryByDevice.c)
+ *     WmipDeregisterRegEntry @ 0x14046A000 (WmipDeregisterRegEntry.c)
+ *     WmipUnreferenceRegEntry @ 0x14046A188 (WmipUnreferenceRegEntry.c)
+ *     WmipAllocRegEntry @ 0x1404A6FCC (WmipAllocRegEntry.c)
+ *     WmipRegisterOrUpdateDS @ 0x1409AFF54 (WmipRegisterOrUpdateDS.c)
+ *     WmipUpdateDeviceStackSize @ 0x140A49F18 (WmipUpdateDeviceStackSize.c)
+ *     WmipQueueRegWork @ 0x140A49FB4 (WmipQueueRegWork.c)
  */
 
 __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)
@@ -23,8 +23,9 @@ __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)
   unsigned int v3; // ebp
   char *RegEntryByDevice; // rsi
   PDEVICE_OBJECT AttachedDeviceReference; // rdi
-  NTSTATUS v7; // edi
-  _QWORD *v8; // rax
+  __int64 v7; // rcx
+  NTSTATUS v8; // edi
+  _QWORD *v9; // rax
   int updated; // eax
 
   v2 = 0;
@@ -38,27 +39,28 @@ __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)
   if ( RegEntryByDevice )
   {
     KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
-    v7 = 0x40000000;
+    v8 = 0x40000000;
     WmipUnreferenceRegEntry((__int64)RegEntryByDevice);
   }
   else
   {
     if ( (v2 & 0x10000000) != 0
       || (AttachedDeviceReference = IoGetAttachedDeviceReference(Object),
-          WmipUpdateDeviceStackSize(AttachedDeviceReference->StackSize + 1),
+          LOBYTE(v7) = AttachedDeviceReference->StackSize + 1,
+          WmipUpdateDeviceStackSize(v7),
           ObfDereferenceObject(AttachedDeviceReference),
-          v7 = ObReferenceObjectByPointer(Object, 0, 0LL, 0),
-          v7 >= 0) )
+          v8 = ObReferenceObjectByPointer(Object, 0, 0LL, 0),
+          v8 >= 0) )
     {
-      v8 = WmipAllocRegEntry((__int64)Object, v2);
-      RegEntryByDevice = (char *)v8;
-      if ( v8 )
+      v9 = WmipAllocRegEntry((__int64)Object, v2);
+      RegEntryByDevice = (char *)v9;
+      if ( v9 )
       {
-        _InterlockedAdd((volatile signed __int32 *)v8 + 12, 1u);
+        _InterlockedAdd((volatile signed __int32 *)v9 + 12, 1u);
         KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
         if ( (v2 & 0x10000000) != 0 )
         {
-          updated = WmipRegisterOrUpdateDS(RegEntryByDevice, 0LL);
+          updated = WmipRegisterOrUpdateDS((__int64)RegEntryByDevice, 0);
           v3 = (unsigned int)updated >> 31;
         }
         else
@@ -66,13 +68,13 @@ __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)
           updated = WmipQueueRegWork(0LL, RegEntryByDevice);
           LOBYTE(v3) = updated < 0;
         }
-        v7 = updated;
+        v8 = updated;
         WmipUnreferenceRegEntry((__int64)RegEntryByDevice);
       }
       else
       {
         KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
-        v7 = -1073741670;
+        v8 = -1073741670;
       }
     }
     else
@@ -82,5 +84,5 @@ __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)
     if ( (_BYTE)v3 )
       WmipDeregisterRegEntry(RegEntryByDevice);
   }
-  return (unsigned int)v7;
+  return (unsigned int)v8;
 }

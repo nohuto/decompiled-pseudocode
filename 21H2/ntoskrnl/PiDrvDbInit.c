@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDrvDbInit @ 0x1407A350C
+ * XREFs of PiDrvDbInit @ 0x1407A370C
  * Callers:
- *     PiPnpRtlInit @ 0x1407A3350 (PiPnpRtlInit.c)
+ *     PiPnpRtlInit @ 0x1407A3550 (PiPnpRtlInit.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x1402C9DF8 (CmIsStateSeparationEnabled.c)
- *     PiDrvDbSetupNodes @ 0x1407A35EC (PiDrvDbSetupNodes.c)
- *     PiDrvDbSuspendNodes @ 0x1407A377C (PiDrvDbSuspendNodes.c)
- *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
- *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x1407A43FC (PiDrvDbEnumDriverStoreNodes.c)
+ *     CmIsStateSeparationEnabled @ 0x1402486E8 (CmIsStateSeparationEnabled.c)
+ *     PiDrvDbSetupNodes @ 0x1407A37EC (PiDrvDbSetupNodes.c)
+ *     PiDrvDbSuspendNodes @ 0x1407A397C (PiDrvDbSuspendNodes.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3A78 (PiDrvDbRegisterNode.c)
+ *     DrvDbOpenContext @ 0x1407A420C (DrvDbOpenContext.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407A45FC (PiDrvDbEnumDriverStoreNodes.c)
  */
 
 __int64 __fastcall PiDrvDbInit(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall PiDrvDbInit(__int64 a1)
   }
   else
   {
-    qword_140C43158 = (__int64)&PiDrvDbNodeList;
+    qword_140C43108 = (__int64)&PiDrvDbNodeList;
     PiDrvDbNodeList = (__int64)&PiDrvDbNodeList;
     v1 = DrvDbOpenContext();
     if ( v1 >= 0 )

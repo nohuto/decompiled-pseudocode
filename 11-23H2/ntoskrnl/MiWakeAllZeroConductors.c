@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWakeAllZeroConductors @ 0x14065560C
+ * XREFs of MiWakeAllZeroConductors @ 0x140655B5C
  * Callers:
- *     MiDeleteHardwareAccelerators @ 0x140654B20 (MiDeleteHardwareAccelerators.c)
+ *     MiDeleteHardwareAccelerators @ 0x140655070 (MiDeleteHardwareAccelerators.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PsGetNextPartition @ 0x14036AD70 (PsGetNextPartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PsGetNextPartition @ 0x14036AF10 (PsGetNextPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *MiWakeAllZeroConductors()
@@ -40,10 +40,13 @@ _QWORD *MiWakeAllZeroConductors()
         v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 23160));
         KeSetEvent((PRKEVENT)(v4 + 64), 0, 0);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 23160));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v5 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

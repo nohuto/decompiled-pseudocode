@@ -1,10 +1,10 @@
 /*
- * XREFs of Xp10ComputeAndWriteCrc @ 0x18011DAA0
+ * XREFs of Xp10ComputeAndWriteCrc @ 0x18011DA70
  * Callers:
- *     Xp10CompressBuffer @ 0x18011D514 (Xp10CompressBuffer.c)
+ *     Xp10CompressBuffer @ 0x18011D4E4 (Xp10CompressBuffer.c)
  * Callees:
- *     Xp10ComputeCrc32 @ 0x18011DB3C (Xp10ComputeCrc32.c)
- *     Xp10ComputeCrc64 @ 0x18011DB88 (Xp10ComputeCrc64.c)
+ *     Xp10ComputeCrc32 @ 0x18011DB0C (Xp10ComputeCrc32.c)
+ *     Xp10ComputeCrc64 @ 0x18011DB58 (Xp10ComputeCrc64.c)
  */
 
 __int64 __fastcall Xp10ComputeAndWriteCrc(unsigned __int16 *a1, __int64 a2, __int64 a3)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtLoadKey()
+NTSTATUS __cdecl NtLoadKey(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 246LL;
+  result = 246;
   __asm { syscall; Low latency system call }
   return result;
 }

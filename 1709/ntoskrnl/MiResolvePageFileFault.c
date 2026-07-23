@@ -287,7 +287,7 @@ LABEL_28:
   {
     if ( (unsigned int)MiGetSystemRegionType(v5) == 12
       || PsNtosImageBase
-      && (v19 >= PsNtosImageBase && v19 < PsNtosImageEnd
+      && (v19 >= (unsigned __int64)PsNtosImageBase && v19 < PsNtosImageEnd
        || v19 >= (unsigned __int64)PsHalImageBase && v19 < PsHalImageEnd) )
     {
       v140 = 8;

@@ -205,7 +205,7 @@ LABEL_11:
       if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)v10 )
         MEMORY[0x7FFFFFFF0000] = 0;
       if ( (unsigned __int16)v42 >= 0x200u )
-        RtlRaiseStatus(0xC000000D);
+        RtlRaiseStatus(-1073741811);
     }
     PoolWithQuota_0 = (UNICODE_STRING *)IopVerifierExAllocatePoolWithQuota_0(v8, (unsigned __int16)v42 + 16LL);
     P = PoolWithQuota_0;
@@ -263,7 +263,7 @@ LABEL_87:
     v18 = KeGetCurrentThread();
     --v18->KernelApcDisable;
     v19 = (volatile __int32 *)Object;
-    v20 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0LL);
+    v20 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0);
     v35 = 0;
     if ( _InterlockedExchange(v19 + 29, 1) )
     {
@@ -346,7 +346,7 @@ LABEL_53:
         LODWORD(v30) = Length;
         Mdl = IoAllocateMdl((PVOID)Address, Length, 0, 1u, Irp);
         if ( !Mdl )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         IopProbeAndLockPages_1(Mdl, v55, v34, (__int64)RelatedDeviceObject, CurrentStackLocation[-1].MajorFunction);
         goto LABEL_60;
       }

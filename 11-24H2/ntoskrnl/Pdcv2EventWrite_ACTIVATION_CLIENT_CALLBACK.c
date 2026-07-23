@@ -1,12 +1,12 @@
 /*
- * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK @ 0x140607AB0
+ * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK @ 0x1406050B8
  * Callers:
- *     Pdcv2pActivationClientCallback @ 0x14078DCF0 (Pdcv2pActivationClientCallback.c)
+ *     Pdcv2pActivationClientCallback @ 0x14078DC20 (Pdcv2pActivationClientCallback.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     McTemplateU0qqzr1qzr3qqqxqpqqqzr13q_EtwWriteTransfer @ 0x140607708 (McTemplateU0qqzr1qzr3qqqxqpqqqzr13q_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     McTemplateU0qqzr1qzr3qqqxqpqqqzr13q_EtwWriteTransfer @ 0x140604D10 (McTemplateU0qqzr1qzr3qqqxqpqqqzr13q_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK(__int64 a1, _DWORD *a2, unsigned int a3, int a4)
@@ -92,7 +92,7 @@ NTSTATUS __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK(__int64 a1, _DWOR
          * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
        - *(_QWORD *)(a1 + 40);
   }
-  if ( (byte_140F04ABA & 0x40) != 0 )
+  if ( (byte_140F04D62 & 0x40) != 0 )
   {
     v16 = -1LL;
     do
@@ -125,7 +125,7 @@ NTSTATUS __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK(__int64 a1, _DWOR
                (__int64)v7,
                v11);
   }
-  if ( (unsigned int)dword_140E08838 > 5 )
+  if ( (unsigned int)dword_140E088A8 > 5 )
   {
     v30 = 4LL;
     v29 = &v19;
@@ -154,8 +154,8 @@ NTSTATUS __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_CALLBACK(__int64 a1, _DWOR
     v48 = 4LL;
     tlgCreate1Sz_wchar_t((__int64)v49, v7);
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140E08838,
-             (unsigned __int8 *)byte_140051518,
+             (__int64)&dword_140E088A8,
+             (unsigned __int8 *)word_140052012,
              0LL,
              0LL,
              0xEu,

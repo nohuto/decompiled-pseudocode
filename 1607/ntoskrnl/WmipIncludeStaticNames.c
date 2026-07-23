@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipIncludeStaticNames @ 0x14069E1AC
+ * XREFs of WmipIncludeStaticNames @ 0x14069E290
  * Callers:
- *     WmipProcessEvent @ 0x140537B40 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140538080 (WmipProcessEvent.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     RtlStringCbCatW @ 0x1400C49B8 (RtlStringCbCatW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     RtlStringCbCatW @ 0x1400C2858 (RtlStringCbCatW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     WmipFindGEByGuid @ 0x1404746D0 (WmipFindGEByGuid.c)
- *     WmipReferenceEntry @ 0x1404749A0 (WmipReferenceEntry.c)
- *     WmipInsertStaticNames @ 0x140504A34 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x140504C18 (WmipStaticInstanceNameSize.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x1404735A0 (WmipFindGEByGuid.c)
+ *     WmipReferenceEntry @ 0x140473870 (WmipReferenceEntry.c)
+ *     WmipInsertStaticNames @ 0x1404E79C4 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x1404E7BA8 (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
  */
 
 unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)

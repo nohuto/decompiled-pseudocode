@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTrackDecodeGuidForSession @ 0x1409F54B8
+ * XREFs of EtwpTrackDecodeGuidForSession @ 0x1409F5748
  * Callers:
- *     EtwpUpdateRegEntryEnableMask @ 0x1407813E4 (EtwpUpdateRegEntryEnableMask.c)
- *     AddDecodeGuidToSessions @ 0x1407E9A20 (AddDecodeGuidToSessions.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x1407815D4 (EtwpUpdateRegEntryEnableMask.c)
+ *     AddDecodeGuidToSessions @ 0x1407E9CF0 (AddDecodeGuidToSessions.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlOplockBreakToNoneEx @ 0x1401B9338
+ * XREFs of FsRtlOplockBreakToNoneEx @ 0x1401B908C
  * Callers:
- *     FsRtlOplockBreakToNone @ 0x1401B9300 (FsRtlOplockBreakToNone.c)
+ *     FsRtlOplockBreakToNone @ 0x1401B9054 (FsRtlOplockBreakToNone.c)
  * Callees:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1400785F4 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToNone @ 0x1400B563C (FsRtlpOplockBreakToNone.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140078674 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x1400B3464 (FsRtlpOplockBreakToNone.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(

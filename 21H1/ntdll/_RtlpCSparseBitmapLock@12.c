@@ -9,12 +9,12 @@
  *     _RtlAcquireSRWLockExclusive@4 @ 0x4B2C22E0 (_RtlAcquireSRWLockExclusive@4.c)
  */
 
-int __fastcall RtlpCSparseBitmapLock(int a1, int a2, int a3)
+int __fastcall RtlpCSparseBitmapLock(_RTL_SRWLOCK *a1, int a2, int a3)
 {
   int result; // eax
-  volatile signed __int32 *v6; // [esp-4h] [ebp-Ch]
+  _RTL_SRWLOCK *v6; // [esp-4h] [ebp-Ch]
 
-  v6 = (volatile signed __int32 *)(a1 + 12);
+  v6 = a1 + 3;
   if ( a2 == 1 )
     RtlAcquireSRWLockExclusive(v6);
   else

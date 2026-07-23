@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x1403AEA10
+ * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x14039D220
  * Callers:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x1403AC6DC (HalpIommuFlushPhysicalPtesFromCacheSize.c)
- *     KeInvalidateRangeAllCaches @ 0x14047A650 (KeInvalidateRangeAllCaches.c)
- *     MiFlushGraphicsPtes @ 0x1404D6AE4 (MiFlushGraphicsPtes.c)
- *     IvtInitializeIdentityMappings @ 0x14056EF28 (IvtInitializeIdentityMappings.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     HalpIommuFlushPhysicalPtesFromCacheSize @ 0x14039AEE8 (HalpIommuFlushPhysicalPtesFromCacheSize.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
+ *     KeInvalidateRangeAllCaches @ 0x140475CD0 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushGraphicsPtes @ 0x1404CFF34 (MiFlushGraphicsPtes.c)
+ *     IvtInitializeIdentityMappings @ 0x14056C3B8 (IvtInitializeIdentityMappings.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
  */
 
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)

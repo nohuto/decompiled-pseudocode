@@ -1,7 +1,7 @@
 /*
- * XREFs of xHalTimerQueryRtcErrors @ 0x1405B8340
+ * XREFs of xHalTimerQueryRtcErrors @ 0x1405BABB0
  * Callers:
- *     _inc @ 0x14053E6CC (_inc.c)
+ *     _inc @ 0x140540B50 (_inc.c)
  * Callees:
  *     <none>
  */

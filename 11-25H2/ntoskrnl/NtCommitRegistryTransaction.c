@@ -15,7 +15,7 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtCommitRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   __int64 v4; // rdx
   __int64 v5; // rcx
@@ -24,7 +24,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   __int64 v8; // rcx
   NTSTATUS v9; // eax
   PVOID v10; // rdi
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   PVOID Object; // [rsp+30h] [rbp-58h] BYREF
   __int128 v14; // [rsp+38h] [rbp-50h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-40h] BYREF
@@ -34,7 +34,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v14);
   if ( (unsigned __int8)CmpAcquireShutdownRundown(v5, v4, v6, v7) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v11 = -1073741811;
     }
@@ -42,7 +42,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
     {
       Object = 0LL;
       v9 = ObReferenceObjectByHandle(
-             Handle,
+             RegistryTransactionHandle,
              8u,
              CmRegistryTransactionType,
              KeGetCurrentThread()->PreviousMode,
@@ -68,5 +68,5 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
     v11 = -1073741431;
   }
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v14);
-  return (unsigned int)v11;
+  return v11;
 }

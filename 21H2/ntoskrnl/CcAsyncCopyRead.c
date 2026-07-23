@@ -1,21 +1,21 @@
 /*
- * XREFs of CcAsyncCopyRead @ 0x1402F8440
+ * XREFs of CcAsyncCopyRead @ 0x140303190
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     CcAllocateWorkQueueEntry @ 0x1402F67D0 (CcAllocateWorkQueueEntry.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402F88E8 (IoReferenceIoAttributionFromThread.c)
- *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     CcAllocateWorkQueueEntry @ 0x140301520 (CcAllocateWorkQueueEntry.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1403033B4 (CcPostWorkQueueAsyncRead.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140303638 (IoReferenceIoAttributionFromThread.c)
+ *     CcScheduleReadAheadEx @ 0x140303B50 (CcScheduleReadAheadEx.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CcAsyncCopyRead(
@@ -35,7 +35,7 @@ char __fastcall CcAsyncCopyRead(
   struct _KTHREAD *CurrentThread; // rdi
   _SLIST_ENTRY *PoolWithTag; // rax
   _SLIST_ENTRY *v17; // rsi
-  signed int v18; // ebp
+  NTSTATUS v18; // ebp
   volatile signed __int64 *DeepFreezeStartTime; // rcx
   unsigned __int64 OldIrql; // rbp
   PSLIST_ENTRY v21; // rdx
@@ -56,18 +56,18 @@ char __fastcall CcAsyncCopyRead(
   v11 = *((_QWORD *)&Object[2].Next + 1);
   ListEntry = 0LL;
   v13 = *(_QWORD *)(v11 + 8);
-  Partition = CcGetPartition(v13);
+  Partition = CcGetPartition(v13, (_BYTE)a2, a3);
   if ( (signed __int64)(*a2 + a3) > *(_QWORD *)(v13 + 8) )
     KeBugCheckEx(0x34u, 0x393uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( !a5 )
-    RtlRaiseStatus(0xC00000E8);
+    RtlRaiseStatus(-1073741592);
   CurrentThread = a7;
   if ( CcEnableReadAheadInAsyncRead && ((__int64)Next->Next & 0x20000) != 0 )
     CcScheduleReadAheadEx(Object);
   PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x73416343u);
   v17 = PoolWithTag;
   if ( !PoolWithTag )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   PoolWithTag->Next = 0LL;
   v18 = CcAllocateWorkQueueEntry(Partition, &ListEntry);
   if ( v18 < 0 )

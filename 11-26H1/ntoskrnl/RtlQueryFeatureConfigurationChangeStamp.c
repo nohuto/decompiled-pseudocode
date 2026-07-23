@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryFeatureConfigurationChangeStamp @ 0x1404F91C0
+ * XREFs of RtlQueryFeatureConfigurationChangeStamp @ 0x1404F27D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct _KTHREAD *RtlQueryFeatureConfigurationChangeStamp()
+RTL_FEATURE_CHANGE_STAMP RtlQueryFeatureConfigurationChangeStamp(void)
 {
-  return CmpFreezeListLock.WaitBlock[3].Thread;
+  return *(_QWORD *)&CmpFreezeListLock.Timer.Processor;
 }

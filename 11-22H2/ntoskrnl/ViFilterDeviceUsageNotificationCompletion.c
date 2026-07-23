@@ -48,10 +48,13 @@ __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)(v4 + 88), retaddr);
     else
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 88), 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

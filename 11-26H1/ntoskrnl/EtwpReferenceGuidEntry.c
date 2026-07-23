@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpReferenceGuidEntry @ 0x140935A40
+ * XREFs of EtwpReferenceGuidEntry @ 0x1409115F0
  * Callers:
- *     EtwGetProviderIdFromHandle @ 0x1404EA92C (EtwGetProviderIdFromHandle.c)
- *     EtwpAddGuidEntry @ 0x140920870 (EtwpAddGuidEntry.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1409348B0 (EtwpFindOrCreateGuidEntry.c)
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
- *     EtwpGetTraceGuidInfo @ 0x140935E90 (EtwpGetTraceGuidInfo.c)
- *     EtwpInitializeRegEntry @ 0x1409371A4 (EtwpInitializeRegEntry.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140937CC0 (EtwpUpdateGuidEnableInfo.c)
- *     EtwpAddRegEntryToGroup @ 0x14093B720 (EtwpAddRegEntryToGroup.c)
- *     EtwpCreateUmReplyObject @ 0x140B12A84 (EtwpCreateUmReplyObject.c)
+ *     EtwGetProviderIdFromHandle @ 0x1404E3CDC (EtwGetProviderIdFromHandle.c)
+ *     EtwpAddGuidEntry @ 0x1408FC380 (EtwpAddGuidEntry.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140910460 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
+ *     EtwpGetTraceGuidInfo @ 0x140911A40 (EtwpGetTraceGuidInfo.c)
+ *     EtwpInitializeRegEntry @ 0x140912D44 (EtwpInitializeRegEntry.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x140913860 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpAddRegEntryToGroup @ 0x1409172C0 (EtwpAddRegEntryToGroup.c)
+ *     EtwpCreateUmReplyObject @ 0x140B14804 (EtwpCreateUmReplyObject.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall EtwpReferenceGuidEntry(ULONG_PTR BugCheckParameter2)

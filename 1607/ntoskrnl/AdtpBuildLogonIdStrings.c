@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildLogonIdStrings @ 0x14056B31C
+ * XREFs of AdtpBuildLogonIdStrings @ 0x14056B85C
  * Callers:
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     SepGetLogonSessionAccountInfo @ 0x14056B3C4 (SepGetLogonSessionAccountInfo.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     SepGetLogonSessionAccountInfo @ 0x14056B904 (SepGetLogonSessionAccountInfo.c)
  */
 
 __int64 __fastcall AdtpBuildLogonIdStrings(

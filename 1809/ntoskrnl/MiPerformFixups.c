@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPerformFixups @ 0x1405DFB58
+ * XREFs of MiPerformFixups @ 0x1405E0B58
  * Callers:
- *     MiRevertRelocatedImagePfn @ 0x1405A8A60 (MiRevertRelocatedImagePfn.c)
- *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiRevertRelocations @ 0x14065388C (MiRevertRelocations.c)
+ *     MiRevertRelocatedImagePfn @ 0x1405A9A60 (MiRevertRelocatedImagePfn.c)
+ *     MiRelocateImagePfn @ 0x1405E0930 (MiRelocateImagePfn.c)
+ *     MiRevertRelocations @ 0x140654A4C (MiRevertRelocations.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiApplyStraddleFixups @ 0x140127E1C (MiApplyStraddleFixups.c)
- *     MiApplyCompressedFixups @ 0x1405DFCA0 (MiApplyCompressedFixups.c)
- *     MiApplyRetpolineFixups @ 0x140853708 (MiApplyRetpolineFixups.c)
- *     MiApplyRawFixups @ 0x14085C088 (MiApplyRawFixups.c)
+ *     MiApplyStraddleFixups @ 0x140127EEC (MiApplyStraddleFixups.c)
+ *     MiApplyCompressedFixups @ 0x1405E0CA0 (MiApplyCompressedFixups.c)
+ *     MiApplyRetpolineFixups @ 0x140854968 (MiApplyRetpolineFixups.c)
+ *     MiApplyRawFixups @ 0x14085D2E8 (MiApplyRawFixups.c)
  */
 
 __int64 __fastcall MiPerformFixups(

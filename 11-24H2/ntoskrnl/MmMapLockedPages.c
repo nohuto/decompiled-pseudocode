@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMapLockedPages @ 0x14066F250
+ * XREFs of MmMapLockedPages @ 0x140670420
  * Callers:
- *     ViFlushDoubleBuffer @ 0x140B889E0 (ViFlushDoubleBuffer.c)
+ *     ViFlushDoubleBuffer @ 0x140B8A9E0 (ViFlushDoubleBuffer.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
  */
 
 PVOID __stdcall MmMapLockedPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE AccessMode)

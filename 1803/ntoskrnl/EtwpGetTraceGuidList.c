@@ -6,7 +6,7 @@
  *     EtwpGetNextGuidEntry @ 0x14058F080 (EtwpGetNextGuidEntry.c)
  */
 
-__int64 __fastcall EtwpGetTraceGuidList(__int64 a1, _OWORD *a2, _DWORD *a3)
+__int64 __fastcall EtwpGetTraceGuidList(__int64 a1, GUID *a2, _DWORD *a3)
 {
   int v3; // ebx
   unsigned int v4; // ebp
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, _OWORD *a2, _DWORD *a3)
   __int64 i; // r14
   signed __int64 *NextGuidEntry; // rax
   unsigned int v11; // ecx
-  _OWORD **v12; // rdx
+  GUID **v12; // rdx
 
   v3 = 0;
   v4 = *a3 >> 4;
@@ -29,11 +29,11 @@ __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, _OWORD *a2, _DWORD *a3)
     if ( ++v5 > 0xFFFFFFF )
       goto LABEL_13;
     if ( v5 <= v4 )
-      *a2++ = *(_OWORD *)(NextGuidEntry + 3);
+      *a2++ = *(GUID *)(NextGuidEntry + 3);
     v8 = NextGuidEntry;
   }
   v11 = 0;
-  v12 = (_OWORD **)&EtwpUmglProviders;
+  v12 = &EtwpUmglProviders;
   while ( ++v5 <= 0xFFFFFFF )
   {
     if ( v5 <= v4 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMarkHugeRangeIoPfnDeleted @ 0x140676870
+ * XREFs of MiMarkHugeRangeIoPfnDeleted @ 0x140677A40
  * Callers:
- *     MiHotRemoveHugeRange @ 0x140670540 (MiHotRemoveHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140671710 (MiHotRemoveHugeRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiUnlockIoPfnTree @ 0x1403D0468 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1403D0514 (MiLockIoPfnTree.c)
- *     MiIoPfnTreeLockContended @ 0x140491D80 (MiIoPfnTreeLockContended.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockIoPfnTree @ 0x14038F980 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14038FA2C (MiLockIoPfnTree.c)
+ *     MiIoPfnTreeLockContended @ 0x14048CC20 (MiIoPfnTreeLockContended.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiMarkHugeRangeIoPfnDeleted(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -29,9 +29,9 @@ void __fastcall MiMarkHugeRangeIoPfnDeleted(ULONG_PTR BugCheckParameter2, __int6
   _QWORD *v16; // rcx
 
   v4 = MiLockIoPfnTree(1LL, a2);
-  v5 = (_QWORD *)qword_140E371C0;
+  v5 = (_QWORD *)qword_140E37300;
   v6 = v4;
-  if ( qword_140E371C0 )
+  if ( qword_140E37300 )
   {
     v7 = BugCheckParameter2 + a2;
     BugCheckParameter4 = 0LL;
@@ -84,7 +84,7 @@ LABEL_31:
         }
         MiUnlockIoPfnTree(v6, 1);
         MiLockIoPfnTree(1LL, v11);
-        v12 = (_QWORD *)qword_140E371C0;
+        v12 = (_QWORD *)qword_140E37300;
         BugCheckParameter4 = 0LL;
         while ( 1 )
         {

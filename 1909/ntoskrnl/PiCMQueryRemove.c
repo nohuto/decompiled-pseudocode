@@ -157,7 +157,7 @@ LABEL_55:
     else
     {
       DeviceRegProp = PnpGetCallerSessionId(&SessionId);
-      if ( DeviceRegProp < 0 || SessionId != (unsigned int)RtlGetActiveConsoleId() )
+      if ( DeviceRegProp < 0 || SessionId != RtlGetActiveConsoleId() )
       {
         DeviceRegProp = PiAuCheckClientInteractive(v27);
         if ( DeviceRegProp < 0 || !v27[0] )

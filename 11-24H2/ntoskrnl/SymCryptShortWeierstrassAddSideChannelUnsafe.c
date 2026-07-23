@@ -1,18 +1,18 @@
 /*
- * XREFs of SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x14052D178
+ * XREFs of SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x140533D78
  * Callers:
- *     SymCryptShortWeierstrassAdd @ 0x14052CBB0 (SymCryptShortWeierstrassAdd.c)
+ *     SymCryptShortWeierstrassAdd @ 0x1405337B0 (SymCryptShortWeierstrassAdd.c)
  * Callees:
- *     SymCryptModAdd @ 0x140523B40 (SymCryptModAdd.c)
- *     SymCryptModElementCopy @ 0x140523BC0 (SymCryptModElementCopy.c)
- *     SymCryptModElementCreate @ 0x140523BD8 (SymCryptModElementCreate.c)
- *     SymCryptModElementIsZero @ 0x140523C3C (SymCryptModElementIsZero.c)
- *     SymCryptModMul @ 0x140523E80 (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x140523F5C (SymCryptModSquare.c)
- *     SymCryptModSub @ 0x140523F90 (SymCryptModSub.c)
- *     SymCryptEcpointCopy @ 0x14052A944 (SymCryptEcpointCopy.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     SymCryptModAdd @ 0x140521458 (SymCryptModAdd.c)
+ *     SymCryptModElementCopy @ 0x1405214D8 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1405214F0 (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsZero @ 0x140521554 (SymCryptModElementIsZero.c)
+ *     SymCryptModMul @ 0x140521798 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x140521874 (SymCryptModSquare.c)
+ *     SymCryptModSub @ 0x1405218A8 (SymCryptModSub.c)
+ *     SymCryptEcpointCopy @ 0x140528154 (SymCryptEcpointCopy.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall SymCryptShortWeierstrassAddSideChannelUnsafe(__int64 a1, _BYTE *a2, _BYTE *a3, _BYTE *a4, __int64 a5)

@@ -1,30 +1,32 @@
 /*
- * XREFs of _ResGetFileSizeEx @ 0x180104B40
+ * XREFs of _ResGetFileSizeEx @ 0x180104A80
  * Callers:
- *     _ResCCreateMappingExclusive @ 0x180103578 (_ResCCreateMappingExclusive.c)
- *     _ResCLoadFixedSize @ 0x180103908 (_ResCLoadFixedSize.c)
+ *     _ResCCreateMappingExclusive @ 0x1801034B8 (_ResCCreateMappingExclusive.c)
+ *     _ResCLoadFixedSize @ 0x180103848 (_ResCLoadFixedSize.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQueryInformationFile @ 0x1800A6640 (NtQueryInformationFile.c)
  */
 
-__int64 __fastcall ResGetFileSizeEx(__int64 a1, _QWORD *a2)
+__int64 __fastcall ResGetFileSizeEx(void *a1, _QWORD *a2)
 {
-  NTSTATUS InformationFile; // eax
-  ULONG v4; // eax
-  __int64 v6; // [rsp+48h] [rbp-20h]
+  int v3; // eax
+  LONG v4; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE FileInformation[8]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+48h] [rbp-20h]
 
-  InformationFile = NtQueryInformationFile();
-  if ( InformationFile >= 0 )
+  v3 = NtQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x18u, FileStandardInformation);
+  if ( v3 >= 0 )
   {
-    *a2 = v6;
+    *a2 = v8;
     return 1LL;
   }
   else
   {
-    v4 = RtlNtStatusToDosError(InformationFile);
+    v4 = RtlNtStatusToDosError(v3);
     RtlSetLastWin32Error(v4);
     return 0LL;
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoCreateSymbolicLink @ 0x14070C774
+ * XREFs of VerifierIoCreateSymbolicLink @ 0x14070C7A4
  * Callers:
  *     <none>
  * Callees:

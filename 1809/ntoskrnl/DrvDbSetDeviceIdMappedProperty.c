@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbSetDeviceIdMappedProperty @ 0x1409028E4
+ * XREFs of DrvDbSetDeviceIdMappedProperty @ 0x140903BA4
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1406F5020 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1406F62C0 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140902564 (DrvDbSetDeviceIdDriverInfMatches.c)
- *     DrvDbSetRegValueMappedProperty @ 0x1409038B8 (DrvDbSetRegValueMappedProperty.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140903824 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x140904B78 (DrvDbSetRegValueMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbSetDeviceIdMappedProperty(
@@ -47,7 +47,7 @@ __int64 __fastcall DrvDbSetDeviceIdMappedProperty(
       return (unsigned int)-1073741790;
   }
   v15 = 0LL;
-  for ( i = &off_1403564D0; ; i += 5 )
+  for ( i = &off_140357478; ; i += 5 )
   {
     v17 = *i;
     if ( *((_DWORD *)*i + 4) == v7 )
@@ -63,7 +63,7 @@ __int64 __fastcall DrvDbSetDeviceIdMappedProperty(
       return (unsigned int)-1073741802;
   }
   v20 = 5 * v15;
-  v21 = &(&off_1403564D0)[5 * v15];
+  v21 = &(&off_140357478)[5 * v15];
   if ( !v21 )
     return (unsigned int)-1073741802;
   v22 = a5;

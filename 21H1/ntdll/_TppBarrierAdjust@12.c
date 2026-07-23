@@ -61,7 +61,7 @@ int __fastcall TppBarrierAdjust(signed __int64 *a1, int a2, int a3)
   {
     if ( v6 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)v16 + 2);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v16 + 2);
       v14 = 0;
 LABEL_15:
       LODWORD(v7) = v17;
@@ -69,7 +69,7 @@ LABEL_15:
     }
     if ( v4 )
     {
-      RtlReleaseSRWLockShared((volatile signed __int32 *)v16 + 2);
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)v16 + 2);
       v15 = 0;
       goto LABEL_15;
     }
@@ -86,14 +86,14 @@ LABEL_4:
       {
         HIDWORD(v5) |= 0x80000000;
         v15 = 1;
-        RtlAcquireSRWLockShared((volatile signed __int32 *)v16 + 2);
+        RtlAcquireSRWLockShared((PRTL_SRWLOCK)v16 + 2);
       }
     }
     else
     {
       HIDWORD(v5) &= ~0x80000000;
       v14 = 1;
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)v16 + 2);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v16 + 2);
     }
     v5 = _InterlockedCompareExchange64(v16, v5, __SPAIR64__(v18, HIDWORD(v18)));
     LODWORD(v7) = v17;
@@ -106,13 +106,13 @@ LABEL_4:
   {
     v12 = *((_DWORD *)v16 + 3);
     *((_DWORD *)v16 + 3) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)v16 + 2);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v16 + 2);
     LODWORD(v7) = TppIteWakeWaiters(v12);
   }
   else if ( v15 )
   {
     TppItePush((char *)v16 + 12, v20);
-    RtlReleaseSRWLockShared((volatile signed __int32 *)v16 + 2);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)v16 + 2);
     LODWORD(v7) = ZwWaitForAlertByThreadId((char *)v16 + 12, 0);
   }
   return v7;

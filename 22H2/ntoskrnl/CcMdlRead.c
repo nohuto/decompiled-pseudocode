@@ -89,7 +89,7 @@ void __stdcall CcMdlRead(
     Mdl = IoAllocateMdl(VirtualAddress, v13, 0, 0, 0LL);
     v22 = Mdl;
     if ( !Mdl )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     MmProbeAndLockPages(Mdl, 0, IoReadAccess);
     CcFreeVirtualAddress((__int64)P);
     P = 0LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaCheckAdapterToken @ 0x1405014B0
+ * XREFs of HalpDmaCheckAdapterToken @ 0x140501A00
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaFindDeviceObjectByToken @ 0x140390904 (HalpDmaFindDeviceObjectByToken.c)
- *     HalpDmaInsertDeviceObjectByToken @ 0x1403909F0 (HalpDmaInsertDeviceObjectByToken.c)
+ *     HalpDmaFindDeviceObjectByToken @ 0x140390AE4 (HalpDmaFindDeviceObjectByToken.c)
+ *     HalpDmaInsertDeviceObjectByToken @ 0x140390BD0 (HalpDmaInsertDeviceObjectByToken.c)
  */
 
 __int64 __fastcall HalpDmaCheckAdapterToken(__int64 a1)

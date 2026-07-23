@@ -1,23 +1,23 @@
 /*
- * XREFs of MiProcessDereferenceList @ 0x140154050
+ * XREFs of MiProcessDereferenceList @ 0x140154150
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1401875A0 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x1402A3030 (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x1401876E0 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x1402A3220 (MiRemoveUnusedSegments.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiProcessingPageExtendComplete @ 0x1402A2BB8 (MiProcessingPageExtendComplete.c)
- *     MiRemoveUnusedSegments @ 0x1402A3030 (MiRemoveUnusedSegments.c)
- *     MiAttemptPageFileReduction @ 0x1402B72CC (MiAttemptPageFileReduction.c)
- *     MiFreeClonePool @ 0x1402C9FE8 (MiFreeClonePool.c)
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
- *     MiExtendPagingFiles @ 0x140853294 (MiExtendPagingFiles.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiProcessingPageExtendComplete @ 0x1402A2DA8 (MiProcessingPageExtendComplete.c)
+ *     MiRemoveUnusedSegments @ 0x1402A3220 (MiRemoveUnusedSegments.c)
+ *     MiAttemptPageFileReduction @ 0x1402B74BC (MiAttemptPageFileReduction.c)
+ *     MiFreeClonePool @ 0x1402CA1D8 (MiFreeClonePool.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
+ *     MiExtendPagingFiles @ 0x1408544F4 (MiExtendPagingFiles.c)
  */
 
 __int64 __fastcall MiProcessDereferenceList(__int64 a1, int a2)

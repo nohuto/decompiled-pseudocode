@@ -1,42 +1,41 @@
 /*
- * XREFs of ExAllocatePool3 @ 0x140B746D0
+ * XREFs of ExAllocatePool3 @ 0x140B76270
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x140437960 (ExAllocatePoolWithTagPriority.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x14047BB30 (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaBinaryArrayInsert @ 0x14047BDD8 (ExpSaBinaryArrayInsert.c)
- *     ExAllocateCacheAwarePushLock @ 0x1404BB520 (ExAllocateCacheAwarePushLock.c)
- *     KeEtwInitializeCpuStarvationProvider @ 0x1405B4668 (KeEtwInitializeCpuStarvationProvider.c)
- *     KiAllocateIdleSearchStructures @ 0x1405B5990 (KiAllocateIdleSearchStructures.c)
- *     KiAllocateLocalSharedReadyQueue @ 0x1405B5B3C (KiAllocateLocalSharedReadyQueue.c)
- *     KiAllocateStaticRescheduleContext @ 0x1405B5F24 (KiAllocateStaticRescheduleContext.c)
- *     KiAllocateSchedulerSubNode @ 0x1405BB0AC (KiAllocateSchedulerSubNode.c)
- *     KiAllocateForceParkingData @ 0x1405C8218 (KiAllocateForceParkingData.c)
- *     VfIoPendingEntry @ 0x140612330 (VfIoPendingEntry.c)
- *     ExpSaInitialize @ 0x14065A654 (ExpSaInitialize.c)
- *     PpmIdleInitializeConcurrency @ 0x14074A0E0 (PpmIdleInitializeConcurrency.c)
- *     AstLogDeviceSDDLUpdated @ 0x1409A1FE8 (AstLogDeviceSDDLUpdated.c)
- *     AstLogDeviceCreated @ 0x1409A3E34 (AstLogDeviceCreated.c)
- *     IoAllocateMiniCompletionPacket @ 0x1409A70C0 (IoAllocateMiniCompletionPacket.c)
- *     IopAllocateMiniCompletionPacket @ 0x1409D54A0 (IopAllocateMiniCompletionPacket.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140A0AA80 (AlpcpAllocateCompletionPacketLookaside.c)
- *     KiInitializeThreadCycleTable @ 0x140B566D0 (KiInitializeThreadCycleTable.c)
- *     VmInitializeProcessor @ 0x140B6E698 (VmInitializeProcessor.c)
- *     IoVerifierCheckForSettingsChange @ 0x140B82258 (IoVerifierCheckForSettingsChange.c)
- *     ViPtInitCircularPoolTrace @ 0x140B8C974 (ViPtInitCircularPoolTrace.c)
- *     VerifierExAllocatePool3 @ 0x140B912E0 (VerifierExAllocatePool3.c)
- *     VfKeCheckForChanges @ 0x140B95FFC (VfKeCheckForChanges.c)
- *     VfFaultsInitPhase0 @ 0x140B96338 (VfFaultsInitPhase0.c)
- *     ViIrqlInit @ 0x140B9D5D4 (ViIrqlInit.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x14026E450 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaBinaryArrayInsert @ 0x14026E6F8 (ExpSaBinaryArrayInsert.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14042A3E0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1404B6390 (ExAllocateCacheAwarePushLock.c)
+ *     KeEtwInitializeCpuStarvationProvider @ 0x1405B15EC (KeEtwInitializeCpuStarvationProvider.c)
+ *     KiAllocateIdleSearchStructures @ 0x1405B2C58 (KiAllocateIdleSearchStructures.c)
+ *     KiAllocateLocalSharedReadyQueue @ 0x1405B2E04 (KiAllocateLocalSharedReadyQueue.c)
+ *     KiAllocateStaticRescheduleContext @ 0x1405B31EC (KiAllocateStaticRescheduleContext.c)
+ *     KiAllocateSchedulerSubNode @ 0x1405B86DC (KiAllocateSchedulerSubNode.c)
+ *     KiAllocateForceParkingData @ 0x1405C5948 (KiAllocateForceParkingData.c)
+ *     VfIoPendingEntry @ 0x1406108F0 (VfIoPendingEntry.c)
+ *     ExpSaInitialize @ 0x140658D24 (ExpSaInitialize.c)
+ *     PpmIdleInitializeConcurrency @ 0x140748410 (PpmIdleInitializeConcurrency.c)
+ *     AstLogDeviceCreated @ 0x1408AC7C4 (AstLogDeviceCreated.c)
+ *     AstLogDeviceSDDLUpdated @ 0x1408AE644 (AstLogDeviceSDDLUpdated.c)
+ *     IoAllocateMiniCompletionPacket @ 0x140990590 (IoAllocateMiniCompletionPacket.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1409C52D0 (IopAllocateMiniCompletionPacket.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x140A06FB0 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     KiInitializeThreadCycleTable @ 0x140B58720 (KiInitializeThreadCycleTable.c)
+ *     VmInitializeProcessor @ 0x140B7054C (VmInitializeProcessor.c)
+ *     IoVerifierCheckForSettingsChange @ 0x140B8425C (IoVerifierCheckForSettingsChange.c)
+ *     ViPtInitCircularPoolTrace @ 0x140B8E974 (ViPtInitCircularPoolTrace.c)
+ *     VerifierExAllocatePool3 @ 0x140B932E0 (VerifierExAllocatePool3.c)
+ *     VfKeCheckForChanges @ 0x140B97FFC (VfKeCheckForChanges.c)
+ *     VfFaultsInitPhase0 @ 0x140B98338 (VfFaultsInitPhase0.c)
+ *     ViIrqlInit @ 0x140B9F5D4 (ViIrqlInit.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402ACCF0 (ExpAllocatePoolWithTagFromNode.c)
- *     MmResourcesAvailable @ 0x14042DCF0 (MmResourcesAvailable.c)
- *     ExpSecurePoolFromHandle @ 0x1404F5EFC (ExpSecurePoolFromHandle.c)
- *     VslSecurePoolAllocate @ 0x14058E2EC (VslSecurePoolAllocate.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140B72670 (ExpAllocatePoolWithQuotaTag.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402776D0 (ExpAllocatePoolWithTagFromNode.c)
+ *     MmResourcesAvailable @ 0x14041FA20 (MmResourcesAvailable.c)
+ *     ExpSecurePoolFromHandle @ 0x1404F37FC (ExpSecurePoolFromHandle.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140B74210 (ExpAllocatePoolWithQuotaTag.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  */
 
 __int64 __fastcall ExAllocatePool3(ULONG_PTR BugCheckParameter3, size_t a2, ULONG a3, __int64 a4, unsigned int a5)
@@ -45,10 +44,10 @@ __int64 __fastcall ExAllocatePool3(ULONG_PTR BugCheckParameter3, size_t a2, ULON
   char v6; // r11
   ULONG_PTR v7; // rbx
   int v9; // r8d
-  __int64 v11; // r15
+  __int64 *v11; // r15
   __int64 v12; // r14
   unsigned int v13; // ecx
-  int v14; // ecx
+  NTSTATUS v14; // ecx
   volatile CCHAR v15; // al
   ULONG_PTR PoolWithQuotaTag; // rax
   unsigned int i; // edx
@@ -56,18 +55,11 @@ __int64 __fastcall ExAllocatePool3(ULONG_PTR BugCheckParameter3, size_t a2, ULON
   __int64 v20; // rcx
   __int64 v21; // rax
   __int64 v22; // rax
-  __int64 v23; // rax
-  int v24; // ecx
-  __int64 v25; // rdx
-  struct _MDL *v26; // r9
-  int v27; // eax
-  ULONG_PTR v28; // rcx
-  __int64 v29[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 retaddr; // [rsp+78h] [rbp+0h]
-  ULONG_PTR v31; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v23[2]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 retaddr; // [rsp+68h] [rbp+0h]
 
   v5 = 0LL;
-  *(_OWORD *)v29 = 0LL;
+  *(_OWORD *)v23 = 0LL;
   v6 = 0;
   v7 = BugCheckParameter3;
   v9 = 16;
@@ -116,7 +108,7 @@ __int64 __fastcall ExAllocatePool3(ULONG_PTR BugCheckParameter3, size_t a2, ULON
       {
         if ( v7 != 64 )
           goto LABEL_3;
-        v11 = v19[1];
+        v11 = (__int64 *)v19[1];
         if ( !v11 || a5 != 1 )
           goto LABEL_3;
       }
@@ -124,24 +116,13 @@ __int64 __fastcall ExAllocatePool3(ULONG_PTR BugCheckParameter3, size_t a2, ULON
   }
   if ( v11 )
   {
-    v23 = ExpSecurePoolFromHandle(*(_QWORD *)v11);
-    if ( v23 )
+    if ( ExpSecurePoolFromHandle(*v11) )
     {
-      v24 = *(_DWORD *)(v11 + 24);
-      v25 = *(_QWORD *)(v11 + 16);
-      v26 = *(struct _MDL **)(v11 + 8);
-      v31 = 0LL;
-      if ( a2 && v26 )
-      {
-        v27 = VslSecurePoolAllocate(*(_QWORD *)(v23 + 8), a3, a2, v26, v25, v24, &v31);
-        v28 = v31;
-        if ( v27 < 0 )
-          v28 = 0LL;
-        v5 = v28;
-        if ( v28 )
-          return v5;
-      }
-      goto LABEL_55;
+      v14 = -1073741670;
+LABEL_4:
+      if ( (v7 & 0x20) != 0 )
+        RtlRaiseStatus(v14);
+      return v5;
     }
 LABEL_3:
     v14 = -1073741811;
@@ -149,36 +130,31 @@ LABEL_3:
   }
   v15 = KeNumberProcessorsGroup0[9];
   if ( (v15 & 8) == 0 )
+    goto LABEL_8;
+  if ( (v7 & 0x200) != 0 )
   {
+    v7 &= ~0x200uLL;
 LABEL_8:
     if ( (v7 & 1) != 0 )
     {
       PoolWithQuotaTag = ExpAllocatePoolWithQuotaTag(v7, a2, a3, v12);
-      goto LABEL_13;
     }
-    if ( !v6 || v9 == 32 || (unsigned int)MmResourcesAvailable(v7 & 0xFFFB, a2, v9) || a2 <= 0xFE0 )
+    else
     {
+      if ( v6 && v9 != 32 && !(unsigned int)MmResourcesAvailable(v7 & 0xFFFB, a2, v9) && a2 > 0xFE0 )
+      {
+LABEL_27:
+        v14 = -1073741670;
+        goto LABEL_4;
+      }
       PoolWithQuotaTag = ExpAllocatePoolWithTagFromNode(v7, a2, a3, v12);
-LABEL_13:
-      v5 = PoolWithQuotaTag;
-      if ( PoolWithQuotaTag )
-        return v5;
-      v14 = -1073741670;
-LABEL_4:
-      if ( (v7 & 0x20) != 0 )
-        RtlRaiseStatus(v14);
-      return v5;
     }
-LABEL_55:
-    v14 = -1073741670;
-    goto LABEL_4;
+    v5 = PoolWithQuotaTag;
+    if ( PoolWithQuotaTag )
+      return v5;
+    goto LABEL_27;
   }
-  if ( (v7 & 0x200) != 0 )
-  {
-    v7 &= ~0x200uLL;
-    goto LABEL_8;
-  }
-  LODWORD(v29[1]) = 32;
-  v29[0] = v29[0] & 0xFFFFFFFFFFFFFF00uLL | 1;
-  return VfHandlePoolAlloc(NonPagedPool, v7 & 0xFFFFFFFFFFFFFFFEuLL, a2, a3, LowPoolPriority, (__int64)v29, 1, retaddr);
+  LODWORD(v23[1]) = 32;
+  v23[0] = v23[0] & 0xFFFFFFFFFFFFFF00uLL | 1;
+  return VfHandlePoolAlloc(NonPagedPool, v7 & 0xFFFFFFFFFFFFFFFEuLL, a2, a3, LowPoolPriority, (__int64)v23, 1, retaddr);
 }

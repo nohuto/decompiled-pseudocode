@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPfnRangeIsZero @ 0x1403B9BE8
+ * XREFs of MiPfnRangeIsZero @ 0x1403B9D58
  * Callers:
- *     MiFreedUnusedPfnPagesWorker @ 0x1403B9758 (MiFreedUnusedPfnPagesWorker.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x1403B98C8 (MiFreedUnusedPfnPagesWorker.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
- *     MiFreeLargeZeroPages @ 0x1402FD354 (MiFreeLargeZeroPages.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiReplacePfnWithGapMapping @ 0x1403B9F4C (MiReplacePfnWithGapMapping.c)
- *     MiPreparePfnDatabasePageForFree @ 0x1403BA024 (MiPreparePfnDatabasePageForFree.c)
- *     MiClearSystemAccessBits @ 0x1403BA13C (MiClearSystemAccessBits.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
- *     MiReplicatePfnDatabaseMappings @ 0x14052EF2C (MiReplicatePfnDatabaseMappings.c)
+ *     MiGetContainingPageTable @ 0x1402E2CA0 (MiGetContainingPageTable.c)
+ *     MiFreeLargeZeroPages @ 0x1403080A4 (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiReplacePfnWithGapMapping @ 0x1403BA0BC (MiReplacePfnWithGapMapping.c)
+ *     MiPreparePfnDatabasePageForFree @ 0x1403BA194 (MiPreparePfnDatabasePageForFree.c)
+ *     MiClearSystemAccessBits @ 0x1403BA2AC (MiClearSystemAccessBits.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA398 (MiDemoteValidLargePageOneLevel.c)
+ *     MiReplicatePfnDatabaseMappings @ 0x14052F16C (MiReplicatePfnDatabaseMappings.c)
  */
 
 void __fastcall MiPfnRangeIsZero(unsigned __int64 a1, unsigned __int64 a2)
@@ -179,8 +179,8 @@ LABEL_18:
   while ( LeafVa < v2 );
   if ( v5 )
     MiReplicatePfnDatabaseMappings(v5, v6);
-  _InterlockedExchangeAdd64(&qword_140C4EFD8, -(__int64)v4);
-  MiFreeLargeZeroPages((int)&MiSystemPartition, (__int64)v27, 0LL);
+  _InterlockedExchangeAdd64(&qword_140C4F018, -(__int64)v4);
+  MiFreeLargeZeroPages((int)&MiSystemPartition, (char *)v27, 0);
   MiReturnCommit((__int64)&MiSystemPartition, v4);
   CurrentPrcb = KeGetCurrentPrcb();
   CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
@@ -213,5 +213,5 @@ LABEL_18:
     }
   }
   if ( v4 )
-    _InterlockedExchangeAdd64(&qword_140C52980, v4);
+    _InterlockedExchangeAdd64(&qword_140C529C0, v4);
 }

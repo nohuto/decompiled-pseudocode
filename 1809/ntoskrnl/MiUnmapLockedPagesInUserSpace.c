@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnmapLockedPagesInUserSpace @ 0x140139814
+ * XREFs of MiUnmapLockedPagesInUserSpace @ 0x140139914
  * Callers:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiUnmapVad @ 0x140617488 (MiUnmapVad.c)
- *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiUnmapVad @ 0x140618488 (MiUnmapVad.c)
+ *     MiCheckSecuredVad @ 0x140619974 (MiCheckSecuredVad.c)
  */
 
 void __fastcall MiUnmapLockedPagesInUserSpace(unsigned __int64 a1, _DWORD *a2)

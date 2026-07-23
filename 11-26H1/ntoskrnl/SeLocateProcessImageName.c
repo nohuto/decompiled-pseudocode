@@ -1,11 +1,11 @@
 /*
- * XREFs of SeLocateProcessImageName @ 0x140A6B500
+ * XREFs of SeLocateProcessImageName @ 0x140A7CB30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall SeLocateProcessImageName(PEPROCESS Process, PUNICODE_STRING *pImageFileName)
@@ -16,7 +16,7 @@ NTSTATUS __stdcall SeLocateProcessImageName(PEPROCESS Process, PUNICODE_STRING *
   UNICODE_STRING *v6; // rbx
 
   result = -1073741275;
-  if ( Process[3].Padding[5] && (_QWORD)xmmword_140F0A060 )
+  if ( Process[3].Padding[5] && *(_QWORD *)&PsAltSystemCallRegistrationLock.WaitRegister.Flags )
     return guard_dispatch_icall_no_overrides((__int64)Process, (__int64)pImageFileName);
   LastRebalanceQpc = Process[1].LastRebalanceQpc;
   if ( LastRebalanceQpc )

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIoMiniPacketCallbackRoutine @ 0x140A78AB0
+ * XREFs of PspIoMiniPacketCallbackRoutine @ 0x140A81550
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
  */
 
 LONG_PTR __fastcall PspIoMiniPacketCallbackRoutine(__int64 a1, _DWORD *a2)

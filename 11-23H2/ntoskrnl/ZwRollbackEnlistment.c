@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRollbackEnlistment @ 0x14041DEC0
+ * XREFs of ZwRollbackEnlistment @ 0x14041E250
  * Callers:
- *     DifZwRollbackEnlistmentWrapper @ 0x1405F65F0 (DifZwRollbackEnlistmentWrapper.c)
+ *     DifZwRollbackEnlistmentWrapper @ 0x1405F6B60 (DifZwRollbackEnlistmentWrapper.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRollbackEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock);
+  return KiServiceInternal(EnlistmentHandle);
 }

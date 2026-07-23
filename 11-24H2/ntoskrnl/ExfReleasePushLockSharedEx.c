@@ -1,9 +1,9 @@
 /*
- * XREFs of ExfReleasePushLockSharedEx @ 0x14040DCDC
+ * XREFs of ExfReleasePushLockSharedEx @ 0x140405F2C
  * Callers:
- *     ExReleaseAutoExpandPushLockShared @ 0x14025DFF0 (ExReleaseAutoExpandPushLockShared.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14028E600 (ExReleaseAutoExpandPushLockShared.c)
  * Callees:
- *     ExpWakePushLock @ 0x14040DE50 (ExpWakePushLock.c)
+ *     ExpWakePushLock @ 0x1404060A0 (ExpWakePushLock.c)
  */
 
 signed __int64 __fastcall ExfReleasePushLockSharedEx(signed __int64 *a1, signed __int64 *a2)

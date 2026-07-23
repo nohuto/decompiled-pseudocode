@@ -1,8 +1,8 @@
 /*
- * XREFs of PspFreeStorage @ 0x1406828D0
+ * XREFs of PspFreeStorage @ 0x1406829B4
  * Callers:
- *     PspJobDeleteStorageArrays @ 0x1404A2024 (PspJobDeleteStorageArrays.c)
- *     PspCreateSilo @ 0x14067E65C (PspCreateSilo.c)
+ *     PspJobDeleteStorageArrays @ 0x14051A430 (PspJobDeleteStorageArrays.c)
+ *     PspCreateSilo @ 0x14067E740 (PspCreateSilo.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

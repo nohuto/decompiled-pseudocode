@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializeReadInProgressPfn @ 0x1403737C0
+ * XREFs of MiInitializeReadInProgressPfn @ 0x140375570
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiInitializePageFileInPageSupport @ 0x1403741B8 (MiInitializePageFileInPageSupport.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiPfPrepareForPageFileRead @ 0x1406F6F80 (MiPfPrepareForPageFileRead.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiInitializePageFileInPageSupport @ 0x140375F68 (MiInitializePageFileInPageSupport.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiPfPrepareForPageFileRead @ 0x1406FBBF0 (MiPfPrepareForPageFileRead.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
  */
 
 int __fastcall MiInitializeReadInProgressPfn(unsigned __int64 a1, __int64 *a2, int a3, __int64 a4, __int64 a5, char a6)
@@ -68,7 +68,7 @@ int __fastcall MiInitializeReadInProgressPfn(unsigned __int64 a1, __int64 *a2, i
   {
     LODWORD(TransitionPte) = 0;
     v14 = 48 * *a2 - 0x220000000000LL;
-    if ( v14 == qword_140E35FF0 )
+    if ( v14 == qword_140E36170 )
       goto LABEL_39;
     if ( (*(_DWORD *)(v14 + 32) & 0x70000) == 0x70000 )
     {
@@ -93,11 +93,11 @@ int __fastcall MiInitializeReadInProgressPfn(unsigned __int64 a1, __int64 *a2, i
     }
     else if ( (*(_QWORD *)a4 & 0xC00LL) == 0x800 )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         DemandZeroPte = v15 & 0xFFFFFFFFFFFFFFEFuLL;
         if ( (v15 & 0x10) == 0 )
-          DemandZeroPte = qword_140E2D748 & v15;
+          DemandZeroPte = qword_140E2D8C8 & v15;
       }
       DemandZeroPte = *(_QWORD *)(48 * ((DemandZeroPte >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFF0LL);
     }
@@ -220,13 +220,13 @@ LABEL_15:
     {
       v26 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFF0000000000C1FuLL | (32
                                                                    * (((*a2 & 0xFFFFFFFFFFLL) << 7) | v18 & 0x1F | 0x40));
-      LODWORD(TransitionPte) = qword_140E2D740;
-      if ( qword_140E2D740 )
+      LODWORD(TransitionPte) = qword_140E2D8C0;
+      if ( qword_140E2D8C0 )
       {
-        if ( (qword_140E2D740 & v26) != 0 )
+        if ( (qword_140E2D8C0 & v26) != 0 )
           v26 |= 0x10uLL;
         else
-          v26 |= qword_140E2D740;
+          v26 |= qword_140E2D8C0;
       }
       a4 = (__int64)v37;
       *v37 = v26;

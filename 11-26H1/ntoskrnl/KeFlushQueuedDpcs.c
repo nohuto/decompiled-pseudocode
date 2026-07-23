@@ -1,24 +1,24 @@
 /*
- * XREFs of KeFlushQueuedDpcs @ 0x14051BE50
+ * XREFs of KeFlushQueuedDpcs @ 0x1405163E0
  * Callers:
  *     KeCleanupThreadState @ 0x140201FC8 (KeCleanupThreadState.c)
- *     MiFinishResume @ 0x1406EF990 (MiFinishResume.c)
- *     ExpTimeZoneCleanupSiloState @ 0x140836454 (ExpTimeZoneCleanupSiloState.c)
- *     ExpPartitionDestroy @ 0x14083FAC8 (ExpPartitionDestroy.c)
- *     MiDeletePartitionResources @ 0x140868E28 (MiDeletePartitionResources.c)
- *     IopDeleteDriver @ 0x140AC7560 (IopDeleteDriver.c)
- *     MmPageEntireDriver @ 0x140AC9AA0 (MmPageEntireDriver.c)
+ *     MiFinishResume @ 0x1406F4600 (MiFinishResume.c)
+ *     ExpTimeZoneCleanupSiloState @ 0x14083C694 (ExpTimeZoneCleanupSiloState.c)
+ *     ExpPartitionDestroy @ 0x140845D08 (ExpPartitionDestroy.c)
+ *     MiDeletePartitionResources @ 0x14086F208 (MiDeletePartitionResources.c)
+ *     IopDeleteDriver @ 0x140AC9150 (IopDeleteDriver.c)
+ *     MmPageEntireDriver @ 0x140ACBBB0 (MmPageEntireDriver.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KiRequestSoftwareInterrupt @ 0x1402C7D20 (KiRequestSoftwareInterrupt.c)
- *     KeGenericProcessorCallback @ 0x140379F74 (KeGenericProcessorCallback.c)
- *     KiGetDeepIdleProcessors @ 0x1403EDF4C (KiGetDeepIdleProcessors.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline @ 0x1405E957C (Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline.c)
- *     KiLogFlushQueuedDpcsCalledAtDispatchLevel @ 0x1405F11A4 (KiLogFlushQueuedDpcsCalledAtDispatchLevel.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KiRequestSoftwareInterrupt @ 0x1403129C0 (KiRequestSoftwareInterrupt.c)
+ *     KeGenericProcessorCallback @ 0x14037BD24 (KeGenericProcessorCallback.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     KiGetDeepIdleProcessors @ 0x140452A7C (KiGetDeepIdleProcessors.c)
+ *     Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline @ 0x1405EBEEC (Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline.c)
+ *     KiLogFlushQueuedDpcsCalledAtDispatchLevel @ 0x1405F3B14 (KiLogFlushQueuedDpcsCalledAtDispatchLevel.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void KeFlushQueuedDpcs(void)
@@ -41,7 +41,7 @@ void KeFlushQueuedDpcs(void)
   if ( (unsigned int)Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline()
     && KeGetCurrentIrql() == 2 )
   {
-    if ( dword_140E06F90 && tlgKeywordOn((__int64)&dword_140E06F90, 0x400000000001LL) )
+    if ( dword_140E06F58 && tlgKeywordOn((__int64)&dword_140E06F58, 0x400000000001LL) )
       KiLogFlushQueuedDpcsCalledAtDispatchLevel(retaddr);
     CurrentPrcb = KeGetCurrentPrcb();
     if ( CurrentPrcb->DpcData[0].DpcQueueDepth | CurrentPrcb->DpcData[1].DpcQueueDepth )

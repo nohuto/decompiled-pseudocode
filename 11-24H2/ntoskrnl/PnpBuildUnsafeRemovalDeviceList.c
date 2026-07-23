@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x140A73454
+ * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x140A6CA78
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpIsBeingRemovedSafely @ 0x140A735A4 (PnpIsBeingRemovedSafely.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpIsBeingRemovedSafely @ 0x140A6CBC8 (PnpIsBeingRemovedSafely.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, unsigned int **a2, __int64 *a3)
@@ -56,7 +56,7 @@ void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, unsigned int **a2, _
     }
     if ( (_DWORD)v6 )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)(v6 + 2), 0x4B706E50u);
       *a3 = Pool2;
       v15 = (_WORD *)Pool2;
       if ( Pool2 )

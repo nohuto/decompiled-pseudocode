@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeSessionHeapManager @ 0x1401700B8
+ * XREFs of ExInitializeSessionHeapManager @ 0x1401701B8
  * Callers:
- *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x1407162A8 (MiSessionCreate.c)
  * Callees:
- *     ExCleanupSessionHeapManager @ 0x140154454 (ExCleanupSessionHeapManager.c)
- *     ExCreateHeap @ 0x140170228 (ExCreateHeap.c)
- *     RtlHpHeapManagerStart @ 0x140170268 (RtlHpHeapManagerStart.c)
- *     RtlHpHeapManagerInitialize @ 0x1401707D0 (RtlHpHeapManagerInitialize.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExCleanupSessionHeapManager @ 0x140154554 (ExCleanupSessionHeapManager.c)
+ *     ExCreateHeap @ 0x140170328 (ExCreateHeap.c)
+ *     RtlHpHeapManagerStart @ 0x140170368 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerInitialize @ 0x1401708D0 (RtlHpHeapManagerInitialize.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExInitializeSessionHeapManager(int a1, int a2)

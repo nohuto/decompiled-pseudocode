@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFinishResume @ 0x140151910
+ * XREFs of MiFinishResume @ 0x140151A10
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PsGetNextPartition @ 0x14011FFE8 (PsGetNextPartition.c)
- *     MiDereferencePageRunsEx @ 0x14012B5F8 (MiDereferencePageRunsEx.c)
- *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
- *     MiPurgeZeroList @ 0x1401519BC (MiPurgeZeroList.c)
- *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x140120058 (PsGetNextPartition.c)
+ *     MiDereferencePageRunsEx @ 0x14012B6C8 (MiDereferencePageRunsEx.c)
+ *     MiReferencePageRuns @ 0x14012B7A0 (MiReferencePageRuns.c)
+ *     MiPurgeZeroList @ 0x140151ABC (MiPurgeZeroList.c)
+ *     MiPurgePartitionStandby @ 0x140151F1C (MiPurgePartitionStandby.c)
  */
 
 LONG __fastcall MiFinishResume(unsigned int a1)
@@ -36,7 +36,7 @@ LONG __fastcall MiFinishResume(unsigned int a1)
   }
   if ( v2 )
     MiDereferencePageRunsEx(v2, 1);
-  _InterlockedDecrement(&dword_14043AED0);
-  stru_14043A788.Parameter = (void *)-1LL;
-  return KeSetEvent(&stru_14043A770, 0, 0);
+  _InterlockedDecrement(&dword_14043BF90);
+  stru_14043B848.Parameter = (void *)-1LL;
+  return KeSetEvent(&stru_14043B830, 0, 0);
 }

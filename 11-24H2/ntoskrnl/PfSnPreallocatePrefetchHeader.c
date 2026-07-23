@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnPreallocatePrefetchHeader @ 0x140952458
+ * XREFs of PfSnPreallocatePrefetchHeader @ 0x140935E08
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x140951F40 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1409358F0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfSnPreallocatePrefetchHeader(__int64 *a1)
 {
-  size_t v2; // rdi
+  ULONG_PTR v2; // rdi
   char *Pool2; // rax
   __int64 v4; // r8
   unsigned int v5; // edx
@@ -22,7 +22,7 @@ __int64 __fastcall PfSnPreallocatePrefetchHeader(__int64 *a1)
   __int64 v12; // rax
 
   v2 = (unsigned int)(68 * *(_DWORD *)(*a1 + 88));
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, v2, 0x68506343u);
   if ( !Pool2 )
     return 3221225626LL;
   v4 = *a1;
@@ -46,17 +46,17 @@ __int64 __fastcall PfSnPreallocatePrefetchHeader(__int64 *a1)
   a1[9] = (__int64)&v8[8 * *(unsigned int *)(v4 + 88)];
   memset_0(Pool2, 0, v2);
   v9 = *(_DWORD *)(*a1 + 88) + *(_DWORD *)(*a1 + 120);
-  v10 = (void *)ExAllocatePool2(0x100uLL);
+  v10 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)(24 * v9), 0x68506343u);
   a1[14] = (__int64)v10;
   if ( !v10 )
     return 3221225626LL;
   memset_0(v10, 0, (unsigned int)(24 * v9));
   *((_DWORD *)a1 + 31) = v9;
-  v11 = ExAllocatePool2(0x100uLL);
+  v11 = ExAllocatePool2(0x100uLL, 0x1810uLL, 0x4D506343u);
   a1[10] = v11;
   if ( !v11 )
     return 3221225626LL;
-  v12 = ExAllocatePool2(0x40uLL);
+  v12 = ExAllocatePool2(0x40uLL, 0x600uLL, 0x57506343u);
   a1[11] = v12;
   return v12 != 0 ? 0 : 0xC000009A;
 }

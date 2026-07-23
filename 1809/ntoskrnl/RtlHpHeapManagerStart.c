@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlHpHeapManagerStart @ 0x140170268
+ * XREFs of RtlHpHeapManagerStart @ 0x140170368
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x1401700B8 (ExInitializeSessionHeapManager.c)
- *     RtlHpKInitializeHeapManager @ 0x14018D548 (RtlHpKInitializeHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x1401701B8 (ExInitializeSessionHeapManager.c)
+ *     RtlHpKInitializeHeapManager @ 0x14018D688 (RtlHpKInitializeHeapManager.c)
  * Callees:
  *     RtlpHpMetadataHeapStart @ 0x140009ACC (RtlpHpMetadataHeapStart.c)
- *     RtlpHpMetadataHeapCreate @ 0x140140AA0 (RtlpHpMetadataHeapCreate.c)
- *     RtlpHpVaMgrCtxStart @ 0x140170338 (RtlpHpVaMgrCtxStart.c)
- *     RtlCSparseBitmapStart @ 0x140170408 (RtlCSparseBitmapStart.c)
+ *     RtlpHpMetadataHeapCreate @ 0x140140BA0 (RtlpHpMetadataHeapCreate.c)
+ *     RtlpHpVaMgrCtxStart @ 0x140170438 (RtlpHpVaMgrCtxStart.c)
+ *     RtlCSparseBitmapStart @ 0x140170508 (RtlCSparseBitmapStart.c)
  */
 
 NTSTATUS __fastcall RtlHpHeapManagerStart(
-        union _RTL_RUN_ONCE *a1,
+        _RTL_RUN_ONCE *a1,
         unsigned int a2,
-        union _RTL_RUN_ONCE a3,
+        _RTL_RUN_ONCE a3,
         unsigned __int64 a4,
         char a5)
 {
@@ -30,7 +30,7 @@ NTSTATUS __fastcall RtlHpHeapManagerStart(
     result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))RtlpHpVaMgrCtxStart)(
                &a1[10],
                a2,
-               (union _RTL_RUN_ONCE)a3.Value,
+               (_RTL_RUN_ONCE)a3.Value,
                a4 - 1);
     if ( result >= 0 )
     {

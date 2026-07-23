@@ -27,52 +27,50 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
   __int64 v7; // r14
   char v8; // r13
   unsigned __int8 CurrentIrql; // bl
-  __int64 v10; // r8
-  __int64 v11; // r9
   char updated; // si
-  char v13; // r15
-  __int64 v15; // r8
-  __int64 v16; // r9
+  char v11; // r15
+  __int64 v13; // r8
+  __int64 v14; // r9
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v18; // al
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v20; // r8
-  int v21; // eax
-  bool v22; // zf
-  unsigned __int8 v23; // al
-  struct _KPRCB *v24; // r9
-  _DWORD *v25; // r8
-  int v26; // eax
-  unsigned __int64 v27; // rbx
-  char v28; // al
-  char v29; // [rsp+30h] [rbp-D0h]
-  bool v32; // [rsp+34h] [rbp-CCh]
-  unsigned int v33; // [rsp+38h] [rbp-C8h]
-  __int64 v34; // [rsp+40h] [rbp-C0h]
-  __int64 v35; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v36; // [rsp+50h] [rbp-B0h]
-  __int64 v37; // [rsp+58h] [rbp-A8h]
-  __int64 v38; // [rsp+60h] [rbp-A0h]
-  _OWORD v39[2]; // [rsp+68h] [rbp-98h] BYREF
-  _DWORD v40[44]; // [rsp+90h] [rbp-70h] BYREF
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r9
+  _DWORD *v23; // r8
+  int v24; // eax
+  unsigned __int64 v25; // rbx
+  char v26; // al
+  char v27; // [rsp+30h] [rbp-D0h]
+  bool v30; // [rsp+34h] [rbp-CCh]
+  unsigned int v31; // [rsp+38h] [rbp-C8h]
+  __int64 v32; // [rsp+40h] [rbp-C0h]
+  __int64 v33; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v34; // [rsp+50h] [rbp-B0h]
+  __int64 v35; // [rsp+58h] [rbp-A8h]
+  __int64 v36; // [rsp+60h] [rbp-A0h]
+  _OWORD v37[2]; // [rsp+68h] [rbp-98h] BYREF
+  _DWORD v38[44]; // [rsp+90h] [rbp-70h] BYREF
 
-  memset(v40, 0, 0xA8uLL);
-  v33 = 32;
-  v36 = 0LL;
-  v6 = 0LL;
-  v37 = 0LL;
-  v7 = 0LL;
-  v38 = 0LL;
-  memset(v39, 0, sizeof(v39));
+  memset(v38, 0, 0xA8uLL);
+  v31 = 32;
   v34 = 0LL;
-  v29 = 0;
+  v6 = 0LL;
+  v35 = 0LL;
+  v7 = 0LL;
+  v36 = 0LL;
+  memset(v37, 0, sizeof(v37));
+  v32 = 0LL;
+  v27 = 0;
   if ( (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0 )
   {
     v8 = 1;
-    v34 = *(_QWORD *)(a1 + 96);
+    v32 = *(_QWORD *)(a1 + 96);
+    v34 = 0LL;
+    v35 = 0LL;
     v36 = 0LL;
-    v37 = 0LL;
-    v38 = 0LL;
   }
   else
   {
@@ -80,16 +78,16 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
   }
   if ( a4 )
   {
-    v15 = *a4;
-    v16 = a4[1];
-    if ( v8 && v15 )
+    v13 = *a4;
+    v14 = a4[1];
+    if ( v8 && v13 )
     {
-      LOBYTE(v38) = 8;
-      v36 = v15;
-      v37 = 0x7E35C6C7F3DD7277LL * (KiWaitNever ^ __ROR8__(a1 ^ _byteswap_uint64(v16 ^ KiWaitAlways), KiWaitNever));
+      LOBYTE(v36) = 8;
+      v34 = v13;
+      v35 = 0x7E35C6C7F3DD7277LL * (KiWaitNever ^ __ROR8__(a1 ^ _byteswap_uint64(v14 ^ KiWaitAlways), KiWaitNever));
     }
-    v6 = KiWaitNever ^ __ROR8__(a1 ^ _byteswap_uint64(v15 ^ KiWaitAlways), KiWaitNever);
-    v7 = KiWaitNever ^ __ROR8__(a1 ^ _byteswap_uint64(v16 ^ KiWaitAlways), KiWaitNever);
+    v6 = KiWaitNever ^ __ROR8__(a1 ^ _byteswap_uint64(v13 ^ KiWaitAlways), KiWaitNever);
+    v7 = KiWaitNever ^ __ROR8__(a1 ^ _byteswap_uint64(v14 ^ KiWaitAlways), KiWaitNever);
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -98,8 +96,8 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v32 = KiAcquireTimer2LockUnlessDisabled(a1);
-  if ( !v32 )
+  v30 = KiAcquireTimer2LockUnlessDisabled(a1);
+  if ( !v30 )
   {
     if ( a4 )
     {
@@ -119,92 +117,92 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
       {
 LABEL_11:
         if ( v8 )
-          EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v39, 1073872896LL, v10, v11);
-        updated = KiUpdateTimer2Flags(a1, v33);
+          EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v37, 0x40020000u);
+        updated = KiUpdateTimer2Flags(a1, v31);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v18 = KeGetCurrentIrql();
-            if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+            v16 = KeGetCurrentIrql();
+            if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              v20 = CurrentPrcb->SchedulerAssist;
-              v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-              v22 = (v21 & v20[5]) == 0;
-              v20[5] &= v21;
-              if ( v22 )
+              v18 = CurrentPrcb->SchedulerAssist;
+              v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+              v20 = (v19 & v18[5]) == 0;
+              v18[5] &= v19;
+              if ( v20 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
         }
         __writecr8(CurrentIrql);
-        v13 = a3;
+        v11 = a3;
         if ( a3 && !updated )
         {
-          v40[0] = 1310721;
-          memset(&v40[1], 0, 0xA4uLL);
-          KeAddProcessorAffinityEx(v40, KiClockTimerOwner);
+          v38[0] = 1310721;
+          memset(&v38[1], 0, 0xA4uLL);
+          KeAddProcessorAffinityEx(v38, KiClockTimerOwner);
           KeGenericProcessorCallback(
-            (unsigned __int16 *)v40,
+            (unsigned __int16 *)v38,
             (void (__fastcall *)(struct _KPRCB *, __int64))xHalTimerWatchdogStop,
             0LL,
             2);
         }
         goto LABEL_17;
       }
-      v33 = 36;
+      v31 = 36;
     }
-    v29 = 1;
+    v27 = 1;
     goto LABEL_11;
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v23 = KeGetCurrentIrql();
-      if ( v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+      v21 = KeGetCurrentIrql();
+      if ( v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
       {
-        v24 = KeGetCurrentPrcb();
-        v25 = v24->SchedulerAssist;
-        v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v22 = (v26 & v25[5]) == 0;
-        v25[5] &= v26;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick(v24);
+        v22 = KeGetCurrentPrcb();
+        v23 = v22->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v20 = (v24 & v23[5]) == 0;
+        v23[5] &= v24;
+        if ( v20 )
+          KiRemoveSystemWorkPriorityKick(v22);
       }
     }
   }
   __writecr8(CurrentIrql);
   updated = 0;
-  v13 = a3;
+  v11 = a3;
 LABEL_17:
-  if ( v8 && !v32 )
+  if ( v8 && !v30 )
   {
-    v27 = KiWaitAlways ^ _byteswap_uint64(a1 ^ __ROL8__(v34 ^ KiWaitNever, KiWaitNever));
-    if ( v29 )
-      KiTraceCancelTimer2(a1, v27);
-    v28 = v38;
-    v35 = 0x7E35C6C7F3DD7277LL * (KiWaitNever ^ __ROR8__(v27 ^ _byteswap_uint64(a1 ^ KiWaitAlways), KiWaitNever));
+    v25 = KiWaitAlways ^ _byteswap_uint64(a1 ^ __ROL8__(v32 ^ KiWaitNever, KiWaitNever));
+    if ( v27 )
+      KiTraceCancelTimer2(a1, v25);
+    v26 = v36;
+    v33 = 0x7E35C6C7F3DD7277LL * (KiWaitNever ^ __ROR8__(v25 ^ _byteswap_uint64(a1 ^ KiWaitAlways), KiWaitNever));
     if ( a2 )
     {
-      v28 = v38 | 1;
-      LOBYTE(v38) = v38 | 1;
+      v26 = v36 | 1;
+      LOBYTE(v36) = v36 | 1;
     }
-    if ( v13 )
+    if ( v11 )
     {
-      v28 |= 2u;
-      LOBYTE(v38) = v28;
+      v26 |= 2u;
+      LOBYTE(v36) = v26;
     }
     if ( updated )
     {
-      EtwTraceTimedEvent(0xF6Bu, 0x40020000u, (__int64)&v35, 32, 0x400E02u, (__int64)v39);
+      EtwTraceTimedEvent(0xF6Bu, 0x40020000u, (__int64)&v33, 32, 0x400E02u, (__int64)v37);
     }
     else
     {
-      LOBYTE(v38) = v28 | 4;
-      EtwTraceTimedEvent(0xF6Bu, 0x40020000u, (__int64)&v35, 32, 0x602u, (__int64)v39);
+      LOBYTE(v36) = v26 | 4;
+      EtwTraceTimedEvent(0xF6Bu, 0x40020000u, (__int64)&v33, 32, 0x602u, (__int64)v37);
     }
   }
-  return v29;
+  return v27;
 }

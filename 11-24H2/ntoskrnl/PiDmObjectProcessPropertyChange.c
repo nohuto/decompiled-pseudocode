@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDmObjectProcessPropertyChange @ 0x1408BA158
+ * XREFs of PiDmObjectProcessPropertyChange @ 0x1408B7B08
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1408B9D40 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1408B76F0 (PiPnpRtlObjectEventWorker.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     PiDmGetCachedKeyIndex @ 0x1408BA590 (PiDmGetCachedKeyIndex.c)
- *     PiDmCacheDataFree @ 0x1408BB270 (PiDmCacheDataFree.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     PiDmCacheDataDecode @ 0x1408C9AF0 (PiDmCacheDataDecode.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     PiDmCacheDataEncode @ 0x140A50FFC (PiDmCacheDataEncode.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x140A60418 (PiDmGetReferencedObjectFromProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     PiDmGetCachedKeyIndex @ 0x1408B7F40 (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataFree @ 0x1408B8C20 (PiDmCacheDataFree.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     PiDmCacheDataDecode @ 0x1408C7520 (PiDmCacheDataDecode.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     PiDmCacheDataEncode @ 0x140A483AC (PiDmCacheDataEncode.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x140A58968 (PiDmGetReferencedObjectFromProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDmObjectProcessPropertyChange(
@@ -147,7 +147,7 @@ void __fastcall PiDmObjectProcessPropertyChange(
     v30 = DWORD2(v34);
     if ( DWORD2(v34) )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, DWORD2(v34), 0x5A706E50u);
       P = Pool2;
       if ( !Pool2 )
       {

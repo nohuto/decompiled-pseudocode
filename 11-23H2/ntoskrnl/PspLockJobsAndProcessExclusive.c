@@ -4,8 +4,8 @@
  *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
  *     PspLockJobChain @ 0x1406A0CC8 (PspLockJobChain.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtSerializeBoot @ 0x1408A6EA0
+ * XREFs of NtSerializeBoot @ 0x1408AD310
  * Callers:
  *     <none>
  * Callees:
- *     PnpSerializeBoot @ 0x1405D875C (PnpSerializeBoot.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     PnpSerializeBoot @ 0x1405DAF5C (PnpSerializeBoot.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 NtSerializeBoot()
+NTSTATUS NtSerializeBoot(void)
 {
   if ( KeGetCurrentThread()->PreviousMode != 1 )
-    return 3221225506LL;
+    return -1073741790;
   if ( SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
     return PnpSerializeBoot();
-  return 3221225569LL;
+  return -1073741727;
 }

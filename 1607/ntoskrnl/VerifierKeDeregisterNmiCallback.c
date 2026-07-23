@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeDeregisterNmiCallback @ 0x14070C9D4
+ * XREFs of VerifierKeDeregisterNmiCallback @ 0x14070CA04
  * Callers:
  *     <none>
  * Callees:

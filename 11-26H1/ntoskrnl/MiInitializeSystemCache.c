@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeSystemCache @ 0x14086A918
+ * XREFs of MiInitializeSystemCache @ 0x140870CF8
  * Callers:
- *     MiObtainSystemCacheView @ 0x1402E4B60 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1402C6BA0 (MiObtainSystemCacheView.c)
  * Callees:
- *     MiQuerySystemBase @ 0x140495028 (MiQuerySystemBase.c)
- *     MiInitializeSystemWorkingSetList @ 0x1408676D4 (MiInitializeSystemWorkingSetList.c)
- *     MiInitializeDynamicRegion @ 0x140CF97C4 (MiInitializeDynamicRegion.c)
+ *     MiQuerySystemBase @ 0x14048EB78 (MiQuerySystemBase.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14086DAB4 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicRegion @ 0x140CFFB44 (MiInitializeDynamicRegion.c)
  */
 
 __int64 __fastcall MiInitializeSystemCache(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall MiInitializeSystemCache(__int64 a1)
   *(_QWORD *)(a1 + 2720) = a1 + 2720;
   if ( (ULONG *)a1 == &MiSystemPartition )
   {
-    LOBYTE(dword_140E36D78) = dword_140E36D78 & 0xF0 | 1;
+    LOBYTE(dword_140E36EF8) = dword_140E36EF8 & 0xF0 | 1;
     v6 = MiQuerySystemBase(4, &v10);
     v7 = v10;
     if ( !(unsigned int)MiInitializeDynamicRegion(7LL, v6, v10) )

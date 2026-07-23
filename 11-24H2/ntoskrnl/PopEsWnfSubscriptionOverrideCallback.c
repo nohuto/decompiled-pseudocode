@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWnfSubscriptionOverrideCallback @ 0x140A3BAA0
+ * XREFs of PopEsWnfSubscriptionOverrideCallback @ 0x140A31280
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A3BBFC (ExpWnfAcquireSubscriptionNameInstance.c)
- *     PopEsWorkItemSchedule @ 0x140A3BCA4 (PopEsWorkItemSchedule.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A313DC (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     PopEsWorkItemSchedule @ 0x140A31484 (PopEsWorkItemSchedule.c)
  */
 
 __int64 __fastcall PopEsWnfSubscriptionOverrideCallback(__int64 a1)
@@ -40,9 +40,9 @@ __int64 __fastcall PopEsWnfSubscriptionOverrideCallback(__int64 a1)
       v6 = v8;
       if ( v8 <= 2 )
       {
-        PopAcquireRwLockExclusive(&PopEsLock);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock);
         PopEsMode = v6;
-        PopReleaseRwLock((signed __int64 *)&PopEsLock);
+        PopReleaseRwLock(&PopEsLock);
         PopEsWorkItemSchedule(2LL);
       }
     }

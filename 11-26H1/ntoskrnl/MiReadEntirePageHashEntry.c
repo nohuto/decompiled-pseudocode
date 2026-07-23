@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReadEntirePageHashEntry @ 0x140490A98
+ * XREFs of MiReadEntirePageHashEntry @ 0x14048A5E8
  * Callers:
- *     MiArePagefileContentsCorrupted @ 0x1402DB9F0 (MiArePagefileContentsCorrupted.c)
+ *     MiArePagefileContentsCorrupted @ 0x1402BD7B0 (MiArePagefileContentsCorrupted.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall MiReadEntirePageHashEntry(__int64 a1, __int64 a2)
 
   *(_DWORD *)a2 = *(_DWORD *)a1;
   result = 0LL;
-  if ( dword_140E35F50 )
+  if ( dword_140E360D0 )
   {
     *(_QWORD *)(a2 + 8) = *(_QWORD *)(a1 + 8);
     result = *(unsigned int *)(a1 + 4);

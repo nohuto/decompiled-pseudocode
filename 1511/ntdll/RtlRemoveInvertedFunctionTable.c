@@ -10,48 +10,42 @@
  *     memmove @ 0x1800AB5C0 (memmove.c)
  */
 
-signed __int64 __fastcall RtlRemoveInvertedFunctionTable(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)
 {
-  char *v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  int v8; // ebx
-  unsigned int v9; // edi
-  bool v10; // zf
-  _QWORD *v11; // rax
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  int v2; // ebx
+  unsigned int v3; // edi
+  bool v4; // zf
+  ULONG_PTR *p_CfgBitMapSize; // rax
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpInvertedFunctionTableSRWLock, a2, a3, a4);
-  v8 = LdrpInvertedFunctionTable[0];
-  v9 = 1;
-  v10 = LdrpInvertedFunctionTable[0] == 1;
-  if ( LdrpInvertedFunctionTable[0] > 1u )
+  RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  v2 = LdrSystemDllInitBlock.Wow64SharedInformation[15];
+  v3 = 1;
+  v4 = LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]) == 1;
+  if ( LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]) > 1 )
   {
-    v11 = &unk_180155350;
+    p_CfgBitMapSize = &LdrSystemDllInitBlock.CfgBitMapSize;
     do
     {
-      if ( a1 == *v11 )
+      if ( a1 == *p_CfgBitMapSize )
         break;
-      ++v9;
-      v11 += 3;
+      ++v3;
+      p_CfgBitMapSize += 3;
     }
-    while ( v9 < LdrpInvertedFunctionTable[0] );
-    v10 = v9 == LdrpInvertedFunctionTable[0];
+    while ( v3 < LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]) );
+    v4 = v3 == LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]);
   }
-  if ( !v10 )
+  if ( !v4 )
   {
-    LdrProtectMrdata(0, v5, v6, v7);
-    _InterlockedIncrement(&dword_180155328);
-    if ( v8 != 2 )
+    LdrProtectMrdata(0);
+    _InterlockedIncrement((volatile signed __int32 *)&LdrSystemDllInitBlock.RngData);
+    if ( v2 != 2 )
       memmove(
-        &LdrpInvertedFunctionTable[4 * v9 + 4 + 2 * v9],
-        &LdrpInvertedFunctionTable[4 * v9 + 10 + 2 * v9],
-        24LL * (v8 - v9 - 1));
-    --LdrpInvertedFunctionTable[0];
-    _InterlockedIncrement(&dword_180155328);
-    LdrProtectMrdata(1, v12, v13, v14);
+        (char *)&LdrSystemDllInitBlock.MitigationOptionsMap + 16 * v3 + 8 * v3,
+        &LdrSystemDllInitBlock.CfgBitMap + 2 * v3 + v3,
+        24LL * (v2 - v3 - 1));
+    --LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]);
+    _InterlockedIncrement((volatile signed __int32 *)&LdrSystemDllInitBlock.RngData);
+    LdrProtectMrdata(1);
   }
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

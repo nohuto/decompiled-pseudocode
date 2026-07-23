@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsNonPagedSystemAddressValid @ 0x14046BB80
+ * XREFs of MmIsNonPagedSystemAddressValid @ 0x14046BF80
  * Callers:
- *     VfMiscIoInitializeWorkItem_Entry @ 0x140ADFD30 (VfMiscIoInitializeWorkItem_Entry.c)
- *     ViMiscValidateSynchronizationObject @ 0x140AE1730 (ViMiscValidateSynchronizationObject.c)
- *     VfPnpVerifyNewRequest @ 0x140AE7380 (VfPnpVerifyNewRequest.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE7460 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     VfMiscIoInitializeWorkItem_Entry @ 0x140ADFD20 (VfMiscIoInitializeWorkItem_Entry.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140AE1720 (ViMiscValidateSynchronizationObject.c)
+ *     VfPnpVerifyNewRequest @ 0x140AE7370 (VfPnpVerifyNewRequest.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE7450 (ViPnpVerifyMinorWasProcessedProperly.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
  */
 
 BOOLEAN __stdcall MmIsNonPagedSystemAddressValid(PVOID VirtualAddress)

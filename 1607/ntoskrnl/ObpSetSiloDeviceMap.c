@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpSetSiloDeviceMap @ 0x140579DF0
+ * XREFs of ObpSetSiloDeviceMap @ 0x14057A330
  * Callers:
- *     ObpCreateDosDevicesDirectory @ 0x140579BE8 (ObpCreateDosDevicesDirectory.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14057A128 (ObpCreateDosDevicesDirectory.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
- *     ObpSetDeviceMap @ 0x1404E9E58 (ObpSetDeviceMap.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
+ *     ObpSetDeviceMap @ 0x1404CBF4C (ObpSetDeviceMap.c)
  */
 
 NTSTATUS __fastcall ObpSetSiloDeviceMap(__int64 a1, void *a2)

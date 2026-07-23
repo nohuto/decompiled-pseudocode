@@ -1,22 +1,22 @@
 /*
- * XREFs of DifNtCreateWaitablePortWrapper @ 0x140675170
+ * XREFs of DifNtCreateWaitablePortWrapper @ 0x140678D50
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtCreateWaitablePort @ 0x1407BFB90 (NtCreateWaitablePort.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtCreateWaitablePort @ 0x1407C2BF0 (NtCreateWaitablePort.c)
  */
 
 __int64 __fastcall DifNtCreateWaitablePortWrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        unsigned int a5)
+        HANDLE *a1,
+        OBJECT_ATTRIBUTES *a2,
+        ULONG a3,
+        ULONG a4,
+        ULONG MaxPoolUsage)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -51,7 +51,7 @@ __int64 __fastcall DifNtCreateWaitablePortWrapper(
     }
     v12 = 0;
     *(_QWORD *)&v21 = a1;
-    *((_QWORD *)&v19 + 1) = __PAIR64__(a4, a5);
+    *((_QWORD *)&v19 + 1) = __PAIR64__(a4, MaxPoolUsage);
     *((_QWORD *)&v20 + 1) = a2;
     LODWORD(v20) = a3;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
@@ -66,7 +66,7 @@ __int64 __fastcall DifNtCreateWaitablePortWrapper(
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v21) = NtCreateWaitablePort(a1, a2, a3, a4, a5);
+  DWORD2(v21) = NtCreateWaitablePort(a1, a2, a3, a4, MaxPoolUsage);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

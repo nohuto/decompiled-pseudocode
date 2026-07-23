@@ -4,27 +4,27 @@
  *     FsRtlInitializeMcb @ 0x14092E0F0 (FsRtlInitializeMcb.c)
  * Callees:
  *     FsRtlInitializeBaseMcbEx @ 0x1402021D0 (FsRtlInitializeBaseMcbEx.c)
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
+ *     sub_140202234 @ 0x140202234 (sub_140202234.c)
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
  */
 
 void __stdcall FsRtlInitializeLargeMcb(PLARGE_MCB Mcb, POOL_TYPE PoolType)
 {
-  struct _FAST_MUTEX *v3; // rax
-  LIST_ENTRY *p_WaitListHead; // rax
+  __int64 v3; // rax
+  _QWORD *v4; // rax
 
   FsRtlInitializeBaseMcbEx(&Mcb->BaseMcb, PoolType, 1u);
-  v3 = (struct _FAST_MUTEX *)ExAllocateFromNPagedLookasideList(&FsRtlFastMutexLookasideList);
-  Mcb->GuardedMutex = v3;
+  v3 = sub_140202234(&stru_140CE2580);
+  Mcb->GuardedMutex = (PKGUARDED_MUTEX)v3;
   if ( !v3 )
-    RtlRaiseStatus(3221225626LL);
-  v3->Count = 1;
-  v3->Owner = 0LL;
-  v3->Contention = 0;
-  LOWORD(v3->Event.Header.Lock) = 1;
-  v3->Event.Header.Size = 6;
-  v3->Event.Header.SignalState = 0;
-  p_WaitListHead = &v3->Event.Header.WaitListHead;
-  p_WaitListHead->Blink = p_WaitListHead;
-  p_WaitListHead->Flink = p_WaitListHead;
+    RtlRaiseStatus(-1073741670);
+  *(_DWORD *)v3 = 1;
+  *(_QWORD *)(v3 + 8) = 0LL;
+  *(_DWORD *)(v3 + 16) = 0;
+  *(_WORD *)(v3 + 24) = 1;
+  *(_BYTE *)(v3 + 26) = 6;
+  *(_DWORD *)(v3 + 28) = 0;
+  v4 = (_QWORD *)(v3 + 32);
+  v4[1] = v4;
+  *v4 = v4;
 }

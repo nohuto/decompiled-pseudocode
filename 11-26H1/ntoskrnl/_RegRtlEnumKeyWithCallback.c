@@ -1,17 +1,17 @@
 /*
- * XREFs of _RegRtlEnumKeyWithCallback @ 0x140919C00
+ * XREFs of _RegRtlEnumKeyWithCallback @ 0x140974660
  * Callers:
- *     DrvDbGetDriverPackageMappedProperty @ 0x14091C280 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetObjectSubKeyList @ 0x140AFB2CC (DrvDbGetObjectSubKeyList.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140B202B8 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140976CE0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetObjectSubKeyList @ 0x140AFD1DC (DrvDbGetObjectSubKeyList.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140B226B8 (_PnpCtxRegEnumKeyWithCallback.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     _SysCtxInternalEnumSubkeyCallback @ 0x1404AC6E0 (_SysCtxInternalEnumSubkeyCallback.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _RegRtlEnumKey @ 0x14091A1C0 (_RegRtlEnumKey.c)
- *     _RegRtlQueryInfoKey @ 0x14091A3B0 (_RegRtlQueryInfoKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     _SysCtxInternalEnumSubkeyCallback @ 0x1404A5D70 (_SysCtxInternalEnumSubkeyCallback.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _RegRtlEnumKey @ 0x140974C20 (_RegRtlEnumKey.c)
+ *     _RegRtlQueryInfoKey @ 0x140974E10 (_RegRtlQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, _QWORD *a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x140414DC0
+ * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x140413C80
  * Callers:
- *     SeAuditingAnyFileEventsWithContextEx @ 0x14000F4D0 (SeAuditingAnyFileEventsWithContextEx.c)
- *     SeAuditingFileEventsWithContextEx @ 0x14021A1F8 (SeAuditingFileEventsWithContextEx.c)
- *     SepAdtAuditThisEventWithContext @ 0x140414D50 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1404B7E50 (SepAdtAuditObjectAccessWithContext.c)
+ *     SeAuditingAnyFileEventsWithContextEx @ 0x14000F050 (SeAuditingAnyFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x14021A024 (SeAuditingFileEventsWithContextEx.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140413C10 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1404A2230 (SepAdtAuditObjectAccessWithContext.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 char __fastcall SepAdtAuditThisEventByCategoryWithContext(

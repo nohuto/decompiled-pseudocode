@@ -1,11 +1,11 @@
 /*
- * XREFs of HaliHaltSystem @ 0x14057F6B0
+ * XREFs of HaliHaltSystem @ 0x140581BD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x14046B750 (HalpAcpiPmRegisterRead.c)
- *     HalpShutdown @ 0x14057FA90 (HalpShutdown.c)
- *     InbvCheckDisplayOwnership @ 0x1405C4B00 (InbvCheckDisplayOwnership.c)
+ *     HalpAcpiPmRegisterRead @ 0x140464ED0 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x140581FB0 (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x1405C7370 (InbvCheckDisplayOwnership.c)
  */
 
 void __noreturn HaliHaltSystem()
@@ -19,8 +19,7 @@ void __noreturn HaliHaltSystem()
     {
       do
         v1 = 0;
-      while ( !LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink)
-           && !(unsigned __int8)InbvCheckDisplayOwnership() );
+      while ( !(_DWORD)KiBugCheckData && !(unsigned __int8)InbvCheckDisplayOwnership() );
     }
     while ( !LODWORD(HalpPmuArbiter.TrapFrame) || !LOBYTE(IommuInterfaceStateChangeCallbackPushLock.ThreadTimerDelay) );
     HalpAcpiPmRegisterRead(0, 0, (__int64)&v1, 2u, 0LL);

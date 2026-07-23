@@ -1,15 +1,15 @@
 /*
- * XREFs of MxCreateDescriptorPfns @ 0x140CF5814
+ * XREFs of MxCreateDescriptorPfns @ 0x140CFBB94
  * Callers:
- *     MxSwitchToPfns @ 0x140CF8360 (MxSwitchToPfns.c)
+ *     MxSwitchToPfns @ 0x140CFE6E0 (MxSwitchToPfns.c)
  * Callees:
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiInitializeNewPfns @ 0x1406E6548 (MiInitializeNewPfns.c)
- *     MxClearStaleSecurePageMapping @ 0x140CF51D0 (MxClearStaleSecurePageMapping.c)
- *     MxInsertPagesInFreeList @ 0x140CF7780 (MxInsertPagesInFreeList.c)
- *     MxInsertEnclaveBootPages @ 0x140CFD18C (MxInsertEnclaveBootPages.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiInitializeNewPfns @ 0x1406EB1F8 (MiInitializeNewPfns.c)
+ *     MxClearStaleSecurePageMapping @ 0x140CFB550 (MxClearStaleSecurePageMapping.c)
+ *     MxInsertPagesInFreeList @ 0x140CFDB00 (MxInsertPagesInFreeList.c)
+ *     MxInsertEnclaveBootPages @ 0x140D0350C (MxInsertEnclaveBootPages.c)
  */
 
 char __fastcall MxCreateDescriptorPfns(__int64 a1, const __m128i *a2, const __m128i *a3)

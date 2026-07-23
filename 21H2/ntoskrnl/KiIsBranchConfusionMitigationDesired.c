@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsBranchConfusionMitigationDesired @ 0x1403F30F4
+ * XREFs of KiIsBranchConfusionMitigationDesired @ 0x1403F3144
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x1403C7840 (KeOptimizeSpecCtrlSettings.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1403F31C4 (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsSrsoMitigationDesired @ 0x1403F32E8 (KiIsSrsoMitigationDesired.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C79E0 (KeOptimizeSpecCtrlSettings.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1403F3214 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsSrsoMitigationDesired @ 0x1403F3338 (KiIsSrsoMitigationDesired.c)
  * Callees:
  *     <none>
  */

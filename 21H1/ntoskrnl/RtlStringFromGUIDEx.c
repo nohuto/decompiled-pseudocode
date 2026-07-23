@@ -35,45 +35,45 @@
  *     ExpAllocateStringRoutine @ 0x1406D0920 (ExpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlStringFromGUIDEx(unsigned int *a1, __int64 a2, char a3)
+NTSTATUS __cdecl RtlStringFromGUIDEx(PGUID Guid, PUNICODE_STRING GuidString, BOOLEAN AllocateGuidString)
 {
-  PVOID StringRoutine; // rax
-  unsigned __int16 v6; // dx
+  wchar_t *StringRoutine; // rax
+  unsigned __int16 MaximumLength; // dx
 
-  if ( a3 )
+  if ( AllocateGuidString )
   {
-    *(_WORD *)(a2 + 2) = 78;
-    StringRoutine = ExpAllocateStringRoutine(0x4EuLL);
-    *(_QWORD *)(a2 + 8) = StringRoutine;
+    GuidString->MaximumLength = 78;
+    StringRoutine = (wchar_t *)ExpAllocateStringRoutine(0x4EuLL);
+    GuidString->Buffer = StringRoutine;
     if ( StringRoutine )
     {
-      v6 = *(_WORD *)(a2 + 2);
+      MaximumLength = GuidString->MaximumLength;
 LABEL_4:
-      *(_WORD *)a2 = 76;
+      GuidString->Length = 76;
       swprintf_s(
-        *(wchar_t **)(a2 + 8),
-        (unsigned __int64)v6 >> 1,
+        GuidString->Buffer,
+        (unsigned __int64)MaximumLength >> 1,
         L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-        *a1,
-        *((unsigned __int16 *)a1 + 2),
-        *((unsigned __int16 *)a1 + 3),
-        *((unsigned __int8 *)a1 + 8),
-        *((unsigned __int8 *)a1 + 9),
-        *((unsigned __int8 *)a1 + 10),
-        *((unsigned __int8 *)a1 + 11),
-        *((unsigned __int8 *)a1 + 12),
-        *((unsigned __int8 *)a1 + 13),
-        *((unsigned __int8 *)a1 + 14),
-        *((unsigned __int8 *)a1 + 15));
-      return 0LL;
+        Guid->Data1,
+        Guid->Data2,
+        Guid->Data3,
+        Guid->Data4[0],
+        Guid->Data4[1],
+        Guid->Data4[2],
+        Guid->Data4[3],
+        Guid->Data4[4],
+        Guid->Data4[5],
+        Guid->Data4[6],
+        Guid->Data4[7]);
+      return 0;
     }
-    return 3221225495LL;
+    return -1073741801;
   }
   else
   {
-    v6 = *(_WORD *)(a2 + 2);
-    if ( v6 >= 0x4Eu )
+    MaximumLength = GuidString->MaximumLength;
+    if ( MaximumLength >= 0x4Eu )
       goto LABEL_4;
-    return 3221225507LL;
+    return -1073741789;
   }
 }

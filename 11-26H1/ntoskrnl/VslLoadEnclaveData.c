@@ -1,13 +1,13 @@
 /*
- * XREFs of VslLoadEnclaveData @ 0x140792420
+ * XREFs of VslLoadEnclaveData @ 0x140794F50
  * Callers:
- *     PsLoadVsmEnclaveData @ 0x140616BD8 (PsLoadVsmEnclaveData.c)
+ *     PsLoadVsmEnclaveData @ 0x140619BC8 (PsLoadVsmEnclaveData.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x140410B74 (VslpUnlockPagesForTransfer.c)
- *     VslpLockMdlForTransfer @ 0x14041112C (VslpLockMdlForTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140410294 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockMdlForTransfer @ 0x14041084C (VslpLockMdlForTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslLoadEnclaveData(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5, _DWORD *a6)

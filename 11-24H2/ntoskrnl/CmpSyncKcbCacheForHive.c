@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSyncKcbCacheForHive @ 0x1407DBE60
+ * XREFs of CmpSyncKcbCacheForHive @ 0x1407DC3B0
  * Callers:
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpIsKeyDeleted @ 0x14086E210 (CmpIsKeyDeleted.c)
- *     CmpRebuildKcbCache @ 0x14087B4A8 (CmpRebuildKcbCache.c)
+ *     CmpIsKeyDeleted @ 0x140872540 (CmpIsKeyDeleted.c)
+ *     CmpRebuildKcbCache @ 0x14087F358 (CmpRebuildKcbCache.c)
  */
 
 __int64 __fastcall CmpSyncKcbCacheForHive(ULONG_PTR a1, __int64 a2)

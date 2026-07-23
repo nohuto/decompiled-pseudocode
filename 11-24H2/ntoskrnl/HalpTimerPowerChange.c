@@ -1,23 +1,21 @@
 /*
- * XREFs of HalpTimerPowerChange @ 0x1405486C0
+ * XREFs of HalpTimerPowerChange @ 0x140545F80
  * Callers:
- *     HalpTimerPowerCriticalTransitionCallback @ 0x1405487E0 (HalpTimerPowerCriticalTransitionCallback.c)
+ *     HalpTimerPowerCriticalTransitionCallback @ 0x1405460A0 (HalpTimerPowerCriticalTransitionCallback.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpTimerClockPowerChange @ 0x140546A70 (HalpTimerClockPowerChange.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140548008 (HalpTimerPerformanceCounterPowerChange.c)
- *     HalpTimerStallCounterPowerChange @ 0x140548948 (HalpTimerStallCounterPowerChange.c)
- *     HalpTimerRestartProfileInterrupt @ 0x140549F74 (HalpTimerRestartProfileInterrupt.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpTimerClockPowerChange @ 0x140544330 (HalpTimerClockPowerChange.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1405458C8 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpTimerStallCounterPowerChange @ 0x140546208 (HalpTimerStallCounterPowerChange.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x140547834 (HalpTimerRestartProfileInterrupt.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpTimerPowerChange(ULONG_PTR BugCheckParameter3, char a2)
 {
   __int64 InternalData; // rax
   __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
 
   if ( a2 )
   {
@@ -46,7 +44,7 @@ LABEL_20:
     return;
   }
   InternalData = HalpTimerGetInternalData(HalpProfileTimer);
-  if ( (int)guard_dispatch_icall_no_overrides(InternalData, v5, v6, v7) >= 0 )
+  if ( (int)guard_dispatch_icall_no_overrides(InternalData, v5) >= 0 )
   {
     if ( HalpProfilingActive )
       HalpTimerRestartProfileInterrupt();

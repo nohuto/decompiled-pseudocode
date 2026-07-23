@@ -1,18 +1,18 @@
 /*
- * XREFs of MmGetSessionObjectById @ 0x1401EC9D8
+ * XREFs of MmGetSessionObjectById @ 0x1401EC804
  * Callers:
- *     SeSetSessionIdToken @ 0x14047AA4C (SeSetSessionIdToken.c)
- *     NtSetInformationObject @ 0x1404B0170 (NtSetInformationObject.c)
- *     IoRegisterContainerNotification @ 0x14057C124 (IoRegisterContainerNotification.c)
- *     IoGetContainerInformation @ 0x140624414 (IoGetContainerInformation.c)
- *     SeExchangePrimaryToken @ 0x140692774 (SeExchangePrimaryToken.c)
- *     SepSetTokenSessionById @ 0x1406930B0 (SepSetTokenSessionById.c)
+ *     SeSetSessionIdToken @ 0x14047991C (SeSetSessionIdToken.c)
+ *     NtSetInformationObject @ 0x14049A550 (NtSetInformationObject.c)
+ *     IoRegisterContainerNotification @ 0x14057C5D0 (IoRegisterContainerNotification.c)
+ *     IoGetContainerInformation @ 0x1406244C8 (IoGetContainerInformation.c)
+ *     SeExchangePrimaryToken @ 0x140692858 (SeExchangePrimaryToken.c)
+ *     SepSetTokenSessionById @ 0x140693194 (SepSetTokenSessionById.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 void *__fastcall MmGetSessionObjectById(unsigned int a1, __int64 a2, __int64 a3)
@@ -30,7 +30,7 @@ void *__fastcall MmGetSessionObjectById(unsigned int a1, __int64 a2, __int64 a3)
   {
     v6 = *(_QWORD *)(SessionById + 1024);
     v3 = *(void **)(v6 + 72);
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     if ( (*(_DWORD *)(v6 + 4) & 2) != 0 )
       v3 = 0LL;
     else

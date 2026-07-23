@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfCalculateQosClassPolicies @ 0x14032A968
+ * XREFs of PpmPerfCalculateQosClassPolicies @ 0x14032ABF8
  * Callers:
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6350 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x1407A6540 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x14025594C (PpmGetPerfPolicyClass.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     PpmGetPerfPolicyClass @ 0x140255A0C (PpmGetPerfPolicyClass.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  *     PpmEventQosClassPolicyV1 @ 0x14067EAF0 (PpmEventQosClassPolicyV1.c)
  */
 
@@ -86,7 +86,7 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
   v62 = 0;
   v3 = 0LL;
   v61 = 0;
-  v67 = dword_140C3D86C;
+  v67 = dword_140C3D96C;
   v65 = 0;
   v68 = 0LL;
   PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass(*(_BYTE **)(a1 + 16));
@@ -127,7 +127,7 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
         if ( (_DWORD)v7 != 6 )
         {
 LABEL_30:
-          v9 = dword_140C3D86C;
+          v9 = dword_140C3D96C;
           v10 = PpmCurrentProfile + 5;
 LABEL_31:
           v11 = &v10[55 * v9];
@@ -157,7 +157,7 @@ LABEL_16:
       v15 = 0LL;
       goto LABEL_17;
     }
-    v11 = (__int64 *)((char *)&unk_140C394C8 + 440 * v4);
+    v11 = (__int64 *)((char *)&unk_140C39448 + 440 * v4);
 LABEL_32:
     v12 = v11;
     v13 = v3;

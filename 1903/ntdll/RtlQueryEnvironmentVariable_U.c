@@ -11,24 +11,24 @@
  *     RtlQueryEnvironmentVariable @ 0x18001A270 (RtlQueryEnvironmentVariable.c)
  */
 
-__int64 __fastcall RtlQueryEnvironmentVariable_U(char *a1, wchar_t **a2, __int64 a3)
+NTSTATUS __cdecl RtlQueryEnvironmentVariable_U(PVOID Environment, PUNICODE_STRING Name, PUNICODE_STRING Value)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int16 v5; // cx
-  unsigned __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+48h] [rbp+10h] BYREF
 
   result = RtlQueryEnvironmentVariable(
-             a1,
-             a2[1],
-             (unsigned __int64)*(unsigned __int16 *)a2 >> 1,
-             *(_WORD **)(a3 + 8),
-             (unsigned __int64)*(unsigned __int16 *)(a3 + 2) >> 1,
-             (__int64)&v6);
-  v5 = v6;
-  if ( v6 > 0x7FFF )
-    return 3221225495LL;
-  if ( (_DWORD)result == -1073741789 )
-    v5 = v6 - 1;
-  *(_WORD *)a3 = 2 * v5;
+             Environment,
+             Name->Buffer,
+             (unsigned __int64)Name->Length >> 1,
+             Value->Buffer,
+             (unsigned __int64)Value->MaximumLength >> 1,
+             &ReturnLength);
+  v5 = ReturnLength;
+  if ( ReturnLength > 0x7FFF )
+    return -1073741801;
+  if ( result == -1073741789 )
+    v5 = ReturnLength - 1;
+  Value->Length = 2 * v5;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x1403D75C8
+ * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x1402F10A8
  * Callers:
- *     ExConvertFastResourceExclusiveToShared @ 0x1403D6EE0 (ExConvertFastResourceExclusiveToShared.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403D74B8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExConvertFastResourceExclusiveToShared @ 0x1402F01A0 (ExConvertFastResourceExclusiveToShared.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1402F0F98 (ExpFastResourceLegacyConvertExclusiveToShared.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     ExpUpdateLockWordForRelease @ 0x1403D7440 (ExpUpdateLockWordForRelease.c)
- *     KeWakeWaitChain @ 0x1403D7B10 (KeWakeWaitChain.c)
- *     ExpRemoveFastOwnerEntryFromThreadList @ 0x1403D8640 (ExpRemoveFastOwnerEntryFromThreadList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     ExpUpdateLockWordForRelease @ 0x1402F0F20 (ExpUpdateLockWordForRelease.c)
+ *     KeWakeWaitChain @ 0x1402F15F0 (KeWakeWaitChain.c)
+ *     ExpRemoveFastOwnerEntryFromThreadList @ 0x1402F2120 (ExpRemoveFastOwnerEntryFromThreadList.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall ExpConvertFastResourceExclusiveToShared(__int64 a1, unsigned __int64 a2)

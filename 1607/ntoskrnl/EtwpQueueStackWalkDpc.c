@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpQueueStackWalkDpc @ 0x140229390
+ * XREFs of EtwpQueueStackWalkDpc @ 0x1402291BC
  * Callers:
- *     EtwpQueueStackWalkApc @ 0x140229234 (EtwpQueueStackWalkApc.c)
+ *     EtwpQueueStackWalkApc @ 0x140229060 (EtwpQueueStackWalkApc.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 struct _KPRCB *__fastcall EtwpQueueStackWalkDpc(__int64 a1, int a2, unsigned int *a3)

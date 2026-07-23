@@ -1,10 +1,10 @@
 /*
- * XREFs of MI_GET_NODE_FROM_VALID_PTE @ 0x140361544
+ * XREFs of MI_GET_NODE_FROM_VALID_PTE @ 0x1403616E4
  * Callers:
- *     MmGrowKernelStackEx @ 0x140361350 (MmGrowKernelStackEx.c)
+ *     MmGrowKernelStackEx @ 0x1403614F0 (MmGrowKernelStackEx.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MI_GET_NODE_FROM_VALID_PTE(unsigned __int64 a1)

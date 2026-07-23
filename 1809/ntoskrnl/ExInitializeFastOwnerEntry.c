@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializeFastOwnerEntry @ 0x1401668E0
+ * XREFs of ExInitializeFastOwnerEntry @ 0x1401669E0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 struct _KTHREAD *__fastcall ExInitializeFastOwnerEntry(_QWORD *a1)

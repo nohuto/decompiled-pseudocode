@@ -18,82 +18,76 @@
  *     EtwpAllocateUmGuidEntry @ 0x180050DE8 (EtwpAllocateUmGuidEntry.c)
  */
 
-__int64 __fastcall EtwDeliverDataBlock(__int64 a1)
+__int64 __fastcall EtwDeliverDataBlock(PETW_NOTIFICATION_HEADER Notification)
 {
-  char v1; // al
-  unsigned int v3; // r14d
+  BOOLEAN ReplyRequested; // al
+  ULONG v3; // r14d
   char v4; // r12
-  int v5; // eax
+  ULONG Timeout; // eax
   char v6; // r13
   char v7; // si
   char v8; // r15
   bool v9; // zf
-  __int64 Registration; // rax
-  unsigned __int64 v11; // rdx
-  unsigned __int64 *v12; // r8
-  __int64 v13; // r9
+  _RTL_SRWLOCK *Registration; // rax
   __int64 NextRegistration; // rdi
-  char v15; // r15
-  __int64 v17; // r13
-  unsigned __int64 v18; // rdx
-  unsigned __int64 *v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rax
-  __int64 v22; // rdx
+  char v12; // r15
+  ULONGLONG v14; // r13
+  __int64 v15; // rax
+  __int64 v16; // rdx
   _QWORD *GuidEntry; // rsi
-  char v24; // dl
-  _BYTE *v25; // rax
-  int v26; // r9d
-  unsigned int v27; // ecx
-  _QWORD *v28; // r8
-  __int64 v29; // rax
-  _BYTE *v30; // rcx
-  _QWORD *v31; // r8
-  int v32; // [rsp+30h] [rbp-18h]
-  _QWORD v33[2]; // [rsp+38h] [rbp-10h] BYREF
-  char v34; // [rsp+90h] [rbp+48h]
-  char v35; // [rsp+98h] [rbp+50h] BYREF
-  char v36; // [rsp+A0h] [rbp+58h]
-  unsigned int v37; // [rsp+A8h] [rbp+60h] BYREF
+  char v18; // dl
+  _BYTE *v19; // rax
+  int v20; // r9d
+  unsigned int v21; // ecx
+  ULONGLONG *v22; // r8
+  __int64 v23; // rax
+  _BYTE *v24; // rcx
+  _QWORD *v25; // r8
+  ULONG v26; // [rsp+30h] [rbp-18h]
+  _QWORD v27[2]; // [rsp+38h] [rbp-10h] BYREF
+  char v28; // [rsp+90h] [rbp+48h]
+  char v29; // [rsp+98h] [rbp+50h] BYREF
+  BOOLEAN v30; // [rsp+A0h] [rbp+58h]
+  ULONG v31; // [rsp+A8h] [rbp+60h] BYREF
 
-  v1 = *(_BYTE *)(a1 + 12);
-  v33[0] = 0LL;
+  ReplyRequested = Notification->ReplyRequested;
+  v27[0] = 0LL;
   v3 = 0;
   v4 = 0;
-  v36 = v1;
-  v5 = *(_DWORD *)(a1 + 16);
+  v30 = ReplyRequested;
+  Timeout = Notification->Timeout;
   v6 = 0;
   v7 = 0;
-  v37 = 0;
-  v35 = 0;
+  v31 = 0;
+  v29 = 0;
   v8 = 0;
-  v34 = 0;
-  v9 = *(_DWORD *)a1 == 3;
-  v32 = v5;
+  v28 = 0;
+  v9 = Notification->NotificationType == EtwNotificationTypeEnable;
+  v26 = Timeout;
   EtwpReplySend = 0;
-  if ( v9 && *(__int16 *)(a1 + 78) < 0 )
+  if ( v9 && (Notification[1].NotificationSize & 0x80000000) != 0 )
   {
     v8 = 1;
-    *(_DWORD *)(a1 + 24) = -1;
+    LODWORD(Notification->Reserved2) = -1;
   }
-  if ( *(_DWORD *)(a1 + 24) != -1 )
+  if ( LODWORD(Notification->Reserved2) != -1 )
   {
-    Registration = EtwpFindRegistration(a1 + 40, *(unsigned __int16 *)(a1 + 24));
-    NextRegistration = Registration;
+    Registration = (_RTL_SRWLOCK *)EtwpFindRegistration(&Notification->DestinationGuid, LOWORD(Notification->Reserved2));
+    NextRegistration = (__int64)Registration;
     if ( !Registration )
     {
-      v15 = 0;
+      v12 = 0;
 LABEL_7:
       v3 = 4201;
       goto LABEL_8;
     }
-    RtlAcquireSRWLockExclusive(Registration + 64, v11, v12, v13);
-    v15 = 1;
+    RtlAcquireSRWLockExclusive(Registration + 8);
+    v12 = 1;
     *(_DWORD *)(NextRegistration + 80) = NtCurrentTeb()->ClientId.UniqueThread;
-    EtwpProcessNotification(NextRegistration, a1, v33, &v37, &v35);
-    v17 = v33[0];
-    v3 = v37;
-    v4 = v35;
+    EtwpProcessNotification(NextRegistration, Notification, v27, &v31, &v29);
+    v14 = v27[0];
+    v3 = v31;
+    v4 = v29;
 LABEL_12:
     if ( v4 || v7 )
       goto LABEL_13;
@@ -105,128 +99,130 @@ LABEL_12:
 LABEL_25:
     if ( !v8
       || !PrivateLoggerNotificationEntry
-      || (v17 = *(_QWORD *)(PrivateLoggerNotificationEntry + 88), *(_DWORD *)(a1 + 72) == 2)
-      || (GuidEntry = EtwpFindGuidEntry((_QWORD *)(a1 + 40), v18, v19, v20)) == 0LL
-      && (!*(_DWORD *)(a1 + 72) || (GuidEntry = (_QWORD *)EtwpAllocateUmGuidEntry(a1 + 40)) == 0LL) )
+      || (v14 = *(_QWORD *)(PrivateLoggerNotificationEntry + 88),
+          Notification[1].NotificationType == EtwNotificationTypeLegacyEnable)
+      || (GuidEntry = EtwpFindGuidEntry(&Notification->DestinationGuid.Data1)) == 0LL
+      && (!Notification[1].NotificationType
+       || (GuidEntry = (_QWORD *)EtwpAllocateUmGuidEntry(&Notification->DestinationGuid)) == 0LL) )
     {
-      v15 = v34;
+      v12 = v28;
       goto LABEL_7;
     }
-    EtwpAcquireGuidEntryExclusive(GuidEntry, v22);
-    v24 = *(_BYTE *)(a1 + 78);
-    v25 = (char *)GuidEntry + 78;
-    v26 = 0;
-    v27 = 0;
-    while ( !*(v25 - 2) || *v25 != v24 )
+    EtwpAcquireGuidEntryExclusive(GuidEntry, v16);
+    v18 = BYTE2(Notification[1].NotificationSize);
+    v19 = (char *)GuidEntry + 78;
+    v20 = 0;
+    v21 = 0;
+    while ( !*(v19 - 2) || *v19 != v18 )
     {
-      ++v27;
-      v25 += 24;
-      if ( v27 >= 4 )
+      ++v21;
+      v19 += 24;
+      if ( v21 >= 4 )
       {
-        v28 = 0LL;
+        v22 = 0LL;
         goto LABEL_40;
       }
     }
-    v28 = &GuidEntry[2 * v27 + 7 + v27];
+    v22 = &GuidEntry[2 * v21 + 7 + v21];
 LABEL_40:
-    if ( !v28 )
+    if ( !v22 )
     {
-      if ( !*(_DWORD *)(a1 + 72) )
+      if ( !Notification[1].NotificationType )
         goto LABEL_42;
-      v29 = 0LL;
-      v30 = (char *)GuidEntry + 76;
+      v23 = 0LL;
+      v24 = (char *)GuidEntry + 76;
       do
       {
-        if ( !*v30 )
+        if ( !*v24 )
         {
-          v31 = &GuidEntry[2 * v29 + 7 + v29];
+          v25 = &GuidEntry[2 * v23 + 7 + v23];
           goto LABEL_52;
         }
-        v29 = (unsigned int)(v29 + 1);
-        v30 += 24;
+        v23 = (unsigned int)(v23 + 1);
+        v24 += 24;
       }
-      while ( (unsigned int)v29 < 4 );
-      v31 = 0LL;
+      while ( (unsigned int)v23 < 4 );
+      v25 = 0LL;
 LABEL_52:
-      if ( !v31 )
+      if ( !v25 )
         goto LABEL_42;
-      *((_BYTE *)v31 + 22) = v24;
+      *((_BYTE *)v25 + 22) = v18;
       EtwpReferenceUmGuidEntry(GuidEntry);
     }
-    *v28 = *(_QWORD *)(a1 + 96);
-    v28[1] = *(_QWORD *)(a1 + 88);
-    *((_BYTE *)v28 + 21) = *(_BYTE *)(a1 + 76);
-    *((_DWORD *)v28 + 4) = *(_DWORD *)(a1 + 80);
-    *((_BYTE *)v28 + 20) = *(_DWORD *)(a1 + 72) != v26;
+    *v22 = Notification[1].Reserved2;
+    v22[1] = *(_QWORD *)&Notification[1].Timeout;
+    *((_BYTE *)v22 + 21) = Notification[1].NotificationSize;
+    *((_DWORD *)v22 + 4) = Notification[1].Offset;
+    *((_BYTE *)v22 + 20) = Notification[1].NotificationType != v20;
 LABEL_42:
-    if ( *(_BYTE *)(a1 + 107) == 1 )
+    if ( HIBYTE(Notification[1].TargetPID) == 1 )
     {
-      GuidEntry[19] = *(_QWORD *)(a1 + 104);
-      *((_DWORD *)GuidEntry + 40) = *(_DWORD *)(a1 + 72);
+      GuidEntry[19] = *(_QWORD *)&Notification[1].TargetPID;
+      *((_DWORD *)GuidEntry + 40) = Notification[1].NotificationType;
     }
-    *((_DWORD *)GuidEntry + 12) = v26;
-    RtlReleaseSRWLockExclusive(GuidEntry + 5);
+    *((_DWORD *)GuidEntry + 12) = v20;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)GuidEntry + 5);
     EtwpDereferenceUmGuidEntry(GuidEntry);
-    v15 = v34;
+    v12 = v28;
     v7 = 1;
     goto LABEL_12;
   }
   do
   {
-    v21 = *(_QWORD *)(a1 + 40) - *(_QWORD *)(NextRegistration + 32);
-    if ( !v21 )
-      v21 = *(_QWORD *)(a1 + 48) - *(_QWORD *)(NextRegistration + 40);
-    if ( v21 )
+    v15 = *(_QWORD *)&Notification->DestinationGuid.Data1 - *(_QWORD *)(NextRegistration + 32);
+    if ( !v15 )
+      v15 = *(_QWORD *)Notification->DestinationGuid.Data4 - *(_QWORD *)(NextRegistration + 40);
+    if ( v15 )
       goto LABEL_23;
     if ( *(_DWORD *)(NextRegistration + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
     {
-      RtlAcquireSRWLockExclusive(NextRegistration + 64, v18, v19, v20);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(NextRegistration + 64));
       v6 = 1;
       *(_DWORD *)(NextRegistration + 80) = NtCurrentTeb()->ClientId.UniqueThread;
     }
-    if ( (unsigned __int8)EtwpProcessNotification(NextRegistration, a1, v33, &v37, &v35) )
+    if ( (unsigned __int8)EtwpProcessNotification(NextRegistration, Notification, v27, &v31, &v29) )
       break;
     if ( v6 )
     {
       *(_DWORD *)(NextRegistration + 80) = 0;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(NextRegistration + 64));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(NextRegistration + 64));
       v6 = 0;
     }
 LABEL_23:
     NextRegistration = EtwpGetNextRegistration(NextRegistration);
   }
   while ( NextRegistration );
-  v4 = v35;
-  v3 = v37;
-  v34 = v6;
-  if ( !v35 )
+  v4 = v29;
+  v3 = v31;
+  v28 = v6;
+  if ( !v29 )
     goto LABEL_25;
-  v17 = v33[0];
-  v15 = v34;
+  v14 = v27[0];
+  v12 = v28;
 LABEL_13:
-  if ( v36 == 1 && !EtwpReplySend )
+  if ( v30 == 1 && !EtwpReplySend )
   {
     if ( v3 )
     {
-      *(_DWORD *)a1 = 1;
+      Notification->NotificationType = EtwNotificationTypeNoReply;
 LABEL_17:
-      *(_DWORD *)(a1 + 4) = 72;
+      Notification->NotificationSize = 72;
     }
-    else if ( *(_DWORD *)a1 == 3 )
+    else if ( Notification->NotificationType == EtwNotificationTypeEnable )
     {
       goto LABEL_17;
     }
-    *(_DWORD *)(a1 + 16) = v32;
-    *(_BYTE *)(a1 + 12) = 0;
-    *(_QWORD *)(a1 + 24) = v17;
-    v3 = EtwReplyNotification(a1);
+    Notification->Timeout = v26;
+    Notification->ReplyRequested = 0;
+    Notification->Reserved2 = v14;
+    v3 = EtwReplyNotification(Notification);
   }
 LABEL_8:
-  if ( v15 )
+  if ( v12 )
   {
     *(_DWORD *)(NextRegistration + 80) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(NextRegistration + 64));
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(NextRegistration + 72));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(NextRegistration + 64));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(NextRegistration + 72));
   }
   return v3;
 }

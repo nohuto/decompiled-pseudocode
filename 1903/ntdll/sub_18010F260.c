@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_18010F260 @ 0x18010F260
  * Callers:
- *     sub_18002EA00 @ 0x18002EA00 (sub_18002EA00.c)
+ *     Callback @ 0x18002EA00 (Callback.c)
  *     sub_18002F4F0 @ 0x18002F4F0 (sub_18002F4F0.c)
  *     sub_180030488 @ 0x180030488 (sub_180030488.c)
  *     sub_1800305A0 @ 0x1800305A0 (sub_1800305A0.c)
@@ -18,8 +18,26 @@
  *     ZwTraceEvent @ 0x18009D290 (ZwTraceEvent.c)
  */
 
-__int64 sub_18010F260()
+NTSTATUS __fastcall sub_18010F260(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  RtlGetCurrentServiceSessionId();
-  return ZwTraceEvent();
+  __int64 v5; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-68h] BYREF
+  __int16 v8; // [rsp+26h] [rbp-62h]
+  __int64 v9; // [rsp+40h] [rbp-48h]
+  __int64 v10; // [rsp+48h] [rbp-40h]
+  __int64 v11; // [rsp+50h] [rbp-38h]
+  __int64 v12; // [rsp+58h] [rbp-30h]
+  __int64 v13; // [rsp+60h] [rbp-28h]
+
+  v8 = 7202;
+  v13 = a5;
+  v9 = a1;
+  v10 = a2;
+  v11 = a3;
+  v12 = a4;
+  if ( RtlGetCurrentServiceSessionId() )
+    v5 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
+  else
+    v5 = 2147353478LL;
+  return ZwTraceEvent((HANDLE)*(unsigned __int8 *)v5, 0x402u, 0x28u, Fields);
 }

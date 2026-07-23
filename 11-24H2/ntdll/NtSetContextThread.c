@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetContextThread @ 0x180164FC0
+ * XREFs of NtSetContextThread @ 0x180163380
  * Callers:
- *     RtlRemoteCall @ 0x1801469B0 (RtlRemoteCall.c)
+ *     RtlRemoteCall @ 0x180144D60 (RtlRemoteCall.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetContextThread()
+NTSTATUS __cdecl NtSetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 410LL;
+  result = 410;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

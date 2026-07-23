@@ -31,7 +31,7 @@ void __fastcall KiSwapToUmsThread(signed __int64 a1)
   struct _KTHREAD *CurrentThread; // rbx
   unsigned __int64 v3; // rsi
   __int64 ThreadForTeb; // rax
-  struct _LIST_ENTRY *v5; // r8
+  _LIST_ENTRY *v5; // r8
   __int64 v6; // rdi
   signed __int64 v7; // rax
   int v8; // r12d
@@ -57,7 +57,7 @@ void __fastcall KiSwapToUmsThread(signed __int64 a1)
   __int64 v28; // r8
   __int64 v29; // rdx
   unsigned __int64 v30; // [rsp+30h] [rbp+0h]
-  struct _EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
   _DWORD v32[4]; // [rsp+E0h] [rbp+B0h] BYREF
   _DWORD v33[4]; // [rsp+F0h] [rbp+C0h] BYREF
   _DWORD *v34; // [rsp+100h] [rbp+D0h] BYREF

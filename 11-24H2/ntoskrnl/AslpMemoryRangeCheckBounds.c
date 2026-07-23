@@ -1,8 +1,8 @@
 /*
- * XREFs of AslpMemoryRangeCheckBounds @ 0x140696A84
+ * XREFs of AslpMemoryRangeCheckBounds @ 0x140697B54
  * Callers:
- *     AslpFileGetCrcChecksumBoot @ 0x14080D344 (AslpFileGetCrcChecksumBoot.c)
- *     AslpFileGetImageCodeSectionHeader @ 0x14080DE08 (AslpFileGetImageCodeSectionHeader.c)
+ *     AslpFileGetCrcChecksumBoot @ 0x14080DA84 (AslpFileGetCrcChecksumBoot.c)
+ *     AslpFileGetImageCodeSectionHeader @ 0x14080E548 (AslpFileGetImageCodeSectionHeader.c)
  * Callees:
  *     <none>
  */

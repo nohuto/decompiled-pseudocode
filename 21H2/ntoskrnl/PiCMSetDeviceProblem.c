@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMSetDeviceProblem @ 0x14072EC10
+ * XREFs of PiCMSetDeviceProblem @ 0x14072EDDC
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmValidateDeviceName @ 0x140642270 (_CmValidateDeviceName.c)
- *     PiCMReturnBasicResultData @ 0x1406A0160 (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
- *     PiAuDoesClientHavePrivilege @ 0x14072F34C (PiAuDoesClientHavePrivilege.c)
- *     PiCMSetProblem @ 0x14072F648 (PiCMSetProblem.c)
- *     PiCMCaptureProblemInputData @ 0x14072F730 (PiCMCaptureProblemInputData.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PiCMReturnBasicResultData @ 0x1405FF4A0 (PiCMReturnBasicResultData.c)
+ *     PiAuDoesClientHaveAccess @ 0x1405FF814 (PiAuDoesClientHaveAccess.c)
+ *     _CmValidateDeviceName @ 0x140637080 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F518 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMSetProblem @ 0x14072F814 (PiCMSetProblem.c)
+ *     PiCMCaptureProblemInputData @ 0x14072F8FC (PiCMCaptureProblemInputData.c)
  */
 
 __int64 __fastcall PiCMSetDeviceProblem(

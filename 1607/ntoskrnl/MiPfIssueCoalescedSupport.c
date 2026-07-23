@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPfIssueCoalescedSupport @ 0x140125220
+ * XREFs of MiPfIssueCoalescedSupport @ 0x140125790
  * Callers:
- *     MiPfIssueCoalesceCandidates @ 0x1401251C4 (MiPfIssueCoalesceCandidates.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140125734 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiInitializeInPageSupport @ 0x1400E75D0 (MiInitializeInPageSupport.c)
- *     IoPageReadEx @ 0x1400E9F10 (IoPageReadEx.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiInitializeInPageSupport @ 0x1400E5470 (MiInitializeInPageSupport.c)
+ *     IoPageReadEx @ 0x1400E7D80 (IoPageReadEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -74,7 +74,7 @@ char *__fastcall MiPfIssueCoalescedSupport(__int64 **a1, unsigned int a2)
           *((_WORD *)v6 + 133) &= ~0x4000u;
           v12 = *((_DWORD *)v9 + 24) - v5;
           v13 = (unsigned __int64)(8 * (v12 >> 12)) >> 3;
-          memset64(v7, qword_140327698, v13);
+          memset64(v7, qword_1403276D8, v13);
           v7 += 8 * v13;
           v5 += v12;
           v8 += v12;

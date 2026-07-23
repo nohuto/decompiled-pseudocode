@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfControlExecuteAction @ 0x14017859C (PpmPerfControlExecuteAction.c)
+ *     PpmPerfControlExecuteAction @ 0x14017869C (PpmPerfControlExecuteAction.c)
  */
 
 char PpmCheckAcquireProcessorPerformance()

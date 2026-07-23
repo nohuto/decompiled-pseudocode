@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCleanupBestCandidatesContext @ 0x1404CF754
+ * XREFs of MiCleanupBestCandidatesContext @ 0x1404C9184
  * Callers:
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiCleanupBestCandidatesContext(void **a1, void *a2)

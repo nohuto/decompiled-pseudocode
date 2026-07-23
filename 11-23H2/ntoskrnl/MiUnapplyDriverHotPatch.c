@@ -1,30 +1,30 @@
 /*
- * XREFs of MiUnapplyDriverHotPatch @ 0x140A3BD68
+ * XREFs of MiUnapplyDriverHotPatch @ 0x140A3C018
  * Callers:
- *     MiApplyHotPatchToDriver @ 0x140A34E70 (MiApplyHotPatchToDriver.c)
+ *     MiApplyHotPatchToDriver @ 0x140A35120 (MiApplyHotPatchToDriver.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiDetachSessionGlobal @ 0x14033EFBC (MiDetachSessionGlobal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VslRevertHotPatch @ 0x14054C56C (VslRevertHotPatch.c)
- *     MiDereferenceSessionGlobal @ 0x14063750C (MiDereferenceSessionGlobal.c)
- *     MiAttachToSessionForBaseImage @ 0x140641B94 (MiAttachToSessionForBaseImage.c)
- *     MiUnlockDriverPages @ 0x140875B2C (MiUnlockDriverPages.c)
- *     VslDetermineHotPatchUndoTableSize @ 0x140942124 (VslDetermineHotPatchUndoTableSize.c)
- *     VslObtainHotPatchUndoTable @ 0x140942AF8 (VslObtainHotPatchUndoTable.c)
- *     MiPrepareDriverPatchState @ 0x140A2B624 (MiPrepareDriverPatchState.c)
- *     MiIdentifyImageDiscardablePages @ 0x140A37674 (MiIdentifyImageDiscardablePages.c)
- *     MiLockHotPatchUndoPages @ 0x140A38638 (MiLockHotPatchUndoPages.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiDetachSessionGlobal @ 0x14033F24C (MiDetachSessionGlobal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VslRevertHotPatch @ 0x14054CC2C (VslRevertHotPatch.c)
+ *     MiDereferenceSessionGlobal @ 0x140637A5C (MiDereferenceSessionGlobal.c)
+ *     MiAttachToSessionForBaseImage @ 0x1406420E4 (MiAttachToSessionForBaseImage.c)
+ *     MiUnlockDriverPages @ 0x140875D6C (MiUnlockDriverPages.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x140942324 (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x140942CF8 (VslObtainHotPatchUndoTable.c)
+ *     MiPrepareDriverPatchState @ 0x140A2B8D4 (MiPrepareDriverPatchState.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140A37924 (MiIdentifyImageDiscardablePages.c)
+ *     MiLockHotPatchUndoPages @ 0x140A388E8 (MiLockHotPatchUndoPages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
+__int64 __fastcall MiUnapplyDriverHotPatch(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v4; // ecx
   int v5; // eax
@@ -36,19 +36,19 @@ __int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
   __int64 v11; // r15
   PVOID Pool; // rax
   _DWORD v14[4]; // [rsp+20h] [rbp-89h] BYREF
-  __int64 v15[14]; // [rsp+30h] [rbp-79h] BYREF
+  _RTL_BITMAP_EX v15[7]; // [rsp+30h] [rbp-79h] BYREF
   $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+A0h] [rbp-9h] BYREF
 
   v14[0] = 0;
   memset(&v16, 0, sizeof(v16));
   memset(v15, 0, 0x68uLL);
   v4 = *(_DWORD *)(a1 + 64);
-  v15[0] = a1;
+  v15[0].SizeOfBitMap = a1;
   v5 = (v4 >> 12) + ((v4 & 0xFFF) != 0);
   v6 = 0LL;
   v7 = *(_QWORD *)(a1 + 48);
   v8 = 0LL;
-  LODWORD(v15[3]) = v5;
+  LODWORD(v15[1].Buffer) = v5;
   LODWORD(v9) = VslDetermineHotPatchUndoTableSize(v7, v14);
   if ( (v9 & 0x80000000) == 0LL )
   {
@@ -76,10 +76,10 @@ __int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
           LODWORD(v9) = MiPrepareDriverPatchState((__int64)v15, v11);
           if ( (v9 & 0x80000000) == 0LL )
           {
-            LODWORD(v9) = MiIdentifyImageDiscardablePages(v15);
+            LODWORD(v9) = MiIdentifyImageDiscardablePages((__int64 *)v15);
             if ( (v9 & 0x80000000) == 0LL )
             {
-              LODWORD(v9) = MiLockHotPatchUndoPages(v15, (int)v8);
+              LODWORD(v9) = MiLockHotPatchUndoPages((__int64 *)v15, (int)v8);
               if ( (v9 & 0x80000000) == 0LL )
                 LODWORD(v9) = VslRevertHotPatch(*(_QWORD *)(a1 + 48), 0, 0);
             }

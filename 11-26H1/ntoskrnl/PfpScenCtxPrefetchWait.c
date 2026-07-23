@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpScenCtxPrefetchWait @ 0x140BF8AD8
+ * XREFs of PfpScenCtxPrefetchWait @ 0x140BFEAD8
  * Callers:
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     PfpScenCtxWaiterTimedOut @ 0x1405FFE04 (PfpScenCtxWaiterTimedOut.c)
- *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1406002C4 (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x1406028B4 (PfpScenCtxWaiterTimedOut.c)
+ *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x140602D74 (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchWait(struct _KTHREAD *a1, int a2, unsigned int a3)

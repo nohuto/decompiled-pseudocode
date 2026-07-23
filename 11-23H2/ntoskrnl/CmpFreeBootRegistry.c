@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreeBootRegistry @ 0x140617778
+ * XREFs of CmpFreeBootRegistry @ 0x140617CC8
  * Callers:
- *     HvHiveCleanup @ 0x1407096D0 (HvHiveCleanup.c)
+ *     HvHiveCleanup @ 0x1407098E0 (HvHiveCleanup.c)
  * Callees:
- *     MmFreeBootRegistry @ 0x1408272CC (MmFreeBootRegistry.c)
+ *     MmFreeBootRegistry @ 0x1408275CC (MmFreeBootRegistry.c)
  */
 
 __int64 CmpFreeBootRegistry()

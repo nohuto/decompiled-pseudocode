@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x1405D7220
+ * XREFs of PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x1405D47C4
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
  * Callees:
- *     PpmHeteroHgsRegisterContainmentGroups @ 0x1405D7408 (PpmHeteroHgsRegisterContainmentGroups.c)
+ *     PpmHeteroHgsRegisterContainmentGroups @ 0x1405D49AC (PpmHeteroHgsRegisterContainmentGroups.c)
  */
 
 __int64 PpmHeteroHgsEvalAndRegisterContainmentGroups()
@@ -19,10 +19,10 @@ __int64 PpmHeteroHgsEvalAndRegisterContainmentGroups()
     for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
     {
       v3 = 0LL;
-      v2 = PpmParkNodes + 1288LL * i;
+      v2 = PpmParkNodes + 1296LL * i;
       WORD4(v3) = *(_WORD *)(v2 + 4);
       *(_QWORD *)&v3 = *(_QWORD *)(v2 + 16);
-      if ( !*(_QWORD *)(v2 + 1272) )
+      if ( !*(_QWORD *)(v2 + 1280) )
         PpmHeteroHgsRegisterContainmentGroups(v2, 0LL, &v3);
       ++i;
     }

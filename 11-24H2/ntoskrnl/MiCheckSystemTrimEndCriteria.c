@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckSystemTrimEndCriteria @ 0x140378D38
+ * XREFs of MiCheckSystemTrimEndCriteria @ 0x1402F33B8
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiCanFlushMakeProgress @ 0x1402D0318 (MiCanFlushMakeProgress.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     MiLogContinueTrim @ 0x1404B8C94 (MiLogContinueTrim.c)
+ *     MiCanFlushMakeProgress @ 0x140261320 (MiCanFlushMakeProgress.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     MiLogContinueTrim @ 0x1404B3950 (MiLogContinueTrim.c)
  */
 
 __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, unsigned __int8 a3)
@@ -68,7 +68,7 @@ __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, unsigned
   }
   while ( v10 < 8 );
   *(_QWORD *)(v4 + 336) = v13;
-  MiReleaseSpinLockExclusive(&dword_140E373C0, a3);
+  MiReleaseSpinLockExclusive(&SpinLock, a3);
   if ( a1[2424] >= 0x420uLL && (unsigned int)MiCanFlushMakeProgress((__int64)a1, 0, 0x22uLL) )
   {
     ++*(_DWORD *)(v4 + 488);
@@ -82,7 +82,7 @@ __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, unsigned
   v15 = *(_QWORD *)(a2 + 72);
   if ( v14 >= v15 )
   {
-    ExAcquireSpinLockExclusive(&dword_140E373C0);
+    ExAcquireSpinLockExclusive(&SpinLock);
     return 1LL;
   }
   v19 = v15 - v14;
@@ -108,6 +108,6 @@ __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, unsigned
   else
     *(_BYTE *)a2 |= 0x80u;
   MiLogContinueTrim(a1, a2);
-  ExAcquireSpinLockExclusive(&dword_140E373C0);
+  ExAcquireSpinLockExclusive(&SpinLock);
   return 0LL;
 }

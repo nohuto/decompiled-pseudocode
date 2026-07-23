@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpSetTimeZoneInformation @ 0x1409F762C
+ * XREFs of ExpSetTimeZoneInformation @ 0x1409F78BC
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExAcquireTimeRefreshLock @ 0x14075F954 (ExAcquireTimeRefreshLock.c)
- *     RtlWriteRegistryValue @ 0x1407D42E0 (RtlWriteRegistryValue.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1409BD7CC (RtlpSetTimeZoneInformationWorker.c)
- *     ExpReadSiloTimeZoneMarker @ 0x1409F7F58 (ExpReadSiloTimeZoneMarker.c)
- *     NtSetSystemTime @ 0x1409F8290 (NtSetSystemTime.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExAcquireTimeRefreshLock @ 0x14075FB44 (ExAcquireTimeRefreshLock.c)
+ *     RtlWriteRegistryValue @ 0x1407D45B0 (RtlWriteRegistryValue.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1409BD9CC (RtlpSetTimeZoneInformationWorker.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x1409F81E8 (ExpReadSiloTimeZoneMarker.c)
+ *     NtSetSystemTime @ 0x1409F8520 (NtSetSystemTime.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)

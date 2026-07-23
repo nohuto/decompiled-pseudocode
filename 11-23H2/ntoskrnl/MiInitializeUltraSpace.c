@@ -3,10 +3,10 @@
  * Callers:
  *     MiCreateTopLevelUltraMappings @ 0x140B43854 (MiCreateTopLevelUltraMappings.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     RtlSetAllBitsEx @ 0x1403B4E70 (RtlSetAllBitsEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     RtlSetAllBitsEx @ 0x1403B5050 (RtlSetAllBitsEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiInitializeUltraSpace(__int64 a1, __int64 a2)

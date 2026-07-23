@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMupGetProviderIdFromName @ 0x140B63C50
+ * XREFs of FsRtlMupGetProviderIdFromName @ 0x140B66CF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall FsRtlMupGetProviderIdFromName(PCUNICODE_STRING pProviderName, PULONG32 pProviderId)

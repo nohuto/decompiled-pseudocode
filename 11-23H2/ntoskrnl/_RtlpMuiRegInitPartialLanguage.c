@@ -1,9 +1,9 @@
 /*
- * XREFs of _RtlpMuiRegInitPartialLanguage @ 0x140A758EC
+ * XREFs of _RtlpMuiRegInitPartialLanguage @ 0x140A75B9C
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140844B80 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x140844E80 (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75948 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75BF8 (_RtlpMuiRegPopulateBaseLanguages.c)
  */
 
 __int64 __fastcall RtlpMuiRegInitPartialLanguage(__int64 a1, __int64 a2, _BYTE *a3)

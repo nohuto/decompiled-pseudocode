@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetEnclavePage @ 0x1402BDD48
+ * XREFs of MiGetEnclavePage @ 0x1402BDF38
  * Callers:
  *     MiAllocateMdlPagesByLists @ 0x140029924 (MiAllocateMdlPagesByLists.c)
- *     MiGetPageForEnclave @ 0x1402BDFCC (MiGetPageForEnclave.c)
- *     MiReserveEnclavePages @ 0x1402BE7D8 (MiReserveEnclavePages.c)
- *     MiCreateHardwareEnclave @ 0x140859B90 (MiCreateHardwareEnclave.c)
- *     MiInitializeEnclaveMetadataPage @ 0x1409F72B8 (MiInitializeEnclaveMetadataPage.c)
+ *     MiGetPageForEnclave @ 0x1402BE1BC (MiGetPageForEnclave.c)
+ *     MiReserveEnclavePages @ 0x1402BE9C8 (MiReserveEnclavePages.c)
+ *     MiCreateHardwareEnclave @ 0x14085ADF0 (MiCreateHardwareEnclave.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x1409F82B8 (MiInitializeEnclaveMetadataPage.c)
  * Callees:
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetEnclavePage(__int64 a1, int a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck @ 0x1404A4E58
+ * XREFs of Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck @ 0x14049FBE8
  * Callers:
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x1404EB798 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x1404E26D8 (PpmPerfRecordMostActiveWorkloadClass.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck()

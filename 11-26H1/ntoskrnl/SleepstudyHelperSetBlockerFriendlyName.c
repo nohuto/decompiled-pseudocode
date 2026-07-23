@@ -1,11 +1,11 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerFriendlyName @ 0x14043D4F0
+ * XREFs of SleepstudyHelperSetBlockerFriendlyName @ 0x14042FDA0
  * Callers:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x14043D400 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x14042FCB0 (SleepstudyHelperCreateBlockerFromGuid.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     SSHSupportAllocatePaged @ 0x140AB9B8C (SSHSupportAllocatePaged.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     SSHSupportAllocatePaged @ 0x140ABB050 (SSHSupportAllocatePaged.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SleepstudyHelperSetBlockerFriendlyName(UNICODE_STRING *a1, const UNICODE_STRING *a2)

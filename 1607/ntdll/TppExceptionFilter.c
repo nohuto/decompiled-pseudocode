@@ -1,29 +1,29 @@
 /*
- * XREFs of TppExceptionFilter @ 0x180090F04
+ * XREFs of TppExceptionFilter @ 0x180090EF4
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
- *     TppWorkerpInnerExceptionFilter @ 0x180090EDC (TppWorkerpInnerExceptionFilter.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
+ *     TppWorkerpInnerExceptionFilter @ 0x180090ECC (TppWorkerpInnerExceptionFilter.c)
  * Callees:
- *     RtlReportException @ 0x180006A80 (RtlReportException.c)
- *     RtlDecodePointer @ 0x180051BE0 (RtlDecodePointer.c)
+ *     RtlReportException @ 0x180006A70 (RtlReportException.c)
+ *     RtlDecodePointer @ 0x180051BD0 (RtlDecodePointer.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     RtlUnhandledExceptionFilter2 @ 0x1800F1DF0 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall TppExceptionFilter(__int64 *a1)
+LONG __fastcall TppExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  __int64 (__fastcall *v2)(__int64 *); // rax
-  __int64 result; // rax
+  __int64 (__fastcall *v2)(PEXCEPTION_POINTERS); // rax
+  LONG result; // eax
 
-  v2 = (__int64 (__fastcall *)(__int64 *))RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  v2 = (__int64 (__fastcall *)(PEXCEPTION_POINTERS))RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( v2 )
-    result = v2(a1);
+    result = v2(ExceptionPointers);
   else
-    result = RtlUnhandledExceptionFilter2(a1, &unk_18010C822);
-  if ( !(_DWORD)result && *(_DWORD *)*a1 == -1073741571 )
+    result = RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&Flags);
+  if ( !result && ExceptionPointers->ExceptionRecord->ExceptionCode == -1073741571 )
   {
-    RtlReportException(*a1, a1[1], 3u);
-    return 1LL;
+    RtlReportException(ExceptionPointers->ExceptionRecord, ExceptionPointers->ContextRecord, 3u);
+    return 1;
   }
   return result;
 }

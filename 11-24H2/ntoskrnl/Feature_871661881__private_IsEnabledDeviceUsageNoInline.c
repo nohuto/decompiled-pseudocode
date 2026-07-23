@@ -1,10 +1,11 @@
 /*
- * XREFs of Feature_871661881__private_IsEnabledDeviceUsageNoInline @ 0x140608390
+ * XREFs of Feature_871661881__private_IsEnabledDeviceUsageNoInline @ 0x140605A94
  * Callers:
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     Feature_871661881__private_IsEnabledFallback @ 0x1406083C8 (Feature_871661881__private_IsEnabledFallback.c)
+ *     Feature_871661881__private_IsEnabledFallback @ 0x140605ACC (Feature_871661881__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_871661881__private_IsEnabledDeviceUsageNoInline()

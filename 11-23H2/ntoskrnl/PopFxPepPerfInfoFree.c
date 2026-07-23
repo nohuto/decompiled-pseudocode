@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxPepPerfInfoFree @ 0x1409856C4
+ * XREFs of PopFxPepPerfInfoFree @ 0x1409858C4
  * Callers:
- *     PopFxPepPerfInfoQuery @ 0x140985744 (PopFxPepPerfInfoQuery.c)
- *     PopFxRegisterComponentPerfStates @ 0x140985948 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxPepPerfInfoQuery @ 0x140985944 (PopFxPepPerfInfoQuery.c)
+ *     PopFxRegisterComponentPerfStates @ 0x140985B48 (PopFxRegisterComponentPerfStates.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

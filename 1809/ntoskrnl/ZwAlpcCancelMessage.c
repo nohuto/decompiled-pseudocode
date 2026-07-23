@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcCancelMessage @ 0x1401B9050
+ * XREFs of ZwAlpcCancelMessage @ 0x1401B91B0
  * Callers:
- *     PopUmpoProcessMessage @ 0x14058AF88 (PopUmpoProcessMessage.c)
+ *     PopUmpoProcessMessage @ 0x14058BF88 (PopUmpoProcessMessage.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCancelMessage(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcCancelMessage(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

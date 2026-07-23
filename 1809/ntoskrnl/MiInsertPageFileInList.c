@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertPageFileInList @ 0x14074C910
+ * XREFs of MiInsertPageFileInList @ 0x14074DB00
  * Callers:
- *     MmStoreRegister @ 0x14074BD2C (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x14074CF1C (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x14074D1A8 (MiCreatePagingFile.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiNumberWsSwapPagefiles @ 0x1400F0488 (MiNumberWsSwapPagefiles.c)
- *     MiPartitionActive @ 0x14013DAF8 (MiPartitionActive.c)
- *     MiIncreaseCommitLimits @ 0x140187E88 (MiIncreaseCommitLimits.c)
- *     MiUpdateReserveClusterInfo @ 0x140188128 (MiUpdateReserveClusterInfo.c)
- *     MiUpdatePageFileList @ 0x140188158 (MiUpdatePageFileList.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiNumberWsSwapPagefiles @ 0x1400F0508 (MiNumberWsSwapPagefiles.c)
+ *     MiPartitionActive @ 0x14013DBF8 (MiPartitionActive.c)
+ *     MiIncreaseCommitLimits @ 0x140187FC8 (MiIncreaseCommitLimits.c)
+ *     MiUpdateReserveClusterInfo @ 0x140188268 (MiUpdateReserveClusterInfo.c)
+ *     MiUpdatePageFileList @ 0x140188298 (MiUpdatePageFileList.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInsertPageFileInList(__int64 a1)

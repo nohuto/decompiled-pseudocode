@@ -6,16 +6,13 @@
  *     <none>
  */
 
-struct _TEB *__fastcall RtlUpdateClonedCriticalSection(__int64 a1)
+void __cdecl RtlUpdateClonedCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  struct _TEB *result; // rax
   void *UniqueThread; // rdx
 
-  result = NtCurrentTeb();
-  UniqueThread = result->ClientId.UniqueThread;
-  *(_QWORD *)(a1 + 24) = 0LL;
-  *(_QWORD *)(a1 + 16) = UniqueThread;
-  *(_DWORD *)(a1 + 8) = -2;
-  *(_DWORD *)(a1 + 12) = 1;
-  return result;
+  UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
+  CriticalSection->LockSemaphore = 0LL;
+  CriticalSection->OwningThread = UniqueThread;
+  CriticalSection->LockCount = -2;
+  CriticalSection->RecursionCount = 1;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PfFileInfoNotify @ 0x1400D3DE0
+ * XREFs of PfFileInfoNotify @ 0x1400D3E60
  * Callers:
  *     <none>
  * Callees:
@@ -12,27 +12,27 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExRundownCompleted @ 0x14008F8D0 (ExRundownCompleted.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PfSnReferenceProcessTrace @ 0x1400D4AB0 (PfSnReferenceProcessTrace.c)
- *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLoggingForThread @ 0x1400D5340 (PfSnCheckLoggingForThread.c)
- *     PfFbLogEntryComplete @ 0x1400D53A0 (PfFbLogEntryComplete.c)
- *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
- *     PfFbLogEntryReserve @ 0x1400D54E4 (PfFbLogEntryReserve.c)
- *     PfLogDeleteHelper @ 0x1400D6880 (PfLogDeleteHelper.c)
- *     _wcsupr @ 0x140195C50 (_wcsupr.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PfpRpFileKeyUpdate @ 0x1405D56D0 (PfpRpFileKeyUpdate.c)
- *     PfSnNameRemoveAll @ 0x1405F9650 (PfSnNameRemoveAll.c)
- *     PfSnLogStreamCreate @ 0x14064AEC4 (PfSnLogStreamCreate.c)
- *     PfSnLogVolumeCreate @ 0x1406BD710 (PfSnLogVolumeCreate.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExRundownCompleted @ 0x14008F7F0 (ExRundownCompleted.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PfSnReferenceProcessTrace @ 0x1400D4B30 (PfSnReferenceProcessTrace.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C84 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLoggingForThread @ 0x1400D53C0 (PfSnCheckLoggingForThread.c)
+ *     PfFbLogEntryComplete @ 0x1400D5420 (PfFbLogEntryComplete.c)
+ *     PfLogEvent @ 0x1400D5478 (PfLogEvent.c)
+ *     PfFbLogEntryReserve @ 0x1400D5564 (PfFbLogEntryReserve.c)
+ *     PfLogDeleteHelper @ 0x1400D6900 (PfLogDeleteHelper.c)
+ *     _wcsupr @ 0x140195D90 (_wcsupr.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PfpRpFileKeyUpdate @ 0x1405D66D0 (PfpRpFileKeyUpdate.c)
+ *     PfSnNameRemoveAll @ 0x1405FA650 (PfSnNameRemoveAll.c)
+ *     PfSnLogStreamCreate @ 0x14064C084 (PfSnLogStreamCreate.c)
+ *     PfSnLogVolumeCreate @ 0x1406BE9B0 (PfSnLogVolumeCreate.c)
  */
 
 __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
@@ -173,7 +173,7 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
     v34 = a1[1];
     if ( v34 == 7 )
     {
-      v1[4] = _InterlockedIncrement(&dword_1404D7550);
+      v1[4] = _InterlockedIncrement(&dword_1404D8610);
     }
     else
     {
@@ -182,9 +182,9 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043C1C8, 0LL);
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043D288, 0LL);
         v62 = -1;
-        if ( qword_14043C1B8 )
+        if ( qword_14043D278 )
         {
           v21 = -1073741791;
         }
@@ -193,7 +193,7 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
           v63 = KeGetCurrentThread();
           --v63->KernelApcDisable;
           ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
-          dword_14043C1E8 &= ~1u;
+          dword_14043D2A8 &= ~1u;
           if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
             ExfTryToWakePushLock((volatile signed __int64 *)&BugCheckParameter2);
           v122 = 0;
@@ -240,7 +240,7 @@ LABEL_85:
           {
             v70->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v70->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v64->LockEntries[v69], v66);
+              KiAbEntryRemoveFromTree(&v64->LockEntries[v69].TreeNode, v66);
             v122 = 0;
             v122 = v70->BoostBitmap.AllFields & 0x1FFFF;
             v70->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -259,15 +259,15 @@ LABEL_85:
             KiCheckForKernelApcDelivery(v71);
           KeLeaveCriticalRegion();
           (*(void (__fastcall **)(__int64 (__fastcall *)(ULONG_PTR)))(*((_QWORD *)v1 + 2) + 32LL))(PfpPrefetchSharedConflictNotifyStart);
-          qword_14043C1B8 = *((_QWORD *)v1 + 2);
+          qword_14043D278 = *((_QWORD *)v1 + 2);
           v21 = 0;
-          _InterlockedExchange64((volatile __int64 *)&stru_14043C1C0, 0LL);
+          _InterlockedExchange64((volatile __int64 *)&stru_14043D280, 0LL);
         }
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043C1C8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043C1C8);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043D288, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043D288);
         v103 = 0;
         v72 = KeGetCurrentThread();
-        if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14043C1C8) == 1 )
+        if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14043D288) == 1 )
           v62 = MmGetSessionIdEx((__int64)v72->ApcState.Process);
         --v72->SpecialApcDisable;
         ++v72->AbAllocationRegionCount;
@@ -285,7 +285,7 @@ LABEL_85:
           v73 = ~v75 & (unsigned int)v73;
           if ( (v77->AcquiredByte & 1) != 0
             && (*(_DWORD *)&v77->LockState.0 & 1) == 0
-            && (*(_QWORD *)&v77->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14043C1C8 & 0x7FFFFFFFFFFFFFFCLL)
+            && (*(_QWORD *)&v77->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14043D288 & 0x7FFFFFFFFFFFFFFCLL)
             && v77->LockState.SessionId == v62 )
           {
             v77->AcquiredByte &= ~1u;
@@ -301,13 +301,13 @@ LABEL_85:
         {
 LABEL_97:
           if ( (*((_DWORD *)&v72->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)v72, (ULONG_PTR)&qword_14043C1C8, v62, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)v72, (ULONG_PTR)&qword_14043D288, v62, 0LL);
         }
         else
         {
           v77->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v77->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v72->LockEntries[v76], v73);
+            KiAbEntryRemoveFromTree(&v72->LockEntries[v76].TreeNode, v73);
           v103 = 0;
           v103 = v77->BoostBitmap.AllFields & 0x1FFFF;
           v77->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -320,7 +320,7 @@ LABEL_97:
             _InterlockedOr8((volatile signed __int8 *)&v72->AbOrphanedEntrySummary, 1 << v80);
         }
         --v72->AbAllocationRegionCount;
-        KiAbThreadRemoveBoosts((ULONG_PTR)v72, (__int64)&qword_14043C1C8, (__int64)&v103);
+        KiAbThreadRemoveBoosts((ULONG_PTR)v72, (__int64)&qword_14043D288, (__int64)&v103);
         v2 = v72->SpecialApcDisable++ == -1;
         if ( v2 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v72->ApcState.ApcListHead[0].Flink != &v72->152 )
           KiCheckForKernelApcDelivery(v78);
@@ -332,15 +332,15 @@ LABEL_97:
       {
         v82 = KeGetCurrentThread();
         --v82->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043C1C8, 0LL);
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043D288, 0LL);
         v83 = -1;
-        if ( qword_14043C1B8 )
+        if ( qword_14043D278 )
         {
           v84 = KeGetCurrentThread();
           --v84->KernelApcDisable;
           ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
-          dword_14043C1E8 |= 1u;
-          for ( i = qword_14043C1D8; (__int64 *)i != &qword_14043C1D8; i = *(_QWORD *)i )
+          dword_14043D2A8 |= 1u;
+          for ( i = qword_14043D298; (__int64 *)i != &qword_14043D298; i = *(_QWORD *)i )
           {
             *(_DWORD *)(i + 68) |= 4u;
             KeSetEvent((PRKEVENT)(i + 88), 0, 0);
@@ -391,7 +391,7 @@ LABEL_149:
           {
             v92->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v92->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v86->LockEntries[v91], v88);
+              KiAbEntryRemoveFromTree(&v86->LockEntries[v91].TreeNode, v88);
             LODWORD(v120) = 0;
             LODWORD(v120) = v92->BoostBitmap.AllFields & 0x1FFFF;
             v92->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -409,20 +409,20 @@ LABEL_149:
           if ( v2 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v86->ApcState.ApcListHead[0].Flink != &v86->152 )
             KiCheckForKernelApcDelivery(v94);
           KeLeaveCriticalRegion();
-          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_14043C1C0);
-          ExRundownCompleted((PEX_RUNDOWN_REF)&stru_14043C1C0);
-          qword_14043C1B8 = 0LL;
+          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_14043D280);
+          ExRundownCompleted((PEX_RUNDOWN_REF)&stru_14043D280);
+          qword_14043D278 = 0LL;
           v21 = 0;
         }
         else
         {
           v21 = -1073741275;
         }
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043C1C8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043C1C8);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043D288, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043D288);
         v121 = 0;
         v95 = KeGetCurrentThread();
-        if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14043C1C8) == 1 )
+        if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14043D288) == 1 )
           v83 = MmGetSessionIdEx((__int64)v95->ApcState.Process);
         --v95->SpecialApcDisable;
         ++v95->AbAllocationRegionCount;
@@ -440,7 +440,7 @@ LABEL_149:
           v96 = ~v98 & (unsigned int)v96;
           if ( (v100->AcquiredByte & 1) != 0
             && (*(_DWORD *)&v100->LockState.0 & 1) == 0
-            && (*(_QWORD *)&v100->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14043C1C8 & 0x7FFFFFFFFFFFFFFCLL)
+            && (*(_QWORD *)&v100->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14043D288 & 0x7FFFFFFFFFFFFFFCLL)
             && v100->LockState.SessionId == v83 )
           {
             v100->AcquiredByte &= ~1u;
@@ -456,13 +456,13 @@ LABEL_149:
         {
 LABEL_173:
           if ( (*((_DWORD *)&v95->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)v95, (ULONG_PTR)&qword_14043C1C8, v83, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)v95, (ULONG_PTR)&qword_14043D288, v83, 0LL);
         }
         else
         {
           v100->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v100->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v95->LockEntries[v99], v96);
+            KiAbEntryRemoveFromTree(&v95->LockEntries[v99].TreeNode, v96);
           v121 = 0;
           v121 = v100->BoostBitmap.AllFields & 0x1FFFF;
           v100->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -475,7 +475,7 @@ LABEL_173:
             _InterlockedOr8((volatile signed __int8 *)&v95->AbOrphanedEntrySummary, 1 << v101);
         }
         --v95->AbAllocationRegionCount;
-        KiAbThreadRemoveBoosts((ULONG_PTR)v95, (__int64)&qword_14043C1C8, (__int64)&v121);
+        KiAbThreadRemoveBoosts((ULONG_PTR)v95, (__int64)&qword_14043D288, (__int64)&v121);
         v2 = v95->SpecialApcDisable++ == -1;
         if ( v2 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v95->ApcState.ApcListHead[0].Flink != &v95->152 )
           KiCheckForKernelApcDelivery(v102);
@@ -488,7 +488,7 @@ LABEL_124:
         v21 = -1073741637;
         goto LABEL_63;
       }
-      if ( (dword_14043C310 & 2) != 0 )
+      if ( (dword_14043D3D0 & 2) != 0 )
       {
         v21 = -1073741431;
         goto LABEL_63;
@@ -519,7 +519,7 @@ LABEL_124:
   }
   if ( (v1[2] & 1) == 0 )
     return 0;
-  if ( dword_14043BD60 >= (unsigned int)dword_14043BD64 )
+  if ( dword_14043CE20 >= (unsigned int)dword_14043CE24 )
   {
     v49 = v1[1];
     v4 = v49;
@@ -570,7 +570,7 @@ LABEL_124:
         ExReleaseRundownProtection_0(v33 + 45);
       }
     }
-    if ( dword_14043BD60 < (unsigned int)dword_14043BD64 )
+    if ( dword_14043CE20 < (unsigned int)dword_14043CE24 )
     {
       v8 = *((_QWORD *)v1 + 2);
       v9 = *(_QWORD *)(v8 + 32);
@@ -586,7 +586,7 @@ LABEL_124:
           v56 = (*(_DWORD *)(v9 + 1744) >> 12) & 7;
         v14 = v56;
       }
-      if ( v14 < dword_14043A8EC )
+      if ( v14 < dword_14043B9AC )
       {
         v21 = 0;
         goto LABEL_20;
@@ -598,21 +598,21 @@ LABEL_124:
       v18 = (v15 ^ *(_QWORD *)(v13 + 776)) & 0x1FFFFFFFFFFFFFFFLL;
       *(_QWORD *)&v112 = v12;
       *((_QWORD *)&v113 + 1) = v18;
-      v114 = __PAIR64__(v15, dword_1404D7550);
+      v114 = __PAIR64__(v15, dword_1404D8610);
       *((_QWORD *)&v112 + 1) = v11 >> 12;
-      v19 = dword_14043C09C
+      v19 = dword_14043D15C
           + ((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
             + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10);
-      if ( ExAcquireRundownProtection_0(&stru_14043BCA0) )
+      if ( ExAcquireRundownProtection_0(&stru_14043CD60) )
       {
         while ( 1 )
         {
-          for ( j = RtlpInterlockedPopEntrySList(&stru_14043BCC0); !j; j = RtlpInterlockedPopEntrySList(&stru_14043BCC0) )
+          for ( j = RtlpInterlockedPopEntrySList(&stru_14043CD80); !j; j = RtlpInterlockedPopEntrySList(&stru_14043CD80) )
           {
-            j = RtlpInterlockedPopEntrySList(&stru_14043BCB0);
+            j = RtlpInterlockedPopEntrySList(&stru_14043CD70);
             if ( j )
               break;
-            v21 = ((__int64 (__fastcall *)(struct _EX_RUNDOWN_REF *))qword_14043BCF8)(&stru_14043BCA0);
+            v21 = ((__int64 (__fastcall *)(struct _EX_RUNDOWN_REF *))qword_14043CDB8)(&stru_14043CD60);
             if ( v21 < 0 )
               goto LABEL_189;
           }
@@ -625,16 +625,16 @@ LABEL_124:
           }
           if ( !*((_DWORD *)&j[2].Next + 2) )
             break;
-          ((void (*)(void))qword_14043BD00)();
-          if ( !ExAcquireRundownProtection_0(&stru_14043BCA0) )
+          ((void (*)(void))qword_14043CDC0)();
+          if ( !ExAcquireRundownProtection_0(&stru_14043CD60) )
             goto LABEL_185;
         }
-        RtlpInterlockedPushEntrySList(&stru_14043BCB0, j);
+        RtlpInterlockedPushEntrySList(&stru_14043CD70, j);
         v21 = -1073741789;
 LABEL_189:
-        ++dword_14043BD0C;
-        dword_14043BD10 += 64;
-        ExReleaseRundownProtection_0(&stru_14043BCA0);
+        ++dword_14043CDCC;
+        dword_14043CDD0 += 64;
+        ExReleaseRundownProtection_0(&stru_14043CD60);
 LABEL_16:
         if ( v21 >= 0 )
         {
@@ -668,7 +668,7 @@ LABEL_16:
 LABEL_185:
         v21 = -1073741431;
       }
-      _InterlockedExchangeAdd((_DWORD *)&xmmword_14043BE50 + 1, 1u);
+      _InterlockedExchangeAdd((_DWORD *)&xmmword_14043CF10 + 1, 1u);
       if ( v16 )
         PfFbLogEntryComplete(v16);
 LABEL_20:
@@ -679,14 +679,14 @@ LABEL_20:
     v21 = -1073741697;
 LABEL_63:
     if ( (int)v1[1] <= 3 )
-      ++dword_14043BE64;
+      ++dword_14043CF24;
     return (unsigned int)v21;
   }
   switch ( v4 )
   {
     case 0:
       v57 = 2 * *(unsigned __int16 *)(*((_QWORD *)v1 + 2) + 30LL);
-      v21 = PfFbLogEntryReserve(&stru_14043BC20);
+      v21 = PfFbLogEntryReserve(&stru_14043CCE0);
       if ( v21 < 0 )
         goto LABEL_20;
       v58 = v105;
@@ -712,8 +712,8 @@ LABEL_63:
       v35 = *((_QWORD *)v1 + 2);
       if ( HIWORD(*(_DWORD *)(v35 + 32)) <= (unsigned int)(unsigned __int16)*(_DWORD *)(v35 + 32) )
         return 0;
-      PfpRpFileKeyUpdate(&unk_14043C118, v35, 1LL);
-      if ( dword_14043BD60 >= (unsigned int)dword_14043BD64 )
+      PfpRpFileKeyUpdate(&unk_14043D1D8, v35, 1LL);
+      if ( dword_14043CE20 >= (unsigned int)dword_14043CE24 )
       {
         v21 = -1073741697;
         goto LABEL_63;
@@ -723,7 +723,7 @@ LABEL_63:
       v38 = (const void *)(*(_QWORD *)(v36 + 24) + 2LL * (unsigned __int16)v37);
       v39 = HIWORD(v37) - (unsigned __int16)v37;
       v40 = 2 * v39;
-      v21 = PfFbLogEntryReserve(&stru_14043BC20);
+      v21 = PfFbLogEntryReserve(&stru_14043CCE0);
       if ( v21 < 0 )
         goto LABEL_20;
       v41 = v105;
@@ -749,8 +749,8 @@ LABEL_32:
       v48 = *((_QWORD *)v1 + 2);
       if ( HIWORD(*(_DWORD *)(v48 + 32)) <= (unsigned int)(unsigned __int16)*(_DWORD *)(v48 + 32) )
         return 0;
-      PfpRpFileKeyUpdate(&unk_14043C118, v48, 0LL);
-      if ( dword_14043BD60 < (unsigned int)dword_14043BD64 )
+      PfpRpFileKeyUpdate(&unk_14043D1D8, v48, 0LL);
+      if ( dword_14043CE20 < (unsigned int)dword_14043CE24 )
       {
         PfLogDeleteHelper(0LL, *(_QWORD *)(*((_QWORD *)v1 + 2) + 16LL), *(unsigned int *)(*((_QWORD *)v1 + 2) + 44LL));
         return 0;
@@ -777,14 +777,14 @@ LABEL_32:
         goto LABEL_63;
       }
       v111[1] = v50[1];
-      v111[2] = (unsigned int)dword_1404D7550;
+      v111[2] = (unsigned int)dword_1404D8610;
       v111[0] = *v50;
       v51 = v111;
       v52 = ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
           + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8);
       v53 = 31LL;
 LABEL_60:
-      PfLogEvent(v53, dword_14043C09C + (unsigned int)(v52 >> 10), v51);
+      PfLogEvent(v53, dword_14043D15C + (unsigned int)(v52 >> 10), v51);
       v21 = 0;
       break;
     default:

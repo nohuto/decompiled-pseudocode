@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapDeferredRecoveryServiceDpcRoutine @ 0x140320D80
+ * XREFs of WheapDeferredRecoveryServiceDpcRoutine @ 0x140320F70
  * Callers:
  *     <none>
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapDeferredRecoveryServiceDpcRoutine(ULONG_PTR BugCheckParameter2)
@@ -44,11 +44,11 @@ __int64 __fastcall WheapDeferredRecoveryServiceDpcRoutine(ULONG_PTR BugCheckPara
   }
   else if ( !v5 )
   {
-    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WheapDispatchPtr.AlignmentRequirement);
+    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WheapDispatchPtr.DeviceQueue.DeviceListHead.Blink);
     *(_QWORD *)v2 = WheaPassiveDrsList;
     v7 = v6;
     WheaPassiveDrsList = v2;
-    KxReleaseSpinLock((PKSPIN_LOCK)&WheapDispatchPtr.AlignmentRequirement);
+    KxReleaseSpinLock((PKSPIN_LOCK)&WheapDispatchPtr.DeviceQueue.DeviceListHead.Blink);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -57,7 +57,7 @@ __int64 __fastcall WheapDeferredRecoveryServiceDpcRoutine(ULONG_PTR BugCheckPara
     }
     __writecr8(v7);
     if ( _InterlockedIncrement(&WheaPassiveDrsItemsToProcess) == 1 )
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)&WheapDispatchPtr.DeviceQueue, CriticalWorkQueue);
+      ExQueueWorkItem((PWORK_QUEUE_ITEM)&WheapDispatchPtr.DeviceQueue.32, CriticalWorkQueue);
   }
   v9 = _InterlockedExchangeAdd(&WheaDrsItemsToProcess, 0xFFFFFFFF);
   v10 = v9 <= 1;

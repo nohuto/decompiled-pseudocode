@@ -9,29 +9,29 @@
  *     _LdrpResolveDelayloadAddress@24 @ 0x4B32FA18 (_LdrpResolveDelayloadAddress@24.c)
  */
 
-int __fastcall LdrpHandleUnprotectedDelayLoad(_DWORD *a1, int a2, int a3, int a4, _DWORD *a5, int a6)
+int __fastcall LdrpHandleUnprotectedDelayLoad(_DWORD *a1, int a2, int a3, int a4, int *a5, int a6)
 {
   int v6; // esi
-  int DelayloadExportDll; // edi
+  NTSTATUS DelayloadExportDll; // edi
   int v8; // esi
   int v9; // eax
   int v12; // [esp+18h] [ebp-8h] BYREF
-  int v13; // [esp+1Ch] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-4h] BYREF
 
   v6 = 0;
-  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, &v13, a6, (int)a5);
+  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, (volatile signed __int32 **)&BaseAddress, a6, (int)a5);
   v12 = DelayloadExportDll;
   if ( DelayloadExportDll >= 0 )
   {
     if ( g_ShimsEnabled )
       v6 = MEMORY[0x7FFE0330] ^ __ROR4__(g_pfnSE_GetProcAddressForCaller, 32 - (MEMORY[0x7FFE0330] & 0x1F));
     v8 = LdrpResolveDelayloadAddress(a2, a5, v6, &v12);
-    LdrpDereferenceModule(v13);
+    LdrpDereferenceModule((char *)BaseAddress);
     DelayloadExportDll = v12;
     if ( v12 >= 0 )
       goto LABEL_10;
   }
-  v9 = LdrpRedirectDelayloadFailure(a2, a3, a4, a5, DelayloadExportDll);
+  v9 = LdrpRedirectDelayloadFailure(a2, a3, a4, (int)a5, DelayloadExportDll);
   v8 = v9;
   if ( DelayloadExportDll >= 0
     || v9

@@ -1,10 +1,10 @@
 /*
- * XREFs of atan2 @ 0x180123580
+ * XREFs of atan2 @ 0x1801217B0
  * Callers:
  *     <none>
  * Callees:
- *     _controlfp @ 0x180129F10 (_controlfp.c)
- *     _handle_error @ 0x18012A070 (_handle_error.c)
+ *     _controlfp @ 0x180128140 (_controlfp.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
  */
 
 double __cdecl atan2(double Y, double X)
@@ -62,7 +62,7 @@ double __cdecl atan2(double Y, double X)
   {
     if ( X >= 0.0 )
       return Y;
-    v9 = qword_1801CCAA8;
+    v9 = qword_1801CBAA8;
 LABEL_52:
     if ( v3 >= 0.0 )
     {
@@ -78,7 +78,7 @@ LABEL_53:
   {
     if ( Y < 0.0 )
     {
-      v9 = qword_1801CCAB0;
+      v9 = qword_1801CBAB0;
       goto LABEL_53;
     }
     controlfp(0x10u, 0x10u);
@@ -117,22 +117,22 @@ LABEL_53:
   }
   if ( v7 > 56 )
   {
-    v9 = qword_1801CCAB0;
+    v9 = qword_1801CBAB0;
     goto LABEL_52;
   }
   if ( v7 >= -28 || X < 0.0 )
   {
     if ( v7 < -56 && X < 0.0 )
     {
-      v9 = qword_1801CCAA8;
+      v9 = qword_1801CBAA8;
       goto LABEL_52;
     }
     if ( v5 == 0x7FF0000000000000LL && v4 == 0x7FF0000000000000LL )
     {
       if ( X >= 0.0 )
-        v9 = qword_1801CCAB8;
+        v9 = qword_1801CBAB8;
       else
-        v9 = qword_1801CCAC0;
+        v9 = qword_1801CBAC0;
       goto LABEL_52;
     }
     if ( X < 0.0 )
@@ -174,8 +174,8 @@ LABEL_53:
     {
       v23 = v22 * 256.0;
       v24 = (unsigned int)((int)(v23 + 0.5) - 16);
-      v25 = qword_18018BFF0[v24];
-      v26 = qword_18018B860[v24];
+      v25 = qword_18018AFF0[v24];
+      v26 = qword_18018A860[v24];
       v27 = 1023 - ((*(_QWORD *)&v6 >> 52) & 0x7FF);
       v28 = (__int64)(v27 / 2) << 52;
       v29 = (__int64)(v27 - v27 / 2) << 52;
@@ -197,13 +197,13 @@ LABEL_53:
     }
     if ( v20 )
     {
-      v26 = *(double *)&qword_1801CCAD8 - v26;
-      v22 = *(double *)&qword_1801CCAE0 - v22;
+      v26 = *(double *)&qword_1801CBAD8 - v26;
+      v22 = *(double *)&qword_1801CBAE0 - v22;
     }
     if ( X < 0.0 )
     {
-      v26 = *(double *)&qword_1801CCAC8 - v26;
-      v22 = *(double *)&qword_1801CCAD0 - v22;
+      v26 = *(double *)&qword_1801CBAC8 - v26;
+      v22 = *(double *)&qword_1801CBAD0 - v22;
     }
     v32 = v26 + v22;
     if ( v3 < 0.0 )

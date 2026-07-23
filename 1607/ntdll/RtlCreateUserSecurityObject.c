@@ -1,33 +1,39 @@
 /*
- * XREFs of RtlCreateUserSecurityObject @ 0x1800D48F0
+ * XREFs of RtlCreateUserSecurityObject @ 0x1800D49B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlNewSecurityObject @ 0x1800870D0 (RtlNewSecurityObject.c)
- *     RtlCreateAndSetSD @ 0x18008C800 (RtlCreateAndSetSD.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlNewSecurityObject @ 0x1800870C0 (RtlNewSecurityObject.c)
+ *     RtlCreateAndSetSD @ 0x18008C7F0 (RtlCreateAndSetSD.c)
  */
 
-__int64 __fastcall RtlCreateUserSecurityObject(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        char a5,
-        __int64 a6,
-        _QWORD *a7)
+NTSTATUS __cdecl RtlCreateUserSecurityObject(
+        PRTL_ACE_DATA AceData,
+        ULONG AceCount,
+        PSID OwnerSid,
+        PSID GroupSid,
+        BOOLEAN IsDirectoryObject,
+        PGENERIC_MAPPING GenericMapping,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor)
 {
   void *ProcessHeap; // rdi
-  __int64 result; // rax
-  unsigned int v9; // ebx
-  _BYTE *v10; // [rsp+30h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v9; // ebx
+  PSECURITY_DESCRIPTOR CreatorDescriptor; // [rsp+30h] [rbp-18h] BYREF
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  result = RtlCreateAndSetSD(a1, a2, a3, a4, &v10);
-  if ( (int)result >= 0 )
+  result = RtlCreateAndSetSD(AceData, AceCount, OwnerSid, GroupSid, &CreatorDescriptor);
+  if ( result >= 0 )
   {
-    v9 = RtlNewSecurityObject(0LL, v10, a7, a5, (void *)0xFFFFFFFFFFFFFFFCLL, a6);
-    RtlFreeHeap((__int64)ProcessHeap, 0, (unsigned __int64)v10);
+    v9 = RtlNewSecurityObject(
+           0LL,
+           CreatorDescriptor,
+           NewSecurityDescriptor,
+           IsDirectoryObject,
+           (HANDLE)0xFFFFFFFFFFFFFFFCLL,
+           GenericMapping);
+    RtlFreeHeap(ProcessHeap, 0, CreatorDescriptor);
     return v9;
   }
   return result;

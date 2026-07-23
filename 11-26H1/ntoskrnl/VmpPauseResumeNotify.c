@@ -1,18 +1,18 @@
 /*
- * XREFs of VmpPauseResumeNotify @ 0x14081CC04
+ * XREFs of VmpPauseResumeNotify @ 0x140822E14
  * Callers:
- *     VmPauseResumeNotify @ 0x14081C0E0 (VmPauseResumeNotify.c)
+ *     VmPauseResumeNotify @ 0x1408222F0 (VmPauseResumeNotify.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     SmStoreExistsForProcess @ 0x140513B48 (SmStoreExistsForProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MmProcessWorkingSetControl @ 0x140AE9A8C (MmProcessWorkingSetControl.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     SmStoreExistsForProcess @ 0x14050D5B8 (SmStoreExistsForProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MmProcessWorkingSetControl @ 0x140AEC57C (MmProcessWorkingSetControl.c)
  */
 
 __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of inflateReset2 @ 0x140627624
+ * XREFs of inflateReset2 @ 0x14062A674
  * Callers:
- *     RtlDecompressBufferDeflateInternal @ 0x140624CE8 (RtlDecompressBufferDeflateInternal.c)
+ *     RtlDecompressBufferDeflateInternal @ 0x140627D38 (RtlDecompressBufferDeflateInternal.c)
  * Callees:
- *     inflateReset @ 0x1406275F4 (inflateReset.c)
- *     inflateStateCheck @ 0x140627754 (inflateStateCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     inflateReset @ 0x14062A644 (inflateReset.c)
+ *     inflateStateCheck @ 0x14062A7A4 (inflateStateCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall inflateReset2(__int64 a1, unsigned int a2)

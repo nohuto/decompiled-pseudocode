@@ -1,16 +1,16 @@
 /*
- * XREFs of NtTerminateJobObject @ 0x180162990
+ * XREFs of NtTerminateJobObject @ 0x180162890
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtTerminateJobObject()
+NTSTATUS __cdecl NtTerminateJobObject(HANDLE JobHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 467LL;
+  result = 467;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

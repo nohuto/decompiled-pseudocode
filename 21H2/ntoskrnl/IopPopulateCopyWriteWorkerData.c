@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPopulateCopyWriteWorkerData @ 0x1403F1BE4
+ * XREFs of IopPopulateCopyWriteWorkerData @ 0x1403F1AB4
  * Callers:
  *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
  * Callees:
- *     IopAllocateAndPopulateWriteIrp @ 0x1403F1D24 (IopAllocateAndPopulateWriteIrp.c)
- *     IopValidateAndGetWriteParameters @ 0x1403F2018 (IopValidateAndGetWriteParameters.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403F1D8C (IopAllocateAndPopulateWriteIrp.c)
+ *     IopValidateAndGetWriteParameters @ 0x1403F2068 (IopValidateAndGetWriteParameters.c)
  */
 
 __int64 __fastcall IopPopulateCopyWriteWorkerData(

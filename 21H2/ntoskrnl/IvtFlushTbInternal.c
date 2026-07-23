@@ -1,17 +1,17 @@
 /*
- * XREFs of IvtFlushTbInternal @ 0x1404DFAA4
+ * XREFs of IvtFlushTbInternal @ 0x1404DFCE4
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
- *     IvtFlushDomainTb @ 0x1404DFA50 (IvtFlushDomainTb.c)
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF808 (IvtAttachDeviceDomainInternal.c)
+ *     IvtFlushDomainTb @ 0x1404DFC90 (IvtFlushDomainTb.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     HalpIommuGetNextFlushDevice @ 0x1404CBF7C (HalpIommuGetNextFlushDevice.c)
- *     IvtIommuSendCommand @ 0x1404E0830 (IvtIommuSendCommand.c)
- *     IvtIommuWaitCommand @ 0x1404E0A30 (IvtIommuWaitCommand.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     HalpIommuGetNextFlushDevice @ 0x1404CC1BC (HalpIommuGetNextFlushDevice.c)
+ *     IvtIommuSendCommand @ 0x1404E0A70 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0C70 (IvtIommuWaitCommand.c)
  */
 
 char __fastcall IvtFlushTbInternal(
@@ -104,7 +104,7 @@ LABEL_10:
     v16 = a7;
     while ( HalpIommuGetNextFlushDevice(v16, &v40, &v39, &v45, &RunRef, &v36) )
     {
-      if ( ExAcquireRundownProtection_0(RunRef) )
+      if ( ExAcquireRundownProtection(RunRef) )
       {
         v17 = (unsigned __int64)(unsigned __int16)v39 << 12;
         *v36 = 1;
@@ -199,7 +199,7 @@ LABEL_40:
             IvtIommuSendCommand(a1, &v41, 1LL);
             v31 = v41;
           }
-          if ( ExAcquireRundownProtection_0(RunRef) )
+          if ( ExAcquireRundownProtection(RunRef) )
           {
             v33 = v36;
             goto LABEL_40;
@@ -242,7 +242,7 @@ LABEL_49:
       {
         v35 = RunRef;
         *v36 = 0;
-        ExReleaseRundownProtection_0(v35);
+        ExReleaseRundownProtection(v35);
       }
     }
   }

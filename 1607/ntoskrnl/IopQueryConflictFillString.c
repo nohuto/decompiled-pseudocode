@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueryConflictFillString @ 0x14064E458
+ * XREFs of IopQueryConflictFillString @ 0x14064E53C
  * Callers:
- *     IopQueryConflictFillConflicts @ 0x14064E070 (IopQueryConflictFillConflicts.c)
+ *     IopQueryConflictFillConflicts @ 0x14064E154 (IopQueryConflictFillConflicts.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall IopQueryConflictFillString(__int64 a1, void *a2, unsigned int *a3, int *a4)

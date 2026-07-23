@@ -58,18 +58,18 @@
  *     RtlpValidateHeap @ 0x180107E20 (RtlpValidateHeap.c)
  *     RtlpValidateHeapHeaders @ 0x180108404 (RtlpValidateHeapHeaders.c)
  *     RtlpValidateHeapSegment @ 0x1801085C0 (RtlpValidateHeapSegment.c)
- *     RtlpHeapTrkLeakCallback @ 0x18010C870 (RtlpHeapTrkLeakCallback.c)
- *     RtlTraceDatabaseDestroy @ 0x180110950 (RtlTraceDatabaseDestroy.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x180110C3C (RtlpTraceDatabaseInternalAdd.c)
- *     RtlpPrintErrorInformation @ 0x180118FFC (RtlpPrintErrorInformation.c)
+ *     RtlpHeapTrkLeakCallback @ 0x18010C840 (RtlpHeapTrkLeakCallback.c)
+ *     RtlTraceDatabaseDestroy @ 0x180110920 (RtlTraceDatabaseDestroy.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x180110C0C (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlpPrintErrorInformation @ 0x180118FCC (RtlpPrintErrorInformation.c)
  * Callees:
  *     vDbgPrintExWithPrefixInternal @ 0x180053958 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_180138CCA, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, 101LL, 3LL, Format, (__int64 *)va, 1);
 }

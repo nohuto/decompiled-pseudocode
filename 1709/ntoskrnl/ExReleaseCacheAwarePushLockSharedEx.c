@@ -52,7 +52,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParamet
     {
       *(_BYTE *)(v9 + 32) |= 2u;
       if ( *(__int64 *)(v9 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v9);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9);
       v12 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
       v13 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
       *(_BYTE *)(v11 + 25) &= ~1u;

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpRegTziFormatToTzi @ 0x14083FC1C
+ * XREFs of RtlpRegTziFormatToTzi @ 0x14083FF1C
  * Callers:
- *     RtlpCheckDynamicTimeZoneInformation @ 0x14083F318 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x14083F618 (RtlpCheckDynamicTimeZoneInformation.c)
  * Callees:
  *     <none>
  */

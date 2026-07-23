@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryOwnerMutant @ 0x14048F4AC
+ * XREFs of KeQueryOwnerMutant @ 0x1404896BC
  * Callers:
- *     NtQueryMutant @ 0x140A374D0 (NtQueryMutant.c)
+ *     NtQueryMutant @ 0x140A2C320 (NtQueryMutant.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __stdcall KeQueryOwnerMutant(PKMUTANT Mutant, PCLIENT_ID ClientId)

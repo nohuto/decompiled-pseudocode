@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeColorBaseSession @ 0x1400B3A88
+ * XREFs of MiInitializeColorBaseSession @ 0x1400B1908
  * Callers:
- *     MiInitializeColorBase @ 0x1401029C4 (MiInitializeColorBase.c)
- *     MmAllocateSpecialPool @ 0x1401EBAE0 (MmAllocateSpecialPool.c)
+ *     MiInitializeColorBase @ 0x140100744 (MiInitializeColorBase.c)
+ *     MmAllocateSpecialPool @ 0x1401EB90C (MmAllocateSpecialPool.c)
  * Callees:
  *     <none>
  */

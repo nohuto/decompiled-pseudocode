@@ -1,16 +1,16 @@
 /*
- * XREFs of SepLoadNgenLocations @ 0x14075A008
+ * XREFs of SepLoadNgenLocations @ 0x14075B1F8
  * Callers:
- *     SepSetSystemPaths @ 0x140759F10 (SepSetSystemPaths.c)
+ *     SepSetSystemPaths @ 0x14075B100 (SepSetSystemPaths.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1401B8550 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1401B85B0 (ZwQueryKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepLoadNgenLocations(__int64 a1)

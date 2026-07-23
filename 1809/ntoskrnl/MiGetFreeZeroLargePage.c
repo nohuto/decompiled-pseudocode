@@ -3,11 +3,11 @@
  * Callers:
  *     MiGetLargePageDemoteAsNeeded @ 0x140028AD4 (MiGetLargePageDemoteAsNeeded.c)
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
- *     MiDemoteLargeFreeZeroPage @ 0x14016994C (MiDemoteLargeFreeZeroPage.c)
- *     MiFindLargeNodePage @ 0x1402A9004 (MiFindLargeNodePage.c)
+ *     MiDemoteLargeFreeZeroPage @ 0x140169A4C (MiDemoteLargeFreeZeroPage.c)
+ *     MiFindLargeNodePage @ 0x1402A91F4 (MiFindLargeNodePage.c)
  * Callees:
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetFreeZeroLargePage(__int64 a1, int a2, int a3, unsigned int a4, unsigned int a5, int a6)

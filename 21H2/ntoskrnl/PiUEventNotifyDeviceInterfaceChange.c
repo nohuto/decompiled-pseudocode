@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventNotifyDeviceInterfaceChange @ 0x140749838
+ * XREFs of PiUEventNotifyDeviceInterfaceChange @ 0x1407499F8
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1406E6140 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1406FD520 (PiUEventProcessEventWorker.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     PiUEventHashGuidIntoBucket @ 0x1402ED538 (PiUEventHashGuidIntoBucket.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PiUEventApplyAdditionalFilters @ 0x1406E6C88 (PiUEventApplyAdditionalFilters.c)
- *     PiUEventNotifyClient @ 0x1406E6D7C (PiUEventNotifyClient.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     PiUEventHashGuidIntoBucket @ 0x14029E888 (PiUEventHashGuidIntoBucket.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PiUEventApplyAdditionalFilters @ 0x1406FE068 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x1406FE15C (PiUEventNotifyClient.c)
  */
 
 __int64 __fastcall PiUEventNotifyDeviceInterfaceChange(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall PiUEventNotifyDeviceInterfaceChange(__int64 a1)
 LABEL_4:
     ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
     v4 = v12;
-    v12[1] = &unk_140C45010;
+    v12[1] = &unk_140C44FD0;
     v5 = 0;
     v12[0] = (char *)&PiUEventDevInterfaceClientList
            + 16 * (unsigned int)PiUEventHashGuidIntoBucket((unsigned __int8 *)(a1 + 120));

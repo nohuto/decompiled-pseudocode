@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpInitMuiCrits @ 0x1400F4438
+ * XREFs of LdrpInitMuiCrits @ 0x1400F44B8
  * Callers:
- *     LdrpGetFromMUIMemCache @ 0x1400F4280 (LdrpGetFromMUIMemCache.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F449C (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x14016C900 (LdrUnloadAlternateResourceModuleEx.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x140174B40 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400F4300 (LdrpGetFromMUIMemCache.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F451C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14016CA00 (LdrUnloadAlternateResourceModuleEx.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x140174C40 (LdrpSetAlternateResourceModuleHandle.c)
  * Callees:
- *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
- *     NtDelayExecution @ 0x1405E2B80 (NtDelayExecution.c)
+ *     KiInitializeMutant @ 0x1400DD3F8 (KiInitializeMutant.c)
+ *     NtDelayExecution @ 0x1405E3B80 (NtDelayExecution.c)
  */
 
 signed __int32 __fastcall LdrpInitMuiCrits(__int64 a1, __int64 a2, __int64 a3)

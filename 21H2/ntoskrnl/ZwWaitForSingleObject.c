@@ -1,20 +1,20 @@
 /*
- * XREFs of ZwWaitForSingleObject @ 0x1403FA420
+ * XREFs of ZwWaitForSingleObject @ 0x1403FA600
  * Callers:
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140364D40 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     CcDeletePartition @ 0x1404EBC80 (CcDeletePartition.c)
- *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
- *     PiDrvDbLoadNode @ 0x140629F74 (PiDrvDbLoadNode.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x1406C6E70 (PfSnVolumeCheckSeekPenalty.c)
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077C850 (IopFileUtilWalkDirectoryTreeHelper.c)
- *     BiAcquireBcdSyncMutant @ 0x140784938 (BiAcquireBcdSyncMutant.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC1F4 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     FsRtlpRegisterProviderWithMUP @ 0x1407C7A10 (FsRtlpRegisterProviderWithMUP.c)
- *     PfSnVolumeCheckIsSdBus @ 0x1408E09DC (PfSnVolumeCheckIsSdBus.c)
- *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
- *     ExpPartitionDestroy @ 0x140955E74 (ExpPartitionDestroy.c)
- *     CMFFlushHitsFile @ 0x140958AB0 (CMFFlushHitsFile.c)
- *     CMFSystemThreadRoutine @ 0x1409593D0 (CMFSystemThreadRoutine.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140364EF0 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     CcDeletePartition @ 0x1404EBEC0 (CcDeletePartition.c)
+ *     MiDeletePartitionResources @ 0x140561B58 (MiDeletePartitionResources.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x140675760 (PfSnVolumeCheckSeekPenalty.c)
+ *     PiDrvDbLoadNode @ 0x140694044 (PiDrvDbLoadNode.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077CA10 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784AF8 (BiAcquireBcdSyncMutant.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC3F4 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x1407C7D30 (FsRtlpRegisterProviderWithMUP.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x1408E0B3C (PfSnVolumeCheckIsSdBus.c)
+ *     PspShutdownCsrProcess @ 0x1409067B0 (PspShutdownCsrProcess.c)
+ *     ExpPartitionDestroy @ 0x140956044 (ExpPartitionDestroy.c)
+ *     CMFFlushHitsFile @ 0x140958C80 (CMFFlushHitsFile.c)
+ *     CMFSystemThreadRoutine @ 0x1409595A0 (CMFSystemThreadRoutine.c)
  * Callees:
  *     <none>
  */
@@ -23,5 +23,5 @@ NTSTATUS __stdcall ZwWaitForSingleObject(HANDLE Handle, BOOLEAN Alertable, PLARG
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, Alertable, Timeout);
+  return KiServiceInternal(Handle);
 }

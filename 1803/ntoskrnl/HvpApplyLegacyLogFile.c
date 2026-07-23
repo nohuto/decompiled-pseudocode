@@ -34,7 +34,7 @@ __int64 __fastcall HvpApplyLegacyLogFile(
   unsigned int v17; // r15d
   unsigned int v19; // [rsp+30h] [rbp-69h] BYREF
   _DWORD *v20; // [rsp+38h] [rbp-61h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+40h] [rbp-59h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+40h] [rbp-59h] BYREF
   __int64 v22; // [rsp+50h] [rbp-49h] BYREF
   unsigned int *v23; // [rsp+58h] [rbp-41h]
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-39h]

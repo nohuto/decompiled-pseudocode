@@ -21,7 +21,7 @@ char __fastcall PopEsUpdateState(char a1)
   char v9; // [rsp+41h] [rbp-27h]
   unsigned int v10; // [rsp+48h] [rbp-20h]
   int v11; // [rsp+4Ch] [rbp-1Ch]
-  int v12; // [rsp+78h] [rbp+10h] BYREF
+  int Buffer; // [rsp+78h] [rbp+10h] BYREF
   int v13; // [rsp+7Ch] [rbp+14h]
 
   PopCurrentPowerState((bool *)&v8);
@@ -71,8 +71,8 @@ char __fastcall PopEsUpdateState(char a1)
     {
       v13 = -1;
       PopEsState = v3;
-      v12 = v12 & 0x800000 | 1 | (2 * (v3 == 1));
-      ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE, (__int64)&v12, 8LL);
+      Buffer = Buffer & 0x800000 | 1 | (2 * (v3 == 1));
+      ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_STATE, &Buffer, 8u, 0LL, 0LL, 0, 0);
       LOBYTE(v2) = PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4u, &PopEsState);
     }
     PopEsReason = v4;

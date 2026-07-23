@@ -13,15 +13,15 @@
  *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int *a2)
+NTSTATUS __cdecl NtQueryDriverEntryOrder(PULONG Ids, PULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v6; // rcx
   unsigned int v7; // ebx
   unsigned int v8; // eax
   struct _KTHREAD *v9; // rax
-  int EnvironmentVariable; // edi
+  NTSTATUS EnvironmentVariable; // edi
   unsigned int v11; // r8d
   __int64 v12; // rdx
   unsigned __int16 *v13; // r9
@@ -36,37 +36,37 @@ __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int 
   v19 = 0;
   P = 0LL;
   if ( dword_140C197B0 != 2 )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a2;
+    if ( (unsigned __int64)Count < 0x7FFFFFFF0000LL )
+      v6 = (__int64)Count;
     *(_DWORD *)v6 = *(_DWORD *)v6;
-    v7 = 4 * *a2;
+    v7 = 4 * *Count;
     v19 = v7;
     v8 = v7;
-    if ( !Address )
+    if ( !Ids )
     {
       v7 = 0;
       v19 = 0;
       v8 = 0;
     }
     if ( v8 )
-      ProbeForWrite(Address, v8, 4u);
+      ProbeForWrite(Ids, v8, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v7 = Address != 0LL ? 4 * *a2 : 0;
+    v7 = Ids != 0LL ? 4 * *Count : 0;
     v19 = v7;
   }
   if ( !v7
-    || (result = ExLockUserBuffer((unsigned __int64)Address, v7, PreviousMode, IoWriteAccess, &v16, (struct _MDL **)&P),
-        (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Ids, v7, PreviousMode, IoWriteAccess, &v16, (struct _MDL **)&P),
+        result >= 0) )
   {
     v19 = v7 >> 1;
     v9 = KeGetCurrentThread();
@@ -95,8 +95,8 @@ __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int 
     v19 *= 2;
     if ( P )
       ExUnlockUserBuffer((struct _MDL *)P);
-    *a2 = v15 >> 2;
-    return (unsigned int)EnvironmentVariable;
+    *Count = v15 >> 2;
+    return EnvironmentVariable;
   }
   return result;
 }

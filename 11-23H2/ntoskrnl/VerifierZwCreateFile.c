@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwCreateFile @ 0x140AE55F0
+ * XREFs of VerifierZwCreateFile @ 0x140AE55E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwCreateFile(

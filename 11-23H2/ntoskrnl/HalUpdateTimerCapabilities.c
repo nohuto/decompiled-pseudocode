@@ -1,8 +1,8 @@
 /*
- * XREFs of HalUpdateTimerCapabilities @ 0x140378220
+ * XREFs of HalUpdateTimerCapabilities @ 0x1403783C0
  * Callers:
- *     HalpArtInitialize @ 0x140377750 (HalpArtInitialize.c)
- *     HalpTscInitialize @ 0x1403781A0 (HalpTscInitialize.c)
+ *     HalpArtInitialize @ 0x1403778F0 (HalpArtInitialize.c)
+ *     HalpTscInitialize @ 0x140378340 (HalpTscInitialize.c)
  * Callees:
  *     <none>
  */

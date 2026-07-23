@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapAdjustFlag @ 0x1407ADE6C
+ * XREFs of HvpViewMapAdjustFlag @ 0x1407AE06C
  * Callers:
- *     HvUnlockHiveFilePages @ 0x1406C2F24 (HvUnlockHiveFilePages.c)
+ *     HvUnlockHiveFilePages @ 0x140621BD4 (HvUnlockHiveFilePages.c)
  * Callees:
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x1407ADF1C (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x1407AE11C (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
  */
 
 __int64 __fastcall HvpViewMapAdjustFlag(__int64 a1)

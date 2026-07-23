@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140357080
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140358E20
  * Callers:
- *     HalpDmaAllocateNewTranslationBuffer @ 0x140356984 (HalpDmaAllocateNewTranslationBuffer.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140782CB0 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x140358724 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1407857E4 (HalpDmaAllocateLocalScatterPool.c)
  * Callees:
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1403572E0 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
- *     HalpDmaGetMasterAdapterVersion @ 0x14035943C (HalpDmaGetMasterAdapterVersion.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x140518290 (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x140359080 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
+ *     HalpDmaGetMasterAdapterVersion @ 0x14035B1DC (HalpDmaGetMasterAdapterVersion.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x140511D00 (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPool(

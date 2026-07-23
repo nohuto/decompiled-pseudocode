@@ -43,6 +43,6 @@ __int64 __fastcall sub_18004E828(__int64 a1, int a2, int a3)
     }
   }
   if ( v7 )
-    sub_1800501E4(a1, v7, 0LL);
+    sub_1800501E4(a1);
   return v8;
 }

@@ -16,188 +16,212 @@
  *     ZwQuerySystemTime @ 0x18009D220 (ZwQuerySystemTime.c)
  */
 
-__int64 __fastcall RtlAddGrowableFunctionTable(
-        __int64 *a1,
-        __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        unsigned __int64 a5,
-        unsigned __int64 a6)
+DWORD __cdecl RtlAddGrowableFunctionTable(
+        PVOID *DynamicTable,
+        PRUNTIME_FUNCTION FunctionTable,
+        DWORD EntryCount,
+        DWORD MaximumEntryCount,
+        ULONG_PTR RangeBase,
+        ULONG_PTR RangeEnd)
 {
-  __int64 result; // rax
-  int v10; // ebx
-  void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  __int64 v13; // rbx
-  int v14; // ebp
-  __int64 v15; // r8
+  DWORD result; // eax
+  int v10; // eax
+  int v11; // ebx
+  int v12; // eax
+  PVOID ProcessHeap; // rcx
+  LARGE_INTEGER *Heap; // rax
+  LONGLONG *v15; // rbx
+  NTSTATUS v16; // ebp
+  __int64 v17; // r8
   __int64 *i; // rax
-  unsigned __int64 v17; // rdx
-  unsigned __int64 v18; // rcx
-  _QWORD *v19; // rdx
-  _QWORD *v20; // rax
-  __int64 *v21; // rax
-  int v22; // ecx
-  bool v23; // zf
-  void *v24; // rcx
-  int v25; // r8d
-  void *v26; // rcx
-  int v27; // ecx
-  int v28; // ecx
-  __int64 v29; // [rsp+20h] [rbp-28h] BYREF
-  char v30; // [rsp+28h] [rbp-20h]
+  ULONG_PTR v19; // rdx
+  ULONG_PTR v20; // rcx
+  _QWORD *v21; // rdx
+  _QWORD *v22; // rax
+  LONGLONG **v23; // rax
+  int v24; // eax
+  int v25; // ecx
+  bool v26; // zf
+  int v27; // eax
+  PVOID v28; // rcx
+  int v29; // eax
+  int v30; // r8d
+  int v31; // eax
+  PVOID v32; // rcx
+  int v33; // eax
+  int v34; // ecx
+  int v35; // eax
+  int v36; // ecx
+  LONGLONG *ProcessInformation; // [rsp+20h] [rbp-28h] BYREF
+  char v38; // [rsp+28h] [rbp-20h]
 
-  if ( a3 > a4 || a5 >= a6 )
+  if ( EntryCount > MaximumEntryCount || RangeBase >= RangeEnd )
     __fastfail(5u);
   result = sub_18007C0A8();
-  if ( (int)result < 0 )
+  if ( (result & 0x80000000) != 0 )
     return result;
-  if ( (unsigned int)LdrControlFlowGuardEnforced() )
+  LOBYTE(v10) = LdrControlFlowGuardEnforced();
+  if ( v10 )
   {
-    RtlAcquireSRWLockExclusive(&qword_180165010);
-    v10 = *(_DWORD *)qword_18017A288;
+    RtlAcquireSRWLockExclusive(&stru_180165010);
+    v11 = *(_DWORD *)qword_18017A288;
     if ( !*(_DWORD *)qword_18017A288 )
-      RtlProtectHeap((_DWORD *)qword_18017A278, 0);
-    if ( v10 == -1 )
+      RtlProtectHeap(qword_18017A278, 0);
+    if ( v11 == -1 )
       goto LABEL_60;
-    *(_DWORD *)qword_18017A288 = v10 + 1;
-    RtlReleaseSRWLockExclusive(&qword_180165010);
+    *(_DWORD *)qword_18017A288 = v11 + 1;
+    RtlReleaseSRWLockExclusive(&stru_180165010);
   }
-  if ( (unsigned int)LdrControlFlowGuardEnforced() )
-    ProcessHeap = (void *)qword_18017A278;
+  LOBYTE(v12) = LdrControlFlowGuardEnforced();
+  if ( v12 )
+    ProcessHeap = qword_18017A278;
   else
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, 112LL);
-  v13 = Heap;
+  Heap = (LARGE_INTEGER *)RtlAllocateHeap(ProcessHeap, 0, 0x70uLL);
+  v15 = (LONGLONG *)Heap;
   if ( !Heap )
   {
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
+    LOBYTE(v35) = LdrControlFlowGuardEnforced();
+    if ( v35 )
     {
-      RtlAcquireSRWLockExclusive(&qword_180165010);
-      v28 = *(_DWORD *)qword_18017A288;
+      RtlAcquireSRWLockExclusive(&stru_180165010);
+      v36 = *(_DWORD *)qword_18017A288;
       if ( !*(_DWORD *)qword_18017A288 )
         goto LABEL_60;
-      *(_DWORD *)qword_18017A288 = v28 - 1;
-      if ( v28 == 1 )
-        RtlProtectHeap((_DWORD *)qword_18017A278, 1);
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      *(_DWORD *)qword_18017A288 = v36 - 1;
+      if ( v36 == 1 )
+        RtlProtectHeap(qword_18017A278, 1u);
+      RtlReleaseSRWLockExclusive(&stru_180165010);
     }
-    return 3221225626LL;
+    return -1073741670;
   }
-  *(_QWORD *)(Heap + 16) = a2;
-  *(_DWORD *)(Heap + 84) = a3;
-  ZwQuerySystemTime(Heap + 24);
-  *(_QWORD *)(v13 + 32) = a5;
-  *(_QWORD *)(v13 + 40) = a6;
-  *(_QWORD *)(v13 + 48) = a5;
-  *(_DWORD *)(v13 + 80) = 3;
-  v29 = v13;
-  v30 = 0;
-  v14 = ZwSetInformationProcess(-1LL, 53LL, &v29, 16LL);
-  if ( v14 < 0 )
+  Heap[2].QuadPart = (LONGLONG)FunctionTable;
+  Heap[10].HighPart = EntryCount;
+  ZwQuerySystemTime(Heap + 3);
+  v15[4] = RangeBase;
+  v15[5] = RangeEnd;
+  v15[6] = RangeBase;
+  *((_DWORD *)v15 + 20) = 3;
+  ProcessInformation = v15;
+  v38 = 0;
+  v16 = ZwSetInformationProcess(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          ProcessDynamicFunctionTableInformation,
+          &ProcessInformation,
+          0x10u);
+  if ( v16 < 0 )
   {
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
-      v24 = (void *)qword_18017A278;
+    LOBYTE(v27) = LdrControlFlowGuardEnforced();
+    if ( v27 )
+      v28 = qword_18017A278;
     else
-      v24 = NtCurrentPeb()->ProcessHeap;
-    RtlFreeHeap((__int64)v24, 0, v13);
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
+      v28 = NtCurrentPeb()->ProcessHeap;
+    RtlFreeHeap(v28, 0, v15);
+    LOBYTE(v29) = LdrControlFlowGuardEnforced();
+    if ( v29 )
     {
-      RtlAcquireSRWLockExclusive(&qword_180165010);
-      v25 = *(_DWORD *)qword_18017A288;
+      RtlAcquireSRWLockExclusive(&stru_180165010);
+      v30 = *(_DWORD *)qword_18017A288;
       if ( !*(_DWORD *)qword_18017A288 )
         goto LABEL_60;
-      v23 = v25 == 1;
-      *(_DWORD *)qword_18017A288 = v25 - 1;
+      v26 = v30 == 1;
+      *(_DWORD *)qword_18017A288 = v30 - 1;
 LABEL_30:
-      if ( v23 )
-        RtlProtectHeap((_DWORD *)qword_18017A278, 1);
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      if ( v26 )
+        RtlProtectHeap(qword_18017A278, 1u);
+      RtlReleaseSRWLockExclusive(&stru_180165010);
     }
-    return (unsigned int)v14;
+    return v16;
   }
   sub_180035F18(0);
-  RtlAcquireSRWLockExclusive(&qword_180164350);
+  RtlAcquireSRWLockExclusive(&stru_180164350);
   for ( i = (__int64 *)qword_18017A2B0; i != &qword_18017A2B0; i = (__int64 *)*i )
   {
-    v17 = i[5];
-    if ( a5 < v17 )
+    v19 = i[5];
+    if ( RangeBase < v19 )
     {
-      v18 = i[4];
-      if ( a6 > v18 )
+      v20 = i[4];
+      if ( RangeEnd > v20 )
       {
-        if ( v18 != a5 || v17 != a6 )
+        if ( v20 != RangeBase || v19 != RangeEnd )
         {
-          RtlReleaseSRWLockExclusive(&qword_180164350);
+          RtlReleaseSRWLockExclusive(&stru_180164350);
           sub_180035F18(1);
-          v30 = 1;
-          ZwSetInformationProcess(-1LL, 53LL, &v29, 16LL);
-          if ( (unsigned int)LdrControlFlowGuardEnforced() )
-            v26 = (void *)qword_18017A278;
+          v38 = 1;
+          ZwSetInformationProcess(
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            ProcessDynamicFunctionTableInformation,
+            &ProcessInformation,
+            0x10u);
+          LOBYTE(v31) = LdrControlFlowGuardEnforced();
+          if ( v31 )
+            v32 = qword_18017A278;
           else
-            v26 = NtCurrentPeb()->ProcessHeap;
-          RtlFreeHeap((__int64)v26, 0, v13);
-          if ( (unsigned int)LdrControlFlowGuardEnforced() )
+            v32 = NtCurrentPeb()->ProcessHeap;
+          RtlFreeHeap(v32, 0, v15);
+          LOBYTE(v33) = LdrControlFlowGuardEnforced();
+          if ( v33 )
           {
-            RtlAcquireSRWLockExclusive(&qword_180165010);
-            v27 = *(_DWORD *)qword_18017A288;
+            RtlAcquireSRWLockExclusive(&stru_180165010);
+            v34 = *(_DWORD *)qword_18017A288;
             if ( !*(_DWORD *)qword_18017A288 )
               goto LABEL_60;
-            *(_DWORD *)qword_18017A288 = v27 - 1;
-            if ( v27 == 1 )
-              RtlProtectHeap((_DWORD *)qword_18017A278, 1);
-            RtlReleaseSRWLockExclusive(&qword_180165010);
+            *(_DWORD *)qword_18017A288 = v34 - 1;
+            if ( v34 == 1 )
+              RtlProtectHeap(qword_18017A278, 1u);
+            RtlReleaseSRWLockExclusive(&stru_180165010);
           }
-          return 3221225496LL;
+          return -1073741800;
         }
         break;
       }
     }
   }
-  v19 = (_QWORD *)qword_18017A2A8;
-  LOBYTE(v15) = 0;
+  v21 = (_QWORD *)qword_18017A2A8;
+  LOBYTE(v17) = 0;
   if ( !qword_18017A2A8 )
     goto LABEL_26;
-  while ( *(_QWORD *)(v13 + 32) < *(v19 - 7) )
+  while ( (unsigned __int64)v15[4] < *(v21 - 7) )
   {
-    v20 = (_QWORD *)*v19;
-    if ( !*v19 )
+    v22 = (_QWORD *)*v21;
+    if ( !*v21 )
     {
-      LOBYTE(v15) = 0;
+      LOBYTE(v17) = 0;
       goto LABEL_26;
     }
 LABEL_22:
-    v19 = v20;
+    v21 = v22;
   }
-  v20 = (_QWORD *)v19[1];
-  if ( v20 )
+  v22 = (_QWORD *)v21[1];
+  if ( v22 )
     goto LABEL_22;
-  LOBYTE(v15) = 1;
+  LOBYTE(v17) = 1;
 LABEL_26:
-  RtlAvlInsertNodeEx(&qword_18017A2A8, v19, v15, v13 + 88);
-  v21 = (__int64 *)qword_18017A2B8;
+  RtlAvlInsertNodeEx(&qword_18017A2A8, v21, v17, v15 + 11);
+  v23 = (LONGLONG **)qword_18017A2B8;
   if ( *(__int64 **)qword_18017A2B8 != &qword_18017A2B0 )
     __fastfail(3u);
-  *(_QWORD *)v13 = &qword_18017A2B0;
-  *(_QWORD *)(v13 + 8) = v21;
-  *v21 = v13;
-  qword_18017A2B8 = v13;
-  RtlReleaseSRWLockExclusive(&qword_180164350);
+  *v15 = (LONGLONG)&qword_18017A2B0;
+  v15[1] = (LONGLONG)v23;
+  *v23 = v15;
+  qword_18017A2B8 = (__int64)v15;
+  RtlReleaseSRWLockExclusive(&stru_180164350);
   sub_180035F18(1);
-  *a1 = v13;
-  if ( (unsigned int)LdrControlFlowGuardEnforced() )
+  *DynamicTable = v15;
+  LOBYTE(v24) = LdrControlFlowGuardEnforced();
+  if ( v24 )
   {
-    RtlAcquireSRWLockExclusive(&qword_180165010);
-    v22 = *(_DWORD *)qword_18017A288;
+    RtlAcquireSRWLockExclusive(&stru_180165010);
+    v25 = *(_DWORD *)qword_18017A288;
     if ( *(_DWORD *)qword_18017A288 )
     {
-      v23 = v22 == 1;
-      *(_DWORD *)qword_18017A288 = v22 - 1;
+      v26 = v25 == 1;
+      *(_DWORD *)qword_18017A288 = v25 - 1;
       goto LABEL_30;
     }
 LABEL_60:
-    RtlReleaseSRWLockExclusive(&qword_180165010);
+    RtlReleaseSRWLockExclusive(&stru_180165010);
     __fastfail(0xEu);
   }
-  return (unsigned int)v14;
+  return v16;
 }

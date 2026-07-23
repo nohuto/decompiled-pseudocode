@@ -16,7 +16,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __fastcall SepFindSharedSidEntry(_DWORD *Sid1)
   ULONG_PTR v4; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v6; // rdi
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = 0LL;
   v2 = g_SepSidMapping;

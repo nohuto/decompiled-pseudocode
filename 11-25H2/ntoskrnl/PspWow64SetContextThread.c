@@ -86,7 +86,7 @@
  * 00000001408B979E: lea     rcx, [rbp+60h+var_5F+3]
  * 00000001408B97A2: call    RtlWow64GetCpuAreaEnabledFeatures
  * 00000001408B97A7: mov     r12, rax
- * 00000001408B97AA: mov     [rbp+60h+var_40], rax
+ * 00000001408B97AA: mov     [rbp+60h+EnabledExtendedFeatures], rax
  * 00000001408B97AE: test    r13b, r13b
  * 00000001408B97B1: jz      short loc_1408B97DA
  * 00000001408B97B3: mov     rax, 7FFFFFFF0000h
@@ -112,12 +112,12 @@
  * 00000001408B97F9: and     esi, 37FFFFFFh
  * 00000001408B97FF: mov     dword ptr [rbp+60h+var_5F+3], esi
  * 00000001408B9802: and     dword ptr [rbp+60h+var_5F+7], 0
- * 00000001408B9806: and     [rbp+60h+var_50], 0
+ * 00000001408B9806: and     [rbp+60h+ContextEx], 0
  * 00000001408B980B: test    r13b, r13b
  * 00000001408B980E: jz      loc_1408B989E
- * 00000001408B9814: mov     r8, r12
- * 00000001408B9817: lea     rdx, [rbp+60h+var_5F+7]
- * 00000001408B981B: mov     ecx, esi
+ * 00000001408B9814: mov     r8, r12; EnabledExtendedFeatures
+ * 00000001408B9817: lea     rdx, [rbp+60h+var_5F+7]; ContextLength
+ * 00000001408B981B: mov     ecx, esi; ContextFlags
  * 00000001408B981D: call    RtlGetExtendedContextLength2
  * 00000001408B9822: mov     ebx, eax
  * 00000001408B9824: test    eax, eax
@@ -133,11 +133,11 @@
  * 00000001408B984C: call    _alloca_probe
  * 00000001408B9851: sub     rsp, rcx
  * 00000001408B9854: lea     r13, [rsp+0B0h+var_60]
- * 00000001408B9859: mov     [rbp+60h+var_48], r13
- * 00000001408B985D: mov     r9, [rbp+60h+var_40]
- * 00000001408B9861: lea     r8, [rbp+60h+var_50]
- * 00000001408B9865: mov     edx, esi
- * 00000001408B9867: mov     rcx, r13
+ * 00000001408B9859: mov     [rbp+60h+Source], r13
+ * 00000001408B985D: mov     r9, [rbp+60h+EnabledExtendedFeatures]; EnabledExtendedFeatures
+ * 00000001408B9861: lea     r8, [rbp+60h+ContextEx]; ContextEx
+ * 00000001408B9865: mov     edx, esi; ContextFlags
+ * 00000001408B9867: mov     rcx, r13; Context
  * 00000001408B986A: call    RtlInitializeExtendedContext2
  * 00000001408B986F: mov     ebx, eax
  * 00000001408B9871: test    eax, eax
@@ -145,7 +145,7 @@
  * 00000001408B9879: and     [rsp+0B0h+var_88], 0
  * 00000001408B987F: mov     [rsp+0B0h+Length], r15
  * 00000001408B9884: mov     r9d, esi
- * 00000001408B9887: mov     r8, [rbp+60h+var_50]
+ * 00000001408B9887: mov     r8, [rbp+60h+ContextEx]
  * 00000001408B988B: mov     dl, 1
  * 00000001408B988D: call    RtlpReadExtendedContext
  * 00000001408B9892: mov     ebx, eax
@@ -153,7 +153,7 @@
  * 00000001408B9896: js      loc_1408B9BDB
  * 00000001408B989C: jmp     short loc_1408B98AF
  * 00000001408B989E: mov     r13, r15
- * 00000001408B98A1: mov     [rbp+60h+var_48], r15
+ * 00000001408B98A1: mov     [rbp+60h+Source], r15
  * 00000001408B98A5: mov     r12, 0FFFFFFFFFFFFFF0h
  * 00000001408B98AF: mov     rcx, [rbp+60h+Thread]; Thread
  * 00000001408B98B3: call    IoThreadToProcess
@@ -179,15 +179,15 @@
  * 00000001408B98FA: jnz     short loc_1408B9906
  * 00000001408B98FC: mov     ebx, 0C000000Dh
  * 00000001408B9901: jmp     loc_1408B9BDB
- * 00000001408B9906: mov     r13, [rbp+60h+var_40]
+ * 00000001408B9906: mov     r13, [rbp+60h+EnabledExtendedFeatures]
  * 00000001408B990A: mov     rax, r13
  * 00000001408B990D: neg     rax
  * 00000001408B9910: sbb     esi, esi
  * 00000001408B9912: and     esi, 40h
  * 00000001408B9915: and     dword ptr [rbp+60h+var_5F+7], 0
- * 00000001408B9919: mov     r8, r13
- * 00000001408B991C: lea     rdx, [rbp+60h+var_5F+7]
- * 00000001408B9920: lea     ecx, [rsi+10001Fh]
+ * 00000001408B9919: mov     r8, r13; EnabledExtendedFeatures
+ * 00000001408B991C: lea     rdx, [rbp+60h+var_5F+7]; ContextLength
+ * 00000001408B9920: lea     ecx, [rsi+10001Fh]; ContextFlags
  * 00000001408B9926: call    RtlGetExtendedContextLength2
  * 00000001408B992B: mov     ebx, eax
  * 00000001408B992D: test    eax, eax
@@ -202,10 +202,10 @@
  * 00000001408B994B: call    _alloca_probe
  * 00000001408B9950: sub     rsp, rcx
  * 00000001408B9953: lea     r15, [rsp+0B0h+var_60]
- * 00000001408B9958: mov     r9, r13
- * 00000001408B995B: lea     r8, [rbp+60h+Thread]
- * 00000001408B995F: lea     edx, [rsi+10001Fh]
- * 00000001408B9965: mov     rcx, r15
+ * 00000001408B9958: mov     r9, r13; EnabledExtendedFeatures
+ * 00000001408B995B: lea     r8, [rbp+60h+Thread]; ContextEx
+ * 00000001408B995F: lea     edx, [rsi+10001Fh]; ContextFlags
+ * 00000001408B9965: mov     rcx, r15; Context
  * 00000001408B9968: call    RtlInitializeExtendedContext2
  * 00000001408B996D: mov     ebx, eax
  * 00000001408B996F: test    eax, eax
@@ -249,15 +249,15 @@
  * 00000001408B99FF: neg     rax
  * 00000001408B9A02: sbb     ecx, ecx
  * 00000001408B9A04: and     ecx, 40h
- * 00000001408B9A07: add     ecx, 1003Fh
- * 00000001408B9A0D: mov     r8, r13
- * 00000001408B9A10: lea     rdx, [rbp+60h+var_5F+7]
+ * 00000001408B9A07: add     ecx, 1003Fh; ContextFlags
+ * 00000001408B9A0D: mov     r8, r13; EnabledExtendedFeatures
+ * 00000001408B9A10: lea     rdx, [rbp+60h+var_5F+7]; ContextLength
  * 00000001408B9A14: call    RtlGetExtendedContextLength2
  * 00000001408B9A19: mov     ebx, eax
  * 00000001408B9A1B: test    eax, eax
  * 00000001408B9A1D: js      loc_1408B9BDB
  * 00000001408B9A23: mov     [rbp+60h+var_5F], 0
- * 00000001408B9A27: and     dword ptr [rbp+60h+var_50], 0
+ * 00000001408B9A27: and     dword ptr [rbp+60h+ContextEx], 0
  * 00000001408B9A2B: mov     edx, dword ptr [rbp+60h+var_5F+7]
  * 00000001408B9A2E: lea     rcx, [rdx+0Fh]
  * 00000001408B9A32: cmp     rcx, rdx
@@ -270,7 +270,7 @@
  * 00000001408B9A49: lea     r13, [rsp+0B0h+var_60]
  * 00000001408B9A4E: lea     rax, [rbp+60h+var_5F]
  * 00000001408B9A52: mov     [rsp+0B0h+var_78], rax; __int64
- * 00000001408B9A57: lea     rax, [rbp+60h+var_50]
+ * 00000001408B9A57: lea     rax, [rbp+60h+ContextEx]
  * 00000001408B9A5B: mov     [rsp+0B0h+var_80], rax; __int64
  * 00000001408B9A60: mov     dword ptr [rsp+0B0h+Length], edx; Length
  * 00000001408B9A64: mov     r9, r13
@@ -287,7 +287,7 @@
  * 00000001408B9A8D: cmp     word ptr [r15+38h], 23h ; '#'
  * 00000001408B9A93: jnz     short loc_1408B9AB9
  * 00000001408B9A95: mov     r8, r15
- * 00000001408B9A98: mov     rsi, [rbp+60h+var_48]
+ * 00000001408B9A98: mov     rsi, [rbp+60h+Source]
  * 00000001408B9A9C: mov     rdx, rsi
  * 00000001408B9A9F: mov     ecx, dword ptr [rbp+60h+var_5F+3]
  * 00000001408B9AA2: call    RtlpWow64CtxToAmd64
@@ -296,10 +296,10 @@
  * 00000001408B9AAB: js      loc_1408B9BDB
  * 00000001408B9AB1: mov     r12b, 1
  * 00000001408B9AB4: jmp     loc_1408B9B93
- * 00000001408B9AB9: mov     esi, dword ptr [rbp+60h+var_50]
+ * 00000001408B9AB9: mov     esi, dword ptr [rbp+60h+ContextEx]
  * 00000001408B9ABC: test    sil, 1
  * 00000001408B9AC0: jnz     short loc_1408B9B01
- * 00000001408B9AC2: mov     rax, [rbp+60h+var_40]
+ * 00000001408B9AC2: mov     rax, [rbp+60h+EnabledExtendedFeatures]
  * 00000001408B9AC6: neg     rax
  * 00000001408B9AC9: sbb     ecx, ecx
  * 00000001408B9ACB: and     ecx, 40h
@@ -315,11 +315,11 @@
  * 00000001408B9AF2: lea     r8d, [rdx+60h]; Size
  * 00000001408B9AF6: call    memset_0
  * 00000001408B9AFB: or      esi, 1
- * 00000001408B9AFE: mov     dword ptr [rbp+60h+var_50], esi
- * 00000001408B9B01: mov     r8, [rbp+60h+var_48]
+ * 00000001408B9AFE: mov     dword ptr [rbp+60h+ContextEx], esi
+ * 00000001408B9B01: mov     r8, [rbp+60h+Source]; Source
  * 00000001408B9B05: mov     esi, dword ptr [rbp+60h+var_5F+3]
- * 00000001408B9B08: mov     edx, esi
- * 00000001408B9B0A: mov     rcx, r13
+ * 00000001408B9B08: mov     edx, esi; ContextFlags
+ * 00000001408B9B0A: mov     rcx, r13; Context
  * 00000001408B9B0D: call    RtlCopyContext
  * 00000001408B9B12: mov     ebx, eax
  * 00000001408B9B14: test    eax, eax
@@ -327,7 +327,7 @@
  * 00000001408B9B1C: mov     ecx, 10010h
  * 00000001408B9B21: and     esi, ecx
  * 00000001408B9B23: cmp     esi, ecx
- * 00000001408B9B25: mov     rsi, [rbp+60h+var_48]
+ * 00000001408B9B25: mov     rsi, [rbp+60h+Source]
  * 00000001408B9B29: jnz     short loc_1408B9B65
  * 00000001408B9B2B: mov     r8, r15
  * 00000001408B9B2E: mov     rdx, rsi
@@ -338,16 +338,16 @@
  * 00000001408B9B40: mov     r12b, 1
  * 00000001408B9B43: mov     dword ptr [r15+30h], 100010h
  * 00000001408B9B4B: jmp     short loc_1408B9B65
- * 00000001408B9B4D: mov     rsi, [rbp+60h+var_48]
- * 00000001408B9B51: mov     r8, rsi
- * 00000001408B9B54: mov     edx, dword ptr [rbp+60h+var_5F+3]
- * 00000001408B9B57: mov     rcx, r13
+ * 00000001408B9B4D: mov     rsi, [rbp+60h+Source]
+ * 00000001408B9B51: mov     r8, rsi; Source
+ * 00000001408B9B54: mov     edx, dword ptr [rbp+60h+var_5F+3]; ContextFlags
+ * 00000001408B9B57: mov     rcx, r13; Context
  * 00000001408B9B5A: call    RtlCopyContext
  * 00000001408B9B5F: mov     ebx, eax
  * 00000001408B9B61: test    eax, eax
  * 00000001408B9B63: js      short loc_1408B9BDB
  * 00000001408B9B65: and     [rsp+0B0h+var_78], 0
- * 00000001408B9B6B: lea     rax, [rbp+60h+var_50]
+ * 00000001408B9B6B: lea     rax, [rbp+60h+ContextEx]
  * 00000001408B9B6F: mov     [rsp+0B0h+var_80], rax; __int64
  * 00000001408B9B74: mov     eax, dword ptr [rbp+60h+var_5F+7]
  * 00000001408B9B77: mov     dword ptr [rsp+0B0h+Length], eax; Length

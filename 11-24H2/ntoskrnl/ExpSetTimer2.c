@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpSetTimer2 @ 0x1403C1C30
+ * XREFs of ExpSetTimer2 @ 0x1403B07F0
  * Callers:
- *     NtSetTimer2 @ 0x1403C1C00 (NtSetTimer2.c)
- *     NtCancelTimer2 @ 0x14048AB80 (NtCancelTimer2.c)
- *     NtSetIRTimer @ 0x1404A0CD0 (NtSetIRTimer.c)
+ *     NtSetTimer2 @ 0x1403B07C0 (NtSetTimer2.c)
+ *     NtCancelTimer2 @ 0x1404859B0 (NtCancelTimer2.c)
+ *     NtSetIRTimer @ 0x14049B350 (NtSetIRTimer.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, __int64 *a2, unsigned __int64 a3, unsigned __int64 a4)

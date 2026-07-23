@@ -1,15 +1,15 @@
 /*
- * XREFs of IvtDrainSvmPageRequests @ 0x14056E130
+ * XREFs of IvtDrainSvmPageRequests @ 0x14056B5C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     IvtIommuWaitCommand @ 0x1403BB7F4 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x1403BB944 (IvtIommuSendCommand.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     IvtIommuWaitCommand @ 0x140374F34 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140375084 (IvtIommuSendCommand.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IvtDrainSvmPageRequests(__int64 a1, unsigned __int16 a2, char a3)
@@ -30,13 +30,13 @@ __int64 __fastcall IvtDrainSvmPageRequests(__int64 a1, unsigned __int16 a2, char
   KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 208), &LockHandle);
   IvtIommuWaitCommand(a1, 0, 1);
   v10[0] = 18LL;
-  IvtIommuSendCommand(a1, v10, 1LL);
+  IvtIommuSendCommand(a1, v10, 1);
   v11[1] = 0x7FFFFFFFFFFFF801LL;
   v11[0] = (16 * (a3 & 0x1F | ((unsigned __int64)a2 << 12))) | 8;
-  IvtIommuSendCommand(a1, v11, 1LL);
+  IvtIommuSendCommand(a1, v11, 1);
   IvtIommuWaitCommand(a1, 0, 1);
-  IvtIommuSendCommand(a1, v10, 1LL);
-  IvtIommuSendCommand(a1, v11, 1LL);
+  IvtIommuSendCommand(a1, v10, 1);
+  IvtIommuSendCommand(a1, v11, 1);
   IvtIommuWaitCommand(a1, 1, 1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle, v7);
   if ( KiIrqlFlags )

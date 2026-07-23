@@ -1,15 +1,15 @@
 /*
- * XREFs of IoReportTargetDeviceChange @ 0x140AE6500
+ * XREFs of IoReportTargetDeviceChange @ 0x140AE42C0
  * Callers:
- *     NtSetVolumeInformationFile @ 0x140799CE0 (NtSetVolumeInformationFile.c)
- *     FsRtlNotifyVolumeEventEx @ 0x140AE63A0 (FsRtlNotifyVolumeEventEx.c)
+ *     NtSetVolumeInformationFile @ 0x14079C810 (NtSetVolumeInformationFile.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x140AE4160 (FsRtlNotifyVolumeEventEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     PnpSetCustomTargetEvent @ 0x1409094C8 (PnpSetCustomTargetEvent.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     PnpSetCustomTargetEvent @ 0x1409AB088 (PnpSetCustomTargetEvent.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObject, PVOID NotificationStructure)

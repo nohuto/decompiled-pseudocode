@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaWritePolicyValueToRegistry @ 0x1407C8C3C
+ * XREFs of WheaWritePolicyValueToRegistry @ 0x1407C912C
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x14065F64C (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x14065DE1C (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
- *     RtlWriteRegistryValue @ 0x140A54360 (RtlWriteRegistryValue.c)
+ *     RtlWriteRegistryValue @ 0x1409B6290 (RtlWriteRegistryValue.c)
  */
 
 NTSTATUS __fastcall WheaWritePolicyValueToRegistry(unsigned int a1, _DWORD *ValueData)

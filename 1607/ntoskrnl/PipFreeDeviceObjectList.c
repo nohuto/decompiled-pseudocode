@@ -1,10 +1,10 @@
 /*
- * XREFs of PipFreeDeviceObjectList @ 0x1404C59E0
+ * XREFs of PipFreeDeviceObjectList @ 0x140485E14
  * Callers:
- *     IopFreeRelationList @ 0x1404C59AC (IopFreeRelationList.c)
- *     PipGrowDeviceObjectList @ 0x14064BBD0 (PipGrowDeviceObjectList.c)
+ *     IopFreeRelationList @ 0x140485DE0 (IopFreeRelationList.c)
+ *     PipGrowDeviceObjectList @ 0x14064BCB4 (PipGrowDeviceObjectList.c)
  * Callees:
- *     PiClearDeviceObjectList @ 0x1404C5A64 (PiClearDeviceObjectList.c)
+ *     PiClearDeviceObjectList @ 0x140485E98 (PiClearDeviceObjectList.c)
  */
 
 void __fastcall PipFreeDeviceObjectList(void *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIrpWatchdogBugcheck @ 0x1401FF2A4
+ * XREFs of PopIrpWatchdogBugcheck @ 0x1401FF0D0
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x14012B7CC (PopDequeueQuerySetIrp.c)
- *     PopIrpWatchdog @ 0x1401FF280 (PopIrpWatchdog.c)
+ *     PopDequeueQuerySetIrp @ 0x14012BD3C (PopDequeueQuerySetIrp.c)
+ *     PopIrpWatchdog @ 0x1401FF0AC (PopIrpWatchdog.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall __noreturn PopIrpWatchdogBugcheck(__int64 a1)

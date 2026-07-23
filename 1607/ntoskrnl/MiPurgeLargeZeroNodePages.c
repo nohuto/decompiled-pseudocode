@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPurgeLargeZeroNodePages @ 0x140120714
+ * XREFs of MiPurgeLargeZeroNodePages @ 0x140120C84
  * Callers:
- *     MiPurgeZeroList @ 0x140120600 (MiPurgeZeroList.c)
+ *     MiPurgeZeroList @ 0x140120B70 (MiPurgeZeroList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)

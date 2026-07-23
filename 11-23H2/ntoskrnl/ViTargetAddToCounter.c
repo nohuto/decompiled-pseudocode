@@ -1,23 +1,23 @@
 /*
- * XREFs of ViTargetAddToCounter @ 0x140ACB9C4
+ * XREFs of ViTargetAddToCounter @ 0x140ACB9B4
  * Callers:
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140AE02E0 (VfMiscMmUnmapLockedPages_Entry.c)
- *     VerifierMmAllocateNodePagesForMdlEx @ 0x140AE29A0 (VerifierMmAllocateNodePagesForMdlEx.c)
- *     VerifierMmAllocatePagesForMdl @ 0x140AE2B20 (VerifierMmAllocatePagesForMdl.c)
- *     VerifierMmAllocatePagesForMdlEx @ 0x140AE2C30 (VerifierMmAllocatePagesForMdlEx.c)
- *     VerifierMmFreePagesFromMdl @ 0x140AE2F80 (VerifierMmFreePagesFromMdl.c)
- *     VerifierMmMapIoSpace @ 0x140AE3020 (VerifierMmMapIoSpace.c)
- *     VerifierMmMapLockedPages @ 0x140AE31B0 (VerifierMmMapLockedPages.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE3280 (VerifierMmMapLockedPagesSpecifyCache.c)
- *     VerifierMmProbeAndLockPages @ 0x140AE3480 (VerifierMmProbeAndLockPages.c)
- *     VerifierMmProbeAndLockProcessPages @ 0x140AE3570 (VerifierMmProbeAndLockProcessPages.c)
- *     VerifierMmUnlockPages @ 0x140AE36B0 (VerifierMmUnlockPages.c)
- *     VerifierMmUnmapIoSpace @ 0x140AE37F0 (VerifierMmUnmapIoSpace.c)
+ *     VfMiscMmUnmapLockedPages_Entry @ 0x140AE02D0 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     VerifierMmAllocateNodePagesForMdlEx @ 0x140AE2990 (VerifierMmAllocateNodePagesForMdlEx.c)
+ *     VerifierMmAllocatePagesForMdl @ 0x140AE2B10 (VerifierMmAllocatePagesForMdl.c)
+ *     VerifierMmAllocatePagesForMdlEx @ 0x140AE2C20 (VerifierMmAllocatePagesForMdlEx.c)
+ *     VerifierMmFreePagesFromMdl @ 0x140AE2F70 (VerifierMmFreePagesFromMdl.c)
+ *     VerifierMmMapIoSpace @ 0x140AE3010 (VerifierMmMapIoSpace.c)
+ *     VerifierMmMapLockedPages @ 0x140AE31A0 (VerifierMmMapLockedPages.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE3270 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VerifierMmProbeAndLockPages @ 0x140AE3470 (VerifierMmProbeAndLockPages.c)
+ *     VerifierMmProbeAndLockProcessPages @ 0x140AE3560 (VerifierMmProbeAndLockProcessPages.c)
+ *     VerifierMmUnlockPages @ 0x140AE36A0 (VerifierMmUnlockPages.c)
+ *     VerifierMmUnmapIoSpace @ 0x140AE37E0 (VerifierMmUnmapIoSpace.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404664A8 (VfAvlInitializeLockContext.c)
- *     ViTargetUpdateTreeAllowed @ 0x140ACBEC4 (ViTargetUpdateTreeAllowed.c)
+ *     VfAvlInitializeLockContext @ 0x1404668A8 (VfAvlInitializeLockContext.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140ACBEB4 (ViTargetUpdateTreeAllowed.c)
  */
 
 void __fastcall ViTargetAddToCounter(__int64 a1, __int64 a2, unsigned int a3, unsigned __int64 a4)

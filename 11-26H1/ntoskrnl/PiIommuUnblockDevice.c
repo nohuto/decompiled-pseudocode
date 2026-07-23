@@ -1,11 +1,11 @@
 /*
- * XREFs of PiIommuUnblockDevice @ 0x14077916C
+ * XREFs of PiIommuUnblockDevice @ 0x14077C00C
  * Callers:
- *     PnpIommuBlockUnblockDevice @ 0x1407B4A6C (PnpIommuBlockUnblockDevice.c)
- *     PiDmaGuardProcessPreStart @ 0x1409109F4 (PiDmaGuardProcessPreStart.c)
+ *     PnpIommuBlockUnblockDevice @ 0x1407B7ACC (PnpIommuBlockUnblockDevice.c)
+ *     PiDmaGuardProcessPreStart @ 0x1409B2AD4 (PiDmaGuardProcessPreStart.c)
  * Callees:
- *     PpvDmaReleaseInactiveDmaAdapter @ 0x1405DCFC0 (PpvDmaReleaseInactiveDmaAdapter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpvDmaReleaseInactiveDmaAdapter @ 0x1405DF928 (PpvDmaReleaseInactiveDmaAdapter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PiIommuUnblockDevice(__int64 a1, char a2)

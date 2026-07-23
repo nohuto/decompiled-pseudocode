@@ -9,14 +9,14 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __stdcall TpTimerOutstandingCallbackCount(int a1)
+unsigned int __stdcall TpTimerOutstandingCallbackCount(_RTL_SRWLOCK *a1)
 {
-  int v1; // esi
+  unsigned int Value; // esi
 
   if ( !TppTimerpValidateTimer(0) )
     return 0;
-  RtlAcquireSRWLockExclusive(a1 + 144);
-  v1 = *(_DWORD *)(a1 + 32);
-  RtlReleaseSRWLockExclusive(a1 + 144);
-  return v1;
+  RtlAcquireSRWLockExclusive(a1 + 36);
+  Value = a1[8].Value;
+  RtlReleaseSRWLockExclusive(a1 + 36);
+  return Value;
 }

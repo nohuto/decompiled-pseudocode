@@ -1,27 +1,27 @@
 /*
- * XREFs of DbgkForwardException @ 0x1404DBC50
+ * XREFs of DbgkForwardException @ 0x1404BF254
  * Callers:
- *     KiSchedulerApc @ 0x1400CB720 (KiSchedulerApc.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     KiSchedulerApc @ 0x1400C95C0 (KiSchedulerApc.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeCopyExceptionRecord @ 0x1401717BC (KeCopyExceptionRecord.c)
- *     PsSetProcessFaultInformation @ 0x1404F09D4 (PsSetProcessFaultInformation.c)
- *     PsCaptureExceptionPort @ 0x140509690 (PsCaptureExceptionPort.c)
- *     DbgkpSendApiMessage @ 0x14061A30C (DbgkpSendApiMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x14061A408 (DbgkpSendApiMessageLpc.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeCopyExceptionRecord @ 0x140171CB8 (KeCopyExceptionRecord.c)
+ *     PsSetProcessFaultInformation @ 0x1404D2AC8 (PsSetProcessFaultInformation.c)
+ *     PsCaptureExceptionPort @ 0x1404EC620 (PsCaptureExceptionPort.c)
+ *     DbgkpSendApiMessage @ 0x14061A3C0 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x14061A4BC (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  */
 
 bool __fastcall DbgkForwardException(__int64 a1, char a2, char a3)
 {
   char v6; // r14
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR Process; // rsi
+  _KPROCESS *Process; // rsi
   void *v9; // rbx
   __int64 v11; // r8
   int v12; // esi
@@ -39,13 +39,13 @@ bool __fastcall DbgkForwardException(__int64 a1, char a2, char a3)
   DWORD2(v15[2]) = 0;
   *(_QWORD *)&v15[0] = 0x800D000A8LL;
   CurrentThread = KeGetCurrentThread();
-  Process = (ULONG_PTR)CurrentThread->ApcState.Process;
+  Process = CurrentThread->ApcState.Process;
   if ( a2 )
   {
     if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 4) != 0 )
       v9 = 0LL;
     else
-      v9 = *(void **)(Process + 1056);
+      v9 = (void *)Process[1].ActiveProcessors.Bitmap[6];
     v6 = 0;
   }
   else

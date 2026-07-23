@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBootLogToFile @ 0x140890EC4
+ * XREFs of IopBootLogToFile @ 0x140891024
  * Callers:
- *     IopBootLog @ 0x140771A20 (IopBootLog.c)
- *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
+ *     IopBootLog @ 0x140771BE0 (IopBootLog.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140791828 (IopCopyBootLogRegistryToFile.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FB020 (ZwCreateFile.c)
  */
 
 __int64 __fastcall IopBootLogToFile(PVOID *a1)
@@ -19,6 +19,9 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
   UNICODE_STRING *v4; // rbx
   NTSTATUS v5; // ebx
   ULONG v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   __int16 Buffer; // [rsp+D8h] [rbp+6Fh] BYREF
@@ -57,6 +60,6 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
     ZwClose(FileHandle);
   }
   ExReleaseResourceLite((PERESOURCE)&qword_140D2D030[4]);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v7, v8, v9);
   return (unsigned int)v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFreeDevProperty @ 0x1409FA3E4
+ * XREFs of PnpFreeDevProperty @ 0x1409F2D54
  * Callers:
- *     PnpCopyDevProperty @ 0x1409FA314 (PnpCopyDevProperty.c)
+ *     PnpCopyDevProperty @ 0x1409F2C84 (PnpCopyDevProperty.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpFreeDevProperty(__int64 a1, ULONG a2)

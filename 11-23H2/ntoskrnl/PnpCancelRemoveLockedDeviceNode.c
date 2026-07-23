@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCancelRemoveLockedDeviceNode @ 0x140958F3C
+ * XREFs of PnpCancelRemoveLockedDeviceNode @ 0x14095913C
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140868428 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140868668 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     PipRestoreDevNodeState @ 0x1403B6F88 (PipRestoreDevNodeState.c)
- *     PipSetDevNodeUserFlags @ 0x1407906BC (PipSetDevNodeUserFlags.c)
- *     PipClearDevNodeUserFlags @ 0x1407933E0 (PipClearDevNodeUserFlags.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x14079C174 (PnpStartedDeviceNodeDependencyCheck.c)
- *     IopRemoveDevice @ 0x140869968 (IopRemoveDevice.c)
+ *     PipRestoreDevNodeState @ 0x1403B7168 (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeUserFlags @ 0x1407908AC (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1407935D0 (PipClearDevNodeUserFlags.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x14079C364 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     IopRemoveDevice @ 0x140869BA8 (IopRemoveDevice.c)
  */
 
 void __fastcall PnpCancelRemoveLockedDeviceNode(__int64 a1)

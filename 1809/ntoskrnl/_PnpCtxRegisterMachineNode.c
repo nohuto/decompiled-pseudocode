@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpCtxRegisterMachineNode @ 0x1408F5F1C
+ * XREFs of _PnpCtxRegisterMachineNode @ 0x1408F71DC
  * Callers:
- *     PiPnpRtlInit @ 0x14073A520 (PiPnpRtlInit.c)
- *     PiPnpRtlRegisterDriverMachineNodeCallback @ 0x140763800 (PiPnpRtlRegisterDriverMachineNodeCallback.c)
+ *     PiPnpRtlInit @ 0x14073B710 (PiPnpRtlInit.c)
+ *     PiPnpRtlRegisterDriverMachineNodeCallback @ 0x1407649F0 (PiPnpRtlRegisterDriverMachineNodeCallback.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     _PnpCtxCreateNode @ 0x14073B91C (_PnpCtxCreateNode.c)
- *     _PnpCtxDestroyNode @ 0x1408F5BBC (_PnpCtxDestroyNode.c)
- *     _PnpCtxFindNode @ 0x1408F5CBC (_PnpCtxFindNode.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _PnpCtxCreateNode @ 0x14073CB0C (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x1408F6E7C (_PnpCtxDestroyNode.c)
+ *     _PnpCtxFindNode @ 0x1408F6F7C (_PnpCtxFindNode.c)
  */
 
 __int64 __fastcall PnpCtxRegisterMachineNode(__int64 a1, const WCHAR *a2, int a3, __int64 a4, __int64 a5)

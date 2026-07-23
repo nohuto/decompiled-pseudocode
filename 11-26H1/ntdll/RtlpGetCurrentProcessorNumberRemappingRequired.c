@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetCurrentProcessorNumberRemappingRequired @ 0x180152F70
+ * XREFs of RtlpGetCurrentProcessorNumberRemappingRequired @ 0x180152E40
  * Callers:
- *     RtlGetCurrentProcessorNumber @ 0x1801634D0 (RtlGetCurrentProcessorNumber.c)
+ *     RtlGetCurrentProcessorNumber @ 0x1801633D0 (RtlGetCurrentProcessorNumber.c)
  * Callees:
  *     <none>
  */

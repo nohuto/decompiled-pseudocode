@@ -1,14 +1,14 @@
 /*
- * XREFs of IovpLogStackTrace @ 0x140BA6A6C
+ * XREFs of IovpLogStackTrace @ 0x140BA8A6C
  * Callers:
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IovCancelIrp @ 0x140B826F0 (IovCancelIrp.c)
- *     IovCompleteRequest @ 0x140BA6768 (IovCompleteRequest.c)
- *     IovAllocateIrp @ 0x140BA9550 (IovAllocateIrp.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     IovCancelIrp @ 0x140B846F0 (IovCancelIrp.c)
+ *     IovCompleteRequest @ 0x140BA8768 (IovCompleteRequest.c)
+ *     IovAllocateIrp @ 0x140BAB550 (IovAllocateIrp.c)
  * Callees:
- *     KeExpandKernelStackAndCallout @ 0x14027BAB0 (KeExpandKernelStackAndCallout.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x14042B6E0 (RtlEnoughStackSpaceForStackCapture.c)
- *     IovpLogStackCallout @ 0x140BA6B20 (IovpLogStackCallout.c)
+ *     KeExpandKernelStackAndCallout @ 0x140231040 (KeExpandKernelStackAndCallout.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x14041E270 (RtlEnoughStackSpaceForStackCapture.c)
+ *     IovpLogStackCallout @ 0x140BA8B20 (IovpLogStackCallout.c)
  */
 
 _QWORD *__fastcall IovpLogStackTrace(__int64 a1)

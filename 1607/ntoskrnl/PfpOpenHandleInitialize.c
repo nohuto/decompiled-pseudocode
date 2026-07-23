@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpOpenHandleInitialize @ 0x140581AA0
+ * XREFs of PfpOpenHandleInitialize @ 0x140581F50
  * Callers:
- *     PfpReadSupportInitialize @ 0x1400AC8BC (PfpReadSupportInitialize.c)
+ *     PfpReadSupportInitialize @ 0x1400AAE24 (PfpReadSupportInitialize.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PfpOpenHandleInitialize(_QWORD *a1)

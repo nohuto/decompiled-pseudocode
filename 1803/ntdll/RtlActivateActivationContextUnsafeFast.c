@@ -22,7 +22,7 @@
 
 void __fastcall RtlActivateActivationContextUnsafeFast(__int64 a1, __int64 a2)
 {
-  struct _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r9
+  PACTIVATION_CONTEXT_STACK ActivationContextStackPointer; // r9
   ULONG_PTR ActiveFrame; // r8
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
   _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h]
@@ -65,5 +65,5 @@ LABEL_8:
     *(_DWORD *)(a1 + 32) = 48;
     return;
   }
-  ActivationContextStackPointer->ActiveFrame = (struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME *)(a1 + 16);
+  ActivationContextStackPointer->ActiveFrame = (PRTL_ACTIVATION_CONTEXT_STACK_FRAME)(a1 + 16);
 }

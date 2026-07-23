@@ -1,8 +1,8 @@
 /*
- * XREFs of EmpCheckOperator @ 0x1405708E0
+ * XREFs of EmpCheckOperator @ 0x140570E20
  * Callers:
- *     EmCpuMatchCallback @ 0x140570818 (EmCpuMatchCallback.c)
- *     EmMatchDate @ 0x14061D27C (EmMatchDate.c)
+ *     EmCpuMatchCallback @ 0x140570D58 (EmCpuMatchCallback.c)
+ *     EmMatchDate @ 0x14061D330 (EmMatchDate.c)
  * Callees:
  *     <none>
  */
@@ -24,96 +24,96 @@ __int64 __fastcall EmpCheckOperator(unsigned __int8 *a1, unsigned int a2, unsign
   int v17; // edx
 
   v3 = 0;
-  v5 = *a1 - (unsigned __int8)asc_1405835A0[0];
+  v5 = *a1 - (unsigned __int8)asc_140583A50[0];
   if ( !v5 )
-    v5 = a1[1] - (unsigned __int8)asc_1405835A0[1];
+    v5 = a1[1] - (unsigned __int8)asc_140583A50[1];
   if ( !v5 )
     goto LABEL_4;
-  v7 = *a1 - (unsigned __int8)asc_1405835B0[0];
+  v7 = *a1 - (unsigned __int8)asc_140583A60[0];
   if ( !v7 )
   {
-    v7 = a1[1] - (unsigned __int8)asc_1405835B0[1];
+    v7 = a1[1] - (unsigned __int8)asc_140583A60[1];
     if ( !v7 )
-      v7 = a1[2] - (unsigned __int8)asc_1405835B0[2];
+      v7 = a1[2] - (unsigned __int8)asc_140583A60[2];
   }
   if ( v7 )
   {
-    v8 = *a1 - (unsigned __int8)asc_1405835C0[0];
+    v8 = *a1 - (unsigned __int8)asc_140583A70[0];
     if ( !v8 )
     {
-      v8 = a1[1] - (unsigned __int8)asc_1405835C0[1];
+      v8 = a1[1] - (unsigned __int8)asc_140583A70[1];
       if ( !v8 )
-        v8 = a1[2] - (unsigned __int8)asc_1405835C0[2];
+        v8 = a1[2] - (unsigned __int8)asc_140583A70[2];
     }
     if ( !v8 )
       goto LABEL_52;
-    v9 = *a1 - (unsigned __int8)asc_1405835D0[0];
+    v9 = *a1 - (unsigned __int8)asc_140583A80[0];
     if ( !v9 )
     {
-      v9 = a1[1] - (unsigned __int8)asc_1405835D0[1];
+      v9 = a1[1] - (unsigned __int8)asc_140583A80[1];
       if ( !v9 )
-        v9 = a1[2] - (unsigned __int8)asc_1405835D0[2];
+        v9 = a1[2] - (unsigned __int8)asc_140583A80[2];
     }
     if ( !v9 )
       goto LABEL_52;
-    v10 = *a1 - (unsigned __int8)asc_1405835E0[0];
+    v10 = *a1 - (unsigned __int8)asc_140583A90[0];
     if ( !v10 )
     {
-      v10 = a1[1] - (unsigned __int8)asc_1405835E0[1];
+      v10 = a1[1] - (unsigned __int8)asc_140583A90[1];
       if ( !v10 )
-        v10 = a1[2] - (unsigned __int8)asc_1405835E0[2];
+        v10 = a1[2] - (unsigned __int8)asc_140583A90[2];
     }
     if ( v10 )
     {
-      v11 = *a1 - (unsigned __int8)asc_1405835F0[0];
+      v11 = *a1 - (unsigned __int8)asc_140583AA0[0];
       if ( !v11 )
-        v11 = a1[1] - (unsigned __int8)asc_1405835F0[1];
+        v11 = a1[1] - (unsigned __int8)asc_140583AA0[1];
       if ( v11 )
       {
-        v12 = *a1 - (unsigned __int8)asc_140583600[0];
+        v12 = *a1 - (unsigned __int8)asc_140583AB0[0];
         if ( !v12 )
         {
-          v12 = a1[1] - (unsigned __int8)asc_140583600[1];
+          v12 = a1[1] - (unsigned __int8)asc_140583AB0[1];
           if ( !v12 )
-            v12 = a1[2] - (unsigned __int8)asc_140583600[2];
+            v12 = a1[2] - (unsigned __int8)asc_140583AB0[2];
         }
         if ( !v12 )
           goto LABEL_51;
-        v13 = *a1 - (unsigned __int8)asc_140583610[0];
+        v13 = *a1 - (unsigned __int8)asc_140583AC0[0];
         if ( !v13 )
         {
-          v13 = a1[1] - (unsigned __int8)asc_140583610[1];
+          v13 = a1[1] - (unsigned __int8)asc_140583AC0[1];
           if ( !v13 )
-            v13 = a1[2] - (unsigned __int8)asc_140583610[2];
+            v13 = a1[2] - (unsigned __int8)asc_140583AC0[2];
         }
         if ( v13 )
         {
-          v14 = *a1 - (unsigned __int8)asc_140583620[0];
+          v14 = *a1 - (unsigned __int8)asc_140583AD0[0];
           if ( !v14 )
-            v14 = a1[1] - (unsigned __int8)asc_140583620[1];
+            v14 = a1[1] - (unsigned __int8)asc_140583AD0[1];
           if ( v14 )
           {
-            v15 = *a1 - (unsigned __int8)asc_140583630[0];
+            v15 = *a1 - (unsigned __int8)asc_140583AE0[0];
             if ( !v15 )
             {
-              v15 = a1[1] - (unsigned __int8)asc_140583630[1];
+              v15 = a1[1] - (unsigned __int8)asc_140583AE0[1];
               if ( !v15 )
-                v15 = a1[2] - (unsigned __int8)asc_140583630[2];
+                v15 = a1[2] - (unsigned __int8)asc_140583AE0[2];
             }
             if ( !v15 )
               goto LABEL_50;
-            v16 = *a1 - (unsigned __int8)asc_140583640[0];
+            v16 = *a1 - (unsigned __int8)asc_140583AF0[0];
             if ( !v16 )
             {
-              v16 = a1[1] - (unsigned __int8)asc_140583640[1];
+              v16 = a1[1] - (unsigned __int8)asc_140583AF0[1];
               if ( !v16 )
-                v16 = a1[2] - (unsigned __int8)asc_140583640[2];
+                v16 = a1[2] - (unsigned __int8)asc_140583AF0[2];
             }
             if ( v16 )
             {
-              v17 = *a1 - (unsigned __int8)asc_140583650[0];
+              v17 = *a1 - (unsigned __int8)asc_140583B00[0];
               if ( !v17 )
-                v17 = a1[1] - (unsigned __int8)asc_140583650[1];
+                v17 = a1[1] - (unsigned __int8)asc_140583B00[1];
               if ( !v17 )
                 return 1;
             }

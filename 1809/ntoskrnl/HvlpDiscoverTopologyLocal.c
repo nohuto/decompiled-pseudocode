@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpDiscoverTopologyLocal @ 0x140817998
+ * XREFs of HvlpDiscoverTopologyLocal @ 0x140818B98
  * Callers:
- *     HvlEnlightenProcessor @ 0x140178680 (HvlEnlightenProcessor.c)
- *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
+ *     HvlEnlightenProcessor @ 0x140178780 (HvlEnlightenProcessor.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EBD0 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x1408179B0 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x140818BB0 (HvlpDiscoverTopologyWorker.c)
  */
 
 __int64 HvlpDiscoverTopologyLocal()

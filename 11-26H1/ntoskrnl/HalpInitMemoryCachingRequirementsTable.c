@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInitMemoryCachingRequirementsTable @ 0x140BEA5D0
+ * XREFs of HalpInitMemoryCachingRequirementsTable @ 0x140BF05D0
  * Callers:
- *     HalpMmInitSystem @ 0x140BEB980 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x140BF1980 (HalpMmInitSystem.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HalpInitMemoryCachingRequirementsTable(__int64 a1)
@@ -22,12 +22,12 @@ __int64 __fastcall HalpInitMemoryCachingRequirementsTable(__int64 a1)
     HalpPmuArbiter.WaitStatus = (volatile __int64)v4;
     if ( !v4 )
       return 3221225626LL;
-    HIDWORD(HalpPmuArbiter.WaitBlockList) = v3;
+    LODWORD(HalpPmuArbiter.WaitBlockList) = v3;
     memmove(v4, v2, 24 * v3);
   }
   else
   {
-    HIDWORD(HalpPmuArbiter.WaitBlockList) = 0;
+    LODWORD(HalpPmuArbiter.WaitBlockList) = 0;
     HalpPmuArbiter.WaitStatus = 0LL;
   }
   return 0LL;

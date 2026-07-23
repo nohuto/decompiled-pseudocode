@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuPasidDeviceCreate @ 0x140787070
+ * XREFs of IommuPasidDeviceCreate @ 0x140789BA0
  * Callers:
  *     <none>
  * Callees:
- *     IommupPasidDeviceCreate @ 0x140588434 (IommupPasidDeviceCreate.c)
- *     ExFreeAsid @ 0x1406D1138 (ExFreeAsid.c)
- *     ExpAllocateAsid @ 0x1406D143C (ExpAllocateAsid.c)
+ *     IommupPasidDeviceCreate @ 0x14058AAEC (IommupPasidDeviceCreate.c)
+ *     ExFreeAsid @ 0x1406D5168 (ExFreeAsid.c)
+ *     ExpAllocateAsid @ 0x1406D546C (ExpAllocateAsid.c)
  */
 
 __int64 __fastcall IommuPasidDeviceCreate(__int64 a1, __int64 *a2, int *a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiInitTerminals @ 0x1407EBD48
+ * XREFs of TtmiInitTerminals @ 0x1407F18AC
  * Callers:
- *     TtmInit @ 0x1407E63A8 (TtmInit.c)
+ *     TtmInit @ 0x1407EBF08 (TtmInit.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
  */
 
 __int64 TtmiInitTerminals()
@@ -37,16 +37,16 @@ __int64 TtmiInitTerminals()
   {
     if ( !PspSiloMonitorLock.ExpectedRunTime )
       PspSiloMonitorLock.ExpectedRunTime = 3000;
-    PsAltSystemCallRegistrationLock.NpxState = -300000000LL;
-    ExInitializeResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.SavedApcStateFill[16]);
-    KeInitializeTimer((PKTIMER)&PsAltSystemCallRegistrationLock.PriorityFloorCounts[16]);
+    PsAltSystemCallRegistrationLock.OtherOperationCount = -300000000LL;
+    ExInitializeResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.QueuedScb);
+    KeInitializeTimer((PKTIMER)&PsAltSystemCallRegistrationLock.MutantListHead.Blink);
     KeInitializeDpc(
-      (PRKDPC)&PsAltSystemCallRegistrationLock.MutantListHead,
+      (PRKDPC)&PsAltSystemCallRegistrationLock.PriorityFloorCounts[24],
       (PKDEFERRED_ROUTINE)TtmpTerminalInactivityTimerDpcRoutine,
       0LL);
-    PsAltSystemCallRegistrationLock.ThreadListEntry.Blink = 0LL;
-    PsAltSystemCallRegistrationLock.ThreadListEntry.Flink = (struct _LIST_ENTRY *)TtmpTerminalInactivityWorkerRoutine;
     PsAltSystemCallRegistrationLock.SuspendEvent.Header.WaitListHead.Flink = 0LL;
+    *(_QWORD *)&PsAltSystemCallRegistrationLock.SuspendEvent.Header.Lock = TtmpTerminalInactivityWorkerRoutine;
+    PsAltSystemCallRegistrationLock.SchedulerApc.SystemArgument2 = 0LL;
     memset_0(&Src, 0, 0x78uLL);
     Src = 120;
     v7 = 400;

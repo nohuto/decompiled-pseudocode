@@ -1,7 +1,7 @@
 /*
- * XREFs of MmPurgeSection @ 0x1400E7D00
+ * XREFs of MmPurgeSection @ 0x1400E7D80
  * Callers:
- *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400E7B20 (CcPurgeCacheSection.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -11,29 +11,29 @@
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiComputeDataFlushRange @ 0x140076E30 (MiComputeDataFlushRange.c)
- *     MiIncrementSubsectionViewCount @ 0x140077A50 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
- *     MiRemoveUnusedSubsection @ 0x14007BBC8 (MiRemoveUnusedSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiCanFileBeTruncatedInternal @ 0x1400E8610 (MiCanFileBeTruncatedInternal.c)
- *     MiWaitForPageWriteCompletion @ 0x1400F9AF4 (MiWaitForPageWriteCompletion.c)
- *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiChangingSubsectionProtos @ 0x1402B5430 (MiChangingSubsectionProtos.c)
- *     MiSubsectionProtosCreated @ 0x1402B704C (MiSubsectionProtosCreated.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiComputeDataFlushRange @ 0x140076E20 (MiComputeDataFlushRange.c)
+ *     MiIncrementSubsectionViewCount @ 0x140077A40 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x14007B7CC (MiInsertUnusedSubsection.c)
+ *     MiRemoveUnusedSubsection @ 0x14007BBB8 (MiRemoveUnusedSubsection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1400E8690 (MiCanFileBeTruncatedInternal.c)
+ *     MiWaitForPageWriteCompletion @ 0x1400F9B74 (MiWaitForPageWriteCompletion.c)
+ *     MiInvalidateCollidedIos @ 0x140117DB8 (MiInvalidateCollidedIos.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiChangingSubsectionProtos @ 0x1402B5620 (MiChangingSubsectionProtos.c)
+ *     MiSubsectionProtosCreated @ 0x1402B723C (MiSubsectionProtosCreated.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 char __fastcall MmPurgeSection(SECTION_OBJECT_POINTERS *a1, __int64 *a2, __int64 a3, int a4, _BYTE *a5)
@@ -346,8 +346,8 @@ LABEL_42:
             v94 = v42;
             if ( (v32 & 0x400) != 0 )
             {
-              if ( qword_14043A0C0 && (v32 & 0x10) == 0 )
-                v32 &= ~qword_14043A0C0;
+              if ( qword_14043B180 && (v32 & 0x10) == 0 )
+                v32 &= ~qword_14043B180;
               v43 = v32 >> 16;
               v44 = 0LL;
               v83 = 0LL;
@@ -449,8 +449,8 @@ LABEL_42:
               --*(_QWORD *)(v46 + 32);
               if ( v44 )
               {
-                v39 = qword_14043A748;
-                v45 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v46 + 60) & 0x3FF));
+                v39 = qword_14043B808;
+                v45 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v46 + 60) & 0x3FF));
                 v82 = v45;
               }
               if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
@@ -523,7 +523,7 @@ LABEL_42:
               {
                 v40 = MiCapturePageFileInfoInline(v33, 0LL);
                 v34 = (*(_QWORD *)(v30 + 40) >> 40) & 0x3FFLL;
-                v59 = *(struct _KEVENT **)(qword_14043A748 + 8 * v34);
+                v59 = *(struct _KEVENT **)(qword_14043B808 + 8 * v34);
               }
               v60 = 4;
               v24 = 0LL;
@@ -541,7 +541,7 @@ LABEL_88:
               *(_QWORD *)v13 = v57;
               goto LABEL_89;
             }
-            if ( !HIBYTE(word_14043A1AC) && (v57 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v57 & 1) != 0 )
               v57 |= 0x8000000000000000uLL;
             *(_QWORD *)v13 = v57;
             MiWritePteShadow(v13);
@@ -617,11 +617,11 @@ LABEL_49:
       }
       if ( (*(_QWORD *)v13 & 0xC00LL) != 0x800 )
         goto LABEL_100;
-      if ( !v27 || !qword_14043A0C0 || (v27 & qword_14043A0C0) != 0 )
+      if ( !v27 || !qword_14043B180 || (v27 & qword_14043B180) != 0 )
       {
         v28 = *(_QWORD *)v13;
-        if ( qword_14043A0C0 && (v27 & 0x10) == 0 )
-          v28 = v27 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v27 & 0x10) == 0 )
+          v28 = v27 & ~qword_14043B180;
         goto LABEL_33;
       }
     }
@@ -635,7 +635,7 @@ LABEL_50:
   *(_DWORD *)(v11 + 56) &= ~4u;
   v37 = v36 + v35;
   if ( v37 )
-    v38 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v11 + 60) & 0x3FF));
+    v38 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v11 + 60) & 0x3FF));
   else
     v38 = 0LL;
   MiCheckControlArea(v11, v14);

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcAsyncLazywriteWorkerThread @ 0x140539D00
+ * XREFs of CcAsyncLazywriteWorkerThread @ 0x14053A250
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     CcNotifyWriteBehindVolume @ 0x1403C1DBC (CcNotifyWriteBehindVolume.c)
- *     CcAsyncLazywriteWorker @ 0x14053983C (CcAsyncLazywriteWorker.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x14053AC14 (CcAsyncLazywriteWorkerMulti.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403C1F9C (CcNotifyWriteBehindVolume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcAsyncLazywriteWorker @ 0x140539D8C (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x14053B164 (CcAsyncLazywriteWorkerMulti.c)
  */
 
 __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
@@ -61,10 +61,13 @@ __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
     --*(_DWORD *)(v2 + 304);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -72,7 +75,7 @@ __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
         v4 = (v14 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v14;
         if ( v4 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);
@@ -84,10 +87,10 @@ __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
       CcNotifyWriteBehindVolume(v6, 32);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v21);
       v15 = v21.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v21.OldIrql <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v21.OldIrql <= 0xFu && v16 >= 2u )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;
@@ -95,7 +98,7 @@ __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
           v4 = (v19 & v18[5]) == 0;
           v18[5] &= v19;
           if ( v4 )
-            KiRemoveSystemWorkPriorityKick(v17);
+            KiRemoveSystemWorkPriorityKick((__int64)v17);
         }
       }
       __writecr8(v15);

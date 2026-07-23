@@ -1,13 +1,13 @@
 /*
- * XREFs of IopUpdateFunctionPointers @ 0x1401C5478
+ * XREFs of IopUpdateFunctionPointers @ 0x1401C5318
  * Callers:
- *     IopIrpExtensionControl @ 0x1401C519C (IopIrpExtensionControl.c)
- *     IoPerfInit @ 0x1401CA614 (IoPerfInit.c)
- *     IoPerfReset @ 0x1401CA68C (IoPerfReset.c)
+ *     IopIrpExtensionControl @ 0x1401C5080 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x1401CA4B4 (IoPerfInit.c)
+ *     IoPerfReset @ 0x1401CA52C (IoPerfReset.c)
  *     IoVerifierInit @ 0x140700648 (IoVerifierInit.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)

@@ -1,28 +1,28 @@
 /*
- * XREFs of IoShutdownSystem @ 0x140C0C858
+ * XREFs of IoShutdownSystem @ 0x140C12A68
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     IoGetAttachedDeviceReference @ 0x1403EB070 (IoGetAttachedDeviceReference.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IopInterlockedRemoveHeadList @ 0x1404E6F6C (IopInterlockedRemoveHeadList.c)
- *     VfIsVerifierEnabled @ 0x1404FC020 (VfIsVerifierEnabled.c)
- *     IoNotifyDump @ 0x1405C7314 (IoNotifyDump.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     ZwSetSystemInformation @ 0x140726B90 (ZwSetSystemInformation.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IoBuildSynchronousFsdRequest @ 0x140AD5C20 (IoBuildSynchronousFsdRequest.c)
- *     PnpShutdownDevices @ 0x140B6BDA8 (PnpShutdownDevices.c)
- *     IopShutdownBaseFileSystems @ 0x140BF150C (IopShutdownBaseFileSystems.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     IovUnloadDrivers @ 0x140C20E8C (IovUnloadDrivers.c)
- *     VfNotifyVerifierOfEvent @ 0x140C21340 (VfNotifyVerifierOfEvent.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1402F8660 (IoGetAttachedDeviceReference.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IopInterlockedRemoveHeadList @ 0x1404E0328 (IopInterlockedRemoveHeadList.c)
+ *     VfIsVerifierEnabled @ 0x1404F5560 (VfIsVerifierEnabled.c)
+ *     IoNotifyDump @ 0x1405C9BE4 (IoNotifyDump.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     ZwSetSystemInformation @ 0x14072B760 (ZwSetSystemInformation.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoBuildSynchronousFsdRequest @ 0x140AD2BD0 (IoBuildSynchronousFsdRequest.c)
+ *     PnpShutdownDevices @ 0x140B6EEA4 (PnpShutdownDevices.c)
+ *     IopShutdownBaseFileSystems @ 0x140BF750C (IopShutdownBaseFileSystems.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     IovUnloadDrivers @ 0x140C26E9C (IovUnloadDrivers.c)
+ *     VfNotifyVerifierOfEvent @ 0x140C27350 (VfNotifyVerifierOfEvent.c)
  */
 
 void __fastcall IoShutdownSystem(int a1)
@@ -39,7 +39,7 @@ void __fastcall IoShutdownSystem(int a1)
   PVOID *v11; // rbx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-20h] BYREF
-  int v14; // [rsp+80h] [rbp+10h] BYREF
+  int SystemInformation; // [rsp+80h] [rbp+10h] BYREF
 
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
@@ -50,14 +50,14 @@ void __fastcall IoShutdownSystem(int a1)
   {
     if ( a1 == 1 )
     {
-      ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&IopSessionNotificationLock.WaitBlockFill11[136]);
-      ExAcquireResourceExclusiveLite((PERESOURCE)&IopSessionNotificationLock.SavedApcStateFill[16], 1u);
-      IopShutdownBaseFileSystems((LONG_PTR **)&IopSessionNotificationLock.WaitBlock[2].Thread);
-      IopShutdownBaseFileSystems((LONG_PTR **)&IopSessionNotificationLock.WaitBlock[2].WaitListEntry.Blink);
-      IopShutdownBaseFileSystems((LONG_PTR **)&IopSessionNotificationLock.WaitBlock[1].SparePtr);
+      ExWaitForRundownProtectionRelease(&IopFilesystemDatabaseShutdownRundown);
+      ExAcquireResourceExclusiveLite(&IopDatabaseResource, 1u);
+      IopShutdownBaseFileSystems((LONG_PTR **)&IopDiskFileSystemQueueHead);
+      IopShutdownBaseFileSystems((LONG_PTR **)&IopCdRomFileSystemQueueHead);
+      IopShutdownBaseFileSystems((LONG_PTR **)&IopTapeFileSystemQueueHead);
       while ( 1 )
       {
-        v10 = (PVOID *)IopInterlockedRemoveHeadList((_QWORD **)&IopSessionNotificationLock.WaitBlock[0].WaitListEntry.Blink);
+        v10 = (PVOID *)IopInterlockedRemoveHeadList((_QWORD **)&IopNotifyLastChanceShutdownQueueHead);
         v11 = v10;
         if ( !v10 )
           break;
@@ -74,17 +74,18 @@ void __fastcall IoShutdownSystem(int a1)
   }
   else
   {
-    v14 = 0;
-    if ( (int)ZwQuerySystemInformation(151LL, (__int64)&v14) >= 0 && (v14 & 0x20) != 0 )
+    SystemInformation = 0;
+    if ( ZwQuerySystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u, 0LL) >= 0
+      && (SystemInformation & 0x20) != 0 )
     {
       guard_dispatch_icall_no_overrides(0LL, v2);
-      v14 = 0;
-      ZwSetSystemInformation(151LL, (__int64)&v14);
+      SystemInformation = 0;
+      ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u);
     }
     PnpShutdownDevices();
     while ( 1 )
     {
-      v5 = (PVOID *)IopInterlockedRemoveHeadList((_QWORD **)&IopSessionNotificationLock.WaitBlock[0].Thread);
+      v5 = (PVOID *)IopInterlockedRemoveHeadList((_QWORD **)&IopNotifyShutdownQueueHead);
       v7 = v5;
       if ( !v5 )
         break;
@@ -99,9 +100,9 @@ void __fastcall IoShutdownSystem(int a1)
     }
     if ( (MmVerifierData & 0x10) != 0 )
       IovUnloadDrivers();
-    if ( (v14 & 0x10) != 0 )
+    if ( (SystemInformation & 0x10) != 0 )
       IoNotifyDump(5LL, v6);
-    v14 = 2;
-    ZwSetSystemInformation(151LL, (__int64)&v14);
+    SystemInformation = 2;
+    ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u);
   }
 }

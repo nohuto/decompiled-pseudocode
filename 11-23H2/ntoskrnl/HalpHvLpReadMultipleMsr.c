@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvLpReadMultipleMsr @ 0x14050B6F0
+ * XREFs of HalpHvLpReadMultipleMsr @ 0x14050BC40
  * Callers:
- *     HalpHvEpReadMsr @ 0x14045B990 (HalpHvEpReadMsr.c)
- *     HalpHvLpReadMcaStatusMsr @ 0x14050B624 (HalpHvLpReadMcaStatusMsr.c)
+ *     HalpHvEpReadMsr @ 0x14045BD90 (HalpHvEpReadMsr.c)
+ *     HalpHvLpReadMcaStatusMsr @ 0x14050BB74 (HalpHvLpReadMcaStatusMsr.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpHvLpReadMultipleMsr(__int64 a1, unsigned int a2, __int64 a3, void *a4)

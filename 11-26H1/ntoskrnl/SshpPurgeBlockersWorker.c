@@ -1,17 +1,17 @@
 /*
- * XREFs of SshpPurgeBlockersWorker @ 0x140AAD230
+ * XREFs of SshpPurgeBlockersWorker @ 0x140AAB2F0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SshpDereferenceBlocker @ 0x14049BA90 (SshpDereferenceBlocker.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     SshpQueryBlockerPendingDelete @ 0x1404D0254 (SshpQueryBlockerPendingDelete.c)
- *     SshpWorkItemTryAllowNextWorker @ 0x1404ED840 (SshpWorkItemTryAllowNextWorker.c)
- *     SshpUnlinkBlockerFromLibrary @ 0x140AAD4BC (SshpUnlinkBlockerFromLibrary.c)
- *     SshpFreeBlockerEntry @ 0x140AAD54C (SshpFreeBlockerEntry.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SshpDereferenceBlocker @ 0x1404955E0 (SshpDereferenceBlocker.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     SshpQueryBlockerPendingDelete @ 0x1404C9C84 (SshpQueryBlockerPendingDelete.c)
+ *     SshpWorkItemTryAllowNextWorker @ 0x1404E6E20 (SshpWorkItemTryAllowNextWorker.c)
+ *     SshpUnlinkBlockerFromLibrary @ 0x140AAB57C (SshpUnlinkBlockerFromLibrary.c)
+ *     SshpFreeBlockerEntry @ 0x140AAB60C (SshpFreeBlockerEntry.c)
  */
 
 char SshpPurgeBlockersWorker()

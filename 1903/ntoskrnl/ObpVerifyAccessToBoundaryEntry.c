@@ -58,7 +58,7 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(_DWORD *a1, __int64 a2)
     RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, Sacl, 0);
     goto LABEL_6;
   }
-  if ( !(unsigned __int8)RtlIsPackageSid(v5) )
+  if ( !RtlIsPackageSid(v5) )
   {
     RtlCreateAcl(Acl, 0xA0u, 2u);
     RtlpAddKnownAce(Acl, 2u, 0, 983055, v5, 0);

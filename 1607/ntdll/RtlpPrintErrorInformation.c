@@ -3,14 +3,14 @@
  * Callers:
  *     RtlpReportHeapFailure @ 0x1800F9D18 (RtlpReportHeapFailure.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  */
 
-__int64 RtlpPrintErrorInformation()
+ULONG RtlpPrintErrorInformation()
 {
   const char *v0; // rbx
 
-  v0 = byte_18010C822;
+  v0 = (const char *)&Flags;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else

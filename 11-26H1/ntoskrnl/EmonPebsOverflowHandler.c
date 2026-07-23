@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonPebsOverflowHandler @ 0x140595E88
+ * XREFs of EmonPebsOverflowHandler @ 0x140598608
  * Callers:
- *     EmonOverflowHandlerInternalV2 @ 0x1404B710C (EmonOverflowHandlerInternalV2.c)
+ *     EmonOverflowHandlerInternalV2 @ 0x1404B093C (EmonOverflowHandlerInternalV2.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall EmonPebsOverflowHandler()
@@ -21,7 +21,7 @@ __int64 __fastcall EmonPebsOverflowHandler()
   {
     if ( v1->SListFaultAddress )
     {
-      if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
+      if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
         v3 = *(_QWORD *)(v2 + 32);
       else
         v3 = *(unsigned int *)(v2 + 16);
@@ -32,7 +32,7 @@ __int64 __fastcall EmonPebsOverflowHandler()
     }
     v1 = *(struct _KTHREAD **)&v1->Header.Lock;
   }
-  if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
+  if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
   {
     result = *(_QWORD *)(v2 + 32);
     *(_QWORD *)(v2 + 40) = result;

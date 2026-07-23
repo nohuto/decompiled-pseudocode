@@ -17,14 +17,14 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
         __int64 a1,
         unsigned __int8 a2,
         __int64 a3,
-        __int64 a4,
+        char a4,
         unsigned __int16 a5,
         __int64 *a6,
         unsigned __int16 *a7)
 {
   int v7; // r13d
   __int64 v8; // r14
-  __int64 v10; // rdi
+  wchar_t *v10; // rdi
   unsigned __int16 *v11; // r15
   unsigned __int16 v12; // r12
   __int64 v13; // rdx
@@ -41,22 +41,22 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v25; // rax
   const wchar_t *v26; // rcx
   size_t v27; // rax
-  __int64 v28; // rax
+  wchar_t *v28; // rax
   __int64 v29; // r8
   const wchar_t *v30; // rdx
   __int64 v31; // [rsp+28h] [rbp-18h]
-  wchar_t *String1[2]; // [rsp+30h] [rbp-10h] BYREF
-  int v33; // [rsp+88h] [rbp+48h] BYREF
+  _UNICODE_STRING String; // [rsp+30h] [rbp-10h] BYREF
+  DWORD Lcid; // [rsp+88h] [rbp+48h] BYREF
   __int16 v34; // [rsp+98h] [rbp+58h] BYREF
 
   v7 = a2;
   v8 = (__int16)a3;
-  v33 = 0;
+  Lcid = 0;
   v34 = 0;
   v10 = 0LL;
   v31 = 0LL;
-  *(_OWORD *)String1 = 0LL;
-  if ( a2 == (_BYTE)a4 )
+  String = 0LL;
+  if ( a2 == a4 )
   {
     v20 = (_WORD)a3 == a5;
 LABEL_22:
@@ -64,7 +64,7 @@ LABEL_22:
     v17 = 0LL;
     goto LABEL_16;
   }
-  if ( !a2 || !(_BYTE)a4 )
+  if ( !a2 || !a4 )
   {
 LABEL_25:
     v16 = 0;
@@ -75,7 +75,7 @@ LABEL_26:
       goto LABEL_16;
     }
 LABEL_55:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10, a4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
     goto LABEL_26;
   }
   v11 = a7;
@@ -99,12 +99,12 @@ LABEL_55:
     }
     goto LABEL_25;
   }
-  if ( (_BYTE)a4 != 2 )
+  if ( a4 != 2 )
   {
     v16 = 1;
     if ( a2 == 1 )
     {
-      if ( (_BYTE)a4 == 3 )
+      if ( a4 == 3 )
       {
         v23 = *(_QWORD *)(a1 + 32);
         if ( v23 )
@@ -116,16 +116,16 @@ LABEL_55:
             v26 = (const wchar_t *)(v25 + 2 * v24);
             if ( v26 )
             {
-              HIDWORD(String1[0]) = 0;
-              String1[1] = (wchar_t *)(v25 + 2 * v24);
+              *(_DWORD *)(&String.MaximumLength + 1) = 0;
+              String.Buffer = (wchar_t *)(v25 + 2 * v24);
               v27 = 2 * wcslen(v26);
               if ( v27 >= 0xFFFE )
                 LOWORD(v27) = -4;
-              LOWORD(String1[0]) = v27;
-              WORD1(String1[0]) = v27 + 2;
-              if ( RtlCultureNameToLCID((unsigned __int16 *)String1, &v33) )
+              String.Length = v27;
+              String.MaximumLength = v27 + 2;
+              if ( RtlCultureNameToLCID(&String, &Lcid) )
               {
-                v20 = (_WORD)v8 == (unsigned __int16)v33;
+                v20 = (_WORD)v8 == (unsigned __int16)Lcid;
                 goto LABEL_22;
               }
             }
@@ -133,20 +133,20 @@ LABEL_55:
         }
       }
     }
-    else if ( a2 == 3 && (_BYTE)a4 == 1 )
+    else if ( a2 == 3 && a4 == 1 )
     {
-      v28 = MuiRegAllocArray(a1, 0x55u);
+      v28 = (wchar_t *)MuiRegAllocArray(a1, 0x55u);
       v10 = v28;
       if ( v28 )
       {
-        if ( (unsigned __int8)RtlpInitAndCallLcidToCultureName((__int64)String1, v28, (__int16)a5) )
+        if ( RtlpInitAndCallLcidToCultureName(&String, v28, (__int16)a5) )
         {
           v29 = *(_QWORD *)(a1 + 32);
           if ( !v29
             || (v8 & 0x8000u) != 0LL
             || (unsigned int)v8 >= *(unsigned __int16 *)(v29 + 6)
             || (v30 = (const wchar_t *)(*(_QWORD *)(v29 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v29 + 16) + 2 * v8))) == 0LL
-            || wcsicmp(String1[1], v30) )
+            || wcsicmp(String.Buffer, v30) )
           {
             v16 = 0;
           }

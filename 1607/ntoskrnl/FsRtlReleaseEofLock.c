@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlReleaseEofLock @ 0x1400C6E40
+ * XREFs of FsRtlReleaseEofLock @ 0x1400C4CE0
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     KeSetEventBoostPriorityEx @ 0x14000CAE8 (KeSetEventBoostPriorityEx.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     FsRtlReleaseHeaderMutex @ 0x1400C73E0 (FsRtlReleaseHeaderMutex.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExpAcquireFastMutexContended @ 0x1400C7E28 (ExpAcquireFastMutexContended.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     KeSetEventBoostPriorityEx @ 0x14000C668 (KeSetEventBoostPriorityEx.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1400C5280 (FsRtlReleaseHeaderMutex.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExpAcquireFastMutexContended @ 0x1400C5CC8 (ExpAcquireFastMutexContended.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 *__fastcall FsRtlReleaseEofLock(__int64 a1, volatile signed __int32 *a2)
@@ -90,7 +90,7 @@ LABEL_52:
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xFu);
     goto LABEL_7;
   }
-  if ( v5 < qword_140326910 || v5 >= qword_140326910 + 0x8000000000LL )
+  if ( v5 < qword_140326950 || v5 >= qword_140326950 + 0x8000000000LL )
     SessionId = -1;
   else
     SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);

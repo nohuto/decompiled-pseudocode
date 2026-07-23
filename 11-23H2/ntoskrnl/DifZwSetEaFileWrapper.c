@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwSetEaFileWrapper @ 0x1405F6A70
+ * XREFs of DifZwSetEaFileWrapper @ 0x1405F6FE0
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetEaFile @ 0x14041E120 (ZwSetEaFile.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwSetEaFile @ 0x14041E4B0 (ZwSetEaFile.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwSetEaFileWrapper(

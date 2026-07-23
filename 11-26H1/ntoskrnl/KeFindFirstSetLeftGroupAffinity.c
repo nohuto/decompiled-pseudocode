@@ -1,5 +1,5 @@
 /*
- * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x14048CEA0
+ * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x1404869E0
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ __int64 __fastcall KeFindFirstSetLeftGroupAffinity(__int64 a1)
   if ( !v2 )
     return 0xFFFFFFFFLL;
   _BitScanReverse64(&v2, v2);
-  return *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-         + 64 * *(unsigned __int16 *)(a1 + 8)
+  return *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                         * *(unsigned __int16 *)(a1 + 8)].Flink
          + (int)v2);
 }

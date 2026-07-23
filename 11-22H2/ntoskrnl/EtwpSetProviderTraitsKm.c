@@ -15,7 +15,7 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
   __int16 v4; // ax
   unsigned int v6; // esi
   __int64 Pool2; // rax
-  const char *P; // rbx
+  _RTL_BALANCED_NODE *Node; // rbx
   unsigned int v9; // ebx
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
   else
   {
     Pool2 = ExAllocatePool2(64LL, (unsigned int)a3 + 28, 1417114693LL);
-    P = (const char *)Pool2;
+    Node = (_RTL_BALANCED_NODE *)Pool2;
     if ( Pool2 )
     {
       memmove((void *)(Pool2 + 28), Src, v6);
@@ -45,10 +45,10 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
              0,
              (__int64)&v14,
              a1,
-             P,
+             Node,
              v6,
              &EtwpProviderTraitsKmMutex,
-             (__int64)&EtwpProviderTraitsKmTree);
+             &EtwpProviderTraitsKmTree);
       if ( !v9 )
         return v9;
     }

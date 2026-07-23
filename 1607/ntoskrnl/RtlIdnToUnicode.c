@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlIdnToUnicode @ 0x1406892F4
+ * XREFs of RtlIdnToUnicode @ 0x1406893D8
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     __report_rangecheckfailure @ 0x1401B1250 (__report_rangecheckfailure.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     __report_rangecheckfailure @ 0x1401B1134 (__report_rangecheckfailure.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     punycode_decode @ 0x140689B74 (punycode_decode.c)
- *     RtlIsNormalizedString @ 0x14068BEA8 (RtlIsNormalizedString.c)
+ *     punycode_decode @ 0x140689C58 (punycode_decode.c)
+ *     RtlIsNormalizedString @ 0x14068BF8C (RtlIsNormalizedString.c)
  */
 
 NTSTATUS __stdcall RtlIdnToUnicode(

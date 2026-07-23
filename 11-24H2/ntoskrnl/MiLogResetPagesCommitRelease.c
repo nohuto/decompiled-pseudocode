@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogResetPagesCommitRelease @ 0x14066A160
+ * XREFs of MiLogResetPagesCommitRelease @ 0x14066B330
  * Callers:
- *     MiReleaseCommitForResetPages @ 0x14066A7E8 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseCommitForResetPages @ 0x14066B9B8 (MiReleaseCommitForResetPages.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void MiLogResetPagesCommitRelease()
@@ -30,9 +30,9 @@ void MiLogResetPagesCommitRelease()
   __int64 *v16; // [rsp+B0h] [rbp+37h]
   __int64 v17; // [rsp+B8h] [rbp+3Fh]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 4LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 4LL) )
   {
     tlgCreate1Sz_char((__int64)v11, (const CHAR *)(v0 + 824));
     v2 = *(_DWORD *)(v1 + 464);
@@ -45,6 +45,6 @@ void MiLogResetPagesCommitRelease()
     v8 = v3;
     v15 = 8LL;
     v17 = 8LL;
-    tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&byte_14005608D, v4, 1u, v5, v6, 6u, &v10);
+    tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&word_140056BCA, v4, 1u, v5, v6, 6u, &v10);
   }
 }

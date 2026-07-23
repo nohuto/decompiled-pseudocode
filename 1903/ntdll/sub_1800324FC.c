@@ -10,10 +10,10 @@
  *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
  */
 
-__int64 __fastcall sub_1800324FC(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+__int64 __fastcall sub_1800324FC(PPEB_LDR_DATA Ldr, __int64 a2, __int64 a3)
 {
   int ShutdownThreadId; // eax
-  void *ThreadPoolData; // rax
+  PVOID ThreadPoolData; // rax
 
   if ( Ldr )
   {

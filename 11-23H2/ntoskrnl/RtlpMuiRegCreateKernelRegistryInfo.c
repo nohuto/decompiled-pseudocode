@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A1504
+ * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A16E4
  * Callers:
- *     MUIRegistrySystemRoutine @ 0x140844970 (MUIRegistrySystemRoutine.c)
+ *     MUIRegistrySystemRoutine @ 0x140844C70 (MUIRegistrySystemRoutine.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140844F78 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     _RtlpMuiRegSerializeRegistryInfo @ 0x140845050 (_RtlpMuiRegSerializeRegistryInfo.c)
- *     RtlpMuiRegCreateRegistryInfo @ 0x140845330 (RtlpMuiRegCreateRegistryInfo.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x140845360 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x140845BB8 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140845278 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     _RtlpMuiRegSerializeRegistryInfo @ 0x140845350 (_RtlpMuiRegSerializeRegistryInfo.c)
+ *     RtlpMuiRegCreateRegistryInfo @ 0x140845630 (RtlpMuiRegCreateRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140845660 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140845EB8 (RtlpMuiRegFreeRegistryInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

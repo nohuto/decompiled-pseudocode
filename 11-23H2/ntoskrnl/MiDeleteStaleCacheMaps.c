@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteStaleCacheMaps @ 0x14062D9D0
+ * XREFs of MiDeleteStaleCacheMaps @ 0x14062DF20
  * Callers:
  *     <none>
  * Callees:
  *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E394 (MiTbFlushTimeStampMayNeedFlush.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiUnlockIoPfnTree @ 0x140336454 (MiUnlockIoPfnTree.c)
- *     MiIsPageInIoHugeRangeTransition @ 0x1403364D0 (MiIsPageInIoHugeRangeTransition.c)
- *     MiLockIoPfnTree @ 0x140336C50 (MiLockIoPfnTree.c)
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1403A0238 (MiConvertIoPfnTreeLockExclusiveToShared.c)
- *     MiIoPfnTreeLockContended @ 0x1403C5AB0 (MiIoPfnTreeLockContended.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDereferenceIoHugeRange @ 0x14061F988 (MiDereferenceIoHugeRange.c)
- *     MiFlushStaleCacheMap @ 0x14062DF94 (MiFlushStaleCacheMap.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiUnlockIoPfnTree @ 0x1403366E4 (MiUnlockIoPfnTree.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x140336760 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiLockIoPfnTree @ 0x140336EE0 (MiLockIoPfnTree.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1403A0418 (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiIoPfnTreeLockContended @ 0x1403C5C90 (MiIoPfnTreeLockContended.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDereferenceIoHugeRange @ 0x14061FED8 (MiDereferenceIoHugeRange.c)
+ *     MiFlushStaleCacheMap @ 0x14062E4E4 (MiFlushStaleCacheMap.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -299,10 +299,13 @@ LABEL_66:
     if ( !qword_140C695A0 )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C695E0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -317,10 +320,10 @@ LABEL_66:
   }
   *(_QWORD *)(a1 + 24) = 0LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C695E0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v37 >= 2u )
     {
       v38 = KeGetCurrentPrcb();
       v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

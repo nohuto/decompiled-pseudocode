@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCorrectMachineCheckErrSrc @ 0x1409A17F4
+ * XREFs of HalpCorrectMachineCheckErrSrc @ 0x1409A2724
  * Callers:
- *     HalpCorrectErrSrc @ 0x1409A17B0 (HalpCorrectErrSrc.c)
+ *     HalpCorrectErrSrc @ 0x1409A26E0 (HalpCorrectErrSrc.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     HalpIsCmciImplemented @ 0x140999C64 (HalpIsCmciImplemented.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpIsCmciImplemented @ 0x14099AC64 (HalpIsCmciImplemented.c)
  */
 
 __int64 __fastcall HalpCorrectMachineCheckErrSrc(_DWORD *a1, _DWORD *a2)

@@ -1,45 +1,45 @@
 /*
- * XREFs of MmUnmapViewInSystemCache @ 0x1400492C0
+ * XREFs of MmUnmapViewInSystemCache @ 0x140048E40
  * Callers:
- *     CcUnmapVacb @ 0x14042B660 (CcUnmapVacb.c)
+ *     CcUnmapVacb @ 0x14042A530 (CcUnmapVacb.c)
  * Callees:
- *     MiManageSubsectionView @ 0x140013D20 (MiManageSubsectionView.c)
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleaseSystemCacheView @ 0x140018374 (MiReleaseSystemCacheView.c)
- *     MiGetSystemCacheReverseMap @ 0x140019B10 (MiGetSystemCacheReverseMap.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiRemoveViewsFromSection @ 0x1400227E4 (MiRemoveViewsFromSection.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiDecrementAndInsertStandbyPages @ 0x140035C70 (MiDecrementAndInsertStandbyPages.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiRemoveWsle @ 0x140046F10 (MiRemoveWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiRemoveLockedPageFromWorkingSet @ 0x1400BAB0C (MiRemoveLockedPageFromWorkingSet.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1400BDD70 (MiUpdateWorkingSetPrivateSize.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiMakeLinkedListPte @ 0x1401F2740 (MiMakeLinkedListPte.c)
- *     MiUpdateLinkedListInPte @ 0x1401F2A14 (MiUpdateLinkedListInPte.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiManageSubsectionView @ 0x1400138A0 (MiManageSubsectionView.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleaseSystemCacheView @ 0x140017EF4 (MiReleaseSystemCacheView.c)
+ *     MiGetSystemCacheReverseMap @ 0x140019690 (MiGetSystemCacheReverseMap.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiRemoveViewsFromSection @ 0x140022364 (MiRemoveViewsFromSection.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiDecrementAndInsertStandbyPages @ 0x1400357F0 (MiDecrementAndInsertStandbyPages.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiRemoveWsle @ 0x140046A90 (MiRemoveWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiRemoveLockedPageFromWorkingSet @ 0x1400B899C (MiRemoveLockedPageFromWorkingSet.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1400BBC00 (MiUpdateWorkingSetPrivateSize.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiMakeLinkedListPte @ 0x1401F256C (MiMakeLinkedListPte.c)
+ *     MiUpdateLinkedListInPte @ 0x1401F281C (MiUpdateLinkedListInPte.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 void __fastcall MmUnmapViewInSystemCache(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3)
@@ -189,7 +189,7 @@ void __fastcall MmUnmapViewInSystemCache(ULONG_PTR BugCheckParameter2, ULONG_PTR
   v101 = 0;
   PrototypePteDirect = 0LL;
   v103 = 2;
-  if ( dword_140327188 )
+  if ( dword_1403271C8 )
     SharedWorkingSetList = MiGetSharedWorkingSetList((__int64)&v10[274].Header.WaitListHead.Blink);
   else
     SharedWorkingSetList = 0LL;
@@ -330,7 +330,7 @@ void __fastcall MmUnmapViewInSystemCache(ULONG_PTR BugCheckParameter2, ULONG_PTR
           if ( v47 == 7 )
           {
             v48 = *(_WORD *)(p_Blink + 164);
-            v49 = v48 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v48);
+            v49 = v48 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v48);
             v50 = *((_QWORD *)v49 + 781);
             if ( *(_QWORD *)(p_Blink + 88) < *(_QWORD *)(v50 + 64) )
             {
@@ -339,7 +339,7 @@ void __fastcall MmUnmapViewInSystemCache(ULONG_PTR BugCheckParameter2, ULONG_PTR
               {
                 if ( *((_QWORD *)v49 + 783) != v51 )
                 {
-                  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327740, &LockHandle);
+                  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327780, &LockHandle);
                   if ( *(_BYTE *)(v50 + 53) || !*(_QWORD *)v51 )
                   {
                     *(_BYTE *)(v50 + 54) = 1;
@@ -391,9 +391,9 @@ void __fastcall MmUnmapViewInSystemCache(ULONG_PTR BugCheckParameter2, ULONG_PTR
       }
       if ( (*(_BYTE *)(p_Blink + 184) & 7) == 2 )
       {
-        --qword_140327D08;
+        --qword_140327D48;
         if ( v57 == 1 )
-          --qword_140327D10;
+          --qword_140327D50;
       }
       if ( v28 < v111[1] )
       {

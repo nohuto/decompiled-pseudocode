@@ -5,15 +5,15 @@
  *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
  * Callees:
  *     MiGetImageBitMapInfo @ 0x1402106D4 (MiGetImageBitMapInfo.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     MiSetControlAreaSystemVa @ 0x1403685FC (MiSetControlAreaSystemVa.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     MiSetControlAreaSystemVa @ 0x14036879C (MiSetControlAreaSystemVa.c)
  *     MiBytesToMapSystemImage @ 0x140696AE4 (MiBytesToMapSystemImage.c)
  *     MiSelectSystemImageAddress @ 0x140696DA4 (MiSelectSystemImageAddress.c)
  *     MiSelectRelocationStartHint @ 0x1406AACDC (MiSelectRelocationStartHint.c)
  *     MiObtainRelocationBits @ 0x1406AAE04 (MiObtainRelocationBits.c)
- *     MiGetImageWowSubsystemIndex @ 0x1407E0CE8 (MiGetImageWowSubsystemIndex.c)
- *     MiImageCanUseHighOverflowArea @ 0x140A48190 (MiImageCanUseHighOverflowArea.c)
- *     MiSelectOverflowDllBase @ 0x140A481BC (MiSelectOverflowDllBase.c)
+ *     MiGetImageWowSubsystemIndex @ 0x1407E0FB8 (MiGetImageWowSubsystemIndex.c)
+ *     MiImageCanUseHighOverflowArea @ 0x140A48440 (MiImageCanUseHighOverflowArea.c)
+ *     MiSelectOverflowDllBase @ 0x140A4846C (MiSelectOverflowDllBase.c)
  */
 
 __int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)

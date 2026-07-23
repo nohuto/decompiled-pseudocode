@@ -1,19 +1,19 @@
 /*
- * XREFs of _wctomb_s_l @ 0x1800A092C
+ * XREFs of _wctomb_s_l @ 0x1800A091C
  * Callers:
- *     wctomb_s @ 0x1800A09E4 (wctomb_s.c)
+ *     wctomb_s @ 0x1800A09D4 (wctomb_s.c)
  * Callees:
- *     RtlUnicodeToMultiByteN @ 0x180018A30 (RtlUnicodeToMultiByteN.c)
- *     _errno @ 0x1800883D0 (_errno.c)
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     RtlUnicodeToMultiByteN @ 0x180018A20 (RtlUnicodeToMultiByteN.c)
+ *     _errno @ 0x1800883C0 (_errno.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
 {
-  int v7; // [rsp+48h] [rbp+10h] BYREF
-  wchar_t v8; // [rsp+58h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF
+  WCHAR UnicodeString; // [rsp+58h] [rbp+20h] BYREF
 
-  v8 = WCh;
+  UnicodeString = WCh;
   if ( MbCh || !SizeInBytes )
   {
     if ( SizeConverted )
@@ -25,13 +25,13 @@ errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, w
     }
     if ( MbCh )
     {
-      if ( (int)RtlUnicodeToMultiByteN(MbCh, SizeInBytes, (unsigned int *)&v7, &v8, 2u) < 0 )
+      if ( RtlUnicodeToMultiByteN(MbCh, SizeInBytes, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
       {
         *errno() = 42;
         return *errno();
       }
       if ( SizeConverted )
-        *SizeConverted = v7;
+        *SizeConverted = BytesInMultiByteString;
     }
     else if ( SizeConverted )
     {

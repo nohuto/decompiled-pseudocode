@@ -1,11 +1,11 @@
 /*
- * XREFs of MiOrderTrimList @ 0x1403B9490
+ * XREFs of MiOrderTrimList @ 0x1403C3390
  * Callers:
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
  * Callees:
- *     MiWorkingSetVeryLarge @ 0x1403B99E0 (MiWorkingSetVeryLarge.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiWorkingSetVeryLarge @ 0x1403C38E0 (MiWorkingSetVeryLarge.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiOrderTrimList(__int64 a1, unsigned int a2)
@@ -121,7 +121,7 @@ unsigned __int64 __fastcall MiOrderTrimList(__int64 a1, unsigned int a2)
     v16 = *((_DWORD *)v8 + 46);
     if ( (v16 & 0xF) == 0 )
     {
-      v21 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)v12 + 599));
+      v21 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)v12 + 599));
       if ( *(_DWORD *)(v21 + 1300) != -1 && *(_QWORD **)(v21 + 2056) == v12 )
       {
 LABEL_21:

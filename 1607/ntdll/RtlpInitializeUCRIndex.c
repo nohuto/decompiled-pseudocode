@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeUCRIndex @ 0x1800883E8
+ * XREFs of RtlpInitializeUCRIndex @ 0x1800883D8
  * Callers:
- *     RtlpPerformHeapMaintenance @ 0x1800299F8 (RtlpPerformHeapMaintenance.c)
+ *     RtlpPerformHeapMaintenance @ 0x1800299E8 (RtlpPerformHeapMaintenance.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlpHeapAddListEntry @ 0x18004C2F4 (RtlpHeapAddListEntry.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlpHeapAddListEntry @ 0x18004C2E4 (RtlpHeapAddListEntry.c)
  */
 
 __int64 __fastcall RtlpInitializeUCRIndex(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpInitializeUCRIndex(__int64 a1)
 
   v2 = ((*(_DWORD *)(a1 + 148) >> 8) + 31) & 0xFFFFFFE0;
   v3 = (unsigned __int64)v2 >> 3;
-  result = RtlAllocateHeap(a1, 0x80000Au, v3 + 8 * (v2 + 7LL));
+  result = (__int64)RtlAllocateHeap((PVOID)a1, 0x80000Au, v3 + 8 * (v2 + 7LL));
   v5 = result;
   if ( result )
   {

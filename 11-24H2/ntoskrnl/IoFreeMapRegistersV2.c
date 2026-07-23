@@ -1,14 +1,14 @@
 /*
- * XREFs of IoFreeMapRegistersV2 @ 0x140390720
+ * XREFs of IoFreeMapRegistersV2 @ 0x14038A060
  * Callers:
- *     IoFreeAdapterChannelV2 @ 0x14038F310 (IoFreeAdapterChannelV2.c)
- *     HalPutScatterGatherListV2 @ 0x14038F730 (HalPutScatterGatherListV2.c)
- *     IoFreeMapRegistersThunk @ 0x14053D930 (IoFreeMapRegistersThunk.c)
+ *     IoFreeAdapterChannelV2 @ 0x140388C50 (IoFreeAdapterChannelV2.c)
+ *     HalPutScatterGatherListV2 @ 0x140389070 (HalPutScatterGatherListV2.c)
+ *     IoFreeMapRegistersThunk @ 0x14053B230 (IoFreeMapRegistersThunk.c)
  * Callees:
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1403907EC (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaFreeMapRegisters @ 0x1403908D4 (HalpDmaFreeMapRegisters.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14038A12C (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaFreeMapRegisters @ 0x14038A214 (HalpDmaFreeMapRegisters.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall IoFreeMapRegistersV2(__int64 a1, __int64 a2, unsigned int a3)

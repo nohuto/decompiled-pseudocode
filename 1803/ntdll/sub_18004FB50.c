@@ -14,9 +14,11 @@
 
 __int64 __fastcall sub_18004FB50(__int64 a1, unsigned int a2, _DWORD *a3)
 {
+  int v6; // eax
   __int64 result; // rax
 
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 )
   {
     if ( ((a2 & 4) == 0 || (unsigned __int8)sub_18004FC4C(a1) == 1)
       && ((a2 & 1) == 0 || (unsigned __int8)sub_1800F2DE4(a1) == 1) )

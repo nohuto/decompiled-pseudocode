@@ -1,15 +1,15 @@
 /*
- * XREFs of PopNotifyDevice @ 0x14099290C
+ * XREFs of PopNotifyDevice @ 0x14099390C
  * Callers:
- *     PopWakeDeviceList @ 0x140382FD4 (PopWakeDeviceList.c)
- *     PopSleepDeviceList @ 0x1403831B4 (PopSleepDeviceList.c)
+ *     PopWakeDeviceList @ 0x140383184 (PopWakeDeviceList.c)
+ *     PopSleepDeviceList @ 0x140383364 (PopSleepDeviceList.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopAllocateIrp @ 0x14036DF40 (PopAllocateIrp.c)
- *     PopMapInternalActionToIrpAction @ 0x1403833EC (PopMapInternalActionToIrpAction.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x140383410 (PoFxActivateDeviceForSystemTransition.c)
- *     PopQueueQuerySetIrp @ 0x140398344 (PopQueueQuerySetIrp.c)
- *     PopLogNotifyDevice @ 0x140576ACC (PopLogNotifyDevice.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopAllocateIrp @ 0x14036E0F0 (PopAllocateIrp.c)
+ *     PopMapInternalActionToIrpAction @ 0x14038359C (PopMapInternalActionToIrpAction.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x1403835C0 (PoFxActivateDeviceForSystemTransition.c)
+ *     PopQueueQuerySetIrp @ 0x140398494 (PopQueueQuerySetIrp.c)
+ *     PopLogNotifyDevice @ 0x140576D0C (PopLogNotifyDevice.c)
  */
 
 NTSTATUS __fastcall PopNotifyDevice(__int64 a1, __int64 a2)

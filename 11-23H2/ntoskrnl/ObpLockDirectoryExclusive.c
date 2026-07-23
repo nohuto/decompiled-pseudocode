@@ -3,13 +3,13 @@
  * Callers:
  *     NtSetInformationObject @ 0x140697640 (NtSetInformationObject.c)
  *     ObpMarkDirectoryObjectsTemporary @ 0x14069794C (ObpMarkDirectoryObjectsTemporary.c)
- *     ObpCloseHandle @ 0x1406E7680 (ObpCloseHandle.c)
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     ObpDeleteNameCheck @ 0x140740140 (ObpDeleteNameCheck.c)
- *     ObCreateObjectTypeEx @ 0x14081F1F0 (ObCreateObjectTypeEx.c)
+ *     ObpCloseHandle @ 0x1406E76B0 (ObpCloseHandle.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     ObpDeleteNameCheck @ 0x140740330 (ObpDeleteNameCheck.c)
+ *     ObCreateObjectTypeEx @ 0x14081F4F0 (ObCreateObjectTypeEx.c)
  *     ObInitSystem @ 0x140B4B2F8 (ObInitSystem.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall ObpLockDirectoryExclusive(__int64 a1, __int64 a2)

@@ -1,26 +1,26 @@
 /*
- * XREFs of KiInitializeProcessorCycleAccumulation @ 0x1405E51A4
+ * XREFs of KiInitializeProcessorCycleAccumulation @ 0x1405E7B14
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
- *     KeInitializeClock @ 0x140D0B7A4 (KeInitializeClock.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
+ *     KeInitializeClock @ 0x140D117AC (KeInitializeClock.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpComputeFraction @ 0x1405330F0 (RtlpComputeFraction.c)
- *     KiRebaselineProcessorStartCycles @ 0x1405E5274 (KiRebaselineProcessorStartCycles.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpComputeFraction @ 0x140535570 (RtlpComputeFraction.c)
+ *     KiRebaselineProcessorStartCycles @ 0x1405E7BE4 (KiRebaselineProcessorStartCycles.c)
  */
 
-__int64 __fastcall KiInitializeProcessorCycleAccumulation(__int64 a1)
+void __fastcall KiInitializeProcessorCycleAccumulation(__int64 a1)
 {
   __int64 v1; // rax
   unsigned __int64 v3; // rax
   char v4; // cl
   unsigned __int64 v5; // r8
   bool v6; // bl
-  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *SchedulerAssist; // r8
-  int v10; // ett
+  signed __int32 *SchedulerAssist; // r8
+  signed __int32 v9; // eax
+  signed __int32 v10; // ett
   char v11; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(unsigned int *)(a1 + 68);
@@ -38,26 +38,25 @@ __int64 __fastcall KiInitializeProcessorCycleAccumulation(__int64 a1)
   *(_QWORD *)(a1 + 176) = v3;
   *(_BYTE *)(a1 + 172) = v4;
   v6 = KeDisableInterrupts();
-  result = KiRebaselineProcessorStartCycles(a1);
+  KiRebaselineProcessorStartCycles(a1);
   *(_BYTE *)(a1 + 34524) = 1;
   if ( v6 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
     if ( SchedulerAssist )
     {
       _m_prefetchw(SchedulerAssist);
-      LODWORD(result) = *SchedulerAssist;
+      v9 = *SchedulerAssist;
       do
       {
-        v10 = result;
-        result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
+        v10 = v9;
+        v9 = _InterlockedCompareExchange(SchedulerAssist, v9 & 0xFFDFFFFF, v9);
       }
-      while ( v10 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      while ( v10 != v9 );
+      if ( (v9 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     _enable();
   }
-  return result;
 }

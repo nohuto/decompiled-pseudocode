@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpLogMemInfo @ 0x140226758
+ * XREFs of EtwpLogMemInfo @ 0x140226584
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x140226878 (EtwpLogMemInfoTimerCallback.c)
- *     EtwpLogMemInfoRundown @ 0x1406A6F80 (EtwpLogMemInfoRundown.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1402266A4 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoRundown @ 0x1406A70B8 (EtwpLogMemInfoRundown.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     MmQueryMemoryListInformation @ 0x14001FEE0 (MmQueryMemoryListInformation.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     MmQueryMemoryListInformation @ 0x14001FA60 (MmQueryMemoryListInformation.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpLogMemInfo(unsigned int *a1, __int64 a2, __int64 a3)
@@ -41,7 +41,7 @@ void __fastcall EtwpLogMemInfo(unsigned int *a1, __int64 a2, __int64 a3)
   }
   else
   {
-    if ( (dword_1402FD544 & 0x80000) != 0 )
+    if ( (dword_1402FD524 & 0x80000) != 0 )
       EtwWrite(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO, 0LL, 3u, &UserData);
     EtwTraceKernelEvent((int)&v9, 2, 0x20080000u, 624, 4200451);
   }

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x180011380
+ * XREFs of EtwpSwitchBuffer @ 0x18005CAB0
  * Callers:
- *     EtwpWriteToPrivateBuffers @ 0x18000F710 (EtwpWriteToPrivateBuffers.c)
- *     EtwpRelogEvent @ 0x180010E20 (EtwpRelogEvent.c)
- *     EtwpReserveTraceBuffer @ 0x180011230 (EtwpReserveTraceBuffer.c)
+ *     EtwpWriteToPrivateBuffers @ 0x18005AE40 (EtwpWriteToPrivateBuffers.c)
+ *     EtwpRelogEvent @ 0x18005C550 (EtwpRelogEvent.c)
+ *     EtwpReserveTraceBuffer @ 0x18005C960 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     EtwpGetFreeBuffer @ 0x180011CC0 (EtwpGetFreeBuffer.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlSleepConditionVariableCS @ 0x18004BCD0 (RtlSleepConditionVariableCS.c)
- *     ZwSetEvent @ 0x18015F100 (ZwSetEvent.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlSleepConditionVariableCS @ 0x180036250 (RtlSleepConditionVariableCS.c)
+ *     EtwpGetFreeBuffer @ 0x18005D3F0 (EtwpGetFreeBuffer.c)
+ *     ZwSetEvent @ 0x18015F000 (ZwSetEvent.c)
  */
 
 __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
   v5 = a3;
   v6 = 0;
   v8 = 1;
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   v9 = (unsigned int)v5;
   for ( i = *(_QWORD *)(a1 + 8 * v5 + 560); !i || a2 == i; i = *(_QWORD *)(a1 + 8 * v9 + 560) )
   {
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
           **(_QWORD **)(a1 + 264) = v12;
           *(_QWORD *)(a1 + 264) = v12;
         }
-        RtlLeaveCriticalSection(a1 + 72);
+        RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
         goto LABEL_14;
       }
       break;
@@ -66,9 +66,9 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
       v8 = 0;
       break;
     }
-    RtlSleepConditionVariableCS(a1 + 64, a1 + 72, 0LL);
+    RtlSleepConditionVariableCS((PRTL_CONDITION_VARIABLE)(a1 + 64), (PRTL_CRITICAL_SECTION)(a1 + 72), 0LL);
   }
-  RtlLeaveCriticalSection(a1 + 72);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   if ( !a2 )
     goto LABEL_15;
 LABEL_14:
@@ -78,7 +78,7 @@ LABEL_15:
     && (!*(_DWORD *)(a1 + 352)
      || (unsigned int)(*(_DWORD *)(a1 + 208) - *(_DWORD *)(a1 + 188) - *(_DWORD *)(a1 + 212)) >= *(_DWORD *)(a1 + 352)) )
   {
-    ZwSetEvent(*(_QWORD *)(a1 + 112), 0LL);
+    ZwSetEvent(*(HANDLE *)(a1 + 112), 0LL);
   }
   return v8;
 }

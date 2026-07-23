@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCreatePagingFile @ 0x14074BFB8
+ * XREFs of MiCreatePagingFile @ 0x14074D1A8
  * Callers:
- *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
- *     NtCreatePagingFile @ 0x14074BF80 (NtCreatePagingFile.c)
+ *     NtManagePartition @ 0x140609170 (NtManagePartition.c)
+ *     NtCreatePagingFile @ 0x14074D170 (NtCreatePagingFile.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
@@ -10,42 +10,42 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     MiIncreaseCommitLimits @ 0x140187E88 (MiIncreaseCommitLimits.c)
- *     MiReservePageHash @ 0x1401883A8 (MiReservePageHash.c)
- *     MiCheckPageFileMapping @ 0x140188438 (MiCheckPageFileMapping.c)
- *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
- *     ZwSetSecurityObject @ 0x1401BB590 (ZwSetSecurityObject.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiCheckAndUpdatePagingFileMinimum @ 0x1402B7934 (MiCheckAndUpdatePagingFileMinimum.c)
- *     MiExtendPagingFileMaximum @ 0x1402B79D0 (MiExtendPagingFileMaximum.c)
- *     MiIssuePageExtendRequest @ 0x1402B836C (MiIssuePageExtendRequest.c)
- *     MiReduceCommitLimits @ 0x1402C0304 (MiReduceCommitLimits.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     IoCreateFile @ 0x14060A8B0 (IoCreateFile.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     MiEnablePartitionMappedWrites @ 0x14061BE6C (MiEnablePartitionMappedWrites.c)
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14071DE80 (FsRtlIssueFileNotificationFsctl.c)
- *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
- *     MiCreatePagefile @ 0x14074CB20 (MiCreatePagefile.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x14074CE08 (MiCreatePageFileSpaceBitmaps.c)
- *     MiZeroPageFileFirstPage @ 0x14074CE7C (MiZeroPageFileFirstPage.c)
- *     IoInitializeCrashDump @ 0x14074CFA0 (IoInitializeCrashDump.c)
- *     PiPagePathSetState @ 0x14075C1DC (PiPagePathSetState.c)
- *     SmpSystemStoreCreate @ 0x14075EB28 (SmpSystemStoreCreate.c)
- *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     MiIncreaseCommitLimits @ 0x140187FC8 (MiIncreaseCommitLimits.c)
+ *     MiReservePageHash @ 0x1401884E8 (MiReservePageHash.c)
+ *     MiCheckPageFileMapping @ 0x140188578 (MiCheckPageFileMapping.c)
+ *     ZwSetInformationFile @ 0x1401B87D0 (ZwSetInformationFile.c)
+ *     ZwSetSecurityObject @ 0x1401BB6F0 (ZwSetSecurityObject.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiCheckAndUpdatePagingFileMinimum @ 0x1402B7B24 (MiCheckAndUpdatePagingFileMinimum.c)
+ *     MiExtendPagingFileMaximum @ 0x1402B7BC0 (MiExtendPagingFileMaximum.c)
+ *     MiIssuePageExtendRequest @ 0x1402B855C (MiIssuePageExtendRequest.c)
+ *     MiReduceCommitLimits @ 0x1402C04F4 (MiReduceCommitLimits.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     IoCreateFile @ 0x14060B8B0 (IoCreateFile.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     MiEnablePartitionMappedWrites @ 0x14061CE6C (MiEnablePartitionMappedWrites.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14071F120 (FsRtlIssueFileNotificationFsctl.c)
+ *     MiInsertPageFileInList @ 0x14074DB00 (MiInsertPageFileInList.c)
+ *     MiCreatePagefile @ 0x14074DD10 (MiCreatePagefile.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x14074DFF8 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiZeroPageFileFirstPage @ 0x14074E06C (MiZeroPageFileFirstPage.c)
+ *     IoInitializeCrashDump @ 0x14074E190 (IoInitializeCrashDump.c)
+ *     PiPagePathSetState @ 0x14075D3CC (PiPagePathSetState.c)
+ *     SmpSystemStoreCreate @ 0x14075FD18 (SmpSystemStoreCreate.c)
+ *     MiDeletePagefile @ 0x140854350 (MiDeletePagefile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCreatePagingFile(
@@ -298,12 +298,12 @@ LABEL_86:
                     {
                       if ( (ULONG_PTR *)a6 == &MiSystemPartition )
                       {
-                        if ( (*(_BYTE *)(v27 + 204) & 0xF) == 0 && (dword_14055B180 & 3) != 0 )
+                        if ( (*(_BYTE *)(v27 + 204) & 0xF) == 0 && (dword_14055C180 & 3) != 0 )
                           SmpSystemStoreCreate();
-                        if ( !byte_14043A760 && (*(_BYTE *)(v27 + 204) & 0x10) == 0 )
+                        if ( !byte_14043B820 && (*(_BYTE *)(v27 + 204) & 0x10) == 0 )
                         {
                           v63 = *(_OWORD *)(v27 + 96);
-                          byte_14043A760 = IoInitializeCrashDump(FileHandle);
+                          byte_14043B820 = IoInitializeCrashDump(FileHandle);
                         }
                       }
                       return 0LL;

@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1406CF668
+ * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1406D0908
  * Callers:
- *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x1406D01D0 (CmpLogTransactionAbortedForRollbackPacket.c)
- *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
- *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
+ *     CmpCreateChild @ 0x1405AC7A4 (CmpCreateChild.c)
+ *     CmDeleteValueKey @ 0x1405B7634 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmpPerformUnloadKey @ 0x140693550 (CmpPerformUnloadKey.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x1406D1470 (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmpSaveBootControlSet @ 0x1407E9AD0 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1407F061C (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1407F0AAC (CmSetLastWriteTimeKey.c)
+ *     CmRestoreKey @ 0x1408025AC (CmRestoreKey.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringCat @ 0x14012B4CC (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140179DA4 (RtlUnicodeStringCatString.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1407F0C34 (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpLogTransactionAbortedByName @ 0x1407F8700 (CmpLogTransactionAbortedByName.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x14012B59C (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x140179EA4 (RtlUnicodeStringCatString.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1407F1E34 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpLogTransactionAbortedByName @ 0x1407F9900 (CmpLogTransactionAbortedByName.c)
  */
 
 void __fastcall CmpLogTransactionAbortedWithChildName(
@@ -42,7 +42,7 @@ void __fastcall CmpLogTransactionAbortedWithChildName(
 
   SourceString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  if ( !a5 || !TraceLoggingProviderEnabled(&stru_1403FFAA0, 4u, 1uLL) )
+  if ( !a5 || !TraceLoggingProviderEnabled(&stru_140400AA0, 4u, 1uLL) )
   {
     Buffer = DestinationString.Buffer;
     goto LABEL_3;

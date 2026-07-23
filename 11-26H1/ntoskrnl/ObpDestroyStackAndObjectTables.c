@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDestroyStackAndObjectTables @ 0x1407C4A14
+ * XREFs of ObpDestroyStackAndObjectTables @ 0x1407C7A74
  * Callers:
- *     ObpStopRuntimeStackTrace @ 0x1407C5588 (ObpStopRuntimeStackTrace.c)
+ *     ObpStopRuntimeStackTrace @ 0x1407C85E8 (ObpStopRuntimeStackTrace.c)
  * Callees:
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     RtlStackDbContextCleanup @ 0x140623170 (RtlStackDbContextCleanup.c)
- *     ObpDestroyObjectRefsByStack @ 0x1407C49F0 (ObpDestroyObjectRefsByStack.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     RtlStackDbContextCleanup @ 0x1406261C0 (RtlStackDbContextCleanup.c)
+ *     ObpDestroyObjectRefsByStack @ 0x1407C7A50 (ObpDestroyObjectRefsByStack.c)
  */
 
 __int64 __fastcall ObpDestroyStackAndObjectTables(__int64 **a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall ObpDestroyStackAndObjectTables(__int64 **a1, __int64 a2, __in
       {
         v10 = *v9;
         v11 = (__int64 *)v9[1];
-        --LODWORD(stru_140F12D20.Padding[4]);
+        --*(_DWORD *)&ObpStackTraceLock.SavedApcStateFill[8];
         *(_BYTE *)(v10 + 25) &= ~1u;
         if ( v4 )
           ObpDestroyObjectRefsByStack(v9, a2, a3, a4);

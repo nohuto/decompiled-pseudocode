@@ -1,13 +1,13 @@
 /*
- * XREFs of MiScrubMemoryWorker @ 0x14087DE40
+ * XREFs of MiScrubMemoryWorker @ 0x140884240
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     MiScrubNodeHugeRanges @ 0x14070C740 (MiScrubNodeHugeRanges.c)
- *     MiInitializeScrubPacket @ 0x14087DA14 (MiInitializeScrubPacket.c)
- *     MiReleaseScrubPacket @ 0x14087DD58 (MiReleaseScrubPacket.c)
- *     MiScrubNode @ 0x140AC642C (MiScrubNode.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     MiScrubNodeHugeRanges @ 0x1407113F0 (MiScrubNodeHugeRanges.c)
+ *     MiInitializeScrubPacket @ 0x140883E14 (MiInitializeScrubPacket.c)
+ *     MiReleaseScrubPacket @ 0x140884158 (MiReleaseScrubPacket.c)
+ *     MiScrubNode @ 0x140AC8020 (MiScrubNode.c)
  */
 
 void __fastcall MiScrubMemoryWorker(__int64 a1)

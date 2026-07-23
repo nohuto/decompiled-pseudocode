@@ -1,19 +1,19 @@
 /*
- * XREFs of KiFlushAddressSpaceTb @ 0x14024FEF8
+ * XREFs of KiFlushAddressSpaceTb @ 0x140251858
  * Callers:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeFlushProcessTb @ 0x1404840AC (KeFlushProcessTb.c)
- *     MiManageUltraSpacePageTable @ 0x14049504C (MiManageUltraSpacePageTable.c)
- *     KeFlushEntireTb @ 0x1405F0BC0 (KeFlushEntireTb.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeFlushProcessTb @ 0x14047DA1C (KeFlushProcessTb.c)
+ *     MiManageUltraSpacePageTable @ 0x14048EB9C (MiManageUltraSpacePageTable.c)
+ *     KeFlushEntireTb @ 0x1405F3530 (KeFlushEntireTb.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x140250E04 (HvlpFastFlushAddressSpaceTb.c)
- *     KxSetTimeStampBusy @ 0x140251194 (KxSetTimeStampBusy.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x140251218 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1403E65B8 (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403E6A1C (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140469420 (HvlpSlowFlushAddressSpaceTb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140252764 (HvlpFastFlushAddressSpaceTb.c)
+ *     KxSetTimeStampBusy @ 0x140252AF4 (KxSetTimeStampBusy.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x140252B78 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1402F3498 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1402F38FC (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404629F0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

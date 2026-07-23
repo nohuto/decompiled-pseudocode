@@ -1,9 +1,9 @@
 /*
- * XREFs of PspValidateJobAssignmentDiskIoAttribution @ 0x140B01B74
+ * XREFs of PspValidateJobAssignmentDiskIoAttribution @ 0x140B038A4
  * Callers:
- *     PspAssignProcessToJob @ 0x140AC5D48 (PspAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140AC79B8 (PspAssignProcessToJob.c)
  * Callees:
- *     PspIsSetJobIoAttribution @ 0x1409583C4 (PspIsSetJobIoAttribution.c)
+ *     PspIsSetJobIoAttribution @ 0x140ABF184 (PspIsSetJobIoAttribution.c)
  */
 
 bool __fastcall PspValidateJobAssignmentDiskIoAttribution(__int64 a1, __int64 a2, int a3)
@@ -17,9 +17,9 @@ bool __fastcall PspValidateJobAssignmentDiskIoAttribution(__int64 a1, __int64 a2
     for ( i = *(_QWORD *)(a2 + 1304); i; i = *(_QWORD *)(i + 1304) )
     {
       if ( *(_DWORD *)(i + 1580) )
-        return !*(_DWORD *)(a1 + 1580) && PspIsSetJobIoAttribution((_QWORD *)a1, a2, 0) == 0;
+        return !*(_DWORD *)(a1 + 1580) && PspIsSetJobIoAttribution((__int64 *)a1, a2, 0) == 0;
     }
     return 1;
   }
-  return !*(_DWORD *)(a1 + 1580) && PspIsSetJobIoAttribution((_QWORD *)a1, a2, 0) == 0;
+  return !*(_DWORD *)(a1 + 1580) && PspIsSetJobIoAttribution((__int64 *)a1, a2, 0) == 0;
 }

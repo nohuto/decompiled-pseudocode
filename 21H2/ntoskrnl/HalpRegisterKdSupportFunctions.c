@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpRegisterKdSupportFunctions @ 0x140A38FA0
+ * XREFs of HalpRegisterKdSupportFunctions @ 0x140A39FA0
  * Callers:
- *     HalpDbgInitSystem @ 0x1409A1610 (HalpDbgInitSystem.c)
+ *     HalpDbgInitSystem @ 0x1409A2540 (HalpDbgInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -21,9 +21,9 @@ __int64 *HalpRegisterKdSupportFunctions()
   off_140C00600[0] = (__int64 (__fastcall *)())HalpKdReleaseDebuggingDevice;
   off_140C00708 = (__int64 (__fastcall *)())HalpKdReleaseDebuggingDevice;
   off_140C00958[0] = (__int64 (__fastcall *)())HalpWatchdogDelayExpiration;
-  result = &qword_140C48D68;
-  qword_140C48D70 = (__int64)&qword_140C48D68;
-  qword_140C48D68 = (__int64)&qword_140C48D68;
+  result = &qword_140C48DA8;
+  qword_140C48DB0 = (__int64)&qword_140C48DA8;
+  qword_140C48DA8 = (__int64)&qword_140C48DA8;
   off_140C00700[0] = (__int64 (__fastcall *)())HalpKdSetupDebuggingDevice;
   return result;
 }

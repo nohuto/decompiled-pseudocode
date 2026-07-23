@@ -1,16 +1,16 @@
 /*
- * XREFs of CmCompressKey @ 0x14086C200
+ * XREFs of CmCompressKey @ 0x14086C360
  * Callers:
- *     NtCompressKey @ 0x1408682E0 (NtCompressKey.c)
+ *     NtCompressKey @ 0x140868440 (NtCompressKey.c)
  * Callees:
- *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x14061C16C (HvMarkBaseBlockDirty.c)
  */
 
 __int64 __fastcall CmCompressKey(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rcx
 
-  if ( a1 == CmpMasterHive )
+  if ( (PVOID)a1 == CmpMasterHive )
     return 3221225485LL;
   if ( (a2 & 0xFFFFFFFC) != 0 )
     return 3221225485LL;

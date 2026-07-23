@@ -33,7 +33,7 @@ void EtwpReadConfigParameters()
   unsigned int *v14; // [rsp+C0h] [rbp-48h]
   int v15; // [rsp+C8h] [rbp-40h] BYREF
   unsigned int *v16; // [rsp+D0h] [rbp-38h]
-  _QWORD v17[28]; // [rsp+E8h] [rbp-20h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+E8h] [rbp-20h] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   memset(DestinationString, 0, sizeof(DestinationString));
@@ -51,27 +51,27 @@ void EtwpReadConfigParameters()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(DestinationString, 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_21;
-  memset(v17, 0, sizeof(v17));
-  v17[0] = EtwpQueryRegistryCallback;
-  v17[7] = EtwpQueryRegistryCallback;
-  v17[3] = &v11;
-  v17[14] = EtwpQueryRegistryCallback;
-  v17[2] = L"RTBacklogRoot";
-  LODWORD(v17[4]) = 1;
-  v17[5] = &UnicodeString;
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))EtwpQueryRegistryCallback;
+  QueryTable[1].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))EtwpQueryRegistryCallback;
+  QueryTable[0].EntryContext = &v11;
+  QueryTable[2].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))EtwpQueryRegistryCallback;
+  QueryTable[0].Name = L"RTBacklogRoot";
+  QueryTable[0].DefaultType = 1;
+  QueryTable[0].DefaultData = &UnicodeString;
   v11 = 1;
   p_UnicodeString_8 = &UnicodeString_8;
-  v17[10] = &v13;
-  v17[9] = L"MaxNonPagedPoolUsage";
+  QueryTable[1].EntryContext = &v13;
+  QueryTable[1].Name = L"MaxNonPagedPoolUsage";
   v14 = &v5;
-  v17[17] = &v15;
-  v17[16] = L"StackCaptureTimeout";
+  QueryTable[2].EntryContext = &v15;
+  QueryTable[2].Name = L"StackCaptureTimeout";
   v16 = &v6;
-  LODWORD(v17[11]) = 4;
+  QueryTable[1].DefaultType = 4;
   v13 = 4;
-  LODWORD(v17[18]) = 4;
+  QueryTable[2].DefaultType = 4;
   v15 = 4;
-  if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, (const WCHAR *)DestinationString[0], (__int64)v17, 0LL) < 0 )
+  if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)DestinationString[0], QueryTable, 0LL, 0LL) < 0 )
   {
 LABEL_21:
     v1 = v5;

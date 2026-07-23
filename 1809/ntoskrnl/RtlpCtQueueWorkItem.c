@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCtQueueWorkItem @ 0x140899910
+ * XREFs of RtlpCtQueueWorkItem @ 0x14089AB70
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1402F56A0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1402F5890 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
  */
 
 void __fastcall RtlpCtQueueWorkItem(struct _WORK_QUEUE_ITEM *a1)

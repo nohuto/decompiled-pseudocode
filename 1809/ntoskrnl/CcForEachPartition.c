@@ -1,20 +1,20 @@
 /*
- * XREFs of CcForEachPartition @ 0x140120080
+ * XREFs of CcForEachPartition @ 0x1401200F0
  * Callers:
- *     CcGetDirtyPages @ 0x140120040 (CcGetDirtyPages.c)
- *     CcNotifyWriteBehind @ 0x1401530C8 (CcNotifyWriteBehind.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x140160F50 (CcWaitForCurrentLazyWriterActivity.c)
- *     CcCoalescingCallBack @ 0x140269100 (CcCoalescingCallBack.c)
- *     CcIsThereDirtyData @ 0x14026A040 (CcIsThereDirtyData.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
+ *     CcGetDirtyPages @ 0x1401200B0 (CcGetDirtyPages.c)
+ *     CcNotifyWriteBehind @ 0x1401531C8 (CcNotifyWriteBehind.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x140161050 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcCoalescingCallBack @ 0x1402692F0 (CcCoalescingCallBack.c)
+ *     CcIsThereDirtyData @ 0x14026A230 (CcIsThereDirtyData.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsGetNextPartitionUnsafe @ 0x14012017C (PsGetNextPartitionUnsafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     CcDereferencePartition @ 0x14007C988 (CcDereferencePartition.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsGetNextPartitionUnsafe @ 0x1401201EC (PsGetNextPartitionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 LONG_PTR __fastcall CcForEachPartition(__int64 (__fastcall *a1)(__int64, __int64), __int64 a2, char a3)

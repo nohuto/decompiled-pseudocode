@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpHwidProcessInterface @ 0x1404DB0E4
+ * XREFs of ExpHwidProcessInterface @ 0x1404BE6E8
  * Callers:
- *     sub_1404F587C @ 0x1404F587C (sub_1404F587C.c)
+ *     sub_1404D8808 @ 0x1404D8808 (sub_1404D8808.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     sub_1404DB28C @ 0x1404DB28C (sub_1404DB28C.c)
- *     ExpHwidAuthenticateHardwareId @ 0x1404F61F0 (ExpHwidAuthenticateHardwareId.c)
- *     ExpHwidGetDeviceProperties @ 0x1404F63A4 (ExpHwidGetDeviceProperties.c)
- *     IopGetDeviceInterfaces @ 0x1404F69DC (IopGetDeviceInterfaces.c)
- *     ExpHwidGetDevicePropertyDataFixed @ 0x1404F710C (ExpHwidGetDevicePropertyDataFixed.c)
- *     sub_1406B9E7C @ 0x1406B9E7C (sub_1406B9E7C.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     sub_1404BE890 @ 0x1404BE890 (sub_1404BE890.c)
+ *     ExpHwidAuthenticateHardwareId @ 0x1404D917C (ExpHwidAuthenticateHardwareId.c)
+ *     ExpHwidGetDeviceProperties @ 0x1404D9330 (ExpHwidGetDeviceProperties.c)
+ *     IopGetDeviceInterfaces @ 0x1404D9968 (IopGetDeviceInterfaces.c)
+ *     ExpHwidGetDevicePropertyDataFixed @ 0x1404DA098 (ExpHwidGetDevicePropertyDataFixed.c)
+ *     sub_1406B9FB4 @ 0x1406B9FB4 (sub_1406B9FB4.c)
  */
 
 __int64 __fastcall ExpHwidProcessInterface(
@@ -89,7 +89,7 @@ LABEL_19:
         }
         if ( RtlEqualUnicodeString(&String1, &String2, 1u) )
           goto LABEL_15;
-        v14 = sub_1404DB28C(&String1, a4, &Object);
+        v14 = sub_1404BE890(&String1, a4, &Object);
         v6 = (struct _DEVICE_OBJECT *)Object;
         if ( v14 < 0 )
           goto LABEL_15;
@@ -114,7 +114,7 @@ LABEL_17:
           goto LABEL_19;
         }
       }
-      if ( (int)sub_1406B9E7C(&DestinationString, a5) >= 0 && v7 < 0x14 && a3(a6, 0LL, a5) >= 0 )
+      if ( (int)sub_1406B9FB4(&DestinationString, a5) >= 0 && v7 < 0x14 && a3(a6, 0LL, a5) >= 0 )
         ++v7;
 LABEL_29:
       Length = DestinationString.Length;

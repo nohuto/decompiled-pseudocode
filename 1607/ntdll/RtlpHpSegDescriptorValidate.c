@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegDescriptorValidate @ 0x180043604
+ * XREFs of RtlpHpSegDescriptorValidate @ 0x1800435F4
  * Callers:
- *     RtlpHpSegAllocSize @ 0x180029310 (RtlpHpSegAllocSize.c)
- *     RtlpHpSegLfhVsDecommit @ 0x1800417A0 (RtlpHpSegLfhVsDecommit.c)
- *     RtlpHpSegReAlloc @ 0x180043284 (RtlpHpSegReAlloc.c)
- *     RtlpHpSegLfhVsCommit @ 0x180043420 (RtlpHpSegLfhVsCommit.c)
- *     RtlpHpReallocComputeSizes @ 0x180043A24 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpSegFree @ 0x18004C920 (RtlpHpSegFree.c)
- *     RtlpHpSegWalkHeap @ 0x18004DEFC (RtlpHpSegWalkHeap.c)
- *     RtlpHpSegSetExtraPresent @ 0x1800517A8 (RtlpHpSegSetExtraPresent.c)
+ *     RtlpHpSegAllocSize @ 0x180029300 (RtlpHpSegAllocSize.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x180041790 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpSegReAlloc @ 0x180043274 (RtlpHpSegReAlloc.c)
+ *     RtlpHpSegLfhVsCommit @ 0x180043410 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpReallocComputeSizes @ 0x180043A14 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpSegFree @ 0x18004C910 (RtlpHpSegFree.c)
+ *     RtlpHpSegWalkHeap @ 0x18004DEEC (RtlpHpSegWalkHeap.c)
+ *     RtlpHpSegSetExtraPresent @ 0x180051798 (RtlpHpSegSetExtraPresent.c)
  * Callees:
  *     RtlpHpSegGetDescriptorValidateSafe @ 0x1800F9FB4 (RtlpHpSegGetDescriptorValidateSafe.c)
  */

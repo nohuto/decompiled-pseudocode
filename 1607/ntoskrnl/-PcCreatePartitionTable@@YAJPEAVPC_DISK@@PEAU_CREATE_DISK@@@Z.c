@@ -1,13 +1,13 @@
 /*
- * XREFs of ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B5F0
+ * XREFs of ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B4D4
  * Callers:
- *     PcCreatePartitionTable @ 0x14023B660 (PcCreatePartitionTable.c)
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
+ *     PcCreatePartitionTable @ 0x14023B544 (PcCreatePartitionTable.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
  * Callees:
- *     ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x1401479A4 (-Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z.c)
- *     ?CreatePartitionTable@PC_RAW@@QEAAJXZ @ 0x14023B96C (-CreatePartitionTable@PC_RAW@@QEAAJXZ.c)
- *     ?CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BBD4 (-CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BFB0 (-CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x140147F14 (-Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z.c)
+ *     ?CreatePartitionTable@PC_RAW@@QEAAJXZ @ 0x14023B850 (-CreatePartitionTable@PC_RAW@@QEAAJXZ.c)
+ *     ?CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BAB8 (-CreatePartitionTable@PC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BE94 (-CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
  */
 
 __int64 __fastcall PcCreatePartitionTable(struct PC_DISK *a1, struct _CREATE_DISK *a2)

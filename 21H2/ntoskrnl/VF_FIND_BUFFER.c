@@ -1,10 +1,10 @@
 /*
- * XREFs of VF_FIND_BUFFER @ 0x1409CA1E8
+ * XREFs of VF_FIND_BUFFER @ 0x1409CB1E8
  * Callers:
- *     ViSpecialFreeCommonBuffer @ 0x1409CF8A8 (ViSpecialFreeCommonBuffer.c)
+ *     ViSpecialFreeCommonBuffer @ 0x1409D08A8 (ViSpecialFreeCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

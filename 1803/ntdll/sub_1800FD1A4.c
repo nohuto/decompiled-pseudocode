@@ -8,14 +8,14 @@
  *     sub_18010CCC8 @ 0x18010CCC8 (sub_18010CCC8.c)
  */
 
-signed __int64 __fastcall sub_1800FD1A4(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void sub_1800FD1A4()
 {
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D2E0, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&stru_18015D2E0);
   if ( (dword_18015D2E8 & 1) != 0 )
   {
     dword_18015D2E8 = 0;
     sub_180060204((__int64 (__fastcall *)(_QWORD, _QWORD))sub_1800FD450, 0LL, 2);
     sub_18010CCC8(&qword_18015D2F0);
   }
-  return RtlReleaseSRWLockExclusive(&qword_18015D2E0);
+  RtlReleaseSRWLockExclusive(&stru_18015D2E0);
 }

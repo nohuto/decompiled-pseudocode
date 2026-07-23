@@ -1,26 +1,26 @@
 /*
- * XREFs of MiFlushControlArea @ 0x140624534
+ * XREFs of MiFlushControlArea @ 0x140624A84
  * Callers:
- *     MiDeleteCachedSegment @ 0x140623954 (MiDeleteCachedSegment.c)
- *     MiProcessDeleteOnClose @ 0x140624E0C (MiProcessDeleteOnClose.c)
+ *     MiDeleteCachedSegment @ 0x140623EA4 (MiDeleteCachedSegment.c)
+ *     MiProcessDeleteOnClose @ 0x14062535C (MiProcessDeleteOnClose.c)
  * Callees:
  *     MiRemoveWakeListEntry @ 0x1402018BC (MiRemoveWakeListEntry.c)
  *     MiDeleteControlArea @ 0x1402199D0 (MiDeleteControlArea.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertUnusedSegment @ 0x1402A0C98 (MiInsertUnusedSegment.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiDecrementModifiedWriteCount @ 0x1402F4824 (MiDecrementModifiedWriteCount.c)
- *     MmIsWriteErrorFatal @ 0x1402F49DC (MmIsWriteErrorFatal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPreventControlAreaDelete @ 0x140624DBC (MiPreventControlAreaDelete.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407B44C8 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407B4768 (FsRtlReleaseFileForCcFlush.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertUnusedSegment @ 0x1402A0F28 (MiInsertUnusedSegment.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiDecrementModifiedWriteCount @ 0x1402F4AB4 (MiDecrementModifiedWriteCount.c)
+ *     MmIsWriteErrorFatal @ 0x1402F4C6C (MmIsWriteErrorFatal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPreventControlAreaDelete @ 0x14062530C (MiPreventControlAreaDelete.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1407B47A8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1407B4A48 (FsRtlReleaseFileForCcFlush.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -77,10 +77,13 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 **a3,
   v6 = (struct _FILE_OBJECT *)MiPreventControlAreaDelete(P);
   SpinLock = (volatile LONG *)(P + 72);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -106,10 +109,10 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 **a3,
     {
       MiRemoveWakeListEntry((__int64)P, &v37);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v31 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v31 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v31 >= 2u )
         {
           v32 = KeGetCurrentPrcb();
           v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
@@ -133,10 +136,10 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 **a3,
   {
     ++*((_DWORD *)P + 19);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;
@@ -197,10 +200,10 @@ LABEL_38:
   else
     v25 = *(_QWORD *)(qword_140C673C8 + 8LL * (*((_WORD *)P + 30) & 0x3FF));
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = v28->SchedulerAssist;

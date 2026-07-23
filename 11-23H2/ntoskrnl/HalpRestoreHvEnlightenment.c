@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRestoreHvEnlightenment @ 0x14050C2A0
+ * XREFs of HalpRestoreHvEnlightenment @ 0x14050C7F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerUpdateApiConsumers @ 0x14051F924 (HalpTimerUpdateApiConsumers.c)
+ *     HalpTimerUpdateApiConsumers @ 0x14051FE74 (HalpTimerUpdateApiConsumers.c)
  */
 
 __int64 HalpRestoreHvEnlightenment()

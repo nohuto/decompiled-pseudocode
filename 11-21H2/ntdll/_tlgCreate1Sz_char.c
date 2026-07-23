@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
+__int64 __fastcall tlgCreate1Sz_char(__int64 a1, const ULONG *a2)
 {
   __int64 v2; // rax
   __int64 result; // rax
@@ -16,12 +16,12 @@ __int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
     v2 = -1LL;
     do
       ++v2;
-    while ( a2[v2] );
+    while ( *((_BYTE *)a2 + v2) );
     result = (unsigned int)(v2 + 1);
   }
   else
   {
-    a2 = &unk_180130AA2;
+    a2 = &Flags;
     result = 1LL;
   }
   *(_DWORD *)(a1 + 12) = 0;

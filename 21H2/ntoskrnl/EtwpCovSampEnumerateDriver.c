@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampEnumerateDriver @ 0x140944A20
+ * XREFs of EtwpCovSampEnumerateDriver @ 0x140944BF0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCovSampImageNotify @ 0x140945050 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x140945220 (EtwpCovSampImageNotify.c)
  */
 
 __int64 __fastcall EtwpCovSampEnumerateDriver(__int64 a1)

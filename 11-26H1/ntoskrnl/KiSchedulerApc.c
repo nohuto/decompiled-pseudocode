@@ -1,23 +1,23 @@
 /*
- * XREFs of KiSchedulerApc @ 0x1404A1BE0
+ * XREFs of KiSchedulerApc @ 0x14049B710
  * Callers:
  *     <none>
  * Callees:
- *     ?KiAbpPerformPendingReleases@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x140203AF0 (-KiAbpPerformPendingReleases@AutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
- *     KiInsertQueueApc @ 0x14020B070 (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiRemoveQueueApc @ 0x1404677E0 (KiRemoveQueueApc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
+ *     ?KiAbpPerformPendingReleases@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x140203BD0 (-KiAbpPerformPendingReleases@AutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
+ *     KiInsertQueueApc @ 0x14020B150 (KiInsertQueueApc.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiRemoveQueueApc @ 0x140460F30 (KiRemoveQueueApc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
  */
 
 void __fastcall KiSchedulerApc(AutoBoost *this)

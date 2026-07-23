@@ -1,27 +1,25 @@
 /*
- * XREFs of PopSstInvokeNotificationHandlers @ 0x140BF9490
+ * XREFs of PopSstInvokeNotificationHandlers @ 0x140BFF490
  * Callers:
- *     PopHiberCheckResume @ 0x140BFA8A0 (PopHiberCheckResume.c)
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     PopHiberCheckResume @ 0x140C008A0 (PopHiberCheckResume.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopSstInvokeNotificationHandlers(unsigned int a1)
 {
-  struct _KTHREAD *i; // rbx
+  PVOID *i; // rbx
 
-  for ( i = (struct _KTHREAD *)stru_140F11D08.WaitBlock[1].SparePtr;
-        i != (struct _KTHREAD *)&stru_140F11D08.WaitBlockFill11[88];
-        i = *(struct _KTHREAD **)&i->Header.Lock )
+  for ( i = (PVOID *)PopSstNotificationHandlerList; i != &PopSstNotificationHandlerList; i = (PVOID *)*i )
   {
-    guard_dispatch_icall_no_overrides(i->QuantumTarget, a1);
+    guard_dispatch_icall_no_overrides((__int64)i[4], a1);
     if ( a1 == 1 )
     {
       PoSetHiberRange(0LL, 0x10000u, i, 0x28uLL, 0);
-      PoSetHiberRange(0LL, 0x10000u, i->SListFaultAddress, 0LL, 0);
+      PoSetHiberRange(0LL, 0x10000u, i[3], 0LL, 0);
     }
   }
 }

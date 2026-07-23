@@ -1,35 +1,35 @@
 /*
- * XREFs of SendCaptureStateNotificationsWorker @ 0x1407ADA30
+ * XREFs of SendCaptureStateNotificationsWorker @ 0x1407ADE80
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExSetTimer @ 0x1403C1FC0 (ExSetTimer.c)
- *     EtwpGetEnableInfoIndex @ 0x14044B8E8 (EtwpGetEnableInfoIndex.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpUnreferenceDataBlock @ 0x140835FF0 (EtwpUnreferenceDataBlock.c)
- *     EtwpSendDataBlock @ 0x14083A3F4 (EtwpSendDataBlock.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x14083A9D0 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpFindGuidEntryByGuid @ 0x14083AEE0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
- *     EtwpBuildNotificationPacket @ 0x1409F6588 (EtwpBuildNotificationPacket.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExSetTimer @ 0x1403B0B80 (ExSetTimer.c)
+ *     EtwpGetEnableInfoIndex @ 0x140442A28 (EtwpGetEnableInfoIndex.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpBuildNotificationPacket @ 0x1408321B8 (EtwpBuildNotificationPacket.c)
+ *     EtwpSendDataBlock @ 0x140834A64 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x140836678 (EtwpUnreferenceDataBlock.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x140837AF0 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140838880 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SendCaptureStateNotificationsWorker(__int16 *a1)
 {
   __int64 v2; // r15
-  _QWORD *v3; // rax
-  _QWORD *v4; // rbx
+  char *v3; // rax
+  char *v4; // rbx
   __int64 v5; // r12
   __int128 *Pool2; // rax
   __int128 *v7; // rdi
@@ -38,8 +38,8 @@ __int64 __fastcall SendCaptureStateNotificationsWorker(__int16 *a1)
   _QWORD *v10; // r13
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v12; // r12
-  _QWORD *v13; // rax
-  _QWORD *v14; // rsi
+  char *v13; // rax
+  char *v14; // rsi
   signed __int64 v15; // r10
   __int64 *v16; // rsi
   bool v17; // zf
@@ -50,8 +50,8 @@ __int64 __fastcall SendCaptureStateNotificationsWorker(__int16 *a1)
   signed __int64 v22; // rdx
   __int64 v23; // rtt
   __int64 v24; // r15
-  _QWORD *v25; // rax
-  _QWORD *v26; // rsi
+  char *v25; // rax
+  char *v26; // rsi
   char v28; // [rsp+28h] [rbp-99h]
   int v29; // [rsp+2Ch] [rbp-95h] BYREF
   __int64 v30; // [rsp+30h] [rbp-91h]
@@ -72,17 +72,17 @@ __int64 __fastcall SendCaptureStateNotificationsWorker(__int16 *a1)
   v2 = *((_QWORD *)a1 + 168);
   v33 = v2;
   v34 = 0LL;
-  v3 = KeAbPreAcquire((__int64)(a1 + 344), 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)(a1 + 344), 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 172, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 86, (__int64)v3, (__int64)(a1 + 344));
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 86, v3, (__int64)(a1 + 344));
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   *(_DWORD *)(v2 + 64) = 0;
   v28 = 1;
   if ( *((_DWORD *)a1 + 80) && (v5 = *(unsigned __int16 *)(v2 + 16), (_WORD)v5) )
   {
-    Pool2 = (__int128 *)ExAllocatePool2(0x100uLL);
+    Pool2 = (__int128 *)ExAllocatePool2(0x100uLL, 16LL * *(unsigned __int16 *)(v2 + 16), 0x74777445u);
     *((_QWORD *)&v34 + 1) = Pool2;
     v7 = Pool2;
     if ( Pool2 )
@@ -105,13 +105,13 @@ __int64 __fastcall SendCaptureStateNotificationsWorker(__int16 *a1)
         CurrentThread = KeGetCurrentThread();
         v12 = (unsigned __int64 *)(GuidEntryByGuid + 664);
         --CurrentThread->KernelApcDisable;
-        v13 = KeAbPreAcquire(GuidEntryByGuid + 664, 0LL);
+        v13 = (char *)KeAbPreAcquire(GuidEntryByGuid + 664, 0LL);
         v14 = v13;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v12, (__int64)v13, (__int64)v12);
+          ExfAcquirePushLockExclusiveEx(v12, v13, (__int64)v12);
         v15 = 0LL;
         if ( v14 )
-          *((_BYTE *)v14 + 10) = 1;
+          v14[10] = 1;
         v16 = (__int64 *)v10[7];
         v10[84] = KeGetCurrentThread();
         v37 = *v7;
@@ -166,12 +166,12 @@ LABEL_31:
           if ( *((_DWORD *)a1 + 80) )
           {
             *((_QWORD *)&v40 + 1) = -1LL;
-            v25 = KeAbPreAcquire((__int64)(a1 + 344), 0LL);
+            v25 = (char *)KeAbPreAcquire((__int64)(a1 + 344), 0LL);
             v26 = v25;
             if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 172, 0LL) )
-              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 86, (__int64)v25, (__int64)(a1 + 344));
+              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 86, v25, (__int64)(a1 + 344));
             if ( v26 )
-              *((_BYTE *)v26 + 10) = 1;
+              v26[10] = 1;
             v28 = 1;
             if ( *(_WORD *)(v24 + 16) && !*(_DWORD *)(v24 + 64) )
             {

@@ -34,9 +34,9 @@ void __stdcall RtlUnwindEx(
         PUNWIND_HISTORY_TABLE HistoryTable)
 {
   struct _UNWIND_HISTORY_TABLE *v6; // r13
-  PCONTEXT v8; // r15
-  unsigned int v10; // edi
-  __int64 v11; // rbx
+  struct _CONTEXT *p_ContextLength; // r15
+  ULONG v10; // edi
+  ULONG64 v11; // rbx
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rcx
   void *v14; // rsp
@@ -44,7 +44,7 @@ void __stdcall RtlUnwindEx(
   PM128A v16; // rbx
   struct _CONTEXT *v17; // rdi
   unsigned int v18; // r14d
-  int v19; // eax
+  NTSTATUS v19; // eax
   PM128A v20; // rcx
   int Rsi; // r13d
   PM128A v22; // rax
@@ -52,7 +52,7 @@ void __stdcall RtlUnwindEx(
   int v24; // edx
   int v25; // edx
   struct _M128A *v26; // rax
-  int v27; // et0
+  ULONG v27; // et0
   struct _M128A *v28; // rax
   ULONG64 v29; // r13
   unsigned __int128 v30; // kr00_16
@@ -61,20 +61,20 @@ void __stdcall RtlUnwindEx(
   unsigned __int64 v33; // rcx
   void *v34; // rsp
   void *v35; // rsp
-  unsigned int v36; // [rsp+60h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+60h] [rbp+0h] BYREF
   struct _KNONVOLATILE_CONTEXT_POINTERS HandlerData; // [rsp+68h] [rbp+8h] BYREF
 
   v6 = HistoryTable;
-  v8 = ContextRecord;
+  p_ContextLength = ContextRecord;
   HandlerData.FloatingContext[12] = (PM128A)TargetIp;
   HandlerData.FloatingContext[7] = (PM128A)HistoryTable;
   HandlerData.FloatingContext[11] = (PM128A)ReturnValue;
   if ( !(unsigned __int8)RtlpGetStackLimits(&HandlerData.Xmm9, &HandlerData.Xmm10) )
 LABEL_65:
-    RtlRaiseStatus(3221225512LL);
+    RtlRaiseStatus(-1073741784);
   RtlpSanitizeContext(ContextRecord);
   v10 = 1048587;
-  if ( (((unsigned __int64)qword_1801993A8 >> 60) & 3) == 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1 )
   {
     v10 = 1048651;
     if ( (ContextRecord->ContextFlags & 0x100040) == 0x100040
@@ -85,34 +85,38 @@ LABEL_65:
     else
     {
       v11 = 2048LL;
-      RtlGetExtendedContextLength2(1048651LL, &v36, 2048LL);
-      v32 = v36 + 15LL;
-      if ( v32 <= v36 )
+      RtlGetExtendedContextLength2(0x10004Bu, &ContextLength, 0x800uLL);
+      v32 = ContextLength + 15LL;
+      if ( v32 <= ContextLength )
         v32 = 0xFFFFFFFFFFFFFF0LL;
       v33 = v32 & 0xFFFFFFFFFFFFFFF0uLL;
       v34 = alloca(v33);
       v35 = alloca(v33);
-      v8 = (PCONTEXT)&v36;
-      RtlInitializeExtendedContext2(&v36, 1048651LL, &HandlerData.Xmm1, 2048LL);
+      p_ContextLength = (struct _CONTEXT *)&ContextLength;
+      RtlInitializeExtendedContext2(
+        (PCONTEXT)&ContextLength,
+        0x10004Bu,
+        (PCONTEXT_EX *)&HandlerData.FloatingContext[1],
+        0x800uLL);
     }
   }
   else
   {
     v11 = 0LL;
   }
-  RtlGetExtendedContextLength2(v10, &v36, v11);
-  v12 = v36 + 15LL;
-  if ( v12 <= v36 )
+  RtlGetExtendedContextLength2(v10, &ContextLength, v11);
+  v12 = ContextLength + 15LL;
+  if ( v12 <= ContextLength )
     v12 = 0xFFFFFFFFFFFFFF0LL;
   v13 = v12 & 0xFFFFFFFFFFFFFFF0uLL;
   v14 = alloca(v13);
   v15 = alloca(v13);
-  HandlerData.FloatingContext[8] = (PM128A)&v36;
-  RtlInitializeExtendedContext2(&v36, v10, &HandlerData.Xmm1, v11);
-  v16 = (PM128A)&v36;
-  HandlerData.FloatingContext[2] = (PM128A)&v36;
-  v17 = v8;
-  RtlCaptureContext2(v8);
+  HandlerData.FloatingContext[8] = (PM128A)&ContextLength;
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, v10, (PCONTEXT_EX *)&HandlerData.FloatingContext[1], v11);
+  v16 = (PM128A)&ContextLength;
+  HandlerData.FloatingContext[2] = (PM128A)&ContextLength;
+  v17 = p_ContextLength;
+  RtlCaptureContext2(p_ContextLength);
   if ( HistoryTable )
     HistoryTable->Search = 1;
   if ( !ExceptionRecord )
@@ -120,7 +124,7 @@ LABEL_65:
     LODWORD(HandlerData.R11) = -1073741785;
     ExceptionRecord = (PEXCEPTION_RECORD)&HandlerData.R11;
     HandlerData.IntegerContext[12] = 0LL;
-    HandlerData.IntegerContext[13] = (PDWORD64)v8->Rip;
+    HandlerData.IntegerContext[13] = (PDWORD64)p_ContextLength->Rip;
     LODWORD(HandlerData.R14) = 0;
   }
   HandlerData.FloatingContext[0] = 0LL;
@@ -148,7 +152,7 @@ LABEL_65:
             (__int64)&HandlerData.IntegerContext[7],
             0);
     if ( v19 < 0 )
-      RtlRaiseStatus((unsigned int)v19);
+      RtlRaiseStatus(v19);
     v20 = HandlerData.FloatingContext[0];
     if ( ((__int64)HandlerData.FloatingContext[0] & 7) != 0
       || HandlerData.FloatingContext[0] < HandlerData.FloatingContext[9]
@@ -185,17 +189,17 @@ LABEL_65:
         if ( v25 )
         {
           if ( v25 != 2 )
-            RtlRaiseStatus(3221225510LL);
+            RtlRaiseStatus(-1073741786);
           v30 = *(_OWORD *)&HandlerData.Xmm13;
           HandlerData.FloatingContext[4] = (PM128A)(v30 >> 64);
           v29 = v30;
           HandlerData.FloatingContext[3] = HandlerData.FloatingContext[15];
           HandlerData.FloatingContext[1] = HandlerData.FloatingContext[13];
-          RtlpCopyContext(v8, HandlerData.IntegerContext[2]);
+          RtlpCopyContext(p_ContextLength, HandlerData.IntegerContext[2]);
           HandlerData.FloatingContext[2] = HandlerData.FloatingContext[8];
-          v17 = v8;
+          v17 = p_ContextLength;
           v16 = HandlerData.FloatingContext[8];
-          RtlpCopyContext(HandlerData.FloatingContext[8], v8);
+          RtlpCopyContext(HandlerData.FloatingContext[8], p_ContextLength);
           v31 = (struct _M128A *)RtlVirtualUnwind(
                                    2u,
                                    (ULONG64)HandlerData.FloatingContext[4],
@@ -206,7 +210,7 @@ LABEL_65:
                                    (PULONG64)&HandlerData,
                                    0LL);
           HandlerData.FloatingContext[5] = v31;
-          if ( (((unsigned __int64)qword_1801993A8 >> 12) & 3) == 1 )
+          if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
           {
             if ( v31 != (struct _M128A *)HandlerData.IntegerContext[3]
               || (v20 = HandlerData.FloatingContext[0],
@@ -240,7 +244,7 @@ LABEL_65:
             HandlerData.FloatingContext[2] = v26;
           }
           v27 = _mm_getcsr();
-          v36 = v27;
+          ContextLength = v27;
           v17->MxCsr = v27;
           v17->FltSave.MxCsr = v27;
           if ( v17->FltSave.ControlWord != 639 || (v17->FltSave.StatusWord & 0xB880) != 0 || v17->FltSave.TagWord )
@@ -283,7 +287,7 @@ LABEL_37:
   else
   {
     if ( HandlerData.FloatingContext[1] == (PM128A)v17->Rip )
-      RtlRaiseStatus(3221225727LL);
-    ZwRaiseException(ExceptionRecord, v17, 0LL);
+      RtlRaiseStatus(-1073741569);
+    ZwRaiseException(ExceptionRecord, v17, 0);
   }
 }

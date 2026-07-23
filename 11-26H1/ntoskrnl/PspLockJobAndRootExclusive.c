@@ -1,15 +1,15 @@
 /*
- * XREFs of PspLockJobAndRootExclusive @ 0x1407F8DE0
+ * XREFs of PspLockJobAndRootExclusive @ 0x1407FE8E0
  * Callers:
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     PspFreezeJobTree @ 0x1407F8824 (PspFreezeJobTree.c)
- *     PspSetJobIoRateControl @ 0x1407F9484 (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x1407F9A94 (PspSetNetRateControl.c)
- *     PspCheckEnableNotificationChannel @ 0x140B650F8 (PspCheckEnableNotificationChannel.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     PspFreezeJobTree @ 0x1407FE324 (PspFreezeJobTree.c)
+ *     PspSetJobIoRateControl @ 0x1407FEF84 (PspSetJobIoRateControl.c)
+ *     PspSetNetRateControl @ 0x1407FF594 (PspSetNetRateControl.c)
+ *     PspCheckEnableNotificationChannel @ 0x140B68198 (PspCheckEnableNotificationChannel.c)
  * Callees:
- *     PspUnlockJobExclusive @ 0x140959DD4 (PspUnlockJobExclusive.c)
- *     PspLockJobExclusive @ 0x14095A894 (PspLockJobExclusive.c)
+ *     PspUnlockJobExclusive @ 0x1409FF694 (PspUnlockJobExclusive.c)
+ *     PspLockJobExclusive @ 0x140A00154 (PspLockJobExclusive.c)
  */
 
 __int64 __fastcall PspLockJobAndRootExclusive(__int64 a1, __int64 a2)

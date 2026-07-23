@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpUpdateHeapWatermarks @ 0x1800EC324
+ * XREFs of RtlpUpdateHeapWatermarks @ 0x1800EC3E4
  * Callers:
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x180049370 (RtlpFreeHeap.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x180049360 (RtlpFreeHeap.c)
  * Callees:
  *     <none>
  */

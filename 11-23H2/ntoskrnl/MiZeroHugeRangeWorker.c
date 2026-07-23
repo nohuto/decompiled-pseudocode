@@ -1,19 +1,19 @@
 /*
- * XREFs of MiZeroHugeRangeWorker @ 0x140622DD0
+ * XREFs of MiZeroHugeRangeWorker @ 0x140623320
  * Callers:
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     RtlCompareMemoryUlong @ 0x1404298A0 (RtlCompareMemoryUlong.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDereferenceHugeIoRange @ 0x14061F964 (MiDereferenceHugeIoRange.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiDeleteAcceleratorDescriptor @ 0x1406549FC (MiDeleteAcceleratorDescriptor.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
+ *     RtlCompareMemoryUlong @ 0x140429C30 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiDereferenceHugeIoRange @ 0x14061FEB4 (MiDereferenceHugeIoRange.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140654F4C (MiDeleteAcceleratorDescriptor.c)
  */
 
 void __fastcall MiZeroHugeRangeWorker(PRTL_BITMAP BitMapHeader)
@@ -61,10 +61,13 @@ void __fastcall MiZeroHugeRangeWorker(PRTL_BITMAP BitMapHeader)
       (volatile signed __int32 *)(qword_140C67DF8 + 4
                                                   * (((((__int64)Buffer - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
       ~(1 << ((((__int64)Buffer - qword_140C67DF0) >> 3) & 0x1F)));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -108,10 +111,10 @@ void __fastcall MiZeroHugeRangeWorker(PRTL_BITMAP BitMapHeader)
         (volatile signed __int32 *)(qword_140C67DF8
                                   + 4 * (((((__int64)Buffer - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
         ~(1 << ((((__int64)Buffer - qword_140C67DF0) >> 3) & 0x1F)));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v16 >= 2u )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;

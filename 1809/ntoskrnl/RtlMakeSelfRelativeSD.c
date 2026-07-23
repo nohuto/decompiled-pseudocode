@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlMakeSelfRelativeSD @ 0x1406AFA38
+ * XREFs of RtlMakeSelfRelativeSD @ 0x1406B0CD8
  * Callers:
- *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA10 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1406D6638 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1406B0CB0 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1406D78D8 (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpQuerySecurityDescriptor @ 0x1406AFB70 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpQuerySecurityDescriptor @ 0x1406B0E10 (RtlpQuerySecurityDescriptor.c)
  */
 
 NTSTATUS __stdcall RtlMakeSelfRelativeSD(

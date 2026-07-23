@@ -1,13 +1,13 @@
 /*
- * XREFs of AslEnvExpandStrings2 @ 0x140753C30
+ * XREFs of AslEnvExpandStrings2 @ 0x140753DF0
  * Callers:
- *     SdbpResolveMatchingFile @ 0x1407539DC (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x140753B9C (SdbpResolveMatchingFile.c)
  * Callees:
- *     AslpEnvResolveVars @ 0x140753DC4 (AslpEnvResolveVars.c)
- *     AslEnvExpandStrings @ 0x140753FEC (AslEnvExpandStrings.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     AslpEnvResolveVars @ 0x140753F84 (AslpEnvResolveVars.c)
+ *     AslEnvExpandStrings @ 0x1407541AC (AslEnvExpandStrings.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslEnvExpandStrings2(

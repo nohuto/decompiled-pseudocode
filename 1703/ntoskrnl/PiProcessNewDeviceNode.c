@@ -110,7 +110,7 @@ __int64 __fastcall PiProcessNewDeviceNode(__int64 a1)
   int v32; // ecx
   PVOID v33; // rsi
   WCHAR *v34; // rbx
-  __int64 v35; // r8
+  char v35; // r8
   __int64 v36; // rdx
   struct _KTHREAD *v37; // rax
   struct _KTHREAD *v38; // rax
@@ -174,7 +174,7 @@ __int64 __fastcall PiProcessNewDeviceNode(__int64 a1)
   int v97; // [rsp+70h] [rbp-98h] BYREF
   BOOL v98; // [rsp+74h] [rbp-94h]
   int v99; // [rsp+78h] [rbp-90h]
-  bool v100; // [rsp+7Ch] [rbp-8Ch] BYREF
+  char v100; // [rsp+7Ch] [rbp-8Ch] BYREF
   unsigned int v101; // [rsp+80h] [rbp-88h]
   HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
   int v103; // [rsp+90h] [rbp-78h] BYREF
@@ -684,13 +684,13 @@ LABEL_59:
       SourceString = 0LL;
     }
   }
-  if ( (int)PiQueryRemovableDeviceOverride(a1, v33, v115, &v100) >= 0 )
+  if ( (int)PiQueryRemovableDeviceOverride(a1, v33, v115, (bool *)&v100) >= 0 )
   {
-    LOBYTE(v35) = v100;
+    v35 = v100;
   }
   else
   {
-    LOBYTE(v35) = (v135 & 0x20) == 0 && (v135 & 0x40000) == 0 && (v135 & 0x10) != 0;
+    v35 = (v135 & 0x20) == 0 && (v135 & 0x40000) == 0 && (v135 & 0x10) != 0;
     if ( v34 )
       goto LABEL_72;
   }

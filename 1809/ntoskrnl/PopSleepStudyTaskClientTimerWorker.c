@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSleepStudyTaskClientTimerWorker @ 0x140875060
+ * XREFs of PopSleepStudyTaskClientTimerWorker @ 0x1408762C0
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PdcTaskClientRequest @ 0x14089A6E8 (PdcTaskClientRequest.c)
+ *     PdcTaskClientRequest @ 0x14089B948 (PdcTaskClientRequest.c)
  */
 
 LONG PopSleepStudyTaskClientTimerWorker()

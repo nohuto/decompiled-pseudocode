@@ -3,9 +3,9 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     HvlIsSingleGroupRequired @ 0x1403AA48C (HvlIsSingleGroupRequired.c)
- *     KiFinalizeGroupAssignment @ 0x1403AA4F0 (KiFinalizeGroupAssignment.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     HvlIsSingleGroupRequired @ 0x1403AA66C (HvlIsSingleGroupRequired.c)
+ *     KiFinalizeGroupAssignment @ 0x1403AA6D0 (KiFinalizeGroupAssignment.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  *     KiAssignAllSubNodesToGroup0 @ 0x140B694E0 (KiAssignAllSubNodesToGroup0.c)
  *     KiPerformExplicitGroupAssignment @ 0x140B69524 (KiPerformExplicitGroupAssignment.c)
  *     KiPopulateSubNodes @ 0x140B6959C (KiPopulateSubNodes.c)

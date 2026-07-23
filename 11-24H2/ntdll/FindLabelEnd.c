@@ -1,7 +1,7 @@
 /*
- * XREFs of FindLabelEnd @ 0x1800BE1F0
+ * XREFs of FindLabelEnd @ 0x1800B5FB0
  * Callers:
- *     punycode_encode @ 0x1800BDBA8 (punycode_encode.c)
+ *     punycode_encode @ 0x1800B5968 (punycode_encode.c)
  * Callees:
  *     <none>
  */

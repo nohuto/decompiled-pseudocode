@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAddMappedPtes @ 0x1406E9250
+ * XREFs of MiAddMappedPtes @ 0x140700630
  * Callers:
- *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
- *     MiMapSystemImage @ 0x14075D0C4 (MiMapSystemImage.c)
+ *     MiInsertInSystemSpace @ 0x140305B30 (MiInsertInSystemSpace.c)
+ *     MiMapSystemImage @ 0x14075D284 (MiMapSystemImage.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMakePrototypePteDirect @ 0x1402FCD10 (MiMakePrototypePteDirect.c)
- *     MiGetSubsectionDriverProtos @ 0x1402FCDE0 (MiGetSubsectionDriverProtos.c)
- *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
- *     MiMakeDemandZeroPte @ 0x140329F70 (MiMakeDemandZeroPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiMakePrototypePteDirect @ 0x140307A60 (MiMakePrototypePteDirect.c)
+ *     MiGetSubsectionDriverProtos @ 0x140307B30 (MiGetSubsectionDriverProtos.c)
+ *     MiOffsetToProtos @ 0x14032B8A0 (MiOffsetToProtos.c)
+ *     MiMakeDemandZeroPte @ 0x140334CC0 (MiMakeDemandZeroPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiAddMappedPtes(__int64 *a1, __int64 a2, __int64 a3, unsigned __int64 *a4, unsigned int a5, int a6)
@@ -33,25 +33,23 @@ __int64 __fastcall MiAddMappedPtes(__int64 *a1, __int64 a2, __int64 a3, unsigned
   __int64 SubsectionDriverProtos; // rax
   unsigned int v22; // edx
   unsigned int v23; // ecx
-  __int64 v24; // r8
-  unsigned __int64 v25; // rdi
-  __int64 v26; // rbx
-  __int64 v27; // r8
-  unsigned __int64 v28; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v29; // [rsp+68h] [rbp+10h]
-  __int64 v30; // [rsp+70h] [rbp+18h]
+  unsigned __int64 v24; // rdi
+  __int64 v25; // rbx
+  unsigned __int64 v26; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v27; // [rsp+68h] [rbp+10h]
+  __int64 v28; // [rsp+70h] [rbp+18h]
 
-  v30 = a3;
+  v28 = a3;
   v6 = 0;
   v7 = a3;
   v8 = a1;
-  v28 = 0LL;
+  v26 = 0LL;
   if ( (MiFlags & 0x10000) == 0 || (MiFlags & 0x8000) == 0 || (*(_DWORD *)(a3 + 56) & 0x20) == 0 )
     a6 = 0;
   v9 = (unsigned __int64)&a1[a2];
-  v29 = 0LL;
+  v27 = 0LL;
   DemandZeroPte = 0LL;
-  v11 = MiOffsetToProtos(a3, *a4, &v28);
+  v11 = MiOffsetToProtos(a3, *a4, &v26);
   v12 = (__int64)v11;
   if ( !v11 )
     return 3221225503LL;
@@ -65,7 +63,7 @@ __int64 __fastcall MiAddMappedPtes(__int64 *a1, __int64 a2, __int64 a3, unsigned
       goto LABEL_24;
   }
   v14 = *(_QWORD *)(v12 + 8);
-  v15 = v14 + 8 * v28;
+  v15 = v14 + 8 * v26;
   v16 = v14 + 8LL * *(unsigned int *)(v12 + 44);
   while ( 1 )
   {
@@ -104,11 +102,11 @@ LABEL_10:
       goto LABEL_11;
     }
     v23 = (*(unsigned __int16 *)(v12 + 34) >> 4) + (*(_DWORD *)(v12 + 40) << 9);
-    v29 = v15 + 8LL * ((v23 >> 12) + ((v23 & 0xFFF) != 0));
-    v6 = ((__int64)(v16 - v29) >> 3) - (*(_DWORD *)(v12 + 52) & 0x3FFFFFFF);
+    v27 = v15 + 8LL * ((v23 >> 12) + ((v23 & 0xFFF) != 0));
+    v6 = ((__int64)(v16 - v27) >> 3) - (*(_DWORD *)(v12 + 52) & 0x3FFFFFFF);
     DemandZeroPte = MiMakeDemandZeroPte((v22 >> 1) & 0x1F);
 LABEL_9:
-    if ( !v6 || v15 < v29 )
+    if ( !v6 || v15 < v27 )
       goto LABEL_10;
     PrototypePteDirect = DemandZeroPte;
     --v6;
@@ -126,46 +124,46 @@ LABEL_12:
       *v8 = PrototypePteDirect;
       goto LABEL_13;
     }
-    if ( !HIBYTE(word_140C4E008) && (PrototypePteDirect & 1) != 0 )
+    if ( !HIBYTE(word_140C4E048) && (PrototypePteDirect & 1) != 0 )
       PrototypePteDirect |= 0x8000000000000000uLL;
     *v8 = PrototypePteDirect;
-    MiWritePteShadow((__int64)v8, PrototypePteDirect, v24);
+    MiWritePteShadow((__int64)v8, PrototypePteDirect);
 LABEL_13:
-    v7 = v30;
+    v7 = v28;
     ++v8;
     v15 += 8LL;
     v13 = 1;
   }
-  v25 = *(_QWORD *)(v7 + 136)
+  v24 = *(_QWORD *)(v7 + 136)
       + 8
       * (*(unsigned int *)(*(_QWORD *)v7 + 8LL) | ((unsigned __int64)(*(_WORD *)(*(_QWORD *)v7 + 12LL) & 0x3FF) << 32));
-  if ( v15 < v25 )
+  if ( v15 < v24 )
   {
     while ( 1 )
     {
-      v26 = MiMakePrototypePteDirect(v15);
+      v25 = MiMakePrototypePteDirect(v15);
       if ( MiPteInShadowRange((unsigned __int64)v8) )
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          if ( !HIBYTE(word_140C4E008) && (v26 & 1) != 0 )
-            v26 |= 0x8000000000000000uLL;
-          *v8 = v26;
-          MiWritePteShadow((__int64)v8, v26, v27);
+          if ( !HIBYTE(word_140C4E048) && (v25 & 1) != 0 )
+            v25 |= 0x8000000000000000uLL;
+          *v8 = v25;
+          MiWritePteShadow((__int64)v8, v25);
           goto LABEL_54;
         }
         if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-          && (v26 & 1) != 0 )
+          && (v25 & 1) != 0 )
         {
-          v26 |= 0x8000000000000000uLL;
+          v25 |= 0x8000000000000000uLL;
         }
       }
-      *v8 = v26;
+      *v8 = v25;
 LABEL_54:
       if ( (unsigned __int64)++v8 < v9 )
       {
         v15 += 8LL;
-        if ( v15 < v25 )
+        if ( v15 < v24 )
           continue;
       }
       return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerEventTraceControlCallback @ 0x140764250
+ * XREFs of KiIntSteerEventTraceControlCallback @ 0x140765440
  * Callers:
  *     <none>
  * Callees:
- *     KiIntSteerLogStatus @ 0x14029A9A8 (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogStatus @ 0x14029AB98 (KiIntSteerLogStatus.c)
  */
 
 void __fastcall KiIntSteerEventTraceControlCallback(

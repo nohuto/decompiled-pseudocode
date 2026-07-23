@@ -1,16 +1,19 @@
 /*
- * XREFs of ZwMapUserPhysicalPagesScatter @ 0x18009D6A0
+ * XREFs of ZwMapUserPhysicalPagesScatter @ 0x18009D660
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwMapUserPhysicalPagesScatter()
+NTSTATUS __cdecl ZwMapUserPhysicalPagesScatter(
+        PVOID *VirtualAddresses,
+        ULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 3LL;
+  result = 3;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

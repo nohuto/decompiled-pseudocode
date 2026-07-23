@@ -6,8 +6,8 @@
  *     _RtlLeaveCriticalSection@4 @ 0x4B2BE700 (_RtlLeaveCriticalSection@4.c)
  */
 
-int __stdcall RtlTraceDatabaseUnlock(int a1)
+NTSTATUS __stdcall RtlTraceDatabaseUnlock(int a1)
 {
   *(_DWORD *)(a1 + 24) = 0;
-  return RtlLeaveCriticalSection(a1 + 28);
+  return RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
 }

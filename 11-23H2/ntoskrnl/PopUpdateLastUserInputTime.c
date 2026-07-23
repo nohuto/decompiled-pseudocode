@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUpdateLastUserInputTime @ 0x1407A7330
+ * XREFs of PopUpdateLastUserInputTime @ 0x1407A7520
  * Callers:
- *     PopSystemIdleWorker @ 0x1407A6DA0 (PopSystemIdleWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x140873894 (PopUpdateConsoleDisplayState.c)
+ *     PopSystemIdleWorker @ 0x1407A6F90 (PopSystemIdleWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x140873AD4 (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     PopPulseSystemIdleEvent @ 0x1407A853C (PopPulseSystemIdleEvent.c)
+ *     PopPulseSystemIdleEvent @ 0x1407A872C (PopPulseSystemIdleEvent.c)
  */
 
 __int64 PopUpdateLastUserInputTime()

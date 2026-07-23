@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerClockIpiRoutine @ 0x1404681D0
+ * XREFs of HalpTimerClockIpiRoutine @ 0x140461810
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14021F300 (HalpTimerWatchdogTriggerSystemReset.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     HalpScanForProfilingCorruption @ 0x1404682D4 (HalpScanForProfilingCorruption.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x140220C90 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     HalpScanForProfilingCorruption @ 0x140461914 (HalpScanForProfilingCorruption.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpTimerClockIpiRoutine(__int64 a1)

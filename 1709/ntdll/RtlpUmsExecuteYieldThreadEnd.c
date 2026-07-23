@@ -15,7 +15,7 @@ char __fastcall RtlpUmsExecuteYieldThreadEnd(__int64 a1, __int64 a2)
 
   v4 = *(_QWORD *)(v2 + 168);
   v5 = *(_QWORD *)(v2 + 1248);
-  if ( qword_18016F370 && ((v4 & 7) != 0 || v4 < *(_QWORD *)(v5 + 16) || v4 >= *(_QWORD *)(v5 + 8)) )
+  if ( LdrSystemDllInitBlock.CfgBitMap && ((v4 & 7) != 0 || v4 < *(_QWORD *)(v5 + 16) || v4 >= *(_QWORD *)(v5 + 8)) )
     __fastfail(0xDu);
   *(_QWORD *)(*(_QWORD *)(v2 + 168) - 8LL) = *(_QWORD *)(v2 + 264);
   result = (*(_BYTE *)(v2 + 1264) | *(_BYTE *)(a2 + 1264)) & 0x10;

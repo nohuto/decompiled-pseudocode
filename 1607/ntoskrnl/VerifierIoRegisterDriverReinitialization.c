@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoRegisterDriverReinitialization @ 0x14070C854
+ * XREFs of VerifierIoRegisterDriverReinitialization @ 0x14070C884
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAddToHiveFileList @ 0x140A6A4C4
+ * XREFs of CmpAddToHiveFileList @ 0x140A63874
  * Callers:
- *     CmpLoadKeyCommon @ 0x140464478 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x1407CE610 (CmpLoadHiveVolatile.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmpLoadKeyCommon @ 0x14045ABA8 (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x1407CEB00 (CmpLoadHiveVolatile.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryObject @ 0x1406A6610 (ZwQueryObject.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryObject @ 0x1406A75B0 (ZwQueryObject.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpAddToHiveFileList(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall CmpAddToHiveFileList(__int64 a1)
       ZwClose(KeyHandle);
     }
   }
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, 0x202uLL, 0x62714D43u);
   if ( !Pool )
     return (unsigned int)-1073741801;
   if ( (*(_DWORD *)(a1 + 160) & 1) != 0 )

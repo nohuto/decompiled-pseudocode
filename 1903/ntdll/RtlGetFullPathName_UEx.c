@@ -9,29 +9,34 @@
  *     RtlInitUnicodeStringEx @ 0x180028DF0 (RtlInitUnicodeStringEx.c)
  */
 
-__int64 __fastcall RtlGetFullPathName_UEx(__int64 a1, unsigned int a2, _WORD *a3, _QWORD *a4, _DWORD *a5)
+NTSTATUS __cdecl RtlGetFullPathName_UEx(
+        PCWSTR FileName,
+        ULONG BufferLength,
+        PWSTR Buffer,
+        PWSTR *FilePart,
+        ULONG *BytesRequired)
 {
-  _DWORD *v5; // rbx
-  __int64 result; // rax
-  int v10; // eax
-  unsigned __int16 v11[12]; // [rsp+30h] [rbp-18h] BYREF
+  ULONG *v5; // rbx
+  NTSTATUS result; // eax
+  ULONG v10; // eax
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a5;
-  if ( a5 )
-    *a5 = 0;
-  result = RtlInitUnicodeStringEx((__int64)v11, a1);
-  if ( (int)result >= 0 )
+  v5 = BytesRequired;
+  if ( BytesRequired )
+    *BytesRequired = 0;
+  result = RtlInitUnicodeStringEx(&DestinationString, FileName);
+  if ( result >= 0 )
   {
-    v10 = sub_180027B70(v11, a2, a3, a4, 0LL, (__int64)&a5);
+    v10 = sub_180027B70(&DestinationString.Length, BufferLength, Buffer, FilePart, 0LL, (__int64)&BytesRequired);
     if ( v10 )
     {
       if ( v5 )
         *v5 = v10;
-      return 0LL;
+      return 0;
     }
     else
     {
-      return 3221225523LL;
+      return -1073741773;
     }
   }
   return result;

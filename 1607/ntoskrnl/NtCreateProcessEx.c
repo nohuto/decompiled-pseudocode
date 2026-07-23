@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateProcessEx @ 0x1404EB914
+ * XREFs of NtCreateProcessEx @ 0x1404CD99C
  * Callers:
- *     NtCreateProcess @ 0x14067CB90 (NtCreateProcess.c)
+ *     NtCreateProcess @ 0x14067CC74 (NtCreateProcess.c)
  * Callees:
- *     PspCreateProcess @ 0x1404EB990 (PspCreateProcess.c)
+ *     PspCreateProcess @ 0x1404CDA18 (PspCreateProcess.c)
  */
 
 NTSTATUS __stdcall NtCreateProcessEx(

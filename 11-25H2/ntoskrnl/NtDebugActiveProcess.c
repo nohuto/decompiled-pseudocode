@@ -17,16 +17,16 @@
  *     PsTestProtectedProcessIncompatibility @ 0x1409BC040 (PsTestProtectedProcessIncompatibility.c)
  */
 
-__int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   char PreviousMode; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v7; // rbx
   _KPROCESS *Process; // rsi
   unsigned __int64 Count; // rdi
-  int v10; // edi
+  NTSTATUS v10; // edi
   BOOLEAN v11; // al
   struct _KEVENT *v12; // rsi
   int v13; // eax
@@ -42,7 +42,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
   Object = 0LL;
   v17 = 0LL;
   result = ObpReferenceObjectByHandleWithTag(
-             a1,
+             (ULONG_PTR)ProcessHandle,
              2048,
              (__int64)PsProcessType,
              PreviousMode,
@@ -50,7 +50,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
              &Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     v7 = (struct _EX_RUNDOWN_REF *)Object;
@@ -81,7 +81,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
             || v7[98].Count && ((v15 = WORD2(v7[221].Ptr), v15 == 332) || v15 == 452) )
           {
             Object = 0LL;
-            v10 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+            v10 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
             if ( v10 >= 0 )
             {
               v11 = ExAcquireRundownProtection_0(v7 + 61);
@@ -107,7 +107,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
       }
     }
     ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

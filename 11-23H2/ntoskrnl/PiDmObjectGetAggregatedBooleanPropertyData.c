@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D6858
+ * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D6888
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1406D64B0 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1406D64E0 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D8120 (PiDmGetObject.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D8150 (PiDmGetObject.c)
  */
 
 __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(

@@ -38,10 +38,10 @@ void __fastcall PopDeepSleepResiliencyPhaseAccountingBegin(unsigned int a1, char
   {
     KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
     KxReleaseSpinLock((volatile signed __int64 *)&PopDeepSleepDisengageReasonLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

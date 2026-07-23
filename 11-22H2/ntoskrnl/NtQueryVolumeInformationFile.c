@@ -81,7 +81,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   struct _KEVENT *Pool2; // rax
   char IsProcessAppContainer; // al
   _BYTE *v50; // rbx
-  int DriverPathInformation; // eax
+  NTSTATUS DriverPathInformation; // eax
   NTSTATUS v52; // r13d
   int Object; // [rsp+20h] [rbp-A8h]
   int HandleInformation; // [rsp+28h] [rbp-A0h]
@@ -89,7 +89,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   KPROCESSOR_MODE v56; // [rsp+41h] [rbp-87h]
   bool v57; // [rsp+42h] [rbp-86h]
   PVOID p_Flags; // [rsp+48h] [rbp-80h] BYREF
-  int v59; // [rsp+50h] [rbp-78h]
+  NTSTATUS v59; // [rsp+50h] [rbp-78h]
   PVOID v60; // [rsp+58h] [rbp-70h]
   struct _DEVICE_OBJECT *v61; // [rsp+60h] [rbp-68h]
   PVOID P; // [rsp+68h] [rbp-60h]

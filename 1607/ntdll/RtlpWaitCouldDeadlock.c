@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpWaitCouldDeadlock @ 0x180066AD8
+ * XREFs of RtlpWaitCouldDeadlock @ 0x180066AC8
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpxLookupFunctionTable @ 0x1800362F0 (RtlpxLookupFunctionTable.c)
- *     RtlAcquireSRWLockShared @ 0x180042650 (RtlAcquireSRWLockShared.c)
- *     RtlpWaitOnCriticalSection @ 0x18006674C (RtlpWaitOnCriticalSection.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpxLookupFunctionTable @ 0x1800362E0 (RtlpxLookupFunctionTable.c)
+ *     RtlAcquireSRWLockShared @ 0x180042640 (RtlAcquireSRWLockShared.c)
+ *     RtlpWaitOnCriticalSection @ 0x18006673C (RtlpWaitOnCriticalSection.c)
  * Callees:
  *     <none>
  */

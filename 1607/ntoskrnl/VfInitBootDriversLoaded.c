@@ -3,13 +3,13 @@
  * Callers:
  *     MiInitializeDriverImages @ 0x1407A4F78 (MiInitializeDriverImages.c)
  * Callees:
- *     NtSetDebugFilterState @ 0x140563150 (NtSetDebugFilterState.c)
+ *     NtSetDebugFilterState @ 0x140563690 (NtSetDebugFilterState.c)
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
  *     VfAvlInitializeTreeEx @ 0x1406FE23C (VfAvlInitializeTreeEx.c)
  *     VfLookasideInitializeInternalNPagedList @ 0x1406FE344 (VfLookasideInitializeInternalNPagedList.c)
  *     IoVerifierInit @ 0x140700648 (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
- *     VfObjectContextInit @ 0x140704904 (VfObjectContextInit.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x140704934 (VfObjectContextInit.c)
  *     VfDriverLoadBootDrivers @ 0x1407A53BC (VfDriverLoadBootDrivers.c)
  *     VfThunkFindExportAddressAllTables @ 0x1407A5410 (VfThunkFindExportAddressAllTables.c)
  *     VfThunkInit @ 0x1407A56A8 (VfThunkInit.c)
@@ -46,7 +46,7 @@ char __fastcall VfInitBootDriversLoaded(__int64 a1)
     }
     else
     {
-      dword_140300AC8 = 0;
+      dword_140300AA8 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }

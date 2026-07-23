@@ -1,11 +1,11 @@
 /*
- * XREFs of PsIumGetOnDemandDebugChallenge @ 0x14088CE40
+ * XREFs of PsIumGetOnDemandDebugChallenge @ 0x14088E0A0
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     VslGetOnDemandDebugChallenge @ 0x1408186E0 (VslGetOnDemandDebugChallenge.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     VslGetOnDemandDebugChallenge @ 0x1408198E0 (VslGetOnDemandDebugChallenge.c)
  */
 
 __int64 __fastcall PsIumGetOnDemandDebugChallenge(ULONG_PTR a1, void *a2, unsigned int a3, _DWORD *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDeleteNoSplay @ 0x1403B6670
+ * XREFs of RtlDeleteNoSplay @ 0x1403C0570
  * Callers:
- *     FsRtlPrivateInsertSharedLock @ 0x1402C0A10 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlUninitializeFileLock @ 0x1403B49B0 (FsRtlUninitializeFileLock.c)
- *     FsRtlPruneTunnelCache @ 0x1409E16F0 (FsRtlPruneTunnelCache.c)
- *     FsRtlDeleteKeyFromTunnelCache @ 0x140ABBF80 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x14030B6D0 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlUninitializeFileLock @ 0x1403BE8B0 (FsRtlUninitializeFileLock.c)
+ *     FsRtlPruneTunnelCache @ 0x1409DE700 (FsRtlPruneTunnelCache.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x140ABDC80 (FsRtlDeleteKeyFromTunnelCache.c)
  * Callees:
- *     RtlSubtreePredecessor @ 0x1403B6750 (RtlSubtreePredecessor.c)
- *     SwapSplayLinks @ 0x1403B6778 (SwapSplayLinks.c)
+ *     RtlSubtreePredecessor @ 0x1403C0650 (RtlSubtreePredecessor.c)
+ *     SwapSplayLinks @ 0x1403C0678 (SwapSplayLinks.c)
  */
 
 void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
@@ -17,7 +17,7 @@ void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
   _RTL_SPLAY_LINKS *v6; // rax
   __int64 v7; // rdx
   __int64 v8; // rdx
-  RTL_SPLAY_LINKS *v9; // rax
+  _RTL_SPLAY_LINKS *v9; // rax
 
   if ( Links->LeftChild && Links->RightChild )
   {

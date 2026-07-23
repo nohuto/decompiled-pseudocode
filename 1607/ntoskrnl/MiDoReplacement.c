@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDoReplacement @ 0x1401E282C
+ * XREFs of MiDoReplacement @ 0x1401E2658
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
  * Callees:
- *     MiWorkingSetVeryLarge @ 0x1401E2AAC (MiWorkingSetVeryLarge.c)
- *     MiForcedTrim @ 0x1401E97D0 (MiForcedTrim.c)
- *     MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9EA0 (MiReplaceWorkingSetEntryIfNecessary.c)
+ *     MiWorkingSetVeryLarge @ 0x1401E28D8 (MiWorkingSetVeryLarge.c)
+ *     MiForcedTrim @ 0x1401E95FC (MiForcedTrim.c)
+ *     MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9CCC (MiReplaceWorkingSetEntryIfNecessary.c)
  */
 
 unsigned __int64 __fastcall MiDoReplacement(__int64 a1, unsigned int a2)

@@ -11,11 +11,11 @@
  *     _TpAllocWork@16 @ 0x4B2B3CB0 (_TpAllocWork@16.c)
  */
 
-int __fastcall LdrpEnableParallelLoading(unsigned int a1)
+NTSTATUS __fastcall LdrpEnableParallelLoading(unsigned int a1)
 {
-  int v2; // ebx
+  ULONG v2; // ebx
   int v3; // edi
-  _DWORD v5[10]; // [esp+10h] [ebp-28h] BYREF
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [esp+10h] [ebp-28h] BYREF
 
   LdrpDetectDetour();
   if ( a1 )
@@ -37,16 +37,16 @@ LABEL_5:
   v3 = TpAllocPoolInternal(&LdrpThreadPool, 1);
   if ( v3 >= 0 )
   {
-    TpSetPoolWorkerThreadIdleTimeout(LdrpThreadPool, -300000000, -1);
+    TpSetPoolWorkerThreadIdleTimeout((int)LdrpThreadPool, -300000000, -1);
     TpSetPoolMaxThreads(LdrpThreadPool, v2);
     if ( a1 > 1 && !LdrpDetourExist )
     {
-      v5[8] = 1;
-      v5[1] = LdrpThreadPool;
-      v5[0] = 3;
-      memset(&v5[2], 0, 24);
-      v5[9] = 40;
-      return TpAllocWork(&LdrpMapAndSnapWork, LdrpWorkCallback, 0, v5);
+      CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+      CallbackEnviron.Pool = LdrpThreadPool;
+      CallbackEnviron.Version = 3;
+      memset(&CallbackEnviron.CleanupGroup, 0, 24);
+      CallbackEnviron.Size = 40;
+      return TpAllocWork(&LdrpMapAndSnapWork, LdrpWorkCallback, 0, &CallbackEnviron);
     }
   }
   return v3;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExDisableHandleTracing @ 0x140606974
+ * XREFs of ExDisableHandleTracing @ 0x140606EC4
  * Callers:
- *     PsSetProcessHandleTracingInformation @ 0x1409AE644 (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x1409AE844 (PsSetProcessHandleTracingInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExDereferenceHandleDebugInfo @ 0x1409F8CA0 (ExDereferenceHandleDebugInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1409F8F30 (ExDereferenceHandleDebugInfo.c)
  */
 
 _QWORD *__fastcall ExDisableHandleTracing(__int64 a1)

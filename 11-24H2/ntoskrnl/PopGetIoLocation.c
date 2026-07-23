@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGetIoLocation @ 0x140B5CF94
+ * XREFs of PopGetIoLocation @ 0x140B5F010
  * Callers:
- *     PopHiberReadChecksums @ 0x140B5D304 (PopHiberReadChecksums.c)
- *     PopRequestRead @ 0x140B5DC4C (PopRequestRead.c)
- *     PopRequestWrite @ 0x140B5E080 (PopRequestWrite.c)
- *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
+ *     PopHiberReadChecksums @ 0x140B5F384 (PopHiberReadChecksums.c)
+ *     PopRequestRead @ 0x140B5FCCC (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140B60100 (PopRequestWrite.c)
+ *     PopWriteHiberPages @ 0x140B60AA8 (PopWriteHiberPages.c)
  * Callees:
  *     <none>
  */

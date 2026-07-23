@@ -3,14 +3,14 @@
  * Callers:
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
- *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
+ *     MiPrivateFixup @ 0x140125F10 (MiPrivateFixup.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
  * Callees:
  *     MiFindActualFaultingPte @ 0x14002D0E8 (MiFindActualFaultingPte.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
+ *     MiCheckVirtualAddress @ 0x140098C30 (MiCheckVirtualAddress.c)
  */
 
 __int64 __fastcall MiIsFaultPteIntact(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -41,12 +41,12 @@ __int64 __fastcall MiIsFaultPteIntact(__int64 a1, __int64 a2, __int64 a3, _QWORD
       }
       else
       {
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v13 & 0x10) != 0 )
             v13 &= ~0x10uLL;
           else
-            v13 &= ~qword_14043A0C0;
+            v13 &= ~qword_14043B180;
         }
         v14 = v13 >> 16;
       }

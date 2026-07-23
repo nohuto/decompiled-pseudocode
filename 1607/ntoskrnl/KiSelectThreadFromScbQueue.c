@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSelectThreadFromScbQueue @ 0x14009982C
+ * XREFs of KiSelectThreadFromScbQueue @ 0x14009902C
  * Callers:
- *     KiChooseLowestRankedThread @ 0x140099144 (KiChooseLowestRankedThread.c)
- *     KiSelectThreadFromScbQueue @ 0x14009982C (KiSelectThreadFromScbQueue.c)
+ *     KiChooseLowestRankedThread @ 0x140098944 (KiChooseLowestRankedThread.c)
+ *     KiSelectThreadFromScbQueue @ 0x14009902C (KiSelectThreadFromScbQueue.c)
  * Callees:
- *     KiSelectThreadFromSchedulingGroup @ 0x14009939C (KiSelectThreadFromSchedulingGroup.c)
- *     KiSelectThreadFromScbQueue @ 0x14009982C (KiSelectThreadFromScbQueue.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x140098B9C (KiSelectThreadFromSchedulingGroup.c)
+ *     KiSelectThreadFromScbQueue @ 0x14009902C (KiSelectThreadFromScbQueue.c)
  */
 
 __int64 __fastcall KiSelectThreadFromScbQueue(__int64 a1, __int64 a2, int a3, __int64 a4, _BYTE *a5)

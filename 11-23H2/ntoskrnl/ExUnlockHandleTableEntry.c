@@ -1,9 +1,9 @@
 /*
- * XREFs of ExUnlockHandleTableEntry @ 0x1409F9170
+ * XREFs of ExUnlockHandleTableEntry @ 0x1409F9400
  * Callers:
  *     <none>
  * Callees:
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
  */
 
 void __fastcall ExUnlockHandleTableEntry(__int64 a1, volatile signed __int64 *a2)

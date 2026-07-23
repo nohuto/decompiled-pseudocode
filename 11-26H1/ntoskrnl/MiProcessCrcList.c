@@ -1,22 +1,22 @@
 /*
- * XREFs of MiProcessCrcList @ 0x140A5ACD0
+ * XREFs of MiProcessCrcList @ 0x140A67C40
  * Callers:
- *     MiCombineWorkingSet @ 0x140704578 (MiCombineWorkingSet.c)
- *     MiCombineWorkingSetTail @ 0x140704780 (MiCombineWorkingSetTail.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineWorkingSet @ 0x140709248 (MiCombineWorkingSet.c)
+ *     MiCombineWorkingSetTail @ 0x140709450 (MiCombineWorkingSetTail.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiValidCombineProtection @ 0x14044FFA0 (MiValidCombineProtection.c)
- *     MiCompareActiveCrcEntries @ 0x1404617B0 (MiCompareActiveCrcEntries.c)
- *     MiLocateCombineBlock @ 0x1404698E0 (MiLocateCombineBlock.c)
- *     MiCapturePfnVm @ 0x1405136D0 (MiCapturePfnVm.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiValidCombineProtection @ 0x1404480D0 (MiValidCombineProtection.c)
+ *     MiCompareActiveCrcEntries @ 0x14045A770 (MiCompareActiveCrcEntries.c)
+ *     MiLocateCombineBlock @ 0x140463060 (MiLocateCombineBlock.c)
+ *     MiCapturePfnVm @ 0x14050D140 (MiCapturePfnVm.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiProcessCrcList(__int64 a1, void *a2, size_t a3, int a4)
@@ -74,7 +74,7 @@ void __fastcall MiProcessCrcList(__int64 a1, void *a2, size_t a3, int a4)
   struct _KTHREAD *v55; // [rsp+50h] [rbp-78h]
   PVOID Object[2]; // [rsp+58h] [rbp-70h] BYREF
   __int128 v57; // [rsp+68h] [rbp-60h]
-  int v60; // [rsp+E0h] [rbp+18h]
+  unsigned int v60; // [rsp+E0h] [rbp+18h]
 
   if ( a3 )
   {

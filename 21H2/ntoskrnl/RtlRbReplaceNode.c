@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlRbReplaceNode @ 0x14028F8B0
+ * XREFs of RtlRbReplaceNode @ 0x14020CA50
  * Callers:
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
  * Callees:
  *     <none>
  */

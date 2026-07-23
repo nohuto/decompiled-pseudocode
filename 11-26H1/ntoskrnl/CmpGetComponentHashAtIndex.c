@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetComponentHashAtIndex @ 0x140A5C170
+ * XREFs of CmpGetComponentHashAtIndex @ 0x140A69130
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

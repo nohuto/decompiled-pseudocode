@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseFaultCharges @ 0x1403636B0
+ * XREFs of MiReleaseFaultCharges @ 0x140363850
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiFaultGetFileExtents @ 0x140645E84 (MiFaultGetFileExtents.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiFaultGetFileExtents @ 0x1406463D4 (MiFaultGetFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseFaultCharges(__int64 *BugCheckParameter2)

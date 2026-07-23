@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagSleepStudyInitialize @ 0x1405545C8
+ * XREFs of PopDiagSleepStudyInitialize @ 0x140554B08
  * Callers:
  *     PopDiagInitialize @ 0x1407A91B0 (PopDiagInitialize.c)
  * Callees:
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  */
 
 NTSTATUS PopDiagSleepStudyInitialize()

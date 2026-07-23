@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpCreateDefaultObjectTypeSD @ 0x14074435C
+ * XREFs of ObpCreateDefaultObjectTypeSD @ 0x14074264C
  * Callers:
- *     ObpInitObjectTypeSD @ 0x1407444C8 (ObpInitObjectTypeSD.c)
+ *     ObpInitObjectTypeSD @ 0x1407427B8 (ObpInitObjectTypeSD.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCreateDefaultObjectTypeSD(__int64 *a1)
 {
   ULONG v2; // ebx
   ULONG v3; // ebx
-  ULONG v4; // edi
+  size_t v4; // rdi
   __int64 Pool2; // rax
   __int64 v6; // rbx
   NTSTATUS Acl; // edi
@@ -24,7 +24,7 @@ __int64 __fastcall ObpCreateDefaultObjectTypeSD(__int64 *a1)
   v2 = RtlLengthSid(SeWorldSid);
   v3 = RtlLengthSid(SeAliasAdminsSid) + v2;
   v4 = v3 + RtlLengthSid(SeLocalSystemSid) + 44;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v4 + 20, 0x6C636144u);
   v6 = Pool2;
   if ( Pool2 )
   {

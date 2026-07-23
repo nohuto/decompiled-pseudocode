@@ -1,18 +1,18 @@
 /*
- * XREFs of DbgkPostModuleMessage @ 0x140485670
+ * XREFs of DbgkPostModuleMessage @ 0x140480C54
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     DbgkPostEnclaveModuleMessages @ 0x14057E52C (DbgkPostEnclaveModuleMessages.c)
- *     DbgkpPostModuleMessages @ 0x140A4A9B8 (DbgkpPostModuleMessages.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     DbgkPostEnclaveModuleMessages @ 0x14057B9BC (DbgkPostEnclaveModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140A41618 (DbgkpPostModuleMessages.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetFileNameForAddress @ 0x140838768 (MmGetFileNameForAddress.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     DbgkpQueueMessage @ 0x140939080 (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x14093A238 (DbgkpSendApiMessage.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     DbgkpQueueMessage @ 0x1408F3750 (DbgkpQueueMessage.c)
+ *     MmGetFileNameForAddress @ 0x140A15B1C (MmGetFileNameForAddress.c)
+ *     DbgkpSendApiMessage @ 0x140A5A2C0 (DbgkpSendApiMessage.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall DbgkPostModuleMessage(PVOID Object, PVOID a2, void *a3, int a4, int a5, PRKEVENT Event)

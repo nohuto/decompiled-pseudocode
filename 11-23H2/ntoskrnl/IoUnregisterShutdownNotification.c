@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterShutdownNotification @ 0x140A99DC0
+ * XREFs of IoUnregisterShutdownNotification @ 0x140A99C30
  * Callers:
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     DifIoUnregisterShutdownNotificationWrapper @ 0x1405E1810 (DifIoUnregisterShutdownNotificationWrapper.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
+ *     DifIoUnregisterShutdownNotificationWrapper @ 0x1405E1D80 (DifIoUnregisterShutdownNotificationWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5750 (MmLockPagableSectionByHandle.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmUnlockPagableImageSection @ 0x14025A6D0 (MmUnlockPagableImageSection.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     MmLockPagableSectionByHandle @ 0x1406F5960 (MmLockPagableSectionByHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

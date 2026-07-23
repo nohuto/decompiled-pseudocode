@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSymlinkGetMostRecentlyUsedName @ 0x14012585C
+ * XREFs of IopSymlinkGetMostRecentlyUsedName @ 0x14012592C
  * Callers:
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
- *     IopSymlinkRememberJunction @ 0x1406ABE58 (IopSymlinkRememberJunction.c)
- *     IopSymlinkProcessReparse @ 0x1406AC210 (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
+ *     IopSymlinkRememberJunction @ 0x1406AD0F8 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkProcessReparse @ 0x1406AD4B0 (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x1406AD50C (IopGraftName.c)
  * Callees:
  *     <none>
  */

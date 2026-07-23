@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlParkedVirtualProcessors @ 0x1401BF1E8
+ * XREFs of HvlParkedVirtualProcessors @ 0x1401BF0CC
  * Callers:
- *     PpmParkReportMask @ 0x1400D52BC (PpmParkReportMask.c)
+ *     PpmParkReportMask @ 0x1400D315C (PpmParkReportMask.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x1400D4810 (KeIsEmptyAffinityEx.c)
- *     HvlpAffinityToVirtualAffinity @ 0x1401BFEEC (HvlpAffinityToVirtualAffinity.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFFF8 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     KeIsEmptyAffinityEx @ 0x1400D26B0 (KeIsEmptyAffinityEx.c)
+ *     HvlpAffinityToVirtualAffinity @ 0x1401BFDD0 (HvlpAffinityToVirtualAffinity.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFEDC (HvlpUseExtendedProcessorSetHypercalls.c)
  */
 
 __int64 __fastcall HvlParkedVirtualProcessors(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

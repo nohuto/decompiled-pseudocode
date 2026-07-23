@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCopyJobIdSafe @ 0x1408B7FD4
+ * XREFs of EtwpCopyJobIdSafe @ 0x1408B9294
  * Callers:
- *     EtwTraceJobServerSiloMonitorCallback @ 0x14018DA00 (EtwTraceJobServerSiloMonitorCallback.c)
+ *     EtwTraceJobServerSiloMonitorCallback @ 0x14018DB40 (EtwTraceJobServerSiloMonitorCallback.c)
  * Callees:
  *     <none>
  */

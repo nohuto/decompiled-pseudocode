@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateKeyedEvent @ 0x14015B140
+ * XREFs of ZwCreateKeyedEvent @ 0x14015B6B0
  * Callers:
  *     ExpKeyedEventInitialization @ 0x1407A1B44 (ExpKeyedEventInitialization.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateKeyedEvent(
         PHANDLE OutHandle,
         ACCESS_MASK AccessMask,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwCreateKeyedEvent(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(OutHandle, *(_QWORD *)&AccessMask, ObjectAttributes);
+  return KiServiceInternal(OutHandle);
 }

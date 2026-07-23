@@ -1,11 +1,11 @@
 /*
- * XREFs of BiGetSavedBootEntry @ 0x14085F028
+ * XREFs of BiGetSavedBootEntry @ 0x140AA1720
  * Callers:
- *     BiCreateEfiEntry @ 0x140814FB0 (BiCreateEfiEntry.c)
- *     BiBuildIdentifierList @ 0x1409BEF7C (BiBuildIdentifierList.c)
+ *     BiCreateEfiEntry @ 0x1408156F0 (BiCreateEfiEntry.c)
+ *     BiBuildIdentifierList @ 0x1409A55CC (BiBuildIdentifierList.c)
  * Callees:
- *     BiGetRegistryValue @ 0x14085D5C8 (BiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     BiGetRegistryValue @ 0x140859338 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetSavedBootEntry(__int64 a1, PVOID *a2)

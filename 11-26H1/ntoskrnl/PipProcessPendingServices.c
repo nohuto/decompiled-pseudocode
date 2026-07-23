@@ -1,12 +1,12 @@
 /*
- * XREFs of PipProcessPendingServices @ 0x140CC750C
+ * XREFs of PipProcessPendingServices @ 0x140CCD5FC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegCloseKey @ 0x140A9BD98 (_PnpCtxRegCloseKey.c)
- *     PipProcessPendingObjects @ 0x140CC7200 (PipProcessPendingObjects.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegCloseKey @ 0x140A9E908 (_PnpCtxRegCloseKey.c)
+ *     PipProcessPendingObjects @ 0x140CCD2F0 (PipProcessPendingObjects.c)
  */
 
 __int64 PipProcessPendingServices()

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenJobObject @ 0x1403FC7A0
+ * XREFs of ZwOpenJobObject @ 0x1403FC980
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenJobObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(JobHandle);
 }

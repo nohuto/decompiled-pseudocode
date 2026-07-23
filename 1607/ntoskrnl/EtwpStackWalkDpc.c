@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpStackWalkDpc @ 0x1402295D4
+ * XREFs of EtwpStackWalkDpc @ 0x140229400
  * Callers:
  *     <none>
  * Callees:
- *     EtwpQueueStackWalkApc @ 0x140229234 (EtwpQueueStackWalkApc.c)
+ *     EtwpQueueStackWalkApc @ 0x140229060 (EtwpQueueStackWalkApc.c)
  */
 
 void __fastcall EtwpStackWalkDpc(

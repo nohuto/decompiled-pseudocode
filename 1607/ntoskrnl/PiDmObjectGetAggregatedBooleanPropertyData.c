@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1404FECB4
+ * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1404E1C44
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1404FE930 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1404E18C0 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiDmObjectAcquireExclusiveLock @ 0x140506124 (PiDmObjectAcquireExclusiveLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiDmObjectAcquireExclusiveLock @ 0x1404E90B4 (PiDmObjectAcquireExclusiveLock.c)
  */
 
 __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
@@ -67,7 +67,7 @@ __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
   }
   if ( a1 < 6 && !a4 )
   {
-    v15 = &unk_140257AD8;
+    v15 = &unk_140257AC8;
     v16 = 0;
     while ( 1 )
     {

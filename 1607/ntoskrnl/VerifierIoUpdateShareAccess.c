@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoUpdateShareAccess @ 0x14070C904
+ * XREFs of VerifierIoUpdateShareAccess @ 0x14070C934
  * Callers:
  *     <none>
  * Callees:

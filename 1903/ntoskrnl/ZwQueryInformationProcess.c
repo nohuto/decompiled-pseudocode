@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationProcess(
         HANDLE ProcessHandle,
         PROCESSINFOCLASS ProcessInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&ProcessInformationClass, ProcessInformation);
+  return KiServiceInternal(ProcessHandle);
 }

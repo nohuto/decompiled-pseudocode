@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoResiliencyClient @ 0x140A3D0C0
+ * XREFs of PdcPoResiliencyClient @ 0x1409F8AE0
  * Callers:
  *     <none>
  * Callees:
- *     PopCheckResiliencyScenarios @ 0x140A3D444 (PopCheckResiliencyScenarios.c)
- *     PopPdcIdleResiliencyCallback @ 0x140A3D5AC (PopPdcIdleResiliencyCallback.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopCheckResiliencyScenarios @ 0x1409F8E64 (PopCheckResiliencyScenarios.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1409F8FCC (PopPdcIdleResiliencyCallback.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoResiliencyClient(int a1, __int64 a2, unsigned int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PdcPoResiliencyClient(int a1, __int64 a2, unsigned int a3)
     if ( PopDeepIoCoalescingEnabled )
       goto LABEL_6;
 LABEL_9:
-    unk_140F10E60 = v3;
+    PopPdcIoCoalescing = v3;
     PopCheckResiliencyScenarios();
     goto LABEL_6;
   }

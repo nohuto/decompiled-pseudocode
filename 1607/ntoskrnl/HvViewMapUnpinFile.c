@@ -1,10 +1,10 @@
 /*
- * XREFs of HvViewMapUnpinFile @ 0x1401B673C
+ * XREFs of HvViewMapUnpinFile @ 0x1401B6620
  * Callers:
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
  * Callees:
- *     HvpViewMapAcquireLockExclusive @ 0x1401B6764 (HvpViewMapAcquireLockExclusive.c)
- *     HvpViewMapUnpinForFileOffset @ 0x1401B6B34 (HvpViewMapUnpinForFileOffset.c)
+ *     HvpViewMapAcquireLockExclusive @ 0x1401B6648 (HvpViewMapAcquireLockExclusive.c)
+ *     HvpViewMapUnpinForFileOffset @ 0x1401B6A18 (HvpViewMapUnpinForFileOffset.c)
  */
 
 __int64 __fastcall HvViewMapUnpinFile(unsigned int *a1)

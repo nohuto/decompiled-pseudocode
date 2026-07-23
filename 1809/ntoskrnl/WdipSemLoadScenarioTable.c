@@ -1,29 +1,29 @@
 /*
- * XREFs of WdipSemLoadScenarioTable @ 0x140743DB8
+ * XREFs of WdipSemLoadScenarioTable @ 0x140744FA8
  * Callers:
- *     WdipSemCleanStart @ 0x140743494 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140744684 (WdipSemCleanStart.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlVerifyVersionInfo @ 0x140174660 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x140175DA0 (VerSetConditionMask.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     WdipSemFastAllocate @ 0x140716B5C (WdipSemFastAllocate.c)
- *     WdipSemLoadNextScenario @ 0x1407441A0 (WdipSemLoadNextScenario.c)
- *     WdipSemQueryValueFromRegistry @ 0x140744680 (WdipSemQueryValueFromRegistry.c)
- *     WdipSemOpenRegistryKey @ 0x140744788 (WdipSemOpenRegistryKey.c)
- *     WdipSemFreeScenario @ 0x140744804 (WdipSemFreeScenario.c)
- *     WdipSemUpdateProviderEntriesForScenario @ 0x14074489C (WdipSemUpdateProviderEntriesForScenario.c)
- *     WdipSemUpdateProviderTableWithScenario @ 0x140744974 (WdipSemUpdateProviderTableWithScenario.c)
- *     WdipSemEnableAllProviders @ 0x140744AE0 (WdipSemEnableAllProviders.c)
- *     WdipSemAddScenarioToTable @ 0x140744BE8 (WdipSemAddScenarioToTable.c)
- *     WdipSemRollBackProviderTable @ 0x1408B0E04 (WdipSemRollBackProviderTable.c)
- *     WdipSemWriteMisconfigEvent @ 0x1408B1674 (WdipSemWriteMisconfigEvent.c)
- *     WdipSemWriteScenarioLimitExceededEvent @ 0x1408B176C (WdipSemWriteScenarioLimitExceededEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlVerifyVersionInfo @ 0x140174760 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x140175EA0 (VerSetConditionMask.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1401B8930 (ZwEnumerateKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     WdipSemFastAllocate @ 0x140717DFC (WdipSemFastAllocate.c)
+ *     WdipSemLoadNextScenario @ 0x140745390 (WdipSemLoadNextScenario.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140745870 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140745978 (WdipSemOpenRegistryKey.c)
+ *     WdipSemFreeScenario @ 0x1407459F4 (WdipSemFreeScenario.c)
+ *     WdipSemUpdateProviderEntriesForScenario @ 0x140745A8C (WdipSemUpdateProviderEntriesForScenario.c)
+ *     WdipSemUpdateProviderTableWithScenario @ 0x140745B64 (WdipSemUpdateProviderTableWithScenario.c)
+ *     WdipSemEnableAllProviders @ 0x140745CD0 (WdipSemEnableAllProviders.c)
+ *     WdipSemAddScenarioToTable @ 0x140745DD8 (WdipSemAddScenarioToTable.c)
+ *     WdipSemRollBackProviderTable @ 0x1408B2064 (WdipSemRollBackProviderTable.c)
+ *     WdipSemWriteMisconfigEvent @ 0x1408B28D4 (WdipSemWriteMisconfigEvent.c)
+ *     WdipSemWriteScenarioLimitExceededEvent @ 0x1408B29CC (WdipSemWriteScenarioLimitExceededEvent.c)
  */
 
 __int64 WdipSemLoadScenarioTable()
@@ -52,7 +52,7 @@ __int64 WdipSemLoadScenarioTable()
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h]
   HANDLE v23; // [rsp+68h] [rbp-A0h]
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-98h] BYREF
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+88h] [rbp-80h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+88h] [rbp-80h] BYREF
   GUID Guid; // [rsp+1A8h] [rbp+A0h] BYREF
   _DWORD KeyInformation[38]; // [rsp+1B8h] [rbp+B0h] BYREF
 
@@ -170,9 +170,9 @@ LABEL_16:
               if ( EtwEventEnabled(WdipSemRegHandle, &WDI_SEM_EVENT_INIT_MISCONFIG) )
                 WdipSemWriteMisconfigEvent(v0, LOWORD(v0[1].Next), v9);
             }
-            if ( (unsigned int)dword_14040AAA0 >= 0x40 )
+            if ( (unsigned int)dword_14040BF80 >= 0x40 )
               break;
-            v10 = dword_14040CAC0;
+            v10 = dword_14040DFA0;
             if ( (int)WdipSemUpdateProviderTableWithScenario(v0) < 0
               || HIDWORD(v0[3].Next) && (int)WdipSemAddScenarioToTable(v0) < 0 )
             {

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSessionUnloadAllImages @ 0x1406E09C4
+ * XREFs of MiSessionUnloadAllImages @ 0x1406E1C64
  * Callers:
- *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x1406E1858 (MiDereferenceSessionFinal.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MmUnloadSystemImage @ 0x14070EEB0 (MmUnloadSystemImage.c)
+ *     MiSessionLookupImage @ 0x14009DB08 (MiSessionLookupImage.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MmUnloadSystemImage @ 0x140710150 (MmUnloadSystemImage.c)
  */
 
 _QWORD *MiSessionUnloadAllImages()

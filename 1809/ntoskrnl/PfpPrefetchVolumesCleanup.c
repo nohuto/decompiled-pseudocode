@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPrefetchVolumesCleanup @ 0x14065B8F0
+ * XREFs of PfpPrefetchVolumesCleanup @ 0x14065CAB0
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x14065B99C (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x14065CB5C (PfpPrefetchRequestPerform.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfpOpenHandleClose @ 0x1406604CC (PfpOpenHandleClose.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PfpOpenHandleClose @ 0x14066168C (PfpOpenHandleClose.c)
  */
 
 void __fastcall PfpPrefetchVolumesCleanup(_QWORD *a1)

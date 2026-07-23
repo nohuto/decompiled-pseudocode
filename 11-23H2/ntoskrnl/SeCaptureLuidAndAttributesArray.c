@@ -1,13 +1,13 @@
 /*
- * XREFs of SeCaptureLuidAndAttributesArray @ 0x1406BB054
+ * XREFs of SeCaptureLuidAndAttributesArray @ 0x1406BB084
  * Callers:
- *     NtAdjustPrivilegesToken @ 0x1406BA640 (NtAdjustPrivilegesToken.c)
- *     NtPrivilegeCheck @ 0x1406BAE70 (NtPrivilegeCheck.c)
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     NtFilterToken @ 0x1407F1850 (NtFilterToken.c)
+ *     NtAdjustPrivilegesToken @ 0x1406BA670 (NtAdjustPrivilegesToken.c)
+ *     NtPrivilegeCheck @ 0x1406BAEA0 (NtPrivilegeCheck.c)
+ *     NtCreateTokenEx @ 0x1406BB560 (NtCreateTokenEx.c)
+ *     NtFilterToken @ 0x1407F1B20 (NtFilterToken.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

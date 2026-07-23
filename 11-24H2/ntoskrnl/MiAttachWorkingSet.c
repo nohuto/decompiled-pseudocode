@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAttachWorkingSet @ 0x1403792E0
+ * XREFs of MiAttachWorkingSet @ 0x1404329F4
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall MiAttachWorkingSet(__int64 a1)

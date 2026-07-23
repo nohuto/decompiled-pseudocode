@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckReservePageFileSpace @ 0x1400E4C50
+ * XREFs of MiCheckReservePageFileSpace @ 0x1400E2AF0
  * Callers:
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
  * Callees:
- *     MiReservePageFileSpace @ 0x14001E5D0 (MiReservePageFileSpace.c)
- *     MI_IS_RESET_PTE @ 0x14001EDB0 (MI_IS_RESET_PTE.c)
- *     MiGetWorkingSetSwapSupport @ 0x140075E5C (MiGetWorkingSetSwapSupport.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
+ *     MiReservePageFileSpace @ 0x14001E150 (MiReservePageFileSpace.c)
+ *     MI_IS_RESET_PTE @ 0x14001E930 (MI_IS_RESET_PTE.c)
+ *     MiGetWorkingSetSwapSupport @ 0x140075EDC (MiGetWorkingSetSwapSupport.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
  */
 
 char __fastcall MiCheckReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ char __fastcall MiCheckReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)
   if ( (_DWORD)WorkingSetSwapSupport )
   {
     v8 = ((unsigned int)HIDWORD(*(_QWORD *)(a1 + 40)) >> 8) & 0x3FF;
-    v9 = v8 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v8);
+    v9 = v8 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v8);
     LODWORD(WorkingSetSwapSupport) = v9[237];
     if ( (_DWORD)WorkingSetSwapSupport )
     {

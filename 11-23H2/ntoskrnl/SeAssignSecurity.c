@@ -1,10 +1,10 @@
 /*
- * XREFs of SeAssignSecurity @ 0x1407C1C80
+ * XREFs of SeAssignSecurity @ 0x1407C1F50
  * Callers:
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
  *     CmFcInitSystem2 @ 0x140B36B2C (CmFcInitSystem2.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x14072A400 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14072A600 (RtlpNewSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurity(

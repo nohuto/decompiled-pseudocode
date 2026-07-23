@@ -6,15 +6,15 @@
  *     sub_180025DA4 @ 0x180025DA4 (sub_180025DA4.c)
  */
 
-__int64 __fastcall TpIsTimerSet(__int64 a1)
+LOGICAL __cdecl TpIsTimerSet(PTP_TIMER Timer)
 {
   int v2; // eax
-  unsigned int v3; // edx
+  LOGICAL v3; // edx
 
-  v2 = sub_180025DA4(a1, 0LL, 1LL);
+  v2 = sub_180025DA4(Timer, 0LL, 1LL);
   v3 = 0;
   if ( !v2 )
-    return 0LL;
-  LOBYTE(v3) = *(_QWORD *)(a1 + 328) != 0LL;
+    return 0;
+  LOBYTE(v3) = *((_QWORD *)Timer + 41) != 0LL;
   return v3;
 }

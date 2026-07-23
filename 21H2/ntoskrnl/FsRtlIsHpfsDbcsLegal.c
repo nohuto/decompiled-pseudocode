@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14088CC30
+ * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14088CD90
  * Callers:
- *     FsRtlIsHpfsDbcsLegal @ 0x14088CC30 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CD90 (FsRtlIsHpfsDbcsLegal.c)
  * Callees:
- *     FsRtlDissectDbcs @ 0x14088C4B0 (FsRtlDissectDbcs.c)
- *     FsRtlIsHpfsDbcsLegal @ 0x14088CC30 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlDissectDbcs @ 0x14088C610 (FsRtlDissectDbcs.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CD90 (FsRtlIsHpfsDbcsLegal.c)
  */
 
 BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
@@ -17,13 +17,13 @@ BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
   char v6; // dl
   char *Buffer; // rax
   char *v8; // rbx
-  STRING v9; // xmm1
+  _STRING v9; // xmm1
   __int16 v10; // ax
   unsigned int v12; // r8d
   unsigned __int64 v13; // r9
   __int64 v14; // rcx
-  STRING RemainingName; // [rsp+20h] [rbp-48h] BYREF
-  STRING FirstName; // [rsp+30h] [rbp-38h] BYREF
+  _STRING RemainingName; // [rsp+20h] [rbp-48h] BYREF
+  _STRING FirstName; // [rsp+30h] [rbp-38h] BYREF
   ANSI_STRING Path; // [rsp+40h] [rbp-28h] BYREF
 
   Length = DbcsName->Length;
@@ -96,7 +96,7 @@ LABEL_14:
               ++v12;
             }
             else if ( (v13 & 0x80u) == 0LL
-                   && ((WildCardsPermissible != 0 ? 10 : 2) & *((unsigned __int8 *)qword_140011B50 + v13)) == 0 )
+                   && ((WildCardsPermissible != 0 ? 10 : 2) & *((unsigned __int8 *)qword_140012380 + v13)) == 0 )
             {
               return 0;
             }

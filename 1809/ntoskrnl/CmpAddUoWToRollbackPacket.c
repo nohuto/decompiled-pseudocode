@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAddUoWToRollbackPacket @ 0x1407F8670
+ * XREFs of CmpAddUoWToRollbackPacket @ 0x1407F9870
  * Callers:
- *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1407F8BB0 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1407F9DB0 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     CmpAddPointerToRollbackPacket @ 0x1407F861C (CmpAddPointerToRollbackPacket.c)
+ *     CmpAddPointerToRollbackPacket @ 0x1407F981C (CmpAddPointerToRollbackPacket.c)
  */
 
 __int64 __fastcall CmpAddUoWToRollbackPacket(unsigned int *a1, __int64 a2)

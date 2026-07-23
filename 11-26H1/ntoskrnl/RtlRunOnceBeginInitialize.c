@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRunOnceBeginInitialize @ 0x140A95A90
+ * XREFs of RtlRunOnceBeginInitialize @ 0x140A98EC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpRunOnceWaitForInit @ 0x1408092D8 (RtlpRunOnceWaitForInit.c)
+ *     RtlpRunOnceWaitForInit @ 0x14080ED68 (RtlpRunOnceWaitForInit.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)

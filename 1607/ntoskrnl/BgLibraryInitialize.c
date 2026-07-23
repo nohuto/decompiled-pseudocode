@@ -5,7 +5,7 @@
  *     PopRestoreHiberContext @ 0x1403CDA38 (PopRestoreHiberContext.c)
  *     BgkInitialize @ 0x1407D3DF4 (BgkInitialize.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x14002ECE0 (KeGetCurrentIrql.c)
+ *     KeGetCurrentIrql @ 0x14002E860 (KeGetCurrentIrql.c)
  */
 
 __int64 __fastcall BgLibraryInitialize(__int64 a1, int a2)

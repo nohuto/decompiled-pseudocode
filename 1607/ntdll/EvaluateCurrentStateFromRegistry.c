@@ -1,9 +1,9 @@
 /*
- * XREFs of EvaluateCurrentStateFromRegistry @ 0x1800E2AB8
+ * XREFs of EvaluateCurrentStateFromRegistry @ 0x1800E2B78
  * Callers:
- *     EvaluateFeature @ 0x1800E2B38 (EvaluateFeature.c)
+ *     EvaluateFeature @ 0x1800E2BF8 (EvaluateFeature.c)
  * Callees:
- *     QueryFeatureOverride @ 0x1800E2BB0 (QueryFeatureOverride.c)
+ *     QueryFeatureOverride @ 0x1800E2C74 (QueryFeatureOverride.c)
  */
 
 _BOOL8 __fastcall EvaluateCurrentStateFromRegistry(int a1, __int64 a2, int a3, char a4, _BYTE *a5)

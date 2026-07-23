@@ -1,271 +1,263 @@
 /*
- * XREFs of RtlCapabilityCheck @ 0x18000DFF0
+ * XREFs of RtlCapabilityCheck @ 0x180059720
  * Callers:
- *     RtlCapabilityCheckForSingleSessionSku @ 0x1801105C0 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x180110150 (RtlCapabilityCheckForSingleSessionSku.c)
  * Callees:
- *     RtlpCapabilityCheckSystemCapability @ 0x18000D958 (RtlpCapabilityCheckSystemCapability.c)
- *     RtlCheckTokenCapability @ 0x18000DB10 (RtlCheckTokenCapability.c)
- *     RtlIsMultiSessionSku @ 0x18000DFB0 (RtlIsMultiSessionSku.c)
- *     RtlQueryPerformanceCounter @ 0x18000E5E0 (RtlQueryPerformanceCounter.c)
- *     RtlCheckTokenMembershipEx @ 0x18000E6E0 (RtlCheckTokenMembershipEx.c)
- *     RtlRunOnceBeginInitialize @ 0x18000EC60 (RtlRunOnceBeginInitialize.c)
- *     EtwEventWriteTransfer @ 0x18000F040 (EtwEventWriteTransfer.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1800101D0 (RtlDeriveCapabilitySidsFromName.c)
- *     RtlRunOnceComplete @ 0x18006EFF0 (RtlRunOnceComplete.c)
- *     RtlReportCriticalFailure @ 0x18006F0F8 (RtlReportCriticalFailure.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016F69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x180059088 (RtlpCapabilityCheckSystemCapability.c)
+ *     RtlCheckTokenCapability @ 0x180059240 (RtlCheckTokenCapability.c)
+ *     RtlIsMultiSessionSku @ 0x1800596E0 (RtlIsMultiSessionSku.c)
+ *     RtlQueryPerformanceCounter @ 0x180059D10 (RtlQueryPerformanceCounter.c)
+ *     RtlCheckTokenMembershipEx @ 0x180059E10 (RtlCheckTokenMembershipEx.c)
+ *     RtlRunOnceBeginInitialize @ 0x18005A390 (RtlRunOnceBeginInitialize.c)
+ *     EtwEventWriteTransfer @ 0x18005A770 (EtwEventWriteTransfer.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x18005B900 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlRunOnceComplete @ 0x18008F440 (RtlRunOnceComplete.c)
+ *     RtlReportCriticalFailure @ 0x18008F548 (RtlReportCriticalFailure.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016E69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  */
 
-__int64 __fastcall RtlCapabilityCheck(void *a1, __int64 a2, char *a3)
+NTSTATUS __cdecl RtlCapabilityCheck(HANDLE TokenHandle, PUNICODE_STRING CapabilityName, PBOOLEAN HasCapability)
 {
-  char v4; // r15
-  char v5; // di
-  char v6; // r13
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  int v11; // ebx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  size_t v14; // rax
-  int v15; // eax
-  int v16; // eax
-  bool v17; // zf
-  char v18; // di
-  int v19; // eax
-  int v21; // eax
-  int v22; // eax
-  int v23; // eax
-  char v24; // cl
-  char v25; // [rsp+38h] [rbp-D0h] BYREF
-  char v26; // [rsp+39h] [rbp-CFh] BYREF
-  char v27; // [rsp+3Ah] [rbp-CEh] BYREF
-  char v28; // [rsp+3Bh] [rbp-CDh] BYREF
-  int v29; // [rsp+3Ch] [rbp-CCh] BYREF
-  _BYTE v30[4]; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned int v31; // [rsp+44h] [rbp-C4h]
-  __int64 v32; // [rsp+48h] [rbp-C0h]
-  __int64 v33; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v34; // [rsp+58h] [rbp-B0h] BYREF
-  HANDLE Handle; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD v36[2]; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v37; // [rsp+78h] [rbp-90h] BYREF
-  __int128 v38; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v39; // [rsp+98h] [rbp-70h]
-  __int128 v40; // [rsp+A8h] [rbp-60h]
-  __int128 v41; // [rsp+B8h] [rbp-50h] BYREF
-  void *v42; // [rsp+C8h] [rbp-40h] BYREF
-  int v43; // [rsp+D0h] [rbp-38h]
-  int v44; // [rsp+D4h] [rbp-34h]
-  void *v45; // [rsp+D8h] [rbp-30h]
-  int v46; // [rsp+E0h] [rbp-28h]
-  int v47; // [rsp+E4h] [rbp-24h]
-  __int64 *v48; // [rsp+E8h] [rbp-20h]
-  __int64 v49; // [rsp+F0h] [rbp-18h]
-  _WORD *v50; // [rsp+F8h] [rbp-10h]
-  __int64 v51; // [rsp+100h] [rbp-8h]
-  char *v52; // [rsp+108h] [rbp+0h]
-  __int64 v53; // [rsp+110h] [rbp+8h]
-  int *v54; // [rsp+118h] [rbp+10h]
-  __int64 v55; // [rsp+120h] [rbp+18h]
-  char *v56; // [rsp+128h] [rbp+20h]
-  __int64 v57; // [rsp+130h] [rbp+28h]
-  __int64 v58; // [rsp+138h] [rbp+30h] BYREF
-  int v59; // [rsp+140h] [rbp+38h]
-  int v60; // [rsp+144h] [rbp+3Ch]
-  _BYTE v61[48]; // [rsp+148h] [rbp+40h] BYREF
-  unsigned __int8 v62[48]; // [rsp+178h] [rbp+70h] BYREF
+  BOOLEAN v4; // r15
+  BOOLEAN v5; // di
+  BOOLEAN v6; // r13
+  NTSTATUS v9; // ebx
+  size_t v10; // rax
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // eax
+  bool v13; // zf
+  BOOLEAN v14; // di
+  NTSTATUS v15; // eax
+  NTSTATUS v17; // eax
+  NTSTATUS v18; // eax
+  NTSTATUS v19; // eax
+  BOOLEAN v20; // cl
+  BOOLEAN v21; // [rsp+38h] [rbp-D0h] BYREF
+  BOOLEAN IsMember; // [rsp+39h] [rbp-CFh] BYREF
+  BOOLEAN v23; // [rsp+3Ah] [rbp-CEh] BYREF
+  BOOLEAN v24; // [rsp+3Bh] [rbp-CDh] BYREF
+  int v25; // [rsp+3Ch] [rbp-CCh] BYREF
+  BOOLEAN HasCapabilitya[4]; // [rsp+40h] [rbp-C8h] BYREF
+  unsigned int v27; // [rsp+44h] [rbp-C4h]
+  __int64 v28; // [rsp+48h] [rbp-C0h]
+  LARGE_INTEGER v29; // [rsp+50h] [rbp-B8h] BYREF
+  ULONG ResultLength[2]; // [rsp+58h] [rbp-B0h] BYREF
+  HANDLE KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
+  EVENT_DESCRIPTOR PerformanceCounter; // [rsp+68h] [rbp-A0h] BYREF
+  __int128 v33; // [rsp+78h] [rbp-90h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-80h] BYREF
+  __int128 KeyValueInformation; // [rsp+B8h] [rbp-50h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+C8h] [rbp-40h] BYREF
+  void *v37; // [rsp+D8h] [rbp-30h]
+  int v38; // [rsp+E0h] [rbp-28h]
+  int v39; // [rsp+E4h] [rbp-24h]
+  LARGE_INTEGER *v40; // [rsp+E8h] [rbp-20h]
+  __int64 v41; // [rsp+F0h] [rbp-18h]
+  BOOLEAN *v42; // [rsp+F8h] [rbp-10h]
+  __int64 v43; // [rsp+100h] [rbp-8h]
+  BOOLEAN *v44; // [rsp+108h] [rbp+0h]
+  __int64 v45; // [rsp+110h] [rbp+8h]
+  int *v46; // [rsp+118h] [rbp+10h]
+  __int64 v47; // [rsp+120h] [rbp+18h]
+  BOOLEAN *v48; // [rsp+128h] [rbp+20h]
+  __int64 v49; // [rsp+130h] [rbp+28h]
+  __int64 SidToCheck; // [rsp+138h] [rbp+30h] BYREF
+  int v51; // [rsp+140h] [rbp+38h]
+  int v52; // [rsp+144h] [rbp+3Ch]
+  _BYTE CapabilityGroupSid[48]; // [rsp+148h] [rbp+40h] BYREF
+  _BYTE CapabilitySid[48]; // [rsp+178h] [rbp+70h] BYREF
 
-  *(_QWORD *)&v40 = 0LL;
-  DWORD2(v40) = 0;
-  LODWORD(v34) = 0;
+  ResultLength[0] = 0;
   v4 = 0;
-  Handle = 0LL;
+  KeyHandle = 0LL;
   v5 = 0;
-  v36[0] = 0LL;
+  *(_QWORD *)&PerformanceCounter.Id = 0LL;
   v6 = 0;
-  v33 = 0LL;
-  LOBYTE(v29) = 0;
-  v31 = 0;
-  v37 = 0LL;
-  LOWORD(v32) = 1280;
-  v38 = 0LL;
-  v30[0] = 0;
-  v39 = 0LL;
-  v25 = 0;
-  v41 = 0LL;
-  v26 = 0;
+  v29.QuadPart = 0LL;
+  LOBYTE(v25) = 0;
   v27 = 0;
-  v28 = 0;
-  RtlQueryPerformanceCounter(v36);
-  if ( !a2 || !a3 )
+  v33 = 0LL;
+  LOWORD(v28) = 1280;
+  memset(&ObjectAttributes, 0, 44);
+  HasCapabilitya[0] = 0;
+  v21 = 0;
+  KeyValueInformation = 0LL;
+  IsMember = 0;
+  v23 = 0;
+  v24 = 0;
+  RtlQueryPerformanceCounter((PLARGE_INTEGER)&PerformanceCounter);
+  if ( !CapabilityName || !HasCapability )
   {
-    v11 = -1073741811;
+    v9 = -1073741811;
     goto LABEL_20;
   }
-  *a3 = 0;
-  v11 = RtlDeriveCapabilitySidsFromName(a2, v61, v62);
-  if ( v11 < 0 )
+  *HasCapability = 0;
+  v9 = RtlDeriveCapabilitySidsFromName(CapabilityName, CapabilityGroupSid, CapabilitySid);
+  if ( v9 < 0 )
     goto LABEL_20;
-  if ( !RtlIsMultiSessionSku(v10, v9, v12, v13) )
+  if ( !RtlIsMultiSessionSku() )
     goto LABEL_36;
-  *((_QWORD *)&v37 + 1) = L"\\Registry\\Machine\\Software\\Microsoft\\SecurityManager\\AdminCapabilities";
-  v14 = 2 * wcslen(L"\\Registry\\Machine\\Software\\Microsoft\\SecurityManager\\AdminCapabilities");
-  LODWORD(v38) = 48;
-  *((_QWORD *)&v38 + 1) = 0LL;
-  DWORD2(v39) = 64;
-  if ( v14 >= 0xFFFE )
-    LOWORD(v14) = -4;
-  LOWORD(v37) = v14;
-  WORD1(v37) = v14 + 2;
-  *(_QWORD *)&v39 = &v37;
-  v40 = 0LL;
-  if ( (int)NtOpenKey(&Handle, 0x80000000LL, &v38) >= 0 && (int)NtQueryValueKey(Handle, a2, 2LL, &v41, 16, &v34) >= 0 )
+  *((_QWORD *)&v33 + 1) = L"\\Registry\\Machine\\Software\\Microsoft\\SecurityManager\\AdminCapabilities";
+  v10 = 2 * wcslen(L"\\Registry\\Machine\\Software\\Microsoft\\SecurityManager\\AdminCapabilities");
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  if ( v10 >= 0xFFFE )
+    LOWORD(v10) = -4;
+  LOWORD(v33) = v10;
+  WORD1(v33) = v10 + 2;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v33;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) >= 0
+    && NtQueryValueKey(KeyHandle, CapabilityName, KeyValuePartialInformation, &KeyValueInformation, 0x10u, ResultLength) >= 0 )
   {
-    LOBYTE(v29) = 1;
-    v58 = 0x500000000000101LL;
-    v59 = 18;
-    v15 = RtlCheckTokenMembershipEx(a1, &v58, 0LL, &v26);
-    v5 = v26;
-    v11 = v15;
-    if ( v15 < 0 )
+    LOBYTE(v25) = 1;
+    SidToCheck = 0x500000000000101LL;
+    v51 = 18;
+    v11 = RtlCheckTokenMembershipEx(TokenHandle, &SidToCheck, 0, &IsMember);
+    v5 = IsMember;
+    v9 = v11;
+    if ( v11 < 0 )
       goto LABEL_20;
-    if ( v26 )
+    if ( IsMember )
       goto LABEL_14;
-    *(_DWORD *)((char *)&v58 + 2) = v31;
-    HIWORD(v58) = v32;
-    LOWORD(v58) = 513;
-    v59 = 32;
-    v60 = 544;
-    v16 = RtlCheckTokenMembershipEx(a1, &v58, 0LL, &v25);
-    v4 = v25;
-    v11 = v16;
-    if ( v16 < 0 )
+    *(_DWORD *)((char *)&SidToCheck + 2) = v27;
+    HIWORD(SidToCheck) = v28;
+    LOWORD(SidToCheck) = 513;
+    v51 = 32;
+    v52 = 544;
+    v12 = RtlCheckTokenMembershipEx(TokenHandle, &SidToCheck, 0, &v21);
+    v4 = v21;
+    v9 = v12;
+    if ( v12 < 0 )
       goto LABEL_20;
-    v17 = v25 == 0;
+    v13 = v21 == 0;
   }
   else
   {
 LABEL_36:
-    v11 = RtlCheckTokenMembershipEx(a1, v61, 2LL, &v28);
-    if ( v11 < 0 )
+    v9 = RtlCheckTokenMembershipEx(TokenHandle, CapabilityGroupSid, 2u, &v24);
+    if ( v9 < 0 )
       goto LABEL_20;
-    if ( v28 )
+    if ( v24 )
       goto LABEL_14;
-    v58 = 0x500000000000101LL;
-    v59 = 18;
-    v21 = RtlCheckTokenMembershipEx(a1, &v58, 0LL, &v26);
-    v5 = v26;
-    v11 = v21;
-    if ( v21 < 0 )
+    SidToCheck = 0x500000000000101LL;
+    v51 = 18;
+    v17 = RtlCheckTokenMembershipEx(TokenHandle, &SidToCheck, 0, &IsMember);
+    v5 = IsMember;
+    v9 = v17;
+    if ( v17 < 0 )
       goto LABEL_20;
-    if ( v26 )
+    if ( IsMember )
       goto LABEL_14;
-    *(_DWORD *)((char *)&v58 + 2) = v31;
-    HIWORD(v58) = v32;
-    LOWORD(v58) = 513;
-    v59 = 32;
-    v60 = 544;
-    v22 = RtlCheckTokenMembershipEx(a1, &v58, 0LL, &v25);
-    v4 = v25;
-    v11 = v22;
-    if ( v22 < 0 )
+    *(_DWORD *)((char *)&SidToCheck + 2) = v27;
+    HIWORD(SidToCheck) = v28;
+    LOWORD(SidToCheck) = 513;
+    v51 = 32;
+    v52 = 544;
+    v18 = RtlCheckTokenMembershipEx(TokenHandle, &SidToCheck, 0, &v21);
+    v4 = v21;
+    v9 = v18;
+    if ( v18 < 0 )
       goto LABEL_20;
-    if ( v25 )
+    if ( v21 )
       goto LABEL_14;
-    *(_DWORD *)((char *)&v58 + 2) = v31;
-    HIWORD(v58) = v32;
-    LOWORD(v58) = 257;
-    v59 = 4;
-    v23 = RtlCheckTokenMembershipEx(a1, &v58, 2LL, &v27);
-    v6 = v27;
-    v11 = v23;
-    if ( v23 < 0 )
+    *(_DWORD *)((char *)&SidToCheck + 2) = v27;
+    HIWORD(SidToCheck) = v28;
+    LOWORD(SidToCheck) = 257;
+    v51 = 4;
+    v19 = RtlCheckTokenMembershipEx(TokenHandle, &SidToCheck, 2u, &v23);
+    v6 = v23;
+    v9 = v19;
+    if ( v19 < 0 )
       goto LABEL_20;
-    v17 = v27 == 0;
+    v13 = v23 == 0;
   }
-  if ( !v17 )
+  if ( !v13 )
   {
 LABEL_14:
-    v11 = RtlCheckTokenCapability(a1, v62, v30);
-    if ( v11 < 0 )
+    v9 = RtlCheckTokenCapability(TokenHandle, CapabilitySid, HasCapabilitya);
+    if ( v9 < 0 )
       goto LABEL_20;
-    *a3 = v30[0];
+    *HasCapability = HasCapabilitya[0];
   }
-  if ( *a3 && !v4 && !v5 )
-    v11 = RtlpCapabilityCheckSystemCapability((__int64)a1, a2, a3);
+  if ( *HasCapability && !v4 && !v5 )
+    v9 = RtlpCapabilityCheckSystemCapability(TokenHandle, (const void **)CapabilityName, HasCapability);
 LABEL_20:
-  if ( Handle )
-    NtClose(Handle);
-  RtlQueryPerformanceCounter(&v33);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  RtlQueryPerformanceCounter(&v29);
   if ( !v5 )
   {
-    v18 = *a3;
+    v14 = *HasCapability;
     if ( NtCurrentPeb()->ProcessHeap )
     {
-      v30[0] = 0;
-      v19 = RtlRunOnceBeginInitialize(&RtlpCapChkTelemetryRunOnceCtx, 0LL, 0LL);
-      if ( v19 < 0 )
+      HasCapabilitya[0] = 0;
+      v15 = RtlRunOnceBeginInitialize(&RtlpCapChkTelemetryRunOnceCtx, 0, 0LL);
+      if ( v15 < 0 )
       {
-        v24 = 0;
+        v20 = 0;
       }
       else
       {
-        if ( v19 != 259
-          || (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801C5648),
+        if ( v15 != 259
+          || (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801C4648),
               RtlpPerformanceCounterFrequency = MEMORY[0x7FFE0300],
-              v19 = RtlRunOnceComplete(&RtlpCapChkTelemetryRunOnceCtx, 0LL, 0LL),
-              v19 >= 0) )
+              v15 = RtlRunOnceComplete(&RtlpCapChkTelemetryRunOnceCtx, 0, 0LL),
+              v15 >= 0) )
         {
 LABEL_26:
-          if ( v36[0]
-            && v33
+          if ( *(_QWORD *)&PerformanceCounter.Id
+            && v29.QuadPart
             && RtlpPerformanceCounterFrequency
             && _InterlockedExchangeAdd16(&TelemetryEventThrottle, 0xFFFFu) == 1 )
           {
-            if ( (unsigned int)dword_1801C5648 > 5
-              && (qword_1801C5658 & 0x200000000000LL) != 0
-              && (qword_1801C5660 & 0x200000000000LL) == qword_1801C5660 )
+            if ( (unsigned int)dword_1801C4648 > 5
+              && (qword_1801C4658 & 0x200000000000LL) != 0
+              && (qword_1801C4660 & 0x200000000000LL) == qword_1801C4660 )
             {
-              v33 = 1000000 * (v33 - v36[0]) / RtlpPerformanceCounterFrequency;
-              v36[1] = 0x200000000000LL;
-              v48 = &v33;
-              v49 = 8LL;
-              v50 = v30;
-              v30[0] = v4;
-              v52 = &v28;
-              v54 = &v29;
-              v56 = &v27;
-              v42 = off_1801C5650;
-              v51 = 1LL;
-              v28 = v6;
-              v53 = 1LL;
-              v55 = 1LL;
-              v27 = v18;
-              v57 = 1LL;
-              v36[0] = 0x50B000000LL;
-              v43 = *(unsigned __int16 *)off_1801C5650;
-              v45 = &unk_18019BD9C;
-              v44 = 2;
-              v46 = 105;
-              v47 = 1;
-              v31 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-              EtwEventWriteTransfer(qword_1801C5668, (unsigned int)v36, 0, 0, 7, (__int64)&v42);
+              v29.QuadPart = 1000000
+                           * (v29.QuadPart - *(_QWORD *)&PerformanceCounter.Id)
+                           / RtlpPerformanceCounterFrequency;
+              PerformanceCounter.Keyword = 0x200000000000LL;
+              v40 = &v29;
+              v41 = 8LL;
+              v42 = HasCapabilitya;
+              HasCapabilitya[0] = v4;
+              v44 = &v24;
+              v46 = &v25;
+              v48 = &v23;
+              UserData.Ptr = (unsigned __int64)off_1801C4650;
+              v43 = 1LL;
+              v24 = v6;
+              v45 = 1LL;
+              v47 = 1LL;
+              v23 = v14;
+              v49 = 1LL;
+              *(_QWORD *)&PerformanceCounter.Id = 0x50B000000LL;
+              UserData.Size = *(unsigned __int16 *)off_1801C4650;
+              v37 = &unk_18019ADB4;
+              UserData.Reserved = 2;
+              v38 = 105;
+              v39 = 1;
+              v27 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
+              EtwEventWriteTransfer(RegHandle, &PerformanceCounter, 0LL, 0LL, 7u, &UserData);
             }
             TelemetryEventThrottle = 100;
           }
-          return (unsigned int)v11;
+          return v9;
         }
-        v24 = 1;
+        v20 = 1;
       }
-      v30[0] = v24;
-      RtlReportCriticalFailure((unsigned int)v19, v30, 1LL);
+      HasCapabilitya[0] = v20;
+      RtlReportCriticalFailure((unsigned int)v15, HasCapabilitya, 1LL);
       goto LABEL_26;
     }
   }
-  return (unsigned int)v11;
+  return v9;
 }

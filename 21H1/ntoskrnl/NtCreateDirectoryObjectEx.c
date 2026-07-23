@@ -6,7 +6,12 @@
  *     ObpCreateDirectoryObject @ 0x1406D1820 (ObpCreateDirectoryObject.c)
  */
 
-__int64 __fastcall NtCreateDirectoryObjectEx(__int64 a1)
+NTSTATUS __cdecl NtCreateDirectoryObjectEx(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ShadowDirectoryHandle,
+        ULONG Flags)
 {
-  return ObpCreateDirectoryObject(a1);
+  return ObpCreateDirectoryObject(DirectoryHandle, DesiredAccess, ObjectAttributes, ShadowDirectoryHandle, Flags);
 }

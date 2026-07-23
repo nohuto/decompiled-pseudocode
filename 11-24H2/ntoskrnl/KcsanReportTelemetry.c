@@ -1,24 +1,24 @@
 /*
- * XREFs of KcsanReportTelemetry @ 0x1405AE360
+ * XREFs of KcsanReportTelemetry @ 0x1405AB2D0
  * Callers:
- *     KasanDriverUnloadImage @ 0x1405A99B0 (KasanDriverUnloadImage.c)
- *     KcsaniTelemetryThread @ 0x1405AF410 (KcsaniTelemetryThread.c)
+ *     KasanDriverUnloadImage @ 0x1405A6920 (KasanDriverUnloadImage.c)
+ *     KcsaniTelemetryThread @ 0x1405AC380 (KcsaniTelemetryThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KcsaniSendReport @ 0x1405AE980 (KcsaniSendReport.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KcsaniSendReport @ 0x1405AB8F0 (KcsaniSendReport.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 KcsanReportTelemetry()
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v1; // rax
-  _QWORD *v2; // rbx
+  char *v1; // rax
+  char *v2; // rbx
   int v3; // ebx
   __int64 v4; // rsi
   char *v5; // rdi
@@ -36,18 +36,18 @@ __int64 KcsanReportTelemetry()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&KcsaniTelemetryLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&KcsaniTelemetryLock, 0LL);
   v2 = v1;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&KcsaniTelemetryLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&KcsaniTelemetryLock, (__int64)v1, (__int64)&KcsaniTelemetryLock);
+    ExfAcquirePushLockExclusiveEx(&KcsaniTelemetryLock, v1, (__int64)&KcsaniTelemetryLock);
   if ( v2 )
-    *((_BYTE *)v2 + 10) = 1;
-  v3 = dword_140F58F08;
-  if ( dword_140F58F08 < dword_140F58F04 )
+    v2[10] = 1;
+  v3 = dword_140F591A8;
+  if ( dword_140F591A8 < dword_140F591A4 )
   {
-    v4 = (unsigned int)(dword_140F58F04 - dword_140F58F08);
-    v5 = (char *)&unk_140F58F10 + 184 * dword_140F58F08;
-    v3 = dword_140F58F04;
+    v4 = (unsigned int)(dword_140F591A4 - dword_140F591A8);
+    v5 = (char *)&unk_140F591B0 + 184 * dword_140F591A8;
+    v3 = dword_140F591A4;
     do
     {
       KcsaniSendReport(v5);
@@ -56,8 +56,8 @@ __int64 KcsanReportTelemetry()
     }
     while ( v4 );
   }
-  dword_140F58F08 = v3;
-  if ( byte_140F58F0C == 1 && !byte_140F58F0D )
+  dword_140F591A8 = v3;
+  if ( byte_140F591AC == 1 && !byte_140F591AD )
   {
     if ( (unsigned int)dword_140E07038 > 5
       && (qword_140E07048 & 0x400000000000LL) != 0
@@ -74,14 +74,14 @@ __int64 KcsanReportTelemetry()
       v18 = 4LL;
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       UserData.Size = *(unsigned __int16 *)off_140E07040;
-      v12 = word_140047122;
+      v12 = word_140047522;
       UserData.Reserved = 2;
       v13 = 47;
       v14 = 1;
       v8[1] = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
       EtwWriteEx(qword_140E07058, &EventDescriptor, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     }
-    byte_140F58F0D = 1;
+    byte_140F591AD = 1;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&KcsaniTelemetryLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&KcsaniTelemetryLock);

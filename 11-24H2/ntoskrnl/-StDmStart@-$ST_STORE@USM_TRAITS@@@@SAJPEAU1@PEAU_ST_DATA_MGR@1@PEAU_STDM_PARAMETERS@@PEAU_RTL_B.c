@@ -1,18 +1,18 @@
 /*
- * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x14044A5E8
+ * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x140375DFC
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140449D18 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403767E4 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E5D90 (RtlSetAllBits.c)
- *     SmHpChunkHeapCleanup @ 0x14037F470 (SmHpChunkHeapCleanup.c)
- *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x14044A8F4 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
- *     SmQuerySystemInformation @ 0x14044AA18 (SmQuerySystemInformation.c)
- *     SmHpChunkHeapInitialize @ 0x14045F964 (SmHpChunkHeapInitialize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlSetAllBits @ 0x140347620 (RtlSetAllBits.c)
+ *     SmQuerySystemInformation @ 0x140375D70 (SmQuerySystemInformation.c)
+ *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x140376108 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
+ *     SmHpChunkHeapCleanup @ 0x140379190 (SmHpChunkHeapCleanup.c)
+ *     SmHpChunkHeapInitialize @ 0x140454824 (SmHpChunkHeapInitialize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, __int64 a4, __int64 a5, int a6)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, __int64 a4, int a5, int a6)
 {
   int v7; // eax
   __int64 v10; // xmm1_8
@@ -20,7 +20,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   bool v12; // zf
   __int64 v13; // rcx
   __int64 Pool2; // rdx
-  RTL_BITMAP *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
   __int64 v16; // rdx
   __int64 v17; // rdx
   __int64 v18; // rsi
@@ -60,20 +60,20 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   *(_QWORD *)(a2 + 928) = v13;
   if ( v12 )
   {
-    v15 = (RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
   }
   else
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 4 * (((unsigned __int64)*(unsigned int *)(a1 + 12) + 31) >> 5), 0x74536D73u);
     if ( !Pool2 )
       return 3221225626LL;
-    v15 = (RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
     *(_DWORD *)(a2 + 840) = *(_DWORD *)(a1 + 12);
     *(_QWORD *)(a2 + 848) = Pool2;
   }
   if ( (*(_DWORD *)(a2 + 776) & 0x20000) != 0 )
     RtlSetAllBits(v15);
-  v16 = ExAllocatePool2(0x40uLL);
+  v16 = ExAllocatePool2(0x40uLL, 4 * (((unsigned __int64)*(unsigned int *)(a1 + 12) + 31) >> 5), 0x74536D73u);
   if ( !v16 )
     return 3221225626LL;
   *(_DWORD *)(a2 + 1456) = *(_DWORD *)(a1 + 12);

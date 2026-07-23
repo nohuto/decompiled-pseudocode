@@ -1,15 +1,15 @@
 /*
- * XREFs of LocalpConvertStringSidToSid @ 0x1406CB8F8
+ * XREFs of LocalpConvertStringSidToSid @ 0x1406CBA30
  * Callers:
- *     LocalGetSidForString @ 0x1404D722C (LocalGetSidForString.c)
+ *     LocalGetSidForString @ 0x1404BA830 (LocalGetSidForString.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     wcstoul @ 0x14014F48C (wcstoul.c)
- *     wcstoxq @ 0x14014F8D4 (wcstoxq.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SddlpFree @ 0x1404D6ABC (SddlpFree.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     wcstoul @ 0x14014FA4C (wcstoul.c)
+ *     wcstoxq @ 0x14014FE94 (wcstoxq.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SddlpFree @ 0x1404BA0C0 (SddlpFree.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
  */
 
 __int64 __fastcall LocalpConvertStringSidToSid(_WORD *a1, _QWORD *a2, wchar_t **a3)

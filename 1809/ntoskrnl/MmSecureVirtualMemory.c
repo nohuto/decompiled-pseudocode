@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSecureVirtualMemory @ 0x1405F5DF0
+ * XREFs of MmSecureVirtualMemory @ 0x1405F6DF0
  * Callers:
- *     RtlFileMapMapView @ 0x140178C58 (RtlFileMapMapView.c)
+ *     RtlFileMapMapView @ 0x140178D58 (RtlFileMapMapView.c)
  * Callees:
- *     MmSecureVirtualMemoryEx @ 0x1405F5CB8 (MmSecureVirtualMemoryEx.c)
+ *     MmSecureVirtualMemoryEx @ 0x1405F6CB0 (MmSecureVirtualMemoryEx.c)
  */
 
 HANDLE __stdcall MmSecureVirtualMemory(PVOID Address, SIZE_T Size, ULONG ProbeMode)

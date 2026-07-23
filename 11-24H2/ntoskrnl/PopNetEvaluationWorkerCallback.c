@@ -1,17 +1,17 @@
 /*
- * XREFs of PopNetEvaluationWorkerCallback @ 0x1404B4490
+ * XREFs of PopNetEvaluationWorkerCallback @ 0x1404AECD0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x140A89BD4 (PopNetUpdateCsConsumptionFlags.c)
- *     PopNetPublishWnfStateUpdate @ 0x140A97664 (PopNetPublishWnfStateUpdate.c)
- *     PopNetEvaluateStateMask @ 0x140AA1294 (PopNetEvaluateStateMask.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140AA5624 (PopNetSetResiliencyPhaseBias.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x140ABF96C (PopTraceStandbyConnectivityUpdate.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x140A85FD4 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopNetPublishWnfStateUpdate @ 0x140A93E94 (PopNetPublishWnfStateUpdate.c)
+ *     PopNetEvaluateStateMask @ 0x140A9C624 (PopNetEvaluateStateMask.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140AA0694 (PopNetSetResiliencyPhaseBias.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x140ABAA4C (PopTraceStandbyConnectivityUpdate.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopNetEvaluationWorkerCallback(__int64 a1, __int64 a2)
@@ -55,7 +55,7 @@ __int64 __fastcall PopNetEvaluationWorkerCallback(__int64 a1, __int64 a2)
         goto LABEL_10;
       v5 = 1;
     }
-    if ( PopNetResiliencyEngaged && qword_140E67530 )
+    if ( PopNetResiliencyEngaged && qword_140E676A0 )
     {
       LOBYTE(v7) = 1;
       v12 = 1;
@@ -68,8 +68,8 @@ LABEL_10:
       v4 = 1;
       v10 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
       PopNetStandbyReason = v9;
-      if ( PopCsResiliencyStats[0] && !dword_140F0BF2C )
-        dword_140F0BF2C = v9;
+      if ( PopCsResiliencyStats[0] && !dword_140F0C3AC )
+        dword_140F0C3AC = v9;
       KeReleaseSpinLock(&PopCsResiliencyStatsLock, v10);
     }
     if ( v8 != v2 )
@@ -92,6 +92,6 @@ LABEL_10:
     else
       PopNetDeferLogRequest = 1;
   }
-  _InterlockedExchange(&dword_140F079A8, 0);
+  _InterlockedExchange(&dword_140F07CA8, 0);
   return PopReleasePolicyLock();
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWow64PushCrossProcessWorkOntoFreeList @ 0x1801252F0
+ * XREFs of RtlWow64PushCrossProcessWorkOntoFreeList @ 0x180125060
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
  */
 
 char __fastcall RtlWow64PushCrossProcessWorkOntoFreeList(volatile signed __int64 *a1, _DWORD *a2)

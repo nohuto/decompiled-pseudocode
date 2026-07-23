@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFcBufferManagerReferenceBuffers @ 0x1403A6968
+ * XREFs of RtlpFcBufferManagerReferenceBuffers @ 0x1403A6AB8
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x14038C800 (RtlQueryFeatureConfiguration.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x1407CABF0 (CmFcpManagerDrainUsageNotifications.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
- *     RtlQueryAllFeatureConfigurations @ 0x140918FB0 (RtlQueryAllFeatureConfigurations.c)
- *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C950 (RtlQueryFeatureConfiguration.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAF10 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DE64 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E1C0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x140919110 (RtlQueryAllFeatureConfigurations.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A39784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     RtlAcquireSwapReference @ 0x1403A69B8 (RtlAcquireSwapReference.c)
- *     RtlpFcEnterRegion @ 0x14078DE48 (RtlpFcEnterRegion.c)
+ *     RtlAcquireSwapReference @ 0x1403A6B08 (RtlAcquireSwapReference.c)
+ *     RtlpFcEnterRegion @ 0x14078E008 (RtlpFcEnterRegion.c)
  */
 
 __int64 __fastcall RtlpFcBufferManagerReferenceBuffers(__int64 a1, __int64 a2, _QWORD *a3)

@@ -12,7 +12,7 @@
 PSLIST_ENTRY MiInitializeDecayPfns()
 {
   __int64 v0; // rdi
-  struct _SLIST_ENTRY *v1; // rbx
+  _SLIST_ENTRY *v1; // rbx
   PSLIST_ENTRY result; // rax
 
   v0 = 2048LL;
@@ -22,7 +22,7 @@ PSLIST_ENTRY MiInitializeDecayPfns()
   if ( ((unsigned __int8)&ListHead & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   ListHead = 0LL;
-  v1 = (struct _SLIST_ENTRY *)(48 * qword_140E358C0 - 0x21FFFFFE8030LL);
+  v1 = (_SLIST_ENTRY *)(48 * qword_140E358C0 - 0x21FFFFFE8030LL);
   MiSetPfnContainingFrame((__int64)v1, 1LL);
   do
   {

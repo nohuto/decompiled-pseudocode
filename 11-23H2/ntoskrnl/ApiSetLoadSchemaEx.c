@@ -1,13 +1,13 @@
 /*
- * XREFs of ApiSetLoadSchemaEx @ 0x140A09CEC
+ * XREFs of ApiSetLoadSchemaEx @ 0x140A09F9C
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x140A09DBC (ApiSetLoadSchemaWithExtensions.c)
- *     ApiSetpLoadSchemaExtension @ 0x140A09FC0 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x140A0A06C (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetpLoadSchemaExtension @ 0x140A0A270 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     ZwUnmapViewOfSection @ 0x14041B2A0 (ZwUnmapViewOfSection.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ApiSetpFindImageSection @ 0x140A09F3C (ApiSetpFindImageSection.c)
- *     ApiSetpLoadSchemaImage @ 0x140A0A20C (ApiSetpLoadSchemaImage.c)
+ *     ZwUnmapViewOfSection @ 0x14041B630 (ZwUnmapViewOfSection.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ApiSetpFindImageSection @ 0x140A0A1EC (ApiSetpFindImageSection.c)
+ *     ApiSetpLoadSchemaImage @ 0x140A0A4BC (ApiSetpLoadSchemaImage.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

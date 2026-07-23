@@ -17,7 +17,7 @@
 
 void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
 {
-  __int64 (__fastcall *v2)(); // rax
+  PVOID v2; // rax
   signed __int32 v3; // eax
   int v4; // eax
   __int64 v5; // rdx
@@ -27,13 +27,13 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
   int IsProcessNative; // eax
   __int64 *v10; // r9
   __int64 v11; // [rsp+20h] [rbp-598h] BYREF
-  __int64 (__fastcall *v12)(); // [rsp+28h] [rbp-590h]
+  PVOID v12; // [rsp+28h] [rbp-590h]
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-588h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+D0h] [rbp-4E8h] BYREF
 
   *(&ExceptionRecord.NumberParameters + 1) = 0;
   memset_thunk_772440563353939046(&ExceptionRecord.ExceptionInformation[1], 0, 0x70uLL);
-  v2 = (__int64 (__fastcall *)())RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  v2 = RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( !v2 )
     v2 = RtlUnhandledExceptionFilter;
   v12 = v2;

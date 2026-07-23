@@ -1,25 +1,25 @@
 /*
- * XREFs of TppTimerQueueExpiration @ 0x180068340
+ * XREFs of TppTimerQueueExpiration @ 0x180088790
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppETWTimerSetNtTimer @ 0x180068084 (TppETWTimerSetNtTimer.c)
- *     TppPHExtractMin @ 0x1800689E0 (TppPHExtractMin.c)
- *     TppETWTimerExpirationBegin @ 0x180068A8C (TppETWTimerExpirationBegin.c)
- *     TppETWTimerExpirationEnd @ 0x180068B14 (TppETWTimerExpirationEnd.c)
- *     TppSingleTimerExpiration @ 0x180068DF0 (TppSingleTimerExpiration.c)
- *     ZwAssociateWaitCompletionPacket @ 0x180160170 (ZwAssociateWaitCompletionPacket.c)
- *     ZwSetTimer2 @ 0x180162750 (ZwSetTimer2.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppETWTimerSetNtTimer @ 0x1800884D4 (TppETWTimerSetNtTimer.c)
+ *     TppPHExtractMin @ 0x180088E30 (TppPHExtractMin.c)
+ *     TppETWTimerExpirationBegin @ 0x180088EDC (TppETWTimerExpirationBegin.c)
+ *     TppETWTimerExpirationEnd @ 0x180088F64 (TppETWTimerExpirationEnd.c)
+ *     TppSingleTimerExpiration @ 0x180089240 (TppSingleTimerExpiration.c)
+ *     ZwAssociateWaitCompletionPacket @ 0x180160070 (ZwAssociateWaitCompletionPacket.c)
+ *     ZwSetTimer2 @ 0x180162650 (ZwSetTimer2.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, volatile signed __int64 *a3, __int64 a4)
+NTSTATUS __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, _RTL_SRWLOCK *a3, __int64 a4)
 {
-  volatile signed __int64 *v4; // rsi
+  _RTL_SRWLOCK *ApcContext; // rsi
   unsigned __int8 v5; // r12
   __int64 v6; // rax
   __int64 v7; // rbp
@@ -42,21 +42,20 @@ __int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, volatile sign
   __int128 *v24; // rbx
   char *v25; // rcx
   _DWORD *v26; // rcx
-  unsigned __int64 v28; // rbx
-  unsigned __int64 v29; // rbp
-  unsigned __int64 v30; // rcx
+  LARGE_INTEGER v28; // rbx
+  LARGE_INTEGER v29; // rbp
+  __int64 v30; // rcx
   __int64 v31; // r15
   __int64 v32; // rcx
   __int128 v33; // [rsp+40h] [rbp-68h] BYREF
-  unsigned __int64 v34; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v35; // [rsp+58h] [rbp-50h] BYREF
-  __int64 v36; // [rsp+60h] [rbp-48h]
+  LARGE_INTEGER DueTime; // [rsp+50h] [rbp-58h] BYREF
+  _T2_SET_PARAMETERS_V0 Parameters; // [rsp+58h] [rbp-50h] BYREF
 
-  v4 = a3;
-  v34 = 0LL;
+  ApcContext = a3;
+  DueTime.QuadPart = 0LL;
   v33 = 0LL;
-  v35 = 0LL;
-  v36 = 0LL;
+  *(_QWORD *)&Parameters.Version = 0LL;
+  Parameters.NoWakeTolerance = 0LL;
   if ( *(_QWORD *)(a4 + 8) )
   {
     v5 = 1;
@@ -68,11 +67,11 @@ __int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, volatile sign
     v5 = 0;
     a4 = 2147353520LL;
     a2 = RtlpFreezeTimeBias;
-    a3 = (volatile signed __int64 *)MEMORY[0x7FFE03B0];
+    a3 = (_RTL_SRWLOCK *)MEMORY[0x7FFE03B0];
     v6 = 16LL;
     v7 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
   }
-  v8 = (unsigned __int64)&v4[v6];
+  v8 = (unsigned __int64)&ApcContext[v6];
   if ( !a1 || *(_DWORD *)(a1 + 72) )
     TppRaiseInvalidParameter();
   else
@@ -87,7 +86,7 @@ __int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, volatile sign
     v11 = 2147353478LL;
   if ( *(_BYTE *)v11 )
     TppETWTimerExpirationBegin(v8, a2, a3, a4);
-  RtlAcquireSRWLockExclusive(v4, a2);
+  RtlAcquireSRWLockExclusive(ApcContext);
   while ( 1 )
   {
     v12 = *(_QWORD *)(v8 + 8);
@@ -138,19 +137,19 @@ LABEL_19:
   v23 = *(_QWORD *)(v8 + 16);
   if ( v23 )
   {
-    v28 = *(_QWORD *)(v12 + 32);
-    v29 = v7 - v28;
-    v30 = *(_QWORD *)(v23 + 32) - v28;
-    *(_QWORD *)v8 = v28;
+    v28 = *(LARGE_INTEGER *)(v12 + 32);
+    v29.QuadPart = v7 - v28.QuadPart;
+    v30 = *(_QWORD *)(v23 + 32) - v28.QuadPart;
+    *(LARGE_INTEGER *)v8 = v28;
     v31 = (unsigned int)((int)v30 / 10000);
     *(_DWORD *)(v8 + 112) = v31;
-    v36 = 10000 * v31;
+    Parameters.NoWakeTolerance = 10000 * v31;
     if ( !v5 )
       v28 = v29;
-    v34 = v28;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    DueTime = v28;
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v28 = v34;
+      v28 = DueTime;
       v32 = (__int64)NtCurrentPeb()->SharedData + 556;
     }
     else
@@ -158,20 +157,20 @@ LABEL_19:
       v32 = 2147353478LL;
     }
     if ( *(_BYTE *)v32 )
-      TppETWTimerSetNtTimer(v8, v28, v31);
-    ZwSetTimer2(*(_QWORD *)(v8 + 24), &v34, 0LL, &v35);
+      TppETWTimerSetNtTimer(v8, v28.QuadPart, v31);
+    ZwSetTimer2(*(HANDLE *)(v8 + 24), &DueTime, 0LL, &Parameters);
   }
   else
   {
     *(_QWORD *)v8 = 0LL;
   }
-  RtlReleaseSRWLockExclusive(v4);
+  RtlReleaseSRWLockExclusive(ApcContext);
   v24 = (__int128 *)v33;
   while ( v24 != &v33 )
   {
     v25 = (char *)v24 - 248;
     v24 = *(__int128 **)v24;
-    TppSingleTimerExpiration(v25, v4, v5);
+    TppSingleTimerExpiration(v25, ApcContext, v5);
   }
   v26 = NtCurrentPeb()->SharedData;
   if ( v26 && *v26 )
@@ -179,11 +178,11 @@ LABEL_19:
   if ( *(_BYTE *)v9 )
     TppETWTimerExpirationEnd(v8);
   return ZwAssociateWaitCompletionPacket(
-           *(_QWORD *)(v8 + 32),
-           *((_QWORD *)v4 - 6),
-           *(_QWORD *)(v8 + 24),
-           v8 + 40,
-           v4,
+           *(HANDLE *)(v8 + 32),
+           ApcContext[-6].Ptr,
+           *(HANDLE *)(v8 + 24),
+           (PVOID)(v8 + 40),
+           ApcContext,
            0,
            v5,
            0LL);

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406E77D8
+ * XREFs of MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406EC488
  * Callers:
- *     MiPrepareDeleteOnClose @ 0x1406E7884 (MiPrepareDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x1406E7900 (MiProcessDeleteOnClose.c)
+ *     MiPrepareDeleteOnClose @ 0x1406EC534 (MiPrepareDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1406EC5B0 (MiProcessDeleteOnClose.c)
  * Callees:
- *     MiRemoveEntryNotifySentinel @ 0x14030C28C (MiRemoveEntryNotifySentinel.c)
+ *     MiRemoveEntryNotifySentinel @ 0x1402EE30C (MiRemoveEntryNotifySentinel.c)
  */
 
 __int64 __fastcall MiMoveUnusedSubsectionsToDeleteOnClose(__int64 a1, __int64 a2)

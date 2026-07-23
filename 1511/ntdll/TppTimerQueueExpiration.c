@@ -16,9 +16,8 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, _RTL_SRWLOCK *a3, __int64 a4)
 {
-  __int64 v4; // rsi
   bool v5; // r12
   __int64 v6; // rbx
   __int64 v7; // rdi
@@ -37,36 +36,32 @@ __int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, __int64 a3, _
   _QWORD *v20; // rcx
   _QWORD *v22; // [rsp+40h] [rbp-30h] BYREF
   _QWORD *v23; // [rsp+48h] [rbp-28h]
-  __int64 v24; // [rsp+50h] [rbp-20h] BYREF
-  int v25; // [rsp+58h] [rbp-18h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-10h]
+  LARGE_INTEGER DueTime; // [rsp+50h] [rbp-20h] BYREF
+  _T2_SET_PARAMETERS_V0 Parameters; // [rsp+58h] [rbp-18h] BYREF
 
-  v25 = 0;
-  v4 = a3;
-  v26 = 0LL;
+  Parameters.Version = 0;
+  Parameters.NoWakeTolerance = 0LL;
   v5 = *(_QWORD *)(a4 + 8) != 0LL;
   if ( *(_QWORD *)(a4 + 8) )
   {
-    v6 = a3 + 8;
+    v6 = (__int64)&a3[1];
     v7 = MEMORY[0x7FFE0014];
   }
   else
   {
-    v6 = a3 + 128;
-    a4 = 2147353520LL;
+    v6 = (__int64)&a3[16];
     a2 = RtlpFreezeTimeBias;
-    a3 = MEMORY[0x7FFE03B0];
     v7 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
   }
   if ( !a1 || *(_DWORD *)(a1 + 72) )
-    TppRaiseInvalidParameter(a1, a2, a3, a4);
+    TppRaiseInvalidParameter(a1, a2);
   else
     *(_DWORD *)(a1 + 72) = 3;
   v23 = &v22;
   v22 = &v22;
   if ( MEMORY[0x7FFE0386] )
     TppETWTimerExpirationBegin(v6);
-  RtlAcquireSRWLockExclusive(v4);
+  RtlAcquireSRWLockExclusive(a3);
   v8 = (_QWORD *)(v6 + 8);
   while ( *v8 && *(_QWORD *)(*v8 + 40LL) <= v7 )
   {
@@ -91,35 +86,35 @@ __int64 __fastcall TppTimerQueueExpiration(__int64 a1, __int64 a2, __int64 a3, _
     v16 = (__int64)((unsigned __int128)(v15 * (__int128)0x346DC5D63886594BLL) >> 64) >> 11;
     v17 = (v16 >> 63) + v16;
     *(_DWORD *)(v6 + 112) = v17;
-    v26 = 10000LL * (unsigned int)v17;
+    Parameters.NoWakeTolerance = 10000LL * (unsigned int)v17;
     if ( !v5 )
       v14 = v7 - v14;
-    v24 = v14;
+    DueTime.QuadPart = v14;
     if ( MEMORY[0x7FFE0386] )
       TppETWTimerSetNtTimer(v6, v14, v17);
-    ZwSetTimer2(*(_QWORD *)(v6 + 24), &v24, 0LL, &v25);
+    ZwSetTimer2(*(HANDLE *)(v6 + 24), &DueTime, 0LL, &Parameters);
   }
   else
   {
     *(_QWORD *)v6 = 0LL;
   }
-  RtlReleaseSRWLockExclusive(v4);
+  RtlReleaseSRWLockExclusive(a3);
   v19 = v22;
   while ( v19 != &v22 )
   {
     v20 = v19 - 30;
     LOBYTE(v18) = v5;
     v19 = (_QWORD *)*v19;
-    TppSingleTimerExpiration(v20, v4, v18);
+    TppSingleTimerExpiration(v20, a3, v18);
   }
   if ( MEMORY[0x7FFE0386] )
     TppETWTimerExpirationEnd(v6);
   return ZwAssociateWaitCompletionPacket(
-           *(_QWORD *)(v6 + 32),
-           *(_QWORD *)(v4 - 48),
-           *(_QWORD *)(v6 + 24),
-           v6 + 40,
-           v4,
+           *(HANDLE *)(v6 + 32),
+           a3[-6].Ptr,
+           *(HANDLE *)(v6 + 24),
+           (PVOID)(v6 + 40),
+           a3,
            0,
            v5,
            0LL);

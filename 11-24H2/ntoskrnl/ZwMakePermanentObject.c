@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwMakePermanentObject @ 0x1406A8710
+ * XREFs of ZwMakePermanentObject @ 0x1406A96B0
  * Callers:
- *     NtCreateCpuPartition @ 0x1407757E0 (NtCreateCpuPartition.c)
+ *     NtCreateCpuPartition @ 0x140775A00 (NtCreateCpuPartition.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwMakePermanentObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwMakePermanentObject(HANDLE Handle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Handle);
 }

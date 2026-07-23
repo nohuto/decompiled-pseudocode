@@ -91,7 +91,7 @@ unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __i
     KiInSwapSingleProcess(a1, a2, a3);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -152,10 +152,10 @@ unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __i
   if ( !v14 )
   {
     result = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

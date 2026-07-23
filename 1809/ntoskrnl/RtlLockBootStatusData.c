@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlLockBootStatusData @ 0x140718C80
+ * XREFs of RtlLockBootStatusData @ 0x140719F20
  * Callers:
- *     PopBootStatSet @ 0x1407184C4 (PopBootStatSet.c)
- *     PoClearTransitionMarker @ 0x140744FC0 (PoClearTransitionMarker.c)
- *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
- *     PopBootStatGet @ 0x140753090 (PopBootStatGet.c)
- *     PopBootStatCheckIntegrity @ 0x140877250 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x1408774B8 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x140719764 (PopBootStatSet.c)
+ *     PoClearTransitionMarker @ 0x1407461B0 (PoClearTransitionMarker.c)
+ *     CmCompleteRegistryInitialization @ 0x1407467A4 (CmCompleteRegistryInitialization.c)
+ *     PopBootStatGet @ 0x140754280 (PopBootStatGet.c)
+ *     PopBootStatCheckIntegrity @ 0x1408784B0 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x140878718 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitializeBootStatDataCache @ 0x14018DC48 (RtlInitializeBootStatDataCache.c)
- *     RtlpGetBootStatusPath @ 0x14018DDC0 (RtlpGetBootStatusPath.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitializeBootStatDataCache @ 0x14018DD88 (RtlInitializeBootStatDataCache.c)
+ *     RtlpGetBootStatusPath @ 0x14018DF00 (RtlpGetBootStatusPath.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlLockBootStatusData(PHANDLE FileHandle)

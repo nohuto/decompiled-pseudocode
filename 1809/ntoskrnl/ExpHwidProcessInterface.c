@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpHwidProcessInterface @ 0x140585E18
+ * XREFs of ExpHwidProcessInterface @ 0x140586E18
  * Callers:
- *     sub_140585FE0 @ 0x140585FE0 (sub_140585FE0.c)
+ *     sub_140586FE0 @ 0x140586FE0 (sub_140586FE0.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpHwidAuthenticateHardwareId @ 0x140586410 (ExpHwidAuthenticateHardwareId.c)
- *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
- *     ExpHwidGetDevicePropertyDataFixed @ 0x140586700 (ExpHwidGetDevicePropertyDataFixed.c)
- *     sub_140586D3C @ 0x140586D3C (sub_140586D3C.c)
- *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     sub_1408DB1FC @ 0x1408DB1FC (sub_1408DB1FC.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpHwidAuthenticateHardwareId @ 0x140587410 (ExpHwidAuthenticateHardwareId.c)
+ *     ExpHwidGetDeviceProperties @ 0x1405875BC (ExpHwidGetDeviceProperties.c)
+ *     ExpHwidGetDevicePropertyDataFixed @ 0x140587700 (ExpHwidGetDevicePropertyDataFixed.c)
+ *     sub_140587D3C @ 0x140587D3C (sub_140587D3C.c)
+ *     IopGetDeviceInterfaces @ 0x14059F6C4 (IopGetDeviceInterfaces.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     sub_1408DC4BC @ 0x1408DC4BC (sub_1408DC4BC.c)
  */
 
 __int64 __fastcall ExpHwidProcessInterface(
@@ -90,7 +90,7 @@ LABEL_13:
         }
         if ( RtlEqualUnicodeString(&String1, &String2, 1u) )
           goto LABEL_9;
-        v15 = sub_140586D3C(&String1, a4, &Object);
+        v15 = sub_140587D3C(&String1, a4, &Object);
         v6 = (struct _DEVICE_OBJECT *)Object;
         if ( v15 < 0 )
           goto LABEL_9;
@@ -115,7 +115,7 @@ LABEL_11:
           goto LABEL_13;
         }
       }
-      if ( (int)sub_1408DB1FC(&DestinationString, a5) >= 0 && v7 < 0x14 && a3(a6, 0LL, a5) >= 0 )
+      if ( (int)sub_1408DC4BC(&DestinationString, a5) >= 0 && v7 < 0x14 && a3(a6, 0LL, a5) >= 0 )
         ++v7;
 LABEL_29:
       Length = DestinationString.Length;

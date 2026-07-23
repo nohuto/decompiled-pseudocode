@@ -1,10 +1,10 @@
 /*
- * XREFs of BvgaBitBlt @ 0x14027DF50
+ * XREFs of BvgaBitBlt @ 0x14027E140
  * Callers:
  *     <none>
  * Callees:
- *     BvgaAcquireLock @ 0x14027DED0 (BvgaAcquireLock.c)
- *     BvgaReleaseLock @ 0x14027E190 (BvgaReleaseLock.c)
+ *     BvgaAcquireLock @ 0x14027E0C0 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x14027E380 (BvgaReleaseLock.c)
  */
 
 __int64 __fastcall BvgaBitBlt(__int64 a1, unsigned int a2, unsigned int a3)

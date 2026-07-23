@@ -9,7 +9,7 @@
  *     _RtlRunOnceExecuteOnce@16 @ 0x4B2B0F70 (_RtlRunOnceExecuteOnce@16.c)
  */
 
-unsigned int __stdcall RtlRandomEx(_DWORD *a1)
+ULONG __cdecl RtlRandomEx(PULONG Seed)
 {
   unsigned __int64 v1; // kr08_8
   int v2; // edi
@@ -19,14 +19,14 @@ unsigned int __stdcall RtlRandomEx(_DWORD *a1)
   unsigned int v8; // edx
 
   RtlRunOnceExecuteOnce(&RtlpRandomExInit, RtlpInitRandomExVector, 0, 0);
-  v1 = 2147483629LL * (unsigned int)*a1 + 2147483587;
+  v1 = 2147483629LL * *Seed + 2147483587;
   v2 = (v1 & 0x7FFFFFFF) + ((v1 >> 31) & 0x7FFFFFFF);
   v3 = RtlpRandomExAuxVarY & 0x7F;
-  *a1 = (((HIDWORD(v1) >> 30) + v2) & 0x7FFFFFFF)
-      + (unsigned int)(((v1 & 0x7FFFFFFF) + ((v1 >> 31) & 0x7FFFFFFF) + (HIDWORD(v1) >> 30)) >> 31) != 0x7FFFFFFF
-      ? (((HIDWORD(v1) >> 30) + v2) & 0x7FFFFFFF)
-      + (((v1 & 0x7FFFFFFF) + ((v1 >> 31) & 0x7FFFFFFF) + (HIDWORD(v1) >> 30)) >> 31)
-      : 0;
+  *Seed = (((HIDWORD(v1) >> 30) + v2) & 0x7FFFFFFF)
+        + (unsigned int)(((v1 & 0x7FFFFFFF) + ((v1 >> 31) & 0x7FFFFFFF) + (HIDWORD(v1) >> 30)) >> 31) != 0x7FFFFFFF
+        ? (((HIDWORD(v1) >> 30) + v2) & 0x7FFFFFFF)
+        + (((v1 & 0x7FFFFFFF) + ((v1 >> 31) & 0x7FFFFFFF) + (HIDWORD(v1) >> 30)) >> 31)
+        : 0;
   v4 = _InterlockedExchange(
          &RtlpRandomExConstantVector[v3],
          (((HIDWORD(v1) >> 30) + v2) & 0x7FFFFFFF)

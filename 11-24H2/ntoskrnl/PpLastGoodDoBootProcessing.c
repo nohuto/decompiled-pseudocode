@@ -1,13 +1,13 @@
 /*
- * XREFs of PpLastGoodDoBootProcessing @ 0x140C239B4
+ * XREFs of PpLastGoodDoBootProcessing @ 0x140C259E4
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PiLastGoodCopyKeyContents @ 0x140C234D4 (PiLastGoodCopyKeyContents.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x140C23770 (PiLastGoodRevertLastKnownDirectory.c)
- *     IopFileUtilRename @ 0x140C2640C (IopFileUtilRename.c)
- *     CmIsLastKnownGoodBoot @ 0x140C458D8 (CmIsLastKnownGoodBoot.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PiLastGoodCopyKeyContents @ 0x140C25504 (PiLastGoodCopyKeyContents.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140C257A0 (PiLastGoodRevertLastKnownDirectory.c)
+ *     IopFileUtilRename @ 0x140C2845C (IopFileUtilRename.c)
+ *     CmIsLastKnownGoodBoot @ 0x140C47A28 (CmIsLastKnownGoodBoot.c)
  */
 
 void PpLastGoodDoBootProcessing()
@@ -33,7 +33,7 @@ void PpLastGoodDoBootProcessing()
     PiLastGoodRevertLastKnownDirectory((__int64)&DestinationString, &v3);
     PiLastGoodRevertLastKnownDirectory((__int64)&v6, &v5);
   }
-  else if ( !(_DWORD)InitSafeBootMode )
+  else if ( !InitSafeBootMode )
   {
     v2 = IopFileUtilRename(&DestinationString, &v6, 0LL);
     if ( (int)(v2 + 0x80000000) < 0 || v2 == -1073741772 )

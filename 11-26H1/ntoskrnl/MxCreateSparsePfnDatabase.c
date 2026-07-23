@@ -1,15 +1,15 @@
 /*
- * XREFs of MxCreateSparsePfnDatabase @ 0x140CF64E4
+ * XREFs of MxCreateSparsePfnDatabase @ 0x140CFC864
  * Callers:
- *     MiCreatePfnDatabase @ 0x140CF2818 (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140CF8B98 (MiCreatePfnDatabase.c)
  * Callees:
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
- *     MxAddSmallFreeDescriptorsToFreeList @ 0x140CF4EC0 (MxAddSmallFreeDescriptorsToFreeList.c)
- *     MxCreateNodeFreeZeroList @ 0x140CF5D60 (MxCreateNodeFreeZeroList.c)
- *     MxCreatePfnsForPfns @ 0x140CF6108 (MxCreatePfnsForPfns.c)
- *     MxInsertAllUsedRegionsInLoaderTree @ 0x140CF71D0 (MxInsertAllUsedRegionsInLoaderTree.c)
- *     MxMapPfnRange @ 0x140CF7DA8 (MxMapPfnRange.c)
- *     MxReducePhysicalPageCount @ 0x140CF81DC (MxReducePhysicalPageCount.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
+ *     MxAddSmallFreeDescriptorsToFreeList @ 0x140CFB240 (MxAddSmallFreeDescriptorsToFreeList.c)
+ *     MxCreateNodeFreeZeroList @ 0x140CFC0E0 (MxCreateNodeFreeZeroList.c)
+ *     MxCreatePfnsForPfns @ 0x140CFC488 (MxCreatePfnsForPfns.c)
+ *     MxInsertAllUsedRegionsInLoaderTree @ 0x140CFD550 (MxInsertAllUsedRegionsInLoaderTree.c)
+ *     MxMapPfnRange @ 0x140CFE128 (MxMapPfnRange.c)
+ *     MxReducePhysicalPageCount @ 0x140CFE55C (MxReducePhysicalPageCount.c)
  */
 
 __int64 __fastcall MxCreateSparsePfnDatabase(__int64 a1)
@@ -108,8 +108,8 @@ LABEL_32:
     }
   }
   if ( v2 != -1LL && !(unsigned int)MxMapPfnRange(v2)
-    || !(unsigned int)MxMapPfnRange(qword_140E2D7A0 + 1)
-    || qword_140E347B0 != qword_140E2D7A0 + 1 && !(unsigned int)MxMapPfnRange(qword_140E347B0) )
+    || !(unsigned int)MxMapPfnRange(qword_140E2D920 + 1)
+    || qword_140E34930 != qword_140E2D920 + 1 && !(unsigned int)MxMapPfnRange(qword_140E34930) )
   {
     goto LABEL_51;
   }

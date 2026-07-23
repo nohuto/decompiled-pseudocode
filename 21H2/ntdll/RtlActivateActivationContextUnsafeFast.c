@@ -13,7 +13,7 @@
  *     RtlpTpWorkCallback @ 0x180070B90 (RtlpTpWorkCallback.c)
  *     LdrpQuerySxSMUIFile @ 0x1800775AC (LdrpQuerySxSMUIFile.c)
  *     RtlDispatchAPC @ 0x18007FB40 (RtlDispatchAPC.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlRaiseException @ 0x1800520D0 (RtlRaiseException.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)

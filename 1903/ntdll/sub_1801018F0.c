@@ -6,7 +6,7 @@
  *     sub_18004CF00 @ 0x18004CF00 (sub_18004CF00.c)
  */
 
-__int64 __fastcall sub_1801018F0(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall sub_1801018F0(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   _QWORD *v4; // rcx
   __int64 result; // rax

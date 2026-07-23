@@ -26,7 +26,7 @@ char *__fastcall sub_18000B320(__int64 a1, __int64 a2, _OWORD *a3, unsigned int 
   if ( (int)v10 + 40 < (unsigned int)(v10 + 24) )
     return 0LL;
   v11 = v10 + 40;
-  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, (unsigned int)(v10 + 40));
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v10 + 40));
   v13 = Heap;
   if ( !Heap )
     return 0LL;

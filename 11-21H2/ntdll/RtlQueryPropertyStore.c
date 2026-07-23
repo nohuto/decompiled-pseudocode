@@ -8,22 +8,22 @@
  *     bsearch @ 0x180096740 (bsearch.c)
  */
 
-__int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryPropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
-  unsigned int v4; // ebx
+  NTSTATUS v4; // ebx
   _QWORD *v5; // rax
 
   RtlAcquireSRWLockShared(&RtlpPropStoreLock);
   v4 = 0;
   if ( RtlpPropStoreEntries
     && (v5 = bsearch(
-               Key,
+               (const void *)Key,
                RtlpPropStoreEntries,
                (unsigned int)RtlpPropStoreEntriesActiveCount,
                0x18uLL,
                (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry)) != 0LL )
   {
-    *a2 = v5[2];
+    *Context = v5[2];
   }
   else
   {

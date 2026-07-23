@@ -6,14 +6,10 @@
  *     RtlRunOnceExecuteOnce @ 0x1800163A0 (RtlRunOnceExecuteOnce.c)
  */
 
-__int64 __fastcall RtlpHpMetadataHeapStart(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpHpMetadataHeapStart(_RTL_RUN_ONCE *a1, void *a2)
 {
-  if ( *(_QWORD *)a1 )
-    return 0LL;
+  if ( a1->Value )
+    return 0;
   else
-    return RtlRunOnceExecuteOnce(
-             (volatile signed __int64 *)(a1 + 8),
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))RtlpHpMetadataHeapCreate,
-             a2,
-             0LL);
+    return RtlRunOnceExecuteOnce(a1 + 1, RtlpHpMetadataHeapCreate, a2, 0LL);
 }

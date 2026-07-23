@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFinishVadDeletion @ 0x140289D10
+ * XREFs of MiFinishVadDeletion @ 0x140289FA0
  * Callers:
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiGetVadWakeList @ 0x14028A170 (MiGetVadWakeList.c)
- *     MiDereferenceVad @ 0x14028A890 (MiDereferenceVad.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     MiReturnVadQuota @ 0x1406FB394 (MiReturnVadQuota.c)
- *     MiRemoveVadCharges @ 0x1406FB440 (MiRemoveVadCharges.c)
- *     MiDeleteVadHotPatchState @ 0x140A369DC (MiDeleteVadHotPatchState.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiGetVadWakeList @ 0x14028A400 (MiGetVadWakeList.c)
+ *     MiDereferenceVad @ 0x14028AB20 (MiDereferenceVad.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     MiReturnVadQuota @ 0x1406FB5A4 (MiReturnVadQuota.c)
+ *     MiRemoveVadCharges @ 0x1406FB650 (MiRemoveVadCharges.c)
+ *     MiDeleteVadHotPatchState @ 0x140A36C8C (MiDeleteVadHotPatchState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

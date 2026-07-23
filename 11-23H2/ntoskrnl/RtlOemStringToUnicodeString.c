@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlOemStringToUnicodeString @ 0x14086B690
+ * XREFs of RtlOemStringToUnicodeString @ 0x14086B8D0
  * Callers:
- *     DifRtlOemStringToUnicodeStringWrapper @ 0x1405EB760 (DifRtlOemStringToUnicodeStringWrapper.c)
+ *     DifRtlOemStringToUnicodeStringWrapper @ 0x1405EBCD0 (DifRtlOemStringToUnicodeStringWrapper.c)
  * Callees:
- *     AllocateOrValidateUnicodeStringBuffer @ 0x140316CFC (AllocateOrValidateUnicodeStringBuffer.c)
- *     RtlxOemStringToUnicodeSize @ 0x140773CD0 (RtlxOemStringToUnicodeSize.c)
- *     RtlOemToUnicodeN @ 0x140774330 (RtlOemToUnicodeN.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x140316F8C (AllocateOrValidateUnicodeStringBuffer.c)
+ *     RtlxOemStringToUnicodeSize @ 0x140773EC0 (RtlxOemStringToUnicodeSize.c)
+ *     RtlOemToUnicodeN @ 0x140774520 (RtlOemToUnicodeN.c)
  *     ExFreePool @ 0x140AAECC0 (ExFreePool.c)
  */
 

@@ -20,8 +20,8 @@ int __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(_DWORD *a1, int a2, WCHAR
   __int16 v12; // [esp+10h] [ebp-18h] BYREF
   int v13; // [esp+14h] [ebp-14h]
   int v14; // [esp+18h] [ebp-10h]
-  int v15; // [esp+1Ch] [ebp-Ch] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-8h] BYREF
+  DWORD Lcid; // [esp+1Ch] [ebp-Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-8h] BYREF
 
   if ( !a1 )
     return -1073741811;
@@ -36,10 +36,10 @@ int __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(_DWORD *a1, int a2, WCHAR
   {
 LABEL_13:
     if ( a4
-      && (RtlInitUnicodeString(&DestinationString, SourceString), RtlCultureNameToLCID(&DestinationString.Length, &v15))
-      && v15 != 4096 )
+      && (RtlInitUnicodeString(&DestinationString, SourceString), RtlCultureNameToLCID(&DestinationString, &Lcid))
+      && Lcid != 4096 )
     {
-      return RtlpMuiRegGetFallbackLanguageInfoByLangId((int)a1, a2, v15, 0, v7);
+      return RtlpMuiRegGetFallbackLanguageInfoByLangId((int)a1, a2, Lcid, 0, v7);
     }
     else
     {
@@ -55,11 +55,11 @@ LABEL_13:
     v10 = *(_WORD *)(a2 + 2 * (__int16)v13 + 12);
     if ( v9 != 2 )
       break;
-    v15 = *(_DWORD *)(a1[5] + 12);
+    Lcid = *(_DWORD *)(a1[5] + 12);
     v7 = a5;
-    if ( *(_WORD *)(28 * v10 + v15 + 6) == v12 )
+    if ( *(_WORD *)(28 * v10 + Lcid + 6) == v12 )
     {
-      qmemcpy(a5, (const void *)(v15 + 28 * v10), 0x1Cu);
+      qmemcpy(a5, (const void *)(Lcid + 28 * v10), 0x1Cu);
       return 0;
     }
 LABEL_12:

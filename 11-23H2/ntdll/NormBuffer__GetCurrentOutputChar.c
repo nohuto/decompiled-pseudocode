@@ -1,9 +1,9 @@
 /*
- * XREFs of NormBuffer__GetCurrentOutputChar @ 0x18010D8CC
+ * XREFs of NormBuffer__GetCurrentOutputChar @ 0x18010D89C
  * Callers:
- *     NormBuffer__IsBlocked @ 0x18010DA94 (NormBuffer__IsBlocked.c)
- *     NormBuffer__RecheckStartCombinations @ 0x18010DBB8 (NormBuffer__RecheckStartCombinations.c)
- *     NormBuffer__SortBeforeSameClass @ 0x18010DEB0 (NormBuffer__SortBeforeSameClass.c)
+ *     NormBuffer__IsBlocked @ 0x18010DA64 (NormBuffer__IsBlocked.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x18010DB88 (NormBuffer__RecheckStartCombinations.c)
+ *     NormBuffer__SortBeforeSameClass @ 0x18010DE80 (NormBuffer__SortBeforeSameClass.c)
  * Callees:
  *     <none>
  */

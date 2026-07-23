@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCopyXStateChunk @ 0x18008A9AC
+ * XREFs of RtlpCopyXStateChunk @ 0x18008A9BC
  * Callers:
- *     RtlCopyContext @ 0x18008A610 (RtlCopyContext.c)
+ *     RtlCopyContext @ 0x18008A620 (RtlCopyContext.c)
  *     RtlpCopyExtendedContext @ 0x1800F4F74 (RtlpCopyExtendedContext.c)
  * Callees:
  *     memmove @ 0x1800A6DC0 (memmove.c)

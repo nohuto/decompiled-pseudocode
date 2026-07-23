@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntIsLessThan @ 0x14052EF00
+ * XREFs of SymCryptFdefIntIsLessThan @ 0x1405293A8
  * Callers:
- *     SymCryptIntIsLessThan @ 0x1405239A0 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntIsLessThan @ 0x1405212B8 (SymCryptIntIsLessThan.c)
  * Callees:
- *     SymCryptFdefRawIsLessThanC @ 0x14052F5E4 (SymCryptFdefRawIsLessThanC.c)
+ *     SymCryptFdefRawIsLessThanC @ 0x140529A8C (SymCryptFdefRawIsLessThanC.c)
  */
 
 unsigned __int64 __fastcall SymCryptFdefIntIsLessThan(__int64 a1, __int64 a2)

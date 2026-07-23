@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlValidateProcessHeapsCallback @ 0x1801446F0
+ * XREFs of RtlValidateProcessHeapsCallback @ 0x1801445A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlValidateHeap @ 0x1800156C0 (RtlValidateHeap.c)
+ *     RtlValidateHeap @ 0x180060DF0 (RtlValidateHeap.c)
  */
 
-__int64 __fastcall RtlValidateProcessHeapsCallback(__int64 a1)
+__int64 __fastcall RtlValidateProcessHeapsCallback(void *a1)
 {
-  return (unsigned __int8)RtlValidateHeap(a1, 0, 0LL) == 0 ? 0xC0000001 : 0;
+  return RtlValidateHeap(a1, 0, 0LL) == 0 ? 0xC0000001 : 0;
 }

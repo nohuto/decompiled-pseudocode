@@ -1,22 +1,22 @@
 /*
- * XREFs of NtTerminateProcess @ 0x140507D84
+ * XREFs of NtTerminateProcess @ 0x1404EAD14
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeForceResumeThread @ 0x1400CB374 (KeForceResumeThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     PspLogAuditTerminateRemoteProcessEvent @ 0x1404ECDD4 (PspLogAuditTerminateRemoteProcessEvent.c)
- *     PspTerminateProcess @ 0x140507F68 (PspTerminateProcess.c)
- *     PspTerminateAllThreads @ 0x1405096F0 (PspTerminateAllThreads.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeForceResumeThread @ 0x1400C9214 (KeForceResumeThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspLogAuditTerminateRemoteProcessEvent @ 0x1404CEF40 (PspLogAuditTerminateRemoteProcessEvent.c)
+ *     PspTerminateProcess @ 0x1404EAEF8 (PspTerminateProcess.c)
+ *     PspTerminateAllThreads @ 0x1404EC680 (PspTerminateAllThreads.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  */
 
 NTSTATUS __stdcall NtTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpIsLogEntryHeaderCoherent @ 0x140A888DC
+ * XREFs of HvpIsLogEntryHeaderCoherent @ 0x140A84DCC
  * Callers:
- *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140A88758 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x140A84C48 (HvpIncrementalLogFileEnumeratorAdvance.c)
  * Callees:
- *     HvpLogEntryCheckHeaderChecksum @ 0x140AA6648 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x140AA16B8 (HvpLogEntryCheckHeaderChecksum.c)
  */
 
 bool __fastcall HvpIsLogEntryHeaderCoherent(_DWORD *a1, unsigned int a2)

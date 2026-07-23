@@ -7,17 +7,17 @@
  *     RtlpHpPerHeapStackTraceCleanup @ 0x180108710 (RtlpHpPerHeapStackTraceCleanup.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceHeapDestroy(__int64 a1)
+void __fastcall RtlpHpStackTraceHeapDestroy(__int64 a1)
 {
-  __int64 v3; // rcx
+  __int64 v2; // rcx
 
   RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_18016D588 & 1) != 0 && (dword_18016D588 & 2) != 0 )
   {
-    v3 = 104LL;
+    v2 = 104LL;
     if ( *(_DWORD *)(a1 + 16) != -571548178 )
-      v3 = 368LL;
-    RtlpHpPerHeapStackTraceCleanup(a1 + v3, 0LL, 0LL);
+      v2 = 368LL;
+    RtlpHpPerHeapStackTraceCleanup(a1 + v2, 0LL, 0LL);
   }
-  return RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
 }

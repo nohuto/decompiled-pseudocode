@@ -14,35 +14,35 @@
  *     NtTraceEvent @ 0x1800A5C70 (NtTraceEvent.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
-  _BYTE v3[6]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v4; // [rsp+26h] [rbp-32h]
-  __int64 v5; // [rsp+40h] [rbp-18h]
+  PVOID v5; // [rsp+40h] [rbp-18h]
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    RtlpHpHeapLock(a1);
+    RtlpHpHeapLock((__int64)HeapHandle);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-      return qword_180142100(a1);
-    if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlLockHeap") )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
+      return ((__int64 (__fastcall *)(PVOID))qword_180142100)(HeapHandle);
+    if ( !(unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlLockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      ++*(_WORD *)(a1 + 376);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      ++*((_WORD *)HeapHandle + 188);
     }
   }
   if ( MEMORY[0x7FFE0380] )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      v5 = a1;
+      v5 = HeapHandle;
       v4 = 4139;
-      NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v3);
+      NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
     }
   }
   return 1;

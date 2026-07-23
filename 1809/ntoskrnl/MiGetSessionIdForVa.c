@@ -4,7 +4,7 @@
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)

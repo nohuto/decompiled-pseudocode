@@ -21,21 +21,21 @@ __int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, __int64 a2, __int
   volatile signed __int32 **v6; // rsi
   unsigned int v7; // eax
   int v8; // r14d
-  __int64 v9; // rcx
-  int InformationActivationContext; // ebx
+  _ACTIVATION_CONTEXT *v9; // rcx
+  NTSTATUS v10; // ebx
   __int64 *v11; // rdx
   __int64 v12; // rax
   __int64 **v13; // rcx
-  void *v14; // rsi
+  _RTL_SRWLOCK *v14; // rsi
   volatile signed __int32 *v15; // rax
   _QWORD *v16; // rax
   _QWORD *v17; // rcx
-  void *v18; // rdx
+  _RTL_SRWLOCK *v18; // rdx
   __int64 *v19; // rcx
-  __int64 v21; // rcx
-  __int128 v22; // [rsp+48h] [rbp-30h] BYREF
+  _ACTIVATION_CONTEXT *v21; // rcx
+  __int128 ActivationContext; // [rsp+48h] [rbp-30h] BYREF
 
-  v22 = 0LL;
+  ActivationContext = 0LL;
   *(_DWORD *)a1 = 1;
   *(_QWORD *)(a1 + 8) = a5;
   *(_OWORD *)(a1 + 56) = 0LL;
@@ -77,32 +77,39 @@ LABEL_4:
   *(_GUID *)(a1 + 112) = NtCurrentTeb()->ActivityId;
   *(_QWORD *)(a1 + 48) = a1 + 40;
   *(_QWORD *)(a1 + 40) = a1 + 40;
-  v9 = *(_QWORD *)(a1 + 96);
+  v9 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
   if ( v9 )
   {
-    if ( v9 != -1 )
-      RtlAddRefActivationContext();
+    if ( v9 != (_ACTIVATION_CONTEXT *)-1LL )
+      RtlAddRefActivationContext(v9);
   }
   else
   {
-    InformationActivationContext = RtlQueryInformationActivationContext(1, 0, 0, 1, (__int64)&v22, 16LL, 0LL);
-    if ( InformationActivationContext < 0 )
-      return (unsigned int)InformationActivationContext;
-    if ( (BYTE8(v22) & 1) != 0 )
+    v10 = RtlQueryInformationActivationContext(
+            1u,
+            0LL,
+            0LL,
+            ActivationContextBasicInformation,
+            &ActivationContext,
+            0x10uLL,
+            0LL);
+    if ( v10 < 0 )
+      return (unsigned int)v10;
+    if ( (BYTE8(ActivationContext) & 1) != 0 )
     {
-      RtlReleaseActivationContext(v22);
-      *(_QWORD *)&v22 = -1LL;
+      RtlReleaseActivationContext((PACTIVATION_CONTEXT)ActivationContext);
+      *(_QWORD *)&ActivationContext = -1LL;
     }
-    *(_QWORD *)(a1 + 96) = v22;
+    *(_QWORD *)(a1 + 96) = ActivationContext;
   }
   if ( *v6 )
   {
     _InterlockedAdd(*v6, 1u);
 LABEL_12:
-    InformationActivationContext = 0;
+    v10 = 0;
     if ( *v6 )
     {
-      RtlAcquireSRWLockExclusive(*v6 + 18);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)*v6 + 9);
       v11 = (__int64 *)(a1 + 152);
       v12 = (__int64)(*v6 + 20);
       v13 = (__int64 **)*((_QWORD *)*v6 + 11);
@@ -112,7 +119,7 @@ LABEL_12:
       *(_QWORD *)(a1 + 160) = v13;
       *v13 = v11;
       *(_QWORD *)(v12 + 8) = v11;
-      v14 = (void *)(*v6 + 18);
+      v14 = (_RTL_SRWLOCK *)(*v6 + 18);
     }
     else
     {
@@ -132,29 +139,29 @@ LABEL_12:
     if ( v15 )
     {
       _InterlockedAdd(v15, 1u);
-      InformationActivationContext = 0;
+      v10 = 0;
     }
     goto LABEL_27;
   }
   if ( v8 )
   {
-    v18 = &TppPoolpSerializedPoolLock;
+    v18 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
     v19 = &TppPoolpSerializedPool;
   }
   else
   {
     v18 = &TppPoolpGlobalPoolLock;
-    v19 = &TppPoolpGlobalPool;
+    v19 = (__int64 *)&TppPoolpGlobalPool;
   }
-  InformationActivationContext = TppPoolpReferenceGlobalPool(v19, v18, v6);
-  if ( InformationActivationContext >= 0 )
+  v10 = TppPoolpReferenceGlobalPool(v19, v18, v6);
+  if ( v10 >= 0 )
     goto LABEL_12;
 LABEL_27:
-  if ( InformationActivationContext < 0 )
+  if ( v10 < 0 )
   {
-    v21 = *(_QWORD *)(a1 + 96);
-    if ( (unsigned __int64)(v21 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v21 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
+    if ( (unsigned __int64)&v21[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
       RtlReleaseActivationContext(v21);
   }
-  return (unsigned int)InformationActivationContext;
+  return (unsigned int)v10;
 }

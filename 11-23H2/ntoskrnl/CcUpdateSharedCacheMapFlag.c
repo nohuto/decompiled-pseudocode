@@ -1,18 +1,18 @@
 /*
- * XREFs of CcUpdateSharedCacheMapFlag @ 0x14034C334
+ * XREFs of CcUpdateSharedCacheMapFlag @ 0x14034C4D4
  * Callers:
- *     CcCopyReadEx @ 0x140261D60 (CcCopyReadEx.c)
- *     CcApplyLowIoPriorityToThread @ 0x14029BBA8 (CcApplyLowIoPriorityToThread.c)
- *     CcUpdateReadHistory @ 0x1402BDD28 (CcUpdateReadHistory.c)
- *     CcPurgeAndClearCacheSection @ 0x1402F12D4 (CcPurgeAndClearCacheSection.c)
- *     CcBoostLowPriorityWorkerThread @ 0x14036D6E4 (CcBoostLowPriorityWorkerThread.c)
- *     CcMapAndCopyFromCache @ 0x1406F5C10 (CcMapAndCopyFromCache.c)
- *     CcUnmapVacb @ 0x140721E10 (CcUnmapVacb.c)
- *     CcMdlRead @ 0x14073E9A0 (CcMdlRead.c)
+ *     CcCopyReadEx @ 0x140261FF0 (CcCopyReadEx.c)
+ *     CcApplyLowIoPriorityToThread @ 0x14029BE38 (CcApplyLowIoPriorityToThread.c)
+ *     CcUpdateReadHistory @ 0x1402BDFB8 (CcUpdateReadHistory.c)
+ *     CcPurgeAndClearCacheSection @ 0x1402F1564 (CcPurgeAndClearCacheSection.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14036D884 (CcBoostLowPriorityWorkerThread.c)
+ *     CcMapAndCopyFromCache @ 0x1406F5E20 (CcMapAndCopyFromCache.c)
+ *     CcUnmapVacb @ 0x140722010 (CcUnmapVacb.c)
+ *     CcMdlRead @ 0x14073EB90 (CcMdlRead.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcUpdateSharedCacheMapFlag(__int64 a1, int a2, char a3)
@@ -34,10 +34,10 @@ __int64 __fastcall CcUpdateSharedCacheMapFlag(__int64 a1, int a2, char a3)
     *(_DWORD *)(a1 + 152) &= ~a2;
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
   OldIrql = v12.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v12.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -1,29 +1,29 @@
 /*
- * XREFs of BiCloseStore @ 0x140781D00
+ * XREFs of BiCloseStore @ 0x140781EC0
  * Callers:
- *     BcdCloseStore @ 0x140782414 (BcdCloseStore.c)
- *     BiOpenSystemStore @ 0x14078381C (BiOpenSystemStore.c)
+ *     BcdCloseStore @ 0x1407825D4 (BcdCloseStore.c)
+ *     BiOpenSystemStore @ 0x1407839DC (BiOpenSystemStore.c)
  * Callees:
- *     BiSanitizeHandle @ 0x1402D333C (BiSanitizeHandle.c)
- *     BiSetFirmwareModified @ 0x14039B498 (BiSetFirmwareModified.c)
- *     BiWasFirmwareModified @ 0x14039B4CC (BiWasFirmwareModified.c)
- *     BiUnloadHiveByHandle @ 0x14077936C (BiUnloadHiveByHandle.c)
- *     BiExportStoreAlterationsToFirmware @ 0x14077950C (BiExportStoreAlterationsToFirmware.c)
- *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
- *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiSanitizeHandle @ 0x14025166C (BiSanitizeHandle.c)
+ *     BiSetFirmwareModified @ 0x14039B5E8 (BiSetFirmwareModified.c)
+ *     BiWasFirmwareModified @ 0x14039B61C (BiWasFirmwareModified.c)
+ *     BiUnloadHiveByHandle @ 0x14077952C (BiUnloadHiveByHandle.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x1407796CC (BiExportStoreAlterationsToFirmware.c)
+ *     BiCloseKey @ 0x14078474C (BiCloseKey.c)
+ *     BiLogMessage @ 0x140784F5C (BiLogMessage.c)
  */
 
 __int64 __fastcall BiCloseStore(__int64 a1, char a2)
 {
   unsigned int v3; // edi
   unsigned __int64 v4; // rax
-  __int64 v5; // rbx
+  void *v5; // rbx
   char v6; // dl
   int v8; // eax
 
   v3 = 0;
   v4 = BiSanitizeHandle(a1);
-  v5 = v4;
+  v5 = (void *)v4;
   if ( (v6 & 4) != 0 && BiWasFirmwareModified(v4) )
   {
     BiLogMessage(2LL, L"Exporting alterations to firmware.");
@@ -32,10 +32,10 @@ __int64 __fastcall BiCloseStore(__int64 a1, char a2)
     if ( v8 < 0 )
       BiLogMessage(4LL, L"Failed to export alterations to firmware. Status: %x", (unsigned int)v8);
     else
-      BiSetFirmwareModified(v5, 0);
+      BiSetFirmwareModified((__int64)v5, 0);
   }
   if ( (a2 & 2) != 0 )
-    BiUnloadHiveByHandle(v5, 0);
+    BiUnloadHiveByHandle((__int64)v5, 0);
   else
     BiCloseKey(v5);
   return v3;

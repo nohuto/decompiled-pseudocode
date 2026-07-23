@@ -1,9 +1,9 @@
 /*
- * XREFs of HalRealAllocateAdapterChannelV2 @ 0x14038D950
+ * XREFs of HalRealAllocateAdapterChannelV2 @ 0x140387290
  * Callers:
  *     <none>
  * Callees:
- *     HalAllocateAdapterChannelV2 @ 0x14038DACC (HalAllocateAdapterChannelV2.c)
+ *     HalAllocateAdapterChannelV2 @ 0x14038740C (HalAllocateAdapterChannelV2.c)
  */
 
 __int64 __fastcall HalRealAllocateAdapterChannelV2(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, __int64 a5)

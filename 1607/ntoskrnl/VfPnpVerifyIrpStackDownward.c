@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     VfGetPristineDriverInit @ 0x14070B8AC (VfGetPristineDriverInit.c)
- *     IovUtilIsDeviceObjectMarked @ 0x14070E0AC (IovUtilIsDeviceObjectMarked.c)
- *     IovUtilIsWdmStack @ 0x14070E220 (IovUtilIsWdmStack.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     VfGetPristineDriverInit @ 0x14070B8DC (VfGetPristineDriverInit.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x14070E0DC (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsWdmStack @ 0x14070E250 (IovUtilIsWdmStack.c)
  *     ViPnpVerifyMinorWasProcessedProperly @ 0x140718D44 (ViPnpVerifyMinorWasProcessedProperly.c)
  */
 

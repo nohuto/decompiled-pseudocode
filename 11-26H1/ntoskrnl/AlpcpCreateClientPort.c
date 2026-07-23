@@ -1,49 +1,49 @@
 /*
- * XREFs of AlpcpCreateClientPort @ 0x1408E9A60
+ * XREFs of AlpcpCreateClientPort @ 0x1408F0020
  * Callers:
- *     NtSecureConnectPort @ 0x1408E5CC0 (NtSecureConnectPort.c)
- *     AlpcpConnectPort @ 0x1408E92E0 (AlpcpConnectPort.c)
+ *     NtSecureConnectPort @ 0x1408EC280 (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x1408EF8A0 (AlpcpConnectPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ObpReleaseLookupContext @ 0x14027BE10 (ObpReleaseLookupContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     SeClearLearningModeObjectInformation @ 0x14042F300 (SeClearLearningModeObjectInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x140430644 (SeSetLearningModeObjectInformation.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1404425E0 (SepCreateAccessStateFromSubjectContext.c)
- *     PspLockThreadSecurityShared @ 0x14044ADE0 (PspLockThreadSecurityShared.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpCheckConnectionSecurity @ 0x1408E8E84 (AlpcpCheckConnectionSecurity.c)
- *     AlpcpInitializePort @ 0x1408EA310 (AlpcpInitializePort.c)
- *     AlpcInitializeHandleTable @ 0x1408EA4F4 (AlpcInitializeHandleTable.c)
- *     AlpcpLockBlobExclusive @ 0x1408EAB1C (AlpcpLockBlobExclusive.c)
- *     AlpcpUnlockBlobUncachedExclusive @ 0x1408EAB80 (AlpcpUnlockBlobUncachedExclusive.c)
- *     AlpcpAllocateBlob @ 0x1408EB5C0 (AlpcpAllocateBlob.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x1408EB68C (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpSetOwnerProcessPort @ 0x1408EBD74 (AlpcpSetOwnerProcessPort.c)
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     ObpCheckObjectReference @ 0x1408EE834 (ObpCheckObjectReference.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     ObpFreeObjectNameBuffer @ 0x1408F17F0 (ObpFreeObjectNameBuffer.c)
- *     ObpCaptureObjectName @ 0x1408F26B0 (ObpCaptureObjectName.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     SeCreateClientSecurity @ 0x140929880 (SeCreateClientSecurity.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     AlpcpAllocateMessage @ 0x1409BCB60 (AlpcpAllocateMessage.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ObpReleaseLookupContext @ 0x14027B380 (ObpReleaseLookupContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     SeClearLearningModeObjectInformation @ 0x14041C210 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x14041D674 (SeSetLearningModeObjectInformation.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14043B0F0 (SepCreateAccessStateFromSubjectContext.c)
+ *     PspLockThreadSecurityShared @ 0x140442F10 (PspLockThreadSecurityShared.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1408EF444 (AlpcpCheckConnectionSecurity.c)
+ *     AlpcpInitializePort @ 0x1408F08D0 (AlpcpInitializePort.c)
+ *     AlpcInitializeHandleTable @ 0x1408F0AB4 (AlpcInitializeHandleTable.c)
+ *     AlpcpLockBlobExclusive @ 0x1408F10DC (AlpcpLockBlobExclusive.c)
+ *     AlpcpUnlockBlobUncachedExclusive @ 0x1408F1140 (AlpcpUnlockBlobUncachedExclusive.c)
+ *     AlpcpAllocateBlob @ 0x1408F1B80 (AlpcpAllocateBlob.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1408F1C4C (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpSetOwnerProcessPort @ 0x1408F2334 (AlpcpSetOwnerProcessPort.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     ObpCheckObjectReference @ 0x1408F4DF4 (ObpCheckObjectReference.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     ObpFreeObjectNameBuffer @ 0x1408F7DB0 (ObpFreeObjectNameBuffer.c)
+ *     ObpCaptureObjectName @ 0x1408F8C70 (ObpCaptureObjectName.c)
+ *     SeCreateClientSecurity @ 0x140905390 (SeCreateClientSecurity.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     AlpcpAllocateMessage @ 0x14098DB40 (AlpcpAllocateMessage.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(
@@ -71,8 +71,8 @@ __int64 __fastcall AlpcpCreateClientPort(
   struct _KTHREAD *CurrentThread; // rbx
   __int64 Process; // r13
   struct _KTHREAD *v23; // r15
-  _KTRAP_FRAME *v24; // rsi
-  _KTRAP_FRAME *v25; // rax
+  struct _LIST_ENTRY *v24; // rsi
+  struct _LIST_ENTRY *v25; // rax
   struct _LIST_ENTRY *CurrentSilo; // rax
   __int64 v27; // r8
   int v28; // ecx
@@ -116,7 +116,7 @@ __int64 __fastcall AlpcpCreateClientPort(
   _QWORD *v66; // [rsp+C8h] [rbp-38h]
   _QWORD *v67; // [rsp+D0h] [rbp-30h]
   __int128 v68; // [rsp+D8h] [rbp-28h] BYREF
-  _KTRAP_FRAME *v69; // [rsp+E8h] [rbp-18h]
+  struct _LIST_ENTRY *v69; // [rsp+E8h] [rbp-18h]
   __int64 v70; // [rsp+F0h] [rbp-10h]
   __int64 v71[2]; // [rsp+F8h] [rbp-8h] BYREF
   __int64 v72; // [rsp+108h] [rbp+8h]
@@ -178,7 +178,7 @@ __int64 __fastcall AlpcpCreateClientPort(
             PspLockThreadSecurityShared((__int64)CurrentThread, (__int64)v23, v20, v18);
             if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
             {
-              v24 = (_KTRAP_FRAME *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+              v24 = (struct _LIST_ENTRY *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
               ObfReferenceObjectWithTag(v24, 0x75536553u);
               DWORD2(v68) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
             }
@@ -193,20 +193,20 @@ __int64 __fastcall AlpcpCreateClientPort(
             v24 = 0LL;
           }
           *(_QWORD *)&v68 = v24;
-          v25 = (_KTRAP_FRAME *)PsReferencePrimaryTokenWithTag(Process, 0x75536553u, v20, v18);
+          v25 = (struct _LIST_ENTRY *)PsReferencePrimaryTokenWithTag(Process, 0x75536553u, v20, v18);
           v69 = v25;
           if ( SeTokenLeakTracking )
           {
             if ( v25 )
             {
-              _InterlockedIncrement((volatile signed __int32 *)(v25[2].Rbp + 284));
-              if ( v25 == RtlpBootStatHandleLock.TrapFrame )
+              _InterlockedIncrement((volatile signed __int32 *)&v25[71].Blink[17].Blink + 1);
+              if ( v25 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
                 __debugbreak();
             }
             if ( v24 )
             {
-              _InterlockedIncrement((volatile signed __int32 *)(v24[2].Rbp + 284));
-              if ( v24 == RtlpBootStatHandleLock.TrapFrame )
+              _InterlockedIncrement((volatile signed __int32 *)&v24[71].Blink[17].Blink + 1);
+              if ( v24 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
                 __debugbreak();
             }
           }

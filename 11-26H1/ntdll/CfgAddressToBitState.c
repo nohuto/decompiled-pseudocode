@@ -1,7 +1,7 @@
 /*
- * XREFs of CfgAddressToBitState @ 0x1800C6BEC
+ * XREFs of CfgAddressToBitState @ 0x1800C43AC
  * Callers:
- *     RtlValidateUserCallTarget @ 0x1800C6B50 (RtlValidateUserCallTarget.c)
+ *     RtlValidateUserCallTarget @ 0x1800C4310 (RtlValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

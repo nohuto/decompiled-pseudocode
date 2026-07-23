@@ -1,17 +1,18 @@
 /*
- * XREFs of CmpGenerateFlushControlData @ 0x140724134
+ * XREFs of CmpGenerateFlushControlData @ 0x1406FC160
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     PoIsInitializedStopWatch @ 0x140263FA8 (PoIsInitializedStopWatch.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvGetHiveLogFileStatus @ 0x140724678 (HvGetHiveLogFileStatus.c)
- *     HvIsCurrentLogSwappable @ 0x1407254F4 (HvIsCurrentLogSwappable.c)
+ *     PoIsInitializedStopWatch @ 0x1402713C8 (PoIsInitializedStopWatch.c)
+ *     HvIsCurrentLogSwappable @ 0x14061D984 (HvIsCurrentLogSwappable.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1406FC61C (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvGetHiveLogFileStatus @ 0x1406FC6A4 (HvGetHiveLogFileStatus.c)
  */
 
-char __fastcall CmpGenerateFlushControlData(__int64 a1, char a2, int *a3)
+char __fastcall CmpGenerateFlushControlData(__int64 a1, __int64 a2, int *a3)
 {
   int *v3; // rsi
+  char v6; // bp
   char v7; // cl
   char v8; // r11
   int v9; // r10d
@@ -33,6 +34,7 @@ char __fastcall CmpGenerateFlushControlData(__int64 a1, char a2, int *a3)
   *(_QWORD *)a3 = 0LL;
   a3[2] = 0;
   a3[5] = 0;
+  v6 = a2;
   a3[3] = 0;
   v7 = *(_BYTE *)(a1 + 191);
   if ( !v7 && !*(_DWORD *)(a1 + 104) && !*(_DWORD *)(a1 + 128) )
@@ -57,10 +59,10 @@ LABEL_4:
   }
   if ( *(_DWORD *)(a1 + 4268) )
     *a3 = v9 | 0x82;
-  a3[6] = HvGetEffectiveLogSizeCapForHive(a1);
+  a3[6] = HvGetEffectiveLogSizeCapForHive(a1, a2, a3);
 LABEL_9:
   v11 = v10;
-  if ( v8 && (a2 & 4) != 0 )
+  if ( v8 && (v6 & 4) != 0 )
   {
     v11 = v10 | 0x42;
     *a3 = v10 | 0x42;
@@ -71,7 +73,7 @@ LABEL_9:
     LOBYTE(v12) = (CmpGlobalFlushControlFlags & 1) == 0;
     if ( (((*(_DWORD *)(a1 + 4152) & 0x800) == 0) & (unsigned __int8)v12) != 0 )
     {
-      if ( (a2 & 8) != 0 && (!*(_BYTE *)(a1 + 190) || (v11 & 0x10) != 0) )
+      if ( (v6 & 8) != 0 && (!*(_BYTE *)(a1 + 190) || (v11 & 0x10) != 0) )
       {
         v18 = v11 | 0x107;
         *a3 = v18;
@@ -100,7 +102,7 @@ LABEL_9:
         else if ( (v12 & 4) != 0 )
         {
           *a3 |= 2u;
-          if ( (unsigned __int8)HvIsCurrentLogSwappable(a1) )
+          if ( HvIsCurrentLogSwappable(a1) )
             v22 = v21 | 0x22;
           else
             v22 = v21 | 0x42;
@@ -120,7 +122,7 @@ LABEL_9:
       else
       {
         *a3 = v15 | 1;
-        if ( (unsigned __int8)HvIsCurrentLogSwappable(a1) )
+        if ( HvIsCurrentLogSwappable(a1) )
         {
           v13 = v16 | 0x21;
         }
@@ -155,7 +157,7 @@ LABEL_20:
       {
         if ( *(_QWORD *)(a1 + 1536) )
         {
-          LOBYTE(v12) = (a2 & 0x20) == 0;
+          LOBYTE(v12) = (v6 & 0x20) == 0;
           if ( (((v13 & 8) == 0) & (unsigned __int8)v12) == 0 )
             *a3 = v13 | 0x202;
         }
@@ -173,7 +175,7 @@ LABEL_20:
   }
   else
   {
-    LOBYTE(v12) = (a2 & 0x20) != 0;
+    LOBYTE(v12) = (v6 & 0x20) != 0;
     if ( (((*(_BYTE *)(a1 + 4264) & 1) == 0) & (unsigned __int8)v12) == 0 )
       return v12;
     v20 = v11 | 0x202;

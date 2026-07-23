@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReadWriteVirtualMemory @ 0x1405F6190
+ * XREFs of MiReadWriteVirtualMemory @ 0x1406E58F0
  * Callers:
- *     NtReadVirtualMemory @ 0x1405F6160 (NtReadVirtualMemory.c)
- *     NtWriteVirtualMemory @ 0x1406B2A60 (NtWriteVirtualMemory.c)
+ *     NtWriteVirtualMemory @ 0x140611AA0 (NtWriteVirtualMemory.c)
+ *     NtReadVirtualMemory @ 0x1406E58C0 (NtReadVirtualMemory.c)
  * Callees:
- *     PsIsProcessLoggingEnabled @ 0x1402072F0 (PsIsProcessLoggingEnabled.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
- *     EtwTiLogReadWriteVm @ 0x1406293AC (EtwTiLogReadWriteVm.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     PsIsProcessLoggingEnabled @ 0x1402ABBF0 (PsIsProcessLoggingEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     EtwTiLogReadWriteVm @ 0x140690354 (EtwTiLogReadWriteVm.c)
+ *     MmCopyVirtualMemory @ 0x1406E6510 (MmCopyVirtualMemory.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MiReadWriteVirtualMemory(
@@ -34,7 +34,7 @@ __int64 __fastcall MiReadWriteVirtualMemory(
   int v20; // ecx
   NTSTATUS v21; // eax
   int v22; // eax
-  int v23; // r10d
+  __int64 v23; // r10
   char v25; // [rsp+40h] [rbp-48h]
   __int64 v26; // [rsp+48h] [rbp-40h] BYREF
   PVOID Object[2]; // [rsp+50h] [rbp-38h] BYREF
@@ -107,7 +107,7 @@ __int64 __fastcall MiReadWriteVirtualMemory(
       }
       LOBYTE(v22) = PsIsProcessLoggingEnabled((__int64)v16, DesiredAccess);
       if ( v22 )
-        EtwTiLogReadWriteVm(v14, v23, (_DWORD)v16, DesiredAccess, v7, v9);
+        EtwTiLogReadWriteVm(v14, v23, (__int64)v16, DesiredAccess, v7, v9);
       ObfDereferenceObjectWithTag(v16, 0x6D566D4Du);
     }
   }

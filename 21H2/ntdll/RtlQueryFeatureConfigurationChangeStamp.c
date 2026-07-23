@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryFeatureConfigurationChangeStamp @ 0x180101C80
+ * XREFs of RtlQueryFeatureConfigurationChangeStamp @ 0x180101C40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlQueryFeatureConfigurationChangeStamp()
+RTL_FEATURE_CHANGE_STAMP RtlQueryFeatureConfigurationChangeStamp(void)
 {
   return MEMORY[0x7FFE0710];
 }

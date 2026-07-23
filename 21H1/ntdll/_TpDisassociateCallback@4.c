@@ -7,24 +7,29 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpDisassociateCallback(int a1)
+void __cdecl TpDisassociateCallback(PTP_CALLBACK_INSTANCE Instance)
 {
   int v1; // esi
   char v2; // cl
   unsigned int v3; // ecx
   int v4; // edx
 
-  if ( !a1 || (v1 = *(_DWORD *)(a1 + 108)) == 0 || *(_DWORD *)(a1 + 104) || (v2 = *(_BYTE *)(a1 + 40), (v2 & 2) != 0) )
+  if ( !Instance
+    || (v1 = *((_DWORD *)Instance + 27)) == 0
+    || *((_DWORD *)Instance + 26)
+    || (v2 = *((_BYTE *)Instance + 40), (v2 & 2) != 0) )
+  {
     TppRaiseInvalidParameter();
-  *(_BYTE *)(a1 + 40) = v2 | 2;
-  v3 = *(_DWORD *)(a1 + 80) & 0xFFFFFFBF;
-  *(_DWORD *)(a1 + 80) = v3;
+  }
+  *((_BYTE *)Instance + 40) = v2 | 2;
+  v3 = *((_DWORD *)Instance + 20) & 0xFFFFFFBF;
+  *((_DWORD *)Instance + 20) = v3;
   v4 = *(_DWORD *)(v1 + 8);
-  *(_DWORD *)(a1 + 104) = v4;
+  *((_DWORD *)Instance + 26) = v4;
   if ( v4 )
   {
-    *(_DWORD *)(a1 + 80) = v3 | 0x20;
+    *((_DWORD *)Instance + 20) = v3 | 0x20;
     TppBarrierAdjust((signed __int64 *)(v4 + 24), 1, 0);
   }
-  return TppBarrierAdjust((signed __int64 *)(v1 + 32), -1, 0);
+  TppBarrierAdjust((signed __int64 *)(v1 + 32), -1, 0);
 }

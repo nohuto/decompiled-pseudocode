@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAllocatePerSessionProtos @ 0x1406C91F0
+ * XREFs of MiAllocatePerSessionProtos @ 0x1406CA490
  * Callers:
- *     MiCreatePerSessionProtos @ 0x1406C90C8 (MiCreatePerSessionProtos.c)
- *     MiCreateSessionDriverProtos @ 0x14085F11C (MiCreateSessionDriverProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406CA368 (MiCreatePerSessionProtos.c)
+ *     MiCreateSessionDriverProtos @ 0x14086037C (MiCreateSessionDriverProtos.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
@@ -10,18 +10,18 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiMakeSubsectionPte @ 0x140095B00 (MiMakeSubsectionPte.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiGetControlAreaPartition @ 0x1400937E8 (MiGetControlAreaPartition.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiMakeSubsectionPte @ 0x140095A40 (MiMakeSubsectionPte.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     MmSizeOfMdl @ 0x14011A7B0 (MmSizeOfMdl.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiFillPerSessionProtos @ 0x14085D65C (MiFillPerSessionProtos.c)
  */
 
 __int64 __fastcall MiAllocatePerSessionProtos(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4, _QWORD *a5)
@@ -103,7 +103,7 @@ __int64 __fastcall MiAllocatePerSessionProtos(__int64 a1, unsigned __int64 a2, u
         if ( (unsigned int)MiPteHasShadow() )
         {
           v21 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
             v27 = (v26 & 1) == 0;
             goto LABEL_36;
@@ -125,7 +125,7 @@ LABEL_10:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v21 = 1;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_10;
           v27 = (v18 & 1) == 0;
         }

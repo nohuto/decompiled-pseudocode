@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiEnableGroupScheduling@@YAXXZ @ 0x1405C7400
+ * XREFs of ?KiEnableGroupScheduling@@YAXXZ @ 0x1405C4B30
  * Callers:
- *     KeInsertSchedulingGroup @ 0x14030F2B8 (KeInsertSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x14045CB04 (KeInsertSchedulingGroup.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1405C7904 (KeUpdateGroupSchedulingConstants.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1405C5034 (KeUpdateGroupSchedulingConstants.c)
  */
 
 void KiEnableGroupScheduling(void)

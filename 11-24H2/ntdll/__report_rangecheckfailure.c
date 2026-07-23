@@ -1,16 +1,16 @@
 /*
- * XREFs of __report_rangecheckfailure @ 0x180120A2C
+ * XREFs of __report_rangecheckfailure @ 0x18011EC5C
  * Callers:
- *     LdrpLangFallbackListAppendNode @ 0x180031E20 (LdrpLangFallbackListAppendNode.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
- *     RtlCanonicalizeDomainName @ 0x1800BA3D0 (RtlCanonicalizeDomainName.c)
- *     RtlpMatchUILanguage @ 0x1800D0FEC (RtlpMatchUILanguage.c)
- *     strtok_s @ 0x18012DC60 (strtok_s.c)
- *     inflate_table @ 0x180155624 (inflate_table.c)
+ *     LdrpLangFallbackListAppendNode @ 0x180012EE0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
+ *     RtlpMatchUILanguage @ 0x18009A584 (RtlpMatchUILanguage.c)
+ *     RtlCanonicalizeDomainName @ 0x1800B2190 (RtlCanonicalizeDomainName.c)
+ *     strtok_s @ 0x18012BE90 (strtok_s.c)
+ *     inflate_table @ 0x1801539E4 (inflate_table.c)
  * Callees:
- *     __report_securityfailure @ 0x180120A48 (__report_securityfailure.c)
+ *     __report_securityfailure @ 0x18011EC78 (__report_securityfailure.c)
  */
 
 void __noreturn _report_rangecheckfailure()

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCheckSlabEntryForDefrag @ 0x140705F34
+ * XREFs of MiCheckSlabEntryForDefrag @ 0x14070AC04
  * Callers:
- *     MiFindDefragmentSlabEntriesHelper @ 0x140706F10 (MiFindDefragmentSlabEntriesHelper.c)
- *     MiFindDefragmentSlabEntriesHelperByIdentity @ 0x140706FB0 (MiFindDefragmentSlabEntriesHelperByIdentity.c)
+ *     MiFindDefragmentSlabEntriesHelper @ 0x14070BBE0 (MiFindDefragmentSlabEntriesHelper.c)
+ *     MiFindDefragmentSlabEntriesHelperByIdentity @ 0x14070BC80 (MiFindDefragmentSlabEntriesHelperByIdentity.c)
  * Callees:
  *     <none>
  */

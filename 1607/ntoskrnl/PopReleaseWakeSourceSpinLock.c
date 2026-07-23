@@ -1,5 +1,5 @@
 /*
- * XREFs of PopReleaseWakeSourceSpinLock @ 0x140114914
+ * XREFs of PopReleaseWakeSourceSpinLock @ 0x140114E84
  * Callers:
  *     PopHandleWakeSources @ 0x1403D0AEC (PopHandleWakeSources.c)
  *     PopNewWakeInfo @ 0x1403D0BE4 (PopNewWakeInfo.c)

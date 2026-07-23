@@ -6,10 +6,10 @@
  *     MiLogRelocationFaults @ 0x1406AB91C (MiLogRelocationFaults.c)
  *     MiParseComAndCetHeaders @ 0x1406AB9A4 (MiParseComAndCetHeaders.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140288540 (MiOffsetToProtos.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     PfLogFileDataAccess @ 0x1402DFBD4 (PfLogFileDataAccess.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
+ *     MiOffsetToProtos @ 0x1402887D0 (MiOffsetToProtos.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     PfLogFileDataAccess @ 0x1402DFE64 (PfLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x1402E27A0 (PfSnLogPageFault.c)
  */
 
 void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)

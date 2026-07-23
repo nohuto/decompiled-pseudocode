@@ -1,14 +1,14 @@
 /*
- * XREFs of PpCreateLegacyDeviceIds @ 0x14062A8B0
+ * XREFs of PpCreateLegacyDeviceIds @ 0x14062A964
  * Callers:
- *     IoReportDetectedDevice @ 0x140554CFC (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x14055523C (IoReportDetectedDevice.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
  */
 
 __int64 __fastcall PpCreateLegacyDeviceIds(__int64 a1, unsigned __int16 *a2, __int64 a3)

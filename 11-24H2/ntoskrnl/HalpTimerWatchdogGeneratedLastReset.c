@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerWatchdogGeneratedLastReset @ 0x1406FE7E0
+ * XREFs of HalpTimerWatchdogGeneratedLastReset @ 0x1406FC420
  * Callers:
- *     HalpTimerWatchdogLogReset @ 0x1406FE804 (HalpTimerWatchdogLogReset.c)
+ *     HalpTimerWatchdogLogReset @ 0x1406FC444 (HalpTimerWatchdogLogReset.c)
  * Callees:
  *     <none>
  */

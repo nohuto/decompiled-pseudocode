@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeIdleThread @ 0x14099E424
+ * XREFs of KiInitializeIdleThread @ 0x14099F354
  * Callers:
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
  * Callees:
- *     KeStartThread @ 0x140277A6C (KeStartThread.c)
- *     KeInitThread @ 0x14098F2E0 (KeInitThread.c)
+ *     KeStartThread @ 0x140265A0C (KeStartThread.c)
+ *     KeInitThread @ 0x140990D94 (KeInitThread.c)
  */
 
 unsigned __int64 __fastcall KiInitializeIdleThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

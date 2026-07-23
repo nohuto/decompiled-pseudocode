@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQuerySystemInformation @ 0x18009DD00
+ * XREFs of NtQuerySystemInformation @ 0x18009DCC0
  * Callers:
  *     RtlpHpEnvQueryProcessorCount @ 0x180007E1C (RtlpHpEnvQueryProcessorCount.c)
  *     RtlCreateHeap @ 0x18000A8B0 (RtlCreateHeap.c)
@@ -8,18 +8,18 @@
  *     TpInitializePackage @ 0x18007D9CC (TpInitializePackage.c)
  *     RtlSystemTimeToLocalTime @ 0x18007DF30 (RtlSystemTimeToLocalTime.c)
  *     RtlpQueryPseudoEnvironmentVariable @ 0x18008974C (RtlpQueryPseudoEnvironmentVariable.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x1800CF7D0 (LdrpLogIntegrityContinuityTelemetry.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     LdrInitializeMrdata @ 0x1800D5AC4 (LdrInitializeMrdata.c)
- *     SendMessageToWERService @ 0x1800DD4BC (SendMessageToWERService.c)
- *     RtlResetStackOverflow @ 0x1800DE804 (RtlResetStackOverflow.c)
- *     RtlQueryModuleInformation @ 0x1800E3ED0 (RtlQueryModuleInformation.c)
- *     RtlLocalTimeToSystemTime @ 0x1800E5E50 (RtlLocalTimeToSystemTime.c)
- *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F7CE0 (RtlRegisterSecureMemoryCacheCallback.c)
- *     RtlpInitializeNonVolatileFlush @ 0x1800FBE34 (RtlpInitializeNonVolatileFlush.c)
- *     RtlpHeapTrkAllocCacheAligned @ 0x1800FDEDC (RtlpHeapTrkAllocCacheAligned.c)
- *     RtlHpInitializeHeapManager @ 0x18010B490 (RtlHpInitializeHeapManager.c)
- *     RtlpInitializeLowFragHeapManager @ 0x18010BA14 (RtlpInitializeLowFragHeapManager.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x1800CF790 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     LdrInitializeMrdata @ 0x1800D5A84 (LdrInitializeMrdata.c)
+ *     SendMessageToWERService @ 0x1800DD47C (SendMessageToWERService.c)
+ *     RtlResetStackOverflow @ 0x1800DE7C4 (RtlResetStackOverflow.c)
+ *     RtlQueryModuleInformation @ 0x1800E3E90 (RtlQueryModuleInformation.c)
+ *     RtlLocalTimeToSystemTime @ 0x1800E5E10 (RtlLocalTimeToSystemTime.c)
+ *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F7CA0 (RtlRegisterSecureMemoryCacheCallback.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1800FBDF4 (RtlpInitializeNonVolatileFlush.c)
+ *     RtlpHeapTrkAllocCacheAligned @ 0x1800FDE9C (RtlpHeapTrkAllocCacheAligned.c)
+ *     RtlHpInitializeHeapManager @ 0x18010B450 (RtlHpInitializeHeapManager.c)
+ *     RtlpInitializeLowFragHeapManager @ 0x18010B9D4 (RtlpInitializeLowFragHeapManager.c)
  * Callees:
  *     <none>
  */

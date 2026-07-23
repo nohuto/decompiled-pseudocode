@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLoadFileSystemDriver @ 0x14077D1D4
+ * XREFs of IopLoadFileSystemDriver @ 0x14077D394
  * Callers:
- *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
+ *     IopMountVolume @ 0x1405DB490 (IopMountVolume.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopDecrementDeviceObjectRef @ 0x140353B90 (IopDecrementDeviceObjectRef.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14035E8E0 (IopDecrementDeviceObjectRef.c)
  */
 
 __int64 __fastcall IopLoadFileSystemDriver(struct _DEVICE_OBJECT *BugCheckParameter2)
@@ -15,8 +15,6 @@ __int64 __fastcall IopLoadFileSystemDriver(struct _DEVICE_OBJECT *BugCheckParame
   struct _DEVICE_OBJECT *AttachedDevice; // rax
   struct _DEVICE_OBJECT *v3; // rbx
   PIRP v4; // rax
-  __int64 v5; // r8
-  _DWORD *v6; // r9
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+60h] [rbp-28h] BYREF
 
@@ -37,6 +35,5 @@ __int64 __fastcall IopLoadFileSystemDriver(struct _DEVICE_OBJECT *BugCheckParame
     if ( IofCallDriver(v3, v4) == 259 )
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
   }
-  LOBYTE(v5) = 1;
-  return IopDecrementDeviceObjectRef((ULONG_PTR)BugCheckParameter2, 1, v5, v6);
+  return IopDecrementDeviceObjectRef((ULONG_PTR)BugCheckParameter2, 1, 1u);
 }

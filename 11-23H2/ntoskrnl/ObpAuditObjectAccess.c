@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpAuditObjectAccess @ 0x14097C114
+ * XREFs of ObpAuditObjectAccess @ 0x14097C314
  * Callers:
- *     NtWriteFile @ 0x1406B6A20 (NtWriteFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ObReferenceFileObjectForWrite @ 0x140749DE4 (ObReferenceFileObjectForWrite.c)
+ *     NtWriteFile @ 0x1406B6BD0 (NtWriteFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObReferenceFileObjectForWrite @ 0x140749FD4 (ObReferenceFileObjectForWrite.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ExLockHandleTableEntry @ 0x1402BEAD4 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ExpGetHandleExtraInfo @ 0x1408AB4CA (ExpGetHandleExtraInfo.c)
- *     SeOperationAuditAlarm @ 0x1409CB49C (SeOperationAuditAlarm.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     ExLockHandleTableEntry @ 0x1402BED64 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ExpGetHandleExtraInfo @ 0x1408AB71A (ExpGetHandleExtraInfo.c)
+ *     SeOperationAuditAlarm @ 0x1409CB69C (SeOperationAuditAlarm.c)
  */
 
 char __fastcall ObpAuditObjectAccess(__int64 a1, __int64 a2, __int64 *a3, __int64 a4, int a5)

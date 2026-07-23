@@ -1,7 +1,7 @@
 /*
- * XREFs of IopConfigureDiskIoAttribution @ 0x140193CEC
+ * XREFs of IopConfigureDiskIoAttribution @ 0x140193E2C
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     <none>
  */

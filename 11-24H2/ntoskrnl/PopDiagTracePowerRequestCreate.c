@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTracePowerRequestCreate @ 0x140A3808C
+ * XREFs of PopDiagTracePowerRequestCreate @ 0x140A2D14C
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PoStoreRequester @ 0x140331734 (PoStoreRequester.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopGetCallerContextFromBuffer @ 0x140A39F00 (PopGetCallerContextFromBuffer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoStoreRequester @ 0x1402BAE34 (PoStoreRequester.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopGetCallerContextFromBuffer @ 0x140A2EFC0 (PopGetCallerContextFromBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
@@ -44,7 +44,7 @@ void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
   int v29; // [rsp+5Ch] [rbp-ACh] BYREF
   __int64 v30; // [rsp+60h] [rbp-A8h] BYREF
   __int64 v31; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned __int64 v32; // [rsp+70h] [rbp-98h] BYREF
+  ULONG_PTR v32; // [rsp+70h] [rbp-98h] BYREF
   _DWORD v33[2]; // [rsp+78h] [rbp-90h] BYREF
   char *v34; // [rsp+80h] [rbp-88h]
   __int128 v35; // [rsp+88h] [rbp-80h] BYREF
@@ -106,7 +106,7 @@ void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
       v4 = *(_QWORD *)(v31 + 96);
       v34 = &v65;
       PoStoreRequester(v4, 0LL, &v32, 0);
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, v32, 0x50455654u);
       v6 = (_DWORD *)Pool2;
       if ( Pool2 )
       {

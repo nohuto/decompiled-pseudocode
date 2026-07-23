@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockPartitionMappedWriter @ 0x140497478
+ * XREFs of MiLockPartitionMappedWriter @ 0x140490FC8
  * Callers:
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiMappedPageWriter @ 0x140496920 (MiMappedPageWriter.c)
- *     MiDeleteMappedMdls @ 0x1404973CC (MiDeleteMappedMdls.c)
- *     MiAllocateMappedWriterMdls @ 0x1404B64F0 (MiAllocateMappedWriterMdls.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiMappedPageWriter @ 0x140490470 (MiMappedPageWriter.c)
+ *     MiDeleteMappedMdls @ 0x140490F1C (MiDeleteMappedMdls.c)
+ *     MiAllocateMappedWriterMdls @ 0x1404AF940 (MiAllocateMappedWriterMdls.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall MiLockPartitionMappedWriter(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

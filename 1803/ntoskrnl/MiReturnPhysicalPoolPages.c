@@ -23,7 +23,7 @@ void __fastcall MiReturnPhysicalPoolPages(__int64 a1, int a2)
   unsigned __int64 v8; // rcx
   volatile signed __int64 *v9; // rdi
   char v10; // al
-  union _SLIST_HEADER *v11; // rbx
+  _SLIST_HEADER *v11; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-78h] BYREF
   _QWORD v13[12]; // [rsp+38h] [rbp-60h] BYREF
   __int64 v14; // [rsp+A0h] [rbp+8h]

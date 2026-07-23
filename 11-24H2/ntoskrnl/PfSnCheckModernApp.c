@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnCheckModernApp @ 0x140961CE8
+ * XREFs of PfSnCheckModernApp @ 0x1409497A8
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140960934 (PfSnBeginAppLaunch.c)
- *     PfSnCalculateScenarioNameAndHash @ 0x140961A08 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnBeginAppLaunch @ 0x1409483F4 (PfSnBeginAppLaunch.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1409494C8 (PfSnCalculateScenarioNameAndHash.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     RtlQueryPackageIdentity @ 0x140356170 (RtlQueryPackageIdentity.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     RtlQueryPackageIdentity @ 0x140422B10 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *a4)
+__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, WCHAR *a3, ULONG_PTR *a4)
 {
   int v8; // ebp
   _KPROCESS *Process; // r14
-  ULONG_PTR v10; // r15
-  int PackageIdentity; // eax
+  void *v10; // r15
+  NTSTATUS PackageIdentity; // eax
   unsigned int v12; // esi
   int v13; // edi
   __int64 v15; // r8
@@ -27,28 +27,28 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *
   __int64 v21; // r10
   __int64 v22; // r10
   unsigned __int8 *v23; // r10
-  size_t v24; // r11
-  size_t v25; // rbx
+  ULONG_PTR v24; // r11
+  ULONG_PTR v25; // rbx
   __int64 v26; // rcx
   __int64 v27; // rax
-  size_t v28; // r11
-  size_t v29; // r11
+  ULONG_PTR v28; // r11
+  ULONG_PTR v29; // r11
   __int64 v30; // r10
   __int64 v31; // r10
   __int64 v32; // r10
   __int64 v33; // r10
-  __int64 v34; // r11
-  __int64 v35; // r11
-  __int64 v36; // r11
-  __int64 v37; // r11
-  size_t v38[2]; // [rsp+30h] [rbp-F8h] BYREF
-  wchar_t v39[72]; // [rsp+40h] [rbp-E8h] BYREF
+  ULONG_PTR v34; // r11
+  ULONG_PTR v35; // r11
+  ULONG_PTR v36; // r11
+  ULONG_PTR v37; // r11
+  ULONG_PTR AppIdSize[2]; // [rsp+30h] [rbp-F8h] BYREF
+  WCHAR AppId[72]; // [rsp+40h] [rbp-E8h] BYREF
 
   v8 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v10 = PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
-  v38[0] = 130LL;
-  PackageIdentity = RtlQueryPackageIdentity(v10, a3, a4, v39, v38, 0LL);
+  v10 = (void *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
+  AppIdSize[0] = 130LL;
+  PackageIdentity = RtlQueryPackageIdentity(v10, a3, a4, AppId, AppIdSize, 0LL);
   v12 = PackageIdentity;
   if ( PackageIdentity >= 0 )
   {
@@ -100,9 +100,9 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *
                 if ( v33 != 1 )
                 {
 LABEL_12:
-                  v23 = (unsigned __int8 *)v39;
-                  v24 = v38[0] - 2;
-                  if ( (signed __int64)(v38[0] - 2) >= 8 )
+                  v23 = (unsigned __int8 *)AppId;
+                  v24 = AppIdSize[0] - 2;
+                  if ( (signed __int64)(AppIdSize[0] - 2) >= 8 )
                   {
                     v25 = v24 >> 3;
                     v24 -= 8 * (v24 >> 3);
@@ -157,22 +157,22 @@ LABEL_19:
                   goto LABEL_3;
                 }
                 LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-                a3 = (wchar_t *)((char *)a3 + 1);
+                a3 = (WCHAR *)((char *)a3 + 1);
               }
               LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-              a3 = (wchar_t *)((char *)a3 + 1);
+              a3 = (WCHAR *)((char *)a3 + 1);
             }
             LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-            a3 = (wchar_t *)((char *)a3 + 1);
+            a3 = (WCHAR *)((char *)a3 + 1);
           }
           LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-          a3 = (wchar_t *)((char *)a3 + 1);
+          a3 = (WCHAR *)((char *)a3 + 1);
         }
         LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-        a3 = (wchar_t *)((char *)a3 + 1);
+        a3 = (WCHAR *)((char *)a3 + 1);
       }
       LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-      a3 = (wchar_t *)((char *)a3 + 1);
+      a3 = (WCHAR *)((char *)a3 + 1);
     }
     LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
     goto LABEL_12;
@@ -185,6 +185,6 @@ LABEL_3:
     v12 = 0;
     *a1 = v13;
   }
-  ObFastDereferenceObject((__int64 *)&Process[1].ActiveProcessors, v10, 0x746C6644u);
+  ObFastDereferenceObject((__int64 *)&Process[1].ActiveProcessors, (ULONG_PTR)v10, 0x746C6644u);
   return v12;
 }

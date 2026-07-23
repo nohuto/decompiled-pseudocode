@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTraceTimedEvent @ 0x140338D50
+ * XREFs of EtwTraceTimedEvent @ 0x140338FE0
  * Callers:
- *     KiExpireTimer2 @ 0x140251A80 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x14031DB78 (KeDisableTimer2.c)
- *     KiFinalizeTimer2Disablement @ 0x14031E0B4 (KiFinalizeTimer2Disablement.c)
- *     PerfInfoLogInterrupt @ 0x140338CD0 (PerfInfoLogInterrupt.c)
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlSendSyntheticClusterIpi @ 0x1403CC2A0 (HvlSendSyntheticClusterIpi.c)
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     EtwpTraceFltTimedIo @ 0x140468130 (EtwpTraceFltTimedIo.c)
- *     PerfInfoLogInterruptHv @ 0x140468340 (PerfInfoLogInterruptHv.c)
- *     IopTimerDispatch @ 0x140555CA0 (IopTimerDispatch.c)
- *     EtwTraceCpuCacheFlush @ 0x1405FC8CC (EtwTraceCpuCacheFlush.c)
- *     PerfInfoLogIpiReceive @ 0x1405FEA50 (PerfInfoLogIpiReceive.c)
+ *     KiExpireTimer2 @ 0x140251B40 (KiExpireTimer2.c)
+ *     KeDisableTimer2 @ 0x14031DE08 (KeDisableTimer2.c)
+ *     KiFinalizeTimer2Disablement @ 0x14031E344 (KiFinalizeTimer2Disablement.c)
+ *     PerfInfoLogInterrupt @ 0x140338F60 (PerfInfoLogInterrupt.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1403CC480 (HvlSendSyntheticClusterIpi.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     EtwpTraceFltTimedIo @ 0x140468530 (EtwpTraceFltTimedIo.c)
+ *     PerfInfoLogInterruptHv @ 0x140468740 (PerfInfoLogInterruptHv.c)
+ *     IopTimerDispatch @ 0x140556360 (IopTimerDispatch.c)
+ *     EtwTraceCpuCacheFlush @ 0x1405FCE3C (EtwTraceCpuCacheFlush.c)
+ *     PerfInfoLogIpiReceive @ 0x1405FEFC0 (PerfInfoLogIpiReceive.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceTimedEvent(

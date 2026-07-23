@@ -1,24 +1,24 @@
 /*
- * XREFs of MiRebuildLargePage @ 0x14028FF24
+ * XREFs of MiRebuildLargePage @ 0x14028F484
  * Callers:
- *     MiRebuildLargePages @ 0x1402C8400 (MiRebuildLargePages.c)
- *     MmManagePartitionCreateLargePages @ 0x14077E0A0 (MmManagePartitionCreateLargePages.c)
- *     MmBuildLargePages @ 0x140B20AD8 (MmBuildLargePages.c)
+ *     MiRebuildLargePages @ 0x1402AA1C0 (MiRebuildLargePages.c)
+ *     MmManagePartitionCreateLargePages @ 0x1407809E4 (MmManagePartitionCreateLargePages.c)
+ *     MmBuildLargePages @ 0x140B22ED8 (MmBuildLargePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiNodeFreeZeroPages @ 0x14028EFD0 (MiNodeFreeZeroPages.c)
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C8CE8 (MiGetNodeStandbyPageCount.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403C5A90 (MiConvertSmallPageRangeToLarge.c)
- *     MiInsertPossiblyBadPage @ 0x1403C65E0 (MiInsertPossiblyBadPage.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiNodeFreeZeroPages @ 0x14028E530 (MiNodeFreeZeroPages.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402AAAA8 (MiGetNodeStandbyPageCount.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403CF990 (MiConvertSmallPageRangeToLarge.c)
+ *     MiInsertPossiblyBadPage @ 0x1403D04D4 (MiInsertPossiblyBadPage.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiRebuildLargePage(
@@ -94,10 +94,10 @@ unsigned __int64 __fastcall MiRebuildLargePage(
   v6 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v58 = 0LL;
-  v9 = (unsigned __int8)byte_140E2D718;
+  v9 = (unsigned __int8)byte_140E2D898;
   v10 = a3;
   v62 = CurrentThread;
-  v54 = byte_140E2D718;
+  v54 = byte_140E2D898;
   v11 = MiReferencePageRuns(a1, 1u);
   v12 = 0;
   v56 = (unsigned int *)v11;
@@ -278,7 +278,7 @@ LABEL_13:
 LABEL_41:
             v37 = 0LL;
             v38 = v63;
-            for ( j = 0; j < (unsigned __int8)byte_140E2D718; v12 = 0 )
+            for ( j = 0; j < (unsigned __int8)byte_140E2D898; v12 = 0 )
             {
               LOBYTE(v35) = j;
               v37 += MiNodeFreeZeroPages(v38, v35, 0);

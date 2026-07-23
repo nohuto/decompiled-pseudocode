@@ -10,14 +10,14 @@ void __stdcall ExInitializeRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWA
 {
   unsigned int v2; // esi
   ULONG RecommendedSharedDataAlignment; // r8d
-  _EX_RUNDOWN_REF *v4; // rdi
-  unsigned int v6; // eax
+  char *v4; // rdi
+  int v6; // eax
   unsigned int v7; // r8d
-  unsigned int v8; // edx
+  int v8; // edx
 
   v2 = RunRefSize - 24;
   RecommendedSharedDataAlignment = 8;
-  v4 = (_EX_RUNDOWN_REF *)&RunRefCacheAware[1];
+  v4 = (char *)RunRefCacheAware + 24;
   if ( (_DWORD)RunRefSize == 32 )
   {
     v6 = 1;
@@ -26,19 +26,18 @@ void __stdcall ExInitializeRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWA
   {
     RecommendedSharedDataAlignment = KeGetRecommendedSharedDataAlignment();
     v6 = v2 / RecommendedSharedDataAlignment - 1;
-    v4 = (_EX_RUNDOWN_REF *)(~(unsigned __int64)(RecommendedSharedDataAlignment - 1) & ((unsigned __int64)v4
-                                                                                      + RecommendedSharedDataAlignment
-                                                                                      - 1));
+    v4 = (char *)(~(unsigned __int64)(RecommendedSharedDataAlignment - 1) & (unsigned __int64)&v4[RecommendedSharedDataAlignment
+                                                                                                - 1]);
   }
-  RunRefCacheAware->RunRefSize = RecommendedSharedDataAlignment;
+  *((_DWORD *)RunRefCacheAware + 4) = RecommendedSharedDataAlignment;
   v7 = 0;
-  RunRefCacheAware->RunRefs = v4;
-  RunRefCacheAware->Number = v6;
-  for ( RunRefCacheAware->PoolToFree = (void *)195938833;
-        v7 < RunRefCacheAware->Number;
-        *(unsigned __int64 *)((char *)&RunRefCacheAware->RunRefs->Count + RunRefCacheAware->RunRefSize * v8) = 0LL )
+  *(_QWORD *)RunRefCacheAware = v4;
+  *((_DWORD *)RunRefCacheAware + 5) = v6;
+  for ( *((_QWORD *)RunRefCacheAware + 1) = 195938833LL;
+        v7 < *((_DWORD *)RunRefCacheAware + 5);
+        *(_QWORD *)((unsigned int)(*((_DWORD *)RunRefCacheAware + 4) * v8) + *(_QWORD *)RunRefCacheAware) = 0LL )
   {
-    v8 = v7 % RunRefCacheAware->Number;
+    v8 = v7 % *((_DWORD *)RunRefCacheAware + 5);
     ++v7;
   }
 }

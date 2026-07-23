@@ -6,7 +6,7 @@
  *     CcSetAdditionalCacheAttributes @ 0x140234410 (CcSetAdditionalCacheAttributes.c)
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -30,7 +30,7 @@ __int64 __fastcall CcSetAdditionalCacheAttributesEx(PFILE_OBJECT FileObject, int
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v21; // r9
   bool v22; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
@@ -75,22 +75,22 @@ __int64 __fastcall CcSetAdditionalCacheAttributesEx(PFILE_OBJECT FileObject, int
     v16 = v17;
   SharedCacheMap[38] = v16;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  result = (unsigned int)KiIrqlFlags;
+  result = (unsigned int)dword_140D06B08;
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       result = KeGetCurrentIrql();
       if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v21 = *((_QWORD *)CurrentPrcb + 4375);
         result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v22 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
+        v22 = ((unsigned int)result & *(_DWORD *)(v21 + 20)) == 0;
+        *(_DWORD *)(v21 + 20) &= result;
         if ( v22 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = sub_140418E4C(CurrentPrcb);
       }
     }
   }

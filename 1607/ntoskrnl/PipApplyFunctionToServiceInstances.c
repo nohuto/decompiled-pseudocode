@@ -1,19 +1,19 @@
 /*
- * XREFs of PipApplyFunctionToServiceInstances @ 0x14057471C
+ * XREFs of PipApplyFunctionToServiceInstances @ 0x140574C5C
  * Callers:
  *     PipInitializeCoreDriversByGroup @ 0x14079AB28 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwEnumerateValueKey @ 0x140159EE0 (ZwEnumerateValueKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x14015A450 (ZwEnumerateValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x140500F80 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140500FB4 (PnpUnicodeStringToWstr.c)
- *     PipOpenServiceEnumKeys @ 0x140538DE4 (PipOpenServiceEnumKeys.c)
- *     PnpRegSzToString @ 0x1405391C4 (PnpRegSzToString.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1404E3F10 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1404E3F44 (PnpUnicodeStringToWstr.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140539324 (PipOpenServiceEnumKeys.c)
+ *     PnpRegSzToString @ 0x140539704 (PnpRegSzToString.c)
  *     PipAddDevicesToBootDriverWorker @ 0x1407B40F0 (PipAddDevicesToBootDriverWorker.c)
  */
 

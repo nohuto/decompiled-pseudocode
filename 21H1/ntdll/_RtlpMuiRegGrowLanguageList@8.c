@@ -10,9 +10,13 @@
 
 int __thiscall RtlpMuiRegGrowLanguageList(unsigned __int16 *this)
 {
+  unsigned int v1; // edx
+
   if ( !this )
     return 0;
-  if ( (unsigned int)this[2] + 1 >= this[3] )
-    return RtlpMuiRegResizeLanguageList(this);
-  return (int)this;
+  v1 = this[2] + 1;
+  if ( v1 >= this[3] )
+    return RtlpMuiRegResizeLanguageList((int)this, v1);
+  else
+    return (int)this;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckSratMemoryRanges @ 0x140591680
+ * XREFs of HalpCheckSratMemoryRanges @ 0x140593E00
  * Callers:
- *     HalpNumaAddRangeProximity @ 0x140591850 (HalpNumaAddRangeProximity.c)
+ *     HalpNumaAddRangeProximity @ 0x140593FD0 (HalpNumaAddRangeProximity.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall HalpCheckSratMemoryRanges(unsigned __int64 a1)
@@ -16,7 +16,7 @@ char __fastcall HalpCheckSratMemoryRanges(unsigned __int64 a1)
   __int64 v4; // r8
   __int64 v5; // r9
   __int64 v6; // r10
-  unsigned __int8 *v7; // rdx
+  char *v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
   ULONG v10; // [rsp+20h] [rbp-49h]
@@ -53,7 +53,7 @@ char __fastcall HalpCheckSratMemoryRanges(unsigned __int64 a1)
           v16 = &v14;
           v20 = &v12;
           v22 = &v13;
-          v7 = (unsigned __int8 *)&dword_14004490C;
+          v7 = byte_140044EAD;
           v11 = v5;
           v12 = v6;
           v13 = 0x1000000LL;
@@ -63,7 +63,13 @@ LABEL_14:
           v17 = 8LL;
           v19 = 8LL;
           v21 = 8LL;
-          return tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E024C8, v7, 0LL, 0LL, v10, &v15);
+          return tlgWriteTransfer_EtwWriteTransfer(
+                   (__int64)&dword_140E024C8,
+                   (unsigned __int8 *)v7,
+                   0LL,
+                   0LL,
+                   v10,
+                   &v15);
         }
       }
       return result;
@@ -81,7 +87,7 @@ LABEL_14:
         v16 = &v13;
         v18 = &v12;
         v10 = 5;
-        v7 = (unsigned __int8 *)byte_1400448AD;
+        v7 = &byte_140044F0F;
         v12 = v8;
         v11 = 0x1000000LL;
         v20 = &v11;

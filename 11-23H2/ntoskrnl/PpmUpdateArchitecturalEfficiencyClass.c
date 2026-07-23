@@ -3,8 +3,8 @@
  * Callers:
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 __int64 PpmUpdateArchitecturalEfficiencyClass()

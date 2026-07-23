@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlpInterlockedPopEntrySList @ 0x1800A9D30
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x1800240C0 (RtlpLowFragHeapAllocFromContext.c)
- *     EtwpAllocateRegistration @ 0x18002A654 (EtwpAllocateRegistration.c)
- *     RtlpAllocateDebugInfo @ 0x18002B240 (RtlpAllocateDebugInfo.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x180041F0C (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpFreeUserBlock @ 0x180045F48 (RtlpFreeUserBlock.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18004EFB0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800240B0 (RtlpLowFragHeapAllocFromContext.c)
+ *     EtwpAllocateRegistration @ 0x18002A644 (EtwpAllocateRegistration.c)
+ *     RtlpAllocateDebugInfo @ 0x18002B230 (RtlpAllocateDebugInfo.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x180041EFC (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpFreeUserBlock @ 0x180045F38 (RtlpFreeUserBlock.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x18004EFA0 (RtlpLocalInfoAllocFromCache.c)
  *     RtlpStdGetSpaceForTrace @ 0x1800F2D24 (RtlpStdGetSpaceForTrace.c)
  *     RtlAllocateMemoryBlockLookaside @ 0x180107010 (RtlAllocateMemoryBlockLookaside.c)
  * Callees:
@@ -15,14 +15,14 @@
 
 PSLIST_ENTRY __stdcall RtlpInterlockedPopEntrySList(PSLIST_HEADER ListHead)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   unsigned __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
 
   _m_prefetchw(ListHead);
   while ( 1 )
   {
-    v1 = (struct _SLIST_ENTRY *)(ListHead->Region & 0xFFFFFFFFFFFFFFF0uLL);
+    v1 = (_SLIST_ENTRY *)(ListHead->Region & 0xFFFFFFFFFFFFFFF0uLL);
     if ( !v1 )
       break;
     Alignment = ListHead->Alignment;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViPtPluginUnload @ 0x140B8CA50
+ * XREFs of ViPtPluginUnload @ 0x140B8EA50
  * Callers:
- *     VfPoolTrackingEntry @ 0x140611370 (VfPoolTrackingEntry.c)
+ *     VfPoolTrackingEntry @ 0x14060F930 (VfPoolTrackingEntry.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExClearPoolFlags @ 0x140653E60 (ExClearPoolFlags.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViPtDeleteAvlTrees @ 0x140B8C740 (ViPtDeleteAvlTrees.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExClearPoolFlags @ 0x1406525C0 (ExClearPoolFlags.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViPtDeleteAvlTrees @ 0x140B8E740 (ViPtDeleteAvlTrees.c)
  */
 
 void ViPtPluginUnload()

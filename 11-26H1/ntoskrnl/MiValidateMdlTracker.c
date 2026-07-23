@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateMdlTracker @ 0x1404EFA3C
+ * XREFs of MiValidateMdlTracker @ 0x1404E901C
  * Callers:
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x1406EAAC0 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x1406EF760 (MmUpdateMdlTrackerForMdlSwitch.c)
  * Callees:
- *     rapidhash_internal @ 0x14024B730 (rapidhash_internal.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     rapidhash_internal @ 0x14024D090 (rapidhash_internal.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiValidateMdlTracker(ULONG_PTR BugCheckParameter3, int a2)

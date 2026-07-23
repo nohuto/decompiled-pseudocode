@@ -1,19 +1,19 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x1407A2340
+ * XREFs of MmMapViewOfSection @ 0x1407A2530
  * Callers:
- *     AlpcpCreateView @ 0x14071C324 (AlpcpCreateView.c)
- *     NtInitializeNlsFiles @ 0x1407A1120 (NtInitializeNlsFiles.c)
- *     PspMapSiloSharedDataView @ 0x1407A175C (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x1407A1794 (MmMapApiSetView.c)
- *     MmCreatePeb @ 0x1407A189C (MmCreatePeb.c)
- *     NtGetNlsSectionPtr @ 0x1407A1EA0 (NtGetNlsSectionPtr.c)
- *     EtwpCoverageEnsureUserModeView @ 0x140873EF4 (EtwpCoverageEnsureUserModeView.c)
- *     NtCreateIoRing @ 0x14094A0B0 (NtCreateIoRing.c)
- *     NtMapCMFModule @ 0x140A03210 (NtMapCMFModule.c)
+ *     AlpcpCreateView @ 0x14071C524 (AlpcpCreateView.c)
+ *     NtInitializeNlsFiles @ 0x1407A1310 (NtInitializeNlsFiles.c)
+ *     PspMapSiloSharedDataView @ 0x1407A194C (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x1407A1984 (MmMapApiSetView.c)
+ *     MmCreatePeb @ 0x1407A1A8C (MmCreatePeb.c)
+ *     NtGetNlsSectionPtr @ 0x1407A2090 (NtGetNlsSectionPtr.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140874134 (EtwpCoverageEnsureUserModeView.c)
+ *     NtCreateIoRing @ 0x14094A2B0 (NtCreateIoRing.c)
+ *     NtMapCMFModule @ 0x140A034A0 (NtMapCMFModule.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     MiMapParametersInitialize @ 0x14072154C (MiMapParametersInitialize.c)
- *     MiMapViewOfSection @ 0x140721660 (MiMapViewOfSection.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiMapParametersInitialize @ 0x14072174C (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x140721860 (MiMapViewOfSection.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(

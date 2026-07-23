@@ -1,13 +1,13 @@
 /*
- * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x140953D78
+ * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x1409CF6B8
  * Callers:
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     PsSetProcessFaultInformation @ 0x140ABDE90 (PsSetProcessFaultInformation.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     PsSetProcessFaultInformation @ 0x140AC0480 (PsSetProcessFaultInformation.c)
  * Callees:
- *     ZwPowerInformation @ 0x140723FD0 (ZwPowerInformation.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwPowerInformation @ 0x140728BA0 (ZwPowerInformation.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)

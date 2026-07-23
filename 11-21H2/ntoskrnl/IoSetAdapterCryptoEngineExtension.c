@@ -3,21 +3,21 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExtension @ 0x14020C420 (IopAllocateIrpExtension.c)
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x140459D9C (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     sub_14020C420 @ 0x14020C420 (sub_14020C420.c)
+ *     sub_140459D9C @ 0x140459D9C (sub_140459D9C.c)
  */
 
 __int64 __fastcall IoSetAdapterCryptoEngineExtension(__int64 a1, _OWORD *a2, __int64 a3)
 {
   __int64 v5; // r8
   __int64 v6; // r9
-  _WORD *IrpExtension; // rax
+  _WORD *v8; // rax
 
-  if ( !IopIrpHasValidCombinationOfExtensionTypes(a1, 7LL, a3) )
+  if ( !sub_140459D9C(a1, 7LL, a3) )
     return 3221225659LL;
-  IrpExtension = IopAllocateIrpExtension(a1, 7, v5, v6);
-  if ( !IrpExtension )
+  v8 = sub_14020C420(a1, 7, v5, v6);
+  if ( !v8 )
     return 3221225626LL;
-  *(_OWORD *)(IrpExtension + 20) = *a2;
+  *(_OWORD *)(v8 + 20) = *a2;
   return 0LL;
 }

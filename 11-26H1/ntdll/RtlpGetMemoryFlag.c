@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetMemoryFlag @ 0x1800C4F70
+ * XREFs of RtlpGetMemoryFlag @ 0x1800C2730
  * Callers:
- *     RtlpScanProcessVirtualMemory @ 0x1800C4B70 (RtlpScanProcessVirtualMemory.c)
+ *     RtlpScanProcessVirtualMemory @ 0x1800C2330 (RtlpScanProcessVirtualMemory.c)
  * Callees:
  *     <none>
  */

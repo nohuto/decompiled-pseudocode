@@ -24,7 +24,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlSplay(PRTL_SPLAY_LINKS Links)
 {
   _RTL_SPLAY_LINKS *i; // rax
-  RTL_SPLAY_LINKS *LeftChild; // r8
+  _RTL_SPLAY_LINKS *LeftChild; // r8
   _RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *v5; // r8
   _RTL_SPLAY_LINKS *v6; // r8

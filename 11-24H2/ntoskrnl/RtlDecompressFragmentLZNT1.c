@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDecompressFragmentLZNT1 @ 0x140A1B0B0
+ * XREFs of RtlDecompressFragmentLZNT1 @ 0x140A138F0
  * Callers:
  *     <none>
  * Callees:
- *     LZNT1DecompressChunkNewThread @ 0x1402482A4 (LZNT1DecompressChunkNewThread.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     LZNT1DecompressChunk @ 0x1406B4370 (LZNT1DecompressChunk.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     LZNT1DecompressChunkNewThread @ 0x1402E24E4 (LZNT1DecompressChunkNewThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     LZNT1DecompressChunk @ 0x1406B5310 (LZNT1DecompressChunk.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall RtlDecompressFragmentLZNT1(

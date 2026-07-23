@@ -1,54 +1,58 @@
 /*
  * XREFs of RtlSetSaclSecurityDescriptor @ 0x1406CCBA0
  * Callers:
- *     SepInitProcessAuditSd @ 0x1403CE4A4 (SepInitProcessAuditSd.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     SepBuildCapeSecurityDescriptor @ 0x1405F412C (SepBuildCapeSecurityDescriptor.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x1406CC960 (ObpVerifyAccessToBoundaryEntry.c)
- *     LocalConvertStringSDToSD_Rev1 @ 0x140743E60 (LocalConvertStringSDToSD_Rev1.c)
- *     IopCreateSecurityDescriptorPerType @ 0x14074F2EC (IopCreateSecurityDescriptorPerType.c)
- *     CmpCopySaclToVirtualKey @ 0x14091822C (CmpCopySaclToVirtualKey.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x140918670 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
- *     SeMakeSystemToken @ 0x140B1E75C (SeMakeSystemToken.c)
- *     SepInitSystemDacls @ 0x140B2114C (SepInitSystemDacls.c)
- *     ExpKeyedEventInitialization @ 0x140B2A324 (ExpKeyedEventInitialization.c)
+ *     sub_1403CE4A4 @ 0x1403CE4A4 (sub_1403CE4A4.c)
+ *     sub_14041A13C @ 0x14041A13C (sub_14041A13C.c)
+ *     sub_1405F412C @ 0x1405F412C (sub_1405F412C.c)
+ *     sub_1406CC960 @ 0x1406CC960 (sub_1406CC960.c)
+ *     sub_140743E60 @ 0x140743E60 (sub_140743E60.c)
+ *     sub_14074F2EC @ 0x14074F2EC (sub_14074F2EC.c)
+ *     sub_14091822C @ 0x14091822C (sub_14091822C.c)
+ *     sub_140918670 @ 0x140918670 (sub_140918670.c)
+ *     sub_140AFE184 @ 0x140AFE184 (sub_140AFE184.c)
+ *     sub_140B1E75C @ 0x140B1E75C (sub_140B1E75C.c)
+ *     sub_140B2114C @ 0x140B2114C (sub_140B2114C.c)
+ *     sub_140B2A324 @ 0x140B2A324 (sub_140B2A324.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetSaclSecurityDescriptor(__int64 a1, char a2, __int64 a3, char a4)
+NTSTATUS __cdecl RtlSetSaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        BOOLEAN SaclPresent,
+        PACL Sacl,
+        BOOLEAN SaclDefaulted)
 {
   __int16 v5; // cx
   __int16 v6; // cx
   __int16 v8; // cx
-  __int64 v9; // rax
+  PACL v9; // rax
   __int16 v10; // cx
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  v5 = *(_WORD *)(a1 + 2);
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v5 = *((_WORD *)SecurityDescriptor + 1);
   if ( v5 >= 0 )
   {
-    if ( a2 )
+    if ( SaclPresent )
     {
       v8 = v5 | 0x10;
       v9 = 0LL;
-      if ( a3 )
-        v9 = a3;
-      *(_QWORD *)(a1 + 24) = v9;
+      if ( Sacl )
+        v9 = Sacl;
+      *((_QWORD *)SecurityDescriptor + 3) = v9;
       v10 = v8 & 0xFFDF;
-      *(_WORD *)(a1 + 2) = v10;
-      if ( !a4 )
-        return 0LL;
+      *((_WORD *)SecurityDescriptor + 1) = v10;
+      if ( !SaclDefaulted )
+        return 0;
       v6 = v10 | 0x20;
     }
     else
     {
       v6 = v5 & 0xFFEF;
     }
-    *(_WORD *)(a1 + 2) = v6;
-    return 0LL;
+    *((_WORD *)SecurityDescriptor + 1) = v6;
+    return 0;
   }
-  return 3221225593LL;
+  return -1073741703;
 }

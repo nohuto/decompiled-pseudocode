@@ -1,9 +1,9 @@
 /*
- * XREFs of OpenRegistryKey @ 0x14065B0AC
+ * XREFs of OpenRegistryKey @ 0x1406597CC
  * Callers:
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14065AE8C (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1406595AC (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  * Callees:
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall OpenRegistryKey(__int64 a1, UNICODE_STRING *a2, HANDLE *a3)

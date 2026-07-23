@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkLkmdRegisterCallback @ 0x140842C90
+ * XREFs of DbgkLkmdRegisterCallback @ 0x140842F90
  * Callers:
  *     <none>
  * Callees:
  *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
  *     ExDereferenceCallBackBlock @ 0x140214FB0 (ExDereferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x14039FE58 (ExCompareExchangeCallBack.c)
- *     ExAllocateCallBack @ 0x140843200 (ExAllocateCallBack.c)
+ *     ExCompareExchangeCallBack @ 0x1403A0038 (ExCompareExchangeCallBack.c)
+ *     ExAllocateCallBack @ 0x140843500 (ExAllocateCallBack.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, int a3)
 {
   unsigned int i; // ebx
-  union _RTL_RUN_ONCE *v7; // rdi
+  _RTL_RUN_ONCE *v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rdi
   unsigned int j; // ebx

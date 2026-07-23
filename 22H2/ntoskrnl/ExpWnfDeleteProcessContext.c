@@ -42,7 +42,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
   __int64 v25; // rbp
 
   v2 = P + 10;
-  v5 = KeAbPreAcquire((ULONG_PTR)(P + 10), 0LL, 0LL);
+  v5 = KeAbPreAcquire((ULONG_PTR)(P + 10), 0LL, 0);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
     ExfAcquirePushLockExclusiveEx(v2, v5, (ULONG_PTR)v2);
@@ -60,7 +60,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
       ExfTryToWakePushLock((volatile signed __int64 *)v2);
     KeAbPostRelease((ULONG_PTR)v2);
     ExpWnfDeleteSubscription(v9);
-    v10 = KeAbPreAcquire((ULONG_PTR)v2, 0LL, 0LL);
+    v10 = KeAbPreAcquire((ULONG_PTR)v2, 0LL, 0);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
       ExfAcquirePushLockExclusiveEx(v2, v10, (ULONG_PTR)v2);
@@ -71,7 +71,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
     ExfTryToWakePushLock((volatile signed __int64 *)v2);
   KeAbPostRelease((ULONG_PTR)v2);
   v12 = (volatile signed __int64 *)(P + 7);
-  v13 = KeAbPreAcquire((ULONG_PTR)(P + 7), 0LL, 0LL);
+  v13 = KeAbPreAcquire((ULONG_PTR)(P + 7), 0LL, 0);
   v14 = v13;
   if ( _interlockedbittestandset64((volatile signed __int32 *)P + 14, 0LL) )
     ExfAcquirePushLockExclusiveEx(P + 7, v13, (ULONG_PTR)(P + 7));
@@ -90,7 +90,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
     KeAbPostRelease((ULONG_PTR)(P + 7));
     ExpWnfNotifyNameSubscribers((__int64)v23, 0x10u, 0, 0);
     ExpWnfDeleteNameInstance(v23[6].Count, v23, 1);
-    v24 = KeAbPreAcquire((ULONG_PTR)(P + 7), 0LL, 0LL);
+    v24 = KeAbPreAcquire((ULONG_PTR)(P + 7), 0LL, 0);
     v25 = v24;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
       ExfAcquirePushLockExclusiveEx(P + 7, v24, (ULONG_PTR)(P + 7));
@@ -102,7 +102,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
   KeAbPostRelease((ULONG_PTR)(P + 7));
   if ( a2 )
   {
-    v17 = KeAbPreAcquire((ULONG_PTR)&ExpWnfProcessesListLock, 0LL, 0LL);
+    v17 = KeAbPreAcquire((ULONG_PTR)&ExpWnfProcessesListLock, 0LL, 0);
     v18 = _interlockedbittestandset64((volatile signed __int32 *)&ExpWnfProcessesListLock, 0LL);
     v19 = v17;
     if ( v18 )

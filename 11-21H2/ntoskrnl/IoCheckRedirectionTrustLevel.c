@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenGetRedirectionTrustPolicy @ 0x140255CD4 (SeTokenGetRedirectionTrustPolicy.c)
+ *     sub_140255CD4 @ 0x140255CD4 (sub_140255CD4.c)
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409E7AD4 (EtwTimLogRedirectionTrustPolicy.c)
+ *     sub_1409E7AD4 @ 0x1409E7AD4 (sub_1409E7AD4.c)
  */
 
 __int64 __fastcall IoCheckRedirectionTrustLevel(
@@ -49,10 +49,10 @@ __int64 __fastcall IoCheckRedirectionTrustLevel(
     SeCaptureSubjectContext(&SubjectContext);
     p_SubjectContext = &SubjectContext;
   }
-  SeTokenGetRedirectionTrustPolicy(p_SubjectContext->PrimaryToken, &v16, v17);
+  sub_140255CD4(p_SubjectContext->PrimaryToken, &v16, v17);
   if ( p_SubjectContext->ClientToken && p_SubjectContext->ImpersonationLevel >= SecurityImpersonation )
   {
-    SeTokenGetRedirectionTrustPolicy(p_SubjectContext->ClientToken, &v19, &v15);
+    sub_140255CD4(p_SubjectContext->ClientToken, &v19, &v15);
     v7 = v19;
     v6 = 2;
     v8 = v15;
@@ -69,7 +69,7 @@ __int64 __fastcall IoCheckRedirectionTrustLevel(
   {
     return 0LL;
   }
-  EtwTimLogRedirectionTrustPolicy(v5, KeGetCurrentThread()->ApcState.Process, a1, a5, v6 == 2);
+  sub_1409E7AD4(v5, *((_QWORD *)KeGetCurrentThread() + 23), a1, a5, v6 == 2);
   if ( !v13 )
     return 0LL;
   return 3221226684LL;

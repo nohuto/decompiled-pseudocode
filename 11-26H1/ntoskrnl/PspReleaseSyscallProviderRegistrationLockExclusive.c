@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1406147BC
+ * XREFs of PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1406175FC
  * Callers:
- *     PspDestroySyscallProvider @ 0x1407ED6D8 (PspDestroySyscallProvider.c)
- *     PspInsertSyscallProvider @ 0x1407ED8CC (PspInsertSyscallProvider.c)
+ *     PspDestroySyscallProvider @ 0x1407F3238 (PspDestroySyscallProvider.c)
+ *     PspInsertSyscallProvider @ 0x1407F342C (PspInsertSyscallProvider.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void PspReleaseSyscallProviderRegistrationLockExclusive()

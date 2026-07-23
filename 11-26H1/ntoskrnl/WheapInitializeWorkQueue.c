@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapInitializeWorkQueue @ 0x1406D7F60
+ * XREFs of WheapInitializeWorkQueue @ 0x1406DC0F0
  * Callers:
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 LONG (__fastcall *WheapInitializeWorkQueue())(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ LONG (__fastcall *WheapInitializeWorkQueue())(__int64 a1, __int64 a2)
   WheapConfigTableLock.StackLimit = 0LL;
   LODWORD(WheapConfigTableLock.ThreadLock) = 275;
   WheapConfigTableLock.StateSaveArea = (_XSAVE_FORMAT *)&WheapConfigTableLock.QuantumTarget;
-  *($353D57E818BB6F967B4B818D974CF463 *)((char *)&WheapConfigTableLock.116 + 4) = 0LL;
+  *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&WheapConfigTableLock.116 + 4) = 0LL;
   *(_QWORD *)&WheapConfigTableLock.CurrentRunTime = 0LL;
   WheapConfigTableLock.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)&WheapConfigTableLock.QuantumTarget;
   *(_QWORD *)&WheapConfigTableLock.SystemCallNumber = 0LL;

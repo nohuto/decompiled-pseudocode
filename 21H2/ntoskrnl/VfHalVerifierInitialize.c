@@ -1,10 +1,10 @@
 /*
- * XREFs of VfHalVerifierInitialize @ 0x1409CC708
+ * XREFs of VfHalVerifierInitialize @ 0x1409CD708
  * Callers:
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViHalApplySettings @ 0x1409CEAEC (ViHalApplySettings.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViHalApplySettings @ 0x1409CFAEC (ViHalApplySettings.c)
  */
 
 __int64 VfHalVerifierInitialize()

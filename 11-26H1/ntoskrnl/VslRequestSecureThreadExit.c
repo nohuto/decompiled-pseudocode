@@ -1,11 +1,11 @@
 /*
- * XREFs of VslRequestSecureThreadExit @ 0x1405C3EA8
+ * XREFs of VslRequestSecureThreadExit @ 0x1405C6718
  * Callers:
- *     KeRequestTerminationThread @ 0x1402C5B58 (KeRequestTerminationThread.c)
+ *     KeRequestTerminationThread @ 0x1403107F4 (KeRequestTerminationThread.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslRequestSecureThreadExit(__int64 a1)

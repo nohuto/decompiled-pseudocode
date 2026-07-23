@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDiagGetDriverName @ 0x140123438
+ * XREFs of PopDiagGetDriverName @ 0x1401239A8
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x14012B8F8 (PopDiagTraceIrpFinish.c)
- *     PopDiagTraceDeviceAcquireIrp @ 0x14012C124 (PopDiagTraceDeviceAcquireIrp.c)
+ *     PopDiagTraceIrpFinish @ 0x14012BE68 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceDeviceAcquireIrp @ 0x14012C694 (PopDiagTraceDeviceAcquireIrp.c)
  *     PopDiagTraceDriverVeto @ 0x1403DF510 (PopDiagTraceDriverVeto.c)
  * Callees:
  *     <none>

@@ -37,10 +37,13 @@ __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)
     *(_QWORD *)(v6 + 8) = v4;
     KxReleaseSpinLock((volatile signed __int64 *)&EmonReservedResourcesLock);
     v7 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v7 = (unsigned int)(v5 + 1);

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfTargetDriversGetNode @ 0x140223890
+ * XREFs of VfTargetDriversGetNode @ 0x1402236BC
  * Callers:
- *     ViThunkApplyThunksCurrentSession @ 0x14070F784 (ViThunkApplyThunksCurrentSession.c)
- *     VfTargetDriversGetVerifierData @ 0x14070FF1C (VfTargetDriversGetVerifierData.c)
+ *     ViThunkApplyThunksCurrentSession @ 0x14070F7B4 (ViThunkApplyThunksCurrentSession.c)
+ *     VfTargetDriversGetVerifierData @ 0x14070FF4C (VfTargetDriversGetVerifierData.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
  */
 
 PVOID __fastcall VfTargetDriversGetNode(unsigned __int64 a1)

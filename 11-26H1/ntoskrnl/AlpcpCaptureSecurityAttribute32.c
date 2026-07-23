@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x140AB70EC
+ * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x140AB872C
  * Callers:
- *     AlpcpCaptureAttributes @ 0x1409BE688 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x14098F668 (AlpcpCaptureAttributes.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1409BCF30 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x14098DF10 (AlpcpCaptureSecurityAttributeInternal.c)
  */
 
 __int64 __fastcall AlpcpCaptureSecurityAttribute32(__int64 a1, unsigned int *a2, __int64 a3, char a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDeviceObjectFromSymbolicName @ 0x140ABCB94
+ * XREFs of IopDeviceObjectFromSymbolicName @ 0x140AB7C00
  * Callers:
- *     IopGetSessionIdFromSymbolicName @ 0x1406F9184 (IopGetSessionIdFromSymbolicName.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1406F6DC4 (IopGetSessionIdFromSymbolicName.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PnpUnicodeStringToWstr @ 0x1409D52F0 (PnpUnicodeStringToWstr.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PnpUnicodeStringToWstr @ 0x1409C5120 (PnpUnicodeStringToWstr.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall IopDeviceObjectFromSymbolicName(__int64 a1)
@@ -36,7 +36,7 @@ _QWORD *__fastcall IopDeviceObjectFromSymbolicName(__int64 a1)
         if ( (int)PnpUnicodeStringToWstr(&v10, 0LL, (unsigned __int16 *)a1) >= 0 )
         {
           v8 = 400;
-          Pool2 = (const wchar_t *)ExAllocatePool2(0x100uLL);
+          Pool2 = (const wchar_t *)ExAllocatePool2(0x100uLL, 0x190uLL, 0x47706E50u);
           v4 = (WCHAR *)Pool2;
           if ( Pool2 )
           {

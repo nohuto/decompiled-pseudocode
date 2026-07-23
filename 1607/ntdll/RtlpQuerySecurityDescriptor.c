@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQuerySecurityDescriptor @ 0x18007021C
+ * XREFs of RtlpQuerySecurityDescriptor @ 0x18007020C
  * Callers:
- *     RtlSelfRelativeToAbsoluteSD2 @ 0x18006FCE0 (RtlSelfRelativeToAbsoluteSD2.c)
- *     RtlCopySecurityDescriptor @ 0x18006FE40 (RtlCopySecurityDescriptor.c)
- *     RtlSelfRelativeToAbsoluteSD @ 0x18006FEF0 (RtlSelfRelativeToAbsoluteSD.c)
- *     RtlMakeSelfRelativeSD @ 0x1800700D0 (RtlMakeSelfRelativeSD.c)
+ *     RtlSelfRelativeToAbsoluteSD2 @ 0x18006FCD0 (RtlSelfRelativeToAbsoluteSD2.c)
+ *     RtlCopySecurityDescriptor @ 0x18006FE30 (RtlCopySecurityDescriptor.c)
+ *     RtlSelfRelativeToAbsoluteSD @ 0x18006FEE0 (RtlSelfRelativeToAbsoluteSD.c)
+ *     RtlMakeSelfRelativeSD @ 0x1800700C0 (RtlMakeSelfRelativeSD.c)
  * Callees:
  *     <none>
  */

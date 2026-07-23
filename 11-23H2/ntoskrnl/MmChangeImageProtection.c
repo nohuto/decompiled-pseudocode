@@ -1,23 +1,23 @@
 /*
- * XREFs of MmChangeImageProtection @ 0x140723E40
+ * XREFs of MmChangeImageProtection @ 0x140724040
  * Callers:
  *     <none>
  * Callees:
  *     MiSessionReferenceImage @ 0x14020A978 (MiSessionReferenceImage.c)
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_PFN_IS_PROTO @ 0x1402A2E70 (MI_PFN_IS_PROTO.c)
- *     MiClearPfnImageVerified @ 0x1403353B8 (MiClearPfnImageVerified.c)
- *     MiSetImageProtection @ 0x14034BA80 (MiSetImageProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_PFN_IS_PROTO @ 0x1402A3100 (MI_PFN_IS_PROTO.c)
+ *     MiClearPfnImageVerified @ 0x140335648 (MiClearPfnImageVerified.c)
+ *     MiSetImageProtection @ 0x14034BC20 (MiSetImageProtection.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     VslValidateDynamicCodePages @ 0x14087EEF8 (VslValidateDynamicCodePages.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     VslValidateDynamicCodePages @ 0x14087F138 (VslValidateDynamicCodePages.c)
  */
 
 __int64 __fastcall MmChangeImageProtection(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)

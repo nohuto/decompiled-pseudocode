@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsChunkSize @ 0x1800A40A0
+ * XREFs of RtlpHpVsChunkSize @ 0x18005DE50
  * Callers:
- *     RtlpHpReallocComputeSizes @ 0x1800A3D30 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpVsSubsegmentWalk @ 0x1800A425C (RtlpHpVsSubsegmentWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18011D290 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpReallocComputeSizes @ 0x18005DAE0 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpVsSubsegmentWalk @ 0x18005E00C (RtlpHpVsSubsegmentWalk.c)
+ *     RtlpHpSegReportPageRange @ 0x18011B4C0 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     <none>
  */

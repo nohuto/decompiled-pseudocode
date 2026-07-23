@@ -84,7 +84,7 @@
 void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
 {
   CSHORT MdlFlags; // ax
-  struct _SLIST_ENTRY *v3; // r15
+  _SLIST_ENTRY *v3; // r15
   unsigned int v5; // r8d
   __int64 ByteOffset; // r11
   __int64 v7; // rdx
@@ -105,8 +105,8 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
   unsigned __int64 v22; // r14
   ULONG_PTR v23; // rsi
   KIRQL v24; // r12
-  struct _SLIST_ENTRY *v25; // rcx
-  struct _SLIST_ENTRY *j; // r8
+  _SLIST_ENTRY *v25; // rcx
+  _SLIST_ENTRY *j; // r8
   __int64 v27; // rcx
   _KPROCESS *Process; // r8
   unsigned __int64 KernelWaitTime; // rdx
@@ -114,8 +114,8 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
   ULONG_PTR Next; // r9
   struct _MDL *v32; // rax
   PVOID v33; // r9
-  struct _SLIST_ENTRY *v34; // rdx
-  struct _SLIST_ENTRY **v35; // rax
+  _SLIST_ENTRY *v34; // rdx
+  _SLIST_ENTRY **v35; // rax
   __int64 v36; // [rsp+28h] [rbp-50h]
   __int64 v37; // [rsp+30h] [rbp-48h]
   unsigned __int64 v38; // [rsp+38h] [rbp-40h]
@@ -231,7 +231,7 @@ LABEL_18:
       {
         v24 = ExAcquireSpinLockExclusive(&dword_140E35AD0);
       }
-      v25 = (struct _SLIST_ENTRY *)((char *)&unk_140E385B0 + 16 * (v22 & 0xF));
+      v25 = (_SLIST_ENTRY *)((char *)&unk_140E385B0 + 16 * (v22 & 0xF));
       for ( j = v25->Next; j != v25; j = j->Next )
       {
         Next = (ULONG_PTR)j[2].Next;
@@ -256,7 +256,7 @@ LABEL_18:
             }
           }
           v34 = j->Next;
-          if ( *(&j->Next->Next + 1) != j || (v35 = (struct _SLIST_ENTRY **)*((_QWORD *)&j->Next + 1), *v35 != j) )
+          if ( *(&j->Next->Next + 1) != j || (v35 = (_SLIST_ENTRY **)*((_QWORD *)&j->Next + 1), *v35 != j) )
             __fastfail(3u);
           *v35 = v34;
           v3 = j;

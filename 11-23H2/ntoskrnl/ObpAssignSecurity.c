@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpAssignSecurity @ 0x1407BC6F0
+ * XREFs of ObpAssignSecurity @ 0x1407BC9C0
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1406C0ABC (ObpInsertOrLocateNamedObject.c)
- *     ObAssignSecurity @ 0x1407BC6D0 (ObAssignSecurity.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406C0AEC (ObpInsertOrLocateNamedObject.c)
+ *     ObAssignSecurity @ 0x1407BC9A0 (ObAssignSecurity.c)
  * Callees:
- *     SeAssignSecurityEx2 @ 0x1402B34E0 (SeAssignSecurityEx2.c)
- *     SeComputeAutoInheritByObjectTypeEx @ 0x1402B3570 (SeComputeAutoInheritByObjectTypeEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SeDeassignSecurity @ 0x1407BF400 (SeDeassignSecurity.c)
+ *     SeAssignSecurityEx2 @ 0x1402B3770 (SeAssignSecurityEx2.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x1402B3800 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SeDeassignSecurity @ 0x1407BF6D0 (SeDeassignSecurity.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

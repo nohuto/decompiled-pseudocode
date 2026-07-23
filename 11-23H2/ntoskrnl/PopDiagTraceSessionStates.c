@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceSessionStates @ 0x1407EB85C
+ * XREFs of PopDiagTraceSessionStates @ 0x1407EBB2C
  * Callers:
  *     PopSessionWinlogonNotification @ 0x140682D5C (PopSessionWinlogonNotification.c)
  *     PopSessionDisconnected @ 0x140683338 (PopSessionDisconnected.c)
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopSessionConnected @ 0x1407EB7DC (PopSessionConnected.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopSessionConnected @ 0x1407EBAAC (PopSessionConnected.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSessionStates(PCEVENT_DESCRIPTOR EventDescriptor, int a2, int a3)

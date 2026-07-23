@@ -19,16 +19,20 @@
  *     memset @ 0x1800A3EC0 (memset.c)
  */
 
-__int64 __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)
+NTSTATUS __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  _QWORD v9[8]; // [rsp+20h] [rbp-78h] BYREF
+  __int64 v8; // rcx
+  _QWORD Fields[8]; // [rsp+20h] [rbp-78h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  v9[4] = a1;
-  HIWORD(v9[0]) = 4147;
-  v9[5] = a2;
-  v9[6] = a3;
-  LODWORD(v9[7]) = a4;
-  RtlGetCurrentServiceSessionId();
-  return NtTraceEvent();
+  memset(Fields, 0, sizeof(Fields));
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 4147;
+  Fields[5] = a2;
+  Fields[6] = a3;
+  LODWORD(Fields[7]) = a4;
+  if ( RtlGetCurrentServiceSessionId() )
+    v8 = (__int64)NtCurrentPeb()->SharedData + 558;
+  else
+    v8 = 2147353480LL;
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x20402u, 0x20u, Fields);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceNonPagedMemoryProcessList @ 0x140A46110
+ * XREFs of MiReferenceNonPagedMemoryProcessList @ 0x140A463C0
  * Callers:
- *     MmScrubMemory @ 0x140A46AC4 (MmScrubMemory.c)
+ *     MmScrubMemory @ 0x140A46D74 (MmScrubMemory.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

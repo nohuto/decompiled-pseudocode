@@ -1,39 +1,39 @@
 /*
- * XREFs of PopAllocateHiberContext @ 0x140987D38
+ * XREFs of PopAllocateHiberContext @ 0x140987F38
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MmGetHighestPhysicalPage @ 0x1402F8938 (MmGetHighestPhysicalPage.c)
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopInternalAddToDumpFile @ 0x140583160 (PopInternalAddToDumpFile.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     PopBcdEstablishResumeObject @ 0x140801F90 (PopBcdEstablishResumeObject.c)
- *     BcdCloseStore @ 0x140802DF4 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x140803098 (BcdOpenStore.c)
- *     BcdCloseObject @ 0x140804F00 (BcdCloseObject.c)
- *     HvlpAllocatePageListResources @ 0x140941690 (HvlpAllocatePageListResources.c)
- *     VslAllocateSecureHibernateResources @ 0x14094180C (VslAllocateSecureHibernateResources.c)
- *     IoGetDumpStack @ 0x140943A2C (IoGetDumpStack.c)
- *     PopLoadResumeContext @ 0x140980C78 (PopLoadResumeContext.c)
- *     PopFreeHiberContext @ 0x1409885F0 (PopFreeHiberContext.c)
- *     PopHiberInitializeResources @ 0x140988824 (PopHiberInitializeResources.c)
- *     PopBcdSetPendingResume @ 0x14099CE40 (PopBcdSetPendingResume.c)
- *     MmLockPreChargedPagedPool @ 0x140A30950 (MmLockPreChargedPagedPool.c)
- *     MmMarkHiberRange @ 0x140A30A70 (MmMarkHiberRange.c)
- *     BcdForciblyUnloadStore @ 0x140A5C290 (BcdForciblyUnloadStore.c)
- *     BgkResumePrepare @ 0x140A99A74 (BgkResumePrepare.c)
- *     PopGetBitlockerKeyLocation @ 0x140AA0798 (PopGetBitlockerKeyLocation.c)
- *     PopAllocatePages @ 0x140AA1A48 (PopAllocatePages.c)
- *     PopDiscardRange @ 0x140AA27FC (PopDiscardRange.c)
- *     PopGenerateUnHibernatedMdl @ 0x140AA2B1C (PopGenerateUnHibernatedMdl.c)
- *     PopGetHwConfigurationSignature @ 0x140AA2BCC (PopGetHwConfigurationSignature.c)
- *     PopCheckpointSystemSleep @ 0x140AAA4E8 (PopCheckpointSystemSleep.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     MmGetHighestPhysicalPage @ 0x1402F8BC8 (MmGetHighestPhysicalPage.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x140583650 (PopInternalAddToDumpFile.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     PopBcdEstablishResumeObject @ 0x140802260 (PopBcdEstablishResumeObject.c)
+ *     BcdCloseStore @ 0x1408030C4 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140803368 (BcdOpenStore.c)
+ *     BcdCloseObject @ 0x1408051D0 (BcdCloseObject.c)
+ *     HvlpAllocatePageListResources @ 0x140941890 (HvlpAllocatePageListResources.c)
+ *     VslAllocateSecureHibernateResources @ 0x140941A0C (VslAllocateSecureHibernateResources.c)
+ *     IoGetDumpStack @ 0x140943C2C (IoGetDumpStack.c)
+ *     PopLoadResumeContext @ 0x140980E78 (PopLoadResumeContext.c)
+ *     PopFreeHiberContext @ 0x1409887F0 (PopFreeHiberContext.c)
+ *     PopHiberInitializeResources @ 0x140988A24 (PopHiberInitializeResources.c)
+ *     PopBcdSetPendingResume @ 0x14099D040 (PopBcdSetPendingResume.c)
+ *     MmLockPreChargedPagedPool @ 0x140A30C00 (MmLockPreChargedPagedPool.c)
+ *     MmMarkHiberRange @ 0x140A30D20 (MmMarkHiberRange.c)
+ *     BcdForciblyUnloadStore @ 0x140A5C540 (BcdForciblyUnloadStore.c)
+ *     BgkResumePrepare @ 0x140A998E4 (BgkResumePrepare.c)
+ *     PopGetBitlockerKeyLocation @ 0x140AA0608 (PopGetBitlockerKeyLocation.c)
+ *     PopAllocatePages @ 0x140AA18B8 (PopAllocatePages.c)
+ *     PopDiscardRange @ 0x140AA266C (PopDiscardRange.c)
+ *     PopGenerateUnHibernatedMdl @ 0x140AA298C (PopGenerateUnHibernatedMdl.c)
+ *     PopGetHwConfigurationSignature @ 0x140AA2A3C (PopGetHwConfigurationSignature.c)
+ *     PopCheckpointSystemSleep @ 0x140AAA358 (PopCheckpointSystemSleep.c)
  */
 
 __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
@@ -57,51 +57,49 @@ __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
   __int64 v18; // rdx
   __int64 v19; // rcx
   __int16 v20; // ax
-  __int64 v21; // r14
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  unsigned __int64 v24; // rdx
-  unsigned __int64 v25; // rax
-  bool v26; // zf
-  unsigned int v27; // edx
-  unsigned __int64 v28; // rcx
+  HANDLE v21; // r14
+  unsigned __int64 v22; // rdx
+  unsigned __int64 v23; // rax
+  bool v24; // zf
+  unsigned int v25; // edx
+  unsigned __int64 v26; // rcx
   __int64 Pages; // rax
-  __int64 **v30; // r13
+  __int64 **v28; // r13
   __int64 *i; // rdi
-  int v32; // eax
-  __int64 v33; // rax
-  PVOID *v34; // r12
+  int v30; // eax
+  __int64 v31; // rax
+  PVOID *v32; // r12
   __int64 UnHibernatedMdl; // rax
-  __int64 v36; // rax
-  PVOID *v37; // rdi
-  __int64 v38; // r14
-  __int64 v39; // rcx
-  unsigned __int64 v41; // [rsp+30h] [rbp-10h] BYREF
-  __int16 v42; // [rsp+88h] [rbp+48h] BYREF
-  __int64 v43; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v44; // [rsp+98h] [rbp+58h] BYREF
+  __int64 v34; // rax
+  PVOID *v35; // rdi
+  __int64 v36; // r14
+  __int64 v37; // rcx
+  unsigned __int64 v39; // [rsp+30h] [rbp-10h] BYREF
+  __int16 SystemInformation; // [rsp+88h] [rbp+48h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+90h] [rbp+50h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+98h] [rbp+58h] BYREF
 
-  v44 = 0LL;
-  v41 = 0LL;
-  v42 = 0;
-  if ( dword_140C3D0E8 != 5 )
+  BcdStoreHandle = 0LL;
+  v39 = 0LL;
+  SystemInformation = 0;
+  if ( dword_140C3CDA8 != 5 )
     return 0;
-  v43 = 0LL;
+  BcdObjectHandle = 0LL;
   HighestPhysicalPage = MmGetHighestPhysicalPage(0);
   v4 = (char *)MemoryMap;
-  qword_140C3D100 = (ULONG_PTR)MemoryMap;
+  qword_140C3CDC0 = (ULONG_PTR)MemoryMap;
   PopHiberScratchPages = PopHiberLoaderScratchPages
                        + ((((unsigned __int64)(HighestPhysicalPage + 32) >> 3) + 4092) >> 12);
   memset(MemoryMap, 0, 0x1C8uLL);
-  MmLockPreChargedPagedPool(qword_140C3CE10, Length);
+  MmLockPreChargedPagedPool(qword_140C3CFB0, Length);
   PopNumberOfPagesForHibernateProcess = 0;
-  *((_OWORD *)v4 + 3) = xmmword_140C3CE30;
-  *((_QWORD *)v4 + 25) = qword_140C3CE20;
-  *((_QWORD *)v4 + 40) = qword_140C3CE70;
-  *((_QWORD *)v4 + 27) = qword_140C3CE50;
-  *((_QWORD *)v4 + 28) = qword_140C3CE80;
-  *((_QWORD *)v4 + 29) = qword_140C3CE78;
-  *((_OWORD *)v4 + 2) = xmmword_140C3CE40;
+  *((_OWORD *)v4 + 3) = xmmword_140C3CFD0;
+  *((_QWORD *)v4 + 25) = qword_140C3CFC0;
+  *((_QWORD *)v4 + 40) = qword_140C3D010;
+  *((_QWORD *)v4 + 27) = qword_140C3CFF0;
+  *((_QWORD *)v4 + 28) = qword_140C3D020;
+  *((_QWORD *)v4 + 29) = qword_140C3D018;
+  *((_OWORD *)v4 + 2) = xmmword_140C3CFE0;
   *((_QWORD *)v4 + 9) = v4 + 64;
   *((_QWORD *)v4 + 8) = v4 + 64;
   if ( !FileObject )
@@ -123,7 +121,7 @@ LABEL_58:
   }
   v9 = *v8;
   v10 = 0;
-  if ( dword_140C3D0CC < 0 && dword_140C3D0D4 == 2 )
+  if ( dword_140C3CD8C < 0 && dword_140C3CD94 == 2 )
     v10 = 2;
   v11 = v10 | 1;
   v12 = __readcr4();
@@ -132,9 +130,9 @@ LABEL_58:
     v13 = v11;
   v14 = *((_QWORD *)v4 + 27);
   v4[1] = v13;
-  v15 = qword_140C3CE28;
-  v16 = qword_140C3CE28 & 0xFFFFFFFFFFFFF000uLL;
-  v17 = qword_140C3CE28;
+  v15 = qword_140C3CFC8;
+  v16 = qword_140C3CFC8 & 0xFFFFFFFFFFFFF000uLL;
+  v17 = qword_140C3CFC8;
   *(_QWORD *)v14 = 0LL;
   *(_WORD *)(v14 + 10) = 0;
   *(_QWORD *)(v14 + 32) = v16;
@@ -145,8 +143,8 @@ LABEL_58:
   v18 = *((_QWORD *)v4 + 28);
   if ( v18 )
   {
-    v19 = qword_140C3CE78;
-    v20 = qword_140C3CE78;
+    v19 = qword_140C3D018;
+    v20 = qword_140C3D018;
     *(_QWORD *)v18 = 0LL;
     *(_WORD *)(v18 + 10) = 0;
     *(_DWORD *)(v18 + 40) = 4096;
@@ -162,15 +160,15 @@ LABEL_58:
     v7 = 44LL;
     goto LABEL_58;
   }
-  DumpStack = BcdOpenStore(0LL, 2u, &v44);
+  DumpStack = BcdOpenStore(0LL, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle);
   if ( DumpStack < 0 )
   {
     *a1 = 13;
     v7 = 45LL;
     goto LABEL_58;
   }
-  v21 = v44;
-  DumpStack = PopBcdEstablishResumeObject(v44, &v43);
+  v21 = BcdStoreHandle;
+  DumpStack = PopBcdEstablishResumeObject(BcdStoreHandle, &BcdObjectHandle);
   if ( DumpStack < 0 )
   {
     *a1 = 14;
@@ -178,8 +176,8 @@ LABEL_58:
     v7 = 46LL;
     goto LABEL_58;
   }
-  DumpStack = PopBcdSetPendingResume(v21, v22, v23, v43);
-  BcdCloseObject(v43);
+  DumpStack = PopBcdSetPendingResume(v21);
+  BcdCloseObject(BcdObjectHandle);
   if ( DumpStack < 0 )
   {
     *a1 = 15;
@@ -192,33 +190,33 @@ LABEL_58:
   RtlSetAllBits((PRTL_BITMAP)v4 + 3);
   *((_DWORD *)v4 + 112) = PopGetHwConfigurationSignature();
   PopHiberInitializeResources(v4);
-  if ( (int)PopGetBitlockerKeyLocation(&v41) >= 0 )
+  if ( (int)PopGetBitlockerKeyLocation(&v39) >= 0 )
   {
-    v24 = v41 >> 12;
-    *((_QWORD *)v4 + 39) = v41 >> 12;
-    PopDiscardRange(v4, v24, 4LL);
+    v22 = v39 >> 12;
+    *((_QWORD *)v4 + 39) = v39 >> 12;
+    PopDiscardRange(v4, v22, 4LL);
   }
   if ( !KdPitchDebugger || KdEventLoggingEnabled )
   {
     PoSetHiberRange(v4, 2u, &KdTimerDifference, 0LL, 0x20676244u);
     PoSetHiberRange(v4, 2u, &KdDebuggerLock, 0LL, 0x20676244u);
   }
-  MmMarkHiberRange(v4, qword_140C3CDE8, 77824LL);
+  MmMarkHiberRange(v4, qword_140C3CF88, 77824LL);
   ((void (__fastcall *)(char *))off_140C019B8[0])(v4);
-  v25 = (4 * (unsigned __int64)(unsigned int)PopHiberScratchPages + 4095) >> 12;
-  v26 = *((_QWORD *)v4 + 30) == 0LL;
-  v27 = v25;
-  *((_DWORD *)v4 + 38) = v25;
-  if ( !v26 )
+  v23 = (4 * (unsigned __int64)(unsigned int)PopHiberScratchPages + 4095) >> 12;
+  v24 = *((_QWORD *)v4 + 30) == 0LL;
+  v25 = v23;
+  *((_DWORD *)v4 + 38) = v23;
+  if ( !v24 )
   {
-    v28 = *((unsigned int *)v4 + 62);
-    if ( v28 > v25 )
+    v26 = *((unsigned int *)v4 + 62);
+    if ( v26 > v23 )
     {
-      *((_DWORD *)v4 + 38) = v28;
-      v27 = v28;
+      *((_DWORD *)v4 + 38) = v26;
+      v25 = v26;
     }
   }
-  Pages = PopAllocatePages(v27);
+  Pages = PopAllocatePages(v25);
   DumpStack = *((_DWORD *)v4 + 47);
   *((_QWORD *)v4 + 18) = Pages;
   if ( DumpStack < 0 )
@@ -229,41 +227,41 @@ LABEL_58:
   }
   if ( *(_BYTE *)(*v8 + 280) )
   {
-    v30 = (__int64 **)(*(_QWORD *)(*v8 + 272) + 40LL);
-    for ( i = *v30; i != (__int64 *)v30; i = (__int64 *)*i )
+    v28 = (__int64 **)(*(_QWORD *)(*v8 + 272) + 40LL);
+    for ( i = *v28; i != (__int64 *)v28; i = (__int64 *)*i )
     {
-      v32 = *((_DWORD *)i + 16);
-      if ( v32 )
+      v30 = *((_DWORD *)i + 16);
+      if ( v30 )
       {
-        if ( (v32 & 0xFFF) != 0 )
+        if ( (v30 & 0xFFF) != 0 )
         {
           PopInternalAddToDumpFile((__int64)(i - 1), 0x70u, 0LL);
           PopInternalAddToDumpFile((__int64)v4, 0x1C8u, 0LL);
           PopCheckpointSystemSleep(49LL);
           KeBugCheckEx(0xA0u, 0x102uLL, 0xAuLL, v9, (ULONG_PTR)v4);
         }
-        v33 = 2LL;
-        v34 = (PVOID *)(i + 9);
-        v43 = 2LL;
+        v31 = 2LL;
+        v32 = (PVOID *)(i + 9);
+        BcdObjectHandle = (HANDLE)2;
         do
         {
-          if ( *v34 )
+          if ( *v32 )
           {
-            PoSetHiberRange(v4, 0x8000u, *v34, *((unsigned int *)i + 16), 0x66756263u);
-            v33 = v43;
+            PoSetHiberRange(v4, 0x8000u, *v32, *((unsigned int *)i + 16), 0x66756263u);
+            v31 = (__int64)BcdObjectHandle;
           }
-          ++v34;
-          v43 = --v33;
+          ++v32;
+          BcdObjectHandle = (HANDLE)--v31;
         }
-        while ( v33 );
+        while ( v31 );
       }
     }
   }
   else
   {
-    v36 = PopAllocatePages(16LL);
-    *(_QWORD *)(v9 + 8) = v36;
-    if ( !v36 )
+    v34 = PopAllocatePages(16LL);
+    *(_QWORD *)(v9 + 8) = v34;
+    if ( !v34 )
     {
       DumpStack = *((_DWORD *)v4 + 47);
       *a1 = 17;
@@ -274,7 +272,7 @@ LABEL_59:
       PopFreeHiberContext();
       return (unsigned int)DumpStack;
     }
-    PoSetHiberRange(v4, 0x8000u, (PVOID)(v36 + 0x2000), 0xE000uLL, 0x6D656D44u);
+    PoSetHiberRange(v4, 0x8000u, (PVOID)(v34 + 0x2000), 0xE000uLL, 0x6D656D44u);
     if ( (*(_DWORD *)(v9 + 112) & 0xFFF) != 0 )
     {
       PopInternalAddToDumpFile(v9, 0x108u, 0LL);
@@ -282,16 +280,16 @@ LABEL_59:
       PopCheckpointSystemSleep(51LL);
       KeBugCheckEx(0xA0u, 0x102uLL, 0xAuLL, v9, (ULONG_PTR)v4);
     }
-    v37 = (PVOID *)(v9 + 16);
-    v38 = 2LL;
+    v35 = (PVOID *)(v9 + 16);
+    v36 = 2LL;
     do
     {
-      if ( *v37 )
-        PoSetHiberRange(v4, 0x8000u, *v37, *(unsigned int *)(v9 + 112), 0x66756263u);
-      ++v37;
-      --v38;
+      if ( *v35 )
+        PoSetHiberRange(v4, 0x8000u, *v35, *(unsigned int *)(v9 + 112), 0x66756263u);
+      ++v35;
+      --v36;
     }
-    while ( v38 );
+    while ( v36 );
   }
   UnHibernatedMdl = PopGenerateUnHibernatedMdl(v4, (unsigned int)PopHiberScratchPages);
   *((_QWORD *)v4 + 15) = UnHibernatedMdl;
@@ -317,12 +315,12 @@ LABEL_59:
   {
     v4[452] = 0;
   }
-  if ( (int)ZwQuerySystemInformation(145LL, (__int64)&v42) >= 0 )
-    v4[453] = v42;
+  if ( ZwQuerySystemInformation(SystemSecureBootInformation, &SystemInformation, 2u, 0LL) >= 0 )
+    v4[453] = SystemInformation;
   if ( (int)BgkResumePrepare(v4) >= 0 )
     PopBgkResumePrepared = 1;
   *((_DWORD *)v4 + 48) = *((_DWORD *)v4 + 64) - 1;
   if ( (HvlpFlags & 2) != 0 )
-    HvlpAllocatePageListResources(v39, 16);
+    HvlpAllocatePageListResources(v37, 16);
   return 0;
 }

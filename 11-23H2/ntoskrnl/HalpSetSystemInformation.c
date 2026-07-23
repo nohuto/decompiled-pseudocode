@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpSetSystemInformation @ 0x14085ECB0
+ * XREFs of HalpSetSystemInformation @ 0x14085EEF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpSetProfileSourceInterval @ 0x140507FAC (HalpSetProfileSourceInterval.c)
- *     HalpRegisterProcessorTraceInterruptHandler @ 0x140521484 (HalpRegisterProcessorTraceInterruptHandler.c)
- *     HalpRegisterProfileSourceInterruptHandler @ 0x140521588 (HalpRegisterProfileSourceInterruptHandler.c)
- *     HalpRegisterTimerInterruptHandler @ 0x14052168C (HalpRegisterTimerInterruptHandler.c)
- *     HaliSetSystemInformation @ 0x14085ED18 (HaliSetSystemInformation.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpSetProfileSourceInterval @ 0x1405084FC (HalpSetProfileSourceInterval.c)
+ *     HalpRegisterProcessorTraceInterruptHandler @ 0x1405219D4 (HalpRegisterProcessorTraceInterruptHandler.c)
+ *     HalpRegisterProfileSourceInterruptHandler @ 0x140521AD8 (HalpRegisterProfileSourceInterruptHandler.c)
+ *     HalpRegisterTimerInterruptHandler @ 0x140521BDC (HalpRegisterTimerInterruptHandler.c)
+ *     HaliSetSystemInformation @ 0x14085EF58 (HaliSetSystemInformation.c)
  */
 
 __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (__fastcall **a3)(_QWORD))

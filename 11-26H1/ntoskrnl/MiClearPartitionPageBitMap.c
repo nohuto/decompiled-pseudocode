@@ -1,17 +1,17 @@
 /*
- * XREFs of MiClearPartitionPageBitMap @ 0x140708808
+ * XREFs of MiClearPartitionPageBitMap @ 0x14070D4BC
  * Callers:
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
- *     MiDeletePartitionPageNodes @ 0x140708B00 (MiDeletePartitionPageNodes.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
+ *     MiDeletePartitionPageNodes @ 0x14070D7B4 (MiDeletePartitionPageNodes.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
  */
 
 __int64 __fastcall MiClearPartitionPageBitMap(__int64 a1, _QWORD **a2)
@@ -60,7 +60,7 @@ __int64 __fastcall MiClearPartitionPageBitMap(__int64 a1, _QWORD **a2)
         v12 = v6;
       }
     }
-    MiActOnPartitionNodePages(v11, 9u, 0, (__int64)v16);
+    MiActOnPartitionNodePages(v11, 9u, 0, v16);
   }
   v14 = (volatile LONG *)(a1 + 272);
   if ( v9 == 17 )

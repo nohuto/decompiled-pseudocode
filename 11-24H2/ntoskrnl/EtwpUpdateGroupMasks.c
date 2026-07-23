@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateGroupMasks @ 0x140830E90
+ * XREFs of EtwpUpdateGroupMasks @ 0x1409D112C
  * Callers:
- *     EtwpUpdateLoggerGroupMasks @ 0x140830DF0 (EtwpUpdateLoggerGroupMasks.c)
- *     EtwSetPerformanceTraceInformation @ 0x140A440A4 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x1409D108C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140A39934 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpUpdateSelectedGroupMasks @ 0x14048FBCC (EtwpUpdateSelectedGroupMasks.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x14048A210 (EtwpUpdateSelectedGroupMasks.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpUpdateGroupMasks(int *a1, _DWORD *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpUpdateGroupMasks(int *a1, _DWORD *a2)
   _DWORD v5[8]; // [rsp+20h] [rbp-38h] BYREF
 
   v5[7] = -1;
-  v2 = &EtwpEnableFlagMap;
+  v2 = EtwpEnableFlagMap;
   v5[0] = 0x1FFFFFFF;
   v5[1] = 0x3FFFFFFF;
   v5[2] = 1610612735;

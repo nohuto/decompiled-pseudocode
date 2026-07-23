@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetTimeZoneInformationWorker @ 0x1409BA71C (RtlpSetTimeZoneInformationWorker.c)
+ *     sub_1409BA71C @ 0x1409BA71C (sub_1409BA71C.c)
  */
 
 __int64 __fastcall RtlSetDynamicTimeZoneInformation(void *a1)
 {
-  return RtlpSetTimeZoneInformationWorker(a1);
+  return sub_1409BA71C(a1);
 }

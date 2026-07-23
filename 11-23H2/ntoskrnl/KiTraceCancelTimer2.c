@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTraceCancelTimer2 @ 0x1404629E8
+ * XREFs of KiTraceCancelTimer2 @ 0x140462DE8
  * Callers:
- *     KeDisableTimer2 @ 0x14031DB78 (KeDisableTimer2.c)
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     KiTraceSetTimer2 @ 0x14057D5A4 (KiTraceSetTimer2.c)
+ *     KeDisableTimer2 @ 0x14031DE08 (KeDisableTimer2.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     KiTraceSetTimer2 @ 0x14057DA94 (KiTraceSetTimer2.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiTraceCancelTimer2(__int64 a1, __int64 a2)

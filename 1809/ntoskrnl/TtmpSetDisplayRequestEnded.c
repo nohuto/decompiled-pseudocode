@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpSetDisplayRequestEnded @ 0x1408812DC
+ * XREFs of TtmpSetDisplayRequestEnded @ 0x14088253C
  * Callers:
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1408814D0 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x140882730 (TtmpUpdateDisplayRequiredPowerRequest.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmiGetTerminalById @ 0x14087EAA0 (TtmiGetTerminalById.c)
- *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
- *     TtmpFindPowerRequestEntryById @ 0x14088097C (TtmpFindPowerRequestEntryById.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmiGetTerminalById @ 0x14087FD00 (TtmiGetTerminalById.c)
+ *     TtmiScheduleSessionWorker @ 0x140881480 (TtmiScheduleSessionWorker.c)
+ *     TtmpFindPowerRequestEntryById @ 0x140881BDC (TtmpFindPowerRequestEntryById.c)
  */
 
 void __fastcall TtmpSetDisplayRequestEnded(__int64 a1, int a2)

@@ -1,16 +1,25 @@
 /*
- * XREFs of ZwCreateProfile @ 0x1800A1970
+ * XREFs of ZwCreateProfile @ 0x1800A1990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateProfile()
+NTSTATUS __cdecl ZwCreateProfile(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        KAFFINITY Affinity)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 181LL;
+  result = 181;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

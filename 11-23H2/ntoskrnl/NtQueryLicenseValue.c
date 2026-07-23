@@ -1,25 +1,30 @@
 /*
- * XREFs of NtQueryLicenseValue @ 0x1407AEF90
+ * XREFs of NtQueryLicenseValue @ 0x1407AF180
  * Callers:
- *     ExpGetNtProductTypeFromLicenseValue @ 0x14084D278 (ExpGetNtProductTypeFromLicenseValue.c)
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x14084D578 (ExpGetNtProductTypeFromLicenseValue.c)
  *     MiMemoryLicense @ 0x140B5F220 (MiMemoryLicense.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     ntoskrnl_27 @ 0x1407AF260 (ntoskrnl_27.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     ntoskrnl_27 @ 0x1407AF450 (ntoskrnl_27.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, volatile void *a3, unsigned int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   SIZE_T v5; // r14
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   char PreviousMode; // dl
-  _DWORD *v10; // r15
+  PULONG v10; // r15
   int v11; // eax
-  unsigned __int64 v12; // rdx
+  wchar_t *Buffer; // rdx
   unsigned __int64 v13; // rcx
   void *Pool2; // rax
   void *v15; // rdi
@@ -29,41 +34,41 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, volatile
   _DWORD Size[3]; // [rsp+34h] [rbp-64h] BYREF
   PVOID P; // [rsp+40h] [rbp-58h]
   __int128 v22; // [rsp+48h] [rbp-50h] BYREF
-  int v23; // [rsp+A0h] [rbp+8h] BYREF
-  _DWORD *v24; // [rsp+A8h] [rbp+10h]
-  volatile void *v25; // [rsp+B0h] [rbp+18h]
-  unsigned int v26; // [rsp+B8h] [rbp+20h]
+  ULONG v23; // [rsp+A0h] [rbp+8h] BYREF
+  PULONG v24; // [rsp+A8h] [rbp+10h]
+  PVOID v25; // [rsp+B0h] [rbp+18h]
+  ULONG v26; // [rsp+B8h] [rbp+20h]
 
-  v26 = a4;
-  v25 = a3;
-  v24 = a2;
-  v5 = a4;
+  v26 = DataSize;
+  v25 = Data;
+  v24 = Type;
+  v5 = DataSize;
   v22 = 0LL;
   v8 = 0;
   P = 0LL;
   v23 = 0;
   memset(Size, 0, sizeof(Size));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a1 && (v10 = a5) != 0LL && (a3 || !a4) )
+  if ( ValueName && (v10 = ResultDataSize) != 0LL && (Data || !DataSize) )
   {
-    if ( a4 > 0x800000 )
+    if ( DataSize > 0x800000 )
     {
       v8 = -1073741801;
     }
     else if ( PreviousMode )
     {
-      if ( a1 >= 0x7FFFFFFF0000LL )
-        a1 = 0x7FFFFFFF0000LL;
-      v11 = *(_DWORD *)a1;
-      LODWORD(v22) = *(_DWORD *)a1;
-      v12 = *(_QWORD *)(a1 + 8);
-      *((_QWORD *)&v22 + 1) = v12;
-      if ( v12 && (_WORD)v11 && (v11 & 1) == 0 )
+      if ( (unsigned __int64)ValueName >= 0x7FFFFFFF0000LL )
+        ValueName = (PUNICODE_STRING)0x7FFFFFFF0000LL;
+      v11 = *(_DWORD *)&ValueName->Length;
+      LODWORD(v22) = *(_DWORD *)&ValueName->Length;
+      Buffer = ValueName->Buffer;
+      *((_QWORD *)&v22 + 1) = Buffer;
+      if ( Buffer && (_WORD)v11 && (v11 & 1) == 0 )
       {
-        if ( (v12 & 1) != 0 )
+        if ( ((unsigned __int8)Buffer & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        v13 = v12 + (unsigned __int16)v11;
-        if ( v13 > 0x7FFFFFFF0000LL || v13 < v12 )
+        v13 = (unsigned __int64)Buffer + (unsigned __int16)v11;
+        if ( v13 > 0x7FFFFFFF0000LL || v13 < (unsigned __int64)Buffer )
           MEMORY[0x7FFFFFFF0000] = 0;
         Pool2 = (void *)ExAllocatePool2(256LL, (unsigned __int16)v22, 542329939LL);
         P = Pool2;
@@ -72,17 +77,17 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, volatile
           v15 = Pool2;
           memmove(Pool2, *((const void **)&v22 + 1), (unsigned __int16)v22);
           *((_QWORD *)&v22 + 1) = v15;
-          if ( a2 )
+          if ( Type )
           {
-            v16 = (__int64)a2;
-            if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+            v16 = (__int64)Type;
+            if ( (unsigned __int64)Type >= 0x7FFFFFFF0000LL )
               v16 = 0x7FFFFFFF0000LL;
             *(_DWORD *)v16 = *(_DWORD *)v16;
-            v23 = *a2;
+            v23 = *Type;
           }
-          if ( a3
+          if ( Data
             && (_DWORD)v5
-            && (ProbeForWrite(a3, v5, 1u), (*(_QWORD *)&Size[1] = ExAllocatePool2(256LL, v5, 542329939LL)) == 0LL) )
+            && (ProbeForWrite(Data, v5, 1u), (*(_QWORD *)&Size[1] = ExAllocatePool2(256LL, v5, 542329939LL)) == 0LL) )
           {
             v8 = -1073741801;
           }
@@ -107,22 +112,22 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, volatile
       if ( v8 >= 0 )
       {
         v8 = ntoskrnl_27((int)&v22, (int)&v23, Size[1], v5, (__int64)Size);
-        if ( a2 )
-          *a2 = v23;
+        if ( Type )
+          *Type = v23;
         v18 = Size[0];
         *v10 = Size[0];
-        if ( v8 >= 0 && a3 )
+        if ( v8 >= 0 && Data )
         {
           if ( (unsigned int)v5 < v18 )
             v8 = -1073741789;
           else
-            memmove((void *)a3, *(const void **)&Size[1], v18);
+            memmove(Data, *(const void **)&Size[1], v18);
         }
       }
     }
     else
     {
-      v8 = ntoskrnl_27(a1, (int)a2, (int)a3, a4, (__int64)a5);
+      v8 = ntoskrnl_27((int)ValueName, (int)Type, (int)Data, DataSize, (__int64)ResultDataSize);
     }
   }
   else
@@ -133,5 +138,5 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, volatile
     ExFreePoolWithTag(P, 0);
   if ( *(_QWORD *)&Size[1] )
     ExFreePoolWithTag(*(PVOID *)&Size[1], 0);
-  return (unsigned int)v8;
+  return v8;
 }

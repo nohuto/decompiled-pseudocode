@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpRegisterEnvironment @ 0x18008D258
+ * XREFs of RtlpHpRegisterEnvironment @ 0x180070BB8
  * Callers:
- *     RtlpHpHeapCreate @ 0x18008DE64 (RtlpHpHeapCreate.c)
- *     RtlpHpHeapDestroy @ 0x18008E4B4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1800DFE7C (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapCreate @ 0x180104964 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x18008CAE8 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlpHpVaMgrCtxAllocatorDereference @ 0x18008D438 (RtlpHpVaMgrCtxAllocatorDereference.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x18008D4B8 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180157F90 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x180070444 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpVaMgrCtxAllocatorDereference @ 0x180071028 (RtlpHpVaMgrCtxAllocatorDereference.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1800E387C (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180157E60 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
  */
 
 __int64 __fastcall RtlpHpRegisterEnvironment(__m128i *a1, int a2)
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__m128i *a1, int a2)
       v10.m128i_i32[3] = 1;
     v8 = _mm_srli_si128(v3, 8).m128i_u64[0];
     v11 = v8;
-    RtlpHpVaMgrCtxAllocatorDereference(&unk_1801C7908, &v10);
+    RtlpHpVaMgrCtxAllocatorDereference(&unk_1801C6958, &v10);
     if ( BYTE1(a1->m128i_i64[0]) == 5 )
     {
       v10 = *a1;
@@ -75,7 +75,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__m128i *a1, int a2)
   if ( (v9.m128i_i8[0] & 8) != 0 )
     v10.m128i_i32[3] = 1;
   v11 = v4;
-  v5 = RtlpHpVaMgrCtxAllocatorReference((__int64)&unk_1801C7908, (__int64)&v10);
+  v5 = RtlpHpVaMgrCtxAllocatorReference((__int64)&unk_1801C6958, (__int64)&v10);
   if ( v5 != -1 )
   {
     v9.m128i_i8[3] = v5 + 1;

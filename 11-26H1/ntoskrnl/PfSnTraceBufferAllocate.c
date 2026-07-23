@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnTraceBufferAllocate @ 0x1404D1E10
+ * XREFs of PfSnTraceBufferAllocate @ 0x1404CB9C0
  * Callers:
- *     PfSnTraceGetLogEntry @ 0x1402662D0 (PfSnTraceGetLogEntry.c)
- *     PfSnBeginTrace @ 0x140AA32C0 (PfSnBeginTrace.c)
+ *     PfSnTraceGetLogEntry @ 0x140265840 (PfSnTraceGetLogEntry.c)
+ *     PfSnBeginTrace @ 0x1409D002C (PfSnBeginTrace.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _DWORD *PfSnTraceBufferAllocate()

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSleepCheckpointInitFailure @ 0x1408754A8
+ * XREFs of PopTraceSleepCheckpointInitFailure @ 0x140876708
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PopTraceSleepCheckpointInitFailure()
@@ -25,7 +25,7 @@ void PopTraceSleepCheckpointInitFailure()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      TlgWrite(&pCallbackContext, &unk_140370132, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140371095, 0LL, 0LL, 3u, &pData);
     }
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlSuspendPartition @ 0x1405887A0
+ * XREFs of HvlSuspendPartition @ 0x140585A80
  * Callers:
  *     <none>
  * Callees:
- *     HvlSetPartitionProperty @ 0x140588468 (HvlSetPartitionProperty.c)
+ *     HvlSetPartitionProperty @ 0x140585748 (HvlSetPartitionProperty.c)
  */
 
 __int64 __fastcall HvlSuspendPartition(__int64 a1, __int64 a2)

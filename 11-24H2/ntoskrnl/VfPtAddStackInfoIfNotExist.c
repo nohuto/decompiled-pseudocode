@@ -1,16 +1,16 @@
 /*
- * XREFs of VfPtAddStackInfoIfNotExist @ 0x140B8BD84
+ * XREFs of VfPtAddStackInfoIfNotExist @ 0x140B8DD84
  * Callers:
- *     ViPtProcessApt @ 0x140B8CAC8 (ViPtProcessApt.c)
+ *     ViPtProcessApt @ 0x140B8EAC8 (ViPtProcessApt.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402B2B50 (MmDeterminePoolType.c)
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x14061187C (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     ViPtCleanupLockContext @ 0x1406118EC (ViPtCleanupLockContext.c)
- *     ViPtInitializeLockContext @ 0x140611948 (ViPtInitializeLockContext.c)
- *     ViPtRaiseIrqlSafe @ 0x14061195C (ViPtRaiseIrqlSafe.c)
- *     ViPtReleaseTreeLockFromDpcLevel @ 0x1406119B0 (ViPtReleaseTreeLockFromDpcLevel.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmDeterminePoolType @ 0x14035B710 (MmDeterminePoolType.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x14060FE3C (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x14060FEAC (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x14060FF08 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x14060FF1C (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x14060FF70 (ViPtReleaseTreeLockFromDpcLevel.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _QWORD *__fastcall VfPtAddStackInfoIfNotExist(_OWORD *a1, int a2, unsigned __int64 a3, int a4, __int64 a5)

@@ -10,9 +10,7 @@
 
 NTSTATUS __stdcall ZwQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PFILE_BASIC_INFORMATION FileInformation)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, FileInformation, v2);
+  return KiServiceInternal(ObjectAttributes);
 }

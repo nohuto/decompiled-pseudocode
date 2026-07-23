@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x140AD142C
+ * XREFs of ViFreeTrackedPool @ 0x140AD141C
  * Callers:
- *     VerifierFreeTrackedPool @ 0x1405CFB60 (VerifierFreeTrackedPool.c)
+ *     VerifierFreeTrackedPool @ 0x1405D00D0 (VerifierFreeTrackedPool.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3, int a4)
@@ -14,7 +14,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   __int64 *v7; // rbx
   ULONG_PTR v8; // r14
   unsigned __int64 v9; // r15
-  union _SLIST_HEADER *v10; // rbp
+  _SLIST_HEADER *v10; // rbp
   _QWORD *v11; // rbx
   unsigned __int64 v12; // rsi
   volatile signed __int32 *v13; // r9
@@ -41,7 +41,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   }
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
-  v10 = *(union _SLIST_HEADER **)(v9 + 8);
+  v10 = *(_SLIST_HEADER **)(v9 + 8);
   if ( (VfRuleClasses & 1) != 0 )
   {
     if ( (v8 & 3) != 0 || !MmIsAddressValidEx(*v7) )

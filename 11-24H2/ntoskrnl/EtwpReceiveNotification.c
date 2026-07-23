@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpReceiveNotification @ 0x140835D94
+ * XREFs of EtwpReceiveNotification @ 0x14083641C
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpUnreferenceDataBlock @ 0x140835FF0 (EtwpUnreferenceDataBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpUnreferenceDataBlock @ 0x140836678 (EtwpUnreferenceDataBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _DWORD *a4)
@@ -19,9 +19,9 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _
   int v7; // ebp
   unsigned __int64 UserDirectoryTableBase; // r13
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v10; // rbx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
+  signed __int64 *v10; // rbx
+  char *v11; // rax
+  char *v12; // rdi
   unsigned __int64 v13; // rsi
   volatile signed __int32 *v14; // rdi
   volatile signed __int32 *v15; // rdx
@@ -30,7 +30,7 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _
   __int64 v18; // rax
   signed __int64 v19; // rax
   signed __int64 v20; // rdx
-  __int64 v21; // rtt
+  signed __int64 v21; // rtt
   volatile signed __int64 *v22; // rbx
   __int64 v23; // r12
   signed __int64 v24; // rax
@@ -42,17 +42,14 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _
   if ( UserDirectoryTableBase )
   {
     CurrentThread = KeGetCurrentThread();
-    v10 = (__int64 *)(UserDirectoryTableBase + 16);
+    v10 = (signed __int64 *)(UserDirectoryTableBase + 16);
     --CurrentThread->KernelApcDisable;
-    v11 = KeAbPreAcquire(UserDirectoryTableBase + 16, 0LL);
+    v11 = (char *)KeAbPreAcquire(UserDirectoryTableBase + 16, 0LL);
     v12 = v11;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(UserDirectoryTableBase + 16), 0LL) )
-      ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)(UserDirectoryTableBase + 16),
-        (__int64)v11,
-        UserDirectoryTableBase + 16);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(UserDirectoryTableBase + 16), v11, UserDirectoryTableBase + 16);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      v12[10] = 1;
     v13 = UserDirectoryTableBase + 24;
     v14 = *(volatile signed __int32 **)(UserDirectoryTableBase + 24);
     if ( v14 == (volatile signed __int32 *)(UserDirectoryTableBase + 24) )

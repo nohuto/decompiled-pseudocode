@@ -1,39 +1,39 @@
 /*
- * XREFs of KeSetBasePriorityThread @ 0x1402B9DA0
+ * XREFs of KeSetBasePriorityThread @ 0x1402BA030
  * Callers:
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
- *     PfTLoggingWorker @ 0x140838BD0 (PfTLoggingWorker.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409F09FC (EtwpCovSampCaptureContextStart.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
+ *     PfTLoggingWorker @ 0x140838ED0 (PfTLoggingWorker.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409F0C8C (EtwpCovSampCaptureContextStart.c)
  * Callees:
  *     KiGetProcessorEfficiencyClass @ 0x14020E8D4 (KiGetProcessorEfficiencyClass.c)
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     PoGetFrequencyBucket @ 0x140249C20 (PoGetFrequencyBucket.c)
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     HalRequestSoftwareInterrupt @ 0x140254D10 (HalRequestSoftwareInterrupt.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8430 (KiSetBasePriorityAndClearDecrement.c)
- *     KiAdjustRealtimePriorityFloor @ 0x1402B852C (KiAdjustRealtimePriorityFloor.c)
- *     KiComputeNewPriority @ 0x1402BA9C0 (KiComputeNewPriority.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1402BAAF4 (KiPriQueueThreadPriorityChanged.c)
- *     KiAbPropagateBoosts @ 0x1402BBED0 (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSwapContext @ 0x1404282E0 (KiSwapContext.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwTracePriority @ 0x14046738E (EtwTracePriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiBeginCounterAccumulation @ 0x1405740F0 (KiBeginCounterAccumulation.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     PoGetFrequencyBucket @ 0x140249CF0 (PoGetFrequencyBucket.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     HalRequestSoftwareInterrupt @ 0x140254DD0 (HalRequestSoftwareInterrupt.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402B86C0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x1402B87BC (KiAdjustRealtimePriorityFloor.c)
+ *     KiComputeNewPriority @ 0x1402BAC50 (KiComputeNewPriority.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1402BAD84 (KiPriQueueThreadPriorityChanged.c)
+ *     KiAbPropagateBoosts @ 0x1402BC160 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapContext @ 0x140428670 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwTracePriority @ 0x14046778E (EtwTracePriority.c)
+ *     KiBeginCounterAccumulation @ 0x140574630 (KiBeginCounterAccumulation.c)
  */
 
 LONG __stdcall KeSetBasePriorityThread(PKTHREAD Thread, LONG Increment)
@@ -95,7 +95,7 @@ LONG __stdcall KeSetBasePriorityThread(PKTHREAD Thread, LONG Increment)
   struct _KPRCB *v59; // r9
   _DWORD *v60; // r8
   int v61; // eax
-  void (__fastcall *v62)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v62)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v63; // r12
   unsigned int *v64; // rbx
   unsigned __int64 v65; // rdi
@@ -110,7 +110,7 @@ LONG __stdcall KeSetBasePriorityThread(PKTHREAD Thread, LONG Increment)
   int v74; // [rsp+40h] [rbp-338h] BYREF
   int v75; // [rsp+44h] [rbp-334h] BYREF
   _DWORD v76[2]; // [rsp+48h] [rbp-330h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-328h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-328h] BYREF
   int v78; // [rsp+54h] [rbp-324h]
   _QWORD *v79; // [rsp+58h] [rbp-320h] BYREF
   int v80; // [rsp+60h] [rbp-318h]
@@ -145,7 +145,7 @@ LONG __stdcall KeSetBasePriorityThread(PKTHREAD Thread, LONG Increment)
   v79 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -470,8 +470,9 @@ LABEL_38:
           v78 = 1;
           v76[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
           v76[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-          v62 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
-          ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+          v62 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController
+                                                                                             + 120);
+          ProcNumber = (_PROCESSOR_NUMBER)-1;
           _disable();
           v62(*(_QWORD *)(HalpInterruptController + 16), v76, &v97, 47LL, &ProcNumber);
           if ( (v102 & 0x200) != 0 )
@@ -552,10 +553,10 @@ LABEL_38:
     }
     if ( !v54 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v55 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v55 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v55 - 2) <= 0xDu )
         {
           v56 = KeGetCurrentPrcb();
           v57 = v56->SchedulerAssist;
@@ -569,10 +570,10 @@ LABEL_38:
       *(_DWORD *)(v40 + 116) &= ~0x40u;
       KiDeliverApc(0LL, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v58 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v58 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v58 - 2) <= 0xDu )
       {
         v59 = KeGetCurrentPrcb();
         v60 = v59->SchedulerAssist;

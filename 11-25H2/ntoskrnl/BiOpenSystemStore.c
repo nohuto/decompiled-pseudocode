@@ -62,7 +62,7 @@ __int64 __fastcall BiOpenSystemStore(__int64 *a1, char a2)
   __int64 v35; // [rsp+28h] [rbp-40h] BYREF
   HANDLE v36; // [rsp+30h] [rbp-38h] BYREF
   PVOID v37; // [rsp+38h] [rbp-30h] BYREF
-  HANDLE v38; // [rsp+40h] [rbp-28h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-20h] BYREF
   PVOID P[3]; // [rsp+50h] [rbp-18h] BYREF
   unsigned int v43; // [rsp+C0h] [rbp+58h] BYREF
@@ -77,7 +77,7 @@ __int64 __fastcall BiOpenSystemStore(__int64 *a1, char a2)
   v35 = 0LL;
   v44 = 0;
   BiLogMessage();
-  v38 = 0LL;
+  BcdStoreHandle = 0LL;
   v34 = 0;
   v37 = 0LL;
   v36 = 0LL;
@@ -98,11 +98,11 @@ __int64 __fastcall BiOpenSystemStore(__int64 *a1, char a2)
         {
           if ( !wcsnicmp(*v22, L"BCD", 3uLL)
             && wcstoul(*v22 + 3, 0LL, 10) != -1
-            && (int)BiOpenKey((__int64)v6, *v22, 0x20019u, &v38) >= 0 )
+            && (int)BiOpenKey((__int64)v6, *v22, 0x20019u, &BcdStoreHandle) >= 0 )
           {
-            v29 = v38;
-            if ( BiIsSystemStore((__int64)v38) )
-              BcdForciblyUnloadStore((__int64)v29);
+            v29 = BcdStoreHandle;
+            if ( BiIsSystemStore((__int64)BcdStoreHandle) )
+              BcdForciblyUnloadStore(v29);
             else
               BiUnloadHiveByHandle(v29, 0);
           }
@@ -120,11 +120,11 @@ __int64 __fastcall BiOpenSystemStore(__int64 *a1, char a2)
   else
   {
     v15 = IsWinPEBoot;
-    v16 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &v38);
-    v17 = v38;
+    v16 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &BcdStoreHandle);
+    v17 = BcdStoreHandle;
     if ( v16 >= 0 )
     {
-      v24 = BiEnumerateSubKeys(v38, &v37, &v34);
+      v24 = BiEnumerateSubKeys(BcdStoreHandle, &v37, &v34);
       v25 = v37;
       if ( v24 >= 0 && v34 )
       {
@@ -238,7 +238,7 @@ LABEL_15:
     }
     else
     {
-      v9 = BiBindEfiNamespaceObjects(v2);
+      v9 = BiBindEfiNamespaceObjects((HANDLE)v2);
       if ( v9 >= 0 )
       {
 LABEL_16:

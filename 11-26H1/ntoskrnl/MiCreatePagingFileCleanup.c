@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePagingFileCleanup @ 0x140868838
+ * XREFs of MiCreatePagingFileCleanup @ 0x14086EC18
  * Callers:
- *     MiCreatePagingFileMap @ 0x1409B88BC (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14098989C (MiCreatePagingFileMap.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
- *     MiDeleteSectionAwe @ 0x1407014B8 (MiDeleteSectionAwe.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
+ *     MiDeleteSectionAwe @ 0x140706188 (MiDeleteSectionAwe.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiCreatePagingFileCleanup(__int64 *a1)

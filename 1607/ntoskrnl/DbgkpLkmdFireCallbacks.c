@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkpLkmdFireCallbacks @ 0x14061B2A8
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x14061B35C
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14061ADEC (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x14061AEA0 (DbgkCaptureLiveDump.c)
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140014034 (ExGetCallBackBlockRoutine.c)
- *     ExGetCallBackBlockContext @ 0x140014184 (ExGetCallBackBlockContext.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140013BB4 (ExGetCallBackBlockRoutine.c)
+ *     ExGetCallBackBlockContext @ 0x140013D04 (ExGetCallBackBlockContext.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
  */
 
 void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, struct _KPROCESS *a3)
 {
   char v3; // si
   int SessionId; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
+  _RTL_RUN_ONCE *v8; // rdi
   __int64 v9; // r14
   struct _EX_RUNDOWN_REF *v10; // rbp
   int Ptr; // eax

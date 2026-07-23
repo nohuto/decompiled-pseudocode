@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipGetSysIds @ 0x1409DFBC8
+ * XREFs of WmipGetSysIds @ 0x1409DFDC8
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x1407AB580 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x1407AB770 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     WmipFindSMBiosStructure @ 0x1409DF70C (WmipFindSMBiosStructure.c)
- *     WmipFindSysIdTable @ 0x1409DF850 (WmipFindSysIdTable.c)
- *     WmipParseSysIdTable @ 0x1409DFE90 (WmipParseSysIdTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     WmipFindSMBiosStructure @ 0x1409DF90C (WmipFindSMBiosStructure.c)
+ *     WmipFindSysIdTable @ 0x1409DFA50 (WmipFindSysIdTable.c)
+ *     WmipParseSysIdTable @ 0x1409E0090 (WmipParseSysIdTable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

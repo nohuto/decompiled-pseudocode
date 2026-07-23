@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxNextComponentChildRelationSafe @ 0x140471340
+ * XREFs of PopFxNextComponentChildRelationSafe @ 0x14046AAC0
  * Callers:
- *     PopFxComponentRelationsCleanup @ 0x140470E54 (PopFxComponentRelationsCleanup.c)
- *     PoFxRemoveComponentRelation @ 0x140604610 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140604860 (PoFxRemoveDeviceRelation.c)
- *     PopDripsWatchdogTakeAction @ 0x14061388C (PopDripsWatchdogTakeAction.c)
+ *     PopFxComponentRelationsCleanup @ 0x14046A5D4 (PopFxComponentRelationsCleanup.c)
+ *     PoFxRemoveComponentRelation @ 0x140607110 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x140607360 (PoFxRemoveDeviceRelation.c)
+ *     PopDripsWatchdogTakeAction @ 0x14061674C (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopFxNextComponentChildRelationSafe(__int64 a1, __int64 a2, _QWORD *a3)

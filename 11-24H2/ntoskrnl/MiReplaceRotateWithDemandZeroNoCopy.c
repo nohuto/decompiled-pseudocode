@@ -1,32 +1,32 @@
 /*
- * XREFs of MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C
+ * XREFs of MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C
  * Callers:
- *     MmRotatePhysicalView @ 0x140A2E770 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140A231B0 (MmRotatePhysicalView.c)
  * Callees:
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiUnmapFrameBuffer @ 0x1403CE530 (MiUnmapFrameBuffer.c)
- *     MiDereferenceIoPageRuns @ 0x1403CE6A8 (MiDereferenceIoPageRuns.c)
- *     MiPageTableLockIsContended @ 0x1403CFFE0 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1403D01B0 (MiWorkingSetIsContended.c)
- *     MiUnlockOpportunisticPagesInPageTable @ 0x1403D1CC8 (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiUnlockOpportunisticPagesInPageTable @ 0x14038DEE4 (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiUnmapFrameBuffer @ 0x14038E570 (MiUnmapFrameBuffer.c)
+ *     MiDereferenceIoPageRuns @ 0x14038E6E8 (MiDereferenceIoPageRuns.c)
+ *     MiPageTableLockIsContended @ 0x140391410 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1403915E0 (MiWorkingSetIsContended.c)
  */
 
 __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
         __int64 a1,
         unsigned __int64 a2,
         unsigned __int64 a3,
-        unsigned int a4)
+        __int64 a4)
 {
   __int64 *v4; // r13
   unsigned int v5; // r15d
@@ -42,13 +42,15 @@ __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
   __int64 v15; // rcx
   __int64 v16; // rbx
   unsigned int v17; // esi
-  __int64 v19; // rdx
-  __int64 v20; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
   __int64 v21; // [rsp+38h] [rbp-60h]
   __int64 *ProcessorFlushList; // [rsp+40h] [rbp-58h]
   unsigned __int8 v24; // [rsp+A8h] [rbp+10h]
   unsigned int v25; // [rsp+B0h] [rbp+18h]
+  unsigned int v26; // [rsp+B8h] [rbp+20h]
 
+  v26 = a4;
   v21 = 0LL;
   v25 = 0;
   ProcessorFlushList = 0LL;
@@ -59,7 +61,7 @@ __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
   v8 = (_QWORD *)(((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v9 = 0LL;
   p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-  v24 = MiLockWorkingSetShared((__int64)p_Blink);
+  v24 = MiLockWorkingSetShared((__int64)p_Blink, 0x7FFFFFFFF8LL, a3, a4);
   v11 = v24;
   if ( v6 <= v7 )
   {
@@ -71,17 +73,15 @@ __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
         {
           v9 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
           MiLockNestedPageTable((__int64)p_Blink, v9);
-          LOBYTE(v19) = v11;
-          MiUnlockOpportunisticPagesInPageTable(p_Blink, v19, v6, v7);
+          MiUnlockOpportunisticPagesInPageTable((__int64)p_Blink, v11, v6, v7);
           if ( !v5 )
           {
-            LOBYTE(v20) = 17;
-            if ( MiUnlockOpportunisticPagesInPageTable(p_Blink, v20, v6, v7) )
+            if ( MiUnlockOpportunisticPagesInPageTable((__int64)p_Blink, 0x11u, v6, v7) )
               v5 = 1073741849;
           }
         }
         v12 = (*(_QWORD *)v6 >> 12) & 0xFFFFFFFFFFLL;
-        MiUnmapFrameBuffer(a1, v6, a4);
+        MiUnmapFrameBuffer(a1, v6, v26);
         if ( v4 )
         {
           v13 = v21;
@@ -99,7 +99,7 @@ __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
           v21 = v14 + 4136;
           MiInitializeTbFlushList(v14 + 4136, (__int64)p_Blink, *(_DWORD *)(v14 + 4148), 24, 1);
         }
-        if ( v12 > qword_140E2DBE0 || ((*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+        if ( v12 > qword_140E2DD20 || ((*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
           MiInsertTbFlushEntry(v13, v12 << 12, 1LL, 0);
         MiInsertTbFlushEntry((__int64)ProcessorFlushList, (__int64)(v6 << 25) >> 16, 1LL, 0);
         ++v25;
@@ -148,7 +148,7 @@ __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
       v8 = (_QWORD *)(((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
       v9 = 0LL;
       v25 = 0;
-      MiLockWorkingSetShared((__int64)p_Blink);
+      MiLockWorkingSetShared((__int64)p_Blink, 0LL, v18, v19);
     }
   }
   return v5;

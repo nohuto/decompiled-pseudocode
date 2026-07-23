@@ -1,9 +1,9 @@
 /*
- * XREFs of PsCpuPartitionMoveCpus @ 0x1407F2640
+ * XREFs of PsCpuPartitionMoveCpus @ 0x1407F81A0
  * Callers:
- *     PsInitializeBootCpuPartitions @ 0x140CD7AC4 (PsInitializeBootCpuPartitions.c)
+ *     PsInitializeBootCpuPartitions @ 0x140CDDE44 (PsInitializeBootCpuPartitions.c)
  * Callees:
- *     KeCpuPartitionMoveCpus @ 0x1405F3880 (KeCpuPartitionMoveCpus.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405F6240 (KeCpuPartitionMoveCpus.c)
  */
 
 __int64 __fastcall PsCpuPartitionMoveCpus(__int64 *a1, _WORD ***a2, struct _KAFFINITY_EX *a3)

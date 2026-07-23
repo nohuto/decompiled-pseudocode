@@ -1,11 +1,11 @@
 /*
- * XREFs of PpvUtilCallAddDevice @ 0x140322310
+ * XREFs of PpvUtilCallAddDevice @ 0x1403225A0
  * Callers:
- *     PnpCallAddDevice @ 0x14079262C (PnpCallAddDevice.c)
+ *     PnpCallAddDevice @ 0x14079281C (PnpCallAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfDevObjPostAddDevice @ 0x140AD21A4 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x140AD21F8 (VfDevObjPreAddDevice.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfDevObjPostAddDevice @ 0x140AD2194 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x140AD21E8 (VfDevObjPreAddDevice.c)
  */
 
 __int64 __fastcall PpvUtilCallAddDevice(

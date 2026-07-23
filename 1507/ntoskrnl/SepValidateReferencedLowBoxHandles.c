@@ -19,14 +19,14 @@
  *     SepQueryNameString @ 0x1406D3B24 (SepQueryNameString.c)
  */
 
-__int64 __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, char *a2, unsigned int a3, void *a4)
+NTSTATUS __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, void *a2, unsigned int a3, void *a4)
 {
   HANDLE *v5; // rsi
   unsigned int v6; // edi
   unsigned int v7; // r13d
   struct _KPROCESS *v8; // r15
   PVOID v9; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   NTSTATUS v11; // ebx
   char v12; // r12
   PULONG v13; // rsi
@@ -38,7 +38,7 @@ __int64 __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, char *a2,
   int NameString; // eax
   __int64 NameInfo; // rax
   unsigned int v21; // edi
-  int v22; // [rsp+44h] [rbp-BCh] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+44h] [rbp-BCh] BYREF
   unsigned int v23; // [rsp+48h] [rbp-B8h]
   PVOID P; // [rsp+50h] [rbp-B0h] BYREF
   PVOID Object; // [rsp+58h] [rbp-A8h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, char *a2,
   v26 = a1;
   Object = a4;
   v23 = a3;
-  v22 = 0;
+  AppContainerSidType = NotAppContainerSidType;
   P = 0LL;
   v5 = (HANDLE *)a4;
   DestinationString.Length = 0;
@@ -67,14 +67,14 @@ __int64 __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, char *a2,
   *(_QWORD *)&UnicodeString.MaximumLength = 0LL;
   *(_DWORD *)((char *)&UnicodeString.Buffer + 2) = 0;
   HIWORD(UnicodeString.Buffer) = 0;
-  result = RtlGetAppContainerSidType(a2, &v22);
-  if ( (int)result < 0 )
+  result = RtlGetAppContainerSidType(a2, &AppContainerSidType);
+  if ( result < 0 )
     return result;
-  if ( v22 == 2 )
+  if ( AppContainerSidType == ParentAppContainerSidType )
   {
     v11 = RtlConvertSidToUnicodeString(&UnicodeString, a2, 1u);
     if ( v11 < 0 )
-      return (unsigned int)v11;
+      return v11;
     v12 = 1;
   }
   else
@@ -159,5 +159,5 @@ LABEL_29:
 LABEL_33:
   if ( v12 )
     RtlFreeAnsiString(&UnicodeString);
-  return (unsigned int)v11;
+  return v11;
 }

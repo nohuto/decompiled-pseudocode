@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUmpoSendPowerRequestCreate @ 0x1408F2698
+ * XREFs of PopUmpoSendPowerRequestCreate @ 0x1408F27F8
  * Callers:
- *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
- *     PopPowerRequestNotificationsFlush @ 0x1408E1AE8 (PopPowerRequestNotificationsFlush.c)
+ *     PopCreateUserPowerRequest @ 0x140670C38 (PopCreateUserPowerRequest.c)
+ *     PopPowerRequestNotificationsFlush @ 0x1408E1C48 (PopPowerRequestNotificationsFlush.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopGetPowerRequestDiagnosticBuffer @ 0x1408E18F0 (PopGetPowerRequestDiagnosticBuffer.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopUmpoSendPowerMessage @ 0x140270CF4 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopGetPowerRequestDiagnosticBuffer @ 0x1408E1A50 (PopGetPowerRequestDiagnosticBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopUmpoSendPowerRequestCreate(int a1)

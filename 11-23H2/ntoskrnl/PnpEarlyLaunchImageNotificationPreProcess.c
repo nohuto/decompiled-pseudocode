@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x140322B80 (PnpDiagnosticTraceObject.c)
- *     RtlDuplicateUnicodeString @ 0x1407B6FC0 (RtlDuplicateUnicodeString.c)
+ *     PnpDiagnosticTraceObject @ 0x140322E10 (PnpDiagnosticTraceObject.c)
+ *     RtlDuplicateUnicodeString @ 0x1407B72A0 (RtlDuplicateUnicodeString.c)
  */
 
 NTSTATUS __fastcall PnpEarlyLaunchImageNotificationPreProcess(

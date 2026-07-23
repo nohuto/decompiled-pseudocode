@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceReadyThread @ 0x140218760
+ * XREFs of EtwTraceReadyThread @ 0x140218A90
  * Callers:
- *     KiFastReadyThread @ 0x14022F1E8 (KiFastReadyThread.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
- *     KiReadyOutSwappedThreads @ 0x14037B7C4 (KiReadyOutSwappedThreads.c)
+ *     KiFastReadyThread @ 0x140230B78 (KiFastReadyThread.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
+ *     KiReadyOutSwappedThreads @ 0x14037D574 (KiReadyOutSwappedThreads.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpCoverageSamplerReadyThread @ 0x140531710 (EtwpCoverageSamplerReadyThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x140533BB8 (EtwpCoverageSamplerReadyThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 _QWORD *__fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)

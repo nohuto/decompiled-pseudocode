@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x14095EE00
+ * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x14095F000
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14087BF7C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14095DA8C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x14087C1BC (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14095DC8C (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1403CE808 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x14095E460 (PiDevCfgFreeDeviceMigrationNode.c)
+ *     PnpValidateMultiSzData @ 0x1403CE9E8 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x14095E660 (PiDevCfgFreeDeviceMigrationNode.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -71,7 +71,7 @@ LABEL_31:
     *(_QWORD *)(v9 + 40) = Handle;
     Handle = 0LL;
     memset(v23, 0, sizeof(v23));
-    v11 = _mm_loadu_si128((const __m128i *)off_140A78230);
+    v11 = _mm_loadu_si128((const __m128i *)off_140A784E0);
     si128 = _mm_load_si128((const __m128i *)&_xmm);
     v13 = _mm_load_si128((const __m128i *)&_xmm);
     v23[2] = v11.m128i_i64[0];

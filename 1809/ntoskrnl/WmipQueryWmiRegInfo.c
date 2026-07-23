@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipQueryWmiRegInfo @ 0x140763E00
+ * XREFs of WmipQueryWmiRegInfo @ 0x140764FF0
  * Callers:
- *     IoWMISystemControl @ 0x1406CC0FC (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406CD39C (IoWMISystemControl.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall WmipQueryWmiRegInfo(__int64 a1, __int64 a2, UNICODE_STRING *a3, _QWORD *a4)
 {
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *a4 = &WmipRegistryPath;
   RtlInitAnsiString(&DestinationString, "SMBiosData");

@@ -1,9 +1,9 @@
 /*
- * XREFs of KseHookMemcpy_s @ 0x140494E00
+ * XREFs of KseHookMemcpy_s @ 0x14048F6C0
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KseHookMemcpy_s(char *a1, size_t a2, __int64 *a3, size_t a4)

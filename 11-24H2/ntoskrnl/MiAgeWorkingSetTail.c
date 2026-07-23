@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAgeWorkingSetTail @ 0x1403AAB80
+ * XREFs of MiAgeWorkingSetTail @ 0x140296210
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140287894 (MiFreeWsleList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiQueryVpabAccessedState @ 0x1403AACE4 (MiQueryVpabAccessedState.c)
- *     MiProcessVpabAccessedInfo @ 0x1403AAE48 (MiProcessVpabAccessedInfo.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x140297494 (MiFreeWsleList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiQueryVpabAccessedState @ 0x1403994CC (MiQueryVpabAccessedState.c)
+ *     MiProcessVpabAccessedInfo @ 0x140480648 (MiProcessVpabAccessedInfo.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiAgeWorkingSetTail(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall MiAgeWorkingSetTail(__int64 a1)
   BOOL v3; // ebp
   int v4; // r14d
   __int64 v5; // rcx
-  ULONG_PTR v7; // rdx
+  __int64 v7; // rdx
   _DWORD *v8; // rax
   bool v9; // zf
   unsigned __int64 v10; // rdi
@@ -36,7 +36,7 @@ __int64 __fastcall MiAgeWorkingSetTail(__int64 a1)
       MiFlushTbList(v5);
     v7 = *(_QWORD *)(v1 + 64);
     if ( *(_DWORD *)(v7 + 28) )
-      MiFreeWsleList(*(_QWORD *)(a1 + 32), v7, 0);
+      MiFreeWsleList(*(_QWORD *)(a1 + 32), v7, 0LL);
     v8 = *(_DWORD **)(v1 + 72);
     if ( !v8
       || !*v8

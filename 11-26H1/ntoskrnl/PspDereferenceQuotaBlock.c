@@ -1,14 +1,14 @@
 /*
- * XREFs of PspDereferenceQuotaBlock @ 0x140924100
+ * XREFs of PspDereferenceQuotaBlock @ 0x1408FFC10
  * Callers:
- *     ObSetSecurityDescriptorInfo @ 0x1409214E0 (ObSetSecurityDescriptorInfo.c)
- *     SeDefaultObjectMethod @ 0x140921C40 (SeDefaultObjectMethod.c)
- *     ObpFreeObject @ 0x140923CC0 (ObpFreeObject.c)
- *     PspDereferenceQuota @ 0x140AF15EC (PspDereferenceQuota.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1408FCFF0 (ObSetSecurityDescriptorInfo.c)
+ *     SeDefaultObjectMethod @ 0x1408FD750 (SeDefaultObjectMethod.c)
+ *     ObpFreeObject @ 0x1408FF7D0 (ObpFreeObject.c)
+ *     PspDereferenceQuota @ 0x140AF422C (PspDereferenceQuota.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x1403BD4F0 (PspReturnResourceQuota.c)
- *     PspRemoveQuotaBlock @ 0x1409E0DC0 (PspRemoveQuotaBlock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PspReturnResourceQuota @ 0x1403C7360 (PspReturnResourceQuota.c)
+ *     PspRemoveQuotaBlock @ 0x1409B9030 (PspRemoveQuotaBlock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDereferenceQuotaBlock(char *P)
@@ -29,7 +29,7 @@ void __fastcall PspDereferenceQuotaBlock(char *P)
 
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 128, 0xFFFFFFFF) == 1 )
   {
-    if ( (stru_140FC01F0.SchedulerApcFill3[48] & 3) != 1 )
+    if ( (stru_140FC11F0.SchedulerApcFill3[40] & 3) != 1 )
       goto LABEL_8;
     v2 = *((_QWORD *)P + 10);
     v3 = *((_QWORD *)P + 8);
@@ -50,7 +50,7 @@ void __fastcall PspDereferenceQuotaBlock(char *P)
     if ( !v2 )
     {
 LABEL_8:
-      if ( (stru_140FC01F0.SchedulerApcFill3[56] & 3) != 1 )
+      if ( (stru_140FC11F0.SchedulerApcFill3[48] & 3) != 1 )
         goto LABEL_14;
       v5 = *((_QWORD *)P + 26);
       v6 = *((_QWORD *)P + 24);
@@ -71,7 +71,7 @@ LABEL_8:
       if ( !v5 )
       {
 LABEL_14:
-        if ( (stru_140FC01F0.SchedulerApcFill4[64] & 3) != 1 )
+        if ( (stru_140FC11F0.SchedulerApcFill3[56] & 3) != 1 )
           goto LABEL_20;
         v8 = *((_QWORD *)P + 42);
         v9 = *((_QWORD *)P + 40);
@@ -93,7 +93,7 @@ LABEL_14:
         {
 LABEL_20:
           v11 = P + 384;
-          if ( (stru_140FC01F0.SchedulerApcFill5[72] & 3) != 1 )
+          if ( (stru_140FC11F0.SchedulerApcFill4[64] & 3) != 1 )
           {
 LABEL_26:
             PspRemoveQuotaBlock(P, v11);

@@ -11,14 +11,11 @@
 void __stdcall PoSetSystemState(EXECUTION_STATE Flags)
 {
   unsigned __int8 CurrentIrql; // bl
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
 
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql < 2u )
     PopAcquirePolicyLock(Flags);
   PopSetSystemState(Flags, 7u);
   if ( CurrentIrql < 2u )
-    PopReleasePolicyLock(v4, v3, v5);
+    PopReleasePolicyLock();
 }

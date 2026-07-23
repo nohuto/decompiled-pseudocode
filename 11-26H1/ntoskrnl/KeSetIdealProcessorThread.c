@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetIdealProcessorThread @ 0x140204780
+ * XREFs of KeSetIdealProcessorThread @ 0x140204860
  * Callers:
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
  * Callees:
- *     KeSetIdealProcessorThreadEx @ 0x140204850 (KeSetIdealProcessorThreadEx.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140204930 (KeSetIdealProcessorThreadEx.c)
  */
 
 UCHAR __stdcall KeSetIdealProcessorThread(PKTHREAD Thread, UCHAR Processor)
@@ -28,7 +28,7 @@ LABEL_18:
   }
   if ( (unsigned __int16)v3 < (unsigned __int16)KiActiveGroups && Processor < 0x40u )
   {
-    v4 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * v3 + Processor);
+    v4 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v3].Flink + Processor);
     if ( v4 )
     {
       if ( v4 != -1 )
@@ -42,7 +42,7 @@ LABEL_18:
 LABEL_10:
   if ( IdealProcessor
     && IdealProcessor < KeMaximumProcessors
-    && (v6 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * IdealProcessor)) != 0 )
+    && (v6 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + IdealProcessor)) != 0 )
   {
     return v6 & 0x3F;
   }

@@ -1,24 +1,24 @@
 /*
- * XREFs of _PnpObjectRaisePropertyChangeEvent @ 0x1407972F4
+ * XREFs of _PnpObjectRaisePropertyChangeEvent @ 0x1407974E4
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1407936D4 (IopProcessSetInterfaceState.c)
- *     _CmAddDeviceToContainerWorker @ 0x140795198 (_CmAddDeviceToContainerWorker.c)
- *     _PnpSetObjectPropertyWorker @ 0x140796CFC (_PnpSetObjectPropertyWorker.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797210 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     _CmSetDeviceMappedProperty @ 0x140799A70 (_CmSetDeviceMappedProperty.c)
- *     _CmRaisePropertyChangeEvent @ 0x14086CBA4 (_CmRaisePropertyChangeEvent.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x14086D588 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140A6477C (_CmRemoveDeviceFromContainerWorker.c)
- *     _CmAddPanelDeviceWorker @ 0x140A659A0 (_CmAddPanelDeviceWorker.c)
- *     _CmRemovePanelDeviceWorker @ 0x140A66D04 (_CmRemovePanelDeviceWorker.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140A69924 (_CmSetInstallerClassMappedProperty.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x140A6A038 (_CmSetInterfaceClassMappedProperty.c)
+ *     IopProcessSetInterfaceState @ 0x1407938C4 (IopProcessSetInterfaceState.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140795388 (_CmAddDeviceToContainerWorker.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140796EEC (_PnpSetObjectPropertyWorker.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797400 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _CmSetDeviceMappedProperty @ 0x140799C60 (_CmSetDeviceMappedProperty.c)
+ *     _CmRaisePropertyChangeEvent @ 0x14086CDE4 (_CmRaisePropertyChangeEvent.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x14086D7C8 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x140A64A2C (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmAddPanelDeviceWorker @ 0x140A65C50 (_CmAddPanelDeviceWorker.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140A66FB4 (_CmRemovePanelDeviceWorker.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140A69BD4 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x140A6A2E8 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x140796694 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407973CC (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140A65660 (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
- *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140A65754 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x140796884 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407975BC (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140A65910 (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140A65A04 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
  */
 
 __int64 __fastcall PnpObjectRaisePropertyChangeEvent(

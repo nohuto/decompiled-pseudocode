@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPageFileLargestBitmapsRun @ 0x140405994
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x1403FEA88
  * Callers:
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140404DD0 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiFindBestOutswapPagefile @ 0x1404056BC (MiFindBestOutswapPagefile.c)
- *     MiGetKernelStackSwapSupport @ 0x140405AA8 (MiGetKernelStackSwapSupport.c)
- *     MiFindFreePageFileSpace @ 0x140405E3C (MiFindFreePageFileSpace.c)
- *     MiModwriterConfigureMode @ 0x140406DD0 (MiModwriterConfigureMode.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403FDED0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiFindBestOutswapPagefile @ 0x1403FE7B0 (MiFindBestOutswapPagefile.c)
+ *     MiGetKernelStackSwapSupport @ 0x1403FEB9C (MiGetKernelStackSwapSupport.c)
+ *     MiFindFreePageFileSpace @ 0x1403FEF30 (MiFindFreePageFileSpace.c)
+ *     MiModwriterConfigureMode @ 0x1403FFEC0 (MiModwriterConfigureMode.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)

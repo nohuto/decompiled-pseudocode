@@ -22,67 +22,58 @@
 char PspInitializeThunkContext()
 {
   struct _KTHREAD *CurrentThread; // r15
-  unsigned int v1; // r14d
-  int ExtendedContextLength; // ebx
+  ULONG v1; // r14d
+  NTSTATUS ExtendedContextLength; // ebx
   SIZE_T v3; // rsi
   unsigned __int64 v4; // rax
   void *v5; // rsp
   int v6; // r9d
-  volatile void *v7; // r13
-  __int64 InstrumentationCallback; // rdx
+  _CONTEXT *v7; // r13
+  void *InstrumentationCallback; // rdx
   __int64 v9; // rcx
   char result; // al
   _QWORD *InitialStack; // rdx
   _QWORD *i; // r8
-  int v13; // [rsp+30h] [rbp+0h] BYREF
-  _DWORD Size[3]; // [rsp+34h] [rbp+4h] BYREF
-  _QWORD v15[2]; // [rsp+40h] [rbp+10h] BYREF
-  NTSTATUS v16[2]; // [rsp+50h] [rbp+20h] BYREF
-  __int64 v17; // [rsp+58h] [rbp+28h]
-  __int64 v18; // [rsp+60h] [rbp+30h]
-  int v19; // [rsp+68h] [rbp+38h]
-  _DWORD v20[31]; // [rsp+6Ch] [rbp+3Ch] BYREF
-  __int64 v21[154]; // [rsp+F0h] [rbp+C0h] BYREF
+  _BYTE Context[1424]; // [rsp+30h] [rbp+0h] BYREF
 
-  memset(v20, 0, sizeof(v20));
-  memset(Size, 0, sizeof(Size));
-  v15[0] = 0LL;
+  memset(&Context[60], 0, 0x7CuLL);
+  memset(&Context[4], 0, 20);
   CurrentThread = KeGetCurrentThread();
-  v15[1] = CurrentThread;
+  *(_QWORD *)&Context[24] = CurrentThread;
   v1 = ((unsigned int)CurrentThread->MiscFlags >> 14) & 0x40 | 0x10001B;
-  ExtendedContextLength = RtlGetExtendedContextLength(v1, (__int64)Size);
+  ExtendedContextLength = RtlGetExtendedContextLength(v1, (PULONG)&Context[4]);
   if ( ExtendedContextLength >= 0 )
   {
-    v3 = Size[0];
-    v4 = Size[0] + 15LL;
-    if ( v4 <= Size[0] )
+    v3 = *(unsigned int *)&Context[4];
+    v4 = *(unsigned int *)&Context[4] + 15LL;
+    if ( v4 <= *(unsigned int *)&Context[4] )
       v4 = 0xFFFFFFFFFFFFFF0LL;
     v5 = alloca(v4 & 0xFFFFFFFFFFFFFFF0uLL);
-    memset(&v13, 0, Size[0]);
-    ExtendedContextLength = RtlInitializeExtendedContext((__int64)&v13, v1, (__int64)&Size[1]);
+    memset(Context, 0, *(unsigned int *)&Context[4]);
+    ExtendedContextLength = RtlInitializeExtendedContext((PCONTEXT)Context, v1, (PCONTEXT_EX *)&Context[8]);
     if ( ExtendedContextLength >= 0 )
     {
-      memset(v21, 0, sizeof(v21));
+      memset(&Context[192], 0, 0x4D0uLL);
       --CurrentThread->SpecialApcDisable;
       PspCallThreadNotifyRoutines(CurrentThread, 1u, 1);
       LOBYTE(v6) = 1;
-      ExtendedContextLength = PspGetContextThreadInternal((_DWORD)CurrentThread, (unsigned int)&v13, 0, v6, 0);
-      v13 = ExtendedContextLength;
+      ExtendedContextLength = PspGetContextThreadInternal((_DWORD)CurrentThread, (unsigned int)Context, 0, v6, 0);
+      *(_DWORD *)Context = ExtendedContextLength;
       if ( ExtendedContextLength >= 0 )
       {
-        v7 = (volatile void *)((*(_QWORD *)&v20[23] - v3) & 0xFFFFFFFFFFFFFFF0uLL);
-        v21[19] = (__int64)v7 - 40;
+        v7 = (_CONTEXT *)((*(_QWORD *)&Context[152] - v3) & 0xFFFFFFFFFFFFFFF0uLL);
+        *(_QWORD *)&Context[344] = (char *)v7 - 40;
         PspCreateUserContext(
-          (unsigned int)v21,
+          (unsigned int)&Context[192],
           0,
           PspLoaderInitRoutine,
-          (v20[23] - v3) & 0xFFFFFFF0,
+          (*(_DWORD *)&Context[152] - v3) & 0xFFFFFFF0,
           *((_QWORD *)PspSystemDlls + 5));
-        InstrumentationCallback = (__int64)CurrentThread->ApcState.Process->InstrumentationCallback;
+        InstrumentationCallback = CurrentThread->ApcState.Process->InstrumentationCallback;
         if ( InstrumentationCallback )
         {
-          v21[25] = v21[31];
-          v21[31] = InstrumentationCallback;
+          *(_QWORD *)&Context[392] = *(_QWORD *)&Context[440];
+          *(_QWORD *)&Context[440] = InstrumentationCallback;
         }
         v9 = (__int64)v7;
         if ( v3 - 1 > 0xFFE )
@@ -96,14 +87,14 @@ char PspInitializeThunkContext()
           *(_BYTE *)v9 = *(_BYTE *)v9;
           *(_BYTE *)(v9 + v3 - 1) = *(_BYTE *)(v9 + v3 - 1);
         }
-        ExtendedContextLength = RtlInitializeExtendedContext((__int64)v7, v1, (__int64)v15);
-        v13 = ExtendedContextLength;
+        ExtendedContextLength = RtlInitializeExtendedContext(v7, v1, (PCONTEXT_EX *)&Context[16]);
+        *(_DWORD *)Context = ExtendedContextLength;
         if ( ExtendedContextLength >= 0 )
         {
-          ExtendedContextLength = RtlCopyContext(v7, v1, &v13);
-          v13 = ExtendedContextLength;
+          ExtendedContextLength = RtlCopyContext(v7, v1, (PCONTEXT)Context);
+          *(_DWORD *)Context = ExtendedContextLength;
           if ( ExtendedContextLength >= 0 )
-            KePopulateContinuationContext(v21[7]);
+            KePopulateContinuationContext(*(__int64 *)&Context[248]);
         }
         if ( ExtendedContextLength >= 0 )
           ExtendedContextLength = PspSetContextThreadInternal(CurrentThread, 2);
@@ -113,11 +104,10 @@ char PspInitializeThunkContext()
   result = KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( ExtendedContextLength < 0 )
   {
-    v16[1] = 0;
-    v18 = PspLoaderInitRoutine;
-    v16[0] = ExtendedContextLength;
-    v19 = 0;
-    v17 = 0LL;
+    *(_QWORD *)&Context[48] = PspLoaderInitRoutine;
+    *(_QWORD *)&Context[32] = (unsigned int)ExtendedContextLength;
+    *(_DWORD *)&Context[56] = 0;
+    *(_QWORD *)&Context[40] = 0LL;
     InitialStack = CurrentThread->InitialStack;
     for ( i = InitialStack; (i[1] & 1) != 0; i = (_QWORD *)i[5] )
       ;
@@ -127,7 +117,12 @@ char PspInitializeThunkContext()
         InitialStack = (_QWORD *)InitialStack[5];
       while ( (InitialStack[1] & 1) != 0 );
     }
-    return KiDispatchException(v16, (unsigned __int64)(InitialStack - 90), (__int64)(i - 50), 1u, 0);
+    return KiDispatchException(
+             (PEXCEPTION_RECORD)&Context[32],
+             (unsigned __int64)(InitialStack - 90),
+             (__int64)(i - 50),
+             1u,
+             0);
   }
   return result;
 }

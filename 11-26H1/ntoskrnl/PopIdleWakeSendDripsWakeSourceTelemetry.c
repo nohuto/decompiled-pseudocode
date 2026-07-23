@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140B0B1C0
+ * XREFs of PopIdleWakeSendDripsWakeSourceTelemetry @ 0x140B0C910
  * Callers:
- *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140B0B0E0 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140B0C830 (PopIdleWakeTraceWakeSourceDiagnostic.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopIdleWakeSendDripsWakeSourceTelemetry(__int64 a1, int *a2, char a3)
@@ -110,7 +110,7 @@ void __fastcall PopIdleWakeSendDripsWakeSourceTelemetry(__int64 a1, int *a2, cha
   v30 = 0LL;
   if ( !*(int *)((char *)a2 + v7) )
     return;
-  RtlInitUnicodeString(&DestinationString, &word_140B814F0);
+  RtlInitUnicodeString(&DestinationString, &word_140B8A320);
   v8 = *a2;
   if ( *a2 == 128 )
   {
@@ -147,9 +147,9 @@ LABEL_4:
   memset64((char *)&v30 + 8 * v9, (unsigned __int64)&DestinationString, 3 - v9);
   v3 = v31;
 LABEL_6:
-  if ( (unsigned int)dword_140E07598 > 5
-    && (qword_140E075A8 & 0x400000000000LL) != 0
-    && (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+  if ( (unsigned int)dword_140E07560 > 5
+    && (qword_140E07570 & 0x400000000000LL) != 0
+    && (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
   {
     v21 = a1;
     v33 = &v21;
@@ -235,8 +235,8 @@ LABEL_6:
     v93 = 12LL;
     v95 = 24LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E07598,
-      (unsigned __int8 *)byte_14004EAD5,
+      (__int64)&dword_140E07560,
+      (unsigned __int8 *)byte_14004F5B1,
       0LL,
       0LL,
       0x21u,

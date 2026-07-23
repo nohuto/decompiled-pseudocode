@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpRtcArmTimer @ 0x14051FA30
+ * XREFs of HalpRtcArmTimer @ 0x14051FF80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalSetTimerProblem @ 0x14051F8B0 (HalSetTimerProblem.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalSetTimerProblem @ 0x14051FE00 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpRtcArmTimer(__int64 *a1, int a2, __int64 a3)

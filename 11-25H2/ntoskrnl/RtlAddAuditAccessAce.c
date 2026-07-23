@@ -7,7 +7,13 @@
  *     RtlpAddKnownAce @ 0x14092B1E0 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall RtlAddAuditAccessAce(int a1, __int64 a2, int a3)
+NTSTATUS __cdecl RtlAddAuditAccessAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ACCESS_MASK AccessMask,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  return RtlpAddKnownAce(a1, 2, 192, a3, SeWorldSid, 2);
+  return RtlpAddKnownAce((int)Acl, 2, 192, AccessMask, SeWorldSid, 2);
 }

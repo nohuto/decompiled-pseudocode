@@ -14,8 +14,8 @@ char HalpTimerWatchdogPreResetInterrupt()
 {
   __int64 InternalData; // rax
   ULONG_PTR v1; // rbx
-  ULONG_PTR InterruptTimePrecise; // rax
-  unsigned __int64 v4; // [rsp+50h] [rbp+18h] BYREF
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+18h] BYREF
 
   InternalData = HalpTimerGetInternalData(HalpWatchdogTimer);
   guard_dispatch_icall_no_overrides(InternalData);
@@ -24,12 +24,12 @@ char HalpTimerWatchdogPreResetInterrupt()
     v1 = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
     if ( MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset < (unsigned __int64)HalpTimerWatchdogResetCount >> 1 )
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v4);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
       KeBugCheckEx(
         0x101u,
         v1,
         (unsigned __int64)HalpTimerWatchdogResetCount >> 1,
-        InterruptTimePrecise,
+        InterruptTimePrecise.QuadPart,
         (unsigned int)KiClockTimerOwner);
     }
     HalpTimerWatchdogResetCountdown();

@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyKeys @ 0x1406DE438
+ * XREFs of _CmGetInterfaceClassMappedPropertyKeys @ 0x1406DE570
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1404F6648 (_PnpDispatchInterfaceClass.c)
- *     _CmDeleteInterfaceClassWorker @ 0x1406D9330 (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x1404D95D4 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1406D9468 (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1404F6840 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x1406DE334 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1404D97CC (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x1406DE46C (_CmGetInterfaceClassMappedPropertyFromComposite.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedPropertyKeys(
@@ -85,7 +85,7 @@ LABEL_37:
   if ( (int)result >= 0 )
   {
     v13 = 0;
-    v14 = (__int64 *)&off_1406E9848;
+    v14 = (__int64 *)&off_1406E9978;
     while ( 1 )
     {
       v15 = *v14;

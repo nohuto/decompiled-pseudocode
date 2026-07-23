@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceReadyThread @ 0x1405A7F70
+ * XREFs of EtwTraceReadyThread @ 0x1405A81A0
  * Callers:
- *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
- *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
- *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
- *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
- *     KiFastReadyThread @ 0x140278190 (KiFastReadyThread.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiFastReadyThread @ 0x140266130 (KiFastReadyThread.c)
+ *     KiProcessExpiredTimerList @ 0x1402EC2F0 (KiProcessExpiredTimerList.c)
+ *     KiReadyOutSwappedThreads @ 0x1402ECCB0 (KiReadyOutSwappedThreads.c)
+ *     KiProcessThreadWaitList @ 0x1402EFB20 (KiProcessThreadWaitList.c)
+ *     KiDirectSwitchThread @ 0x1402F1090 (KiDirectSwitchThread.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpCoverageSamplerReadyThread @ 0x1405B0094 (EtwpCoverageSamplerReadyThread.c)
+ *     EtwTraceSiloKernelEvent @ 0x14027BDBC (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x1405B02C4 (EtwpCoverageSamplerReadyThread.c)
  */
 
 __int64 __fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)

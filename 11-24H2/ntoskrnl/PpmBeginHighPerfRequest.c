@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmBeginHighPerfRequest @ 0x14046BCB0
+ * XREFs of PpmBeginHighPerfRequest @ 0x140464930
  * Callers:
- *     PopSetupHighPerfPowerRequest @ 0x140748E30 (PopSetupHighPerfPowerRequest.c)
- *     PopSwitchUpdateUserShutdownScenarioState @ 0x140754120 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PoInitializeBroadcast @ 0x140A40934 (PoInitializeBroadcast.c)
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
- *     PdcPoPerfOverride @ 0x140A9568C (PdcPoPerfOverride.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140747120 (PopSetupHighPerfPowerRequest.c)
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x140752440 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PoInitializeBroadcast @ 0x140A36214 (PoInitializeBroadcast.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
+ *     PdcPoPerfOverride @ 0x140A91EBC (PdcPoPerfOverride.c)
  * Callees:
- *     PopPowerRequestReferenceAcquire @ 0x14046BE70 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceAcquire @ 0x140464AF0 (PopPowerRequestReferenceAcquire.c)
  */
 
 __int64 PpmBeginHighPerfRequest()

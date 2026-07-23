@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectProperty @ 0x1406368E0
+ * XREFs of PiDmObjectGetCachedObjectProperty @ 0x14062B6F0
  * Callers:
- *     PiDmObjectGetCachedCmProperty @ 0x14063618C (PiDmObjectGetCachedCmProperty.c)
- *     PiPnpRtlObjectActionCallback @ 0x140636410 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x14062AF9C (PiDmObjectGetCachedCmProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x14062B220 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x140636E84 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1406B2EC0 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x140611F80 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmGetObject @ 0x14062B87C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x14062BC94 (PiDmObjectGetCachedObjectPropertyData.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectProperty(
@@ -21,7 +21,6 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
         int a8,
         __int64 a9)
 {
-  int v9; // r12d
   __int64 v11; // rbp
   int Object; // edi
   int v13; // r14d
@@ -33,7 +32,6 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
   PVOID v20; // [rsp+80h] [rbp+18h] BYREF
 
   P[0] = 0LL;
-  v9 = a2;
   v20 = 0LL;
   v11 = a7;
   Object = -1073741802;
@@ -58,7 +56,7 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
       if ( *(_QWORD *)a5 == *(_QWORD *)&DEVPKEY_Device_ContainerId.fmtid.Data1 )
         v16 = *(_QWORD *)(a5 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
       if ( !v16
-        && (int)PiDmObjectGetCachedObjectReference(3, v9, P[0], (unsigned int)&DEVPKEY_Device_InstanceId, (__int64)&v20) >= 0 )
+        && (int)PiDmObjectGetCachedObjectReference(3LL, a2, (ULONG_PTR)P[0], (__int64)&DEVPKEY_Device_InstanceId, &v20) >= 0 )
       {
         v17 = v14;
         v18 = v20;
@@ -76,7 +74,7 @@ __int64 __fastcall PiDmObjectGetCachedObjectProperty(
       else
       {
 LABEL_7:
-        Object = PiDmObjectGetCachedObjectPropertyData(a1, v9, P[0], v14, a6, v11, v13, a9);
+        Object = PiDmObjectGetCachedObjectPropertyData(a1, a2, P[0], v14, a6, v11, v13, a9);
       }
       PiDmObjectRelease(P[0]);
     }

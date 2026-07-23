@@ -1,19 +1,19 @@
 /*
- * XREFs of ExInitializeLeapSecondData @ 0x1407A8EAC
+ * XREFs of ExInitializeLeapSecondData @ 0x1407A90AC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     MmMapViewInSystemSpace @ 0x1406BF880 (MmMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExpReadLeapSecondData @ 0x1407A91B8 (ExpReadLeapSecondData.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmSizeOfMdl @ 0x140219160 (MmSizeOfMdl.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateSection @ 0x1403FAEC0 (ZwCreateSection.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpace @ 0x14061E6F0 (MmMapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExpReadLeapSecondData @ 0x1407A93B8 (ExpReadLeapSecondData.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 ExInitializeLeapSecondData()

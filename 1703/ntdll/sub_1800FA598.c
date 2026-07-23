@@ -11,11 +11,11 @@
  *     _wcsicmp @ 0x1800976A0 (_wcsicmp.c)
  */
 
-__int64 __fastcall sub_1800FA598(__int64 a1, __int64 a2)
+int __fastcall sub_1800FA598(__int64 a1, void *a2)
 {
   __int64 v4; // r14
-  __int64 result; // rax
-  unsigned int v6; // ecx
+  wchar_t *Heap; // rax
+  int v6; // ecx
   unsigned int v7; // ecx
   wchar_t *v8; // rbx
   unsigned int v9; // r13d
@@ -23,30 +23,30 @@ __int64 __fastcall sub_1800FA598(__int64 a1, __int64 a2)
   const wchar_t *v11; // rdi
   _WORD *v12; // r15
   __int64 v13; // rax
-  int v14; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
-  unsigned int v16; // [rsp+A0h] [rbp+50h] BYREF
-  int v17; // [rsp+A8h] [rbp+58h] BYREF
+  ULONG Value; // [rsp+30h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v17; // [rsp+A0h] [rbp+50h] BYREF
+  int v18; // [rsp+A8h] [rbp+58h] BYREF
 
-  v17 = 7;
+  v18 = 7;
   v4 = 0LL;
-  v16 = 0;
-  v14 = 0;
+  LODWORD(v17) = 0;
+  Value = 0;
   RtlInitUnicodeString(&DestinationString, L"AlternateCodePage");
-  result = sub_18006E1E4(a2, (__int64)&DestinationString, &v17, 0LL, &v16);
-  if ( (_DWORD)result != -1073741772 )
+  LODWORD(Heap) = sub_18006E1E4(a2, &DestinationString, &v18, 0LL, (ULONG *)&v17);
+  if ( (_DWORD)Heap != -1073741772 )
   {
-    v6 = v16;
-    if ( v16 )
+    v6 = v17;
+    if ( (_DWORD)v17 )
     {
-      if ( (_DWORD)result == -2147483643 )
+      if ( (_DWORD)Heap == -2147483643 )
       {
-        v16 += 2;
+        LODWORD(v17) = v17 + 2;
         v7 = (v6 + 5) & 0xFFFFFFFC;
         if ( v7 )
         {
-          result = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v7);
-          v8 = (wchar_t *)result;
+          Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
+          v8 = Heap;
         }
         else
         {
@@ -54,12 +54,12 @@ __int64 __fastcall sub_1800FA598(__int64 a1, __int64 a2)
         }
         if ( v8 )
         {
-          if ( !(unsigned int)sub_18006E1E4(a2, (__int64)&DestinationString, &v17, v8, &v16) && (v17 == 1 || v17 == 7) )
+          if ( !(unsigned int)sub_18006E1E4(a2, &DestinationString, &v18, v8, (ULONG *)&v17) && (v18 == 1 || v18 == 7) )
           {
             v9 = 0;
-            v10 = v16 >> 1;
+            v10 = (unsigned int)v17 >> 1;
             v11 = v8;
-            if ( v16 >> 1 )
+            if ( (unsigned int)v17 >> 1 )
             {
               v12 = (_WORD *)(a1 + 20);
               while ( v11 && *v11 )
@@ -67,11 +67,10 @@ __int64 __fastcall sub_1800FA598(__int64 a1, __int64 a2)
                 if ( !wcsicmp(v11, L"*") )
                 {
                   *(_WORD *)(a1 + 20) = -1;
-                  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v8);
+                  break;
                 }
                 RtlInitUnicodeString(&DestinationString, v11);
-                if ( (unsigned int)RtlUnicodeStringToInteger(&DestinationString.Length, 0xAu, &v14)
-                  || (++v4, *v12 = v14, ++v12, v4 < 4) )
+                if ( RtlUnicodeStringToInteger(&DestinationString, 0xAu, &Value) || (++v4, *v12 = Value, ++v12, v4 < 4) )
                 {
                   v13 = -1LL;
                   do
@@ -82,14 +81,14 @@ __int64 __fastcall sub_1800FA598(__int64 a1, __int64 a2)
                   if ( v9 < v10 )
                     continue;
                 }
-                return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v8);
+                break;
               }
             }
           }
-          return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v8);
+          LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
         }
       }
     }
   }
-  return result;
+  return (int)Heap;
 }

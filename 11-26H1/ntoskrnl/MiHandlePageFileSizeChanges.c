@@ -1,18 +1,18 @@
 /*
- * XREFs of MiHandlePageFileSizeChanges @ 0x140524EAC
+ * XREFs of MiHandlePageFileSizeChanges @ 0x14052751C
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     MiProcessingPageExtendComplete @ 0x14052E980 (MiProcessingPageExtendComplete.c)
- *     MiAttemptPageFileReduction @ 0x1406F870C (MiAttemptPageFileReduction.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiExtendPagingFiles @ 0x140B2F8D4 (MiExtendPagingFiles.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     MiProcessingPageExtendComplete @ 0x140530EA0 (MiProcessingPageExtendComplete.c)
+ *     MiAttemptPageFileReduction @ 0x1406FD3DC (MiAttemptPageFileReduction.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiExtendPagingFiles @ 0x140B316B4 (MiExtendPagingFiles.c)
  */
 
 void __fastcall MiHandlePageFileSizeChanges(__int64 a1)

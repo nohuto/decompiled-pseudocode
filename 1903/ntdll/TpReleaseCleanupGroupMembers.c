@@ -10,155 +10,159 @@
  *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
  */
 
-void __fastcall TpReleaseCleanupGroupMembers(__int64 a1, __int64 a2, __int64 a3, struct _PEB_LDR_DATA *Ldr)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl TpReleaseCleanupGroupMembers(
+        PTP_CLEANUP_GROUP CleanupGroup,
+        LOGICAL CancelPendingCallbacks,
+        PVOID CleanupParameter)
 {
-  int v4; // r15d
-  _QWORD *i; // rax
-  volatile signed __int32 *v7; // rdx
-  signed __int32 v8; // eax
-  signed __int32 v9; // ett
-  signed __int32 *v10; // rcx
-  __int64 v11; // rdx
-  signed __int32 **v12; // rax
-  signed __int32 **v13; // rdx
-  _QWORD *v14; // rdx
-  __int64 v15; // r8
-  _QWORD *v16; // rax
-  signed __int32 v17; // r8d
-  bool v18; // zf
-  signed __int32 v19; // eax
-  _QWORD *v20; // rcx
-  _QWORD **v21; // r14
-  _QWORD *v22; // rsi
+  _TP_CLEANUP_GROUP *i; // rax
+  volatile signed __int32 *v6; // rdx
+  signed __int32 v7; // eax
+  signed __int32 v8; // ett
+  _TP_CLEANUP_GROUP *v9; // rcx
+  _TP_CLEANUP_GROUP *v10; // rdx
+  _TP_CLEANUP_GROUP **v11; // rax
+  PTP_CLEANUP_GROUP *v12; // rdx
+  _TP_CLEANUP_GROUP *v13; // rdx
+  signed __int32 **v14; // r8
+  _TP_CLEANUP_GROUP **v15; // rax
+  signed __int32 v16; // r8d
+  bool v17; // zf
+  signed __int32 v18; // eax
+  PTP_CLEANUP_GROUP *v19; // rcx
+  _QWORD **v20; // r14
+  _QWORD *v21; // rsi
   _QWORD *j; // rax
-  volatile signed __int32 *v24; // rdi
-  _QWORD *v25; // rcx
-  _QWORD *v26; // rdx
-  _QWORD *v27; // rdi
-  signed __int32 *v28; // [rsp+20h] [rbp-38h]
-  volatile signed __int32 *v29; // [rsp+20h] [rbp-38h]
+  volatile signed __int32 *v23; // rdi
+  _QWORD *v24; // rcx
+  _QWORD *v25; // rdx
+  _QWORD *v26; // rdi
+  signed __int32 *v27; // [rsp+20h] [rbp-38h]
+  volatile signed __int32 *v28; // [rsp+20h] [rbp-38h]
+  _TP_CLEANUP_GROUP *v29; // [rsp+28h] [rbp-30h]
   _QWORD *v30; // [rsp+28h] [rbp-30h]
-  _QWORD *v31; // [rsp+28h] [rbp-30h]
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
 
-  v4 = a2;
-  if ( !a1 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  if ( !CleanupGroup || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    if ( !a1 )
-      sub_18010EFC8(0LL, a2, a3, Ldr);
+    if ( !CleanupGroup )
+      sub_18010EFC8(0LL, *(_QWORD *)&CancelPendingCallbacks, CleanupParameter);
   }
   else
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 56));
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-    for ( i = *(_QWORD **)(a1 + 16); i != (_QWORD *)(a1 + 16); i = v30 )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 7);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 1);
+    for ( i = (_TP_CLEANUP_GROUP *)*((_QWORD *)CleanupGroup + 2);
+          i != (PTP_CLEANUP_GROUP)((char *)CleanupGroup + 16);
+          i = v29 )
     {
-      v7 = (volatile signed __int32 *)(i - 5);
-      v28 = (signed __int32 *)(i - 5);
-      v30 = (_QWORD *)*i;
-      _m_prefetchw(i + 16);
-      v8 = *((_DWORD *)i + 32);
+      v6 = (volatile signed __int32 *)((char *)i - 40);
+      v27 = (signed __int32 *)((char *)i - 40);
+      v29 = *(_TP_CLEANUP_GROUP **)i;
+      _m_prefetchw((char *)i + 128);
+      v7 = *((_DWORD *)i + 32);
       do
       {
-        v9 = v8;
-        v8 = _InterlockedCompareExchange(v7 + 42, v8 | 0x20000, v8);
+        v8 = v7;
+        v7 = _InterlockedCompareExchange(v6 + 42, v7 | 0x20000, v7);
       }
-      while ( v9 != v8 );
-      if ( (v8 & 0x30000) != 0 )
+      while ( v8 != v7 );
+      if ( (v7 & 0x30000) != 0 )
       {
-        v14 = v28 + 10;
-        v15 = *((_QWORD *)v28 + 5);
-        v16 = (_QWORD *)*((_QWORD *)v28 + 6);
-        if ( *(signed __int32 **)(v15 + 8) != v28 + 10 || (_QWORD *)*v16 != v14 )
+        v13 = (_TP_CLEANUP_GROUP *)(v27 + 10);
+        v14 = (signed __int32 **)*((_QWORD *)v27 + 5);
+        v15 = (_TP_CLEANUP_GROUP **)*((_QWORD *)v27 + 6);
+        if ( v14[1] != v27 + 10 || *v15 != v13 )
           __fastfail(3u);
-        *v16 = v15;
-        *(_QWORD *)(v15 + 8) = v16;
-        _m_prefetchw(v28);
-        v17 = *v28;
+        *v15 = (_TP_CLEANUP_GROUP *)v14;
+        v14[1] = (signed __int32 *)v15;
+        _m_prefetchw(v27);
+        v16 = *v27;
         do
         {
-          if ( !v17 )
+          if ( !v16 )
           {
-            *((_QWORD *)v28 + 6) = v28 + 10;
-            *v14 = v14;
+            *((_QWORD *)v27 + 6) = v27 + 10;
+            *(_QWORD *)v13 = v13;
             goto LABEL_12;
           }
-          v19 = _InterlockedCompareExchange(v28, v17 + 1, v17);
-          v18 = v17 == v19;
-          v17 = v19;
+          v18 = _InterlockedCompareExchange(v27, v16 + 1, v16);
+          v17 = v16 == v18;
+          v16 = v18;
         }
-        while ( !v18 );
-        v20 = *(_QWORD **)(a1 + 72);
-        if ( *v20 != a1 + 64 )
+        while ( !v17 );
+        v19 = (PTP_CLEANUP_GROUP *)*((_QWORD *)CleanupGroup + 9);
+        if ( *v19 != (PTP_CLEANUP_GROUP)((char *)CleanupGroup + 64) )
           __fastfail(3u);
-        *v14 = a1 + 64;
-        *((_QWORD *)v28 + 6) = v20;
-        *v20 = v14;
-        *(_QWORD *)(a1 + 72) = v14;
+        *(_QWORD *)v13 = (char *)CleanupGroup + 64;
+        *((_QWORD *)v27 + 6) = v19;
+        *v19 = v13;
+        *((_QWORD *)CleanupGroup + 9) = v13;
       }
       else
       {
-        *((_QWORD *)v28 + 23) = retaddr;
-        v10 = v28 + 10;
-        v11 = *((_QWORD *)v28 + 5);
-        v12 = (signed __int32 **)*((_QWORD *)v28 + 6);
-        if ( *(signed __int32 **)(*(_QWORD *)v10 + 8LL) != v10 || *v12 != v10 )
+        *((_QWORD *)v27 + 23) = retaddr;
+        v9 = (_TP_CLEANUP_GROUP *)(v27 + 10);
+        v10 = (_TP_CLEANUP_GROUP *)*((_QWORD *)v27 + 5);
+        v11 = (_TP_CLEANUP_GROUP **)*((_QWORD *)v27 + 6);
+        if ( *(_TP_CLEANUP_GROUP **)(*(_QWORD *)v9 + 8LL) != v9 || *v11 != v9 )
           __fastfail(3u);
-        *v12 = (signed __int32 *)v11;
-        *(_QWORD *)(v11 + 8) = v12;
-        v13 = *(signed __int32 ***)(a1 + 72);
-        if ( *v13 != (signed __int32 *)(a1 + 64) )
+        *v11 = v10;
+        *((_QWORD *)v10 + 1) = v11;
+        v12 = (PTP_CLEANUP_GROUP *)*((_QWORD *)CleanupGroup + 9);
+        if ( *v12 != (PTP_CLEANUP_GROUP)((char *)CleanupGroup + 64) )
           __fastfail(3u);
-        *(_QWORD *)v10 = a1 + 64;
-        *((_QWORD *)v28 + 6) = v13;
-        *v13 = v10;
-        *(_QWORD *)(a1 + 72) = v10;
+        *(_QWORD *)v9 = (char *)CleanupGroup + 64;
+        *((_QWORD *)v27 + 6) = v12;
+        *v12 = v9;
+        *((_QWORD *)CleanupGroup + 9) = v9;
       }
 LABEL_12:
       ;
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-    v21 = (_QWORD **)(a1 + 64);
-    v22 = *(_QWORD **)(a1 + 64);
-    while ( v22 != v21 )
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 1);
+    v20 = (_QWORD **)((char *)CleanupGroup + 64);
+    v21 = (_QWORD *)*((_QWORD *)CleanupGroup + 8);
+    while ( v21 != v20 )
     {
-      v27 = v22 - 5;
-      v22 = (_QWORD *)*v22;
-      if ( *(_QWORD *)(v27[1] + 16LL) )
+      v26 = v21 - 5;
+      v21 = (_QWORD *)*v21;
+      if ( *(_QWORD *)(v26[1] + 16LL) )
         _guard_dispatch_icall_fptr();
-      if ( v4 && *(_QWORD *)(v27[1] + 24LL) )
+      if ( CancelPendingCallbacks && *(_QWORD *)(v26[1] + 24LL) )
         _guard_dispatch_icall_fptr();
     }
-    for ( j = *v21; j != v21; j = v31 )
+    for ( j = *v20; j != v20; j = v30 )
     {
-      v24 = (volatile signed __int32 *)(j - 5);
-      v29 = (volatile signed __int32 *)(j - 5);
-      v25 = (_QWORD *)*j;
-      v31 = (_QWORD *)*j;
-      v26 = (_QWORD *)j[1];
-      if ( *(_QWORD **)(*j + 8LL) != j || (_QWORD *)*v26 != j )
+      v23 = (volatile signed __int32 *)(j - 5);
+      v28 = (volatile signed __int32 *)(j - 5);
+      v24 = (_QWORD *)*j;
+      v30 = (_QWORD *)*j;
+      v25 = (_QWORD *)j[1];
+      if ( *(_QWORD **)(*j + 8LL) != j || (_QWORD *)*v25 != j )
         __fastfail(3u);
-      *v26 = v25;
-      v25[1] = v26;
+      *v25 = v24;
+      v24[1] = v25;
       j[1] = j;
       *j = j;
-      sub_180066BBC(v24 + 14, 0LL);
-      if ( *((_QWORD *)v24 + 3) )
+      sub_180066BBC(v23 + 14, 0LL);
+      if ( *((_QWORD *)v23 + 3) )
       {
-        if ( (v24[42] & 0x10000) != 0 )
+        if ( (v23[42] & 0x10000) != 0 )
         {
-          v24 = v29;
+          v23 = v28;
         }
         else
         {
-          v24 = v29;
+          v23 = v28;
           _guard_dispatch_icall_fptr();
         }
       }
-      if ( _InterlockedExchangeAdd(v24, 0xFFFFFFFF) == 1 )
+      if ( _InterlockedExchangeAdd(v23, 0xFFFFFFFF) == 1 )
         _guard_dispatch_icall_fptr();
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 56));
-    sub_180066BBC(a1 + 32, 0LL);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)CleanupGroup + 7);
+    sub_180066BBC((char *)CleanupGroup + 32, 0LL);
   }
 }

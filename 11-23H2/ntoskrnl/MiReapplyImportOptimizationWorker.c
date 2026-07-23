@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReapplyImportOptimizationWorker @ 0x140640E80
+ * XREFs of MiReapplyImportOptimizationWorker @ 0x1406413D0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiApplyRetpolineFixups @ 0x140325600 (MiApplyRetpolineFixups.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmIsVerifierApplicableToImage @ 0x14061C04C (MmIsVerifierApplicableToImage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiApplyRetpolineFixups @ 0x140325890 (MiApplyRetpolineFixups.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MmIsVerifierApplicableToImage @ 0x14061C59C (MmIsVerifierApplicableToImage.c)
  */
 
 ULONG_PTR __fastcall MiReapplyImportOptimizationWorker(ULONG_PTR Argument)
@@ -56,7 +56,7 @@ ULONG_PTR __fastcall MiReapplyImportOptimizationWorker(ULONG_PTR Argument)
   CurrentIrql = KeGetCurrentIrql();
   v38 = CurrentIrql;
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 15 )
@@ -174,10 +174,10 @@ LABEL_21:
     }
     _enable();
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v31 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v31 >= 2u )
     {
       v32 = KeGetCurrentPrcb();
       v33 = v32->SchedulerAssist;

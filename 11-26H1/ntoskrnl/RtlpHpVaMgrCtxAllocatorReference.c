@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x140638CBC
+ * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x14063BCCC
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x1406389D0 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpVaMgrCtxStart @ 0x140638EB0 (RtlpHpVaMgrCtxStart.c)
+ *     RtlpHpRegisterEnvironment @ 0x14063B9E0 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpVaMgrCtxStart @ 0x14063BEC0 (RtlpHpVaMgrCtxStart.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpInitializeLock @ 0x14034B490 (RtlpHpInitializeLock.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x14050A9D4 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpInitializeLock @ 0x14034D510 (RtlpHpInitializeLock.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x140504444 (RtlpHpVaMgrCtxAllocatorFind.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(int *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDeviceObjectListAdd @ 0x140A0CA30
+ * XREFs of PipDeviceObjectListAdd @ 0x140A54C20
  * Callers:
- *     PipGrowDeviceObjectList @ 0x140A0C3C8 (PipGrowDeviceObjectList.c)
- *     IopAddRelationToList @ 0x140A0C91C (IopAddRelationToList.c)
+ *     IopAddRelationToList @ 0x140A54B0C (IopAddRelationToList.c)
+ *     PipGrowDeviceObjectList @ 0x140A54CC8 (PipGrowDeviceObjectList.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PipGrowDeviceObjectList @ 0x140A0C3C8 (PipGrowDeviceObjectList.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PipGrowDeviceObjectList @ 0x140A54CC8 (PipGrowDeviceObjectList.c)
  */
 
 __int64 __fastcall PipDeviceObjectListAdd(unsigned int **a1, void *a2, unsigned int a3, int a4)
@@ -17,7 +17,7 @@ __int64 __fastcall PipDeviceObjectListAdd(unsigned int **a1, void *a2, unsigned 
 
   v11 = *a1;
   v4 = v11;
-  if ( *v11 + 1 != v11[1] || (result = PipGrowDeviceObjectList((__int64 *)&v11), v4 = v11, (int)result >= 0) )
+  if ( *v11 + 1 != v11[1] || (result = PipGrowDeviceObjectList(&v11), v4 = v11, (int)result >= 0) )
   {
     v9 = 3LL * *v4;
     ObfReferenceObjectWithTag(a2, 0x4C706E50u);

@@ -1,10 +1,10 @@
 /*
- * XREFs of _splitpath_s @ 0x180133380
+ * XREFs of _splitpath_s @ 0x1801330F0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     strncpy_s @ 0x180133F70 (strncpy_s.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     strncpy_s @ 0x180133CE0 (strncpy_s.c)
  */
 
 errno_t __cdecl splitpath_s(

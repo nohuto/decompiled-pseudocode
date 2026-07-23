@@ -1,49 +1,58 @@
 /*
  * XREFs of RtlGuardRestoreContext @ 0x180003240
  * Callers:
- *     KiUserExceptionDispatcher @ 0x1800A4070 (KiUserExceptionDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x1800A4090 (KiUserExceptionDispatcher.c)
  * Callees:
  *     RtlGuardCheckLongJumpTarget @ 0x180002F20 (RtlGuardCheckLongJumpTarget.c)
  *     RtlGuardIsValidStackPointer @ 0x18000375C (RtlGuardIsValidStackPointer.c)
  *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180009B04 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
  *     LdrControlFlowGuardEnforced @ 0x180041DE0 (LdrControlFlowGuardEnforced.c)
- *     LdrpValidateUserCallTarget @ 0x180090200 (LdrpValidateUserCallTarget.c)
- *     LdrpValidateUserCallTargetES @ 0x180090250 (LdrpValidateUserCallTargetES.c)
+ *     LdrpValidateUserCallTarget @ 0x180090210 (LdrpValidateUserCallTarget.c)
+ *     LdrpValidateUserCallTargetES @ 0x180090260 (LdrpValidateUserCallTargetES.c)
  */
 
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   int v4; // eax
-  unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // rdi
+  int v5; // eax
+  int v6; // eax
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rdi
+  int v9; // eax
 
   if ( ExceptionRecord )
   {
     if ( ExceptionRecord->ExceptionCode == -2147483610 )
     {
-      v6 = ExceptionRecord->ExceptionInformation[0];
-      if ( !(unsigned int)LdrControlFlowGuardEnforced()
-        || (unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v6 + 16)) )
+      v8 = ExceptionRecord->ExceptionInformation[0];
+      LOBYTE(v9) = LdrControlFlowGuardEnforced();
+      if ( !v9 || (unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v8 + 16)) )
       {
-        RtlGuardCheckLongJumpTarget(*(_QWORD *)(v6 + 80), 0, 0LL);
+        RtlGuardCheckLongJumpTarget(*(PVOID *)(v8 + 80), 0, 0LL);
         goto LABEL_4;
       }
 LABEL_15:
       __fastfail(0xDu);
     }
-    if ( ExceptionRecord->ExceptionCode == -2147483607
-      && ExceptionRecord->NumberParameters
-      && (unsigned int)LdrControlFlowGuardEnforced() )
+    if ( ExceptionRecord->ExceptionCode == -2147483607 )
     {
-      v4 = LdrControlFlowGuardEnforcedWithExportSuppression();
-      v5 = ExceptionRecord->ExceptionInformation[0];
-      if ( v4 )
-        LdrpValidateUserCallTargetES(v5);
-      else
-        LdrpValidateUserCallTarget(v5);
+      if ( ExceptionRecord->NumberParameters )
+      {
+        LOBYTE(v5) = LdrControlFlowGuardEnforced();
+        if ( v5 )
+        {
+          v6 = LdrControlFlowGuardEnforcedWithExportSuppression();
+          v7 = ExceptionRecord->ExceptionInformation[0];
+          if ( v6 )
+            LdrpValidateUserCallTargetES(v7);
+          else
+            LdrpValidateUserCallTarget(v7);
+        }
+      }
     }
   }
-  if ( (unsigned int)LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+  LOBYTE(v4) = LdrControlFlowGuardEnforced();
+  if ( v4 && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
     goto LABEL_15;
 LABEL_4:
   RtlRestoreContext(ContextRecord, ExceptionRecord);

@@ -1,23 +1,23 @@
 /*
- * XREFs of PopUmpoInitializeChannel @ 0x1409DBCC0
+ * XREFs of PopUmpoInitializeChannel @ 0x1409DCCC0
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     PopUmpoProcessMessages @ 0x140004B48 (PopUmpoProcessMessages.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x14016C680 (ExRegisterCallback.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwAlpcCreatePort @ 0x1401B90B0 (ZwAlpcCreatePort.c)
- *     ZwAlpcSetInformation @ 0x1401B92F0 (ZwAlpcSetInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
- *     ExCreateCallback @ 0x1406CA380 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14016C780 (ExRegisterCallback.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwAlpcCreatePort @ 0x1401B9210 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x1401B9450 (ZwAlpcSetInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140656740 (RtlAddAccessAllowedAce.c)
+ *     ExCreateCallback @ 0x1406CB620 (ExCreateCallback.c)
  */
 
 __int64 PopUmpoInitializeChannel()
@@ -26,14 +26,14 @@ __int64 PopUmpoInitializeChannel()
   ULONG v1; // ebx
   ACL *PoolWithTag; // rax
   ACL *v3; // rdi
-  int Acl; // ebx
+  NTSTATUS Acl; // ebx
   PCALLBACK_OBJECT v5; // rsi
   PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-89h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-81h] BYREF
-  _QWORD v9[2]; // [rsp+60h] [rbp-51h] BYREF
+  _QWORD PortInformation[2]; // [rsp+60h] [rbp-51h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-41h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+80h] [rbp-31h] BYREF
-  _QWORD v12[10]; // [rsp+A8h] [rbp-9h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+A8h] [rbp-9h] BYREF
 
   PopAlpcServerPort = 0LL;
   PopAlpcClientPort = 0LL;
@@ -59,16 +59,16 @@ __int64 PopUmpoInitializeChannel()
           if ( Acl >= 0 )
           {
             RtlInitUnicodeString(&DestinationString, L"\\PowerPort");
-            memset(v12, 0, 0x48uLL);
+            memset(&PortAttributes, 0, sizeof(PortAttributes));
             ObjectAttributes.RootDirectory = 0LL;
             ObjectAttributes.SecurityQualityOfService = 0LL;
             ObjectAttributes.ObjectName = &DestinationString;
-            v12[2] = 512LL;
+            PortAttributes.MaxMessageLength = 512LL;
             ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
-            LODWORD(v12[0]) = 0x100000;
+            PortAttributes.Flags = 0x100000;
             ObjectAttributes.Length = 48;
             ObjectAttributes.Attributes = 512;
-            Acl = ZwAlpcCreatePort((__int64)&PopAlpcServerPort, (__int64)&ObjectAttributes, (__int64)v12);
+            Acl = ZwAlpcCreatePort(&PopAlpcServerPort, &ObjectAttributes, &PortAttributes);
             if ( Acl >= 0 )
             {
               ObjectAttributes.RootDirectory = 0LL;
@@ -82,9 +82,9 @@ __int64 PopUmpoInitializeChannel()
                 v5 = CallbackObject;
                 if ( ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopUmpoMessageCallback, 0LL) )
                 {
-                  v9[1] = 0LL;
-                  v9[0] = v5;
-                  Acl = ZwAlpcSetInformation(PopAlpcServerPort, 9LL, (__int64)v9);
+                  PortInformation[1] = 0LL;
+                  PortInformation[0] = v5;
+                  Acl = ZwAlpcSetInformation(PopAlpcServerPort, AlpcRegisterCallbackInformation, PortInformation, 0x10u);
                   ObfDereferenceObjectWithTag(v5, 0x746C6644u);
                   if ( Acl >= 0 )
                   {

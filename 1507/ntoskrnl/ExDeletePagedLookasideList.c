@@ -11,7 +11,7 @@
 void __stdcall ExDeletePagedLookasideList(PPAGED_LOOKASIDE_LIST Lookaside)
 {
   PSLIST_ENTRY v2; // rax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
 
   ExpRemoveGeneralLookaside(&ExPagedLookasideLock, Lookaside);
   v2 = RtlpInterlockedFlushSList(&Lookaside->L.ListHead);

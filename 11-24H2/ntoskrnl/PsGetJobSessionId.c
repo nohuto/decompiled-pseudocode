@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetJobSessionId @ 0x1404BE860
+ * XREFs of PsGetJobSessionId @ 0x1404B9A20
  * Callers:
  *     <none>
  * Callees:

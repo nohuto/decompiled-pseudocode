@@ -16,20 +16,20 @@ __int64 __fastcall AVrfCallAPILookupCallback(unsigned __int64 a1, __int64 a2, __
   unsigned __int64 v9; // rbx
   __int64 v10; // rbx
   int v12; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-10h] BYREF
+  PVOID BaseAddress[2]; // [rsp+38h] [rbp-10h] BYREF
 
-  v13 = 0LL;
+  BaseAddress[0] = 0LL;
   v12 = 0;
   v9 = 0LL;
-  if ( (int)LdrpFindLoadedDllByAddress(a1, (unsigned __int64 *)&v13, 0LL) < 0 )
+  if ( (int)LdrpFindLoadedDllByAddress(a1, (unsigned __int64 *)BaseAddress, 0LL) < 0 )
   {
     v9 = a1;
   }
   else
   {
-    if ( v13 != LdrpNtDllDataTableEntry && (*(_DWORD *)(v13 + 104) & 0x400) == 0 )
-      v9 = *(_QWORD *)(v13 + 48);
-    LdrpDereferenceModule(v13);
+    if ( BaseAddress[0] != (PVOID)LdrpNtDllDataTableEntry && (*((_DWORD *)BaseAddress[0] + 26) & 0x400) == 0 )
+      v9 = *((_QWORD *)BaseAddress[0] + 6);
+    LdrpDereferenceModule((char *)BaseAddress[0]);
   }
   if ( v9 )
   {

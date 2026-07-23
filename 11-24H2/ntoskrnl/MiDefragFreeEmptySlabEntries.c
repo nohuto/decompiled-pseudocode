@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDefragFreeEmptySlabEntries @ 0x140686B30
+ * XREFs of MiDefragFreeEmptySlabEntries @ 0x140687C60
  * Callers:
  *     <none>
  * Callees:
- *     MiFreeSlabEntries @ 0x1402D3B04 (MiFreeSlabEntries.c)
+ *     MiFreeSlabEntries @ 0x140354D7C (MiFreeSlabEntries.c)
  */
 
 _BOOL8 __fastcall MiDefragFreeEmptySlabEntries(__int64 a1, __int64 a2)

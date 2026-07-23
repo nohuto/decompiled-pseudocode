@@ -97,10 +97,13 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
   }
 LABEL_13:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C31C10);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));

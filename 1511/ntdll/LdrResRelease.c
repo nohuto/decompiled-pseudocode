@@ -11,16 +11,16 @@
  *     LdrpTraceLoadMUIDll @ 0x1800D44B4 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, __int16 a3)
+__int64 __fastcall LdrResRelease(PVOID InitModule, PCWSTR SourceString, ULONG Flags)
 {
-  wchar_t *v6; // rbx
-  unsigned int v7; // ebx
-  int v9; // eax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int64 v6; // rbx
+  unsigned __int32 v7; // ebx
+  NTSTATUS v9; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   int v11; // [rsp+30h] [rbp-28h] BYREF
   const wchar_t *v12; // [rsp+38h] [rbp-20h]
-  int v13; // [rsp+60h] [rbp+8h] BYREF
-  wchar_t *v14; // [rsp+78h] [rbp+20h]
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
+  PVOID DllHandle; // [rsp+78h] [rbp+20h] BYREF
 
   *(_DWORD *)&DestinationString.Length = 2621478;
   DestinationString.Buffer = L"LdrResRelease Enter";
@@ -28,36 +28,36 @@ __int64 __fastcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, __int16 
   v12 = L"LdrResRelease Exit";
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(&DestinationString, MEMORY[0x7FFE0384]);
-  if ( !String2 )
+  if ( !InitModule )
     return 3221225485LL;
-  v14 = 0LL;
-  if ( (a3 & 0x8800) == 0x8800 )
+  DllHandle = 0LL;
+  if ( (Flags & 0x8800) == 0x8800 )
     return 0LL;
   if ( (unsigned __int64)SourceString >= 0x10000 )
   {
     if ( *SourceString )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return 3221225485LL;
     }
     else
     {
-      v13 = 0;
+      Lcid = 0;
     }
-    LOWORD(SourceString) = v13;
+    LOWORD(SourceString) = Lcid;
   }
-  if ( (a3 & 0xC00) == 0 )
+  if ( (Flags & 0xC00) == 0 )
   {
-    v14 = String2;
+    DllHandle = InitModule;
 LABEL_8:
-    v6 = v14;
-    LdrUnloadAlternateResourceModuleEx(v14, (unsigned __int16)SourceString);
-    if ( (a3 & 0xC00) != 0 && v6 )
-      NtUnmapViewOfSection(-1LL, (unsigned __int64)v6 & 0xFFFFFFFFFFFFFFFCuLL);
+    v6 = (unsigned __int64)DllHandle;
+    LdrUnloadAlternateResourceModuleEx(DllHandle, (unsigned __int16)SourceString);
+    if ( (Flags & 0xC00) != 0 && v6 )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(v6 & 0xFFFFFFFFFFFFFFFCuLL));
     goto LABEL_9;
   }
-  v9 = LdrRemoveLoadAsDataTable(String2);
+  v9 = LdrRemoveLoadAsDataTable(InitModule, &DllHandle, 0LL, Flags);
   v7 = v9;
   if ( v9 >= 0 )
     goto LABEL_8;

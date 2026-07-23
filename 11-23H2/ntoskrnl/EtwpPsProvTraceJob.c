@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPsProvTraceJob @ 0x1409E6458
+ * XREFs of EtwpPsProvTraceJob @ 0x1409E66E8
  * Callers:
- *     EtwTraceJob @ 0x1409E5308 (EtwTraceJob.c)
+ *     EtwTraceJob @ 0x1409E5598 (EtwTraceJob.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceJob(__int64 a1, int a2, __int16 a3)

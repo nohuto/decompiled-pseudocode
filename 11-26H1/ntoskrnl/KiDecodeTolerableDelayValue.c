@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDecodeTolerableDelayValue @ 0x1403ACEEC
+ * XREFs of KiDecodeTolerableDelayValue @ 0x1403B6BFC
  * Callers:
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x1403AC190 (KeSetTimerEx.c)
- *     KeSetTimer @ 0x1403AC590 (KeSetTimer.c)
- *     KiTimerWaitTest @ 0x1403ACF4C (KiTimerWaitTest.c)
- *     KeCancelTimerInternal @ 0x1404B95AC (KeCancelTimerInternal.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1403B5EA0 (KeSetTimerEx.c)
+ *     KeSetTimer @ 0x1403B62A0 (KeSetTimer.c)
+ *     KiTimerWaitTest @ 0x1403B6C5C (KiTimerWaitTest.c)
+ *     KeCancelTimerInternal @ 0x1404B2DDC (KeCancelTimerInternal.c)
  * Callees:
- *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403AE1FC (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403B7F0C (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
  */
 
 __int64 __fastcall KiDecodeTolerableDelayValue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

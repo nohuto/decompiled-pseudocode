@@ -1,11 +1,11 @@
 /*
- * XREFs of SePrivilegePolicyCheck @ 0x1402AAA40
+ * XREFs of SePrivilegePolicyCheck @ 0x1403AB520
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     SepSinglePrivilegeCheck @ 0x1402AAC70 (SepSinglePrivilegeCheck.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     SepSinglePrivilegeCheck @ 0x1403AB750 (SepSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SePrivilegePolicyCheck(

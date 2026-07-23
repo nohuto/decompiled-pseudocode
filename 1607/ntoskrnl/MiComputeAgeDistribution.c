@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeAgeDistribution @ 0x1400C04F4
+ * XREFs of MiComputeAgeDistribution @ 0x1400BE384
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1400BF160 (MiComputeSystemTrimCriteria.c)
- *     MiOrderTrimList @ 0x1401E9B8C (MiOrderTrimList.c)
+ *     MiComputeSystemTrimCriteria @ 0x1400BCFF0 (MiComputeSystemTrimCriteria.c)
+ *     MiOrderTrimList @ 0x1401E99B8 (MiOrderTrimList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUpdateClaimDistribution @ 0x1400C0654 (MiUpdateClaimDistribution.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUpdateClaimDistribution @ 0x1400BE4E4 (MiUpdateClaimDistribution.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
@@ -32,7 +32,7 @@ __int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
   v4 = *(_QWORD *)(a1 + 6248);
   if ( a2 == 1 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     v5 = (_QWORD **)(a1 + 6256);
     for ( i = *v5; i != v5; i = (_QWORD *)*i )
       MiUpdateClaimDistribution(i - 3, v18);

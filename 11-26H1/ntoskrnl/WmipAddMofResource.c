@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipAddMofResource @ 0x140B19FC8
+ * XREFs of WmipAddMofResource @ 0x140B1C418
  * Callers:
- *     WmipAddDataSource @ 0x140A0BC24 (WmipAddDataSource.c)
- *     WmipInitializeDataStructs @ 0x140CE03F8 (WmipInitializeDataStructs.c)
+ *     WmipAddDataSource @ 0x140A0ABF4 (WmipAddDataSource.c)
+ *     WmipInitializeDataStructs @ 0x140CE6798 (WmipInitializeDataStructs.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     WmipAllocEntry @ 0x140A0BF54 (WmipAllocEntry.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipFindMRByNames @ 0x140B1A194 (WmipFindMRByNames.c)
- *     WmipInsertMofResource @ 0x140B1A25C (WmipInsertMofResource.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     WmipAllocEntry @ 0x140A0AF24 (WmipAllocEntry.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipFindMRByNames @ 0x140B1C5E4 (WmipFindMRByNames.c)
+ *     WmipInsertMofResource @ 0x140B1C6AC (WmipInsertMofResource.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, const wchar_t *a4, char *a5)
@@ -26,8 +26,8 @@ __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, co
   size_t v16; // rdi
   __int64 Pool2; // rax
   wchar_t *v18; // rcx
-  struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *Blink; // rcx
+  __int64 v19; // rax
+  __int64 *v20; // rcx
 
   MRByNames = WmipFindMRByNames(a2, a4);
   if ( MRByNames )
@@ -63,23 +63,23 @@ __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, co
     }
     RtlStringCbCopyW(v18, v15, a2);
     RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(MRByNames + 48), v16, a4);
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-    Flink = EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink;
-    Blink = EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink->Blink;
-    if ( Blink->Flink != EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink )
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+    v19 = WmipMRHeadPtr;
+    v20 = *(__int64 **)(WmipMRHeadPtr + 8);
+    if ( *v20 != WmipMRHeadPtr )
       __fastfail(3u);
-    *(_QWORD *)(MRByNames + 8) = Blink;
-    *(_QWORD *)MRByNames = Flink;
-    Blink->Flink = (struct _LIST_ENTRY *)MRByNames;
-    Flink->Blink = (struct _LIST_ENTRY *)MRByNames;
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    *(_QWORD *)(MRByNames + 8) = v20;
+    *(_QWORD *)MRByNames = v19;
+    *v20 = MRByNames;
+    *(_QWORD *)(v19 + 8) = MRByNames;
+    KeReleaseMutex(&WmipSMMutex, 0);
 LABEL_17:
     *a5 = v12;
     if ( !a1 )
       return 0;
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     inserted = WmipInsertMofResource(a1, MRByNames);
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     if ( !MRByNames )
       return inserted;
 LABEL_20:

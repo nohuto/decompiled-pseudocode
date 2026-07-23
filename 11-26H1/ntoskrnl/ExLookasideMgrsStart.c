@@ -1,13 +1,13 @@
 /*
- * XREFs of ExLookasideMgrsStart @ 0x14083A910
+ * XREFs of ExLookasideMgrsStart @ 0x140840B50
  * Callers:
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ?ExpLookasideMgrCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x140846B6C (-ExpLookasideMgrCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
- *     ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x140846D5C (-ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ?ExpLookasideMgrCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x14084CDCC (-ExpLookasideMgrCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
+ *     ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x14084CFBC (-ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 ExLookasideMgrsStart()
@@ -22,9 +22,9 @@ __int64 ExLookasideMgrsStart()
   int v7; // ebx
 
   v0 = KeNumberNodes;
-  v1 = (unsigned int)(10000 * dword_140E0EC6C);
-  v2 = (unsigned int)(10000 * dword_140E0EC68);
-  v3 = (unsigned int)(10000 * dword_140E0EC64);
+  v1 = (unsigned int)(10000 * dword_140E0ECDC);
+  v2 = (unsigned int)(10000 * dword_140E0ECD8);
+  v3 = (unsigned int)(10000 * dword_140E0ECD4);
   Pool2 = (void *)ExAllocatePool2(0x40uLL);
   ExpPerProcLookasideMgr = Pool2;
   v5 = Pool2;
@@ -40,14 +40,14 @@ __int64 ExLookasideMgrsStart()
     *((_QWORD *)v5 + 4) = v1;
     *((_WORD *)v5 + 298) = v0;
     memset_0(&ExpGeneralLookasideMgr, 0, 0x268uLL);
-    qword_140E28950 = v1;
-    dword_140E28940 = 1;
-    word_140E28B84 = 1;
-    dword_140E28958 = 0;
-    qword_140E28948 = v2;
-    qword_140E28938 = (__int64)ExpLookasideMgrTimerCallback;
-    qword_140E28960 = (__int64)ExpLookasideMgrGeneralWorkerRoutine;
-    dword_140E2895C = 3;
+    qword_140E28AD0 = v1;
+    dword_140E28AC0 = 1;
+    word_140E28D04 = 1;
+    dword_140E28AD8 = 0;
+    qword_140E28AC8 = v2;
+    qword_140E28AB8 = (__int64)ExpLookasideMgrTimerCallback;
+    qword_140E28AE0 = (__int64)ExpLookasideMgrGeneralWorkerRoutine;
+    dword_140E28ADC = 3;
     v6 = ExpLookasideMgrStart((struct _EXP_LOOKASIDE_MGR *)v5);
     if ( v6 >= 0 )
     {

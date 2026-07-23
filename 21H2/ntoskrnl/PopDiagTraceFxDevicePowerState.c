@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxDevicePowerState @ 0x14039FDEC
+ * XREFs of PopDiagTraceFxDevicePowerState @ 0x14039FF3C
  * Callers:
- *     PopRequestCompletion @ 0x14037A900 (PopRequestCompletion.c)
- *     PoFxReportDevicePoweredOn @ 0x14039FC80 (PoFxReportDevicePoweredOn.c)
+ *     PopRequestCompletion @ 0x14037A450 (PopRequestCompletion.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039FDD0 (PoFxReportDevicePoweredOn.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDevicePowerState(__int64 a1, int a2)

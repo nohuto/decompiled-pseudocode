@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDecommitComputeCheckPte @ 0x14040E840
+ * XREFs of MiDecommitComputeCheckPte @ 0x140406A40
  * Callers:
- *     MiDecommitInitializePacket @ 0x1402899B0 (MiDecommitInitializePacket.c)
- *     MiDecommitLockNewPageTable @ 0x140289DC0 (MiDecommitLockNewPageTable.c)
+ *     MiDecommitInitializePacket @ 0x1402995B0 (MiDecommitInitializePacket.c)
+ *     MiDecommitLockNewPageTable @ 0x1402999C0 (MiDecommitLockNewPageTable.c)
  * Callees:
  *     <none>
  */

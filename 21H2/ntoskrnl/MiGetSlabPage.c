@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGetSlabPage @ 0x1402E803C
+ * XREFs of MiGetSlabPage @ 0x14029938C
  * Callers:
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiFinalizeImageHeaderPage @ 0x1402E7BEC (MiFinalizeImageHeaderPage.c)
- *     MiGetHardFaultPages @ 0x1402E7D84 (MiGetHardFaultPages.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
- *     MmAllocateNonChargedSecurePages @ 0x14053430C (MmAllocateNonChargedSecurePages.c)
- *     MiCompleteSecureProcessFault @ 0x140548184 (MiCompleteSecureProcessFault.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     MiAllocateDriverPage @ 0x1406D1A78 (MiAllocateDriverPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
- *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
+ *     MiFinalizeImageHeaderPage @ 0x140298F3C (MiFinalizeImageHeaderPage.c)
+ *     MiGetHardFaultPages @ 0x1402990D4 (MiGetHardFaultPages.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14053454C (MmAllocateNonChargedSecurePages.c)
+ *     MiCompleteSecureProcessFault @ 0x1405483C4 (MiCompleteSecureProcessFault.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     MiAllocateDriverPage @ 0x1406A8D58 (MiAllocateDriverPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762BCC (MmAllocateIndependentPagesEx.c)
  * Callees:
- *     MiGetPageFromSlabAllocator @ 0x1402E80D0 (MiGetPageFromSlabAllocator.c)
- *     MiGetSlabAllocator @ 0x1402E824C (MiGetSlabAllocator.c)
- *     MiReplenishSlabAllocator @ 0x140392814 (MiReplenishSlabAllocator.c)
- *     MiSlabAllocatorRecentFailure @ 0x140392AC4 (MiSlabAllocatorRecentFailure.c)
+ *     MiGetPageFromSlabAllocator @ 0x140299420 (MiGetPageFromSlabAllocator.c)
+ *     MiGetSlabAllocator @ 0x14029959C (MiGetSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x140392964 (MiReplenishSlabAllocator.c)
+ *     MiSlabAllocatorRecentFailure @ 0x140392C14 (MiSlabAllocatorRecentFailure.c)
  */
 
 __int64 __fastcall MiGetSlabPage(__int64 a1, unsigned int a2, unsigned int a3, __int64 *a4, unsigned int a5)

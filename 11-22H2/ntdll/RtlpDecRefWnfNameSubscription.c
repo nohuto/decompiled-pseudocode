@@ -13,32 +13,32 @@
  *     RtlpWnfETWEventNameSubRundown @ 0x1800E8F98 (RtlpWnfETWEventNameSubRundown.c)
  */
 
-signed __int64 __fastcall RtlpDecRefWnfNameSubscription(__int64 a1)
+void __fastcall RtlpDecRefWnfNameSubscription(char *BaseAddress)
 {
-  __int64 v3; // rcx
-  __int64 v4; // r8
+  __int64 v2; // rcx
+  void *v3; // r8
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(qword_180184D10 + 8));
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 116), 0xFFFFFFFF) == 1 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(qword_180184D10 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 29, 0xFFFFFFFF) == 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v3 = (__int64)NtCurrentPeb()->SharedData + 564;
+    if ( RtlGetCurrentServiceSessionId() )
+      v2 = (__int64)NtCurrentPeb()->SharedData + 564;
     else
-      v3 = 2147353486LL;
-    if ( *(_BYTE *)v3 )
-      RtlpWnfETWEventNameSubRundown(*(_QWORD *)(a1 + 16), a1);
-    NtUnsubscribeWnfStateChange(a1 + 16);
-    RtlRbRemoveNode(qword_180184D10 + 16, a1 + 32);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-    v4 = *(_QWORD *)(a1 + 128);
-    if ( v4 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      v2 = 2147353486LL;
+    if ( *(_BYTE *)v2 )
+      RtlpWnfETWEventNameSubRundown(*((_QWORD *)BaseAddress + 2), BaseAddress);
+    NtUnsubscribeWnfStateChange((PCWNF_STATE_NAME)BaseAddress + 2);
+    RtlRbRemoveNode((PRTL_RB_TREE)(qword_180184D10 + 16), (PRTL_BALANCED_NODE)(BaseAddress + 32));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+    v3 = (void *)*((_QWORD *)BaseAddress + 16);
+    if ( v3 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   else
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
   }
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(qword_180184D10 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_180184D10 + 8));
 }

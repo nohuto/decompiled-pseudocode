@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFindSetBitsAndClear @ 0x140212B40
+ * XREFs of RtlFindSetBitsAndClear @ 0x14021296C
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
  */
 
 ULONG __stdcall RtlFindSetBitsAndClear(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDispatchSuperfetchNotification @ 0x140B4EF08
+ * XREFs of PopDispatchSuperfetchNotification @ 0x140B51798
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x1404C6954 (PopDiagTraceEventNoPayload.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404C0304 (PopDiagTraceEventNoPayload.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
  */
 
 __int64 __fastcall PopDispatchSuperfetchNotification(int a1)

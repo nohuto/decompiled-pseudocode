@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreePlaceholderStorage @ 0x1406D0BD0
+ * XREFs of MiFreePlaceholderStorage @ 0x1406D1E70
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085F728 (MiDeletePartialCloneVads.c)
  * Callees:
- *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiGetVadWakeList @ 0x140068260 (MiGetVadWakeList.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140068560 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 *__fastcall MiFreePlaceholderStorage(__int64 a1, __int64 a2, __int64 a3)

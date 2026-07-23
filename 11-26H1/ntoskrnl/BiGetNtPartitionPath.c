@@ -1,13 +1,13 @@
 /*
- * XREFs of BiGetNtPartitionPath @ 0x1408923BC
+ * XREFs of BiGetNtPartitionPath @ 0x1408987B8
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4AF80 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4CD10 (BiConvertBootEnvironmentDeviceToNt.c)
  * Callees:
- *     SyspartEnumerateDisks @ 0x140894798 (SyspartEnumerateDisks.c)
- *     BiTranslateSymbolicLink @ 0x140B220E4 (BiTranslateSymbolicLink.c)
- *     BiVerifyBootPartition @ 0x140B2C830 (BiVerifyBootPartition.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SyspartEnumerateDisks @ 0x14089AB98 (SyspartEnumerateDisks.c)
+ *     BiTranslateSymbolicLink @ 0x140B244E4 (BiTranslateSymbolicLink.c)
+ *     BiVerifyBootPartition @ 0x140B2E8B0 (BiVerifyBootPartition.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetNtPartitionPath(int a1, _QWORD *a2)

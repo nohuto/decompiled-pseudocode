@@ -1,17 +1,17 @@
 /*
  * XREFs of KseDriverLoadImage @ 0x140694730
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  *     IopInitializeBuiltinDriver @ 0x140B3DB64 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepEvntLogShimsApplied @ 0x1403AF78C (KsepEvntLogShimsApplied.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepEvntLogShimsApplied @ 0x1403AF96C (KsepEvntLogShimsApplied.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
  *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
  *     KsepStringDuplicateUnicode @ 0x140694900 (KsepStringDuplicateUnicode.c)
- *     KsepApplyShimsToDriver @ 0x14085E5C4 (KsepApplyShimsToDriver.c)
+ *     KsepApplyShimsToDriver @ 0x14085E804 (KsepApplyShimsToDriver.c)
  */
 
 __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)

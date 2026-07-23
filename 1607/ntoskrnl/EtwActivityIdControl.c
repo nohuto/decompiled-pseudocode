@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwActivityIdControl @ 0x1400A0BF4
+ * XREFs of EtwActivityIdControl @ 0x14009F51C
  * Callers:
- *     IoReuseIrp @ 0x1400D11E0 (IoReuseIrp.c)
- *     IoSetActivityIdIrp @ 0x140111FD8 (IoSetActivityIdIrp.c)
- *     IopInitActivityIdIrp @ 0x1401C4FA8 (IopInitActivityIdIrp.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
- *     VrpPostEnumerateKey @ 0x140614D90 (VrpPostEnumerateKey.c)
- *     VrpPostOpenOrCreate @ 0x140615588 (VrpPostOpenOrCreate.c)
- *     VrpPostQueryKey @ 0x140615828 (VrpPostQueryKey.c)
- *     VrpPostUnloadKey @ 0x140615BC8 (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x140615C38 (VrpPreFlushKey.c)
- *     VrpPreLoadKey @ 0x140615D08 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x1406163E4 (VrpPreOpenOrCreate.c)
- *     VrpPreQueryKeyName @ 0x140616708 (VrpPreQueryKeyName.c)
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14062651C (IoWriteDeferredLiveDumpData.c)
+ *     IoReuseIrp @ 0x1400CF080 (IoReuseIrp.c)
+ *     IoSetActivityIdIrp @ 0x14011253C (IoSetActivityIdIrp.c)
+ *     IopInitActivityIdIrp @ 0x1401C4E8C (IopInitActivityIdIrp.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
+ *     VrpPostEnumerateKey @ 0x140614E44 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x14061563C (VrpPostOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x1406158DC (VrpPostQueryKey.c)
+ *     VrpPostUnloadKey @ 0x140615C7C (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x140615CEC (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x140615DBC (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x140616498 (VrpPreOpenOrCreate.c)
+ *     VrpPreQueryKeyName @ 0x1406167BC (VrpPreQueryKeyName.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1406265D0 (IoWriteDeferredLiveDumpData.c)
  * Callees:
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
  */
 
 NTSTATUS __stdcall EtwActivityIdControl(ULONG ControlCode, LPGUID ActivityId)

@@ -1,22 +1,22 @@
 /*
- * XREFs of KeCapturePersistentThreadState @ 0x14034F2C0
+ * XREFs of KeCapturePersistentThreadState @ 0x140351340
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14078BF90 (DbgkpWerCaptureLiveTriageDump.c)
- *     LkmdTelCreateReport @ 0x1408AB660 (LkmdTelCreateReport.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14078EAC0 (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x1408B1AA4 (LkmdTelCreateReport.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     RtlGetNtProductType @ 0x140450F70 (RtlGetNtProductType.c)
- *     IopAddCodeRegion @ 0x1404E71D0 (IopAddCodeRegion.c)
- *     IopWriteDriverList @ 0x1404EC000 (IopWriteDriverList.c)
- *     IoGetLoadedDriverInfo @ 0x1404EC150 (IoGetLoadedDriverInfo.c)
- *     IopValidateSectionSize @ 0x140513130 (IopValidateSectionSize.c)
- *     KdCopyDataBlock @ 0x1405E35A4 (KdCopyDataBlock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     RtlGetNtProductType @ 0x1404490A0 (RtlGetNtProductType.c)
+ *     IopAddCodeRegion @ 0x1404E058C (IopAddCodeRegion.c)
+ *     IopWriteDriverList @ 0x1404E55E0 (IopWriteDriverList.c)
+ *     IoGetLoadedDriverInfo @ 0x1404E5730 (IoGetLoadedDriverInfo.c)
+ *     IopValidateSectionSize @ 0x14050CBA0 (IopValidateSectionSize.c)
+ *     KdCopyDataBlock @ 0x1405E5F14 (KdCopyDataBlock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeCapturePersistentThreadState(
@@ -65,7 +65,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
     return 0LL;
   if ( !a2 )
     CurrentThread = KeGetCurrentThread();
-  if ( ForceDumpDisabled || !AllowCrashDump || byte_140E660E4 && SecureDmpEncryptionContext == 2 )
+  if ( ForceDumpDisabled || !AllowCrashDump || byte_140E662A4 && SecureDmpEncryptionContext == 2 )
     return 0LL;
   memset_0((void *)(Size + 4), 0, 0x3FFFCuLL);
   v13 = (char *)v8;
@@ -94,7 +94,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
   *(_QWORD *)(v8 + 16) = CurrentThread->ApcState.Process->DirectoryTableBase & 0xFFFFFFFFFFFFF000uLL;
   *(_QWORD *)(v8 + 24) = MmPfnDatabase;
   *(_QWORD *)(v8 + 32) = &PsLoadedModuleList;
-  *(_QWORD *)(v8 + 40) = &PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
+  *(_QWORD *)(v8 + 40) = &PsAltSystemCallRegistrationLock.WaitBlock[2];
   *(_DWORD *)(v8 + 48) = 34404;
   *(_DWORD *)(v8 + 52) = KeQueryActiveProcessorCountEx(0xFFFFu);
   *(_QWORD *)(v8 + 72) = a5;
@@ -115,7 +115,7 @@ __int64 __fastcall KeCapturePersistentThreadState(
   *(_DWORD *)(v8 + 3992) = 4;
   *(_DWORD *)(v8 + 4152) = 130;
   *(_DWORD *)(v8 + 4176) = 24;
-  RtlGetNtProductType(v8 + 4160);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)(v8 + 4160));
   v18 = 9LL;
   *(_DWORD *)(v8 + 4164) = MEMORY[0xFFFFF780000002D0];
   v19 = (_OWORD *)a1;

@@ -23,7 +23,7 @@
 
 void __fastcall MiFreeInPageSupportBlock(PSLIST_ENTRY ListEntry)
 {
-  struct _SLIST_ENTRY *Next; // rcx
+  _SLIST_ENTRY *Next; // rcx
 
   if ( *((struct _KTHREAD **)&ListEntry[9].Next + 1) == KeGetCurrentThread() && *((_QWORD *)&ListEntry[13].Next + 1) )
     KeAbPostRelease((ULONG_PTR)ListEntry);

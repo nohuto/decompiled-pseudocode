@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlIsCapabilitySid @ 0x18000DAC0
+ * XREFs of RtlIsCapabilitySid @ 0x1800591F0
  * Callers:
- *     RtlCheckTokenCapability @ 0x18000DB10 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenCapability @ 0x180059240 (RtlCheckTokenCapability.c)
  * Callees:
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
  */
 
-bool __fastcall RtlIsCapabilitySid(__int64 a1)
+BOOLEAN __cdecl RtlIsCapabilitySid(PSID Sid)
 {
-  return *(_BYTE *)(a1 + 1) >= 2u
-      && *(_BYTE *)a1 == 1
-      && RtlCompareMemory((const void *)(a1 + 2), &RtlpAppPackageAuthority, 6uLL) == 6
-      && *(_DWORD *)(a1 + 8) == 3;
+  return *((_BYTE *)Sid + 1) >= 2u
+      && *(_BYTE *)Sid == 1
+      && RtlCompareMemory((char *)Sid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
+      && *((_DWORD *)Sid + 2) == 3;
 }

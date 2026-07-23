@@ -1,17 +1,17 @@
 /*
- * XREFs of HvRecoverFlushProtocolStateFromFiles @ 0x1407DF454
+ * XREFs of HvRecoverFlushProtocolStateFromFiles @ 0x1407DF9A4
  * Callers:
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x1407DE6E0 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x1407DEC30 (CmpRecoverFlushProtocolStateFromFiles.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140981264 (HvpLogTypeToLogArrayIndex.c)
- *     HvpGetHiveHeader @ 0x14098195C (HvpGetHiveHeader.c)
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
- *     HvpHeaderCheckSum @ 0x140BB97A0 (HvpHeaderCheckSum.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140969A74 (HvpLogTypeToLogArrayIndex.c)
+ *     HvpGetHiveHeader @ 0x14096A16C (HvpGetHiveHeader.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
+ *     HvpHeaderCheckSum @ 0x140BBB7A0 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvRecoverFlushProtocolStateFromFiles(__int64 a1, __int64 a2)
@@ -20,24 +20,24 @@ __int64 __fastcall HvRecoverFlushProtocolStateFromFiles(__int64 a1, __int64 a2)
   __int64 v5; // r14
   int HiveHeader; // eax
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // r13
-  int v11; // r12d
-  int v12; // edi
-  int v13; // r9d
-  unsigned int v14; // edi
-  int v15; // ecx
-  _DWORD *v16; // rax
-  bool v17; // zf
-  int v18; // eax
-  unsigned int v19; // eax
-  unsigned int *v20; // rdx
-  __int64 v21; // r8
-  unsigned int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  int v25; // eax
+  int v8; // r8d
+  __int64 v9; // r13
+  int v10; // r12d
+  int v11; // edi
+  int v12; // r9d
+  unsigned int v13; // edi
+  int v14; // ecx
+  _DWORD *v15; // rax
+  bool v16; // zf
+  int v17; // eax
+  unsigned int v18; // eax
+  unsigned int *v19; // rdx
+  __int64 v20; // r8
+  unsigned int v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  int v24; // eax
+  __int64 v25; // r9
   int v27; // [rsp+20h] [rbp-E0h]
   __int64 v28; // [rsp+40h] [rbp-C0h] BYREF
   __int64 v29; // [rsp+48h] [rbp-B8h] BYREF
@@ -72,36 +72,36 @@ __int64 __fastcall HvRecoverFlushProtocolStateFromFiles(__int64 a1, __int64 a2)
   *(_OWORD *)v38 = 0LL;
   memset_0(v39, 0, 0x5CuLL);
   HiveHeader = HvpGetHiveHeader(a1, &v29, &v28);
-  v10 = v29;
-  v11 = 2;
-  v12 = HiveHeader;
+  v9 = v29;
+  v10 = 2;
+  v11 = HiveHeader;
   if ( HiveHeader == 2 )
   {
     v27 = 0;
 LABEL_3:
+    v12 = -1073741670;
     v13 = -1073741670;
-    v14 = -1073741670;
 LABEL_4:
-    SetFailureLocation(a2, 0, 38, v13, v27);
+    SetFailureLocation(a2, 0, 38, v12, v27);
     goto LABEL_31;
   }
   if ( HiveHeader == 7 )
   {
-    v14 = -1073741491;
+    v13 = -1073741491;
     v27 = 16;
 LABEL_7:
-    v13 = v14;
+    v12 = v13;
     goto LABEL_4;
   }
   if ( !HiveHeader )
   {
-    v14 = -1073741476;
+    v13 = -1073741476;
     v27 = 32;
     goto LABEL_7;
   }
   if ( HiveHeader == 3 )
   {
-    v14 = 0;
+    v13 = 0;
   }
   else
   {
@@ -111,21 +111,21 @@ LABEL_7:
     {
       Privileges[0] = (PPRIVILEGE_SET)a1;
       v31 = HvpRecoverDataReadRoutine;
-      v11 = 1;
+      v10 = 1;
       DWORD1(v37) = 1;
       v32 = Privileges;
       v30[0] = 1;
     }
     else
     {
-      v15 = 4;
-      v16 = (_DWORD *)&v37 + 1;
+      v14 = 4;
+      v15 = (_DWORD *)&v37 + 1;
       v7 = 2LL;
       do
       {
-        *(_QWORD *)(v16 - 5) = a1;
-        *v16 = v15++;
-        v16 += 6;
+        *(_QWORD *)(v15 - 5) = a1;
+        *v15 = v14++;
+        v15 += 6;
         --v7;
       }
       while ( v7 );
@@ -136,61 +136,61 @@ LABEL_7:
       v32 = Privileges;
       LODWORD(v33) = 5;
     }
-    v17 = v12 == 4;
-    if ( v12 == 4 )
+    v16 = v11 == 4;
+    if ( v11 == 4 )
     {
       LOBYTE(v7) = 1;
-      v5 = guard_dispatch_icall_no_overrides(4096LL, v7, 875777347LL, 1LL);
+      v5 = guard_dispatch_icall_no_overrides(4096LL, v7);
       if ( !v5 )
       {
         v27 = 48;
         goto LABEL_3;
       }
-      v17 = 1;
+      v16 = 1;
     }
-    LOBYTE(v8) = v17;
-    v18 = HvAnalyzeLogFiles((unsigned int)&v28, v2, v8, (unsigned int)v30, v11, (__int64)v39, v5);
-    v14 = v18;
-    if ( v18 >= 0 )
+    LOBYTE(v8) = v16;
+    v17 = HvAnalyzeLogFiles((unsigned int)&v28, v2, v8, (unsigned int)v30, v10, (__int64)v39, v5);
+    v13 = v17;
+    if ( v17 >= 0 )
     {
       *(_DWORD *)(a1 + 184) = v42;
       *(_DWORD *)(a1 + 168) = v43;
       *(_DWORD *)(a1 + 172) = v45;
       *(_DWORD *)(a1 + 176) = v44;
       *(_DWORD *)(a1 + 180) = v46;
-      v19 = v41;
+      v18 = v41;
       *(_BYTE *)(a1 + 194) = 0;
-      if ( v19 )
+      if ( v18 )
       {
-        v20 = (unsigned int *)&v40;
-        v21 = v19;
+        v19 = (unsigned int *)&v40;
+        v20 = v18;
         do
         {
-          v22 = HvpLogTypeToLogArrayIndex(*(unsigned int *)&v39[24 * *v20 + 8], v20, v21);
-          v20 = (unsigned int *)(v23 + 4);
-          *(_BYTE *)(v22 + a1 + 192) = 1;
-          v21 = v24 - 1;
+          v21 = HvpLogTypeToLogArrayIndex(*(unsigned int *)&v39[24 * *v19 + 8], v19, v20);
+          v19 = (unsigned int *)(v22 + 4);
+          *(_BYTE *)(v21 + a1 + 192) = 1;
+          v20 = v23 - 1;
         }
-        while ( v21 );
+        while ( v20 );
       }
       *(_QWORD *)(*(_QWORD *)(a1 + 64) + 12LL) = v28;
-      v25 = HvpHeaderCheckSum(*(_QWORD *)(a1 + 64));
-      *(_DWORD *)(v9 + 508) = v25;
-      v14 = 0;
+      v24 = HvpHeaderCheckSum(*(_QWORD *)(a1 + 64));
+      *(_DWORD *)(v25 + 508) = v24;
+      v13 = 0;
     }
     else
     {
-      SetFailureLocation(a2, 0, 38, v18, 64);
+      SetFailureLocation(a2, 0, 38, v17, 64);
     }
     if ( v5 )
-      guard_dispatch_icall_no_overrides(v5, 4096LL, v8, v9);
+      guard_dispatch_icall_no_overrides(v5, 4096LL);
   }
 LABEL_31:
-  if ( v10 )
-    guard_dispatch_icall_no_overrides(v10, *(unsigned int *)(a1 + 132), v8, v9);
+  if ( v9 )
+    guard_dispatch_icall_no_overrides(v9, *(unsigned int *)(a1 + 132));
   if ( Privileges[1] )
     CmSiFreeMemory(Privileges[1]);
   if ( v38[0] )
     CmSiFreeMemory(v38[0]);
-  return v14;
+  return v13;
 }

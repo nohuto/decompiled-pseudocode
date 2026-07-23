@@ -42,7 +42,7 @@ NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
   _QWORD *v18; // rax
   signed __int64 v19; // rax
   ULONG_PTR v20; // r10
-  __int64 v21; // rdx
+  unsigned int v21; // edx
   ULONG_PTR v22; // r9
   unsigned int v23; // r11d
   bool v24; // zf
@@ -213,12 +213,12 @@ LABEL_6:
     v46 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(&ExpWakeTimerLock, v12, v13, v14) == 1 )
     {
-      v21 = (unsigned int)MmGetSessionIdEx(*(_QWORD *)(v20 + 184));
+      v21 = MmGetSessionIdEx(*(_QWORD *)(v20 + 184));
       v20 = (ULONG_PTR)v46;
     }
     else
     {
-      v21 = 0xFFFFFFFFLL;
+      v21 = -1;
     }
     --*(_WORD *)(v20 + 486);
     v55 = ++*(_BYTE *)(v20 + 794);
@@ -238,7 +238,7 @@ LABEL_6:
         if ( (*(_BYTE *)(v27 + 26) & 1) != 0
           && (*(_DWORD *)(v27 + 32) & 1) == 0
           && (*(_QWORD *)(v27 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v52
-          && *(_DWORD *)(v27 + 40) == (_DWORD)v21 )
+          && *(_DWORD *)(v27 + 40) == v21 )
         {
           *(_BYTE *)(v27 + 26) &= ~1u;
           if ( *(_QWORD *)(v27 + 32) )
@@ -259,7 +259,7 @@ LABEL_27:
       *(_BYTE *)(v22 + 32) |= 2u;
       if ( *(__int64 *)(v22 + 32) < 0 )
       {
-        KiAbEntryRemoveFromTree(v22, v21);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v22);
         v20 = (ULONG_PTR)v46;
         v22 = v48;
       }
@@ -276,7 +276,7 @@ LABEL_27:
     }
     else if ( (*(_DWORD *)(v20 + 120) & 0x10000) == 0 )
     {
-      KeBugCheckEx(0x162u, v20, (ULONG_PTR)&ExpWakeTimerLock, (unsigned int)v21, 0LL);
+      KeBugCheckEx(0x162u, v20, (ULONG_PTR)&ExpWakeTimerLock, v21, 0LL);
     }
     --*(_BYTE *)(v20 + 794);
     KiAbThreadRemoveBoosts(v20, &ExpWakeTimerLock, &v59);

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTrimViewLockProcessPte @ 0x14046C720
+ * XREFs of MiTrimViewLockProcessPte @ 0x140465EA0
  * Callers:
- *     MiTrimSharedPageFromView @ 0x14046BEB4 (MiTrimSharedPageFromView.c)
+ *     MiTrimSharedPageFromView @ 0x140465634 (MiTrimSharedPageFromView.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     MiTrimViewGetFlushList @ 0x1403A7AF8 (MiTrimViewGetFlushList.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     MiTrimViewGetFlushList @ 0x1403A9858 (MiTrimViewGetFlushList.c)
  */
 
 __int64 __fastcall MiTrimViewLockProcessPte(__int64 a1, __int64 *a2, __int64 a3)

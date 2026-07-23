@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceLostSystemEvent @ 0x1404D81F4
+ * XREFs of EtwpTraceLostSystemEvent @ 0x1404D19C4
  * Callers:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x140406FB0 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpTraceLostSystemEvent(__int16 a1, unsigned __int16 *a2, __int16 a3, int a4)
@@ -37,5 +37,13 @@ NTSTATUS __fastcall EtwpTraceLostSystemEvent(__int16 a1, unsigned __int16 *a2, _
   v8 = 4LL;
   if ( (a3 & 0x600) != 0 )
     v4 |= 8u;
-  return EtwWriteEx(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_SYSTEM_EVENT, 0LL, v4, 0LL, 0LL, 4u, &UserData);
+  return EtwWriteEx(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_LOST_SYSTEM_EVENT,
+           0LL,
+           v4,
+           0LL,
+           0LL,
+           4u,
+           &UserData);
 }

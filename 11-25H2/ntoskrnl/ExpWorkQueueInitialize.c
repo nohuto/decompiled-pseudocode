@@ -13,7 +13,7 @@ __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4
   USHORT *v10; // rbx
   unsigned int v11; // eax
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
   USHORT Count; // [rsp+58h] [rbp+10h] BYREF
 
   Count = 0;

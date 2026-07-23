@@ -1,13 +1,13 @@
 /*
- * XREFs of KiGenerateHeteroSets @ 0x1404616A0
+ * XREFs of KiGenerateHeteroSets @ 0x140461AA0
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1402C8490 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x140461916 (KiHeteroChooseTargetProcessor.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140577010 (KiEvaluatePreemptionSwapTarget.c)
- *     KiSetHeteroPolicyThread @ 0x140577A0C (KiSetHeteroPolicyThread.c)
- *     KiTallyHeteroSoftParkElectionVotes @ 0x14057E3EC (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402C8720 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140461D16 (KiHeteroChooseTargetProcessor.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140577500 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiSetHeteroPolicyThread @ 0x140577EFC (KiSetHeteroPolicyThread.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x14057E8DC (KiTallyHeteroSoftParkElectionVotes.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
  */
 
 __int64 __fastcall KiGenerateHeteroSets(

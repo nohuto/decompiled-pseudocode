@@ -10,21 +10,22 @@
  *     sub_18006EBF4 @ 0x18006EBF4 (sub_18006EBF4.c)
  */
 
-__int64 __fastcall sub_18006EA40(unsigned __int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall sub_18006EA40(_DWORD *a1, void *a2, int a3)
 {
   unsigned int v3; // ebx
-  unsigned __int64 *Heap; // rax
-  unsigned __int64 *UserPrefLanguages; // rdi
+  PVOID *Heap; // rax
+  PVOID *UserPrefLanguages; // rdi
   int v9; // esi
+  PVOID v11; // rcx
 
   v3 = 0;
   if ( NtCurrentTeb()->UserPrefLanguages )
   {
-    UserPrefLanguages = (unsigned __int64 *)NtCurrentTeb()->UserPrefLanguages;
+    UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   }
   else
   {
-    Heap = (unsigned __int64 *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL);
+    Heap = (PVOID *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
     UserPrefLanguages = Heap;
     if ( !Heap )
       return (unsigned int)-1073741801;
@@ -39,7 +40,7 @@ __int64 __fastcall sub_18006EA40(unsigned __int64 a1, unsigned __int64 a2, int a
     {
       if ( *UserPrefLanguages )
       {
-        *(_DWORD *)(a1 + 40) = *(_DWORD *)(*UserPrefLanguages + 40);
+        a1[10] = *((_DWORD *)*UserPrefLanguages + 10);
         sub_180040BA0(*UserPrefLanguages);
       }
       *UserPrefLanguages = a1;
@@ -51,8 +52,9 @@ __int64 __fastcall sub_18006EA40(unsigned __int64 a1, unsigned __int64 a2, int a
     return v3;
   if ( !a2 )
     return (unsigned int)-1073741811;
-  if ( UserPrefLanguages[1] )
-    sub_18006EBF4();
+  v11 = UserPrefLanguages[1];
+  if ( v11 )
+    sub_18006EBF4(v11);
   UserPrefLanguages[1] = a2;
   return v3;
 }

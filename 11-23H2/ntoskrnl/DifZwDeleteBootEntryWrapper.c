@@ -1,15 +1,15 @@
 /*
- * XREFs of DifZwDeleteBootEntryWrapper @ 0x1405EF440
+ * XREFs of DifZwDeleteBootEntryWrapper @ 0x1405EF9B0
  * Callers:
  *     <none>
  * Callees:
- *     ZwDeleteBootEntry @ 0x14041C840 (ZwDeleteBootEntry.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwDeleteBootEntry @ 0x14041CBD0 (ZwDeleteBootEntry.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwDeleteBootEntryWrapper(unsigned int a1)
+NTSTATUS __fastcall DifZwDeleteBootEntryWrapper(ULONG Id)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwDeleteBootEntryWrapper(unsigned int a1)
   int v8; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rdi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v12; // rdi
   _QWORD *v13; // rbx
   __int128 v14; // [rsp+20h] [rbp-18h] BYREF
@@ -56,14 +56,14 @@ LABEL_8:
   }
   *(_QWORD *)&v14 = 0LL;
 LABEL_10:
-  DWORD2(v14) = a1;
+  DWORD2(v14) = Id;
   for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v14);
   }
 LABEL_17:
-  result = ZwDeleteBootEntry(a1, v3);
+  result = ZwDeleteBootEntry(Id);
   HIDWORD(v14) = result;
   if ( v7 )
   {

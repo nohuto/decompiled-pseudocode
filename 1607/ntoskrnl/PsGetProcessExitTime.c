@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessExitTime @ 0x1404DF25C
+ * XREFs of PsGetProcessExitTime @ 0x1404C2860
  * Callers:
  *     <none>
  * Callees:

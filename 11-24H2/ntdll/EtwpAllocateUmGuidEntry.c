@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpAllocateUmGuidEntry @ 0x18010C304
+ * XREFs of EtwpAllocateUmGuidEntry @ 0x180106CD4
  * Callers:
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     EtwpInsertGuidEntry @ 0x18010C374 (EtwpInsertGuidEntry.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     EtwpInsertGuidEntry @ 0x180106D44 (EtwpInsertGuidEntry.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 char *__fastcall EtwpAllocateUmGuidEntry(_OWORD *a1)
@@ -14,14 +14,14 @@ char *__fastcall EtwpAllocateUmGuidEntry(_OWORD *a1)
   char *Heap; // rax
   char *v3; // rbx
 
-  Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0xB0uLL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xB0uLL);
   v3 = Heap;
   if ( Heap )
   {
     memset_thunk_772440563353939046(Heap, 0, 0xB0uLL);
     *(_OWORD *)(v3 + 24) = *a1;
     *((_DWORD *)v3 + 13) = 1;
-    EtwpInsertGuidEntry(v3);
+    EtwpInsertGuidEntry((PRTL_BALANCED_NODE)v3);
   }
   return v3;
 }

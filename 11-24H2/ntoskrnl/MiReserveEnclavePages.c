@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReserveEnclavePages @ 0x140393C14
+ * XREFs of MiReserveEnclavePages @ 0x1403F6D34
  * Callers:
- *     MiAddPagesToEnclave @ 0x140473CEC (MiAddPagesToEnclave.c)
- *     MiCreateHardwareEnclave @ 0x1407F719C (MiCreateHardwareEnclave.c)
+ *     MiAddPagesToEnclave @ 0x14046D958 (MiAddPagesToEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x1407F7910 (MiCreateHardwareEnclave.c)
  * Callees:
- *     MiAllocateEnclavePages @ 0x140394D84 (MiAllocateEnclavePages.c)
- *     MiAppendPageChain @ 0x140450568 (MiAppendPageChain.c)
+ *     MiAllocateEnclavePages @ 0x1403F85DC (MiAllocateEnclavePages.c)
+ *     MiAppendPageChain @ 0x1404457D8 (MiAppendPageChain.c)
  */
 
 __int64 __fastcall MiReserveEnclavePages(__int64 a1, int a2, int a3)

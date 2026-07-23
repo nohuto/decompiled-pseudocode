@@ -53,10 +53,13 @@ void __fastcall PoRunDownDeviceObject(struct _DEVICE_OBJECT *a1)
     DeviceObjectExtension->Dope = 0LL;
     ExFreePoolWithTag(Dope, 0);
     KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

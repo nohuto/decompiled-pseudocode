@@ -1,10 +1,10 @@
 /*
- * XREFs of ReadStringDelimited @ 0x140506230
+ * XREFs of ReadStringDelimited @ 0x140503AF0
  * Callers:
- *     _input_s @ 0x1405063C0 (_input_s.c)
+ *     _input_s @ 0x140503C80 (_input_s.c)
  * Callees:
- *     ReadString @ 0x140506070 (ReadString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ReadString @ 0x140503930 (ReadString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ReadStringDelimited(

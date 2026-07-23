@@ -21,7 +21,7 @@ void __fastcall PopThermalEventTransitionDisableDeepSleep(unsigned int a1)
       PopDeepSleepSetDisengageReason(0xAu);
       dword_140F0A5EC = a1;
       byte_140F0A5E8 = 0;
-      KeSetTimer2((__int64)&unk_140F0A5F0, a1 != 0 ? -50000000LL : -600000000LL, 0LL, 0LL);
+      KeSetTimer2((__int64)&unk_140F0A5F0, (LARGE_INTEGER)(a1 != 0 ? -50000000LL : -600000000LL), 0LL, 0LL);
       byte_140F0A678 = 1;
     }
     KeReleaseSpinLock(&PopThermalEventTransitionContext, v2);

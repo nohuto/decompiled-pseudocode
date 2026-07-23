@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpInitializeNotification @ 0x140CC3FE4
+ * XREFs of PnpInitializeNotification @ 0x140CCA0C4
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ LIST_ENTRY *PnpInitializeNotification()
   LIST_ENTRY *result; // rax
 
   v0 = 13LL;
-  v1 = &unk_140FD77A0;
-  v2 = (char *)&unk_140FD77A0;
+  v1 = &unk_140FD87B0;
+  v2 = (char *)&unk_140FD87B0;
   do
   {
     v1[1] = v2;

@@ -11,43 +11,39 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08F0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpWaitForTimer(__int64 a1, unsigned int a2)
+void __cdecl TpWaitForTimer(PTP_TIMER Timer, LOGICAL CancelPendingCallbacks)
 {
-  __int64 result; // rax
-  char v5; // bp
-  char v6; // si
-  __int64 v7; // r8
+  char v4; // bp
+  char v5; // si
+  __int64 v6; // r8
 
-  result = TppTimerpValidateTimer(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppTimerpValidateTimer(Timer, 0LL, 0LL) )
   {
+    v4 = 0;
     v5 = 0;
-    v6 = 0;
-    if ( a2 )
+    if ( CancelPendingCallbacks )
     {
-      RtlAcquireSRWLockExclusive(a1 + 240);
-      ++*(_BYTE *)(a1 + 355);
-      LOBYTE(v7) = 1;
-      v5 = TppCancelTimer(a1, *(_QWORD *)(a1 + 144) + 112LL, v7);
-      if ( *(_DWORD *)(a1 + 56) )
-        v6 = 1;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+      ++*((_BYTE *)Timer + 355);
+      LOBYTE(v6) = 1;
+      v4 = TppCancelTimer(Timer, *((_QWORD *)Timer + 18) + 112LL, v6);
+      if ( *((_DWORD *)Timer + 14) )
+        v5 = 1;
       else
-        --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive(a1 + 240);
+        --*((_BYTE *)Timer + 355);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
     }
-    result = TppWorkWait(a1, a2);
-    if ( v6 )
-    {
-      RtlAcquireSRWLockExclusive(a1 + 240);
-      --*(_BYTE *)(a1 + 355);
-      result = RtlReleaseSRWLockExclusive(a1 + 240);
-    }
+    TppWorkWait(Timer, CancelPendingCallbacks);
     if ( v5 )
     {
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
-        return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+      --*((_BYTE *)Timer + 355);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+    }
+    if ( v4 )
+    {
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) == 1 )
+        (**((void (__fastcall ***)(PTP_TIMER))Timer + 1))(Timer);
     }
   }
-  return result;
 }

@@ -13,15 +13,15 @@
  *     EtwpReenableCompression @ 0x1405A7A70 (EtwpReenableCompression.c)
  */
 
-char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, LARGE_INTEGER *a2)
 {
-  int v4; // eax
+  int v2; // eax
   LARGE_INTEGER LoggerTimeStamp; // rax
 
-  v4 = *(_DWORD *)(a1 + 12);
-  if ( (v4 & 0x400) != 0 )
+  v2 = *(_DWORD *)(a1 + 12);
+  if ( (v2 & 0x400) != 0 )
   {
-    if ( (v4 & 0x4000000) != 0 )
+    if ( (v2 & 0x4000000) != 0 )
     {
       EtwpEnqueueAvailableBuffer(a1, (unsigned int *)a2, 4u);
       if ( !*(_DWORD *)(a1 + 1184) && *(_QWORD *)(a1 + 1280) >= 2LL * *(_QWORD *)(a1 + 1288) )
@@ -46,9 +46,9 @@ char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, __int64 a2, __int64 a3, __int
   }
   else
   {
-    *(_DWORD *)(a2 + 44) = 3;
-    LoggerTimeStamp = EtwpGetLoggerTimeStamp(a1, a2, a3, a4);
-    *(LARGE_INTEGER *)(a2 + 16) = LoggerTimeStamp;
+    a2[5].HighPart = 3;
+    LoggerTimeStamp = EtwpGetLoggerTimeStamp(a1);
+    a2[2] = LoggerTimeStamp;
   }
   return LoggerTimeStamp.LowPart;
 }

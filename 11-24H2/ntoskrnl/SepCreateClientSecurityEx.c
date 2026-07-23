@@ -1,32 +1,32 @@
 /*
- * XREFs of SepCreateClientSecurityEx @ 0x140897AC0
+ * XREFs of SepCreateClientSecurityEx @ 0x1408A0160
  * Callers:
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x140608F80 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeCreateClientSecurity @ 0x140896720 (SeCreateClientSecurity.c)
- *     NtAlpcImpersonateClientOfPort @ 0x140896970 (NtAlpcImpersonateClientOfPort.c)
- *     SeCreateClientSecurityEx @ 0x1408974A0 (SeCreateClientSecurityEx.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140897750 (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpExposeTokenAttribute @ 0x140898930 (AlpcpExposeTokenAttribute.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x140A3FF20 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x140606840 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeCreateClientSecurity @ 0x14089EDC0 (SeCreateClientSecurity.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x14089F010 (NtAlpcImpersonateClientOfPort.c)
+ *     SeCreateClientSecurityEx @ 0x14089FB40 (SeCreateClientSecurityEx.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x14089FDF0 (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpExposeTokenAttribute @ 0x1408A0FD0 (AlpcpExposeTokenAttribute.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x140A35800 (SeCreateClientSecurityFromSubjectContext.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     SepGetAnonymousToken @ 0x14035F4BC (SepGetAnonymousToken.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14078F794 (SepCopyClientTokenAndSetSilo.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     SepFinalizeTokenAcls @ 0x14090F550 (SepFinalizeTokenAcls.c)
- *     SepAppendAceToTokenObjectAcl @ 0x14090F590 (SepAppendAceToTokenObjectAcl.c)
- *     SeCopyClientToken @ 0x14090FF48 (SeCopyClientToken.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     SeQueryServerSiloToken @ 0x1409BA940 (SeQueryServerSiloToken.c)
- *     SeGetTokenControlInformation @ 0x1409D7510 (SeGetTokenControlInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     SepGetAnonymousToken @ 0x1403B977C (SepGetAnonymousToken.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14078F764 (SepCopyClientTokenAndSetSilo.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     SepFinalizeTokenAcls @ 0x1408E6CA0 (SepFinalizeTokenAcls.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1408E6CE0 (SepAppendAceToTokenObjectAcl.c)
+ *     SeCopyClientToken @ 0x1408E7698 (SeCopyClientToken.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     SeQueryServerSiloToken @ 0x1409A0F90 (SeQueryServerSiloToken.c)
+ *     SeGetTokenControlInformation @ 0x1409CF560 (SeGetTokenControlInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateClientSecurityEx(
@@ -155,7 +155,7 @@ LABEL_11:
         if ( SourceSid )
         {
           v33 = 4 * SourceSid[1] + 8;
-          Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          Pool2 = (void *)ExAllocatePool2(0x100uLL, v33, 0x69536553u);
           v29 = Pool2;
           if ( !Pool2 )
           {

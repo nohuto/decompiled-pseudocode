@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreeReadListPages @ 0x1406E8BA4
+ * XREFs of MiFreeReadListPages @ 0x1406FFF84
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     MiReleaseReadListResources @ 0x1406E8B14 (MiReleaseReadListResources.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     MiReleaseReadListResources @ 0x1406FFEF4 (MiReleaseReadListResources.c)
  * Callees:
- *     MiReturnFaultCharges @ 0x14028E1E4 (MiReturnFaultCharges.c)
- *     MiPartitionIdToPointer @ 0x1402CBF58 (MiPartitionIdToPointer.c)
- *     MiGetPfnLink @ 0x1402D2F30 (MiGetPfnLink.c)
- *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
- *     MiFreeReadListPageList @ 0x1406E8C2C (MiFreeReadListPageList.c)
+ *     MiReturnFaultCharges @ 0x14020B384 (MiReturnFaultCharges.c)
+ *     MiPartitionIdToPointer @ 0x14024A6C4 (MiPartitionIdToPointer.c)
+ *     MiGetPfnLink @ 0x1402514D0 (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x140297AC4 (MiReleaseFreshPage.c)
+ *     MiFreeReadListPageList @ 0x14070000C (MiFreeReadListPageList.c)
  */
 
 unsigned __int64 __fastcall MiFreeReadListPages(__int64 a1)
@@ -19,13 +19,12 @@ unsigned __int64 __fastcall MiFreeReadListPages(__int64 a1)
   __int64 *v5; // rbx
   __int64 v6; // r14
   __int64 v7; // rsi
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v8; // r8
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v10 = 0LL;
-  result = MiFreeReadListPageList(a1 + 40, &v10);
-  v3 = v10;
+  v9 = 0LL;
+  result = MiFreeReadListPageList(a1 + 40, &v9);
+  v3 = v9;
   v4 = result;
   v5 = (__int64 *)(a1 + 48);
   v6 = 4LL;
@@ -36,8 +35,8 @@ unsigned __int64 __fastcall MiFreeReadListPages(__int64 a1)
     {
       *v5 = MiGetPfnLink(*v5);
       if ( !v3 )
-        v3 = MiPartitionIdToPointer((*(_QWORD *)(v9 + 40) >> 39) & 0x3FF);
-      result = MiReleaseFreshPage(v9, v8, v9);
+        v3 = MiPartitionIdToPointer((*(_QWORD *)(v8 + 40) >> 39) & 0x3FF);
+      result = MiReleaseFreshPage(v8);
       ++v7;
     }
     v4 += v7;
@@ -46,6 +45,6 @@ unsigned __int64 __fastcall MiFreeReadListPages(__int64 a1)
   }
   while ( v6 );
   if ( v4 )
-    return MiReturnFaultCharges(v3, v4, 1);
+    return MiReturnFaultCharges(v3, v4, 1LL);
   return result;
 }

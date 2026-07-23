@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhBucketInitialize @ 0x140323BD4
+ * XREFs of RtlpHpLfhBucketInitialize @ 0x140323E64
  * Callers:
- *     RtlpHpLfhBucketActivate @ 0x140323C50 (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhBucketActivate @ 0x140323EE0 (RtlpHpLfhBucketActivate.c)
  * Callees:
- *     RtlpHpLfhOwnerInitialize @ 0x140323E18 (RtlpHpLfhOwnerInitialize.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x1403240A8 (RtlpHpLfhOwnerInitialize.c)
  */
 
 int __fastcall RtlpHpLfhBucketInitialize(__int64 a1, __int64 a2, __int64 a3)

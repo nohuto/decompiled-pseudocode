@@ -6,7 +6,12 @@
  *     _RtlpInitUnicodeStringUsingBuffer@16 @ 0x4B2D5B73 (_RtlpInitUnicodeStringUsingBuffer@16.c)
  */
 
-int __fastcall RtlpGetCustomCultureDataFromFile(unsigned int *a1, unsigned int a2, char a3, char a4, int a5)
+int __fastcall RtlpGetCustomCultureDataFromFile(
+        unsigned int *a1,
+        unsigned int a2,
+        char a3,
+        char a4,
+        _UNICODE_STRING *a5)
 {
   unsigned int v6; // eax
   char *v7; // ebx
@@ -17,6 +22,7 @@ int __fastcall RtlpGetCustomCultureDataFromFile(unsigned int *a1, unsigned int a
   unsigned int v12; // ecx
   unsigned int v13; // edx
   unsigned int v14; // edi
+  int v15; // esi
 
   if ( a2 >= 0x19C )
   {
@@ -49,12 +55,9 @@ int __fastcall RtlpGetCustomCultureDataFromFile(unsigned int *a1, unsigned int a
                     if ( v12 + 2 <= v13 && v12 + 2 >= v12 )
                     {
                       v14 = *(unsigned __int16 *)&v11[2 * v12];
-                      if ( v14 + v12 + 2 <= v13 && !*(_WORD *)&v11[2 * v14 + 2 + 2 * v12] )
-                        return RtlpInitUnicodeStringUsingBuffer(
-                                 a4,
-                                 (const unsigned __int16 *)&v11[2 * v12 + 2],
-                                 v14,
-                                 a5);
+                      v15 = v14 + v12;
+                      if ( v14 + v12 + 2 <= v13 && !*(_WORD *)&v11[2 * v15 + 2] )
+                        return RtlpInitUnicodeStringUsingBuffer((const WCHAR *)&v11[2 * v12 + 2], a4, v15, v14, a5);
                     }
                   }
                 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspProbeAttributeBuffer @ 0x140B20298
+ * XREFs of PspProbeAttributeBuffer @ 0x140A78C58
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall PspProbeAttributeBuffer(volatile void *a1, SIZE_T a2, ULONG a3, char a4)

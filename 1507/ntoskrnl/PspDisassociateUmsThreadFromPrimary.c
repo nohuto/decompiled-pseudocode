@@ -37,19 +37,19 @@ __int64 __fastcall PspDisassociateUmsThreadFromPrimary(__int64 a1, __int64 a2, i
   struct _EX_RUNDOWN_REF *ThreadForTeb; // rax
   unsigned __int64 v12; // rtt
   __int64 v13; // r15
-  unsigned int v14; // r12d
+  ULONG v14; // r12d
   unsigned __int64 v15; // rax
   void *v16; // rsp
-  __int64 v17; // r12
+  CONTEXT *p_XState; // r12
   __int64 v18; // rbx
   __int64 v19; // rcx
   void *v20; // rcx
   int v21; // eax
   unsigned __int64 v22; // rtt
   _BYTE v24[4]; // [rsp+30h] [rbp+0h] BYREF
-  unsigned int v25; // [rsp+34h] [rbp+4h]
+  ULONG ContextLength; // [rsp+34h] [rbp+4h] BYREF
   __int64 v26; // [rsp+38h] [rbp+8h]
-  __int64 v27; // [rsp+40h] [rbp+10h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+40h] [rbp+10h] BYREF
   int v28; // [rsp+48h] [rbp+18h] BYREF
   int v29; // [rsp+4Ch] [rbp+1Ch]
   int v30; // [rsp+50h] [rbp+20h]
@@ -102,23 +102,23 @@ LABEL_12:
       v14 = 1048603;
       if ( MEMORY[0xFFFFF780000003D8] )
         v14 = 1048667;
-      RtlGetExtendedContextLength(v14);
-      v15 = v25 + 15LL;
-      if ( v15 <= v25 )
+      RtlGetExtendedContextLength(v14, &ContextLength);
+      v15 = ContextLength + 15LL;
+      if ( v15 <= ContextLength )
         v15 = 0xFFFFFFFFFFFFFF0LL;
       v16 = alloca(v15 & 0xFFFFFFFFFFFFFFF0uLL);
-      memset(v24, 0, v25);
-      RtlInitializeExtendedContext((__int64)v24, v14, &v27);
-      v17 = v27 - 1232;
-      PspGetContextThreadInternal(a1, v27 - 1232, 0, 1, 1);
+      memset(v24, 0, ContextLength);
+      RtlInitializeExtendedContext((PCONTEXT)v24, v14, &ContextEx);
+      p_XState = (CONTEXT *)&ContextEx[-39].XState;
+      PspGetContextThreadInternal(a1, (__int64)&ContextEx[-39].XState, 0, 1, 1);
       v26 = **(_QWORD **)(a2 + 496);
       v18 = v26;
-      KeFixUserSwitchContext(a2, v26, 0LL, v17);
+      KeFixUserSwitchContext(a2, v26, 0LL, (__int64)p_XState);
       updated = KeRemoveUmsThreadCidOwnership(v18, 1);
       if ( updated >= 0 )
       {
         *a3 |= 2u;
-        updated = PspSetUmsThreadContext(a2, v17, a3);
+        updated = PspSetUmsThreadContext(a2, p_XState, a3);
         if ( updated >= 0 )
         {
           v19 = *(_QWORD *)(v13 + 16);
@@ -131,10 +131,10 @@ LABEL_12:
             *(_QWORD *)(*(_QWORD *)(a2 + 496) + 8LL) = *(_QWORD *)(v13 + 8);
             *(_QWORD *)(*(_QWORD *)(a2 + 496) + 16LL) = *(_QWORD *)(v13 + 16);
           }
-          updated = KeBuildPrimaryThreadContext(a1, 0LL, v17, 1, 0LL, 0LL);
+          updated = KeBuildPrimaryThreadContext(a1, 0LL, (__int64)p_XState, 1, 0LL, 0LL);
           if ( updated >= 0 )
           {
-            PspSetContextThreadInternal(a1, v17, 0, 1, 1);
+            PspSetContextThreadInternal(a1, p_XState, 0, 1, 1);
             *a3 |= 8u;
             if ( v8 )
               updated = KeUpdateUmsThreadState(v26, 0, 1);

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpAllocateHandleTableEntrySlow @ 0x140696B74
+ * XREFs of ExpAllocateHandleTableEntrySlow @ 0x140697D34
  * Callers:
- *     ExpAllocateHandleTableEntry @ 0x1405D1470 (ExpAllocateHandleTableEntry.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     ExDupHandleTable @ 0x140696580 (ExDupHandleTable.c)
+ *     ExpAllocateHandleTableEntry @ 0x1405D2470 (ExpAllocateHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     ExDupHandleTable @ 0x140697740 (ExDupHandleTable.c)
  * Callees:
- *     ExpFreeTablePagedPool @ 0x14060690C (ExpFreeTablePagedPool.c)
- *     ExpAllocateMidLevelTable @ 0x1406964D0 (ExpAllocateMidLevelTable.c)
- *     ExpAllocateTablePagedPool @ 0x140696544 (ExpAllocateTablePagedPool.c)
- *     ExpInsertLowLevelTableIntoFreeList @ 0x140696C38 (ExpInsertLowLevelTableIntoFreeList.c)
- *     ExpAllocateLowLevelTable @ 0x140696D68 (ExpAllocateLowLevelTable.c)
+ *     ExpFreeTablePagedPool @ 0x14060790C (ExpFreeTablePagedPool.c)
+ *     ExpAllocateMidLevelTable @ 0x140697690 (ExpAllocateMidLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x140697704 (ExpAllocateTablePagedPool.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x140697DF8 (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateLowLevelTable @ 0x140697F28 (ExpAllocateLowLevelTable.c)
  */
 
 char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)

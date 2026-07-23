@@ -13,7 +13,7 @@ void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
 {
   char v3; // si
   int ProcessSessionId; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
+  _RTL_RUN_ONCE *v8; // rdi
   __int64 v9; // r14
   struct _EX_RUNDOWN_REF *v10; // rbp
   int Ptr; // eax

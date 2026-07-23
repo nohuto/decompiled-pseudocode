@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpUnwindPrologue @ 0x14021E5C0
+ * XREFs of RtlpUnwindPrologue @ 0x1402C2EC0
  * Callers:
- *     RtlpxVirtualUnwind @ 0x14021E170 (RtlpxVirtualUnwind.c)
+ *     RtlpxVirtualUnwind @ 0x1402C2A70 (RtlpxVirtualUnwind.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     RtlpUnwindOpSlots @ 0x1402D23A0 (RtlpUnwindOpSlots.c)
- *     RtlLocateExtendedFeature2 @ 0x140381600 (RtlLocateExtendedFeature2.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     RtlpUnwindOpSlots @ 0x140250770 (RtlpUnwindOpSlots.c)
+ *     RtlLocateExtendedFeature2 @ 0x140381150 (RtlLocateExtendedFeature2.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpUnwindPrologue(
@@ -19,7 +19,7 @@ __int64 __fastcall RtlpUnwindPrologue(
         _QWORD *a7,
         __int64 a8)
 {
-  unsigned __int64 v9; // r9
+  unsigned int v9; // r9d
   __int64 v10; // r10
   unsigned int v12; // r11d
   char v13; // r13
@@ -47,17 +47,20 @@ __int64 __fastcall RtlpUnwindPrologue(
   __int64 v36; // rax
   __int64 v37; // rdx
   unsigned __int64 v38; // rdx
-  unsigned __int64 *v39; // r8
-  __int64 v40; // rcx
-  __int64 v41; // rax
+  unsigned __int64 v39; // r9
+  unsigned __int64 *v40; // r8
+  _QWORD *v41; // r9
+  _QWORD *v42; // r9
+  __int64 v43; // rcx
+  __int64 v44; // rax
   __int64 ExtendedFeature2; // rax
-  __int64 v43; // [rsp+60h] [rbp+8h]
-  unsigned int v44; // [rsp+68h] [rbp+10h]
+  __int64 v46; // [rsp+60h] [rbp+8h]
+  unsigned int v47; // [rsp+68h] [rbp+10h]
 
-  v43 = a1;
-  v9 = 0LL;
+  v46 = a1;
+  v9 = 0;
   v10 = a3;
-  v44 = 0;
+  v47 = 0;
   v12 = 0;
   while ( 1 )
   {
@@ -76,7 +79,7 @@ __int64 __fastcall RtlpUnwindPrologue(
         v19 = (unsigned __int8)v18[5] >> 4;
         if ( v14 < (unsigned __int8)v18[4] )
         {
-          LODWORD(v16) = RtlpUnwindOpSlots(*((unsigned __int16 *)v18 + 2), v18, v19, v9) + v16;
+          LODWORD(v16) = RtlpUnwindOpSlots(*((_WORD *)v18 + 2)) + v16;
         }
         else
         {
@@ -123,17 +126,20 @@ __int64 __fastcall RtlpUnwindPrologue(
                   break;
                 case 5:
                   v16 = (unsigned int)(v16 + 2);
-                  v9 = v10
-                     + ((unsigned __int64)*((unsigned __int16 *)v15 + v16 + 2) << 16)
-                     + *((unsigned __int16 *)v15 + (unsigned int)(v16 - 1) + 2);
+                  v41 = (_QWORD *)(v10
+                                 + ((unsigned __int64)*((unsigned __int16 *)v15 + v16 + 2) << 16)
+                                 + *((unsigned __int16 *)v15 + (unsigned int)(v16 - 1) + 2));
                   if ( a2 <= 0x7FFFFFFEFFFFLL
                     && (((_BYTE)v10 + (unsigned __int8)*((_WORD *)v15 + (unsigned int)(v16 - 1) + 2)) & 3) != 0 )
                   {
                     goto LABEL_87;
                   }
-                  if ( *(_QWORD *)a8 && (v9 < **(_QWORD **)a8 || v9 > **(_QWORD **)(a8 + 8) - 8LL) )
+                  if ( *(_QWORD *)a8
+                    && ((unsigned __int64)v41 < **(_QWORD **)a8 || (unsigned __int64)v41 > **(_QWORD **)(a8 + 8) - 8LL) )
+                  {
                     return 3221225512LL;
-                  *(_QWORD *)(a5 + 8 * v19 + 120) = *(_QWORD *)v9;
+                  }
+                  *(_QWORD *)(a5 + 8 * v19 + 120) = *v41;
                   break;
                 case 6:
                   LODWORD(v16) = v16 + 1;
@@ -157,22 +163,25 @@ __int64 __fastcall RtlpUnwindPrologue(
                   break;
                 case 9:
                   v16 = (unsigned int)(v16 + 2);
-                  v9 = v10
-                     + ((unsigned __int64)*((unsigned __int16 *)v15 + v16 + 2) << 16)
-                     + *((unsigned __int16 *)v15 + (unsigned int)(v16 - 1) + 2);
+                  v42 = (_QWORD *)(v10
+                                 + ((unsigned __int64)*((unsigned __int16 *)v15 + v16 + 2) << 16)
+                                 + *((unsigned __int16 *)v15 + (unsigned int)(v16 - 1) + 2));
                   if ( a2 <= 0x7FFFFFFEFFFFLL
                     && (((_BYTE)v10 + (unsigned __int8)*((_WORD *)v15 + (unsigned int)(v16 - 1) + 2)) & 3) != 0 )
                   {
                     goto LABEL_87;
                   }
-                  if ( *(_QWORD *)a8 && (v9 < **(_QWORD **)a8 || v9 > **(_QWORD **)(a8 + 8) - 16LL) )
+                  if ( *(_QWORD *)a8
+                    && ((unsigned __int64)v42 < **(_QWORD **)a8 || (unsigned __int64)v42 > **(_QWORD **)(a8 + 8) - 16LL) )
+                  {
                     return 3221225512LL;
-                  v40 = 2LL * (unsigned int)v19;
-                  *(_QWORD *)(a5 + 8 * v40 + 416) = *(_QWORD *)v9;
-                  *(_QWORD *)(a5 + 8 * v40 + 424) = *(_QWORD *)(v9 + 8);
-                  v41 = *(_QWORD *)(a8 + 16);
-                  if ( v41 )
-                    *(_QWORD *)(v41 + 8 * v19) = v9;
+                  }
+                  v43 = 2LL * (unsigned int)v19;
+                  *(_QWORD *)(a5 + 8 * v43 + 416) = *v42;
+                  *(_QWORD *)(a5 + 8 * v43 + 424) = v42[1];
+                  v44 = *(_QWORD *)(a8 + 16);
+                  if ( v44 )
+                    *(_QWORD *)(v44 + 8 * v19) = v42;
                   break;
                 case 0xA:
                   v36 = *(_QWORD *)(a5 + 152);
@@ -181,23 +190,23 @@ __int64 __fastcall RtlpUnwindPrologue(
                     v37 = 24LL;
                   v38 = v36 + v37;
                   v13 = 1;
-                  v9 = v36 + 8;
+                  v39 = v36 + 8;
                   if ( !(_DWORD)v19 )
-                    v9 = *(_QWORD *)(a5 + 152);
-                  if ( a2 <= 0x7FFFFFFEFFFFLL && (v9 & 3) != 0 )
+                    v39 = *(_QWORD *)(a5 + 152);
+                  if ( a2 <= 0x7FFFFFFEFFFFLL && (v39 & 3) != 0 )
                     goto LABEL_87;
-                  v39 = *(unsigned __int64 **)a8;
-                  if ( *(_QWORD *)a8 && (v9 < *v39 || v9 > **(_QWORD **)(a8 + 8) - 8LL) )
+                  v40 = *(unsigned __int64 **)a8;
+                  if ( *(_QWORD *)a8 && (v39 < *v40 || v39 > **(_QWORD **)(a8 + 8) - 8LL) )
                     return 3221225512LL;
                   if ( a2 > 0x7FFFFFFEFFFFLL )
                     goto LABEL_73;
                   if ( (v38 & 3) != 0 )
                     goto LABEL_87;
-                  v39 = *(unsigned __int64 **)a8;
+                  v40 = *(unsigned __int64 **)a8;
 LABEL_73:
-                  if ( v39 && (v38 < *v39 || v38 > **(_QWORD **)(a8 + 8) - 8LL) )
+                  if ( v40 && (v38 < *v40 || v38 > **(_QWORD **)(a8 + 8) - 8LL) )
                     return 3221225512LL;
-                  *(_QWORD *)(a5 + 248) = *(_QWORD *)v9;
+                  *(_QWORD *)(a5 + 248) = *(_QWORD *)v39;
                   *(_QWORD *)(a5 + 152) = *(_QWORD *)v38;
                   break;
                 default:
@@ -224,8 +233,8 @@ LABEL_73:
         v17 = *((_BYTE *)v15 + 2);
       }
       while ( (unsigned int)v16 < v17 );
-      v12 = v44;
-      v9 = 0LL;
+      v12 = v47;
+      v9 = 0;
     }
     if ( (*(_BYTE *)v15 & 0x20) == 0 )
       break;
@@ -235,11 +244,11 @@ LABEL_73:
     a4 = (_DWORD *)((char *)v15 + 2 * v29 + 4);
     if ( a2 <= 0x7FFFFFFEFFFFLL && ((unsigned __int8)a4 & 3) != 0 )
       goto LABEL_87;
-    a1 = v43;
-    v44 = ++v12;
+    a1 = v46;
+    v47 = ++v12;
     if ( v12 > 0x20 )
 LABEL_103:
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( v13 )
   {
@@ -252,9 +261,9 @@ LABEL_28:
     v35 = &RtlpSafeMachineFrameEntries;
     while ( v15 != *v35 )
     {
-      LODWORD(v9) = v9 + 1;
+      ++v9;
       ++v35;
-      if ( (unsigned int)v9 >= 3 )
+      if ( v9 >= 3 )
         goto LABEL_26;
     }
     v13 = 0;

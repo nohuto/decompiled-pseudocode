@@ -1,13 +1,13 @@
 /*
- * XREFs of KiModifySystemAllowedCpuSetsWithLock @ 0x1405F4548
+ * XREFs of KiModifySystemAllowedCpuSetsWithLock @ 0x1405F6F08
  * Callers:
- *     KeCpuPartitionMoveCpus @ 0x1405F3880 (KeCpuPartitionMoveCpus.c)
- *     KeModifySystemAllowedCpuSets @ 0x1405F3CC8 (KeModifySystemAllowedCpuSets.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405F6240 (KeCpuPartitionMoveCpus.c)
+ *     KeModifySystemAllowedCpuSets @ 0x1405F6688 (KeModifySystemAllowedCpuSets.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeCpuSetReportParkedProcessors @ 0x1403E806C (KeCpuSetReportParkedProcessors.c)
- *     KiValidateCpuSetMasks @ 0x140462E9C (KiValidateCpuSetMasks.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
+ *     KeCpuSetReportParkedProcessors @ 0x1402F4F4C (KeCpuSetReportParkedProcessors.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiValidateCpuSetMasks @ 0x14045BE5C (KiValidateCpuSetMasks.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
  */
 
 __int64 __fastcall KiModifySystemAllowedCpuSetsWithLock(
@@ -55,24 +55,24 @@ __int64 __fastcall KiModifySystemAllowedCpuSetsWithLock(
     return result;
   if ( a3 )
   {
-    p_WaitRegister = &stru_140FC01F0.WaitRegister;
+    p_WaitRegister = &stru_140FC11F0.WaitRegister;
     v13 = *(_WORD *)&a3->Flags;
-    v14 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+    v14 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
     v15 = 0;
-    if ( *(_WORD *)&a3->Flags >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+    if ( *(_WORD *)&a3->Flags >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
     {
       v14 = *(_WORD *)&a3->Flags;
       p_WaitRegister = a3;
-      v13 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+      v13 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
     }
     while ( v15 < v13 )
     {
       v16 = *(_QWORD *)&a3[8 * v15 + 8].Flags;
-      if ( (v16 & *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * v15 + 4)) != v16 )
+      if ( (v16 & *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * v15 + 4)) != v16 )
         return 3221225485LL;
       ++v15;
     }
-    if ( p_WaitRegister != &stru_140FC01F0.WaitRegister )
+    if ( p_WaitRegister != &stru_140FC11F0.WaitRegister )
     {
       while ( v15 < v14 )
       {
@@ -90,9 +90,9 @@ __int64 __fastcall KiModifySystemAllowedCpuSetsWithLock(
   RtlWriteAcquireTickLock(&KiCpuSetSequence);
   v19 = 0;
   v20 = &KiSystemAllowedCpuSets[v6];
-  v21 = (char *)(&stru_140FC01F0.MiscFlags + 1) - v5;
+  v21 = (char *)(&stru_140FC11F0.MiscFlags + 1) - v5;
   v22 = &KiReservedCpuSets - (_UNKNOWN *)v5;
-  v33 = (char *)((char *)(&stru_140FC01F0.MiscFlags + 1) - v5);
+  v33 = (char *)((char *)(&stru_140FC11F0.MiscFlags + 1) - v5);
   for ( i = (char *)(&KiReservedCpuSets - (_UNKNOWN *)v5); ; v22 = (signed __int64)i )
   {
     v23 = *(_QWORD *)&v5[v21];
@@ -150,18 +150,18 @@ LABEL_32:
   }
   if ( !(_DWORD)v6 )
     KiRestrictedSystemCpuSetsActive = v18;
-  if ( v28 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( v28 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
   {
     v30 = v27;
-    v28 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+    v28 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   }
   else
   {
-    v30 = &stru_140FC01F0.WaitRegister;
+    v30 = &stru_140FC11F0.WaitRegister;
   }
   for ( j = 0; j < v28; ++j )
   {
-    if ( *(_QWORD *)&v27[8 * j + 8].Flags != *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * j + 4) )
+    if ( *(_QWORD *)&v27[8 * j + 8].Flags != *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * j + 4) )
     {
 LABEL_50:
       KiIsSystemCpuPartitionRestricted = 1;

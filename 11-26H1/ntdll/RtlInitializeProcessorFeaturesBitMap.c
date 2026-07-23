@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitializeProcessorFeaturesBitMap @ 0x1800CEA20
+ * XREFs of RtlInitializeProcessorFeaturesBitMap @ 0x1800CC190
  * Callers:
- *     LdrpInitialize @ 0x1800CE998 (LdrpInitialize.c)
+ *     LdrpInitialize @ 0x1800CC108 (LdrpInitialize.c)
  * Callees:
- *     NtQuerySystemInformation @ 0x18015F600 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformation @ 0x18015F500 (NtQuerySystemInformation.c)
  */
 
 NTSTATUS __fastcall RtlInitializeProcessorFeaturesBitMap(int a1)
@@ -25,6 +25,6 @@ NTSTATUS __fastcall RtlInitializeProcessorFeaturesBitMap(int a1)
                &ReturnLength);
   }
   RtlProcessorFeaturesBitMap = 128LL;
-  off_1801C5550 = &RtlProcessorFeaturesBuffer;
+  off_1801C4550 = &RtlProcessorFeaturesBuffer;
   return result;
 }

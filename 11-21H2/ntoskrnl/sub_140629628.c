@@ -1,0 +1,111 @@
+/*
+ * XREFs of sub_140629628 @ 0x140629628
+ * Callers:
+ *     sub_14062908C @ 0x14062908C (sub_14062908C.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ */
+
+__int64 __fastcall sub_140629628(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
+{
+  _RTL_BALANCED_NODE *v3; // rsi
+  unsigned __int64 v5; // rbp
+  unsigned __int8 CurrentIrql; // di
+  __int64 v7; // r9
+  volatile LONG *v8; // r14
+  __int64 v9; // rbx
+  unsigned __int64 v10; // rdx
+  BOOLEAN v11; // r8
+  unsigned __int64 v12; // rax
+  unsigned __int8 v13; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  __int64 v15; // r8
+  int v16; // eax
+  bool v17; // zf
+  __int64 result; // rax
+
+  v3 = a2;
+  v5 = (unsigned __int64)&a2[2 * a3];
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xFuLL);
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    v7 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v7 + 20) |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
+  }
+  v8 = (volatile LONG *)(a1 + 64);
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
+  if ( (unsigned __int64)v3 < v5 )
+  {
+    v9 = a1 + 48;
+    do
+    {
+      v10 = *(_QWORD *)v9;
+      if ( (*(_BYTE *)(v9 + 8) & 1) != 0 && v10 )
+        v10 ^= v9;
+      v11 = 0;
+      if ( v10 )
+      {
+        while ( 1 )
+        {
+          if ( ((unsigned __int64)v3[1].Children[0] & 0xFFFFFFFFFFFFFLL) >= (*(_QWORD *)(v10 + 24) & 0xFFFFFFFFFFFFFuLL) )
+          {
+            v12 = *(_QWORD *)(v10 + 8);
+            if ( (*(_BYTE *)(v9 + 8) & 1) != 0 )
+            {
+              if ( !v12 )
+                goto LABEL_22;
+              v12 ^= v10;
+            }
+            if ( !v12 )
+            {
+LABEL_22:
+              v11 = 1;
+              break;
+            }
+          }
+          else
+          {
+            v12 = *(_QWORD *)v10;
+            if ( (*(_BYTE *)(v9 + 8) & 1) != 0 )
+            {
+              if ( !v12 )
+                break;
+              v12 ^= v10;
+            }
+            if ( !v12 )
+              break;
+          }
+          v10 = v12;
+        }
+      }
+      RtlRbInsertNodeEx((PRTL_RB_TREE)v9, (PRTL_BALANCED_NODE)v10, v11, v3);
+      v3 += 2;
+    }
+    while ( (unsigned __int64)v3 < v5 );
+  }
+  ExReleaseSpinLockExclusiveFromDpcLevel(v8);
+  if ( dword_140D06B08 )
+  {
+    if ( (dword_140D06B08 & 1) != 0 )
+    {
+      v13 = KeGetCurrentIrql();
+      if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v15 = *((_QWORD *)CurrentPrcb + 4375);
+        v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v17 = (v16 & *(_DWORD *)(v15 + 20)) == 0;
+        *(_DWORD *)(v15 + 20) &= v16;
+        if ( v17 )
+          sub_140418E4C((__int64)CurrentPrcb);
+      }
+    }
+  }
+  result = CurrentIrql;
+  __writecr8(CurrentIrql);
+  return result;
+}

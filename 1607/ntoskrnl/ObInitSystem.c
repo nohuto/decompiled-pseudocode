@@ -4,31 +4,31 @@
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     ObpReleaseLookupContext @ 0x14000BFD0 (ObpReleaseLookupContext.c)
- *     RtlGetAce @ 0x14000C24C (RtlGetAce.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObpLockDirectoryExclusive @ 0x1400D1570 (ObpLockDirectoryExclusive.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     ExInitializeNPagedLookasideList @ 0x140110BFC (ExInitializeNPagedLookasideList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObpReleaseLookupContext @ 0x14000BB50 (ObpReleaseLookupContext.c)
+ *     RtlGetAce @ 0x14000BDCC (RtlGetAce.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObpLockDirectoryExclusive @ 0x1400CF410 (ObpLockDirectoryExclusive.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     ExInitializeNPagedLookasideList @ 0x140111160 (ExInitializeNPagedLookasideList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExInitializeSystemLookasideList @ 0x1403D5368 (ExInitializeSystemLookasideList.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     NtCreateDirectoryObject @ 0x140470CCC (NtCreateDirectoryObject.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     ExCreateHandleTable @ 0x1404C11BC (ExCreateHandleTable.c)
- *     ObpInsertDirectoryEntry @ 0x1404CC0A8 (ObpInsertDirectoryEntry.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
- *     ObpInitObjectTypeSD @ 0x140552694 (ObpInitObjectTypeSD.c)
- *     ObpLookupDirectoryEntry @ 0x140552864 (ObpLookupDirectoryEntry.c)
- *     ObInitializeProcessor @ 0x140552930 (ObInitializeProcessor.c)
- *     ObpInitializeRootNamespace @ 0x140579974 (ObpInitializeRootNamespace.c)
- *     ObInitServerSilo @ 0x140579FFC (ObInitServerSilo.c)
- *     RtlAddAuditAccessAce @ 0x140684650 (RtlAddAuditAccessAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     NtCreateDirectoryObject @ 0x14046FB9C (NtCreateDirectoryObject.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     ExCreateHandleTable @ 0x1404ACEEC (ExCreateHandleTable.c)
+ *     ObpInsertDirectoryEntry @ 0x1404B1AD4 (ObpInsertDirectoryEntry.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
+ *     ObpInitObjectTypeSD @ 0x140552BD4 (ObpInitObjectTypeSD.c)
+ *     ObpLookupDirectoryEntry @ 0x140552DA4 (ObpLookupDirectoryEntry.c)
+ *     ObInitializeProcessor @ 0x140552E70 (ObInitializeProcessor.c)
+ *     ObpInitializeRootNamespace @ 0x140579EB4 (ObpInitializeRootNamespace.c)
+ *     ObInitServerSilo @ 0x14057A53C (ObInitServerSilo.c)
+ *     RtlAddAuditAccessAce @ 0x140684734 (RtlAddAuditAccessAce.c)
  *     ObpInitInfoBlockOffsets @ 0x1407B3018 (ObpInitInfoBlockOffsets.c)
  *     ObpInitStackTrace @ 0x1407BAD00 (ObpInitStackTrace.c)
  */
@@ -106,7 +106,7 @@ char ObInitSystem()
     CurrentPrcb->PPLookasideList[4].P = (_GENERAL_LOOKASIDE *)&ObpCreateInfoLookasideList;
     CurrentPrcb->PPLookasideList[5].L = (_GENERAL_LOOKASIDE *)&ObpNameBufferLookasideList;
     CurrentPrcb->PPLookasideList[5].P = (_GENERAL_LOOKASIDE *)&ObpNameBufferLookasideList;
-    v6 = &unk_140305308;
+    v6 = &unk_140305348;
     ObpRemoveObjectList = 0LL;
     ObpRemoveObjectWait = 0LL;
     do
@@ -119,22 +119,22 @@ char ObInitSystem()
     }
     while ( v5 );
     ObpDefaultObject = 0;
-    qword_140304F30 = (__int64)&qword_140304F28;
-    qword_140304F28 = (__int64)&qword_140304F28;
-    byte_140304F22 = 6;
-    dword_140304F24 = 1;
+    qword_140304F70 = (__int64)&qword_140304F68;
+    qword_140304F68 = (__int64)&qword_140304F68;
+    byte_140304F62 = 6;
+    dword_140304F64 = 1;
     ObpKernelHandleTable = ExCreateHandleTable(0LL, 1LL);
     KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[5] = ObpKernelHandleTable;
     if ( !ObpKernelHandleTable )
       return 0;
     ObpRemoveObjectWorkItem.Parameter = 0LL;
     ObpRemoveObjectWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ObpProcessRemoveObjectQueue;
-    qword_140304F78 = (__int64)ObpProcessRemoveObjectDpcWorker;
+    qword_140304FB8 = (__int64)ObpProcessRemoveObjectDpcWorker;
     ObpRemoveObjectWorkItem.List.Flink = 0LL;
     LODWORD(ObpRemoveObjectDpc) = 275;
-    qword_140304F80 = 0LL;
-    qword_140304F98 = 0LL;
-    qword_140304F70 = 0LL;
+    qword_140304FC0 = 0LL;
+    qword_140304FD8 = 0LL;
+    qword_140304FB0 = 0LL;
     ObpInitInfoBlockOffsets();
     qword_1403AA9E8 = (__int64)MmBadPointer;
     memset(v24, 0, 0x78uLL);

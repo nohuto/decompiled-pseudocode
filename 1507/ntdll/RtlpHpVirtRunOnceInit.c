@@ -7,18 +7,14 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-_BOOL8 RtlpHpVirtRunOnceInit()
+_BOOL8 __fastcall RtlpHpVirtRunOnceInit(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   memset(&RtlpHpVirtGlobalCtx, 0, 0x38uLL);
-  RtlpHpVirtGlobalCtx = 0LL;
+  RtlpHpVirtGlobalCtx.0 = 0LL;
   dword_180144848 = 0;
   dword_18014484C = 0;
   qword_180144850 = 0LL;
-  qword_180144860 = 0LL;
-  xmmword_180144868 = 0LL;
-  return (int)RtlRunOnceExecuteOnce(
-                &RtlpHpMetadataHeapInitVar,
-                (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpMetadataHeapInit,
-                0LL,
-                0LL) >= 0;
+  stru_180144860.0 = 0LL;
+  Parent = 0LL;
+  return RtlRunOnceExecuteOnce(&RtlpHpMetadataHeapInitVar, (PRTL_RUN_ONCE_INIT_FN)RtlpHpMetadataHeapInit, 0LL, 0LL) >= 0;
 }

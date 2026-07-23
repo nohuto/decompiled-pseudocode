@@ -1,18 +1,18 @@
 /*
- * XREFs of KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C
+ * XREFs of KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C
  * Callers:
- *     KiHeteroAttemptPreemptionSwap @ 0x14041FD78 (KiHeteroAttemptPreemptionSwap.c)
+ *     KiHeteroAttemptPreemptionSwap @ 0x14041576C (KiHeteroAttemptPreemptionSwap.c)
  * Callees:
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140200CC0 (KiHeteroScanQueueForPreemptionSwapTarget.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140200FAC (KiEvaluatePreemptionSwapTarget.c)
- *     KiGenerateHeteroSets @ 0x140202060 (KiGenerateHeteroSets.c)
- *     KiFindBiasedProcessorIndex @ 0x1402026A4 (KiFindBiasedProcessorIndex.c)
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140293070 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiReduceAffinityToRankListValuesEqualTo @ 0x140461E08 (KiReduceAffinityToRankListValuesEqualTo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402A2C70 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x1403293B4 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x1403296A0 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiGenerateHeteroSets @ 0x14032A750 (KiGenerateHeteroSets.c)
+ *     KiFindBiasedProcessorIndex @ 0x14032AD94 (KiFindBiasedProcessorIndex.c)
+ *     KiReduceAffinityToRankListValuesEqualTo @ 0x140457418 (KiReduceAffinityToRankListValuesEqualTo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiHeteroAttemptPreemptionSwapOnSubNode(
@@ -68,7 +68,7 @@ __int64 __fastcall KiHeteroAttemptPreemptionSwapOnSubNode(
       v16 = v15;
       if ( v15 )
       {
-        KiAcquirePrcbLocksForPreemptionAttempt(v15, *(_DWORD *)(a5 + 20), (unsigned __int64 *)&v19);
+        KiAcquirePrcbLocksForPreemptionAttempt(v15, *(unsigned int *)(a5 + 20), (unsigned __int64 *)&v19);
         if ( KiEvaluatePreemptionSwapTarget(v16, a3, (char *)a5) )
         {
           *(_QWORD *)a7 = v19;

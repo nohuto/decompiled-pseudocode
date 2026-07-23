@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpNodeInitialize @ 0x1407BFC70
+ * XREFs of ExpNodeInitialize @ 0x1407C00C0
  * Callers:
- *     ExpWorkerInitialization @ 0x140C42F00 (ExpWorkerInitialization.c)
+ *     ExpWorkerInitialization @ 0x140C45050 (ExpWorkerInitialization.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void (__fastcall *__fastcall ExpNodeInitialize(__int64 a1))(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)

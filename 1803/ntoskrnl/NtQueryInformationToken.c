@@ -131,8 +131,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   unsigned int v93; // r13d
   unsigned int v94; // ecx
   unsigned int v95; // ecx
-  struct _SID_AND_ATTRIBUTES *v96; // r9
-  struct _SID_AND_ATTRIBUTES *v97; // rdi
+  _SID_AND_ATTRIBUTES *v96; // r9
+  _SID_AND_ATTRIBUTES *v97; // rdi
   __int64 v98; // rbx
   struct _KTHREAD *v99; // rax
   unsigned int v100; // eax
@@ -201,7 +201,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   _QWORD *v163; // [rsp+F8h] [rbp-B0h] BYREF
   char *v164; // [rsp+100h] [rbp-A8h]
   _QWORD v165[6]; // [rsp+108h] [rbp-A0h] BYREF
-  struct _SID_AND_ATTRIBUTES Src; // [rsp+138h] [rbp-70h] BYREF
+  _SID_AND_ATTRIBUTES Src; // [rsp+138h] [rbp-70h] BYREF
   int v167; // [rsp+148h] [rbp-60h] BYREF
   __int64 v168; // [rsp+150h] [rbp-58h]
   __int64 v169; // [rsp+158h] [rbp-50h]
@@ -598,13 +598,13 @@ LABEL_74:
             *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v53 + 3);
             *((_DWORD *)TokenInformation + 1) = v89;
             *(_DWORD *)TokenInformation = v53[31];
-            v96 = (struct _SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
+            v96 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
             *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
             *((_DWORD *)TokenInformation + 5) = v93;
             *((_DWORD *)TokenInformation + 4) = v53[32];
             if ( v53[32] )
             {
-              v97 = (struct _SID_AND_ATTRIBUTES *)((char *)v96 + ((v89 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
+              v97 = (_SID_AND_ATTRIBUTES *)((char *)v96 + ((v89 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
               *((_QWORD *)TokenInformation + 3) = v97;
             }
             else
@@ -770,7 +770,7 @@ LABEL_62:
             {
               if ( IsElevatedRid )
                 break;
-              IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)v46 + 19) + 16LL * (unsigned int)v9);
+              IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)v46 + 19) + 16LL * (unsigned int)v9));
               LODWORD(v9) = v9 + 1;
             }
             while ( (unsigned int)v9 < v48 );
@@ -843,7 +843,7 @@ LABEL_62:
       case TokenVirtualizationEnabled:
       case TokenUIAccess:
       case TokenIsRestricted:
-      case TokenIsRestricted|TokenGroups:
+      case TokenPrivateNameSpace:
         result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v141, &SourceSid);
         if ( result < 0 )
           return result;
@@ -1167,7 +1167,7 @@ LABEL_42:
 LABEL_112:
         v68 = (struct _ERESOURCE *)*((_QWORD *)v19 + 6);
         goto LABEL_113;
-      case MaxTokenInfoClass:
+      case TokenProcessTrustLevel:
         v57 = 8;
         result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v141, &SourceSid);
         if ( result < 0 )
@@ -1204,7 +1204,7 @@ LABEL_73:
 LABEL_41:
         v33 = (struct _ERESOURCE *)*((_QWORD *)v30 + 6);
         goto LABEL_42;
-      case MaxTokenInfoClass|TokenGroups:
+      case TokenSingletonAttributes:
         result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v141, &SourceSid);
         if ( result < 0 )
           return result;
@@ -1227,7 +1227,7 @@ LABEL_113:
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         ObfDereferenceObject(Object);
         return SecurityAttributesToken;
-      case TokenIsRestricted|TokenOwner:
+      case TokenBnoIsolation:
         result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &Object, v141, &SourceSid);
         if ( result < 0 )
           return result;

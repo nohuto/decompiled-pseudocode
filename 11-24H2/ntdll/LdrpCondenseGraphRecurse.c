@@ -1,41 +1,41 @@
 /*
- * XREFs of LdrpCondenseGraphRecurse @ 0x1800EA410
+ * XREFs of LdrpCondenseGraphRecurse @ 0x1800E5BA0
  * Callers:
- *     LdrpCondenseGraph @ 0x1800EA3D0 (LdrpCondenseGraph.c)
- *     LdrpCondenseGraphRecurse @ 0x1800EA410 (LdrpCondenseGraphRecurse.c)
+ *     LdrpCondenseGraph @ 0x1800E5B60 (LdrpCondenseGraph.c)
+ *     LdrpCondenseGraphRecurse @ 0x1800E5BA0 (LdrpCondenseGraphRecurse.c)
  * Callees:
- *     LdrpDestroyNode @ 0x180004B28 (LdrpDestroyNode.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     LdrpCondenseGraphRecurse @ 0x1800EA410 (LdrpCondenseGraphRecurse.c)
- *     LdrpMergeNodes @ 0x1800EE3EC (LdrpMergeNodes.c)
+ *     LdrpDestroyNode @ 0x180031528 (LdrpDestroyNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     LdrpCondenseGraphRecurse @ 0x1800E5BA0 (LdrpCondenseGraphRecurse.c)
+ *     LdrpMergeNodes @ 0x1800E95CC (LdrpMergeNodes.c)
  */
 
-__int64 __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, volatile signed __int32 *****a3)
+void __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, _QWORD *a3)
 {
-  volatile signed __int32 ****v3; // r15
+  _QWORD *v3; // r15
   int v4; // eax
   _QWORD *v7; // rbx
-  __int64 result; // rax
-  volatile signed __int32 ****v10; // rcx
-  volatile signed __int32 ***v11; // rdx
-  unsigned __int64 v12; // r8
-  volatile signed __int32 **v13; // r9
+  _QWORD **v9; // rcx
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rax
+  _QWORD **v12; // r8
+  _QWORD *v13; // r9
   bool v14; // zf
-  _QWORD *i; // rbx
-  __int64 v16; // rcx
+  _QWORD *v15; // rbx
+  _QWORD *v16; // rcx
   __int64 v17; // rsi
   unsigned int v18; // eax
   _QWORD *v19; // [rsp+40h] [rbp+8h] BYREF
 
   ++*a2;
-  v3 = (volatile signed __int32 ****)(a1 + 64);
+  v3 = (_QWORD *)(a1 + 64);
   v4 = *a2;
   *(_DWORD *)(a1 + 72) = *a2;
   *(_DWORD *)(a1 + 32) = v4;
   *(_QWORD *)(a1 + 64) = *a3;
   v7 = *(_QWORD **)(a1 + 40);
-  *a3 = (volatile signed __int32 ****)(a1 + 64);
+  *a3 = a1 + 64;
   if ( v7 )
   {
     while ( 1 )
@@ -70,44 +70,45 @@ LABEL_22:
     goto LABEL_22;
   }
 LABEL_2:
-  result = *(unsigned int *)(a1 + 72);
-  if ( *(_DWORD *)(a1 + 32) == (_DWORD)result )
+  if ( *(_DWORD *)(a1 + 32) == *(_DWORD *)(a1 + 72) )
   {
-    v10 = *a3;
-    v11 = (volatile signed __int32 ***)*a3;
+    v9 = (_QWORD **)*a3;
+    v10 = (_QWORD *)*a3;
     if ( *a3 )
     {
-      v11 = *v10;
-      *a3 = (volatile signed __int32 ****)*v10;
+      v10 = *v9;
+      *a3 = *v9;
     }
-    result = 0LL;
-    if ( v3 != v10 )
+    v11 = 0LL;
+    if ( v3 != v9 )
     {
       do
       {
-        *v10 = (volatile signed __int32 ***)result;
-        result = (__int64)v10;
-        v12 = (unsigned __int64)v10;
-        v13 = (volatile signed __int32 **)v11;
-        if ( v11 )
+        *v9 = v11;
+        v11 = v9;
+        v12 = v9;
+        v13 = v10;
+        if ( v10 )
         {
-          v13 = *v11;
-          *a3 = (volatile signed __int32 ****)*v11;
+          v13 = (_QWORD *)*v10;
+          *a3 = *v10;
         }
-        v10 = (volatile signed __int32 ****)v11;
-        v11 = (volatile signed __int32 ***)v13;
+        v9 = (_QWORD **)v10;
+        v10 = v13;
       }
-      while ( v3 != v10 );
-      v19 = (_QWORD *)result;
+      while ( v3 != v9 );
+      v19 = v11;
       if ( v12 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock, v13, v12);
+        RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
         LdrpMergeNodes(a1, &v19);
-        result = RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        for ( i = v19; i; result = LdrpDestroyNode(v16) )
+        RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+        v15 = v19;
+        while ( v15 )
         {
-          v16 = (__int64)(i - 8);
-          i = (_QWORD *)*i;
+          v16 = v15 - 8;
+          v15 = (_QWORD *)*v15;
+          LdrpDestroyNode(v16);
         }
       }
     }
@@ -116,5 +117,4 @@ LABEL_2:
     if ( v14 )
       *(_DWORD *)(a1 + 56) = 6;
   }
-  return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCreateDirectoryObject @ 0x140A45710
+ * XREFs of ObpCreateDirectoryObject @ 0x140A3B2C0
  * Callers:
- *     NtCreateDirectoryObject @ 0x140A456D0 (NtCreateDirectoryObject.c)
- *     NtCreateDirectoryObjectEx @ 0x140A456F0 (NtCreateDirectoryObjectEx.c)
+ *     NtCreateDirectoryObject @ 0x140A3B280 (NtCreateDirectoryObject.c)
+ *     NtCreateDirectoryObjectEx @ 0x140A3B2A0 (NtCreateDirectoryObjectEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     RtlIsSandboxedToken @ 0x14090C230 (RtlIsSandboxedToken.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x1408E3950 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObpCreateDirectoryObject(__int64 *a1, int a2, int a3, void *a4, int a5)

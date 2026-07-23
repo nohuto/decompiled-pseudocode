@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x140A70B50
+ * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x140A47478
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x140A71014 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x140A46B84 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1404F5374 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x140A70F80 (PiDevCfgFreeDeviceMigrationNode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     PnpValidateMultiSzData @ 0x1404EE954 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x140A1510C (PiDevCfgFreeDeviceMigrationNode.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2, __int64 *a3)
@@ -107,7 +107,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   *(_QWORD *)(v10 + 40) = Handle;
   Handle = 0LL;
   memset_0(v25, 0, 0x230uLL);
-  v12 = _mm_loadu_si128((const __m128i *)&off_140BD9440);
+  v12 = _mm_loadu_si128((const __m128i *)off_140BE02E0);
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   v14 = _mm_load_si128((const __m128i *)&_xmm);
   v34 = L"ClassGuid";
@@ -156,7 +156,7 @@ __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2,
   if ( RegistryValues < 0 )
   {
 LABEL_21:
-    PiDevCfgFreeDeviceMigrationNode((PVOID)v10);
+    PiDevCfgFreeDeviceMigrationNode((char *)v10);
     goto LABEL_22;
   }
   if ( !GuidString.Buffer || RtlGUIDFromString(&GuidString, (GUID *)(v10 + 80)) < 0 )

@@ -16,102 +16,126 @@
  *     _NtCreateSection@28 @ 0x4B2F2E20 (_NtCreateSection@28.c)
  */
 
-int __fastcall PsspCaptureAuxiliaryPages(_DWORD *a1, int a2, int a3, int *a4, int a5)
+int __fastcall PsspCaptureAuxiliaryPages(_DWORD *a1, void *a2, int a3, PVOID *a4, int a5)
 {
   int result; // eax
   int v6; // esi
   int v7; // ebx
-  int Section; // edi
-  void *v9; // edx
-  int *v10; // edi
+  NTSTATUS v8; // edi
+  PVOID v9; // edx
+  PVOID *v10; // edi
   int v11; // ecx
-  int *v12; // eax
+  int v12; // eax
   _DWORD *v13; // ecx
   int v14; // edx
   _DWORD *v15; // ecx
-  _DWORD v16[2]; // [esp+Ch] [ebp-28h] BYREF
-  int v17; // [esp+14h] [ebp-20h] BYREF
-  _DWORD *v18; // [esp+18h] [ebp-1Ch]
-  int v19; // [esp+1Ch] [ebp-18h]
-  int v20; // [esp+20h] [ebp-14h] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-10h] BYREF
-  void *v22; // [esp+28h] [ebp-Ch] BYREF
-  int v23; // [esp+2Ch] [ebp-8h] BYREF
-  int *Heap; // [esp+30h] [ebp-4h] BYREF
-  int v25; // [esp+3Ch] [ebp+8h]
+  SIZE_T v16; // [esp-14h] [ebp-48h]
+  ULONG_PTR v17; // [esp-10h] [ebp-44h]
+  SIZE_T v18; // [esp-4h] [ebp-38h]
+  ULONG v19; // [esp+0h] [ebp-34h]
+  ULONG_PTR *v20; // [esp+0h] [ebp-34h]
+  ULONG v21; // [esp+4h] [ebp-30h]
+  LARGE_INTEGER MaximumSize; // [esp+Ch] [ebp-28h] BYREF
+  unsigned int v23; // [esp+14h] [ebp-20h] BYREF
+  _DWORD *v24; // [esp+18h] [ebp-1Ch]
+  HANDLE ProcessHandle; // [esp+1Ch] [ebp-18h]
+  unsigned int Size; // [esp+20h] [ebp-14h] BYREF
+  HANDLE Size_4; // [esp+24h] [ebp-10h] BYREF
+  PVOID BaseAddress; // [esp+28h] [ebp-Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+2Ch] [ebp-8h] BYREF
+  int v30; // [esp+3Ch] [ebp+8h]
 
-  v18 = a1;
-  v19 = a2;
-  result = RtlULongLongToUInt(&v20, 40, 0);
+  v24 = a1;
+  ProcessHandle = a2;
+  result = RtlULongLongToUInt((int *)&Size, 40, 0);
   if ( result >= 0 )
   {
-    result = RtlULongLongToUInt(&v17, 4096, 0);
+    result = RtlULongLongToUInt((int *)&v23, 4096, 0);
     if ( result >= 0 )
     {
       v6 = a3 & 0x20000000;
-      v25 = a3 & 0x20000000;
-      if ( v25 )
+      v30 = a3 & 0x20000000;
+      if ( v30 )
       {
         v7 = 0;
-        v23 = v20;
-        Heap = 0;
-        result = NtAllocateVirtualMemory(-1, (int)&Heap, 0, (int)&v23, 4096, 4);
+        RegionSize = Size;
+        HIDWORD(v17) = &RegionSize;
+        LODWORD(v17) = 0;
+        result = NtAllocateVirtualMemory(
+                   (HANDLE)0xFFFFFFFF,
+                   (PVOID *)&RegionSize + 1,
+                   v17,
+                   (PSIZE_T)0x1000,
+                   4u,
+                   HIDWORD(v18));
         if ( result < 0 )
           return result;
       }
       else
       {
+        LODWORD(v18) = Size;
         v7 = 0;
-        Heap = (int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v20);
-        if ( !Heap )
+        HIDWORD(RegionSize) = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
+        if ( !HIDWORD(RegionSize) )
           return -1073741670;
       }
-      v16[0] = v17;
-      v16[1] = 0;
-      Section = NtCreateSection((int)&Handle, 983047, (int)dword_4B2A58D0, (int)v16, 4, 0x8000000, 0);
-      if ( Section < 0 )
+      MaximumSize.QuadPart = v23;
+      v8 = NtCreateSection(&Size_4, 0xF0007u, (POBJECT_ATTRIBUTES)&stru_4B2A58D0, &MaximumSize, 4u, 0x8000000u, 0);
+      if ( v8 < 0 )
       {
         if ( !v6 )
         {
-          RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-          return Section;
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)HIDWORD(RegionSize));
+          return v8;
         }
         goto LABEL_11;
       }
-      v22 = 0;
-      v23 = 0;
-      Section = ZwMapViewOfSection((int)Handle, -1, (int)&v22, 0, 0, 0, (int)&v23, 1, 0, 4);
-      if ( Section < 0 )
+      BaseAddress = 0;
+      HIDWORD(v16) = &RegionSize;
+      LODWORD(v16) = 0;
+      LODWORD(RegionSize) = 0;
+      v8 = ZwMapViewOfSection(
+             Size_4,
+             (HANDLE)0xFFFFFFFF,
+             &BaseAddress,
+             0LL,
+             v16,
+             (PLARGE_INTEGER)1,
+             0,
+             (SECTION_INHERIT)4,
+             v19,
+             v21);
+      if ( v8 < 0 )
       {
-        NtClose(Handle);
+        NtClose(Size_4);
         if ( !v6 )
         {
-          RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-          return Section;
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)HIDWORD(RegionSize));
+          return v8;
         }
 LABEL_11:
-        v23 = 0;
-        NtFreeVirtualMemory(-1, (int)&Heap, (int)&v23, 0x8000);
-        return Section;
+        LODWORD(RegionSize) = 0;
+        NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
+        return v8;
       }
-      v9 = v22;
-      memset(Heap, 0, 0x28u);
+      v9 = BaseAddress;
+      memset((void *)HIDWORD(RegionSize), 0, 0x28u);
       v10 = a4;
-      if ( *a4 == 2147352576 )
+      if ( *a4 == (PVOID)2147352576 )
       {
         qmemcpy(v9, (const void *)0x7FFE0000, 0x720u);
-        v6 = v25;
+        v6 = v30;
         v10 = a4;
       }
-      else if ( NtReadVirtualMemory(v19, *a4, (int)v9, 4096, 0) < 0 )
+      else if ( NtReadVirtualMemory(ProcessHandle, *a4, v9, 0x1000uLL, v20) < 0 )
       {
 LABEL_24:
-        NtUnmapViewOfSection(-1, (int)v22);
-        v13 = v18;
-        v18[192] = v7;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
+        v13 = v24;
+        v24[192] = v7;
         v13[1] |= 2 * (v6 != 0) + 2;
-        v13[193] = Handle;
-        v13[194] = Heap;
+        v13[193] = Size_4;
+        v13[194] = HIDWORD(RegionSize);
         while ( 1 )
         {
           v14 = MEMORY[0x7FFE0018];
@@ -119,15 +143,21 @@ LABEL_24:
             break;
           _mm_pause();
         }
-        v15 = v18;
+        v15 = v24;
         result = 0;
-        v18[214] = MEMORY[0x7FFE0014];
+        v24[214] = MEMORY[0x7FFE0014];
         v15[215] = v14;
         return result;
       }
-      if ( NtQueryVirtualMemory(v19, *v10, 0, (int)(Heap + 1), 28, 0) >= 0 )
+      if ( NtQueryVirtualMemory(
+             ProcessHandle,
+             *v10,
+             MemoryBasicInformation,
+             (PVOID)(HIDWORD(RegionSize) + 4),
+             0x1CuLL,
+             v20) >= 0 )
       {
-        *Heap = *v10;
+        *(_DWORD *)HIDWORD(RegionSize) = *v10;
         while ( 1 )
         {
           v11 = MEMORY[0x7FFE0018];
@@ -135,11 +165,11 @@ LABEL_24:
             break;
           _mm_pause();
         }
-        v12 = Heap;
-        v6 = v25;
+        v12 = HIDWORD(RegionSize);
+        v6 = v30;
         v7 = 1;
-        Heap[8] = MEMORY[0x7FFE0014];
-        v12[9] = v11;
+        *(_DWORD *)(HIDWORD(RegionSize) + 32) = MEMORY[0x7FFE0014];
+        *(_DWORD *)(v12 + 36) = v11;
       }
       goto LABEL_24;
     }

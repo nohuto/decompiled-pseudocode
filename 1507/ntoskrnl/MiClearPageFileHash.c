@@ -21,7 +21,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   int PteTimeStamp; // eax
   __int64 v8; // r8
   __int64 v9; // rax
-  struct _SLIST_ENTRY *v10; // rbp
+  _SLIST_ENTRY *v10; // rbp
   _QWORD *v11; // r9
   unsigned int v12; // r14d
   __int64 updated; // rax
@@ -42,7 +42,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
       *(_DWORD *)v4 = 1;
       if ( (unsigned __int64)&STACK[0x90482413050] <= 0x7F8 )
         PteShadow = MiReadPteShadow(&v15, PteShadow);
-      v10 = (struct _SLIST_ENTRY *)(48 * ((PteShadow >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+      v10 = (_SLIST_ENTRY *)(48 * ((PteShadow >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
       v12 = MiGetPteTimeStamp(v10[1].Next) - 1;
       updated = MiUpdatePageFileHighInPte(*v11, v12);
       v15 = updated;

@@ -6,7 +6,14 @@
  *     <none>
  */
 
-int __stdcall RtlSetTimer(int a1, _DWORD *a2, int a3, int a4, unsigned int a5, int a6, __int16 a7)
+NTSTATUS __cdecl RtlSetTimer(
+        HANDLE TimerQueueHandle,
+        PHANDLE Handle,
+        WAITORTIMERCALLBACKFUNC Function,
+        PVOID Context,
+        ULONG DueTime,
+        ULONG Period,
+        ULONG Flags)
 {
-  return RtlCreateTimer(a1, a2, a3, a4, a5, a6, a7);
+  return RtlCreateTimer(TimerQueueHandle, Handle, Function, Context, DueTime, Period, Flags);
 }

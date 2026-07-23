@@ -1,106 +1,108 @@
 /*
- * XREFs of EtwpGetNextRegistration @ 0x180050820
+ * XREFs of EtwpGetNextRegistration @ 0x18003ADA0
  * Callers:
- *     EtwDeliverDataBlock @ 0x1800525B0 (EtwDeliverDataBlock.c)
- *     EtwpDisableTraceProviders @ 0x1800E8BDC (EtwpDisableTraceProviders.c)
- *     EtwEnumerateProcessRegGuids @ 0x180158BD0 (EtwEnumerateProcessRegGuids.c)
+ *     EtwDeliverDataBlock @ 0x18003CB30 (EtwDeliverDataBlock.c)
+ *     EtwpDisableTraceProviders @ 0x1800E7DEC (EtwpDisableTraceProviders.c)
+ *     EtwEnumerateProcessRegGuids @ 0x180158AA0 (EtwEnumerateProcessRegGuids.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlTryAcquireSRWLockShared @ 0x180050CE0 (RtlTryAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlTryAcquireSRWLockShared @ 0x18003B260 (RtlTryAcquireSRWLockShared.c)
  */
 
-unsigned __int64 __fastcall EtwpGetNextRegistration(unsigned __int64 a1, __int64 a2)
+unsigned __int64 __fastcall EtwpGetNextRegistration(_RTL_SRWLOCK *a1)
 {
   void *UniqueThread; // rbx
-  __int64 v3; // rsi
-  char v4; // bp
-  unsigned __int64 v6; // r14
-  unsigned __int64 i; // rbx
-  unsigned __int64 v8; // rax
-  _QWORD *v10; // rcx
-  _QWORD **v11; // rax
-  unsigned __int64 v12; // rcx
-  _QWORD *v13; // rcx
+  __int64 v2; // rsi
+  char v3; // bp
+  unsigned __int64 v5; // r14
+  unsigned __int64 Value; // rbx
+  unsigned __int64 v7; // rax
+  _QWORD *v9; // rcx
+  _QWORD **v10; // rax
+  unsigned __int64 v11; // rcx
+  _QWORD *v12; // rcx
 
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-  v3 = 0LL;
-  v4 = 0;
-  v6 = 0LL;
+  v2 = 0LL;
+  v3 = 0;
+  v5 = 0LL;
   if ( EtwpProvLockOwner == (_DWORD)UniqueThread )
     __fastfail(0x24u);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
   EtwpProvLockOwner = (int)UniqueThread;
   if ( a1 )
   {
-    i = *(_QWORD *)(a1 + 8);
-    v8 = a1;
-    if ( i )
+    Value = a1[1].Value;
+    v7 = (unsigned __int64)a1;
+    if ( Value )
     {
-      v10 = *(_QWORD **)i;
-      if ( *(_QWORD *)i )
+      v9 = *(_QWORD **)Value;
+      if ( *(_QWORD *)Value )
       {
         do
         {
-          i = (unsigned __int64)v10;
-          v10 = (_QWORD *)*v10;
+          Value = (unsigned __int64)v9;
+          v9 = (_QWORD *)*v9;
         }
-        while ( v10 );
+        while ( v9 );
       }
     }
     else
     {
-      for ( i = *(_QWORD *)(a1 + 16) & 0xFFFFFFFFFFFFFFFCuLL; i; i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL )
+      for ( Value = a1[2].Value & 0xFFFFFFFFFFFFFFFCuLL; Value; Value = *(_QWORD *)(Value + 16) & 0xFFFFFFFFFFFFFFFCuLL )
       {
-        if ( *(_QWORD *)i == v8 )
+        if ( *(_QWORD *)Value == v7 )
           break;
-        v8 = i;
+        v7 = Value;
       }
     }
   }
-  else if ( (qword_1801CB210 & 1) != 0 )
+  else if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 )
   {
-    if ( qword_1801CB210 == 1 )
-      i = 0LL;
+    if ( EtwpRegistrationTable.Min == (_RTL_BALANCED_NODE *)1 )
+      Value = 0LL;
     else
-      i = qword_1801CB210 ^ ((unsigned __int64)&EtwpRegistrationTable + 1);
+      Value = (unsigned __int64)EtwpRegistrationTable.Min ^ ((unsigned __int64)&EtwpRegistrationTable.Root + 1);
   }
   else
   {
-    i = qword_1801CB210;
+    Value = (unsigned __int64)EtwpRegistrationTable.Min;
   }
-  while ( i )
+  while ( Value )
   {
-    v6 = i;
-    if ( (unsigned __int8)RtlTryAcquireSRWLockShared(i + 72) )
+    v5 = Value;
+    if ( RtlTryAcquireSRWLockShared((PRTL_SRWLOCK)(Value + 72)) )
     {
-      v4 = 1;
+      v3 = 1;
       break;
     }
-    v11 = *(_QWORD ***)(i + 8);
-    v12 = i;
-    if ( v11 )
+    v10 = *(_QWORD ***)(Value + 8);
+    v11 = Value;
+    if ( v10 )
     {
-      v13 = *v11;
-      for ( i = *(_QWORD *)(i + 8); v13; v13 = (_QWORD *)*v13 )
-        i = (unsigned __int64)v13;
+      v12 = *v10;
+      for ( Value = *(_QWORD *)(Value + 8); v12; v12 = (_QWORD *)*v12 )
+        Value = (unsigned __int64)v12;
     }
     else
     {
-      for ( i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL; i; i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL )
+      for ( Value = *(_QWORD *)(Value + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+            Value;
+            Value = *(_QWORD *)(Value + 16) & 0xFFFFFFFFFFFFFFFCuLL )
       {
-        if ( *(_QWORD *)i == v12 )
+        if ( *(_QWORD *)Value == v11 )
           break;
-        v12 = i;
+        v11 = Value;
       }
     }
   }
   EtwpProvLockOwner = 0;
   RtlReleaseSRWLockExclusive(&EtwpProvLock);
   if ( a1 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
-  if ( v4 )
-    return v6;
-  return v3;
+    RtlReleaseSRWLockShared(a1 + 9);
+  if ( v3 )
+    return v5;
+  return v2;
 }

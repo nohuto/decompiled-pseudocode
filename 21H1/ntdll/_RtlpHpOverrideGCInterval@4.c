@@ -13,45 +13,53 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-NTSTATUS __thiscall RtlpHpOverrideGCInterval(_DWORD *this)
+int __thiscall RtlpHpOverrideGCInterval(_DWORD *this)
 {
   const WCHAR *i; // eax
-  NTSTATUS result; // eax
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-250h] BYREF
-  _BYTE v4[4]; // [esp+18h] [ebp-248h] BYREF
-  _DWORD v5[6]; // [esp+1Ch] [ebp-244h] BYREF
-  _DWORD v6[2]; // [esp+34h] [ebp-22Ch] BYREF
-  HANDLE Handle; // [esp+3Ch] [ebp-224h] BYREF
-  _DWORD v8[6]; // [esp+40h] [ebp-220h] BYREF
-  _BYTE v9[516]; // [esp+58h] [ebp-208h] BYREF
+  int result; // eax
+  size_t v3; // [esp-4h] [ebp-264h]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-250h] BYREF
+  ULONG ResultLength; // [esp+18h] [ebp-248h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+1Ch] [ebp-244h] BYREF
+  _UNICODE_STRING Destination; // [esp+34h] [ebp-22Ch] BYREF
+  HANDLE KeyHandle; // [esp+3Ch] [ebp-224h] BYREF
+  _DWORD KeyValueInformation[6]; // [esp+40h] [ebp-220h] BYREF
+  _BYTE v10[516]; // [esp+58h] [ebp-208h] BYREF
 
   for ( i = (const WCHAR *)(this[1] + 2 * (*(unsigned __int16 *)this >> 1)); *i != 92; --i )
     ;
   RtlInitUnicodeString(&DestinationString, i);
-  Handle = 0;
-  memset(v9, 0, 0x200u);
-  v6[0] = 0x2000000;
-  memset(v8, 0, sizeof(v8));
-  v6[1] = v9;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)v6, (const void **)&dword_4B281C28);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)v6, (const void **)&DestinationString);
-  v5[0] = 24;
-  v5[2] = v6;
-  v5[1] = 0;
-  v5[3] = 64;
-  v5[4] = 0;
-  v5[5] = 0;
-  result = ZwOpenKey((int)&Handle, 9, (int)v5);
+  LODWORD(v3) = 512;
+  KeyHandle = 0;
+  memset(v10, 0, v3);
+  *(_DWORD *)&Destination.Length = 0x2000000;
+  memset(KeyValueInformation, 0, sizeof(KeyValueInformation));
+  Destination.Buffer = (wchar_t *)v10;
+  RtlAppendUnicodeStringToString(&Destination, &stru_4B281C28);
+  RtlAppendUnicodeStringToString(&Destination, &DestinationString);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &Destination;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  result = ZwOpenKey(&KeyHandle, 9u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    result = ZwQueryValueKey((int)Handle, (int)&dword_4B281C38, 2, (int)v8, 24, (int)v4);
+    result = ZwQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_4B281C38,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x18u,
+               &ResultLength);
     if ( result >= 0 )
     {
-      result = -10000000 * v8[3];
-      RtlpHpGCInterval = -10000000LL * *(_QWORD *)&v8[3];
+      result = -10000000 * KeyValueInformation[3];
+      RtlpHpGCInterval.QuadPart = -10000000LL * *(_QWORD *)&KeyValueInformation[3];
     }
   }
-  if ( Handle )
-    return NtClose(Handle);
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

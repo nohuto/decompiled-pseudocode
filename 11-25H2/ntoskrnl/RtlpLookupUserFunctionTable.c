@@ -13,41 +13,39 @@
 __int64 __fastcall RtlpLookupUserFunctionTable(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  unsigned __int64 v5; // rsi
-  __int64 v6; // rdx
-  __int64 v7; // rdi
-  int v8; // eax
-  unsigned int v9; // eax
-  __int64 v10; // r8
-  unsigned __int64 v11; // rax
-  _QWORD v12[8]; // [rsp+28h] [rbp-40h] BYREF
-  char v13; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v14; // [rsp+88h] [rbp+20h] BYREF
+  char *v5; // rsi
+  PVOID v6; // rdi
+  int v7; // eax
+  unsigned int v8; // eax
+  __int64 v9; // r8
+  unsigned __int64 v10; // rax
+  __int64 v11[8]; // [rsp+28h] [rbp-40h] BYREF
+  char v12; // [rsp+80h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+88h] [rbp+20h] BYREF
 
   result = RtlpLookupUserFunctionTableInverted();
   if ( !result )
   {
     result = RtlpLookupDynamicUserFunctionTable(a1, a2);
-    v5 = result;
+    v5 = (char *)result;
     if ( !result )
     {
-      v14 = 0LL;
-      v12[0] = 0LL;
-      if ( (int)MmGetImageInformation(a1, &v14, v12, &v13) >= 0 )
+      BaseOfImage = 0LL;
+      v11[0] = 0LL;
+      if ( (int)MmGetImageInformation(a1, &BaseOfImage, v11, &v12) >= 0 )
       {
-        LOBYTE(v6) = 1;
-        v7 = v14;
-        v5 = RtlImageDirectoryEntryToData(v14, v6, 3LL, a2 + 20);
+        v6 = BaseOfImage;
+        v5 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 3u, (PULONG)(a2 + 20));
         if ( v5 )
         {
-          v9 = *(_DWORD *)(a2 + 20);
-          if ( v9 && (v10 = v9, v9 == 12 * (v9 / 0xCuLL)) )
+          v8 = *(_DWORD *)(a2 + 20);
+          if ( v8 && (v9 = v8, v8 == 12 * (v8 / 0xCuLL)) )
           {
-            if ( (v5 & 3) != 0 )
+            if ( ((unsigned __int8)v5 & 3) != 0 )
               ExRaiseDatatypeMisalignment();
-            v11 = v9 + v5;
-            if ( v10 + v5 < v5 || v11 > 0x7FFFFFFF0000LL )
-              v7 = v14;
+            v10 = (unsigned __int64)&v5[v8];
+            if ( &v5[v9] < v5 || v10 > 0x7FFFFFFF0000LL )
+              v6 = BaseOfImage;
           }
           else
           {
@@ -58,19 +56,19 @@ __int64 __fastcall RtlpLookupUserFunctionTable(__int64 a1, __int64 a2)
         {
           *(_DWORD *)(a2 + 20) = 0;
         }
-        v8 = v12[0];
+        v7 = v11[0];
       }
       else
       {
-        v7 = 0LL;
-        v8 = 0;
+        v6 = 0LL;
+        v7 = 0;
       }
-      *(_QWORD *)(a2 + 8) = v7;
-      *(_DWORD *)(a2 + 16) = v8;
+      *(_QWORD *)(a2 + 8) = v6;
+      *(_DWORD *)(a2 + 16) = v7;
       *(_QWORD *)a2 = v5;
       if ( !v5 )
         *(_DWORD *)(a2 + 20) = 0;
-      return v5;
+      return (__int64)v5;
     }
   }
   return result;

@@ -1,23 +1,23 @@
 /*
- * XREFs of KeFreeXStateContext @ 0x1403D3354
+ * XREFs of KeFreeXStateContext @ 0x1403D6324
  * Callers:
- *     KeRestoreExtendedAndSupervisorState @ 0x1403D3108 (KeRestoreExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x140C40BB4 (VfCtxInit.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1403D60D8 (KeRestoreExtendedAndSupervisorState.c)
+ *     VfCtxInit @ 0x140C46BC4 (VfCtxInit.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeFreeXStateContext(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
   if ( a1 )
   {
-    v1 = *(struct _SLIST_ENTRY **)(a1 + 24);
+    v1 = *(_SLIST_ENTRY **)(a1 + 24);
     if ( v1 )
     {
       if ( (*(_BYTE *)(a1 + 12) & 1) != 0 )

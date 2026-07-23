@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpPowerSettingCallback @ 0x1408FBAF0
+ * XREFs of SshpPowerSettingCallback @ 0x1408FBC50
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetCollectionActive @ 0x14057FE3C (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x14058007C (SshpSetCollectionActive.c)
  */
 
 __int64 __fastcall SshpPowerSettingCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, PVOID Context)

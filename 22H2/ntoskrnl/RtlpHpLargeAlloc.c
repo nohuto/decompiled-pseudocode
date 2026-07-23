@@ -31,7 +31,7 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
   void *v5; // rbx
   void *v8; // r12
   __int64 v9; // rax
-  unsigned __int64 v10; // r14
+  _RTL_BALANCED_NODE *v10; // r14
   BOOL v11; // edi
   __int64 v12; // r8
   unsigned __int64 v13; // rcx
@@ -40,14 +40,14 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
   int v16; // r9d
   unsigned int v17; // r15d
   int v18; // ecx
-  void *v19; // rbx
+  _RTL_BALANCED_NODE *v19; // rbx
   unsigned __int64 v20; // rax
   unsigned __int64 v21; // r12
   unsigned __int8 v22; // al
-  unsigned __int64 *v23; // rcx
+  _RTL_RB_TREE *v23; // rcx
   unsigned __int64 v24; // r15
-  unsigned __int64 v25; // rdx
-  bool v26; // r8
+  unsigned __int64 Root; // rdx
+  BOOLEAN v26; // r8
   unsigned __int64 v27; // rax
   volatile signed __int64 *v28; // r14
   struct _KTHREAD *CurrentThread; // rbx
@@ -56,7 +56,7 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
   unsigned int v33; // edx
   bool v34; // zf
   __int64 v35; // rcx
-  unsigned __int64 v36; // rdi
+  __int64 v36; // rdi
   __int64 v37; // rdx
   __int64 v38; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -92,7 +92,7 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
   v8 = 0LL;
   v49 = v4;
   v9 = RtlpHpMetadataAlloc(40LL, 40LL, 0LL, &v49);
-  v10 = v9;
+  v10 = (_RTL_BALANCED_NODE *)v9;
   if ( v9 )
   {
     *(_OWORD *)v9 = 0LL;
@@ -164,55 +164,55 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
       }
       if ( (int)RtlpHpAllocVA(&v43, (size_t *)&v48, 0LL, v16, v18 != 0 ? 64 : 4, &v52) >= 0 )
       {
-        v19 = v43;
+        v19 = (_RTL_BALANCED_NODE *)v43;
         if ( v11 && (v17 & 2) != 0 )
           memset(v43, 0, a3);
         _BitScanForward64(&v20, v44);
         v21 = v45;
         HIDWORD(v46) = v20;
-        *(_QWORD *)(v10 + 24) = v19;
-        *(_QWORD *)(v10 + 32) = *(_DWORD *)(v10 + 32) & 0xF01 | (2
-                                                               * (v62 & 0xFFFFFF81 | (2 * ((v21 << 10) | v20 & 0x3F))));
-        *(_WORD *)(v10 + 24) = ((_WORD)v21 << 12) - a2;
+        v10[1].Children[0] = v19;
+        v10[1].Children[1] = (_RTL_BALANCED_NODE *)((__int64)v10[1].Right & 0xF01 | (2
+                                                                                   * (v62 & 0xFFFFFF81 | (2 * ((v21 << 10) | v20 & 0x3F)))));
+        LOWORD(v10[1].Children[0]) = ((_WORD)v21 << 12) - a2;
         v22 = RtlpHpLargeLockAcquire(a1, v17);
-        v23 = (unsigned __int64 *)(a1 + 72);
+        v23 = (_RTL_RB_TREE *)(a1 + 72);
         v24 = v22;
         if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
         {
-          if ( *v23 )
-            v25 = *v23 ^ (unsigned __int64)v23;
+          if ( v23->Root )
+            Root = (unsigned __int64)v23->Root ^ (unsigned __int64)v23;
           else
-            v25 = 0LL;
+            Root = 0LL;
         }
         else
         {
-          v25 = *v23;
+          Root = (unsigned __int64)v23->Root;
         }
         v26 = 0;
-        if ( v25 )
+        if ( Root )
         {
           while ( 1 )
           {
-            if ( (unsigned __int64)v19 < (*(_QWORD *)(v25 + 24) & 0xFFFFFFFFFFFF0000uLL) )
+            if ( (unsigned __int64)v19 < (*(_QWORD *)(Root + 24) & 0xFFFFFFFFFFFF0000uLL) )
             {
-              v27 = *(_QWORD *)v25;
+              v27 = *(_QWORD *)Root;
               if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
               {
                 if ( !v27 )
                   break;
-                v27 ^= v25;
+                v27 ^= Root;
               }
               if ( !v27 )
                 break;
             }
             else
             {
-              v27 = *(_QWORD *)(v25 + 8);
+              v27 = *(_QWORD *)(Root + 8);
               if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
               {
                 if ( !v27 )
                   goto LABEL_33;
-                v27 ^= v25;
+                v27 ^= Root;
               }
               if ( !v27 )
               {
@@ -221,10 +221,10 @@ LABEL_33:
                 break;
               }
             }
-            v25 = v27;
+            Root = v27;
           }
         }
-        RtlRbInsertNodeEx(v23, v25, v26, v10);
+        RtlRbInsertNodeEx(v23, (PRTL_BALANCED_NODE)Root, v26, v10);
         if ( (a4 & 1) == 0 )
         {
           v28 = (volatile signed __int64 *)(a1 + 64);
@@ -268,7 +268,7 @@ LABEL_33:
               v34 = !_BitScanReverse((unsigned int *)&v35, v33);
               if ( v34 )
                 break;
-              v36 = (unsigned __int64)&CurrentThread->LockEntries[v35];
+              v36 = (__int64)&CurrentThread->LockEntries[v35];
               v33 &= ~(1 << v35);
               if ( (*(_BYTE *)(v36 + 26) & 1) != 0
                 && (*(_DWORD *)(v36 + 32) & 1) == 0
@@ -282,12 +282,12 @@ LABEL_33:
                   {
                     *(_BYTE *)(v36 + 32) |= 2u;
                     if ( *(__int64 *)(v36 + 32) < 0 )
-                      KiAbEntryRemoveFromTree(v36);
+                      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v36);
                     LODWORD(v45) = *(_DWORD *)(v36 + 88) & 0x1FFFF;
                     *(_DWORD *)(v36 + 88) &= 0xFFFE0000;
                     *(_BYTE *)(v36 + 25) &= ~1u;
                     *(_QWORD *)(v36 + 32) = 0LL;
-                    v37 = (__int64)(v36 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+                    v37 = (signed __int64)(v36 - (unsigned __int64)CurrentThread->LockEntries) / 96;
                     if ( v32 == 1 )
                       CurrentThread->AbEntrySummary |= 1 << v37;
                     else
@@ -335,7 +335,7 @@ LABEL_39:
     if ( v10 )
     {
       v54 = *(_OWORD *)a1;
-      RtlpHpMetadataFree(v10, &v54);
+      RtlpHpMetadataFree((__int64)v10, &v54);
     }
     if ( v5 )
     {

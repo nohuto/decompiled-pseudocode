@@ -47,7 +47,7 @@ __int64 __fastcall ExAllocatePool3(__int64 a1, ULONG_PTR a2, unsigned int a3, __
   int v22; // eax
   __int64 PoolWithQuotaTag; // rax
   POOL_TYPE v25; // ecx
-  int v26; // ecx
+  NTSTATUS v26; // ecx
   unsigned int v27; // eax
   __int64 v28; // rdx
   struct _MDL *v29; // r9

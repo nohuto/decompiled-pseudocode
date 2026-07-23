@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpRelogEvent @ 0x18005BC20
+ * XREFs of EtwpRelogEvent @ 0x18005BC10
  * Callers:
- *     EtwpTraceUmEvent @ 0x18005B8D8 (EtwpTraceUmEvent.c)
+ *     EtwpTraceUmEvent @ 0x18005B8C8 (EtwpTraceUmEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x18005BD10 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x18005BD00 (EtwpReserveTraceBuffer.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -32,8 +32,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   }
   v7 = *(_WORD *)(a2 + 84) & 0x7FF;
   if ( (*(_DWORD *)(a1 + 324) & 0x1000) != 0 )
-    LODWORD(v7) = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 8LL * v5) + 2 * v7);
-  v8 = (void *)EtwpReserveTraceBuffer(a1, v6, v7, 0, (__int64)&v11);
+    v7 = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 8LL * v5) + 2 * v7);
+  v8 = (void *)EtwpReserveTraceBuffer(a1, (unsigned int)v6, v7, 0LL, &v11);
   if ( v8 )
   {
     memmove(v8, *(const void **)(a2 + 72), v6);

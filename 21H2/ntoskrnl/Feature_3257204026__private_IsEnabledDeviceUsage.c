@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_3257204026__private_IsEnabledDeviceUsage @ 0x1403F92A8
+ * XREFs of Feature_3257204026__private_IsEnabledDeviceUsage @ 0x1403F9428
  * Callers:
- *     EtwpValidateFlagExtension @ 0x1406DD7E0 (EtwpValidateFlagExtension.c)
+ *     EtwpValidateFlagExtension @ 0x1406B4AC0 (EtwpValidateFlagExtension.c)
  * Callees:
- *     Feature_3257204026__private_IsEnabledFallback @ 0x1403F92E0 (Feature_3257204026__private_IsEnabledFallback.c)
+ *     Feature_3257204026__private_IsEnabledFallback @ 0x1403F9460 (Feature_3257204026__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_3257204026__private_IsEnabledDeviceUsage()

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiBeginThreadWait @ 0x1403C2810
+ * XREFs of KiBeginThreadWait @ 0x1403CC710
  * Callers:
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
  * Callees:
- *     KiDeliverApc @ 0x1402439F0 (KiDeliverApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiClearPriorityFloor @ 0x140380630 (KiClearPriorityFloor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiDeliverApc @ 0x140245350 (KiDeliverApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiClearPriorityFloor @ 0x1403823E0 (KiClearPriorityFloor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiBeginThreadWait(ULONG_PTR BugCheckParameter1, char a2, int a3, __int64 a4, char a5)

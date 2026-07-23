@@ -13,40 +13,36 @@
 
 void __fastcall LdrpCheckAppDirType(unsigned __int16 *a1)
 {
-  ULONG ShareAccess[2]; // [rsp+20h] [rbp-E0h]
   HANDLE FileHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING *v3; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v4; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v5[2]; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
-  char v9; // [rsp+C0h] [rbp-40h] BYREF
+  _UNICODE_STRING *v2; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 FsInformation; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD v4[2]; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-58h] BYREF
+  char v8; // [rsp+C0h] [rbp-40h] BYREF
 
-  v5[0] = 0x1000000LL;
-  v5[1] = &v9;
-  v4 = 0LL;
+  v4[0] = 0x1000000LL;
+  v4[1] = &v8;
+  FsInformation = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   IoStatusBlock = 0LL;
-  v3 = 0LL;
+  v2 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   UnicodeString.Buffer = 0LL;
   FileHandle = 0LL;
-  if ( (int)RtlpDosPathNameToRelativeNtPathName(0, a1, (unsigned __int16 *)v5, &UnicodeString.Length, &v3, 0LL, 0LL) >= 0 )
+  if ( (int)RtlpDosPathNameToRelativeNtPathName(0, a1, (unsigned __int16 *)v4, &UnicodeString.Length, &v2, 0LL, 0LL) >= 0 )
   {
-    ObjectAttributes.ObjectName = v3;
+    ObjectAttributes.ObjectName = v2;
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     ObjectAttributes.Attributes = 64;
-    if ( NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u) >= 0 )
+    if ( NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u) >= 0
+      && ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 8u, FileFsDeviceInformation) >= 0
+      && (LdrpIllegalCWDDevices & HIDWORD(FsInformation)) != 0 )
     {
-      ShareAccess[0] = 4;
-      if ( (int)ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &v4, 8LL, *(_QWORD *)ShareAccess) >= 0
-        && (LdrpIllegalCWDDevices & HIDWORD(v4)) != 0 )
-      {
-        LdrpIllegalCWDDevices = 0;
-      }
+      LdrpIllegalCWDDevices = 0;
     }
   }
   if ( FileHandle )

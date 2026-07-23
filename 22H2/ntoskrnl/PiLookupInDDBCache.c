@@ -10,10 +10,10 @@
  *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
  */
 
-__int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD *a4)
+__int64 __fastcall PiLookupInDDBCache(__int64 a1, void *a2, __int64 a3, _OWORD *a4)
 {
   unsigned int v7; // ebx
-  __int64 v8; // rsi
+  PIMAGE_NT_HEADERS v8; // rsi
   wchar_t *v9; // rax
   __int64 v10; // rax
   __int64 v11; // rdx
@@ -46,7 +46,7 @@ __int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD
       while ( *(_WORD *)(v10 + 2 * v11) );
       LOWORD(v18) = 2 * v11;
       WORD1(v18) = 2 * v11;
-      LODWORD(v19) = *(_DWORD *)(v8 + 8);
+      LODWORD(v19) = v8->FileHeader.TimeDateStamp;
       v12 = (PVOID **)RtlLookupElementGenericTableAvl(&PiDDBCacheTable, &Buffer);
       if ( v12 )
       {

@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxSetComponentWake @ 0x1404F5140
+ * XREFs of PoFxSetComponentWake @ 0x1404EE720
  * Callers:
- *     DifPoFxSetComponentWakeWrapper @ 0x140693D80 (DifPoFxSetComponentWakeWrapper.c)
+ *     DifPoFxSetComponentWakeWrapper @ 0x140697960 (DifPoFxSetComponentWakeWrapper.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     PopPepComponentSetWakeHint @ 0x1404F524C (PopPepComponentSetWakeHint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     PopPepComponentSetWakeHint @ 0x1404EE82C (PopPepComponentSetWakeHint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PoFxSetComponentWake(__int64 a1, unsigned int a2, unsigned __int8 a3)
@@ -27,8 +27,7 @@ __int64 __fastcall PoFxSetComponentWake(__int64 a1, unsigned int a2, unsigned __
   v10 = *(_QWORD *)(a1 + 48);
   v8 = a2;
   PopFxAddLogEntry(v10, a2, 11, a3);
-  if ( byte_140E67628
-    && EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_COMPONENT_WAKE) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_WAKE) )
   {
     UserData.Ptr = (ULONGLONG)&v10;
     v9 = v3;
@@ -37,15 +36,7 @@ __int64 __fastcall PoFxSetComponentWake(__int64 a1, unsigned int a2, unsigned __
     v14 = &v9;
     v13 = 4LL;
     v15 = 4LL;
-    EtwWriteEx(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_COMPONENT_WAKE,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      3u,
-      &UserData);
+    EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_WAKE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
   }
   LOBYTE(v6) = v3;
   return PopPepComponentSetWakeHint(*(_QWORD *)(a1 + 56), a2, v6);

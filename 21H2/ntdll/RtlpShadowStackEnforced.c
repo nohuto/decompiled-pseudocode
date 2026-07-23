@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpShadowStackEnforced @ 0x18010B2F8
+ * XREFs of RtlpShadowStackEnforced @ 0x18010B2B8
  * Callers:
  *     RtlRaiseException @ 0x1800520D0 (RtlRaiseException.c)
  * Callees:
@@ -8,5 +8,5 @@
 
 _BOOL8 RtlpShadowStackEnforced()
 {
-  return ((*((_QWORD *)&xmmword_180181390 + 1) >> 60) & 3) == 1;
+  return ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1;
 }

@@ -7,18 +7,18 @@
  *     _NtCreateEvent@20 @ 0x4B2F2E00 (_NtCreateEvent@20.c)
  */
 
-int __thiscall WerpCreateCompletionEvent(_DWORD *this)
+NTSTATUS __thiscall WerpCreateCompletionEvent(PHANDLE EventHandle)
 {
-  _DWORD v2[6]; // [esp+0h] [ebp-18h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+0h] [ebp-18h] BYREF
 
-  if ( !this )
+  if ( !EventHandle )
     return -1073741585;
-  v2[0] = 24;
-  *this = 0;
-  v2[1] = 0;
-  v2[2] = 0;
-  v2[4] = 0;
-  v2[5] = 0;
-  v2[3] = 2;
-  return NtCreateEvent((int)this, 2031619, (int)v2, 0, 0);
+  ObjectAttributes.Length = 24;
+  *EventHandle = 0;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.ObjectName = 0;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  ObjectAttributes.Attributes = 2;
+  return NtCreateEvent(EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
 }

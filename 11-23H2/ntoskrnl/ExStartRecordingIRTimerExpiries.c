@@ -1,7 +1,7 @@
 /*
- * XREFs of ExStartRecordingIRTimerExpiries @ 0x140878A6C
+ * XREFs of ExStartRecordingIRTimerExpiries @ 0x140878CAC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

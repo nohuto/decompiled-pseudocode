@@ -1,15 +1,15 @@
 /*
- * XREFs of HalAllocateAdapterChannelV2 @ 0x1404CC6E4
+ * XREFs of HalAllocateAdapterChannelV2 @ 0x1404CC924
  * Callers:
- *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8CE0 (HalAllocateAdapterChannel.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
- *     HalpQueueMapBufferWorker @ 0x1404BC5E8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaQueueAdapter @ 0x1404C7D94 (HalpDmaQueueAdapter.c)
- *     KeInsertDeviceQueue @ 0x14051A980 (KeInsertDeviceQueue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IoFreeAdapterChannel @ 0x1404B8F50 (IoFreeAdapterChannel.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC828 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C6B3C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7FD4 (HalpDmaQueueAdapter.c)
+ *     KeInsertDeviceQueue @ 0x14051ABC0 (KeInsertDeviceQueue.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannelV2(

@@ -1,7 +1,7 @@
 /*
- * XREFs of __security_init_cookie @ 0x140A1B2E8
+ * XREFs of __security_init_cookie @ 0x140A1C2E8
  * Callers:
- *     HalInitSystem @ 0x14099C050 (HalInitSystem.c)
+ *     HalInitSystem @ 0x14099D050 (HalInitSystem.c)
  * Callees:
  *     <none>
  */

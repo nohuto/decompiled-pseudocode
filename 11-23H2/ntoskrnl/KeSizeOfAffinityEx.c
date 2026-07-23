@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSizeOfAffinityEx @ 0x140571910
+ * XREFs of KeSizeOfAffinityEx @ 0x140571E50
  * Callers:
  *     <none>
  * Callees:

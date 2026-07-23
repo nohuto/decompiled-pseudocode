@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetInPageAutoBoostLock @ 0x1402BD448
+ * XREFs of MiGetInPageAutoBoostLock @ 0x1402BD6D8
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     MmPrefetchPagesEx @ 0x14073E6D8 (MmPrefetchPagesEx.c)
- *     MiPrefetchControlArea @ 0x1407DC90C (MiPrefetchControlArea.c)
+ *     MiPrefetchVirtualMemory @ 0x1402EE458 (MiPrefetchVirtualMemory.c)
+ *     MmPrefetchPagesEx @ 0x14073E8C8 (MmPrefetchPagesEx.c)
+ *     MiPrefetchControlArea @ 0x1407DCBDC (MiPrefetchControlArea.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
  */
 
 _QWORD *MiGetInPageAutoBoostLock()

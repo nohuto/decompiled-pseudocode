@@ -1,19 +1,19 @@
 /*
- * XREFs of KeBalanceSetManager @ 0x1403B90E0
+ * XREFs of KeBalanceSetManager @ 0x1403B9250
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     ExpScanGeneralLookasideList @ 0x140290EA0 (ExpScanGeneralLookasideList.c)
- *     ExpScanSystemLookasideList @ 0x140290FA0 (ExpScanSystemLookasideList.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExpScanGeneralLookasideList @ 0x14020EE10 (ExpScanGeneralLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x14020EF10 (ExpScanSystemLookasideList.c)
+ *     KePulseEvent @ 0x14025FA60 (KePulseEvent.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetPriorityThread @ 0x140279050 (KeSetPriorityThread.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __noreturn KeBalanceSetManager()
@@ -39,10 +39,10 @@ void __noreturn KeBalanceSetManager()
 
   KeSetPriorityThread(KeGetCurrentThread(), 17);
   v0 = 8;
-  v1 = KeNumberProcessorsGroup0[3];
+  v1 = KeNumberProcessorsGroup0[1];
   Object[0] = &KiBalanceSetManagerPeriodicEvent;
   KiStackProtectTime = (unsigned __int64)((0x8F0D180 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v1;
-  Object[1] = (PVOID)(qword_140C52840 + 96);
+  Object[1] = (PVOID)(qword_140C52880 + 96);
   while ( 1 )
   {
     while ( 1 )

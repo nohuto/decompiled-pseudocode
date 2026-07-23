@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryHiveRedirectionFileList @ 0x14049C69C
+ * XREFs of CmpQueryHiveRedirectionFileList @ 0x1404A4ED0
  * Callers:
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
- *     CmpInitializeSystemHivesLoad @ 0x1405770F4 (CmpInitializeSystemHivesLoad.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
+ *     CmpInitializeSystemHivesLoad @ 0x140577634 (CmpInitializeSystemHivesLoad.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
  */
 
 bool __fastcall CmpQueryHiveRedirectionFileList(PUNICODE_STRING ValueName, PUNICODE_STRING Destination)

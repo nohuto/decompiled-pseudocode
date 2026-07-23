@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetCpuRateControlJobPostCallback @ 0x140458034
+ * XREFs of PspSetCpuRateControlJobPostCallback @ 0x140456F04
  * Callers:
  *     <none>
  * Callees:
- *     PspSetProcessSchedulingGroup @ 0x140457FE4 (PspSetProcessSchedulingGroup.c)
- *     PspGetNextJobProcess @ 0x14045816C (PspGetNextJobProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x140456EB4 (PspSetProcessSchedulingGroup.c)
+ *     PspGetNextJobProcess @ 0x14045703C (PspGetNextJobProcess.c)
  */
 
 __int64 __fastcall PspSetCpuRateControlJobPostCallback(__int64 a1, __int64 a2)

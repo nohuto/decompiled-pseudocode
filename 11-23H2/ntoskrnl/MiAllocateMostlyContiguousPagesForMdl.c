@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateMostlyContiguousPagesForMdl @ 0x1403AD5DC
+ * XREFs of MiAllocateMostlyContiguousPagesForMdl @ 0x1403AD7BC
  * Callers:
- *     MiFindPagesForMdl @ 0x1402F91AC (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x1402F943C (MiFindPagesForMdl.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiAllocateSlabPageForMdl @ 0x14062315C (MiAllocateSlabPageForMdl.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiAllocateSlabPageForMdl @ 0x1406236AC (MiAllocateSlabPageForMdl.c)
  */
 
 __int64 __fastcall MiAllocateMostlyContiguousPagesForMdl(__int64 *a1, int a2, unsigned int a3)

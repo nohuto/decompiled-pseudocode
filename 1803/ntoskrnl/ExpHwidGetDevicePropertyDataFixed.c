@@ -11,7 +11,7 @@
 
 NTSTATUS __fastcall ExpHwidGetDevicePropertyDataFixed(
         struct _DEVICE_OBJECT *a1,
-        int a2,
+        __int64 a2,
         const DEVPROPKEY *a3,
         int a4,
         ULONG Size,
@@ -26,7 +26,7 @@ NTSTATUS __fastcall ExpHwidGetDevicePropertyDataFixed(
   if ( a1 )
     result = IoGetDevicePropertyData(a1, a3, 0, 0, Size, a6, v9, &v10);
   else
-    result = PnpGetDeviceInterfacePropertyData(a2, (_DWORD)a3, 0, a2, Size, (__int64)a6, (__int64)v9, (__int64)&v10);
+    result = PnpGetDeviceInterfacePropertyData(a2, a3, 0LL);
   if ( result >= 0 )
   {
     if ( v10 == a4 )

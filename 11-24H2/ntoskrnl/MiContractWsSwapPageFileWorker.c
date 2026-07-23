@@ -1,15 +1,15 @@
 /*
- * XREFs of MiContractWsSwapPageFileWorker @ 0x140684FE0
+ * XREFs of MiContractWsSwapPageFileWorker @ 0x140686110
  * Callers:
  *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiQueuePageFileExtension @ 0x1403F95EC (MiQueuePageFileExtension.c)
- *     MiLockWsSwapExclusive @ 0x1404043DC (MiLockWsSwapExclusive.c)
- *     MiWsSwapPageFileNumber @ 0x140404DAC (MiWsSwapPageFileNumber.c)
- *     MiUnlockWsSwapExclusive @ 0x140404DE4 (MiUnlockWsSwapExclusive.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiLockWsSwapExclusive @ 0x1403C637C (MiLockWsSwapExclusive.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403C6778 (MiUnlockWsSwapExclusive.c)
+ *     MiWsSwapPageFileNumber @ 0x1403C9244 (MiWsSwapPageFileNumber.c)
+ *     MiQueuePageFileExtension @ 0x1403EF6FC (MiQueuePageFileExtension.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiContractWsSwapPageFileWorker(__int64 a1)

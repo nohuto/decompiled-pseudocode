@@ -1,9 +1,9 @@
 /*
- * XREFs of HalGetDmaTransferInfo @ 0x1404C6270
+ * XREFs of HalGetDmaTransferInfo @ 0x1404C64B0
  * Callers:
- *     HalCalculateScatterGatherListSizeV3 @ 0x1403A0FD0 (HalCalculateScatterGatherListSizeV3.c)
+ *     HalCalculateScatterGatherListSizeV3 @ 0x1403A1120 (HalCalculateScatterGatherListSizeV3.c)
  * Callees:
- *     HalGetDmaTransferInfoInternal @ 0x14039FA48 (HalGetDmaTransferInfoInternal.c)
+ *     HalGetDmaTransferInfoInternal @ 0x14039FB98 (HalGetDmaTransferInfoInternal.c)
  */
 
 __int64 __fastcall HalGetDmaTransferInfo(

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopThermalSxExit @ 0x14058FD74
+ * XREFs of PopThermalSxExit @ 0x140590264
  * Callers:
- *     PopPolicyWorkerAction @ 0x14098A130 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerAction @ 0x14098A330 (PopPolicyWorkerAction.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCoolingSxTransition @ 0x140586B10 (PopCoolingSxTransition.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     PopCoolingSxTransition @ 0x140587000 (PopCoolingSxTransition.c)
  */
 
 void PopThermalSxExit()
@@ -32,21 +32,24 @@ void PopThermalSxExit()
     if ( PoResumeFromHibernate )
     {
       PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalStateTransitionContext);
-      if ( byte_140C3C8D2 )
+      if ( byte_140C3C752 )
       {
-        byte_140C3C8D2 = 0;
-        ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL);
+        byte_140C3C752 = 0;
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
       }
       PopReleaseRwLock(&PopThermalStateTransitionContext);
       v0 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);
-      dword_140C3C7EC = -1;
+      dword_140C3C66C = -1;
       v1 = v0;
-      byte_140C3C7E8 = 1;
+      byte_140C3C668 = 1;
       KxReleaseSpinLock((volatile signed __int64 *)&PopThermalEventTransitionContext);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v1 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -80,8 +83,8 @@ void PopThermalSxExit()
     PopReleaseRwLock((__int64 *)&PopPolicyDeviceLock);
     PopCoolingSxTransition(0);
     PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalStateTransitionContext);
-    byte_140C3C8D0 = 1;
-    if ( byte_140C3C8D1 || byte_140C3C8D3 )
+    byte_140C3C750 = 1;
+    if ( byte_140C3C751 || byte_140C3C753 )
       PopQueueWorkItem((__int64)&PopThermalStateTransitionWorkItem, DelayedWorkQueue);
     PopReleaseRwLock(&PopThermalStateTransitionContext);
   }

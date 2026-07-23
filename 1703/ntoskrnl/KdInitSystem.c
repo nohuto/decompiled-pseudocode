@@ -51,16 +51,16 @@ char __fastcall KdInitSystem(int a1, __int64 a2)
   int v23; // eax
   unsigned int v24; // r15d
   __int64 *k; // rdi
-  char *v26; // r9
+  CHAR *v26; // r9
   unsigned int v27; // r8d
   __int64 v28; // rdx
-  char v29; // al
+  CHAR v29; // al
   unsigned int i; // edi
   PVOID PoolWithTag; // rax
   __int64 v32; // rsi
   signed __int32 v33[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v3 = 0;
   v4 = 0;
@@ -322,7 +322,7 @@ LABEL_19:
     {
       if ( v24 >= 3 )
         break;
-      v26 = (char *)k[10];
+      v26 = (CHAR *)k[10];
       v27 = *((unsigned __int16 *)k + 36) >> 1;
       if ( v27 >= 0x100 )
         v27 = 255;

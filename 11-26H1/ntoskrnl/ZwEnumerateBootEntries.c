@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwEnumerateBootEntries @ 0x1407250D0
+ * XREFs of ZwEnumerateBootEntries @ 0x140729CA0
  * Callers:
- *     DifZwEnumerateBootEntriesWrapper @ 0x1406A5190 (DifZwEnumerateBootEntriesWrapper.c)
- *     SiGetEspFromFirmware @ 0x1408950EC (SiGetEspFromFirmware.c)
- *     BiEnumerateBootEntries @ 0x1409D0464 (BiEnumerateBootEntries.c)
- *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x140B6E708 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     DifZwEnumerateBootEntriesWrapper @ 0x1406A8D70 (DifZwEnumerateBootEntriesWrapper.c)
+ *     SiGetEspFromFirmware @ 0x14089B4EC (SiGetEspFromFirmware.c)
+ *     BiEnumerateBootEntries @ 0x1409A1444 (BiEnumerateBootEntries.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x140B71C48 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwEnumerateBootEntries(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Buffer);
 }

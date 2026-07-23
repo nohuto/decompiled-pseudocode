@@ -1,18 +1,18 @@
 /*
  * XREFs of PsLookupThreadByThreadId @ 0x1407A7D90
  * Callers:
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
+ *     sub_1406634A0 @ 0x1406634A0 (sub_1406634A0.c)
  *     PsLookupProcessThreadByCid @ 0x140663880 (PsLookupProcessThreadByCid.c)
- *     NtAlertThreadByThreadId @ 0x1407A7D20 (NtAlertThreadByThreadId.c)
- *     PfpServiceMainThreadBoostPrep @ 0x140808A98 (PfpServiceMainThreadBoostPrep.c)
+ *     sub_1407A7D20 @ 0x1407A7D20 (sub_1407A7D20.c)
+ *     sub_140808A98 @ 0x140808A98 (sub_140808A98.c)
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14024BA7C (ExfAcquireReleasePushLockExclusive.c)
+ *     PsGetThreadProcess @ 0x1402321F0 (PsGetThreadProcess.c)
+ *     sub_14024BA7C @ 0x14024BA7C (sub_14024BA7C.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
  *     PsGetCurrentServerSilo @ 0x1402F61B0 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x140300B74 (PsIsProcessInSilo.c)
- *     PspReferenceCidTableEntry @ 0x1407A8900 (PspReferenceCidTableEntry.c)
+ *     sub_140300B74 @ 0x140300B74 (sub_140300B74.c)
+ *     sub_1407A8900 @ 0x1407A8900 (sub_1407A8900.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
@@ -28,25 +28,25 @@ NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
 
   CurrentThread = KeGetCurrentThread();
   v3 = Thread;
-  --CurrentThread->SpecialApcDisable;
+  --*((_WORD *)CurrentThread + 243);
   LOBYTE(Thread) = 6;
-  v4 = (struct _KTHREAD *)PspReferenceCidTableEntry(ThreadId, Thread);
+  v4 = (struct _KTHREAD *)sub_1407A8900(ThreadId, Thread);
   v5 = 0;
   v6 = v4;
   if ( v4 )
   {
-    if ( IoThreadToProcess(v4) == PsIdleProcess )
+    if ( PsGetThreadProcess(v4) == qword_140D06940 )
       goto LABEL_9;
-    if ( (*(_DWORD *)(&v6[1].SwapListEntry + 1) & 2) == 0 )
+    if ( (*((_DWORD *)v6 + 344) & 2) == 0 )
     {
       _InterlockedOr(v10, 0);
-      if ( ((__int64)v6[1].WaitBlockList & 1) != 0 )
-        ExfAcquireReleasePushLockExclusive((ULONG_PTR)&v6[1].WaitBlockList);
-      if ( (*(_DWORD *)(&v6[1].SwapListEntry + 1) & 2) == 0 )
+      if ( (*((_QWORD *)v6 + 170) & 1) != 0 )
+        sub_14024BA7C((ULONG_PTR)v6 + 1360);
+      if ( (*((_DWORD *)v6 + 344) & 2) == 0 )
         goto LABEL_9;
     }
     CurrentServerSilo = PsGetCurrentServerSilo();
-    if ( PsIsProcessInSilo(v6->Process, CurrentServerSilo) )
+    if ( sub_140300B74(*((_QWORD *)v6 + 68), CurrentServerSilo) )
     {
       *v3 = v6;
     }
@@ -61,8 +61,8 @@ LABEL_9:
   {
     v5 = -1073741813;
   }
-  v8 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v8 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  v8 = (*((_WORD *)CurrentThread + 243))++ == 0xFFFF;
+  if ( v8 && *((struct _KTHREAD **)CurrentThread + 19) != (struct _KTHREAD *)((char *)CurrentThread + 152) )
     KiCheckForKernelApcDelivery();
   return v5;
 }

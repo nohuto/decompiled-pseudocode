@@ -1,15 +1,15 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x140120238
+ * XREFs of MmSetAccessLogging @ 0x1401202A8
  * Callers:
- *     PfTAccessTracingCleanup @ 0x14056598C (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140565FF4 (PfTAccessTracingStart.c)
- *     PfTSetTracingPriority @ 0x14057C87C (PfTSetTracingPriority.c)
+ *     PfTAccessTracingCleanup @ 0x14056698C (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140566FF4 (PfTAccessTracingStart.c)
+ *     PfTSetTracingPriority @ 0x14057D87C (PfTSetTracingPriority.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __fastcall MmSetAccessLogging(int a1, int a2)
@@ -22,8 +22,8 @@ BOOLEAN __fastcall MmSetAccessLogging(int a1, int a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  dword_14043A8E8 = a1;
-  dword_14043A8EC = a2;
+  dword_14043B9A8 = a1;
+  dword_14043B9AC = a2;
   if ( a1 )
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);

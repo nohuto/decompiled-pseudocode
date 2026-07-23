@@ -1,12 +1,12 @@
 /*
- * XREFs of IoGetRelatedTargetDevice @ 0x14071C4DC
+ * XREFs of IoGetRelatedTargetDevice @ 0x1406FCB4C
  * Callers:
- *     FsRtlNotifyVolumeEventEx @ 0x14071C400 (FsRtlNotifyVolumeEventEx.c)
- *     NtSetVolumeInformationFile @ 0x14076D170 (NtSetVolumeInformationFile.c)
- *     PiPagePathSetState @ 0x1407C9E40 (PiPagePathSetState.c)
- *     NtGetDevicePowerState @ 0x1408F0370 (NtGetDevicePowerState.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x1406FCFD0 (FsRtlNotifyVolumeEventEx.c)
+ *     NtSetVolumeInformationFile @ 0x14076D330 (NtSetVolumeInformationFile.c)
+ *     PiPagePathSetState @ 0x1407CA160 (PiPagePathSetState.c)
+ *     NtGetDevicePowerState @ 0x1408F04D0 (NtGetDevicePowerState.c)
  * Callees:
- *     PnpGetRelatedTargetDevice @ 0x14036185C (PnpGetRelatedTargetDevice.c)
+ *     PnpGetRelatedTargetDevice @ 0x1402F7DC0 (PnpGetRelatedTargetDevice.c)
  */
 
 __int64 __fastcall IoGetRelatedTargetDevice(struct _FILE_OBJECT *a1, _QWORD *a2)

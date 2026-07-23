@@ -9,17 +9,18 @@
  *     _RtlpHpStackTraceEnable@0 @ 0x4B36E304 (_RtlpHpStackTraceEnable@0.c)
  */
 
-int __thiscall RtlpHpStackTraceConfig(int this)
+NTSTATUS __thiscall RtlpHpStackTraceConfig(int this)
 {
-  int v1; // ebx
-  int v2; // esi
-  int v4[18]; // [esp+8h] [ebp-48h] BYREF
+  void *v1; // ebx
+  void *v2; // esi
+  size_t v4; // [esp-4h] [ebp-54h]
+  HANDLE v5[18]; // [esp+8h] [ebp-48h] BYREF
 
-  v1 = *(unsigned __int16 *)(this + 2);
-  v2 = *(_DWORD *)(this + 4);
-  if ( v2 == -1 )
+  v1 = (void *)*(unsigned __int16 *)(this + 2);
+  v2 = *(void **)(this + 4);
+  if ( v2 == (void *)-1 )
   {
-    if ( (v1 & 1) != 0 )
+    if ( ((unsigned __int8)v1 & 1) != 0 )
       RtlpHpStackTraceEnable();
     else
       RtlpHpStackTraceDisable();
@@ -27,9 +28,10 @@ int __thiscall RtlpHpStackTraceConfig(int this)
   }
   else
   {
-    memset(v4, 0, sizeof(v4));
-    v4[5] = 0x10000000;
-    v4[15] = v1;
-    return RtlpHeapPerformCrossProcessQuery(v2, v4);
+    LODWORD(v4) = 72;
+    memset(v5, 0, v4);
+    v5[5] = (HANDLE)0x10000000;
+    v5[15] = v1;
+    return RtlpHeapPerformCrossProcessQuery(v2, v5);
   }
 }

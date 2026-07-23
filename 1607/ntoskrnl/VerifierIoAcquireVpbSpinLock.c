@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoAcquireVpbSpinLock @ 0x14070C724
+ * XREFs of VerifierIoAcquireVpbSpinLock @ 0x14070C754
  * Callers:
  *     <none>
  * Callees:

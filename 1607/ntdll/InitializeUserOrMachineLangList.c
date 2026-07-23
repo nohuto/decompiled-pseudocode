@@ -1,13 +1,13 @@
 /*
- * XREFs of InitializeUserOrMachineLangList @ 0x180070A08
+ * XREFs of InitializeUserOrMachineLangList @ 0x1800709F8
  * Callers:
- *     RtlpInitializeUserList @ 0x180010CE4 (RtlpInitializeUserList.c)
- *     InitializeTEBUserLangList @ 0x180012660 (InitializeTEBUserLangList.c)
- *     RtlpQueryDefaultUILanguage @ 0x1800708D0 (RtlpQueryDefaultUILanguage.c)
+ *     RtlpInitializeUserList @ 0x180010CD4 (RtlpInitializeUserList.c)
+ *     InitializeTEBUserLangList @ 0x180012650 (InitializeTEBUserLangList.c)
+ *     RtlpQueryDefaultUILanguage @ 0x1800708C0 (RtlpQueryDefaultUILanguage.c)
  * Callees:
- *     RtlpSetProcUserMachineLangList @ 0x180012958 (RtlpSetProcUserMachineLangList.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712D8 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     RtlpMuiRegCreateLanguageList @ 0x180071974 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpSetProcUserMachineLangList @ 0x180012948 (RtlpSetProcUserMachineLangList.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712C8 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180071964 (RtlpMuiRegCreateLanguageList.c)
  */
 
 __int64 __fastcall InitializeUserOrMachineLangList(__int64 a1, unsigned int a2, __int64 *a3, int a4, char a5)

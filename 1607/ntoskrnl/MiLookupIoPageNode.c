@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLookupIoPageNode @ 0x1401105C0
+ * XREFs of MiLookupIoPageNode @ 0x140110B24
  * Callers:
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E214 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x140146848 (MiInsertViewOfPhysicalSection.c)
- *     MmProtectMdlSystemAddress @ 0x1401E44E4 (MmProtectMdlSystemAddress.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E778 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140146DB8 (MiInsertViewOfPhysicalSection.c)
+ *     MmProtectMdlSystemAddress @ 0x1401E4310 (MmProtectMdlSystemAddress.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 _QWORD *__fastcall MiLookupIoPageNode(unsigned __int64 a1)
@@ -15,8 +15,8 @@ _QWORD *__fastcall MiLookupIoPageNode(unsigned __int64 a1)
   unsigned __int64 v3; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_1403275C0, &LockHandle);
-  v2 = (_QWORD *)qword_1403275D0;
+  KeAcquireInStackQueuedSpinLock(&qword_140327600, &LockHandle);
+  v2 = (_QWORD *)qword_140327610;
   while ( v2 )
   {
     v3 = v2[5];

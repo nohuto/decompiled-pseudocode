@@ -6,11 +6,11 @@
  *     _NtQueryPerformanceCounter@8 @ 0x4B2F2C90 (_NtQueryPerformanceCounter@8.c)
  */
 
-int __fastcall LdrpGenSecurityCookie(int a1)
+unsigned int __fastcall LdrpGenSecurityCookie(int a1)
 {
   int v1; // edi
   int v2; // esi
-  _DWORD v4[2]; // [esp+Ch] [ebp-14h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [esp+Ch] [ebp-14h] BYREF
   int v5; // [esp+14h] [ebp-Ch]
   int v6; // [esp+18h] [ebp-8h]
   unsigned int v7; // [esp+1Ch] [ebp-4h]
@@ -30,6 +30,6 @@ int __fastcall LdrpGenSecurityCookie(int a1)
   {
     v2 = (MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24;
   }
-  NtQueryPerformanceCounter(v4, 0);
-  return v5 ^ v1 ^ v4[0] ^ v4[1] ^ v2;
+  NtQueryPerformanceCounter(&PerformanceCounter, 0);
+  return v5 ^ v1 ^ PerformanceCounter.LowPart ^ PerformanceCounter.HighPart ^ v2;
 }

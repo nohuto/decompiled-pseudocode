@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwShutdownSystem @ 0x1800A3870
+ * XREFs of ZwShutdownSystem @ 0x1800A3890
  * Callers:
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008EA70 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008EA80 (RtlpVerifyAndCommitUILanguageSettings.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwShutdownSystem()
+NTSTATUS __cdecl ZwShutdownSystem(SHUTDOWN_ACTION Action)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 429LL;
+  result = 429;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

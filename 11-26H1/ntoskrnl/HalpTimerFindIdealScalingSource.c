@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerFindIdealScalingSource @ 0x140577340
+ * XREFs of HalpTimerFindIdealScalingSource @ 0x140579870
  * Callers:
- *     HalpTimerSelectRoles @ 0x140577E78 (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x14057A3A8 (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x140581834 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x140583D54 (HalpFindTimer.c)
  */
 
 __int64 HalpTimerFindIdealScalingSource()

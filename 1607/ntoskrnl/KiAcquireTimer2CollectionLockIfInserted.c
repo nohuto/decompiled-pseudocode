@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAcquireTimer2CollectionLockIfInserted @ 0x1400EC828
+ * XREFs of KiAcquireTimer2CollectionLockIfInserted @ 0x1400EA698
  * Callers:
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     KeDisableTimer2 @ 0x1400F79FC (KeDisableTimer2.c)
- *     KeCancelTimer2 @ 0x1400F97C0 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     KeDisableTimer2 @ 0x1400F583C (KeDisableTimer2.c)
+ *     KeCancelTimer2 @ 0x1400F7600 (KeCancelTimer2.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
  */
 
 char __fastcall KiAcquireTimer2CollectionLockIfInserted(__int64 a1)

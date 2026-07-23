@@ -12,46 +12,52 @@
  *     RtlCopySid @ 0x1404793FC (RtlCopySid.c)
  */
 
-__int64 __fastcall RtlAddProcessTrustLabelAce(PACL Acl, unsigned int a2, int a3, unsigned __int8 *a4, char a5, int a6)
+NTSTATUS __cdecl RtlAddProcessTrustLabelAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        PSID ProcessTrustLabelSid,
+        UCHAR AceType,
+        ACCESS_MASK AccessMask)
 {
   UCHAR AclRevision; // bp
-  int v11; // esi
+  ACCESS_MASK v11; // esi
   PACE v12; // rdx
   WORD v13; // r8
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PACE Ace; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !Acl || !RtlValidAcl(Acl) )
-    return 3221225591LL;
-  if ( a5 != 20 )
-    return 3221225485LL;
-  if ( !RtlValidSid(a4) )
-    return 3221225592LL;
-  if ( !RtlIsValidProcessTrustLabelSid((__int64)a4) )
-    return 3221225485LL;
-  if ( Acl->AclRevision > 4u || a2 > 4 )
-    return 3221225561LL;
-  AclRevision = a2;
-  if ( Acl->AclRevision > a2 )
+    return -1073741705;
+  if ( AceType != 20 )
+    return -1073741811;
+  if ( !RtlValidSid(ProcessTrustLabelSid) )
+    return -1073741704;
+  if ( !RtlIsValidProcessTrustLabelSid(ProcessTrustLabelSid) )
+    return -1073741811;
+  if ( Acl->AclRevision > 4u || AceRevision > 4 )
+    return -1073741735;
+  AclRevision = AceRevision;
+  if ( Acl->AclRevision > AceRevision )
     AclRevision = Acl->AclRevision;
-  if ( (a3 & 0xFFFFFFE0) != 0 )
-    return 3221225485LL;
-  v11 = a6;
-  if ( (a6 & 0xFF000000) != 0 )
-    return 3221225485LL;
+  if ( (AceFlags & 0xFFFFFFE0) != 0 )
+    return -1073741811;
+  v11 = AccessMask;
+  if ( (AccessMask & 0xFF000000) != 0 )
+    return -1073741811;
   if ( !RtlFirstFreeAce(Acl, &Ace) )
-    return 3221225591LL;
+    return -1073741705;
   v12 = Ace;
-  v13 = 4 * (a4[1] + 4);
+  v13 = 4 * (*((unsigned __int8 *)ProcessTrustLabelSid + 1) + 4);
   if ( !Ace || (char *)Ace + v13 > (char *)Acl + Acl->AclSize )
-    return 3221225625LL;
+    return -1073741671;
   Ace->Header.AceSize = v13;
-  v12->Header.AceFlags = a3;
+  v12->Header.AceFlags = AceFlags;
   v12->Header.AceType = 20;
   v12->AccessMask = v11;
-  RtlCopySid(4 * a4[1] + 8, &v12[1], a4);
+  RtlCopySid(4 * *((unsigned __int8 *)ProcessTrustLabelSid + 1) + 8, &v12[1], ProcessTrustLabelSid);
   ++Acl->AceCount;
-  result = 0LL;
+  result = 0;
   Acl->AclRevision = AclRevision;
   return result;
 }

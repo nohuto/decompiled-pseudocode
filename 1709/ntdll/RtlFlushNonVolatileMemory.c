@@ -6,19 +6,19 @@
  *     RtlDrainNonVolatileFlush @ 0x1800F4A60 (RtlDrainNonVolatileFlush.c)
  */
 
-__int64 __fastcall RtlFlushNonVolatileMemory(char a1, __int64 a2, __int64 a3, char a4)
+DWORD __cdecl RtlFlushNonVolatileMemory(PVOID NvToken, PVOID NvBuffer, SIZE_T Size, DWORD Flags)
 {
-  unsigned __int64 v7; // rdx
+  char *v7; // rdx
 
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  if ( (a1 & 2) != 0 )
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  if ( ((unsigned __int8)NvToken & 2) != 0 )
   {
-    _RCX = (char *)(a2 & ~(RtlpClFlushSize - 1));
-    v7 = a3 + a2;
+    _RCX = (char *)((unsigned __int64)NvBuffer & ~(RtlpClFlushSize - 1));
+    v7 = (char *)NvBuffer + Size;
     if ( RtlpOptimalFlushMethod == 2 )
     {
-      while ( (unsigned __int64)_RCX < v7 )
+      while ( _RCX < v7 )
       {
         __asm { clwb    byte ptr [rcx] }
         _RCX += RtlpClFlushSize;
@@ -26,7 +26,7 @@ __int64 __fastcall RtlFlushNonVolatileMemory(char a1, __int64 a2, __int64 a3, ch
     }
     else if ( RtlpOptimalFlushMethod == 3 )
     {
-      while ( (unsigned __int64)_RCX < v7 )
+      while ( _RCX < v7 )
       {
         __asm { clflushopt byte ptr [rcx] }
         _RCX += RtlpClFlushSize;
@@ -34,14 +34,14 @@ __int64 __fastcall RtlFlushNonVolatileMemory(char a1, __int64 a2, __int64 a3, ch
     }
     else
     {
-      while ( (unsigned __int64)_RCX < v7 )
+      while ( _RCX < v7 )
       {
         _mm_clflush(_RCX);
         _RCX += RtlpClFlushSize;
       }
     }
-    if ( (a4 & 1) == 0 )
-      RtlDrainNonVolatileFlush(a1);
+    if ( (Flags & 1) == 0 )
+      RtlDrainNonVolatileFlush(NvToken);
   }
-  return 0LL;
+  return 0;
 }

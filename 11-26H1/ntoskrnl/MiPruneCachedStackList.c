@@ -1,21 +1,21 @@
 /*
- * XREFs of MiPruneCachedStackList @ 0x140292358
+ * XREFs of MiPruneCachedStackList @ 0x1402918B8
  * Callers:
- *     MiFindContiguousPagesNode @ 0x1402904F0 (MiFindContiguousPagesNode.c)
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
- *     MiAdjustCachedStackList @ 0x1402A8660 (MiAdjustCachedStackList.c)
+ *     MiFindContiguousPagesNode @ 0x14028FA50 (MiFindContiguousPagesNode.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
+ *     MiAdjustCachedStackList @ 0x1402A7A70 (MiAdjustCachedStackList.c)
  * Callees:
- *     MiDeleteCachedKernelStack @ 0x14028FE5C (MiDeleteCachedKernelStack.c)
- *     MiDeleteCachedKernelShadowStack @ 0x1402A97A0 (MiDeleteCachedKernelShadowStack.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x14028F3BC (MiDeleteCachedKernelStack.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x1402A8BB0 (MiDeleteCachedKernelShadowStack.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall MiPruneCachedStackList(union _SLIST_HEADER *a1, union _SLIST_HEADER *a2, unsigned int a3, int a4)
+__int64 __fastcall MiPruneCachedStackList(_SLIST_HEADER *a1, _SLIST_HEADER *a2, unsigned int a3, int a4)
 {
   __int64 result; // rax
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // rbx
+  _SLIST_ENTRY *v10; // rbx
 
   for ( result = LOWORD(a2->Alignment); (unsigned int)result > a3; result = LOWORD(a2->Alignment) )
   {

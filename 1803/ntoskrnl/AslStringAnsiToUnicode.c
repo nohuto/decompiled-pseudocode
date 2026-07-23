@@ -14,7 +14,7 @@
  *     AslLogCallPrintf @ 0x1407D92C4 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   __int64 v3; // rcx
   ULONG v4; // esi
@@ -22,7 +22,7 @@ __int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
   unsigned int v6; // edi
   NTSTATUS v7; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  STRING AnsiString; // [rsp+40h] [rbp-18h] BYREF
+  ANSI_STRING AnsiString; // [rsp+40h] [rbp-18h] BYREF
 
   RtlInitString(&AnsiString, a2);
   if ( (_BYTE)NlsMbCodePageTag )

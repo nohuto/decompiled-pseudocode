@@ -6,7 +6,7 @@
  *     _RtlpTimeToTimeFields@12 @ 0x4B2DCCE0 (_RtlpTimeToTimeFields@12.c)
  */
 
-int __stdcall RtlTimeToTimeFields(int a1, int a2)
+void __cdecl RtlTimeToTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)
 {
-  return RtlpTimeToTimeFields(a1, a2, 0);
+  RtlpTimeToTimeFields(Time, TimeFields, 0);
 }

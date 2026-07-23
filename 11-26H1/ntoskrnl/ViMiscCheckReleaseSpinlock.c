@@ -1,11 +1,11 @@
 /*
- * XREFs of ViMiscCheckReleaseSpinlock @ 0x140C47180
+ * XREFs of ViMiscCheckReleaseSpinlock @ 0x140C4D190
  * Callers:
- *     VfMiscKeReleaseSpinLock_Entry @ 0x140C47160 (VfMiscKeReleaseSpinLock_Entry.c)
+ *     VfMiscKeReleaseSpinLock_Entry @ 0x140C4D170 (VfMiscKeReleaseSpinLock_Entry.c)
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     ViMiscCheckKeLowerIrql @ 0x140C47208 (ViMiscCheckKeLowerIrql.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     ViMiscCheckKeLowerIrql @ 0x140C4D218 (ViMiscCheckKeLowerIrql.c)
  */
 
 __int64 __fastcall ViMiscCheckReleaseSpinlock(ULONG_PTR BugCheckParameter3, char a2, __int64 a3)

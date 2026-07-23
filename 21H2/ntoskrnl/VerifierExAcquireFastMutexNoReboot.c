@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierExAcquireFastMutexNoReboot @ 0x1409E47C0
+ * XREFs of VerifierExAcquireFastMutexNoReboot @ 0x1409E57C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DBE50 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x1409DC0CC (ViKeIrqlLogCommon.c)
- *     ViExCheckAPCLevelOrBelow @ 0x1409E4D84 (ViExCheckAPCLevelOrBelow.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DCE50 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     ViKeIrqlLogCommon @ 0x1409DD0CC (ViKeIrqlLogCommon.c)
+ *     ViExCheckAPCLevelOrBelow @ 0x1409E5D84 (ViExCheckAPCLevelOrBelow.c)
  */
 
 void __fastcall VerifierExAcquireFastMutexNoReboot(__int64 a1)

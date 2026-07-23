@@ -1,10 +1,10 @@
 /*
- * XREFs of ViMiscCheckKeRaiseIrql @ 0x140BA801C
+ * XREFs of ViMiscCheckKeRaiseIrql @ 0x140BAA01C
  * Callers:
- *     VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140B9DCB0 (VfMiscKeAcquireSpinLockRaiseToDpc_Entry.c)
- *     VfMiscKeSynchronizeExecution_Entry @ 0x140B9DFB0 (VfMiscKeSynchronizeExecution_Entry.c)
+ *     VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140B9FCB0 (VfMiscKeAcquireSpinLockRaiseToDpc_Entry.c)
+ *     VfMiscKeSynchronizeExecution_Entry @ 0x140B9FFB0 (VfMiscKeSynchronizeExecution_Entry.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall ViMiscCheckKeRaiseIrql(unsigned __int8 a1, __int64 a2)

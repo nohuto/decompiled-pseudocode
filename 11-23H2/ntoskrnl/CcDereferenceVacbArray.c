@@ -1,13 +1,13 @@
 /*
- * XREFs of CcDereferenceVacbArray @ 0x140537F3C
+ * XREFs of CcDereferenceVacbArray @ 0x14053848C
  * Callers:
- *     CcUnmapInactiveViewsInternal @ 0x1405383E0 (CcUnmapInactiveViewsInternal.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140538930 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CcRemoveVacbArray @ 0x140538168 (CcRemoveVacbArray.c)
- *     CcFreeVacbArray @ 0x140936B64 (CcFreeVacbArray.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcRemoveVacbArray @ 0x1405386B8 (CcRemoveVacbArray.c)
+ *     CcFreeVacbArray @ 0x140936D64 (CcFreeVacbArray.c)
  */
 
 void __fastcall CcDereferenceVacbArray(__int64 a1, char a2)

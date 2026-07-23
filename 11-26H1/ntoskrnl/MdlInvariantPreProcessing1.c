@@ -1,14 +1,14 @@
 /*
- * XREFs of MdlInvariantPreProcessing1 @ 0x140642D54
+ * XREFs of MdlInvariantPreProcessing1 @ 0x140646934
  * Callers:
- *     IovpCallDriver1 @ 0x140C2B2B8 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140C312C8 (IovpCallDriver1.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MmMdlPageContentsState @ 0x14047E2F0 (MmMdlPageContentsState.c)
- *     RtlpComputeCrcInternal @ 0x1404878F0 (RtlpComputeCrcInternal.c)
- *     MdlInvariantFindMdlInfo @ 0x140642A70 (MdlInvariantFindMdlInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMdlPageContentsState @ 0x140477C60 (MmMdlPageContentsState.c)
+ *     RtlpComputeCrcInternal @ 0x140481430 (RtlpComputeCrcInternal.c)
+ *     MdlInvariantFindMdlInfo @ 0x140646650 (MdlInvariantFindMdlInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 unsigned __int64 __fastcall MdlInvariantPreProcessing1(__int64 a1, __int64 a2, __int64 a3)

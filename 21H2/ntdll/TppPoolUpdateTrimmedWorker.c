@@ -8,47 +8,49 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     RtlWakeConditionVariable @ 0x18004F0A0 (RtlWakeConditionVariable.c)
- *     ZwDuplicateObject @ 0x18009DDC0 (ZwDuplicateObject.c)
+ *     ZwDuplicateObject @ 0x18009DD80 (ZwDuplicateObject.c)
  */
 
-__int64 __fastcall TppPoolUpdateTrimmedWorker(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall TppPoolUpdateTrimmedWorker(__int64 a1)
 {
-  volatile signed __int64 *v4; // rsi
-  __int64 result; // rax
+  _RTL_SRWLOCK *v1; // rsi
   _QWORD *Heap; // rbx
-  _QWORD *v8; // rcx
-  unsigned int v9; // ebx
-  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *v4; // rcx
+  unsigned int v5; // ebx
+  HANDLE TargetHandle; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = (volatile signed __int64 *)(a1 + 72);
-  RtlAcquireSRWLockExclusive(a1 + 72, a2, a3, a4);
+  v1 = (_RTL_SRWLOCK *)(a1 + 72);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   if ( (*(_DWORD *)(a1 + 436) & 0xFFE) == 0 )
-    return RtlReleaseSRWLockExclusive(v4);
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8u, 24LL);
+    goto LABEL_2;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 0x18uLL);
   if ( !Heap )
-    return RtlReleaseSRWLockExclusive(v4);
-  if ( (int)ZwDuplicateObject(-1LL, -2LL, -1LL, &v10, 0, 0, 2) < 0 )
+    goto LABEL_2;
+  if ( ZwDuplicateObject(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         (HANDLE)0xFFFFFFFFFFFFFFFELL,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &TargetHandle,
+         0,
+         0,
+         2u) < 0 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, (__int64)Heap);
-    return RtlReleaseSRWLockExclusive(v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
+LABEL_2:
+    RtlReleaseSRWLockExclusive(v1);
+    return;
   }
-  Heap[2] = v10;
-  v8 = *(_QWORD **)(a1 + 464);
-  if ( *v8 != a1 + 456 )
+  Heap[2] = TargetHandle;
+  v4 = *(_QWORD **)(a1 + 464);
+  if ( *v4 != a1 + 456 )
     __fastfail(3u);
-  Heap[1] = v8;
+  Heap[1] = v4;
   *Heap = a1 + 456;
-  *v8 = Heap;
+  *v4 = Heap;
   *(_QWORD *)(a1 + 464) = Heap;
-  v9 = *(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) + 4096)) & 0x7FF000;
-  *(_DWORD *)(a1 + 436) = v9;
-  RtlReleaseSRWLockExclusive(v4);
-  result = v9 ^ (v9 >> 11);
-  if ( (((unsigned __int16)v9 ^ (unsigned __int16)(v9 >> 11)) & 0xFFE) == 0 )
-    return RtlWakeConditionVariable(a1 + 448);
-  return result;
+  v5 = *(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) + 4096)) & 0x7FF000;
+  *(_DWORD *)(a1 + 436) = v5;
+  RtlReleaseSRWLockExclusive(v1);
+  if ( ((v5 ^ (v5 >> 11)) & 0xFFE) == 0 )
+    RtlWakeConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 448));
 }

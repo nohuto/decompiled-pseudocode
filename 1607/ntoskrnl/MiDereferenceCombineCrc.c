@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDereferenceCombineCrc @ 0x140663D98
+ * XREFs of MiDereferenceCombineCrc @ 0x140663E7C
  * Callers:
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
- *     MiDecrementCombinedPte @ 0x1401F972C (MiDecrementCombinedPte.c)
+ *     MiDecrementCombinedPte @ 0x1401F9558 (MiDecrementCombinedPte.c)
  */
 
 __int64 __fastcall MiDereferenceCombineCrc(__int64 a1)

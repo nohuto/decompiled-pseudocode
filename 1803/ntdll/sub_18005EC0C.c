@@ -15,45 +15,45 @@
  *     sub_180102360 @ 0x180102360 (sub_180102360.c)
  */
 
-__int64 __fastcall sub_18005EC0C(__int64 a1, int a2)
+PVOID __fastcall sub_18005EC0C(__int64 a1, int a2)
 {
   __int64 v3; // rbx
-  __int64 v5; // rcx
+  _DWORD *v5; // rcx
   __int128 v6; // xmm0
   bool v7; // cf
-  int v8; // eax
+  ULONG v8; // eax
   __int64 v9; // r8
   unsigned __int64 v10; // r15
   _BOOL8 v11; // r14
   unsigned __int64 v12; // rdi
   unsigned __int64 v13; // r12
-  __int64 v14; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v15; // rcx
-  unsigned __int64 v17; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v18; // [rsp+50h] [rbp-10h] BYREF
+  ULONG_PTR v17[2]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v18[2]; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v19; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v20; // [rsp+A8h] [rbp+48h] BYREF
+  PVOID BaseAddress; // [rsp+A8h] [rbp+48h] BYREF
 
   v3 = 0LL;
-  v20 = 0LL;
-  if ( (int)sub_18005EF74(a1, &v20, &v19) < 0
-    || (v5 = *(_QWORD *)(a1 + 112),
+  BaseAddress = 0LL;
+  if ( (int)sub_18005EF74(a1, &BaseAddress, &v19) < 0
+    || (v5 = *(_DWORD **)(a1 + 112),
         v6 = *(_OWORD *)(a1 + 96),
-        v17 = (unsigned int)(a2 << 12) + 0x2000LL,
-        v7 = (*(_DWORD *)(v5 + 20) & 0x40000000) != 0,
-        v18 = v6,
+        v17[0] = (unsigned int)(a2 << 12) + 0x2000LL,
+        v7 = (v5[5] & 0x40000000) != 0,
+        *(_OWORD *)v18 = v6,
         v8 = sub_180011A6C(v5, v7 ? 64 : 4),
-        (int)sub_18001182C(&v20, (__int64 *)&v17, 0, 1073745920, v8, &v18, 0LL) < 0) )
+        (int)sub_18001182C(&BaseAddress, v17, 0, 1073745920, v8, (__int128 *)v18, 0LL) < 0) )
   {
 LABEL_22:
-    if ( v20 )
-      sub_180062960(a1, v20, 0LL);
+    if ( BaseAddress )
+      sub_180062960(a1, BaseAddress, 0LL);
   }
   else
   {
     v10 = v19;
     v11 = v19 != 0x100000;
-    v12 = 2 * ((unsigned __int64)(v20 - qword_18015D878) >> 20);
+    v12 = 2 * (((unsigned __int64)BaseAddress - qword_18015D878) >> 20);
     v13 = v12 + 2 * ((unsigned __int64)v19 >> 20);
     while ( v12 < v13 )
     {
@@ -62,22 +62,22 @@ LABEL_22:
       v12 += 2LL;
     }
     _InterlockedExchangeAdd64(*(volatile signed __int64 **)(a1 + 72), v10 >> 12);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 8LL), v17 >> 12);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 8LL), v17[0] >> 12);
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v14 = 2147353472LL;
-    if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FE0A4(*(_QWORD *)(a1 + 112), v20, v17, 12LL);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      sub_1800FE0A4(*(_QWORD *)(a1 + 112), BaseAddress, v17[0], 12LL);
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
     else
       v15 = 2147353480LL;
     if ( *(_BYTE *)v15 )
-      sub_1800FC5C4(*(_QWORD *)(a1 + 112), v20, v10);
+      sub_1800FC5C4(*(_QWORD *)(a1 + 112), BaseAddress, v10);
     if ( (byte_18015D028 & 8) != 0 )
       sub_180102360(*(_QWORD *)(a1 + 112), *(_QWORD *)(a1 + 72));
-    return v20;
+    return BaseAddress;
   }
-  return v3;
+  return (PVOID)v3;
 }

@@ -9,48 +9,48 @@
  *     memmove @ 0x1800A4340 (memmove.c)
  */
 
-__int64 __fastcall RtlDuplicateUnicodeString(int a1, __int16 *a2, __int64 a3)
+NTSTATUS __cdecl RtlDuplicateUnicodeString(ULONG Flags, PUNICODE_STRING StringIn, PUNICODE_STRING StringOut)
 {
   char v5; // r15
-  unsigned __int16 v6; // di
-  _WORD *v7; // rsi
-  __int64 result; // rax
+  unsigned __int16 Length; // di
+  wchar_t *v7; // rsi
+  NTSTATUS result; // eax
   unsigned __int16 v9; // bx
-  _WORD *StringRoutine; // rax
+  wchar_t *StringRoutine; // rax
 
-  v5 = a1;
-  v6 = 0;
+  v5 = Flags;
+  Length = 0;
   v7 = 0LL;
-  if ( (a1 & 0xFFFFFFFC) != 0 || !a3 || (a1 & 3) == 2 )
-    return 3221225485LL;
-  result = RtlValidateUnicodeString(0LL);
-  if ( (int)result < 0 )
+  if ( (Flags & 0xFFFFFFFC) != 0 || !StringOut || (Flags & 3) == 2 )
+    return -1073741811;
+  result = RtlValidateUnicodeString(0, StringIn);
+  if ( result < 0 )
     return result;
-  if ( a2 )
-    v6 = *a2;
-  if ( (v5 & 1) != 0 && v6 == 0xFFFE )
-    return 3221225734LL;
+  if ( StringIn )
+    Length = StringIn->Length;
+  if ( (v5 & 1) != 0 && Length == 0xFFFE )
+    return -1073741562;
   if ( (v5 & 1) != 0 )
-    v9 = v6 + 2;
+    v9 = Length + 2;
   else
-    v9 = v6;
-  if ( (v5 & 2) == 0 && !v6 )
+    v9 = Length;
+  if ( (v5 & 2) == 0 && !Length )
     v9 = 0;
   if ( !v9 )
     goto LABEL_20;
-  StringRoutine = (_WORD *)NtdllpAllocateStringRoutine(v9);
+  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v9);
   v7 = StringRoutine;
   if ( StringRoutine )
   {
-    if ( v6 )
-      memmove(StringRoutine, *((const void **)a2 + 1), v6);
+    if ( Length )
+      memmove(StringRoutine, StringIn->Buffer, Length);
     if ( (v5 & 1) != 0 )
-      v7[(unsigned __int64)v6 >> 1] = 0;
+      v7[(unsigned __int64)Length >> 1] = 0;
 LABEL_20:
-    *(_WORD *)(a3 + 2) = v9;
-    *(_WORD *)a3 = v6;
-    *(_QWORD *)(a3 + 8) = v7;
-    return 0LL;
+    StringOut->MaximumLength = v9;
+    StringOut->Length = Length;
+    StringOut->Buffer = v7;
+    return 0;
   }
-  return 3221225495LL;
+  return -1073741801;
 }

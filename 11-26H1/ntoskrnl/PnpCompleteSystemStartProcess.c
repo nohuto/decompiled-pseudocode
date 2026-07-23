@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCompleteSystemStartProcess @ 0x1405257B0
+ * XREFs of PnpCompleteSystemStartProcess @ 0x140527E20
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PnpDiagnosticTrace @ 0x140493DF8 (PnpDiagnosticTrace.c)
- *     PpReleaseBootDDB @ 0x140776E90 (PpReleaseBootDDB.c)
- *     PiInitReleaseCachedGroupInformation @ 0x14077C858 (PiInitReleaseCachedGroupInformation.c)
- *     IopCallDriverReinitializationRoutines @ 0x140A265E4 (IopCallDriverReinitializationRoutines.c)
- *     EtwWriteEndScenario @ 0x140ADB480 (EtwWriteEndScenario.c)
- *     KseShimDatabaseBootRelease @ 0x140B4F3C4 (KseShimDatabaseBootRelease.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PnpDiagnosticTrace @ 0x14048D948 (PnpDiagnosticTrace.c)
+ *     PpReleaseBootDDB @ 0x140779D38 (PpReleaseBootDDB.c)
+ *     PiInitReleaseCachedGroupInformation @ 0x14077F34C (PiInitReleaseCachedGroupInformation.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140A39684 (IopCallDriverReinitializationRoutines.c)
+ *     EtwWriteEndScenario @ 0x140AD7F30 (EtwWriteEndScenario.c)
+ *     KseShimDatabaseBootRelease @ 0x140B51C54 (KseShimDatabaseBootRelease.c)
  */
 
 NTSTATUS PnpCompleteSystemStartProcess()

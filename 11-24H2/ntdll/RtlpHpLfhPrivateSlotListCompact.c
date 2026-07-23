@@ -1,124 +1,121 @@
 /*
- * XREFs of RtlpHpLfhPrivateSlotListCompact @ 0x1800E8930
+ * XREFs of RtlpHpLfhPrivateSlotListCompact @ 0x1800E4020
  * Callers:
- *     RtlpHpLfhPrivateSlotsCompact @ 0x1800E88A0 (RtlpHpLfhPrivateSlotsCompact.c)
+ *     RtlpHpLfhPrivateSlotsCompact @ 0x1800E3F90 (RtlpHpLfhPrivateSlotsCompact.c)
  * Callees:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x18004AEFC (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhHeatMapQuery @ 0x18004B220 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpLfhOwnerCompact @ 0x1800506A0 (RtlpHpLfhOwnerCompact.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpEnvThreadSuspend @ 0x1800E8B60 (RtlpHpEnvThreadSuspend.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwResumeThread @ 0x1801626D0 (ZwResumeThread.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x180060ADC (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x180060E00 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180066280 (RtlpHpLfhOwnerCompact.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpEnvThreadSuspend @ 0x1800E4250 (RtlpHpEnvThreadSuspend.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwResumeThread @ 0x180160A90 (ZwResumeThread.c)
  */
 
-__int64 __fastcall RtlpHpLfhPrivateSlotListCompact(unsigned __int64 a1, void **TlsExpansionSlots, unsigned __int64 a3)
+void __fastcall RtlpHpLfhPrivateSlotListCompact(unsigned __int64 a1, __int64 a2)
 {
-  unsigned __int16 *v3; // rdi
-  int v5; // r15d
-  unsigned int v6; // ecx
-  void **v7; // r13
-  __int64 v8; // rbx
-  volatile signed __int32 **v9; // rdx
-  unsigned __int64 v10; // r8
-  unsigned __int16 v11; // r12
-  HANDLE v12; // rbp
-  __int64 v13; // r14
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  unsigned int v16; // eax
-  unsigned int v17; // ecx
-  __int64 v18; // rdi
-  int v19; // eax
-  volatile signed __int64 *v20; // r12
-  __int64 v22; // [rsp+60h] [rbp+8h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp+10h] BYREF
-  volatile signed __int64 *v24; // [rsp+70h] [rbp+18h]
+  unsigned __int16 *v2; // rdi
+  int v4; // r15d
+  unsigned int v5; // ecx
+  __int64 v7; // rbx
+  unsigned __int16 v8; // r12
+  HANDLE v9; // rbp
+  __int64 v10; // r14
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  unsigned int v13; // eax
+  unsigned int v14; // ecx
+  __int64 v15; // rdi
+  int v16; // eax
+  _RTL_SRWLOCK *v17; // r12
+  void **TlsExpansionSlots; // rdx
+  __int64 v19; // [rsp+60h] [rbp+8h] BYREF
+  HANDLE ThreadHandle; // [rsp+68h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v21; // [rsp+70h] [rbp+18h]
 
-  Handle = 0LL;
-  v3 = (unsigned __int16 *)(TlsExpansionSlots + 11);
-  v5 = 0;
-  v6 = *(unsigned __int16 *)(a1 + 76);
-  v7 = TlsExpansionSlots;
-  if ( v6 < 0x40 )
+  ThreadHandle = 0LL;
+  v2 = (unsigned __int16 *)(a2 + 88);
+  v4 = 0;
+  v5 = *(unsigned __int16 *)(a1 + 76);
+  if ( v5 < 0x40 )
   {
-    v8 = __readgsqword(8 * v6 + 5248);
+    v7 = __readgsqword(8 * v5 + 5248);
     goto LABEL_3;
   }
   TlsExpansionSlots = NtCurrentTeb()->TlsExpansionSlots;
   if ( TlsExpansionSlots )
   {
-    v8 = (__int64)TlsExpansionSlots[v6 - 64];
+    v7 = (__int64)TlsExpansionSlots[v5 - 64];
 LABEL_3:
-    if ( v8 )
+    if ( v7 )
       goto LABEL_4;
   }
-  v8 = RtlpHpLfhThreadDataInitializeSet(a1);
+  v7 = RtlpHpLfhThreadDataInitializeSet(a1);
 LABEL_4:
-  v24 = (volatile signed __int64 *)(v7 + 10);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)v7 + 20, (volatile signed __int32 **)TlsExpansionSlots, a3);
-  v11 = *v3;
+  v21 = (_RTL_SRWLOCK *)(a2 + 80);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 80));
+  v8 = *v2;
 LABEL_5:
-  v12 = Handle;
-  while ( v11 )
+  v9 = ThreadHandle;
+  while ( v8 )
   {
-    v13 = a1 + (v11 << 6);
-    if ( (unsigned __int16 *)(v13 + 16) == v3 )
+    v10 = a1 + (v8 << 6);
+    if ( (unsigned __int16 *)(v10 + 16) == v2 )
       break;
-    v11 = *(_WORD *)(v13 + 16);
-    if ( (_WORD)v8 == *(_WORD *)(v13 + 4) )
+    v8 = *(_WORD *)(v10 + 16);
+    if ( (_WORD)v7 == *(_WORD *)(v10 + 4) )
     {
-      v18 = v8;
+      v15 = v7;
     }
     else
     {
-      if ( !v5 )
+      if ( !v4 )
       {
-        v5 = 1;
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpHpEnvThreadSuspendOwnershipLock, v9, v10);
+        v4 = 1;
+        RtlAcquireSRWLockExclusive(&RtlpHpEnvThreadSuspendOwnershipLock);
       }
-      v14 = *(_QWORD *)a1;
-      v15 = *(unsigned int *)(v13 + 20);
-      LODWORD(v22) = 0;
-      if ( (int)RtlpHpEnvThreadSuspend(v15, *(_QWORD *)(v14 + 56) + 20LL, &Handle, &v22) < 0 )
+      v11 = *(_QWORD *)a1;
+      v12 = *(unsigned int *)(v10 + 20);
+      LODWORD(v19) = 0;
+      if ( (int)RtlpHpEnvThreadSuspend(v12, *(_QWORD *)(v11 + 56) + 20LL, &ThreadHandle, &v19) < 0 )
         goto LABEL_5;
-      v16 = *(unsigned __int8 *)(a1 + 64);
-      v17 = v22 & 0x3F;
-      if ( v17 >= v16 )
+      v13 = *(unsigned __int8 *)(a1 + 64);
+      v14 = v19 & 0x3F;
+      if ( v14 >= v13 )
       {
-        if ( v17 == v16 || (_BYTE)v16 == 1 )
-          v17 = 0;
+        if ( v14 == v13 || (_BYTE)v13 == 1 )
+          v14 = 0;
         else
-          v17 = *(unsigned __int8 *)(v17 - v16 - 1 + *(_QWORD *)(a1 + 56));
+          v14 = *(unsigned __int8 *)(v14 - v13 - 1 + *(_QWORD *)(a1 + 56));
       }
-      v12 = Handle;
-      v22 = (unsigned __int16)((((unsigned __int64)v17 << 8) + 1472) >> 6);
-      WORD1(v22) = 3;
-      LODWORD(v22) = *(_DWORD *)(v13 + 4);
-      v18 = v22;
+      v9 = ThreadHandle;
+      v19 = (unsigned __int16)((((unsigned __int64)v14 << 8) + 1472) >> 6);
+      WORD1(v19) = 3;
+      LODWORD(v19) = *(_DWORD *)(v10 + 4);
+      v15 = v19;
     }
-    v19 = RtlpHpLfhHeatMapQuery(
+    v16 = RtlpHpLfhHeatMapQuery(
             a1,
-            (volatile signed __int32 *)(a1 + ((unsigned __int64)*(unsigned __int16 *)(v13 + 6) << 6)),
-            (unsigned __int8 *)v7);
-    if ( v19 >= 2 )
-      RtlpHpLfhOwnerCompact(a1, (unsigned __int8 *)v13, (unsigned int)v19);
+            (volatile signed __int32 *)(a1 + ((unsigned __int64)*(unsigned __int16 *)(v10 + 6) << 6)),
+            (unsigned __int8 *)a2);
+    if ( v16 >= 2 )
+      RtlpHpLfhOwnerCompact(a1, (unsigned __int8 *)v10, (char *)(unsigned int)v16);
     else
-      RtlpHpLfhPrivateSlotShutdown(a1, v13, v18, 1);
-    v3 = (unsigned __int16 *)(v7 + 11);
-    if ( v12 )
+      RtlpHpLfhPrivateSlotShutdown(a1, v10, v15, 1);
+    v2 = (unsigned __int16 *)(a2 + 88);
+    if ( v9 )
     {
-      ZwResumeThread(v12, 0LL);
-      NtClose(v12);
-      v12 = 0LL;
-      v3 = (unsigned __int16 *)(v7 + 11);
-      Handle = 0LL;
+      ZwResumeThread(v9, 0LL);
+      NtClose(v9);
+      v9 = 0LL;
+      v2 = (unsigned __int16 *)(a2 + 88);
+      ThreadHandle = 0LL;
     }
   }
-  v20 = v24;
-  if ( v5 )
+  v17 = v21;
+  if ( v4 )
     RtlReleaseSRWLockExclusive(&RtlpHpEnvThreadSuspendOwnershipLock);
-  return RtlReleaseSRWLockExclusive(v20);
+  RtlReleaseSRWLockExclusive(v17);
 }

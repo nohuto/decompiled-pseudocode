@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetBaseIoPriorityThread @ 0x140373180
+ * XREFs of PsGetBaseIoPriorityThread @ 0x14025BA40
  * Callers:
- *     MiSynchronousPageWrite @ 0x140372F44 (MiSynchronousPageWrite.c)
+ *     MiSynchronousPageWrite @ 0x14025B804 (MiSynchronousPageWrite.c)
  * Callees:
  *     <none>
  */

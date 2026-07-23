@@ -94,7 +94,7 @@ LABEL_15:
           if ( !v8 )
           {
             if ( !v10 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
-              NtWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+              NtWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
             *(_QWORD *)(v9 + 32) = v11;
             do
             {
@@ -116,6 +116,6 @@ LABEL_15:
     }
   }
   if ( _InterlockedExchange((volatile __int32 *)(a2 + 40), 1) != 2 )
-    return RtlpWaitOnAddressWithTimeout(a1, (_QWORD *)a2, 0LL, RtlpWaitOnAddressSpinCycleCount);
+    return RtlpWaitOnAddressWithTimeout(a1, (PVOID *)a2, 0LL, RtlpWaitOnAddressSpinCycleCount);
   return result;
 }

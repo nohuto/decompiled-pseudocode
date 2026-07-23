@@ -18,100 +18,99 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TppPoolpReferenceGlobalPool(
+NTSTATUS __fastcall TppPoolpReferenceGlobalPool(
         volatile signed __int32 **a1,
         _PEB_LDR_DATA *Ldr,
-        volatile signed __int32 **a3,
-        __int64 a4)
+        volatile signed __int32 **a3)
 {
-  _PEB_LDR_DATA *v5; // r14
-  char v7; // bl
-  __int64 result; // rax
-  int v9; // edi
-  __int64 v10; // rbx
-  int v11; // edx
-  __int64 v12; // rdx
-  int v13; // eax
-  int v14; // [rsp+20h] [rbp-38h]
-  __int64 v15; // [rsp+78h] [rbp+20h] BYREF
+  _RTL_SRWLOCK *v4; // r14
+  char v6; // bl
+  NTSTATUS result; // eax
+  int v8; // edi
+  _TP_POOL *v9; // rbx
+  ULONG v10; // edx
+  __int64 v11; // rdx
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // [rsp+20h] [rbp-38h]
+  PTP_POOL PoolReturn; // [rsp+78h] [rbp+20h] BYREF
 
-  v5 = Ldr;
+  v4 = (_RTL_SRWLOCK *)Ldr;
   if ( !a3 || !a1 || !Ldr || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
   {
-    TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(a1, Ldr);
+    return -1073741811;
   }
   if ( *a1 )
   {
-    v7 = 0;
-    RtlAcquireSRWLockShared(v5);
+    v6 = 0;
+    RtlAcquireSRWLockShared(v4);
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
       *a3 = *a1;
-      v7 = 1;
+      v6 = 1;
     }
-    RtlReleaseSRWLockShared(v5);
-    if ( v7 )
-      return 0LL;
+    RtlReleaseSRWLockShared(v4);
+    if ( v6 )
+      return 0;
   }
-  v15 = 0LL;
-  result = TpAllocPool((__int64)&v15, 0LL);
-  v9 = result;
-  v14 = result;
-  if ( (int)result >= 0 )
+  PoolReturn = 0LL;
+  result = TpAllocPool(&PoolReturn, 0LL);
+  v8 = result;
+  v13 = result;
+  if ( result >= 0 )
   {
-    RtlAcquireSRWLockExclusive(v5);
+    RtlAcquireSRWLockExclusive(v4);
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
-      v9 = v14;
-      v10 = v15;
+      v8 = v13;
+      v9 = PoolReturn;
       goto LABEL_29;
     }
-    v10 = v15;
+    v9 = PoolReturn;
     if ( a1 == (volatile signed __int32 **)&TppPoolpGlobalPool )
     {
       if ( TppPoolpGlobalPoolMaxThreads )
       {
-        TpSetPoolMaxThreads(v15, TppPoolpGlobalPoolMaxThreads);
+        TpSetPoolMaxThreads(PoolReturn, TppPoolpGlobalPoolMaxThreads);
       }
       else
       {
-        v11 = 8 * MEMORY[0x7FFE03C0];
+        v10 = 8 * MEMORY[0x7FFE03C0];
         if ( (unsigned int)(8 * MEMORY[0x7FFE03C0]) < 0x300 )
-          v11 = 768;
-        TpSetPoolMaxThreads(v15, v11);
-        v12 = (unsigned int)(4 * MEMORY[0x7FFE03C0]);
-        if ( (unsigned int)v12 < 0x180 )
-          v12 = 384LL;
-        TpSetPoolMaxThreadsSoftLimit(v10, v12);
+          v10 = 768;
+        TpSetPoolMaxThreads(PoolReturn, v10);
+        v11 = (unsigned int)(4 * MEMORY[0x7FFE03C0]);
+        if ( (unsigned int)v11 < 0x180 )
+          v11 = 384LL;
+        TpSetPoolMaxThreadsSoftLimit(v9, v11);
       }
       if ( !TppPoolpGlobalPoolStackSize )
         goto LABEL_21;
-      v13 = TpSetPoolStackInformation(v10);
+      v12 = TpSetPoolStackInformation(v9, TppPoolpGlobalPoolStackSize);
     }
     else
     {
       if ( a1 != (volatile signed __int32 **)&TppPoolpSerializedPool )
       {
 LABEL_21:
-        *a1 = (volatile signed __int32 *)v10;
-        v10 = 0LL;
-        v15 = 0LL;
+        *a1 = (volatile signed __int32 *)v9;
+        v9 = 0LL;
+        PoolReturn = 0LL;
 LABEL_29:
-        RtlReleaseSRWLockExclusive(v5);
-        if ( v10 )
-          TpReleasePool(v10);
-        if ( v9 >= 0 )
+        RtlReleaseSRWLockExclusive(v4);
+        if ( v9 )
+          TpReleasePool(v9);
+        if ( v8 >= 0 )
           *a3 = *a1;
-        return (unsigned int)v9;
+        return v8;
       }
-      TpSetPoolMaxThreads(v15, 1);
-      v13 = TpSetPoolMinThreads(v10, 1LL);
+      TpSetPoolMaxThreads(PoolReturn, 1u);
+      v12 = TpSetPoolMinThreads(v9, 1u);
     }
-    v9 = v13;
-    if ( v13 < 0 )
+    v8 = v12;
+    if ( v12 < 0 )
       goto LABEL_29;
     goto LABEL_21;
   }

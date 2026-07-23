@@ -3,7 +3,7 @@
  * Callers:
  *     BootApplicationPersistentDataProcess @ 0x140B4F454 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     BapdpQueryData @ 0x140B4FC2C (BapdpQueryData.c)
  */
@@ -28,7 +28,7 @@ __int64 BapdpProcessBootMetadata()
   v5[3] = 1054971003;
   if ( (int)KsrGetFirmwareInformation(&v4) >= 0 && v4 && *v4 >= 8u && (v4[81] & 1) != 0 )
     ExSoftRebootFlags |= 0x10000000u;
-  if ( (qword_140C31B18 & 4) != 0 )
+  if ( (qword_140C31AB8 & 4) != 0 )
   {
     ExSoftRebootState = 2;
     ExSoftRebootFlags = 2;

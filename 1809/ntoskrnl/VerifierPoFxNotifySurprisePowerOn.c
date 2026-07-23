@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierPoFxNotifySurprisePowerOn @ 0x140932A40
+ * XREFs of VerifierPoFxNotifySurprisePowerOn @ 0x140933A40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierPoFxNotifySurprisePowerOn()

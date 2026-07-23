@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpQueryDebuggerInformation @ 0x140B75B70
+ * XREFs of HalpQueryDebuggerInformation @ 0x140B77B70
  * Callers:
- *     HaliQuerySystemInformation @ 0x140B6B760 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140B6CB90 (HaliQuerySystemInformation.c)
  * Callees:
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
  */
 
 __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
@@ -21,9 +21,9 @@ __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, uns
   const wchar_t *v16; // r8
 
   *a3 = 4;
-  v4 = (__int64 *)qword_140F8ED88;
+  v4 = (__int64 *)qword_140F8EF88;
   v7 = 0;
-  while ( v4 != &qword_140F8ED88 )
+  while ( v4 != &qword_140F8EF88 )
   {
     v8 = v4[2];
     v9 = *a3;

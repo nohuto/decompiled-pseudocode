@@ -1,17 +1,17 @@
 /*
- * XREFs of MiHugePurgeZeroList @ 0x140670894
+ * XREFs of MiHugePurgeZeroList @ 0x140671A64
  * Callers:
- *     MiMirrorPurgePartitionPages @ 0x1404B45F0 (MiMirrorPurgePartitionPages.c)
+ *     MiMirrorPurgePartitionPages @ 0x1404AEE30 (MiMirrorPurgePartitionPages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     MiUpdatePageMoveInProgressInternal @ 0x14043A010 (MiUpdatePageMoveInProgressInternal.c)
- *     MiGetColorHeadHugeRangeBase @ 0x1404B219C (MiGetColorHeadHugeRangeBase.c)
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     MiUnlinkHugeRange @ 0x1404F0F98 (MiUnlinkHugeRange.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiLockColorHeadHugeAtDpc @ 0x1404FAC14 (MiLockColorHeadHugeAtDpc.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiUpdatePageMoveInProgressInternal @ 0x14042CA30 (MiUpdatePageMoveInProgressInternal.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404ACA2C (MiGetColorHeadHugeRangeBase.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     MiUnlinkHugeRange @ 0x1404EEA38 (MiUnlinkHugeRange.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLockColorHeadHugeAtDpc @ 0x1404F84F4 (MiLockColorHeadHugeAtDpc.c)
  */
 
 __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
@@ -64,9 +64,9 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
       do
       {
         v13 = v5 & 0x3FFFFF;
-        if ( !_bittest64((const signed __int64 *)qword_140E2FFB8, v13) )
+        if ( !_bittest64((const signed __int64 *)stru_140E300F0.Buffer, v13) )
           goto LABEL_19;
-        v14 = (_QWORD *)(qword_140E2FFC0 + 8 * v13);
+        v14 = (_QWORD *)(qword_140E30100 + 8 * v13);
         if ( CurrentIrql == 17 )
         {
           CurrentIrql = KeGetCurrentIrql();
@@ -81,10 +81,10 @@ __int64 __fastcall MiHugePurgeZeroList(unsigned __int16 *a1, __int64 a2)
         MiLockHugePfnInternal((__int64)v14);
         if ( ((*v14 >> 4) & 0x7FFLL) != v20 || (*v14 & 7) != 1 )
         {
-          v17 = (((__int64)v14 - qword_140E2FFC0) >> 3) & 0x3FFFFF;
+          v17 = (((__int64)v14 - qword_140E30100) >> 3) & 0x3FFFFF;
           a2 = (unsigned int)~(1 << (v17 & 0x1F));
           _InterlockedAnd(
-            (volatile signed __int32 *)(qword_140E2FFC8 + 4 * ((unsigned __int64)(unsigned int)v17 >> 5)),
+            (volatile signed __int32 *)(qword_140E30108 + 4 * ((unsigned __int64)(unsigned int)v17 >> 5)),
             a2);
 LABEL_18:
           v3 = 0;
@@ -94,10 +94,10 @@ LABEL_18:
         MiUnlinkHugeRange((__int64)a1, v5);
         _InterlockedAnd64((volatile signed __int64 *)ColorHeadHugeRangeBase, 0xFFFFFFFFFFFFFFF7uLL);
         MiInsertHugeRangeInList(0LL, v5, 0);
-        v15 = (((__int64)v14 - qword_140E2FFC0) >> 3) & 0x3FFFFF;
+        v15 = (((__int64)v14 - qword_140E30100) >> 3) & 0x3FFFFF;
         a2 = (unsigned int)~(1 << (v15 & 0x1F));
         _InterlockedAnd(
-          (volatile signed __int32 *)(qword_140E2FFC8 + 4 * ((unsigned __int64)(unsigned int)v15 >> 5)),
+          (volatile signed __int32 *)(qword_140E30108 + 4 * ((unsigned __int64)(unsigned int)v15 >> 5)),
           a2);
         if ( (++v21 & 0x3F) != 0 )
           goto LABEL_18;

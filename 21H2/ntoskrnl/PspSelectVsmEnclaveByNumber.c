@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSelectVsmEnclaveByNumber @ 0x14090E5B0
+ * XREFs of PspSelectVsmEnclaveByNumber @ 0x14090E710
  * Callers:
- *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D330 (PsCallEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *a3)
@@ -19,7 +19,10 @@ __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *
   __int64 v11; // rbp
   __int64 v12; // r9
   __int64 v13; // rdx
-  __int64 v15; // [rsp+50h] [rbp+8h]
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v18; // [rsp+50h] [rbp+8h]
 
   CurrentThread = KeGetCurrentThread();
   v7 = 0LL;
@@ -34,17 +37,17 @@ __int64 __fastcall PspSelectVsmEnclaveByNumber(__int64 a1, __int64 a2, __int64 *
     v12 = a2 & v11;
     if ( !v10 )
       goto LABEL_13;
-    v15 = a2 & v11;
+    v18 = a2 & v11;
     v13 = *(_QWORD *)(v9 + 8)
         + 8LL
         * ((37
-          * (BYTE6(v15)
+          * (BYTE6(v18)
            + 37
-           * (BYTE5(v15)
+           * (BYTE5(v18)
             + 37
-            * (BYTE4(v15)
-             + 37 * (BYTE3(v15) + 37 * (BYTE2(v15) + 37 * (BYTE1(v15) + 37 * ((unsigned __int8)v12 + 11623883)))))))
-          + HIBYTE(v15)) & (unsigned int)(v10 - 1));
+            * (BYTE4(v18)
+             + 37 * (BYTE3(v18) + 37 * (BYTE2(v18) + 37 * (BYTE1(v18) + 37 * ((unsigned __int8)v12 + 11623883)))))))
+          + HIBYTE(v18)) & (unsigned int)(v10 - 1));
     while ( 1 )
     {
       v13 = *(_QWORD *)v13;
@@ -73,7 +76,7 @@ LABEL_13:
   if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v8);
   KeAbPostRelease((ULONG_PTR)v8);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
   if ( !v7 )
     return 3221225480LL;
   *a3 = v7;

@@ -135,7 +135,7 @@ LABEL_14:
     v17 = *(_QWORD *)(v12 + 1088);
     v18 = -10000000LL * a2;
     *(_QWORD *)(v12 + 1064) = v18;
-    ExSetTimer(v17, v18, 0LL, &v24);
+    ExSetTimer(v17, v18, 0LL, (__int64)&v24);
     *(_DWORD *)(v12 + 1096) = 1;
     goto LABEL_27;
   }

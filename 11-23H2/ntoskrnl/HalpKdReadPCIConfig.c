@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpKdReadPCIConfig @ 0x140398070
+ * XREFs of HalpKdReadPCIConfig @ 0x140398250
  * Callers:
  *     <none>
  * Callees:
- *     HaliPciInterfaceReadConfig @ 0x14033F330 (HaliPciInterfaceReadConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x14033F5C0 (HaliPciInterfaceReadConfig.c)
  */
 
 __int64 __fastcall HalpKdReadPCIConfig(unsigned int a1, unsigned int a2, _WORD *a3, int a4, unsigned int a5)

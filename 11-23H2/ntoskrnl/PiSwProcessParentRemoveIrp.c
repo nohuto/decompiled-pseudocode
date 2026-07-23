@@ -1,16 +1,16 @@
 /*
- * XREFs of PiSwProcessParentRemoveIrp @ 0x140869E54
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x14086A094
  * Callers:
- *     IopRemoveDevice @ 0x140869968 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x140869BA8 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     McTemplateK0zzzzdd_EtwWriteTransfer @ 0x1405642D0 (McTemplateK0zzzzdd_EtwWriteTransfer.c)
- *     PiSwCloseDescendants @ 0x140869E0C (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x140869F3C (PiSwFindSwDevice.c)
- *     PiSwDestroyDeviceObject @ 0x1409671AC (PiSwDestroyDeviceObject.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     McTemplateK0zzzzdd_EtwWriteTransfer @ 0x140564990 (McTemplateK0zzzzdd_EtwWriteTransfer.c)
+ *     PiSwCloseDescendants @ 0x14086A04C (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x14086A17C (PiSwFindSwDevice.c)
+ *     PiSwDestroyDeviceObject @ 0x1409673AC (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  */
 
 void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
@@ -67,11 +67,11 @@ void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
         if ( v4 )
           v16 = *(const wchar_t **)(v4 + 8);
         else
-          v16 = &word_140887DD0;
+          v16 = &word_140888010;
         if ( v1 )
           v17 = (const wchar_t *)*((_QWORD *)v1 + 1);
         else
-          v17 = &word_140887DD0;
+          v17 = &word_140888010;
         if ( v14 )
         {
           v18 = *(const wchar_t **)(v14 + 16);
@@ -79,8 +79,8 @@ void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
         }
         else
         {
-          v18 = &word_140887DD0;
-          v19 = &word_140887DD0;
+          v18 = &word_140888010;
+          v19 = &word_140888010;
         }
         McTemplateK0zzzzdd_EtwWriteTransfer(
           (__int64)v18,

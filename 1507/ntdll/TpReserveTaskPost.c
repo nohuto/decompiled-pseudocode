@@ -7,34 +7,34 @@
  *     TppPoolpReferenceGlobalPool @ 0x18003E8AC (TppPoolpReferenceGlobalPool.c)
  */
 
-__int64 __fastcall TpReserveTaskPost(volatile signed __int32 *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TpReserveTaskPost(volatile signed __int32 *a1, __int64 a2, __int64 a3)
 {
-  int v4; // ebx
-  char *v6; // rdx
-  __int64 *v7; // rcx
-  volatile signed __int32 *v9; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS v3; // ebx
+  _PEB_LDR_DATA *v5; // rdx
+  volatile signed __int32 **v6; // rcx
+  volatile signed __int32 *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v9 = a1;
-  v4 = 0;
+  v8 = a1;
+  v3 = 0;
   if ( a1 )
   {
     _InterlockedIncrement(a1);
 LABEL_6:
-    TppGetCurrentThreadNumaNode((__int64)v9, (_DWORD *)(a2 + 8), (unsigned __int8 *)(a2 + 12));
-    return (unsigned int)v4;
+    TppGetCurrentThreadNumaNode((__int64)v8, (_DWORD *)(a2 + 8), (unsigned __int8 *)(a2 + 12));
+    return (unsigned int)v3;
   }
   if ( a3 && (*(_BYTE *)(a3 + 56) & 2) != 0 )
   {
-    v6 = (char *)&TppPoolpSerializedPoolLock;
-    v7 = &TppPoolpSerializedPool;
+    v5 = (_PEB_LDR_DATA *)&TppPoolpSerializedPoolLock;
+    v6 = (volatile signed __int32 **)&TppPoolpSerializedPool;
   }
   else
   {
-    v6 = (char *)&TppPoolpGlobalPoolLock;
-    v7 = &TppPoolpGlobalPool;
+    v5 = (_PEB_LDR_DATA *)&TppPoolpGlobalPoolLock;
+    v6 = (volatile signed __int32 **)&TppPoolpGlobalPool;
   }
-  v4 = TppPoolpReferenceGlobalPool((volatile signed __int32 **)v7, v6, &v9, a4);
-  if ( v4 >= 0 )
+  v3 = TppPoolpReferenceGlobalPool(v6, v5, &v8);
+  if ( v3 >= 0 )
     goto LABEL_6;
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

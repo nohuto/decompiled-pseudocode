@@ -1,19 +1,19 @@
 /*
- * XREFs of ZwNotifyChangeKey @ 0x140725870
+ * XREFs of ZwNotifyChangeKey @ 0x14072A440
  * Callers:
- *     CcRegistryChangeCallback @ 0x1404F4640 (CcRegistryChangeCallback.c)
- *     CcSetupWatchForRegistryChanges @ 0x1405B1944 (CcSetupWatchForRegistryChanges.c)
- *     PspReadDfssConfigurationValues @ 0x140614838 (PspReadDfssConfigurationValues.c)
- *     DifZwNotifyChangeKeyWrapper @ 0x1406AAC10 (DifZwNotifyChangeKeyWrapper.c)
- *     IopRegistryInitializeCallbacks @ 0x14079B470 (IopRegistryInitializeCallbacks.c)
- *     PipUpdateAsyncOptionsCallback @ 0x14079BC20 (PipUpdateAsyncOptionsCallback.c)
- *     PipUpdateSetupInProgressNotify @ 0x14079BE08 (PipUpdateSetupInProgressNotify.c)
- *     PfpParametersWatcher @ 0x1407C7CE0 (PfpParametersWatcher.c)
- *     PopUpdateUpgradeInProgress @ 0x1407C9270 (PopUpdateUpgradeInProgress.c)
- *     PopPowerButtonBugcheckConfigure @ 0x1407DAA14 (PopPowerButtonBugcheckConfigure.c)
- *     ExpReadLeapSecondData @ 0x140835F5C (ExpReadLeapSecondData.c)
- *     IopRegistryCallback @ 0x140B2DA10 (IopRegistryCallback.c)
- *     PfInitializeSuperfetch @ 0x140CCE038 (PfInitializeSuperfetch.c)
+ *     CcRegistryChangeCallback @ 0x1404EDC20 (CcRegistryChangeCallback.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1405B4154 (CcSetupWatchForRegistryChanges.c)
+ *     PspReadDfssConfigurationValues @ 0x140617678 (PspReadDfssConfigurationValues.c)
+ *     DifZwNotifyChangeKeyWrapper @ 0x1406AE7F0 (DifZwNotifyChangeKeyWrapper.c)
+ *     IopRegistryInitializeCallbacks @ 0x14079DFB0 (IopRegistryInitializeCallbacks.c)
+ *     PipUpdateAsyncOptionsCallback @ 0x14079E760 (PipUpdateAsyncOptionsCallback.c)
+ *     PipUpdateSetupInProgressNotify @ 0x14079E948 (PipUpdateSetupInProgressNotify.c)
+ *     PfpParametersWatcher @ 0x1407CAD40 (PfpParametersWatcher.c)
+ *     PopUpdateUpgradeInProgress @ 0x1407CC310 (PopUpdateUpgradeInProgress.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x1407DE904 (PopPowerButtonBugcheckConfigure.c)
+ *     ExpReadLeapSecondData @ 0x14083C19C (ExpReadLeapSecondData.c)
+ *     IopRegistryCallback @ 0x140B2FA90 (IopRegistryCallback.c)
+ *     PfInitializeSuperfetch @ 0x140CD4198 (PfInitializeSuperfetch.c)
  * Callees:
  *     <none>
  */
@@ -32,5 +32,5 @@ NTSTATUS __stdcall ZwNotifyChangeKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, Event);
+  return KiServiceInternal(KeyHandle);
 }

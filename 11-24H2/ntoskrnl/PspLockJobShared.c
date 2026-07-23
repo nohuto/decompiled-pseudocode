@@ -1,15 +1,15 @@
 /*
- * XREFs of PspLockJobShared @ 0x1408ED5D4
+ * XREFs of PspLockJobShared @ 0x14085EE04
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x140772600 (PspCompleteServerSiloShutdownDeferred.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x1407779F0 (PspQueryJobHierarchyInterferenceCount.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x1408EB554 (PspQueryJobHierarchyProcessIdList.c)
- *     PspCallJobHierarchyCallbacks @ 0x1408EBFF8 (PspCallJobHierarchyCallbacks.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1408ECC80 (PspEnforceLimitsJobPostCallback.c)
- *     PsInsertPermanentSiloContextEx @ 0x1409E20A4 (PsInsertPermanentSiloContextEx.c)
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140772820 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x140777BB0 (PspQueryJobHierarchyInterferenceCount.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x14085CD84 (PspQueryJobHierarchyProcessIdList.c)
+ *     PspCallJobHierarchyCallbacks @ 0x14085D828 (PspCallJobHierarchyCallbacks.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x14085E4B0 (PspEnforceLimitsJobPostCallback.c)
+ *     PsInsertPermanentSiloContextEx @ 0x1409DBE54 (PsInsertPermanentSiloContextEx.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobShared(__int64 a1, __int64 a2)

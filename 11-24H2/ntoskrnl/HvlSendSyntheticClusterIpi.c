@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x1403C8710
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x1403A4B40
  * Callers:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1403C6780 (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403C8838 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvcallpNoHypervisorPresent @ 0x1404AD690 (HvcallpNoHypervisorPresent.c)
- *     EtwTraceHvHypercall @ 0x1404CDEEC (EtwTraceHvHypercall.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403A4C68 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404A7D70 (HvcallpNoHypervisorPresent.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404BB764 (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     EtwTraceHvHypercall @ 0x1404C72BC (EtwTraceHvHypercall.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, unsigned int a2)
@@ -37,7 +37,7 @@ __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, unsigned int a2)
     if ( !HvlpVirtualProcessorsIdentityMapped )
     {
       v7 = 0LL;
-      for ( i = &unk_140FCC223; ; i += 4 )
+      for ( i = &unk_140FCD2A3; ; i += 4 )
       {
         if ( (v2 & 1) != 0 )
           v7 |= 1LL << *(i - 2);
@@ -53,10 +53,10 @@ __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, unsigned int a2)
     }
     LODWORD(v10) = 65547;
     memset(v11, 0, sizeof(v11));
-    if ( (BYTE4(xmmword_140FC5B10) & 0x10) != 0 )
+    if ( (BYTE4(xmmword_140FC6B50) & 0x10) != 0 )
     {
       v3 = 1;
-      EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v11, 0xA0000010);
+      EtwGetKernelTraceTimestamp(v11, 2684354576LL);
     }
     else
     {

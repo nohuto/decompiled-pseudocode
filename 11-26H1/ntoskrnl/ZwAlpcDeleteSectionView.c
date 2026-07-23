@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcDeleteSectionView @ 0x140724470
+ * XREFs of ZwAlpcDeleteSectionView @ 0x140729040
  * Callers:
- *     DifZwAlpcDeleteSectionViewWrapper @ 0x14069AFF0 (DifZwAlpcDeleteSectionViewWrapper.c)
+ *     DifZwAlpcDeleteSectionViewWrapper @ 0x14069EBD0 (DifZwAlpcDeleteSectionViewWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeleteSectionView(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

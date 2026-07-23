@@ -4,10 +4,10 @@
  *     RtlpHpVaMgrAllocAligned @ 0x14000A318 (RtlpHpVaMgrAllocAligned.c)
  *     RtlpCSparseBitmapPageCommit @ 0x14000A9E4 (RtlpCSparseBitmapPageCommit.c)
  *     RtlpHpAllocVA @ 0x14000CE68 (RtlpHpAllocVA.c)
- *     RtlCSparseBitmapStart @ 0x140170408 (RtlCSparseBitmapStart.c)
+ *     RtlCSparseBitmapStart @ 0x140170508 (RtlCSparseBitmapStart.c)
  * Callees:
  *     RtlpHpEnvFreeVA @ 0x14000D2A8 (RtlpHpEnvFreeVA.c)
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
  */
 
 __int64 __fastcall RtlpHpEnvAllocVA(

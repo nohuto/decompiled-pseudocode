@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExTryToAcquireFastMutexWrapper @ 0x1405D9F20
+ * XREFs of DifExTryToAcquireFastMutexWrapper @ 0x1405DA490
  * Callers:
  *     <none>
  * Callees:
- *     ExTryToAcquireFastMutex @ 0x14033DCE0 (ExTryToAcquireFastMutex.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExTryToAcquireFastMutex @ 0x14033DF70 (ExTryToAcquireFastMutex.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 BOOLEAN __fastcall DifExTryToAcquireFastMutexWrapper(PFAST_MUTEX FastMutex)

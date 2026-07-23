@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x140304CB4
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14030FA04
  * Callers:
- *     MiCopyHeaderIfResident @ 0x1402E8D30 (MiCopyHeaderIfResident.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiGetPageProtection @ 0x140330DA0 (MiGetPageProtection.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FD78 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyHeaderIfResident @ 0x14029A080 (MiCopyHeaderIfResident.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiGetPageProtection @ 0x14033BAF0 (MiGetPageProtection.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FFB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
  * Callees:
- *     MiWriteValidPteVolatile @ 0x140241370 (MiWriteValidPteVolatile.c)
- *     MiTryLockLeafPage @ 0x140303978 (MiTryLockLeafPage.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWriteValidPteVolatile @ 0x1402E5BC0 (MiWriteValidPteVolatile.c)
+ *     MiTryLockLeafPage @ 0x14030E6C8 (MiTryLockLeafPage.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiTryLockProtoPoolPageAtDpc(__int64 *a1, __int64 a2, __int64 *a3, __int64 *a4)
@@ -35,7 +35,7 @@ __int64 __fastcall MiTryLockProtoPoolPageAtDpc(__int64 *a1, __int64 a2, __int64 
   v8 = v21;
   if ( (v21 & 1) == 0 )
     return 3221435187LL;
-  v10 = MiPteInShadowRange(&v21, a2);
+  v10 = MiPteInShadowRange(&v21);
   if ( v10
     && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1

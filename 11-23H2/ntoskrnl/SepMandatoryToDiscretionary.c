@@ -1,8 +1,8 @@
 /*
- * XREFs of SepMandatoryToDiscretionary @ 0x1402295B0
+ * XREFs of SepMandatoryToDiscretionary @ 0x1402296C0
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140228CE0 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
+ *     SepCommonAccessCheckEx @ 0x140228DF0 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     <none>
  */

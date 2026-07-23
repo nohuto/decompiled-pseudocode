@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateKernelStackInitialize @ 0x1403D0F80
+ * XREFs of MiCreateKernelStackInitialize @ 0x1403D3F4C
  * Callers:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiCreateKernelStackInitialize(ULONG **a1, int *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall MiCreateKernelStackInitialize(ULONG **a1, int *a2)
   if ( v4 != 5 && (v5 & 0x50) == 0x40 )
     return 3221225485LL;
   if ( v7 )
-    v8 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v7 + 544) + 1198LL));
+    v8 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v7 + 544) + 1198LL));
   else
     v8 = &MiSystemPartition;
   if ( (v5 & 0x10) == 0 )
@@ -61,7 +61,7 @@ LABEL_7:
     }
     else if ( v4 == 5 )
     {
-      v9 = (unsigned __int8)byte_140E34B64;
+      v9 = (unsigned __int8)byte_140E34CE4;
       if ( (v5 & 0x10) != 0 )
         *((_DWORD *)a1 + 15) = 1;
     }

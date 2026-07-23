@@ -27,13 +27,13 @@ char __fastcall KePrepareClockTimerForIdle(
         _QWORD *a6)
 {
   int v6; // edi
-  unsigned __int64 v8; // rax
+  LARGE_INTEGER v8; // rax
   unsigned __int64 v9; // r14
   struct _KPRCB *CurrentPrcb; // r13
   unsigned __int32 v12; // esi
   __int64 v13; // r15
   unsigned __int64 v14; // rbx
-  __int64 InterruptTimePrecise; // r15
+  LARGE_INTEGER InterruptTimePrecise; // r15
   unsigned __int64 v16; // rbx
   bool v17; // zf
   bool v18; // cf
@@ -49,7 +49,7 @@ char __fastcall KePrepareClockTimerForIdle(
   unsigned __int64 v30; // [rsp+68h] [rbp-71h] BYREF
   int v31; // [rsp+70h] [rbp-69h] BYREF
   __int64 v32; // [rsp+78h] [rbp-61h]
-  LARGE_INTEGER v33; // [rsp+80h] [rbp-59h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+80h] [rbp-59h] BYREF
   _QWORD *v34; // [rsp+88h] [rbp-51h]
   int *v35; // [rsp+90h] [rbp-49h] BYREF
   int v36; // [rsp+98h] [rbp-41h]
@@ -65,7 +65,7 @@ char __fastcall KePrepareClockTimerForIdle(
   v25 = 0LL;
   v6 = 0;
   v30 = 0LL;
-  LOBYTE(v8) = a5;
+  LOBYTE(v8.LowPart) = a5;
   v9 = a3;
   CurrentPrcb = KeGetCurrentPrcb();
   v12 = 4;
@@ -73,7 +73,7 @@ char __fastcall KePrepareClockTimerForIdle(
   v34 = a6;
   if ( !KiDynamicTickInitialized || (_BYTE)KiDynamicTickDisableReason )
     goto LABEL_5;
-  LOBYTE(v8) = KiLastRequestedTimeIncrement;
+  LOBYTE(v8.LowPart) = KiLastRequestedTimeIncrement;
   if ( a3 <= (unsigned int)KiLastRequestedTimeIncrement )
   {
 LABEL_4:
@@ -86,16 +86,16 @@ LABEL_4:
     v9 = KiMaxDynamicTickDuration;
   }
   v12 = _InterlockedExchange(&KiClockState, 3);
-  LOBYTE(v8) = PoAllProcessorsDeepIdle();
-  if ( !(_BYTE)v8 )
+  LOBYTE(v8.LowPart) = PoAllProcessorsDeepIdle();
+  if ( !LOBYTE(v8.LowPart) )
   {
     v6 = 1;
     goto LABEL_5;
   }
   if ( !a1 )
   {
-    LOBYTE(v8) = KeIsForceIdleEngaged();
-    if ( (_BYTE)v8 )
+    LOBYTE(v8.LowPart) = KeIsForceIdleEngaged();
+    if ( LOBYTE(v8.LowPart) )
     {
       v6 = 6;
       goto LABEL_5;
@@ -106,35 +106,35 @@ LABEL_4:
   v14 = v30;
   if ( a4 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v33);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   }
   else
   {
-    v8 = v13 + (unsigned int)KiLastRequestedTimeIncrement;
-    if ( v30 <= v8 )
+    v8.QuadPart = v13 + (unsigned int)KiLastRequestedTimeIncrement;
+    if ( v30 <= v8.QuadPart )
       goto LABEL_4;
     if ( !a1 )
     {
-      LOBYTE(v8) = KiClockTimerOneShotReady(v13);
-      if ( !(_BYTE)v8 )
+      LOBYTE(v8.LowPart) = KiClockTimerOneShotReady(v13);
+      if ( !LOBYTE(v8.LowPart) )
       {
         v6 = 3;
         goto LABEL_5;
       }
     }
-    v8 = RtlGetInterruptTimePrecise(&v33);
+    v8 = RtlGetInterruptTimePrecise(&PerformanceCounter);
     InterruptTimePrecise = v8;
-    if ( v14 <= v8 + (unsigned int)KiLastRequestedTimeIncrement )
+    if ( v14 <= v8.QuadPart + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
       goto LABEL_47;
   }
-  v8 = InterruptTimePrecise + (unsigned int)KiMinDynamicTickDuration;
-  if ( v14 <= v8 )
+  v8.QuadPart = InterruptTimePrecise.QuadPart + (unsigned int)KiMinDynamicTickDuration;
+  if ( v14 <= v8.QuadPart )
   {
 LABEL_47:
     v6 = 4;
     goto LABEL_5;
   }
-  v16 = v14 - InterruptTimePrecise;
+  v16 = v14 - InterruptTimePrecise.QuadPart;
   if ( v16 > v9 )
     v16 = v9;
   v29 = v16;
@@ -151,9 +151,9 @@ LABEL_47:
     }
   }
   ((void (__fastcall *)(__int64, unsigned __int64, __int64 *))off_140C01CA0[0])(1LL, v16, &v25);
-  KiLogClockIncrementUpdate((_DWORD)CurrentPrcb, InterruptTimePrecise, v16, v25, 1);
+  KiLogClockIncrementUpdate((_DWORD)CurrentPrcb, InterruptTimePrecise.LowPart, v16, v25, 1);
   KiSetPendingTick(1);
-  KiClockTimerOneShotStartTime = InterruptTimePrecise;
+  KiClockTimerOneShotStartTime = InterruptTimePrecise.QuadPart;
   KiEventClockStateChange(1LL, v12, &v25, &v29);
   if ( (unsigned int)dword_140C02F60 > 5 )
   {
@@ -189,7 +189,7 @@ LABEL_47:
     qword_140C41BE0 = v16;
   if ( a1 )
     KiConsiderTimerRebasing = 1;
-  LOBYTE(v8) = KeNumberProcessors_0;
+  LOBYTE(v8.LowPart) = KeNumberProcessors_0;
   v19 = KiHrTimerActiveCount > 0;
   if ( (_DWORD)KeNumberProcessors_0 )
   {
@@ -197,7 +197,7 @@ LABEL_47:
     v21 = (unsigned int)KeNumberProcessors_0;
     do
     {
-      v8 = *v20;
+      v8.QuadPart = *v20;
       v22 = *(volatile signed __int32 **)(*v20 + 35000);
       if ( v22 )
       {
@@ -211,12 +211,12 @@ LABEL_47:
     }
     while ( v21 );
   }
-  KiClockTimerNextTickTime = InterruptTimePrecise + v25;
-  CurrentPrcb->ClockTimerState.NextTickDueTime = InterruptTimePrecise + v25;
+  KiClockTimerNextTickTime = InterruptTimePrecise.QuadPart + v25;
+  CurrentPrcb->ClockTimerState.NextTickDueTime = InterruptTimePrecise.QuadPart + v25;
 LABEL_5:
   if ( v34 )
   {
-    LOBYTE(v8) = KiClockTimerNextTickTime;
+    LOBYTE(v8.LowPart) = KiClockTimerNextTickTime;
     *v34 = KiClockTimerNextTickTime;
   }
   if ( v12 != 4 )
@@ -229,8 +229,8 @@ LABEL_5:
       v37 = 0;
       v35 = &v28;
       v36 = 1;
-      LOBYTE(v8) = EtwTraceKernelEvent((int)&v35, 1, 0x40100000u, 3929, 1538);
+      LOBYTE(v8.LowPart) = EtwTraceKernelEvent((int)&v35, 1, 0x40100000u, 3929, 1538);
     }
   }
-  return v8;
+  return v8.LowPart;
 }

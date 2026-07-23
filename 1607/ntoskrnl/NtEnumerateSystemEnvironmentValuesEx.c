@@ -1,16 +1,16 @@
 /*
- * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x1406B41DC
+ * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x1406B4314
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x140086998 (ExUnlockUserBuffer.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1406280BC (IoEnumerateEnvironmentVariablesEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x140088288 (ExUnlockUserBuffer.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x140628170 (IoEnumerateEnvironmentVariablesEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -31,7 +31,7 @@ NTSTATUS __stdcall NtEnumerateSystemEnvironmentValuesEx(ULONG InformationClass, 
   struct _MDL *v17; // [rsp+40h] [rbp-28h] BYREF
 
   v3 = *(_DWORD **)&BufferLength;
-  if ( dword_1402FD0D0 != 2 )
+  if ( dword_1402FD030 != 2 )
     return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )

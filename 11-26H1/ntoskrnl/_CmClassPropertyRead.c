@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmClassPropertyRead @ 0x14048CA74
+ * XREFs of _CmClassPropertyRead @ 0x1404865B4
  * Callers:
- *     _CmSetInstallerClassRegPropWorker @ 0x140897348 (_CmSetInstallerClassRegPropWorker.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x140918FE0 (_CmGetInstallerClassRegPropWorker.c)
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x14089D748 (_CmSetInstallerClassRegPropWorker.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x140973A40 (_CmGetInstallerClassRegPropWorker.c)
  * Callees:
  *     <none>
  */

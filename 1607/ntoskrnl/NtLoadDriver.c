@@ -1,18 +1,18 @@
 /*
- * XREFs of NtLoadDriver @ 0x1404E648C
+ * XREFs of NtLoadDriver @ 0x1404C8DFC
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     IopVerifierExAllocatePoolWithQuota_1 @ 0x1400B04A8 (IopVerifierExAllocatePoolWithQuota_1.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     IopVerifierExAllocatePoolWithQuota_1 @ 0x1400AE584 (IopVerifierExAllocatePoolWithQuota_1.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     IopLoadUnloadDriver @ 0x1404E663C (IopLoadUnloadDriver.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     IopLoadUnloadDriver @ 0x1404C8FAC (IopLoadUnloadDriver.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtLoadDriver(PUNICODE_STRING DriverServiceName)

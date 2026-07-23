@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCheckKeyBodyAccess @ 0x140A1B0E8
+ * XREFs of CmpCheckKeyBodyAccess @ 0x140A1B398
  * Callers:
- *     CmpVEPerformOpenAccessCheck @ 0x1407BA398 (CmpVEPerformOpenAccessCheck.c)
- *     CmpDoAccessCheckOnKCB @ 0x140A18F2C (CmpDoAccessCheckOnKCB.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1407BA678 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpDoAccessCheckOnKCB @ 0x140A191DC (CmpDoAccessCheckOnKCB.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x1406C04D0 (SeOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5680 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
- *     SeAppendPrivileges @ 0x1407B63E0 (SeAppendPrivileges.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1406C0500 (SeOpenObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D56B0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
+ *     SeAppendPrivileges @ 0x1407B66C0 (SeAppendPrivileges.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x140AF52F0 (CmpIsKeyDeletedForKeyBody.c)
  */
 

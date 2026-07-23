@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTracePageFault @ 0x140216580
+ * XREFs of EtwTracePageFault @ 0x140260AD0
  * Callers:
- *     MiConvertFaultStatus @ 0x1402163C0 (MiConvertFaultStatus.c)
+ *     MiConvertFaultStatus @ 0x140260910 (MiConvertFaultStatus.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     EtwTraceSiloKernelEvent @ 0x140348590 (EtwTraceSiloKernelEvent.c)
- *     PsGetThreadServerSilo @ 0x140348A90 (PsGetThreadServerSilo.c)
- *     EtwpCoverageSamplerPageFault @ 0x140652298 (EtwpCoverageSamplerPageFault.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     EtwTraceSiloKernelEvent @ 0x1403C1FD0 (EtwTraceSiloKernelEvent.c)
+ *     PsGetThreadServerSilo @ 0x1403C24D0 (PsGetThreadServerSilo.c)
+ *     EtwpCoverageSamplerPageFault @ 0x140650998 (EtwpCoverageSamplerPageFault.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTracePageFault(int a1, __int64 a2, unsigned __int8 a3, __int64 a4)
@@ -17,14 +17,10 @@ void __fastcall EtwTracePageFault(int a1, __int64 a2, unsigned __int8 a3, __int6
   int ThreadServerSilo; // eax
   int v8; // ebx
   int v9; // eax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  bool v14; // zf
-  __int64 v15; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-40h]
-  _QWORD v17[2]; // [rsp+40h] [rbp-38h] BYREF
+  bool v10; // zf
+  __int64 v11; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v12; // [rsp+38h] [rbp-40h]
+  _QWORD v13[2]; // [rsp+40h] [rbp-38h] BYREF
 
   switch ( a1 )
   {
@@ -49,17 +45,17 @@ void __fastcall EtwTracePageFault(int a1, __int64 a2, unsigned __int8 a3, __int6
     default:
       return;
   }
-  v15 = a2;
-  v16 = 0LL;
+  v11 = a2;
+  v12 = 0LL;
   if ( a4 )
-    v16 = *(_QWORD *)(a4 + 360);
-  v17[1] = 16LL;
-  v17[0] = &v15;
+    v12 = *(_QWORD *)(a4 + 360);
+  v13[1] = 16LL;
+  v13[0] = &v11;
   CurrentThread = KeGetCurrentThread();
   if ( ((__int64)CurrentThread[1].Queue & 0x10) != 0 )
   {
     ThreadServerSilo = PsGetThreadServerSilo(CurrentThread);
-    EtwTraceSiloKernelEvent(ThreadServerSilo, (unsigned int)v17, 1, 4096, v5, 33554690);
+    EtwTraceSiloKernelEvent(ThreadServerSilo, (unsigned int)v13, 1, 4096, v5, 33554690);
   }
   else
   {
@@ -69,12 +65,12 @@ void __fastcall EtwTracePageFault(int a1, __int64 a2, unsigned __int8 a3, __int6
     if ( a3 )
       v8 = 33558786;
     v9 = PsGetThreadServerSilo(CurrentThread);
-    EtwTraceSiloKernelEvent(v9, (unsigned int)v17, 1, 4096, v5, v8);
+    EtwTraceSiloKernelEvent(v9, (unsigned int)v13, 1, 4096, v5, v8);
     LODWORD(CurrentThread[1].Queue) &= ~0x10u;
-    v14 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v14 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v11, v10, v12, v13);
+    v10 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v10 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     if ( EtwpHostSiloState != -4844 && (*(_DWORD *)(EtwpHostSiloState + 4844) & 0x1000) != 0 )
-      EtwpCoverageSamplerPageFault(v16, v15, a3);
+      EtwpCoverageSamplerPageFault(v12, v11, a3);
   }
 }

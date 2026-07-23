@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwSetTimerResolution(ULONG RequestedResolution, BOOLEAN SetOr
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&RequestedResolution, SetOrUnset, ActualResolution);
+  return KiServiceInternal(*(_QWORD *)&RequestedResolution);
 }

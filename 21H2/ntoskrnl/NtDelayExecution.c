@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDelayExecution @ 0x14061A3B0
+ * XREFs of NtDelayExecution @ 0x140684010
  * Callers:
- *     LdrpInitMuiCrits @ 0x1402A98E4 (LdrpInitMuiCrits.c)
+ *     LdrpInitMuiCrits @ 0x140227A24 (LdrpInitMuiCrits.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, LARGE_INTEGER *a2)
+NTSTATUS __cdecl NtDelayExecution(BOOLEAN Alertable, PLARGE_INTEGER DelayInterval)
 {
   KPROCESSOR_MODE PreviousMode; // cl
   LARGE_INTEGER Interval; // [rsp+40h] [rbp+18h] BYREF
@@ -15,13 +15,13 @@ NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, LARGE_INTEGER *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)DelayInterval & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    Interval = *a2;
+    Interval = *DelayInterval;
   }
   else
   {
-    Interval = *a2;
+    Interval = *DelayInterval;
   }
-  return KeDelayExecutionThread(PreviousMode, a1, &Interval);
+  return KeDelayExecutionThread(PreviousMode, Alertable, &Interval);
 }

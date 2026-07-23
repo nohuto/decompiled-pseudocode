@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxCompleteComponentPerfState @ 0x14056A458
+ * XREFs of PopFxCompleteComponentPerfState @ 0x14056A698
  * Callers:
- *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
- *     PopFxComponentPerfWork @ 0x14056A720 (PopFxComponentPerfWork.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x14056B358 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxProcessWork @ 0x140281D14 (PopFxProcessWork.c)
+ *     PopFxComponentPerfWork @ 0x14056A960 (PopFxComponentPerfWork.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14056B598 (PopFxIssueComponentPerfStateChanges.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopDiagTraceFxPerfRequestComplete @ 0x14057288C (PopDiagTraceFxPerfRequestComplete.c)
- *     PopDiagTraceFxPerfRequestProgress @ 0x140572980 (PopDiagTraceFxPerfRequestProgress.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopDiagTraceFxPerfRequestComplete @ 0x140572ACC (PopDiagTraceFxPerfRequestComplete.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x140572BC0 (PopDiagTraceFxPerfRequestProgress.c)
  */
 
 __int64 __fastcall PopFxCompleteComponentPerfState(__int64 a1, unsigned int a2, __int64 a3, char a4)

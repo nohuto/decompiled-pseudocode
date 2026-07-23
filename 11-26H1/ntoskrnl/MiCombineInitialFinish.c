@@ -1,31 +1,31 @@
 /*
- * XREFs of MiCombineInitialFinish @ 0x14030A2B4
+ * XREFs of MiCombineInitialFinish @ 0x1402EC334
  * Callers:
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiWriteValidPteNewPage @ 0x14029FC70 (MiWriteValidPteNewPage.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1402EE150 (MiUpdateWorkingSetPrivateSize.c)
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14030B554 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     MiTransferPageFileOwnership @ 0x14030B56C (MiTransferPageFileOwnership.c)
- *     MiAbandonPrivatePfn @ 0x14030B84C (MiAbandonPrivatePfn.c)
- *     MiActivateCombineBlock @ 0x14030B9E8 (MiActivateCombineBlock.c)
- *     MiPfnReferenceCountIsZero @ 0x14031C374 (MiPfnReferenceCountIsZero.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiWriteRepurposedTransitionPte @ 0x140342030 (MiWriteRepurposedTransitionPte.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiSetWsleProtection @ 0x14036C090 (MiSetWsleProtection.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiWriteValidPteNewPage @ 0x14029F1C0 (MiWriteValidPteNewPage.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1402D01D0 (MiUpdateWorkingSetPrivateSize.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x1402ED5D4 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     MiTransferPageFileOwnership @ 0x1402ED5EC (MiTransferPageFileOwnership.c)
+ *     MiAbandonPrivatePfn @ 0x1402ED8CC (MiAbandonPrivatePfn.c)
+ *     MiActivateCombineBlock @ 0x1402EDA68 (MiActivateCombineBlock.c)
+ *     MiPfnReferenceCountIsZero @ 0x14031E3A4 (MiPfnReferenceCountIsZero.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiWriteRepurposedTransitionPte @ 0x1403440B0 (MiWriteRepurposedTransitionPte.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiSetWsleProtection @ 0x14036DE30 (MiSetWsleProtection.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCombineInitialFinish(
@@ -93,7 +93,7 @@ __int64 __fastcall MiCombineInitialFinish(
   v39 = v9 & 0x7FFFFFFFFFFFFFFFLL;
   v46[0] = (__int64)BugCheckParameter2[0x22000000000LL].m128i_i64 / 48;
   v42 = (__int64)v37[14];
-  v36 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v42 + 174));
+  v36 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v42 + 174));
   v31 = v35 != v36;
   *(_QWORD *)(v38 + 56) = 1LL;
   if ( a4 )
@@ -143,7 +143,7 @@ __int64 __fastcall MiCombineInitialFinish(
   if ( (a5[2].m128i_i64[1] & 0x20000000000000LL) == 0
     && ((a5[2].m128i_i32[0] & 0x8000000) == 0
      || (unsigned __int64)a5 >= 0xFFFFDE0000000000uLL
-     && (unsigned __int64)a5 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     && (unsigned __int64)a5 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      && !MiIsDecayPfn((__int64)a5[0x22000000000LL].m128i_i64 / 48)
      && ((v14 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType((__int64)a5) != 9))
     && (v14 & 0x7000000u) < 0x5000000
@@ -224,7 +224,7 @@ __int64 __fastcall MiCombineInitialFinish(
     MiLockAndDecrementShareCount(48 * (v26 & 0xFFFFFFFFFFLL) - 0x220000000000LL, 2LL);
   }
   if ( v13 )
-    MiReleasePageFileInfo(v36, v13, 1);
+    MiReleasePageFileInfo(v36, v13, 1LL);
   v22 = v37;
   v23 = v38;
   v24 = v43;

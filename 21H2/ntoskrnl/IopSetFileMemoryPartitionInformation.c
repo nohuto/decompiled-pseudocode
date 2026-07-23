@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSetFileMemoryPartitionInformation @ 0x1408942EC
+ * XREFs of IopSetFileMemoryPartitionInformation @ 0x14089444C
  * Callers:
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x14077C290 (IoSetInformation.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     IopSetTypeSpecificFoExtension @ 0x1402B7F84 (IopSetTypeSpecificFoExtension.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopSetTypeSpecificFoExtension @ 0x140236194 (IopSetTypeSpecificFoExtension.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     IopAllocateFileObjectExtension @ 0x1402D0A50 (IopAllocateFileObjectExtension.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePartitionByHandle @ 0x14067CE44 (PsReferencePartitionByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileMemoryPartitionInformation(__int64 a1, __int64 a2, unsigned int a3)

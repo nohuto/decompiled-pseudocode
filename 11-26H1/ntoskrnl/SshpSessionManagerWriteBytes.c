@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpSessionManagerWriteBytes @ 0x140AFCDBC
+ * XREFs of SshpSessionManagerWriteBytes @ 0x140AFE92C
  * Callers:
- *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140AFC980 (SshpSessionManagerFlushControlEventBufferWorker.c)
+ *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140AFE4F0 (SshpSessionManagerFlushControlEventBufferWorker.c)
  * Callees:
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
  */
 
 NTSTATUS __fastcall SshpSessionManagerWriteBytes(void *a1, unsigned int a2, void *a3, ULONG Length)

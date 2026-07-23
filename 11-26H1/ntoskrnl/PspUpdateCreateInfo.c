@@ -1,17 +1,17 @@
 /*
- * XREFs of PspUpdateCreateInfo @ 0x140AE09B4
+ * XREFs of PspUpdateCreateInfo @ 0x140ADDFE4
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     PspPropagateHandle @ 0x140AE0C54 (PspPropagateHandle.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     PspPropagateHandle @ 0x140ADE284 (PspPropagateHandle.c)
  */
 
 __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
@@ -122,7 +122,7 @@ LABEL_35:
         goto LABEL_21;
     }
     memset_0(Src, 0, 0x58uLL);
-    v20 = (*(_BYTE *)(a2 + 16) >> 2) & 8 | *(_BYTE *)(a3 + 502) & 2 | (4 * (PspSiloMonitorLock.CurrentRunTime & 1)) | ((*(_BYTE *)(a3 + 1530) & 7) != 0) | ((*(_BYTE *)(a3 + 1530) & 7) != 1 ? 0 : 0x10);
+    v20 = (*(_BYTE *)(a2 + 16) >> 2) & 8 | *(_BYTE *)(a3 + 502) & 2 | (4 * (BYTE4(PspSiloMonitorLock.CycleTime) & 1)) | ((*(_BYTE *)(a3 + 1530) & 7) != 0) | ((*(_BYTE *)(a3 + 1530) & 7) != 1 ? 0 : 0x10);
     if ( (v20 & 8) != 0 )
     {
       v27 = *(_QWORD *)(a2 + 304);

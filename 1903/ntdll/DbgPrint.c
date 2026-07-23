@@ -67,10 +67,10 @@
  *     sub_180053DE8 @ 0x180053DE8 (sub_180053DE8.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return sub_180053DE8((unsigned int)&unk_18011D492, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return sub_180053DE8(&dword_18011D492, 101LL, 3LL, Format, (__int64 *)va, 1);
 }

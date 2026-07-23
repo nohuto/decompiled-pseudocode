@@ -14,14 +14,14 @@ char *__fastcall sub_180005F8C(_OWORD *a1)
   char *Heap; // rax
   char *v3; // rbx
 
-  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 176LL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xB0uLL);
   v3 = Heap;
   if ( Heap )
   {
     memset(Heap, 0, 0xB0uLL);
     *(_OWORD *)(v3 + 24) = *a1;
     *((_DWORD *)v3 + 13) = 1;
-    sub_180005FFC(v3);
+    sub_180005FFC((PRTL_BALANCED_NODE)v3);
   }
   return v3;
 }

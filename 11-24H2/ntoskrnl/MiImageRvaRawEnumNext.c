@@ -1,159 +1,160 @@
 /*
- * XREFs of MiImageRvaRawEnumNext @ 0x1408F3D20
+ * XREFs of MiImageRvaRawEnumNext @ 0x14093EEB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     MiQueryFlagsForRvaEntry @ 0x1408F3F70 (MiQueryFlagsForRvaEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     MiQueryFlagsForRvaEntry @ 0x14093F100 (MiQueryFlagsForRvaEntry.c)
  */
 
-__int64 __fastcall MiImageRvaRawEnumNext(_DWORD *a1, _DWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiImageRvaRawEnumNext(_DWORD *a1, _DWORD *a2)
 {
-  unsigned int v6; // edx
-  _DWORD *v7; // rax
-  int v8; // esi
-  unsigned int v9; // ebp
-  unsigned int v10; // r15d
-  unsigned int *v11; // r14
-  _DWORD *v12; // rdi
-  __int64 (__fastcall *v13)(); // rax
-  unsigned int v14; // r12d
-  int v15; // eax
-  __int64 v16; // rcx
-  unsigned int v17; // edx
-  int v18; // r9d
-  __int64 v19; // rcx
-  unsigned int v20; // ecx
-  _DWORD *v21; // r8
+  unsigned int v4; // edx
+  _DWORD *v5; // rax
+  int v6; // esi
+  unsigned int v7; // ebp
+  unsigned int v8; // r15d
+  unsigned int *v9; // r14
+  _DWORD *v10; // rdi
+  __int64 (__fastcall *v11)(); // rax
+  unsigned int v12; // r12d
+  int v13; // eax
+  unsigned int v14; // r9d
+  __int64 v15; // rcx
+  unsigned int v16; // edx
+  int v17; // r9d
+  __int64 v18; // rcx
+  unsigned int v19; // ecx
+  _DWORD *v20; // r8
   __int64 result; // rax
-  unsigned int v23; // [rsp+50h] [rbp-48h]
-  __int64 v24; // [rsp+58h] [rbp-40h]
-  char v25; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int v26; // [rsp+B0h] [rbp+18h] BYREF
-  int v27; // [rsp+B8h] [rbp+20h]
+  unsigned int v22; // [rsp+50h] [rbp-48h]
+  __int64 v23; // [rsp+58h] [rbp-40h]
+  char v24; // [rsp+A0h] [rbp+8h] BYREF
+  unsigned int v25; // [rsp+B0h] [rbp+18h] BYREF
+  int v26; // [rsp+B8h] [rbp+20h]
 
   if ( !a1[78] )
     return 0LL;
-  v6 = a1[36];
-  v7 = a1 + 38;
+  v4 = a1[36];
+  v5 = a1 + 38;
+  v6 = 0;
+  v7 = 0;
   v8 = 0;
-  v9 = 0;
-  v10 = 0;
-  v11 = a1 + 38;
-  if ( v6 )
+  v9 = a1 + 38;
+  if ( v4 )
   {
-    v12 = a1 + 46;
+    v10 = a1 + 46;
     do
     {
-      v13 = (__int64 (__fastcall *)())*((_QWORD *)v12 - 2);
-      if ( v13 )
+      v11 = (__int64 (__fastcall *)())*((_QWORD *)v10 - 2);
+      if ( v11 )
       {
-        v14 = *v11;
-        if ( *v11 == a1[78] )
+        v12 = *v9;
+        if ( *v9 == a1[78] )
         {
-          if ( v13 == MiImageCfgRvaIteratorNext )
+          if ( v11 == MiImageCfgRvaIteratorNext )
           {
-            v15 = *v12;
+            v13 = *v10;
+            v12 = 0;
+            v24 = 0;
             v14 = 0;
             v25 = 0;
-            a4 = 0LL;
-            v26 = 0;
-            v27 = v15;
-            if ( v15 )
+            v26 = v13;
+            if ( v13 )
             {
-              v16 = *((_QWORD *)v12 - 1);
-              v17 = a1[21];
-              v24 = v16;
-              v23 = v17;
+              v15 = *((_QWORD *)v10 - 1);
+              v16 = a1[21];
+              v23 = v15;
+              v22 = v16;
               while ( 1 )
               {
-                if ( !v15 )
+                if ( !v13 )
                   goto LABEL_13;
                 if ( (int)MiQueryFlagsForRvaEntry(
+                            v15,
                             v16,
-                            v17,
-                            (unsigned int)&v26,
-                            a4,
+                            (unsigned int)&v25,
+                            v14,
                             a1[8],
                             a1[9],
                             0,
-                            (__int64)(v12 - 7),
-                            (__int64)&v25) < 0 )
+                            (__int64)(v10 - 7),
+                            (__int64)&v24) < 0 )
                   break;
-                v17 = v23;
-                v15 = v27 - 1;
-                v16 = v23 + v24;
-                --v27;
-                v24 = v16;
-                if ( !v25 )
+                v16 = v22;
+                v13 = v26 - 1;
+                v15 = v22 + v23;
+                --v26;
+                v23 = v15;
+                if ( !v24 )
                 {
-                  v14 = v26;
+                  v12 = v25;
 LABEL_13:
-                  *v12 = v15;
-                  *((_QWORD *)v12 - 1) = v16;
+                  *v10 = v13;
+                  *((_QWORD *)v10 - 1) = v15;
                   goto LABEL_14;
                 }
-                a4 = v26;
+                v14 = v25;
               }
-              dword_140E2D728 = 14;
+              dword_140E2D868 = 14;
             }
           }
           else
           {
-            v14 = guard_dispatch_icall_no_overrides(a1, v12 - 2, v12 - 7, a4);
+            v12 = guard_dispatch_icall_no_overrides(a1, v10 - 2);
           }
 LABEL_14:
-          *v11 = v14;
+          *v9 = v12;
         }
-        if ( v14 )
+        if ( v12 )
         {
-          if ( v10 )
+          if ( v8 )
           {
-            if ( v10 >= v14 )
-              v10 = v14;
+            if ( v8 >= v12 )
+              v8 = v12;
           }
           else
           {
-            v10 = v14;
+            v8 = v12;
           }
         }
       }
-      v6 = a1[36];
-      ++v9;
-      v11 += 10;
-      v12 += 10;
+      v4 = a1[36];
+      ++v7;
+      v9 += 10;
+      v10 += 10;
     }
-    while ( v9 < v6 );
-    v7 = a1 + 38;
+    while ( v7 < v4 );
+    v5 = a1 + 38;
   }
-  if ( a2 && v10 )
+  if ( a2 && v8 )
   {
-    v18 = 0;
-    if ( v6 )
+    v17 = 0;
+    if ( v4 )
     {
-      v19 = v6;
+      v18 = v4;
       do
       {
-        if ( *v7 == v10 )
-          v18 |= v7[1];
-        v7 += 10;
-        --v19;
+        if ( *v5 == v8 )
+          v17 |= v5[1];
+        v5 += 10;
+        --v18;
       }
-      while ( v19 );
-      v20 = 0;
-      v21 = a1 + 32;
+      while ( v18 );
+      v19 = 0;
+      v20 = a1 + 32;
       do
       {
-        if ( (v18 & *v21) != 0 )
-          v8 |= 1 << v20;
+        if ( (v17 & *v20) != 0 )
+          v6 |= 1 << v19;
+        ++v19;
         ++v20;
-        ++v21;
       }
-      while ( v20 < v6 );
+      while ( v19 < v4 );
     }
-    *a2 = v8;
+    *a2 = v6;
   }
-  result = v10;
-  a1[78] = v10;
+  result = v8;
+  a1[78] = v8;
   return result;
 }

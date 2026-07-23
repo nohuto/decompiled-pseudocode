@@ -1,5 +1,5 @@
 /*
- * XREFs of KseRegisterShim @ 0x140570434
+ * XREFs of KseRegisterShim @ 0x140570974
  * Callers:
  *     KseInitialize @ 0x14079DAE8 (KseInitialize.c)
  *     KseDriverScopeInitialize @ 0x1407B3080 (KseDriverScopeInitialize.c)

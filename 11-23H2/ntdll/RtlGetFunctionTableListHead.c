@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 *RtlGetFunctionTableListHead()
+PLIST_ENTRY RtlGetFunctionTableListHead(void)
 {
-  return &RtlpDynamicFunctionTable;
+  return (PLIST_ENTRY)&RtlpDynamicFunctionTable;
 }

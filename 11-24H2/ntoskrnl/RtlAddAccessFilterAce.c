@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlAddAccessFilterAce @ 0x14077FB80
+ * XREFs of RtlAddAccessFilterAce @ 0x14077FAB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1403599E0 (RtlIsValidProcessTrustLabelSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
- *     RtlFirstFreeAce @ 0x1409AABA0 (RtlFirstFreeAce.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1403E3C50 (RtlIsValidProcessTrustLabelSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
+ *     RtlFirstFreeAce @ 0x1409943D0 (RtlFirstFreeAce.c)
  */
 
 __int64 __fastcall RtlAddAccessFilterAce(
-        unsigned __int8 *a1,
+        PACL Acl,
         unsigned int a2,
         int a3,
         __int64 a4,
@@ -24,22 +24,22 @@ __int64 __fastcall RtlAddAccessFilterAce(
 {
   __int64 result; // rax
   int v13; // ecx
-  unsigned int v14; // eax
-  unsigned __int8 v15; // r15
+  unsigned int AclRevision; // eax
+  UCHAR v15; // r15
   unsigned int v16; // ecx
   unsigned int v17; // r8d
-  __int64 v18; // rsi
-  void *v19; // rdx
+  _BYTE *v18; // rsi
+  char *v19; // rdx
   char v20; // [rsp+20h] [rbp-20h]
-  __int64 v21; // [rsp+28h] [rbp-18h] BYREF
+  PVOID FirstFree; // [rsp+28h] [rbp-18h] BYREF
   int v22; // [rsp+30h] [rbp-10h]
   unsigned __int16 v23; // [rsp+34h] [rbp-Ch]
 
   v20 = a3;
-  v21 = 0LL;
+  FirstFree = 0LL;
   v22 = 0;
   v23 = 256;
-  if ( !a1 || !(unsigned __int8)RtlValidAcl() )
+  if ( !Acl || !RtlValidAcl(Acl) )
     return 3221225591LL;
   if ( !Src || (unsigned __int16)(a8 - 6) > 0xFFF8u || *Src != 2020897377 || a5 != 21 )
     return 3221225485LL;
@@ -47,7 +47,7 @@ __int64 __fastcall RtlAddAccessFilterAce(
     return 3221225592LL;
   if ( (a3 & 0x40) != 0 )
   {
-    if ( !RtlIsValidProcessTrustLabelSid(a4) )
+    if ( !RtlIsValidProcessTrustLabelSid((PSID)a4) )
       return 3221225485LL;
   }
   else
@@ -58,15 +58,15 @@ __int64 __fastcall RtlAddAccessFilterAce(
     if ( v13 || *(_BYTE *)(a4 + 1) != 1 || *(_DWORD *)(a4 + 8) )
       return 3221225485LL;
   }
-  v14 = *a1;
-  if ( (unsigned __int8)v14 > 4u || a2 > 4 )
+  AclRevision = Acl->AclRevision;
+  if ( (unsigned __int8)AclRevision > 4u || a2 > 4 )
     return 3221225561LL;
-  v15 = *a1;
-  if ( v14 <= a2 )
+  v15 = Acl->AclRevision;
+  if ( AclRevision <= a2 )
     v15 = a2;
   if ( (a3 & 0xFFFFFFA0) != 0 || (a6 & 0xFF000000) != 0 )
     return 3221225485LL;
-  if ( !(unsigned __int8)RtlFirstFreeAce(a1, &v21) )
+  if ( !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225591LL;
   v16 = (a8 + 3) & 0xFFFFFFFC;
   v17 = v16 + 4 * (*(unsigned __int8 *)(a4 + 1) + 4);
@@ -74,18 +74,18 @@ __int64 __fastcall RtlAddAccessFilterAce(
     return 3221225621LL;
   if ( v17 > 0xFFFF )
     return 3221225485LL;
-  v18 = v21;
-  if ( !v21 || v21 + (unsigned __int64)v17 > (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)] )
+  v18 = FirstFree;
+  if ( !FirstFree || (char *)FirstFree + v17 > (char *)Acl + Acl->AclSize )
     return 3221225625LL;
-  v19 = (void *)(v21 + 8);
-  *(_WORD *)(v21 + 2) = v17;
-  *(_BYTE *)(v18 + 1) = v20;
-  *(_BYTE *)v18 = 21;
-  *(_DWORD *)(v18 + 4) = a6;
+  v19 = (char *)FirstFree + 8;
+  *((_WORD *)FirstFree + 1) = v17;
+  v18[1] = v20;
+  *v18 = 21;
+  *((_DWORD *)v18 + 1) = a6;
   RtlCopySid(4 * *(unsigned __int8 *)(a4 + 1) + 8, v19, (PSID)a4);
-  memmove((void *)(v18 + 4 * (*(unsigned __int8 *)(a4 + 1) + 4LL)), Src, a8);
-  ++*((_WORD *)a1 + 2);
+  memmove(&v18[4 * *(unsigned __int8 *)(a4 + 1) + 16], Src, a8);
+  ++Acl->AceCount;
   result = 0LL;
-  *a1 = v15;
+  Acl->AclRevision = v15;
   return result;
 }

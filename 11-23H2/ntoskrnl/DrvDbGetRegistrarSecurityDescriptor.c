@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetRegistrarSecurityDescriptor @ 0x14085CB38
+ * XREFs of DrvDbGetRegistrarSecurityDescriptor @ 0x14085CD78
  * Callers:
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140876E58 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140877098 (DrvDbAcquireDatabaseNodeBaseKey.c)
  * Callees:
  *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710F40 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlSetControlSecurityDescriptor @ 0x14085CC20 (RtlSetControlSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140711150 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlSetControlSecurityDescriptor @ 0x14085CE60 (RtlSetControlSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -31,7 +31,7 @@ void *DrvDbGetRegistrarSecurityDescriptor()
   if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
     && RtlCreateAcl(&Acl, 8u, 2u) >= 0
     && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0) >= 0
-    && (int)RtlSetControlSecurityDescriptor(SecurityDescriptor, 4096LL, 4096LL) >= 0 )
+    && RtlSetControlSecurityDescriptor(SecurityDescriptor, 0x1000u, 0x1000u) >= 0 )
   {
     v1 = RtlLengthSecurityDescriptor(SecurityDescriptor);
     BufferLength = v1;

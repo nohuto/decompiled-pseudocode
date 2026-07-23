@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntSteerDistributeInterrupts @ 0x140353750
+ * XREFs of KiIntSteerDistributeInterrupts @ 0x1402B1520
  * Callers:
- *     KeIntSteerPeriodic @ 0x1403534C4 (KeIntSteerPeriodic.c)
+ *     KeIntSteerPeriodic @ 0x1402B1294 (KeIntSteerPeriodic.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KiIntSteerSetDestination @ 0x1403551F8 (KiIntSteerSetDestination.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KiIntSteerSetDestination @ 0x1402B2F28 (KiIntSteerSetDestination.c)
  */
 
 __int64 KiIntSteerDistributeInterrupts()
@@ -49,7 +49,7 @@ __int64 KiIntSteerDistributeInterrupts()
           }
           _BitScanForward64(&v8, v6);
           v6 &= ~(1LL << v8);
-          Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v5 + (unsigned __int8)v8));
+          Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v5 + (unsigned __int8)v8));
           if ( ++*(_DWORD *)(Prcb + 11672) == 1 )
             _interlockedbittestandreset64(
               (volatile signed __int32 *)(*(_QWORD *)(Prcb + 192) + 112LL),
@@ -78,7 +78,7 @@ LABEL_18:
         {
           _BitScanForward64(&v13, v11);
           v11 &= ~(1LL << v13);
-          v14 = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v10 + (unsigned __int8)v13));
+          v14 = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v10 + (unsigned __int8)v13));
           if ( (*(_DWORD *)(v14 + 11672))-- == 1 )
             _interlockedbittestandset64(
               (volatile signed __int32 *)(*(_QWORD *)(v14 + 192) + 112LL),

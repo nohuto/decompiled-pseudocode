@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x14022F6F8
+ * XREFs of KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x140231088
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiRemoveCurrentThreadSharedReadyQueueEnumerator(__int64 *a1, __int64 a2)

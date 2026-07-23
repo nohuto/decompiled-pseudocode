@@ -33,7 +33,7 @@ __int64 __fastcall SeRegisterObjectTypeMandatoryPolicy(__int64 a1, int a2)
   unsigned int v17; // r8d
   bool v18; // zf
   __int64 v19; // rcx
-  unsigned __int64 v20; // rdi
+  __int64 v20; // rdi
   int v21; // eax
   unsigned int v22; // ecx
   __int64 v23; // rdx
@@ -107,7 +107,7 @@ LABEL_15:
     v18 = !_BitScanReverse((unsigned int *)&v19, v17);
     if ( v18 )
       break;
-    v20 = (unsigned __int64)&v14->LockEntries[v19];
+    v20 = (__int64)&v14->LockEntries[v19];
     v17 &= ~(1 << v19);
     if ( (*(_BYTE *)(v20 + 26) & 1) != 0
       && (*(_DWORD *)(v20 + 32) & 1) == 0
@@ -121,14 +121,14 @@ LABEL_15:
         {
           *(_BYTE *)(v20 + 32) |= 2u;
           if ( *(__int64 *)(v20 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v20);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
           v21 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
           v22 = *(_DWORD *)(v20 + 88) & 0xFFFE0000;
           *(_BYTE *)(v20 + 25) &= ~1u;
           v29 = v21;
           *(_DWORD *)(v20 + 88) = v22;
           *(_QWORD *)(v20 + 32) = 0LL;
-          v23 = (__int64)(v20 - (unsigned __int64)v14->LockEntries) / 96;
+          v23 = (signed __int64)(v20 - (unsigned __int64)v14->LockEntries) / 96;
           if ( v16 == 1 )
             v14->AbEntrySummary |= 1 << v23;
           else

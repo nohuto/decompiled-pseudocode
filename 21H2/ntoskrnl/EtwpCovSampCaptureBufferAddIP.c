@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferAddIP @ 0x1405AE598
+ * XREFs of EtwpCovSampCaptureBufferAddIP @ 0x1405AE7C8
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x1405AF1D8 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampCaptureUserAddresses @ 0x1409429BC (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF408 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140942B8C (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of CcDecrementVolumeUseCountWithDelete @ 0x140384440
+ * XREFs of CcDecrementVolumeUseCountWithDelete @ 0x1403861F0
  * Callers:
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     CcScanLogHandleList @ 0x140385FA8 (CcScanLogHandleList.c)
- *     CcDeleteSharedCacheMap @ 0x14039BBF0 (CcDeleteSharedCacheMap.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1403E3E90 (CcDeletePrivateVolumeCacheMap.c)
- *     CcGetDeviceGuidAsync @ 0x1405B3100 (CcGetDeviceGuidAsync.c)
- *     CcQueueAsyncGetDeviceGuid @ 0x1405B3204 (CcQueueAsyncGetDeviceGuid.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     CcScanLogHandleList @ 0x140387D58 (CcScanLogHandleList.c)
+ *     CcDeleteSharedCacheMap @ 0x14039D950 (CcDeleteSharedCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403E7080 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcGetDeviceGuidAsync @ 0x1405B5910 (CcGetDeviceGuidAsync.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1405B5A14 (CcQueueAsyncGetDeviceGuid.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KiRcuStartGracePeriod @ 0x1405242A4 (KiRcuStartGracePeriod.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KiRcuStartGracePeriod @ 0x140526914 (KiRcuStartGracePeriod.c)
  */
 
 int __fastcall CcDecrementVolumeUseCountWithDelete(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PtFuncCompare @ 0x14050A0F0
+ * XREFs of PtFuncCompare @ 0x1405079B0
  * Callers:
  *     <none>
  * Callees:

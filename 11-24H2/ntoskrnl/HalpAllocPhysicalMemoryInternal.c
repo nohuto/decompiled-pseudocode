@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocPhysicalMemoryInternal @ 0x140C674D4
+ * XREFs of HalpAllocPhysicalMemoryInternal @ 0x140C69650
  * Callers:
- *     HalpAllocPhysicalMemoryEx @ 0x140C673EC (HalpAllocPhysicalMemoryEx.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140C69568 (HalpAllocPhysicalMemoryEx.c)
  * Callees:
- *     HalpAllocPhysicalMemoryFromDescriptor @ 0x140C0E274 (HalpAllocPhysicalMemoryFromDescriptor.c)
+ *     HalpAllocPhysicalMemoryFromDescriptor @ 0x140C10274 (HalpAllocPhysicalMemoryFromDescriptor.c)
  */
 
 unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)

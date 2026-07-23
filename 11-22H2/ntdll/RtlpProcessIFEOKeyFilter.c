@@ -15,90 +15,90 @@
  *     NtEnumerateKey @ 0x18009F430 (NtEnumerateKey.c)
  */
 
-__int64 __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, unsigned int a2, __int128 *a3)
+NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, ACCESS_MASK a2, _UNICODE_STRING *a3)
 {
-  _BYTE *v3; // r14
-  unsigned int v5; // ebx
-  int v6; // edi
-  __int64 v7; // rsi
-  __int64 result; // rax
+  wchar_t *v3; // r14
+  int v5; // ebx
+  ULONG Length; // edi
+  void *v7; // rsi
+  NTSTATUS result; // eax
   _BYTE *v10; // rax
-  unsigned int v11; // r13d
-  int inited; // edi
-  int v13; // ecx
-  int v14; // eax
-  __int64 Heap; // rax
+  ULONG v11; // r13d
+  NTSTATUS inited; // edi
+  ULONG v13; // ecx
+  NTSTATUS v14; // eax
+  PVOID Heap; // rax
   void *ProcessHeap; // rcx
-  int v17; // eax
+  NTSTATUS v17; // eax
   HANDLE *v18; // rsi
-  int v19; // [rsp+30h] [rbp-D0h]
-  unsigned int v20; // [rsp+34h] [rbp-CCh] BYREF
+  ULONG v19; // [rsp+30h] [rbp-D0h]
+  ULONG ResultLength; // [rsp+34h] [rbp-CCh] BYREF
   _BYTE *v21; // [rsp+38h] [rbp-C8h]
-  HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int16 v23[4]; // [rsp+48h] [rbp-B8h] BYREF
-  _BYTE *v24; // [rsp+50h] [rbp-B0h]
-  __int128 v25; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v26; // [rsp+68h] [rbp-98h]
-  HANDLE *v27; // [rsp+70h] [rbp-90h]
-  unsigned __int16 v28[4]; // [rsp+78h] [rbp-88h] BYREF
-  _BYTE *v29; // [rsp+80h] [rbp-80h]
-  int v30; // [rsp+88h] [rbp-78h] BYREF
-  HANDLE v31; // [rsp+90h] [rbp-70h]
-  unsigned __int16 *v32; // [rsp+98h] [rbp-68h]
-  int v33; // [rsp+A0h] [rbp-60h]
-  __int128 v34; // [rsp+A8h] [rbp-58h]
-  _BYTE v35[4]; // [rsp+C0h] [rbp-40h] BYREF
-  int v36; // [rsp+C4h] [rbp-3Ch]
-  int v37; // [rsp+C8h] [rbp-38h]
-  int v38; // [rsp+CCh] [rbp-34h]
+  HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING String2; // [rsp+58h] [rbp-A8h] BYREF
+  ACCESS_MASK DesiredAccess; // [rsp+68h] [rbp-98h]
+  HANDLE *v26; // [rsp+70h] [rbp-90h]
+  _UNICODE_STRING v27; // [rsp+78h] [rbp-88h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+C0h] [rbp-40h] BYREF
+  int v30; // [rsp+C4h] [rbp-3Ch]
+  int v31; // [rsp+C8h] [rbp-38h]
+  int v32; // [rsp+CCh] [rbp-34h]
 
-  v26 = a2;
-  v3 = v35;
-  v27 = a1;
+  DesiredAccess = a2;
+  v3 = (wchar_t *)KeyValueInformation;
+  v26 = a1;
   v5 = 0;
-  v6 = 544;
-  Handle = 0LL;
+  Length = 544;
+  KeyHandle = 0LL;
   v19 = 544;
   v7 = 0LL;
-  result = RtlInitUnicodeStringEx((__int64)v23, (__int64)L"UseFilter");
-  if ( (int)result < 0 )
+  result = RtlInitUnicodeStringEx(&DestinationString, L"UseFilter");
+  if ( result < 0 )
     return result;
-  result = NtQueryValueKey(*a1, v23, 2LL, v35, 544, &v20);
-  if ( (int)result < 0 )
+  result = NtQueryValueKey(
+             *a1,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x220u,
+             &ResultLength);
+  if ( result < 0 )
   {
-    if ( (_DWORD)result == -1073741772 || (_DWORD)result == -1073741789 || (_DWORD)result == -2147483643 )
+    if ( result == -1073741772 || result == -1073741789 || result == -2147483643 )
       return v5;
     return result;
   }
-  if ( v36 != 4 || v37 != 4 || !v38 )
-    return 0LL;
-  v25 = *a3;
-  result = RtlInitUnicodeStringEx((__int64)v23, (__int64)L"\\??\\");
-  if ( (int)result >= 0 )
+  if ( v30 != 4 || v31 != 4 || !v32 )
+    return 0;
+  String2 = *a3;
+  result = RtlInitUnicodeStringEx(&DestinationString, L"\\??\\");
+  if ( result >= 0 )
   {
-    if ( RtlPrefixUnicodeString(v23, (__int64)&v25, 1) )
+    if ( RtlPrefixUnicodeString(&DestinationString, &String2, 1u) )
     {
-      LOWORD(v25) = v25 - 8;
-      WORD1(v25) -= 8;
-      *((_QWORD *)&v25 + 1) += 8LL;
+      String2.Length -= 8;
+      String2.MaximumLength -= 8;
+      String2.Buffer += 4;
     }
-    v10 = v35;
+    v10 = KeyValueInformation;
     v11 = 0;
-    v21 = v35;
+    v21 = KeyValueInformation;
     while ( 1 )
     {
-      inited = NtEnumerateKey(*v27, v11, 0LL, v10, v6, &v20);
+      inited = NtEnumerateKey(*v26, v11, KeyBasicInformation, v10, Length, &ResultLength);
       if ( inited >= 0 )
       {
-        v23[0] = *((_WORD *)v21 + 6);
-        v23[1] = *((_WORD *)v21 + 6);
-        v24 = v21 + 16;
-        v30 = 48;
-        v33 = 576;
-        v34 = 0LL;
-        v31 = *v27;
-        v32 = v23;
-        inited = NtOpenKey(&Handle, v26, &v30);
+        DestinationString.Length = *((_WORD *)v21 + 6);
+        DestinationString.MaximumLength = *((_WORD *)v21 + 6);
+        DestinationString.Buffer = (wchar_t *)(v21 + 16);
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 576;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        ObjectAttributes.RootDirectory = *v26;
+        ObjectAttributes.ObjectName = &DestinationString;
+        inited = NtOpenKey(&KeyHandle, DesiredAccess, &ObjectAttributes);
         if ( inited >= 0 )
           break;
       }
@@ -108,23 +108,23 @@ LABEL_27:
         goto LABEL_29;
 LABEL_28:
       v10 = v21;
-      v6 = v19;
+      Length = v19;
     }
-    inited = RtlInitUnicodeStringEx((__int64)v23, (__int64)L"FilterFullPath");
+    inited = RtlInitUnicodeStringEx(&DestinationString, L"FilterFullPath");
     if ( inited < 0 )
     {
-      NtClose(Handle);
+      NtClose(KeyHandle);
       goto LABEL_29;
     }
     v13 = v19;
     while ( 1 )
     {
-      v14 = NtQueryValueKey(Handle, v23, 2LL, v3, v13, &v20);
+      v14 = NtQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, v3, v13, &ResultLength);
       inited = v14;
       if ( v14 == -2147483643 || v14 == -1073741789 )
       {
         if ( v7 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
         ProcessHeap = NtCurrentPeb()->ProcessHeap;
         if ( !ProcessHeap )
         {
@@ -134,7 +134,7 @@ LABEL_45:
 LABEL_22:
           if ( inited < 0 )
           {
-            NtClose(Handle);
+            NtClose(KeyHandle);
             v17 = 0;
             if ( inited != -1073741772 )
               v17 = inited;
@@ -143,46 +143,46 @@ LABEL_22:
           }
           if ( *((_DWORD *)v3 + 1) != 1
             || *((_DWORD *)v3 + 2) > 0xFFFEu
-            || (v28[0] = *((_WORD *)v3 + 4) - 2,
-                v28[1] = v28[0],
-                v29 = v3 + 12,
-                (unsigned int)RtlCompareUnicodeString((unsigned __int16 *)&v25, v28, 1)) )
+            || (v27.Length = v3[4] - 2,
+                v27.MaximumLength = v27.Length,
+                v27.Buffer = v3 + 6,
+                RtlCompareUnicodeString(&String2, &v27, 1u)) )
           {
-            NtClose(Handle);
+            NtClose(KeyHandle);
             ++v11;
             goto LABEL_28;
           }
 LABEL_29:
           if ( v7 )
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
           if ( inited >= 0 )
           {
-            v18 = v27;
-            NtClose(*v27);
-            *v18 = Handle;
+            v18 = v26;
+            NtClose(*v26);
+            *v18 = KeyHandle;
           }
           if ( inited != -2147483622 )
-            return (unsigned int)inited;
+            return inited;
           return v5;
         }
-        Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1572864, v20);
+        Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, ResultLength);
         v7 = Heap;
         if ( !Heap )
           goto LABEL_45;
-        v13 = v20;
-        v3 = (_BYTE *)Heap;
-        v19 = v20;
-        v21 = (_BYTE *)Heap;
+        v13 = ResultLength;
+        v3 = (wchar_t *)Heap;
+        v19 = ResultLength;
+        v21 = Heap;
       }
       else
       {
-        Heap = (__int64)v21;
+        Heap = v21;
         v13 = v19;
       }
       if ( inited != -2147483643 )
       {
         v19 = v13;
-        v21 = (_BYTE *)Heap;
+        v21 = Heap;
         if ( inited != -1073741789 )
           goto LABEL_22;
       }

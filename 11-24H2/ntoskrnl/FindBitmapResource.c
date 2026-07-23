@@ -1,26 +1,31 @@
 /*
- * XREFs of FindBitmapResource @ 0x140C1A4CC
+ * XREFs of FindBitmapResource @ 0x140C1C50C
  * Callers:
- *     BvgaDriverInitialize @ 0x140C1A2D0 (BvgaDriverInitialize.c)
+ *     BvgaDriverInitialize @ 0x140C1C310 (BvgaDriverInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     LdrAccessResource @ 0x14077E350 (LdrAccessResource.c)
- *     LdrFindResource_U @ 0x14077E690 (LdrFindResource_U.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     LdrAccessResource @ 0x14077E280 (LdrAccessResource.c)
+ *     LdrFindResource_U @ 0x14077E5C0 (LdrFindResource_U.c)
  */
 
-__int64 __fastcall FindBitmapResource(__int64 a1)
+PVOID __fastcall FindBitmapResource(ULONG_PTR a1, ULONG *a2)
 {
-  __int64 v2; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v3; // [rsp+28h] [rbp-30h]
-  _QWORD v4[3]; // [rsp+30h] [rbp-28h] BYREF
+  PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+20h] [rbp-38h] BYREF
+  PVOID ResourceBuffer; // [rsp+28h] [rbp-30h] BYREF
+  _LDR_RESOURCE_INFO v6; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = 0LL;
-  v3 = 0LL;
-  v4[2] = 0LL;
-  v4[1] = a1;
-  v4[0] = 2LL;
-  if ( (int)LdrFindResource_U(0x40000000, (int)v4, 3, (__int64)&v2) < 0 || (int)LdrAccessResource() < 0 )
+  ResourceDataEntry = 0LL;
+  ResourceBuffer = 0LL;
+  v6.Language = 0LL;
+  v6.Name = a1;
+  v6.Type = 2LL;
+  if ( LdrFindResource_U((PVOID)0x140000000LL, &v6, 3u, &ResourceDataEntry) < 0
+    || LdrAccessResource((PVOID)0x140000000LL, ResourceDataEntry, &ResourceBuffer, a2) < 0 )
+  {
     return 0LL;
+  }
   else
-    return v3;
+  {
+    return ResourceBuffer;
+  }
 }

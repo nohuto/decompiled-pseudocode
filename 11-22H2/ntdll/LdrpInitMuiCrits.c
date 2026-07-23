@@ -12,9 +12,9 @@
 __int64 LdrpInitMuiCrits()
 {
   __int64 result; // rax
-  __int64 v1; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   do
   {
     if ( _InterlockedCompareExchange(&DataLoadLockCount, 1, 0) )
@@ -22,13 +22,13 @@ __int64 LdrpInitMuiCrits()
       result = (unsigned int)DataLoadLockCount;
       if ( DataLoadLockCount == 1 )
       {
-        ZwDelayExecution(0LL, &v1);
+        ZwDelayExecution(0, &DelayInterval);
         result = (unsigned int)DataLoadLockCount;
       }
     }
     else
     {
-      RtlInitializeCriticalSectionEx(&LoadAsDataCrits, 0LL, 0LL);
+      RtlInitializeCriticalSectionEx(&LoadAsDataCrits, 0, 0);
       result = 2LL;
       DataLoadLockCount = 2;
     }

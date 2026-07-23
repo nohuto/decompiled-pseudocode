@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetImageProtoProtection @ 0x14043C1D0
+ * XREFs of MiGetImageProtoProtection @ 0x14042EA80
  * Callers:
- *     MiQueryVadForVaAttributes @ 0x140305C54 (MiQueryVadForVaAttributes.c)
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
+ *     MiQueryVadForVaAttributes @ 0x1402E7CD4 (MiQueryVadForVaAttributes.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiGetImageProtoProtection(__int64 a1, unsigned __int64 a2)

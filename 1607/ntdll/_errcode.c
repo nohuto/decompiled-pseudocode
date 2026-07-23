@@ -1,7 +1,7 @@
 /*
- * XREFs of _errcode @ 0x18009F104
+ * XREFs of _errcode @ 0x18009F0F4
  * Callers:
- *     _except1 @ 0x18009F150 (_except1.c)
+ *     _except1 @ 0x18009F140 (_except1.c)
  * Callees:
  *     <none>
  */

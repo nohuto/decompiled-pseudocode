@@ -1,28 +1,28 @@
 /*
- * XREFs of DbgkCaptureLiveDump @ 0x140707A3C
+ * XREFs of DbgkCaptureLiveDump @ 0x1407055FC
  * Callers:
- *     NtSystemDebugControl @ 0x140A571F0 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x140A4F080 (NtSystemDebugControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     DbgkpLkmdSnapData @ 0x14057E600 (DbgkpLkmdSnapData.c)
- *     DbgkpLkmdSnapDataEx @ 0x14057E624 (DbgkpLkmdSnapDataEx.c)
- *     DbgkpLkmdSnapGlobals @ 0x14057E65C (DbgkpLkmdSnapGlobals.c)
- *     DbgkpLkmdSnapThread @ 0x14057E9C4 (DbgkpLkmdSnapThread.c)
- *     DbgkpLkmdSqmIncrementDword @ 0x14057EA28 (DbgkpLkmdSqmIncrementDword.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     DbgkpLkmdFireCallbacks @ 0x140708008 (DbgkpLkmdFireCallbacks.c)
- *     DbgkpLkmdSqmIsOptedIn @ 0x14070854C (DbgkpLkmdSqmIsOptedIn.c)
- *     DbgkpLkmdSqmStatus @ 0x1407086EC (DbgkpLkmdSqmStatus.c)
- *     DbgkpTriageDumpInitialize @ 0x140709374 (DbgkpTriageDumpInitialize.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     DbgkpLkmdSnapData @ 0x14057BA90 (DbgkpLkmdSnapData.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14057BAB4 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapGlobals @ 0x14057BAEC (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapThread @ 0x14057BE54 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSqmIncrementDword @ 0x14057BEB8 (DbgkpLkmdSqmIncrementDword.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140705BC8 (DbgkpLkmdFireCallbacks.c)
+ *     DbgkpLkmdSqmIsOptedIn @ 0x14070610C (DbgkpLkmdSqmIsOptedIn.c)
+ *     DbgkpLkmdSqmStatus @ 0x1407062AC (DbgkpLkmdSqmStatus.c)
+ *     DbgkpTriageDumpInitialize @ 0x140706F34 (DbgkpTriageDumpInitialize.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __int64 a4)
@@ -44,32 +44,30 @@ __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __
   PEPROCESS v20; // rax
   int v21; // eax
   char v22; // al
-  __int64 v23; // r8
-  __int64 v24; // r9
-  void *v25; // rcx
-  char v27; // [rsp+40h] [rbp-39h]
+  void *v23; // rcx
+  char v25; // [rsp+40h] [rbp-39h]
   char AccessMode; // [rsp+41h] [rbp-38h]
-  unsigned int v29; // [rsp+44h] [rbp-35h]
+  unsigned int v27; // [rsp+44h] [rbp-35h]
   ULONGLONG RegHandle; // [rsp+48h] [rbp-31h] BYREF
   PVOID Object; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v32; // [rsp+58h] [rbp-21h] BYREF
-  _DWORD *v33; // [rsp+60h] [rbp-19h]
-  _QWORD *v34; // [rsp+68h] [rbp-11h]
-  __int64 v35; // [rsp+70h] [rbp-9h]
-  __int128 v36; // [rsp+78h] [rbp-1h] BYREF
+  __int64 v30; // [rsp+58h] [rbp-21h] BYREF
+  _DWORD *v31; // [rsp+60h] [rbp-19h]
+  _QWORD *v32; // [rsp+68h] [rbp-11h]
+  __int64 v33; // [rsp+70h] [rbp-9h]
+  __int128 v34; // [rsp+78h] [rbp-1h] BYREF
 
   v4 = 0LL;
   v5 = 0LL;
-  v35 = a4;
+  v33 = a4;
   v6 = 0LL;
   Object = a2;
   v7 = 0LL;
   RegHandle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v34 = 0LL;
-  LODWORD(v33) = 0;
-  v36 = 0LL;
   v32 = 0LL;
+  LODWORD(v31) = 0;
+  v34 = 0LL;
+  v30 = 0LL;
   if ( !*(_DWORD *)(a1 + 44) || a3 < 0x40000 || (*(_DWORD *)a1 & 0xFFFFFFFE) != 0 )
     return 3221225485LL;
   if ( (unsigned __int8)DbgkpLkmdSqmIsOptedIn() )
@@ -89,11 +87,7 @@ __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __
   v12 = DbgkpTriageDumpInitialize(PoolWithTag + 2048, Object, a3, PoolWithTag + 2054);
   if ( v12 < 0 )
     goto LABEL_49;
-  v12 = guard_dispatch_icall_no_overrides(
-          v11 + 2048,
-          *(unsigned int *)(a1 + 4),
-          *(_QWORD *)(a1 + 8),
-          *(_QWORD *)(a1 + 16));
+  v12 = guard_dispatch_icall_no_overrides(v11 + 2048, *(unsigned int *)(a1 + 4));
   if ( v12 < 0 )
     goto LABEL_49;
   DbgkpLkmdSnapGlobals((__int64)v11);
@@ -107,15 +101,15 @@ __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __
     v13[i] = 1112752980;
   }
   v15 = 0;
-  v27 = 1;
-  v29 = 0;
+  v25 = 1;
+  v27 = 0;
   if ( !*(_DWORD *)(a1 + 44) )
     goto LABEL_44;
   while ( 1 )
   {
     v16 = *(_QWORD *)(a1 + 48);
     v17 = *(_DWORD *)(a1 + 40) + v15;
-    v36 = 0xC0000001uLL;
+    v34 = 0xC0000001uLL;
     Object = 0LL;
     v18 = ObReferenceObjectByHandle(
             *(HANDLE *)(v16 + 8 * v17),
@@ -127,21 +121,21 @@ __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __
     v5 = Object;
     v19 = 0;
     if ( v18 == -1073741790 )
-      v19 = v27;
-    v27 = v19;
+      v19 = v25;
+    v25 = v19;
     if ( v18 >= 0 )
       break;
     if ( v7 )
-      v7[v29] = v18;
+      v7[v27] = v18;
     if ( v4 )
     {
-      LODWORD(v36) = v18;
-      DbgkpLkmdSqmStatus(v4, &v36);
+      LODWORD(v34) = v18;
+      DbgkpLkmdSqmStatus(v4, &v34);
     }
 LABEL_33:
-    v22 = v27;
-    v15 = v29 + 1;
-    v29 = v15;
+    v22 = v25;
+    v15 = v27 + 1;
+    v27 = v15;
     if ( v15 >= *(_DWORD *)(a1 + 44) )
       goto LABEL_36;
   }
@@ -152,22 +146,22 @@ LABEL_33:
     if ( v20 )
     {
       ObfReferenceObjectWithTag(v20, 0x4C676244u);
-      DbgkpLkmdSnapDataEx((__int64)v11, (__int64)v6, 2112LL, 4LL);
+      DbgkpLkmdSnapDataEx((__int64)v11, (__int64)v6);
     }
   }
-  v21 = DbgkpLkmdSnapThread((__int64)v11, a1, (__int64)v5, (__int64)&v36);
+  v21 = DbgkpLkmdSnapThread((__int64)v11, a1, (__int64)v5, (__int64)&v34);
   if ( !v21 )
-    v21 = v36;
+    v21 = v34;
   if ( v7 )
-    v7[v29] = v21;
+    v7[v27] = v21;
   DbgkpLkmdFireCallbacks(v11, 2LL, v5);
   if ( v4 )
-    DbgkpLkmdSqmStatus(v4, &v36);
+    DbgkpLkmdSqmStatus(v4, &v34);
   ObfDereferenceObject(v5);
   v5 = 0LL;
-  if ( (_DWORD)v36 != -1073741670 )
+  if ( (_DWORD)v34 != -1073741670 )
     goto LABEL_33;
-  v22 = v27;
+  v22 = v25;
 LABEL_36:
   if ( v22 )
   {
@@ -177,23 +171,23 @@ LABEL_44:
   }
   if ( v6 )
     DbgkpLkmdFireCallbacks(v11, 1LL, v6);
-  LODWORD(v32) = *(_DWORD *)(a1 + 44);
-  v33 = v7;
-  DbgkpLkmdSnapData((int)v11, (int)&v32, 16);
+  LODWORD(v30) = *(_DWORD *)(a1 + 44);
+  v31 = v7;
+  DbgkpLkmdSnapData((int)v11, (int)&v30, 16);
   if ( v7 )
     DbgkpLkmdSnapData((int)v11, (int)v7, RegHandle);
-  if ( (int)DbgkpLkmdSnapDataEx((__int64)v11, (__int64)&DbgkpLkmdLiveDumpDiagnosticInformation, 8LL, 0LL) >= 0 )
-    *v34 = &v32;
-  v12 = guard_dispatch_icall_no_overrides(v11 + 2048, v35, v23, v24);
+  if ( (int)DbgkpLkmdSnapDataEx((__int64)v11, (__int64)&DbgkpLkmdLiveDumpDiagnosticInformation) >= 0 )
+    *v32 = &v30;
+  v12 = guard_dispatch_icall_no_overrides(v11 + 2048, v33);
 LABEL_45:
   if ( v6 )
     ObfDereferenceObjectWithTag(v6, 0x4C676244u);
   if ( v5 )
     ObfDereferenceObject(v5);
 LABEL_49:
-  v25 = (void *)v11[2052];
-  if ( v25 )
-    ExFreePoolWithTag(v25, 0x4D574454u);
+  v23 = (void *)v11[2052];
+  if ( v23 )
+    ExFreePoolWithTag(v23, 0x4D574454u);
   if ( v7 )
     ExFreePoolWithTag(v7, 0x704E534Bu);
 LABEL_53:

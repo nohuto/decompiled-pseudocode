@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionRequestCreate @ 0x140746FAC
+ * XREFs of PnpDeviceCompletionRequestCreate @ 0x14074716C
  * Callers:
- *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x14073E0C4 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x140746FE8 (PipEnumerateDevice.c)
  * Callees:
- *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PnpEnableWatchdog @ 0x14066AC94 (PnpEnableWatchdog.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PnpDeviceCompletionRequestCreate(__int64 a1, int a2)

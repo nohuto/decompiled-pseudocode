@@ -1,15 +1,19 @@
 /*
- * XREFs of DifZwSetInformationJobObjectWrapper @ 0x1405F6F60
+ * XREFs of DifZwSetInformationJobObjectWrapper @ 0x1405F74D0
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetInformationJobObject @ 0x14041E220 (ZwSetInformationJobObject.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwSetInformationJobObject @ 0x14041E5B0 (ZwSetInformationJobObject.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwSetInformationJobObjectWrapper(__int64 a1, unsigned int a2, __int64 a3, int a4)
+NTSTATUS __fastcall DifZwSetInformationJobObjectWrapper(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -20,7 +24,7 @@ __int64 __fastcall DifZwSetInformationJobObjectWrapper(__int64 a1, unsigned int 
   int v14; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v18; // rdi
   _QWORD *v19; // rbx
   __int128 v20; // [rsp+20h] [rbp-30h] BYREF
@@ -60,17 +64,21 @@ LABEL_8:
   }
   *(_QWORD *)&v20 = 0LL;
 LABEL_10:
-  *(_QWORD *)&v22 = a1;
-  DWORD2(v21) = a2;
-  *(_QWORD *)&v21 = a3;
-  DWORD2(v20) = a4;
+  *(_QWORD *)&v22 = JobHandle;
+  DWORD2(v21) = JobObjectInformationClass;
+  *(_QWORD *)&v21 = JobObjectInformation;
+  DWORD2(v20) = JobObjectInformationLength;
   for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v20);
   }
 LABEL_17:
-  result = ZwSetInformationJobObject(a1, a2);
+  result = ZwSetInformationJobObject(
+             JobHandle,
+             JobObjectInformationClass,
+             JobObjectInformation,
+             JobObjectInformationLength);
   DWORD2(v22) = result;
   if ( v13 )
   {

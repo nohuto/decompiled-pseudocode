@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIssueSynchronousFlush @ 0x14026B73C
+ * XREFs of MiIssueSynchronousFlush @ 0x14026ACAC
  * Callers:
- *     MiFlushSubsection @ 0x1403C1390 (MiFlushSubsection.c)
+ *     MiFlushSubsection @ 0x1403CB290 (MiFlushSubsection.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IopSetDiskIoAttributionExtension @ 0x140269D74 (IopSetDiskIoAttributionExtension.c)
- *     MmIsFileObjectAPagingFile @ 0x14026C320 (MmIsFileObjectAPagingFile.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     IoSetDiskIoAttributionFromThread @ 0x14026CD00 (IoSetDiskIoAttributionFromThread.c)
- *     IopAllocateReserveIrp @ 0x14027006C (IopAllocateReserveIrp.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopAllocateBackpocketIrp @ 0x140531A0C (IopAllocateBackpocketIrp.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402692E4 (IopSetDiskIoAttributionExtension.c)
+ *     MmIsFileObjectAPagingFile @ 0x14026B890 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14026C270 (IoSetDiskIoAttributionFromThread.c)
+ *     IopAllocateReserveIrp @ 0x14026F5DC (IopAllocateReserveIrp.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     IopAllocateBackpocketIrp @ 0x140533EB4 (IopAllocateBackpocketIrp.c)
  */
 
 int __fastcall MiIssueSynchronousFlush(struct _FILE_OBJECT *a1, __int64 a2, __int64 a3, char a4, __int64 a5, int *a6)
@@ -85,11 +85,11 @@ int __fastcall MiIssueSynchronousFlush(struct _FILE_OBJECT *a1, __int64 a2, __in
           || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x2000000) != 0
           || KeGetCurrentThread()[1].TrapFrame == (_KTRAP_FRAME *)2 )
         {
-          ++LODWORD(IopSessionNotificationLock.StackLimit);
+          ++IoPagingWriteLowPriorityCount;
         }
         else
         {
-          ++HIDWORD(IopSessionNotificationLock.InitialStack);
+          ++IoPagingWriteLowPriorityBumpedCount;
           v16 = 2;
         }
       }

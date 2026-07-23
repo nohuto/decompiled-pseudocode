@@ -1,27 +1,29 @@
 /*
- * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x14016C900
+ * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x14016CA00
  * Callers:
- *     LdrpGetFromMUIMemCache @ 0x1400F4280 (LdrpGetFromMUIMemCache.c)
- *     LdrUnloadAlternateResourceModule @ 0x14016C8EC (LdrUnloadAlternateResourceModule.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400F4300 (LdrpGetFromMUIMemCache.c)
+ *     LdrUnloadAlternateResourceModule @ 0x14016C9EC (LdrUnloadAlternateResourceModule.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
- *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
+ *     KeReleaseMutant @ 0x1400BF950 (KeReleaseMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F44B8 (LdrpInitMuiCrits.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmUnmapViewInSystemSpace @ 0x1405E0390 (MmUnmapViewInSystemSpace.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v4; // bl
+  __int64 v2; // r8
+  BOOLEAN v4; // bl
   int v5; // edi
   int v6; // r15d
-  _QWORD *v7; // rsi
+  PVOID *v7; // rsi
   char *v8; // rcx
-  void *v9; // rcx
+  PVOID v9; // rcx
   int v10; // ebx
   int v11; // eax
   PVOID PoolWithTag; // rax
@@ -29,9 +31,9 @@ char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int64 a2, __int
   PVOID v14; // rbx
 
   v4 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
     return 0;
-  LdrpInitMuiCrits(a1, a2, a3);
+  LdrpInitMuiCrits((__int64)DllHandle, *(__int64 *)&Flags, v2);
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
   v5 = AlternateResourceModuleCount;
   if ( AlternateResourceModuleCount )
@@ -41,8 +43,8 @@ char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int64 a2, __int
       if ( v5 <= 0 )
         goto LABEL_21;
       v6 = v5 - 1;
-      v7 = (char *)AlternateResourceModules + 64 * (__int64)(v5 - 1);
-      if ( v7[1] == a1 )
+      v7 = (PVOID *)((char *)AlternateResourceModules + 64 * (__int64)(v5 - 1));
+      if ( v7[1] == DllHandle )
         break;
 LABEL_5:
       v5 = v6;
@@ -51,7 +53,7 @@ LABEL_5:
     if ( (unsigned __int64)(v8 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
       MmUnmapViewInSystemSpace(v8);
-      v9 = (void *)v7[5];
+      v9 = v7[5];
       if ( v9 )
       {
         ZwClose(v9);

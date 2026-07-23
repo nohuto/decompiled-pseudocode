@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPreUnlockWorkingSetShared @ 0x14035D570
+ * XREFs of MiPreUnlockWorkingSetShared @ 0x14035D710
  * Callers:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiQueryAddressSpan @ 0x140273D60 (MiQueryAddressSpan.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiQueryAddressSpan @ 0x140273FF0 (MiQueryAddressSpan.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReduceWs @ 0x14035D628 (MiReduceWs.c)
- *     MiSelfTrim @ 0x14065025C (MiSelfTrim.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReduceWs @ 0x14035D7C8 (MiReduceWs.c)
+ *     MiSelfTrim @ 0x1406507AC (MiSelfTrim.c)
  */
 
 void __fastcall MiPreUnlockWorkingSetShared(__int64 a1, __int64 a2)

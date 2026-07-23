@@ -13,22 +13,22 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __stdcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
+NTSTATUS __stdcall LdrResRelease(PVOID InitModule, PCWSTR SourceString, ULONG Flags)
 {
   int v3; // ebx
   int v4; // eax
   int v5; // esi
   int v6; // eax
-  int v8; // eax
-  int v9; // edi
-  int v10; // edi
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-3Ch] BYREF
+  NTSTATUS v8; // eax
+  NTSTATUS v9; // edi
+  unsigned int v10; // edi
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-3Ch] BYREF
   unsigned __int16 v12[2]; // [esp+18h] [ebp-34h] BYREF
   const wchar_t *v13; // [esp+1Ch] [ebp-30h]
   unsigned __int16 v14[2]; // [esp+20h] [ebp-2Ch] BYREF
   const wchar_t *v15; // [esp+24h] [ebp-28h]
-  int v16; // [esp+2Ch] [ebp-20h] BYREF
-  int v17; // [esp+30h] [ebp-1Ch] BYREF
+  DWORD Lcid; // [esp+2Ch] [ebp-20h] BYREF
+  PVOID BaseModule; // [esp+30h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+34h] [ebp-18h]
 
   v14[0] = 38;
@@ -49,20 +49,20 @@ int __stdcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
       v6 = (int)NtCurrentPeb()->SharedData + 554;
     else
       v6 = 2147353476;
-    LdrpTraceLoadMUIDll(v14, *(unsigned __int8 *)v6);
+    LdrpTraceLoadMUIDll(v14, (void *)*(unsigned __int8 *)v6);
   }
   else
   {
     v5 = 2147353476;
   }
-  if ( !String2 )
+  if ( !InitModule )
     return -1073741811;
-  v17 = 0;
-  if ( (a3 & 0x8800) == 0x8800 )
+  BaseModule = 0;
+  if ( (Flags & 0x8800) == 0x8800 )
     return 0;
   if ( (unsigned int)SourceString < 0x10000 )
   {
-    v16 = (unsigned __int16)SourceString;
+    Lcid = (unsigned __int16)SourceString;
   }
   else
   {
@@ -70,7 +70,7 @@ int __stdcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
     if ( *SourceString )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( !RtlCultureNameToLCID(&DestinationString.Length, &v16) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       {
         ms_exc.registration.TryLevel = -2;
         return -1073741811;
@@ -78,15 +78,15 @@ int __stdcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
     }
     else
     {
-      v16 = 0;
+      Lcid = 0;
     }
     ms_exc.registration.TryLevel = -2;
-    v16 = (unsigned __int16)v16;
+    Lcid = (unsigned __int16)Lcid;
   }
-  v15 = (const wchar_t *)(a3 & 0xC00);
-  if ( (a3 & 0xC00) != 0 )
+  v15 = (const wchar_t *)(Flags & 0xC00);
+  if ( (Flags & 0xC00) != 0 )
   {
-    v8 = LdrRemoveLoadAsDataTable(String2, (wchar_t **)&v17, 0, a3);
+    v8 = LdrRemoveLoadAsDataTable(InitModule, &BaseModule, 0, Flags);
     v9 = v8;
     if ( v8 < 0 )
     {
@@ -97,12 +97,12 @@ int __stdcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
   }
   else
   {
-    v17 = (int)String2;
+    BaseModule = InitModule;
   }
-  v10 = v17;
-  LdrUnloadAlternateResourceModuleEx(v17, v16);
+  v10 = (unsigned int)BaseModule;
+  LdrUnloadAlternateResourceModuleEx(BaseModule, Lcid);
   if ( v15 && v10 )
-    NtUnmapViewOfSection(-1, v10 & 0xFFFFFFFC);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, (PVOID)(v10 & 0xFFFFFFFC));
 LABEL_30:
   v9 = 0;
 LABEL_31:
@@ -112,7 +112,7 @@ LABEL_31:
   {
     if ( RtlGetCurrentServiceSessionId() )
       v5 = (int)NtCurrentPeb()->SharedData + 554;
-    LdrpTraceLoadMUIDll(v12, *(unsigned __int8 *)v5);
+    LdrpTraceLoadMUIDll(v12, (void *)*(unsigned __int8 *)v5);
   }
   return v9;
 }

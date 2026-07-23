@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpRealtimeSaveState @ 0x1406D0004
+ * XREFs of EtwpRealtimeSaveState @ 0x1406D12A4
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1401B87D0 (ZwSetInformationFile.c)
  */
 
 __int64 __fastcall EtwpRealtimeSaveState(__int64 a1)

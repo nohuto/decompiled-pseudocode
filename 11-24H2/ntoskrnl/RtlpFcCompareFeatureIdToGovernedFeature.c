@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcCompareFeatureIdToGovernedFeature @ 0x1406F51A0
+ * XREFs of RtlpFcCompareFeatureIdToGovernedFeature @ 0x1406F31A0
  * Callers:
- *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D18C (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
+ *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D0BC (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
  * Callees:
  *     <none>
  */

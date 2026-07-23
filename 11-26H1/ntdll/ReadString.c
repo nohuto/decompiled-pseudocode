@@ -1,13 +1,13 @@
 /*
- * XREFs of ReadString @ 0x1801319C8
+ * XREFs of ReadString @ 0x180131738
  * Callers:
- *     ReadStringDelimited @ 0x180131BA0 (ReadStringDelimited.c)
- *     _input_l @ 0x180131D30 (_input_l.c)
+ *     ReadStringDelimited @ 0x180131910 (ReadStringDelimited.c)
+ *     _input_l @ 0x180131AA0 (_input_l.c)
  * Callees:
- *     isleadbyte @ 0x18012AD18 (isleadbyte.c)
- *     _inc @ 0x180131CF8 (_inc.c)
- *     mbtowc @ 0x180132740 (mbtowc.c)
- *     _ungetc_nolock @ 0x180132834 (_ungetc_nolock.c)
+ *     isleadbyte @ 0x18012AA88 (isleadbyte.c)
+ *     _inc @ 0x180131A68 (_inc.c)
+ *     mbtowc @ 0x1801324B0 (mbtowc.c)
+ *     _ungetc_nolock @ 0x1801325A4 (_ungetc_nolock.c)
  */
 
 __int64 __fastcall ReadString(

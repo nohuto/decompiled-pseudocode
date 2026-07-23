@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpInitializeCoverageSampler @ 0x140C3EAD0
+ * XREFs of EtwpInitializeCoverageSampler @ 0x140C40C20
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 EtwpInitializeCoverageSampler()
@@ -26,11 +26,11 @@ __int64 EtwpInitializeCoverageSampler()
   void (__fastcall *v9)(__int64); // [rsp+88h] [rbp+Fh]
 
   DestinationString = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E09220, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E09290, 0LL, 0LL);
   EtwpCovSampGlobals = 0LL;
-  stru_140EFEC80.Count = 0LL;
-  ExWaitForRundownProtectionRelease(&stru_140EFEC80);
-  _InterlockedExchange64((volatile __int64 *)&stru_140EFEC80, 1LL);
+  stru_140EFEFA0.Count = 0LL;
+  ExWaitForRundownProtectionRelease(&stru_140EFEFA0);
+  _InterlockedExchange64((volatile __int64 *)&stru_140EFEFA0, 1LL);
   RtlInitUnicodeString(&DestinationString, L"CoverageSampler");
   memset_0(&v2, 0, 0x78uLL);
   v3 |= 4u;

@@ -13,7 +13,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
   struct _LIST_ENTRY *v2; // rdi
   KIRQL v3; // bl
   struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v5; // rcx
+  _LIST_ENTRY *v5; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   struct _LIST_ENTRY *Blink; // rdx
 

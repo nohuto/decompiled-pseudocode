@@ -1,17 +1,17 @@
 /*
- * XREFs of NtProtectVirtualMemory @ 0x1405EDD70
+ * XREFs of NtProtectVirtualMemory @ 0x1405EED70
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
- *     EtwTiLogProtectExecVm @ 0x1406766BC (EtwTiLogProtectExecVm.c)
- *     VslDebugProtectSecureProcessMemory @ 0x1408182B0 (VslDebugProtectSecureProcessMemory.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     MmProtectVirtualMemory @ 0x1405EEFD0 (MmProtectVirtualMemory.c)
+ *     EtwTiLogProtectExecVm @ 0x14067787C (EtwTiLogProtectExecVm.c)
+ *     VslDebugProtectSecureProcessMemory @ 0x1408194B0 (VslDebugProtectSecureProcessMemory.c)
  */
 
 NTSTATUS __stdcall NtProtectVirtualMemory(

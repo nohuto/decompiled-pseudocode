@@ -1,21 +1,21 @@
 /*
- * XREFs of PiPagePathSetState @ 0x14057D324
+ * XREFs of PiPagePathSetState @ 0x14057D7D0
  * Callers:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     CmpSendBootDeviceUsageNotification @ 0x1406042CC (CmpSendBootDeviceUsageNotification.c)
- *     PpPagePathAssign @ 0x14062CB6C (PpPagePathAssign.c)
- *     MiDeletePagefile @ 0x14065AE08 (MiDeletePagefile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     CmpSendBootDeviceUsageNotification @ 0x140604380 (CmpSendBootDeviceUsageNotification.c)
+ *     PpPagePathAssign @ 0x14062CC20 (PpPagePathAssign.c)
+ *     MiDeletePagefile @ 0x14065AEEC (MiDeletePagefile.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoAllocateIrp @ 0x1400C611C (IoAllocateIrp.c)
- *     IoQueueThreadIrp @ 0x140132E00 (IoQueueThreadIrp.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoAllocateIrp @ 0x1400C3FBC (IoAllocateIrp.c)
+ *     IoQueueThreadIrp @ 0x140133370 (IoQueueThreadIrp.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
  */
 
 __int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *Object, BOOLEAN a2)

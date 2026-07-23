@@ -1,14 +1,14 @@
 /*
- * XREFs of RawVerifyVolume @ 0x140584E44
+ * XREFs of RawVerifyVolume @ 0x140585074
  * Callers:
- *     RawFileSystemControl @ 0x14071B378 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x1406C9068 (RawFileSystemControl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1403613A0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RawInitiateDeleteVolume @ 0x1402A592C (RawInitiateDeleteVolume.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1402A5C00 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 __int64 __fastcall RawVerifyVolume(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopLoggingInformation @ 0x1406DB860
+ * XREFs of PopLoggingInformation @ 0x1406DCB00
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140587FE0 (PopDiagTraceControlCallback.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x140588FE0 (PopDiagTraceControlCallback.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopLoggingInformation(_QWORD *a1, unsigned int *a2)

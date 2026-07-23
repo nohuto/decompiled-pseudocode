@@ -33,7 +33,7 @@ __int64 __fastcall KasanDriverLoadImage(__int64 a1, int a2)
   unsigned __int64 v16; // rcx
   unsigned __int64 v17; // rax
   __int64 Pool2; // rax
-  unsigned __int64 v19; // r13
+  _RTL_BALANCED_NODE *v19; // r13
   ULONG_PTR *v20; // r14
   ULONG_PTR v21; // r8
   unsigned __int64 v22; // rdx
@@ -45,10 +45,10 @@ __int64 __fastcall KasanDriverLoadImage(__int64 a1, int a2)
   size_t v28; // rbp
   ULONG_PTR v29; // rax
   unsigned __int64 v30; // rbp
-  __int64 v31; // rdi
-  bool v32; // r8
+  unsigned __int64 Root; // rdi
+  BOOLEAN v32; // r8
   int v33; // esi
-  __int64 v34; // rax
+  unsigned __int64 v34; // rax
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -118,7 +118,7 @@ __int64 __fastcall KasanDriverLoadImage(__int64 a1, int a2)
   if ( !is_mul_ok(v13, 0x10uLL) || v17 + 40 < v17 )
     return 3221225621LL;
   Pool2 = ExAllocatePool2(64LL, v17 + 40, 1851089227LL);
-  v19 = Pool2;
+  v19 = (_RTL_BALANCED_NODE *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   *(_QWORD *)(Pool2 + 24) = v2;
@@ -179,31 +179,31 @@ __int64 __fastcall KasanDriverLoadImage(__int64 a1, int a2)
     while ( v41 < v13 );
   }
   v30 = KeAcquireSpinLockRaiseToDpc(&KasanDriverUnloadInfosLock);
-  if ( (qword_140D18538 & 1) != 0 )
+  if ( (*(_BYTE *)&KasanDriverUnloadInfos.0 & 1) != 0 )
   {
-    if ( KasanDriverUnloadInfos )
-      v31 = KasanDriverUnloadInfos ^ (unsigned __int64)&KasanDriverUnloadInfos;
+    if ( KasanDriverUnloadInfos.Root )
+      Root = (unsigned __int64)KasanDriverUnloadInfos.Root ^ (unsigned __int64)&KasanDriverUnloadInfos;
     else
-      v31 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v31 = KasanDriverUnloadInfos;
+    Root = (unsigned __int64)KasanDriverUnloadInfos.Root;
   }
   v32 = 0;
-  v33 = qword_140D18538 & 1;
-  if ( v31 )
+  v33 = *(_BYTE *)&KasanDriverUnloadInfos.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)KasanUnloadInfoCompare(v2, v31) < 0 )
+      if ( (int)KasanUnloadInfoCompare(v2, Root) < 0 )
       {
-        v34 = *(_QWORD *)v31;
+        v34 = *(_QWORD *)Root;
         if ( v33 )
         {
           if ( !v34 )
             goto LABEL_79;
-          v34 ^= v31;
+          v34 ^= Root;
         }
         if ( !v34 )
         {
@@ -214,12 +214,12 @@ LABEL_79:
       }
       else
       {
-        v34 = *(_QWORD *)(v31 + 8);
+        v34 = *(_QWORD *)(Root + 8);
         if ( v33 )
         {
           if ( !v34 )
             goto LABEL_73;
-          v34 ^= v31;
+          v34 ^= Root;
         }
         if ( !v34 )
         {
@@ -228,18 +228,21 @@ LABEL_73:
           break;
         }
       }
-      v31 = v34;
+      Root = v34;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&KasanDriverUnloadInfos, v31, v32, v19);
+  RtlRbInsertNodeEx(&KasanDriverUnloadInfos, (PRTL_BALANCED_NODE)Root, v32, v19);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     KiReleaseSpinLockInstrumented(&KasanDriverUnloadInfosLock, retaddr);
   else
     _InterlockedAnd64((volatile signed __int64 *)&KasanDriverUnloadInfosLock, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v30 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v30 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

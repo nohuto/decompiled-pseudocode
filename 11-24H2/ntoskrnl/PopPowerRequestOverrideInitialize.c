@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestOverrideInitialize @ 0x140749DB4
+ * XREFs of PopPowerRequestOverrideInitialize @ 0x1407480E4
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x140A23DB4 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x140A181C4 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x140331678 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140A50600 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x1402BAD78 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140A473B0 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 PopPowerRequestOverrideInitialize()
@@ -21,5 +21,5 @@ __int64 PopPowerRequestOverrideInitialize()
     if ( !*((_BYTE *)i + 152) )
       PopUmpoSendPowerRequestOverrideQuery((__int64)i, v0, v1, v2);
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  return PopReleaseRwLock(&PopPowerRequestLock);
 }

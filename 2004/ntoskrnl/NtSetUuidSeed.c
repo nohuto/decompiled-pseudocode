@@ -24,26 +24,26 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetUuidSeed(__int64 a1)
+NTSTATUS __cdecl NtSetUuidSeed(PCHAR Seed)
 {
   PVOID PoolWithTag; // rax
   void *v3; // r15
-  NTSTATUS v4; // eax
+  int v4; // eax
   ULONG v5; // r14d
   ULONG v6; // ebx
   ULONG v7; // r14d
   ACL *v8; // rax
   ACL *v9; // rbx
-  NTSTATUS Acl; // eax
-  int v11; // eax
-  NTSTATUS v12; // eax
-  NTSTATUS v13; // eax
+  int Acl; // eax
+  NTSTATUS v11; // eax
+  int v12; // eax
+  int v13; // eax
   struct _KTHREAD *CurrentThread; // r15
   __int64 v15; // rax
   __int64 v16; // rbx
   char v18; // r14
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-B4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
   int v23; // [rsp+64h] [rbp-A4h]
   __int16 v24; // [rsp+68h] [rbp-A0h]
   ULONG v25; // [rsp+6Ch] [rbp-9Ch]
@@ -75,7 +75,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   v3 = PoolWithTag;
   P = PoolWithTag;
   if ( !PoolWithTag )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   v4 = RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 6u);
   AccessStatus = v4;
   if ( v4 < 0 )
@@ -94,12 +94,12 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   v9 = v8;
   v28 = v8;
   if ( !v8 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   Acl = RtlCreateAcl(v8, v7, 2u);
   AccessStatus = Acl;
   if ( Acl < 0 )
     RtlRaiseStatus(Acl);
-  v11 = RtlpAddKnownAce((__int64)v9, 2u, 0, 1, (unsigned __int8 *)v3, 0);
+  v11 = RtlpAddKnownAce(v9, 2u, 0, 1, (unsigned __int8 *)v3, 0);
   AccessStatus = v11;
   if ( v11 < 0 )
     RtlRaiseStatus(v11);
@@ -122,9 +122,9 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
           1,
           &GrantedAccess,
           &AccessStatus) )
-    RtlRaiseStatus(0xC0000022);
-  v23 = *(_DWORD *)a1;
-  v24 = *(_WORD *)(a1 + 4);
+    RtlRaiseStatus(-1073741790);
+  v23 = *(_DWORD *)Seed;
+  v24 = *((_WORD *)Seed + 2);
   AccessStatus = 0;
   if ( P )
     ExFreePoolWithTag(P, 0);
@@ -134,7 +134,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v15 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0LL);
+    v15 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
     v16 = v15;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
       ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v15, (ULONG_PTR)&ExpUuidLock);
@@ -150,5 +150,5 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   SeReleaseSubjectContext(&SubjectSecurityContext);
-  return (unsigned int)AccessStatus;
+  return AccessStatus;
 }

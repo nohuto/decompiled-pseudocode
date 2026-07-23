@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409B7148
+ * XREFs of _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409AE4D8
  * Callers:
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14081EDE0 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedProperty @ 0x1409B6854 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14081F520 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x1409ADBE4 (_CmGetInstallerClassMappedProperty.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x1408C64C8 (_PnpCtxRegQueryValueIndirect.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _CmOpenCommonClassRegKey @ 0x1408C82AC (_CmOpenCommonClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1409937F0 (_PnpOpenPropertiesKey.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1408C3EF8 (_PnpCtxRegQueryValueIndirect.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _CmOpenCommonClassRegKey @ 0x1408C5CDC (_CmOpenCommonClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x14097E830 (_PnpOpenPropertiesKey.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
@@ -80,7 +80,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegValue(
   v57 = a2;
   v11 = 0;
   v56 = a3;
-  v12 = &off_140B3D540;
+  v12 = &off_140B3F2F0;
   v13 = *(_DWORD *)(a4 + 16);
   v14 = 0;
   v53 = a1;
@@ -208,7 +208,7 @@ LABEL_77:
         {
           if ( i )
           {
-            v39 = &word_140AEA890;
+            v39 = &word_140AEDAC0;
           }
           else
           {
@@ -293,7 +293,7 @@ LABEL_94:
     if ( !v22 || v22 == PnpRegQueryValueIndirect )
       v23 = PnpRegQueryValueIndirect((__int64)v53, v20, v21, &v50, v9, &v49, v48);
     else
-      v23 = guard_dispatch_icall_no_overrides(v53, v20, v21, &v50);
+      v23 = guard_dispatch_icall_no_overrides(v53, v20);
     if ( v23 == -1073741772 || v23 == -1073741444 )
     {
 LABEL_36:

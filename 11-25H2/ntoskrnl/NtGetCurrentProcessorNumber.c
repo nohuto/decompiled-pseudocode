@@ -8,7 +8,7 @@
  *     KeQueryPrimaryGroupAffinityThread @ 0x1404AB900 (KeQueryPrimaryGroupAffinityThread.c)
  */
 
-__int64 NtGetCurrentProcessorNumber()
+ULONG NtGetCurrentProcessorNumber(void)
 {
   struct _KTHREAD *CurrentThread; // rdi
   unsigned __int64 GroupIndex; // rbx
@@ -31,5 +31,5 @@ __int64 NtGetCurrentProcessorNumber()
     if ( v5 == 332 || v5 == 452 )
       LODWORD(GroupIndex) = GroupIndex & 0x1F;
   }
-  return (unsigned int)GroupIndex;
+  return GroupIndex;
 }

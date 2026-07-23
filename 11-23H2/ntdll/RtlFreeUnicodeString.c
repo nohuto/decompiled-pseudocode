@@ -38,8 +38,8 @@
  *     RtlpConstructCrossVmObjectPath @ 0x1801029DC (RtlpConstructCrossVmObjectPath.c)
  *     RtlIsNameInExpression @ 0x180108DC0 (RtlIsNameInExpression.c)
  *     RtlIsNameInUnUpcasedExpression @ 0x180108E70 (RtlIsNameInUnUpcasedExpression.c)
- *     EtwpUpdateUmLogger @ 0x180125F74 (EtwpUpdateUmLogger.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E928 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     EtwpUpdateUmLogger @ 0x180125F44 (EtwpUpdateUmLogger.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E954 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
  *     NtdllpFreeStringRoutine @ 0x180039640 (NtdllpFreeStringRoutine.c)
  */

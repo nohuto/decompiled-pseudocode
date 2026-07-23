@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddLoaderHalIoPte @ 0x140A62830
+ * XREFs of MiAddLoaderHalIoPte @ 0x140A63830
  * Callers:
  *     <none>
  * Callees:
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiAddLoaderHalIoPte(__int64 a1, unsigned __int64 a2, int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxResetSocSubsystemAccounting @ 0x14066D534
+ * XREFs of PopFxResetSocSubsystemAccounting @ 0x14066D618
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x14066CE54 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x14066CF38 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
  */
 
 __int64 __fastcall PopFxResetSocSubsystemAccounting(int a1)

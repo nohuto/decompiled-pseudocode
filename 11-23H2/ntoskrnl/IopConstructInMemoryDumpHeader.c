@@ -1,10 +1,10 @@
 /*
- * XREFs of IopConstructInMemoryDumpHeader @ 0x14055243C
+ * XREFs of IopConstructInMemoryDumpHeader @ 0x140552AFC
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x1403B0D3C (IopInitializeOfflineCrashDump.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551060 (IoUpdateDumpPhysicalRanges.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403B0F1C (IopInitializeOfflineCrashDump.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140551720 (IoUpdateDumpPhysicalRanges.c)
  * Callees:
- *     IoFillDumpHeader @ 0x14054FBC8 (IoFillDumpHeader.c)
+ *     IoFillDumpHeader @ 0x140550288 (IoFillDumpHeader.c)
  */
 
 __int64 IopConstructInMemoryDumpHeader()
@@ -21,7 +21,7 @@ __int64 IopConstructInMemoryDumpHeader()
       && (result = qword_140C6ABD0 & 1, (v1 = *(_DWORD **)&InMemData[2 * result + 2]) != 0LL)
       && (v2 = *(_QWORD *)&InMemData[2 * (((_BYTE)qword_140C6ABD0 - 1) & 1) + 2]) != 0 )
     {
-      IoFillDumpHeader((char *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
+      IoFillDumpHeader((_DWORD *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
       *(_QWORD *)(v2 + 4040) = qword_140C6ABD8;
       *(_QWORD *)(v2 + 40) = PsInitialSystemProcess->DirectoryTableBase & 0xFFFFFFFFFFFFF000uLL;
       result = (unsigned int)_InterlockedExchange((volatile __int32 *)v2, 1397967163);

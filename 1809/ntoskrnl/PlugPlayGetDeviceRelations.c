@@ -1,10 +1,10 @@
 /*
- * XREFs of PlugPlayGetDeviceRelations @ 0x140900C7C
+ * XREFs of PlugPlayGetDeviceRelations @ 0x140901F3C
  * Callers:
- *     PiPnpRtlGetDeviceRelationsList @ 0x1408294C0 (PiPnpRtlGetDeviceRelationsList.c)
+ *     PiPnpRtlGetDeviceRelationsList @ 0x14082A6C0 (PiPnpRtlGetDeviceRelationsList.c)
  * Callees:
- *     ZwPlugPlayControl @ 0x1401BA710 (ZwPlugPlayControl.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ZwPlugPlayControl @ 0x1401BA870 (ZwPlugPlayControl.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall PlugPlayGetDeviceRelations(

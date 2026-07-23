@@ -1,13 +1,13 @@
 /*
- * XREFs of KeUnInitializeUmsThread @ 0x140845534
+ * XREFs of KeUnInitializeUmsThread @ 0x140846794
  * Callers:
- *     PspDetachThreadFromUmsCompletionList @ 0x1402E9FA8 (PspDetachThreadFromUmsCompletionList.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PspUmsUnInitThread @ 0x14088AE54 (PspUmsUnInitThread.c)
+ *     PspDetachThreadFromUmsCompletionList @ 0x1402EA198 (PspDetachThreadFromUmsCompletionList.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     PspUmsUnInitThread @ 0x14088C0B4 (PspUmsUnInitThread.c)
  * Callees:
- *     KeRundownQueueEx @ 0x1400FA9BC (KeRundownQueueEx.c)
- *     KeSetCurrentUmsTeb @ 0x14029FA30 (KeSetCurrentUmsTeb.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeRundownQueueEx @ 0x1400FAA3C (KeRundownQueueEx.c)
+ *     KeSetCurrentUmsTeb @ 0x14029FC20 (KeSetCurrentUmsTeb.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeUnInitializeUmsThread(__int64 a1)

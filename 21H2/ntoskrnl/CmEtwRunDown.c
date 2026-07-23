@@ -1,29 +1,28 @@
 /*
- * XREFs of CmEtwRunDown @ 0x14086A368
+ * XREFs of CmEtwRunDown @ 0x14086A4C8
  * Callers:
- *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079763C (EtwpKernelTraceRundown.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     EtwTraceSiloDcEvent @ 0x1405A8190 (EtwTraceSiloDcEvent.c)
- *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLogHiveRundownEvent @ 0x14086A9FC (CmpLogHiveRundownEvent.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A83C0 (EtwTraceSiloDcEvent.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmpConstructNameWithStatus @ 0x1406E2750 (CmpConstructNameWithStatus.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLogHiveRundownEvent @ 0x14086AB5C (CmpLogHiveRundownEvent.c)
  */
 
-__int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, char a5)
+__int64 __fastcall CmEtwRunDown(__int64 a1, unsigned int a2, char a3, char a4, char a5)
 {
   char v5; // di
   char v6; // si
-  unsigned int v7; // r13d
   struct _EX_RUNDOWN_REF *v9; // rcx
   unsigned int v10; // eax
   __int64 *v11; // rsi
@@ -32,8 +31,6 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
   void *v14; // r14
   __int64 *v15; // rbx
   NTSTATUS v16; // ebx
-  char v18; // [rsp+30h] [rbp-D0h]
-  char v19; // [rsp+31h] [rbp-CFh]
   __int16 v20; // [rsp+34h] [rbp-CCh] BYREF
   int v21; // [rsp+38h] [rbp-C8h] BYREF
   ULONG ResultLength; // [rsp+3Ch] [rbp-C4h] BYREF
@@ -55,11 +52,8 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
   __int16 *v38; // [rsp+128h] [rbp+28h]
   __int64 v39; // [rsp+130h] [rbp+30h]
 
-  v19 = (char)a4;
-  v18 = a3;
-  v5 = (char)a4;
+  v5 = a4;
   v6 = a3;
-  v7 = a2;
   v21 = 0;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   ResultLength = 0;
@@ -73,7 +67,7 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
   memset(v32, 0, sizeof(v32));
   if ( !a5 )
   {
-    CmpAttachToRegistryProcess((__int64)v32, a2, a3, a4);
+    CmpAttachToRegistryProcess((__int64)v32);
     v34 = 24LL;
     v33 = (__int64 *)&v29;
     v9 = 0LL;
@@ -87,7 +81,7 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
         break;
       CmpLockRegistryExclusive();
       if ( v5 )
-        CmpLogHiveRundownEvent(v15, a1, v7);
+        CmpLogHiveRundownEvent(v15, a1, a2);
       if ( v6 )
       {
         v10 = *((_DWORD *)v15 + 412);
@@ -108,7 +102,7 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
                 v36 = *v24;
                 *(_QWORD *)&v30 = i - 16;
                 v37 = 0;
-                EtwTraceSiloDcEvent((__int64)&v33, 3u, a1, v7, 0x919u, 0x401802u);
+                EtwTraceSiloDcEvent((__int64)&v33, 3u, a1, a2, 0x919u, 0x401802u);
                 CmpFreeTransientPoolWithTag(v14, 0x624E4D43u);
               }
             }
@@ -117,14 +111,14 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
           }
           while ( v12 );
           v15 = NextActiveHive;
-          v5 = v19;
+          v5 = a4;
         }
-        v6 = v18;
+        v6 = a3;
       }
       CmpUnlockRegistry();
       v9 = (struct _EX_RUNDOWN_REF *)v15;
     }
-    KiUnstackDetachProcess((__int64)v32, 0);
+    KiUnstackDetachProcess((__int64)v32, 0LL);
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\Select");
     ObjectAttributes.Length = 48;
     ObjectAttributes.ObjectName = &DestinationString;
@@ -147,12 +141,12 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, 
         v21 = HIDWORD(KeyValueInformation);
         v33 = (__int64 *)&v21;
         LODWORD(v34) = 4;
-        EtwTraceSiloDcEvent((__int64)&v33, 1u, a1, v7, 0x923u, 0x401802u);
+        EtwTraceSiloDcEvent((__int64)&v33, 1u, a1, a2, 0x923u, 0x401802u);
       }
     }
   }
   v33 = &CmPerfCounters;
   v34 = 88LL;
-  EtwTraceSiloDcEvent((__int64)&v33, 1u, a1, v7, 0x922u, 0x401802u);
+  EtwTraceSiloDcEvent((__int64)&v33, 1u, a1, a2, 0x922u, 0x401802u);
   return 0LL;
 }

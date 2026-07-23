@@ -1,32 +1,30 @@
 /*
- * XREFs of HalpInterruptGsiToLine @ 0x1403B9678
+ * XREFs of HalpInterruptGsiToLine @ 0x1403733E0
  * Callers:
- *     HalpInterruptEnablePerformanceEvents @ 0x1403B90F8 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInterruptEnableNmi @ 0x1404A356C (HalpInterruptEnableNmi.c)
- *     HalpTimerEnableHypervisorTimer @ 0x1404CD038 (HalpTimerEnableHypervisorTimer.c)
- *     HalpInterruptConnect @ 0x140540AD8 (HalpInterruptConnect.c)
- *     HalpInterruptRemap @ 0x140540EC4 (HalpInterruptRemap.c)
- *     HalpInterruptSetLineSpecificOverride @ 0x1405429CC (HalpInterruptSetLineSpecificOverride.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerUnmapInterrupt @ 0x140548A10 (HalpTimerUnmapInterrupt.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x14054A1C4 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpInterruptParseMadt @ 0x140556A34 (HalpInterruptParseMadt.c)
- *     HalpInterruptIsGsiValid @ 0x1406FD910 (HalpInterruptIsGsiValid.c)
- *     HalpInterruptUnmap @ 0x1406FDA28 (HalpInterruptUnmap.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x140373A20 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInterruptEnableNmi @ 0x14049E4CC (HalpInterruptEnableNmi.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x1404C6408 (HalpTimerEnableHypervisorTimer.c)
+ *     HalpInterruptConnect @ 0x14053E3D8 (HalpInterruptConnect.c)
+ *     HalpInterruptRemap @ 0x14053E7C4 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineSpecificOverride @ 0x14054031C (HalpInterruptSetLineSpecificOverride.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerUnmapInterrupt @ 0x1405462D0 (HalpTimerUnmapInterrupt.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x140547A84 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpInterruptParseMadt @ 0x140554374 (HalpInterruptParseMadt.c)
+ *     HalpInterruptIsGsiValid @ 0x1406FB550 (HalpInterruptIsGsiValid.c)
+ *     HalpInterruptUnmap @ 0x1406FB668 (HalpInterruptUnmap.c)
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x1403B9C8C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14037265C (HalpInterruptFindLinesForGsiRange.c)
  */
 
-__int64 __fastcall HalpInterruptGsiToLine(__int64 a1, _DWORD *a2)
+__int64 __fastcall HalpInterruptGsiToLine(unsigned int a1, _DWORD *a2)
 {
-  int v3; // ebx
   _DWORD *LinesForGsiRange; // rax
 
-  v3 = a1;
-  LinesForGsiRange = (_DWORD *)HalpInterruptFindLinesForGsiRange(a1, (unsigned int)(a1 + 1));
+  LinesForGsiRange = HalpInterruptFindLinesForGsiRange(a1, a1 + 1);
   if ( !LinesForGsiRange )
     return 3221226021LL;
   *a2 = LinesForGsiRange[4];
-  a2[1] = v3 + LinesForGsiRange[5] - LinesForGsiRange[7];
+  a2[1] = a1 + LinesForGsiRange[5] - LinesForGsiRange[7];
   return 0LL;
 }

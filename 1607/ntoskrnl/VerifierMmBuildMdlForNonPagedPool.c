@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmDeterminePoolType @ 0x1400EB21C (MmDeterminePoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     MmDeterminePoolType @ 0x1400E908C (MmDeterminePoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierMmBuildMdlForNonPagedPool(ULONG_PTR a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopEtProcessEnumSnapshotCallback @ 0x1407DC800
+ * XREFs of PopEtProcessEnumSnapshotCallback @ 0x1407E0A20
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407DC800 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407E0A20 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x1404ACBEC (Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopEtEnergyTrackerQueryProcessEnergyValues @ 0x1407DC454 (PopEtEnergyTrackerQueryProcessEnergyValues.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407DC800 (PopEtProcessEnumSnapshotCallback.c)
- *     PopEtProcessSnapshotUpdate @ 0x140951054 (PopEtProcessSnapshotUpdate.c)
- *     PsQueryProcessEnergyValues @ 0x140952980 (PsQueryProcessEnergyValues.c)
- *     PopEtIsrDpcQuery @ 0x140AB040C (PopEtIsrDpcQuery.c)
- *     PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x140B6D478 (PopEtEnergyTrackerQueryDxgProcessEnergyValues.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline @ 0x1404A627C (Feature_NpuProcessAttributionDxgDeadlockFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopEtEnergyTrackerQueryProcessEnergyValues @ 0x1407E0674 (PopEtEnergyTrackerQueryProcessEnergyValues.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407E0A20 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1409CC994 (PopEtProcessSnapshotUpdate.c)
+ *     PsQueryProcessEnergyValues @ 0x1409CE2C0 (PsQueryProcessEnergyValues.c)
+ *     PopEtIsrDpcQuery @ 0x140AAE05C (PopEtIsrDpcQuery.c)
+ *     PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x140B70848 (PopEtEnergyTrackerQueryDxgProcessEnergyValues.c)
  */
 
 __int64 __fastcall PopEtProcessEnumSnapshotCallback(_QWORD *a1, __int64 a2)

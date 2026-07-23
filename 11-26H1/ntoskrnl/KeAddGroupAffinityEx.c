@@ -1,5 +1,5 @@
 /*
- * XREFs of KeAddGroupAffinityEx @ 0x14048FD80
+ * XREFs of KeAddGroupAffinityEx @ 0x140489830
  * Callers:
  *     <none>
  * Callees:

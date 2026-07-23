@@ -14,50 +14,54 @@
 
 int __stdcall EtwpGetRegDwordValue(_DWORD *a1)
 {
-  const WCHAR *Heap; // ebx
-  int v2; // esi
-  int v3; // edi
+  WCHAR *Heap; // ebx
+  NTSTATUS v2; // esi
+  _DWORD *v3; // edi
   wchar_t *v5; // [esp-Ch] [ebp-50h]
   size_t v6; // [esp-8h] [ebp-4Ch]
-  size_t *v7; // [esp-4h] [ebp-48h]
-  const wchar_t *v8; // [esp+0h] [ebp-44h]
-  size_t v9; // [esp+4h] [ebp-40h]
-  _DWORD v10[6]; // [esp+10h] [ebp-34h] BYREF
-  UNICODE_STRING v11; // [esp+28h] [ebp-1Ch] BYREF
-  UNICODE_STRING DestinationString; // [esp+30h] [ebp-14h] BYREF
-  _BYTE v13[4]; // [esp+38h] [ebp-Ch] BYREF
-  HANDLE Handle[2]; // [esp+3Ch] [ebp-8h] BYREF
+  SIZE_T v7; // [esp-4h] [ebp-48h]
+  SIZE_T v8; // [esp-4h] [ebp-48h]
+  size_t *v9; // [esp+0h] [ebp-44h]
+  const wchar_t *v10; // [esp+4h] [ebp-40h]
+  size_t v11; // [esp+8h] [ebp-3Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-34h] BYREF
+  _UNICODE_STRING ValueName; // [esp+28h] [ebp-1Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+30h] [ebp-14h] BYREF
+  ULONG ResultLength; // [esp+38h] [ebp-Ch] BYREF
+  HANDLE KeyHandle; // [esp+3Ch] [ebp-8h] BYREF
 
-  Handle[0] = (HANDLE)-1;
-  Heap = (const WCHAR *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 4096);
+  KeyHandle = (HANDLE)-1;
+  LODWORD(v7) = 4096;
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   if ( !Heap )
     return -1073741801;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control");
-  v10[0] = 24;
-  v10[2] = &DestinationString;
-  v10[1] = 0;
-  v10[3] = 64;
-  v10[4] = 0;
-  v10[5] = 0;
-  v2 = ZwOpenKey(Handle, 131097, v10);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  v2 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v2 >= 0 )
   {
-    v3 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 16);
+    LODWORD(v8) = 16;
+    v3 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
     if ( v3 )
     {
-      StringCopyWorkerW(v5, v6, v7, v8, v9);
-      RtlInitUnicodeString(&v11, Heap);
-      v2 = ZwQueryValueKey(Handle[0], &v11, 2, v3, 16, v13);
+      StringCopyWorkerW(v5, v6, v9, v10, v11);
+      RtlInitUnicodeString(&ValueName, Heap);
+      v2 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, v3, 0x10u, &ResultLength);
       if ( v2 >= 0 )
-        *a1 = *(_DWORD *)(v3 + 12);
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v3);
+        *a1 = v3[3];
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
     }
     else
     {
       v2 = -1073741801;
     }
-    NtClose(Handle[0]);
+    NtClose(KeyHandle);
   }
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v2;
 }

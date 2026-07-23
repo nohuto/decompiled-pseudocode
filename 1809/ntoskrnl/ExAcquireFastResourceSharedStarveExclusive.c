@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAcquireFastResourceSharedStarveExclusive @ 0x140165930
+ * XREFs of ExAcquireFastResourceSharedStarveExclusive @ 0x140165A30
  * Callers:
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031B888 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031BA78 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpWaitForResource @ 0x1401138F0 (ExpWaitForResource.c)
- *     ExpTryAcquireResourceSharedStarveExclusive @ 0x14012E538 (ExpTryAcquireResourceSharedStarveExclusive.c)
- *     ExpPrepareToWaitForResourceShared @ 0x140137E00 (ExpPrepareToWaitForResourceShared.c)
- *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x140166138 (ExpAddFastOwnerEntryToThreadList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x140113960 (ExpWaitForResource.c)
+ *     ExpTryAcquireResourceSharedStarveExclusive @ 0x14012E608 (ExpTryAcquireResourceSharedStarveExclusive.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x140137F00 (ExpPrepareToWaitForResourceShared.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166184 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x140166238 (ExpAddFastOwnerEntryToThreadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
@@ -32,7 +32,7 @@ char __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheckPar
   ULONG_PTR *v16; // rcx
   __int64 v17; // rax
   char v18; // bp
-  __int64 v20; // rax
+  PRTL_BALANCED_NODE v20; // rax
   __int64 v21; // r8
   __int64 v22; // rdx
   _QWORD *v23; // r9
@@ -96,7 +96,7 @@ LABEL_55:
   v20 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
   v7 = (_KLOCK_ENTRY *)v20;
   if ( v20 )
-    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (*(_BYTE *)(v20 + 24) - 50)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (LOBYTE(v20[1].Children[0]) - 50)) / 96)) | 1;
   v31[0] = 0LL;
   v31[1] = (volatile signed __int64 *)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)v31, (volatile __int64 *)(BugCheckParameter2 + 96), v21);
@@ -157,7 +157,7 @@ LABEL_15:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v32, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v7 )
-    KeAbPreAcquire(BugCheckParameter2, (__int64)v7, 0);
+    KeAbPreAcquire(BugCheckParameter2, &v7->TreeNode, 0);
   v18 = 1;
 LABEL_17:
   if ( v7 )

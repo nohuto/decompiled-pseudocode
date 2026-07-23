@@ -1,19 +1,19 @@
 /*
- * XREFs of MI_WSLE_LOG_ACCESS @ 0x140309080
+ * XREFs of MI_WSLE_LOG_ACCESS @ 0x140313DD0
  * Callers:
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiEmptyWorkingSetHelper @ 0x140306534 (MiEmptyWorkingSetHelper.c)
- *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
- *     MiTrimPte @ 0x140308900 (MiTrimPte.c)
- *     MmProtectPool @ 0x140362D68 (MmProtectPool.c)
- *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1405366CC (MiDeprioritizeVirtualAddresses.c)
- *     MiTrimPteWorker @ 0x14053C1E8 (MiTrimPteWorker.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
+ *     MmProtectPool @ 0x1402F8098 (MmProtectPool.c)
+ *     MiTrimSharedPageFromViews @ 0x1402FA994 (MiTrimSharedPageFromViews.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiEmptyWorkingSetHelper @ 0x140311284 (MiEmptyWorkingSetHelper.c)
+ *     MiRemoveMappedPtes @ 0x140313250 (MiRemoveMappedPtes.c)
+ *     MiTrimPte @ 0x140313650 (MiTrimPte.c)
+ *     MiConvertPrivateToProto @ 0x14036A200 (MiConvertPrivateToProto.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14053690C (MiDeprioritizeVirtualAddresses.c)
+ *     MiTrimPteWorker @ 0x14053C428 (MiTrimPteWorker.c)
  * Callees:
- *     MiGetVaAge @ 0x1403090F0 (MiGetVaAge.c)
- *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
+ *     MiGetVaAge @ 0x140313E40 (MiGetVaAge.c)
+ *     MiLogPageAccess @ 0x1403453A0 (MiLogPageAccess.c)
  */
 
 __int64 __fastcall MI_WSLE_LOG_ACCESS(__int64 a1, _BYTE *a2)

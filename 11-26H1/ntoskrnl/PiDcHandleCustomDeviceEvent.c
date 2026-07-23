@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDcHandleCustomDeviceEvent @ 0x1409DD768
+ * XREFs of PiDcHandleCustomDeviceEvent @ 0x140A1AA20
  * Callers:
- *     PnpProcessCustomDeviceEvent @ 0x1409DD260 (PnpProcessCustomDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x140A1A510 (PnpProcessCustomDeviceEvent.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _CmMoveBaseContainer @ 0x140897F70 (_CmMoveBaseContainer.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140909B98 (_CmGetDeviceContainerIdFromBase.c)
- *     PnpQueryDeviceRelations @ 0x14090E10C (PnpQueryDeviceRelations.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     _CmIsLocalMachineContainer @ 0x140A2A6D8 (_CmIsLocalMachineContainer.c)
- *     PiDcContainerRequiresConfiguration @ 0x140B04F50 (PiDcContainerRequiresConfiguration.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _CmMoveBaseContainer @ 0x14089E370 (_CmMoveBaseContainer.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1409AC150 (_CmGetDeviceContainerIdFromBase.c)
+ *     PnpQueryDeviceRelations @ 0x1409B023C (PnpQueryDeviceRelations.c)
+ *     _CmIsLocalMachineContainer @ 0x140A3D768 (_CmIsLocalMachineContainer.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140B06B60 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcHandleCustomDeviceEvent(__int64 a1)

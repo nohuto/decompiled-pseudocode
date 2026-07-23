@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpLookupDirectoryUsingHash @ 0x14040D044
+ * XREFs of ObpLookupDirectoryUsingHash @ 0x14040BF04
  * Callers:
- *     ObpLookupDirectoryEntryEx @ 0x14040CEF0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryEntryEx @ 0x14040BDB0 (ObpLookupDirectoryEntryEx.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObpUnlockDirectory @ 0x14008BA30 (ObpUnlockDirectory.c)
- *     ObpLockDirectoryShared @ 0x1400EE448 (ObpLockDirectoryShared.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObpUnlockDirectory @ 0x14008B190 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryShared @ 0x1400EC2BC (ObpLockDirectoryShared.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 void *__fastcall ObpLookupDirectoryUsingHash(unsigned __int64 *a1, const UNICODE_STRING *a2, __int64 a3, BOOLEAN a4)

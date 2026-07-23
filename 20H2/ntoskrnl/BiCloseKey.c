@@ -34,7 +34,7 @@ NTSTATUS __fastcall BiCloseKey(void *a1)
   __int64 v3; // rdx
   void *v4; // rbx
 
-  KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(393241);
+  KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(393241LL);
   v4 = KeySecurityDescriptor;
   if ( KeySecurityDescriptor )
   {

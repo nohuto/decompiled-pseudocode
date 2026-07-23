@@ -11,45 +11,45 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpCreateSerializationGroup(int a1)
+volatile signed __int32 *__fastcall RtlpCreateSerializationGroup(int a1)
 {
   _QWORD *i; // rax
-  _QWORD *v3; // rbx
-  __int64 result; // rax
-  __int64 v5; // rcx
-  __int64 v6; // r8
+  volatile signed __int32 *v3; // rbx
+  volatile signed __int32 *result; // rax
+  _RTL_SRWLOCK *v5; // rcx
+  _RTL_SRWLOCK *v6; // r8
   __int64 v7; // rax
   _QWORD *j; // rcx
   volatile signed __int32 *v9; // rdi
   __int64 **v10; // rdx
   __int64 *v11; // rcx
 
-  RtlAcquireSRWLockShared(qword_180166090 + 48);
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_180166090 + 48));
   for ( i = *(_QWORD **)(qword_180166090 + 32); i != (_QWORD *)(qword_180166090 + 32); i = (_QWORD *)*i )
   {
-    v3 = i - 1;
+    v3 = (volatile signed __int32 *)(i - 1);
     if ( *((_DWORD *)i - 1) == a1 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)v3 + 8);
-      RtlReleaseSRWLockShared(qword_180166090 + 48);
-      return (__int64)v3;
+      _InterlockedIncrement(v3 + 8);
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_180166090 + 48));
+      return v3;
     }
   }
-  RtlReleaseSRWLockShared(qword_180166090 + 48);
-  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 40LL);
-  v3 = (_QWORD *)result;
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_180166090 + 48));
+  result = (volatile signed __int32 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
+  v3 = result;
   if ( result )
   {
-    *(_QWORD *)(result + 8) = 0LL;
-    *(_QWORD *)(result + 16) = 0LL;
-    *(_DWORD *)(result + 36) = 0;
-    *(_DWORD *)result = 2623763;
-    *(_QWORD *)(result + 24) = 0LL;
-    v5 = qword_180166090 + 48;
-    *(_DWORD *)(result + 4) = a1;
-    *(_DWORD *)(result + 32) = 1;
+    *((_QWORD *)result + 1) = 0LL;
+    *((_QWORD *)result + 2) = 0LL;
+    *((_DWORD *)result + 9) = 0;
+    *result = 2623763;
+    *((_QWORD *)result + 3) = 0LL;
+    v5 = (_RTL_SRWLOCK *)(qword_180166090 + 48);
+    *((_DWORD *)result + 1) = a1;
+    *((_DWORD *)result + 8) = 1;
     RtlAcquireSRWLockExclusive(v5);
-    v6 = qword_180166090;
+    v6 = (_RTL_SRWLOCK *)qword_180166090;
     v7 = qword_180166090 + 32;
     for ( j = *(_QWORD **)(qword_180166090 + 32); j != (_QWORD *)v7; j = (_QWORD *)*j )
     {
@@ -57,21 +57,21 @@ __int64 __fastcall RtlpCreateSerializationGroup(int a1)
       if ( *((_DWORD *)j - 1) == a1 )
       {
         _InterlockedIncrement(v9 + 8);
-        RtlReleaseSRWLockExclusive(qword_180166090 + 48);
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
-        return (__int64)v9;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_180166090 + 48));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v3);
+        return v9;
       }
     }
     v10 = *(__int64 ***)(qword_180166090 + 40);
-    v11 = v3 + 1;
+    v11 = (__int64 *)(v3 + 2);
     if ( *v10 != (__int64 *)v7 )
       __fastfail(3u);
     *v11 = v7;
-    v3[2] = v10;
+    *((_QWORD *)v3 + 2) = v10;
     *v10 = v11;
     *(_QWORD *)(v7 + 8) = v11;
-    RtlReleaseSRWLockExclusive(v6 + 48);
-    return (__int64)v3;
+    RtlReleaseSRWLockExclusive(v6 + 6);
+    return v3;
   }
   return result;
 }

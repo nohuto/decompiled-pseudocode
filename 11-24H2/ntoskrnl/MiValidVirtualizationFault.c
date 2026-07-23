@@ -1,16 +1,16 @@
 /*
- * XREFs of MiValidVirtualizationFault @ 0x1404359DC
+ * XREFs of MiValidVirtualizationFault @ 0x14042845C
  * Callers:
- *     MiLargePageFault @ 0x1403F38B4 (MiLargePageFault.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1404C1204 (MiLargePageFault.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiGetVirtualFaultPageInfo @ 0x140435B70 (MiGetVirtualFaultPageInfo.c)
- *     MiFillVirtualFaultInfo @ 0x140435BA4 (MiFillVirtualFaultInfo.c)
- *     MiCompleteSecureProcessFault @ 0x140435C20 (MiCompleteSecureProcessFault.c)
- *     MiSetFaultPacketDirectives @ 0x1404374AC (MiSetFaultPacketDirectives.c)
- *     MiPerformSafePdeWrite @ 0x140488444 (MiPerformSafePdeWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiGetVirtualFaultPageInfo @ 0x1404285F0 (MiGetVirtualFaultPageInfo.c)
+ *     MiFillVirtualFaultInfo @ 0x140428624 (MiFillVirtualFaultInfo.c)
+ *     MiCompleteSecureProcessFault @ 0x1404286A0 (MiCompleteSecureProcessFault.c)
+ *     MiSetFaultPacketDirectives @ 0x140429F2C (MiSetFaultPacketDirectives.c)
+ *     MiPerformSafePdeWrite @ 0x140483594 (MiPerformSafePdeWrite.c)
  */
 
 __int64 __fastcall MiValidVirtualizationFault(_QWORD *a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -38,12 +38,7 @@ __int64 __fastcall MiValidVirtualizationFault(_QWORD *a1, __int64 a2, unsigned _
     v14 = 48 * ((v8 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
     if ( (*(_QWORD *)(v14 + 40) & 0x10000000000LL) == 0 && *(__int64 *)(v14 + 8) > 0 )
     {
-      v13 = MiCopyOnWrite(
-              (__int64)(a3 << 25) >> 16,
-              (volatile signed __int64 *)a3,
-              0xFFFFFFFFFFFFFFFFuLL,
-              0,
-              (__int128 *)&v16);
+      v13 = MiCopyOnWrite((__int64)(a3 << 25) >> 16, (volatile signed __int64 *)a3, 0xFFFFFFFFFFFFFFFFuLL, 0, &v16);
       if ( v13 < 0 )
       {
         MiSetFaultPacketDirectives(a1, (unsigned int)v13, v16);

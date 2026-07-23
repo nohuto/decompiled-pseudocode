@@ -25,7 +25,7 @@
  * 00000001409D7DE3: sbb     eax, eax
  * 00000001409D7DE5: mov     [rbp+var_8], 18h
  * 00000001409D7DED: and     eax, 100h
- * 00000001409D7DF2: mov     [rbp+var_18], 1
+ * 00000001409D7DF2: mov     [rbp+SystemInformation], 1
  * 00000001409D7DF9: add     eax, 6
  * 00000001409D7DFC: mov     [rbp+var_14], 11h
  * 00000001409D7E03: mov     [rbp+var_30], eax
@@ -48,9 +48,9 @@
  * 00000001409D7E45: jmp     short loc_1409D7E5D
  * 00000001409D7E47: cmp     edx, 1
  * 00000001409D7E4A: jnz     short loc_1409D7E66
- * 00000001409D7E4C: mov     r8d, r11d
- * 00000001409D7E4F: lea     rdx, [rbp+var_18]
- * 00000001409D7E53: mov     ecx, 6Dh ; 'm'
+ * 00000001409D7E4C: mov     r8d, r11d; SystemInformationLength
+ * 00000001409D7E4F: lea     rdx, [rbp+SystemInformation]; SystemInformation
+ * 00000001409D7E53: mov     ecx, 6Dh ; 'm'; SystemInformationClass
  * 00000001409D7E58: call    ZwSetSystemInformation
  * 00000001409D7E5D: mov     ecx, eax
  * 00000001409D7E5F: mov     eax, [rbp+var_28]

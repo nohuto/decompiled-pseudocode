@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x140420B60
+ * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x140420EF0
  * Callers:
- *     KiInterruptDispatchNoLockNoEtw @ 0x1404214F0 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140421880 (KiInterruptDispatchNoLockNoEtw.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140248430 (KiEndThreadAccountingPeriod.c)
- *     KiCallInterruptServiceRoutine @ 0x140324950 (KiCallInterruptServiceRoutine.c)
- *     KiEntropyQueueDpc @ 0x14035E7F0 (KiEntropyQueueDpc.c)
- *     KzSetIrqlUnsafe @ 0x14056C060 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140248500 (KiEndThreadAccountingPeriod.c)
+ *     KiCallInterruptServiceRoutine @ 0x140324BE0 (KiCallInterruptServiceRoutine.c)
+ *     KiEntropyQueueDpc @ 0x14035E990 (KiEntropyQueueDpc.c)
+ *     KzSetIrqlUnsafe @ 0x14056C720 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiInterruptSubDispatchNoLockNoEtw()
@@ -27,7 +27,7 @@ char __fastcall KiInterruptSubDispatchNoLockNoEtw()
   char result; // al
 
   v2 = *(unsigned __int8 *)(v1 + 93);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(v2);
   }

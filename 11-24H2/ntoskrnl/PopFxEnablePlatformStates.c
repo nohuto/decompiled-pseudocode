@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxEnablePlatformStates @ 0x1405D12F8
+ * XREFs of PopFxEnablePlatformStates @ 0x1405CEA18
  * Callers:
- *     PpmEnableCoordinatedIdleStates @ 0x140749E80 (PpmEnableCoordinatedIdleStates.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1407481B0 (PpmEnableCoordinatedIdleStates.c)
  * Callees:
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1404A673C (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepPlatformStateRegistered @ 0x1405DBD18 (PopPepPlatformStateRegistered.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x14074DC98 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1403A5BC0 (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepPlatformStateRegistered @ 0x1405D8BE8 (PopPepPlatformStateRegistered.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x14074BFC8 (PopFxInitializeSocSubsystemStaticInfo.c)
  */
 
 void __fastcall PopFxEnablePlatformStates(int a1)
@@ -18,7 +18,7 @@ void __fastcall PopFxEnablePlatformStates(int a1)
     DeepSleepPlatformStateIndex = PpmGetDeepSleepPlatformStateIndex();
     if ( DeepSleepPlatformStateIndex != -1 )
     {
-      _InterlockedExchange(&dword_140E27DC0, DeepSleepPlatformStateIndex);
+      _InterlockedExchange(&dword_140E27F00, DeepSleepPlatformStateIndex);
       PopFxInitializeSocSubsystemStaticInfo(DeepSleepPlatformStateIndex);
     }
   }

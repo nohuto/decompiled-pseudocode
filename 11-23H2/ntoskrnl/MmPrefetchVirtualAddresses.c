@@ -1,10 +1,10 @@
 /*
  * XREFs of MmPrefetchVirtualAddresses @ 0x1406819E0
  * Callers:
- *     VmpPrefetchForVirtualFault @ 0x1409DD59C (VmpPrefetchForVirtualFault.c)
+ *     VmpPrefetchForVirtualFault @ 0x1409DD79C (VmpPrefetchForVirtualFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
  *     MmPrefetchVirtualMemory @ 0x140681A70 (MmPrefetchVirtualMemory.c)
  */
 

@@ -115,7 +115,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v73; // [rsp+98h] [rbp-F0h]
   __int64 v74; // [rsp+A0h] [rbp-E8h]
   __int64 v75; // [rsp+A8h] [rbp-E0h]
-  SIZE_T NumberOfBytes; // [rsp+B0h] [rbp-D8h]
+  ULONG ContextLength; // [rsp+B0h] [rbp-D8h] BYREF
   struct _KTHREAD *v77; // [rsp+B8h] [rbp-D0h]
   struct _KPROCESS *v78; // [rsp+C0h] [rbp-C8h]
   __int64 v79; // [rsp+C8h] [rbp-C0h]
@@ -285,7 +285,7 @@ LABEL_22:
   *((_QWORD *)v28 + 250) = -3LL;
   if ( KeQuerySystemTimeUnsafe() )
   {
-    KeQuerySystemTimePrecise((__int64 *)v28 + 190);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)v28 + 190);
   }
   else
   {
@@ -391,8 +391,8 @@ LABEL_97:
       *((_QWORD *)v28 + 245) = *(_QWORD *)(v73 + 8);
       *((_QWORD *)v28 + 246) = *(_QWORD *)(v52 + 16);
       _interlockedbittestandset((volatile signed __int32 *)v28, 0x1Au);
-      RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607);
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63537350u);
+      RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ContextLength, 0x63537350u);
       v28 = (char *)Object;
       *((_QWORD *)Object + 252) = PoolWithTag;
       if ( !PoolWithTag )

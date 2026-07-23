@@ -79,7 +79,7 @@ __int64 __fastcall MiUnlockMdlWritePages(_DWORD *a1, int *a2)
   v43 = CurrentIrql;
   __writecr8(2uLL);
   v11 = LOBYTE(v40[11]) - 1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -238,10 +238,10 @@ LABEL_18:
       if ( (++v8 & 0x3F) == 0 && KeShouldYieldProcessor() )
       {
         MiInsertPagesInList(v40, 0LL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v31 >= 2u )
           {
             v32 = KeGetCurrentPrcb();
             v33 = v32->SchedulerAssist;
@@ -255,7 +255,7 @@ LABEL_18:
         __writecr8((unsigned __int8)v43);
         v27 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
         {
           v28 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v27 == 2 )
@@ -275,10 +275,10 @@ LABEL_18:
     }
   }
   MiInsertPagesInList(v40, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v35 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v35 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v35 >= 2u )
     {
       v36 = KeGetCurrentPrcb();
       v37 = v36->SchedulerAssist;

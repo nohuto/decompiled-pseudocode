@@ -11,9 +11,9 @@
  *     RtlAllocateHeap @ 0x1800255D0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
+PVOID __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
 {
-  __int64 result; // rax
+  PVOID result; // rax
   unsigned __int64 v3; // rcx
 
   result = 0LL;
@@ -21,7 +21,7 @@ __int64 __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
   if ( v3 <= 0xFFFFFFFF )
   {
     if ( (_DWORD)v3 )
-      return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, (unsigned int)v3);
+      return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)v3);
   }
   return result;
 }

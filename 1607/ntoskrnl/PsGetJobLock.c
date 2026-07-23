@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetJobLock @ 0x1400B5D34
+ * XREFs of PsGetJobLock @ 0x1400B3B5C
  * Callers:
  *     <none>
  * Callees:

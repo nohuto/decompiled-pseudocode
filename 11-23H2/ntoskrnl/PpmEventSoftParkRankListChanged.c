@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventSoftParkRankListChanged @ 0x140392C94
+ * XREFs of PpmEventSoftParkRankListChanged @ 0x140392E74
  * Callers:
- *     PpmParkReportParkedCores @ 0x140350DC0 (PpmParkReportParkedCores.c)
- *     PpmParkApplyPolicy @ 0x140392600 (PpmParkApplyPolicy.c)
+ *     PpmParkReportParkedCores @ 0x140350F60 (PpmParkReportParkedCores.c)
+ *     PpmParkApplyPolicy @ 0x1403927E0 (PpmParkApplyPolicy.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PpmEventSoftParkRankListChanged()

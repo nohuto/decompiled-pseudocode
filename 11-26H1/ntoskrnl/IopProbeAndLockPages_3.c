@@ -1,11 +1,11 @@
 /*
- * XREFs of IopProbeAndLockPages_3 @ 0x14050A414
+ * XREFs of IopProbeAndLockPages_3 @ 0x140503E84
  * Callers:
- *     BuildQueryDirectoryIrp @ 0x1409B1E90 (BuildQueryDirectoryIrp.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x140AACCA0 (NtNotifyChangeDirectoryFileEx.c)
+ *     BuildQueryDirectoryIrp @ 0x140982F50 (BuildQueryDirectoryIrp.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140AAAD60 (NtNotifyChangeDirectoryFileEx.c)
  * Callees:
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmUpdateMdlTracker @ 0x1404E047C (MmUpdateMdlTracker.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmUpdateMdlTracker @ 0x1404D9B5C (MmUpdateMdlTracker.c)
  */
 
 __int64 __fastcall IopProbeAndLockPages_3(

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogHiveLinkEvent @ 0x14086A958
+ * XREFs of CmpLogHiveLinkEvent @ 0x14086AAB8
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14071E230 (CmpLinkHiveToMaster.c)
+ *     CmpLinkHiveToMaster @ 0x1406F8338 (CmpLinkHiveToMaster.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmpLogHiveLinkEvent(__int64 a1, unsigned __int16 *a2)

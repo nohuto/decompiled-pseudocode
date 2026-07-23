@@ -12,5 +12,5 @@ void __stdcall RtlFreeOemString(POEM_STRING OemString)
 
   Buffer = OemString->Buffer;
   if ( Buffer )
-    NtdllpFreeStringRoutine((__int64)Buffer);
+    NtdllpFreeStringRoutine(Buffer);
 }

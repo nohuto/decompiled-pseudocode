@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcDeleteSectionView @ 0x14015AC40
+ * XREFs of ZwAlpcDeleteSectionView @ 0x14015B1B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeleteSectionView(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

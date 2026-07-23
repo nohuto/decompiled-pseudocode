@@ -1,17 +1,17 @@
 /*
- * XREFs of CcCreatePrivateVolumeCacheMap @ 0x140341A04
+ * XREFs of CcCreatePrivateVolumeCacheMap @ 0x140341C94
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
- *     CcAddExternalCacheToVolume @ 0x1403D6E24 (CcAddExternalCacheToVolume.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
+ *     CcAddExternalCacheToVolume @ 0x1403D7004 (CcAddExternalCacheToVolume.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x14029A5DC (CcDecrementPrivateVolumeUseCount.c)
- *     CcFindPrivateVolumeCacheMap @ 0x140341AF8 (CcFindPrivateVolumeCacheMap.c)
- *     CcInitializePrivateVolumeCacheMap @ 0x1403C0AA8 (CcInitializePrivateVolumeCacheMap.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1403C2074 (CcDeletePrivateVolumeCacheMap.c)
- *     CcInsertPrivateVolumeCacheMap @ 0x1403C3C38 (CcInsertPrivateVolumeCacheMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x14029A86C (CcDecrementPrivateVolumeUseCount.c)
+ *     CcFindPrivateVolumeCacheMap @ 0x140341D88 (CcFindPrivateVolumeCacheMap.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403C0C88 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403C2254 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcInsertPrivateVolumeCacheMap @ 0x1403C3E18 (CcInsertPrivateVolumeCacheMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
@@ -76,10 +76,13 @@ LABEL_12:
         CcDecrementPrivateVolumeUseCount((__int64)v10);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

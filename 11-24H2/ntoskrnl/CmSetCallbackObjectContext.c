@@ -1,20 +1,20 @@
 /*
- * XREFs of CmSetCallbackObjectContext @ 0x14098AF60
+ * XREFs of CmSetCallbackObjectContext @ 0x140975570
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x1409FE37C (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x140A73F7C (VrpPreLoadKey.c)
- *     VrpPostOpenOrCreate @ 0x140AE85D0 (VrpPostOpenOrCreate.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1409F75EC (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPreLoadKey @ 0x140A6D8DC (VrpPreLoadKey.c)
+ *     VrpPostOpenOrCreate @ 0x140AEB874 (VrpPostOpenOrCreate.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpUnlockContextList @ 0x14098B2A0 (CmpUnlockContextList.c)
- *     CmpLockContextListExclusive @ 0x14098B30C (CmpLockContextListExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpUnlockContextList @ 0x1409758B0 (CmpUnlockContextList.c)
+ *     CmpLockContextListExclusive @ 0x14097591C (CmpLockContextListExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cookie, PVOID NewContext, PVOID *OldContext)
@@ -22,9 +22,9 @@ NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cooki
   char v8; // bp
   _QWORD *v9; // r9
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v11; // rbx
+  char *v11; // rbx
   struct _KTHREAD *v12; // rax
-  _QWORD *v13; // rbx
+  char *v13; // rbx
   __int64 **v14; // rbx
   __int64 **i; // r15
   __int64 *j; // rbx
@@ -55,18 +55,18 @@ NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cooki
       *v9 = 0LL;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v11 = KeAbPreAcquire((__int64)&CmpCallbackListLock, 0LL);
+    v11 = (char *)KeAbPreAcquire((__int64)&CmpCallbackListLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpCallbackListLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&CmpCallbackListLock, 0, v11, (__int64)&CmpCallbackListLock);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     v12 = KeGetCurrentThread();
     --v12->KernelApcDisable;
-    v13 = KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
+    v13 = (char *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock, 0, v13, (__int64)&CmpContextListLock);
     if ( v13 )
-      *((_BYTE *)v13 + 10) = 1;
+      v13[10] = 1;
     v14 = (__int64 **)((char *)Object + 72);
     while ( 2 )
     {
@@ -104,7 +104,7 @@ NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cooki
         break;
     }
     v17 = 0;
-    Pool2 = (LARGE_INTEGER *)ExAllocatePool2(0x100uLL);
+    Pool2 = (LARGE_INTEGER *)ExAllocatePool2(0x100uLL, 0x40uLL, 0x63634D43u);
     v19 = (LONGLONG *)Pool2;
     if ( Pool2 )
     {

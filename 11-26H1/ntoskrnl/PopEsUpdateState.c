@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsUpdateState @ 0x14051C1C0
+ * XREFs of PopEsUpdateState @ 0x140517FA0
  * Callers:
- *     PopEsWorker @ 0x140B72400 (PopEsWorker.c)
+ *     PopEsWorker @ 0x140B773E0 (PopEsWorker.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDiagTraceEsState @ 0x14051C100 (PopDiagTraceEsState.c)
- *     PopEsPublishStateV2 @ 0x1407DB984 (PopEsPublishStateV2.c)
- *     PopCurrentPowerState @ 0x140AB1350 (PopCurrentPowerState.c)
- *     PopEsSnapTelemetry @ 0x140B5CDE0 (PopEsSnapTelemetry.c)
- *     PopEsEvaluateNextStateV2 @ 0x140B7216C (PopEsEvaluateNextStateV2.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDiagTraceEsState @ 0x140516A18 (PopDiagTraceEsState.c)
+ *     PopEsPublishStateV2 @ 0x1407DFBA0 (PopEsPublishStateV2.c)
+ *     PopCurrentPowerState @ 0x140AAF340 (PopCurrentPowerState.c)
+ *     PopEsSnapTelemetry @ 0x140B5FF60 (PopEsSnapTelemetry.c)
+ *     PopEsEvaluateNextStateV2 @ 0x140B77164 (PopEsEvaluateNextStateV2.c)
  */
 
 BOOLEAN __fastcall PopEsUpdateState(char a1)
@@ -34,7 +34,7 @@ BOOLEAN __fastcall PopEsUpdateState(char a1)
   v3 = 1;
   PopCurrentPowerState(v13);
   v4 = PopEsReason;
-  v5 = dword_140E677C4;
+  v5 = dword_140E67A2C;
   v6 = PopEsEvaluateNextStateV2(v13, &v14);
   v7 = v14;
   v8 = v6;
@@ -48,12 +48,12 @@ BOOLEAN __fastcall PopEsUpdateState(char a1)
   if ( a1 || v2 || v14 != v4 )
   {
     PopEsSnapTelemetry(v13);
-    v11 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.Spare35[1]);
+    v11 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
     PopEsReason = v7;
-    dword_140E677C4 = v8;
-    if ( LOBYTE(stru_140F10828.Spare35[0]) && (v2 || v10) )
-      ++*(_DWORD *)&stru_140F10828.ResourceIndex;
-    KeReleaseSpinLock(&stru_140F10070.Spare35[1], v11);
+    dword_140E67A2C = v8;
+    if ( PopCsResiliencyStats[0] && (v2 || v10) )
+      ++dword_140F100A8;
+    KeReleaseSpinLock(&PopCsResiliencyStatsLock, v11);
     if ( v2 )
     {
       LOBYTE(v12) = v3;

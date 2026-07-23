@@ -1,20 +1,20 @@
 /*
- * XREFs of MmGetSessionObjectById @ 0x1402C0B60
+ * XREFs of MmGetSessionObjectById @ 0x1402C0DF0
  * Callers:
  *     NtSetInformationObject @ 0x140697640 (NtSetInformationObject.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     SeSetSessionIdToken @ 0x1407F1174 (SeSetSessionIdToken.c)
- *     SeExchangePrimaryToken @ 0x1408402F8 (SeExchangePrimaryToken.c)
- *     IoGetContainerInformation @ 0x140948150 (IoGetContainerInformation.c)
- *     IoRegisterContainerNotification @ 0x1409481D0 (IoRegisterContainerNotification.c)
+ *     SepSetTokenSessionById @ 0x1406B7B10 (SepSetTokenSessionById.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     SeSetSessionIdToken @ 0x1407F1444 (SeSetSessionIdToken.c)
+ *     SeExchangePrimaryToken @ 0x1408405F8 (SeExchangePrimaryToken.c)
+ *     IoGetContainerInformation @ 0x140948350 (IoGetContainerInformation.c)
+ *     IoRegisterContainerNotification @ 0x1409483D0 (IoRegisterContainerNotification.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionById @ 0x1402C20C0 (MmGetSessionById.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void *__fastcall MmGetSessionObjectById(__int64 a1, __int64 a2)
@@ -46,10 +46,13 @@ void *__fastcall MmGetSessionObjectById(__int64 a1, __int64 a2)
       ObfReferenceObjectWithTag(v2, 0x746C6644u);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

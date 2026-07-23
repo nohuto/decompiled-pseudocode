@@ -11,13 +11,13 @@
  *     RtlpGetNtProductTypeFromRegistry @ 0x180088558 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v2; // bl
-  int v3; // eax
+  BOOLEAN v2; // bl
+  _NT_PRODUCT_TYPE v3; // eax
 
   v2 = 0;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1) )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v3 = *((_DWORD *)NtCurrentPeb()->SharedData + 4);
     goto LABEL_4;
@@ -26,12 +26,12 @@ char __fastcall RtlGetNtProductType(_DWORD *a1)
   {
     v3 = MEMORY[0x7FFE0264];
 LABEL_4:
-    *a1 = v3;
+    *NtProductType = v3;
     return 1;
   }
-  if ( (int)RtlpGetNtProductTypeFromRegistry(a1) < 0 )
+  if ( (int)RtlpGetNtProductTypeFromRegistry(NtProductType) < 0 )
   {
-    *a1 = 1;
+    *NtProductType = NtProductWinNt;
     return v2;
   }
   return 1;

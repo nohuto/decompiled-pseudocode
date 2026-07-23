@@ -1,12 +1,12 @@
 /*
- * XREFs of KiGetCurrentGroupCount @ 0x14013BB94
+ * XREFs of KiGetCurrentGroupCount @ 0x14013BC94
  * Callers:
- *     KiUpdateProcessorCount @ 0x1405728EC (KiUpdateProcessorCount.c)
+ *     KiUpdateProcessorCount @ 0x1405738EC (KiUpdateProcessorCount.c)
  * Callees:
  *     <none>
  */
 
 __int64 KiGetCurrentGroupCount()
 {
-  return (unsigned __int16)word_14043C8A4;
+  return (unsigned __int16)word_14043D964;
 }

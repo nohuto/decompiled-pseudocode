@@ -17,7 +17,7 @@
 __int64 __fastcall PnpGetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         unsigned int a5,
         void *a6,
@@ -29,11 +29,10 @@ __int64 __fastcall PnpGetDevicePropertyData(
   unsigned int ObjectProperty; // ebx
   __int64 v15; // rax
   unsigned int *v16; // rdx
-  char v17[8]; // [rsp+60h] [rbp-108h] BYREF
-  _BYTE *v18; // [rsp+68h] [rbp-100h]
-  _BYTE v19[176]; // [rsp+70h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+60h] [rbp-108h] BYREF
+  _BYTE v18[176]; // [rsp+70h] [rbp-F8h] BYREF
 
-  memset(v19, 0, 0xAAuLL);
+  memset(v18, 0, 0xAAuLL);
   if ( a1 )
     v11 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -42,13 +41,13 @@ __int64 __fastcall PnpGetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    v18 = v19;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, v17) )
+    String.Buffer = (wchar_t *)v18;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v18 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -58,7 +57,7 @@ __int64 __fastcall PnpGetDevicePropertyData(
                      *(_QWORD *)(v11 + 48),
                      1u,
                      0LL,
-                     (__int64)v18,
+                     (__int64)String.Buffer,
                      a2,
                      a8,
                      (__int64)a6,

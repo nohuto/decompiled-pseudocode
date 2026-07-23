@@ -1,21 +1,21 @@
 /*
- * XREFs of ZwDeleteValueKey @ 0x180163860
+ * XREFs of ZwDeleteValueKey @ 0x180161C20
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1800B6140 (RtlpQueryRegistryValues.c)
- *     RtlDeleteRegistryValue @ 0x1800B73A0 (RtlDeleteRegistryValue.c)
- *     RtlInitializeRXact @ 0x180106310 (RtlInitializeRXact.c)
- *     RtlApplyRXact @ 0x180106760 (RtlApplyRXact.c)
- *     RtlSetImageMitigationPolicy @ 0x180136E80 (RtlSetImageMitigationPolicy.c)
- *     RtlpSetInstallLanguage @ 0x180140140 (RtlpSetInstallLanguage.c)
+ *     RtlpQueryRegistryValues @ 0x1800829E0 (RtlpQueryRegistryValues.c)
+ *     RtlDeleteRegistryValue @ 0x180083C40 (RtlDeleteRegistryValue.c)
+ *     RtlInitializeRXact @ 0x180101240 (RtlInitializeRXact.c)
+ *     RtlApplyRXact @ 0x180101690 (RtlApplyRXact.c)
+ *     RtlSetImageMitigationPolicy @ 0x1801350B0 (RtlSetImageMitigationPolicy.c)
+ *     RtlpSetInstallLanguage @ 0x18013E330 (RtlpSetInstallLanguage.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwDeleteValueKey()
+NTSTATUS __cdecl ZwDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 223LL;
+  result = 223;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

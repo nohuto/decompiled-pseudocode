@@ -1,14 +1,14 @@
 /*
- * XREFs of IopSetFileObjectExtensionFlag @ 0x140469800
+ * XREFs of IopSetFileObjectExtensionFlag @ 0x140462F80
  * Callers:
- *     IopCheckInitiatorHint @ 0x140454DB0 (IopCheckInitiatorHint.c)
- *     IopCheckHandleForRevocation @ 0x1405CBAB0 (IopCheckHandleForRevocation.c)
- *     IoRegisterContainerNotification @ 0x140797260 (IoRegisterContainerNotification.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     IoSetFileObjectIgnoreSharing @ 0x140AEFF90 (IoSetFileObjectIgnoreSharing.c)
+ *     IopCheckInitiatorHint @ 0x14044CEE0 (IopCheckInitiatorHint.c)
+ *     IopCheckHandleForRevocation @ 0x1405CE320 (IopCheckHandleForRevocation.c)
+ *     IoRegisterContainerNotification @ 0x140799D90 (IoRegisterContainerNotification.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     IoSetFileObjectIgnoreSharing @ 0x140AF2B60 (IoSetFileObjectIgnoreSharing.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileObjectExtensionFlag(__int64 a1, unsigned int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall IopSetFileObjectExtensionFlag(__int64 a1, unsigned int a2)
   v3 = a2 & 4;
   if ( Pool2 )
   {
-    if ( Pool2 != (volatile signed __int32 *)qword_140019060 )
+    if ( Pool2 != (volatile signed __int32 *)qword_1400137E0 )
     {
 LABEL_3:
       _InterlockedOr(Pool2, a2);
@@ -36,7 +36,7 @@ LABEL_3:
     Pool2 = (volatile signed __int32 *)ExAllocatePool2(0x40uLL);
     if ( !Pool2 )
     {
-      v8 = qword_140019060;
+      v8 = qword_1400137E0;
       v7 = -1073741670;
       if ( !v3 )
         v8 = 0LL;
@@ -46,7 +46,7 @@ LABEL_3:
     {
       if ( Pool2 )
       {
-        if ( Pool2 != (volatile signed __int32 *)qword_140019060 )
+        if ( Pool2 != (volatile signed __int32 *)qword_1400137E0 )
           ExFreePoolWithTag((PVOID)Pool2, 0);
       }
       Pool2 = *(volatile signed __int32 **)(a1 + 208);

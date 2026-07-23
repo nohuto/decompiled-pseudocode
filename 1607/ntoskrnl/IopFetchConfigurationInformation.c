@@ -4,7 +4,7 @@
  *     IopCreateArcNamesCd @ 0x140798420 (IopCreateArcNamesCd.c)
  *     IopCreateArcNamesDisk @ 0x1407985F0 (IopCreateArcNamesDisk.c)
  * Callees:
- *     IoGetDeviceInterfaces @ 0x1404F5CF0 (IoGetDeviceInterfaces.c)
+ *     IoGetDeviceInterfaces @ 0x1404D8C7C (IoGetDeviceInterfaces.c)
  */
 
 __int64 __fastcall IopFetchConfigurationInformation(

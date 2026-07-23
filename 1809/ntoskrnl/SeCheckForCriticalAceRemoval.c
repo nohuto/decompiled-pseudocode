@@ -1,14 +1,14 @@
 /*
- * XREFs of SeCheckForCriticalAceRemoval @ 0x1405B8B50
+ * XREFs of SeCheckForCriticalAceRemoval @ 0x1405B9B50
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     SepCheckForCriticalAceRemoval @ 0x140013054 (SepCheckForCriticalAceRemoval.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SeLocateProcessImageName @ 0x1406671B0 (SeLocateProcessImageName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SeLocateProcessImageName @ 0x140668370 (SeLocateProcessImageName.c)
  */
 
 char __fastcall SeCheckForCriticalAceRemoval(void *a1, void *a2, __int64 *a3, _BYTE *a4)
@@ -34,9 +34,9 @@ char __fastcall SeCheckForCriticalAceRemoval(void *a1, void *a2, __int64 *a3, _B
     {
       CurrentThreadProcess = PsGetCurrentThreadProcess();
       ProcessImageName = SeLocateProcessImageName(CurrentThreadProcess, (PUNICODE_STRING *)&v11[7]);
-      if ( ProcessImageName >= 0 && stru_140400278.LevelPlus1 > 5 )
+      if ( ProcessImageName >= 0 && stru_140401278.LevelPlus1 > 5 )
       {
-        LOBYTE(ProcessImageName) = TlgKeywordOn(&stru_140400278, 0x200000000000uLL);
+        LOBYTE(ProcessImageName) = TlgKeywordOn(&stru_140401278, 0x200000000000uLL);
         if ( (_BYTE)ProcessImageName )
         {
           v7 = (unsigned __int16)**(_WORD **)&v11[7];
@@ -47,7 +47,7 @@ char __fastcall SeCheckForCriticalAceRemoval(void *a1, void *a2, __int64 *a3, _B
           v14 = 2;
           v16 = v8;
           v17[0] = v7;
-          LOBYTE(ProcessImageName) = TlgWrite(&stru_140400278, &unk_140372C71, 0LL, 0LL, 4u, &pData);
+          LOBYTE(ProcessImageName) = TlgWrite(&stru_140401278, &unk_140373C01, 0LL, 0LL, 4u, &pData);
         }
       }
     }

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSwapHardFaultPage @ 0x14031CCEC
+ * XREFs of MiSwapHardFaultPage @ 0x14031ED1C
  * Callers:
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
- *     MiSoftFaultClusterTradePageFinish @ 0x1407126D8 (MiSoftFaultClusterTradePageFinish.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
+ *     MiSoftFaultClusterTradePageFinish @ 0x1407173D0 (MiSoftFaultClusterTradePageFinish.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiUpdateTransitionPteFrame @ 0x14030E180 (MiUpdateTransitionPteFrame.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiPfnReferenceCountIsZero @ 0x14031C374 (MiPfnReferenceCountIsZero.c)
- *     MiRemoveLockedPageCharge @ 0x14031D180 (MiRemoveLockedPageCharge.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402F0200 (MiUpdateTransitionPteFrame.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiPfnReferenceCountIsZero @ 0x14031E3A4 (MiPfnReferenceCountIsZero.c)
+ *     MiRemoveLockedPageCharge @ 0x14031F1B0 (MiRemoveLockedPageCharge.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
  */
 
 __int64 __fastcall MiSwapHardFaultPage(__int64 *a1, const __m128i *a2, __m128i *a3)

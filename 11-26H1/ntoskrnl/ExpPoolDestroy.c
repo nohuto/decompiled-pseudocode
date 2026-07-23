@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPoolDestroy @ 0x140846574
+ * XREFs of ExpPoolDestroy @ 0x14084C7D4
  * Callers:
- *     ExDestroyPool @ 0x1406CBBF0 (ExDestroyPool.c)
+ *     ExDestroyPool @ 0x1406CFC20 (ExDestroyPool.c)
  * Callees:
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     ExpPoolHeapDestroy @ 0x1408466CC (ExpPoolHeapDestroy.c)
- *     ExpPoolMgrUnregisterPool @ 0x1408475D0 (ExpPoolMgrUnregisterPool.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     ExpPoolHeapDestroy @ 0x14084C92C (ExpPoolHeapDestroy.c)
+ *     ExpPoolMgrUnregisterPool @ 0x14084D830 (ExpPoolMgrUnregisterPool.c)
  */
 
 __int64 __fastcall ExpPoolDestroy(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall ExpPoolDestroy(__int64 a1)
 
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 24));
   _InterlockedExchange64((volatile __int64 *)(a1 + 24), 1LL);
-  ExpPoolMgrUnregisterPool(&dword_140E6BC60, a1);
+  ExpPoolMgrUnregisterPool(&dword_140E6BF60, a1);
   for ( i = 0; i < *(_DWORD *)(a1 + 72); ++i )
     ExpPoolHeapDestroy(*(_QWORD *)(a1 + 16 * (i + 5LL)));
   v4 = *(_OWORD *)(a1 + 8);

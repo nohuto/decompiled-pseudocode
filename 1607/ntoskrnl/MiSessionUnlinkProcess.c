@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSessionUnlinkProcess @ 0x1401231B4
+ * XREFs of MiSessionUnlinkProcess @ 0x140123724
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140531AD0 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140532010 (MiDereferenceSessionFinal.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiSessionUnlinkProcess(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ void __fastcall MiSessionUnlinkProcess(__int64 a1, __int64 a2)
   _QWORD *v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
   v3 = (_QWORD *)(a2 + 832);
   v4 = *v3;
   v5 = (_QWORD *)v3[1];

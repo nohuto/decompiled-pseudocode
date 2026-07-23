@@ -1,7 +1,7 @@
 /*
- * XREFs of MiNodeHasFreeOrZeroPages @ 0x14064DA6C
+ * XREFs of MiNodeHasFreeOrZeroPages @ 0x14064DFBC
  * Callers:
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
  * Callees:
  *     <none>
  */

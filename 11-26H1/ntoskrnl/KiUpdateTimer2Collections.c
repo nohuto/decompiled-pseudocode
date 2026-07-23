@@ -1,8 +1,8 @@
 /*
- * XREFs of KiUpdateTimer2Collections @ 0x1404BF7E0
+ * XREFs of KiUpdateTimer2Collections @ 0x1404B9030
  * Callers:
- *     KiExpireTimer2 @ 0x140336F08 (KiExpireTimer2.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
+ *     KiExpireTimer2 @ 0x140338F88 (KiExpireTimer2.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ char __fastcall KiUpdateTimer2Collections(_BYTE *a1)
   __int64 v3; // r9
   char result; // al
 
-  v1 = byte_140019331;
+  v1 = byte_140019591;
   v2 = a1[129] & 0x3E;
   v3 = 9LL;
   do

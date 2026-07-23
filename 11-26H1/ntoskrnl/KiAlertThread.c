@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAlertThread @ 0x14052E3A8
+ * XREFs of KiAlertThread @ 0x1405308C8
  * Callers:
- *     KeAlertThread @ 0x1402C5C40 (KeAlertThread.c)
+ *     KeAlertThread @ 0x1403108E0 (KeAlertThread.c)
  * Callees:
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
  */
 
 char __fastcall KiAlertThread(__int64 a1, __int64 a2, char a3)

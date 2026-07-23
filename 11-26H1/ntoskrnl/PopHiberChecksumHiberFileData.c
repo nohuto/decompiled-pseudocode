@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHiberChecksumHiberFileData @ 0x140BFAB3C
+ * XREFs of PopHiberChecksumHiberFileData @ 0x140C00B3C
  * Callers:
- *     PopRequestRead @ 0x140BFB3E8 (PopRequestRead.c)
- *     PopRequestWrite @ 0x140BFB804 (PopRequestWrite.c)
+ *     PopRequestRead @ 0x140C013E8 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140C01804 (PopRequestWrite.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140730930 (tcpxsum.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140735500 (tcpxsum.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
  */
 
 unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
@@ -77,9 +77,9 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
       v18 = __rdtsc();
       result = (((unsigned __int64)HIDWORD(v18) << 32) | (unsigned int)v18) - v8;
       if ( a2 )
-        *(_QWORD *)&stru_140F10070.WaitBlockFill11[64] += result;
+        qword_140F10A90 += result;
       else
-        stru_140F10070.SchedulerApc.NormalContext = (char *)stru_140F10070.SchedulerApc.NormalContext + result;
+        qword_140F10BD0 += result;
     }
   }
   return result;

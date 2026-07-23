@@ -24,7 +24,7 @@
  *     MiCaptureUlongPtrArray @ 0x1408D0E54 (MiCaptureUlongPtrArray.c)
  */
 
-NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, _QWORD *a2, void *a3)
+NTSTATUS __cdecl NtFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
   int v5; // ebx
   struct _KPROCESS *v6; // rdi
@@ -34,10 +34,10 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, _QWORD *a2, void *a3)
   NTSTATUS result; // eax
   __int64 v11; // r13
   PMDL Mdl; // rsi
-  __int64 v13; // r10
+  unsigned __int64 v13; // r10
   __int64 v14; // r12
   PRKPROCESS v15; // r14
-  int v16; // edi
+  NTSTATUS v16; // edi
   IRP *Irp; // r10
   unsigned __int64 v18; // r13
   unsigned __int64 v19; // rdi
@@ -59,16 +59,16 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, _QWORD *a2, void *a3)
   __int64 v35; // [rsp+48h] [rbp-10F0h] BYREF
   void *Src; // [rsp+50h] [rbp-10E8h]
   unsigned __int64 v37; // [rsp+58h] [rbp-10E0h]
-  __int64 v38; // [rsp+60h] [rbp-10D8h]
+  unsigned __int64 v38; // [rsp+60h] [rbp-10D8h]
   struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp-10D0h]
   __int64 v40; // [rsp+70h] [rbp-10C8h]
   unsigned __int64 v41; // [rsp+78h] [rbp-10C0h]
-  _QWORD *v42; // [rsp+80h] [rbp-10B8h]
+  PULONG_PTR v42; // [rsp+80h] [rbp-10B8h]
   struct _KAPC_STATE ApcState; // [rsp+90h] [rbp-10A8h] BYREF
   _BYTE v44[4144]; // [rsp+C0h] [rbp-1078h] BYREF
 
-  Src = a3;
-  v42 = a2;
+  Src = UserPfnArray;
+  v42 = NumberOfPages;
   memset(&ApcState, 0, sizeof(ApcState));
   memset(v44, 0, sizeof(v44));
   PROCESS = 0LL;
@@ -80,25 +80,25 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, _QWORD *a2, void *a3)
   v32 = PreviousMode;
   if ( PreviousMode )
   {
-    v9 = (__int64)a2;
-    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)NumberOfPages;
+    if ( (unsigned __int64)NumberOfPages >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v9 = *(_QWORD *)v9;
-    v8 = *a2;
-    v37 = *a2;
-    *a2 = 0LL;
+    v8 = *NumberOfPages;
+    v37 = *NumberOfPages;
+    *NumberOfPages = 0LL;
   }
   else
   {
-    v8 = *a2;
-    v37 = *a2;
+    v8 = *NumberOfPages;
+    v37 = *NumberOfPages;
   }
   if ( !v8 )
     return -1073741584;
   v11 = 0LL;
   v34 = 0LL;
   Mdl = (PMDL)v44;
-  result = MiReferenceAweHandle(Handle, 2u, PreviousMode, (PVOID *)&PROCESS, &v35);
+  result = MiReferenceAweHandle(ProcessHandle, 2u, PreviousMode, (PVOID *)&PROCESS, &v35);
   v13 = 0LL;
   if ( result >= 0 )
   {

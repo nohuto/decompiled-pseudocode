@@ -1,13 +1,13 @@
 /*
- * XREFs of ExNotifyPlatformBinaryExecuted @ 0x140790314
+ * XREFs of ExNotifyPlatformBinaryExecuted @ 0x1407918C4
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079167C (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void ExNotifyPlatformBinaryExecuted()
@@ -15,6 +15,9 @@ void ExNotifyPlatformBinaryExecuted()
   struct _KTHREAD *CurrentThread; // rsi
   PVOID v1; // rdi
   char v2; // bl
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -25,7 +28,7 @@ void ExNotifyPlatformBinaryExecuted()
   if ( (v2 & 2) != 0 && (v2 & 4) == 0 )
     ExfTryToWakePushLock(&ExpPlatformBinaryLock);
   KeAbPostRelease((ULONG_PTR)&ExpPlatformBinaryLock);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v3, v4, v5);
   if ( v1 )
     ExFreePoolWithTag(v1, 0x54425057u);
 }

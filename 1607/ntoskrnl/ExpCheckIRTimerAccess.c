@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCheckIRTimerAccess @ 0x1404EE310
+ * XREFs of ExpCheckIRTimerAccess @ 0x1404D03D8
  * Callers:
- *     ExpSetTimer @ 0x1400EF85C (ExpSetTimer.c)
- *     NtCreateTimer2 @ 0x1404712EC (NtCreateTimer2.c)
+ *     ExpSetTimer @ 0x1400ED6DC (ExpSetTimer.c)
+ *     NtCreateTimer2 @ 0x1404701BC (NtCreateTimer2.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x140062B80 (SeAccessCheckWithHint.c)
- *     SeCaptureSubjectContextEx @ 0x14041F830 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheckWithHint @ 0x140062700 (SeAccessCheckWithHint.c)
+ *     SeCaptureSubjectContextEx @ 0x14041E6F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall ExpCheckIRTimerAccess(char a1)

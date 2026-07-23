@@ -10,7 +10,7 @@ BOOL __stdcall CentennialIssueTracker_EnsureRegistration()
 {
   if ( !_InterlockedCompareExchange(&CentennialIssueTracker_InitializedState, 1, 0) )
   {
-    TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(1);
+    TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_4B3A3340, 1);
     _InterlockedExchange(&CentennialIssueTracker_InitializedState, 2);
   }
   return CentennialIssueTracker_InitializedState == 2;

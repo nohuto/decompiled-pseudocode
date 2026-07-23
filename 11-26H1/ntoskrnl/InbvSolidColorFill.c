@@ -1,19 +1,19 @@
 /*
- * XREFs of InbvSolidColorFill @ 0x1405C4E60
+ * XREFs of InbvSolidColorFill @ 0x1405C76D0
  * Callers:
- *     DisplayBootBitmap @ 0x14057622C (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1405786DC (DisplayBootBitmap.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall InbvSolidColorFill(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax
 
-  result = qword_140E65CE0;
-  if ( qword_140E65CE0 )
+  result = qword_140E65EE8;
+  if ( qword_140E65EE8 )
   {
-    result = *(_QWORD *)(qword_140E65CE0 + 32);
+    result = *(_QWORD *)(qword_140E65EE8 + 32);
     if ( result )
       return guard_dispatch_icall_no_overrides(a1, a2);
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepGetMinimumDevicePowerState @ 0x1404E5274
+ * XREFs of PopPepGetMinimumDevicePowerState @ 0x1404DE814
  * Callers:
- *     PoFxSetTargetDripsDevicePowerState @ 0x140B0DD00 (PoFxSetTargetDripsDevicePowerState.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x140B0F450 (PoFxSetTargetDripsDevicePowerState.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, char a3, _DWORD *a4, _DWORD *a5)

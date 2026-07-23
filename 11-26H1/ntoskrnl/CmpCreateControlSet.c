@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCreateControlSet @ 0x140CE9794
+ * XREFs of CmpCreateControlSet @ 0x140CEFB34
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
- *     CmpCreateExtendedControlSets @ 0x140CE9CBC (CmpCreateExtendedControlSets.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
+ *     CmpCreateExtendedControlSets @ 0x140CF005C (CmpCreateExtendedControlSets.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpCreateControlSet(__int64 a1, char a2)

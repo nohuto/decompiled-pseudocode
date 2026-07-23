@@ -1,9 +1,9 @@
 /*
- * XREFs of MiConfigureMemoryInsertion @ 0x140657BFC
+ * XREFs of MiConfigureMemoryInsertion @ 0x140657CE0
  * Callers:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

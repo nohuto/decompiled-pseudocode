@@ -1,25 +1,25 @@
 /*
- * XREFs of NtDuplicateToken @ 0x1408EB8C0
+ * XREFs of NtDuplicateToken @ 0x1408F1E80
  * Callers:
- *     DifNtDuplicateTokenWrapper @ 0x140676930 (DifNtDuplicateTokenWrapper.c)
+ *     DifNtDuplicateTokenWrapper @ 0x14067A510 (DifNtDuplicateTokenWrapper.c)
  * Callees:
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1402604DC (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSecurityQos @ 0x1408EBC60 (SeCaptureSecurityQos.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SepFinalizeTokenAcls @ 0x140926FDC (SepFinalizeTokenAcls.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x140A9110C (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1404066BC (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSecurityQos @ 0x1408F2220 (SeCaptureSecurityQos.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     SepFinalizeTokenAcls @ 0x140902AEC (SepFinalizeTokenAcls.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x140A95C5C (SepNewTokenAsRestrictedAsProcessToken.c)
  */
 
 NTSTATUS __stdcall NtDuplicateToken(
@@ -103,7 +103,7 @@ NTSTATUS __stdcall NtDuplicateToken(
           ClientToken = SubjectContext.PrimaryToken;
           if ( SubjectContext.ClientToken )
             ClientToken = SubjectContext.ClientToken;
-          if ( SeQueryInformationToken(ClientToken, MaxTokenInfoClass, &TokenInformation) >= 0
+          if ( SeQueryInformationToken(ClientToken, TokenIsSandboxed, &TokenInformation) >= 0
             && !(_BYTE)TokenInformation )
           {
             v14 = 1;

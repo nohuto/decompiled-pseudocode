@@ -1,12 +1,12 @@
 /*
- * XREFs of IopIrpHasExtensionType @ 0x14042F9B0
+ * XREFs of IopIrpHasExtensionType @ 0x14041C8C0
  * Callers:
- *     IopPerfCompleteRequest @ 0x1403FEBF8 (IopPerfCompleteRequest.c)
- *     IoMakeAssociatedIrpPriv @ 0x14045DD08 (IoMakeAssociatedIrpPriv.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x1405CBBC0 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x1405CBC10 (IoClearFsTrackOffsetState.c)
- *     IoSetFsZeroingOffset @ 0x1405CBCB0 (IoSetFsZeroingOffset.c)
- *     IoSetFsZeroingOffsetRequired @ 0x1405CBCF0 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCompleteRequest @ 0x1403FB3E8 (IopPerfCompleteRequest.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1404578A8 (IoMakeAssociatedIrpPriv.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x1405CE430 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x1405CE480 (IoClearFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffset @ 0x1405CE520 (IoSetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x1405CE560 (IoSetFsZeroingOffsetRequired.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlDedupChangeInit @ 0x14093E600
+ * XREFs of FsRtlDedupChangeInit @ 0x14093E800
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     FsRtlpDedupChangeQueryValueKey @ 0x14093E7D4 (FsRtlpDedupChangeQueryValueKey.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14093E910 (FsRtlpDedupChangeRegisterVolume.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     FsRtlpDedupChangeQueryValueKey @ 0x14093E9D4 (FsRtlpDedupChangeQueryValueKey.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x14093EB10 (FsRtlpDedupChangeRegisterVolume.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -131,7 +131,7 @@ __int64 __fastcall KiQueueReadyThread(__int64 a1, __int64 *a2, ULONG_PTR a3)
           if ( (unsigned __int8)KiCheckMaxOverQuotaTransition(v16, v15) )
           {
             if ( (*(_BYTE *)(v16 + 112) & 1) != 0 )
-              KiRemoveSchedulingGroupQueue(a1, v16, 1);
+              KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a1, v16, 1);
           }
           else if ( *(_QWORD *)v16 >= *(_QWORD *)(v16 + 24) && (*(_BYTE *)(v16 + 112) & 2) == 0 )
           {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmTestAndLockProcessors @ 0x140255228
+ * XREFs of PpmTestAndLockProcessors @ 0x1402552E8
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     PpmIdleWaitForDependentTransitions @ 0x1402552A0 (PpmIdleWaitForDependentTransitions.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmTestAndLockProcessor @ 0x140585EFC (PpmTestAndLockProcessor.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x140255360 (PpmIdleWaitForDependentTransitions.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmTestAndLockProcessor @ 0x1405863EC (PpmTestAndLockProcessor.c)
  */
 
 __int64 __fastcall PpmTestAndLockProcessors(__int64 a1, unsigned int a2, unsigned int *a3)

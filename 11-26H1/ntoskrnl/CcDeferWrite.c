@@ -1,23 +1,23 @@
 /*
- * XREFs of CcDeferWrite @ 0x1403E0210
+ * XREFs of CcDeferWrite @ 0x1403E3400
  * Callers:
- *     DifCcDeferWriteWrapper @ 0x14064D7D0 (DifCcDeferWriteWrapper.c)
+ *     DifCcDeferWriteWrapper @ 0x1406513B0 (DifCcDeferWriteWrapper.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     CcReferencePartitionFromFileObject @ 0x14038462C (CcReferencePartitionFromFileObject.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140386DD4 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     ExInterlockedInsertHeadList @ 0x1403DE3D0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x1403DE450 (ExInterlockedInsertTailList.c)
- *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x1403E03E0 (CcGetPrivateVolumeCacheMapFromFileObject.c)
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     CcReferencePartitionFromFileObject @ 0x1403863DC (CcReferencePartitionFromFileObject.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140388B84 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     ExInterlockedInsertHeadList @ 0x1403E15C0 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x1403E1640 (ExInterlockedInsertTailList.c)
+ *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x1403E35D0 (CcGetPrivateVolumeCacheMapFromFileObject.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall CcDeferWrite(
@@ -33,8 +33,8 @@ void __stdcall CcDeferWrite(
   __int64 v12; // rbx
   __int64 PrivateVolumeCacheMapFromFileObject; // rdi
   KSPIN_LOCK *v14; // r8
-  struct _LIST_ENTRY *v15; // rdx
-  struct _LIST_ENTRY *v16; // rcx
+  _LIST_ENTRY *v15; // rdx
+  _LIST_ENTRY *v16; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -48,10 +48,10 @@ void __stdcall CcDeferWrite(
     CcReferencePartitionAndPrivateVolumeCacheMap(v12, PrivateVolumeCacheMapFromFileObject);
     v14 = (KSPIN_LOCK *)(v12 + 1216);
     *((_DWORD *)PoolWithTag + 4) = BytesToWrite;
-    v15 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v15 = (_LIST_ENTRY *)(PoolWithTag + 24);
     *((_QWORD *)PoolWithTag + 9) = v12;
     *((_QWORD *)PoolWithTag + 10) = PrivateVolumeCacheMapFromFileObject;
-    v16 = (struct _LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 1104);
+    v16 = (_LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 1104);
     *(_DWORD *)PoolWithTag = 6816508;
     *((_QWORD *)PoolWithTag + 1) = FileObject;
     *((_QWORD *)PoolWithTag + 5) = 0LL;
@@ -60,7 +60,7 @@ void __stdcall CcDeferWrite(
     *((_QWORD *)PoolWithTag + 8) = Context2;
     *((_QWORD *)PoolWithTag + 12) = MEMORY[0xFFFFF78000000320];
     if ( !PrivateVolumeCacheMapFromFileObject )
-      v16 = (struct _LIST_ENTRY *)(v12 + 1168);
+      v16 = (_LIST_ENTRY *)(v12 + 1168);
     PoolWithTag[88] = 0;
     if ( Retrying )
       ExInterlockedInsertHeadList(v16, v15, v14);

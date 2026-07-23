@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceRegKey @ 0x1408183C4
+ * XREFs of _CmDeleteDeviceInterfaceRegKey @ 0x140818B04
  * Callers:
- *     PiCMDeleteDeviceInterfaceKey @ 0x1406F82B8 (PiCMDeleteDeviceInterfaceKey.c)
- *     _CmDeleteDeviceInterfaceWorker @ 0x140818798 (_CmDeleteDeviceInterfaceWorker.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x1406F62B8 (PiCMDeleteDeviceInterfaceKey.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x140818ED8 (_CmDeleteDeviceInterfaceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x1408184FC (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140818C3C (_CmDeleteDeviceInterfaceRegKeyWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3, __int64 a4, char a5)
@@ -33,7 +33,7 @@ __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3,
   v17 = a3;
   if ( v8 )
   {
-    v9 = guard_dispatch_icall_no_overrides(a1, a2, 3LL, 12LL);
+    v9 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v9 == -1073741822 )
     {
       v8 = 0LL;
@@ -51,7 +51,7 @@ __int64 __fastcall CmDeleteDeviceInterfaceRegKey(__int64 a1, __int64 a2, int a3,
   if ( !v8 )
     return v11;
   v16[0] = v10;
-  v12 = guard_dispatch_icall_no_overrides(a1, a2, 3LL, 12LL);
+  v12 = guard_dispatch_icall_no_overrides(a1, a2);
   v13 = v12;
   if ( v12 == -1073741822 )
     return v11;

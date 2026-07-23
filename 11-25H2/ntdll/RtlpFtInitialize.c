@@ -12,20 +12,22 @@ __int64 RtlpFtInitialize()
 {
   unsigned int v0; // ebx
   int v1; // eax
-  int v2; // eax
-  __int64 v4; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-20h] BYREF
-  int v6; // [rsp+30h] [rbp-18h]
+  NTSTATUS v2; // eax
+  ULONGLONG v4; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_FEATURE_CONFIGURATION v5; // [rsp+28h] [rbp-20h] BYREF
 
-  v5 = 0LL;
+  *(_QWORD *)&v5.FeatureId = 0LL;
   v0 = 0;
-  v6 = 0;
+  v5.VariantPayload = 0;
   v4 = 0LL;
-  if ( (int)RtlQueryFeatureConfiguration(50550682LL, 0, &v4, (__int64)&v5) < 0 || (v1 = 1, (BYTE4(v5) & 0x30) != 0x20) )
+  if ( RtlQueryFeatureConfiguration(0x303579Au, RtlFeatureConfigurationBoot, &v4, &v5) < 0
+    || (v1 = 1, (v5.Flags & 0x30) != 0x20) )
+  {
     v1 = 0;
+  }
   _ft_g_isTestReadyMedia = v1;
   v2 = RtlRegisterFeatureConfigurationChangeNotification(
-         (__int64)RtlpFtFeatureConfigChangeCallback,
+         (PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK)RtlpFtFeatureConfigChangeCallback,
          0LL,
          0LL,
          &_ft_g_feature_store_change_registration_handle);

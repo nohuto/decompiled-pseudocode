@@ -1,11 +1,11 @@
 /*
- * XREFs of PpInitSystem @ 0x140C22754
+ * XREFs of PpInitSystem @ 0x140C24784
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PnpInitPhase0 @ 0x140C22600 (PnpInitPhase0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PnpInitPhase0 @ 0x140C24640 (PnpInitPhase0.c)
  */
 
 char PpInitSystem()

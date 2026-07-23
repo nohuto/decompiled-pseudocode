@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpProcessRebalance @ 0x140564EF4
+ * XREFs of PnpProcessRebalance @ 0x1405655B4
  * Callers:
- *     PnpDeviceActionWorker @ 0x140359430 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403595D0 (PnpDeviceActionWorker.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     PiCollapseRebalanceRequests @ 0x140564C60 (PiCollapseRebalanceRequests.c)
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
- *     PnpRebalance @ 0x14096E8B8 (PnpRebalance.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     PiCollapseRebalanceRequests @ 0x140565320 (PiCollapseRebalanceRequests.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
+ *     PnpRebalance @ 0x14096EAB8 (PnpRebalance.c)
  */
 
 __int64 __fastcall PnpProcessRebalance(__int64 a1)

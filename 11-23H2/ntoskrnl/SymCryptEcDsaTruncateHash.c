@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptEcDsaTruncateHash @ 0x1403F9AB8
+ * XREFs of SymCryptEcDsaTruncateHash @ 0x1403F9C98
  * Callers:
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
  * Callees:
- *     SymCryptEcurveBitsizeofGroupOrder @ 0x1403F87FC (SymCryptEcurveBitsizeofGroupOrder.c)
- *     SymCryptIntDivPow2 @ 0x1403F938C (SymCryptIntDivPow2.c)
- *     SymCryptIntSetValue @ 0x1403F949C (SymCryptIntSetValue.c)
- *     SymCryptIntToModElement @ 0x1403F9570 (SymCryptIntToModElement.c)
+ *     SymCryptEcurveBitsizeofGroupOrder @ 0x1403F89DC (SymCryptEcurveBitsizeofGroupOrder.c)
+ *     SymCryptIntDivPow2 @ 0x1403F956C (SymCryptIntDivPow2.c)
+ *     SymCryptIntSetValue @ 0x1403F967C (SymCryptIntSetValue.c)
+ *     SymCryptIntToModElement @ 0x1403F9750 (SymCryptIntToModElement.c)
  */
 
 __int64 __fastcall SymCryptEcDsaTruncateHash(

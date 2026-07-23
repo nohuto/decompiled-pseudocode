@@ -1,25 +1,25 @@
 /*
- * XREFs of MiExpandPartitionIds @ 0x140A44920
+ * XREFs of MiExpandPartitionIds @ 0x140A44BD0
  * Callers:
- *     MiAllocatePartitionId @ 0x140A2F880 (MiAllocatePartitionId.c)
+ *     MiAllocatePartitionId @ 0x140A2FB30 (MiAllocatePartitionId.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x14020B280 (MiMakeZeroedPageTables.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 MiExpandPartitionIds()
 {
   unsigned int v0; // ebx
-  RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *Pool; // rax
   __int64 v2; // rsi
-  RTL_BITMAP *v3; // rdi
+  _RTL_BITMAP *v3; // rdi
   ULONG_PTR v4; // rax
   unsigned __int64 v5; // rbx
   __int64 *PteAddress; // rbp
@@ -32,7 +32,7 @@ __int64 MiExpandPartitionIds()
     return 0LL;
   if ( v0 > 0x400 )
     return 0LL;
-  Pool = (RTL_BITMAP *)MiAllocatePool(64, 8 * ((v0 >> 6) + ((v0 & 0x3F) != 0) + 2), 0x20206D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool(64, 8 * ((v0 >> 6) + ((v0 & 0x3F) != 0) + 2), 0x20206D4Du);
   v2 = 0LL;
   v3 = Pool;
   if ( !Pool )

@@ -159,7 +159,7 @@ __int64 __fastcall EtwWriteErrorLogEntry(
   HIDWORD(v44[v28]) = 0;
   memset(v42, 0, sizeof(v42));
   v42[16] = -1LL;
-  *(_OWORD *)&v42[3] = LegacyEventLogGuid;
+  *(GUID *)&v42[3] = LegacyEventLogGuid;
   HIWORD(v42[14]) = v8;
   LODWORD(v42[14]) = 1;
   BYTE4(v42[14]) = -1;

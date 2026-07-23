@@ -8,11 +8,15 @@
  *     <none>
  */
 
-__int64 NtOpenProcess()
+NTSTATUS __cdecl NtOpenProcess(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 38LL;
+  result = 38;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

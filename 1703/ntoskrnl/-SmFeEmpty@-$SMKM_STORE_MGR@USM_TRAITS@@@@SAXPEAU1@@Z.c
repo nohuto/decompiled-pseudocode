@@ -22,7 +22,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEmpty(__int64 a1)
   struct _KTHREAD *v5; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v7; // r14
-  __int64 v8; // r8
+  unsigned int v8; // r8d
   int v9; // eax
   __int64 v10; // rcx
   _KLOCK_ENTRY *v11; // rdi
@@ -55,7 +55,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEmpty(__int64 a1)
     SessionId = 0xFFFFFFFFLL;
   --v5->SpecialApcDisable;
   v7 = ++v5->AbAllocationRegionCount;
-  LODWORD(v8) = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
+  v8 = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v12 = !_BitScanReverse((unsigned int *)&v13, v8);
@@ -65,7 +65,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEmpty(__int64 a1)
     v9 = 1 << v13;
     v10 = v13;
     v11 = &v5->LockEntries[v10];
-    v8 = ~v9 & (unsigned int)v8;
+    v8 &= ~v9;
     if ( (v11->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v11->LockState.0 & 1) == 0
       && (*(_QWORD *)&v11->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v3 & 0x7FFFFFFFFFFFFFFCLL)
@@ -85,7 +85,7 @@ LABEL_15:
   }
   v11->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v11->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v5->LockEntries[v10], SessionId, v8);
+    KiAbEntryRemoveFromTree(&v5->LockEntries[v10].TreeNode, SessionId);
   v18 = 0;
   v18 = v11->BoostBitmap.AllFields & 0x1FFFF;
   v11->BoostBitmap.AllFields &= 0xFFFE0000;

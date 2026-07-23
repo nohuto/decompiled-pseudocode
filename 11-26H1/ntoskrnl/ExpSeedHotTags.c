@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpSeedHotTags @ 0x140CE5DF4
+ * XREFs of ExpSeedHotTags @ 0x140CEC194
  * Callers:
- *     ExInitializePoolTracker @ 0x140CE5CA8 (ExInitializePoolTracker.c)
+ *     ExInitializePoolTracker @ 0x140CEC048 (ExInitializePoolTracker.c)
  * Callees:
  *     <none>
  */
 
-__int64 ExpSeedHotTags()
+char *ExpSeedHotTags()
 {
-  __int64 v0; // r10
+  unsigned __int64 QuantumTarget; // r10
   unsigned int *v1; // rdx
   __int64 v2; // r9
   __int64 v3; // rbx
   unsigned int v4; // ecx
-  __int64 result; // rax
+  char *result; // rax
   _DWORD v6[64]; // [rsp+8h] [rbp-A9h] BYREF
 
-  v0 = PoolTrackTable;
+  QuantumTarget = stru_140EFF2C0.QuantumTarget;
   v1 = v6;
   qmemcpy(
     v6,
@@ -28,21 +28,21 @@ __int64 ExpSeedHotTags()
   do
   {
     v3 = *v1;
-    v4 = LODWORD(stru_140EFEF90.StackBase) & ((40543 * v3) ^ ((unsigned __int64)(40543 * v3) >> 32));
+    v4 = LODWORD(stru_140EFF2C0.StackBase) & ((40543 * v3) ^ ((unsigned __int64)(40543 * v3) >> 32));
     while ( 1 )
     {
-      if ( !*(_DWORD *)(v0 + 80LL * v4) )
+      if ( !*(_DWORD *)(QuantumTarget + 80LL * v4) )
       {
-        result = PoolTrackTableSize - 1;
-        if ( v4 != PoolTrackTableSize - 1 )
+        result = (char *)stru_140EFF2C0.StackLimit - 1;
+        if ( (void *volatile)v4 != (char *)stru_140EFF2C0.StackLimit - 1 )
           break;
       }
-      result = (__int64)stru_140EFEF90.StackBase & (v4 + 1);
-      v4 = result;
-      if ( (_DWORD)result == (LODWORD(stru_140EFEF90.StackBase) & ((40543 * (int)v3) ^ ((unsigned __int64)(40543 * v3) >> 32))) )
+      result = (char *)((__int64)stru_140EFF2C0.StackBase & (v4 + 1));
+      v4 = (unsigned int)result;
+      if ( (_DWORD)result == (LODWORD(stru_140EFF2C0.StackBase) & ((40543 * (int)v3) ^ ((unsigned __int64)(40543 * v3) >> 32))) )
         goto LABEL_8;
     }
-    *(_DWORD *)(v0 + 80LL * v4) = v3;
+    *(_DWORD *)(QuantumTarget + 80LL * v4) = v3;
 LABEL_8:
     ++v1;
     --v2;

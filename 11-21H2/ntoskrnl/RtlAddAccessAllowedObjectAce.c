@@ -1,23 +1,23 @@
 /*
  * XREFs of RtlAddAccessAllowedObjectAce @ 0x1409B7D90
  * Callers:
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
+ *     sub_140675DA8 @ 0x140675DA8 (sub_140675DA8.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409B84A4 (RtlpAddKnownObjectAce.c)
+ *     sub_1407B4900 @ 0x1407B4900 (sub_1407B4900.c)
+ *     sub_1409B84A4 @ 0x1409B84A4 (sub_1409B84A4.c)
  */
 
-__int64 __fastcall RtlAddAccessAllowedObjectAce(
-        __int64 a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        PSID Src)
+NTSTATUS __cdecl RtlAddAccessAllowedObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid)
 {
-  if ( a5 || a6 )
-    return RtlpAddKnownObjectAce(a1, a2, a3, a4, a5, a6, Src, 5);
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return sub_1409B84A4(Acl, (__int64)ObjectTypeGuid, (__int64)InheritedObjectTypeGuid, Sid, 5);
   else
-    return RtlpAddKnownAce(a1, a2, a3, a4, (unsigned __int8 *)Src, 0);
+    return sub_1407B4900(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
 }

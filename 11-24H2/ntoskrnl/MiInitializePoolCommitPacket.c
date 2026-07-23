@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializePoolCommitPacket @ 0x1402EA864
+ * XREFs of MiInitializePoolCommitPacket @ 0x14034BEA4
  * Callers:
- *     MmAllocateSecurePoolMemory @ 0x14067CB78 (MmAllocateSecurePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x14067DD58 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiInitializePoolCommitPacket(
@@ -22,13 +22,14 @@ __int64 __fastcall MiInitializePoolCommitPacket(
   unsigned __int64 v11; // r11
   unsigned __int64 v12; // rdx
   __int64 v13; // rdx
+  __int64 v14; // rdx
   unsigned int ProtectionMask; // eax
-  int v15; // r8d
-  unsigned int v16; // r9d
-  __int64 v17; // r10
-  ULONG_PTR v18; // r11
-  int v19; // ecx
-  __int16 v20; // ax
+  int v16; // r8d
+  unsigned int v17; // r9d
+  __int64 v18; // r10
+  ULONG_PTR v19; // r11
+  int v20; // ecx
+  __int16 v21; // ax
   __int64 result; // rax
 
   v9 = *a2;
@@ -42,41 +43,42 @@ __int64 __fastcall MiInitializePoolCommitPacket(
   v13 = ((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   *(_QWORD *)(a8 + 80) = v13;
   *(_QWORD *)(a8 + 88) = 0LL;
+  v14 = ((__int64)(v13 - ((v11 >> 9) & 0x7FFFFFFFF8LL) + 0x98000000000LL) >> 3) + 1;
   *(_DWORD *)(a8 + 96) = a6;
-  *(_QWORD *)(a8 + 8) = ((__int64)(v13 - ((v11 >> 9) & 0x7FFFFFFFF8LL) + 0x98000000000LL) >> 3) + 1;
+  *(_QWORD *)(a8 + 8) = v14;
   *(_QWORD *)(a8 + 56) = 0LL;
   *(_QWORD *)(a8 + 40) = 0LL;
-  ProtectionMask = MiMakeProtectionMask(a4);
-  if ( ProtectionMask > 0x18 || (v19 = 16777298, !_bittest(&v19, ProtectionMask)) )
-    KeBugCheckEx(0x1Au, 0x5300uLL, v18, v9, v16);
-  v20 = 8 * (ProtectionMask & 0x1F);
-  *(_WORD *)(v17 + 100) = v20;
-  if ( (v15 & 0x40000000) != 0 )
-    *(_WORD *)(v17 + 100) = v20 | 0x200;
-  *(_OWORD *)(v17 + 16) = 0LL;
-  *(_QWORD *)(v17 + 32) = 0LL;
-  *(_QWORD *)(v17 + 72) = &unk_140E38380;
+  ProtectionMask = MiMakeProtectionMask(a4, v14, a3);
+  if ( ProtectionMask > 0x18 || (v20 = 16777298, !_bittest(&v20, ProtectionMask)) )
+    KeBugCheckEx(0x1Au, 0x5300uLL, v19, v9, v17);
+  v21 = 8 * (ProtectionMask & 0x1F);
+  *(_WORD *)(v18 + 100) = v21;
+  if ( (v16 & 0x40000000) != 0 )
+    *(_WORD *)(v18 + 100) = v21 | 0x200;
+  *(_OWORD *)(v18 + 16) = 0LL;
+  *(_QWORD *)(v18 + 32) = 0LL;
+  *(_QWORD *)(v18 + 72) = &unk_140E384C0;
   result = 4LL;
-  *(_QWORD *)(v17 + 64) = 4LL;
+  *(_QWORD *)(v18 + 64) = 4LL;
   if ( (a5 & 0x100) != 0 )
   {
-    *(_WORD *)(v17 + 100) |= 2u;
-    result = (__int64)&unk_140E37FC0;
-    *(_QWORD *)(v17 + 72) = &unk_140E37FC0;
-    *(_DWORD *)(v17 + 64) = 5;
+    *(_WORD *)(v18 + 100) |= 2u;
+    result = (__int64)&unk_140E38100;
+    *(_QWORD *)(v18 + 72) = &unk_140E38100;
+    *(_DWORD *)(v18 + 64) = 5;
   }
-  else if ( (v15 & 0x20000000) != 0 )
+  else if ( (v16 & 0x20000000) != 0 )
   {
-    *(_WORD *)(v17 + 100) |= 4u;
+    *(_WORD *)(v18 + 100) |= 4u;
   }
   else
   {
     result = a7;
     if ( a7 )
     {
-      *(_WORD *)(v17 + 100) |= 0x100u;
-      *(_QWORD *)(v17 + 40) = a7;
-      *(_DWORD *)(v17 + 64) = 14;
+      *(_WORD *)(v18 + 100) |= 0x100u;
+      *(_QWORD *)(v18 + 40) = a7;
+      *(_DWORD *)(v18 + 64) = 14;
     }
   }
   return result;

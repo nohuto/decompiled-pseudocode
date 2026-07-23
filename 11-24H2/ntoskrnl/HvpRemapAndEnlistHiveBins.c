@@ -1,28 +1,28 @@
 /*
- * XREFs of HvpRemapAndEnlistHiveBins @ 0x140982010
+ * XREFs of HvpRemapAndEnlistHiveBins @ 0x14096A820
  * Callers:
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvIsRangeDirty @ 0x1407E364C (HvIsRangeDirty.c)
- *     CmpReleaseGlobalQuota @ 0x14087EEC0 (CmpReleaseGlobalQuota.c)
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
- *     HvpPointMapEntriesToBuffer @ 0x14098127C (HvpPointMapEntriesToBuffer.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1409826CC (HvpViewMapPromoteRangeToMapping.c)
- *     HvpEnlistFreeCells @ 0x140983CA0 (HvpEnlistFreeCells.c)
- *     HvpValidateLoadedBin @ 0x140984038 (HvpValidateLoadedBin.c)
- *     HvpProtectBinPartial @ 0x140A378BC (HvpProtectBinPartial.c)
- *     HvpAllocateBin @ 0x140A60328 (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x140A6A13C (HvpFreeBin.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140BB9790 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140BB98D0 (HvpGetBinContextInitialize.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvIsRangeDirty @ 0x1407E3B9C (HvIsRangeDirty.c)
+ *     CmpReleaseGlobalQuota @ 0x140882D70 (CmpReleaseGlobalQuota.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
+ *     HvpPointMapEntriesToBuffer @ 0x140969A8C (HvpPointMapEntriesToBuffer.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x14096AEDC (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpEnlistFreeCells @ 0x14096C4B0 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x14096C848 (HvpValidateLoadedBin.c)
+ *     HvpProtectBinPartial @ 0x140A2C4E4 (HvpProtectBinPartial.c)
+ *     HvpAllocateBin @ 0x140A58878 (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x140A634EC (HvpFreeBin.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140BBB790 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140BBB8D0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall HvpRemapAndEnlistHiveBins(ULONG_PTR BugCheckParameter2, int a2, __int64 a3)
@@ -373,7 +373,7 @@ LABEL_88:
       if ( v30
         && v31 == v30 + 32LL
         && v31 + v23 == v32
-        && (v58 = guard_dispatch_icall_no_overrides(24LL, 0LL, 540495171LL, 0LL), v19 = 0, (v59 = (_QWORD *)v58) != 0LL) )
+        && (v58 = guard_dispatch_icall_no_overrides(24LL, 0LL), v19 = 0, (v59 = (_QWORD *)v58) != 0LL) )
       {
         *(_QWORD *)v58 = 0LL;
         *(_QWORD *)(v58 + 8) = 0LL;

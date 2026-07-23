@@ -1,12 +1,12 @@
 /*
- * XREFs of HvFoldBackDirtyData @ 0x14097AA78
+ * XREFs of HvFoldBackDirtyData @ 0x140963288
  * Callers:
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
  * Callees:
- *     HvMarkDirtyForFlush @ 0x140488CB4 (HvMarkDirtyForFlush.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     HvFreeDirtyData @ 0x14097C440 (HvFreeDirtyData.c)
+ *     HvMarkDirtyForFlush @ 0x140483DA4 (HvMarkDirtyForFlush.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     HvFreeDirtyData @ 0x140964C50 (HvFreeDirtyData.c)
  */
 
 __int64 __fastcall HvFoldBackDirtyData(ULONG_PTR a1)

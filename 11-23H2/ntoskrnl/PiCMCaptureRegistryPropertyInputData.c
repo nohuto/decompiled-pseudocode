@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMCaptureRegistryPropertyInputData @ 0x1407C0BC0
+ * XREFs of PiCMCaptureRegistryPropertyInputData @ 0x1407C0E90
  * Callers:
- *     PiCMGetRegistryProperty @ 0x1407C0874 (PiCMGetRegistryProperty.c)
- *     PiCMSetRegistryProperty @ 0x14096AB14 (PiCMSetRegistryProperty.c)
+ *     PiCMGetRegistryProperty @ 0x1407C0B44 (PiCMGetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x14096AD14 (PiCMSetRegistryProperty.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D41F0 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406D4220 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureRegistryPropertyInputData(unsigned __int64 a1, unsigned int a2, int a3, __int64 a4)

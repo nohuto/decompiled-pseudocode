@@ -6,10 +6,10 @@
  *     <none>
  */
 
-char __stdcall RtlIsProcessorFeaturePresent(unsigned int a1)
+BOOLEAN __cdecl RtlIsProcessorFeaturePresent(ULONG ProcessorFeature)
 {
-  if ( a1 >= 0x40 )
+  if ( ProcessorFeature >= 0x40 )
     return 0;
   else
-    return ZwWow64IsProcessorFeaturePresent(a1);
+    return ZwWow64IsProcessorFeaturePresent(ProcessorFeature);
 }

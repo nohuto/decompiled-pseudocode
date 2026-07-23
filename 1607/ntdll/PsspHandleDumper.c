@@ -1,5 +1,5 @@
 /*
- * XREFs of PsspHandleDumper @ 0x180005A10
+ * XREFs of PsspHandleDumper @ 0x180005A00
  * Callers:
  *     <none>
  * Callees:

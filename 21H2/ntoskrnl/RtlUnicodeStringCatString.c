@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x1403C410C
+ * XREFs of RtlUnicodeStringCatString @ 0x1403C453C
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1406C25F4 (CmpLogTransactionAbortedWithChildName.c)
- *     PopGenerateDeviceFriendlyName @ 0x1407BDE58 (PopGenerateDeviceFriendlyName.c)
- *     SshpGenerateDeviceFriendlyName @ 0x1408FB120 (SshpGenerateDeviceFriendlyName.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140969C60 (AslpPathWildcardAllocMatchNode.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406212B4 (CmpLogTransactionAbortedWithChildName.c)
+ *     PopGenerateDeviceFriendlyName @ 0x1407BE5E8 (PopGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408FB280 (SshpGenerateDeviceFriendlyName.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969E40 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
  *     <none>
  */

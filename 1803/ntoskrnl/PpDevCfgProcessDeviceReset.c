@@ -35,17 +35,17 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
   int v15; // [rsp+4Ch] [rbp-75h] BYREF
   int v16; // [rsp+50h] [rbp-71h] BYREF
   int v17; // [rsp+54h] [rbp-6Dh] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-69h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-59h] BYREF
+  UNICODE_STRING GuidString; // [rsp+58h] [rbp-69h] BYREF
+  int v19[2]; // [rsp+68h] [rbp-59h] BYREF
   _QWORD v20[5]; // [rsp+70h] [rbp-51h] BYREF
-  void *v21[10]; // [rsp+98h] [rbp-29h] BYREF
-  _QWORD v22[2]; // [rsp+E8h] [rbp+27h] BYREF
+  int v21[20]; // [rsp+98h] [rbp-29h] BYREF
+  GUID Guid; // [rsp+E8h] [rbp+27h] BYREF
 
   memset(v21, 0, 0x48uLL);
   v2 = 0;
-  v19 = 0LL;
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0LL;
+  *(_QWORD *)v19 = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v17 = 1;
   v14 = 0;
   v16 = 0;
@@ -63,40 +63,40 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
   inited = PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 48), 0LL, v21);
   if ( inited >= 0 )
   {
-    v4 = (char *)v21[2];
+    v4 = *(char **)&v21[4];
     memset(v20, 0, sizeof(v20));
     v5 = *(_QWORD *)(a1 + 48);
     v20[0] = &DEVPKEY_Device_ClassGuid;
-    v20[2] = v22;
+    v20[2] = &Guid;
     LODWORD(v20[1]) = 13;
     LODWORD(v20[3]) = 16;
-    inited = PiDevCfgQueryObjectProperties(v6, v5, 1u, v21[2], (__int64)v20, 1u);
+    inited = PiDevCfgQueryObjectProperties(v6, v5, 1u, *(void **)&v21[4], (__int64)v20, 1u);
     if ( inited >= 0 )
     {
       if ( SLODWORD(v20[4]) >= 0 )
       {
-        inited = RtlStringFromGUIDEx((unsigned int *)v22, (__int64)&UnicodeString, 1);
+        inited = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
         if ( inited < 0 )
           goto LABEL_24;
         if ( (int)PnpOpenObjectRegKey(
                     *(__int64 *)&PiPnpRtlCtx,
-                    (__int64)UnicodeString.Buffer,
+                    (__int64)GuidString.Buffer,
                     2u,
                     131097,
                     0,
-                    (__int64)&v19,
+                    (__int64)v19,
                     0LL,
                     0) >= 0 )
           goto LABEL_12;
-        RtlFreeAnsiString(&UnicodeString);
+        RtlFreeAnsiString(&GuidString);
       }
-      v22[1] = 0LL;
-      v22[0] = 0LL;
+      *(_QWORD *)Guid.Data4 = 0LL;
+      *(_QWORD *)&Guid.Data1 = 0LL;
 LABEL_12:
       v7 = PiDevCfgMigrateDevice(
              a1,
              (__int64)v21,
-             (unsigned __int16 *)((unsigned __int64)&UnicodeString & -(__int64)(UnicodeString.Buffer != 0LL)),
+             (unsigned __int16 *)((unsigned __int64)&GuidString & -(__int64)(GuidString.Buffer != 0LL)),
              0LL,
              &v16,
              0LL);
@@ -106,8 +106,8 @@ LABEL_12:
       PiDevCfgResetDeviceDriverSettings(
         a1,
         (__int64)v21,
-        (_QWORD *)((unsigned __int64)v22 & -(__int64)(UnicodeString.Buffer != 0LL)),
-        v19,
+        (_QWORD *)((unsigned __int64)&Guid & -(__int64)(GuidString.Buffer != 0LL)),
+        *(__int64 *)v19,
         0LL);
       if ( *(_QWORD *)&PiPnpRtlCtx && (v9 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
         v10 = *(_QWORD *)(v9 + 8);
@@ -138,7 +138,7 @@ LABEL_12:
     }
   }
 LABEL_24:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&GuidString);
   PiDevCfgFreeDeviceContext((__int64)v21);
   return (unsigned int)inited;
 }

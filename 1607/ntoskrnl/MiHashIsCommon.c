@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHashIsCommon @ 0x1401F9E14
+ * XREFs of MiHashIsCommon @ 0x1401F9C40
  * Callers:
- *     MiCombineWorkingSet @ 0x1401F80D0 (MiCombineWorkingSet.c)
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiCombineWorkingSet @ 0x1401F7EFC (MiCombineWorkingSet.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
  *     <none>
  */

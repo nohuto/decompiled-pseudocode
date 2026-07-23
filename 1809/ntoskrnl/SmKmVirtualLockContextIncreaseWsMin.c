@@ -1,7 +1,7 @@
 /*
- * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x140307AF8
+ * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x140307CE8
  * Callers:
- *     SmKmVirtualLockCtxLockMemory @ 0x140307DBC (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x140307FAC (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,10 +10,10 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmQueryWorkingSetInformation @ 0x1400F10E8 (MmQueryWorkingSetInformation.c)
- *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MmQueryWorkingSetInformation @ 0x1400F1168 (MmQueryWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C164 (MmAdjustWorkingSetSizeEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)
@@ -125,7 +125,7 @@ LABEL_26:
   }
   v19->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v19->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v13->LockEntries[v18], SessionId);
+    KiAbEntryRemoveFromTree(&v13->LockEntries[v18].TreeNode, SessionId);
   v32 = 0;
   v32 = v19->BoostBitmap.AllFields & 0x1FFFF;
   v19->BoostBitmap.AllFields &= 0xFFFE0000;

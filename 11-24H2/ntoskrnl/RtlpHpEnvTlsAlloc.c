@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpEnvTlsAlloc @ 0x140605E4C
+ * XREFs of RtlpHpEnvTlsAlloc @ 0x14060348C
  * Callers:
- *     RtlpHpLfhContextEnable @ 0x14060657C (RtlpHpLfhContextEnable.c)
+ *     RtlpHpLfhContextEnable @ 0x140603BBC (RtlpHpLfhContextEnable.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     ExSaAllocate @ 0x14047B8B4 (ExSaAllocate.c)
+ *     ExSaAllocate @ 0x14026E1D4 (ExSaAllocate.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
  */
 
 __int64 RtlpHpEnvTlsAlloc()

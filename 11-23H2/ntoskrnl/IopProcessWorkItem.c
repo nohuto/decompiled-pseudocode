@@ -1,15 +1,15 @@
 /*
- * XREFs of IopProcessWorkItem @ 0x14031E6B0
+ * XREFs of IopProcessWorkItem @ 0x14031E940
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PspRevertContainerImpersonation @ 0x140259E3C (PspRevertContainerImpersonation.c)
- *     PsImpersonateContainerOfThread @ 0x140259EE0 (PsImpersonateContainerOfThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     EtwTraceThreadWorkItem @ 0x1405FD6F0 (EtwTraceThreadWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PspRevertContainerImpersonation @ 0x14025A0CC (PspRevertContainerImpersonation.c)
+ *     PsImpersonateContainerOfThread @ 0x14025A170 (PsImpersonateContainerOfThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     EtwTraceThreadWorkItem @ 0x1405FDC60 (EtwTraceThreadWorkItem.c)
  */
 
 struct _KTHREAD *__fastcall IopProcessWorkItem(__int64 a1)

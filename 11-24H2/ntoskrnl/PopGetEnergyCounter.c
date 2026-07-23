@@ -1,15 +1,15 @@
 /*
- * XREFs of PopGetEnergyCounter @ 0x140A9BC20
+ * XREFs of PopGetEnergyCounter @ 0x140A97190
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
  */
 
 __int64 __fastcall PopGetEnergyCounter(_OWORD *a1)
 {
-  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F0B050);
-  *a1 = xmmword_140F0B0C8;
-  return PopReleaseRwLock((signed __int64 *)&xmmword_140F0B050);
+  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F0BE90);
+  *a1 = xmmword_140F0BF08;
+  return PopReleaseRwLock((signed __int64 *)&xmmword_140F0BE90);
 }

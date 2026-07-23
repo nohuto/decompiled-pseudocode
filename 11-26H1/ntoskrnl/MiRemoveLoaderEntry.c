@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveLoaderEntry @ 0x14040D04C
+ * XREFs of MiRemoveLoaderEntry @ 0x140429F78
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14040D21C (RtlRemoveInvertedFunctionTable.c)
- *     MmUnlockLoadedModuleListExclusive @ 0x14040D280 (MmUnlockLoadedModuleListExclusive.c)
- *     MmLockLoadedModuleListExclusive @ 0x14052D084 (MmLockLoadedModuleListExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14042A148 (RtlRemoveInvertedFunctionTable.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x14042A1AC (MmUnlockLoadedModuleListExclusive.c)
+ *     MmLockLoadedModuleListExclusive @ 0x14052F5A4 (MmLockLoadedModuleListExclusive.c)
  */
 
 __int64 __fastcall MiRemoveLoaderEntry(_QWORD *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiRemoveLoaderEntry(_QWORD *a1)
     __fastfail(3u);
   *v5 = v3;
   *(_QWORD *)(v3 + 8) = v5;
-  RtlAvlRemoveNode((unsigned __int64 *)&stru_140E2D150.SuspendEvent.Header.WaitListHead, (__int64)(a1 + 26));
+  RtlAvlRemoveNode((unsigned __int64 *)&stru_140E2D2D0.SuspendEvent.Header.WaitListHead, (__int64)(a1 + 26));
   LOBYTE(v6) = v4;
   return MmUnlockLoadedModuleListExclusive(v6);
 }

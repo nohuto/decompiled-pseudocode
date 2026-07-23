@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCopyValue @ 0x1408DCE6C
+ * XREFs of CmpCopyValue @ 0x1408E342C
  * Callers:
- *     CmpCopyKeyPartial @ 0x1408DDBFC (CmpCopyKeyPartial.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1409812B8 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpMergeKeyValues @ 0x140B2BDE4 (CmpMergeKeyValues.c)
- *     CmpSyncKeyValues @ 0x140B62A58 (CmpSyncKeyValues.c)
+ *     CmpCopyKeyPartial @ 0x1408E41BC (CmpCopyKeyPartial.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1409432C8 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpMergeKeyValues @ 0x140B2DE64 (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x140B65AF8 (CmpSyncKeyValues.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpFreeValueData @ 0x1408D1074 (CmpFreeValueData.c)
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     CmpCopyCell @ 0x1408DCB64 (CmpCopyCell.c)
- *     CmpSetValueDataNew @ 0x1408DE068 (CmpSetValueDataNew.c)
- *     CmpGetValueData @ 0x1409803F0 (CmpGetValueData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpFreeValueData @ 0x1408D7634 (CmpFreeValueData.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     CmpCopyCell @ 0x1408E3124 (CmpCopyCell.c)
+ *     CmpSetValueDataNew @ 0x1408E4628 (CmpSetValueDataNew.c)
+ *     CmpGetValueData @ 0x140942400 (CmpGetValueData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCopyValue(

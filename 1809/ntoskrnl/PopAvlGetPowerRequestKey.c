@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAvlGetPowerRequestKey @ 0x1405891B4
+ * XREFs of PopAvlGetPowerRequestKey @ 0x14058A1B4
  * Callers:
- *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1405890BC (PopAvlFindOrMakeStatsForPowerRequest.c)
+ *     PopAvlFindOrMakeStatsForPowerRequest @ 0x14058A0BC (PopAvlFindOrMakeStatsForPowerRequest.c)
  * Callees:
  *     RtlInitString @ 0x140002070 (RtlInitString.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     PopUnicodeStringDeepCopy @ 0x140588974 (PopUnicodeStringDeepCopy.c)
- *     PopAnsiStringToUnicodeString @ 0x140588D18 (PopAnsiStringToUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     PopUnicodeStringDeepCopy @ 0x140589974 (PopUnicodeStringDeepCopy.c)
+ *     PopAnsiStringToUnicodeString @ 0x140589D18 (PopAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2, __int64 a3)

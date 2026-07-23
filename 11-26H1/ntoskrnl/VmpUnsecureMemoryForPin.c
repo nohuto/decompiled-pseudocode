@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpUnsecureMemoryForPin @ 0x14081DEE4
+ * XREFs of VmpUnsecureMemoryForPin @ 0x1408240F4
  * Callers:
- *     VmpSplitMemoryRange @ 0x1404C8B68 (VmpSplitMemoryRange.c)
- *     VmpMergeMemoryRanges @ 0x1405199E0 (VmpMergeMemoryRanges.c)
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
- *     VmpUnpinMemoryRangeHelper @ 0x1406C286C (VmpUnpinMemoryRangeHelper.c)
+ *     VmpSplitMemoryRange @ 0x1404C2504 (VmpSplitMemoryRange.c)
+ *     VmpMergeMemoryRanges @ 0x140513450 (VmpMergeMemoryRanges.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x1406C644C (VmpUnpinMemoryRangeHelper.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     MmAdjustSecuredVirtualMemorySize @ 0x14086AC5C (MmAdjustSecuredVirtualMemorySize.c)
- *     MmUnsecureVirtualMemory @ 0x1409C1B90 (MmUnsecureVirtualMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     MmAdjustSecuredVirtualMemorySize @ 0x14087103C (MmAdjustSecuredVirtualMemorySize.c)
+ *     MmUnsecureVirtualMemory @ 0x140992B70 (MmUnsecureVirtualMemory.c)
  */
 
 void __fastcall VmpUnsecureMemoryForPin(

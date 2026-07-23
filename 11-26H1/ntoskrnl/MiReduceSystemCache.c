@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReduceSystemCache @ 0x140531298
+ * XREFs of MiReduceSystemCache @ 0x140533798
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1404A3280 (MiRemoveUnusedSegments.c)
+ *     MiRemoveUnusedSegments @ 0x14049CD9C (MiRemoveUnusedSegments.c)
  * Callees:
- *     CcUnmapInactiveViews @ 0x14041480C (CcUnmapInactiveViews.c)
- *     MiComputeProportionalSystemCacheVaReduction @ 0x1405312F8 (MiComputeProportionalSystemCacheVaReduction.c)
- *     MiDeleteUnmappedSystemCacheViews @ 0x1406F5A18 (MiDeleteUnmappedSystemCacheViews.c)
+ *     CcUnmapInactiveViews @ 0x140408E3C (CcUnmapInactiveViews.c)
+ *     MiComputeProportionalSystemCacheVaReduction @ 0x1405337F8 (MiComputeProportionalSystemCacheVaReduction.c)
+ *     MiDeleteUnmappedSystemCacheViews @ 0x1406FA688 (MiDeleteUnmappedSystemCacheViews.c)
  */
 
 __int64 __fastcall MiReduceSystemCache(__int64 a1)

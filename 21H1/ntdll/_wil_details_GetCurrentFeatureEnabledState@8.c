@@ -32,7 +32,7 @@ __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(int a1, _DWORD *a2)
   *a2 = 1;
   memset(v19, 0, sizeof(v19));
   v5 = *(_DWORD *)(a1 + 4);
-  FeatureState = wil_RtlStagingConfig_QueryFeatureState(v4, 0);
+  FeatureState = wil_RtlStagingConfig_QueryFeatureState(v19, v5, v4, 0);
   if ( !FeatureState )
     FeatureState = wil_StagingConfig_QueryFeatureState(v7, v5, v4, v7);
   v8 = (v19[4] != 0 ? 0x100 : 0) | (v19[5] != 0 ? 0x200 : 0) | (32 * (v19[0] & (unsigned __int8)-(FeatureState != 0) & 3));

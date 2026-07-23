@@ -33,14 +33,14 @@
 
 void __stdcall __noreturn RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
 {
-  int v1; // eax
-  CONTEXT ContextRecord; // [esp+0h] [ebp-2D0h] BYREF
+  NTSTATUS v1; // eax
+  _CONTEXT ContextRecord; // [esp+0h] [ebp-2D0h] BYREF
   void *retaddr; // [esp+2D4h] [ebp+4h]
 
   RtlCaptureContext(&ContextRecord);
   ContextRecord.Esp += 4;
   ExceptionRecord->ExceptionAddress = retaddr;
   ContextRecord.ContextFlags = 65543;
-  v1 = ZwRaiseException((int)ExceptionRecord, (int)&ContextRecord, 1);
+  v1 = ZwRaiseException(ExceptionRecord, &ContextRecord, 1u);
   RtlRaiseStatus(v1);
 }

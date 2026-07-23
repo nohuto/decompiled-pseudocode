@@ -19,45 +19,47 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall LdrpQueryValueKey(int a1, int a2, _DWORD *a3, void *a4, unsigned int *a5, int a6)
+int __fastcall LdrpQueryValueKey(HANDLE a1, _UNICODE_STRING *a2, _DWORD *a3, void *a4, ULONG *a5, int a6)
 {
-  unsigned int v7; // eax
+  ULONG v7; // eax
   bool v8; // zf
-  unsigned int v9; // eax
+  ULONG v9; // eax
   _DWORD *Heap; // eax
   _DWORD *v11; // ebx
-  int v12; // eax
+  NTSTATUS v12; // eax
   int v13; // edi
-  unsigned int v14; // eax
-  int v16; // [esp+Ch] [ebp-Ch] BYREF
-  int v17; // [esp+10h] [ebp-8h]
-  unsigned int v18; // [esp+14h] [ebp-4h]
+  ULONG v14; // eax
+  SIZE_T v16; // [esp-4h] [ebp-1Ch]
+  ULONG ResultLength; // [esp+Ch] [ebp-Ch] BYREF
+  HANDLE KeyHandle; // [esp+10h] [ebp-8h]
+  ULONG Length; // [esp+14h] [ebp-4h]
 
-  v17 = a1;
+  KeyHandle = a1;
   if ( !a4 )
   {
     if ( !a5 )
     {
       v7 = 0;
 LABEL_4:
-      v16 = 0;
+      ResultLength = 0;
       v8 = v7 == -12;
       v9 = v7 + 12;
-      v18 = v9;
+      Length = v9;
       if ( v8 )
       {
         v11 = 0;
       }
       else
       {
-        Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v9);
-        a1 = v17;
+        LODWORD(v16) = v9;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v16);
+        a1 = KeyHandle;
         v11 = Heap;
-        v9 = v18;
+        v9 = Length;
       }
       if ( !v11 )
         return -1073741670;
-      v12 = ZwQueryValueKey(a1, a2, 2, v11, v9, &v16);
+      v12 = ZwQueryValueKey(a1, a2, KeyValuePartialInformation, v11, v9, &ResultLength);
       v13 = v12;
       if ( v12 != -1073741772 )
       {
@@ -85,8 +87,11 @@ LABEL_16:
             v13 = -2147483643;
             goto LABEL_16;
           }
-          if ( v14 <= v18 )
-            memcpy(a4, v11 + 3, v11[2]);
+          if ( v14 <= Length )
+          {
+            LODWORD(v16) = v11[2];
+            memcpy(a4, v11 + 3, v16);
+          }
         }
       }
       if ( v13 >= 0 )

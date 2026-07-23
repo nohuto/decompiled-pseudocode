@@ -1,23 +1,23 @@
 /*
- * XREFs of KsepSdbMapToMemory @ 0x1409E6578
+ * XREFs of KsepSdbMapToMemory @ 0x1409D65BC
  * Callers:
- *     KseShimDatabaseOpen @ 0x1409E63D0 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseOpen @ 0x1409D6414 (KseShimDatabaseOpen.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SdbInitDatabaseInMemory @ 0x1409E62EC (SdbInitDatabaseInMemory.c)
- *     SdbGetDatabaseEdition @ 0x1409E6C00 (SdbGetDatabaseEdition.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SdbGetDatabaseEdition @ 0x1409D60CC (SdbGetDatabaseEdition.c)
+ *     SdbInitDatabaseInMemory @ 0x1409D6974 (SdbInitDatabaseInMemory.c)
  */
 
 __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
@@ -63,12 +63,12 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
   if ( v3 < 0 )
   {
     v14 = ((unsigned __int8)_InterlockedExchangeAdd(
-                              (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                              (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                               1u)
          + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v14 + 4] = v3;
-    StackBase = (char)stru_140E66B30.StackBase;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v14) = 590504;
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v14) = v3;
+    StackBase = (char)stru_140E66D40.StackBase;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v14) = 590504;
     if ( (StackBase & 2) != 0 )
       KsepDebugPrint(0LL, (int)"KSE: ZwOpenFile failed opening DB file!\n");
     KsepLogError(0LL, (__int64)"KSE: ZwOpenFile failed opening DB file!\n");
@@ -84,12 +84,12 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
     if ( v4 < 0 )
     {
       v17 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                 1u)
            + 1) & 0x3F;
-      *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v17 + 4] = v4;
-      *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v17) = 590526;
-      if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+      *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v17) = v4;
+      *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v17) = 590526;
+      if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
         KsepDebugPrint(0LL, (int)"KSE: ZwCreateSection Failed!\n");
       KsepLogError(0LL, (__int64)"KSE: ZwCreateSection Failed!\n");
     }
@@ -102,12 +102,12 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
       if ( v5 < 0 )
       {
         v16 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                  (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                  (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                   1u)
              + 1) & 0x3F;
-        *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v16 + 4] = v4;
-        *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v16) = 590540;
-        if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+        *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v16) = v4;
+        *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v16) = 590540;
+        if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
           KsepDebugPrint(0LL, (int)"KSE: ObRefByHandle(section) failed!\n");
         KsepLogError(0LL, (__int64)"KSE: ObRefByHandle(section) failed!\n");
       }
@@ -126,19 +126,19 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
         {
           MiDereferenceControlArea(v8);
           v19 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v19 + 4] = v4;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v19) = 590553;
-          if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v19) = v4;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v19) = 590553;
+          if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
             KsepDebugPrint(0LL, (int)"KSE: Unable to map view of section!\n");
           KsepLogError(0LL, (__int64)"KSE: Unable to map view of section!\n");
         }
         else
         {
           v11 = BugCheckParameter1;
-          inited = SdbInitDatabaseInMemory(BugCheckParameter1, v10);
+          inited = SdbInitDatabaseInMemory(BugCheckParameter1, (unsigned int)v10);
           if ( inited )
           {
             v4 = 0;
@@ -152,12 +152,12 @@ __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
           }
           v4 = -1073741823;
           v18 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v18 + 4] = -1073741823;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v18) = 590562;
-          if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v18) = -1073741823;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v18) = 590562;
+          if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
             KsepDebugPrint(0LL, (int)"KSE: SdbInitDatabaseInMemory Failed!\n");
           KsepLogError(0LL, (__int64)"KSE: SdbInitDatabaseInMemory Failed!\n");
           if ( v11 )

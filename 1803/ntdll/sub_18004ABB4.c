@@ -10,7 +10,7 @@
  *     ZwWaitForAlertByThreadId @ 0x18009E3B0 (ZwWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall sub_18004ABB4(__int64 a1, volatile signed __int32 *a2)
+signed __int64 __fastcall sub_18004ABB4(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi
   signed __int64 result; // rax
@@ -27,7 +27,7 @@ signed __int64 __fastcall sub_18004ABB4(__int64 a1, volatile signed __int32 *a2)
   signed __int64 v16; // rcx
   signed __int64 v17; // rtt
 
-  v4 = ((unsigned __int32)*a2 >> 5) & 0x7F;
+  v4 = (*(_DWORD *)a2 >> 5) & 0x7F;
   result = *(_QWORD *)(a1 + 8 * v4);
   while ( result )
   {
@@ -52,7 +52,7 @@ signed __int64 __fastcall sub_18004ABB4(__int64 a1, volatile signed __int32 *a2)
         while ( 1 )
         {
           v12 = *(_QWORD *)(v8 + 16);
-          if ( (volatile signed __int32 *)v8 == a2 )
+          if ( v8 == a2 )
           {
             v10 = 1;
             if ( v8 == v9 )
@@ -93,8 +93,8 @@ signed __int64 __fastcall sub_18004ABB4(__int64 a1, volatile signed __int32 *a2)
 LABEL_9:
           if ( !v8 )
           {
-            if ( !v10 && _InterlockedExchange(a2 + 10, 0) != 2 )
-              ZwWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+            if ( !v10 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
+              ZwWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
             *(_QWORD *)(v9 + 32) = v11;
             do
             {
@@ -115,7 +115,7 @@ LABEL_9:
       }
     }
   }
-  if ( _InterlockedExchange(a2 + 10, 1) != 2 )
+  if ( _InterlockedExchange((volatile __int32 *)(a2 + 40), 1) != 2 )
     return sub_180024C30(a1, a2, 0LL, dword_1801596D8);
   return result;
 }

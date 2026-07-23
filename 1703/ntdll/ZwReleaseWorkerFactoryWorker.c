@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwReleaseWorkerFactoryWorker()
+NTSTATUS __cdecl ZwReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 354LL;
+  result = 354;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

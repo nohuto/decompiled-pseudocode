@@ -1,17 +1,17 @@
 /*
- * XREFs of PsGetWorkOnBehalfThread @ 0x1402055CC
+ * XREFs of PsGetWorkOnBehalfThread @ 0x1402A9F0C
  * Callers:
- *     IopQueueWorkItemProlog @ 0x140206670 (IopQueueWorkItemProlog.c)
- *     PsGetEffectiveContainerId @ 0x1402B6CE0 (PsGetEffectiveContainerId.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402F88E8 (IoReferenceIoAttributionFromThread.c)
- *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1406A15FC (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2530 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     PsGetEffectiveContainerId @ 0x140234EC0 (PsGetEffectiveContainerId.c)
+ *     IopQueueWorkItemProlog @ 0x1402AAFA0 (IopQueueWorkItemProlog.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140303638 (IoReferenceIoAttributionFromThread.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x140600D8C (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     AlpcpCaptureAttributes @ 0x1406D59F0 (AlpcpCaptureAttributes.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2690 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

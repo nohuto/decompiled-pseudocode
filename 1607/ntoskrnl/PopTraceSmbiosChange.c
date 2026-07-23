@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSmbiosChange @ 0x140209B60
+ * XREFs of PopTraceSmbiosChange @ 0x14020998C
  * Callers:
- *     PopUpdateSmbiosData @ 0x1405348D0 (PopUpdateSmbiosData.c)
+ *     PopUpdateSmbiosData @ 0x140534E10 (PopUpdateSmbiosData.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
@@ -31,9 +31,9 @@ void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
   int v21; // [rsp+A8h] [rbp+3Fh]
   int v22; // [rsp+ACh] [rbp+43h]
 
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&hProvider, 0x400000000000uLL) )
     {
       v13 = 0;
       v16 = 0;
@@ -51,7 +51,7 @@ void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
       v15 = 4;
       v18 = 8;
       v21 = 4;
-      TlgWrite(&pCallbackContext, &unk_14027D05A, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&hProvider, &unk_14027D15A, 0LL, 0LL, 6u, &pData);
     }
   }
 }

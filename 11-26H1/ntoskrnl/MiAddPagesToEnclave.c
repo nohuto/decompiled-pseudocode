@@ -1,25 +1,25 @@
 /*
- * XREFs of MiAddPagesToEnclave @ 0x1403414DC
+ * XREFs of MiAddPagesToEnclave @ 0x14034355C
  * Callers:
- *     MiCommitEnclavePages @ 0x140341288 (MiCommitEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x140343308 (MiCommitEnclavePages.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiWriteEnclavePte @ 0x140340C78 (MiWriteEnclavePte.c)
- *     MiGetPageForEnclave @ 0x1403418D0 (MiGetPageForEnclave.c)
- *     KeAddEnclavePage @ 0x140341930 (KeAddEnclavePage.c)
- *     MiInitializeEnclavePfn @ 0x140341AA8 (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x140341D50 (MiReserveEnclavePages.c)
- *     MiReturnEnclavePage @ 0x140341F44 (MiReturnEnclavePage.c)
- *     MiReturnReservedEnclavePages @ 0x140C01D98 (MiReturnReservedEnclavePages.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiWriteEnclavePte @ 0x140342CF8 (MiWriteEnclavePte.c)
+ *     MiGetPageForEnclave @ 0x140343950 (MiGetPageForEnclave.c)
+ *     KeAddEnclavePage @ 0x1403439B0 (KeAddEnclavePage.c)
+ *     MiInitializeEnclavePfn @ 0x140343B28 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x140343DD0 (MiReserveEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x140343FC4 (MiReturnEnclavePage.c)
+ *     MiReturnReservedEnclavePages @ 0x140C07FA8 (MiReturnReservedEnclavePages.c)
  */
 
 __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PTR a3, ULONG_PTR a4, unsigned int a5)
@@ -65,7 +65,7 @@ __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PT
     return 3221225496LL;
   v9 = 0LL;
   p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-  v11 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
+  v11 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)p_Blink + 87));
   v12 = *(_QWORD *)(a1 + 120);
   v33 = v11;
   if ( a2 <= v12 || (v9 = a2 - v12, result = MiReserveEnclavePages(a1, v11, a2 - v12), (int)result >= 0) )
@@ -74,7 +74,7 @@ __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PT
     v15 = 4;
     v16 = 0LL;
     if ( (v14 & 2) == 0 )
-      v16 = qword_140E36020;
+      v16 = qword_140E361A0;
     v34 = v16;
     v17 = (a5 >> 1) & 2 | 0x35;
     if ( (a5 & 2) == 0 )

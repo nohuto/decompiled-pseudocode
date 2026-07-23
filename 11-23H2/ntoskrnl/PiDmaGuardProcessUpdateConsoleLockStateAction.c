@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14096AE8C
+ * XREFs of PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14096B08C
  * Callers:
- *     PnpDeviceActionWorker @ 0x140359430 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403595D0 (PnpDeviceActionWorker.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x14096B8C4 (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
- *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14096EF24 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x14096BAC4 (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14096F124 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessUpdateConsoleLockStateAction(__int64 a1)

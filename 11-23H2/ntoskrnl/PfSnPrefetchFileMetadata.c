@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchFileMetadata @ 0x1407D7D9C
+ * XREFs of PfSnPrefetchFileMetadata @ 0x1407D806C
  * Callers:
- *     PfSnGetSectionObject @ 0x14075C9A0 (PfSnGetSectionObject.c)
- *     PfSnPrefetchMetadata @ 0x14075E5E4 (PfSnPrefetchMetadata.c)
+ *     PfSnGetSectionObject @ 0x14075CB90 (PfSnGetSectionObject.c)
+ *     PfSnPrefetchMetadata @ 0x14075E7D4 (PfSnPrefetchMetadata.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     NtWaitForSingleObject @ 0x1406E36C0 (NtWaitForSingleObject.c)
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
- *     NtResetEvent @ 0x1407D7ED0 (NtResetEvent.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     NtWaitForSingleObject @ 0x1406E36F0 (NtWaitForSingleObject.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
+ *     NtResetEvent @ 0x1407D81A0 (NtResetEvent.c)
  */
 
 __int64 __fastcall PfSnPrefetchFileMetadata(
@@ -16,7 +16,7 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
-        IRP *a6)
+        IRP *EventHandle)
 {
   unsigned int Status; // r10d
   unsigned int v10; // ebx
@@ -57,11 +57,11 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
           *(_DWORD *)(v13 + 4) = v16;
           memmove(v15, (const void *)(a3 + 16 + 8LL * (v14 + a4)), (unsigned int)(8 * v16));
           v17 = 8 * *(_DWORD *)(v13 + 4) + 16;
-          NtResetEvent(a6);
-          Status = IopXxxControlFile(a2, a6, 0LL, 0LL, &v19, 0x90120u, (char *)v13, v17, 0LL, 0, 0);
+          NtResetEvent(EventHandle, 0LL);
+          Status = IopXxxControlFile(a2, EventHandle, 0LL, 0LL, &v19, 0x90120u, (char *)v13, v17, 0LL, 0, 0);
           if ( Status == 259 )
           {
-            NtWaitForSingleObject((int)a6, 0, 0LL);
+            NtWaitForSingleObject(EventHandle, 0, 0LL);
             Status = v19.Status;
           }
           if ( (Status & 0xC0000000) == 0xC0000000 )
@@ -75,11 +75,22 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
       {
         *(_QWORD *)(a3 + 8) = v11;
         *(_DWORD *)(a3 + 4) = a5;
-        NtResetEvent(a6);
-        Status = IopXxxControlFile(a2, a6, 0LL, 0LL, &v19, 0x90120u, (char *)a3, 8 * a5 + 16, 0LL, a4 & v18, a4);
+        NtResetEvent(EventHandle, 0LL);
+        Status = IopXxxControlFile(
+                   a2,
+                   EventHandle,
+                   0LL,
+                   0LL,
+                   &v19,
+                   0x90120u,
+                   (char *)a3,
+                   8 * a5 + 16,
+                   0LL,
+                   a4 & v18,
+                   a4);
         if ( Status == 259 )
         {
-          NtWaitForSingleObject((int)a6, 0, 0LL);
+          NtWaitForSingleObject(EventHandle, 0, 0LL);
           Status = v19.Status;
         }
         *(_DWORD *)(a3 + 4) = v10;

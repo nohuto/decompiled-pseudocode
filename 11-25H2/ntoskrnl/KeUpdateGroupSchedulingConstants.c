@@ -25,9 +25,7 @@ void __fastcall KeUpdateGroupSchedulingConstants(char a1)
   KiCycleDivisorLongTerm = v3 * (unsigned int)PsDfssLongTermSharingMS;
   KiCyclesPerGeneration = v3 * (unsigned int)PsDfssGenerationLengthMS;
   KiGroupSchedulingNumerator = PsDfssLongTermFraction1024;
-  KiGenerationTicks = 10000
-                    * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS
-                    / (unsigned int)KeMaximumIncrement;
+  KiGenerationTicks = 10000 * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS / KeMaximumIncrement;
   if ( KiSchedulingGroupList.Flink )
   {
     while ( Flink != &KiSchedulingGroupList )

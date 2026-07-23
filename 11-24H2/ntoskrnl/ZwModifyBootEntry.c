@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwModifyBootEntry @ 0x1406A87F0
+ * XREFs of ZwModifyBootEntry @ 0x1406A9790
  * Callers:
- *     DifZwModifyBootEntryWrapper @ 0x140640EF0 (DifZwModifyBootEntryWrapper.c)
- *     BiModifyBootEntry @ 0x14081556C (BiModifyBootEntry.c)
+ *     DifZwModifyBootEntryWrapper @ 0x14063F4B0 (DifZwModifyBootEntryWrapper.c)
+ *     BiModifyBootEntry @ 0x140815CAC (BiModifyBootEntry.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwModifyBootEntry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(BootEntry);
 }

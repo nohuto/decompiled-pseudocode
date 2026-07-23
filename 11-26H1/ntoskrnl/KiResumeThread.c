@@ -1,23 +1,23 @@
 /*
- * XREFs of KiResumeThread @ 0x1402C60D8
+ * XREFs of KiResumeThread @ 0x140310D78
  * Callers:
- *     KeForceResumeThread @ 0x1402C5E5C (KeForceResumeThread.c)
- *     KeResumeThread @ 0x1402C5F30 (KeResumeThread.c)
- *     KiThawSingleThread @ 0x1402C6004 (KiThawSingleThread.c)
- *     KiAdjustThreadTimer @ 0x1405F6408 (KiAdjustThreadTimer.c)
+ *     KeForceResumeThread @ 0x140310AFC (KeForceResumeThread.c)
+ *     KeResumeThread @ 0x140310BD0 (KeResumeThread.c)
+ *     KiThawSingleThread @ 0x140310CA4 (KiThawSingleThread.c)
+ *     KiAdjustThreadTimer @ 0x1405F8DC8 (KiAdjustThreadTimer.c)
  * Callees:
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiInsertTimerTable @ 0x1403ACC88 (KiInsertTimerTable.c)
- *     KiTimerWaitTest @ 0x1403ACF4C (KiTimerWaitTest.c)
- *     KiComputeDueTime @ 0x1403AE0C0 (KiComputeDueTime.c)
- *     KiTraceSetTimer @ 0x1403E5D48 (KiTraceSetTimer.c)
- *     KiTestForAlertPending @ 0x1404AB1F8 (KiTestForAlertPending.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiInsertTimerTable @ 0x1403B6998 (KiInsertTimerTable.c)
+ *     KiTimerWaitTest @ 0x1403B6C5C (KiTimerWaitTest.c)
+ *     KiComputeDueTime @ 0x1403B7DD0 (KiComputeDueTime.c)
+ *     KiTraceSetTimer @ 0x1403E8F38 (KiTraceSetTimer.c)
+ *     KiTestForAlertPending @ 0x1404A4888 (KiTestForAlertPending.c)
  */
 
 char __fastcall KiResumeThread(__int64 a1, __int64 a2, __int64 a3)

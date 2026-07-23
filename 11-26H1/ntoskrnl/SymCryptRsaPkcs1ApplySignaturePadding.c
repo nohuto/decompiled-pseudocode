@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptRsaPkcs1ApplySignaturePadding @ 0x14055BDE4
+ * XREFs of SymCryptRsaPkcs1ApplySignaturePadding @ 0x14055E2CC
  * Callers:
- *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x14055BF28 (SymCryptRsaPkcs1CheckSignaturePadding.c)
- *     SymCryptRsaPkcs1Sign @ 0x14055EB54 (SymCryptRsaPkcs1Sign.c)
+ *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x14055E410 (SymCryptRsaPkcs1CheckSignaturePadding.c)
+ *     SymCryptRsaPkcs1Sign @ 0x140561078 (SymCryptRsaPkcs1Sign.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptRsaPkcs1ApplySignaturePadding(

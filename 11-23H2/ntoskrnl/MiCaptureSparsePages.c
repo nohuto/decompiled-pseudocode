@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureSparsePages @ 0x140A42ED4
+ * XREFs of MiCaptureSparsePages @ 0x140A43184
  * Callers:
- *     MiDeleteSparseRange @ 0x140A4311C (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x140A433CC (MiDeleteSparseRange.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiSetPfnLink @ 0x1402DF09C (MiSetPfnLink.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiSetPfnLink @ 0x1402DF32C (MiSetPfnLink.c)
  */
 
 __int64 __fastcall MiCaptureSparsePages(unsigned __int64 a1, __int64 a2)

@@ -3,7 +3,7 @@
  * Callers:
  *     ExInitSystem @ 0x1407B5704 (ExInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExpSingleStringCheck @ 0x1407B5CAC (ExpSingleStringCheck.c)
  */
 

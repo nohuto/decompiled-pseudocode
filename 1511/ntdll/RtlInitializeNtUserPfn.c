@@ -8,19 +8,18 @@
 
 __int64 __fastcall RtlInitializeNtUserPfn(_OWORD *a1, __int64 a2, _OWORD *a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  __int64 v6; // rbp
-  __int64 v9; // rsi
+  ULONG_PTR v6; // rbp
+  _LIST_ENTRY *Flink; // rsi
   __int128 v10; // xmm0
   _OWORD *v11; // rdi
   __int128 v12; // xmm1
   _OWORD *v13; // rbx
-  __int64 v14; // r9
 
-  v6 = qword_1801552F0;
-  v9 = *(_QWORD *)_guard_check_icall_fptr;
+  v6 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
+  Flink = _guard_check_icall_fptr->HashEntry.Linkage.Flink;
   if ( byte_1801551C8 || a2 != 184 || a4 != 184 || a6 != 88 )
     return 3221225485LL;
-  LdrProtectMrdata(0, (char *)0xB8, (__int64)a3, 184LL);
+  LdrProtectMrdata(0);
   *(_OWORD *)NtUserPfn = *a1;
   *(_OWORD *)&NtUserPfn[2] = a1[1];
   *(_OWORD *)&NtUserPfn[4] = a1[2];
@@ -56,8 +55,11 @@ __int64 __fastcall RtlInitializeNtUserPfn(_OWORD *a1, __int64 a2, _OWORD *a3, __
   *(_OWORD *)off_1801551B0 = *(_OWORD *)(a5 + 64);
   off_1801551C0 = *(void (__fastcall __noreturn **)())(a5 + 80);
   byte_1801551C8 = 1;
-  LdrProtectMrdata(1, (char *)NtUserPfn, 128LL, v14);
-  if ( v6 != qword_1801552F0 || v9 != *(_QWORD *)_guard_check_icall_fptr )
+  LdrProtectMrdata(1);
+  if ( v6 != LdrSystemDllInitBlock.Wow64SharedInformation[9]
+    || Flink != _guard_check_icall_fptr->HashEntry.Linkage.Flink )
+  {
     __fastfail(0x13u);
+  }
   return 0LL;
 }

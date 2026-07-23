@@ -1,16 +1,16 @@
 /*
- * XREFs of CmFcManagerRegisterFeatureUsageProvider @ 0x140B52AB0
+ * XREFs of CmFcManagerRegisterFeatureUsageProvider @ 0x140B55350
  * Callers:
- *     wil_details_RegisterFeatureUsageProvider @ 0x1408551B4 (wil_details_RegisterFeatureUsageProvider.c)
- *     RtlRegisterFeatureUsageProvider @ 0x140B52A90 (RtlRegisterFeatureUsageProvider.c)
+ *     wil_details_RegisterFeatureUsageProvider @ 0x14085B514 (wil_details_RegisterFeatureUsageProvider.c)
+ *     RtlRegisterFeatureUsageProvider @ 0x140B55330 (RtlRegisterFeatureUsageProvider.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     CmFcpManagerAllocateUsageProviderSubscription @ 0x14077AE7C (CmFcpManagerAllocateUsageProviderSubscription.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     CmFcpManagerAllocateUsageProviderSubscription @ 0x14077C144 (CmFcpManagerAllocateUsageProviderSubscription.c)
  */
 
 __int64 __fastcall CmFcManagerRegisterFeatureUsageProvider(__int64 a1, __int64 a2, __int64 a3, char **a4)
@@ -31,11 +31,11 @@ __int64 __fastcall CmFcManagerRegisterFeatureUsageProvider(__int64 a1, __int64 a
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v9 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140EFB988, 0LL, 0LL, v7);
-    v11 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EFB988, 0LL);
+    v9 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140EFBCA8, 0LL, 0LL, v7);
+    v11 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EFBCA8, 0LL);
     v12 = v9;
     if ( v11 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EFB988, v9, (__int64)&stru_140EFB988);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EFBCA8, v9, (__int64)&stru_140EFBCA8);
     if ( v12 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -43,16 +43,16 @@ __int64 __fastcall CmFcManagerRegisterFeatureUsageProvider(__int64 a1, __int64 a
       else
         *((_BYTE *)v12 + 10) = 1;
     }
-    v13 = (char **)qword_140EFBB08;
-    if ( *(__int64 **)qword_140EFBB08 != &qword_140EFBB00 )
+    v13 = (char **)qword_140EFBE70;
+    if ( *(__int64 **)qword_140EFBE70 != &qword_140EFBE68 )
       __fastfail(3u);
-    *(_QWORD *)UsageProviderSubscription = &qword_140EFBB00;
+    *(_QWORD *)UsageProviderSubscription = &qword_140EFBE68;
     *((_QWORD *)UsageProviderSubscription + 1) = v13;
     *v13 = UsageProviderSubscription;
-    qword_140EFBB08 = (__int64)UsageProviderSubscription;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140EFB988, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140EFB988);
-    KeAbPostRelease((unsigned __int64)&stru_140EFB988);
+    qword_140EFBE70 = (__int64)UsageProviderSubscription;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140EFBCA8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140EFBCA8);
+    KeAbPostRelease((unsigned __int64)&stru_140EFBCA8);
     KeLeaveCriticalRegion();
     *a4 = UsageProviderSubscription;
   }

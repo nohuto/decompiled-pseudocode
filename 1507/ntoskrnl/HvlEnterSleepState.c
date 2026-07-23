@@ -13,24 +13,24 @@ __int64 __fastcall HvlEnterSleepState(int a1)
 {
   char v2; // r15
   char v3; // r14
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _QWORD *p_Next; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v7; // rax
-  struct _SLIST_ENTRY *v8; // rbp
+  _SLIST_ENTRY *v8; // rbp
   __int16 v9; // ax
   __int64 HypercallCachedPages; // rcx
   __int16 v11; // bx
   struct _KPRCB *v12; // rax
-  union _SLIST_HEADER *v14; // [rsp+28h] [rbp-60h]
-  struct _SLIST_ENTRY *v15; // [rsp+30h] [rbp-58h]
+  _SLIST_HEADER *v14; // [rsp+28h] [rbp-60h]
+  _SLIST_ENTRY *v15; // [rsp+30h] [rbp-58h]
   _BYTE v16[7]; // [rsp+40h] [rbp-48h] BYREF
   _BYTE v17[9]; // [rsp+47h] [rbp-41h] BYREF
   int v18; // [rsp+80h] [rbp-8h]
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v7 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v7->Next;
     if ( v7 )

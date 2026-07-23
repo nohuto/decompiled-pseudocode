@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepCacheDeviceInsertData @ 0x14057E248
+ * XREFs of KsepCacheDeviceInsertData @ 0x14057E6F4
  * Callers:
- *     KsepDbCacheReadDevice @ 0x140534FDC (KsepDbCacheReadDevice.c)
+ *     KsepDbCacheReadDevice @ 0x14053551C (KsepDbCacheReadDevice.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x140084D74 (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     KsepStringDuplicate @ 0x140485730 (KsepStringDuplicate.c)
- *     KsepStringFree @ 0x140485BF8 (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14010B37C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     KsepStringDuplicate @ 0x140514AB8 (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x140514F80 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepCacheDeviceInsertData(__int64 a1, _WORD *a2, const void *a3, int a4, unsigned int Size)

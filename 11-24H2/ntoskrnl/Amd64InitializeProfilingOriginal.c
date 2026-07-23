@@ -1,14 +1,14 @@
 /*
- * XREFs of Amd64InitializeProfilingOriginal @ 0x140B51488
+ * XREFs of Amd64InitializeProfilingOriginal @ 0x140B534D8
  * Callers:
- *     Amd64InitializeProfiling @ 0x140B50EA0 (Amd64InitializeProfiling.c)
+ *     Amd64InitializeProfiling @ 0x140B52EF0 (Amd64InitializeProfiling.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140541F70 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpMmAllocateMemory @ 0x140542CB4 (HalpMmAllocateMemory.c)
- *     Amd64FreeCounter @ 0x14056B1A4 (Amd64FreeCounter.c)
- *     Amd64GetGenericPerfEvent @ 0x14056B3FC (Amd64GetGenericPerfEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14053F86C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocateMemory @ 0x140540604 (HalpMmAllocateMemory.c)
+ *     Amd64FreeCounter @ 0x140568634 (Amd64FreeCounter.c)
+ *     Amd64GetGenericPerfEvent @ 0x14056888C (Amd64GetGenericPerfEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 Amd64InitializeProfilingOriginal()
@@ -110,7 +110,7 @@ __int64 Amd64InitializeProfilingOriginal()
       v65 = 4;
       *(__int128 *)((char *)&Amd64PerfCounterRegisters + 4 * v11) = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010247c0010245c0010243c0010241);
       *(__int128 *)((char *)&Amd64EventSelectRegisters + 4 * v11) = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010246c0010244c0010242c0010240);
-      qword_140F8EAF8 = (__int64)&Amd64DataFabricStatusHead;
+      qword_140F8ECD8 = (__int64)&Amd64DataFabricStatusHead;
       Amd64DataFabricStatusHead = (__int64)&Amd64DataFabricStatusHead;
     }
     if ( (_RCX & 0x10000000) != 0 && (_RCX & 0x400000) != 0 )
@@ -132,7 +132,7 @@ __int64 Amd64InitializeProfilingOriginal()
         --v18;
       }
       while ( v18 );
-      qword_140F8EB68 = (__int64)&Amd64CacheStatusHead;
+      qword_140F8ED48 = (__int64)&Amd64CacheStatusHead;
       Amd64CacheStatusHead = (__int64)&Amd64CacheStatusHead;
     }
     _RAX = 0x80000000LL;
@@ -222,7 +222,7 @@ __int64 Amd64InitializeProfilingOriginal()
     }
     v54 = &HalpProfileSourceDescriptorListHead;
     HalpProfileSourceDescriptorListLock = 0LL;
-    qword_140FC1E88 = (__int64)&HalpProfileSourceDescriptorListHead;
+    qword_140FC20E8 = (__int64)&HalpProfileSourceDescriptorListHead;
     v55 = 0;
     HalpProfileSourceDescriptorListHead = (__int64)&HalpProfileSourceDescriptorListHead;
     do
@@ -243,14 +243,14 @@ __int64 Amd64InitializeProfilingOriginal()
       if ( !v57 )
       {
         v59 = (__int64 **)((char *)&unk_140E05538 + 320 * v55);
-        v60 = (__int64 *)qword_140FC1E88;
-        if ( *(__int64 **)qword_140FC1E88 != v54 )
+        v60 = (__int64 *)qword_140FC20E8;
+        if ( *(__int64 **)qword_140FC20E8 != v54 )
           __fastfail(3u);
         ++HalpProfileSourceDescriptorCount;
         *v59 = v54;
         v59[1] = v60;
         *v60 = (__int64)v59;
-        qword_140FC1E88 = (__int64)&unk_140E05538 + 320 * v55;
+        qword_140FC20E8 = (__int64)&unk_140E05538 + 320 * v55;
       }
       ++v55;
     }

@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmDeleteDeviceContainerRegKeyWorker @ 0x1406D9C44
+ * XREFs of _CmDeleteDeviceContainerRegKeyWorker @ 0x1406D9D7C
  * Callers:
- *     _CmDeleteDeviceContainerRegKey @ 0x1406D9B2C (_CmDeleteDeviceContainerRegKey.c)
+ *     _CmDeleteDeviceContainerRegKey @ 0x1406D9C64 (_CmDeleteDeviceContainerRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x140486980 (_CmGetDeviceContainerRegKeyPath.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegDeleteTree @ 0x140550618 (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegDeleteKey @ 0x1406D7080 (_PnpCtxRegDeleteKey.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D710C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x140513790 (_CmGetDeviceContainerRegKeyPath.c)
+ *     _PnpCtxRegDeleteTree @ 0x140550B58 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406D71B8 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D7244 (_PnpCtxRegOpenCurrentUserKey.c)
  */
 
 __int64 __fastcall CmDeleteDeviceContainerRegKeyWorker(__int64 *a1, __int64 a2, unsigned int a3, int a4, char a5)

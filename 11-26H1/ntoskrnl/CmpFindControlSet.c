@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindControlSet @ 0x14085F13C
+ * XREFs of CmpFindControlSet @ 0x14086542C
  * Callers:
- *     CmpAcquireSystemDriverHiveContext @ 0x140CE9398 (CmpAcquireSystemDriverHiveContext.c)
- *     CmpGetSystemControlValues @ 0x140CEC3D8 (CmpGetSystemControlValues.c)
+ *     CmpAcquireSystemDriverHiveContext @ 0x140CEF738 (CmpAcquireSystemDriverHiveContext.c)
+ *     CmpGetSystemControlValues @ 0x140CF26DC (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     sprintf_s @ 0x14053C4C0 (sprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1408D7490 (CmpFindSubKeyByNameWithStatus.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     sprintf_s @ 0x14053E940 (sprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1408DDA50 (CmpFindSubKeyByNameWithStatus.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
  */
 
 __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, unsigned int a2, __int64 a3, _BYTE *a4)
@@ -51,7 +51,7 @@ __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, unsigned int 
   __int64 v38; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v39; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
-  STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
+  ANSI_STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
   char DstBuf[128]; // [rsp+80h] [rbp-80h] BYREF
   char v43; // [rsp+100h] [rbp+0h] BYREF
 

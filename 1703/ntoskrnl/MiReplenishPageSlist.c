@@ -17,7 +17,7 @@
 
 __int64 __fastcall MiReplenishPageSlist(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
 {
-  union _SLIST_HEADER *v7; // rax
+  _SLIST_HEADER *v7; // rax
   unsigned __int64 v8; // rcx
   __int64 v9; // rbx
   unsigned __int64 Alignment_low; // rax
@@ -34,7 +34,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, unsigned int a2, unsigned in
   __int64 v21; // rdi
   __int64 v22; // rbx
   __int64 v23; // r10
-  struct _SLIST_ENTRY *v24; // rsi
+  _SLIST_ENTRY *v24; // rsi
   __int64 v25; // rdx
   __int64 v26; // r9
   unsigned int v27; // r9d
@@ -48,14 +48,14 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, unsigned int a2, unsigned in
   volatile signed __int64 *v37; // [rsp+30h] [rbp-118h]
   unsigned __int64 v38; // [rsp+38h] [rbp-110h]
   _QWORD *v39; // [rsp+40h] [rbp-108h]
-  struct _SLIST_ENTRY *List; // [rsp+48h] [rbp-100h]
-  union _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-F8h]
+  _SLIST_ENTRY *List; // [rsp+48h] [rbp-100h]
+  _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-F8h]
   unsigned __int64 v42; // [rsp+58h] [rbp-F0h]
   __int64 v43; // [rsp+60h] [rbp-E8h]
   unsigned int v44; // [rsp+74h] [rbp-D4h]
   _QWORD v45[17]; // [rsp+78h] [rbp-D0h] BYREF
 
-  v7 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * (int)a2 + 3944) + 16LL * a3);
+  v7 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * (int)a2 + 3944) + 16LL * a3);
   v43 = (int)a2;
   v8 = *(unsigned int *)(a1 + 5084);
   ListHead = v7;
@@ -102,7 +102,7 @@ LABEL_7:
   v22 = 48 * v21 - 0x58000000000LL;
   v23 = 0xFFFFFFFFFLL;
   v24 = 0LL;
-  List = (struct _SLIST_ENTRY *)v22;
+  List = (_SLIST_ENTRY *)v22;
   while ( 1 )
   {
     v25 = 0x2AAAAAAAAAAAAAABLL;
@@ -111,14 +111,14 @@ LABEL_7:
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v22 + 24), 0x3FuLL) )
         break;
     }
-    v24 = (struct _SLIST_ENTRY *)v22;
+    v24 = (_SLIST_ENTRY *)v22;
     if ( dword_14036C91C == 1 )
     {
       LOBYTE(v29) = 1;
       v25 = (unsigned __int128)((v22 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
       v30 = (v22 + 0x58000000000LL) / 48;
       v31 = ((v25 < 0) + (unsigned __int8)(v25 >> 3)) & 0x1F;
-      v20 = (volatile signed __int32 *)(qword_14036C978 + 4 * (v30 >> 5));
+      v20 = (volatile signed __int32 *)stru_14036C970.Buffer + (v30 >> 5);
       if ( (unsigned __int64)(v31 + 1) > 0x20 )
       {
         if ( (((v25 < 0) + (unsigned __int8)(v25 >> 3)) & 0x1F) != 0 )

@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpOpenHiveFile @ 0x1405B4330
+ * XREFs of CmpOpenHiveFile @ 0x1405B5330
  * Callers:
- *     CmpInitHiveFromFile @ 0x1405B3D68 (CmpInitHiveFromFile.c)
- *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmLoadKey @ 0x1406C8B78 (CmLoadKey.c)
- *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
+ *     CmpInitHiveFromFile @ 0x1405B4D68 (CmpInitHiveFromFile.c)
+ *     CmLoadAppKey @ 0x1405D054C (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x1406C9E18 (CmLoadKey.c)
+ *     CmpMountPreloadedHives @ 0x1407369D0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140736D20 (CmpLoadHiveThread.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
- *     ZwFsControlFile @ 0x1401B88B0 (ZwFsControlFile.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetVolumeClusterSize @ 0x1405A4094 (CmpGetVolumeClusterSize.c)
- *     CmpCreateEvent @ 0x1405B487C (CmpCreateEvent.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1405B4B70 (CmpQueryFileSecurityDescriptor.c)
- *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     PsReferenceImpersonationToken @ 0x1406A4860 (PsReferenceImpersonationToken.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x1406C9A84 (CmpGetVolumeLogFileSizeCap.c)
- *     SeTokenImpersonationLevel @ 0x1406F95F0 (SeTokenImpersonationLevel.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x1407F67DC (CmpOpenFileWithExtremePrejudice.c)
- *     PsRevertToSelf @ 0x140889330 (PsRevertToSelf.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1401B8510 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1401B87D0 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x1401B8A10 (ZwFsControlFile.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetVolumeClusterSize @ 0x1405A5094 (CmpGetVolumeClusterSize.c)
+ *     CmpCreateEvent @ 0x1405B587C (CmpCreateEvent.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1405B5B70 (CmpQueryFileSecurityDescriptor.c)
+ *     PsImpersonateClient @ 0x140638B90 (PsImpersonateClient.c)
+ *     PsReferenceImpersonationToken @ 0x1406A5B00 (PsReferenceImpersonationToken.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x1406CAD24 (CmpGetVolumeLogFileSizeCap.c)
+ *     SeTokenImpersonationLevel @ 0x1406FA890 (SeTokenImpersonationLevel.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x1407F79DC (CmpOpenFileWithExtremePrejudice.c)
+ *     PsRevertToSelf @ 0x14088A590 (PsRevertToSelf.c)
  */
 
 __int64 __fastcall CmpOpenHiveFile(
@@ -68,7 +68,7 @@ __int64 __fastcall CmpOpenHiveFile(
   BOOLEAN CopyOnOpen[6]; // [rsp+62h] [rbp-9Eh] BYREF
   HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
   ULONG FileAttributes; // [rsp+70h] [rbp-90h]
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+74h] [rbp-8Ch] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+74h] [rbp-8Ch] BYREF
   int InputBuffer; // [rsp+78h] [rbp-88h] BYREF
   unsigned int v38; // [rsp+7Ch] [rbp-84h]
   PACCESS_TOKEN Token; // [rsp+80h] [rbp-80h]

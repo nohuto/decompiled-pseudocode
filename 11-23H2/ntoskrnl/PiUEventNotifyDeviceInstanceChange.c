@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventNotifyDeviceInstanceChange @ 0x14077E3F0
+ * XREFs of PiUEventNotifyDeviceInstanceChange @ 0x14077E5E0
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1407820E0 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1407822D0 (PiUEventProcessEventWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PiUEventHashStringIntoBucket @ 0x14031CEB8 (PiUEventHashStringIntoBucket.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     PiUEventApplyAdditionalFilters @ 0x14077E4E0 (PiUEventApplyAdditionalFilters.c)
- *     PiUEventNotifyClient @ 0x14077E5DC (PiUEventNotifyClient.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     PiUEventHashStringIntoBucket @ 0x14031D148 (PiUEventHashStringIntoBucket.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14077E6D0 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x14077E7CC (PiUEventNotifyClient.c)
  */
 
 __int64 __fastcall PiUEventNotifyDeviceInstanceChange(__int64 a1)

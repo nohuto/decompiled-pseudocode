@@ -1,43 +1,43 @@
 /*
  * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x14022B430
  * Callers:
- *     PopFxDeviceRelationsCleanup @ 0x140419798 (PopFxDeviceRelationsCleanup.c)
+ *     sub_140419798 @ 0x140419798 (sub_140419798.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x14056E8F8 (KiTryToAcquireSpinLockInstrumented.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_14056E8F8 @ 0x14056E8F8 (sub_14056E8F8.c)
  */
 
 BOOLEAN __stdcall KeTryToAcquireSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock)
 {
   struct _KPRCB *CurrentPrcb; // rdi
-  _DWORD *SchedulerAssist; // rcx
-  _DWORD *v5; // rcx
+  __int64 v3; // rcx
+  __int64 v5; // rcx
   int v6; // eax
   int v7; // edx
 
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-    return KiTryToAcquireSpinLockInstrumented(SpinLock);
+  if ( (BYTE6(xmmword_140D06900) & 0x21) != 0 )
+    return sub_14056E8F8(SpinLock);
   CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
+  v3 = *((_QWORD *)CurrentPrcb + 4375);
+  if ( v3 )
   {
-    if ( CurrentPrcb->NestingLevel <= 1u )
+    if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
     {
-      v6 = SchedulerAssist[6];
-      SchedulerAssist[6] = v6 + 1;
+      v6 = *(_DWORD *)(v3 + 24);
+      *(_DWORD *)(v3 + 24) = v6 + 1;
       if ( v6 == -1 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        sub_140418E4C(CurrentPrcb);
     }
   }
   if ( !_interlockedbittestandset64((volatile signed __int32 *)SpinLock, 0LL) )
     return 1;
-  v5 = CurrentPrcb->SchedulerAssist;
-  if ( v5 && CurrentPrcb->NestingLevel <= 1u )
+  v5 = *((_QWORD *)CurrentPrcb + 4375);
+  if ( v5 && *((_BYTE *)CurrentPrcb + 32) <= 1u )
   {
-    v7 = v5[6] - 1;
-    v5[6] = v7;
+    v7 = *(_DWORD *)(v5 + 24) - 1;
+    *(_DWORD *)(v5 + 24) = v7;
     if ( !v7 )
-      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      sub_140418E4C(CurrentPrcb);
   }
   _mm_pause();
   return 0;

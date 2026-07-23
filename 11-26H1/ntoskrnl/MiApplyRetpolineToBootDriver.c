@@ -1,39 +1,39 @@
 /*
- * XREFs of MiApplyRetpolineToBootDriver @ 0x140CFA8C8
+ * XREFs of MiApplyRetpolineToBootDriver @ 0x140D00C48
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x140D00CF0 (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x140D07090 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
- *     RtlIsImageFullyRetpolined @ 0x1404FFD68 (RtlIsImageFullyRetpolined.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14050B024 (RtlPerformRetpolineRelocationsOnImageEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiMarkRetpolineBits @ 0x140B1F348 (MiMarkRetpolineBits.c)
- *     MiLogRetpolineImageLoadEvents @ 0x140B1F474 (MiLogRetpolineImageLoadEvents.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
+ *     RtlIsImageFullyRetpolined @ 0x1404F9558 (RtlIsImageFullyRetpolined.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x140504A94 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiMarkRetpolineBits @ 0x140B213C8 (MiMarkRetpolineBits.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x140B214F4 (MiLogRetpolineImageLoadEvents.c)
  */
 
 __int64 __fastcall MiApplyRetpolineToBootDriver(ULONG_PTR BugCheckParameter2)
 {
-  unsigned __int64 v1; // rdi
+  PVOID v1; // rdi
   int v3; // eax
-  unsigned int v5; // [rsp+28h] [rbp-C0h]
-  __int64 v6; // [rsp+50h] [rbp-98h] BYREF
+  int v5; // [rsp+28h] [rbp-C0h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp-98h] BYREF
   _BYTE v7[8]; // [rsp+60h] [rbp-88h] BYREF
-  unsigned __int64 v8; // [rsp+68h] [rbp-80h]
+  PVOID v8; // [rsp+68h] [rbp-80h]
   char v9; // [rsp+70h] [rbp-78h]
 
-  v1 = *(_QWORD *)(BugCheckParameter2 + 48);
-  v6 = 0LL;
-  RtlImageNtHeaderEx(1, v1, 0LL, &v6);
+  v1 = *(PVOID *)(BugCheckParameter2 + 48);
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, v1, 0LL, &OutHeaders);
   if ( !_bittest16((const signed __int16 *)(BugCheckParameter2 + 110), 9u) )
     MiLogRetpolineImageLoadEvents(BugCheckParameter2);
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0
     && v1 != PsNtosImageBase
     && v1 != PsHalImageBase
-    && (*(_BYTE *)(v6 + 22) & 1) == 0
-    && *(_DWORD *)(v6 + 132) > 5u
+    && (OutHeaders->FileHeader.Characteristics & 1) == 0
+    && OutHeaders->OptionalHeader.NumberOfRvaAndSizes > 5
     && !_bittest16((const signed __int16 *)(BugCheckParameter2 + 110), 9u) )
   {
     if ( (MiFlags & 0x20000) != 0 )
@@ -46,14 +46,14 @@ __int64 __fastcall MiApplyRetpolineToBootDriver(ULONG_PTR BugCheckParameter2)
     else
     {
       v3 = RtlPerformRetpolineRelocationsOnImageEx(
-             v1,
-             v1,
+             (char *)v1,
+             (__int64)v1,
              *(_DWORD *)(BugCheckParameter2 + 64),
-             *(_DWORD *)(BugCheckParameter2 + 48)
-           + *(_DWORD *)(BugCheckParameter2 + 64)
-           + LODWORD(stru_140E36558.QuantumTarget)
-           + HIDWORD(stru_140E36558.SListFaultAddress),
-             *(_QWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4LL,
+             *(_QWORD *)(BugCheckParameter2 + 48)
+           + *(unsigned int *)(BugCheckParameter2 + 64)
+           + (unsigned __int64)(unsigned int)(LODWORD(stru_140E366D8.QuantumTarget)
+                                            + HIDWORD(stru_140E366D8.SListFaultAddress)),
+             *(_QWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4LL,
              v5,
              0LL,
              0LL,

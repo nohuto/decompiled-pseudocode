@@ -1,19 +1,19 @@
 /*
- * XREFs of KeFlushCurrentTbOnly @ 0x1403B0C90
+ * XREFs of KeFlushCurrentTbOnly @ 0x14039F4A0
  * Callers:
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiIssueFlushTbEntire @ 0x1403AFDC8 (MiIssueFlushTbEntire.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiIssueFlushTbEntire @ 0x14039E5D8 (MiIssueFlushTbEntire.c)
  * Callees:
- *     HvlpFastFlushAddressSpaceTb @ 0x1403B0AC4 (HvlpFastFlushAddressSpaceTb.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1403B1518 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403C9984 (HvlpFastFlushAddressSpaceTbEx.c)
- *     KiPrepareFlushCurrentAffinity @ 0x1404021A4 (KiPrepareFlushCurrentAffinity.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x14043B838 (HvlpSlowFlushAddressSpaceTb.c)
- *     KiFlushCurrentTbOnly @ 0x1404413C0 (KiFlushCurrentTbOnly.c)
- *     KiIsFlushEntire @ 0x14048B740 (KiIsFlushEntire.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1406A0FD0 (HvlpSlowFlushAddressSpaceTbEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x14039F2D4 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x14039FD28 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1403A4524 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x1403FC724 (KiPrepareFlushCurrentAffinity.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x14042D8D0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiFlushCurrentTbOnly @ 0x140437D00 (KiFlushCurrentTbOnly.c)
+ *     KiIsFlushEntire @ 0x140486514 (KiIsFlushEntire.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1406A2028 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KeFlushCurrentTbOnly(unsigned int a1)

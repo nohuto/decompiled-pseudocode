@@ -19,173 +19,165 @@
 
 __int64 __fastcall sub_18006CFF8(int a1, __int64 *a2, __int64 a3)
 {
-  __int64 v6; // r12
-  __int64 v7; // rdi
-  int v8; // r8d
-  int v9; // r9d
-  int v10; // eax
-  int v11; // eax
-  int v12; // ebx
-  __int64 v14; // rax
-  int v15; // eax
-  char v16[8]; // [rsp+30h] [rbp-39h] BYREF
-  __int64 v17; // [rsp+38h] [rbp-31h] BYREF
-  __int64 v18; // [rsp+40h] [rbp-29h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-21h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-19h] BYREF
-  int v21; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v22; // [rsp+68h] [rbp-1h]
-  UNICODE_STRING *p_DestinationString; // [rsp+70h] [rbp+7h]
-  int v24; // [rsp+78h] [rbp+Fh]
-  __int128 v25; // [rsp+80h] [rbp+17h]
-  char v26; // [rsp+D8h] [rbp+6Fh] BYREF
-  char v27; // [rsp+E8h] [rbp+7Fh] BYREF
+  void *v5; // r12
+  HANDLE v6; // rdi
+  int v7; // eax
+  NTSTATUS v8; // eax
+  int v9; // ebx
+  __int64 v11; // rax
+  NTSTATUS v12; // eax
+  void *v13; // rcx
+  HANDLE KeyHandle; // [rsp+38h] [rbp-31h] BYREF
+  HANDLE CurrentUserKey; // [rsp+40h] [rbp-29h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-21h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-19h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-9h] BYREF
 
-  v17 = 0LL;
-  v19 = 0LL;
-  v18 = 0LL;
+  KeyHandle = 0LL;
+  Handle = 0LL;
+  CurrentUserKey = 0LL;
+  v5 = 0LL;
   v6 = 0LL;
-  v7 = 0LL;
   if ( a2 && a3 )
   {
-    v6 = *a2;
+    v5 = (void *)*a2;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-    v17 = 0LL;
-    p_DestinationString = &DestinationString;
-    v21 = 48;
-    v22 = 0LL;
-    v24 = 64;
-    v25 = 0LL;
-    if ( (int)ZwOpenKey(&v17, 131097LL, &v21) >= 0 )
+    KeyHandle = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
-      v12 = sub_1800FA3D4(v17, a3, &v27, v16);
-      if ( v12 >= 0 )
+      v9 = sub_1800FA3D4(KeyHandle);
+      if ( v9 >= 0 )
         goto LABEL_11;
       if ( a1 == 8 )
-      {
-        v26 = 0;
-        if ( !(unsigned int)sub_1800FA340(v17, &v26) && v26 == 1 )
-          a1 = 4;
-      }
-      ZwClose(v17);
-      v17 = 0LL;
+        sub_1800FA340(KeyHandle);
+      ZwClose(KeyHandle);
+      KeyHandle = 0LL;
     }
-    v10 = sub_18006E330(0x2000000, 0, v8, v9, (__int64)&v18);
-    v7 = v18;
-    if ( v10 < 0 )
-      v7 = 0LL;
-    v18 = v7;
+    v7 = sub_18006E330(0x2000000u, &CurrentUserKey);
+    v6 = CurrentUserKey;
+    if ( v7 < 0 )
+      v6 = 0LL;
+    CurrentUserKey = v6;
     if ( a1 != 8 )
     {
       if ( a1 != 4 )
         goto LABEL_10;
-      if ( v7 )
+      if ( v6 )
       {
         RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration");
-        v17 = 0LL;
-        p_DestinationString = &DestinationString;
-        v21 = 48;
-        v22 = v7;
-        v24 = 64;
-        v25 = 0LL;
-        v15 = ZwOpenKey(&v17, 131097LL, &v21);
+        KeyHandle = 0LL;
+        ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.RootDirectory = v6;
+        ObjectAttributes.Attributes = 64;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v12 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
       }
       else
       {
-        v15 = -1073741772;
+        v12 = -1073741772;
       }
-      if ( v15 >= 0 )
+      if ( v12 >= 0 )
         goto LABEL_10;
       RtlInitUnicodeString(
         &DestinationString,
         L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings\\LanguageConfiguration");
-      v17 = 0LL;
-      p_DestinationString = &DestinationString;
-      v21 = 48;
-      v22 = 0LL;
-      v24 = 64;
-      v25 = 0LL;
-      v11 = ZwOpenKey(&v17, 131097LL, &v21);
-      v12 = v11;
-      if ( v11 >= 0 )
+      KeyHandle = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v8 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+      v9 = v8;
+      if ( v8 >= 0 )
       {
 LABEL_10:
-        v12 = sub_18006E4FC(v17, a2, a3);
+        v9 = sub_18006E4FC(KeyHandle);
 LABEL_11:
-        v7 = v18;
+        v6 = CurrentUserKey;
         goto LABEL_12;
       }
 LABEL_21:
-      if ( v11 == -1073741772 )
-        v12 = 0;
+      if ( v8 == -1073741772 )
+        v9 = 0;
       goto LABEL_11;
     }
-    if ( v7 )
+    if ( v6 )
     {
       RtlInitUnicodeString(&DestinationString, L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
-      v19 = 0LL;
-      p_DestinationString = &DestinationString;
-      v22 = v7;
-      v21 = 48;
-      v24 = 64;
-      v25 = 0LL;
-      if ( (int)ZwOpenKey(&v19, 131097LL, &v21) >= 0 )
+      Handle = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.RootDirectory = v6;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes) >= 0 )
       {
-        v12 = sub_1800FA3D4(v19, a3, &v27, v16);
-        if ( v12 >= 0 )
+        v9 = sub_1800FA3D4(Handle);
+        if ( v9 >= 0 )
           goto LABEL_11;
       }
       RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\LanguageConfiguration");
-      v22 = v18;
-      v17 = 0LL;
-      p_DestinationString = &DestinationString;
-      v21 = 48;
-      v24 = 64;
-      v25 = 0LL;
-      v11 = ZwOpenKey(&v17, 131097LL, &v21);
-      v12 = v11;
-      if ( v11 >= 0 )
+      ObjectAttributes.RootDirectory = CurrentUserKey;
+      KeyHandle = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v8 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+      v9 = v8;
+      if ( v8 >= 0 )
         goto LABEL_10;
       goto LABEL_21;
     }
-    v12 = 0;
+    v9 = 0;
   }
   else
   {
-    v12 = -1073741811;
+    v9 = -1073741811;
   }
 LABEL_12:
-  if ( v17 )
+  if ( KeyHandle )
   {
-    ZwClose(v17);
-    v7 = v18;
+    ZwClose(KeyHandle);
+    v6 = CurrentUserKey;
   }
-  if ( v19 )
+  if ( Handle )
   {
-    ZwClose(v19);
-    v7 = v18;
+    ZwClose(Handle);
+    v6 = CurrentUserKey;
   }
-  if ( v7 )
-    sub_18006E310(v7);
-  if ( v12 < 0 )
+  if ( v6 )
+    sub_18006E310(v6);
+  if ( v9 < 0 )
   {
-    if ( a2 && *a2 != v6 )
+    if ( a2 )
     {
-      if ( *a2 )
-        sub_18006EBF4();
-      goto LABEL_46;
+      v13 = (void *)*a2;
+      if ( (void *)*a2 != v5 )
+      {
+        if ( v13 )
+          sub_18006EBF4(v13);
+        goto LABEL_44;
+      }
     }
   }
   else if ( !*a2 )
   {
-    v14 = sub_18006E60C(1LL);
-    *a2 = v14;
-    if ( !v14 )
+    v11 = sub_18006E60C(1LL);
+    *a2 = v11;
+    if ( !v11 )
     {
-      v12 = -1073741801;
-LABEL_46:
-      *a2 = v6;
+      v9 = -1073741801;
+LABEL_44:
+      *a2 = (__int64)v5;
     }
   }
-  return (unsigned int)v12;
+  return (unsigned int)v9;
 }

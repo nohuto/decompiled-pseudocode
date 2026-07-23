@@ -21,7 +21,7 @@
  *     _LdrpChangeMrdataProtection@4 @ 0x4B2E1D9E (_LdrpChangeMrdataProtection@4.c)
  */
 
-signed __int32 __stdcall LdrProtectMrdata(int a1)
+void __stdcall LdrProtectMrdata(int a1)
 {
   int v1; // esi
 
@@ -34,7 +34,7 @@ signed __int32 __stdcall LdrProtectMrdata(int a1)
     if ( v1 != -1 )
     {
       LdrpMrdataUnprotected = v1 + 1;
-      return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+      goto LABEL_6;
     }
 LABEL_10:
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
@@ -44,5 +44,6 @@ LABEL_10:
     goto LABEL_10;
   if ( !--LdrpMrdataUnprotected )
     LdrpChangeMrdataProtection(2);
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+LABEL_6:
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

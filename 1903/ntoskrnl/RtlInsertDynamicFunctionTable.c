@@ -39,12 +39,12 @@ __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
   struct _KTHREAD *v19; // rbx
   unsigned int SessionId; // r10d
   unsigned __int8 v21; // si
-  __int64 v22; // rdi
+  _KLOCK_ENTRY *v22; // rdi
   unsigned int v23; // r8d
   __int64 v24; // rcx
   __int64 v25; // rcx
   _KLOCK_ENTRY *v26; // rdx
-  int v27; // ecx
+  _KLOCK_ENTRY_BOOST_BITMAP v27; // ecx
   __int64 v28; // rdx
   __int64 v29; // rcx
   __int64 v30; // rsi
@@ -208,20 +208,20 @@ LABEL_22:
       if ( v15 )
         goto LABEL_32;
     }
-    v22 = (__int64)&v19->LockEntries[v25];
+    v22 = &v19->LockEntries[v25];
   }
 LABEL_32:
   if ( v22 )
   {
-    *(_BYTE *)(v22 + 32) |= 2u;
-    if ( *(__int64 *)(v22 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v22);
-    v27 = *(_DWORD *)(v22 + 88);
-    v37 = v27 & 0x1FFFF;
-    *(_DWORD *)(v22 + 88) = v27 & 0xFFFE0000;
-    *(_BYTE *)(v22 + 25) &= ~1u;
-    *(_QWORD *)(v22 + 32) = 0LL;
-    v28 = (v22 - (__int64)v19 - 800) / 96;
+    v22->CrossThreadReleasableAndBusyByte |= 2u;
+    if ( (__int64)v22->LockState.LockState < 0 )
+      KiAbEntryRemoveFromTree(&v22->TreeNode);
+    v27.AllFields = (unsigned int)v22->BoostBitmap;
+    v37 = v27.AllFields & 0x1FFFF;
+    v22->BoostBitmap.AllFields = v27.AllFields & 0xFFFE0000;
+    v22->ThreadLocalFlags &= ~1u;
+    v22->LockState.0 = 0LL;
+    v28 = ((char *)v22 - (char *)v19 - 800) / 96;
     if ( v21 == 1 )
       v19->AbEntrySummary |= 1 << v28;
     else

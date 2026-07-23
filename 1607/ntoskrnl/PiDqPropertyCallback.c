@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqPropertyCallback @ 0x1405023CC
+ * XREFs of PiDqPropertyCallback @ 0x1404E535C
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     PiDqPnPGetObjectProperty @ 0x140501BE4 (PiDqPnPGetObjectProperty.c)
- *     PiDqGetPnpObjectType @ 0x1405025EC (PiDqGetPnpObjectType.c)
- *     PiDqOpenObjectRegKey @ 0x140631CFC (PiDqOpenObjectRegKey.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     PiDqPnPGetObjectProperty @ 0x1404E4B74 (PiDqPnPGetObjectProperty.c)
+ *     PiDqGetPnpObjectType @ 0x1404E557C (PiDqGetPnpObjectType.c)
+ *     PiDqOpenObjectRegKey @ 0x140631DB0 (PiDqOpenObjectRegKey.c)
  */
 
 __int64 __fastcall PiDqPropertyCallback(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)

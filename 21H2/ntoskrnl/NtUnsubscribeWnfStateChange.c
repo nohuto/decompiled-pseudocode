@@ -1,44 +1,46 @@
 /*
- * XREFs of NtUnsubscribeWnfStateChange @ 0x1406115E0
+ * XREFs of NtUnsubscribeWnfStateChange @ 0x1406A1090
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExpCaptureWnfStateName @ 0x14060F344 (ExpCaptureWnfStateName.c)
- *     ExpWnfAcquireSubscriptionByName @ 0x14061169C (ExpWnfAcquireSubscriptionByName.c)
- *     ExpWnfDeleteSubscription @ 0x140613128 (ExpWnfDeleteSubscription.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExpCaptureWnfStateName @ 0x14069EDF4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x1406A114C (ExpWnfAcquireSubscriptionByName.c)
+ *     ExpWnfDeleteSubscription @ 0x1406A2BD8 (ExpWnfDeleteSubscription.c)
  */
 
-__int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v2; // rdx
-  int v4; // [rsp+24h] [rbp-14h]
-  unsigned __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  NTSTATUS v6; // [rsp+24h] [rbp-14h]
+  unsigned __int64 v7; // [rsp+48h] [rbp+10h] BYREF
   PVOID P; // [rsp+50h] [rbp+18h] BYREF
 
   P = 0LL;
-  v5 = 0LL;
+  v7 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v4 = ExpCaptureWnfStateName(a1, &v5, KeGetCurrentThread()->PreviousMode);
-  if ( v4 >= 0 )
+  v6 = ExpCaptureWnfStateName((__int64 *)StateName, &v7, KeGetCurrentThread()->PreviousMode);
+  if ( v6 >= 0 )
   {
     v2 = KeGetCurrentThread()->ApcState.Process[1].EndPadding[7];
     if ( v2 )
     {
-      v4 = ExpWnfAcquireSubscriptionByName(v5, v2, &P);
-      if ( v4 >= 0 )
+      v6 = ExpWnfAcquireSubscriptionByName(v7, v2, &P);
+      if ( v6 >= 0 )
       {
         ExpWnfDeleteSubscription(P);
-        v4 = 0;
+        v6 = 0;
       }
     }
     else
     {
-      v4 = -1073741772;
+      v6 = -1073741772;
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v4;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v3, v4);
+  return v6;
 }

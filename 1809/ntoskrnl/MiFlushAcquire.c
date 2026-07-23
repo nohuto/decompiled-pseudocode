@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushAcquire @ 0x14012C164
+ * XREFs of MiFlushAcquire @ 0x14012C234
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1406B7EBC (MmFlushVirtualMemory.c)
  * Callees:
- *     MiReferenceSubsection @ 0x1400770E4 (MiReferenceSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferenceSubsection @ 0x1400770D4 (MiReferenceSubsection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushAcquire(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

@@ -1,16 +1,16 @@
 /*
  * XREFs of IoConnectInterruptEx @ 0x140816FD0
  * Callers:
- *     HalpInterruptConnect @ 0x140507ED8 (HalpInterruptConnect.c)
- *     DifIoConnectInterruptExWrapper @ 0x14060D690 (DifIoConnectInterruptExWrapper.c)
+ *     sub_140507ED8 @ 0x140507ED8 (sub_140507ED8.c)
+ *     sub_14060D690 @ 0x14060D690 (sub_14060D690.c)
  * Callees:
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memset @ 0x140435E00 (memset.c)
- *     IopConnectLineBasedInterrupt @ 0x140816798 (IopConnectLineBasedInterrupt.c)
- *     IopConnectMessageBasedInterrupt @ 0x140816C88 (IopConnectMessageBasedInterrupt.c)
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x140817A24 (IopGetInterruptConnectionData.c)
- *     IopConnectInterruptFullySpecified @ 0x1408590B0 (IopConnectInterruptFullySpecified.c)
+ *     sub_140816798 @ 0x140816798 (sub_140816798.c)
+ *     sub_140816C88 @ 0x140816C88 (sub_140816C88.c)
+ *     sub_140817258 @ 0x140817258 (sub_140817258.c)
+ *     sub_140817A24 @ 0x140817A24 (sub_140817A24.c)
+ *     sub_1408590B0 @ 0x1408590B0 (sub_1408590B0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -53,7 +53,7 @@ NTSTATUS __stdcall IoConnectInterruptEx(PIO_CONNECT_INTERRUPT_PARAMETERS Paramet
     case 1u:
       goto LABEL_49;
     case 2u:
-      return IopConnectLineBasedInterrupt(
+      return sub_140816798(
                Parameters->FullySpecified.PhysicalDeviceObject,
                Parameters->FullySpecified.InterruptObject,
                (__int64)Parameters->FullySpecified.ServiceRoutine);
@@ -83,7 +83,7 @@ LABEL_49:
         Group = Parameters->FullySpecified.Group;
       else
         Group = 0;
-      if ( (int)IopGetInterruptConnectionData(Parameters->FullySpecified.PhysicalDeviceObject) >= 0 )
+      if ( (int)sub_140817A24(Parameters->FullySpecified.PhysicalDeviceObject) >= 0 )
       {
         memset(v28, 0, sizeof(v28));
         v9 = 0;
@@ -120,7 +120,7 @@ LABEL_49:
           *(_OWORD *)&v28[17] = v14;
           if ( !_mm_cvtsi128_si32(v12) && (v28[16] & 1) != 0 )
             Parameters->FullySpecified.ShareVector = 1;
-          v4 = IopConnectInterrupt(
+          v4 = sub_140817258(
                  &v29,
                  Parameters->FullySpecified.PhysicalDeviceObject,
                  Parameters->FullySpecified.ServiceRoutine,
@@ -153,7 +153,7 @@ LABEL_42:
       Vector = Parameters->FullySpecified.Vector;
       SpinLock = Parameters->FullySpecified.SpinLock;
       WORD4(ProcessorEnableMask) = Group;
-      return IopConnectInterruptFullySpecified(
+      return sub_1408590B0(
                (_DWORD)InterruptObject,
                (_DWORD)PhysicalDeviceObject,
                (_DWORD)ServiceRoutine,
@@ -172,7 +172,7 @@ LABEL_42:
     return -1073741637;
   }
 LABEL_5:
-  result = IopConnectMessageBasedInterrupt(
+  result = sub_140816C88(
              Version,
              Parameters->FullySpecified.PhysicalDeviceObject,
              Parameters->FullySpecified.InterruptObject,
@@ -184,7 +184,7 @@ LABEL_5:
     return result;
   if ( !Parameters->MessageBased.FallBackServiceRoutine )
     return -1073741637;
-  v4 = IopConnectLineBasedInterrupt(
+  v4 = sub_140816798(
          Parameters->FullySpecified.PhysicalDeviceObject,
          Parameters->FullySpecified.InterruptObject,
          (__int64)Parameters->MessageBased.FallBackServiceRoutine);

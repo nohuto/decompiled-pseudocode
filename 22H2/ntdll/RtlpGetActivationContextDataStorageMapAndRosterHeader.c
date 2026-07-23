@@ -32,13 +32,13 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   __int64 v14; // rax
   volatile signed __int64 v15; // r8
   __int64 v17; // rax
-  __int64 Heap; // rax
-  __int64 v19; // rdi
+  char *Heap; // rax
+  void *v19; // rdi
   __int64 v20; // rax
   unsigned __int16 v21; // r12
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // rbx
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   volatile signed __int64 *v25; // [rsp+50h] [rbp-B0h]
   _QWORD *v26; // [rsp+58h] [rbp-A8h]
   void *Src[2]; // [rsp+60h] [rbp-A0h]
@@ -59,7 +59,7 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   if ( (_UNKNOWN *)a3 == &unk_18011D498 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed the empty activation context\n",
       "RtlpGetActivationContextDataStorageMapAndRosterHeader");
@@ -74,7 +74,7 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   if ( (a1 & 0xFFFFFFFC) != 0 || !a2 || !a4 || !a5 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters:\n"
       "SXS:    Flags                : 0x%lx\n"
@@ -174,23 +174,23 @@ LABEL_17:
   }
   else
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v11 + 8) + 16);
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * *(unsigned int *)(v11 + 8) + 16);
     v19 = Heap;
     if ( Heap )
     {
       v7 = RtlpInitializeAssemblyStorageMap(Heap, *(unsigned int *)(v11 + 8), Heap + 16);
       if ( v7 >= 0 )
       {
-        if ( _InterlockedCompareExchange64(v13, v19, 0LL) )
+        if ( _InterlockedCompareExchange64(v13, (signed __int64)v19, 0LL) )
         {
           RtlpUninitializeAssemblyStorageMap(v19);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v19);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
         }
         Buffer = UnicodeString.Buffer;
         v7 = 0;
         goto LABEL_19;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v19);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
     }
     else
     {

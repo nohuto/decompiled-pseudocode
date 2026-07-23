@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpOsProductCacheProviderHelper @ 0x14054C53C
+ * XREFs of ExpOsProductCacheProviderHelper @ 0x14054CA7C
  * Callers:
- *     ExpGenuinePolicyPostProcess @ 0x1404EEC60 (ExpGenuinePolicyPostProcess.c)
- *     ExpOsProductContentIdCacheProvider @ 0x1406AF50C (ExpOsProductContentIdCacheProvider.c)
- *     ExpOsProductPfnCacheProvider @ 0x1406AF53C (ExpOsProductPfnCacheProvider.c)
+ *     ExpGenuinePolicyPostProcess @ 0x1404D0D28 (ExpGenuinePolicyPostProcess.c)
+ *     ExpOsProductContentIdCacheProvider @ 0x1406AF644 (ExpOsProductContentIdCacheProvider.c)
+ *     ExpOsProductPfnCacheProvider @ 0x1406AF674 (ExpOsProductPfnCacheProvider.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -28,7 +28,7 @@ __int64 __fastcall ExpOsProductCacheProviderHelper(
 
   KeyHandle = 0LL;
   *ResultLength = 1;
-  ValueKey = ZwOpenKey(&KeyHandle, 0x20019u, (POBJECT_ATTRIBUTES)&stru_1406EA7E0);
+  ValueKey = ZwOpenKey(&KeyHandle, 0x20019u, (POBJECT_ATTRIBUTES)&stru_1406EA910);
   if ( ValueKey >= 0 )
   {
     ValueKey = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, 0LL, 0, (PULONG)&ResultLength);

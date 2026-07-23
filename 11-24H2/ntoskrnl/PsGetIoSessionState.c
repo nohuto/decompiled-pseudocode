@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetIoSessionState @ 0x1406FBD1C
+ * XREFs of PsGetIoSessionState @ 0x1406F995C
  * Callers:
- *     IoGetContainerInformation @ 0x1407152B0 (IoGetContainerInformation.c)
+ *     IoGetContainerInformation @ 0x140712E40 (IoGetContainerInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCompressionDpc @ 0x1405306E0
+ * XREFs of EtwpCompressionDpc @ 0x140532BE0
  * Callers:
- *     EtwpPrepareDirtyBuffer @ 0x140219094 (EtwpPrepareDirtyBuffer.c)
- *     EtwpSwitchBuffer @ 0x140219160 (EtwpSwitchBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1402191F4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpSwitchBuffer @ 0x1402192C0 (EtwpSwitchBuffer.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218100 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218430 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall EtwpCompressionDpc(__int64 a1, unsigned int *a2)

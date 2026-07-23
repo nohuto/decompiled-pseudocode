@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpAppCompatRedirect @ 0x18000E064
+ * XREFs of LdrpAppCompatRedirect @ 0x18000E054
  * Callers:
- *     LdrpMapDllFullPath @ 0x18000E3A0 (LdrpMapDllFullPath.c)
- *     LdrpMapDllSearchPath @ 0x18000E5C8 (LdrpMapDllSearchPath.c)
+ *     LdrpMapDllFullPath @ 0x18000E390 (LdrpMapDllFullPath.c)
+ *     LdrpMapDllSearchPath @ 0x18000E5B8 (LdrpMapDllSearchPath.c)
  * Callees:
- *     LdrpFreeUnicodeString @ 0x18000E8FC (LdrpFreeUnicodeString.c)
- *     LdrpResolveDllName @ 0x18000FA94 (LdrpResolveDllName.c)
+ *     LdrpFreeUnicodeString @ 0x18000E8EC (LdrpFreeUnicodeString.c)
+ *     LdrpResolveDllName @ 0x18000FA84 (LdrpResolveDllName.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LdrpAppCompatRedirect(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, int a6)
+__int64 __fastcall LdrpAppCompatRedirect(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   unsigned int v6; // ebx
   __int64 v12; // r8
@@ -36,7 +36,7 @@ __int64 __fastcall LdrpAppCompatRedirect(__int64 a1, __int64 a2, int a3, __int64
       v14 = *(_WORD **)(a4 + 8);
       *(_WORD *)a4 = 0;
       *v14 = 0;
-      return (unsigned int)LdrpResolveDllName((unsigned int)v16, a4, a3, a2, a5, *(_DWORD *)(a1 + 24));
+      return (unsigned int)LdrpResolveDllName(v16, a4, a3, a2, a5, *(_DWORD *)(a1 + 24));
     }
   }
   return v6;

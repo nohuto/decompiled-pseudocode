@@ -13,22 +13,22 @@
 signed __int64 __fastcall PopEtGetProcessSidAndPackageIdentity(struct _KPROCESS *a1, __int64 a2, __int64 a3)
 {
   PACCESS_TOKEN v6; // rsi
-  unsigned __int64 v8; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v9; // [rsp+68h] [rbp+10h] BYREF
+  ULONG_PTR PackageSize; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+68h] [rbp+10h] BYREF
 
   *(_DWORD *)a3 = 0;
   *(_QWORD *)a2 = 0LL;
   *(_DWORD *)(a2 + 8) = 0;
   v6 = PsReferencePrimaryToken(a1);
-  PsQueryProcessAttributesByToken(v6, &v8, &v9);
-  if ( (_BYTE)v8 )
+  PsQueryProcessAttributesByToken(v6, &PackageSize, &AppIdSize);
+  if ( (_BYTE)PackageSize )
   {
-    v8 = 256LL;
-    v9 = 132LL;
-    if ( (int)RtlQueryPackageIdentity((__int64)v6, a3 + 4, (__int64)&v8, a3 + 260, (__int64)&v9, 0LL) >= 0 )
+    PackageSize = 256LL;
+    AppIdSize = 132LL;
+    if ( RtlQueryPackageIdentity(v6, (PWSTR)(a3 + 4), &PackageSize, (PWSTR)(a3 + 260), &AppIdSize, 0LL) >= 0 )
     {
-      *(_WORD *)a3 = (v8 >> 1) - 1;
-      *(_WORD *)(a3 + 2) = (v9 >> 1) - 1;
+      *(_WORD *)a3 = (PackageSize >> 1) - 1;
+      *(_WORD *)(a3 + 2) = (AppIdSize >> 1) - 1;
     }
   }
   if ( (int)SeQueryUserSidToken(v6, a2, 68LL) < 0 )

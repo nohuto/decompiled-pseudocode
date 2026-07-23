@@ -37,11 +37,11 @@ __int64 __fastcall sub_1800CD8F0(
     a1[13] = v11;
     if ( a7 )
       *a7 = v11;
-    if ( RtlEqualUnicodeString((unsigned __int16 *)a2, (__int64)&unk_1801192A0, 1) )
+    if ( RtlEqualUnicodeString((PUNICODE_STRING)a2, (PUNICODE_STRING)&stru_1801192A0, 1u) )
     {
       a1[15] = v11;
     }
-    else if ( RtlEqualUnicodeString((unsigned __int16 *)a2, (__int64)L"(*", 1) )
+    else if ( RtlEqualUnicodeString((PUNICODE_STRING)a2, (PUNICODE_STRING)&stru_180119290, 1u) )
     {
       a1[16] = v11;
     }

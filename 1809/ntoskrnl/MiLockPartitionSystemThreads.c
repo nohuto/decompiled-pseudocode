@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLockPartitionSystemThreads @ 0x140193E00
+ * XREFs of MiLockPartitionSystemThreads @ 0x140193F40
  * Callers:
- *     MiEnablePartitionMappedWrites @ 0x14061BE6C (MiEnablePartitionMappedWrites.c)
+ *     MiEnablePartitionMappedWrites @ 0x14061CE6C (MiEnablePartitionMappedWrites.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

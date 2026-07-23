@@ -1,11 +1,11 @@
 /*
- * XREFs of LookUpTableFlushPartial @ 0x1400AF06C
+ * XREFs of LookUpTableFlushPartial @ 0x1400AD5D4
  * Callers:
- *     FlushWorkItemRoutineKernelMode @ 0x1400AF00C (FlushWorkItemRoutineKernelMode.c)
- *     RegisteredProviderEtwCallback @ 0x1401490F8 (RegisteredProviderEtwCallback.c)
+ *     FlushWorkItemRoutineKernelMode @ 0x1400AD574 (FlushWorkItemRoutineKernelMode.c)
+ *     RegisteredProviderEtwCallback @ 0x140149668 (RegisteredProviderEtwCallback.c)
  * Callees:
- *     FlushLookUpTableBucket @ 0x1400AF0E0 (FlushLookUpTableBucket.c)
- *     UpdateInternalStatsOnFlush @ 0x1400AF2DC (UpdateInternalStatsOnFlush.c)
+ *     FlushLookUpTableBucket @ 0x1400AD648 (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x1400AD844 (UpdateInternalStatsOnFlush.c)
  */
 
 void __fastcall LookUpTableFlushPartial(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddMappedPtesPadding @ 0x1404D0B44
+ * XREFs of MiAddMappedPtesPadding @ 0x1404C9B84
  * Callers:
- *     MiAddMappedPtes @ 0x140243C60 (MiAddMappedPtes.c)
+ *     MiAddMappedPtes @ 0x140391F90 (MiAddMappedPtes.c)
  * Callees:
- *     MiMakePrototypePteDirect @ 0x1402331F0 (MiMakePrototypePteDirect.c)
- *     MiUnlockWorkingSetOptimal @ 0x14024231C (MiUnlockWorkingSetOptimal.c)
- *     MiLockWorkingSetOptimal @ 0x1402424F0 (MiLockWorkingSetOptimal.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
+ *     MiMakePrototypePteDirect @ 0x140203600 (MiMakePrototypePteDirect.c)
+ *     MiUnlockWorkingSetOptimal @ 0x14020A46C (MiUnlockWorkingSetOptimal.c)
+ *     MiLockWorkingSetOptimal @ 0x14020A640 (MiLockWorkingSetOptimal.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
  */
 
 __int64 __fastcall MiAddMappedPtesPadding(
@@ -25,10 +25,11 @@ __int64 __fastcall MiAddMappedPtesPadding(
   unsigned __int64 v12; // rbp
   __int64 v13; // rcx
   unsigned __int64 v14; // r12
-  unsigned __int64 v15; // rax
-  char v17; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v15; // r9
+  ULONG_PTR v16; // rax
+  char v18; // [rsp+60h] [rbp+18h] BYREF
 
-  v17 = a3;
+  v18 = a3;
   v7 = a4;
   v8 = a3;
   v10 = ((a4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -47,17 +48,17 @@ __int64 __fastcall MiAddMappedPtesPadding(
     {
       if ( v11 )
       {
-        MiIncreaseUsedPtes(v13, v10, v11, 2);
+        MiIncreaseUsedPtes(v13, v10, v11, 2LL);
         v11 = 0;
       }
       MiUnlockWorkingSetOptimal(a2, v10, v8);
-      v15 = MiLockWorkingSetOptimal(a2, v7, (unsigned __int8 *)&v17);
-      v8 = v17;
-      v10 = v15;
+      v16 = MiLockWorkingSetOptimal(a2, v7, (unsigned __int8 *)&v18, v15);
+      v8 = v18;
+      v10 = v16;
     }
     v12 += 8LL;
   }
   if ( v11 )
-    MiIncreaseUsedPtes(v13, v10, v11, 2);
+    MiIncreaseUsedPtes(v13, v10, v11, 2LL);
   return MiUnlockWorkingSetOptimal(a2, v10, v8);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAddBugcheckTriageDeviceNode @ 0x14050B210
+ * XREFs of IopAddBugcheckTriageDeviceNode @ 0x14050B450
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x14050347C (IopAddBugcheckTriageDataFromParameters.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050AE08 (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckTriageCompletionQueue @ 0x14050B04C (IopAddBugcheckTriageCompletionQueue.c)
- *     IopAddBugcheckTriageIrp @ 0x14050B300 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x1405033FC (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050B048 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckTriageCompletionQueue @ 0x14050B28C (IopAddBugcheckTriageCompletionQueue.c)
+ *     IopAddBugcheckTriageIrp @ 0x14050B540 (IopAddBugcheckTriageIrp.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     IopAddBugcheckTriageDevice @ 0x14050B108 (IopAddBugcheckTriageDevice.c)
- *     IopAddBugcheckTriageIrp @ 0x14050B300 (IopAddBugcheckTriageIrp.c)
- *     IopAddBugcheckTriageUnicodeString @ 0x14050B55C (IopAddBugcheckTriageUnicodeString.c)
+ *     KiIsAddressRangeValid @ 0x1403CA40C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     IopAddBugcheckTriageDevice @ 0x14050B348 (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageIrp @ 0x14050B540 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriageUnicodeString @ 0x14050B79C (IopAddBugcheckTriageUnicodeString.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageDeviceNode(__int64 MaxDataSize)

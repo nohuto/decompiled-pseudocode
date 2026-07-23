@@ -6,7 +6,7 @@
  *     <none>
  */
 
-unsigned __int16 __fastcall RtlDowncaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlDowncaseUnicodeChar(WCHAR SourceCharacter)
 {
-  return NLS_DOWNCASE(qword_1801CF040, a1);
+  return NLS_DOWNCASE(qword_1801CF040, SourceCharacter);
 }

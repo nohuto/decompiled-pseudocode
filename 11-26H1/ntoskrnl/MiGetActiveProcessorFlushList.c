@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetActiveProcessorFlushList @ 0x14047A080
+ * XREFs of MiGetActiveProcessorFlushList @ 0x1404739F0
  * Callers:
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR MiGetActiveProcessorFlushList()

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionPowerRequestAcknowledged @ 0x140903EEC
+ * XREFs of TtmiLogSessionPowerRequestAcknowledged @ 0x14090404C
  * Callers:
- *     TtmNotifySessionPowerRequestPresent @ 0x1408FED50 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1408FEEB0 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerRequestAcknowledged(
@@ -78,7 +78,7 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
       v33 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)&byte_14002AF5F,
+        (unsigned __int8 *)word_14002B33A,
         0LL,
         0LL,
         0xAu,

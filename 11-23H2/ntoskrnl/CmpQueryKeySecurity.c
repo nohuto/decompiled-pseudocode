@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryKeySecurity @ 0x1406D5BA0
+ * XREFs of CmpQueryKeySecurity @ 0x1406D5BD0
  * Callers:
- *     CmpSecurityMethod @ 0x1406D58D0 (CmpSecurityMethod.c)
+ *     CmpSecurityMethod @ 0x1406D5900 (CmpSecurityMethod.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpUnlockKcbStack @ 0x1406D5368 (CmpUnlockKcbStack.c)
- *     CmpLockKcbStackShared @ 0x1406D5638 (CmpLockKcbStackShared.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5680 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1406D5D40 (SeQuerySecurityDescriptorInfo.c)
- *     CmpStartKcbStack @ 0x1406D7D20 (CmpStartKcbStack.c)
- *     CmpPopulateKcbStack @ 0x1406D7D60 (CmpPopulateKcbStack.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1407687FC (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpUnlockKcbStack @ 0x1406D5398 (CmpUnlockKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x1406D5668 (CmpLockKcbStackShared.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D56B0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1406D5D70 (SeQuerySecurityDescriptorInfo.c)
+ *     CmpStartKcbStack @ 0x1406D7D50 (CmpStartKcbStack.c)
+ *     CmpPopulateKcbStack @ 0x1406D7D90 (CmpPopulateKcbStack.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1407689EC (CmpTransSearchAddTransFromKeyBody.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
  *     CmpReleaseShutdownRundown @ 0x140AF5470 (CmpReleaseShutdownRundown.c)
@@ -20,7 +20,7 @@
 
 __int64 __fastcall CmpQueryKeySecurity(
         _QWORD *a1,
-        ULONG *a2,
+        DWORD *a2,
         void *a3,
         ULONG *a4,
         PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor)

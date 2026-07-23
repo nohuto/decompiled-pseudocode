@@ -1,49 +1,49 @@
 /*
- * XREFs of CmpSaveBootControlSet @ 0x14084CBB8
+ * XREFs of CmpSaveBootControlSet @ 0x140852EC8
  * Callers:
- *     CmpAcceptBoot @ 0x14084E81C (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x140854B2C (CmpAcceptBoot.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x14044EE20 (CmpInitializeDelayDerefContext.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwQuerySecurityObject @ 0x140726110 (ZwQuerySecurityObject.c)
- *     CmpInvalidateAllHigherLayerKcbs @ 0x14085ED00 (CmpInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x14085EEFC (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1408AF680 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x1408AF9AC (CmpPrepareForSubtreeInvalidation.c)
- *     CmpCleanupRollbackPacket @ 0x1408B1080 (CmpCleanupRollbackPacket.c)
- *     CmpTryAcquireKcbIXLocks @ 0x1408B10E4 (CmpTryAcquireKcbIXLocks.c)
- *     CmpRebuildKcbCache @ 0x1408BCBD8 (CmpRebuildKcbCache.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpCopySyncTree @ 0x14098709C (CmpCopySyncTree.c)
- *     CmpRetryBackOff @ 0x140B3C68C (CmpRetryBackOff.c)
- *     CmpInvalidateSubtree @ 0x140B474C4 (CmpInvalidateSubtree.c)
- *     CmpAbortRollbackPacket @ 0x140B4CB14 (CmpAbortRollbackPacket.c)
- *     CmObReferenceObjectByHandle @ 0x140C58340 (CmObReferenceObjectByHandle.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140446F50 (CmpInitializeDelayDerefContext.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwQuerySecurityObject @ 0x14072ACE0 (ZwQuerySecurityObject.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x140864FF0 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1408651EC (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1408B59EC (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x1408B5EAC (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpCleanupRollbackPacket @ 0x1408B7570 (CmpCleanupRollbackPacket.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x1408B75D4 (CmpTryAcquireKcbIXLocks.c)
+ *     CmpRebuildKcbCache @ 0x1408C31A8 (CmpRebuildKcbCache.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpCopySyncTree @ 0x140948D9C (CmpCopySyncTree.c)
+ *     CmpRetryBackOff @ 0x140B3E90C (CmpRetryBackOff.c)
+ *     CmpInvalidateSubtree @ 0x140B494F4 (CmpInvalidateSubtree.c)
+ *     CmpAbortRollbackPacket @ 0x140B4E8A4 (CmpAbortRollbackPacket.c)
+ *     CmObReferenceObjectByHandle @ 0x140C5E340 (CmObReferenceObjectByHandle.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
 __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
 {
-  unsigned int v1; // r15d
-  char v2; // r12
+  unsigned int v1; // r12d
+  char v2; // r13
   _QWORD *v3; // rdi
   char v4; // si
-  ULONG_PTR *v5; // r13
+  ULONG_PTR *v5; // r15
   struct _PRIVILEGE_SET *Pool; // r14
   __int64 v7; // rdx
   __int64 v8; // rcx
@@ -53,15 +53,15 @@ __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
   __int64 v12; // rdx
   __int64 v13; // r8
   ULONG_PTR *v14; // r14
-  ULONG_PTR v15; // r15
-  NTSTATUS v16; // r12d
-  bool v17; // r12
+  ULONG_PTR v15; // r12
+  int v16; // eax
+  int v17; // eax
   int v18; // eax
   __int64 v19; // rcx
   __int64 v20; // rcx
   __int64 v21; // rcx
   HANDLE v22; // rcx
-  unsigned __int8 *v23; // rdx
+  char *v23; // rdx
   int LengthNeeded; // [rsp+28h] [rbp-E0h]
   char v26; // [rsp+49h] [rbp-BFh]
   ULONG v27; // [rsp+4Ch] [rbp-BCh] BYREF
@@ -158,40 +158,51 @@ __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
             v5 = (ULONG_PTR *)v29;
             while ( 1 )
             {
+              v2 = 0;
               v9 = CmpPerformKeyBodyDeletionCheck(v3, 0LL);
-              if ( v9 < 0
-                || (v9 = CmpPerformKeyBodyDeletionCheck(v5, 0LL), v9 < 0)
-                || (v14 = v5 + 1,
-                    LOBYTE(v12) = 1,
-                    v15 = v5[1],
-                    v9 = CmpTryAcquireKcbIXLocks(v15, v12, v13, &v32[1], LengthNeeded),
-                    v16 = v9,
-                    (int)(v9 + 0x80000000) >= 0)
-                && v9 != -1073741267 )
+              v4 = 1;
+              if ( v9 < 0 )
+                break;
+              v9 = CmpPerformKeyBodyDeletionCheck(v5, 0LL);
+              if ( v9 < 0 )
+                break;
+              v14 = v5 + 1;
+              LOBYTE(v12) = 1;
+              v15 = v5[1];
+              v16 = CmpTryAcquireKcbIXLocks(v15, v12, v13, &v32[1], LengthNeeded);
+              v9 = v16;
+              if ( v16 == -1073741267 )
               {
-LABEL_27:
-                v2 = 0;
-                v4 = 1;
-                goto LABEL_31;
+                v2 = 1;
               }
-              v9 = CmpPrepareToInvalidateAllHigherLayerKcbs(v15, 0LL, &v32[1]);
-              if ( v9 == -1073741267 )
+              else if ( v16 < 0 )
               {
-                v17 = 1;
+                break;
+              }
+              v17 = CmpPrepareToInvalidateAllHigherLayerKcbs(v15, 0LL, &v32[1]);
+              v9 = v17;
+              if ( v17 == -1073741267 )
+              {
+                v2 = 1;
               }
               else
               {
-                v17 = v16 == -1073741267;
-                if ( v9 < 0 )
-                  goto LABEL_27;
+                v4 = 1;
+                if ( v17 < 0 )
+                  goto LABEL_31;
               }
               v18 = CmpPrepareForSubtreeInvalidation(v15, 0LL, &v32[1]);
               v9 = v18;
               if ( v18 != -1073741267 )
               {
+                v4 = 1;
                 if ( v18 < 0 )
-                  goto LABEL_27;
-                if ( !v17 )
+                {
+LABEL_31:
+                  v2 = 0;
+                  break;
+                }
+                if ( !v2 )
                 {
                   CmpInvalidateAllHigherLayerKcbs(v15, 8LL, 0LL, &v34);
                   CmpInvalidateSubtree(v15, 8, 0, (unsigned int)&v34, (__int64)&Disposition[1]);
@@ -205,22 +216,24 @@ LABEL_27:
                          2,
                          Disposition[0] != 1);
                   CmpRebuildKcbCache(*v14);
-                  v4 = 1;
-                  goto LABEL_31;
+                  break;
                 }
               }
               LengthNeeded = v32[1];
               CmpLogTransactionAbortedWithChildName(v15, 0LL, 12LL);
               CmpUnlockRegistry(v19);
+              v4 = 0;
               v9 = CmpAbortRollbackPacket(&v32[1], 0LL);
               if ( v9 < 0 )
+              {
+                v2 = 0;
                 break;
+              }
               CmpRetryBackOff(&v27);
               CmpCleanupRollbackPacket(&v32[1]);
               *(_OWORD *)&v32[1] = 0LL;
               CmpLockRegistryExclusive(v20);
             }
-            v2 = 0;
           }
         }
       }
@@ -230,7 +243,6 @@ LABEL_27:
   {
     v9 = -1073741431;
   }
-LABEL_31:
   CmpDrainDelayDerefContext((_QWORD **)&v34);
   if ( v4 )
     CmpUnlockRegistry(v21);
@@ -253,21 +265,21 @@ LABEL_31:
     if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
     {
       v27 = v9;
-      v23 = (unsigned __int8 *)&dword_140055ACC;
-      goto LABEL_52;
+      v23 = byte_140056B13;
+      goto LABEL_53;
     }
   }
   else if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
   {
-    v23 = (unsigned __int8 *)byte_140055B11;
+    v23 = &byte_140056ABF;
     v27 = Disposition[1];
-LABEL_52:
+LABEL_53:
     v29 = 0x1000000LL;
     v40 = 4LL;
     v39 = &v27;
     v42 = 8LL;
     v41 = &v29;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, v23, 0LL, 0LL, 4u, &v38);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)v23, 0LL, 0LL, 4u, &v38);
   }
   return (unsigned int)v9;
 }

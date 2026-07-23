@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCompleteConnectPort @ 0x180160370
+ * XREFs of NtCompleteConnectPort @ 0x180160270
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCompleteConnectPort()
+NTSTATUS __cdecl NtCompleteConnectPort(HANDLE PortHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 162LL;
+  result = 162;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

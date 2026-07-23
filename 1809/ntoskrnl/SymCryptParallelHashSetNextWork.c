@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptParallelHashSetNextWork @ 0x1401B2A7C
+ * XREFs of SymCryptParallelHashSetNextWork @ 0x1401B2BBC
  * Callers:
- *     SymCryptParallelHashProcess @ 0x1401B2618 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess @ 0x1401B2758 (SymCryptParallelHashProcess.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1401B7E90 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1401B7FF0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 char __fastcall SymCryptParallelHashSetNextWork(__int64 *a1, unsigned int **a2)

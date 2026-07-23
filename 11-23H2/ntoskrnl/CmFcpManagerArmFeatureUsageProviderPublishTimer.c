@@ -1,11 +1,11 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x140419CF0
+ * XREFs of CmFcpManagerArmFeatureUsageProviderPublishTimer @ 0x14041A080
  * Callers:
  *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x1406800EC (CmFcpManagerPublishFeatureUsageDataBuffers.c)
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ExSetTimer @ 0x14031DDF0 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x14031E080 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall CmFcpManagerArmFeatureUsageProviderPublishTimer(__int64 a1)

@@ -9,14 +9,14 @@
  *     TtmNotifyLowPowerStateExited @ 0x1408BD730 (TtmNotifyLowPowerStateExited.c)
  */
 
-__int64 PopNotifyCsStateExited()
+ULONG PopNotifyCsStateExited()
 {
   _QWORD v1[6]; // [rsp+20h] [rbp-30h] BYREF
   unsigned int v2; // [rsp+60h] [rbp+10h] BYREF
 
   memset(v1, 0, 0x28uLL);
   v2 = -1;
-  PopBlockSessionSwitch(1, (int *)&v2);
+  PopBlockSessionSwitch(1, &v2);
   if ( TtmpEnabled == 1 )
   {
     TtmNotifyLowPowerStateExited(v2);
@@ -27,5 +27,5 @@ __int64 PopNotifyCsStateExited()
     memset(&v1[1], 0, 32);
     PopInvokeWin32Callout(5, (__int64)v1, 1, (int *)&v2);
   }
-  return PopBlockSessionSwitch(0, (int *)&v2);
+  return PopBlockSessionSwitch(0, &v2);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpSendDataBlock @ 0x1409388D8
+ * XREFs of EtwpSendDataBlock @ 0x140914478
  * Callers:
- *     SendCaptureStateNotificationsWorker @ 0x14082D4F0 (SendCaptureStateNotificationsWorker.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14093737C (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyGuid @ 0x140938434 (EtwpNotifyGuid.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409399BC (EtwpNotifyDisallowedGuidChange.c)
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     SendCaptureStateNotificationsWorker @ 0x140833730 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140912F1C (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpNotifyGuid @ 0x140913FD4 (EtwpNotifyGuid.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x14091555C (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     KeQueryTimeIncrement @ 0x140457230 (KeQueryTimeIncrement.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpQueueNotification @ 0x140938AC0 (EtwpQueueNotification.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     KeQueryTimeIncrement @ 0x14044EAA0 (KeQueryTimeIncrement.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpQueueNotification @ 0x140914660 (EtwpQueueNotification.c)
  */
 
 __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
@@ -99,8 +99,8 @@ __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
       }
       v11 = MEMORY[0xFFFFF78000000320];
       if ( (v11 - v6) * KeQueryTimeIncrement() >= 600010000
-        && (unsigned int)dword_140E08F48 > 5
-        && tlgKeywordOn((__int64)&dword_140E08F48, 0x200000000800LL) )
+        && (unsigned int)dword_140E08F78 > 5
+        && tlgKeywordOn((__int64)&dword_140E08F78, 0x200000000800LL) )
       {
         v28 = 8LL;
         v21 = 2164260864LL;
@@ -112,8 +112,8 @@ __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
         v22 = v19 / 10000;
         v31 = v20 + 40;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08F48,
-          (unsigned __int8 *)qword_140054F40,
+          (__int64)&dword_140E08F78,
+          (unsigned __int8 *)byte_140055F33,
           0LL,
           0LL,
           5u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqQueryCreate @ 0x1409F9868
+ * XREFs of PiDqQueryCreate @ 0x1409F21D8
  * Callers:
- *     PiDqDispatch @ 0x1409F9680 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x1409F1FF0 (PiDqDispatch.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14045C170 (RtlInitializeGenericTableAvl.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlInitializeGenericTableAvl @ 0x140451510 (RtlInitializeGenericTableAvl.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqQueryCreate(char a1, __int64 *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PiDqQueryCreate(char a1, __int64 *a2)
   signed __int64 v7; // rax
 
   v4 = 0;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0xE8uLL, 0x58706E50u);
   v6 = Pool2;
   if ( Pool2 )
   {

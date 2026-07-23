@@ -1,5 +1,5 @@
 /*
- * XREFs of PoSetFixedWakeSource @ 0x140B4B380
+ * XREFs of PoSetFixedWakeSource @ 0x140B4D3C0
  * Callers:
  *     <none>
  * Callees:

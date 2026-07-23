@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxInitializeSocSubsystemStaticInfo @ 0x140869690
+ * XREFs of PopFxInitializeSocSubsystemStaticInfo @ 0x14086A8F0
  * Callers:
- *     PopFxEnablePlatformStates @ 0x1402D8010 (PopFxEnablePlatformStates.c)
+ *     PopFxEnablePlatformStates @ 0x1402D8200 (PopFxEnablePlatformStates.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcsncmp @ 0x140197800 (wcsncmp.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140869FC0 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopPluginInitializeSocSubsystemStaticInfo @ 0x14086ABDC (PopPluginInitializeSocSubsystemStaticInfo.c)
- *     PopPluginQuerySocSubsystemCount @ 0x14086ADE4 (PopPluginQuerySocSubsystemCount.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcsncmp @ 0x140197940 (wcsncmp.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlHashUnicodeString @ 0x140599BE0 (RtlHashUnicodeString.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x14086B220 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x14086BE3C (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemCount @ 0x14086C044 (PopPluginQuerySocSubsystemCount.c)
  */
 
 __int64 __fastcall PopFxInitializeSocSubsystemStaticInfo(unsigned int a1)
@@ -163,13 +163,13 @@ LABEL_18:
       }
       if ( v3 )
         goto LABEL_29;
-      v20 = (unsigned int **)qword_140418A88;
-      if ( *(__int64 **)qword_140418A88 != &SocSubsystemsList )
+      v20 = (unsigned int **)qword_140419B38;
+      if ( *(__int64 **)qword_140419B38 != &SocSubsystemsList )
         __fastfail(3u);
       *(_QWORD *)v5 = &SocSubsystemsList;
       *((_QWORD *)v5 + 1) = v20;
       *v20 = v5;
-      qword_140418A88 = (__int64)v5;
+      qword_140419B38 = (__int64)v5;
     }
     else
     {

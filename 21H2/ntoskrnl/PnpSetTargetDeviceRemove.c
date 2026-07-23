@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpSetTargetDeviceRemove @ 0x140738FD4
+ * XREFs of PnpSetTargetDeviceRemove @ 0x140739194
  * Callers:
- *     PnpQueueQueryAndRemoveEvent @ 0x14072F3E8 (PnpQueueQueryAndRemoveEvent.c)
- *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1407BDD10 (PiDevCfgProcessDeviceCallback.c)
- *     IopQueueDeviceResetEvent @ 0x1408A094C (IopQueueDeviceResetEvent.c)
- *     IopRetryDeviceRemovalForReset @ 0x1408A09D0 (IopRetryDeviceRemovalForReset.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F5B4 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpRequestDeviceRemoval @ 0x140736848 (PnpRequestDeviceRemoval.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BE4A0 (PiDevCfgProcessDeviceCallback.c)
+ *     IopQueueDeviceResetEvent @ 0x1408A0AAC (IopQueueDeviceResetEvent.c)
+ *     IopRetryDeviceRemovalForReset @ 0x1408A0B30 (IopRetryDeviceRemovalForReset.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PnpInsertEventInQueue @ 0x1406E756C (PnpInsertEventInQueue.c)
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x14073913C (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpAllocateCriticalMemory @ 0x14073947C (PnpAllocateCriticalMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PnpInsertEventInQueue @ 0x1406FE94C (PnpInsertEventInQueue.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x1407392FC (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     PnpAllocateCriticalMemory @ 0x14073963C (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall PnpSetTargetDeviceRemove(

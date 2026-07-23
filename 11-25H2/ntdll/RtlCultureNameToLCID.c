@@ -47,12 +47,12 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, int *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // r9
-  size_t v4; // r8
+  BOOLEAN v2; // r9
+  size_t Length; // r8
   unsigned __int16 v5; // bp
-  const void *v6; // rdx
+  wchar_t *Buffer; // rdx
   unsigned __int64 v7; // rbx
   __int64 v8; // rcx
   unsigned __int64 v9; // rbx
@@ -69,31 +69,31 @@ char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, int *a2)
   wchar_t String2[88]; // [rsp+20h] [rbp-E8h] BYREF
 
   v2 = 0;
-  if ( !a1 )
+  if ( !String )
     return v2;
-  if ( !a2 )
+  if ( !Lcid )
     return v2;
-  v4 = *a1;
+  Length = String->Length;
   v5 = 0;
-  if ( !(_WORD)v4 )
+  if ( !(_WORD)Length )
     return v2;
-  v6 = (const void *)*((_QWORD *)a1 + 1);
-  if ( !v6 || (unsigned int)(v4 + 2) > 0x55 )
+  Buffer = String->Buffer;
+  if ( !Buffer || (unsigned int)(Length + 2) > 0x55 )
     return v2;
-  v7 = *a1;
-  memmove(String2, v6, v4);
+  v7 = String->Length;
+  memmove(String2, Buffer, Length);
   v9 = v7 >> 1;
   if ( v9 >= 85 )
     _report_rangecheckfailure(v8);
   String2[v9] = 0;
   if ( g_RegInfo )
   {
-    v10 = *(_QWORD *)(g_RegInfo + 24);
+    v10 = *((_QWORD *)g_RegInfo + 3);
     if ( v10 )
     {
       if ( *(_QWORD *)(v10 + 16) && g_RegInfo && String2[0] )
       {
-        v11 = *(_QWORD *)(g_RegInfo + 32);
+        v11 = *((_QWORD *)g_RegInfo + 4);
         if ( v11 )
         {
           v12 = 0;
@@ -121,7 +121,7 @@ LABEL_19:
             v16 = *(_QWORD *)(v10 + 16);
             if ( *(_WORD *)(v15 + v16 + 6) == (_WORD)v12 )
             {
-              *a2 = *(unsigned __int16 *)(v15 + v16 + 4);
+              *Lcid = *(unsigned __int16 *)(v15 + v16 + 4);
               return 1;
             }
             ++v5;
@@ -147,16 +147,16 @@ LABEL_19:
         matched = RtlpMatchUserLanguage(String2);
         v2 = 1;
         if ( matched )
-          *a2 = 3072;
+          *Lcid = 3072;
         else
-          *a2 = 4096;
+          *Lcid = 4096;
         return v2;
       }
-      *a2 = 5120;
+      *Lcid = 5120;
       return 1;
     }
     return 0;
   }
-  *a2 = *(_DWORD *)(*(_QWORD *)(v18 + 24) + 8LL * NameIndex + 4) & 0x7FFFFFFF;
+  *Lcid = *(_DWORD *)(*(_QWORD *)(v18 + 24) + 8LL * NameIndex + 4) & 0x7FFFFFFF;
   return 1;
 }

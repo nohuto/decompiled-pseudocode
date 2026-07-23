@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpCreateCacheEntry @ 0x1405CA164
+ * XREFs of ObpCreateCacheEntry @ 0x1405CB164
  * Callers:
- *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x1405CAE70 (ObLogSecurityDescriptor.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall ObpCreateCacheEntry(void *Src, size_t Size, __int64 a3, unsigned int a4)

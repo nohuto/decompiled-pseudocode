@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckStackForTransactionSupport @ 0x1404F312C
+ * XREFs of IopCheckStackForTransactionSupport @ 0x1404EC70C
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopAllocRealFileObject @ 0x1409337E0 (IopAllocRealFileObject.c)
- *     IopRetrieveTransactionParameters @ 0x1409342BC (IopRetrieveTransactionParameters.c)
+ *     IopAllocRealFileObject @ 0x14090F390 (IopAllocRealFileObject.c)
+ *     IopRetrieveTransactionParameters @ 0x14090FE6C (IopRetrieveTransactionParameters.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopCheckStackForTransactionSupport(__int64 a1)

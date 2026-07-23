@@ -1,17 +1,17 @@
 /*
- * XREFs of SymCryptParallelSha256Process @ 0x1403F5B70
+ * XREFs of SymCryptParallelSha256Process @ 0x1403F5D50
  * Callers:
- *     KeComputeParallelSha256 @ 0x14056C210 (KeComputeParallelSha256.c)
+ *     KeComputeParallelSha256 @ 0x14056C8D0 (KeComputeParallelSha256.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x14036868C (SymCryptCpuFeaturesNeverPresent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptParallelHashProcess @ 0x1403F6520 (SymCryptParallelHashProcess.c)
- *     SymCryptParallelHashProcess_serial @ 0x1403F67E0 (SymCryptParallelHashProcess_serial.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SymCryptRestoreXmm @ 0x14056D1BC (SymCryptRestoreXmm.c)
- *     SymCryptRestoreYmm @ 0x14056D1D4 (SymCryptRestoreYmm.c)
- *     SymCryptSaveXmm @ 0x14056D1EC (SymCryptSaveXmm.c)
- *     SymCryptSaveYmm @ 0x14056D204 (SymCryptSaveYmm.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x14036882C (SymCryptCpuFeaturesNeverPresent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptParallelHashProcess @ 0x1403F6700 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x1403F69C0 (SymCryptParallelHashProcess_serial.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SymCryptRestoreXmm @ 0x14056D87C (SymCryptRestoreXmm.c)
+ *     SymCryptRestoreYmm @ 0x14056D894 (SymCryptRestoreYmm.c)
+ *     SymCryptSaveXmm @ 0x14056D8AC (SymCryptSaveXmm.c)
+ *     SymCryptSaveYmm @ 0x14056D8C4 (SymCryptSaveYmm.c)
  */
 
 __int64 __fastcall SymCryptParallelSha256Process(int a1, int a2, int a3, __int64 a4, __int64 a5, __int64 a6)

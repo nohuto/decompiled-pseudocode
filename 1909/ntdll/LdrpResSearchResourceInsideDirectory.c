@@ -96,7 +96,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v77; // r9
   __int64 v78; // rcx
   unsigned __int64 v79; // r12
-  __int64 Heap; // rdi
+  unsigned int *Heap; // rdi
   __int64 v81; // rcx
   int v82; // [rsp+40h] [rbp-178h]
   unsigned int v83; // [rsp+40h] [rbp-178h]
@@ -117,9 +117,9 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   unsigned __int64 v98; // [rsp+98h] [rbp-120h]
   int v99; // [rsp+A0h] [rbp-118h]
   int v100; // [rsp+A4h] [rbp-114h] BYREF
-  __int64 v101; // [rsp+A8h] [rbp-110h]
+  PVOID BaseAddress; // [rsp+A8h] [rbp-110h]
   unsigned __int64 v102; // [rsp+B0h] [rbp-108h]
-  unsigned int *v103; // [rsp+B8h] [rbp-100h]
+  char *v103; // [rsp+B8h] [rbp-100h]
   __int64 v104; // [rsp+C0h] [rbp-F8h]
   HANDLE Handle; // [rsp+C8h] [rbp-F0h]
   __int64 v106; // [rsp+D0h] [rbp-E8h]
@@ -161,14 +161,14 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   v123 = 0LL;
   v93 = 0;
   v89 = 0LL;
-  v101 = 0LL;
+  BaseAddress = 0LL;
   v91 = 0;
   v87 = 0;
   LODWORD(v118[0]) = 5636180;
   v118[1] = L"LdrpResSearchResourceInsideDirectory Enter";
   v120 = 5505106;
   v121 = L"LdrpResSearchResourceInsideDirectory Exit";
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v18 = (__int64)NtCurrentPeb()->SharedData + 555;
     v91 = v87;
@@ -179,7 +179,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   }
   if ( (*(_BYTE *)v18 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
       v81 = (__int64)NtCurrentPeb()->SharedData + 554;
       v91 = v87;
@@ -296,7 +296,7 @@ LABEL_183:
   }
   v31 = (char *)(v24 + 16);
   v107 = v24 + 16;
-  v103 = (unsigned int *)(v24 + 16);
+  v103 = (char *)(v24 + 16);
   if ( (v28 & 0xFFFFFFFFFFFF0000uLL) == 0 )
   {
     if ( (_DWORD)v29 )
@@ -309,7 +309,7 @@ LABEL_183:
       }
       v31 += 8 * (int)v29;
       v107 = (__int64)v31;
-      v103 = (unsigned int *)v31;
+      v103 = v31;
     }
     v29 = HIWORD(v123);
     if ( v22 != 34816 )
@@ -337,13 +337,13 @@ LABEL_185:
   }
   if ( v22 == 34816 )
   {
-    if ( v101 )
+    if ( BaseAddress )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v101);
-      v101 = 0LL;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+      BaseAddress = 0LL;
     }
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8 * v29);
-    v101 = Heap;
+    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8 * v29);
+    BaseAddress = Heap;
     if ( !Heap )
     {
       v83 = -1073741801;
@@ -354,8 +354,8 @@ LABEL_185:
     if ( (int)result < 0 )
       return result;
     v31 = (char *)Heap;
-    v107 = Heap;
-    v103 = (unsigned int *)Heap;
+    v107 = (__int64)Heap;
+    v103 = (char *)Heap;
     v20 = a12;
     v86 = a12;
     v91 = v87;
@@ -385,7 +385,7 @@ LABEL_35:
     v24 = 0LL;
     v98 = 0LL;
     v33 = (unsigned int *)v31;
-    v103 = (unsigned int *)v31;
+    v103 = v31;
     v34 = (unsigned int *)&v31[8 * (unsigned int)v29 - 8];
     v113 = v34;
     LOBYTE(v35) = v29;
@@ -472,7 +472,7 @@ LABEL_35:
       if ( v100 >= 0 )
       {
         v33 = v48 + 2;
-        v103 = v48 + 2;
+        v103 = (char *)(v48 + 2);
         v94 = v37;
         v34 = v113;
 LABEL_72:
@@ -830,18 +830,18 @@ LABEL_49:
     v83 = -1073741686;
   }
 LABEL_51:
-  if ( v101 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v101);
-    v101 = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    BaseAddress = 0LL;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v42 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v42 = 2147353477LL;
   if ( (*(_BYTE *)v42 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v43 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v43 = 2147353476LL;

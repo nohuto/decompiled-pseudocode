@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcInitializeDelayedFeatureUsageDataBuffer @ 0x1404EA330
+ * XREFs of RtlpFcInitializeDelayedFeatureUsageDataBuffer @ 0x1404E36E0
  * Callers:
- *     CmFcpManagerPublishFeatureUsageData @ 0x140ABF83C (CmFcpManagerPublishFeatureUsageData.c)
+ *     CmFcpManagerPublishFeatureUsageData @ 0x140AC18DC (CmFcpManagerPublishFeatureUsageData.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall RtlpFcInitializeDelayedFeatureUsageDataBuffer(void *a1, size_t a2)

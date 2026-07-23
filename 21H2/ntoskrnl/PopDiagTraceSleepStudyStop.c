@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStop @ 0x1408EB3D0
+ * XREFs of PopDiagTraceSleepStudyStop @ 0x1408EB530
  * Callers:
- *     PopSleepstudyScenarioStopWorker @ 0x1408FA330 (PopSleepstudyScenarioStopWorker.c)
+ *     PopSleepstudyScenarioStopWorker @ 0x1408FA490 (PopSleepstudyScenarioStopWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceSleepStudyStop()
@@ -84,34 +84,34 @@ void PopDiagTraceSleepStudyStop()
     if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SPM_SCENARIO_STOP) )
     {
       *(_QWORD *)&UserData.Size = 4LL;
-      v1 = byte_140C22C9C & 1;
+      v1 = byte_140C22CBC & 1;
       v10 = 8LL;
-      v3 = byte_140C22C9D & 1;
-      v2 = ((unsigned __int8)byte_140C22C9D >> 1) & 1;
-      v7 = (unsigned __int8)byte_140C22CED;
-      v5 = (unsigned __int8)byte_140C22CEC;
-      v6 = (unsigned __int8)byte_140C22CCC;
+      v3 = byte_140C22CBD & 1;
+      v2 = ((unsigned __int8)byte_140C22CBD >> 1) & 1;
+      v7 = (unsigned __int8)byte_140C22D0D;
+      v5 = (unsigned __int8)byte_140C22D0C;
+      v6 = (unsigned __int8)byte_140C22CEC;
       UserData.Ptr = (ULONGLONG)&PopWdiScenarioStopEventData;
-      v9 = &unk_140C22C48;
+      v9 = &unk_140C22C68;
       v11 = &v1;
-      v13 = &unk_140C22CA0;
-      v15 = &unk_140C22CA8;
-      v17 = &unk_140C22CB0;
-      v19 = &unk_140C22C40;
-      v21 = &unk_140C22C3C;
-      v23 = &unk_140C22C80;
-      v25 = &unk_140C22CC0;
-      v27 = &unk_140C22C38;
-      v29 = &unk_140C22C78;
-      v31 = &unk_140C22C98;
+      v13 = &unk_140C22CC0;
+      v15 = &unk_140C22CC8;
+      v17 = &unk_140C22CD0;
+      v19 = &unk_140C22C60;
+      v21 = &unk_140C22C5C;
+      v23 = &unk_140C22CA0;
+      v25 = &unk_140C22CE0;
+      v27 = &unk_140C22C58;
+      v29 = &unk_140C22C98;
+      v31 = &unk_140C22CB8;
       v33 = &v2;
       v35 = &v3;
-      v37 = &unk_140C22C88;
+      v37 = &unk_140C22CA8;
       v39 = &v4;
-      v41 = &unk_140C22CC4;
-      v43 = &unk_140C22CC8;
-      v45 = &unk_140C22CD0;
-      v4 = ((unsigned __int8)byte_140C22C9D >> 2) & 1;
+      v41 = &unk_140C22CE4;
+      v43 = &unk_140C22CE8;
+      v45 = &unk_140C22CF0;
+      v4 = ((unsigned __int8)byte_140C22CBD >> 2) & 1;
       v12 = 4LL;
       v14 = 8LL;
       v16 = 8LL;
@@ -131,18 +131,18 @@ void PopDiagTraceSleepStudyStop()
       v44 = 4LL;
       v46 = 4LL;
       v48 = 4LL;
-      v47 = &unk_140C22CD4;
+      v47 = &unk_140C22CF4;
       v50 = 4LL;
-      v49 = &unk_140C22CD8;
+      v49 = &unk_140C22CF8;
       v52 = 4LL;
-      v51 = &unk_140C22C28;
+      v51 = &unk_140C22C48;
       v54 = 8LL;
-      v53 = &unk_140C22C30;
+      v53 = &unk_140C22C50;
       v56 = 4LL;
-      v55 = &unk_140C22CE8;
+      v55 = &unk_140C22D08;
       v57 = &v5;
-      v59 = &unk_140C22CF0;
-      v61 = &unk_140C22CF4;
+      v59 = &unk_140C22D10;
+      v61 = &unk_140C22D14;
       v63 = &v6;
       v65 = &v7;
       v58 = 4LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x14093DEAC
+ * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x14093EEAC
  * Callers:
- *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
- *     VfSettingsCheckForChanges @ 0x14093DEE8 (VfSettingsCheckForChanges.c)
+ *     VfInitVerifierComponents @ 0x1409276D0 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x14093EEE8 (VfSettingsCheckForChanges.c)
  * Callees:
- *     ExClearPoolFlags @ 0x14031A47C (ExClearPoolFlags.c)
- *     ExSetPoolFlags @ 0x14031A95C (ExSetPoolFlags.c)
+ *     ExClearPoolFlags @ 0x14031A66C (ExClearPoolFlags.c)
+ *     ExSetPoolFlags @ 0x14031AB4C (ExSetPoolFlags.c)
  */
 
 void __fastcall VfSettingsApplyMiscellaneousChecks(__int16 a1)

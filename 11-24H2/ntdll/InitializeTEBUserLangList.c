@@ -1,16 +1,16 @@
 /*
- * XREFs of InitializeTEBUserLangList @ 0x180036A80
+ * XREFs of InitializeTEBUserLangList @ 0x180016D00
  * Callers:
- *     RtlpQueryDefaultUILanguage @ 0x180035CC0 (RtlpQueryDefaultUILanguage.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180037120 (RtlGetThreadPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x1800DA0F0 (RtlGetUserPreferredUILanguages.c)
+ *     RtlpQueryDefaultUILanguage @ 0x180015F40 (RtlpQueryDefaultUILanguage.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x1800173A0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x1800C7F30 (RtlGetUserPreferredUILanguages.c)
  * Callees:
- *     RtlpLoadLanguageConfigList @ 0x1800347C0 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x1800355A0 (RtlpUpdateTEBLanguage.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180035EE0 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpSetProcUserMachineLangList @ 0x180036910 (RtlpSetProcUserMachineLangList.c)
- *     RtlpMuiRegCreateLanguageList @ 0x18007E2D0 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18007EF80 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadLanguageConfigList @ 0x180014A40 (RtlpLoadLanguageConfigList.c)
+ *     RtlpUpdateTEBLanguage @ 0x180015820 (RtlpUpdateTEBLanguage.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180016160 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpSetProcUserMachineLangList @ 0x180016B90 (RtlpSetProcUserMachineLangList.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800C8B80 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x1800CA3B0 (RtlpMuiRegCreateLanguageList.c)
  */
 
 __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
@@ -28,13 +28,13 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v14; // rax
   unsigned int MuiImpersonation; // r8d
   unsigned int v16; // edx
-  unsigned __int64 *UserPrefLanguages; // rdi
+  _BYTE **UserPrefLanguages; // rdi
   __int64 v18; // rax
   unsigned __int16 v19; // cx
   __int64 v20; // r9
   __int64 v21; // rcx
-  unsigned __int64 v22; // rcx
-  unsigned __int64 v23; // rax
+  _BYTE *v22; // rcx
+  _BYTE *v23; // rax
   struct _TEB *v24; // r9
   int v25; // eax
   struct _TEB *v26; // r8
@@ -90,7 +90,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v16 = MEMORY[0x7FFE03A4];
   if ( !MEMORY[0x7FFE03A4] )
     v16 = 1;
-  UserPrefLanguages = (unsigned __int64 *)NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = (_BYTE **)NtCurrentTeb()->UserPrefLanguages;
   if ( a2 )
   {
     v18 = *(_QWORD *)(a2 + 24);
@@ -147,7 +147,7 @@ LABEL_16:
 LABEL_80:
                 if ( !a1 && !v6 && !v5 )
                 {
-                  PreferredUILanguages = RtlpSetProcUserMachineLangList(a2, 1LL);
+                  PreferredUILanguages = RtlpSetProcUserMachineLangList(a2, 1u);
                   if ( PreferredUILanguages >= 0 )
                   {
                     LanguageList = *(_QWORD *)(a2 + 64);
@@ -225,13 +225,13 @@ LABEL_57:
                 goto LABEL_59;
               }
               if ( !*UserPrefLanguages
-                || (v21 = *(_QWORD *)(*UserPrefLanguages + 16)) == 0
+                || (v21 = *((_QWORD *)*UserPrefLanguages + 2)) == 0
                 || *(_DWORD *)(v21 + 12) >= *(_DWORD *)(a2 + 12) )
               {
 LABEL_41:
                 if ( *UserPrefLanguages )
                 {
-                  v32 = *(_DWORD *)(*UserPrefLanguages + 40);
+                  v32 = *((_DWORD *)*UserPrefLanguages + 10);
                   if ( a1 )
                   {
                     if ( (v32 & 0x20) != 0 )
@@ -254,7 +254,7 @@ LABEL_41:
                   *UserPrefLanguages = 0LL;
                   if ( NtCurrentTeb()->MergedPrefLanguages )
                   {
-                    RtlpMuiRegFreeLanguageList((unsigned __int64)NtCurrentTeb()->MergedPrefLanguages);
+                    RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->MergedPrefLanguages);
                     NtCurrentTeb()->MergedPrefLanguages = 0LL;
                   }
                 }
@@ -266,10 +266,10 @@ LABEL_54:
               v22 = *UserPrefLanguages;
               v23 = *UserPrefLanguages;
 LABEL_35:
-              v30 = *(_DWORD *)(v23 + 40);
+              v30 = *((_DWORD *)v23 + 10);
               v6 = (v30 & 2) != 0;
               v5 = (v30 & 4) != 0;
-              if ( (v30 & 2) != 0 || (*(_DWORD *)(v23 + 40) & 4) != 0 )
+              if ( (v30 & 2) != 0 || (*((_DWORD *)v23 + 10) & 4) != 0 )
               {
                 v10 = v30 & 0xFFFF0000;
                 v45 = v30 & 0xFFFF0000;

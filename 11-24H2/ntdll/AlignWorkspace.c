@@ -1,7 +1,7 @@
 /*
- * XREFs of AlignWorkspace @ 0x180151358
+ * XREFs of AlignWorkspace @ 0x18014F718
  * Callers:
- *     RtlCompressDeflateInitCompressionStream @ 0x180151374 (RtlCompressDeflateInitCompressionStream.c)
+ *     RtlCompressDeflateInitCompressionStream @ 0x18014F734 (RtlCompressDeflateInitCompressionStream.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogInactivityTimerReset @ 0x1409A85B0
+ * XREFs of TtmiLogInactivityTimerReset @ 0x1409A87B0
  * Callers:
- *     TtmiResetInactivityTimer @ 0x1409AB16C (TtmiResetInactivityTimer.c)
+ *     TtmiResetInactivityTimer @ 0x1409AB36C (TtmiResetInactivityTimer.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogInactivityTimerReset(int a1)
@@ -35,7 +35,7 @@ void __fastcall TtmiLogInactivityTimerReset(int a1)
       v10 = 4;
       v9 = &v4;
       v4 = a1;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53918, (unsigned __int8 *)byte_1400340E5, 0LL, 0LL, 4u, &v5);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53918, (unsigned __int8 *)word_140034192, 0LL, 0LL, 4u, &v5);
     }
   }
 }

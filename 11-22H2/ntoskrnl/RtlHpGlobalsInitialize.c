@@ -9,9 +9,9 @@
  *     memset @ 0x140435400 (memset.c)
  */
 
-char RtlHpGlobalsInitialize()
+BOOLEAN RtlHpGlobalsInitialize()
 {
-  char result; // al
+  BOOLEAN result; // al
 
   memset(&RtlpHpHeapGlobals, 0, 0x40uLL);
   RtlpHpHeapGlobals = RtlpHeapGenerateRandomValue64();

@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnAltProfileCleanup @ 0x1407475D0
+ * XREFs of PfSnAltProfileCleanup @ 0x1407458C0
  * Callers:
- *     PfSnSetAltPrefetchParam @ 0x140747784 (PfSnSetAltPrefetchParam.c)
- *     PfProcessExitNotification @ 0x1409398E0 (PfProcessExitNotification.c)
+ *     PfSnSetAltPrefetchParam @ 0x140745A74 (PfSnSetAltPrefetchParam.c)
+ *     PfProcessExitNotification @ 0x14094BDC4 (PfProcessExitNotification.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PfSnAltProfileCleanup(__int64 a1)

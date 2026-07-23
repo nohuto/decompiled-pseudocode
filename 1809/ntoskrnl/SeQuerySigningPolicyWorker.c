@@ -1,14 +1,14 @@
 /*
- * XREFs of SeQuerySigningPolicyWorker @ 0x14060A60C
+ * XREFs of SeQuerySigningPolicyWorker @ 0x14060B60C
  * Callers:
- *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x14060E5D0 (SeQuerySigningPolicy.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x1400A5590 (RtlQueryPackageClaims.c)
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
- *     SepIsNgenImage @ 0x14060A55C (SepIsNgenImage.c)
- *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)
- *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
- *     SepIsLockedDown @ 0x14089B6DC (SepIsLockedDown.c)
+ *     RtlQueryPackageClaims @ 0x1400A54D0 (RtlQueryPackageClaims.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A84 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     SepIsNgenImage @ 0x14060B55C (SepIsNgenImage.c)
+ *     PsQueryProcessAttributesByToken @ 0x140626980 (PsQueryProcessAttributesByToken.c)
+ *     SeQueryInformationToken @ 0x14063D370 (SeQueryInformationToken.c)
+ *     SepIsLockedDown @ 0x14089C93C (SepIsLockedDown.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicyWorker(
@@ -28,16 +28,16 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   unsigned __int8 v17; // al
   unsigned __int8 v18; // dl
   unsigned __int8 v19; // dl
-  NTSTATUS v20; // eax
+  NTSTATUS InformationToken; // eax
   char v21[8]; // [rsp+40h] [rbp-10h] BYREF
-  PVOID TokenInformation; // [rsp+48h] [rbp-8h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+48h] [rbp-8h] BYREF
 
-  TokenInformation = 0LL;
+  PkgClaim = 0LL;
   PsQueryProcessAttributesByToken(Token, 0LL, v21);
   v12 = v21[0];
   if ( v21[0] )
   {
-    LODWORD(v14) = RtlQueryPackageClaims((int)Token, 0LL, 0LL, 0LL, 0LL, 0LL, (int)&TokenInformation, 0LL);
+    LODWORD(v14) = RtlQueryPackageClaims(Token, 0LL, 0LL, 0LL, 0LL, 0LL, &PkgClaim, 0LL);
     if ( (int)v14 < 0 )
       return (unsigned int)v14;
     if ( (MEMORY[0xFFFFF780000002F0] & 0x400) != 0 )
@@ -60,30 +60,30 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
         3);
       v16 = 1;
     }
-    if ( ((unsigned __int8)TokenInformation & 4) != 0 && (!v16 || (unsigned __int64)BYTE2(TokenInformation) - 4 > 1) )
+    if ( (PkgClaim.Flags & 4) != 0 && (!v16 || (unsigned __int64)BYTE2(PkgClaim.Flags) - 4 > 1) )
       v12 = 0;
     if ( v12 )
     {
       if ( (a3 & 1) == 0 )
       {
         v13 = 6;
-        if ( BYTE2(TokenInformation) > 6uLL )
+        if ( BYTE2(PkgClaim.Flags) > 6uLL )
           goto LABEL_8;
-        if ( BYTE2(TokenInformation) <= 1u )
+        if ( BYTE2(PkgClaim.Flags) <= 1u )
         {
           v13 = a5;
         }
         else
         {
-          if ( BYTE2(TokenInformation) == 2 )
+          if ( BYTE2(PkgClaim.Flags) == 2 )
           {
             *a6 = 8;
             *a7 = a5;
             goto LABEL_7;
           }
-          if ( BYTE2(TokenInformation) != 3 )
+          if ( BYTE2(PkgClaim.Flags) != 3 )
           {
-            if ( BYTE2(TokenInformation) <= 5u )
+            if ( BYTE2(PkgClaim.Flags) <= 5u )
             {
               if ( v16 )
               {
@@ -93,7 +93,7 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
                 goto LABEL_7;
               }
             }
-            else if ( BYTE2(TokenInformation) != 6 )
+            else if ( BYTE2(PkgClaim.Flags) != 6 )
             {
               goto LABEL_8;
             }
@@ -114,16 +114,16 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   }
   if ( a2 && SepIsNgenImage(a2) )
   {
-    LODWORD(TokenInformation) = 0;
-    v20 = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
-    v14 = (unsigned int)v20;
-    if ( v20 < 0 )
+    PkgClaim.Flags = 0;
+    InformationToken = SeQueryInformationToken(Token, TokenIsAppContainer, (PVOID *)&PkgClaim);
+    v14 = (unsigned int)InformationToken;
+    if ( InformationToken < 0 )
       return (unsigned int)v14;
     *a6 = 11;
     if ( (a3 & 1) == 0 )
     {
       LOBYTE(v14) = a5;
-      if ( !(_DWORD)TokenInformation )
+      if ( !PkgClaim.Flags )
       {
         *a7 = a5;
         *a8 = a5 >= 2u ? 0x21 : 0;
@@ -140,7 +140,7 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
     }
     if ( !a4 )
     {
-      *a7 = (_DWORD)TokenInformation != 0 ? 6 : 8;
+      *a7 = PkgClaim.Flags != 0 ? 6 : 8;
       *a8 = 33;
       goto LABEL_8;
     }

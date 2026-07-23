@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlpSlowFlushListTbEx @ 0x1403CA27C
+ * XREFs of HvlpSlowFlushListTbEx @ 0x1403A4E4C
  * Callers:
- *     HvlpFlushRangeListTbEx @ 0x1403C9A40 (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTbEx @ 0x1403A45E0 (HvlpFlushRangeListTbEx.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpCopyFlushVaList @ 0x1403AF7F0 (HvlpCopyFlushVaList.c)
- *     VslSlowFlushSecureRangeList @ 0x1403AF848 (VslSlowFlushSecureRangeList.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1403C9CC4 (HvlpAffinityToHvProcessorSet.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     VslFlushSecureAddressSpace @ 0x1404B2398 (VslFlushSecureAddressSpace.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HvlpSecureFlushLargeRangeList @ 0x1406A0EC0 (HvlpSecureFlushLargeRangeList.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpCopyFlushVaList @ 0x14039E000 (HvlpCopyFlushVaList.c)
+ *     VslSlowFlushSecureRangeList @ 0x14039E058 (VslSlowFlushSecureRangeList.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1403A4864 (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     VslFlushSecureAddressSpace @ 0x1404ACC28 (VslFlushSecureAddressSpace.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlpSecureFlushLargeRangeList @ 0x1406A1F18 (HvlpSecureFlushLargeRangeList.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall HvlpSlowFlushListTbEx(

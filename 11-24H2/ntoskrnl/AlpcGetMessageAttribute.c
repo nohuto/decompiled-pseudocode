@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcGetMessageAttribute @ 0x140448770
+ * XREFs of AlpcGetMessageAttribute @ 0x140440E90
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     SshpAlpcMessageCallback @ 0x140767C20 (SshpAlpcMessageCallback.c)
- *     DbgkpSendErrorMessage @ 0x14093A900 (DbgkpSendErrorMessage.c)
- *     PopUmpoProcessMessages @ 0x140A23B90 (PopUmpoProcessMessages.c)
- *     CmFcpCreateAlpcSectionView @ 0x140AC0FAC (CmFcpCreateAlpcSectionView.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     SshpAlpcMessageCallback @ 0x140767E40 (SshpAlpcMessageCallback.c)
+ *     DbgkpSendErrorMessage @ 0x1409E93F0 (DbgkpSendErrorMessage.c)
+ *     PopUmpoProcessMessages @ 0x140A17FA0 (PopUmpoProcessMessages.c)
+ *     CmFcpCreateAlpcSectionView @ 0x140ABC10C (CmFcpCreateAlpcSectionView.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x140448810 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x140440F30 (AlpcGetHeaderSize.c)
  */
 
-char *__fastcall AlpcGetMessageAttribute(_DWORD *a1, int a2)
+PVOID __cdecl AlpcGetMessageAttribute(PALPC_MESSAGE_ATTRIBUTES Buffer, ULONG AttributeFlag)
 {
-  if ( (*a1 & a2) == 0 || ((a2 - 1) & a2) != 0 )
+  if ( (Buffer->AllocatedAttributes & AttributeFlag) == 0 || ((AttributeFlag - 1) & AttributeFlag) != 0 )
     return 0LL;
   else
-    return (char *)a1 + (unsigned int)AlpcGetHeaderSize(*a1 & (unsigned int)(-2 * a2));
+    return (char *)Buffer + AlpcGetHeaderSize(Buffer->AllocatedAttributes & (-2 * AttributeFlag));
 }

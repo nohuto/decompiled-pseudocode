@@ -1,12 +1,17 @@
 /*
- * XREFs of RtlpTraceDatabaseFree @ 0x180102CCC
+ * XREFs of RtlpTraceDatabaseFree @ 0x180102C8C
  * Callers:
- *     RtlTraceDatabaseDestroy @ 0x180102A10 (RtlTraceDatabaseDestroy.c)
+ *     RtlTraceDatabaseDestroy @ 0x1801029D0 (RtlTraceDatabaseDestroy.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x18009DA00 (ZwFreeVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x18009D9C0 (ZwFreeVirtualMemory.c)
  */
 
-bool RtlpTraceDatabaseFree()
+bool __fastcall RtlpTraceDatabaseFree(void *a1)
 {
-  return (int)ZwFreeVirtualMemory() >= 0;
+  ULONG_PTR v2; // [rsp+30h] [rbp+8h] BYREF
+  PVOID v3; // [rsp+40h] [rbp+18h] BYREF
+
+  v2 = 0LL;
+  v3 = a1;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v3, &v2, 0x8000u) >= 0;
 }

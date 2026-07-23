@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAlertResumeThread @ 0x1401D2C3C
+ * XREFs of KeAlertResumeThread @ 0x1401D2A68
  * Callers:
- *     NtAlertResumeThread @ 0x140681DE8 (NtAlertResumeThread.c)
+ *     NtAlertResumeThread @ 0x140681ECC (NtAlertResumeThread.c)
  * Callees:
- *     KeResumeThread @ 0x1400A2840 (KeResumeThread.c)
- *     KeAlertThread @ 0x1400C9CF4 (KeAlertThread.c)
+ *     KeResumeThread @ 0x1400A1168 (KeResumeThread.c)
+ *     KeAlertThread @ 0x1400C7B94 (KeAlertThread.c)
  */
 
 __int64 __fastcall KeAlertResumeThread(__int64 a1)

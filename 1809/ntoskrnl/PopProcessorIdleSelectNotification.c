@@ -1,10 +1,10 @@
 /*
- * XREFs of PopProcessorIdleSelectNotification @ 0x1402DAC60
+ * XREFs of PopProcessorIdleSelectNotification @ 0x1402DAE50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopTranslateDependencyArray @ 0x1402DB00C (PopTranslateDependencyArray.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopTranslateDependencyArray @ 0x1402DB1FC (PopTranslateDependencyArray.c)
  */
 
 __int64 __fastcall PopProcessorIdleSelectNotification(__int64 a1, ULONG_PTR a2)

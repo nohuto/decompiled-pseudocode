@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDmgGetDeviceDmarPolicy @ 0x140727300
+ * XREFs of PipDmgGetDeviceDmarPolicy @ 0x140724E90
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x1409C6A98 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x140981740 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
- *     PipDmgGetDeviceDmarRegistryValue @ 0x140727390 (PipDmgGetDeviceDmarRegistryValue.c)
- *     PipDmgIsDmaVerifierEnabled @ 0x140727624 (PipDmgIsDmaVerifierEnabled.c)
+ *     PipDmgGetDeviceDmarRegistryValue @ 0x140724F20 (PipDmgGetDeviceDmarRegistryValue.c)
+ *     PipDmgIsDmaVerifierEnabled @ 0x1407251B4 (PipDmgIsDmaVerifierEnabled.c)
  */
 
 __int64 __fastcall PipDmgGetDeviceDmarPolicy(__int64 *a1, _DWORD *a2)

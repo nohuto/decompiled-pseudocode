@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetActivityIdIrp @ 0x140439640
+ * XREFs of IoGetActivityIdIrp @ 0x14042BEF0
  * Callers:
- *     IoPropagateActivityIdToThread @ 0x1404395D0 (IoPropagateActivityIdToThread.c)
+ *     IoPropagateActivityIdToThread @ 0x14042BE80 (IoPropagateActivityIdToThread.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsRetpolineEnabled @ 0x14047FA5C
+ * XREFs of MiIsRetpolineEnabled @ 0x1404793CC
  * Callers:
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
- *     MiPerformFixups @ 0x1409CED50 (MiPerformFixups.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
- *     MiCaptureRetpolineRelocationTables @ 0x140AD69F0 (MiCaptureRetpolineRelocationTables.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140B1F2FC (MiMarkKernelImageRetpolineBits.c)
- *     MiCaptureRetpolineImportInfo @ 0x140B3C58C (MiCaptureRetpolineImportInfo.c)
- *     MmMarkHiberPhase @ 0x140C01120 (MmMarkHiberPhase.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
+ *     MiPerformFixups @ 0x14099FD30 (MiPerformFixups.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140AD3700 (MiCaptureRetpolineRelocationTables.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x140B2137C (MiMarkKernelImageRetpolineBits.c)
+ *     MiCaptureRetpolineImportInfo @ 0x140B3E80C (MiCaptureRetpolineImportInfo.c)
+ *     MmMarkHiberPhase @ 0x140C07330 (MmMarkHiberPhase.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
  *     <none>
  */

@@ -19,7 +19,7 @@
  *     PopValidateContextMembership @ 0x140AA56EC (PopValidateContextMembership.c)
  */
 
-__int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
+__int64 __fastcall PopGetSettingNotificationName(__int64 a1, _WNF_STATE_NAME *a2)
 {
   char v3; // r12
   char v4; // r13
@@ -27,17 +27,17 @@ __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
   unsigned int v6; // esi
   _QWORD *v7; // r15
   PVOID *PowerSettingConfiguration; // rax
-  PVOID *v9; // rdi
-  __int64 v10; // rax
+  _WNF_STATE_NAME *v9; // rdi
+  _WNF_STATE_NAME v10; // rax
   int v11; // ebx
   struct _LIST_ENTRY *CurrentSilo; // rax
   __int64 v13; // r8
   unsigned int SessionId; // eax
   unsigned int v16; // edi
   __int64 v17; // rcx
-  __int64 v19; // [rsp+40h] [rbp-38h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+40h] [rbp-38h] BYREF
 
-  v19 = 0LL;
+  StateName = 0LL;
   v3 = 0;
   v4 = 0;
   ExAcquireFastMutex(&PopSettingLock);
@@ -50,12 +50,12 @@ __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
   if ( !v7 )
   {
     v10 = PopPopPowerSettingSetChangeNotification;
-    if ( PopPopPowerSettingSetChangeNotification == __PAIR64__(PopPopPowerSettingSetChangeNotification, 0) )
+    if ( PopPopPowerSettingSetChangeNotification == __PAIR64__(PopPopPowerSettingSetChangeNotification.Data[0], 0) )
     {
-      v11 = PopCreateNotificationName(&v19);
+      v11 = PopCreateNotificationName(&StateName);
       if ( v11 < 0 )
         goto LABEL_12;
-      PopPopPowerSettingSetChangeNotification = v19;
+      PopPopPowerSettingSetChangeNotification = StateName;
       goto LABEL_11;
     }
     goto LABEL_10;
@@ -95,32 +95,32 @@ LABEL_12:
     v6 = -1;
   }
   PowerSettingConfiguration = PopFindPowerSettingConfiguration(v7, v6);
-  v9 = PowerSettingConfiguration;
+  v9 = (_WNF_STATE_NAME *)PowerSettingConfiguration;
   if ( PowerSettingConfiguration )
   {
     v4 = 1;
     if ( !*((_DWORD *)PowerSettingConfiguration + 14) && !*((_DWORD *)PowerSettingConfiguration + 15) )
     {
-      v11 = PopCreateNotificationName(&v19);
+      v11 = PopCreateNotificationName(&StateName);
       if ( v11 < 0 )
         goto LABEL_12;
       v17 = *v7 - *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1;
       if ( *v7 == *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 )
         v17 = v7[1] - *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4;
       if ( !v17 )
-        *((_DWORD *)v9 + 13) |= 8u;
-      v9[7] = (PVOID)v19;
-      *((_DWORD *)v9 + 13) |= 1u;
+        v9[6].Data[1] |= 8u;
+      v9[7] = StateName;
+      v9[6].Data[1] |= 1u;
       v3 = 1;
       goto LABEL_11;
     }
-    v10 = (__int64)PowerSettingConfiguration[7];
+    v10 = (_WNF_STATE_NAME)PowerSettingConfiguration[7];
 LABEL_10:
-    v19 = v10;
+    StateName = v10;
 LABEL_11:
     KeReleaseGuardedMutex(&PopSettingLock);
     v5 = 0;
-    *a2 = v19;
+    *a2 = StateName;
     v11 = 0;
     goto LABEL_12;
   }

@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpCancelPendingStackWalkApcs @ 0x14031F258
+ * XREFs of EtwpCancelPendingStackWalkApcs @ 0x14031F4E8
  * Callers:
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeRemoveQueueDpcEx @ 0x14031F0D0 (KeRemoveQueueDpcEx.c)
- *     KeRemoveQueueApc @ 0x140362360 (KeRemoveQueueApc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     EtwpFinalizePendingApc @ 0x140468894 (EtwpFinalizePendingApc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeRemoveQueueDpcEx @ 0x14031F360 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueApc @ 0x140362500 (KeRemoveQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     EtwpFinalizePendingApc @ 0x140468C94 (EtwpFinalizePendingApc.c)
  */
 
 void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
 {
-  union _SLIST_HEADER *v1; // r15
+  _SLIST_HEADER *v1; // r15
   void *v3; // rsi
   PSLIST_ENTRY v4; // rdi
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *v5; // r13
   unsigned __int64 v6; // r14
   void *v7; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -30,7 +30,7 @@ void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
   int v11; // eax
   bool v12; // zf
 
-  v1 = (union _SLIST_HEADER *)(a1 + 236);
+  v1 = (_SLIST_HEADER *)(a1 + 236);
   v3 = 0LL;
   v4 = RtlpInterlockedFlushSList((PSLIST_HEADER)a1 + 59);
   while ( v4 )
@@ -47,10 +47,13 @@ void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)a1 + 114);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

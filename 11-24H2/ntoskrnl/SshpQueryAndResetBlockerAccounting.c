@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpQueryAndResetBlockerAccounting @ 0x1404793B0
+ * XREFs of SshpQueryAndResetBlockerAccounting @ 0x140474C40
  * Callers:
- *     SshNotifySystemSessionChange @ 0x140A4B418 (SshNotifySystemSessionChange.c)
+ *     SshNotifySystemSessionChange @ 0x140A42178 (SshNotifySystemSessionChange.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     SshpStopBlockerAccounting @ 0x1404795F0 (SshpStopBlockerAccounting.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpStopBlockerAccounting @ 0x140474E80 (SshpStopBlockerAccounting.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall SshpQueryAndResetBlockerAccounting(PKSPIN_LOCK SpinLock, _OWORD *a2, _OWORD *a3, _BYTE *a4)

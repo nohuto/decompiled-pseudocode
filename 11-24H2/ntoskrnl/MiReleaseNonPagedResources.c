@@ -1,53 +1,53 @@
 /*
- * XREFs of MiReleaseNonPagedResources @ 0x14020C57C
+ * XREFs of MiReleaseNonPagedResources @ 0x1403358DC
  * Callers:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
- *     MiDeleteUltraMapContext @ 0x1402D1B78 (MiDeleteUltraMapContext.c)
- *     MiManageUltraSpacePageTable @ 0x1402D1CC4 (MiManageUltraSpacePageTable.c)
- *     MiFreeSlabEntry @ 0x1402D2150 (MiFreeSlabEntry.c)
- *     MiFreePageFileHashPfns @ 0x1402D2BA0 (MiFreePageFileHashPfns.c)
- *     MiFinishHardFault @ 0x1402F0070 (MiFinishHardFault.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiFreeSmallPageFromMdl @ 0x1403A2098 (MiFreeSmallPageFromMdl.c)
- *     MiReturnMdlCharges @ 0x1403A8ECC (MiReturnMdlCharges.c)
- *     MiFreeLargePageCharges @ 0x1403A9C50 (MiFreeLargePageCharges.c)
- *     MiCreateUltraThreadContextHelper @ 0x1403C6C4C (MiCreateUltraThreadContextHelper.c)
- *     MiReplenishUltraPageTables @ 0x1403C6DB8 (MiReplenishUltraPageTables.c)
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
- *     MmFreeNonChargedSecurePages @ 0x14041098C (MmFreeNonChargedSecurePages.c)
- *     MiFreeSecureKernelPage @ 0x140410B08 (MiFreeSecureKernelPage.c)
- *     MiObtainMdlCharges @ 0x1404128E0 (MiObtainMdlCharges.c)
- *     MiReplenishSlabAllocator @ 0x140413B18 (MiReplenishSlabAllocator.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x14045AD24 (MiPrefetchReleasePreallocatedPages.c)
- *     MiDeleteProcessShadow @ 0x14045BC70 (MiDeleteProcessShadow.c)
- *     MiMapPageFileHash @ 0x140486688 (MiMapPageFileHash.c)
- *     MiGetFileHashPage @ 0x140486B9C (MiGetFileHashPage.c)
- *     MmAllocateNonChargedSecurePages @ 0x14049D980 (MmAllocateNonChargedSecurePages.c)
- *     MiDeleteSubsectionLargePages @ 0x1404CA9A4 (MiDeleteSubsectionLargePages.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
- *     MiPfnRangeIsZero @ 0x14066E2AC (MiPfnRangeIsZero.c)
- *     MiUnlinkBadPages @ 0x1406747FC (MiUnlinkBadPages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
- *     MiMoveBadPageChargesCrossPartition @ 0x1406835E0 (MiMoveBadPageChargesCrossPartition.c)
- *     MmAllocateSecureKernelPages @ 0x140688AC4 (MmAllocateSecureKernelPages.c)
- *     MiMoveBadPagePartition @ 0x14068B054 (MiMoveBadPagePartition.c)
- *     MiStoreReleaseReservedPageCharges @ 0x14068C784 (MiStoreReleaseReservedPageCharges.c)
- *     MiProcessVaContiguityInformation @ 0x14068D0DC (MiProcessVaContiguityInformation.c)
- *     MiAllocateFastAwePages @ 0x1407F833C (MiAllocateFastAwePages.c)
- *     MiAllocateProcessShadow @ 0x140A5A1B0 (MiAllocateProcessShadow.c)
- *     MiChargeSystemImageCommitment @ 0x140A9E2DC (MiChargeSystemImageCommitment.c)
- *     MiCreateBootSlabEntries @ 0x140C58FDC (MiCreateBootSlabEntries.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiFreeSmallPageFromMdl @ 0x140218CC8 (MiFreeSmallPageFromMdl.c)
+ *     MiReplenishSlabAllocator @ 0x14021E544 (MiReplenishSlabAllocator.c)
+ *     MiFinishHardFault @ 0x140255E80 (MiFinishHardFault.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
+ *     MiDeleteUltraMapContext @ 0x140352DF0 (MiDeleteUltraMapContext.c)
+ *     MiManageUltraSpacePageTable @ 0x140352F3C (MiManageUltraSpacePageTable.c)
+ *     MiFreeSlabEntry @ 0x1403533C8 (MiFreeSlabEntry.c)
+ *     MiFreePageFileHashPfns @ 0x140353E18 (MiFreePageFileHashPfns.c)
+ *     MiObtainMdlCharges @ 0x140394D20 (MiObtainMdlCharges.c)
+ *     MiReturnMdlCharges @ 0x140397B54 (MiReturnMdlCharges.c)
+ *     MiFreeLargePageCharges @ 0x1403988E0 (MiFreeLargePageCharges.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
+ *     MiCreateUltraThreadContextHelper @ 0x140412880 (MiCreateUltraThreadContextHelper.c)
+ *     MiReplenishUltraPageTables @ 0x1404129EC (MiReplenishUltraPageTables.c)
+ *     MiMapPageFileHash @ 0x140425FA8 (MiMapPageFileHash.c)
+ *     MiGetFileHashPage @ 0x1404264BC (MiGetFileHashPage.c)
+ *     MmFreeNonChargedSecurePages @ 0x140433BCC (MmFreeNonChargedSecurePages.c)
+ *     MiFreeSecureKernelPage @ 0x140433D48 (MiFreeSecureKernelPage.c)
+ *     MiDeleteProcessShadow @ 0x140451008 (MiDeleteProcessShadow.c)
+ *     MmAllocateNonChargedSecurePages @ 0x140498780 (MmAllocateNonChargedSecurePages.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x1404AE77C (MiPrefetchReleasePreallocatedPages.c)
+ *     MiDeleteSubsectionLargePages @ 0x1404C3EC4 (MiDeleteSubsectionLargePages.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
+ *     MiPfnRangeIsZero @ 0x14066F480 (MiPfnRangeIsZero.c)
+ *     MiUnlinkBadPages @ 0x1406759CC (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMoveBadPageChargesCrossPartition @ 0x14068478C (MiMoveBadPageChargesCrossPartition.c)
+ *     MmAllocateSecureKernelPages @ 0x140689BF4 (MmAllocateSecureKernelPages.c)
+ *     MiMoveBadPagePartition @ 0x14068C184 (MiMoveBadPagePartition.c)
+ *     MiStoreReleaseReservedPageCharges @ 0x14068D8B4 (MiStoreReleaseReservedPageCharges.c)
+ *     MiProcessVaContiguityInformation @ 0x14068E20C (MiProcessVaContiguityInformation.c)
+ *     MiAllocateFastAwePages @ 0x1407F8AAC (MiAllocateFastAwePages.c)
+ *     MiAllocateProcessShadow @ 0x140A51A70 (MiAllocateProcessShadow.c)
+ *     MiChargeSystemImageCommitment @ 0x140A9984C (MiChargeSystemImageCommitment.c)
+ *     MiCreateBootSlabEntries @ 0x140C5B16C (MiCreateBootSlabEntries.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiRestockOverCommit @ 0x14043A6C0 (MiRestockOverCommit.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRestockOverCommit @ 0x14042CEF4 (MiRestockOverCommit.c)
  */
 
 void __fastcall MiReleaseNonPagedResources(__int64 a1, unsigned __int64 a2)
@@ -74,11 +74,9 @@ void __fastcall MiReleaseNonPagedResources(__int64 a1, unsigned __int64 a2)
   struct _KEVENT *v22; // rcx
   struct _KEVENT *v23; // rcx
   struct _KEVENT *v24; // rcx
-  __int64 v25; // rbp
+  _DWORD *v25; // rbp
   volatile LONG *v26; // rcx
   KIRQL v27; // r14
-  __int64 v28; // rax
-  __int64 v29; // rdx
 
   v2 = a2;
   v4 = a2;
@@ -87,7 +85,7 @@ void __fastcall MiReleaseNonPagedResources(__int64 a1, unsigned __int64 a2)
     v5 = 17;
     if ( !*(_QWORD *)(a1 + 16904) )
       goto LABEL_3;
-    v25 = a1 + 16888;
+    v25 = (_DWORD *)(a1 + 16888);
     v26 = (volatile LONG *)(a1 + 16888);
     if ( KeGetCurrentIrql() == 2 )
     {
@@ -98,10 +96,8 @@ void __fastcall MiReleaseNonPagedResources(__int64 a1, unsigned __int64 a2)
     {
       v27 = ExAcquireSpinLockExclusive(v26);
     }
-    v28 = MiRestockOverCommit(a1, v2);
-    LOBYTE(v29) = v27;
-    v4 = v28;
-    MiReleaseSpinLockExclusive(v25, v29);
+    v4 = MiRestockOverCommit(a1, v2);
+    MiReleaseSpinLockExclusive(v25, v27);
     if ( v4 )
     {
 LABEL_3:
@@ -181,8 +177,7 @@ LABEL_32:
       }
       KeResetEvent(v22);
 LABEL_40:
-      LOBYTE(v20) = v5;
-      MiReleaseSpinLockExclusive(a1 + 16888, v20);
+      MiReleaseSpinLockExclusive((_DWORD *)(a1 + 16888), v5);
     }
   }
 LABEL_13:

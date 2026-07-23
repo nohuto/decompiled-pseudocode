@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetElementGenericTableAvl @ 0x14058BCF0
+ * XREFs of RtlGetElementGenericTableAvl @ 0x14058BF20
  * Callers:
  *     <none>
  * Callees:
- *     RealSuccessor @ 0x1402646C0 (RealSuccessor.c)
- *     RealPredecessor @ 0x1402CB1A8 (RealPredecessor.c)
+ *     RealPredecessor @ 0x140249A98 (RealPredecessor.c)
+ *     RealSuccessor @ 0x140252750 (RealSuccessor.c)
  */
 
 PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFreeOemString @ 0x18013C270
+ * XREFs of RtlFreeOemString @ 0x18013A460
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
  */
 
 void __stdcall RtlFreeOemString(POEM_STRING OemString)
@@ -12,5 +12,5 @@ void __stdcall RtlFreeOemString(POEM_STRING OemString)
 
   Buffer = OemString->Buffer;
   if ( Buffer )
-    RtlpSysVolFree((__int64)Buffer);
+    RtlpSysVolFree(Buffer);
 }

@@ -1,23 +1,25 @@
 /*
- * XREFs of TpDereferenceGlobalPool @ 0x180067320
+ * XREFs of TpDereferenceGlobalPool @ 0x180087770
  * Callers:
- *     RtlpTpWorkCallback @ 0x180066C90 (RtlpTpWorkCallback.c)
- *     RtlpTpIoDllLoaded @ 0x1800B7648 (RtlpTpIoDllLoaded.c)
- *     RtlpTpIoAlloc @ 0x1800B833C (RtlpTpIoAlloc.c)
+ *     RtlpTpWorkCallback @ 0x1800870E0 (RtlpTpWorkCallback.c)
+ *     RtlpTpIoDllLoaded @ 0x1800B4B68 (RtlpTpIoDllLoaded.c)
+ *     RtlpTpIoAlloc @ 0x1800B585C (RtlpTpIoAlloc.c)
  * Callees:
- *     TppPoolpDereferenceGlobalPool @ 0x18004EAA0 (TppPoolpDereferenceGlobalPool.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x180039020 (TppPoolpDereferenceGlobalPool.c)
  */
 
-struct _TEB *__fastcall TpDereferenceGlobalPool(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall TpDereferenceGlobalPool(__int64 a1, __int64 a2)
 {
-  struct _TEB *result; // rax
-  _BYTE *SubSystemTib; // rcx
+  _PEB_LDR_DATA *Ldr; // rcx
 
-  if ( a1 == TppPoolpGlobalPool && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
-  result = (struct _TEB *)NtCurrentPeb();
-  SubSystemTib = result->NtTib.SubSystemTib;
-  if ( !SubSystemTib[72] )
-    return (struct _TEB *)TppRaiseInvalidParameter(SubSystemTib, a2, a3);
-  return result;
+  if ( a1 != TppPoolpGlobalPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  {
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      TppRaiseInvalidParameter(Ldr, a2);
+  }
+  else
+  {
+    TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
+  }
 }

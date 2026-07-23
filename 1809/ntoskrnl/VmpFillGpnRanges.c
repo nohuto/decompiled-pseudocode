@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpFillGpnRanges @ 0x14030C3E8
+ * XREFs of VmpFillGpnRanges @ 0x14030C5D8
  * Callers:
- *     VmpPrefetchVirtualAddresses @ 0x14030CE30 (VmpPrefetchVirtualAddresses.c)
+ *     VmpPrefetchVirtualAddresses @ 0x14030D020 (VmpPrefetchVirtualAddresses.c)
  * Callees:
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x14030BF54 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14030C144 (VmpConvertPortionVpnRangeToGpnRange.c)
  */
 
 unsigned __int64 __fastcall VmpFillGpnRanges(

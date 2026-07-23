@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhContextSlotStandbyProcess @ 0x140347D20
+ * XREFs of RtlpHpLfhContextSlotStandbyProcess @ 0x140349DA0
  * Callers:
- *     RtlpHpLfhContextSlotAllocate @ 0x140346D68 (RtlpHpLfhContextSlotAllocate.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpHeapDestroy @ 0x1406386F4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x140348DE8 (RtlpHpLfhContextSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpHeapDestroy @ 0x14063B6F8 (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpLfhHeatMapQuery @ 0x140347720 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x140349230 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x1403493F0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhContextUnlockExtension @ 0x140530AB0 (RtlpHpLfhContextUnlockExtension.c)
- *     RtlpHpLfhContextLockExtension @ 0x14053148C (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x1403497A0 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14034B2B0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x14034B470 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhContextUnlockExtension @ 0x140532FB0 (RtlpHpLfhContextUnlockExtension.c)
+ *     RtlpHpLfhContextLockExtension @ 0x14053398C (RtlpHpLfhContextLockExtension.c)
  */
 
 _QWORD *__fastcall RtlpHpLfhContextSlotStandbyProcess(__int64 a1, __int64 a2)

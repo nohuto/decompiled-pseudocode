@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCheckForFreedEnhancedTimer @ 0x1400F9DA0
+ * XREFs of ExpCheckForFreedEnhancedTimer @ 0x1400F7B2C
  * Callers:
- *     ExCancelTimer @ 0x1400F965C (ExCancelTimer.c)
- *     ExSetTimer @ 0x1400F9D24 (ExSetTimer.c)
- *     ExDeleteTimer @ 0x140130A78 (ExDeleteTimer.c)
+ *     ExCancelTimer @ 0x1400F749C (ExCancelTimer.c)
+ *     ExSetTimer @ 0x1400F7AB0 (ExSetTimer.c)
+ *     ExDeleteTimer @ 0x140130FE8 (ExDeleteTimer.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall ExpCheckForFreedEnhancedTimer(ULONG_PTR BugCheckParameter1)

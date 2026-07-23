@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpAllocateOverlayPages @ 0x1401BFF38
+ * XREFs of HvlpAllocateOverlayPages @ 0x1401BFE1C
  * Callers:
- *     HvlInitializeProcessor @ 0x14054E4D8 (HvlInitializeProcessor.c)
+ *     HvlInitializeProcessor @ 0x14054E878 (HvlInitializeProcessor.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x14009AEA0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14009A6A0 (MmAllocateContiguousNodeMemory.c)
  */
 
 __int64 HvlpAllocateOverlayPages()

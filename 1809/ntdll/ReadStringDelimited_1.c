@@ -1,11 +1,11 @@
 /*
- * XREFs of ReadStringDelimited_1 @ 0x18009E23C
+ * XREFs of ReadStringDelimited_1 @ 0x18009E24C
  * Callers:
- *     _winput_s @ 0x18009E4B4 (_winput_s.c)
+ *     _winput_s @ 0x18009E4C4 (_winput_s.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ReadString_1 @ 0x18009DFFC (ReadString_1.c)
- *     _alloca_probe @ 0x1800A5210 (_alloca_probe.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ReadString_1 @ 0x18009E00C (ReadString_1.c)
+ *     _alloca_probe @ 0x1800A5230 (_alloca_probe.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

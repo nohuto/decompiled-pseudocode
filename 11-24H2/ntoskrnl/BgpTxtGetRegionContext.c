@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpTxtGetRegionContext @ 0x140BB3D94
+ * XREFs of BgpTxtGetRegionContext @ 0x140BB5D94
  * Callers:
- *     AnFwDisplayFade @ 0x140BB36EC (AnFwDisplayFade.c)
+ *     AnFwDisplayFade @ 0x140BB56EC (AnFwDisplayFade.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x140467320 (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x14045ED38 (BgpFwAllocateMemory.c)
  */
 
 __int64 __fastcall BgpTxtGetRegionContext(__int64 a1)

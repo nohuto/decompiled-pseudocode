@@ -18,104 +18,111 @@
  *     _RtlpHpGetUserInfo@20 @ 0x4B37872D (_RtlpHpGetUserInfo@20.c)
  */
 
-char __stdcall RtlGetUserInfoHeap(int a1, int a2, int a3, ULONG *a4, ULONG *a5)
+BOOLEAN __cdecl RtlGetUserInfoHeap(
+        PVOID HeapHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        PVOID *UserValue,
+        PULONG UserFlags)
 {
-  int v5; // eax
-  int v6; // esi
-  int v7; // ecx
-  ULONG ExtraStuffPointer; // eax
-  int v9; // esi
+  ULONG v5; // eax
+  char *v6; // esi
+  char *v7; // ecx
+  int ExtraStuffPointer; // eax
+  char *v9; // esi
   void *v10; // ecx
   struct _TEB *v11; // esi
   struct _TEB *v12; // esi
-  char v14; // [esp+18h] [ebp-24h]
-  int v15; // [esp+18h] [ebp-24h]
-  int v16; // [esp+1Ch] [ebp-20h]
-  char v17; // [esp+22h] [ebp-1Ah]
-  char v18; // [esp+23h] [ebp-19h]
+  PVOID v14; // [esp-10h] [ebp-4Ch]
+  char v15; // [esp+18h] [ebp-24h]
+  int v16; // [esp+18h] [ebp-24h]
+  char *v17; // [esp+1Ch] [ebp-20h]
+  char v18; // [esp+22h] [ebp-1Ah]
+  char v19; // [esp+23h] [ebp-19h]
 
-  v17 = 0;
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
+  v18 = 0;
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
   {
-    v15 = RtlpHpConvertFlagsToSegmentFlags(a2);
-    v10 = *(void **)(a1 + 176);
+    v16 = RtlpHpConvertFlagsToSegmentFlags(Flags);
+    v10 = (void *)*((_DWORD *)HeapHandle + 44);
     if ( v10 && v10 == NtCurrentTeb()->ClientId.UniqueThread )
-      v15 |= 1u;
-    LOBYTE(ExtraStuffPointer) = RtlpHpGetUserInfo(v15, a4, a5);
+      v16 |= 1u;
+    LOBYTE(ExtraStuffPointer) = RtlpHpGetUserInfo(v16, UserValue, UserFlags);
     return ExtraStuffPointer;
   }
-  v5 = *(_DWORD *)(a1 + 68) | a2;
-  v14 = *(_BYTE *)(a1 + 68) | a2;
+  v5 = *((_DWORD *)HeapHandle + 17) | Flags;
+  v15 = *((_BYTE *)HeapHandle + 68) | Flags;
   if ( (v5 & 0x61000000) != 0 && (v5 & 0x10000000) == 0 )
   {
-    LOBYTE(ExtraStuffPointer) = RtlDebugGetUserInfoHeap(a3, a4, a5);
+    LOBYTE(ExtraStuffPointer) = RtlDebugGetUserInfoHeap(BaseAddress, UserValue, UserFlags);
     return ExtraStuffPointer;
   }
-  if ( (v5 & 0x800) != 0 || (*(_BYTE *)(a1 + 72) & 1) != 0 )
+  if ( (v5 & 0x800) != 0 || (*((_BYTE *)HeapHandle + 72) & 1) != 0 )
   {
-    v6 = a3;
-    v7 = RtlpProbeUserBufferSafe(a1, a3);
+    v6 = (char *)BaseAddress;
+    v7 = (char *)RtlpProbeUserBufferSafe((int)HeapHandle, (int)BaseAddress);
     goto LABEL_5;
   }
-  if ( (a3 & 7) != 0 )
+  if ( ((unsigned __int8)BaseAddress & 7) != 0 )
   {
-    RtlpLogHeapFailure(a3, 0, 0, 0);
+    v14 = BaseAddress;
   }
   else
   {
-    v7 = a3 - 8;
-    if ( *(_BYTE *)(a3 - 8 + 7) == 5 )
-      v7 -= 8 * *(unsigned __int8 *)(v7 + 6);
-    if ( (*(_BYTE *)(v7 + 7) & 0x3F) != 0 )
+    v7 = (char *)BaseAddress - 8;
+    if ( *((char *)BaseAddress - 1) == 5 )
+      v7 -= 8 * (unsigned __int8)v7[6];
+    if ( (v7[7] & 0x3F) != 0 )
       goto LABEL_29;
-    RtlpLogHeapFailure(v7, 0, 0, 0);
+    v14 = v7;
   }
+  RtlpLogHeapFailure(v14, 0, 0, 0);
   v7 = 0;
 LABEL_29:
-  v6 = a3;
+  v6 = (char *)BaseAddress;
 LABEL_5:
   if ( !v7 )
     goto LABEL_44;
-  LOBYTE(ExtraStuffPointer) = *(_BYTE *)(v7 + 7);
+  LOBYTE(ExtraStuffPointer) = v7[7];
   if ( (ExtraStuffPointer & 0x80u) == 0 )
   {
-    v18 = 0;
+    v19 = 0;
     v9 = v6 - 8;
-    if ( *(_BYTE *)(v9 + 7) == 5 )
+    if ( v9[7] == 5 )
     {
-      ExtraStuffPointer = 8 * *(unsigned __int8 *)(v9 + 6);
+      ExtraStuffPointer = 8 * (unsigned __int8)v9[6];
       v9 -= ExtraStuffPointer;
     }
-    v16 = v9;
-    if ( (v14 & 1) == 0 )
+    v17 = v9;
+    if ( (v15 & 1) == 0 )
     {
-      LOBYTE(ExtraStuffPointer) = RtlEnterCriticalSection(*(_DWORD *)(a1 + 200));
-      v17 = 1;
+      LOBYTE(ExtraStuffPointer) = RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
+      v18 = 1;
     }
-    if ( *(_DWORD *)(a1 + 76) )
+    if ( *((_DWORD *)HeapHandle + 19) )
     {
-      *(_DWORD *)v9 ^= *(_DWORD *)(a1 + 80);
-      LOBYTE(ExtraStuffPointer) = *(_BYTE *)v9 ^ *(_BYTE *)(v9 + 1) ^ *(_BYTE *)(v9 + 2);
-      if ( *(_BYTE *)(v9 + 3) != (_BYTE)ExtraStuffPointer )
+      *(_DWORD *)v9 ^= *((_DWORD *)HeapHandle + 20);
+      LOBYTE(ExtraStuffPointer) = *v9 ^ v9[1] ^ v9[2];
+      if ( v9[3] != (_BYTE)ExtraStuffPointer )
         LOBYTE(ExtraStuffPointer) = RtlpAnalyzeHeapFailure(v7);
     }
-    if ( (*(_BYTE *)(v9 + 7) & 0x3F) != 0 )
+    if ( (v9[7] & 0x3F) != 0 )
     {
-      if ( (*(_BYTE *)(v9 + 2) & 2) != 0 )
+      if ( (v9[2] & 2) != 0 )
       {
         ExtraStuffPointer = RtlpGetExtraStuffPointer(v9);
-        if ( a4 )
+        if ( UserValue )
         {
           ExtraStuffPointer = *(_DWORD *)(ExtraStuffPointer + 4);
-          *a4 = ExtraStuffPointer;
+          *UserValue = (PVOID)ExtraStuffPointer;
         }
       }
-      if ( a5 )
+      if ( UserFlags )
       {
-        ExtraStuffPointer = 16 * (*(_BYTE *)(v9 + 2) & 0xE0);
-        *a5 = ExtraStuffPointer;
+        ExtraStuffPointer = 16 * (v9[2] & 0xE0);
+        *UserFlags = ExtraStuffPointer;
       }
-      v18 = 1;
+      v19 = 1;
     }
     else
     {
@@ -123,18 +130,18 @@ LABEL_5:
       v12 = NtCurrentTeb();
       ExtraStuffPointer = RtlNtStatusToDosError(-1073741811);
       v12->LastErrorValue = ExtraStuffPointer;
-      v9 = v16;
+      v9 = v17;
     }
-    if ( *(_DWORD *)(a1 + 76) )
+    if ( *((_DWORD *)HeapHandle + 19) )
     {
-      *(_BYTE *)(v9 + 3) = *(_BYTE *)v9 ^ *(_BYTE *)(v9 + 1) ^ *(_BYTE *)(v9 + 2);
-      ExtraStuffPointer = *(_DWORD *)(a1 + 80);
+      v9[3] = *v9 ^ v9[1] ^ v9[2];
+      ExtraStuffPointer = *((_DWORD *)HeapHandle + 20);
       *(_DWORD *)v9 ^= ExtraStuffPointer;
     }
-    if ( v17 )
+    if ( v18 )
     {
-      RtlLeaveCriticalSection(*(_DWORD *)(a1 + 200));
-      LOBYTE(ExtraStuffPointer) = v18;
+      RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
+      LOBYTE(ExtraStuffPointer) = v19;
     }
     return ExtraStuffPointer;
   }
@@ -147,8 +154,8 @@ LABEL_44:
     LOBYTE(ExtraStuffPointer) = 0;
     return ExtraStuffPointer;
   }
-  if ( a5 )
-    *a5 = 0;
+  if ( UserFlags )
+    *UserFlags = 0;
   LOBYTE(ExtraStuffPointer) = 1;
   return ExtraStuffPointer;
 }

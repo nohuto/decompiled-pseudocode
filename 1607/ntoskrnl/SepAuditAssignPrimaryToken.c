@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAuditAssignPrimaryToken @ 0x140580038
+ * XREFs of SepAuditAssignPrimaryToken @ 0x1405804E4
  * Callers:
- *     SeAssignPrimaryToken @ 0x14057FFCC (SeAssignPrimaryToken.c)
- *     SeExchangePrimaryToken @ 0x140692774 (SeExchangePrimaryToken.c)
+ *     SeAssignPrimaryToken @ 0x140580478 (SeAssignPrimaryToken.c)
+ *     SeExchangePrimaryToken @ 0x140692858 (SeExchangePrimaryToken.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1400B2E10 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsGetCurrentThreadProcess @ 0x1400B0D5C (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E6A00 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E8030 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 void __fastcall SepAuditAssignPrimaryToken(__int64 a1, __int64 a2)

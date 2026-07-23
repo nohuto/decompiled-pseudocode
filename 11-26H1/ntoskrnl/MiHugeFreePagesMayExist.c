@@ -1,9 +1,9 @@
 /*
- * XREFs of MiHugeFreePagesMayExist @ 0x1404A923C
+ * XREFs of MiHugeFreePagesMayExist @ 0x1404A28CC
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x1404C2588 (MiGetBackgroundHugePageToZero.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1404BBDD8 (MiGetBackgroundHugePageToZero.c)
  * Callees:
- *     MiGetHugeFreePageCount @ 0x1404A9290 (MiGetHugeFreePageCount.c)
+ *     MiGetHugeFreePageCount @ 0x1404A2920 (MiGetHugeFreePageCount.c)
  */
 
 __int64 __fastcall MiHugeFreePagesMayExist(__int64 a1, __int64 a2)

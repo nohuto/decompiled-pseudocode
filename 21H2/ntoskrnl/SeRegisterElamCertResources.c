@@ -1,14 +1,14 @@
 /*
- * XREFs of SeRegisterElamCertResources @ 0x1407AB9BC
+ * XREFs of SeRegisterElamCertResources @ 0x1407ABBBC
  * Callers:
- *     ExpQueryElamCertInfo @ 0x14094A8D8 (ExpQueryElamCertInfo.c)
- *     PipInitializeEarlyLaunchDrivers @ 0x140A5B484 (PipInitializeEarlyLaunchDrivers.c)
+ *     ExpQueryElamCertInfo @ 0x14094AAA8 (ExpQueryElamCertInfo.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140A5C484 (PipInitializeEarlyLaunchDrivers.c)
  * Callees:
- *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
- *     SepParseElamCertResources @ 0x1407ABA50 (SepParseElamCertResources.c)
+ *     LdrResSearchResource @ 0x1405EBFB0 (LdrResSearchResource.c)
+ *     SepParseElamCertResources @ 0x1407ABC50 (SepParseElamCertResources.c)
  */
 
-__int64 __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a3)
+__int64 __fastcall SeRegisterElamCertResources(unsigned __int64 a1, __int64 a2, char a3)
 {
   __int64 result; // rax
   _QWORD v4[5]; // [rsp+40h] [rbp-28h] BYREF

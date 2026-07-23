@@ -12,7 +12,7 @@ void __stdcall TlgCreateWsz(PEVENT_DATA_DESCRIPTOR pDesc, LPCWSTR pwsz)
   LPCWSTR v2; // r8
   __int64 v3; // rax
 
-  v2 = (LPCWSTR)&unk_18011E4A0;
+  v2 = &word_18011E4A0;
   LODWORD(v3) = 0;
   if ( pwsz )
   {

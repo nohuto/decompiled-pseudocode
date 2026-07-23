@@ -1,16 +1,16 @@
 /*
- * XREFs of PopUmpoProcessPowerMessage @ 0x14058B0C0
+ * XREFs of PopUmpoProcessPowerMessage @ 0x14058C0C0
  * Callers:
- *     PopUmpoProcessMessage @ 0x14058AF88 (PopUmpoProcessMessage.c)
+ *     PopUmpoProcessMessage @ 0x14058BF88 (PopUmpoProcessMessage.c)
  * Callees:
  *     PopProcessPowerRequestOverrideQueryResponse @ 0x14000327C (PopProcessPowerRequestOverrideQueryResponse.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x140142470 (PopIdleCancelAoAcDozeS4Timer.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x1402E4C2C (PopIdleArmAoAcDozeS4Timer.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PopSetNewPolicyValue @ 0x14058B120 (PopSetNewPolicyValue.c)
- *     PopPowerRequestOverrideInitialize @ 0x140763490 (PopPowerRequestOverrideInitialize.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140142570 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x1402E4E1C (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
+ *     PopSetNewPolicyValue @ 0x14058C120 (PopSetNewPolicyValue.c)
+ *     PopPowerRequestOverrideInitialize @ 0x140764680 (PopPowerRequestOverrideInitialize.c)
  */
 
 __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
@@ -38,8 +38,8 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
     case 0xE:
       v2 = *(_DWORD *)(a1 + 8);
       PopAcquirePolicyLock();
-      dword_140417670 = v2;
-      if ( byte_140417691 )
+      dword_1404186F0 = v2;
+      if ( byte_140418711 )
       {
         PopIdleCancelAoAcDozeS4Timer(4u);
         PopIdleArmAoAcDozeS4Timer();

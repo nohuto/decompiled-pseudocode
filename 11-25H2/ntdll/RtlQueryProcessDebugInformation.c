@@ -31,371 +31,399 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlQueryProcessDebugInformation(__int128 *a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlQueryProcessDebugInformation(HANDLE UniqueProcessId, ULONG Flags, PRTL_DEBUG_INFORMATION Buffer)
 {
-  NTSTATUS ProcessModuleInformation; // ebx
+  int ProcessModuleInformation; // ebx
   HANDLE v7; // r13
-  __int128 *v8; // rax
-  int v9; // r14d
-  __int64 v10; // r8
-  bool v11; // dl
-  __int128 *v12; // rcx
-  HANDLE v13; // rax
-  struct _TEB *v14; // rcx
+  HANDLE TargetProcessId; // rax
+  SIZE_T OffsetFree; // r8
+  bool v10; // dl
+  __int128 *v11; // rcx
+  HANDLE v12; // rax
+  struct _TEB *v13; // rcx
   __int64 WowTebOffset; // rax
-  _WORD *v16; // rax
-  void (__fastcall __noreturn *v17)(); // rbx
-  int v18; // r12d
-  __int64 result; // rax
-  HANDLE v20; // r15
-  HANDLE v21; // r14
-  size_t v22; // rax
-  __int64 v23; // rax
-  unsigned int v24; // eax
-  __int64 v25; // rcx
-  HANDLE *v26; // rbx
-  int v27; // eax
-  int v28; // edx
-  __int16 v29; // cx
-  __int64 v30; // r8
-  HANDLE v31; // r14
-  NTSTATUS v32; // eax
+  _WORD *v15; // rax
+  NTSTATUS (__cdecl *v16)(PVOID); // rbx
+  int v17; // r12d
+  NTSTATUS result; // eax
+  HANDLE v19; // r15
+  HANDLE TargetProcessHandle; // r14
+  size_t v21; // rax
+  PVOID ViewBaseTarget; // rax
+  NTSTATUS v23; // eax
+  HANDLE CriticalSectionHandle; // rcx
+  HANDLE *p_SystemInformation; // rbx
+  NTSTATUS v26; // eax
+  int v27; // edx
+  __int16 v28; // cx
+  __int64 v29; // r8
+  HANDLE v30; // r14
+  int v31; // eax
+  unsigned __int64 v32; // rcx
   unsigned __int64 v33; // rcx
-  unsigned __int64 v34; // rcx
+  void *v34; // rsp
   void *v35; // rsp
-  void *v36; // rsp
-  HANDLE v37; // [rsp+60h] [rbp+0h] BYREF
-  HANDLE v38; // [rsp+68h] [rbp+8h]
-  HANDLE ProcessHandle; // [rsp+70h] [rbp+10h] BYREF
-  unsigned int v40; // [rsp+78h] [rbp+18h] BYREF
-  __int64 v41; // [rsp+80h] [rbp+20h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp+28h] BYREF
-  __int128 v43; // [rsp+90h] [rbp+30h] BYREF
-  void (__fastcall __noreturn *v44)(); // [rsp+A0h] [rbp+40h]
-  __int128 v45; // [rsp+A8h] [rbp+48h] BYREF
-  __int128 v46; // [rsp+B8h] [rbp+58h]
-  __int128 v47; // [rsp+C8h] [rbp+68h]
+  HANDLE ProcessHandle; // [rsp+60h] [rbp+0h] BYREF
+  HANDLE OutputBuffer; // [rsp+68h] [rbp+8h] BYREF
+  HANDLE ThreadHandle; // [rsp+70h] [rbp+10h] BYREF
+  ULONG ReturnLength; // [rsp+78h] [rbp+18h] BYREF
+  ULONG_PTR NumberOfBytesRead; // [rsp+80h] [rbp+20h] BYREF
+  HANDLE TargetHandle; // [rsp+88h] [rbp+28h] BYREF
+  _CLIENT_ID ClientId; // [rsp+90h] [rbp+30h] BYREF
+  PUSER_THREAD_START_ROUTINE StartRoutine; // [rsp+A0h] [rbp+40h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp+48h] BYREF
   LARGE_INTEGER Timeout; // [rsp+D8h] [rbp+78h] BYREF
-  __int128 v49; // [rsp+E0h] [rbp+80h] BYREF
-  NTSTATUS (__stdcall *v50)(HANDLE, PROCESSINFOCLASS, PVOID, ULONG, PULONG); // [rsp+F0h] [rbp+90h]
-  __int128 v51; // [rsp+F8h] [rbp+98h] BYREF
-  __int128 v52; // [rsp+108h] [rbp+A8h]
-  __int64 v53; // [rsp+118h] [rbp+B8h]
-  _QWORD v54[4]; // [rsp+120h] [rbp+C0h] BYREF
-  __int128 v55; // [rsp+140h] [rbp+E0h]
-  _OWORD v56[2]; // [rsp+150h] [rbp+F0h] BYREF
-  __int64 v57; // [rsp+170h] [rbp+110h]
-  int v58; // [rsp+178h] [rbp+118h]
+  __int128 v46; // [rsp+E0h] [rbp+80h] BYREF
+  NTSTATUS (__stdcall *v47)(HANDLE, PROCESSINFOCLASS, PVOID, ULONG, PULONG); // [rsp+F0h] [rbp+90h]
+  __int128 InputBuffer; // [rsp+F8h] [rbp+98h] BYREF
+  __int128 v49; // [rsp+108h] [rbp+A8h]
+  __int64 v50; // [rsp+118h] [rbp+B8h]
+  _OBJECT_ATTRIBUTES v51; // [rsp+120h] [rbp+C0h] BYREF
+  _OWORD ThreadInformation[2]; // [rsp+150h] [rbp+F0h] BYREF
+  __int64 v53; // [rsp+170h] [rbp+110h]
+  int v54; // [rsp+178h] [rbp+118h]
   _QWORD ProcessInformation[2]; // [rsp+180h] [rbp+120h] BYREF
-  __int128 v60; // [rsp+190h] [rbp+130h]
-  __int128 v61; // [rsp+1A0h] [rbp+140h]
-  __int128 v62; // [rsp+1B0h] [rbp+150h]
-  _QWORD v63[6]; // [rsp+1C0h] [rbp+160h] BYREF
-  __int128 v64; // [rsp+1F0h] [rbp+190h]
-  __int64 v65; // [rsp+200h] [rbp+1A0h]
-  _BYTE v66[4]; // [rsp+230h] [rbp+1D0h] BYREF
-  int v67; // [rsp+234h] [rbp+1D4h]
-  void (__fastcall __noreturn *v68)(); // [rsp+270h] [rbp+210h]
-  __int128 v69; // [rsp+360h] [rbp+300h] BYREF
-  HANDLE v70; // [rsp+370h] [rbp+310h]
+  __int128 v56; // [rsp+190h] [rbp+130h]
+  __int128 v57; // [rsp+1A0h] [rbp+140h]
+  __int128 v58; // [rsp+1B0h] [rbp+150h]
+  _PS_ATTRIBUTE_LIST AttributeList; // [rsp+1C0h] [rbp+160h] BYREF
+  __int64 v60; // [rsp+1E8h] [rbp+188h]
+  __int128 v61; // [rsp+1F0h] [rbp+190h]
+  __int64 v62; // [rsp+200h] [rbp+1A0h]
+  _BYTE Buffera[4]; // [rsp+230h] [rbp+1D0h] BYREF
+  int v64; // [rsp+234h] [rbp+1D4h]
+  NTSTATUS (__cdecl *v65)(PVOID); // [rsp+270h] [rbp+210h]
+  __int128 SystemInformation; // [rsp+360h] [rbp+300h] BYREF
+  HANDLE v67; // [rsp+370h] [rbp+310h]
 
-  v57 = 0LL;
-  v58 = 0;
-  *(_QWORD *)&v47 = 0LL;
-  DWORD2(v47) = 0;
-  LODWORD(v38) = 0;
-  v44 = RtlpQueryProcessDebugInformationRemote;
+  v53 = 0LL;
+  v54 = 0;
+  LODWORD(OutputBuffer) = 0;
+  StartRoutine = (PUSER_THREAD_START_ROUTINE)RtlpQueryProcessDebugInformationRemote;
   ProcessModuleInformation = 0;
-  v37 = 0LL;
-  v50 = 0LL;
+  ProcessHandle = 0LL;
+  v47 = 0LL;
   v7 = 0LL;
-  v8 = *(__int128 **)(a3 + 48);
-  memset(v56, 0, sizeof(v56));
-  v45 = 0LL;
+  TargetProcessId = Buffer->TargetProcessId;
+  memset(ThreadInformation, 0, sizeof(ThreadInformation));
+  memset(&ObjectAttributes, 0, 44);
+  ClientId = 0LL;
   v46 = 0LL;
-  v43 = 0LL;
-  v49 = 0LL;
-  if ( v8 && v8 != a1 )
-    return 3221225485LL;
-  v9 = a2 & 0x3FFFFFBE;
-  if ( (a2 & 0x3FFFFFBE) != 0 && (a2 & 0x40000000) != 0 )
-    return 3221225659LL;
-  *(_DWORD *)(a3 + 64) = a2;
-  v10 = *(_QWORD *)(a3 + 72);
+  if ( TargetProcessId && TargetProcessId != UniqueProcessId )
+    return -1073741811;
+  if ( (Flags & 0x3FFFFFBE) != 0 && (Flags & 0x40000000) != 0 )
+    return -1073741637;
+  Buffer->Flags = Flags;
+  OffsetFree = Buffer->OffsetFree;
   Timeout.QuadPart = -600000000LL;
+  if ( OffsetFree )
+    memset_thunk_772440563353939046(&Buffer[1], 0, OffsetFree - 208);
+  Buffer->OffsetFree = 208LL;
+  if ( Flags == -2147481600 )
+    return RtlpQueryCriticalSectionOwner(UniqueProcessId, Buffer);
+  v10 = 0;
+  if ( (Flags & 0x3FFFFFBE) == 0 )
+    v10 = (Flags & 0x80000000) != 0 && (Flags & 0x41) != 0;
   if ( v10 )
-    memset_thunk_772440563353939046((void *)(a3 + 208), 0, v10 - 208);
-  *(_QWORD *)(a3 + 72) = 208LL;
-  if ( a2 == -2147481600 )
-    return RtlpQueryCriticalSectionOwner(a1, a3);
-  v11 = 0;
-  if ( !v9 )
-    v11 = a2 < 0 && (a2 & 0x41) != 0;
-  if ( v11 )
   {
-    if ( (a2 & 0x40000000) != 0 )
+    if ( (Flags & 0x40000000) != 0 )
     {
-      v12 = a1;
+      v11 = (__int128 *)UniqueProcessId;
     }
-    else if ( NtCurrentTeb()->ClientId.UniqueProcess == a1 )
+    else if ( NtCurrentTeb()->ClientId.UniqueProcess == UniqueProcessId )
     {
-      v12 = 0LL;
+      v11 = 0LL;
     }
     else
     {
-      *((_QWORD *)&v45 + 1) = 0LL;
-      DWORD2(v46) = 0;
-      *(_QWORD *)&v46 = 0LL;
-      LODWORD(v45) = 48;
-      v47 = 0LL;
-      v43 = (unsigned __int64)a1;
-      if ( (int)NtOpenProcess(&v37, 0x1FFFFFLL, &v45, &v43) >= 0 )
+      memset(&ObjectAttributes.RootDirectory, 0, 20);
+      ClientId.UniqueThread = 0LL;
+      ObjectAttributes.Length = 48;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ClientId.UniqueProcess = UniqueProcessId;
+      if ( NtOpenProcess(&ProcessHandle, 0x1FFFFFu, &ObjectAttributes, &ClientId) >= 0 )
       {
-        v13 = v37;
+        v12 = ProcessHandle;
       }
       else
       {
-        v13 = 0LL;
-        v37 = 0LL;
+        v12 = 0LL;
+        ProcessHandle = 0LL;
       }
-      *(_QWORD *)&v49 = v13;
-      v12 = &v49;
-      *((_QWORD *)&v49 + 1) = RtlpQueryReadVirtualMemory;
-      v50 = NtQueryInformationProcess;
+      *(_QWORD *)&v46 = v12;
+      v11 = &v46;
+      *((_QWORD *)&v46 + 1) = RtlpQueryReadVirtualMemory;
+      v47 = NtQueryInformationProcess;
     }
   }
   else
   {
-    v12 = 0LL;
+    v11 = 0LL;
   }
-  if ( NtCurrentTeb()->ClientId.UniqueProcess == a1 || (a2 & 0x40000000) != 0 || v37 )
+  if ( NtCurrentTeb()->ClientId.UniqueProcess == UniqueProcessId || (Flags & 0x40000000) != 0 || ProcessHandle )
   {
-    if ( ((a2 & 0x41) == 0
-       || (ProcessModuleInformation = RtlQueryProcessModuleInformation(v12, (unsigned int)a2, a3)) == 0)
-      && ((a2 & 2) == 0 || (ProcessModuleInformation = RtlQueryProcessBackTraceInformation(a3)) == 0)
-      && ((a2 & 0x20) == 0 || (ProcessModuleInformation = RtlQueryProcessLockInformation(a3)) == 0)
-      && ((a2 & 0x21C) == 0 || (ProcessModuleInformation = RtlQueryProcessHeapInformation(a3)) == 0)
-      && ((a2 & 0x80u) == 0 || (ProcessModuleInformation = AVrfpQueryProcessVerifierOptions(a3)) == 0)
-      && (a2 & 0xC00) != 0 )
+    if ( ((Flags & 0x41) == 0 || (ProcessModuleInformation = RtlQueryProcessModuleInformation(v11, Flags, Buffer)) == 0)
+      && ((Flags & 2) == 0 || (ProcessModuleInformation = RtlQueryProcessBackTraceInformation(Buffer)) == 0)
+      && ((Flags & 0x20) == 0 || (ProcessModuleInformation = RtlQueryProcessLockInformation(Buffer)) == 0)
+      && ((Flags & 0x21C) == 0 || (ProcessModuleInformation = RtlQueryProcessHeapInformation(Buffer)) == 0)
+      && ((Flags & 0x80u) == 0 || (ProcessModuleInformation = AVrfpQueryProcessVerifierOptions(Buffer)) == 0)
+      && (Flags & 0xC00) != 0 )
     {
-      v25 = *(_QWORD *)(a3 + 160);
-      *(_QWORD *)(a3 + 168) = 0LL;
+      CriticalSectionHandle = Buffer->CriticalSectionHandle;
+      Buffer->CriticalSectionOwnerThread = 0LL;
       ProcessModuleInformation = 0;
-      if ( v25 )
-        *(_QWORD *)(a3 + 168) = RtlQueryCriticalSectionOwner(v25, (a2 & 0x800) != 0);
+      if ( CriticalSectionHandle )
+        Buffer->CriticalSectionOwnerThread = RtlQueryCriticalSectionOwner(CriticalSectionHandle);
       else
         ProcessModuleInformation = -1073741811;
     }
-    if ( v37 )
-      NtClose(v37);
-    return (unsigned int)ProcessModuleInformation;
+    if ( ProcessHandle )
+      NtClose(ProcessHandle);
+    return ProcessModuleInformation;
   }
-  if ( a2 >= 0 && ((a2 - 1024) & 0xFFFFFBFF) == 0 )
+  if ( (Flags & 0x80000000) == 0 && ((Flags - 1024) & 0xFFFFFBFF) == 0 )
   {
-    *((_QWORD *)&v45 + 1) = 0LL;
-    DWORD2(v46) = 0;
-    *(_QWORD *)&v46 = 0LL;
-    LODWORD(v45) = 48;
-    v47 = 0LL;
-    v43 = (unsigned __int64)a1;
-    if ( (int)NtOpenProcess(&v37, 4096LL, &v45, &v43) < 0 )
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ClientId.UniqueThread = 0LL;
+    ObjectAttributes.Length = 48;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ClientId.UniqueProcess = UniqueProcessId;
+    if ( NtOpenProcess(&ProcessHandle, 0x1000u, &ObjectAttributes, &ClientId) < 0 )
     {
 LABEL_39:
-      v37 = 0LL;
+      ProcessHandle = 0LL;
       goto LABEL_40;
     }
-    ProcessHandle = v37;
-    if ( v37 != (HANDLE)-1LL )
+    ThreadHandle = ProcessHandle;
+    if ( ProcessHandle != (HANDLE)-1LL )
       goto LABEL_95;
     if ( !NtCurrentTeb()->WowTebOffset )
     {
 LABEL_38:
-      NtClose(v37);
+      NtClose(ProcessHandle);
       goto LABEL_39;
     }
-    v14 = NtCurrentTeb();
-    WowTebOffset = v14->WowTebOffset;
+    v13 = NtCurrentTeb();
+    WowTebOffset = v13->WowTebOffset;
     if ( (int)WowTebOffset < 0 )
-      v14 = (struct _TEB *)((char *)v14 + WowTebOffset);
-    v16 = (_DWORD)v14 == LODWORD(v14->NtTib.SubSystemTib)
-        ? (_WORD *)LODWORD(v14->glDispatchTable[137])
-        : v14->TlsSlots[10];
-    if ( !v16 || !v16[17] || !v16[16] )
+      v13 = (struct _TEB *)((char *)v13 + WowTebOffset);
+    v15 = (_DWORD)v13 == LODWORD(v13->NtTib.SubSystemTib)
+        ? (_WORD *)LODWORD(v13->glDispatchTable[137])
+        : v13->TlsSlots[10];
+    if ( !v15 || !v15[17] || !v15[16] )
     {
 LABEL_95:
-      v40 = 20;
-      v26 = (HANDLE *)&v69;
-      v27 = NtQuerySystemInformationEx(230LL, &ProcessHandle, 8LL, &v69, 20, &v40);
-      if ( v27 == -1073741789 )
+      ReturnLength = 20;
+      p_SystemInformation = (HANDLE *)&SystemInformation;
+      v26 = NtQuerySystemInformationEx(
+              SystemSupportedProcessorArchitectures2,
+              &ThreadHandle,
+              8u,
+              &SystemInformation,
+              0x14u,
+              &ReturnLength);
+      if ( v26 == -1073741789 )
       {
-        v33 = v40 + 15LL;
-        if ( v33 <= v40 )
-          v33 = 0xFFFFFFFFFFFFFF0LL;
-        v34 = v33 & 0xFFFFFFFFFFFFFFF0uLL;
-        v35 = alloca(v34);
-        v36 = alloca(v34);
-        v26 = &v37;
-        v27 = NtQuerySystemInformationEx(230LL, &ProcessHandle, 8LL, &v37, v40, &v40);
+        v32 = ReturnLength + 15LL;
+        if ( v32 <= ReturnLength )
+          v32 = 0xFFFFFFFFFFFFFF0LL;
+        v33 = v32 & 0xFFFFFFFFFFFFFFF0uLL;
+        v34 = alloca(v33);
+        v35 = alloca(v33);
+        p_SystemInformation = &ProcessHandle;
+        v26 = NtQuerySystemInformationEx(
+                SystemSupportedProcessorArchitectures2,
+                &ThreadHandle,
+                8u,
+                &ProcessHandle,
+                ReturnLength,
+                &ReturnLength);
       }
-      if ( v27 < 0 )
+      if ( v26 < 0 )
         goto LABEL_38;
-      v28 = *(_DWORD *)v26;
-      v29 = 0;
-      LODWORD(v30) = 0;
-      if ( !(unsigned __int16)*(_DWORD *)v26 )
+      v27 = *(_DWORD *)p_SystemInformation;
+      v28 = 0;
+      LODWORD(v29) = 0;
+      if ( !(unsigned __int16)*(_DWORD *)p_SystemInformation )
         goto LABEL_38;
       do
       {
-        if ( (v28 & 0x80000) != 0 && (v28 & 0x40000) == 0 && (v28 & 0x100000) != 0 )
-          v29 = v28;
-        v30 = (unsigned int)(v30 + 1);
-        v28 = *((_DWORD *)v26 + v30);
+        if ( (v27 & 0x80000) != 0 && (v27 & 0x40000) == 0 && (v27 & 0x100000) != 0 )
+          v28 = v27;
+        v29 = (unsigned int)(v29 + 1);
+        v27 = *((_DWORD *)p_SystemInformation + v29);
       }
-      while ( (_WORD)v28 );
-      if ( !v29 )
+      while ( (_WORD)v27 );
+      if ( !v28 )
         goto LABEL_38;
     }
-    Handle = 0LL;
-    v17 = 0LL;
-    if ( (int)ZwDuplicateObject(-1LL, v37, -1LL, &Handle, 16, 0, 0) >= 0 )
+    TargetHandle = 0LL;
+    v16 = 0LL;
+    if ( ZwDuplicateObject(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           ProcessHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &TargetHandle,
+           0x10u,
+           0,
+           0) >= 0 )
     {
-      v67 = 0;
-      memset_thunk_772440563353939046(v66, 0, 0x124uLL);
-      v41 = 0LL;
-      if ( (int)ZwReadVirtualMemory(Handle, &LdrSystemDllInitBlock, v66, 296LL, &v41) >= 0 && v41 == 296 )
-        v17 = v68;
-      NtClose(Handle);
-      if ( v17 )
+      v64 = 0;
+      memset_thunk_772440563353939046(Buffera, 0, 0x124uLL);
+      NumberOfBytesRead = 0LL;
+      if ( ZwReadVirtualMemory(TargetHandle, &LdrSystemDllInitBlock, Buffera, 0x128uLL, &NumberOfBytesRead) >= 0
+        && NumberOfBytesRead == 296 )
       {
-        v44 = v17;
-        LODWORD(v38) = 1;
+        v16 = v65;
+      }
+      NtClose(TargetHandle);
+      if ( v16 )
+      {
+        StartRoutine = v16;
+        LODWORD(OutputBuffer) = 1;
       }
     }
     goto LABEL_38;
   }
 LABEL_40:
-  v18 = (int)v38;
-  ProcessHandle = 0LL;
-  result = RtlpChangeQueryDebugBufferTarget(a3, a1, (unsigned int)v38, &ProcessHandle);
-  if ( (int)result < 0 )
+  v17 = (int)OutputBuffer;
+  ThreadHandle = 0LL;
+  result = RtlpChangeQueryDebugBufferTarget(Buffer, UniqueProcessId, (unsigned int)OutputBuffer, &ThreadHandle);
+  if ( result < 0 )
     return result;
-  v20 = ProcessHandle;
-  v21 = ProcessHandle;
-  if ( !ProcessHandle )
-    v21 = *(HANDLE *)(a3 + 136);
+  v19 = ThreadHandle;
+  TargetProcessHandle = ThreadHandle;
+  if ( !ThreadHandle )
+    TargetProcessHandle = Buffer->TargetProcessHandle;
   ProcessInformation[0] = 64LL;
-  v53 = 0LL;
-  v38 = 0LL;
+  v50 = 0LL;
+  OutputBuffer = 0LL;
   ProcessInformation[1] = 0LL;
-  v60 = 0LL;
-  v61 = 0LL;
-  v62 = 0LL;
-  v51 = 0LL;
-  v52 = 0LL;
-  ProcessModuleInformation = NtQueryInformationProcess(v21, ProcessBasicInformation, ProcessInformation, 0x40u, 0LL);
+  v56 = 0LL;
+  v57 = 0LL;
+  v58 = 0LL;
+  InputBuffer = 0LL;
+  v49 = 0LL;
+  ProcessModuleInformation = NtQueryInformationProcess(
+                               TargetProcessHandle,
+                               ProcessBasicInformation,
+                               ProcessInformation,
+                               0x40u,
+                               0LL);
   if ( ProcessModuleInformation < 0 )
     goto LABEL_111;
-  if ( (BYTE8(v62) & 0x40) != 0 )
+  if ( (BYTE8(v58) & 0x40) != 0 )
   {
-    DWORD1(v51) = 1;
-    *((_QWORD *)&v51 + 1) = 0LL;
-    *(_QWORD *)&v52 = L"QueryDebugInformation request";
-    v22 = 2 * wcslen(L"QueryDebugInformation request");
-    if ( v22 >= 0xFFFE )
-      LOWORD(v22) = -4;
-    WORD4(v51) = v22;
-    WORD5(v51) = v22 + 2;
-    ProcessModuleInformation = NtPowerInformation(72LL, &v51);
+    DWORD1(InputBuffer) = 1;
+    *((_QWORD *)&InputBuffer + 1) = 0LL;
+    *(_QWORD *)&v49 = L"QueryDebugInformation request";
+    v21 = 2 * wcslen(L"QueryDebugInformation request");
+    if ( v21 >= 0xFFFE )
+      LOWORD(v21) = -4;
+    WORD4(InputBuffer) = v21;
+    WORD5(InputBuffer) = v21 + 2;
+    ProcessModuleInformation = NtPowerInformation(PlmPowerRequestCreate, &InputBuffer, 0x28u, &OutputBuffer, 8u);
     if ( ProcessModuleInformation >= 0 )
     {
-      v70 = v21;
-      *(_WORD *)((char *)&v69 + 13) = 0;
-      HIBYTE(v69) = 0;
-      *(_QWORD *)&v69 = v38;
-      DWORD2(v69) = 3;
-      BYTE12(v69) = 1;
-      ProcessModuleInformation = NtPowerInformation(44LL, &v69);
+      v67 = TargetProcessHandle;
+      *(_WORD *)((char *)&SystemInformation + 13) = 0;
+      HIBYTE(SystemInformation) = 0;
+      *(_QWORD *)&SystemInformation = OutputBuffer;
+      DWORD2(SystemInformation) = 3;
+      BYTE12(SystemInformation) = 1;
+      ProcessModuleInformation = NtPowerInformation(PowerRequestAction, &SystemInformation, 0x18u, 0LL, 0);
       if ( ProcessModuleInformation >= 0 )
-        v7 = v38;
+        v7 = OutputBuffer;
       else
-        NtClose(v38);
+        NtClose(OutputBuffer);
     }
     if ( ProcessModuleInformation < 0 )
     {
 LABEL_111:
-      NtClose(v20);
-      return (unsigned int)ProcessModuleInformation;
+      NtClose(v19);
+      return ProcessModuleInformation;
     }
   }
-  v23 = *(_QWORD *)(a3 + 16);
-  v63[3] = &v69;
-  v63[5] = 0LL;
-  v64 = 0LL;
-  v65 = 0LL;
-  v54[0] = 48LL;
-  v54[3] = 512LL;
-  v69 = 0LL;
-  ProcessHandle = 0LL;
-  v54[1] = 0LL;
-  v54[2] = 0LL;
-  v55 = 0LL;
-  v63[1] = 65539LL;
-  v63[2] = 16LL;
-  v63[4] = 0LL;
-  v63[0] = 40LL;
-  ProcessModuleInformation = NtCreateThreadEx(&ProcessHandle, 0x1FFFFFLL, v54, v20, v44, v23, 6, 0LL, 0LL, 0LL, v63);
+  ViewBaseTarget = Buffer->ViewBaseTarget;
+  AttributeList.Attributes[0].Value = (ULONG_PTR)&SystemInformation;
+  v60 = 0LL;
+  v61 = 0LL;
+  v62 = 0LL;
+  *(_QWORD *)&v51.Length = 48LL;
+  *(_QWORD *)&v51.Attributes = 512LL;
+  SystemInformation = 0LL;
+  ThreadHandle = 0LL;
+  v51.RootDirectory = 0LL;
+  v51.ObjectName = 0LL;
+  *(_OWORD *)&v51.SecurityDescriptor = 0LL;
+  AttributeList.Attributes[0].Attribute = 65539LL;
+  AttributeList.Attributes[0].Size = 16LL;
+  AttributeList.Attributes[0].ReturnLength = 0LL;
+  AttributeList.TotalLength = 40LL;
+  ProcessModuleInformation = NtCreateThreadEx(
+                               &ThreadHandle,
+                               0x1FFFFFu,
+                               &v51,
+                               v19,
+                               StartRoutine,
+                               ViewBaseTarget,
+                               6u,
+                               0LL,
+                               0LL,
+                               0LL,
+                               &AttributeList);
   if ( ProcessModuleInformation >= 0 )
   {
-    v31 = ProcessHandle;
-    v32 = NtWaitForSingleObject(ProcessHandle, 1u, &Timeout);
-    ProcessModuleInformation = v32;
-    if ( v32 < 0 )
+    v30 = ThreadHandle;
+    v31 = NtWaitForSingleObject(ThreadHandle, 1u, &Timeout);
+    ProcessModuleInformation = v31;
+    if ( v31 < 0 )
     {
-      NtTerminateThread(v31, (unsigned int)v32);
+      NtTerminateThread(v30, v31);
     }
     else
     {
-      ProcessModuleInformation = ZwQueryInformationThread(v31, 0LL, v56);
+      ProcessModuleInformation = ZwQueryInformationThread(v30, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
       if ( ProcessModuleInformation >= 0 )
-        ProcessModuleInformation = v56[0];
+        ProcessModuleInformation = ThreadInformation[0];
     }
-    NtClose(v31);
+    NtClose(v30);
   }
-  NtClose(v20);
+  NtClose(v19);
   if ( v7 )
   {
-    *(_WORD *)((char *)&v69 + 13) = 0;
-    HIBYTE(v69) = 0;
-    *(_QWORD *)&v69 = v7;
-    DWORD2(v69) = 3;
-    BYTE12(v69) = 0;
-    v70 = 0LL;
-    NtPowerInformation(44LL, &v69);
+    *(_WORD *)((char *)&SystemInformation + 13) = 0;
+    HIBYTE(SystemInformation) = 0;
+    *(_QWORD *)&SystemInformation = v7;
+    DWORD2(SystemInformation) = 3;
+    BYTE12(SystemInformation) = 0;
+    v67 = 0LL;
+    NtPowerInformation(PowerRequestAction, &SystemInformation, 0x18u, 0LL, 0);
     NtClose(v7);
   }
   if ( ProcessModuleInformation < 0 )
-    return (unsigned int)ProcessModuleInformation;
-  if ( v18 == 1 )
+    return ProcessModuleInformation;
+  if ( v17 == 1 )
   {
     ProcessModuleInformation = 0;
-    *(_QWORD *)(a3 + 168) = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)(*(_QWORD *)(a3 + 88) + a3 + 80), 4));
+    Buffer->CriticalSectionOwnerThread = (HANDLE)(unsigned int)_mm_cvtsi128_si32(
+                                                                 _mm_srli_si128(
+                                                                   *(__m128i *)((char *)&Buffer->CommitSize
+                                                                              + Buffer->ViewSize),
+                                                                   4));
   }
-  else if ( !v18 )
+  else if ( !v17 )
   {
-    ProcessModuleInformation = RtlpCopyRemoteDebugInformation(a3);
+    ProcessModuleInformation = RtlpCopyRemoteDebugInformation(Buffer);
     if ( ProcessModuleInformation < 0 )
-      return (unsigned int)ProcessModuleInformation;
+      return ProcessModuleInformation;
   }
-  v24 = -1073741558;
-  if ( (a2 & 1) != 0 && !*(_QWORD *)(a3 + 96) )
+  v23 = -1073741558;
+  if ( (Flags & 1) != 0 && !Buffer->Modules )
     ProcessModuleInformation = -1073741558;
-  if ( (a2 & 0x40) != 0 && !*(_QWORD *)(a3 + 96) )
-    return v24;
+  if ( (Flags & 0x40) != 0 && !Buffer->Modules )
+    return v23;
   if ( ProcessModuleInformation >= 0 )
-    return (unsigned int)RtlpValidateRemoteDebugInformation(
-                           a3,
-                           (unsigned int)a2,
-                           a3 + 208,
-                           *(_QWORD *)(a3 + 72) - 208LL);
-  return (unsigned int)ProcessModuleInformation;
+    return RtlpValidateRemoteDebugInformation(Buffer, Flags, &Buffer[1], Buffer->OffsetFree - 208);
+  return ProcessModuleInformation;
 }

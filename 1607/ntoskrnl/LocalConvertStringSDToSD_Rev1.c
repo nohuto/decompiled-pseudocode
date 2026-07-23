@@ -1,20 +1,20 @@
 /*
- * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x1404D67F8
+ * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x1404B9DFC
  * Callers:
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1400AA388 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1400A8908 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14048D16C (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14048D1C4 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlNtStatusToDosError @ 0x1404BAE20 (RtlNtStatusToDosError.c)
- *     SddlpFree @ 0x1404D6ABC (SddlpFree.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1404D6AD4 (RtlAbsoluteToSelfRelativeSD.c)
- *     LocalGetAclForString @ 0x1404D6D44 (LocalGetAclForString.c)
- *     LocalGetSidForString @ 0x1404D722C (LocalGetSidForString.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
- *     LocalGetSDControlForString @ 0x1406CB618 (LocalGetSDControlForString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14048DBFC (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14048DC54 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlNtStatusToDosError @ 0x1404A6B50 (RtlNtStatusToDosError.c)
+ *     SddlpFree @ 0x1404BA0C0 (SddlpFree.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1404BA0D8 (RtlAbsoluteToSelfRelativeSD.c)
+ *     LocalGetAclForString @ 0x1404BA348 (LocalGetAclForString.c)
+ *     LocalGetSidForString @ 0x1404BA830 (LocalGetSidForString.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
+ *     LocalGetSDControlForString @ 0x1406CB750 (LocalGetSDControlForString.c)
  */
 
 __int64 __fastcall LocalConvertStringSDToSD_Rev1(

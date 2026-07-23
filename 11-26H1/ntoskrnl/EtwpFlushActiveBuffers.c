@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x140A141E8
+ * XREFs of EtwpFlushActiveBuffers @ 0x140A133D8
  * Callers:
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     EtwpPrepareDirtyBuffer @ 0x140219094 (EtwpPrepareDirtyBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1402195F8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpRequestFlushTimer @ 0x1402198F0 (EtwpRequestFlushTimer.c)
- *     EtwpLockUnlockBufferList @ 0x140449AC0 (EtwpLockUnlockBufferList.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x140A13AEC (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpAdjustFreeBuffers @ 0x140A1466C (EtwpAdjustFreeBuffers.c)
- *     EtwpWaitForBufferReferenceCount @ 0x140A14C24 (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x140A14C58 (EtwpFlushBuffer.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1402191F4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140219758 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpRequestFlushTimer @ 0x140219A50 (EtwpRequestFlushTimer.c)
+ *     EtwpLockUnlockBufferList @ 0x140441BF0 (EtwpLockUnlockBufferList.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x140A12CDC (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpAdjustFreeBuffers @ 0x140A1385C (EtwpAdjustFreeBuffers.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x140A13E18 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x140A13E4C (EtwpFlushBuffer.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)

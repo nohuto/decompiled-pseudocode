@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkSnapNodeStatistics @ 0x14041FFA4
+ * XREFs of PpmParkSnapNodeStatistics @ 0x1404177E4
  * Callers:
- *     PpmCheckSnapAllUtility @ 0x14041FA00 (PpmCheckSnapAllUtility.c)
+ *     PpmCheckSnapAllUtility @ 0x140417240 (PpmCheckSnapAllUtility.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     PpmIdleSnapConcurrency @ 0x1404212F0 (PpmIdleSnapConcurrency.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     PpmIdleSnapConcurrency @ 0x140418B30 (PpmIdleSnapConcurrency.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 unsigned __int64 PpmParkSnapNodeStatistics()
@@ -35,13 +35,13 @@ unsigned __int64 PpmParkSnapNodeStatistics()
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
   result = (unsigned __int64)&retaddr;
-  for ( i = 0; i < PopModernStandbyStateNotify.SystemCallNumber; result = i )
+  for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
   {
-    v2 = *(__int64 *)((char *)&PopModernStandbyStateNotify.116 + 4);
+    v2 = PpmParkNodes;
     v3 = 1264LL * i;
-    if ( *(_WORD *)(v3 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 8) )
+    if ( *(_WORD *)(v3 + PpmParkNodes + 8) )
     {
-      v4 = *(_QWORD *)(v3 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1072);
+      v4 = *(_QWORD *)(v3 + PpmParkNodes + 1072);
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
       v6 = KeDisableInterrupts();
       KxAcquireSpinLock((PKSPIN_LOCK)v4);

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInitializeAssemblyStorageMap @ 0x18006AD58
+ * XREFs of RtlpInitializeAssemblyStorageMap @ 0x18006AD48
  * Callers:
- *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x18006893C (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
- *     RtlCreateActivationContext @ 0x18006ABF0 (RtlCreateActivationContext.c)
+ *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x18006892C (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
+ *     RtlCreateActivationContext @ 0x18006ABE0 (RtlCreateActivationContext.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
@@ -13,7 +13,7 @@ __int64 __fastcall RtlpInitializeAssemblyStorageMap(int *a1, unsigned int a2, vo
 {
   unsigned int v3; // ebx
   __int64 v4; // rdi
-  void *Heap; // rbp
+  PVOID Heap; // rbp
   int v7; // r14d
 
   v3 = 0;
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpInitializeAssemblyStorageMap(int *a1, unsigned int a2, vo
   if ( !a1 || !a2 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters:\nSXS:    Map        : 0x%p\nSXS:    EntryCount : 0x%lx\n",
       "RtlpInitializeAssemblyStorageMap",
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpInitializeAssemblyStorageMap(int *a1, unsigned int a2, vo
   {
     if ( !is_mul_ok(a2, 8uLL) )
       return (unsigned int)-1073741675;
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * a2);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * a2);
     if ( !Heap )
       return (unsigned int)-1073741801;
     v7 = 1;

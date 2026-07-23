@@ -15,24 +15,24 @@ __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a
 {
   unsigned __int64 v7; // r14
   unsigned __int64 FileSizeFromLoadAsDataTable; // rdi
-  unsigned __int64 v9; // rsi
+  unsigned __int64 SizeOfImage; // rsi
   bool v10; // r13
-  int VirtualMemory; // ebx
-  _QWORD v13[2]; // [rsp+40h] [rbp-68h] BYREF
+  NTSTATUS VirtualMemory; // ebx
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-68h] BYREF
   int v14; // [rsp+50h] [rbp-58h] BYREF
   const wchar_t *v15; // [rsp+58h] [rbp-50h]
-  _BYTE v16[16]; // [rsp+60h] [rbp-48h] BYREF
+  _BYTE MemoryInformation[16]; // [rsp+60h] [rbp-48h] BYREF
   unsigned __int64 v17; // [rsp+70h] [rbp-38h]
-  __int64 v18; // [rsp+B0h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+B0h] [rbp+8h] BYREF
   char v19; // [rsp+C8h] [rbp+20h]
 
   v19 = a4;
-  LODWORD(v13[0]) = 3670070;
-  v13[1] = L"LdrpResGetMappingSize Enter";
+  LODWORD(BaseAddress[0]) = 3670070;
+  BaseAddress[1] = L"LdrpResGetMappingSize Enter";
   v14 = 3538996;
   v15 = L"LdrpResGetMappingSize Exit";
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
-    LdrpTraceLoadMUIDll(v13, MEMORY[0x7FFE0384]);
+    LdrpTraceLoadMUIDll(BaseAddress, MEMORY[0x7FFE0384]);
   if ( a1 && a2 )
   {
     v7 = 0LL;
@@ -40,25 +40,25 @@ __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a
       v7 = *a2;
     *a2 = 0LL;
     FileSizeFromLoadAsDataTable = 0LL;
-    v9 = 0LL;
+    SizeOfImage = 0LL;
     v10 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
-    v13[0] = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    VirtualMemory = RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v18);
+    BaseAddress[0] = (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+    VirtualMemory = RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
     if ( VirtualMemory >= 0 )
     {
-      if ( *(_WORD *)(v18 + 24) == 267 || *(_WORD *)(v18 + 24) == 523 )
+      if ( OutHeaders->OptionalHeader.Magic == 267 || OutHeaders->OptionalHeader.Magic == 523 )
       {
-        v9 = *(unsigned int *)(v18 + 80);
+        SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
       }
       else
       {
-        v9 = 0LL;
+        SizeOfImage = 0LL;
         VirtualMemory = -1073741701;
       }
     }
     if ( VirtualMemory < 0 )
       return (unsigned int)VirtualMemory;
-    if ( !v10 || !v9 )
+    if ( !v10 || !SizeOfImage )
     {
       if ( !v19 )
         FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable(a1);
@@ -68,15 +68,21 @@ __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a
       }
       else
       {
-        VirtualMemory = ZwQueryVirtualMemory(-1LL, v13[0], 3LL, v16);
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          BaseAddress[0],
+                          MemoryRegionInformation,
+                          MemoryInformation,
+                          0x20uLL,
+                          0LL);
         if ( VirtualMemory >= 0 )
           FileSizeFromLoadAsDataTable = v17;
       }
-      if ( FileSizeFromLoadAsDataTable || !v9 )
+      if ( FileSizeFromLoadAsDataTable || !SizeOfImage )
         goto LABEL_16;
       VirtualMemory = 0;
     }
-    FileSizeFromLoadAsDataTable = v9;
+    FileSizeFromLoadAsDataTable = SizeOfImage;
 LABEL_16:
     if ( VirtualMemory >= 0 )
     {

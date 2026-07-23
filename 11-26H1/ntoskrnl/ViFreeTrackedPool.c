@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x140C469AC
+ * XREFs of ViFreeTrackedPool @ 0x140C4C9BC
  * Callers:
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 volatile signed __int64 *__fastcall ViFreeTrackedPool(
@@ -19,7 +19,7 @@ volatile signed __int64 *__fastcall ViFreeTrackedPool(
   __int64 *v7; // rdi
   ULONG_PTR v8; // rsi
   unsigned __int64 v9; // r15
-  union _SLIST_HEADER *v10; // r14
+  _SLIST_HEADER *v10; // r14
   _QWORD *v11; // rdi
   unsigned __int64 v12; // rbp
   unsigned int v13; // r13d
@@ -43,7 +43,7 @@ volatile signed __int64 *__fastcall ViFreeTrackedPool(
   }
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
-  v10 = *(union _SLIST_HEADER **)(v9 + 8);
+  v10 = *(_SLIST_HEADER **)(v9 + 8);
   if ( (VfRuleClasses & 1) != 0 )
   {
     if ( (v8 & 3) != 0 || !MmIsAddressValidEx(*v7) )
@@ -68,17 +68,17 @@ volatile signed __int64 *__fastcall ViFreeTrackedPool(
   RtlpInterlockedPushEntrySList(v10 + 5, (PSLIST_ENTRY)v8);
   v12 = -(__int64)v5;
   v13 = a3 & 1;
-  v14 = &dword_140F086C4;
+  v14 = &dword_140F08A64;
   if ( !v13 )
-    v14 = &dword_140F086C8;
-  result = &qword_140F086D8;
+    v14 = &dword_140F08A68;
+  result = &qword_140F08A78;
   if ( !v13 )
-    result = &qword_140F086E0;
+    result = &qword_140F08A80;
   v16 = v13 ^ 1LL;
   _InterlockedAdd64((volatile signed __int64 *)&v10[8].Alignment + v16, v12);
   _InterlockedDecrement((volatile signed __int32 *)&v10[7] + v16);
   _InterlockedAdd64(result, v12);
   _InterlockedDecrement(v14);
-  _InterlockedIncrement(&dword_140F086B0);
+  _InterlockedIncrement(&dword_140F08A50);
   return result;
 }

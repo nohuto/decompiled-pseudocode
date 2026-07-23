@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptSetX2ApicPolicy @ 0x1404BC8D8
+ * XREFs of HalpInterruptSetX2ApicPolicy @ 0x1404BCB18
  * Callers:
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
  * Callees:
  *     <none>
  */

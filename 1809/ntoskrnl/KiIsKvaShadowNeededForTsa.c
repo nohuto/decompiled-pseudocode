@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsKvaShadowNeededForTsa @ 0x1401B457C
+ * XREFs of KiIsKvaShadowNeededForTsa @ 0x1401B46BC
  * Callers:
- *     KiDetectKvaLeakage @ 0x1405710E4 (KiDetectKvaLeakage.c)
+ *     KiDetectKvaLeakage @ 0x1405720E4 (KiDetectKvaLeakage.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x14017D784 (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsTsaMitigationDesired @ 0x1401B4740 (KiIsTsaMitigationDesired.c)
- *     KiIsTsaMitigationSupported @ 0x1401B475C (KiIsTsaMitigationSupported.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x14017D8C4 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsTsaMitigationDesired @ 0x1401B4880 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x1401B489C (KiIsTsaMitigationSupported.c)
  */
 
 _BOOL8 __fastcall KiIsKvaShadowNeededForTsa(__int64 a1)

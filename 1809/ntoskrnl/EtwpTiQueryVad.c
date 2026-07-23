@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1408BD530
+ * XREFs of EtwpTiQueryVad @ 0x1408BE7F0
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1408BD680 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1408BE940 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1401B8750 (ZwQueryVirtualMemory.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned int a4, char a5)
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         *a3,
-                        MemoryBasicVlmInformation,
+                        MemoryRegionInformation,
                         v12,
                         0x20uLL,
                         0LL);
@@ -55,7 +55,13 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
           PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x6E734954u);
           *v11 = PoolWithTag;
           if ( !PoolWithTag
-            || ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *a3, MemorySectionName, PoolWithTag, 0x200uLL, 0LL) >= 0 )
+            || ZwQueryVirtualMemory(
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 *a3,
+                 MemoryMappedFilenameInformation,
+                 PoolWithTag,
+                 0x200uLL,
+                 0LL) >= 0 )
           {
             goto LABEL_12;
           }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiAllocateDeviceObjectList @ 0x1404C5A00
+ * XREFs of PiAllocateDeviceObjectList @ 0x140485E34
  * Callers:
- *     IopAllocateRelationList @ 0x1404C5958 (IopAllocateRelationList.c)
- *     PipGrowDeviceObjectList @ 0x14064BBD0 (PipGrowDeviceObjectList.c)
+ *     IopAllocateRelationList @ 0x140485D8C (IopAllocateRelationList.c)
+ *     PipGrowDeviceObjectList @ 0x14064BCB4 (PipGrowDeviceObjectList.c)
  * Callees:
- *     PiClearDeviceObjectList @ 0x1404C5A64 (PiClearDeviceObjectList.c)
- *     PnpAllocateCriticalMemory @ 0x1404C5AB8 (PnpAllocateCriticalMemory.c)
+ *     PiClearDeviceObjectList @ 0x140485E98 (PiClearDeviceObjectList.c)
+ *     PnpAllocateCriticalMemory @ 0x140485EEC (PnpAllocateCriticalMemory.c)
  */
 
 _DWORD *__fastcall PiAllocateDeviceObjectList(__int64 a1, int a2)

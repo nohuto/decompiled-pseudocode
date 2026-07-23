@@ -7,19 +7,17 @@
  *     NtClose @ 0x18009D070 (NtClose.c)
  */
 
-__int64 __fastcall RtlCheckRegistryKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlCheckRegistryKey(ULONG RelativeTo, PWSTR Path)
 {
-  int v2; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   HANDLE Handle; // [rsp+40h] [rbp+18h] BYREF
 
-  v2 = a1;
-  result = RtlpGetRegistryHandle(a1, a2, 0LL, &Handle);
-  if ( (int)result >= 0 )
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 0LL, &Handle);
+  if ( result >= 0 )
   {
-    if ( (v2 & 0x40000000) == 0 )
+    if ( (RelativeTo & 0x40000000) == 0 )
       NtClose(Handle);
-    return 0LL;
+    return 0;
   }
   return result;
 }

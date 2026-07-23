@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140917AA0
+ * XREFs of _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140972500
  * Callers:
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14089BF50 (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _PnpDispatchInterfaceClass @ 0x140917770 (_PnpDispatchInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x1408A2350 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _PnpDispatchInterfaceClass @ 0x1409721D0 (_PnpDispatchInterfaceClass.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140917D00 (_CmOpenInterfaceClassRegKey.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140972760 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedPropertyFromRegValue(
         __int64 a1,
         int a2,
-        HANDLE a3,
+        char *a3,
         __int64 a4,
         _DWORD *a5,
         __int64 a6,
@@ -64,11 +64,11 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyFromRegValue(
   v15 = *(_DWORD *)(a4 + 16);
   if ( v15 < 2 )
     return (unsigned int)-1073741264;
-  v16 = &off_140BD8C90;
+  v16 = &off_140BDFB20;
   do
   {
     v17 = *v16;
-    v18 = &off_140BD8C90 + 2 * v11;
+    v18 = &off_140BDFB20 + 2 * v11;
     if ( v15 == (*v16)->pid )
     {
       v19 = *(_QWORD *)a4 - *(_QWORD *)&v17->fmtid.Data1;
@@ -77,9 +77,9 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyFromRegValue(
       if ( !v19 )
         break;
     }
+    v18 = 0LL;
     ++v11;
     v16 += 2;
-    v18 = 0LL;
   }
   while ( !v11 );
   if ( !v18 )
@@ -96,14 +96,14 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyFromRegValue(
         v13 = CmOpenInterfaceClassRegKey(a1, a2, v11, a4, 1, 0, (__int64)&Handle, 0LL);
         if ( v13 < 0 )
           goto LABEL_23;
-        a3 = Handle;
+        a3 = (char *)Handle;
       }
       v13 = 0;
       if ( a1 && (v21 = *(_QWORD *)(a1 + 224)) != 0 )
         v22 = *(_QWORD *)(v21 + 8);
       else
         v22 = 0LL;
-      v23 = RegRtlOpenKeyTransacted(a3, L"Properties", 0LL, 1LL, &v29, v22);
+      v23 = RegRtlOpenKeyTransacted(a3, L"Properties", 0, 1u, &v29, v22);
       if ( v23 == -1073741444 )
         goto LABEL_22;
       if ( v23 < 0 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCompareKnownObjectAces @ 0x18008EA20
+ * XREFs of RtlpCompareKnownObjectAces @ 0x18008EA10
  * Callers:
- *     RtlpIsDuplicateAce @ 0x18003FEA0 (RtlpIsDuplicateAce.c)
- *     RtlpCompareAces @ 0x1800DFDD8 (RtlpCompareAces.c)
+ *     RtlpIsDuplicateAce @ 0x18003FE90 (RtlpIsDuplicateAce.c)
+ *     RtlpCompareAces @ 0x1800DFE98 (RtlpCompareAces.c)
  * Callees:
  *     RtlEqualSid @ 0x1800043F0 (RtlEqualSid.c)
- *     RtlInitializeSid @ 0x18000D5F0 (RtlInitializeSid.c)
- *     RtlEqualPrefixSid @ 0x180040530 (RtlEqualPrefixSid.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlInitializeSid @ 0x18000D5E0 (RtlInitializeSid.c)
+ *     RtlEqualPrefixSid @ 0x180040520 (RtlEqualPrefixSid.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   int v9; // ebp
@@ -24,11 +24,10 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   int v17; // r15d
   _DWORD *v18; // rcx
   int v20; // edx
-  _WORD *v21; // rdx
-  int v22; // [rsp+20h] [rbp-78h] BYREF
-  __int16 v23; // [rsp+24h] [rbp-74h]
-  _BYTE v24[8]; // [rsp+28h] [rbp-70h] BYREF
-  int v25; // [rsp+30h] [rbp-68h]
+  void *v21; // rdx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-78h] BYREF
+  _BYTE Sid[8]; // [rsp+28h] [rbp-70h] BYREF
+  int v24; // [rsp+30h] [rbp-68h]
 
   v6 = *a2;
   if ( RtlBaseAceType[v6] != RtlBaseAceType[*a1] || RtlIsSystemAceType[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
@@ -95,12 +94,12 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   }
   if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
     return 0;
-  v22 = 0;
-  v23 = 768;
-  if ( (int)RtlInitializeSid((__int64)v24, (__int64)&v22, 1u) < 0 )
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+  if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
     return 0;
-  v25 = 0;
-  if ( !RtlEqualPrefixSid(&a1[(v17 != 0 ? 0x10 : 0) + 12 + (unsigned __int64)(v15 != 0 ? 0x10 : 0)], v24) )
+  v24 = 0;
+  if ( !RtlEqualPrefixSid(&a1[(v17 != 0 ? 0x10 : 0) + 12 + (unsigned __int64)(v15 != 0 ? 0x10 : 0)], Sid) )
     return 0;
   v20 = *(_DWORD *)&a1[(v17 != 0 ? 0x10 : 0) + 20 + (unsigned __int64)(v15 != 0 ? 0x10 : 0)];
   if ( !v20 )
@@ -108,12 +107,12 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
     if ( a3 )
     {
       v21 = a3;
-      return RtlEqualSid(&a2[(v10 != 0 ? 0x10 : 0) + 12 + (unsigned __int64)(v12 != 0 ? 0x10 : 0)], v21);
+      return RtlEqualSid(&a2[(v10 != 0 ? 0x10 : 0) + 12 + (unsigned __int64)(v12 != 0 ? 0x10 : 0)], v21) != 0;
     }
     return 0;
   }
   if ( v20 != 1 || !a4 )
     return 0;
   v21 = a4;
-  return RtlEqualSid(&a2[(v10 != 0 ? 0x10 : 0) + 12 + (unsigned __int64)(v12 != 0 ? 0x10 : 0)], v21);
+  return RtlEqualSid(&a2[(v10 != 0 ? 0x10 : 0) + 12 + (unsigned __int64)(v12 != 0 ? 0x10 : 0)], v21) != 0;
 }

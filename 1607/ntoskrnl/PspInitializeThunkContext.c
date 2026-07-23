@@ -1,17 +1,17 @@
 /*
- * XREFs of PspInitializeThunkContext @ 0x140459784
+ * XREFs of PspInitializeThunkContext @ 0x140458654
  * Callers:
- *     PspUserThreadStartup @ 0x140459060 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x140457F30 (PspUserThreadStartup.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     PspGetBaseTrapFrame @ 0x1400F32E0 (PspGetBaseTrapFrame.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspCallThreadNotifyRoutines @ 0x140429110 (PspCallThreadNotifyRoutines.c)
- *     PspSetContextThreadInternal @ 0x140517374 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140517A04 (PspGetContextThreadInternal.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspGetBaseTrapFrame @ 0x1400F1130 (PspGetBaseTrapFrame.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspCallThreadNotifyRoutines @ 0x140427FE0 (PspCallThreadNotifyRoutines.c)
+ *     PspSetContextThreadInternal @ 0x1404FA764 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1404FADF4 (PspGetContextThreadInternal.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 int PspInitializeThunkContext()
@@ -30,7 +30,7 @@ int PspInitializeThunkContext()
   __int64 v11; // rcx
   __int64 BaseTrapFrame; // rax
   __int64 v13; // r8
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
   _QWORD v15[154]; // [rsp+E0h] [rbp-9B8h] BYREF
   _QWORD v16[154]; // [rsp+5B0h] [rbp-4E8h] BYREF
 

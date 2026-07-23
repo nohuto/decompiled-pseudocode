@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckUnsupportedSections @ 0x140A36580
+ * XREFs of MiCheckUnsupportedSections @ 0x140A36830
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140A3A908 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x140A3ABB8 (MiPrepareToHotPatchImage.c)
  * Callees:
  *     RtlAreBitsSet @ 0x140220810 (RtlAreBitsSet.c)
  */

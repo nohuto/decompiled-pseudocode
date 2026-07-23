@@ -1,30 +1,30 @@
 /*
- * XREFs of MiFreeBootDriverPages @ 0x140D0AE50
+ * XREFs of MiFreeBootDriverPages @ 0x140D11120
  * Callers:
- *     MiFreeInitializationCode @ 0x140AC9178 (MiFreeInitializationCode.c)
- *     MiHandleBootImage @ 0x140CFFFDC (MiHandleBootImage.c)
+ *     MiFreeInitializationCode @ 0x140ACB290 (MiFreeInitializationCode.c)
+ *     MiHandleBootImage @ 0x140D0637C (MiHandleBootImage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiUnmapReturnCharges @ 0x140AC855C (MiUnmapReturnCharges.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiUnmapReturnCharges @ 0x140ACA14C (MiUnmapReturnCharges.c)
  */
 
-void __fastcall MiFreeBootDriverPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
+void __fastcall MiFreeBootDriverPages(__int64 a1, void *a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned __int64 v5; // rbp
   __int64 v6; // rbx
-  __int64 v8; // r15
+  PVOID v8; // r15
   int v9; // r9d
   _QWORD *v10; // rdi
   unsigned __int64 v11; // rbp
@@ -55,7 +55,7 @@ void __fastcall MiFreeBootDriverPages(__int64 a1, __int64 a2, unsigned __int64 a
     ProcessorFlushList = MiGetProcessorFlushList();
     MiInitializeTbFlushList(
       (__int64)ProcessorFlushList,
-      (__int64)&unk_140E36E00,
+      (__int64)&unk_140E36F80,
       *((_DWORD *)ProcessorFlushList + 3),
       8,
       1);
@@ -133,7 +133,7 @@ void __fastcall MiFreeBootDriverPages(__int64 a1, __int64 a2, unsigned __int64 a
     MiUnmapReturnCharges((__int64)&MiSystemPartition, (unsigned __int64 *)v24);
   }
   if ( v8 == PsNtosImageBase || v8 == PsHalImageBase )
-    _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, -v6);
+    _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, -v6);
   else
-    _InterlockedExchangeAdd((volatile signed __int32 *)&stru_140E36558.WaitBlockFill11[16], -(int)v6);
+    _InterlockedExchangeAdd((volatile signed __int32 *)&stru_140E366D8.WaitBlockFill11[16], -(int)v6);
 }

@@ -6,7 +6,7 @@
  *     ZwCompareObjects @ 0x18009BDD0 (ZwCompareObjects.c)
  */
 
-bool __fastcall RtlIsCurrentProcess(__int64 a1)
+BOOLEAN __cdecl RtlIsCurrentProcess(HANDLE ProcessHandle)
 {
-  return a1 == -1 || (int)ZwCompareObjects(-1LL, a1) >= 0;
+  return ProcessHandle == (HANDLE)-1LL || ZwCompareObjects((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandle) >= 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of XmBitScanGeneral @ 0x140574E00
+ * XREFs of XmBitScanGeneral @ 0x140572290
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmBitScanGeneral(__int64 a1)

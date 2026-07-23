@@ -4,9 +4,9 @@
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  * Callees:
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
- *     MiLocateSubsectionNode @ 0x140077B40 (MiLocateSubsectionNode.c)
- *     MiComputeContiguousSubsectionPte @ 0x140077E94 (MiComputeContiguousSubsectionPte.c)
- *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140077B30 (MiLocateSubsectionNode.c)
+ *     MiComputeContiguousSubsectionPte @ 0x140077E84 (MiComputeContiguousSubsectionPte.c)
+ *     MiLocatePagefileSubsection @ 0x140119DB8 (MiLocatePagefileSubsection.c)
  */
 
 __int64 __fastcall MiAdvanceVadView(__int64 a1, __int64 a2)

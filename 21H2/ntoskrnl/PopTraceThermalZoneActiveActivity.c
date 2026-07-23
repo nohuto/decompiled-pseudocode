@@ -1,17 +1,17 @@
 /*
- * XREFs of PopTraceThermalZoneActiveActivity @ 0x14038A5B4
+ * XREFs of PopTraceThermalZoneActiveActivity @ 0x14038A704
  * Callers:
- *     PopThermalSxEntry @ 0x14038A258 (PopThermalSxEntry.c)
- *     PopThermalTelemetryWorker @ 0x14056F900 (PopThermalTelemetryWorker.c)
- *     PopThermalZoneRemove @ 0x1408E7D80 (PopThermalZoneRemove.c)
+ *     PopThermalSxEntry @ 0x14038A3A8 (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x14056FB40 (PopThermalTelemetryWorker.c)
+ *     PopThermalZoneRemove @ 0x1408E7EE0 (PopThermalZoneRemove.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PopDiagSnapActiveActivity @ 0x14038AD44 (PopDiagSnapActiveActivity.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PopDiagSnapActiveActivity @ 0x14038AE94 (PopDiagSnapActiveActivity.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
@@ -93,7 +93,7 @@ char __fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
             v30 = 8;
             LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgWriteTransfer_EtwWriteTransfer(
                                                        (__int64)&dword_140C02228,
-                                                       (unsigned __int8 *)byte_140028129,
+                                                       (unsigned __int8 *)byte_140027ED3,
                                                        0LL,
                                                        0LL,
                                                        9u,

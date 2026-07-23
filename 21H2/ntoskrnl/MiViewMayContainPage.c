@@ -1,14 +1,14 @@
 /*
- * XREFs of MiViewMayContainPage @ 0x1402EF97C
+ * XREFs of MiViewMayContainPage @ 0x1402FA6CC
  * Callers:
- *     MiTrimSection @ 0x1402EF6E0 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1402FA430 (MiTrimSection.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiEndingOffsetWithLock @ 0x14031C790 (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiEndingOffsetWithLock @ 0x1403274E0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall MiViewMayContainPage(__int64 a1, char a2, __int64 a3, unsigned __int64 a4, unsigned __int64 a5)

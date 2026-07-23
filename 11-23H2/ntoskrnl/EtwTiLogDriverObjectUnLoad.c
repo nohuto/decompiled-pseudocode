@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTiLogDriverObjectUnLoad @ 0x140857DC0
+ * XREFs of EtwTiLogDriverObjectUnLoad @ 0x140858000
  * Callers:
- *     IopUnloadDriver @ 0x140857938 (IopUnloadDriver.c)
- *     IoDeleteDriver @ 0x140947320 (IoDeleteDriver.c)
+ *     IopUnloadDriver @ 0x140857B78 (IopUnloadDriver.c)
+ *     IoDeleteDriver @ 0x140947520 (IoDeleteDriver.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     EtwProviderEnabled @ 0x140304420 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTiLogDriverObjectUnLoad(unsigned __int16 *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopWriteCapsuleTriageDumpToFirmware @ 0x140504C0C
+ * XREFs of IopWriteCapsuleTriageDumpToFirmware @ 0x140504B8C
  * Callers:
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IoFillDumpHeader @ 0x140501AF8 (IoFillDumpHeader.c)
- *     IoFillTriageDumpBuffer @ 0x140501DC0 (IoFillTriageDumpBuffer.c)
- *     IopUpdateMinidumpContext @ 0x1405047E4 (IopUpdateMinidumpContext.c)
- *     IopWriteTriageDumpToFirmware @ 0x140504F50 (IopWriteTriageDumpToFirmware.c)
- *     MmSnapTriageDumpInformation @ 0x140538CB4 (MmSnapTriageDumpInformation.c)
- *     VfDisableHalVerifier @ 0x1405A0F98 (VfDisableHalVerifier.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IoFillDumpHeader @ 0x140501A78 (IoFillDumpHeader.c)
+ *     IoFillTriageDumpBuffer @ 0x140501D40 (IoFillTriageDumpBuffer.c)
+ *     IopUpdateMinidumpContext @ 0x140504764 (IopUpdateMinidumpContext.c)
+ *     IopWriteTriageDumpToFirmware @ 0x140504ED0 (IopWriteTriageDumpToFirmware.c)
+ *     MmSnapTriageDumpInformation @ 0x140538EF4 (MmSnapTriageDumpInformation.c)
+ *     VfDisableHalVerifier @ 0x1405A11C8 (VfDisableHalVerifier.c)
  */
 
 bool __fastcall IopWriteCapsuleTriageDumpToFirmware(
@@ -48,7 +48,7 @@ bool __fastcall IopWriteCapsuleTriageDumpToFirmware(
   v23[2] = a4;
   IopUpdateMinidumpContext(v14, a2, a3, a4, a5, a6, v13);
   MmSnapTriageDumpInformation(a6, v23);
-  IoFillDumpHeader((_DWORD *)v7 + 1031, 4, a1, a2, (__int64)a3, a4, a5, (__int64)v19);
+  IoFillDumpHeader((_NT_PRODUCT_TYPE *)v7 + 1031, 4, a1, a2, (__int64)a3, a4, a5, (__int64)v19);
   v20[0] = IopNumTriageDumpDataBlocks;
   v20[1] = 256;
   v21 = &IopTriageDumpDataBlocks;

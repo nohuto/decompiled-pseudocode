@@ -1,12 +1,12 @@
 /*
- * XREFs of PiProcessAddBootDevices @ 0x1407A4FDC
+ * XREFs of PiProcessAddBootDevices @ 0x1407A7B1C
  * Callers:
- *     PipAddDevicesToBootDriverWorker @ 0x140CC12F4 (PipAddDevicesToBootDriverWorker.c)
+ *     PipAddDevicesToBootDriverWorker @ 0x140CC73C4 (PipAddDevicesToBootDriverWorker.c)
  * Callees:
- *     PoFxPrepareDevice @ 0x1404A1864 (PoFxPrepareDevice.c)
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
+ *     PoFxPrepareDevice @ 0x14049B394 (PoFxPrepareDevice.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
  */
 
 __int64 __fastcall PiProcessAddBootDevices(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeChannelRanges @ 0x1409DF4CC
+ * XREFs of MiInitializeChannelRanges @ 0x1409E04CC
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 MiInitializeChannelRanges()
@@ -52,24 +52,24 @@ unsigned __int64 MiInitializeChannelRanges()
   signed __int32 v39[8]; // [rsp+48h] [rbp-40h] BYREF
 
   result = (unsigned __int64)memset(v39, 0, sizeof(v39));
-  if ( dword_140540188 )
+  if ( dword_140541188 )
   {
-    if ( byte_14043AED5 != 1 )
+    if ( byte_14043BF95 != 1 )
     {
-      if ( dword_14054019C )
+      if ( dword_14054119C )
       {
         v38 = 256;
-        result = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, char *))off_140400458[0])(
+        result = ((__int64 (__fastcall *)(__int64, __int64, __int64 *, char *))off_140401458[0])(
                    31LL,
                    8LL,
-                   &qword_14043A068,
+                   &qword_14043B128,
                    v37);
-        v1 = qword_14043A068;
-        if ( qword_14043A068 )
+        v1 = qword_14043B128;
+        if ( qword_14043B128 )
         {
           v2 = 0;
           v3 = 0;
-          if ( *(_QWORD *)qword_14043A068 == -1LL )
+          if ( *(_QWORD *)qword_14043B128 == -1LL )
             goto LABEL_16;
           do
           {
@@ -100,13 +100,13 @@ LABEL_16:
           MmNumberOfChannels = v6;
           if ( v6 == 1 )
           {
-            qword_14043A068 = 0LL;
+            qword_14043B128 = 0LL;
           }
           else
           {
             if ( v6 > 4 )
             {
-              for ( i = qword_14043A068; *(_QWORD *)i != -1LL; i += 16LL )
+              for ( i = qword_14043B128; *(_QWORD *)i != -1LL; i += 16LL )
               {
                 if ( *(_WORD *)(i + 12) >= 4u )
                 {
@@ -214,7 +214,7 @@ LABEL_49:
                 v33 = -1;
               if ( v33 == -1 || v33 < v22 )
                 break;
-              v34 = qword_14043A068;
+              v34 = qword_14043B128;
               v22 = v33 + 1;
               v35 = v33 >> 2;
               v36 = v33 & 3;

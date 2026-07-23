@@ -1,9 +1,9 @@
 /*
- * XREFs of KiMaskToLength @ 0x140573238
+ * XREFs of KiMaskToLength @ 0x140574238
  * Callers:
- *     KiInitializeMTRR @ 0x1409C56F4 (KiInitializeMTRR.c)
+ *     KiInitializeMTRR @ 0x1409C66F4 (KiInitializeMTRR.c)
  * Callees:
- *     RtlFindLeastSignificantBit @ 0x14012B8D0 (RtlFindLeastSignificantBit.c)
+ *     RtlFindLeastSignificantBit @ 0x14012B9A0 (RtlFindLeastSignificantBit.c)
  */
 
 __int64 __fastcall KiMaskToLength(ULONGLONG a1)

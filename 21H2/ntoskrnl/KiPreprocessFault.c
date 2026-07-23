@@ -1,13 +1,13 @@
 /*
- * XREFs of KiPreprocessFault @ 0x140273930
+ * XREFs of KiPreprocessFault @ 0x1402618D0
  * Callers:
- *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1402612C0 (KiDispatchException.c)
  * Callees:
- *     KiOpDecode @ 0x140273EE0 (KiOpDecode.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiOpPreprocessSecureFault @ 0x140514C00 (KiOpPreprocessSecureFault.c)
- *     KiCheckForAtlThunk @ 0x140524544 (KiCheckForAtlThunk.c)
+ *     KiOpDecode @ 0x140261E80 (KiOpDecode.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiOpPreprocessSecureFault @ 0x140514E40 (KiOpPreprocessSecureFault.c)
+ *     KiCheckForAtlThunk @ 0x140524784 (KiCheckForAtlThunk.c)
  */
 
 char __fastcall KiPreprocessFault(ULONG_PTR a1, ULONG_PTR a2, char a3)

@@ -14,13 +14,13 @@
 void __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadCallout(_QWORD *Parameter)
 {
   unsigned int Issue; // eax
-  union _SLIST_HEADER *v3; // rbx
+  _SLIST_HEADER *v3; // rbx
   unsigned int v4; // ebp
   __int64 v5; // rsi
 
   *((_DWORD *)Parameter + 6) = 0;
   Issue = SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue(*Parameter, Parameter[1], Parameter[2]);
-  v3 = (union _SLIST_HEADER *)*Parameter;
+  v3 = (_SLIST_HEADER *)*Parameter;
   v4 = Issue;
   v5 = Parameter[2];
   B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchResultDeref(

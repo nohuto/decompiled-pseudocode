@@ -1,7 +1,7 @@
 /*
  * XREFs of BapdpQueryData @ 0x1407A9868
  * Callers:
- *     BapdpProcessEtwEvents @ 0x14013CE64 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessEtwEvents @ 0x14013D3D4 (BapdpProcessEtwEvents.c)
  *     BapdpProcessEDrvHintInfo @ 0x1407A9388 (BapdpProcessEDrvHintInfo.c)
  *     BapdpProcessFwUpdateResults @ 0x1407A9410 (BapdpProcessFwUpdateResults.c)
  *     BapdpProcessHSTIResults @ 0x1407A9498 (BapdpProcessHSTIResults.c)
@@ -11,7 +11,7 @@
  *     BapdpProcessSiData @ 0x1407A979C (BapdpProcessSiData.c)
  *     BapdpProcessBootMetadata @ 0x1407A9C58 (BapdpProcessBootMetadata.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsigned int *a5)
@@ -24,12 +24,12 @@ __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsi
 
   if ( !a5 || !a2 || *a5 && !a4 )
     return 3221225485LL;
-  v8 = (__int64 *)qword_140341428;
+  v8 = (__int64 *)qword_140341468;
   for ( i = 0; ; ++i )
   {
     while ( 1 )
     {
-      if ( v8 == &qword_140341428 )
+      if ( v8 == &qword_140341468 )
         return 3221226021LL;
       v10 = v8[2];
       v8 = (__int64 *)*v8;

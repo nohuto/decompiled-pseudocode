@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNetCompliantNicUpdate @ 0x1407DA440
+ * XREFs of PopNetCompliantNicUpdate @ 0x1407DE328
  * Callers:
- *     PopPdcCsDeviceNotification @ 0x140B3018C (PopPdcCsDeviceNotification.c)
+ *     PopPdcCsDeviceNotification @ 0x140B32390 (PopPdcCsDeviceNotification.c)
  * Callees:
- *     PopNetSetConnectivityConstraint @ 0x14077A360 (PopNetSetConnectivityConstraint.c)
- *     PopNetClearConnectivityConstraint @ 0x140B66B94 (PopNetClearConnectivityConstraint.c)
+ *     PopNetSetConnectivityConstraint @ 0x14077D290 (PopNetSetConnectivityConstraint.c)
+ *     PopNetClearConnectivityConstraint @ 0x140B69B20 (PopNetClearConnectivityConstraint.c)
  */
 
 char __fastcall PopNetCompliantNicUpdate(char a1)
@@ -12,19 +12,19 @@ char __fastcall PopNetCompliantNicUpdate(char a1)
   int v1; // eax
   bool v2; // zf
 
-  LOBYTE(v1) = stru_140F0C428.Header.WaitListHead.Blink;
+  LOBYTE(v1) = PopPdcDeviceListLock.SchedulerApcFill3[44];
   if ( a1 )
   {
-    v1 = LODWORD(stru_140F0C428.Header.WaitListHead.Blink) + 1;
-    LODWORD(stru_140F0C428.Header.WaitListHead.Blink) = v1;
+    v1 = *(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[44] + 1;
+    *(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[44] = v1;
     if ( v1 == 1 )
       LOBYTE(v1) = PopNetClearConnectivityConstraint(6LL);
   }
-  else if ( LODWORD(stru_140F0C428.Header.WaitListHead.Blink) )
+  else if ( *(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[44] )
   {
-    v2 = LODWORD(stru_140F0C428.Header.WaitListHead.Blink) == 1;
-    LOBYTE(v1) = LOBYTE(stru_140F0C428.Header.WaitListHead.Blink) - 1;
-    --LODWORD(stru_140F0C428.Header.WaitListHead.Blink);
+    v2 = *(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[44] == 1;
+    LOBYTE(v1) = PopPdcDeviceListLock.SchedulerApcFill3[44] - 1;
+    --*(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[44];
     if ( v2 )
       LOBYTE(v1) = PopNetSetConnectivityConstraint(6);
   }

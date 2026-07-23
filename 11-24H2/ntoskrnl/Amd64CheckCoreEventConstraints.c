@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64CheckCoreEventConstraints @ 0x14056A8D4
+ * XREFs of Amd64CheckCoreEventConstraints @ 0x140567D64
  * Callers:
- *     Amd64AllocateCounter @ 0x14056A5AC (Amd64AllocateCounter.c)
+ *     Amd64AllocateCounter @ 0x140567A3C (Amd64AllocateCounter.c)
  * Callees:
  *     <none>
  */

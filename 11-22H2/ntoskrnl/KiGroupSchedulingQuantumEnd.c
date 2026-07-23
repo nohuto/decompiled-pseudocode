@@ -112,7 +112,7 @@ char __fastcall KiGroupSchedulingQuantumEnd(__int64 a1, __int64 *a2, _QWORD *a3,
           if ( KiCheckMaxOverQuotaTransition(v13, v12) )
           {
             if ( (*(_BYTE *)(v13 + 112) & 1) != 0 )
-              KiRemoveSchedulingGroupQueue(a1, v13, 1);
+              KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a1, v13, 1);
             goto LABEL_34;
           }
           if ( *(_QWORD *)v13 >= *(_QWORD *)(v13 + 24) )

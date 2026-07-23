@@ -1,30 +1,30 @@
 /*
- * XREFs of PspSetQuotaLimits @ 0x1409AFD58
+ * XREFs of PspSetQuotaLimits @ 0x140999A58
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
- *     MmEnforceWorkingSetLimit @ 0x14047DC7C (MmEnforceWorkingSetLimit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140853B30 (SePrivilegedServiceAuditAlarm.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     PspSinglePrivCheck @ 0x1409B027C (PspSinglePrivCheck.c)
- *     PspAssignProcessQuotaBlock @ 0x140A36D98 (PspAssignProcessQuotaBlock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
+ *     MmEnforceWorkingSetLimit @ 0x140478F0C (MmEnforceWorkingSetLimit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14084FDF0 (SePrivilegedServiceAuditAlarm.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     PspSinglePrivCheck @ 0x140999F7C (PspSinglePrivCheck.c)
+ *     PspAssignProcessQuotaBlock @ 0x140A2BBE8 (PspAssignProcessQuotaBlock.c)
  */
 
 __int64 __fastcall PspSetQuotaLimits(ULONG_PTR BugCheckParameter1, __int128 *a2, int a3, char a4)
@@ -38,10 +38,10 @@ __int64 __fastcall PspSetQuotaLimits(ULONG_PTR BugCheckParameter1, __int128 *a2,
   char v14; // r15
   _QWORD *v15; // rsi
   __int64 v16; // rsi
-  _QWORD *v17; // rax
-  _QWORD *v18; // r14
-  __int64 v19; // rdx
-  __int64 v20; // rcx
+  char *v17; // rax
+  char *v18; // r14
+  __int64 v19; // r8
+  __int64 v20; // r9
   bool v21; // zf
   int v22; // esi
   __int64 *v23; // rdi
@@ -167,12 +167,12 @@ __int64 __fastcall PspSetQuotaLimits(ULONG_PTR BugCheckParameter1, __int128 *a2,
               if ( !v26 )
                 v34 = *(_OWORD *)(v16 + 1000);
             }
-            v17 = KeAbPreAcquire((__int64)&qword_140FC60B0, 0LL);
+            v17 = (char *)KeAbPreAcquire((__int64)&qword_140FC70E8, 0LL);
             v18 = v17;
-            if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140FC60B0, 0LL) )
-              ExfAcquirePushLockExclusiveEx(&qword_140FC60B0, (__int64)v17, (__int64)&qword_140FC60B0);
+            if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140FC70E8, 0LL) )
+              ExfAcquirePushLockExclusiveEx(&qword_140FC70E8, v17, (__int64)&qword_140FC70E8);
             if ( v18 )
-              *((_BYTE *)v18 + 10) = 1;
+              v18[10] = 1;
             ExReleaseResourceLite((PERESOURCE)(v16 + 56));
             v8 = v27;
           }
@@ -181,17 +181,17 @@ __int64 __fastcall PspSetQuotaLimits(ULONG_PTR BugCheckParameter1, __int128 *a2,
             MmEnforceWorkingSetLimit((_KPROCESS *)Object, v10);
           if ( v16 )
           {
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC60B0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC60B0);
-            KeAbPostRelease((ULONG_PTR)&qword_140FC60B0);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC70E8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC70E8);
+            KeAbPostRelease((ULONG_PTR)&qword_140FC70E8);
           }
           v21 = CurrentThread->SpecialApcDisable++ == -1;
           if ( v21
-            && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
-            KiCheckForKernelApcDelivery(v20, v19);
+            KiCheckForKernelApcDelivery();
           }
-          KiUnstackDetachProcess((__int64)v42, 0);
+          KiUnstackDetachProcess((__int64)v42, 0, v19, v20);
           if ( v28 == 1 && !v8 )
             v14 = 1;
           v21 = v32[84] == v16;

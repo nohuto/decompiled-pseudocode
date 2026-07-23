@@ -1,9 +1,9 @@
 /*
- * XREFs of IoDiagTraceDirectedDripsCandidateDevices @ 0x1408B4598
+ * XREFs of IoDiagTraceDirectedDripsCandidateDevices @ 0x1408B46F8
  * Callers:
- *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14057CC50 (PopDirectedDripsDiagTraceNotifyDevices.c)
+ *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14057CE90 (PopDirectedDripsDiagTraceNotifyDevices.c)
  * Callees:
- *     PoDiagTraceDirectedDripsCandidateDevice @ 0x1408E7FE4 (PoDiagTraceDirectedDripsCandidateDevice.c)
+ *     PoDiagTraceDirectedDripsCandidateDevice @ 0x1408E8144 (PoDiagTraceDirectedDripsCandidateDevice.c)
  */
 
 _QWORD *IoDiagTraceDirectedDripsCandidateDevices()

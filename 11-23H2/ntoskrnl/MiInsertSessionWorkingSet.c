@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInsertSessionWorkingSet @ 0x14036E3CC
+ * XREFs of MiInsertSessionWorkingSet @ 0x14036E56C
  * Callers:
  *     MiAllowWorkingSetExpansion @ 0x1402232B8 (MiAllowWorkingSetExpansion.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
  */
 
 char __fastcall MiInsertSessionWorkingSet(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeGetProcessPpmPolicy @ 0x14046DC90
+ * XREFs of KeGetProcessPpmPolicy @ 0x140467410
  * Callers:
- *     PspSetProcessBamPpmPolicy @ 0x1407F0990 (PspSetProcessBamPpmPolicy.c)
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
+ *     PspSetProcessBamPpmPolicy @ 0x1407F64F0 (PspSetProcessBamPpmPolicy.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
  * Callees:
  *     <none>
  */

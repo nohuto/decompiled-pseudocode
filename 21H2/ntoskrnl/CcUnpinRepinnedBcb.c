@@ -1,20 +1,20 @@
 /*
- * XREFs of CcUnpinRepinnedBcb @ 0x1404EA760
+ * XREFs of CcUnpinRepinnedBcb @ 0x1404EA9A0
  * Callers:
  *     <none>
  * Callees:
- *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
- *     CcIsFatalWriteError @ 0x1402C1E0C (CcIsFatalWriteError.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcDereferenceSharedCacheMapFileObject @ 0x1402F5784 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     MmSetAddressRangeModifiedEx @ 0x14030F640 (MmSetAddressRangeModifiedEx.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     CcPerfLogFlushSection @ 0x1403BD19C (CcPerfLogFlushSection.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1404EA2F0 (CcPostDeferredWrites.c)
+ *     CcIsFatalWriteError @ 0x1402402AC (CcIsFatalWriteError.c)
+ *     MmFlushSection @ 0x14026269C (MmFlushSection.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1403004D4 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140300520 (CcReferenceSharedCacheMapFileObject.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14031A390 (MmSetAddressRangeModifiedEx.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     CcPerfLogFlushSection @ 0x1403BD30C (CcPerfLogFlushSection.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x1404EA530 (CcPostDeferredWrites.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -47,7 +47,7 @@ void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BL
       v13 = CcReferenceSharedCacheMapFileObject(v7);
       if ( (xmmword_140CFC490 & 0x20000) != 0 )
         CcPerfLogFlushSection(0LL, v7, (__int64 *)Bcb + 1, *((_DWORD *)Bcb + 1), 1);
-      MmFlushSection(*(_QWORD *)(v13 + 40), (__int64 *)Bcb + 1, *((unsigned int *)Bcb + 1), v12, IoStatus, 1u);
+      MmFlushSection(*(_QWORD *)(v13 + 40), (__int64 *)Bcb + 1, *((unsigned int *)Bcb + 1), v12, IoStatus, 1);
       CcDereferenceSharedCacheMapFileObject(v7, v13);
       if ( IoStatus->Status < 0 && !CcIsFatalWriteError(*((_QWORD *)Bcb + 22), IoStatus->Status) )
         CcSetDirtyPinnedData(Bcb, 0LL);

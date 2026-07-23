@@ -16,7 +16,7 @@ __int64 __fastcall IsOverlaySupportedPath(wchar_t *String1, size_t *a2, const wc
 
   *a3 = 0LL;
   *a2 = 0LL;
-  NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   v7 = -1LL;
   do
     ++v7;
@@ -29,7 +29,7 @@ LABEL_5:
     *a3 = v8;
     return 0LL;
   }
-  if ( (int)IsProgramFilesPath(String1, a2) >= 0 )
+  if ( IsProgramFilesPath(String1, a2) >= 0 )
   {
     v8 = L"\\Program Files";
     goto LABEL_5;

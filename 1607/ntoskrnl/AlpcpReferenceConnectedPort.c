@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpReferenceConnectedPort @ 0x14050C900
+ * XREFs of AlpcpReferenceConnectedPort @ 0x1404EF890
  * Callers:
- *     AlpcpExposeHandleAttribute @ 0x14044A4C0 (AlpcpExposeHandleAttribute.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x140476FE8 (AlpcpPortQueryConnectedSidInfo.c)
- *     AlpcpImpersonateMessage @ 0x14050E0D0 (AlpcpImpersonateMessage.c)
- *     AlpcpPortQueryServerSessionInfo @ 0x140656338 (AlpcpPortQueryServerSessionInfo.c)
+ *     AlpcpExposeHandleAttribute @ 0x140449390 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x140475EB8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpImpersonateMessage @ 0x1404F1060 (AlpcpImpersonateMessage.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x14065641C (AlpcpPortQueryServerSessionInfo.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1)

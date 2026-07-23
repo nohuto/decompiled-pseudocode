@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrProcessRelocationBlockLongLong @ 0x1800876E0
+ * XREFs of LdrProcessRelocationBlockLongLong @ 0x1800876F0
  * Callers:
- *     LdrRelocateImageWithBias @ 0x1800875E8 (LdrRelocateImageWithBias.c)
+ *     LdrRelocateImageWithBias @ 0x1800875F8 (LdrRelocateImageWithBias.c)
  *     LdrProcessRelocationBlock @ 0x1800E4D00 (LdrProcessRelocationBlock.c)
  *     LdrProcessRelocationBlockEx @ 0x1800E4D30 (LdrProcessRelocationBlockEx.c)
  * Callees:

@@ -1,14 +1,14 @@
 /*
  * XREFs of IoGetActivityIdThread @ 0x1402E0960
  * Callers:
- *     IopMountVolume @ 0x14068E624 (IopMountVolume.c)
- *     PnpInsertEventInQueue @ 0x14078C398 (PnpInsertEventInQueue.c)
+ *     sub_14068E624 @ 0x14068E624 (sub_14068E624.c)
+ *     sub_14078C398 @ 0x14078C398 (sub_14078C398.c)
  *     IoRegisterFsRegistrationChangeMountAware @ 0x140859F30 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY *IoGetActivityIdThread()
+__int64 IoGetActivityIdThread()
 {
-  return KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink;
+  return *((_QWORD *)KeGetCurrentThread() + 190);
 }

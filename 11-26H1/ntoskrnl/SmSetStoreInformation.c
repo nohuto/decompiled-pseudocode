@@ -1,17 +1,17 @@
 /*
- * XREFs of SmSetStoreInformation @ 0x140B2E9E0
+ * XREFs of SmSetStoreInformation @ 0x140B307BC
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     SmProcessConfigRequest @ 0x1408195C0 (SmProcessConfigRequest.c)
- *     SmProcessDeleteRequest @ 0x1408198D4 (SmProcessDeleteRequest.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
- *     SmProcessSystemStoreTrimRequest @ 0x140B2EB04 (SmProcessSystemStoreTrimRequest.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x140B522A4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     SmProcessConfigRequest @ 0x14081F7D0 (SmProcessConfigRequest.c)
+ *     SmProcessDeleteRequest @ 0x14081FAE4 (SmProcessDeleteRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x140B308E0 (SmProcessSystemStoreTrimRequest.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x140B54B44 (SmProcessStoreMemoryPriorityRequest.c)
  */
 
 __int64 __fastcall SmSetStoreInformation(__int64 a1, void *a2, unsigned int a3, KPROCESSOR_MODE a4)

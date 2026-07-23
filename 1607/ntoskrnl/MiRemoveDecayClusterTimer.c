@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveDecayClusterTimer @ 0x140096BB8
+ * XREFs of MiRemoveDecayClusterTimer @ 0x1400963B8
  * Callers:
- *     MiDecayPfnFullyInitialized @ 0x140096A10 (MiDecayPfnFullyInitialized.c)
- *     MiDeleteParentDecayNode @ 0x140096B30 (MiDeleteParentDecayNode.c)
- *     MiEmptyDecayClusterTimers @ 0x1400BE310 (MiEmptyDecayClusterTimers.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiDecayPfnFullyInitialized @ 0x140096210 (MiDecayPfnFullyInitialized.c)
+ *     MiDeleteParentDecayNode @ 0x140096330 (MiDeleteParentDecayNode.c)
+ *     MiEmptyDecayClusterTimers @ 0x1400BC1A0 (MiEmptyDecayClusterTimers.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 __int64 __fastcall MiRemoveDecayClusterTimer(__int64 a1)
@@ -30,12 +30,12 @@ __int64 __fastcall MiRemoveDecayClusterTimer(__int64 a1)
   {
     result = v2 ^ (*(_QWORD *)&v3[2 * v4 + 1058] ^ v2) & 0x1FFFFFFFFLL;
     *(_QWORD *)&v3[2 * v4 + 1058] = result;
-    v8 = qword_140327360;
+    v8 = qword_1403273A0;
   }
   else
   {
-    v8 = qword_140327360;
-    v10 = 48 * (qword_140327360 + v5) - 0x58000000000LL;
+    v8 = qword_1403273A0;
+    v10 = 48 * (qword_1403273A0 + v5) - 0x58000000000LL;
     result = v2 ^ (v2 ^ *(_QWORD *)(v10 + 8)) & 0x1FFFFFFFFLL;
     *(_QWORD *)(v10 + 8) = result;
   }

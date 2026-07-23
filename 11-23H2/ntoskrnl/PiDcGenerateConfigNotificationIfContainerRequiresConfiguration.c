@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140812BDC
+ * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140812EAC
  * Callers:
- *     PiDcHandleContainerEvent @ 0x1407AA234 (PiDcHandleContainerEvent.c)
+ *     PiDcHandleContainerEvent @ 0x1407AA424 (PiDcHandleContainerEvent.c)
  *     PiDcInit @ 0x140B3F5C0 (PiDcInit.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguration(__int64 a1)
@@ -75,7 +75,7 @@ LABEL_11:
       if ( ObjectProperty < 0 )
         return (unsigned int)ObjectProperty;
     }
-    ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)ObjectProperty;
 }

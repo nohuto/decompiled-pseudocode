@@ -1,13 +1,17 @@
 /*
- * XREFs of RtlAddIntegrityLabelToBoundaryDescriptor @ 0x1800CDD20
+ * XREFs of RtlAddIntegrityLabelToBoundaryDescriptor @ 0x1800CB490
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlAddIntegrityLabelToBoundaryDescriptor(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlAddIntegrityLabelToBoundaryDescriptor(
+        POBJECT_BOUNDARY_DESCRIPTOR *BoundaryDescriptor,
+        PSID IntegrityLabel)
 {
-  LOBYTE(a3) = 1;
-  return RtlAddSIDToBoundaryDescriptorEx(a1, a2, a3);
+  char v2; // r8
+
+  v2 = 1;
+  return RtlAddSIDToBoundaryDescriptorEx(BoundaryDescriptor, IntegrityLabel, v2);
 }

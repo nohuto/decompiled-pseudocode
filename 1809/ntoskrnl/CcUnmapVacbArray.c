@@ -1,12 +1,12 @@
 /*
- * XREFs of CcUnmapVacbArray @ 0x1400798E0
+ * XREFs of CcUnmapVacbArray @ 0x1400798D0
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
- *     CcUnmapAndPurge @ 0x14007CA94 (CcUnmapAndPurge.c)
- *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
- *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
- *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
- *     CcUnmapFileOffsetFromSystemCache @ 0x1401278C0 (CcUnmapFileOffsetFromSystemCache.c)
+ *     CcUnmapAndPurge @ 0x14007CA84 (CcUnmapAndPurge.c)
+ *     CcSetFileSizesEx @ 0x14007CFB0 (CcSetFileSizesEx.c)
+ *     CcGetVirtualAddress @ 0x1400AFB80 (CcGetVirtualAddress.c)
+ *     CcPurgeCacheSection @ 0x1400E7B20 (CcPurgeCacheSection.c)
+ *     CcUnmapFileOffsetFromSystemCache @ 0x140127990 (CcUnmapFileOffsetFromSystemCache.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     CcSetVacbLargeOffset @ 0x1400224B0 (CcSetVacbLargeOffset.c)
@@ -14,16 +14,16 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     CcSetVacbInFreeList @ 0x140079BD0 (CcSetVacbInFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x14012CED4 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x14012CF14 (CcAcquireBcbLockAndVacbLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
+ *     CcSetVacbInFreeList @ 0x140079BC0 (CcSetVacbInFreeList.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14012CFA4 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14012CFE4 (CcAcquireBcbLockAndVacbLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcUnmapVacb @ 0x1405F384C (CcUnmapVacb.c)
  */
 
 char __fastcall CcUnmapVacbArray(__int64 a1, __int64 *a2, unsigned int a3, char a4, char a5, char a6)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializePageHeatList @ 0x14043F8A0
+ * XREFs of MiInitializePageHeatList @ 0x140435B60
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiMakeTransitionHeatBatch @ 0x140402D04 (MiMakeTransitionHeatBatch.c)
- *     MiChangePageHeatImmediate @ 0x14043F808 (MiChangePageHeatImmediate.c)
- *     MiGetTransitionPageHeatList @ 0x140685724 (MiGetTransitionPageHeatList.c)
- *     MiZeroPageMakeHot @ 0x1406903F8 (MiZeroPageMakeHot.c)
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiMakeTransitionHeatBatch @ 0x1403FD304 (MiMakeTransitionHeatBatch.c)
+ *     MiChangePageHeatImmediate @ 0x140435AC8 (MiChangePageHeatImmediate.c)
+ *     MiGetTransitionPageHeatList @ 0x140686854 (MiGetTransitionPageHeatList.c)
+ *     MiZeroPageMakeHot @ 0x1406914C8 (MiZeroPageMakeHot.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */
@@ -22,8 +22,8 @@ __int64 __fastcall MiInitializePageHeatList(__int64 a1, char a2, int a3, int a4)
   *(_DWORD *)a1 = a2 & 1 | (2 * (result | a3 & 3));
   if ( a3 )
   {
-    result = qword_140E2EBF8;
-    *(_QWORD *)(a1 + 8) = qword_140E2EBF8;
+    result = qword_140E2ED38;
+    *(_QWORD *)(a1 + 8) = qword_140E2ED38;
   }
   return result;
 }

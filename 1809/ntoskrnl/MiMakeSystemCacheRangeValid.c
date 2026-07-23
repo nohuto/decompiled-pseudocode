@@ -1,7 +1,7 @@
 /*
  * XREFs of MiMakeSystemCacheRangeValid @ 0x14004B5A0
  * Callers:
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
@@ -11,26 +11,26 @@
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     PfSnReferenceProcessTrace @ 0x1400D4AB0 (PfSnReferenceProcessTrace.c)
- *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLoggingForThread @ 0x1400D5340 (PfSnCheckLoggingForThread.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140128BF8 (MiEmptyDeferredWorkingSetEntries.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     ObFastReferenceObjectLocked @ 0x14007DFE4 (ObFastReferenceObjectLocked.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     PfSnReferenceProcessTrace @ 0x1400D4B30 (PfSnReferenceProcessTrace.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C84 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLoggingForThread @ 0x1400D53C0 (PfSnCheckLoggingForThread.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140128CC8 (MiEmptyDeferredWorkingSetEntries.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B75C8 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
@@ -142,11 +142,11 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __i
   v7 = (__int64)(a1 << 25) >> 16;
   v8 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   CurrentIrql = KeGetCurrentIrql();
-  if ( (byte_14043E6F8 & 7u) < 6 )
+  if ( (byte_14043F7B8 & 7u) < 6 )
   {
-    v10 = &dword_14043B700;
-    if ( (byte_14043E6F8 & 7) != 2 )
-      v10 = (LONG *)&unk_14043E700;
+    v10 = &dword_14043C7C0;
+    if ( (byte_14043F7B8 & 7) != 2 )
+      v10 = (LONG *)&unk_14043F7C0;
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql < 2u )
       _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
@@ -198,7 +198,7 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __i
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql < 2u )
       _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
   }
-  MiLockPageTableInternal(&unk_14043E640, v8, 0LL, a4);
+  MiLockPageTableInternal(&unk_14043F700, v8, 0LL, a4);
   v17 = ((v7 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
   v18 = *(_QWORD *)v17;
   if ( v17 >= 0xFFFFF6FB7DBED000uLL
@@ -250,7 +250,7 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __i
   if ( (v26 & 1) == 0 )
     v27 = v26;
   BYTE5(v85) |= 4u;
-  v28 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v27 + 60LL) & 0x3FF)) + 7424LL;
+  v28 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v27 + 60LL) & 0x3FF)) + 7424LL;
   v82 = v28;
   v29 = v28;
   v84 = v28;
@@ -504,8 +504,8 @@ LABEL_76:
       if ( v64 )
       {
         v68 = *(_QWORD *)((char *)v97 + v63);
-        if ( qword_14043A0C0 && (v68 & 0x10) == 0 )
-          v68 &= ~qword_14043A0C0;
+        if ( qword_14043B180 && (v68 & 0x10) == 0 )
+          v68 &= ~qword_14043B180;
         v69 = v68 >> 16;
         v70 = *(_QWORD *)v69;
         v71 = (signed __int64 *)(*(_QWORD *)v69 + 64LL);

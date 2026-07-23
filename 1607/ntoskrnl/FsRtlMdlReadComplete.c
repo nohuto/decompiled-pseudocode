@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMdlReadComplete @ 0x1401B8300
+ * XREFs of FsRtlMdlReadComplete @ 0x1401B81E4
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
  */
 
 char __fastcall FsRtlMdlReadComplete(struct _FILE_OBJECT *a1, __int64 a2)

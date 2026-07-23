@@ -10,9 +10,7 @@
 
 NTSTATUS __stdcall ZwQueryBootEntryOrder(PULONG Ids, PULONG Count)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Ids, Count, v2);
+  return KiServiceInternal(Ids);
 }

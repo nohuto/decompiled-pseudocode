@@ -1,5 +1,5 @@
 /*
- * XREFs of _atoi64 @ 0x14014CF94
+ * XREFs of _atoi64 @ 0x14014D504
  * Callers:
  *     KiMatchLoadOption @ 0x1403D688C (KiMatchLoadOption.c)
  *     RamdiskStart @ 0x1407D3390 (RamdiskStart.c)

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiPageTableLockIsContended @ 0x1402E6A30
+ * XREFs of MiPageTableLockIsContended @ 0x1402E6CC0
  * Callers:
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     MiDispatchFault @ 0x140237F30 (MiDispatchFault.c)
- *     NtUnlockVirtualMemory @ 0x140283160 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402A3120 (NtLockVirtualMemory.c)
- *     MiProbePacketContended @ 0x1402E6584 (MiProbePacketContended.c)
- *     MiRemoveMappedPtes @ 0x1402E65E0 (MiRemoveMappedPtes.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F155C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x140630C30 (MiInsertViewOfPhysicalSection.c)
- *     MiVadRangeIsIoSpace @ 0x1406316F4 (MiVadRangeIsIoSpace.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632A38 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiAddPagesToEnclave @ 0x140646A10 (MiAddPagesToEnclave.c)
- *     MiCommitEnclavePages @ 0x140647238 (MiCommitEnclavePages.c)
- *     MiDecommitHardwareEnclavePages @ 0x1406474E0 (MiDecommitHardwareEnclavePages.c)
- *     MiProtectEnclavePages @ 0x140648248 (MiProtectEnclavePages.c)
- *     MiWriteAwePtes @ 0x14064C5BC (MiWriteAwePtes.c)
- *     MiScrubLargeMappedPage @ 0x14065E43C (MiScrubLargeMappedPage.c)
+ *     MiDispatchFault @ 0x140238000 (MiDispatchFault.c)
+ *     NtUnlockVirtualMemory @ 0x1402833F0 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x1402A33B0 (NtLockVirtualMemory.c)
+ *     MiProbePacketContended @ 0x1402E6814 (MiProbePacketContended.c)
+ *     MiRemoveMappedPtes @ 0x1402E6870 (MiRemoveMappedPtes.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F17EC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140631180 (MiInsertViewOfPhysicalSection.c)
+ *     MiVadRangeIsIoSpace @ 0x140631C44 (MiVadRangeIsIoSpace.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632F88 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiAddPagesToEnclave @ 0x140646F60 (MiAddPagesToEnclave.c)
+ *     MiCommitEnclavePages @ 0x140647788 (MiCommitEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140647A30 (MiDecommitHardwareEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x140648798 (MiProtectEnclavePages.c)
+ *     MiWriteAwePtes @ 0x14064CB0C (MiWriteAwePtes.c)
+ *     MiScrubLargeMappedPage @ 0x14065E98C (MiScrubLargeMappedPage.c)
  * Callees:
- *     MiGetPageTableLockBuffer @ 0x1403197D8 (MiGetPageTableLockBuffer.c)
+ *     MiGetPageTableLockBuffer @ 0x140319A68 (MiGetPageTableLockBuffer.c)
  */
 
 __int64 __fastcall MiPageTableLockIsContended(__int64 a1, unsigned __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of _setjmp @ 0x1801643A0
+ * XREFs of _setjmp @ 0x1801642A0
  * Callers:
- *     setjmp @ 0x180164440 (setjmp.c)
+ *     setjmp @ 0x180164340 (setjmp.c)
  * Callees:
  *     <none>
  */

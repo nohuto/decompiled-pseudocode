@@ -8,53 +8,51 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-signed __int64 LdrpCleanupThreadTlsData()
+void LdrpCleanupThreadTlsData()
 {
-  __int64 v0; // rdi
-  void **v1; // rsi
+  _QWORD *v0; // rdi
+  _QWORD *v1; // rsi
   unsigned __int64 UniqueThread; // r14
-  volatile signed __int64 *v3; // rbx
-  void **v4; // rax
-  signed __int64 result; // rax
-  _QWORD *v6; // rcx
-  __int64 v7; // rbx
+  _RTL_SRWLOCK *v3; // rbx
+  _QWORD *Value; // rax
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rbx
 
   v0 = 0LL;
   v1 = 0LL;
   UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-  v3 = (volatile signed __int64 *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((UniqueThread >> 2) & 0xF));
+  v3 = (_RTL_SRWLOCK *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((UniqueThread >> 2) & 0xF));
   RtlAcquireSRWLockExclusive(v3 + 1);
-  v4 = (void **)*v3;
-  if ( *v3 )
+  Value = (_QWORD *)v3->Value;
+  if ( v3->Value )
   {
     do
     {
-      v6 = v4[1];
-      if ( *v4 == (void *)UniqueThread )
+      v5 = (_QWORD *)Value[1];
+      if ( *Value == UniqueThread )
       {
         if ( v1 )
-          v1[1] = v6;
+          v1[1] = v5;
         else
-          *v3 = (volatile signed __int64)v6;
-        v4[1] = (void *)v0;
-        v0 = (__int64)v4;
-        v4 = v1;
+          v3->Value = (unsigned __int64)v5;
+        Value[1] = v0;
+        v0 = Value;
+        Value = v1;
       }
-      v1 = v4;
-      v4 = (void **)v6;
+      v1 = Value;
+      Value = v5;
     }
-    while ( v6 );
+    while ( v5 );
   }
-  result = RtlReleaseSRWLockExclusive(v3 + 1);
+  RtlReleaseSRWLockExclusive(v3 + 1);
   if ( v0 )
   {
     do
     {
-      v7 = *(_QWORD *)(v0 + 8);
-      result = RtlFreeHeap(LdrpTlsHeap, 0, v0);
-      v0 = v7;
+      v6 = (_QWORD *)v0[1];
+      RtlFreeHeap(LdrpTlsHeap, 0, v0);
+      v0 = v6;
     }
-    while ( v7 );
+    while ( v6 );
   }
-  return result;
 }

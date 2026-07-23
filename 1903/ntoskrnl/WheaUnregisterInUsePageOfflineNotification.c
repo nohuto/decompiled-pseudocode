@@ -13,9 +13,9 @@
 NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback)
 {
   char v1; // bl
-  __int64 v4; // rax
+  _RTL_BALANCED_NODE *v4; // rax
   signed __int8 v5; // cf
-  __int64 v6; // rdi
+  _RTL_BALANCED_NODE *v6; // rdi
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY *v7; // rcx
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY v8; // rax
   PVOID *v9; // rdx
@@ -29,7 +29,7 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
   if ( v5 )
     ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v4, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)WheapInUsePageOfflineNotifyList;
   if ( WheapInUsePageOfflineNotifyList != &WheapInUsePageOfflineNotifyList )
   {

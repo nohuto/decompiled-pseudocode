@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpAcquireQueueLock @ 0x1407ED230
+ * XREFs of TtmpAcquireQueueLock @ 0x1407F2D90
  * Callers:
- *     TtmiWriteEventToAllQueues @ 0x1407E6BDC (TtmiWriteEventToAllQueues.c)
- *     TtmiRetrieveEventFromQueue @ 0x1407ECFA0 (TtmiRetrieveEventFromQueue.c)
- *     TtmiWriteEventToSingleQueue @ 0x1407ED0EC (TtmiWriteEventToSingleQueue.c)
+ *     TtmiWriteEventToAllQueues @ 0x1407EC734 (TtmiWriteEventToAllQueues.c)
+ *     TtmiRetrieveEventFromQueue @ 0x1407F2B00 (TtmiRetrieveEventFromQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1407F2C4C (TtmiWriteEventToSingleQueue.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall TtmpAcquireQueueLock(__int64 a1)

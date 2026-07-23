@@ -1,7 +1,7 @@
 /*
  * XREFs of IoWMIAllocateInstanceIds @ 0x1409DB760
  * Callers:
- *     DifIoWMIAllocateInstanceIdsWrapper @ 0x1406115F0 (DifIoWMIAllocateInstanceIdsWrapper.c)
+ *     sub_1406115F0 @ 0x1406115F0 (sub_1406115F0.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
@@ -22,10 +22,10 @@ NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, U
   GUID v15; // xmm0
 
   v3 = 0LL;
-  if ( !WmipServiceDeviceObject )
+  if ( !qword_140C164D8 )
     return -1073741823;
-  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-  v8 = (_QWORD *)WmipInstIdChunkHead;
+  KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
+  v8 = (_QWORD *)qword_140C16668;
 LABEL_11:
   if ( v8 )
   {
@@ -43,7 +43,7 @@ LABEL_11:
       {
         *FirstInstanceId = v11;
         *((_DWORD *)v10 + 4) += InstanceCount;
-        KeReleaseMutex(&WmipSMMutex, 0);
+        KeReleaseMutex(&Object, 0);
         return 0;
       }
       ++v9;
@@ -62,7 +62,7 @@ LABEL_11:
     v14 = PoolWithTag;
     if ( !PoolWithTag )
     {
-      KeReleaseMutex(&WmipSMMutex, 0);
+      KeReleaseMutex(&Object, 0);
       return -1073741670;
     }
     memset(PoolWithTag + 1, 255, 0xA0uLL);
@@ -70,13 +70,13 @@ LABEL_11:
     if ( v3 )
       *v3 = v14;
     else
-      WmipInstIdChunkHead = (__int64)v14;
+      qword_140C16668 = (__int64)v14;
     v10 = v14 + 1;
   }
   v15 = *Guid;
   *((_DWORD *)v10 + 4) = InstanceCount;
   *(GUID *)v10 = v15;
-  KeReleaseMutex(&WmipSMMutex, 0);
+  KeReleaseMutex(&Object, 0);
   *FirstInstanceId = 0;
   return 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VslFreeSecureHibernateResources @ 0x1406207D8
+ * XREFs of VslFreeSecureHibernateResources @ 0x14062088C
  * Callers:
- *     PopFreeHiberContext @ 0x14052EA54 (PopFreeHiberContext.c)
+ *     PopFreeHiberContext @ 0x14052EF94 (PopFreeHiberContext.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS VslFreeSecureHibernateResources()

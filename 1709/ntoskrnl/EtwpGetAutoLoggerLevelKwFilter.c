@@ -35,7 +35,7 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, PVOID *a2)
   char *v20; // [rsp+A8h] [rbp-58h]
   int v21; // [rsp+B0h] [rbp-50h] BYREF
   char *v22; // [rsp+B8h] [rbp-48h]
-  _QWORD v23[140]; // [rsp+1C0h] [rbp+C0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[20]; // [rsp+1C0h] [rbp+C0h] BYREF
 
   KeyHandle = 0LL;
   v3 = -1LL;
@@ -65,32 +65,32 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, PVOID *a2)
       v11 = v10;
       if ( v10 )
       {
-        memset(v23, 0, sizeof(v23));
+        memset(QueryTable, 0, sizeof(QueryTable));
         v16 = v11;
-        LODWORD(v23[4]) = 11;
+        QueryTable[0].DefaultType = 11;
         v15 = 11;
-        v23[3] = &v15;
-        LODWORD(v23[11]) = 11;
-        v23[2] = L"MatchAnyKeyword";
+        QueryTable[0].EntryContext = &v15;
+        QueryTable[1].DefaultType = 11;
+        QueryTable[0].Name = L"MatchAnyKeyword";
         v17 = 11;
-        v23[10] = &v17;
-        v23[0] = &EtwpQueryRegistryCallback;
-        v23[9] = L"MatchAllKeyword";
+        QueryTable[1].EntryContext = &v17;
+        QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[1].Name = L"MatchAllKeyword";
         v18 = v11 + 8;
-        v23[17] = &v19;
-        v23[16] = L"Level";
+        QueryTable[2].EntryContext = &v19;
+        QueryTable[2].Name = L"Level";
         v20 = v11 + 16;
-        v23[24] = &v21;
-        v23[23] = L"FilterIn";
-        v23[7] = &EtwpQueryRegistryCallback;
-        v23[14] = &EtwpQueryRegistryCallback;
-        LODWORD(v23[18]) = 4;
+        QueryTable[3].EntryContext = &v21;
+        QueryTable[3].Name = L"FilterIn";
+        QueryTable[1].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[2].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[2].DefaultType = 4;
         v19 = 4;
-        v23[21] = &EtwpQueryRegistryCallback;
-        LODWORD(v23[25]) = 4;
+        QueryTable[3].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[3].DefaultType = 4;
         v21 = 4;
         v22 = v11 + 17;
-        v9 = (int)RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v23, 0LL, 0LL) < 0;
+        v9 = RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) < 0;
 LABEL_8:
         if ( !v9 )
           goto LABEL_11;

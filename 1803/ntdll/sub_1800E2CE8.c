@@ -6,17 +6,17 @@
  *     RtlEqualSid @ 0x1800442A0 (RtlEqualSid.c)
  */
 
-_WORD *__fastcall sub_1800E2CE8(_WORD *a1, _WORD *a2, unsigned int *a3)
+unsigned __int16 *__fastcall sub_1800E2CE8(unsigned __int16 *a1, void *a2, unsigned int *a3)
 {
   unsigned int v5; // ebp
-  _WORD *v6; // rbx
+  unsigned __int16 *v6; // rbx
   unsigned int v7; // edi
   int v8; // edx
   __int64 v9; // rcx
 
   if ( !a1 )
     return 0LL;
-  v5 = (unsigned __int16)a1[2];
+  v5 = a1[2];
   v6 = a1 + 4;
   v7 = 0;
   if ( !a1[2] )
@@ -42,12 +42,12 @@ _WORD *__fastcall sub_1800E2CE8(_WORD *a1, _WORD *a2, unsigned int *a3)
       }
       v9 = 16LL * (*((_DWORD *)v6 + 2) & 1) + ((8LL * (*((_DWORD *)v6 + 2) & 2)) | 0xC);
     }
-    a1 = (_WORD *)((char *)v6 + v9);
+    a1 = (unsigned __int16 *)((char *)v6 + v9);
     if ( a1 )
       break;
 LABEL_18:
     ++v7;
-    v6 = (_WORD *)((char *)v6 + (unsigned __int16)v6[1]);
+    v6 = (unsigned __int16 *)((char *)v6 + v6[1]);
     if ( v7 >= v5 )
       return 0LL;
   }

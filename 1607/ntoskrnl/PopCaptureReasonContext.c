@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCaptureReasonContext @ 0x1400FC2D4
+ * XREFs of PopCaptureReasonContext @ 0x1400FA054
  * Callers:
- *     PoCaptureReasonContext @ 0x1400FC0BC (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1400F9E3C (PoCaptureReasonContext.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     PopSafeCopyUnicodeString @ 0x1400FC55C (PopSafeCopyUnicodeString.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     PopSafeCopyUnicodeString @ 0x1400FA2DC (PopSafeCopyUnicodeString.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PopCaptureReasonContext(__int64 a1, char a2, bool *a3, _QWORD *a4)

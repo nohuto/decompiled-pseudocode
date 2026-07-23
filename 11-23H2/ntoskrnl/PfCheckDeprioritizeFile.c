@@ -1,15 +1,15 @@
 /*
- * XREFs of PfCheckDeprioritizeFile @ 0x1407607B4
+ * XREFs of PfCheckDeprioritizeFile @ 0x1407609A4
  * Callers:
- *     MiDeprioritizeVad @ 0x1403C6E3C (MiDeprioritizeVad.c)
- *     MiUnmapVad @ 0x14071F2A4 (MiUnmapVad.c)
- *     CcUnmapVacb @ 0x140721E10 (CcUnmapVacb.c)
+ *     MiDeprioritizeVad @ 0x1403C701C (MiDeprioritizeVad.c)
+ *     MiUnmapVad @ 0x14071F4A4 (MiUnmapVad.c)
+ *     CcUnmapVacb @ 0x140722010 (CcUnmapVacb.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PfLockSharedTryAcquire @ 0x1402FA288 (PfLockSharedTryAcquire.c)
- *     PfpRpLogDeprioEvent @ 0x1402FA3C0 (PfpRpLogDeprioEvent.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PfLockSharedTryAcquire @ 0x1402FA518 (PfLockSharedTryAcquire.c)
+ *     PfpRpLogDeprioEvent @ 0x1402FA650 (PfpRpLogDeprioEvent.c)
  */
 
 __int64 __fastcall PfCheckDeprioritizeFile(int a1, __int64 a2, int a3)

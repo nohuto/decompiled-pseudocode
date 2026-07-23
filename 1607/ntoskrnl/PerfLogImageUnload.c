@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfLogImageUnload @ 0x14042AC2C
+ * XREFs of PerfLogImageUnload @ 0x140429AFC
  * Callers:
- *     EtwpEnumerateAddressSpace @ 0x14042AE3C (EtwpEnumerateAddressSpace.c)
- *     MiUnmapViewOfSection @ 0x14042E400 (MiUnmapViewOfSection.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     EtwpEnumerateAddressSpace @ 0x140429D0C (EtwpEnumerateAddressSpace.c)
+ *     MiUnmapViewOfSection @ 0x14042D2D0 (MiUnmapViewOfSection.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x14054B09C (EtwpPsProvTraceImage.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x14054B5DC (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall PerfLogImageUnload(
@@ -84,7 +84,7 @@ void __fastcall PerfLogImageUnload(
         ImageBase = v13->OptionalHeader.ImageBase;
       }
     }
-    if ( (dword_1402FD540 & 4) != 0 )
+    if ( (dword_1402FD520 & 4) != 0 )
       EtwpPsProvTraceImage(v11, v20, 5122LL, a9);
     v30[0] = v20;
     v30[1] = 56LL;

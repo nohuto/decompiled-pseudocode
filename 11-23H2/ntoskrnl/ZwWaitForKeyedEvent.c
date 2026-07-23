@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwWaitForKeyedEvent @ 0x14041E9A0
+ * XREFs of ZwWaitForKeyedEvent @ 0x14041ED30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWaitForKeyedEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWaitForKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyedEventHandle);
 }

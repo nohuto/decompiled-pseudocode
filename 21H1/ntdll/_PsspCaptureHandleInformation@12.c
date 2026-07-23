@@ -15,102 +15,137 @@
  *     PsspWalkHandleTable @ 0x4B3882F7 (PsspWalkHandleTable.c)
  */
 
-int __fastcall PsspCaptureHandleInformation(_DWORD *a1, int a2, int a3)
+NTSTATUS __fastcall PsspCaptureHandleInformation(_DWORD *a1, void *a2, int a3)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v6; // esi
-  int Heap; // eax
+  PVOID Heap; // eax
   int v8; // ecx
   _DWORD *v9; // edi
-  _DWORD v10[2]; // [esp+10h] [ebp-4Ch] BYREF
-  int v11; // [esp+18h] [ebp-44h]
-  int v12; // [esp+1Ch] [ebp-40h]
-  int v13; // [esp+20h] [ebp-3Ch] BYREF
-  _DWORD v14[3]; // [esp+28h] [ebp-34h] BYREF
-  _DWORD *v15; // [esp+34h] [ebp-28h]
-  unsigned int v16; // [esp+38h] [ebp-24h]
-  unsigned int v17; // [esp+3Ch] [ebp-20h] BYREF
-  int InformationProcess; // [esp+40h] [ebp-1Ch]
-  HANDLE Handle; // [esp+44h] [ebp-18h] BYREF
-  int v20; // [esp+48h] [ebp-14h] BYREF
-  int v21; // [esp+4Ch] [ebp-10h] BYREF
-  int v22; // [esp+50h] [ebp-Ch] BYREF
-  int v23[2]; // [esp+54h] [ebp-8h] BYREF
+  SIZE_T v10; // [esp-14h] [ebp-70h]
+  ULONG_PTR v11; // [esp-10h] [ebp-6Ch]
+  SIZE_T v12; // [esp-4h] [ebp-60h]
+  ULONG v13; // [esp+0h] [ebp-5Ch]
+  ULONG v14; // [esp+4h] [ebp-58h]
+  int v15[2]; // [esp+10h] [ebp-4Ch] BYREF
+  int v16; // [esp+18h] [ebp-44h]
+  int v17; // [esp+1Ch] [ebp-40h]
+  int ProcessInformation; // [esp+20h] [ebp-3Ch] BYREF
+  LARGE_INTEGER MaximumSize; // [esp+28h] [ebp-34h] BYREF
+  _DWORD *v20; // [esp+34h] [ebp-28h]
+  int v21; // [esp+38h] [ebp-24h]
+  ULONG ReturnLength; // [esp+3Ch] [ebp-20h] BYREF
+  ULONG ProcessInformationLength; // [esp+40h] [ebp-1Ch]
+  HANDLE SectionHandle; // [esp+44h] [ebp-18h] BYREF
+  PVOID BaseAddress; // [esp+48h] [ebp-14h] BYREF
+  int v26; // [esp+4Ch] [ebp-10h] BYREF
+  ULONG_PTR RegionSize; // [esp+50h] [ebp-Ch] BYREF
 
-  v15 = a1;
-  result = ZwQueryInformationProcess(a2, 20, (int)&v13, 8, 0);
+  v20 = a1;
+  result = ZwQueryInformationProcess(a2, ProcessHandleCount, &ProcessInformation, 8u, 0);
   if ( result >= 0 )
   {
-    InformationProcess = 4 * v13;
+    ProcessInformationLength = 4 * ProcessInformation;
     v6 = a3 & 0x20000000;
     if ( (a3 & 0x20000000) != 0 )
     {
-      v23[0] = 0;
-      v22 = 4 * v13;
-      result = NtAllocateVirtualMemory(-1, (int)v23, 0, (int)&v22, 4096, 4);
+      RegionSize = (unsigned int)(4 * ProcessInformation);
+      HIDWORD(v11) = &RegionSize;
+      LODWORD(v11) = 0;
+      result = NtAllocateVirtualMemory(
+                 (HANDLE)0xFFFFFFFF,
+                 (PVOID *)&RegionSize + 1,
+                 v11,
+                 (PSIZE_T)0x1000,
+                 4u,
+                 HIDWORD(v12));
       if ( result < 0 )
         return result;
-      Heap = v23[0];
+      Heap = (PVOID)HIDWORD(RegionSize);
     }
     else
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 4 * v13);
-      v23[0] = Heap;
+      LODWORD(v12) = 4 * ProcessInformation;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
+      HIDWORD(RegionSize) = Heap;
       if ( !Heap )
         return -1073741670;
     }
-    InformationProcess = ZwQueryInformationProcess(a2, 58, Heap, InformationProcess, (int)&v17);
-    if ( InformationProcess < 0
-      || (v21 = 0,
-          v16 = v17 >> 2,
-          PsspWalkHandleTable(v17 >> 2, a3, PsspHandleStreamSizeCalculator, &v21),
-          v14[1] = 0,
-          v14[0] = v21,
-          InformationProcess = NtCreateSection((int)&Handle, 983047, (int)dword_4B2A596C, (int)v14, 4, 0x8000000, 0),
-          InformationProcess < 0) )
+    ProcessInformationLength = ZwQueryInformationProcess(
+                                 a2,
+                                 ProcessHandleTable,
+                                 Heap,
+                                 ProcessInformationLength,
+                                 &ReturnLength);
+    if ( (ProcessInformationLength & 0x80000000) != 0
+      || (v26 = 0,
+          v21 = ReturnLength >> 2,
+          PsspWalkHandleTable(a2, ReturnLength >> 2, a3, (int)PsspHandleStreamSizeCalculator, (int)&v26),
+          MaximumSize.QuadPart = (unsigned int)v26,
+          ProcessInformationLength = NtCreateSection(
+                                       &SectionHandle,
+                                       0xF0007u,
+                                       (POBJECT_ATTRIBUTES)&stru_4B2A596C,
+                                       &MaximumSize,
+                                       4u,
+                                       0x8000000u,
+                                       0),
+          (ProcessInformationLength & 0x80000000) != 0) )
     {
       if ( !v6 )
       {
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v23[0]);
-        return InformationProcess;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)HIDWORD(RegionSize));
+        return ProcessInformationLength;
       }
       goto LABEL_11;
     }
-    v20 = 0;
-    v22 = 0;
-    InformationProcess = ZwMapViewOfSection((int)Handle, -1, (int)&v20, 0, 0, 0, (int)&v22, 1, 0, 4);
-    if ( InformationProcess < 0 )
+    HIDWORD(v10) = &RegionSize;
+    LODWORD(v10) = 0;
+    BaseAddress = 0;
+    LODWORD(RegionSize) = 0;
+    ProcessInformationLength = ZwMapViewOfSection(
+                                 SectionHandle,
+                                 (HANDLE)0xFFFFFFFF,
+                                 &BaseAddress,
+                                 0LL,
+                                 v10,
+                                 (PLARGE_INTEGER)1,
+                                 0,
+                                 (SECTION_INHERIT)4,
+                                 v13,
+                                 v14);
+    if ( (ProcessInformationLength & 0x80000000) != 0 )
     {
-      NtClose(Handle);
+      NtClose(SectionHandle);
       if ( !v6 )
       {
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v23[0]);
-        return InformationProcess;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)HIDWORD(RegionSize));
+        return ProcessInformationLength;
       }
 LABEL_11:
-      v22 = 0;
-      NtFreeVirtualMemory(-1, (int)v23, (int)&v22, 0x8000);
-      return InformationProcess;
+      LODWORD(RegionSize) = 0;
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
+      return ProcessInformationLength;
     }
-    v11 = 0;
-    v12 = 0;
-    v10[0] = v20;
-    v21 = v22;
-    v10[1] = v22;
-    PsspWalkHandleTable(v16, a3, PsspHandleDumper, v10);
-    NtUnmapViewOfSection(-1, v20);
+    v16 = 0;
+    v17 = 0;
+    v15[0] = (int)BaseAddress;
+    v26 = RegionSize;
+    v15[1] = RegionSize;
+    PsspWalkHandleTable(a2, v21, a3, (int)&PsspHandleDumper, (int)v15);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
     if ( v6 )
     {
-      v22 = 0;
-      NtFreeVirtualMemory(-1, (int)v23, (int)&v22, 0x8000);
+      LODWORD(RegionSize) = 0;
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
     }
     else
     {
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v23[0]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)HIDWORD(RegionSize));
     }
-    a1[204] = v12;
-    a1[205] = v11;
-    a1[206] = Handle;
+    a1[204] = v17;
+    a1[205] = v16;
+    a1[206] = SectionHandle;
     while ( 1 )
     {
       v8 = MEMORY[0x7FFE0018];
@@ -118,9 +153,9 @@ LABEL_11:
         break;
       _mm_pause();
     }
-    v9 = v15;
+    v9 = v20;
     result = 0;
-    v15[208] = MEMORY[0x7FFE0014];
+    v20[208] = MEMORY[0x7FFE0014];
     v9[209] = v8;
   }
   return result;

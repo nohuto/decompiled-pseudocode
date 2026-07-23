@@ -1,24 +1,24 @@
 /*
- * XREFs of HalQueryRealTimeClock @ 0x1402B5570
+ * XREFs of HalQueryRealTimeClock @ 0x140233750
  * Callers:
- *     HalpCheckWakeupTimeAndAdjust @ 0x1404D2888 (HalpCheckWakeupTimeAndAdjust.c)
- *     ExpRefreshSystemTime @ 0x1407A909C (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x14094BD10 (NtSetSystemTime.c)
- *     ExUpdateSystemTimeFromCmos @ 0x14098FDE4 (ExUpdateSystemTimeFromCmos.c)
- *     HaliSetWakeAlarm @ 0x1409987D0 (HaliSetWakeAlarm.c)
- *     GetBootSystemTime @ 0x140A7182C (GetBootSystemTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x1404D2AC8 (HalpCheckWakeupTimeAndAdjust.c)
+ *     ExpRefreshSystemTime @ 0x1407A929C (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14094BEE0 (NtSetSystemTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x1409908C4 (ExUpdateSystemTimeFromCmos.c)
+ *     HaliSetWakeAlarm @ 0x1409997D0 (HaliSetWakeAlarm.c)
+ *     GetBootSystemTime @ 0x140A7282C (GetBootSystemTime.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402B5A04 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     RtlpTimeToTimeFields @ 0x1402B5C18 (RtlpTimeToTimeFields.c)
- *     HalpReadCmosTime @ 0x1402B5F68 (HalpReadCmosTime.c)
- *     HalpSetVirtualRtc @ 0x1402B617C (HalpSetVirtualRtc.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     HalpQueryVirtualRtc @ 0x14038402C (HalpQueryVirtualRtc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140233BE4 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeToTimeFields @ 0x140233DF8 (RtlpTimeToTimeFields.c)
+ *     HalpReadCmosTime @ 0x140234148 (HalpReadCmosTime.c)
+ *     HalpSetVirtualRtc @ 0x14023435C (HalpSetVirtualRtc.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     HalpQueryVirtualRtc @ 0x14038417C (HalpQueryVirtualRtc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalEfiGetTime @ 0x1404C3878 (HalEfiGetTime.c)
- *     HalpAcpiRealTimeToUtcTime @ 0x140863E24 (HalpAcpiRealTimeToUtcTime.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140863EEC (HalpQueryAcpiRealTimeClock.c)
+ *     HalEfiGetTime @ 0x1404C3AB8 (HalEfiGetTime.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x140863F7C (HalpAcpiRealTimeToUtcTime.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x140864044 (HalpQueryAcpiRealTimeClock.c)
  */
 
 char __fastcall HalQueryRealTimeClock(__int64 a1)

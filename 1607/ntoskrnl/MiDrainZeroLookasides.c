@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDrainZeroLookasides @ 0x1400A8C34
+ * XREFs of MiDrainZeroLookasides @ 0x1400A71B4
  * Callers:
- *     MiProcessWorkingSets @ 0x1400CD640 (MiProcessWorkingSets.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiReturnPartitionPagesToParent @ 0x1401F1F74 (MiReturnPartitionPagesToParent.c)
+ *     MiProcessWorkingSets @ 0x1400CB4E0 (MiProcessWorkingSets.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiReturnPartitionPagesToParent @ 0x1401F1DA0 (MiReturnPartitionPagesToParent.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -28,7 +28,7 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   unsigned __int64 v16; // rbx
   _QWORD *v17; // [rsp+20h] [rbp-58h]
   __int64 v18; // [rsp+28h] [rbp-50h]
-  struct _SLIST_ENTRY *Next; // [rsp+38h] [rbp-40h]
+  _SLIST_ENTRY *Next; // [rsp+38h] [rbp-40h]
   unsigned int v20; // [rsp+88h] [rbp+10h]
   unsigned int v21; // [rsp+90h] [rbp+18h]
 
@@ -40,7 +40,7 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   }
   else
   {
-    v6 = dword_1403269FC;
+    v6 = dword_140326A3C;
     v4 = 0;
     v21 = 0;
   }

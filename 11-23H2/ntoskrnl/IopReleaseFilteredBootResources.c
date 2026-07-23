@@ -1,12 +1,12 @@
 /*
- * XREFs of IopReleaseFilteredBootResources @ 0x1408162A4
+ * XREFs of IopReleaseFilteredBootResources @ 0x140816574
  * Callers:
- *     PnpAllocateResources @ 0x14078F4C4 (PnpAllocateResources.c)
+ *     PnpAllocateResources @ 0x14078F6B4 (PnpAllocateResources.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1405615D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PipClearDevNodeFlags @ 0x14079805C (PipClearDevNodeFlags.c)
- *     PnpNeedToReleaseBootResources @ 0x140816E6C (PnpNeedToReleaseBootResources.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140561C94 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PipClearDevNodeFlags @ 0x14079824C (PipClearDevNodeFlags.c)
+ *     PnpNeedToReleaseBootResources @ 0x14081713C (PnpNeedToReleaseBootResources.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

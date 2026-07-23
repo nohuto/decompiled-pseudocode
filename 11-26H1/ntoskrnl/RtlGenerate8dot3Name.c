@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGenerate8dot3Name @ 0x14096AC30
+ * XREFs of RtlGenerate8dot3Name @ 0x14097B570
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
- *     RtlIsValidOemCharacter @ 0x140A6B160 (RtlIsValidOemCharacter.c)
- *     RtlComputeLfnChecksum @ 0x140ABE064 (RtlComputeLfnChecksum.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
+ *     RtlIsValidOemCharacter @ 0x14097E350 (RtlIsValidOemCharacter.c)
+ *     RtlComputeLfnChecksum @ 0x140AC0654 (RtlComputeLfnChecksum.c)
  */
 
 NTSTATUS __stdcall RtlGenerate8dot3Name(
@@ -233,7 +233,7 @@ LABEL_38:
       v7->NameBuffer[v54] = v55;
     }
     v7->NameLength += 4;
-    v7->ChecksumInserted = 1;
+    v7->CheckSumInserted = 1;
   }
   if ( (_DWORD)v11 == -1 )
   {
@@ -314,7 +314,7 @@ LABEL_46:
   v23 = v62;
   v24 = v7->LastIndexValue + 1;
   v7->LastIndexValue = v24;
-  if ( v24 > 4 && !v7->ChecksumInserted )
+  if ( v24 > 4 && !v7->CheckSumInserted )
   {
     v43 = RtlComputeLfnChecksum(v5);
     v7->Checksum = v43;
@@ -338,7 +338,7 @@ LABEL_46:
     v7->LastIndexValue = 1;
     v7->NameLength = 6 - v44;
     v24 = 1;
-    v7->ChecksumInserted = 1;
+    v7->CheckSumInserted = 1;
   }
   v25 = 1;
   do

@@ -8,20 +8,19 @@
  *     sub_1801086C8 @ 0x1801086C8 (sub_1801086C8.c)
  */
 
-__int64 __fastcall sub_180058A10(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+__int64 __fastcall sub_180058A10(PPEB_LDR_DATA Ldr, __int64 a2, __int64 a3)
 {
   int v3; // r10d
-  struct _PEB_LDR_DATA *v4; // r9
-  int v5; // eax
+  int v4; // eax
+  __int64 v5; // r9
 
   v3 = a3;
-  v4 = Ldr;
   if ( Ldr )
   {
-    LOBYTE(v5) = sub_18002601C((__int64)Ldr, a2);
-    if ( v5 )
+    LOBYTE(v4) = sub_18002601C((__int64)Ldr, a2);
+    if ( v4 )
     {
-      if ( v4->SsHandle == off_180110190 )
+      if ( *(__int64 (__fastcall ***)(PVOID))(v5 + 8) == &off_180110190 )
       {
         Ldr = NtCurrentPeb()->Ldr;
         if ( !Ldr->ShutdownInProgress )
@@ -30,6 +29,6 @@ __int64 __fastcall sub_180058A10(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 
     }
   }
   if ( v3 || (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
-    sub_1801086C8(Ldr, a2, a3, v4);
+    sub_1801086C8(Ldr, a2, a3);
   return 0LL;
 }

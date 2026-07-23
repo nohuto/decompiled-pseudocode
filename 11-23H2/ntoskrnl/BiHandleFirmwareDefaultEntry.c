@@ -1,12 +1,12 @@
 /*
- * XREFs of BiHandleFirmwareDefaultEntry @ 0x140A5E9EC
+ * XREFs of BiHandleFirmwareDefaultEntry @ 0x140A5EC9C
  * Callers:
- *     BiExportEfiBootManager @ 0x140A5E5CC (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140A5E87C (BiExportEfiBootManager.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     BiDeleteElement @ 0x14080367C (BiDeleteElement.c)
- *     BiGetElement @ 0x140A5C930 (BiGetElement.c)
- *     BiTranslateObjectIdentifier @ 0x140A5EE64 (BiTranslateObjectIdentifier.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     BiDeleteElement @ 0x14080394C (BiDeleteElement.c)
+ *     BiGetElement @ 0x140A5CBE0 (BiGetElement.c)
+ *     BiTranslateObjectIdentifier @ 0x140A5F114 (BiTranslateObjectIdentifier.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -24,13 +24,13 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3,
   _DWORD *Pool2; // rax
   _DWORD *v17; // rsi
   int v19; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v20; // [rsp+24h] [rbp-24h] BYREF
+  ULONG v20; // [rsp+24h] [rbp-24h] BYREF
   PVOID P[4]; // [rsp+28h] [rbp-20h] BYREF
 
   v19 = 0;
   v20 = 0;
   P[0] = 0LL;
-  Element = BiGetElement((__int64)a2, 0x23000003u, P, &v20);
+  Element = BiGetElement(a2, 0x23000003u, P, &v20);
   v9 = Element;
   if ( Element == -1073741275 )
   {

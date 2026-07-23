@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpClockSourceRunDown @ 0x1406A6D40
+ * XREFs of EtwpClockSourceRunDown @ 0x1406A6E78
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140495B04 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140496594 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     KeGetDynamicTickDisableReason @ 0x1400B5F6C (KeGetDynamicTickDisableReason.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     KeGetDynamicTickDisableReason @ 0x1400B3D94 (KeGetDynamicTickDisableReason.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpClockSourceRunDown(unsigned int a1, char a2)

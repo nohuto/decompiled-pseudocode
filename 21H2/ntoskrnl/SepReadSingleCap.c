@@ -1,13 +1,13 @@
 /*
- * XREFs of SepReadSingleCap @ 0x140925D28
+ * XREFs of SepReadSingleCap @ 0x140925E88
  * Callers:
- *     SepReadAndInsertCaps @ 0x1409259CC (SepReadAndInsertCaps.c)
+ *     SepReadAndInsertCaps @ 0x140925B2C (SepReadAndInsertCaps.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepReadSingleCap(HANDLE KeyHandle, int a2, unsigned int a3, __int64 a4, _QWORD *a5)

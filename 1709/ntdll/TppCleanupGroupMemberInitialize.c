@@ -16,27 +16,27 @@
  *     TppPoolpFree @ 0x180081F4C (TppPoolpFree.c)
  */
 
-__int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   volatile signed __int32 **v6; // rsi
   unsigned int v7; // eax
   int v8; // r14d
-  __int64 v9; // rcx
-  int InformationActivationContext; // edi
+  _ACTIVATION_CONTEXT *v9; // rcx
+  NTSTATUS v10; // edi
   _PEB_LDR_DATA *v11; // rdx
-  __int64 *v12; // rcx
+  volatile signed __int32 **v12; // rcx
   __int64 *v13; // rcx
   __int64 v14; // rax
   __int64 **v15; // rdx
-  void *v16; // rcx
+  _RTL_SRWLOCK *v16; // rcx
   volatile signed __int32 *v17; // rax
   _QWORD *v18; // rax
   _QWORD *v19; // rcx
-  volatile signed __int32 *v21; // rcx
-  __int64 v22; // [rsp+48h] [rbp-30h] BYREF
+  _ACTIVATION_CONTEXT *v21; // rcx
+  PACTIVATION_CONTEXT ActivationContext; // [rsp+48h] [rbp-30h] BYREF
   __int64 v23; // [rsp+50h] [rbp-28h]
 
-  v22 = 0LL;
+  ActivationContext = 0LL;
   v23 = 0LL;
   *(_DWORD *)a1 = 1;
   *(_QWORD *)(a1 + 8) = a5;
@@ -80,32 +80,39 @@ LABEL_5:
   *(_GUID *)(a1 + 112) = NtCurrentTeb()->ActivityId;
   *(_QWORD *)(a1 + 48) = a1 + 40;
   *(_QWORD *)(a1 + 40) = a1 + 40;
-  v9 = *(_QWORD *)(a1 + 96);
+  v9 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
   if ( v9 )
   {
-    if ( v9 != -1 )
+    if ( v9 != (_ACTIVATION_CONTEXT *)-1LL )
       RtlAddRefActivationContext(v9);
   }
   else
   {
-    InformationActivationContext = RtlQueryInformationActivationContext(1, 0, 0, 1, (__int64)&v22, 16LL, 0LL);
-    if ( InformationActivationContext < 0 )
-      return (unsigned int)InformationActivationContext;
+    v10 = RtlQueryInformationActivationContext(
+            1u,
+            0LL,
+            0LL,
+            ActivationContextBasicInformation,
+            &ActivationContext,
+            0x10uLL,
+            0LL);
+    if ( v10 < 0 )
+      return (unsigned int)v10;
     if ( (v23 & 1) != 0 )
     {
-      RtlReleaseActivationContext((volatile signed __int32 *)v22);
-      v22 = -1LL;
+      RtlReleaseActivationContext(ActivationContext);
+      ActivationContext = (PACTIVATION_CONTEXT)-1LL;
     }
-    *(_QWORD *)(a1 + 96) = v22;
+    *(_QWORD *)(a1 + 96) = ActivationContext;
   }
   if ( *v6 )
   {
     _InterlockedAdd(*v6, 1u);
 LABEL_15:
-    InformationActivationContext = 0;
+    v10 = 0;
     if ( *v6 )
     {
-      RtlAcquireSRWLockExclusive(*v6 + 18);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)*v6 + 9);
       v13 = (__int64 *)(a1 + 152);
       v14 = (__int64)(*v6 + 20);
       v15 = (__int64 **)*((_QWORD *)*v6 + 11);
@@ -115,7 +122,7 @@ LABEL_15:
       *(_QWORD *)(a1 + 160) = v15;
       *v15 = v13;
       *(_QWORD *)(v14 + 8) = v13;
-      v16 = (void *)(*v6 + 18);
+      v16 = (_RTL_SRWLOCK *)(*v6 + 18);
     }
     else
     {
@@ -135,29 +142,29 @@ LABEL_15:
     if ( v17 )
     {
       _InterlockedAdd(v17, 1u);
-      InformationActivationContext = 0;
+      v10 = 0;
     }
     goto LABEL_27;
   }
   if ( v8 )
   {
     v11 = (_PEB_LDR_DATA *)&TppPoolpSerializedPoolLock;
-    v12 = &TppPoolpSerializedPool;
+    v12 = (volatile signed __int32 **)&TppPoolpSerializedPool;
   }
   else
   {
     v11 = (_PEB_LDR_DATA *)&TppPoolpGlobalPoolLock;
-    v12 = &TppPoolpGlobalPool;
+    v12 = (volatile signed __int32 **)&TppPoolpGlobalPool;
   }
-  InformationActivationContext = TppPoolpReferenceGlobalPool((volatile signed __int32 **)v12, v11, v6, a4);
-  if ( InformationActivationContext >= 0 )
+  v10 = TppPoolpReferenceGlobalPool(v12, v11, v6);
+  if ( v10 >= 0 )
     goto LABEL_15;
 LABEL_27:
-  if ( InformationActivationContext < 0 )
+  if ( v10 < 0 )
   {
-    v21 = *(volatile signed __int32 **)(a1 + 96);
-    if ( (unsigned __int64)v21 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+    v21 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
+    if ( (unsigned __int64)&v21[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
       RtlReleaseActivationContext(v21);
   }
-  return (unsigned int)InformationActivationContext;
+  return (unsigned int)v10;
 }

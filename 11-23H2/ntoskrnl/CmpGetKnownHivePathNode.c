@@ -3,8 +3,8 @@
  * Callers:
  *     CmpFindRedirectedDriverServiceStateNode @ 0x140B5AD34 (CmpFindRedirectedDriverServiceStateNode.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     CmpGetNextName @ 0x140825C74 (CmpGetNextName.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     CmpGetNextName @ 0x140825F74 (CmpGetNextName.c)
  *     CmpFindHiveSubKey @ 0x140B590B8 (CmpFindHiveSubKey.c)
  */
 

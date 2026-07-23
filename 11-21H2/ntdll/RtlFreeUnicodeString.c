@@ -51,7 +51,7 @@ void __stdcall RtlFreeUnicodeString(PUNICODE_STRING UnicodeString)
   Buffer = UnicodeString->Buffer;
   if ( Buffer )
   {
-    NtdllpFreeStringRoutine((__int64)Buffer);
+    NtdllpFreeStringRoutine(Buffer);
     *UnicodeString = 0LL;
   }
 }

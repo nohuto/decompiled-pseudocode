@@ -1,16 +1,16 @@
 /*
- * XREFs of NtReplaceKey @ 0x180164CE0
+ * XREFs of NtReplaceKey @ 0x1801630A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtReplaceKey()
+NTSTATUS __cdecl NtReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 387LL;
+  result = 387;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

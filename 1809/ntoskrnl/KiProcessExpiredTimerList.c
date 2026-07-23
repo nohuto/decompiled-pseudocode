@@ -1,21 +1,21 @@
 /*
- * XREFs of KiProcessExpiredTimerList @ 0x1400C7820
+ * XREFs of KiProcessExpiredTimerList @ 0x1400C7760
  * Callers:
- *     KiRetireDpcList @ 0x1400C64C0 (KiRetireDpcList.c)
- *     KiExpireTimerTable @ 0x140156D30 (KiExpireTimerTable.c)
+ *     KiRetireDpcList @ 0x1400C6400 (KiRetireDpcList.c)
+ *     KiExpireTimerTable @ 0x140156E30 (KiExpireTimerTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReadyThread @ 0x1400C5100 (KiReadyThread.c)
- *     KiTimerWaitTest @ 0x1400C7B70 (KiTimerWaitTest.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     KiProcessThreadWaitList @ 0x1400FBE60 (KiProcessThreadWaitList.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x14011BC6C (EtwTraceTimedEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwTraceReadyThread @ 0x140310354 (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReadyThread @ 0x1400C5040 (KiReadyThread.c)
+ *     KiTimerWaitTest @ 0x1400C7AB0 (KiTimerWaitTest.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     KiProcessThreadWaitList @ 0x1400FBEE0 (KiProcessThreadWaitList.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14011BCDC (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwTraceReadyThread @ 0x140310544 (EtwTraceReadyThread.c)
  */
 
 int __fastcall KiProcessExpiredTimerList(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

@@ -21,20 +21,25 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
+  int v4; // r15d
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v9; // rdi
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   unsigned __int64 v11; // rbx
   int v12; // eax
   _QWORD *v13; // r15
   unsigned __int64 v14; // rbx
   size_t v15; // r8
   __int64 v16; // rcx
-  int v17; // edi
-  int inserted; // esi
+  NTSTATUS v17; // edi
+  NTSTATUS inserted; // esi
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v21; // rdi
@@ -52,6 +57,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
   PVOID P; // [rsp+60h] [rbp-28h]
   __int64 v34; // [rsp+68h] [rbp-20h] BYREF
 
+  v4 = (int)ObjectAttributes;
   Object = 0LL;
   v34 = 0LL;
   P = 0LL;
@@ -59,12 +65,12 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
   if ( PreviousMode )
   {
     v30 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v30 = (__int64)a1;
+    if ( (unsigned __int64)NamespaceHandle < 0x7FFFFFFF0000LL )
+      v30 = (__int64)NamespaceHandle;
     *(_QWORD *)v30 = *(_QWORD *)v30;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v9 = P;
     v10 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -80,7 +86,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
         v12 = ObCreateObjectEx(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                v4,
                 PreviousMode,
                 v31,
                 *((_DWORD *)P + 6) + 392,
@@ -118,7 +124,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
             if ( v17 >= 0 )
             {
               PsReferenceSiloContext(v13);
-              inserted = ObInsertObjectEx((char *)v13, 0LL, a2, 0, 0, 0LL, (__int64)&v34);
+              inserted = ObInsertObjectEx((char *)v13, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)&v34);
               CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -159,18 +165,18 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, int a3, void *a
               KeAbPostRelease((ULONG_PTR)v21);
               KeLeaveCriticalRegion();
               if ( inserted >= 0 )
-                *a1 = v34;
-              return (unsigned int)inserted;
+                *NamespaceHandle = (HANDLE)v34;
+              return inserted;
             }
           }
           ObfDereferenceObject(v13);
-          return (unsigned int)v17;
+          return v17;
         }
         v10 = v12;
       }
     }
     ExFreePoolWithTag(v9, 0x534E624Fu);
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

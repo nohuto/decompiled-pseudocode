@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwQueryTimerResolution()
+NTSTATUS __cdecl ZwQueryTimerResolution(PULONG MaximumTime, PULONG MinimumTime, PULONG CurrentTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 328LL;
+  result = 328;
   __asm { syscall; Low latency system call }
   return result;
 }

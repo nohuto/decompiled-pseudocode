@@ -1,9 +1,9 @@
 /*
- * XREFs of PopBroadcastLegacyLidSwitchChangeCallback @ 0x1407D1560
+ * XREFs of PopBroadcastLegacyLidSwitchChangeCallback @ 0x1407D4600
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyCallback @ 0x14047A7E0 (ExNotifyCallback.c)
+ *     ExNotifyCallback @ 0x140474150 (ExNotifyCallback.c)
  */
 
 __int64 __fastcall PopBroadcastLegacyLidSwitchChangeCallback(_QWORD *a1, unsigned int *a2, int a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PopBroadcastLegacyLidSwitchChangeCallback(_QWORD *a1, unsigne
   if ( *(_QWORD *)&GUID_LIDSWITCH_STATE_CHANGE.Data1 == *a1 )
     v4 = *(_QWORD *)GUID_LIDSWITCH_STATE_CHANGE.Data4 - a1[1];
   if ( !v4 && a3 == 4 && a2 )
-    ExNotifyCallback(ExCbPowerState, (PVOID)4, (PVOID)*a2);
+    ExNotifyCallback(ExpSysDbgLock.Header.WaitListHead.Flink, (PVOID)4, (PVOID)*a2);
   else
     return (unsigned int)-1073741811;
   return v3;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFindHotPatchBase @ 0x1408AAFD4
+ * XREFs of RtlFindHotPatchBase @ 0x1408B1444
  * Callers:
- *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
- *     RtlFindHotPatchBaseMachine @ 0x1408AB00C (RtlFindHotPatchBaseMachine.c)
- *     RtlFindHotPatchInformation @ 0x1408AB074 (RtlFindHotPatchInformation.c)
+ *     MiOpenHotPatchFile @ 0x140879388 (MiOpenHotPatchFile.c)
+ *     RtlFindHotPatchBaseMachine @ 0x1408B147C (RtlFindHotPatchBaseMachine.c)
+ *     RtlFindHotPatchInformation @ 0x1408B14E4 (RtlFindHotPatchInformation.c)
  * Callees:
  *     <none>
  */

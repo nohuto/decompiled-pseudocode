@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpPoolTypeToPoolFlags @ 0x140B74620
+ * XREFs of ExpPoolTypeToPoolFlags @ 0x140B761C0
  * Callers:
- *     ExAllocatePoolWithQuotaTag @ 0x14048CAC0 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithQuota @ 0x140653E00 (ExAllocatePoolWithQuota.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1404877E0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuota @ 0x140652560 (ExAllocatePoolWithQuota.c)
  * Callees:
  *     <none>
  */

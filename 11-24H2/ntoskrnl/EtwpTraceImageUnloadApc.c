@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceImageUnloadApc @ 0x1403C4A00
+ * XREFs of EtwpTraceImageUnloadApc @ 0x1403B35C0
  * Callers:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     EtwpTraceImageUnload @ 0x1403C4AF8 (EtwpTraceImageUnload.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     FsRtlReleaseFileNameInformation @ 0x140A13E20 (FsRtlReleaseFileNameInformation.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     EtwpTraceImageUnload @ 0x1403B36B8 (EtwpTraceImageUnload.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140A0C580 (FsRtlReleaseFileNameInformation.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceImageUnloadApc(PVOID P)
@@ -16,14 +16,12 @@ void __fastcall EtwpTraceImageUnloadApc(PVOID P)
   int v2; // eax
   __int128 *v3; // rcx
   __int128 v4; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+70h] [rbp+8h] BYREF
 
-  v5 = 0LL;
   v4 = 0LL;
   if ( KeAreAllApcsDisabled() )
     NT_ASSERT("KeAreAllApcsDisabled() == 0");
   if ( FltMgrCallbacks )
-    v2 = guard_dispatch_icall_no_overrides(*((_QWORD *)P + 11), 1024LL, &v4, &v5);
+    v2 = guard_dispatch_icall_no_overrides(*((_QWORD *)P + 11), 1024LL);
   else
     v2 = -1073741637;
   if ( v2 < 0 )
@@ -41,8 +39,6 @@ void __fastcall EtwpTraceImageUnloadApc(PVOID P)
     *((_DWORD *)P + 33),
     *((_QWORD *)P + 17),
     0);
-  if ( v5 )
-    FsRtlReleaseFileNameInformation();
   ObfDereferenceObjectWithTag(*((PVOID *)P + 11), 0x746C6644u);
   ObfDereferenceObjectWithTag(*((PVOID *)P + 12), 0x746C6644u);
   ExFreePoolWithTag(P, 0);

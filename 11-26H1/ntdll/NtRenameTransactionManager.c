@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRenameTransactionManager @ 0x180161F90
+ * XREFs of NtRenameTransactionManager @ 0x180161E90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRenameTransactionManager()
+NTSTATUS __cdecl NtRenameTransactionManager(PUNICODE_STRING LogFileName, LPGUID ExistingTransactionManagerGuid)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 387LL;
+  result = 387;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

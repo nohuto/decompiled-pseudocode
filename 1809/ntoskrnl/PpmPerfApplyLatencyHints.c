@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfApplyLatencyHints @ 0x140122210
+ * XREFs of PpmPerfApplyLatencyHints @ 0x1401222E0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     PpmPerfApplyLatencyHint @ 0x14013F16C (PpmPerfApplyLatencyHint.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     PpmPerfApplyLatencyHint @ 0x14013F26C (PpmPerfApplyLatencyHint.c)
  */
 
 char PpmPerfApplyLatencyHints()
@@ -17,7 +17,7 @@ char PpmPerfApplyLatencyHints()
 
   if ( PpmCheckLatencyBoostActive )
   {
-    v2[1] = (unsigned __int16 *)qword_1404040A8[0];
+    v2[1] = (unsigned __int16 *)qword_1404050A8[0];
     v2[0] = (unsigned __int16 *)&PpmPerfStatesRegistered;
     v3 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v4, v2) )

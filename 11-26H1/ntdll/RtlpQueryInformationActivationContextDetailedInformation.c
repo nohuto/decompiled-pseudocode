@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpQueryInformationActivationContextDetailedInformation @ 0x1800E4260
+ * XREFs of RtlpQueryInformationActivationContextDetailedInformation @ 0x1800E2114
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18004DED0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x180038450 (RtlQueryInformationActivationContext.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x180041090 (RtlpLocateActivationContextSection.c)
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlpCrackActivationContextStringSectionHeader @ 0x1800E4530 (RtlpCrackActivationContextStringSectionHeader.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpLocateActivationContextSection @ 0x18002B600 (RtlpLocateActivationContextSection.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlpCrackActivationContextStringSectionHeader @ 0x1800E23E4 (RtlpCrackActivationContextStringSectionHeader.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpQueryInformationActivationContextDetailedInformation(
@@ -76,7 +76,7 @@ LABEL_8:
         if ( (_DWORD)v13 == v14 )
         {
           DbgPrintEx(
-            51,
+            0x33u,
             0,
             "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
             "RtlpQueryInformationActivationContextDetailedInformation",

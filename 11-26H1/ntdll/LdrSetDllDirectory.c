@@ -1,44 +1,44 @@
 /*
- * XREFs of LdrSetDllDirectory @ 0x18003DCA0
+ * XREFs of LdrSetDllDirectory @ 0x180028210
  * Callers:
- *     LdrpInitializePolicy @ 0x1800C1DF0 (LdrpInitializePolicy.c)
+ *     LdrpInitializePolicy @ 0x1800EB844 (LdrpInitializePolicy.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlCreateUnicodeString @ 0x18003DC10 (RtlCreateUnicodeString.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     wcschr @ 0x18012D9A0 (wcschr.c)
- *     NtSetInformationThread @ 0x18015F0E0 (NtSetInformationThread.c)
- *     ZwAlertThreadByThreadIdEx @ 0x18015FD70 (ZwAlertThreadByThreadIdEx.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlCreateUnicodeString @ 0x180028180 (RtlCreateUnicodeString.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     wcschr @ 0x18012D710 (wcschr.c)
+ *     NtSetInformationThread @ 0x18015EFE0 (NtSetInformationThread.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x18015FC70 (ZwAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall LdrSetDllDirectory(__int64 a1)
+NTSTATUS __cdecl LdrSetDllDirectory(PUNICODE_STRING DllDirectory)
 {
-  __int128 v1; // xmm0
-  const wchar_t *v3; // rcx
+  UNICODE_STRING v1; // xmm0
+  wchar_t *Buffer; // rcx
   _QWORD *SchedulerSharedDataSlot; // rdx
   unsigned int i; // ecx
   signed __int8 v7; // cf
-  __int128 v8; // xmm1
+  UNICODE_STRING v8; // xmm1
   signed __int64 v9; // rax
   char *v10; // rcx
   unsigned int j; // edx
   char *v12; // rbx
   _QWORD *v13; // rdx
   unsigned int k; // ecx
-  __int64 v15; // rsi
+  _QWORD *v15; // rsi
   bool v16; // zf
-  __int64 v17; // rdi
+  _QWORD *v17; // rdi
   signed __int64 v18; // rax
   char *v19; // rcx
   unsigned int m; // edx
   char *v21; // rbx
-  __int64 v22; // rcx
+  void *v22; // rcx
   __int64 v23; // rcx
   signed __int64 v24; // rdx
   signed __int64 v25; // rcx
   signed __int64 v26; // rtt
-  __int64 *v27; // rsi
+  _RTL_SRWLOCK *v27; // rsi
   _QWORD *v28; // r8
   __int64 v29; // rdx
   _QWORD *v30; // rax
@@ -48,7 +48,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   signed __int64 v34; // rdx
   signed __int64 v35; // rcx
   signed __int64 v36; // rtt
-  __int64 *v37; // r14
+  _RTL_SRWLOCK *v37; // r14
   _QWORD *v38; // r8
   __int64 v39; // rdx
   _QWORD *v40; // rax
@@ -60,21 +60,21 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   __int64 v46; // rcx
   signed __int64 v47; // rax
   signed __int64 v48; // rax
-  __int128 v49; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v50; // [rsp+30h] [rbp-38h]
+  _UNICODE_STRING ThreadInformation; // [rsp+20h] [rbp-48h] BYREF
+  UNICODE_STRING v50; // [rsp+30h] [rbp-38h]
 
   v1 = 0LL;
-  v49 = 0LL;
+  ThreadInformation = 0LL;
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
-  v3 = *(const wchar_t **)(a1 + 8);
-  if ( v3 )
+    return -1073741811;
+  Buffer = DllDirectory->Buffer;
+  if ( Buffer )
   {
-    if ( wcschr(v3, 0x3Bu) )
-      return 3221225485LL;
-    if ( !RtlCreateUnicodeString((__int64)&v49, *(const wchar_t **)(a1 + 8)) )
-      return 3221225495LL;
-    v1 = v49;
+    if ( wcschr(Buffer, 0x3Bu) )
+      return -1073741811;
+    if ( !RtlCreateUnicodeString(&ThreadInformation, DllDirectory->Buffer) )
+      return -1073741801;
+    v1 = ThreadInformation;
   }
   SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
@@ -91,13 +91,15 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   v7 = _interlockedbittestandset64((volatile signed __int32 *)&LdrpDllDirectoryLock, 0LL);
   if ( v7 )
   {
-    RtlpAcquireSRWLockExclusiveContended(&LdrpDllDirectoryLock, (__int64)SchedulerSharedDataSlot);
-    v1 = v49;
+    RtlpAcquireSRWLockExclusiveContended(
+      (volatile signed __int64 *)&LdrpDllDirectoryLock,
+      (unsigned __int64)SchedulerSharedDataSlot);
+    v1 = ThreadInformation;
   }
   v8 = LdrpDllDirectory;
   LdrpDllDirectory = v1;
   v50 = v8;
-  v9 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, 0LL, 1LL);
+  v9 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, 0LL, 1LL);
   if ( v9 != 1 )
   {
     do
@@ -108,7 +110,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
         v23 = -1LL;
       v25 = v9 + v23;
       v26 = v9;
-      v9 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, v25, v9);
+      v9 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, v25, v9);
     }
     while ( v26 != v9 );
     if ( v24 == 2 )
@@ -118,7 +120,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
       {
         while ( (v25 & 1) != 0 )
         {
-          v47 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, v25 - 4, v25);
+          v47 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, v25 - 4, v25);
           v16 = v25 == v47;
           v25 = v47;
           if ( v16 )
@@ -146,7 +148,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
             break;
         }
         v27 = 0LL;
-        v32 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, 0LL, v25);
+        v32 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, 0LL, v25);
         v16 = v25 == v32;
         v25 = v32;
         if ( v16 )
@@ -154,7 +156,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
       }
       *(_QWORD *)((v25 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v31;
       *(_QWORD *)(v29 + 16) = 0LL;
-      _InterlockedAnd64(&LdrpDllDirectoryLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&LdrpDllDirectoryLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_86:
@@ -182,9 +184,9 @@ LABEL_12:
           *v12 |= 2u;
           if ( v12[7] < 0 )
           {
-            *((_QWORD *)&v49 + 1) = 0LL;
-            *(_QWORD *)&v49 = (v12 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            NtSetInformationThread(-2LL, 56LL, &v49, 16LL);
+            ThreadInformation.Buffer = 0LL;
+            *(_QWORD *)&ThreadInformation.Length = (v12 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, &ThreadInformation, 0x10u);
           }
           *(_QWORD *)v12 = 0LL;
         }
@@ -206,16 +208,16 @@ LABEL_12:
   }
   v7 = _interlockedbittestandset64((volatile signed __int32 *)&RtlpCachedPathLock, 0LL);
   if ( v7 )
-    RtlpAcquireSRWLockExclusiveContended(&RtlpCachedPathLock, (__int64)v13);
+    RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)&RtlpCachedPathLock, (unsigned __int64)v13);
   v15 = RtlpDllSearchPath;
   RtlpDllSearchPath = 0LL;
-  if ( !v15 || (v16 = *(_QWORD *)(v15 + 80) == 1LL, --*(_QWORD *)(v15 + 80), !v16) )
+  if ( !v15 || (v16 = v15[10] == 1LL, --v15[10], !v16) )
     v15 = 0LL;
   v17 = RtlpDllSearchPathWithOptions;
   RtlpDllSearchPathWithOptions = 0LL;
-  if ( !v17 || (v16 = *(_QWORD *)(v17 + 80) == 1LL, --*(_QWORD *)(v17 + 80), !v16) )
+  if ( !v17 || (v16 = v17[10] == 1LL, --v17[10], !v16) )
     v17 = 0LL;
-  v18 = _InterlockedCompareExchange64(&RtlpCachedPathLock, 0LL, 1LL);
+  v18 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, 0LL, 1LL);
   if ( v18 != 1 )
   {
     do
@@ -226,7 +228,7 @@ LABEL_12:
         v33 = -1LL;
       v35 = v18 + v33;
       v36 = v18;
-      v18 = _InterlockedCompareExchange64(&RtlpCachedPathLock, v35, v18);
+      v18 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, v35, v18);
     }
     while ( v36 != v18 );
     if ( v34 == 2 )
@@ -236,7 +238,7 @@ LABEL_12:
       {
         while ( (v35 & 1) != 0 )
         {
-          v48 = _InterlockedCompareExchange64(&RtlpCachedPathLock, v35 - 4, v35);
+          v48 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, v35 - 4, v35);
           v16 = v35 == v48;
           v35 = v48;
           if ( v16 )
@@ -264,7 +266,7 @@ LABEL_12:
             break;
         }
         v37 = 0LL;
-        v42 = _InterlockedCompareExchange64(&RtlpCachedPathLock, 0LL, v35);
+        v42 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, 0LL, v35);
         v16 = v35 == v42;
         v35 = v42;
         if ( v16 )
@@ -272,7 +274,7 @@ LABEL_12:
       }
       *(_QWORD *)((v35 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v41;
       *(_QWORD *)(v39 + 16) = 0LL;
-      _InterlockedAnd64(&RtlpCachedPathLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&RtlpCachedPathLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_91:
@@ -300,9 +302,9 @@ LABEL_31:
           *v21 |= 2u;
           if ( v21[7] < 0 )
           {
-            *((_QWORD *)&v49 + 1) = 0LL;
-            *(_QWORD *)&v49 = (v21 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            NtSetInformationThread(-2LL, 56LL, &v49, 16LL);
+            ThreadInformation.Buffer = 0LL;
+            *(_QWORD *)&ThreadInformation.Length = (v21 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, &ThreadInformation, 0x10u);
           }
           *(_QWORD *)v21 = 0LL;
         }
@@ -310,12 +312,12 @@ LABEL_31:
       }
     }
   }
-  v22 = _mm_srli_si128((__m128i)v50, 8).m128i_u64[0];
+  v22 = (void *)_mm_srli_si128((__m128i)v50, 8).m128i_u64[0];
   if ( v22 )
     RtlpSysVolFree(v22);
   if ( v15 )
-    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, v15);
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v15);
   if ( v17 )
-    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, v17);
-  return 1LL;
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v17);
+  return 1;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddMemorySubsectionRefs @ 0x1406E7D60
+ * XREFs of MiAddMemorySubsectionRefs @ 0x1406ECA10
  * Callers:
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiReferenceControlAreaPfn @ 0x14036CB90 (MiReferenceControlAreaPfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReferenceControlAreaPfn @ 0x14036E930 (MiReferenceControlAreaPfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiAddMemorySubsectionRefs(__int64 *a1, unsigned int a2)

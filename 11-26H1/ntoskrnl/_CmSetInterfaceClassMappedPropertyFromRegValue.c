@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14089C560
+ * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408A2960
  * Callers:
- *     _CmSetInterfaceClassMappedProperty @ 0x14089C414 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x1408A2814 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140917D00 (_CmOpenInterfaceClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140972760 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
@@ -39,11 +39,11 @@ __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v12 = 0;
-  v13 = &off_140BD8C90;
+  v13 = &off_140BDFB20;
   do
   {
     v14 = *v13;
-    v15 = &off_140BD8C90 + 2 * v12;
+    v15 = &off_140BDFB20 + 2 * v12;
     if ( v7 == (*v13)->pid )
     {
       v16 = *(_QWORD *)a4 - *(_QWORD *)&v14->fmtid.Data1;
@@ -52,9 +52,9 @@ __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
       if ( !v16 )
         break;
     }
+    v15 = 0LL;
     ++v12;
     v13 += 2;
-    v15 = 0LL;
   }
   while ( !v12 );
   if ( !v15 )

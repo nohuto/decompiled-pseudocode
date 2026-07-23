@@ -1,12 +1,12 @@
 /*
- * XREFs of Phase1Initialization @ 0x140820F30
+ * XREFs of Phase1Initialization @ 0x140821230
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     InbvSetProgressBarSubset @ 0x140383780 (InbvSetProgressBarSubset.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MmFreeBootDriverInitializationCode @ 0x14084D9FC (MmFreeBootDriverInitializationCode.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     InbvSetProgressBarSubset @ 0x140383960 (InbvSetProgressBarSubset.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MmFreeBootDriverInitializationCode @ 0x14084DCFC (MmFreeBootDriverInitializationCode.c)
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     IoInitSystem @ 0x140B5D6A0 (IoInitSystem.c)

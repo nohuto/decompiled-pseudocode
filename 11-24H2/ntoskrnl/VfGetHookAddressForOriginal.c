@@ -1,7 +1,7 @@
 /*
- * XREFs of VfGetHookAddressForOriginal @ 0x140B8A668
+ * XREFs of VfGetHookAddressForOriginal @ 0x140B8C668
  * Callers:
- *     KsepPatchDriverImportsTable @ 0x14073F684 (KsepPatchDriverImportsTable.c)
+ *     KsepPatchDriverImportsTable @ 0x14073D5B4 (KsepPatchDriverImportsTable.c)
  * Callees:
  *     <none>
  */

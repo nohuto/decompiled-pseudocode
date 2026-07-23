@@ -1,10 +1,10 @@
 /*
- * XREFs of KdPullRemoteFile @ 0x140C133B8
+ * XREFs of KdPullRemoteFile @ 0x140C193B8
  * Callers:
- *     ExpKdPullRemoteFileForUser @ 0x140845480 (ExpKdPullRemoteFileForUser.c)
- *     MiCreateSectionForDriver @ 0x140AEBC54 (MiCreateSectionForDriver.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14084A4C4 (ExpKdPullRemoteFileForUser.c)
+ *     MiCreateSectionForDriver @ 0x140AEEB60 (MiCreateSectionForDriver.c)
  * Callees:
- *     KdpPullRemoteFile @ 0x140C138F8 (KdpPullRemoteFile.c)
+ *     KdpPullRemoteFile @ 0x140C198F8 (KdpPullRemoteFile.c)
  */
 
 __int64 __fastcall KdPullRemoteFile(int a1, int a2)

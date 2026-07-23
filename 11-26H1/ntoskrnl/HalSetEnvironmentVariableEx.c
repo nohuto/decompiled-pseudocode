@@ -1,19 +1,19 @@
 /*
- * XREFs of HalSetEnvironmentVariableEx @ 0x140471AF0
+ * XREFs of HalSetEnvironmentVariableEx @ 0x14046B270
  * Callers:
- *     HaliAcpiSleep @ 0x1405A2710 (HaliAcpiSleep.c)
- *     WheapProcessEfiBadMemoryPage @ 0x1406D48FC (WheapProcessEfiBadMemoryPage.c)
- *     WheapPersistPageForMemoryError @ 0x1406D4DD0 (WheapPersistPageForMemoryError.c)
- *     IopSetEnvironmentVariableHal @ 0x140B4D790 (IopSetEnvironmentVariableHal.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140BF90C8 (PopSetMemoryOverwriteRequestAction.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140BFE178 (PopCheckpointSystemSleepUnsafe.c)
+ *     HaliAcpiSleep @ 0x1405A4F20 (HaliAcpiSleep.c)
+ *     WheapProcessEfiBadMemoryPage @ 0x1406D897C (WheapProcessEfiBadMemoryPage.c)
+ *     WheapPersistPageForMemoryError @ 0x1406D8EB0 (WheapPersistPageForMemoryError.c)
+ *     IopSetEnvironmentVariableHal @ 0x140B4F520 (IopSetEnvironmentVariableHal.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140BFF0C8 (PopSetMemoryOverwriteRequestAction.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140C041C8 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     HalEfiSetEnvironmentVariable @ 0x140471C74 (HalEfiSetEnvironmentVariable.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     HalEfiSetEnvironmentVariable @ 0x14046B3F4 (HalEfiSetEnvironmentVariable.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
  */
 
 __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, int a4, int a5)
@@ -30,11 +30,11 @@ __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   unsigned int v18; // ecx
   unsigned int v19; // ebx
   wchar_t Dst[8]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp+10h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp+10h] BYREF
 
   *(_OWORD *)Dst = 0LL;
   PreviousAffinity = 0LL;
-  if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] )
+  if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] )
     return 3221225474LL;
   v9 = 1;
   if ( (a5 & 1) == 0 )
@@ -61,7 +61,7 @@ __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   }
   else
   {
-    v18 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * KeGetPcr()->Prcb.Number);
+    v18 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + KeGetPcr()->Prcb.Number);
     Dst[6] = 0;
     Dst[7] = 0;
     *(_DWORD *)&Dst[4] = (unsigned __int16)(v18 >> 6);

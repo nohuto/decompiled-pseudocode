@@ -1,22 +1,22 @@
 /*
- * XREFs of PopBootStatCheckIntegrity @ 0x140AB5DF8
+ * XREFs of PopBootStatCheckIntegrity @ 0x140AB00C0
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCheckBootStatusIntegrity @ 0x140782BE4 (RtlCheckBootStatusIntegrity.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     RtlUnlockBootStatusData @ 0x140A3F7A0 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140A7C200 (RtlLockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x140AA80F4 (PopBootStatAccessCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlCheckBootStatusIntegrity @ 0x140782B14 (RtlCheckBootStatusIntegrity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     RtlUnlockBootStatusData @ 0x140A35050 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140A76500 (RtlLockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140AA31F4 (PopBootStatAccessCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
@@ -24,21 +24,21 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   __int64 Pool2; // rsi
   KPROCESSOR_MODE PreviousMode; // r14
   unsigned __int64 v4; // rcx
-  size_t v5; // r12
+  ULONG_PTR v5; // r12
   int v6; // edi
   __int64 i; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v9; // rax
-  _QWORD *v10; // rdi
+  char *v9; // rax
+  char *v10; // rdi
   HANDLE FileHandle; // [rsp+28h] [rbp-50h] BYREF
   __int64 v13; // [rsp+30h] [rbp-48h]
   __int64 v14; // [rsp+38h] [rbp-40h]
   __int64 v15; // [rsp+40h] [rbp-38h]
-  bool v16; // [rsp+88h] [rbp+10h] BYREF
+  BOOLEAN Verified; // [rsp+88h] [rbp+10h] BYREF
   KPROCESSOR_MODE v17; // [rsp+90h] [rbp+18h]
   char v18; // [rsp+98h] [rbp+20h]
 
-  v16 = 0;
+  Verified = 0;
   Pool2 = 0LL;
   FileHandle = 0LL;
   v18 = 0;
@@ -60,7 +60,7 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
     }
     if ( v6 < 0 )
       goto LABEL_27;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v5, 0x206D654Du);
     v13 = Pool2;
     if ( !Pool2 )
     {
@@ -84,22 +84,22 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   v18 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = KeAbPreAcquire((__int64)&PopBootStatLock, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)&PopBootStatLock, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&PopBootStatLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&PopBootStatLock, (__int64)v9, (__int64)&PopBootStatLock);
+    ExfAcquirePushLockExclusiveEx(&PopBootStatLock, v9, (__int64)&PopBootStatLock);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   v6 = RtlLockBootStatusData(&FileHandle);
   if ( v6 >= 0 )
   {
     if ( !PreviousMode || (v6 = PopBootStatAccessCheck(FileHandle, PreviousMode, 1u), v6 >= 0) )
     {
-      v6 = RtlCheckBootStatusIntegrity(FileHandle, &v16);
+      v6 = RtlCheckBootStatusIntegrity(FileHandle, &Verified);
       if ( v6 >= 0 )
       {
         if ( *(_DWORD *)(Pool2 + 16) )
-          **(_BYTE **)(Pool2 + 8) = v16;
+          **(_BYTE **)(Pool2 + 8) = Verified;
         else
           v6 = -1073741811;
       }

@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpMcaReportError @ 0x1405400E4
+ * XREFs of HalpMcaReportError @ 0x14053D9E4
  * Callers:
- *     HalpCmcPollProcessor @ 0x14047D32C (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x140540418 (HalpMceHandlerCore.c)
- *     HalpMceHandlerWithRendezvous @ 0x1405405C0 (HalpMceHandlerWithRendezvous.c)
- *     HalHandleMcheck @ 0x140543080 (HalHandleMcheck.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140B4BA0C (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1404784BC (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x14053DD18 (HalpMceHandlerCore.c)
+ *     HalpMceHandlerWithRendezvous @ 0x14053DEC0 (HalpMceHandlerWithRendezvous.c)
+ *     HalHandleMcheck @ 0x1405409D0 (HalHandleMcheck.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140B4DA4C (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     WheaReportHwError @ 0x14042E300 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpTranslateToLegacyMcaException @ 0x140540740 (HalpTranslateToLegacyMcaException.c)
- *     HalpShouldRecoveryBeAttempted @ 0x14055500C (HalpShouldRecoveryBeAttempted.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     WheaReportHwError @ 0x140420030 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpTranslateToLegacyMcaException @ 0x14053E040 (HalpTranslateToLegacyMcaException.c)
+ *     HalpShouldRecoveryBeAttempted @ 0x14055294C (HalpShouldRecoveryBeAttempted.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpMcaReportError(__int64 a1, __int64 a2, unsigned int a3)

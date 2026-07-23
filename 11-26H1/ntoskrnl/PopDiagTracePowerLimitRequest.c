@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDiagTracePowerLimitRequest @ 0x1407D4330
+ * XREFs of PopDiagTracePowerLimitRequest @ 0x1407D74B0
  * Callers:
- *     PopAssociatePowerLimitRequest @ 0x1407CA800 (PopAssociatePowerLimitRequest.c)
- *     PopFreePowerLimitRequest @ 0x1407CADDC (PopFreePowerLimitRequest.c)
- *     PopOrphanPowerLimitExtension @ 0x1407CB020 (PopOrphanPowerLimitExtension.c)
- *     PopPowerLimitPnpNotification @ 0x1407CB110 (PopPowerLimitPnpNotification.c)
- *     PopRundownPowerLimitRequests @ 0x140AC1560 (PopRundownPowerLimitRequests.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407CD8A0 (PopAssociatePowerLimitRequest.c)
+ *     PopFreePowerLimitRequest @ 0x1407CDE7C (PopFreePowerLimitRequest.c)
+ *     PopOrphanPowerLimitExtension @ 0x1407CE0C0 (PopOrphanPowerLimitExtension.c)
+ *     PopPowerLimitPnpNotification @ 0x1407CE1B0 (PopPowerLimitPnpNotification.c)
+ *     PopRundownPowerLimitRequests @ 0x140AC3600 (PopRundownPowerLimitRequests.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitRequest(__int64 a1, const EVENT_DESCRIPTOR *a2)
@@ -81,9 +81,9 @@ void __fastcall PopDiagTracePowerLimitRequest(__int64 a1, const EVENT_DESCRIPTOR
   v23 = 0;
   v25 = 0LL;
   v26 = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], a2) )
+    if ( EtwEventEnabled(PopDiagHandle, a2) )
     {
       v4 = (unsigned int *)(a1 + 32);
       v5 = 16 * *(_DWORD *)(a1 + 32);
@@ -173,12 +173,7 @@ void __fastcall PopDiagTracePowerLimitRequest(__int64 a1, const EVENT_DESCRIPTOR
                   v52 = 4LL;
                   v53 = Pool2;
                   v54 = v5;
-                  EtwWrite(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    EventDescriptor,
-                    0LL,
-                    0xBu,
-                    &UserData);
+                  EtwWrite(PopDiagHandle, EventDescriptor, 0LL, 0xBu, &UserData);
                 }
               }
             }

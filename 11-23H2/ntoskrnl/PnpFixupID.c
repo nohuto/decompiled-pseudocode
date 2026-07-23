@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFixupID @ 0x140798254
+ * XREFs of PnpFixupID @ 0x140798444
  * Callers:
- *     PnpQueryID @ 0x1407980D8 (PnpQueryID.c)
+ *     PnpQueryID @ 0x1407982C8 (PnpQueryID.c)
  * Callees:
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
  */
 
 __int64 __fastcall PnpFixupID(int *a1, unsigned int a2, int a3, unsigned int a4, __int64 a5)

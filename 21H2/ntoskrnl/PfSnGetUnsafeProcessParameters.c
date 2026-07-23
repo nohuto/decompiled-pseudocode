@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnGetUnsafeProcessParameters @ 0x1406CB934
+ * XREFs of PfSnGetUnsafeProcessParameters @ 0x14067A224
  * Callers:
- *     PfSnScanCommandLine @ 0x1406CB680 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x140679F70 (PfSnScanCommandLine.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 PfSnGetUnsafeProcessParameters()

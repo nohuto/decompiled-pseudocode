@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpAllocatePoolWithTagFromNode @ 0x14033C180
+ * XREFs of ExpAllocatePoolWithTagFromNode @ 0x140346ED0
  * Callers:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x14033B3B0 (ExAllocatePoolMm.c)
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x140391DE8 (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaBinaryArrayInsert @ 0x1403921E4 (ExpSaBinaryArrayInsert.c)
- *     ExAllocateCacheAwarePushLock @ 0x1403C86C0 (ExAllocateCacheAwarePushLock.c)
- *     ExpSaInitialize @ 0x1403CA32C (ExpSaInitialize.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
- *     ExAllocatePool3 @ 0x1409B4270 (ExAllocatePool3.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x140346100 (ExAllocatePoolMm.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x140391F38 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaBinaryArrayInsert @ 0x140392334 (ExpSaBinaryArrayInsert.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403C8860 (ExAllocateCacheAwarePushLock.c)
+ *     ExpSaInitialize @ 0x1403CA4CC (ExpSaInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B51B0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x1409B5270 (ExAllocatePool3.c)
  * Callees:
- *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MmGetNextNode @ 0x140211644 (MmGetNextNode.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExAllocateHeapPool @ 0x140346F60 (ExAllocateHeapPool.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, ULONG a3, int a4, int a5)
@@ -52,13 +52,13 @@ __int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, UL
     ++ExPoolFailures;
     if ( (a1 & 2) != 0 )
     {
-      v13 = (_QWORD *)qword_140C580C0[0];
+      v13 = (_QWORD *)qword_140C58100[0];
       if ( (a1 & 0x200) != 0 )
-        v13 = (_QWORD *)qword_140C580C8;
+        v13 = (_QWORD *)qword_140C58108;
       KeBugCheckEx(0x41u, a2, (unsigned int)v13[17], (unsigned int)v13[21] + (unsigned int)v13[23], 0LL);
     }
     if ( (a1 & 0x10) != 0 )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     return 0LL;
   }
   return result;

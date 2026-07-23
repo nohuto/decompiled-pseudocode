@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpLookupDirectoryEntryEx @ 0x140624DC0
+ * XREFs of ObpLookupDirectoryEntryEx @ 0x140625DE0
  * Callers:
- *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
- *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
- *     ObpCreateSymbolicLinkName @ 0x1406C4440 (ObpCreateSymbolicLinkName.c)
- *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
- *     ObpLookupDirectoryEntry @ 0x1407291E8 (ObpLookupDirectoryEntry.c)
+ *     ObpDeleteNameCheck @ 0x1405AA740 (ObpDeleteNameCheck.c)
+ *     ObCloseHandleTableEntry @ 0x1405E7360 (ObCloseHandleTableEntry.c)
+ *     ObpCreateSymbolicLinkName @ 0x1406C56E0 (ObpCreateSymbolicLinkName.c)
+ *     ObCreateObjectTypeEx @ 0x140729BCC (ObCreateObjectTypeEx.c)
+ *     ObpLookupDirectoryEntry @ 0x14072A3D8 (ObpLookupDirectoryEntry.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     ObpUnlockDirectory @ 0x140109F18 (ObpUnlockDirectory.c)
- *     ObpLockDirectoryShared @ 0x140109F58 (ObpLockDirectoryShared.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     ObpLookupDirectoryUsingHash @ 0x140624F14 (ObpLookupDirectoryUsingHash.c)
- *     ObpGetShadowDirectory @ 0x140860B80 (ObpGetShadowDirectory.c)
+ *     ObpUnlockDirectory @ 0x140109F98 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryShared @ 0x140109FD8 (ObpLockDirectoryShared.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     ObpLookupDirectoryUsingHash @ 0x140625F34 (ObpLookupDirectoryUsingHash.c)
+ *     ObpGetShadowDirectory @ 0x140861DE0 (ObpGetShadowDirectory.c)
  */
 
 __int64 __fastcall ObpLookupDirectoryEntryEx(

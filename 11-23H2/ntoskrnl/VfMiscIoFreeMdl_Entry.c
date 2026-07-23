@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscIoFreeMdl_Entry @ 0x140ADFCE0
+ * XREFs of VfMiscIoFreeMdl_Entry @ 0x140ADFCD0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 char __fastcall VfMiscIoFreeMdl_Entry(__int64 a1)

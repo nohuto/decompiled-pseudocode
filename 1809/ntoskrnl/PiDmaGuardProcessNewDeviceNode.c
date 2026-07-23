@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1406F89E0
+ * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1406F9C80
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PiIommuGetInterface @ 0x1406F8A70 (PiIommuGetInterface.c)
- *     PipDmgDestroyIommuExtension @ 0x1406F92A4 (PipDmgDestroyIommuExtension.c)
- *     PiIommuAllocateExtension @ 0x140750538 (PiIommuAllocateExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PiIommuGetInterface @ 0x1406F9D10 (PiIommuGetInterface.c)
+ *     PipDmgDestroyIommuExtension @ 0x1406FA544 (PipDmgDestroyIommuExtension.c)
+ *     PiIommuAllocateExtension @ 0x140751728 (PiIommuAllocateExtension.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR BugCheckParameter2)

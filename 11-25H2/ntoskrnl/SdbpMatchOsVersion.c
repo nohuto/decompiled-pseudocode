@@ -26,7 +26,7 @@ _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
   unsigned int v12; // eax
   __int64 v13; // r9
   unsigned __int64 v14; // rax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
 
   v4 = 1;
   memset_0(&VersionInformation.dwMajorVersion, 0, 0x118uLL);

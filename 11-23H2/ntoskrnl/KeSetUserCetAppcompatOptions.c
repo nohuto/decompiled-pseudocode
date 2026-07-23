@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSetUserCetAppcompatOptions @ 0x14057BAC8
+ * XREFs of KeSetUserCetAppcompatOptions @ 0x14057BFB8
  * Callers:
- *     KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted @ 0x1405827B0 (KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted.c)
+ *     KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted @ 0x140582CA0 (KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void KeSetUserCetAppcompatOptions()
@@ -34,7 +34,7 @@ void KeSetUserCetAppcompatOptions()
       v7 = 8;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02F98,
-        (unsigned __int8 *)&dword_14002D894,
+        (unsigned __int8 *)&dword_14002D97C,
         0LL,
         0LL,
         4u,

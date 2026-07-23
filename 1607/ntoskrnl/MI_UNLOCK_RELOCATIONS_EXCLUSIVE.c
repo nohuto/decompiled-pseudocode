@@ -1,12 +1,12 @@
 /*
- * XREFs of MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14002161C
+ * XREFs of MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14002119C
  * Callers:
- *     MiRelocateImageAgain @ 0x14042C2BC (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiCaptureSecureImageBaseAddress @ 0x14066167C (MiCaptureSecureImageBaseAddress.c)
+ *     MiRelocateImageAgain @ 0x14042B18C (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140661760 (MiCaptureSecureImageBaseAddress.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MI_UNLOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2)

@@ -102,7 +102,7 @@ __int64 __fastcall MiResolveTransitionFault(__int64 a1, unsigned __int64 Flink, 
   struct _KPRCB *CurrentPrcb; // r9
   __int64 CachedResidentAvailable; // rdx
   signed __int32 v72; // eax
-  struct _SLIST_ENTRY *v73; // rdi
+  _SLIST_ENTRY *v73; // rdi
   _BYTE *v74; // rcx
   __int64 v75; // rdx
   __int64 v76; // rcx

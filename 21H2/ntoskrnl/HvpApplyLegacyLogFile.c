@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpApplyLegacyLogFile @ 0x14088154C
+ * XREFs of HvpApplyLegacyLogFile @ 0x1408816AC
  * Callers:
- *     HvApplyLogFile @ 0x140881224 (HvApplyLogFile.c)
+ *     HvApplyLogFile @ 0x140881384 (HvApplyLogFile.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvpGenerateLogMetadata @ 0x1406464B8 (HvpGenerateLogMetadata.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x140873D3C (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpRecoverDataReadRoutine @ 0x1408746E0 (HvpRecoverDataReadRoutine.c)
- *     HvpIsMetadataArrayCoherent @ 0x1408818E4 (HvpIsMetadataArrayCoherent.c)
- *     HvpUpdateRecoveryVector @ 0x140881DF8 (HvpUpdateRecoveryVector.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvpGenerateLogMetadata @ 0x14063B2A4 (HvpGenerateLogMetadata.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140873E9C (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpRecoverDataReadRoutine @ 0x140874840 (HvpRecoverDataReadRoutine.c)
+ *     HvpIsMetadataArrayCoherent @ 0x140881A44 (HvpIsMetadataArrayCoherent.c)
+ *     HvpUpdateRecoveryVector @ 0x140881F58 (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvpApplyLegacyLogFile(

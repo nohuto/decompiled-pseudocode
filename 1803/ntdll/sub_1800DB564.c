@@ -16,85 +16,96 @@
 
 __int64 __fastcall sub_1800DB564(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)
 {
-  wchar_t *Buffer; // rdi
-  int DirectoryFile; // ebx
-  unsigned __int64 Heap; // rdi
+  PWCH Buffer; // rdi
+  NTSTATUS v6; // ebx
+  _DWORD *Heap; // rdi
   unsigned int v8; // eax
   _WORD *v9; // rax
   _WORD *v10; // rsi
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-39h] BYREF
-  UNICODE_STRING v13; // [rsp+78h] [rbp-29h] BYREF
-  UNICODE_STRING v14; // [rsp+98h] [rbp-9h] BYREF
-  __int64 v15; // [rsp+A8h] [rbp+7h]
-  int v16; // [rsp+B8h] [rbp+17h]
-  __int64 v17; // [rsp+C0h] [rbp+1Fh]
-  UNICODE_STRING *p_DestinationString; // [rsp+C8h] [rbp+27h]
-  int v19; // [rsp+D0h] [rbp+2Fh]
-  __int128 v20; // [rsp+D8h] [rbp+37h]
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-39h] BYREF
+  _UNICODE_STRING FileName; // [rsp+78h] [rbp-29h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-19h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+98h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp+17h] BYREF
+  HANDLE FileHandle; // [rsp+108h] [rbp+67h] BYREF
 
+  FileHandle = 0LL;
   Buffer = 0LL;
-  if ( SourceString && a2 && a3 )
+  if ( !SourceString || !a2 || !a3 )
+    return 3221225485LL;
+  if ( *SourceString == 92 )
   {
-    if ( *SourceString == 92 )
-    {
-      RtlInitUnicodeString(&DestinationString, SourceString);
-    }
-    else
-    {
-      DirectoryFile = sub_18003C228(2, (__int64)SourceString, (int)&DestinationString, 0LL, (__int64)&v14);
-      if ( DirectoryFile < 0 )
-        return (unsigned int)DirectoryFile;
-      Buffer = DestinationString.Buffer;
-      if ( v14.Length )
-        DestinationString = v14;
-      else
-        v15 = 0LL;
-    }
-    p_DestinationString = &DestinationString;
-    v16 = 48;
-    v17 = 0LL;
-    v19 = 64;
-    v20 = 0LL;
-    DirectoryFile = ZwOpenFile();
+    RtlInitUnicodeString(&DestinationString, SourceString);
+LABEL_10:
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = ZwOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 7u, 0x4021u);
     if ( Buffer )
     {
-      RtlReleaseRelativeName((__int64)&v14);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Buffer);
+      RtlReleaseRelativeName(&RelativeName);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     }
-    if ( DirectoryFile >= 0 )
+    if ( v6 >= 0 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 1040LL);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x410uLL);
       if ( Heap )
       {
-        RtlInitUnicodeString(&v13, a2);
-        DirectoryFile = ZwQueryDirectoryFile();
-        if ( DirectoryFile >= 0 )
+        RtlInitUnicodeString(&FileName, a2);
+        v6 = ZwQueryDirectoryFile(
+               FileHandle,
+               0LL,
+               0LL,
+               0LL,
+               &IoStatusBlock,
+               Heap,
+               0x410u,
+               FileBothDirectoryInformation,
+               1u,
+               &FileName,
+               0);
+        if ( v6 >= 0 )
         {
-          v8 = *(_DWORD *)(Heap + 60);
+          v8 = Heap[15];
           if ( v8 <= 0x104 )
           {
-            v9 = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v8 + 4);
+            v9 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8 + 4);
             v10 = v9;
             if ( v9 )
             {
-              memmove(v9, (const void *)(Heap + 94), *(unsigned int *)(Heap + 60));
-              v10[(unsigned __int64)*(unsigned int *)(Heap + 60) >> 1] = 0;
+              memmove(v9, (char *)Heap + 94, (unsigned int)Heap[15]);
+              v10[(unsigned __int64)(unsigned int)Heap[15] >> 1] = 0;
               *a3 = v10;
             }
             else
             {
-              DirectoryFile = -1073741801;
+              v6 = -1073741801;
             }
           }
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
-        return (unsigned int)-1073741801;
+        v6 = -1073741801;
       }
     }
-    return (unsigned int)DirectoryFile;
+    goto LABEL_21;
   }
-  return 3221225485LL;
+  v6 = sub_18003C228(2, SourceString, (int)&DestinationString, 0LL, (__int64)&RelativeName);
+  if ( v6 >= 0 )
+  {
+    Buffer = DestinationString.Buffer;
+    if ( RelativeName.RelativeName.Length )
+      DestinationString = RelativeName.RelativeName;
+    else
+      RelativeName.ContainingDirectory = 0LL;
+    goto LABEL_10;
+  }
+LABEL_21:
+  if ( FileHandle )
+    ZwClose(FileHandle);
+  return (unsigned int)v6;
 }

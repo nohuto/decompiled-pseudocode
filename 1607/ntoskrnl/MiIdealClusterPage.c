@@ -1,42 +1,42 @@
 /*
- * XREFs of MiIdealClusterPage @ 0x1401F6748
+ * XREFs of MiIdealClusterPage @ 0x1401F6574
  * Callers:
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiRelockProtoPoolPage @ 0x140022910 (MiRelockProtoPoolPage.c)
- *     MiObtainProtoReference @ 0x140023658 (MiObtainProtoReference.c)
- *     MiIsFaultPteIntact @ 0x140025C60 (MiIsFaultPteIntact.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageCharge @ 0x14004D1E0 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiReturnPfnReferenceCount @ 0x1400FDD40 (MiReturnPfnReferenceCount.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     KeCheckForZeroPage @ 0x140161DA0 (KeCheckForZeroPage.c)
- *     MiAcquireNonPagedResources @ 0x1401E1B24 (MiAcquireNonPagedResources.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPageNotZero @ 0x1401F2C8C (MiPageNotZero.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
- *     MiSwapHardFaultPage @ 0x1401FE040 (MiSwapHardFaultPage.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiRelockProtoPoolPage @ 0x140022490 (MiRelockProtoPoolPage.c)
+ *     MiObtainProtoReference @ 0x1400231D8 (MiObtainProtoReference.c)
+ *     MiIsFaultPteIntact @ 0x1400257E0 (MiIsFaultPteIntact.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageCharge @ 0x14004CD60 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiReturnPfnReferenceCount @ 0x1400FBAC0 (MiReturnPfnReferenceCount.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     KeCheckForZeroPage @ 0x140162310 (KeCheckForZeroPage.c)
+ *     MiAcquireNonPagedResources @ 0x1401E1950 (MiAcquireNonPagedResources.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPageNotZero @ 0x1401F2AB8 (MiPageNotZero.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
+ *     MiSwapHardFaultPage @ 0x1401FDE6C (MiSwapHardFaultPage.c)
  */
 
 volatile signed __int64 *__fastcall MiIdealClusterPage(
@@ -193,7 +193,7 @@ LABEL_26:
     v38 = (*(_DWORD *)(a2 + 48) >> 8) & 0x3F;
     *(_BYTE *)v9 = 1;
     MiInitializePageColorBase(v37, v38, v9 + 120);
-    v39 = *(unsigned __int16 *)(((unsigned __int64)&v65 & 0xFFFFFFFFFFFFFFE0uLL) + 0x82) >> byte_1403269C9;
+    v39 = *(unsigned __int16 *)(((unsigned __int64)&v65 & 0xFFFFFFFFFFFFFFE0uLL) + 0x82) >> byte_140326A09;
   }
   else
   {
@@ -251,7 +251,7 @@ LABEL_26:
       {
         if ( (MiFlags & 0x80u) != 0 && v51 < 0x200000 && (*v53 & 0x40) == 0 )
         {
-          if ( (++dword_140327120 & MmPageValidationFrequency) == 0 )
+          if ( (++dword_140327160 & MmPageValidationFrequency) == 0 )
           {
             v51 = *(_QWORD *)(((unsigned __int64)&v65 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
             if ( KeGetCurrentPrcb()->HyperPte )

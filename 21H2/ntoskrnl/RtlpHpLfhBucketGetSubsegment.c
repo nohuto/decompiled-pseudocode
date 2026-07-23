@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpLfhBucketGetSubsegment @ 0x1402B0E50
+ * XREFs of RtlpHpLfhBucketGetSubsegment @ 0x14022F1B0
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140347B90 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x1402B1478 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14022F7D8 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, __int64 a2)
@@ -36,7 +36,6 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, __int64 a2)
   __int64 v18; // rcx
   __int64 v19; // rdi
   __int64 v20; // rdx
-  __int64 v21; // rcx
 
   v2 = (_QWORD *)(a1 + 24);
   v3 = a2;
@@ -101,7 +100,7 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, __int64 a2)
           {
             *(_BYTE *)(v19 + 32) |= 2u;
             if ( *(__int64 *)(v19 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v19);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
             *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v19 + 25) &= ~1u;
             *(_QWORD *)(v19 + 32) = 0LL;
@@ -123,7 +122,7 @@ LABEL_32:
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v15 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v15 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v21);
+      KiCheckForKernelApcDelivery();
     KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   }
   return v5;

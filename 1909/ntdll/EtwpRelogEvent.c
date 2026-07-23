@@ -15,8 +15,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   size_t v6; // rsi
   __int64 v7; // r8
   void *v8; // rax
-  void *v10; // rax
-  void *Heap; // rax
+  PVOID v10; // rax
+  PVOID Heap; // rax
   __int64 v13; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = 0;
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
     {
       goto LABEL_7;
     }
-    Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 536) = Heap;
     if ( Heap )
     {
@@ -55,7 +55,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   }
   if ( !*(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
   {
-    v10 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    v10 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 520) = v10;
     if ( v10 )
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSynchronizePageFree @ 0x1401F01A4
+ * XREFs of MiSynchronizePageFree @ 0x1401EFFD0
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x14065D220 (NtFreeUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x14065D304 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiSynchronizePageFree(__int64 a1)

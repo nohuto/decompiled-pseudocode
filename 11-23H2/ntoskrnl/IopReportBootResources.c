@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x1407901CC (PnpDetermineResourceListSize.c)
- *     IopAllocateBootResources @ 0x140816C90 (IopAllocateBootResources.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x1407903BC (PnpDetermineResourceListSize.c)
+ *     IopAllocateBootResources @ 0x140816F60 (IopAllocateBootResources.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

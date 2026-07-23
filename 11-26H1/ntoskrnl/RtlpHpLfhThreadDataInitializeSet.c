@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpLfhThreadDataInitializeSet @ 0x14052769C
+ * XREFs of RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C
  * Callers:
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     RtlpHpLfhContextFree @ 0x140353D70 (RtlpHpLfhContextFree.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14035402C (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpAllocateHeap @ 0x140397A80 (RtlpHpAllocateHeap.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x14051C628 (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x140639B24 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     RtlpHpLfhContextFree @ 0x140355DF0 (RtlpHpLfhContextFree.c)
+ *     RtlpHpAllocateHeap @ 0x140399800 (RtlpHpAllocateHeap.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x140519218 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1405194B4 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x14063CB34 (RtlpHpLfhPrivateSlotListCompact.c)
  * Callees:
- *     RtlpHpEnvTlsSetValue @ 0x140346E80 (RtlpHpEnvTlsSetValue.c)
+ *     RtlpHpEnvTlsSetValue @ 0x140348F00 (RtlpHpEnvTlsSetValue.c)
  */
 
 __int64 __fastcall RtlpHpLfhThreadDataInitializeSet(__int64 a1)

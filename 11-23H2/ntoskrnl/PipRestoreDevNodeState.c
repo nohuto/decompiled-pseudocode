@@ -1,18 +1,18 @@
 /*
- * XREFs of PipRestoreDevNodeState @ 0x1403B6F88
+ * XREFs of PipRestoreDevNodeState @ 0x1403B7168
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B70AC (PnpRemoveLockedDeviceNode.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140868FA0 (PnpRequestDeviceRemovalWorker.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882AE8 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpCancelRemoveLockedDeviceNode @ 0x140958F3C (PnpCancelRemoveLockedDeviceNode.c)
- *     PnpCancelStopDeviceNode @ 0x14096E3F4 (PnpCancelStopDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1403B728C (PnpRemoveLockedDeviceNode.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1408691E0 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882D28 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpCancelRemoveLockedDeviceNode @ 0x14095913C (PnpCancelRemoveLockedDeviceNode.c)
+ *     PnpCancelStopDeviceNode @ 0x14096E5F4 (PnpCancelStopDeviceNode.c)
  * Callees:
- *     PipAreDriversLoadedWorker @ 0x14022B10C (PipAreDriversLoadedWorker.c)
- *     PipIsDevNodeDNStarted @ 0x14022B180 (PipIsDevNodeDNStarted.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797210 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PipAreDriversLoadedWorker @ 0x14022B21C (PipAreDriversLoadedWorker.c)
+ *     PipIsDevNodeDNStarted @ 0x14022B290 (PipIsDevNodeDNStarted.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797400 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipRestoreDevNodeState(__int64 a1)
@@ -40,10 +40,10 @@ __int64 __fastcall PipRestoreDevNodeState(__int64 a1)
   *(_DWORD *)(a1 + 4 * v6 + 308) = v7;
   *(_DWORD *)(a1 + 388) = (*(_DWORD *)(a1 + 388) + 1) % 0x14u;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

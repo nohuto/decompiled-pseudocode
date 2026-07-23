@@ -91,7 +91,7 @@ __int64 __fastcall IopAllocateAndPopulateWriteIrp(__int64 a1, IRP **a2, __int64 
       {
         Mdl = IoAllocateMdl(*(PVOID *)(a1 + 64), v11, 0, 1u, Irp);
         if ( !Mdl )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         if ( *(_QWORD *)(a1 + 96) )
           v14 = 0;
         else

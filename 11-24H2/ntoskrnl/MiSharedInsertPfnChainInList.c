@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSharedInsertPfnChainInList @ 0x14026FCE0
+ * XREFs of MiSharedInsertPfnChainInList @ 0x140225270
  * Callers:
- *     MiInsertPagesInList @ 0x140271500 (MiInsertPagesInList.c)
+ *     MiInsertPagesInList @ 0x140226A90 (MiInsertPagesInList.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     MiPageToChannel @ 0x1402F3214 (MiPageToChannel.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiPageToChannel @ 0x140258D54 (MiPageToChannel.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
@@ -15,7 +15,7 @@ signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
   __int64 v2; // r15
   __int64 i; // rax
   __int64 v6; // rdx
-  unsigned __int64 v7; // rdi
+  __int64 v7; // rdi
   __int64 v8; // r12
   __int64 v9; // rbx
   __int64 v10; // r8
@@ -32,7 +32,7 @@ signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
   ULONG_PTR v21; // r8
   __int64 v22; // r11
   unsigned __int64 v23; // r9
-  int v24; // edx
+  __int64 v24; // rdx
   char *v25; // rax
   int j; // r10d
   int v27; // ecx
@@ -95,19 +95,19 @@ signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
   {
     v11 = *(_QWORD *)(v2 + 16);
     v12 = 0xAAAAAAAAAAAAAAABuLL * ((v2 + 0x220000000000LL) >> 4);
-    if ( qword_140E2DB80 && (v11 & 0x10) == 0 )
-      v11 &= ~qword_140E2DB80;
+    if ( qword_140E2DCC0 && (v11 & 0x10) == 0 )
+      v11 &= ~qword_140E2DCC0;
     v13 = *(_QWORD *)(v2 + 40);
     *(_QWORD *)v9 = v12 ^ (v12 ^ *(_QWORD *)v9) & 0xFFFFFF0000000000uLL;
     *(_QWORD *)(v7 + 24) = v13 ^ (v13 ^ *(_QWORD *)(v7 + 24)) & 0xFFFFFF0000000000uLL;
     if ( ((v11 >> 12) & 0xFFFFFFFFFFLL) == v12 )
     {
       v14 = ((*(_QWORD *)(a1 + 16) & 0xFFFFFFFFFFLL) << 12) | 0x880;
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         v15 = ((*(_QWORD *)(a1 + 16) & 0xFFFFFFFFFFLL) << 12) | 0x890;
-        if ( (qword_140E2DB80 & v14) == 0 )
-          v15 = qword_140E2DB80 | ((*(_QWORD *)(a1 + 16) & 0xFFFFFFFFFFLL) << 12) | 0x880;
+        if ( (qword_140E2DCC0 & v14) == 0 )
+          v15 = qword_140E2DCC0 | ((*(_QWORD *)(a1 + 16) & 0xFFFFFFFFFFLL) << 12) | 0x880;
         v14 = v15;
       }
       *(_QWORD *)(v2 + 16) = v14;
@@ -166,30 +166,30 @@ signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
     v21 = *(_QWORD *)(a1 + 16);
     v22 = 48 * v21;
     v23 = 48 * v21 - 0x220000000000LL;
-    v61 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v23 + 40) >> 43) & 0x3FFLL));
-    v24 = dword_140E2DAC4;
-    if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-      || (v25 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v21 < *(_QWORD *)v25)
-      || dword_140E2DAC0 != dword_140E2DAC4 && v21 >= *((_QWORD *)v25 + 2) )
+    v61 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v23 + 40) >> 43) & 0x3FFLL));
+    v24 = (unsigned int)dword_140E2DC04;
+    if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+      || (v25 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v21 < *(_QWORD *)v25)
+      || dword_140E2DC00 != dword_140E2DC04 && v21 >= *((_QWORD *)v25 + 2) )
     {
       for ( j = 0; ; j = v27 + 1 )
       {
         while ( 1 )
         {
-          if ( v24 < j )
+          if ( (int)v24 < j )
             KeBugCheckEx(0x1Au, 0x5180uLL, v21, 0LL, 0LL);
-          v27 = (j + v24) >> 1;
-          v25 = (char *)qword_140E2DB20 + 16 * v27;
+          v27 = (j + (int)v24) >> 1;
+          v25 = (char *)qword_140E2DC60 + 16 * v27;
           if ( v21 >= *(_QWORD *)v25 )
             break;
           if ( !v27 )
-            KeBugCheckEx(0x1Au, 0x5180uLL, v21, (ULONG_PTR)qword_140E2DB20, 0LL);
-          v24 = v27 - 1;
+            KeBugCheckEx(0x1Au, 0x5180uLL, v21, (ULONG_PTR)qword_140E2DC60, 0LL);
+          v24 = (unsigned int)(v27 - 1);
         }
-        if ( v27 == dword_140E2DAC4 || v21 < *((_QWORD *)v25 + 2) )
+        if ( v27 == dword_140E2DC04 || v21 < *((_QWORD *)v25 + 2) )
           break;
       }
-      dword_140E2DAC0 = (j + v24) >> 1;
+      dword_140E2DC00 = (j + (int)v24) >> 1;
     }
     v63 = *((_DWORD *)v25 + 2);
     if ( v2 )
@@ -205,8 +205,8 @@ signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
 LABEL_34:
       v30 = HIBYTE(v28) & 7;
 LABEL_35:
-      if ( qword_140E2DB28 )
-        v31 = MiPageToChannel(v29 * (v22 >> 4));
+      if ( qword_140E2DC68 )
+        v31 = MiPageToChannel(v29 * (v22 >> 4), v24);
       else
         v31 = 0;
       v32 = a2[7];
@@ -317,7 +317,8 @@ LABEL_35:
     if ( v23 >= 0xFFFFDE0000000000uLL )
     {
       v29 = 0xAAAAAAAAAAAAAAABuLL;
-      if ( v23 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL && !MiIsDecayPfn(0xAAAAAAAAAAAAAAABuLL * (v22 >> 4)) )
+      if ( v23 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+        && !(unsigned int)MiIsDecayPfn(0xAAAAAAAAAAAAAAABuLL * (v22 >> 4), v24, 0xAAAAAAAAAAAAAAABuLL, v23) )
       {
         if ( (BYTE2(v28) & 7) != 6 && (unsigned int)MiGetPfnSlabType(v56) == 9 )
         {

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1800962E0
+ * XREFs of RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x180063C80
  * Callers:
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180095770 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x180095A30 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180063110 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1800633D0 (RtlpHpLfhOwnerRunMaintenance.c)
  * Callees:
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x180096580 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800966D8 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x1800968C0 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x180063F20 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x180064078 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x180064260 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListProcess(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -40,8 +40,8 @@ __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListProcess(__int64 a1, unsigned 
   v6 = a3 >> 16;
   v7 = *(_BYTE *)(a2 + 51) & 1;
   v8 = *(unsigned __int16 *)(a2 + 34);
-  v9 = (unsigned int)qword_1801C6EC8 ^ *(_DWORD *)(a2 + 40) ^ (unsigned int)(a2 >> 12);
-  v10 = (unsigned __int16)(qword_1801C6EC8 ^ *(_WORD *)(a2 + 40) ^ (a2 >> 12));
+  v9 = (unsigned int)qword_1801C5EC8 ^ *(_DWORD *)(a2 + 40) ^ (unsigned int)(a2 >> 12);
+  v10 = (unsigned __int16)(qword_1801C5EC8 ^ *(_WORD *)(a2 + 40) ^ (a2 >> 12));
   v11 = a2 + (v9 >> 16);
   result = WORD1(a3) + (unsigned int)*(unsigned __int16 *)(a2 + 32);
   v26 = v4;
@@ -81,7 +81,7 @@ LABEL_3:
                   a1,
                   a2,
                   (unsigned int)(v16 - a2),
-                  *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)qword_1801C6EC8 ^ (unsigned int)(unsigned __int16)v4);
+                  *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)qword_1801C5EC8 ^ (unsigned int)(unsigned __int16)v4);
           if ( v17 != -1 )
             RtlpHpLfhSubsegmentDecommitPages(a1, a2, v17, *(unsigned __int8 *)(a1 + 82), v22, v23, v24);
         }

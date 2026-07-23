@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSharedInsertPfnChainInList @ 0x1402DDB70
+ * XREFs of MiSharedInsertPfnChainInList @ 0x1402DDE00
  * Callers:
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD180 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
- *     MiPfnToStandbyLookaside @ 0x1402DDEF0 (MiPfnToStandbyLookaside.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiMarkLockedChainAsProtected @ 0x14033C3D0 (MiMarkLockedChainAsProtected.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD410 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
+ *     MiPfnToStandbyLookaside @ 0x1402DE180 (MiPfnToStandbyLookaside.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiMarkLockedChainAsProtected @ 0x14033C660 (MiMarkLockedChainAsProtected.c)
  */
 
 __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)

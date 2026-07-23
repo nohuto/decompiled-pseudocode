@@ -1,5 +1,5 @@
 /*
- * XREFs of KeProcessorGroupAffinity @ 0x1400B2740
+ * XREFs of KeProcessorGroupAffinity @ 0x1400B0680
  * Callers:
  *     <none>
  * Callees:

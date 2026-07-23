@@ -1,12 +1,12 @@
 /*
- * XREFs of CcSetAdditionalCacheAttributes @ 0x14034E710
+ * XREFs of CcSetAdditionalCacheAttributes @ 0x14034E8B0
  * Callers:
- *     CcSetAdditionalCacheAttributesEx @ 0x14034E600 (CcSetAdditionalCacheAttributesEx.c)
+ *     CcSetAdditionalCacheAttributesEx @ 0x14034E7A0 (CcSetAdditionalCacheAttributesEx.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetAdditionalCacheAttributes(
@@ -43,10 +43,10 @@ void __stdcall CcSetAdditionalCacheAttributes(
   SharedCacheMap[38] = v8;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15);
   OldIrql = v15.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

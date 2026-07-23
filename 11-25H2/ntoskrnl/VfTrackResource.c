@@ -16,7 +16,7 @@
 char __fastcall VfTrackResource(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   _QWORD *v5; // rbp
-  struct _SLIST_ENTRY *v6; // rsi
+  _SLIST_ENTRY *v6; // rsi
   __int64 v7; // rdx
   __int128 v8; // [rsp+40h] [rbp-38h] BYREF
   __int64 v9; // [rsp+50h] [rbp-28h]
@@ -38,7 +38,7 @@ char __fastcall VfTrackResource(ULONG_PTR BugCheckParameter2, __int64 a2)
     if ( !ViResourcesAlreadyLoadedDrivers )
       CarReportRuleViolationFromNt(196, 208LL, BugCheckParameter2, 0LL, 0LL, 0xBu, a2);
     _InterlockedAdd(&ViResourceStaleNodes, 1u);
-    v6 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)&v8, BugCheckParameter2, 0LL);
+    v6 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)&v8, BugCheckParameter2, 0LL);
   }
   VfAvlInsertReservedTreeNode((__int64)&ViResourceAvl, (__int64)&v8, v5);
   VfAvlCleanupLockContext((__int64)&v8, v7);

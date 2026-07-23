@@ -1,17 +1,17 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x1409300A4
+ * XREFs of VfBeforeCallDriver @ 0x1409310A4
  * Callers:
- *     IovCallDriver @ 0x140923CD4 (IovCallDriver.c)
- *     IovpCallDriverNoIrpTracking @ 0x1409244A0 (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x14092450C (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x140924CD4 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x1409254A0 (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x14092550C (IovpCallDriverWithStackBuffer.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
- *     VfBugCheckNoStackUsage @ 0x14030AA48 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x14092FCFC (VfGetPristineDispatchRoutine.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x1409308A0 (ViIrpCheckKernelAddressForIrp.c)
- *     VfDeadlockBeforeCallDriver @ 0x14093BC58 (VfDeadlockBeforeCallDriver.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAreInterruptsEnabled @ 0x1400CADE4 (KeAreInterruptsEnabled.c)
+ *     VfBugCheckNoStackUsage @ 0x14030AC38 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x14092FC8C (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x140930CFC (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x1409318A0 (ViIrpCheckKernelAddressForIrp.c)
+ *     VfDeadlockBeforeCallDriver @ 0x14093CC58 (VfDeadlockBeforeCallDriver.c)
  */
 
 __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
@@ -35,12 +35,12 @@ __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
     if ( !KeAreInterruptsEnabled() && (MmVerifierData & 0x400000) == 0 )
     {
       v9 = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-      qword_140985A78 = 0LL;
-      qword_140985A80 = 0LL;
+      qword_140986A78 = 0LL;
+      qword_140986A80 = 0LL;
       *(_BYTE *)(a3 + 157) = v9;
       *(_QWORD *)&VfBugcheckTmpData = 196LL;
       BugCheckParameter1 = 192LL;
-      qword_140985A70 = a2;
+      qword_140986A70 = a2;
       VfBugCheckNoStackUsage();
     }
     *(_QWORD *)(a3 + 48) = VfGetPristineDispatchRoutine(

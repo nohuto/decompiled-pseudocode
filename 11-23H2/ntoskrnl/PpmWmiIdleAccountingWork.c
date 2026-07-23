@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmWmiIdleAccountingWork @ 0x140996530
+ * XREFs of PpmWmiIdleAccountingWork @ 0x140996730
  * Callers:
  *     <none>
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x1402BFB1C (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteOnTargetProcessors @ 0x1402BFDAC (PopExecuteOnTargetProcessors.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspDeleteKernelStack @ 0x1400F0C24
+ * XREFs of PspDeleteKernelStack @ 0x1400EEA74
  * Callers:
  *     <none>
  * Callees:

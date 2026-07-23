@@ -1,23 +1,23 @@
 /*
- * XREFs of MiMapMdlCommon @ 0x1401E3868
+ * XREFs of MiMapMdlCommon @ 0x1401E3694
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x1401E4034 (MmMapLockedPagesWithReservedMapping.c)
- *     MmMapLockedRestartPages @ 0x14065741C (MmMapLockedRestartPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1401E3E60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x140657500 (MmMapLockedRestartPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiAssignInitialPageAttribute @ 0x140146D38 (MiAssignInitialPageAttribute.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiAssignInitialPageAttribute @ 0x1401472A8 (MiAssignInitialPageAttribute.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiMapMdlCommon(__int64 a1, unsigned __int64 a2, int a3, int a4)
@@ -114,7 +114,7 @@ __int64 __fastcall MiMapMdlCommon(__int64 a1, unsigned __int64 a2, int a3, int a
     if ( MiIsPfnInline(*v11) )
     {
       v22 = 48 * v18 - 0x58000000000LL;
-      if ( *(_WORD *)(v22 + 32) == (_WORD)v21 && dword_140327060 == v21 )
+      if ( *(_WORD *)(v22 + 32) == (_WORD)v21 && dword_1403270A0 == v21 )
       {
         MiShowBadMapper(v18, 1);
         v20 = v51;
@@ -230,10 +230,10 @@ LABEL_22:
     }
     while ( v31 );
     MiFlushTbList((__int64)&v61, v39, v40, v41);
-    v43 = ExAcquireSpinLockExclusive(&dword_140327568);
-    *v30 = qword_140327578;
-    qword_140327578 = v42;
-    ExReleaseSpinLockExclusive(&dword_140327568, v43);
+    v43 = ExAcquireSpinLockExclusive(&dword_1403275A8);
+    *v30 = qword_1403275B8;
+    qword_1403275B8 = v42;
+    ExReleaseSpinLockExclusive(&dword_1403275A8, v43);
     v28 = v56;
     LOWORD(v25) = 1;
   }

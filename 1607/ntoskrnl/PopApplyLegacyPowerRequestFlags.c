@@ -1,11 +1,11 @@
 /*
- * XREFs of PopApplyLegacyPowerRequestFlags @ 0x14010EA38
+ * XREFs of PopApplyLegacyPowerRequestFlags @ 0x14010EF9C
  * Callers:
- *     PoRegisterSystemState @ 0x1402057F0 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x14052CD00 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x14020561C (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x14052D240 (NtSetThreadExecutionState.c)
  * Callees:
- *     PoSetPowerRequest @ 0x140111B2C (PoSetPowerRequest.c)
- *     PoClearPowerRequest @ 0x140111B48 (PoClearPowerRequest.c)
+ *     PoSetPowerRequest @ 0x140112090 (PoSetPowerRequest.c)
+ *     PoClearPowerRequest @ 0x1401120AC (PoClearPowerRequest.c)
  */
 
 NTSTATUS __fastcall PopApplyLegacyPowerRequestFlags(PVOID PowerRequest, char a2, char a3)

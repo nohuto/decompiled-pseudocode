@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRemoveProcessDebug @ 0x180164C80
+ * XREFs of ZwRemoveProcessDebug @ 0x180163040
  * Callers:
- *     DbgUiStopDebugging @ 0x180132C40 (DbgUiStopDebugging.c)
+ *     DbgUiStopDebugging @ 0x180130E70 (DbgUiStopDebugging.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwRemoveProcessDebug()
+NTSTATUS __cdecl ZwRemoveProcessDebug(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 384LL;
+  result = 384;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

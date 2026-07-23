@@ -1,10 +1,10 @@
 /*
- * XREFs of vsprintf_s @ 0x14053C4F0
+ * XREFs of vsprintf_s @ 0x14053E970
  * Callers:
- *     sprintf_s @ 0x14053C4C0 (sprintf_s.c)
+ *     sprintf_s @ 0x14053E940 (sprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     _soutput_s @ 0x14053D7CC (_soutput_s.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     _soutput_s @ 0x14053FC4C (_soutput_s.c)
  */
 
 int __cdecl vsprintf_s(char *DstBuf, size_t SizeInBytes, const char *Format, va_list ArgList)

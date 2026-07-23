@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCCE8
+ * XREFs of HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCF28
  * Callers:
- *     HalpGrowMapBufferWorker @ 0x1404B8F60 (HalpGrowMapBufferWorker.c)
- *     IoFreeMapRegistersV2 @ 0x1404CCFA0 (IoFreeMapRegistersV2.c)
+ *     HalpGrowMapBufferWorker @ 0x1404B91A0 (HalpGrowMapBufferWorker.c)
+ *     IoFreeMapRegistersV2 @ 0x1404CD1E0 (IoFreeMapRegistersV2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
- *     HalpQueueMapBufferWorker @ 0x1404BC5E8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaDequeueAdapter @ 0x1404C73F8 (HalpDmaDequeueAdapter.c)
- *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaQueueAdapter @ 0x1404C7D94 (HalpDmaQueueAdapter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IoFreeAdapterChannel @ 0x1404B8F50 (IoFreeAdapterChannel.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC828 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C6B3C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaDequeueAdapter @ 0x1404C7638 (HalpDmaDequeueAdapter.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7CF8 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7FD4 (HalpDmaQueueAdapter.c)
  */
 
 void __fastcall HalpDmaProcessMapRegisterQueueV2(__int64 a1, char a2)

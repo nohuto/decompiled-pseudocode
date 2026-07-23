@@ -6,7 +6,7 @@
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180014788 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  *     RtlpGetCompleteLanguageFallback @ 0x1800FC618 (RtlpGetCompleteLanguageFallback.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180112F84 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180112F54 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  */
 
 __int64 __fastcall RtlpAutoCompleteLanguageFallback(__int64 a1, const WCHAR *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpDiscardVirtualAddressRange @ 0x140897F8C
+ * XREFs of IopLiveDumpDiscardVirtualAddressRange @ 0x1408980EC
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x140897254 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpAllocateExtraBuffers @ 0x140897674 (IopLiveDumpAllocateExtraBuffers.c)
- *     IopLiveDumpAllocateIptBuffers @ 0x140897C64 (IopLiveDumpAllocateIptBuffers.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896D1C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1408973B4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x1408977D4 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x140897DC4 (IopLiveDumpAllocateIptBuffers.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MmIsAddressValid @ 0x140536B70 (MmIsAddressValid.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MmIsAddressValid @ 0x140536DB0 (MmIsAddressValid.c)
  */
 
 void __fastcall IopLiveDumpDiscardVirtualAddressRange(__int64 a1, char *a2, unsigned __int64 a3)

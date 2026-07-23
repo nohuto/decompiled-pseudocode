@@ -1,9 +1,9 @@
 /*
- * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults @ 0x140CEDCD0
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults @ 0x140CF404C
  * Callers:
- *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140CEDC08 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140CF3F84 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404FE2F8 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404F78A8 (wil_details_FeatureDescriptors_SkipPadding.c)
  */
 
 void __fastcall wil_details_PopulateInitialConfiguredFeatureStatesWithDefaults(__int64 *a1)

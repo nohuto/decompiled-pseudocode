@@ -1,79 +1,79 @@
 /*
- * XREFs of RtlAddMandatoryAce @ 0x140926CB0
+ * XREFs of RtlAddMandatoryAce @ 0x1409027C0
  * Callers:
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x14085B164 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1409FF1D0 (IopCreateSecurityDescriptorPerType.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x140AD4890 (ObpVerifyAccessToBoundaryEntry.c)
- *     SepInitSystemDacls @ 0x140CDA288 (SepInitSystemDacls.c)
- *     ExpKeyedEventInitialization @ 0x140CE7040 (ExpKeyedEventInitialization.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x140861458 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x14091BFD0 (IopCreateSecurityDescriptorPerType.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140AD1CF0 (ObpVerifyAccessToBoundaryEntry.c)
+ *     SepInitSystemDacls @ 0x140CE0608 (SepInitSystemDacls.c)
+ *     ExpKeyedEventInitialization @ 0x140CED750 (ExpKeyedEventInitialization.c)
  * Callees:
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
  */
 
-__int64 __fastcall RtlAddMandatoryAce(
-        unsigned __int8 *a1,
-        unsigned int a2,
-        int a3,
-        unsigned __int8 *a4,
-        char a5,
-        int a6)
+NTSTATUS __cdecl RtlAddMandatoryAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        PSID Sid,
+        UCHAR AceType,
+        ACCESS_MASK AccessMask)
 {
   int v10; // ecx
-  unsigned __int8 v11; // cl
-  __int64 result; // rax
-  unsigned __int8 v13; // al
-  unsigned __int8 v14; // si
-  unsigned __int64 v15; // rcx
+  UCHAR AclRevision; // cl
+  NTSTATUS result; // eax
+  UCHAR v13; // al
+  UCHAR v14; // si
+  PACL v15; // rcx
   unsigned int v16; // edx
-  unsigned __int64 v17; // r9
-  unsigned __int16 v18; // dx
+  ACL *v17; // r9
+  USHORT v18; // dx
 
-  if ( !a1 )
-    return 3221225591LL;
-  if ( a5 != 17 )
-    return 3221225485LL;
-  if ( !MmIsKernelAddress((unsigned __int64)a4) || !a4 || (*a4 & 0xF) != 1 || a4[1] > 0xFu )
-    return 3221225592LL;
-  v10 = *(_DWORD *)(a4 + 2);
+  if ( !Acl )
+    return -1073741705;
+  if ( AceType != 17 )
+    return -1073741811;
+  if ( !MmIsKernelAddress((unsigned __int64)Sid) || !Sid || (*(_BYTE *)Sid & 0xF) != 1 || *((_BYTE *)Sid + 1) > 0xFu )
+    return -1073741704;
+  v10 = *(_DWORD *)((char *)Sid + 2);
   if ( !v10 )
-    v10 = *((unsigned __int16 *)a4 + 3) - 4096;
+    v10 = *((unsigned __int16 *)Sid + 3) - 4096;
   if ( v10 )
-    return 3221225485LL;
-  v11 = *a1;
-  if ( a2 > 4 || v11 > 4u )
-    return 3221225561LL;
-  v13 = a2;
-  v14 = *a1;
-  if ( v11 <= v13 )
+    return -1073741811;
+  AclRevision = Acl->AclRevision;
+  if ( AceRevision > 4 || AclRevision > 4u )
+    return -1073741735;
+  v13 = AceRevision;
+  v14 = Acl->AclRevision;
+  if ( AclRevision <= v13 )
     v14 = v13;
-  if ( (a3 & 0xFFFFFFE0) != 0 || (a6 & 0xFFFFFFF8) != 0 )
-    return 3221225485LL;
-  if ( !(unsigned __int8)RtlValidAcl(a1) )
-    return 3221225591LL;
-  v15 = (unsigned __int64)(a1 + 8);
+  if ( (AceFlags & 0xFFFFFFE0) != 0 || (AccessMask & 0xFFFFFFF8) != 0 )
+    return -1073741811;
+  if ( !RtlValidAcl(Acl) )
+    return -1073741705;
+  v15 = Acl + 1;
   v16 = 0;
-  v17 = (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)];
-  while ( v16 < *((unsigned __int16 *)a1 + 2) )
+  v17 = (PACL)((char *)Acl + Acl->AclSize);
+  while ( v16 < Acl->AceCount )
   {
     if ( v15 >= v17 )
-      return 3221225591LL;
+      return -1073741705;
     ++v16;
-    v15 += *(unsigned __int16 *)(v15 + 2);
+    v15 = (PACL)((char *)v15 + v15->AclSize);
   }
   if ( v15 > v17 )
     v15 = 0LL;
-  v18 = 4 * (a4[1] + 4);
-  if ( !v15 || v15 + v18 > v17 )
-    return 3221225625LL;
-  *(_WORD *)(v15 + 2) = v18;
-  *(_BYTE *)(v15 + 1) = a3;
-  *(_BYTE *)v15 = 17;
-  *(_DWORD *)(v15 + 4) = a6;
-  memmove((void *)(v15 + 8), a4, 4LL * a4[1] + 8);
-  ++*((_WORD *)a1 + 2);
-  result = 0LL;
-  *a1 = v14;
+  v18 = 4 * (*((unsigned __int8 *)Sid + 1) + 4);
+  if ( !v15 || (PACL)((char *)v15 + v18) > v17 )
+    return -1073741671;
+  v15->AclSize = v18;
+  v15->Sbz1 = AceFlags;
+  v15->AclRevision = 17;
+  *(_DWORD *)&v15->AceCount = AccessMask;
+  memmove(&v15[1], Sid, 4LL * *((unsigned __int8 *)Sid + 1) + 8);
+  ++Acl->AceCount;
+  result = 0;
+  Acl->AclRevision = v14;
   return result;
 }

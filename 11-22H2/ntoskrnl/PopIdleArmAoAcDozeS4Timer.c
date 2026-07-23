@@ -17,62 +17,60 @@
  *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140992D68 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  */
 
-__int64 PopIdleArmAoAcDozeS4Timer()
+void PopIdleArmAoAcDozeS4Timer()
 {
-  __int64 result; // rax
-  char v1; // di
-  unsigned __int64 v2; // rbx
+  char v0; // di
+  unsigned __int64 v1; // rbx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v5; // zf
-  _BYTE v6[88]; // [rsp+20h] [rbp-58h] BYREF
-  unsigned int v7; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+88h] [rbp+10h] BYREF
+  int v5; // eax
+  bool v6; // zf
+  _BYTE v7[88]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v8; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+88h] [rbp+10h] BYREF
 
-  v8 = 0LL;
-  v7 = 0;
-  result = (__int64)memset(v6, 0, 0x4CuLL);
+  v9 = 0LL;
+  v8 = 0;
+  memset(v7, 0, 0x4CuLL);
   if ( PopPlatformAoAc )
   {
-    PopFilterCapabilities(&PopCapabilities, v6);
-    result = PopIsDozeSupported(v6);
-    v1 = 0;
-    if ( (_BYTE)result )
+    PopFilterCapabilities(&PopCapabilities, v7);
+    v0 = 0;
+    if ( (unsigned __int8)PopIsDozeSupported(v7) )
     {
-      result = PopIdleChooseDozeS4Time(&v8, &v7);
-      if ( (_BYTE)result )
+      if ( (unsigned __int8)PopIdleChooseDozeS4Time(&v9, &v8) )
       {
-        v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
+        v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
         if ( !byte_140C3CD84 )
         {
-          KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v8, 0LL, 0LL);
-          v1 = 1;
-          dword_140C3CD88 = v7;
+          KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v9, 0LL, 0LL);
+          v0 = 1;
+          dword_140C3CD88 = v8;
           byte_140C3CD84 = 1;
         }
-        result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-        if ( KiIrqlFlags )
+        KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
+        if ( (_DWORD)KiIrqlFlags )
         {
-          result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)result <= 0xFu
-            && (unsigned __int8)v2 <= 0xFu
-            && (unsigned __int8)result >= 2u )
+          CurrentIrql = KeGetCurrentIrql();
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v1 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-            v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= result;
-            if ( v5 )
-              result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+            v6 = (v5 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v5;
+            if ( v6 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
-        __writecr8(v2);
-        if ( v1 )
-          return PopTraceSystemIdleS0LowPowerDozeTimerArmed(v7, v8);
+        __writecr8(v1);
+        if ( v0 )
+          PopTraceSystemIdleS0LowPowerDozeTimerArmed(v8, v9);
       }
     }
   }
-  return result;
 }

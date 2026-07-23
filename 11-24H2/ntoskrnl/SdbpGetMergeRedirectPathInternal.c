@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpGetMergeRedirectPathInternal @ 0x140801804
+ * XREFs of SdbpGetMergeRedirectPathInternal @ 0x140801F44
  * Callers:
- *     SdbGetMergeRedirectPath @ 0x140800E0C (SdbGetMergeRedirectPath.c)
+ *     SdbGetMergeRedirectPath @ 0x14080154C (SdbGetMergeRedirectPath.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     SdbpGetFileTimestamp @ 0x14080125C (SdbpGetFileTimestamp.c)
- *     SdbpGetManifestedMergeStubAlloc @ 0x140801460 (SdbpGetManifestedMergeStubAlloc.c)
- *     SdbpSafeAllocAndConcatW @ 0x140801E9C (SdbpSafeAllocAndConcatW.c)
- *     AslRegistryGetKey @ 0x140808AD4 (AslRegistryGetKey.c)
- *     AslRegistryGetString @ 0x140808BF4 (AslRegistryGetString.c)
- *     AslRegistryGetUInt32 @ 0x140808D98 (AslRegistryGetUInt32.c)
- *     AslPathGetFileNamePart @ 0x140809DE4 (AslPathGetFileNamePart.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     SdbpGetFileTimestamp @ 0x14080199C (SdbpGetFileTimestamp.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140801BA0 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpSafeAllocAndConcatW @ 0x1408025DC (SdbpSafeAllocAndConcatW.c)
+ *     AslRegistryGetKey @ 0x140809214 (AslRegistryGetKey.c)
+ *     AslRegistryGetString @ 0x140809334 (AslRegistryGetString.c)
+ *     AslRegistryGetUInt32 @ 0x1408094D8 (AslRegistryGetUInt32.c)
+ *     AslPathGetFileNamePart @ 0x14080A524 (AslPathGetFileNamePart.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetMergeRedirectPathInternal(const WCHAR **a1, _DWORD *a2, int a3, const wchar_t *a4)

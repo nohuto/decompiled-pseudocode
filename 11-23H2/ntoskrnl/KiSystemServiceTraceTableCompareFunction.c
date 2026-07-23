@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSystemServiceTraceTableCompareFunction @ 0x140975B74
+ * XREFs of KiSystemServiceTraceTableCompareFunction @ 0x140975D74
  * Callers:
- *     KiGetSystemServiceTraceTable @ 0x140975A34 (KiGetSystemServiceTraceTable.c)
- *     KiTrackSystemCallEntry @ 0x140975B90 (KiTrackSystemCallEntry.c)
+ *     KiGetSystemServiceTraceTable @ 0x140975C34 (KiGetSystemServiceTraceTable.c)
+ *     KiTrackSystemCallEntry @ 0x140975D90 (KiTrackSystemCallEntry.c)
  * Callees:
  *     <none>
  */

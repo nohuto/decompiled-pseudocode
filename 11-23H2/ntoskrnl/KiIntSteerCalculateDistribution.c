@@ -5,9 +5,9 @@
  * Callees:
  *     KiIntSteerCalculatePriorityDistribution @ 0x140221950 (KiIntSteerCalculatePriorityDistribution.c)
  *     KiIntPartGetLowestClassProcessorInMask @ 0x140221BB4 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KiIntSteerCalculateFallbackDistribution @ 0x140579EDC (KiIntSteerCalculateFallbackDistribution.c)
- *     KiIntSteerCalculateUniformDistribution @ 0x140579F60 (KiIntSteerCalculateUniformDistribution.c)
- *     KiIntSteerComputeCpuSet @ 0x14057A0A8 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerCalculateFallbackDistribution @ 0x14057A3CC (KiIntSteerCalculateFallbackDistribution.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x14057A450 (KiIntSteerCalculateUniformDistribution.c)
+ *     KiIntSteerComputeCpuSet @ 0x14057A598 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerCalculateDistribution(int a1, __int64 a2, __int64 *a3, __int64 *a4)

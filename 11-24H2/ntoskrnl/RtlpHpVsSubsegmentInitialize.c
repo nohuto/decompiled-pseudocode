@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVsSubsegmentInitialize @ 0x1402C09F0
+ * XREFs of RtlpHpVsSubsegmentInitialize @ 0x140368400
  * Callers:
- *     RtlpHpVsSubsegmentCreate @ 0x1402C03D4 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x140367D08 (RtlpHpVsSubsegmentCreate.c)
  * Callees:
  *     <none>
  */

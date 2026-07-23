@@ -1,22 +1,22 @@
 /*
- * XREFs of KiStartThreadCycleAccumulation @ 0x140231260
+ * XREFs of KiStartThreadCycleAccumulation @ 0x1402D5AB0
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x14022EEF0 (KeQueryTotalCycleTimeThread.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiIdleSchedule @ 0x140256BD0 (KiIdleSchedule.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1402599DC (KiGroupSchedulingGenerationEnd.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
- *     KeUpdateThreadTag @ 0x14036BF50 (KeUpdateThreadTag.c)
+ *     KiIdleSchedule @ 0x140278140 (KiIdleSchedule.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x14027AF4C (KiGroupSchedulingGenerationEnd.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1402D3740 (KeQueryTotalCycleTimeThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1402D4110 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
+ *     KeUpdateThreadTag @ 0x14036C100 (KeUpdateThreadTag.c)
  * Callees:
- *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
- *     KiBeginCounterAccumulation @ 0x14051BDB0 (KiBeginCounterAccumulation.c)
+ *     HalRequestSoftwareInterrupt @ 0x140211E00 (HalRequestSoftwareInterrupt.c)
+ *     KiBeginCounterAccumulation @ 0x14051BFF0 (KiBeginCounterAccumulation.c)
  */
 
 __int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v6; // r11
   unsigned __int64 v7; // rdi
-  __int64 v8; // rcx
+  char v8; // cl
   __int64 v9; // rdx
   __int64 v10; // rax
   unsigned int v11; // ecx
@@ -28,7 +28,7 @@ __int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a
   v6 = __rdtsc();
   v7 = v6 - *(_QWORD *)(a1 + 32448);
   *(_QWORD *)(a1 + 32568) += v7;
-  v8 = *(unsigned __int8 *)(a2 + 2);
+  v8 = *(_BYTE *)(a2 + 2);
   if ( (v8 & 0x20) != 0 )
   {
     v9 = *(_QWORD *)(a1 + 33128);
@@ -51,7 +51,7 @@ __int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a
 LABEL_8:
       v12 = 3;
     *(_QWORD *)(a1 + 8 * (2LL * v12 + 4072 + *(unsigned __int8 *)(a1 + 33208))) += v7;
-    v8 = *(unsigned __int8 *)(a2 + 2);
+    v8 = *(_BYTE *)(a2 + 2);
   }
   if ( (v8 & 0x40) != 0 )
   {
@@ -74,10 +74,7 @@ LABEL_8:
   {
     *(_BYTE *)(a1 + 6) = 0;
     if ( !a3 )
-    {
-      LOBYTE(v8) = 2;
-      return HalRequestSoftwareInterrupt(v8);
-    }
+      return HalRequestSoftwareInterrupt(2);
   }
   return result;
 }

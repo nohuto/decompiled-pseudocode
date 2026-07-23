@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpComputeFraction @ 0x1401363E0
+ * XREFs of RtlpComputeFraction @ 0x140136950
  * Callers:
- *     RtlGenerateQpcToIncrementConstants @ 0x1401363B0 (RtlGenerateQpcToIncrementConstants.c)
- *     KiSetupTimeIncrement @ 0x140149F88 (KiSetupTimeIncrement.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x140136920 (RtlGenerateQpcToIncrementConstants.c)
+ *     KiSetupTimeIncrement @ 0x14014A4F8 (KiSetupTimeIncrement.c)
  * Callees:
  *     <none>
  */

@@ -11,38 +11,41 @@
  *     NtQueryInstallUILanguage @ 0x18009FAA0 (NtQueryInstallUILanguage.c)
  */
 
-__int64 __fastcall RtlpGetSystemDefaultUILanguage(_WORD *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlpGetSystemDefaultUILanguage(LANGID DefaultUILanguageId, PLCID Lcid)
 {
-  __int64 v4; // rbx
-  int v6; // edi
-  int v8; // eax
-  __int16 v9; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
+  PLCID v2; // rbx
+  LANGID *v3; // rsi
+  int v4; // edi
+  int v6; // eax
+  LANGID InstallUILanguageId; // [rsp+40h] [rbp+8h] BYREF
+  DWORD *v8; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = a2;
-  v9 = 0;
-  v10 = 0LL;
-  v6 = 0;
-  if ( a1 )
+  v2 = Lcid;
+  InstallUILanguageId = 0;
+  v3 = (LANGID *)DefaultUILanguageId;
+  v8 = 0LL;
+  v4 = 0;
+  if ( DefaultUILanguageId )
   {
-    *a1 = 0;
-    if ( !a2 && (v8 = RtlpCreateProcessRegistryInfo(&v10), v4 = v10, v6 = v8, v8 < 0)
-      || (!v4 || !*(_WORD *)(v4 + 4) ? (v6 = -1073741595) : (v9 = *(_WORD *)(v4 + 4)), v6 < 0) )
+    *(_WORD *)DefaultUILanguageId = 0;
+    if ( !Lcid && (v6 = RtlpCreateProcessRegistryInfo(&v8), v2 = v8, v4 = v6, v6 < 0)
+      || (!v2 || !*((_WORD *)v2 + 2) ? (v4 = -1073741595) : (InstallUILanguageId = *((_WORD *)v2 + 2)), v4 < 0) )
     {
-      v6 = NtQueryInstallUILanguage(&v9, a2, a3, a4);
-      if ( v6 < 0 )
-        return (unsigned int)v6;
-      if ( (int)NtIsUILanguageComitted() >= 0 )
+      v4 = NtQueryInstallUILanguage(&InstallUILanguageId);
+      if ( v4 < 0 )
+        return v4;
+      if ( NtIsUILanguageComitted() >= 0 )
       {
-        if ( v4 )
+        if ( v2 )
         {
-          RtlpLoadInstallLanguageFallback(v4, v4 + 6, v4 + 8);
-          *(_WORD *)(v4 + 4) = v9;
+          RtlpLoadInstallLanguageFallback(v2, (char *)v2 + 6, v2 + 2);
+          *((_WORD *)v2 + 2) = InstallUILanguageId;
         }
       }
     }
-    *a1 = v9;
-    return (unsigned int)v6;
+    *v3 = InstallUILanguageId;
+    return v4;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

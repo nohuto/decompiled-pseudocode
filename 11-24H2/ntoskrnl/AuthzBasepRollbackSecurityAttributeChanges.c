@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepRollbackSecurityAttributeChanges @ 0x140696C5C
+ * XREFs of AuthzBasepRollbackSecurityAttributeChanges @ 0x140697D2C
  * Callers:
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x140357560 (AuthzBasepFinaliseSecurityAttributesList.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x14035F940 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x1403B8CD0 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403BA310 (AuthzBasepDuplicateSecurityAttributes.c)
  * Callees:
- *     AuthzBasepFreeSecurityAttributeValues @ 0x140356DA0 (AuthzBasepFreeSecurityAttributeValues.c)
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140360380 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x1404357B0 (AuthzBasepRemoveSecurityAttributeFromLists.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1403B94E0 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1403BAD50 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x140428230 (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall AuthzBasepRollbackSecurityAttributeChanges(_DWORD *a1, __int64 a2)

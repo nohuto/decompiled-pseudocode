@@ -1,22 +1,22 @@
 /*
- * XREFs of MiAllocateTopLevelPage @ 0x140A5A2FC
+ * XREFs of MiAllocateTopLevelPage @ 0x140A51BBC
  * Callers:
- *     MiAllocateProcessShadow @ 0x140A5A1B0 (MiAllocateProcessShadow.c)
- *     MmCreateProcessAddressSpace @ 0x140AE61C8 (MmCreateProcessAddressSpace.c)
+ *     MiAllocateProcessShadow @ 0x140A51A70 (MiAllocateProcessShadow.c)
+ *     MmCreateProcessAddressSpace @ 0x140AE7AA8 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     MiWaitForFreePage @ 0x1402CF708 (MiWaitForFreePage.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiGetSlabPage @ 0x1402F3934 (MiGetSlabPage.c)
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiInitializePfnForOtherProcess @ 0x140396C84 (MiInitializePfnForOtherProcess.c)
- *     MiGetNextPageColor @ 0x14043D550 (MiGetNextPageColor.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     MiSetPageTablePfnBuddy @ 0x140498190 (MiSetPageTablePfnBuddy.c)
- *     MiInitializeSelfmap @ 0x1404A6DD0 (MiInitializeSelfmap.c)
+ *     MiGetSlabPage @ 0x14021CE24 (MiGetSlabPage.c)
+ *     MiWaitForFreePage @ 0x140260F64 (MiWaitForFreePage.c)
+ *     MiInitializeSelfmap @ 0x1402EF544 (MiInitializeSelfmap.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiInitializePfnForOtherProcess @ 0x14038FF2C (MiInitializePfnForOtherProcess.c)
+ *     MiGetNextPageColor @ 0x1404317F0 (MiGetNextPageColor.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     MiSetPageTablePfnBuddy @ 0x140492B70 (MiSetPageTablePfnBuddy.c)
  */
 
-__int64 __fastcall MiAllocateTopLevelPage(unsigned __int64 a1)
+__int64 __fastcall MiAllocateTopLevelPage(__int64 a1)
 {
   __int64 v2; // rcx
   __int64 ProcessPartition; // r14
@@ -27,12 +27,13 @@ __int64 __fastcall MiAllocateTopLevelPage(unsigned __int64 a1)
   char v8; // r15
   struct _KTHREAD *CurrentThread; // rsi
   __int64 SlabPage; // rdi
-  _OWORD v12[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v11; // r9
+  _OWORD v13[2]; // [rsp+30h] [rbp-28h] BYREF
 
-  v12[0] = 0LL;
+  v13[0] = 0LL;
   ProcessPartition = MiGetProcessPartition(a1);
-  MiInitializePageColorBase(v2 + 1024, 3, v4, (__int64)v12);
-  NextPageColor = MiGetNextPageColor((__int64)v12);
+  MiInitializePageColorBase(v2 + 1024, 3, v4, (__int64)v13);
+  NextPageColor = MiGetNextPageColor((__int64)v13);
   v6 = 0;
   v7 = *(_BYTE *)(a1 + 1774);
   v8 = -1;
@@ -61,8 +62,8 @@ __int64 __fastcall MiAllocateTopLevelPage(unsigned __int64 a1)
     CurrentThread[1].SavedApcStateFill[15] = v8;
   MiSetPfnContainingFrame(48 * SlabPage - 0x220000000000LL, SlabPage);
   *(_QWORD *)(48 * SlabPage - 0x220000000000LL) = 0LL;
-  MiInitializePfnForOtherProcess(SlabPage, 0xFFFFF6FB7DBEDF68uLL, SlabPage, 512);
-  MiSetPageTablePfnBuddy(48 * SlabPage - 0x220000000000LL, a1, 0);
+  MiInitializePfnForOtherProcess(SlabPage, 0xFFFFF6FB7DBEDF68uLL, SlabPage, 512LL);
+  MiSetPageTablePfnBuddy(48 * SlabPage - 0x220000000000LL, a1, 0LL, v11);
   MiInitializeSelfmap(SlabPage);
   return SlabPage;
 }

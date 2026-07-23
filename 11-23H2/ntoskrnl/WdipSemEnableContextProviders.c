@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemEnableContextProviders @ 0x1408302E0
+ * XREFs of WdipSemEnableContextProviders @ 0x1408305E0
  * Callers:
- *     WdipSemEnableScenario @ 0x1407E550C (WdipSemEnableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407E57DC (WdipSemEnableScenario.c)
  * Callees:
- *     WdipSemEnableContextProvider @ 0x1408303AC (WdipSemEnableContextProvider.c)
+ *     WdipSemEnableContextProvider @ 0x1408306AC (WdipSemEnableContextProvider.c)
  */
 
 void __fastcall WdipSemEnableContextProviders(__int64 a1)

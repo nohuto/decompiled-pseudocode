@@ -1,19 +1,19 @@
 /*
- * XREFs of NtCompleteConnectPort @ 0x1407BFB10
+ * XREFs of NtCompleteConnectPort @ 0x1407C2B70
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
-__int64 NtCompleteConnectPort()
+NTSTATUS __cdecl NtCompleteConnectPort(HANDLE PortHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
 
-  if ( !*(_DWORD *)&AlpcpMessageLogLock.ApcStateFill[8] )
-    return 0LL;
+  if ( !LODWORD(AlpcpMessageLogLock.TrapFrame) )
+    return 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   KeLeaveCriticalRegion();
-  return 3221225659LL;
+  return -1073741637;
 }

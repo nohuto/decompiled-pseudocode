@@ -1,15 +1,15 @@
 /*
- * XREFs of MmAllocateUserStack @ 0x1408DE514
+ * XREFs of MmAllocateUserStack @ 0x1409150D0
  * Callers:
- *     PspReserveAndCommitUserShadowStack @ 0x1408DE18C (PspReserveAndCommitUserShadowStack.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x140914D48 (PspReserveAndCommitUserShadowStack.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1408DEC10 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409157C0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall MmAllocateUserStack(__int64 *a1, int a2, __int64 *a3, int a4, int a5)
@@ -29,7 +29,7 @@ __int64 __fastcall MmAllocateUserStack(__int64 *a1, int a2, __int64 *a3, int a4,
   int v22; // [rsp+DCh] [rbp-2Ch]
   unsigned __int64 *v23; // [rsp+E0h] [rbp-28h]
   _BYTE v24[24]; // [rsp+118h] [rbp+10h] BYREF
-  __int64 v25; // [rsp+130h] [rbp+28h]
+  ULONG_PTR v25; // [rsp+130h] [rbp+28h]
   int v26; // [rsp+138h] [rbp+30h]
   char v27; // [rsp+148h] [rbp+40h]
 
@@ -63,22 +63,22 @@ __int64 __fastcall MmAllocateUserStack(__int64 *a1, int a2, __int64 *a3, int a4,
     goto LABEL_10;
   if ( v25 )
   {
-    if ( v25 == -3 )
+    if ( v25 == -3LL )
     {
       v12 = 1LL;
     }
     else
     {
-      v16 = PsReferencePartitionByHandle(v25, 2LL, 0LL, 1633054029LL, &v17);
+      v16 = PsReferencePartitionByHandle(v25, 2, 0, 0x61566D4Du, &v17);
       v12 = v17;
       VirtualMemoryPrepare = v16;
       if ( v16 < 0 )
       {
 LABEL_10:
         if ( v20[0] )
-          ++dword_140E301B4;
+          ++dword_140E302F4;
         else
-          ++dword_140E301B0;
+          ++dword_140E302F0;
         goto LABEL_13;
       }
     }

@@ -1,41 +1,34 @@
 /*
- * XREFs of MiSetZeroPageThreadPriority @ 0x14020A388
+ * XREFs of MiSetZeroPageThreadPriority @ 0x140331968
  * Callers:
- *     MiZeroThreadContextSetExiting @ 0x140209DA4 (MiZeroThreadContextSetExiting.c)
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiFlushZeroPageHeatBatch @ 0x140469FF0 (MiFlushZeroPageHeatBatch.c)
- *     MiZeroPageMakeHot @ 0x1406903F8 (MiZeroPageMakeHot.c)
+ *     MiZeroThreadContextSetExiting @ 0x140331384 (MiZeroThreadContextSetExiting.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiFlushZeroPageHeatBatch @ 0x140462F20 (MiFlushZeroPageHeatBatch.c)
+ *     MiZeroPageMakeHot @ 0x1406914C8 (MiZeroPageMakeHot.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
  */
 
-__int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, int a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // r15
-  int v4; // ebp
-  int v5; // r14d
   KIRQL v7; // di
   __int64 v8; // rsi
   unsigned int v9; // ebx
 
   CurrentThread = KeGetCurrentThread();
-  v4 = a3;
-  v5 = a2;
   v7 = 17;
   v8 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 336) + 176LL) + 48LL) + 16LL)
      + 57216LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 336) + 176LL) + 56LL);
-  if ( !(_DWORD)a3 )
+  if ( !a3 )
     v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 15280));
   if ( (*(_DWORD *)(a1 + 384) & 8) != 0 )
     v9 = 32;
   else
-    v9 = KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, v5, a3);
-  if ( !v4 )
-  {
-    LOBYTE(a2) = v7;
-    MiReleaseSpinLockExclusive(v8 + 15280, a2);
-  }
+    v9 = KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, a2);
+  if ( !a3 )
+    MiReleaseSpinLockExclusive((_DWORD *)(v8 + 15280), v7);
   return v9;
 }

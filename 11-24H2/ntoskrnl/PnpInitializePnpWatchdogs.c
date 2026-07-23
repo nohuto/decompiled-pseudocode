@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpInitializePnpWatchdogs @ 0x140C2336C
+ * XREFs of PnpInitializePnpWatchdogs @ 0x140C2539C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1404B53A4 (PnpGetRegistryDword.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PnpOpenCCSPnpRegKey @ 0x140C23448 (PnpOpenCCSPnpRegKey.c)
+ *     PnpGetRegistryDword @ 0x1404AFC44 (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PnpOpenCCSPnpRegKey @ 0x140C25478 (PnpOpenCCSPnpRegKey.c)
  */
 
 NTSTATUS PnpInitializePnpWatchdogs()

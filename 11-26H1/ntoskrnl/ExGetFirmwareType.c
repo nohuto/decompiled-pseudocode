@@ -1,5 +1,5 @@
 /*
- * XREFs of ExGetFirmwareType @ 0x140529C90
+ * XREFs of ExGetFirmwareType @ 0x14052C1B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 ExGetFirmwareType()
 {
-  return *(unsigned int *)&ExpSysDbgLock.SchedulerApcFill5[64];
+  return LODWORD(ExpSysDbgLock.ThreadListEntry.Blink);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSetSessionLocaleId @ 0x140548E14
+ * XREFs of MmSetSessionLocaleId @ 0x140549354
  * Callers:
- *     NtSetDefaultLocale @ 0x140548C40 (NtSetDefaultLocale.c)
+ *     NtSetDefaultLocale @ 0x140549180 (NtSetDefaultLocale.c)
  * Callees:
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
  */
 
 char __fastcall MmSetSessionLocaleId(int a1)

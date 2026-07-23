@@ -1,40 +1,52 @@
 /*
- * XREFs of SymCryptMlDsaExpandS @ 0x140572930
+ * XREFs of SymCryptMlDsaExpandS @ 0x140571B18
  * Callers:
- *     SymCryptMlDsaKeyGenerateEx @ 0x14055D64C (SymCryptMlDsaKeyGenerateEx.c)
+ *     SymCryptMlDsaKeyGenerateEx @ 0x14055FB34 (SymCryptMlDsaKeyGenerateEx.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptMlDsaRejBoundedPoly @ 0x140573664 (SymCryptMlDsaRejBoundedPoly.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptMlDsaRejBoundedPoly @ 0x140572870 (SymCryptMlDsaRejBoundedPoly.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SymCryptMlDsaExpandS(__int64 a1, const void *a2, size_t a3, __int64 a4, __int64 a5)
 {
-  unsigned int v5; // ebp
-  unsigned int v7; // r14d
-  unsigned __int16 v9; // bx
-  unsigned __int16 i; // di
-  _BYTE v12[64]; // [rsp+20h] [rbp-A8h] BYREF
-  unsigned __int16 v13; // [rsp+60h] [rbp-68h]
+  unsigned int v5; // esi
+  unsigned int v7; // ebp
+  unsigned int v8; // edi
+  unsigned __int16 v10; // bx
+  unsigned __int16 i; // bx
+  _BYTE v13[64]; // [rsp+20h] [rbp-98h] BYREF
+  unsigned __int16 v14; // [rsp+60h] [rbp-58h]
 
   v5 = *(unsigned __int8 *)(a1 + 20);
   v7 = *(unsigned __int8 *)(a1 + 21);
-  memmove(v12, a2, a3);
-  v9 = 0;
-  for ( i = 0; i < v7; ++i )
+  v8 = 0;
+  memmove(v13, a2, a3);
+  v10 = 0;
+  if ( v7 )
   {
-    v13 = i;
-    SymCryptMlDsaRejBoundedPoly(a1, v12, 66LL, a4 + ((unsigned __int64)i << 10) + 8);
-  }
-  if ( v5 )
-  {
-    do
+    while ( 1 )
     {
-      v13 = v9 + v7;
-      SymCryptMlDsaRejBoundedPoly(a1, v12, 66LL, a5 + ((unsigned __int64)v9++ << 10) + 8);
+      v14 = v10;
+      v8 = SymCryptMlDsaRejBoundedPoly(a1, v13, 66LL, a4 + ((unsigned __int64)v10 << 10) + 8);
+      if ( v8 )
+        break;
+      if ( ++v10 >= v7 )
+        goto LABEL_4;
     }
-    while ( v9 < v5 );
   }
-  return SymCryptWipe((__int64)v12, 0x42uLL);
+  else
+  {
+LABEL_4:
+    for ( i = 0; i < v5; ++i )
+    {
+      v14 = i + v7;
+      v8 = SymCryptMlDsaRejBoundedPoly(a1, v13, 66LL, a5 + ((unsigned __int64)i << 10) + 8);
+      if ( v8 )
+        break;
+    }
+  }
+  SymCryptWipe((__int64)v13, 0x42uLL);
+  return v8;
 }

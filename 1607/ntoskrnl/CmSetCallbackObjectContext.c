@@ -1,14 +1,14 @@
 /*
- * XREFs of CmSetCallbackObjectContext @ 0x1405FAFAC
+ * XREFs of CmSetCallbackObjectContext @ 0x1405FB060
  * Callers:
- *     VrpPostOpenOrCreate @ 0x140615588 (VrpPostOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x14061563C (VrpPostOpenOrCreate.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpLockCallbackListShared @ 0x14054C4E8 (CmpLockCallbackListShared.c)
- *     CmpUnlockCallbackList @ 0x14054CEC8 (CmpUnlockCallbackList.c)
- *     CmpLockContextListExclusive @ 0x140603BBC (CmpLockContextListExclusive.c)
- *     CmpLockContextListShared @ 0x140603C1C (CmpLockContextListShared.c)
- *     CmpUnlockContextList @ 0x140603DB8 (CmpUnlockContextList.c)
+ *     CmpLockCallbackListShared @ 0x14054CA28 (CmpLockCallbackListShared.c)
+ *     CmpUnlockCallbackList @ 0x14054D408 (CmpUnlockCallbackList.c)
+ *     CmpLockContextListExclusive @ 0x140603C70 (CmpLockContextListExclusive.c)
+ *     CmpLockContextListShared @ 0x140603CD0 (CmpLockContextListShared.c)
+ *     CmpUnlockContextList @ 0x140603E6C (CmpUnlockContextList.c)
  */
 
 NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cookie, PVOID NewContext, PVOID *OldContext)

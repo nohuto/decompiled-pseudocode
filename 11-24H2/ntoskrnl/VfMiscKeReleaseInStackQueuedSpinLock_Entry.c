@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140B9DE40
+ * XREFs of VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140B9FE40
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     ViMiscCheckKeLowerIrql @ 0x140BA81D4 (ViMiscCheckKeLowerIrql.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     ViMiscCheckKeLowerIrql @ 0x140BAA1D4 (ViMiscCheckKeLowerIrql.c)
  */
 
 __int64 __fastcall VfMiscKeReleaseInStackQueuedSpinLock_Entry(_QWORD *a1)

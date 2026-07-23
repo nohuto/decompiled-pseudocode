@@ -1,12 +1,12 @@
 /*
- * XREFs of SeGetLogonSessionToken @ 0x140A56F40
+ * XREFs of SeGetLogonSessionToken @ 0x140A4EDD0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __fastcall SeGetLogonSessionToken(void *a1, KPROCESSOR_MODE a2, __int64 *a3)

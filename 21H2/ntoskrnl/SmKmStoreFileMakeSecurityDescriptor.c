@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmStoreFileMakeSecurityDescriptor @ 0x14092CA60
+ * XREFs of SmKmStoreFileMakeSecurityDescriptor @ 0x14092CBC0
  * Callers:
- *     SmKmStoreFileCreateForIoType @ 0x14092C48C (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C5EC (SmKmStoreFileCreateForIoType.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ACL **a2)
@@ -28,8 +28,8 @@ __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR Secu
   ULONG v13; // ebx
   ULONG v14; // ebx
   ACL *v15; // rax
-  struct _SID_IDENTIFIER_AUTHORITY v17; // [rsp+80h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+88h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v17; // [rsp+80h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+88h] [rbp+58h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 256;
   *(_DWORD *)IdentifierAuthority.Value = 0;
@@ -73,13 +73,13 @@ __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR Secu
           Acl = RtlCreateAcl(v15, v14, 2u);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 2032127, (unsigned __int8 *)Src, 0);
+            Acl = RtlpAddKnownAce(v6, 2u, 0, 2032127, (unsigned __int8 *)Src, 0);
             if ( Acl >= 0 )
             {
-              Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 2032127, (unsigned __int8 *)v4, 0);
+              Acl = RtlpAddKnownAce(v6, 2u, 0, 2032127, (unsigned __int8 *)v4, 0);
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 0x10000, (unsigned __int8 *)v8, 0);
+                Acl = RtlpAddKnownAce(v6, 2u, 0, 0x10000, (unsigned __int8 *)v8, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);

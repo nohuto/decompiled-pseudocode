@@ -12,15 +12,15 @@
  *     _LdrControlFlowGuardEnforced@0 @ 0x4B2D0100 (_LdrControlFlowGuardEnforced@0.c)
  */
 
-signed __int32 __thiscall LdrProtectMrdataHeap(void *this)
+void __thiscall LdrProtectMrdataHeap(void *this)
 {
-  signed __int32 result; // eax
+  int v2; // eax
   int v3; // esi
   int v4; // esi
 
-  result = LdrControlFlowGuardEnforced();
-  if ( !result )
-    return result;
+  LOBYTE(v2) = LdrControlFlowGuardEnforced();
+  if ( !v2 )
+    return;
   RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
   v3 = *(_DWORD *)LdrpMrdataHeapUnprotected;
   if ( this )
@@ -35,7 +35,7 @@ LABEL_13:
     __fastfail(0xEu);
   }
   if ( !v3 )
-    RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
+    RtlProtectHeap(LdrpMrdataHeap, 0);
   if ( v3 == -1 )
     goto LABEL_13;
   v4 = v3 + 1;
@@ -44,7 +44,7 @@ LABEL_7:
   if ( this )
   {
     if ( !v4 )
-      RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      RtlProtectHeap(LdrpMrdataHeap, 1u);
   }
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

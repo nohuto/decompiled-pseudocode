@@ -1,24 +1,24 @@
 /*
- * XREFs of SeSetLearningModeObjectInformation @ 0x1404BBE8C
+ * XREFs of SeSetLearningModeObjectInformation @ 0x1404B6F50
  * Callers:
- *     RtlpAllowsLowBoxAccess @ 0x1404323F0 (RtlpAllowsLowBoxAccess.c)
- *     ObReferenceObjectByName @ 0x14083F230 (ObReferenceObjectByName.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
+ *     RtlpAllowsLowBoxAccess @ 0x14042492C (RtlpAllowsLowBoxAccess.c)
+ *     ObReferenceObjectByName @ 0x14083B4F0 (ObReferenceObjectByName.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     SepGetCurrentLogLevel @ 0x14040C5D0 (SepGetCurrentLogLevel.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     RtlStringCbCatW @ 0x14044CE48 (RtlStringCbCatW.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     PsReferenceEffectiveToken @ 0x14085D1B0 (PsReferenceEffectiveToken.c)
- *     ObQueryNameString @ 0x140969A10 (ObQueryNameString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     SepGetCurrentLogLevel @ 0x140404C60 (SepGetCurrentLogLevel.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     RtlStringCbCatW @ 0x140443D48 (RtlStringCbCatW.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     PsReferenceEffectiveToken @ 0x140858F20 (PsReferenceEffectiveToken.c)
+ *     ObQueryNameString @ 0x1409524A0 (ObQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
@@ -27,11 +27,11 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
   _DWORD *v3; // rax
   int v4; // edi
   void *v5; // rcx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
-  struct _OBJECT_NAME_INFORMATION *v7; // rdi
+  _OBJECT_NAME_INFORMATION *Pool2; // rax
+  _OBJECT_NAME_INFORMATION *v7; // rdi
   NTSTATUS v8; // eax
-  struct _OBJECT_NAME_INFORMATION *v9; // rax
-  size_t v10; // r14
+  _OBJECT_NAME_INFORMATION *v9; // rax
+  ULONG_PTR v10; // r14
   wchar_t *v11; // rax
   wchar_t *v12; // rsi
   __int64 v13; // rcx
@@ -42,7 +42,6 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
 
   ReturnLength = 0;
   v17 = 0;
-  LOBYTE(Object) = 0;
   if ( SepLearningModeTokenCount )
   {
     CurrentThread = KeGetCurrentThread();
@@ -64,7 +63,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
       Object = 0LL;
       if ( ObReferenceObjectByHandle(v5, 0, 0LL, KeGetCurrentThread()->PreviousMode, &Object, 0LL) < 0 )
         goto LABEL_20;
-      Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL, 0x210uLL, 0x4F526553u);
       v7 = Pool2;
       if ( Pool2 )
       {
@@ -72,7 +71,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
         if ( v8 != -1073741820 )
           goto LABEL_12;
         ExFreePoolWithTag(v7, 0);
-        v9 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL);
+        v9 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL, ReturnLength, 0x4F526553u);
         v7 = v9;
         if ( v9 )
         {
@@ -83,7 +82,7 @@ LABEL_12:
             if ( v7->Name.Buffer )
             {
               v10 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 24) + 2LL) + 2LL + v7->Name.MaximumLength;
-              v11 = (wchar_t *)ExAllocatePool2(0x100uLL);
+              v11 = (wchar_t *)ExAllocatePool2(0x100uLL, v10, 0x4F526553u);
               v12 = v11;
               if ( v11 )
               {

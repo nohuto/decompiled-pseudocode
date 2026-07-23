@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgMigrateService @ 0x14063AE30
+ * XREFs of PiDevCfgMigrateService @ 0x14063AEE4
  * Callers:
  *     PipMigrateServiceCallback @ 0x1407CEE24 (PipMigrateServiceCallback.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140550618 (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegCopyTree @ 0x1406D7020 (_PnpCtxRegCopyTree.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140550B58 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegCopyTree @ 0x1406D7158 (_PnpCtxRegCopyTree.c)
  */
 
 __int64 __fastcall PiDevCfgMigrateService(__int64 a1, __int64 a2, void *a3)

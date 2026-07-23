@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPrepareImportList @ 0x1406C8850
+ * XREFs of MiPrepareImportList @ 0x1406C9AF0
  * Callers:
- *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x14067A170 (MiResolveImageReferences.c)
  * Callees:
- *     MiAllocateImportList @ 0x1406C88A4 (MiAllocateImportList.c)
+ *     MiAllocateImportList @ 0x1406C9B44 (MiAllocateImportList.c)
  */
 
 __int64 __fastcall MiPrepareImportList(_DWORD *a1, __int64 *a2)

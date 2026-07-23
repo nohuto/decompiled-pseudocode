@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCacheHwIdFree @ 0x1401DCF20
+ * XREFs of KsepCacheHwIdFree @ 0x1401DCD4C
  * Callers:
  *     <none>
  * Callees:
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepStringFree @ 0x140485BF8 (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepStringFree @ 0x140514F80 (KsepStringFree.c)
  */
 
 void __fastcall KsepCacheHwIdFree(char *a1)

@@ -7,11 +7,11 @@
  *     ZwReadVirtualMemory @ 0x1800A08A0 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall PsspCaptureImageInformation(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall PsspCaptureImageInformation(__int64 a1, void *a2, char *a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v7; // rax
-  _WORD v8[30]; // [rsp+30h] [rbp-168h] BYREF
+  _WORD Buffer[30]; // [rsp+30h] [rbp-168h] BYREF
   int v9; // [rsp+6Ch] [rbp-12Ch]
   _DWORD v10[6]; // [rsp+70h] [rbp-128h] BYREF
   __int16 v11; // [rsp+88h] [rbp-110h]
@@ -22,13 +22,13 @@ __int64 __fastcall PsspCaptureImageInformation(__int64 a1, __int64 a2, __int64 a
   *(_QWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 8) = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
-  result = ZwReadVirtualMemory(a2, a3, v8, 64LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ZwReadVirtualMemory(a2, a3, Buffer, 0x40uLL, 0LL);
+  if ( result >= 0 )
   {
-    if ( v8[0] != 23117 )
-      return 3221225775LL;
-    result = ZwReadVirtualMemory(a2, a3 + v9, v10, 248LL, 0LL);
-    if ( (int)result >= 0 )
+    if ( Buffer[0] != 23117 )
+      return -1073741521;
+    result = ZwReadVirtualMemory(a2, &a3[v9], v10, 0xF8uLL, 0LL);
+    if ( result >= 0 )
     {
       if ( v10[0] == 17744 )
       {
@@ -45,10 +45,10 @@ LABEL_8:
           *(_DWORD *)a1 = v10[2];
           *(_DWORD *)(a1 + 4) = v13;
           *(_DWORD *)(a1 + 16) = v14;
-          return 0LL;
+          return 0;
         }
       }
-      return 3221225595LL;
+      return -1073741701;
     }
   }
   return result;

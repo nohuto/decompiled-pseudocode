@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x140925838
+ * XREFs of ViFreeTrackedPool @ 0x140926838
  * Callers:
- *     VerifierFreeTrackedPool @ 0x1402BA41C (VerifierFreeTrackedPool.c)
+ *     VerifierFreeTrackedPool @ 0x1402BA60C (VerifierFreeTrackedPool.c)
  * Callees:
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 volatile signed __int32 *__fastcall ViFreeTrackedPool(
@@ -18,7 +18,7 @@ volatile signed __int32 *__fastcall ViFreeTrackedPool(
   __int64 *v7; // rbx
   ULONG_PTR v8; // r14
   unsigned __int64 v9; // r15
-  union _SLIST_HEADER *v10; // rbp
+  _SLIST_HEADER *v10; // rbp
   unsigned int v11; // r13d
   unsigned __int64 v12; // rsi
   volatile signed __int64 *v13; // rax
@@ -42,7 +42,7 @@ volatile signed __int32 *__fastcall ViFreeTrackedPool(
   }
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
-  v10 = *(union _SLIST_HEADER **)(v9 + 8);
+  v10 = *(_SLIST_HEADER **)(v9 + 8);
   if ( (MmVerifierData & 0x800) != 0 )
   {
     if ( (v8 & 3) != 0 || !MiIsAddressValid(*v7) )
@@ -63,14 +63,14 @@ volatile signed __int32 *__fastcall ViFreeTrackedPool(
   v11 = a3 & 1;
   v12 = -(__int64)v6;
   _InterlockedExchangeAdd64((volatile signed __int64 *)&v10[7].Alignment + (v11 ^ 1LL), v12);
-  v13 = &qword_14041A9D0;
+  v13 = &qword_14041BAB0;
   _InterlockedDecrement((volatile signed __int32 *)&v10[6] + (v11 ^ 1LL));
   if ( !v11 )
-    v13 = &qword_14041A9D8;
+    v13 = &qword_14041BAB8;
   _InterlockedExchangeAdd64(v13, v12);
-  result = &dword_14041A9C0;
+  result = &dword_14041BAA0;
   if ( !v11 )
-    result = &dword_14041A9C4;
+    result = &dword_14041BAA4;
   _InterlockedDecrement(result);
   return result;
 }

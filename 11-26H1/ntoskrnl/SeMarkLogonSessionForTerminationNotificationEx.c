@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x140B3ACC0
+ * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x140B3CF40
  * Callers:
- *     SeMarkLogonSessionForTerminationNotification @ 0x140815120 (SeMarkLogonSessionForTerminationNotification.c)
+ *     SeMarkLogonSessionForTerminationNotification @ 0x14081B2D0 (SeMarkLogonSessionForTerminationNotification.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __
   v5 = SepLogonSessions + 8 * v4;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v4 & 3));
+  v7 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v4 & 3));
   ExAcquireResourceExclusiveLite(v7, 1u);
   while ( 1 )
   {

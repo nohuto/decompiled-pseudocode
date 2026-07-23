@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestination @ 0x1403BAB84
+ * XREFs of HalpInterruptSetRemappedDestination @ 0x1403744F0
  * Callers:
- *     HalpInterruptSetDestination @ 0x1403B9230 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140373710 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpInterruptGetRemappedLineState @ 0x1403BACD0 (HalpInterruptGetRemappedLineState.c)
- *     HalpInterruptDestinationToTarget @ 0x1403BAD88 (HalpInterruptDestinationToTarget.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x1403BAEFC (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptDestinationToTarget @ 0x140370DAC (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptGetRemappedLineState @ 0x14037463C (HalpInterruptGetRemappedLineState.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1403746F4 (HalpIommuUpdateRemappingTableEntry.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedDestination(__int64 a1, _DWORD *a2, __int64 a3)
@@ -39,7 +39,7 @@ __int64 __fastcall HalpInterruptSetRemappedDestination(__int64 a1, _DWORD *a2, _
   v11 = a3;
   v10[0] = 1;
   v12 = a2 + 10;
-  if ( (int)HalpInterruptDestinationToTarget(v6, v10, (char *)&v13[1] + 8) < 0 )
+  if ( (int)HalpInterruptDestinationToTarget(v6, (__int64)v10, (_DWORD *)&v13[1] + 2) < 0 )
   {
     v9 = v15;
     HalpInterruptLastProblemController = v15;

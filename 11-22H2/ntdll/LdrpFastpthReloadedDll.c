@@ -13,42 +13,42 @@
  *     LdrpLogEtwHotPatchStatus @ 0x1800DBBA4 (LdrpLogEtwHotPatchStatus.c)
  */
 
-__int64 __fastcall LdrpFastpthReloadedDll(int a1, __int16 a2, __int64 a3, __int64 *a4)
+__int64 __fastcall LdrpFastpthReloadedDll(PUNICODE_STRING a1, __int16 a2, __int64 a3, char **a4)
 {
   int LoadedDllByName; // ebx
-  int v7; // eax
-  __int64 v8; // rax
+  _UNICODE_STRING *v7; // rax
+  char *v8; // rax
   char v10; // si
   __int64 v11; // rdx
   __int64 v12; // rcx
-  int v13; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
-  v13 = 0;
+  LODWORD(v13) = 0;
   LoadedDllByName = -1073741275;
   if ( (a2 & 0x20) != 0 )
   {
     v7 = a1;
-    a1 = 0;
+    a1 = 0LL;
   }
   else
   {
     if ( (a2 & 0x200) == 0 )
       return (unsigned int)LoadedDllByName;
-    v7 = 0;
+    v7 = 0LL;
   }
-  LoadedDllByName = LdrpFindLoadedDllByName(v7, a1, a2, (_DWORD)a4, (__int64)&v13);
+  LoadedDllByName = LdrpFindLoadedDllByName(v7, a1, (__int64)&v13);
   if ( LoadedDllByName >= 0 )
   {
     v8 = *a4;
-    if ( *(_DWORD *)(*a4 + 268) == 9 )
+    if ( *((_DWORD *)*a4 + 67) == 9 )
     {
       LoadedDllByName = -1073740608;
-      LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, v8, 0, -1073740608, 2);
+      LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, (_DWORD)v8, 0, -1073740608, 2);
     }
     else
     {
       LoadedDllByName = -1073741275;
-      if ( v13 == 9 )
+      if ( (_DWORD)v13 == 9 )
       {
         LoadedDllByName = LdrpIncrementModuleLoadCount(v8);
         if ( LoadedDllByName >= 0 )

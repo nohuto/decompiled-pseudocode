@@ -1,58 +1,60 @@
 /*
- * XREFs of RtlFindUnicodeSubstring @ 0x1405B8440
+ * XREFs of RtlFindUnicodeSubstring @ 0x1405B9440
  * Callers:
- *     CmpTraceSecurityChanging @ 0x1405B8380 (CmpTraceSecurityChanging.c)
+ *     CmpTraceSecurityChanging @ 0x1405B9380 (CmpTraceSecurityChanging.c)
  * Callees:
- *     memcmp @ 0x140196200 (memcmp.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
  */
 
-char *__fastcall RtlFindUnicodeSubstring(unsigned __int16 *a1, __int16 *a2, char a3)
+PWCHAR __cdecl RtlFindUnicodeSubstring(
+        PUNICODE_STRING FullString,
+        PUNICODE_STRING SearchString,
+        BOOLEAN CaseInSensitive)
 {
-  unsigned __int16 v3; // r9
-  char *v4; // rbx
+  unsigned __int16 Length; // r9
+  wchar_t *Buffer; // rbx
   size_t v5; // rsi
-  char *v6; // rdi
-  unsigned __int64 v7; // rbp
-  unsigned __int16 *v8; // rsi
-  char *i; // r11
-  unsigned __int16 *v10; // r9
+  wchar_t *v6; // rdi
+  wchar_t *v7; // rbp
+  wchar_t *v8; // rsi
+  signed __int64 i; // r11
+  wchar_t *v10; // r9
   unsigned __int64 v11; // r10
   unsigned __int64 v12; // r8
-  const void *v14; // rbp
+  wchar_t *v14; // rbp
 
-  v3 = *a2;
-  if ( *a1 < (unsigned __int16)*a2 )
+  Length = SearchString->Length;
+  if ( FullString->Length < SearchString->Length )
     return 0LL;
-  v4 = (char *)*((_QWORD *)a1 + 1);
-  v5 = v3;
-  v6 = &v4[*a1 - (unsigned __int64)v3];
-  if ( !a3 )
+  Buffer = FullString->Buffer;
+  v5 = Length;
+  v6 = (wchar_t *)((char *)Buffer + FullString->Length - (unsigned __int64)Length);
+  if ( !CaseInSensitive )
   {
-    if ( v4 <= v6 )
+    if ( Buffer <= v6 )
     {
-      v14 = (const void *)*((_QWORD *)a2 + 1);
-      while ( memcmp(v4, v14, v5) )
+      v14 = SearchString->Buffer;
+      while ( memcmp(Buffer, v14, v5) )
       {
-        v4 += 2;
-        if ( v4 > v6 )
+        if ( ++Buffer > v6 )
           return 0LL;
       }
-      return v4;
+      return Buffer;
     }
     return 0LL;
   }
-  v7 = *((_QWORD *)a2 + 1);
-  v8 = (unsigned __int16 *)(v7 + v3);
-  if ( v4 > v6 )
+  v7 = SearchString->Buffer;
+  v8 = (wchar_t *)((char *)v7 + Length);
+  if ( Buffer > v6 )
     return 0LL;
-  for ( i = &v4[-v7]; ; i += 2 )
+  for ( i = (char *)Buffer - (char *)v7; ; i += 2LL )
   {
-    v10 = (unsigned __int16 *)*((_QWORD *)a2 + 1);
-    if ( v7 < (unsigned __int64)v8 )
+    v10 = SearchString->Buffer;
+    if ( v7 < v8 )
     {
       do
       {
-        v11 = *(unsigned __int16 *)((char *)v10 + (_QWORD)i);
+        v11 = *(wchar_t *)((char *)v10 + i);
         v12 = *v10;
         if ( (_DWORD)v11 != (_DWORD)v12 )
         {
@@ -81,9 +83,8 @@ char *__fastcall RtlFindUnicodeSubstring(unsigned __int16 *a1, __int16 *a2, char
     }
     if ( v10 == v8 )
       break;
-    v4 += 2;
-    if ( v4 > v6 )
+    if ( ++Buffer > v6 )
       return 0LL;
   }
-  return v4;
+  return Buffer;
 }

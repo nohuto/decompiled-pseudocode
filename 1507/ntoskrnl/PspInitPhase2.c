@@ -17,7 +17,7 @@ bool PspInitPhase2()
   char v4; // al
 
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].ActiveProcessors.Bitmap[16] = MEMORY[0xFFFFF78000000008];
   v1 = PsIdleProcess;
   PsInitialSystemProcess[2].ActiveProcessors.Bitmap[17] = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];

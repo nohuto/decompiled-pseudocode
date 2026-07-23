@@ -8,11 +8,11 @@
  *     <none>
  */
 
-__int64 NtFlushInstallUILanguage()
+NTSTATUS __cdecl NtFlushInstallUILanguage(LANGID InstallUILanguage, ULONG SetComittedFlag)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 216LL;
+  result = 216;
   __asm { syscall; Low latency system call }
   return result;
 }

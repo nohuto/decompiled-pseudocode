@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxTransitionCriticalResource @ 0x140204138
+ * XREFs of PopFxTransitionCriticalResource @ 0x140203F64
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxTransitionCriticalResource(__int64 a1, unsigned int a2, unsigned __int8 a3)

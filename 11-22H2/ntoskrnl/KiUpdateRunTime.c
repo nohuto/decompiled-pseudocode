@@ -169,14 +169,14 @@ unsigned __int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2, int a3)
     CurrentIrql = KeGetCurrentIrql();
     v77 = CurrentIrql;
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       v46 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)CurrentIrql != 15 )
         v13 = (-1LL << ((unsigned __int8)CurrentIrql + 1)) & 0xFFFC;
       v46[5] |= v13;
     }
-    v84 = -(__int64)(unsigned int)KeMaximumIncrement;
+    v84 = -(__int64)KeMaximumIncrement;
     v76 = KeMinimumIncrement;
     while ( 1 )
     {
@@ -239,10 +239,10 @@ unsigned __int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2, int a3)
     CurrentPrcb->ClockTimerState.ClockTimerEntries[3].DueTime = v35;
     v37 = v77;
     CurrentPrcb->ClockTimerState.ClockTimerEntries[3].TolerableDelay = v36;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v47 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v37 <= 0xFu && v47 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v37 <= 0xFu && v47 >= 2u )
       {
         v48 = KeGetCurrentPrcb();
         v49 = v48->SchedulerAssist;
@@ -360,7 +360,7 @@ unsigned __int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2, int a3)
     {
       v39 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
       {
         v61 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v39 == 15 )
@@ -380,10 +380,10 @@ unsigned __int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2, int a3)
         v111 = 1LL;
         tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, byte_14002D55B, 0LL, 0LL, 4, v107);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v63 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v63 <= 0xFu && v39 <= 0xFu && v63 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v63 <= 0xFu && v39 <= 0xFu && v63 >= 2u )
         {
           v64 = KeGetCurrentPrcb();
           v65 = v64->SchedulerAssist;
@@ -404,12 +404,12 @@ LABEL_23:
     CurrentPrcb->InterruptRequest = 1;
     return result;
   }
-  if ( v19 + v22 > CurrentPrcb->GenerationTarget * (unsigned int)KeMaximumIncrement && KiClockTimerPerCpuTickScheduling )
+  if ( v19 + v22 > CurrentPrcb->GenerationTarget * KeMaximumIncrement && KiClockTimerPerCpuTickScheduling )
   {
     v43 = CurrentPrcb->GroupSchedulingOverQuota == 0;
     v44 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v44 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu )
     {
       v67 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v44 == 15 )
@@ -418,11 +418,11 @@ LABEL_23:
         v68 = (-1LL << (v44 + 1)) & 0xFFFC;
       v67[5] |= v68;
     }
-    KiSetClockTimer((__int64)CurrentPrcb, -(__int64)(unsigned int)KeMaximumIncrement, KeMinimumIncrement, 4, v43, 0);
-    if ( KiIrqlFlags )
+    KiSetClockTimer((__int64)CurrentPrcb, -(__int64)KeMaximumIncrement, KeMinimumIncrement, 4, v43, 0);
+    if ( (_DWORD)KiIrqlFlags )
     {
       v69 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v69 <= 0xFu && v44 <= 0xFu && v69 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu && v44 <= 0xFu && v69 >= 2u )
       {
         v70 = KeGetCurrentPrcb();
         v71 = v70->SchedulerAssist;

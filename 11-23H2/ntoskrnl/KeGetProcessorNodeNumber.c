@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetProcessorNodeNumber @ 0x140368180
+ * XREFs of KeGetProcessorNodeNumber @ 0x140368320
  * Callers:
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
- *     HvlInitializeProcessor @ 0x14081D52C (HvlInitializeProcessor.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
+ *     HvlInitializeProcessor @ 0x14081D7FC (HvlInitializeProcessor.c)
  *     MmInitializeProcessor @ 0x140A89098 (MmInitializeProcessor.c)
  *     KiInitializeThreadCycleTable @ 0x140A8CCC0 (KiInitializeThreadCycleTable.c)
  * Callees:

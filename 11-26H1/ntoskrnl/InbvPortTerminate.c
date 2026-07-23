@@ -1,7 +1,7 @@
 /*
- * XREFs of InbvPortTerminate @ 0x14071EA40
+ * XREFs of InbvPortTerminate @ 0x1407236D0
  * Callers:
- *     HdlspEnableTerminal @ 0x140C4C9D4 (HdlspEnableTerminal.c)
+ *     HdlspEnableTerminal @ 0x140C529D4 (HdlspEnableTerminal.c)
  * Callees:
  *     <none>
  */
@@ -14,11 +14,11 @@ char __fastcall InbvPortTerminate(unsigned int a1)
   if ( a1 >= 4 )
     return 0;
   v1 = 5LL * a1;
-  if ( !*((_QWORD *)&WheapPfaLock.GlobalUpdateVpThreadPriorityListEntry.Flink + v1) )
+  if ( !WheapPfaLock.Spare35[v1 + 2] )
     return 0;
   result = 1;
-  *($7593FFE5FD7F8AD12EB10858261A32F1 *)((char *)&WheapPfaLock.1008 + 8 * v1) = 0LL;
-  *(_OWORD *)(&WheapPfaLock.SchedulerAssistPriorityFloor + 2 * v1) = 0LL;
-  *((_QWORD *)&WheapPfaLock.KernelShadowStackInitial + v1) = 0LL;
+  *(_OWORD *)&WheapPfaLock.Spare35[v1 + 2] = 0LL;
+  *(_OWORD *)(&WheapPfaLock.IptSaveArea + v1) = 0LL;
+  *((_QWORD *)&WheapPfaLock.SchedulerSharedSwappablePage + v1) = 0LL;
   return result;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCleanupRollbackPacket @ 0x14071C518
+ * XREFs of CmpCleanupRollbackPacket @ 0x1405E094C
  * Callers:
- *     CmpTryToRundownHive @ 0x140361574 (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
- *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpTryToRundownHive @ 0x140213B70 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x1405DFA8C (CmpPerformUnloadKey.c)
+ *     CmpSaveBootControlSet @ 0x140867BE0 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x14086DDD8 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E29C (CmSetLastWriteTimeKey.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F924 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     CmpTransDereferenceTransaction @ 0x1405DEFE0 (CmpTransDereferenceTransaction.c)
  */
 
 void __fastcall CmpCleanupRollbackPacket(__int64 a1)

@@ -30,21 +30,21 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, __int64 a2)
   NTSTATUS Acl; // edi
   ACL *v13; // rcx
   HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING String2; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp-78h] BYREF
   __int64 v18; // [rsp+A8h] [rbp-58h]
-  _OWORD Sid[3]; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v20[3]; // [rsp+E0h] [rbp-20h] BYREF
+  _BYTE CapabilitySid[48]; // [rsp+B0h] [rbp-50h] BYREF
+  char CapabilityGroupSid[48]; // [rsp+E0h] [rbp-20h] BYREF
 
-  *(_QWORD *)&String2.Length = 2621478LL;
+  *(_QWORD *)&UnicodeString.Length = 2621478LL;
   v18 = 0LL;
   EventHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  String2.Buffer = L"lpacInstrumentation";
+  UnicodeString.Buffer = L"lpacInstrumentation";
   *(&ObjectAttributes.Attributes + 1) = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  result = RtlDeriveCapabilitySidsFromName(&String2, v20, Sid);
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
     result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -54,7 +54,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, __int64 a2)
       v6 = RtlLengthSid(SeLocalSystemSid) + v5;
       v7 = RtlLengthSid(SeLocalSid) + v6;
       v8 = RtlLengthSid(SeAllAppPackagesSid) + v7;
-      v9 = v8 + RtlLengthSid(Sid) + 68;
+      v9 = v8 + RtlLengthSid(CapabilitySid) + 68;
       Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
       v11 = Pool2;
       if ( !Pool2 )
@@ -71,7 +71,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, __int64 a2)
           v13 = v11;
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((int)v11, 2, 0, 1179649, Sid, 0);
+            Acl = RtlpAddKnownAce((int)v11, 2, 0, 1179649, CapabilitySid, 0);
             v13 = v11;
             if ( Acl >= 0 )
             {

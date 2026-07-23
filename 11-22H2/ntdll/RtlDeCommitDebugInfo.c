@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlDeCommitDebugInfo(__int64 a1, __int64 a2, __int64 a3)
+void __cdecl RtlDeCommitDebugInfo(PRTL_DEBUG_INFORMATION Buffer, PVOID p, SIZE_T Size)
 {
-  return RtlpDeCommitQueryDebugInfo(a1, a2, a3);
+  RtlpDeCommitQueryDebugInfo(Buffer, p, Size);
 }

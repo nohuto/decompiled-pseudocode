@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066EE6C
+ * XREFs of AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066F3BC
  * Callers:
- *     AuthzBasepCommitSecurityAttributeChanges @ 0x140225730 (AuthzBasepCommitSecurityAttributeChanges.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x140225B10 (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14066EF70 (AuthzBasepRollbackSecurityAttributeChanges.c)
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x140225840 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140225C20 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14066F4C0 (AuthzBasepRollbackSecurityAttributeChanges.c)
  * Callees:
  *     <none>
  */

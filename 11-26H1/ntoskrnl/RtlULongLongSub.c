@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlULongLongSub @ 0x1404AF854
+ * XREFs of RtlULongLongSub @ 0x1404A8EE4
  * Callers:
- *     KiAdjustTimer2DueTimes @ 0x1403374E8 (KiAdjustTimer2DueTimes.c)
- *     IopAddCodeRegion @ 0x1404E71D0 (IopAddCodeRegion.c)
- *     IopFillTriageDumpDataBlocks @ 0x1405C9618 (IopFillTriageDumpDataBlocks.c)
- *     PspCriticalProcessDeathBugcheckCallback @ 0x140615F00 (PspCriticalProcessDeathBugcheckCallback.c)
- *     AslpFileGetCrcChecksum @ 0x14088CAA8 (AslpFileGetCrcChecksum.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x140A9352C (LdrpResSearchResourceInsideDirectory.c)
+ *     KiAdjustTimer2DueTimes @ 0x140339568 (KiAdjustTimer2DueTimes.c)
+ *     IopAddCodeRegion @ 0x1404E058C (IopAddCodeRegion.c)
+ *     IopFillTriageDumpDataBlocks @ 0x1405CBEE8 (IopFillTriageDumpDataBlocks.c)
+ *     PspCriticalProcessDeathBugcheckCallback @ 0x140618EF0 (PspCriticalProcessDeathBugcheckCallback.c)
+ *     AslpFileGetCrcChecksum @ 0x140892EA4 (AslpFileGetCrcChecksum.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x140A9807C (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
  *     <none>
  */

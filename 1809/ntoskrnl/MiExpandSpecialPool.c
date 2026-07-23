@@ -1,21 +1,21 @@
 /*
- * XREFs of MiExpandSpecialPool @ 0x1402AC45C
+ * XREFs of MiExpandSpecialPool @ 0x1402AC64C
  * Callers:
- *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
+ *     MmAllocateSpecialPool @ 0x1402ACD54 (MmAllocateSpecialPool.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     InsertTailListPte @ 0x140079D00 (InsertTailListPte.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
- *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     InsertTailListPte @ 0x140079CF0 (InsertTailListPte.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiObtainSystemVa @ 0x1400F69E4 (MiObtainSystemVa.c)
+ *     MiObtainSessionVa @ 0x1400F7324 (MiObtainSessionVa.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiExpandSpecialPool(char a1)
@@ -45,15 +45,15 @@ unsigned __int64 __fastcall MiExpandSpecialPool(char a1)
   if ( (a1 & 0x20) != 0 )
   {
     v4 = 1;
-    v3 = (KSPIN_LOCK *)qword_14043B8C8;
-    if ( *(_DWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 8128) >= (unsigned int)dword_140438B14 )
+    v3 = (KSPIN_LOCK *)qword_14043C988;
+    if ( *(_DWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 8128) >= (unsigned int)dword_140439BD4 )
       return 0LL;
     v1 = 0;
     v5 = MiObtainSessionVa(1u);
   }
   else
   {
-    v3 = &qword_14043AF00;
+    v3 = &qword_14043BFC0;
     v4 = v2 != 0 ? 7 : 13;
     v5 = MiObtainSystemVa(1LL, v4);
   }
@@ -67,7 +67,7 @@ unsigned __int64 __fastcall MiExpandSpecialPool(char a1)
     return 0LL;
   }
   if ( v1 )
-    _InterlockedAdd(&dword_140438B10, 1u);
+    _InterlockedAdd(&dword_140439BD0, 1u);
   v20 = MI_READ_PTE_LOCK_FREE(((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v9 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v20);
   MiUpdatePageFileHighInPte(*(_QWORD *)(48 * ((v9 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL + 16), 1LL);
@@ -76,7 +76,7 @@ unsigned __int64 __fastcall MiExpandSpecialPool(char a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v13 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_16:
         if ( (v11 & 1) != 0 )
@@ -100,7 +100,7 @@ LABEL_16:
     --v15;
   }
   while ( v15 );
-  if ( v3 != &qword_14043AF00 )
+  if ( v3 != &qword_14043BFC0 )
   {
     v16 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
     ++*(_DWORD *)(v16 + 8128);

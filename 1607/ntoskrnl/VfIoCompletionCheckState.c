@@ -1,9 +1,9 @@
 /*
- * XREFs of VfIoCompletionCheckState @ 0x1407059C4
+ * XREFs of VfIoCompletionCheckState @ 0x1407059F4
  * Callers:
  *     IovpLocalCompletionRoutine @ 0x140701424 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfIoCompletionCheckState(unsigned int *Entry, int a2)

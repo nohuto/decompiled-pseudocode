@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmRegisterPerfCap @ 0x1404249F0
+ * XREFs of PpmRegisterPerfCap @ 0x1404188A0
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140424BD0 (PopDiagTraceProcessorThrottlePerfTrack.c)
- *     PpmEventBiosCapChange @ 0x140424F0C (PpmEventBiosCapChange.c)
- *     PpmEventThermalCapChange @ 0x140425004 (PpmEventThermalCapChange.c)
- *     PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x1405D54B4 (PopDiagTraceProcessorThrottleDurationPerfTrack.c)
- *     PpmEventHiddenProcessorBiosCapChange @ 0x1405D9630 (PpmEventHiddenProcessorBiosCapChange.c)
- *     PpmEventHiddenProcessorThermalCapChange @ 0x1405D9730 (PpmEventHiddenProcessorThermalCapChange.c)
- *     PpmCheckApplyPerfConstraints @ 0x140A8E688 (PpmCheckApplyPerfConstraints.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140418A80 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     PpmEventBiosCapChange @ 0x140418DBC (PpmEventBiosCapChange.c)
+ *     PpmEventThermalCapChange @ 0x140418EB4 (PpmEventThermalCapChange.c)
+ *     PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x1405D2AC8 (PopDiagTraceProcessorThrottleDurationPerfTrack.c)
+ *     PpmEventHiddenProcessorBiosCapChange @ 0x1405D694C (PpmEventHiddenProcessorBiosCapChange.c)
+ *     PpmEventHiddenProcessorThermalCapChange @ 0x1405D6A4C (PpmEventHiddenProcessorThermalCapChange.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140A8ACF8 (PpmCheckApplyPerfConstraints.c)
  */
 
 __int64 __fastcall PpmRegisterPerfCap(_DWORD *a1, __int64 a2, unsigned int a3)

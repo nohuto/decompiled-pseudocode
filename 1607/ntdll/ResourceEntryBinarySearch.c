@@ -1,9 +1,9 @@
 /*
- * XREFs of ResourceEntryBinarySearch @ 0x180030F34
+ * XREFs of ResourceEntryBinarySearch @ 0x180030F24
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x1800303A8 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x180030398 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrpCompareResourceNamesWithValidation @ 0x1800DC250 (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1800DC310 (LdrpCompareResourceNamesWithValidation.c)
  */
 
 char __fastcall ResourceEntryBinarySearch(

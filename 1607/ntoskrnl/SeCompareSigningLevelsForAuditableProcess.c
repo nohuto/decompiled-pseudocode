@@ -1,10 +1,10 @@
 /*
- * XREFs of SeCompareSigningLevelsForAuditableProcess @ 0x1405218BC
+ * XREFs of SeCompareSigningLevelsForAuditableProcess @ 0x14050491C
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     SeCompareSigningLevels @ 0x14045D1E0 (SeCompareSigningLevels.c)
+ *     SeCompareSigningLevels @ 0x14045C0B0 (SeCompareSigningLevels.c)
  */
 
 __int64 __fastcall SeCompareSigningLevelsForAuditableProcess(__int64 a1, int a2)

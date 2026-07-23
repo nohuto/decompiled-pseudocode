@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepGetComponentVetoMasks @ 0x1404E8120
+ * XREFs of PopPepGetComponentVetoMasks @ 0x1404E14E0
  * Callers:
- *     PopFxTraceDeviceRegistration @ 0x140AEE2C4 (PopFxTraceDeviceRegistration.c)
+ *     PopFxTraceDeviceRegistration @ 0x140AF125C (PopFxTraceDeviceRegistration.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 char __fastcall PopPepGetComponentVetoMasks(__int64 a1, unsigned int a2, __int64 a3)

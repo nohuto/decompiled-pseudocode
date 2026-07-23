@@ -16,9 +16,9 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 a2,
         __int64 a3,
         __int64 (__fastcall *a4)(__int64, _QWORD *),
-        __int64 (__fastcall *a5)(__int64, __int64),
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v7; // r13
   __int64 v10; // rsi
@@ -74,7 +74,7 @@ LABEL_8:
   LODWORD(v17[0]) = 72;
   v17[3] = v7;
   v17[6] = v14;
-  LODWORD(v17[8]) = RtlNtStatusToDosErrorNoTeb(a7);
+  LODWORD(v17[8]) = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v13 )
   {
     LODWORD(v17[4]) = 1;
@@ -89,11 +89,11 @@ LABEL_8:
   if ( !v10 )
   {
 LABEL_9:
-    if ( a5 )
+    if ( HashTable )
     {
       if ( !v13 )
         v13 = v12;
-      return a5(v7, v13);
+      return ((__int64 (__fastcall *)(__int64, __int64))HashTable)(v7, v13);
     }
   }
   return v10;

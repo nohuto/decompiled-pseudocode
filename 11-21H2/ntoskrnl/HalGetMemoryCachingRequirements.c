@@ -1,8 +1,8 @@
 /*
  * XREFs of HalGetMemoryCachingRequirements @ 0x1403B4070
  * Callers:
- *     PopGetHwConfigurationSignature @ 0x140A52AD8 (PopGetHwConfigurationSignature.c)
- *     HalpPowerInitFwPerformanceTableMappings @ 0x140B2388C (HalpPowerInitFwPerformanceTableMappings.c)
+ *     sub_140A52AD8 @ 0x140A52AD8 (sub_140A52AD8.c)
+ *     sub_140B2388C @ 0x140B2388C (sub_140B2388C.c)
  * Callees:
  *     <none>
  */
@@ -18,11 +18,11 @@ __int64 __fastcall HalGetMemoryCachingRequirements(unsigned __int64 a1, __int64 
   v3 = 0;
   if ( a3 )
   {
-    v5 = HalpCachingRequirementsEntryCount;
+    v5 = dword_140C4D118;
     *a3 = 0;
     if ( !v5 )
       return 3221225473LL;
-    for ( i = HalpCachingRequirements; ; i += 24LL )
+    for ( i = qword_140C4D110; ; i += 24LL )
     {
       v7 = *(_QWORD *)i << 12;
       if ( a1 >= v7 )

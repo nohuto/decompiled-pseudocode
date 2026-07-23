@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetSectionStrongImageReference @ 0x1408D7F28
+ * XREFs of MmGetSectionStrongImageReference @ 0x1408D8088
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     PspGetSystemDllSecureHandle @ 0x140A93648 (PspGetSystemDllSecureHandle.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     PspGetSystemDllSecureHandle @ 0x140A94648 (PspGetSystemDllSecureHandle.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     MiGetSectionStrongImageReference @ 0x1408D7ED0 (MiGetSectionStrongImageReference.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     MiGetSectionStrongImageReference @ 0x1408D8030 (MiGetSectionStrongImageReference.c)
  */
 
 NTSTATUS __fastcall MmGetSectionStrongImageReference(void *a1, KPROCESSOR_MODE a2, struct _DMA_ADAPTER *a3, _QWORD *a4)

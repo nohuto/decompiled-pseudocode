@@ -1,9 +1,9 @@
 /*
- * XREFs of XmHltOp @ 0x1405AD8C0
+ * XREFs of XmHltOp @ 0x1405B00D0
  * Callers:
  *     <none>
  * Callees:
- *     longjmp @ 0x140533940 (longjmp.c)
+ *     longjmp @ 0x140535DC0 (longjmp.c)
  */
 
 void __fastcall __noreturn XmHltOp(_JBTYPE *a1)

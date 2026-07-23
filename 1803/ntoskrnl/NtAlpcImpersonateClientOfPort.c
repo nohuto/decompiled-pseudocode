@@ -13,12 +13,12 @@
  *     AlpcpEnterStateChangeEventMessageLog @ 0x140747B64 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r15
   unsigned int v7; // esi
-  int v8; // edi
+  NTSTATUS v8; // edi
   __int64 v9; // rdx
   PVOID v10; // rsi
   ULONG_PTR v11; // rbx
@@ -33,11 +33,11 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  AlpcpCaptureIdMessage(a2, &v19, &v16);
+  AlpcpCaptureIdMessage(Message, &v19, &v16);
   v7 = v19;
-  if ( v19 && (unsigned int)(a3 >> 2) <= 3 )
+  if ( v19 && (unsigned int)((unsigned __int64)Flags >> 2) <= 3 )
   {
-    v8 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v8 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( v8 >= 0 )
     {
       v9 = v7;
@@ -49,9 +49,9 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
         v8 = AlpcpImpersonateMessage(
                (_DWORD)v10,
                BugCheckParameter2[0],
-               a3 & 1,
-               (((4 * (unsigned int)(a3 >> 2)) | 2) & (unsigned int)a3) != 0LL,
-               a3 >> 2);
+               (unsigned __int8)Flags & 1,
+               (((4 * (unsigned int)((unsigned __int64)Flags >> 2)) | 2) & (unsigned int)Flags) != 0LL,
+               (unsigned __int64)Flags >> 2);
         if ( AlpcpMessageLogEnabled )
           AlpcpEnterStateChangeEventMessageLog(v11, v12, v13, v14);
         AlpcpUnlockBlob(v11, v12, v13, v14);
@@ -64,5 +64,5 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
     v8 = -1073741811;
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v8;
+  return v8;
 }

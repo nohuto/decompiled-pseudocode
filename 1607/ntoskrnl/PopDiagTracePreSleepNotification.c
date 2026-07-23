@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTracePreSleepNotification @ 0x140534520
+ * XREFs of PopDiagTracePreSleepNotification @ 0x140534A60
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTracePreSleepNotification(int a1, int a2, int a3, int a4, char a5)

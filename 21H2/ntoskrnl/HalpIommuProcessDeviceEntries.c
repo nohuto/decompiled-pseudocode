@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuProcessDeviceEntries @ 0x1404E17D4
+ * XREFs of HalpIommuProcessDeviceEntries @ 0x1404E1A14
  * Callers:
- *     HalpIommuProcessIvhdEntry @ 0x1404E1AE0 (HalpIommuProcessIvhdEntry.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1D20 (HalpIommuProcessIvhdEntry.c)
  * Callees:
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall HalpIommuProcessDeviceEntries(__int64 a1, __int64 a2, _BYTE *a3)

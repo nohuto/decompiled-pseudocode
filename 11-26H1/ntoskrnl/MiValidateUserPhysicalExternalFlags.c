@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateUserPhysicalExternalFlags @ 0x14077CAB4
+ * XREFs of MiValidateUserPhysicalExternalFlags @ 0x14077F5A8
  * Callers:
- *     MiCreatePagingFileMapPrepare @ 0x1409B85F4 (MiCreatePagingFileMapPrepare.c)
+ *     MiCreatePagingFileMapPrepare @ 0x1409895D4 (MiCreatePagingFileMapPrepare.c)
  * Callees:
  *     <none>
  */

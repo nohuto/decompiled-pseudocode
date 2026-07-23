@@ -1,10 +1,10 @@
 /*
- * XREFs of _SafeReallocBlob @ 0x14067A354
+ * XREFs of _SafeReallocBlob @ 0x14067A8A4
  * Callers:
- *     RtlpMuiRegResizeLanguageConfigList @ 0x140A74FCC (RtlpMuiRegResizeLanguageConfigList.c)
- *     RtlpMuiRegResizeLanguages @ 0x140A75038 (RtlpMuiRegResizeLanguages.c)
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x140A7527C (RtlpMuiRegResizeLanguageConfigList.c)
+ *     RtlpMuiRegResizeLanguages @ 0x140A752E8 (RtlpMuiRegResizeLanguages.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

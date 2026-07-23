@@ -1,11 +1,11 @@
 /*
- * XREFs of NtSuspendProcess @ 0x140681FC4
+ * XREFs of NtSuspendProcess @ 0x1406820A8
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     PsSuspendProcess @ 0x14068202C (PsSuspendProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsSuspendProcess @ 0x140682110 (PsSuspendProcess.c)
  */
 
 NTSTATUS __stdcall NtSuspendProcess(HANDLE ProcessHandle)

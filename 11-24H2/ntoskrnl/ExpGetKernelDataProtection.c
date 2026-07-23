@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpGetKernelDataProtection @ 0x140973020
+ * XREFs of ExpGetKernelDataProtection @ 0x14095B830
  * Callers:
- *     ExpGetLicenseTamperState @ 0x1406557A0 (ExpGetLicenseTamperState.c)
- *     sub_1407B85B0 @ 0x1407B85B0 (sub_1407B85B0.c)
+ *     ExpGetLicenseTamperState @ 0x140653EA0 (ExpGetLicenseTamperState.c)
+ *     sub_1407B8A00 @ 0x1407B8A00 (sub_1407B8A00.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     sub_1409735B8 @ 0x1409735B8 (sub_1409735B8.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     sub_14095BDC8 @ 0x14095BDC8 (sub_14095BDC8.c)
  */
 
 __int64 __fastcall ExpGetKernelDataProtection(__int64 a1, _OWORD *a2)
 {
   signed __int64 *v4; // rbx
-  _QWORD *v5; // r14
+  char *v5; // r14
   _QWORD *v6; // rax
   _OWORD *v7; // rax
   unsigned int v9; // [rsp+20h] [rbp-48h]
@@ -24,17 +24,17 @@ __int64 __fastcall ExpGetKernelDataProtection(__int64 a1, _OWORD *a2)
   if ( !a2 )
     return 3221225485LL;
   v4 = (signed __int64 *)(a1 + 47024);
-  v5 = KeAbPreAcquire(a1 + 47024, 0LL);
+  v5 = (char *)KeAbPreAcquire(a1 + 47024, 0LL);
   if ( _InterlockedCompareExchange64(v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, 0, v5, (__int64)v4);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   v6 = *(_QWORD **)(a1 + 47016);
   if ( v6 )
   {
     v11 = (_OWORD *)*v6;
     v10 = v11;
-    sub_1409735B8(&v10);
+    sub_14095BDC8(&v10);
     v7 = v10;
     v11 = v10;
     v9 = 0;

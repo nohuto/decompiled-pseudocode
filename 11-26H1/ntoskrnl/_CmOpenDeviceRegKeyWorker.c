@@ -1,24 +1,24 @@
 /*
- * XREFs of _CmOpenDeviceRegKeyWorker @ 0x140996CF0
+ * XREFs of _CmOpenDeviceRegKeyWorker @ 0x140957750
  * Callers:
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegCreateTree @ 0x14091E1FC (_PnpCtxRegCreateTree.c)
- *     _CmGetDeviceHardwareKeyPath @ 0x1409928FC (_CmGetDeviceHardwareKeyPath.c)
- *     _CmGetDeviceSoftwareKeyPath @ 0x140995E20 (_CmGetDeviceSoftwareKeyPath.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2AEE0 (_SysCtxRegOpenCurrentUserKey.c)
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140B097C0 (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmGetDeviceHardwareKeyPath @ 0x14095335C (_CmGetDeviceHardwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x140956880 (_CmGetDeviceSoftwareKeyPath.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegCreateTree @ 0x140978C5C (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A3DF70 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140B0B580 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceRegKeyWorker(
@@ -26,10 +26,10 @@ __int64 __fastcall CmOpenDeviceRegKeyWorker(
         __int64 a2,
         unsigned int a3,
         int a4,
-        ACCESS_MASK a5,
+        unsigned int a5,
         char a6,
         HANDLE *a7,
-        ULONG *a8)
+        _DWORD *a8)
 {
   __int64 v10; // r14
   int v11; // ebx
@@ -52,7 +52,7 @@ __int64 __fastcall CmOpenDeviceRegKeyWorker(
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   const wchar_t *v30; // r8
   struct _LIST_ENTRY *Flink; // rsi
-  const wchar_t *v32; // rsi
+  wchar_t *v32; // rsi
   unsigned __int16 v33; // bx
   struct _LIST_ENTRY *v34; // rax
   const wchar_t *v35; // r8
@@ -76,7 +76,7 @@ __int64 __fastcall CmOpenDeviceRegKeyWorker(
   int v53; // edi
   __int64 v54; // rcx
   int DeviceRegKeySecurityDescriptor; // eax
-  ACCESS_MASK v56; // r14d
+  int v56; // r14d
   int v57; // eax
   int v58; // eax
   __int64 v59; // rax
@@ -556,7 +556,7 @@ LABEL_89:
     v56 = a5;
     if ( P )
       v56 = 917510;
-    v57 = PnpCtxRegCreateTree((__int64)a1, v47, v32, v53 == 19, v56, (__int64)P, &v73, a8);
+    v57 = PnpCtxRegCreateTree(a1, v47, v32, v53 == 19, v56, P, &v73, a8);
     if ( v57 == -1073741444 )
     {
       inited = -1073741595;

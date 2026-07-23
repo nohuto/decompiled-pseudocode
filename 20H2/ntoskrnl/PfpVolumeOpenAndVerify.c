@@ -28,7 +28,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
   __int128 v12; // xmm0
   __int128 v13; // xmm1
   HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v16; // [rsp+68h] [rbp-98h] BYREF
+  _DEVICE_POWER_STATE State; // [rsp+68h] [rbp-98h] BYREF
   __int64 v17; // [rsp+70h] [rbp-90h] BYREF
   PVOID P; // [rsp+78h] [rbp-88h]
   _WORD v19[2]; // [rsp+80h] [rbp-80h] BYREF
@@ -55,7 +55,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   IoStatusBlock = 0LL;
   v17 = 0LL;
-  v16 = 0;
+  State = PowerDeviceUnspecified;
   memset(&v22, 0, 24);
   v22.m256i_i64[3] = 0x200000000LL;
   memset(&v24, 0, 24);
@@ -87,10 +87,10 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
       }
       if ( (*(_DWORD *)(a3 + 12) & 1) == 0 )
         goto LABEL_7;
-      DevicePowerState = NtGetDevicePowerState(FileHandle, &v16);
+      DevicePowerState = NtGetDevicePowerState(FileHandle, &State);
       if ( DevicePowerState < 0 )
         goto LABEL_16;
-      if ( v16 > 1 )
+      if ( (unsigned int)State > PowerDeviceD0 )
       {
         DevicePowerState = -2147483633;
       }

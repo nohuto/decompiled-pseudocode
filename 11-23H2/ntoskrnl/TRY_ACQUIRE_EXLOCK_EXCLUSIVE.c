@@ -1,8 +1,8 @@
 /*
- * XREFs of TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140312218
+ * XREFs of TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x1403124A8
  * Callers:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B5B6 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B9B6 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  * Callees:
  *     <none>
  */

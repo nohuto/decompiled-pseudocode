@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpIncrPointerCount @ 0x14043BE10
+ * XREFs of ObpIncrPointerCount @ 0x14042E6C0
  * Callers:
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     ObCaptureObjectStateForDuplication @ 0x140971174 (ObCaptureObjectStateForDuplication.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1409BB2E4 (ObCaptureObjectStateForDuplication.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall ObpIncrPointerCount(volatile signed __int64 *a1)

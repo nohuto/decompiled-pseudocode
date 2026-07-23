@@ -1,9 +1,9 @@
 /*
- * XREFs of _raise_exc @ 0x140199F14
+ * XREFs of _raise_exc @ 0x14019A054
  * Callers:
- *     _handle_error @ 0x1401999F8 (_handle_error.c)
+ *     _handle_error @ 0x140199B38 (_handle_error.c)
  * Callees:
- *     _raise_exc_ex @ 0x140199F44 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x14019A084 (_raise_exc_ex.c)
  */
 
 __int64 __fastcall raise_exc(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

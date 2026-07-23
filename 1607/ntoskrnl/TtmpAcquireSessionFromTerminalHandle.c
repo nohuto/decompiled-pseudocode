@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x1406795CC
+ * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x1406796B0
  * Callers:
- *     TtmpDispatchAssignDevice @ 0x140679700 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x1406797AC (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x140679910 (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x1406799F8 (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140679C00 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayState @ 0x140679CB0 (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x140679D68 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpDispatchAssignDevice @ 0x1406797E4 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140679890 (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x1406799F4 (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x140679ADC (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140679CE4 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayState @ 0x140679D94 (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x140679E4C (TtmpDispatchSetDisplayTimeouts.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
  */
 
 __int64 __fastcall TtmpAcquireSessionFromTerminalHandle(void *a1, char a2, char a3, _QWORD *a4, __int64 a5)

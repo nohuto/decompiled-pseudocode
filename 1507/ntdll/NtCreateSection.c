@@ -27,11 +27,18 @@
  *     <none>
  */
 
-__int64 NtCreateSection()
+NTSTATUS __cdecl NtCreateSection(
+        PHANDLE SectionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PLARGE_INTEGER MaximumSize,
+        ULONG SectionPageProtection,
+        ULONG AllocationAttributes,
+        HANDLE FileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 74LL;
+  result = 74;
   __asm { syscall; Low latency system call }
   return result;
 }

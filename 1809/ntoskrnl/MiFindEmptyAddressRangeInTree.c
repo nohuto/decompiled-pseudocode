@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindEmptyAddressRangeInTree @ 0x14069B37C
+ * XREFs of MiFindEmptyAddressRangeInTree @ 0x14069C53C
  * Callers:
- *     MiFindEmptyAddressRange @ 0x1405F2500 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRange @ 0x1405F3500 (MiFindEmptyAddressRange.c)
  * Callees:
- *     MiHonorRangeStraddleRequirement @ 0x140118C6C (MiHonorRangeStraddleRequirement.c)
+ *     MiHonorRangeStraddleRequirement @ 0x140118CDC (MiHonorRangeStraddleRequirement.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeInTree(

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpHpSegLfhVsFree(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall RtlpHpSegLfhVsFree(int a1)
 {
-  return RtlpHpSegFree(a1, a2, a4 & 1);
+  return RtlpHpSegFree(a1);
 }

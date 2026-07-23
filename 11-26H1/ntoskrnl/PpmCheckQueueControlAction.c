@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmCheckQueueControlAction @ 0x1402577FC
+ * XREFs of PpmCheckQueueControlAction @ 0x140258FDC
  * Callers:
- *     PpmCheckAcquireProcessorPerformance @ 0x140257780 (PpmCheckAcquireProcessorPerformance.c)
- *     PpmPerfReadFeedback @ 0x1402577E0 (PpmPerfReadFeedback.c)
- *     PpmPerfCommitPerformance @ 0x140257CD0 (PpmPerfCommitPerformance.c)
+ *     PpmCheckAcquireProcessorPerformance @ 0x140258F60 (PpmCheckAcquireProcessorPerformance.c)
+ *     PpmPerfReadFeedback @ 0x140258FC0 (PpmPerfReadFeedback.c)
+ *     PpmPerfCommitPerformance @ 0x1402594B0 (PpmPerfCommitPerformance.c)
  * Callees:
- *     PpmCheckBeginNewAccountingPeriod @ 0x140256C34 (PpmCheckBeginNewAccountingPeriod.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmCheckBeginNewAccountingPeriod @ 0x1402585C4 (PpmCheckBeginNewAccountingPeriod.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmCheckQueueControlAction(__int64 a1)
@@ -17,8 +17,8 @@ __int64 __fastcall PpmCheckQueueControlAction(__int64 a1)
 
   if ( a1 )
   {
-    PpmCheckBeginNewAccountingPeriod(PopSleepstudySessionLock.SavedApcState.ApcListHead[0].Flink);
-    _InterlockedIncrement((volatile signed __int32 *)&PopSleepstudySessionLock.ApcStateFill[8]);
+    PpmCheckBeginNewAccountingPeriod(PpmCheckCurrentActionAccountingBucket);
+    _InterlockedIncrement(&PpmCheckActionCount);
     return guard_dispatch_icall_no_overrides(PpmCheckControlActionCallback, v1, v2);
   }
   return result;

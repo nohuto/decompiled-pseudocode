@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcpSendLegacySynchronousRequest @ 0x140A4992C
+ * XREFs of AlpcpSendLegacySynchronousRequest @ 0x140A52C1C
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x1408F7730 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1409276C0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpLogWaitForReply @ 0x14077A1B0 (AlpcpLogWaitForReply.c)
- *     AlpcpSetMessageCommunicationInfo @ 0x1408E831C (AlpcpSetMessageCommunicationInfo.c)
- *     AlpcpSetOwnerPortMessage @ 0x1408E84A0 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCaptureMessageData @ 0x1409BBCD0 (AlpcpCaptureMessageData.c)
- *     AlpcpAllocateMessage @ 0x1409BCB60 (AlpcpAllocateMessage.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1409BEF10 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     AlpcpAvailableBufferSize @ 0x140A4A020 (AlpcpAvailableBufferSize.c)
- *     AlpcpInsertMessagePendingQueue @ 0x140A4A040 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpInsertMessageMainQueue @ 0x140A7D4C0 (AlpcpInsertMessageMainQueue.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x140B13B20 (AlpcpEnterAllocationEventMessageLog.c)
- *     AlpcpLogSendMessage @ 0x140B484DC (AlpcpLogSendMessage.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpLogWaitForReply @ 0x14077D0E0 (AlpcpLogWaitForReply.c)
+ *     AlpcpSetMessageCommunicationInfo @ 0x1408EE8DC (AlpcpSetMessageCommunicationInfo.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1408EEA60 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCaptureMessageData @ 0x14098CCB0 (AlpcpCaptureMessageData.c)
+ *     AlpcpAllocateMessage @ 0x14098DB40 (AlpcpAllocateMessage.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14098FEF0 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpAvailableBufferSize @ 0x140A53310 (AlpcpAvailableBufferSize.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x140A53330 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpInsertMessageMainQueue @ 0x140A83330 (AlpcpInsertMessageMainQueue.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x140B155E0 (AlpcpEnterAllocationEventMessageLog.c)
+ *     AlpcpLogSendMessage @ 0x140B4A26C (AlpcpLogSendMessage.c)
  */
 
 __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, AutoBoost *a2, __m256i *a3, struct _KLOCK_ENTRIES *a4)
@@ -148,7 +148,7 @@ __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, AutoBoost *a2, 
       v47 = _InterlockedIncrement(&AlpcpNextCallbackId);
     while ( !v47 );
     *(_DWORD *)(v12 + 272) = v47;
-    if ( LODWORD(AlpcpMessageLogLock.CycleTime) )
+    if ( AlpcpMessageLogEnabled )
       AlpcpEnterAllocationEventMessageLog(v12);
     v4 = v62;
   }
@@ -257,10 +257,10 @@ __int64 __fastcall AlpcpSendLegacySynchronousRequest(__int64 a1, AutoBoost *a2, 
         v36 = BugCheckParameter2;
         *(_QWORD *)(v12 + 192) = *(_QWORD *)BugCheckParameter2;
         v54[1] = v12;
-        if ( BYTE4(stru_140E66B30.StackBase) )
+        if ( LOBYTE(stru_140E66D40.CycleTime) )
         {
           AlpcpLogSendMessage(v12);
-          if ( BYTE4(stru_140E66B30.StackBase) )
+          if ( LOBYTE(stru_140E66D40.CycleTime) )
             AlpcpLogWaitForReply(v12);
         }
         v37 = 0LL;

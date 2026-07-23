@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAllocateXStateContext @ 0x14046EFE0
+ * XREFs of KeAllocateXStateContext @ 0x140468760
  * Callers:
- *     VfCtxInit @ 0x140C40BB4 (VfCtxInit.c)
+ *     VfCtxInit @ 0x140C46BC4 (VfCtxInit.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeAllocateXStateContext(__int64 a1, __int64 a2, unsigned int a3)

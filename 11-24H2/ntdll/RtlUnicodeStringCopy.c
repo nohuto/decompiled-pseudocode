@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringCopy @ 0x1800DC370
+ * XREFs of RtlUnicodeStringCopy @ 0x1800D7530
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x18005BA20 (RtlGetFullPathName_Ustr.c)
- *     RtlpEnsureTailingSlashAndAddToList @ 0x18015E4D4 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     RtlGetFullPathName_Ustr @ 0x180071600 (RtlGetFullPathName_Ustr.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x18015C894 (RtlpEnsureTailingSlashAndAddToList.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x1800DC430 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1800D75F0 (RtlUnicodeStringValidateWorker_0.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCopy(__int64 a1, unsigned __int16 *a2)

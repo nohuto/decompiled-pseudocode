@@ -13,7 +13,7 @@
  *     RtlReportException @ 0x1800DD400 (RtlReportException.c)
  */
 
-__int64 __fastcall sub_1800D65C8(__int64 a1, int a2, int a3)
+NTSTATUS __fastcall sub_1800D65C8(__int64 a1, int a2, int a3)
 {
   __int64 v6; // rax
   unsigned __int16 *v7; // rbx
@@ -29,8 +29,8 @@ __int64 __fastcall sub_1800D65C8(__int64 a1, int a2, int a3)
   int v18; // [rsp+48h] [rbp-C0h] BYREF
   int v19; // [rsp+4Ch] [rbp-BCh] BYREF
   __int64 v20; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-B0h]
-  _QWORD v22[20]; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 SystemInformation; // [rsp+58h] [rbp-B0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+68h] [rbp-A0h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+108h] [rbp+0h] BYREF
   char v24[32]; // [rsp+5D8h] [rbp+4D0h] BYREF
   _DWORD *v25; // [rsp+5F8h] [rbp+4F0h]
@@ -56,12 +56,8 @@ __int64 __fastcall sub_1800D65C8(__int64 a1, int a2, int a3)
   __int64 *v45; // [rsp+698h] [rbp+590h]
   __int64 v46; // [rsp+6A0h] [rbp+598h]
 
-  v21 = 0LL;
-  if ( (int)RtlRunOnceExecuteOnce(
-              &qword_18015C048,
-              (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))sub_18008AB00,
-              0LL,
-              0LL) >= 0 )
+  SystemInformation = 0LL;
+  if ( RtlRunOnceExecuteOnce(&stru_18015C048, (PRTL_RUN_ONCE_INIT_FN)sub_18008AB00, 0LL, 0LL) >= 0 )
   {
     v6 = *(_QWORD *)(a1 + 40);
     v7 = (unsigned __int16 *)(v6 + 72);
@@ -74,15 +70,15 @@ __int64 __fastcall sub_1800D65C8(__int64 a1, int a2, int a3)
       v7 = 0LL;
       v8 = -1;
     }
-    LODWORD(v21) = 8;
-    ZwQuerySystemInformation();
+    LODWORD(SystemInformation) = 8;
+    ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, 0LL);
     if ( (unsigned int)dword_1801554C0 > 5 && sub_1800898DC((__int64)&dword_1801554C0, 0x800000000000LL) )
     {
       v11 = *(_QWORD *)(a1 + 48);
       v14 = *(unsigned __int8 *)(v11 + 284);
       v15 = *(_DWORD *)(a1 + 24);
       v16 = *(_DWORD *)(a1 + 28);
-      LODWORD(v20) = HIDWORD(v21);
+      LODWORD(v20) = HIDWORD(SystemInformation);
       v17 = a3;
       v18 = v8;
       v19 = a2;
@@ -111,14 +107,21 @@ __int64 __fastcall sub_1800D65C8(__int64 a1, int a2, int a3)
       v42 = 4LL;
       v44 = 4LL;
       v46 = 4LL;
-      sub_1800905E4((__int64)&dword_1801554C0, byte_180124231, v9, v10, 0xDu, (__int64)v24);
+      sub_1800905E4(
+        (__int64)&dword_1801554C0,
+        (unsigned __int8 *)dword_180124231,
+        v9,
+        v10,
+        0xDu,
+        (PEVENT_DATA_DESCRIPTOR)v24);
     }
   }
   RtlCaptureContext(&ContextRecord);
-  memset(v22, 0, 0x98uLL);
-  v22[0] = 3221226505LL;
-  v22[2] = 0LL;
-  LODWORD(v22[3]) = 1;
-  v22[4] = 45LL;
-  return RtlReportException(v22, &ContextRecord, 30LL);
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+  ExceptionRecord.ExceptionCode = -1073740791;
+  ExceptionRecord.ExceptionFlags = 0;
+  ExceptionRecord.ExceptionAddress = 0LL;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionInformation[0] = 45LL;
+  return RtlReportException(&ExceptionRecord, &ContextRecord, 0x1Eu);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotification @ 0x140793270
+ * XREFs of SeMarkLogonSessionForTerminationNotification @ 0x140793310
  * Callers:
  *     <none>
  * Callees:
- *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140AA7260 (SeMarkLogonSessionForTerminationNotificationEx.c)
+ *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140AA2360 (SeMarkLogonSessionForTerminationNotificationEx.c)
  */
 
 NTSTATUS __stdcall SeMarkLogonSessionForTerminationNotification(PLUID LogonId)

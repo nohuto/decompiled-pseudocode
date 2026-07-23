@@ -1,13 +1,13 @@
 /*
  * XREFs of RtlInsertEntryHashTable @ 0x140205950
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x140672348 (SepAddLuidToIndexEntry.c)
- *     SepGetCachedHandlesEntry @ 0x140696468 (SepGetCachedHandlesEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x140696750 (SepGetLowBoxNumberEntry.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1409CED4C (SepInsertOrReferenceSharedSidEntries.c)
- *     SepReadAndInsertCaps @ 0x1409CF26C (SepReadAndInsertCaps.c)
+ *     sub_140672348 @ 0x140672348 (sub_140672348.c)
+ *     sub_140696468 @ 0x140696468 (sub_140696468.c)
+ *     sub_140696750 @ 0x140696750 (sub_140696750.c)
+ *     sub_1409CED4C @ 0x1409CED4C (sub_1409CED4C.c)
+ *     sub_1409CF26C @ 0x1409CF26C (sub_1409CF26C.c)
  * Callees:
- *     RtlpPopulateContext @ 0x140206BC4 (RtlpPopulateContext.c)
+ *     sub_140206BC4 @ 0x140206BC4 (sub_140206BC4.c)
  */
 
 BOOLEAN __stdcall RtlInsertEntryHashTable(
@@ -18,7 +18,7 @@ BOOLEAN __stdcall RtlInsertEntryHashTable(
 {
   PRTL_DYNAMIC_HASH_TABLE_CONTEXT v4; // rsi
   unsigned int v7; // ecx
-  unsigned int v8; // edx
+  ULONG v8; // edx
   _QWORD *Directory; // r9
   __int128 v10; // rax
   _QWORD *i; // r9
@@ -39,7 +39,7 @@ BOOLEAN __stdcall RtlInsertEntryHashTable(
     *(_QWORD *)&v10 = Context->ChainHead;
     if ( !Context->ChainHead )
     {
-      RtlpPopulateContext(HashTable, Context);
+      sub_140206BC4(HashTable, Context);
       *(_QWORD *)&v10 = v4->ChainHead;
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockDriverCode @ 0x140A8823C
+ * XREFs of MiUnlockDriverCode @ 0x140A8472C
  * Callers:
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnlockCodePage @ 0x1402C7618 (MiUnlockCodePage.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
+ *     MiUnlockCodePage @ 0x140203B44 (MiUnlockCodePage.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
  */
 
 __int64 __fastcall MiUnlockDriverCode(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall MiUnlockDriverCode(__int64 a1)
         result = *(unsigned int *)(v7 + 12 * v5 + 8);
         if ( (_DWORD)result )
           result = MiUnlockCodePage(
-                     (_QWORD *)(i + 8LL * *(unsigned int *)(v7 + 12 * v5)),
+                     i + 8LL * *(unsigned int *)(v7 + 12 * v5),
                      i + 8LL * *(unsigned int *)(v7 + 12 * v5 + 4),
                      0);
       }

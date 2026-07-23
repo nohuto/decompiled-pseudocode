@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCaptureTokenSecurityOperations @ 0x14008064C
+ * XREFs of SepCaptureTokenSecurityOperations @ 0x1400806CC
  * Callers:
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047C310 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047B1E0 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     RtlULongLongMult @ 0x14000E098 (RtlULongLongMult.c)
+ *     RtlULongLongMult @ 0x14000DC18 (RtlULongLongMult.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall SepCaptureTokenSecurityOperations(_DWORD *a1, unsigned int a2, char a3, _QWORD *a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x14055D71C
+ * XREFs of MiValidatePagefilePageHash @ 0x14055D95C
  * Callers:
- *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiWaitForInPageComplete @ 0x140325F40 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiComputePageHash @ 0x14038A190 (MiComputePageHash.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiGetPagingFileOffset @ 0x14025F240 (MiGetPagingFileOffset.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiComputePageHash @ 0x14038A2E0 (MiComputePageHash.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiComparePageHash @ 0x14055D340 (MiComparePageHash.c)
- *     MiObtainPagefileHashes @ 0x14055D5C0 (MiObtainPagefileHashes.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiComparePageHash @ 0x14055D580 (MiComparePageHash.c)
+ *     MiObtainPagefileHashes @ 0x14055D800 (MiObtainPagefileHashes.c)
  */
 
 __int64 __fastcall MiValidatePagefilePageHash(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -73,7 +73,7 @@ __int64 __fastcall MiValidatePagefilePageHash(__int64 a1, __int64 a2, __int64 a3
       v13 = v10;
       v29 = v10;
       v14 = 48 * *v6 - 0x58000000000LL;
-      if ( v14 != qword_140C4ED70 )
+      if ( v14 != qword_140C4EDB0 )
         break;
 LABEL_30:
       v8 -= 8LL;
@@ -130,7 +130,7 @@ LABEL_20:
     v18 = v16;
     if ( !v31 )
     {
-      v17 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v14 + 40) >> 39) & 0x3FFLL))
+      v17 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v14 + 40) >> 39) & 0x3FFLL))
                       + 8LL * ((unsigned __int8)HIBYTE(*(_WORD *)(v14 + 16)) >> 4)
                       + 6944);
       v31 = v17;
@@ -163,7 +163,7 @@ LABEL_19:
     }
     if ( (_DWORD)BugCheckParameter4 )
     {
-      if ( byte_140C4E880 == 1 )
+      if ( byte_140C4E8C0 == 1 )
         goto LABEL_19;
       v28 = -1073741761;
     }
@@ -173,8 +173,8 @@ LABEL_19:
     }
     if ( v28 < 0 )
     {
-      ++dword_140C4E7C8;
-      qword_140C4E770 = v12;
+      ++dword_140C4E808;
+      qword_140C4E7B0 = v12;
       KeBugCheckEx(0x1Au, 0x3FuLL, v20, v18, BugCheckParameter4);
     }
     goto LABEL_19;

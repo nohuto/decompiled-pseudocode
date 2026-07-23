@@ -1,11 +1,11 @@
 /*
  * XREFs of NtQuerySecurityObject @ 0x1406A5FA0
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     sub_1407F8298 @ 0x1407F8298 (sub_1407F8298.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     SeQuerySecurityAccessMask @ 0x1406A6138 (SeQuerySecurityAccessMask.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_1406A6138 @ 0x1406A6138 (sub_1406A6138.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
  */
@@ -17,57 +17,42 @@ NTSTATUS __stdcall NtQuerySecurityObject(
         ULONG Length,
         PULONG LengthNeeded)
 {
-  KPROCESSOR_MODE PreviousMode; // di
-  PULONG v8; // rbx
-  __int64 v9; // rcx
+  KPROCESSOR_MODE v6; // di
+  PULONG v7; // rbx
+  __int64 v8; // rcx
   NTSTATUS result; // eax
-  PVOID v11; // r14
-  __int64 v12; // r8
-  NTSTATUS v13; // edi
+  PVOID v10; // r14
+  NTSTATUS v11; // edi
   ACCESS_MASK DesiredAccess; // [rsp+50h] [rbp-38h] BYREF
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+60h] [rbp-28h] BYREF
-  SECURITY_INFORMATION v17; // [rsp+98h] [rbp+10h] BYREF
-  SIZE_T Lengtha; // [rsp+A8h] [rbp+20h] BYREF
 
-  LODWORD(Lengtha) = Length;
-  v17 = SecurityInformation;
   DesiredAccess = 0;
   HandleInformation = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  v6 = *((_BYTE *)KeGetCurrentThread() + 562);
+  if ( v6 )
   {
-    v8 = LengthNeeded;
-    v9 = (__int64)LengthNeeded;
+    v7 = LengthNeeded;
+    v8 = (__int64)LengthNeeded;
     if ( (unsigned __int64)LengthNeeded >= 0x7FFFFFFF0000LL )
-      v9 = 0x7FFFFFFF0000LL;
-    *(_DWORD *)v9 = *(_DWORD *)v9;
-    ProbeForWrite(SecurityDescriptor, (unsigned int)Lengtha, 4u);
+      v8 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v8 = *(_DWORD *)v8;
+    ProbeForWrite(SecurityDescriptor, Length, 4u);
   }
   else
   {
-    v8 = LengthNeeded;
+    v7 = LengthNeeded;
   }
-  SeQuerySecurityAccessMask(v17, &DesiredAccess);
+  sub_1406A6138(SecurityInformation, &DesiredAccess);
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, DesiredAccess, 0LL, PreviousMode, &Object, &HandleInformation);
+  result = ObReferenceObjectByHandle(Handle, DesiredAccess, 0LL, v6, &Object, &HandleInformation);
   if ( result >= 0 )
   {
-    v11 = Object;
-    v12 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-    v13 = (*(__int64 (__fastcall **)(PVOID, __int64, SECURITY_INFORMATION *, PSECURITY_DESCRIPTOR, SIZE_T *, char *, _DWORD, __int64, KPROCESSOR_MODE))(v12 + 152))(
-            Object,
-            1LL,
-            &v17,
-            SecurityDescriptor,
-            &Lengtha,
-            (char *)Object - 8,
-            *(_DWORD *)(v12 + 100),
-            v12 + 76,
-            PreviousMode);
-    *v8 = Lengtha;
-    ObfDereferenceObject(v11);
-    return v13;
+    v10 = Object;
+    v11 = sub_14042A5E0(Object, 1LL);
+    *v7 = Length;
+    ObfDereferenceObject(v10);
+    return v11;
   }
   return result;
 }

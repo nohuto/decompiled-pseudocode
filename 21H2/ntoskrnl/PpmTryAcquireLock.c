@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmTryAcquireLock @ 0x14037DDF8
+ * XREFs of PpmTryAcquireLock @ 0x14037D948
  * Callers:
- *     PoLatencySensitivityHint @ 0x14037DC60 (PoLatencySensitivityHint.c)
+ *     PoLatencySensitivityHint @ 0x14037D7B0 (PoLatencySensitivityHint.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 char __fastcall PpmTryAcquireLock(LARGE_INTEGER a1)
@@ -20,7 +20,7 @@ char __fastcall PpmTryAcquireLock(LARGE_INTEGER a1)
   --CurrentThread->SpecialApcDisable;
   v2 = 0;
   v6.QuadPart = 0LL;
-  v3 = KeWaitForSingleObject(&word_140C23C68, Executive, 0, 0, &v6);
+  v3 = KeWaitForSingleObject(&word_140C23128, Executive, 0, 0, &v6);
   v4 = KeGetCurrentThread();
   if ( v3 )
   {

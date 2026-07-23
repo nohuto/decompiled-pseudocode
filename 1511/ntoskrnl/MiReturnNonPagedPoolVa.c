@@ -29,7 +29,7 @@ __int64 __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
 {
   _QWORD *v4; // r13
   __int64 v5; // r8
-  union _SLIST_HEADER *v6; // r12
+  _SLIST_HEADER *v6; // r12
   unsigned __int64 Alignment; // rax
   __int64 v8; // r15
   __int64 v9; // rsi
@@ -81,7 +81,7 @@ __int64 __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   unsigned __int64 v55; // [rsp+70h] [rbp-90h]
   __int64 v56; // [rsp+78h] [rbp-88h] BYREF
   unsigned __int64 *v57; // [rsp+80h] [rbp-80h]
-  union _SLIST_HEADER *v58; // [rsp+88h] [rbp-78h]
+  _SLIST_HEADER *v58; // [rsp+88h] [rbp-78h]
   volatile signed __int64 *v59[2]; // [rsp+90h] [rbp-70h] BYREF
   unsigned __int8 v60; // [rsp+A0h] [rbp-60h]
   _QWORD v61[3]; // [rsp+A8h] [rbp-58h] BYREF

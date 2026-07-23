@@ -115,14 +115,14 @@ __int64 __fastcall PspBuildCreateProcessContext(unsigned __int64 *a1, char a2, i
   unsigned __int64 v95; // rbx
   _QWORD *PoolWithQuotaTag; // rax
   _DWORD *v97; // rcx
-  struct _PROCESSOR_NUMBER *v98; // rax
+  _PROCESSOR_NUMBER *v98; // rax
   ULONG ProcessorIndexFromNumber; // eax
   unsigned __int64 v100; // rax
   unsigned __int64 v101; // rax
   unsigned __int64 v102; // rax
   unsigned __int64 v103; // rax
   unsigned __int64 v104; // rax
-  unsigned __int8 v105; // cl
+  PS_PROTECTION v105; // cl
   _OWORD *v106; // rax
   __int64 UmsContextExtendedSize; // rdx
   unsigned __int64 v108; // r9
@@ -134,7 +134,7 @@ __int64 __fastcall PspBuildCreateProcessContext(unsigned __int64 *a1, char a2, i
   unsigned __int64 v114; // [rsp+60h] [rbp-218h]
   unsigned __int64 v115; // [rsp+60h] [rbp-218h]
   unsigned __int64 v116; // [rsp+60h] [rbp-218h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+6Ch] [rbp-20Ch] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+6Ch] [rbp-20Ch] BYREF
   unsigned __int64 v118; // [rsp+70h] [rbp-208h]
   int v119; // [rsp+78h] [rbp-200h]
   int v120; // [rsp+7Ch] [rbp-1FCh]
@@ -158,7 +158,7 @@ __int64 __fastcall PspBuildCreateProcessContext(unsigned __int64 *a1, char a2, i
   _DWORD *v138; // [rsp+118h] [rbp-160h]
   const void *v139; // [rsp+120h] [rbp-158h]
   __int64 v140; // [rsp+128h] [rbp-150h]
-  struct _PROCESSOR_NUMBER *v141; // [rsp+130h] [rbp-148h]
+  _PROCESSOR_NUMBER *v141; // [rsp+130h] [rbp-148h]
   _OWORD *v142; // [rsp+138h] [rbp-140h]
   char *v143; // [rsp+148h] [rbp-130h]
   char *v144; // [rsp+150h] [rbp-128h]
@@ -313,8 +313,8 @@ LABEL_17:
               {
                 if ( v11[1] != 1LL )
                   goto LABEL_17;
-                v105 = *((_BYTE *)v11 + 16);
-                *(_BYTE *)(a4 + 384) = v105;
+                v105.Level = *((_BYTE *)v11 + 16);
+                *(PS_PROTECTION *)(a4 + 384) = v105;
                 valid = RtlValidProcessProtection(v105);
                 goto LABEL_188;
               }
@@ -349,7 +349,7 @@ LABEL_17:
         {
           if ( !a3 || v11[1] != 4LL )
             goto LABEL_17;
-          v98 = (struct _PROCESSOR_NUMBER *)v11[2];
+          v98 = (_PROCESSOR_NUMBER *)v11[2];
           v141 = v98;
           if ( v4 )
           {

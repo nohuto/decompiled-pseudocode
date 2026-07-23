@@ -1,10 +1,10 @@
 /*
- * XREFs of MiColdPageSizeSupported @ 0x14044D5AC
+ * XREFs of MiColdPageSizeSupported @ 0x1404444AC
  * Callers:
- *     MiLockMultipleZeroChunks @ 0x14020AC60 (MiLockMultipleZeroChunks.c)
- *     MiCoalesceFreeSmallPages @ 0x1402238B0 (MiCoalesceFreeSmallPages.c)
- *     MiFreeLargePageMemory @ 0x1403A3588 (MiFreeLargePageMemory.c)
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
+ *     MiFreeLargePageMemory @ 0x14021B56C (MiFreeLargePageMemory.c)
+ *     MiCoalesceFreeSmallPages @ 0x140250600 (MiCoalesceFreeSmallPages.c)
+ *     MiLockMultipleZeroChunks @ 0x140332A40 (MiLockMultipleZeroChunks.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
  * Callees:
  *     <none>
  */

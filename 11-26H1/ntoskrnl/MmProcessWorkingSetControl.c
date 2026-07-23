@@ -1,24 +1,24 @@
 /*
- * XREFs of MmProcessWorkingSetControl @ 0x140AE9A8C
+ * XREFs of MmProcessWorkingSetControl @ 0x140AEC57C
  * Callers:
- *     VmpPauseResumeNotify @ 0x14081CC04 (VmpPauseResumeNotify.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     VmpPauseResumeNotify @ 0x140822E14 (VmpPauseResumeNotify.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiEmptyWorkingSet @ 0x1403BB5EC (MiEmptyWorkingSet.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403BBEA0 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     MiLogWsEmptyControl @ 0x14070433C (MiLogWsEmptyControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     PsSwapProcessWorkingSet @ 0x1407F0C88 (PsSwapProcessWorkingSet.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     SmStoreCompressionStart @ 0x140AE9D90 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x140AE9E34 (SmStoreCompressionStop.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiEmptyWorkingSet @ 0x1403C545C (MiEmptyWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403C5D10 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     MiLogWsEmptyControl @ 0x14070900C (MiLogWsEmptyControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     PsSwapProcessWorkingSet @ 0x1407F67E8 (PsSwapProcessWorkingSet.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     SmStoreCompressionStart @ 0x140AEC880 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x140AEC924 (SmStoreCompressionStop.c)
  */
 
 __int64 __fastcall MmProcessWorkingSetControl(
@@ -62,8 +62,8 @@ __int64 __fastcall MmProcessWorkingSetControl(
     return 3221225569LL;
   result = ObpReferenceObjectByHandleWithTag(
              BugCheckParameter1,
-             0x2000LL,
-             PsProcessType,
+             0x2000,
+             (__int64)PsProcessType,
              a4,
              0x73576D4Du,
              Object,
@@ -103,14 +103,14 @@ LABEL_24:
           v8 = -1073741637;
           goto LABEL_24;
         }
-        FirstArgument = (__int64)stru_140E36558.FirstArgument;
-        if ( stru_140E36558.FirstArgument )
+        FirstArgument = (__int64)stru_140E366D8.FirstArgument;
+        if ( stru_140E366D8.FirstArgument )
         {
-          if ( *(_DWORD *)stru_140E36558.FirstArgument )
+          if ( *(_DWORD *)stru_140E366D8.FirstArgument )
           {
-            if ( (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 0x10) != 0 )
+            if ( (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 0x10) != 0 )
             {
-              FirstArgument = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+              FirstArgument = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
               if ( (FirstArgument & 0x10) == FirstArgument )
               {
                 MiLogWsEmptyControl(FirstArgument, (__int64)&v9[2].ReadyListHead.Blink);

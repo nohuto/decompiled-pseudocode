@@ -9,21 +9,24 @@
  *     _RtlpWnfETWEventPublish@12 @ 0x4B33C482 (_RtlpWnfETWEventPublish@12.c)
  */
 
-int __stdcall RtlPublishWnfStateData(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl RtlPublishWnfStateData(
+        WNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *Buffer,
+        ULONG Length,
+        const void *ExplicitScope)
 {
   int updated; // esi
-  int v7; // ecx
-  int v9; // [esp+4h] [ebp-Ch] BYREF
-  int v10; // [esp+8h] [ebp-8h]
+  int v6; // ecx
+  WNF_STATE_NAME v8; // [esp+4h] [ebp-Ch] BYREF
 
-  v9 = a1;
-  v10 = a2;
-  updated = NtUpdateWnfStateData(&v9, a4, a5, a3, a6, 0, 0);
+  v8 = StateName;
+  updated = NtUpdateWnfStateData(&v8, Buffer, Length, TypeId, ExplicitScope, 0, 0);
   if ( RtlGetCurrentServiceSessionId() )
-    v7 = (int)NtCurrentPeb()->SharedData + 564;
+    v6 = (int)NtCurrentPeb()->SharedData + 564;
   else
-    v7 = 2147353486;
-  if ( *(_BYTE *)v7 && updated >= 0 )
-    RtlpWnfETWEventPublish(v9, v10);
+    v6 = 2147353486;
+  if ( *(_BYTE *)v6 && updated >= 0 )
+    RtlpWnfETWEventPublish(v8.Data[0], v8.Data[1]);
   return updated;
 }

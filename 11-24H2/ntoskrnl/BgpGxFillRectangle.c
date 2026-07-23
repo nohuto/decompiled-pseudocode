@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpGxFillRectangle @ 0x140473110
+ * XREFs of BgpGxFillRectangle @ 0x14046F3E0
  * Callers:
- *     RaspAntiAlias @ 0x1404727DC (RaspAntiAlias.c)
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpClearScreen @ 0x140697E28 (BgpClearScreen.c)
- *     BgpTxtAdjustStaticRegion @ 0x140698788 (BgpTxtAdjustStaticRegion.c)
- *     BgpTxtCreateRegion @ 0x140BB2908 (BgpTxtCreateRegion.c)
- *     BgpTxtDisplayString @ 0x140BB2BB0 (BgpTxtDisplayString.c)
+ *     RaspAntiAlias @ 0x14046EAAC (RaspAntiAlias.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpClearScreen @ 0x140698EA8 (BgpClearScreen.c)
+ *     BgpTxtAdjustStaticRegion @ 0x140699808 (BgpTxtAdjustStaticRegion.c)
+ *     BgpTxtCreateRegion @ 0x140BB4908 (BgpTxtCreateRegion.c)
+ *     BgpTxtDisplayString @ 0x140BB4BB0 (BgpTxtDisplayString.c)
  * Callees:
  *     <none>
  */

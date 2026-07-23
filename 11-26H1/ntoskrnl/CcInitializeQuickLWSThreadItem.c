@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInitializeQuickLWSThreadItem @ 0x1403E4630
+ * XREFs of CcInitializeQuickLWSThreadItem @ 0x1403E7820
  * Callers:
- *     CcInitializePrivateVolumeCacheMap @ 0x1403E3550 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403E6740 (CcInitializePrivateVolumeCacheMap.c)
  * Callees:
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall CcInitializeQuickLWSThreadItem(_QWORD *a1)

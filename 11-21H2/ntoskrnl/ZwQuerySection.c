@@ -1,15 +1,21 @@
 /*
  * XREFs of ZwQuerySection @ 0x14041C180
  * Callers:
- *     CmSiGetSectionLength @ 0x14020B6C8 (CmSiGetSectionLength.c)
- *     DifZwQuerySectionWrapper @ 0x1406257F0 (DifZwQuerySectionWrapper.c)
+ *     sub_14020B6C8 @ 0x14020B6C8 (sub_14020B6C8.c)
+ *     sub_1406257F0 @ 0x1406257F0 (sub_1406257F0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySection(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQuerySection(
+        HANDLE SectionHandle,
+        SECTION_INFORMATION_CLASS SectionInformationClass,
+        PVOID SectionInformation,
+        SIZE_T SectionInformationLength,
+        PSIZE_T ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(SectionHandle, *(_QWORD *)&SectionInformationClass);
 }

@@ -17,11 +17,11 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx
   KIRQL v3; // r12
-  struct _RTL_SPLAY_LINKS **v4; // r14
-  struct _RTL_SPLAY_LINKS *v5; // rsi
+  _RTL_SPLAY_LINKS **v4; // r14
+  _RTL_SPLAY_LINKS *v5; // rsi
   PRTL_SPLAY_LINKS *v6; // rsi
   PRTL_SPLAY_LINKS v7; // rdi
-  struct _RTL_SPLAY_LINKS *v8; // rdi
+  _RTL_SPLAY_LINKS *v8; // rdi
   _RTL_SPLAY_LINKS *Parent; // rdx
   _QWORD *v10; // rdi
   __int64 v11; // rsi
@@ -33,7 +33,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
     KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
-    v4 = (struct _RTL_SPLAY_LINKS **)(LockInformation + 32);
+    v4 = (_RTL_SPLAY_LINKS **)(LockInformation + 32);
     while ( 1 )
     {
       v5 = *v4;

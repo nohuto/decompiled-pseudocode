@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpIsLogEntryHeaderCoherent @ 0x140881868
+ * XREFs of HvpIsLogEntryHeaderCoherent @ 0x1408819C8
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140881318 (HvpApplyIncrementalLogFile.c)
- *     HvpDetermineIncrementalLogFileMaximums @ 0x140881778 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpApplyIncrementalLogFile @ 0x140881478 (HvpApplyIncrementalLogFile.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x1408818D8 (HvpDetermineIncrementalLogFileMaximums.c)
  * Callees:
- *     HvpLogEntryCheckHeaderChecksum @ 0x140872538 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x140872698 (HvpLogEntryCheckHeaderChecksum.c)
  */
 
 bool __fastcall HvpIsLogEntryHeaderCoherent(_DWORD *a1, unsigned int a2, unsigned int a3)

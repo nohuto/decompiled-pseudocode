@@ -1,13 +1,13 @@
 /*
- * XREFs of IpmiHwInitializeContext @ 0x14069F688
+ * XREFs of IpmiHwInitializeContext @ 0x1406A078C
  * Callers:
- *     WheaSelLogInitialize @ 0x140C44090 (WheaSelLogInitialize.c)
+ *     WheaSelLogInitialize @ 0x140C461E0 (WheaSelLogInitialize.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x14069F66C (IpmiHwContextInitialized.c)
- *     IpmiHwKcsInit @ 0x14069F77C (IpmiHwKcsInit.c)
- *     IpmiHwpReadSpmiConfiguration @ 0x14069F8BC (IpmiHwpReadSpmiConfiguration.c)
- *     IpmiLibReadSmbiosRecord38 @ 0x14069F974 (IpmiLibReadSmbiosRecord38.c)
- *     IpmiLibpParseDeviceInfo @ 0x14069FAAC (IpmiLibpParseDeviceInfo.c)
+ *     IpmiHwContextInitialized @ 0x1406A0770 (IpmiHwContextInitialized.c)
+ *     IpmiHwKcsInit @ 0x1406A0880 (IpmiHwKcsInit.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x1406A09C0 (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiLibReadSmbiosRecord38 @ 0x1406A0A78 (IpmiLibReadSmbiosRecord38.c)
+ *     IpmiLibpParseDeviceInfo @ 0x1406A0BB0 (IpmiLibpParseDeviceInfo.c)
  */
 
 __int64 IpmiHwInitializeContext()
@@ -23,14 +23,14 @@ __int64 IpmiHwInitializeContext()
   if ( v0 )
   {
     WheaIpmiContext = *v0;
-    xmmword_140EF9C10 = v0[1];
+    xmmword_140EF9F10 = v0[1];
 LABEL_8:
-    dword_140EF9C54 = 7;
-    dword_140EF9C44 = 5000000;
-    dword_140EF9C50 = 5000000;
-    dword_140EF9C4C = 1000;
-    dword_140EF9C48 = 30;
-    dword_140EF9C40 = 2000000;
+    dword_140EF9F54 = 7;
+    dword_140EF9F44 = 5000000;
+    dword_140EF9F50 = 5000000;
+    dword_140EF9F4C = 1000;
+    dword_140EF9F48 = 30;
+    dword_140EF9F40 = 2000000;
     goto LABEL_9;
   }
   if ( (int)IpmiHwpReadSpmiConfiguration() >= 0 )
@@ -40,10 +40,10 @@ LABEL_8:
   if ( (int)IpmiLibReadSmbiosRecord38(&v3) >= 0 && (int)IpmiLibpParseDeviceInfo(v2, &v3) >= 0 )
     goto LABEL_8;
 LABEL_9:
-  if ( DWORD1(WheaIpmiContext) != 1 || IpmiHwContextInitialized((__int64)&WheaIpmiContext) && !BYTE8(xmmword_140EF9C10) )
+  if ( DWORD1(WheaIpmiContext) != 1 || IpmiHwContextInitialized((__int64)&WheaIpmiContext) && !BYTE8(xmmword_140EF9F10) )
     return 3221225659LL;
   result = IpmiHwKcsInit();
   if ( (int)result >= 0 )
-    byte_140EF9C58 = 1;
+    byte_140EF9F58 = 1;
   return result;
 }

@@ -17,33 +17,41 @@
 __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v3; // edi
   int UserThread; // eax
-  unsigned int v5; // edi
+  unsigned int v4; // edi
+  int v6; // [rsp+30h] [rbp-68h]
+  __int64 v7; // [rsp+60h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-28h] BYREF
-  HANDLE Handle; // [rsp+A0h] [rbp+8h]
+  HANDLE Handle; // [rsp+A0h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (*(_DWORD *)(a1 + 152) >> 7) & 0x10;
   --CurrentThread->KernelApcDisable;
   if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 104)) )
   {
-    v5 = 128;
+    v4 = 128;
     goto LABEL_8;
   }
   KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
   if ( *(_BYTE *)(*(_QWORD *)(a1 + 16) + 33LL) )
   {
-    v5 = 128;
+    v4 = 128;
   }
   else
   {
     ++*(_DWORD *)(a1 + 136);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     __writecr8(LockHandle.OldIrql);
-    UserThread = RtlpCreateUserThreadEx(*(_QWORD *)(a1 + 40), 0, v3, 0, *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64));
+    UserThread = RtlpCreateUserThreadEx(
+                   *(HANDLE *)(a1 + 40),
+                   *(_QWORD *)(a1 + 56),
+                   *(_QWORD *)(a1 + 64),
+                   v6,
+                   *(PUSER_THREAD_START_ROUTINE *)(a1 + 24),
+                   *(PVOID *)(a1 + 32),
+                   (__int64)&Handle,
+                   (__int64)&v7);
     *(_DWORD *)(a1 + 160) = UserThread;
-    v5 = UserThread;
+    v4 = UserThread;
     if ( UserThread >= 0 )
     {
       if ( *(_DWORD *)(a1 + 156) )
@@ -60,5 +68,5 @@ LABEL_7:
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 104));
 LABEL_8:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v5;
+  return v4;
 }

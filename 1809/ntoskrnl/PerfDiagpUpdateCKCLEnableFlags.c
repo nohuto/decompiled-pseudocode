@@ -1,21 +1,21 @@
 /*
- * XREFs of PerfDiagpUpdateCKCLEnableFlags @ 0x140742D58
+ * XREFs of PerfDiagpUpdateCKCLEnableFlags @ 0x140743F48
  * Callers:
- *     PerfDiagpProxyWorker @ 0x140742AC0 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x140743CB0 (PerfDiagpProxyWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
- *     PerfDiagpInitializeLoggerInfo @ 0x140742E64 (PerfDiagpInitializeLoggerInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x140744054 (PerfDiagpInitializeLoggerInfo.c)
  */
 
-__int64 __fastcall PerfDiagpUpdateCKCLEnableFlags(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PerfDiagpUpdateCKCLEnableFlags(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v4; // ebx
-  _DWORD v5[4]; // [rsp+30h] [rbp-69h] BYREF
+  ULONG ReturnLength[4]; // [rsp+30h] [rbp-69h] BYREF
   _QWORD v6[14]; // [rsp+40h] [rbp-59h] BYREF
   size_t Size[6]; // [rsp+B0h] [rbp+17h] BYREF
 
@@ -27,25 +27,31 @@ __int64 __fastcall PerfDiagpUpdateCKCLEnableFlags(__int64 a1, __int64 a2)
   LODWORD(v6[4]) = 3;
   LODWORD(Size[0]) = 48;
   result = RtlpQueryRegistryValues(2LL, L"Diagnostics\\Performance\\BootCKCLSettings", (__int64)v6, 0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( HIDWORD(Size[0]) == 3 )
     {
       v4 = Size[0];
       if ( LODWORD(Size[0]) > 0x28 )
       {
-        return 3221225507LL;
+        return -1073741789;
       }
       else
       {
-        memmove(&unk_14040A868, &Size[1], LODWORD(Size[0]));
+        memmove(&unk_14040B908, &Size[1], LODWORD(Size[0]));
         PerfDiagpInitializeLoggerInfo(1LL, v4 >> 2);
-        return NtTraceControl(4u, dword_14040A7B0, dword_14040A7B0[0], dword_14040A7B0, dword_14040A7B0[0], v5);
+        return NtTraceControl(
+                 EtwUpdateLoggerCode,
+                 &OutputBuffer,
+                 OutputBuffer,
+                 &OutputBuffer,
+                 OutputBuffer,
+                 ReturnLength);
       }
     }
     else
     {
-      return 3221225485LL;
+      return -1073741811;
     }
   }
   return result;

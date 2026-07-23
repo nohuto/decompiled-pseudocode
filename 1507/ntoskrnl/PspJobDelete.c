@@ -215,7 +215,7 @@ void __fastcall PspJobDelete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   if ( v17 )
     IoFreeMiniCompletionPacket(v17);
   if ( (*(_DWORD *)(a1 + 1296) & 0x800) != 0 )
-    ZwDeleteWnfStateName(a1 + 888);
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)(a1 + 888));
   if ( (*(_DWORD *)(a1 + 1296) & 0x40000) != 0 )
   {
     v18 = (volatile signed __int32 *)(a1 + 1208);

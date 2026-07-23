@@ -3,11 +3,11 @@
  * Callers:
  *     CmpFileRead @ 0x140689330 (CmpFileRead.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     ZwReadFile @ 0x14041AE20 (ZwReadFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     ZwReadFile @ 0x14041B1B0 (ZwReadFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     CmpCreateEvent @ 0x1406898C8 (CmpCreateEvent.c)
  */
 

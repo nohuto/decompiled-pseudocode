@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUpdateSingleProcessHeteroPolicies @ 0x140672DEC
+ * XREFs of PopUpdateSingleProcessHeteroPolicies @ 0x140672ED0
  * Callers:
  *     <none>
  * Callees:
- *     PsEnumProcessThreads @ 0x14045A8A4 (PsEnumProcessThreads.c)
+ *     PsEnumProcessThreads @ 0x140459774 (PsEnumProcessThreads.c)
  */
 
 __int64 __fastcall PopUpdateSingleProcessHeteroPolicies(__int64 a1)

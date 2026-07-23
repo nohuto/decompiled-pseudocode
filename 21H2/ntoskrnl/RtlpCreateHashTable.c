@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x1403767E0
+ * XREFs of RtlpCreateHashTable @ 0x140376330
  * Callers:
- *     RtlCreateHashTable @ 0x1403767C0 (RtlCreateHashTable.c)
- *     RtlCreateHashTableEx @ 0x14039B010 (RtlCreateHashTableEx.c)
- *     SepBuildCapPolicyTable @ 0x1403CBB6C (SepBuildCapPolicyTable.c)
- *     SepInitializeSingletonAttributesStructures @ 0x140A47A00 (SepInitializeSingletonAttributesStructures.c)
+ *     RtlCreateHashTable @ 0x140376310 (RtlCreateHashTable.c)
+ *     RtlCreateHashTableEx @ 0x14039B160 (RtlCreateHashTableEx.c)
+ *     SepBuildCapPolicyTable @ 0x1403CBCDC (SepBuildCapPolicyTable.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140A48A00 (SepInitializeSingletonAttributesStructures.c)
  * Callees:
- *     RtlpAllocateSecondLevelDir @ 0x1402BEB30 (RtlpAllocateSecondLevelDir.c)
- *     RtlpInitializeSecondLevelDir @ 0x140376950 (RtlpInitializeSecondLevelDir.c)
- *     RtlDeleteHashTable @ 0x1403793B0 (RtlDeleteHashTable.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlpAllocateSecondLevelDir @ 0x140250FEC (RtlpAllocateSecondLevelDir.c)
+ *     RtlpInitializeSecondLevelDir @ 0x1403764A0 (RtlpInitializeSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x140378F00 (RtlDeleteHashTable.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)

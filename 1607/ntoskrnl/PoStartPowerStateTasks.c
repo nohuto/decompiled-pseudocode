@@ -1,7 +1,7 @@
 /*
- * XREFs of PoStartPowerStateTasks @ 0x140534474
+ * XREFs of PoStartPowerStateTasks @ 0x1405349B4
  * Callers:
- *     PoPowerOffMonitor @ 0x140126794 (PoPowerOffMonitor.c)
+ *     PoPowerOffMonitor @ 0x140126D04 (PoPowerOffMonitor.c)
  *     PnprQuiesceDevices @ 0x1403DC3D4 (PnprQuiesceDevices.c)
  * Callees:
  *     <none>

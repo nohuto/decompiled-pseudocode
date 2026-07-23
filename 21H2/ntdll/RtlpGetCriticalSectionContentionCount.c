@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpGetCriticalSectionContentionCount @ 0x1800E90F8
+ * XREFs of RtlpGetCriticalSectionContentionCount @ 0x1800E90B8
  * Callers:
  *     RtlpWaitOnCriticalSection @ 0x180064970 (RtlpWaitOnCriticalSection.c)
  * Callees:

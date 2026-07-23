@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeCloneDescriptor @ 0x14066323C
+ * XREFs of MiFreeCloneDescriptor @ 0x140663320
  * Callers:
- *     MiCloneVads @ 0x1400BC560 (MiCloneVads.c)
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
+ *     MiCloneVads @ 0x1400BA3F0 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiUnlockPagedAddress @ 0x1400B4854 (MiUnlockPagedAddress.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiUnlockPagedAddress @ 0x1400B26D4 (MiUnlockPagedAddress.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

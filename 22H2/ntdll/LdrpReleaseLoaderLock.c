@@ -20,37 +20,33 @@
  *     LdrpLogEtwEvent @ 0x1800CF110 (LdrpLogEtwEvent.c)
  */
 
-__int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
-  int v3; // ebx
-  char v4; // di
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   __int64 v6; // r8
   __int64 v7; // rcx
   int v9; // r9d
   __int64 v10; // rcx
 
-  v3 = a3;
-  v4 = a2;
-  v5 = RtlLeaveCriticalSection((__int64)&LdrpLoaderLock, a2, a3);
-  if ( v3 < 0 )
+  v5 = RtlLeaveCriticalSection(&LdrpLoaderLock);
+  if ( a3 < 0 )
   {
-    LOBYTE(v6) = v4;
-    LdrpLogError((unsigned int)v3, 5282LL, v6, 0LL);
+    LOBYTE(v6) = a2;
+    LdrpLogError((unsigned int)a3, 5282LL, v6, 0LL);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v7 = 2147353476LL;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v10 = 2147353477LL;
     if ( (*(_BYTE *)v10 & 0x20) != 0 )
     {
-      LOBYTE(v9) = v4;
+      LOBYTE(v9) = a2;
       LdrpLogEtwEvent(5282, 0, 0, v9, 0LL, 0LL);
     }
   }

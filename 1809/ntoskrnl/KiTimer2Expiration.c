@@ -1,22 +1,22 @@
 /*
- * XREFs of KiTimer2Expiration @ 0x1400FB3F0
+ * XREFs of KiTimer2Expiration @ 0x1400FB470
  * Callers:
- *     KiRetireDpcList @ 0x1400C64C0 (KiRetireDpcList.c)
- *     KiTimerExpirationDpc @ 0x140156B00 (KiTimerExpirationDpc.c)
+ *     KiRetireDpcList @ 0x1400C6400 (KiRetireDpcList.c)
+ *     KiTimerExpirationDpc @ 0x140156C00 (KiTimerExpirationDpc.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     KiCheckAndRearmForceIdle @ 0x1400F9958 (KiCheckAndRearmForceIdle.c)
- *     KiUpdateTimer2Flags @ 0x1400FB32C (KiUpdateTimer2Flags.c)
- *     KiRemoveTimer2 @ 0x1400FB730 (KiRemoveTimer2.c)
- *     KiExpireTimer2 @ 0x1400FB900 (KiExpireTimer2.c)
- *     KiShouldActivateHRTimerClock @ 0x1400FBDA8 (KiShouldActivateHRTimerClock.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KiProcessThreadWaitList @ 0x1400FBE60 (KiProcessThreadWaitList.c)
- *     KiInsertTimer2 @ 0x1400FC800 (KiInsertTimer2.c)
- *     KiSendClockInterruptToClockOwner @ 0x1400FD168 (KiSendClockInterruptToClockOwner.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     KiCheckAndRearmForceIdle @ 0x1400F99D8 (KiCheckAndRearmForceIdle.c)
+ *     KiUpdateTimer2Flags @ 0x1400FB3AC (KiUpdateTimer2Flags.c)
+ *     KiRemoveTimer2 @ 0x1400FB7B0 (KiRemoveTimer2.c)
+ *     KiExpireTimer2 @ 0x1400FB980 (KiExpireTimer2.c)
+ *     KiShouldActivateHRTimerClock @ 0x1400FBE28 (KiShouldActivateHRTimerClock.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KiProcessThreadWaitList @ 0x1400FBEE0 (KiProcessThreadWaitList.c)
+ *     KiInsertTimer2 @ 0x1400FC880 (KiInsertTimer2.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1400FD1E8 (KiSendClockInterruptToClockOwner.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, char a3, __int64 a4)
@@ -192,7 +192,7 @@ LABEL_26:
 LABEL_38:
   if ( *(_QWORD *)(v36 + 11528) )
     KiProcessThreadWaitList(v36, 1LL, 0LL);
-  result = KiShouldActivateHRTimerClock(MEMORY[0xFFFFF78000000008], qword_140421D88);
+  result = KiShouldActivateHRTimerClock(MEMORY[0xFFFFF78000000008], qword_140422E68);
   if ( (_BYTE)result )
     return KiSendClockInterruptToClockOwner();
   return result;

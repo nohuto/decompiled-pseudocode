@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RtlpComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403EE0E4
+ * XREFs of ?RtlpComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140452C14
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14025D7A0 (PpmParkComputeUnparkMask.c)
- *     KiForwardTick @ 0x1403ED6F0 (KiForwardTick.c)
- *     KiGetDeepIdleProcessors @ 0x1403EDF4C (KiGetDeepIdleProcessors.c)
- *     KeComplementAffinityEx @ 0x1405EC900 (KeComplementAffinityEx.c)
+ *     PpmParkComputeUnparkMask @ 0x14025E0F0 (PpmParkComputeUnparkMask.c)
+ *     KiForwardTick @ 0x140452220 (KiForwardTick.c)
+ *     KiGetDeepIdleProcessors @ 0x140452A7C (KiGetDeepIdleProcessors.c)
+ *     KeComplementAffinityEx @ 0x1405EF270 (KeComplementAffinityEx.c)
  * Callees:
  *     <none>
  */

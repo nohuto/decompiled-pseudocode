@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockObjectAcquired @ 0x140B99AE4
+ * XREFs of ViDeadlockObjectAcquired @ 0x140B9BAE4
  * Callers:
- *     ViDeadlockKeWaitForMultipleObjects_Exit @ 0x140B99890 (ViDeadlockKeWaitForMultipleObjects_Exit.c)
- *     ViDeadlockKeWaitForSingleObject_Exit @ 0x140B998F0 (ViDeadlockKeWaitForSingleObject_Exit.c)
+ *     ViDeadlockKeWaitForMultipleObjects_Exit @ 0x140B9B890 (ViDeadlockKeWaitForMultipleObjects_Exit.c)
+ *     ViDeadlockKeWaitForSingleObject_Exit @ 0x140B9B8F0 (ViDeadlockKeWaitForSingleObject_Exit.c)
  * Callees:
- *     VfDeadlockAcquireResource @ 0x140BA83C4 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x140BAA3C4 (VfDeadlockAcquireResource.c)
  */
 
 char __fastcall ViDeadlockObjectAcquired(unsigned int a1, _BYTE **a2, __int64 a3, __int64 a4)

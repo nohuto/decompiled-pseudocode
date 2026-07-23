@@ -1,11 +1,11 @@
 /*
- * XREFs of SeFilterToken @ 0x140757A70
+ * XREFs of SeFilterToken @ 0x140758C60
  * Callers:
- *     CmpCreateRegistryProcessToken @ 0x140757914 (CmpCreateRegistryProcessToken.c)
+ *     CmpCreateRegistryProcessToken @ 0x140758B04 (CmpCreateRegistryProcessToken.c)
  * Callees:
- *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     SepFinalizeTokenAcls @ 0x140583ABC (SepFinalizeTokenAcls.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
  */
 
 NTSTATUS __stdcall SeFilterToken(
@@ -19,7 +19,7 @@ NTSTATUS __stdcall SeFilterToken(
   PACCESS_TOKEN *v6; // rsi
   ULONG GroupCount; // ebx
   ULONG v8; // r10d
-  __int64 *Groups; // r11
+  SID_AND_ATTRIBUTES *Groups; // r11
   ULONG PrivilegeCount; // edi
   NTSTATUS inserted; // edi
   _QWORD *v13; // rbx
@@ -39,7 +39,7 @@ NTSTATUS __stdcall SeFilterToken(
   if ( PrivilegesToDelete )
     PrivilegeCount = PrivilegesToDelete->PrivilegeCount;
   if ( RestrictedSids
-    && (v8 = RestrictedSids->GroupCount, Groups = (__int64 *)RestrictedSids->Groups, v15 = 0, RestrictedSids->GroupCount) )
+    && (v8 = RestrictedSids->GroupCount, Groups = RestrictedSids->Groups, v15 = 0, RestrictedSids->GroupCount) )
   {
     p_Attributes = &RestrictedSids->Groups[0].Attributes;
     while ( !*p_Attributes )
@@ -63,7 +63,7 @@ LABEL_6:
                  PrivilegeCount,
                  (unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL),
                  v8,
-                 Groups,
+                 &Groups->Sid,
                  0,
                  &Object);
     if ( inserted >= 0 )

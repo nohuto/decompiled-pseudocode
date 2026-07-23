@@ -1,21 +1,21 @@
 /*
- * XREFs of MiTrimSection @ 0x1402EF6E0
+ * XREFs of MiTrimSection @ 0x1402FA430
  * Callers:
- *     MiTrimSharedPage @ 0x1402EEA08 (MiTrimSharedPage.c)
- *     MmTrimSection @ 0x1402EF648 (MmTrimSection.c)
+ *     MiTrimSharedPage @ 0x1402F9758 (MiTrimSharedPage.c)
+ *     MmTrimSection @ 0x1402FA398 (MmTrimSection.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsection @ 0x1402EE404 (MiDecrementSubsection.c)
- *     MiAnyProtosAreMapped @ 0x1402EE910 (MiAnyProtosAreMapped.c)
- *     MiViewMayContainPage @ 0x1402EF97C (MiViewMayContainPage.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
- *     MiUnlockControlAreaFileObjectShared @ 0x1402F08C4 (MiUnlockControlAreaFileObjectShared.c)
- *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsection @ 0x1402F9150 (MiDecrementSubsection.c)
+ *     MiAnyProtosAreMapped @ 0x1402F9660 (MiAnyProtosAreMapped.c)
+ *     MiViewMayContainPage @ 0x1402FA6CC (MiViewMayContainPage.c)
+ *     MiTrimSharedPageFromViews @ 0x1402FA994 (MiTrimSharedPageFromViews.c)
+ *     MiUnlockControlAreaFileObjectShared @ 0x1402FB614 (MiUnlockControlAreaFileObjectShared.c)
+ *     MiReferenceSubsection @ 0x1403202AC (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

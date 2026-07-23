@@ -1,34 +1,34 @@
 /*
- * XREFs of LdrpInitializeThread @ 0x1800CF3C0
+ * XREFs of LdrpInitializeThread @ 0x1800CCB30
  * Callers:
- *     _LdrpInitialize @ 0x1800CEF48 (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x1800CC6B8 (_LdrpInitialize.c)
  * Callees:
- *     RtlDeactivateActivationContextUnsafeFast @ 0x180041420 (RtlDeactivateActivationContextUnsafeFast.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x180041FE0 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     LdrpCallTlsInitializers @ 0x18004C040 (LdrpCallTlsInitializers.c)
- *     LdrpCallInitRoutine @ 0x18004C46C (LdrpCallInitRoutine.c)
- *     LdrpAllocateTls @ 0x18007F910 (LdrpAllocateTls.c)
- *     LdrpAcquireLoaderLock @ 0x180084090 (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x1800854C0 (LdrpReleaseLoaderLock.c)
- *     LdrpProcessWork @ 0x180087350 (LdrpProcessWork.c)
- *     LdrpDropLastInProgressCount @ 0x1800E1CDC (LdrpDropLastInProgressCount.c)
- *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800E4D30 (LdrpAcquireSchedulerSharedDataSlot.c)
- *     NtWaitForSingleObject @ 0x18015EFC0 (NtWaitForSingleObject.c)
- *     ZwSetEvent @ 0x18015F100 (ZwSetEvent.c)
- *     ZwTerminateProcess @ 0x18015F4C0 (ZwTerminateProcess.c)
- *     ZwDelayExecution @ 0x18015F5C0 (ZwDelayExecution.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x18002B990 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x18002C550 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     LdrpCallTlsInitializers @ 0x1800365C0 (LdrpCallTlsInitializers.c)
+ *     LdrpCallInitRoutine @ 0x1800369EC (LdrpCallInitRoutine.c)
+ *     LdrpAllocateTls @ 0x180076CB0 (LdrpAllocateTls.c)
+ *     LdrpAcquireLoaderLock @ 0x18007B430 (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18007C860 (LdrpReleaseLoaderLock.c)
+ *     LdrpProcessWork @ 0x18007E6C0 (LdrpProcessWork.c)
+ *     LdrpDropLastInProgressCount @ 0x1800DF57C (LdrpDropLastInProgressCount.c)
+ *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800E2BE0 (LdrpAcquireSchedulerSharedDataSlot.c)
+ *     NtWaitForSingleObject @ 0x18015EEC0 (NtWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x18015F000 (ZwSetEvent.c)
+ *     ZwTerminateProcess @ 0x18015F3C0 (ZwTerminateProcess.c)
+ *     ZwDelayExecution @ 0x18015F4C0 (ZwDelayExecution.c)
  */
 
-struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
+int __fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
 {
   char v2; // di
   struct _TEB *v3; // rbx
   _PEB *ProcessEnvironmentBlock; // r15
-  struct _TEB *result; // rax
-  int i; // ebx
+  struct _TEB *v5; // rax
+  NTSTATUS i; // ebx
   HANDLE v7; // r14
   char v8; // si
   __int64 *v9; // rbx
@@ -39,22 +39,22 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
   __int64 v14; // rbx
   __int64 v15; // rdi
   struct _TEB *v16; // rax
-  _QWORD v17[2]; // [rsp+20h] [rbp-D8h] BYREF
-  __int128 v18; // [rsp+30h] [rbp-C8h]
-  __int128 v19; // [rsp+40h] [rbp-B8h]
-  __int128 v20; // [rsp+50h] [rbp-A8h]
-  __int64 v21; // [rsp+60h] [rbp-98h]
-  _QWORD v22[2]; // [rsp+70h] [rbp-88h] BYREF
-  __int128 v23; // [rsp+80h] [rbp-78h]
-  __int128 v24; // [rsp+90h] [rbp-68h]
-  __int128 v25; // [rsp+A0h] [rbp-58h]
-  __int64 v26; // [rsp+B0h] [rbp-48h]
-  __int64 v27; // [rsp+C0h] [rbp-38h]
-  __int64 v28; // [rsp+C8h] [rbp-30h]
-  __int64 v29; // [rsp+108h] [rbp+10h] BYREF
+  _QWORD v18[2]; // [rsp+20h] [rbp-D8h] BYREF
+  __int128 v19; // [rsp+30h] [rbp-C8h]
+  __int128 v20; // [rsp+40h] [rbp-B8h]
+  __int128 v21; // [rsp+50h] [rbp-A8h]
+  __int64 v22; // [rsp+60h] [rbp-98h]
+  _QWORD v23[2]; // [rsp+70h] [rbp-88h] BYREF
+  __int128 v24; // [rsp+80h] [rbp-78h]
+  __int128 v25; // [rsp+90h] [rbp-68h]
+  __int128 v26; // [rsp+A0h] [rbp-58h]
+  __int64 v27; // [rsp+B0h] [rbp-48h]
+  __int64 v28; // [rsp+C0h] [rbp-38h]
+  __int64 v29; // [rsp+C8h] [rbp-30h]
+  LARGE_INTEGER DelayInterval; // [rsp+108h] [rbp+10h] BYREF
 
   v2 = 0;
-  v29 = 0LL;
+  DelayInterval.QuadPart = 0LL;
   v3 = NtCurrentTeb();
   ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
   if ( UseCOR && (v3->SameTebFlags & 0x400) != 0 )
@@ -74,8 +74,8 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
     v3->_ActivationStack.Flags = 2;
     v3->ActivationContextStackPointer = &v3->_ActivationStack;
   }
-  result = NtCurrentTeb();
-  if ( (result->SameTebFlags & 8) == 0 || (result = NtCurrentTeb(), (result->SameTebFlags & 0x20) != 0) )
+  v5 = NtCurrentTeb();
+  if ( (v5->SameTebFlags & 8) == 0 || (v5 = NtCurrentTeb(), (v5->SameTebFlags & 0x20) != 0) )
   {
     if ( (v3->SameTebFlags & 0x2000) == 0 )
     {
@@ -83,18 +83,18 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
       {
         if ( i != -1073741801 )
           break;
-        v29 = -3000000LL;
-        ZwDelayExecution(0LL, &v29);
+        DelayInterval.QuadPart = -3000000LL;
+        ZwDelayExecution(0, &DelayInterval);
       }
       if ( i < 0 )
       {
-        ZwTerminateProcess(-1LL, (unsigned int)i);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, i);
         RtlRaiseStatus(i);
       }
       v7 = LdrpLoadCompleteEvent;
       while ( 1 )
       {
-        RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+        RtlEnterCriticalSection(&LdrpWorkQueueLock);
         v8 = LdrpDetourExist;
         if ( LdrpDetourExist )
         {
@@ -128,12 +128,12 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
             if ( LdrpStatistics < v11 )
               LdrpStatistics = v11;
             if ( (NtCurrentTeb()->SameTebFlags & 0x2000) != 0 )
-              ++dword_1801CB624;
+              ++dword_1801CA684;
             else
-              ++dword_1801CB628;
+              ++dword_1801CA688;
           }
         }
-        RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+        RtlLeaveCriticalSection(&LdrpWorkQueueLock);
         if ( v2 )
           break;
         if ( &LdrpWorkQueue == v9 )
@@ -144,10 +144,10 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
       v12 = NtCurrentTeb();
       v12->SameTebFlags |= 0x1000u;
       LdrpAcquireLoaderLock();
-      v14 = qword_1801CB890;
-      while ( (__int64 *)v14 != &qword_1801CB890 )
+      v14 = qword_1801CA8D0;
+      while ( (__int64 *)v14 != &qword_1801CA8D0 )
       {
-        v27 = v14;
+        v28 = v14;
         v13 = *(unsigned int *)(*(_QWORD *)(v14 + 152) + 56LL);
         if ( (int)v13 >= 9 )
         {
@@ -155,24 +155,24 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
             && (*(_DWORD *)(v14 + 104) & 0x40000) == 0 )
           {
             v15 = *(_QWORD *)(v14 + 56);
-            v28 = v15;
+            v29 = v15;
             if ( v15 )
             {
               if ( (*(_DWORD *)(v14 + 104) & 0x80000) != 0 && (*(_DWORD *)(v14 + 104) & 4) != 0 )
               {
-                if ( byte_1801CB8C8 )
+                if ( byte_1801CA908 )
                   goto LABEL_46;
-                v17[0] = 72LL;
-                v17[1] = 1LL;
-                v18 = 0LL;
+                v18[0] = 72LL;
+                v18[1] = 1LL;
                 v19 = 0LL;
                 v20 = 0LL;
                 v21 = 0LL;
-                RtlActivateActivationContextUnsafeFast((__int64)v17, *(_QWORD *)(v14 + 136));
+                v22 = 0LL;
+                RtlActivateActivationContextUnsafeFast((__int64)v18, *(_QWORD *)(v14 + 136));
                 if ( *(_WORD *)(v14 + 110) )
                   LdrpCallTlsInitializers(2u, v14);
                 LdrpCallInitRoutine(v15, *(_QWORD *)(v14 + 48), 2u, 0LL);
-                RtlDeactivateActivationContextUnsafeFast((__int64)v17);
+                RtlDeactivateActivationContextUnsafeFast((__int64)v18);
               }
             }
           }
@@ -183,27 +183,27 @@ struct _TEB *__fastcall LdrpInitializeThread(__int64 a1, __int64 a2)
           v14 = *(_QWORD *)v14;
         }
       }
-      if ( *(_WORD *)(LdrpImageEntry + 110) && !byte_1801CB8C8 )
+      if ( *(_WORD *)(LdrpImageEntry + 110) && !byte_1801CA908 )
       {
-        v22[0] = 72LL;
-        v22[1] = 1LL;
-        v23 = 0LL;
+        v23[0] = 72LL;
+        v23[1] = 1LL;
         v24 = 0LL;
         v25 = 0LL;
         v26 = 0LL;
-        RtlActivateActivationContextUnsafeFast((__int64)v22, *(_QWORD *)(LdrpImageEntry + 136));
+        v27 = 0LL;
+        RtlActivateActivationContextUnsafeFast((__int64)v23, *(_QWORD *)(LdrpImageEntry + 136));
         LdrpCallTlsInitializers(2u, LdrpImageEntry);
-        RtlDeactivateActivationContextUnsafeFast((__int64)v22);
+        RtlDeactivateActivationContextUnsafeFast((__int64)v23);
       }
 LABEL_46:
       LdrpReleaseLoaderLock(v13, 21, 0);
       v16 = NtCurrentTeb();
       v16->SameTebFlags &= ~0x1000u;
-      RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlEnterCriticalSection(&LdrpWorkQueueLock);
       LdrpWorkInProgress = 0;
-      RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
-      return (struct _TEB *)ZwSetEvent(LdrpLoadCompleteEvent, 0LL);
+      RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+      LODWORD(v5) = ZwSetEvent(LdrpLoadCompleteEvent, 0LL);
     }
   }
-  return result;
+  return (int)v5;
 }

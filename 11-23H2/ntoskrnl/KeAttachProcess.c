@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAttachProcess @ 0x140364370
+ * XREFs of KeAttachProcess @ 0x140364510
  * Callers:
- *     KiExecuteDpcDelegate @ 0x140391510 (KiExecuteDpcDelegate.c)
+ *     KiExecuteDpcDelegate @ 0x1403916F0 (KiExecuteDpcDelegate.c)
  *     KiCompleteKernelInit @ 0x140A8CAE0 (KiCompleteKernelInit.c)
- *     PopGracefulShutdown @ 0x140AA0A60 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140AA08D0 (PopGracefulShutdown.c)
  * Callees:
- *     KiAttachProcess @ 0x14022DAB0 (KiAttachProcess.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KiAttachProcess @ 0x14022DBC0 (KiAttachProcess.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __stdcall KeAttachProcess(PRKPROCESS Process)
@@ -36,7 +36,7 @@ void __stdcall KeAttachProcess(PRKPROCESS Process)
     }
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v6) = 4;

@@ -7,47 +7,47 @@
  *     RtlpHpMetadataAlloc @ 0x18000798C (RtlpHpMetadataAlloc.c)
  */
 
-_BOOL8 __fastcall RtlpHpTagRunOnceInit(__int64 a1, __int64 a2)
+_BOOL8 __fastcall RtlpHpTagRunOnceInit(PRTL_RUN_ONCE a1, _OWORD *a2, PVOID *a3)
 {
-  char *v3; // rbx
-  __int64 v4; // rax
-  int v5; // edi
-  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
+  char *v4; // rbx
+  __int64 v5; // rax
+  int v6; // edi
+  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_OWORD *)a2 = 0LL;
-  *(_OWORD *)(a2 + 16) = 0LL;
-  *(_QWORD *)(a2 + 32) = 0LL;
-  v7 = RtlpHpEnvHandle;
-  v3 = (char *)RtlpHpMetadataAlloc(512LL, 512LL, 0LL, &v7);
-  if ( v3 )
+  *a2 = 0LL;
+  a2[1] = 0LL;
+  *((_QWORD *)a2 + 4) = 0LL;
+  v8 = RtlpHpEnvHandle;
+  v4 = (char *)RtlpHpMetadataAlloc(512LL, 512LL, 0LL, &v8);
+  if ( v4 )
   {
-    v7 = RtlpHpEnvHandle;
-    v4 = RtlpHpMetadataAlloc(0x2000LL, 0x2000LL, 1LL, &v7);
-    if ( v4 )
+    v8 = RtlpHpEnvHandle;
+    v5 = RtlpHpMetadataAlloc(0x2000LL, 0x2000LL, 1LL, &v8);
+    if ( v5 )
     {
       *(_QWORD *)a2 = 0LL;
-      *(_QWORD *)(a2 + 24) = v4;
-      *(_DWORD *)(a2 + 8) = 0;
-      *(_QWORD *)(a2 + 16) = v3;
-      *(_DWORD *)(a2 + 12) = 2048;
-      if ( (v3 + 512 >= v3 ? 0x40 : 0) != 0 )
-        memset64(v3, (a2 + 8) | 1, v3 + 512 >= v3 ? 0x40 : 0);
-      v3 = 0LL;
-      v5 = 0;
+      *((_QWORD *)a2 + 3) = v5;
+      *((_DWORD *)a2 + 2) = 0;
+      *((_QWORD *)a2 + 2) = v4;
+      *((_DWORD *)a2 + 3) = 2048;
+      if ( (v4 + 512 >= v4 ? 0x40 : 0) != 0 )
+        memset64(v4, ((unsigned __int64)a2 + 8) | 1, v4 + 512 >= v4 ? 0x40 : 0);
+      v4 = 0LL;
+      v6 = 0;
     }
     else
     {
-      v5 = -1073741801;
+      v6 = -1073741801;
     }
-    if ( v3 )
+    if ( v4 )
     {
-      v7 = RtlpHpEnvHandle;
-      RtlpHpMetadataFree((__int64)v3, &v7);
+      v8 = RtlpHpEnvHandle;
+      RtlpHpMetadataFree((__int64)v4, &v8);
     }
   }
   else
   {
-    v5 = -1073741801;
+    v6 = -1073741801;
   }
-  return v5 >= 0;
+  return v6 >= 0;
 }

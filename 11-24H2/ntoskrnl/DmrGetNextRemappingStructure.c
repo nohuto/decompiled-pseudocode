@@ -1,12 +1,12 @@
 /*
- * XREFs of DmrGetNextRemappingStructure @ 0x140579788
+ * XREFs of DmrGetNextRemappingStructure @ 0x140576C18
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x1405780FC (HalpIvtProcessDmarTable.c)
- *     DmrFindDrhdForDeviceScope @ 0x1405793B0 (DmrFindDrhdForDeviceScope.c)
- *     DmrEnumerateSatcDevices @ 0x1405795E0 (DmrEnumerateSatcDevices.c)
- *     DmrValidateDeviceScope @ 0x1405797DC (DmrValidateDeviceScope.c)
- *     DmrEnumerateRmrrDomains @ 0x1405798D0 (DmrEnumerateRmrrDomains.c)
- *     IvtCheckForReservedRegion @ 0x1407046B0 (IvtCheckForReservedRegion.c)
+ *     HalpIvtProcessDmarTable @ 0x14057558C (HalpIvtProcessDmarTable.c)
+ *     DmrFindDrhdForDeviceScope @ 0x140576840 (DmrFindDrhdForDeviceScope.c)
+ *     DmrEnumerateSatcDevices @ 0x140576A70 (DmrEnumerateSatcDevices.c)
+ *     DmrValidateDeviceScope @ 0x140576C6C (DmrValidateDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x140576D60 (DmrEnumerateRmrrDomains.c)
+ *     IvtCheckForReservedRegion @ 0x140702270 (IvtCheckForReservedRegion.c)
  * Callees:
  *     <none>
  */

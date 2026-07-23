@@ -3,7 +3,7 @@
  * Callers:
  *     MxGetNextPage @ 0x1407976E8 (MxGetNextPage.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
  *     MiInitializeBootMemoryDescriptor @ 0x14078EA30 (MiInitializeBootMemoryDescriptor.c)
  */
 

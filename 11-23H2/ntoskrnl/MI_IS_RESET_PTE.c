@@ -1,11 +1,11 @@
 /*
- * XREFs of MI_IS_RESET_PTE @ 0x140285330
+ * XREFs of MI_IS_RESET_PTE @ 0x1402855C0
  * Callers:
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
- *     MiCheckReservePageFileSpace @ 0x140282FE0 (MiCheckReservePageFileSpace.c)
- *     MiReservePageFileSpaceForPage @ 0x140284E70 (MiReservePageFileSpaceForPage.c)
- *     MiActOnPte @ 0x1402940D4 (MiActOnPte.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
+ *     MiCheckReservePageFileSpace @ 0x140283270 (MiCheckReservePageFileSpace.c)
+ *     MiReservePageFileSpaceForPage @ 0x140285100 (MiReservePageFileSpaceForPage.c)
+ *     MiActOnPte @ 0x140294364 (MiActOnPte.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
  * Callees:
  *     <none>
  */

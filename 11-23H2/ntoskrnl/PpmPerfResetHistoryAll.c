@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfResetHistoryAll @ 0x14082F1E4
+ * XREFs of PpmPerfResetHistoryAll @ 0x14082F4E4
  * Callers:
- *     PpmCheckReInit @ 0x14082CAEC (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x14082CDEC (PpmCheckReInit.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmPerfResetHistory @ 0x140393798 (PpmPerfResetHistory.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmPerfResetHistory @ 0x140393978 (PpmPerfResetHistory.c)
  */
 
 __int64 PpmPerfResetHistoryAll()
@@ -26,7 +26,7 @@ __int64 PpmPerfResetHistoryAll()
   v9 = 0;
   v7 = 0;
   v10 = 0;
-  v6[1] = (unsigned __int16 *)qword_140C0BE68[0];
+  v6[1] = (unsigned __int16 *)qword_140C0BE78[0];
   v6[0] = (unsigned __int16 *)&PpmCheckRegistered;
   while ( 1 )
   {

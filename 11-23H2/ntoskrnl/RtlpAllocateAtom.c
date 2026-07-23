@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpAllocateAtom @ 0x14075A800
+ * XREFs of RtlpAllocateAtom @ 0x14075A9F0
  * Callers:
- *     RtlpLookupOrCreateLowBox @ 0x140297998 (RtlpLookupOrCreateLowBox.c)
- *     RtlpAllocateAtomTableEntry @ 0x1402F8528 (RtlpAllocateAtomTableEntry.c)
- *     RtlCreateAtomTableEx @ 0x140339DD0 (RtlCreateAtomTableEx.c)
+ *     RtlpLookupOrCreateLowBox @ 0x140297C28 (RtlpLookupOrCreateLowBox.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1402F87B8 (RtlpAllocateAtomTableEntry.c)
+ *     RtlCreateAtomTableEx @ 0x14033A060 (RtlCreateAtomTableEx.c)
  * Callees:
- *     PsChargeSharedPoolQuota @ 0x14075C144 (PsChargeSharedPoolQuota.c)
+ *     PsChargeSharedPoolQuota @ 0x14075C334 (PsChargeSharedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

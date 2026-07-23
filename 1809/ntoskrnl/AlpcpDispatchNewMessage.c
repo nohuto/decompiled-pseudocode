@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpDispatchNewMessage @ 0x140635340
+ * XREFs of AlpcpDispatchNewMessage @ 0x140636360
  * Callers:
- *     AlpcpDispatchMessage @ 0x14061A7E4 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14061B7E4 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x140635910 (AlpcpSendMessage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x1401281F0 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1402E9AB4 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCDF0 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafe @ 0x14010C190 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1401282C0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1402E9CA4 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406371B0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BE090 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
  */
 
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)

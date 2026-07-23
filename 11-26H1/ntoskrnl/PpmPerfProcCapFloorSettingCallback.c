@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x1407D6210
+ * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x1407D93C0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
  */
 
 __int64 __fastcall PpmPerfProcCapFloorSettingCallback(
@@ -33,7 +33,7 @@ __int64 __fastcall PpmPerfProcCapFloorSettingCallback(
     v7 = v14 - *(_QWORD *)SettingGuid->Data4;
   }
   v8 = v7 == 0;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, (__int64)Value, ValueLength);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, (__int64)Value, ValueLength);
   if ( ValueLength != 4 || !Value )
     goto LABEL_13;
   v9 = *Value;

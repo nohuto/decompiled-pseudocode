@@ -21,29 +21,30 @@ __int64 __fastcall LdrpResolveDllName(_OWORD *a1, __int64 a2, __int64 a3, _OWORD
   int v9; // r12d
   bool v10; // r14
   __int64 v11; // rbp
-  void *Atom; // rax
+  PVOID Atom; // rax
   const void *v13; // r15
-  _WORD *v14; // rcx
-  bool v15; // zf
+  unsigned int v14; // ebx
+  _WORD *v15; // rcx
+  bool v16; // zf
   int NtPathFromDosPath; // eax
   int FullPath; // ebx
-  char v18; // r8
-  __m128i v19; // xmm1
-  unsigned __int16 v20; // r9
-  unsigned __int64 v21; // xmm0_8
-  unsigned __int16 v22; // dx
-  __int16 v23; // cx
-  __int64 v24; // rax
-  __int16 v25; // dx
-  unsigned __int64 v27; // rax
-  __int64 v28; // rcx
+  int v19; // r8d
+  __m128i v20; // xmm1
+  unsigned __int16 v21; // r9
+  unsigned __int64 v22; // xmm0_8
+  unsigned __int16 v23; // dx
+  __int16 v24; // cx
+  __int64 v25; // rax
+  __int16 v26; // dx
+  unsigned __int64 v28; // rax
+  __int64 v29; // rcx
   void *Src[2]; // [rsp+40h] [rbp-38h] BYREF
 
   v9 = 0;
   *(_OWORD *)Src = 0LL;
   v10 = 0;
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 1730, (int)"LdrpResolveDllName", 3, "DLL name: %wZ\n", (char)a1);
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 1731, (int)"LdrpResolveDllName", 5, "%wZ\n", (char)a1);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1730LL, "LdrpResolveDllName", 3LL, "DLL name: %wZ\n", a1);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1731LL, "LdrpResolveDllName", 5LL, "%wZ\n", a1);
   if ( (a5 & 0x200) != 0 )
   {
     *(_OWORD *)Src = *a1;
@@ -57,58 +58,58 @@ LABEL_24:
       Atom = Src[1];
       goto LABEL_25;
     }
-    v14 = (_WORD *)(a2 + 16);
-    v15 = a2 + 16 == *(_QWORD *)(a2 + 8);
+    v15 = (_WORD *)(a2 + 16);
+    v16 = a2 + 16 == *(_QWORD *)(a2 + 8);
     *(_OWORD *)Src = *(_OWORD *)a2;
-    v10 = !v15;
-    if ( !v15 )
+    v10 = !v16;
+    if ( !v16 )
     {
-      *(_QWORD *)(a2 + 8) = v14;
+      *(_QWORD *)(a2 + 8) = v15;
       *(_WORD *)(a2 + 2) = 256;
-      *v14 = 0;
+      *v15 = 0;
 LABEL_9:
       *(_WORD *)a2 = 0;
       NtPathFromDosPath = LdrpGetNtPathFromDosPath(Src, a2);
       FullPath = NtPathFromDosPath;
-      v18 = NtPathFromDosPath;
+      v19 = NtPathFromDosPath;
       if ( NtPathFromDosPath >= 0 )
       {
-        v19 = *(__m128i *)Src;
-        v20 = _mm_cvtsi128_si32(*(__m128i *)Src);
-        v21 = _mm_srli_si128(*(__m128i *)Src, 8).m128i_u64[0];
+        v20 = *(__m128i *)Src;
+        v21 = _mm_cvtsi128_si32(*(__m128i *)Src);
+        v22 = _mm_srli_si128(*(__m128i *)Src, 8).m128i_u64[0];
         *a4 = *(_OWORD *)Src;
-        v22 = v20 >> 1;
-        if ( v20 >> 1 )
+        v23 = v21 >> 1;
+        if ( v21 >> 1 )
         {
           do
           {
-            v23 = *(_WORD *)(v21 + 2LL * v22 - 2);
-            if ( v23 == 92 )
+            v24 = *(_WORD *)(v22 + 2LL * v23 - 2);
+            if ( v24 == 92 )
               break;
-            if ( v23 == 47 )
+            if ( v24 == 47 )
               break;
-            --v22;
+            --v23;
           }
-          while ( v22 );
+          while ( v23 );
         }
-        v24 = v22;
-        v25 = 2 * v22;
-        *(_WORD *)a3 = v20 - v25;
-        *(_QWORD *)(a3 + 8) = v21 + 2 * v24;
-        *(_WORD *)(a3 + 2) = _mm_extract_epi16(v19, 1) - v25;
-        LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 1852, (int)"LdrpResolveDllName", 4, "Status: 0x%08lx\n", v18);
+        v25 = v23;
+        v26 = 2 * v23;
+        *(_WORD *)a3 = v21 - v26;
+        *(_QWORD *)(a3 + 8) = v22 + 2 * v25;
+        *(_WORD *)(a3 + 2) = _mm_extract_epi16(v20, 1) - v26;
+        LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1852LL, "LdrpResolveDllName", 4LL, "Status: 0x%08lx\n", v19);
         goto LABEL_15;
       }
-      v27 = (unsigned int)(NtPathFromDosPath + 1073741809);
-      if ( (unsigned int)v27 <= 0x2C && (v28 = 0x1C3000000011LL, _bittest64(&v28, v27))
+      v28 = (unsigned int)(NtPathFromDosPath + 1073741809);
+      if ( (unsigned int)v28 <= 0x2C && (v29 = 0x1C3000000011LL, _bittest64(&v29, v28))
         || FullPath == -2147483632
         || FullPath == -1073741661 )
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrfind.c",
-          1832,
-          (int)"LdrpResolveDllName",
-          2,
+          "minkernel\\ldr\\ldrfind.c",
+          1832LL,
+          "LdrpResolveDllName",
+          2LL,
           "Original status: 0x%08lx\n",
           FullPath);
         Atom = Src[1];
@@ -124,17 +125,18 @@ LABEL_9:
   v13 = Src[1];
   LODWORD(Src[0]) = 0;
   Src[1] = 0LL;
+  v14 = v11 + 2;
   if ( (unsigned int)(v11 + 2) > 0xFFFE )
   {
     FullPath = -1073741562;
   }
-  else if ( (((_BYTE)v11 + 2) & 1) != 0 )
+  else if ( (v14 & 1) != 0 )
   {
     FullPath = -1073741811;
   }
   else
   {
-    Atom = (void *)RtlpAllocateAtom();
+    Atom = RtlpAllocateAtom(v14);
     Src[1] = Atom;
     if ( Atom )
     {
@@ -151,18 +153,18 @@ LABEL_25:
   {
     if ( Atom )
     {
-      RtlpSysVolFree((__int64)Atom);
+      RtlpSysVolFree(Atom);
       Src[1] = 0LL;
     }
     LODWORD(Src[0]) = 0;
   }
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 1852, (int)"LdrpResolveDllName", 4, "Status: 0x%08lx\n", FullPath);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1852LL, "LdrpResolveDllName", 4LL, "Status: 0x%08lx\n", FullPath);
   if ( v9 )
   {
-    LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 1854, (int)"LdrpResolveDllName", 6, "%x-%x\n", v9);
+    LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1854LL, "LdrpResolveDllName", 6LL, "%x-%x\n", v9, FullPath);
     return (unsigned int)FullPath;
   }
 LABEL_15:
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 1856, (int)"LdrpResolveDllName", 6, "%x\n", FullPath);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 1856LL, "LdrpResolveDllName", 6LL, "%x\n", FullPath);
   return (unsigned int)FullPath;
 }

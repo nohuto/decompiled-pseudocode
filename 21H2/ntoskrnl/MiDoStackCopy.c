@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDoStackCopy @ 0x140535F20
+ * XREFs of MiDoStackCopy @ 0x140536160
  * Callers:
  *     <none>
  * Callees:
- *     KeExpandKernelStackAndCalloutInternal @ 0x140329FF0 (KeExpandKernelStackAndCalloutInternal.c)
- *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
- *     MiJumpStackTarget @ 0x140536050 (MiJumpStackTarget.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140334D40 (KeExpandKernelStackAndCalloutInternal.c)
+ *     MiGetLeafPfnBuddy @ 0x14038059C (MiGetLeafPfnBuddy.c)
+ *     MiJumpStackTarget @ 0x140536290 (MiJumpStackTarget.c)
  */
 
 __int64 __fastcall MiDoStackCopy(__int64 a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4)

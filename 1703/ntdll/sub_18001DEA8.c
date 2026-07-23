@@ -28,33 +28,33 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_18001DEA8(int a1)
+void __fastcall sub_18001DEA8(int a1)
 {
-  int v2; // edi
+  int Wow64CfgBitMapSize; // edi
 
-  RtlAcquireSRWLockExclusive(&qword_18015AF70);
-  v2 = dword_18016B390;
+  RtlAcquireSRWLockExclusive(&stru_18015AF70);
+  Wow64CfgBitMapSize = LdrSystemDllInitBlock.Wow64CfgBitMapSize;
   if ( a1 )
   {
-    if ( !dword_18016B390 )
+    if ( !LODWORD(LdrSystemDllInitBlock.Wow64CfgBitMapSize) )
     {
-      RtlReleaseSRWLockExclusive(&qword_18015AF70);
+      RtlReleaseSRWLockExclusive(&stru_18015AF70);
       __fastfail(0xEu);
     }
-    --dword_18016B390;
-    if ( v2 == 1 )
+    --LODWORD(LdrSystemDllInitBlock.Wow64CfgBitMapSize);
+    if ( Wow64CfgBitMapSize == 1 )
       sub_18001DE44(2u);
   }
   else
   {
-    if ( !dword_18016B390 )
+    if ( !LODWORD(LdrSystemDllInitBlock.Wow64CfgBitMapSize) )
       sub_18001DE44(4u);
-    if ( v2 == -1 )
+    if ( Wow64CfgBitMapSize == -1 )
     {
-      RtlReleaseSRWLockExclusive(&qword_18015AF70);
+      RtlReleaseSRWLockExclusive(&stru_18015AF70);
       __fastfail(0xEu);
     }
-    dword_18016B390 = v2 + 1;
+    LODWORD(LdrSystemDllInitBlock.Wow64CfgBitMapSize) = Wow64CfgBitMapSize + 1;
   }
-  return RtlReleaseSRWLockExclusive(&qword_18015AF70);
+  RtlReleaseSRWLockExclusive(&stru_18015AF70);
 }

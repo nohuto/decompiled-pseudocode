@@ -1,13 +1,13 @@
 /*
- * XREFs of PpProfileIncludeInHardwareProfileTransition @ 0x1408AB62C
+ * XREFs of PpProfileIncludeInHardwareProfileTransition @ 0x1408AB78C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
- *     PipProcessStartPhase1 @ 0x14073DE6C (PipProcessStartPhase1.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase1 @ 0x14073E02C (PipProcessStartPhase1.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PnpIrpQueryID @ 0x140747250 (PnpIrpQueryID.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PnpIrpQueryID @ 0x140747410 (PnpIrpQueryID.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpProfileIncludeInHardwareProfileTransition(__int64 a1, int a2)

@@ -1,20 +1,25 @@
 /*
- * XREFs of ZwQueryVolumeInformationFile @ 0x1801625B0
+ * XREFs of ZwQueryVolumeInformationFile @ 0x180160970
  * Callers:
- *     EtwpFinalizeLogFileHeader @ 0x18003ED60 (EtwpFinalizeLogFileHeader.c)
- *     RtlpCreateNewDirectoryReference @ 0x180078610 (RtlpCreateNewDirectoryReference.c)
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
- *     LdrpCheckAppDirType @ 0x1801180BC (LdrpCheckAppDirType.c)
- *     RtlpQueryDiskSpacePolicyByHandle @ 0x18015D3A4 (RtlpQueryDiskSpacePolicyByHandle.c)
+ *     EtwpFinalizeLogFileHeader @ 0x18001EFE0 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
+ *     RtlpCreateNewDirectoryReference @ 0x180094EF0 (RtlpCreateNewDirectoryReference.c)
+ *     LdrpCheckAppDirType @ 0x180113030 (LdrpCheckAppDirType.c)
+ *     RtlpQueryDiskSpacePolicyByHandle @ 0x18015B764 (RtlpQueryDiskSpacePolicyByHandle.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryVolumeInformationFile()
+NTSTATUS __cdecl ZwQueryVolumeInformationFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FsInformation,
+        ULONG Length,
+        FSINFOCLASS FsInformationClass)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 73LL;
+  result = 73;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -8,94 +8,116 @@
  *     memmove @ 0x1800A3A80 (memmove.c)
  */
 
-__int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
+__int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, UCHAR *a2, _DWORD *a3, _DWORD *a4)
 {
-  int v8; // eax
-  int v9; // ebp
-  unsigned int v10; // esi
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  int v13; // ecx
-  unsigned int v14; // ecx
-  int v15; // r8d
-  int v16; // ecx
-  int v17; // eax
-  __int64 v18; // rax
-  unsigned int v19; // edx
-  int v20; // eax
-  char *v21; // rcx
-  size_t v22; // r8
-  char *v23; // rdx
-  int v25; // [rsp+80h] [rbp+8h]
+  __int64 v4; // r10
+  int v7; // eax
+  UCHAR *v10; // r9
+  ULONG v11; // r10d
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // ebp
+  ULONG v14; // esi
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  int v17; // ecx
+  ULONG v18; // ecx
+  ULONG Length; // eax
+  int v20; // r8d
+  int v21; // ecx
+  int v22; // eax
+  __int64 v23; // rax
+  unsigned int v24; // edx
+  int v25; // eax
+  char *v26; // rcx
+  size_t v27; // r8
+  char *v28; // rdx
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
+  ULONG v31; // [rsp+80h] [rbp+8h] BYREF
 
+  v4 = *(unsigned int *)(a1 + 452);
   *a4 = 0;
+  v7 = *(_DWORD *)(a1 + 448);
   *a3 = 0;
-  v8 = RtlCompressBuffer(3u);
-  v9 = v8;
-  if ( v8 == -1073741789 )
+  v10 = (UCHAR *)(v4 + *(_QWORD *)(a1 + 440) + 72LL);
+  v11 = v7 - v4 - 72;
+  if ( v11 >= *(_DWORD *)(a1 + 208) )
+    v11 = *(_DWORD *)(a1 + 208);
+  v12 = RtlCompressBuffer(3u, a2 + 72, *((_DWORD *)a2 + 12) - 72, v10, v11, 0, &v31, *(PVOID *)(a1 + 432));
+  v13 = v12;
+  if ( v12 == -1073741789 )
   {
-    v10 = *((_DWORD *)a2 + 12);
-    memmove((void *)(*(_QWORD *)(a1 + 440) + *(unsigned int *)(a1 + 452)), a2, v10);
+    v14 = *((_DWORD *)a2 + 12);
+    memmove((void *)(*(_QWORD *)(a1 + 440) + *(unsigned int *)(a1 + 452)), a2, v14);
   }
   else
   {
-    if ( v8 < 0 )
+    if ( v12 < 0 )
     {
       *a4 = 1;
-      return (unsigned int)v9;
+      return (unsigned int)v13;
     }
     *((_WORD *)a2 + 26) |= 0x40u;
-    v11 = *(unsigned int *)(a1 + 452);
-    v12 = *(_QWORD *)(a1 + 440);
-    *(_OWORD *)(v11 + v12) = *a2;
-    *(_OWORD *)(v11 + v12 + 16) = a2[1];
-    *(_OWORD *)(v11 + v12 + 32) = a2[2];
-    *(_OWORD *)(v11 + v12 + 48) = a2[3];
-    *(_QWORD *)(v11 + v12 + 64) = *((_QWORD *)a2 + 8);
-    v10 = v25 + 72;
+    v15 = *(unsigned int *)(a1 + 452);
+    v16 = *(_QWORD *)(a1 + 440);
+    *(_OWORD *)(v15 + v16) = *(_OWORD *)a2;
+    *(_OWORD *)(v15 + v16 + 16) = *((_OWORD *)a2 + 1);
+    *(_OWORD *)(v15 + v16 + 32) = *((_OWORD *)a2 + 2);
+    *(_OWORD *)(v15 + v16 + 48) = *((_OWORD *)a2 + 3);
+    *(_QWORD *)(v15 + v16 + 64) = *((_QWORD *)a2 + 8);
+    v14 = v31 + 72;
   }
-  *(_DWORD *)(*(unsigned int *)(a1 + 452) + *(_QWORD *)(a1 + 440)) = v10;
-  v13 = *(_DWORD *)(a1 + 452);
+  *(_DWORD *)(*(unsigned int *)(a1 + 452) + *(_QWORD *)(a1 + 440)) = v14;
+  v17 = *(_DWORD *)(a1 + 452);
   ++*(_DWORD *)(a1 + 456);
-  v14 = v10 + v13;
-  *(_DWORD *)(a1 + 452) = v14;
-  if ( v14 >= *(_DWORD *)(a1 + 208) )
+  v18 = v14 + v17;
+  *(_DWORD *)(a1 + 452) = v18;
+  Length = *(_DWORD *)(a1 + 208);
+  if ( v18 >= Length )
   {
-    v9 = NtWriteFile();
-    if ( v9 >= 0 )
+    v13 = NtWriteFile(
+            *(HANDLE *)(a1 + 144),
+            0LL,
+            0LL,
+            0LL,
+            &IoStatusBlock,
+            *(PVOID *)(a1 + 440),
+            Length,
+            (PLARGE_INTEGER)(a1 + 360),
+            0LL);
+    if ( v13 >= 0 )
     {
-      v18 = *(unsigned int *)(a1 + 208);
-      *(_QWORD *)(a1 + 360) += v18;
-      v19 = *(_DWORD *)(a1 + 452) - v18;
-      v20 = *(_DWORD *)(a1 + 456);
-      *(_DWORD *)(a1 + 452) = v19;
-      *(_DWORD *)(a1 + 460) = v19;
-      if ( v19 )
+      v23 = *(unsigned int *)(a1 + 208);
+      *(_QWORD *)(a1 + 360) += v23;
+      v24 = *(_DWORD *)(a1 + 452) - v23;
+      v25 = *(_DWORD *)(a1 + 456);
+      *(_DWORD *)(a1 + 452) = v24;
+      *(_DWORD *)(a1 + 460) = v24;
+      if ( v24 )
       {
-        v21 = *(char **)(a1 + 440);
-        v22 = v19;
+        v26 = *(char **)(a1 + 440);
+        v27 = v24;
         *(_DWORD *)(a1 + 456) = 1;
-        v23 = &v21[*(unsigned int *)(a1 + 208)];
-        *a3 = v20 - 1;
-        memmove(v21, v23, v22);
+        v28 = &v26[*(unsigned int *)(a1 + 208)];
+        *a3 = v25 - 1;
+        memmove(v26, v28, v27);
       }
       else
       {
         *(_DWORD *)(a1 + 456) = 0;
-        *a3 = v20;
+        *a3 = v25;
       }
     }
     else
     {
-      v15 = *(_DWORD *)(a1 + 460);
-      v16 = *(_DWORD *)(a1 + 456);
-      *(_DWORD *)(a1 + 452) = v15;
-      v17 = v16 - 1;
-      if ( !v15 )
-        v17 = v16;
-      *a4 = v17;
-      *(_DWORD *)(a1 + 456) = v15 != 0;
+      v20 = *(_DWORD *)(a1 + 460);
+      v21 = *(_DWORD *)(a1 + 456);
+      *(_DWORD *)(a1 + 452) = v20;
+      v22 = v21 - 1;
+      if ( !v20 )
+        v22 = v21;
+      *a4 = v22;
+      *(_DWORD *)(a1 + 456) = v20 != 0;
     }
   }
-  return (unsigned int)v9;
+  return (unsigned int)v13;
 }

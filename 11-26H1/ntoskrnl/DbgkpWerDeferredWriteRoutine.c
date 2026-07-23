@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerDeferredWriteRoutine @ 0x14078C2F0
+ * XREFs of DbgkpWerDeferredWriteRoutine @ 0x14078EE20
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     IoWriteDeferredLiveDumpData @ 0x1405CC298 (IoWriteDeferredLiveDumpData.c)
- *     DbgkpWerCleanupContext @ 0x14078C108 (DbgkpWerCleanupContext.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1405CEAAC (IoWriteDeferredLiveDumpData.c)
+ *     DbgkpWerCleanupContext @ 0x14078EC38 (DbgkpWerCleanupContext.c)
  */
 
 void __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
@@ -25,7 +25,7 @@ void __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
   if ( *(_DWORD *)(a1 + 32) == 453 )
     v3 = -24000000000LL;
   else
-    v3 = -10000000LL * (int)EmpParseLock.SystemCallNumber;
+    v3 = -10000000LL * SLODWORD(EmpParseLock.FirstArgument);
   v4 = *(struct _KTIMER **)(*(_QWORD *)(a1 + 120) + 16LL);
   if ( v4 )
     KiSetTimerEx((__int64)v4, v3, 0, 0, 0LL);
@@ -49,6 +49,6 @@ void __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
     DbgPrintEx(5u, 0, "DBGK: DbgkpWerDeferredWriteRoutine: dump write failed with status 0x%X\n", (unsigned int)v5);
   }
   DbgkpWerCleanupContext(a1);
-  _InterlockedExchange((volatile __int32 *)&EmpParseLock.ReadyTime, 0);
+  _InterlockedExchange((volatile __int32 *)&EmpParseLock.TrapFrame, 0);
   KeLeaveCriticalRegion();
 }

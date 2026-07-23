@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlReleasePushLock @ 0x1402C23EC
+ * XREFs of FsRtlReleasePushLock @ 0x14030D0AC
  * Callers:
- *     FsRtlLookupPerStreamContextInternal @ 0x1402C1230 (FsRtlLookupPerStreamContextInternal.c)
- *     FsRtlRemovePerStreamContext @ 0x140449180 (FsRtlRemovePerStreamContext.c)
- *     FsRtlInsertPerStreamContext @ 0x1404492B0 (FsRtlInsertPerStreamContext.c)
- *     FsRtlTeardownPerStreamContexts @ 0x140A36AA0 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlInsertPerStreamContext @ 0x14021B420 (FsRtlInsertPerStreamContext.c)
+ *     FsRtlRemovePerStreamContext @ 0x14021B5C0 (FsRtlRemovePerStreamContext.c)
+ *     FsRtlLookupPerStreamContextInternal @ 0x14030BEF0 (FsRtlLookupPerStreamContextInternal.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x140919AA0 (FsRtlTeardownPerStreamContexts.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 void __fastcall FsRtlReleasePushLock(struct _KTHREAD *a1)
@@ -24,7 +24,7 @@ void __fastcall FsRtlReleasePushLock(struct _KTHREAD *a1)
   if ( v3 <= 0x10 )
     v4 = 0LL;
   if ( (v2 & 2) != 0 || v2 != _InterlockedCompareExchange64((volatile signed __int64 *)&a1->Header.Lock, v4, v2) )
-    ExfReleasePushLock(a1, v3);
+    ExfReleasePushLock(a1);
   KeAbPostRelease((unsigned __int64)a1);
   KeLeaveCriticalRegion();
 }

@@ -6,7 +6,7 @@
  *     CmpGetSectionLineIndex @ 0x1407A8AF8 (CmpGetSectionLineIndex.c)
  *     CmpGetKeyName @ 0x1407A8C08 (CmpGetKeyName.c)
  * Callees:
- *     _stricmp @ 0x14014D394 (_stricmp.c)
+ *     _stricmp @ 0x14014D904 (_stricmp.c)
  */
 
 __int64 **__fastcall CmpSearchSectionByName(__int64 ***a1, const char *a2)

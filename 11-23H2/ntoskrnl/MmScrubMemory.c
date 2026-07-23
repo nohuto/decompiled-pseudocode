@@ -1,17 +1,17 @@
 /*
- * XREFs of MmScrubMemory @ 0x140A46AC4
+ * XREFs of MmScrubMemory @ 0x140A46D74
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeInitializeGate @ 0x140293234 (KeInitializeGate.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x140357BC8 (MiDereferencePageRuns.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     MiReferenceNonPagedMemoryProcessList @ 0x140A46110 (MiReferenceNonPagedMemoryProcessList.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeInitializeGate @ 0x1402934C4 (KeInitializeGate.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x140357D68 (MiDereferencePageRuns.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     MiReferenceNonPagedMemoryProcessList @ 0x140A463C0 (MiReferenceNonPagedMemoryProcessList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

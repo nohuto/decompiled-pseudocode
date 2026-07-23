@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueDpc @ 0x1405AF0D0
+ * XREFs of EtwpCovSampCaptureQueueDpc @ 0x1405AF300
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampPushListSList @ 0x1405AF790 (EtwpCovSampPushListSList.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampPushListSList @ 0x1405AF9C0 (EtwpCovSampPushListSList.c)
  */
 
 void __fastcall EtwpCovSampCaptureQueueDpc(

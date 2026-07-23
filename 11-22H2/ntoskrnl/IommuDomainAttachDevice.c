@@ -102,7 +102,7 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 12 )
@@ -123,10 +123,10 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a
     qword_140C601A8 = v7;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuParaVirtDeviceCacheLock);
     v10 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v10 = (unsigned int)CurrentIrql + 1;

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepMaximumAccessCheck @ 0x1403512A0
+ * XREFs of SepMaximumAccessCheck @ 0x14035BFF0
  * Callers:
- *     SepAccessCheck @ 0x14034F410 (SepAccessCheck.c)
+ *     SepAccessCheck @ 0x14035A160 (SepAccessCheck.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepMatchPackage @ 0x14024E548 (SepMatchPackage.c)
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
- *     AuthzBasepAddAccessTypeList @ 0x1402A253C (AuthzBasepAddAccessTypeList.c)
- *     SepIsPackageSid @ 0x1402B0B70 (SepIsPackageSid.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepIsCapabilitySid @ 0x1402B635C (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1402B8FEC (SepMatchCapability.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     AuthzBasepObjectInTypeList @ 0x1405C16B0 (AuthzBasepObjectInTypeList.c)
+ *     AuthzBasepAddAccessTypeList @ 0x14021F97C (AuthzBasepAddAccessTypeList.c)
+ *     SepIsPackageSid @ 0x14022EED0 (SepIsPackageSid.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepIsCapabilitySid @ 0x14023453C (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1402371FC (SepMatchCapability.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     SepSidInToken @ 0x14026CA24 (SepSidInToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMatchPackage @ 0x1402F2D98 (SepMatchPackage.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     AuthzBasepObjectInTypeList @ 0x1405C18E0 (AuthzBasepObjectInTypeList.c)
  */
 
 __int64 __fastcall SepMaximumAccessCheck(
@@ -293,7 +293,13 @@ LABEL_43:
 LABEL_42:
                 v38 = (_DWORD *)a13;
                 v39 = (_DWORD *)(a13 + 8);
-                SepMatchCapability(v16, -1, v21 + 8, *((_DWORD *)v21 + 1), (_BYTE *)(a13 + 22), (_DWORD *)(a13 + 8));
+                SepMatchCapability(
+                  v16,
+                  -1,
+                  (__int64)(v21 + 8),
+                  *((_DWORD *)v21 + 1),
+                  (_BYTE *)(a13 + 22),
+                  (_DWORD *)(a13 + 8));
                 *v38 &= ~*v39;
                 goto LABEL_28;
               }

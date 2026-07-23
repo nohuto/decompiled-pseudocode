@@ -1,12 +1,12 @@
 /*
- * XREFs of PipProcessRestartPhase1 @ 0x14096F33C
+ * XREFs of PipProcessRestartPhase1 @ 0x14096F53C
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpUnlockMountableDevice @ 0x1403D568C (PnpUnlockMountableDevice.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1405644F8 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PnpStartDeviceNode @ 0x1407934D0 (PnpStartDeviceNode.c)
- *     PipClearDevNodeFlags @ 0x14079805C (PipClearDevNodeFlags.c)
+ *     PnpUnlockMountableDevice @ 0x1403D586C (PnpUnlockMountableDevice.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140564BB8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpStartDeviceNode @ 0x1407936C0 (PnpStartDeviceNode.c)
+ *     PipClearDevNodeFlags @ 0x14079824C (PipClearDevNodeFlags.c)
  */
 
 __int64 __fastcall PipProcessRestartPhase1(__int64 a1, int a2, __int64 a3)

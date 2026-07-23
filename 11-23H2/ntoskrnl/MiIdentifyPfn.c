@@ -1,32 +1,32 @@
 /*
- * XREFs of MiIdentifyPfn @ 0x14023E4C0
+ * XREFs of MiIdentifyPfn @ 0x14023E590
  * Callers:
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
- *     MiIdentifyPfnWrapper @ 0x14023CC40 (MiIdentifyPfnWrapper.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MmSetPfnListInfo @ 0x14038C2D0 (MmSetPfnListInfo.c)
- *     MmTryIdentifyPage @ 0x140626730 (MmTryIdentifyPage.c)
- *     MiUpdateBadPfnIdentity @ 0x14062B2EC (MiUpdateBadPfnIdentity.c)
+ *     MiIdentifyPfnWrapper @ 0x14023CD10 (MiIdentifyPfnWrapper.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MmSetPfnListInfo @ 0x14038C4B0 (MmSetPfnListInfo.c)
+ *     MmTryIdentifyPage @ 0x140626C80 (MmTryIdentifyPage.c)
+ *     MiUpdateBadPfnIdentity @ 0x14062B83C (MiUpdateBadPfnIdentity.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiGetTopLevelPfn @ 0x140215FA0 (MiGetTopLevelPfn.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSubsectionDriverProtos @ 0x1402A26E4 (MiGetSubsectionDriverProtos.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiGetSharedProtos @ 0x140369D8C (MiGetSharedProtos.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     MiHyperPage @ 0x1403BC0F0 (MiHyperPage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiGetPfnPidSafe @ 0x1406266E4 (MiGetPfnPidSafe.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSubsectionDriverProtos @ 0x1402A2974 (MiGetSubsectionDriverProtos.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiGetSharedProtos @ 0x140369F2C (MiGetSharedProtos.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     MiHyperPage @ 0x1403BC2D0 (MiHyperPage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiGetPfnPidSafe @ 0x140626C34 (MiGetPfnPidSafe.c)
  */
 
 unsigned __int64 __fastcall MiIdentifyPfn(unsigned __int64 a1, _QWORD *a2)
@@ -126,10 +126,10 @@ unsigned __int64 __fastcall MiIdentifyPfn(unsigned __int64 a1, _QWORD *a2)
   void *retaddr; // [rsp+F8h] [rbp+5Fh]
 
   v88 = a1;
-  if ( qword_140C67DE8 )
+  if ( stru_140C67DE0.Buffer )
   {
     v73 = (a1 >> 18) & 0x3FFFFF;
-    if ( _bittest64((const signed __int64 *)qword_140C67DE8, v73) )
+    if ( _bittest64((const signed __int64 *)stru_140C67DE0.Buffer, v73) )
     {
       v74 = *(_QWORD *)(qword_140C67DF0 + 8 * v73) & 7LL;
       if ( v74 > 5 )

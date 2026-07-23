@@ -17,8 +17,8 @@ __int64 __fastcall ResCGetHighestConsecutiveCacheIndex(__int64 a1, int a2)
   BOOL v6; // edi
   BOOL v7; // ebp
   int v8; // eax
-  _BYTE v10[528]; // [rsp+30h] [rbp-458h] BYREF
-  _BYTE v11[528]; // [rsp+240h] [rbp-248h] BYREF
+  WCHAR v10[264]; // [rsp+30h] [rbp-458h] BYREF
+  WCHAR v11[264]; // [rsp+240h] [rbp-248h] BYREF
 
   v2 = 0;
   v3 = -1;
@@ -37,9 +37,9 @@ LABEL_16:
       {
         v7 = v6;
         if ( !(unsigned int)ResCGetIndexedName(a1, 257LL, (unsigned int)v5, v10)
-          || (unsigned int)ResGetFileAttributesW((__int64)v10) == -1
+          || (unsigned int)ResGetFileAttributesW(v10) == -1
           || !(unsigned int)ResCGetName(v10, 260LL, v11)
-          || (unsigned int)ResGetFileAttributesW((__int64)v11) == -1 )
+          || (unsigned int)ResGetFileAttributesW(v11) == -1 )
         {
           break;
         }

@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0z @ 0x140191C64
+ * XREFs of McTemplateK0z @ 0x140191DA4
  * Callers:
- *     PnpLogActionQueueEvent @ 0x14015F76C (PnpLogActionQueueEvent.c)
- *     PnpInsertEventInQueue @ 0x14058FED8 (PnpInsertEventInQueue.c)
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
- *     PnpProcessTargetDeviceEvent @ 0x1406EB0C0 (PnpProcessTargetDeviceEvent.c)
- *     PiUEventSendDeviceInstallNotification @ 0x1407606D8 (PiUEventSendDeviceInstallNotification.c)
- *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
+ *     PnpLogActionQueueEvent @ 0x14015F86C (PnpLogActionQueueEvent.c)
+ *     PnpInsertEventInQueue @ 0x140590ED8 (PnpInsertEventInQueue.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1406EC360 (PnpProcessTargetDeviceEvent.c)
+ *     PiUEventSendDeviceInstallNotification @ 0x1407618C8 (PiUEventSendDeviceInstallNotification.c)
+ *     PiCMQueryRemove @ 0x140839894 (PiCMQueryRemove.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0z(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, const wchar_t *a4)

@@ -15,7 +15,7 @@
 
 void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
 {
-  unsigned __int64 *v1; // rsi
+  _RTL_BALANCED_NODE *v1; // rsi
   struct _LIST_ENTRY *Flink; // r14
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v5; // rbx
@@ -27,7 +27,7 @@ void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
   signed __int64 v11; // rdx
   signed __int64 v12; // rtt
 
-  v1 = (unsigned __int64 *)a1[3];
+  v1 = (_RTL_BALANCED_NODE *)a1[3];
   if ( v1 )
   {
     Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
@@ -46,9 +46,9 @@ void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
     *v9 = v8;
     *(_QWORD *)(v8 + 8) = v9;
     a1[3] = 0LL;
-    if ( (unsigned __int64 *)v1[4] == v1 + 4 )
+    if ( v1[1].Children[1] == (_RTL_BALANCED_NODE *)&v1[1].Right )
     {
-      RtlRbRemoveNode((unsigned __int64)&Flink[255], v1);
+      RtlRbRemoveNode((PRTL_RB_TREE)&Flink[255], v1);
       ExFreePoolWithTag(v1, 0);
     }
     _m_prefetchw(v5);

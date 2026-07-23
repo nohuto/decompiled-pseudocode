@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestNotifyAudioStateChanged @ 0x140141EA0
+ * XREFs of PopPowerRequestNotifyAudioStateChanged @ 0x140141FA0
  * Callers:
- *     PopWnfAudioCallback @ 0x1406DB5D0 (PopWnfAudioCallback.c)
+ *     PopWnfAudioCallback @ 0x1406DC870 (PopWnfAudioCallback.c)
  * Callees:
- *     PopReleasePowerRequestPushLock @ 0x140589A6C (PopReleasePowerRequestPushLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DB684 (PopHandleExecutionRequiredEnablementUpdate.c)
- *     PopStatsNotifyAudioState @ 0x1406DB6CC (PopStatsNotifyAudioState.c)
+ *     PopReleasePowerRequestPushLock @ 0x14058AA6C (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DC924 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopStatsNotifyAudioState @ 0x1406DC96C (PopStatsNotifyAudioState.c)
  */
 
 __int64 __fastcall PopPowerRequestNotifyAudioStateChanged(__int64 a1)

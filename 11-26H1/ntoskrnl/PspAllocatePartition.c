@@ -1,23 +1,23 @@
 /*
- * XREFs of PspAllocatePartition @ 0x1407FDBD8
+ * XREFs of PspAllocatePartition @ 0x140803608
  * Callers:
- *     PsCreatePartition @ 0x1407FDA4C (PsCreatePartition.c)
+ *     PsCreatePartition @ 0x14080347C (PsCreatePartition.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PspAddPartitionToGlobalList @ 0x14061698C (PspAddPartitionToGlobalList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspClosePartitionHandle @ 0x1407FDE80 (PspClosePartitionHandle.c)
- *     PspCreatePartitionSystemProcess @ 0x1407FDEB8 (PspCreatePartitionSystemProcess.c)
- *     ExpPartitionInitialize @ 0x14083FCA4 (ExpPartitionInitialize.c)
- *     ExpPartitionStart @ 0x14083FE48 (ExpPartitionStart.c)
- *     MmCreatePartition @ 0x140869D7C (MmCreatePartition.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PspAddPartitionToGlobalList @ 0x14061997C (PspAddPartitionToGlobalList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspClosePartitionHandle @ 0x1408038B0 (PspClosePartitionHandle.c)
+ *     PspCreatePartitionSystemProcess @ 0x1408038E8 (PspCreatePartitionSystemProcess.c)
+ *     ExpPartitionInitialize @ 0x140845EE4 (ExpPartitionInitialize.c)
+ *     ExpPartitionStart @ 0x140846088 (ExpPartitionStart.c)
+ *     MmCreatePartition @ 0x14087015C (MmCreatePartition.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
 __int64 __fastcall PspAllocatePartition(int a1, unsigned int a2, char a3, __int64 a4, char a5, _QWORD *a6, __int64 a7)

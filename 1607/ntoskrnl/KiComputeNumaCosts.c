@@ -3,14 +3,14 @@
  * Callers:
  *     KeInitSystem @ 0x140791AC4 (KeInitSystem.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MmAllocateNodePagesForMdlEx @ 0x1400AA474 (MmAllocateNodePagesForMdlEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     HvlQueryNumaDistance @ 0x1401BAF48 (HvlQueryNumaDistance.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1400A89F4 (MmAllocateNodePagesForMdlEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     HvlQueryNumaDistance @ 0x1401BAE2C (HvlQueryNumaDistance.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

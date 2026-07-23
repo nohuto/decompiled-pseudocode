@@ -3,14 +3,14 @@
  * Callers:
  *     CcCopyWrite @ 0x140539DF0 (CcCopyWrite.c)
  *     CcFastCopyWrite @ 0x14053A0D0 (CcFastCopyWrite.c)
- *     DifCcCopyWriteExWrapper @ 0x140605840 (DifCcCopyWriteExWrapper.c)
- *     DifCcCopyWriteWrapper @ 0x1406059B0 (DifCcCopyWriteWrapper.c)
- *     DifCcFastCopyWriteWrapper @ 0x140605C60 (DifCcFastCopyWriteWrapper.c)
+ *     sub_140605840 @ 0x140605840 (sub_140605840.c)
+ *     sub_1406059B0 @ 0x1406059B0 (sub_1406059B0.c)
+ *     sub_140605C60 @ 0x140605C60 (sub_140605C60.c)
  * Callees:
- *     CcMapAndCopyInToCache @ 0x1402BD970 (CcMapAndCopyInToCache.c)
+ *     sub_1402BD970 @ 0x1402BD970 (sub_1402BD970.c)
  *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     CcTelemetryBucketizeLatency @ 0x1407BE350 (CcTelemetryBucketizeLatency.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140811AB4 (CcSetTelemetryPeriodicTimer.c)
+ *     sub_1407BE350 @ 0x1407BE350 (sub_1407BE350.c)
+ *     sub_140811AB4 @ 0x140811AB4 (sub_140811AB4.c)
  */
 
 char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4, __int64 a5, __int64 a6)
@@ -43,18 +43,17 @@ char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4,
   v28 = 0LL;
   v29 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v12 = (*((_DWORD *)&CurrentThread[1].SwapListEntry + 2) >> 9) & 7;
-  if ( (CurrentThread->Process[1].DirectoryTableBase & 0x10000000000000LL) != 0 )
+  v12 = (*((_DWORD *)CurrentThread + 344) >> 9) & 7;
+  if ( (*(_DWORD *)(*((_QWORD *)CurrentThread + 68) + 1124LL) & 0x100000) != 0 )
     v12 = 0;
-  if ( (v12 >= 2 || CurrentThread != KeGetCurrentThread() || !LODWORD(CurrentThread[1].Timer.TimerListEntry.Flink))
-    && !v12
+  if ( (v12 >= 2 || CurrentThread != KeGetCurrentThread() || !*((_DWORD *)CurrentThread + 360)) && !v12
     || (*(_DWORD *)(a1 + 80) & 0x10) != 0 )
   {
     v10 = 1;
   }
   ++qword_140C498F0;
-  if ( !byte_140C498C1 && CcTelemetryGlobalData && !dword_140C499D0 && !dword_140C499D4 )
-    CcSetTelemetryPeriodicTimer(DueTime);
+  if ( !byte_140C498C1 && byte_140C49880 && !dword_140C499D0 && !dword_140C499D4 )
+    sub_140811AB4(stru_140C498A0);
   if ( v10 && !a4 )
     return 0;
   v14 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 8LL);
@@ -81,7 +80,7 @@ char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4,
   {
     v20 = v17 | 7;
   }
-  v21 = CcMapAndCopyInToCache(v14, a5, (unsigned int)&v31, a3, v20, a1, (__int64)v32, a4, a6, (__int64)&v28);
+  v21 = sub_1402BD970(v14, a5, (unsigned int)&v31, a3, v20, a1, (__int64)v32, a4, a6, (__int64)&v28);
   if ( !byte_140C498C1 )
   {
     v22 = *(_QWORD **)(v14 + 504);
@@ -98,7 +97,7 @@ char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4,
       v26 = 103LL;
       if ( !a4 )
         v26 = 127LL;
-      CcTelemetryBucketizeLatency(v23, &v22[v26], v25);
+      sub_1407BE350(v23, &v22[v26], v25);
       if ( a4 )
       {
         ++v22[98];

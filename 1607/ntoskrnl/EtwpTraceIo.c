@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceIo @ 0x1400A0880
+ * XREFs of EtwpTraceIo @ 0x14009F1A8
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     IoGetActivityIdIrp @ 0x14008C2C0 (IoGetActivityIdIrp.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpDiskProvTraceDisk @ 0x140226324 (EtwpDiskProvTraceDisk.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     IoGetActivityIdIrp @ 0x14008BA20 (IoGetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpDiskProvTraceDisk @ 0x140226150 (EtwpDiskProvTraceDisk.c)
  */
 
 __int64 __fastcall EtwpTraceIo(int a1, int a2, __int64 a3)
@@ -112,7 +112,7 @@ LABEL_14:
   v32 = 0;
   v30 = v13;
   result = EtwTraceKernelEvent((int)&v30, 1, 0x100u, v6, 4200451);
-  if ( (dword_1402FD540 & 0x100) != 0 )
+  if ( (dword_1402FD520 & 0x100) != 0 )
   {
     v18 = 0uLL;
     if ( (unsigned int)IoGetActivityIdIrp(a3, &v18) )

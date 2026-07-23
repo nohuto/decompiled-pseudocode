@@ -1,40 +1,43 @@
 /*
- * XREFs of RtlDebugQueryTagHeap @ 0x1800F9884
+ * XREFs of RtlDebugQueryTagHeap @ 0x1800F9844
  * Callers:
- *     RtlQueryTagHeap @ 0x1800F2AD0 (RtlQueryTagHeap.c)
+ *     RtlQueryTagHeap @ 0x1800F2A90 (RtlQueryTagHeap.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  *     RtlNtStatusToDosError @ 0x180051950 (RtlNtStatusToDosError.c)
  *     RtlpCheckHeapSignature @ 0x18005FAC0 (RtlpCheckHeapSignature.c)
- *     RtlQueryTagHeap @ 0x1800F2AD0 (RtlQueryTagHeap.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
- *     RtlpHeapExceptionFilter @ 0x18010E0A4 (RtlpHeapExceptionFilter.c)
+ *     RtlQueryTagHeap @ 0x1800F2A90 (RtlQueryTagHeap.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
+ *     RtlpHeapExceptionFilter @ 0x18010E064 (RtlpHeapExceptionFilter.c)
  */
 
-void *__fastcall RtlDebugQueryTagHeap(__int64 a1, int a2, unsigned __int16 a3, char a4, __int64 a5)
+PWSTR __fastcall RtlDebugQueryTagHeap(
+        PRTL_CRITICAL_SECTION *HeapHandle,
+        int a2,
+        USHORT a3,
+        BOOLEAN a4,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
   char v9; // si
-  void *TagHeap; // r14
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  unsigned int v13; // ebx
+  PWSTR TagHeap; // r14
+  ULONG v11; // ebx
 
   v9 = 0;
   TagHeap = 0LL;
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlQueryTagHeap") )
+  if ( RtlpCheckHeapSignature(HeapHandle, "RtlQueryTagHeap") )
   {
-    v13 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
-    if ( (v13 & 1) == 0 )
+    v11 = *((_DWORD *)HeapHandle + 29) | 0x10000000 | a2;
+    if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(HeapHandle[44]);
       v9 = 1;
-      v13 |= 1u;
+      v11 |= 1u;
     }
-    if ( (unsigned __int8)RtlpValidateHeap(a1, 0LL) )
-      TagHeap = RtlQueryTagHeap(a1, v13, a3, a4, a5);
+    if ( (unsigned __int8)RtlpValidateHeap((_DWORD)HeapHandle) )
+      TagHeap = RtlQueryTagHeap(HeapHandle, v11, a3, a4, TagInfo);
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352), v11, v12);
+    RtlLeaveCriticalSection(HeapHandle[44]);
   return TagHeap;
 }

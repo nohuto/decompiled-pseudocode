@@ -31,44 +31,42 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
   __int64 active; // rdi
   __int64 v15; // rax
   __int64 v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r15
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r10
-  _DWORD *v22; // r9
-  int v23; // eax
-  unsigned __int8 v24; // cl
-  struct _KPRCB *v25; // r9
-  int v26; // eax
-  _DWORD *v27; // r8
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r9
-  int v30; // eax
-  _DWORD *v31; // r8
-  unsigned __int8 v32; // al
-  struct _KPRCB *v33; // r9
-  int v34; // eax
-  _DWORD *v35; // r8
-  unsigned __int8 v36; // cl
-  struct _KPRCB *v37; // r9
-  int v38; // eax
-  _DWORD *v39; // r8
+  __int64 v17; // r15
+  unsigned __int8 v18; // al
+  struct _KPRCB *v19; // r10
+  _DWORD *v20; // r9
+  int v21; // eax
+  unsigned __int8 v22; // cl
+  struct _KPRCB *v23; // r9
+  int v24; // eax
+  _DWORD *v25; // r8
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // r9
+  int v28; // eax
+  _DWORD *v29; // r8
+  unsigned __int8 v30; // al
+  struct _KPRCB *v31; // r9
+  int v32; // eax
+  _DWORD *v33; // r8
+  unsigned __int8 v34; // cl
+  struct _KPRCB *v35; // r9
+  int v36; // eax
+  _DWORD *v37; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  int v42; // eax
+  int v40; // eax
   _DWORD *SchedulerAssist; // r8
-  __int128 v44; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v45; // [rsp+30h] [rbp-20h] BYREF
-  char *v46; // [rsp+40h] [rbp-10h]
+  __int128 v42; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v43; // [rsp+30h] [rbp-20h] BYREF
+  char *v44; // [rsp+40h] [rbp-10h]
   struct _FILE_OBJECT *FileObject; // [rsp+90h] [rbp+40h]
 
   v3 = (*(_DWORD *)(a1 + 16) & 0x1000000) == 0;
-  v46 = 0LL;
-  v6 = *(struct _FILE_OBJECT **)(a1 + 56);
   v44 = 0LL;
+  v6 = *(struct _FILE_OBJECT **)(a1 + 56);
+  v42 = 0LL;
   FileObject = v6;
-  v45 = 0LL;
+  v43 = 0LL;
   SectionObjectPointer = (__int64 *)v6->SectionObjectPointer;
   if ( !v3 )
     SectionObjectPointer += 2;
@@ -80,7 +78,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     if ( !*SectionObjectPointer )
     {
       *SectionObjectPointer = a2;
-      v15 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0LL);
+      v15 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
       if ( v15 )
         *(_BYTE *)(v15 + 26) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
@@ -92,10 +90,10 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
           if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+            v40 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v3 = (v42 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v42;
+            v3 = (v40 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v40;
             if ( v3 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
@@ -112,16 +110,16 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v20 = KeGetCurrentIrql();
-        if ( v20 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v20 >= 2u )
+        v18 = KeGetCurrentIrql();
+        if ( v18 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v18 >= 2u )
         {
-          v21 = KeGetCurrentPrcb();
-          v22 = v21->SchedulerAssist;
-          v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-          v3 = (v23 & v22[5]) == 0;
-          v22[5] &= v23;
+          v19 = KeGetCurrentPrcb();
+          v20 = v19->SchedulerAssist;
+          v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v3 = (v21 & v20[5]) == 0;
+          v20[5] &= v21;
           if ( v3 )
-            KiRemoveSystemWorkPriorityKick(v21);
+            KiRemoveSystemWorkPriorityKick(v19);
         }
       }
     }
@@ -136,16 +134,16 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v24 = KeGetCurrentIrql();
-        if ( v24 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v24 >= 2u )
+        v22 = KeGetCurrentIrql();
+        if ( v22 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v22 >= 2u )
         {
-          v25 = KeGetCurrentPrcb();
-          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-          v27 = v25->SchedulerAssist;
-          v3 = (v26 & v27[5]) == 0;
-          v27[5] &= v26;
+          v23 = KeGetCurrentPrcb();
+          v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v25 = v23->SchedulerAssist;
+          v3 = (v24 & v25[5]) == 0;
+          v25[5] &= v24;
           if ( v3 )
-            KiRemoveSystemWorkPriorityKick(v25);
+            KiRemoveSystemWorkPriorityKick(v23);
         }
       }
     }
@@ -173,16 +171,16 @@ LABEL_55:
           {
             if ( (KiIrqlFlags & 1) != 0 )
             {
-              v32 = KeGetCurrentIrql();
-              if ( v32 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v32 >= 2u )
+              v30 = KeGetCurrentIrql();
+              if ( v30 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v30 >= 2u )
               {
-                v33 = KeGetCurrentPrcb();
-                v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-                v35 = v33->SchedulerAssist;
-                v3 = (v34 & v35[5]) == 0;
-                v35[5] &= v34;
+                v31 = KeGetCurrentPrcb();
+                v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+                v33 = v31->SchedulerAssist;
+                v3 = (v32 & v33[5]) == 0;
+                v33[5] &= v32;
                 if ( v3 )
-                  KiRemoveSystemWorkPriorityKick(v33);
+                  KiRemoveSystemWorkPriorityKick(v31);
               }
             }
           }
@@ -196,16 +194,16 @@ LABEL_55:
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v36 = KeGetCurrentIrql();
-          if ( v36 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v36 >= 2u )
+          v34 = KeGetCurrentIrql();
+          if ( v34 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v34 >= 2u )
           {
-            v37 = KeGetCurrentPrcb();
-            v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-            v39 = v37->SchedulerAssist;
-            v3 = (v38 & v39[5]) == 0;
-            v39[5] &= v38;
+            v35 = KeGetCurrentPrcb();
+            v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+            v37 = v35->SchedulerAssist;
+            v3 = (v36 & v37[5]) == 0;
+            v37[5] &= v36;
             if ( v3 )
-              KiRemoveSystemWorkPriorityKick(v37);
+              KiRemoveSystemWorkPriorityKick(v35);
           }
         }
       }
@@ -214,33 +212,33 @@ LABEL_55:
       *a3 = v9;
       return 0LL;
     }
-    v16 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0LL);
-    v19 = v16;
+    v16 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
+    v17 = v16;
     if ( v16 )
-      KeAbPreWait(v16, v17, v18);
-    DWORD1(v45) = 0;
-    v46 = (char *)&v45 + 8;
-    LOWORD(v45) = 263;
-    *((_QWORD *)&v45 + 1) = (char *)&v45 + 8;
-    BYTE2(v45) = 6;
-    DWORD2(v44) = 1;
-    *(_QWORD *)&v44 = *(_QWORD *)(v9 + 80);
-    *(_QWORD *)(v9 + 80) = &v44;
+      KeAbPreWait(v16);
+    DWORD1(v43) = 0;
+    v44 = (char *)&v43 + 8;
+    LOWORD(v43) = 263;
+    *((_QWORD *)&v43 + 1) = (char *)&v43 + 8;
+    BYTE2(v43) = 6;
+    DWORD2(v42) = 1;
+    *(_QWORD *)&v42 = *(_QWORD *)(v9 + 80);
+    *(_QWORD *)(v9 + 80) = &v42;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v28 = KeGetCurrentIrql();
-        if ( v28 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v28 >= 2u )
+        v26 = KeGetCurrentIrql();
+        if ( v26 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v26 >= 2u )
         {
-          v29 = KeGetCurrentPrcb();
-          v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-          v31 = v29->SchedulerAssist;
-          v3 = (v30 & v31[5]) == 0;
-          v31[5] &= v30;
+          v27 = KeGetCurrentPrcb();
+          v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v29 = v27->SchedulerAssist;
+          v3 = (v28 & v29[5]) == 0;
+          v29[5] &= v28;
           if ( v3 )
-            KiRemoveSystemWorkPriorityKick(v29);
+            KiRemoveSystemWorkPriorityKick(v27);
         }
       }
     }
@@ -251,10 +249,10 @@ LABEL_55:
       FsRtlReleaseFile(FileObject);
       *(_DWORD *)a1 &= ~2u;
     }
-    KeWaitForGate(&v45, 18LL);
-    if ( v19 )
+    KeWaitForGate(&v43, 18LL);
+    if ( v17 )
     {
-      KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, v19, 0LL);
+      KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, v17, 0);
       KeAbPostReleaseEx((ULONG_PTR)SectionObjectPointer);
     }
     *a3 = 0LL;

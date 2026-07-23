@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpFindSecondaryIcEntry @ 0x140426CC8
+ * XREFs of HalpFindSecondaryIcEntry @ 0x140433DD8
  * Callers:
- *     HalpDisableSecondaryInterrupt @ 0x140423064 (HalpDisableSecondaryInterrupt.c)
- *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14042683C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
- *     HalpInterruptRequestSecondaryInterrupt @ 0x14058F930 (HalpInterruptRequestSecondaryInterrupt.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x140B47C9C (HalpQueryPrimaryInterruptInformation.c)
- *     HalpEnableSecondaryInterrupt @ 0x140B5EF94 (HalpEnableSecondaryInterrupt.c)
+ *     HalpDisableSecondaryInterrupt @ 0x140430154 (HalpDisableSecondaryInterrupt.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14043394C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x1405920B0 (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x140B49A2C (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpEnableSecondaryInterrupt @ 0x140B62114 (HalpEnableSecondaryInterrupt.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
  */
 
 __int64 __fastcall HalpFindSecondaryIcEntry(unsigned int a1)

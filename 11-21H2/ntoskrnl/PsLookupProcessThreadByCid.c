@@ -1,9 +1,9 @@
 /*
  * XREFs of PsLookupProcessThreadByCid @ 0x140663880
  * Callers:
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     sub_1406634A0 @ 0x1406634A0 (sub_1406634A0.c)
+ *     sub_1407292A0 @ 0x1407292A0 (sub_1407292A0.c)
+ *     sub_1407D6120 @ 0x1407D6120 (sub_1407D6120.c)
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)

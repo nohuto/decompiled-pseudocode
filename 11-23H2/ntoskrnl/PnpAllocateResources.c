@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpAllocateResources @ 0x14078F4C4
+ * XREFs of PnpAllocateResources @ 0x14078F6B4
  * Callers:
- *     PnpAssignResourcesToDevices @ 0x1407905A4 (PnpAssignResourcesToDevices.c)
- *     IopLegacyResourceAllocation @ 0x140815844 (IopLegacyResourceAllocation.c)
+ *     PnpAssignResourcesToDevices @ 0x140790794 (PnpAssignResourcesToDevices.c)
+ *     IopLegacyResourceAllocation @ 0x140815B14 (IopLegacyResourceAllocation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x140321430 (KeReleaseSemaphore.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x14078F864 (PnpGetResourceRequirementsForAssignTable.c)
- *     PipSetDevNodeFlags @ 0x1407956CC (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14079805C (PipClearDevNodeFlags.c)
- *     PnpFindBestConfiguration @ 0x140815D20 (PnpFindBestConfiguration.c)
- *     PnpBuildCmResourceLists @ 0x140816054 (PnpBuildCmResourceLists.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081624C (PnpFreeResourceRequirementsForAssignTable.c)
- *     IopReleaseFilteredBootResources @ 0x1408162A4 (IopReleaseFilteredBootResources.c)
- *     IopCommitConfiguration @ 0x14084FDD8 (IopCommitConfiguration.c)
- *     PnpRebalance @ 0x14096E8B8 (PnpRebalance.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphore @ 0x1403216C0 (KeReleaseSemaphore.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14078FA54 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PipSetDevNodeFlags @ 0x1407958BC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x14079824C (PipClearDevNodeFlags.c)
+ *     PnpFindBestConfiguration @ 0x140815FF0 (PnpFindBestConfiguration.c)
+ *     PnpBuildCmResourceLists @ 0x140816324 (PnpBuildCmResourceLists.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x14081651C (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopReleaseFilteredBootResources @ 0x140816574 (IopReleaseFilteredBootResources.c)
+ *     IopCommitConfiguration @ 0x1408500D8 (IopCommitConfiguration.c)
+ *     PnpRebalance @ 0x14096EAB8 (PnpRebalance.c)
  */
 
 __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, char a3, _BYTE *a4)

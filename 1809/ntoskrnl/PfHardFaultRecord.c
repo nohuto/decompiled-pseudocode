@@ -30,8 +30,8 @@ __int64 __fastcall PfHardFaultRecord(
     a1->QuadPart = 0LL;
     a1[1].QuadPart = 0LL;
   }
-  result = (unsigned int)dword_1404D7554;
-  if ( (dword_1404D7554 & 1) != 0 )
+  result = (unsigned int)dword_1404D8614;
+  if ( (dword_1404D8614 & 1) != 0 )
   {
     result = MEMORY[0xFFFFF78000000320];
     a1[8].QuadPart = MEMORY[0xFFFFF78000000320];

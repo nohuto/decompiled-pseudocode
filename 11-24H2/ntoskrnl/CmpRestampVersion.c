@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRestampVersion @ 0x1407D7768
+ * XREFs of CmpRestampVersion @ 0x1407D7CBC
  * Callers:
- *     CmpSetVersionData @ 0x1407D7920 (CmpSetVersionData.c)
+ *     CmpSetVersionData @ 0x1407D7E74 (CmpSetVersionData.c)
  * Callees:
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpRestampVersion(HANDLE KeyHandle)

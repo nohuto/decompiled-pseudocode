@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInterruptMessageDispatch @ 0x1402AD5B0
+ * XREFs of KiInterruptMessageDispatch @ 0x14022B910
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiInterruptMessageDispatch(__int64 a1, __int64 a2)

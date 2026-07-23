@@ -1,12 +1,12 @@
 /*
- * XREFs of MmKcsanGetIgnoredRangeList @ 0x140679C1C
+ * XREFs of MmKcsanGetIgnoredRangeList @ 0x14067ADFC
  * Callers:
- *     KcsanInitSystem @ 0x1405AE2A0 (KcsanInitSystem.c)
+ *     KcsanInitSystem @ 0x1405AB210 (KcsanInitSystem.c)
  * Callees:
- *     qsort @ 0x1404FED20 (qsort.c)
- *     MiKcsanPopulateHierarchy @ 0x1406799C0 (MiKcsanPopulateHierarchy.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     MiKcsanPopulateHierarchy @ 0x14067ABA0 (MiKcsanPopulateHierarchy.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 unsigned __int64 *MmKcsanGetIgnoredRangeList()
@@ -22,15 +22,15 @@ unsigned __int64 *MmKcsanGetIgnoredRangeList()
   char *v8; // r15
 
   v0 = 9LL;
-  result = (unsigned __int64 *)ExAllocatePool2(0x48uLL);
+  result = (unsigned __int64 *)ExAllocatePool2(0x48uLL, 0x98uLL, 0x6152634Bu);
   v2 = result;
   if ( result )
   {
     *result = 9LL;
     MiKcsanPopulateHierarchy((__int64)(result + 1), 0LL);
-    v3 = qword_140E38B28;
-    v4 = qword_140E38B28 + qword_140E38B30 - 1;
-    v2[9] = qword_140E38B28;
+    v3 = qword_140E38C68;
+    v4 = qword_140E38C68 + qword_140E38C70 - 1;
+    v2[9] = qword_140E38C68;
     v2[10] = v4;
     MiKcsanPopulateHierarchy((__int64)(v2 + 11), v3);
     qsort(v2 + 1, 9uLL, 0x10uLL, (int (__cdecl *)(const void *, const void *))HalpNodeCostSort);

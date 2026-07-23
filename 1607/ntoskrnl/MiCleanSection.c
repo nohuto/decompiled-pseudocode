@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCleanSection @ 0x140111CAC
+ * XREFs of MiCleanSection @ 0x140112210
  * Callers:
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiAttemptSectionDelete @ 0x1400A90D0 (MiAttemptSectionDelete.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiAttemptSectionDelete @ 0x1400A7650 (MiAttemptSectionDelete.c)
  * Callees:
- *     MiInsertUnusedSegment @ 0x140026FEC (MiInsertUnusedSegment.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDestroySection @ 0x140111D20 (MiDestroySection.c)
- *     MiRemoveWakeListEntry @ 0x1401DF35C (MiRemoveWakeListEntry.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiInsertUnusedSegment @ 0x140026B6C (MiInsertUnusedSegment.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDestroySection @ 0x140112284 (MiDestroySection.c)
+ *     MiRemoveWakeListEntry @ 0x1401DF188 (MiRemoveWakeListEntry.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)

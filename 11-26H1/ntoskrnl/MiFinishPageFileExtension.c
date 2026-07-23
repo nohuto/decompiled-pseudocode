@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFinishPageFileExtension @ 0x14050F0CC
+ * XREFs of MiFinishPageFileExtension @ 0x140508B3C
  * Callers:
- *     MiStoreExtendVirtualPagefile @ 0x1405117D8 (MiStoreExtendVirtualPagefile.c)
- *     MiAttemptPageFileExtension @ 0x140B2FAF8 (MiAttemptPageFileExtension.c)
+ *     MiStoreExtendVirtualPagefile @ 0x14050B248 (MiStoreExtendVirtualPagefile.c)
+ *     MiAttemptPageFileExtension @ 0x140B318D8 (MiAttemptPageFileExtension.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     MiCoalescePageFileBitmapsCache @ 0x14044C2E0 (MiCoalescePageFileBitmapsCache.c)
- *     MiUpdateReserveClusterInfo @ 0x1404A4D38 (MiUpdateReserveClusterInfo.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140444400 (MiCoalescePageFileBitmapsCache.c)
+ *     MiUpdateReserveClusterInfo @ 0x14049E3C8 (MiUpdateReserveClusterInfo.c)
  */
 
 void __fastcall MiFinishPageFileExtension(struct _KEVENT *a1, __int64 a2, ULONG a3)

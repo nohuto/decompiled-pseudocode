@@ -1,15 +1,15 @@
 /*
- * XREFs of MiWalkFreeZeroListHead @ 0x1403581B0
+ * XREFs of MiWalkFreeZeroListHead @ 0x140359F50
  * Callers:
- *     MiPurgeZeroListHeads @ 0x1403571A0 (MiPurgeZeroListHeads.c)
- *     MiMoveHibernateFreeToZeroListHeads @ 0x1406EFF60 (MiMoveHibernateFreeToZeroListHeads.c)
+ *     MiPurgeZeroListHeads @ 0x140358F40 (MiPurgeZeroListHeads.c)
+ *     MiMoveHibernateFreeToZeroListHeads @ 0x1406F4BD0 (MiMoveHibernateFreeToZeroListHeads.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiWalkFreeZeroListHead(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

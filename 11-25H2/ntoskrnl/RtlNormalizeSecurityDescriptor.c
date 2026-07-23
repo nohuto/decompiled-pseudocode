@@ -11,18 +11,18 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-char __fastcall RtlNormalizeSecurityDescriptor(
-        PSECURITY_DESCRIPTOR *a1,
-        ULONG a2,
-        PSECURITY_DESCRIPTOR *a3,
-        unsigned int *a4,
-        char a5)
+BOOLEAN __cdecl RtlNormalizeSecurityDescriptor(
+        PSECURITY_DESCRIPTOR *SecurityDescriptor,
+        ULONG SecurityDescriptorLength,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        PULONG NewSecurityDescriptorLength,
+        BOOLEAN CheckOnly)
 {
   _DWORD *v5; // rbp
   _DWORD *Pool2; // rdi
-  char v8; // r14
+  BOOLEAN v8; // r14
   __int64 v9; // rcx
-  unsigned int v10; // ebx
+  ULONG v10; // ebx
   char *v11; // r13
   __int16 v12; // dx
   unsigned int v13; // r12d
@@ -42,18 +42,18 @@ char __fastcall RtlNormalizeSecurityDescriptor(
   PSECURITY_DESCRIPTOR *v28; // rax
   char v30; // [rsp+78h] [rbp+10h]
 
-  v5 = *a1;
+  v5 = *SecurityDescriptor;
   v30 = 0;
   Pool2 = 0LL;
   v8 = 0;
-  if ( SeValidSecurityDescriptor(a2, *a1) )
+  if ( SeValidSecurityDescriptor(SecurityDescriptorLength, *SecurityDescriptor) )
   {
-    if ( a5 )
+    if ( CheckOnly )
       goto LABEL_8;
-    if ( a3 )
+    if ( NewSecurityDescriptor )
     {
-      Pool2 = *a3;
-      if ( *a3 )
+      Pool2 = *NewSecurityDescriptor;
+      if ( *NewSecurityDescriptor )
       {
 LABEL_7:
         *(_OWORD *)Pool2 = *(_OWORD *)v5;
@@ -67,29 +67,29 @@ LABEL_8:
           v12 = *(_WORD *)((char *)v5 + v9 + 4);
           v13 = v12 != 0 ? 0x14 : 0;
           v8 = v13 != (_DWORD)v9;
-          if ( v13 != (_DWORD)v9 && a5 )
+          if ( v13 != (_DWORD)v9 && CheckOnly )
           {
 LABEL_11:
             if ( !v8 )
               goto LABEL_12;
 LABEL_51:
-            if ( !a5 )
+            if ( !CheckOnly )
             {
-              v28 = a3;
-              if ( a3 )
+              v28 = NewSecurityDescriptor;
+              if ( NewSecurityDescriptor )
               {
                 if ( !v30 )
                 {
 LABEL_57:
-                  if ( a4 )
-                    *a4 = v10;
+                  if ( NewSecurityDescriptorLength )
+                    *NewSecurityDescriptorLength = v10;
                   return v8;
                 }
               }
               else
               {
                 ExFreePoolWithTag(v5, 0);
-                v28 = a1;
+                v28 = SecurityDescriptor;
               }
               *v28 = Pool2;
               goto LABEL_57;
@@ -101,14 +101,14 @@ LABEL_12:
           }
           if ( v12 )
           {
-            if ( a5 )
+            if ( CheckOnly )
               v15 = 0LL;
             else
               v15 = (char *)Pool2 + v13;
             v8 |= RtlpNormalizeAcl(v15, (char *)v5 + v9, 0LL);
-            if ( v8 && a5 )
+            if ( v8 && CheckOnly )
               goto LABEL_51;
-            if ( a5 )
+            if ( CheckOnly )
             {
               v16 = *((_WORD *)v11 + 1);
             }
@@ -122,7 +122,7 @@ LABEL_12:
           else
           {
             v8 = 1;
-            if ( a5 )
+            if ( CheckOnly )
               goto LABEL_12;
             Pool2[3] = 0;
           }
@@ -131,17 +131,17 @@ LABEL_12:
         if ( (_DWORD)v17 )
         {
           v8 |= v10 != (_DWORD)v17;
-          if ( v8 && a5 )
+          if ( v8 && CheckOnly )
             goto LABEL_12;
           v18 = (char *)v5 + v17;
-          v19 = a5 ? 0LL : (char *)Pool2 + v10;
+          v19 = CheckOnly ? 0LL : (char *)Pool2 + v10;
           v8 |= RtlpNormalizeAcl(v19, (char *)v5 + v17, 0LL);
           if ( v8 )
           {
-            if ( a5 )
+            if ( CheckOnly )
               goto LABEL_12;
           }
-          if ( a5 )
+          if ( CheckOnly )
           {
             v20 = *((unsigned __int16 *)v18 + 1);
           }
@@ -155,14 +155,14 @@ LABEL_12:
         if ( v10 != v5[1] )
         {
           v8 = 1;
-          if ( a5 )
+          if ( CheckOnly )
             goto LABEL_12;
           Pool2[1] = v10;
         }
         v21 = (unsigned __int8 *)v5 + (unsigned int)v5[1];
         v22 = RtlLengthRequiredSid(v21[1]);
         v23 = v22;
-        if ( !a5 )
+        if ( !CheckOnly )
           memmove((char *)Pool2 + (unsigned int)Pool2[1], v21, v22);
         v24 = v5[2];
         v10 += v23;
@@ -171,14 +171,14 @@ LABEL_12:
           if ( v10 != v24 )
           {
             v8 = 1;
-            if ( a5 )
+            if ( CheckOnly )
               goto LABEL_12;
             Pool2[2] = v10;
           }
           v25 = (unsigned __int8 *)v5 + (unsigned int)v5[2];
           v26 = RtlLengthRequiredSid(v25[1]);
           v27 = v26;
-          if ( !a5 )
+          if ( !CheckOnly )
             memmove((char *)Pool2 + (unsigned int)Pool2[2], v25, v26);
           v10 += v27;
         }

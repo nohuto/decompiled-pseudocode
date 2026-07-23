@@ -1,13 +1,13 @@
 /*
- * XREFs of HviIsHypervisorVendorMicrosoft @ 0x140663DA0
+ * XREFs of HviIsHypervisorVendorMicrosoft @ 0x140662690
  * Callers:
- *     HviIsKernelApertureAvailable @ 0x1406042FC (HviIsKernelApertureAvailable.c)
- *     MicrocodeUpdate @ 0x140664918 (MicrocodeUpdate.c)
- *     SpcIsHyperVCr3RspErrataPresent @ 0x1406A0A64 (SpcIsHyperVCr3RspErrataPresent.c)
- *     EtwpTraceSystemInitialization @ 0x140C3DC1C (EtwpTraceSystemInitialization.c)
+ *     HviIsKernelApertureAvailable @ 0x14060193C (HviIsKernelApertureAvailable.c)
+ *     MicrocodeUpdate @ 0x140663208 (MicrocodeUpdate.c)
+ *     SpcIsHyperVCr3RspErrataPresent @ 0x1406A1B6C (SpcIsHyperVCr3RspErrataPresent.c)
+ *     EtwpTraceSystemInitialization @ 0x140C3FD6C (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 bool HviIsHypervisorVendorMicrosoft()

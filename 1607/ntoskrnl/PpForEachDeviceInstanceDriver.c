@@ -1,28 +1,28 @@
 /*
- * XREFs of PpForEachDeviceInstanceDriver @ 0x1404C7E9C
+ * XREFs of PpForEachDeviceInstanceDriver @ 0x14050F6D0
  * Callers:
- *     PiDeviceRegistration @ 0x1404C7D00 (PiDeviceRegistration.c)
+ *     PiDeviceRegistration @ 0x14050F534 (PiDeviceRegistration.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     PnpUnicodeStringToWstrFree @ 0x140500F80 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140500FB4 (PnpUnicodeStringToWstr.c)
- *     _CmGetInstallerClassRegProp @ 0x140504368 (_CmGetInstallerClassRegProp.c)
- *     PiForEachDriverQueryRoutine @ 0x1405386F0 (PiForEachDriverQueryRoutine.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1404E3F10 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1404E3F44 (PnpUnicodeStringToWstr.c)
+ *     _CmGetInstallerClassRegProp @ 0x1404E72F8 (_CmGetInstallerClassRegProp.c)
+ *     PiForEachDriverQueryRoutine @ 0x140538C30 (PiForEachDriverQueryRoutine.c)
  */
 
-__int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a2, __int64 a3)
 {
   PVOID PoolWithTag; // rdi
   __int64 result; // rax
   int DeviceRegProp; // ebx
-  int v8; // r8d
-  int v9; // r9d
+  __int64 v8; // r8
+  __int64 v9; // r9
   unsigned int v10; // r15d
   char *v11; // rsi
   char v12; // cl
@@ -33,7 +33,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64
   unsigned int NumberOfBytes; // [rsp+40h] [rbp-69h] BYREF
   unsigned int NumberOfBytes_4; // [rsp+44h] [rbp-65h] BYREF
   int v19; // [rsp+48h] [rbp-61h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-59h] BYREF
+  void *v20; // [rsp+50h] [rbp-59h] BYREF
   HANDLE Handle; // [rsp+58h] [rbp-51h] BYREF
   HANDLE v22; // [rsp+60h] [rbp-49h] BYREF
   _QWORD v23[3]; // [rsp+68h] [rbp-41h] BYREF
@@ -46,29 +46,21 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64
   result = PnpUnicodeStringToWstr(&v20, 0LL, a1);
   if ( (int)result >= 0 )
   {
-    DeviceRegProp = CmOpenDeviceRegKey(PiPnpRtlCtx, v20, 16, 0, 131097, 0, (__int64)&v22, 0LL);
+    DeviceRegProp = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v20, 0x10u, 0, 131097, 0, (__int64)&v22, 0LL);
     if ( DeviceRegProp >= 0 )
     {
       v19 = 78;
       DeviceRegProp = CmGetDeviceRegProp(
-                        PiPnpRtlCtx,
-                        v20,
-                        (_DWORD)v22,
+                        *(__int64 *)&PiPnpRtlCtx,
+                        (__int64)v20,
+                        (__int64)v22,
                         9,
                         (__int64)&NumberOfBytes_4,
                         (__int64)v24,
                         (__int64)&v19,
                         0);
       if ( DeviceRegProp >= 0 && NumberOfBytes_4 == 1 && v19 )
-        DeviceRegProp = CmOpenInstallerClassRegKey(
-                          PiPnpRtlCtx,
-                          (unsigned int)v24,
-                          v8,
-                          v9,
-                          131097,
-                          0,
-                          (__int64)&Handle,
-                          0LL);
+        DeviceRegProp = CmOpenInstallerClassRegKey(PiPnpRtlCtx, (int)v24, v8, v9, 131097, 0, (__int64)&Handle, 0LL);
       v23[2] = a3;
       v23[1] = PiProcessDriverInstance;
       v19 = 170;
@@ -77,7 +69,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64
       if ( PoolWithTag )
       {
         v10 = 0;
-        v11 = (char *)&unk_14026D800;
+        v11 = (char *)&unk_14026D938;
         while ( 1 )
         {
           v12 = v11[4];
@@ -87,18 +79,18 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64
             NumberOfBytes = v19;
             if ( v12 )
               InstallerClassRegProp = CmGetInstallerClassRegProp(
-                                        PiPnpRtlCtx,
-                                        (unsigned int)v24,
-                                        (_DWORD)Handle,
+                                        *(__int64 **)&PiPnpRtlCtx,
+                                        (__int64)v24,
+                                        Handle,
                                         v13,
-                                        (__int64)&NumberOfBytes_4,
-                                        (__int64)PoolWithTag,
-                                        (__int64)&NumberOfBytes);
+                                        &NumberOfBytes_4,
+                                        PoolWithTag,
+                                        &NumberOfBytes);
             else
               InstallerClassRegProp = CmGetDeviceRegProp(
-                                        PiPnpRtlCtx,
-                                        v20,
-                                        (_DWORD)v22,
+                                        *(__int64 *)&PiPnpRtlCtx,
+                                        (__int64)v20,
+                                        (__int64)v22,
                                         v13,
                                         (__int64)&NumberOfBytes_4,
                                         (__int64)PoolWithTag,
@@ -115,18 +107,18 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64
               v15 = *(_DWORD *)v11;
               if ( v11[4] )
                 v16 = CmGetInstallerClassRegProp(
-                        PiPnpRtlCtx,
-                        (unsigned int)v24,
-                        (_DWORD)Handle,
+                        *(__int64 **)&PiPnpRtlCtx,
+                        (__int64)v24,
+                        Handle,
                         v15,
-                        (__int64)&NumberOfBytes_4,
-                        (__int64)PoolWithTag,
-                        (__int64)&NumberOfBytes);
+                        &NumberOfBytes_4,
+                        PoolWithTag,
+                        &NumberOfBytes);
               else
                 v16 = CmGetDeviceRegProp(
-                        PiPnpRtlCtx,
-                        v20,
-                        (_DWORD)v22,
+                        *(__int64 *)&PiPnpRtlCtx,
+                        (__int64)v20,
+                        (__int64)v22,
                         v15,
                         (__int64)&NumberOfBytes_4,
                         (__int64)PoolWithTag,
@@ -157,7 +149,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(__int64 a1, __int64 a2, __int64
     }
 LABEL_16:
     if ( v20 )
-      PnpUnicodeStringToWstrFree(v20, a1);
+      PnpUnicodeStringToWstrFree(v20, (__int64)a1);
     if ( PoolWithTag )
       ExFreePoolWithTag(PoolWithTag, 0);
     if ( Handle )

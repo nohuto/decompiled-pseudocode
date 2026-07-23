@@ -3,14 +3,14 @@
  * Callers:
  *     ObKillProcess @ 0x14068B254 (ObKillProcess.c)
  *     RtlDestroyAtomTable @ 0x14069EB40 (RtlDestroyAtomTable.c)
- *     ObInitProcess @ 0x1406B362C (ObInitProcess.c)
- *     ExDupHandleTable @ 0x1407B00DC (ExDupHandleTable.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140978E2C (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ObInitProcess @ 0x1406B365C (ObInitProcess.c)
+ *     ExDupHandleTable @ 0x1407B02CC (ExDupHandleTable.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14097902C (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
  *     ExpFreeLowLevelTable @ 0x14068ACF0 (ExpFreeLowLevelTable.c)
  *     ExpFreeTablePagedPool @ 0x14068AD30 (ExpFreeTablePagedPool.c)
- *     ExDereferenceHandleDebugInfo @ 0x1409F8CA0 (ExDereferenceHandleDebugInfo.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1409F8F30 (ExDereferenceHandleDebugInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

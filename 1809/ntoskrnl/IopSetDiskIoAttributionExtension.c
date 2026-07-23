@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSetDiskIoAttributionExtension @ 0x1400DF570
+ * XREFs of IopSetDiskIoAttributionExtension @ 0x1400DF5F0
  * Callers:
  *     IoUpdateIrpIoAttributionHandle @ 0x1400018C0 (IoUpdateIrpIoAttributionHandle.c)
- *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
- *     IoSynchronousPageWriteEx @ 0x1400DEA20 (IoSynchronousPageWriteEx.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400DEBC0 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionFromProcess @ 0x1400DF0B4 (IopSetDiskIoAttributionFromProcess.c)
- *     IoPropagateIrpExtensionEx @ 0x1400DF610 (IoPropagateIrpExtensionEx.c)
- *     IoMakeAssociatedIrpPriv @ 0x1401078F4 (IoMakeAssociatedIrpPriv.c)
- *     IoAsynchronousPageWrite @ 0x140135014 (IoAsynchronousPageWrite.c)
+ *     IoPageReadEx @ 0x1400DE7C0 (IoPageReadEx.c)
+ *     IoSynchronousPageWriteEx @ 0x1400DEAA0 (IoSynchronousPageWriteEx.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400DEC40 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x1400DF134 (IopSetDiskIoAttributionFromProcess.c)
+ *     IoPropagateIrpExtensionEx @ 0x1400DF690 (IoPropagateIrpExtensionEx.c)
+ *     IoMakeAssociatedIrpPriv @ 0x140107974 (IoMakeAssociatedIrpPriv.c)
+ *     IoAsynchronousPageWrite @ 0x1401350E4 (IoAsynchronousPageWrite.c)
  * Callees:
- *     IopReferenceIoAttributionFromProcess @ 0x1400DF248 (IopReferenceIoAttributionFromProcess.c)
- *     IopAllocateIrpExtension @ 0x1400DF9B8 (IopAllocateIrpExtension.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x1400DF2C8 (IopReferenceIoAttributionFromProcess.c)
+ *     IopAllocateIrpExtension @ 0x1400DFA38 (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __int64 a3, char a4)

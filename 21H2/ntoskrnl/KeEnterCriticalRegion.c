@@ -1,16 +1,16 @@
 /*
- * XREFs of KeEnterCriticalRegion @ 0x140351210
+ * XREFs of KeEnterCriticalRegion @ 0x14035BF60
  * Callers:
- *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpAddGuidEntry @ 0x1406E3BB0 (EtwpAddGuidEntry.c)
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
- *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpAddGuidEntry @ 0x1406BAE90 (EtwpAddGuidEntry.c)
+ *     SepFilterToken @ 0x1406CA87C (SepFilterToken.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DE64 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     EtwpCoverageSamplerStart @ 0x14094735C (EtwpCoverageSamplerStart.c)
  * Callees:
  *     <none>
  */

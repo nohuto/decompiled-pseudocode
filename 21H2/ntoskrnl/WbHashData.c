@@ -1,20 +1,20 @@
 /*
- * XREFs of WbHashData @ 0x140687B80
+ * XREFs of WbHashData @ 0x1405E6CE0
  * Callers:
- *     sub_140687AE4 @ 0x140687AE4 (sub_140687AE4.c)
+ *     sub_1405E6C44 @ 0x1405E6C44 (sub_1405E6C44.c)
  * Callees:
- *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
- *     BCryptGetProperty @ 0x140687C9C (BCryptGetProperty.c)
- *     BCryptDestroyHash @ 0x140687D28 (BCryptDestroyHash.c)
- *     BCryptFinishHash @ 0x140687D7C (BCryptFinishHash.c)
- *     BCryptCreateHash @ 0x140687DF0 (BCryptCreateHash.c)
- *     BCryptHashData @ 0x140687E84 (BCryptHashData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     BCryptGetProperty @ 0x1405E6DFC (BCryptGetProperty.c)
+ *     BCryptDestroyHash @ 0x1405E6E88 (BCryptDestroyHash.c)
+ *     BCryptFinishHash @ 0x1405E6EDC (BCryptFinishHash.c)
+ *     BCryptCreateHash @ 0x1405E6F50 (BCryptCreateHash.c)
+ *     BCryptHashData @ 0x1405E6FE4 (BCryptHashData.c)
+ *     WbAlloc @ 0x140642A24 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD *a4)
 {
-  int Property; // ebx
+  NTSTATUS Property; // ebx
   ULONG v9; // r9d
   ULONG v10; // r9d
   ULONG v11; // r9d
@@ -26,16 +26,16 @@ __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD 
   UCHAR pbOutput[4]; // [rsp+40h] [rbp-20h] BYREF
   ULONG v19; // [rsp+44h] [rbp-1Ch] BYREF
   BCRYPT_HASH_HANDLE phHash; // [rsp+48h] [rbp-18h] BYREF
-  PUCHAR v21[2]; // [rsp+50h] [rbp-10h] BYREF
+  PUCHAR v21; // [rsp+50h] [rbp-10h]
 
   phHash = 0LL;
-  v21[0] = 0LL;
+  v21 = 0LL;
   *(_DWORD *)pbOutput = 0;
   v19 = 0;
-  if ( *(__int64 *)((char *)&qword_140C53DC4 + 4) )
+  if ( *(__int64 *)((char *)&qword_140C53E04 + 4) )
   {
     Property = BCryptCreateHash(
-                 *(BCRYPT_ALG_HANDLE *)((char *)&qword_140C53DC4 + 4),
+                 *(BCRYPT_ALG_HANDLE *)((char *)&qword_140C53E04 + 4),
                  &phHash,
                  0LL,
                  0,
@@ -45,7 +45,7 @@ __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD 
     if ( Property >= 0 )
     {
       Property = BCryptGetProperty(
-                   *(BCRYPT_HANDLE *)((char *)&qword_140C53DC4 + 4),
+                   *(BCRYPT_HANDLE *)((char *)&qword_140C53E04 + 4),
                    L"HashDigestLength",
                    pbOutput,
                    v9,
@@ -53,15 +53,15 @@ __int64 __fastcall WbHashData(PUCHAR pbInput, ULONG cbInput, PUCHAR *a3, _DWORD 
                    v16);
       if ( Property >= 0 )
       {
-        Property = WbAlloc(*(unsigned int *)pbOutput, v21);
+        Property = WbAlloc(*(unsigned int *)pbOutput);
         if ( Property < 0 || (Property = BCryptHashData(phHash, pbInput, cbInput, v10), Property < 0) )
         {
-          v12 = v21[0];
+          v12 = v21;
         }
         else
         {
-          v12 = v21[0];
-          Property = BCryptFinishHash(phHash, v21[0], *(ULONG *)pbOutput, v11);
+          v12 = v21;
+          Property = BCryptFinishHash(phHash, v21, *(ULONG *)pbOutput, v11);
           if ( Property >= 0 )
           {
             if ( a3 )

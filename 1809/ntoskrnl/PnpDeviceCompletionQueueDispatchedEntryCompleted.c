@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159D20
+ * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159E20
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140159BC0 (PnpDeviceCompletionRoutine.c)
- *     PipEnumerateDevice @ 0x1406E7F10 (PipEnumerateDevice.c)
+ *     PnpDeviceCompletionRoutine @ 0x140159CC0 (PnpDeviceCompletionRoutine.c)
+ *     PipEnumerateDevice @ 0x1406E91B0 (PipEnumerateDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, _QWORD *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, 
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rcx
 
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140434BC8);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140435C68);
   v5 = (_QWORD *)a2[1];
   v6 = v3;
   v7 = *a2;
@@ -29,18 +29,18 @@ __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, 
     || (_QWORD *)*v5 != a2
     || (*v5 = v7,
         *(_QWORD *)(v7 + 8) = v5,
-        v8 = (_QWORD *)qword_140434BA0,
-        --dword_140434B90,
-        *(__int64 **)qword_140434BA0 != &qword_140434B98) )
+        v8 = (_QWORD *)qword_140435C40,
+        --dword_140435C30,
+        *(__int64 **)qword_140435C40 != &qword_140435C38) )
   {
     __fastfail(3u);
   }
-  *a2 = &qword_140434B98;
+  *a2 = &qword_140435C38;
   a2[1] = v8;
   *v8 = a2;
-  qword_140434BA0 = (__int64)a2;
-  KeReleaseSemaphoreEx((__int64)&byte_140434BA8, 0LL, 1, v4, 0);
-  KxReleaseSpinLock(&qword_140434BC8);
+  qword_140435C40 = (__int64)a2;
+  KeReleaseSemaphoreEx((__int64)&byte_140435C48, 0LL, 1, v4, 0);
+  KxReleaseSpinLock(&qword_140435C68);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v6 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

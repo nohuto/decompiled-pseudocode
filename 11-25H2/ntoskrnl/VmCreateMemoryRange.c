@@ -23,7 +23,7 @@ __int64 __fastcall VmCreateMemoryRange(
         __int64 a5,
         int a6)
 {
-  unsigned __int64 MemoryRanges; // rdi
+  __int64 MemoryRanges; // rdi
   unsigned __int64 v10; // r11
   _KPROCESS *Process; // rbp
   __int64 Blink; // rsi

@@ -1,11 +1,11 @@
 /*
  * XREFs of MmGetCacheAttributeEx @ 0x140585C20
  * Callers:
- *     HalCreateCommonBufferFromMdl @ 0x140514560 (HalCreateCommonBufferFromMdl.c)
+ *     sub_140514560 @ 0x140514560 (sub_140514560.c)
  *     MmGetCacheAttribute @ 0x140585C00 (MmGetCacheAttribute.c)
  * Callees:
- *     MiLookupIoPageNode @ 0x1402137E4 (MiLookupIoPageNode.c)
- *     MiIsPageInHugePfn @ 0x1402166E0 (MiIsPageInHugePfn.c)
+ *     sub_1402137E4 @ 0x1402137E4 (sub_1402137E4.c)
+ *     sub_1402166E0 @ 0x1402166E0 (sub_1402166E0.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -27,10 +27,10 @@ __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3
   {
     if ( (a2 & 1) == 0 )
       return 3221225793LL;
-    v6 = MiLookupIoPageNode(v5, 0);
+    v6 = sub_1402137E4(v5, 0);
     if ( v6 == 3 )
     {
-      if ( MiIsPageInHugePfn(v5) )
+      if ( sub_1402166E0(v5) )
       {
 LABEL_14:
         *a3 = 1;

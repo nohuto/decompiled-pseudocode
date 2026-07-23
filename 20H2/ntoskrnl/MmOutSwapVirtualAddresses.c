@@ -56,7 +56,7 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
   unsigned int v29; // r8d
   bool v30; // zf
   __int64 v31; // rcx
-  unsigned __int64 v32; // rdi
+  __int64 v32; // rdi
   __int64 v33; // rdx
   __int64 v34; // rcx
   unsigned __int64 *v36; // [rsp+30h] [rbp-D0h] BYREF
@@ -177,7 +177,7 @@ LABEL_21:
     v37[1] = v31;
     if ( v30 )
       break;
-    v32 = (unsigned __int64)&v26->LockEntries[v31];
+    v32 = (__int64)&v26->LockEntries[v31];
     v29 &= ~(1 << v31);
     if ( (*(_BYTE *)(v32 + 26) & 1) != 0
       && (*(_DWORD *)(v32 + 32) & 1) == 0
@@ -191,12 +191,12 @@ LABEL_21:
         {
           *(_BYTE *)(v32 + 32) |= 2u;
           if ( *(__int64 *)(v32 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v32);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32);
           v38 = *(_DWORD *)(v32 + 88) & 0x1FFFF;
           *(_DWORD *)(v32 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v32 + 25) &= ~1u;
           *(_QWORD *)(v32 + 32) = 0LL;
-          v33 = (__int64)(v32 - (unsigned __int64)v26->LockEntries) / 96;
+          v33 = (signed __int64)(v32 - (unsigned __int64)v26->LockEntries) / 96;
           if ( v28 == 1 )
             v26->AbEntrySummary |= 1 << v33;
           else

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCreateEnclave @ 0x1409743F4
+ * XREFs of KeCreateEnclave @ 0x1409745F4
  * Callers:
- *     MiCreateHardwareEnclave @ 0x140A3D788 (MiCreateHardwareEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x140A3DA38 (MiCreateHardwareEnclave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiEncls @ 0x14041FC80 (KiEncls.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiEncls @ 0x140420010 (KiEncls.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeCreateEnclave(

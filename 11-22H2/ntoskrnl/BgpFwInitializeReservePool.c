@@ -10,7 +10,7 @@
 
 void __fastcall BgpFwInitializeReservePool(__int64 a1, unsigned int a2, unsigned int *a3)
 {
-  HintIndex = 0;
+  dword_140C70E18 = 0;
   qword_140C70E10 = a1;
   dword_140C70E30 = a2;
   stru_140C70E20.SizeOfBitMap = a2;

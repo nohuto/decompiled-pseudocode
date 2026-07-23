@@ -1,17 +1,17 @@
 /*
- * XREFs of PspNotifyProcessEffectiveIoLimitChanged @ 0x14031B17C
+ * XREFs of PspNotifyProcessEffectiveIoLimitChanged @ 0x14031B40C
  * Callers:
  *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessIoPriorityLimitCallback @ 0x140779F80 (PspSetProcessIoPriorityLimitCallback.c)
+ *     PspSetProcessIoPriorityLimitCallback @ 0x14077A170 (PspSetProcessIoPriorityLimitCallback.c)
  * Callees:
  *     KeAbProcessBaseIoPriorityChange @ 0x1402078A4 (KeAbProcessBaseIoPriorityChange.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     IoBoostThreadIoPriority @ 0x14031B320 (IoBoostThreadIoPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     IoBoostThreadIoPriority @ 0x14031B5B0 (IoBoostThreadIoPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall PspNotifyProcessEffectiveIoLimitChanged(__int64 a1, __int64 a2, char a3)
@@ -42,7 +42,7 @@ _QWORD *__fastcall PspNotifyProcessEffectiveIoLimitChanged(__int64 a1, __int64 a
   ExAcquirePushLockSharedEx(a1 + 2144, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v19) = 4;
@@ -60,10 +60,10 @@ _QWORD *__fastcall PspNotifyProcessEffectiveIoLimitChanged(__int64 a1, __int64 a
         KeAbProcessBaseIoPriorityChange(v12, v11, IoPriorityThread);
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v22 = CurrentPrcb->SchedulerAssist;

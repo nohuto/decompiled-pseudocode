@@ -13,39 +13,32 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
  */
 
-char __fastcall TpReleaseTimer(unsigned __int64 a1)
+void __cdecl TpReleaseTimer(PTP_TIMER Timer)
 {
   int v2; // edi
-  signed __int32 v3; // eax
-  char *v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // r9
-  __int64 (__fastcall *v8)(unsigned __int64); // rdi
+  int v3; // eax
+  LOGICAL (__fastcall *v4)(void *); // rdi
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = 1;
-  v3 = TppTimerpValidateTimer((_PEB_LDR_DATA *)a1, 1LL, 0LL);
-  if ( v3 )
+  if ( (unsigned int)TppTimerpValidateTimer((_PEB_LDR_DATA *)Timer, 1LL, 0LL) )
   {
-    LOBYTE(v3) = TppCleanupGroupMemberRelease(a1, 1LL);
+    LOBYTE(v3) = TppCleanupGroupMemberRelease((__int64)Timer, 1LL);
     if ( v3 )
     {
-      *(_QWORD *)(a1 + 176) = retaddr;
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 232), v4, v5, v6);
-      ++*(_BYTE *)(a1 + 347);
-      if ( TppCancelTimer(a1, (volatile signed __int64 *)(*(_QWORD *)(a1 + 136) + 112LL), 0LL, v7) )
+      *((_QWORD *)Timer + 22) = retaddr;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 29);
+      ++*((_BYTE *)Timer + 347);
+      if ( TppCancelTimer((__int64)Timer, (_RTL_SRWLOCK *)(*((_QWORD *)Timer + 17) + 112LL), 0) )
         v2 = 2;
-      v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, -v2);
-      if ( v3 == v2 )
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, -v2) == v2 )
       {
-        v8 = **(__int64 (__fastcall ***)(unsigned __int64))(a1 + 8);
-        if ( v8 == TppTimerpFree )
-          LOBYTE(v3) = TppTimerpFree(a1);
+        v4 = (LOGICAL (__fastcall *)(void *))**((_QWORD **)Timer + 1);
+        if ( v4 == TppTimerpFree )
+          TppTimerpFree(Timer);
         else
-          LOBYTE(v3) = v8(a1);
+          v4(Timer);
       }
     }
   }
-  return v3;
 }

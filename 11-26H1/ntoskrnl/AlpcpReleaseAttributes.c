@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpReleaseAttributes @ 0x1409BCAB0
+ * XREFs of AlpcpReleaseAttributes @ 0x14098DA90
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1408E6A30 (AlpcpAcceptConnectPort.c)
- *     AlpcpReplaceAttributes @ 0x1409BCA1C (AlpcpReplaceAttributes.c)
- *     AlpcMessageCleanupProcedure @ 0x1409BD190 (AlpcMessageCleanupProcedure.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpCaptureAttributes @ 0x1409BE688 (AlpcpCaptureAttributes.c)
+ *     AlpcpAcceptConnectPort @ 0x1408ECFF0 (AlpcpAcceptConnectPort.c)
+ *     AlpcpReplaceAttributes @ 0x14098D9FC (AlpcpReplaceAttributes.c)
+ *     AlpcMessageCleanupProcedure @ 0x14098E170 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpCaptureAttributes @ 0x14098F668 (AlpcpCaptureAttributes.c)
  * Callees:
- *     AlpcpReleaseDirectAttribute @ 0x1405FFB08 (AlpcpReleaseDirectAttribute.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReleaseViewAttribute @ 0x140AE38D8 (AlpcpReleaseViewAttribute.c)
+ *     AlpcpReleaseDirectAttribute @ 0x140602558 (AlpcpReleaseDirectAttribute.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x140AE13E0 (AlpcpReleaseViewAttribute.c)
  */
 
 unsigned __int64 __fastcall AlpcpReleaseAttributes(__int64 a1, _QWORD *a2)

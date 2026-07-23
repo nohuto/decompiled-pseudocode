@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceContextSwap @ 0x140412DE0
+ * XREFs of EtwTraceContextSwap @ 0x140407410
  * Callers:
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  * Callees:
- *     PsIsServerSilo @ 0x140216838 (PsIsServerSilo.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
- *     EtwpCoverageSamplerContextSwap @ 0x1405325B4 (EtwpCoverageSamplerContextSwap.c)
+ *     PsIsServerSilo @ 0x140216B68 (PsIsServerSilo.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x140534A54 (EtwpCoverageSamplerContextSwap.c)
  */
 
 __int64 __fastcall EtwTraceContextSwap(__int64 a1, __int64 a2)

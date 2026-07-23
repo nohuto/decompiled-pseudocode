@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtOpenPrivateNamespace()
+NTSTATUS __cdecl NtOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 296LL;
+  result = 296;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

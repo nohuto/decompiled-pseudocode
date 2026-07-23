@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPerfInterrupt @ 0x1404BEEE0
+ * XREFs of HalpPerfInterrupt @ 0x1404BF120
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall HalpPerfInterrupt(__int64 a1)

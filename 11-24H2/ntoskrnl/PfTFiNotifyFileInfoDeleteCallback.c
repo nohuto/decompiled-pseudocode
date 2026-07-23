@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTFiNotifyFileInfoDeleteCallback @ 0x140456A00
+ * XREFs of PfTFiNotifyFileInfoDeleteCallback @ 0x14044B9D0
  * Callers:
- *     PfpPartitionIterate @ 0x140274CF0 (PfpPartitionIterate.c)
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
+ *     PfpPartitionIterate @ 0x14022A280 (PfpPartitionIterate.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
  * Callees:
- *     PfFbLogEntryComplete @ 0x140245330 (PfFbLogEntryComplete.c)
- *     PfFbLogEntryReserve @ 0x140456B24 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x14020DB10 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x14044BAF4 (PfFbLogEntryReserve.c)
  */
 
 __int64 __fastcall PfTFiNotifyFileInfoDeleteCallback(__int64 a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall PfTFiNotifyFileInfoDeleteCallback(__int64 a1, __int64 a2)
     *(_QWORD *)(v6 + 24) = *(_QWORD *)(a2 + 8);
     *(_DWORD *)v6 = *(_DWORD *)v6 & 0x80000000 | 0x103;
     v8 = v12;
-    *(_DWORD *)(v12 + 4) = dword_140E66E7C
+    *(_DWORD *)(v12 + 4) = dword_140E66FCC
                          + ((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                            + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10);
     v9 = v13;

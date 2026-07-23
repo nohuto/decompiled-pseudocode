@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventProcessBroadcastNotifications @ 0x14085C13C
+ * XREFs of PiUEventProcessBroadcastNotifications @ 0x140857EAC
  * Callers:
- *     PiUEventProcessEventWorker @ 0x14085B220 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x140856F90 (PiUEventProcessEventWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     IopGetSessionIdFromSymbolicName @ 0x1406F9184 (IopGetSessionIdFromSymbolicName.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiUEventQueueBroadcastEventEntry @ 0x140A673E4 (PiUEventQueueBroadcastEventEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1406F6DC4 (IopGetSessionIdFromSymbolicName.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x140A601C4 (PiUEventQueueBroadcastEventEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)
@@ -58,7 +58,7 @@ __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)
   v3 = *(_DWORD *)(a1 + 96);
   if ( !v3 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x1C0uLL, 0x59706E50u);
     if ( !Pool2 )
       return (unsigned int)-1073741670;
     *(_DWORD *)(Pool2 + 24) = -1;
@@ -81,7 +81,7 @@ __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)
     if ( !v18 )
     {
 LABEL_31:
-      v21 = ExAllocatePool2(0x100uLL);
+      v21 = ExAllocatePool2(0x100uLL, 0x1C0uLL, 0x59706E50u);
       v22 = v21;
       if ( !v21 )
         return (unsigned int)-1073741670;
@@ -133,7 +133,7 @@ LABEL_30:
       v25 = *(_QWORD *)(a1 + 136) - *(_QWORD *)GUID_DEVINTERFACE_VOLUME.Data4;
     if ( !v25 )
     {
-      v22 = ExAllocatePool2(0x100uLL);
+      v22 = ExAllocatePool2(0x100uLL, 0x1C0uLL, 0x59706E50u);
       if ( !v22 )
         return (unsigned int)-1073741670;
       RtlInitUnicodeString(&DestinationString, (PCWSTR)(a1 + 144));
@@ -152,7 +152,7 @@ LABEL_30:
       if ( v27 )
         return v2;
     }
-    v22 = ExAllocatePool2(0x100uLL);
+    v22 = ExAllocatePool2(0x100uLL, 0x1C0uLL, 0x59706E50u);
     if ( !v22 )
       return (unsigned int)-1073741670;
     RtlInitUnicodeString(&DestinationString, (PCWSTR)(a1 + 144));
@@ -238,7 +238,7 @@ LABEL_62:
         v14 = *(_QWORD *)(v13 + a1 + 92) - *(_QWORD *)GUID_IO_VOLUME_NAME_CHANGE.Data4;
       if ( !v14 )
       {
-        v15 = ExAllocatePool2(0x100uLL);
+        v15 = ExAllocatePool2(0x100uLL, 0x1C0uLL, 0x59706E50u);
         v16 = v15;
         if ( !v15 )
           return (unsigned int)-1073741670;

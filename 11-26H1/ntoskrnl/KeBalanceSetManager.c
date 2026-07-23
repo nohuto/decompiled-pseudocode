@@ -1,19 +1,19 @@
 /*
- * XREFs of KeBalanceSetManager @ 0x1405F79E0
+ * XREFs of KeBalanceSetManager @ 0x1405FA400
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MiBroadcastPeriodicEventToChildPartitions @ 0x1402A6E2C (MiBroadcastPeriodicEventToChildPartitions.c)
- *     MiSystemPeriodicTick @ 0x1402A6FA0 (MiSystemPeriodicTick.c)
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExpScanGeneralLookasideList @ 0x140433770 (ExpScanGeneralLookasideList.c)
- *     ExpScanSystemLookasideList @ 0x14043387C (ExpScanSystemLookasideList.c)
- *     KePulseEvent @ 0x1404C7410 (KePulseEvent.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MiBroadcastPeriodicEventToChildPartitions @ 0x1402A6248 (MiBroadcastPeriodicEventToChildPartitions.c)
+ *     MiSystemPeriodicTick @ 0x1402A63BC (MiSystemPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExpScanGeneralLookasideList @ 0x140428840 (ExpScanGeneralLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x14042894C (ExpScanSystemLookasideList.c)
+ *     KePulseEvent @ 0x1404C0CC0 (KePulseEvent.c)
  */
 
 void __noreturn KeBalanceSetManager()
@@ -29,24 +29,24 @@ void __noreturn KeBalanceSetManager()
   int v8; // edx
   __int64 v9; // r10
   unsigned int v10; // ecx
-  $7593FFE5FD7F8AD12EB10858261A32F1 *p_KernelShadowStack; // rdx
-  __int64 **p_Blink; // rcx
+  _KERNEL_SHADOW_STACK_LIMIT *p_ExtendedFeatureDisableMask; // rdx
+  __int64 **p_WpsFeedback; // rcx
   int v13; // eax
 
   KeSetPriorityThread(KeGetCurrentThread(), 19);
   v0 = 8;
-  LODWORD(KsepShimDbLock.KernelWaitTime) = (unsigned __int64)((0x8F0D180
-                                                             * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount;
+  LODWORD(KsepShimDbLock.UserWaitTime) = (unsigned __int64)((0x8F0D180
+                                                           * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount;
   while ( 1 )
   {
-    KeWaitForSingleObject(&KiSupervisorXStateFeaturesLock.NpxState, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&word_140F26BA0, Executive, 0, 0, 0LL);
     MiBroadcastPeriodicEventToChildPartitions();
     MiPartitionPeriodicTick((__int64)&MiSystemPartition);
     MiSystemPeriodicTick();
-    if ( VslpSecureKernelPeriodicTickWorkItem.WorkerRoutine
-      && !_InterlockedCompareExchange(&VslpSecureKernelPeriodicTickWorkItemActive, 1, 0) )
+    if ( VslpReservedTransferLock.StackBase
+      && !_InterlockedCompareExchange((volatile signed __int32 *)&VslpReservedTransferLock.CycleTime, 1, 0) )
     {
-      ExQueueWorkItem(&VslpSecureKernelPeriodicTickWorkItem, CriticalWorkQueue);
+      ExQueueWorkItem((PWORK_QUEUE_ITEM)&VslpReservedTransferLock.InitialStack, CriticalWorkQueue);
     }
     if ( IopIrpCreditsEnabled > 1 )
     {
@@ -85,13 +85,13 @@ void __noreturn KeBalanceSetManager()
     if ( !ExpLookasideMgrEnabled )
       break;
 LABEL_25:
-    if ( (unsigned __int8)EtwpBootPhase > 1u && !--EtwpBufferAdjustmentCount )
+    if ( LOBYTE(stru_140F03830.CycleTime) > 1u && !--LODWORD(stru_140F03830.QueueListEntry.Blink) )
     {
-      EtwpBufferAdjustmentCount = 8;
-      if ( !_InterlockedCompareExchange(&EtwpBufferAdjustmentActive, 1, 0) )
-        ExQueueWorkItem(&EtwpAdjustBuffersWorkItem, DelayedWorkQueue);
+      LODWORD(stru_140F03830.QueueListEntry.Blink) = 8;
+      if ( !_InterlockedCompareExchange((volatile signed __int32 *)&stru_140F03830.TrapFrame, 1, 0) )
+        ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140F03830.WaitRegister, DelayedWorkQueue);
     }
-    if ( PsAltSystemCallRegistrationLock.CycleTime )
+    if ( PsAltSystemCallRegistrationLock.ApcState.ApcListHead[0].Flink )
     {
       v13 = PspJobTimeLimitsCount;
       if ( PspJobTimeLimitsCount )
@@ -99,9 +99,9 @@ LABEL_25:
         --PspJobTimeLimitsCount;
         if ( v13 == 1 )
         {
-          _m_prefetchw(&PsAltSystemCallRegistrationLock.ExpectedRunTime);
-          if ( (_InterlockedOr((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.ExpectedRunTime, 5u) & 4) == 0 )
-            ExQueueWorkItem((PWORK_QUEUE_ITEM)&PsAltSystemCallRegistrationLock.SchedulingGroup, DelayedWorkQueue);
+          _m_prefetchw(&PsAltSystemCallRegistrationLock.ApcStateFill[8]);
+          if ( (_InterlockedOr((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.ApcStateFill[8], 5u) & 4) == 0 )
+            ExQueueWorkItem((PWORK_QUEUE_ITEM)&PsAltSystemCallRegistrationLock.Teb, DelayedWorkQueue);
         }
       }
     }
@@ -110,20 +110,19 @@ LABEL_25:
       v0 = 8;
       if ( !_InterlockedCompareExchange(&KiStackOutSwapRequest, 1, 0) )
       {
-        KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 1, 0);
-        KePulseEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.WpsFeedback, 1, 0);
+        KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 1, 0);
+        KePulseEvent(&word_140F26B00, 1, 0);
       }
     }
-    if ( stru_140F12D20.SchedulerApcFill3[40] )
+    if ( BYTE4(stru_140F12EA0.SystemAffinityTokenListHead.Next) )
     {
-      if ( *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1) != (unsigned int)((((MEMORY[0xFFFFF78000000004]
-                                                                                    * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
-                                                                                  + ((MEMORY[0xFFFFF78000000004]
-                                                                                    * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 12) )
-        *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1) = (((MEMORY[0xFFFFF78000000004]
-                                                                 * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
-                                                               + ((MEMORY[0xFFFFF78000000004]
-                                                                 * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 12;
+      if ( HIDWORD(KsepShimDbLock.UserWaitTime) != (unsigned int)((((MEMORY[0xFFFFF78000000004]
+                                                                   * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
+                                                                 + ((MEMORY[0xFFFFF78000000004]
+                                                                   * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 12) )
+        HIDWORD(KsepShimDbLock.UserWaitTime) = (((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
+                                              + ((MEMORY[0xFFFFF78000000004]
+                                                * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 12;
     }
   }
   if ( ExpScanCount )
@@ -134,15 +133,15 @@ LABEL_25:
         ExpScanSystemLookasideList();
       goto LABEL_23;
     }
-    p_KernelShadowStack = &ExSaPageGroupDescriptorArrayLock.1008;
-    p_Blink = (__int64 **)&ExSaPageGroupDescriptorArrayLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
+    p_ExtendedFeatureDisableMask = (_KERNEL_SHADOW_STACK_LIMIT *)&ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask;
+    p_WpsFeedback = (__int64 **)&ExSaPageGroupDescriptorArrayLock.Spare35[1];
   }
   else
   {
-    p_KernelShadowStack = ($7593FFE5FD7F8AD12EB10858261A32F1 *)&ExSaPageGroupDescriptorArrayLock.KernelShadowStack;
-    p_Blink = (__int64 **)&ExSaPageGroupDescriptorArrayLock.KernelShadowStackBase;
+    p_ExtendedFeatureDisableMask = &ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit;
+    p_WpsFeedback = (__int64 **)&ExSaPageGroupDescriptorArrayLock.WpsFeedback;
   }
-  ExpScanGeneralLookasideList(p_Blink, (KSPIN_LOCK *)p_KernelShadowStack, 3);
+  ExpScanGeneralLookasideList(p_WpsFeedback, &p_ExtendedFeatureDisableMask->AllFields, 3);
 LABEL_23:
   if ( ++ExpScanCount == 3 )
     ExpScanCount = 0;

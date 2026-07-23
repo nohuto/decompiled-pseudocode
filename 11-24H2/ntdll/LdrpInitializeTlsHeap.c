@@ -1,31 +1,31 @@
 /*
- * XREFs of LdrpInitializeTlsHeap @ 0x18008EE94
+ * XREFs of LdrpInitializeTlsHeap @ 0x180026868
  * Callers:
- *     LdrpInitializeTls @ 0x18008ECD0 (LdrpInitializeTls.c)
+ *     LdrpInitializeTls @ 0x1800266A4 (LdrpInitializeTls.c)
  * Callees:
- *     RtlSetHeapInformation @ 0x180096E70 (RtlSetHeapInformation.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlSetHeapInformation @ 0x18002BE70 (RtlSetHeapInformation.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 LdrpInitializeTlsHeap()
+NTSTATUS LdrpInitializeTlsHeap()
 {
-  __int64 result; // rax
-  __int64 Heap; // rax
-  __int64 v2; // [rsp+40h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  char *Heap; // rax
+  __int64 HeapInformation; // [rsp+40h] [rbp-18h] BYREF
 
-  v2 = 0x70616548534C54LL;
-  if ( !qword_1801D29A8 )
+  HeapInformation = 0x70616548534C54LL;
+  if ( !qword_1801D19A8 )
   {
-    LdrpTlsHeap = (__int64)NtCurrentPeb()->ProcessHeap;
-    return 0LL;
+    LdrpTlsHeap = NtCurrentPeb()->ProcessHeap;
+    return 0;
   }
-  Heap = RtlpCreateHeap(2, 0, 0, 0, 0LL, 0LL, 0);
+  Heap = RtlpCreateHeap(2u, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
   LdrpTlsHeap = Heap;
   if ( !Heap )
-    return 3221225495LL;
-  result = RtlSetHeapInformation(Heap, 7LL, &v2, 8LL);
-  if ( (int)result >= 0 || AvrfAppVerifierMode )
-    return 0LL;
+    return -1073741801;
+  result = RtlSetHeapInformation(Heap, HeapTag, &HeapInformation, 8uLL);
+  if ( result >= 0 || AvrfAppVerifierMode )
+    return 0;
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of MmChangeImageProtection @ 0x140651760
+ * XREFs of MmChangeImageProtection @ 0x140652920
  * Callers:
  *     <none>
  * Callees:
@@ -8,17 +8,17 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiSetImageProtection @ 0x1400DA524 (MiSetImageProtection.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     MiSessionReferenceImage @ 0x1401782DC (MiSessionReferenceImage.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiSetImageProtection @ 0x1400DA5A4 (MiSetImageProtection.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     MiSessionReferenceImage @ 0x1401783DC (MiSessionReferenceImage.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
  */
 
 __int64 __fastcall MmChangeImageProtection(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -135,9 +135,9 @@ LABEL_19:
           {
             v24 = 0LL;
           }
-          if ( qword_14040DDF0 )
+          if ( qword_14040EE50 )
           {
-            v25 = qword_14040DDF0(v24, a1, a2, a3, a2 - *(_QWORD *)(v12 + 48));
+            v25 = qword_14040EE50(v24, a1, a2, a3, a2 - *(_QWORD *)(v12 + 48));
             v17 = v25;
             if ( v25 >= 0 )
             {

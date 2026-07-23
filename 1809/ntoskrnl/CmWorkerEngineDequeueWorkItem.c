@@ -1,7 +1,7 @@
 /*
- * XREFs of CmWorkerEngineDequeueWorkItem @ 0x1407ED284
+ * XREFs of CmWorkerEngineDequeueWorkItem @ 0x1407EE484
  * Callers:
- *     CmpUnfreezeHive @ 0x1407F0634 (CmpUnfreezeHive.c)
+ *     CmpUnfreezeHive @ 0x1407F1834 (CmpUnfreezeHive.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

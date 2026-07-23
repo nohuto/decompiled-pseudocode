@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMakePartitionActive @ 0x140292600
+ * XREFs of MiMakePartitionActive @ 0x140292890
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140705E50 (MmCreateProcessAddressSpace.c)
- *     MiEnablePartitionMappedWrites @ 0x140746B98 (MiEnablePartitionMappedWrites.c)
- *     MiInsertPageFileInList @ 0x140834090 (MiInsertPageFileInList.c)
+ *     MmCreateProcessAddressSpace @ 0x140706060 (MmCreateProcessAddressSpace.c)
+ *     MiEnablePartitionMappedWrites @ 0x140746D88 (MiEnablePartitionMappedWrites.c)
+ *     MiInsertPageFileInList @ 0x140834390 (MiInsertPageFileInList.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiSetSlabAllocatorPolicy @ 0x1403B6228 (MiSetSlabAllocatorPolicy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     SmCreatePartition @ 0x140706428 (SmCreatePartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiSetSlabAllocatorPolicy @ 0x1403B6408 (MiSetSlabAllocatorPolicy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     SmCreatePartition @ 0x140706638 (SmCreatePartition.c)
  */
 
 __int64 __fastcall MiMakePartitionActive(unsigned __int64 a1)
@@ -44,10 +44,13 @@ __int64 __fastcall MiMakePartitionActive(unsigned __int64 a1)
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +70,10 @@ __int64 __fastcall MiMakePartitionActive(unsigned __int64 a1)
       *(_QWORD *)(a1 + 16432) = 160LL;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v15 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;
@@ -89,10 +92,10 @@ __int64 __fastcall MiMakePartitionActive(unsigned __int64 a1)
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v10 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
       {
         v12 = KeGetCurrentPrcb();
         v13 = v12->SchedulerAssist;

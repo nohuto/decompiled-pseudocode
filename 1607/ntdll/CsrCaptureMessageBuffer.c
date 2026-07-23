@@ -1,9 +1,9 @@
 /*
- * XREFs of CsrCaptureMessageBuffer @ 0x1800759A0
+ * XREFs of CsrCaptureMessageBuffer @ 0x180075990
  * Callers:
  *     <none>
  * Callees:
- *     CsrAllocateMessagePointer @ 0x180075BE0 (CsrAllocateMessagePointer.c)
+ *     CsrAllocateMessagePointer @ 0x180075BD0 (CsrAllocateMessagePointer.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

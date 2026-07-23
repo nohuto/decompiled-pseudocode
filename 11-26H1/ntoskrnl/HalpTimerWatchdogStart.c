@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerWatchdogStart @ 0x140585590
+ * XREFs of HalpTimerWatchdogStart @ 0x140587AB0
  * Callers:
- *     HalpTimerInitializeSystemWatchdog @ 0x140585404 (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x140587924 (HalpTimerInitializeSystemWatchdog.c)
  * Callees:
- *     HalpSetTimer @ 0x1402086B0 (HalpSetTimer.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpTimerWatchdogWakeSetDueTime @ 0x1404F57DC (HalpTimerWatchdogWakeSetDueTime.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpSetTimer @ 0x140208790 (HalpSetTimer.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpTimerWatchdogWakeSetDueTime @ 0x1404EED9C (HalpTimerWatchdogWakeSetDueTime.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void HalpTimerWatchdogStart()

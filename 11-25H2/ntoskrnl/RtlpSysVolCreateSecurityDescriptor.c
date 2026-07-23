@@ -23,7 +23,7 @@ __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
   ULONG v8; // esi
   ACL *v9; // rax
   ACL *v10; // rbx
-  int Acl; // esi
+  NTSTATUS Acl; // esi
   ACL *v12; // rcx
   __int16 Sid; // [rsp+30h] [rbp-38h] BYREF
   int v14; // [rsp+32h] [rbp-36h]
@@ -63,7 +63,7 @@ LABEL_11:
   Acl = RtlpAddKnownAce((int)v10, 2, 3, 0x1FFFFF, &Sid, 0);
   if ( Acl < 0
     || (Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v10, 0), Acl < 0)
-    || (Acl = RtlSetControlSecurityDescriptor((__int64)v5, 0x1000u, 0x1000u), Acl < 0) )
+    || (Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u), Acl < 0) )
   {
     v12 = v10;
     goto LABEL_11;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorModernStandbyExitStateHandler @ 0x140993AE0
+ * XREFs of PopPowerAggregatorModernStandbyExitStateHandler @ 0x140993CE0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099357C (PopPowerAggregatorDisengageModernStandby.c)
- *     PdcPoPerfOverride @ 0x1409979A8 (PdcPoPerfOverride.c)
- *     PopPdcDisengagePhases @ 0x140998050 (PopPdcDisengagePhases.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099377C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PdcPoPerfOverride @ 0x140997BA8 (PdcPoPerfOverride.c)
+ *     PopPdcDisengagePhases @ 0x140998250 (PopPdcDisengagePhases.c)
  */
 
 __int64 __fastcall PopPowerAggregatorModernStandbyExitStateHandler(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PopPowerAggregatorModernStandbyExitStateHandler(__int64 a1)
 
   if ( *(_BYTE *)(a1 + 72) )
   {
-    PopPowerAggregatorDisengageModernStandby(a1);
+    PopPowerAggregatorDisengageModernStandby();
   }
   else
   {

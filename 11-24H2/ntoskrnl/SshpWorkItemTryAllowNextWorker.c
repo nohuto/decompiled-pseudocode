@@ -1,8 +1,8 @@
 /*
- * XREFs of SshpWorkItemTryAllowNextWorker @ 0x1404B1C48
+ * XREFs of SshpWorkItemTryAllowNextWorker @ 0x1404AC4D8
  * Callers:
- *     SshpPurgeBlockersWorker @ 0x140A41310 (SshpPurgeBlockersWorker.c)
- *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140A5F4A0 (SshpSessionManagerFlushControlEventBufferWorker.c)
+ *     SshpPurgeBlockersWorker @ 0x140A36BF0 (SshpPurgeBlockersWorker.c)
+ *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140A579F0 (SshpSessionManagerFlushControlEventBufferWorker.c)
  * Callees:
  *     <none>
  */

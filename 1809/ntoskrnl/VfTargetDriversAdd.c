@@ -1,16 +1,16 @@
 /*
- * XREFs of VfTargetDriversAdd @ 0x1400F55A4
+ * XREFs of VfTargetDriversAdd @ 0x1400F5624
  * Callers:
- *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
- *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
+ *     VfDriverLoadImage @ 0x140922264 (VfDriverLoadImage.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409387A4 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x1400F56D8 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlReserveNode @ 0x1400F5850 (VfAvlReserveNode.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VfThunkAddTargetNotify @ 0x140920F24 (VfThunkAddTargetNotify.c)
- *     ViTargetDriversAllocateVerifiedData @ 0x140934ED4 (ViTargetDriversAllocateVerifiedData.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5708 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400F5758 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x1400F58D0 (VfAvlReserveNode.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VfThunkAddTargetNotify @ 0x140921F24 (VfThunkAddTargetNotify.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140935ED4 (ViTargetDriversAllocateVerifiedData.c)
  */
 
 __int64 __fastcall VfTargetDriversAdd(__int64 a1, unsigned int a2, char a3, __int64 a4)
@@ -47,7 +47,7 @@ __int64 __fastcall VfTargetDriversAdd(__int64 a1, unsigned int a2, char a3, __in
       VfAvlInsertReservedTreeNode(&ViTargetDriversAvl, v12, v10);
       if ( VerifiedData )
       {
-        ++dword_14040D708;
+        ++dword_14040E788;
         VerifiedData[48] = a3;
       }
       VfAvlCleanupLockContext(v12);

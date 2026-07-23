@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSectionDelete @ 0x140A24310
+ * XREFs of MiSectionDelete @ 0x140A186E0
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiDereferenceControlAreaBySection @ 0x140451548 (MiDereferenceControlAreaBySection.c)
- *     MiLogSectionObjectEvent @ 0x1407EC298 (MiLogSectionObjectEvent.c)
- *     MiDereferencePerSessionProtos @ 0x140A24458 (MiDereferencePerSessionProtos.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiDereferenceControlAreaBySection @ 0x1404468F8 (MiDereferenceControlAreaBySection.c)
+ *     MiLogSectionObjectEvent @ 0x1407EC868 (MiLogSectionObjectEvent.c)
+ *     MiDereferencePerSessionProtos @ 0x140A18828 (MiDereferencePerSessionProtos.c)
  */
 
 __int64 __fastcall MiSectionDelete(__int64 a1)
@@ -24,12 +24,10 @@ __int64 __fastcall MiSectionDelete(__int64 a1)
   __int64 v5; // rcx
   int v6; // eax
   struct _KTHREAD *CurrentThread; // rsi
-  _QWORD *v9; // rax
+  char *v9; // rax
   signed __int8 v10; // cf
-  _QWORD *v11; // rbp
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  bool v14; // zf
+  char *v11; // rbp
+  bool v12; // zf
 
   v1 = *(_WORD *)(a1 + 58) & 1;
   v4 = MiSectionControlArea(a1);
@@ -37,20 +35,20 @@ __int64 __fastcall MiSectionDelete(__int64 a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v9 = KeAbPreAcquire((__int64)&qword_140E2CC10, 0LL);
-    v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2CC10, 0LL);
+    v9 = (char *)KeAbPreAcquire((__int64)&qword_140E2CD50, 0LL);
+    v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2CD50, 0LL);
     v11 = v9;
     if ( v10 )
-      ExfAcquirePushLockExclusiveEx(&qword_140E2CC10, (__int64)v9, (__int64)&qword_140E2CC10);
+      ExfAcquirePushLockExclusiveEx(&qword_140E2CD50, v9, (__int64)&qword_140E2CD50);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E2CC08, a1);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2CC10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2CC10);
-    KeAbPostRelease((ULONG_PTR)&qword_140E2CC10);
-    v14 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v14 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v13, v12);
+      v11[10] = 1;
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E2CD48, a1);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2CD50, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2CD50);
+    KeAbPostRelease((ULONG_PTR)&qword_140E2CD50);
+    v12 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v12 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
   }
   v5 = *(_QWORD *)(a1 + 40);
   if ( (v5 & 3) != 0 )

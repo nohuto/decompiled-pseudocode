@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GSC_DEVICE@@UEAAPEAXI@Z @ 0x1405C8C10
+ * XREFs of ??_GSC_DEVICE@@UEAAPEAXI@Z @ 0x1405C8E40
  * Callers:
  *     <none>
  * Callees:
- *     ??1SC_DEVICE@@UEAA@XZ @ 0x1405C8B58 (--1SC_DEVICE@@UEAA@XZ.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ??1SC_DEVICE@@UEAA@XZ @ 0x1405C8D88 (--1SC_DEVICE@@UEAA@XZ.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x140617060 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 SC_DEVICE *__fastcall SC_DEVICE::`scalar deleting destructor'(SC_DEVICE *Buffer, char a2)

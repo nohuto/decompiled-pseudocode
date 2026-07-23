@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpPrepareForSubtreeInvalidationWorker @ 0x1406E12B0
+ * XREFs of CmpPrepareForSubtreeInvalidationWorker @ 0x1406E2550
  * Callers:
  *     <none>
  * Callees:
- *     CmpTryAcquireKcbIXLocks @ 0x14071C0DC (CmpTryAcquireKcbIXLocks.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x14071D37C (CmpTryAcquireKcbIXLocks.c)
  */
 
 __int64 __fastcall CmpPrepareForSubtreeInvalidationWorker(__int64 a1, __int64 a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockAwePagesExclusive @ 0x14064AFF0
+ * XREFs of MiLockAwePagesExclusive @ 0x14064B540
  * Callers:
- *     MiDeleteAweInfoPages @ 0x140A41A90 (MiDeleteAweInfoPages.c)
- *     MiResizeAweBitMap @ 0x140A42110 (MiResizeAweBitMap.c)
+ *     MiDeleteAweInfoPages @ 0x140A41D40 (MiDeleteAweInfoPages.c)
+ *     MiResizeAweBitMap @ 0x140A423C0 (MiResizeAweBitMap.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F850 (ExAcquireAutoExpandPushLockExclusive.c)
  */
 
 __int64 __fastcall MiLockAwePagesExclusive(__int64 a1, __int64 a2)

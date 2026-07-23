@@ -61,45 +61,41 @@ __int64 __fastcall SeSubProcessToken(
   bool v31; // [rsp+50h] [rbp-B0h] BYREF
   bool v32; // [rsp+51h] [rbp-AFh] BYREF
   char v33; // [rsp+52h] [rbp-AEh] BYREF
-  char v34; // [rsp+53h] [rbp-ADh] BYREF
-  char v35; // [rsp+54h] [rbp-ACh]
-  bool v36; // [rsp+55h] [rbp-ABh] BYREF
-  int v37; // [rsp+58h] [rbp-A8h] BYREF
-  int v38; // [rsp+5Ch] [rbp-A4h] BYREF
-  __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v40; // [rsp+68h] [rbp-98h]
-  PADAPTER_OBJECT *v41; // [rsp+70h] [rbp-90h]
-  char *v42; // [rsp+78h] [rbp-88h]
-  __int128 v43; // [rsp+80h] [rbp-80h] BYREF
-  PADAPTER_OBJECT v44; // [rsp+90h] [rbp-70h]
+  _BYTE v34[9]; // [rsp+53h] [rbp-ADh] BYREF
+  int v35; // [rsp+5Ch] [rbp-A4h] BYREF
+  __int64 v36; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v37; // [rsp+68h] [rbp-98h]
+  PADAPTER_OBJECT *v38; // [rsp+70h] [rbp-90h]
+  char *v39; // [rsp+78h] [rbp-88h]
+  __int128 v40; // [rsp+80h] [rbp-80h] BYREF
+  PADAPTER_OBJECT v41; // [rsp+90h] [rbp-70h]
   struct _LIST_ENTRY *Flink; // [rsp+98h] [rbp-68h]
-  __int128 v46; // [rsp+A0h] [rbp-60h] BYREF
-  __int128 v47; // [rsp+B0h] [rbp-50h]
-  __int128 v48; // [rsp+C0h] [rbp-40h]
-  struct _ACCESS_STATE v49; // [rsp+D0h] [rbp-30h] BYREF
-  _QWORD v50[28]; // [rsp+170h] [rbp+70h] BYREF
+  __int128 v43; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v44; // [rsp+B0h] [rbp-50h]
+  __int128 v45; // [rsp+C0h] [rbp-40h]
+  struct _ACCESS_STATE v46; // [rsp+D0h] [rbp-30h] BYREF
+  _QWORD v47[28]; // [rsp+170h] [rbp+70h] BYREF
 
-  v41 = a3;
-  v40 = a2;
-  v42 = a11;
+  v38 = a3;
+  v37 = a2;
+  v39 = a11;
   DmaAdapter = 0LL;
-  HIDWORD(v43) = 0;
-  v46 = 0LL;
-  v47 = 0LL;
-  v48 = 0LL;
-  memset(&v49, 0, sizeof(v49));
-  memset(v50, 0, sizeof(v50));
+  HIDWORD(v40) = 0;
+  v43 = 0LL;
+  v44 = 0LL;
+  v45 = 0LL;
+  memset(&v46, 0, sizeof(v46));
+  memset(v47, 0, sizeof(v47));
   *a3 = 0LL;
-  v36 = 0;
+  v34[2] = 0;
   *(_WORD *)a11 = 0;
   a11[2] = 0;
   v28 = 0;
   v33 = 0;
-  v34 = 0;
+  *(_WORD *)v34 = 0;
+  v36 = 0LL;
   v35 = 0;
-  v39 = 0LL;
-  v38 = 0;
-  v37 = 0;
+  *(_DWORD *)&v34[5] = 0;
   v29 = 0;
   v32 = 0;
   v31 = 0;
@@ -110,10 +106,10 @@ __int64 __fastcall SeSubProcessToken(
     v23 = -1073740643;
     if ( (*(_DWORD *)a6 & 2) != 0 )
     {
-      v25 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken((__int64)KeGetCurrentThread(), &v37, &v36, &v38, 0LL);
+      v25 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken((__int64)KeGetCurrentThread(), &v34[5], &v34[2], &v35, 0LL);
       v26 = v25;
-      if ( v37 == 2 && v38 < 2
-        || (v23 = SeTokenIsNoChildProcessRestrictionEnforced((__int64)v25) ? 0xC000049D : 0, v37 != 1) )
+      if ( *(_DWORD *)&v34[5] == 2 && v35 < 2
+        || (v23 = SeTokenIsNoChildProcessRestrictionEnforced((__int64)v25) ? 0xC000049D : 0, *(_DWORD *)&v34[5] != 1) )
       {
         if ( v26 )
           HalPutDmaAdapter(v26);
@@ -149,13 +145,13 @@ LABEL_22:
       }
     }
   }
-  *((_QWORD *)&v46 + 1) = 0LL;
-  DWORD2(v47) = 0;
-  *(_QWORD *)&v47 = 0LL;
-  v15 = v40;
-  LODWORD(v46) = 48;
-  v48 = 0LL;
-  inserted = SepDuplicateToken(v40, (int)&v46, 0, 1, 0, 0, 1, &DmaAdapter);
+  *((_QWORD *)&v43 + 1) = 0LL;
+  DWORD2(v44) = 0;
+  *(_QWORD *)&v44 = 0LL;
+  v15 = v37;
+  LODWORD(v43) = 48;
+  v45 = 0LL;
+  inserted = SepDuplicateToken(v37, (int)&v43, 0, 1, 0, 0, 1, &DmaAdapter);
   if ( inserted < 0 )
   {
 LABEL_52:
@@ -191,10 +187,10 @@ LABEL_52:
   inserted = SepSetTokenBnoIsolation((__int64)DmaAdapter, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
     goto LABEL_59;
-  inserted = SepDesktopAppxSubProcessToken((__int64)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v33, &v34);
+  inserted = SepDesktopAppxSubProcessToken((PERESOURCE *)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v33, v34);
   if ( inserted < 0 )
     goto LABEL_59;
-  inserted = SepMandatorySubProcessToken((_DWORD *)(v15 & -(__int64)((a4 & 2) != 0)), (__int64)DmaAdapter, a1, &v39);
+  inserted = SepMandatorySubProcessToken((_DWORD *)(v15 & -(__int64)((a4 & 2) != 0)), (__int64)DmaAdapter, a1, &v36);
   if ( inserted < 0 )
     goto LABEL_59;
   inserted = SepSetTrustLevelForProcessToken((__int64)DmaAdapter, a1, &v28);
@@ -222,32 +218,32 @@ LABEL_52:
   if ( !a10 )
   {
 LABEL_16:
-    if ( (a4 & 2) == 0 || v39 )
+    if ( (a4 & 2) == 0 || v36 )
       v28 = 1;
     if ( v28 )
     {
-      v44 = v18;
-      *(_QWORD *)&v43 = 0LL;
-      DWORD2(v43) = 0;
+      v41 = v18;
+      *(_QWORD *)&v40 = 0LL;
+      DWORD2(v40) = 0;
       Flink = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-      SepCreateAccessStateFromSubjectContext(&v43, &v49, v50, 0, 0LL);
+      SepCreateAccessStateFromSubjectContext(&v40, &v46, v47, 0, 0LL);
     }
     else
     {
-      SeCreateAccessState((int)&v49, (int)v50, 0, 0LL);
+      SeCreateAccessState((int)&v46, (int)v47, 0, 0LL);
     }
-    v35 = 1;
-    inserted = ObInsertObjectEx(DmaAdapter, &v49, 0, 0, 0, 0LL, 0LL);
+    v34[1] = 1;
+    inserted = ObInsertObjectEx(DmaAdapter, &v46, 0, 0, 0, 0LL, 0LL);
     if ( inserted >= 0 )
     {
       SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8, SeAliasAdminsSid);
-      v19 = v41;
+      v19 = v38;
       BYTE4(DmaAdapter[12].DmaOperations) = a4 & 1;
       *v19 = DmaAdapter;
-      v20 = v42;
-      *v42 = v28;
+      v20 = v39;
+      *v39 = v28;
       v20[1] = v33;
-      v20[2] = v34;
+      v20[2] = v34[0];
       goto LABEL_22;
     }
     goto LABEL_52;
@@ -267,11 +263,11 @@ LABEL_59:
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
 LABEL_23:
-  if ( v35 )
+  if ( v34[1] )
   {
-    SepDeleteAccessState((__int64)&v49);
+    SepDeleteAccessState((__int64)&v46);
     if ( !v28 )
-      SeReleaseSubjectContext(&v49.SubjectSecurityContext);
+      SeReleaseSubjectContext(&v46.SubjectSecurityContext);
   }
   return (unsigned int)inserted;
 }

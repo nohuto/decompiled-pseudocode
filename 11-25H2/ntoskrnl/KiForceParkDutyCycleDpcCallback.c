@@ -102,7 +102,7 @@ unsigned __int8 __fastcall KiForceParkDutyCycleDpcCallback(__int64 a1, struct _K
     v18 = -10LL * (unsigned int)dword_140FC42E8;
     v19 = 0LL;
 LABEL_19:
-    result = KeSetTimer2(p_StartSingleDutyCycleTimer, v18, v19, 0LL);
+    result = KeSetTimer2(p_StartSingleDutyCycleTimer, (LARGE_INTEGER)v18, v19, 0LL);
   }
 LABEL_20:
   if ( v21 )

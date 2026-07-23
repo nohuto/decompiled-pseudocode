@@ -1,9 +1,9 @@
 /*
- * XREFs of strncat_s @ 0x140152CB4
+ * XREFs of strncat_s @ 0x140153274
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl strncat_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)

@@ -12,7 +12,7 @@
 
 __int64 __fastcall sub_140BF7E44(__int64 a1, int a2, __int64 a3, int a4)
 {
-  unsigned __int64 v5; // rax
+  PIMAGE_NT_HEADERS v5; // rax
   unsigned __int8 CurrentIrql; // bl
   unsigned __int64 v7; // rax
   unsigned __int128 v8; // rax
@@ -91,9 +91,9 @@ __int64 __fastcall sub_140BF7E44(__int64 a1, int a2, __int64 a3, int a4)
     *(_BYTE *)((unsigned int)KeGuardCheckICall - a2 + a3) = -61;
   }
   *(_QWORD *)(a1 + 2280) = 0x140000000uLL;
-  v5 = RtlImageNtHeader(0x140000000uLL);
+  v5 = RtlImageNtHeader((PVOID)0x140000000LL);
   *(_QWORD *)(a1 + 2296) = v5;
-  *(_QWORD *)(a1 + 2288) = 0x140000000LL + *(unsigned int *)(v5 + 80);
+  *(_QWORD *)(a1 + 2288) = 0x140000000LL + v5->OptionalHeader.SizeOfImage;
   *(_DWORD *)(a1 + 2252) = dword_1410075E0;
   *(_DWORD *)(a1 + 2256) = dword_141007618;
   *(_DWORD *)(a1 + 2260) = KeIstStackSize;

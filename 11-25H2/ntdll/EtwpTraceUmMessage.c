@@ -93,7 +93,7 @@ LABEL_5:
             v7,
             v13,
             v36->CurrentIdealProcessor.Reserved,
-            (_QWORD *)((unsigned __int64)&v31 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v31 & -(__int64)(v10 != 0)),
             &v30);
     v35 = v16;
     v17 = 0;

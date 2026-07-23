@@ -33,7 +33,7 @@ __int64 __fastcall KeSetTracepoint(
   __int64 v9; // r12
   struct _KTHREAD *CurrentThread; // rax
   int v13; // r13d
-  __int64 v14; // r8
+  void *v14; // r8
   char v15; // bp
   int v16; // edi
   __int64 v17; // rax
@@ -172,11 +172,11 @@ LABEL_43:
   if ( a3 >= 0xFFFF800000000000uLL )
   {
     v46 = MmLockLoadedDataTableEntry(a3);
-    v14 = *(_QWORD *)(v46 + 48);
+    v14 = *(void **)(v46 + 48);
   }
   if ( !v18 && v13 )
     goto LABEL_54;
-  if ( v14 && !(unsigned int)KiTpIsSupportedKernelTracepointLocation(v14, a3) )
+  if ( v14 && !(unsigned int)KiTpIsSupportedKernelTracepointLocation(v14) )
   {
     v16 = -1073741637;
     goto LABEL_124;
@@ -313,7 +313,7 @@ LABEL_90:
         if ( ++KiTpEnabledCount == 1 )
           _InterlockedOr(&KiDynamicTraceMask, 2u);
         LOBYTE(v37) = 1;
-        v16 = KiTpWriteBreakpoint(v24, v37, v46);
+        v16 = KiTpWriteBreakpoint(v24, v37);
         if ( v16 < 0 )
         {
           if ( v24 == v9 )
@@ -355,7 +355,7 @@ LABEL_111:
     if ( *v39 )
     {
 LABEL_104:
-      if ( (int)KiTpWriteBreakpoint(v24, 0LL, v46) >= 0 )
+      if ( (int)KiTpWriteBreakpoint(v24, 0LL) >= 0 )
       {
         --KiTpEnabledCount;
         v40 = v43;

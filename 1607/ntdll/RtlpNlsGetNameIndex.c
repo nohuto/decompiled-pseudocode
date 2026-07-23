@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpNlsGetNameIndex @ 0x180040E50
+ * XREFs of RtlpNlsGetNameIndex @ 0x180040E40
  * Callers:
- *     RtlpConsoleFallbackNameFromLocaleName @ 0x18003E2A0 (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlGetParentLocaleName @ 0x18003E5F0 (RtlGetParentLocaleName.c)
- *     RtlLocaleNameToLcid @ 0x180040DB0 (RtlLocaleNameToLcid.c)
+ *     RtlpConsoleFallbackNameFromLocaleName @ 0x18003E290 (RtlpConsoleFallbackNameFromLocaleName.c)
+ *     RtlGetParentLocaleName @ 0x18003E5E0 (RtlGetParentLocaleName.c)
+ *     RtlLocaleNameToLcid @ 0x180040DA0 (RtlLocaleNameToLcid.c)
  *     RtlIsValidLocaleName @ 0x1800EEF00 (RtlIsValidLocaleName.c)
  * Callees:
  *     <none>

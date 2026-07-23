@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetReservedBlockSize @ 0x1800C9730
+ * XREFs of RtlpGetReservedBlockSize @ 0x180001E90
  * Callers:
- *     RtlpLowFragHeapFlushCaches @ 0x1800175A0 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x180002680 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
  *     <none>
  */

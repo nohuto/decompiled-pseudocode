@@ -1,10 +1,10 @@
 /*
- * XREFs of PopTraceEsState @ 0x1404F21DC
+ * XREFs of PopTraceEsState @ 0x1404EB7BC
  * Callers:
- *     PopEsSnapTelemetry @ 0x140B5CDE0 (PopEsSnapTelemetry.c)
+ *     PopEsSnapTelemetry @ 0x140B5FF60 (PopEsSnapTelemetry.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopTraceEsState(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, int a6, int a7, int a8)
@@ -39,10 +39,10 @@ NTSTATUS __fastcall PopTraceEsState(__int64 a1, __int64 a2, int a3, __int64 a4, 
   __int64 *v35; // [rsp+100h] [rbp+0h]
   __int64 v36; // [rsp+108h] [rbp+8h]
 
-  if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+    if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
     {
       v16 = a2;
       v19 = &v9;
@@ -72,8 +72,8 @@ NTSTATUS __fastcall PopTraceEsState(__int64 a1, __int64 a2, int a3, __int64 a4, 
       v17 = 0x1000000LL;
       v36 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)&word_14004B42E,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)&byte_14004B9AF,
                0LL,
                0LL,
                0xBu,

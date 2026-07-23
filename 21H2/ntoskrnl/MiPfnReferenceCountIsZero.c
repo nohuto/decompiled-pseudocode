@@ -1,28 +1,28 @@
 /*
- * XREFs of MiPfnReferenceCountIsZero @ 0x140325DF0
+ * XREFs of MiPfnReferenceCountIsZero @ 0x140330B40
  * Callers:
- *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
- *     MiResolveTransitionFault @ 0x140216790 (MiResolveTransitionFault.c)
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiUnlockImageSection @ 0x14031AA30 (MiUnlockImageSection.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MiWriteCompletePfn @ 0x140325C80 (MiWriteCompletePfn.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiInsertProtectedStandbyPage @ 0x140329470 (MiInsertProtectedStandbyPage.c)
- *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
- *     MiMirrorPerformBrownWrites @ 0x1403822B8 (MiMirrorPerformBrownWrites.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
- *     MiNoPagesLastChance @ 0x1405507C8 (MiNoPagesLastChance.c)
- *     MiSwapHardFaultPage @ 0x140563770 (MiSwapHardFaultPage.c)
+ *     MiResolveProtoPteFault @ 0x1402B9CD0 (MiResolveProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x1402BB090 (MiResolveTransitionFault.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiUnlockImageSection @ 0x140325780 (MiUnlockImageSection.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MiWriteCompletePfn @ 0x1403309D0 (MiWriteCompletePfn.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiInsertProtectedStandbyPage @ 0x1403341C0 (MiInsertProtectedStandbyPage.c)
+ *     MiConvertStandbyToProto @ 0x140367128 (MiConvertStandbyToProto.c)
+ *     MiMirrorPerformBrownWrites @ 0x140382400 (MiMirrorPerformBrownWrites.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541B30 (MiPurgeBadFileOnlyPages.c)
+ *     MiNoPagesLastChance @ 0x140550A08 (MiNoPagesLastChance.c)
+ *     MiSwapHardFaultPage @ 0x1405639B0 (MiSwapHardFaultPage.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReleasePageFileSpace @ 0x140303154 (MiReleasePageFileSpace.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReleasePageFileSpace @ 0x14030DEA4 (MiReleasePageFileSpace.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPfnReferenceCountIsZero(__int64 a1, ULONG_PTR a2)
@@ -39,7 +39,7 @@ __int64 __fastcall MiPfnReferenceCountIsZero(__int64 a1, ULONG_PTR a2)
     if ( (v6 & 0x10) != 0 )
       *(_BYTE *)(a1 + 35) = v6 & 0xEF;
     MiReleasePageFileSpace(
-      *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)),
+      *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)),
       *(_QWORD *)(a1 + 16),
       1);
     return MiInsertPageInFreeOrZeroedList(a2, 2);

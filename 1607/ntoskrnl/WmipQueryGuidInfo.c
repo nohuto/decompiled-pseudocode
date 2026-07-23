@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipQueryGuidInfo @ 0x14069E748
+ * XREFs of WmipQueryGuidInfo @ 0x14069E848
  * Callers:
- *     WmipIoControl @ 0x1404749C4 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140473894 (WmipIoControl.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall WmipQueryGuidInfo(__int64 a1)

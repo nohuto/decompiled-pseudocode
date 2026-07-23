@@ -1,16 +1,16 @@
 /*
- * XREFs of ViTargetFreeContiguousMemory @ 0x1409D73E4
+ * XREFs of ViTargetFreeContiguousMemory @ 0x1409D83E4
  * Callers:
- *     VerifierMmFreeContiguousMemory @ 0x1409E6810 (VerifierMmFreeContiguousMemory.c)
- *     VerifierMmFreeContiguousMemorySpecifyCache @ 0x1409E6850 (VerifierMmFreeContiguousMemorySpecifyCache.c)
- *     VerifierMmFreeNonCachedMemory @ 0x1409E68B0 (VerifierMmFreeNonCachedMemory.c)
+ *     VerifierMmFreeContiguousMemory @ 0x1409E7810 (VerifierMmFreeContiguousMemory.c)
+ *     VerifierMmFreeContiguousMemorySpecifyCache @ 0x1409E7850 (VerifierMmFreeContiguousMemorySpecifyCache.c)
+ *     VerifierMmFreeNonCachedMemory @ 0x1409E78B0 (VerifierMmFreeNonCachedMemory.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x140371B24 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x1405A25D4 (VfAvlInitializeLockContext.c)
- *     ViTargetFreeContiguousMemoryFromNode @ 0x1409D7498 (ViTargetFreeContiguousMemoryFromNode.c)
- *     ViTargetUpdateTreeAllowed @ 0x1409D77C8 (ViTargetUpdateTreeAllowed.c)
- *     VfAvlEnumerateNodes @ 0x1409E0658 (VfAvlEnumerateNodes.c)
+ *     VfAvlCleanupLockContext @ 0x140371674 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E744 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2804 (VfAvlInitializeLockContext.c)
+ *     ViTargetFreeContiguousMemoryFromNode @ 0x1409D8498 (ViTargetFreeContiguousMemoryFromNode.c)
+ *     ViTargetUpdateTreeAllowed @ 0x1409D87C8 (ViTargetUpdateTreeAllowed.c)
+ *     VfAvlEnumerateNodes @ 0x1409E1658 (VfAvlEnumerateNodes.c)
  */
 
 char __fastcall ViTargetFreeContiguousMemory(__int64 a1, __int64 a2)

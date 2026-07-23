@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlGetSectorSizeInformation @ 0x14086D080
+ * XREFs of FsRtlGetSectorSizeInformation @ 0x14086D2C0
  * Callers:
- *     RawQueryVolumeInformation @ 0x140791EDC (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x1407920CC (RawQueryVolumeInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     FsRtlIssueDeviceIoControl @ 0x14086D490 (FsRtlIssueDeviceIoControl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     FsRtlIssueDeviceIoControl @ 0x14086D6D0 (FsRtlIssueDeviceIoControl.c)
  */
 
 __int64 __fastcall FsRtlGetSectorSizeInformation(PDEVICE_OBJECT DeviceObject, __int64 a2)

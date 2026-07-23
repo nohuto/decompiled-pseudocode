@@ -1,14 +1,14 @@
 /*
- * XREFs of NtQueryInformationCpuPartition @ 0x1409B05D0
+ * XREFs of NtQueryInformationCpuPartition @ 0x1409B07D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeQueryMaximumGroupCount @ 0x1402BE620 (KeQueryMaximumGroupCount.c)
- *     KeQueryCpuPartitionAffinity @ 0x1403AE068 (KeQueryCpuPartitionAffinity.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     PspReferenceCpuPartitionByHandle @ 0x1409B1634 (PspReferenceCpuPartitionByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeQueryMaximumGroupCount @ 0x1402BE8B0 (KeQueryMaximumGroupCount.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1403AE248 (KeQueryCpuPartitionAffinity.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1409B1834 (PspReferenceCpuPartitionByHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

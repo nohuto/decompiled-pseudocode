@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogConsoleUserPresent @ 0x14067A788
+ * XREFs of TtmiLogConsoleUserPresent @ 0x14067A86C
  * Callers:
- *     TtmNotifyConsoleUserPresent @ 0x1406788B4 (TtmNotifyConsoleUserPresent.c)
+ *     TtmNotifyConsoleUserPresent @ 0x140678998 (TtmNotifyConsoleUserPresent.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void TtmiLogConsoleUserPresent()
@@ -37,7 +37,7 @@ void TtmiLogConsoleUserPresent()
       v8 = 4LL;
       v10 = 4LL;
       v12 = 4LL;
-      TlgWrite(&stru_1407478B0, &unk_14027DD1B, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027DE1B, 0LL, 0LL, 5u, &pData);
     }
   }
 }

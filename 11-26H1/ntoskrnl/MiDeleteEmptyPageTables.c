@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeleteEmptyPageTables @ 0x140315248
+ * XREFs of MiDeleteEmptyPageTables @ 0x140317278
  * Callers:
- *     MiDeleteAwePageTables @ 0x1407011B0 (MiDeleteAwePageTables.c)
- *     MiFreeVirtualMemory @ 0x14095F790 (MiFreeVirtualMemory.c)
+ *     MiDeleteAwePageTables @ 0x140705E80 (MiDeleteAwePageTables.c)
+ *     MiFreeVirtualMemory @ 0x140A05050 (MiFreeVirtualMemory.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiDecommitInitializePacket @ 0x140361B88 (MiDecommitInitializePacket.c)
- *     MiDeleteVaDirect @ 0x140361EF0 (MiDeleteVaDirect.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiDecommitInitializePacket @ 0x140363928 (MiDecommitInitializePacket.c)
+ *     MiDeleteVaDirect @ 0x140363C90 (MiDeleteVaDirect.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDeleteEmptyPageTables(unsigned __int64 a1, unsigned __int64 a2, char a3)

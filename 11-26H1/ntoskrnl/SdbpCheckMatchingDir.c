@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckMatchingDir @ 0x140882780
+ * XREFs of SdbpCheckMatchingDir @ 0x140888B80
  * Callers:
  *     <none>
  * Callees:
- *     SdbpUmaInit_PCWSTR @ 0x1407149BC (SdbpUmaInit_PCWSTR.c)
- *     SdbpInitializeSearchDBContext @ 0x140884BA8 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140885488 (SdbpResolveMatchingFile.c)
- *     AslDoesDirectoryExistNtPath @ 0x1408880AC (AslDoesDirectoryExistNtPath.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpUmaInit_PCWSTR @ 0x1407196AC (SdbpUmaInit_PCWSTR.c)
+ *     SdbpInitializeSearchDBContext @ 0x14088AFA8 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x14088B888 (SdbpResolveMatchingFile.c)
+ *     AslDoesDirectoryExistNtPath @ 0x14088E4A8 (AslDoesDirectoryExistNtPath.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingDir(

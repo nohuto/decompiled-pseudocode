@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicGenerateMessage @ 0x1405A1490
+ * XREFs of HalpApicGenerateMessage @ 0x1405A3CA0
  * Callers:
  *     <none>
  * Callees:

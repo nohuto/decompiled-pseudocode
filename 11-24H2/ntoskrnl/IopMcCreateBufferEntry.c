@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMcCreateBufferEntry @ 0x1405A2AEC
+ * XREFs of IopMcCreateBufferEntry @ 0x14059FA2C
  * Callers:
- *     IopIoRingDispatchRegisterBuffers @ 0x140716848 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x1407143D8 (IopIoRingDispatchRegisterBuffers.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, __int64 *a4)
@@ -22,7 +22,7 @@ __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, 
   _QWORD *v17; // rcx
 
   v7 = ((a1 & 0xFFF) + (unsigned __int64)a2 + 4095) >> 12;
-  Pool2 = ExAllocatePool2(0x41uLL);
+  Pool2 = ExAllocatePool2(0x41uLL, (unsigned int)(32 * (v7 + 3)), 0x6542634Du);
   v10 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -50,16 +50,16 @@ __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, 
     }
     while ( v14 );
   }
-  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140F8C248);
-  v16 = (_QWORD *)qword_140F8C258;
+  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140F8C4C8);
+  v16 = (_QWORD *)qword_140F8C4D8;
   v17 = (_QWORD *)(v10 + 16);
-  if ( *(__int64 **)qword_140F8C258 != &qword_140F8C250 )
+  if ( *(__int64 **)qword_140F8C4D8 != &qword_140F8C4D0 )
     __fastfail(3u);
-  *(_QWORD *)(v10 + 24) = qword_140F8C258;
-  *v17 = &qword_140F8C250;
+  *(_QWORD *)(v10 + 24) = qword_140F8C4D8;
+  *v17 = &qword_140F8C4D0;
   *v16 = v17;
-  qword_140F8C258 = v10 + 16;
-  KeReleaseSpinLock(&qword_140F8C248, v15);
+  qword_140F8C4D8 = v10 + 16;
+  KeReleaseSpinLock(&qword_140F8C4C8, v15);
   result = 0LL;
   *a4 = v10;
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepFindMatchingLuidEntry @ 0x1408A37B0
+ * XREFs of SepFindMatchingLuidEntry @ 0x1408A4A10
  * Callers:
- *     SepIsValidProcUniqueLuid @ 0x1408A383C (SepIsValidProcUniqueLuid.c)
+ *     SepIsValidProcUniqueLuid @ 0x1408A4A9C (SepIsValidProcUniqueLuid.c)
  * Callees:
- *     RtlLookupEntryHashTable @ 0x1400DD730 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x140117B10 (RtlGetNextEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x1400DD7B0 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x140117B80 (RtlGetNextEntryHashTable.c)
  */
 
 unsigned __int64 __fastcall SepFindMatchingLuidEntry(
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall SepFindMatchingLuidEntry(
   ULONG_PTR v10; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   unsigned __int64 result; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = *a2;
   v4 = 0;

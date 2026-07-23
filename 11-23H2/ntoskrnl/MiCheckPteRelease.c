@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPteRelease @ 0x14065F2E4
+ * XREFs of MiCheckPteRelease @ 0x14065F834
  * Callers:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)

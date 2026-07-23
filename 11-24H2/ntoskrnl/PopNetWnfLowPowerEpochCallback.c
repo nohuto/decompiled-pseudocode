@@ -1,20 +1,20 @@
 /*
- * XREFs of PopNetWnfLowPowerEpochCallback @ 0x140A3B690
+ * XREFs of PopNetWnfLowPowerEpochCallback @ 0x140A30E70
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopNetArmRefreshTimer @ 0x14075C644 (PopNetArmRefreshTimer.c)
- *     PopNetDisarmRefreshTimer @ 0x14075C748 (PopNetDisarmRefreshTimer.c)
- *     PopNetDisengageNetworkRefresh @ 0x14075C7F8 (PopNetDisengageNetworkRefresh.c)
- *     PopNetGetNextDueRefreshTime @ 0x14075C844 (PopNetGetNextDueRefreshTime.c)
- *     PopNetIsNetworkRefreshEnabled @ 0x14075C8F8 (PopNetIsNetworkRefreshEnabled.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A3BBFC (ExpWnfAcquireSubscriptionNameInstance.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopNetArmRefreshTimer @ 0x14075B5E0 (PopNetArmRefreshTimer.c)
+ *     PopNetDisarmRefreshTimer @ 0x14075B6E8 (PopNetDisarmRefreshTimer.c)
+ *     PopNetDisengageNetworkRefresh @ 0x14075B798 (PopNetDisengageNetworkRefresh.c)
+ *     PopNetGetNextDueRefreshTime @ 0x14075B7E4 (PopNetGetNextDueRefreshTime.c)
+ *     PopNetIsNetworkRefreshEnabled @ 0x14075B898 (PopNetIsNetworkRefreshEnabled.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A313DC (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopNetWnfLowPowerEpochCallback(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PsUpdateActiveProcessAffinity @ 0x140907AE4
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x140907C44
  * Callers:
- *     KeStartDynamicProcessor @ 0x1408BB7C0 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x1408BB920 (KeStartDynamicProcessor.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeIsSubsetAffinityEx @ 0x140513640 (KeIsSubsetAffinityEx.c)
- *     PspUnlockAffinityUpdateExclusive @ 0x140581954 (PspUnlockAffinityUpdateExclusive.c)
- *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
- *     PspUpdateSingleProcessAffinity @ 0x1409087D0 (PspUpdateSingleProcessAffinity.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeIsSubsetAffinityEx @ 0x140513880 (KeIsSubsetAffinityEx.c)
+ *     PspUnlockAffinityUpdateExclusive @ 0x140581BDC (PspUnlockAffinityUpdateExclusive.c)
+ *     PsGetNextProcess @ 0x1406A5A80 (PsGetNextProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x140908930 (PspUpdateSingleProcessAffinity.c)
  */
 
 _QWORD *PsUpdateActiveProcessAffinity()

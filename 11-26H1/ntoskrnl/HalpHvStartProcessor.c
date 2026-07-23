@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpHvStartProcessor @ 0x140592C34
+ * XREFs of HalpHvStartProcessor @ 0x1405953B4
  * Callers:
- *     HalpInterruptStartProcessor @ 0x140BEA190 (HalpInterruptStartProcessor.c)
+ *     HalpInterruptStartProcessor @ 0x140BF0190 (HalpInterruptStartProcessor.c)
  * Callees:
- *     HalpIsXboxNanovisorPresent @ 0x14058526C (HalpIsXboxNanovisorPresent.c)
- *     HalpHvStartVirtualProcessorViaXboxNanovisor @ 0x140585E58 (HalpHvStartVirtualProcessorViaXboxNanovisor.c)
- *     HalpHvInitSegRegister @ 0x140592B5C (HalpHvInitSegRegister.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpIsXboxNanovisorPresent @ 0x14058778C (HalpIsXboxNanovisorPresent.c)
+ *     HalpHvStartVirtualProcessorViaXboxNanovisor @ 0x140588378 (HalpHvStartVirtualProcessorViaXboxNanovisor.c)
+ *     HalpHvInitSegRegister @ 0x1405952DC (HalpHvInitSegRegister.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpHvStartProcessor(__int64 a1, __int64 a2, __int64 a3)
@@ -50,7 +50,7 @@ __int64 __fastcall HalpHvStartProcessor(__int64 a1, __int64 a2, __int64 a3)
   __int64 v40; // [rsp+108h] [rbp+8h]
 
   v20[0] = 0;
-  if ( qword_140FBB100 )
+  if ( qword_140FBB4A0 )
   {
     v4 = guard_dispatch_icall_no_overrides(a1, v20);
   }
@@ -86,7 +86,7 @@ __int64 __fastcall HalpHvStartProcessor(__int64 a1, __int64 a2, __int64 a3)
     v36 = *(_QWORD *)(a3 + 112);
     v40 = *(_QWORD *)(a3 + 104);
     v33 = v15;
-    if ( qword_140FBB0F8 )
+    if ( qword_140FBB498 )
       return (unsigned int)guard_dispatch_icall_no_overrides(v20[0], &v21);
     if ( HalpIsXboxNanovisorPresent() )
       return (unsigned int)HalpHvStartVirtualProcessorViaXboxNanovisor(v17, &v21);

@@ -11,32 +11,32 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-_WORD *__fastcall sub_180004908(const void **a1, __int64 a2)
+int __fastcall sub_180004908(const void **a1, const EVENT_DESCRIPTOR *a2)
 {
   unsigned __int64 v3; // rcx
   _WORD *v5; // rbx
   int v6; // eax
-  _WORD *result; // rax
-  _WORD *v8; // [rsp+20h] [rbp-38h] BYREF
-  int v9; // [rsp+28h] [rbp-30h]
-  int v10; // [rsp+2Ch] [rbp-2Ch]
+  _WORD *Heap; // rax
+  _WORD *v9; // [rsp+20h] [rbp-38h] BYREF
+  int v10; // [rsp+28h] [rbp-30h]
+  int v11; // [rsp+2Ch] [rbp-2Ch]
 
   v3 = *(unsigned __int16 *)a1;
   if ( v3 + 2 > *((unsigned __int16 *)a1 + 1) || (v5 = a1[1], v5[v3 >> 1]) )
   {
-    result = (_WORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(dword_18015B268 + 1572864), v3 + 2);
-    v5 = result;
-    if ( !result )
-      return result;
-    memmove(result, a1[1], *(unsigned __int16 *)a1);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1572864, v3 + 2);
+    v5 = Heap;
+    if ( !Heap )
+      return (int)Heap;
+    memmove(Heap, a1[1], *(unsigned __int16 *)a1);
     v5[(unsigned __int64)*(unsigned __int16 *)a1 >> 1] = 0;
   }
   v6 = *(unsigned __int16 *)a1 + 2;
-  v8 = v5;
-  v9 = v6;
-  v10 = 0;
-  result = (_WORD *)EtwEventWriteNoRegistration(&unk_180113E90, a2, 1LL, &v8);
+  v9 = v5;
+  v10 = v6;
+  v11 = 0;
+  LODWORD(Heap) = EtwEventWriteNoRegistration(&stru_180113E90, a2, 1u, (PEVENT_DATA_DESCRIPTOR)&v9);
   if ( v5 != a1[1] )
-    return (_WORD *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
-  return result;
+    LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+  return (int)Heap;
 }

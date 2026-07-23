@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpExtrasMove @ 0x1800E3FC0
+ * XREFs of RtlpHpExtrasMove @ 0x1800DF940
  * Callers:
- *     RtlpHpReallocMove @ 0x180094540 (RtlpHpReallocMove.c)
+ *     RtlpHpReallocMove @ 0x18009EFF0 (RtlpHpReallocMove.c)
  * Callees:
  *     <none>
  */

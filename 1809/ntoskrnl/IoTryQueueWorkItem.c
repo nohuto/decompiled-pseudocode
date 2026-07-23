@@ -1,11 +1,11 @@
 /*
- * XREFs of IoTryQueueWorkItem @ 0x140141610
+ * XREFs of IoTryQueueWorkItem @ 0x140141710
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExpTryQueueWorkItem @ 0x1400D172C (ExpTryQueueWorkItem.c)
- *     IopQueueWorkItemProlog @ 0x1400D1AE8 (IopQueueWorkItemProlog.c)
+ *     ExpTryQueueWorkItem @ 0x1400D17AC (ExpTryQueueWorkItem.c)
+ *     IopQueueWorkItemProlog @ 0x1400D1B68 (IopQueueWorkItemProlog.c)
  */
 
 char __fastcall IoTryQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

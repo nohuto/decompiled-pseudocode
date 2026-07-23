@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepRegistryQueryDriverShims @ 0x14095AB74
+ * XREFs of KsepRegistryQueryDriverShims @ 0x140942634
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x14095A578 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140942038 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x140740CAC (KsepRegistryQuerySZ.c)
- *     KsepRegistryCloseKey @ 0x14095AB50 (KsepRegistryCloseKey.c)
- *     KsepStringConcatenate @ 0x14095BF50 (KsepStringConcatenate.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     KsepRegistryQuerySZ @ 0x14073EBDC (KsepRegistryQuerySZ.c)
+ *     KsepRegistryCloseKey @ 0x140942610 (KsepRegistryCloseKey.c)
+ *     KsepStringConcatenate @ 0x140943A10 (KsepStringConcatenate.c)
  */
 
 __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, void *a2, void *a3, _QWORD *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, void *a2, void *a3, 
     if ( SZ >= 0 )
     {
       v6 = KeyHandle;
-      _InterlockedIncrement(&dword_140F0F318);
+      _InterlockedIncrement(&dword_140F0F618);
     }
   }
   if ( v10 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerTransitionTimesInMs @ 0x1404ABDF0
+ * XREFs of PopPowerTransitionTimesInMs @ 0x1404A62DC
  * Callers:
- *     PopCalculateWakeTimeAdjustment @ 0x1407513AC (PopCalculateWakeTimeAdjustment.c)
- *     PopDiagTracePowerTransitionTime @ 0x140A8354C (PopDiagTracePowerTransitionTime.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x14074F6CC (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTracePowerTransitionTime @ 0x140A7E06C (PopDiagTracePowerTransitionTime.c)
  * Callees:
- *     PopQpcTimeInMs @ 0x140B6A560 (PopQpcTimeInMs.c)
+ *     PopQpcTimeInMs @ 0x140B6BC70 (PopQpcTimeInMs.c)
  */
 
 unsigned __int64 __fastcall PopPowerTransitionTimesInMs(
@@ -23,39 +23,39 @@ unsigned __int64 __fastcall PopPowerTransitionTimesInMs(
   v11 = 1000LL * *(unsigned int *)(result + 68);
   if ( a1 )
   {
-    result = PopQpcTimeInMs(&qword_140F0B308, &qword_140F0B310);
+    result = PopQpcTimeInMs(&qword_140F0BF48, &qword_140F0BF50);
     *a1 = result;
   }
   if ( a2 )
   {
-    result = PopQpcTimeInMs(&qword_140F0B328, &qword_140F0B330);
+    result = PopQpcTimeInMs(&qword_140F0BF68, &qword_140F0BF70);
     *a2 = result;
   }
   if ( a5 )
   {
     a5 = 0LL;
-    result = PopQpcTimeInMs(&a5, &qword_140F0B348);
+    result = PopQpcTimeInMs(&a5, &qword_140F0BF88);
     *v12 = result;
-    if ( dword_140F0B558 )
+    if ( dword_140F0C198 )
     {
-      result = (unsigned int)(qword_140F0B3D0 + result);
+      result = (unsigned int)(qword_140F0C010 + result);
       *v12 = result;
     }
   }
   if ( a3 )
   {
-    result = qword_140F0B390 / v11;
-    *a3 = qword_140F0B390 / v11;
+    result = qword_140F0BFD0 / v11;
+    *a3 = qword_140F0BFD0 / v11;
   }
   if ( a4 )
   {
-    result = (qword_140F0B4D0 + qword_140F0B408) / v11;
+    result = (qword_140F0C110 + qword_140F0C048) / v11;
     *a4 = result;
   }
   if ( a6 )
   {
-    result = qword_140F0B370 / v11;
-    *a6 = qword_140F0B370 / v11;
+    result = qword_140F0BFB0 / v11;
+    *a6 = qword_140F0BFB0 / v11;
   }
   return result;
 }

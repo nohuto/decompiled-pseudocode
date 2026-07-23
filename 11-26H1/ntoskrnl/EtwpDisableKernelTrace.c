@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpDisableKernelTrace @ 0x14095A8C0
+ * XREFs of EtwpDisableKernelTrace @ 0x140A00180
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x140959E60 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpEnableKernelTrace @ 0x14095ACA0 (EtwpEnableKernelTrace.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1409FF720 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x140A00560 (EtwpEnableKernelTrace.c)
  * Callees:
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeStopProfile @ 0x1404AAC88 (KeStopProfile.c)
- *     DbgSetDebugPrintCallback @ 0x14052FD00 (DbgSetDebugPrintCallback.c)
- *     IoPerfReset @ 0x1405CBD6C (IoPerfReset.c)
- *     ZwUnloadDriver @ 0x140726F30 (ZwUnloadDriver.c)
- *     AlpcUnregisterLogRoutine @ 0x1407C1948 (AlpcUnregisterLogRoutine.c)
- *     ObDisableEtwReferenceTrace @ 0x1407C40E4 (ObDisableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x140823BCC (WmiSetNetworkNotify.c)
- *     EtwpUpdateFileInfoDriverRegistration @ 0x140828208 (EtwpUpdateFileInfoDriverRegistration.c)
- *     WmiTraceRundownNotify @ 0x140B0B964 (WmiTraceRundownNotify.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeStopProfile @ 0x1404A4318 (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x140532200 (DbgSetDebugPrintCallback.c)
+ *     IoPerfReset @ 0x1405CE5DC (IoPerfReset.c)
+ *     ZwUnloadDriver @ 0x14072BB00 (ZwUnloadDriver.c)
+ *     AlpcUnregisterLogRoutine @ 0x1407C49A8 (AlpcUnregisterLogRoutine.c)
+ *     ObDisableEtwReferenceTrace @ 0x1407C7144 (ObDisableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x140829E18 (WmiSetNetworkNotify.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x14082E448 (EtwpUpdateFileInfoDriverRegistration.c)
+ *     WmiTraceRundownNotify @ 0x140B0D0B4 (WmiTraceRundownNotify.c)
  */
 
 void __fastcall EtwpDisableKernelTrace(_DWORD *a1, __int64 a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)
@@ -39,7 +39,7 @@ void __fastcall EtwpDisableKernelTrace(_DWORD *a1, __int64 a2, _QWORD *a3, struc
     AlpcUnregisterLogRoutine((__int64)a1, a2, (__int64)a3, a4);
   if ( (*(_DWORD *)a2 & 0x2000000) != 0 )
   {
-    qword_140E02040 = 0LL;
+    qword_140E02070 = 0LL;
   }
   else if ( !a2 )
   {
@@ -47,7 +47,7 @@ void __fastcall EtwpDisableKernelTrace(_DWORD *a1, __int64 a2, _QWORD *a3, struc
   }
   if ( (*(_DWORD *)a2 & 0x4000000) != 0 )
   {
-    qword_140E02038 = 0LL;
+    qword_140E02068 = 0LL;
   }
   else if ( !a2 )
   {
@@ -55,7 +55,7 @@ void __fastcall EtwpDisableKernelTrace(_DWORD *a1, __int64 a2, _QWORD *a3, struc
   }
   if ( (*(_DWORD *)a2 & 0x200) != 0 )
   {
-    qword_140E02030 = 0LL;
+    qword_140E02060 = 0LL;
   }
   else if ( !a2 )
   {
@@ -64,7 +64,7 @@ void __fastcall EtwpDisableKernelTrace(_DWORD *a1, __int64 a2, _QWORD *a3, struc
   if ( (*(_DWORD *)a2 & 0x100) != 0 )
   {
     EtwpDiskIoNotifyRoutines = 0LL;
-    qword_140E02070 = 0LL;
+    qword_140E02050 = 0LL;
   }
   else if ( !a2 )
   {
@@ -72,7 +72,7 @@ void __fastcall EtwpDisableKernelTrace(_DWORD *a1, __int64 a2, _QWORD *a3, struc
   }
   if ( (*(_DWORD *)a2 & 0x400) != 0 )
   {
-    qword_140E68268 = 0LL;
+    qword_140E68540 = 0LL;
     goto LABEL_27;
   }
   if ( !a2 )
@@ -85,7 +85,7 @@ LABEL_27:
   v8 = (_DWORD *)(a2 + 16);
   if ( (*(_DWORD *)(a2 + 16) & 1) != 0 )
   {
-    qword_140E68270 = 0LL;
+    qword_140E68548 = 0LL;
     goto LABEL_29;
   }
 LABEL_3:
@@ -98,7 +98,7 @@ LABEL_4:
 LABEL_29:
   if ( (*v8 & 2) != 0 )
   {
-    qword_140E68278 = 0LL;
+    qword_140E68550 = 0LL;
   }
   else if ( !a2 )
   {
@@ -131,7 +131,7 @@ LABEL_29:
   v9 = (const signed __int32 *)(a2 + 16);
   if ( (*(_DWORD *)(a2 + 16) & 0x400000) != 0 )
   {
-    qword_140E02050 = 0LL;
+    qword_140E02030 = 0LL;
     goto LABEL_39;
   }
 LABEL_5:
@@ -144,7 +144,7 @@ LABEL_6:
 LABEL_39:
   if ( (*v9 & 0x80000) != 0 )
   {
-    qword_140E02058 = 0LL;
+    qword_140E02038 = 0LL;
   }
   else if ( !a2 )
   {
@@ -152,7 +152,7 @@ LABEL_39:
   }
   if ( _bittest(v9, 0x14u) )
   {
-    qword_140E02060 = 0LL;
+    qword_140E02040 = 0LL;
   }
   else if ( !a2 )
   {
@@ -161,7 +161,7 @@ LABEL_39:
   v10 = (_DWORD *)(a2 + 16);
   if ( (*(_DWORD *)(a2 + 16) & 0x200000) != 0 )
   {
-    qword_140E02068 = 0LL;
+    qword_140E02048 = 0LL;
     goto LABEL_45;
   }
 LABEL_7:
@@ -174,7 +174,7 @@ LABEL_8:
 LABEL_45:
   if ( (*v10 & 0x1000000) != 0 )
   {
-    qword_140E0EC00 = 0LL;
+    qword_140E0EC70 = 0LL;
   }
   else if ( !a2 )
   {
@@ -182,7 +182,7 @@ LABEL_45:
   }
   if ( (*v10 & 0x2000000) != 0 )
   {
-    qword_140E0EC08 = 0LL;
+    qword_140E0EC78 = 0LL;
   }
   else if ( !a2 )
   {
@@ -190,7 +190,7 @@ LABEL_45:
   }
   if ( (*(_DWORD *)(a2 + 8) & 0x8000000) != 0 )
   {
-    qword_140E0EC10 = 0LL;
+    qword_140E0EC80 = 0LL;
   }
   else if ( !a2 )
   {
@@ -212,12 +212,12 @@ LABEL_9:
       goto LABEL_10;
     goto LABEL_55;
   }
-  KeStopProfile((ULONG_PTR)&EtwpSecurityLock.CurrentRunTime);
+  KeStopProfile((ULONG_PTR)&stru_140F03830.1008);
 LABEL_55:
   if ( (*v11 & 0x400) != 0 )
   {
     for ( i = 0; i < EtwpPmcProfile; ++i )
-      KeStopProfile((ULONG_PTR)qword_140F03988 + 616 * i);
+      KeStopProfile((ULONG_PTR)qword_140F03E98 + 616 * i);
   }
   else if ( !a2 )
   {
@@ -237,13 +237,13 @@ LABEL_10:
   DestinationString = 0LL;
   if ( !a1 || (*a1 & 0x6000200) == 0 )
   {
-    if ( dword_140E68254 )
+    if ( dword_140E68530 )
     {
       WmiTraceRundownNotify(*a3, v4);
       EtwpUpdateFileInfoDriverRegistration(0);
       RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\FileInfo");
       ZwUnloadDriver(&DestinationString);
-      dword_140E68254 = 0;
+      dword_140E68530 = 0;
     }
   }
 }

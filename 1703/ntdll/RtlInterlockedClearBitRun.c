@@ -6,52 +6,47 @@
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlInterlockedClearBitRun(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlInterlockedClearBitRun(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToClear)
 {
-  unsigned __int64 result; // rax
-  unsigned int v4; // r9d
-  char v5; // r11
-  volatile signed __int32 *v6; // r10
-  int v7; // edx
+  ULONG v3; // r9d
+  char v4; // r11
+  volatile signed __int32 *v5; // r10
+  ULONG v6; // edx
+  unsigned __int64 v7; // rax
 
-  result = *(_QWORD *)(a1 + 8);
-  v4 = a3;
-  v5 = a2;
-  v6 = (volatile signed __int32 *)(result + 4 * ((unsigned __int64)a2 >> 5));
-  if ( a3 + (unsigned __int64)(a2 & 0x1F) > 0x20 )
+  v3 = NumberToClear;
+  v4 = StartingIndex;
+  v5 = (volatile signed __int32 *)&BitMapHeader->Buffer[(unsigned __int64)StartingIndex >> 5];
+  if ( NumberToClear + (unsigned __int64)(StartingIndex & 0x1F) > 0x20 )
   {
-    v7 = a2 & 0x1F;
-    if ( v7 )
+    v6 = StartingIndex & 0x1F;
+    if ( v6 )
     {
-      _InterlockedAnd(v6, ~(((1 << (32 - v7)) - 1) << (v5 & 0x1F)));
-      v4 = a3 - (32 - v7);
-      ++v6;
+      _InterlockedAnd(v5, ~(((1 << (32 - v6)) - 1) << (v4 & 0x1F)));
+      v3 = NumberToClear - (32 - v6);
+      ++v5;
     }
-    if ( v4 >= 0x20 )
+    if ( v3 >= 0x20 )
     {
-      result = (unsigned __int64)v4 >> 5;
+      v7 = (unsigned __int64)v3 >> 5;
       do
       {
-        *v6 = 0;
-        v4 -= 32;
-        ++v6;
-        --result;
+        *v5 = 0;
+        v3 -= 32;
+        ++v5;
+        --v7;
       }
-      while ( result );
+      while ( v7 );
     }
-    if ( v4 )
-    {
-      result = (unsigned int)~((1 << v4) - 1);
-      _InterlockedAnd(v6, result);
-    }
+    if ( v3 )
+      _InterlockedAnd(v5, ~((1 << v3) - 1));
   }
-  else if ( a3 == 32 )
+  else if ( NumberToClear == 32 )
   {
-    *v6 = 0;
+    *v5 = 0;
   }
   else
   {
-    _InterlockedAnd(v6, ~(((1 << a3) - 1) << (a2 & 0x1F)));
+    _InterlockedAnd(v5, ~(((1 << NumberToClear) - 1) << (StartingIndex & 0x1F)));
   }
-  return result;
 }

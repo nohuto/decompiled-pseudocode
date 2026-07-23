@@ -1,12 +1,12 @@
 /*
- * XREFs of ViThunkHookExportAddress @ 0x140ADBC78
+ * XREFs of ViThunkHookExportAddress @ 0x140ADBC68
  * Callers:
- *     VfThunkHookExportAddress @ 0x140ADB55C (VfThunkHookExportAddress.c)
+ *     VfThunkHookExportAddress @ 0x140ADB54C (VfThunkHookExportAddress.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     RtlFreeAnsiString @ 0x140756840 (RtlFreeAnsiString.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758680 (RtlUnicodeStringToAnsiString.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     RtlFreeAnsiString @ 0x140756A30 (RtlFreeAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x140758870 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ViThunkHookExportAddress(unsigned __int8 **a1, const UNICODE_STRING *a2, unsigned __int8 **a3)
@@ -21,7 +21,7 @@ __int64 __fastcall ViThunkHookExportAddress(unsigned __int8 **a1, const UNICODE_
   int v12; // ecx
   int v13; // eax
   unsigned __int8 *v14; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;
   Buffer = 0LL;

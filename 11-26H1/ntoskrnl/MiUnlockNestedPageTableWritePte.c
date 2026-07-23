@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUnlockNestedPageTableWritePte @ 0x140325648
+ * XREFs of MiUnlockNestedPageTableWritePte @ 0x140327678
  * Callers:
- *     MiEvictPageTableLock @ 0x14029E998 (MiEvictPageTableLock.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiClearPteAccessed @ 0x1402FF9B0 (MiClearPteAccessed.c)
- *     MiTerminateWsle @ 0x140324930 (MiTerminateWsle.c)
- *     MiWsleFlush @ 0x14032A510 (MiWsleFlush.c)
+ *     MiEvictPageTableLock @ 0x14029DEE8 (MiEvictPageTableLock.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiClearPteAccessed @ 0x1402E1A30 (MiClearPteAccessed.c)
+ *     MiTerminateWsle @ 0x140326960 (MiTerminateWsle.c)
+ *     MiWsleFlush @ 0x14032C540 (MiWsleFlush.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiReplicatePteChange @ 0x140528570 (MiReplicatePteChange.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiReplicatePteChange @ 0x14052ABE0 (MiReplicatePteChange.c)
  */
 
 void __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -47,7 +47,7 @@ void __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, unsigned __int64 a2,
     {
       v9 = 1;
       if ( !a4 )
-        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+        ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
     }
     else
     {
@@ -122,7 +122,7 @@ LABEL_18:
     {
       MiReplicatePteChange(v6, 1LL);
       if ( !a4 )
-        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
     }
   }
   if ( v6 )

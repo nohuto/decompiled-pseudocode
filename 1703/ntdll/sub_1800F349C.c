@@ -9,14 +9,14 @@
 
 char sub_1800F349C()
 {
-  __int64 Heap; // rax
-  _QWORD *v1; // rbx
+  unsigned __int64 *Heap; // rax
+  unsigned __int64 *v1; // rbx
   unsigned __int64 v2; // rax
   unsigned __int64 v3; // rcx
 
-  Heap = RtlAllocateHeap(qword_180159A28, 0, 2112LL);
-  qword_180159A30 = Heap;
-  v1 = (_QWORD *)Heap;
+  Heap = (unsigned __int64 *)RtlAllocateHeap(qword_180159A28, 0, 0x840uLL);
+  qword_180159A30 = (__int64)Heap;
+  v1 = Heap;
   if ( Heap )
   {
     sub_1800F353C(Heap, 0LL);
@@ -33,8 +33,8 @@ char sub_1800F349C()
     while ( v2 >= v3 );
     v1[2] = -1LL;
     *v1 = v3;
-    qword_18015C740 = (void *)RtlAllocateHeap(qword_180159A28, 0, 163840LL);
+    qword_18015C740 = RtlAllocateHeap(qword_180159A28, 0, 0x28000uLL);
     LOBYTE(Heap) = qword_18015C740 != 0LL;
   }
-  return Heap;
+  return (char)Heap;
 }

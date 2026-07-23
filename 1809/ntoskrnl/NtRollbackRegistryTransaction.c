@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRollbackRegistryTransaction @ 0x1406932D0
+ * XREFs of NtRollbackRegistryTransaction @ 0x140694490
  * Callers:
  *     <none>
  * Callees:
@@ -7,19 +7,19 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpRollbackLightWeightTransaction @ 0x1406938F0 (CmpRollbackLightWeightTransaction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CmpRollbackLightWeightTransaction @ 0x140694AB0 (CmpRollbackLightWeightTransaction.c)
  */
 
-__int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtRollbackRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rcx
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   NTSTATUS v6; // eax
   PVOID v7; // rdi
   PVOID Object; // [rsp+30h] [rbp-58h] BYREF
@@ -31,14 +31,14 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   --CurrentThread->KernelApcDisable;
   if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v5 = -1073741811;
     }
     else
     {
       v6 = ObReferenceObjectByHandle(
-             Handle,
+             RegistryTransactionHandle,
              0x10u,
              CmRegistryTransactionType,
              KeGetCurrentThread()->PreviousMode,
@@ -66,5 +66,5 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
     v5 = -1073741431;
   }
   CmCleanupThreadInfo(v10);
-  return (unsigned int)v5;
+  return v5;
 }

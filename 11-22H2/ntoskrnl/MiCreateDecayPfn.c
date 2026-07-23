@@ -57,7 +57,7 @@ PSLIST_ENTRY MiCreateDecayPfn()
     }
     else
     {
-      if ( ((__int64)BitMapHeader.Buffer & 4) != 0 )
+      if ( ((__int64)stru_140C68288.Buffer & 4) != 0 )
       {
         v2 = 4LL;
         v1 = 32;
@@ -67,9 +67,9 @@ PSLIST_ENTRY MiCreateDecayPfn()
         v1 = 0;
         v2 = 0LL;
       }
-      v3 = v1 + BitMapHeader.SizeOfBitMap - 1;
-      v4 = &BitMapHeader.Buffer[v2 / 0xFFFFFFFFFFFFFFFCuLL];
-      if ( !BitMapHeader.SizeOfBitMap )
+      v3 = v1 + stru_140C68288.SizeOfBitMap - 1;
+      v4 = &stru_140C68288.Buffer[v2 / 0xFFFFFFFFFFFFFFFCuLL];
+      if ( !stru_140C68288.SizeOfBitMap )
         return 0LL;
       v5 = (char *)&v4[2 * ((unsigned __int64)v1 >> 6)];
       for ( i = ((1LL << v1) - 1) | ~*(_QWORD *)v5; i == -1; i = ~*(_QWORD *)v5 )
@@ -94,9 +94,9 @@ PSLIST_ENTRY MiCreateDecayPfn()
       ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C68280);
       v13 = v9 & 7;
       v14 = v10 >> 3;
-      if ( ((*((char *)BitMapHeader.Buffer + v14) >> v13) & 1) != 0 )
+      if ( ((*((char *)stru_140C68288.Buffer + v14) >> v13) & 1) != 0 )
       {
-        *((_BYTE *)BitMapHeader.Buffer + v14) &= ~(1 << v13);
+        *((_BYTE *)stru_140C68288.Buffer + v14) &= ~(1 << v13);
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68280);
         if ( v11 != -1LL )
         {
@@ -112,10 +112,13 @@ PSLIST_ENTRY MiCreateDecayPfn()
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68280);
       }
       _InterlockedAnd64((volatile signed __int64 *)&v0[1].Next + 1, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v12 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -140,10 +143,10 @@ PSLIST_ENTRY MiCreateDecayPfn()
   BYTE3(v0[2].Next) = BYTE3(v0[2].Next) & 0xF8 | 5;
   MiInsertPageInList((ULONG_PTR)v0, 4u);
   _InterlockedAnd64((volatile signed __int64 *)&v0[1].Next + 1, 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v20 + 1));

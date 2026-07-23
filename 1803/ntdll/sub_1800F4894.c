@@ -15,12 +15,12 @@
 
 void __fastcall sub_1800F4894(DWORD a1, ULONG_PTR a2, int a3)
 {
-  unsigned int v6; // ecx
+  int v6; // ecx
   EXCEPTION_RECORD ExceptionRecord; // [rsp+50h] [rbp-B8h] BYREF
 
   if ( sub_1800F4858() )
   {
-    DbgPrintEx(101, 0, (int)"Critical error detected %lx\n", v6, a1);
+    DbgPrintEx(0x65u, 0, "Critical error detected %lx\n", v6);
     if ( a3 )
       __debugbreak();
   }

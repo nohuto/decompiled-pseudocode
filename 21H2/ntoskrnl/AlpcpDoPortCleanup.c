@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpDoPortCleanup @ 0x1405E20E8
+ * XREFs of AlpcpDoPortCleanup @ 0x1406D1848
  * Callers:
- *     AlpcpClosePort @ 0x1405E2CA0 (AlpcpClosePort.c)
+ *     AlpcpClosePort @ 0x1406D2400 (AlpcpClosePort.c)
  * Callees:
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     AlpcpFlushResourcesPort @ 0x1405E220C (AlpcpFlushResourcesPort.c)
- *     AlpcpFlushMessagesPort @ 0x1405E2314 (AlpcpFlushMessagesPort.c)
- *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
- *     AlpcpFreeCompletionList @ 0x1406C38D4 (AlpcpFreeCompletionList.c)
+ *     KeReleaseSemaphore @ 0x140212600 (KeReleaseSemaphore.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     AlpcpFreeCompletionList @ 0x1406224B4 (AlpcpFreeCompletionList.c)
+ *     AlpcpFlushResourcesPort @ 0x1406D196C (AlpcpFlushResourcesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x1406D1A74 (AlpcpFlushMessagesPort.c)
+ *     AlpcpDisconnectPort @ 0x1406D1E5C (AlpcpDisconnectPort.c)
  */
 
 char __fastcall AlpcpDoPortCleanup(__int64 a1)
@@ -22,7 +22,7 @@ char __fastcall AlpcpDoPortCleanup(__int64 a1)
   __int64 v4; // rax
   _QWORD **v5; // r14
   volatile signed __int64 *v7; // rdi
-  _DWORD *v8; // r9
+  __int64 v8; // r9
   _QWORD *v9; // rcx
   __int64 v10; // rdx
   _QWORD *v11; // rax
@@ -71,7 +71,7 @@ char __fastcall AlpcpDoPortCleanup(__int64 a1)
         *v11 = v10;
         *(_QWORD *)(v10 + 8) = v11;
         *v9 = 0LL;
-        KeReleaseSemaphoreEx((__int64)(v9 - 22), 1LL, 1LL, v8, 2);
+        KeReleaseSemaphoreEx((__int64)(v9 - 22), 1, 1, v8, 2);
       }
       if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v7);

@@ -17,7 +17,7 @@ __int64 __fastcall sub_18003BE6C(unsigned __int16 *a1, unsigned __int16 *a2)
   unsigned __int16 *v7; // rdx
   unsigned int v8; // ebp
   __int64 v9; // rsi
-  void *v10; // rax
+  PVOID v10; // rax
 
   v4 = 0;
   if ( !*a2 )
@@ -36,7 +36,7 @@ __int64 __fastcall sub_18003BE6C(unsigned __int16 *a1, unsigned __int16 *a2)
       v8 = 65534;
     if ( v7 == a1 + 8 )
     {
-      v10 = (void *)sub_18003B5E0(v8);
+      v10 = sub_18003B5E0(v8);
       v9 = (__int64)v10;
       if ( !v10 )
       {

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAdvanceVadHint @ 0x140436BB0
+ * XREFs of MiAdvanceVadHint @ 0x140435A80
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiMapLockedPagesInUserSpace @ 0x140528600 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140528B40 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
  * Callees:
  *     <none>
  */
@@ -33,9 +33,9 @@ __int64 __fastcall MiAdvanceVadHint(unsigned __int64 a1, unsigned __int64 a2, in
   v5 = a2 >> 4;
   result = a3 < 0;
   v7 = result + 4 * result + 34605058;
-  v8 = *(_DWORD *)(qword_140327F90 + 8 * v7 + 8);
-  v9 = (_DWORD *)(qword_140327F90 + 8 * v7);
-  v10 = 8 * (v8 - qword_140327F90);
+  v8 = *(_DWORD *)(qword_140327FD0 + 8 * v7 + 8);
+  v9 = (_DWORD *)(qword_140327FD0 + 8 * v7);
+  v10 = 8 * (v8 - qword_140327FD0);
   if ( (unsigned int)v5 >= v10 )
   {
     v11 = v10 + *v9;

@@ -19,13 +19,13 @@
 
 __int64 PopPowerAggregatorNotifyCsStateExited()
 {
-  unsigned int v0; // esi
+  ULONG v0; // esi
   int v1; // edi
   char IsStateTransitionBlockingThread; // bl
-  unsigned int v3; // eax
+  ULONG v3; // eax
   __int64 v4; // rbx
   unsigned int v6; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned int v7; // [rsp+40h] [rbp-C8h] BYREF
+  ULONG v7; // [rsp+40h] [rbp-C8h] BYREF
   __int64 v8; // [rsp+48h] [rbp-C0h] BYREF
   __int64 OutputBuffer; // [rsp+50h] [rbp-B8h] BYREF
   __int128 OutputBuffer_8; // [rsp+58h] [rbp-B0h] BYREF

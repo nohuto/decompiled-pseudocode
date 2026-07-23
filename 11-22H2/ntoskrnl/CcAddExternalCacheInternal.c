@@ -35,10 +35,10 @@ __int64 __fastcall CcAddExternalCacheInternal(__int64 a1, __int64 a2)
     KeBugCheckEx(0x34u, 0x1E0AuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   CcNumberOfExternalCaches = v7 + 1;
   result = KxReleaseSpinLock((volatile signed __int64 *)&CcExternalCacheListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

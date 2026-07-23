@@ -1,17 +1,17 @@
 /*
- * XREFs of MmInitSystem @ 0x140BDE2E8
+ * XREFs of MmInitSystem @ 0x140BE02E8
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140C5FB78 (Phase1InitializationIoReady.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140C61CC8 (Phase1InitializationIoReady.c)
  * Callees:
- *     MiInitializeStrongCode @ 0x140BDE444 (MiInitializeStrongCode.c)
- *     KeSupportedPhysicalAddressBits @ 0x140C26B70 (KeSupportedPhysicalAddressBits.c)
- *     MiComputeNumaCosts @ 0x140C4D768 (MiComputeNumaCosts.c)
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
- *     MiInitializeSystemVa @ 0x140C67230 (MiInitializeSystemVa.c)
+ *     MiInitializeStrongCode @ 0x140BE0444 (MiInitializeStrongCode.c)
+ *     KeSupportedPhysicalAddressBits @ 0x140C28BC0 (KeSupportedPhysicalAddressBits.c)
+ *     MiComputeNumaCosts @ 0x140C4F904 (MiComputeNumaCosts.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
+ *     MiInitializeSystemVa @ 0x140C693AC (MiInitializeSystemVa.c)
  */
 
 void __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2, __int64 a3)
@@ -25,25 +25,25 @@ void __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2, __int64 a3)
   signed __int64 v10; // r8
 
   v4 = a1;
-  if ( !dword_140E2DB38 )
+  if ( !dword_140E2DC78 )
   {
     v5 = KeSupportedPhysicalAddressBits(a1, a2, a3, (unsigned int)a1);
     if ( v5 > 0x34u )
       v5 = 52;
-    dword_140E2DB38 = v5;
+    dword_140E2DC78 = v5;
     v6 = v5 - 12;
     if ( (unsigned __int8)(v5 - 12) > 0x26u )
       v6 = 38;
-    dword_140E2DB3C = v6;
+    dword_140E2DC7C = v6;
   }
   switch ( v4 )
   {
     case -1:
-      dword_140EF4A80 = 2048;
-      qword_140EF4A88 = (__int64)&unk_140EF4A90;
-      word_140EF4BF2 |= 1u;
+      stru_140EF4CA0.SizeOfBitMap = 2048;
+      stru_140EF4CA0.Buffer = (unsigned int *)&unk_140EF4CB0;
+      word_140EF4E12 |= 1u;
       MiInitializeStrongCode();
-      if ( byte_140FCDC28 )
+      if ( byte_140FCECA8 )
         MiFlags |= 0x800000000uLL;
       MiInitializeSystemVa(a2);
       return;
@@ -58,7 +58,7 @@ LABEL_19:
       _InterlockedOr64(&MiFlags, 0x10uLL);
       MiFlags = MiFlags & 0xFFFFFFFFFFFFFFCFuLL | 0x10;
       MiInitSystem(1LL, a2);
-      byte_140E37514 = 1;
+      byte_140E37654 = 1;
       return;
     case 2:
       v9 = MiFlags;

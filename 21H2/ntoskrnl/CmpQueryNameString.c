@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpQueryNameString @ 0x140716838
+ * XREFs of CmpQueryNameString @ 0x1406C4E88
  * Callers:
- *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
- *     CmpTraceHiveMountBaseFileMounted @ 0x140723468 (CmpTraceHiveMountBaseFileMounted.c)
- *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
- *     CmpTraceHiveRestoreStart @ 0x14086AD10 (CmpTraceHiveRestoreStart.c)
- *     CmpAddRemoveRMLogContainer @ 0x1408751D4 (CmpAddRemoveRMLogContainer.c)
+ *     CmKtmNotification @ 0x1405E11C0 (CmKtmNotification.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x1406FB494 (CmpTraceHiveMountBaseFileMounted.c)
+ *     CmpStartRMLog @ 0x14077D6A4 (CmpStartRMLog.c)
+ *     CmpTraceHiveRestoreStart @ 0x14086AE70 (CmpTraceHiveRestoreStart.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140875334 (CmpAddRemoveRMLogContainer.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpQueryNameString(void *a1, UNICODE_STRING *a2)

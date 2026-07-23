@@ -1,25 +1,25 @@
 /*
- * XREFs of _CmGetDeviceSoftwareKey @ 0x1404D3ADC
+ * XREFs of _CmGetDeviceSoftwareKey @ 0x1404B757C
  * Callers:
- *     _CmGetDeviceSoftwareKeyPath @ 0x1404D39E0 (_CmGetDeviceSoftwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1404B7480 (_CmGetDeviceSoftwareKeyPath.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     _PnpCtxRegDeleteKey @ 0x1406D7080 (_PnpCtxRegDeleteKey.c)
- *     _CmCreateOrdinalInstanceKey @ 0x1406D77C4 (_CmCreateOrdinalInstanceKey.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406D71B8 (_PnpCtxRegDeleteKey.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x1406D78FC (_CmCreateOrdinalInstanceKey.c)
  */
 
-__int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, __int64 a4, char a5)
+__int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, int a2, wchar_t *a3, __int64 a4, char a5)
 {
-  int DeviceRegProp; // ebx
+  NTSTATUS DeviceRegProp; // ebx
   struct _KTHREAD *CurrentThread; // rax
   int v11; // eax
   int v12; // r8d
@@ -76,9 +76,9 @@ __int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, _
                   DeviceRegProp = CmSetDeviceRegProp(
                                     a1,
                                     a2,
-                                    0LL,
-                                    0xAu,
-                                    1u,
+                                    0,
+                                    10,
+                                    1,
                                     (__int64)DestinationString.Buffer,
                                     DestinationString.MaximumLength,
                                     0);

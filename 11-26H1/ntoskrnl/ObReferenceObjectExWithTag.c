@@ -1,12 +1,12 @@
 /*
- * XREFs of ObReferenceObjectExWithTag @ 0x14044E6F0
+ * XREFs of ObReferenceObjectExWithTag @ 0x140446820
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ObReferenceObjectExWithTag(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCombineWorkingSetTail @ 0x14055CE00
+ * XREFs of MiCombineWorkingSetTail @ 0x14055D040
  * Callers:
- *     MiCombinePte @ 0x14055C900 (MiCombinePte.c)
+ *     MiCombinePte @ 0x14055CB40 (MiCombinePte.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x1402AA590 (MiReleaseWalkLocks.c)
- *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
+ *     MiReleaseWalkLocks @ 0x1402286D0 (MiReleaseWalkLocks.c)
+ *     MiProcessCrcList @ 0x140726FD0 (MiProcessCrcList.c)
  */
 
 __int64 __fastcall MiCombineWorkingSetTail(__int64 a1)

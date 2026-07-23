@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmClearSimulatedIdle @ 0x14058404C
+ * XREFs of PpmClearSimulatedIdle @ 0x14058453C
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
+__int64 __fastcall PpmClearSimulatedIdle(_PROCESSOR_NUMBER *a1)
 {
   ULONG ProcessorIndexFromNumber; // eax
   char v3; // cl
@@ -25,8 +25,8 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   _DWORD *v12; // r9
   int v13; // edx
   bool v14; // zf
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -64,10 +64,10 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   {
     v9 = -1073741637;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       v12 = v11->SchedulerAssist;

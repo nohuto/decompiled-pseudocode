@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceAutoBoostSetFloor @ 0x14022597C
+ * XREFs of EtwTraceAutoBoostSetFloor @ 0x1402257A8
  * Callers:
- *     KiAbApplyWakeupBoost @ 0x14000C7E0 (KiAbApplyWakeupBoost.c)
- *     KiAbSetMinimumThreadPriority @ 0x14006C0E4 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbApplyWakeupBoost @ 0x14000C360 (KiAbApplyWakeupBoost.c)
+ *     KiAbSetMinimumThreadPriority @ 0x14006BC64 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostSetFloor(

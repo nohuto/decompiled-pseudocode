@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAddBugcheckTriageThread @ 0x14050B45C
+ * XREFs of IopAddBugcheckTriageThread @ 0x14050B69C
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x14050347C (IopAddBugcheckTriageDataFromParameters.c)
- *     IopAddBugcheckPnpTriageData @ 0x14050ADA0 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050AE08 (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x14050AEB0 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x14050B5EC (IopAddBugcheckTriageWorkQueue.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x1405033FC (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14050AFE0 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050B048 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14050B0F0 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x14050B82C (IopAddBugcheckTriageWorkQueue.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     IopGetMaxValidMemorySize @ 0x14050414C (IopGetMaxValidMemorySize.c)
- *     IopAddBugcheckTriageIrp @ 0x14050B300 (IopAddBugcheckTriageIrp.c)
+ *     KiIsAddressRangeValid @ 0x1403CA40C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     IopGetMaxValidMemorySize @ 0x1405040CC (IopGetMaxValidMemorySize.c)
+ *     IopAddBugcheckTriageIrp @ 0x14050B540 (IopAddBugcheckTriageIrp.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)

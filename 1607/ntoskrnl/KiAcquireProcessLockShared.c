@@ -1,8 +1,8 @@
 /*
- * XREFs of KiAcquireProcessLockShared @ 0x1401DAF50
+ * XREFs of KiAcquireProcessLockShared @ 0x1401DAD7C
  * Callers:
- *     KeQueryCpuSetsProcess @ 0x1401D761C (KeQueryCpuSetsProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x1401D7844 (KeSetSelectedCpuSetsThread.c)
+ *     KeQueryCpuSetsProcess @ 0x1401D7448 (KeQueryCpuSetsProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x1401D7670 (KeSetSelectedCpuSetsThread.c)
  * Callees:
  *     <none>
  */

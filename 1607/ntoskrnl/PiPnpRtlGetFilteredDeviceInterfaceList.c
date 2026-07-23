@@ -1,14 +1,14 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceInterfaceList @ 0x140505CF8
+ * XREFs of PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1404E8C88
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PiDmGetCmObjectListFromCache @ 0x1404E2AA8 (PiDmGetCmObjectListFromCache.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
- *     PiDmGetCmObjectConstraintListFromCache @ 0x140505DE8 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1404C5A0C (PiDmGetCmObjectListFromCache.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x1404E8D78 (PiDmGetCmObjectConstraintListFromCache.c)
  */
 
 NTSTATUS __fastcall PiPnpRtlGetFilteredDeviceInterfaceList(__int64 a1)

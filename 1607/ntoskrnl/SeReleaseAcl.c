@@ -1,8 +1,8 @@
 /*
- * XREFs of SeReleaseAcl @ 0x1404797B8
+ * XREFs of SeReleaseAcl @ 0x140478688
  * Callers:
- *     NtCreateTokenEx @ 0x140477BDC (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     NtCreateTokenEx @ 0x140476AAC (NtCreateTokenEx.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

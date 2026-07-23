@@ -1,5 +1,5 @@
 /*
- * XREFs of IopBusNumberScoreRequirement @ 0x1407A7190
+ * XREFs of IopBusNumberScoreRequirement @ 0x1407A9D40
  * Callers:
  *     <none>
  * Callees:

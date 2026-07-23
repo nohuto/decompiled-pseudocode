@@ -1,44 +1,44 @@
 /*
- * XREFs of MiCheckProtoAccess @ 0x1402FF1D0
+ * XREFs of MiCheckProtoAccess @ 0x140309950
  * Callers:
- *     MiDispatchFault @ 0x1402142B0 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x140333520 (MiDispatchFault.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiCheckUserVirtualAddress @ 0x1402FF820 (MiCheckUserVirtualAddress.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiCheckUserVirtualAddress @ 0x140309FA0 (MiCheckUserVirtualAddress.c)
  */
 
-__int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, _DWORD *a2)
+__int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, _DWORD *a2, __int64 KernelWaitTime, __int64 a4)
 {
-  unsigned __int64 v2; // rax
-  __int64 v5; // rdi
-  unsigned __int64 v6; // rcx
-  __int64 v7; // rsi
-  unsigned __int64 v8; // rbx
-  __int64 v9; // rax
-  _DWORD *v10; // rcx
-  signed __int32 v11; // eax
-  signed __int32 v12; // ett
-  _KPROCESS *v13; // r9
+  unsigned __int64 v4; // rax
+  __int64 v7; // rdi
+  unsigned __int64 v8; // rcx
+  __int64 v9; // rsi
+  unsigned __int64 v10; // rbx
+  __int64 v11; // rax
+  _DWORD *v12; // rcx
+  signed __int32 v13; // eax
+  __int64 v14; // rdx
+  signed __int32 v15; // ett
+  _KPROCESS *v16; // r9
   struct _LIST_ENTRY *Flink; // rdx
-  unsigned __int64 v15; // r8
-  volatile signed __int32 *v16; // rcx
+  unsigned __int64 v18; // r8
+  volatile signed __int32 *v19; // rcx
   __int64 result; // rax
   _KPROCESS *Process; // rdx
-  unsigned __int64 KernelWaitTime; // r8
-  __int64 v20; // rcx
-  unsigned __int64 v21; // rdx
+  __int64 v22; // rcx
+  unsigned __int64 v23; // rdx
   volatile _KAFFINITY_EX *ActiveProcessors; // r8
-  __int64 v23; // rsi
+  __int64 v25; // rsi
   __int64 retaddr; // [rsp+28h] [rbp+0h]
-  int v25; // [rsp+30h] [rbp+8h] BYREF
+  int v27; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)a1;
+  v4 = *(_QWORD *)a1;
   if ( a1 >= 0xFFFFF6FB7DBED000uLL
     && a1 <= 0xFFFFF6FB7DBED7F8uLL
-    && (v2 & 1) != 0
-    && ((v2 & 0x42) == 0 || (v2 & 0x20) == 0)
+    && (v4 & 1) != 0
+    && ((v4 & 0x42) == 0 || (v4 & 0x20) == 0)
     && (MiFlags & 0x600000) != 0 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -47,100 +47,102 @@ __int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, _DWORD *a2)
       KernelWaitTime = Process[2].KernelWaitTime;
       if ( KernelWaitTime )
       {
-        v20 = *(_QWORD *)(KernelWaitTime + 8 * ((a1 >> 3) & 0x1FF));
-        if ( (v20 & 0x20) != 0 )
-          v2 |= 0x20uLL;
-        v21 = v2;
-        v2 |= 0x42uLL;
-        if ( (v20 & 0x42) == 0 )
-          v2 = v21;
+        v22 = *(_QWORD *)(KernelWaitTime + 8 * ((a1 >> 3) & 0x1FF));
+        if ( (v22 & 0x20) != 0 )
+          v4 |= 0x20uLL;
+        v23 = v4;
+        v4 |= 0x42uLL;
+        if ( (v22 & 0x42) == 0 )
+          v4 = v23;
       }
     }
   }
-  v5 = (v2 >> 5) & 0x1F;
-  if ( (v2 & 0x400) == 0 )
+  v7 = (v4 >> 5) & 0x1F;
+  if ( (v4 & 0x400) == 0 )
     goto LABEL_45;
-  v6 = v2;
-  if ( qword_140E2DB80 && (v2 & 0x10) == 0 )
-    v6 = v2 & ~qword_140E2DB80;
-  if ( HIDWORD(v6) == 0xFFFFFFFF )
+  v8 = v4;
+  if ( qword_140E2DCC0 && (v4 & 0x10) == 0 )
+    v8 = v4 & ~qword_140E2DCC0;
+  if ( HIDWORD(v8) == 0xFFFFFFFF )
   {
-    v7 = 0LL;
-    v25 = 0;
-    v8 = (__int64)(a1 << 25) >> 16;
-    if ( v8 > 0x7FFFFFFEFFFFLL )
+    v9 = 0LL;
+    v27 = 0;
+    v10 = (__int64)(a1 << 25) >> 16;
+    if ( v10 > 0x7FFFFFFEFFFFLL )
       goto LABEL_31;
     if ( (KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1] & 0x100000000LL) == 0 )
     {
-      v9 = v8 & 0x7FFFFFFFF000LL;
-      if ( (v8 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
+      v11 = v10 & 0x7FFFFFFFF000LL;
+      if ( (v10 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
       {
-        v7 = qword_140E2DA68;
+        v9 = qword_140E2DBA8;
         goto LABEL_31;
       }
-      if ( v9 == qword_140E2DA78 && v9 )
+      if ( v11 == qword_140E2DBB8 && v11 )
       {
-        v7 = qword_140E2DA70;
+        v9 = qword_140E2DBB0;
         goto LABEL_31;
       }
     }
-    v10 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[3].StaticBitmap[25] + 1;
+    v12 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[3].StaticBitmap[25] + 1;
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      _m_prefetchw(v10);
-      v11 = *v10 & 0x7FFFFFFF;
+      _m_prefetchw(v12);
+      v13 = *v12 & 0x7FFFFFFF;
       while ( 1 )
       {
-        v12 = v11;
-        v11 = _InterlockedCompareExchange(v10, v11 + 1, v11);
-        if ( v12 == v11 )
+        v14 = (unsigned int)(v13 + 1);
+        v15 = v13;
+        v13 = _InterlockedCompareExchange(v12, v14, v13);
+        if ( v15 == v13 )
           break;
-        if ( v11 < 0 )
+        if ( v13 < 0 )
         {
-          ExpWaitForSpinLockSharedAndAcquire(v10, 0xFFu);
+          LOBYTE(v14) = -1;
+          ExpWaitForSpinLockSharedAndAcquire(v12, v14, KernelWaitTime, a4);
           break;
         }
       }
     }
     else
     {
-      ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v10, 0xFFu);
+      ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v12, 0xFFu);
     }
-    v13 = KeGetCurrentThread()->ApcState.Process;
-    Flink = v13[3].Header.WaitListHead.Flink;
+    v16 = KeGetCurrentThread()->ApcState.Process;
+    Flink = v16[3].Header.WaitListHead.Flink;
     if ( Flink )
     {
-      v15 = v8 >> 12;
-      if ( v8 >> 12 >= (LODWORD(Flink[1].Blink) | ((unsigned __int64)LOBYTE(Flink[2].Flink) << 32))
-        && v15 <= (HIDWORD(Flink[1].Blink) | ((unsigned __int64)BYTE1(Flink[2].Flink) << 32)) )
+      v18 = v10 >> 12;
+      if ( v10 >> 12 >= (LODWORD(Flink[1].Blink) | ((unsigned __int64)LOBYTE(Flink[2].Flink) << 32))
+        && v18 <= (HIDWORD(Flink[1].Blink) | ((unsigned __int64)BYTE1(Flink[2].Flink) << 32)) )
       {
 LABEL_29:
-        v7 = MiCheckUserVirtualAddress(v8, Flink, v15, &v25);
-        v16 = (volatile signed __int32 *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[3].StaticBitmap[25]
+        v9 = MiCheckUserVirtualAddress(v10, Flink, v18, &v27);
+        v19 = (volatile signed __int32 *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[3].StaticBitmap[25]
             + 1;
         if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         {
-          _InterlockedAnd(v16, 0xBFFFFFFF);
-          _InterlockedDecrement(v16);
+          _InterlockedAnd(v19, 0xBFFFFFFF);
+          _InterlockedDecrement(v19);
         }
         else
         {
-          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v16, retaddr);
+          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v19, retaddr);
         }
         goto LABEL_31;
       }
-      Flink = *(struct _LIST_ENTRY **)&v13[3].Header.Lock;
+      Flink = *(struct _LIST_ENTRY **)&v16[3].Header.Lock;
       if ( Flink )
       {
         do
         {
-          if ( v15 > (HIDWORD(Flink[1].Blink) | ((unsigned __int64)BYTE1(Flink[2].Flink) << 32)) )
+          if ( v18 > (HIDWORD(Flink[1].Blink) | ((unsigned __int64)BYTE1(Flink[2].Flink) << 32)) )
           {
             Flink = Flink->Blink;
           }
           else
           {
-            if ( v15 >= (LODWORD(Flink[1].Blink) | ((unsigned __int64)LOBYTE(Flink[2].Flink) << 32)) )
+            if ( v18 >= (LODWORD(Flink[1].Blink) | ((unsigned __int64)LOBYTE(Flink[2].Flink) << 32)) )
               break;
             Flink = Flink->Flink;
           }
@@ -148,7 +150,7 @@ LABEL_29:
         while ( Flink );
         if ( Flink )
         {
-          v13[3].Header.WaitListHead.Flink = Flink;
+          v16[3].Header.WaitListHead.Flink = Flink;
           goto LABEL_29;
         }
       }
@@ -169,16 +171,16 @@ LABEL_29:
   else
   {
 LABEL_45:
-    v23 = v2;
-    if ( qword_140E2DB80 && (v2 & 0x10) == 0 )
-      v23 = v2 & ~qword_140E2DB80;
-    v7 = v23 >> 16;
-    LODWORD(v5) = 256;
-    if ( (v2 & 8) != 0 )
-      LODWORD(v5) = 1;
+    v25 = v4;
+    if ( qword_140E2DCC0 && (v4 & 0x10) == 0 )
+      v25 = v4 & ~qword_140E2DCC0;
+    v9 = v25 >> 16;
+    LODWORD(v7) = 256;
+    if ( (v4 & 8) != 0 )
+      LODWORD(v7) = 1;
   }
 LABEL_31:
-  result = v7;
-  *a2 = v5;
+  result = v9;
+  *a2 = v7;
   return result;
 }

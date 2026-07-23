@@ -237,10 +237,13 @@ LABEL_50:
   v23 = 0;
 LABEL_52:
   KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       v25 = KeGetCurrentPrcb();
       SchedulerAssist = v25->SchedulerAssist;

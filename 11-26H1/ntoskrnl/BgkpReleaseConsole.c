@@ -1,12 +1,12 @@
 /*
- * XREFs of BgkpReleaseConsole @ 0x1405C593C
+ * XREFs of BgkpReleaseConsole @ 0x1405C81AC
  * Callers:
- *     BgkDisplayCharacter @ 0x140C4F5B0 (BgkDisplayCharacter.c)
- *     BgkGetConsoleState @ 0x140C4F6E0 (BgkGetConsoleState.c)
- *     BgkGetCursorState @ 0x140C4F730 (BgkGetCursorState.c)
- *     BgkSetCursor @ 0x140C4F7C0 (BgkSetCursor.c)
+ *     BgkDisplayCharacter @ 0x140C555B0 (BgkDisplayCharacter.c)
+ *     BgkGetConsoleState @ 0x140C556E0 (BgkGetConsoleState.c)
+ *     BgkGetCursorState @ 0x140C55730 (BgkGetCursorState.c)
+ *     BgkSetCursor @ 0x140C557C0 (BgkSetCursor.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
  */
 
 void BgkpReleaseConsole()

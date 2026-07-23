@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryInternalFeatureConfiguration @ 0x1800E4000
+ * XREFs of RtlQueryInternalFeatureConfiguration @ 0x1800ECD00
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x1800E3B20 (RtlQueryFeatureConfiguration.c)
- *     RtlpFtQueryConfiguration @ 0x180147C7C (RtlpFtQueryConfiguration.c)
+ *     RtlQueryFeatureConfiguration @ 0x1800ECBC0 (RtlQueryFeatureConfiguration.c)
+ *     RtlpFtQueryConfiguration @ 0x180147B2C (RtlpFtQueryConfiguration.c)
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x1800E40C0 (RtlpFcQueryFeatureConfigurationFromKernel.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x18016F134 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x1800ECDC0 (RtlpFcQueryFeatureConfigurationFromKernel.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x18016E134 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  */
 
 __int64 __fastcall RtlQueryInternalFeatureConfiguration(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4)
@@ -39,6 +39,6 @@ LABEL_8:
     goto LABEL_8;
 LABEL_3:
   if ( v11 )
-    RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801CCC48, v11);
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801CBC88, v11);
   return FeatureConfigurationFromKernel;
 }

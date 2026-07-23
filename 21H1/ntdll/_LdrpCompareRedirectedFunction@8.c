@@ -7,9 +7,9 @@
  *     _RtlCompareUnicodeString@12 @ 0x4B2D0490 (_RtlCompareUnicodeString@12.c)
  */
 
-int __stdcall LdrpCompareRedirectedFunction(int a1, int a2)
+LONG __stdcall LdrpCompareRedirectedFunction(int a1, int a2)
 {
-  int result; // eax
+  LONG result; // eax
 
   result = *(_DWORD *)(a2 + 12) - *(_DWORD *)a1;
   if ( !result )
@@ -21,7 +21,7 @@ int __stdcall LdrpCompareRedirectedFunction(int a1, int a2)
       if ( result )
         result = result < 0 ? -1 : 1;
       if ( !result )
-        return RtlCompareUnicodeString((unsigned __int16 *)(a2 + 24), (unsigned __int16 *)(a1 + 12), 1);
+        return RtlCompareUnicodeString((PUNICODE_STRING)(a2 + 24), (PUNICODE_STRING)(a1 + 12), 1u);
     }
   }
   return result;

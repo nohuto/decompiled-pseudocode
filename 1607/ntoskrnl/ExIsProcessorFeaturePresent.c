@@ -1,7 +1,7 @@
 /*
- * XREFs of ExIsProcessorFeaturePresent @ 0x140131F10
+ * XREFs of ExIsProcessorFeaturePresent @ 0x140132480
  * Callers:
- *     PiIsDriverBlocked @ 0x14049D1BC (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x140515678 (PiIsDriverBlocked.c)
  * Callees:
  *     <none>
  */

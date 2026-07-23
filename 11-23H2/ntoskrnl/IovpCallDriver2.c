@@ -1,18 +1,18 @@
 /*
- * XREFs of IovpCallDriver2 @ 0x140ACC6FC
+ * XREFs of IovpCallDriver2 @ 0x140ACC6EC
  * Callers:
- *     VfAfterCallDriver @ 0x140ACD408 (VfAfterCallDriver.c)
+ *     VfAfterCallDriver @ 0x140ACD3F8 (VfAfterCallDriver.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViErrorReport1 @ 0x1405CFE24 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1405CFEA8 (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x1405CFF3C (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x1405CFFE0 (ViErrorReport6.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x140AD2A94 (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD2B44 (IovUtilIsDeviceObjectMarked.c)
- *     IovpSessionDataDereference @ 0x140ADDFE4 (IovpSessionDataDereference.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE191C (VfIrpDatabaseEntryReleaseLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ViErrorReport1 @ 0x1405D0394 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405D0418 (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x1405D04AC (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x1405D0550 (ViErrorReport6.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140AD2A84 (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140AD2B34 (IovUtilIsDeviceObjectMarked.c)
+ *     IovpSessionDataDereference @ 0x140ADDFD4 (IovpSessionDataDereference.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140AE190C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 _UNKNOWN **__fastcall IovpCallDriver2(__int64 a1, int *a2)

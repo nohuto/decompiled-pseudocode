@@ -1,8 +1,8 @@
 /*
- * XREFs of CcIsDirtyCachemapListEmptyForVolume @ 0x140389CF4
+ * XREFs of CcIsDirtyCachemapListEmptyForVolume @ 0x14038BAA4
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcReapPrivateVolumeCachemap @ 0x140389DE0 (CcReapPrivateVolumeCachemap.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcReapPrivateVolumeCachemap @ 0x14038BB90 (CcReapPrivateVolumeCachemap.c)
  * Callees:
  *     <none>
  */

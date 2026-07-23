@@ -1,14 +1,14 @@
 /*
- * XREFs of ObCaptureObjectStateForDuplication @ 0x1407BD1BC
+ * XREFs of ObCaptureObjectStateForDuplication @ 0x1407BD48C
  * Callers:
- *     AlpcpCaptureHandleAttributeInternal @ 0x1407BCEE8 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x1407BD1B8 (AlpcpCaptureHandleAttributeInternal.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7060 (ObpIncrementHandleCountEx.c)
- *     ObReferenceProcessHandleTable @ 0x140742640 (ObReferenceProcessHandleTable.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1407BD364 (ObpReferenceProcessObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ObpIncrementHandleCountEx @ 0x1406E7090 (ObpIncrementHandleCountEx.c)
+ *     ObReferenceProcessHandleTable @ 0x140742830 (ObReferenceProcessHandleTable.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1407BD634 (ObpReferenceProcessObjectByHandle.c)
  */
 
 __int64 __fastcall ObCaptureObjectStateForDuplication(

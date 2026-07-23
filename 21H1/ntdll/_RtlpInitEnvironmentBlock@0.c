@@ -11,40 +11,43 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlpInitEnvironmentBlock()
+NTSTATUS __stdcall RtlpInitEnvironmentBlock()
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // esi
-  void *Environment; // eax
-  size_t BlockSize; // edi
+  void *v1; // eax
+  int BlockSize; // edi
   void *EnvBlock; // eax
-  void *v4; // ebx
-  int result; // eax
-  void *v6; // [esp+Ch] [ebp-8h] BYREF
+  PVOID v4; // ebx
+  NTSTATUS result; // eax
+  size_t v6; // [esp-4h] [ebp-18h]
+  PVOID Environment; // [esp+Ch] [ebp-8h] BYREF
   void *Src; // [esp+10h] [ebp-4h]
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  Environment = ProcessParameters->Environment;
-  Src = Environment;
-  if ( Environment )
+  v1 = ProcessParameters->Environment;
+  Src = v1;
+  if ( v1 )
   {
-    BlockSize = RtlpGetBlockSizeEx(Environment, 1);
+    BlockSize = RtlpGetBlockSizeEx(v1, 1);
     EnvBlock = (void *)RtlpAllocateEnvBlock(BlockSize);
     v4 = EnvBlock;
     if ( !EnvBlock )
       return -1073741670;
-    memcpy(EnvBlock, Src, BlockSize);
+    LODWORD(v6) = BlockSize;
+    memcpy(EnvBlock, Src, v6);
     goto LABEL_4;
   }
   BlockSize = 4;
-  result = RtlCreateEnvironmentEx(0, &v6, 4);
+  result = RtlCreateEnvironmentEx(0, &Environment, 4u);
   if ( result >= 0 )
   {
-    v4 = v6;
+    v4 = Environment;
 LABEL_4:
     ++ProcessParameters->EnvironmentVersion;
+    LODWORD(v6) = 564;
     ProcessParameters->Environment = v4;
     ProcessParameters->EnvironmentSize = BlockSize;
-    memset(&RtlpEnvironLookupTable, 0, 0x234u);
+    memset(&RtlpEnvironLookupTable, 0, v6);
     RtlpWow64ThunkEnvironment64To32();
     return 0;
   }

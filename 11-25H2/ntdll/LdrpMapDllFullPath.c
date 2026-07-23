@@ -34,7 +34,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   v8 = 0LL;
   v9 = 0x1000000;
   v11[0] = 0;
-  v4 = LdrpResolveDllName(a1, v3);
+  v4 = LdrpResolveDllName(a1, (unsigned int)&v9, (int)v2 + 88, (int)v2 + 72, v3);
   v5 = v4;
   if ( *(_QWORD *)(a1 + 176) )
   {
@@ -43,7 +43,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   }
   else
   {
-    v5 = LdrpAppCompatRedirect(a1, v2 + 72, v2 + 88, (__int64)&v9, v4);
+    v5 = LdrpAppCompatRedirect(a1, v2 + 72, (int)v2 + 88, (__int64)&v9, v4);
     if ( v5 < 0 )
       goto LABEL_6;
     v6 = LdrpHashUnicodeString((unsigned __int16 *)(v2 + 88));
@@ -60,6 +60,6 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
     v5 = -1073741701;
 LABEL_6:
   if ( v11 != v10 )
-    RtlpSysVolFree((__int64)v10);
+    RtlpSysVolFree(v10);
   return (unsigned int)v5;
 }

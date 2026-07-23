@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcOpenSenderThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcOpenSenderThread(
+        PHANDLE ThreadHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ThreadHandle, PortHandle);
 }

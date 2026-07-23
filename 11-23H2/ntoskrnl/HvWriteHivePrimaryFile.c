@@ -1,15 +1,15 @@
 /*
- * XREFs of HvWriteHivePrimaryFile @ 0x1407D9500
+ * XREFs of HvWriteHivePrimaryFile @ 0x1407D97D0
  * Callers:
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140293570 (RtlNumberOfSetBits.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvpFindNextDirtyBlock @ 0x14070919C (HvpFindNextDirtyBlock.c)
- *     CmpFileFlushAndPurge @ 0x140750BC4 (CmpFileFlushAndPurge.c)
- *     CmpTraceHiveFlushWrotePrimaryFile @ 0x1407D96A8 (CmpTraceHiveFlushWrotePrimaryFile.c)
- *     HvpFinishPrimaryWrite @ 0x1407D9714 (HvpFinishPrimaryWrite.c)
+ *     RtlNumberOfSetBits @ 0x140293800 (RtlNumberOfSetBits.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvpFindNextDirtyBlock @ 0x1407093AC (HvpFindNextDirtyBlock.c)
+ *     CmpFileFlushAndPurge @ 0x140750DB4 (CmpFileFlushAndPurge.c)
+ *     CmpTraceHiveFlushWrotePrimaryFile @ 0x1407D9978 (CmpTraceHiveFlushWrotePrimaryFile.c)
+ *     HvpFinishPrimaryWrite @ 0x1407D99E4 (HvpFinishPrimaryWrite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     HvpHeaderCheckSum @ 0x140AF5640 (HvpHeaderCheckSum.c)

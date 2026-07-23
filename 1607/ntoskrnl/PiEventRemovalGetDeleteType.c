@@ -1,20 +1,20 @@
 /*
- * XREFs of PiEventRemovalGetDeleteType @ 0x1404C5B40
+ * XREFs of PiEventRemovalGetDeleteType @ 0x1404869DC
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpCompareGuid @ 0x1403F02F8 (PnpCompareGuid.c)
+ *     PnpCompareGuid @ 0x14048A570 (PnpCompareGuid.c)
  */
 
 __int64 __fastcall PiEventRemovalGetDeleteType(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi
-  bool v5; // al
+  char v5; // al
   unsigned int v6; // edx
   int v7; // eax
 
   v2 = *(_QWORD *)(a1 + 32);
-  v5 = PnpCompareGuid((const void *)(a2 + 104), &GUID_DEVICE_EJECT);
+  v5 = PnpCompareGuid(a2 + 104, &GUID_DEVICE_EJECT);
   v6 = 4;
   if ( !v5 )
   {

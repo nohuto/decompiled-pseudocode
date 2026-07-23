@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBackSystemImageWithPagefile @ 0x140550B20
+ * XREFs of MiBackSystemImageWithPagefile @ 0x140551060
  * Callers:
- *     MmBackSystemImageWithPagefile @ 0x140550A88 (MmBackSystemImageWithPagefile.c)
- *     MiBackSystemImageWithPagefile @ 0x140550B20 (MiBackSystemImageWithPagefile.c)
+ *     MmBackSystemImageWithPagefile @ 0x140550FC8 (MmBackSystemImageWithPagefile.c)
+ *     MiBackSystemImageWithPagefile @ 0x140551060 (MiBackSystemImageWithPagefile.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiBackSingleImageWithPagefile @ 0x1405473D8 (MiBackSingleImageWithPagefile.c)
- *     MiBackSystemImageWithPagefile @ 0x140550B20 (MiBackSystemImageWithPagefile.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiBackSingleImageWithPagefile @ 0x140547918 (MiBackSingleImageWithPagefile.c)
+ *     MiBackSystemImageWithPagefile @ 0x140551060 (MiBackSystemImageWithPagefile.c)
  */
 
 __int64 __fastcall MiBackSystemImageWithPagefile(_QWORD *a1, __int64 *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall MiBackSystemImageWithPagefile(_QWORD *a1, __int64 *a2)
 
   v3 = a1[6];
   v14 = a2;
-  if ( v3 >= qword_140326910 && v3 < qword_140326910 + 0x8000000000LL )
+  if ( v3 >= qword_140326950 && v3 < qword_140326950 + 0x8000000000LL )
     return 3221225793LL;
   if ( a1[14] && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
     MiBackSingleImageWithPagefile((__int64)a1);

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiComputeMaximumFaultCluster @ 0x14040EB50
+ * XREFs of MiComputeMaximumFaultCluster @ 0x140406D50
  * Callers:
- *     MiDispatchFault @ 0x1402142B0 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x140333520 (MiDispatchFault.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140261370 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1402DEE70 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
- *     MiFaultListPagesRemaining @ 0x14040ED80 (MiFaultListPagesRemaining.c)
- *     KiIsTraceMemoryAccess @ 0x14040EE10 (KiIsTraceMemoryAccess.c)
- *     KiRspInIstStack @ 0x14040EE44 (KiRspInIstStack.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
+ *     MiLockVadTree @ 0x140240750 (MiLockVadTree.c)
+ *     MiUnlockVadTree @ 0x140291980 (MiUnlockVadTree.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
+ *     MiFaultListPagesRemaining @ 0x140406F80 (MiFaultListPagesRemaining.c)
+ *     KiIsTraceMemoryAccess @ 0x140407010 (KiIsTraceMemoryAccess.c)
+ *     KiRspInIstStack @ 0x140407044 (KiRspInIstStack.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
  */
 
 __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -24,14 +24,13 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2,
   unsigned __int64 v12; // r11
   int v13; // ecx
   __int64 v15; // r15
-  __int64 v16; // r9
-  unsigned __int64 v17; // rbp
-  unsigned __int64 v18; // r14
+  unsigned __int64 v16; // rbp
+  unsigned __int64 v17; // r14
   struct _LIST_ENTRY *Address; // rbx
-  char v20; // cl
-  _QWORD *v21; // rdx
-  unsigned __int64 v22; // r8
-  unsigned __int64 v23; // rsi
+  char v19; // cl
+  _QWORD *v20; // rdx
+  unsigned __int64 v21; // r8
+  unsigned __int64 v22; // rsi
 
   v4 = *(_QWORD *)(a1 + 16);
   v5 = a2;
@@ -45,8 +44,8 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2,
   }
   if ( (v4 & 1) != 0 )
   {
-    v20 = *v6;
-    if ( *v6 == 1 || v20 == 3 || v20 == 6 )
+    v19 = *v6;
+    if ( *v6 == 1 || v19 == 3 || v19 == 6 )
       return 1LL;
   }
   else if ( v4 )
@@ -56,8 +55,8 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2,
     if ( v9 == 16 )
     {
       if ( (*(_DWORD *)(v4 + 376) & 0x200) != 0
-        || (v15 = *(_QWORD *)(v4 + 384), !(unsigned int)KiRspInIstStack(3LL, v15, a3, a4))
-        && !(unsigned int)KiRspInIstStack(2LL, v15, a3, v16) )
+        || (v15 = *(_QWORD *)(v4 + 384), !(unsigned int)KiRspInIstStack(3LL, v15))
+        && !(unsigned int)KiRspInIstStack(2LL, v15) )
       {
         v11 = &ExpInterlockedPopEntrySListFault;
         IsTraceMemoryAccess = KiIsTraceMemoryAccess(*(_QWORD *)(v4 + 360), a2, a3, a4);
@@ -66,7 +65,7 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2,
     }
     else if ( v9 == 51 )
     {
-      v11 = (void *)qword_140FC6480;
+      v11 = (void *)qword_140FC7500;
 LABEL_7:
       if ( *(void **)(v4 + 360) == v11 || IsTraceMemoryAccess )
         return 1LL;
@@ -85,41 +84,41 @@ LABEL_11:
       v5 = v12;
     v12 = v5;
   }
-  v17 = 512LL - (((unsigned int)(v7 >> 9) >> 3) & 0x1FF);
-  v18 = v17;
-  if ( v12 <= v17 )
-    v18 = v12;
+  v16 = 512LL - (((unsigned int)(v7 >> 9) >> 3) & 0x1FF);
+  v17 = v16;
+  if ( v12 <= v16 )
+    v17 = v12;
   if ( v7 >= 0xFFFF800000000000uLL )
   {
     if ( !v13 )
     {
-      v17 = 1LL;
+      v16 = 1LL;
       if ( *(_QWORD *)(a1 + 56) == MiGetAnyMultiplexedVm(2LL) )
       {
-        v21 = P;
+        v20 = P;
         if ( P )
         {
           do
           {
-            v22 = v21[11] & 0xFFFFFFFFFFFFF000uLL;
-            if ( v7 < v22 + v21[4] )
+            v21 = v20[11] & 0xFFFFFFFFFFFFF000uLL;
+            if ( v7 < v21 + v20[4] )
             {
-              if ( v7 >= v22 )
+              if ( v7 >= v21 )
                 break;
-              v21 = (_QWORD *)*v21;
+              v20 = (_QWORD *)*v20;
             }
             else
             {
-              v21 = (_QWORD *)v21[1];
+              v20 = (_QWORD *)v20[1];
             }
           }
-          while ( v21 );
-          if ( v21 )
+          while ( v20 );
+          if ( v20 )
           {
-            v17 = 8LL;
-            v23 = (v7 - (v21[11] & 0xFFFFFFFFFFFFF000uLL)) >> 12;
-            if ( (v21[4] >> 12) - v23 < 8 )
-              v17 = (v21[4] >> 12) - v23;
+            v16 = 8LL;
+            v22 = (v7 - (v20[11] & 0xFFFFFFFFFFFFF000uLL)) >> 12;
+            if ( (v20[4] >> 12) - v22 < 8 )
+              v16 = (v20[4] >> 12) - v22;
           }
         }
       }
@@ -128,15 +127,18 @@ LABEL_11:
   }
   Address = *(struct _LIST_ENTRY **)(a1 + 88);
   if ( Address
-    || (MiLockVadTree(1, 0xFFFFF68000000000uLL, a3), Address = MiLocateAddress(v7), MiUnlockVadTree(1, 0x11u), Address) )
+    || (MiLockVadTree(1, 0xFFFFF68000000000uLL, a3, a4),
+        Address = MiLocateAddress(v7),
+        MiUnlockVadTree(1, 0x11u),
+        Address) )
   {
-    v17 = (HIDWORD(Address[1].Blink) | ((unsigned __int64)BYTE1(Address[2].Flink) << 32)) - (v7 >> 12) + 1;
+    v16 = (HIDWORD(Address[1].Blink) | ((unsigned __int64)BYTE1(Address[2].Flink) << 32)) - (v7 >> 12) + 1;
 LABEL_26:
-    if ( v18 > v17 )
-      return v17;
-    return v18;
+    if ( v17 > v16 )
+      return v16;
+    return v17;
   }
-  if ( v18 > 1 )
+  if ( v17 > 1 )
     return 1LL;
-  return v18;
+  return v17;
 }

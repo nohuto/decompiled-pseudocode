@@ -1,11 +1,11 @@
 /*
- * XREFs of BiIsValidDiskDevice @ 0x140807764
+ * XREFs of BiIsValidDiskDevice @ 0x140807A34
  * Callers:
  *     BcdEnumerateDisks @ 0x140680EC0 (BcdEnumerateDisks.c)
- *     BiGetNtPartitionPath @ 0x140807310 (BiGetNtPartitionPath.c)
+ *     BiGetNtPartitionPath @ 0x1408075E0 (BiGetNtPartitionPath.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
  */
 
 char __fastcall BiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2, int *a3)

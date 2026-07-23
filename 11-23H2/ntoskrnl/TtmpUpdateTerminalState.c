@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpUpdateTerminalState @ 0x1409ABC98
+ * XREFs of TtmpUpdateTerminalState @ 0x1409ABE98
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1409AB290 (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1409AB490 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     TtmiLogTerminalStateMachine @ 0x1409AAB1C (TtmiLogTerminalStateMachine.c)
- *     TtmiResetInactivityTimer @ 0x1409AB16C (TtmiResetInactivityTimer.c)
- *     TtmpResetEvaluationTimer @ 0x1409AB934 (TtmpResetEvaluationTimer.c)
- *     TtmpTsmIterate @ 0x1409ABBAC (TtmpTsmIterate.c)
+ *     TtmiLogTerminalStateMachine @ 0x1409AAD1C (TtmiLogTerminalStateMachine.c)
+ *     TtmiResetInactivityTimer @ 0x1409AB36C (TtmiResetInactivityTimer.c)
+ *     TtmpResetEvaluationTimer @ 0x1409ABB34 (TtmpResetEvaluationTimer.c)
+ *     TtmpTsmIterate @ 0x1409ABDAC (TtmpTsmIterate.c)
  */
 
 char __fastcall TtmpUpdateTerminalState(__int64 a1, __int64 a2, char *a3, char *a4)

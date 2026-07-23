@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpGenerateLogEntry @ 0x1408B6E18
+ * XREFs of HvpGenerateLogEntry @ 0x1408BD3E8
  * Callers:
- *     HvStoreModifiedData @ 0x1408B7270 (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x1408BD840 (HvStoreModifiedData.c)
  * Callees:
- *     HvpGenerateLogEntryMetadata @ 0x140356308 (HvpGenerateLogEntryMetadata.c)
- *     HvpGenerateLogEntryDirtyData @ 0x140356378 (HvpGenerateLogEntryDirtyData.c)
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     HvpGenerateLogEntryHeader @ 0x1404B2F8C (HvpGenerateLogEntryHeader.c)
- *     HvpAllocateLogBuffers @ 0x1404C3C6C (HvpAllocateLogBuffers.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpCountSetRangesInVector @ 0x1408B7184 (HvpCountSetRangesInVector.c)
- *     CmpLogDirtyVectorUse @ 0x1408B71E8 (CmpLogDirtyVectorUse.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HvpGenerateLogEntryMetadata @ 0x1403580A8 (HvpGenerateLogEntryMetadata.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140358118 (HvpGenerateLogEntryDirtyData.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     HvpGenerateLogEntryHeader @ 0x1404AC60C (HvpGenerateLogEntryHeader.c)
+ *     HvpAllocateLogBuffers @ 0x1404BD54C (HvpAllocateLogBuffers.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpCountSetRangesInVector @ 0x1408BD754 (HvpCountSetRangesInVector.c)
+ *     CmpLogDirtyVectorUse @ 0x1408BD7B8 (CmpLogDirtyVectorUse.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntry(__int64 a1, char a2, __int64 *a3, _DWORD *a4, unsigned int *a5)

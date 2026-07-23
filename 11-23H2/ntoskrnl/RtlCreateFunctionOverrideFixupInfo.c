@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCreateFunctionOverrideFixupInfo @ 0x14036BEFC
+ * XREFs of RtlCreateFunctionOverrideFixupInfo @ 0x14036C09C
  * Callers:
  *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
  * Callees:

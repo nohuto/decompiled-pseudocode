@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14011B880
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14011B8F0
  * Callers:
  *     MiGetPageProtection @ 0x14003FFE0 (MiGetPageProtection.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B894 (MiTryLockLeafAndContainingPagesAtDpc.c)
  * Callees:
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
+ *     MiWriteValidPteVolatile @ 0x140085F90 (MiWriteValidPteVolatile.c)
  */
 
 __int64 __fastcall MiTryLockProtoPoolPageAtDpc(unsigned __int64 a1)

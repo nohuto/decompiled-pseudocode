@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwCommitComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVi
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock);
+  return sub_140433F80(EnlistmentHandle, TmVirtualClock);
 }

@@ -12,18 +12,18 @@
 
 __int64 __fastcall MiApplyImportOptimizationToBootDriver(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v2; // rdi
-  __int64 v4; // rt1
+  char *v2; // rdi
+  char *v4; // rt1
   __int64 v6; // rcx
   int updated; // eax
   _BYTE v9[8]; // [rsp+40h] [rbp-88h] BYREF
-  unsigned __int64 v10; // [rsp+48h] [rbp-80h]
+  char *v10; // [rsp+48h] [rbp-80h]
 
-  v2 = *(_QWORD *)(a1 + 48);
-  v4 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+  v2 = *(char **)(a1 + 48);
+  v4 = *(char **)&KeNumberProcessorsGroup0[9];
   if ( v2 != v4
     && v2 != PsHalImageBase
-    && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v2)
+    && !(unsigned int)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v2)
     && !_bittest16((const signed __int16 *)(a1 + 110), 9u) )
   {
     v6 = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall MiApplyImportOptimizationToBootDriver(__int64 a1, __int64 a2)
     {
       updated = RtlUpdateImportRelocationsInImage(
                   v2,
-                  v2,
+                  (__int64)v2,
                   *(_DWORD *)(a1 + 64),
                   a2,
                   v6,

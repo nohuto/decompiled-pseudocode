@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDqQueryApplyObjectEvent @ 0x14048BF34
+ * XREFs of PiDqQueryApplyObjectEvent @ 0x14048C498
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x14048B654 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14048BBB8 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x14048A260 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryUnlock @ 0x14048BC4C (PiDqQueryUnlock.c)
- *     PiDqQueryLock @ 0x14048BCA4 (PiDqQueryLock.c)
- *     PiDqQueryAppendActionEntry @ 0x14048C88C (PiDqQueryAppendActionEntry.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x14048C8D4 (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryFreeActiveData @ 0x14048CA74 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1404E6380 (PiDqQueryAddObjectToResultSet.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x1404F9F88 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryEvaluateFilter @ 0x140502614 (PiDqQueryEvaluateFilter.c)
- *     PiDqSameUserHive @ 0x1406322C8 (PiDqSameUserHive.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     PiDqQueryUnlock @ 0x14048C1B0 (PiDqQueryUnlock.c)
+ *     PiDqQueryLock @ 0x14048C208 (PiDqQueryLock.c)
+ *     PiDqQueryAppendActionEntry @ 0x14048CEA0 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x14048CEE8 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryFreeActiveData @ 0x14048D088 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x1404C8DB4 (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1404D1050 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1404DCF14 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryEvaluateFilter @ 0x1404E55A4 (PiDqQueryEvaluateFilter.c)
+ *     PiDqSameUserHive @ 0x14063237C (PiDqSameUserHive.c)
  */
 
 int __fastcall PiDqQueryApplyObjectEvent(__int64 a1, __int64 a2)
@@ -199,7 +199,7 @@ LABEL_67:
         v27 = 3;
         v26 = 1;
         PiDqQueryLock(a1);
-        PiDqQueryDeleteObjectFromResultSet(a1, *(void **)(a2 + 8));
+        PiDqQueryDeleteObjectFromResultSet(a1, *(_QWORD *)(a2 + 8));
         LODWORD(v15) = PiDqQueryUnlock(a1);
         goto LABEL_40;
       }

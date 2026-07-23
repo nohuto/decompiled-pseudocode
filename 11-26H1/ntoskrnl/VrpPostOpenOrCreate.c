@@ -1,24 +1,24 @@
 /*
- * XREFs of VrpPostOpenOrCreate @ 0x1408A5A98
+ * XREFs of VrpPostOpenOrCreate @ 0x1408ABF08
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpFreeExtraParameter @ 0x140975FD0 (CmpFreeExtraParameter.c)
- *     VrpBuildKeyPath @ 0x140977690 (VrpBuildKeyPath.c)
- *     CmAllocateExtraParameter @ 0x140977AA4 (CmAllocateExtraParameter.c)
- *     VrpCountPathComponents @ 0x140978BB0 (VrpCountPathComponents.c)
- *     VrpAllocateKeyContext @ 0x140A30984 (VrpAllocateKeyContext.c)
- *     CmSetCallbackObjectContext @ 0x140A31530 (CmSetCallbackObjectContext.c)
- *     CmpFindExtraParameterInBlock @ 0x140A5DAB0 (CmpFindExtraParameterInBlock.c)
- *     CmRetrieveExtraParameter @ 0x140A6BB9C (CmRetrieveExtraParameter.c)
- *     VrpFreeKeyContext @ 0x140A7F588 (VrpFreeKeyContext.c)
- *     VrpFreeCallbackContext @ 0x140A82C48 (VrpFreeCallbackContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpFreeExtraParameter @ 0x140937FE0 (CmpFreeExtraParameter.c)
+ *     VrpBuildKeyPath @ 0x1409396A0 (VrpBuildKeyPath.c)
+ *     CmAllocateExtraParameter @ 0x140939AB4 (CmAllocateExtraParameter.c)
+ *     VrpCountPathComponents @ 0x14093ABC0 (VrpCountPathComponents.c)
+ *     VrpAllocateKeyContext @ 0x140A4B8E4 (VrpAllocateKeyContext.c)
+ *     CmSetCallbackObjectContext @ 0x140A4C490 (CmSetCallbackObjectContext.c)
+ *     CmpFindExtraParameterInBlock @ 0x140A6AA70 (CmpFindExtraParameterInBlock.c)
+ *     CmRetrieveExtraParameter @ 0x140A7D1CC (CmRetrieveExtraParameter.c)
+ *     VrpFreeKeyContext @ 0x140A853F8 (VrpFreeKeyContext.c)
+ *     VrpFreeCallbackContext @ 0x140A88AB8 (VrpFreeCallbackContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPostOpenOrCreate(__int64 *a1, void *a2)
@@ -157,7 +157,7 @@ LABEL_38:
                   v43 = 4LL;
                   tlgWriteTransfer_EtwWriteTransfer(
                     (__int64)&dword_140E0A5C0,
-                    (unsigned __int8 *)&word_14005AA0E,
+                    (unsigned __int8 *)&dword_14005BA3C,
                     &ActivityId,
                     0LL,
                     5u,
@@ -205,7 +205,7 @@ LABEL_28:
       v5[2].Length = VrpCountPathComponents(&v5[1]);
       v10 = CmSetCallbackObjectContext(
               **(PVOID **)(v9 + 72),
-              (PLARGE_INTEGER)&gLoadedDiffHivesLock.StackLimit,
+              (PLARGE_INTEGER)&gLoadedDiffHivesLock.InitialStack,
               v5,
               &OldContext);
       if ( v10 >= 0 )
@@ -245,7 +245,7 @@ LABEL_29:
     v43 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E0A5C0,
-      (unsigned __int8 *)byte_14005AACD,
+      (unsigned __int8 *)word_14005BA02,
       &ActivityId,
       0LL,
       5u,

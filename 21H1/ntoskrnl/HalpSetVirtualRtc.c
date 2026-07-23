@@ -11,12 +11,12 @@
  *     RtlGetSystemTimePrecise @ 0x140355570 (RtlGetSystemTimePrecise.c)
  */
 
-char __fastcall HalpSetVirtualRtc(__int64 *a1, __int64 a2, __int64 a3)
+char __fastcall HalpSetVirtualRtc(LARGE_INTEGER *a1, __int64 a2, __int64 a3)
 {
-  __int64 SystemTimePrecise; // rbx
+  LARGE_INTEGER SystemTimePrecise; // rbx
   LARGE_INTEGER PerformanceCounter; // rax
   __int128 v7; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER v8; // [rsp+48h] [rbp+10h] BYREF
 
   v7 = 0LL;
   if ( SystemPowerPhase == 2 )
@@ -33,14 +33,14 @@ char __fastcall HalpSetVirtualRtc(__int64 *a1, __int64 a2, __int64 a3)
     SystemTimePrecise = RtlGetSystemTimePrecise();
     v8 = SystemTimePrecise;
   }
-  RtlpTimeToTimeFields(&v8, &v7, a3);
+  RtlpTimeToTimeFields((__int64 *)&v8, &v7, a3);
   if ( (__int16)v7 <= 1601 )
     return 0;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   dword_140C4A5A0 = PerformanceCounter.HighPart;
   qword_140C4A598 = PerformanceCounter.QuadPart;
-  dword_140C4A594 = HIDWORD(v8);
-  qword_140C4A58C = SystemTimePrecise;
+  dword_140C4A594 = v8.HighPart;
+  qword_140C4A58C = SystemTimePrecise.QuadPart;
   dword_140C4A588 = PerformanceCounter.HighPart;
   VrtcTime = PerformanceCounter.QuadPart;
   if ( a1 )

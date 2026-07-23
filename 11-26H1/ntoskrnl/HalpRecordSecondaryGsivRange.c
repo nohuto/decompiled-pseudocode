@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpRecordSecondaryGsivRange @ 0x14078411C
+ * XREFs of HalpRecordSecondaryGsivRange @ 0x140786C50
  * Callers:
- *     HalpInitializeSecondaryInterruptServices @ 0x140783FDC (HalpInitializeSecondaryInterruptServices.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140786B10 (HalpInitializeSecondaryInterruptServices.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 __int64 HalpRecordSecondaryGsivRange()

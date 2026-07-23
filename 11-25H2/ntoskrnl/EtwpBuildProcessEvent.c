@@ -23,7 +23,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
         _QWORD *a5,
         _QWORD *a6,
         unsigned int *a7,
-        int *a8,
+        ULONG_PTR *PackageSize,
         PSTRING DestinationString,
         unsigned __int16 *a10,
         PVOID *a11)
@@ -36,8 +36,8 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   unsigned __int64 v18; // rax
   int v19; // ecx
   _QWORD *v20; // rsi
-  ULONG_PTR v21; // rax
-  int *v22; // r15
+  void *v21; // rax
+  ULONG_PTR *v22; // r15
   void *v23; // rdi
   NTSTATUS v24; // ebx
   __int64 *v25; // rdx
@@ -99,10 +99,10 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   v20 = a6;
   *a6 = a4;
   v20[1] = 36LL;
-  v21 = PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
-  v22 = a8;
-  v23 = (void *)v21;
-  EtwpQueryTokenPackageInfo(v21, a8, a4 + 32);
+  v21 = (void *)PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
+  v22 = PackageSize;
+  v23 = v21;
+  EtwpQueryTokenPackageInfo(v21, PackageSize);
   v24 = SeQueryInformationToken(v23, TokenUser, &TokenInformation);
   ObFastDereferenceObject((__int64 *)(a1 + 584), (ULONG_PTR)v23, 1953261124LL);
   if ( v24 < 0 )
@@ -188,15 +188,15 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   v32 *= 2LL;
   v20[v31] = &EtwpNull;
   v20[v31 + 1] = 2LL;
-  v34 = *v22;
-  v20[v32] = v22 + 6;
+  v34 = *(_DWORD *)v22;
+  v20[v32] = v22 + 3;
   LODWORD(v20[v32 + 1]) = v34;
   HIDWORD(v20[v32 + 1]) = 0;
-  v35 = v22[2];
+  v35 = *((_DWORD *)v22 + 2);
   v36 = v33;
   v37 = v33 + 1;
   v36 *= 2LL;
-  v20[v36] = v22 + 70;
+  v20[v36] = v22 + 35;
   v20[v36 + 1] = v35;
   if ( v49 == 807 )
   {

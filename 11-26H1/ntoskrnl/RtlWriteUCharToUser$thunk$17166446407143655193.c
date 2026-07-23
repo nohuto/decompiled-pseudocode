@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWriteUCharToUser$thunk$17166446407143655193 @ 0x140C610E0
+ * XREFs of RtlWriteUCharToUser$thunk$17166446407143655193 @ 0x140C670E0
  * Callers:
  *     <none>
  * Callees:

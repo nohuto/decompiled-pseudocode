@@ -1,22 +1,22 @@
 /*
- * XREFs of IoAsynchronousPageWrite @ 0x140135014
+ * XREFs of IoAsynchronousPageWrite @ 0x1401350E4
  * Callers:
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
- *     MiIssueAsynchronousFlush @ 0x1402B4AD8 (MiIssueAsynchronousFlush.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
+ *     MiIssueAsynchronousFlush @ 0x1402B4CC8 (MiIssueAsynchronousFlush.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
- *     MmIsFileObjectAPagingFile @ 0x1400DE988 (MmIsFileObjectAPagingFile.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400DEBC0 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopAllocateBackpocketIrp @ 0x14027E420 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x14027E700 (IopAllocateReserveIrp.c)
- *     StRtlIoStorInfoSetNvCachePriority @ 0x14032B988 (StRtlIoStorInfoSetNvCachePriority.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
+ *     MmIsFileObjectAPagingFile @ 0x1400DEA08 (MmIsFileObjectAPagingFile.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400DEC40 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopAllocateBackpocketIrp @ 0x14027E610 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x14027E8F0 (IopAllocateReserveIrp.c)
+ *     StRtlIoStorInfoSetNvCachePriority @ 0x14032BB78 (StRtlIoStorInfoSetNvCachePriority.c)
  */
 
 NTSTATUS __fastcall IoAsynchronousPageWrite(

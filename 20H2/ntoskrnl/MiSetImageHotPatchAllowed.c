@@ -68,7 +68,7 @@ LABEL_12:
   v13 = *(_BYTE *)(v8 + 15) >> 4;
   v14 = v12;
   MiUnlockVad((__int64)CurrentThread, v4);
-  v6 = MiHotPatchImage(v15, v14, v4, v10, v11, v13, 1);
+  v6 = MiHotPatchImage(v15, v14, (_RTL_BALANCED_NODE *)v4, v10, v11, v13, 1);
   MiLockVadShared((__int64)CurrentThread, v4);
   MiUnlockAndDereferenceVadShared((char *)v4);
   return v6;

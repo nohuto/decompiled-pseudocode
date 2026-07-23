@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpAcquireResourceExclusiveLite @ 0x14023B4D0
+ * XREFs of ExpAcquireResourceExclusiveLite @ 0x14023B5A0
  * Callers:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     CcAcquireByteRangeForWrite @ 0x14029D030 (CcAcquireByteRangeForWrite.c)
- *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140334500 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     CcAcquireByteRangeForWrite @ 0x14029D2C0 (CcAcquireByteRangeForWrite.c)
+ *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140334790 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     ExpApplyPrewaitBoost @ 0x1402A7B20 (ExpApplyPrewaitBoost.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     ExpBoostIoAfterAcquire @ 0x14031AEB0 (ExpBoostIoAfterAcquire.c)
- *     ExpWaitForResource @ 0x1403415C0 (ExpWaitForResource.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     PerfLogExecutiveResourceAcquire @ 0x1406006AC (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x140600B84 (PerfLogExecutiveResourceWait.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     ExpApplyPrewaitBoost @ 0x1402A7DB0 (ExpApplyPrewaitBoost.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     ExpBoostIoAfterAcquire @ 0x14031B140 (ExpBoostIoAfterAcquire.c)
+ *     ExpWaitForResource @ 0x140341850 (ExpWaitForResource.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x140600BFC (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1406010D4 (PerfLogExecutiveResourceWait.c)
  */
 
 __int64 __fastcall ExpAcquireResourceExclusiveLite(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -85,7 +85,7 @@ __int64 __fastcall ExpAcquireResourceExclusiveLite(__int64 a1, char a2, __int64 
   v50 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -137,10 +137,10 @@ __int64 __fastcall ExpAcquireResourceExclusiveLite(__int64 a1, char a2, __int64 
     KiReleaseQueuedSpinLockInstrumented(&v50, retaddr);
 LABEL_9:
     v14 = (unsigned __int8)v52;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v30 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v32 = CurrentPrcb->SchedulerAssist;
@@ -185,10 +185,10 @@ LABEL_9:
     KiReleaseQueuedSpinLockInstrumented(&v50, retaddr);
 LABEL_22:
     v21 = (unsigned __int8)v52;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v35 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v35 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
         v37 = v36->SchedulerAssist;
@@ -259,10 +259,10 @@ LABEL_81:
     KiReleaseQueuedSpinLockInstrumented(&v50, retaddr);
 LABEL_31:
     v24 = (unsigned __int8)v52;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v43 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v43 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v43 >= 2u )
       {
         v44 = KeGetCurrentPrcb();
         v45 = v44->SchedulerAssist;
@@ -290,10 +290,10 @@ LABEL_31:
   }
   KxReleaseQueuedSpinLock(&v50);
   v27 = (unsigned __int8)v52;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v39 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v39 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v39 >= 2u )
     {
       v40 = KeGetCurrentPrcb();
       v41 = v40->SchedulerAssist;

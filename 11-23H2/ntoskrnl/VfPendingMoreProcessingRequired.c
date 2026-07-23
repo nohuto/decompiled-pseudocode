@@ -1,16 +1,16 @@
 /*
- * XREFs of VfPendingMoreProcessingRequired @ 0x140AD19A0
+ * XREFs of VfPendingMoreProcessingRequired @ 0x140AD1990
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140AC1B60 (IovpLocalCompletionRoutine.c)
+ *     IovpLocalCompletionRoutine @ 0x140AC1B50 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2554 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D259C (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC247C (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     ViPendingDelayCompletion @ 0x140AD1D78 (ViPendingDelayCompletion.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1798 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE191C (VfIrpDatabaseEntryReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2AC4 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D2B0C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC246C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     ViPendingDelayCompletion @ 0x140AD1D68 (ViPendingDelayCompletion.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1788 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140AE190C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall VfPendingMoreProcessingRequired(int a1, __int64 a2, __int64 a3, int a4, __int64 a5)

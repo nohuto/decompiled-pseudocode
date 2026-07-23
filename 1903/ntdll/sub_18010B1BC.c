@@ -95,7 +95,7 @@ LABEL_26:
   {
     LOBYTE(j) = *(_BYTE *)(a1 + 8);
     v22 = sub_18010B8A0(j, i, v21 >> j);
-    sub_180036698(a1, i, 0LL);
+    sub_180036698(a1, i, 0);
     return v22;
   }
   return i;

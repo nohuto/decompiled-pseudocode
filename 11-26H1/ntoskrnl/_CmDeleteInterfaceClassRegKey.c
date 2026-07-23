@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmDeleteInterfaceClassRegKey @ 0x140896F60
+ * XREFs of _CmDeleteInterfaceClassRegKey @ 0x14089D360
  * Callers:
- *     _CmDeleteInterfaceClassWorker @ 0x140896F8C (_CmDeleteInterfaceClassWorker.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x14089D38C (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     _CmDeleteCommonClassRegKey @ 0x1408964F8 (_CmDeleteCommonClassRegKey.c)
+ *     _CmDeleteCommonClassRegKey @ 0x14089C8F8 (_CmDeleteCommonClassRegKey.c)
  */
 
 __int64 __fastcall CmDeleteInterfaceClassRegKey(__int64 a1, __int64 a2, int a3)

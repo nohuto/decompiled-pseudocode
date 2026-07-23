@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage @ 0x1403F99F0
+ * XREFs of Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage @ 0x1403F9BD0
  * Callers:
- *     AdtpWriteToEtw @ 0x1407B86D8 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtw @ 0x1407B8BF8 (AdtpWriteToEtw.c)
  * Callees:
- *     Feature_Servicing_Opnum_Filter__private_IsEnabledFallback @ 0x1403F9A28 (Feature_Servicing_Opnum_Filter__private_IsEnabledFallback.c)
+ *     Feature_Servicing_Opnum_Filter__private_IsEnabledFallback @ 0x1403F9C08 (Feature_Servicing_Opnum_Filter__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_Opnum_Filter__private_IsEnabledDeviceUsage()

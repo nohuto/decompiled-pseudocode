@@ -4,7 +4,7 @@
  *     NtAllocateUuids @ 0x140681EE0 (NtAllocateUuids.c)
  *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
  * Callees:
- *     ExpUuidSaveSequenceNumber @ 0x14085F0A0 (ExpUuidSaveSequenceNumber.c)
+ *     ExpUuidSaveSequenceNumber @ 0x14085F2E0 (ExpUuidSaveSequenceNumber.c)
  */
 
 __int64 ExpUuidSaveSequenceNumberIf()

@@ -22,20 +22,20 @@ struct _TEB *__fastcall sub_180022E4C(__int64 a1, _BYTE *a2)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(a1 + 608);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 608));
       v5 = *(_DWORD *)(a1 + 20);
       *a2 = -1;
       if ( (v5 & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive(a1 + 392);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 392));
         if ( (*(_DWORD *)(a1 + 20) & 1) == 0 )
         {
-          RtlAcquireSRWLockExclusive(a1 + 136);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 136));
           if ( (*(_DWORD *)(a1 + 20) & 1) == 0 )
           {
-            RtlAcquireSRWLockExclusive(a1 + 256);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 256));
             if ( (*(_DWORD *)(a1 + 20) & 1) == 0 )
-              RtlAcquireSRWLockExclusive(a1 + 72);
+              RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
           }
         }
       }

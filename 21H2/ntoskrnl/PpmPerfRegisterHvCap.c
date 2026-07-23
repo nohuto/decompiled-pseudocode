@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfRegisterHvCap @ 0x1408F6920
+ * XREFs of PpmPerfRegisterHvCap @ 0x1408F6A80
  * Callers:
  *     <none>
  * Callees:
- *     HvlGetLpIndexFromApicId @ 0x1404F2160 (HvlGetLpIndexFromApicId.c)
- *     HvlConfigurePerfStateCap @ 0x1404F7B50 (HvlConfigurePerfStateCap.c)
+ *     HvlGetLpIndexFromApicId @ 0x1404F20E0 (HvlGetLpIndexFromApicId.c)
+ *     HvlConfigurePerfStateCap @ 0x1404F7AD0 (HvlConfigurePerfStateCap.c)
  */
 
 __int64 __fastcall PpmPerfRegisterHvCap(__int64 a1)

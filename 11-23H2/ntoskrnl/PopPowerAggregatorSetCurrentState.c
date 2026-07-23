@@ -1,50 +1,50 @@
 /*
- * XREFs of PopPowerAggregatorSetCurrentState @ 0x140877DE8
+ * XREFs of PopPowerAggregatorSetCurrentState @ 0x140878028
  * Callers:
- *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140877C40 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140877CD4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140993660 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x140993734 (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140993E50 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
- *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140993EA0 (PopPowerAggregatorScreenOffExitStateHandler.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140993FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
- *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994090 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140877E80 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140877F14 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140993860 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140993934 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140994050 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1409940A0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409941E0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994290 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x1407A96C4 (PopPowerAggregatorAllocateLogEntry.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x1407A9940 (PopPowerAggregatorDiagTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x1407A98B4 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407A9B30 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
-__int64 __fastcall PopPowerAggregatorSetCurrentState(__int64 a1, __int64 a2)
+LARGE_INTEGER *__fastcall PopPowerAggregatorSetCurrentState(LARGE_INTEGER *a1, __int64 a2)
 {
-  int v2; // eax
-  _OWORD *v3; // rbx
-  __int64 result; // rax
+  ULONG LowPart; // eax
+  LARGE_INTEGER *v3; // rbx
+  LARGE_INTEGER *result; // rax
   __int128 v7; // xmm1
   struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+20h] [rbp-38h] BYREF
   __int64 v9; // [rsp+30h] [rbp-28h]
   int v10; // [rsp+38h] [rbp-20h]
   int v11; // [rsp+3Ch] [rbp-1Ch]
 
-  v2 = *(_DWORD *)(a1 + 24);
-  v3 = (_OWORD *)(a1 + 56);
-  v8.Ptr = a1 + 56;
+  LowPart = a1[3].LowPart;
+  v3 = a1 + 7;
+  v8.Ptr = (ULONGLONG)&a1[7];
   v8.Reserved = 0;
-  *(_DWORD *)(a2 + 4) = v2;
-  *(_QWORD *)(a2 + 8) = *(_QWORD *)(a1 + 32);
+  *(_DWORD *)(a2 + 4) = LowPart;
+  *(LARGE_INTEGER *)(a2 + 8) = a1[4];
   v8.Size = 4;
   v9 = a2;
   v11 = 0;
   v10 = 4;
   PopPowerAggregatorDiagTraceEvent(&POP_ETW_EVENT_POWER_AGGREGATOR_INTERNAL_STATE_CHANGE, 2u, &v8);
-  result = PopPowerAggregatorAllocateLogEntry(a1, 2);
-  *(_OWORD *)(result + 24) = *v3;
-  *(_OWORD *)(result + 40) = v3[1];
-  *(_OWORD *)(result + 56) = *(_OWORD *)a2;
-  *(_OWORD *)(result + 72) = *(_OWORD *)(a2 + 16);
-  *v3 = *(_OWORD *)a2;
+  result = PopPowerAggregatorAllocateLogEntry(a1, 2u);
+  *(_OWORD *)&result[3].LowPart = *(_OWORD *)&v3->LowPart;
+  *(_OWORD *)&result[5].LowPart = *(_OWORD *)&v3[2].LowPart;
+  *(_OWORD *)&result[7].LowPart = *(_OWORD *)a2;
+  *(_OWORD *)&result[9].LowPart = *(_OWORD *)(a2 + 16);
+  *(_OWORD *)&v3->LowPart = *(_OWORD *)a2;
   v7 = *(_OWORD *)(a2 + 16);
-  *(_DWORD *)(a1 + 8) |= 2u;
-  v3[1] = v7;
+  a1[1].LowPart |= 2u;
+  *(_OWORD *)&v3[2].LowPart = v7;
   return result;
 }

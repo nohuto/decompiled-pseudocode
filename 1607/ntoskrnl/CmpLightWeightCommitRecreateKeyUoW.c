@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLightWeightCommitRecreateKeyUoW @ 0x14060E734
+ * XREFs of CmpLightWeightCommitRecreateKeyUoW @ 0x14060E7E8
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14049FEF8 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1404F14AC (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1404D35A0 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140518304 (CmpFlushNotifiesOnKeyBodyList.c)
  */
 
 void __fastcall CmpLightWeightCommitRecreateKeyUoW(__int64 a1, _QWORD *a2)
@@ -36,5 +36,5 @@ void __fastcall CmpLightWeightCommitRecreateKeyUoW(__int64 a1, _QWORD *a2)
     (__int64)&v10,
     1,
     1);
-  CmpFlushNotifiesOnKeyBodyList(*(_QWORD *)(a1 + 48), 8, 1);
+  CmpFlushNotifiesOnKeyBodyList(*(_QWORD *)(a1 + 48), 8LL, 1);
 }

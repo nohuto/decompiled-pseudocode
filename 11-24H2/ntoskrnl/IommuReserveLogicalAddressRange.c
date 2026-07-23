@@ -1,20 +1,20 @@
 /*
- * XREFs of IommuReserveLogicalAddressRange @ 0x140566FA0
+ * XREFs of IommuReserveLogicalAddressRange @ 0x140564B30
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpIommuDomainGetLogicalAddressRange @ 0x1403ACF08 (HalpIommuDomainGetLogicalAddressRange.c)
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x1403AD6EC (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140553C24 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpIommuDomainGetLogicalAddressRange @ 0x14039B718 (HalpIommuDomainGetLogicalAddressRange.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x14039BEFC (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x140551564 (HalpIommuDomainMapLogicalRange.c)
  */
 
 __int64 __fastcall IommuReserveLogicalAddressRange(
         ULONG_PTR a1,
         __int64 a2,
         _QWORD *a3,
-        __int64 a4,
+        int a4,
         __int64 a5,
         __int64 *a6)
 {
@@ -24,8 +24,6 @@ __int64 __fastcall IommuReserveLogicalAddressRange(
   __int64 v13; // rsi
   int LogicalAddressRange; // eax
   __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
 
   v6 = a6;
   a6 = 0LL;
@@ -52,7 +50,7 @@ __int64 __fastcall IommuReserveLogicalAddressRange(
           *v6 = v13;
           return (unsigned int)v12;
         }
-        HalpIommuDomainFreeLogicalAddressRange(a1, (__int64)a6, v16, v17);
+        HalpIommuDomainFreeLogicalAddressRange(a1, (__int64)a6);
       }
       else if ( LogicalAddressRange == -1073741584 || LogicalAddressRange == -1073741811 )
       {

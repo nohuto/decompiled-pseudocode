@@ -1,19 +1,19 @@
 /*
- * XREFs of BiDeleteKey @ 0x1406E1E6C
+ * XREFs of BiDeleteKey @ 0x1406E310C
  * Callers:
- *     BiDeleteKey @ 0x1406E1E6C (BiDeleteKey.c)
- *     BiDeleteElement @ 0x14071259C (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
- *     BcdDeleteObject @ 0x1408F0880 (BcdDeleteObject.c)
+ *     BiDeleteKey @ 0x1406E310C (BiDeleteKey.c)
+ *     BiDeleteElement @ 0x14071383C (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x140714610 (BcdSetElementDataWithFlags.c)
+ *     BcdDeleteObject @ 0x1408F1B40 (BcdDeleteObject.c)
  * Callees:
- *     BiSanitizeHandle @ 0x14013B3D0 (BiSanitizeHandle.c)
- *     BiZwDeleteKey @ 0x1401594D4 (BiZwDeleteKey.c)
- *     CmSiCloseSection @ 0x14016E5C8 (CmSiCloseSection.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiDeleteKey @ 0x1406E1E6C (BiDeleteKey.c)
- *     BiEnumerateSubKeys @ 0x140712924 (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
- *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
+ *     BiSanitizeHandle @ 0x14013B4D0 (BiSanitizeHandle.c)
+ *     BiZwDeleteKey @ 0x1401595D4 (BiZwDeleteKey.c)
+ *     CmSiCloseSection @ 0x14016E6C8 (CmSiCloseSection.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiDeleteKey @ 0x1406E310C (BiDeleteKey.c)
+ *     BiEnumerateSubKeys @ 0x140713BC4 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x140714A20 (BiOpenKey.c)
+ *     BiCloseKey @ 0x140714B90 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiDeleteKey(__int64 a1)

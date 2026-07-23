@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcValidateGovernedFeatures @ 0x1405F2A98
+ * XREFs of RtlpFcValidateGovernedFeatures @ 0x1405F00D8
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x1407E40E0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x1407E474C (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x1407E4630 (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x1407E4C9C (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
  */
 
 __int64 __fastcall RtlpFcValidateGovernedFeatures(__int64 a1, __int64 a2)

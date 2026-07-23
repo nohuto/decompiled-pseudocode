@@ -1,16 +1,16 @@
 /*
- * XREFs of BiGetPhysicalDriveName @ 0x1406D2FF8
+ * XREFs of BiGetPhysicalDriveName @ 0x1406D3130
  * Callers:
- *     BiGetDriveLayoutBlock @ 0x14053CE58 (BiGetDriveLayoutBlock.c)
- *     BiCreatePartitionDevice @ 0x14053E80C (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x14053D398 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x14053ED4C (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiGetVolumeDiskExtentsInformation @ 0x1406D3138 (BiGetVolumeDiskExtentsInformation.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x1406D3270 (BiGetVolumeDiskExtentsInformation.c)
  */
 
 __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)

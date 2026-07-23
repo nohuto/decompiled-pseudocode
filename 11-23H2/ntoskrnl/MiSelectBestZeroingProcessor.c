@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSelectBestZeroingProcessor @ 0x1402D06B0
+ * XREFs of MiSelectBestZeroingProcessor @ 0x1402D0940
  * Callers:
- *     MiReadyToZeroNextLargePage @ 0x1402D0440 (MiReadyToZeroNextLargePage.c)
- *     MiZeroNodePages @ 0x140393AF0 (MiZeroNodePages.c)
+ *     MiReadyToZeroNextLargePage @ 0x1402D06D0 (MiReadyToZeroNextLargePage.c)
+ *     MiZeroNodePages @ 0x140393CD0 (MiZeroNodePages.c)
  * Callees:
  *     MiObtainParkedCoreMasks @ 0x14022320C (MiObtainParkedCoreMasks.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetUserGroupAffinityThread @ 0x1403AADAC (KeSetUserGroupAffinityThread.c)
- *     MiGetNextAffinityWalker @ 0x1403BF8C8 (MiGetNextAffinityWalker.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x140655584 (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403AAF8C (KeSetUserGroupAffinityThread.c)
+ *     MiGetNextAffinityWalker @ 0x1403BFAA8 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x140655AD4 (MiUnlinkZeroThreadFromActiveDomain.c)
  */
 
 void __fastcall MiSelectBestZeroingProcessor(__int64 a1, ULONG_PTR a2)
@@ -176,10 +176,10 @@ LABEL_24:
   }
 LABEL_28:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(a1 + 200) + 23160LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v23 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v23 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

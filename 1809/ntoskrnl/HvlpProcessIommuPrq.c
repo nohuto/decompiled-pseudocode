@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpProcessIommuPrq @ 0x140278240
+ * XREFs of HvlpProcessIommuPrq @ 0x140278430
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
  */
 
 __int64 __fastcall HvlpProcessIommuPrq(_DWORD *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspGetPicoThreadContext @ 0x1407FD910
+ * XREFs of PspGetPicoThreadContext @ 0x1407FDBE0
  * Callers:
  *     <none>
  * Callees:

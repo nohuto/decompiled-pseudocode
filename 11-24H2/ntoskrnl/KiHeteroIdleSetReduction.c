@@ -1,11 +1,11 @@
 /*
- * XREFs of KiHeteroIdleSetReduction @ 0x140202360
+ * XREFs of KiHeteroIdleSetReduction @ 0x14032AA50
  * Callers:
- *     KiHeteroSelectIdleProcessorFromSubNode @ 0x1404E9430 (KiHeteroSelectIdleProcessorFromSubNode.c)
+ *     KiHeteroSelectIdleProcessorFromSubNode @ 0x1404E0130 (KiHeteroSelectIdleProcessorFromSubNode.c)
  * Callees:
- *     KiReduceAffinityToRankListMaximums @ 0x140202640 (KiReduceAffinityToRankListMaximums.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
+ *     KiReduceAffinityToRankListMaximums @ 0x14032AD30 (KiReduceAffinityToRankListMaximums.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall KiHeteroIdleSetReduction(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, _QWORD *a5)

@@ -19,7 +19,7 @@ NTSTATUS __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
   __int64 v6; // rdx
   UNICODE_STRING *p_SourceString; // rdx
   const WCHAR *v8; // rdx
-  const char *p_ActiveProcessors; // rdx
+  const CHAR *p_ActiveProcessors; // rdx
   __int64 v10; // rdx
   STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
@@ -32,7 +32,7 @@ NTSTATUS __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
   {
     if ( (unsigned int)Feature_3401902395__private_IsEnabledDeviceUsage() )
     {
-      p_ActiveProcessors = (const char *)&PsGetCurrentProcess()[1].ActiveProcessors;
+      p_ActiveProcessors = (const CHAR *)&PsGetCurrentProcess()[1].ActiveProcessors;
     }
     else
     {
@@ -42,7 +42,7 @@ NTSTATUS __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
         v8 = UNIDENTIFIED_PROCESS;
         goto LABEL_12;
       }
-      p_ActiveProcessors = (const char *)(v10 + 1448);
+      p_ActiveProcessors = (const CHAR *)(v10 + 1448);
     }
     RtlInitAnsiString(&DestinationString, p_ActiveProcessors);
     return PopAnsiStringToUnicodeString(a2, &DestinationString);

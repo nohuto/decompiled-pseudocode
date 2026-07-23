@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUnlockKeyBodyFromMemory @ 0x140A1793C
+ * XREFs of CmpUnlockKeyBodyFromMemory @ 0x140A17BEC
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406DB340 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x1406DB370 (CmpDeleteKeyObject.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
  */
 
 __int64 __fastcall CmpUnlockKeyBodyFromMemory(__int64 a1)

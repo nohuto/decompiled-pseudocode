@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpReleaseFastMutexContended @ 0x1402F171C
+ * XREFs of ExpReleaseFastMutexContended @ 0x1402FC46C
  * Callers:
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     FsRtlAcquireEofLock @ 0x1402907F0 (FsRtlAcquireEofLock.c)
- *     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x14029F330 (ExReleaseFastMutexUnsafeAndLeaveCriticalRegion.c)
- *     FsRtlReleaseEofLock @ 0x1402EEC80 (FsRtlReleaseEofLock.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
- *     FsRtlReleaseHeaderMutex @ 0x140348BA0 (FsRtlReleaseHeaderMutex.c)
- *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     FsRtlAcquireEofLock @ 0x14020E760 (FsRtlAcquireEofLock.c)
+ *     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x14021C890 (ExReleaseFastMutexUnsafeAndLeaveCriticalRegion.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlReleaseEofLock @ 0x1402F99D0 (FsRtlReleaseEofLock.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14032A380 (CcPinFileData.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1403538F0 (FsRtlReleaseHeaderMutex.c)
+ *     FsRtlCheckOplockEx2 @ 0x14035EA70 (FsRtlCheckOplockEx2.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x14070A290 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     KeSetEventBoostPriorityEx @ 0x1402F1788 (KeSetEventBoostPriorityEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402FC4D8 (KeSetEventBoostPriorityEx.c)
  */
 
 __int64 __fastcall ExpReleaseFastMutexContended(volatile signed __int32 *a1, signed __int32 a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteSubsectionLargePages @ 0x140510EFC
+ * XREFs of MiDeleteSubsectionLargePages @ 0x14050A96C
  * Callers:
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403C5A90 (MiConvertSmallPageRangeToLarge.c)
- *     MiFreeLargePages @ 0x1403C700C (MiFreeLargePages.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403CF990 (MiConvertSmallPageRangeToLarge.c)
+ *     MiFreeLargePages @ 0x1403D0F00 (MiFreeLargePages.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDeleteSubsectionLargePages(__int64 *a1, _QWORD *a2, __int64 a3)
@@ -59,7 +59,7 @@ __int64 __fastcall MiDeleteSubsectionLargePages(__int64 *a1, _QWORD *a2, __int64
       if ( v10 )
       {
         MiUpdateLargePageBitMap(
-          *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((v3[5] >> 43) & 0x3FFLL)),
+          *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((v3[5] >> 43) & 0x3FFLL)),
           (__int64)(v3 + 0x44000000000LL) / 48,
           0x200uLL,
           2);
@@ -132,7 +132,7 @@ __int64 __fastcall MiDeleteSubsectionLargePages(__int64 *a1, _QWORD *a2, __int64
       {
         MiConvertSmallPageRangeToLarge((__int64)(v3 + 0x44000000000LL) / 48, 1u);
         v6 += MiFreeLargePages(
-                *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((v3[5] >> 43) & 0x3FFLL)),
+                *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((v3[5] >> 43) & 0x3FFLL)),
                 (__int64)v3,
                 &v27,
                 &v27,
@@ -147,10 +147,10 @@ __int64 __fastcall MiDeleteSubsectionLargePages(__int64 *a1, _QWORD *a2, __int64
   }
   v18 = *v4;
   if ( v7 )
-    MiReleaseNonPagedResources(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*v4 + 60) & 0x3FF)), v7);
+    MiReleaseNonPagedResources(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*v4 + 60) & 0x3FF)), v7);
   *(_QWORD *)(v18 + 120) = (*(_QWORD *)(v18 + 120) - v5) ^ (*(_QWORD *)(v18 + 120) ^ (*(_QWORD *)(v18 + 120) - v5)) & 0xFFFFFFF000000000uLL;
   _InterlockedAdd64(
-    (volatile signed __int64 *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v18 + 60) & 0x3FF)) + 23480LL),
+    (volatile signed __int64 *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v18 + 60) & 0x3FF)) + 23480LL),
     -v5);
   return v6;
 }

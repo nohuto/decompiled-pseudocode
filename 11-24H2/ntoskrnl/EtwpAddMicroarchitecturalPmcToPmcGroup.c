@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1407A6948
+ * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1407A6A88
  * Callers:
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1407A6C78 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1407A6DB8 (EtwpAddMicroarchitecturalPmcToRegistry.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     KiGetCpuVendor @ 0x140B6D9F4 (KiGetCpuVendor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     KiGetCpuVendor @ 0x140B6F294 (KiGetCpuVendor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned __int8 *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned _
   unsigned __int8 *v2; // r14
   __int64 v4; // rcx
   __int64 v5; // rax
-  unsigned int v8; // ebx
+  ULONG_PTR v8; // rbx
   wchar_t *Pool2; // r15
   NTSTATUS v10; // ebx
   int CpuVendor; // esi
@@ -44,9 +44,9 @@ __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned _
   do
     ++v4;
   while ( *(_WORD *)(a1 + 2 * v4) );
-  v8 = 2 * v4 + 512;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
-  RtlStringCbPrintfW(Pool2, v8, L"%ws\\%ws", a1, v2);
+  v8 = (unsigned int)(2 * v4 + 512);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v8, 0x50777445u);
+  RtlStringCbPrintfW(Pool2, (unsigned int)v8, L"%ws\\%ws", a1, v2);
   RtlInitUnicodeString(&DestinationString, Pool2);
   ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.Length = 48;

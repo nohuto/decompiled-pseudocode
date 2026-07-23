@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateCloneChain @ 0x1403CCE38
+ * XREFs of MiCreateCloneChain @ 0x140267008
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140ABD72C (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140AB879C (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403CDFC0 (PsChargeProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1402676E0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateCloneChain(__int64 a1, _QWORD *a2)
@@ -33,7 +33,7 @@ __int64 __fastcall MiCreateCloneChain(__int64 a1, _QWORD *a2)
   v5 = 0LL;
   v6 = 0LL;
   Process = CurrentThread->ApcState.Process;
-  v8 = MiLockWorkingSetExclusive((__int64)&Process[2].ReadyListHead.Blink);
+  v8 = MiLockWorkingSetExclusive(&Process[2].ReadyListHead.Blink);
   j = 0LL;
   for ( i = Process[1].IdealProcessorAssignmentBlock;
         i;
@@ -45,7 +45,7 @@ __int64 __fastcall MiCreateCloneChain(__int64 a1, _QWORD *a2)
   {
     if ( j[6] )
     {
-      Pool = (_QWORD *)MiAllocatePool(0x40uLL, 0x70uLL, 1682140493);
+      Pool = (_QWORD *)MiAllocatePool(0x40uLL, 0x70uLL);
       if ( !Pool )
       {
         v4 = -1073741670;

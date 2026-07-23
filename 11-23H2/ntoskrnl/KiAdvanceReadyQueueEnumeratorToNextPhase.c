@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x140242B30
+ * XREFs of KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x140242C00
  * Callers:
  *     KiAdvanceReadyQueueEnumeratorToNextList @ 0x140206900 (KiAdvanceReadyQueueEnumeratorToNextList.c)
  * Callees:
- *     KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140242BA0 (KiReadyQueueEnumeratorStartNormalQueuesPhase.c)
- *     KiReadyQueueEnumeratorStartScbQueuesPhase @ 0x140242CE0 (KiReadyQueueEnumeratorStartScbQueuesPhase.c)
+ *     KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140242C70 (KiReadyQueueEnumeratorStartNormalQueuesPhase.c)
+ *     KiReadyQueueEnumeratorStartScbQueuesPhase @ 0x140242DB0 (KiReadyQueueEnumeratorStartScbQueuesPhase.c)
  */
 
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextPhase(__int64 a1)

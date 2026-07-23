@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockDynamicMemoryExclusive @ 0x140090D18
+ * XREFs of MiUnlockDynamicMemoryExclusive @ 0x140090C58
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
- *     MiGetChannelInformation @ 0x1406086FC (MiGetChannelInformation.c)
- *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140860828 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
+ *     MiGetChannelInformation @ 0x1406096FC (MiGetChannelInformation.c)
+ *     MiAddPhysicalMemory @ 0x14084DAF4 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14084E7AC (MiRemovePhysicalMemory.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140861A88 (MiUpdatePartitionLargePfnBitMap.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -13,8 +13,8 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
@@ -68,7 +68,7 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
         {
           v12->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v12->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v11], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11].TreeNode, SessionId);
           v16 = 0;
           v16 = v12->BoostBitmap.AllFields & 0x1FFFF;
           v12->BoostBitmap.AllFields &= 0xFFFE0000;

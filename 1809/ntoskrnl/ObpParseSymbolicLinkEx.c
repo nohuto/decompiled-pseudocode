@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpParseSymbolicLinkEx @ 0x1405BBEB0
+ * XREFs of ObpParseSymbolicLinkEx @ 0x1405BCEB0
  * Callers:
  *     <none>
  * Callees:
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlIsSandboxedToken @ 0x14064B4F0 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObpParseSymbolicLinkEx(

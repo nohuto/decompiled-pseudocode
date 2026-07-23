@@ -15,69 +15,70 @@
  *     RtlpSetHeapDebuggingInformation @ 0x1800FFFC0 (RtlpSetHeapDebuggingInformation.c)
  */
 
-__int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
+__int64 __fastcall RtlSetHeapDebuggingInformation(_DWORD *HeapHandle, __int64 a2)
 {
-  __int64 v5; // rax
-  unsigned int v6; // ebx
-  signed __int32 v7; // edi
-  HANDLE DeferredCriticalSectionEvent; // r10
-  int v9; // eax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
-  unsigned int v13; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rax
+  unsigned int v5; // ebx
+  signed __int32 LockCount; // edi
+  void *LockSemaphore; // r10
+  int v8; // eax
+  signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned int v10; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
+  if ( HeapHandle )
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (HeapHandle[29] & 0x1000000) != 0 )
     {
       return 3221225474LL;
     }
     else
     {
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-      v5 = 28LL;
-      if ( *(_DWORD *)(a1 + 16) != -571548178 )
-        v5 = 208LL;
-      if ( *(_WORD *)(v5 + a1) == 0xFFFF )
-        v6 = -1073741811;
+      RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+      v4 = 7LL;
+      if ( HeapHandle[4] != -571548178 )
+        v4 = 52LL;
+      if ( LOWORD(HeapHandle[v4]) == 0xFFFF )
+        v5 = -1073741811;
       else
-        v6 = RtlpSetHeapDebuggingInformation(a1, a2);
-      if ( !--dword_180178D4C )
+        v5 = RtlpSetHeapDebuggingInformation(HeapHandle);
+      if ( !--RtlpProcessHeapsListLock.RecursionCount )
       {
-        qword_180178D50 = 0LL;
-        v7 = _InterlockedCompareExchange(&dword_180178D48, -1, -2);
-        if ( v7 != -2 )
+        RtlpProcessHeapsListLock.OwningThread = 0LL;
+        LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+        if ( LockCount != -2 )
         {
-          if ( (dword_180178D48 & 1) != 0 )
+          if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
             RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-          DeferredCriticalSectionEvent = (HANDLE)qword_180178D58;
-          if ( !qword_180178D58 )
-            DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent((__int64)&RtlpProcessHeapsListLock);
-          v13 = 0;
-          while ( v7 != _InterlockedCompareExchange(&dword_180178D48, (v7 & 2 | 1) + v7, v7) )
+          LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+          if ( !RtlpProcessHeapsListLock.LockSemaphore )
+            LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)&RtlpProcessHeapsListLock);
+          v10 = 0;
+          while ( LockCount != _InterlockedCompareExchange(
+                                 &RtlpProcessHeapsListLock.LockCount,
+                                 (LockCount & 2 | 1) + LockCount,
+                                 LockCount) )
           {
-            RtlBackoff(&v13);
-            _m_prefetchw(&dword_180178D48);
-            v7 = dword_180178D48;
+            RtlBackoff(&v10);
+            _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+            LockCount = RtlpProcessHeapsListLock.LockCount;
           }
-          if ( (v7 & 2) != 0 )
+          if ( (LockCount & 2) != 0 )
           {
-            if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
+            if ( LockSemaphore == (void *)-1LL )
             {
-              _InterlockedOr(v12, 0);
-              RtlpWakeByAddress((unsigned __int64)&dword_180178D48, 0);
+              _InterlockedOr(v9, 0);
+              RtlpWakeByAddress((unsigned __int64)&RtlpProcessHeapsListLock.LockCount, 0);
             }
             else
             {
-              v9 = ZwSetEvent();
-              if ( v9 < 0 )
-                RtlRaiseStatus(v9, v10, v11);
+              v8 = ZwSetEvent(LockSemaphore, 0LL);
+              if ( v8 < 0 )
+                RtlRaiseStatus(v8);
             }
           }
         }
       }
-      return v6;
+      return v5;
     }
   }
   else

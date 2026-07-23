@@ -23,9 +23,9 @@ ULONG __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __int16 a2, UL
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14036BF68, 0LL);
-  RtlCopyBitMap(*(unsigned int **)a1, (__int64)&stru_14036BFA8, 0);
-  RtlMergeBitMaps((__int64)&stru_14036BFA8, *(unsigned int **)(a1 + 8));
-  ClearBits = RtlFindClearBits(&stru_14036BFA8, a2, a3);
+  RtlCopyBitMap(*(PRTL_BITMAP *)a1, &Destination, 0);
+  RtlMergeBitMaps((__int64)&Destination, *(unsigned int **)(a1 + 8));
+  ClearBits = RtlFindClearBits(&Destination, a2, a3);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14036BF68, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&qword_14036BF68);
   KeAbPostRelease((ULONG_PTR)&qword_14036BF68);

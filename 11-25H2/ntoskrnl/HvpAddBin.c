@@ -46,7 +46,7 @@ __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int 
   unsigned int v13; // r13d
   int Bin; // esi
   __int64 v15; // rdx
-  __int64 *v16; // rcx
+  __int64 v16; // rcx
   unsigned int v17; // eax
   int v18; // eax
   signed __int64 v19; // rax
@@ -365,7 +365,7 @@ LABEL_27:
         goto LABEL_28;
       }
       v18 = *(_DWORD *)(BugCheckParameter2 + 256);
-      v16 = (__int64 *)(BugCheckParameter2 + 224);
+      v16 = BugCheckParameter2 + 224;
       v15 = 2147479552LL;
       if ( (v18 & 1) != 0 )
       {

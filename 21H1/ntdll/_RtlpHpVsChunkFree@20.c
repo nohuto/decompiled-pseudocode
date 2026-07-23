@@ -29,7 +29,7 @@ int __fastcall RtlpHpVsChunkFree(int a1, int a2, unsigned int *a3, char a4, int 
       RtlpHpVsSubsegmentCleanup(a1, a2);
       return a2;
     }
-    if ( v13 <= i || !RtlpHpVsChunkDecommit(a1, a2, (int)v8, a4, a5) )
+    if ( v13 <= i || !RtlpHpVsChunkDecommit((_RTL_SRWLOCK *)a1, a2, (int)v8, a4, a5) )
       break;
   }
   if ( (*(_BYTE *)(a1 + 152) & 1) != 0 && ((unsigned int)(a3 + 4) & 0xFFF) != 0 )

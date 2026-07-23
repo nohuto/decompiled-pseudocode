@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCrimsonStackWalkApc @ 0x14030E380
+ * XREFs of EtwpCrimsonStackWalkApc @ 0x14030E570
  * Callers:
  *     <none>
  * Callees:
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCrimsonStackWalkApc(void *a1, _QWORD *a2, _WORD *a3, _DWORD *a4, _DWORD *a5)
@@ -28,7 +28,7 @@ __int64 __fastcall EtwpCrimsonStackWalkApc(void *a1, _QWORD *a2, _WORD *a3, _DWO
   BYTE4(v9[8]) = -1;
   v9[9] = _mm_load_si128((const __m128i *)&_xmm);
   return EtwpEventWriteFull(
-           (__int64)v9,
+           v9,
            1u,
            0,
            0,

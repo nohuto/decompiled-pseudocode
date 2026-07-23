@@ -42,19 +42,19 @@ __int64 __fastcall ObpGetDosDevicesProtection(PSECURITY_DESCRIPTOR SecurityDescr
     {
       RtlCreateAcl(PoolWithTag, v5, 2u);
       Src = (unsigned __int8 *)SeWorldSid;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, -1610612736, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, -1610612736, (unsigned __int8 *)SeWorldSid, 0);
       v9 = (unsigned __int8 *)SeLocalSystemSid;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x20000000, Src, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x20000000, Src, 0);
       RtlGetAce(v7, 2u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
       RtlGetAce(v7, 3u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, v9, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, v9, 0);
       RtlGetAce(v7, 4u, &Ace);
       *((_BYTE *)Ace + 1) |= 0xBu;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeCreatorOwnerSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeCreatorOwnerSid, 0);
       RtlGetAce(v7, 5u, &Ace);
 LABEL_4:
       *((_BYTE *)Ace + 1) |= 0xBu;
@@ -72,9 +72,9 @@ LABEL_4:
     {
       RtlCreateAcl(v13, v12, 2u);
       v14 = (unsigned __int8 *)SeWorldSid;
-      RtlpAddKnownAce((__int64)v7, 2u, 0, -536870912, (unsigned __int8 *)SeWorldSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
-      RtlpAddKnownAce((__int64)v7, 2u, 0, 0x10000000, v14, 0);
+      RtlpAddKnownAce(v7, 2u, 0, -536870912, (unsigned __int8 *)SeWorldSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0);
+      RtlpAddKnownAce(v7, 2u, 0, 0x10000000, v14, 0);
       RtlGetAce(v7, 2u, &Ace);
       goto LABEL_4;
     }

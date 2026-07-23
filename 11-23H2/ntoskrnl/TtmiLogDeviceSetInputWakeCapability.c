@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceSetInputWakeCapability @ 0x1409A7D84
+ * XREFs of TtmiLogDeviceSetInputWakeCapability @ 0x1409A7F84
  * Callers:
- *     TtmiSetInputWakeCapability @ 0x1409A2F18 (TtmiSetInputWakeCapability.c)
+ *     TtmiSetInputWakeCapability @ 0x1409A3118 (TtmiSetInputWakeCapability.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceSetInputWakeCapability(int a1, int a2, int a3)
@@ -57,7 +57,7 @@ char __fastcall TtmiLogDeviceSetInputWakeCapability(int a1, int a2, int a3)
       v12 = a3;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D53918,
-                     (unsigned __int8 *)word_140032B92,
+                     (unsigned __int8 *)byte_140032FF1,
                      0LL,
                      0LL,
                      6u,

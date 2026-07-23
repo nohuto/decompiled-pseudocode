@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpConstructName @ 0x1405D8B94
+ * XREFs of CmpConstructName @ 0x1405D9B94
  * Callers:
  *     CmpDoQueryKeyName @ 0x140016840 (CmpDoQueryKeyName.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmRealKCBToVirtualPath @ 0x1407F1FA8 (CmRealKCBToVirtualPath.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmRealKCBToVirtualPath @ 0x1407F31A8 (CmRealKCBToVirtualPath.c)
  * Callees:
- *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameWithStatus @ 0x1405D83A0 (CmpConstructNameWithStatus.c)
  */
 
 __int64 __fastcall CmpConstructName(__int64 a1)

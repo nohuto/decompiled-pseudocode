@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxUpdateDeviceIRPhaseAccounting @ 0x14058C2D4
+ * XREFs of PopFxUpdateDeviceIRPhaseAccounting @ 0x14058C7C4
  * Callers:
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x14058BA44 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x14058BF34 (PopFxSetDripsBlockedByDeviceActivity.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x140588A00 (PopFxAccumulateDeviceIRPhaseAccounting.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x140588EF0 (PopFxAccumulateDeviceIRPhaseAccounting.c)
  */
 
 __int64 __fastcall PopFxUpdateDeviceIRPhaseAccounting(char a1)
@@ -20,19 +20,19 @@ __int64 __fastcall PopFxUpdateDeviceIRPhaseAccounting(char a1)
   bool v7; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  if ( byte_140C3CB18 )
+  if ( byte_140C3CA98 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     if ( a1 )
-      qword_140C3CB10 = PerformanceCounter.QuadPart;
+      qword_140C3CA90 = PerformanceCounter.QuadPart;
     else
       PopFxAccumulateDeviceIRPhaseAccounting(PerformanceCounter.QuadPart);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

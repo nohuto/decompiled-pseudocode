@@ -1,34 +1,34 @@
 /*
- * XREFs of MiPfnShareCountIsZero @ 0x1400666E0
+ * XREFs of MiPfnShareCountIsZero @ 0x140066260
  * Callers:
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiDeleteValidSystemPage @ 0x14004B6A0 (MiDeleteValidSystemPage.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MiDeleteSubsectionPages @ 0x140061C70 (MiDeleteSubsectionPages.c)
- *     MiDeleteBatch @ 0x140064B10 (MiDeleteBatch.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiUnlockPageTableCharges @ 0x1400BAC48 (MiUnlockPageTableCharges.c)
- *     MiDeletePteList @ 0x1400DFAC0 (MiDeletePteList.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiReduceShareCount @ 0x1401F2F08 (MiReduceShareCount.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiDeleteValidSystemPage @ 0x14004B220 (MiDeleteValidSystemPage.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MiDeleteSubsectionPages @ 0x1400617F0 (MiDeleteSubsectionPages.c)
+ *     MiDeleteBatch @ 0x140064690 (MiDeleteBatch.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiUnlockPageTableCharges @ 0x1400B8AD8 (MiUnlockPageTableCharges.c)
+ *     MiDeletePteList @ 0x1400DD960 (MiDeletePteList.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiReduceShareCount @ 0x1401F2D34 (MiReduceShareCount.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiInsertProtectedStandbyPage @ 0x1400701C0 (MiInsertProtectedStandbyPage.c)
- *     MiFlushHyperSpace @ 0x14009E1E8 (MiFlushHyperSpace.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiInsertProtectedStandbyPage @ 0x14006FD40 (MiInsertProtectedStandbyPage.c)
+ *     MiFlushHyperSpace @ 0x14009D9E8 (MiFlushHyperSpace.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiPfnShareCountIsZero(__int64 a1, unsigned __int64 a2)
@@ -87,10 +87,10 @@ __int64 __fastcall MiPfnShareCountIsZero(__int64 a1, unsigned __int64 a2)
       v4 = 28;
     }
     v8 = MmProtectToPteMask[v4] ^ ((v6 << 12) ^ MmProtectToPteMask[v4]) & 0xFFFFFFFFF000LL | 0x21;
-    if ( HIBYTE(word_140326AA8) )
+    if ( HIBYTE(word_140326AE8) )
       v8 = MmProtectToPteMask[v4] ^ ((v6 << 12) ^ MmProtectToPteMask[v4]) & 0xFFFFFFFFF000LL | 0x121;
     CurrentPrcb = KeGetCurrentPrcb();
-    v10 = (((unsigned __int16)v8 ^ (unsigned __int16)((unsigned __int8)word_140326AA8 << 8)) & 0x100 ^ (unsigned __int64)v8) & 0xFFFFFFFFFFFFFF3DuLL | 0x42;
+    v10 = (((unsigned __int16)v8 ^ (unsigned __int16)((unsigned __int8)word_140326AE8 << 8)) & 0x100 ^ (unsigned __int64)v8) & 0xFFFFFFFFFFFFFF3DuLL | 0x42;
     v11 = (unsigned __int64 *)((((((unsigned __int64)CurrentPrcb->HyperPte & 0xFFFFFFFFFFFFF000uLL)
                                 + (((__int64)CurrentPrcb->HyperPte & 0xFFF) << 12)) >> 9) & 0x7FFFFFFFF8LL)
                              - 0x98000000000LL);

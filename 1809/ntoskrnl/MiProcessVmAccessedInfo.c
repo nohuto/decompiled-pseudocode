@@ -1,15 +1,15 @@
 /*
- * XREFs of MiProcessVmAccessedInfo @ 0x1402B363C
+ * XREFs of MiProcessVmAccessedInfo @ 0x1402B382C
  * Callers:
- *     MiAgeWorkingSetTail @ 0x140075A50 (MiAgeWorkingSetTail.c)
- *     MiTrimWorkingSetTail @ 0x14011C6B0 (MiTrimWorkingSetTail.c)
- *     MiResetAccessBitsTail @ 0x14016F9B0 (MiResetAccessBitsTail.c)
- *     MiSimpleAgeWorkingSetTail @ 0x1402B3B20 (MiSimpleAgeWorkingSetTail.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x1402B4130 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiAgeWorkingSetTail @ 0x140075A40 (MiAgeWorkingSetTail.c)
+ *     MiTrimWorkingSetTail @ 0x14011C720 (MiTrimWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x14016FAB0 (MiResetAccessBitsTail.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x1402B3D10 (MiSimpleAgeWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x1402B4320 (MiUpdateOldWorkingSetPagesTail.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char __fastcall MiProcessVmAccessedInfo(__int64 a1, _DWORD *a2, __int64 (__fastcall *a3)(__int64, _QWORD *))

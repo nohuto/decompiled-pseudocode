@@ -1,17 +1,17 @@
 /*
- * XREFs of SepQueueWorkItem @ 0x140349B84
+ * XREFs of SepQueueWorkItem @ 0x1403C35C4
  * Callers:
- *     SepAdtLogAuditRecord @ 0x140348E4C (SepAdtLogAuditRecord.c)
- *     SepInformLsaOfDeletedLogon @ 0x140AAB6E4 (SepInformLsaOfDeletedLogon.c)
+ *     SepAdtLogAuditRecord @ 0x1403C288C (SepAdtLogAuditRecord.c)
+ *     SepInformLsaOfDeletedLogon @ 0x140AA6914 (SepInformLsaOfDeletedLogon.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PsGetServerSiloState @ 0x140349D3C (PsGetServerSiloState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetServerSiloState @ 0x1403C377C (PsGetServerSiloState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)
@@ -22,12 +22,10 @@ char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)
   _BYTE *v9; // r8
   unsigned __int8 CurrentIrql; // r14
   __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rax
-  _QWORD *v15; // rcx
+  __int64 v12; // rax
+  _QWORD *v13; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v17; // rax
+  _QWORD *v15; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
 
   v4 = *(_QWORD *)(a2 + 56);
@@ -42,16 +40,16 @@ char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)
     if ( CurrentIrql == 2 )
     {
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 136), &LockHandle);
-      v14 = *(_QWORD *)(a1 + 200);
+      v12 = *(_QWORD *)(a1 + 200);
     }
     else
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 32), 1u);
-      v14 = *(_QWORD *)(a1 + 192);
+      v12 = *(_QWORD *)(a1 + 192);
     }
-    if ( v14 )
+    if ( v12 )
     {
       if ( a3 )
         *a3 = 1;
@@ -63,30 +61,30 @@ char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)
         v7 = 1;
         goto LABEL_9;
       }
-      v7 = guard_dispatch_icall_no_overrides(a2, v11, v12, v13);
+      v7 = guard_dispatch_icall_no_overrides(a2, v11);
       if ( v7 )
       {
 LABEL_9:
         *(_DWORD *)(a2 + 52) = _InterlockedIncrement((volatile signed __int32 *)(a1 + 180));
         if ( CurrentIrql == 2 )
         {
-          v15 = *(_QWORD **)(a1 + 24);
-          if ( *v15 != a1 + 16 )
+          v13 = *(_QWORD **)(a1 + 24);
+          if ( *v13 != a1 + 16 )
             goto LABEL_11;
           *(_QWORD *)a2 = a1 + 16;
-          *(_QWORD *)(a2 + 8) = v15;
-          *v15 = a2;
+          *(_QWORD *)(a2 + 8) = v13;
+          *v13 = a2;
           *(_QWORD *)(a1 + 24) = a2;
         }
         else
         {
-          v17 = *(_QWORD **)(a1 + 8);
-          if ( *v17 != a1 )
+          v15 = *(_QWORD **)(a1 + 8);
+          if ( *v15 != a1 )
 LABEL_11:
             __fastfail(3u);
           *(_QWORD *)a2 = a1;
-          *(_QWORD *)(a2 + 8) = v17;
-          *v17 = a2;
+          *(_QWORD *)(a2 + 8) = v15;
+          *v15 = a2;
           *(_QWORD *)(a1 + 8) = a2;
         }
         if ( _InterlockedIncrement((volatile signed __int32 *)(a1 + 176)) == 1 )

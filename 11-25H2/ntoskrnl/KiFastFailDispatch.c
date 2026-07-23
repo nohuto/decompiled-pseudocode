@@ -40,7 +40,7 @@
  * 00000001406B3F93: mov     [rax+20h], r13
  * 00000001406B3F97: mov     [rax+28h], r14
  * 00000001406B3F9B: mov     [rax+30h], r15
- * 00000001406B3F9F: lea     rax, [rsp+1D8h+var_A0]
+ * 00000001406B3F9F: lea     rax, [rsp+1D8h+ExceptionRecord]
  * 00000001406B3FA7: mov     [rax], ecx
  * 00000001406B3FA9: xor     ecx, ecx
  * 00000001406B3FAB: mov     dword ptr [rax+4], 1
@@ -63,7 +63,7 @@
  * 00000001406B3FF2: mov     [rsp+1D8h+var_1B8], 0; char
  * 00000001406B3FF7: lea     r8, [rbp-80h]
  * 00000001406B3FFB: mov     rdx, rsp
- * 00000001406B3FFE: mov     rcx, rax; ULONG_PTR
+ * 00000001406B3FFE: mov     rcx, rax; ExceptionRecord
  * 00000001406B4001: call    KiDispatchException
  * 00000001406B4006: lea     rcx, [rsp+1D8h+var_D8]
  * 00000001406B400E: movaps  xmm6, [rsp+1D8h+var_1A8]

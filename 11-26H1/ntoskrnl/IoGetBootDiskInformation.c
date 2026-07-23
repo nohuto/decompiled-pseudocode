@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetBootDiskInformation @ 0x140796420
+ * XREFs of IoGetBootDiskInformation @ 0x140798F50
  * Callers:
  *     <none>
  * Callees:
- *     IopGetBootDiskInformation @ 0x140CBE678 (IopGetBootDiskInformation.c)
+ *     IopGetBootDiskInformation @ 0x140CC4748 (IopGetBootDiskInformation.c)
  */
 
 NTSTATUS __stdcall IoGetBootDiskInformation(PBOOTDISK_INFORMATION BootDiskInformation, ULONG Size)

@@ -44,8 +44,11 @@ NTSTATUS __stdcall NtQuerySection(
     }
     else
     {
-      if ( SectionInformationClass != 2 && SectionInformationClass != 3 )
+      if ( SectionInformationClass != SectionRelocationInformation
+        && SectionInformationClass != SectionOriginalBaseInformation )
+      {
         return -1073741821;
+      }
       v10 = 8LL;
     }
   }

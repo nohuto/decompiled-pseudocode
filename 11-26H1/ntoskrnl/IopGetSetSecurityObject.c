@@ -1,40 +1,40 @@
 /*
- * XREFs of IopGetSetSecurityObject @ 0x1408EC450
+ * XREFs of IopGetSetSecurityObject @ 0x1408F2A10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IopReleaseFileObjectLock @ 0x140269EC0 (IopReleaseFileObjectLock.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     IopGetDevicePDO @ 0x14026F1F0 (IopGetDevicePDO.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopResetEvent @ 0x140455C40 (IopResetEvent.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1408EDBD0 (SeQuerySecurityDescriptorInfo.c)
- *     ObLogSecurityDescriptor @ 0x1409211E0 (ObLogSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1409B6E40 (IopWaitAndAcquireFileObjectLock.c)
- *     AstLogDeviceSDDLUpdated @ 0x140AAE198 (AstLogDeviceSDDLUpdated.c)
- *     IopSetDeviceSecurityDescriptors @ 0x140AF8034 (IopSetDeviceSecurityDescriptors.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140AF80D4 (IopSetDeviceSecurityDescriptor.c)
- *     SeAssignWorldSecurityDescriptor @ 0x140B11A58 (SeAssignWorldSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IopReleaseFileObjectLock @ 0x140269430 (IopReleaseFileObjectLock.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     IopGetDevicePDO @ 0x14026E760 (IopGetDevicePDO.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     IopResetEvent @ 0x14044DD70 (IopResetEvent.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1408F4190 (SeQuerySecurityDescriptorInfo.c)
+ *     ObLogSecurityDescriptor @ 0x1408FCCF0 (ObLogSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140987E24 (IopWaitAndAcquireFileObjectLock.c)
+ *     AstLogDeviceSDDLUpdated @ 0x140AA717C (AstLogDeviceSDDLUpdated.c)
+ *     IopSetDeviceSecurityDescriptors @ 0x140AFA6D4 (IopSetDeviceSecurityDescriptors.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140AFA774 (IopSetDeviceSecurityDescriptor.c)
+ *     SeAssignWorldSecurityDescriptor @ 0x140B137D8 (SeAssignWorldSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetSetSecurityObject(
         __int64 BugCheckParameter2,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         UNICODE_STRING *a4,
         PULONG Length,
         int a6,
@@ -72,7 +72,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   PSECURITY_DESCRIPTOR SecurityDescriptor; // rbx
   __int64 v41; // rdx
   ULONG *v42; // r8
-  ULONG *v43; // rcx
+  DWORD *v43; // rcx
   struct _KTHREAD *CurrentThread; // rbx
   __int64 v45; // rdx
   struct _KTHREAD *v46; // rdi
@@ -82,7 +82,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   __int128 v50; // [rsp+38h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+48h] [rbp-40h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+90h] [rbp+8h] BYREF
-  ULONG *v53; // [rsp+A0h] [rbp+18h]
+  DWORD *v53; // [rsp+A0h] [rbp+18h]
 
   v53 = a3;
   ObjectsSecurityDescriptor = 0LL;
@@ -107,11 +107,11 @@ __int64 __fastcall IopGetSetSecurityObject(
             ExFreePoolWithTag(a4, 0);
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
-            ExAcquireResourceExclusiveLite((PERESOURCE)&IopSessionNotificationLock.WaitBlockFill11[168], 1u);
+            ExAcquireResourceExclusiveLite(&IopSecurityResource, 1u);
             if ( *(_QWORD *)(v12 + 272) )
               *(_DWORD *)(*(_QWORD *)(v12 + 312) + 32LL) &= ~0x800u;
             *(_QWORD *)(v12 + 272) = ObjectsSecurityDescriptor;
-            ExReleaseResourceLite((PERESOURCE)&IopSessionNotificationLock.WaitBlockFill11[168]);
+            ExReleaseResourceLite(&IopSecurityResource);
             KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v45);
           }
         }
@@ -133,7 +133,7 @@ __int64 __fastcall IopGetSetSecurityObject(
       case 1:
         v39 = KeGetCurrentThread();
         --v39->KernelApcDisable;
-        ExAcquireResourceSharedLite((PERESOURCE)&IopSessionNotificationLock.WaitBlockFill11[168], 1u);
+        ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
         SecurityDescriptor = *(PSECURITY_DESCRIPTOR *)(v12 + 272);
         ObjectsSecurityDescriptor = SecurityDescriptor;
         if ( SecurityDescriptor
@@ -141,7 +141,7 @@ __int64 __fastcall IopGetSetSecurityObject(
         {
           __fastfail(0xEu);
         }
-        ExReleaseResourceLite((PERESOURCE)&IopSessionNotificationLock.WaitBlockFill11[168]);
+        ExReleaseResourceLite(&IopSecurityResource);
         KiLeaveCriticalRegionUnsafe((__int64)v39, v41);
         v42 = Length;
         v43 = a3;
@@ -271,12 +271,12 @@ __int64 __fastcall IopGetSetSecurityObject(
         return (unsigned int)SeAssignWorldSecurityDescriptor(a4);
       v46 = KeGetCurrentThread();
       --v46->KernelApcDisable;
-      ExAcquireResourceSharedLite((PERESOURCE)&IopSessionNotificationLock.WaitBlockFill11[168], 1u);
+      ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
       SecurityDescriptor = RelatedDeviceObject->SecurityDescriptor;
       ObjectsSecurityDescriptor = SecurityDescriptor;
       if ( SecurityDescriptor && _InterlockedExchangeAdd64((volatile signed __int64 *)SecurityDescriptor - 3, 1uLL) <= 0 )
         __fastfail(0xEu);
-      ExReleaseResourceLite((PERESOURCE)&IopSessionNotificationLock.WaitBlockFill11[168]);
+      ExReleaseResourceLite(&IopSecurityResource);
       KiLeaveCriticalRegionUnsafe((__int64)v46, v47);
       v42 = v27;
       v43 = v53;

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlpOplockSetPrivateFoExt @ 0x1402C1CB8
+ * XREFs of FsRtlpOplockSetPrivateFoExt @ 0x14030C978
  * Callers:
- *     FsRtlpOplockEnqueueRH @ 0x1402C1C68 (FsRtlpOplockEnqueueRH.c)
+ *     FsRtlpOplockEnqueueRH @ 0x14030C928 (FsRtlpOplockEnqueueRH.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpOplockSetPrivateFoExt(__int64 a1, unsigned __int64 a2)
@@ -26,14 +26,14 @@ __int64 __fastcall FsRtlpOplockSetPrivateFoExt(__int64 a1, unsigned __int64 a2)
   v5 = 0;
   if ( v2 )
   {
-    if ( v2 == qword_140019060 )
+    if ( v2 == qword_1400137E0 )
       return (unsigned int)-1073741670;
     v6 = 0;
 LABEL_6:
     v7 = (_QWORD *)v2[7];
     if ( v7 )
       goto LABEL_9;
-    v8 = ExAllocateFromNPagedLookasideList(&IopOplockFoExtLookasideList);
+    v8 = ExAllocateFromNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&IopOplockFoExtLookasideList);
     v7 = v8;
     if ( v8 )
     {
@@ -48,7 +48,7 @@ LABEL_9:
         if ( _InterlockedCompareExchange64(v2 + 7, (signed __int64)v7, 0LL) )
         {
           v6 = -1073741823;
-          ExFreeToNPagedLookasideList(&IopOplockFoExtLookasideList, v7);
+          ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&IopOplockFoExtLookasideList, v7);
         }
         else
         {
@@ -64,7 +64,7 @@ LABEL_9:
   v6 = Pool2 == 0LL ? 0xC000009A : 0;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
   {
-    if ( Pool2 && Pool2 != qword_140019060 )
+    if ( Pool2 && Pool2 != qword_1400137E0 )
       ExFreePoolWithTag(Pool2, 0);
     v2 = *(__int64 **)(a1 + 208);
   }

@@ -26,12 +26,11 @@ int __fastcall TppUpdateSubQueueTimer(unsigned int *a1, char a2)
   unsigned int v9; // edx
   int v10; // eax
   int v11; // eax
-  _DWORD v14[2]; // [esp+38h] [ebp-20h] BYREF
-  int v15; // [esp+40h] [ebp-18h] BYREF
-  __int64 v16; // [esp+48h] [ebp-10h]
+  LARGE_INTEGER DueTime; // [esp+38h] [ebp-20h] BYREF
+  _T2_SET_PARAMETERS_V0 Parameters; // [esp+40h] [ebp-18h] BYREF
 
   v2 = a1;
-  v15 = 0;
+  Parameters.Version = 0;
   v3 = a1[3];
   if ( v3 )
   {
@@ -44,7 +43,7 @@ int __fastcall TppUpdateSubQueueTimer(unsigned int *a1, char a2)
       a1[17] = v7;
       *a1 = v5;
       a1[1] = v6;
-      v16 = 10000LL * (unsigned int)v7;
+      Parameters.NoWakeTolerance = 10000LL * (unsigned int)v7;
       if ( !a2 )
       {
         while ( MEMORY[0x7FFE000C] != MEMORY[0x7FFE0010] )
@@ -63,15 +62,14 @@ int __fastcall TppUpdateSubQueueTimer(unsigned int *a1, char a2)
           v6 = v9;
         }
       }
-      v14[0] = v5;
-      v14[1] = v6;
+      DueTime.QuadPart = __PAIR64__(v6, v5);
       if ( RtlGetCurrentServiceSessionId() )
         v10 = (int)NtCurrentPeb()->SharedData + 556;
       else
         v10 = 2147353478;
       if ( *(_BYTE *)v10 )
         TppETWTimerSetNtTimer(v5, v6);
-      LODWORD(v7) = ZwSetTimer2(v2[4], v14, 0, &v15);
+      LODWORD(v7) = ZwSetTimer2((HANDLE)v2[4], &DueTime, 0, &Parameters);
     }
   }
   else
@@ -87,7 +85,7 @@ int __fastcall TppUpdateSubQueueTimer(unsigned int *a1, char a2)
         v11 = 2147353478;
       if ( *(_BYTE *)v11 )
         TppETWTimerCancelNtTimer(v2);
-      LODWORD(v7) = ZwCancelTimer2(v2[4], 0);
+      LODWORD(v7) = ZwCancelTimer2((HANDLE)v2[4], 0);
     }
   }
   return v7;

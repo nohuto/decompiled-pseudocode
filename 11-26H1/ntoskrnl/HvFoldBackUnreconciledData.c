@@ -1,11 +1,11 @@
 /*
- * XREFs of HvFoldBackUnreconciledData @ 0x140AE563C
+ * XREFs of HvFoldBackUnreconciledData @ 0x140AE33FC
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     RtlMergeBitMaps @ 0x140465FF0 (RtlMergeBitMaps.c)
- *     HvFreeUnreconciledData @ 0x140AE5694 (HvFreeUnreconciledData.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     RtlMergeBitMaps @ 0x14045F150 (RtlMergeBitMaps.c)
+ *     HvFreeUnreconciledData @ 0x140AE3454 (HvFreeUnreconciledData.c)
  */
 
 __int64 __fastcall HvFoldBackUnreconciledData(__int64 a1)

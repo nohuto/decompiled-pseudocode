@@ -1,13 +1,13 @@
 /*
- * XREFs of PopOrphanPowerLimitExtension @ 0x1407CB020
+ * XREFs of PopOrphanPowerLimitExtension @ 0x1407CE0C0
  * Callers:
- *     PopPowerLimitPnpNotification @ 0x1407CB110 (PopPowerLimitPnpNotification.c)
+ *     PopPowerLimitPnpNotification @ 0x1407CE1B0 (PopPowerLimitPnpNotification.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopGetDope @ 0x140438170 (PopGetDope.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140607C84 (PopThermalUpdateTelemetryClientCount.c)
- *     PopDiagTracePowerLimitRequest @ 0x1407D4330 (PopDiagTracePowerLimitRequest.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopGetDope @ 0x140427090 (PopGetDope.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14060A834 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopDiagTracePowerLimitRequest @ 0x1407D74B0 (PopDiagTracePowerLimitRequest.c)
  */
 
 void __fastcall PopOrphanPowerLimitExtension(unsigned __int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -25,7 +25,7 @@ void __fastcall PopOrphanPowerLimitExtension(unsigned __int64 *a1, __int64 a2, _
 
   if ( a1 )
   {
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10828.SchedulerApc.Type, a2, a3, a4);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock, a2, a3, a4);
     PopAcquireRwLockExclusive(a1 + 4, v5, v6, v7);
     if ( a1[7] )
     {
@@ -53,6 +53,6 @@ void __fastcall PopOrphanPowerLimitExtension(unsigned __int64 *a1, __int64 a2, _
       a1[7] = 0LL;
     }
     PopReleaseRwLock((struct _KTHREAD *)(a1 + 4));
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.648);
+    PopReleaseRwLock((struct _KTHREAD *)&PopPowerLimitExtensionLock);
   }
 }

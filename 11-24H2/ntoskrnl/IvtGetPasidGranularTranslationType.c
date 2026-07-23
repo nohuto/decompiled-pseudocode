@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtGetPasidGranularTranslationType @ 0x1404FA750
+ * XREFs of IvtGetPasidGranularTranslationType @ 0x1404F8030
  * Callers:
- *     IvtUpdateScalableModeTranslationStructures @ 0x1404CB814 (IvtUpdateScalableModeTranslationStructures.c)
- *     IvtAllocateTranslationStructures @ 0x14056D8D8 (IvtAllocateTranslationStructures.c)
- *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x140570FFC (IvtLegacyUpdateScalableModeTranslationStructures.c)
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x1404C4C90 (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtAllocateTranslationStructures @ 0x14056AD68 (IvtAllocateTranslationStructures.c)
+ *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x14056E48C (IvtLegacyUpdateScalableModeTranslationStructures.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

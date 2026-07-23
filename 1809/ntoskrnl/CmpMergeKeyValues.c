@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x1407FDAE0
+ * XREFs of CmpMergeKeyValues @ 0x1407FECE0
  * Callers:
- *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
- *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x1407FDE04 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x1408034FC (CmSaveMergedKeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
- *     CmpInitializeValueNameString @ 0x1405AF46C (CmpInitializeValueNameString.c)
- *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpAddValueToListEx @ 0x1405AE8B0 (CmpAddValueToListEx.c)
+ *     CmpInitializeValueNameString @ 0x1405B046C (CmpInitializeValueNameString.c)
+ *     CmpFindNameInList @ 0x1405D162C (CmpFindNameInList.c)
+ *     CmpCopyValue @ 0x1407FE584 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x1407FF6DC (CmpSyncKeyValues.c)
  */
 
 char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, __int64 a6)

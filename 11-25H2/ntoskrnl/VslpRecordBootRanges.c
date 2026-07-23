@@ -15,7 +15,7 @@ __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v8; // rbp
   __int64 v9; // rdi
   _QWORD *v10; // r15
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = 0LL;
   if ( VslpHiberBootRanges )
@@ -35,7 +35,7 @@ __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
         if ( (*(_WORD *)(v9 + 16) == 4097 || *(_WORD *)(v9 + 16) == 4105)
           && *(_QWORD *)(v9 + 8)
           && (*(_BYTE *)(v9 + 18) & 1) == 0
-          && !RtlPcToFileHeader(*(_QWORD *)v9, &v11) )
+          && !RtlPcToFileHeader(*(PVOID *)v9, &BaseOfImage) )
         {
           if ( i == 1 )
           {

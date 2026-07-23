@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpAnalyzeHeapFailure @ 0x180107EA4
+ * XREFs of RtlpAnalyzeHeapFailure @ 0x180107E64
  * Callers:
  *     RtlGetUserInfoHeap @ 0x180001BC0 (RtlGetUserInfoHeap.c)
  *     RtlSetUserValueHeap @ 0x180001F60 (RtlSetUserValueHeap.c)
@@ -14,18 +14,18 @@
  *     RtlpReAllocateHeapInternal @ 0x180023720 (RtlpReAllocateHeapInternal.c)
  *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
- *     RtlpCoalesceHeap @ 0x1800F369C (RtlpCoalesceHeap.c)
- *     RtlZeroHeap @ 0x1800F6500 (RtlZeroHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1800F6D48 (RtlpSetupExtendedBlock.c)
- *     RtlDebugAllocateHeap @ 0x1800F89E0 (RtlDebugAllocateHeap.c)
- *     RtlDebugFreeHeap @ 0x1800F93EC (RtlDebugFreeHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800F99D0 (RtlDebugReAllocateHeap.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
- *     RtlpValidateHeapSegment @ 0x1800FADB0 (RtlpValidateHeapSegment.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
+ *     RtlpCoalesceHeap @ 0x1800F365C (RtlpCoalesceHeap.c)
+ *     RtlZeroHeap @ 0x1800F64C0 (RtlZeroHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1800F6D08 (RtlpSetupExtendedBlock.c)
+ *     RtlDebugAllocateHeap @ 0x1800F89A0 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F93AC (RtlDebugFreeHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9990 (RtlDebugReAllocateHeap.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
+ *     RtlpValidateHeapSegment @ 0x1800FAD70 (RtlpValidateHeapSegment.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x18010E0A4 (RtlpHeapExceptionFilter.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x18010E064 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 _UNKNOWN **__fastcall RtlpAnalyzeHeapFailure(unsigned __int64 a1, unsigned __int64 a2)

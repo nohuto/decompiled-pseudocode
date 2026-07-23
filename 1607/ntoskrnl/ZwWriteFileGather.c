@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWriteFileGather @ 0x140159FE0
+ * XREFs of ZwWriteFileGather @ 0x14015A550
  * Callers:
  *     <none>
  * Callees:
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwWriteFileGather(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

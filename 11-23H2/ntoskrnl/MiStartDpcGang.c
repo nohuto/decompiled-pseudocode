@@ -1,14 +1,14 @@
 /*
- * XREFs of MiStartDpcGang @ 0x14038BCC4
+ * XREFs of MiStartDpcGang @ 0x14038BEA4
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x14038B504 (MiAllocateFastLargePagesForMdl.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x14038B6E4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  * Callees:
- *     MiGetGangAssignment @ 0x14038BE14 (MiGetGangAssignment.c)
- *     MiDoGangAssignment @ 0x14038BE64 (MiDoGangAssignment.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetGangAssignment @ 0x14038BFF4 (MiGetGangAssignment.c)
+ *     MiDoGangAssignment @ 0x14038C044 (MiDoGangAssignment.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall MiStartDpcGang(__int64 *a1)
@@ -85,7 +85,7 @@ __int64 __fastcall MiStartDpcGang(__int64 *a1)
       MiGetGangAssignment(a1, &v22);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -95,10 +95,10 @@ __int64 __fastcall MiStartDpcGang(__int64 *a1)
         SchedulerAssist[5] |= v8;
       }
       MiDoGangAssignment(a1, &v22);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v19 = CurrentPrcb->SchedulerAssist;

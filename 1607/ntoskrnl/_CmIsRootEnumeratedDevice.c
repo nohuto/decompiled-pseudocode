@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmIsRootEnumeratedDevice @ 0x1403F4C50
+ * XREFs of _CmIsRootEnumeratedDevice @ 0x1403F3B14
  * Callers:
- *     PiControlGetUserFlagsFromDeviceNode @ 0x1403F4B68 (PiControlGetUserFlagsFromDeviceNode.c)
- *     PiPnpRtlSetObjectProperty @ 0x140488870 (PiPnpRtlSetObjectProperty.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14062F6CC (PiPnpRtlSetDeviceRegProperty.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x140638328 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiCMDeleteDevice @ 0x140646B3C (PiCMDeleteDevice.c)
+ *     PiControlGetUserFlagsFromDeviceNode @ 0x1403F3A2C (PiControlGetUserFlagsFromDeviceNode.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140510FE4 (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x14062F780 (PiPnpRtlSetDeviceRegProperty.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1406383DC (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiCMDeleteDevice @ 0x140646C20 (PiCMDeleteDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
  */
 
 BOOLEAN __fastcall CmIsRootEnumeratedDevice(PCWSTR SourceString)

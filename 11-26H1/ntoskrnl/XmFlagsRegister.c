@@ -1,10 +1,10 @@
 /*
- * XREFs of XmFlagsRegister @ 0x1404A7CA0
+ * XREFs of XmFlagsRegister @ 0x1404A1330
  * Callers:
  *     <none>
  * Callees:
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmFlagsRegister(__int64 a1)

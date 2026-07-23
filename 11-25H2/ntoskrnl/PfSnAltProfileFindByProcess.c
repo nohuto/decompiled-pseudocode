@@ -9,32 +9,32 @@
 
 unsigned __int64 __fastcall PfSnAltProfileFindByProcess(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rbx
+  unsigned __int64 Root; // rbx
   int v5; // edi
   int v6; // eax
   unsigned __int64 v7; // rax
 
-  v4 = qword_140E66E58;
-  if ( (xmmword_140E66E60 & 1) != 0 && qword_140E66E58 )
-    v4 = (unsigned __int64)&qword_140E66E58 ^ qword_140E66E58;
-  v5 = xmmword_140E66E60 & 1;
-  while ( v4 )
+  Root = (unsigned __int64)Parent.Root;
+  if ( (*(_BYTE *)&Parent.0 & 1) != 0 && Parent.Root )
+    Root = (unsigned __int64)&Parent ^ (unsigned __int64)Parent.Root;
+  v5 = *(_BYTE *)&Parent.0 & 1;
+  while ( Root )
   {
-    v6 = PfSnAltProfileTreeCompareByProcess(a1, v4, a3);
+    v6 = PfSnAltProfileTreeCompareByProcess(a1, Root, a3);
     if ( v6 >= 0 )
     {
       if ( v6 <= 0 )
-        return v4;
-      v7 = *(_QWORD *)(v4 + 8);
+        return Root;
+      v7 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v7 = *(_QWORD *)v4;
+      v7 = *(_QWORD *)Root;
     }
     if ( v5 && v7 )
-      v4 ^= v7;
+      Root ^= v7;
     else
-      v4 = v7;
+      Root = v7;
   }
-  return v4;
+  return Root;
 }

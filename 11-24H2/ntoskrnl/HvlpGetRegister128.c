@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpGetRegister128 @ 0x14058B790
+ * XREFs of HvlpGetRegister128 @ 0x140588A80
  * Callers:
- *     HvlGetSystemPasidCapabilities @ 0x1405871E0 (HvlGetSystemPasidCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x14058B9FC (HvlpDetermineEnlightenments.c)
+ *     HvlGetSystemPasidCapabilities @ 0x140584560 (HvlGetSystemPasidCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x140588CEC (HvlpDetermineEnlightenments.c)
  * Callees:
- *     RtlRaiseException @ 0x1405E88F0 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x1405E5EE0 (RtlRaiseException.c)
  */
 
-__int64 __fastcall HvlpGetRegister128(int a1, _DWORD *a2)
+void __fastcall HvlpGetRegister128(int a1, _DWORD *a2)
 {
   int v3; // ecx
   int v4; // ecx
@@ -15,7 +15,6 @@ __int64 __fastcall HvlpGetRegister128(int a1, _DWORD *a2)
   int v6; // ecx
   int v7; // ecx
   int v8; // ecx
-  __int64 result; // rax
 
   v3 = a1 - 256;
   if ( v3 )
@@ -36,7 +35,10 @@ __int64 __fastcall HvlpGetRegister128(int a1, _DWORD *a2)
             if ( v8 )
             {
               if ( v8 != 1 )
-                return RtlRaiseException((ULONG_PTR)&qword_140E0A840);
+              {
+                RtlRaiseException(&ExceptionRecord);
+                return;
+              }
               _RAX = 1073741832LL;
             }
             else
@@ -69,9 +71,8 @@ __int64 __fastcall HvlpGetRegister128(int a1, _DWORD *a2)
     _RAX = 1073741826LL;
   }
   __asm { cpuid }
-  *a2 = result;
+  *a2 = _RAX;
   a2[1] = _RBX;
   a2[2] = _RCX;
   a2[3] = _RDX;
-  return result;
 }

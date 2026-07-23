@@ -9,43 +9,49 @@
  *     RtlpHpSegProtect @ 0x18010BA68 (RtlpHpSegProtect.c)
  */
 
-__int64 __fastcall RtlpHpHeapProtect(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall RtlpHpHeapProtect(unsigned __int64 *BaseAddress, ULONG NewProtect)
 {
   __int64 v2; // rdi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // rcx
   bool v7; // zf
   char v8; // r8
   unsigned __int64 i; // rcx
   unsigned __int64 v10; // rdx
+  PVOID BaseAddressa; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD v12[7]; // [rsp+38h] [rbp-40h] BYREF
+  ULONG OldProtect; // [rsp+90h] [rbp+18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+20h] BYREF
 
-  v2 = a2;
-  result = ZwQueryVirtualMemory();
-  if ( (int)result >= 0 )
+  v2 = NewProtect;
+  result = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryBasicInformation, v12, 0x30uLL, 0LL);
+  if ( result >= 0 )
   {
-    result = ZwProtectVirtualMemory();
-    if ( (int)result >= 0 )
+    RegionSize = v12[3];
+    BaseAddressa = BaseAddress;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v2, &OldProtect);
+    if ( result >= 0 )
     {
-      result = RtlpHpSegProtect(a1 + 256, (unsigned int)v2);
-      if ( (int)result >= 0 )
+      result = RtlpHpSegProtect(BaseAddress + 32, (unsigned int)v2);
+      if ( result >= 0 )
       {
-        result = RtlpHpSegProtect(a1 + 448, (unsigned int)v2);
-        if ( (int)result >= 0 )
+        result = RtlpHpSegProtect(BaseAddress + 56, (unsigned int)v2);
+        if ( result >= 0 )
         {
-          v5 = *(_QWORD *)(a1 + 72);
+          v5 = BaseAddress[9];
           if ( !v5 )
-            return 0LL;
+            return 0;
           while ( 1 )
           {
 LABEL_8:
             result = RtlpHpLargeAllocationProtect(v5, v2);
-            if ( (int)result < 0 )
+            if ( result < 0 )
               return result;
             v6 = *(_QWORD *)v5;
             if ( !*(_QWORD *)v5 )
               break;
-            v7 = (*(_BYTE *)(a1 + 80) & 1) == 0;
+            v7 = (BaseAddress[10] & 1) == 0;
 LABEL_13:
             if ( v7 )
               v5 = v6;
@@ -53,7 +59,7 @@ LABEL_13:
               v5 ^= v6;
           }
           v6 = *(_QWORD *)(v5 + 8);
-          v8 = *(_BYTE *)(a1 + 80) & 1;
+          v8 = BaseAddress[10] & 1;
           if ( v6 )
           {
             v7 = v8 == 0;

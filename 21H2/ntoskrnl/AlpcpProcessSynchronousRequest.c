@@ -1,47 +1,47 @@
 /*
- * XREFs of AlpcpProcessSynchronousRequest @ 0x1405E6EE0
+ * XREFs of AlpcpProcessSynchronousRequest @ 0x1406D6640
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x1405E79F0 (NtAlpcSendWaitReceivePort.c)
- *     NtRequestWaitReplyPort @ 0x14069C660 (NtRequestWaitReplyPort.c)
- *     LpcSendWaitReceivePort @ 0x1406AFDD0 (LpcSendWaitReceivePort.c)
- *     LpcpRequestWaitReplyPort @ 0x1408C1F4C (LpcpRequestWaitReplyPort.c)
- *     NtReplyWaitReplyPort @ 0x1408C2140 (NtReplyWaitReplyPort.c)
+ *     NtRequestWaitReplyPort @ 0x1405FB730 (NtRequestWaitReplyPort.c)
+ *     LpcSendWaitReceivePort @ 0x14060E670 (LpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1406D7150 (NtAlpcSendWaitReceivePort.c)
+ *     LpcpRequestWaitReplyPort @ 0x1408C20AC (LpcpRequestWaitReplyPort.c)
+ *     NtReplyWaitReplyPort @ 0x1408C22A0 (NtReplyWaitReplyPort.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcMessageCleanupProcedure @ 0x1405DE260 (AlpcMessageCleanupProcedure.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1405E3A5C (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
- *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
- *     AlpcpExposeAttributes @ 0x1405E8380 (AlpcpExposeAttributes.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     AlpcpExposeCapturedContextAttribute @ 0x140692930 (AlpcpExposeCapturedContextAttribute.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406A8008 (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     AlpcpEnterFreeEventMessageLog @ 0x1408C2B6C (AlpcpEnterFreeEventMessageLog.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2BD4 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x1405F1EC0 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140605F88 (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     AlpcMessageCleanupProcedure @ 0x1406CD9C0 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1406CF1B8 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D31BC (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1406D6CC0 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReadMessageData @ 0x1406D6F60 (AlpcpReadMessageData.c)
+ *     AlpcpUnlockBlob @ 0x1406D6FE0 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeAttributes @ 0x1406D7AE0 (AlpcpExposeAttributes.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x1408C2CCC (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2D34 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
 __int64 __fastcall AlpcpProcessSynchronousRequest(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         __int128 *a3,
         __int64 a4,
         unsigned __int64 a5,
         unsigned __int64 *a6,
-        unsigned int *Address,
+        int *Address,
         LARGE_INTEGER *a8,
         unsigned __int8 a9)
 {
-  unsigned int v9; // ebx
+  int v9; // ebx
   unsigned __int8 v11; // r15
   __int64 v12; // r8
   __int64 v13; // rax
@@ -78,7 +78,7 @@ __int64 __fastcall AlpcpProcessSynchronousRequest(
   __int16 v45; // cx
   void *v46; // rdx
   signed __int64 v47; // rax
-  unsigned int v48; // [rsp+30h] [rbp-D8h]
+  int v48; // [rsp+30h] [rbp-D8h]
   ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-C8h] BYREF
   unsigned int v50; // [rsp+48h] [rbp-C0h]
   unsigned __int64 v51; // [rsp+50h] [rbp-B8h]
@@ -89,7 +89,7 @@ __int64 __fastcall AlpcpProcessSynchronousRequest(
   __int64 v56; // [rsp+78h] [rbp-90h]
   __int128 v57; // [rsp+80h] [rbp-88h]
   __int128 v58; // [rsp+90h] [rbp-78h]
-  unsigned int v59; // [rsp+A0h] [rbp-68h]
+  int v59; // [rsp+A0h] [rbp-68h]
   __int64 v60; // [rsp+A4h] [rbp-64h]
   int v61; // [rsp+ACh] [rbp-5Ch]
   _OWORD v62[5]; // [rsp+B0h] [rbp-58h] BYREF
@@ -279,12 +279,12 @@ LABEL_71:
       if ( v43 > v51 )
       {
         memset(v62, 0, 32);
-        v38 = AlpcpReturnMessageOnInsufficientBuffer(v34, BugCheckParameter2, v62);
+        v38 = AlpcpReturnMessageOnInsufficientBuffer((__int64)v34, (_QWORD *)BugCheckParameter2, v62);
         if ( v38 == -1073741789 )
         {
           AlpcpUnlockMessage(v40);
           *a6 = v53;
-          AlpcpExposeCapturedContextAttribute(a2, v62, v48, Address);
+          AlpcpExposeCapturedContextAttribute(a2, v62, v48, (__int64)Address);
         }
         else
         {

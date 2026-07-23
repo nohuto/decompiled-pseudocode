@@ -12,21 +12,21 @@
  *     _RtlUnhandledExceptionFilter2@8 @ 0x4B3686E0 (_RtlUnhandledExceptionFilter2@8.c)
  */
 
-int __thiscall LdrpFatalExceptionFilter(int **this)
+int __thiscall LdrpFatalExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
   struct _TEB *v2; // ecx
-  int v3; // ebx
-  int v4; // edx
+  NTSTATUS ExceptionCode; // ebx
+  PULONG v4; // edx
   int v5; // esi
-  int InformationProcess; // eax
-  void (__thiscall *v7)(_DWORD, int **); // esi
-  int v9; // [esp+Ch] [ebp-4h] BYREF
+  int v6; // eax
+  void (__thiscall *v7)(_DWORD, PEXCEPTION_POINTERS); // esi
+  ULONG *ProcessInformation; // [esp+Ch] [ebp-4h] BYREF
 
   v2 = NtCurrentTeb();
-  v3 = **this;
-  if ( v3 == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
+  ExceptionCode = ExceptionPointers->ExceptionRecord->ExceptionCode;
+  if ( ExceptionCode == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
   {
-    RtlReportSilentProcessExit(-1, -1073741571);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFF, -1073741571);
   }
   else
   {
@@ -34,18 +34,20 @@ int __thiscall LdrpFatalExceptionFilter(int **this)
     v5 = RtlpUnhandledExceptionFilter;
     if ( !`RtlpGetCookieValue'::`2'::CookieValue )
     {
-      InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v9, 4, 0);
-      if ( InformationProcess < 0 )
-        RtlRaiseStatus(InformationProcess);
-      v4 = v9;
-      `RtlpGetCookieValue'::`2'::CookieValue = v9;
+      v6 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+      if ( v6 < 0 )
+        RtlRaiseStatus(v6);
+      v4 = ProcessInformation;
+      `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
     }
-    v7 = (void (__thiscall *)(_DWORD, int **))(v4 ^ __ROR4__(v5, 32 - (v4 & 0x1F)));
+    v7 = (void (__thiscall *)(_DWORD, PEXCEPTION_POINTERS))((unsigned int)v4 ^ __ROR4__(
+                                                                                 v5,
+                                                                                 32 - ((unsigned __int8)v4 & 0x1F)));
     if ( v7 )
-      v7(v7, this);
+      v7(v7, ExceptionPointers);
     else
-      RtlUnhandledExceptionFilter2(this, &dword_4B2850A4);
+      RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&dword_4B2850A4);
   }
-  ZwTerminateProcess(-1, v3);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFF, ExceptionCode);
   return 0;
 }

@@ -10,24 +10,26 @@
  *     _RtlpValidateHeapHeaders@8 @ 0x4B360B86 (_RtlpValidateHeapHeaders@8.c)
  */
 
-int *__fastcall RtlDebugCreateHeap(int a1, void *a2, char *a3, char *a4, unsigned int a5, int a6)
+void *__fastcall RtlDebugCreateHeap(int a1, void *a2, SIZE_T ReserveSize, SIZE_T CommitSize)
 {
-  int v6; // eax
-  int *Heap; // eax
-  int *v10; // esi
-  _DWORD v11[7]; // [esp+Ch] [ebp-24h] BYREF
+  int v4; // eax
+  PVOID Heap; // eax
+  void *v8; // esi
+  ULONG_PTR *v9; // [esp+0h] [ebp-30h]
+  void *v10; // [esp+4h] [ebp-2Ch]
+  _DWORD MemoryInformation[7]; // [esp+Ch] [ebp-24h] BYREF
   int v12; // [esp+28h] [ebp-8h]
-  int VirtualMemory; // [esp+2Ch] [ebp-4h]
+  NTSTATUS VirtualMemory; // [esp+2Ch] [ebp-4h]
 
-  v6 = a1;
+  v4 = a1;
   v12 = a1;
-  if ( (unsigned int)a3 <= 8 )
+  if ( (unsigned int)ReserveSize <= 8 )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Invalid ReserveSize parameter - %Ix\n", a3);
+    DbgPrint("Invalid ReserveSize parameter - %Ix\n", (_DWORD)ReserveSize);
 LABEL_33:
     if ( NtCurrentPeb()->BeingDebugged )
     {
@@ -36,16 +38,16 @@ LABEL_33:
     }
     return 0;
   }
-  if ( a3 < a4 )
+  if ( (unsigned int)ReserveSize < HIDWORD(ReserveSize) )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Invalid CommitSize parameter - %Ix\n", a4);
+    DbgPrint("Invalid CommitSize parameter - %Ix\n", HIDWORD(ReserveSize));
     goto LABEL_33;
   }
-  if ( (a1 & 1) != 0 && a5 )
+  if ( (a1 & 1) != 0 && (_DWORD)CommitSize )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -56,7 +58,7 @@ LABEL_33:
   }
   if ( a2 )
   {
-    VirtualMemory = NtQueryVirtualMemory(-1, (int)a2, 0, (int)v11, 28, 0);
+    VirtualMemory = NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, a2, MemoryBasicInformation, MemoryInformation, 0x1CuLL, v9);
     if ( VirtualMemory < 0 )
     {
       if ( NtCurrentPeb()->Ldr )
@@ -66,33 +68,33 @@ LABEL_33:
       DbgPrint("Specified HeapBase (%p) invalid,  Status = %lx\n", a2, VirtualMemory);
       goto LABEL_33;
     }
-    if ( (void *)v11[0] != a2 )
+    if ( (void *)MemoryInformation[0] != a2 )
     {
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      DbgPrint("Specified HeapBase (%p) != to BaseAddress (%p)\n", a2, v11[0]);
+      DbgPrint("Specified HeapBase (%p) != to BaseAddress (%p)\n", a2, MemoryInformation[0]);
       goto LABEL_33;
     }
-    if ( v11[4] == 0x10000 )
+    if ( MemoryInformation[4] == 0x10000 )
     {
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      DbgPrint("Specified HeapBase (%p) is free or not writable\n", v11[0]);
+      DbgPrint("Specified HeapBase (%p) is free or not writable\n", MemoryInformation[0]);
       goto LABEL_33;
     }
-    v6 = v12;
+    v4 = v12;
   }
-  Heap = RtlCreateHeap(v6 | 0x10000060, a2, a3, a4, a5, a6);
-  v10 = Heap;
+  Heap = RtlCreateHeap(v4 | 0x10000060, a2, ReserveSize, CommitSize, v9, v10);
+  v8 = Heap;
   if ( Heap )
   {
-    if ( (Heap[16] & 0x8000000) != 0 )
+    if ( (*((_DWORD *)Heap + 16) & 0x8000000) != 0 )
       *((_WORD *)Heap + 86) = RtlLogStackBackTraceEx((void *)1);
-    RtlpValidateHeapHeaders(v10);
+    RtlpValidateHeapHeaders(v8);
   }
-  return v10;
+  return v8;
 }

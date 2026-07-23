@@ -21,13 +21,13 @@
  *     _RegRtlDeleteTreeInternal @ 0x140763384 (_RegRtlDeleteTreeInternal.c)
  */
 
-__int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, __int64 a5)
+__int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, PGUID Guid)
 {
   __int64 *v5; // rbx
   __int64 v8; // rdi
   GUID **v9; // rdi
   __int64 v10; // r12
-  int v11; // r15d
+  NTSTATUS v11; // r15d
   _QWORD *v12; // rdx
   __int64 v13; // rax
   bool v14; // zf
@@ -115,11 +115,11 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
     if ( v22 )
     {
 LABEL_38:
-      if ( !a5 )
+      if ( !Guid )
         goto LABEL_24;
-      v23 = *v12 - *(_QWORD *)a5;
-      if ( *v12 == *(_QWORD *)a5 )
-        v23 = v12[1] - *(_QWORD *)(a5 + 8);
+      v23 = *v12 - *(_QWORD *)&Guid->Data1;
+      if ( *v12 == *(_QWORD *)&Guid->Data1 )
+        v23 = v12[1] - *(_QWORD *)Guid->Data4;
       v14 = v23 == 0;
 LABEL_12:
       if ( !v14 )
@@ -173,17 +173,17 @@ LABEL_24:
     --v10;
   }
   while ( v10 );
-  if ( !a5 )
+  if ( !Guid )
     goto LABEL_26;
   if ( !a3 )
     goto LABEL_49;
-  v25 = *(_QWORD *)a5 - *a3;
-  if ( *(_QWORD *)a5 == *a3 )
-    v25 = *(_QWORD *)(a5 + 8) - a3[1];
+  v25 = *(_QWORD *)&Guid->Data1 - *a3;
+  if ( *(_QWORD *)&Guid->Data1 == *a3 )
+    v25 = *(_QWORD *)Guid->Data4 - a3[1];
   if ( v25 )
   {
 LABEL_49:
-    v11 = RtlStringFromGUIDEx((unsigned int *)a5, (__int64)&UnicodeString, 1);
+    v11 = RtlStringFromGUIDEx(Guid, &UnicodeString, 1u);
     if ( v11 >= 0 )
     {
       v26 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 2u, 131097, 0, (__int64)&v33);

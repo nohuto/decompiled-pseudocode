@@ -1,17 +1,17 @@
 /*
- * XREFs of ExAllocateContiguousHeapPool @ 0x140295320
+ * XREFs of ExAllocateContiguousHeapPool @ 0x140216FE0
  * Callers:
- *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140216BFC (MiAllocateContiguousMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExGetHeapFromType @ 0x14029554C (ExGetHeapFromType.c)
- *     RtlpHpSegAlloc @ 0x140309850 (RtlpHpSegAlloc.c)
- *     ExpAddTagForBigPages @ 0x14033BDC0 (ExpAddTagForBigPages.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     ExGetHeapFromType @ 0x14021720C (ExGetHeapFromType.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlpHpSegAlloc @ 0x1403145A0 (RtlpHpSegAlloc.c)
+ *     ExpAddTagForBigPages @ 0x140346B10 (ExpAddTagForBigPages.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExAllocateContiguousHeapPool(
@@ -50,8 +50,8 @@ __int64 __fastcall ExAllocateContiguousHeapPool(
   v6 = 0LL;
   v8 = 0LL;
   HeapFromType = ExGetHeapFromType(512LL, a5, 0LL);
-  if ( v11 > *(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6912LL)
-    || a2 < *(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6920LL)
+  if ( v11 > *(_QWORD *)(*(_QWORD *)qword_140C4E688 + 6912LL)
+    || a2 < *(_QWORD *)(*(_QWORD *)qword_140C4E688 + 6920LL)
     || (unsigned __int64)(v10 - 1) <= 0x1FE )
   {
     goto LABEL_3;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSetDeleteOnClose @ 0x1404D3B38
+ * XREFs of MiSetDeleteOnClose @ 0x1404CCD3C
  * Callers:
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiRelocateImage @ 0x1408F5784 (MiRelocateImage.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiRelocateImage @ 0x140AEA57C (MiRelocateImage.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x14022F72C (MiRemoveUnusedSegment.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiInsertUnusedSegment @ 0x14037016C (MiInsertUnusedSegment.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveUnusedSegment @ 0x14030303C (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x140432A98 (MiInsertUnusedSegment.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 LONG __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
@@ -39,7 +39,7 @@ LONG __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
   result = MiReleaseSpinLockExclusive((_DWORD *)(a1 + 72), v5);
   if ( inserted )
     return MiReturnCrossPartitionSectionCharges(
-             *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(a1 + 60) & 0x3FF)),
+             *((_QWORD *)qword_140E300C8 + (*(_WORD *)(a1 + 60) & 0x3FF)),
              1,
              inserted);
   return result;

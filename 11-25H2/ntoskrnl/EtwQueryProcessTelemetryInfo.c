@@ -49,34 +49,32 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   char *v20; // rbx
   char *v21; // rbx
   char *v22; // rbx
-  int v25; // [rsp+28h] [rbp-3A0h] BYREF
-  __int64 v26; // [rsp+30h] [rbp-398h] BYREF
-  const void **v27; // [rsp+38h] [rbp-390h]
+  __int64 v25; // [rsp+30h] [rbp-398h] BYREF
+  const void **v26; // [rsp+38h] [rbp-390h]
   PVOID P[2]; // [rsp+40h] [rbp-388h] BYREF
-  ULONG_PTR v29; // [rsp+50h] [rbp-378h]
-  __int64 v30; // [rsp+58h] [rbp-370h]
+  ULONG_PTR v28; // [rsp+50h] [rbp-378h]
+  __int64 v29; // [rsp+58h] [rbp-370h]
   size_t Size; // [rsp+60h] [rbp-368h] BYREF
-  size_t v32; // [rsp+68h] [rbp-360h]
-  char v33[256]; // [rsp+78h] [rbp-350h] BYREF
-  char v34[392]; // [rsp+178h] [rbp-250h] BYREF
-  _OWORD v35[3]; // [rsp+300h] [rbp-C8h] BYREF
+  size_t v31; // [rsp+68h] [rbp-360h]
+  char v32[256]; // [rsp+78h] [rbp-350h] BYREF
+  char v33[392]; // [rsp+178h] [rbp-250h] BYREF
+  _OWORD v34[3]; // [rsp+300h] [rbp-C8h] BYREF
   _BYTE Src[80]; // [rsp+330h] [rbp-98h] BYREF
 
   v5 = (unsigned int)Length;
-  v30 = BugCheckParameter1;
-  memset(v35, 0, sizeof(v35));
+  v29 = BugCheckParameter1;
+  memset(v34, 0, sizeof(v34));
   memset_0(&Size, 0, 0x2A0uLL);
   memset_0(Src, 0, 0x44uLL);
   *(_OWORD *)P = 0LL;
-  v26 = 0LL;
+  v25 = 0LL;
   v8 = &EmptyUnicodeString;
   if ( *(_QWORD *)(BugCheckParameter1 + 848) )
     v8 = *(__int64 **)(BugCheckParameter1 + 848);
-  v27 = (const void **)v8;
+  v26 = (const void **)v8;
   v9 = PsReferencePrimaryTokenWithTag(BugCheckParameter1, 0x746C6644u);
-  v29 = v9;
-  v25 = 0;
-  EtwpQueryTokenPackageInfo(v9, &Size, &v25);
+  v28 = v9;
+  EtwpQueryTokenPackageInfo((HANDLE)v9, &Size);
   v10 = -1073741789;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -94,13 +92,13 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   {
     if ( (int)PsAcquireProcessExitSynchronization(BugCheckParameter1) >= 0 )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v35);
-      EtwpQueryProcessOtherInfo(BugCheckParameter1, &v26);
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v34);
+      EtwpQueryProcessOtherInfo(BugCheckParameter1, &v25);
       EtwpQueryProcessCommandLine(BugCheckParameter1, P);
-      KiUnstackDetachProcess((__int64)v35, 0LL);
+      KiUnstackDetachProcess((__int64)v34, 0LL);
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 488));
     }
-    v14 = Size + 100 + v32 + v13 + *(unsigned __int16 *)v27 + LOWORD(P[0]);
+    v14 = Size + 100 + v31 + v13 + *(unsigned __int16 *)v26 + LOWORD(P[0]);
     if ( a5 )
       *a5 = v14;
     if ( a4 )
@@ -125,22 +123,22 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       *((_QWORD *)a2 + 6) = PsGetSessionCreateTime(v16);
       *((_DWORD *)a2 + 14) = PsGetSessionId(v17);
       *((_DWORD *)a2 + 15) = MEMORY[0xFFFFF780000002C4];
-      *((_QWORD *)a2 + 8) = v26;
+      *((_QWORD *)a2 + 8) = v25;
       if ( (unsigned int)v5 >= v14 )
       {
         *((_DWORD *)a2 + 18) = 96;
         memmove(a2 + 96, Src, v13);
         v18 = &a2[v13 + 96];
         *((_DWORD *)a2 + 19) = v13 + 96;
-        v19 = (unsigned __int16 *)v27;
-        memmove(v18, v27[1], *(unsigned __int16 *)v27);
+        v19 = (unsigned __int16 *)v26;
+        memmove(v18, v26[1], *(unsigned __int16 *)v26);
         v20 = &v18[*v19 + 2];
         *((_DWORD *)a2 + 20) = (_DWORD)v20 - (_DWORD)a2;
-        memmove(v20, v33, Size);
+        memmove(v20, v32, Size);
         v21 = &v20[Size];
         *((_DWORD *)a2 + 21) = (_DWORD)v21 - (_DWORD)a2;
-        memmove(v21, v34, v32);
-        v22 = &v21[v32];
+        memmove(v21, v33, v31);
+        v22 = &v21[v31];
         *((_DWORD *)a2 + 22) = (_DWORD)v22 - (_DWORD)a2;
         memmove(v22, P[1], LOWORD(P[0]));
         v10 = 0;

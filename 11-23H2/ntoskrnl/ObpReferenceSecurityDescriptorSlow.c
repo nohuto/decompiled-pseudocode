@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpReferenceSecurityDescriptorSlow @ 0x140884E14
+ * XREFs of ObpReferenceSecurityDescriptorSlow @ 0x140885054
  * Callers:
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
- *     ObpReferenceSecurityDescriptor @ 0x1406C2C04 (ObpReferenceSecurityDescriptor.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     ObpGetObjectSecurity @ 0x140736220 (ObpGetObjectSecurity.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406BD140 (SepAppendAceToTokenObjectAcl.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1406C2C34 (ObpReferenceSecurityDescriptor.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     ObpGetObjectSecurity @ 0x140736410 (ObpGetObjectSecurity.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728A50 (ObDereferenceSecurityDescriptor.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140728C50 (ObDereferenceSecurityDescriptor.c)
  */
 
 unsigned __int64 __fastcall ObpReferenceSecurityDescriptorSlow(__int64 a1, int a2, unsigned __int64 a3)

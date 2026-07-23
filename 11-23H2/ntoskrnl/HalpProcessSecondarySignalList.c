@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpProcessSecondarySignalList @ 0x14051A320
+ * XREFs of HalpProcessSecondarySignalList @ 0x14051A870
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 HalpProcessSecondarySignalList()
@@ -38,10 +38,10 @@ __int64 HalpProcessSecondarySignalList()
     SecondarySignalList = *(_QWORD *)SecondarySignalList;
     *(_QWORD *)(v3 + 8) = &SecondarySignalList;
     KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -49,7 +49,7 @@ __int64 HalpProcessSecondarySignalList()
         v8 = (v7 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v7;
         if ( v8 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v2);
@@ -57,10 +57,10 @@ __int64 HalpProcessSecondarySignalList()
   }
   SecondarySignalDpcRunning = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v2 <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v2 <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;
@@ -68,7 +68,7 @@ __int64 HalpProcessSecondarySignalList()
       v8 = (v12 & v11[5]) == 0;
       v11[5] &= v12;
       if ( v8 )
-        KiRemoveSystemWorkPriorityKick(v10);
+        KiRemoveSystemWorkPriorityKick((__int64)v10);
     }
   }
   result = v2;

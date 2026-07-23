@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwKernelMemoryRundown @ 0x140935A58
+ * XREFs of EtwKernelMemoryRundown @ 0x140935C28
  * Callers:
- *     PopEndMirroring @ 0x140996250 (PopEndMirroring.c)
+ *     PopEndMirroring @ 0x140997250 (PopEndMirroring.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpKernelTraceRundown @ 0x14079763C (EtwpKernelTraceRundown.c)
  */
 
 char EtwKernelMemoryRundown()

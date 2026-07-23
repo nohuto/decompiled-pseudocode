@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpExtrasGet @ 0x18002926C
+ * XREFs of RtlpHpExtrasGet @ 0x18002925C
  * Callers:
- *     RtlSetUserValueHeap @ 0x180029050 (RtlSetUserValueHeap.c)
- *     RtlpHpReAllocateHeap @ 0x18004377C (RtlpHpReAllocateHeap.c)
- *     RtlpHpFreeHeap @ 0x180047A70 (RtlpHpFreeHeap.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpHpGetUserInfo @ 0x18007AE90 (RtlpHpGetUserInfo.c)
- *     RtlSetUserFlagsHeap @ 0x1800E9420 (RtlSetUserFlagsHeap.c)
+ *     RtlSetUserValueHeap @ 0x180029040 (RtlSetUserValueHeap.c)
+ *     RtlpHpReAllocateHeap @ 0x18004376C (RtlpHpReAllocateHeap.c)
+ *     RtlpHpFreeHeap @ 0x180047A60 (RtlpHpFreeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpHpGetUserInfo @ 0x18007AE80 (RtlpHpGetUserInfo.c)
+ *     RtlSetUserFlagsHeap @ 0x1800E94E0 (RtlSetUserFlagsHeap.c)
  * Callees:
- *     RtlpHpSegAllocSize @ 0x180029310 (RtlpHpSegAllocSize.c)
- *     RtlpHpLargeAllocSize @ 0x18004F574 (RtlpHpLargeAllocSize.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlpHpSegAllocSize @ 0x180029300 (RtlpHpSegAllocSize.c)
+ *     RtlpHpLargeAllocSize @ 0x18004F564 (RtlpHpLargeAllocSize.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
  */
 
 unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 *a4)

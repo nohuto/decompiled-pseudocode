@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlpInterlockedFlushSList @ 0x140166E80
+ * XREFs of RtlpInterlockedFlushSList @ 0x1401673F0
  * Callers:
- *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400046D0 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     PfFbBufferListFlushStandby @ 0x1400067EC (PfFbBufferListFlushStandby.c)
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     ExpFlushGeneralLookaside @ 0x1400A878C (ExpFlushGeneralLookaside.c)
- *     ExFlushLookasideListEx @ 0x1400A87FC (ExFlushLookasideListEx.c)
- *     MiDrainZeroLookasides @ 0x1400A8C34 (MiDrainZeroLookasides.c)
- *     MiDeleteNoBlockStacks @ 0x1400BE128 (MiDeleteNoBlockStacks.c)
- *     MiFreePageFileHashPfns @ 0x1400BE8F8 (MiFreePageFileHashPfns.c)
- *     ExpWorkerFactoryManagerThread @ 0x14013D78C (ExpWorkerFactoryManagerThread.c)
- *     MiInsertPteTracker @ 0x1401FC7EC (MiInsertPteTracker.c)
+ *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140004844 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     PfFbBufferListFlushStandby @ 0x14000695C (PfFbBufferListFlushStandby.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     ExpFlushGeneralLookaside @ 0x1400A6D04 (ExpFlushGeneralLookaside.c)
+ *     ExFlushLookasideListEx @ 0x1400A6D74 (ExFlushLookasideListEx.c)
+ *     MiDrainZeroLookasides @ 0x1400A71B4 (MiDrainZeroLookasides.c)
+ *     MiDeleteNoBlockStacks @ 0x1400BBFB8 (MiDeleteNoBlockStacks.c)
+ *     MiFreePageFileHashPfns @ 0x1400BC788 (MiFreePageFileHashPfns.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14013DCFC (ExpWorkerFactoryManagerThread.c)
+ *     MiInsertPteTracker @ 0x1401FC618 (MiInsertPteTracker.c)
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
- *     PfpFlushEventBuffers @ 0x1403E7CC0 (PfpFlushEventBuffers.c)
- *     PfpFlushBuffers @ 0x1403E8030 (PfpFlushBuffers.c)
- *     ExDrainPoolLookasideList @ 0x140531D38 (ExDrainPoolLookasideList.c)
- *     CmUnRegisterCallback @ 0x1405FB13C (CmUnRegisterCallback.c)
- *     ObpInitStackAndObjectTables @ 0x140667D9C (ObpInitStackAndObjectTables.c)
- *     ObpStopRuntimeStackTrace @ 0x140668864 (ObpStopRuntimeStackTrace.c)
- *     PfTCleanup @ 0x140669770 (PfTCleanup.c)
- *     EtwpFreeStackCache @ 0x1406A9B44 (EtwpFreeStackCache.c)
- *     ViPoolDelayFreeTrimThreadRoutine @ 0x140710B30 (ViPoolDelayFreeTrimThreadRoutine.c)
+ *     PfpFlushEventBuffers @ 0x1403E92F0 (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x1403E9660 (PfpFlushBuffers.c)
+ *     ExDrainPoolLookasideList @ 0x140532278 (ExDrainPoolLookasideList.c)
+ *     CmUnRegisterCallback @ 0x1405FB1F0 (CmUnRegisterCallback.c)
+ *     ObpInitStackAndObjectTables @ 0x140667E80 (ObpInitStackAndObjectTables.c)
+ *     ObpStopRuntimeStackTrace @ 0x140668948 (ObpStopRuntimeStackTrace.c)
+ *     PfTCleanup @ 0x140669854 (PfTCleanup.c)
+ *     EtwpFreeStackCache @ 0x1406A9C7C (EtwpFreeStackCache.c)
+ *     ViPoolDelayFreeTrimThreadRoutine @ 0x140710B60 (ViPoolDelayFreeTrimThreadRoutine.c)
  * Callees:
  *     <none>
  */
 
 PSLIST_ENTRY __stdcall RtlpInterlockedFlushSList(PSLIST_HEADER ListHead)
 {
-  union _SLIST_HEADER v1; // rax
+  _SLIST_HEADER v1; // rax
   signed __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
   unsigned __int8 v4; // tt
 
   _m_prefetchw(ListHead);

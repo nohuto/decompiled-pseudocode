@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpReferenceSecurityDescriptor @ 0x1408EE7D0
+ * XREFs of ObpReferenceSecurityDescriptor @ 0x1408F4D90
  * Callers:
- *     ObQuerySecurityDescriptorInfo @ 0x1408ECA88 (ObQuerySecurityDescriptorInfo.c)
- *     ObCheckCreateObjectAccess @ 0x1408EE440 (ObCheckCreateObjectAccess.c)
- *     SeDefaultObjectMethod @ 0x140921C40 (SeDefaultObjectMethod.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1408F3048 (ObQuerySecurityDescriptorInfo.c)
+ *     ObCheckCreateObjectAccess @ 0x1408F4A00 (ObCheckCreateObjectAccess.c)
+ *     SeDefaultObjectMethod @ 0x1408FD750 (SeDefaultObjectMethod.c)
  * Callees:
- *     ObpReferenceSecurityDescriptorSlow @ 0x140905024 (ObpReferenceSecurityDescriptorSlow.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140934FB4 (ObpReferenceSecurityDescriptorSlow.c)
  */
 
 __int64 __fastcall ObpReferenceSecurityDescriptor(__int64 a1)

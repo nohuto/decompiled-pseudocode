@@ -1,10 +1,10 @@
 /*
- * XREFs of NtSetIntervalProfile @ 0x1406D6C70
+ * XREFs of NtSetIntervalProfile @ 0x1406D7F10
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     KeSetIntervalProfile @ 0x1406D6CC0 (KeSetIntervalProfile.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     KeSetIntervalProfile @ 0x1406D7F60 (KeSetIntervalProfile.c)
  */
 
 NTSTATUS __stdcall NtSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE ClockSource)

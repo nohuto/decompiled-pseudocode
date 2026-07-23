@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIncrementAweMapCount @ 0x140682560
+ * XREFs of MiIncrementAweMapCount @ 0x140683750
  * Callers:
- *     MiReferenceIncomingPhysicalPages @ 0x140682A70 (MiReferenceIncomingPhysicalPages.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140683C60 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
- *     MiValidateAndLockAweMapCountPage @ 0x1404B38C0 (MiValidateAndLockAweMapCountPage.c)
- *     MiResolveAwePageConflict @ 0x140682F08 (MiResolveAwePageConflict.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x1404AE114 (MiValidateAndLockAweMapCountPage.c)
+ *     MiResolveAwePageConflict @ 0x1406840F8 (MiResolveAwePageConflict.c)
  */
 
 __int64 __fastcall MiIncrementAweMapCount(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4, __int64 a5)
@@ -36,19 +36,19 @@ __int64 __fastcall MiIncrementAweMapCount(__int64 a1, unsigned __int64 a2, char 
           v19 = v20;
           *(_QWORD *)v20 = ((*(_QWORD *)v20 & 0xFFFFFFFFFFFE0000uLL) + 0x20000) ^ (*(_QWORD *)v20 ^ ((*(_QWORD *)v20 & 0xFFFFFFFFFFFE0000uLL) + 0x20000)) & 0xFFFFFF800001FFFFuLL;
           _InterlockedAnd(
-            (volatile signed __int32 *)(qword_140E2FFC8 + 4 * ((((v19 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-            ~(1 << (((v19 - qword_140E2FFC0) >> 3) & 0x1F)));
+            (volatile signed __int32 *)(qword_140E30108 + 4 * ((((v19 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+            ~(1 << (((v19 - qword_140E30100) >> 3) & 0x1F)));
           return 0LL;
         }
-        v17 = 1 << ((((__int64)v20 - qword_140E2FFC0) >> 3) & 0x1F);
-        v18 = (((__int64)v20 - qword_140E2FFC0) >> 3) & 0x3FFFFF;
+        v17 = 1 << ((((__int64)v20 - qword_140E30100) >> 3) & 0x1F);
+        v18 = (((__int64)v20 - qword_140E30100) >> 3) & 0x3FFFFF;
       }
       else
       {
-        v17 = 1 << ((((__int64)v20 - qword_140E2FFC0) >> 3) & 0x1F);
-        v18 = (((__int64)v20 - qword_140E2FFC0) >> 3) & 0x3FFFFF;
+        v17 = 1 << ((((__int64)v20 - qword_140E30100) >> 3) & 0x1F);
+        v18 = (((__int64)v20 - qword_140E30100) >> 3) & 0x3FFFFF;
       }
-      _InterlockedAnd((volatile signed __int32 *)(qword_140E2FFC8 + 4 * (v18 >> 5)), ~v17);
+      _InterlockedAnd((volatile signed __int32 *)(qword_140E30108 + 4 * (v18 >> 5)), ~v17);
       return 3221225496LL;
     }
     v10 = v20;

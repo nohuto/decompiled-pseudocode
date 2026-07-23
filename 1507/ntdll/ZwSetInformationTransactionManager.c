@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationTransactionManager()
+NTSTATUS __cdecl ZwSetInformationTransactionManager(
+        HANDLE TmHandle,
+        TRANSACTIONMANAGER_INFORMATION_CLASS TransactionManagerInformationClass,
+        PVOID TransactionManagerInformation,
+        ULONG TransactionManagerInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 385LL;
+  result = 385;
   __asm { syscall; Low latency system call }
   return result;
 }

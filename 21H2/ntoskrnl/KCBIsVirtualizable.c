@@ -1,10 +1,10 @@
 /*
- * XREFs of KCBIsVirtualizable @ 0x14027C570
+ * XREFs of KCBIsVirtualizable @ 0x14026A510
  * Callers:
- *     KCBNeedsVirtualImage @ 0x1402BBFDC (KCBNeedsVirtualImage.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406556B0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     KCBNeedsVirtualImage @ 0x14023A1EC (KCBNeedsVirtualImage.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14064A4D0 (CmKeyBodyRemapToVirtualForEnum.c)
  * Callees:
- *     CmpIsKcbInsideVirtualizedHive @ 0x140655B10 (CmpIsKcbInsideVirtualizedHive.c)
+ *     CmpIsKcbInsideVirtualizedHive @ 0x14064A930 (CmpIsKcbInsideVirtualizedHive.c)
  */
 
 bool __fastcall KCBIsVirtualizable(__int64 a1)

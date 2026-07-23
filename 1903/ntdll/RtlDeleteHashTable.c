@@ -6,38 +6,38 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlDeleteHashTable(__int64 a1)
+LOGICAL __cdecl RtlDeleteHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  __int64 v2; // rbx
-  __int64 result; // rax
+  PVOID Directory; // rbx
+  LOGICAL result; // eax
   unsigned int v4; // ebp
-  __int64 *v5; // rsi
+  PVOID *v5; // rsi
 
-  v2 = *(_QWORD *)(a1 + 32);
-  if ( *(_DWORD *)(a1 + 8) <= 0x80u )
+  Directory = HashTable->Directory;
+  if ( HashTable->TableSize <= 0x80 )
   {
-    if ( !v2 )
+    if ( !Directory )
       goto LABEL_4;
     goto LABEL_3;
   }
-  if ( v2 )
+  if ( Directory )
   {
     v4 = 0;
-    v5 = *(__int64 **)(a1 + 32);
+    v5 = (PVOID *)HashTable->Directory;
     do
     {
       if ( !*v5 )
         break;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *v5);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *v5);
       ++v4;
       ++v5;
     }
     while ( v4 < 0x10 );
 LABEL_3:
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Directory);
   }
 LABEL_4:
-  if ( (*(_BYTE *)a1 & 1) != 0 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( (HashTable->Flags & 1) != 0 )
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, HashTable);
   return result;
 }

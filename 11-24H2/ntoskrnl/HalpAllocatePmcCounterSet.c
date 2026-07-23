@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocatePmcCounterSet @ 0x1405450E0
+ * XREFs of HalpAllocatePmcCounterSet @ 0x1405429A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocatePmcCounterSetEx @ 0x140545110 (HalpAllocatePmcCounterSetEx.c)
+ *     HalpAllocatePmcCounterSetEx @ 0x1405429D0 (HalpAllocatePmcCounterSetEx.c)
  */
 
 __int64 __fastcall HalpAllocatePmcCounterSet(int a1, int a2, int a3, __int64 a4)

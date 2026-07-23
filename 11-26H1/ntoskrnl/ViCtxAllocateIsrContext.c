@@ -1,10 +1,10 @@
 /*
- * XREFs of ViCtxAllocateIsrContext @ 0x140C40C88
+ * XREFs of ViCtxAllocateIsrContext @ 0x140C46C98
  * Callers:
- *     VerifierIoConnectInterrupt @ 0x140C40900 (VerifierIoConnectInterrupt.c)
- *     ViCtxSetPrivateConnectParameters @ 0x140C4108C (ViCtxSetPrivateConnectParameters.c)
+ *     VerifierIoConnectInterrupt @ 0x140C46910 (VerifierIoConnectInterrupt.c)
+ *     ViCtxSetPrivateConnectParameters @ 0x140C4709C (ViCtxSetPrivateConnectParameters.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _QWORD *__fastcall ViCtxAllocateIsrContext(__int64 a1, __int64 a2, __int64 a3)

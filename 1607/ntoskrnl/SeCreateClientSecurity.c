@@ -1,17 +1,17 @@
 /*
- * XREFs of SeCreateClientSecurity @ 0x14040F068
+ * XREFs of SeCreateClientSecurity @ 0x14040DF28
  * Callers:
- *     AlpcpCreateClientPort @ 0x14040849C (AlpcpCreateClientPort.c)
- *     AlpcpCreateSecurityContext @ 0x14040D720 (AlpcpCreateSecurityContext.c)
- *     EtwpStartLogger @ 0x14048EE94 (EtwpStartLogger.c)
- *     NtImpersonateThread @ 0x1404D0A84 (NtImpersonateThread.c)
- *     AlpcpImpersonateMessage @ 0x14050E0D0 (AlpcpImpersonateMessage.c)
- *     EtwpUpdateTrace @ 0x14053F1B8 (EtwpUpdateTrace.c)
+ *     AlpcpCreateClientPort @ 0x14040735C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateSecurityContext @ 0x14040C5E0 (AlpcpCreateSecurityContext.c)
+ *     EtwpStartLogger @ 0x14048F924 (EtwpStartLogger.c)
+ *     NtImpersonateThread @ 0x1404B4524 (NtImpersonateThread.c)
+ *     AlpcpImpersonateMessage @ 0x1404F1060 (AlpcpImpersonateMessage.c)
+ *     EtwpUpdateTrace @ 0x14053F6F8 (EtwpUpdateTrace.c)
  * Callees:
- *     SepReconcileTrustSidWithProcessProtection @ 0x14000E7F0 (SepReconcileTrustSidWithProcessProtection.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     SepCreateClientSecurityEx @ 0x140412280 (SepCreateClientSecurityEx.c)
- *     PsReferenceEffectiveToken @ 0x1404124C0 (PsReferenceEffectiveToken.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x14000E370 (SepReconcileTrustSidWithProcessProtection.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     SepCreateClientSecurityEx @ 0x140411140 (SepCreateClientSecurityEx.c)
+ *     PsReferenceEffectiveToken @ 0x140411380 (PsReferenceEffectiveToken.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurity(

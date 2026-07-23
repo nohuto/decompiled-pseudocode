@@ -1,8 +1,8 @@
 /*
- * XREFs of Amd64IsModifiedByBadActorInternal @ 0x1404943E4
+ * XREFs of Amd64IsModifiedByBadActorInternal @ 0x14048EE74
  * Callers:
- *     Amd64IsModifiedByBadActor @ 0x140494300 (Amd64IsModifiedByBadActor.c)
- *     Amd64OverflowHandlerInternal @ 0x14056BFB0 (Amd64OverflowHandlerInternal.c)
+ *     Amd64IsModifiedByBadActor @ 0x14048ED90 (Amd64IsModifiedByBadActor.c)
+ *     Amd64OverflowHandlerInternal @ 0x140569440 (Amd64OverflowHandlerInternal.c)
  * Callees:
  *     <none>
  */

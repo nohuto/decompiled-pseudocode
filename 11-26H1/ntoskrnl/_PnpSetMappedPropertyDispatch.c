@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpSetMappedPropertyDispatch @ 0x140AEDA18
+ * XREFs of _PnpSetMappedPropertyDispatch @ 0x140AF09B0
  * Callers:
- *     _PnpSetObjectPropertyWorker @ 0x1409DC180 (_PnpSetObjectPropertyWorker.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140A193D0 (_PnpSetObjectPropertyWorker.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnpSetMappedPropertyDispatch(__int64 a1, __int64 a2, int a3)

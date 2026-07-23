@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlQueryProcessAvailableCpusCount @ 0x1801490F0
+ * XREFs of RtlQueryProcessAvailableCpusCount @ 0x180148FA0
  * Callers:
- *     RtlRegisterAvailableCpusChangeNotification @ 0x180149170 (RtlRegisterAvailableCpusChangeNotification.c)
+ *     RtlRegisterAvailableCpusChangeNotification @ 0x180149020 (RtlRegisterAvailableCpusChangeNotification.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x18015F260 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x18015F160 (NtQueryInformationProcess.c)
  */
 
 NTSTATUS __fastcall RtlQueryProcessAvailableCpusCount(void *a1, _DWORD *a2, _QWORD *a3)
@@ -18,7 +18,7 @@ NTSTATUS __fastcall RtlQueryProcessAvailableCpusCount(void *a1, _DWORD *a2, _QWO
   v8 = 0LL;
   v6 = 0LL;
   v9 = 0LL;
-  result = NtQueryInformationProcess(a1, (PROCESSINFOCLASS)117, &v6, 0x20u, 0LL);
+  result = NtQueryInformationProcess(a1, MaxProcessInfoClass|ProcessQuotaLimits, &v6, 0x20u, 0LL);
   if ( result >= 0 )
   {
     *a2 = v8;

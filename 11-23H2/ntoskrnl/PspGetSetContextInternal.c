@@ -1,23 +1,23 @@
 /*
- * XREFs of PspGetSetContextInternal @ 0x140724A00
+ * XREFs of PspGetSetContextInternal @ 0x140724C00
  * Callers:
- *     PspGetSetContextSpecialApc @ 0x140428CA0 (PspGetSetContextSpecialApc.c)
+ *     PspGetSetContextSpecialApc @ 0x140429030 (PspGetSetContextSpecialApc.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14022E960 (RtlpGetStackLimits.c)
- *     KeVerifyContextXStateCetU @ 0x1402A3BE0 (KeVerifyContextXStateCetU.c)
- *     RtlpValidateContextXStateDisabledFeatures @ 0x1402A3C24 (RtlpValidateContextXStateDisabledFeatures.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1402A57F0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlVirtualUnwind2 @ 0x1402A59E0 (RtlVirtualUnwind2.c)
- *     RtlpIsFrameInBoundsEx @ 0x1402A65B0 (RtlpIsFrameInBoundsEx.c)
- *     RtlGetExtendedContextLength @ 0x14030D430 (RtlGetExtendedContextLength.c)
- *     KeVerifyContextIpForUserCet @ 0x14030DEBC (KeVerifyContextIpForUserCet.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlpCaptureContext @ 0x140428FB0 (RtlpCaptureContext.c)
- *     PspSetContext @ 0x140724240 (PspSetContext.c)
- *     PspGetContext @ 0x140724614 (PspGetContext.c)
- *     RtlCopyContext @ 0x1407704D0 (RtlCopyContext.c)
- *     VslGetSetSecureContext @ 0x1409425CC (VslGetSetSecureContext.c)
- *     PspSetContextState @ 0x1409B8138 (PspSetContextState.c)
+ *     RtlpGetStackLimits @ 0x14022EA70 (RtlpGetStackLimits.c)
+ *     KeVerifyContextXStateCetU @ 0x1402A3E70 (KeVerifyContextXStateCetU.c)
+ *     RtlpValidateContextXStateDisabledFeatures @ 0x1402A3EB4 (RtlpValidateContextXStateDisabledFeatures.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1402A5A80 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlVirtualUnwind2 @ 0x1402A5C70 (RtlVirtualUnwind2.c)
+ *     RtlpIsFrameInBoundsEx @ 0x1402A6840 (RtlpIsFrameInBoundsEx.c)
+ *     RtlGetExtendedContextLength @ 0x14030D6C0 (RtlGetExtendedContextLength.c)
+ *     KeVerifyContextIpForUserCet @ 0x14030E14C (KeVerifyContextIpForUserCet.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlpCaptureContext @ 0x140429340 (RtlpCaptureContext.c)
+ *     PspSetContext @ 0x140724440 (PspSetContext.c)
+ *     PspGetContext @ 0x140724814 (PspGetContext.c)
+ *     RtlCopyContext @ 0x1407706C0 (RtlCopyContext.c)
+ *     VslGetSetSecureContext @ 0x1409427CC (VslGetSetSecureContext.c)
+ *     PspSetContextState @ 0x1409B8338 (PspSetContextState.c)
  */
 
 __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // r14
   __int64 v8; // rax
-  unsigned int v9; // r12d
+  ULONG v9; // r12d
   __int64 TrapFrame; // r15
   int SetSecureContext; // eax
   _QWORD *i; // rcx
@@ -38,11 +38,11 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v17; // rdx
   __int64 v18; // rdx
   char v19; // r9
-  __int64 v20; // rdi
+  _CONTEXT *v20; // rdi
   __int64 result; // rax
   __int64 v22; // [rsp+78h] [rbp-90h] BYREF
   _QWORD *v23; // [rsp+80h] [rbp-88h]
-  unsigned __int64 v24; // [rsp+88h] [rbp-80h] BYREF
+  ULONG ContextLength[2]; // [rsp+88h] [rbp-80h] BYREF
   unsigned __int64 v25; // [rsp+90h] [rbp-78h] BYREF
   unsigned __int64 v26; // [rsp+98h] [rbp-70h] BYREF
   __int64 v27; // [rsp+A0h] [rbp-68h] BYREF
@@ -84,16 +84,16 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   CurrentThread = KeGetCurrentThread();
   v8 = *(_QWORD *)(a1 + 120);
   v23 = a3;
-  LODWORD(v24) = 0;
+  ContextLength[0] = 0;
   v9 = *(_DWORD *)(v8 + 48);
   LOWORD(v22) = 0;
   if ( *(_BYTE *)(a1 + 88) )
   {
     if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x200) != 0 )
     {
-      if ( (int)RtlGetExtendedContextLength(v9, (__int64)&v24) >= 0 )
+      if ( RtlGetExtendedContextLength(v9, ContextLength) >= 0 )
       {
-        SetSecureContext = VslGetSetSecureContext(a2, *(_QWORD *)(v5 + 120), (unsigned int)v24);
+        SetSecureContext = VslGetSetSecureContext(a2, *(_QWORD *)(v5 + 120), ContextLength[0]);
         a3 = v23;
         a1 = v5;
         goto LABEL_60;
@@ -231,8 +231,8 @@ LABEL_23:
     {
 LABEL_28:
       v17 = *(_QWORD *)(v5 + 120);
-      v24 = 0LL;
-      SetSecureContext = KeVerifyContextXStateCetU((__int64)CurrentThread, v17, &v24);
+      *(_QWORD *)ContextLength = 0LL;
+      SetSecureContext = KeVerifyContextXStateCetU((__int64)CurrentThread, v17, (unsigned __int64 *)ContextLength);
       if ( SetSecureContext < 0 )
       {
         a3 = v23;
@@ -245,7 +245,11 @@ LABEL_28:
         v31 = 0LL;
         LODWORD(v31) = 3;
         v32 = 0LL;
-        SetSecureContext = KeVerifyContextIpForUserCet((__int64)CurrentThread, v18, (unsigned int *)&v31, (__int64)&v24);
+        SetSecureContext = KeVerifyContextIpForUserCet(
+                             (__int64)CurrentThread,
+                             v18,
+                             (unsigned int *)&v31,
+                             (__int64)ContextLength);
         if ( SetSecureContext < 0 )
         {
           a3 = v23;
@@ -288,11 +292,11 @@ LABEL_28:
     _fxsave((void *)(*(_QWORD *)(v5 + 120) + 256LL));
   if ( CurrentThread[1].WaitBlock[3].Thread && *(_BYTE *)(v5 + 88) == 1 )
   {
-    v20 = *(_QWORD *)(v5 + 120);
-    PspGetContext(TrapFrame, (__int64)v4, v20);
+    v20 = *(_CONTEXT **)(v5 + 120);
+    PspGetContext(TrapFrame, (__int64)v4, (__int64)v20);
     if ( (CurrentThread->Header.Reserved1 & 8) != 0 )
     {
-      RtlCopyContext(v20, *(unsigned int *)(v20 + 48), CurrentThread[1].WaitBlock[3].Thread);
+      RtlCopyContext(v20, v20->ContextFlags, (PCONTEXT)CurrentThread[1].WaitBlock[3].Thread);
       a3 = v23;
       SetSecureContext = 0;
       v3 = v22;

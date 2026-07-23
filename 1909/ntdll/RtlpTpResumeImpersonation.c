@@ -18,13 +18,13 @@
 NTSTATUS __fastcall RtlpTpResumeImpersonation(void *a1)
 {
   NTSTATUS result; // eax
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  HANDLE ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 )
   {
-    Handle = a1;
-    NtSetInformationThread(-2LL, 5LL, &Handle);
-    return NtClose(Handle);
+    ThreadInformation = a1;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    return NtClose(ThreadInformation);
   }
   return result;
 }

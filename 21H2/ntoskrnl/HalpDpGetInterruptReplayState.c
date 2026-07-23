@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDpGetInterruptReplayState @ 0x1409A8220
+ * XREFs of HalpDpGetInterruptReplayState @ 0x1409A9150
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptSaveReplayState @ 0x1409A8BF0 (HalpInterruptSaveReplayState.c)
+ *     HalpInterruptSaveReplayState @ 0x1409A9B20 (HalpInterruptSaveReplayState.c)
  */
 
 __int64 __fastcall HalpDpGetInterruptReplayState(__int64 a1, _QWORD *a2)

@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpRollbackTransactionArray @ 0x140605148
+ * XREFs of CmpRollbackTransactionArray @ 0x1406051FC
  * Callers:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
- *     CmpTryToRundownHive @ 0x1400876A8 (CmpTryToRundownHive.c)
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     CmpParseKey @ 0x14043BF00 (CmpParseKey.c)
- *     NtUnloadKeyEx @ 0x14049A1D4 (NtUnloadKeyEx.c)
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1405FE35C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1405FE7F4 (CmSetLastWriteTimeKey.c)
- *     CmRestoreKey @ 0x14060C24C (CmRestoreKey.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
+ *     CmpTryToRundownHive @ 0x14010B8A0 (CmpTryToRundownHive.c)
+ *     NtUnloadKeyEx @ 0x1403E3100 (NtUnloadKeyEx.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmpParseKey @ 0x14043ADD0 (CmpParseKey.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1405FE410 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1405FE8A8 (CmSetLastWriteTimeKey.c)
+ *     CmRestoreKey @ 0x14060C300 (CmRestoreKey.c)
  * Callees:
  *     TmRollbackEnlistment @ 0x140001210 (TmRollbackEnlistment.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     CmpRollbackLightWeightTransaction @ 0x1404E979C (CmpRollbackLightWeightTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1404CB88C (CmpRollbackLightWeightTransaction.c)
  */
 
 __int64 __fastcall CmpRollbackTransactionArray(unsigned int a1, PVOID *a2, _BYTE *a3, _DWORD *a4)

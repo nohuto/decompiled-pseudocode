@@ -20,7 +20,7 @@ void __stdcall RtlpTpIoCallback(int a1, int a2, int a3, _DWORD *a4)
   _DWORD *v7; // [esp+8h] [ebp-4h] BYREF
 
   if ( *(_DWORD *)(a2 + 84) )
-    RtlSetThreadSubProcessTag(*(void **)(a2 + 84));
+    RtlSetThreadSubProcessTag(*(PVOID *)(a2 + 84));
   p_ActivityId = &NtCurrentTeb()->ActivityId;
   p_ActivityId->Data1 = *(_DWORD *)(a2 + 88);
   p_ActivityId = (_GUID *)((char *)p_ActivityId + 4);

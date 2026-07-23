@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmosRangeHandler @ 0x1404CA914
+ * XREFs of HalpCmosRangeHandler @ 0x1404C4344
  * Callers:
- *     HalpcGetCmosDataByType @ 0x1404CA8F0 (HalpcGetCmosDataByType.c)
- *     HalpcSetCmosDataByType @ 0x1405997D0 (HalpcSetCmosDataByType.c)
+ *     HalpcGetCmosDataByType @ 0x1404C4320 (HalpcGetCmosDataByType.c)
+ *     HalpcSetCmosDataByType @ 0x14059BF50 (HalpcSetCmosDataByType.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpCmosRangeHandler(unsigned int a1, int a2, unsigned int a3, __int64 a4, int a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuSetDeviceFaultReportingEx @ 0x14059FA00
+ * XREFs of IommuSetDeviceFaultReportingEx @ 0x1405A21F0
  * Callers:
  *     <none>
  * Callees:
- *     IommupDeviceRegisterFaultCallback @ 0x1405A05A0 (IommupDeviceRegisterFaultCallback.c)
- *     IommupDeviceUnregisterFaultCallback @ 0x1405A0660 (IommupDeviceUnregisterFaultCallback.c)
+ *     IommupDeviceRegisterFaultCallback @ 0x1405A2DB0 (IommupDeviceRegisterFaultCallback.c)
+ *     IommupDeviceUnregisterFaultCallback @ 0x1405A2E70 (IommupDeviceUnregisterFaultCallback.c)
  */
 
 __int64 __fastcall IommuSetDeviceFaultReportingEx(__int64 a1, int a2, char a3, __int64 a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpFindSubKeyByName @ 0x14082594C
+ * XREFs of CmpFindSubKeyByName @ 0x140825C4C
  * Callers:
  *     CmpLoadServicesNode @ 0x140B59174 (CmpLoadServicesNode.c)
  *     CmpSortDriverList @ 0x140B59238 (CmpSortDriverList.c)
@@ -11,7 +11,7 @@
  *     CmpLoadManufacturingProfileNode @ 0x140B99124 (CmpLoadManufacturingProfileNode.c)
  *     CmpLoadManufacturingProfileServicesNode @ 0x140B99214 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     CmpFindSubKeyByNameWithStatus @ 0x140825970 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x140825C70 (CmpFindSubKeyByNameWithStatus.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByName(ULONG_PTR a1)

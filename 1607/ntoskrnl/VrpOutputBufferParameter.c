@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpOutputBufferParameter @ 0x140612FE4
+ * XREFs of VrpOutputBufferParameter @ 0x140613098
  * Callers:
- *     VrpPostEnumerateKey @ 0x140614D90 (VrpPostEnumerateKey.c)
- *     VrpPostQueryKey @ 0x140615828 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x140614E44 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x1406158DC (VrpPostQueryKey.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall VrpOutputBufferParameter(char a1, void *a2, unsigned int a3, const void **a4)

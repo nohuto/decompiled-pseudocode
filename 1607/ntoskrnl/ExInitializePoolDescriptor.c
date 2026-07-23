@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInitializePoolDescriptor @ 0x140536204
+ * XREFs of ExInitializePoolDescriptor @ 0x140536744
  * Callers:
- *     MiInitializeSessionPool @ 0x140535DE8 (MiInitializeSessionPool.c)
+ *     MiInitializeSessionPool @ 0x140536328 (MiInitializeSessionPool.c)
  *     InitializePool @ 0x1407B4330 (InitializePool.c)
  *     InitializePagedPool @ 0x1407B47A0 (InitializePagedPool.c)
  * Callees:
- *     KeInitializeGuardedMutex @ 0x14007D100 (KeInitializeGuardedMutex.c)
+ *     KeInitializeGuardedMutex @ 0x14007D180 (KeInitializeGuardedMutex.c)
  */
 
 void __fastcall ExInitializePoolDescriptor(__int64 a1, int a2, int a3)
@@ -40,8 +40,8 @@ void __fastcall ExInitializePoolDescriptor(__int64 a1, int a2, int a3)
     *(_QWORD *)(a1 + 8) = 0LL;
   if ( a2 == 33 && !ExpSessionPoolLookaside )
   {
-    ExpSessionPoolLookaside = qword_140326918 + 192;
-    ExpSessionPoolTrackTable = qword_140326918 + 0x2000;
+    ExpSessionPoolLookaside = qword_140326958 + 192;
+    ExpSessionPoolTrackTable = qword_140326958 + 0x2000;
     v5 = 204LL;
     if ( _BitScanReverse64((unsigned __int64 *)&v7, 0xCCuLL) )
       v5 = 1LL << v7;

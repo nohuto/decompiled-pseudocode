@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSetZeroPageThreadPriority @ 0x1403541EC
+ * XREFs of MiSetZeroPageThreadPriority @ 0x14035438C
  * Callers:
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiZeroPageMakeHot @ 0x140655C0C (MiZeroPageMakeHot.c)
+ *     MiZeroLocalPages @ 0x1402CF7D0 (MiZeroLocalPages.c)
+ *     MiZeroPage @ 0x1402D0C80 (MiZeroPage.c)
+ *     MiZeroPageMakeHot @ 0x14065615C (MiZeroPageMakeHot.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, int a2)
@@ -32,10 +32,13 @@ __int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1, int a2)
   else
     v7 = KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 23160));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

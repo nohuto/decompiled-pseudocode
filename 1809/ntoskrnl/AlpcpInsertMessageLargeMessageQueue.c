@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpInsertMessageLargeMessageQueue @ 0x1406B63FC
+ * XREFs of AlpcpInsertMessageLargeMessageQueue @ 0x1406B769C
  * Callers:
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406B628C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406B752C (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall AlpcpInsertMessageLargeMessageQueue(__int64 a1, __int64 a2)

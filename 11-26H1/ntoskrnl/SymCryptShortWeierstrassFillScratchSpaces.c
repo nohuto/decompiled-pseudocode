@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptShortWeierstrassFillScratchSpaces @ 0x1405677D8
+ * XREFs of SymCryptShortWeierstrassFillScratchSpaces @ 0x140575440
  * Callers:
- *     SymCryptEcurveInitialize @ 0x14055ADA4 (SymCryptEcurveInitialize.c)
+ *     <none>
  * Callees:
- *     SymCryptEcurveDigitsofScalarMultiplier @ 0x14055AD5C (SymCryptEcurveDigitsofScalarMultiplier.c)
- *     SymCryptDigitsFromBits @ 0x14055C0D0 (SymCryptDigitsFromBits.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofEcpointEx @ 0x140564C70 (SymCryptSizeofEcpointEx.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x140564C8C (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x14055D270 (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptDigitsFromBits @ 0x14055E5B8 (SymCryptDigitsFromBits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofEcpointEx @ 0x140567060 (SymCryptSizeofEcpointEx.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x14056707C (SymCryptSizeofEcpointFromCurve.c)
  */
 
 __int64 __fastcall SymCryptShortWeierstrassFillScratchSpaces(_DWORD *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReplaceTransitionPage @ 0x14011846C
+ * XREFs of MiReplaceTransitionPage @ 0x1401184DC
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiTradeTransitionPage @ 0x14011812C (MiTradeTransitionPage.c)
- *     MiFinalizeImageHeaderPage @ 0x14012DDB0 (MiFinalizeImageHeaderPage.c)
+ *     MiTradeTransitionPage @ 0x14011819C (MiTradeTransitionPage.c)
+ *     MiFinalizeImageHeaderPage @ 0x14012DE80 (MiFinalizeImageHeaderPage.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
@@ -11,24 +11,24 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiDecreaseAvailablePages @ 0x1400EE84C (MiDecreaseAvailablePages.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
- *     MiReplaceNumaStandbyPage @ 0x1401189EC (MiReplaceNumaStandbyPage.c)
- *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
- *     MiDetermineModifiedPageListHead @ 0x140118C34 (MiDetermineModifiedPageListHead.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
- *     MiUnlinkNumaStandbyPage @ 0x140152280 (MiUnlinkNumaStandbyPage.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiDecreaseAvailablePages @ 0x1400EE8CC (MiDecreaseAvailablePages.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiUpdateTransitionPteFrame @ 0x140118A14 (MiUpdateTransitionPteFrame.c)
+ *     MiReplaceNumaStandbyPage @ 0x140118A5C (MiReplaceNumaStandbyPage.c)
+ *     MiIsDecayPfn @ 0x140118C7C (MiIsDecayPfn.c)
+ *     MiDetermineModifiedPageListHead @ 0x140118CA4 (MiDetermineModifiedPageListHead.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CDBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiUnlinkNumaStandbyPage @ 0x140152380 (MiUnlinkNumaStandbyPage.c)
  */
 
 char __fastcall MiReplaceTransitionPage(__int64 a1, __int64 a2, unsigned int *a3)
@@ -85,7 +85,7 @@ char __fastcall MiReplaceTransitionPage(__int64 a1, __int64 a2, unsigned int *a3
   v45 = v5;
   v6 = *(_QWORD *)(a1 + 40);
   v7 = (a2 + 0x58000000000LL) / 48;
-  v51 = *(_QWORD *)(qword_14043A748 + 8 * ((v6 >> 40) & 0x3FF));
+  v51 = *(_QWORD *)(qword_14043B808 + 8 * ((v6 >> 40) & 0x3FF));
   v8 = *(_BYTE *)(a1 + 34) & 7;
   v9 = *(_QWORD *)(v51 + 8LL * v8 + 4152);
   if ( v8 == 3 && (*(_DWORD *)(a1 + 16) & 0x400LL) != 0 )
@@ -191,11 +191,11 @@ LABEL_11:
   }
   v24 = v45;
   *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
-  if ( dword_14043A76C == 1 )
+  if ( dword_14043B82C == 1 )
   {
     v37 = v24 & 0x1F;
     LOBYTE(v38) = 1;
-    v39 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v24 >> 5));
+    v39 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v24 >> 5));
     if ( v37 + 1 > 0x20 )
     {
       if ( (v24 & 0x1F) != 0 )
@@ -247,7 +247,7 @@ LABEL_18:
     if ( (unsigned int)MiPteHasShadow(v31, v30) )
     {
       v32 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_21;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLangNameInMultiSzString @ 0x18000AEC0
+ * XREFs of RtlpLangNameInMultiSzString @ 0x1800565F0
  * Callers:
- *     RtlpMUIRegPatchLicenseInfortmation @ 0x18000A810 (RtlpMUIRegPatchLicenseInfortmation.c)
- *     RtlpIsALicensedRegularLanguage @ 0x18000AB10 (RtlpIsALicensedRegularLanguage.c)
- *     RtlpIsALicensedLIPLanguage @ 0x18000AE4C (RtlpIsALicensedLIPLanguage.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x180125D34 (RtlpAddLanguagesToMultiSZ.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x18014DCB4 (_RtlpMuiRegAddBaseLanguage.c)
- *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x18014E750 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ *     RtlpMUIRegPatchLicenseInfortmation @ 0x180055F40 (RtlpMUIRegPatchLicenseInfortmation.c)
+ *     RtlpIsALicensedRegularLanguage @ 0x180056240 (RtlpIsALicensedRegularLanguage.c)
+ *     RtlpIsALicensedLIPLanguage @ 0x18005657C (RtlpIsALicensedLIPLanguage.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x180125AA4 (RtlpAddLanguagesToMultiSZ.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x18014DB64 (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x18014E600 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
  * Callees:
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
  */
 
 char __fastcall RtlpLangNameInMultiSzString(wchar_t *String1, wchar_t *String2)

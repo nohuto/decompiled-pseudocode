@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeHardwareDescriptor @ 0x1404AC318
+ * XREFs of MiFreeHardwareDescriptor @ 0x1404A6770
  * Callers:
- *     MiZeroThreadContextPrepareToWait @ 0x14020A440 (MiZeroThreadContextPrepareToWait.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1406931D8 (MiComputeCacheAttributeSpeeds.c)
+ *     MiZeroThreadContextPrepareToWait @ 0x140331A20 (MiZeroThreadContextPrepareToWait.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x1406942A8 (MiComputeCacheAttributeSpeeds.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiFreeHardwareDescriptor(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MiFreeHardwareDescriptor(__int64 a1, __int64 a2)
   }
   v7 = *(_QWORD *)(v3 + 24);
   *(_BYTE *)(v3 + 16) = 0;
-  if ( (*(_DWORD *)(v7 + 52) & 1) != 0 || byte_140E37454 )
+  if ( (*(_DWORD *)(v7 + 52) & 1) != 0 || byte_140E37594 )
   {
     v8 = *(_QWORD *)v3;
     if ( *(_QWORD *)(*(_QWORD *)v3 + 8LL) != v3 || (v9 = *(_QWORD **)(v3 + 8), *v9 != v3) )

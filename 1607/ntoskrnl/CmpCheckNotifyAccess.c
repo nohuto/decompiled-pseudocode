@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCheckNotifyAccess @ 0x1403FDD14
+ * XREFs of CmpCheckNotifyAccess @ 0x1403FCBD4
  * Callers:
- *     CmpNotifyTriggerCheck @ 0x1403FDC9C (CmpNotifyTriggerCheck.c)
+ *     CmpNotifyTriggerCheck @ 0x1403FCB5C (CmpNotifyTriggerCheck.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     CmpFindSecurityCellCacheIndex @ 0x1403FDF60 (CmpFindSecurityCellCacheIndex.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1403FCE20 (CmpFindSecurityCellCacheIndex.c)
  */
 
 BOOLEAN __fastcall CmpCheckNotifyAccess(__int64 a1, __int64 a2, __int64 a3)

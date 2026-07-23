@@ -6,16 +6,16 @@
  *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14020BC70 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
- *     SeQueryUserSidToken @ 0x140714E00 (SeQueryUserSidToken.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
+ *     SeQueryUserSidToken @ 0x140715010 (SeQueryUserSidToken.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -84,7 +84,7 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3,
       }
       v10 = (size_t *)v17;
     }
-    if ( (unsigned int)dword_140C043C8 > 3 && tlgKeywordOn((__int64)&dword_140C043C8, 0x200000000008LL) )
+    if ( (unsigned int)dword_140C04390 > 3 && tlgKeywordOn((__int64)&dword_140C04390, 0x200000000008LL) )
     {
       v15 = -1073741790;
       v30 = &v15;
@@ -98,8 +98,8 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3,
       v34 = 4 * v14 + 8;
       v36 = &v16;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C043C8,
-        (unsigned __int8 *)byte_140037913,
+        (__int64)&dword_140C04390,
+        (unsigned __int8 *)byte_1400379A3,
         0LL,
         0LL,
         6u,
@@ -109,9 +109,9 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3,
       SeReleaseSubjectContext(&SubjectContext);
     goto LABEL_22;
   }
-  if ( (unsigned int)dword_140C043C8 > 3 )
+  if ( (unsigned int)dword_140C04390 > 3 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C043C8, 0x200000000008LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C04390, 0x200000000008LL) )
     {
       v16 = 1LL;
       v23 = (int *)&v16;
@@ -123,21 +123,21 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, int a2, ULONG a3,
       v17 = 0x1000000LL;
       v28 = 8LL;
       tlgWriteAgg(
-        (__int64)&dword_140C043C8,
-        (unsigned __int8 *)&byte_1400378BB,
+        (__int64)&dword_140C04390,
+        (unsigned __int8 *)&byte_140037A41,
         v11,
         5u,
         (PEVENT_DATA_DESCRIPTOR)&SubjectContext);
-      v12 = dword_140C043C8;
+      v12 = dword_140C04390;
     }
-    if ( v12 > 3 && tlgKeywordOn((__int64)&dword_140C043C8, 8LL) )
+    if ( v12 > 3 && tlgKeywordOn((__int64)&dword_140C04390, 8LL) )
     {
       v15 = a2;
       v23 = &v15;
       v24 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C043C8,
-        (unsigned __int8 *)word_14003797A,
+        (__int64)&dword_140C04390,
+        (unsigned __int8 *)word_140037A0A,
         0LL,
         0LL,
         3u,

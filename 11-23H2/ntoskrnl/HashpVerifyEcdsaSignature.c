@@ -1,14 +1,14 @@
 /*
- * XREFs of HashpVerifyEcdsaSignature @ 0x140A771D4
+ * XREFs of HashpVerifyEcdsaSignature @ 0x140A77484
  * Callers:
- *     MinCryptVerifySignedHash2 @ 0x140A6F330 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x140A6F5E0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
- *     SymCryptEcurveFree @ 0x1403F8834 (SymCryptEcurveFree.c)
- *     SymCryptEckeyAllocate @ 0x1403F8874 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeyFree @ 0x1403F8958 (SymCryptEckeyFree.c)
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcurveAllocate @ 0x1403F828C (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveFree @ 0x1403F8A14 (SymCryptEcurveFree.c)
+ *     SymCryptEckeyAllocate @ 0x1403F8A54 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeyFree @ 0x1403F8B38 (SymCryptEckeyFree.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
  */
 
 __int64 __fastcall HashpVerifyEcdsaSignature(

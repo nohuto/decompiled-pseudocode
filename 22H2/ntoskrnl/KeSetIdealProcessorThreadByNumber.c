@@ -10,10 +10,7 @@
  *     KeSetIdealProcessorThreadEx @ 0x14035C2A8 (KeSetIdealProcessorThreadEx.c)
  */
 
-__int64 __fastcall KeSetIdealProcessorThreadByNumber(
-        struct _KTHREAD *a1,
-        struct _PROCESSOR_NUMBER *a2,
-        struct _PROCESSOR_NUMBER *a3)
+__int64 __fastcall KeSetIdealProcessorThreadByNumber(struct _KTHREAD *a1, _PROCESSOR_NUMBER *a2, _PROCESSOR_NUMBER *a3)
 {
   ULONG ProcessorIndexFromNumber; // eax
   _DWORD *v6; // r9

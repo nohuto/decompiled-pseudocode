@@ -73,7 +73,7 @@ LABEL_10:
                  PrivilegeCount,
                  Privileges,
                  v8,
-                 v9,
+                 &v9->Sid,
                  0,
                  &Object);
     if ( inserted >= 0 )

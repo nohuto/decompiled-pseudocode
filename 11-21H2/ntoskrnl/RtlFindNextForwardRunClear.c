@@ -1,30 +1,30 @@
 /*
  * XREFs of RtlFindNextForwardRunClear @ 0x1402E1F90
  * Callers:
- *     HvpGenerateLogMetadata @ 0x1406881CC (HvpGenerateLogMetadata.c)
- *     MiFindDriverNonPagedSections @ 0x140760A2C (MiFindDriverNonPagedSections.c)
- *     HvpCountSetRangesInVector @ 0x14079878C (HvpCountSetRangesInVector.c)
- *     HalpIrtAllocateIndex @ 0x140909B14 (HalpIrtAllocateIndex.c)
- *     MiPrepareToHotPatchImage @ 0x140976880 (MiPrepareToHotPatchImage.c)
- *     PnprMirrorMarkedPages @ 0x140A6849C (PnprMirrorMarkedPages.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140A6B37C (PopGetRemainingHibernateRangeDataSize.c)
- *     ViThunkSnapSharedExports @ 0x140A7BF74 (ViThunkSnapSharedExports.c)
+ *     sub_1406881CC @ 0x1406881CC (sub_1406881CC.c)
+ *     sub_140760A2C @ 0x140760A2C (sub_140760A2C.c)
+ *     sub_14079878C @ 0x14079878C (sub_14079878C.c)
+ *     sub_140909B14 @ 0x140909B14 (sub_140909B14.c)
+ *     sub_140976880 @ 0x140976880 (sub_140976880.c)
+ *     sub_140A6849C @ 0x140A6849C (sub_140A6849C.c)
+ *     sub_140A6B37C @ 0x140A6B37C (sub_140A6B37C.c)
+ *     sub_140A7BF74 @ 0x140A7BF74 (sub_140A7BF74.c)
  * Callees:
  *     <none>
  */
 
 ULONG __stdcall RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  unsigned int SizeOfBitMap; // r10d
+  ULONG SizeOfBitMap; // r10d
   ULONG v5; // r9d
-  unsigned int *Buffer; // rdx
-  unsigned int *v8; // rbx
-  unsigned int *v9; // r8
+  PULONG Buffer; // rdx
+  ULONG *v8; // rbx
+  ULONG *v9; // r8
   ULONG v10; // edx
   int v11; // edi
-  unsigned int v12; // ecx
+  ULONG v12; // ecx
   unsigned int i; // eax
-  unsigned int *v16; // r8
+  ULONG *v16; // r8
 
   SizeOfBitMap = BitMapHeader->SizeOfBitMap;
   v5 = FromIndex;

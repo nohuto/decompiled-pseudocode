@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelpSiovIaaSetCompressionWorkspace @ 0x1406E0518
+ * XREFs of AccelpSiovIaaSetCompressionWorkspace @ 0x1406E4798
  * Callers:
- *     AccelpSiovIaaOperationHandler @ 0x1406DFFF4 (AccelpSiovIaaOperationHandler.c)
+ *     AccelpSiovIaaOperationHandler @ 0x1406E4274 (AccelpSiovIaaOperationHandler.c)
  * Callees:
- *     AccelpCacheCompressionHeaderFooterInformation @ 0x1406DF6E4 (AccelpCacheCompressionHeaderFooterInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpCacheCompressionHeaderFooterInformation @ 0x1406E3964 (AccelpCacheCompressionHeaderFooterInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelpSiovIaaSetCompressionWorkspace(

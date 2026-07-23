@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnFailProcessTrace @ 0x14052A490
+ * XREFs of PfSnFailProcessTrace @ 0x14052A9D0
  * Callers:
- *     PfSnVolumeKeyQuery @ 0x1404C9F88 (PfSnVolumeKeyQuery.c)
- *     PfSnLogStreamDelete @ 0x1404ED0F0 (PfSnLogStreamDelete.c)
- *     PfSnLogHelper @ 0x140514B80 (PfSnLogHelper.c)
+ *     PfSnVolumeKeyQuery @ 0x1404AFD08 (PfSnVolumeKeyQuery.c)
+ *     PfSnLogStreamDelete @ 0x1404CF25C (PfSnLogStreamDelete.c)
+ *     PfSnLogHelper @ 0x1404F7F70 (PfSnLogHelper.c)
  * Callees:
  *     <none>
  */

@@ -4,17 +4,17 @@
  *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlpWaitOnCriticalSection @ 0x180064970 (RtlpWaitOnCriticalSection.c)
- *     RtlpUnWaitCriticalSection @ 0x1800E9440 (RtlpUnWaitCriticalSection.c)
+ *     RtlpUnWaitCriticalSection @ 0x1800E9400 (RtlpUnWaitCriticalSection.c)
  * Callees:
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwCreateEvent @ 0x18009DF40 (ZwCreateEvent.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwCreateEvent @ 0x18009DF00 (ZwCreateEvent.c)
  */
 
 HANDLE __fastcall RtlpCreateDeferredCriticalSectionEvent(__int64 a1)
 {
   signed __int64 v1; // rdi
   signed __int64 v3; // rbx
-  int v5; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rcx
   HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
 
@@ -22,7 +22,7 @@ HANDLE __fastcall RtlpCreateDeferredCriticalSectionEvent(__int64 a1)
   Handle = (HANDLE)-1LL;
   if ( RtlpForceCSToUseEvents )
   {
-    v5 = ZwCreateEvent(&Handle, 1048579LL, 0LL, 1LL, 0);
+    v5 = ZwCreateEvent(&Handle, 0x100003u, 0LL, SynchronizationEvent, 0);
     v6 = (__int64)Handle;
     if ( v5 < 0 )
       v6 = -1LL;

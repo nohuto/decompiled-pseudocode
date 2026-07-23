@@ -27,7 +27,7 @@ __int64 __fastcall ViTargetFreeContiguousMemoryFromNode(__int64 a1, __int64 a2)
         *v6 = v5;
         v5[1] = (__int64)v6;
         *(_QWORD *)(v2 + 248) -= i[3];
-        VfUtilFreePoolDispatchLevel((struct _SLIST_ENTRY *)i);
+        VfUtilFreePoolDispatchLevel((_SLIST_ENTRY *)i);
         return 1LL;
       }
     }

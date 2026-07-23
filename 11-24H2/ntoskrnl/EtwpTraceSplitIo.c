@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceSplitIo @ 0x14064EDF0
+ * XREFs of EtwpTraceSplitIo @ 0x14064D400
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceSplitIo(__int64 a1, __int64 a2, __int16 a3)

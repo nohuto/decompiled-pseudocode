@@ -6,15 +6,15 @@
  *     <none>
  */
 
-bool __stdcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
+BOOLEAN __cdecl RtlIsTextUnicode(PVOID Buffer, ULONG Size, PULONG Result)
 {
   int v3; // ecx
   unsigned int v4; // ebx
-  unsigned int v5; // edi
+  ULONG v5; // edi
   unsigned int v6; // edx
-  int v7; // esi
+  ULONG v7; // esi
   _WORD *v8; // eax
-  unsigned int v9; // edi
+  ULONG v9; // edi
   unsigned __int16 v10; // cx
   unsigned int v11; // esi
   unsigned __int8 v12; // bl
@@ -22,16 +22,16 @@ bool __stdcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   unsigned int v14; // ecx
   unsigned int v15; // eax
   unsigned int v16; // ecx
-  unsigned int v17; // edi
+  ULONG v17; // edi
   unsigned int v18; // eax
   unsigned int v19; // edx
   int v20; // ecx
   unsigned int v21; // edx
-  int v22; // ecx
-  unsigned int v24; // edx
-  unsigned int v25; // ecx
+  ULONG v22; // ecx
+  ULONG v24; // edx
+  ULONG v25; // ecx
   unsigned int v26; // ecx
-  unsigned int v27; // [esp+10h] [ebp-5Ch]
+  ULONG v27; // [esp+10h] [ebp-5Ch]
   unsigned int v28; // [esp+14h] [ebp-58h]
   int v29; // [esp+18h] [ebp-54h]
   int v30; // [esp+1Ch] [ebp-50h]
@@ -46,7 +46,7 @@ bool __stdcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   int v39; // [esp+40h] [ebp-2Ch]
   int v40; // [esp+44h] [ebp-28h]
   int v41; // [esp+48h] [ebp-24h]
-  unsigned int v42; // [esp+4Ch] [ebp-20h]
+  ULONG v42; // [esp+4Ch] [ebp-20h]
   unsigned int v43; // [esp+50h] [ebp-1Ch]
   __int16 v44; // [esp+54h] [ebp-18h]
   int v45; // [esp+58h] [ebp-14h]
@@ -60,7 +60,7 @@ bool __stdcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v28 = 0;
   v4 = 0;
   v38 = 0;
-  v5 = a2 >> 1;
+  v5 = Size >> 1;
   v6 = 0;
   v39 = 0;
   v41 = 0;
@@ -79,35 +79,35 @@ bool __stdcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v46 = 0;
   v49 = 0;
   v48 = 0;
-  if ( a2 >> 1 > 0x100 )
+  if ( Size >> 1 > 0x100 )
   {
     v7 = 256;
     v42 = 256;
   }
   else
   {
-    v7 = a2 >> 1;
-    v42 = a2 >> 1;
+    v7 = Size >> 1;
+    v42 = Size >> 1;
     if ( !v5 )
       goto LABEL_101;
   }
-  if ( a2 == 2 )
+  if ( Size == 2 )
   {
-    if ( !*a1 || HIBYTE(*a1) )
+    if ( !*(_WORD *)Buffer || HIBYTE(*(_WORD *)Buffer) )
       goto LABEL_88;
 LABEL_101:
-    if ( a3 )
-      *a3 = 5;
+    if ( Result )
+      *Result = 5;
     return 0;
   }
-  if ( a2 <= 2 || v5 > 0x100 || (a2 & 1) != 0 )
+  if ( Size <= 2 || v5 > 0x100 || (Size & 1) != 0 )
   {
 LABEL_88:
-    v8 = a1;
+    v8 = Buffer;
     goto LABEL_9;
   }
-  v8 = a1;
-  if ( (a1[v7 - 1] & 0xFF00) == 0 )
+  v8 = Buffer;
+  if ( (*((_WORD *)Buffer + v7 - 1) & 0xFF00) == 0 )
     v42 = --v7;
 LABEL_9:
   v9 = 0;
@@ -194,7 +194,7 @@ LABEL_28:
     }
     v44 = HIBYTE(v10);
     v11 = HIBYTE(v10);
-    v12 = a1[v9];
+    v12 = *((_BYTE *)Buffer + 2 * v9);
     if ( v12 == 13 )
     {
       if ( v6 == 10 )
@@ -226,7 +226,7 @@ LABEL_28:
     v27 = v9;
     if ( v9 >= v42 )
       break;
-    v8 = a1;
+    v8 = Buffer;
   }
   if ( v12 != 13 )
   {
@@ -250,16 +250,16 @@ LABEL_26:
   if ( v44 == 26 )
     v49 = v16 + 1;
 LABEL_29:
-  if ( a2 > 0x200 )
+  if ( Size > 0x200 )
     v17 = 512;
   else
-    v17 = a2;
+    v17 = Size;
   if ( NlsMbCodePageTag && (v24 = 0, v17) )
   {
     do
     {
       v18 = v46;
-      if ( NlsLeadByteInfoTable[*((unsigned __int8 *)a1 + v24)] )
+      if ( NlsLeadByteInfoTable[*((unsigned __int8 *)Buffer + v24)] )
       {
         v18 = v46 + 1;
         ++v24;
@@ -290,10 +290,10 @@ LABEL_29:
   if ( !v43 )
     v48 = 16;
 LABEL_37:
-  if ( NlsMbCodePageTag && v18 && a3 && (*a3 & 0x400) != 0 )
+  if ( NlsMbCodePageTag && v18 && Result && (*Result & 0x400) != 0 )
   {
-    v25 = a2 >> 1;
-    if ( a2 >> 1 > 0x100 )
+    v25 = Size >> 1;
+    if ( Size >> 1 > 0x100 )
       v25 = 256;
     v26 = (v25 >> 1) - 1;
     if ( v46 >= v26 / 3 )
@@ -319,22 +319,22 @@ LABEL_37:
     v22 |= 0x40u;
   if ( v29 + v30 + v31 + v32 || v49 && v49 >= v17 / 0x28 )
     v22 |= 0x100u;
-  if ( (a2 & 1) != 0 )
+  if ( (Size & 1) != 0 )
     v22 |= 0x200u;
   if ( v45 )
     v22 |= 0x1000u;
-  if ( *a1 == 0xFEFF )
+  if ( *(_WORD *)Buffer == 0xFEFF )
   {
     v22 |= 8u;
   }
-  else if ( *a1 == 0xFFFE )
+  else if ( *(_WORD *)Buffer == 0xFFFE )
   {
     v22 |= 0x80u;
   }
-  if ( a3 )
+  if ( Result )
   {
-    *a3 &= v22;
-    v22 = *a3;
+    *Result &= v22;
+    v22 = *Result;
   }
   return (v22 & 0xB08) == 8 || (v22 & 0xF0) == 0 && (v22 & 0xF00) == 0 && (v22 & 0xF00F) != 0;
 }

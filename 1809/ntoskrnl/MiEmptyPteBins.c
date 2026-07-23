@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x1400EFC10
+ * XREFs of MiEmptyPteBins @ 0x1400EFC90
  * Callers:
  *     MiInsertCachedPte @ 0x1400344D0 (MiInsertCachedPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiCheckProcessorPteCache @ 0x14005CFB0 (MiCheckProcessorPteCache.c)
- *     MiAdjustPteBins @ 0x1400EFB08 (MiAdjustPteBins.c)
+ *     MiAdjustPteBins @ 0x1400EFB88 (MiAdjustPteBins.c)
  * Callees:
- *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePteMappings @ 0x1402C399C (MiReleaseLargePteMappings.c)
+ *     MiReplenishBitMap @ 0x1400EFE70 (MiReplenishBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePteMappings @ 0x1402C3B8C (MiReleaseLargePteMappings.c)
  */
 
 __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
@@ -43,7 +43,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
   v6 = *(_QWORD *)(a1 + 80);
   v7 = 0;
   v8 = 2 * (unsigned __int16)KeNumberNodes;
-  if ( (__int64 *)a1 != &qword_14043AFA0 )
+  if ( (__int64 *)a1 != &qword_14043C060 )
     v8 = (unsigned __int16)KeNumberNodes;
   if ( !v8 )
     return v3;
@@ -70,7 +70,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
 LABEL_13:
         v15 = CurrentIrql == 2;
       }
-      if ( v15 && (__int64 *)a1 == &qword_14043AFA0 && v7 >= v8 >> 1 )
+      if ( v15 && (__int64 *)a1 == &qword_14043C060 && v7 >= v8 >> 1 )
       {
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 )
           KeGetCurrentIrql();
@@ -83,7 +83,7 @@ LABEL_13:
         _InterlockedOr(v22, 0);
         v17 = (unsigned int)(KiTbFlushTimeStamp - v23) <= 2
            && ((v23 & 1) != 0 || (unsigned int)(KiTbFlushTimeStamp - v23) < 2);
-        if ( (__int64 *)a1 == &qword_14043AFA0 && v7 >= v8 >> 1 )
+        if ( (__int64 *)a1 == &qword_14043C060 && v7 >= v8 >> 1 )
         {
           v19 = MiReleaseLargePteMappings(a1, &v23, v17);
           if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )

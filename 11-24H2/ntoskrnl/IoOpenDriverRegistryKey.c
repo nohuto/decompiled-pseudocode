@@ -1,18 +1,18 @@
 /*
- * XREFs of IoOpenDriverRegistryKey @ 0x1409CA820
+ * XREFs of IoOpenDriverRegistryKey @ 0x1409B5A60
  * Callers:
- *     DifIoOpenDriverRegistryKeyWrapper @ 0x140629BD0 (DifIoOpenDriverRegistryKeyWrapper.c)
+ *     DifIoOpenDriverRegistryKeyWrapper @ 0x140628190 (DifIoOpenDriverRegistryKeyWrapper.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     PiGetServiceNameInfo @ 0x1409CA714 (PiGetServiceNameInfo.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1409CAFD4 (IopApplyMutableTagToRegistryKey.c)
- *     PiCreateServiceStateKey @ 0x1409CB050 (PiCreateServiceStateKey.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     PiCreateServiceStateKey @ 0x1409B569C (PiCreateServiceStateKey.c)
+ *     PiGetServiceNameInfo @ 0x1409B595C (PiGetServiceNameInfo.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x1409B6214 (IopApplyMutableTagToRegistryKey.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, int a4, _QWORD *a5)
@@ -25,17 +25,19 @@ __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, i
   int RegistryValue; // eax
   HANDLE v15; // rax
   int v17; // r14d
-  int ServiceStateKey; // eax
+  __int64 *v18; // r9
+  int v19; // eax
+  UNICODE_STRING *v20; // r9
   HANDLE KeyHandle; // [rsp+48h] [rbp-31h] BYREF
-  _DWORD *v20; // [rsp+50h] [rbp-29h]
+  _DWORD *v22; // [rsp+50h] [rbp-29h]
   HANDLE Handle; // [rsp+58h] [rbp-21h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-9h] BYREF
-  char v24; // [rsp+D8h] [rbp+5Fh] BYREF
+  char v26; // [rsp+D8h] [rbp+5Fh] BYREF
 
   KeyHandle = 0LL;
-  v24 = 0;
-  v20 = 0LL;
+  v26 = 0;
+  v22 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
@@ -66,12 +68,12 @@ __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, i
     goto LABEL_21;
   if ( RegistryValue < 0 )
     goto LABEL_22;
-  if ( v20[1] != 4 || v20[3] != 4 )
+  if ( v22[1] != 4 || v22[3] != 4 )
   {
     ServiceNameInfo = -1073741492;
     goto LABEL_22;
   }
-  if ( (*(_DWORD *)((char *)v20 + (unsigned int)v20[2]) & 0xB) == 0 )
+  if ( (*(_DWORD *)((char *)v22 + (unsigned int)v22[2]) & 0xB) == 0 )
     goto LABEL_21;
   if ( !a2 )
   {
@@ -97,23 +99,29 @@ __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, i
   {
     if ( v17 == 1 )
     {
-      ServiceNameInfo = PiGetServiceNameInfo(a1, &DestinationString, &v24);
+      ServiceNameInfo = PiGetServiceNameInfo(a1, &DestinationString, &v26);
       if ( ServiceNameInfo < 0 )
         goto LABEL_22;
-      ServiceStateKey = PiCreateServiceStateKey((ULONG)&DestinationString, a3, 1, (__int64)&KeyHandle);
-      goto LABEL_32;
+      v20 = (UNICODE_STRING *)&PiDriverRegKeySharedStateName;
+      if ( v26 )
+        v20 = (UNICODE_STRING *)L"\"$";
+      v19 = PiCreateServiceStateKey(&DestinationString, v26, v9, v20, a3, 1, &KeyHandle);
+      goto LABEL_34;
     }
 LABEL_21:
     ServiceNameInfo = -1073741811;
     goto LABEL_22;
   }
-  ServiceNameInfo = PiGetServiceNameInfo(a1, &DestinationString, &v24);
+  ServiceNameInfo = PiGetServiceNameInfo(a1, &DestinationString, &v26);
   if ( ServiceNameInfo < 0 )
     goto LABEL_22;
-  ServiceStateKey = PiCreateServiceStateKey((ULONG)&DestinationString, a3, 0, (__int64)&KeyHandle);
-LABEL_32:
-  ServiceNameInfo = ServiceStateKey;
-  if ( ServiceStateKey >= 0 )
+  v18 = &PiDriverRegKeyPersistentStateName;
+  if ( v26 )
+    v18 = &PiDriverRegKeyUniquePersistentStateName;
+  v19 = PiCreateServiceStateKey(&DestinationString, v26, v9, (UNICODE_STRING *)v18, a3, 0, &KeyHandle);
+LABEL_34:
+  ServiceNameInfo = v19;
+  if ( v19 >= 0 )
   {
     v15 = KeyHandle;
     if ( !KeyHandle )

@@ -6,7 +6,7 @@
  *     _LdrUnloadAlternateResourceModuleEx@8 @ 0x4B2DA360 (_LdrUnloadAlternateResourceModuleEx@8.c)
  */
 
-int __stdcall LdrUnloadAlternateResourceModule(int a1)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModule(PVOID DllHandle)
 {
-  return LdrUnloadAlternateResourceModuleEx(a1, 0);
+  return LdrUnloadAlternateResourceModuleEx(DllHandle, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoDeleteSymbolicLink @ 0x14070C79C
+ * XREFs of VerifierIoDeleteSymbolicLink @ 0x14070C7CC
  * Callers:
  *     <none>
  * Callees:

@@ -10,48 +10,58 @@
  *     ZwSetValueKey @ 0x1800A4C60 (ZwSetValueKey.c)
  */
 
-__int64 RtlpSetMachineUILanguagesImmediate()
+__int64 __fastcall RtlpSetMachineUILanguagesImmediate(__int64 a1)
 {
-  int Key; // ebx
-  __int64 v1; // rdx
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  int v4; // [rsp+50h] [rbp-30h]
-  HANDLE v5; // [rsp+58h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp-20h]
-  int v7; // [rsp+68h] [rbp-18h]
-  __int128 v8; // [rsp+70h] [rbp-10h]
+  NTSTATUS v2; // ebx
+  __int64 v3; // rdx
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+A8h] [rbp+28h] BYREF
+  HANDLE Handle; // [rsp+B0h] [rbp+30h] BYREF
   HANDLE v9; // [rsp+B8h] [rbp+38h] BYREF
 
+  Handle = 0LL;
   v9 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-  v5 = 0LL;
-  p_DestinationString = &DestinationString;
-  v8 = 0LL;
-  v4 = 48;
-  v7 = 64;
-  Key = ZwCreateKey();
-  if ( Key >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  KeyHandle = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  v2 = ZwCreateKey(&KeyHandle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
+  if ( v2 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-    Key = ZwSetValueKey();
-    if ( Key >= 0 && (int)OpenGlobalizationUserSettingsKey(0x2000000u, v1, (__int64)&v9) >= 0 )
+    v2 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 7u, *(PVOID *)(a1 + 8), *(unsigned __int16 *)(a1 + 2));
+    if ( v2 >= 0 && OpenGlobalizationUserSettingsKey(0x2000000u, v3, &v9) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
-      v5 = v9;
-      p_DestinationString = &DestinationString;
-      v4 = 48;
-      v7 = 64;
-      v8 = 0LL;
-      Key = ZwCreateKey();
-      if ( Key >= 0 )
+      ObjectAttributes.RootDirectory = v9;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v2 = ZwCreateKey(&Handle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL);
+      if ( v2 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"MachinePreferredUILanguages");
-        Key = ZwSetValueKey();
+        v2 = ZwSetValueKey(Handle, &DestinationString, 0, 7u, *(PVOID *)(a1 + 8), *(unsigned __int16 *)(a1 + 2));
       }
     }
   }
+  if ( KeyHandle )
+  {
+    NtClose(KeyHandle);
+    KeyHandle = 0LL;
+  }
+  if ( Handle )
+  {
+    NtClose(Handle);
+    Handle = 0LL;
+  }
   if ( v9 )
     NtClose(v9);
-  return (unsigned int)Key;
+  return (unsigned int)v2;
 }

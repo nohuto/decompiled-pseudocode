@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAcpiPmRegisterAvailable @ 0x14046B360
+ * XREFs of HalpAcpiPmRegisterAvailable @ 0x140464AE0
  * Callers:
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
- *     HalpDpPostReplace @ 0x140BEDF84 (HalpDpPostReplace.c)
- *     HalpDpPreReplace @ 0x140BEE240 (HalpDpPreReplace.c)
- *     HalpAcpiPreSleep @ 0x140C08988 (HalpAcpiPreSleep.c)
- *     HalpCheckFixedWakeSources @ 0x140C0D340 (HalpCheckFixedWakeSources.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
+ *     HalpDpPostReplace @ 0x140BF3F84 (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x140BF4240 (HalpDpPreReplace.c)
+ *     HalpAcpiPreSleep @ 0x140C0EB98 (HalpAcpiPreSleep.c)
+ *     HalpCheckFixedWakeSources @ 0x140C13550 (HalpCheckFixedWakeSources.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxActivateComponentWorker @ 0x14037AE70
+ * XREFs of PopFxActivateComponentWorker @ 0x14037CC20
  * Callers:
- *     PopFxActivateComponent @ 0x14037AB40 (PopFxActivateComponent.c)
- *     PopFxIdleWorkerTail @ 0x140395604 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponent @ 0x14037C8F0 (PopFxActivateComponent.c)
+ *     PopFxIdleWorkerTail @ 0x140397384 (PopFxIdleWorkerTail.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopFxDeviceCriticalRegionEnter @ 0x1403955A8 (PopFxDeviceCriticalRegionEnter.c)
- *     PopFxDeviceCriticalRegionLeave @ 0x1403955D8 (PopFxDeviceCriticalRegionLeave.c)
- *     PopFxCompleteComponentActivation @ 0x1403AECF4 (PopFxCompleteComponentActivation.c)
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxActivateComponentDependencies @ 0x140469FA0 (PopFxActivateComponentDependencies.c)
- *     PopPluginNotifyActive @ 0x140481B4C (PopPluginNotifyActive.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopFxDeviceCriticalRegionEnter @ 0x140397328 (PopFxDeviceCriticalRegionEnter.c)
+ *     PopFxDeviceCriticalRegionLeave @ 0x140397358 (PopFxDeviceCriticalRegionLeave.c)
+ *     PopFxCompleteComponentActivation @ 0x1403B8A04 (PopFxCompleteComponentActivation.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxActivateComponentDependencies @ 0x140463720 (PopFxActivateComponentDependencies.c)
+ *     PopPluginNotifyActive @ 0x14047B4BC (PopPluginNotifyActive.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PopFxActivateComponentWorker(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, void *a4)

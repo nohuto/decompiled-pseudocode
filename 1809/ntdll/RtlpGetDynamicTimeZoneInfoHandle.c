@@ -6,7 +6,7 @@
  *     RtlStringCbCatW @ 0x1800533D8 (RtlStringCbCatW.c)
  *     RtlStringLengthWorkerW @ 0x1800534A8 (RtlStringLengthWorkerW.c)
  *     RtlpGetRegistryHandle @ 0x180053FCC (RtlpGetRegistryHandle.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpGetDynamicTimeZoneInfoHandle(_WORD *a1, __int64 a2)

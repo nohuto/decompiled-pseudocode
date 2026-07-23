@@ -1,13 +1,13 @@
 /*
- * XREFs of IovAiRemoveObject @ 0x1405321F0
+ * XREFs of IovAiRemoveObject @ 0x140534690
  * Callers:
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     ViPtRaiseIrqlSafe @ 0x140641D9C (ViPtRaiseIrqlSafe.c)
- *     IovAiAcquireDbLockAtDpcLevelSafe @ 0x140641E40 (IovAiAcquireDbLockAtDpcLevelSafe.c)
- *     IovAiCleanDbLockContext @ 0x140641EC0 (IovAiCleanDbLockContext.c)
- *     IovAiReleaseDbLockFromDpcLevel @ 0x140642220 (IovAiReleaseDbLockFromDpcLevel.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtRaiseIrqlSafe @ 0x14064597C (ViPtRaiseIrqlSafe.c)
+ *     IovAiAcquireDbLockAtDpcLevelSafe @ 0x140645A20 (IovAiAcquireDbLockAtDpcLevelSafe.c)
+ *     IovAiCleanDbLockContext @ 0x140645AA0 (IovAiCleanDbLockContext.c)
+ *     IovAiReleaseDbLockFromDpcLevel @ 0x140645E00 (IovAiReleaseDbLockFromDpcLevel.c)
  */
 
 __int64 __fastcall IovAiRemoveObject(__int64 a1)

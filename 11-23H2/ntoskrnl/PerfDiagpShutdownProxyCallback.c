@@ -1,9 +1,9 @@
 /*
- * XREFs of PerfDiagpShutdownProxyCallback @ 0x1409DDB60
+ * XREFs of PerfDiagpShutdownProxyCallback @ 0x1409DDD60
  * Callers:
  *     <none>
  * Callees:
- *     PerfDiagpRequestState @ 0x14085F24C (PerfDiagpRequestState.c)
+ *     PerfDiagpRequestState @ 0x14085F48C (PerfDiagpRequestState.c)
  */
 
 void __fastcall PerfDiagpShutdownProxyCallback(

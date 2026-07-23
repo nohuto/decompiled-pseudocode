@@ -3,43 +3,39 @@
  * Callers:
  *     SmInitSystem @ 0x1407B62B8 (SmInitSystem.c)
  * Callees:
- *     RtlQueryRegistryValuesEx @ 0x1404F6E7C (RtlQueryRegistryValuesEx.c)
+ *     RtlQueryRegistryValuesEx @ 0x1404D9E08 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall SmQueryRegistry(__int64 a1)
 {
-  __int64 v2; // [rsp+30h] [rbp-19h] BYREF
-  int v3; // [rsp+38h] [rbp-11h]
-  const wchar_t *v4; // [rsp+40h] [rbp-9h]
-  __int64 v5; // [rsp+48h] [rbp-1h]
-  int v6; // [rsp+50h] [rbp+7h]
-  __int64 v7; // [rsp+58h] [rbp+Fh]
-  int v8; // [rsp+60h] [rbp+17h]
-  __int64 v9; // [rsp+68h] [rbp+1Fh]
-  int v10; // [rsp+70h] [rbp+27h]
-  __int64 v11; // [rsp+78h] [rbp+2Fh]
-  __int64 v12; // [rsp+80h] [rbp+37h]
-  int v13; // [rsp+88h] [rbp+3Fh]
-  __int64 v14; // [rsp+90h] [rbp+47h]
-  int v15; // [rsp+98h] [rbp+4Fh]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF
+  __int64 v3; // [rsp+68h] [rbp+1Fh]
+  int v4; // [rsp+70h] [rbp+27h]
+  __int64 v5; // [rsp+78h] [rbp+2Fh]
+  __int64 v6; // [rsp+80h] [rbp+37h]
+  int v7; // [rsp+88h] [rbp+3Fh]
+  __int64 v8; // [rsp+90h] [rbp+47h]
+  int v9; // [rsp+98h] [rbp+4Fh]
 
-  v3 = 288;
-  v2 = 0LL;
-  v4 = L"EnableDirtyStores";
-  v7 = 0LL;
-  v8 = 0;
-  v9 = 0LL;
-  v10 = 0;
-  v11 = 0LL;
-  v12 = 0LL;
-  v13 = 0;
-  v14 = 0LL;
-  v15 = 0;
-  v5 = a1 + 1800;
-  v6 = 0x4000000;
+  QueryTable.Flags = 288;
+  QueryTable.QueryRoutine = 0LL;
+  QueryTable.Name = L"EnableDirtyStores";
+  QueryTable.DefaultData = 0LL;
+  QueryTable.DefaultLength = 0;
+  v3 = 0LL;
+  v4 = 0;
+  v5 = 0LL;
+  v6 = 0LL;
+  v7 = 0;
+  v8 = 0LL;
+  v9 = 0;
+  QueryTable.EntryContext = (PVOID)(a1 + 1800);
+  QueryTable.DefaultType = 0x4000000;
   RtlQueryRegistryValuesEx(
+    0,
+    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters",
+    &QueryTable,
     0LL,
-    (__int64)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters",
-    (__int64)&v2);
+    0LL);
   return 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeBaseMcbEx @ 0x14008D544
+ * XREFs of FsRtlInitializeBaseMcbEx @ 0x14008CCA8
  * Callers:
- *     FsRtlInitializeLargeMcb @ 0x14008D4D8 (FsRtlInitializeLargeMcb.c)
- *     FsRtlInitializeBaseMcb @ 0x14008D538 (FsRtlInitializeBaseMcb.c)
+ *     FsRtlInitializeLargeMcb @ 0x14008CC3C (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeBaseMcb @ 0x14008CC9C (FsRtlInitializeBaseMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x14006FEB0 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14006FA30 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,25 +1,25 @@
 /*
- * XREFs of SymCryptRsaCoreDecCrt @ 0x14055E3DC
+ * XREFs of SymCryptRsaCoreDecCrt @ 0x140560900
  * Callers:
- *     SymCryptRsaPkcs1Sign @ 0x14055EB54 (SymCryptRsaPkcs1Sign.c)
+ *     SymCryptRsaPkcs1Sign @ 0x140561078 (SymCryptRsaPkcs1Sign.c)
  * Callees:
- *     SymCryptDivisorFromModulus @ 0x14055C100 (SymCryptDivisorFromModulus.c)
- *     SymCryptIntBitsizeOfValue @ 0x14055C178 (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntCreate @ 0x14055C1F0 (SymCryptIntCreate.c)
- *     SymCryptIntDivMod @ 0x14055C208 (SymCryptIntDivMod.c)
- *     SymCryptIntGetValue @ 0x14055C2D4 (SymCryptIntGetValue.c)
- *     SymCryptIntIsEqual @ 0x14055C31C (SymCryptIntIsEqual.c)
- *     SymCryptIntSetValue @ 0x14055C3B4 (SymCryptIntSetValue.c)
- *     SymCryptIntSetValueUint64 @ 0x14055C3E4 (SymCryptIntSetValueUint64.c)
- *     SymCryptIntToModElement @ 0x14055C488 (SymCryptIntToModElement.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModElementToInt @ 0x14055C734 (SymCryptModElementToInt.c)
- *     SymCryptModExp @ 0x14055C7AC (SymCryptModExp.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModElementFromModulus @ 0x14055C9C0 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptRsaCoreVerifyInput @ 0x14055EA90 (SymCryptRsaCoreVerifyInput.c)
- *     SymCryptCrtSolve @ 0x140562634 (SymCryptCrtSolve.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     SymCryptDivisorFromModulus @ 0x14055E5E8 (SymCryptDivisorFromModulus.c)
+ *     SymCryptIntBitsizeOfValue @ 0x14055E660 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x14055E6D8 (SymCryptIntCreate.c)
+ *     SymCryptIntDivMod @ 0x14055E6F0 (SymCryptIntDivMod.c)
+ *     SymCryptIntGetValue @ 0x14055E7BC (SymCryptIntGetValue.c)
+ *     SymCryptIntIsEqual @ 0x14055E804 (SymCryptIntIsEqual.c)
+ *     SymCryptIntSetValue @ 0x14055E89C (SymCryptIntSetValue.c)
+ *     SymCryptIntSetValueUint64 @ 0x14055E8CC (SymCryptIntSetValueUint64.c)
+ *     SymCryptIntToModElement @ 0x14055E970 (SymCryptIntToModElement.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModElementToInt @ 0x14055EC1C (SymCryptModElementToInt.c)
+ *     SymCryptModExp @ 0x14055EC94 (SymCryptModExp.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14055EEA8 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptRsaCoreVerifyInput @ 0x140560FB4 (SymCryptRsaCoreVerifyInput.c)
+ *     SymCryptCrtSolve @ 0x140564B44 (SymCryptCrtSolve.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptRsaCoreDecCrt(

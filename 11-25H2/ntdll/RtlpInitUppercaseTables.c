@@ -8,15 +8,21 @@
 
 __int64 __fastcall RtlpInitUppercaseTables(__int16 a1)
 {
-  __int64 v1; // rax
-  __int64 v3; // [rsp+48h] [rbp+10h] BYREF
+  PVOID v1; // rax
+  PVOID SectionPointer; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = 0LL;
-  if ( a1 && ((int)ZwGetNlsSectionPtr(14LL, 0LL, 0LL, &v3, 0LL) >= 0 ? (v1 = v3) : (v1 = 0LL, v3 = 0LL), v1) )
+  SectionPointer = 0LL;
+  if ( a1
+    && (ZwGetNlsSectionPtr(0xEu, 0, 0LL, &SectionPointer, 0LL) >= 0
+      ? (v1 = SectionPointer)
+      : (v1 = 0LL, SectionPointer = 0LL),
+        v1) )
   {
-    _InterlockedExchange64(&qword_1801CF038, v1 + 4);
-    _InterlockedExchange64(&qword_1801CF040, v3 + 2LL * *(unsigned __int16 *)(v3 + 2) + 4);
-    qword_1801CF030 = v3;
+    _InterlockedExchange64(&qword_1801CF038, (__int64)v1 + 4);
+    _InterlockedExchange64(
+      &qword_1801CF040,
+      (__int64)SectionPointer + 2 * *((unsigned __int16 *)SectionPointer + 1) + 4);
+    qword_1801CF030 = (__int64)SectionPointer;
   }
   else
   {

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPrepareWriteWatchPacket @ 0x140A8DCD0
+ * XREFs of MiPrepareWriteWatchPacket @ 0x140A929A0
  * Callers:
- *     NtGetWriteWatch @ 0x140A8DAE0 (NtGetWriteWatch.c)
+ *     NtGetWriteWatch @ 0x140A927B0 (NtGetWriteWatch.c)
  * Callees:
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiGetVadMandatoryPageSize @ 0x140317E90 (MiGetVadMandatoryPageSize.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiGetVadPtesInCluster @ 0x1404F8D3C (MiGetVadPtesInCluster.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiGetVadMandatoryPageSize @ 0x140319EC0 (MiGetVadMandatoryPageSize.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiGetVadPtesInCluster @ 0x1404F234C (MiGetVadPtesInCluster.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MiPrepareWriteWatchPacket(__int64 a1)
@@ -107,7 +107,15 @@ __int64 __fastcall MiPrepareWriteWatchPacket(__int64 a1)
   }
   else
   {
-    result = ObpReferenceObjectByHandleWithTag(v14, 8LL, PsProcessType, PreviousMode, 0x77576D4Du, &v29, 0LL, 0LL);
+    result = ObpReferenceObjectByHandleWithTag(
+               v14,
+               8,
+               (__int64)PsProcessType,
+               PreviousMode,
+               0x77576D4Du,
+               &v29,
+               0LL,
+               0LL);
     v28 = result;
     if ( (int)result < 0 )
       return result;

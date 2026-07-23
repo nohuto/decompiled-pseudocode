@@ -1,30 +1,30 @@
 /*
- * XREFs of PopFilterCapabilities @ 0x140944D5C
+ * XREFs of PopFilterCapabilities @ 0x1409C06CC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14050EC70 (PopIdleArmAoAcDozeS4Timer.c)
- *     PoTtmInitiatePowerStateTransition @ 0x1407DB808 (PoTtmInitiatePowerStateTransition.c)
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140943D98 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
- *     PopVerifyPowerActionPolicy @ 0x140944AA0 (PopVerifyPowerActionPolicy.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopSmartSuspendMakePredictions @ 0x140B6B6EC (PopSmartSuspendMakePredictions.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x1405086E0 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x1407DF818 (PoTtmInitiatePowerStateTransition.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x1409BF708 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PopVerifyPowerActionPolicy @ 0x1409C0410 (PopVerifyPowerActionPolicy.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopSmartSuspendMakePredictions @ 0x140B6E7E8 (PopSmartSuspendMakePredictions.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IopAppendLegacyVeto @ 0x1407B21C4 (IopAppendLegacyVeto.c)
- *     PopCheckDisabledState @ 0x140945078 (PopCheckDisabledState.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1409450A8 (PopRemoveReasonRecordByReasonCode.c)
- *     PopGetReasonListByReasonCode @ 0x1409450F4 (PopGetReasonListByReasonCode.c)
- *     PopLogDisabledSleepReason @ 0x14094512C (PopLogDisabledSleepReason.c)
- *     IopGetLegacyVetoListDrivers @ 0x14094522C (IopGetLegacyVetoListDrivers.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409454B0 (IopGetLegacyVetoListDeviceNode.c)
- *     PopLogSleepDisabled @ 0x140945880 (PopLogSleepDisabled.c)
- *     EmClientQueryRuleState @ 0x140C03950 (EmClientQueryRuleState.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IopAppendLegacyVeto @ 0x1407B5224 (IopAppendLegacyVeto.c)
+ *     PopCheckDisabledState @ 0x1409C09E8 (PopCheckDisabledState.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x1409C0A18 (PopRemoveReasonRecordByReasonCode.c)
+ *     PopGetReasonListByReasonCode @ 0x1409C0A64 (PopGetReasonListByReasonCode.c)
+ *     PopLogDisabledSleepReason @ 0x1409C0A9C (PopLogDisabledSleepReason.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1409C0B9C (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1409C0E20 (IopGetLegacyVetoListDeviceNode.c)
+ *     PopLogSleepDisabled @ 0x1409C11F0 (PopLogSleepDisabled.c)
+ *     EmClientQueryRuleState @ 0x140C09B60 (EmClientQueryRuleState.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
   char v11; // r10
   unsigned int v12; // r11d
   _DWORD *Pool2; // rax
-  _QWORD *IptSaveArea; // rcx
+  _QWORD *FirstArgument; // rcx
   __int64 v16; // r9
   char *v17; // rdx
   __int64 v18; // rax
@@ -96,7 +96,7 @@ __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
   if ( v28 )
   {
     LODWORD(v21[0]) = 0x20000;
-    v21[1] = &word_140B814F0;
+    v21[1] = &word_140B8A320;
     IopAppendLegacyVeto((const void ***)&p_P, v21);
     v7 = v27;
   }
@@ -155,13 +155,13 @@ LABEL_11:
       {
         Pool2[6] = 7;
         *((_BYTE *)Pool2 + 22) = 1;
-        IptSaveArea = stru_140F10070.IptSaveArea;
-        if ( *(struct _KTHREAD **)stru_140F10070.IptSaveArea != (struct _KTHREAD *)&stru_140F10070.SystemAffinityTokenListHead )
+        FirstArgument = PpmIdlePolicyLock.FirstArgument;
+        if ( *(struct _KTHREAD **)PpmIdlePolicyLock.FirstArgument != (struct _KTHREAD *)&PpmIdlePolicyLock.SystemCallNumber )
           goto LABEL_52;
-        *(_QWORD *)Pool2 = &stru_140F10070.SystemAffinityTokenListHead;
-        *((_QWORD *)Pool2 + 1) = IptSaveArea;
-        *IptSaveArea = Pool2;
-        stru_140F10070.IptSaveArea = Pool2;
+        *(_QWORD *)Pool2 = &PpmIdlePolicyLock.SystemCallNumber;
+        *((_QWORD *)Pool2 + 1) = FirstArgument;
+        *FirstArgument = Pool2;
+        PpmIdlePolicyLock.FirstArgument = Pool2;
       }
     }
   }
@@ -169,7 +169,7 @@ LABEL_11:
   {
     PopRemoveReasonRecordByReasonCode(7LL);
   }
-  if ( !byte_140F106DD )
+  if ( !PpmIdlePolicyLock.PriorityFloorCounts[5] )
   {
     PopRemoveReasonRecordByReasonCode(14LL);
     goto LABEL_16;
@@ -182,13 +182,13 @@ LABEL_11:
       v19[6] = 14;
       *((_WORD *)v19 + 8) = 257;
       *((_BYTE *)v19 + 18) = 1;
-      v20 = stru_140F10070.IptSaveArea;
-      if ( *(struct _KTHREAD **)stru_140F10070.IptSaveArea == (struct _KTHREAD *)&stru_140F10070.SystemAffinityTokenListHead )
+      v20 = PpmIdlePolicyLock.FirstArgument;
+      if ( *(struct _KTHREAD **)PpmIdlePolicyLock.FirstArgument == (struct _KTHREAD *)&PpmIdlePolicyLock.SystemCallNumber )
       {
-        *(_QWORD *)v19 = &stru_140F10070.SystemAffinityTokenListHead;
+        *(_QWORD *)v19 = &PpmIdlePolicyLock.SystemCallNumber;
         *((_QWORD *)v19 + 1) = v20;
         *v20 = v19;
-        stru_140F10070.IptSaveArea = v19;
+        PpmIdlePolicyLock.FirstArgument = v19;
         goto LABEL_16;
       }
 LABEL_52:

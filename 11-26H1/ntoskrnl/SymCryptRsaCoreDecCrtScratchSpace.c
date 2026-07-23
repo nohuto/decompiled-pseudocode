@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptRsaCoreDecCrtScratchSpace @ 0x14055E780
+ * XREFs of SymCryptRsaCoreDecCrtScratchSpace @ 0x140560CA4
  * Callers:
- *     SymCryptRsaPkcs1Sign @ 0x14055EB54 (SymCryptRsaPkcs1Sign.c)
+ *     SymCryptRsaPkcs1Sign @ 0x140561078 (SymCryptRsaPkcs1Sign.c)
  * Callees:
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
  */
 
 __int64 __fastcall SymCryptRsaCoreDecCrtScratchSpace(_DWORD *a1)

@@ -15,7 +15,7 @@ void __fastcall sub_180076EC8(__int64 a1)
   if ( a1 )
   {
     v2 = *(_QWORD *)(a1 + 128);
-    *(struct _GUID *)(a1 + 232) = NtCurrentTeb()->ActivityId;
+    *(GUID *)(a1 + 232) = NtCurrentTeb()->ActivityId;
     if ( v2 )
     {
       if ( (*(_BYTE *)(v2 + 436) & 1) == 0 )
@@ -32,7 +32,7 @@ void __fastcall sub_180076EC8(__int64 a1)
           v3 |= 0x10u;
           *(_DWORD *)(a1 + 104) = v3;
         }
-        if ( RtlIsCriticalSectionLockedByThread((__int64)NtCurrentPeb()->LoaderLock) )
+        if ( RtlIsCriticalSectionLockedByThread(NtCurrentPeb()->LoaderLock) )
         {
           v3 |= 0x20u;
           *(_DWORD *)(a1 + 104) = v3;

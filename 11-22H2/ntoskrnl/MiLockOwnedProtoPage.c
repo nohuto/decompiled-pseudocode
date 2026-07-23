@@ -37,10 +37,10 @@ unsigned __int64 __fastcall MiLockOwnedProtoPage(__int64 CurrentIrql, unsigned _
     _InterlockedAnd64(v2, 0x7FFFFFFFFFFFFFFFuLL);
     if ( (_BYTE)i != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)CurrentIrql <= 0xFu
           && (unsigned __int8)i <= 0xFu
           && (unsigned __int8)CurrentIrql >= 2u )

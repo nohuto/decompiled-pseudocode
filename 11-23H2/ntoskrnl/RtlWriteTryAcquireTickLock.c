@@ -2,7 +2,7 @@
  * XREFs of RtlWriteTryAcquireTickLock @ 0x14020D914
  * Callers:
  *     KeFreezeExecution @ 0x14020D540 (KeFreezeExecution.c)
- *     KiSchedulerDpc @ 0x14066D6B0 (KiSchedulerDpc.c)
+ *     KiSchedulerDpc @ 0x14066DC00 (KiSchedulerDpc.c)
  * Callees:
  *     <none>
  */

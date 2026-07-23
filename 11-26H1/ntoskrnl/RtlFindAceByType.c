@@ -1,43 +1,43 @@
 /*
- * XREFs of RtlFindAceByType @ 0x1404330E0
+ * XREFs of RtlFindAceByType @ 0x1404281B0
  * Callers:
- *     SeComputeAutoInheritByObjectTypeEx @ 0x140455AC0 (SeComputeAutoInheritByObjectTypeEx.c)
- *     SepMandatorySubProcessToken @ 0x1405154C8 (SepMandatorySubProcessToken.c)
- *     AdtpGetCapID @ 0x14052E6DC (AdtpGetCapID.c)
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
- *     RtlpInheritAcl2 @ 0x1408E3180 (RtlpInheritAcl2.c)
- *     RtlpCopyAces @ 0x1408E3E80 (RtlpCopyAces.c)
- *     RtlpSetSecurityObject @ 0x1409229F0 (RtlpSetSecurityObject.c)
- *     RtlpValidFilterAclSubjectContext @ 0x140A5DD80 (RtlpValidFilterAclSubjectContext.c)
- *     SeQueryMandatoryLabel @ 0x140AB7D2C (SeQueryMandatoryLabel.c)
- *     SepSDContainsAttributeACE @ 0x140B59F30 (SepSDContainsAttributeACE.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x14044DBF0 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SepMandatorySubProcessToken @ 0x14050EF38 (SepMandatorySubProcessToken.c)
+ *     AdtpGetCapID @ 0x140530BFC (AdtpGetCapID.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
+ *     RtlpInheritAcl2 @ 0x1408E9740 (RtlpInheritAcl2.c)
+ *     RtlpCopyAces @ 0x1408EA440 (RtlpCopyAces.c)
+ *     RtlpSetSecurityObject @ 0x1408FE500 (RtlpSetSecurityObject.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x140A6AD40 (RtlpValidFilterAclSubjectContext.c)
+ *     SeQueryMandatoryLabel @ 0x140AB936C (SeQueryMandatoryLabel.c)
+ *     SepSDContainsAttributeACE @ 0x140B5CE18 (SepSDContainsAttributeACE.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 *__fastcall RtlFindAceByType(__int64 a1, int a2, unsigned int *a3)
+PVOID __cdecl RtlFindAceByType(PACL Acl, UCHAR AceType, PULONG Index)
 {
-  unsigned __int8 *v3; // r11
+  PACL v3; // r11
   unsigned int i; // r9d
 
-  if ( a1 )
+  if ( Acl )
   {
-    v3 = (unsigned __int8 *)(a1 + 8);
-    for ( i = 0; i < *(unsigned __int16 *)(a1 + 4); ++i )
+    v3 = Acl + 1;
+    for ( i = 0; i < Acl->AceCount; ++i )
     {
-      if ( a3 )
+      if ( Index )
       {
-        if ( i >= *a3 && *v3 == a2 )
+        if ( i >= *Index && v3->AclRevision == AceType )
         {
-          *a3 = i;
+          *Index = i;
           return v3;
         }
       }
-      else if ( *v3 == a2 )
+      else if ( v3->AclRevision == AceType )
       {
         return v3;
       }
-      v3 += *((unsigned __int16 *)v3 + 1);
+      v3 = (PACL)((char *)v3 + v3->AclSize);
     }
   }
   return 0LL;

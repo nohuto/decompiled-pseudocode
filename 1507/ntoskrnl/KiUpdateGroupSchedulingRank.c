@@ -29,11 +29,11 @@ void __fastcall KiUpdateGroupSchedulingRank(__int64 a1, __int64 a2, char a3)
   __int64 v19; // rcx
   __int64 *v20; // r14
   __int64 v21; // rax
-  __int64 v22; // rax
+  _RTL_RB_TREE *v22; // rax
   __int64 v23; // rcx
   __int64 *v24; // r14
   __int64 v25; // rax
-  __int64 v26; // r8
+  _RTL_RB_TREE *v26; // r8
 
   v6 = *(_QWORD *)(a1 + 104);
   if ( !v6 )
@@ -63,12 +63,12 @@ void __fastcall KiUpdateGroupSchedulingRank(__int64 a1, __int64 a2, char a3)
           {
             v24 = (__int64 *)(v23 + 392);
             v25 = *(_QWORD *)(v23 + 392);
-            v26 = v25 + 376;
+            v26 = (_RTL_RB_TREE *)(v25 + 376);
             if ( !v25 )
-              v26 = a2 + 22768;
+              v26 = (_RTL_RB_TREE *)(a2 + 22768);
             *(_QWORD *)(v23 + 56) += MEMORY[0xFFFFF78000000008] - *(_QWORD *)(v23 + 64);
             *(_BYTE *)(v23 + 112) &= ~1u;
-            RtlRbRemoveNode(v26, v23 + 88);
+            RtlRbRemoveNode(v26, (PRTL_BALANCED_NODE)(v23 + 88));
             v23 = *v24;
           }
           while ( *v24 && (*(_BYTE *)(v23 + 112) & 1) != 0 && !*(_QWORD *)(v23 + 376) && !*(_WORD *)(v23 + 114) );
@@ -140,11 +140,11 @@ LABEL_36:
             v20 = (__int64 *)(v19 + 392);
             v21 = *(_QWORD *)(v19 + 392);
             if ( v21 )
-              v22 = v21 + 376;
+              v22 = (_RTL_RB_TREE *)(v21 + 376);
             else
-              v22 = a2 + 22768;
+              v22 = (_RTL_RB_TREE *)(a2 + 22768);
             *(_BYTE *)(v19 + 112) &= ~1u;
-            RtlRbRemoveNode(v22, v19 + 88);
+            RtlRbRemoveNode(v22, (PRTL_BALANCED_NODE)(v19 + 88));
             v19 = *v20;
           }
           while ( *v20 && (*(_BYTE *)(v19 + 112) & 1) != 0 && !*(_QWORD *)(v19 + 376) && !*(_WORD *)(v19 + 114) );

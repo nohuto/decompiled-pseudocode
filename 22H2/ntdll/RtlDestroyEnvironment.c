@@ -6,8 +6,8 @@
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlDestroyEnvironment(__int64 a1)
+NTSTATUS __cdecl RtlDestroyEnvironment(PVOID Environment)
 {
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
-  return 0LL;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Environment);
+  return 0;
 }

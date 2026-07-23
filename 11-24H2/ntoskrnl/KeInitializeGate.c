@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInitializeGate @ 0x1404892A8
+ * XREFs of KeInitializeGate @ 0x1404842C4
  * Callers:
- *     KeRcuSynchronize @ 0x14073C200 (KeRcuSynchronize.c)
- *     KeSrcuSynchronize @ 0x14073C950 (KeSrcuSynchronize.c)
- *     PspDereferenceSessionFinal @ 0x14077BA80 (PspDereferenceSessionFinal.c)
- *     MmScrubMemory @ 0x1407FDC70 (MmScrubMemory.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     KiInitializeProcessor @ 0x140B565CC (KiInitializeProcessor.c)
- *     sub_140BD60B0 @ 0x140BD60B0 (sub_140BD60B0.c)
- *     sub_140BDF96C @ 0x140BDF96C (sub_140BDF96C.c)
+ *     KeRcuSynchronize @ 0x14073A130 (KeRcuSynchronize.c)
+ *     KeSrcuSynchronize @ 0x14073A880 (KeSrcuSynchronize.c)
+ *     PspDereferenceSessionFinal @ 0x14077B930 (PspDereferenceSessionFinal.c)
+ *     MmScrubMemory @ 0x1407FE3E0 (MmScrubMemory.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     KiInitializeProcessor @ 0x140B5861C (KiInitializeProcessor.c)
+ *     sub_140BD80B0 @ 0x140BD80B0 (sub_140BD80B0.c)
+ *     sub_140BE196C @ 0x140BE196C (sub_140BE196C.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeShadowPageTable @ 0x14081DF00
+ * XREFs of MiInitializeShadowPageTable @ 0x14081E1D0
  * Callers:
- *     MiMakeShadowPageTableRange @ 0x14081DDF0 (MiMakeShadowPageTableRange.c)
+ *     MiMakeShadowPageTableRange @ 0x14081E0C0 (MiMakeShadowPageTableRange.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSetPfnOldestWsleLeafCount @ 0x140292504 (MiSetPfnOldestWsleLeafCount.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E3F60 (MiInitializePfnForOtherProcess.c)
- *     MiReplicatePteChange @ 0x140368300 (MiReplicatePteChange.c)
- *     MiMarkPxeAsShadowed @ 0x1403765A4 (MiMarkPxeAsShadowed.c)
- *     MiVaToPfnEx @ 0x14038A270 (MiVaToPfnEx.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1403C06B0 (MiReadWriteAnyLevelShadowPte.c)
- *     MI_IS_PTE_SHADOW_STACK @ 0x140645730 (MI_IS_PTE_SHADOW_STACK.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSetPfnOldestWsleLeafCount @ 0x140292794 (MiSetPfnOldestWsleLeafCount.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiInitializePfnForOtherProcess @ 0x1402E41F0 (MiInitializePfnForOtherProcess.c)
+ *     MiReplicatePteChange @ 0x1403684A0 (MiReplicatePteChange.c)
+ *     MiMarkPxeAsShadowed @ 0x140376744 (MiMarkPxeAsShadowed.c)
+ *     MiVaToPfnEx @ 0x14038A450 (MiVaToPfnEx.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1403C0890 (MiReadWriteAnyLevelShadowPte.c)
+ *     MI_IS_PTE_SHADOW_STACK @ 0x140645C80 (MI_IS_PTE_SHADOW_STACK.c)
  */
 
 void __fastcall MiInitializeShadowPageTable(unsigned __int64 a1, _DWORD *a2, int a3)

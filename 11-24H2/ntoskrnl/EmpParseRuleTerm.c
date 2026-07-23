@@ -1,16 +1,16 @@
 /*
- * XREFs of EmpParseRuleTerm @ 0x140C16E50
+ * XREFs of EmpParseRuleTerm @ 0x140C18E50
  * Callers:
- *     EmpParseRuleExpression @ 0x140C16900 (EmpParseRuleExpression.c)
+ *     EmpParseRuleExpression @ 0x140C18900 (EmpParseRuleExpression.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x14045273C (EmpSearchRuleDatabase.c)
- *     strchr @ 0x1404FF820 (strchr.c)
- *     EmpSearchCallbackDatabase @ 0x14057F500 (EmpSearchCallbackDatabase.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpInfParseGetGuidFromName @ 0x140C16244 (EmpInfParseGetGuidFromName.c)
- *     EmpParseRuleTermArgMapping @ 0x140C16FD0 (EmpParseRuleTermArgMapping.c)
+ *     EmpSearchRuleDatabase @ 0x1404477EC (EmpSearchRuleDatabase.c)
+ *     strchr @ 0x1404FD0E0 (strchr.c)
+ *     EmpSearchCallbackDatabase @ 0x14057C990 (EmpSearchCallbackDatabase.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140C18244 (EmpInfParseGetGuidFromName.c)
+ *     EmpParseRuleTermArgMapping @ 0x140C18FD0 (EmpParseRuleTermArgMapping.c)
  */
 
 __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, unsigned int *a5)

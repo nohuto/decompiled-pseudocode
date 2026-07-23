@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAttemptPageFileReductionApc @ 0x1401EDF10
+ * XREFs of MiAttemptPageFileReductionApc @ 0x1401EDD3C
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     MiCoalescePageFileBitmapsCache @ 0x14001A460 (MiCoalescePageFileBitmapsCache.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiOkToShrinkPageFiles @ 0x140076004 (MiOkToShrinkPageFiles.c)
- *     RtlFindLastBackwardRunClear @ 0x1400AB7F8 (RtlFindLastBackwardRunClear.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x1400B6934 (MiInvalidatePageFileBitmapsCache.c)
- *     MiReduceCommitLimits @ 0x1401ED148 (MiReduceCommitLimits.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140019FE0 (MiCoalescePageFileBitmapsCache.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiOkToShrinkPageFiles @ 0x140076084 (MiOkToShrinkPageFiles.c)
+ *     RtlFindLastBackwardRunClear @ 0x1400A9D60 (RtlFindLastBackwardRunClear.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1400B475C (MiInvalidatePageFileBitmapsCache.c)
+ *     MiReduceCommitLimits @ 0x1401ECF74 (MiReduceCommitLimits.c)
  */
 
 LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
@@ -35,7 +35,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int16 v14; // ax
   __int64 v15; // rax
   int v16; // r9d
-  struct _RTL_BITMAP *v17; // r10
+  _RTL_BITMAP *v17; // r10
   const signed __int32 *v18; // r8
   unsigned int v19; // ecx
   const signed __int32 *v20; // rdx
@@ -51,7 +51,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v30; // rdx
   unsigned __int64 v31; // rax
   __int64 v32; // rcx
-  struct _RTL_BITMAP *v33; // rbx
+  _RTL_BITMAP *v33; // rbx
   unsigned int v35; // [rsp+30h] [rbp-59h]
   int v36; // [rsp+34h] [rbp-55h]
   _DWORD *v37; // [rsp+38h] [rbp-51h]
@@ -64,8 +64,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   ULONG v44; // [rsp+6Ch] [rbp-1Dh] BYREF
   PRTL_BITMAP v45; // [rsp+70h] [rbp-19h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+78h] [rbp-11h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+90h] [rbp+7h] BYREF
-  struct _RTL_BITMAP v48; // [rsp+A0h] [rbp+17h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+90h] [rbp+7h] BYREF
+  _RTL_BITMAP v48; // [rsp+A0h] [rbp+17h] BYREF
   struct _KEVENT *Event; // [rsp+F0h] [rbp+67h]
   int v50; // [rsp+108h] [rbp+7Fh]
 
@@ -118,7 +118,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v13 + 232), &LockHandle);
         v15 = *(_QWORD *)(v13 + 112);
         v16 = *(_DWORD *)v13;
-        v17 = (struct _RTL_BITMAP *)(v15 + 8);
+        v17 = (_RTL_BITMAP *)(v15 + 8);
         v18 = *(const signed __int32 **)(v15 + 16);
         v19 = *(_DWORD *)v13 - 1;
         v41 = (PRTL_BITMAP)(v15 + 8);
@@ -204,7 +204,7 @@ LABEL_35:
                 *(_QWORD *)(v13 + 24) += LastBackwardRunClear;
                 *(_QWORD *)(v13 + 48) += LastBackwardRunClear;
                 *(_QWORD *)v13 = v29 + LastBackwardRunClear;
-                v33 = (struct _RTL_BITMAP *)(v32 + 24);
+                v33 = (_RTL_BITMAP *)(v32 + 24);
                 RtlClearBits((PRTL_BITMAP)(v32 + 8), v29, LastBackwardRunClear);
                 RtlClearBits(v33, v29, LastBackwardRunClear);
                 if ( v29 < *(unsigned int *)(v13 + 120) )

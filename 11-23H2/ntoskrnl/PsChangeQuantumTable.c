@@ -1,14 +1,14 @@
 /*
- * XREFs of PsChangeQuantumTable @ 0x1407C0444
+ * XREFs of PsChangeQuantumTable @ 0x1407C0714
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  *     PspInitPhase0 @ 0x140B4A894 (PspInitPhase0.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     MmIsThisAnNtAsSystem @ 0x1402908F0 (MmIsThisAnNtAsSystem.c)
- *     KeSetQuantumProcess @ 0x140350C2C (KeSetQuantumProcess.c)
- *     PspUnlockProcessListShared @ 0x140350CE4 (PspUnlockProcessListShared.c)
- *     PspComputeQuantum @ 0x1406B64A8 (PspComputeQuantum.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     MmIsThisAnNtAsSystem @ 0x140290B80 (MmIsThisAnNtAsSystem.c)
+ *     KeSetQuantumProcess @ 0x140350DCC (KeSetQuantumProcess.c)
+ *     PspUnlockProcessListShared @ 0x140350E84 (PspUnlockProcessListShared.c)
+ *     PspComputeQuantum @ 0x1406B6658 (PspComputeQuantum.c)
  */
 
 char __fastcall PsChangeQuantumTable(char a1, char a2)
@@ -68,7 +68,7 @@ LABEL_22:
 LABEL_9:
   PspForegroundQuantum = *(_WORD *)v8;
   result = v8[2];
-  PspUseJobSchedulingClasses = v8 == &byte_140A77A9F;
+  PspUseJobSchedulingClasses = v8 == &byte_140A77D4F;
   byte_140D54BBE = result;
   if ( a1 )
   {

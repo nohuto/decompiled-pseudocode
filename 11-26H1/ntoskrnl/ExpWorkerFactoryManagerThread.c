@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWorkerFactoryManagerThread @ 0x1406D33B0
+ * XREFs of ExpWorkerFactoryManagerThread @ 0x1406D73E0
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402C2B40 (ExpWorkerFactoryCheckCreate.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x1403DF6B0 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     KeRegisterObjectNotification @ 0x1403DF824 (KeRegisterObjectNotification.c)
- *     KeTimeOutQueueWaiters @ 0x1403E00A8 (KeTimeOutQueueWaiters.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x1404D2EC8 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x14030D800 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x1403E28A0 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KeRegisterObjectNotification @ 0x1403E2A14 (KeRegisterObjectNotification.c)
+ *     KeTimeOutQueueWaiters @ 0x1403E3298 (KeTimeOutQueueWaiters.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x1404CC738 (ExpWorkerFactoryDeferredThreadCreation.c)
  */
 
 void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
@@ -31,15 +31,15 @@ void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
     while ( 1 )
     {
       EntryArray = 0LL;
-      KeRemoveQueueEx((PKQUEUE)&WheapConfigTableLock.Affinity, 0, 0, 0LL, &EntryArray, 1u);
+      KeRemoveQueueEx((PKQUEUE)&WheapConfigTableLock.SavedApcStateFill[40], 0, 0, 0LL, &EntryArray, 1u);
       v1 = EntryArray;
-      if ( EntryArray != (PLIST_ENTRY)&WheapConfigTableLock.512 )
+      if ( EntryArray != (PLIST_ENTRY)&WheapConfigTableLock.Affinity )
         break;
       ExpWorkerFactoryDeferredThreadCreation();
       KeRegisterObjectNotification(
-        (__int64)&WheapConfigTableLock.WaitBlock[2].Object,
-        (__int64)&WheapConfigTableLock.Affinity,
-        (__int64)&WheapConfigTableLock.512);
+        (__int64)&WheapConfigTableLock.512,
+        (__int64)&WheapConfigTableLock.SavedApcStateFill[40],
+        (__int64)&WheapConfigTableLock.Affinity);
     }
     if ( !LODWORD(EntryArray[3].Flink) )
       break;
@@ -60,7 +60,10 @@ void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
     else
     {
       v6 = 0;
-      KeRegisterObjectNotification((__int64)&v2[26].Blink, (__int64)&WheapConfigTableLock.Affinity, (__int64)v1);
+      KeRegisterObjectNotification(
+        (__int64)&v2[26].Blink,
+        (__int64)&WheapConfigTableLock.SavedApcStateFill[40],
+        (__int64)v1);
     }
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     if ( v6 )

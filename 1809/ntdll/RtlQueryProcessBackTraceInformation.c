@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlQueryProcessBackTraceInformation @ 0x1800D9470
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x18007DD5C (RtlpCommitQueryDebugInfo.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18007DD6C (RtlpCommitQueryDebugInfo.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  *     RtlpDeCommitQueryDebugInfo @ 0x1800DA06C (RtlpDeCommitQueryDebugInfo.c)
  */

@@ -6,15 +6,15 @@
  *     <none>
  */
 
-int __stdcall RtlSetCriticalSectionSpinCount(int a1, int a2)
+ULONG __cdecl RtlSetCriticalSectionSpinCount(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount)
 {
-  int v2; // eax
-  int v3; // ecx
+  unsigned int v2; // eax
+  ULONG v3; // ecx
 
-  v2 = *(_DWORD *)(a1 + 20);
-  v3 = v2 ^ (a2 ^ v2) & 0xFFFFFF;
+  v2 = CriticalSection->SpinCount;
+  v3 = v2 ^ (SpinCount ^ v2) & 0xFFFFFF;
   if ( NtCurrentPeb()->NumberOfProcessors == 1 )
     v3 &= 0xFF000000;
-  *(_DWORD *)(a1 + 20) = v3;
+  CriticalSection->SpinCount = v3;
   return v2 & 0xFFFFFF;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryToAcquireResourceExclusiveLite @ 0x14031BB50
+ * XREFs of ExTryToAcquireResourceExclusiveLite @ 0x14031BD40
  * Callers:
  *     <none>
  * Callees:
- *     ExpFastResourceLegacyAcquireExclusive @ 0x140164AD4 (ExpFastResourceLegacyAcquireExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExpTryToAcquireResourceExclusiveLite @ 0x14031BE84 (ExpTryToAcquireResourceExclusiveLite.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x140164BD4 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x14031C074 (ExpTryToAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireResourceExclusiveLite(PERESOURCE Resource)

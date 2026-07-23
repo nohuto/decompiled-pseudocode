@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-int __stdcall LdrQueryModuleInfoLocalLoaderLock()
+NTSTATUS __stdcall LdrQueryModuleInfoLocalLoaderLock()
 {
   return LdrpAcquireLoaderLock();
 }

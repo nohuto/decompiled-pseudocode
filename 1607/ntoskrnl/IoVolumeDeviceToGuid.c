@@ -1,12 +1,12 @@
 /*
- * XREFs of IoVolumeDeviceToGuid @ 0x14052CFCC
+ * XREFs of IoVolumeDeviceToGuid @ 0x14052D50C
  * Callers:
- *     IopMountVolume @ 0x1403EC2AC (IopMountVolume.c)
- *     FsRtlVolumeDeviceToCorrelationId @ 0x14052C794 (FsRtlVolumeDeviceToCorrelationId.c)
+ *     IopMountVolume @ 0x1403ED8DC (IopMountVolume.c)
+ *     FsRtlVolumeDeviceToCorrelationId @ 0x14052CCD4 (FsRtlVolumeDeviceToCorrelationId.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
- *     IoVolumeDeviceToGuidPath @ 0x14052D04C (IoVolumeDeviceToGuidPath.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
+ *     IoVolumeDeviceToGuidPath @ 0x14052D58C (IoVolumeDeviceToGuidPath.c)
  */
 
 __int64 __fastcall IoVolumeDeviceToGuid(struct _DEVICE_OBJECT *a1, GUID *a2)

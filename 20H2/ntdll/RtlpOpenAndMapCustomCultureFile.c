@@ -13,7 +13,7 @@
  *     RtlpGetFileSize @ 0x1800FD4B4 (RtlpGetFileSize.c)
  */
 
-__int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, PVOID *a2, _QWORD *a3)
 {
   WCHAR *v5; // rdx
   __int64 v6; // r8
@@ -28,12 +28,15 @@ __int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWOR
   char *v15; // rax
   WCHAR v16; // r8
   WCHAR *v17; // rax
-  int Section; // ebx
+  NTSTATUS v18; // ebx
+  HANDLE v19; // rcx
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE v21[3]; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR ViewSize; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
   WCHAR SourceString[264]; // [rsp+C0h] [rbp-40h] BYREF
 
   v5 = SourceString;
@@ -100,26 +103,27 @@ __int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWOR
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  Section = NtOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
-  if ( Section >= 0 )
+  v18 = NtOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
+  if ( v18 >= 0 )
   {
-    if ( (int)RtlpGetFileSize((__int64)FileHandle, v21) < 0 || HIDWORD(v21[0]) )
+    if ( RtlpGetFileSize(FileHandle, &v22) < 0 || HIDWORD(v22) )
     {
-      Section = -1073741823;
+      v18 = -1073741823;
     }
     else
     {
-      *a3 = LODWORD(v21[0]);
-      Section = NtCreateSection();
-      if ( Section >= 0 )
+      *a3 = (unsigned int)v22;
+      v18 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
+      if ( v18 >= 0 )
       {
+        v19 = SectionHandle;
         *a2 = 0LL;
-        v21[2] = 0LL;
-        Section = ZwMapViewOfSection();
-        NtClose(v21[1]);
+        ViewSize = 0LL;
+        v18 = ZwMapViewOfSection(v19, (HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, 0LL, 0LL, 0LL, &ViewSize, ViewShare, 0, 2u);
+        NtClose(SectionHandle);
       }
     }
     NtClose(FileHandle);
   }
-  return (unsigned int)Section;
+  return (unsigned int)v18;
 }

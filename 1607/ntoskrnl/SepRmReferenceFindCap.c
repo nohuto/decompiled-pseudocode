@@ -1,35 +1,35 @@
 /*
- * XREFs of SepRmReferenceFindCap @ 0x14021B670
+ * XREFs of SepRmReferenceFindCap @ 0x14021B49C
  * Callers:
- *     SeComputeCreatorDeniedRights @ 0x14000F980 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
- *     SeAccessCheckWithHint @ 0x140062B80 (SeAccessCheckWithHint.c)
- *     SepCommonAccessCheckEx @ 0x140135790 (SepCommonAccessCheckEx.c)
- *     SeRmReferenceFindCapName @ 0x14021B430 (SeRmReferenceFindCapName.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1404B6D30 (SepAccessCheckAndAuditAlarm.c)
+ *     SeComputeCreatorDeniedRights @ 0x14000F500 (SeComputeCreatorDeniedRights.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
+ *     SeAccessCheckWithHint @ 0x140062700 (SeAccessCheckWithHint.c)
+ *     SepCommonAccessCheckEx @ 0x140135D00 (SepCommonAccessCheckEx.c)
+ *     SeRmReferenceFindCapName @ 0x14021B25C (SeRmReferenceFindCapName.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1404A1110 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x14007FAE0 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x1400976C0 (RtlGetNextEntryHashTable.c)
- *     SepRmDereferenceCapTable @ 0x140219C7C (SepRmDereferenceCapTable.c)
- *     SepRmReferenceCapTable @ 0x14021B5AC (SepRmReferenceCapTable.c)
- *     SepComputeSidSignature @ 0x140476D50 (SepComputeSidSignature.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x14007FB60 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x140096EC0 (RtlGetNextEntryHashTable.c)
+ *     SepRmDereferenceCapTable @ 0x140219AA8 (SepRmDereferenceCapTable.c)
+ *     SepRmReferenceCapTable @ 0x14021B3D8 (SepRmReferenceCapTable.c)
+ *     SepComputeSidSignature @ 0x140475C20 (SepComputeSidSignature.c)
  */
 
 __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a2)
 {
   unsigned int v4; // esi
-  struct _RTL_DYNAMIC_HASH_TABLE *v5; // rdi
+  _RTL_DYNAMIC_HASH_TABLE *v5; // rdi
   ULONG_PTR v6; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY NextEntryHashTable; // rbx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   Context.ChainHead = 0LL;
   *a2 = 0LL;
   Context.PrevLinkage = 0LL;
   Context.Signature = 0LL;
   v4 = -1073741275;
-  v5 = (struct _RTL_DYNAMIC_HASH_TABLE *)SepRmReferenceCapTable();
+  v5 = (_RTL_DYNAMIC_HASH_TABLE *)SepRmReferenceCapTable();
   if ( v5 )
   {
     if ( !SepRmEnforceCap )

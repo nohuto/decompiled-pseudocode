@@ -1,9 +1,9 @@
 /*
- * XREFs of VfQueryDispatchTable @ 0x140640E60
+ * XREFs of VfQueryDispatchTable @ 0x140644A40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void *__fastcall VfQueryDispatchTable(int a1, __int64 a2)

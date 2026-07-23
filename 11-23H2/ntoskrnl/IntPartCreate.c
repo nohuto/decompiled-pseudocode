@@ -3,7 +3,7 @@
  * Callers:
  *     KiIntPartInit @ 0x140B4E6D0 (KiIntPartInit.c)
  * Callees:
- *     IntPartCriticalFailure @ 0x1405749F4 (IntPartCriticalFailure.c)
+ *     IntPartCriticalFailure @ 0x140574F34 (IntPartCriticalFailure.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     IntpAllocateProcessorContext @ 0x140B4E8E4 (IntpAllocateProcessorContext.c)

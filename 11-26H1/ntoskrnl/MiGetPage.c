@@ -1,75 +1,75 @@
 /*
- * XREFs of MiGetPage @ 0x1402866A0
+ * XREFs of MiGetPage @ 0x140285C00
  * Callers:
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MiDemoteLocalLargePage @ 0x1402844A0 (MiDemoteLocalLargePage.c)
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPageToTrade @ 0x1402951E0 (MiGetPageToTrade.c)
- *     MiReplaceLockedPage @ 0x140295664 (MiReplaceLockedPage.c)
- *     MiSwitchToTransition @ 0x1402A2130 (MiSwitchToTransition.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiPruneStandbyPages @ 0x1402C8780 (MiPruneStandbyPages.c)
- *     MiCreateUltraThreadContextHelper @ 0x1402F2710 (MiCreateUltraThreadContextHelper.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiTradePageMarkedTransition @ 0x1402FD5C0 (MiTradePageMarkedTransition.c)
- *     MiReplenishCloneLeafPage @ 0x14030E9E0 (MiReplenishCloneLeafPage.c)
- *     MiAllocateMdlPagesByLists @ 0x140337F84 (MiAllocateMdlPagesByLists.c)
- *     MiGetSystemPage @ 0x140338B90 (MiGetSystemPage.c)
- *     MiGetPageForSystemCache @ 0x140339D50 (MiGetPageForSystemCache.c)
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiGetUltraPage @ 0x14033A1B0 (MiGetUltraPage.c)
- *     MiCopyOnWriteGetPage @ 0x14036C2DC (MiCopyOnWriteGetPage.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0 (MiGetLargePageDemoteAsNeeded.c)
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     MiMakeOutswappedPageResident @ 0x14040BF9C (MiMakeOutswappedPageResident.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MmAllocateNonChargedSecurePages @ 0x1404170E8 (MmAllocateNonChargedSecurePages.c)
- *     MiResolveMappedFileFaultByCopying @ 0x1404893DC (MiResolveMappedFileFaultByCopying.c)
- *     MiGetFileHashPage @ 0x1404DC348 (MiGetFileHashPage.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiGetLargePage @ 0x14051E3C4 (MiGetLargePage.c)
- *     MiGetExtendedStandbyPage @ 0x140703824 (MiGetExtendedStandbyPage.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1407102D0 (MiComputeCacheAttributeSpeeds.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
- *     MiAllocateTopLevelPage @ 0x140ABD7B0 (MiAllocateTopLevelPage.c)
- *     MiAllocateDriverPage @ 0x140AEAC6C (MiAllocateDriverPage.c)
- *     MiDoneWithThisPageGetAnother @ 0x140AF46EC (MiDoneWithThisPageGetAnother.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
- *     MiAllocateDummyPage @ 0x140CF267C (MiAllocateDummyPage.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140CFA144 (MmInitializeImageViewExtensionCfg.c)
- *     MiInitializeCacheFlushing @ 0x140CFF38C (MiInitializeCacheFlushing.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MiDemoteLocalLargePage @ 0x140283A10 (MiDemoteLocalLargePage.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPageToTrade @ 0x140294740 (MiGetPageToTrade.c)
+ *     MiReplaceLockedPage @ 0x140294BC4 (MiReplaceLockedPage.c)
+ *     MiSwitchToTransition @ 0x1402A1680 (MiSwitchToTransition.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiPruneStandbyPages @ 0x1402AA540 (MiPruneStandbyPages.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402D4790 (MiCreateUltraThreadContextHelper.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiTradePageMarkedTransition @ 0x1402DF640 (MiTradePageMarkedTransition.c)
+ *     MiReplenishCloneLeafPage @ 0x1402F0A60 (MiReplenishCloneLeafPage.c)
+ *     MiAllocateMdlPagesByLists @ 0x14033A004 (MiAllocateMdlPagesByLists.c)
+ *     MiGetSystemPage @ 0x14033AC10 (MiGetSystemPage.c)
+ *     MiGetPageForSystemCache @ 0x14033BDD0 (MiGetPageForSystemCache.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiGetUltraPage @ 0x14033C230 (MiGetUltraPage.c)
+ *     MiCopyOnWriteGetPage @ 0x14036E07C (MiCopyOnWriteGetPage.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14040B6F8 (MmAllocateNonChargedSecurePages.c)
+ *     MiMakeOutswappedPageResident @ 0x1404296E4 (MiMakeOutswappedPageResident.c)
+ *     MiResolveMappedFileFaultByCopying @ 0x140482F1C (MiResolveMappedFileFaultByCopying.c)
+ *     MiGetFileHashPage @ 0x1404D5A28 (MiGetFileHashPage.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiGetLargePage @ 0x1405209D4 (MiGetLargePage.c)
+ *     MiGetExtendedStandbyPage @ 0x1407084F4 (MiGetExtendedStandbyPage.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140714FCC (MiComputeCacheAttributeSpeeds.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
+ *     MiAllocateTopLevelPage @ 0x140ABFDA0 (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x140AEDA3C (MiAllocateDriverPage.c)
+ *     MiDoneWithThisPageGetAnother @ 0x140AF6D60 (MiDoneWithThisPageGetAnother.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
+ *     MiAllocateDummyPage @ 0x140CF89FC (MiAllocateDummyPage.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140D004C4 (MmInitializeImageViewExtensionCfg.c)
+ *     MiInitializeCacheFlushing @ 0x140D0572C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiDemoteLocalLargePage @ 0x1402844A0 (MiDemoteLocalLargePage.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetBestPageFromNode @ 0x140288750 (MiGetBestPageFromNode.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiRemovePageAnyColor @ 0x14028A000 (MiRemovePageAnyColor.c)
- *     MiGetPageSlist @ 0x14028B310 (MiGetPageSlist.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     MiPfnBestZeroAttribute @ 0x1402A18AC (MiPfnBestZeroAttribute.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiPageAvailable @ 0x1402AA7BC (MiPageAvailable.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiColorHasSlists @ 0x14042FDD0 (MiColorHasSlists.c)
- *     MiPreemptivePageDemote @ 0x140434608 (MiPreemptivePageDemote.c)
- *     MiObtainedPageIsGood @ 0x14043467C (MiObtainedPageIsGood.c)
- *     MiCacheAttributeHasValue @ 0x140471720 (MiCacheAttributeHasValue.c)
- *     MiCheckNodeChannelStandbyCount @ 0x1404D78C8 (MiCheckNodeChannelStandbyCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiDemoteLocalLargePage @ 0x140283A10 (MiDemoteLocalLargePage.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetBestPageFromNode @ 0x140287CB0 (MiGetBestPageFromNode.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiRemovePageAnyColor @ 0x140289560 (MiRemovePageAnyColor.c)
+ *     MiGetPageSlist @ 0x14028A870 (MiGetPageSlist.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     MiPfnBestZeroAttribute @ 0x1402A0DFC (MiPfnBestZeroAttribute.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiPageAvailable @ 0x1402A9BBC (MiPageAvailable.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiColorHasSlists @ 0x14041CE00 (MiColorHasSlists.c)
+ *     MiPreemptivePageDemote @ 0x14042B6E8 (MiPreemptivePageDemote.c)
+ *     MiObtainedPageIsGood @ 0x14042B75C (MiObtainedPageIsGood.c)
+ *     MiCacheAttributeHasValue @ 0x14046AEA0 (MiCacheAttributeHasValue.c)
+ *     MiCheckNodeChannelStandbyCount @ 0x1404D1090 (MiCheckNodeChannelStandbyCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
@@ -230,16 +230,16 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
   {
     v7 = 1;
   }
-  v10 = byte_140E2D718;
+  v10 = byte_140E2D898;
   v134 = 0;
   v11 = ((unsigned int)v3 >> 9) & 0x3F;
   v120 = v7;
   v128 = v11;
   PageSlist = 0LL;
   v135 = 0;
-  v116[0] = byte_140E2D718;
-  HIBYTE(v134) = byte_140E2D718;
-  if ( (unsigned __int8)byte_140E2D718 <= 1u )
+  v116[0] = byte_140E2D898;
+  HIBYTE(v134) = byte_140E2D898;
+  if ( (unsigned __int8)byte_140E2D898 <= 1u )
   {
     v10 = 1;
     v116[0] = 1;
@@ -250,11 +250,11 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
   v123 = 0;
   v117 = v12;
   LOBYTE(v135) = BYTE1(v3) & 1;
-  if ( *(_DWORD *)&stru_140E2EB88.WaitBlockFill11[32] )
+  if ( *(_DWORD *)&stru_140E2ED08.WaitBlockFill11[32] )
   {
     do
       KeYieldProcessorEx(&v123);
-    while ( *(_DWORD *)&stru_140E2EB88.WaitBlockFill11[32] );
+    while ( *(_DWORD *)&stru_140E2ED08.WaitBlockFill11[32] );
     v10 = v116[0];
     v8 = v118;
     v7 = v120;
@@ -269,7 +269,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
     v15 = v3;
     if ( v14 >= v7 )
       break;
-    v16 = *(unsigned int *)(qword_140E2D690 + 4LL * (v14 + v11 * (unsigned __int16)KeNumberNodes));
+    v16 = *(unsigned int *)(qword_140E2D810 + 4LL * (v14 + v11 * (unsigned __int16)KeNumberNodes));
     v17 = *(_QWORD *)(v129 + 16) + 56320 * v16;
     v127 = v17;
     v3 = v15 ^ ((unsigned __int16)v15 ^ (unsigned __int16)((_WORD)v16 << 9)) & 0x7E00u;
@@ -306,10 +306,10 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
       else
       {
         v134 = 0;
-        HIBYTE(v134) = byte_140E2D718;
+        HIBYTE(v134) = byte_140E2D898;
         v135 = 0;
-        v116[0] = byte_140E2D718;
-        if ( (unsigned __int8)byte_140E2D718 <= 1u )
+        v116[0] = byte_140E2D898;
+        if ( (unsigned __int8)byte_140E2D898 <= 1u )
         {
           v116[0] = 1;
           HIBYTE(v134) = 1;
@@ -523,16 +523,16 @@ LABEL_126:
             k = *((_BYTE *)&v134 + v74);
             if ( k == 2 )
             {
-              v76 = qword_140E37CD0 + 56320LL * (((unsigned int)v3 >> 9) & 0x3F);
+              v76 = qword_140E37E50 + 56320LL * (((unsigned int)v3 >> 9) & 0x3F);
               if ( (*(_DWORD *)(v76 + 14096) & 1) != 0 )
               {
                 v111 = v76 + 14149;
-                for ( k = 0; k < (unsigned __int8)byte_140E2D718; ++k )
+                for ( k = 0; k < (unsigned __int8)byte_140E2D898; ++k )
                 {
                   if ( *(_BYTE *)(k + v111) == 1 )
                     goto LABEL_130;
                 }
-                for ( k = 0; k < (unsigned __int8)byte_140E2D718; ++k )
+                for ( k = 0; k < (unsigned __int8)byte_140E2D898; ++k )
                 {
                   if ( *(_BYTE *)(k + v111) == 2 )
                     goto LABEL_130;
@@ -834,10 +834,10 @@ LABEL_38:
   if ( (*(_QWORD *)(v31 + 40) & 0x10000000000LL) != 0 )
     v33 = *(_DWORD *)(v31 + 36) & 0x18000000;
   *(_DWORD *)(v31 + 36) = v33;
-  v34 = dword_140E2D684;
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v35 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v32 < *(_QWORD *)v35)
-    || dword_140E2D680 != dword_140E2D684 && v32 >= *((_QWORD *)v35 + 2) )
+  v34 = dword_140E2D804;
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v35 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v32 < *(_QWORD *)v35)
+    || dword_140E2D800 != dword_140E2D804 && v32 >= *((_QWORD *)v35 + 2) )
   {
     for ( m = 0; ; m = v73 + 1 )
     {
@@ -846,20 +846,20 @@ LABEL_38:
         if ( v34 < m )
           KeBugCheckEx(0x1Au, 0x5180uLL, v32, 0LL, 0LL);
         v73 = (m + v34) >> 1;
-        v35 = (char *)qword_140E2D6E0 + 16 * v73;
+        v35 = (char *)qword_140E2D860 + 16 * v73;
         if ( v32 >= *(_QWORD *)v35 )
           break;
         if ( !v73 )
           KeBugCheckEx(0x1Au, 0x5180uLL, v32, (ULONG_PTR)v35, 0LL);
         v34 = v73 - 1;
       }
-      if ( v73 == dword_140E2D684 || v32 < *((_QWORD *)v35 + 2) )
+      if ( v73 == dword_140E2D804 || v32 < *((_QWORD *)v35 + 2) )
         break;
     }
-    dword_140E2D680 = (m + v34) >> 1;
+    dword_140E2D800 = (m + v34) >> 1;
   }
   if ( *((_DWORD *)v35 + 2) != v11
-    || (qword_140E2D6E8 ? (v36 = *(_BYTE *)(MiSearchChannelTable(v32) + 12)) : (v36 = 0),
+    || (qword_140E2D868 ? (v36 = *(_BYTE *)(MiSearchChannelTable(v32) + 12)) : (v36 = 0),
         v36 != (_BYTE)v12 && !HIBYTE(v135)) )
   {
     if ( (v4 & 2) == 0 )
@@ -885,7 +885,7 @@ LABEL_38:
   if ( (*(_QWORD *)(v31 + 16) & 0x3E0LL) != 0 )
     goto LABEL_64;
   v38 = (*(_DWORD *)(v31 + 32) >> 22) & 3;
-  if ( v38 == v37 || ((unsigned __int8)((1 << v38) | (1 << v37)) & (unsigned __int8)byte_140E2D798) == 0 )
+  if ( v38 == v37 || ((unsigned __int8)((1 << v38) | (1 << v37)) & (unsigned __int8)byte_140E2D918) == 0 )
   {
 LABEL_288:
     if ( (v4 & 8) != 0 )
@@ -943,7 +943,7 @@ LABEL_66:
       }
       v130 = 48 * v47 - 0x220000000000LL;
       v54 = (__int64)((unsigned __int128)(v50 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
-      v55 = *(_DWORD *)(qword_140E2D6B8
+      v55 = *(_DWORD *)(qword_140E2D838
                       + 384LL * (unsigned int)MiPageToNode(v54 + (v54 >> 63))
                       + 4 * ((int)v37 + 4LL * ((*(_DWORD *)(v51 + 32) >> 22) & 3))
                       + 120);

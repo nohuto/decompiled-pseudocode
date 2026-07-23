@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpDispatchNewMessage @ 0x1405E5250
+ * XREFs of AlpcpDispatchNewMessage @ 0x1406D49B0
  * Callers:
- *     AlpcpDispatchMessage @ 0x1405E1004 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x1406D0764 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x1402BD520 (PsGetProcessJob.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PsGetJobEffectiveFreezeCount @ 0x140581378 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406B5104 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x14023BBD0 (PsGetProcessJob.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405815B8 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14061461C (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406D57A0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
@@ -85,7 +85,7 @@ LABEL_7:
     || (*(_DWORD *)(v10 + 416) & 0x20) != 0
     || (*(_DWORD *)(v1 + 416) & 0x20) != 0 && (*(_DWORD *)(v1 + 256) & 0x1000) == 0 )
   {
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, v9, v10);
 LABEL_49:
     AlpcpUnlockMessage(v4);
     return 3221225527LL;
@@ -97,7 +97,7 @@ LABEL_49:
     && (ProcessJob = PsGetProcessJob(v11)) != 0
     && (unsigned int)PsGetJobEffectiveFreezeCount(ProcessJob) )
   {
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, v9, v10);
     AlpcpUnlockMessage(v4);
     return 3221225526LL;
   }
@@ -151,14 +151,14 @@ LABEL_49:
     }
     else
     {
-      AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+      AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, v9, v10);
       AlpcpUnlockMessage(v4);
       return 3221225507LL;
     }
   }
   else
   {
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, v9, v10);
     AlpcpUnlockMessage(v4);
     return 3221227271LL;
   }

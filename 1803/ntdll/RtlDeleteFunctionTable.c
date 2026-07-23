@@ -15,86 +15,79 @@
 
 BOOLEAN __cdecl RtlDeleteFunctionTable(PRUNTIME_FUNCTION FunctionTable)
 {
-  unsigned __int64 v2; // rsi
+  __int64 *v2; // rsi
   BOOLEAN v3; // di
-  unsigned __int64 v4; // rdx
-  unsigned __int64 *v5; // r8
-  __int64 v6; // r9
-  unsigned __int64 v7; // rdx
-  unsigned __int64 *v8; // r8
-  __int64 v9; // r9
   __int64 *i; // rbx
-  __int64 v11; // rcx
-  __int64 **v12; // rax
-  void *v13; // rcx
-  unsigned __int64 v14; // rdx
-  unsigned __int64 *v15; // r8
-  __int64 v16; // r9
-  int v18; // edi
-  int v19; // edx
+  __int64 v5; // rcx
+  __int64 **v6; // rax
+  int v7; // eax
+  PVOID v8; // rcx
+  int v10; // edi
+  int v11; // edx
 
   v2 = 0LL;
   v3 = 0;
   sub_1800259B4(0);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015B2B0, v4, v5, v6);
+  RtlAcquireSRWLockExclusive(&stru_18015B2B0);
   for ( i = (__int64 *)qword_18016F2A8; i != &qword_18016F2A8; i = (__int64 *)*i )
   {
-    v2 = (unsigned __int64)i;
+    v2 = i;
     if ( (PRUNTIME_FUNCTION)i[2] == FunctionTable )
     {
-      if ( qword_18016F380 && (byte_18016F36C & 1) == 0 )
+      if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] && (LdrSystemDllInitBlock.Flags & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015BF98, v7, v8, v9);
-        v18 = *(_DWORD *)qword_18016F280;
+        RtlAcquireSRWLockExclusive(&stru_18015BF98);
+        v10 = *(_DWORD *)qword_18016F280;
         if ( !*(_DWORD *)qword_18016F280 )
-          RtlProtectHeap((_DWORD *)qword_18016F270, 0);
-        if ( v18 == -1 )
+          RtlProtectHeap(qword_18016F270, 0);
+        if ( v10 == -1 )
         {
-          RtlReleaseSRWLockExclusive(&qword_18015BF98);
+          RtlReleaseSRWLockExclusive(&stru_18015BF98);
           __fastfail(0xEu);
         }
-        *(_DWORD *)qword_18016F280 = v18 + 1;
-        RtlReleaseSRWLockExclusive(&qword_18015BF98);
+        *(_DWORD *)qword_18016F280 = v10 + 1;
+        RtlReleaseSRWLockExclusive(&stru_18015BF98);
       }
       if ( *((_DWORD *)i + 20) != 3 )
       {
         RtlAvlRemoveNode(&qword_18016F2A0, i + 11);
-        v11 = *i;
-        if ( *(__int64 **)(*i + 8) != i || (v12 = (__int64 **)i[1], *v12 != i) )
+        v5 = *i;
+        if ( *(__int64 **)(*i + 8) != i || (v6 = (__int64 **)i[1], *v6 != i) )
           __fastfail(3u);
-        *v12 = (__int64 *)v11;
-        *(_QWORD *)(v11 + 8) = v12;
+        *v6 = (__int64 *)v5;
+        *(_QWORD *)(v5 + 8) = v6;
       }
       v3 = 1;
       break;
     }
   }
-  RtlReleaseSRWLockExclusive(&qword_18015B2B0);
+  RtlReleaseSRWLockExclusive(&stru_18015B2B0);
   sub_1800259B4(1);
   if ( v3 )
   {
-    if ( *(_DWORD *)(v2 + 80) == 3 )
+    if ( *((_DWORD *)v2 + 20) == 3 )
     {
       RtlDeleteGrowableFunctionTable(v2);
     }
     else
     {
-      v13 = LdrControlFlowGuardEnforced() ? (void *)qword_18016F270 : NtCurrentPeb()->ProcessHeap;
-      RtlFreeHeap((__int64)v13, 0, v2);
+      LOBYTE(v7) = LdrControlFlowGuardEnforced();
+      v8 = v7 ? qword_18016F270 : NtCurrentPeb()->ProcessHeap;
+      RtlFreeHeap(v8, 0, v2);
     }
-    if ( qword_18016F380 && (byte_18016F36C & 1) == 0 )
+    if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] && (LdrSystemDllInitBlock.Flags & 1) == 0 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015BF98, v14, v15, v16);
-      v19 = *(_DWORD *)qword_18016F280;
+      RtlAcquireSRWLockExclusive(&stru_18015BF98);
+      v11 = *(_DWORD *)qword_18016F280;
       if ( !*(_DWORD *)qword_18016F280 )
       {
-        RtlReleaseSRWLockExclusive(&qword_18015BF98);
+        RtlReleaseSRWLockExclusive(&stru_18015BF98);
         __fastfail(0xEu);
       }
-      *(_DWORD *)qword_18016F280 = v19 - 1;
-      if ( v19 == 1 )
-        RtlProtectHeap((_DWORD *)qword_18016F270, 1);
-      RtlReleaseSRWLockExclusive(&qword_18015BF98);
+      *(_DWORD *)qword_18016F280 = v11 - 1;
+      if ( v11 == 1 )
+        RtlProtectHeap(qword_18016F270, 1u);
+      RtlReleaseSRWLockExclusive(&stru_18015BF98);
     }
   }
   return v3;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckKernelShadow @ 0x1403CFEA8
+ * XREFs of MiCheckKernelShadow @ 0x1403D0088
  * Callers:
- *     MiCheckRelevantKernelShadows @ 0x1403CFD68 (MiCheckRelevantKernelShadows.c)
+ *     MiCheckRelevantKernelShadows @ 0x1403CFF48 (MiCheckRelevantKernelShadows.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiVaToPfnEx @ 0x14038A270 (MiVaToPfnEx.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1403C06B0 (MiReadWriteAnyLevelShadowPte.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiVaToPfnEx @ 0x14038A450 (MiVaToPfnEx.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1403C0890 (MiReadWriteAnyLevelShadowPte.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiCheckKernelShadow(char a1, unsigned __int64 a2, __int64 a3)

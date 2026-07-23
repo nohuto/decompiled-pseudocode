@@ -11,27 +11,33 @@
  *     sub_1800D062C @ 0x1800D062C (sub_1800D062C.c)
  */
 
-__int64 __fastcall LdrDeleteEnclave(unsigned __int64 a1)
+NTSTATUS __cdecl LdrDeleteEnclave(PVOID BaseAddress)
 {
   __int64 *v1; // rax
   __int64 *v2; // rdi
   int v3; // ebx
   int v4; // esi
+  PVOID BaseAddressa; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
-  v1 = sub_18001B2F8(a1, 1);
+  BaseAddressa = BaseAddress;
+  v1 = sub_18001B2F8((unsigned __int64)BaseAddress, 1);
   v2 = v1;
   if ( !v1 )
     goto LABEL_5;
   v3 = *((_DWORD *)v1 + 14);
   v4 = sub_1800CDAC4(v1);
-  RtlLeaveCriticalSection((__int64)(v2 + 2));
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v2 + 2));
   sub_1800CDB44(v2);
   if ( v3 != 16 )
     v2 = 0LL;
   if ( v4 >= 0 )
+  {
 LABEL_5:
-    v4 = ZwFreeVirtualMemory();
+    RegionSize = 0LL;
+    v4 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, 0x8000u);
+  }
   if ( v2 )
     sub_1800D062C((unsigned int)v4);
-  return (unsigned int)v4;
+  return v4;
 }

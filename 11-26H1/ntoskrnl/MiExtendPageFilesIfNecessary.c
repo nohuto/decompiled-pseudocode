@@ -1,9 +1,9 @@
 /*
- * XREFs of MiExtendPageFilesIfNecessary @ 0x1404A4E40
+ * XREFs of MiExtendPageFilesIfNecessary @ 0x14049E4D0
  * Callers:
- *     MiChargeCommitSlow @ 0x1402F4DE8 (MiChargeCommitSlow.c)
+ *     MiChargeCommitSlow @ 0x1402D6E68 (MiChargeCommitSlow.c)
  * Callees:
- *     MiIssuePageExtendRequest @ 0x1404A4ED0 (MiIssuePageExtendRequest.c)
+ *     MiIssuePageExtendRequest @ 0x14049E560 (MiIssuePageExtendRequest.c)
  */
 
 unsigned __int64 __fastcall MiExtendPageFilesIfNecessary(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

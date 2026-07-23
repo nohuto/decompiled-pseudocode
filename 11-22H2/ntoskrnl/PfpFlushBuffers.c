@@ -16,22 +16,22 @@
 
 char PfpFlushBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   _SLIST_ENTRY *v1; // rdi
   void *v2; // r13
   int v3; // ebp
   PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *v5; // rcx
-  struct _SLIST_ENTRY *v6; // r12
-  struct _SLIST_ENTRY *v7; // r15
+  _SLIST_ENTRY *v5; // rcx
+  _SLIST_ENTRY *v6; // r12
+  _SLIST_ENTRY *v7; // r15
   __int64 v8; // rax
   unsigned __int64 v9; // rcx
   __int64 v10; // rbp
   _SLIST_ENTRY *Next; // r14
-  struct _SLIST_ENTRY *v12; // rsi
+  _SLIST_ENTRY *v12; // rsi
   __int64 v13; // r8
   __int64 v14; // rdx
-  struct _SLIST_ENTRY *v16; // rcx
+  _SLIST_ENTRY *v16; // rcx
   _SLIST_ENTRY *v17; // r14
   unsigned __int64 v18; // rbp
   __int64 v19; // rax
@@ -103,7 +103,7 @@ char PfpFlushBuffers()
     }
     v2 = &v7[4].Next + 1;
     v12 = v7 + 2;
-    v1 = (struct _SLIST_ENTRY *)((char *)v7 + 72);
+    v1 = (_SLIST_ENTRY *)((char *)v7 + 72);
     if ( (_SLIST_ENTRY *)(&v7[4].Next + 1) < v7[2].Next )
     {
       while ( PfpLogPageAccess(v10, (_DWORD)v1, (unsigned int)&v23, (_DWORD)Next, 0) )

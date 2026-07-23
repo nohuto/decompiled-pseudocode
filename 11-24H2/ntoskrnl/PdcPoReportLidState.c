@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoReportLidState @ 0x140AAB860
+ * XREFs of PdcPoReportLidState @ 0x140AA6A90
  * Callers:
  *     <none>
  * Callees:
- *     PopNotifyLidStateChange @ 0x140AAB888 (PopNotifyLidStateChange.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopNotifyLidStateChange @ 0x140AA6AB8 (PopNotifyLidStateChange.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoReportLidState(__int64 a1, __int64 a2)

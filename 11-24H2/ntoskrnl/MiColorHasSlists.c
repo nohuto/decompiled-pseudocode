@@ -1,9 +1,9 @@
 /*
- * XREFs of MiColorHasSlists @ 0x1402F6D90
+ * XREFs of MiColorHasSlists @ 0x14033EEA0
  * Callers:
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
- *     MiPageFreeToZero @ 0x14026ABD0 (MiPageFreeToZero.c)
- *     MiRemovePageAnyColor @ 0x1402F65A4 (MiRemovePageAnyColor.c)
+ *     MiPageFreeToZero @ 0x140220160 (MiPageFreeToZero.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
+ *     MiRemovePageAnyColor @ 0x14033E6B4 (MiRemovePageAnyColor.c)
  * Callees:
  *     <none>
  */

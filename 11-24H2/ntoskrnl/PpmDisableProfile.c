@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmDisableProfile @ 0x140ACB310
+ * XREFs of PpmDisableProfile @ 0x140AC8F20
  * Callers:
- *     PdcPoPpmResetProfile @ 0x140AA2580 (PdcPoPpmResetProfile.c)
+ *     PdcPoPpmResetProfile @ 0x140A9D910 (PdcPoPpmResetProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmPerfUpdateMultimediaPowerModel @ 0x1404AF8FC (PpmPerfUpdateMultimediaPowerModel.c)
- *     PpmResetProfileSettings @ 0x1404BDFB0 (PpmResetProfileSettings.c)
- *     PpmEventTraceProfileEnable @ 0x140AA4C58 (PpmEventTraceProfileEnable.c)
- *     PpmReinitializeHeteroEngine @ 0x140AC7948 (PpmReinitializeHeteroEngine.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmPerfUpdateMultimediaPowerModel @ 0x1404AA2EC (PpmPerfUpdateMultimediaPowerModel.c)
+ *     PpmResetProfileSettings @ 0x1404B9120 (PpmResetProfileSettings.c)
+ *     PpmEventTraceProfileEnable @ 0x140A9FF58 (PpmEventTraceProfileEnable.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AC53D4 (PpmReinitializeHeteroEngine.c)
  */
 
 char __fastcall PpmDisableProfile(__int64 a1, __int64 a2, unsigned int a3)
@@ -26,7 +26,7 @@ char __fastcall PpmDisableProfile(__int64 a1, __int64 a2, unsigned int a3)
   v4 = *(_BYTE *)(a1 + 8);
   v5 = 1;
   PpmResetProfileSettings(a1);
-  v7 = &off_140E08298;
+  v7 = &off_140E08308;
   v8 = 6LL;
   do
   {

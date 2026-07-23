@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpFwDisplayBugCheckScreen @ 0x14023A7EC
+ * XREFs of BgpFwDisplayBugCheckScreen @ 0x14023A6D0
  * Callers:
- *     KiDisplayBlueScreen @ 0x1401D516C (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x1401D4F98 (KiDisplayBlueScreen.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
- *     BgpClearScreen @ 0x1402393E0 (BgpClearScreen.c)
- *     BgpGxIsRectangleValid @ 0x140239824 (BgpGxIsRectangleValid.c)
- *     BcpDisplayCriticalCharacter @ 0x140239A3C (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140239B00 (BcpDisplayCriticalString.c)
- *     BcpDisplayErrorInformation @ 0x140239E44 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x14023A124 (BcpDisplayProgress.c)
- *     BcpGetComponentOffsets @ 0x14023A310 (BcpGetComponentOffsets.c)
- *     BcpGetDisplayType @ 0x14023A48C (BcpGetDisplayType.c)
- *     BcpSetCursorPosition @ 0x14023A618 (BcpSetCursorPosition.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
+ *     BgpClearScreen @ 0x1402392C4 (BgpClearScreen.c)
+ *     BgpGxIsRectangleValid @ 0x140239708 (BgpGxIsRectangleValid.c)
+ *     BcpDisplayCriticalCharacter @ 0x140239920 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x1402399E4 (BcpDisplayCriticalString.c)
+ *     BcpDisplayErrorInformation @ 0x140239D28 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x14023A008 (BcpDisplayProgress.c)
+ *     BcpGetComponentOffsets @ 0x14023A1F4 (BcpGetComponentOffsets.c)
+ *     BcpGetDisplayType @ 0x14023A370 (BcpGetDisplayType.c)
+ *     BcpSetCursorPosition @ 0x14023A4FC (BcpSetCursorPosition.c)
  *     BcpDisplayEarlyBugCheckScreen @ 0x1407D5260 (BcpDisplayEarlyBugCheckScreen.c)
  */
 
@@ -54,7 +54,7 @@ LABEL_27:
   v24 = __PAIR64__(DWORD1(BgInternal), DWORD2(BgInternal));
   v25 = HIDWORD(BgInternal);
   DisplayType = BcpGetDisplayType(&v24);
-  BgpClearScreen(*(_DWORD *)(*(_QWORD *)(qword_1403293B0 + 24) + 40LL));
+  BgpClearScreen(*(_DWORD *)(*(_QWORD *)(qword_1403293F0 + 24) + 40LL));
   BcpSetCursorPosition(
     dword_1402F6930[18 * DisplayType + 4],
     dword_1402F6930[18 * DisplayType + 5],
@@ -65,19 +65,19 @@ LABEL_27:
   v11 = dword_1402F6930[18 * DisplayType + 2];
   HIDWORD(BcpCursor) = dword_140358298 + dword_1402F6930[18 * DisplayType + 9];
   LODWORD(BcpCursor) = v10;
-  BcpDisplayCriticalString((__int16 *)&stru_1403292E0, v11, v9, DisplayType);
+  BcpDisplayCriticalString((__int16 *)&stru_140329320, v11, v9, DisplayType);
   BcpDisplayCriticalCharacter(v12, dword_1402F6930[18 * DisplayType + 2]);
   if ( (a5 & 1) == 0 )
   {
     if ( (a5 & 2) != 0 )
     {
-      v14 = &stru_140329330;
-      v15 = &stru_140329310;
+      v14 = &stru_140329370;
+      v15 = &stru_140329350;
     }
     else
     {
-      v14 = &stru_140329320;
-      v15 = &stru_140329300;
+      v14 = &stru_140329360;
+      v15 = &stru_140329340;
     }
     if ( (a5 & 4) == 0 )
       v14 = v15;
@@ -118,8 +118,8 @@ LABEL_27:
       BcpStartTicks = PerformanceCounter.QuadPart;
       BcpLastProgressUpdateTicks = PerformanceCounter.QuadPart;
     }
-    *a4 = &stru_1403292E0;
-    a4[1] = &stru_1403292F0;
+    *a4 = &stru_140329320;
+    a4[1] = &stru_140329330;
   }
   return (unsigned int)ComponentOffsets;
 }

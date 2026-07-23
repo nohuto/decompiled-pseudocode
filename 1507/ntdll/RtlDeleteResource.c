@@ -8,11 +8,11 @@
  *     NtClose @ 0x1800939F0 (NtClose.c)
  */
 
-void *__fastcall RtlDeleteResource(HANDLE *a1)
+void __cdecl RtlDeleteResource(PRTL_RESOURCE Resource)
 {
-  RtlDeleteCriticalSection(a1);
-  NtClose(a1[5]);
-  NtClose(a1[7]);
-  RtlpFreeDebugInfo(a1[11]);
-  return memset(a1, 0, 0x60uLL);
+  RtlDeleteCriticalSection(&Resource->CriticalSection);
+  NtClose(Resource->SharedSemaphore);
+  NtClose(Resource->ExclusiveSemaphore);
+  RtlpFreeDebugInfo(Resource->DebugInfo);
+  memset(Resource, 0, sizeof(_RTL_RESOURCE));
 }

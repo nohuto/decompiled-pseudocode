@@ -1,13 +1,13 @@
 /*
- * XREFs of PspUnlockJobsAndProcessExclusive @ 0x1404F2BF0
+ * XREFs of PspUnlockJobsAndProcessExclusive @ 0x1404D5B7C
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PspUnlockJobChain @ 0x140469E6C (PspUnlockJobChain.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PspUnlockJobChain @ 0x140468D3C (PspUnlockJobChain.c)
  */
 
 __int64 __fastcall PspUnlockJobsAndProcessExclusive(int *a1, __int64 a2, __int64 a3)

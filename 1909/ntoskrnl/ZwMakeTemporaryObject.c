@@ -10,10 +10,7 @@
 
 NTSTATUS __stdcall ZwMakeTemporaryObject(HANDLE Handle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, v1, v2);
+  return KiServiceInternal(Handle);
 }

@@ -24,19 +24,19 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
   int v9; // ecx
   void *v10; // rsp
   unsigned __int16 v11; // bx
-  __int64 v12; // rax
-  __int64 v13; // rax
+  signed __int64 v12; // rax
+  signed __int64 v13; // rax
   __int64 v14; // r9
   _DWORD v16[16]; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD v17[8]; // [rsp+60h] [rbp+0h] BYREF
-  __int64 v18; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v19; // [rsp+A8h] [rbp+48h] BYREF
+  PVOID v17[8]; // [rsp+60h] [rbp+0h] BYREF
+  signed __int64 v18; // [rsp+A0h] [rbp+40h] BYREF
+  signed __int64 v19; // [rsp+A8h] [rbp+48h] BYREF
   UNICODE_STRING v20; // [rsp+B0h] [rbp+50h] BYREF
   UNICODE_STRING v21; // [rsp+C0h] [rbp+60h] BYREF
-  __int64 v22; // [rsp+D0h] [rbp+70h] BYREF
-  __int64 v23; // [rsp+D8h] [rbp+78h] BYREF
-  __int64 v24; // [rsp+E0h] [rbp+80h] BYREF
-  __int64 v25; // [rsp+E8h] [rbp+88h] BYREF
+  PVOID v22; // [rsp+D0h] [rbp+70h] BYREF
+  signed __int64 v23; // [rsp+D8h] [rbp+78h] BYREF
+  PVOID v24; // [rsp+E0h] [rbp+80h] BYREF
+  signed __int64 v25; // [rsp+E8h] [rbp+88h] BYREF
   __int64 v26; // [rsp+F0h] [rbp+90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+100h] [rbp+A0h] BYREF
   wchar_t *v28; // [rsp+110h] [rbp+B0h]
@@ -47,21 +47,21 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
   wchar_t *v33; // [rsp+130h] [rbp+D0h]
   int v34; // [rsp+138h] [rbp+D8h]
   int v35; // [rsp+13Ch] [rbp+DCh]
-  _QWORD *v36; // [rsp+140h] [rbp+E0h]
+  PVOID *v36; // [rsp+140h] [rbp+E0h]
   __int64 v37; // [rsp+148h] [rbp+E8h]
-  _QWORD *v38; // [rsp+150h] [rbp+F0h]
+  PVOID *v38; // [rsp+150h] [rbp+F0h]
   __int64 v39; // [rsp+158h] [rbp+F8h]
-  __int64 *v40; // [rsp+160h] [rbp+100h]
+  signed __int64 *v40; // [rsp+160h] [rbp+100h]
   __int64 v41; // [rsp+168h] [rbp+108h]
   char *v42; // [rsp+170h] [rbp+110h]
   __int64 v43; // [rsp+178h] [rbp+118h]
-  _QWORD *v44; // [rsp+180h] [rbp+120h]
+  PVOID *v44; // [rsp+180h] [rbp+120h]
   __int64 v45; // [rsp+188h] [rbp+128h]
-  __int64 *v46; // [rsp+190h] [rbp+130h]
+  signed __int64 *v46; // [rsp+190h] [rbp+130h]
   __int64 v47; // [rsp+198h] [rbp+138h]
-  _QWORD *v48; // [rsp+1A0h] [rbp+140h]
+  PVOID *v48; // [rsp+1A0h] [rbp+140h]
   __int64 v49; // [rsp+1A8h] [rbp+148h]
-  _QWORD *v50; // [rsp+1B0h] [rbp+150h]
+  PVOID *v50; // [rsp+1B0h] [rbp+150h]
   __int64 v51; // [rsp+1B8h] [rbp+158h]
   char *v52; // [rsp+1C0h] [rbp+160h]
   __int64 v53; // [rsp+1C8h] [rbp+168h]
@@ -76,23 +76,23 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
   __int64 v62; // [rsp+228h] [rbp+1C8h]
   __int64 v63; // [rsp+230h] [rbp+1D0h]
   _DWORD v64[2]; // [rsp+238h] [rbp+1D8h] BYREF
-  __int64 *v65; // [rsp+240h] [rbp+1E0h]
+  PVOID *v65; // [rsp+240h] [rbp+1E0h]
   __int64 v66; // [rsp+248h] [rbp+1E8h]
-  __int64 *v67; // [rsp+250h] [rbp+1F0h]
+  signed __int64 *v67; // [rsp+250h] [rbp+1F0h]
   __int64 v68; // [rsp+258h] [rbp+1F8h]
-  __int64 *v69; // [rsp+260h] [rbp+200h]
+  PVOID *v69; // [rsp+260h] [rbp+200h]
   __int64 v70; // [rsp+268h] [rbp+208h]
-  __int64 *v71; // [rsp+270h] [rbp+210h]
+  signed __int64 *v71; // [rsp+270h] [rbp+210h]
   __int64 v72; // [rsp+278h] [rbp+218h]
-  _QWORD *v73; // [rsp+280h] [rbp+220h]
+  PVOID *v73; // [rsp+280h] [rbp+220h]
   __int64 v74; // [rsp+288h] [rbp+228h]
-  _QWORD *v75; // [rsp+290h] [rbp+230h]
+  PVOID *v75; // [rsp+290h] [rbp+230h]
   __int64 v76; // [rsp+298h] [rbp+238h]
   __int64 *v77; // [rsp+2A0h] [rbp+240h]
   __int64 v78; // [rsp+2A8h] [rbp+248h]
 
-  v17[3] = *(_QWORD *)a2;
-  v17[4] = *(_QWORD *)(a2 + 8);
+  v17[3] = *(PVOID *)a2;
+  v17[4] = *(PVOID *)(a2 + 8);
   HIDWORD(v17[2]) = *(_DWORD *)(a2 + 16);
   HIDWORD(v17[5]) = *(_DWORD *)(a2 + 20);
   LODWORD(v17[6]) = *(_DWORD *)(a2 + 24);
@@ -108,7 +108,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v20.MaximumLength = 64;
     v20.Buffer = (wchar_t *)v17;
     Length = 0;
-    if ( (int)RtlPcToFileName(v17[3], &v20) >= 0 )
+    if ( (int)RtlPcToFileName((unsigned __int64)v17[3], &v20) >= 0 )
       Length = v20.Length;
     Buffer = v20.Buffer;
     v6 = 6;
@@ -135,7 +135,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v21.Buffer = (wchar_t *)v16;
     v21.MaximumLength = 64;
     v11 = 0;
-    if ( (int)RtlPcToFileName(v17[4], &v21) >= 0 )
+    if ( (int)RtlPcToFileName((unsigned __int64)v17[4], &v21) >= 0 )
       v11 = v21.Length;
     v31 = (char *)v17 + 4;
     v32 = 2LL;
@@ -156,7 +156,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v37 = 4LL;
     RtlPcToFileHeader(v17[3], &v17[1]);
     if ( v17[1] )
-      v12 = v17[3] - v17[1];
+      v12 = (char *)v17[3] - (char *)v17[1];
     else
       v12 = 0LL;
     v18 = v12;
@@ -168,7 +168,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v43 = 4LL;
     RtlPcToFileHeader(v17[4], &v17[1]);
     if ( v17[1] )
-      v13 = v17[4] - v17[1];
+      v13 = (char *)v17[4] - (char *)v17[1];
     else
       v13 = 0LL;
     v19 = v13;

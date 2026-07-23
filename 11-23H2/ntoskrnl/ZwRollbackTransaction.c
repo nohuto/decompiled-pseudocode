@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwRollbackTransaction @ 0x14041DF00
+ * XREFs of ZwRollbackTransaction @ 0x14041E290
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwRollbackTransaction(HANDLE TransactionHandle, BOOLEAN Wait)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, Wait);
+  return KiServiceInternal(TransactionHandle);
 }

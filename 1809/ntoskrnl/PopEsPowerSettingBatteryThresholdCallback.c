@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsPowerSettingBatteryThresholdCallback @ 0x1407636F0
+ * XREFs of PopEsPowerSettingBatteryThresholdCallback @ 0x1407648E0
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopEsWorkItemSchedule @ 0x14071A4E0 (PopEsWorkItemSchedule.c)
+ *     PopEsWorkItemSchedule @ 0x14071B780 (PopEsWorkItemSchedule.c)
  */
 
 __int64 __fastcall PopEsPowerSettingBatteryThresholdCallback(__int64 a1, int *a2, int a3)
@@ -17,9 +17,9 @@ __int64 __fastcall PopEsPowerSettingBatteryThresholdCallback(__int64 a1, int *a2
   {
     v4 = 0;
     PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
-    dword_140418110 = *a2;
-    if ( (unsigned int)dword_140418110 > 0x64 )
-      dword_140418110 = 100;
+    dword_1404191D0 = *a2;
+    if ( (unsigned int)dword_1404191D0 > 0x64 )
+      dword_1404191D0 = 100;
     PopReleaseRwLock((ULONG_PTR)&PopEsLock);
     PopEsWorkItemSchedule(2);
   }

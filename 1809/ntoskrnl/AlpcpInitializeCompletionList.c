@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpInitializeCompletionList @ 0x1406D4BE0
+ * XREFs of AlpcpInitializeCompletionList @ 0x1406D5E80
  * Callers:
- *     NtAlpcSetInformation @ 0x1406B1050 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x1406B22F0 (NtAlpcSetInformation.c)
  * Callees:
  *     AlpcGetHeaderSize @ 0x140004C90 (AlpcGetHeaderSize.c)
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
@@ -9,19 +9,19 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x14010AA64 (AlpcpFreeCompletionPacketLookaside.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x14068A6F4 (AlpcpAllocateCompletionPacketLookaside.c)
- *     AlpcpRegisterCompletionListDatabase @ 0x1406D504C (AlpcpRegisterCompletionListDatabase.c)
- *     AlpcpUnregisterCompletionListDatabase @ 0x1406D6A1C (AlpcpUnregisterCompletionListDatabase.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x14010AAE4 (AlpcpFreeCompletionPacketLookaside.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x14068B8B4 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     AlpcpRegisterCompletionListDatabase @ 0x1406D62EC (AlpcpRegisterCompletionListDatabase.c)
+ *     AlpcpUnregisterCompletionListDatabase @ 0x1406D7CBC (AlpcpUnregisterCompletionListDatabase.c)
  */
 
-__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int a5, int a6)
+__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int Flags, int a6)
 {
   size_t v6; // r15
   char v8; // r12
@@ -36,7 +36,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   __int64 v17; // r10
   unsigned int v18; // r11d
   __int64 v19; // rax
-  int HeaderSize; // eax
+  ULONG HeaderSize; // eax
   _DWORD *v21; // rdi
   __int64 v22; // rax
   unsigned __int64 v23; // rcx
@@ -47,8 +47,8 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   char v28; // r15
   int v30; // ecx
   int v31; // eax
-  int v32; // ecx
-  int v33; // edx
+  ULONG v32; // ecx
+  ULONG v33; // edx
   struct _MDL *v34; // rcx
   unsigned int v35; // [rsp+38h] [rbp-50h]
   int v36; // [rsp+3Ch] [rbp-4Ch]
@@ -60,7 +60,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   v10 = 0LL;
   if ( ((unsigned __int16)a2 & 0xFFF) != 0LL || (a3 & 0xFFF) != 0 || a3 - 0x4000 > 0x3FFFC000 )
     goto LABEL_32;
-  if ( (a5 & 0x55FFFFFF) != 0 || !a4 )
+  if ( (Flags & 0x55FFFFFF) != 0 || !a4 )
   {
     v9 = 0;
 LABEL_32:
@@ -124,28 +124,28 @@ LABEL_36:
       *((_QWORD *)v10 + 5) = a2;
       *((_QWORD *)v10 + 6) = &a2[v6];
       *((_QWORD *)v10 + 7) = &a2[v17 + 4096 + v16];
-      *((_DWORD *)v10 + 37) = a5;
+      *((_DWORD *)v10 + 37) = Flags;
       if ( a6 )
       {
-        v30 = ((a5 >> 31) & 0xC) + 24;
-        if ( (a5 & 0x40000000) == 0 )
-          v30 = ((a5 >> 31) & 0xC) + 8;
+        v30 = ((Flags >> 31) & 0xC) + 24;
+        if ( (Flags & 0x40000000) == 0 )
+          v30 = ((Flags >> 31) & 0xC) + 8;
         v31 = v30 + 20;
-        if ( (a5 & 0x20000000) == 0 )
+        if ( (Flags & 0x20000000) == 0 )
           v31 = v30;
         v32 = v31 + 16;
-        if ( (a5 & 0x10000000) == 0 )
+        if ( (Flags & 0x10000000) == 0 )
           v32 = v31;
         v33 = v32 + 24;
-        if ( (a5 & 0x8000000) == 0 )
+        if ( (Flags & 0x8000000) == 0 )
           v33 = v32;
         HeaderSize = v33 + 8;
-        if ( (a5 & 0x2000000) == 0 )
+        if ( (Flags & 0x2000000) == 0 )
           HeaderSize = v33;
       }
       else
       {
-        HeaderSize = AlpcGetHeaderSize(a5);
+        HeaderSize = AlpcGetHeaderSize(Flags);
         LODWORD(v16) = v35;
         LODWORD(v17) = v36;
         v18 = P;

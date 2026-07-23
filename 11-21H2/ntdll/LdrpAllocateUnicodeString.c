@@ -14,7 +14,7 @@ __int64 __fastcall LdrpAllocateUnicodeString(__int64 a1, int a2)
 {
   unsigned int v2; // ebx
   unsigned int v3; // edi
-  __int64 StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v2 = 0;
   v3 = a2 + 2;

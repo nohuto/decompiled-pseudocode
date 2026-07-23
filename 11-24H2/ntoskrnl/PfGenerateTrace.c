@@ -1,18 +1,18 @@
 /*
- * XREFs of PfGenerateTrace @ 0x14074637C
+ * XREFs of PfGenerateTrace @ 0x14074466C
  * Callers:
- *     PfpLogScenarioEventCallback @ 0x140745B10 (PfpLogScenarioEventCallback.c)
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
- *     PfpPowerActionSleepSystemPhaseCallback @ 0x140B5AE30 (PfpPowerActionSleepSystemPhaseCallback.c)
+ *     PfpLogScenarioEventCallback @ 0x140743E00 (PfpLogScenarioEventCallback.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
+ *     PfpPowerActionSleepSystemPhaseCallback @ 0x140B5CEA0 (PfpPowerActionSleepSystemPhaseCallback.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     PfpPartitionAccessTraceLockAcquire @ 0x140B5B784 (PfpPartitionAccessTraceLockAcquire.c)
- *     PfpPartitionAccessTraceLockRelease @ 0x140B5B7A0 (PfpPartitionAccessTraceLockRelease.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     PfpPartitionAccessTraceLockAcquire @ 0x140B5D7F4 (PfpPartitionAccessTraceLockAcquire.c)
+ *     PfpPartitionAccessTraceLockRelease @ 0x140B5D810 (PfpPartitionAccessTraceLockRelease.c)
  */
 
 __int64 __fastcall PfGenerateTrace(__int64 a1, int a2)

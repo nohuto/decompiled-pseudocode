@@ -1,14 +1,14 @@
 /*
- * XREFs of VfDriverLoadImage @ 0x1409C2090
+ * XREFs of VfDriverLoadImage @ 0x1409C3090
  * Callers:
- *     MiFinalizeDriverImage @ 0x14075BA88 (MiFinalizeDriverImage.c)
- *     VfDriverEnableVerifier @ 0x1409C8620 (VfDriverEnableVerifier.c)
- *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
- *     VfDriverLoadBootDrivers @ 0x140A4EE74 (VfDriverLoadBootDrivers.c)
+ *     MiFinalizeDriverImage @ 0x14075BC48 (MiFinalizeDriverImage.c)
+ *     VfDriverEnableVerifier @ 0x1409C9620 (VfDriverEnableVerifier.c)
+ *     VfInitBootDriversLoaded @ 0x140A4FD74 (VfInitBootDriversLoaded.c)
+ *     VfDriverLoadBootDrivers @ 0x140A4FE74 (VfDriverLoadBootDrivers.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     VfTargetDriversAdd @ 0x140371A3C (VfTargetDriversAdd.c)
- *     VfSuspectDriversLoadCallback @ 0x1409D9B98 (VfSuspectDriversLoadCallback.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     VfTargetDriversAdd @ 0x14037158C (VfTargetDriversAdd.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409DAB98 (VfSuspectDriversLoadCallback.c)
  */
 
 void __fastcall VfDriverLoadImage(__int64 a1, int a2, unsigned __int8 a3, unsigned __int8 a4)

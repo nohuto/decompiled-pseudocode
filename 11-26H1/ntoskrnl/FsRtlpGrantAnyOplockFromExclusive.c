@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlpGrantAnyOplockFromExclusive @ 0x1405B7138
+ * XREFs of FsRtlpGrantAnyOplockFromExclusive @ 0x1405B99A8
  * Callers:
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1405B6350 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1405B8BC0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     FsRtlpSyncWithAckTimeout @ 0x1403FE3D0 (FsRtlpSyncWithAckTimeout.c)
- *     FsRtlpRequestShareableOplock @ 0x1403FEDE8 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14052A77C (FsRtlpCancelExclusiveIrp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FsRtlpOplockMoveAckTimeout @ 0x14078F0DC (FsRtlpOplockMoveAckTimeout.c)
- *     FsRtlpOplockPerfMoveData @ 0x14078F2D8 (FsRtlpOplockPerfMoveData.c)
- *     FsRtlpFillOutputBuffer @ 0x140ADD764 (FsRtlpFillOutputBuffer.c)
- *     FsRtlpOplockPerfSendData @ 0x140AE8CD4 (FsRtlpOplockPerfSendData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     FsRtlpSyncWithAckTimeout @ 0x1403FABC0 (FsRtlpSyncWithAckTimeout.c)
+ *     FsRtlpRequestShareableOplock @ 0x140514FAC (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14052CC9C (FsRtlpCancelExclusiveIrp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FsRtlpOplockMoveAckTimeout @ 0x140791C0C (FsRtlpOplockMoveAckTimeout.c)
+ *     FsRtlpOplockPerfMoveData @ 0x140791E08 (FsRtlpOplockPerfMoveData.c)
+ *     FsRtlpFillOutputBuffer @ 0x140ADA4D4 (FsRtlpFillOutputBuffer.c)
+ *     FsRtlpOplockPerfSendData @ 0x140AEAF28 (FsRtlpOplockPerfSendData.c)
  */
 
 __int64 __fastcall FsRtlpGrantAnyOplockFromExclusive(
@@ -103,7 +103,7 @@ LABEL_7:
       v40 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)byte_1400466F3,
+        (unsigned __int8 *)byte_140046E00,
         0LL,
         0LL,
         5u,

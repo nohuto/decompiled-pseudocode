@@ -43,7 +43,7 @@ __int64 __fastcall KeRequestTerminationThread(__int64 a1, __int64 a2, __int64 a3
     v5 = 0;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v10 = 4;
@@ -75,7 +75,7 @@ __int64 __fastcall KeRequestTerminationThread(__int64 a1, __int64 a2, __int64 a3
       }
     }
     *(_QWORD *)(a1 + 64) = 0LL;
-    result = KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    result = KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
     if ( v5 )
     {
       KeAlertThread(a1, 0);

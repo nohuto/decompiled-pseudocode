@@ -1,16 +1,16 @@
 /*
- * XREFs of PopCalculateIdleInformation @ 0x14032D51C
+ * XREFs of PopCalculateIdleInformation @ 0x1402B5AAC
  * Callers:
- *     PopCalculateCsSummary @ 0x14032BF4C (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14075FC80 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x140A27DB4 (PopDripsWatchdogStartWatchdog.c)
- *     PopSleepstudyStartNextSession @ 0x140AAC910 (PopSleepstudyStartNextSession.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140ABC550 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopCalculateCsSummary @ 0x1402B5524 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14075EC80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x140A1C834 (PopDripsWatchdogStartWatchdog.c)
+ *     PopSleepstudyStartNextSession @ 0x140AA7940 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140AB7570 (PopSleepstudySnapModernStandbySessionData.c)
  * Callees:
- *     PpmQueryPlatformStateResidency @ 0x14032D624 (PpmQueryPlatformStateResidency.c)
- *     PpmConvertTimeTo @ 0x14032D92C (PpmConvertTimeTo.c)
+ *     PpmQueryPlatformStateResidency @ 0x1402B5BB4 (PpmQueryPlatformStateResidency.c)
+ *     PpmConvertTimeTo @ 0x140370A00 (PpmConvertTimeTo.c)
  */
 
 __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
     v5 = 0;
   }
   v14 = 0LL;
-  PlatformStateResidency = PpmQueryPlatformStateResidency((unsigned int)dword_140E27DC0);
+  PlatformStateResidency = PpmQueryPlatformStateResidency((unsigned int)dword_140E27F00);
   if ( PlatformStateResidency != -1LL )
     PlatformStateResidency /= 0xAuLL;
   v7 = 0;
@@ -52,7 +52,7 @@ __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
   if ( v4 )
   {
     v10 = (_QWORD *)(v3 + 72);
-    v11 = dword_140E27DC0;
+    v11 = dword_140E27F00;
     do
     {
       v1 += PpmConvertTimeTo(*v10, 1000000LL);

@@ -9,13 +9,13 @@
  *     RtlpInterlockedFlushSList @ 0x1406A8640 (RtlpInterlockedFlushSList.c)
  */
 
-PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(_SLIST_HEADER *a1)
 {
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *i; // rdi
-  struct _SLIST_ENTRY *v4; // rbx
-  struct _SLIST_ENTRY *v5; // rbp
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_ENTRY *i; // rdi
+  _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *v5; // rbp
+  _SLIST_HEADER *v6; // rcx
   unsigned __int64 Next; // rdx
   ULONG *v8; // rbx
   int v9; // [rsp+40h] [rbp+8h] BYREF
@@ -38,7 +38,7 @@ PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(union _SLIST_HEADER *a1)
       Next = (unsigned __int64)v4[1].Next;
       v8 = v10;
       MiDeleteCachedKernelShadowStack(v10, Next);
-      v6 = (union _SLIST_HEADER *)(v8 + 112);
+      v6 = (_SLIST_HEADER *)(v8 + 112);
     }
     else
     {

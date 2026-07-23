@@ -1,15 +1,15 @@
 /*
- * XREFs of KeQueryTimelineBitmapTime @ 0x140485178
+ * XREFs of KeQueryTimelineBitmapTime @ 0x14047EAE8
  * Callers:
- *     PoEnergyContextCleanup @ 0x14095042C (PoEnergyContextCleanup.c)
- *     PoEnergyContextUpdateComponentPower @ 0x1409505D0 (PoEnergyContextUpdateComponentPower.c)
- *     PsQueryProcessEnergyValues @ 0x140952980 (PsQueryProcessEnergyValues.c)
- *     PopEtEnergyTrackerQuery @ 0x140B66F4C (PopEtEnergyTrackerQuery.c)
+ *     PoEnergyContextCleanup @ 0x1409CBD6C (PoEnergyContextCleanup.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1409CBF10 (PoEnergyContextUpdateComponentPower.c)
+ *     PsQueryProcessEnergyValues @ 0x1409CE2C0 (PsQueryProcessEnergyValues.c)
+ *     PopEtEnergyTrackerQuery @ 0x140B69ED8 (PopEtEnergyTrackerQuery.c)
  * Callees:
  *     <none>
  */
 
 __int64 KeQueryTimelineBitmapTime()
 {
-  return *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
+  return HIDWORD(KsepShimDbLock.UserWaitTime);
 }

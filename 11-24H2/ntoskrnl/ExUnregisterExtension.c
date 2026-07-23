@@ -1,68 +1,55 @@
 /*
- * XREFs of ExUnregisterExtension @ 0x1407C08C0
+ * XREFs of ExUnregisterExtension @ 0x1407C0D10
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpDereferenceHost @ 0x1407C09E0 (ExpDereferenceHost.c)
- *     ExpVerifyCallbackResult @ 0x1407C0A60 (ExpVerifyCallbackResult.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpDereferenceHost @ 0x1407C0E30 (ExpDereferenceHost.c)
+ *     ExpVerifyCallbackResult @ 0x1407C0EB0 (ExpVerifyCallbackResult.c)
  */
 
-__int64 __fastcall ExUnregisterExtension(__int64 a1)
+__int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v2; // rsi
-  _QWORD *v4; // rax
-  __int64 v5; // r9
-  _QWORD *v6; // rbp
-  int *v7; // rax
-  int v8; // ecx
-  __int64 v9; // rax
-  unsigned int v10; // eax
-  __int64 v11; // r9
-  __int64 v12; // rax
-  unsigned int v13; // eax
-  _DWORD v15[2]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-10h]
+  unsigned __int64 *p_Count; // rsi
+  char *v4; // rax
+  char *v5; // rbp
+  unsigned int v6; // eax
+  unsigned __int64 Count; // rax
+  unsigned int v8; // eax
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (unsigned __int64 *)(a1 + 32);
+  p_Count = &a1[4].Count;
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire(a1 + 32, 0LL);
-  v6 = v4;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v4, (__int64)v2);
-  if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
-  v15[1] = *(_DWORD *)(a1 + 80);
-  v7 = *(int **)(a1 + 56);
-  v16 = a1;
-  v8 = *v7;
-  v9 = *(_QWORD *)(a1 + 64);
-  v15[0] = v8;
-  if ( v9 )
+  v4 = (char *)KeAbPreAcquire((__int64)&a1[4], 0LL);
+  v5 = v4;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
+    ExfAcquirePushLockExclusiveEx(p_Count, v4, (__int64)p_Count);
+  if ( v5 )
+    v5[10] = 1;
+  if ( a1[8].Count )
   {
-    v10 = guard_dispatch_icall_no_overrides(2LL, *(_QWORD *)(a1 + 72), v15, v5);
-    ExpVerifyCallbackResult(2LL, v10);
+    v6 = guard_dispatch_icall_no_overrides(2LL, a1[9].Count);
+    ExpVerifyCallbackResult(2LL, v6);
   }
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 88));
-  v12 = *(_QWORD *)(a1 + 64);
-  *(_QWORD *)(a1 + 96) = 0LL;
-  *(_QWORD *)(a1 + 56) = 0LL;
-  if ( v12 )
+  ExWaitForRundownProtectionRelease(a1 + 11);
+  Count = a1[8].Count;
+  a1[12].Count = 0LL;
+  a1[7].Count = 0LL;
+  if ( Count )
   {
-    v13 = guard_dispatch_icall_no_overrides(3LL, *(_QWORD *)(a1 + 72), v15, v11);
-    ExpVerifyCallbackResult(3LL, v13);
+    v8 = guard_dispatch_icall_no_overrides(3LL, a1[9].Count);
+    ExpVerifyCallbackResult(3LL, v8);
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v2);
-  KeAbPostRelease((ULONG_PTR)v2);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)p_Count, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)p_Count);
+  KeAbPostRelease((ULONG_PTR)p_Count);
   KeLeaveCriticalRegion();
   return ExpDereferenceHost(a1);
 }

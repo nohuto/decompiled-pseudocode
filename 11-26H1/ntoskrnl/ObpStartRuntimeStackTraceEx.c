@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpStartRuntimeStackTraceEx @ 0x1407C53D4
+ * XREFs of ObpStartRuntimeStackTraceEx @ 0x1407C8434
  * Callers:
- *     ObSetRefTraceInformationEx @ 0x1407C45C8 (ObSetRefTraceInformationEx.c)
- *     ObpStartRuntimeStackTrace @ 0x1407C51E8 (ObpStartRuntimeStackTrace.c)
+ *     ObSetRefTraceInformationEx @ 0x1407C7628 (ObSetRefTraceInformationEx.c)
+ *     ObpStartRuntimeStackTrace @ 0x1407C8248 (ObpStartRuntimeStackTrace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     ObpInitStackAndObjectTables @ 0x1407C4BE8 (ObpInitStackAndObjectTables.c)
- *     ObpSetPoolTags @ 0x1407C50D8 (ObpSetPoolTags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     ObpInitStackAndObjectTables @ 0x1407C7C48 (ObpInitStackAndObjectTables.c)
+ *     ObpSetPoolTags @ 0x1407C8138 (ObpSetPoolTags.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTraceEx(
         int a1,
         unsigned __int16 *a2,
-        _LIST_ENTRY *a3,
+        _OWORD *a3,
         struct _KLOCK_ENTRIES *a4,
         int a5,
         int a6)
@@ -29,17 +29,17 @@ __int64 __fastcall ObpStartRuntimeStackTraceEx(
   signed __int8 v13; // cf
   AutoBoost *v14; // rdi
   int inited; // edi
-  $B3FD53340A977CC9CDA66D808670C106 *v16; // rax
+  unsigned __int16 *p_AffinityPrimaryGroup; // rax
   int v17; // eax
   int v18; // eax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F132C8, 0LL, 0LL, a4);
-  v13 = _interlockedbittestandset64(&stru_140F132C8.Header.Lock, 0LL);
+  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL, 0LL, a4);
+  v13 = _interlockedbittestandset64(&ObpStackTraceLock.Header.Lock, 0LL);
   v14 = v11;
   if ( v13 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F132C8, v11, (__int64)&stru_140F132C8);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ObpStackTraceLock, v11, (__int64)&ObpStackTraceLock);
   if ( v14 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -47,7 +47,7 @@ __int64 __fastcall ObpStartRuntimeStackTraceEx(
     else
       *((_BYTE *)v14 + 10) = 1;
   }
-  *(_QWORD *)&stru_140E66B30.WaitBlockFill11[16] = a4;
+  stru_140E66D40.WaitBlock[0].SparePtr = a4;
   if ( (ObpTraceFlags & 0xF3) != 0 )
   {
     if ( (a1 & 0x80u) == 0 )
@@ -79,17 +79,17 @@ LABEL_14:
   }
   if ( (ObpTraceFlags & 0x20) != 0 )
   {
-    if ( stru_140F132C8.SavedApcState.ApcListHead[0].Blink )
-      ObpTraceFreeMemory(stru_140F132C8.SavedApcState.ApcListHead[0].Blink);
-    v16 = &stru_140F132C8.600;
-    stru_140F132C8.SavedApcState.ApcListHead[0] = *a3;
+    if ( ObpStackTraceLock.NpxState )
+      ObpTraceFreeMemory((PVOID)ObpStackTraceLock.NpxState);
+    p_AffinityPrimaryGroup = &ObpStackTraceLock.AffinityPrimaryGroup;
+    *(_OWORD *)&ObpStackTraceLock.AffinityPrimaryGroup = *a3;
     *a3 = 0LL;
   }
   else
   {
-    v16 = 0LL;
+    p_AffinityPrimaryGroup = 0LL;
   }
-  stru_140F132C8.NpxState = (unsigned __int64)v16;
+  ObpStackTraceLock.SavedApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)p_AffinityPrimaryGroup;
   v17 = a5;
   if ( !a5 )
     v17 = 0xFFFF;
@@ -100,9 +100,9 @@ LABEL_14:
   inited = 0;
   ObpTracedObjectLimit = v18;
 LABEL_28:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F132C8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F132C8.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140F132C8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&ObpStackTraceLock);
   KeLeaveGuardedRegion();
   return (unsigned int)inited;
 }

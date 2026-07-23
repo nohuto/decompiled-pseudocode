@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUnicodeStringCat @ 0x1403E4700
+ * XREFs of RtlUnicodeStringCat @ 0x1403E78F0
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1408AF680 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpGetSymbolicLinkTarget @ 0x1408BA354 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x1408C11D0 (CmpDoWritethroughReparse.c)
- *     CmpIsFileInSystemConfig @ 0x140A77570 (CmpIsFileInSystemConfig.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140A88E8C (SshpGenerateDeviceFriendlyName.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140AF47D8 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     PopPowerRequestStatsIdConcat @ 0x140B00BF0 (PopPowerRequestStatsIdConcat.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B22D10 (PopIdleWakeGenerateInterruptDescriptionString.c)
- *     PopGenerateDeviceFriendlyName @ 0x140B22F30 (PopGenerateDeviceFriendlyName.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1408B59EC (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1408C0924 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x1408C77A0 (CmpDoWritethroughReparse.c)
+ *     CmpIsFileInSystemConfig @ 0x140A80290 (CmpIsFileInSystemConfig.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140A8FD7C (SshpGenerateDeviceFriendlyName.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140AF6E78 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     PopPowerRequestStatsIdConcat @ 0x140B02920 (PopPowerRequestStatsIdConcat.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B25110 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140B25330 (PopGenerateDeviceFriendlyName.c)
  * Callees:
  *     <none>
  */

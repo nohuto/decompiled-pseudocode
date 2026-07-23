@@ -21,39 +21,39 @@
 __int64 __fastcall sub_1800558E4(__int64 a1)
 {
   unsigned int v1; // ebx
-  int v2; // eax
+  NTSTATUS v2; // eax
   __int64 v3; // rcx
-  void *ProcessHeap; // r14
-  _BYTE *Heap; // rdi
+  PVOID ProcessHeap; // r14
+  _DWORD *Heap; // rdi
   unsigned __int64 v7; // rcx
   signed int v8; // esi
-  __int64 v9; // r8
-  int v10; // r15d
+  SIZE_T v9; // r8
+  ULONG SizeOfBitMap; // r15d
   int v11; // esi
   int v12; // ecx
-  __int64 v13; // r9
+  void *v13; // r9
   char v14; // al
   int v15; // r8d
   unsigned int v16; // r8d
   __int64 v17; // r15
   unsigned int v18; // eax
-  __int64 v19; // rax
+  PVOID v19; // rax
   _QWORD *v20; // r13
-  _BYTE *v21; // rax
+  _DWORD *v21; // rax
   char v22; // r13
   int v23; // esi
   __int64 v24; // r8
   __int64 v25; // r15
   __int64 v26; // rax
   __int64 v27; // rdx
-  __int64 v28; // r8
+  void *v28; // r8
   __int64 v29; // rax
   __int64 v30; // r8
   char v31; // [rsp+30h] [rbp-C8h] BYREF
-  int v32; // [rsp+34h] [rbp-C4h]
-  unsigned int v33; // [rsp+38h] [rbp-C0h] BYREF
+  NTSTATUS v32; // [rsp+34h] [rbp-C4h]
+  DWORD v33; // [rsp+38h] [rbp-C0h] BYREF
   int v34; // [rsp+3Ch] [rbp-BCh]
-  unsigned int v35; // [rsp+40h] [rbp-B8h]
+  ULONG v35; // [rsp+40h] [rbp-B8h]
   __int64 v36; // [rsp+48h] [rbp-B0h]
   int v37; // [rsp+50h] [rbp-A8h]
   unsigned int v38; // [rsp+54h] [rbp-A4h]
@@ -64,8 +64,8 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
   unsigned __int64 v43; // [rsp+78h] [rbp-80h]
   __int64 v44; // [rsp+80h] [rbp-78h]
   __int64 v45; // [rsp+88h] [rbp-70h] BYREF
-  __int64 v46; // [rsp+90h] [rbp-68h]
-  __int64 v47[3]; // [rsp+98h] [rbp-60h] BYREF
+  PVOID BaseAddress; // [rsp+90h] [rbp-68h]
+  PVOID v47[3]; // [rsp+98h] [rbp-60h] BYREF
   _BYTE v48[40]; // [rsp+B0h] [rbp-48h] BYREF
 
   v36 = a1;
@@ -81,12 +81,12 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
   if ( !v3 )
     return 0LL;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  v47[1] = (__int64)ProcessHeap;
+  v47[1] = ProcessHeap;
   v34 = 0;
   v47[0] = 0LL;
   Heap = 0LL;
   v41 = 0LL;
-  RtlAcquireSRWLockExclusive(&qword_1801661B8);
+  RtlAcquireSRWLockExclusive(&stru_1801661B8);
   if ( dword_180165240 == 1 )
   {
     Heap = v48;
@@ -112,7 +112,7 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
       v8 = v7 + 16 < v7 ? 0xC0000095 : 0;
       if ( v7 + 16 >= v7 )
       {
-        Heap = (_BYTE *)RtlAllocateHeap((__int64)ProcessHeap, dword_18016542C + 786432, v9);
+        Heap = RtlAllocateHeap(ProcessHeap, Flags + 786432, v9);
         v41 = Heap;
         if ( !Heap )
           v8 = -1073741801;
@@ -120,12 +120,12 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
     }
     if ( v8 < 0 )
     {
-      RtlReleaseSRWLockExclusive(&qword_1801661B8);
+      RtlReleaseSRWLockExclusive(&stru_1801661B8);
       return (unsigned int)v8;
     }
   }
-  v10 = dword_180165250;
-  v35 = dword_180165250;
+  SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+  v35 = BitMapHeader.SizeOfBitMap;
   v11 = sub_180055FD0(v39, v36, (unsigned int)&v33, (unsigned int)&v31, (__int64)&v45);
   v32 = v11;
   if ( v11 < 0 )
@@ -133,21 +133,21 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
     v25 = v36;
     goto LABEL_39;
   }
-  *((_DWORD *)Heap + 2) = dword_180165240;
+  Heap[2] = dword_180165240;
   if ( v31 )
   {
-    *((_DWORD *)Heap + 1) = 1;
-    *((_DWORD *)Heap + 3) = v10;
-    v35 = dword_180165250;
+    Heap[1] = 1;
+    Heap[3] = SizeOfBitMap;
+    v35 = BitMapHeader.SizeOfBitMap;
   }
   else
   {
-    *((_DWORD *)Heap + 1) = 0;
-    *((_DWORD *)Heap + 3) = v33;
+    Heap[1] = 0;
+    Heap[3] = v33;
   }
   v12 = (*(_DWORD *)(v45 + 52) >> 20) & 0xF;
-  v13 = *(_QWORD *)(v45 + 24) - *(_QWORD *)(v45 + 16);
-  Size = v13;
+  v13 = (void *)(*(_QWORD *)(v45 + 24) - *(_QWORD *)(v45 + 16));
+  Size = (size_t)v13;
   v14 = v12 - 1;
   if ( (*(_DWORD *)(v45 + 52) & 0xF00000) == 0 )
     v14 = v12;
@@ -163,28 +163,28 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
   while ( 1 )
   {
     v37 = v17;
-    v18 = *((_DWORD *)Heap + 2);
+    v18 = Heap[2];
     if ( (unsigned int)v17 >= v18 )
     {
-      *(_DWORD *)Heap = 0;
-      v32 = ZwSetInformationProcess(-1LL, 35LL, Heap, 24 * v18 + 16);
+      *Heap = 0;
+      v32 = ZwSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessTlsInformation, Heap, 24 * v18 + 16);
       goto LABEL_30;
     }
     v43 = v16;
-    v19 = RtlAllocateHeap((__int64)ProcessHeap, dword_18016542C + 786432, v16 + v13 + 1);
-    v46 = v19;
+    v19 = RtlAllocateHeap(ProcessHeap, Flags + 786432, (SIZE_T)v13 + v16 + 1);
+    BaseAddress = v19;
     if ( !v19 )
     {
       v32 = -1073741801;
       goto LABEL_30;
     }
-    v20 = (_QWORD *)(~v43 & (v19 + (unsigned int)v39));
+    v20 = (_QWORD *)(~v43 & ((unsigned __int64)v19 + (unsigned int)v39));
     v43 = (unsigned __int64)v20;
     *(v20 - 1) = v19;
     memmove(v20, *(const void **)(v45 + 16), Size);
     if ( !v31 )
     {
-      v21 = &Heap[24 * (unsigned int)v17];
+      v21 = &Heap[6 * (unsigned int)v17];
       *((_QWORD *)v21 + 3) = v20;
       goto LABEL_28;
     }
@@ -193,15 +193,15 @@ __int64 __fastcall sub_1800558E4(__int64 a1)
     if ( !v26 )
       break;
     *(_QWORD *)(v26 + 8LL * v33) = v20;
-    v21 = &Heap[24 * (unsigned int)v17];
+    v21 = &Heap[6 * (unsigned int)v17];
     *((_QWORD *)v21 + 3) = v27;
 LABEL_28:
-    *((_DWORD *)v21 + 4) = 0;
+    v21[4] = 0;
     LODWORD(v17) = v17 + 1;
     v16 = v38;
-    v13 = Size;
+    v13 = (void *)Size;
   }
-  RtlFreeHeap((__int64)ProcessHeap, 0, v46);
+  RtlFreeHeap(ProcessHeap, 0, BaseAddress);
   v32 = -1073741801;
 LABEL_30:
   v22 = v31;
@@ -209,36 +209,36 @@ LABEL_30:
   while ( (_DWORD)v17 )
   {
     v17 = (unsigned int)(v17 - 1);
-    if ( (Heap[24 * v17 + 16] & 2) != 0 )
+    if ( (Heap[6 * v17 + 4] & 2) != 0 )
     {
-      v24 = *(_QWORD *)&Heap[24 * v17 + 24];
+      v24 = *(_QWORD *)&Heap[6 * v17 + 6];
       if ( !v24 )
         continue;
       if ( v22 )
       {
-        sub_180056664(v24, *(_QWORD *)&Heap[24 * v17 + 32]);
+        sub_180056664(v24, *(_QWORD *)&Heap[6 * v17 + 8]);
         continue;
       }
-      v28 = *(_QWORD *)(v24 - 8);
+      v28 = *(void **)(v24 - 8);
       goto LABEL_52;
     }
-    if ( (Heap[24 * v17 + 16] & 1) == 0 )
+    if ( (Heap[6 * v17 + 4] & 1) == 0 )
     {
       ++v23;
       if ( v22 )
       {
-        v30 = *(_QWORD *)&Heap[24 * v17 + 24];
+        v30 = *(_QWORD *)&Heap[6 * v17 + 6];
         v44 = *(_QWORD *)(v30 + 8LL * v33);
-        RtlFreeHeap((__int64)ProcessHeap, 0, v30 - 16);
+        RtlFreeHeap(ProcessHeap, 0, (PVOID)(v30 - 16));
         v29 = v44;
       }
       else
       {
-        v29 = *(_QWORD *)&Heap[24 * v17 + 24];
+        v29 = *(_QWORD *)&Heap[6 * v17 + 6];
       }
-      v28 = *(_QWORD *)(v29 - 8);
+      v28 = *(void **)(v29 - 8);
 LABEL_52:
-      RtlFreeHeap((__int64)ProcessHeap, 0, v28);
+      RtlFreeHeap(ProcessHeap, 0, v28);
       continue;
     }
     ++dword_180165244;
@@ -250,7 +250,7 @@ LABEL_52:
   {
     sub_18007DDBC(v36, v47);
     if ( v22 )
-      dword_180165250 -= 8;
+      BitMapHeader.SizeOfBitMap -= 8;
   }
   else if ( v34 )
   {
@@ -259,11 +259,11 @@ LABEL_52:
 LABEL_39:
   if ( v11 >= 0 )
     *(_WORD *)(v25 + 110) = -1;
-  RtlReleaseSRWLockExclusive(&qword_1801661B8);
-  if ( Heap != v48 )
-    RtlFreeHeap((__int64)ProcessHeap, 0, (__int64)Heap);
+  RtlReleaseSRWLockExclusive(&stru_1801661B8);
+  if ( Heap != (_DWORD *)v48 )
+    RtlFreeHeap(ProcessHeap, 0, Heap);
   if ( v47[0] )
-    RtlFreeHeap((__int64)ProcessHeap, 0, v47[0]);
+    RtlFreeHeap(ProcessHeap, 0, v47[0]);
   if ( v11 < 0 )
     return (unsigned int)v11;
   return v1;

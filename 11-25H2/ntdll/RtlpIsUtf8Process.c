@@ -19,10 +19,10 @@
  *     <none>
  */
 
-bool RtlpIsUtf8Process()
+bool __fastcall RtlpIsUtf8Process()
 {
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   _InterlockedOr((volatile signed __int32 *)&retaddr, 0);
-  return GlobalRtlNlsState == -535 || word_1801CEFD0 == -535;
+  return GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9;
 }

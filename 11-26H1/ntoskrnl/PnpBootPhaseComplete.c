@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpBootPhaseComplete @ 0x14079BF3C
+ * XREFs of PnpBootPhaseComplete @ 0x14079EA7C
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     PiDmaGuardInitialize @ 0x1405DCB24 (PiDmaGuardInitialize.c)
- *     PiPnpRtlInit @ 0x1407A7364 (PiPnpRtlInit.c)
- *     PpDevCfgProcessDevices @ 0x1407ACC4C (PpDevCfgProcessDevices.c)
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     PiDmaGuardInitialize @ 0x1405DF48C (PiDmaGuardInitialize.c)
+ *     PiPnpRtlInit @ 0x1407A9F14 (PiPnpRtlInit.c)
+ *     PpDevCfgProcessDevices @ 0x1407AFCB0 (PpDevCfgProcessDevices.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 PnpBootPhaseComplete()

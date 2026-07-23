@@ -33,7 +33,7 @@ void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
   ACL *v17; // rbp
   unsigned __int8 *Src; // rax
   int v19; // r9d
-  enum _NT_PRODUCT_TYPE ProductType; // [rsp+70h] [rbp+18h] BYREF
+  _NT_PRODUCT_TYPE ProductType; // [rsp+70h] [rbp+18h] BYREF
 
   LOBYTE(ProductType) = a3;
   v7 = a7;

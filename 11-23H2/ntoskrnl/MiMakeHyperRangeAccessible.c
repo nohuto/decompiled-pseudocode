@@ -1,21 +1,21 @@
 /*
- * XREFs of MiMakeHyperRangeAccessible @ 0x1402776B0
+ * XREFs of MiMakeHyperRangeAccessible @ 0x140277940
  * Callers:
- *     MiExpandVadBitMap @ 0x1406B2EB0 (MiExpandVadBitMap.c)
- *     MiCommitPageTablesForVad @ 0x1406F9470 (MiCommitPageTablesForVad.c)
- *     MiExpandVadBitMapDown @ 0x140A3C380 (MiExpandVadBitMapDown.c)
+ *     MiExpandVadBitMap @ 0x1406B2EE0 (MiExpandVadBitMap.c)
+ *     MiCommitPageTablesForVad @ 0x1406F9680 (MiCommitPageTablesForVad.c)
+ *     MiExpandVadBitMapDown @ 0x140A3C630 (MiExpandVadBitMapDown.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFastReadLeafPte @ 0x140277960 (MiFastReadLeafPte.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiFillHyperPtes @ 0x140349430 (MiFillHyperPtes.c)
- *     MiMakeHyperPteDemandZero @ 0x1403495B4 (MiMakeHyperPteDemandZero.c)
- *     MiChargeFullProcessCommitment @ 0x1406F7800 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x140764E54 (MiReturnFullProcessCommitment.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFastReadLeafPte @ 0x140277BF0 (MiFastReadLeafPte.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiGetNextPageTable @ 0x1402E5940 (MiGetNextPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiFillHyperPtes @ 0x1403496C0 (MiFillHyperPtes.c)
+ *     MiMakeHyperPteDemandZero @ 0x140349844 (MiMakeHyperPteDemandZero.c)
+ *     MiChargeFullProcessCommitment @ 0x1406F7A10 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140765044 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __int64 a2, __int64 *a3)

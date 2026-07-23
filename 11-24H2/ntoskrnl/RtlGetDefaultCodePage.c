@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetDefaultCodePage @ 0x140A8E6B0
+ * XREFs of RtlGetDefaultCodePage @ 0x140A8AD20
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 RtlGetDefaultCodePage()

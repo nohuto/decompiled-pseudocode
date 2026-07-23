@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsContextStart @ 0x1800756B8
+ * XREFs of RtlpHpVsContextStart @ 0x1800962A8
  * Callers:
- *     RtlpHpHeapCreate @ 0x18008DE64 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180104964 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpVsSlotCreate @ 0x180075AE0 (RtlpHpVsSlotCreate.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpVsSlotCreate @ 0x1800966D0 (RtlpHpVsSlotCreate.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpVsContextStart(__int64 a1)

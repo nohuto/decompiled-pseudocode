@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelperDestroyBlockerData @ 0x1408FB960
+ * XREFs of SleepstudyHelperDestroyBlockerData @ 0x1408FBAC0
  * Callers:
  *     <none>
  * Callees:
- *     SshpFreeDataEntry @ 0x1408FAC18 (SshpFreeDataEntry.c)
+ *     SshpFreeDataEntry @ 0x1408FAD78 (SshpFreeDataEntry.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyBlockerData(_QWORD *a1)

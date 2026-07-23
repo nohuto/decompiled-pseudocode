@@ -66,10 +66,13 @@ __int64 __fastcall PnpRemoveDeviceActionRequests(__int64 a1)
         if ( v12 )
           PopDirectedDripsClearDisengageReason(4);
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F3E8);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v13 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -89,10 +92,10 @@ __int64 __fastcall PnpRemoveDeviceActionRequests(__int64 a1)
         }
         --dword_140C38F00[v10];
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v19 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v19 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v19 >= 2u )
           {
             v20 = KeGetCurrentPrcb();
             v21 = v20->SchedulerAssist;
@@ -112,10 +115,10 @@ __int64 __fastcall PnpRemoveDeviceActionRequests(__int64 a1)
     while ( v5 != &PnpEnumerationRequestList );
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

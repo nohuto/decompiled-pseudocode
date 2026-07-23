@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlSvmCreatePrQueue @ 0x1401BE0CC
+ * XREFs of HvlSvmCreatePrQueue @ 0x1401BDFB0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlpDepositPages @ 0x1401BB624 (HvlpDepositPages.c)
- *     HvlpHvToNtStatus @ 0x1401BFFC0 (HvlpHvToNtStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlpDepositPages @ 0x1401BB508 (HvlpDepositPages.c)
+ *     HvlpHvToNtStatus @ 0x1401BFEA4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmCreatePrQueue(unsigned int a1, unsigned int a2, unsigned __int64 a3, int a4, unsigned int a5)

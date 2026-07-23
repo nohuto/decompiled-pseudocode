@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAddAtomToAtomTableEx @ 0x1800AE554
+ * XREFs of RtlAddAtomToAtomTableEx @ 0x18007AD34
  * Callers:
- *     RtlAddAtomToAtomTable @ 0x18010D3D0 (RtlAddAtomToAtomTable.c)
+ *     RtlAddAtomToAtomTable @ 0x1801082B0 (RtlAddAtomToAtomTable.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     RtlUnicodeStringToInteger @ 0x180032D60 (RtlUnicodeStringToInteger.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpLockAtomTable @ 0x1800AEA00 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1800AEA2C (RtlpAtomMapAtomToHandleEntry.c)
- *     RtlpInsertStringAtom @ 0x1800AEAC0 (RtlpInsertStringAtom.c)
- *     NLS_UPCASE @ 0x1800AF6C0 (NLS_UPCASE.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlUnicodeStringToInteger @ 0x180013E20 (RtlUnicodeStringToInteger.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpLockAtomTable @ 0x18007B1E0 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x18007B20C (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpInsertStringAtom @ 0x18007B2A0 (RtlpInsertStringAtom.c)
+ *     NLS_UPCASE @ 0x18007BF60 (NLS_UPCASE.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, unsigned __int64 a2, _WORD *a3)
@@ -30,26 +30,26 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, unsigned __int64 a2, _WOR
   __int64 v16; // rbx
   int v17; // eax
   unsigned int v18; // ebx
-  __int64 v19; // rdi
+  _RTL_SRWLOCK *v19; // rdi
   __int16 v20; // dx
   _WORD *v21; // rax
-  int v22; // eax
+  NTSTATUS v22; // eax
   size_t v23; // r15
   _QWORD *Atom; // rax
-  __int64 v25; // rsi
+  _QWORD *v25; // rsi
   _WORD *v26; // rax
   size_t v27; // r15
-  int v29; // [rsp+24h] [rbp-94h] BYREF
+  ULONG Value; // [rsp+24h] [rbp-94h] BYREF
   size_t Size; // [rsp+28h] [rbp-90h]
   _WORD *v31; // [rsp+30h] [rbp-88h]
   int i; // [rsp+38h] [rbp-80h]
   __int64 v33; // [rsp+40h] [rbp-78h]
   __int64 *v34; // [rsp+48h] [rbp-70h]
   __int64 *j; // [rsp+50h] [rbp-68h]
-  const wchar_t *v36; // [rsp+58h] [rbp-60h]
+  _WORD *v36; // [rsp+58h] [rbp-60h]
   unsigned __int16 *v37; // [rsp+60h] [rbp-58h]
-  __int128 v38; // [rsp+68h] [rbp-50h] BYREF
-  const wchar_t *v39; // [rsp+78h] [rbp-40h]
+  _UNICODE_STRING String; // [rsp+68h] [rbp-50h] BYREF
+  _WORD *v39; // [rsp+78h] [rbp-40h]
   __int64 v40; // [rsp+80h] [rbp-38h]
   __int16 v42; // [rsp+D8h] [rbp+20h]
 
@@ -63,36 +63,36 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, unsigned __int64 a2, _WOR
   v10 = 0LL;
   if ( v8 )
   {
-    v39 = (const wchar_t *)a2;
-    v38 = 0LL;
+    v39 = (_WORD *)a2;
+    String = 0LL;
     v36 = 0LL;
-    v29 = 0;
+    Value = 0;
     if ( (a2 & 0xFFFFFFFFFFFF0000uLL) != 0 )
     {
       if ( *(_WORD *)a2 == 35 )
       {
         v20 = a2 + 2;
-        v39 = (const wchar_t *)(a2 + 2);
+        v39 = (_WORD *)(a2 + 2);
         v21 = (_WORD *)(a2 + 2);
-        v36 = (const wchar_t *)(a2 + 2);
+        v36 = (_WORD *)(a2 + 2);
         while ( *v21 )
         {
           if ( (unsigned __int16)(*v21 - 48) > 9u )
             goto LABEL_4;
           v36 = ++v21;
         }
-        v29 = 0;
-        *((_QWORD *)&v38 + 1) = a2 + 2;
-        LOWORD(v38) = (_WORD)v21 - v20;
-        WORD1(v38) = (_WORD)v21 - v20;
-        v22 = RtlUnicodeStringToInteger((unsigned __int16 *)&v38, 0xAu, &v29);
+        Value = 0;
+        String.Buffer = (wchar_t *)(a2 + 2);
+        String.Length = (_WORD)v21 - v20;
+        String.MaximumLength = (_WORD)v21 - v20;
+        v22 = RtlUnicodeStringToInteger(&String, 0xAu, &Value);
         v10 = 0LL;
         if ( v22 >= 0 )
         {
-          if ( (unsigned int)(v29 - 1) > 0xBFFF )
+          if ( Value - 1 > 0xBFFF )
             v42 = -16384;
           else
-            v42 = v29;
+            v42 = Value;
           LOWORD(a2) = v42;
 LABEL_37:
           if ( (unsigned __int16)a2 >= 0xC000u )
@@ -140,7 +140,7 @@ LABEL_4:
         if ( v13 >= 0x61u )
         {
           if ( v13 > 0x7Au )
-            v13 = NLS_UPCASE(qword_1801CD038, v13, v9, v12);
+            v13 = NLS_UPCASE(qword_1801CC038, v13, v9, v12);
           else
             v13 -= 32;
         }
@@ -217,14 +217,14 @@ LABEL_4:
     {
       v18 = -1073741801;
       v23 = v7;
-      Atom = (_QWORD *)RtlpAllocateAtom(v7 + 20LL);
-      v25 = (__int64)Atom;
+      Atom = RtlpAllocateAtom(v7 + 20LL);
+      v25 = Atom;
       if ( Atom )
       {
         *Atom = 0LL;
         v26 = (_WORD *)Atom + 6;
         *v26 = 1;
-        *(_WORD *)(v25 + 14) = 0;
+        *((_WORD *)v25 + 7) = 0;
         v31 = v26;
       }
       else
@@ -233,17 +233,17 @@ LABEL_4:
       }
       if ( v25 )
       {
-        memmove((void *)(v25 + 18), (const void *)a2, v23);
+        memmove((char *)v25 + 18, (const void *)a2, v23);
         v27 = v23 >> 1;
-        *(_BYTE *)(v25 + 16) = v27;
-        *(_WORD *)(v25 + 2LL * (unsigned __int8)v27 + 18) = 0;
-        v19 = a1;
+        *((_BYTE *)v25 + 16) = v27;
+        *((_WORD *)v25 + (unsigned __int8)v27 + 9) = 0;
+        v19 = (_RTL_SRWLOCK *)a1;
         if ( (unsigned __int8)RtlpInsertStringAtom(a1, v25) )
         {
-          *(_WORD *)(v25 + 10) = *(_WORD *)(v25 + 8) | 0xC000;
-          *v34 = v25;
+          *((_WORD *)v25 + 5) = *((_WORD *)v25 + 4) | 0xC000;
+          *v34 = (__int64)v25;
           if ( a3 )
-            *a3 = *(_WORD *)(v25 + 10);
+            *a3 = *((_WORD *)v25 + 5);
           v18 = 0;
         }
         else
@@ -254,9 +254,9 @@ LABEL_4:
       }
     }
 LABEL_30:
-    v19 = a1;
+    v19 = (_RTL_SRWLOCK *)a1;
 LABEL_68:
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v19 + 8));
+    RtlReleaseSRWLockExclusive(v19 + 1);
     return v18;
   }
   return 3221225485LL;

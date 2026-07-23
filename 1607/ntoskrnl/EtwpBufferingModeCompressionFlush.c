@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpBufferingModeCompressionFlush @ 0x14022A074
+ * XREFs of EtwpBufferingModeCompressionFlush @ 0x140229EA0
  * Callers:
- *     EtwpBufferingModeFlush @ 0x1406A6710 (EtwpBufferingModeFlush.c)
+ *     EtwpBufferingModeFlush @ 0x1406A6848 (EtwpBufferingModeFlush.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwpCompressPendingBuffers @ 0x14022A488 (EtwpCompressPendingBuffers.c)
- *     EtwpRelinquishCompressionTarget @ 0x14022AE08 (EtwpRelinquishCompressionTarget.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwpCompressPendingBuffers @ 0x14022A2B4 (EtwpCompressPendingBuffers.c)
+ *     EtwpRelinquishCompressionTarget @ 0x14022AC34 (EtwpRelinquishCompressionTarget.c)
  */
 
 unsigned __int64 __fastcall EtwpBufferingModeCompressionFlush(__int64 a1)

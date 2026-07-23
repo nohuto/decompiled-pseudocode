@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwReadFileScatter @ 0x1407239B0
+ * XREFs of ZwReadFileScatter @ 0x140728580
  * Callers:
- *     DifZwReadFileScatterWrapper @ 0x1406B5BB0 (DifZwReadFileScatterWrapper.c)
+ *     DifZwReadFileScatterWrapper @ 0x1406B9790 (DifZwReadFileScatterWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReadFileScatter(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReadFileScatter(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

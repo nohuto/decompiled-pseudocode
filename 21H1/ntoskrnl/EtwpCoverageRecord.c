@@ -133,7 +133,7 @@ LABEL_6:
             v15 = (__int64)(*a1 + 60);
             v35[0] = 0LL;
             v35[1] = -1LL;
-            KeSetTimer2(v15, v14, 0LL, v35);
+            KeSetTimer2(v15, v14, 0LL, (__int64)v35);
           }
           goto LABEL_9;
         }

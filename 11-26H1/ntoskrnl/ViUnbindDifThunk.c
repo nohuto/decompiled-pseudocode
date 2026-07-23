@@ -1,7 +1,7 @@
 /*
- * XREFs of ViUnbindDifThunk @ 0x1406415C0
+ * XREFs of ViUnbindDifThunk @ 0x1406451A0
  * Callers:
- *     DifDeregisterPlugin @ 0x14064B66C (DifDeregisterPlugin.c)
+ *     DifDeregisterPlugin @ 0x14064F24C (DifDeregisterPlugin.c)
  * Callees:
  *     <none>
  */

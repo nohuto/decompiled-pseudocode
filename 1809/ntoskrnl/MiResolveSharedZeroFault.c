@@ -6,10 +6,10 @@
  *     MiAdvanceFaultList @ 0x14002B6E0 (MiAdvanceFaultList.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiFillPteWithProto @ 0x1402BBEBC (MiFillPteWithProto.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiFillPteWithProto @ 0x1402BC0AC (MiFillPteWithProto.c)
  */
 
 unsigned __int64 __fastcall MiResolveSharedZeroFault(unsigned int *a1)
@@ -194,23 +194,23 @@ LABEL_13:
   if ( v3 != 256 )
   {
     v16 = 32 * (v3 & 0x1F | 0xFFFFFFFFF8000020uLL);
-    if ( !qword_14043A0C0 )
+    if ( !qword_14043B180 )
       goto LABEL_17;
-    if ( (qword_14043A0C0 & v16) != 0 )
+    if ( (qword_14043B180 & v16) != 0 )
       goto LABEL_16;
     goto LABEL_34;
   }
   v16 = (v5 << 16) | 0x400;
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
-    if ( (v16 & qword_14043A0C0) != 0 )
+    if ( (v16 & qword_14043B180) != 0 )
     {
 LABEL_16:
       v16 |= 0x10uLL;
       goto LABEL_17;
     }
 LABEL_34:
-    v16 |= qword_14043A0C0;
+    v16 |= qword_14043B180;
   }
 LABEL_17:
   result = 0xFFFFF6FB7DBED000uLL;
@@ -227,7 +227,7 @@ LABEL_18:
       v16 |= v41;
     goto LABEL_18;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v16 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v16 & 1) != 0 )
     v16 |= v41;
   *(_QWORD *)v4 = v16;
   result = MiWritePteShadow(v4);

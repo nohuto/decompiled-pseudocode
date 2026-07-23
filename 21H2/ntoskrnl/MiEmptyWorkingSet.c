@@ -1,9 +1,9 @@
 /*
- * XREFs of MiEmptyWorkingSet @ 0x1405304CC
+ * XREFs of MiEmptyWorkingSet @ 0x14053070C
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x1406BD464 (MmProcessWorkingSetControl.c)
  * Callees:
- *     MiEmptyWorkingSetInitiate @ 0x14035A3D4 (MiEmptyWorkingSetInitiate.c)
+ *     MiEmptyWorkingSetInitiate @ 0x14029F170 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSet(__int64 a1, char a2)

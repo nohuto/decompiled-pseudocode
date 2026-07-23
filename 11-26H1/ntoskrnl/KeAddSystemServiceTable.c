@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAddSystemServiceTable @ 0x140B47ED0
+ * XREFs of KeAddSystemServiceTable @ 0x140B49C60
  * Callers:
  *     <none>
  * Callees:
- *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140B4803C (PsRegisterSyscallProviderServiceTableMetadata.c)
+ *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140B49DCC (PsRegisterSyscallProviderServiceTableMetadata.c)
  */
 
 char __fastcall KeAddSystemServiceTable(
@@ -27,23 +27,23 @@ char __fastcall KeAddSystemServiceTable(
   if ( a5 == 1 )
   {
     v10 = 0;
-    if ( !(_QWORD)xmmword_1412018E0 && !stru_140FC01F0.Spare18 )
+    if ( !(_QWORD)xmmword_1412018E0 && !stru_140FC11F0.Spare18 )
     {
-      stru_140FC01F0.Spare18 = (unsigned __int64)a1;
-      stru_140FC01F0.ThreadFlags2 = a3;
-      stru_140FC01F0.QueueListEntry.Flink = a4;
+      stru_140FC11F0.Spare18 = (unsigned __int64)a1;
+      stru_140FC11F0.ThreadFlags2 = a3;
+      stru_140FC11F0.QueueListEntry.Flink = a4;
       PsRegisterSyscallProviderServiceTableMetadata(1LL);
-      v11 = (unsigned int)&stru_140FC01F0.Spare18 + LODWORD(stru_140FC01F0.Spare18) + KiTableInformation;
-      if ( stru_140FC01F0.ThreadFlags2 )
+      v11 = (unsigned int)&stru_140FC11F0.Spare18 + LODWORD(stru_140FC11F0.Spare18) + KiTableInformation;
+      if ( stru_140FC11F0.ThreadFlags2 )
       {
-        Object = (int *)stru_140FC01F0.WaitBlock[3].Object;
+        Object = (int *)stru_140FC11F0.WaitBlock[3].Object;
         do
         {
           v13 = *Object;
           v14 = *Object++;
-          v11 = ++v10 * ((v13 + *(_DWORD *)((v14 >> 4) + stru_140FC01F0.Spare18)) ^ v11);
+          v11 = ++v10 * ((v13 + *(_DWORD *)((v14 >> 4) + stru_140FC11F0.Spare18)) ^ v11);
         }
-        while ( v10 < stru_140FC01F0.ThreadFlags2 );
+        while ( v10 < stru_140FC11F0.ThreadFlags2 );
       }
       KiTableInformation += 2 * v11;
       return 1;
@@ -52,25 +52,25 @@ char __fastcall KeAddSystemServiceTable(
   else if ( a5 == 2 )
   {
     v5 = 0;
-    if ( !stru_140FC01F0.IoSelfBoostsEntry.Next )
+    if ( !stru_140FC11F0.IoSelfBoostsEntry.Next )
     {
-      stru_140FC01F0.IoSelfBoostsEntry.Next = a1;
-      *(_DWORD *)&stru_140FC01F0.PriorityFloorCounts[8] = a3;
-      *(_QWORD *)&stru_140FC01F0.PriorityFloorCounts[16] = a4;
-      v6 = (unsigned int)&stru_140FC01F0.IoSelfBoostsEntry
-         + LODWORD(stru_140FC01F0.IoSelfBoostsEntry.Next)
+      stru_140FC11F0.IoSelfBoostsEntry.Next = a1;
+      *(_DWORD *)&stru_140FC11F0.PriorityFloorCounts[8] = a3;
+      *(_QWORD *)&stru_140FC11F0.PriorityFloorCounts[16] = a4;
+      v6 = (unsigned int)&stru_140FC11F0.IoSelfBoostsEntry
+         + LODWORD(stru_140FC11F0.IoSelfBoostsEntry.Next)
          + KiTableInformation;
-      if ( *(_DWORD *)&stru_140FC01F0.PriorityFloorCounts[8] )
+      if ( *(_DWORD *)&stru_140FC11F0.PriorityFloorCounts[8] )
       {
-        Next = stru_140FC01F0.IoSelfBoostsEntry.Next;
+        Next = stru_140FC11F0.IoSelfBoostsEntry.Next;
         do
         {
           v8 = (int)Next->Next;
           Next_low = SLODWORD(Next->Next);
           Next = (struct _SINGLE_LIST_ENTRY *)((char *)Next + 4);
-          v6 = ++v5 * ((v8 + *(_DWORD *)((char *)&stru_140FC01F0.IoSelfBoostsEntry.Next->Next + (Next_low >> 4))) ^ v6);
+          v6 = ++v5 * ((v8 + *(_DWORD *)((char *)&stru_140FC11F0.IoSelfBoostsEntry.Next->Next + (Next_low >> 4))) ^ v6);
         }
-        while ( v5 < *(_DWORD *)&stru_140FC01F0.PriorityFloorCounts[8] );
+        while ( v5 < *(_DWORD *)&stru_140FC11F0.PriorityFloorCounts[8] );
       }
       KiTableInformation += 2 * v6;
       return 1;

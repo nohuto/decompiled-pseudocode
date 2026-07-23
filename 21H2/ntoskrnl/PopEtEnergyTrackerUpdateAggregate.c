@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtEnergyTrackerUpdateAggregate @ 0x140619394
+ * XREFs of PopEtEnergyTrackerUpdateAggregate @ 0x140682FF4
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x1406190C8 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x140682D28 (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     PsAddProcessEnergyValues @ 0x1402548F0 (PsAddProcessEnergyValues.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopEtEnergyValuesDeltaCalculate @ 0x140619558 (PopEtEnergyValuesDeltaCalculate.c)
- *     PopEtAggregateGet @ 0x140619EA8 (PopEtAggregateGet.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     PsAddProcessEnergyValues @ 0x140275E60 (PsAddProcessEnergyValues.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopEtEnergyValuesDeltaCalculate @ 0x1406831B8 (PopEtEnergyValuesDeltaCalculate.c)
+ *     PopEtAggregateGet @ 0x140683B08 (PopEtAggregateGet.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerUpdateAggregate(__int64 a1, __int64 a2, __int64 a3, int a4)

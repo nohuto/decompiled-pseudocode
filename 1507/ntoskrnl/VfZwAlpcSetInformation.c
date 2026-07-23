@@ -7,11 +7,15 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcSetInformation(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall VfZwAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        void *a3,
+        ULONG Length)
 {
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
-    ViZwCheckVirtualAddress(a3, (int)retaddr);
-  return pXdvZwAlpcSetInformation(a1, a2, a3);
+    ViZwCheckVirtualAddress((int)a3, (int)retaddr);
+  return pXdvZwAlpcSetInformation(PortHandle, PortInformationClass, a3, Length);
 }

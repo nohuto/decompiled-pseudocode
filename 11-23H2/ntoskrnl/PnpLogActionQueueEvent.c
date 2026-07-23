@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpLogActionQueueEvent @ 0x140359A9C
+ * XREFs of PnpLogActionQueueEvent @ 0x140359C3C
  * Callers:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PnpDeviceActionWorker @ 0x140359430 (PnpDeviceActionWorker.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PnpDeviceActionWorker @ 0x1403595D0 (PnpDeviceActionWorker.c)
  * Callees:
- *     McTemplateK0z_EtwWriteTransfer @ 0x1405612E8 (McTemplateK0z_EtwWriteTransfer.c)
- *     McTemplateK0zd_EtwWriteTransfer @ 0x1405624BC (McTemplateK0zd_EtwWriteTransfer.c)
- *     McTemplateK0zdq_EtwWriteTransfer @ 0x14056255C (McTemplateK0zdq_EtwWriteTransfer.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x1405619A8 (McTemplateK0z_EtwWriteTransfer.c)
+ *     McTemplateK0zd_EtwWriteTransfer @ 0x140562B7C (McTemplateK0zd_EtwWriteTransfer.c)
+ *     McTemplateK0zdq_EtwWriteTransfer @ 0x140562C1C (McTemplateK0zdq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3, char a4)

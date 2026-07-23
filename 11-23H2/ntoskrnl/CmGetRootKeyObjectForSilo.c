@@ -1,12 +1,12 @@
 /*
- * XREFs of CmGetRootKeyObjectForSilo @ 0x14077A3D0
+ * XREFs of CmGetRootKeyObjectForSilo @ 0x14077A5C0
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A068 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A258 (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     PsGetPermanentSiloContext @ 0x14031C840 (PsGetPermanentSiloContext.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     PsGetPermanentSiloContext @ 0x14031CAD0 (PsGetPermanentSiloContext.c)
  */
 
 __int64 CmGetRootKeyObjectForSilo()

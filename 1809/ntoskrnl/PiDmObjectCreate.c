@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDmObjectCreate @ 0x1406F1C30
+ * XREFs of PiDmObjectCreate @ 0x1406F2ED0
  * Callers:
- *     PiDmAddCacheReferenceForObject @ 0x1406F1AE0 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectManagerPopulate @ 0x14072C8F0 (PiDmObjectManagerPopulate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406F2D80 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerPopulate @ 0x14072DAE0 (PiDmObjectManagerPopulate.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmGetCacheKeys @ 0x140598E7C (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x140598ECC (PiDmGetCachedKeyIndex.c)
- *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x14059EAFC (_CmSetDeviceInterfacePathFormat.c)
- *     PiDmCacheDataEncode @ 0x1406F267C (PiDmCacheDataEncode.c)
- *     _PnpValidateObjectName @ 0x1406F27DC (_PnpValidateObjectName.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlHashUnicodeString @ 0x140599BE0 (RtlHashUnicodeString.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PiDmGetCacheKeys @ 0x140599E7C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x140599ECC (PiDmGetCachedKeyIndex.c)
+ *     PnpAllocatePWSTR @ 0x14059B42C (PnpAllocatePWSTR.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14059FAFC (_CmSetDeviceInterfacePathFormat.c)
+ *     PiDmCacheDataEncode @ 0x1406F391C (PiDmCacheDataEncode.c)
+ *     _PnpValidateObjectName @ 0x1406F3A7C (_PnpValidateObjectName.c)
  */
 
 __int64 __fastcall PiDmObjectCreate(unsigned int a1, const wchar_t *a2, _QWORD *a3)
@@ -159,7 +159,7 @@ LABEL_18:
     while ( v19 );
   }
   v20 = 0;
-  v21 = (__int64 *)&off_14034F298;
+  v21 = (__int64 *)&off_140350298;
   v22 = v28;
   while ( a1 != *((_DWORD *)v21 - 2) )
   {

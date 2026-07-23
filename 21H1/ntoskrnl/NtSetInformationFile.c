@@ -382,7 +382,7 @@ LABEL_43:
     Irp->AssociatedIrp.MasterIrp = PoolWithQuota;
     memmove(PoolWithQuota, FileInformation, v5);
     if ( ((unsigned int)(v10 - 19) <= 1 || v10 == FilePositionInformation) && v95->Header.SignalState < 0 )
-      RtlRaiseStatus(3221225485LL);
+      RtlRaiseStatus(-1073741811);
     v39->Flags |= 0x830u;
     v40 = v96;
     *(_DWORD *)(v96 + 8) = v5;

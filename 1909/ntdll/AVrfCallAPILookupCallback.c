@@ -15,18 +15,18 @@ __int64 __fastcall AVrfCallAPILookupCallback(unsigned __int64 a1, __int64 a2, __
 {
   unsigned __int64 v9; // rbx
   __int64 v10; // rbx
-  unsigned __int64 v12[3]; // [rsp+30h] [rbp-18h] BYREF
+  PVOID BaseAddress[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v9 = 0LL;
-  if ( (int)LdrpFindLoadedDllByAddress(a1, v12, 0LL) < 0 )
+  if ( (int)LdrpFindLoadedDllByAddress(a1, (unsigned __int64 *)BaseAddress, 0LL) < 0 )
   {
     v9 = a1;
   }
   else
   {
-    if ( v12[0] != LdrpNtDllDataTableEntry && (*(_DWORD *)(v12[0] + 104) & 0x400) == 0 )
-      v9 = *(_QWORD *)(v12[0] + 48);
-    LdrpDereferenceModule(v12[0]);
+    if ( BaseAddress[0] != (PVOID)LdrpNtDllDataTableEntry && (*((_DWORD *)BaseAddress[0] + 26) & 0x400) == 0 )
+      v9 = *((_QWORD *)BaseAddress[0] + 6);
+    LdrpDereferenceModule((char *)BaseAddress[0]);
   }
   if ( v9 )
   {
@@ -38,7 +38,7 @@ __int64 __fastcall AVrfCallAPILookupCallback(unsigned __int64 a1, __int64 a2, __
             a3,
             a4);
     if ( v10 != a3 )
-      RtlGuardGrantSuppressedCallAccess(a3, 1u, v12);
+      RtlGuardGrantSuppressedCallAccess(a3, 1u, BaseAddress);
   }
   else
   {

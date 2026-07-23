@@ -13,10 +13,11 @@
  *     NtQueryPerformanceCounter @ 0x18009D4B0 (NtQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlQueryPerformanceCounter(unsigned __int64 *a1, __int64 a2)
+LOGICAL __cdecl RtlQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter)
 {
-  unsigned __int64 v2; // rax
-  unsigned __int64 v5; // [rsp+40h] [rbp+18h] BYREF
+  unsigned __int64 v1; // rax
+  __int64 v2; // rdx
+  LARGE_INTEGER PerformanceCountera; // [rsp+40h] [rbp+18h] BYREF
 
   if ( (MEMORY[0x7FFE03C6] & 1) == 0 )
     goto LABEL_21;
@@ -34,25 +35,26 @@ __int64 __fastcall RtlQueryPerformanceCounter(unsigned __int64 *a1, __int64 a2)
         {
           _mm_mfence();
         }
-        v2 = __rdtsc();
-        LODWORD(a2) = HIDWORD(v2);
+        v1 = __rdtsc();
+        LODWORD(v2) = HIDWORD(v1);
+        v1 = (unsigned int)v1;
         v2 = (unsigned int)v2;
-        a2 = (unsigned int)a2;
       }
       else
       {
         __asm { rdtscp }
       }
-      *a1 = (unsigned __int64)(*(_QWORD *)(RtlpHypervisorSharedUserVa + 16)
-                             + (((v2 | (a2 << 32))
-                               * (unsigned __int128)*(unsigned __int64 *)(RtlpHypervisorSharedUserVa + 8)) >> 64)
-                             + MEMORY[0x7FFE03B8]) >> MEMORY[0x7FFE03C7];
-      return 1LL;
+      PerformanceCounter->QuadPart = (unsigned __int64)(*(_QWORD *)(RtlpHypervisorSharedUserVa + 16)
+                                                      + (((v1 | (v2 << 32))
+                                                        * (unsigned __int128)*(unsigned __int64 *)(RtlpHypervisorSharedUserVa
+                                                                                                 + 8)) >> 64)
+                                                      + MEMORY[0x7FFE03B8]) >> MEMORY[0x7FFE03C7];
+      return 1;
     }
 LABEL_21:
-    NtQueryPerformanceCounter(&v5, 0LL);
-    *a1 = v5;
-    return 1LL;
+    NtQueryPerformanceCounter(&PerformanceCountera, 0LL);
+    *PerformanceCounter = PerformanceCountera;
+    return 1;
   }
   if ( MEMORY[0x7FFE03C6] >= 0 )
   {
@@ -64,15 +66,15 @@ LABEL_21:
     {
       _mm_mfence();
     }
-    v2 = __rdtsc();
-    LODWORD(a2) = HIDWORD(v2);
+    v1 = __rdtsc();
+    LODWORD(v2) = HIDWORD(v1);
+    v1 = (unsigned int)v1;
     v2 = (unsigned int)v2;
-    a2 = (unsigned int)a2;
   }
   else
   {
     __asm { rdtscp }
   }
-  *a1 = ((v2 | (a2 << 32)) + MEMORY[0x7FFE03B8]) >> MEMORY[0x7FFE03C7];
-  return 1LL;
+  PerformanceCounter->QuadPart = ((v1 | (v2 << 32)) + MEMORY[0x7FFE03B8]) >> MEMORY[0x7FFE03C7];
+  return 1;
 }

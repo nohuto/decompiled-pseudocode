@@ -1,7 +1,7 @@
 /*
- * XREFs of PspInheritQuota @ 0x1407E2F3C
+ * XREFs of PspInheritQuota @ 0x1407E320C
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

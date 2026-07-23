@@ -1,43 +1,42 @@
 /*
- * XREFs of PiGetDefaultMessageString @ 0x140848B70
+ * XREFs of PiGetDefaultMessageString @ 0x140848E70
  * Callers:
- *     PiNormalizeDeviceText @ 0x140870EB8 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x1408710F8 (PiNormalizeDeviceText.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlInitUTF8String @ 0x1405A7660 (RtlInitUTF8String.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlInitUTF8String @ 0x1405A7BD0 (RtlInitUTF8String.c)
  *     IopReferenceDriverObjectByName @ 0x14068C668 (IopReferenceDriverObjectByName.c)
  *     IopGetDriverNameFromKeyNode @ 0x14068CCD4 (IopGetDriverNameFromKeyNode.c)
- *     RtlFindMessage @ 0x140755590 (RtlFindMessage.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     RtlUTF8StringToUnicodeString @ 0x1409C2330 (RtlUTF8StringToUnicodeString.c)
+ *     RtlFindMessage @ 0x140755780 (RtlFindMessage.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     RtlUTF8StringToUnicodeString @ 0x1409C2530 (RtlUTF8StringToUnicodeString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, _QWORD *a3)
+__int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, _QWORD *a3)
 {
-  __int64 *v6; // rdi
-  int DriverNameFromKeyNode; // ebx
-  __int64 *v8; // rax
-  unsigned __int16 v9; // ax
-  const WCHAR *v10; // rdx
+  PVOID *v6; // rdi
+  NTSTATUS DriverNameFromKeyNode; // ebx
+  PVOID *v8; // rax
+  WORD Flags; // ax
+  BYTE *Text; // rdx
   unsigned __int16 Length; // ax
   wchar_t *Buffer; // rsi
   unsigned __int64 v13; // rbx
   _WORD *Pool2; // rax
   _WORD *v15; // r14
-  __int64 v17; // r8
-  NTSTATUS v18; // eax
+  NTSTATUS v17; // eax
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
   STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
-  unsigned __int16 *v22; // [rsp+A8h] [rbp+48h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+A8h] [rbp+48h] BYREF
 
-  v22 = 0LL;
+  MessageEntry = 0LL;
   SourceString = 0LL;
   DestinationString = 0LL;
   UnicodeString = 0LL;
@@ -47,18 +46,18 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, 
   DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(KeyHandle, &DestinationString);
   if ( DriverNameFromKeyNode >= 0 )
   {
-    v8 = (__int64 *)IopReferenceDriverObjectByName(&DestinationString);
+    v8 = (PVOID *)IopReferenceDriverObjectByName(&DestinationString);
     v6 = v8;
     if ( v8 )
     {
-      DriverNameFromKeyNode = RtlFindMessage(v8[3], 0xBu, 0, a2, &v22);
+      DriverNameFromKeyNode = RtlFindMessage(v8[3], 0xBu, 0, MessageId, &MessageEntry);
       if ( DriverNameFromKeyNode < 0 )
         goto LABEL_11;
-      v9 = v22[1];
-      v10 = v22 + 2;
-      if ( (v9 & 1) != 0 )
+      Flags = MessageEntry->Flags;
+      Text = MessageEntry->Text;
+      if ( (Flags & 1) != 0 )
       {
-        if ( !RtlCreateUnicodeString(&UnicodeString, v10) )
+        if ( !RtlCreateUnicodeString(&UnicodeString, (PCWSTR)Text) )
         {
 LABEL_14:
           DriverNameFromKeyNode = -1073741670;
@@ -67,20 +66,19 @@ LABEL_14:
       }
       else
       {
-        if ( (v9 & 2) != 0 )
+        if ( (Flags & 2) != 0 )
         {
           SourceString = 0LL;
-          RtlInitUTF8String(&SourceString, (const char *)v10);
-          LOBYTE(v17) = 1;
-          v18 = RtlUTF8StringToUnicodeString(&UnicodeString, &SourceString, v17);
+          RtlInitUTF8String(&SourceString, (PCSZ)Text);
+          v17 = RtlUTF8StringToUnicodeString(&UnicodeString, &SourceString, 1u);
         }
         else
         {
-          RtlInitAnsiString(&SourceString, (PCSZ)v10);
-          v18 = RtlAnsiStringToUnicodeString(&UnicodeString, &SourceString, 1u);
+          RtlInitAnsiString(&SourceString, (PCSZ)Text);
+          v17 = RtlAnsiStringToUnicodeString(&UnicodeString, &SourceString, 1u);
         }
-        DriverNameFromKeyNode = v18;
-        if ( v18 < 0 )
+        DriverNameFromKeyNode = v17;
+        if ( v17 < 0 )
           goto LABEL_11;
       }
       Length = UnicodeString.Length;

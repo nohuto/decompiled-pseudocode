@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwCheckSecurityLoggerAccess @ 0x1406A8124
+ * XREFs of EtwCheckSecurityLoggerAccess @ 0x1406A825C
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     EtwpQueryTrace @ 0x14048DD54 (EtwpQueryTrace.c)
- *     EtwpCheckNotificationAccess @ 0x14049120C (EtwpCheckNotificationAccess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     EtwpQueryTrace @ 0x14048E7E4 (EtwpQueryTrace.c)
+ *     EtwpCheckNotificationAccess @ 0x140491C9C (EtwpCheckNotificationAccess.c)
  * Callees:
  *     <none>
  */

@@ -10,8 +10,10 @@ int __thiscall RtlpHpSegContextInitialize(char *this, int a2, int a3, int a4, __
 {
   unsigned int v9; // eax
   int result; // eax
+  size_t v11; // [esp-4h] [ebp-Ch]
 
-  memset(this, 0, 0x80u);
+  LODWORD(v11) = 128;
+  memset(this, 0, v11);
   *(_DWORD *)this = -1048576;
   _BitScanReverse(&v9, 0x1000u);
   *((_DWORD *)this + 3) = 520192;

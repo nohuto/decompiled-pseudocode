@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpIsKernelHandle @ 0x1404444A0
+ * XREFs of ObpIsKernelHandle @ 0x14043CFB0
  * Callers:
- *     ObCloseHandleWithResult @ 0x1407C3270 (ObCloseHandleWithResult.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ObWaitForMultipleObjects @ 0x140A230B0 (ObWaitForMultipleObjects.c)
+ *     ObCloseHandleWithResult @ 0x1407C62D0 (ObCloseHandleWithResult.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObWaitForMultipleObjects @ 0x140A2C6D0 (ObWaitForMultipleObjects.c)
  * Callees:
  *     <none>
  */

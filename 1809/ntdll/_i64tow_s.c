@@ -1,9 +1,9 @@
 /*
- * XREFs of _i64tow_s @ 0x18009A270
+ * XREFs of _i64tow_s @ 0x18009A280
  * Callers:
  *     <none>
  * Callees:
- *     x64tow_s @ 0x18009A30C (x64tow_s.c)
+ *     x64tow_s @ 0x18009A31C (x64tow_s.c)
  */
 
 errno_t __cdecl i64tow_s(__int64 Value, wchar_t *Buffer, size_t BufferCount, int Radix)

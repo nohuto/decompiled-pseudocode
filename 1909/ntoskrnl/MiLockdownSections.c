@@ -21,7 +21,7 @@ __int64 __fastcall MiLockdownSections(__int64 a1)
   PIMAGE_NT_HEADERS v6; // rbx
   __int64 v7; // r14
   int NumberOfSections; // ebp
-  struct _RTL_BITMAP *v9; // r12
+  _RTL_BITMAP *v9; // r12
   _DWORD *v10; // rbx
   BOOL v11; // eax
   int v12; // edx
@@ -39,7 +39,7 @@ __int64 __fastcall MiLockdownSections(__int64 a1)
     v7 = v6->FileHeader.SizeOfOptionalHeader + 60LL;
     MiLockLoaderEntry(v2, 0LL);
     NumberOfSections = v6->FileHeader.NumberOfSections;
-    v9 = *(struct _RTL_BITMAP **)(v2 + 112);
+    v9 = *(_RTL_BITMAP **)(v2 + 112);
     if ( v6->FileHeader.NumberOfSections )
     {
       v10 = (unsigned int *)((char *)&v6->Signature + v7);

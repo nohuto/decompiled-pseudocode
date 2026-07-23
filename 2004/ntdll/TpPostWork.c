@@ -9,20 +9,21 @@
  *     TppValidateCleanupGroupMember @ 0x18001298C (TppValidateCleanupGroupMember.c)
  */
 
-__int64 __fastcall TpPostWork(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  _PEB_LDR_DATA *v3; // r9
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  __int64 v3; // r9
 
-  v3 = Ldr;
-  if ( Ldr
-    && (unsigned int)TppValidateCleanupGroupMember(Ldr, 0LL, a3, Ldr)
-    && v3->SsHandle == TppWorkpCleanupGroupMemberVFuncs
-    && (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress == (_BYTE)a2) )
+  if ( Work
+    && (unsigned int)TppValidateCleanupGroupMember(Work, 0LL, v2)
+    && *(__int64 (__fastcall ***)(PVOID))(v3 + 8) == &TppWorkpCleanupGroupMemberVFuncs
+    && (Work = (PTP_WORK)NtCurrentPeb()->Ldr, *((_BYTE *)Work + 72) == (_BYTE)v1) )
   {
-    return TppWorkPost(v3);
+    TppWorkPost(v3);
   }
   else
   {
-    return TppRaiseInvalidParameter(Ldr, a2, a3, v3);
+    TppRaiseInvalidParameter(Work, v1, v2);
   }
 }

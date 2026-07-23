@@ -18,7 +18,7 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   unsigned __int64 v6; // rsi
   __int64 v8; // rdi
   PVOID PoolWithTag; // rax
-  unsigned __int64 v10; // rbx
+  __int64 v10; // rbx
   int v11; // ecx
 
   v5 = a3;
@@ -29,7 +29,7 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   while ( 1 )
   {
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x90uLL, 0x6553694Du);
-    v10 = (unsigned __int64)PoolWithTag;
+    v10 = (__int64)PoolWithTag;
     if ( !PoolWithTag )
       break;
     memset(PoolWithTag, 0, 0x90uLL);

@@ -1,14 +1,14 @@
 /*
- * XREFs of IovUtilGetLowerDeviceObject @ 0x14070E014
+ * XREFs of IovUtilGetLowerDeviceObject @ 0x14070E044
  * Callers:
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
- *     IovpCallDriver2 @ 0x14070ADA0 (IovpCallDriver2.c)
- *     VfIoDeleteDevice @ 0x14070D810 (VfIoDeleteDevice.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x14070ADD0 (IovpCallDriver2.c)
+ *     VfIoDeleteDevice @ 0x14070D840 (VfIoDeleteDevice.c)
  *     VfPnpVerifyIrpStackUpward @ 0x140718A78 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall IovUtilGetLowerDeviceObject(__int64 a1)

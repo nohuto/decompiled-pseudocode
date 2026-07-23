@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpFlushHeapsCallback @ 0x180095D20
+ * XREFs of RtlpFlushHeapsCallback @ 0x1800A0590
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ __int64 __fastcall RtlpFlushHeapsCallback(__int64 a1)
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
     return RtlpHpHeapCompact(a1, 0);
   else
-    return RtlpFlushHeap();
+    return RtlpFlushHeap(a1);
 }

@@ -48,14 +48,14 @@ BOOLEAN __stdcall FsRtlPrivateLock(
   BOOLEAN v20; // bl
   unsigned __int64 QuadPart; // rbx
   LONGLONG v22; // rdi
-  RTL_SPLAY_LINKS *v23; // rax
+  _RTL_SPLAY_LINKS *v23; // rax
   char v24; // al
   char *v25; // rax
   char *v26; // rdi
   char v27; // di
   char *v28; // rax
   PRTL_SPLAY_LINKS v29; // rdx
-  RTL_SPLAY_LINKS *v30; // r8
+  _RTL_SPLAY_LINKS *v30; // r8
   _RTL_SPLAY_LINKS *v31; // rcx
   bool v32; // zf
   _RTL_SPLAY_LINKS *RightChild; // r11
@@ -64,7 +64,7 @@ BOOLEAN __stdcall FsRtlPrivateLock(
   NTSTATUS Status; // r15d
   __int64 v38; // r8
   KIRQL v39; // [rsp+69h] [rbp-97h]
-  RTL_SPLAY_LINKS *Links; // [rsp+70h] [rbp-90h]
+  _RTL_SPLAY_LINKS *Links; // [rsp+70h] [rbp-90h]
   volatile signed __int64 *v41; // [rsp+78h] [rbp-88h]
   char *v42; // [rsp+80h] [rbp-80h]
   __int128 v43; // [rsp+90h] [rbp-70h] BYREF
@@ -128,7 +128,7 @@ LABEL_3:
   }
   else
   {
-    v23 = (RTL_SPLAY_LINKS *)*((_QWORD *)LockInformation + 5);
+    v23 = (_RTL_SPLAY_LINKS *)*((_QWORD *)LockInformation + 5);
     if ( !v23 )
     {
       v24 = 0;
@@ -223,7 +223,7 @@ LABEL_9:
     }
     else
     {
-      v25 = (char *)ExAllocateFromNPagedLookasideList(&FsRtlSharedLockLookasideList);
+      v25 = (char *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList);
       Entry = v25;
       if ( v25 )
       {
@@ -242,7 +242,7 @@ LABEL_12:
           v20 = 1;
           goto LABEL_72;
         }
-        ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, Entry);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, Entry);
       }
     }
     if ( Irp )

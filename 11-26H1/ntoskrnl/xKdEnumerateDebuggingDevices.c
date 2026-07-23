@@ -1,10 +1,10 @@
 /*
- * XREFs of xKdEnumerateDebuggingDevices @ 0x1405306C0
+ * XREFs of xKdEnumerateDebuggingDevices @ 0x140532BC0
  * Callers:
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerMet @ 0x1407D2FD8
+ * XREFs of PopDiagTraceBatteryTriggerMet @ 0x1407D6010
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
@@ -91,25 +91,23 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
   v4 = *a3;
   if ( (unsigned int)*a3 <= 1 )
   {
-    v5 = dword_140F10044;
-    v9 = dword_140F0FE74;
+    v5 = dword_140F10804;
+    v9 = dword_140F10634;
     v12 = *(_DWORD *)(a1 + 4);
     v8 = v4;
-    v11 = xmmword_140F0FEA0 & 1;
+    v11 = xmmword_140F10660 & 1;
     v6 = *(_BYTE *)a2 == 0;
-    v13 = byte_140F0FFB8 != 0;
+    v13 = byte_140F10778 != 0;
     v14 = !v6;
     v15 = *(_DWORD *)(a2 + 8);
     v16 = *(_DWORD *)(a2 + 4);
     v17 = *(_DWORD *)(a2 + 16);
     v18 = *(_DWORD *)(a2 + 20);
-    LOBYTE(v3) = -45 * (dword_140F10044 - 12);
-    v10 = (dword_140F10044 + 500) / 0x3E8u;
-    if ( byte_140E67628 )
+    LOBYTE(v3) = -45 * (dword_140F10804 - 12);
+    v10 = (dword_140F10804 + 500) / 0x3E8u;
+    if ( PopDiagHandleRegistered )
     {
-      LOBYTE(v3) = EtwEventEnabled(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_BATTERY_TRIGGER_MET);
+      LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_BATTERY_TRIGGER_MET);
       if ( (_BYTE)v3 )
       {
         UserData.Ptr = (ULONGLONG)&v8;
@@ -134,17 +132,12 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
         v47 = 4LL;
         v49 = 4LL;
         v51 = 4LL;
-        LOBYTE(v3) = EtwWrite(
-                       *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                       &POP_ETW_EVENT_BATTERY_TRIGGER_MET,
-                       0LL,
-                       0xBu,
-                       &UserData);
+        LOBYTE(v3) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_BATTERY_TRIGGER_MET, 0LL, 0xBu, &UserData);
       }
     }
-    if ( (unsigned int)dword_140E07598 > 5 )
+    if ( (unsigned int)dword_140E07560 > 5 )
     {
-      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
       if ( (_BYTE)v3 )
       {
         v19 = v8;
@@ -184,8 +177,8 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
         v74 = 4LL;
         v76 = 4LL;
         LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140E07598,
-                       (unsigned __int8 *)word_14004A07A,
+                       (__int64)&dword_140E07560,
+                       (unsigned __int8 *)word_14004A92A,
                        0LL,
                        0LL,
                        0xEu,

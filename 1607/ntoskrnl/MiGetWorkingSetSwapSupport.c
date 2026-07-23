@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetWorkingSetSwapSupport @ 0x140075E5C
+ * XREFs of MiGetWorkingSetSwapSupport @ 0x140075EDC
  * Callers:
- *     MiOutlawInswaps @ 0x1400756CC (MiOutlawInswaps.c)
- *     MiOutPageSingleKernelStack @ 0x140075734 (MiOutPageSingleKernelStack.c)
- *     MmInSwapWorkingSet @ 0x1400B72AC (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x1400B97A8 (MmOutSwapWorkingSet.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x1400C75D8 (MmQueryProcessWorkingSetSwapPages.c)
- *     MiCheckReservePageFileSpace @ 0x1400E4C50 (MiCheckReservePageFileSpace.c)
+ *     MiOutlawInswaps @ 0x14007574C (MiOutlawInswaps.c)
+ *     MiOutPageSingleKernelStack @ 0x1400757B4 (MiOutPageSingleKernelStack.c)
+ *     MmInSwapWorkingSet @ 0x1400B5144 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400B7638 (MmOutSwapWorkingSet.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1400C5478 (MmQueryProcessWorkingSetSwapPages.c)
+ *     MiCheckReservePageFileSpace @ 0x1400E2AF0 (MiCheckReservePageFileSpace.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
  */
 
 __int64 __fastcall MiGetWorkingSetSwapSupport(__int64 a1)

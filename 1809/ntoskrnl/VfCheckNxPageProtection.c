@@ -1,9 +1,9 @@
 /*
- * XREFs of VfCheckNxPageProtection @ 0x140309AE0
+ * XREFs of VfCheckNxPageProtection @ 0x140309CD0
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPageProtection @ 0x140927548 (VfCheckPageProtection.c)
+ *     VfCheckPageProtection @ 0x140928548 (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VfCheckNxPageProtection(int a1, int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnRemoveProcessTrace @ 0x1402DF94C
+ * XREFs of PfSnRemoveProcessTrace @ 0x140290C9C
  * Callers:
- *     PfSnDeactivateTrace @ 0x1402DF7CC (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x140290B1C (PfSnDeactivateTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -55,8 +55,8 @@ LABEL_7:
       }
     }
   }
-  v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
-  KxReleaseSpinLock(&qword_140C50450);
+  v7 = KeAcquireSpinLockRaiseToDpc(&qword_140C50490);
+  KxReleaseSpinLock(&qword_140C50490);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

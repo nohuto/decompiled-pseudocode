@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpIommuGetHardwareDomain @ 0x1404CE03C
+ * XREFs of HalpIommuGetHardwareDomain @ 0x1404C7308
  * Callers:
- *     HalpIommuLeaveDmaDomain @ 0x1404B4B04 (HalpIommuLeaveDmaDomain.c)
- *     IommupDomainAttachPasidDevice @ 0x14054E124 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x14054E420 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuInitializeDmar @ 0x140553FDC (HalpIommuInitializeDmar.c)
- *     HalpIommuJoinDmaDomain @ 0x1405540A8 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404AF300 (HalpIommuLeaveDmaDomain.c)
+ *     IommupDomainAttachPasidDevice @ 0x14054B9D4 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14054BD54 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuInitializeDmar @ 0x14055191C (HalpIommuInitializeDmar.c)
+ *     HalpIommuJoinDmaDomain @ 0x1405519E8 (HalpIommuJoinDmaDomain.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpIommuAcquireNewDomain @ 0x140551F5C (HalpIommuAcquireNewDomain.c)
- *     HalpIommuGetDmarptRootAddress @ 0x140567B00 (HalpIommuGetDmarptRootAddress.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpIommuAcquireNewDomain @ 0x14054F89C (HalpIommuAcquireNewDomain.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1405655F0 (HalpIommuGetDmarptRootAddress.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpIommuGetHardwareDomain(__int64 a1, __int64 a2, char a3, char a4, char a5, __int64 *a6)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PspReferenceCpuPartitionByHandle @ 0x140776EF0
+ * XREFs of PspReferenceCpuPartitionByHandle @ 0x140777110
  * Callers:
- *     NtCreateCpuPartition @ 0x1407757E0 (NtCreateCpuPartition.c)
- *     NtQueryInformationCpuPartition @ 0x140775CD0 (NtQueryInformationCpuPartition.c)
- *     NtSetInformationCpuPartition @ 0x140775EC0 (NtSetInformationCpuPartition.c)
- *     PspAssignCpuPartitionsToProcess @ 0x140776964 (PspAssignCpuPartitionsToProcess.c)
+ *     NtCreateCpuPartition @ 0x140775A00 (NtCreateCpuPartition.c)
+ *     NtQueryInformationCpuPartition @ 0x140775EF0 (NtQueryInformationCpuPartition.c)
+ *     NtSetInformationCpuPartition @ 0x1407760E0 (NtSetInformationCpuPartition.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x140776B84 (PspAssignCpuPartitionsToProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeCreateAccessState @ 0x14083F490 (SeCreateAccessState.c)
- *     SeDeleteAccessState @ 0x140840F80 (SeDeleteAccessState.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCheckObjectAccess @ 0x14087A740 (ObCheckObjectAccess.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeCreateAccessState @ 0x14083B750 (SeCreateAccessState.c)
+ *     SeDeleteAccessState @ 0x14083D240 (SeDeleteAccessState.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCheckObjectAccess @ 0x14087E5F0 (ObCheckObjectAccess.c)
  */
 
 __int64 __fastcall PspReferenceCpuPartitionByHandle(

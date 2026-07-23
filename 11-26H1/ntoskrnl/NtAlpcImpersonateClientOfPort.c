@@ -1,133 +1,130 @@
 /*
- * XREFs of NtAlpcImpersonateClientOfPort @ 0x1409C1390
+ * XREFs of NtAlpcImpersonateClientOfPort @ 0x140992370
  * Callers:
- *     DifNtAlpcImpersonateClientOfPortWrapper @ 0x14066CE20 (DifNtAlpcImpersonateClientOfPortWrapper.c)
- *     NtImpersonateClientOfPort @ 0x1407BFBD0 (NtImpersonateClientOfPort.c)
+ *     DifNtAlpcImpersonateClientOfPortWrapper @ 0x140670A00 (DifNtAlpcImpersonateClientOfPortWrapper.c)
+ *     NtImpersonateClientOfPort @ 0x1407C2C30 (NtImpersonateClientOfPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExHandleLogBadReference @ 0x14046C9F0 (ExHandleLogBadReference.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     AlpcpImpersonateMessage @ 0x1409281A0 (AlpcpImpersonateMessage.c)
- *     SeImpersonateClientEx @ 0x1409286E0 (SeImpersonateClientEx.c)
- *     AlpcpReferenceConnectedPort @ 0x140929760 (AlpcpReferenceConnectedPort.c)
- *     AlpcReferenceBlobByHandle @ 0x1409BED80 (AlpcReferenceBlobByHandle.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1409BEF10 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     ExUnlockHandleTableEntry @ 0x140A33080 (ExUnlockHandleTableEntry.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExHandleLogBadReference @ 0x140466170 (ExHandleLogBadReference.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     AlpcpImpersonateMessage @ 0x140903CB0 (AlpcpImpersonateMessage.c)
+ *     SeImpersonateClientEx @ 0x1409041F0 (SeImpersonateClientEx.c)
+ *     AlpcpReferenceConnectedPort @ 0x140905270 (AlpcpReferenceConnectedPort.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     AlpcReferenceBlobByHandle @ 0x14098FD60 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14098FEF0 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     ExUnlockHandleTableEntry @ 0x140A4DFE0 (ExUnlockHandleTableEntry.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
-  unsigned __int64 v3; // r15
-  unsigned int *v4; // rbx
   HANDLE v5; // r10
   void *v6; // r12
   struct _KTHREAD *CurrentThread; // rax
   int ULongFromUser; // esi
-  unsigned int v9; // r14d
+  int CallbackId; // r14d
   _QWORD *v10; // r13
   KPROCESSOR_MODE PreviousMode; // cl
   char v12; // di
   __int16 UShortFromUser; // ax
   __int64 v14; // rdi
-  BOOL v15; // r15d
-  int v16; // ebx
-  struct _KLOCK_ENTRIES *v17; // r9
-  ULONG_PTR v18; // r15
-  char v19; // al
-  __int64 *v20; // rbx
+  ULONG_PTR v15; // r15
+  __int64 v16; // rdx
+  NTSTATUS v17; // ebx
+  __int64 v18; // r8
+  struct _KLOCK_ENTRIES *v19; // r9
+  char v20; // al
+  __int64 *v21; // rbx
   unsigned __int64 HandlePointer; // rax
-  ULONG_PTR v22; // rdi
-  _DWORD *v23; // rax
-  bool v24; // zf
-  volatile __int64 *v26; // rcx
-  ULONG_PTR v27; // rbx
-  __int64 v28; // rcx
-  signed __int32 v29; // eax
-  __int64 v30; // rax
-  signed __int32 v31[8]; // [rsp+0h] [rbp-D8h] BYREF
-  PVOID v32; // [rsp+30h] [rbp-A8h]
-  int v33; // [rsp+38h] [rbp-A0h]
-  unsigned int v34; // [rsp+3Ch] [rbp-9Ch]
-  unsigned __int64 v35; // [rsp+48h] [rbp-90h]
+  ULONG_PTR v23; // rdi
+  _DWORD *v24; // rax
+  bool v25; // zf
+  volatile __int64 *v27; // rcx
+  ULONG_PTR v28; // rbx
+  __int64 v29; // rcx
+  signed __int32 v30; // eax
+  __int64 v31; // rax
+  signed __int32 v32[8]; // [rsp+0h] [rbp-D8h] BYREF
+  PVOID v33; // [rsp+30h] [rbp-A8h]
+  int v34; // [rsp+38h] [rbp-A0h]
+  int v35; // [rsp+3Ch] [rbp-9Ch]
+  __int64 v36; // [rsp+48h] [rbp-90h]
   struct _SECURITY_CLIENT_CONTEXT ClientContext; // [rsp+50h] [rbp-88h] BYREF
   PVOID Object; // [rsp+E8h] [rbp+10h] BYREF
-  int v39; // [rsp+F8h] [rbp+20h]
+  BOOL v40; // [rsp+F8h] [rbp+20h]
 
-  v3 = a3;
-  v4 = (unsigned int *)a2;
-  v5 = Handle;
+  v5 = PortHandle;
   v6 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ULongFromUser = 0;
-  v9 = 0;
+  CallbackId = 0;
   v10 = 0LL;
-  v32 = 0LL;
+  v33 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  LOBYTE(v39) = PreviousMode;
+  LOBYTE(v40) = PreviousMode;
   LOBYTE(Object) = PreviousMode;
-  if ( a2 )
+  if ( Message )
   {
     v12 = KeGetCurrentThread()->PreviousMode;
     if ( v12 )
-      UShortFromUser = RtlReadUShortFromUser((unsigned __int16 *)(a2 + 4));
+      UShortFromUser = RtlReadUShortFromUser((unsigned __int16 *)&Message->u2);
     else
-      UShortFromUser = *(_WORD *)(a2 + 4);
+      UShortFromUser = Message->u2.s2.Type;
     if ( (UShortFromUser & 0x1000) != 0 )
     {
       if ( v12 )
-        ULongFromUser = RtlReadULongFromUser(v4 + 4);
+        ULongFromUser = RtlReadULongFromUser((unsigned int *)&Message->DoNotUseThisField + 2);
       else
-        ULongFromUser = v4[4];
-      v33 = ULongFromUser;
+        ULongFromUser = *((_DWORD *)&Message->DoNotUseThisField + 2);
+      v34 = ULongFromUser;
       if ( v12 )
-        v9 = RtlReadULongFromUser(v4 + 5);
+        CallbackId = RtlReadULongFromUser((unsigned int *)&Message->DoNotUseThisField + 3);
       else
-        v9 = v4[5];
+        CallbackId = *((_DWORD *)&Message->DoNotUseThisField + 3);
     }
     else
     {
       if ( v12 )
-        ULongFromUser = RtlReadULongFromUser(v4 + 6);
+        ULongFromUser = RtlReadULongFromUser(&Message->MessageId);
       else
-        ULongFromUser = v4[6];
-      v33 = ULongFromUser;
+        ULongFromUser = Message->MessageId;
+      v34 = ULongFromUser;
       if ( v12 )
-        v9 = RtlReadULongFromUser(v4 + 8);
+        CallbackId = RtlReadULongFromUser((unsigned int *)&Message->32);
       else
-        v9 = v4[8];
+        CallbackId = Message->CallbackId;
     }
-    v34 = v9;
+    v35 = CallbackId;
     if ( !ULongFromUser )
       goto LABEL_82;
-    PreviousMode = v39;
-    v5 = Handle;
+    PreviousMode = v40;
+    v5 = PortHandle;
   }
-  v32 = (PVOID)(v3 >> 2);
-  if ( (unsigned int)(v3 >> 2) > 3 )
+  v33 = (PVOID)((unsigned __int64)Flags >> 2);
+  if ( (unsigned int)((unsigned __int64)Flags >> 2) > 3 )
   {
 LABEL_82:
-    v16 = -1073741811;
+    v17 = -1073741811;
     goto LABEL_55;
   }
-  v35 = v3 & 1;
-  v14 = (unsigned int)v3 & ((4 * (unsigned int)(v3 >> 2)) | 2);
+  v36 = (unsigned __int8)Flags & 1;
+  v14 = (unsigned int)Flags & ((4 * (unsigned int)((unsigned __int64)Flags >> 2)) | 2);
   v15 = v14 != 0;
-  v39 = v15;
+  v40 = v14 != 0;
   Object = 0LL;
-  v16 = ObReferenceObjectByHandle(v5, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v17 = ObReferenceObjectByHandle(v5, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   v10 = Object;
-  if ( v16 < 0 )
+  if ( v17 < 0 )
     goto LABEL_55;
   if ( ULongFromUser )
   {
@@ -135,249 +132,249 @@ LABEL_82:
     {
       if ( !Object )
       {
-        v16 = -1073740030;
-        v22 = 0LL;
+        v17 = -1073740030;
+        v23 = 0LL;
         goto LABEL_49;
       }
-      v27 = 0LL;
-      v28 = *((_QWORD *)Object + 2);
+      v28 = 0LL;
+      v29 = *((_QWORD *)Object + 2);
+      if ( v29 )
+        v28 = AlpcReferenceBlobByHandle((_QWORD *)(v29 + 40), ULongFromUser & 0x7FFFFFFF, AlpcReserveType, v19);
       if ( v28 )
-        v27 = AlpcReferenceBlobByHandle((_QWORD *)(v28 + 40), ULongFromUser & 0x7FFFFFFF, AlpcReserveType, v17);
-      if ( v27 )
       {
-        v22 = *(_QWORD *)(v27 + 24);
-        AlpcpLockForCachedReferenceBlob(v22, a2, a3, v17);
-        if ( _InterlockedCompareExchange((volatile signed __int32 *)(v27 + 40), 1, 0) )
+        v23 = *(_QWORD *)(v28 + 24);
+        AlpcpLockForCachedReferenceBlob(v23, v16, v18, v19);
+        if ( _InterlockedCompareExchange((volatile signed __int32 *)(v28 + 40), 1, 0) )
         {
-          AlpcpUnlockMessage(v22, a2, a3, v17);
-          AlpcpDereferenceBlobEx(v27, 1);
-          v16 = -1073740024;
-          v22 = 0LL;
+          AlpcpUnlockMessage(v23, v16, v18, v19);
+          AlpcpDereferenceBlobEx(v28, 1);
+          v17 = -1073740024;
+          v23 = 0LL;
           goto LABEL_49;
         }
-        *(_DWORD *)(v22 + 264) &= ~0x80000000;
+        *(_DWORD *)(v23 + 264) &= ~0x80000000;
         do
-          v29 = _InterlockedIncrement(&AlpcpNextCallbackId);
-        while ( !v29 );
-        *(_DWORD *)(v22 + 272) = v29;
+          v30 = _InterlockedIncrement(&AlpcpNextCallbackId);
+        while ( !v30 );
+        *(_DWORD *)(v23 + 272) = v30;
 LABEL_48:
-        v16 = 0;
+        v17 = 0;
         goto LABEL_49;
       }
-      v16 = -1073741072;
-      v22 = 0LL;
+      v17 = -1073741072;
+      v23 = 0LL;
     }
     else
     {
       if ( (ULongFromUser & 0xFC000000) != 0 )
       {
         if ( AlpcpSecondaryMessageTables )
-          v18 = *(_QWORD *)(AlpcpSecondaryMessageTables + 8 * ((unsigned __int64)(unsigned int)ULongFromUser >> 26));
+          v15 = *(_QWORD *)(AlpcpSecondaryMessageTables + 8 * ((unsigned __int64)(unsigned int)ULongFromUser >> 26));
         else
-          v18 = 0LL;
+          v15 = 0LL;
       }
       else
       {
-        v18 = AlpcMessageTable;
+        v15 = AlpcMessageTable;
       }
-      if ( v18 )
+      if ( v15 )
       {
-        v19 = KeGetCurrentThread()->PreviousMode;
-        LOBYTE(Object) = v19;
+        v20 = KeGetCurrentThread()->PreviousMode;
+        LOBYTE(Object) = v20;
         if ( (ULongFromUser & 0x3FC) != 0 )
         {
-          v20 = (__int64 *)ExpLookupHandleTableEntry((unsigned int *)v18, ULongFromUser & 0x3FFFFFF);
-          v19 = (char)Object;
+          v21 = (__int64 *)ExpLookupHandleTableEntry((unsigned int *)v15, ULongFromUser & 0x3FFFFFF);
+          v20 = (char)Object;
         }
         else
         {
-          v20 = 0LL;
+          v21 = 0LL;
         }
-        if ( v20 )
+        if ( v21 )
         {
           while ( 1 )
           {
             while ( 1 )
             {
-              _m_prefetchw(v20);
-              a3 = *v20;
-              if ( (*v20 & 1) == 0 )
+              _m_prefetchw(v21);
+              v18 = *v21;
+              if ( (*v21 & 1) == 0 )
                 break;
-              if ( a3 == _InterlockedCompareExchange64(v20, a3 - 1, a3) )
+              if ( v18 == _InterlockedCompareExchange64(v21, v18 - 1, v18) )
                 goto LABEL_32;
             }
-            if ( !a3 )
+            if ( !v18 )
               break;
-            ExpBlockOnLockedHandleEntry(v18, v20, a3);
+            ExpBlockOnLockedHandleEntry(v15, v21, v18);
           }
-          v19 = (char)Object;
+          v20 = (char)Object;
         }
-        v20 = 0LL;
-        ExHandleLogBadReference(v18, ULongFromUser & 0x3FFFFFF, v19);
+        v21 = 0LL;
+        ExHandleLogBadReference(v15, ULongFromUser & 0x3FFFFFF, v20);
 LABEL_32:
-        if ( v20 )
+        if ( v21 )
         {
-          HandlePointer = ExGetHandlePointer(v20);
-          v22 = HandlePointer;
+          HandlePointer = ExGetHandlePointer(v21);
+          v23 = HandlePointer;
           if ( *(_DWORD *)(HandlePointer + 264) == ULongFromUser )
           {
-            v23 = (_DWORD *)(HandlePointer + 272);
-            Object = v23;
-            if ( v9 )
+            v24 = (_DWORD *)(HandlePointer + 272);
+            Object = v24;
+            if ( CallbackId )
             {
-              if ( *v23 != v9 )
+              if ( *v24 != CallbackId )
               {
-                _InterlockedIncrement64(v20);
-                v26 = (volatile __int64 *)(v18 + 48);
-                _InterlockedOr(v31, 0);
-                if ( !*(_QWORD *)(v18 + 48) )
+                _InterlockedIncrement64(v21);
+                v27 = (volatile __int64 *)(v15 + 48);
+                _InterlockedOr(v32, 0);
+                if ( !*(_QWORD *)(v15 + 48) )
                   goto LABEL_65;
                 goto LABEL_64;
               }
             }
             else
             {
-              Object = v23;
+              Object = v24;
             }
-            if ( AlpcpReferenceBlob(v22) )
+            if ( AlpcpReferenceBlob(v23) )
             {
-              AlpcpLockForCachedReferenceBlob(v22, a2, a3, v17);
-              --*(_WORD *)(v22 - 30);
-              _InterlockedIncrement64(v20);
-              _InterlockedOr(v31, 0);
-              if ( *(_QWORD *)(v18 + 48) )
-                ExfUnblockPushLock((volatile __int64 *)(v18 + 48), 0LL);
-              if ( *(_DWORD *)(v22 + 264) != ULongFromUser )
+              AlpcpLockForCachedReferenceBlob(v23, v16, v18, v19);
+              --*(_WORD *)(v23 - 30);
+              _InterlockedIncrement64(v21);
+              _InterlockedOr(v32, 0);
+              if ( *(_QWORD *)(v15 + 48) )
+                ExfUnblockPushLock((volatile __int64 *)(v15 + 48), 0LL);
+              if ( *(_DWORD *)(v23 + 264) != ULongFromUser )
                 goto LABEL_81;
-              if ( !v9 || *(_DWORD *)Object == v9 )
+              if ( !CallbackId || *(_DWORD *)Object == CallbackId )
               {
-                if ( !*(_QWORD *)(v22 + 24) && !*(_QWORD *)(v22 + 16) )
+                if ( !*(_QWORD *)(v23 + 24) && !*(_QWORD *)(v23 + 16) )
                 {
 LABEL_81:
-                  AlpcpUnlockMessage(v22, a2, a3, v17);
-                  v16 = -1073740030;
-                  v22 = 0LL;
-                  v15 = v39;
+                  AlpcpUnlockMessage(v23, v16, v18, v19);
+                  v17 = -1073740030;
+                  v23 = 0LL;
+                  LODWORD(v15) = v40;
                   goto LABEL_49;
                 }
                 if ( v10 )
                 {
-                  if ( *(_QWORD *)(v22 + 184) == v10[2] )
+                  if ( *(_QWORD *)(v23 + 184) == v10[2] )
                   {
 LABEL_47:
-                    v15 = v39;
+                    LODWORD(v15) = v40;
                     goto LABEL_48;
                   }
-                  v24 = *(_QWORD *)(v22 + 192) == (_QWORD)v10;
+                  v25 = *(_QWORD *)(v23 + 192) == (_QWORD)v10;
                 }
                 else
                 {
-                  a2 = *(_QWORD *)(v22 + 16);
-                  if ( !a2 )
+                  v16 = *(_QWORD *)(v23 + 16);
+                  if ( !v16 )
                   {
 LABEL_84:
-                    AlpcpUnlockMessage(v22, a2, a3, v17);
-                    v16 = -1073741790;
-                    v22 = 0LL;
-                    v15 = v39;
+                    AlpcpUnlockMessage(v23, v16, v18, v19);
+                    v17 = -1073741790;
+                    v23 = 0LL;
+                    LODWORD(v15) = v40;
                     goto LABEL_49;
                   }
-                  v24 = *(_KPROCESS **)(a2 + 24) == KeGetCurrentThread()->ApcState.Process;
+                  v25 = *(_KPROCESS **)(v16 + 24) == KeGetCurrentThread()->ApcState.Process;
                 }
-                if ( v24 )
+                if ( v25 )
                   goto LABEL_47;
                 goto LABEL_84;
               }
-              AlpcpUnlockMessage(v22, a2, a3, v17);
+              AlpcpUnlockMessage(v23, v16, v18, v19);
 LABEL_65:
-              v16 = -1073740030;
-              v22 = 0LL;
-              v15 = v39;
+              v17 = -1073740030;
+              v23 = 0LL;
+              LODWORD(v15) = v40;
               goto LABEL_49;
             }
-            _InterlockedIncrement64(v20);
-            _InterlockedOr(v31, 0);
-            if ( !*(_QWORD *)(v18 + 48) )
+            _InterlockedIncrement64(v21);
+            _InterlockedOr(v32, 0);
+            if ( !*(_QWORD *)(v15 + 48) )
               goto LABEL_65;
-            v26 = (volatile __int64 *)(v18 + 48);
+            v27 = (volatile __int64 *)(v15 + 48);
 LABEL_64:
-            ExfUnblockPushLock(v26, 0LL);
+            ExfUnblockPushLock(v27, 0LL);
             goto LABEL_65;
           }
-          ExUnlockHandleTableEntry(v18, v20);
-          v16 = -1073740030;
-          v22 = 0LL;
-          v15 = v39;
+          ExUnlockHandleTableEntry(v15, v21);
+          v17 = -1073740030;
+          v23 = 0LL;
+          LODWORD(v15) = v40;
         }
         else
         {
-          v16 = -1073740030;
-          v22 = 0LL;
-          v15 = v39;
+          v17 = -1073740030;
+          v23 = 0LL;
+          LODWORD(v15) = v40;
         }
       }
       else
       {
-        v16 = -1073740030;
-        v22 = 0LL;
-        v15 = v39;
+        v17 = -1073740030;
+        v23 = 0LL;
+        LODWORD(v15) = v40;
       }
     }
 LABEL_49:
-    if ( v16 >= 0 )
+    if ( v17 >= 0 )
     {
-      if ( *(_QWORD *)(v22 + 16) )
-        v16 = 0;
+      if ( *(_QWORD *)(v23 + 16) )
+        v17 = 0;
       else
-        v16 = -1073740030;
-      if ( v16 >= 0 )
-        v16 = AlpcpImpersonateMessage(
+        v17 = -1073740030;
+      if ( v17 >= 0 )
+        v17 = AlpcpImpersonateMessage(
                 (__int64)v10,
-                v22,
-                v35,
-                (struct _KLOCK_ENTRIES *)v15,
-                (SECURITY_IMPERSONATION_LEVEL)v32);
-      AlpcpUnlockMessage(v22, a2, a3, v17);
+                v23,
+                v36,
+                (struct _KLOCK_ENTRIES *)(unsigned int)v15,
+                (SECURITY_IMPERSONATION_LEVEL)v33);
+      AlpcpUnlockMessage(v23, v16, v18, v19);
     }
     goto LABEL_55;
   }
-  v30 = AlpcpReferenceConnectedPort((__int64)Object, a2, a3, v17);
-  v6 = (void *)v30;
-  if ( !v30 )
+  v31 = AlpcpReferenceConnectedPort((__int64)Object, v16, v18, v19);
+  v6 = (void *)v31;
+  if ( !v31 )
   {
-    v16 = -1073741790;
+    v17 = -1073741790;
     goto LABEL_55;
   }
-  if ( (*(_DWORD *)(v30 + 256) & 0x10000) != 0 )
+  if ( (*(_DWORD *)(v31 + 256) & 0x10000) != 0 )
   {
-    if ( (*(_DWORD *)(v30 + 416) & 0x400) != 0 )
+    if ( (*(_DWORD *)(v31 + 416) & 0x400) != 0 )
     {
-      v16 = -1073741790;
+      v17 = -1073741790;
     }
     else
     {
-      ClientContext = *(struct _SECURITY_CLIENT_CONTEXT *)(v30 + 64);
+      ClientContext = *(struct _SECURITY_CLIENT_CONTEXT *)(v31 + 64);
       if ( v14 )
       {
-        if ( (int)v32 > ClientContext.SecurityQos.ImpersonationLevel )
+        if ( (int)v33 > ClientContext.SecurityQos.ImpersonationLevel )
         {
-          v16 = -1073741790;
+          v17 = -1073741790;
           goto LABEL_55;
         }
-        ClientContext.SecurityQos.ImpersonationLevel = (int)v32;
+        ClientContext.SecurityQos.ImpersonationLevel = (int)v33;
       }
-      v16 = SeImpersonateClientEx(&ClientContext, 0LL);
+      v17 = SeImpersonateClientEx(&ClientContext, 0LL);
     }
   }
   else
   {
-    v16 = -1073741790;
+    v17 = -1073741790;
   }
 LABEL_55:
   if ( v6 )
     ObfDereferenceObject(v6);
   if ( v10 )
     ObfDereferenceObject(v10);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3);
-  return (unsigned int)v16;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v17;
 }

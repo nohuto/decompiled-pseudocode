@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpFixedVsAllocate @ 0x1404D8460
+ * XREFs of RtlpHpFixedVsAllocate @ 0x1404D1C30
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlFindClearBitsEx @ 0x14035F9A0 (RtlFindClearBitsEx.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     RtlFindClearRunsEx @ 0x1404EF024 (RtlFindClearRunsEx.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlFindClearBitsEx @ 0x140361740 (RtlFindClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     RtlFindClearRunsEx @ 0x1404E8604 (RtlFindClearRunsEx.c)
  */
 
 __int64 __fastcall RtlpHpFixedVsAllocate(__int64 a1, unsigned int a2, _DWORD *a3, struct _KLOCK_ENTRIES *a4)

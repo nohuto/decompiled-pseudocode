@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x140C385FC
+ * XREFs of VfPoolInitPhase1 @ 0x140C3E60C
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140C205D0 (VfInitSystemNoRebootNeeded.c)
- *     VerifierInitSystem @ 0x140CDE894 (VerifierInitSystem.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140C265DC (VfInitSystemNoRebootNeeded.c)
+ *     VerifierInitSystem @ 0x140CE4C2C (VerifierInitSystem.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
  */
 
 NTSTATUS VfPoolInitPhase1()
@@ -25,7 +25,7 @@ NTSTATUS VfPoolInitPhase1()
   *(&ObjectAttributes.Attributes + 1) = 0;
   if ( (VfRuleClasses & 0x400000) == 0 || (result = MmVerifierData, (MmVerifierData & 1) != 0) )
   {
-    p_Object = &stru_140E27B08.WaitBlock[0].Object;
+    p_Object = &stru_140E27C48.WaitBlock[0].Object;
     do
     {
       KeInitializeEvent((PRKEVENT)p_Object - 1, SynchronizationEvent, 0);
@@ -54,7 +54,7 @@ NTSTATUS VfPoolInitPhase1()
       }
       p_Object += 8;
     }
-    while ( (__int64)p_Object < (__int64)&stru_140E27B08.WaitBlockFill11[160] );
+    while ( (__int64)p_Object < (__int64)&stru_140E27C48.WaitBlockFill11[160] );
   }
   return result;
 }

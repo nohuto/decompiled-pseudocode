@@ -11,14 +11,14 @@
  *     RtlpHpLfhContextLockUnlock @ 0x1800F3094 (RtlpHpLfhContextLockUnlock.c)
  */
 
-__int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
+NTSTATUS __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
 {
   struct _PEB *v2; // r14
   __int64 v4; // rsi
   __int64 v5; // rbp
   __int64 v6; // rbx
   int v7; // edx
-  volatile signed __int64 *v8; // rcx
+  _RTL_SRWLOCK *v8; // rcx
   __int64 v9; // rdx
   __int64 v10; // rax
 
@@ -44,20 +44,20 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
             v7 = 0;
           }
           RtlpHpLfhContextLockUnlock(v6 + 288, v7 | 1u);
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 144));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v6 + 144));
           RtlpHpHeapUnlock(v6, a1);
         }
       }
       else if ( (*(_BYTE *)(v6 + 112) & 1) == 0 )
       {
         if ( *(_BYTE *)(v6 + 378) == 2 )
-          v8 = *(volatile signed __int64 **)(v6 + 368);
+          v8 = *(_RTL_SRWLOCK **)(v6 + 368);
         else
           v8 = 0LL;
         if ( v8 )
         {
           if ( a1 )
-            *v8 = 1LL;
+            v8->Value = 1LL;
           RtlReleaseSRWLockExclusive(v8);
         }
         if ( a1 )
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
           *(_DWORD *)(v9 + 12) = 1;
           *(_QWORD *)(v9 + 24) = 0LL;
         }
-        RtlLeaveCriticalSection(*(_QWORD *)(v6 + 352));
+        RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v6 + 352));
       }
       ++v4;
       --v5;
@@ -78,15 +78,17 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
   }
   if ( a1 )
   {
-    qword_180144A10 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-    dword_180144A08 = -2;
-    dword_180144A0C = 1;
-    qword_180144A18 = 0LL;
+    RtlpProcessHeapsListLock.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+    RtlpProcessHeapsListLock.LockCount = -2;
+    RtlpProcessHeapsListLock.RecursionCount = 1;
+    RtlpProcessHeapsListLock.LockSemaphore = 0LL;
   }
   v10 = RtlpHpLargeAllocationBitmap;
   if ( (_BYTE)a1 )
     v10 = 1LL;
   RtlpHpLargeAllocationBitmap = v10;
-  RtlpSparseBitmapCtxUnlockExclusive((__int64)&RtlpHpLargeAllocationBitmap, &RtlpHpLargeAllocationBitmap);
-  return RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+  RtlpSparseBitmapCtxUnlockExclusive(
+    (__int64)&RtlpHpLargeAllocationBitmap,
+    (_RTL_SRWLOCK *)&RtlpHpLargeAllocationBitmap);
+  return RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
 }

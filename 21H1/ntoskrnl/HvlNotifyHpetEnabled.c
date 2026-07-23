@@ -12,20 +12,15 @@
 __int64 HvlNotifyHpetEnabled()
 {
   _QWORD *v0; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r9
-  __int16 v3; // bx
-  __int128 v5; // [rsp+20h] [rbp-88h] BYREF
-  __int128 v6; // [rsp+30h] [rbp-78h]
-  _BYTE v7[80]; // [rsp+40h] [rbp-68h] BYREF
+  __int16 v1; // bx
+  _OWORD v3[2]; // [rsp+20h] [rbp-88h] BYREF
+  _BYTE v4[80]; // [rsp+40h] [rbp-68h] BYREF
 
-  v5 = 0LL;
-  v6 = 0LL;
-  v0 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v5, 1, (__int64)v7, 40LL);
-  v1 = *((_QWORD *)&v6 + 1);
+  memset(v3, 0, sizeof(v3));
+  v0 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v3, 1, (__int64)v4, 40LL);
   *(_DWORD *)v0 = 8;
   *((_BYTE *)v0 + 8) = 1;
-  v3 = HvcallInitiateHypercall(111, v1, 0LL, v2);
-  HvlpReleaseHypercallPage((__int64)&v5);
-  return v3 != 0 ? 0xC0000001 : 0;
+  v1 = HvcallInitiateHypercall(111);
+  HvlpReleaseHypercallPage((__int64)v3);
+  return v1 != 0 ? 0xC0000001 : 0;
 }

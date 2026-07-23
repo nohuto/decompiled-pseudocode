@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAccumulateNonActivatedCpuTime @ 0x140495D14
+ * XREFs of PopAccumulateNonActivatedCpuTime @ 0x1404905D4
  * Callers:
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1403CA934 (PopUpdateNonAttributedCpuTimeReference.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x140760150 (PopDripsWatchdogUpdateMetrics.c)
- *     PopPdcIdleResiliencyCallback @ 0x140A27118 (PopPdcIdleResiliencyCallback.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x1403A5504 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x14075F150 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopPdcIdleResiliencyCallback @ 0x140A1BB98 (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmParkGetParkNode @ 0x140495DBC (PpmParkGetParkNode.c)
- *     PpmIdleSnapConcurrencyIdleTime @ 0x140495E5C (PpmIdleSnapConcurrencyIdleTime.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmParkGetParkNode @ 0x14049067C (PpmParkGetParkNode.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x14049071C (PpmIdleSnapConcurrencyIdleTime.c)
  */
 
 void __fastcall PopAccumulateNonActivatedCpuTime(char a1, _QWORD *a2, _QWORD *a3)

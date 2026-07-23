@@ -1,10 +1,10 @@
 /*
- * XREFs of CsrCaptureMessageBuffer @ 0x1800CA460
+ * XREFs of CsrCaptureMessageBuffer @ 0x1800C7BD0
  * Callers:
  *     <none>
  * Callees:
- *     CsrAllocateMessagePointer @ 0x1800CACC0 (CsrAllocateMessagePointer.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     CsrAllocateMessagePointer @ 0x1800C8430 (CsrAllocateMessagePointer.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 void *__fastcall CsrCaptureMessageBuffer(__int64 a1, const void *a2, unsigned int a3, void **a4)

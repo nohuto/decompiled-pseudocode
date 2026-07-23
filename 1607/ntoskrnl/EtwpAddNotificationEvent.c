@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAddNotificationEvent @ 0x140490DD0
+ * XREFs of EtwpAddNotificationEvent @ 0x140491860
  * Callers:
- *     NtTraceControl @ 0x14040DD40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x14040CC00 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     EtwpAddDataSource @ 0x140490E70 (EtwpAddDataSource.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     EtwpAddDataSource @ 0x140491900 (EtwpAddDataSource.c)
  */
 
 __int64 __fastcall EtwpAddNotificationEvent(void *a1, char a2)

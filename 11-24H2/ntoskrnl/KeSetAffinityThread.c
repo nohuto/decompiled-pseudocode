@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetAffinityThread @ 0x1405B7C80
+ * XREFs of KeSetAffinityThread @ 0x1405B5260
  * Callers:
  *     <none>
  * Callees:
- *     KiSetLegacyAffinityThread @ 0x1403B178C (KiSetLegacyAffinityThread.c)
+ *     KiSetLegacyAffinityThread @ 0x14039FF9C (KiSetLegacyAffinityThread.c)
  */
 
 __int64 __fastcall KeSetAffinityThread(__int64 a1, __int64 a2)

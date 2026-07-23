@@ -1,21 +1,21 @@
 /*
- * XREFs of CcDecrementOpenCount @ 0x14029CB20
+ * XREFs of CcDecrementOpenCount @ 0x14029CDB0
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x140298244 (CcNotifyOfMappedWrite.c)
- *     CcWriteBehindPreProcess @ 0x14029B860 (CcWriteBehindPreProcess.c)
- *     CcFlushCachePostProcess @ 0x14029DD3C (CcFlushCachePostProcess.c)
- *     CcCompleteAsyncRead @ 0x1402C1430 (CcCompleteAsyncRead.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
- *     CcGetFlushedValidData @ 0x1402F0A50 (CcGetFlushedValidData.c)
- *     CcSetFileSizesEx @ 0x1402F0FA0 (CcSetFileSizesEx.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402F4158 (CcNotifyOfMappedWriteComplete.c)
- *     CcPerformReadAhead @ 0x14030EA20 (CcPerformReadAhead.c)
- *     CcMdlWriteComplete2 @ 0x14036B88C (CcMdlWriteComplete2.c)
- *     CcUnmapInactiveViewsInternal @ 0x1405383E0 (CcUnmapInactiveViewsInternal.c)
- *     CcMdlWriteAbort @ 0x1405389F0 (CcMdlWriteAbort.c)
+ *     CcNotifyOfMappedWrite @ 0x1402984D4 (CcNotifyOfMappedWrite.c)
+ *     CcWriteBehindPreProcess @ 0x14029BAF0 (CcWriteBehindPreProcess.c)
+ *     CcFlushCachePostProcess @ 0x14029DFCC (CcFlushCachePostProcess.c)
+ *     CcCompleteAsyncRead @ 0x1402C16C0 (CcCompleteAsyncRead.c)
+ *     CcPurgeCacheSection @ 0x1402F0A60 (CcPurgeCacheSection.c)
+ *     CcGetFlushedValidData @ 0x1402F0CE0 (CcGetFlushedValidData.c)
+ *     CcSetFileSizesEx @ 0x1402F1230 (CcSetFileSizesEx.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402F43E8 (CcNotifyOfMappedWriteComplete.c)
+ *     CcPerformReadAhead @ 0x14030ECB0 (CcPerformReadAhead.c)
+ *     CcMdlWriteComplete2 @ 0x14036BA2C (CcMdlWriteComplete2.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140538930 (CcUnmapInactiveViewsInternal.c)
+ *     CcMdlWriteAbort @ 0x140538F40 (CcMdlWriteAbort.c)
  * Callees:
- *     CcInsertIntoDirtySharedCacheMapList @ 0x1402998A4 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcScheduleLazyWriteScan @ 0x1402999F8 (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140299B34 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcScheduleLazyWriteScan @ 0x140299C88 (CcScheduleLazyWriteScan.c)
  */
 
 char __fastcall CcDecrementOpenCount(__int64 a1)

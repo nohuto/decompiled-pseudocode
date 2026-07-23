@@ -1,20 +1,20 @@
 /*
- * XREFs of MmRemoveSystemCacheFromDump @ 0x1402AE6AC
+ * XREFs of MmRemoveSystemCacheFromDump @ 0x1402AE89C
  * Callers:
- *     MmGetDumpRange @ 0x1402AE308 (MmGetDumpRange.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x1405793C4 (IopLiveDumpPopulateBitmapForDump.c)
+ *     MmGetDumpRange @ 0x1402AE4F8 (MmGetDumpRange.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x14057A3C4 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiCheckProcessShadow @ 0x140046A70 (MiCheckProcessShadow.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall MmRemoveSystemCacheFromDump(ULONG_PTR BugCheckParameter2)
@@ -34,7 +34,7 @@ void __fastcall MmRemoveSystemCacheFromDump(ULONG_PTR BugCheckParameter2)
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
   v3 = (__int64)AnyMultiplexedVm;
   v8[3] = AnyMultiplexedVm;
-  if ( (KiBugCheckActive & 3) != 0 || (struct _KTHREAD *)qword_14043A7A8 == KeGetCurrentThread() )
+  if ( (KiBugCheckActive & 3) != 0 || (struct _KTHREAD *)qword_14043B868 == KeGetCurrentThread() )
   {
     BYTE4(v8[0]) = 17;
     SharedVm = MiGetSharedVm((__int64)AnyMultiplexedVm);

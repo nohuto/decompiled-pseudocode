@@ -1,15 +1,15 @@
 /*
- * XREFs of IoFreeAdapterChannelV2 @ 0x1404CCDCC
+ * XREFs of IoFreeAdapterChannelV2 @ 0x1404CD00C
  * Callers:
- *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
+ *     IoFreeAdapterChannel @ 0x1404B8F50 (IoFreeAdapterChannel.c)
  * Callees:
- *     IoFreeMapRegisters @ 0x1403A2CA0 (IoFreeMapRegisters.c)
+ *     IoFreeMapRegisters @ 0x1403A2DF0 (IoFreeMapRegisters.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpQueueMapBufferWorker @ 0x1404BC5E8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaQueueAdapter @ 0x1404C7D94 (HalpDmaQueueAdapter.c)
- *     KeRemoveDeviceQueue @ 0x14051ABD0 (KeRemoveDeviceQueue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC828 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C6B3C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7FD4 (HalpDmaQueueAdapter.c)
+ *     KeRemoveDeviceQueue @ 0x14051AE10 (KeRemoveDeviceQueue.c)
  */
 
 void __fastcall IoFreeAdapterChannelV2(PDMA_ADAPTER DmaAdapter)

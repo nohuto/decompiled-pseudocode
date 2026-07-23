@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SmStoreDecompressBufferContextCleanup@@YAXPEAU_SM_STORE_DECOMPRESS_BUFFER_CONTEXT@@@Z @ 0x140479B18
+ * XREFs of ?SmStoreDecompressBufferContextCleanup@@YAXPEAU_SM_STORE_DECOMPRESS_BUFFER_CONTEXT@@@Z @ 0x1404753A8
  * Callers:
- *     SmStoreDecompressBuffer @ 0x14039C718 (SmStoreDecompressBuffer.c)
+ *     SmStoreDecompressBuffer @ 0x1402F9A18 (SmStoreDecompressBuffer.c)
  * Callees:
- *     SmHwAcceleratorPartitionMgrFreeDescriptor @ 0x1404CDC48 (SmHwAcceleratorPartitionMgrFreeDescriptor.c)
- *     SmHwAcceleratorWaitForRequest @ 0x14060FA6C (SmHwAcceleratorWaitForRequest.c)
+ *     SmHwAcceleratorPartitionMgrFreeDescriptor @ 0x1404C7018 (SmHwAcceleratorPartitionMgrFreeDescriptor.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x14060E02C (SmHwAcceleratorWaitForRequest.c)
  */
 
 void __fastcall SmStoreDecompressBufferContextCleanup(struct _SM_STORE_DECOMPRESS_BUFFER_CONTEXT *a1)

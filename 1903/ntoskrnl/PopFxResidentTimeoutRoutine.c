@@ -15,37 +15,35 @@
 __int64 PopFxResidentTimeoutRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 InterruptTimePrecise; // rax
-  ULONG_PTR v4; // rbx
-  __int64 v5; // rsi
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  ULONG_PTR v2; // rbx
+  LARGE_INTEGER v3; // rsi
   unsigned int i; // edi
-  __int64 v7; // rdx
-  char v9; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v5; // rdx
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxDeviceListLock, 0LL);
   if ( (ULONG_PTR *)PopFxDeviceList != &PopFxDeviceList )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v9, v1, v2);
-    v4 = PopFxDeviceList;
-    v5 = InterruptTimePrecise;
-    while ( (ULONG_PTR *)v4 != &PopFxDeviceList )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v2 = PopFxDeviceList;
+    v3 = InterruptTimePrecise;
+    while ( (ULONG_PTR *)v2 != &PopFxDeviceList )
     {
-      for ( i = 0; i < *(_DWORD *)(v4 + 820); ++i )
+      for ( i = 0; i < *(_DWORD *)(v2 + 820); ++i )
       {
-        v7 = *(_QWORD *)(*(_QWORD *)(v4 + 824) + 8LL * i);
-        if ( *(int *)(v7 + 96) > 0
-          && v5 - *(_QWORD *)(v7 + 144) >= (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
+        v5 = *(_QWORD *)(*(_QWORD *)(v2 + 824) + 8LL * i);
+        if ( *(int *)(v5 + 96) > 0
+          && v3.QuadPart - *(_QWORD *)(v5 + 144) >= (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
         {
-          _InterlockedAdd((volatile signed __int32 *)(v7 + 96), 0xFFFFFFFF);
+          _InterlockedAdd((volatile signed __int32 *)(v5 + 96), 0xFFFFFFFF);
           _InterlockedAdd(&PopFxResidentComponentCount, 0xFFFFFFFF);
-          PopFxIdleComponent(v4, i);
+          PopFxIdleComponent(v2, i);
         }
       }
-      v4 = *(_QWORD *)v4;
+      v2 = *(_QWORD *)v2;
     }
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )

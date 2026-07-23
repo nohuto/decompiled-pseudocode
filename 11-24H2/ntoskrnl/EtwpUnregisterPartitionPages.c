@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUnregisterPartitionPages @ 0x140483600
+ * XREFs of EtwpUnregisterPartitionPages @ 0x14047EACC
  * Callers:
- *     EtwpFreePartitionMemory @ 0x1404835A0 (EtwpFreePartitionMemory.c)
+ *     EtwpFreePartitionMemory @ 0x14047EA6C (EtwpFreePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
@@ -23,14 +23,14 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
 
   v3 = 0LL;
   v4 = 0LL;
-  v6 = ExAcquireSpinLockExclusive(&dword_140EFEBD0);
-  v7 = -1LL << (dword_140EFEBC4 & 0x1F);
+  v6 = ExAcquireSpinLockExclusive(&dword_140EFEEF0);
+  v7 = -1LL << (dword_140EFEEE4 & 0x1F);
   v8 = a2 & v7;
-  if ( (unsigned int)dword_140EFEBC4 >> 5 )
+  if ( (unsigned int)dword_140EFEEE4 >> 5 )
   {
-    v9 = ((unsigned int)dword_140EFEBC4 >> 5) - 1;
+    v9 = ((unsigned int)dword_140EFEEE4 >> 5) - 1;
     v13 = a2 & v7;
-    v10 = (char *)qword_140EFEBC8
+    v10 = (char *)qword_140EFEEE8
         + 8
         * ((37
           * (BYTE6(v13)
@@ -54,7 +54,7 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
           if ( a1 )
             *a1 = v10[3];
           v14 = v7 & v10[1];
-          for ( i = (char *)qword_140EFEBC8
+          for ( i = (char *)qword_140EFEEE8
                   + 8
                   * (v9 & (HIBYTE(v14)
                          + 37
@@ -83,7 +83,7 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
     }
   }
 LABEL_13:
-  ExReleaseSpinLockExclusive(&dword_140EFEBD0, v6);
+  ExReleaseSpinLockExclusive(&dword_140EFEEF0, v6);
   if ( v4 )
     ExFreePoolWithTag(v4, 0x4F777445u);
   return v3;

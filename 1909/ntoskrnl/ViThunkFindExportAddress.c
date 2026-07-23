@@ -6,7 +6,7 @@
  *     RtlpImageDirectoryEntryToDataEx @ 0x1400E8980 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
-unsigned __int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *a3)
+unsigned __int64 __fastcall ViThunkFindExportAddress(__int64 a1, __int64 a2, int *a3)
 {
   _QWORD *v3; // r14
   _QWORD *v4; // rdi
@@ -15,28 +15,27 @@ unsigned __int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *
   unsigned __int64 v8; // rbp
   NTSTATUS v9; // eax
   _DWORD *v10; // r8
-  int v11; // edx
-  unsigned __int64 v12; // r12
-  unsigned __int64 v13; // r15
-  int v14; // eax
-  __int64 v15; // r9
-  char *v16; // rcx
-  unsigned __int64 v17; // r11
-  char v18; // r10
-  int v19; // ecx
-  unsigned int v20; // r10d
-  unsigned int v21; // r9d
-  __int64 v22; // rcx
-  __int64 v23; // r11
-  __int64 v24; // rax
-  int v25; // edx
-  unsigned __int16 v26; // cx
-  unsigned __int64 v27; // r8
-  __int64 v29; // [rsp+70h] [rbp+8h] BYREF
-  char *v30; // [rsp+78h] [rbp+10h]
-  __int64 v31; // [rsp+80h] [rbp+18h] BYREF
+  unsigned __int64 v11; // r12
+  unsigned __int64 v12; // r15
+  int v13; // eax
+  __int64 v14; // r9
+  char *v15; // rcx
+  unsigned __int64 v16; // r11
+  char v17; // r10
+  int v18; // ecx
+  unsigned int v19; // r10d
+  unsigned int v20; // r9d
+  __int64 v21; // rcx
+  __int64 v22; // r11
+  __int64 v23; // rax
+  int v24; // edx
+  unsigned __int16 v25; // cx
+  unsigned __int64 v26; // r8
+  __int64 v28; // [rsp+70h] [rbp+8h] BYREF
+  char *v29; // [rsp+78h] [rbp+10h]
+  __int64 v30; // [rsp+80h] [rbp+18h] BYREF
 
-  v30 = a2;
+  v29 = (char *)a2;
   v3 = (_QWORD *)(a1 + 16);
   v4 = *(_QWORD **)(a1 + 16);
   *a3 = 0;
@@ -47,59 +46,60 @@ unsigned __int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *
   while ( 1 )
   {
     v8 = v4[6];
-    v9 = RtlpImageDirectoryEntryToDataEx(v8, 1, 0, (int)&v29, &v31);
-    v10 = (_DWORD *)v31;
+    LOBYTE(a2) = 1;
+    v9 = RtlpImageDirectoryEntryToDataEx(v8, a2, 0LL, (__int64)&v28, &v30);
+    v10 = (_DWORD *)v30;
     if ( v9 < 0 )
       v10 = 0LL;
-    v31 = (__int64)v10;
+    v30 = (__int64)v10;
     if ( v10 )
     {
-      v11 = 0;
-      v12 = v8 + (unsigned int)v10[8];
-      v13 = v8 + (unsigned int)v10[9];
-      v14 = v10[6] - 1;
+      a2 = 0LL;
+      v11 = v8 + (unsigned int)v10[8];
+      v12 = v8 + (unsigned int)v10[9];
+      v13 = v10[6] - 1;
       while ( 1 )
       {
-        v15 = (unsigned int)(v14 + v11) >> 1;
-        v29 = v15;
-        v16 = v30;
-        v17 = v8 + *(unsigned int *)(v12 + 4 * v15) - (_QWORD)v30;
+        v14 = (unsigned int)(v13 + a2) >> 1;
+        v28 = v14;
+        v15 = v29;
+        v16 = v8 + *(unsigned int *)(v11 + 4 * v14) - (_QWORD)v29;
         while ( 1 )
         {
-          v18 = *v16;
-          if ( *v16 != v16[v17] )
+          v17 = *v15;
+          if ( *v15 != v15[v16] )
             break;
-          ++v16;
-          if ( !v18 )
+          ++v15;
+          if ( !v17 )
           {
-            v19 = 0;
+            v18 = 0;
             goto LABEL_11;
           }
         }
-        v19 = (unsigned __int8)*v16 < (unsigned __int8)v16[v17] ? -1 : 1;
+        v18 = (unsigned __int8)*v15 < (unsigned __int8)v15[v16] ? -1 : 1;
 LABEL_11:
-        if ( v19 >= 0 )
+        if ( v18 >= 0 )
         {
-          if ( v19 <= 0 )
+          if ( v18 <= 0 )
             goto LABEL_15;
-          v11 = v15 + 1;
+          a2 = (unsigned int)(v14 + 1);
           goto LABEL_14;
         }
-        if ( !(_DWORD)v15 )
+        if ( !(_DWORD)v14 )
           break;
-        v14 = v15 - 1;
+        v13 = v14 - 1;
 LABEL_14:
-        if ( v14 < (unsigned int)v11 )
+        if ( v13 < (unsigned int)a2 )
           goto LABEL_15;
       }
-      v11 = 1;
-      v14 = 0;
+      a2 = 1LL;
+      v13 = 0;
 LABEL_15:
-      if ( v14 >= v11 )
+      if ( v13 >= (int)a2 )
       {
-        v20 = v10[5];
-        v21 = *(unsigned __int16 *)(v13 + 2 * v29);
-        if ( v21 < v20 )
+        v19 = v10[5];
+        v20 = *(unsigned __int16 *)(v12 + 2 * v28);
+        if ( v20 < v19 )
           break;
       }
     }
@@ -111,17 +111,17 @@ LABEL_15:
     }
     return 0LL;
   }
-  v22 = (unsigned int)v10[7];
-  v23 = v22 + v8;
-  v24 = v22 + 4LL * (unsigned __int16)v21;
-  v25 = *(_DWORD *)(v22 + v8 + 4LL * (unsigned __int16)v21);
-  v26 = 0;
-  v27 = v8 + *(unsigned int *)(v24 + v8);
-  if ( v20 )
+  v21 = (unsigned int)v10[7];
+  v22 = v21 + v8;
+  v23 = v21 + 4LL * (unsigned __int16)v20;
+  v24 = *(_DWORD *)(v21 + v8 + 4LL * (unsigned __int16)v20);
+  v25 = 0;
+  v26 = v8 + *(unsigned int *)(v23 + v8);
+  if ( v19 )
   {
-    while ( v26 == (_WORD)v21 || *(_DWORD *)(v23 + 4LL * v26) != v25 )
+    while ( v25 == (_WORD)v20 || *(_DWORD *)(v22 + 4LL * v25) != v24 )
     {
-      if ( ++v26 >= v20 )
+      if ( ++v25 >= v19 )
         goto LABEL_21;
     }
   }
@@ -131,5 +131,5 @@ LABEL_21:
     v7 = 0;
   }
   *a3 = v7;
-  return v27;
+  return v26;
 }

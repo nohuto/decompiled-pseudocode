@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x1403B1518
+ * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x14039FD28
  * Callers:
- *     KiFlushAddressSpaceTb @ 0x1403AFCAC (KiFlushAddressSpaceTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
- *     KeFlushCurrentTbOnly @ 0x1403B0C90 (KeFlushCurrentTbOnly.c)
+ *     KiFlushAddressSpaceTb @ 0x14039E4BC (KiFlushAddressSpaceTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x14039F4A0 (KeFlushCurrentTbOnly.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsLazyStampedPte @ 0x1403114C0
+ * XREFs of MiIsLazyStampedPte @ 0x1403F4D00
  * Callers:
- *     MiResolvePageTablePage @ 0x1402D86D0 (MiResolvePageTablePage.c)
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
- *     MiGetNextPageTablePte @ 0x1402DE8B0 (MiGetNextPageTablePte.c)
- *     MiQueryAddressState @ 0x140300420 (MiQueryAddressState.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiIsPdeOrAboveAccessible @ 0x1403113C0 (MiIsPdeOrAboveAccessible.c)
+ *     MiResolvePageTablePage @ 0x140239FB0 (MiResolvePageTablePage.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
+ *     MiGetNextPageTablePte @ 0x140240190 (MiGetNextPageTablePte.c)
+ *     MiQueryAddressState @ 0x14030ABA0 (MiQueryAddressState.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiIsPdeOrAboveAccessible @ 0x1403F4C00 (MiIsPdeOrAboveAccessible.c)
  * Callees:
  *     <none>
  */

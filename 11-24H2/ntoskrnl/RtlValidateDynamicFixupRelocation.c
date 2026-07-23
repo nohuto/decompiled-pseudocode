@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlValidateDynamicFixupRelocation @ 0x1402C9B5C
+ * XREFs of RtlValidateDynamicFixupRelocation @ 0x14043A208
  * Callers:
- *     MiCaptureRetpolineRelocationTables @ 0x1408F3470 (MiCaptureRetpolineRelocationTables.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x14093F254 (MiCaptureRetpolineRelocationTables.c)
  * Callees:
- *     RtlSizeOfRetpolineRelocationEntry @ 0x1402C9AE0 (RtlSizeOfRetpolineRelocationEntry.c)
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x14043B6F0 (RtlSizeOfRetpolineRelocationEntry.c)
  */
 
 __int64 __fastcall RtlValidateDynamicFixupRelocation(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4)

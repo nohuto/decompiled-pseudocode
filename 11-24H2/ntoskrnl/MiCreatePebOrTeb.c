@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreatePebOrTeb @ 0x1409C3014
+ * XREFs of MiCreatePebOrTeb @ 0x1408DE464
  * Callers:
- *     MiInitializeWowPeb @ 0x1409C2B2C (MiInitializeWowPeb.c)
- *     MmCreatePeb @ 0x140AE79AC (MmCreatePeb.c)
+ *     MiInitializeWowPeb @ 0x1408DCF04 (MiInitializeWowPeb.c)
+ *     MmCreatePeb @ 0x1408DDBA4 (MmCreatePeb.c)
  * Callees:
- *     MiAllocateFromSubAllocatedRegion @ 0x1409C33C4 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1408DE814 (MiAllocateFromSubAllocatedRegion.c)
  */
 
 __int64 __fastcall MiCreatePebOrTeb(__int64 a1, __int64 a2, _QWORD *a3)
@@ -26,17 +26,17 @@ __int64 __fastcall MiCreatePebOrTeb(__int64 a1, __int64 a2, _QWORD *a3)
           v3 = 14456LL;
           break;
         case 1:
-          v3 = 1200LL;
+          v3 = 1208LL;
           break;
         case 2:
-          v3 = 2040LL;
+          v3 = 2048LL;
           break;
       }
     }
   }
   else
   {
-    v3 = 2000LL;
+    v3 = 2008LL;
   }
   return MiAllocateFromSubAllocatedRegion(a1, (v3 + 4095) & 0xFFFFF000LL);
 }

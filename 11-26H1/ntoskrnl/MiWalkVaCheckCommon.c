@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkVaCheckCommon @ 0x14035D970
+ * XREFs of MiWalkVaCheckCommon @ 0x14035F710
  * Callers:
- *     MiEmptyWorkingSetHelper @ 0x14029C1E8 (MiEmptyWorkingSetHelper.c)
- *     MiEmptyPte @ 0x14035D660 (MiEmptyPte.c)
+ *     MiEmptyWorkingSetHelper @ 0x14029B748 (MiEmptyWorkingSetHelper.c)
+ *     MiEmptyPte @ 0x14035F400 (MiEmptyPte.c)
  * Callees:
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiWalkVaCheckCommon(__int64 a1, ULONG_PTR a2, __int64 a3, int a4, _QWORD *a5)
@@ -46,7 +46,7 @@ __int64 __fastcall MiWalkVaCheckCommon(__int64 a1, ULONG_PTR a2, __int64 a3, int
     if ( (*(_DWORD *)(v7 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
     {
       v20 = 2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3);
-      if ( ((*(_DWORD *)&stru_140E2D930.PriorityFloorCounts[4 * (v20 >> 5) + 4] >> (v20 & 0x1F)) & 1) != 0 )
+      if ( ((*(_DWORD *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v20 >> 5) + 4] >> (v20 & 0x1F)) & 1) != 0 )
         return 0LL;
       goto LABEL_2;
     }
@@ -81,13 +81,13 @@ __int64 __fastcall MiWalkVaCheckCommon(__int64 a1, ULONG_PTR a2, __int64 a3, int
   {
     if ( v16 == 7 )
     {
-      v17 = &unk_140E2E920;
+      v17 = &unk_140E2EAA0;
     }
     else
     {
-      v17 = &unk_140E2E930;
+      v17 = &unk_140E2EAB0;
       if ( v16 == 5 )
-        v17 = &unk_140E2E918;
+        v17 = &unk_140E2EA98;
     }
   }
   else

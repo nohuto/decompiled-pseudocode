@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqQueryActionQueueEntryFree @ 0x1407F9AD0
+ * XREFs of PiDqQueryActionQueueEntryFree @ 0x1407F9DA0
  * Callers:
- *     PiDqQueryFreeActiveData @ 0x1407DFD48 (PiDqQueryFreeActiveData.c)
- *     PiDqQuerySerializeActionQueue @ 0x1407F94D0 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQueryFreeActiveData @ 0x1407E0018 (PiDqQueryFreeActiveData.c)
+ *     PiDqQuerySerializeActionQueue @ 0x1407F97A0 (PiDqQuerySerializeActionQueue.c)
  * Callees:
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     PiPnpRtlObjectEventRelease @ 0x140788948 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     PiPnpRtlObjectEventRelease @ 0x140788B38 (PiPnpRtlObjectEventRelease.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

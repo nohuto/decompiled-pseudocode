@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFillGapAddresses @ 0x1400B53E0
+ * XREFs of MiFillGapAddresses @ 0x1400B3218
  * Callers:
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
  *     MiFillPfnGaps @ 0x14078F034 (MiFillPfnGaps.c)
  * Callees:
- *     MiFillGapPtes @ 0x140141A14 (MiFillGapPtes.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiFillGapPtes @ 0x140141F84 (MiFillGapPtes.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFillGapAddresses(unsigned __int64 a1, unsigned __int64 a2, int a3)

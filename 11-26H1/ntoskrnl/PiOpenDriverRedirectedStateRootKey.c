@@ -1,13 +1,13 @@
 /*
- * XREFs of PiOpenDriverRedirectedStateRootKey @ 0x1407A15AC
+ * XREFs of PiOpenDriverRedirectedStateRootKey @ 0x1407A40EC
  * Callers:
- *     PipHardwareConfigClearStartOverrides @ 0x14079B908 (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14079E448 (PipHardwareConfigClearStartOverrides.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     PiGetStateRootPath @ 0x140A11C48 (PiGetStateRootPath.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     PiGetStateRootPath @ 0x140A10E38 (PiGetStateRootPath.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall PiOpenDriverRedirectedStateRootKey(__int64 a1, HANDLE *a2)
@@ -24,7 +24,7 @@ __int64 __fastcall PiOpenDriverRedirectedStateRootKey(__int64 a1, HANDLE *a2)
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( a2 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath");
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
     if ( StateRootPath >= 0 )
     {
       ObjectAttributes.Length = 48;

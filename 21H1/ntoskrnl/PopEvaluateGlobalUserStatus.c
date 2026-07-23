@@ -22,7 +22,7 @@ void PopEvaluateGlobalUserStatus()
   __int64 v3; // rdx
   __int64 v4; // rcx
   _DWORD Src[20]; // [rsp+40h] [rbp+7h] BYREF
-  int v6; // [rsp+A8h] [rbp+6Fh] BYREF
+  int Buffer; // [rsp+A8h] [rbp+6Fh] BYREF
   int v7; // [rsp+ACh] [rbp+73h]
 
   if ( PopUserPresentOverrideCount || !PopMaximumConnectionSessions )
@@ -34,24 +34,24 @@ void PopEvaluateGlobalUserStatus()
     ++PopGlobalUserPresenceStateTransitions;
     PopGlobalUserPresenceState = v0;
     v1 = (const wchar_t *)PopPrintUserActivityPresence(v0);
-    PopPrintEx(3LL, (__int64)"PopAdaptive: Global user presence/activity state: %S id: %I32u\n", v1, v2);
+    PopPrintEx(3u, (__int64)"PopAdaptive: Global user presence/activity state: %S id: %I32u\n", v1, v2);
     PopDiagTraceSessionStateCounted(v4, v3, v0);
     PopSetPowerSettingValueAcDc(&GUID_GLOBAL_USER_PRESENCE);
     if ( v0 )
     {
-      v6 = 1;
+      Buffer = 1;
       memset(Src, 0, 0x48uLL);
       Src[2] = 1;
     }
     else
     {
-      v6 = 0;
+      Buffer = 0;
       memset(Src, 0, 0x48uLL);
       Src[2] = 0;
     }
     Src[0] = 12;
     PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
     v7 = PopGlobalUserPresenceStateTransitions;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_SLEEP_STUDY_USER_PRESENCE_CHANGED, (__int64)&v6);
+    ZwUpdateWnfStateData(&WNF_PO_SLEEP_STUDY_USER_PRESENCE_CHANGED, &Buffer, 8u, 0LL, 0LL, 0, 0);
   }
 }

@@ -570,7 +570,7 @@ LABEL_69:
     }
     else
     {
-      v67 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((unsigned __int64)(Slow - qword_1801D0978) >> 20));
+      v67 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)(Slow - qword_1801D0978) >> 20));
       if ( !v67 || (v57 = v67 - 1, v57 == 2) )
       {
         RtlpHpLargeAllocSetExtraPresent(a1, Slow);
@@ -635,10 +635,10 @@ LABEL_68:
   }
   else
   {
-    v74 = RtlCSparseBitmapBitmaskRead(&unk_1801D0980, 2 * ((unsigned __int64)(Slow - qword_1801D0978) >> 20));
+    v74 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)(Slow - qword_1801D0978) >> 20));
     if ( !v74 || (_DWORD)v74 == 3 )
     {
-      RtlpHpLargeFree((volatile signed __int64 *)a1, Slow);
+      RtlpHpLargeFree((__int128 *)a1, Slow);
       return 0LL;
     }
     v73 = a1 + 320;

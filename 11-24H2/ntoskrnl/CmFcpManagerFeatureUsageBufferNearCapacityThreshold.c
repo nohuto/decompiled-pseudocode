@@ -1,7 +1,7 @@
 /*
- * XREFs of CmFcpManagerFeatureUsageBufferNearCapacityThreshold @ 0x1404BC1D8
+ * XREFs of CmFcpManagerFeatureUsageBufferNearCapacityThreshold @ 0x1404B6E98
  * Callers:
- *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x1407E4EE8 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x1407E54B8 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
  * Callees:
  *     <none>
  */

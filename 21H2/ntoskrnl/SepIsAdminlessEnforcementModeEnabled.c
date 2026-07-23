@@ -1,10 +1,10 @@
 /*
- * XREFs of SepIsAdminlessEnforcementModeEnabled @ 0x140252EF8
+ * XREFs of SepIsAdminlessEnforcementModeEnabled @ 0x140285D68
  * Callers:
- *     SeIsSModeAdminlessEnabled @ 0x140252ED0 (SeIsSModeAdminlessEnabled.c)
- *     SeSecurityModelQueryInformation @ 0x14091CD6C (SeSecurityModelQueryInformation.c)
+ *     SeIsSModeAdminlessEnabled @ 0x140285D40 (SeIsSModeAdminlessEnabled.c)
+ *     SeSecurityModelQueryInformation @ 0x14091CECC (SeSecurityModelQueryInformation.c)
  * Callees:
- *     Feature_SModeAdminless__private_ReportDeviceUsage @ 0x1403F8F18 (Feature_SModeAdminless__private_ReportDeviceUsage.c)
+ *     Feature_SModeAdminless__private_ReportDeviceUsage @ 0x1403F8F48 (Feature_SModeAdminless__private_ReportDeviceUsage.c)
  */
 
 char SepIsAdminlessEnforcementModeEnabled()

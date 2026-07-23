@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x140351B70
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x140351D10
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x140316330 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403165C0 (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
  *     <none>
  */

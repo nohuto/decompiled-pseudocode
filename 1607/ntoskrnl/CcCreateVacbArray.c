@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCreateVacbArray @ 0x1404CC148
+ * XREFs of CcCreateVacbArray @ 0x1404B1B74
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

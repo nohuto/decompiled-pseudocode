@@ -22,15 +22,15 @@
  *     MiFreeBootDriverPages @ 0x140C54EE4 (MiFreeBootDriverPages.c)
  */
 
-__int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall MiFreeInitializationCode(_QWORD *a1, __int64 a2, __int64 a3, int a4)
 {
-  unsigned __int64 v5; // rbx
+  PVOID v5; // rbx
   __int64 v6; // rsi
   unsigned __int64 v7; // r14
   __int64 v8; // r12
   unsigned __int64 v9; // rdi
   __int64 v10; // r15
-  RTL_BITMAP *ExtendedLoaderBitmap; // rax
+  _RTL_BITMAP *ExtendedLoaderBitmap; // rax
   __int64 v12; // rcx
   __int64 *v13; // rdx
   ULONG *ControlAreaPartition; // r15
@@ -46,7 +46,7 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __i
   __int64 v24; // rcx
   unsigned __int64 v25; // rax
   int v26; // ecx
-  __int64 v27; // rt1
+  PVOID v27; // rt1
   __int64 result; // rax
   __int128 v29; // [rsp+40h] [rbp-40h] BYREF
   __int128 v30; // [rsp+50h] [rbp-30h]
@@ -59,22 +59,22 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, __int64 a2, __i
   v30 = 0LL;
   v31 = 0LL;
   if ( !a4 )
-    v5 = *(_QWORD *)(a1 + 48);
+    v5 = (PVOID)a1[6];
   v6 = 0LL;
   if ( !a4 )
-    v6 = a1;
+    v6 = (__int64)a1;
   v7 = a2 << 25 >> 16;
   v8 = ((a3 - a2) >> 3) + 1;
   v9 = v8;
-  v10 = (a2 - MiGetPteAddress(v5)) >> 3;
+  v10 = (a2 - MiGetPteAddress((unsigned __int64)v5)) >> 3;
   if ( v6 )
   {
-    ExtendedLoaderBitmap = (RTL_BITMAP *)MiGetExtendedLoaderBitmap(v6);
+    ExtendedLoaderBitmap = (_RTL_BITMAP *)MiGetExtendedLoaderBitmap(v6);
     RtlClearBits(ExtendedLoaderBitmap, v10, v8);
   }
   v12 = 0LL;
   v13 = &qword_140E2D600;
-  while ( *(_QWORD *)(*v13 + 48) != v5 )
+  while ( *(PVOID *)(*v13 + 48) != v5 )
   {
     v12 = (unsigned int)(v12 + 1);
     ++v13;
@@ -137,7 +137,7 @@ LABEL_12:
       v26 = 0;
     }
     MiDecommitPages(a2, v8, v26, 0LL, v16, v16, v16, (__int64)&v29);
-    v27 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v27 = *(PVOID *)&KeNumberProcessorsGroup0[9];
     if ( v5 == v27 || v5 == PsHalImageBase )
     {
       _InterlockedAdd64(&qword_140E37398, -*((_QWORD *)&v30 + 1));

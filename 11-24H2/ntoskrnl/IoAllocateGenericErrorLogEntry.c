@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAllocateGenericErrorLogEntry @ 0x140596858
+ * XREFs of IoAllocateGenericErrorLogEntry @ 0x140593838
  * Callers:
- *     IopLogBlockedDriverEvent @ 0x1407128DC (IopLogBlockedDriverEvent.c)
- *     PnpLogEvent @ 0x140723460 (PnpLogEvent.c)
- *     MiLogFailedDriverLoad @ 0x140A18B7C (MiLogFailedDriverLoad.c)
+ *     IopLogBlockedDriverEvent @ 0x14071046C (IopLogBlockedDriverEvent.c)
+ *     PnpLogEvent @ 0x140720FF0 (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x140A11CEC (MiLogFailedDriverLoad.c)
  * Callees:
- *     IopAllocateErrorLogEntry @ 0x1404A26DC (IopAllocateErrorLogEntry.c)
+ *     IopAllocateErrorLogEntry @ 0x14049D66C (IopAllocateErrorLogEntry.c)
  */
 
 __int64 __fastcall IoAllocateGenericErrorLogEntry(char a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlLengthSid @ 0x1800E70E0
+ * XREFs of RtlLengthSid @ 0x1800E2590
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlLengthSid(__int64 a1)
+ULONG __cdecl RtlLengthSid(PSID Sid)
 {
-  return 4 * (unsigned int)*(unsigned __int8 *)(a1 + 1) + 8;
+  return 4 * *((unsigned __int8 *)Sid + 1) + 8;
 }

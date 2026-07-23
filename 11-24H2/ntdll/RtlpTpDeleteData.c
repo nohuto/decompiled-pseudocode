@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpTpDeleteData @ 0x18006D900
+ * XREFs of RtlpTpDeleteData @ 0x18008A1E0
  * Callers:
- *     RtlpTpTimerRundown @ 0x18006CB3C (RtlpTpTimerRundown.c)
- *     RtlCreateTimer @ 0x18006D040 (RtlCreateTimer.c)
- *     RtlpTpWorkUnposted @ 0x18006F660 (RtlpTpWorkUnposted.c)
+ *     RtlpTpTimerRundown @ 0x18008941C (RtlpTpTimerRundown.c)
+ *     RtlCreateTimer @ 0x180089920 (RtlCreateTimer.c)
+ *     RtlpTpWorkUnposted @ 0x18008BF40 (RtlpTpWorkUnposted.c)
  * Callees:
  *     <none>
  */

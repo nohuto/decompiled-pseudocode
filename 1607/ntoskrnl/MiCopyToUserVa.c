@@ -1,27 +1,27 @@
 /*
- * XREFs of MiCopyToUserVa @ 0x140014B50
+ * XREFs of MiCopyToUserVa @ 0x1400146D0
  * Callers:
- *     MiCopyToCfgBitMap @ 0x14042F1E0 (MiCopyToCfgBitMap.c)
+ *     MiCopyToCfgBitMap @ 0x14042E0B0 (MiCopyToCfgBitMap.c)
  * Callees:
- *     MiLockPageAndSetDirty @ 0x140015578 (MiLockPageAndSetDirty.c)
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiChargeFullProcessCommitment @ 0x140430960 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1404BCCE8 (MiReturnFullProcessCommitment.c)
+ *     MiLockPageAndSetDirty @ 0x1400150F8 (MiLockPageAndSetDirty.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeFullProcessCommitment @ 0x14042F830 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1404A8A18 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCopyToUserVa(ULONG_PTR a1, __int64 a2, const void *a3, size_t a4)
@@ -84,7 +84,7 @@ LABEL_3:
         v12 = CloneAddress;
         if ( CloneAddress )
         {
-          if ( *(_QWORD *)(qword_140327F90 + 276840632) <= *(_QWORD *)(CloneAddress + 72) )
+          if ( *(_QWORD *)(qword_140327FD0 + 276840632) <= *(_QWORD *)(CloneAddress + 72) )
           {
             v12 = 0LL;
           }
@@ -115,7 +115,7 @@ LABEL_3:
       break;
     }
   }
-  v17 = MiReservePtes(&qword_140327870, 1LL);
+  v17 = MiReservePtes(&qword_1403278B0, 1LL);
   v18 = (_QWORD *)v17;
   if ( v17 )
   {
@@ -133,7 +133,7 @@ LABEL_3:
   memmove((void *)(v19 + (a1 & 0xFFF)), a3, a4);
   if ( v18 )
   {
-    MiReleasePtes(&qword_140327870, v18, 1LL);
+    MiReleasePtes(&qword_1403278B0, v18, 1LL);
   }
   else
   {

@@ -1,15 +1,15 @@
 /*
  * XREFs of PopSetNotificationWork @ 0x1400041F0
  * Callers:
- *     PopUserPresentSet @ 0x1401777F8 (PopUserPresentSet.c)
- *     PopInitilizeAcDcSettings @ 0x14017DDBC (PopInitilizeAcDcSettings.c)
- *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
- *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
- *     PopGetSettingNotificationName @ 0x14058E66C (PopGetSettingNotificationName.c)
- *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
- *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
- *     PopUserPresentSetWorker @ 0x14071F100 (PopUserPresentSetWorker.c)
- *     PopApplyPolicy @ 0x1407476B4 (PopApplyPolicy.c)
+ *     PopUserPresentSet @ 0x1401778F8 (PopUserPresentSet.c)
+ *     PopInitilizeAcDcSettings @ 0x14017DEFC (PopInitilizeAcDcSettings.c)
+ *     PoRegisterPowerSettingCallback @ 0x14058AEE0 (PoRegisterPowerSettingCallback.c)
+ *     PopSetPowerSettingValue @ 0x14058C338 (PopSetPowerSettingValue.c)
+ *     PopGetSettingNotificationName @ 0x14058F66C (PopGetSettingNotificationName.c)
+ *     PopExecutePowerAction @ 0x1406DF390 (PopExecutePowerAction.c)
+ *     PopBatteryApplyCompositeState @ 0x14071B3E8 (PopBatteryApplyCompositeState.c)
+ *     PopUserPresentSetWorker @ 0x1407203A0 (PopUserPresentSetWorker.c)
+ *     PopApplyPolicy @ 0x1407488A4 (PopApplyPolicy.c)
  * Callees:
  *     PopCheckForWork @ 0x140010620 (PopCheckForWork.c)
  *     PopGetPolicyWorker @ 0x1400106A8 (PopGetPolicyWorker.c)

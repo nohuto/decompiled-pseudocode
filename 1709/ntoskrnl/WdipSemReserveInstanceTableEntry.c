@@ -11,7 +11,7 @@
  *     WdipSemLogInflightLimitExceededInformation @ 0x14073EF6C (WdipSemLogInflightLimitExceededInformation.c)
  */
 
-PSLIST_ENTRY __fastcall WdipSemReserveInstanceTableEntry(__int64 a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall WdipSemReserveInstanceTableEntry(__int64 a1, _SLIST_ENTRY *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   PSLIST_ENTRY v3; // rbx

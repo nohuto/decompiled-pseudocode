@@ -3,7 +3,7 @@
  * Callers:
  *     BgpFwLibraryInitialize @ 0x140725E8C (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpTxtRegionSize @ 0x140129BF0 (BgpTxtRegionSize.c)
+ *     BgpTxtRegionSize @ 0x14012A160 (BgpTxtRegionSize.c)
  *     BgpTxtCreateRegion @ 0x140726BC4 (BgpTxtCreateRegion.c)
  *     BgpFoGetFontHandle @ 0x1407279B8 (BgpFoGetFontHandle.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDetectSimulatedHeteroProcessors @ 0x140C309B8
+ * XREFs of PopDetectSimulatedHeteroProcessors @ 0x140C32AD8
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PopReadSimulatedArchitecturalClasses @ 0x140C30E64 (PopReadSimulatedArchitecturalClasses.c)
- *     PopReadSimulatedHGSClasses @ 0x140C31050 (PopReadSimulatedHGSClasses.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PopReadSimulatedArchitecturalClasses @ 0x140C32F84 (PopReadSimulatedArchitecturalClasses.c)
+ *     PopReadSimulatedHGSClasses @ 0x140C33170 (PopReadSimulatedHGSClasses.c)
  */
 
 void PopDetectSimulatedHeteroProcessors()
@@ -18,11 +18,11 @@ void PopDetectSimulatedHeteroProcessors()
   ULONG_PTR MaximumProcessorCount; // rdi
   unsigned int v2; // r14d
   int v3; // ecx
-  ULONG_PTR Pool2; // rbx
+  __int64 Pool2; // rbx
   ULONG_PTR v5; // r13
   void *v6; // rsi
   void *v7; // r15
-  ULONG_PTR v8; // rax
+  __int64 v8; // rax
   void *v9; // r12
   unsigned __int8 *v10; // rdx
   ULONG_PTR v11; // r8

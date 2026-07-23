@@ -11,9 +11,9 @@
  *     IopInitializeSystemDrivers @ 0x140845AEC (IopInitializeSystemDrivers.c)
  */
 
-char IoInitSystem()
+char __fastcall IoInitSystem(void *a1)
 {
-  if ( !(unsigned __int8)IoInitSystemPreDrivers() )
+  if ( !(unsigned __int8)IoInitSystemPreDrivers(a1) )
     return 0;
   if ( !(unsigned int)IopInitializeSystemDrivers() )
   {

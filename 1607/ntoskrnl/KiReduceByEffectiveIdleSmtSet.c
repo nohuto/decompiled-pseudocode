@@ -1,10 +1,10 @@
 /*
- * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x1400A07E8
+ * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x14009F110
  * Callers:
- *     KiChooseTargetProcessor @ 0x140057550 (KiChooseTargetProcessor.c)
- *     KiSelectIdleProcessor @ 0x140132EE4 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1400570D0 (KiChooseTargetProcessor.c)
+ *     KiSelectIdleProcessor @ 0x140133454 (KiSelectIdleProcessor.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D14F4 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400CF394 (KiUpdateTotalCyclesCurrentThread.c)
  */
 
 char __fastcall KiReduceByEffectiveIdleSmtSet(__int64 a1, _QWORD *a2)

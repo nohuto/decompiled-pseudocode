@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpCallInitRoutine @ 0x18004C46C
+ * XREFs of LdrpCallInitRoutine @ 0x1800369EC
  * Callers:
- *     LdrpCallTlsInitializers @ 0x18004C040 (LdrpCallTlsInitializers.c)
- *     LdrShutdownThread @ 0x180086CA0 (LdrShutdownThread.c)
- *     LdrShutdownProcess @ 0x180087920 (LdrShutdownProcess.c)
- *     LdrpInitializeThread @ 0x1800CF3C0 (LdrpInitializeThread.c)
- *     AVrfpLoadAndInitializeProvider @ 0x180106D68 (AVrfpLoadAndInitializeProvider.c)
- *     AvrfMiniLoadDll @ 0x180116838 (AvrfMiniLoadDll.c)
- *     LdrpInitializeNode @ 0x18011A300 (LdrpInitializeNode.c)
- *     LdrpProcessDetachNode @ 0x18011B0A8 (LdrpProcessDetachNode.c)
+ *     LdrpCallTlsInitializers @ 0x1800365C0 (LdrpCallTlsInitializers.c)
+ *     LdrShutdownThread @ 0x18007E040 (LdrShutdownThread.c)
+ *     LdrShutdownProcess @ 0x18007ECA0 (LdrShutdownProcess.c)
+ *     LdrpInitializeThread @ 0x1800CCB30 (LdrpInitializeThread.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x180106768 (AVrfpLoadAndInitializeProvider.c)
+ *     AvrfMiniLoadDll @ 0x180116018 (AvrfMiniLoadDll.c)
+ *     LdrpInitializeNode @ 0x18011A0B0 (LdrpInitializeNode.c)
+ *     LdrpProcessDetachNode @ 0x18011AE58 (LdrpProcessDetachNode.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogEtwEvent @ 0x180084238 (LdrpLogEtwEvent.c)
- *     LdrpLogError @ 0x1800FC390 (LdrpLogError.c)
- *     LdrpCallInitRoutineInternal @ 0x180119A08 (LdrpCallInitRoutineInternal.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpLogEtwEvent @ 0x18007B5D8 (LdrpLogEtwEvent.c)
+ *     LdrpLogError @ 0x1800FBAE0 (LdrpLogError.c)
+ *     LdrpCallInitRoutineInternal @ 0x1801197B8 (LdrpCallInitRoutineInternal.c)
  */
 
 char __fastcall LdrpCallInitRoutine(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -28,14 +28,14 @@ char __fastcall LdrpCallInitRoutine(__int64 a1, __int64 a2, unsigned int a3, __i
   int v15; // r9d
 
   v8 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v9 = 2147353476LL;
   if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
     v11 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v12 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v12 = 2147353477LL;
@@ -50,11 +50,11 @@ char __fastcall LdrpCallInitRoutine(__int64 a1, __int64 a2, unsigned int a3, __i
     v11 = 2147353477LL;
   }
   v13 = LdrpCallInitRoutineInternal(a1, a2, a3, a4);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v11 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v11 & 0x20) != 0 )
     {

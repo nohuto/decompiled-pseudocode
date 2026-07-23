@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlpFcAllocateChangeRegistration @ 0x180097C08
+ * XREFs of RtlpFcAllocateChangeRegistration @ 0x18002CA58
  * Callers:
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x180097B20 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x18002C970 (RtlRegisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     TpAllocWork @ 0x18001BE50 (TpAllocWork.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     TpAllocWork @ 0x180048850 (TpAllocWork.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
-unsigned __int64 __fastcall RtlpFcAllocateChangeRegistration(__int64 a1, __int64 a2)
+PTP_WORK *__fastcall RtlpFcAllocateChangeRegistration(_TP_WORK *a1, _TP_WORK *a2)
 {
-  unsigned __int64 v3; // rdi
-  __int64 Heap; // rax
-  unsigned __int64 v6; // rbx
+  PTP_WORK *v3; // rdi
+  PTP_WORK *Heap; // rax
+  PTP_WORK *v6; // rbx
 
   v3 = 0LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
+  Heap = (PTP_WORK *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
   v6 = Heap;
   if ( Heap )
   {
-    if ( (int)TpAllocWork((_QWORD *)(Heap + 40), (__int64)RtlpFcChangeRegistrationCallback, Heap, 0LL) < 0 )
+    if ( TpAllocWork(Heap + 5, RtlpFcChangeRegistrationCallback, Heap, 0LL) < 0 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
     }
     else
     {
-      *(_QWORD *)(v6 + 16) = a1;
+      v6[2] = a1;
       v3 = v6;
-      *(_QWORD *)(v6 + 24) = a2;
+      v6[3] = a2;
     }
   }
   return v3;

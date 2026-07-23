@@ -1,13 +1,13 @@
 /*
- * XREFs of IoPerfReset @ 0x140558FD4
+ * XREFs of IoPerfReset @ 0x140559694
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1407D5404 (EtwpDisableKernelTrace.c)
- *     IoUnregisterIoTracking @ 0x140949090 (IoUnregisterIoTracking.c)
+ *     EtwpDisableKernelTrace @ 0x1407D56D4 (EtwpDisableKernelTrace.c)
+ *     IoUnregisterIoTracking @ 0x140949290 (IoUnregisterIoTracking.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x1405563EC (IopUpdateFunctionPointers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x140556AAC (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfReset(char a1)
@@ -30,10 +30,13 @@ __int64 __fastcall IoPerfReset(char a1)
     IopUpdateFunctionPointers(2, 0, 1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -41,7 +44,7 @@ __int64 __fastcall IoPerfReset(char a1)
       v7 = (v6 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v6;
       if ( v7 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

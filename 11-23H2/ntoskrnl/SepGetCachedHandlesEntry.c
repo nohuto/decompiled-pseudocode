@@ -1,21 +1,21 @@
 /*
- * XREFs of SepGetCachedHandlesEntry @ 0x1407F465C
+ * XREFs of SepGetCachedHandlesEntry @ 0x1407F492C
  * Callers:
- *     SepSetTokenCachedHandles @ 0x1407F44A0 (SepSetTokenCachedHandles.c)
+ *     SepSetTokenCachedHandles @ 0x1407F4770 (SepSetTokenCachedHandles.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x140226680 (RtlInsertEntryHashTable.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     RtlGetNextEntryHashTable @ 0x140338020 (RtlGetNextEntryHashTable.c)
- *     RtlLookupEntryHashTable @ 0x140371080 (RtlLookupEntryHashTable.c)
- *     RtlHashUnicodeString @ 0x1406D9430 (RtlHashUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     SepAllocateAndInitializeCachedHandleEntry @ 0x1407F4A9C (SepAllocateAndInitializeCachedHandleEntry.c)
+ *     RtlInsertEntryHashTable @ 0x140226790 (RtlInsertEntryHashTable.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     RtlGetNextEntryHashTable @ 0x1403382B0 (RtlGetNextEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x140371220 (RtlLookupEntryHashTable.c)
+ *     RtlHashUnicodeString @ 0x1406D9460 (RtlHashUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     SepAllocateAndInitializeCachedHandleEntry @ 0x1407F4D6C (SepAllocateAndInitializeCachedHandleEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, _QWORD *a4)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v4; // r12
+  _RTL_DYNAMIC_HASH_TABLE *v4; // r12
   unsigned int v5; // ebx
   int v6; // ecx
   ULONG_PTR v10; // rbp
@@ -29,11 +29,11 @@ __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, _QWO
   __int64 result; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v19; // rdi
   int v20; // ecx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-58h] BYREF
   ULONG HashValue; // [rsp+80h] [rbp+8h] BYREF
   PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry; // [rsp+88h] [rbp+10h] BYREF
 
-  v4 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
+  v4 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 8);
   v5 = 0;
   v6 = *a2;
   Entry = 0LL;

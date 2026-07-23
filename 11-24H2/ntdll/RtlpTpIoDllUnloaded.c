@@ -1,40 +1,38 @@
 /*
- * XREFs of RtlpTpIoDllUnloaded @ 0x18010CEAC
+ * XREFs of RtlpTpIoDllUnloaded @ 0x180107CFC
  * Callers:
- *     RtlpTpIoDllNotification @ 0x1800BF9C0 (RtlpTpIoDllNotification.c)
+ *     RtlpTpIoDllNotification @ 0x1800B7780 (RtlpTpIoDllNotification.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpTpIoDllProcessUnloads @ 0x18010CF24 (RtlpTpIoDllProcessUnloads.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpTpIoDllProcessUnloads @ 0x180107D74 (RtlpTpIoDllProcessUnloads.c)
  */
 
-__int64 __fastcall RtlpTpIoDllUnloaded(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall RtlpTpIoDllUnloaded(__int64 a1)
 {
-  __int64 v4; // r8
-  unsigned __int64 v5; // rcx
-  __int64 result; // rax
+  PRTL_SPLAY_LINKS v2; // r8
+  unsigned __int64 Parent; // rcx
 
   if ( (*(_BYTE *)a1 & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpTpIoTreeLock, a2, a3);
-    v4 = RtlpTpIoTree;
-    while ( v4 )
+    RtlAcquireSRWLockExclusive(&RtlpTpIoTreeLock);
+    v2 = RtlpTpIoTree;
+    while ( v2 )
     {
-      v5 = *(_QWORD *)(v4 - 96);
-      if ( v5 < *(_QWORD *)(a1 + 24) )
+      Parent = (unsigned __int64)v2[-4].Parent;
+      if ( Parent < *(_QWORD *)(a1 + 24) )
         goto LABEL_5;
-      if ( v5 < *(_QWORD *)(a1 + 24) + (unsigned __int64)*(unsigned int *)(a1 + 32) )
+      if ( Parent < *(_QWORD *)(a1 + 24) + (unsigned __int64)*(unsigned int *)(a1 + 32) )
       {
         RtlpTpIoDllProcessUnloads(a1);
-        return RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+        break;
       }
-      if ( v5 < *(_QWORD *)(a1 + 24) )
+      if ( Parent < *(_QWORD *)(a1 + 24) )
 LABEL_5:
-        v4 = *(_QWORD *)(v4 + 16);
+        v2 = v2->RightChild;
       else
-        v4 = *(_QWORD *)(v4 + 8);
+        v2 = v2->LeftChild;
     }
-    return RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+    RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
   }
-  return result;
 }

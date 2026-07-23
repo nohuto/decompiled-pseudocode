@@ -1,10 +1,10 @@
 /*
- * XREFs of _lfind @ 0x180097750
+ * XREFs of _lfind @ 0x180097740
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     _guard_check_icall @ 0x18009D0E0 (_guard_check_icall.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     _guard_check_icall @ 0x18009D0D0 (_guard_check_icall.c)
  */
 
 void *__cdecl lfind(

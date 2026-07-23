@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSystemVaTypeHasWsles @ 0x1403A67E0
+ * XREFs of MiSystemVaTypeHasWsles @ 0x1403A8540
  * Callers:
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     MiTrimViewLockSystemPte @ 0x1403A6720 (MiTrimViewLockSystemPte.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     MiTrimViewLockSystemPte @ 0x1403A8480 (MiTrimViewLockSystemPte.c)
  * Callees:
  *     <none>
  */

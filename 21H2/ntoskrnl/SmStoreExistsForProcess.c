@@ -1,12 +1,12 @@
 /*
- * XREFs of SmStoreExistsForProcess @ 0x1402D6310
+ * XREFs of SmStoreExistsForProcess @ 0x140287660
  * Callers:
- *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x14052C708 (MiReleaseOutSwappedProcessCommit.c)
- *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
- *     VmpPauseResumeNotify @ 0x14092F6F4 (VmpPauseResumeNotify.c)
+ *     MmOutSwapWorkingSet @ 0x1402A1700 (MmOutSwapWorkingSet.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C948 (MiReleaseOutSwappedProcessCommit.c)
+ *     PfpPrivSourceEnum @ 0x1406A53B4 (PfpPrivSourceEnum.c)
+ *     VmpPauseResumeNotify @ 0x14092F854 (VmpPauseResumeNotify.c)
  * Callees:
- *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x140287698 (SmpKeyedStoreEntryGet.c)
  */
 
 _BOOL8 SmStoreExistsForProcess()

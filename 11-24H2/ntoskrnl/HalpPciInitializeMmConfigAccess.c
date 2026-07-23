@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPciInitializeMmConfigAccess @ 0x140C13120
+ * XREFs of HalpPciInitializeMmConfigAccess @ 0x140C15120
  * Callers:
- *     HalpPciInitSystem @ 0x140B4D430 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x140B4F480 (HalpPciInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalpPciInitializeMmConfigAccess(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall HalpPciInitializeMmConfigAccess(__int64 a1)
 
   if ( !HalpAvoidMmConfigAccessMethod )
   {
-    Table = HalpAcpiGetTable(a1, 1195787085, 0LL, 0LL);
+    Table = HalpAcpiGetTable(a1, 1195787085, 0, 0);
     v2 = Table;
     if ( Table )
     {

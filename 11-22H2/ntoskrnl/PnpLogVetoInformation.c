@@ -25,7 +25,7 @@ _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
   char v5; // r12
   int *p_LockNV; // r14
   UNICODE_STRING *v7; // rbx
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   _QWORD *i; // rax
   __int64 v10; // rdx
   _QWORD *v11; // rsi
@@ -63,7 +63,7 @@ _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
           ExFreePoolWithTag(P, 0);
           v7 = &v17;
           P = &v17;
-          ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)p_LockNV);
+          ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)p_LockNV);
           RtlInitAnsiString(&SourceString, ProcessImageFileName);
           RtlAnsiStringToUnicodeString(&v17, &SourceString, 1u);
         }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxCompleteComponentActivation @ 0x1400C1A64
+ * XREFs of PopFxCompleteComponentActivation @ 0x1400BF8F4
  * Callers:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PopFxActivateComponentWorker @ 0x1400C1660 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x1400C1860 (PopFxIdleWorkerTail.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PopFxActivateComponentWorker @ 0x1400BF4F0 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x1400BF6F0 (PopFxIdleWorkerTail.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     PopFxIdleComponent @ 0x1400C1B10 (PopFxIdleComponent.c)
- *     PopPluginComponentActive @ 0x1400C215C (PopPluginComponentActive.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     PopFxIdleComponent @ 0x1400BF9A0 (PopFxIdleComponent.c)
+ *     PopPluginComponentActive @ 0x1400BFFEC (PopPluginComponentActive.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopFxCompleteComponentActivation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)

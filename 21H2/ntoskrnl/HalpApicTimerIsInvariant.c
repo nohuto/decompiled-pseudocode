@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicTimerIsInvariant @ 0x1403AC174
+ * XREFs of HalpApicTimerIsInvariant @ 0x1403ACF04
  * Callers:
- *     HalpApicTimerDiscover @ 0x1403AA91C (HalpApicTimerDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403AB6AC (HalpApicTimerDiscover.c)
  * Callees:
- *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalSocRequestApi @ 0x1403A21EC (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall HalpApicTimerIsInvariant(__int64 a1)
@@ -27,8 +27,8 @@ bool __fastcall HalpApicTimerIsInvariant(__int64 a1)
   if ( v2 != 2 && (v2 != 1 || KeGetCurrentPrcb()->CpuType < 0x15u) )
     return 0;
   v7 = 0;
-  ((void (__fastcall *)(_QWORD, unsigned int *, int *, int *, int *))qword_140CF4578)(0LL, &v6, &v5, &v5, &v5);
+  ((void (__fastcall *)(_QWORD, unsigned int *, int *, int *, int *))qword_140CF45B8)(0LL, &v6, &v5, &v5, &v5);
   if ( v6 >= 6 )
-    ((void (__fastcall *)(__int64, int *, int *, int *, int *))qword_140CF4578)(6LL, &v7, &v5, &v5, &v5);
+    ((void (__fastcall *)(__int64, int *, int *, int *, int *))qword_140CF45B8)(6LL, &v7, &v5, &v5, &v5);
   return (v7 & 4) != 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiAcquireSpinLockInstrumented @ 0x140290E28
+ * XREFs of KiAcquireSpinLockInstrumented @ 0x140291018
  * Callers:
  *     KiCallInterruptServiceRoutine @ 0x1400162E0 (KiCallInterruptServiceRoutine.c)
  *     NtCancelTimer @ 0x14001CF40 (NtCancelTimer.c)
@@ -9,17 +9,17 @@
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     NtAssociateWaitCompletionPacket @ 0x140062B00 (NtAssociateWaitCompletionPacket.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopQueueIrpToFileObject @ 0x1400B79F0 (IopQueueIrpToFileObject.c)
- *     IopDequeueIrpFromThread @ 0x1400B8EF0 (IopDequeueIrpFromThread.c)
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
- *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
- *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopQueueIrpToFileObject @ 0x1400B7930 (IopQueueIrpToFileObject.c)
+ *     IopDequeueIrpFromThread @ 0x1400B8E30 (IopDequeueIrpFromThread.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
+ *     IopCompleteRequest @ 0x1400BFC50 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1400C1030 (IopfCompleteRequest.c)
+ *     KiExecuteAllDpcs @ 0x1400C6C80 (KiExecuteAllDpcs.c)
  * Callees:
- *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogSpinLockAcquire @ 0x140313AC4 (PerfLogSpinLockAcquire.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14008CF10 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogSpinLockAcquire @ 0x140313CB4 (PerfLogSpinLockAcquire.c)
  */
 
 void __fastcall KiAcquireSpinLockInstrumented(volatile signed __int32 *a1, __int64 a2, __int64 a3)

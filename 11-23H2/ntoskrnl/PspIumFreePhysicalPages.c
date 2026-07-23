@@ -1,17 +1,17 @@
 /*
- * XREFs of PspIumFreePhysicalPages @ 0x1405A6050
+ * XREFs of PspIumFreePhysicalPages @ 0x1405A65C0
  * Callers:
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A73B0 (MmMapLockedPagesWithReservedMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PspIumFreePartitionPages @ 0x1405A5E4C (PspIumFreePartitionPages.c)
- *     MmUnmapReservedMapping @ 0x14061E910 (MmUnmapReservedMapping.c)
- *     MmFreeSecureKernelPages @ 0x140657EAC (MmFreeSecureKernelPages.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A7590 (MmMapLockedPagesWithReservedMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PspIumFreePartitionPages @ 0x1405A63BC (PspIumFreePartitionPages.c)
+ *     MmUnmapReservedMapping @ 0x14061EE60 (MmUnmapReservedMapping.c)
+ *     MmFreeSecureKernelPages @ 0x1406583FC (MmFreeSecureKernelPages.c)
  */
 
 __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 a3)
@@ -50,10 +50,10 @@ __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 
   {
     MmUnmapReservedMapping(v6, 0x466D7356u, &MemoryDescriptorList);
     KxReleaseSpinLock((volatile signed __int64 *)&PspIumFreeMappingLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

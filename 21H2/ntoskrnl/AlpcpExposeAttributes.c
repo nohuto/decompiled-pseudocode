@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpExposeAttributes @ 0x1405E8380
+ * XREFs of AlpcpExposeAttributes @ 0x1406D7AE0
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessConnectionRequest @ 0x1406CE428 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1406D6640 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1406D73D0 (AlpcpReceiveMessage.c)
  * Callees:
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
- *     AlpcpExposeWorkOnBehalfAttribute @ 0x1405E87D0 (AlpcpExposeWorkOnBehalfAttribute.c)
- *     AlpcpExposeTokenAttribute @ 0x1405E8850 (AlpcpExposeTokenAttribute.c)
- *     AlpcpExposeHandleAttribute @ 0x1405E89F0 (AlpcpExposeHandleAttribute.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpExposeViewAttribute32 @ 0x140697D98 (AlpcpExposeViewAttribute32.c)
- *     AlpcpExposeContextAttribute32 @ 0x14069AE94 (AlpcpExposeContextAttribute32.c)
- *     AlpcpExposeHandleAttribute32 @ 0x14069CFCC (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpExposeViewAttribute32 @ 0x1405F6A90 (AlpcpExposeViewAttribute32.c)
+ *     AlpcpExposeContextAttribute32 @ 0x1405FA054 (AlpcpExposeContextAttribute32.c)
+ *     AlpcpExposeHandleAttribute32 @ 0x1405FC09C (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1406D6FE0 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeWorkOnBehalfAttribute @ 0x1406D7F30 (AlpcpExposeWorkOnBehalfAttribute.c)
+ *     AlpcpExposeTokenAttribute @ 0x1406D7FB0 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpExposeHandleAttribute @ 0x1406D8150 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)
@@ -79,14 +79,14 @@ __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4,
     }
     v30 = a4 & 0x40000000;
     if ( (a4 & 0x40000000) != 0 )
-      result = AlpcpExposeViewAttribute32(a1, a3, a5 + (((__int64)a4 >> 63) & 0xC) + 8, a5 + 4);
+      result = AlpcpExposeViewAttribute32(a1, a3, (_DWORD *)(a5 + (((__int64)a4 >> 63) & 0xC) + 8), (_DWORD *)(a5 + 4));
     v31 = v8 & 0x20000000;
     if ( (v8 & 0x20000000) != 0 )
     {
       v32 = ((v8 >> 63) & 0xC) + 24;
       if ( !v30 )
         v32 = ((v8 >> 63) & 0xC) + 8;
-      result = AlpcpExposeContextAttribute32(v10, a3, a5 + v32, a5 + 4);
+      result = AlpcpExposeContextAttribute32(v10, a3, (_DWORD *)(a5 + v32), (_DWORD *)(a5 + 4));
     }
     v33 = (v8 >> 63) & 0xC;
     v34 = v8 & 0x10000000;
@@ -98,7 +98,7 @@ __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4,
       v36 = v35 + 20;
       if ( !v31 )
         v36 = v35;
-      result = AlpcpExposeHandleAttribute32(v10, a3, a5 + v36, a5 + 4);
+      result = AlpcpExposeHandleAttribute32(v10, a3, (_DWORD *)(a5 + v36), (_DWORD *)(a5 + 4));
       v34 = v8 & 0x10000000;
     }
     v37 = v33 + 8;
@@ -204,7 +204,7 @@ __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4,
         v18 = ((v8 >> 63) & 0x18) + 8;
       if ( v12 )
         v18 += 32LL;
-      result = AlpcpExposeHandleAttribute(v10, a3, v18 + v5, v7);
+      result = AlpcpExposeHandleAttribute(v10, a3, v18 + v5);
       v17 = v8 & 0x10000000;
     }
     v19 = v8 & 0x8000000;

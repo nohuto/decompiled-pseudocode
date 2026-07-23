@@ -4,7 +4,7 @@
  *     RtlCreateRetpolineRelocationInformation @ 0x14020CB74 (RtlCreateRetpolineRelocationInformation.c)
  * Callees:
  *     RtlSizeOfRetpolineRelocationEntry @ 0x14020CEBC (RtlSizeOfRetpolineRelocationEntry.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 _DWORD *__fastcall RtlpCopyRetpolineRelocationBlockEntryArray(

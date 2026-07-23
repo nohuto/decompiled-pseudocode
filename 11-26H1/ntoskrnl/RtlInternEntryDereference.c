@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlInternEntryDereference @ 0x1409518B8
+ * XREFs of RtlInternEntryDereference @ 0x1409CD1F8
  * Callers:
- *     PopEtEnergyContextCleanup @ 0x140950574 (PopEtEnergyContextCleanup.c)
- *     PopEtEnergyContextSetState @ 0x140950B44 (PopEtEnergyContextSetState.c)
- *     PopEtAggregateKeyCleanup @ 0x140950F58 (PopEtAggregateKeyCleanup.c)
- *     PopEtStringSet @ 0x140951008 (PopEtStringSet.c)
- *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1409517A0 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
- *     PopEtAppIdDereference @ 0x140951E98 (PopEtAppIdDereference.c)
- *     PopEtProcessSnapshotCreate @ 0x140951EC8 (PopEtProcessSnapshotCreate.c)
+ *     PopEtEnergyContextCleanup @ 0x1409CBEB4 (PopEtEnergyContextCleanup.c)
+ *     PopEtEnergyContextSetState @ 0x1409CC484 (PopEtEnergyContextSetState.c)
+ *     PopEtAggregateKeyCleanup @ 0x1409CC898 (PopEtAggregateKeyCleanup.c)
+ *     PopEtStringSet @ 0x1409CC948 (PopEtStringSet.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1409CD0E0 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ *     PopEtAppIdDereference @ 0x1409CD7D8 (PopEtAppIdDereference.c)
+ *     PopEtProcessSnapshotCreate @ 0x1409CD808 (PopEtProcessSnapshotCreate.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlInternEntryDereference(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbMakeIndexKeyFromGUID @ 0x140887798
+ * XREFs of SdbMakeIndexKeyFromGUID @ 0x14088DB94
  * Callers:
- *     SdbMergeIsEntryUpdated @ 0x1408877E4 (SdbMergeIsEntryUpdated.c)
+ *     SdbMergeIsEntryUpdated @ 0x14088DBE0 (SdbMergeIsEntryUpdated.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
  */
 
 __int64 __fastcall SdbMakeIndexKeyFromGUID(_QWORD *a1)

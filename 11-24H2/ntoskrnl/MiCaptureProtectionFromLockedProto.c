@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCaptureProtectionFromLockedProto @ 0x140458304
+ * XREFs of MiCaptureProtectionFromLockedProto @ 0x14044D614
  * Callers:
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 *a1)
     if ( (*a1 & 1) == 0 )
       break;
     v3 = (v2 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v3 <= qword_140E2DBE0 )
+    if ( v3 <= qword_140E2DD20 )
     {
       v4 = 48 * v3;
       if ( ((*(_QWORD *)(48 * v3 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )

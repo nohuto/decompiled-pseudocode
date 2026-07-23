@@ -1,19 +1,19 @@
 /*
- * XREFs of VfLookasideDelete @ 0x140B9FF68
+ * XREFs of VfLookasideDelete @ 0x140BA1F68
  * Callers:
- *     VfMiscExDeleteLookasideListEx_Entry @ 0x140B9D830 (VfMiscExDeleteLookasideListEx_Entry.c)
+ *     VfMiscExDeleteLookasideListEx_Entry @ 0x140B9F830 (VfMiscExDeleteLookasideListEx_Entry.c)
  * Callees:
- *     VfAvlDeleteTreeNode @ 0x1403F0144 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     VfAvlFreeNodeNoLock @ 0x1406106C8 (VfAvlFreeNodeNoLock.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     VfAvlDeleteTreeNode @ 0x1403E3E20 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     VfAvlFreeNodeNoLock @ 0x14060EC88 (VfAvlFreeNodeNoLock.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfLookasideDelete(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  struct _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *v4; // rbx
   __int64 v5; // rdx
   __int128 v6; // [rsp+40h] [rbp-28h] BYREF
   __int64 v7; // [rsp+50h] [rbp-18h]
@@ -26,7 +26,7 @@ void __fastcall VfLookasideDelete(ULONG_PTR BugCheckParameter2, __int64 a2)
     VfAvlInitializeLockContext((__int64)&v6, 0);
     if ( VfAvlLookupTreeNode((__int64 *)&ViLookasideAvl, (__int64)&v6, BugCheckParameter2, 0LL) )
     {
-      v4 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64 *)&ViLookasideAvl, (__int64)&v6, BugCheckParameter2, 0LL);
+      v4 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64 *)&ViLookasideAvl, (__int64)&v6, BugCheckParameter2, 0LL);
     }
     else if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers && (VfRuleClasses & 0x800) != 0 )
     {

@@ -1,18 +1,18 @@
 /*
- * XREFs of VfDriverEnableVerifier @ 0x1409C8620
+ * XREFs of VfDriverEnableVerifier @ 0x1409C9620
  * Callers:
- *     MmEnableVerifierForDriver @ 0x1409C5BB4 (MmEnableVerifierForDriver.c)
- *     VfDriverEnableVerifierForAll @ 0x1409C87B8 (VfDriverEnableVerifierForAll.c)
+ *     MmEnableVerifierForDriver @ 0x1409C6BB4 (MmEnableVerifierForDriver.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C97B8 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054452C (MmRemoveImportOptimizationForDriverVerifier.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     VfDriverLoadImage @ 0x1409C2090 (VfDriverLoadImage.c)
- *     ViSuspectDriversLookupEntry @ 0x1409C2574 (ViSuspectDriversLookupEntry.c)
- *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
- *     VfUtilIsProtectedDriver @ 0x1409C688C (VfUtilIsProtectedDriver.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054476C (MmRemoveImportOptimizationForDriverVerifier.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     VfDriverLoadImage @ 0x1409C3090 (VfDriverLoadImage.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C3574 (ViSuspectDriversLookupEntry.c)
+ *     VfDriverLock @ 0x1409C35B8 (VfDriverLock.c)
+ *     VfUtilIsProtectedDriver @ 0x1409C788C (VfUtilIsProtectedDriver.c)
  */
 
 __int64 __fastcall VfDriverEnableVerifier(__int64 a1, __int64 a2, _DWORD *a3)
@@ -69,17 +69,17 @@ LABEL_7:
     {
       v5 = 1;
 LABEL_16:
-      v10 = (__int64 *)qword_140C1D298;
-      if ( *(__int64 **)qword_140C1D298 != &VfSuspectDriversList )
+      v10 = (__int64 *)qword_140C1D4F8;
+      if ( *(__int64 **)qword_140C1D4F8 != &VfSuspectDriversList )
         __fastfail(3u);
-      *(_QWORD *)(v4 + 8) = qword_140C1D298;
+      *(_QWORD *)(v4 + 8) = qword_140C1D4F8;
       *(_QWORD *)v4 = &VfSuspectDriversList;
       *v10 = v4;
-      qword_140C1D298 = v4;
+      qword_140C1D4F8 = v4;
       *a3 = 1;
       if ( v5 )
         VfDriverLoadImage(a2, v4, 0, 1u);
-      ++dword_140C2A8D8;
+      ++dword_140C2A918;
     }
   }
   if ( v6 )

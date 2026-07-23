@@ -9,55 +9,55 @@
  *     ZwTraceEvent @ 0x18009B670 (ZwTraceEvent.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlInitializeCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  __int64 v2; // rax
+  ULONG_PTR v2; // rax
   bool v3; // zf
   __int64 v4; // rdi
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v6; // rcx
-  _BYTE v8[6]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-48h] BYREF
   __int16 v9; // [rsp+26h] [rbp-42h]
-  __int64 v10; // [rsp+40h] [rbp-28h]
-  __int64 v11; // [rsp+48h] [rbp-20h]
+  ULONG_PTR SpinCount; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v11; // [rsp+48h] [rbp-20h]
 
-  *(_DWORD *)(a1 + 12) = 0;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 24) = 0LL;
-  *(_DWORD *)(a1 + 8) = -1;
+  CriticalSection->RecursionCount = 0;
+  CriticalSection->OwningThread = 0LL;
+  CriticalSection->LockSemaphore = 0LL;
+  CriticalSection->LockCount = -1;
   if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
   {
-    *(_QWORD *)(a1 + 32) = 0LL;
+    CriticalSection->SpinCount = 0LL;
     v2 = 0LL;
   }
   else
   {
     v2 = 33556432LL;
-    *(_QWORD *)(a1 + 32) = 33556432LL;
+    CriticalSection->SpinCount = 33556432LL;
   }
   v3 = byte_18015AC08 == 0;
-  *(_QWORD *)(a1 + 32) = v2;
-  *(_QWORD *)a1 = -1LL;
+  CriticalSection->SpinCount = v2;
+  CriticalSection->DebugInfo = (PRTL_CRITICAL_SECTION_DEBUG)-1LL;
   if ( !v3 )
   {
-    sub_180024408(a1);
-    if ( *(_QWORD *)a1 == -1LL )
-      *(_QWORD *)(a1 + 32) |= 0x1000000uLL;
+    sub_180024408((__int64)CriticalSection);
+    if ( CriticalSection->DebugInfo == (PRTL_CRITICAL_SECTION_DEBUG)-1LL )
+      CriticalSection->SpinCount |= 0x1000000uLL;
   }
   v4 = 2147353474LL;
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
   else
     v6 = 2147353474LL;
   if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
   {
-    v11 = a1;
+    v11 = CriticalSection;
     v9 = 5923;
-    v10 = *(_QWORD *)(a1 + 32);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v4 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
-    ZwTraceEvent(*(unsigned __int8 *)v4, 66562LL, 16LL, v8);
+    SpinCount = CriticalSection->SpinCount;
+    if ( RtlGetCurrentServiceSessionId() )
+      v4 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
+    ZwTraceEvent((HANDLE)*(unsigned __int8 *)v4, 0x10402u, 0x10u, Fields);
   }
-  return 0LL;
+  return 0;
 }

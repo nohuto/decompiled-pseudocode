@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreUpdatePagefileHash @ 0x1401167A0
+ * XREFs of MiStoreUpdatePagefileHash @ 0x140116D10
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140118960 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140118ED0 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiMapPageFileHash @ 0x140116930 (MiMapPageFileHash.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiMapPageFileHash @ 0x140116EA0 (MiMapPageFileHash.c)
  */
 
 __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -43,7 +43,7 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
     do
     {
       result = *v6;
-      if ( *v6 == qword_140327688 )
+      if ( *v6 == qword_1403276C8 )
       {
         v14 = 16;
         PagingFileOffset = v8;

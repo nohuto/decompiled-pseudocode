@@ -1,29 +1,28 @@
 /*
- * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x14038E3A0
+ * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x14038E4F0
  * Callers:
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14038E2D8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExConvertFastResourceExclusiveToShared @ 0x1405B4050 (ExConvertFastResourceExclusiveToShared.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14038E428 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExConvertFastResourceExclusiveToShared @ 0x1405B4280 (ExConvertFastResourceExclusiveToShared.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWakeWaitChain @ 0x14023896C (KeWakeWaitChain.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpConvertFastResourceExclusiveToShared(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl
-  __int64 *v5; // rax
-  _DWORD *v6; // r9
+  __int64 v5; // rax
   __int64 result; // rax
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v9; // al
+  unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v11; // r8
-  int v12; // eax
-  bool v13; // zf
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
-  __int64 *v15; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
 
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
   CurrentIrql = KeGetCurrentIrql();
@@ -37,28 +36,28 @@ __int64 __fastcall ExpConvertFastResourceExclusiveToShared(__int64 a1, __int64 a
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 96));
   *(_WORD *)(a1 + 26) &= ~0x80u;
-  v5 = *(__int64 **)(a1 + 32);
+  v5 = *(_QWORD *)(a1 + 32);
   *(_QWORD *)(a1 + 32) = 0LL;
-  v15 = v5;
+  v14 = v5;
   LODWORD(v5) = *(_DWORD *)(a1 + 72);
   *(_DWORD *)(a1 + 72) = 0;
-  *(_DWORD *)(a1 + 64) += (_DWORD)v5;
+  *(_DWORD *)(a1 + 64) += v5;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  KeWakeWaitChain(&v15, 0LL, 0LL, v6);
+  KeWakeWaitChain(&v14, 0, 0);
   *(_BYTE *)(a2 + 17) &= ~4u;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v9 = KeGetCurrentIrql();
-      if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      v8 = KeGetCurrentIrql();
+      if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v11 = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v13 = (v12 & v11[5]) == 0;
-        v11[5] &= v12;
-        if ( v13 )
+        v10 = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v12 = (v11 & v10[5]) == 0;
+        v10[5] &= v11;
+        if ( v12 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

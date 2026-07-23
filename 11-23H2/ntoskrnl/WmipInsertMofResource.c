@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipInsertMofResource @ 0x14080EEF4
+ * XREFs of WmipInsertMofResource @ 0x14080F1C4
  * Callers:
- *     WmipAddMofResource @ 0x14080EC6C (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x14080EF3C (WmipAddMofResource.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WmipReferenceEntry @ 0x1406C688C (WmipReferenceEntry.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WmipReferenceEntry @ 0x1406C68BC (WmipReferenceEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

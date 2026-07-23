@@ -16,7 +16,7 @@ __int64 __fastcall IoLoadCrashDumpDriver(int a1, __int64 a2, __int64 a3)
 
   v8 = 0LL;
   v7[0] = 0LL;
-  if ( !IopAllowLoadCrashDumpDriver )
+  if ( !dword_140D01500 )
     return 3221225474LL;
   if ( *(_DWORD *)a2 != 24 )
     return 3221225485LL;

@@ -9,44 +9,46 @@
  *     _swprintf_s @ 0x4B300420 (_swprintf_s.c)
  */
 
-int __stdcall RtlStringFromGUIDEx(int a1, int a2, char a3)
+NTSTATUS __cdecl RtlStringFromGUIDEx(PGUID Guid, PUNICODE_STRING GuidString, BOOLEAN AllocateGuidString)
 {
-  int StringRoutine; // eax
-  unsigned int v4; // edx
+  wchar_t *StringRoutine; // eax
+  unsigned int MaximumLength; // edx
+  size_t v6; // [esp-34h] [ebp-38h]
 
-  if ( a3 )
+  if ( AllocateGuidString )
   {
-    *(_WORD *)(a2 + 2) = 78;
-    StringRoutine = NtdllpAllocateStringRoutine(78);
-    *(_DWORD *)(a2 + 4) = StringRoutine;
+    GuidString->MaximumLength = 78;
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(78);
+    GuidString->Buffer = StringRoutine;
     if ( StringRoutine )
     {
-      LOWORD(v4) = *(_WORD *)(a2 + 2);
+      LOWORD(MaximumLength) = GuidString->MaximumLength;
 LABEL_4:
-      *(_WORD *)a2 = 76;
+      GuidString->Length = 76;
+      HIDWORD(v6) = L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}";
+      LODWORD(v6) = (unsigned __int16)MaximumLength >> 1;
       swprintf_s(
-        *(wchar_t *const *)(a2 + 4),
-        (unsigned __int16)v4 >> 1,
-        L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-        *(_DWORD *)a1,
-        *(unsigned __int16 *)(a1 + 4),
-        *(unsigned __int16 *)(a1 + 6),
-        *(unsigned __int8 *)(a1 + 8),
-        *(unsigned __int8 *)(a1 + 9),
-        *(unsigned __int8 *)(a1 + 10),
-        *(unsigned __int8 *)(a1 + 11),
-        *(unsigned __int8 *)(a1 + 12),
-        *(unsigned __int8 *)(a1 + 13),
-        *(unsigned __int8 *)(a1 + 14),
-        *(unsigned __int8 *)(a1 + 15));
+        GuidString->Buffer,
+        v6,
+        (const wchar_t *const)Guid->Data1,
+        Guid->Data2,
+        Guid->Data3,
+        Guid->Data4[0],
+        Guid->Data4[1],
+        Guid->Data4[2],
+        Guid->Data4[3],
+        Guid->Data4[4],
+        Guid->Data4[5],
+        Guid->Data4[6],
+        Guid->Data4[7]);
       return 0;
     }
     return -1073741801;
   }
   else
   {
-    v4 = *(unsigned __int16 *)(a2 + 2);
-    if ( v4 >= 0x4E )
+    MaximumLength = GuidString->MaximumLength;
+    if ( MaximumLength >= 0x4E )
       goto LABEL_4;
     return -1073741789;
   }

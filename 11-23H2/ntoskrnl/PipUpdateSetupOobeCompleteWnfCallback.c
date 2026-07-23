@@ -1,11 +1,11 @@
 /*
- * XREFs of PipUpdateSetupOobeCompleteWnfCallback @ 0x140952170
+ * XREFs of PipUpdateSetupOobeCompleteWnfCallback @ 0x140952370
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage @ 0x140410028 (Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage.c)
- *     ExQueryWnfStateData @ 0x1407E21C0 (ExQueryWnfStateData.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage @ 0x140410104 (Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage.c)
+ *     ExQueryWnfStateData @ 0x1407E2490 (ExQueryWnfStateData.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

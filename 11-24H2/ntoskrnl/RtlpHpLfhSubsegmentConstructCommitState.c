@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentConstructCommitState @ 0x1402B5084
+ * XREFs of RtlpHpLfhSubsegmentConstructCommitState @ 0x1403D97B4
  * Callers:
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1402B64D8 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x140459494 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x1403D8038 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1403D90D8 (RtlpHpLfhSubsegmentReformatAsMulti.c)
  * Callees:
  *     <none>
  */
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentConstructCommitState(
   v5 = a1;
   v6 = 0;
   v7 = 0;
-  v8 = qword_140E28208 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
+  v8 = qword_140E28348 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
   *a4 = 1;
   v31 = HIWORD(v8);
   v11 = (unsigned __int16)v8;

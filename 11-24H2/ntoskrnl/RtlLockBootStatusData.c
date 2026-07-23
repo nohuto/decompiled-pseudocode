@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlLockBootStatusData @ 0x140A7C200
+ * XREFs of RtlLockBootStatusData @ 0x140A76500
  * Callers:
- *     PoClearTransitionMarker @ 0x140748F9C (PoClearTransitionMarker.c)
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
- *     PopBootStatCheckIntegrity @ 0x140AB5DF8 (PopBootStatCheckIntegrity.c)
+ *     PoClearTransitionMarker @ 0x1407472C8 (PoClearTransitionMarker.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
+ *     PopBootStatCheckIntegrity @ 0x140AB00C0 (PopBootStatCheckIntegrity.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlpAcquireBootStatusLock @ 0x1404A8B8C (RtlpAcquireBootStatusLock.c)
- *     RtlpReleaseBootStatusLock @ 0x1404B6794 (RtlpReleaseBootStatusLock.c)
- *     RtlInitializeBootStatDataCache @ 0x1405E9650 (RtlInitializeBootStatDataCache.c)
- *     RtlpGetBootStatusPath @ 0x1405E976C (RtlpGetBootStatusPath.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlpAcquireBootStatusLock @ 0x1404A2FAC (RtlpAcquireBootStatusLock.c)
+ *     RtlpReleaseBootStatusLock @ 0x1404B0F74 (RtlpReleaseBootStatusLock.c)
+ *     RtlInitializeBootStatDataCache @ 0x1405E6BA0 (RtlInitializeBootStatDataCache.c)
+ *     RtlpGetBootStatusPath @ 0x1405E6CBC (RtlpGetBootStatusPath.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlLockBootStatusData(HANDLE *a1)
+NTSTATUS __cdecl RtlLockBootStatusData(PHANDLE FileHandle)
 {
   WCHAR *v1; // rdi
-  NTSTATUS v3; // esi
+  int v3; // esi
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   char v8; // [rsp+A8h] [rbp+28h] BYREF
-  HANDLE FileHandle; // [rsp+B0h] [rbp+30h] BYREF
+  HANDLE FileHandlea; // [rsp+B0h] [rbp+30h] BYREF
   PCWSTR SourceString; // [rsp+B8h] [rbp+38h] BYREF
 
-  FileHandle = 0LL;
+  FileHandlea = 0LL;
   v1 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   v3 = 0;
@@ -37,13 +37,13 @@ __int64 __fastcall RtlLockBootStatusData(HANDLE *a1)
   ++BootStatReferenceCount;
   if ( BootStatFileHandleAcquired )
   {
-    if ( !a1 )
+    if ( !FileHandle )
     {
 LABEL_3:
       BootStatKeepHandleOpen = 1;
       goto LABEL_4;
     }
-    *a1 = BootStatFileHandle;
+    *FileHandle = BootStatFileHandle;
   }
   else
   {
@@ -55,28 +55,28 @@ LABEL_3:
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 704;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v3 = ZwOpenFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
+    v3 = ZwOpenFile(&FileHandlea, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
     if ( v3 < 0 )
     {
       BootStatFileHandle = 0LL;
       BootStatReferenceCount = 0;
       BootStatFileHandleAcquired = 0;
-      if ( a1 )
-        *a1 = 0LL;
+      if ( FileHandle )
+        *FileHandle = 0LL;
     }
     else
     {
-      BootStatFileHandle = FileHandle;
+      BootStatFileHandle = FileHandlea;
       BootStatFileHandleAcquired = 1;
       RtlInitializeBootStatDataCache();
-      if ( !a1 )
+      if ( !FileHandle )
         goto LABEL_3;
-      *a1 = FileHandle;
+      *FileHandle = FileHandlea;
     }
   }
 LABEL_4:
   RtlpReleaseBootStatusLock();
   if ( v8 )
     ExFreePoolWithTag(v1, 0);
-  return (unsigned int)v3;
+  return v3;
 }

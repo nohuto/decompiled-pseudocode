@@ -1,15 +1,15 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x140748ED0
+ * XREFs of IoRegisterDeviceInterface @ 0x140749090
  * Callers:
- *     PiSwCompleteCreate @ 0x14074D690 (PiSwCompleteCreate.c)
+ *     PiSwCompleteCreate @ 0x14074D850 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x1403D4650 (wcspbrk.c)
- *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x1403D47C0 (wcspbrk.c)
+ *     PnpUnicodeStringToWstrFree @ 0x14062A5A4 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14062C36C (PnpUnicodeStringToWstr.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x140748630 (IopRegisterDeviceInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterDeviceInterface(

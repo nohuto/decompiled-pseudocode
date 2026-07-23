@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeterminePoolType @ 0x140351CB8
+ * XREFs of MiDeterminePoolType @ 0x140353D3C
  * Callers:
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     MiGenerateAccessViolation @ 0x1404ED878 (MiGenerateAccessViolation.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     MiGenerateAccessViolation @ 0x1404E6E58 (MiGenerateAccessViolation.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MiDeterminePoolType(unsigned __int64 a1)

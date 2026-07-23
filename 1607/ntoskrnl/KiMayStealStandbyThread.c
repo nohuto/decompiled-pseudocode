@@ -1,7 +1,7 @@
 /*
- * XREFs of KiMayStealStandbyThread @ 0x14005C190
+ * XREFs of KiMayStealStandbyThread @ 0x14005BD10
  * Callers:
- *     KiSearchForNewThreadOnProcessor @ 0x14005BD20 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x14005B8A0 (KiSearchForNewThreadOnProcessor.c)
  * Callees:
  *     <none>
  */

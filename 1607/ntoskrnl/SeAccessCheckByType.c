@@ -1,50 +1,50 @@
 /*
- * XREFs of SeAccessCheckByType @ 0x14005FEF0
+ * XREFs of SeAccessCheckByType @ 0x14005FA70
  * Callers:
- *     NtAccessCheck @ 0x14009E284 (NtAccessCheck.c)
- *     NtAccessCheckByType @ 0x1400A728C (NtAccessCheckByType.c)
- *     NtAccessCheckByTypeResultList @ 0x140219864 (NtAccessCheckByTypeResultList.c)
+ *     NtAccessCheck @ 0x14009DA84 (NtAccessCheck.c)
+ *     NtAccessCheckByType @ 0x1400A5804 (NtAccessCheckByType.c)
+ *     NtAccessCheckByTypeResultList @ 0x140219690 (NtAccessCheckByTypeResultList.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     SeCaptureObjectTypeList @ 0x140060F4C (SeCaptureObjectTypeList.c)
- *     SepTokenIsOwner @ 0x140061160 (SepTokenIsOwner.c)
- *     SeLogAccessFailure @ 0x1400615D0 (SeLogAccessFailure.c)
- *     SepMandatoryIntegrityCheck @ 0x140063650 (SepMandatoryIntegrityCheck.c)
- *     SepAccessCheck @ 0x140063AB0 (SepAccessCheck.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     SeTokenIsRestricted @ 0x14007F740 (SeTokenIsRestricted.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x140088740 (AuthzBasepFreeSecurityAttributesList.c)
- *     SePrivilegePolicyCheck @ 0x14008D8D0 (SePrivilegePolicyCheck.c)
- *     SepTrustLevelCheck @ 0x14008DA00 (SepTrustLevelCheck.c)
- *     RtlpOwnerAcesPresent @ 0x14008DB10 (RtlpOwnerAcesPresent.c)
- *     SepConstrainByTrust @ 0x14008DC0C (SepConstrainByTrust.c)
- *     SepConstrainByMandatory @ 0x14008DC48 (SepConstrainByMandatory.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     SepReferenceTokenUsingPseudoHandle @ 0x1400A4B88 (SepReferenceTokenUsingPseudoHandle.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SeFreeCapturedObjectTypeList @ 0x1402199A8 (SeFreeCapturedObjectTypeList.c)
- *     SepBuildCapeSecurityDescriptor @ 0x140219AA4 (SepBuildCapeSecurityDescriptor.c)
- *     SepCopyObjectTypeList @ 0x140219B44 (SepCopyObjectTypeList.c)
- *     SepGetScopedPolicySid @ 0x140219BF8 (SepGetScopedPolicySid.c)
- *     SepMergeObjectTypeListAccesses @ 0x140219C38 (SepMergeObjectTypeListAccesses.c)
- *     SepRmDereferenceCap @ 0x140219C64 (SepRmDereferenceCap.c)
- *     SepRmReferenceFindCap @ 0x14021B670 (SepRmReferenceFindCap.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     SeCaptureObjectTypeList @ 0x140060ACC (SeCaptureObjectTypeList.c)
+ *     SepTokenIsOwner @ 0x140060CE0 (SepTokenIsOwner.c)
+ *     SeLogAccessFailure @ 0x140061150 (SeLogAccessFailure.c)
+ *     SepMandatoryIntegrityCheck @ 0x1400631D0 (SepMandatoryIntegrityCheck.c)
+ *     SepAccessCheck @ 0x140063630 (SepAccessCheck.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     SeTokenIsRestricted @ 0x14007F7C0 (SeTokenIsRestricted.c)
+ *     SePrivilegePolicyCheck @ 0x14008D030 (SePrivilegePolicyCheck.c)
+ *     SepTrustLevelCheck @ 0x14008D160 (SepTrustLevelCheck.c)
+ *     RtlpOwnerAcesPresent @ 0x14008D270 (RtlpOwnerAcesPresent.c)
+ *     SepConstrainByTrust @ 0x14008D36C (SepConstrainByTrust.c)
+ *     SepConstrainByMandatory @ 0x14008D3A8 (SepConstrainByMandatory.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1400A3100 (SepReferenceTokenUsingPseudoHandle.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x14010C930 (AuthzBasepFreeSecurityAttributesList.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SeFreeCapturedObjectTypeList @ 0x1402197D4 (SeFreeCapturedObjectTypeList.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1402198D0 (SepBuildCapeSecurityDescriptor.c)
+ *     SepCopyObjectTypeList @ 0x140219970 (SepCopyObjectTypeList.c)
+ *     SepGetScopedPolicySid @ 0x140219A24 (SepGetScopedPolicySid.c)
+ *     SepMergeObjectTypeListAccesses @ 0x140219A64 (SepMergeObjectTypeListAccesses.c)
+ *     SepRmDereferenceCap @ 0x140219A90 (SepRmDereferenceCap.c)
+ *     SepRmReferenceFindCap @ 0x14021B49C (SepRmReferenceFindCap.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SeCaptureSecurityDescriptor @ 0x140420EC0 (SeCaptureSecurityDescriptor.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     SeReleaseSecurityDescriptor @ 0x14044DB84 (SeReleaseSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeCaptureSid @ 0x1404791AC (SeCaptureSid.c)
- *     SeReleaseSid @ 0x140479554 (SeReleaseSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SeCaptureSecurityDescriptor @ 0x14041FD80 (SeCaptureSecurityDescriptor.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     SeReleaseSecurityDescriptor @ 0x14044CA54 (SeReleaseSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSid @ 0x14047807C (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140478424 (SeReleaseSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SeAccessCheckByType(
@@ -145,7 +145,7 @@ __int64 __fastcall SeAccessCheckByType(
   __int64 v94; // r8
   __int64 v95; // r9
   __int64 v96; // rax
-  __int64 v97; // rax
+  ACL *v97; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v100; // rdx
@@ -209,7 +209,7 @@ __int64 __fastcall SeAccessCheckByType(
   _WORD *v158; // [rsp+100h] [rbp-128h]
   int *v159; // [rsp+108h] [rbp-120h]
   PVOID P; // [rsp+110h] [rbp-118h] BYREF
-  __int64 v161; // [rsp+118h] [rbp-110h]
+  ACL *v161; // [rsp+118h] [rbp-110h]
   __int64 v162; // [rsp+120h] [rbp-108h] BYREF
   __int64 v163; // [rsp+128h] [rbp-100h] BYREF
   __int64 v164; // [rsp+130h] [rbp-F8h]
@@ -596,7 +596,7 @@ LABEL_52:
   v41 = v152;
   if ( (__int16)*v158 >= 0 )
   {
-    v97 = *(_QWORD *)(v152 + 24);
+    v97 = *(ACL **)(v152 + 24);
   }
   else
   {
@@ -606,7 +606,7 @@ LABEL_52:
       v161 = 0LL;
       goto LABEL_60;
     }
-    v97 = v152 + v96;
+    v97 = (ACL *)(v152 + v96);
   }
   v161 = v97;
   if ( v97 )

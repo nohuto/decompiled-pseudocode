@@ -26,8 +26,8 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, __int6
   __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // rbp
   ULONG v8; // r12d
-  struct _RTL_BITMAP *v9; // r14
-  struct _RTL_BITMAP *v10; // rbx
+  _RTL_BITMAP *v9; // r14
+  _RTL_BITMAP *v10; // rbx
   unsigned int *Buffer; // rdx
   ULONG v12; // r15d
   unsigned __int64 v13; // r10
@@ -45,7 +45,7 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, __int6
   v8 = (unsigned int)(v4 + 15) >> 4;
   v9 = 0LL;
   MiLockDriverMappings((__int64)CurrentThread, a2, a3, a4);
-  v10 = (struct _RTL_BITMAP *)qword_14034EA40[v5];
+  v10 = (_RTL_BITMAP *)qword_14034EA40[v5];
   if ( !v10 )
     goto LABEL_20;
   do
@@ -57,7 +57,7 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, __int6
       break;
     }
     v9 = v10;
-    v10 = *(struct _RTL_BITMAP **)&v10->SizeOfBitMap;
+    v10 = *(_RTL_BITMAP **)&v10->SizeOfBitMap;
   }
   while ( v10 );
   if ( !v10 )

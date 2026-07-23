@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MmCreateSection @ 0x14076C620 (MmCreateSection.c)
- *     MmMapViewInSessionSpace @ 0x1407DE9B0 (MmMapViewInSessionSpace.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MmCreateSection @ 0x14076C810 (MmCreateSection.c)
+ *     MmMapViewInSessionSpace @ 0x1407DEC80 (MmMapViewInSessionSpace.c)
  */
 
 __int64 __fastcall MiInitializeApiSets(__int64 a1)

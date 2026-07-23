@@ -1,26 +1,26 @@
 /*
- * XREFs of DifRegisterPlugin @ 0x1405D5070
+ * XREFs of DifRegisterPlugin @ 0x1405D55E0
  * Callers:
- *     VfSecurityEntry @ 0x1405D0074 (VfSecurityEntry.c)
- *     VfIovPluginEntry @ 0x1405D1C30 (VfIovPluginEntry.c)
- *     VfDmaPluginEntry @ 0x1405D1F90 (VfDmaPluginEntry.c)
- *     VfPoolTrackingEntry @ 0x1405D2128 (VfPoolTrackingEntry.c)
- *     VfLwSPEntry @ 0x1405F8698 (VfLwSPEntry.c)
- *     VfIrqlPluginEntry @ 0x14067BFE4 (VfIrqlPluginEntry.c)
- *     VfSpecialPoolEntry @ 0x14067C204 (VfSpecialPoolEntry.c)
- *     VfDeadlockPluginEntry @ 0x140AD78F8 (VfDeadlockPluginEntry.c)
- *     VfMiscPluginEntry @ 0x140AE06B4 (VfMiscPluginEntry.c)
+ *     VfSecurityEntry @ 0x1405D05E4 (VfSecurityEntry.c)
+ *     VfIovPluginEntry @ 0x1405D21A0 (VfIovPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x1405D2500 (VfDmaPluginEntry.c)
+ *     VfPoolTrackingEntry @ 0x1405D2698 (VfPoolTrackingEntry.c)
+ *     VfLwSPEntry @ 0x1405F8C08 (VfLwSPEntry.c)
+ *     VfIrqlPluginEntry @ 0x14067C534 (VfIrqlPluginEntry.c)
+ *     VfSpecialPoolEntry @ 0x14067C754 (VfSpecialPoolEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140AD78E8 (VfDeadlockPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140AE06A4 (VfMiscPluginEntry.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifCreateAPIThunkContext @ 0x1405D4B9C (DifCreateAPIThunkContext.c)
- *     DifDeregisterPlugin @ 0x1405D4C60 (DifDeregisterPlugin.c)
- *     DifiDbgPrint @ 0x1405D5644 (DifiDbgPrint.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifCreateAPIThunkContext @ 0x1405D510C (DifCreateAPIThunkContext.c)
+ *     DifDeregisterPlugin @ 0x1405D51D0 (DifDeregisterPlugin.c)
+ *     DifiDbgPrint @ 0x1405D5BB4 (DifiDbgPrint.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     VfBindDifCallbackWrappers @ 0x140ACA210 (VfBindDifCallbackWrappers.c)
- *     VfBindDifDDIWrappers @ 0x140ACA250 (VfBindDifDDIWrappers.c)
- *     VfCheckDifDdiExist @ 0x140ACA2B0 (VfCheckDifDdiExist.c)
+ *     VfBindDifCallbackWrappers @ 0x140ACA200 (VfBindDifCallbackWrappers.c)
+ *     VfBindDifDDIWrappers @ 0x140ACA240 (VfBindDifDDIWrappers.c)
+ *     VfCheckDifDdiExist @ 0x140ACA2A0 (VfCheckDifDdiExist.c)
  */
 
 __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a3, _OWORD *a4)
@@ -176,19 +176,19 @@ LABEL_36:
                   *(_QWORD *)(v24 + 8) = v25;
                   *(_QWORD *)v19 = v25;
                 }
-                v26 = (_QWORD *)qword_140C36928;
+                v26 = (_QWORD *)qword_140C368A8;
                 v27 = (_QWORD *)(v17 + 16);
-                if ( *(__int64 **)qword_140C36928 != &DifAPIThunkContextHead )
+                if ( *(__int64 **)qword_140C368A8 != &DifAPIThunkContextHead )
                   goto LABEL_39;
                 *v27 = &DifAPIThunkContextHead;
                 *(_QWORD *)(v17 + 24) = v26;
                 *v26 = v27;
-                qword_140C36928 = v17 + 16;
+                qword_140C368A8 = v17 + 16;
                 v28 = *(unsigned int *)(v17 + 8);
                 if ( (unsigned int)v28 >= 0x10000000 )
-                  v29 = VfBindDifCallbackWrappers(v28, off_140C075B8[(unsigned int)(v28 - 0x10000000)], v17);
+                  v29 = VfBindDifCallbackWrappers(v28, off_140C075A8[(unsigned int)(v28 - 0x10000000)], v17);
                 else
-                  v29 = VfBindDifDDIWrappers(v28, *(&off_140C076C8 + v28), v17);
+                  v29 = VfBindDifDDIWrappers(v28, *(&off_140C076B8 + v28), v17);
                 if ( !v29 )
                 {
                   DifiDbgPrint("Binding failure for 0x%x\n", *(_DWORD *)(v17 + 8));

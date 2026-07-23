@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetPmcSessions @ 0x14064CAA8
+ * XREFs of EtwpGetPmcSessions @ 0x14064B0B8
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpGetCurrentSiloMaxLoggers @ 0x14064C80C (EtwpGetCurrentSiloMaxLoggers.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpGetCurrentSiloMaxLoggers @ 0x14064AE1C (EtwpGetCurrentSiloMaxLoggers.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
  */
 
 __int64 __fastcall EtwpGetPmcSessions(__int64 a1, unsigned int *a2)

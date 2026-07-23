@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindLargestLoaderDescriptor @ 0x140A44420
+ * XREFs of MiFindLargestLoaderDescriptor @ 0x140A45420
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MxInitializeFreeNodeDescriptors @ 0x140A44500 (MxInitializeFreeNodeDescriptors.c)
- *     MxComputeFreeNodeDescriptorRequirements @ 0x140A44D90 (MxComputeFreeNodeDescriptorRequirements.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MxInitializeFreeNodeDescriptors @ 0x140A45500 (MxInitializeFreeNodeDescriptors.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140A45D90 (MxComputeFreeNodeDescriptorRequirements.c)
  */
 
 __int64 __fastcall MiFindLargestLoaderDescriptor(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MiFindLargestLoaderDescriptor(__int64 a1)
   int v8; // eax
   _BYTE v10[512]; // [rsp+20h] [rbp-218h] BYREF
 
-  qword_140C52880 = -1LL;
+  qword_140C528C0 = -1LL;
   MxComputeFreeNodeDescriptorRequirements(a1, v10);
   v2 = (__int64 **)(a1 + 32);
   for ( i = *v2; i != (__int64 *)v2; i = (__int64 *)*i )
@@ -35,9 +35,9 @@ __int64 __fastcall MiFindLargestLoaderDescriptor(__int64 a1)
     v7 = i[4];
     if ( v7 + v6 > BugCheckParameter3 )
       BugCheckParameter3 = v7 + v6 - 1;
-    qword_140C52890 += v7;
-    if ( v6 < qword_140C52880 )
-      qword_140C52880 = v6;
+    qword_140C528D0 += v7;
+    if ( v6 < qword_140C528C0 )
+      qword_140C528C0 = v6;
     v8 = *((_DWORD *)i + 4);
     if ( v8 == 2 || v8 == 24 )
       MxInitializeFreeNodeDescriptors(i, v10);

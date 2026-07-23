@@ -30,7 +30,7 @@ int __fastcall RtlpHpVsContextGrowInPlace(int a1, int a2, int a3, int a4, char a
   unsigned int v19; // edx
   int v20; // edx
   int v22; // [esp+Ch] [ebp-28h] BYREF
-  volatile signed __int32 *v23; // [esp+10h] [ebp-24h]
+  PRTL_SRWLOCK v23; // [esp+10h] [ebp-24h]
   int v24; // [esp+14h] [ebp-20h]
   int v25; // [esp+18h] [ebp-1Ch]
   unsigned int v26; // [esp+1Ch] [ebp-18h]
@@ -38,25 +38,25 @@ int __fastcall RtlpHpVsContextGrowInPlace(int a1, int a2, int a3, int a4, char a
   unsigned int v28; // [esp+24h] [ebp-10h]
   int v29; // [esp+28h] [ebp-Ch]
   int v30; // [esp+2Ch] [ebp-8h]
-  int v31; // [esp+30h] [ebp-4h]
+  PRTL_SRWLOCK SRWLock; // [esp+30h] [ebp-4h]
 
   v5 = a3;
   v30 = a2;
   v6 = a3 - 8;
-  v31 = a1;
+  SRWLock = (PRTL_SRWLOCK)a1;
   if ( (*(_BYTE *)(a1 + 152) & 1) != 0 )
     return 0;
   v7 = *(_WORD *)(a2 + 20);
   v29 = v7;
   if ( (((unsigned __int16)(v7 ^ *(_WORD *)(a2 + 22)) ^ 0x2BED) & 0x7FFF) != 0 )
   {
-    RtlpLogHeapFailure(18, v31 ^ *(_DWORD *)(a1 + 128), a2, 0, 0, 0);
+    RtlpLogHeapFailure(18, (unsigned int)SRWLock ^ *(_DWORD *)(a1 + 128), a2, 0, 0, 0);
     return 0;
   }
   v8 = *(_DWORD *)v6 ^ v6 ^ RtlpHpHeapGlobals;
   if ( v8 >= 0 )
   {
-    RtlpLogHeapFailure(8, v31 ^ *(_DWORD *)(a1 + 128), a3, a3 - 8, 0, 0);
+    RtlpLogHeapFailure(8, (unsigned int)SRWLock ^ *(_DWORD *)(a1 + 128), a3, a3 - 8, 0, 0);
     return 0;
   }
   v27 = *(_DWORD *)(a4 + 16);
@@ -76,8 +76,8 @@ int __fastcall RtlpHpVsContextGrowInPlace(int a1, int a2, int a3, int a4, char a
     {
       v22 = 0;
       v24 = 0;
-      v23 = (volatile signed __int32 *)v31;
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)v31);
+      v23 = SRWLock;
+      RtlAcquireSRWLockExclusive(SRWLock);
       v11 = v30;
       v6 = a3 - 8;
       v29 = *(unsigned __int16 *)(v30 + 20);
@@ -86,7 +86,7 @@ int __fastcall RtlpHpVsContextGrowInPlace(int a1, int a2, int a3, int a4, char a
     if ( v12 >= v11 + 8 * ((unsigned int)(unsigned __int16)v29 + 3)
       || (v13 = v12 ^ RtlpHpHeapGlobals ^ *(_DWORD *)v12, v13 < 0)
       || (unsigned __int16)v13 >> 1 < v28
-      || (v14 = RtlpHpVsChunkSplit(v31, v11, (unsigned int *)(v6 + 8 * v26), v28, a5, (int)&v22)) == 0 )
+      || (v14 = RtlpHpVsChunkSplit((int)SRWLock, v11, (unsigned int *)(v6 + 8 * v26), v28, a5, (int)&v22)) == 0 )
     {
       v5 = 0;
       if ( v27 )

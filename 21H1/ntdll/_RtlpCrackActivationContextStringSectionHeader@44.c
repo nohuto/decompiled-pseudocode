@@ -40,11 +40,9 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-byte "
-      "header length!\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      a2);
+      (int)"SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-"
+           "byte header length!\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   if ( *a1 != 1682469715 )
@@ -52,10 +50,8 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      1682469715,
-      *a1);
+      (int)"SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   v12 = a1[1];
@@ -64,10 +60,8 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() passed string section at %p claims %lu byte header size; that doesn't even include the HeaderSize member!\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      a1[1]);
+      (int)"SXS: %s() passed string section at %p claims %lu byte header size; that doesn't even include the HeaderSize member!\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   if ( a1 + 11 > (_DWORD *)((char *)a1 + v12) )
@@ -75,11 +69,8 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() passed string section at %p with too small of a header\n   HeaderSize: %lu\n   Required: %lu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      v12,
-      44);
+      (int)"SXS: %s() passed string section at %p with too small of a header\n   HeaderSize: %lu\n   Required: %lu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   v13 = a1[6];
@@ -88,14 +79,11 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found assembly information section with element list overlapping section header\n"
-      "   Section header: %p\n"
-      "   Header Size: %lu\n"
-      "   ElementListOffset: %lu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      v12,
-      a1[6]);
+      (int)"SXS: %s() found assembly information section with element list overlapping section header\n"
+           "   Section header: %p\n"
+           "   Header Size: %lu\n"
+           "   ElementListOffset: %lu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   v14 = a1[8];
@@ -104,14 +92,11 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found assembly information section with search structure overlapping section header\n"
-      "   Section header: %p\n"
-      "   Header Size: %lu\n"
-      "   SearchStructureOffset: %lu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      v12,
-      a1[8]);
+      (int)"SXS: %s() found assembly information section with search structure overlapping section header\n"
+           "   Section header: %p\n"
+           "   Header Size: %lu\n"
+           "   SearchStructureOffset: %lu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   v15 = a1[9];
@@ -120,14 +105,11 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found assembly information section with user data overlapping section header\n"
-      "   Section header: %p\n"
-      "   Header Size: %lu\n"
-      "   User Data Offset: %lu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      v12,
-      a1[9]);
+      (int)"SXS: %s() found assembly information section with user data overlapping section header\n"
+           "   Section header: %p\n"
+           "   Header Size: %lu\n"
+           "   User Data Offset: %lu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   v16 = a1[10];
@@ -136,13 +118,10 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found assembly information section with user data too small\n"
-      "   Section header: %p\n"
-      "   UserDataSize: %lu; needed: %lu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      v16,
-      56);
+      (int)"SXS: %s() found assembly information section with user data too small\n"
+           "   Section header: %p\n"
+           "   UserDataSize: %lu; needed: %lu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   if ( v16 + v15 > a2 )
@@ -150,16 +129,12 @@ int __fastcall RtlpCrackActivationContextStringSectionHeader(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found assembly information section with user data extending beyond section data\n"
-      "   Section header: %p\n"
-      "   UserDataSize: %lu\n"
-      "   UserDataOffset: %lu\n"
-      "   Section size: %Iu\n",
-      "RtlpCrackActivationContextStringSectionHeader",
-      a1,
-      v16,
-      v15,
-      a2);
+      (int)"SXS: %s() found assembly information section with user data extending beyond section data\n"
+           "   Section header: %p\n"
+           "   UserDataSize: %lu\n"
+           "   UserDataOffset: %lu\n"
+           "   Section size: %Iu\n",
+      (int)"RtlpCrackActivationContextStringSectionHeader");
     return -1072365565;
   }
   if ( a4 )

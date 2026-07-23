@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgGetFailedInstallProblemStatus @ 0x1407A9AD4
+ * XREFs of PiDevCfgGetFailedInstallProblemStatus @ 0x1407AC750
  * Callers:
- *     PiInitializeDevice @ 0x1407B36E8 (PiInitializeDevice.c)
- *     IopInitializeDeviceInstanceKey @ 0x140AA0078 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiInitializeDevice @ 0x1407B6748 (PiInitializeDevice.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140AA1A08 (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDevCfgGetFailedInstallProblemStatus(int a1, int a2)

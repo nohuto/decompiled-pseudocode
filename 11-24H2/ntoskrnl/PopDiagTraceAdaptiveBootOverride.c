@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceAdaptiveBootOverride @ 0x140C2F160
+ * XREFs of PopDiagTraceAdaptiveBootOverride @ 0x140C31280
  * Callers:
- *     PopAdaptiveInitializeBootContext @ 0x140C335CC (PopAdaptiveInitializeBootContext.c)
+ *     PopAdaptiveInitializeBootContext @ 0x140C3570C (PopAdaptiveInitializeBootContext.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceAdaptiveBootOverride(int a1, char a2)
@@ -45,7 +45,7 @@ void __fastcall PopDiagTraceAdaptiveBootOverride(int a1, char a2)
     v8 = &v4;
     EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_ADAPTIVE_OVERRIDE_BOOT_STATE, 0LL, 0, 0LL, 0LL, 2u, &UserData);
   }
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v14 = 0;
     v17 = 0;
@@ -59,6 +59,6 @@ void __fastcall PopDiagTraceAdaptiveBootOverride(int a1, char a2)
     v16 = 1;
     v6 = 0x1000000LL;
     v19 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_14004B749, 0LL, 0LL, 5u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004BCFB, 0LL, 0LL, 5u, &v11);
   }
 }

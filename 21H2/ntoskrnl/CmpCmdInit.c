@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCmdInit @ 0x14078F8B0
+ * XREFs of CmpCmdInit @ 0x140790E60
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079167C (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     CmpInitializeLazyWriters @ 0x14078F3E8 (CmpInitializeLazyWriters.c)
- *     PoRegisterCoalescingCallback @ 0x14078FDD0 (PoRegisterCoalescingCallback.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     CmpInitializeLazyWriters @ 0x140790998 (CmpInitializeLazyWriters.c)
+ *     PoRegisterCoalescingCallback @ 0x140791380 (PoRegisterCoalescingCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCmdInit(char a1)
@@ -60,7 +60,7 @@ __int64 __fastcall CmpCmdInit(char a1)
   CmpFreezeThawWorkItem.List.Flink = 0LL;
   CmpFreezeThawWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpFreezeThawWorker;
   LOBYTE(v11) = 1;
-  BYTE1(NlsMbCodePageTag) = CmpMiniNTBoot;
+  BYTE1(NlsMbCodePageTag) = BYTE6(NlsMbCodePageTag);
   CmpWorkerDataInitialized = 1;
   CmpWasSetupBoot = a1;
   CmpEnableLazyFlushTimerInitialized = 1;

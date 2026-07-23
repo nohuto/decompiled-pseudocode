@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDisablePagingOfDriver @ 0x14070357C
+ * XREFs of MiDisablePagingOfDriver @ 0x14070378C
  * Callers:
- *     MiHandleDriverNonPagedSections @ 0x140705B48 (MiHandleDriverNonPagedSections.c)
+ *     MiHandleDriverNonPagedSections @ 0x140705D58 (MiHandleDriverNonPagedSections.c)
  * Callees:
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSnapDriverRange @ 0x1407036F8 (MiSnapDriverRange.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSnapDriverRange @ 0x140703908 (MiSnapDriverRange.c)
  */
 
 __int64 __fastcall MiDisablePagingOfDriver(__int64 a1)

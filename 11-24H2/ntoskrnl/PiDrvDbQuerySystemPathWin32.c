@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x140737FA4
+ * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x140735ED4
  * Callers:
- *     PiDrvDbResolveFilePathKeyValues @ 0x1407389B0 (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1407368E0 (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x1404F7A60 (PiDrvDbFindNode.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x140736F54 (PiDrvDbGetNodeSystemRoot.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlDuplicateUnicodeString @ 0x140926680 (RtlDuplicateUnicodeString.c)
- *     IoQueryFileDosDeviceName @ 0x140967F00 (IoQueryFileDosDeviceName.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x1404F5340 (PiDrvDbFindNode.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x140734E84 (PiDrvDbGetNodeSystemRoot.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x1409287C0 (RtlDuplicateUnicodeString.c)
+ *     IoQueryFileDosDeviceName @ 0x140950990 (IoQueryFileDosDeviceName.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbQuerySystemPathWin32(UNICODE_STRING *String2, PUNICODE_STRING StringOut)
@@ -145,7 +145,7 @@ LABEL_21:
   {
     RtlInitUnicodeString(&Source, L"C:\\Windows");
     DestinationString.MaximumLength = v8 + Source.Length + 2;
-    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, DestinationString.MaximumLength, 0x67727453u);
     if ( !DestinationString.Buffer )
       goto LABEL_24;
     Node = RtlAppendUnicodeStringToString(&DestinationString, &Source);
@@ -182,7 +182,7 @@ LABEL_21:
       goto LABEL_39;
     v16 = v23;
     DestinationString.MaximumLength = v23->Length + v8 + 2;
-    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, DestinationString.MaximumLength, 0x67727453u);
     if ( !DestinationString.Buffer )
     {
 LABEL_24:

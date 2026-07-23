@@ -1,10 +1,10 @@
 /*
- * XREFs of KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057F3B4
+ * XREFs of KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057F8A4
  * Callers:
- *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057F1BC (KiOpCheckUnhandledSecurePciAccessViolation.c)
- *     KiOpPciConfigSpaceAccessCommon @ 0x14057F5AC (KiOpPciConfigSpaceAccessCommon.c)
+ *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057F6AC (KiOpCheckUnhandledSecurePciAccessViolation.c)
+ *     KiOpPciConfigSpaceAccessCommon @ 0x14057FA9C (KiOpPciConfigSpaceAccessCommon.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress(

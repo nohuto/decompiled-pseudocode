@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInterlockedInsertHeadList @ 0x14042EB80
+ * XREFs of ExInterlockedInsertHeadList @ 0x1404208B0
  * Callers:
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x14057B140 (CcDeferWrite.c)
- *     ViAllocateMapRegisterFile @ 0x140B87EAC (ViAllocateMapRegisterFile.c)
- *     ViHookDmaAdapter @ 0x140B893E8 (ViHookDmaAdapter.c)
- *     ViScatterGatherCallback @ 0x140B89B30 (ViScatterGatherCallback.c)
- *     ViSpecialAllocateCommonBuffer @ 0x140B89BC0 (ViSpecialAllocateCommonBuffer.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
+ *     CcDeferWrite @ 0x1405785D0 (CcDeferWrite.c)
+ *     ViAllocateMapRegisterFile @ 0x140B89EAC (ViAllocateMapRegisterFile.c)
+ *     ViHookDmaAdapter @ 0x140B8B3E8 (ViHookDmaAdapter.c)
+ *     ViScatterGatherCallback @ 0x140B8BB30 (ViScatterGatherCallback.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x140B8BBC0 (ViSpecialAllocateCommonBuffer.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x14042ED58 (ExpAcquireSpinLockDisabled.c)
- *     ExpReleaseSpinLockDisabled @ 0x14042EE08 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x140420A88 (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x140420B38 (ExpReleaseSpinLockDisabled.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)

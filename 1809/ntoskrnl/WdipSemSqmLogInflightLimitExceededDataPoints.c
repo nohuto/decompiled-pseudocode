@@ -1,16 +1,16 @@
 /*
- * XREFs of WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406BF584
+ * XREFs of WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406C0824
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x1406BF450 (WdipTimeoutCheckRoutine.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406C06F0 (WdipTimeoutCheckRoutine.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     WdipSemFastFree @ 0x140716B30 (WdipSemFastFree.c)
- *     WdipSemGetGuidKey @ 0x1408B190C (WdipSemGetGuidKey.c)
- *     WdipSemSqmAddToStream @ 0x1408B1ABC (WdipSemSqmAddToStream.c)
- *     WdipSemSqmIncrementDword @ 0x1408B1C70 (WdipSemSqmIncrementDword.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     WdipSemFastFree @ 0x140717DD0 (WdipSemFastFree.c)
+ *     WdipSemGetGuidKey @ 0x1408B2B6C (WdipSemGetGuidKey.c)
+ *     WdipSemSqmAddToStream @ 0x1408B2D1C (WdipSemSqmAddToStream.c)
+ *     WdipSemSqmIncrementDword @ 0x1408B2ED0 (WdipSemSqmIncrementDword.c)
  */
 
 __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
@@ -30,11 +30,11 @@ __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
   v9 = 0;
   v1 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14040CF08, 0LL);
-  v3 = (unsigned int)dword_14040CF00;
-  if ( dword_14040CF00 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14040BD68, 0LL);
+  v3 = (unsigned int)dword_14040BD60;
+  if ( dword_14040BD60 )
   {
-    v1 = WdipSemSqmIncrementDword(v2, (unsigned int)dword_14040CF00);
+    v1 = WdipSemSqmIncrementDword(v2, (unsigned int)dword_14040BD60);
     if ( v1 < 0 )
       v1 = 0;
     if ( (_DWORD)v3 )
@@ -62,13 +62,13 @@ __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
       while ( v3 );
     }
   }
-  for ( i = 0; i < dword_14040CF00; WdipSemFrequentScenarioTable[v8] = 0LL )
+  for ( i = 0; i < dword_14040BD60; WdipSemFrequentScenarioTable[v8] = 0LL )
   {
     v8 = i;
     WdipSemFastFree(5LL, WdipSemFrequentScenarioTable[i++]);
   }
-  dword_14040CF00 = 0;
-  ExReleasePushLockEx((ULONG_PTR)&qword_14040CF08, 0LL);
+  dword_14040BD60 = 0;
+  ExReleasePushLockEx((ULONG_PTR)&qword_14040BD68, 0LL);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   return (unsigned int)v1;
 }

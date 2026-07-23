@@ -6,7 +6,7 @@
  *     _invalid_parameter @ 0x18008C868 (_invalid_parameter.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     _guard_check_icall @ 0x180092E8C (_guard_check_icall.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 void __cdecl qsort_s(

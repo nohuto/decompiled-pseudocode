@@ -1,14 +1,14 @@
 /*
- * XREFs of SpcDetectKvaLeakage @ 0x140B638D8
+ * XREFs of SpcDetectKvaLeakage @ 0x140B659A8
  * Callers:
- *     KiDetectKvaLeakage @ 0x1405C3730 (KiDetectKvaLeakage.c)
+ *     KiDetectKvaLeakage @ 0x1405C0D00 (KiDetectKvaLeakage.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     SpcIsFbClearSupported @ 0x1406A0A3C (SpcIsFbClearSupported.c)
- *     SpcIsHyperVCr3RspErrataPresent @ 0x1406A0A64 (SpcIsHyperVCr3RspErrataPresent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlGetCpuMaxPhysicalBits @ 0x140B608E0 (RtlGetCpuMaxPhysicalBits.c)
- *     RtlGetProcessorSignature @ 0x140B60A90 (RtlGetProcessorSignature.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     SpcIsFbClearSupported @ 0x1406A1B44 (SpcIsFbClearSupported.c)
+ *     SpcIsHyperVCr3RspErrataPresent @ 0x1406A1B6C (SpcIsHyperVCr3RspErrataPresent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlGetCpuMaxPhysicalBits @ 0x140B629AC (RtlGetCpuMaxPhysicalBits.c)
+ *     RtlGetProcessorSignature @ 0x140B62B5C (RtlGetProcessorSignature.c)
  */
 
 unsigned __int64 __fastcall SpcDetectKvaLeakage(ULONG_PTR BugCheckParameter2, int a2)

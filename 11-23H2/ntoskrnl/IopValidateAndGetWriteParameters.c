@@ -1,19 +1,19 @@
 /*
  * XREFs of IopValidateAndGetWriteParameters @ 0x140223D30
  * Callers:
- *     IopPopulateCopyWriteWorkerData @ 0x1402F4E44 (IopPopulateCopyWriteWorkerData.c)
- *     IopWriteFile @ 0x1406B6DD0 (IopWriteFile.c)
+ *     IopPopulateCopyWriteWorkerData @ 0x1402F50D4 (IopPopulateCopyWriteWorkerData.c)
+ *     IopWriteFile @ 0x1406B6F80 (IopWriteFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     IopReleaseFileObjectLock @ 0x1402314E0 (IopReleaseFileObjectLock.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     IopVerifyDeviceObjectOnStack @ 0x140302B80 (IopVerifyDeviceObjectOnStack.c)
- *     IopExceptionFilter @ 0x1405554E8 (IopExceptionFilter.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140765200 (IopWaitAndAcquireFileObjectLock.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     IopReleaseFileObjectLock @ 0x1402315D0 (IopReleaseFileObjectLock.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     IopVerifyDeviceObjectOnStack @ 0x140302E10 (IopVerifyDeviceObjectOnStack.c)
+ *     IopExceptionFilter @ 0x140555BA8 (IopExceptionFilter.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1407653F0 (IopWaitAndAcquireFileObjectLock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopValidateAndGetWriteParameters(

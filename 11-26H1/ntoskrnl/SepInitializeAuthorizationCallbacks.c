@@ -1,9 +1,9 @@
 /*
- * XREFs of SepInitializeAuthorizationCallbacks @ 0x140CDD238
+ * XREFs of SepInitializeAuthorizationCallbacks @ 0x140CE35D0
  * Callers:
- *     SepInitializationPhase1 @ 0x140810284 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140815D14 (SepInitializationPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x140840A68 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x140846CA8 (ExRegisterHost.c)
  */
 
 __int64 __fastcall SepInitializeAuthorizationCallbacks(__int64 a1, __int64 a2)
@@ -27,8 +27,8 @@ __int64 __fastcall SepInitializeAuthorizationCallbacks(__int64 a1, __int64 a2)
   v12 = 0LL;
   v10 = 1LL;
   v4 = 1;
-  if ( (int)ExRegisterHost(&SepRmCapTableLock.PriorityFloorCounts[8], a2, (unsigned __int16 *)&v8) < 0 )
-    *(_QWORD *)&SepRmCapTableLock.PriorityFloorCounts[8] = 0LL;
+  if ( (int)ExRegisterHost(&SepRmCapTableLock.AbCompletedIoQoSBoostCount, a2, (unsigned __int16 *)&v8) < 0 )
+    *(_QWORD *)&SepRmCapTableLock.AbCompletedIoQoSBoostCount = 0LL;
   v6 = 1;
   v9 = &v6;
   v7 = 0LL;
@@ -36,8 +36,8 @@ __int64 __fastcall SepInitializeAuthorizationCallbacks(__int64 a1, __int64 a2)
   LODWORD(v10) = 512;
   v11 = 0LL;
   v12 = 0LL;
-  result = ExRegisterHost(&SepRmCapTableLock.PriorityFloorCounts[16], v2, (unsigned __int16 *)&v8);
+  result = ExRegisterHost(&SepRmCapTableLock.ForegroundLossTime, v2, (unsigned __int16 *)&v8);
   if ( (int)result < 0 )
-    *(_QWORD *)&SepRmCapTableLock.PriorityFloorCounts[16] = 0LL;
+    *(_QWORD *)&SepRmCapTableLock.ForegroundLossTime = 0LL;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeUltraSpace @ 0x1409D9CD4
+ * XREFs of MiInitializeUltraSpace @ 0x1409DACD4
  * Callers:
- *     MiCreateTopLevelUltraMappings @ 0x1409D9BC0 (MiCreateTopLevelUltraMappings.c)
+ *     MiCreateTopLevelUltraMappings @ 0x1409DABC0 (MiCreateTopLevelUltraMappings.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     RtlSetAllBitsEx @ 0x140190AF0 (RtlSetAllBitsEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlSetAllBitsEx @ 0x140190C30 (RtlSetAllBitsEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiInitializeUltraSpace(__int64 a1, __int64 a2)

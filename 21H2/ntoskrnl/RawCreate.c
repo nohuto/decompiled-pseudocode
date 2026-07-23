@@ -1,14 +1,14 @@
 /*
- * XREFs of RawCreate @ 0x14071AE04
+ * XREFs of RawCreate @ 0x1406C8AF4
  * Callers:
- *     RawDispatch @ 0x14071AB40 (RawDispatch.c)
+ *     RawDispatch @ 0x1406C8830 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
- *     IoCheckLinkShareAccess @ 0x14064F220 (IoCheckLinkShareAccess.c)
- *     IoSetLinkShareAccess @ 0x14071B170 (IoSetLinkShareAccess.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RawInitiateDeleteVolume @ 0x1402A592C (RawInitiateDeleteVolume.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     IoCheckLinkShareAccess @ 0x140644040 (IoCheckLinkShareAccess.c)
+ *     IoSetLinkShareAccess @ 0x1406C8E60 (IoSetLinkShareAccess.c)
  */
 
 __int64 __fastcall RawCreate(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, __int64 a3)

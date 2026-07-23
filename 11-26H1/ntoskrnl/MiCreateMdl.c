@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateMdl @ 0x140A560A8
+ * XREFs of MiCreateMdl @ 0x140A63630
  * Callers:
- *     MiCreateImageMapSectionHeaders @ 0x140A55B2C (MiCreateImageMapSectionHeaders.c)
- *     MiCreateImageMapReadNtHeader @ 0x140A55D18 (MiCreateImageMapReadNtHeader.c)
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
+ *     MiCreateImageMapSectionHeaders @ 0x140A630B4 (MiCreateImageMapSectionHeaders.c)
+ *     MiCreateImageMapReadNtHeader @ 0x140A632A0 (MiCreateImageMapReadNtHeader.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14024C4E0 (MmBuildMdlForNonPagedPool.c)
- *     MiGetPageForHeader @ 0x14033897C (MiGetPageForHeader.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiDeleteImageCreationMdls @ 0x140A5620C (MiDeleteImageCreationMdls.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmBuildMdlForNonPagedPool @ 0x14024DE40 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetPageForHeader @ 0x14033A9FC (MiGetPageForHeader.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiDeleteImageCreationMdls @ 0x140A63794 (MiDeleteImageCreationMdls.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 struct _MDL *__fastcall MiCreateMdl(ULONG *a1, unsigned int a2, ULONG_PTR a3, int a4)

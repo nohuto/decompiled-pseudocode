@@ -17,69 +17,56 @@
 __int64 RtlLockHeapManagerForCloning()
 {
   struct _PEB *v0; // r14
-  unsigned __int64 v1; // r9
-  unsigned int v2; // edi
+  unsigned int v1; // edi
   unsigned int i; // esi
   void **ProcessHeaps; // rax
-  char *v5; // rbx
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r9
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // r9
-  int v15; // ebp
-  unsigned __int64 v16; // rdx
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // r9
-  unsigned __int64 v20; // rcx
-  char v21[40]; // [rsp+20h] [rbp-28h] BYREF
-  char v22; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v23; // [rsp+58h] [rbp+10h]
+  char *v4; // rbx
+  int v5; // ebp
+  _RTL_SRWLOCK *v7; // rcx
+  char v8[40]; // [rsp+20h] [rbp-28h] BYREF
+  char v9; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+58h] [rbp+10h] BYREF
 
   v0 = NtCurrentPeb();
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-  RtlpCSparseBitmapLock((__int64)&unk_18017B720, 1uLL, (unsigned __int64)v21, v1);
-  v2 = 0;
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+  RtlpCSparseBitmapLock((_RTL_SRWLOCK *)BaseAddress, 1, (__int64)v8);
+  v1 = 0;
   for ( i = 0; i < v0->NumberOfHeaps; ++i )
   {
     ProcessHeaps = v0->ProcessHeaps;
-    v5 = (char *)ProcessHeaps[i];
-    if ( *((_DWORD *)v5 + 4) == -571548178 )
+    v4 = (char *)ProcessHeaps[i];
+    if ( *((_DWORD *)v4 + 4) == -571548178 )
     {
-      if ( (v5[20] & 1) == 0 )
+      if ( (v4[20] & 1) == 0 )
       {
-        RtlpHpHeapLock((__int64)ProcessHeaps[i], &v22);
-        RtlAcquireSRWLockExclusive((unsigned __int64)(v5 + 432), v6, v7, v8);
-        RtlAcquireSRWLockExclusive((unsigned __int64)(v5 + 624), v9, v10, v11);
-        RtlAcquireSRWLockExclusive((unsigned __int64)(v5 + 224), v12, v13, v14);
-        RtlpHpLfhContextLockUnlock(v5 + 896, 0LL);
+        RtlpHpHeapLock((__int64)ProcessHeaps[i], &v9);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v4 + 54);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v4 + 78);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v4 + 28);
+        RtlpHpLfhContextLockUnlock(v4 + 896, 0LL);
       }
     }
-    else if ( (v5[112] & 1) == 0 )
+    else if ( (v4[112] & 1) == 0 )
     {
-      v15 = 0;
-      v23 = -250000LL;
-      while ( !(unsigned int)RtlTryEnterCriticalSection(*((_QWORD *)v5 + 44)) )
+      v5 = 0;
+      DelayInterval.QuadPart = -250000LL;
+      while ( !RtlTryEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)v4 + 44)) )
       {
-        ZwDelayExecution();
-        if ( (unsigned int)++v15 >= 0x64 )
+        ZwDelayExecution(0, &DelayInterval);
+        if ( (unsigned int)++v5 >= 0x64 )
         {
-          v2 = -1073741420;
+          v1 = -1073741420;
           RtlpUnlockHeapManagerForCloning(0LL, i);
-          return v2;
+          return v1;
         }
       }
-      if ( v5[418] == 2 )
+      if ( v4[418] == 2 )
       {
-        v20 = *((_QWORD *)v5 + 51);
-        if ( v20 )
-          RtlAcquireSRWLockExclusive(v20, v16, v17, v18);
+        v7 = (_RTL_SRWLOCK *)*((_QWORD *)v4 + 51);
+        if ( v7 )
+          RtlAcquireSRWLockExclusive(v7);
       }
     }
   }
-  return v2;
+  return v1;
 }

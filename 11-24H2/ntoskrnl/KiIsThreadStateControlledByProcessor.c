@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsThreadStateControlledByProcessor @ 0x1403C9620
+ * XREFs of KiIsThreadStateControlledByProcessor @ 0x1403A41C0
  * Callers:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x1403C9208 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x1403A3DA8 (KiUpdateGlobalCpuSetConfiguration.c)
  * Callees:
  *     <none>
  */

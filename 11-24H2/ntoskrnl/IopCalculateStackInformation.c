@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCalculateStackInformation @ 0x1405A0964
+ * XREFs of IopCalculateStackInformation @ 0x14059D894
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405A0708 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14059D638 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     IopIsAddressRangeValid @ 0x1404ACD58 (IopIsAddressRangeValid.c)
- *     IopGetMaxValidMemorySize @ 0x14059464C (IopGetMaxValidMemorySize.c)
+ *     IopIsAddressRangeValid @ 0x1404A6F64 (IopIsAddressRangeValid.c)
+ *     IopGetMaxValidMemorySize @ 0x14059166C (IopGetMaxValidMemorySize.c)
  */
 
 char __fastcall IopCalculateStackInformation(__int64 a1, __int64 a2, __int64 *a3, unsigned int *a4)

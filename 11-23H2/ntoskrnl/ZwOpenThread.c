@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwOpenThread @ 0x14041D440
+ * XREFs of ZwOpenThread @ 0x14041D7D0
  * Callers:
- *     DifZwOpenThreadWrapper @ 0x1405F2A50 (DifZwOpenThreadWrapper.c)
+ *     DifZwOpenThreadWrapper @ 0x1405F2FC0 (DifZwOpenThreadWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBufferXpressLzProgress @ 0x1405F1910
+ * XREFs of RtlDecompressBufferXpressLzProgress @ 0x1405EEF50
  * Callers:
- *     RtlDecompressBufferProgress @ 0x1405F1200 (RtlDecompressBufferProgress.c)
+ *     RtlDecompressBufferProgress @ 0x1405EE840 (RtlDecompressBufferProgress.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x140419D30 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x140409D30 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlDecompressBufferXpressLzProgress(
@@ -107,7 +107,7 @@ LABEL_123:
         v47 = (unsigned __int64)v59;
         goto LABEL_124;
       }
-      XpressCallback = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10, (__int64)v16);
+      XpressCallback = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10);
       v16 = v58;
       v15 = XpressCallback;
       v8 = a1;
@@ -212,7 +212,7 @@ LABEL_44:
             {
               if ( (unsigned __int64)v10 >= v14 )
                 goto LABEL_113;
-              v15 = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10, (__int64)v16);
+              v15 = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10);
             }
             *(_DWORD *)v10 = *v34;
             *((_DWORD *)v10 + 1) = v34[1];
@@ -269,7 +269,7 @@ LABEL_20:
     {
       if ( (unsigned __int64)v10 >= v14 )
         goto LABEL_123;
-      v35 = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10, (__int64)v16);
+      v35 = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10);
       v16 = v58;
       v15 = v35;
       v8 = a1;
@@ -512,7 +512,7 @@ LABEL_113:
               }
               return 3221226050LL;
             }
-            v15 = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10, (__int64)v16);
+            v15 = RtlpMakeXpressCallback((__int64)v60, v14, (__int64)v10);
           }
           *(_DWORD *)v10 = *v34;
           *((_DWORD *)v10 + 1) = v34[1];

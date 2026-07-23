@@ -1,11 +1,11 @@
 /*
- * XREFs of CmGetKCBCacheSecurity @ 0x1406D57C0
+ * XREFs of CmGetKCBCacheSecurity @ 0x1406D57F0
  * Callers:
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5680 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpSetSecurityDescriptorInfo @ 0x14070CF18 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D56B0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14070D128 (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x1407C5000 (CmListGetPrevElement.c)
+ *     CmEqualTrans @ 0x1407693B0 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x1407C52D0 (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmGetKCBCacheSecurity(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

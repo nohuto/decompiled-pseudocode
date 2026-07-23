@@ -1,5 +1,5 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x14069D8C0
+ * XREFs of MmCommitSessionMappedView @ 0x14069EB80
  * Callers:
  *     <none>
  * Callees:
@@ -7,11 +7,11 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiLocatePagefileSubsection @ 0x140119DB8 (MiLocatePagefileSubsection.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiChargeSegmentCommit @ 0x14061F0D0 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1)

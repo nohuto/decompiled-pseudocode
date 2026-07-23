@@ -1,10 +1,10 @@
 /*
- * XREFs of _local_unwind @ 0x180121FB0
+ * XREFs of _local_unwind @ 0x1801201E0
  * Callers:
- *     EvtIntReportEventWorker @ 0x1800F4050 (EvtIntReportEventWorker.c)
- *     LdrAddDllDirectory @ 0x18010C9F0 (LdrAddDllDirectory.c)
+ *     EvtIntReportEventWorker @ 0x1800EE760 (EvtIntReportEventWorker.c)
+ *     LdrAddDllDirectory @ 0x180107730 (LdrAddDllDirectory.c)
  * Callees:
- *     RtlUnwind @ 0x1800D75E0 (RtlUnwind.c)
+ *     RtlUnwind @ 0x1800D2950 (RtlUnwind.c)
  */
 
 void __fastcall local_unwind(void *a1, void *a2)

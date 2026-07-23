@@ -1,18 +1,18 @@
 /*
- * XREFs of WheapCreatePerProcessorInfo @ 0x140C44758
+ * XREFs of WheapCreatePerProcessorInfo @ 0x140C468A8
  * Callers:
- *     WheaInitialize @ 0x140C440FC (WheaInitialize.c)
+ *     WheaInitialize @ 0x140C4624C (WheaInitialize.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 WheapCreatePerProcessorInfo()
 {
   unsigned int v0; // esi
   unsigned int v1; // ebx
-  ULONG_PTR Pool2; // rdi
+  __int64 Pool2; // rdi
   __int64 Prcb; // rax
 
   v0 = KeNumberProcessors_0;

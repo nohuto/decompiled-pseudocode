@@ -1,10 +1,10 @@
 /*
- * XREFs of SepIsAclEqual @ 0x140924CD4
+ * XREFs of SepIsAclEqual @ 0x140924E34
  * Callers:
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x140697800 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1406BC308 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x14061B478 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x1406941A8 (SeSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
  */
 
 char __fastcall SepIsAclEqual(_WORD *a1, _WORD *a2)

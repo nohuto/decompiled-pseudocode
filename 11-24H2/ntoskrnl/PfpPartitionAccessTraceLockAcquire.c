@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpPartitionAccessTraceLockAcquire @ 0x140B5B784
+ * XREFs of PfpPartitionAccessTraceLockAcquire @ 0x140B5D7F4
  * Callers:
- *     PfTSetTraceWorkerPriority @ 0x1405CC6E0 (PfTSetTraceWorkerPriority.c)
- *     PfGenerateTrace @ 0x14074637C (PfGenerateTrace.c)
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
+ *     PfTSetTraceWorkerPriority @ 0x1405C9E50 (PfTSetTraceWorkerPriority.c)
+ *     PfGenerateTrace @ 0x14074466C (PfGenerateTrace.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
  */
 
-__int64 __fastcall PfpPartitionAccessTraceLockAcquire(__int64 a1)
+char *__fastcall PfpPartitionAccessTraceLockAcquire(__int64 a1)
 {
   return FsRtlAcquirePushLockExclusive((unsigned __int64 *)(a1 + 64));
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCoalescingCallBack @ 0x1401B1598
+ * XREFs of CcCoalescingCallBack @ 0x1401B147C
  * Callers:
  *     <none>
  * Callees:
- *     CcRescheduleLazyWriteScan @ 0x14006E8D8 (CcRescheduleLazyWriteScan.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     CcRescheduleLazyWriteScan @ 0x14006E458 (CcRescheduleLazyWriteScan.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 void __fastcall CcCoalescingCallBack(int a1)
@@ -43,7 +43,7 @@ void __fastcall CcCoalescingCallBack(int a1)
     ++CcDbgCoalescingCmdOnReceived;
     v4 = v6;
     CcCoalescingState = 1;
-    byte_1403231C0 = 0;
+    byte_1403231E0 = 0;
     if ( (unsigned __int64)CcGlobalDirtyPageStatistics >= 0x2000 )
 LABEL_7:
       CcScheduleLazyWriteScan(1, 0);

@@ -15,15 +15,15 @@
  *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PTR a3, void *a4)
+__int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PTR a3, _RTL_BALANCED_NODE *a4)
 {
-  void *v4; // r14
+  _RTL_BALANCED_NODE *v4; // r14
   unsigned __int64 v6; // rbp
   __int64 v7; // r15
   unsigned __int64 v8; // rdi
-  _QWORD *v9; // rsi
+  _RTL_BALANCED_NODE *v9; // rsi
   unsigned __int64 v10; // r13
-  __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   unsigned __int64 v12; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -32,7 +32,7 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
   bool v17; // zf
   __int64 v18; // r14
   KSPIN_LOCK *v19; // rsi
-  __int64 v20; // rax
+  _RTL_BALANCED_NODE *v20; // rax
   unsigned __int64 v21; // rax
   unsigned __int8 v22; // al
   struct _KPRCB *v23; // r10
@@ -54,7 +54,7 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
   __int64 v39; // r8
   unsigned __int64 v40; // [rsp+60h] [rbp+8h] BYREF
   unsigned int v41; // [rsp+68h] [rbp+10h]
-  void *v42; // [rsp+78h] [rbp+20h]
+  _RTL_BALANCED_NODE *v42; // [rsp+78h] [rbp+20h]
 
   v42 = a4;
   v41 = a2;
@@ -73,10 +73,10 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
     v8 ^= v7 + 80;
   while ( v8 )
   {
-    v11 = *(_QWORD *)(v8 + 24);
-    if ( *(void **)(v11 + 24) == v4 )
+    v11 = *(_RTL_BALANCED_NODE **)(v8 + 24);
+    if ( v11[1].Children[0] == v4 )
       break;
-    if ( *(_QWORD *)(v11 + 24) <= (unsigned __int64)v4 )
+    if ( v11[1].Children[0] <= v4 )
       v12 = *(_QWORD *)(v8 + 8);
     else
       v12 = *(_QWORD *)v8;
@@ -87,7 +87,7 @@ __int64 __fastcall HalFreeCommonBufferThin(__int64 a1, unsigned int a2, ULONG_PT
   }
   if ( v8 )
   {
-    v9 = (_QWORD *)v8;
+    v9 = (_RTL_BALANCED_NODE *)v8;
   }
   else
   {
@@ -130,10 +130,10 @@ LABEL_26:
         {
           do
           {
-            v20 = *(_QWORD *)(v8 + 24);
-            if ( *(void **)(v20 + 24) == v42 )
+            v20 = *(_RTL_BALANCED_NODE **)(v8 + 24);
+            if ( v20[1].Children[0] == v42 )
               break;
-            v21 = *(_QWORD *)(v20 + 24) <= (unsigned __int64)v42 ? *(_QWORD *)(v8 + 8) : *(_QWORD *)v8;
+            v21 = v20[1].Children[0] <= v42 ? *(_QWORD *)(v8 + 8) : *(_QWORD *)v8;
             if ( (*(_BYTE *)(v18 + 88) & 1) != 0 && v21 )
               v8 ^= v21;
             else
@@ -167,7 +167,7 @@ LABEL_26:
         if ( (__int64 *)v18 == &HalpDmaDomainList )
           goto LABEL_52;
       }
-      v9 = (_QWORD *)v8;
+      v9 = (_RTL_BALANCED_NODE *)v8;
     }
     if ( !v7 )
     {
@@ -200,7 +200,7 @@ LABEL_52:
   v40 = v41;
   HalpIommuDomainUnmapLogicalRange(v29, a3, &v40, 0);
   HalpDomainLaDelete(v7, a3);
-  RtlRbRemoveNode((unsigned __int64 *)(v7 + 80), v8);
+  RtlRbRemoveNode((PRTL_RB_TREE)(v7 + 80), (PRTL_BALANCED_NODE)v8);
   KxReleaseSpinLock((PKSPIN_LOCK)(v7 + 96));
   if ( KiIrqlFlags )
   {
@@ -240,7 +240,7 @@ LABEL_52:
   }
   __writecr8(v10);
   HalpDmaDereferenceDomainObject((__int64 *)v7);
-  v38 = (struct _MDL *)v9[3];
+  v38 = (struct _MDL *)v9[1].Children[0];
   ExFreePoolWithTag(v9, 0);
   MmUnmapLockedPages(v4, v38);
   return (__int64)MiFreePagesFromMdl((ULONG_PTR)v38, 0, v39);

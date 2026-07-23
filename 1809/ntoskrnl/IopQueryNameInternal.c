@@ -1,17 +1,17 @@
 /*
- * XREFs of IopQueryNameInternal @ 0x1406605A4
+ * XREFs of IopQueryNameInternal @ 0x140661764
  * Callers:
- *     IoQueryFileDosDeviceName @ 0x14065F5B0 (IoQueryFileDosDeviceName.c)
- *     IopQueryName @ 0x140660570 (IopQueryName.c)
+ *     IoQueryFileDosDeviceName @ 0x140660770 (IoQueryFileDosDeviceName.c)
+ *     IopQueryName @ 0x140661730 (IopQueryName.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
- *     IopGetFileInformation @ 0x140661910 (IopGetFileInformation.c)
- *     IoVolumeDeviceToDosName @ 0x140661A40 (IoVolumeDeviceToDosName.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObQueryNameStringMode @ 0x140662110 (ObQueryNameStringMode.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
+ *     IopGetFileInformation @ 0x140662AD0 (IopGetFileInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x140662C00 (IoVolumeDeviceToDosName.c)
  */
 
 __int64 __fastcall IopQueryNameInternal(

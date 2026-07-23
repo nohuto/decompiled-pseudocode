@@ -15,8 +15,8 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
   __int16 v4; // ax
   size_t v6; // rsi
   unsigned int v7; // ebx
-  const char *PoolWithTag; // rax
-  const char *P; // rbx
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *Node; // rbx
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r8
@@ -38,20 +38,20 @@ LABEL_9:
     v7 = -1073741823;
     goto LABEL_10;
   }
-  PoolWithTag = (const char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)a3 + 28, 0x54777445u);
-  P = PoolWithTag;
+  PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)a3 + 28, 0x54777445u);
+  Node = PoolWithTag;
   if ( PoolWithTag )
   {
-    memmove((void *)(PoolWithTag + 28), Src, v6);
+    memmove((char *)&PoolWithTag[1].Left + 4, Src, v6);
     v7 = EtwpSetProviderTraitsCommon(
            0LL,
            0,
            (__int64)&v14,
            a1,
-           P,
+           Node,
            v6,
            &EtwpProviderTraitsKmMutex,
-           (__int64)&EtwpProviderTraitsKmTree);
+           &EtwpProviderTraitsKmTree);
     goto LABEL_9;
   }
   v7 = -1073741670;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x1405B3BE8
+ * XREFs of ExpRemoveTagForBigPages @ 0x1405B3E18
  * Callers:
- *     ExpSizeHeapPool @ 0x1405BA330 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x1405BA560 (ExpSizeHeapPool.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(
@@ -41,9 +41,9 @@ __int64 __fastcall ExpRemoveTagForBigPages(
   v12 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
   if ( (v11 & 0x20) != 0 )
   {
-    v13 = *(_QWORD *)(qword_140C4DDE0 + 992);
-    v14 = (volatile signed __int32 *)(qword_140C4DDE0 + 864);
-    v15 = *(_QWORD *)(qword_140C4DDE0 + 1000);
+    v13 = *(_QWORD *)(qword_140C4DE20 + 992);
+    v14 = (volatile signed __int32 *)(qword_140C4DE20 + 864);
+    v15 = *(_QWORD *)(qword_140C4DE20 + 1000);
   }
   else
   {
@@ -65,9 +65,9 @@ LABEL_10:
         if ( (v11 & 0x21) != 0
           || v13 != PoolBigPageTable
           || (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) == -1
-          || (v13 = *(_QWORD *)(qword_140C4DDE0 + 992),
-              v14 = (volatile signed __int32 *)(qword_140C4DDE0 + 864),
-              v15 = *(_QWORD *)(qword_140C4DDE0 + 1000),
+          || (v13 = *(_QWORD *)(qword_140C4DE20 + 992),
+              v14 = (volatile signed __int32 *)(qword_140C4DE20 + 864),
+              v15 = *(_QWORD *)(qword_140C4DE20 + 1000),
               !v13)
           || !v15 )
         {

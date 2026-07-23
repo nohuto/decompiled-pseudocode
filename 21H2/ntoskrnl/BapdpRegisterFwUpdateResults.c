@@ -1,15 +1,15 @@
 /*
- * XREFs of BapdpRegisterFwUpdateResults @ 0x140A94278
+ * XREFs of BapdpRegisterFwUpdateResults @ 0x140A95278
  * Callers:
- *     BapdpProcessFwUpdateResults @ 0x140A40EBC (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessFwUpdateResults @ 0x140A41EBC (BapdpProcessFwUpdateResults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x14067A7C0 (RtlStringFromGUID.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x14066DF00 (RtlStringFromGUID.c)
  */
 
 void __fastcall BapdpRegisterFwUpdateResults(_QWORD *a1, unsigned int a2)

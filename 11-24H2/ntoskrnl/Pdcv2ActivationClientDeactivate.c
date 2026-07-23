@@ -1,19 +1,19 @@
 /*
- * XREFs of Pdcv2ActivationClientDeactivate @ 0x1409EF760
+ * XREFs of Pdcv2ActivationClientDeactivate @ 0x1409ED030
  * Callers:
- *     PopAdaptiveStandbyHandlePowerMessage @ 0x140761570 (PopAdaptiveStandbyHandlePowerMessage.c)
- *     PopWin32kActivatorWorker @ 0x1409EE3D0 (PopWin32kActivatorWorker.c)
- *     PiPdcDeactivate @ 0x1409EF744 (PiPdcDeactivate.c)
+ *     PopAdaptiveStandbyHandlePowerMessage @ 0x1407608DC (PopAdaptiveStandbyHandlePowerMessage.c)
+ *     PopWin32kActivatorWorker @ 0x1409EBE10 (PopWin32kActivatorWorker.c)
+ *     PiPdcDeactivate @ 0x1409ED014 (PiPdcDeactivate.c)
  * Callees:
- *     Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE @ 0x14032FB78 (Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PdcPortSendMessageSynchronously @ 0x14048F5DC (PdcPortSendMessageSynchronously.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PdcWaitForEvent @ 0x14078E1B4 (PdcWaitForEvent.c)
- *     PdcAcquireRwLockExclusive2 @ 0x140A4F154 (PdcAcquireRwLockExclusive2.c)
- *     PdcReleaseRwLockExclusive2 @ 0x140A5AF2C (PdcReleaseRwLockExclusive2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE @ 0x1402B83F0 (Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PdcPortSendMessageSynchronously @ 0x1404897EC (PdcPortSendMessageSynchronously.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PdcWaitForEvent @ 0x14078E0E4 (PdcWaitForEvent.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x140A45F04 (PdcAcquireRwLockExclusive2.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x140A52844 (PdcReleaseRwLockExclusive2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall Pdcv2ActivationClientDeactivate(int *P)

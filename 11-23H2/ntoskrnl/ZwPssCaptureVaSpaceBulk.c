@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwPssCaptureVaSpaceBulk @ 0x14041D600
+ * XREFs of ZwPssCaptureVaSpaceBulk @ 0x14041D990
  * Callers:
- *     NtPssCaptureVaSpaceBulk @ 0x140A05210 (NtPssCaptureVaSpaceBulk.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x140A054A0 (NtPssCaptureVaSpaceBulk.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPssCaptureVaSpaceBulk(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPssCaptureVaSpaceBulk(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PNTPSS_MEMORY_BULK_INFORMATION BulkInformation,
+        SIZE_T BulkInformationLength,
+        PSIZE_T ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

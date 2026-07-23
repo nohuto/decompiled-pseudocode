@@ -12,7 +12,7 @@
  *     AslLogCallPrintf @ 0x140825A60 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter, PVOID *Context)
+__int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE a1, _DWORD *a2, PVOID *a3)
 {
   unsigned int v3; // esi
   char *v6; // r12
@@ -34,13 +34,13 @@ __int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter,
   int v23; // r8d
 
   v3 = 0;
-  if ( Parameter )
+  if ( a2 )
   {
-    if ( Context )
+    if ( a3 )
     {
-      v6 = (char *)(Parameter + 12);
-      memset_0(Parameter + 12, 0, 0xA00uLL);
-      v9 = Parameter[5];
+      v6 = (char *)(a2 + 12);
+      memset_0(a2 + 12, 0, 0xA00uLL);
+      v9 = a2[5];
       v10 = v9 > 0xC ? 0xC : 0;
       if ( v9 <= 0xC )
       {
@@ -49,7 +49,7 @@ __int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter,
       }
       else
       {
-        if ( (unsigned __int16)SdbGetTagFromTagID(Parameter, v10, v7, v8) != 30722 )
+        if ( (unsigned __int16)SdbGetTagFromTagID(a2, v10, v7, v8) != 30722 )
         {
           AslLogCallPrintf(
             1,
@@ -58,49 +58,49 @@ __int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter,
             (unsigned int)"Root child tag is not index tagid 0x%lx");
           return v3;
         }
-        Parameter[659] = 0;
-        for ( i = SdbFindFirstTag(Parameter, v10, 30723LL); ; i = SdbFindNextTag(Parameter, v10, v12) )
+        a2[659] = 0;
+        for ( i = SdbFindFirstTag(a2, v10, 30723LL); ; i = SdbFindNextTag(a2, v10, v12) )
         {
           v12 = i;
           if ( !i )
           {
-            *Context = v6;
+            *a3 = v6;
             return 1;
           }
-          if ( Parameter[659] == 64 )
+          if ( a2[659] == 64 )
             break;
-          FirstTag = SdbFindFirstTag(Parameter, i, 14338LL);
+          FirstTag = SdbFindFirstTag(a2, i, 14338LL);
           if ( !FirstTag )
           {
             v20 = "Index missing TAG_INDEX_TAG";
             v21 = 1254;
             goto LABEL_18;
           }
-          LOWORD(Parameter[10 * Parameter[659] + 13]) = SdbReadWORDTag(Parameter, FirstTag, 0LL);
-          v14 = SdbFindFirstTag(Parameter, v12, 14339LL);
+          LOWORD(a2[10 * a2[659] + 13]) = SdbReadWORDTag(a2, FirstTag, 0LL);
+          v14 = SdbFindFirstTag(a2, v12, 14339LL);
           if ( !v14 )
           {
             v20 = "Index missing TAG_INDEX_KEY";
             v21 = 1263;
             goto LABEL_18;
           }
-          HIWORD(Parameter[10 * Parameter[659] + 13]) = SdbReadWORDTag(Parameter, v14, 0LL);
-          v15 = SdbFindFirstTag(Parameter, v12, 16406LL);
+          HIWORD(a2[10 * a2[659] + 13]) = SdbReadWORDTag(a2, v14, 0LL);
+          v15 = SdbFindFirstTag(a2, v12, 16406LL);
           if ( v15 )
-            Parameter[10 * Parameter[659] + 20] = SdbReadDWORDTag((__int64)Parameter, v15, 0LL, v16);
+            a2[10 * a2[659] + 20] = SdbReadDWORDTag((__int64)a2, v15, 0LL, v16);
           else
-            Parameter[10 * Parameter[659] + 20] = 0;
-          v17 = SdbFindFirstTag(Parameter, v12, 38913LL);
-          v18 = (unsigned int)Parameter[659];
+            a2[10 * a2[659] + 20] = 0;
+          v17 = SdbFindFirstTag(a2, v12, 38913LL);
+          v18 = (unsigned int)a2[659];
           if ( !v17 )
           {
-            LOWORD(Parameter[10 * v18 + 13]) = 0;
+            LOWORD(a2[10 * v18 + 13]) = 0;
             v20 = "Index missing TAG_INDEX_BITS";
             v21 = 1280;
             goto LABEL_18;
           }
-          Parameter[10 * v18 + 12] = v17;
-          ++Parameter[659];
+          a2[10 * v18 + 12] = v17;
+          ++a2[659];
         }
         v20 = "Too many indexes in file: recompile and increase SDB_MAX_INDEXES";
         v21 = 1247;

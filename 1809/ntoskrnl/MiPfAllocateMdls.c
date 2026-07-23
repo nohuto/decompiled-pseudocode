@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPfAllocateMdls @ 0x1406982A0
+ * XREFs of MiPfAllocateMdls @ 0x140699460
  * Callers:
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
  *     MiGetInPageSupportBlock @ 0x14002C610 (MiGetInPageSupportBlock.c)
  *     MiFreeInPageSupportBlock @ 0x14002DC80 (MiFreeInPageSupportBlock.c)
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
- *     MiSetInPagePriority @ 0x140113BE4 (MiSetInPagePriority.c)
- *     MmCreateMdl @ 0x140113C40 (MmCreateMdl.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
+ *     MiSetInPagePriority @ 0x140113C54 (MiSetInPagePriority.c)
+ *     MmCreateMdl @ 0x140113CB0 (MmCreateMdl.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiPfAllocateMdls(__int64 a1, unsigned int a2, __int64 a3)
@@ -103,7 +103,7 @@ LABEL_6:
         v33 = v14 & 0xFFFFFFFFFFFFFFFCuLL;
         if ( v5 )
         {
-          if ( (__int64)(v33 - v8) >> 3 > dword_14043AD7C )
+          if ( (__int64)(v33 - v8) >> 3 > dword_14043BE3C )
             goto LABEL_17;
         }
         else
@@ -122,7 +122,7 @@ LABEL_6:
       v16 = v14 & 0xFFFFFFFFFFFFFFFCuLL;
       if ( v5 )
       {
-        if ( (__int64)(v16 - v8) >> 3 > dword_14043AD7C )
+        if ( (__int64)(v16 - v8) >> 3 > dword_14043BE3C )
           goto LABEL_17;
       }
       else

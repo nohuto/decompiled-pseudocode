@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpSegAlloc @ 0x1800E0094
+ * XREFs of RtlpHpSegAlloc @ 0x1800DD93C
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x180043620 (RtlpHpMetadataAlloc.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
- *     RtlpHpAllocateHeapInternal @ 0x1800DF844 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpAllocateHeapBackend @ 0x1800E005C (RtlpHpAllocateHeapBackend.c)
- *     RtlpHpSegSubAllocate @ 0x180117D30 (RtlpHpSegSubAllocate.c)
+ *     RtlpHpMetadataAlloc @ 0x18002DB90 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800DC7B4 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapBackend @ 0x1800DD904 (RtlpHpAllocateHeapBackend.c)
+ *     RtlpHpSegSubAllocate @ 0x180117AE0 (RtlpHpSegSubAllocate.c)
  * Callees:
- *     RtlpHpSegPageRangeCommit @ 0x180069850 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegPageRangeAllocate @ 0x180096D10 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeShrink @ 0x180096F44 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800EA2B0 (RtlpHpSegPageRangeComputeLargePageCost.c)
- *     RtlHeapZero @ 0x1801642D0 (RtlHeapZero.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1800715F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x180071824 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegPageRangeCommit @ 0x180089CA0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800E94C0 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlHeapZero @ 0x1801641D0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

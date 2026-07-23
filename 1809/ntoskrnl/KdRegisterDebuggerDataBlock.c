@@ -1,11 +1,11 @@
 /*
- * XREFs of KdRegisterDebuggerDataBlock @ 0x140915420
+ * XREFs of KdRegisterDebuggerDataBlock @ 0x140916420
  * Callers:
- *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
+ *     KdInitSystem @ 0x140916140 (KdInitSystem.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
@@ -25,13 +25,13 @@ char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
     {
       *(_DWORD *)(a2 + 16) = 1195525195;
       *(_DWORD *)(a2 + 20) = 896;
-      v5 = (__int64 *)qword_140430868;
-      if ( *(__int64 **)qword_140430868 != &KdpDebuggerDataListHead )
+      v5 = (__int64 *)qword_140431948;
+      if ( *(__int64 **)qword_140431948 != &KdpDebuggerDataListHead )
         __fastfail(3u);
       *(_QWORD *)a2 = &KdpDebuggerDataListHead;
       *(_QWORD *)(a2 + 8) = v5;
       *v5 = a2;
-      qword_140430868 = a2;
+      qword_140431948 = a2;
       KxReleaseSpinLock(&KdpDataSpinLock);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
       {

@@ -7,9 +7,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

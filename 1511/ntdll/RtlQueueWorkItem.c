@@ -21,164 +21,169 @@
  *     RtlPcToFileHeader @ 0x180037810 (RtlPcToFileHeader.c)
  */
 
-__int64 __fastcall RtlQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlQueueWorkItem(WORKERCALLBACKFUNC Function, PVOID Context, ULONG Flags)
 {
-  _PEB_LDR_DATA *Ldr; // r8
-  int v7; // esi
-  __int64 Heap; // rax
-  __int64 v9; // rdi
-  int v10; // eax
-  volatile signed __int32 **v11; // r14
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v15; // rcx
-  char v16; // [rsp+40h] [rbp-A8h]
-  char v17; // [rsp+41h] [rbp-A7h]
-  char v18; // [rsp+42h] [rbp-A6h]
-  char v19; // [rsp+43h] [rbp-A5h]
-  int v20; // [rsp+44h] [rbp-A4h]
-  __int64 v21; // [rsp+48h] [rbp-A0h]
-  __int128 v22; // [rsp+50h] [rbp-98h] BYREF
-  int v23; // [rsp+60h] [rbp-88h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-80h]
-  __int64 v25; // [rsp+70h] [rbp-78h]
-  __int64 v26; // [rsp+78h] [rbp-70h]
-  __int128 v27; // [rsp+80h] [rbp-68h]
-  __int64 v28; // [rsp+90h] [rbp-58h]
-  int v29; // [rsp+98h] [rbp-50h]
-  int v30; // [rsp+9Ch] [rbp-4Ch]
-  int v31; // [rsp+A0h] [rbp-48h]
-  struct _TEB *v32; // [rsp+B0h] [rbp-38h]
-  HANDLE v33; // [rsp+108h] [rbp+20h] BYREF
+  NTSTATUS v6; // esi
+  HANDLE *Heap; // rax
+  HANDLE *v8; // rdi
+  NTSTATUS InformationActivationContext; // eax
+  volatile signed __int32 **v10; // r14
+  int v11; // eax
+  HANDLE v12; // rdx
+  _ACTIVATION_CONTEXT *v14; // rcx
+  char v15; // [rsp+40h] [rbp-A8h]
+  char v16; // [rsp+41h] [rbp-A7h]
+  char v17; // [rsp+42h] [rbp-A6h]
+  char v18; // [rsp+43h] [rbp-A5h]
+  int v19; // [rsp+44h] [rbp-A4h]
+  HANDLE *BaseAddress; // [rsp+48h] [rbp-A0h]
+  PACTIVATION_CONTEXT ActivationContext[2]; // [rsp+50h] [rbp-98h] BYREF
+  int v22; // [rsp+60h] [rbp-88h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-80h]
+  __int64 v24; // [rsp+70h] [rbp-78h]
+  __int64 v25; // [rsp+78h] [rbp-70h]
+  __int128 v26; // [rsp+80h] [rbp-68h]
+  __int64 v27; // [rsp+90h] [rbp-58h]
+  int v28; // [rsp+98h] [rbp-50h]
+  int v29; // [rsp+9Ch] [rbp-4Ch]
+  int v30; // [rsp+A0h] [rbp-48h]
+  struct _TEB *v31; // [rsp+B0h] [rbp-38h]
+  HANDLE v32; // [rsp+108h] [rbp+20h] BYREF
 
-  v22 = 0LL;
-  v18 = 0;
+  *(_OWORD *)ActivationContext = 0LL;
   v17 = 0;
-  v19 = 0;
   v16 = 0;
-  v33 = 0LL;
-  v21 = 0LL;
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  v7 = RtlpTpRevertCapture(&v33, a3 & 0x100, (__int64)Ldr);
-  v20 = v7;
-  if ( v7 < 0 )
+  v18 = 0;
+  v15 = 0;
+  v32 = 0LL;
+  BaseAddress = 0LL;
+  if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
+    return -1073741823;
+  v6 = RtlpTpRevertCapture(&v32, Flags & 0x100);
+  v19 = v6;
+  if ( v6 < 0 )
   {
-    v9 = 0LL;
+    v8 = 0LL;
   }
   else
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 120LL);
-    v9 = Heap;
-    v21 = Heap;
+    Heap = (HANDLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x78uLL);
+    v8 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      v7 = RtlpTpInitializeData(Heap + 40, a3, (__int64)v33);
-      v20 = v7;
-      if ( v7 >= 0 )
+      v6 = RtlpTpInitializeData(Heap + 5, Flags, v32);
+      v19 = v6;
+      if ( v6 >= 0 )
       {
-        v19 = 1;
-        *(_QWORD *)(v21 + 96) = NtCurrentTeb()->SubProcessTag;
-        v9 = v21;
-        *(_GUID *)(v21 + 104) = NtCurrentTeb()->ActivityId;
-        v10 = RtlQueryInformationActivationContext(1LL, 0LL, 0LL, 1LL, &v22, 16LL, 0LL);
-        v7 = v10;
-        v20 = v10;
-        if ( v10 >= 0 )
+        v18 = 1;
+        BaseAddress[12] = NtCurrentTeb()->SubProcessTag;
+        v8 = BaseAddress;
+        *(_GUID *)(BaseAddress + 13) = NtCurrentTeb()->ActivityId;
+        InformationActivationContext = RtlQueryInformationActivationContext(
+                                         1u,
+                                         0LL,
+                                         0LL,
+                                         ActivationContextBasicInformation,
+                                         ActivationContext,
+                                         0x10uLL,
+                                         0LL);
+        v6 = InformationActivationContext;
+        v19 = InformationActivationContext;
+        if ( InformationActivationContext >= 0 )
         {
 LABEL_6:
-          if ( (BYTE8(v22) & 1) != 0 )
+          if ( ((__int64)ActivationContext[1] & 1) != 0 )
           {
-            RtlReleaseActivationContext(v22);
-            *(_QWORD *)&v22 = -1LL;
+            RtlReleaseActivationContext(ActivationContext[0]);
+            ActivationContext[0] = (PACTIVATION_CONTEXT)-1LL;
           }
-          *(_QWORD *)(v21 + 72) = v22;
-          v18 = 1;
-          *(_DWORD *)(v21 + 88) = 2;
-          *(_QWORD *)(v21 + 56) = a1;
-          *(_QWORD *)(v21 + 64) = a2;
-          v11 = (volatile signed __int32 **)(v21 + 32);
-          *(_QWORD *)(v21 + 32) = 0LL;
-          v23 = 3;
+          BaseAddress[9] = ActivationContext[0];
+          v17 = 1;
+          *((_DWORD *)BaseAddress + 22) = 2;
+          BaseAddress[7] = Function;
+          BaseAddress[8] = Context;
+          v10 = (volatile signed __int32 **)(BaseAddress + 4);
+          BaseAddress[4] = 0LL;
+          v22 = 3;
+          v23 = 0LL;
           v24 = 0LL;
           v25 = 0LL;
           v26 = 0LL;
           v27 = 0LL;
-          v28 = 0LL;
-          v29 = 0;
-          v30 = 1;
-          v31 = 72;
-          v12 = 0;
-          if ( (a3 & 0xC0) != 0 )
-            v12 = 2;
-          v29 = v12;
-          *(_QWORD *)v21 = RtlpTpWorkTaskCallbacks;
-          *(_DWORD *)(v21 + 8) = 0;
-          v7 = TpReserveTaskPost(*v11, v21, (__int64)&v23);
-          v20 = v7;
-          if ( v7 >= 0 )
+          v28 = 0;
+          v29 = 1;
+          v30 = 72;
+          v11 = 0;
+          if ( (Flags & 0xC0) != 0 )
+            v11 = 2;
+          v28 = v11;
+          *BaseAddress = &RtlpTpWorkTaskCallbacks;
+          *((_DWORD *)BaseAddress + 2) = 0;
+          v6 = TpReserveTaskPost(*v10, (__int64)BaseAddress, (__int64)&v22);
+          v19 = v6;
+          if ( v6 >= 0 )
           {
-            v16 = 1;
-            RtlPcToFileHeader(*(PVOID *)(v21 + 56), (PVOID *)(v21 + 80));
-            v13 = *(_QWORD *)(v21 + 80);
-            if ( v13 )
+            v15 = 1;
+            RtlPcToFileHeader(BaseAddress[7], BaseAddress + 10);
+            v12 = BaseAddress[10];
+            if ( v12 )
             {
-              LdrAddRefDll(0, v13);
-              v17 = 1;
+              LdrAddRefDll(0, v12);
+              v16 = 1;
               if ( MEMORY[0x7FFE0386] )
               {
-                v32 = NtCurrentTeb();
-                v9 = v21;
+                v31 = NtCurrentTeb();
+                v8 = BaseAddress;
                 RtlpTpETWCallbackEnqueue(
-                  (__int64)*v11,
-                  v21,
-                  *(_QWORD *)(v21 + 56),
-                  *(_QWORD *)(v21 + 64),
-                  (__int64)v32->SubProcessTag);
+                  (__int64)*v10,
+                  (__int64)BaseAddress,
+                  (__int64)BaseAddress[7],
+                  (__int64)BaseAddress[8],
+                  (__int64)v31->SubProcessTag);
               }
-              TpPostTask(v9, *v11, 1LL, &v23);
-              if ( !_InterlockedDecrement((volatile signed __int32 *)(v21 + 88)) )
-                RtlpTpWorkUnposted(v21, (__int64)*v11);
-              v9 = 0LL;
-              v21 = 0LL;
-              v7 = 0;
-              v20 = 0;
+              TpPostTask(v8, *v10, 1LL, &v22);
+              if ( !_InterlockedDecrement((volatile signed __int32 *)BaseAddress + 22) )
+                RtlpTpWorkUnposted((__int64)BaseAddress, (__int64)*v10);
+              v8 = 0LL;
+              BaseAddress = 0LL;
+              v6 = 0;
+              v19 = 0;
             }
           }
           goto LABEL_21;
         }
-        if ( v10 == -1072365557 )
+        if ( InformationActivationContext == -1072365557 )
         {
-          *(_QWORD *)(v21 + 72) = -1LL;
+          BaseAddress[9] = (HANDLE)-1LL;
           goto LABEL_6;
         }
       }
     }
     else
     {
-      v7 = -1073741801;
-      v20 = -1073741801;
+      v6 = -1073741801;
+      v19 = -1073741801;
     }
   }
 LABEL_21:
-  if ( v9 )
+  if ( v8 )
   {
-    if ( v18 )
-    {
-      v15 = *(_QWORD *)(v9 + 72);
-      if ( v15 != -1 )
-        RtlReleaseActivationContext(v15);
-    }
-    if ( v16 )
-      TpUnreserveTaskPost(*(volatile signed __int32 **)(v9 + 32), (__int64)&v23);
     if ( v17 )
-      LdrUnloadDll(*(_QWORD *)(v9 + 80));
-    if ( v19 )
-      RtlpTpDeleteData((void **)(v9 + 40));
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v21);
-    v7 = v20;
+    {
+      v14 = (_ACTIVATION_CONTEXT *)v8[9];
+      if ( v14 != (_ACTIVATION_CONTEXT *)-1LL )
+        RtlReleaseActivationContext(v14);
+    }
+    if ( v15 )
+      TpUnreserveTaskPost((volatile signed __int32 *)v8[4], (__int64)&v22);
+    if ( v16 )
+      LdrUnloadDll(v8[10]);
+    if ( v18 )
+      RtlpTpDeleteData(v8 + 5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    v6 = v19;
   }
-  RtlpTpResumeImpersonation(v33);
-  return (unsigned int)v7;
+  RtlpTpResumeImpersonation(v32);
+  return v6;
 }

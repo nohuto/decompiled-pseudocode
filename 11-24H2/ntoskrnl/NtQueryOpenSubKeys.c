@@ -1,28 +1,29 @@
 /*
- * XREFs of NtQueryOpenSubKeys @ 0x1407CFFA0
+ * XREFs of NtQueryOpenSubKeys @ 0x1407D0490
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     CmpInitializeParseContext @ 0x14092D400 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14092D4B0 (CmpCleanupParseContext.c)
- *     CmpSearchForOpenSubKeys @ 0x140ABB5C8 (CmpSearchForOpenSubKeys.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     CmpInitializeParseContext @ 0x14092F540 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14092F5F0 (CmpCleanupParseContext.c)
+ *     CmpSearchForOpenSubKeys @ 0x140AB65E8 (CmpSearchForOpenSubKeys.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
+NTSTATUS __cdecl NtQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
+  int v3; // ebx
   char v4; // si
   __int64 v5; // rdx
   __int64 v6; // rcx
@@ -30,16 +31,17 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
   __int64 v8; // r9
   __int64 v9; // rcx
   char v10; // r14
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   char PreviousMode; // dl
   __int64 v13; // rcx
   _QWORD *v14; // rdi
-  int v15; // ebx
+  ULONG v15; // ebx
   __int64 v16; // rcx
   PVOID Object; // [rsp+48h] [rbp-250h] BYREF
   int v19; // [rsp+50h] [rbp-248h]
   _KAFFINITY_EX v20[2]; // [rsp+58h] [rbp-240h] BYREF
 
+  v3 = (int)TargetKey;
   memset(v20, 0, 72);
   memset_0(&v20[0].StaticBitmap[8], 0, 0x1D0uLL);
   v19 = 0;
@@ -54,12 +56,12 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
     if ( PreviousMode == 1 )
     {
       v13 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v13 = (__int64)a2;
+      if ( (unsigned __int64)HandleCount < 0x7FFFFFFF0000LL )
+        v13 = (__int64)HandleCount;
       *(_DWORD *)v13 = *(_DWORD *)v13;
     }
     v11 = ObReferenceObjectByNameEx(
-            a1,
+            v3,
             0,
             131097,
             (_DWORD)CmKeyObjectType,
@@ -81,7 +83,7 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
           CmpDetachFromRegistryProcess(&v20[0].StaticBitmap[2]);
           CmpUnlockRegistry(v16);
           v4 = 0;
-          *a2 = v15;
+          *HandleCount = v15;
           v11 = 0;
         }
         else
@@ -103,5 +105,5 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
   if ( Object )
     ObfDereferenceObject(Object);
   CmpCleanupThreadInfo((_KAFFINITY_EX **)v20);
-  return (unsigned int)v11;
+  return v11;
 }

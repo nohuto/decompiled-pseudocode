@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpStartKcbStack @ 0x1404050C0
+ * XREFs of CmpStartKcbStack @ 0x140403F80
  * Callers:
- *     CmpConstructNameFromKeyNodes @ 0x14002D790 (CmpConstructNameFromKeyNodes.c)
- *     CmpPartialPromoteSubkeys @ 0x1401B3204 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x1401B3424 (CmpPromoteKey.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140404FE8 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpIsKeyDeleted @ 0x140405030 (CmpIsKeyDeleted.c)
- *     CmpDoBuildVirtualStack @ 0x140600BE8 (CmpDoBuildVirtualStack.c)
+ *     CmpConstructNameFromKeyNodes @ 0x14002D310 (CmpConstructNameFromKeyNodes.c)
+ *     CmpPartialPromoteSubkeys @ 0x1401B30E8 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x1401B3308 (CmpPromoteKey.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140403EA8 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpIsKeyDeleted @ 0x140403EF0 (CmpIsKeyDeleted.c)
+ *     CmpDoBuildVirtualStack @ 0x140600C9C (CmpDoBuildVirtualStack.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140087418 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x1400B0B88 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall CmpStartKcbStack(__int64 a1, __int16 a2)

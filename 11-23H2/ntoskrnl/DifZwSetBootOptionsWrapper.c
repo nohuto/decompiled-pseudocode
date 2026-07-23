@@ -1,15 +1,15 @@
 /*
- * XREFs of DifZwSetBootOptionsWrapper @ 0x1405F6830
+ * XREFs of DifZwSetBootOptionsWrapper @ 0x1405F6DA0
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetBootOptions @ 0x14041E000 (ZwSetBootOptions.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwSetBootOptions @ 0x14041E390 (ZwSetBootOptions.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwSetBootOptionsWrapper(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall DifZwSetBootOptionsWrapper(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwSetBootOptionsWrapper(__int64 a1, unsigned int a2)
   int v10; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v14; // rdi
   _QWORD *v15; // rbx
   __int128 v16; // [rsp+20h] [rbp-20h] BYREF
@@ -58,15 +58,15 @@ LABEL_8:
   }
   *(_QWORD *)&v16 = 0LL;
 LABEL_10:
-  *(_QWORD *)&v17 = a1;
-  DWORD2(v16) = a2;
+  *(_QWORD *)&v17 = BootOptions;
+  DWORD2(v16) = FieldsToChange;
   for ( i = (__int64 *)v9[4]; i != v9 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v16);
   }
 LABEL_17:
-  result = ZwSetBootOptions(a1, a2);
+  result = ZwSetBootOptions(BootOptions, FieldsToChange);
   DWORD2(v17) = result;
   if ( v9 )
   {

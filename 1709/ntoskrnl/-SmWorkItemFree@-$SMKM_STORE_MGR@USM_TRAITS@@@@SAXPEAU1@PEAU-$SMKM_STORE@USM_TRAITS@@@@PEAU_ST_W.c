@@ -20,7 +20,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2
   int v6; // esi
   int v9; // ebp
   __int128 v10; // xmm1
-  union _SLIST_HEADER *v11; // rcx
+  _SLIST_HEADER *v11; // rcx
   BOOL v12; // edi
   void *v13; // rcx
   int v14; // eax

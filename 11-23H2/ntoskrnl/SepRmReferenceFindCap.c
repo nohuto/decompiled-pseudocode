@@ -1,33 +1,33 @@
 /*
- * XREFs of SepRmReferenceFindCap @ 0x1405B98B8
+ * XREFs of SepRmReferenceFindCap @ 0x1405B9E28
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140228CE0 (SepCommonAccessCheckEx.c)
- *     SeComputeCreatorDeniedRights @ 0x14022F320 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheckWithHint @ 0x1402316C0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SeRmReferenceFindCapName @ 0x1405B9738 (SeRmReferenceFindCapName.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
+ *     SepCommonAccessCheckEx @ 0x140228DF0 (SepCommonAccessCheckEx.c)
+ *     SeComputeCreatorDeniedRights @ 0x14022F430 (SeComputeCreatorDeniedRights.c)
+ *     SeAccessCheckWithHint @ 0x140231790 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SeRmReferenceFindCapName @ 0x1405B9CA8 (SeRmReferenceFindCapName.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     RtlGetNextEntryHashTable @ 0x140338020 (RtlGetNextEntryHashTable.c)
- *     RtlLookupEntryHashTable @ 0x140371080 (RtlLookupEntryHashTable.c)
- *     SepRmDereferenceCapTable @ 0x1405B7EB0 (SepRmDereferenceCapTable.c)
- *     SepComputeSidSignature @ 0x1407F4A80 (SepComputeSidSignature.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     RtlGetNextEntryHashTable @ 0x1403382B0 (RtlGetNextEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x140371220 (RtlLookupEntryHashTable.c)
+ *     SepRmDereferenceCapTable @ 0x1405B8420 (SepRmDereferenceCapTable.c)
+ *     SepComputeSidSignature @ 0x1407F4D50 (SepComputeSidSignature.c)
  */
 
 __int64 __fastcall SepRmReferenceFindCap(PSID Sid1, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a2)
 {
   unsigned int v4; // esi
   struct _KTHREAD *CurrentThread; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE *v6; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *v6; // rbx
   ULONG_PTR v7; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v9; // rdi
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Context, 0, sizeof(Context));
   *a2 = 0LL;

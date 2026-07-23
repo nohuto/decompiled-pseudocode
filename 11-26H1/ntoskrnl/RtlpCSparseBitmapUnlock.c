@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpCSparseBitmapUnlock @ 0x140351A4C
+ * XREFs of RtlpCSparseBitmapUnlock @ 0x140353ACC
  * Callers:
- *     RtlCSparseBitmapBitmaskWrite @ 0x14034F848 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlSparseArrayElementAllocate @ 0x1403512D8 (RtlSparseArrayElementAllocate.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1403513A4 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x140351604 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1403518C8 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlSparseArrayElementAllocate @ 0x140353358 (RtlSparseArrayElementAllocate.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140353424 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140353684 (RtlpCSparseBitmapPageDecommit.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall RtlpCSparseBitmapUnlock(int *a1)

@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiCreatePfnTemplate @ 0x140375554 (MiCreatePfnTemplate.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HvlChangeIsolatedMemoryVisibility @ 0x140678DB0 (HvlChangeIsolatedMemoryVisibility.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiCreatePfnTemplate @ 0x1403756F4 (MiCreatePfnTemplate.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HvlChangeIsolatedMemoryVisibility @ 0x140679300 (HvlChangeIsolatedMemoryVisibility.c)
  *     MiCreateDescriptorPfns @ 0x140B42404 (MiCreateDescriptorPfns.c)
  *     MiCreateFreePfns @ 0x140B425A8 (MiCreateFreePfns.c)
  */

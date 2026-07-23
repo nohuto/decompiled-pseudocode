@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroThreadStopZeroing @ 0x1404F5FB8
+ * XREFs of MiZeroThreadStopZeroing @ 0x1404EF578
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
- *     MiZeroThreadEnterWaitState @ 0x1404ECD84 (MiZeroThreadEnterWaitState.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
+ *     MiZeroThreadEnterWaitState @ 0x1404E6364 (MiZeroThreadEnterWaitState.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementZeroEngineThread @ 0x1403E8DCC (MiDecrementZeroEngineThread.c)
- *     MiZeroThreadContextSetExiting @ 0x14047CFF0 (MiZeroThreadContextSetExiting.c)
- *     MiFlushZeroPageHeatBatch @ 0x14048CE3C (MiFlushZeroPageHeatBatch.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x1404A1094 (MiDereferenceAnyActiveHugeContext.c)
- *     MiFreeHardwareDescriptor @ 0x14070E470 (MiFreeHardwareDescriptor.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementZeroEngineThread @ 0x1402F5CAC (MiDecrementZeroEngineThread.c)
+ *     MiZeroThreadContextSetExiting @ 0x140476960 (MiZeroThreadContextSetExiting.c)
+ *     MiFlushZeroPageHeatBatch @ 0x14048697C (MiFlushZeroPageHeatBatch.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x14049ABC4 (MiDereferenceAnyActiveHugeContext.c)
+ *     MiFreeHardwareDescriptor @ 0x140713170 (MiFreeHardwareDescriptor.c)
  */
 
 _BOOL8 __fastcall MiZeroThreadStopZeroing(__int64 a1)
@@ -38,7 +38,7 @@ _BOOL8 __fastcall MiZeroThreadStopZeroing(__int64 a1)
   v5 = *(_QWORD *)(*(_QWORD *)(v3 + 136) + 48LL);
   v6 = ExAcquireSpinLockExclusive(v4);
   MiDecrementZeroEngineThread(a1);
-  if ( (*(_DWORD *)(v5 + 92) || HIDWORD(stru_140E2EB88.Timer.Header.WaitListHead.Flink))
+  if ( (*(_DWORD *)(v5 + 92) || HIDWORD(stru_140E2ED08.Timer.Header.WaitListHead.Flink))
     && (*(_DWORD *)(a1 + 128) & 4) == 0 )
   {
     MiZeroThreadContextSetExiting(a1);

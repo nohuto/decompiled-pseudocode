@@ -1,27 +1,27 @@
 /*
- * XREFs of SmAcquireReleaseCharges @ 0x140394610
+ * XREFs of SmAcquireReleaseCharges @ 0x140396390
  * Callers:
- *     SmFpFree @ 0x140281020 (SmFpFree.c)
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     SmKmFreeMdlForLock @ 0x14038302C (SmKmFreeMdlForLock.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14038FF90 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     SmKmAllocateMdlForLock @ 0x1403944B0 (SmKmAllocateMdlForLock.c)
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140396030 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     SmFpPreAllocate @ 0x1403EFFC0 (SmFpPreAllocate.c)
- *     SmFpCleanup @ 0x1403F02E0 (SmFpCleanup.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403F0B90 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403F49B8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     SmFpFree @ 0x140280590 (SmFpFree.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmFreeMdlForLock @ 0x140384DDC (SmKmFreeMdlForLock.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x140391D40 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     SmKmAllocateMdlForLock @ 0x140396230 (SmKmAllocateMdlForLock.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140397DB0 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmFpPreAllocate @ 0x1403E9990 (SmFpPreAllocate.c)
+ *     SmFpCleanup @ 0x1403E9CB0 (SmFpCleanup.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403EA560 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403EE368 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MmReleaseResourceCharge @ 0x14045A9A0 (MmReleaseResourceCharge.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MmReleaseResourceCharge @ 0x1404541D0 (MmReleaseResourceCharge.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
  */
 
 __int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char a3, int a4)
@@ -101,7 +101,7 @@ LABEL_29:
       v5 = MiRestockOverCommit(v8, v5);
       if ( (_BYTE)v12 != 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v10 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v8 + 17272), retaddr);
@@ -114,7 +114,7 @@ LABEL_23:
         return 1LL;
       }
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v10 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v8 + 17272), retaddr);

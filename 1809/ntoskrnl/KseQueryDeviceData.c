@@ -1,19 +1,19 @@
 /*
- * XREFs of KseQueryDeviceData @ 0x140720930
+ * XREFs of KseQueryDeviceData @ 0x140721BD0
  * Callers:
- *     KseQueryDeviceFlags @ 0x140720810 (KseQueryDeviceFlags.c)
- *     ExpGetDeviceDataInformation @ 0x1408CB560 (ExpGetDeviceDataInformation.c)
+ *     KseQueryDeviceFlags @ 0x140721AB0 (KseQueryDeviceFlags.c)
+ *     ExpGetDeviceDataInformation @ 0x1408CC820 (ExpGetDeviceDataInformation.c)
  * Callees:
- *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
- *     KsepShimDbChanged @ 0x140178F7C (KsepShimDbChanged.c)
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KsepDbCacheQueryDevice @ 0x140720AB8 (KsepDbCacheQueryDevice.c)
- *     KsepDbQueryRegistryDeviceData @ 0x140720B9C (KsepDbQueryRegistryDeviceData.c)
- *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
- *     KsepCacheDeviceFree @ 0x140720E50 (KsepCacheDeviceFree.c)
- *     KsepDbCacheQueryDeviceData @ 0x140720EAC (KsepDbCacheQueryDeviceData.c)
- *     KsepDbCacheInsertDevice @ 0x1407227F0 (KsepDbCacheInsertDevice.c)
- *     KseResetDeviceCache @ 0x140847548 (KseResetDeviceCache.c)
+ *     KsepLogInfo @ 0x1400F4DB8 (KsepLogInfo.c)
+ *     KsepShimDbChanged @ 0x14017907C (KsepShimDbChanged.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KsepDbCacheQueryDevice @ 0x140721D58 (KsepDbCacheQueryDevice.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x140721E3C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbCacheReadDevice @ 0x140721F7C (KsepDbCacheReadDevice.c)
+ *     KsepCacheDeviceFree @ 0x1407220F0 (KsepCacheDeviceFree.c)
+ *     KsepDbCacheQueryDeviceData @ 0x14072214C (KsepDbCacheQueryDeviceData.c)
+ *     KsepDbCacheInsertDevice @ 0x140723A90 (KsepDbCacheInsertDevice.c)
+ *     KseResetDeviceCache @ 0x1408487A8 (KseResetDeviceCache.c)
  */
 
 __int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, __int64 a2, int *a3, _DWORD *a4, void *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, __int64 a2, int *a3, 
 
   *(_QWORD *)v16 = 0LL;
   v6 = (int)a3;
-  if ( dword_14043C8B4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_14043D974 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogHiveInitializeEvent @ 0x1405FBA9C
+ * XREFs of CmpLogHiveInitializeEvent @ 0x1405FBB50
  * Callers:
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmpLogHiveInitializeEvent(__int64 a1, int a2, unsigned __int16 *a3, int a4)

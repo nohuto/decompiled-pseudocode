@@ -123,7 +123,7 @@ __int64 __fastcall sub_1800E0520(_DWORD *a1, unsigned int a2, char *a3, size_t a
   else
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryAssemblyInformationActivationContextDetailedInformation",

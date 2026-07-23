@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetPartitionLargePageListCount @ 0x140375BE4
+ * XREFs of MiGetPartitionLargePageListCount @ 0x140375D84
  * Callers:
- *     MmCreatePartition @ 0x1403AC6AC (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403AC88C (MmCreatePartition.c)
  *     MiCreatePfnDatabase @ 0x140B450C8 (MiCreatePfnDatabase.c)
  * Callees:
  *     <none>

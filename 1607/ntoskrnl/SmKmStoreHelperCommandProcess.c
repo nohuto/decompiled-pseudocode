@@ -1,18 +1,18 @@
 /*
- * XREFs of SmKmStoreHelperCommandProcess @ 0x14011E384
+ * XREFs of SmKmStoreHelperCommandProcess @ 0x14011E8F4
  * Callers:
- *     SmKmStoreHelperWorker @ 0x140002C50 (SmKmStoreHelperWorker.c)
- *     SmKmStoreHelperCommandCleanup @ 0x140220CB0 (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperWorker @ 0x140002DC4 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x140220ADC (SmKmStoreHelperCommandCleanup.c)
  * Callees:
- *     SmSetThreadPagePriority @ 0x140004858 (SmSetThreadPagePriority.c)
- *     SmFpFree @ 0x14011ADA8 (SmFpFree.c)
- *     SmFpAllocate @ 0x14011B81C (SmFpAllocate.c)
- *     SmKmUnlockMdl @ 0x14011E998 (SmKmUnlockMdl.c)
- *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14011EED0 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
- *     SmKmVirtualLockCtxLockMemory @ 0x140221228 (SmKmVirtualLockCtxLockMemory.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140221370 (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     MmStoreAllocateVirtualMemory @ 0x1405320CC (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x140532AC0 (MmStoreFreeVirtualMemory.c)
+ *     SmSetThreadPagePriority @ 0x1400049CC (SmSetThreadPagePriority.c)
+ *     SmFpFree @ 0x14011B318 (SmFpFree.c)
+ *     SmFpAllocate @ 0x14011BD8C (SmFpAllocate.c)
+ *     SmKmUnlockMdl @ 0x14011EF08 (SmKmUnlockMdl.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14011F440 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x140221054 (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14022119C (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     MmStoreAllocateVirtualMemory @ 0x14053260C (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140533000 (MmStoreFreeVirtualMemory.c)
  */
 
 void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 (__fastcall **a3)(__int64, __int64))

@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtQuerySystemInformationEx()
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 327LL;
+  result = 327;
   __asm { syscall; Low latency system call }
   return result;
 }

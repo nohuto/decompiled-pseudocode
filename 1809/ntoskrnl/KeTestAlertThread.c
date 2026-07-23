@@ -1,14 +1,14 @@
 /*
- * XREFs of KeTestAlertThread @ 0x1400A26D0
+ * XREFs of KeTestAlertThread @ 0x1400A2610
  * Callers:
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KiContinueEx @ 0x1400A2540 (KiContinueEx.c)
- *     NtTestAlert @ 0x1406237C0 (NtTestAlert.c)
- *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
+ *     KiContinueEx @ 0x1400A2480 (KiContinueEx.c)
+ *     NtTestAlert @ 0x1406247C0 (NtTestAlert.c)
+ *     DbgkpSendErrorMessage @ 0x140811FCC (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int8 __fastcall KeTestAlertThread(char a1, __int64 a2, __int64 a3)

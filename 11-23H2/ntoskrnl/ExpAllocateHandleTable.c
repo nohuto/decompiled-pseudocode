@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpAllocateHandleTable @ 0x1407B069C
+ * XREFs of ExpAllocateHandleTable @ 0x1407B088C
  * Callers:
- *     ExDupHandleTable @ 0x1407B00DC (ExDupHandleTable.c)
- *     ExCreateHandleTable @ 0x1407B05C8 (ExCreateHandleTable.c)
+ *     ExDupHandleTable @ 0x1407B02CC (ExDupHandleTable.c)
+ *     ExCreateHandleTable @ 0x1407B07B8 (ExCreateHandleTable.c)
  * Callees:
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     ExpInsertLowLevelTableIntoFreeList @ 0x1407B086C (ExpInsertLowLevelTableIntoFreeList.c)
- *     ExpAllocateLowLevelTable @ 0x1407B0990 (ExpAllocateLowLevelTable.c)
- *     PsChargeProcessPagedPoolQuota @ 0x1407B0A30 (PsChargeProcessPagedPoolQuota.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x1407B0A5C (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateLowLevelTable @ 0x1407B0B80 (ExpAllocateLowLevelTable.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1407B0C20 (PsChargeProcessPagedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

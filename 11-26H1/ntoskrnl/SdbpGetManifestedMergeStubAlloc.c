@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140881180
+ * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140887580
  * Callers:
- *     SdbpGetMergeRedirectPathInternal @ 0x140881504 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140887904 (SdbpGetMergeRedirectPathInternal.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     SdbpGetMergeSdbsDisabled @ 0x140881A8C (SdbpGetMergeSdbsDisabled.c)
- *     AslPathToSystemPath @ 0x1408897A0 (AslPathToSystemPath.c)
- *     AslStringDuplicate @ 0x1409E3DCC (AslStringDuplicate.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     RtlGetNtSystemRoot @ 0x140A79090 (RtlGetNtSystemRoot.c)
- *     AslRegistryGetKey @ 0x140B30838 (AslRegistryGetKey.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     SdbpGetMergeSdbsDisabled @ 0x140887E8C (SdbpGetMergeSdbsDisabled.c)
+ *     AslPathToSystemPath @ 0x14088FB9C (AslPathToSystemPath.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     AslStringDuplicate @ 0x1409D8BA8 (AslStringDuplicate.c)
+ *     RtlGetNtSystemRoot @ 0x1409E50B0 (RtlGetNtSystemRoot.c)
+ *     AslRegistryGetKey @ 0x140B32A38 (AslRegistryGetKey.c)
  */
 
 __int64 __fastcall SdbpGetManifestedMergeStubAlloc(_QWORD *a1, const wchar_t *a2)
@@ -148,7 +148,7 @@ LABEL_47:
               v17 = 1252;
               goto LABEL_19;
             }
-            NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+            NtSystemRoot = RtlGetNtSystemRoot();
             v23 = NtSystemRoot;
             v24 = -1LL;
             do

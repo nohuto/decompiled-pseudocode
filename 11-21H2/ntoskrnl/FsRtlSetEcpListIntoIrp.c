@@ -16,6 +16,6 @@ NTSTATUS __stdcall FsRtlSetEcpListIntoIrp(PIRP Irp, PECP_LIST EcpList)
   if ( Irp->UserBuffer )
     return -1073741584;
   Irp->UserBuffer = EcpList;
-  EcpList->Flags |= 8u;
+  *((_DWORD *)EcpList + 1) |= 8u;
   return result;
 }

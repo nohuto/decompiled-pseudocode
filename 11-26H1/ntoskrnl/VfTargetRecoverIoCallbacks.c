@@ -1,12 +1,12 @@
 /*
- * XREFs of VfTargetRecoverIoCallbacks @ 0x140641628
+ * XREFs of VfTargetRecoverIoCallbacks @ 0x140645208
  * Callers:
- *     VfSuspectRemoveDifVolatileVerification @ 0x140C39058 (VfSuspectRemoveDifVolatileVerification.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140C3F068 (VfSuspectRemoveDifVolatileVerification.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     VfDifRecoverIoCallbacks @ 0x140641358 (VfDifRecoverIoCallbacks.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     VfDifRecoverIoCallbacks @ 0x140644F38 (VfDifRecoverIoCallbacks.c)
  */
 
 __int64 VfTargetRecoverIoCallbacks()

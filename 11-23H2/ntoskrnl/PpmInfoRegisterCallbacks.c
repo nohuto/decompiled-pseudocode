@@ -3,8 +3,8 @@
  * Callers:
  *     PopInitializePowerSettingCallbacks @ 0x140B67C9C (PopInitializePowerSettingCallbacks.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PoRegisterPowerSettingCallback @ 0x1407A7060 (PoRegisterPowerSettingCallback.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PoRegisterPowerSettingCallback @ 0x1407A7250 (PoRegisterPowerSettingCallback.c)
  */
 
 __int64 PpmInfoRegisterCallbacks()

@@ -1,11 +1,11 @@
 /*
- * XREFs of CcDecrementPrivateVolumeUseCount @ 0x14029A5DC
+ * XREFs of CcDecrementPrivateVolumeUseCount @ 0x14029A86C
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
- *     CcCreatePrivateVolumeCacheMap @ 0x140341A04 (CcCreatePrivateVolumeCacheMap.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403D0E70 (CcForEachPrivateVolumeCacheMap.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x140341C94 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403D1050 (CcForEachPrivateVolumeCacheMap.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcDecrementPrivateVolumeUseCount(__int64 a1)

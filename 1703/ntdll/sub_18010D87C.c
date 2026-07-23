@@ -15,7 +15,7 @@ __int64 __fastcall sub_18010D87C(__int64 a1, int a2)
   unsigned int v3; // edi
   int v5; // esi
   wchar_t v7[264]; // [rsp+30h] [rbp-448h] BYREF
-  _BYTE v8[528]; // [rsp+240h] [rbp-238h] BYREF
+  WCHAR v8[264]; // [rsp+240h] [rbp-238h] BYREF
 
   v2 = 0;
   v3 = -1;
@@ -27,9 +27,9 @@ __int64 __fastcall sub_18010D87C(__int64 a1, int a2)
     if ( v2 > 9999 )
       goto LABEL_11;
     while ( (unsigned int)sub_180094C58(a1, 257LL, v2, v7)
-         && (unsigned int)sub_18010D2E4((int)v7) != -1
+         && (unsigned int)sub_18010D2E4(v7) != -1
          && (unsigned int)sub_18010D960(v7, 260LL, v8)
-         && (unsigned int)sub_18010D2E4((int)v8) != -1 )
+         && (unsigned int)sub_18010D2E4(v8) != -1 )
     {
       v3 = v2++;
       if ( v2 > 9999 )

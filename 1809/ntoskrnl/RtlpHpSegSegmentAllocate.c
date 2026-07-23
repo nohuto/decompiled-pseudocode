@@ -2,12 +2,12 @@
  * XREFs of RtlpHpSegSegmentAllocate @ 0x14000A588
  * Callers:
  *     RtlpHpSegPageRangeAllocate @ 0x14000B270 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x140140EFC (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegContextReserve @ 0x140140FFC (RtlpHpSegContextReserve.c)
  * Callees:
  *     RtlCSparseBitmapBitmaskWrite @ 0x14000A690 (RtlCSparseBitmapBitmaskWrite.c)
  *     RtlpHpSegMgrAllocate @ 0x14000AC04 (RtlpHpSegMgrAllocate.c)
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegSegmentFree @ 0x1401546C4 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegSegmentFree @ 0x1401547C4 (RtlpHpSegSegmentFree.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2, int a3)

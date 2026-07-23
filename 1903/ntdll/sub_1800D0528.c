@@ -15,10 +15,10 @@ char __fastcall sub_1800D0528(__int64 a1, int a2)
   struct _PEB *v2; // rax
   __int64 v5; // r8
   int v7; // [rsp+30h] [rbp-19h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-11h] BYREF
+  int v8[2]; // [rsp+38h] [rbp-11h] BYREF
   _BYTE v9[32]; // [rsp+40h] [rbp-9h] BYREF
   _BYTE v10[16]; // [rsp+60h] [rbp+17h] BYREF
-  __int64 *v11; // [rsp+70h] [rbp+27h]
+  int *v11; // [rsp+70h] [rbp+27h]
   int v12; // [rsp+78h] [rbp+2Fh]
   int v13; // [rsp+7Ch] [rbp+33h]
   int *v14; // [rsp+80h] [rbp+37h]
@@ -28,26 +28,28 @@ char __fastcall sub_1800D0528(__int64 a1, int a2)
   v2 = NtCurrentPeb();
   if ( v2->ProcessHeap )
   {
-    LOBYTE(v2) = RtlRunOnceExecuteOnce(
-                   &qword_1801665A8,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))sub_1800D0B40,
-                   0LL,
-                   0LL);
+    LOBYTE(v2) = RtlRunOnceExecuteOnce(&stru_1801665A8, sub_1800D0B40, 0LL, 0LL);
     if ( (unsigned int)dword_18015F4C0 > 4 )
     {
       LOBYTE(v2) = sub_1800062B0((__int64)&dword_18015F4C0, 0x400000000000LL);
       if ( (_BYTE)v2 )
       {
-        v8 = a1;
+        *(_QWORD *)v8 = a1;
         v7 = a2;
         sub_1800D0B68(v10, "LdrCreateEnclave");
         v13 = 0;
         v16 = 0;
         v14 = &v7;
-        v11 = &v8;
+        v11 = v8;
         v12 = 8;
         v15 = 4;
-        LOBYTE(v2) = sub_18008935C((__int64)&dword_18015F4C0, byte_18012B8AF, v5, (__int64)&v8, 5, (__int64)v9);
+        LOBYTE(v2) = sub_18008935C(
+                       (__int64)&dword_18015F4C0,
+                       (unsigned __int8 *)dword_18012B8AF,
+                       v5,
+                       (__int64)v8,
+                       5u,
+                       (PEVENT_DATA_DESCRIPTOR)v9);
       }
     }
   }

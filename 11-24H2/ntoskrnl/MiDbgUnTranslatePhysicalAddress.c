@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x14067F588
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x140680788
  * Callers:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x14067F1F0 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1406803F0 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeFlushSingleCurrentTb @ 0x1405BC8EC (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405BCAD4 (KeFlushSingleTb.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeFlushSingleCurrentTb @ 0x1405B9F1C (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405BA104 (KeFlushSingleTb.c)
  */
 
 void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)

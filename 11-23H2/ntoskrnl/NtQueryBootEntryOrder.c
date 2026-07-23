@@ -1,26 +1,26 @@
 /*
- * XREFs of NtQueryBootEntryOrder @ 0x14083D640
+ * XREFs of NtQueryBootEntryOrder @ 0x14083D940
  * Callers:
  *     <none>
  * Callees:
  *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
  *     IoGetEnvironmentVariableEx @ 0x1406876A0 (IoGetEnvironmentVariableEx.c)
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a2)
+NTSTATUS __cdecl NtQueryBootEntryOrder(PULONG Ids, PULONG Count)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v5; // rcx
-  unsigned int v6; // eax
-  __int64 result; // rax
+  ULONG v6; // eax
+  NTSTATUS result; // eax
   struct _KTHREAD *v8; // rax
-  int EnvironmentVariable; // ebx
+  NTSTATUS EnvironmentVariable; // ebx
   unsigned int v10; // r8d
   __int64 v11; // rdx
   unsigned __int16 *v12; // r9
@@ -29,40 +29,40 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
   __int64 v15; // [rsp+38h] [rbp-30h] BYREF
   PVOID P; // [rsp+40h] [rbp-28h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-10h]
-  unsigned int v18; // [rsp+88h] [rbp+20h] BYREF
+  ULONG v18; // [rsp+88h] [rbp+20h] BYREF
 
   v15 = 0LL;
   v18 = 0;
   P = 0LL;
-  if ( dword_140C31B10 != 2 )
-    return 3221225474LL;
+  if ( dword_140C31AB0 != 2 )
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)Count < 0x7FFFFFFF0000LL )
+      v5 = (__int64)Count;
     *(_DWORD *)v5 = *(_DWORD *)v5;
-    v6 = 4 * *a2;
+    v6 = 4 * *Count;
     v18 = v6;
-    if ( !Address )
+    if ( !Ids )
     {
       v18 = 0;
       v6 = 0;
     }
     if ( v6 )
-      ProbeForWrite(Address, v6, 4u);
+      ProbeForWrite(Ids, v6, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v18 = Address != 0LL ? 4 * *a2 : 0;
+    v18 = Ids != 0LL ? 4 * *Count : 0;
   }
   if ( !v18
-    || (result = ExLockUserBuffer((unsigned __int64)Address, v18, PreviousMode, IoWriteAccess, &v15, (struct _MDL **)&P),
-        (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Ids, v18, PreviousMode, IoWriteAccess, &v15, (struct _MDL **)&P),
+        result >= 0) )
   {
     v18 >>= 1;
     v8 = KeGetCurrentThread();
@@ -99,8 +99,8 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
       ExUnlockUserBuffer((struct _MDL *)P);
       v14 = v18;
     }
-    *a2 = v14 >> 2;
-    return (unsigned int)EnvironmentVariable;
+    *Count = v14 >> 2;
+    return EnvironmentVariable;
   }
   return result;
 }

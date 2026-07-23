@@ -1,34 +1,34 @@
 /*
- * XREFs of SepRmCommandServerThread @ 0x14056B50C
+ * XREFs of SepRmCommandServerThread @ 0x14056BA4C
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     PsDetachSiloFromCurrentThread @ 0x140009D20 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140009D40 (PsAttachSiloToCurrentThread.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwReplyWaitReceivePort @ 0x140159DE0 (ZwReplyWaitReceivePort.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     SepAdtInitLsaDeadEventForNonPagedList @ 0x14021941C (SepAdtInitLsaDeadEventForNonPagedList.c)
- *     SepRmLsaConnectRequest @ 0x14056B9C0 (SepRmLsaConnectRequest.c)
- *     PoRequestShutdownEvent @ 0x14056BC44 (PoRequestShutdownEvent.c)
- *     SepRmCleanupRmLsaState @ 0x14068CAAC (SepRmCleanupRmLsaState.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1400098A0 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x1400098C0 (PsAttachSiloToCurrentThread.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwReplyWaitReceivePort @ 0x14015A350 (ZwReplyWaitReceivePort.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     SepAdtInitLsaDeadEventForNonPagedList @ 0x140219248 (SepAdtInitLsaDeadEventForNonPagedList.c)
+ *     SepRmLsaConnectRequest @ 0x14056BF00 (SepRmLsaConnectRequest.c)
+ *     PoRequestShutdownEvent @ 0x14056C184 (PoRequestShutdownEvent.c)
+ *     SepRmCleanupRmLsaState @ 0x14068CB90 (SepRmCleanupRmLsaState.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
 {
   NTSTATUS v1; // ebx
-  struct _PORT_MESSAGE *v2; // rdi
+  _PORT_MESSAGE *v2; // rdi
   NTSTATUS v3; // eax
   void *v4; // rbx
   __int16 v5; // ax
@@ -50,7 +50,7 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
   struct _KEVENT Event; // [rsp+40h] [rbp-C8h] BYREF
   struct _KEVENT Object; // [rsp+58h] [rbp-B0h] BYREF
   struct _KEVENT v23; // [rsp+70h] [rbp-98h] BYREF
-  struct _PORT_MESSAGE ReceiveMessage; // [rsp+88h] [rbp-80h] BYREF
+  _PORT_MESSAGE ReceiveMessage; // [rsp+88h] [rbp-80h] BYREF
   int v25; // [rsp+B0h] [rbp-58h]
   _DWORD v26[2]; // [rsp+288h] [rbp+180h] BYREF
   $7CBBF446B42CD89E9CE13B91FE0381B0 v27; // [rsp+290h] [rbp+188h]
@@ -101,9 +101,9 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
           if ( (unsigned int)(v25 - 1) <= 0xA )
           {
             v6 = PsAttachSiloToCurrentThread((__int64)v4);
-            ((void (__fastcall *)(struct _PORT_MESSAGE *, _DWORD *))SepRmCommandDispatch[v25])(&ReceiveMessage, v26);
+            ((void (__fastcall *)(_PORT_MESSAGE *, _DWORD *))SepRmCommandDispatch[v25])(&ReceiveMessage, v26);
             PsDetachSiloFromCurrentThread(v6);
-            v2 = (struct _PORT_MESSAGE *)v26;
+            v2 = (_PORT_MESSAGE *)v26;
             MessageId = ReceiveMessage.MessageId;
             v27 = ReceiveMessage.8;
           }
@@ -121,19 +121,19 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
         KeInitializeEvent(&Object, NotificationEvent, 0);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        ExAcquireResourceExclusiveLite(&stru_140329840, 1u);
-        qword_1403298E0 = (__int64)&Event;
+        ExAcquireResourceExclusiveLite(&stru_140329870, 1u);
+        qword_140329910 = (__int64)&Event;
         v8 = SepLsaAuditQueueInfo != (_QWORD)&SepLsaAuditQueueInfo;
-        ExReleaseResourceLite(&stru_140329840);
+        ExReleaseResourceLite(&stru_140329870);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v9, v10, v11);
         inited = SepAdtInitLsaDeadEventForNonPagedList((__int64)&Object);
         v13 = KeGetCurrentThread();
         v14 = inited;
         --v13->KernelApcDisable;
-        ExAcquireResourceExclusiveLite(&stru_140329710, 1u);
-        qword_1403297B0 = (__int64)&v23;
+        ExAcquireResourceExclusiveLite(&stru_140329760, 1u);
+        qword_140329800 = (__int64)&v23;
         v15 = SepLsaDeletedLogonQueueInfo != (_QWORD)&SepLsaDeletedLogonQueueInfo;
-        ExReleaseResourceLite(&stru_140329710);
+        ExReleaseResourceLite(&stru_140329760);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v16, v17, v18);
         if ( v8 )
           KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);

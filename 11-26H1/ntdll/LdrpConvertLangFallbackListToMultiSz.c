@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpConvertLangFallbackListToMultiSz @ 0x180039EC0
+ * XREFs of LdrpConvertLangFallbackListToMultiSz @ 0x180024430
  * Callers:
- *     RtlGetSystemPreferredUILanguages @ 0x180002AF0 (RtlGetSystemPreferredUILanguages.c)
- *     RtlGetProcessPreferredUILanguages @ 0x180038890 (RtlGetProcessPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x180038AA0 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x180022E00 (RtlGetProcessPreferredUILanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180023010 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18004E220 (RtlGetSystemPreferredUILanguages.c)
  * Callees:
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x180005BA0 (RtlLCIDToCultureName.c)
- *     RtlpLangNameInMultiSzString_Size @ 0x18003AA20 (RtlpLangNameInMultiSzString_Size.c)
- *     RtlIntegerToUnicode @ 0x18003D010 (RtlIntegerToUnicode.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x180024F90 (RtlpLangNameInMultiSzString_Size.c)
+ *     RtlIntegerToUnicode @ 0x180027580 (RtlIntegerToUnicode.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x1800512D0 (RtlLCIDToCultureName.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall LdrpConvertLangFallbackListToMultiSz(
@@ -30,7 +30,7 @@ __int64 __fastcall LdrpConvertLangFallbackListToMultiSz(
   char v9; // r8
   __int64 v10; // r10
   _DWORD *v11; // rdx
-  unsigned int v13; // r14d
+  DWORD v13; // r14d
   unsigned int v14; // ecx
   unsigned __int16 v15; // di
   int v16; // r15d
@@ -39,21 +39,21 @@ __int64 __fastcall LdrpConvertLangFallbackListToMultiSz(
   __int128 *v19; // rbx
   unsigned __int16 *v20; // r8
   int v21; // ecx
-  unsigned int v22; // ebx
+  DWORD v22; // ebx
   int v23; // r12d
   size_t v24; // rdx
-  unsigned int v25; // ebx
+  DWORD v25; // ebx
   __int64 v26; // r14
   __int64 result; // rax
   int v28; // ecx
   __int64 v29; // rax
-  unsigned int v30; // ecx
+  LCID v30; // ecx
   __int64 v31; // r8
   __int64 v32; // rdx
   __int64 v33; // rax
-  void *v34; // rcx
+  wchar_t *v34; // rcx
   size_t v35; // rax
-  unsigned int v36; // ebx
+  DWORD v36; // ebx
   __int64 v37; // rax
   __int64 v38; // r9
   __int64 v39; // r8
@@ -63,16 +63,16 @@ __int64 __fastcall LdrpConvertLangFallbackListToMultiSz(
   __int64 v43; // xmm0_8
   int v44; // eax
   __int64 v45; // rax
-  void *v46; // rcx
+  wchar_t *v46; // rcx
   size_t v47; // rax
   char v48; // [rsp+20h] [rbp-81h]
-  unsigned int v49; // [rsp+24h] [rbp-7Dh]
-  void *Src[2]; // [rsp+38h] [rbp-69h] BYREF
-  size_t v53; // [rsp+48h] [rbp-59h] BYREF
+  DWORD v49; // [rsp+24h] [rbp-7Dh]
+  _UNICODE_STRING v52; // [rsp+38h] [rbp-69h] BYREF
+  DWORD Lcid[2]; // [rsp+48h] [rbp-59h] BYREF
   __int128 v54; // [rsp+50h] [rbp-51h] BYREF
   __int64 v55; // [rsp+60h] [rbp-41h]
   int v56; // [rsp+68h] [rbp-39h]
-  void *Heap_0; // [rsp+70h] [rbp-31h]
+  PVOID BaseAddress; // [rsp+70h] [rbp-31h]
   unsigned int *v58; // [rsp+78h] [rbp-29h]
   __int64 v59; // [rsp+80h] [rbp-21h]
   wchar_t String[4]; // [rsp+88h] [rbp-19h] BYREF
@@ -173,10 +173,10 @@ LABEL_10:
             v19 = (__int128 *)(*(_QWORD *)(*(_QWORD *)(v10 + 24) + 16LL) + 28LL * (__int16)v20[2]);
           }
 LABEL_11:
-          *(_OWORD *)Src = 0LL;
+          v52 = 0LL;
           if ( v18 )
           {
-            LODWORD(v53) = 0;
+            Lcid[0] = 0;
             *(_QWORD *)String = 0LL;
             v61 = 0;
             if ( v19 )
@@ -192,44 +192,44 @@ LABEL_11:
                 v23 = -1073741595;
                 goto LABEL_28;
               }
-              v46 = (void *)(*(_QWORD *)(*(_QWORD *)(v10 + 32) + 24LL)
-                           + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(v10 + 32) + 16LL) + 2 * v45));
-              Src[1] = v46;
+              v46 = (wchar_t *)(*(_QWORD *)(*(_QWORD *)(v10 + 32) + 24LL)
+                              + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(v10 + 32) + 16LL) + 2 * v45));
+              v52.Buffer = v46;
               if ( v46 )
               {
-                v47 = 2 * wcslen((const wchar_t *)v46);
+                v47 = 2 * wcslen(v46);
                 if ( v47 >= 0xFFFE )
                   LOWORD(v47) = -4;
-                LOWORD(Src[0]) = v47;
-                WORD1(Src[0]) = v47 + 2;
+                v52.Length = v47;
+                v52.MaximumLength = v47 + 2;
               }
-              if ( RtlCultureNameToLCID((unsigned __int16 *)Src, (int *)&v53) )
+              if ( RtlCultureNameToLCID(&v52, Lcid) )
               {
-                v22 = v53;
+                v22 = Lcid[0];
 LABEL_15:
                 v23 = RtlIntegerToUnicode(v22, 16LL, 4294967292LL, String);
                 if ( v23 >= 0 )
                 {
-                  Src[0] = 0LL;
-                  Src[1] = String;
+                  *(_QWORD *)&v52.Length = 0LL;
+                  v52.Buffer = String;
                   v24 = 2 * wcslen(String);
                   if ( v24 >= 0xFFFE )
                     v24 = 65532LL;
-                  v53 = v24;
-                  WORD1(Src[0]) = v24 + 2;
+                  *(_QWORD *)Lcid = v24;
+                  v52.MaximumLength = v24 + 2;
                   if ( v22 == 4096 || !v13 || v13 > v49 )
                   {
 LABEL_23:
                     v8 = a3;
-                    LODWORD(v53) = v13 + ((unsigned __int16)v24 >> 1);
-                    v25 = v53 + 1;
+                    Lcid[0] = v13 + ((unsigned __int16)v24 >> 1);
+                    v25 = Lcid[0] + 1;
                     if ( a3 && v13 < v25 )
                     {
                       if ( v25 < v49 )
                       {
                         memmove(&a3[v13], String, (unsigned __int16)v24);
                         v8 = a3;
-                        a3[(unsigned int)v53] = 0;
+                        a3[Lcid[0]] = 0;
 LABEL_27:
                         v10 = a2;
                         v13 = v25;
@@ -255,7 +255,7 @@ LABEL_30:
                   }
                   if ( !(unsigned __int8)RtlpLangNameInMultiSzString_Size(a3, String) )
                   {
-                    LOWORD(v24) = v53;
+                    LOWORD(v24) = Lcid[0];
                     goto LABEL_23;
                   }
 LABEL_75:
@@ -278,8 +278,8 @@ LABEL_77:
           v23 = 0;
           if ( !v19 )
             goto LABEL_77;
-          Heap_0 = (void *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8LL, 170LL);
-          if ( !Heap_0 )
+          BaseAddress = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+          if ( !BaseAddress )
           {
             v23 = -1073741801;
             goto LABEL_75;
@@ -290,41 +290,41 @@ LABEL_77:
             v31 = *(_QWORD *)(a2 + 32);
             v32 = *(__int16 *)(*(_QWORD *)(v31 + 16) + 2 * v29);
             v33 = *(_QWORD *)(v31 + 24);
-            Src[0] = 0LL;
-            v34 = (void *)(v33 + 2 * v32);
-            Src[1] = v34;
+            *(_QWORD *)&v52.Length = 0LL;
+            v34 = (wchar_t *)(v33 + 2 * v32);
+            v52.Buffer = v34;
             if ( v34 )
             {
-              v35 = 2 * wcslen((const wchar_t *)v34);
+              v35 = 2 * wcslen(v34);
               if ( v35 >= 0xFFFE )
                 LOWORD(v35) = -4;
-              LOWORD(Src[0]) = v35;
-              WORD1(Src[0]) = v35 + 2;
+              v52.Length = v35;
+              v52.MaximumLength = v35 + 2;
             }
           }
           else
           {
-            Src[1] = Heap_0;
+            v52.Buffer = (wchar_t *)BaseAddress;
             v30 = *((unsigned __int16 *)v19 + 2);
-            LODWORD(Src[0]) = 11141120;
-            if ( !(unsigned __int8)RtlLCIDToCultureName(v30, (__int64)Src) )
+            *(_DWORD *)&v52.Length = 11141120;
+            if ( !RtlLCIDToCultureName(v30, &v52) )
             {
               v23 = -1073741595;
 LABEL_62:
-              RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, Heap_0);
+              RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
               goto LABEL_63;
             }
           }
-          if ( v13 && v13 <= v49 && (unsigned __int8)RtlpLangNameInMultiSzString_Size(a3, (wchar_t *)Src[1]) )
+          if ( v13 && v13 <= v49 && (unsigned __int8)RtlpLangNameInMultiSzString_Size(a3, v52.Buffer) )
             goto LABEL_62;
-          LODWORD(v53) = v13 + (LOWORD(Src[0]) >> 1);
-          v36 = v53 + 1;
+          Lcid[0] = v13 + (v52.Length >> 1);
+          v36 = Lcid[0] + 1;
           if ( a3 && v13 < v36 )
           {
             if ( v36 < v49 )
             {
-              memmove(&a3[v13], Src[1], LOWORD(Src[0]));
-              a3[(unsigned int)v53] = 0;
+              memmove(&a3[v13], v52.Buffer, v52.Length);
+              a3[Lcid[0]] = 0;
               goto LABEL_61;
             }
           }

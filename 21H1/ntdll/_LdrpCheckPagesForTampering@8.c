@@ -12,32 +12,35 @@ char __fastcall LdrpCheckPagesForTampering(int a1, int a2)
 {
   char v2; // bl
   unsigned int v3; // esi
-  int Heap; // edi
+  _DWORD *Heap; // edi
   unsigned int v5; // eax
   unsigned int v6; // ecx
   unsigned int v7; // eax
   _DWORD *v8; // ecx
-  unsigned int v10; // [esp+Ch] [ebp-4h]
+  SIZE_T v10; // [esp-4h] [ebp-14h]
+  ULONG_PTR *v11; // [esp+0h] [ebp-10h]
+  unsigned int v12; // [esp+Ch] [ebp-4h]
 
-  v10 = a1 & 0xFFFFF000;
+  v12 = a1 & 0xFFFFF000;
   v2 = 0;
   v3 = ((a1 & 0xFFFu) + a2 + 4095) >> 12;
-  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8 * v3);
+  LODWORD(v10) = 8 * v3;
+  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, v10);
   if ( Heap )
   {
     v5 = 0;
     if ( v3 )
     {
-      v6 = v10;
+      v6 = v12;
       do
       {
-        *(_DWORD *)(Heap + 8 * v5) = v6;
+        Heap[2 * v5] = v6;
         v6 += 4096;
         ++v5;
       }
       while ( v5 < v3 );
     }
-    if ( NtQueryVirtualMemory(-1, 0, 4, Heap, 8 * v3, 0) >= 0 )
+    if ( NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, 0, MemoryWorkingSetExInformation, Heap, 8 * v3, v11) >= 0 )
     {
       v7 = 0;
       if ( !v3 )
@@ -46,7 +49,7 @@ LABEL_13:
         RtlFreeHeap(LdrpHeap, 0, Heap);
         return v2;
       }
-      v8 = (_DWORD *)(Heap + 4);
+      v8 = Heap + 1;
       while ( (*v8 & 0x40000000) != 0 )
       {
         ++v7;

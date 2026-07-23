@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditHandleCreation @ 0x1408F0F70
+ * XREFs of SeAuditHandleCreation @ 0x140862770
  * Callers:
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsGetCurrentThreadProcessId @ 0x1404296F0 (PsGetCurrentThreadProcessId.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1406A6B90 (ZwDuplicateObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x140850540 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1408F1214 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1408F1920 (SepAdtStagingEvent.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x1408F1A40 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsGetCurrentThreadProcessId @ 0x14041D840 (PsGetCurrentThreadProcessId.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1406A7B30 (ZwDuplicateObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14084C800 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x140862A14 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140863120 (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140863240 (SepAdtClassifyObjectIntoSubCategory.c)
  */
 
 void __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)

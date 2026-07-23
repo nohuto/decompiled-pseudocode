@@ -1,34 +1,38 @@
 /*
- * XREFs of IopIsNotNativeDriverImage @ 0x1407125F4
+ * XREFs of IopIsNotNativeDriverImage @ 0x140710184
  * Callers:
- *     IopCheckIfNotNativeDriver @ 0x140711C94 (IopCheckIfNotNativeDriver.c)
+ *     IopCheckIfNotNativeDriver @ 0x14070F824 (IopCheckIfNotNativeDriver.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1406A6910 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1406A6950 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1406A6D50 (ZwCreateSection.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1406A78B0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1406A78F0 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1406A7CF0 (ZwCreateSection.c)
  */
 
 bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
 {
   bool v1; // bl
-  unsigned __int64 v3; // rax
+  __int64 v3; // r8
+  __int64 v4; // r9
+  PIMAGE_NT_HEADERS v5; // rax
+  __int64 v6; // r8
+  __int64 v7; // r9
   HANDLE FileHandle; // [rsp+58h] [rbp-A0h] BYREF
   HANDLE SectionHandle; // [rsp+60h] [rbp-98h] BYREF
   PVOID BaseAddress; // [rsp+68h] [rbp-90h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-88h] BYREF
   ULONG_PTR ViewSize; // [rsp+A0h] [rbp-58h] BYREF
-  struct _IO_STATUS_BLOCK v9; // [rsp+A8h] [rbp-50h] BYREF
+  struct _IO_STATUS_BLOCK v13; // [rsp+A8h] [rbp-50h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+B8h] [rbp-40h] BYREF
 
   v1 = 0;
   FileHandle = 0LL;
-  v9 = 0LL;
+  v13 = 0LL;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   SectionHandle = 0LL;
@@ -36,7 +40,7 @@ bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = a1;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( ZwOpenFile(&FileHandle, 0x20u, &ObjectAttributes, &v9, 5u, 0) < 0 )
+  if ( ZwOpenFile(&FileHandle, 0x20u, &ObjectAttributes, &v13, 5u, 0) < 0 )
     return 0;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -64,15 +68,15 @@ LABEL_4:
          0,
          2u) < 0 )
   {
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v3, v4);
     ZwClose(SectionHandle);
     goto LABEL_4;
   }
-  v3 = RtlImageNtHeader((unsigned __int64)BaseAddress);
-  if ( v3 )
-    v1 = *(_WORD *)(v3 + 4) != 0x8664;
+  v5 = RtlImageNtHeader(BaseAddress);
+  if ( v5 )
+    v1 = v5->FileHeader.Machine != 0x8664;
   ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-  KiUnstackDetachProcess((__int64)&ApcState, 0);
+  KiUnstackDetachProcess((__int64)&ApcState, 0, v6, v7);
   ZwClose(SectionHandle);
   ZwClose(FileHandle);
   return v1;

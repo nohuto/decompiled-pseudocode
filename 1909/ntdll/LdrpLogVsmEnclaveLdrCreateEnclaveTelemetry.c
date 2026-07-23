@@ -16,7 +16,7 @@ char __fastcall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(__int64 a1, int a2)
   LPCGUID v5; // r8
   int v7; // [rsp+30h] [rbp-19h] BYREF
   GUID pRelatedActivityId; // [rsp+38h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+60h] [rbp+17h] BYREF
+  _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+60h] [rbp+17h] BYREF
   GUID *p_pRelatedActivityId; // [rsp+70h] [rbp+27h]
   int v11; // [rsp+78h] [rbp+2Fh]
   int v12; // [rsp+7Ch] [rbp+33h]
@@ -27,11 +27,7 @@ char __fastcall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(__int64 a1, int a2)
   v2 = NtCurrentPeb();
   if ( v2->ProcessHeap )
   {
-    LOBYTE(v2) = RtlRunOnceExecuteOnce(
-                   &VsmEnclaveTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))VsmEnclaveTelemetryInitOnce,
-                   0LL,
-                   0LL);
+    LOBYTE(v2) = RtlRunOnceExecuteOnce(&VsmEnclaveTelemetryInitRunOnce, VsmEnclaveTelemetryInitOnce, 0LL, 0LL);
     if ( dword_18015F4C0 > 4u )
     {
       LOBYTE(v2) = TlgKeywordOn((TraceLoggingHProvider)&dword_18015F4C0, 0x400000000000uLL);

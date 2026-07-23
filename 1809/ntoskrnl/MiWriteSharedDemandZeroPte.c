@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWriteSharedDemandZeroPte @ 0x1402CAEA8
+ * XREFs of MiWriteSharedDemandZeroPte @ 0x1402CB098
  * Callers:
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiWriteSharedDemandZeroPte(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, _QWORD *a5)
@@ -42,7 +42,7 @@ char __fastcall MiWriteSharedDemandZeroPte(__int64 a1, __int64 a2, __int64 a3, _
     if ( (unsigned int)MiPteHasShadow() )
     {
       v12 = v13;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_7:
         if ( ((unsigned __int8)v11 & (unsigned __int8)v13) != 0 )
@@ -62,7 +62,7 @@ LABEL_7:
   *(_QWORD *)(v7 + 16) = v13 | v14;
   v15 = *(unsigned __int16 *)(a1 + 1454);
   a5[1] += v13;
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_14043A748 + 8 * v15) + 7816LL), v13);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_14043B808 + 8 * v15) + 7816LL), v13);
 LABEL_13:
   MiSwizzleInvalidPte((v7 << 16) | 0x400);
   LODWORD(CurrentThread) = MiPteInShadowRange((unsigned __int64)a4);
@@ -72,7 +72,7 @@ LABEL_13:
   if ( (_DWORD)CurrentThread )
   {
     v18 = v13;
-    if ( HIBYTE(word_14043A1AC) )
+    if ( HIBYTE(word_14043B26C) )
       goto LABEL_20;
   }
   else

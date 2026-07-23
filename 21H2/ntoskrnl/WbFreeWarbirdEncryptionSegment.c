@@ -2,9 +2,9 @@
  * XREFs of WbFreeWarbirdEncryptionSegment @ 0x1405D7C18
  * Callers:
  *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
- *     WbFreeWarbirdProcess @ 0x140686B00 (WbFreeWarbirdProcess.c)
+ *     WbFreeWarbirdProcess @ 0x1405E5C60 (WbFreeWarbirdProcess.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbFreeWarbirdEncryptionSegment(_QWORD *P)

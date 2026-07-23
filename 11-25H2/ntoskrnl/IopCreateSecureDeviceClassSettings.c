@@ -17,10 +17,10 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall IopCreateSecureDeviceClassSettings(PGUID Guid, __int64 a2, _BYTE *a3)
 {
   WCHAR *v5; // rdi
-  int SecureDeviceClassState; // ebx
+  NTSTATUS SecureDeviceClassState; // ebx
   __int64 v9; // rcx
   __int64 v10; // r8
   int PersistedStateLocation; // eax
@@ -37,7 +37,7 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
   int v22; // [rsp+D0h] [rbp+7Fh] BYREF
 
   v22 = 0;
-  String2.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class";
+  String2.Buffer = (wchar_t *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class";
   *(_QWORD *)&String2.Length = 7471216LL;
   KeyHandle = 0LL;
   v16 = 0LL;
@@ -47,7 +47,7 @@ __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 
   String1 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  SecureDeviceClassState = RtlStringFromGUIDEx(a1, (__int64)&DestinationString, 1);
+  SecureDeviceClassState = RtlStringFromGUIDEx(Guid, &DestinationString, 1u);
   if ( SecureDeviceClassState < 0 )
     goto LABEL_2;
   SecureDeviceClassState = IopOpenRegistryKeyEx(&v16, 0LL, &String2, 983103LL);

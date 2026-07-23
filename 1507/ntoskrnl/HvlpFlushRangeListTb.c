@@ -36,7 +36,7 @@ int __fastcall HvlpFlushRangeListTb(__int64 a1, __int64 a2, char a3, char a4, un
   __int64 Next; // rbx
   struct _KPRCB *CurrentPrcb; // rbx
   PSLIST_ENTRY v26; // rax
-  struct _SLIST_ENTRY *v27; // r15
+  _SLIST_ENTRY *v27; // r15
   PHYSICAL_ADDRESS PhysicalAddress; // rax
   __int64 v29; // r8
   unsigned __int64 v30; // rax
@@ -48,8 +48,8 @@ int __fastcall HvlpFlushRangeListTb(__int64 a1, __int64 a2, char a3, char a4, un
   __int64 v37; // [rsp+30h] [rbp-118h]
   __int128 v38; // [rsp+38h] [rbp-110h]
   unsigned __int64 v39; // [rsp+48h] [rbp-100h]
-  union _SLIST_HEADER *v40; // [rsp+58h] [rbp-F0h]
-  struct _SLIST_ENTRY *v41; // [rsp+60h] [rbp-E8h]
+  _SLIST_HEADER *v40; // [rsp+58h] [rbp-F0h]
+  _SLIST_ENTRY *v41; // [rsp+60h] [rbp-E8h]
   __int128 v42; // [rsp+70h] [rbp-D8h] BYREF
   unsigned __int64 v43; // [rsp+80h] [rbp-C8h]
   _BYTE v44[88]; // [rsp+88h] [rbp-C0h] BYREF
@@ -130,7 +130,7 @@ int __fastcall HvlpFlushRangeListTb(__int64 a1, __int64 a2, char a3, char a4, un
     {
       a4 = v35;
       v7 = 1;
-      v40 = (union _SLIST_HEADER *)CurrentPrcb;
+      v40 = (_SLIST_HEADER *)CurrentPrcb;
       v27 = v26;
       Next = (__int64)v26[1].Next;
       v21 = BYTE4(v40);

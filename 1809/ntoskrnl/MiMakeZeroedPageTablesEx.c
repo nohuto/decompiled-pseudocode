@@ -2,12 +2,12 @@
  * XREFs of MiMakeZeroedPageTablesEx @ 0x140028584
  * Callers:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiExpandSystemCache @ 0x1400F61CC (MiExpandSystemCache.c)
- *     MiExpandPtes @ 0x1400F6414 (MiExpandPtes.c)
- *     MiMapBBTMemory @ 0x1409BA008 (MiMapBBTMemory.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
- *     MiCreateTopLevelUltraMappings @ 0x1409D9BC0 (MiCreateTopLevelUltraMappings.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
+ *     MiExpandSystemCache @ 0x1400F624C (MiExpandSystemCache.c)
+ *     MiExpandPtes @ 0x1400F6494 (MiExpandPtes.c)
+ *     MiMapBBTMemory @ 0x1409BB008 (MiMapBBTMemory.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
+ *     MiCreateTopLevelUltraMappings @ 0x1409DABC0 (MiCreateTopLevelUltraMappings.c)
  * Callees:
  *     MiDeleteSystemPageTables @ 0x140027FD4 (MiDeleteSystemPageTables.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -15,12 +15,12 @@
  *     MiInitializeColorBaseEx @ 0x140028994 (MiInitializeColorBaseEx.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGetLargePagesForSystemMapping @ 0x140851F70 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408531D0 (MiGetLargePagesForSystemMapping.c)
  */
 
 __int64 __fastcall MiMakeZeroedPageTablesEx(__int64 a1, __int64 a2, unsigned int a3, signed int a4)
@@ -138,7 +138,7 @@ LABEL_33:
   v10 = v15;
   AnyMultiplexedVm = &KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
 LABEL_17:
-  v20 = *(_QWORD *)(qword_14043A748 + 8LL * AnyMultiplexedVm[87]);
+  v20 = *(_QWORD *)(qword_14043B808 + 8LL * AnyMultiplexedVm[87]);
   v21 = -1LL;
   LODWORD(v30[7]) = v9;
   v30[3] = v20;

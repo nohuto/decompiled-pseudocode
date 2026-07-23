@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpSetupAcpiPhase0 @ 0x140CB3904
+ * XREFs of HalpSetupAcpiPhase0 @ 0x140CB9944
  * Callers:
- *     HalpAcpiInitDiscard @ 0x140CAF318 (HalpAcpiInitDiscard.c)
+ *     HalpAcpiInitDiscard @ 0x140CB5358 (HalpAcpiInitDiscard.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HalReadBootRegister @ 0x140BEF168 (HalReadBootRegister.c)
- *     HalWriteBootRegister @ 0x140BEF1AC (HalWriteBootRegister.c)
- *     HalpNumaInitializeHmaConfiguration @ 0x140CB1974 (HalpNumaInitializeHmaConfiguration.c)
- *     HalpNumaInitializeStaticConfiguration @ 0x140CB19FC (HalpNumaInitializeStaticConfiguration.c)
- *     HalpAcpiInitializePmRegisters @ 0x140CB346C (HalpAcpiInitializePmRegisters.c)
- *     HalpSetPlatformFlags @ 0x140CB387C (HalpSetPlatformFlags.c)
- *     HalpAcpiDetectMachineSpecificActions @ 0x140CB517C (HalpAcpiDetectMachineSpecificActions.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
- *     HalpAcpiTableCacheInit @ 0x140D0A55C (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HalReadBootRegister @ 0x140BF5168 (HalReadBootRegister.c)
+ *     HalWriteBootRegister @ 0x140BF51AC (HalWriteBootRegister.c)
+ *     HalpNumaInitializeHmaConfiguration @ 0x140CB79B4 (HalpNumaInitializeHmaConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140CB7A3C (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpAcpiInitializePmRegisters @ 0x140CB94AC (HalpAcpiInitializePmRegisters.c)
+ *     HalpSetPlatformFlags @ 0x140CB98BC (HalpSetPlatformFlags.c)
+ *     HalpAcpiDetectMachineSpecificActions @ 0x140CBB1BC (HalpAcpiDetectMachineSpecificActions.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
+ *     HalpAcpiTableCacheInit @ 0x140D1082C (HalpAcpiTableCacheInit.c)
  */
 
 __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
   __int64 v13; // rax
   __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( !HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[17] )
+  if ( !BYTE2(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) )
   {
     result = HalpAcpiTableCacheInit();
     if ( (int)result < 0 )
@@ -46,12 +46,12 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
     v5 = 276LL;
     if ( v4 < 0x114 )
       v5 = v4;
-    memmove(&HalpDeviceBlockUnblockPushLock.Process, Table, v5);
+    memmove(&HalpDeviceBlockUnblockPushLock.512, Table, v5);
     HalpSetPlatformFlags(v6, a1);
     HalpAcpiInitializePmRegisters(v7);
-    if ( (*(_DWORD *)&HalpDeviceBlockUnblockPushLock.SchedulerApcFill5[8] & 0x40000) != 0 )
+    if ( (*(_DWORD *)&HalpDeviceBlockUnblockPushLock.SavedApcStateFill[24] & 0x40000) != 0 )
       HalpInterruptClusterModeForced = 1;
-    if ( (*(_DWORD *)&HalpDeviceBlockUnblockPushLock.SchedulerApcFill5[8] & 0x80000) != 0 )
+    if ( (*(_DWORD *)&HalpDeviceBlockUnblockPushLock.SavedApcStateFill[24] & 0x80000) != 0 )
       HalpInterruptPhysicalModeOnly = 1;
     HalpAcpiDetectMachineSpecificActions(a1);
     HalpNumaInitializeStaticConfiguration(a1);
@@ -64,23 +64,23 @@ __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
       v10 = *(unsigned __int8 *)(v8 + 36);
       if ( *(unsigned int *)(v9 + 4) >= (unsigned __int64)*(unsigned int *)(v9 + 40) + 2 * v10 )
       {
-        qword_140E10C08 = HalpMmAllocateMemoryInternal(136 * (int)v10, 1u);
-        if ( qword_140E10C08 )
+        qword_140E10D38 = HalpMmAllocateMemoryInternal(136 * (int)v10, 1u);
+        if ( qword_140E10D38 )
           PdttTable = v9;
       }
     }
     v11 = HalpAcpiGetTable(a1, 1413824855, 0, 0);
     if ( v11 )
-      LODWORD(HalpDeviceBlockUnblockPushLock.SchedulerAssist) = *(_DWORD *)(v11 + 36);
-    if ( !*(_QWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts && !HalpPrebootMode )
+      HIDWORD(HalpDeviceBlockUnblockPushLock.WriteTransferCount) = *(_DWORD *)(v11 + 36);
+    if ( !*(_QWORD *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount && !HalpPrebootMode )
     {
       v14 = 0x100000LL;
       v12 = HalpAllocPhysicalMemoryEx(a1, (unsigned int)&v14, 1, 0, 0LL);
-      *(_QWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts = v12;
+      *(_QWORD *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount = v12;
       if ( v12 )
-        *(_QWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8] = HalpMap(v12, 1LL, 1u, 0, 4u, 0LL);
+        HalpDeviceBlockUnblockPushLock.SchedulerSharedSystemSlot = (void *)HalpMap(v12, 1LL, 1u, 0, 4u, 0LL);
     }
-    HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[17] = 1;
+    BYTE2(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) = 1;
     qword_140E006E8 = (__int64)HalpAcpiGetPrmCache;
     LOBYTE(v14) = 0;
     qword_140E006F0 = (__int64)HalpAcpiInvokePrmFwHandler;

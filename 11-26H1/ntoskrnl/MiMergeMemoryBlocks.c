@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMergeMemoryBlocks @ 0x140866874
+ * XREFs of MiMergeMemoryBlocks @ 0x14086CC54
  * Callers:
- *     MiPerformMemoryChange @ 0x1406E9974 (MiPerformMemoryChange.c)
+ *     MiPerformMemoryChange @ 0x1406EE614 (MiPerformMemoryChange.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall MiMergeMemoryBlocks(_QWORD *a1, __int64 a2, __int64 **a3, int a4, int a5)

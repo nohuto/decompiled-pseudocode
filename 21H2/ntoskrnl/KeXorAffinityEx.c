@@ -1,10 +1,10 @@
 /*
- * XREFs of KeXorAffinityEx @ 0x1405136F8
+ * XREFs of KeXorAffinityEx @ 0x140513938
  * Callers:
- *     PpmParkReportParkedCores @ 0x1402AAAE0 (PpmParkReportParkedCores.c)
- *     PpmParkComputeDiff @ 0x14057D004 (PpmParkComputeDiff.c)
+ *     PpmParkReportParkedCores @ 0x140228C20 (PpmParkReportParkedCores.c)
+ *     PpmParkComputeDiff @ 0x14057D244 (PpmParkComputeDiff.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeXorAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, unsigned __int16 *a3)

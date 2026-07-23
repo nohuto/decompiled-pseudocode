@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpHeapLock @ 0x18001E6B8
+ * XREFs of RtlpHpHeapLock @ 0x18001E6A8
  * Callers:
- *     RtlLockHeap @ 0x180019AC0 (RtlLockHeap.c)
- *     RtlLockHeapManagerForCloning @ 0x1800E9040 (RtlLockHeapManagerForCloning.c)
+ *     RtlLockHeap @ 0x180019AB0 (RtlLockHeap.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800E9100 (RtlLockHeapManagerForCloning.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
 struct _TEB *__fastcall RtlpHpHeapLock(__int64 a1)
@@ -21,15 +21,15 @@ struct _TEB *__fastcall RtlpHpHeapLock(__int64 a1)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(a1 + 336);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 336));
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive(a1 + 176);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 176));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
         {
-          RtlAcquireSRWLockExclusive(a1 + 88);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 88));
           if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-            RtlAcquireSRWLockExclusive(a1 + 48);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 48));
         }
       }
       result = NtCurrentTeb();

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlDowncaseUnicodeChar @ 0x1409E5840
+ * XREFs of VerifierRtlDowncaseUnicodeChar @ 0x1409E6840
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierRtlDowncaseUnicodeChar()

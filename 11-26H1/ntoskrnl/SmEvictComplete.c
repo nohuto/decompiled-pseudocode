@@ -1,13 +1,13 @@
 /*
- * XREFs of SmEvictComplete @ 0x14046F594
+ * XREFs of SmEvictComplete @ 0x140468D14
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CDA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CE80 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
  */
 
 void __fastcall SmEvictComplete(__int64 a1, unsigned int *a2, unsigned int a3)
@@ -43,7 +43,7 @@ void __fastcall SmEvictComplete(__int64 a1, unsigned int *a2, unsigned int a3)
       if ( (v4 & 7) != 0 )
       {
         v10 = v12 + v5 - 8;
-        *v11++ &= byte_140032340[v12];
+        *v11++ &= byte_1400327C0[v12];
       }
       if ( v10 > 8 )
       {
@@ -54,11 +54,11 @@ void __fastcall SmEvictComplete(__int64 a1, unsigned int *a2, unsigned int a3)
       }
       v9 = v14;
       if ( v10 )
-        *v11 &= byte_140017F38[v10];
+        *v11 &= byte_140018470[v10];
     }
     else
     {
-      v13 = byte_140032340[v5] << v12;
+      v13 = byte_1400327C0[v5] << v12;
       v9 = v8;
       *v11 &= ~v13;
     }

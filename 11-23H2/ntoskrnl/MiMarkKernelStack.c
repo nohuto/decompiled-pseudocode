@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMarkKernelStack @ 0x1403761C0
+ * XREFs of MiMarkKernelStack @ 0x140376360
  * Callers:
  *     MiMarkBootKernelStack @ 0x140B45D4C (MiMarkBootKernelStack.c)
  * Callees:

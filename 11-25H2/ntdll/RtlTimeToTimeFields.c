@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int16 __fastcall RtlTimeToTimeFields(__int64 *a1, _OWORD *a2)
+void __cdecl RtlTimeToTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)
 {
-  return RtlpTimeToTimeFields(a1, a2, 0LL);
+  RtlpTimeToTimeFields((__int64 *)Time, TimeFields, 0LL);
 }

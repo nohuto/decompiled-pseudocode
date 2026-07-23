@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsNXSupported @ 0x14099BBF0
+ * XREFs of KiIsNXSupported @ 0x14099CBF0
  * Callers:
- *     KiInitializeNxSupportDiscard @ 0x140A3A9E4 (KiInitializeNxSupportDiscard.c)
+ *     KiInitializeNxSupportDiscard @ 0x140A3B9E4 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x14099CF68 (KiGetCpuVendor.c)
  */
 
 char KiIsNXSupported()

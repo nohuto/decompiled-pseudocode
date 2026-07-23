@@ -23,7 +23,7 @@ void __fastcall EtwpDisableCompression(__int64 a1)
   struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v6; // r14
-  __int64 v7; // r8
+  unsigned int v7; // r8d
   int v8; // eax
   __int64 v9; // rcx
   _KLOCK_ENTRY *v10; // rdi
@@ -54,7 +54,7 @@ void __fastcall EtwpDisableCompression(__int64 a1)
       SessionId = 0xFFFFFFFFLL;
     --CurrentThread->SpecialApcDisable;
     v6 = ++CurrentThread->AbAllocationRegionCount;
-    LODWORD(v7) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v7 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v11 = !_BitScanReverse((unsigned int *)&v12, v7);
@@ -64,7 +64,7 @@ void __fastcall EtwpDisableCompression(__int64 a1)
       v8 = 1 << v12;
       v9 = v12;
       v10 = &CurrentThread->LockEntries[v9];
-      v7 = ~v8 & (unsigned int)v7;
+      v7 &= ~v8;
       if ( (v10->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v10->LockState.0 & 1) == 0
         && (*(_QWORD *)&v10->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v2 & 0x7FFFFFFFFFFFFFFCLL)
@@ -84,7 +84,7 @@ LABEL_17:
     }
     v10->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v10->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v9], SessionId, v7);
+      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v9].TreeNode, SessionId);
     v16 = 0;
     v16 = v10->BoostBitmap.AllFields & 0x1FFFF;
     v10->BoostBitmap.AllFields &= 0xFFFE0000;

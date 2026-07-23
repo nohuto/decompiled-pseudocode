@@ -35,108 +35,112 @@ __int64 __fastcall LdrpSnapModule(__int64 a1)
   __int64 v6; // rbx
   __int64 v7; // rcx
   __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // r13
-  __int64 v11; // r15
-  unsigned __int64 v12; // r12
-  bool v13; // bl
-  unsigned __int64 v14; // rdi
-  int v15; // eax
-  __int16 v16; // ax
-  __int64 v17; // rdx
-  unsigned __int64 v18; // r10
-  unsigned int v19; // r9d
-  unsigned __int64 v20; // rcx
-  __int64 v21; // rax
-  _QWORD *v22; // r13
-  int v23; // esi
-  __int64 v24; // r15
-  unsigned __int64 v25; // rbx
-  unsigned __int16 *v26; // rax
-  const char *v27; // rdi
-  int v28; // r11d
-  int v29; // r10d
-  const char *v30; // rax
-  unsigned __int64 v31; // rdx
-  unsigned __int8 v32; // cl
-  int v33; // eax
-  unsigned int v34; // eax
-  __int64 v35; // rcx
-  unsigned __int64 *v36; // rdx
-  char *v37; // rdi
+  void *v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // r13
+  __int64 v12; // r15
+  unsigned __int64 v13; // r12
+  bool v14; // bl
+  void *v15; // rdi
+  NTSTATUS v16; // eax
+  unsigned __int16 Magic; // ax
+  __int64 VirtualAddress; // rdx
+  unsigned __int64 v19; // r10
+  unsigned int v20; // r9d
+  unsigned __int64 v21; // rcx
+  __int64 v22; // rax
+  _QWORD *v23; // r13
+  NTSTATUS v24; // esi
+  __int64 v25; // r15
+  unsigned __int64 v26; // rbx
+  unsigned __int16 *v27; // rax
+  const char *v28; // rdi
+  int v29; // r8d
+  int v30; // r11d
+  int v31; // r10d
+  const char *v32; // rax
+  unsigned __int64 v33; // rdx
+  unsigned __int8 v34; // cl
+  int v35; // eax
+  unsigned int v36; // eax
+  __int64 v37; // rcx
+  unsigned __int64 *v38; // rdx
+  char *v39; // rdi
   char *i; // r12
-  char *v39; // rax
-  __int16 v40; // bx
-  const char *v41; // r15
-  __int64 v42; // r13
-  unsigned __int64 v43; // r14
-  bool v44; // bl
-  unsigned __int64 v45; // rdi
-  char *v46; // rsi
-  int v47; // eax
-  __int16 v48; // ax
-  __int64 v49; // rdx
-  int v50; // r11d
-  int v51; // r10d
-  int v52; // r8d
-  const char *v53; // rax
-  signed __int64 v54; // rdx
-  unsigned __int8 v55; // cl
-  int v56; // eax
-  ULONG v57; // eax
-  unsigned __int64 v58; // rbx
-  int v59; // eax
-  __int64 v60; // rdx
-  ULONG v62; // ebx
-  __int64 v63; // rdi
-  unsigned __int16 *v64; // rdx
-  char v65; // al
-  unsigned __int64 v66; // [rsp+40h] [rbp-138h]
-  __int64 v67; // [rsp+48h] [rbp-130h]
-  int v68; // [rsp+50h] [rbp-128h] BYREF
-  unsigned int v69; // [rsp+54h] [rbp-124h]
-  __int64 v70; // [rsp+58h] [rbp-120h]
-  unsigned __int64 v71; // [rsp+60h] [rbp-118h] BYREF
-  unsigned __int64 v72; // [rsp+68h] [rbp-110h] BYREF
-  unsigned int v73; // [rsp+70h] [rbp-108h]
-  __int64 v74; // [rsp+78h] [rbp-100h] BYREF
-  _QWORD *v75; // [rsp+80h] [rbp-F8h]
-  __int64 v76; // [rsp+88h] [rbp-F0h] BYREF
-  char *v77; // [rsp+90h] [rbp-E8h] BYREF
-  __int64 v78; // [rsp+98h] [rbp-E0h] BYREF
-  __int64 v79; // [rsp+A0h] [rbp-D8h]
-  unsigned __int64 v80; // [rsp+A8h] [rbp-D0h]
-  unsigned __int16 *v81; // [rsp+B0h] [rbp-C8h]
-  unsigned __int64 *v82; // [rsp+B8h] [rbp-C0h]
-  unsigned __int64 v83; // [rsp+C0h] [rbp-B8h]
-  __int64 v84; // [rsp+C8h] [rbp-B0h]
-  unsigned __int64 v85; // [rsp+D0h] [rbp-A8h]
-  __int64 v86; // [rsp+D8h] [rbp-A0h]
-  unsigned __int64 v87; // [rsp+E0h] [rbp-98h]
-  char *v88; // [rsp+E8h] [rbp-90h]
-  STRING SourceString; // [rsp+F0h] [rbp-88h] BYREF
-  __int128 v90; // [rsp+100h] [rbp-78h] BYREF
-  __int64 v91; // [rsp+110h] [rbp-68h]
-  __int128 v92; // [rsp+118h] [rbp-60h] BYREF
-  __int64 v93; // [rsp+128h] [rbp-50h]
-  int v95; // [rsp+188h] [rbp+10h]
-  unsigned int v96; // [rsp+190h] [rbp+18h] BYREF
+  char *v41; // rax
+  __int16 v42; // bx
+  const char *v43; // r15
+  __int64 v44; // r13
+  unsigned __int64 v45; // r14
+  bool v46; // bl
+  char *v47; // rdi
+  char *v48; // rsi
+  NTSTATUS v49; // eax
+  unsigned __int16 v50; // ax
+  __int64 v51; // rdx
+  int v52; // r11d
+  int v53; // r10d
+  int v54; // r8d
+  const char *v55; // rax
+  signed __int64 v56; // rdx
+  unsigned __int8 v57; // cl
+  int v58; // eax
+  ULONG v59; // eax
+  unsigned __int64 v60; // rbx
+  int v61; // eax
+  void *v62; // rdx
+  ULONG v64; // ebx
+  __int64 v65; // rdi
+  unsigned __int16 *v66; // rdx
+  char v67; // al
+  int v68; // [rsp+20h] [rbp-158h]
+  int v69; // [rsp+20h] [rbp-158h]
+  __int64 v70; // [rsp+40h] [rbp-138h]
+  __int64 v71; // [rsp+48h] [rbp-130h]
+  int v72; // [rsp+50h] [rbp-128h] BYREF
+  unsigned int v73; // [rsp+54h] [rbp-124h]
+  __int64 v74; // [rsp+58h] [rbp-120h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp-118h] BYREF
+  __int64 v76; // [rsp+68h] [rbp-110h] BYREF
+  unsigned int v77; // [rsp+70h] [rbp-108h]
+  __int64 v78; // [rsp+78h] [rbp-100h] BYREF
+  _QWORD *v79; // [rsp+80h] [rbp-F8h]
+  PIMAGE_NT_HEADERS NtHeaders; // [rsp+88h] [rbp-F0h] BYREF
+  __int64 v81; // [rsp+90h] [rbp-E8h] BYREF
+  PVOID BaseAddress; // [rsp+98h] [rbp-E0h] BYREF
+  __int64 v83; // [rsp+A0h] [rbp-D8h]
+  unsigned __int64 v84; // [rsp+A8h] [rbp-D0h]
+  unsigned __int16 *v85; // [rsp+B0h] [rbp-C8h]
+  unsigned __int64 *v86; // [rsp+B8h] [rbp-C0h]
+  unsigned __int64 v87; // [rsp+C0h] [rbp-B8h]
+  __int64 v88; // [rsp+C8h] [rbp-B0h]
+  unsigned __int64 v89; // [rsp+D0h] [rbp-A8h]
+  __int64 v90; // [rsp+D8h] [rbp-A0h]
+  unsigned __int64 v91; // [rsp+E0h] [rbp-98h]
+  char *v92; // [rsp+E8h] [rbp-90h]
+  ANSI_STRING SourceString; // [rsp+F0h] [rbp-88h] BYREF
+  __int128 v94; // [rsp+100h] [rbp-78h]
+  __int64 v95; // [rsp+110h] [rbp-68h]
+  __int128 v96; // [rsp+118h] [rbp-60h]
+  __int64 v97; // [rsp+128h] [rbp-50h]
+  int v99; // [rsp+188h] [rbp+10h]
+  int Size; // [rsp+190h] [rbp+18h] BYREF
   ULONG Value; // [rsp+198h] [rbp+20h] BYREF
 
   v1 = a1;
   v2 = *(_QWORD *)(a1 + 56);
-  v70 = v2;
-  v86 = *(_QWORD *)(v2 + 48);
-  LdrpLogDllState(v86, v2 + 72, 5286LL);
+  v74 = v2;
+  v90 = *(_QWORD *)(v2 + 48);
+  LdrpLogDllState(v90, v2 + 72, 5286LL);
   LdrpHandlePendingModuleReplaced(v1);
-  v69 = 0;
+  v73 = 0;
   while ( 1 )
   {
     v5 = *(_DWORD *)(v1 + 120);
     if ( v5 >= *(_DWORD *)(v1 + 96) )
     {
-      v23 = LdrpDoPostSnapWork(v1, v3, v4);
-      if ( v23 >= 0 )
+      v24 = LdrpDoPostSnapWork(v1, v3, v4);
+      if ( v24 >= 0 )
       {
         LdrpLogDllState(*(_QWORD *)(v2 + 48), v2 + 72, 5287LL);
         *(_DWORD *)(*(_QWORD *)(v2 + 152) + 56LL) = 5;
@@ -146,7 +150,7 @@ __int64 __fastcall LdrpSnapModule(__int64 a1)
     v6 = v5;
     v7 = *(_QWORD *)(*(_QWORD *)(v1 + 88) + 8LL * v5);
     v4 = v7;
-    v67 = v7;
+    v71 = v7;
     if ( v7 )
     {
       v8 = *(_QWORD *)(v7 + 176);
@@ -155,82 +159,85 @@ __int64 __fastcall LdrpSnapModule(__int64 a1)
         if ( (*(_DWORD *)(v8 + 32) & 0x80000) == 0 && *(_QWORD *)(v8 + 56) != v7 )
         {
           v4 = *(_QWORD *)(v8 + 56);
-          v67 = v4;
+          v71 = v4;
           *(_QWORD *)(v8 + 56) = v7;
         }
       }
     }
-    if ( *(_QWORD *)(*(_QWORD *)(v1 + 88) + 8 * v6) != v4 )
+    v9 = *(void **)(*(_QWORD *)(v1 + 88) + 8 * v6);
+    if ( v9 != (void *)v4 )
     {
-      LdrpFreeReplacedModule();
-      v4 = v67;
-      *(_QWORD *)(*(_QWORD *)(v1 + 88) + 8 * v6) = v67;
+      LdrpFreeReplacedModule(v9);
+      v4 = v71;
+      *(_QWORD *)(*(_QWORD *)(v1 + 88) + 8 * v6) = v71;
     }
-    v9 = *(_QWORD *)(v1 + 128);
-    v3 = *(unsigned int *)(v9 + 20 * v6);
-    v10 = v86 + v3;
-    v11 = v86 + *(unsigned int *)(v9 + 20 * v6 + 16);
+    v10 = *(_QWORD *)(v1 + 128);
+    v3 = *(unsigned int *)(v10 + 20 * v6);
+    v11 = v90 + v3;
+    v12 = v90 + *(unsigned int *)(v10 + 20 * v6 + 16);
     if ( !(_DWORD)v3 || (unsigned int)v3 > *(_DWORD *)(v2 + 64) )
-      v10 = v86 + *(unsigned int *)(v9 + 20 * v6 + 16);
+      v11 = v90 + *(unsigned int *)(v10 + 20 * v6 + 16);
     if ( v4 )
       break;
 LABEL_50:
     ++*(_DWORD *)(v1 + 120);
   }
-  v12 = *(_QWORD *)(v4 + 48);
-  v80 = v12;
-  v13 = 1;
-  v14 = v12;
-  v71 = 0LL;
-  v66 = 0LL;
-  v72 = 0LL;
-  if ( (v12 & 3) != 0 )
+  v13 = *(_QWORD *)(v4 + 48);
+  v84 = v13;
+  v14 = 1;
+  v15 = (void *)v13;
+  OutHeaders = 0LL;
+  v70 = 0LL;
+  v76 = 0LL;
+  if ( (v13 & 3) != 0 )
   {
-    v14 = v12 & 0xFFFFFFFFFFFFFFFCuLL;
-    v13 = (v12 & 1) == 0;
+    v15 = (void *)(v13 & 0xFFFFFFFFFFFFFFFCuLL);
+    v14 = (v13 & 1) == 0;
   }
-  v15 = RtlImageNtHeaderEx(1LL, v14, 0LL, &v71);
-  if ( !v71 )
+  v16 = RtlImageNtHeaderEx(1u, v15, 0LL, &OutHeaders);
+  if ( !OutHeaders )
   {
     v3 = 0LL;
 LABEL_141:
-    if ( v15 >= 0 )
+    if ( v16 >= 0 )
       goto LABEL_20;
     goto LABEL_142;
   }
-  v16 = *(_WORD *)(v71 + 24);
-  if ( v16 == 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic == 267 )
   {
-    v15 = RtlpImageDirectoryEntryToData32(v14, v13, 0, (unsigned int)&v96, v71, (__int64)&v72);
-    v3 = v72;
-    v66 = v72;
+    v16 = RtlpImageDirectoryEntryToData32((int)v15, v14, 0, (int)&Size, OutHeaders, (__int64)&v76);
+    v3 = v76;
+    v70 = v76;
     goto LABEL_141;
   }
-  if ( v16 != 523 || !*(_DWORD *)(v71 + 132) || (v17 = *(unsigned int *)(v71 + 136), !(_DWORD)v17) )
+  if ( Magic != 523
+    || !OutHeaders->OptionalHeader.NumberOfRvaAndSizes
+    || (VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress, !(_DWORD)VirtualAddress) )
   {
 LABEL_142:
     v3 = 0LL;
     goto LABEL_19;
   }
-  v96 = *(_DWORD *)(v71 + 140);
-  if ( !v13 && (unsigned int)v17 >= *(_DWORD *)(v71 + 84) )
+  Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+  if ( !v14 && (unsigned int)VirtualAddress >= OutHeaders->OptionalHeader.SizeOfHeaders )
   {
-    v3 = RtlAddressInSectionTable();
-    v66 = v3;
+    v3 = (unsigned __int64)RtlAddressInSectionTable(OutHeaders, v15, VirtualAddress);
+    v70 = v3;
     if ( v3 )
     {
-      v15 = 0;
+      v16 = 0;
       goto LABEL_141;
     }
     goto LABEL_142;
   }
-  v3 = v14 + v17;
+  v3 = (unsigned __int64)v15 + VirtualAddress;
 LABEL_19:
-  v66 = v3;
+  v70 = v3;
 LABEL_20:
   if ( !v3 )
   {
-    v65 = LdrpDebugFlags;
+    v67 = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
       LdrpLogDbgPrint(
@@ -239,73 +246,73 @@ LABEL_20:
         (unsigned int)"LdrpSnapModule",
         0,
         "DLL \"%wZ\" does not contain an export table\n",
-        v67 + 72);
-      v65 = LdrpDebugFlags;
+        v71 + 72);
+      v67 = LdrpDebugFlags;
     }
-    if ( (v65 & 0x10) != 0 )
+    if ( (v67 & 0x10) != 0 )
       __debugbreak();
-    v23 = -1073741701;
+    v24 = -1073741701;
     goto LABEL_148;
   }
-  if ( qword_18016F370 && (byte_18016F35C & 1) == 0 )
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
-    if ( v12 < *((_QWORD *)&xmmword_18016F4D0 + 1)
-      || v12 >= *((_QWORD *)&xmmword_18016F4D0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4E0 )
+    if ( v13 < *((_QWORD *)&xmmword_18016F4D0 + 1)
+      || v13 >= *((_QWORD *)&xmmword_18016F4D0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4E0 )
     {
-      RtlpxLookupFunctionTable(v12, &v90);
-      v3 = v66;
+      RtlpxLookupFunctionTable((PVOID)v13);
+      v3 = v70;
     }
     else
     {
-      v90 = xmmword_18016F4D0;
-      v91 = qword_18016F4E0;
+      v94 = xmmword_18016F4D0;
+      v95 = qword_18016F4E0;
     }
-    if ( *((_QWORD *)&v90 + 1) != v12 )
+    if ( *((_QWORD *)&v94 + 1) != v13 )
       __fastfail(0x18u);
   }
-  v18 = v3 + v96;
-  v85 = v18;
-  v4 = v12 + *(unsigned int *)(v3 + 28);
-  v84 = v4;
-  v19 = *(_DWORD *)(v3 + 24);
-  v73 = v19;
-  v20 = v12 + *(unsigned int *)(v3 + 32);
-  v83 = v20;
-  v87 = v12 + *(unsigned int *)(v3 + 36);
+  v19 = v3 + (unsigned int)Size;
+  v89 = v19;
+  v4 = v13 + *(unsigned int *)(v3 + 28);
+  v88 = v4;
+  v20 = *(_DWORD *)(v3 + 24);
+  v77 = v20;
+  v21 = v13 + *(unsigned int *)(v3 + 32);
+  v87 = v21;
+  v91 = v13 + *(unsigned int *)(v3 + 36);
   v1 = a1;
-  v21 = 8LL * *(unsigned int *)(a1 + 124);
-  v22 = (_QWORD *)(v21 + v10);
-  v82 = (unsigned __int64 *)(v21 + v11);
+  v22 = 8LL * *(unsigned int *)(a1 + 124);
+  v23 = (_QWORD *)(v22 + v11);
+  v86 = (unsigned __int64 *)(v22 + v12);
   while ( 1 )
   {
-    v75 = v22;
-    if ( !*v22 )
+    v79 = v23;
+    if ( !*v23 )
     {
       *(_DWORD *)(v1 + 124) = 0;
-      v2 = v70;
+      v2 = v74;
       goto LABEL_50;
     }
-    v23 = -1073741702;
-    v24 = *v22 >> 63;
-    v79 = v24;
-    v25 = -4530927LL;
-    v81 = 0LL;
-    if ( (_BYTE)v24 )
+    v24 = -1073741702;
+    v25 = *v23 >> 63;
+    v83 = v25;
+    v26 = -4530927LL;
+    v85 = 0LL;
+    if ( (_BYTE)v25 )
     {
-      v69 = *(unsigned __int16 *)v22;
-      v34 = v69 - *(_DWORD *)(v3 + 16);
+      v73 = *(unsigned __int16 *)v23;
+      v36 = v73 - *(_DWORD *)(v3 + 16);
     }
     else
     {
-      v26 = (unsigned __int16 *)(*(_QWORD *)(v70 + 48) + *(unsigned int *)v22);
-      v27 = (const char *)(v26 + 1);
-      v81 = v26 + 1;
-      v4 = *v26;
-      v28 = 0;
-      v29 = v19 - 1;
-      if ( (unsigned int)v4 >= v19 )
-        v4 = (unsigned int)(v29 / 2);
-      if ( v29 < 0 )
+      v27 = (unsigned __int16 *)(*(_QWORD *)(v74 + 48) + *(unsigned int *)v23);
+      v28 = (const char *)(v27 + 1);
+      v85 = v27 + 1;
+      v29 = *v27;
+      v30 = 0;
+      v31 = v20 - 1;
+      if ( v29 >= v20 )
+        v29 = v31 / 2;
+      if ( v31 < 0 )
       {
 LABEL_150:
         if ( (LdrpDebugFlags & 3) != 0 )
@@ -315,198 +322,200 @@ LABEL_150:
             (unsigned int)"LdrpNameToOrdinal",
             1,
             "Procedure \"%s\" could not be located in DLL at base 0x%p.\n",
-            v27,
-            (const void *)v12);
+            v28,
+            (const void *)v13);
         if ( (LdrpDebugFlags & 0x40) != 0 )
           __debugbreak();
         goto LABEL_46;
       }
       while ( 1 )
       {
-        v30 = v27;
-        v31 = v12 + *(unsigned int *)(v20 + 4LL * (int)v4) - (_QWORD)v27;
+        v32 = v28;
+        v33 = v13 + *(unsigned int *)(v21 + 4LL * v29) - (_QWORD)v28;
         while ( 1 )
         {
-          v32 = *v30;
-          if ( *v30 != v30[v31] )
+          v34 = *v32;
+          if ( *v32 != v32[v33] )
             break;
-          ++v30;
-          if ( !v32 )
+          ++v32;
+          if ( !v34 )
           {
-            v33 = 0;
+            v35 = 0;
             goto LABEL_36;
           }
         }
-        v33 = v32 < (unsigned int)v30[v31] ? -1 : 1;
+        v35 = v34 < (unsigned int)v32[v33] ? -1 : 1;
 LABEL_36:
-        if ( !v33 )
+        if ( !v35 )
           break;
-        if ( v33 < 0 )
-          v29 = v4 - 1;
+        if ( v35 < 0 )
+          v31 = v29 - 1;
         else
-          v28 = v4 + 1;
-        v4 = (unsigned int)((v29 + v28) / 2);
-        v20 = v83;
-        if ( v29 < v28 )
+          v30 = v29 + 1;
+        v29 = (v31 + v30) / 2;
+        v21 = v87;
+        if ( v31 < v30 )
           goto LABEL_150;
       }
-      v34 = *(unsigned __int16 *)(v87 + 2LL * (int)v4);
-      v3 = v66;
-      v4 = v84;
-      v18 = v85;
+      v36 = *(unsigned __int16 *)(v91 + 2LL * v29);
+      v3 = v70;
+      v4 = v88;
+      v19 = v89;
     }
-    if ( v34 >= *(_DWORD *)(v3 + 20) )
+    if ( v36 >= *(_DWORD *)(v3 + 20) )
       goto LABEL_46;
     _mm_lfence();
-    v35 = *(unsigned int *)(v4 + 4LL * (int)v34);
-    if ( !(_DWORD)v35 )
+    v37 = *(unsigned int *)(v4 + 4LL * (int)v36);
+    if ( !(_DWORD)v37 )
     {
-      v23 = -1073741702;
+      v24 = -1073741702;
       goto LABEL_46;
     }
-    v25 = v12 + v35;
-    v71 = v12 + v35;
-    v23 = 0;
-    if ( v12 + v35 > v3 && v25 < v18 )
+    v26 = v13 + v37;
+    OutHeaders = (PIMAGE_NT_HEADERS)(v13 + v37);
+    v24 = 0;
+    if ( v13 + v37 > v3 && v26 < v19 )
       break;
 LABEL_46:
-    if ( v23 < 0 )
+    if ( v24 < 0 )
     {
-      if ( v23 == -1073741702 || v23 == -1073741515 )
+      if ( v24 == -1073741702 || v24 == -1073741515 )
       {
-        v63 = v70;
-        if ( (unsigned int)CompatCachepLookupCdb(*(wchar_t **)(v70 + 80))
-          || (unsigned int)CompatCachepLookupCdb(*(wchar_t **)(v67 + 80)) )
+        v65 = v74;
+        if ( (unsigned int)CompatCachepLookupCdb(*(wchar_t **)(v74 + 80))
+          || (unsigned int)CompatCachepLookupCdb(*(wchar_t **)(v71 + 80)) )
         {
-          LdrpLogLoadFailureEtwEvent(v63 + 72, v67 + 72, 1, (unsigned int)&LoadFailure, 0);
-          LdrpLogLoadFailureEtwEvent(v63 + 72, v67 + 72, 1, (unsigned int)&LoadFailureOperational, 1);
+          LOBYTE(v68) = 0;
+          LdrpLogLoadFailureEtwEvent(v65 + 72, v71 + 72, 1LL, &LoadFailure, v68);
+          LOBYTE(v69) = 1;
+          LdrpLogLoadFailureEtwEvent(v65 + 72, v71 + 72, 1LL, &LoadFailureOperational, v69);
         }
-        if ( (_BYTE)v24 )
+        if ( (_BYTE)v25 )
         {
-          v23 = -1073741512;
-          v64 = (unsigned __int16 *)v69;
+          v24 = -1073741512;
+          v66 = (unsigned __int16 *)v73;
         }
         else
         {
-          v23 = -1073741511;
-          v64 = v81;
+          v24 = -1073741511;
+          v66 = v85;
         }
-        LdrpReportError(v63 + 72, v64, (unsigned int)v23);
+        LdrpReportError(v65 + 72, v66, (unsigned int)v24);
         v1 = a1;
         goto LABEL_112;
       }
 LABEL_148:
       v1 = a1;
 LABEL_112:
-      v60 = *(_QWORD *)(v1 + 184);
-      if ( v60 )
+      v62 = *(void **)(v1 + 184);
+      if ( v62 )
       {
-        NtUnmapViewOfSection(-1LL, v60, v4);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v62);
         *(_QWORD *)(v1 + 184) = 0LL;
       }
-      if ( v23 < 0 )
-        LdrpLogError((unsigned int)v23, 25LL, 0LL, v1);
-      return (unsigned int)v23;
+      if ( v24 < 0 )
+        LdrpLogError((unsigned int)v24, 25LL, 0LL, v1);
+      return (unsigned int)v24;
     }
-    v36 = v82;
-    *v82 = v25;
-    ++v22;
-    v82 = v36 + 1;
+    v38 = v86;
+    *v86 = v26;
+    ++v23;
+    v86 = v38 + 1;
     v1 = a1;
     ++*(_DWORD *)(a1 + 124);
-    v20 = v83;
-    v3 = v66;
-    v19 = v73;
-    v4 = v84;
-    v18 = v85;
+    v21 = v87;
+    v3 = v70;
+    v20 = v77;
+    v4 = v88;
+    v19 = v89;
   }
-  v37 = (char *)(v12 + v35);
-  v95 = 0;
-  v74 = 0LL;
-  v72 = *(_QWORD *)(v70 + 176);
+  v39 = (char *)(v13 + v37);
+  v99 = 0;
   v78 = 0LL;
-  for ( i = v88; ; v37 = i )
+  v76 = *(_QWORD *)(v74 + 176);
+  BaseAddress = 0LL;
+  for ( i = v92; ; v39 = i )
   {
-    v39 = strrchr(v37, 46);
-    if ( !v39 || (v40 = (_WORD)v39 - (_WORD)v37, (unsigned __int64)(v39 - v37) > 0xFFFF) )
+    v41 = strrchr(v39, 46);
+    if ( !v41 || (v42 = (_WORD)v41 - (_WORD)v39, (unsigned __int64)(v41 - v39) > 0xFFFF) )
     {
 LABEL_168:
-      v23 = -1073741701;
+      v24 = -1073741701;
       goto LABEL_93;
     }
-    SourceString.Buffer = v37;
-    SourceString.Length = (_WORD)v39 - (_WORD)v37;
-    SourceString.MaximumLength = (_WORD)v39 - (_WORD)v37;
-    v41 = v39 + 1;
-    if ( v39[1] == 35 )
+    SourceString.Buffer = v39;
+    SourceString.Length = (_WORD)v41 - (_WORD)v39;
+    SourceString.MaximumLength = (_WORD)v41 - (_WORD)v39;
+    v43 = v41 + 1;
+    if ( v41[1] == 35 )
     {
-      if ( RtlCharToInteger(v39 + 2, 0, &Value) < 0 )
+      if ( RtlCharToInteger(v41 + 2, 0, &Value) < 0 )
         goto LABEL_168;
-      v41 = 0LL;
+      v43 = 0LL;
     }
-    if ( v40 == 5 && (*(_DWORD *)v37 | 0x20202020) == 0x6C64746E && ((unsigned __int8)v37[4] | 0x20) == 0x6C )
+    if ( v42 == 5 && (*(_DWORD *)v39 | 0x20202020) == 0x6C64746E && ((unsigned __int8)v39[4] | 0x20) == 0x6C )
     {
-      v42 = LdrpNtDllDataTableEntry;
-      v74 = LdrpNtDllDataTableEntry;
+      v44 = LdrpNtDllDataTableEntry;
+      v78 = LdrpNtDllDataTableEntry;
     }
     else
     {
-      v59 = LdrpLoadDependentModule(&SourceString, (__int64)&v74, (__int64)&v78);
-      v23 = v59;
-      if ( v59 < 0 || v59 == 259 )
+      v61 = LdrpLoadDependentModule(&SourceString, (__int64)&v78, (__int64)&BaseAddress);
+      v24 = v61;
+      if ( v61 < 0 || v61 == 259 )
         goto LABEL_93;
-      v42 = v74;
+      v44 = v78;
     }
-    v43 = *(_QWORD *)(v42 + 48);
-    v44 = 1;
-    v45 = v43;
-    v76 = 0LL;
-    v46 = 0LL;
-    v77 = 0LL;
-    if ( (v43 & 3) != 0 )
+    v45 = *(_QWORD *)(v44 + 48);
+    v46 = 1;
+    v47 = (char *)v45;
+    NtHeaders = 0LL;
+    v48 = 0LL;
+    v81 = 0LL;
+    if ( (v45 & 3) != 0 )
     {
-      v45 = v43 & 0xFFFFFFFFFFFFFFFCuLL;
-      v44 = (v43 & 1) == 0;
+      v47 = (char *)(v45 & 0xFFFFFFFFFFFFFFFCuLL);
+      v46 = (v45 & 1) == 0;
     }
-    v47 = RtlImageNtHeaderEx(1LL, v45, 0LL, &v76);
-    if ( !v76 )
+    v49 = RtlImageNtHeaderEx(1u, v47, 0LL, &NtHeaders);
+    if ( !NtHeaders )
       goto LABEL_158;
-    v48 = *(_WORD *)(v76 + 24);
-    if ( v48 == 267 )
+    v50 = NtHeaders->OptionalHeader.Magic;
+    if ( v50 == 267 )
     {
-      v47 = RtlpImageDirectoryEntryToData32(v45, v44, 0, (unsigned int)&v68, v76, (__int64)&v77);
-      v46 = v77;
+      v49 = RtlpImageDirectoryEntryToData32((int)v47, v46, 0, (int)&v72, NtHeaders, (__int64)&v81);
+      v48 = (char *)v81;
       goto LABEL_158;
     }
-    if ( v48 == 523 )
+    if ( v50 == 523 )
     {
-      if ( *(_DWORD *)(v76 + 132) )
+      if ( NtHeaders->OptionalHeader.NumberOfRvaAndSizes )
       {
-        v49 = *(unsigned int *)(v76 + 136);
-        if ( (_DWORD)v49 )
+        v51 = NtHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+        if ( (_DWORD)v51 )
         {
-          v68 = *(_DWORD *)(v76 + 140);
-          if ( v44 || (unsigned int)v49 < *(_DWORD *)(v76 + 84) )
+          v72 = NtHeaders->OptionalHeader.DataDirectory[0].Size;
+          if ( v46 || (unsigned int)v51 < NtHeaders->OptionalHeader.SizeOfHeaders )
           {
-            v46 = (char *)(v45 + v49);
+            v48 = &v47[v51];
             goto LABEL_69;
           }
-          v46 = (char *)RtlAddressInSectionTable();
-          if ( v46 )
+          v48 = (char *)RtlAddressInSectionTable(NtHeaders, v47, v51);
+          if ( v48 )
           {
-            v47 = 0;
+            v49 = 0;
 LABEL_158:
-            if ( v47 >= 0 )
+            if ( v49 >= 0 )
               goto LABEL_69;
           }
         }
       }
     }
-    v46 = 0LL;
+    v48 = 0LL;
 LABEL_69:
-    if ( !v46 )
+    if ( !v48 )
       goto LABEL_167;
-    if ( v41 )
+    if ( v43 )
     {
       if ( (LdrpDebugFlags & 5) != 0 )
         LdrpLogDbgPrint(
@@ -515,11 +524,11 @@ LABEL_69:
           (unsigned int)"LdrpGetProcedureAddress",
           2,
           "Locating procedure \"%s\" by name\n",
-          v41);
-      v50 = 0;
-      v51 = *((_DWORD *)v46 + 6) - 1;
-      v52 = v51 / 2;
-      if ( v51 < 0 )
+          v43);
+      v52 = 0;
+      v53 = *((_DWORD *)v48 + 6) - 1;
+      v54 = v53 / 2;
+      if ( v53 < 0 )
       {
 LABEL_160:
         if ( (LdrpDebugFlags & 3) != 0 )
@@ -529,47 +538,47 @@ LABEL_160:
             (unsigned int)"LdrpNameToOrdinal",
             1,
             "Procedure \"%s\" could not be located in DLL at base 0x%p.\n",
-            v41,
-            (const void *)v43);
+            v43,
+            (const void *)v45);
         if ( (LdrpDebugFlags & 0x40) != 0 )
           __debugbreak();
 LABEL_167:
-        v23 = -1073741702;
+        v24 = -1073741702;
         goto LABEL_93;
       }
       while ( 1 )
       {
-        v53 = v41;
-        v54 = v43 + *(unsigned int *)(v43 + *((unsigned int *)v46 + 8) + 4LL * v52) - (_QWORD)v41;
+        v55 = v43;
+        v56 = v45 + *(unsigned int *)(v45 + *((unsigned int *)v48 + 8) + 4LL * v54) - (_QWORD)v43;
         while ( 1 )
         {
-          v55 = *v53;
-          if ( *v53 != v53[v54] )
+          v57 = *v55;
+          if ( *v55 != v55[v56] )
             break;
-          ++v53;
-          if ( !v55 )
+          ++v55;
+          if ( !v57 )
           {
-            v56 = 0;
+            v58 = 0;
             goto LABEL_78;
           }
         }
-        v56 = v55 < (unsigned int)v53[v54] ? -1 : 1;
+        v58 = v57 < (unsigned int)v55[v56] ? -1 : 1;
 LABEL_78:
-        if ( !v56 )
+        if ( !v58 )
           break;
-        if ( v56 >= 0 )
-          v50 = v52 + 1;
+        if ( v58 >= 0 )
+          v52 = v54 + 1;
         else
-          v51 = v52 - 1;
-        v52 = (v51 + v50) / 2;
-        if ( v51 < v50 )
+          v53 = v54 - 1;
+        v54 = (v53 + v52) / 2;
+        if ( v53 < v52 )
           goto LABEL_160;
       }
-      v57 = *(unsigned __int16 *)(v43 + *((unsigned int *)v46 + 9) + 2LL * v52);
+      v59 = *(unsigned __int16 *)(v45 + *((unsigned int *)v48 + 9) + 2LL * v54);
     }
     else
     {
-      v62 = Value;
+      v64 = Value;
       if ( (LdrpDebugFlags & 5) != 0 )
         LdrpLogDbgPrint(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
@@ -578,55 +587,54 @@ LABEL_78:
           2,
           "Loading procedure 0x%lx by ordinal\n",
           Value);
-      if ( !v62 )
+      if ( !v64 )
       {
-        v23 = -1073741811;
+        v24 = -1073741811;
         goto LABEL_93;
       }
-      v57 = v62 - *((_DWORD *)v46 + 4);
+      v59 = v64 - *((_DWORD *)v48 + 4);
     }
-    if ( v57 >= *((_DWORD *)v46 + 5) )
+    if ( v59 >= *((_DWORD *)v48 + 5) )
     {
-      v23 = (v41 != 0LL) - 1073741512;
+      v24 = (v43 != 0LL) - 1073741512;
       goto LABEL_93;
     }
-    i = (char *)(v43 + *(unsigned int *)(v43 + *((unsigned int *)v46 + 7) + 4LL * (int)v57));
-    v88 = i;
-    if ( i < v46 || i >= &v46[v68] )
+    i = (char *)(v45 + *(unsigned int *)(v45 + *((unsigned int *)v48 + 7) + 4LL * (int)v59));
+    v92 = i;
+    if ( i < v48 || i >= &v48[v72] )
       break;
-    if ( ++v95 == 32 )
+    if ( ++v99 == 32 )
       goto LABEL_168;
   }
-  v23 = 0;
-  v58 = *(_QWORD *)(v42 + 48);
-  if ( qword_18016F370 && (byte_18016F35C & 1) == 0 )
+  v24 = 0;
+  v60 = *(_QWORD *)(v44 + 48);
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
-    if ( v58 < *((_QWORD *)&xmmword_18016F4D0 + 1)
-      || v58 >= *((_QWORD *)&xmmword_18016F4D0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4E0 )
+    if ( v60 < *((_QWORD *)&xmmword_18016F4D0 + 1)
+      || v60 >= *((_QWORD *)&xmmword_18016F4D0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4E0 )
     {
-      RtlpxLookupFunctionTable(*(_QWORD *)(v42 + 48), &v92);
+      RtlpxLookupFunctionTable(*(PVOID *)(v44 + 48));
     }
     else
     {
-      v92 = xmmword_18016F4D0;
-      v93 = qword_18016F4E0;
+      v96 = xmmword_18016F4D0;
+      v97 = qword_18016F4E0;
     }
-    if ( *((_QWORD *)&v92 + 1) != v58 )
+    if ( *((_QWORD *)&v96 + 1) != v60 )
       __fastfail(0x18u);
   }
 LABEL_93:
-  v4 = v78;
-  if ( v78 )
-    RtlFreeHeap(LdrpHeap, 0LL, v78);
-  if ( v23 != 259 )
+  if ( BaseAddress )
+    RtlFreeHeap(LdrpHeap, 0, BaseAddress);
+  if ( v24 != 259 )
   {
-    LOBYTE(v24) = v79;
-    v22 = v75;
-    if ( v23 < 0 )
-      v25 = v71;
+    LOBYTE(v25) = v83;
+    v23 = v79;
+    if ( v24 < 0 )
+      v26 = (unsigned __int64)OutHeaders;
     else
-      v25 = (unsigned __int64)i;
-    v12 = v80;
+      v26 = (unsigned __int64)i;
+    v13 = v84;
     goto LABEL_46;
   }
   return 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateSectionRetry @ 0x1404E8BF4
+ * XREFs of MiValidateSectionRetry @ 0x1404E1FB4
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
  *     <none>
  */

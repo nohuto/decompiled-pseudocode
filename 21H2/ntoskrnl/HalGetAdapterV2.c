@@ -1,20 +1,20 @@
 /*
- * XREFs of HalGetAdapterV2 @ 0x140764810
+ * XREFs of HalGetAdapterV2 @ 0x1407649D0
  * Callers:
- *     HalpGetAdapter @ 0x14076474C (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x14076490C (HalpGetAdapter.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     HalpAddAdapterToList @ 0x1403798BC (HalpAddAdapterToList.c)
- *     HalpDmaFindAdapterByDeviceObject @ 0x14037996C (HalpDmaFindAdapterByDeviceObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpDmaIsAutomaticDomain @ 0x1404C4C50 (HalpDmaIsAutomaticDomain.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140764A8C (HalpDmaAllocateChildAdapterV2.c)
- *     HalpGetCacheCoherency @ 0x140764CFC (HalpGetCacheCoherency.c)
+ *     HalpDmaGetAdapterVersion @ 0x140234490 (HalpDmaGetAdapterVersion.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     HalpAddAdapterToList @ 0x14037940C (HalpAddAdapterToList.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x1403794BC (HalpDmaFindAdapterByDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4E90 (HalpDmaIsAutomaticDomain.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140764C4C (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpGetCacheCoherency @ 0x140764EBC (HalpGetCacheCoherency.c)
  */
 
 __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
@@ -130,10 +130,10 @@ LABEL_15:
       v37 = v25;
       v26 = v25;
     }
-    v27 = dword_140C4BE58;
+    v27 = dword_140C4BE98;
     v13 = v26;
     if ( !v8 )
-      v27 = dword_140C4BD78;
+      v27 = dword_140C4BDB8;
     if ( !v9 )
     {
       v28 = v27 >> 13;

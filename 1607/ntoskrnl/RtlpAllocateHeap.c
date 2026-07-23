@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpAllocateHeap @ 0x14009409C
+ * XREFs of RtlpAllocateHeap @ 0x14009389C
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x140093FB8 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1400937B8 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     RtlpExtendHeap @ 0x140092FE4 (RtlpExtendHeap.c)
- *     RtlpCreateSplitBlock @ 0x1400932DC (RtlpCreateSplitBlock.c)
- *     RtlpHeapRemoveListEntry @ 0x1400949E8 (RtlpHeapRemoveListEntry.c)
- *     RtlpFindEntry @ 0x140094AD0 (RtlpFindEntry.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     RtlCompareMemoryUlong @ 0x1401674E0 (RtlCompareMemoryUlong.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402185AC (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapLogRangeReserve @ 0x140218AD0 (RtlpHeapLogRangeReserve.c)
- *     RtlpLogHeapCommit @ 0x140218EA8 (RtlpLogHeapCommit.c)
- *     RtlpLogHeapExtendEvent @ 0x14021914C (RtlpLogHeapExtendEvent.c)
- *     RtlGetNtGlobalFlags @ 0x140688584 (RtlGetNtGlobalFlags.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     RtlpExtendHeap @ 0x1400927E4 (RtlpExtendHeap.c)
+ *     RtlpCreateSplitBlock @ 0x140092ADC (RtlpCreateSplitBlock.c)
+ *     RtlpHeapRemoveListEntry @ 0x1400941E8 (RtlpHeapRemoveListEntry.c)
+ *     RtlpFindEntry @ 0x1400942D0 (RtlpFindEntry.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     RtlCompareMemoryUlong @ 0x140167A50 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402183D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapLogRangeReserve @ 0x1402188FC (RtlpHeapLogRangeReserve.c)
+ *     RtlpLogHeapCommit @ 0x140218CD4 (RtlpLogHeapCommit.c)
+ *     RtlpLogHeapExtendEvent @ 0x140218F78 (RtlpLogHeapExtendEvent.c)
+ *     RtlGetNtGlobalFlags @ 0x140688668 (RtlGetNtGlobalFlags.c)
  */
 
 _DWORD *__fastcall RtlpAllocateHeap(

@@ -15,16 +15,16 @@
  *     RtlpTpETWCallbackStop @ 0x18010F42C (RtlpTpETWCallbackStop.c)
  */
 
-__int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TppIopExecuteCallback(_QWORD *Instance, __int64 a2, __int64 a3, __int64 a4)
 {
   volatile signed __int32 *v7; // r15
-  unsigned __int64 v8; // r12
+  void *v8; // r12
   int v9; // r14d
   signed __int32 v10; // ecx
   bool v11; // zf
   signed __int32 v12; // eax
   int v13; // esi
-  __int64 v14; // rcx
+  void *v14; // rcx
   _DWORD *SharedData; // rcx
   __int64 v16; // rsi
   __int64 v17; // rcx
@@ -37,15 +37,15 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
   __int64 result; // rax
   _DWORD *v25; // rcx
   char *v26; // [rsp+38h] [rbp-40h]
-  __int64 v27; // [rsp+40h] [rbp-38h] BYREF
+  PVOID Cookie; // [rsp+40h] [rbp-38h] BYREF
 
-  v27 = 0LL;
+  Cookie = 0LL;
   v7 = (volatile signed __int32 *)(a2 - 200);
-  v8 = *(_QWORD *)(a2 - 64);
+  v8 = *(void **)(a2 - 64);
   if ( v8 )
   {
     v9 = 1;
-    LdrLockLoaderLock(0LL, 0LL, &v27);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   }
   else
   {
@@ -68,10 +68,10 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
 LABEL_7:
   if ( v9 && v13 )
   {
-    if ( (int)LdrAddRefDll(0, v8) >= 0 )
+    if ( LdrAddRefDll(0, v8) >= 0 )
     {
-      *(_QWORD *)(a1 + 168) = v8;
-      *(_DWORD *)(a1 + 144) |= 0x100u;
+      Instance[21] = v8;
+      *((_DWORD *)Instance + 36) |= 0x100u;
     }
     else
     {
@@ -79,28 +79,28 @@ LABEL_7:
     }
   }
   if ( v9 )
-    LdrUnlockLoaderLock(0LL, v27);
+    LdrUnlockLoaderLock(0, Cookie);
   if ( v13 )
   {
     if ( (unsigned __int64)(*(_QWORD *)(a2 - 104) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      *(_QWORD *)a1 = 72LL;
-      *(_DWORD *)(a1 + 8) = 1;
-      RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 - 104));
-      *(_BYTE *)(a1 + 76) |= 1u;
+      *Instance = 72LL;
+      *((_DWORD *)Instance + 2) = 1;
+      RtlActivateActivationContextUnsafeFast((__int64)Instance, *(_QWORD *)(a2 - 104));
+      *((_BYTE *)Instance + 76) |= 1u;
     }
-    *(_QWORD *)(a1 + 184) = v7;
-    *(_DWORD *)(a1 + 144) |= 0x240u;
+    Instance[23] = v7;
+    *((_DWORD *)Instance + 36) |= 0x240u;
     if ( (*(_DWORD *)(a2 - 32) & 3) == 1 )
-      TpCallbackMayRunLong(a1);
-    v14 = *(_QWORD *)(a2 - 96);
+      TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+    v14 = *(void **)(a2 - 96);
     if ( v14 )
     {
-      *(_QWORD *)(a1 + 80) = v14;
+      Instance[10] = v14;
       RtlSetThreadSubProcessTag(v14);
     }
     NtCurrentTeb()->ActivityId = *(_GUID *)(a2 - 88);
-    RtlSetThreadWorkOnBehalfTicket(a2 - 72);
+    RtlSetThreadWorkOnBehalfTicket((PVOID)(a2 - 72));
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
     {
@@ -140,10 +140,10 @@ LABEL_7:
     {
       v26 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = v20;
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 - 112);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64, volatile signed __int32 *))(a2 - 120))(
-      a1,
+    Instance[11] = v20;
+    Instance[12] = *(_QWORD *)(a2 - 112);
+    (*(void (__fastcall **)(_QWORD *, _QWORD, __int64, __int64, volatile signed __int32 *))(a2 - 120))(
+      Instance,
       *(_QWORD *)(a2 - 112),
       a3,
       a4,

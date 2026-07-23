@@ -1,17 +1,21 @@
 /*
- * XREFs of NtOpenThread @ 0x140A10500
+ * XREFs of NtOpenThread @ 0x140A0F6F0
  * Callers:
- *     DifNtOpenThreadWrapper @ 0x14067F5D0 (DifNtOpenThreadWrapper.c)
+ *     DifNtOpenThreadWrapper @ 0x1406831B0 (DifNtOpenThreadWrapper.c)
  * Callees:
- *     PsOpenThread @ 0x140A10530 (PsOpenThread.c)
+ *     PsOpenThread @ 0x140A0F720 (PsOpenThread.c)
  */
 
-__int64 __fastcall NtOpenThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl NtOpenThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
   char v5; // [rsp+20h] [rbp-18h]
   char PreviousMode; // [rsp+28h] [rbp-10h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v5 = PreviousMode;
-  return PsOpenThread(a1, a2, a3, a4, v5, PreviousMode);
+  return PsOpenThread(ThreadHandle, DesiredAccess, ObjectAttributes, ClientId, v5, PreviousMode);
 }

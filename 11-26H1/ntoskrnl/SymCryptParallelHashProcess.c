@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptParallelHashProcess @ 0x140558734
+ * XREFs of SymCryptParallelHashProcess @ 0x14055ABC4
  * Callers:
- *     SymCryptParallelSha256Process @ 0x140555A40 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x140557ED0 (SymCryptParallelSha256Process.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptParallelHashSetNextWork @ 0x140558B74 (SymCryptParallelHashSetNextWork.c)
- *     _guard_dispatch_icall_nop @ 0x140722950 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptParallelHashSetNextWork @ 0x14055B008 (SymCryptParallelHashSetNextWork.c)
+ *     _guard_dispatch_icall_nop @ 0x140727520 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptParallelHashProcess(
@@ -135,10 +135,10 @@ __int64 __fastcall SymCryptParallelHashProcess(
             ++v31;
             v32 = v33;
           }
-          ((void (__fastcall *)(_QWORD *, size_t, _QWORD, unsigned __int64, unsigned __int64))a1[5])(
+          ((void (__fastcall *)(_QWORD *, size_t, unsigned __int64, unsigned __int64, unsigned __int64))a1[5])(
             v15,
             v28,
-            (unsigned int)v32 & -*(_DWORD *)(v30 + 48),
+            v32 & ~(unsigned __int64)(unsigned int)(*(_DWORD *)(v30 + 48) - 1),
             v40,
             v39);
           v34 = 0LL;

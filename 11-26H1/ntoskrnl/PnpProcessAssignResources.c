@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x14090B6F8
+ * XREFs of PnpProcessAssignResources @ 0x1409AD81C
  * Callers:
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnpProcessAssignResourcesWorker @ 0x14090B644 (PnpProcessAssignResourcesWorker.c)
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
- *     PipClearDevNodeUserFlags @ 0x14090F028 (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PnpAssignResourcesToDevices @ 0x140AA51E4 (PnpAssignResourcesToDevices.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     PnpProcessAssignResourcesWorker @ 0x1409AD768 (PnpProcessAssignResourcesWorker.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1409B1158 (PipClearDevNodeUserFlags.c)
+ *     PnpAssignResourcesToDevices @ 0x140AA03DC (PnpAssignResourcesToDevices.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-char __fastcall PnpProcessAssignResources(__int64 *a1, unsigned __int8 a2, __int64 a3)
+char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
   int v4; // edi
   char v6; // r14
@@ -34,9 +34,9 @@ char __fastcall PnpProcessAssignResources(__int64 *a1, unsigned __int8 a2, __int
   char *v19; // rsi
   __int64 v20; // rax
   __int64 v21; // rbx
-  __int64 v22; // r8
+  int v22; // r8d
   __int64 v23; // rcx
-  __int64 v24; // rdx
+  int v24; // edx
   __int64 *v25; // [rsp+20h] [rbp-38h]
 
   v4 = a2;
@@ -84,8 +84,8 @@ char __fastcall PnpProcessAssignResources(__int64 *a1, unsigned __int8 a2, __int
             v21 = *(_QWORD *)(*(_QWORD *)(v20 + 312) + 40LL);
           else
             v21 = 0LL;
-          v22 = *((unsigned int *)v19 + 4);
-          if ( (int)v22 >= 0 )
+          v22 = *((_DWORD *)v19 + 4);
+          if ( v22 >= 0 )
           {
             v6 = 1;
             if ( *(_QWORD *)v19 )
@@ -103,28 +103,28 @@ char __fastcall PnpProcessAssignResources(__int64 *a1, unsigned __int8 a2, __int
             PipClearDevNodeUserFlags(v21, 4LL);
             goto LABEL_15;
           }
-          if ( (_DWORD)v22 == -1073741686 )
+          if ( v22 == -1073741686 )
             break;
-          if ( (_DWORD)v22 != -1073741267 )
+          if ( v22 != -1073741267 )
           {
-            switch ( (_DWORD)v22 )
+            switch ( v22 )
             {
-              case 0xC0000182:
-                v24 = 34LL;
+              case -1073741438:
+                v24 = 34;
                 break;
-              case 0xC0000908:
-              case 0xC0040035:
-                v24 = 35LL;
+              case -1073739512:
+              case -1073479627:
+                v24 = 35;
                 break;
-              case 0xC0040036:
-                v24 = 33LL;
+              case -1073479626:
+                v24 = 33;
                 break;
               default:
                 v23 = v21;
-                if ( (_DWORD)v22 == -1073479625 )
-                  v24 = 36LL;
+                if ( v22 == -1073479625 )
+                  v24 = 36;
                 else
-                  v24 = 12LL;
+                  v24 = 12;
                 goto LABEL_33;
             }
 LABEL_32:
@@ -140,8 +140,8 @@ LABEL_15:
             goto LABEL_3;
           }
         }
-        v22 = 3221225610LL;
-        v24 = 17LL;
+        v22 = -1073741686;
+        v24 = 17;
         goto LABEL_32;
       }
     }

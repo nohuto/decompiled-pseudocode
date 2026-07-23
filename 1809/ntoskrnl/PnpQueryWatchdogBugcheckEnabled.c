@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpQueryWatchdogBugcheckEnabled @ 0x140289C54
+ * XREFs of PnpQueryWatchdogBugcheckEnabled @ 0x140289E44
  * Callers:
  *     PnpDisableWatchdog @ 0x140005B60 (PnpDisableWatchdog.c)
  *     PnpQueryWatchdogTimeout @ 0x140005D00 (PnpQueryWatchdogTimeout.c)
- *     PnpProcessWatchdogWorkItem @ 0x140289B8C (PnpProcessWatchdogWorkItem.c)
+ *     PnpProcessWatchdogWorkItem @ 0x140289D7C (PnpProcessWatchdogWorkItem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 char PnpQueryWatchdogBugcheckEnabled()
@@ -20,7 +20,7 @@ char PnpQueryWatchdogBugcheckEnabled()
   v1 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PnpWatchdogBugcheckLock, 0LL);
-  if ( !(_BYTE)dword_14054019C && (PnpSetupOOBEInProgress || PnpSetupInProgress) )
+  if ( !(_BYTE)dword_14054119C && (PnpSetupOOBEInProgress || PnpSetupInProgress) )
     v1 = 1;
   if ( PnpWatchdogBugcheckConfig )
   {

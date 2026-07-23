@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPoolType @ 0x1407042B0 (VfCheckPoolType.c)
+ *     VfCheckPoolType @ 0x1407042E0 (VfCheckPoolType.c)
  */
 
 __int64 __fastcall VerifierExAllocateCacheAwareRundownProtection(unsigned int a1, unsigned int a2)

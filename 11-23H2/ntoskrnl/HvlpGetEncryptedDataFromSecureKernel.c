@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpGetEncryptedDataFromSecureKernel @ 0x140547EC0
+ * XREFs of HvlpGetEncryptedDataFromSecureKernel @ 0x140548580
  * Callers:
- *     HvlGetEncryptedData @ 0x140547A50 (HvlGetEncryptedData.c)
+ *     HvlGetEncryptedData @ 0x140548110 (HvlGetEncryptedData.c)
  * Callees:
- *     HvlpEndSecurePageListIteration @ 0x14054A158 (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x14054A40C (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x14054B228 (VslGetSecurePageList.c)
+ *     HvlpEndSecurePageListIteration @ 0x14054A818 (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x14054AACC (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x14054B8E8 (VslGetSecurePageList.c)
  */
 
 __int64 __fastcall HvlpGetEncryptedDataFromSecureKernel(__int64 a1, __int64 a2, int a3, __int64 a4, _DWORD *a5)

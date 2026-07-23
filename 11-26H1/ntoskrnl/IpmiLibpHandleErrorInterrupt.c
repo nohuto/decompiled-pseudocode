@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibpHandleErrorInterrupt @ 0x14071E0D8
+ * XREFs of IpmiLibpHandleErrorInterrupt @ 0x140722D68
  * Callers:
- *     IpmiLibpKcsHandleError @ 0x14071D9AC (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsHandleError @ 0x14072263C (IpmiLibpKcsHandleError.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 IpmiLibpHandleErrorInterrupt()

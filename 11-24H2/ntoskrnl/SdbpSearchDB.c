@@ -1,24 +1,24 @@
 /*
- * XREFs of SdbpSearchDB @ 0x140A08258
+ * XREFs of SdbpSearchDB @ 0x140A04788
  * Callers:
- *     SdbGetDatabaseMatch @ 0x1409595F0 (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x1409410B0 (SdbGetDatabaseMatch.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SdbpFindNextNamedTagHelper @ 0x140805968 (SdbpFindNextNamedTagHelper.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x14095B554 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14095D844 (SdbFindFirstStringIndexedTag.c)
- *     SdbGetIndex @ 0x14095D914 (SdbGetIndex.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14095FB48 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbpCheckExe @ 0x140A08164 (SdbpCheckExe.c)
- *     SdbpCheckForMatch @ 0x140A08780 (SdbpCheckForMatch.c)
- *     SdbFindNextStringIndexedTag @ 0x140A79128 (SdbFindNextStringIndexedTag.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140ABBFC4 (SdbpFindFirstNamedTagHelper.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SdbpFindNextNamedTagHelper @ 0x1408060A8 (SdbpFindNextNamedTagHelper.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140943014 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140945304 (SdbFindFirstStringIndexedTag.c)
+ *     SdbGetIndex @ 0x1409453D4 (SdbGetIndex.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140947608 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbpCheckExe @ 0x140A04694 (SdbpCheckExe.c)
+ *     SdbpCheckForMatch @ 0x140A04CB0 (SdbpCheckForMatch.c)
+ *     SdbFindNextStringIndexedTag @ 0x140A73428 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140AB6FE4 (SdbpFindFirstNamedTagHelper.c)
  */
 
-__int64 __fastcall SdbpSearchDB(__int64 a1, union _RTL_RUN_ONCE *a2, __int16 a3, __int64 a4, void *a5, int FirstTag)
+__int64 __fastcall SdbpSearchDB(__int64 a1, _RTL_RUN_ONCE *a2, __int16 a3, __int64 a4, void *a5, int FirstTag)
 {
   _DWORD *v6; // r13
   wchar_t *Str1; // rsi
@@ -71,7 +71,7 @@ __int64 __fastcall SdbpSearchDB(__int64 a1, union _RTL_RUN_ONCE *a2, __int16 a3,
   FirstTag = SdbFindFirstTag((__int64)a2, 0, 28673);
   if ( !FirstTag )
   {
-    AslLogCallPrintf(1LL, (__int64)"SdbpSearchDB", 4410LL, (__int64)"No DATABASE tag found");
+    AslLogCallPrintf(1LL, (__int64)"SdbpSearchDB");
     goto LABEL_54;
   }
   v10 = 16;
@@ -82,7 +82,7 @@ __int64 __fastcall SdbpSearchDB(__int64 a1, union _RTL_RUN_ONCE *a2, __int16 a3,
     goto LABEL_7;
   }
   v11 = 0LL;
-  if ( a2 != *(union _RTL_RUN_ONCE **)(a1 + 8) )
+  if ( a2 != *(_RTL_RUN_ONCE **)(a1 + 8) )
   {
     FirstIndexedWildCardTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24587, Str1, 1);
     while ( 1 )
@@ -109,11 +109,7 @@ LABEL_7:
           v34 = 2;
           goto LABEL_13;
         }
-        AslLogCallPrintf(
-          1LL,
-          (__int64)"SdbpCheckExe",
-          4323LL,
-          (__int64)"The number of matching EXEs exceeded the max allowed");
+        AslLogCallPrintf(1LL, (__int64)"SdbpCheckExe");
         v9 = (unsigned int)(v9 + 1);
         v42 = v9;
       }
@@ -201,7 +197,7 @@ LABEL_13:
     goto LABEL_52;
   }
   v25 = 0LL;
-  if ( a2 != *(union _RTL_RUN_ONCE **)(a1 + 8) )
+  if ( a2 != *(_RTL_RUN_ONCE **)(a1 + 8) )
   {
     NextIndexedWildCardTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24587, v37, 1);
 LABEL_52:

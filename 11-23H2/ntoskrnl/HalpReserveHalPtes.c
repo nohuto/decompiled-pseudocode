@@ -3,7 +3,7 @@
  * Callers:
  *     HalpWheaInitDiscard @ 0x140B60200 (HalpWheaInitDiscard.c)
  * Callees:
- *     HalpMmGetPteAddressSafe @ 0x14037E3EC (HalpMmGetPteAddressSafe.c)
+ *     HalpMmGetPteAddressSafe @ 0x14037E58C (HalpMmGetPteAddressSafe.c)
  */
 
 unsigned __int64 HalpReserveHalPtes()

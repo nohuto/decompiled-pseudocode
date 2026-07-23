@@ -1,7 +1,7 @@
 /*
- * XREFs of KscpCfgDispatchHandleInvalidCallTarget @ 0x140C5E920
+ * XREFs of KscpCfgDispatchHandleInvalidCallTarget @ 0x140C64920
  * Callers:
- *     __guard_retpoline_indirect_cfg_rax @ 0x140C5E3C0 (__guard_retpoline_indirect_cfg_rax.c)
+ *     __guard_retpoline_indirect_cfg_rax @ 0x140C643C0 (__guard_retpoline_indirect_cfg_rax.c)
  * Callees:
  *     <none>
  */

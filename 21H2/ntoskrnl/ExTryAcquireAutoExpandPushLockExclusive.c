@@ -1,19 +1,19 @@
 /*
- * XREFs of ExTryAcquireAutoExpandPushLockExclusive @ 0x140391170
+ * XREFs of ExTryAcquireAutoExpandPushLockExclusive @ 0x1403912C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpTryAcquireFannedOutPushLockExclusive @ 0x1403913EC (ExpTryAcquireFannedOutPushLockExclusive.c)
- *     ExpAeUpdateStatsForExclusiveRelease @ 0x14039152C (ExpAeUpdateStatsForExclusiveRelease.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpTryAcquireFannedOutPushLockExclusive @ 0x14039153C (ExpTryAcquireFannedOutPushLockExclusive.c)
+ *     ExpAeUpdateStatsForExclusiveRelease @ 0x14039167C (ExpAeUpdateStatsForExclusiveRelease.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExTryAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  ULONG_PTR v2; // rdi
+  PRTL_BALANCED_NODE v2; // rdi
   int v4; // ecx
   char v5; // si
   int v7; // [rsp+48h] [rbp+10h] BYREF
@@ -47,9 +47,9 @@ char __fastcall ExTryAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   if ( v2 )
   {
     if ( v5 )
-      *(_BYTE *)(v2 + 26) |= 1u;
+      BYTE2(v2[1].Left) |= 1u;
     else
-      KeAbPostReleaseEx(BugCheckParameter2, v2);
+      KeAbPostReleaseEx(BugCheckParameter2, (ULONG_PTR)v2);
   }
   return v5;
 }

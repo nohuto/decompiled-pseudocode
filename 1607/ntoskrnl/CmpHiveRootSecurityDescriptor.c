@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpHiveRootSecurityDescriptor @ 0x14055E73C
+ * XREFs of CmpHiveRootSecurityDescriptor @ 0x14055EC7C
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
- *     CmpSetVersionData @ 0x14055D9A8 (CmpSetVersionData.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
+ *     CmpSetVersionData @ 0x14055DEE8 (CmpSetVersionData.c)
  *     CmpInitializeSystemHive @ 0x1407AD830 (CmpInitializeSystemHive.c)
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  *     CmpInitializePreloadedHives @ 0x1407AE130 (CmpInitializePreloadedHives.c)
  *     CmpCreateRegistryRoot @ 0x1407AE4D4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     RtlGetAce @ 0x14000C24C (RtlGetAce.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlGetAce @ 0x14000BDCC (RtlGetAce.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlLengthRequiredSid @ 0x1404792F0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlLengthRequiredSid @ 0x1404781C0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
 ACL *CmpHiveRootSecurityDescriptor()
@@ -43,7 +43,7 @@ ACL *CmpHiveRootSecurityDescriptor()
   NTSTATUS v17; // [rsp+80h] [rbp+48h]
   _BYTE *v18; // [rsp+88h] [rbp+50h] BYREF
   size_t IdentifierAuthority; // [rsp+90h] [rbp+58h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v20; // [rsp+98h] [rbp+60h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v20; // [rsp+98h] [rbp+60h] BYREF
 
   WORD2(IdentifierAuthority) = 256;
   LODWORD(IdentifierAuthority) = 0;

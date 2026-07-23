@@ -1,9 +1,9 @@
 /*
  * XREFs of MmGetAvailablePages @ 0x14021DC1C
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     ExpQueryNumaAvailableMemory @ 0x1409F6ED4 (ExpQueryNumaAvailableMemory.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406B1F34 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x1409F7164 (ExpQueryNumaAvailableMemory.c)
  * Callees:
  *     <none>
  */

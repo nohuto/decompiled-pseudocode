@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockPartitionPair @ 0x14052E350
+ * XREFs of MiLockPartitionPair @ 0x140530870
  * Callers:
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiTransferPartitionPageRun @ 0x140709A80 (MiTransferPartitionPageRun.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiTransferPartitionPageRun @ 0x14070E734 (MiTransferPartitionPageRun.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 KIRQL __fastcall MiLockPartitionPair(unsigned __int64 a1, unsigned __int64 a2)

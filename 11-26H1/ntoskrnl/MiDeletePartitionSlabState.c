@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeletePartitionSlabState @ 0x14087BB64
+ * XREFs of MiDeletePartitionSlabState @ 0x140881F64
  * Callers:
- *     MiDeletePartitionResources @ 0x140868E28 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x14086F208 (MiDeletePartitionResources.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     MiDeletePendingSlabIdentities @ 0x1404A0CF8 (MiDeletePendingSlabIdentities.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiDeletePendingSlabIdentities @ 0x14049A848 (MiDeletePendingSlabIdentities.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeletePartitionSlabState(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

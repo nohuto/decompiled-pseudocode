@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertPurgedPages @ 0x140309EC4
+ * XREFs of MiInsertPurgedPages @ 0x1402EBF44
  * Callers:
- *     MiPurgeFinish @ 0x140309E40 (MiPurgeFinish.c)
+ *     MiPurgeFinish @ 0x1402EBEC0 (MiPurgeFinish.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiDereferenceControlAreaPfnList @ 0x14030A130 (MiDereferenceControlAreaPfnList.c)
- *     MiDeleteSectionCluster @ 0x140318360 (MiDeleteSectionCluster.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402EC1B0 (MiDereferenceControlAreaPfnList.c)
+ *     MiDeleteSectionCluster @ 0x14031A390 (MiDeleteSectionCluster.c)
  */
 
 __int64 __fastcall MiInsertPurgedPages(__int64 a1)
@@ -113,7 +113,7 @@ __int64 __fastcall MiInsertPurgedPages(__int64 a1)
     while ( v3 < v1 );
   }
   for ( j = 0LL; j < v2; ++j )
-    MiReleasePageFileInfo(*(struct _KEVENT **)(a1 + 8), *(_QWORD *)(a1 + 8 * j + 1160), 1);
+    MiReleasePageFileInfo(*(struct _KEVENT **)(a1 + 8), *(_QWORD *)(a1 + 8 * j + 1160), 1LL);
   v17 = *(_QWORD *)(a1 + 112);
   if ( v17 )
   {

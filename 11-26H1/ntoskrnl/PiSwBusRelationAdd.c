@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwBusRelationAdd @ 0x140A7C3EC
+ * XREFs of PiSwBusRelationAdd @ 0x140A8D51C
  * Callers:
- *     PiSwProcessRemove @ 0x14090B360 (PiSwProcessRemove.c)
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x1409AD484 (PiSwProcessRemove.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403B88C0 (RtlInsertElementGenericTableAvl.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405DC324 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DC438 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PnpAllocatePWSTR @ 0x140990AC0 (PnpAllocatePWSTR.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403C27C0 (RtlInsertElementGenericTableAvl.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405DEBD4 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DECE8 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PnpAllocatePWSTR @ 0x140951520 (PnpAllocatePWSTR.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwBusRelationAdd(wchar_t *a1, __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PiSwBusRelationAdd(wchar_t *a1, __int64 a2, __int64 a3)
   P = 0LL;
   memset(Buffer, 0, sizeof(Buffer));
   NewElement = 0;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzz_EtwWriteTransfer(
       (__int64)a1,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RelationAdd_Start,
@@ -95,7 +95,7 @@ __int64 __fastcall PiSwBusRelationAdd(wchar_t *a1, __int64 a2, __int64 a3)
   }
   if ( v8 )
     ExFreePoolWithTag(v8, 0x57706E50u);
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzzd_EtwWriteTransfer(
       v6,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RelationAdd_Stop,

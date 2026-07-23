@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuUnmapIdentityRange @ 0x14059FA50
+ * XREFs of IommuUnmapIdentityRange @ 0x1405A2240
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainUnmapIdentityRange @ 0x14047AE04 (HalpIommuDomainUnmapIdentityRange.c)
- *     IommupValidateMdl @ 0x140511904 (IommupValidateMdl.c)
+ *     HalpIommuDomainUnmapIdentityRange @ 0x140474774 (HalpIommuDomainUnmapIdentityRange.c)
+ *     IommupValidateMdl @ 0x14050B374 (IommupValidateMdl.c)
  */
 
 __int64 __fastcall IommuUnmapIdentityRange(__int64 a1, __int64 a2)

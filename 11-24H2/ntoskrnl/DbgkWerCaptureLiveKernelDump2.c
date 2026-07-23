@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x140AA9BA0
+ * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x140AA4C50
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D83A0 (PopPowerButtonWorkCallback.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPowerButtonWorkCallback @ 0x1405D58C0 (PopPowerButtonWorkCallback.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     DbgkpWerCleanupContext @ 0x140708A78 (DbgkpWerCleanupContext.c)
- *     DbgkpWerFreePool @ 0x140708D50 (DbgkpWerFreePool.c)
- *     DbgkpWerIsFullLiveDumpDisabled @ 0x140708D70 (DbgkpWerIsFullLiveDumpDisabled.c)
- *     DbgkpWerProcessPolicyResult @ 0x140708E78 (DbgkpWerProcessPolicyResult.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     DbgkpWerCleanupContext @ 0x140706638 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerFreePool @ 0x140706910 (DbgkpWerFreePool.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x140706930 (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     DbgkpWerProcessPolicyResult @ 0x140706A38 (DbgkpWerProcessPolicyResult.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
@@ -62,7 +62,7 @@ __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
   --CurrentThread->KernelApcDisable;
   if ( _InterlockedExchange(&DbgkpBusy, 1) != 1 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0xB0uLL, 0x57676244u);
     if ( Pool2 )
     {
       v13 = RtlStringCchLengthW(pszSrc, 0x10uLL, 0LL);

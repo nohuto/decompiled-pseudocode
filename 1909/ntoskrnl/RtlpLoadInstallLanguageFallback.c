@@ -26,7 +26,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   WCHAR i; // ax
   HANDLE Handle; // [rsp+30h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
-  int v16; // [rsp+80h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+30h] BYREF
   __int64 v17; // [rsp+98h] [rbp+48h] BYREF
 
   *(_QWORD *)&DestinationString.Length = 0LL;
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
     {
       memset(v6, 0, 0x158uLL);
       *a2 = 0;
-      v16 = 0;
+      Lcid = 0;
       *a3 = 0;
       RtlInitUnicodeString(
         &DestinationString,
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
         v8 = LdrpQueryValueKey(Handle, &DestinationString, (__int64)&v17);
         if ( v8 >= 0 )
         {
-          if ( v16 != 1 )
+          if ( Lcid != 1 )
             goto LABEL_15;
           v10 = *v5;
           v11 = v5;
@@ -72,15 +72,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
             ++v11;
           }
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v16;
+            *a2 = Lcid;
             if ( *v11 )
             {
               RtlInitUnicodeString(&DestinationString, v11);
-              if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v16;
+                *a3 = Lcid;
               }
               else
               {

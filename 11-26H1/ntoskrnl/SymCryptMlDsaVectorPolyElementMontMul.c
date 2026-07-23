@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptMlDsaVectorPolyElementMontMul @ 0x14057467C
+ * XREFs of SymCryptMlDsaVectorPolyElementMontMul @ 0x1405738E0
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
  * Callees:
- *     SymCryptMlDsaPolyElementMontMul @ 0x1405733F8 (SymCryptMlDsaPolyElementMontMul.c)
+ *     SymCryptMlDsaPolyElementMontMul @ 0x140572604 (SymCryptMlDsaPolyElementMontMul.c)
  */
 
 __int64 __fastcall SymCryptMlDsaVectorPolyElementMontMul(_BYTE *a1, unsigned int *a2, __int64 a3)

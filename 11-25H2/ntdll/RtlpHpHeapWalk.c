@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpHeapWalk(__int64 a1, __int64 a2, char a3, int a4)
     if ( *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
     {
       v4 = 1;
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+      RtlEnterCriticalSection(&RtlpProcessHeapsLock);
     }
     v8 = *(_QWORD *)a2;
     if ( *(_QWORD *)a2 == a1 )
@@ -41,7 +41,7 @@ LABEL_6:
       v9 = 0;
       goto LABEL_7;
     }
-    v12 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801D0980, 2 * ((unsigned __int64)(v8 - qword_1801D0978) >> 20));
+    v12 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(v8 - qword_1801D0978) >> 20));
     if ( v12 )
       v9 = v12 - 1;
     else
@@ -58,7 +58,7 @@ LABEL_7:
     v10 = RtlpHpLargeWalkHeap(a1, a2);
 LABEL_9:
     if ( v4 )
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+      RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
   }
   else
   {

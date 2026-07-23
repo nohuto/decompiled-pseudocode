@@ -1,14 +1,14 @@
 /*
- * XREFs of MmPageEntireDriver @ 0x14047DC74
+ * XREFs of MmPageEntireDriver @ 0x14047C9C8
  * Callers:
  *     <none>
  * Callees:
- *     MiLookupDataTableEntry @ 0x140014A30 (MiLookupDataTableEntry.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiSetPagingOfDriver @ 0x140083DC4 (MiSetPagingOfDriver.c)
- *     KeFlushQueuedDpcs @ 0x1400841B4 (KeFlushQueuedDpcs.c)
- *     MiCancelPhase0Locking @ 0x14047DD28 (MiCancelPhase0Locking.c)
+ *     MiLookupDataTableEntry @ 0x1400145B0 (MiLookupDataTableEntry.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiSetPagingOfDriver @ 0x140081F24 (MiSetPagingOfDriver.c)
+ *     KeFlushQueuedDpcs @ 0x140082314 (KeFlushQueuedDpcs.c)
+ *     MiCancelPhase0Locking @ 0x14047CA7C (MiCancelPhase0Locking.c)
  */
 
 PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
@@ -27,8 +27,8 @@ PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
     return 0LL;
   v4 = v2[6];
   if ( (dword_1403A9134 & 1) == 0
-    && ((unsigned __int64)AddressWithinSection < qword_140326910
-     || (unsigned __int64)AddressWithinSection >= qword_140326910 + 0x8000000000LL) )
+    && ((unsigned __int64)AddressWithinSection < qword_140326950
+     || (unsigned __int64)AddressWithinSection >= qword_140326950 + 0x8000000000LL) )
   {
     KeFlushQueuedDpcs();
     PteAddress = (unsigned __int64 *)MiGetPteAddress((unsigned __int64)v4);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWdiTimerWorkerThread @ 0x1402E2E10
+ * XREFs of PopWdiTimerWorkerThread @ 0x1402E3000
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
- *     PopDiagTraceSleepStudyStart @ 0x140874180 (PopDiagTraceSleepStudyStart.c)
- *     PopDiagTraceSleepStudyStop @ 0x1408742B8 (PopDiagTraceSleepStudyStop.c)
+ *     KeReleaseMutant @ 0x1400BF950 (KeReleaseMutant.c)
+ *     PopDiagTraceSleepStudyStart @ 0x1408753E0 (PopDiagTraceSleepStudyStart.c)
+ *     PopDiagTraceSleepStudyStop @ 0x140875518 (PopDiagTraceSleepStudyStop.c)
  */
 
 LONG PopWdiTimerWorkerThread()

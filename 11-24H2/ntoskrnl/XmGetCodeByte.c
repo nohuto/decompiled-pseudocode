@@ -1,21 +1,21 @@
 /*
- * XREFs of XmGetCodeByte @ 0x140469218
+ * XREFs of XmGetCodeByte @ 0x140461BC8
  * Callers:
- *     XmGroup2ByByte @ 0x1404681C0 (XmGroup2ByByte.c)
- *     XmMoveRegImmediate @ 0x140468BA0 (XmMoveRegImmediate.c)
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     XmShortJump @ 0x140468F40 (XmShortJump.c)
- *     XmGetImmediateSourceValue @ 0x140468FAC (XmGetImmediateSourceValue.c)
- *     XmAccumImmediate @ 0x140469000 (XmAccumImmediate.c)
- *     XmEmulateStream @ 0x1404690B4 (XmEmulateStream.c)
- *     XmGroup8BitOffset @ 0x140575200 (XmGroup8BitOffset.c)
- *     XmImmediateEnter @ 0x1405752B0 (XmImmediateEnter.c)
- *     XmPortImmediate @ 0x1405756B0 (XmPortImmediate.c)
- *     XmShiftDouble @ 0x140575820 (XmShiftDouble.c)
- *     XmEvaluateIndexSpecifier @ 0x140577638 (XmEvaluateIndexSpecifier.c)
+ *     XmGroup2ByByte @ 0x140460B70 (XmGroup2ByByte.c)
+ *     XmMoveRegImmediate @ 0x140461550 (XmMoveRegImmediate.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     XmShortJump @ 0x1404618F0 (XmShortJump.c)
+ *     XmGetImmediateSourceValue @ 0x14046195C (XmGetImmediateSourceValue.c)
+ *     XmAccumImmediate @ 0x1404619B0 (XmAccumImmediate.c)
+ *     XmEmulateStream @ 0x140461A64 (XmEmulateStream.c)
+ *     XmGroup8BitOffset @ 0x140572690 (XmGroup8BitOffset.c)
+ *     XmImmediateEnter @ 0x140572740 (XmImmediateEnter.c)
+ *     XmPortImmediate @ 0x140572B40 (XmPortImmediate.c)
+ *     XmShiftDouble @ 0x140572CB0 (XmShiftDouble.c)
+ *     XmEvaluateIndexSpecifier @ 0x140574AC8 (XmEvaluateIndexSpecifier.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x140469260 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1404FB920 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x140461C10 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1404F91E0 (longjmp.c)
  */
 
 char __fastcall XmGetCodeByte(__int64 a1)

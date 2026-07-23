@@ -1,11 +1,11 @@
 /*
- * XREFs of CarRegisterRuleOverride @ 0x14064A110
+ * XREFs of CarRegisterRuleOverride @ 0x14064DCF0
  * Callers:
  *     <none>
  * Callees:
- *     CarCreateRuleOverrideEntry @ 0x1406497F0 (CarCreateRuleOverrideEntry.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x140649A5C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
- *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x140649A94 (CarFindRuleOverrideEntryByGlobalRuleId.c)
+ *     CarCreateRuleOverrideEntry @ 0x14064D3D0 (CarCreateRuleOverrideEntry.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x14064D63C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x14064D674 (CarFindRuleOverrideEntryByGlobalRuleId.c)
  */
 
 __int64 __fastcall CarRegisterRuleOverride(__int64 a1, int a2, int a3, int a4, int a5)

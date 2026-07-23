@@ -1,23 +1,23 @@
 /*
- * XREFs of PfTCleanup @ 0x140669770
+ * XREFs of PfTCleanup @ 0x140669854
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1403EA8E8 (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x1405724A0 (PfTStart.c)
- *     PfpParametersPropagate @ 0x140669DCC (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x1403EBF18 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x1405729E0 (PfTStart.c)
+ *     PfpParametersPropagate @ 0x140669EB0 (PfpParametersPropagate.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x140006744 (PfFbBufferListInsertInFree.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
- *     PfFbBufferListShutdown @ 0x1401FEFC4 (PfFbBufferListShutdown.c)
+ *     PfFbBufferListInsertInFree @ 0x1400068B4 (PfFbBufferListInsertInFree.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListShutdown @ 0x1401FEDF0 (PfFbBufferListShutdown.c)
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
- *     PfTTraceListFree @ 0x1403E6E94 (PfTTraceListFree.c)
- *     PfTTraceListTrim @ 0x140533DD0 (PfTTraceListTrim.c)
- *     PfTCleanupBuffers @ 0x14066991C (PfTCleanupBuffers.c)
- *     PfFbBufferListCleanup @ 0x14066A0A0 (PfFbBufferListCleanup.c)
+ *     PfTTraceListFree @ 0x1403E84C4 (PfTTraceListFree.c)
+ *     PfTTraceListTrim @ 0x140534310 (PfTTraceListTrim.c)
+ *     PfTCleanupBuffers @ 0x140669A00 (PfTCleanupBuffers.c)
+ *     PfFbBufferListCleanup @ 0x14066A184 (PfFbBufferListCleanup.c)
  */
 
 LONG_PTR __fastcall PfTCleanup(__int64 a1, __int64 a2)
@@ -65,8 +65,8 @@ LONG_PTR __fastcall PfTCleanup(__int64 a1, __int64 a2)
     ObfDereferenceObject(*(PVOID *)(a1 + 104));
     *(_QWORD *)(a1 + 104) = 0LL;
   }
-  PfTCleanupBuffers(&unk_140328018);
-  PfTCleanupBuffers(&unk_140328040);
+  PfTCleanupBuffers(&unk_140328058);
+  PfTCleanupBuffers(&unk_140328080);
   PfFbBufferListCleanup(a1 + 224);
   result = PfFbBufferListCleanup(a1 + 352);
   v8 = *(void **)(a1 + 616);

@@ -1,9 +1,9 @@
 /*
- * XREFs of IaLpssWriteClockParams @ 0x140721A98
+ * XREFs of IaLpssWriteClockParams @ 0x140726668
  * Callers:
- *     IaLpssSetPowerD0 @ 0x140721950 (IaLpssSetPowerD0.c)
+ *     IaLpssSetPowerD0 @ 0x140726520 (IaLpssSetPowerD0.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IaLpssWriteClockParams(_QWORD *a1, __int64 a2)

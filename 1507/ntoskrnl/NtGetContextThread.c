@@ -11,7 +11,7 @@
 NTSTATUS __stdcall NtGetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS ContextThreadInternal; // edi
+  int ContextThreadInternal; // edi
   PVOID v5; // rbx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckUserVirtualAddress @ 0x14032EA00
+ * XREFs of MiCheckUserVirtualAddress @ 0x140339750
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
- *     MiResolveDemandZeroFault @ 0x14020FB50 (MiResolveDemandZeroFault.c)
- *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
- *     MiCheckVirtualAddress @ 0x14028D510 (MiCheckVirtualAddress.c)
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
+ *     MiCheckVirtualAddress @ 0x14020A6B0 (MiCheckVirtualAddress.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
+ *     MiResolveDemandZeroFault @ 0x1402B4450 (MiResolveDemandZeroFault.c)
+ *     MiActOnPte @ 0x1402E0E40 (MiActOnPte.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
  * Callees:
- *     MiIsVadLargePrivate @ 0x1402AD514 (MiIsVadLargePrivate.c)
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     MiIsVadLargePrivate @ 0x14022B870 (MiIsVadLargePrivate.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
  */
 
 __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, int *a2, __int64 a3)
@@ -32,13 +32,13 @@ __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, int *a2, __int
     v6 = a1 & 0xFFFFFFFFFFFFF000uLL;
     if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
     {
-      result = qword_140C4DE38;
+      result = qword_140C4DE78;
       *a2 = 1;
       return result;
     }
-    if ( v6 == qword_140C4DE48 && v6 )
+    if ( v6 == qword_140C4DE88 && v6 )
     {
-      result = qword_140C4DE40;
+      result = qword_140C4DE80;
       *a2 = 1;
       return result;
     }
@@ -55,7 +55,7 @@ __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, int *a2, __int
   if ( (v7 & 0x100000) != 0 )
   {
     v14 = *(_DWORD *)(a3 + 48) & 0x70;
-    if ( v14 != 16 && v14 != 48 && !MiIsVadLargePrivate(a3) && *(int *)(a3 + 52) < 0 )
+    if ( v14 != 16 && v14 != 48 && !(unsigned int)MiIsVadLargePrivate(a3) && *(int *)(a3 + 52) < 0 )
     {
       v15 = (*(_DWORD *)(a3 + 48) >> 7) & 0x1F;
 LABEL_24:

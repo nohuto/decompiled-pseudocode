@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgLogDeviceMigrated @ 0x14082D570
+ * XREFs of PiDevCfgLogDeviceMigrated @ 0x14082E7A0
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x140700D10 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140701FB0 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     McTemplateK0zzjzitd @ 0x140288F40 (McTemplateK0zzjzitd.c)
+ *     McTemplateK0zzjzitd @ 0x140289130 (McTemplateK0zzjzitd.c)
  */
 
 char __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
@@ -17,10 +17,10 @@ char __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
   __int64 v11; // [rsp+38h] [rbp-20h]
   int v12; // [rsp+40h] [rbp-18h]
 
-  result = byte_140405846;
-  if ( (byte_140405846 & 8) != 0 && (byte_140405846 & 0x20) != 0 && (byte_140405846 & 0x10) != 0 )
+  result = byte_140406846;
+  if ( (byte_140406846 & 8) != 0 && (byte_140406846 & 0x20) != 0 && (byte_140406846 & 0x10) != 0 )
   {
-    v6 = (const wchar_t *)&dword_140911184;
+    v6 = (const wchar_t *)&dword_140912444;
     if ( a3 < 0 )
     {
       v7 = *(_QWORD *)(a2 + 152);

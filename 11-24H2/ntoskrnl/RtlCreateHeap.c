@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateHeap @ 0x140783250
+ * XREFs of RtlCreateHeap @ 0x140783180
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateHeap @ 0x1404D7334 (RtlpCreateHeap.c)
+ *     RtlpCreateHeap @ 0x1404D0784 (RtlpCreateHeap.c)
  */
 
 PVOID __stdcall RtlCreateHeap(

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPfCompleteCoalescedIo @ 0x140397438
+ * XREFs of MiPfCompleteCoalescedIo @ 0x140351964
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x1402A9824 (MiPfCompletePrefetchIos.c)
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
- *     MmWaitForCacheManagerPrefetch @ 0x140397244 (MmWaitForCacheManagerPrefetch.c)
+ *     MiPfCompletePrefetchIos @ 0x140351AD0 (MiPfCompletePrefetchIos.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x140352BC0 (MmWaitForCacheManagerPrefetch.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MiRetardMdl @ 0x1402F323C (MiRetardMdl.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiPfCompleteInPageSupport @ 0x140397338 (MiPfCompleteInPageSupport.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiRetardMdl @ 0x140258D7C (MiRetardMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiPfCompleteInPageSupport @ 0x140352CB4 (MiPfCompleteInPageSupport.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPfCompleteCoalescedIo(ULONG_PTR BugCheckParameter4, __int64 a2)
@@ -20,8 +20,8 @@ __int64 __fastcall MiPfCompleteCoalescedIo(ULONG_PTR BugCheckParameter4, __int64
   unsigned int *v5; // r14
   ULONG_PTR v6; // r9
   ULONG_PTR v7; // r8
-  __int64 *v8; // rsi
-  __int64 v9; // rdi
+  _QWORD *v8; // rsi
+  _QWORD *v9; // rdi
   __int64 v10; // rax
   __int64 v11; // rax
   unsigned int v12; // ecx
@@ -48,23 +48,23 @@ __int64 __fastcall MiPfCompleteCoalescedIo(ULONG_PTR BugCheckParameter4, __int64
   {
     v2 = *v5;
   }
-  v8 = (__int64 *)(BugCheckParameter4 + 16);
+  v8 = (_QWORD *)(BugCheckParameter4 + 16);
   while ( 1 )
   {
-    v9 = *v8;
-    if ( (__int64 *)*v8 == v8 )
+    v9 = (_QWORD *)*v8;
+    if ( (_QWORD *)*v8 == v8 )
       break;
-    if ( *(__int64 **)(v9 + 8) != v8 || (v10 = *(_QWORD *)v9, *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9) )
+    if ( (_QWORD *)v9[1] != v8 || (v10 = *v9, *(_QWORD **)(*v9 + 8LL) != v9) )
       __fastfail(3u);
     *v8 = v10;
     *(_QWORD *)(v10 + 8) = v8;
-    *(_DWORD *)(v9 + 80) = *v5;
+    *((_DWORD *)v9 + 20) = *v5;
     if ( (*v5 & 0x80000000) != 0 )
       v11 = 0LL;
     else
-      v11 = *(unsigned int *)(v9 + 184);
-    *(_QWORD *)(v9 + 88) = v11;
-    KeSetEvent((PRKEVENT)(v9 + 32), 0, 0);
+      v11 = *((unsigned int *)v9 + 46);
+    v9[11] = v11;
+    KeSetEvent((PRKEVENT)(v9 + 4), 0, 0);
     v12 = MiPfCompleteInPageSupport(v9, a2);
     if ( ((v12 + 0x80000000) & 0x80000000) == 0 && v12 != -1073740748 )
       v2 = v12;

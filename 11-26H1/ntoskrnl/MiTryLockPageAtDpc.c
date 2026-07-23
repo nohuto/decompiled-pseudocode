@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTryLockPageAtDpc @ 0x140491540
+ * XREFs of MiTryLockPageAtDpc @ 0x14048B090
  * Callers:
- *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C007C4 (MiAddPostHibernateZeroPagesToBitmap.c)
+ *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C069D4 (MiAddPostHibernateZeroPagesToBitmap.c)
  * Callees:
  *     <none>
  */

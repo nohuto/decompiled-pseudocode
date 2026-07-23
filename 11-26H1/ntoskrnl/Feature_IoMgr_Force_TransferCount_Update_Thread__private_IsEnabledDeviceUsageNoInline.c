@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline @ 0x1405CA53C
+ * XREFs of Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline @ 0x1405CCE0C
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback @ 0x1405CA578 (Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback.c)
+ *     Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback @ 0x1405CCE48 (Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline()

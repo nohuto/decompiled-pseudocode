@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwWriteTransfer @ 0x14041C2C0
+ * XREFs of EtwWriteTransfer @ 0x140410100
  * Callers:
- *     VrpRegistryCallback @ 0x140849230 (VrpRegistryCallback.c)
- *     VrpPostQueryKey @ 0x140927F20 (VrpPostQueryKey.c)
- *     VrpPostEnumerateKey @ 0x1409284D8 (VrpPostEnumerateKey.c)
- *     CmpInitHiveFromFile @ 0x14092EC1C (CmpInitHiveFromFile.c)
- *     CmpLogHiveFileInaccessible @ 0x1409305F4 (CmpLogHiveFileInaccessible.c)
- *     EtwpWriteAppStateChange @ 0x14094D6B0 (EtwpWriteAppStateChange.c)
- *     CmpLogFlushPhaseEnd @ 0x14097C1A0 (CmpLogFlushPhaseEnd.c)
- *     CmpLogFlushPhaseStart @ 0x14097C28C (CmpLogFlushPhaseStart.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     FlushEventEntryList @ 0x140A4B18C (FlushEventEntryList.c)
+ *     VrpRegistryCallback @ 0x1408454F0 (VrpRegistryCallback.c)
+ *     EtwpWriteAppStateChange @ 0x1408F1C20 (EtwpWriteAppStateChange.c)
+ *     VrpPostQueryKey @ 0x14092A060 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x14092A618 (VrpPostEnumerateKey.c)
+ *     CmpInitHiveFromFile @ 0x140930D5C (CmpInitHiveFromFile.c)
+ *     CmpLogHiveFileInaccessible @ 0x140932734 (CmpLogHiveFileInaccessible.c)
+ *     CmpLogFlushPhaseEnd @ 0x1409649B0 (CmpLogFlushPhaseEnd.c)
+ *     CmpLogFlushPhaseStart @ 0x140964A9C (CmpLogFlushPhaseStart.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     FlushEventEntryList @ 0x140A41EEC (FlushEventEntryList.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
  */
 
 NTSTATUS __stdcall EtwWriteTransfer(

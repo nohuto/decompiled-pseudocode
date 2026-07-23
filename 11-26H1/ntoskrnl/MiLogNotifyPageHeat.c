@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogNotifyPageHeat @ 0x140704DD0
+ * XREFs of MiLogNotifyPageHeat @ 0x140709AA0
  * Callers:
- *     MiNotifyPageHeat @ 0x14052F470 (MiNotifyPageHeat.c)
+ *     MiNotifyPageHeat @ 0x140531990 (MiNotifyPageHeat.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogNotifyPageHeat(__int64 a1, _DWORD *a2)
@@ -81,10 +81,10 @@ __int64 __fastcall MiLogNotifyPageHeat(__int64 a1, _DWORD *a2)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
   if ( (*a2 & 1) != 0 )
   {
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 64LL) )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 64LL) )
     {
       v14 = *v2;
-      v12 = (unsigned __int8 *)&dword_1400591D4;
+      v12 = (unsigned __int8 *)&byte_14005A1C7;
       v21 = a2[1];
       v25 = &v21;
       v27 = &v23;
@@ -98,10 +98,10 @@ __int64 __fastcall MiLogNotifyPageHeat(__int64 a1, _DWORD *a2)
       goto LABEL_16;
     }
   }
-  else if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 64LL) )
+  else if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 64LL) )
   {
     v11 = *v2;
-    v12 = (unsigned __int8 *)word_14005925A;
+    v12 = (unsigned __int8 *)byte_14005A24D;
     v19 = a2[1];
     v25 = &v19;
     v27 = &v22;

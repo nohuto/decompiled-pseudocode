@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetSecurityDescriptorByGuid @ 0x1406C0F5C
+ * XREFs of EtwpGetSecurityDescriptorByGuid @ 0x1406C0F8C
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpAccessCheckFromState @ 0x1406C0384 (EtwpAccessCheckFromState.c)
- *     EtwpAllocGuidEntry @ 0x140781A1C (EtwpAllocGuidEntry.c)
- *     EtwpCheckGuidAccess @ 0x140781B64 (EtwpCheckGuidAccess.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     EtwpAccessCheckFromState @ 0x1406C03B4 (EtwpAccessCheckFromState.c)
+ *     EtwpAllocGuidEntry @ 0x140781C0C (EtwpAllocGuidEntry.c)
+ *     EtwpCheckGuidAccess @ 0x140781D54 (EtwpCheckGuidAccess.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
  *     EtwpFixBootLoggers @ 0x140B6801C (EtwpFixBootLoggers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140741554 (EtwpGetGuidSecurityDescriptor.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x140741744 (EtwpGetGuidSecurityDescriptor.c)
  */
 
 char __fastcall EtwpGetSecurityDescriptorByGuid(unsigned int *a1, _QWORD *a2)

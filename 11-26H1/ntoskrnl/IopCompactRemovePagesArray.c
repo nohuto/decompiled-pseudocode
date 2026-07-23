@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCompactRemovePagesArray @ 0x1405D54DC
+ * XREFs of IopCompactRemovePagesArray @ 0x1405D7CCC
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
- *     IopAddAddressRangeToRemovePagesArray @ 0x1405D4A94 (IopAddAddressRangeToRemovePagesArray.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddAddressRangeToRemovePagesArray @ 0x1405D7284 (IopAddAddressRangeToRemovePagesArray.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void IopCompactRemovePagesArray()

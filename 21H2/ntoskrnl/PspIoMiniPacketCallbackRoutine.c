@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIoMiniPacketCallbackRoutine @ 0x140693F70
+ * XREFs of PspIoMiniPacketCallbackRoutine @ 0x1405F34D0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
  */
 
 void __fastcall PspIoMiniPacketCallbackRoutine(__int64 a1, struct _DMA_ADAPTER *a2)

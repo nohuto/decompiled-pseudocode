@@ -130,7 +130,7 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
   char *v30; // rax
   __int16 v31; // bx
   LONGLONG QuadPart; // rax
-  __int64 v33; // rcx
+  char *v33; // rax
   char *v34; // rax
   char *v35; // rax
   char *v36; // rax
@@ -140,116 +140,112 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
   char *v40; // rax
   char *v41; // rax
   char *v42; // rax
-  char *v43; // rax
-  const char *Text; // rbx
-  ULONG v45; // r9d
-  NTSTATUS v46; // eax
-  __int64 v47; // r9
-  __int64 v48; // rdx
-  _QWORD *v49; // rcx
-  NTSTATUS v50; // eax
-  unsigned int v51; // r12d
-  __int64 v52; // rdx
-  __int64 v53; // r8
-  __int64 *v54; // r14
-  unsigned int v55; // eax
-  __int64 v56; // rcx
-  __int64 *v57; // rcx
-  __int64 v58; // rax
-  unsigned int v59; // ebx
-  __int64 v60; // rsi
+  const CHAR *Text; // rbx
+  ULONG v44; // r9d
+  NTSTATUS v45; // eax
+  __int64 v46; // r9
+  __int64 v47; // rdx
+  _QWORD *v48; // rcx
+  NTSTATUS v49; // eax
+  unsigned int v50; // r12d
+  __int64 v51; // rdx
+  __int64 v52; // r8
+  __int64 *v53; // r14
+  unsigned int v54; // eax
+  __int64 v55; // rcx
+  __int64 *v56; // rcx
+  __int64 v57; // rax
+  unsigned int v58; // ebx
+  __int64 v59; // rsi
   struct _KPRCB *CurrentPrcb; // r13
-  int v62; // r12d
-  char v63; // si
-  int v64; // ebx
-  __int64 v65; // rcx
+  int v61; // r12d
+  char v62; // si
+  int v63; // ebx
+  __int64 v64; // rcx
+  unsigned __int64 v65; // rax
   unsigned __int64 v66; // rax
-  unsigned __int64 v67; // rax
-  unsigned __int64 v68; // rcx
-  __int64 v69; // r10
-  __int64 *v70; // rdx
-  __int64 v71; // r9
-  int v72; // r8d
-  int v73; // eax
-  __int64 v74; // r8
-  __int64 v75; // r9
+  unsigned __int64 v67; // rcx
+  __int64 v68; // r10
+  __int64 *v69; // rdx
+  __int64 v70; // r9
+  int v71; // r8d
+  int v72; // eax
+  __int64 v73; // r8
+  __int64 v74; // r9
   int inited; // eax
-  int v77; // eax
-  ULONG_PTR v78; // rsi
+  int v76; // eax
+  ULONG_PTR v77; // rsi
   int SystemRootLink; // eax
+  NTSTATUS v79; // eax
   NTSTATUS v80; // eax
-  NTSTATUS v81; // eax
-  ULONG_PTR v82; // rbx
-  NTSTATUS v83; // eax
-  char *v84; // rbx
-  PNLSTABLEINFO v85; // r9
-  PNLSTABLEINFO v86; // rcx
+  ULONG_PTR v81; // rbx
+  NTSTATUS v82; // eax
+  char *v83; // rbx
+  PNLSTABLEINFO v84; // r9
+  PNLSTABLEINFO v85; // rcx
+  int v86; // eax
   int v87; // eax
   int v88; // eax
-  int v89; // eax
-  int v90; // ebx
-  __int64 v91; // rdx
-  __int64 v92; // rcx
-  __int64 v93; // r8
-  __int64 v94; // r9
-  char *v95; // rbx
-  const char *v96; // rbx
-  int v97; // eax
-  int v98; // ecx
-  ULONG v99; // r9d
-  int v100; // edi
-  int v101; // edi
-  char *v102; // rax
-  int v103; // eax
-  int v104; // eax
-  int v105; // eax
+  int v89; // ebx
+  __int64 v90; // r9
+  char *v91; // rbx
+  const char *v92; // rbx
+  int v93; // eax
+  int v94; // ecx
+  ULONG v95; // r9d
+  int v96; // edi
+  int v97; // edi
+  char *v98; // rax
+  int v99; // eax
+  int v100; // eax
+  int v101; // eax
   PMESSAGE_RESOURCE_ENTRY *MessageResourceEntry; // [rsp+28h] [rbp-E0h]
-  char v108; // [rsp+48h] [rbp-C0h]
-  char v109; // [rsp+49h] [rbp-BFh]
+  char v104; // [rsp+48h] [rbp-C0h]
+  char v105; // [rsp+49h] [rbp-BFh]
   LARGE_INTEGER Time; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v111; // [rsp+58h] [rbp-B0h]
-  PMESSAGE_RESOURCE_ENTRY v112; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v113; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v107; // [rsp+58h] [rbp-B0h]
+  PMESSAGE_RESOURCE_ENTRY v108; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 Buffer; // [rsp+68h] [rbp-A0h] BYREF
   size_t pcbRemaining; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v115; // [rsp+78h] [rbp-90h] BYREF
+  ULONG Type[2]; // [rsp+78h] [rbp-90h] BYREF
   NTSTRSAFE_PSTR ppszDestEnd; // [rsp+80h] [rbp-88h] BYREF
-  int v117; // [rsp+88h] [rbp-80h]
+  ULONG ResultDataSize; // [rsp+88h] [rbp-80h] BYREF
   LARGE_INTEGER CurrentTime; // [rsp+90h] [rbp-78h] BYREF
-  char v119; // [rsp+98h] [rbp-70h] BYREF
+  char v115; // [rsp+98h] [rbp-70h] BYREF
   HANDLE SectionHandle; // [rsp+A0h] [rbp-68h] BYREF
   PVOID MappedBase; // [rsp+A8h] [rbp-60h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v122; // [rsp+B0h] [rbp-58h] BYREF
-  char *v123; // [rsp+B8h] [rbp-50h]
-  STRING v124; // [rsp+C0h] [rbp-48h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v118; // [rsp+B0h] [rbp-58h] BYREF
+  char *v119; // [rsp+B8h] [rbp-50h]
+  _STRING v120; // [rsp+C0h] [rbp-48h] BYREF
   ULONG_PTR BugCheckParameter3; // [rsp+D0h] [rbp-38h]
   LARGE_INTEGER MaximumSize; // [rsp+D8h] [rbp-30h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v127; // [rsp+E0h] [rbp-28h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v123; // [rsp+E0h] [rbp-28h] BYREF
   PVOID Object; // [rsp+F0h] [rbp-18h] BYREF
   ULONG_PTR ViewSize; // [rsp+F8h] [rbp-10h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+100h] [rbp-8h] BYREF
-  char v131[4]; // [rsp+110h] [rbp+8h] BYREF
-  int v132; // [rsp+114h] [rbp+Ch]
-  LARGE_INTEGER *v133; // [rsp+118h] [rbp+10h]
-  char *v134; // [rsp+120h] [rbp+18h]
-  char v135; // [rsp+130h] [rbp+28h]
-  char v136[4]; // [rsp+138h] [rbp+30h] BYREF
-  int v137; // [rsp+13Ch] [rbp+34h]
+  _TIME_FIELDS TimeFields; // [rsp+100h] [rbp-8h] BYREF
+  char v127[4]; // [rsp+110h] [rbp+8h] BYREF
+  int v128; // [rsp+114h] [rbp+Ch]
+  LARGE_INTEGER *v129; // [rsp+118h] [rbp+10h]
+  char *v130; // [rsp+120h] [rbp+18h]
+  char v131; // [rsp+130h] [rbp+28h]
+  char v132[4]; // [rsp+138h] [rbp+30h] BYREF
+  int v133; // [rsp+13Ch] [rbp+34h]
   LARGE_INTEGER *p_Time; // [rsp+140h] [rbp+38h]
-  char *v139; // [rsp+148h] [rbp+40h]
-  char v140; // [rsp+158h] [rbp+50h]
+  char *v135; // [rsp+148h] [rbp+40h]
+  char v136; // [rsp+158h] [rbp+50h]
   UNICODE_STRING DestinationString; // [rsp+160h] [rbp+58h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+170h] [rbp+68h] BYREF
   char pszDest[24]; // [rsp+180h] [rbp+78h] BYREF
 
   BugCheckParameter3 = a1;
-  LOBYTE(v111) = 0;
+  LOBYTE(v107) = 0;
   PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x200uLL, 0x74696E49u);
   v3 = PoolWithTag;
   if ( !PoolWithTag )
     KeBugCheck(0x31u);
   v4 = PoolWithTag + 256;
-  v108 = 0;
-  v123 = PoolWithTag + 256;
+  v104 = 0;
+  v119 = PoolWithTag + 256;
   LODWORD(InitializationPhase) = 1;
   KeSetPriorityThread(KeGetCurrentThread(), 31);
   byte_1403E52AD &= 0xF9u;
@@ -304,7 +300,7 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
     else
       InitWinPEModeType |= 1u;
   }
-  Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x4000007Eu, &v112);
+  Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x4000007Eu, &v108);
   v15 = v3;
   ppszDestEnd = v3;
   v16 = Message;
@@ -337,7 +333,7 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
   else
   {
     LODWORD(MessageResourceEntry) = 10240;
-    v21 = RtlStringCbPrintfA(v19, v18, (NTSTRSAFE_PCSTR)v112->Text, pszDest, MessageResourceEntry, v3);
+    v21 = RtlStringCbPrintfA(v19, v18, (NTSTRSAFE_PCSTR)v108->Text, pszDest, MessageResourceEntry, v3);
     if ( v21 < 0 )
       KeBugCheckEx(0x32u, v21, 7uLL, 2uLL, 0LL);
   }
@@ -371,7 +367,7 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
     {
       v28 = ExpAltTimeZoneBias;
       ExpLastTimeZoneBias = ExpAltTimeZoneBias;
-      v108 = 1;
+      v104 = 1;
     }
     ExpTimeZoneBias = 600000000LL * v28;
     MEMORY[0xFFFFF7800000025C] = 0;
@@ -398,107 +394,107 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
   if ( !ExpRealTimeIsUniversal )
     QuadPart = Time.QuadPart - ExpTimeZoneBias;
   CurrentTime.QuadPart = QuadPart;
-  v136[0] = 0;
+  v132[0] = 0;
   p_Time = &Time;
-  v140 = 0;
-  v139 = &v119;
-  v137 = 4;
-  KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v136);
+  v136 = 0;
+  v135 = &v115;
+  v133 = 4;
+  KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v132);
   PoNotifySystemTimeSet();
   RtlInitUnicodeString(&DestinationString, L"Kernel-RegisteredProcessors");
-  if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v115, (__int64)&KeRegisteredProcessors) < 0
-    || v117 != 4
-    || (_DWORD)v115 != 4 )
+  if ( ZwQueryLicenseValue(&DestinationString, Type, &KeRegisteredProcessors, 4u, &ResultDataSize) < 0
+    || ResultDataSize != 4
+    || Type[0] != 4 )
   {
     KeRegisteredProcessors = 1;
   }
   if ( v6 )
   {
-    v34 = strstr(v6, " BOOTPROC=");
-    if ( v34 )
+    v33 = strstr(v6, " BOOTPROC=");
+    if ( v33 )
     {
-      v35 = strstr(v34, "=");
-      if ( v35 )
-        KeBootprocSpecified = atol(v35 + 1);
+      v34 = strstr(v33, "=");
+      if ( v34 )
+        KeBootprocSpecified = atol(v34 + 1);
     }
-    v36 = strstr(v6, " NUMPROC=");
-    if ( v36 )
+    v35 = strstr(v6, " NUMPROC=");
+    if ( v35 )
     {
-      v37 = strstr(v36, "=");
-      if ( v37 )
-        KeNumprocSpecified = atol(v37 + 1);
+      v36 = strstr(v35, "=");
+      if ( v36 )
+        KeNumprocSpecified = atol(v36 + 1);
     }
-    v38 = strstr(v6, " HYPERVISORNUMPROC=");
-    if ( v38 )
+    v37 = strstr(v6, " HYPERVISORNUMPROC=");
+    if ( v37 )
     {
-      v39 = strstr(v38, "=");
-      if ( v39 )
-        KeHypervisorNumprocSpecified = atol(v39 + 1);
+      v38 = strstr(v37, "=");
+      if ( v38 )
+        KeHypervisorNumprocSpecified = atol(v38 + 1);
     }
-    v40 = strstr(v6, " HYPERVISORROOTPROC=");
-    if ( v40 )
+    v39 = strstr(v6, " HYPERVISORROOTPROC=");
+    if ( v39 )
     {
-      v41 = strstr(v40, "=");
-      if ( v41 )
-        KeRootProcSpecified = atol(v41 + 1);
+      v40 = strstr(v39, "=");
+      if ( v40 )
+        KeRootProcSpecified = atol(v40 + 1);
     }
-    v42 = strstr(v6, " HYPERVISORROOTPROCPERNODE=");
-    if ( v42 )
+    v41 = strstr(v6, " HYPERVISORROOTPROCPERNODE=");
+    if ( v41 )
     {
-      v43 = strstr(v42, "=");
-      if ( v43 )
-        KeRootProcPerNodeSpecified = atol(v43 + 1);
+      v42 = strstr(v41, "=");
+      if ( v42 )
+        KeRootProcPerNodeSpecified = atol(v42 + 1);
     }
     if ( strstr(v6, " MAXPROC") )
       KeMaximumProcessors = 640;
   }
-  KeStartAllProcessors(v33);
+  KeStartAllProcessors();
   KeSetAffinityProcess((__int64)KeGetCurrentThread()->ApcState.Process, 0, (__int16 *)KeActiveProcessors);
   KeInitializeBootProcessorShadowState();
-  if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000089u, &v127) < 0 )
+  if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000089u, &v123) < 0 )
     Text = "MultiProcessor Kernel\r\n";
   else
-    Text = (const char *)v127->Text;
+    Text = (const CHAR *)v123->Text;
   if ( !(unsigned __int8)HalAllProcessorsStarted() )
     KeBugCheck(0x61u);
-  RtlInitAnsiString(&v124, Text);
-  if ( v124.Length >= 2u )
-    v124.Length -= 2;
-  v45 = 1073741960;
+  RtlInitAnsiString(&v120, Text);
+  if ( v120.Length >= 2u )
+    v120.Length -= 2;
+  v44 = 1073741960;
   if ( (unsigned int)KeNumberProcessors_0 > 1 )
-    v45 = 1073741981;
-  v46 = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v45, &v112);
-  v47 = 0LL;
-  v48 = *(unsigned int *)MmPhysicalMemoryBlock;
-  if ( (_DWORD)v48 )
+    v44 = 1073741981;
+  v45 = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v44, &v108);
+  v46 = 0LL;
+  v47 = *(unsigned int *)MmPhysicalMemoryBlock;
+  if ( (_DWORD)v47 )
   {
-    v49 = (char *)MmPhysicalMemoryBlock + 24;
+    v48 = (char *)MmPhysicalMemoryBlock + 24;
     do
     {
-      v47 += *v49;
-      v49 += 2;
-      --v48;
+      v46 += *v48;
+      v48 += 2;
+      --v47;
     }
-    while ( v48 );
+    while ( v47 );
   }
-  if ( v46 < 0 )
-    v50 = RtlStringCbPrintfA(
+  if ( v45 < 0 )
+    v49 = RtlStringCbPrintfA(
             v3,
             0x100uLL,
             "%u System Processor [%u MB Memory] %Z\n",
             (unsigned int)KeNumberProcessors_0,
-            (unsigned __int64)(v47 + 255) >> 8,
-            &v124);
+            (unsigned __int64)(v46 + 255) >> 8,
+            &v120);
   else
-    v50 = RtlStringCbPrintfA(
+    v49 = RtlStringCbPrintfA(
             v3,
             0x100uLL,
-            (NTSTRSAFE_PCSTR)v112->Text,
+            (NTSTRSAFE_PCSTR)v108->Text,
             (unsigned int)KeNumberProcessors_0,
-            (unsigned __int64)(v47 + 255) >> 8,
-            &v124);
-  if ( v50 < 0 )
-    KeBugCheckEx(0x32u, v50, 7uLL, 4uLL, 0LL);
+            (unsigned __int64)(v46 + 255) >> 8,
+            &v120);
+  if ( v49 < 0 )
+    KeBugCheckEx(0x32u, v49, 7uLL, 4uLL, 0LL);
   InbvDisplayString((__int64)v3);
   ExFreePoolWithTag(v3, 0);
   if ( !ObInitSystem() )
@@ -507,28 +503,28 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 1uLL, 0LL);
   if ( !IoCreateObjectTypes() )
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 4uLL, 0LL);
-  v51 = KeNumberProcessors_0;
+  v50 = KeNumberProcessors_0;
   KiClockKeepAliveCycle = ((unsigned int)KeNumberProcessors_0 + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                         / (unsigned int)KeNumberProcessors_0;
-  v54 = KiProcessorBlock;
+  v53 = KiProcessorBlock;
   if ( HviIsAnyHypervisorPresent() )
   {
     if ( (HvlpFlags & 1) == 0 || (HvlEnlightenments & 0x20) != 0 )
     {
-      v55 = 0;
-      v56 = 0LL;
+      v54 = 0;
+      v55 = 0LL;
       KeDpcWatchdogPeriod = 0;
-      v52 = 1LL;
+      v51 = 1LL;
       KiDPCTimeout = 0;
     }
     else
     {
-      v55 = KeDpcWatchdogPeriod;
-      v52 = 0LL;
-      v56 = (unsigned int)KiDPCTimeout;
+      v54 = KeDpcWatchdogPeriod;
+      v51 = 0LL;
+      v55 = (unsigned int)KiDPCTimeout;
     }
-    LOBYTE(v53) = KeEnableWatchdogTimeout == 0;
-    if ( (_DWORD)v52 )
+    LOBYTE(v52) = KeEnableWatchdogTimeout == 0;
+    if ( (_DWORD)v51 )
     {
       KeEnableWatchdogTimeout = 0;
     }
@@ -538,98 +534,98 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR a1)
       {
         if ( (_DWORD)KeNumberProcessors_0 )
         {
-          v57 = KiProcessorBlock;
-          v52 = (unsigned int)KeNumberProcessors_0;
+          v56 = KiProcessorBlock;
+          v51 = (unsigned int)KeNumberProcessors_0;
           do
           {
-            v58 = *v57++;
-            *(_DWORD *)(v58 + 22636) = 0;
-            *(_DWORD *)(v58 + 23328) = 0;
-            --v52;
+            v57 = *v56++;
+            *(_DWORD *)(v57 + 22636) = 0;
+            *(_DWORD *)(v57 + 23328) = 0;
+            --v51;
           }
-          while ( v52 );
+          while ( v51 );
         }
-        v56 = (unsigned int)KiDPCTimeout;
-        v55 = KeDpcWatchdogPeriod;
+        v55 = (unsigned int)KiDPCTimeout;
+        v54 = KeDpcWatchdogPeriod;
       }
       KeEnableWatchdogTimeout = 1;
     }
   }
   else
   {
-    v55 = KeDpcWatchdogPeriod;
-    v56 = (unsigned int)KiDPCTimeout;
+    v54 = KeDpcWatchdogPeriod;
+    v55 = (unsigned int)KiDPCTimeout;
   }
-  if ( v55 )
+  if ( v54 )
   {
-    if ( v55 < 0x7D0 )
+    if ( v54 < 0x7D0 )
     {
-      v55 = 2000;
+      v54 = 2000;
       KeDpcWatchdogPeriod = 2000;
     }
-    v52 = 240000LL;
-    if ( v55 > 0x3A980 )
+    v51 = 240000LL;
+    if ( v54 > 0x3A980 )
     {
-      v55 = 240000;
+      v54 = 240000;
       KeDpcWatchdogPeriod = 240000;
     }
   }
-  if ( (_DWORD)v56 )
+  if ( (_DWORD)v55 )
   {
-    if ( (unsigned int)v56 < 0x14 )
+    if ( (unsigned int)v55 < 0x14 )
     {
-      v56 = 20LL;
+      v55 = 20LL;
       KiDPCTimeout = 20;
     }
-    v52 = 20000LL;
-    if ( (unsigned int)v56 > 0x4E20 )
+    v51 = 20000LL;
+    if ( (unsigned int)v55 > 0x4E20 )
     {
-      v56 = 20000LL;
+      v55 = 20000LL;
       KiDPCTimeout = 20000;
     }
   }
   if ( ViVerifierEnabled )
   {
-    v52 = (unsigned int)KeVerifierDpcScalingFactor;
+    v51 = (unsigned int)KeVerifierDpcScalingFactor;
     if ( !KeVerifierDpcScalingFactor )
     {
-      v52 = 1LL;
+      v51 = 1LL;
       KeVerifierDpcScalingFactor = 1;
     }
-    if ( (unsigned int)v52 > 0x64 )
+    if ( (unsigned int)v51 > 0x64 )
     {
-      v52 = 100LL;
+      v51 = 100LL;
       KeVerifierDpcScalingFactor = 100;
     }
-    v56 = (unsigned int)(v52 * v56);
-    KeDpcWatchdogPeriod = v52 * v55;
-    KiDPCTimeout = v56;
+    v55 = (unsigned int)(v51 * v55);
+    KeDpcWatchdogPeriod = v51 * v54;
+    KiDPCTimeout = v55;
   }
-  v59 = 0;
-  if ( v51 )
+  v58 = 0;
+  if ( v50 )
   {
     while ( 1 )
     {
-      v60 = *v54;
-      KiInitializeProcessor(*v54);
+      v59 = *v53;
+      KiInitializeProcessor(*v53);
       if ( KeThreadDpcEnable )
       {
-        if ( (int)KiStartDpcThread(v60) < 0 )
+        if ( (int)KiStartDpcThread(v59) < 0 )
           break;
       }
-      ++v59;
-      ++v54;
-      if ( v59 >= v51 )
+      ++v58;
+      ++v53;
+      if ( v58 >= v50 )
         goto LABEL_120;
     }
 LABEL_239:
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 2uLL, 0LL);
   }
 LABEL_120:
-  KiComputeNumaCosts(v56, v52, v53);
+  KiComputeNumaCosts(v55, v51, v52);
   SymCryptInitEnvWindowsKernelmodeWin8_1nLater();
   KiIntSteerInit();
-  if ( (int)off_140321B18() < 0 || v109 )
+  if ( (int)off_140321B18() < 0 || v105 )
     MmEnablePAT();
   if ( (KiCacheErrataMonitor & 3) != 0 )
   {
@@ -651,60 +647,60 @@ LABEL_120:
     KiTLBCOverride = 0;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v62 = 0;
+  v61 = 0;
   PreviousAffinity.Group = 0;
-  v63 = 0;
+  v62 = 0;
   PreviousAffinity.Mask = 0LL;
-  v64 = 0;
+  v63 = 0;
   if ( (_DWORD)KeNumberProcessors_0 )
   {
     do
     {
-      if ( v62 )
+      if ( v61 )
       {
-        KiSetSystemAffinityThreadToProcessor(v64, 0LL);
-        v65 = 1LL;
+        KiSetSystemAffinityThreadToProcessor(v63, 0LL);
+        v64 = 1LL;
       }
       else
       {
-        KiSetSystemAffinityThreadToProcessor(v64, &PreviousAffinity);
-        v65 = 1LL;
-        v62 = 1;
+        KiSetSystemAffinityThreadToProcessor(v63, &PreviousAffinity);
+        v64 = 1LL;
+        v61 = 1;
       }
-      if ( v64 == (_DWORD)KeNumberProcessors_0 - 1 )
-        v63 = 1;
+      if ( v63 == (_DWORD)KeNumberProcessors_0 - 1 )
+        v62 = 1;
       if ( (KiCacheErrataMonitor & 3) != 0 )
       {
-        LOBYTE(v65) = v63;
-        if ( !(unsigned __int8)KiInitializeCacheErrataSupport(v65) )
+        LOBYTE(v64) = v62;
+        if ( !(unsigned __int8)KiInitializeCacheErrataSupport(v64) )
           goto LABEL_239;
       }
-      LOBYTE(v65) = v63;
-      KiInitializeMTRR(v65);
+      LOBYTE(v64) = v62;
+      KiInitializeMTRR(v64);
       if ( (KeFeatureBits & 0x400000) != 0 )
         __writemsr(0x1A0u, __readmsr(0x1A0u) | 0x8000000);
       if ( (KeFeatureBits & 0x10000001) != 0 )
       {
-        v66 = __readcr4();
+        v65 = __readcr4();
         if ( (KeFeatureBits & 1) != 0 )
-          v66 |= 0x100000uLL;
+          v65 |= 0x100000uLL;
         if ( (KeFeatureBits & 0x10000000) != 0 )
-          v66 |= 0x10000uLL;
+          v65 |= 0x10000uLL;
         if ( CurrentPrcb->Number && (KeFeatureBits & 0x10000000000LL) != 0 && KiFlushPcid )
-          v66 |= 0x20000uLL;
-        __writecr4(v66);
-        if ( (v66 & 0x20000) != 0 )
+          v65 |= 0x20000uLL;
+        __writecr4(v65);
+        if ( (v65 & 0x20000) != 0 )
         {
-          v67 = __readcr3();
-          __writecr3(v67 | 2);
+          v66 = __readcr3();
+          __writecr3(v66 | 2);
         }
       }
     }
-    while ( ++v64 < (unsigned int)KeNumberProcessors_0 );
+    while ( ++v63 < (unsigned int)KeNumberProcessors_0 );
   }
   if ( CurrentPrcb->CpuVendor == 2 )
     KiIa32MiscEnable = __readmsr(0x1A0u);
-  if ( v62 )
+  if ( v61 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
   qword_140332868 = (__int64)&qword_140332860;
   qword_140332860 = (__int64)&qword_140332860;
@@ -714,112 +710,112 @@ LABEL_120:
   word_140332858 = 1;
   byte_14033285A = 6;
   dword_14033285C = 0;
-  v68 = *(unsigned int *)(KiProcessorBlock[0] + 1524) * (unsigned __int64)KeMaximumIncrement / 0xA;
-  KiShortExecutionCycles = v68 / 0xF0;
-  KiCyclesPerClockQuantum = v68 / 3;
-  KiDirectQuantumTarget = v68 / 3;
-  KiLockQuantumTarget = 3 * (v68 / 3);
+  v67 = *(unsigned int *)(KiProcessorBlock[0] + 1524) * (unsigned __int64)KeMaximumIncrement / 0xA;
+  KiShortExecutionCycles = v67 / 0xF0;
+  KiCyclesPerClockQuantum = v67 / 3;
+  KiDirectQuantumTarget = v67 / 3;
+  KiLockQuantumTarget = 3 * (v67 / 3);
   if ( KdpBootedNodebug )
   {
-    v69 = KiWaitAlways;
-    v70 = (__int64 *)&KdDebuggerDataBlock;
-    v71 = KiWaitNever;
-    v72 = 108;
+    v68 = KiWaitAlways;
+    v69 = (__int64 *)&KdDebuggerDataBlock;
+    v70 = KiWaitNever;
+    v71 = 108;
     KdpDataBlockEncoded = 1;
     do
     {
-      *v70 = v71 ^ __ROR8__((unsigned __int64)&KdpDataBlockEncoded ^ _byteswap_uint64(v69 ^ *v70), v71);
-      ++v70;
-      --v72;
+      *v69 = v70 ^ __ROR8__((unsigned __int64)&KdpDataBlockEncoded ^ _byteswap_uint64(v68 ^ *v69), v70);
+      ++v69;
+      --v71;
     }
-    while ( v72 );
+    while ( v71 );
   }
-  v73 = KeExpandKernelStackAndCalloutInternal((void (__fastcall *)(__int64))KiVerifyScopesExecute, 0LL, 49152, 2, 0LL);
-  if ( v73 < 0 )
-    KeBugCheckEx(0x32u, v73, 0x5356694BuLL, 0LL, 0LL);
-  if ( !KdInitSystem(InitializationPhase, 0LL, v74, v75) )
+  v72 = KeExpandKernelStackAndCalloutInternal((void (__fastcall *)(__int64))KiVerifyScopesExecute, 0LL, 49152, 2, 0LL);
+  if ( v72 < 0 )
+    KeBugCheckEx(0x32u, v72, 0x5356694BuLL, 0LL, 0LL);
+  if ( !KdInitSystem(InitializationPhase, 0LL, v73, v74) )
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 3uLL, 0LL);
   inited = TmInitSystem();
   if ( (int)(inited + 0x80000000) >= 0 && inited != -1073741637 )
     KeBugCheckEx(0x32u, 0LL, 0LL, 0LL, 0LL);
-  v77 = DbgkInitialize();
-  if ( v77 < 0 )
-    KeBugCheckEx(0x32u, v77, 0LL, 0LL, 0LL);
+  v76 = DbgkInitialize();
+  if ( v76 < 0 )
+    KeBugCheckEx(0x32u, v76, 0LL, 0LL, 0LL);
   BcdInitializeBcdSyncMutant();
   VerifierInitSystem(0LL);
   if ( !SeInitSystem() )
     KeBugCheck(0x63u);
-  v78 = BugCheckParameter3;
+  v77 = BugCheckParameter3;
   PsInitSystem(1, (void *)BugCheckParameter3);
   if ( ExCreateCallback((PCALLBACK_OBJECT *)&CallbackObject, (POBJECT_ATTRIBUTES)&stru_1407228A8, 1u, 1u) < 0 )
     CallbackObject = 0LL;
-  SystemRootLink = CreateSystemRootLink(v78);
+  SystemRootLink = CreateSystemRootLink(v77);
   if ( SystemRootLink < 0 )
     KeBugCheckEx(0x64u, SystemRootLink, 0LL, 0LL, 0LL);
-  if ( !MmInitSystem(1LL, v78) )
+  if ( !MmInitSystem(1LL, v77) )
     KeBugCheck(0x65u);
   InitMultiSessionSku();
   MaximumSize.QuadPart = InitNlsTableSize;
-  v80 = ZwCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
-  if ( v80 < 0 )
-    KeBugCheckEx(0x32u, v80, 1uLL, 0LL, 0LL);
-  v81 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
+  v79 = ZwCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
+  if ( v79 < 0 )
+    KeBugCheckEx(0x32u, v79, 1uLL, 0LL, 0LL);
+  v80 = ObReferenceObjectByHandle(SectionHandle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
   InitNlsSectionPointer = Object;
-  v82 = v81;
+  v81 = v80;
   ZwClose(SectionHandle);
-  if ( (v82 & 0x80000000) != 0LL )
-    KeBugCheckEx(0x32u, v82, 2uLL, 0LL, 0LL);
+  if ( (v81 & 0x80000000) != 0LL )
+    KeBugCheckEx(0x32u, v81, 2uLL, 0LL, 0LL);
   MappedBase = 0LL;
   ViewSize = 0LL;
-  v83 = MmMapViewInSystemSpace(InitNlsSectionPointer, &MappedBase, &ViewSize);
-  if ( v83 < 0 )
-    KeBugCheckEx(0x32u, v83, 3uLL, 0LL, 0LL);
-  v84 = (char *)MappedBase;
+  v82 = MmMapViewInSystemSpace(InitNlsSectionPointer, &MappedBase, &ViewSize);
+  if ( v82 < 0 )
+    KeBugCheckEx(0x32u, v82, 3uLL, 0LL, 0LL);
+  v83 = (char *)MappedBase;
   memmove(MappedBase, InitNlsTableBase, InitNlsTableSize);
-  InitNlsTableBase = v84;
+  InitNlsTableBase = v83;
   RtlInitNlsTables(
-    (PUSHORT)&v84[InitAnsiCodePageDataOffset],
-    (PUSHORT)&v84[InitOemCodePageDataOffset],
-    (PUSHORT)&v84[InitUnicodeCaseTableDataOffset],
-    v85);
-  RtlResetRtlTranslations(v86);
+    (PUSHORT)&v83[InitAnsiCodePageDataOffset],
+    (PUSHORT)&v83[InitOemCodePageDataOffset],
+    (PUSHORT)&v83[InitUnicodeCaseTableDataOffset],
+    v84);
+  RtlResetRtlTranslations(v85);
   if ( !CcInitializeCacheManager() )
     KeBugCheck(0x66u);
-  if ( !(unsigned __int8)CmInitSystem1(v78) )
+  if ( !(unsigned __int8)CmInitSystem1(v77) )
     KeBugCheck(0x67u);
-  v87 = KsrInitSystem_0();
-  if ( (int)(v87 + 0x80000000) >= 0 && v87 != -1073741637 )
-    KeBugCheckEx(0x32u, v87, 0LL, 1uLL, 0LL);
-  v88 = EmInitSystem(0, v78);
+  v86 = KsrInitSystem_0();
+  if ( (int)(v86 + 0x80000000) >= 0 && v86 != -1073741637 )
+    KeBugCheckEx(0x32u, v86, 0LL, 1uLL, 0LL);
+  v87 = EmInitSystem(0, v77);
+  if ( v87 < 0 )
+    KeBugCheckEx(0x32u, v87, 8uLL, 0LL, 0LL);
+  v88 = MfgInitSystem(v77);
   if ( v88 < 0 )
-    KeBugCheckEx(0x32u, v88, 8uLL, 0LL, 0LL);
-  v89 = MfgInitSystem(v78);
-  if ( v89 < 0 )
-    KeBugCheckEx(0x32u, v89, 9uLL, 0LL, 0LL);
+    KeBugCheckEx(0x32u, v88, 9uLL, 0LL, 0LL);
   PfInitializeSuperfetch();
   SmInitSystem(0LL);
-  if ( (*(_BYTE *)(*(_QWORD *)(v78 + 240) + 2272LL) & 2) == 0 || strstr(v6, "FORCETIMESYNC") )
-    ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0LL);
-  LODWORD(v113) = 0;
-  FsRtlSendModernAppTermination(&v113, 1u, 1);
+  if ( (*(_BYTE *)(*(_QWORD *)(v77 + 240) + 2272LL) & 2) == 0 || strstr(v6, "FORCETIMESYNC") )
+    ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
+  LODWORD(Buffer) = 0;
+  FsRtlSendModernAppTermination(&Buffer, 1u, 1);
   ExInitializeUtcTimeZoneBias(&CurrentTime);
-  v90 = ExpLastTimeZoneBias;
+  v89 = ExpLastTimeZoneBias;
   ExpRefreshTimeZoneInformation();
-  if ( v108 )
+  if ( v104 )
   {
-    v133 = &Time;
+    v129 = &Time;
     Time.QuadPart = CurrentTime.QuadPart + ExpTimeZoneBias;
-    v134 = &v119;
-    v131[0] = 0;
-    v135 = 0;
-    v132 = 4;
-    KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v131);
+    v130 = &v115;
+    v127[0] = 0;
+    v131 = 0;
+    v128 = 4;
+    KeGenericCallDpc((__int64)KiSetSystemTimeDpc, (__int64)v127);
   }
-  else if ( v90 != ExpLastTimeZoneBias )
+  else if ( v89 != ExpLastTimeZoneBias )
   {
     ZwSetSystemTime(0LL, 0LL);
   }
-  if ( !(unsigned __int8)FsRtlInitSystem(v92, v91, v93) )
+  if ( !(unsigned __int8)FsRtlInitSystem() )
     KeBugCheck(0x68u);
   ExInitializeNPagedLookasideList(&RtlLznt1DecompressChunkLookaside, 0LL, 0LL, 0x200u, 0x58uLL, 0x63647A6Cu, 0);
   ExInitializePagedLookasideList(
@@ -830,9 +826,9 @@ LABEL_120:
     0x38uLL,
     0x656C5252u,
     0x10u);
-  HvlDebuggerSupportInitialize(v78);
+  HvlDebuggerSupportInitialize(v77);
   HalReportResourceUsage(0LL);
-  KdInitialize(1LL, v78, &KdpContext, v94);
+  KdInitialize(1LL, v77, &KdpContext, v90);
   if ( !(unsigned __int8)PpInitSystem() )
     KeBugCheck(0x90u);
   LpcLegacyMaxMessageLength = 648;
@@ -841,26 +837,26 @@ LABEL_120:
   LpcPortObjectType = AlpcPortObjectType;
   LpcWaitablePortObjectType = (__int64)AlpcPortObjectType;
   if ( v6 )
-    v95 = strstr(v6, "SAFEBOOT:");
+    v91 = strstr(v6, "SAFEBOOT:");
   else
-    v95 = 0LL;
-  if ( v95 )
+    v91 = 0LL;
+  if ( v91 )
   {
-    v96 = v95 + 9;
-    if ( !strncmp(v96, "MINIMAL", 7uLL) )
+    v92 = v91 + 9;
+    if ( !strncmp(v92, "MINIMAL", 7uLL) )
     {
       v23 = 1;
       InitSafeBootMode = 1;
     }
     else
     {
-      if ( strncmp(v96, "NETWORK", 7uLL) )
+      if ( strncmp(v92, "NETWORK", 7uLL) )
       {
-        if ( !strncmp(v96, "DSREPAIR", 8uLL) )
+        if ( !strncmp(v92, "DSREPAIR", 8uLL) )
         {
           v23 = 3;
           InitSafeBootMode = 3;
-          v96 += 8;
+          v92 += 8;
         }
         else
         {
@@ -871,66 +867,66 @@ LABEL_120:
       }
       InitSafeBootMode = 2;
     }
-    v96 += 7;
+    v92 += 7;
 LABEL_200:
-    if ( *v96 )
+    if ( *v92 )
     {
-      v97 = strncmp(v96, "(ALTERNATESHELL)", 0x10uLL);
+      v93 = strncmp(v92, "(ALTERNATESHELL)", 0x10uLL);
       v23 = InitSafeBootMode;
-      v98 = (unsigned __int8)v111;
-      if ( !v97 )
-        v98 = 1;
-      LODWORD(v111) = v98;
+      v94 = (unsigned __int8)v107;
+      if ( !v93 )
+        v94 = 1;
+      LODWORD(v107) = v94;
     }
     if ( v23 )
     {
-      v99 = 0;
-      v100 = v23 - 1;
-      if ( v100 )
+      v95 = 0;
+      v96 = v23 - 1;
+      if ( v96 )
       {
-        v101 = v100 - 1;
-        if ( v101 )
+        v97 = v96 - 1;
+        if ( v97 )
         {
-          if ( v101 == 1 )
-            v99 = 170;
+          if ( v97 == 1 )
+            v95 = 170;
         }
         else
         {
-          v99 = 169;
+          v95 = 169;
         }
       }
       else
       {
-        v99 = 168;
+        v95 = 168;
       }
-      if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v99, &v122) >= 0 )
-        InbvDisplayString((__int64)v122->Text);
+      if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v95, &v118) >= 0 )
+        InbvDisplayString((__int64)v118->Text);
     }
   }
   if ( v6 )
-    v102 = strstr(v6, "BOOTLOG");
+    v98 = strstr(v6, "BOOTLOG");
   else
-    v102 = 0LL;
-  if ( v102 )
+    v98 = 0LL;
+  if ( v98 )
   {
-    if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0xB7u, &v112) >= 0 )
-      InbvDisplayString((__int64)v112->Text);
-    IopInitializeBootLogging(v78, (__int64)v123);
+    if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0xB7u, &v108) >= 0 )
+      InbvDisplayString((__int64)v108->Text);
+    IopInitializeBootLogging(v77, (__int64)v119);
   }
   ExInitSystemPhase2();
-  v103 = SeCodeIntegrityInitializePolicy(v78);
-  if ( v103 < 0 )
-    KeBugCheckEx(0x32u, v103, 0x69436553uLL, 0LL, 0LL);
+  v99 = SeCodeIntegrityInitializePolicy(v77);
+  if ( v99 < 0 )
+    KeBugCheckEx(0x32u, v99, 0x69436553uLL, 0LL, 0LL);
   KdpTimeSlipPending = 0;
   if ( InitIsWinPEMode )
     CreateMiniNtBootKey();
-  v104 = ExInitializeNls();
-  if ( v104 < 0 )
-    KeBugCheckEx(0x32u, v104, 7uLL, 0LL, 0LL);
-  v105 = ExInitializeExternalBootSupport();
-  if ( v105 < 0 )
-    KeBugCheckEx(0x32u, v105, 8uLL, 0LL, 0LL);
-  if ( !(unsigned __int8)PoInitSystem(1LL, v78) )
+  v100 = ExInitializeNls();
+  if ( v100 < 0 )
+    KeBugCheckEx(0x32u, v100, 7uLL, 0LL, 0LL);
+  v101 = ExInitializeExternalBootSupport();
+  if ( v101 < 0 )
+    KeBugCheckEx(0x32u, v101, 8uLL, 0LL, 0LL);
+  if ( !(unsigned __int8)PoInitSystem(1LL, v77) )
     KeBugCheck(0xA0u);
-  return v111;
+  return v107;
 }

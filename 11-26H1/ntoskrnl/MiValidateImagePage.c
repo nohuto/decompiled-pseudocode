@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateImagePage @ 0x140B04B00
+ * XREFs of MiValidateImagePage @ 0x140B06710
  * Callers:
  *     <none>
  * Callees:
- *     MiValidateImagePfn @ 0x140B04B5C (MiValidateImagePfn.c)
+ *     MiValidateImagePfn @ 0x140B0676C (MiValidateImagePfn.c)
  */
 
 __int64 __fastcall MiValidateImagePage(__int64 a1)

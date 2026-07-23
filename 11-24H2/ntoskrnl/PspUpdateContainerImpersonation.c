@@ -1,24 +1,24 @@
 /*
- * XREFs of PspUpdateContainerImpersonation @ 0x1402A11C4
+ * XREFs of PspUpdateContainerImpersonation @ 0x1403B4C5C
  * Callers:
- *     PsImpersonateContainerOfThread @ 0x140492240 (PsImpersonateContainerOfThread.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     PsImpersonateContainerOfThread @ 0x1403B4C38 (PsImpersonateContainerOfThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1402A0C10 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402A1AC0 (EtwTraceThreadWorkOnBehalfUpdate.c)
- *     KeAdjustWobPriority @ 0x1402A2074 (KeAdjustWobPriority.c)
- *     KeApplyWobBamQos @ 0x1402A2218 (KeApplyWobBamQos.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1403B6408 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1402AE6EC (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402D11F0 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     KeAdjustWobPriority @ 0x1402D17A4 (KeAdjustWobPriority.c)
+ *     KeApplyWobBamQos @ 0x1402D1948 (KeApplyWobBamQos.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1403B4ED0 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall PspUpdateContainerImpersonation(ULONG_PTR BugCheckParameter1, PVOID Object)
+__int64 __fastcall PspUpdateContainerImpersonation(_KTHREAD *BugCheckParameter1, char *Object)
 {
   ULONG_PTR v2; // rsi
   __int64 v5; // rdx
@@ -31,20 +31,23 @@ __int64 __fastcall PspUpdateContainerImpersonation(ULONG_PTR BugCheckParameter1,
   signed __int64 BugCheckParameter4; // rax
   signed __int32 v14; // eax
   signed __int32 v15; // ett
-  void *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  v2 = *(_QWORD *)(BugCheckParameter1 + 1616);
+  v2 = (ULONG_PTR)BugCheckParameter1[1].WaitBlock[1].Object;
   if ( v2 )
   {
     if ( !Object )
     {
 LABEL_22:
-      _m_prefetchw((const void *)(BugCheckParameter1 + 1440));
-      v14 = *(_DWORD *)(BugCheckParameter1 + 1440);
+      _m_prefetchw(&BugCheckParameter1[1].SwapListEntry + 1);
+      v14 = *((_DWORD *)&BugCheckParameter1[1].SwapListEntry + 2);
       do
       {
         v15 = v14;
-        v14 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter1 + 1440), v14 & 0xFEFFFFFF, v14);
+        v14 = _InterlockedCompareExchange(
+                (volatile signed __int32 *)&BugCheckParameter1[1].SwapListEntry + 2,
+                v14 & 0xFEFFFFFF,
+                v14);
       }
       while ( v15 != v14 );
       if ( (v14 & 0x1000000) != 0 )
@@ -61,15 +64,15 @@ LABEL_22:
     goto LABEL_22;
 LABEL_4:
   v6 = ExAcquireSpinLockExclusive(&PspThreadWorkOnBehalfLock);
-  *(_QWORD *)(BugCheckParameter1 + 1616) = Object;
+  BugCheckParameter1[1].WaitBlock[1].Object = Object;
   if ( Object )
   {
-    KeAdjustWobPriority(BugCheckParameter1);
-    KeApplyWobBamQos(KeGetCurrentPrcb(), BugCheckParameter1, Object);
+    KeAdjustWobPriority((ULONG_PTR)BugCheckParameter1, (unsigned int)Object[195]);
+    KeApplyWobBamQos((__int64)KeGetCurrentPrcb(), (__int64)BugCheckParameter1, (__int64)Object);
   }
   else if ( (KeGetCurrentThread()->MiscFlags & 4) != 0 )
   {
-    *(_DWORD *)(BugCheckParameter1 + 116) |= 0x10000u;
+    BugCheckParameter1->MiscFlags |= 0x10000u;
   }
   else
   {
@@ -93,17 +96,17 @@ LABEL_4:
       v8 = *(_QWORD *)(v7 + 1248);
       if ( v8 )
       {
-        if ( KeSetThreadChargeOnlySchedulingGroup(BugCheckParameter1, v8) )
-          _InterlockedOr((volatile signed __int32 *)(BugCheckParameter1 + 1440), 0x1000000u);
+        if ( (unsigned __int8)KeSetThreadChargeOnlySchedulingGroup(BugCheckParameter1, v8) )
+          _InterlockedOr((volatile signed __int32 *)&BugCheckParameter1[1].SwapListEntry + 2, 0x1000000u);
       }
     }
   }
-  EtwTraceThreadWorkOnBehalfUpdate(v2, Object);
+  EtwTraceThreadWorkOnBehalfUpdate(v2, (__int64)Object);
   if ( v2 )
   {
     v9 = v2 - 48;
     if ( ObpTraceFlags )
-      ObpPushStackInfo(v2 - 48);
+      ObpPushStackInfo(v2 - 48, 0, 1u, 0x746E6F43u);
     v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)v9, 0xFFFFFFFFFFFFFFFFuLL);
     v11 = v10 <= 1;
     BugCheckParameter4 = v10 - 1;

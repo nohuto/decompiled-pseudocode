@@ -1,9 +1,9 @@
 /*
- * XREFs of KeComplementAffinityEx @ 0x14056F380
+ * XREFs of KeComplementAffinityEx @ 0x14056F8C0
  * Callers:
  *     <none>
  * Callees:
- *     KiComplementAffinityEx @ 0x14028FBE4 (KiComplementAffinityEx.c)
+ *     KiComplementAffinityEx @ 0x14028FE74 (KiComplementAffinityEx.c)
  */
 
 __int16 __fastcall KeComplementAffinityEx(__int64 a1, unsigned __int16 *a2)

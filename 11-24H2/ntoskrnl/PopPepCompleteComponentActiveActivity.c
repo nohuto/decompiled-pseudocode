@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepCompleteComponentActiveActivity @ 0x140319AB0
+ * XREFs of PopPepCompleteComponentActiveActivity @ 0x1402C2640
  * Callers:
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
  * Callees:
- *     PopPepGetComponentPreferedIdleState @ 0x140316D90 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepTriggerActivity @ 0x140319270 (PopPepTriggerActivity.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1402BF940 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepTriggerActivity @ 0x1402C1E00 (PopPepTriggerActivity.c)
  */
 
 void __fastcall PopPepCompleteComponentActiveActivity(__int64 a1, __int64 a2)

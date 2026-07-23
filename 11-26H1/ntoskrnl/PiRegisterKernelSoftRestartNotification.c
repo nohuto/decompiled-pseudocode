@@ -1,14 +1,14 @@
 /*
- * XREFs of PiRegisterKernelSoftRestartNotification @ 0x1407B2BE4
+ * XREFs of PiRegisterKernelSoftRestartNotification @ 0x1407B5C44
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PnpInitializeNotifyEntry @ 0x1409092E4 (PnpInitializeNotifyEntry.c)
- *     PnpDeferNotification @ 0x140909368 (PnpDeferNotification.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PnpInitializeNotifyEntry @ 0x1409AAEA4 (PnpInitializeNotifyEntry.c)
+ *     PnpDeferNotification @ 0x1409AAF28 (PnpDeferNotification.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, int a2, int a3, _QWORD *a4)
@@ -34,13 +34,13 @@ __int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, int a2, i
         else
         {
           ExAcquireFastMutex(&PnpKsrNotifyLock);
-          v11 = (_QWORD *)qword_140F82628;
-          if ( *(PVOID **)qword_140F82628 != &PnpKsrNotifyList )
+          v11 = (_QWORD *)qword_140F82968;
+          if ( *(PVOID **)qword_140F82968 != &PnpKsrNotifyList )
             __fastfail(3u);
           *v10 = &PnpKsrNotifyList;
           v10[1] = v11;
           *v11 = v10;
-          qword_140F82628 = (__int64)v10;
+          qword_140F82968 = (__int64)v10;
           KeReleaseGuardedMutex(&PnpKsrNotifyLock);
           *a4 = v10;
         }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpSetPlugPlayEvent @ 0x1403F01EC
+ * XREFs of PnpSetPlugPlayEvent @ 0x14048A464
  * Callers:
- *     PipProcessStartPhase3 @ 0x1403EEA60 (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
- *     PiInitializeDevice @ 0x14064AC94 (PiInitializeDevice.c)
+ *     PipProcessStartPhase3 @ 0x140488964 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
+ *     PiInitializeDevice @ 0x14064AD78 (PiInitializeDevice.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PnpCompareGuid @ 0x1403F02F8 (PnpCompareGuid.c)
- *     PnpInsertEventInQueue @ 0x1403F0BD4 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x1403F0D68 (PnpCreateDeviceEventEntry.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x140489C28 (PnpCreateDeviceEventEntry.c)
+ *     PnpCompareGuid @ 0x14048A570 (PnpCompareGuid.c)
+ *     PnpInsertEventInQueue @ 0x14048AC64 (PnpInsertEventInQueue.c)
  */
 
 void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
@@ -17,8 +17,8 @@ void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
   void *v2; // rsi
   __int64 v4; // rdi
   int v5; // r14d
-  __int64 DeviceEventEntry; // rax
-  __int64 v7; // rbx
+  _DWORD *DeviceEventEntry; // rax
+  _DWORD *v7; // rbx
   __int128 v8; // xmm0
 
   v2 = a2;
@@ -33,14 +33,14 @@ void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
       if ( DeviceEventEntry )
       {
         v8 = *a1;
-        *(_DWORD *)(DeviceEventEntry + 140) = v5;
-        *(_OWORD *)(DeviceEventEntry + 104) = v8;
+        DeviceEventEntry[35] = v5;
+        *(_OWORD *)(DeviceEventEntry + 26) = v8;
         if ( (unsigned __int8)PnpCompareGuid(a1, &GUID_DEVICE_ENUMERATED) )
-          *(_DWORD *)(v7 + 120) = 4;
+          v7[30] = 4;
         else
-          *(_DWORD *)(v7 + 120) = 1;
-        memmove((void *)(v7 + 152), *(const void **)(v4 + 48), *(unsigned __int16 *)(v4 + 40));
-        *(_WORD *)(v7 + 2 * ((unsigned __int64)*(unsigned __int16 *)(v4 + 40) >> 1) + 152) = 0;
+          v7[30] = 1;
+        memmove(v7 + 38, *(const void **)(v4 + 48), *(unsigned __int16 *)(v4 + 40));
+        *((_WORD *)v7 + ((unsigned __int64)*(unsigned __int16 *)(v4 + 40) >> 1) + 76) = 0;
         if ( (unsigned __int8)PnpCompareGuid(a1, &GUID_DEVICE_ENUMERATED)
           || (unsigned __int8)PnpCompareGuid(a1, &GUID_DEVICE_ARRIVAL) )
         {
@@ -50,7 +50,7 @@ void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
         {
           ObfReferenceObject(v2);
         }
-        *(_QWORD *)(v7 + 144) = v2;
+        *((_QWORD *)v7 + 18) = v2;
         PnpInsertEventInQueue(v7);
       }
     }

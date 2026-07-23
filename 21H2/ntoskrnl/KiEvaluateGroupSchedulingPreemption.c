@@ -1,19 +1,19 @@
 /*
- * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x14024C6A0
+ * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1402F0EF0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiShouldPreemptionBeDeferred @ 0x14025A324 (KiShouldPreemptionBeDeferred.c)
- *     KiGetComparisonRanks @ 0x1402C4E9C (KiGetComparisonRanks.c)
+ *     KiGetComparisonRanks @ 0x14024341C (KiGetComparisonRanks.c)
+ *     KiShouldPreemptionBeDeferred @ 0x14027B894 (KiShouldPreemptionBeDeferred.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402F1D50 (KiGetThreadEffectiveRankNonZero.c)
  */
 
-bool __fastcall KiEvaluateGroupSchedulingPreemption(struct _KPRCB *a1, _KTHREAD *a2, __int64 a3, _QWORD *a4)
+bool __fastcall KiEvaluateGroupSchedulingPreemption(struct _KPRCB *a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   int v4; // edi
-  _QWORD *v5; // r15
+  __int64 *v5; // r15
   struct _KPRCB *v8; // r10
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // rsi
+  __int64 v9; // rsi
   __int64 v10; // r14
   unsigned int v11; // r10d
   unsigned int v12; // eax
@@ -26,18 +26,13 @@ bool __fastcall KiEvaluateGroupSchedulingPreemption(struct _KPRCB *a1, _KTHREAD 
   v5 = a4;
   v8 = a1;
   ThreadEffectiveRankNonZero = 0;
-  LOBYTE(a4) = a1->NextThread == a2 || a1 == KeGetCurrentPrcb();
-  SchedulingGroup = a2->SchedulingGroup;
-  if ( SchedulingGroup )
+  LOBYTE(a4) = a1->NextThread == (_KTHREAD *)a2 || a1 == KeGetCurrentPrcb();
+  v9 = *(_QWORD *)(a2 + 104);
+  if ( v9 )
   {
-    SchedulingGroup = (_KSCHEDULING_GROUP *volatile)((char *)SchedulingGroup + a1->ScbOffset);
-    if ( SchedulingGroup )
-      ThreadEffectiveRankNonZero = KiGetThreadEffectiveRankNonZero(
-                                     (_DWORD)a2,
-                                     (_DWORD)SchedulingGroup,
-                                     a3,
-                                     (_DWORD)a4,
-                                     0LL);
+    v9 += a1->ScbOffset;
+    if ( v9 )
+      ThreadEffectiveRankNonZero = KiGetThreadEffectiveRankNonZero(a2, v9, a3, (_DWORD)a4, 0LL);
   }
   v10 = *(_QWORD *)(a3 + 104);
   v16 = 0;
@@ -65,10 +60,7 @@ bool __fastcall KiEvaluateGroupSchedulingPreemption(struct _KPRCB *a1, _KTHREAD 
   if ( v4 )
   {
     v15 = *(_DWORD *)(a3 + 120);
-    if ( (v15 & 0x200) == 0
-      && *(char *)(a3 + 195) < 16
-      && (v15 & 0xC00) == 0
-      && (unsigned __int8)KiShouldPreemptionBeDeferred(a3) )
+    if ( (v15 & 0x200) == 0 && *(char *)(a3 + 195) < 16 && (v15 & 0xC00) == 0 && KiShouldPreemptionBeDeferred(a3) )
     {
       _interlockedbittestandset((volatile signed __int32 *)(a3 + 120), 0xBu);
 LABEL_5:
@@ -76,15 +68,15 @@ LABEL_5:
     }
   }
 LABEL_6:
-  if ( !SchedulingGroup || !v10 )
+  if ( !v9 || !v10 )
     goto LABEL_7;
   v12 = ThreadEffectiveRankNonZero;
   if ( ThreadEffectiveRankNonZero && v11 )
   {
-    KiGetComparisonRanks(SchedulingGroup, v10, &ThreadEffectiveRankNonZero, &v16);
+    KiGetComparisonRanks(v9, v10, &ThreadEffectiveRankNonZero, &v16);
     v11 = v16;
 LABEL_7:
     v12 = ThreadEffectiveRankNonZero;
   }
-  return v11 < v12 || v11 == v12 && *(_BYTE *)(a3 + 195) > a2->Priority;
+  return v11 < v12 || v11 == v12 && *(_BYTE *)(a3 + 195) > *(_BYTE *)(a2 + 195);
 }

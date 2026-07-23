@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerWatchdogResetCountdown @ 0x14033A1F0
+ * XREFs of HalpTimerWatchdogResetCountdown @ 0x1403196D0
  * Callers:
- *     HalpTimerClockIpiRoutine @ 0x1403394D0 (HalpTimerClockIpiRoutine.c)
- *     HalpTimerClockInterrupt @ 0x14033ADE0 (HalpTimerClockInterrupt.c)
- *     KiCallInterruptServiceRoutine @ 0x14033B0A0 (KiCallInterruptServiceRoutine.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x14055EBC0 (HalpTimerAlwaysOnClockInterrupt.c)
- *     HalpTimerWatchdogPreResetInterrupt @ 0x14055EF40 (HalpTimerWatchdogPreResetInterrupt.c)
+ *     HalpTimerClockIpiRoutine @ 0x1403189B0 (HalpTimerClockIpiRoutine.c)
+ *     HalpTimerClockInterrupt @ 0x14031A2C0 (HalpTimerClockInterrupt.c)
+ *     KiCallInterruptServiceRoutine @ 0x14031A580 (KiCallInterruptServiceRoutine.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14055C7F0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerWatchdogPreResetInterrupt @ 0x14055CB70 (HalpTimerWatchdogPreResetInterrupt.c)
  * Callees:
- *     HalpSetTimer @ 0x1403BC5B0 (HalpSetTimer.c)
- *     HalpTimerWatchdogWakeSetDueTime @ 0x1404C3D24 (HalpTimerWatchdogWakeSetDueTime.c)
+ *     HalpSetTimer @ 0x140375A30 (HalpSetTimer.c)
+ *     HalpTimerWatchdogWakeSetDueTime @ 0x1404BF254 (HalpTimerWatchdogWakeSetDueTime.c)
  */
 
 __int64 HalpTimerWatchdogResetCountdown()

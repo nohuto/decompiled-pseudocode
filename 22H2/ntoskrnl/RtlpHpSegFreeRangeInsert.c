@@ -15,7 +15,7 @@ __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
 {
   char v5; // al
   __int64 v6; // rdx
-  unsigned __int8 v7; // cl
+  BOOLEAN v7; // cl
   __int64 v8; // rcx
   __int64 result; // rax
 
@@ -80,7 +80,7 @@ LABEL_20:
         v6 = v8;
       }
     }
-    RtlRbInsertNodeEx(a1 + 96, v6, v7, a2);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v6, v7, (PRTL_BALANCED_NODE)a2);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(a2 + 28));

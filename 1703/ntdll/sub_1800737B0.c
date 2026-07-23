@@ -9,26 +9,20 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-signed __int64 __fastcall sub_1800737B0(__int64 a1, int a2)
+void __fastcall sub_1800737B0(__int64 a1, int a2)
 {
   __int64 v2; // rdi
-  volatile signed __int64 *v3; // rsi
-  signed __int64 result; // rax
-  int v7; // ecx
-  int v8; // [rsp+38h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v3; // rsi
+  int v6; // ecx
+  int v7; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 144);
-  v3 = (volatile signed __int64 *)(a1 + 240);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-  sub_180017414(a1, v2 + 112, a2 != 0 ? 2 : 0, &v8);
+  v3 = (_RTL_SRWLOCK *)(a1 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  sub_180017414(a1, v2 + 112, a2 != 0 ? 2 : 0, &v7);
   ++*(_BYTE *)(a1 + 355);
-  result = RtlReleaseSRWLockExclusive(v3);
-  if ( v8 < 0 )
-  {
-    v7 = -v8;
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, v8);
-    if ( (_DWORD)result == v7 )
-      return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
-  }
-  return result;
+  RtlReleaseSRWLockExclusive(v3);
+  v6 = v7;
+  if ( v7 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v7) == -v6 )
+    (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
 }

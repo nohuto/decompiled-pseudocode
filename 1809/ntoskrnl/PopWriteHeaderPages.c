@@ -1,14 +1,14 @@
 /*
- * XREFs of PopWriteHeaderPages @ 0x140569A20
+ * XREFs of PopWriteHeaderPages @ 0x14056AA20
  * Callers:
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1401C5090 (tcpxsum.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopWriteHiberPages @ 0x140569C48 (PopWriteHiberPages.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1401C51F0 (tcpxsum.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopWriteHiberPages @ 0x14056AC48 (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopWriteHeaderPages(__int64 a1, __int64 a2)

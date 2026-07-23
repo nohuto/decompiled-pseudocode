@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpGetSystemBasicInformation @ 0x1404505D4
+ * XREFs of ExpGetSystemBasicInformation @ 0x140445844
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)
@@ -31,15 +31,15 @@ __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)
   *(_BYTE *)(a1 + 56) = __popcnt(v4);
   v5 = -1;
   v6 = -1;
-  if ( *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + Blink_high) + 18512LL) <= 0xFFFFFFFFuLL )
-    v6 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + Blink_high) + 18512LL);
+  if ( *(_QWORD *)(*((_QWORD *)qword_140E300C8 + Blink_high) + 18512LL) <= 0xFFFFFFFFuLL )
+    v6 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + Blink_high) + 18512LL);
   *(_DWORD *)(a1 + 12) = v6;
   v7 = -1;
-  if ( *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + Blink_high) + 18496LL) <= 0xFFFFFFFFuLL )
-    v7 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + Blink_high) + 18496LL);
+  if ( *(_QWORD *)(*((_QWORD *)qword_140E300C8 + Blink_high) + 18496LL) <= 0xFFFFFFFFuLL )
+    v7 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + Blink_high) + 18496LL);
   *(_DWORD *)(a1 + 16) = v7;
-  if ( *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + Blink_high) + 18504LL) <= 0xFFFFFFFFuLL )
-    v5 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + Blink_high) + 18504LL);
+  if ( *(_QWORD *)(*((_QWORD *)qword_140E300C8 + Blink_high) + 18504LL) <= 0xFFFFFFFFuLL )
+    v5 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + Blink_high) + 18504LL);
   *(_DWORD *)(a1 + 20) = v5;
   return 0LL;
 }

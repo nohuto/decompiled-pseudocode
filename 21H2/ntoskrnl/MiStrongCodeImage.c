@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStrongCodeImage @ 0x140554D20
+ * XREFs of MiStrongCodeImage @ 0x140554F60
  * Callers:
- *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x1406C32C0 (MiValidateSectionCreate.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

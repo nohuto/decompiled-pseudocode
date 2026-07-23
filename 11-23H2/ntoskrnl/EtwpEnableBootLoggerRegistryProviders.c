@@ -1,13 +1,13 @@
 /*
  * XREFs of EtwpEnableBootLoggerRegistryProviders @ 0x140B975B4
  * Callers:
- *     EtwpInitializeAutoLoggers @ 0x14083BACC (EtwpInitializeAutoLoggers.c)
+ *     EtwpInitializeAutoLoggers @ 0x14083BDCC (EtwpInitializeAutoLoggers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD7EC (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpEnableKeyProviders @ 0x14083CAD4 (EtwpEnableKeyProviders.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD81C (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpEnableKeyProviders @ 0x14083CDD4 (EtwpEnableKeyProviders.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -25,12 +25,12 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActualTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v12 = 0;
+  ActualTime = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].DirectoryTableBase & 0x100000000000LL) != 0 )
-    ZwSetTimerResolution((unsigned int)KeMaximumIncrement, 0LL, &v12);
+    ZwSetTimerResolution(KeMaximumIncrement, 0, &ActualTime);
   LOBYTE(a1) = 1;
   ExAcquireTimeRefreshLock(a1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);

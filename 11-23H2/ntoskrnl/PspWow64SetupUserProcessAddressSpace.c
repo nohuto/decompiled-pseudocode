@@ -1,9 +1,9 @@
 /*
- * XREFs of PspWow64SetupUserProcessAddressSpace @ 0x14032A12C
+ * XREFs of PspWow64SetupUserProcessAddressSpace @ 0x14032A3BC
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x1407A125C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1407A144C (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     PspWow64ThunkProcessParameters @ 0x1403297EC (PspWow64ThunkProcessParameters.c)
+ *     PspWow64ThunkProcessParameters @ 0x140329A7C (PspWow64ThunkProcessParameters.c)
  */
 
 NTSTATUS __fastcall PspWow64SetupUserProcessAddressSpace(__int64 a1, __int64 a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of SeCaptureSid @ 0x1406BB2CC
+ * XREFs of SeCaptureSid @ 0x1406BB2FC
  * Callers:
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14071328C (ExpWnfCaptureScopeInstanceId.c)
- *     AlpcpConnectPort @ 0x140717370 (AlpcpConnectPort.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x1407AB04C (AlpcpPortQueryConnectedSidInfo.c)
- *     NtSecureConnectPort @ 0x1407C3E30 (NtSecureConnectPort.c)
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2540 (NtCreateLowBoxToken.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     NtCreateTokenEx @ 0x1406BB560 (NtCreateTokenEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071349C (ExpWnfCaptureScopeInstanceId.c)
+ *     AlpcpConnectPort @ 0x140717570 (AlpcpConnectPort.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1407AB23C (AlpcpPortQueryConnectedSidInfo.c)
+ *     NtSecureConnectPort @ 0x1407C4100 (NtSecureConnectPort.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x1407F2810 (NtCreateLowBoxToken.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlValidSid @ 0x1407373A0 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlValidSid @ 0x140737590 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

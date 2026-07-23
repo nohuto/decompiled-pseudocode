@@ -1,9 +1,9 @@
 /*
- * XREFs of __guard_retpoline_import_r10_log_event @ 0x140BBE520
+ * XREFs of __guard_retpoline_import_r10_log_event @ 0x140BC0520
  * Callers:
- *     __guard_retpoline_import_r10 @ 0x140BBE440 (__guard_retpoline_import_r10.c)
+ *     __guard_retpoline_import_r10 @ 0x140BC0440 (__guard_retpoline_import_r10.c)
  * Callees:
- *     EtwTraceRetpolineExit @ 0x14064DE00 (EtwTraceRetpolineExit.c)
+ *     EtwTraceRetpolineExit @ 0x14064C410 (EtwTraceRetpolineExit.c)
  */
 
 void __fastcall __spoils<rdx,rcx,r8,r9,r10,r11,xmm4,xmm5> _guard_retpoline_import_r10_log_event()

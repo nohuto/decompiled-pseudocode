@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextTlsCleanup @ 0x140606890
+ * XREFs of RtlpHpLfhContextTlsCleanup @ 0x140603ED0
  * Callers:
- *     RtlpHpSegTlsCleanup @ 0x140606250 (RtlpHpSegTlsCleanup.c)
+ *     RtlpHpSegTlsCleanup @ 0x140603890 (RtlpHpSegTlsCleanup.c)
  * Callees:
- *     RtlpHpLfhContextMetadataFree @ 0x140606834 (RtlpHpLfhContextMetadataFree.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140606D74 (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhContextMetadataFree @ 0x140603E74 (RtlpHpLfhContextMetadataFree.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140604374 (RtlpHpLfhPrivateSlotShutdown.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextTlsCleanup(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpLfhContextTlsCleanup(__int64 a1, __int64 a2)
   unsigned __int8 v8; // [rsp+4Ch] [rbp+14h]
 
   v8 = BYTE4(a2);
-  RtlpHpLfhContextMetadataFree(a1, a1 + ((unsigned __int64)WORD1(a2) << 6), 1LL);
+  RtlpHpLfhContextMetadataFree(a1, (_QWORD *)(a1 + ((unsigned __int64)WORD1(a2) << 6)), 1);
   result = a1 + ((unsigned __int64)v8 << 8) + 1472;
   if ( a1 + ((unsigned __int16)a2 << 6) != result )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpLfhContextTlsCleanup(__int64 a1, __int64 a2)
       --v6;
     }
     while ( v6 );
-    return RtlpHpLfhContextMetadataFree(a1, a1 + ((unsigned __int16)a2 << 6), 0LL);
+    return RtlpHpLfhContextMetadataFree(a1, (_QWORD *)(a1 + ((unsigned __int16)a2 << 6)), 0);
   }
   return result;
 }

@@ -3,15 +3,15 @@
  * Callers:
  *     BootApplicationPersistentDataProcess @ 0x140B4F454 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041AE60 (ZwWriteFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B800 (ZwCreateFile.c)
- *     RtlIsStateSeparationEnabled @ 0x1407E2020 (RtlIsStateSeparationEnabled.c)
- *     BcdCloseStore @ 0x140802DF4 (BcdCloseStore.c)
- *     BcdOpenStoreFromFile @ 0x140A5C348 (BcdOpenStoreFromFile.c)
- *     BcdSetSystemStore @ 0x140A5C370 (BcdSetSystemStore.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x14041B1F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x14041BB90 (ZwCreateFile.c)
+ *     RtlIsStateSeparationEnabled @ 0x1407E22F0 (RtlIsStateSeparationEnabled.c)
+ *     BcdCloseStore @ 0x1408030C4 (BcdCloseStore.c)
+ *     BcdOpenStoreFromFile @ 0x140A5C5F8 (BcdOpenStoreFromFile.c)
+ *     BcdSetSystemStore @ 0x140A5C620 (BcdSetSystemStore.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     BapdpQueryData @ 0x140B4FC2C (BapdpQueryData.c)
@@ -19,12 +19,12 @@
 
 void __fastcall BapdpProcessBCDCache(__int64 a1)
 {
-  __int64 v1; // rdi
+  HANDLE v1; // rdi
   WCHAR *v2; // rbx
   void *v3; // rax
   __int64 v4; // rcx
   __int64 Pool2; // rax
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   WCHAR *v7; // rcx
   __int64 v8; // r8
   WCHAR v9; // ax
@@ -40,9 +40,9 @@ void __fastcall BapdpProcessBCDCache(__int64 a1)
   signed __int64 v19; // r8
   __int16 v20; // r9
   char *v21; // rax
-  int v22; // eax
+  NTSTATUS v22; // eax
   HANDLE FileHandle; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v24; // [rsp+70h] [rbp-21h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+70h] [rbp-21h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-9h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp+27h] BYREF
@@ -55,7 +55,7 @@ void __fastcall BapdpProcessBCDCache(__int64 a1)
   FileHandle = 0LL;
   v1 = 0LL;
   v2 = 0LL;
-  v24 = 0LL;
+  BcdStoreHandle = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
@@ -161,10 +161,10 @@ void __fastcall BapdpProcessBCDCache(__int64 a1)
           0LL);
         ZwClose(FileHandle);
         FileHandle = 0LL;
-        v22 = BcdOpenStoreFromFile(&DestinationString.Length, &v24);
-        v1 = v24;
+        v22 = BcdOpenStoreFromFile(&DestinationString, &BcdStoreHandle);
+        v1 = BcdStoreHandle;
         if ( v22 >= 0 )
-          BcdSetSystemStore(v24);
+          BcdSetSystemStore((__int64)BcdStoreHandle);
       }
     }
     goto LABEL_3;

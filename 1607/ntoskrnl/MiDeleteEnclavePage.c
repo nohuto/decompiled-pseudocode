@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteEnclavePage @ 0x1401F02DC
+ * XREFs of MiDeleteEnclavePage @ 0x1401F0108
  * Callers:
- *     MiDeleteEnclavePages @ 0x14065F308 (MiDeleteEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x14065F3EC (MiDeleteEnclavePages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     KeRemoveEnclavePage @ 0x1406E5FA8 (KeRemoveEnclavePage.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     KeRemoveEnclavePage @ 0x1406E60E0 (KeRemoveEnclavePage.c)
  */
 
 void __fastcall MiDeleteEnclavePage(unsigned __int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ObReferenceObjectByPointerWithTag @ 0x1400CB130
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x1400CB210
  * Callers:
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     IoRegisterPlugPlayNotification @ 0x140703140 (IoRegisterPlugPlayNotification.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     IoRegisterPlugPlayNotification @ 0x1407043E0 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(

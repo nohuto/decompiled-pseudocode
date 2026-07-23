@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x140A14FC8
+ * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x140A141BC
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x140A14E40 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeNotifyConsumers @ 0x140A15284 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140A14034 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140A14478 (EtwpRealtimeNotifyConsumers.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlInterlockedCompareExchange32ToUser @ 0x14077F3AC (RtlInterlockedCompareExchange32ToUser.c)
- *     RtlInterlockedCompareExchange64ToUser @ 0x14077F400 (RtlInterlockedCompareExchange64ToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     EtwpFreeUserBufferSpace @ 0x14082FF88 (EtwpFreeUserBufferSpace.c)
- *     EtwpFindUserBufferSpace @ 0x140A1574C (EtwpFindUserBufferSpace.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlInterlockedCompareExchange32ToUser @ 0x140781EAC (RtlInterlockedCompareExchange32ToUser.c)
+ *     RtlInterlockedCompareExchange64ToUser @ 0x140781F00 (RtlInterlockedCompareExchange64ToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     EtwpFreeUserBufferSpace @ 0x1408361C8 (EtwpFreeUserBufferSpace.c)
+ *     EtwpFindUserBufferSpace @ 0x140A14940 (EtwpFindUserBufferSpace.c)
  */
 
 __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a3)

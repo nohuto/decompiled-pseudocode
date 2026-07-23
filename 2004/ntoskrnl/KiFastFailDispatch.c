@@ -16,14 +16,14 @@
  *     KiCopyCounters @ 0x1405169B0 (KiCopyCounters.c)
  */
 
-__int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR a4, char a5)
+__int64 __fastcall KiFastFailDispatch(int a1, unsigned int a2, void *a3, unsigned __int64 a4, char a5)
 {
   __int64 v5; // rbx
   __int64 v6; // rbp
   __int64 v7; // rdi
   __int64 v8; // rsi
-  __int64 v9; // r10
-  __int64 v10; // r11
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r11
   __int64 v11; // r12
   __int64 v12; // r13
   __int64 v13; // r14
@@ -71,13 +71,7 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
   __int64 v58; // [rsp+118h] [rbp-C0h]
   __int64 v59; // [rsp+120h] [rbp-B8h]
   __int64 v60; // [rsp+128h] [rbp-B0h]
-  NTSTATUS v61[2]; // [rsp+138h] [rbp-A0h] BYREF
-  __int64 v62; // [rsp+140h] [rbp-98h]
-  __int64 v63; // [rsp+148h] [rbp-90h]
-  int v64; // [rsp+150h] [rbp-88h]
-  ULONG_PTR v65; // [rsp+158h] [rbp-80h]
-  __int64 v66; // [rsp+160h] [rbp-78h]
-  __int64 v67; // [rsp+168h] [rbp-70h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+138h] [rbp-A0h] BYREF
 
   v39 = v14;
   v40 = v15;
@@ -99,7 +93,7 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
     KiUmsExceptionEntry(
       a1,
       a2,
-      a3,
+      (_DWORD)a3,
       a4,
       v37,
       v38,
@@ -135,18 +129,18 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
       v58,
       v59,
       v60);
-  v61[0] = a1;
-  v61[1] = 1;
-  v62 = 0LL;
-  v63 = a3;
-  v64 = a2;
-  v65 = a4;
-  v66 = v9;
-  v67 = v10;
+  ExceptionRecord.ExceptionCode = a1;
+  ExceptionRecord.ExceptionFlags = 1;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.ExceptionAddress = a3;
+  ExceptionRecord.NumberParameters = a2;
+  ExceptionRecord.ExceptionInformation[0] = a4;
+  ExceptionRecord.ExceptionInformation[1] = v9;
+  ExceptionRecord.ExceptionInformation[2] = v10;
   v24 = *(_BYTE *)(v6 + 240) & 1;
   if ( !v24 )
-    KiBugCheckDispatch(0x139u, v65, v6 - 128, (ULONG_PTR)v61);
-  KiDispatchException(v61, (unsigned __int64)&v36, v6 - 128, v24, 0);
+    KiBugCheckDispatch(0x139u, ExceptionRecord.ExceptionInformation[0], v6 - 128, (ULONG_PTR)&ExceptionRecord);
+  KiDispatchException(&ExceptionRecord, (unsigned __int64)&v36, v6 - 128, v24, 0);
   _disable();
   if ( (*(_BYTE *)(v6 + 240) & 1) == 0 )
   {

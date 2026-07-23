@@ -68,7 +68,7 @@ __int64 __fastcall CmpOpenHiveFile(
   HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
   ULONG FileAttributes; // [rsp+70h] [rbp-90h]
   unsigned int v35; // [rsp+74h] [rbp-8Ch]
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+78h] [rbp-88h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+78h] [rbp-88h] BYREF
   HANDLE Event; // [rsp+80h] [rbp-80h] BYREF
   PVOID Object; // [rsp+88h] [rbp-78h]
   int InputBuffer; // [rsp+90h] [rbp-70h] BYREF

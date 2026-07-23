@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDiagInitialize @ 0x140C2EEA0
+ * XREFs of PopDiagInitialize @ 0x140C30FC0
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceThermalZoneEnumeration @ 0x1405D5850 (PopDiagTraceThermalZoneEnumeration.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopDiagSleepStudyInitialize @ 0x140755254 (PopDiagSleepStudyInitialize.c)
- *     PdcTaskClientRegister @ 0x14078DE9C (PdcTaskClientRegister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     PopTransitionTelemetryOsState @ 0x140A86334 (PopTransitionTelemetryOsState.c)
- *     EtwSetInformation @ 0x140AA4AB0 (EtwSetInformation.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1405D2E64 (PopDiagTraceThermalZoneEnumeration.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopDiagSleepStudyInitialize @ 0x140753574 (PopDiagSleepStudyInitialize.c)
+ *     PdcTaskClientRegister @ 0x14078DDCC (PdcTaskClientRegister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     PopTransitionTelemetryOsState @ 0x140A80E74 (PopTransitionTelemetryOsState.c)
+ *     EtwSetInformation @ 0x140AD9290 (EtwSetInformation.c)
  */
 
 __int64 PopDiagInitialize()
@@ -51,17 +51,17 @@ __int64 PopDiagInitialize()
   PopDiagDeviceRundownWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopDiagDeviceRundownWorker;
   PopDiagDeviceRundownWorkItem.List.Flink = 0LL;
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
-    (__int64)&dword_140E076F0,
+    (__int64)&dword_140E07680,
     (__int64)PopDiagTraceControlCallback,
-    (__int64)&dword_140E076F0);
+    (__int64)&dword_140E07680);
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E07728, 0LL, 0LL);
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E076B8, 0LL, 0LL);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E07680, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E076F0, 0LL, 0LL);
   if ( EtwRegister(&POP_TRIGGER_ETW_PROVIDER, 0LL, 0LL, &PopTriggerDiagHandle) >= 0 )
     PopTriggerDiagHandleRegistered = 1;
   if ( PopTriggerDiagHandleRegistered )
   {
-    PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+    PopAcquireRwLockShared(&PopPolicyDeviceLock);
     for ( i = (unsigned __int64 *)PopThermal; i != (unsigned __int64 *)&PopThermal; i = (unsigned __int64 *)*i )
     {
       PopAcquireRwLockExclusive(i + 54);
@@ -69,21 +69,21 @@ __int64 PopDiagInitialize()
         PopDiagTraceThermalZoneEnumeration((__int64)i);
       PopReleaseRwLock((signed __int64 *)i + 54);
     }
-    PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+    PopReleaseRwLock(&PopPolicyDeviceLock);
   }
   PopDiagSleepStudyInitialize();
-  if ( (int)TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E08300, 0LL, 0LL) >= 0 )
+  if ( (int)TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E08370, 0LL, 0LL) >= 0 )
     PotsPowerTransitionsHandleRegistered = 1;
-  qword_140F0A808 = 0LL;
+  qword_140F0A988 = 0LL;
   PopTelemetryOsState = 0LL;
-  qword_140F0A818 = MEMORY[0xFFFFF78000000014];
-  qword_140F0A820 = MEMORY[0xFFFFF78000000008];
+  qword_140F0A998 = MEMORY[0xFFFFF78000000014];
+  qword_140F0A9A0 = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-  byte_140F0A84C = v2;
-  qword_140F0A828 = UnbiasedInterruptTime;
+  byte_140F0A9CC = v2;
+  qword_140F0A9A8 = UnbiasedInterruptTime;
   PopTransitionTelemetryOsState(1, 1);
   PdcTaskClientRegister(68LL, &PopSleepStudyTaskClientActivator);
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v4 = 0;
     v9 = &v4;
@@ -97,7 +97,7 @@ __int64 PopDiagInitialize()
     v14 = 4LL;
     v7 = 0x1000000LL;
     v16 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&byte_14004ABDF, 0LL, 0LL, 6u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004B885, 0LL, 0LL, 6u, &v8);
   }
   return 0LL;
 }

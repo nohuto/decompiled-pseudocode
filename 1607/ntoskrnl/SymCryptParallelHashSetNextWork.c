@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptParallelHashSetNextWork @ 0x1402379C0
+ * XREFs of SymCryptParallelHashSetNextWork @ 0x1402377EC
  * Callers:
- *     SymCryptParallelHashProcess @ 0x14023754C (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess @ 0x140237378 (SymCryptParallelHashProcess.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     SymCryptParallelSha256Result1 @ 0x14023740C (SymCryptParallelSha256Result1.c)
- *     SymCryptParallelSha256Result2 @ 0x140237494 (SymCryptParallelSha256Result2.c)
- *     SymCryptParallelSha256ResultDone @ 0x140237500 (SymCryptParallelSha256ResultDone.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SymCryptParallelSha256Result1 @ 0x140237238 (SymCryptParallelSha256Result1.c)
+ *     SymCryptParallelSha256Result2 @ 0x1402372C0 (SymCryptParallelSha256Result2.c)
+ *     SymCryptParallelSha256ResultDone @ 0x14023732C (SymCryptParallelSha256ResultDone.c)
  */
 
 char __fastcall SymCryptParallelHashSetNextWork(__int64 a1, __int64 a2)

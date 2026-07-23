@@ -15,49 +15,49 @@
  *     NtTraceEvent @ 0x1800A5C70 (NtTraceEvent.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  char result; // al
-  __int64 v4; // rcx
-  _BYTE v5[6]; // [rsp+20h] [rbp-38h] BYREF
+  BOOLEAN result; // al
+  _RTL_CRITICAL_SECTION *v4; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v6; // [rsp+26h] [rbp-32h]
-  __int64 v7; // [rsp+40h] [rbp-18h]
+  PVOID v7; // [rsp+40h] [rbp-18h]
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (*(_BYTE *)(a1 + 20) & 1) == 0 && (*(_WORD *)(a1 + 38))-- == 1 )
+    if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 && (*((_WORD *)HeapHandle + 19))-- == 1 )
     {
-      *(_DWORD *)(a1 + 40) = 0;
-      RtlReleaseSRWLockExclusive(a1 + 48);
-      if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+      *((_DWORD *)HeapHandle + 10) = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 6);
+      if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(a1 + 88);
-        if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-          RtlReleaseSRWLockExclusive(a1 + 168);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 11);
+        if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 )
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 21);
       }
-      RtlReleaseSRWLockExclusive(a1 + 320);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 40);
     }
 LABEL_13:
     if ( MEMORY[0x7FFE0380] )
     {
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
       {
-        v7 = a1;
+        v7 = HeapHandle;
         v6 = 4140;
-        NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v5);
+        NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
       }
     }
     return 1;
   }
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return qword_180142108(a1);
-  result = RtlpCheckHeapSignature(a1, "RtlUnlockHeap");
+  if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(PVOID))HashTable)(HeapHandle);
+  result = RtlpCheckHeapSignature(HeapHandle, "RtlUnlockHeap");
   if ( result )
   {
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v4 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 376);
+      v4 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 188);
       RtlLeaveCriticalSection(v4);
     }
     goto LABEL_13;

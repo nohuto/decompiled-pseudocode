@@ -1,13 +1,13 @@
 /*
- * XREFs of PopNotifyUserPowerRequestAction @ 0x1408E1A68
+ * XREFs of PopNotifyUserPowerRequestAction @ 0x1408E1BC8
  * Callers:
- *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
- *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
- *     PopProcessPowerRequestOverrideQueryResponse @ 0x140282C34 (PopProcessPowerRequestOverrideQueryResponse.c)
- *     PopPowerRequestNotificationsFlush @ 0x1408E1AE8 (PopPowerRequestNotificationsFlush.c)
+ *     PoClearPowerRequestInternal @ 0x1402701DC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1402703A0 (PoSetPowerRequestInternal.c)
+ *     PopProcessPowerRequestOverrideQueryResponse @ 0x140270EE0 (PopProcessPowerRequestOverrideQueryResponse.c)
+ *     PopPowerRequestNotificationsFlush @ 0x1408E1C48 (PopPowerRequestNotificationsFlush.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PopUmpoSendPowerMessage @ 0x140270CF4 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 bool __fastcall PopNotifyUserPowerRequestAction(__int64 a1, int a2, char a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of Amd64PauseProfiling @ 0x140529E00
+ * XREFs of Amd64PauseProfiling @ 0x14052A350
  * Callers:
  *     <none>
  * Callees:

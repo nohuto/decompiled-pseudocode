@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLargeIntegerToChar @ 0x1403F6A40
+ * XREFs of RtlLargeIntegerToChar @ 0x1403F5900
  * Callers:
- *     RtlInt64ToUnicodeString @ 0x1403F6568 (RtlInt64ToUnicodeString.c)
+ *     RtlInt64ToUnicodeString @ 0x1403F542C (RtlInt64ToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __stdcall RtlLargeIntegerToChar(PLARGE_INTEGER Value, ULONG Base, ULONG Length, PCHAR String)

@@ -76,7 +76,7 @@ void __fastcall HalpDmaSyncMapBuffers(
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           LODWORD(v19) = 4;
@@ -142,10 +142,10 @@ void __fastcall HalpDmaSyncMapBuffers(
       HalpDmaReleaseBufferMappings(v21, (__int64)a4, v15, (__int64)v34);
     if ( v36 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v29 = CurrentPrcb->SchedulerAssist;

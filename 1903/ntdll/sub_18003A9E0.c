@@ -8,10 +8,10 @@
  *     sub_18010A580 @ 0x18010A580 (sub_18010A580.c)
  */
 
-__int64 __fastcall sub_18003A9E0(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall sub_18003A9E0(void *a1)
 {
   if ( (byte_180166058 & 2) != 0 )
-    return sub_18004DC8C();
+    return sub_18004DC8C(a1);
   else
-    return sub_18003AAA0(a1, a2, a3, 0LL);
+    return sub_18003AAA0(a1);
 }

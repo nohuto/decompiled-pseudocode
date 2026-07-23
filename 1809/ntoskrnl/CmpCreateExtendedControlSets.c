@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCreateExtendedControlSets @ 0x1409C16CC
+ * XREFs of CmpCreateExtendedControlSets @ 0x1409C26CC
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
- *     CmpCreateControlSet @ 0x1409C12B4 (CmpCreateControlSet.c)
+ *     CmpCreateControlSet @ 0x1409C22B4 (CmpCreateControlSet.c)
  */
 
 __int64 __fastcall CmpCreateExtendedControlSets(__int64 a1)

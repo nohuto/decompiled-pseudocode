@@ -23,10 +23,10 @@ void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
   __int64 v9; // rax
   int v10; // eax
   __int64 v11; // rbx
-  _BYTE *v12; // rax
+  PRTL_BALANCED_NODE v12; // rax
   __int64 v13; // rcx
   signed __int8 v14; // cf
-  _BYTE *v15; // rdi
+  PRTL_BALANCED_NODE v15; // rdi
 
   v1 = a1 + 40;
   if ( !WheapPolicyDisableOffline )
@@ -73,13 +73,13 @@ LABEL_12:
             }
             else
             {
-              v12 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0LL);
+              v12 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0);
               v14 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
               v15 = v12;
               if ( v14 )
                 ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v12, (ULONG_PTR)&WheapPfaLock);
               if ( v15 )
-                v15[26] |= 1u;
+                BYTE2(v15[1].Left) |= 1u;
               WheapPfaMemoryCheck(v13, v11);
               if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
                 ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock);

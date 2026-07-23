@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetL2L3AssociativityAmd @ 0x1409AF8F8
+ * XREFs of KiGetL2L3AssociativityAmd @ 0x1409B0828
  * Callers:
- *     KiSetCacheInformationAmd @ 0x1409AF93C (KiSetCacheInformationAmd.c)
+ *     KiSetCacheInformationAmd @ 0x1409B086C (KiSetCacheInformationAmd.c)
  * Callees:
  *     <none>
  */

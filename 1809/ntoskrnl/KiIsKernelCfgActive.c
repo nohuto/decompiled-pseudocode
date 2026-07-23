@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsKernelCfgActive @ 0x1409D5B94
+ * XREFs of KiIsKernelCfgActive @ 0x1409D6B94
  * Callers:
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DE90 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 KiIsKernelCfgActive()

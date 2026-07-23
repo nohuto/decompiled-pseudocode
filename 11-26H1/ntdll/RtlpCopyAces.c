@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCopyAces @ 0x180061840
+ * XREFs of RtlpCopyAces @ 0x18004BDC0
  * Callers:
- *     RtlpComputeMergedAcl2 @ 0x18005B3C8 (RtlpComputeMergedAcl2.c)
- *     RtlpInheritAcl2 @ 0x1800603B0 (RtlpInheritAcl2.c)
+ *     RtlpComputeMergedAcl2 @ 0x180045948 (RtlpComputeMergedAcl2.c)
+ *     RtlpInheritAcl2 @ 0x18004A930 (RtlpInheritAcl2.c)
  * Callees:
- *     RtlpCopyEffectiveAce @ 0x180060EA0 (RtlpCopyEffectiveAce.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpCopyEffectiveAce @ 0x18004B420 (RtlpCopyEffectiveAce.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpCopyAces(
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpCopyAces(
         char a4,
         char a5,
         unsigned __int8 *a6,
-        unsigned __int8 *a7,
+        unsigned __int16 *a7,
         __int64 a8,
         __int64 a9,
         char a10,

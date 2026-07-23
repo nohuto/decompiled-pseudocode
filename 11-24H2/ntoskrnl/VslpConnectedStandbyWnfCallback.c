@@ -1,15 +1,15 @@
 /*
- * XREFs of VslpConnectedStandbyWnfCallback @ 0x140A3B470
+ * XREFs of VslpConnectedStandbyWnfCallback @ 0x140A30C50
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A3BBFC (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A313DC (ExpWnfAcquireSubscriptionNameInstance.c)
  */
 
 __int64 __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
@@ -59,5 +59,5 @@ __int64 __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
   v17 = 0;
   v15 = v9;
   v16 = v13;
-  return VslpEnterIumSecureMode(2u, 65LL, 0, (__int64)v14);
+  return VslpEnterIumSecureMode(2u, 0x41u, 0, (__int64)v14);
 }

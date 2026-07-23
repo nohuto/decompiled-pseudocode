@@ -11,108 +11,109 @@
  *     _RtlpGetHeapBlock@4 @ 0x4B35E746 (_RtlpGetHeapBlock@4.c)
  */
 
-char __stdcall RtlpScanHeapAllocBlocks()
+char __fastcall RtlpScanHeapAllocBlocks(int a1, int *a2)
 {
-  int *v0; // esi
-  int *v1; // eax
-  unsigned int *v2; // ecx
-  int *v3; // ebx
+  int *v2; // esi
+  int *v3; // eax
+  unsigned int *v4; // ecx
+  int *v5; // ebx
   unsigned int i; // eax
   int HeapBlock; // eax
-  _DWORD *v6; // ecx
-  int v7; // eax
-  int v8; // eax
-  _DWORD *v9; // edx
-  _DWORD *v10; // eax
-  bool v11; // zf
-  unsigned int *v12; // edi
-  int *v13; // edi
-  int v14; // esi
-  unsigned int v15; // ebx
+  _DWORD *v8; // ecx
+  int v9; // eax
+  int v10; // eax
+  _DWORD *v11; // edx
+  _DWORD *v12; // eax
+  bool v13; // zf
+  unsigned int *v14; // edi
+  int *v15; // edi
+  int v16; // esi
+  void *v17; // ebx
   int BlockInfo; // eax
-  int v17; // eax
-  int *v19; // [esp+10h] [ebp-4h]
-  int v20; // [esp+10h] [ebp-4h]
+  SIZE_T v19; // rax
+  int *v21; // [esp+10h] [ebp-4h]
+  int v22; // [esp+10h] [ebp-4h]
 
-  v0 = (int *)RtlpBusyList;
-  while ( v0 != &RtlpBusyList )
+  v2 = (int *)RtlpBusyList;
+  while ( v2 != &RtlpBusyList )
   {
-    v1 = v0 + 2;
-    v2 = (unsigned int *)v0[2];
-    v3 = v0;
-    v0 = (int *)*v0;
-    v19 = v1;
-    for ( i = (unsigned int)v2 + v3[3]; ; i = *v19 + v3[3] )
+    v3 = v2 + 2;
+    v4 = (unsigned int *)v2[2];
+    v5 = v2;
+    v2 = (int *)*v2;
+    v21 = v3;
+    for ( i = (unsigned int)v4 + v5[3]; ; i = *v21 + v5[3] )
     {
-      v12 = v2 + 1;
-      if ( (unsigned int)(v2 + 1) > i )
+      v14 = v4 + 1;
+      if ( (unsigned int)(v4 + 1) > i )
         break;
-      HeapBlock = RtlpGetHeapBlock(*v2);
-      v6 = (_DWORD *)HeapBlock;
+      HeapBlock = RtlpGetHeapBlock(*v4);
+      v8 = (_DWORD *)HeapBlock;
       if ( HeapBlock )
       {
-        v7 = *(_DWORD *)(HeapBlock + 16);
-        if ( !v7 )
+        v9 = *(_DWORD *)(HeapBlock + 16);
+        if ( !v9 )
         {
-          v8 = *v6;
-          if ( *(_DWORD **)(*v6 + 4) != v6
-            || (v9 = (_DWORD *)v6[1], (_DWORD *)*v9 != v6)
-            || (*v9 = v8,
-                *(_DWORD *)(v8 + 4) = v9,
-                v10 = (_DWORD *)dword_4B3A47E4,
+          v10 = *v8;
+          if ( *(_DWORD **)(*v8 + 4) != v8
+            || (v11 = (_DWORD *)v8[1], (_DWORD *)*v11 != v8)
+            || (*v11 = v10,
+                *(_DWORD *)(v10 + 4) = v11,
+                v12 = (_DWORD *)dword_4B3A47E4,
                 *(int **)dword_4B3A47E4 != &RtlpBusyList) )
           {
             __fastfail(3u);
           }
-          *v6 = &RtlpBusyList;
-          v6[1] = v10;
-          *v10 = v6;
-          dword_4B3A47E4 = (int)v6;
-          v7 = v6[4];
+          *v8 = &RtlpBusyList;
+          v8[1] = v12;
+          *v12 = v8;
+          dword_4B3A47E4 = (int)v8;
+          v9 = v8[4];
         }
-        v11 = v6[2] == 0;
-        v6[4] = v7 + 1;
-        if ( v11 )
+        v13 = v8[2] == 0;
+        v8[4] = v9 + 1;
+        if ( v13 )
           __debugbreak();
       }
-      v2 = v12;
+      a2 = v21;
+      v4 = v14;
     }
   }
-  v13 = (int *)RtlpLeakList;
+  v15 = (int *)RtlpLeakList;
   if ( (int *)RtlpLeakList != &RtlpLeakList )
   {
-    v14 = RtlpLeaksCount;
+    v16 = RtlpLeaksCount;
     do
     {
-      v15 = v13[2];
-      BlockInfo = RtlpGetBlockInfo((_DWORD *)RtlpProcessMemoryMap, v15);
-      v20 = BlockInfo;
+      v17 = (void *)v15[2];
+      BlockInfo = RtlpGetBlockInfo((_DWORD *)RtlpProcessMemoryMap, (unsigned int)v17);
+      v22 = BlockInfo;
       if ( BlockInfo )
       {
         if ( dword_4B3A4898 )
         {
-          v17 = RtlSizeHeap(*(_DWORD *)(BlockInfo + 4), 0, v15);
-          dword_4B3A4898(dword_4B3A4898, 0, *(_DWORD *)(v20 + 4), v13[2], v17, 0, 0);
+          v19 = RtlSizeHeap((PVOID)*(_DWORD *)(BlockInfo + 4), 0, v17);
+          dword_4B3A4898(dword_4B3A4898, HIDWORD(v19), 0, *(_DWORD *)(v22 + 4), v15[2], v19, 0, 0);
         }
         else
         {
-          if ( !v14 )
+          if ( !v16 )
           {
             DbgPrint("Below is a list of potentially leaked heap entries \nuse !heap -i Entry -h Heap for more information\n\n");
             DbgPrint("Entry     Heap              Size       \n");
             DbgPrint("---------------------------------------\n");
-            v15 = v13[2];
-            BlockInfo = v20;
+            v17 = (void *)v15[2];
+            BlockInfo = v22;
           }
-          RtlpDumpEntryInfo(*(_DWORD *)(BlockInfo + 4), v15);
+          RtlpDumpEntryInfo(*(_DWORD **)(BlockInfo + 4), (unsigned __int8 *)v17);
         }
-        v14 = ++RtlpLeaksCount;
+        v16 = ++RtlpLeaksCount;
       }
-      v13 = (int *)*v13;
+      v15 = (int *)*v15;
     }
-    while ( v13 != &RtlpLeakList );
+    while ( v15 != &RtlpLeakList );
   }
   if ( dword_4B3A4898 )
-    dword_4B3A4898(dword_4B3A4898, 0, 0, 0, 0, 0, 0);
+    dword_4B3A4898(dword_4B3A4898, a2, 0, 0, 0, 0, 0, 0);
   return 1;
 }

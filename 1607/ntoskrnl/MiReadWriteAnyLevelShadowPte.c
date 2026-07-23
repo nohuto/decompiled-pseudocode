@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReadWriteAnyLevelShadowPte @ 0x1401EF454
+ * XREFs of MiReadWriteAnyLevelShadowPte @ 0x1401EF280
  * Callers:
- *     MiInitializeShadowPageTable @ 0x14065B988 (MiInitializeShadowPageTable.c)
- *     MiMakeShadowPageTableRange @ 0x14065BBBC (MiMakeShadowPageTableRange.c)
- *     MmDeleteShadowMapping @ 0x14065BE04 (MmDeleteShadowMapping.c)
+ *     MiInitializeShadowPageTable @ 0x14065BA6C (MiInitializeShadowPageTable.c)
+ *     MiMakeShadowPageTableRange @ 0x14065BCA0 (MiMakeShadowPageTableRange.c)
+ *     MmDeleteShadowMapping @ 0x14065BEE8 (MmDeleteShadowMapping.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiReadWriteAnyLevelShadowPte(unsigned __int64 a1, __int64 a2, int a3, __int64 a4)

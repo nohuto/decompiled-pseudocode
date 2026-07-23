@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDidUnicodeToOemWork @ 0x1404BC2F8
+ * XREFs of RtlpDidUnicodeToOemWork @ 0x1404A8028
  * Callers:
- *     RtlUpcaseUnicodeStringToOemString @ 0x1404BBEE8 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1404BBFD0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1404BC224 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1404A7C18 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1404A7D00 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1404A7F54 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRebuildLargePagesThread @ 0x14030ACC0
+ * XREFs of MiRebuildLargePagesThread @ 0x140314BA0
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     MiProcessLargeCoalesceCandidates @ 0x14030A3A4 (MiProcessLargeCoalesceCandidates.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x140314284 (MiProcessLargeCoalesceCandidates.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall MiRebuildLargePagesThread(_QWORD *a1)

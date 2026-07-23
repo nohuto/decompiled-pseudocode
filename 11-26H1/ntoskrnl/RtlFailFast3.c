@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFailFast3 @ 0x140535250
+ * XREFs of RtlFailFast3 @ 0x1405376D0
  * Callers:
  *     <none>
  * Callees:

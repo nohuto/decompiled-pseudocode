@@ -1,34 +1,34 @@
 /*
- * XREFs of MiAllocateChildVads @ 0x140527B80
+ * XREFs of MiAllocateChildVads @ 0x14050ABE0
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiIncludeSharedCommit @ 0x140027BB0 (MiIncludeSharedCommit.c)
- *     MiVadPureReserve @ 0x14002BA90 (MiVadPureReserve.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiVadMapsLargeImage @ 0x14002C410 (MiVadMapsLargeImage.c)
- *     MiGetWsAndInsertVad @ 0x140030AE0 (MiGetWsAndInsertVad.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiUpControlAreaRefs @ 0x14010C9E8 (MiUpControlAreaRefs.c)
- *     MiCloneReserveVadCommit @ 0x14010CB38 (MiCloneReserveVadCommit.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiIncludeSharedCommit @ 0x140027730 (MiIncludeSharedCommit.c)
+ *     MiVadPureReserve @ 0x14002B610 (MiVadPureReserve.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiVadMapsLargeImage @ 0x14002BF90 (MiVadMapsLargeImage.c)
+ *     MiGetWsAndInsertVad @ 0x140030660 (MiGetWsAndInsertVad.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiUpControlAreaRefs @ 0x14010A768 (MiUpControlAreaRefs.c)
+ *     MiCloneReserveVadCommit @ 0x14010A8B8 (MiCloneReserveVadCommit.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInsertSharedCommitNode @ 0x14042E680 (MiInsertSharedCommitNode.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiCreateWriteWatchView @ 0x1404BA6F4 (MiCreateWriteWatchView.c)
- *     MiCloneNoChange @ 0x140527F0C (MiCloneNoChange.c)
- *     MiCreatePerSessionProtos @ 0x140661B60 (MiCreatePerSessionProtos.c)
- *     MiCreateLargePageVad @ 0x1406624FC (MiCreateLargePageVad.c)
- *     MiDeletePartialCloneVad @ 0x14066313C (MiDeletePartialCloneVad.c)
+ *     MiInsertSharedCommitNode @ 0x14042D550 (MiInsertSharedCommitNode.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiCreateWriteWatchView @ 0x1404A6424 (MiCreateWriteWatchView.c)
+ *     MiCloneNoChange @ 0x14050AF6C (MiCloneNoChange.c)
+ *     MiCreatePerSessionProtos @ 0x140661C44 (MiCreatePerSessionProtos.c)
+ *     MiCreateLargePageVad @ 0x1406625E0 (MiCreateLargePageVad.c)
+ *     MiDeletePartialCloneVad @ 0x140663220 (MiDeletePartialCloneVad.c)
  */
 
 __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
@@ -183,7 +183,7 @@ LABEL_72:
       if ( v12 == 1 )
       {
         KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v33);
-        ++*(_QWORD *)(qword_140327F90 + 276840640);
+        ++*(_QWORD *)(qword_140327FD0 + 276840640);
         KiUnstackDetachProcess((struct _KTHREAD *)v33, 0);
       }
       v16 = 16;
@@ -203,17 +203,17 @@ LABEL_72:
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->SpecialApcDisable;
-        v29 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326560, 0LL, 0);
+        v29 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403265A0, 0LL, 0);
         v30 = v29;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140326560, 0LL) )
-          ExfAcquirePushLockExclusiveEx(&qword_140326560, v29, (ULONG_PTR)&qword_140326560);
+        if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_1403265A0, 0LL) )
+          ExfAcquirePushLockExclusiveEx(&qword_1403265A0, v29, (ULONG_PTR)&qword_1403265A0);
         if ( v30 )
           v30[26] |= 1u;
         v31 = *(_QWORD *)(***(_QWORD ***)(v14 + 72) + 32LL);
         ++*(_DWORD *)(v31 + 8);
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326560, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326560);
-        KeAbPostRelease((ULONG_PTR)&qword_140326560);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403265A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403265A0);
+        KeAbPostRelease((ULONG_PTR)&qword_1403265A0);
         KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       }
       else if ( v18 != 1 )
@@ -257,9 +257,9 @@ LABEL_30:
     if ( (v20 & 0x100000) != 0 )
     {
       if ( (v20 & 0x8000) != 0 )
-        ++*(_QWORD *)(qword_140327F90 + 276840648);
+        ++*(_QWORD *)(qword_140327FD0 + 276840648);
       else
-        ++*(_QWORD *)(qword_140327F90 + 276840656);
+        ++*(_QWORD *)(qword_140327FD0 + 276840656);
     }
     if ( (*(_DWORD *)(v14 + 48) & 0x8000) == 0 )
       MiUpControlAreaRefs(v14);

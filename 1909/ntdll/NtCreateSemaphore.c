@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtCreateSemaphore()
+NTSTATUS __cdecl NtCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 187LL;
+  result = 187;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

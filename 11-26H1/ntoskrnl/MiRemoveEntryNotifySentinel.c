@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveEntryNotifySentinel @ 0x14030C28C
+ * XREFs of MiRemoveEntryNotifySentinel @ 0x1402EE30C
  * Callers:
- *     MiUnlinkUnusedControlArea @ 0x14030BD54 (MiUnlinkUnusedControlArea.c)
- *     MiUnlinkUnusedSubsection @ 0x14030C21C (MiUnlinkUnusedSubsection.c)
- *     MiUnlinkAllAgingEntries @ 0x14030D9FC (MiUnlinkAllAgingEntries.c)
- *     MiUnlinkHardLimitWorkingSet @ 0x14030DA88 (MiUnlinkHardLimitWorkingSet.c)
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
- *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406E77D8 (MiMoveUnusedSubsectionsToDeleteOnClose.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402EDDD4 (MiUnlinkUnusedControlArea.c)
+ *     MiUnlinkUnusedSubsection @ 0x1402EE29C (MiUnlinkUnusedSubsection.c)
+ *     MiUnlinkAllAgingEntries @ 0x1402EFA7C (MiUnlinkAllAgingEntries.c)
+ *     MiUnlinkHardLimitWorkingSet @ 0x1402EFB08 (MiUnlinkHardLimitWorkingSet.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
+ *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406EC488 (MiMoveUnusedSubsectionsToDeleteOnClose.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
  */
 
 unsigned __int64 *__fastcall MiRemoveEntryNotifySentinel(_QWORD *a1, unsigned __int64 *a2)

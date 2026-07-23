@@ -1,29 +1,29 @@
 /*
- * XREFs of MiCreateHardwareEnclave @ 0x1408760F0
+ * XREFs of MiCreateHardwareEnclave @ 0x14087C4D4
  * Callers:
- *     MiCreateEnclave @ 0x140875FD4 (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x14087C3B8 (MiCreateEnclave.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiAllocateEnclavePages @ 0x1403378DC (MiAllocateEnclavePages.c)
- *     MiInitializeEnclavePfn @ 0x140341AA8 (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x140341D50 (MiReserveEnclavePages.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiGetVmPartition @ 0x14044FD80 (MiGetVmPartition.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     KeGetIdealNodeNumberThread @ 0x14048C2AC (KeGetIdealNodeNumberThread.c)
- *     MiPrepareEnclaveMetadataPage @ 0x140700050 (MiPrepareEnclaveMetadataPage.c)
- *     KeCreateEnclave @ 0x1407B9F8C (KeCreateEnclave.c)
- *     MiDeleteEnclavePages @ 0x140C01AD8 (MiDeleteEnclavePages.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiAllocateEnclavePages @ 0x14033995C (MiAllocateEnclavePages.c)
+ *     MiInitializeEnclavePfn @ 0x140343B28 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x140343DD0 (MiReserveEnclavePages.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiGetVmPartition @ 0x140447EB0 (MiGetVmPartition.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     KeGetIdealNodeNumberThread @ 0x140485DEC (KeGetIdealNodeNumberThread.c)
+ *     MiPrepareEnclaveMetadataPage @ 0x140704D20 (MiPrepareEnclaveMetadataPage.c)
+ *     KeCreateEnclave @ 0x1407BCFEC (KeCreateEnclave.c)
+ *     MiDeleteEnclavePages @ 0x140C07CE8 (MiDeleteEnclavePages.c)
  */
 
 __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4, _DWORD *a5)
@@ -73,17 +73,17 @@ __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, unsigned __in
   v36 = 0LL;
   v35 = v8 << 12;
   VmPartition = MiGetVmPartition((__int64)&Process[2].ReadyListHead.Blink);
-  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&stru_140E36558.SchedulingGroup) )
+  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&stru_140E366D8.SchedulingGroup) )
     return 3221225738LL;
   *(_QWORD *)(a2 + 128) = Process;
   --CurrentThread->SpecialApcDisable;
-  v15 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558.StateSaveArea, 0LL, 0LL, v13);
+  v15 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8.StateSaveArea, 0LL, 0LL, v13);
   v17 = v15;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E36558.StateSaveArea, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E366D8.StateSaveArea, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&stru_140E36558.StateSaveArea,
+      (unsigned __int64 *)&stru_140E366D8.StateSaveArea,
       v15,
-      (__int64)&stru_140E36558.StateSaveArea);
+      (__int64)&stru_140E366D8.StateSaveArea);
   if ( v17 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -91,19 +91,19 @@ __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, unsigned __in
     else
       *((_BYTE *)v17 + 10) = 1;
   }
-  KernelStack = stru_140E36558.KernelStack;
+  KernelStack = stru_140E366D8.KernelStack;
   v19 = (unsigned int **)(a2 + 136);
-  if ( *(struct _KTHREAD **)stru_140E36558.KernelStack != (struct _KTHREAD *)&stru_140E36558.CurrentRunTime )
+  if ( *(struct _KTHREAD **)stru_140E366D8.KernelStack != (struct _KTHREAD *)&stru_140E366D8.CurrentRunTime )
     __fastfail(3u);
-  *v19 = &stru_140E36558.CurrentRunTime;
+  *v19 = &stru_140E366D8.CurrentRunTime;
   *(_QWORD *)(a2 + 144) = KernelStack;
   *KernelStack = v19;
-  stru_140E36558.KernelStack = (void *)(a2 + 136);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.StateSaveArea);
-  KeAbPostRelease((unsigned __int64)&stru_140E36558.StateSaveArea);
+  stru_140E366D8.KernelStack = (void *)(a2 + 136);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.StateSaveArea);
+  KeAbPostRelease((unsigned __int64)&stru_140E366D8.StateSaveArea);
   v24 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v24 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v24 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v21, v20);
   v25 = MiPrepareEnclaveMetadataPage(v21, v20, v22, v23);
   if ( v25 >= 0 )
@@ -150,6 +150,6 @@ __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, unsigned __in
   *(_DWORD *)(a2 + 72) |= 8u;
   MiDeleteEnclavePages(Process, a2);
 LABEL_22:
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140E36558.SchedulingGroup);
+  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140E366D8.SchedulingGroup);
   return (unsigned int)v25;
 }

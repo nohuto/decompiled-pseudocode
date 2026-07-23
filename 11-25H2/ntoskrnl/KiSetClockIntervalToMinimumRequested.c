@@ -18,13 +18,13 @@
 
 __int64 __fastcall KiSetClockIntervalToMinimumRequested(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v3; // rax
+  unsigned __int64 Min; // rax
   unsigned int v4; // ebx
   char v5; // si
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned int v7; // r10d
-  unsigned __int64 v8; // r11
-  unsigned int ClockIntervalOneShot; // r9d
+  LARGE_INTEGER v8; // r11
+  unsigned int v9; // r9d
   __int64 v10; // rcx
   unsigned int v11; // r8d
   __int64 v12; // rdx
@@ -35,30 +35,32 @@ __int64 __fastcall KiSetClockIntervalToMinimumRequested(__int64 a1, __int64 a2, 
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v18; // eax
   signed __int32 v19; // ett
-  __int64 v21; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  v21 = 0LL;
-  if ( (qword_140E66478 & 1) != 0 )
+  PerformanceCounter.QuadPart = 0LL;
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( qword_140E66478 == 1 )
-      v3 = 0LL;
+    if ( KiClockIntervalRequests.Min == (_RTL_BALANCED_NODE *)1 )
+      Min = 0LL;
     else
-      v3 = qword_140E66478 ^ ((unsigned __int64)&KiClockIntervalRequests + 1);
+      Min = (unsigned __int64)KiClockIntervalRequests.Min ^ ((unsigned __int64)&KiClockIntervalRequests.Root + 1);
   }
   else
   {
-    v3 = qword_140E66478;
+    Min = (unsigned __int64)KiClockIntervalRequests.Min;
   }
-  v4 = *(_DWORD *)(v3 + 28);
-  v5 = KeDisableInterrupts(qword_140E66478, a2, a3);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v21);
+  v4 = *(_DWORD *)(Min + 28);
+  v5 = KeDisableInterrupts(KiClockIntervalRequests.Min, a2, a3);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v7 = -1;
   v8 = InterruptTimePrecise;
-  ClockIntervalOneShot = -1;
+  v9 = -1;
   if ( KiClockOwnerOneShotRequest )
-    ClockIntervalOneShot = KiGetClockIntervalOneShot(KiClockOwnerOneShotRequest, InterruptTimePrecise);
+    v9 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiGetClockIntervalOneShot)(
+           KiClockOwnerOneShotRequest,
+           (LARGE_INTEGER)InterruptTimePrecise.QuadPart);
   v10 = KiClockOwnerOneShotCorrectiveRequest;
-  if ( KiClockOwnerOneShotCorrectiveRequest > v8
+  if ( (unsigned __int64)KiClockOwnerOneShotCorrectiveRequest > v8.QuadPart
     || KiClockOwnerOneShotRequestState == 2 && !KiClockOwnerOneShotCorrectiveRequest )
   {
     v11 = KePseudoHrTimeIncrement;
@@ -69,23 +71,25 @@ __int64 __fastcall KiSetClockIntervalToMinimumRequested(__int64 a1, __int64 a2, 
       v12 = KiLastNonHrTimerExpiration;
       v11 = KeNonHrTimeIncrement;
     }
-    v7 = KiGetClockIntervalOneShot(v8 + v11 - (v8 - v12) % v11, v8);
+    v7 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiGetClockIntervalOneShot)(
+           v8.QuadPart + v11 - (v8.QuadPart - v12) % (unsigned __int64)v11,
+           (LARGE_INTEGER)v8.QuadPart);
   }
   v13 = 0;
   v14 = 0;
-  if ( ClockIntervalOneShot > v4 || ClockIntervalOneShot > v7 )
+  if ( v9 > v4 || v9 > v7 )
   {
     if ( v7 >= v4 )
     {
-      ClockIntervalOneShot = v4;
-      KiClockOwnerOneShotCorrectiveRequest = v8;
+      v9 = v4;
+      KiClockOwnerOneShotCorrectiveRequest = v8.QuadPart;
     }
     else
     {
       v13 = 1;
       KiClockOwnerOneShotCorrectiveRequest = v10;
       v14 = 1;
-      ClockIntervalOneShot = v7;
+      v9 = v7;
     }
   }
   else
@@ -93,15 +97,10 @@ __int64 __fastcall KiSetClockIntervalToMinimumRequested(__int64 a1, __int64 a2, 
     KiClockOwnerOneShotCorrectiveRequest = 0LL;
     v13 = 1;
   }
-  if ( KiClockOwnerOneShotRequestState != 2
-    && (ClockIntervalOneShot == KiLastRequestedTimeIncrement || ClockIntervalOneShot == KeTimeIncrement) )
-  {
+  if ( KiClockOwnerOneShotRequestState != 2 && (v9 == KiLastRequestedTimeIncrement || v9 == KeTimeIncrement) )
     v15 = KeTimeIncrement;
-  }
   else
-  {
-    v15 = KiSetClockTickRate(ClockIntervalOneShot, v13);
-  }
+    v15 = KiSetClockTickRate(v9, v13);
   if ( v14 )
     PoTraceSystemTimerResolutionKernel(v15, 1129271880, 1);
   if ( v5 )

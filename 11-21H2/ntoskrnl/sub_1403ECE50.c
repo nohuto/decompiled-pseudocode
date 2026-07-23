@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeExitRetpoline @ 0x14024B6F8 (KeExitRetpoline.c)
- *     _guard_check_icall @ 0x14042A590 (_guard_check_icall.c)
+ *     sub_14024B6F8 @ 0x14024B6F8 (sub_14024B6F8.c)
+ *     sub_14042A590 @ 0x14042A590 (sub_14042A590.c)
  */
 
 __int64 __fastcall sub_1403ECE50(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -15,8 +15,9 @@ __int64 __fastcall sub_1403ECE50(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned __int64 v10; // r11
   __int16 v11; // r9
   unsigned __int64 v12; // rdi
+  __int64 (__fastcall *v13)(unsigned __int64, _QWORD, __int64, __int64); // rbx
 
-  KeExitRetpoline(a1, a2, a3);
+  sub_14024B6F8(a1, a2, a3);
   v7 = *(_QWORD *)(a1 + 32);
   v8 = 1;
   v9 = (unsigned __int64)&qword_140C0DB48 ^ ((v7 ^ ((v7 ^ 0xE20E5100uLL) >> 4)) >> 4);
@@ -32,9 +33,7 @@ __int64 __fastcall sub_1403ECE50(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   v12 = v10 ^ v7;
   if ( (v11 & 0x1000) == 0 )
     v12 = v7;
-  return (*(__int64 (__fastcall **)(unsigned __int64, _QWORD, __int64, __int64))(v12 + 24))(
-           v12,
-           *(_QWORD *)(v12 + 32),
-           a3,
-           a4);
+  v13 = *(__int64 (__fastcall **)(unsigned __int64, _QWORD, __int64, __int64))(v12 + 24);
+  sub_14042A590(v13);
+  return v13(v12, *(_QWORD *)(v12 + 32), a3, a4);
 }

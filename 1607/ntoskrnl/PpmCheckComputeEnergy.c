@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmCheckComputeEnergy @ 0x1400D483C
+ * XREFs of PpmCheckComputeEnergy @ 0x1400D26DC
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     PpmEventComputeEnergy @ 0x14020BB74 (PpmEventComputeEnergy.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     PpmEventComputeEnergy @ 0x14020B9A0 (PpmEventComputeEnergy.c)
  */
 
 char PpmCheckComputeEnergy()

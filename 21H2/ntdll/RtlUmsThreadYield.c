@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUmsThreadYield @ 0x1800F76D0
+ * XREFs of RtlUmsThreadYield @ 0x1800F7690
  * Callers:
  *     <none>
  * Callees:
- *     ZwUmsThreadYield @ 0x1800A0F10 (ZwUmsThreadYield.c)
- *     RtlpUmsThreadYield @ 0x1800A2623 (RtlpUmsThreadYield.c)
+ *     ZwUmsThreadYield @ 0x1800A0ED0 (ZwUmsThreadYield.c)
+ *     RtlpUmsThreadYield @ 0x1800A25E3 (RtlpUmsThreadYield.c)
  */
 
-__int64 __fastcall RtlUmsThreadYield(__int64 a1)
+__int64 __fastcall RtlUmsThreadYield(void *a1)
 {
-  __int64 v1; // rdi
+  void *v1; // rdi
   _DWORD *v2; // rbx
 
   v1 = a1;
@@ -23,7 +23,7 @@ __int64 __fastcall RtlUmsThreadYield(__int64 a1)
     goto LABEL_7;
   }
   ++v2[323];
-  if ( (int)ZwUmsThreadYield() < 0 )
+  if ( ZwUmsThreadYield(a1) < 0 )
   {
     ++v2[324];
     a1 = v1;

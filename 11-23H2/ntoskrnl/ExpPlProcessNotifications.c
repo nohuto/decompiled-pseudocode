@@ -1,33 +1,33 @@
 /*
- * XREFs of ExpPlProcessNotifications @ 0x140608990
+ * XREFs of ExpPlProcessNotifications @ 0x140608EE0
  * Callers:
  *     <none>
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
  */
 
-__int64 ExpPlProcessNotifications()
+int ExpPlProcessNotifications()
 {
-  __int64 result; // rax
-  _QWORD *v1; // rbx
-  _QWORD *v2; // rdx
-  int v3; // [rsp+58h] [rbp+10h] BYREF
+  PSLIST_ENTRY v0; // rax
+  _QWORD *p_Next; // rbx
+  const WNF_STATE_NAME *v2; // rdx
+  unsigned int Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   dword_140CF81B0 = 0;
-  result = (__int64)RtlpInterlockedFlushSList(&stru_140CF81A0);
-  v1 = (_QWORD *)result;
-  if ( result )
+  v0 = RtlpInterlockedFlushSList(&stru_140CF81A0);
+  p_Next = &v0->Next;
+  if ( v0 )
   {
     do
     {
-      v2 = v1;
-      v1 = (_QWORD *)*v1;
-      *((_DWORD *)v2 + 4) = 0;
-      v3 = *((_DWORD *)v2 - 18);
-      result = ZwUpdateWnfStateData((__int64)(v2 - 2), (__int64)&v3);
+      v2 = (const WNF_STATE_NAME *)p_Next;
+      p_Next = (_QWORD *)*p_Next;
+      v2[2].Data[0] = 0;
+      Buffer = v2[-9].Data[0];
+      LODWORD(v0) = ZwUpdateWnfStateData(v2 - 2, &Buffer, 4u, 0LL, 0LL, 0, 0);
     }
-    while ( v1 );
+    while ( p_Next );
   }
-  return result;
+  return (int)v0;
 }

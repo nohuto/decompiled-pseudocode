@@ -17,70 +17,73 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetExtendedContextLength2(int a1, _DWORD *a2, __int64 a3)
+NTSTATUS __cdecl RtlGetExtendedContextLength2(
+        ULONG ContextFlags,
+        PULONG ContextLength,
+        ULONG64 EnabledExtendedFeatures)
 {
   char v6; // di
   bool v7; // cl
   int v8; // edx
   int v9; // ebx
   __int64 v10; // rcx
-  int v11; // r8d
+  ULONG v11; // r8d
   int v12; // edx
   int v13; // eax
-  __int64 v15; // r10
+  ULONG64 v15; // r10
   __int64 v16; // r10
   unsigned int v17; // r9d
   unsigned int i; // r8d
   __int64 v19; // rax
 
-  if ( (a1 & 0x27FFFF80) != 0x10000
-    && (a1 & 0x7FFFF20) != 0x100000
-    && ((a1 & 0x200000) == 0 || (a1 & 0x7DFFFF0) != 0)
-    && (a1 & 0x7FFFFC0) != 0x400000 )
+  if ( (ContextFlags & 0x27FFFF80) != 0x10000
+    && (ContextFlags & 0x7FFFF20) != 0x100000
+    && ((ContextFlags & 0x200000) == 0 || (ContextFlags & 0x7DFFFF0) != 0)
+    && (ContextFlags & 0x7FFFFC0) != 0x400000 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   v6 = 1;
   v7 = 0;
-  if ( (a1 & 0x400020) != 0x400020 )
-    v7 = (a1 & 0x10040) != 65600 && (a1 & 0x100040) != 1048640;
+  if ( (ContextFlags & 0x400020) != 0x400020 )
+    v7 = (ContextFlags & 0x10040) != 65600 && (ContextFlags & 0x100040) != 1048640;
   if ( !v7 )
   {
     if ( !MEMORY[0xFFFFF780000003D8] )
-      return 3221225659LL;
+      return -1073741637;
     v6 = 3;
   }
-  if ( (a1 & 0x100080) != 0x100080 )
+  if ( (ContextFlags & 0x100080) != 0x100080 )
     goto LABEL_13;
   if ( !(_BYTE)KiKernelCetEnabled )
-    return 3221225659LL;
+    return -1073741637;
   v6 |= 4u;
 LABEL_13:
   v8 = 0;
   v9 = 0;
   v10 = 4LL;
-  if ( (a1 & 0x10000) != 0 )
+  if ( (ContextFlags & 0x10000) != 0 )
   {
     v8 = 716;
     v9 = 4;
-    v11 = a1 & 0x100000;
+    v11 = ContextFlags & 0x100000;
   }
   else
   {
-    v11 = a1 & 0x100000;
-    if ( (a1 & 0x100000) != 0 )
+    v11 = ContextFlags & 0x100000;
+    if ( (ContextFlags & 0x100000) != 0 )
     {
       v8 = 1232;
     }
     else
     {
-      if ( (a1 & 0x200000) != 0 )
+      if ( (ContextFlags & 0x200000) != 0 )
       {
         v8 = 416;
         v9 = 8;
         goto LABEL_17;
       }
-      if ( (a1 & 0x400000) == 0 )
+      if ( (ContextFlags & 0x400000) == 0 )
         goto LABEL_17;
       v8 = 912;
     }
@@ -92,8 +95,8 @@ LABEL_17:
   {
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
-      v15 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & a3;
-      if ( (a1 & 0x10000) != 0 )
+      v15 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & EnabledExtendedFeatures;
+      if ( (ContextFlags & 0x10000) != 0 )
       {
         v16 = v15 & 0x40000000000009FFLL;
       }
@@ -101,7 +104,7 @@ LABEL_17:
       {
         v16 = v15 & 0x4000000000060DFFLL;
       }
-      else if ( (a1 & 0x400000) != 0 )
+      else if ( (ContextFlags & 0x400000) != 0 )
       {
         v16 = v15 & 4;
       }
@@ -137,6 +140,6 @@ LABEL_17:
   v13 = v12 + 32;
   if ( (v6 & 4) == 0 )
     v13 = v12;
-  *a2 = v9 - 1 + v13;
-  return 0LL;
+  *ContextLength = v9 - 1 + v13;
+  return 0;
 }

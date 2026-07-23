@@ -1,10 +1,10 @@
 /*
- * XREFs of CsrAllocateCaptureBuffer @ 0x180075C20
+ * XREFs of CsrAllocateCaptureBuffer @ 0x180075C10
  * Callers:
- *     CsrpClientConnectToServer @ 0x18007572C (CsrpClientConnectToServer.c)
- *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x180075A00 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
+ *     CsrpClientConnectToServer @ 0x18007571C (CsrpClientConnectToServer.c)
+ *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800759F0 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
@@ -27,7 +27,7 @@ _DWORD *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
   if ( a1 + 1 >= (2147483612 - a2 - 8 * a1) / 3 )
     return 0LL;
   v3 = (11 * a1 + a2 + 35) & 0xFFFFFFFC;
-  Heap = (_DWORD *)RtlAllocateHeap(CsrPortHeap, CsrPortBaseTag, v3);
+  Heap = RtlAllocateHeap(CsrPortHeap, CsrPortBaseTag, v3);
   v5 = Heap;
   if ( !Heap )
     return 0LL;

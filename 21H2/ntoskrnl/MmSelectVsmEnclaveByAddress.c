@@ -1,16 +1,16 @@
 /*
- * XREFs of MmSelectVsmEnclaveByAddress @ 0x1408D3C74
+ * XREFs of MmSelectVsmEnclaveByAddress @ 0x1408D3DD4
  * Callers:
- *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D330 (PsCallEnclave.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
  */
 
 __int64 __fastcall MmSelectVsmEnclaveByAddress(__int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
-  volatile signed __int32 *v4; // rax
-  volatile signed __int32 *v5; // rdx
+  __int64 v4; // rax
+  __int64 v5; // rdx
   int v7; // eax
   unsigned int v8; // ebx
   unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
@@ -22,15 +22,15 @@ __int64 __fastcall MmSelectVsmEnclaveByAddress(__int64 a1, unsigned __int64 a2, 
   v5 = v4;
   if ( !v4 )
     return v9;
-  v7 = *((_DWORD *)v4 + 12);
+  v7 = *(_DWORD *)(v4 + 48);
   v8 = -1073741800;
   v9 = -1073741800;
-  if ( (v7 & 0x100000) != 0 && (v7 & 0x1000000) == 0 && (v7 & 0x2000000) != 0 && (v5[16] & 1) == 0 )
+  if ( (v7 & 0x100000) != 0 && (v7 & 0x1000000) == 0 && (v7 & 0x2000000) != 0 && (*(_DWORD *)(v5 + 64) & 1) == 0 )
   {
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(*((_QWORD *)v5 + 9) + 16LL)) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(v5 + 72) + 16LL)) <= 1 )
       __fastfail(0xEu);
     v8 = 0;
-    *a3 = *((_QWORD *)v5 + 9);
+    *a3 = *(_QWORD *)(v5 + 72);
   }
   MiUnlockAndDereferenceVad((char *)v5);
   return v8;

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlTruncateBaseMcb @ 0x140339FB0
+ * XREFs of FsRtlTruncateBaseMcb @ 0x14033A240
  * Callers:
- *     FsRtlTruncateLargeMcb @ 0x140339F70 (FsRtlTruncateLargeMcb.c)
+ *     FsRtlTruncateLargeMcb @ 0x14033A200 (FsRtlTruncateLargeMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlFindLargeIndex @ 0x14033AA28 (FsRtlFindLargeIndex.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlFindLargeIndex @ 0x14033ACB0 (FsRtlFindLargeIndex.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

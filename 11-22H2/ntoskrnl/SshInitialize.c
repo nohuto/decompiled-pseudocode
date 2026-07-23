@@ -17,16 +17,16 @@
 __int64 __fastcall SshInitialize(int a1)
 {
   NTSTATUS v1; // ebx
-  union _RTL_RUN_ONCE *v2; // rax
-  union _RTL_RUN_ONCE *v3; // rax
+  _RTL_RUN_ONCE *v2; // rax
+  _RTL_RUN_ONCE *v3; // rax
   __int64 v4; // rdx
 
   switch ( a1 )
   {
     case 0:
-      CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpLibraryListLock);
+      CmSiRWLockInitialize(&SshpLibraryListLock);
       qword_140C38B98 = (__int64)&SshpLibraryList;
-      v2 = (union _RTL_RUN_ONCE *)&unk_140C38BD0;
+      v2 = (_RTL_RUN_ONCE *)&unk_140C38BD0;
       SshpLibraryList = (__int64)&SshpLibraryList;
       do
       {

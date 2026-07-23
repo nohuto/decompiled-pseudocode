@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnlockControlAreaSectionExtend @ 0x1402A1234
+ * XREFs of MiUnlockControlAreaSectionExtend @ 0x14021E7B4
  * Callers:
- *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     MmExtendSection @ 0x1405E894C (MmExtendSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiBuildWakeList @ 0x140357480 (MiBuildWakeList.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiBuildWakeList @ 0x1403621D0 (MiBuildWakeList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-_QWORD *__fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
+__int64 __fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
 {
   int v2; // r14d
   unsigned __int64 v5; // rsi
@@ -66,7 +66,7 @@ _QWORD *__fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)
   }
   CurrentThread = KeGetCurrentThread();
   if ( v2 == 16 )
-    return (_QWORD *)KiLeaveGuardedRegionUnsafe(CurrentThread);
+    return KiLeaveGuardedRegionUnsafe(CurrentThread);
   else
-    return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    return KeLeaveCriticalRegionThread(CurrentThread);
 }

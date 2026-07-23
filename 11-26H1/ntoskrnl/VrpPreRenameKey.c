@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpPreRenameKey @ 0x1408A5E90
+ * XREFs of VrpPreRenameKey @ 0x1408AC300
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VrpPreRenameKey(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall VrpPreRenameKey(__int64 a1)
       v11[1] = 0;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E0A5C0,
-        (unsigned __int8 *)byte_14005A9C9,
+        (unsigned __int8 *)byte_14005BAE8,
         &ActivityId,
         0LL,
         4u,

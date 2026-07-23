@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuMapDevice @ 0x140523030
+ * XREFs of IommuMapDevice @ 0x140523580
  * Callers:
  *     <none>
  * Callees:
- *     IommupMapDeviceInternal @ 0x140523B68 (IommupMapDeviceInternal.c)
- *     HalpIommuCreateDevice @ 0x140829048 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x140933A2C (HalpIommuDeleteDevice.c)
+ *     IommupMapDeviceInternal @ 0x1405240B8 (IommupMapDeviceInternal.c)
+ *     HalpIommuCreateDevice @ 0x140829348 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140933C2C (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall IommuMapDevice(_QWORD *a1, _BYTE *a2, __int64 a3, __int64 a4, _QWORD *a5)

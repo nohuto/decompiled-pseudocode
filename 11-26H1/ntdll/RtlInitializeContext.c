@@ -1,42 +1,47 @@
 /*
- * XREFs of RtlInitializeContext @ 0x18010BD30
+ * XREFs of RtlInitializeContext @ 0x18010B880
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-unsigned __int64 __fastcall RtlInitializeContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+ULONG64 __cdecl RtlInitializeContext(
+        HANDLE Reserved,
+        PCONTEXT Context,
+        PVOID Parameter,
+        PVOID InitialPc,
+        PVOID InitialSp)
 {
-  _WORD *v8; // rbx
-  unsigned __int64 result; // rax
+  struct _CONTEXT::$D2ECA93702C646ACAFACD524BE9E8FEB::$897D11C01F73F7E79A06B0B9ED9B9414 *Header; // rbx
+  ULONG64 result; // rax
 
-  if ( (a5 & 0xF) != 0 )
+  if ( ((unsigned __int8)InitialSp & 0xF) != 0 )
     RtlRaiseStatus(-1073741815);
-  v8 = (_WORD *)(a2 + 256);
-  *(_QWORD *)(a2 + 120) = 0LL;
-  *(_QWORD *)(a2 + 144) = 1LL;
-  *(_DWORD *)(a2 + 68) = 512;
-  *(_QWORD *)(a2 + 152) = a5;
-  *(_QWORD *)(a2 + 160) = 0LL;
-  *(_QWORD *)(a2 + 168) = 4LL;
-  *(_QWORD *)(a2 + 176) = 5LL;
-  *(_QWORD *)(a2 + 184) = 8LL;
-  *(_QWORD *)(a2 + 200) = 10LL;
-  *(_QWORD *)(a2 + 208) = 11LL;
-  *(_QWORD *)(a2 + 216) = 12LL;
-  *(_QWORD *)(a2 + 224) = 13LL;
-  *(_QWORD *)(a2 + 232) = 14LL;
-  *(_QWORD *)(a2 + 240) = 15LL;
-  memset_thunk_772440563353939046((void *)(a2 + 256), 0, 0x200uLL);
-  *v8 = 639;
+  Header = (struct _CONTEXT::$D2ECA93702C646ACAFACD524BE9E8FEB::$897D11C01F73F7E79A06B0B9ED9B9414 *)Context->Header;
+  Context->Rax = 0LL;
+  Context->Rbx = 1LL;
+  Context->EFlags = 512;
+  Context->Rsp = (DWORD64)InitialSp;
+  Context->Rbp = 0LL;
+  Context->Rsi = 4LL;
+  Context->Rdi = 5LL;
+  Context->R8 = 8LL;
+  Context->R10 = 10LL;
+  Context->R11 = 11LL;
+  Context->R12 = 12LL;
+  Context->R13 = 13LL;
+  Context->R14 = 14LL;
+  Context->R15 = 15LL;
+  memset_thunk_772440563353939046(&Context->FltSave, 0, 0x200uLL);
+  LOWORD(Header->Header[0].Low) = 639;
   result = 0xF0E0D0C0A0908070uLL;
-  *(_QWORD *)(a2 + 248) = a4;
-  *(_QWORD *)(a2 + 128) = a3;
-  *(_DWORD *)(a2 + 52) = 8064;
-  *(_DWORD *)(a2 + 280) = 8064;
-  *(_QWORD *)(a2 + 192) = 0xF0E0D0C0A0908070uLL;
-  *(_DWORD *)(a2 + 48) = 1048587;
+  Context->Rip = (DWORD64)InitialPc;
+  Context->Rcx = (DWORD64)Parameter;
+  Context->MxCsr = 8064;
+  Context->FltSave.MxCsr = 8064;
+  Context->R9 = 0xF0E0D0C0A0908070uLL;
+  Context->ContextFlags = 1048587;
   return result;
 }

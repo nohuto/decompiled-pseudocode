@@ -16,7 +16,7 @@ void __fastcall PopRecordLongPowerButtonPressDetected(char a1)
   PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   HIBYTE(PopBsdPhysicalPowerButtonInfo) ^= (HIBYTE(PopBsdPhysicalPowerButtonInfo) ^ (4 * a1)) & 4;
   BYTE1(PopBsdPowerTransitionExtension) = PnpSetupInProgress & 1 | BYTE1(PopBsdPowerTransitionExtension) & 0xFC | (2 * (PnpSetupOOBEInProgress & 1));
-  RtlSetSystemBootStatus(14LL, &PopBsdPhysicalPowerButtonInfo, 48LL);
-  RtlSetSystemBootStatus(16LL, &PopBsdPowerTransitionExtension, 32LL);
+  RtlSetSystemBootStatus(RtlBsdItemPowerButtonPressInfo, &PopBsdPhysicalPowerButtonInfo, 0x30u, 0LL);
+  RtlSetSystemBootStatus(RtlBsdPowerTransitionExtension, &PopBsdPowerTransitionExtension, 0x20u, 0LL);
   PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfBindDifDDIWrappers @ 0x140ACA250
+ * XREFs of VfBindDifDDIWrappers @ 0x140ACA240
  * Callers:
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
  * Callees:
- *     ViBindDifThunkNormal @ 0x140ACA908 (ViBindDifThunkNormal.c)
+ *     ViBindDifThunkNormal @ 0x140ACA8F8 (ViBindDifThunkNormal.c)
  */
 
 bool __fastcall VfBindDifDDIWrappers(int a1, int a2, __int64 a3)

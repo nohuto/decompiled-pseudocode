@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpCoverageResetCP @ 0x1407AB024
+ * XREFs of EtwpCoverageResetCP @ 0x1407AB4F4
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1409047E8 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1408DCC48 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwTelemetryCoverageReport @ 0x140457F60 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageValidateCP @ 0x1404581BC (EtwpCoverageValidateCP.c)
- *     TelemetryCoverageTableLocateInternal @ 0x1404B4188 (TelemetryCoverageTableLocateInternal.c)
- *     TelemetryCoverageStringHashInternal @ 0x1404CA964 (TelemetryCoverageStringHashInternal.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpCoverageFlushPending @ 0x140A9F020 (EtwpCoverageFlushPending.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwTelemetryCoverageReport @ 0x14044D270 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageValidateCP @ 0x14044D4CC (EtwpCoverageValidateCP.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x1404AE9A8 (TelemetryCoverageTableLocateInternal.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1404C3E84 (TelemetryCoverageStringHashInternal.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpCoverageFlushPending @ 0x140A9A3F0 (EtwpCoverageFlushPending.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
@@ -24,8 +24,8 @@ __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
   _DWORD *Pool2; // r14
   unsigned int v4; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rax
-  _QWORD *v8; // rsi
+  char *v7; // rax
+  char *v8; // rsi
   int v9; // r11d
   _QWORD *v10; // rsi
   unsigned __int64 v11; // r12
@@ -48,29 +48,32 @@ __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
   Pool2 = 0LL;
   v4 = 0;
   *(_DWORD *)(a2 + 12) = 0;
-  if ( (unsigned int)dword_140E0919C < MEMORY[0xFFFFF7800000037C] )
+  if ( (unsigned int)dword_140E091F4 < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140E09198 )
-      dword_140E09198 = TelemetryCoverageStringHashInternal(off_140E09190, &v25);
-    EtwTelemetryCoverageReport(&off_140E09190);
+    if ( !dword_140E091F0 )
+      dword_140E091F0 = TelemetryCoverageStringHashInternal(off_140E091E8, &v25);
+    EtwTelemetryCoverageReport((__int64)&off_140E091E8, a2);
   }
   if ( (unsigned int)EtwpCoverageValidateCP((char **)a2, &v24) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v7 = KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
+    v7 = (char *)KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
     v8 = v7;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&EtwpCoverageLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, (__int64)v7, (__int64)&EtwpCoverageLock);
+      ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, v7, (__int64)&EtwpCoverageLock);
     if ( v8 )
-      *((_BYTE *)v8 + 10) = 1;
+      v8[10] = 1;
     EtwpCoverageLockOwner = (__int64)KeGetCurrentThread();
     *(_DWORD *)(a1 + 24) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     Internal = TelemetryCoverageTableLocateInternal(*(unsigned int **)(a1 + 16), *(_DWORD *)(a2 + 8));
     if ( *Internal == v9 )
     {
       EtwpCoverageFlushPending(a1);
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(
+                          0x100uLL,
+                          (unsigned int)(4 * *(_DWORD *)(*(_QWORD *)(a1 + 16) + 32LL)),
+                          0x56777445u);
       if ( Pool2 )
       {
         v10 = *(_QWORD **)(a1 + 48);

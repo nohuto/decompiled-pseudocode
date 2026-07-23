@@ -6,16 +6,16 @@
  *     LdrGetDllFullName @ 0x1800346C0 (LdrGetDllFullName.c)
  */
 
-__int64 __fastcall GetModuleFullPathNameUnicode(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall GetModuleFullPathNameUnicode(void *a1, wchar_t *a2, unsigned int a3)
 {
   int v3; // ebx
-  int DllFullName; // eax
+  NTSTATUS DllFullName; // eax
   __int64 v5; // r8
-  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING FullDllName; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = a3;
-  v7 = 0LL;
-  if ( (a1 & 3) != 0 )
+  FullDllName = 0LL;
+  if ( ((unsigned __int8)a1 & 3) != 0 )
     return 0LL;
   if ( a3 > 0x7FFF )
   {
@@ -25,11 +25,11 @@ __int64 __fastcall GetModuleFullPathNameUnicode(__int64 a1, __int64 a2, unsigned
   if ( !a3 )
     return 0LL;
 LABEL_4:
-  *((_QWORD *)&v7 + 1) = a2;
-  WORD1(v7) = 2 * v3 - 2;
-  DllFullName = LdrGetDllFullName(a1, &v7);
-  v5 = (unsigned __int16)v7 >> 1;
-  *(_WORD *)(*((_QWORD *)&v7 + 1) + 2 * v5) = 0;
+  FullDllName.Buffer = a2;
+  FullDllName.MaximumLength = 2 * v3 - 2;
+  DllFullName = LdrGetDllFullName(a1, &FullDllName);
+  v5 = FullDllName.Length >> 1;
+  FullDllName.Buffer[v5] = 0;
   if ( DllFullName == -1073741789 )
     LODWORD(v5) = v3;
   return (unsigned int)v5;

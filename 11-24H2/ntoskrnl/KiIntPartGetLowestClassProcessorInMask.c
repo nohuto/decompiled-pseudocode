@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntPartGetLowestClassProcessorInMask @ 0x140354604
+ * XREFs of KiIntPartGetLowestClassProcessorInMask @ 0x1402B2334
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140352C70 (PpmParkSteerInterrupts.c)
- *     KiIntSteerCalculateDistribution @ 0x140353BC0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerCalculatePriorityDistribution @ 0x140354390 (KiIntSteerCalculatePriorityDistribution.c)
- *     KiIntSteerCalculateUniformDistribution @ 0x14035531C (KiIntSteerCalculateUniformDistribution.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x1403B7F18 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     PpmParkSteerInterrupts @ 0x1402B0A40 (PpmParkSteerInterrupts.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402B1990 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerCalculatePriorityDistribution @ 0x1402B20C0 (KiIntSteerCalculatePriorityDistribution.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x1402B304C (KiIntSteerCalculateUniformDistribution.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x1402B3FD8 (KiIntSteerChooseInitialTargetProcessors.c)
  * Callees:
  *     <none>
  */
@@ -49,14 +49,14 @@ LABEL_10:
     _BitScanReverse64(&v6, v6);
   else
     _BitScanForward64(&v6, v6);
-  result = *((unsigned int *)qword_140F21E78 + (unsigned int)((v1 << 6) + v6));
+  result = *((unsigned int *)qword_140F22998 + (unsigned int)((v1 << 6) + v6));
   if ( (_DWORD)result == -1 )
   {
 LABEL_24:
     if ( *(_QWORD *)a1 )
     {
       _BitScanForward64(&v3, *(_QWORD *)a1);
-      return *((unsigned int *)qword_140F21E78 + (unsigned int)((v1 << 6) + v3));
+      return *((unsigned int *)qword_140F22998 + (unsigned int)((v1 << 6) + v3));
     }
     else
     {

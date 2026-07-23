@@ -1,35 +1,37 @@
 /*
- * XREFs of NtQueryFullAttributesFile @ 0x1409B57F0
+ * XREFs of NtQueryFullAttributesFile @ 0x1409868B0
  * Callers:
- *     DifNtQueryFullAttributesFileWrapper @ 0x140682400 (DifNtQueryFullAttributesFileWrapper.c)
+ *     DifNtQueryFullAttributesFileWrapper @ 0x140685FE0 (DifNtQueryFullAttributesFileWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     FsRtlpCleanupEcps @ 0x1409B5D30 (FsRtlpCleanupEcps.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     FsRtlpCleanupEcps @ 0x140986DF0 (FsRtlpCleanupEcps.c)
  */
 
-__int64 __fastcall NtQueryFullAttributesFile(__int64 a1, volatile void *a2)
+NTSTATUS __cdecl NtQueryFullAttributesFile(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PFILE_NETWORK_OPEN_INFORMATION FileInformation)
 {
   char PreviousMode; // di
-  _OWORD *v5; // rax
+  PFILE_NETWORK_OPEN_INFORMATION v5; // rax
   struct _KTHREAD *CurrentThread; // rdx
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   char v8; // al
   PVOID v9; // rcx
   HANDLE Handle; // [rsp+48h] [rbp-270h] BYREF
   _DWORD v12[4]; // [rsp+50h] [rbp-268h] BYREF
   int v13; // [rsp+60h] [rbp-258h]
   int v14; // [rsp+70h] [rbp-248h]
-  __int64 v15; // [rsp+80h] [rbp-238h]
+  POBJECT_ATTRIBUTES v15; // [rsp+80h] [rbp-238h]
   int v16; // [rsp+90h] [rbp-228h]
   __int16 v17; // [rsp+96h] [rbp-222h]
   int v18; // [rsp+A8h] [rbp-210h]
-  _OWORD *v19; // [rsp+B8h] [rbp-200h]
+  PFILE_NETWORK_OPEN_INFORMATION v19; // [rsp+B8h] [rbp-200h]
   char v20; // [rsp+D9h] [rbp-1DFh]
   char v21; // [rsp+DBh] [rbp-1DDh]
   _BYTE *v22; // [rsp+E0h] [rbp-1D8h]
@@ -45,7 +47,7 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, volatile void *a2)
   Handle = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    ProbeForWrite(a2, 0x38uLL, 8u);
+    ProbeForWrite(FileInformation, 0x38uLL, 8u);
   memset_0(v12, 0, 0xE0uLL);
   memset(Src, 0, sizeof(Src));
   v28 = 0LL;
@@ -56,11 +58,11 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, volatile void *a2)
   v20 = 1;
   v21 = 1;
   v22 = v29;
-  v15 = a1;
+  v15 = ObjectAttributes;
   v23 = 32;
-  v5 = Src;
+  v5 = (PFILE_NETWORK_OPEN_INFORMATION)Src;
   if ( !PreviousMode )
-    v5 = a2;
+    v5 = FileInformation;
   v19 = v5;
   *(_OWORD *)P = 0LL;
   v25 = 0LL;
@@ -71,7 +73,7 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, volatile void *a2)
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
   v7 = ObOpenObjectByNameEx(
-         a1,
+         (__int64)ObjectAttributes,
          (__int64)IoFileObjectType,
          PreviousMode,
          0LL,
@@ -91,12 +93,12 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, volatile void *a2)
   {
     v7 = v13;
     if ( v13 >= 0 && PreviousMode )
-      RtlCopyToUser((void *)a2, Src, 0x38uLL);
+      RtlCopyToUser(FileInformation, Src, 0x38uLL);
   }
   else if ( v7 >= 0 )
   {
     ObCloseHandle(Handle, PreviousMode);
-    return (unsigned int)-1073741788;
+    return -1073741788;
   }
-  return (unsigned int)v7;
+  return v7;
 }

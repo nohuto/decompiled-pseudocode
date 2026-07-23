@@ -14,9 +14,9 @@
  *     _NtQueryInstallUILanguage@4 @ 0x4B2F3E80 (_NtQueryInstallUILanguage@4.c)
  */
 
-int __thiscall _RtlpMuiRegLoadInstalled(_DWORD *this, int a2, int a3)
+int __thiscall _RtlpMuiRegLoadInstalled(LANGID *this, int a2, int a3)
 {
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   _WORD *v5; // ebx
   int Languages; // eax
   int StringPool; // eax
@@ -26,33 +26,33 @@ int __thiscall _RtlpMuiRegLoadInstalled(_DWORD *this, int a2, int a3)
   InstallUILanguage = 0;
   if ( this )
   {
-    if ( (int)ZwIsUILanguageComitted() >= 0 )
+    if ( ZwIsUILanguageComitted() >= 0 )
     {
-      v5 = this + 1;
-      InstallUILanguage = NtQueryInstallUILanguage(this + 1);
+      v5 = this + 2;
+      InstallUILanguage = NtQueryInstallUILanguage(this + 2);
       if ( InstallUILanguage < 0 || *v5 == 4096 || *v5 == 5120 )
         goto LABEL_14;
-      RtlpLoadInstallLanguageFallback(this + 2);
+      RtlpLoadInstallLanguageFallback(this + 4);
     }
     RtlpMuiRegFreeRegistryInfo(this, 1023);
     Languages = RtlpMuiRegCreateLanguages();
-    this[5] = Languages;
+    *((_DWORD *)this + 5) = Languages;
     if ( Languages )
     {
-      *this |= 1u;
+      *(_DWORD *)this |= 1u;
       StringPool = RtlpMuiRegCreateStringPool(-1, -1);
-      this[6] = StringPool;
+      *((_DWORD *)this + 6) = StringPool;
       if ( StringPool )
       {
-        *this |= 2u;
+        *(_DWORD *)this |= 2u;
         IsMachineLanguageListInMutableLocation = _IsMachineLanguageListInMutableLocation();
-        v9 = L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
+        v9 = (const wchar_t *)L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
         if ( !IsMachineLanguageListInMutableLocation )
           v9 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
         InstallUILanguage = _RtlpMuiRegLoadInstalledFromKey(this, v9);
         if ( InstallUILanguage >= 0 )
         {
-          InstallUILanguage = _RtlpMuiRegValidateInstalled(this);
+          InstallUILanguage = _RtlpMuiRegValidateInstalled((int)this);
           if ( InstallUILanguage >= 0 )
             return InstallUILanguage;
         }

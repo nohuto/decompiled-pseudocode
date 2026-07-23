@@ -11,7 +11,7 @@
  */
 
 __int64 __fastcall LdrpGetModuleInfoFromVirtualMemory(
-        __int64 a1,
+        PVOID BaseAddress,
         void *a2,
         unsigned __int16 a3,
         _DWORD *a4,
@@ -19,72 +19,77 @@ __int64 __fastcall LdrpGetModuleInfoFromVirtualMemory(
         _DWORD *a6,
         _BYTE *a7)
 {
-  size_t v8; // rbx
-  __int64 Heap; // rbp
+  SIZE_T MemoryInformationLength; // rbx
+  const void **Heap; // rbp
   __int64 v12; // rsi
-  int v13; // edi
-  __int64 v14; // r9
-  __int64 v15; // rax
-  size_t v16; // r8
-  wchar_t *v17; // rax
-  _WORD *v18; // rbx
-  _QWORD *v19; // r14
-  __int64 v20; // rsi
-  void *v21; // rax
-  size_t v23; // [rsp+68h] [rbp+10h] BYREF
+  NTSTATUS v13; // edi
+  __int64 v14; // rax
+  ULONG_PTR v15; // r8
+  wchar_t *v16; // rax
+  _WORD *v17; // rbx
+  _QWORD *v18; // r14
+  __int64 v19; // rsi
+  PVOID v20; // rax
+  ULONG_PTR ReturnLength; // [rsp+68h] [rbp+10h] BYREF
 
-  v8 = a3;
-  v23 = 0LL;
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, a3);
+  MemoryInformationLength = a3;
+  ReturnLength = 0LL;
+  Heap = (const void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, a3);
   if ( !Heap )
     return (unsigned int)-1073741801;
   v12 = -1LL;
-  v13 = ZwQueryVirtualMemory(-1LL, a1, 2LL, Heap, v8, &v23);
+  v13 = ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryMappedFilenameInformation,
+          Heap,
+          MemoryInformationLength,
+          &ReturnLength);
   if ( v13 >= 0 )
   {
-    v15 = -1LL;
+    v14 = -1LL;
     do
-      ++v15;
-    while ( *(_WORD *)(*(_QWORD *)(Heap + 8) + 2 * v15) );
-    v16 = 2 * v15 + 2;
-    v23 = v16;
-    if ( v16 >= v8 )
+      ++v14;
+    while ( *((_WORD *)Heap[1] + v14) );
+    v15 = 2 * v14 + 2;
+    ReturnLength = v15;
+    if ( v15 >= MemoryInformationLength )
     {
       v13 = -2147483643;
       goto LABEL_13;
     }
-    memmove(a2, *(const void **)(Heap + 8), v16);
-    v17 = wcsrchr((const wchar_t *)a2, 0x5Cu);
-    if ( !v17 )
+    memmove(a2, Heap[1], v15);
+    v16 = wcsrchr((const wchar_t *)a2, 0x5Cu);
+    if ( !v16 )
     {
       v13 = -1073741767;
       goto LABEL_13;
     }
-    v18 = v17 + 1;
+    v17 = v16 + 1;
     do
       ++v12;
-    while ( v18[v12] );
-    v19 = a5;
-    v20 = (unsigned int)(2 * v12);
+    while ( v17[v12] );
+    v18 = a5;
+    v19 = (unsigned int)(2 * v12);
     if ( a5 )
     {
-      v21 = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v20 + 2);
-      *v19 = v21;
-      if ( !v21 )
+      v20 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v19 + 2);
+      *v18 = v20;
+      if ( !v20 )
       {
         v13 = -1073741801;
         goto LABEL_13;
       }
-      memmove(v21, v18, v20 + 2);
+      memmove(v20, v17, v19 + 2);
     }
     if ( a6 )
-      *a6 = v20;
+      *a6 = v19;
     if ( a4 )
-      *a4 = 2 * (((char *)v18 - (_BYTE *)a2) >> 1);
+      *a4 = 2 * (((char *)v17 - (_BYTE *)a2) >> 1);
     if ( a7 )
       *a7 = 1;
   }
 LABEL_13:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v14);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return (unsigned int)v13;
 }

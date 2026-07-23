@@ -52,7 +52,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   __int64 HeapData_low; // rcx
   __int64 UniqueThread_low; // rsi
   int v29; // ebx
-  unsigned int CurrentProcessorNumber; // eax
+  ULONG CurrentProcessorNumber; // eax
   __int16 RandomValue32; // ax
   __int64 *v32; // rax
   volatile signed __int32 *v33; // r12
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   __int64 *v36; // rbx
   unsigned int v37; // r15d
   __int64 v38; // rbp
-  union _SLIST_HEADER *v39; // rbp
+  _SLIST_HEADER *v39; // rbp
   PSLIST_ENTRY v40; // rbx
   int v41; // ecx
   PSLIST_ENTRY v42; // rdi
@@ -72,7 +72,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   _SLIST_ENTRY *v47; // rbx
   unsigned int v48; // r14d
   PSLIST_ENTRY v49; // r15
-  union _SLIST_HEADER *v50; // rbp
+  _SLIST_HEADER *v50; // rbp
   PSLIST_ENTRY v51; // rdi
   unsigned int v52; // edi
   unsigned int v53; // r9d
@@ -147,8 +147,8 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   __int64 v122; // [rsp+48h] [rbp-70h]
   __int64 v123; // [rsp+50h] [rbp-68h]
   unsigned __int16 *v124; // [rsp+58h] [rbp-60h]
-  union _SLIST_HEADER *ListHead; // [rsp+60h] [rbp-58h]
-  unsigned int v127; // [rsp+C8h] [rbp+10h]
+  _SLIST_HEADER *ListHead; // [rsp+60h] [rbp-58h]
+  char v127; // [rsp+C8h] [rbp+10h]
 
   v4 = 0LL;
   v127 = 0;
@@ -160,7 +160,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
     HeapData_low = LOBYTE(v26->HeapData);
     UniqueThread_low = LODWORD(v26->ClientId.UniqueThread);
     v4 = (unsigned int)(HeapData_low - 1);
-    v127 = v4;
+    v127 = HeapData_low - 1;
     if ( (int)v4 < 0 || RtlpAffinityState[HeapData_low] != UniqueThread_low )
     {
       v29 = HIDWORD(RtlpAffinityState[0]);
@@ -173,7 +173,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   }
   v7 = 16LL * *v6;
   v123 = v7;
-  ListHead = (union _SLIST_HEADER *)(a1 + 48 * (v4 + 68));
+  ListHead = (_SLIST_HEADER *)(a1 + 48 * (v4 + 68));
   v8 = *((unsigned __int8 *)v6 + 2);
   if ( (_DWORD)v4 )
     v9 = *(_QWORD *)(a1 + 8 * v8 + 2224) - 192LL + 192 * v4;
@@ -197,9 +197,7 @@ LABEL_6:
           && (int)RtlpAffinitizeSegmentInfoForBucket(v11, *(unsigned __int8 *)(v44 + 678)) >= 0 )
         {
           *(_BYTE *)(v44 + 679) |= 1u;
-          v45 = (unsigned int)RtlGetCurrentServiceSessionId()
-              ? (char *)NtCurrentPeb()->SharedData + 550
-              : (char *)2147353472;
+          v45 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 550 : (char *)2147353472;
           if ( *v45 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
             RtlpLogHeapAffinityManagerEnable(*(_QWORD *)(v11 + 24), *(unsigned __int8 *)(v44 + 678));
         }
@@ -328,8 +326,8 @@ LABEL_37:
           v33 = 0LL;
           goto LABEL_66;
         }
-        v39 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v122 + 24) + 8LL * *(unsigned __int16 *)(v119 + 172) + 1192)
-                                    + 144LL);
+        v39 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v122 + 24) + 8LL * *(unsigned __int16 *)(v119 + 172) + 1192)
+                              + 144LL);
         v40 = RtlpInterlockedPopEntrySList(v39);
         if ( v40 )
         {
@@ -397,7 +395,7 @@ LABEL_113:
         v83 = *(__int64 **)v33;
         if ( *(_QWORD *)v33 == v9 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v84 = (__int64)NtCurrentPeb()->SharedData + 550;
           else
             v84 = 2147353472LL;
@@ -514,8 +512,7 @@ LABEL_66:
     v47 = 0LL;
     v48 = 0;
     v49 = 0LL;
-    v50 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v122 + 24) + 8LL * *(unsigned __int16 *)(v9 + 172) + 1192)
-                                + 144LL);
+    v50 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v122 + 24) + 8LL * *(unsigned __int16 *)(v9 + 172) + 1192) + 144LL);
     v51 = RtlpInterlockedPopEntrySList(v50);
     if ( !v51 )
       goto LABEL_67;
@@ -644,7 +641,7 @@ LABEL_87:
           v70 = *(__int64 **)v67;
           if ( *(_QWORD *)v67 == v9 )
           {
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+            if ( RtlGetCurrentServiceSessionId() )
               v71 = (__int64)NtCurrentPeb()->SharedData + 550;
             else
               v71 = 2147353472LL;
@@ -794,7 +791,7 @@ LABEL_143:
       else
       {
         v68 = v127;
-        v91 = RtlpLowFragHeapAllocateFromZone(a1, v127);
+        v91 = RtlpLowFragHeapAllocateFromZone((PRTL_SRWLOCK)a1);
         v67 = (volatile signed __int32 *)v91;
         if ( v91 )
         {

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAllocateDriverPage @ 0x140706324
+ * XREFs of MiAllocateDriverPage @ 0x140706534
  * Callers:
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x140291A50 (MiMakeDriverPagesPrivate.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x140A49FAC (MiFillPerSessionProtos.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     MiMakeDriverPagesPrivate @ 0x140291CE0 (MiMakeDriverPagesPrivate.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x140A4A25C (MiFillPerSessionProtos.c)
  *     MiHandleBootImage @ 0x140B46AA8 (MiHandleBootImage.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiUseProtectedSlabAllocatorForDriverPage @ 0x1402923A4 (MiUseProtectedSlabAllocatorForDriverPage.c)
- *     MiGetNextPageColor @ 0x1402923CC (MiGetNextPageColor.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiPreInitializeSystemImagePage @ 0x14062C5CC (MiPreInitializeSystemImagePage.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
- *     MiGetSlabCurrentTime @ 0x140656D2C (MiGetSlabCurrentTime.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiUseProtectedSlabAllocatorForDriverPage @ 0x140292634 (MiUseProtectedSlabAllocatorForDriverPage.c)
+ *     MiGetNextPageColor @ 0x14029265C (MiGetNextPageColor.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiPreInitializeSystemImagePage @ 0x14062CB1C (MiPreInitializeSystemImagePage.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
+ *     MiGetSlabCurrentTime @ 0x14065727C (MiGetSlabCurrentTime.c)
  */
 
 __int64 __fastcall MiAllocateDriverPage(__int64 a1, __int64 a2, char a3)

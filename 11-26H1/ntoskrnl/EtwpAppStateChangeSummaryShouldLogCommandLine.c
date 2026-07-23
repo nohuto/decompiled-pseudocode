@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x140955400
+ * XREFs of EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1409D0D94
  * Callers:
- *     EtwTraceAppStateChange @ 0x1409540B8 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14096E118 (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x1409CF9F8 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1409D02D8 (EtwTraceProcess.c)
  * Callees:
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
  */
 
 char __fastcall EtwpAppStateChangeSummaryShouldLogCommandLine(__int64 a1)

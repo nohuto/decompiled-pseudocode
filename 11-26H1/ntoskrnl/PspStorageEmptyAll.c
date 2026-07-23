@@ -1,9 +1,9 @@
 /*
- * XREFs of PspStorageEmptyAll @ 0x140AEA838
+ * XREFs of PspStorageEmptyAll @ 0x140AED328
  * Callers:
- *     PspJobDeleteStorageArrays @ 0x140AEA79C (PspJobDeleteStorageArrays.c)
+ *     PspJobDeleteStorageArrays @ 0x140AED28C (PspJobDeleteStorageArrays.c)
  * Callees:
- *     PspStorageEmptyArray @ 0x140AEA880 (PspStorageEmptyArray.c)
+ *     PspStorageEmptyArray @ 0x140AED370 (PspStorageEmptyArray.c)
  */
 
 __int64 __fastcall PspStorageEmptyAll(__int64 a1)

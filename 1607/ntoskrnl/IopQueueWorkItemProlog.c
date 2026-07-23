@@ -1,15 +1,15 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x1400D1408
+ * XREFs of IopQueueWorkItemProlog @ 0x1400CF2A8
  * Callers:
- *     IoQueueWorkItemEx @ 0x1400D1154 (IoQueueWorkItemEx.c)
- *     IoTryQueueWorkItem @ 0x14010D6B0 (IoTryQueueWorkItem.c)
- *     IoQueueWorkItemToNode @ 0x1401C9A78 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItemEx @ 0x1400CEFF4 (IoQueueWorkItemEx.c)
+ *     IoTryQueueWorkItem @ 0x14010DC14 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x1401C9918 (IoQueueWorkItemToNode.c)
  * Callees:
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     PsGetWorkOnBehalfThread @ 0x14005E874 (PsGetWorkOnBehalfThread.c)
- *     ObpIncrPointerCount @ 0x1400D16D0 (ObpIncrPointerCount.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     PsGetWorkOnBehalfThread @ 0x14005E3F4 (PsGetWorkOnBehalfThread.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     ObpIncrPointerCount @ 0x1400CF570 (ObpIncrPointerCount.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)

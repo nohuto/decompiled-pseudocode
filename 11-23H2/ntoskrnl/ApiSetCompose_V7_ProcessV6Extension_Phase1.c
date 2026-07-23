@@ -1,13 +1,13 @@
 /*
- * XREFs of ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x140419060
+ * XREFs of ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1404193F0
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x140417648 (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x1404179D8 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     ApiSetpGetSearchKeyInfo_V7 @ 0x140417F64 (ApiSetpGetSearchKeyInfo_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1404180EC (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x14041890C (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
- *     ApiSetSchemaExpander_InsertHostEntry @ 0x140418AEC (ApiSetSchemaExpander_InsertHostEntry.c)
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418BE0 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetpGetSearchKeyInfo_V7 @ 0x1404182F4 (ApiSetpGetSearchKeyInfo_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14041847C (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetSchemaExpander_InsertExtensionNameEntry @ 0x140418C9C (ApiSetSchemaExpander_InsertExtensionNameEntry.c)
+ *     ApiSetSchemaExpander_InsertHostEntry @ 0x140418E7C (ApiSetSchemaExpander_InsertHostEntry.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x140418F70 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  */
 
 __int64 __fastcall ApiSetCompose_V7_ProcessV6Extension_Phase1(__int64 a1, __int64 a2)

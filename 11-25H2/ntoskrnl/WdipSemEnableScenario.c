@@ -24,7 +24,7 @@
 __int64 __fastcall WdipSemEnableScenario(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  struct _SLIST_ENTRY *v7; // rdi
+  _SLIST_ENTRY *v7; // rdi
   char v8; // si
   __int64 *v9; // rbx
   int LoggerIds; // ebx
@@ -63,7 +63,7 @@ LABEL_23:
       if ( ScenarioTable )
       {
         v12 = WdipSemReserveInstanceTableEntry(ScenarioTable, a3);
-        v7 = (struct _SLIST_ENTRY *)v12;
+        v7 = (_SLIST_ENTRY *)v12;
         if ( v12 )
         {
           WdipSemEnableContextProviders(v12);

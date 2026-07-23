@@ -1,8 +1,8 @@
 /*
- * XREFs of iswalnum @ 0x14014DD74
+ * XREFs of iswalnum @ 0x14014E2E4
  * Callers:
- *     GetAttributeName @ 0x1406CCABC (GetAttributeName.c)
- *     IsEncodedAttributeChar @ 0x1406CE0A8 (IsEncodedAttributeChar.c)
+ *     GetAttributeName @ 0x1406CCBF4 (GetAttributeName.c)
+ *     IsEncodedAttributeChar @ 0x1406CE1E0 (IsEncodedAttributeChar.c)
  * Callees:
  *     <none>
  */

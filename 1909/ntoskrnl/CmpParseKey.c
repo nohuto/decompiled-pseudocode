@@ -59,7 +59,7 @@ __int64 __fastcall CmpParseKey(
   __int128 v39; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD v40[2]; // [rsp+60h] [rbp-A0h] BYREF
   int v41; // [rsp+70h] [rbp-90h] BYREF
-  struct _SLIST_ENTRY v42; // [rsp+78h] [rbp-88h] BYREF
+  _SLIST_ENTRY v42; // [rsp+78h] [rbp-88h] BYREF
   __int64 v43; // [rsp+88h] [rbp-78h]
   __int64 v44; // [rsp+90h] [rbp-70h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+98h] [rbp-68h]
@@ -83,8 +83,8 @@ __int64 __fastcall CmpParseKey(
   __int128 v63; // [rsp+194h] [rbp+94h]
   __int64 v64; // [rsp+1A4h] [rbp+A4h]
   int v65; // [rsp+1ACh] [rbp+ACh]
-  struct _SLIST_ENTRY v66; // [rsp+1B0h] [rbp+B0h] BYREF
-  struct _SLIST_ENTRY v67; // [rsp+1C0h] [rbp+C0h] BYREF
+  _SLIST_ENTRY v66; // [rsp+1B0h] [rbp+B0h] BYREF
+  _SLIST_ENTRY v67; // [rsp+1C0h] [rbp+C0h] BYREF
   __int64 v68[2]; // [rsp+1D0h] [rbp+D0h] BYREF
   char v69; // [rsp+228h] [rbp+128h]
   unsigned int v71; // [rsp+250h] [rbp+150h]

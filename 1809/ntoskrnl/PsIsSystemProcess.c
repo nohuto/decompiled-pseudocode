@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsSystemProcess @ 0x140088A40
+ * XREFs of PsIsSystemProcess @ 0x140088A30
  * Callers:
  *     <none>
  * Callees:

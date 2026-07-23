@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpReadLeapSecondData @ 0x1407A91B8
+ * XREFs of ExpReadLeapSecondData @ 0x1407A93B8
  * Callers:
- *     ExInitializeLeapSecondData @ 0x1407A8EAC (ExInitializeLeapSecondData.c)
- *     ExpLeapSecondDataRegistryNotifyHandler @ 0x14094B8E0 (ExpLeapSecondDataRegistryNotifyHandler.c)
+ *     ExInitializeLeapSecondData @ 0x1407A90AC (ExInitializeLeapSecondData.c)
+ *     ExpLeapSecondDataRegistryNotifyHandler @ 0x14094BAB0 (ExpLeapSecondDataRegistryNotifyHandler.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
- *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
- *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
- *     EtwTraceLeapSecondDataUpdate @ 0x1407A948C (EtwTraceLeapSecondDataUpdate.c)
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
- *     ExpParseAndUpdateLeapSecondData @ 0x1407AA988 (ExpParseAndUpdateLeapSecondData.c)
- *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x1407AAA2C (ExpGetLeapSecondDataRegistryKeyHandle.c)
- *     EtwTraceLeapSecondDataParseFailure @ 0x140936544 (EtwTraceLeapSecondDataParseFailure.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FC8C0 (ZwNotifyChangeKey.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406B2FD0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406B2FF4 (ExAcquireTimeRefreshLock.c)
+ *     EtwTraceLeapSecondDataUpdate @ 0x1407A968C (EtwTraceLeapSecondDataUpdate.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
+ *     ExpParseAndUpdateLeapSecondData @ 0x1407AAB88 (ExpParseAndUpdateLeapSecondData.c)
+ *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x1407AAC2C (ExpGetLeapSecondDataRegistryKeyHandle.c)
+ *     EtwTraceLeapSecondDataParseFailure @ 0x140936714 (EtwTraceLeapSecondDataParseFailure.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall ExpReadLeapSecondData(bool *a1, char a2)
@@ -33,12 +33,15 @@ void __fastcall ExpReadLeapSecondData(bool *a1, char a2)
   unsigned int v9; // r15d
   NTSTATUS v10; // eax
   unsigned int updated; // eax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
   ULONG ResultLength; // [rsp+50h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-28h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+60h] [rbp-20h] BYREF
-  int v15; // [rsp+64h] [rbp-1Ch]
-  int v16; // [rsp+68h] [rbp-18h]
-  int v17; // [rsp+6Ch] [rbp-14h]
+  int v18; // [rsp+64h] [rbp-1Ch]
+  int v19; // [rsp+68h] [rbp-18h]
+  int v20; // [rsp+6Ch] [rbp-14h]
 
   ResultLength = 0;
   CurrentThread = KeGetCurrentThread();
@@ -85,10 +88,10 @@ void __fastcall ExpReadLeapSecondData(bool *a1, char a2)
          KeyValueInformation,
          0x14u,
          &ResultLength) >= 0
-    && v15 == 4
-    && v16 == 4 )
+    && v18 == 4
+    && v19 == 4 )
   {
-    v8 = v17 != 0;
+    v8 = v20 != 0;
   }
   *a1 = v8;
   v9 = *((_DWORD *)a1 + 1);
@@ -138,7 +141,7 @@ LABEL_22:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpLeapSecondDataLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&ExpLeapSecondDataLock);
   KeAbPostRelease((ULONG_PTR)&ExpLeapSecondDataLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
   if ( v6 )
     ExFreePoolWithTag(v6, 0x6453704Cu);
   if ( PoolWithTag )

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPepTriggerActivity @ 0x1403140FC
+ * XREFs of PopPepTriggerActivity @ 0x14031438C
  * Callers:
- *     PopPepTryPowerUpComponent @ 0x140310868 (PopPepTryPowerUpComponent.c)
- *     PopPepUpdateIdleState @ 0x1403109B8 (PopPepUpdateIdleState.c)
- *     PopPepTryPowerDownDevice @ 0x140310CD0 (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
- *     PopPepSurprisePowerOn @ 0x14059FDC0 (PopPepSurprisePowerOn.c)
+ *     PopPepTryPowerUpComponent @ 0x140310AF8 (PopPepTryPowerUpComponent.c)
+ *     PopPepUpdateIdleState @ 0x140310C48 (PopPepUpdateIdleState.c)
+ *     PopPepTryPowerDownDevice @ 0x140310F60 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x1405A02B0 (PopPepSurprisePowerOn.c)
  * Callees:
- *     PopPepCancelActivities @ 0x1403141D8 (PopPepCancelActivities.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     PopPepCancelActivities @ 0x140314468 (PopPepCancelActivities.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeleteClusterPage @ 0x1402C622C
+ * XREFs of MiDeleteClusterPage @ 0x1402C641C
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  * Callees:
@@ -8,15 +8,15 @@
  *     MiDeleteBatch @ 0x140039750 (MiDeleteBatch.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteClusterPage(unsigned __int64 a1, unsigned __int8 *a2, __int64 a3)
@@ -62,7 +62,7 @@ __int64 __fastcall MiDeleteClusterPage(unsigned __int64 a1, unsigned __int8 *a2,
   v42 = a3;
   v5 = -1LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v7 = *(struct _KEVENT **)(qword_14043A748 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
+  v7 = *(struct _KEVENT **)(qword_14043B808 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
   v39 = v7;
   ContainingPageTable = MiGetContainingPageTable(a1);
   v9 = 0;
@@ -214,7 +214,7 @@ __int64 __fastcall MiDeleteClusterPage(unsigned __int64 a1, unsigned __int8 *a2,
       if ( (unsigned int)MiPteHasShadow() )
       {
         v28 = 1LL;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_52;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

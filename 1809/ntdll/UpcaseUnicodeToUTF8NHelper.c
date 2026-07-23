@@ -5,10 +5,15 @@
  *     RtlUpcaseUnicodeToMultiByteN @ 0x18006AC90 (RtlUpcaseUnicodeToMultiByteN.c)
  * Callees:
  *     RtlUnicodeToUTF8N @ 0x180066C70 (RtlUnicodeToUTF8N.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __int64 a4, unsigned int a5)
+__int64 __fastcall UpcaseUnicodeToUTF8NHelper(
+        PCHAR UTF8StringDestination,
+        ULONG UTF8StringMaxByteCount,
+        _DWORD *a3,
+        __int64 a4,
+        unsigned int a5)
 {
   unsigned int v5; // esi
   unsigned int v6; // r15d
@@ -17,11 +22,11 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
   unsigned int v12; // ebx
   __int64 v13; // r12
   __int64 v14; // r11
-  unsigned int *v15; // r9
-  unsigned __int16 v16; // r8
-  unsigned int v18; // [rsp+30h] [rbp-D8h] BYREF
+  WCHAR *v15; // r9
+  WCHAR v16; // r8
+  ULONG UTF8StringActualByteCount; // [rsp+30h] [rbp-D8h] BYREF
   _DWORD *v19; // [rsp+38h] [rbp-D0h]
-  unsigned int v20[32]; // [rsp+40h] [rbp-C8h] BYREF
+  WCHAR UnicodeStringSource[64]; // [rsp+40h] [rbp-C8h] BYREF
 
   v5 = a5;
   v6 = 0;
@@ -32,7 +37,7 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
   {
     while ( 1 )
     {
-      if ( !a2 )
+      if ( !UTF8StringMaxByteCount )
         goto LABEL_20;
       if ( v5 < 0x40 )
         break;
@@ -46,10 +51,10 @@ LABEL_8:
       }
       v13 = Nls844UnicodeUpcaseTable;
       v14 = v12;
-      v15 = v20;
+      v15 = UnicodeStringSource;
       do
       {
-        v16 = *(_WORD *)((char *)v15 + a4 - (_QWORD)v20);
+        v16 = *(WCHAR *)((char *)v15 + a4 - (_QWORD)UnicodeStringSource);
         if ( v16 >= 0x61u )
         {
           if ( v16 > 0x7Au )
@@ -63,22 +68,26 @@ LABEL_8:
           else
             v16 -= 32;
         }
-        *(_WORD *)v15 = v16;
-        v15 = (unsigned int *)((char *)v15 + 2);
+        *v15++ = v16;
         --v14;
       }
       while ( v14 );
       v9 = v19;
 LABEL_16:
-      if ( (int)RtlUnicodeToUTF8N(a1, a2, &v18, v20, 2 * v12) < 0 )
+      if ( RtlUnicodeToUTF8N(
+             UTF8StringDestination,
+             UTF8StringMaxByteCount,
+             &UTF8StringActualByteCount,
+             UnicodeStringSource,
+             2 * v12) < 0 )
       {
-        v7 += v18;
+        v7 += UTF8StringActualByteCount;
         v6 = -1073741789;
         goto LABEL_20;
       }
-      a1 += v18;
-      a2 -= v18;
-      v7 += v18;
+      UTF8StringDestination += UTF8StringActualByteCount;
+      UTF8StringMaxByteCount -= UTF8StringActualByteCount;
+      v7 += UTF8StringActualByteCount;
       a4 += 2LL * v12;
       v5 -= v12;
       if ( !v5 )

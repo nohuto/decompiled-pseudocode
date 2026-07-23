@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpCloseRemoteFile @ 0x140C13480
+ * XREFs of KdpCloseRemoteFile @ 0x140C19480
  * Callers:
- *     KdpPullRemoteFile @ 0x140C138F8 (KdpPullRemoteFile.c)
+ *     KdpPullRemoteFile @ 0x140C198F8 (KdpPullRemoteFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KdExitDebugger @ 0x140C12008 (KdExitDebugger.c)
- *     KdEnterDebugger @ 0x140C17858 (KdEnterDebugger.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KdExitDebugger @ 0x140C18008 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140C1D858 (KdEnterDebugger.c)
  */
 
 __int64 __fastcall KdpCloseRemoteFile(int a1)

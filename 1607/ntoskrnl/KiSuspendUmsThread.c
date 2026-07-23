@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSuspendUmsThread @ 0x1406508AC
+ * XREFs of KiSuspendUmsThread @ 0x140650990
  * Callers:
- *     KiSchedulerApc @ 0x1400CB720 (KiSchedulerApc.c)
+ *     KiSchedulerApc @ 0x1400C95C0 (KiSchedulerApc.c)
  * Callees:
- *     KeUpdateUmsThreadState @ 0x14065074C (KeUpdateUmsThreadState.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x1406826F4 (PspRundownUmsThreadForApcDelivery.c)
+ *     KeUpdateUmsThreadState @ 0x140650830 (KeUpdateUmsThreadState.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1406827D8 (PspRundownUmsThreadForApcDelivery.c)
  */
 
 __int64 __fastcall KiSuspendUmsThread(__int64 a1, _DWORD *a2)

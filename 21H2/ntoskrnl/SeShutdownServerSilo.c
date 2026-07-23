@@ -1,12 +1,12 @@
 /*
- * XREFs of SeShutdownServerSilo @ 0x14091C1C4
+ * XREFs of SeShutdownServerSilo @ 0x14091C324
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x140906238 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906398 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409237CC (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140243B50 (SepDeReferenceLogonSessionDirect.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x14092392C (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeShutdownServerSilo(__int64 a1, __int64 a2)

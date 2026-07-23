@@ -1,18 +1,18 @@
 /*
- * XREFs of PspClearProcessThreadCidRefs @ 0x14064CB80
+ * XREFs of PspClearProcessThreadCidRefs @ 0x1406419A0
  * Callers:
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
  * Callees:
- *     ObDereferenceObjectEx @ 0x14024C610 (ObDereferenceObjectEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x14061BB00 (ExMapHandleToPointer.c)
+ *     ObDereferenceObjectEx @ 0x1402F0E60 (ObDereferenceObjectEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ExMapHandleToPointer @ 0x140685770 (ExMapHandleToPointer.c)
  */
 
 char __fastcall PspClearProcessThreadCidRefs(__int64 a1, __int64 a2, ULONG_PTR a3)
 {
-  signed __int64 *v5; // rax
+  volatile signed __int64 *v5; // rax
   volatile unsigned __int64 v6; // r9
   __int64 v7; // rdx
   int v8; // ebx
@@ -21,7 +21,7 @@ char __fastcall PspClearProcessThreadCidRefs(__int64 a1, __int64 a2, ULONG_PTR a
   __int128 v11; // [rsp+20h] [rbp-18h]
 
   --*(_WORD *)(a1 + 486);
-  v5 = ExMapHandleToPointer(PspCidTable, a2);
+  v5 = (volatile signed __int64 *)ExMapHandleToPointer(PspCidTable, a2);
   v11 = 0LL;
   v6 = *v5;
   *(_QWORD *)&v11 = *v5 & 0xFFFFFFFFFFFE0001uLL;

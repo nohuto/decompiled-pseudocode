@@ -37,7 +37,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 *a1, char a2)
   unsigned int v19; // ebx
   _QWORD *v20; // r15
   __int64 v21; // r14
-  union _SLIST_HEADER *v22; // r14
+  _SLIST_HEADER *v22; // r14
   PSLIST_ENTRY v23; // rax
   _QWORD **v24; // rbx
   signed __int32 v25; // eax
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 *a1, char a2)
   unsigned int v28; // ebp
   volatile signed __int32 *v29; // rbx
   volatile signed __int32 *v30; // r15
-  union _SLIST_HEADER *v31; // r14
+  _SLIST_HEADER *v31; // r14
   PSLIST_ENTRY v32; // rax
   __int64 v33; // rbx
   __int64 v34; // rcx
@@ -154,8 +154,7 @@ LABEL_11:
           v16 = 0LL;
           goto LABEL_22;
         }
-        v22 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v48 + 24) + 8LL * *((unsigned __int16 *)a1 + 86) + 1192)
-                                    + 144LL);
+        v22 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v48 + 24) + 8LL * *((unsigned __int16 *)a1 + 86) + 1192) + 144LL);
         while ( 1 )
         {
           v23 = RtlpInterlockedPopEntrySList(v22);
@@ -203,8 +202,7 @@ LABEL_22:
     v28 = 0;
     v29 = 0LL;
     v30 = 0LL;
-    v31 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v48 + 24) + 8LL * *((unsigned __int16 *)a1 + 86) + 1192)
-                                + 144LL);
+    v31 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v48 + 24) + 8LL * *((unsigned __int16 *)a1 + 86) + 1192) + 144LL);
     v32 = RtlpInterlockedPopEntrySList(v31);
     if ( !v32 )
       return 0LL;

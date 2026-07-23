@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRecordParseStartingKcb @ 0x1406FBC40
+ * XREFs of CmpRecordParseStartingKcb @ 0x140713020
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HviIsXboxNanovisorPresent @ 0x1403514C8
+ * XREFs of HviIsXboxNanovisorPresent @ 0x140351668
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     HalpTscSynchronization @ 0x14039AB10 (HalpTscSynchronization.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     HalpTscSynchronization @ 0x14039ACF0 (HalpTscSynchronization.c)
  *     KiIntSteerDetermineSteeringEnabled @ 0x140B748B0 (KiIntSteerDetermineSteeringEnabled.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char HviIsXboxNanovisorPresent()

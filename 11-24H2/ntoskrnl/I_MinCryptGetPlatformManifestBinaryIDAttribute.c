@@ -1,11 +1,11 @@
 /*
- * XREFs of I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x140826190
+ * XREFs of I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x140826960
  * Callers:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x140826868 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x140827038 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     I_Base64Decode @ 0x140825FAC (I_Base64Decode.c)
- *     I_MinAsn1ParseSingleAttribute @ 0x140826D10 (I_MinAsn1ParseSingleAttribute.c)
- *     MinAsn1ExtractContent @ 0x1408282B0 (MinAsn1ExtractContent.c)
+ *     I_Base64Decode @ 0x14082677C (I_Base64Decode.c)
+ *     I_MinAsn1ParseSingleAttribute @ 0x1408274E0 (I_MinAsn1ParseSingleAttribute.c)
+ *     MinAsn1ExtractContent @ 0x140828A80 (MinAsn1ExtractContent.c)
  */
 
 __int64 __fastcall I_MinCryptGetPlatformManifestBinaryIDAttribute(__int64 a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall I_MinCryptGetPlatformManifestBinaryIDAttribute(__int64 a1, __
   *(_OWORD *)(v3 + 72) = 0LL;
   *(_OWORD *)(v3 + 88) = 0LL;
   v7 = 0LL;
-  if ( (unsigned __int8)I_MinAsn1ParseSingleAttribute(&qword_140B3BE18, a1, a3, &v7)
+  if ( (unsigned __int8)I_MinAsn1ParseSingleAttribute(&qword_140B3DBF8, a1, a3, &v7)
     && (int)MinAsn1ExtractContent(*((_QWORD *)&v7 + 1), (unsigned int)v7, &v8, &v10) >= 0 )
   {
     v5 = (_BYTE *)(*(_QWORD *)(a2 + 16) + 72LL);

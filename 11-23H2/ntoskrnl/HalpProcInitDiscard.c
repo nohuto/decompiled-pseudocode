@@ -3,8 +3,8 @@
  * Callers:
  *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
  * Callees:
- *     HalpProcGetFeatureBits @ 0x14037FFB4 (HalpProcGetFeatureBits.c)
- *     HalpMcUpdateInitialize @ 0x14081E114 (HalpMcUpdateInitialize.c)
+ *     HalpProcGetFeatureBits @ 0x140380154 (HalpProcGetFeatureBits.c)
+ *     HalpMcUpdateInitialize @ 0x14081E3E4 (HalpMcUpdateInitialize.c)
  */
 
 __int64 __fastcall HalpProcInitDiscard(__int64 a1)

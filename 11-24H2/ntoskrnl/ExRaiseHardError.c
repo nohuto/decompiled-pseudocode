@@ -1,22 +1,22 @@
 /*
- * XREFs of ExRaiseHardError @ 0x140A4E2E0
+ * XREFs of ExRaiseHardError @ 0x140A44F60
  * Callers:
- *     IopHardErrorThread @ 0x140712370 (IopHardErrorThread.c)
- *     ExpExpirationThread @ 0x1407B60F0 (ExpExpirationThread.c)
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407CBE38 (CmpMountPreloadedHives.c)
- *     CmpQuotaWarningWorker @ 0x1407D2380 (CmpQuotaWarningWorker.c)
- *     CmpDiskFullWarningWorker @ 0x1407D5A80 (CmpDiskFullWarningWorker.c)
- *     IopRaiseInformationalHardError @ 0x140A4DF50 (IopRaiseInformationalHardError.c)
- *     IopRaiseHardError @ 0x140A4E020 (IopRaiseHardError.c)
- *     NtRaiseHardError @ 0x140A4E620 (NtRaiseHardError.c)
+ *     IopHardErrorThread @ 0x14070FF00 (IopHardErrorThread.c)
+ *     ExpExpirationThread @ 0x1407B6540 (ExpExpirationThread.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407CC328 (CmpMountPreloadedHives.c)
+ *     CmpQuotaWarningWorker @ 0x1407D2870 (CmpQuotaWarningWorker.c)
+ *     CmpDiskFullWarningWorker @ 0x1407D5F70 (CmpDiskFullWarningWorker.c)
+ *     IopRaiseInformationalHardError @ 0x140A44BD0 (IopRaiseInformationalHardError.c)
+ *     IopRaiseHardError @ 0x140A44CA0 (IopRaiseHardError.c)
+ *     NtRaiseHardError @ 0x140A452A0 (NtRaiseHardError.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x1406A6710 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1406A67D0 (ZwFreeVirtualMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpRaiseHardError @ 0x140A4E894 (ExpRaiseHardError.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1406A76B0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1406A7770 (ZwFreeVirtualMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpRaiseHardError @ 0x140A45514 (ExpRaiseHardError.c)
  */
 
 __int64 __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, int a5, int *a6)

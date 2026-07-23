@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCancelMemoryPreservation @ 0x1408C9E0C
+ * XREFs of EtwpCancelMemoryPreservation @ 0x1408CB0CC
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
- *     EtwpKsrCallback @ 0x1408C9F80 (EtwpKsrCallback.c)
- *     EtwpSetSoftRestartInformation @ 0x1408CA9E4 (EtwpSetSoftRestartInformation.c)
+ *     EtwpFreeLoggerContext @ 0x1406C1B40 (EtwpFreeLoggerContext.c)
+ *     EtwpKsrCallback @ 0x1408CB240 (EtwpKsrCallback.c)
+ *     EtwpSetSoftRestartInformation @ 0x1408CBCA4 (EtwpSetSoftRestartInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCancelMemoryPreservation(__int64 a1)

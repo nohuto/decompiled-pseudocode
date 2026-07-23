@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegPageRangeFree @ 0x1405B6A80
+ * XREFs of RtlpHpSegPageRangeFree @ 0x1405B6FF0
  * Callers:
- *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegAlloc @ 0x14024DC10 (RtlpHpSegAlloc.c)
  * Callees:
- *     RtlpHpSegPageRangeShrink @ 0x14024E6C0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024E790 (RtlpHpSegPageRangeShrink.c)
  */
 
 int __fastcall RtlpHpSegPageRangeFree(__int64 a1, __int64 a2, int a3)

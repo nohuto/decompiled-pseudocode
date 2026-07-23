@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlAcquireFileForModWriteEx @ 0x14034A0A4
+ * XREFs of FsRtlAcquireFileForModWriteEx @ 0x14034A23C
  * Callers:
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1402A1E50 (IoGetBaseFileSystemDeviceObject.c)
- *     FsFilterCtrlInit @ 0x1402A1E90 (FsFilterCtrlInit.c)
- *     FsFilterPerformCompletionCallbacks @ 0x1402A1F20 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1402A1FB0 (FsFilterPerformCallbacks.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ExConvertExclusiveToSharedLite @ 0x1403476C0 (ExConvertExclusiveToSharedLite.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C8950 (ExAcquireSharedWaitForExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     FsFilterFreeCompletionStack @ 0x14045F2DA (FsFilterFreeCompletionStack.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x1402A20E0 (IoGetBaseFileSystemDeviceObject.c)
+ *     FsFilterCtrlInit @ 0x1402A2120 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1402A21B0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x1402A2240 (FsFilterPerformCallbacks.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140347950 (ExConvertExclusiveToSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C8B30 (ExAcquireSharedWaitForExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     FsFilterFreeCompletionStack @ 0x14045F6DA (FsFilterFreeCompletionStack.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileForModWriteEx(PFILE_OBJECT FileObject, __int64 a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxActivateDevice @ 0x140496064
+ * XREFs of PoFxActivateDevice @ 0x1404909F4
  * Callers:
- *     PiProcessResourceRequirementsChanged @ 0x140724064 (PiProcessResourceRequirementsChanged.c)
- *     PnpPoFxActivateDevice @ 0x1408BB7C0 (PnpPoFxActivateDevice.c)
- *     PopFxUpdateVetoMaskWork @ 0x140A9C5C0 (PopFxUpdateVetoMaskWork.c)
- *     PopIssueDirectedPowerTransition @ 0x140AB81C4 (PopIssueDirectedPowerTransition.c)
+ *     PiProcessResourceRequirementsChanged @ 0x140721BF4 (PiProcessResourceRequirementsChanged.c)
+ *     PnpPoFxActivateDevice @ 0x1408B9170 (PnpPoFxActivateDevice.c)
+ *     PopFxUpdateVetoMaskWork @ 0x140A97B30 (PopFxUpdateVetoMaskWork.c)
+ *     PopIssueDirectedPowerTransition @ 0x140AB2688 (PopIssueDirectedPowerTransition.c)
  * Callees:
- *     PopFxActivateDevice @ 0x140496080 (PopFxActivateDevice.c)
+ *     PopFxActivateDevice @ 0x140490A10 (PopFxActivateDevice.c)
  */
 
 __int64 __fastcall PoFxActivateDevice(__int64 a1)

@@ -7,13 +7,13 @@
  *     MiDeletePteList @ 0x140035B80 (MiDeletePteList.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  *     MiDeleteBatch @ 0x140039750 (MiDeleteBatch.c)
- *     MiDeleteValidSystemPage @ 0x14007A860 (MiDeleteValidSystemPage.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiWsleFree @ 0x1400B2C70 (MiWsleFree.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
- *     MiReduceShareCount @ 0x140123FDC (MiReduceShareCount.c)
+ *     MiDeleteValidSystemPage @ 0x14007A850 (MiDeleteValidSystemPage.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     MiWsleFree @ 0x1400B2BB0 (MiWsleFree.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MmPurgeSection @ 0x1400E7D80 (MmPurgeSection.c)
+ *     MiReduceShareCount @ 0x1401240AC (MiReduceShareCount.c)
  * Callees:
  *     MiInsertProtectedStandbyPage @ 0x140028F30 (MiInsertProtectedStandbyPage.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -22,11 +22,11 @@
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsAddressGlobal @ 0x1400B22E0 (MiIsAddressGlobal.c)
- *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiIsAddressGlobal @ 0x1400B2220 (MiIsAddressGlobal.c)
+ *     MiUserPdeOrAbove @ 0x1400F96CC (MiUserPdeOrAbove.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiPfnShareCountIsZero(ULONG_PTR a1, unsigned __int64 a2)
@@ -124,7 +124,7 @@ __int64 __fastcall MiPfnShareCountIsZero(ULONG_PTR a1, unsigned __int64 a2)
     if ( v21 >= 0 || (v21 & 5) != 4 )
       v25 = v23;
     MmInternal = CurrentPrcb->MmInternal;
-    v27 = ((word_14043A1AC & 1 | 0xA000000000000LL) << 8) | v25 & 0xFAFFFFFFFFFFFEFFuLL;
+    v27 = ((word_14043B26C & 1 | 0xA000000000000LL) << 8) | v25 & 0xFAFFFFFFFFFFFEFFuLL;
     if ( !MmInternal
       || (UltraMapping = MiGetUltraMapping(MmInternal + 1556, 3LL, 1LL),
           v29 = (unsigned __int64 *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL),
@@ -141,7 +141,7 @@ __int64 __fastcall MiPfnShareCountIsZero(ULONG_PTR a1, unsigned __int64 a2)
     {
       if ( (unsigned int)MiPteHasShadow(0x7FFFFFFFF8LL, 0xFFFFF68000000000uLL) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v27 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v27 & 1) != 0 )
           v27 |= 0x8000000000000000uLL;
         *v29 = v27;
         MiWritePteShadow(v29);
@@ -191,19 +191,19 @@ LABEL_26:
           }
         }
         v33 = v31 & 0xFFFFFFFFF000LL | (32 * (v18 & 0x1F | 0x40));
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
-          if ( (qword_14043A0C0 & v33) != 0 )
+          if ( (qword_14043B180 & v33) != 0 )
             v33 |= 0x10uLL;
           else
-            v33 |= qword_14043A0C0;
+            v33 |= qword_14043B180;
         }
         v50 = v33;
         if ( v32 >= v14 && v32 <= v15 )
         {
-          if ( (unsigned int)MiPteHasShadow(qword_14043A0C0, v33) )
+          if ( (unsigned int)MiPteHasShadow(qword_14043B180, v33) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v33 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v33 & 1) != 0 )
               v33 |= 0x8000000000000000uLL;
             *(_QWORD *)v32 = v33;
             MiWritePteShadow(v32);
@@ -284,7 +284,7 @@ LABEL_2:
     }
     *(_BYTE *)(a1 + 34) = v36;
     if ( (*(_DWORD *)(a1 + 16) & 0x400LL) == 0 && (unsigned int)MiGetPagingFileOffset(a1 + 16) )
-      *(_BYTE *)(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)) + 659LL) = 1;
+      *(_BYTE *)(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)) + 659LL) = 1;
     return 3LL;
   }
 }

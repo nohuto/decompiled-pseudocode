@@ -1,13 +1,13 @@
 /*
- * XREFs of HvSwapLogFiles @ 0x14047E6A8
+ * XREFs of HvSwapLogFiles @ 0x14047D3FC
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140480D88 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140480DF4 (HvpLogTypeToLogArrayIndex.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x14047FADC (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14047FB48 (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvSwapLogFiles(__int64 a1)
@@ -96,7 +96,7 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
     v37 = 4;
     v40 = 4;
     v43 = 8;
-    TlgWrite(&stru_1402F34E0, &unk_14027B0A5, 0LL, 0LL, 0xAu, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027B1A5, 0LL, 0LL, 0xAu, &pData);
   }
   v8 = *(_DWORD *)(a1 + 148) - 4;
   *(_QWORD *)(a1 + 176) = v3;

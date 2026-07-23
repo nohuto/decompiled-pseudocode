@@ -1,5 +1,5 @@
 /*
- * XREFs of IommuDeviceQueryInformation @ 0x140703B70
+ * XREFs of IommuDeviceQueryInformation @ 0x140701730
  * Callers:
  *     <none>
  * Callees:

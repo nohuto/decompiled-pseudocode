@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCompressKey @ 0x14041C180
+ * XREFs of ZwCompressKey @ 0x14041C510
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompressKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCompressKey(HANDLE KeyHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyHandle);
 }

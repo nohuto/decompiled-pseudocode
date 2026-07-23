@@ -1,9 +1,9 @@
 /*
- * XREFs of SmHpUnprotectListNeighbors @ 0x14014B060
+ * XREFs of SmHpUnprotectListNeighbors @ 0x14014B160
  * Callers:
- *     SmHpBufferUpdateFullness @ 0x14014A4FC (SmHpBufferUpdateFullness.c)
+ *     SmHpBufferUpdateFullness @ 0x14014A5FC (SmHpBufferUpdateFullness.c)
  * Callees:
- *     SmHpBufferProtectEx @ 0x14014A270 (SmHpBufferProtectEx.c)
+ *     SmHpBufferProtectEx @ 0x14014A370 (SmHpBufferProtectEx.c)
  */
 
 __int64 __fastcall SmHpUnprotectListNeighbors(__int64 a1, __int64 a2, _QWORD *a3)

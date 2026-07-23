@@ -1,15 +1,15 @@
 /*
- * XREFs of IommuDomainDetachDevice @ 0x140566770
+ * XREFs of IommuDomainDetachDevice @ 0x140564470
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpIommuLeaveDmaDomain @ 0x1404B4B04 (HalpIommuLeaveDmaDomain.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpIommuDeleteDevice @ 0x14054DC10 (HalpIommuDeleteDevice.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404AF300 (HalpIommuLeaveDmaDomain.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpIommuDeleteDevice @ 0x14054B4BC (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
@@ -22,11 +22,9 @@ __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
   __int64 *i; // rax
   __int64 v12; // rdx
   __int64 **v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  int v16; // ebx
-  __int64 v17; // rcx
-  __int64 v18; // rcx
+  int v14; // ebx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
 
   v3 = 0;
   v4 = 0;
@@ -59,18 +57,18 @@ __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
   __writecr8(CurrentIrql);
   if ( v3 )
   {
-    v16 = HalpIommuLeaveDmaDomain(v7, a1, v14, v15);
-    if ( v16 >= 0 )
+    v14 = HalpIommuLeaveDmaDomain(v7, a1);
+    if ( v14 >= 0 )
     {
       if ( v4 != 2 )
-        v16 = HalpIommuDeleteDevice((__int64 *)v7);
-      HalpMmAllocCtxFree(v17, *(_QWORD *)(v5 + 48));
-      HalpMmAllocCtxFree(v18, v5);
+        v14 = HalpIommuDeleteDevice((__int64 *)v7);
+      HalpMmAllocCtxFree(v15, *(_QWORD *)(v5 + 48));
+      HalpMmAllocCtxFree(v16, v5);
     }
   }
   else
   {
     return (unsigned int)-1073741584;
   }
-  return (unsigned int)v16;
+  return (unsigned int)v14;
 }

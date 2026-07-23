@@ -1,7 +1,7 @@
 /*
- * XREFs of KiDetectFpuLeakage @ 0x140BE9930
+ * XREFs of KiDetectFpuLeakage @ 0x140BEF930
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
  *     <none>
  */

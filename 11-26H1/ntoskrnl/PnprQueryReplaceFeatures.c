@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprQueryReplaceFeatures @ 0x1405DBCE8
+ * XREFs of PnprQueryReplaceFeatures @ 0x1405DE598
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpQueryInterface @ 0x140AA8480 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpQueryInterface @ 0x1409DB9B4 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnprQueryReplaceFeatures(__int64 a1, PVOID *a2)

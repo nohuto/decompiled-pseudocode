@@ -1,17 +1,17 @@
 /*
- * XREFs of CmUpdateFeatureConfiguration @ 0x140A11E2C
+ * XREFs of CmUpdateFeatureConfiguration @ 0x140A120DC
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmpAllocatePoolWithQuota @ 0x140616578 (CmpAllocatePoolWithQuota.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26E1C (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A272F0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmpAllocatePoolWithQuota @ 0x140616AC8 (CmpAllocatePoolWithQuota.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A270CC (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x140A275A0 (CmFcManagerUpdateFeatureConfigurations.c)
  */
 
 __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)

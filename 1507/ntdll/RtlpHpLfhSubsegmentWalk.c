@@ -27,18 +27,17 @@ __int64 __fastcall RtlpHpLfhSubsegmentWalk(__int64 a1, __int64 a2, __int64 a3, _
   char v21; // cl
   unsigned int v22; // ebx
   __int64 v23; // r13
-  char *v24; // rdx
-  __int64 v25; // r14
-  unsigned int v26; // r12d
-  __int64 v27; // rbp
-  __int16 *v28; // rcx
-  int v29; // eax
-  unsigned __int64 v31; // [rsp+20h] [rbp-48h]
-  __int64 v32; // [rsp+28h] [rbp-40h]
-  int v33; // [rsp+78h] [rbp+10h]
+  __int64 v24; // r14
+  unsigned int v25; // r12d
+  __int64 v26; // rbp
+  __int16 *v27; // rcx
+  int v28; // eax
+  unsigned __int64 v30; // [rsp+20h] [rbp-48h]
+  __int64 v31; // [rsp+28h] [rbp-40h]
+  int v32; // [rsp+78h] [rbp+10h]
 
   v7 = RtlpLFHKey ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12);
-  v33 = v7;
+  v32 = v7;
   if ( a3 == a2 )
   {
     v8 = 0;
@@ -67,23 +66,23 @@ __int64 __fastcall RtlpHpLfhSubsegmentWalk(__int64 a1, __int64 a2, __int64 a3, _
       return 0LL;
   }
   v14 = (unsigned int)(2 * v8);
-  v31 = 2 * *(unsigned __int16 *)(a2 + 34);
-  v32 = a2 + 48;
+  v30 = 2 * *(unsigned __int16 *)(a2 + 34);
+  v31 = a2 + 48;
   while ( 1 )
   {
-    v15 = v31 - 1;
-    for ( i = (unsigned int)v14 & (unsigned __int64)-(__int64)((unsigned int)v14 < v31); ; i = 0LL )
+    v15 = v30 - 1;
+    for ( i = (unsigned int)v14 & (unsigned __int64)-(__int64)((unsigned int)v14 < v30); ; i = 0LL )
     {
       if ( v15 - i == -1LL )
         goto LABEL_11;
-      v18 = (_QWORD *)(v32 + 8 * (i >> 6));
+      v18 = (_QWORD *)(v31 + 8 * (i >> 6));
       for ( j = ((1LL << (i & 0x3F)) - 1) | ~*v18; j == -1; j = ~*v18 )
       {
-        if ( (unsigned __int64)++v18 > v32 + 8 * (v15 >> 6) )
+        if ( (unsigned __int64)++v18 > v31 + 8 * (v15 >> 6) )
           goto LABEL_11;
       }
       _BitScanForward64((unsigned __int64 *)&j, ~j);
-      v17 = j + (((__int64)v18 - v32) >> 3 << 6);
+      v17 = j + (((__int64)v18 - v31) >> 3 << 6);
       if ( v17 > v15 )
       {
 LABEL_11:
@@ -96,8 +95,8 @@ LABEL_11:
       if ( !i )
         break;
       v20 = v14 + 1;
-      if ( v14 + 1 > v31 )
-        v20 = v31;
+      if ( v14 + 1 > v30 )
+        v20 = v30;
       v15 = v20 - 1;
     }
     if ( (_DWORD)v17 == -1 || (unsigned int)v17 < (unsigned int)v14 )
@@ -105,31 +104,30 @@ LABEL_11:
     v21 = *(_BYTE *)(a2 + 44);
     v22 = (unsigned int)v17 >> 1;
     v23 = a2 + *(unsigned __int16 *)(a2 + 46);
-    v24 = (char *)(HIWORD(v33) + v22 * (unsigned __int16)v33);
-    v25 = (HIWORD(v33) + v22 * (unsigned __int16)v33) >> v21;
-    v26 = (((unsigned int)v24 + (unsigned __int16)v33 - 1) >> v21) + 1;
-    v27 = (__int64)&v24[a2];
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 24), v24, (unsigned __int16)v33, i);
-    if ( (unsigned int)v25 < v26 )
+    v24 = (HIWORD(v32) + v22 * (unsigned __int16)v32) >> v21;
+    v25 = ((HIWORD(v32) + v22 * (unsigned __int16)v32 + (unsigned __int16)v32 - 1) >> v21) + 1;
+    v26 = a2 + HIWORD(v32) + v22 * (unsigned __int16)v32;
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
+    if ( (unsigned int)v24 < v25 )
     {
-      v28 = (__int16 *)(v23 + 2 * v25);
-      while ( *v28 >= 0 )
+      v27 = (__int16 *)(v23 + 2 * v24);
+      while ( *v27 >= 0 )
       {
-        LODWORD(v25) = v25 + 1;
-        ++v28;
-        if ( (unsigned int)v25 >= v26 )
+        LODWORD(v24) = v24 + 1;
+        ++v27;
+        if ( (unsigned int)v24 >= v25 )
           goto LABEL_30;
       }
-      LODWORD(v25) = -1;
+      LODWORD(v24) = -1;
     }
 LABEL_30:
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a2 + 24));
-    if ( (_DWORD)v25 != -1 )
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
+    if ( (_DWORD)v24 != -1 )
     {
-      v29 = RtlpHpLfhSubsegmentSizeBlockInternal(a2, v27, v22, a6);
-      *a4 = v29;
-      *a5 = (unsigned __int16)v33 - v29;
-      return v27;
+      v28 = RtlpHpLfhSubsegmentSizeBlockInternal(a2, v26, v22, a6);
+      *a4 = v28;
+      *a5 = (unsigned __int16)v32 - v28;
+      return v26;
     }
     v14 = (unsigned int)(v14 + 2);
   }

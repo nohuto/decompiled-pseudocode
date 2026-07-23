@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpSameFunction @ 0x1401593E8
+ * XREFs of RtlpSameFunction @ 0x140159958
  * Callers:
- *     RtlpWalkFrameChain @ 0x14004F520 (RtlpWalkFrameChain.c)
- *     RtlVirtualUnwind @ 0x1400B3138 (RtlVirtualUnwind.c)
- *     RtlpVirtualUnwind @ 0x1400F340C (RtlpVirtualUnwind.c)
- *     RtlDispatchException @ 0x1400F4D00 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1400F5660 (RtlUnwindEx.c)
+ *     RtlpWalkFrameChain @ 0x14004F0A0 (RtlpWalkFrameChain.c)
+ *     RtlVirtualUnwind @ 0x1400B0FB8 (RtlVirtualUnwind.c)
+ *     RtlpVirtualUnwind @ 0x1400F125C (RtlpVirtualUnwind.c)
+ *     RtlDispatchException @ 0x1400F2B50 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1400F34B0 (RtlUnwindEx.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x140051360 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x140211D8C (RtlpLookupPrimaryFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140050EE0 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x140211BB8 (RtlpLookupPrimaryFunctionEntry.c)
  */
 
 _DWORD *__fastcall RtlpSameFunction(__int64 a1, __int64 a2, DWORD64 a3)

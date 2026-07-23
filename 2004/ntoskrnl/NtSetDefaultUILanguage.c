@@ -6,10 +6,10 @@
  *     ExpSetPendingUILanguage @ 0x140779C90 (ExpSetPendingUILanguage.c)
  */
 
-__int64 __fastcall NtSetDefaultUILanguage(__int16 a1)
+NTSTATUS __cdecl NtSetDefaultUILanguage(LANGID DefaultUILanguageId)
 {
-  if ( a1 )
-    return 0LL;
+  if ( DefaultUILanguageId )
+    return 0;
   else
     return ExpSetPendingUILanguage();
 }

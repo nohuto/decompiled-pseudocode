@@ -1,17 +1,17 @@
 /*
- * XREFs of PoShutdownBugCheck @ 0x14066E8B4
+ * XREFs of PoShutdownBugCheck @ 0x14066E998
  * Callers:
  *     ExpTimeRefreshWork @ 0x1403C9110 (ExpTimeRefreshWork.c)
  *     ExpSystemErrorHandler2 @ 0x1403E0080 (ExpSystemErrorHandler2.c)
- *     PoInitHiberServices @ 0x14056BEA8 (PoInitHiberServices.c)
+ *     PoInitHiberServices @ 0x14056C3E8 (PoInitHiberServices.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1400857E0 (PsGetCurrentThreadProcessId.c)
- *     PsGetCurrentThreadId @ 0x140098FB0 (PsGetCurrentThreadId.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     IoConfigureCrashDump @ 0x140142EA0 (IoConfigureCrashDump.c)
- *     ZwInitiatePowerAction @ 0x14015BB20 (ZwInitiatePowerAction.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     PsGetCurrentThreadProcessId @ 0x1400870D0 (PsGetCurrentThreadProcessId.c)
+ *     PsGetCurrentThreadId @ 0x1400987B0 (PsGetCurrentThreadId.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     IoConfigureCrashDump @ 0x140143410 (IoConfigureCrashDump.c)
+ *     ZwInitiatePowerAction @ 0x14015C090 (ZwInitiatePowerAction.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall __noreturn PoShutdownBugCheck(
@@ -59,7 +59,7 @@ void __fastcall __noreturn PoShutdownBugCheck(
   v19 = a4;
   v20 = BugCheckParameter3;
   v21 = a6;
-  qword_140303490 = (__int64)&CurrentThread;
+  qword_1403033D0 = (__int64)&CurrentThread;
   ZwInitiatePowerAction(PowerActionShutdown, PowerSystemSleeping3, 0xC0000004, 0);
   KeBugCheckEx(a2, a3, a4, v11, BugCheckParameter4);
 }

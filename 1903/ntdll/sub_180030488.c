@@ -16,19 +16,17 @@
  *     sub_18010F2FC @ 0x18010F2FC (sub_18010F2FC.c)
  */
 
-__int64 __fastcall sub_180030488(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall sub_180030488(PTP_CALLBACK_INSTANCE Instance, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rsi
-  __int64 v7; // rcx
-  __int64 v8; // rsi
-  __int64 v9; // rcx
-  __int64 v10; // rcx
+  __int64 v7; // rsi
+  __int64 v8; // rcx
   __int64 result; // rax
-  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
 
   if ( a3 == 258 )
   {
-    result = sub_180032F0C(a1, a2, 0LL);
+    result = sub_180032F0C(Instance);
     if ( !(_DWORD)result )
       return result;
     goto LABEL_4;
@@ -37,29 +35,33 @@ __int64 __fastcall sub_180030488(__int64 a1, __int64 a2, unsigned int a3)
   if ( !v6 )
   {
 LABEL_3:
-    sub_180033474(a1, a2);
+    sub_180033474(Instance);
 LABEL_4:
-    v8 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v7) )
-      v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    v7 = 2147353478LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
-      v9 = 2147353478LL;
-    if ( *(_BYTE *)v9 )
-      sub_18010F260(*(_QWORD *)(a2 + 144), a2 + 392, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    sub_180030888(&v12, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, _QWORD))(a2 + 80))(a1, *(_QWORD *)(a2 + 88), a2, a3);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v10) )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+      v8 = 2147353478LL;
     if ( *(_BYTE *)v8 )
+      sub_18010F260(*(_QWORD *)(a2 + 144), a2 + 392, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
+    sub_180030888(&v10, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
+    *((_QWORD *)Instance + 11) = *(_QWORD *)(a2 + 80);
+    *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 88);
+    (*(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD, __int64, _QWORD))(a2 + 80))(
+      Instance,
+      *(_QWORD *)(a2 + 88),
+      a2,
+      a3);
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
+    if ( *(_BYTE *)v7 )
       sub_18010F2FC(*(_QWORD *)(a2 + 144), a2 + 392, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    return sub_180030918(v12);
+    return sub_180030918(v10);
   }
-  if ( (int)LdrAddRefDll(0, *(_QWORD *)(a2 + 136)) >= 0 )
+  if ( LdrAddRefDll(0, *(PVOID *)(a2 + 136)) >= 0 )
   {
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v6;
+    *((_DWORD *)Instance + 36) |= 0x100u;
+    *((_QWORD *)Instance + 21) = v6;
     goto LABEL_3;
   }
   sub_180066BBC(a2 + 56, 0xFFFFFFFFLL);

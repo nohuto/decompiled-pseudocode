@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSetEventBoostPriorityEx @ 0x1401034C8
+ * XREFs of KeSetEventBoostPriorityEx @ 0x140103548
  * Callers:
- *     FsRtlReleaseEofLock @ 0x140103100 (FsRtlReleaseEofLock.c)
- *     KeSetEventBoostPriority @ 0x140293180 (KeSetEventBoostPriority.c)
+ *     FsRtlReleaseEofLock @ 0x140103180 (FsRtlReleaseEofLock.c)
+ *     KeSetEventBoostPriority @ 0x140293370 (KeSetEventBoostPriority.c)
  * Callees:
  *     KiAbApplyWakeupBoost @ 0x1400240DC (KiAbApplyWakeupBoost.c)
  *     KiAbFindWakeupLockEntry @ 0x140024358 (KiAbFindWakeupLockEntry.c)
- *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x1400C4DD0 (KiTryUnwaitThread.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
- *     KiRemoveBoostThread @ 0x1400CFDE0 (KiRemoveBoostThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
+ *     KiWakeQueueWaiter @ 0x1400AC950 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x1400C4D10 (KiTryUnwaitThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDCE0 (KiWakeOtherQueueWaiters.c)
+ *     KiRemoveBoostThread @ 0x1400CFE60 (KiRemoveBoostThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KeIsThreadRunning @ 0x14028DF98 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x14030FF7C (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeSetEventBoostPriorityEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)

@@ -273,7 +273,7 @@ LABEL_62:
             {
               v44 = v29 & 0x1F;
               LOBYTE(v45) = 1;
-              v46 = (volatile signed __int32 *)(qword_140388B70 + 4 * (v29 >> 5));
+              v46 = (volatile signed __int32 *)stru_140388B68.Buffer + (v29 >> 5);
               if ( v44 + 1 > 0x20 )
               {
                 if ( (v29 & 0x1F) != 0 )

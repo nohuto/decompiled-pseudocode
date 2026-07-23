@@ -1,9 +1,9 @@
 /*
- * XREFs of VfAssignRuleClassIdToClassDriver @ 0x1403F1574
+ * XREFs of VfAssignRuleClassIdToClassDriver @ 0x1403E5294
  * Callers:
- *     VfTargetDriversAdd @ 0x1403F01F8 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1403E3ED4 (VfTargetDriversAdd.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
  */
 
 char __fastcall VfAssignRuleClassIdToClassDriver(wchar_t *Str1, __int64 a2)
@@ -22,15 +22,15 @@ char __fastcall VfAssignRuleClassIdToClassDriver(wchar_t *Str1, __int64 a2)
     if ( !wcsicmp(Str1, (&DifClassDriverPlugins)[2 * v5]) )
     {
       _mm_lfence();
-      v7 = dword_140E08E9C[4 * v5];
+      v7 = dword_140E08EFC[4 * v5];
       if ( v7 == -1
         || v7 < 0x40
         && (v8 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)v7 >> 5)), _bittest(
                                                                               &v8,
-                                                                              dword_140E08E9C[4 * v5] & 0x1F)) )
+                                                                              dword_140E08EFC[4 * v5] & 0x1F)) )
       {
         v2 = 1;
-        *(_DWORD *)(a2 + 56) = dword_140E08E98[4 * v5];
+        *(_DWORD *)(a2 + 56) = dword_140E08EF8[4 * v5];
       }
       return v2;
     }

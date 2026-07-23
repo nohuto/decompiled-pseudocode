@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetTimerEx @ 0x140253590
+ * XREFs of KeSetTimerEx @ 0x140253650
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiTimerWaitTest @ 0x140252EF0 (KiTimerWaitTest.c)
- *     KiComputeDueTime @ 0x140253770 (KiComputeDueTime.c)
- *     KiInsertTimerTable @ 0x140253830 (KiInsertTimerTable.c)
- *     KiCancelTimer @ 0x140253AA0 (KiCancelTimer.c)
- *     PsTimerResolutionActive @ 0x140255200 (PsTimerResolutionActive.c)
- *     KiTraceSetTimer @ 0x140462A80 (KiTraceSetTimer.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiTimerWaitTest @ 0x140252FB0 (KiTimerWaitTest.c)
+ *     KiComputeDueTime @ 0x140253830 (KiComputeDueTime.c)
+ *     KiInsertTimerTable @ 0x1402538F0 (KiInsertTimerTable.c)
+ *     KiCancelTimer @ 0x140253B60 (KiCancelTimer.c)
+ *     PsTimerResolutionActive @ 0x1402552C0 (PsTimerResolutionActive.c)
+ *     KiTraceSetTimer @ 0x140462E80 (KiTraceSetTimer.c)
  */
 
 BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period, PKDPC Dpc)
@@ -32,7 +32,7 @@ BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period
                                  KiWaitNever));
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -71,6 +71,6 @@ BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period
   {
     KiTimerWaitTest((__int64)CurrentPrcb, (__int64)Timer, 0LL);
   }
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v12;
 }

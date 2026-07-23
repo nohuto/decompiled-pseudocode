@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSchedulerAssistThreadFlagEnabled @ 0x14008A40C
+ * XREFs of KeSchedulerAssistThreadFlagEnabled @ 0x14008A3FC
  * Callers:
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
  * Callees:
  *     <none>
  */

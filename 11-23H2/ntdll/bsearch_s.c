@@ -4,7 +4,7 @@
  *     RtlGuardCheckLongJumpTarget @ 0x18006DBC0 (RtlGuardCheckLongJumpTarget.c)
  *     RtlGuardCheckExceptionHandler @ 0x18006DCC0 (RtlGuardCheckExceptionHandler.c)
  *     LdrpUnsuppressAddressTakenIat @ 0x1800E15E4 (LdrpUnsuppressAddressTakenIat.c)
- *     RtlpGetTargetRvaFlag @ 0x18010B960 (RtlpGetTargetRvaFlag.c)
+ *     RtlpGetTargetRvaFlag @ 0x18010B930 (RtlpGetTargetRvaFlag.c)
  * Callees:
  *     _invalid_parameter @ 0x18008EEB8 (_invalid_parameter.c)
  *     _guard_check_icall @ 0x180095BF4 (_guard_check_icall.c)

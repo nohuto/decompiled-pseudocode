@@ -1,9 +1,9 @@
 /*
- * XREFs of PspConvertJobToMixed @ 0x1406804D8
+ * XREFs of PspConvertJobToMixed @ 0x1406805BC
  * Callers:
- *     PspBindProcessSessionToJob @ 0x1404F3628 (PspBindProcessSessionToJob.c)
+ *     PspBindProcessSessionToJob @ 0x1404D65B4 (PspBindProcessSessionToJob.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
  */
 
 __int64 __fastcall PspConvertJobToMixed(__int64 a1)

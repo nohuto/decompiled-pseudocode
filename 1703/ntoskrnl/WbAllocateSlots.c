@@ -20,26 +20,26 @@ __int64 __fastcall WbAllocateSlots(__int64 a1, __int64 a2, int a3, unsigned int 
   unsigned int v5; // esi
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v10; // rdi
-  __int64 v11; // rbp
+  PRTL_BALANCED_NODE v11; // rbp
   signed __int64 v12; // r11
   unsigned int v13; // r10d
   _BYTE *v14; // rcx
   int v15; // eax
   struct _KTHREAD *v16; // rax
-  _BYTE *v17; // rax
-  _BYTE *v18; // rbp
+  PRTL_BALANCED_NODE v17; // rax
+  PRTL_BALANCED_NODE v18; // rbp
 
   v4 = 0LL;
   v5 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   v10 = (signed __int64 *)(a1 + 1072);
-  v11 = KeAbPreAcquire(a1 + 1072, 0LL, 0LL);
+  v11 = KeAbPreAcquire(a1 + 1072, 0LL, 0);
   if ( _InterlockedCompareExchange64(v10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v10, v11, (ULONG_PTR)v10);
   v12 = 0LL;
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   v13 = a3 + 1;
   while ( 1 )
   {
@@ -74,12 +74,12 @@ LABEL_10:
   {
     v16 = KeGetCurrentThread();
     --v16->SpecialApcDisable;
-    v17 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0LL);
+    v17 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
     v18 = v17;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, v17, (ULONG_PTR)v10);
     if ( v18 )
-      v18[26] |= 1u;
+      BYTE2(v18[1].Left) |= 1u;
     if ( (unsigned int)sub_140548AD4(a1, v5, a4) == -1 )
     {
       v4 = *(_QWORD *)(a1 + 32) + (v5 << 6);

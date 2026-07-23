@@ -1,15 +1,15 @@
 /*
- * XREFs of VfUtilPrintCheckinString @ 0x140C21A10
+ * XREFs of VfUtilPrintCheckinString @ 0x140C27A20
  * Callers:
- *     ViThunkApplyPristineCurrentSession @ 0x140C354B0 (ViThunkApplyPristineCurrentSession.c)
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140C355E0 (ViThunkApplyWdmThunksCurrentSession.c)
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
- *     VfSuspectDriversUnloadCallback @ 0x140C38E64 (VfSuspectDriversUnloadCallback.c)
+ *     ViThunkApplyPristineCurrentSession @ 0x140C3B4C0 (ViThunkApplyPristineCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140C3B5F0 (ViThunkApplyWdmThunksCurrentSession.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversUnloadCallback @ 0x140C3EE74 (VfSuspectDriversUnloadCallback.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     VfUtilDbgPrint @ 0x14052FE80 (VfUtilDbgPrint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     VfUtilDbgPrint @ 0x140532380 (VfUtilDbgPrint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall VfUtilPrintCheckinString(unsigned __int16 *a1, char a2)

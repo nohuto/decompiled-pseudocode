@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1408D7490
+ * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1408DDA50
  * Callers:
- *     CmpMarkCurrentValueDirty @ 0x14084C198 (CmpMarkCurrentValueDirty.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpFindControlSet @ 0x14085F13C (CmpFindControlSet.c)
- *     CmpWalkUnicodeStringPath @ 0x1408602B8 (CmpWalkUnicodeStringPath.c)
- *     CmpFindPathByNameEx @ 0x1408B1924 (CmpFindPathByNameEx.c)
- *     CmpCopySyncTree2 @ 0x1408DE354 (CmpCopySyncTree2.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140B50C8C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkCurrentValueDirty @ 0x1408524A8 (CmpMarkCurrentValueDirty.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpFindControlSet @ 0x14086542C (CmpFindControlSet.c)
+ *     CmpWalkUnicodeStringPath @ 0x1408665A8 (CmpWalkUnicodeStringPath.c)
+ *     CmpFindPathByNameEx @ 0x1408B7F30 (CmpFindPathByNameEx.c)
+ *     CmpCopySyncTree2 @ 0x1408E4914 (CmpCopySyncTree2.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140B531EC (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpFindSubKeyInRoot @ 0x1408D1B40 (CmpFindSubKeyInRoot.c)
- *     CmpDoCompareKeyName @ 0x1408D4080 (CmpDoCompareKeyName.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyInRoot @ 0x1408D8100 (CmpFindSubKeyInRoot.c)
+ *     CmpDoCompareKeyName @ 0x1408DA640 (CmpDoCompareKeyName.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNameWithStatus(

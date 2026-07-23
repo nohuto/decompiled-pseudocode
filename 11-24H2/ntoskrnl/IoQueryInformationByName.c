@@ -1,18 +1,18 @@
 /*
- * XREFs of IoQueryInformationByName @ 0x1409708A0
+ * XREFs of IoQueryInformationByName @ 0x1409590B0
  * Callers:
- *     NtQueryInformationByName @ 0x140970870 (NtQueryInformationByName.c)
+ *     NtQueryInformationByName @ 0x140959080 (NtQueryInformationByName.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     IopCleanupExtraCreateParameters @ 0x1408A2540 (IopCleanupExtraCreateParameters.c)
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14096E0B0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     IopValidateQueryInformationParameters @ 0x1409704A0 (IopValidateQueryInformationParameters.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     IopCleanupExtraCreateParameters @ 0x1408AABE0 (IopCleanupExtraCreateParameters.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1409568C0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     IopValidateQueryInformationParameters @ 0x140958CB0 (IopValidateQueryInformationParameters.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoQueryInformationByName(
@@ -117,7 +117,7 @@ __int64 __fastcall IoQueryInformationByName(
       CurrentSilo = (__int64)PsGetCurrentSilo();
     if ( (unsigned __int64)a3 <= 0x7FFFFFFEFFFFLL )
     {
-      P = (PVOID)ExAllocatePool2(0x41uLL);
+      P = (PVOID)ExAllocatePool2(0x41uLL, a4, 0x20206F49u);
       if ( !P )
         return 3221225626LL;
     }

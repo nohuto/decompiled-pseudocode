@@ -29,7 +29,7 @@ unsigned __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a
   __int64 j; // r12
   __int64 v15; // rcx
   __int64 v16; // r12
-  union _SLIST_HEADER *v17; // rcx
+  _SLIST_HEADER *v17; // rcx
   __int64 v18; // rcx
   unsigned __int64 v19; // rsi
   unsigned __int8 CurrentIrql; // al
@@ -103,7 +103,7 @@ unsigned __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a
           if ( v8 != 1 )
             v5 %= v8;
           result = 16LL * v5;
-          v17 = (union _SLIST_HEADER *)(result + v15);
+          v17 = (_SLIST_HEADER *)(result + v15);
           if ( LOWORD(v17->Alignment) )
           {
             result = (unsigned __int64)RtlpInterlockedFlushSList(v17);

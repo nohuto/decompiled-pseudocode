@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceFxDeviceAccounting @ 0x14042B748
+ * XREFs of PopDiagTraceFxDeviceAccounting @ 0x140422BBC
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14042B348 (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1404227BC (PopFxStopDeviceAccounting.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopDiagQueryDevicePropertyString @ 0x140B30AC8 (PopDiagQueryDevicePropertyString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x140B32CC8 (PopDiagQueryDevicePropertyString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a3, ...)
@@ -89,23 +89,23 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a
   if ( v6 >= 0xFFFE )
     LOWORD(v6) = -4;
   v19 = v6;
-  if ( byte_140E6760C )
+  if ( PopDiagSleepStudyHandleRegistered )
   {
-    if ( EtwEventEnabled(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_ACCOUNTING) )
+    if ( EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_ACCOUNTING) )
     {
-      v15 = qword_140F0F5D0;
+      v15 = PopWnfCsEnterScenarioId;
       *(_QWORD *)&UserData.Size = 1LL;
       UserData.Ptr = (ULONGLONG)&v15;
       v25 = &v16;
       va_copy(v27, va);
-      v29 = &qword_140F0F5D0;
+      v29 = &PopWnfCsEnterScenarioId;
       v26 = 8LL;
       v28 = 8LL;
       v30 = 8LL;
-      EtwWriteEx(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_ACCOUNTING, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+      EtwWriteEx(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_DEVICE_ACCOUNTING, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       if ( (_BYTE)v62 )
       {
-        if ( !dword_140E67610 )
+        if ( !PopDiagFxAccountingTelemetryDisabled )
         {
           v7 = *(struct _DEVICE_OBJECT **)(v16 + 32);
           v8 = (unsigned int)PopDiagQueryDevicePropertyString(v7, DevicePropertyClassName) >> 31;
@@ -113,11 +113,11 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a
           v10 = P;
           v11 = v20;
           v12 = DevicePropertyString >> 31;
-          if ( (unsigned int)dword_140E07608 > 5
-            && (qword_140E07618 & 0x400000000000LL) != 0
-            && (qword_140E07620 & 0x400000000000LL) == qword_140E07620 )
+          if ( (unsigned int)dword_140E075D0 > 5
+            && (qword_140E075E0 & 0x400000000000LL) != 0
+            && (qword_140E075E8 & 0x400000000000LL) == qword_140E075E8 )
           {
-            v21 = qword_140F0F5D0;
+            v21 = PopWnfCsEnterScenarioId;
             v33 = 8LL;
             v32 = &v21;
             v13 = *(unsigned __int16 *)(v16 + 40);
@@ -156,8 +156,8 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a
             v17 = 0x1000000LL;
             v59 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140E07608,
-              (unsigned __int8 *)&byte_14004B897,
+              (__int64)&dword_140E075D0,
+              (unsigned __int8 *)byte_14004C623,
               0LL,
               0LL,
               0x10u,

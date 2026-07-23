@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindFirstRunClear @ 0x1402EE750
+ * XREFs of RtlFindFirstRunClear @ 0x1402EE940
  * Callers:
- *     PnprMirrorMarkedPages @ 0x140579FFC (PnprMirrorMarkedPages.c)
+ *     PnprMirrorMarkedPages @ 0x14057AFFC (PnprMirrorMarkedPages.c)
  * Callees:
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
  */

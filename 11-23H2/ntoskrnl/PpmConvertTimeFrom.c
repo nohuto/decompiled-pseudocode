@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmConvertTimeFrom @ 0x1403A9558
+ * XREFs of PpmConvertTimeFrom @ 0x1403A9738
  * Callers:
- *     PopIdleWakeInitialize @ 0x1408506C8 (PopIdleWakeInitialize.c)
- *     PopIdleWakeConvertIntervalBucketsFrom @ 0x1408507BC (PopIdleWakeConvertIntervalBucketsFrom.c)
+ *     PopIdleWakeInitialize @ 0x1408509C8 (PopIdleWakeInitialize.c)
+ *     PopIdleWakeConvertIntervalBucketsFrom @ 0x140850ABC (PopIdleWakeConvertIntervalBucketsFrom.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
  */
 
 unsigned __int64 __fastcall PpmConvertTimeFrom(unsigned __int64 a1, unsigned __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateFixupVad @ 0x1409CE47C
+ * XREFs of MiCreateFixupVad @ 0x14099F45C
  * Callers:
- *     MiCloneImageVad @ 0x14070FE54 (MiCloneImageVad.c)
- *     MiInitializeImageVad @ 0x1409CDD4C (MiInitializeImageVad.c)
+ *     MiCloneImageVad @ 0x140714B50 (MiCloneImageVad.c)
+ *     MiInitializeImageVad @ 0x14099ED2C (MiInitializeImageVad.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
- *     MiInitializePrivateFixupBitmap @ 0x1409CE834 (MiInitializePrivateFixupBitmap.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
+ *     MiInitializePrivateFixupBitmap @ 0x14099F814 (MiInitializePrivateFixupBitmap.c)
  */
 
 __int64 __fastcall MiCreateFixupVad(ULONG_PTR a1, __int64 a2, __int64 a3, unsigned int a4, int a5)

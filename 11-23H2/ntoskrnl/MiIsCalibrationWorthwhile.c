@@ -2,7 +2,7 @@
  * XREFs of MiIsCalibrationWorthwhile @ 0x14021F624
  * Callers:
  *     MiScheduleZeroPageThreads @ 0x14021F3CC (MiScheduleZeroPageThreads.c)
- *     MiZeroPageCalibrate @ 0x1403AA5F0 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x1403AA7D0 (MiZeroPageCalibrate.c)
  * Callees:
  *     <none>
  */

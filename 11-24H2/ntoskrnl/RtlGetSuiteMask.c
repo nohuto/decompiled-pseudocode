@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetSuiteMask @ 0x140A08AD0
+ * XREFs of RtlGetSuiteMask @ 0x140A05000
  * Callers:
- *     RtlGetVersion @ 0x140A08A00 (RtlGetVersion.c)
+ *     RtlGetVersion @ 0x140A04F30 (RtlGetVersion.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return HIDWORD(PsGetCurrentServerSiloGlobals()[80].Blink[1].Flink);

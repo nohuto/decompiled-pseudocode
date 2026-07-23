@@ -88,7 +88,7 @@ ULONG_PTR *__fastcall MiDereferenceSegmentThread(__int64 a1)
               else
               {
                 KeResetEvent((PRKEVENT)(a1 + 1736));
-                MiFreeClonePool((union _SLIST_HEADER *)a1);
+                MiFreeClonePool((_SLIST_HEADER *)a1);
               }
             }
             else

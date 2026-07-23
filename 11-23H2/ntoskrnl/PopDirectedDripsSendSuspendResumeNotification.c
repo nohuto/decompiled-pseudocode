@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsSendSuspendResumeNotification @ 0x140983CF0
+ * XREFs of PopDirectedDripsSendSuspendResumeNotification @ 0x140983EF0
  * Callers:
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1409839F4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x140983BF4 (PopDirectedDripsNotifyAppsAndServices.c)
  * Callees:
- *     MmGetSessionId @ 0x1402A3C40 (MmGetSessionId.c)
- *     MmGetNextSession @ 0x14035ECF0 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopUmpoSendLegacyEvent @ 0x1409978A0 (PopUmpoSendLegacyEvent.c)
- *     PopSuspendResumeInvocation @ 0x1409982D0 (PopSuspendResumeInvocation.c)
+ *     MmGetSessionId @ 0x1402A3ED0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x14035EE90 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopUmpoSendLegacyEvent @ 0x140997AA0 (PopUmpoSendLegacyEvent.c)
+ *     PopSuspendResumeInvocation @ 0x1409984D0 (PopSuspendResumeInvocation.c)
  */
 
 __int64 __fastcall PopDirectedDripsSendSuspendResumeNotification(char a1, char a2)

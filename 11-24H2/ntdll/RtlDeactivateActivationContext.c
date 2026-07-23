@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlDeactivateActivationContext @ 0x18006FF10
+ * XREFs of RtlDeactivateActivationContext @ 0x18008C7F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     RtlReleaseActivationContext @ 0x18005E4D0 (RtlReleaseActivationContext.c)
- *     DbgPrintEx @ 0x18005EA90 (DbgPrintEx.c)
- *     RtlpFreeActivationContextStackFrame @ 0x180070180 (RtlpFreeActivationContextStackFrame.c)
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     RtlReleaseActivationContext @ 0x1800740B0 (RtlReleaseActivationContext.c)
+ *     DbgPrintEx @ 0x180074670 (DbgPrintEx.c)
+ *     RtlpFreeActivationContextStackFrame @ 0x18008CA60 (RtlpFreeActivationContextStackFrame.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
+void __cdecl RtlDeactivateActivationContext(ULONG Flags, ULONG_PTR Cookie)
 {
   struct _TEB *v2; // rdi
   unsigned __int64 *ActivationContextStackPointer; // rdi
@@ -24,27 +24,32 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
   unsigned __int64 v9; // rax
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-C8h] BYREF
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", a1);
+    DbgPrintEx(0x33u, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", Flags);
     RtlRaiseStatus(-1073741811);
   }
-  if ( a2 )
+  if ( Cookie )
   {
-    if ( a2 >> 60 != 1 )
+    if ( Cookie >> 60 != 1 )
     {
-      DbgPrintEx(51, 0, "SXS: %s() called with invalid cookie type 0x%08Ix\n", "RtlDeactivateActivationContext", a2);
+      DbgPrintEx(
+        0x33u,
+        0,
+        "SXS: %s() called with invalid cookie type 0x%08Ix\n",
+        "RtlDeactivateActivationContext",
+        Cookie);
       RtlRaiseStatus(-1073741811);
     }
     v2 = NtCurrentTeb();
-    if ( ((HIDWORD(a2) ^ v2->ActivationContextStackPointer->StackId) & 0xFFFFFFF) != 0 )
+    if ( ((HIDWORD(Cookie) ^ v2->ActivationContextStackPointer->StackId) & 0xFFFFFFF) != 0 )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS: %s() called with invalid cookie tid 0x%08Ix - should be %08Ix\n",
         "RtlDeactivateActivationContext",
-        a2,
+        Cookie,
         v2->ActivationContextStackPointer->StackId & 0xFFFFFFF);
       RtlRaiseStatus(-1073741811);
     }
@@ -52,7 +57,7 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
     v4 = *ActivationContextStackPointer;
     if ( *ActivationContextStackPointer )
     {
-      if ( (*(_BYTE *)(v4 + 16) & 8) != 0 && *(_QWORD *)(v4 + 24) == a2 )
+      if ( (*(_BYTE *)(v4 + 16) & 8) != 0 && *(_QWORD *)(v4 + 24) == Cookie )
       {
         v5 = *ActivationContextStackPointer;
       }
@@ -65,7 +70,7 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
         v9 = *(_QWORD *)v4;
         if ( (*(_BYTE *)(v5 + 16) & 8) == 0 )
           v9 = 0LL;
-        while ( !v9 || *(_QWORD *)(v9 + 24) != a2 )
+        while ( !v9 || *(_QWORD *)(v9 + 24) != Cookie )
         {
           v5 = *(_QWORD *)v5;
           ++v8;
@@ -93,7 +98,7 @@ LABEL_18:
       {
         v7 = *(_QWORD *)v4;
         if ( (*(_BYTE *)(v4 + 16) & 1) != 0 )
-          RtlReleaseActivationContext(*(volatile signed __int32 **)(v4 + 8));
+          RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(v4 + 8));
         if ( (*(_BYTE *)(v4 + 16) & 8) != 0 )
           RtlpFreeActivationContextStackFrame(ActivationContextStackPointer, v4);
         v4 = v7;

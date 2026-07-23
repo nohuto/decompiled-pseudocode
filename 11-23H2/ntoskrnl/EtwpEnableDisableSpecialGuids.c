@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpEnableDisableSpecialGuids @ 0x140780D7C
+ * XREFs of EtwpEnableDisableSpecialGuids @ 0x140780F6C
  * Callers:
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpEnableDisableUMGL @ 0x1409E7358 (EtwpEnableDisableUMGL.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EE7EC (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EE934 (EtwpCheckLoggerAccessAndDoRundown.c)
- *     EtwpLogFileNameRundown @ 0x1409EEC30 (EtwpLogFileNameRundown.c)
+ *     EtwpEnableDisableUMGL @ 0x1409E75E8 (EtwpEnableDisableUMGL.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EEA7C (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EEBC4 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogFileNameRundown @ 0x1409EEEC0 (EtwpLogFileNameRundown.c)
  */
 
 __int64 __fastcall EtwpEnableDisableSpecialGuids(
@@ -27,10 +27,10 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   __int64 v16; // rcx
   char v17; // r15
   unsigned int v18; // ebp
-  __int64 (**v19)[2]; // r14
+  GUID **v19; // r14
   __int64 v20; // rax
   __int64 v21; // r8
-  unsigned __int64 v22; // r8
+  __int64 v22; // r8
   __int64 v24; // r8
   unsigned int v25; // ecx
   __int64 v26; // r9
@@ -64,9 +64,9 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
     do
     {
       v20 = *a2;
-      v21 = (**v19)[0] - *a2;
+      v21 = *(_QWORD *)&(*v19)->Data1 - *a2;
       if ( !v21 )
-        v21 = (**v19)[1] - a2[1];
+        v21 = *(_QWORD *)(*v19)->Data4 - a2[1];
       if ( !v21 )
       {
         v28 = 0LL;
@@ -96,7 +96,7 @@ LABEL_41:
                  v30,
                  (unsigned __int16)v10,
                  a5,
-                 LOBYTE((&EtwpUmglProviders)[2 * v18 + 1]),
+                 *((unsigned __int8 *)&(&EtwpUmglProviders)[2 * v18] + 8),
                  v16,
                  v32);
       }
@@ -104,9 +104,9 @@ LABEL_41:
       v19 += 2;
     }
     while ( v18 < 0xA );
-    v22 = KernelRundownGuid - v20;
-    if ( KernelRundownGuid == v20 )
-      v22 = 0xCDF584518E9C7793uLL - a2[1];
+    v22 = *(_QWORD *)&KernelRundownGuid.Data1 - v20;
+    if ( *(_QWORD *)&KernelRundownGuid.Data1 == v20 )
+      v22 = *(_QWORD *)KernelRundownGuid.Data4 - a2[1];
     if ( v22 )
       goto LABEL_12;
     if ( v17 )
@@ -140,9 +140,9 @@ LABEL_33:
     }
     return 0;
   }
-  v24 = SystemTraceControlGuid - *a2;
-  if ( SystemTraceControlGuid == *a2 )
-    v24 = 0x3969A8086000829ALL - a2[1];
+  v24 = *(_QWORD *)&SystemTraceControlGuid.Data1 - *a2;
+  if ( *(_QWORD *)&SystemTraceControlGuid.Data1 == *a2 )
+    v24 = *(_QWORD *)SystemTraceControlGuid.Data4 - a2[1];
   v25 = 0;
   if ( v24 || a1 != EtwpHostSiloState )
   {

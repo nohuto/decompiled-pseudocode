@@ -1,17 +1,17 @@
 /*
- * XREFs of SepGetAnonymousToken @ 0x1403C9F7C
+ * XREFs of SepGetAnonymousToken @ 0x1403B321C
  * Callers:
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
- *     NtImpersonateAnonymousToken @ 0x140AB2A30 (NtImpersonateAnonymousToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x140AB2F6C (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
+ *     NtImpersonateAnonymousToken @ 0x140AB3DD0 (NtImpersonateAnonymousToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x140AB430C (SepCopyAnonymousTokenAndSetSilo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1403CA6D0 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepSetTokenLowboxNumber @ 0x140A2C4A4 (SepSetTokenLowboxNumber.c)
- *     SepSetTokenCapabilities @ 0x140A44AC4 (SepSetTokenCapabilities.c)
- *     SepSetTokenSessionById @ 0x140A82BD4 (SepSetTokenSessionById.c)
- *     SepSetTokenPackage @ 0x140A8F860 (SepSetTokenPackage.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403B2AA0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepSetTokenCapabilities @ 0x1409E2C54 (SepSetTokenCapabilities.c)
+ *     SepSetTokenPackage @ 0x1409E47AC (SepSetTokenPackage.c)
+ *     SepSetTokenLowboxNumber @ 0x140A3E100 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenSessionById @ 0x140A88A44 (SepSetTokenSessionById.c)
  */
 
 __int64 __fastcall SepGetAnonymousToken(__int64 a1, PVOID *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall SepGetAnonymousToken(__int64 a1, PVOID *a2)
   v7[0] = 48LL;
   v8 = 0LL;
   v4 = SepDuplicateToken(
-         *(_DWORD *)&PspSiloMonitorLock.WaitBlockFill11[168],
+         *(_DWORD *)&PspSiloMonitorLock.WaitBlockFill11[160],
          (unsigned int)v7,
          1,
          2,
@@ -53,7 +53,7 @@ __int64 __fastcall SepGetAnonymousToken(__int64 a1, PVOID *a2)
             v4 < 0)
         || (v6 = *(_DWORD **)(a1 + 776)) != 0LL
         && *v6
-        && (v4 = AuthzBasepDuplicateSecurityAttributes(v6, *((_QWORD *)Object + 97), 0LL), v4 < 0) )
+        && (v4 = AuthzBasepDuplicateSecurityAttributes((__int64)v6, *((_QWORD *)Object + 97), 0), v4 < 0) )
       {
         ObfDereferenceObjectWithTag(Object, 0x746C6644u);
         return (unsigned int)v4;

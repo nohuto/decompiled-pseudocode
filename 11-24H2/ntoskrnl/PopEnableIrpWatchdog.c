@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEnableIrpWatchdog @ 0x140440F7C
+ * XREFs of PopEnableIrpWatchdog @ 0x140314DDC
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x140375DBC (PopDequeueQuerySetIrp.c)
- *     PopQueueQuerySetIrp @ 0x140376E74 (PopQueueQuerySetIrp.c)
- *     PoHandleIrp @ 0x1403D99EC (PoHandleIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BA5A0 (PopDequeueQuerySetIrp.c)
+ *     PopQueueQuerySetIrp @ 0x1403A96B4 (PopQueueQuerySetIrp.c)
+ *     PoHandleIrp @ 0x1403CBD64 (PoHandleIrp.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     PopComputeWatchdogTimeout @ 0x1404410D4 (PopComputeWatchdogTimeout.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopComputeWatchdogTimeout @ 0x140314F34 (PopComputeWatchdogTimeout.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
  */
 
 void __fastcall PopEnableIrpWatchdog(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall PopEnableIrpWatchdog(__int64 a1)
   KIRQL v2; // si
   __int64 v3; // rcx
   __int64 v4; // rdx
-  unsigned int v5; // eax
+  int v5; // edx
   __int64 v6; // r9
   __int64 v7; // r8
   __int64 v8; // rdx
@@ -48,7 +48,7 @@ void __fastcall PopEnableIrpWatchdog(__int64 a1)
         *(_QWORD *)(v1 + 80) = v6;
         *(_DWORD *)(v1 + 116) = v6;
         *(_WORD *)(v1 + 112) = v6;
-        KiSetTimerEx(v1 + 56, -10000000LL * v5, 0, v6, v1 + 120);
+        KiSetTimerEx(v1 + 56, -10000000 * v5, 0, v6, v1 + 120);
         v7 = MEMORY[0xFFFFF780000003B0];
         v8 = MEMORY[0xFFFFF78000000008];
         *(_DWORD *)(v1 + 296) = 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsEncodeThreadWorkOnBehalfTicket @ 0x1400A4F34
+ * XREFs of PsEncodeThreadWorkOnBehalfTicket @ 0x1400A34AC
  * Callers:
- *     AlpcpCaptureAttributes @ 0x14044C7D0 (AlpcpCaptureAttributes.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1404D23D8 (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x14065571C (NtAlpcImpersonateClientContainerOfPort.c)
+ *     AlpcpCaptureAttributes @ 0x14044B6A0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1404B5E78 (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x140655800 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
  *     <none>
  */

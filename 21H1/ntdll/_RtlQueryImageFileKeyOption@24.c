@@ -21,30 +21,36 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall RtlQueryImageFileKeyOption(int a1, int a2, int a3, _DWORD *a4, unsigned int a5, int *a6)
+NTSTATUS __stdcall RtlQueryImageFileKeyOption(
+        HANDLE KeyHandle,
+        PCWSTR SourceString,
+        int a3,
+        PULONG Value,
+        unsigned int a5,
+        ULONG *a6)
 {
-  int result; // eax
-  _DWORD *v7; // edi
-  int v8; // esi
-  int v9; // esi
+  NTSTATUS result; // eax
+  _BYTE *v7; // edi
+  NTSTATUS v8; // esi
+  ULONG v9; // esi
   int v10; // edx
   unsigned int v11; // ecx
   void *ProcessHeap; // ecx
-  _DWORD *Heap; // eax
-  int v14; // eax
+  PVOID Heap; // eax
+  NTSTATUS v14; // eax
   int v15; // eax
-  size_t v16; // eax
-  int v17; // [esp+10h] [ebp-420h] BYREF
-  _DWORD *v18; // [esp+14h] [ebp-41Ch]
-  _WORD v19[2]; // [esp+18h] [ebp-418h] BYREF
-  _DWORD *v20; // [esp+1Ch] [ebp-414h]
-  int v21; // [esp+20h] [ebp-410h]
-  int *v22; // [esp+24h] [ebp-40Ch]
-  _BYTE v23[1028]; // [esp+28h] [ebp-408h] BYREF
+  ULONG v16; // eax
+  size_t v17; // [esp-4h] [ebp-434h]
+  ULONG ResultLength; // [esp+10h] [ebp-420h] BYREF
+  PVOID BaseAddress; // [esp+14h] [ebp-41Ch]
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-418h] BYREF
+  HANDLE v21; // [esp+20h] [ebp-410h]
+  ULONG *v22; // [esp+24h] [ebp-40Ch]
+  _BYTE KeyValueInformation[1028]; // [esp+28h] [ebp-408h] BYREF
 
-  v21 = a1;
+  v21 = KeyHandle;
   v22 = a6;
-  result = RtlInitUnicodeStringEx(v19, a2);
+  result = RtlInitUnicodeStringEx(&DestinationString, SourceString);
   if ( result < 0 )
     return result;
   if ( a5 >= 0x3F4 )
@@ -52,12 +58,18 @@ int __stdcall RtlQueryImageFileKeyOption(int a1, int a2, int a3, _DWORD *a4, uns
     v9 = a5 + 12;
     goto LABEL_20;
   }
-  v7 = v23;
-  result = ZwQueryValueKey(a1, v19, 2, v23, 1024, &v17);
+  v7 = KeyValueInformation;
+  result = ZwQueryValueKey(
+             KeyHandle,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x400u,
+             &ResultLength);
   v8 = result;
   if ( result >= 0 )
   {
-    v18 = 0;
+    BaseAddress = 0;
 LABEL_8:
     v10 = a3;
     if ( a3 )
@@ -66,49 +78,45 @@ LABEL_8:
     }
     else
     {
-      v11 = v7[2];
+      v11 = *((_DWORD *)v7 + 2);
       if ( v11 > a5 )
       {
-        v17 = v7[2];
+        ResultLength = *((_DWORD *)v7 + 2);
         goto LABEL_11;
       }
-      v10 = v7[1];
+      v10 = *((_DWORD *)v7 + 1);
     }
-    v15 = v7[1];
+    v15 = *((_DWORD *)v7 + 1);
     switch ( v15 )
     {
       case 3:
       case 7:
-        if ( v10 == v15 )
-        {
-          v17 = v7[2];
-          if ( a4 && v7[2] <= v11 )
-          {
-            memcpy(a4, v7 + 3, v7[2]);
-            goto LABEL_12;
-          }
+        if ( v10 != v15 )
+          goto LABEL_57;
+        ResultLength = *((_DWORD *)v7 + 2);
+        if ( !Value || *((_DWORD *)v7 + 2) > v11 )
           goto LABEL_11;
-        }
-        goto LABEL_57;
+        LODWORD(v17) = *((_DWORD *)v7 + 2);
+        break;
       case 4:
         if ( v10 == 4 )
         {
-          if ( v11 == 4 && v7[2] == 4 )
+          if ( v11 == 4 && *((_DWORD *)v7 + 2) == 4 )
           {
-            v17 = v7[1];
-            if ( a4 )
+            ResultLength = *((_DWORD *)v7 + 1);
+            if ( Value )
             {
-              *a4 = v7[3];
+              *Value = *((_DWORD *)v7 + 3);
               goto LABEL_12;
             }
 LABEL_11:
             v8 = -2147483643;
 LABEL_12:
             if ( v22 && (v8 >= 0 || v8 == -2147483643) )
-              *v22 = v17;
+              *v22 = ResultLength;
             goto LABEL_16;
           }
-          break;
+          goto LABEL_35;
         }
 LABEL_57:
         v8 = -1073741788;
@@ -116,74 +124,75 @@ LABEL_57:
       case 11:
         if ( v10 != 11 )
           goto LABEL_57;
-        if ( v11 == 8 && v7[2] == 8 )
+        if ( v11 == 8 && *((_DWORD *)v7 + 2) == 8 )
         {
-          v17 = 8;
-          if ( a4 )
+          ResultLength = 8;
+          if ( Value )
           {
-            *a4 = v7[3];
-            a4[1] = v7[4];
+            *Value = *((_DWORD *)v7 + 3);
+            Value[1] = *((_DWORD *)v7 + 4);
             goto LABEL_12;
           }
           goto LABEL_11;
         }
-        break;
+LABEL_35:
+        v8 = -1073741820;
+        goto LABEL_16;
       case 1:
-        if ( v10 != 4 )
+        if ( v10 == 4 )
         {
-          v16 = v7[2];
-          v17 = v16;
-          if ( v16 <= v11 )
+          if ( v11 == 4 )
           {
-            memcpy(a4, v7 + 3, v16);
-            goto LABEL_12;
-          }
-          goto LABEL_11;
-        }
-        if ( v11 == 4 )
-        {
-          if ( ((unsigned __int8)a4 & 3) == 0 )
-          {
-            v17 = 4;
-            if ( a4 )
+            if ( ((unsigned __int8)Value & 3) == 0 )
             {
-              v20 = v7 + 3;
-              v19[0] = *((_WORD *)v7 + 4);
-              v19[1] = *((_WORD *)v7 + 4);
-              v8 = RtlUnicodeStringToInteger(v19, 0, a4);
-              goto LABEL_12;
+              ResultLength = 4;
+              if ( Value )
+              {
+                DestinationString.Buffer = (wchar_t *)(v7 + 12);
+                DestinationString.Length = *((_WORD *)v7 + 4);
+                DestinationString.MaximumLength = *((_WORD *)v7 + 4);
+                v8 = RtlUnicodeStringToInteger(&DestinationString, 0, Value);
+                goto LABEL_12;
+              }
+              goto LABEL_11;
             }
-            goto LABEL_11;
-          }
-          v8 = -2147483646;
+            v8 = -2147483646;
 LABEL_16:
-          if ( v18 )
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
-          return v8;
+            if ( BaseAddress )
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+            return v8;
+          }
+          goto LABEL_35;
         }
+        v16 = *((_DWORD *)v7 + 2);
+        ResultLength = v16;
+        if ( v16 > v11 )
+          goto LABEL_11;
+        LODWORD(v17) = v16;
         break;
       default:
         v8 = -1073741788;
         goto LABEL_12;
     }
-    v8 = -1073741820;
-    goto LABEL_16;
+    memcpy(Value, v7 + 12, v17);
+    goto LABEL_12;
   }
   if ( result == -2147483643 )
   {
     while ( 1 )
     {
-      v9 = v17;
+      v9 = ResultLength;
 LABEL_20:
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
       if ( !ProcessHeap )
         return -1073741801;
-      Heap = (_DWORD *)RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, v9);
-      v18 = Heap;
+      LODWORD(v17) = v9;
+      Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, v17);
+      BaseAddress = Heap;
       if ( !Heap )
         return -1073741801;
       v7 = Heap;
-      v14 = ZwQueryValueKey(v21, v19, 2, Heap, v9, &v17);
+      v14 = ZwQueryValueKey(v21, &DestinationString, KeyValuePartialInformation, Heap, v9, &ResultLength);
       v8 = v14;
       if ( v14 >= 0 )
         goto LABEL_8;

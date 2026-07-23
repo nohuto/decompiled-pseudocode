@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceMultiClassHeteroResponse @ 0x14041DAE0
+ * XREFs of PpmEventTraceMultiClassHeteroResponse @ 0x140415324
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060C314 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060F474 (PpmHeteroComputeMultiClassUnparkCount.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceMultiClassHeteroResponse(
@@ -48,9 +48,7 @@ void __fastcall PpmEventTraceMultiClassHeteroResponse(
   v27 = 0;
   if ( PpmEventPerfCheckData && PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE) )
     {
       v24 = RtlCountSetBitsAffinityEx(a2);
       UserData->Ptr = (ULONGLONG)&v30;
@@ -97,15 +95,7 @@ void __fastcall PpmEventTraceMultiClassHeteroResponse(
       v23 = v14 + 8;
       UserData[v23].Ptr = (ULONGLONG)&a10;
       *(_QWORD *)&UserData[v23].Size = 8LL;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        v14 + 9,
-        UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE, 0LL, 0, 0LL, 0LL, v14 + 9, UserData);
     }
   }
 }

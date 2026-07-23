@@ -1,11 +1,11 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x140532CE8
+ * XREFs of CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x140535188
  * Callers:
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x1402C59E4 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
- *     CmFcpManagerArmFeatureUsageProviderFlushTimerDpc @ 0x1406E2C40 (CmFcpManagerArmFeatureUsageProviderFlushTimerDpc.c)
- *     CmFcManagerStartRuntimePhase @ 0x140CF0AF0 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x140310680 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushTimerDpc @ 0x1406E6F20 (CmFcpManagerArmFeatureUsageProviderFlushTimerDpc.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140CF6E68 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ExSetTimer @ 0x14037A420 (ExSetTimer.c)
+ *     ExSetTimer @ 0x14037C1D0 (ExSetTimer.c)
  */
 
 __int64 __fastcall CmFcpManagerArmFeatureUsageProviderFlushTimer(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall CmFcpManagerArmFeatureUsageProviderFlushTimer(__int64 a1)
   __int64 result; // rax
   _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 1536);
+  v1 = *(_QWORD *)(a1 + 1608);
   if ( v1 )
   {
     v3[0] = 0LL;

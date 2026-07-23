@@ -1,55 +1,50 @@
 /*
- * XREFs of Uart16550GetByte @ 0x1406A4A90
+ * XREFs of Uart16550GetByte @ 0x1406A5A90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall Uart16550GetByte(__int64 a1, _BYTE *a2, __int64 a3, __int64 a4)
+__int64 __fastcall Uart16550GetByte(__int64 a1, _BYTE *a2)
 {
-  _BYTE *v4; // rdi
-  char v6; // al
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  char v11; // si
-  __int64 v12; // r8
-  __int64 v13; // r9
-  char v15; // al
-  __int16 v16; // r8
-  char v17; // al
+  _BYTE *v2; // rdi
+  char v4; // al
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  char v7; // si
+  char v9; // al
+  __int16 v10; // r8
+  char v11; // al
 
-  v4 = a2;
+  v2 = a2;
   if ( !a1 )
     return 3LL;
   if ( !*(_QWORD *)a1 )
     return 3LL;
   LOBYTE(a2) = 5;
-  v6 = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
-  if ( v6 == -1 )
+  v4 = guard_dispatch_icall_no_overrides(a1, a2);
+  if ( v4 == -1 )
     return 3LL;
-  if ( (v6 & 1) != 0 )
+  if ( (v4 & 1) != 0 )
   {
-    if ( (v6 & 0xE) != 0 )
+    if ( (v4 & 0xE) != 0 )
       return 2LL;
-    v11 = guard_dispatch_icall_no_overrides(a1, 0LL, v8, v9);
-    if ( (*(_BYTE *)(a1 + 12) & 4) == 0
-      || (LOBYTE(v10) = 6, (guard_dispatch_icall_no_overrides(a1, v10, v12, v13) & 0x80u) != 0LL) )
+    v7 = guard_dispatch_icall_no_overrides(a1, 0LL);
+    if ( (*(_BYTE *)(a1 + 12) & 4) == 0 || (LOBYTE(v6) = 6, (guard_dispatch_icall_no_overrides(a1, v6) & 0x80u) != 0LL) )
     {
-      *v4 = v11;
+      *v2 = v7;
       return 0LL;
     }
   }
   else
   {
-    LOBYTE(v7) = 6;
-    v15 = guard_dispatch_icall_no_overrides(a1, v7, v8, v9);
-    v16 = *(_WORD *)(a1 + 12);
-    v17 = v15 & 0x40;
-    if ( v17 == 0 && (v16 & 2) != 0 || v17 != 0 && (v16 & 2) == 0 )
-      *(_WORD *)(a1 + 12) = v16 | 4;
+    LOBYTE(v5) = 6;
+    v9 = guard_dispatch_icall_no_overrides(a1, v5);
+    v10 = *(_WORD *)(a1 + 12);
+    v11 = v9 & 0x40;
+    if ( v11 == 0 && (v10 & 2) != 0 || v11 != 0 && (v10 & 2) == 0 )
+      *(_WORD *)(a1 + 12) = v10 | 4;
   }
   return 1LL;
 }

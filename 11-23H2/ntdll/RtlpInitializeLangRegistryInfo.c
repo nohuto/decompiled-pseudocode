@@ -7,7 +7,7 @@
  *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18000A534 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
  */
 
-__int64 __fastcall RtlpInitializeLangRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpInitializeLangRegistryInfo(_QWORD *a1)
 {
   __int64 result; // rax
 

@@ -22,8 +22,8 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3)
   char *PoolWithTag; // rax
   __int64 v6; // rdi
   int SystemThread; // ebx
-  struct _RTL_BITMAP *v8; // rax
-  struct _RTL_BITMAP *v9; // rsi
+  _RTL_BITMAP *v8; // rax
+  _RTL_BITMAP *v9; // rsi
   unsigned __int64 v10; // r9
   __int64 *v11; // rdx
   __int64 v12; // r8
@@ -60,10 +60,10 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3)
                    0LL);
   if ( SystemThread >= 0 )
   {
-    v8 = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                 NonPagedPoolNx,
-                                 8 * (((unsigned int)dword_140400120 >> 6) + ((dword_140400120 & 0x3F) != 0) + 2),
-                                 0x20206D4Du);
+    v8 = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                          NonPagedPoolNx,
+                          8 * (((unsigned int)dword_140400120 >> 6) + ((dword_140400120 & 0x3F) != 0) + 2),
+                          0x20206D4Du);
     v9 = v8;
     if ( v8 )
     {

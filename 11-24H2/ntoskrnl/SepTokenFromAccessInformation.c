@@ -1,11 +1,11 @@
 /*
- * XREFs of SepTokenFromAccessInformation @ 0x14035A190
+ * XREFs of SepTokenFromAccessInformation @ 0x1403B64E0
  * Callers:
- *     SeQuerySecurityAttributesTokenAccessInformation @ 0x140359350 (SeQuerySecurityAttributesTokenAccessInformation.c)
- *     SeTokenFromAccessInformation @ 0x140359410 (SeTokenFromAccessInformation.c)
- *     SeAccessCheckFromState @ 0x14035A040 (SeAccessCheckFromState.c)
+ *     SeQuerySecurityAttributesTokenAccessInformation @ 0x1403B5CD0 (SeQuerySecurityAttributesTokenAccessInformation.c)
+ *     SeTokenFromAccessInformation @ 0x1403B5D90 (SeTokenFromAccessInformation.c)
+ *     SeAccessCheckFromState @ 0x1403B6390 (SeAccessCheckFromState.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _DWORD *__fastcall SepTokenFromAccessInformation(_DWORD **a1, __int64 a2)
@@ -50,7 +50,7 @@ _DWORD *__fastcall SepTokenFromAccessInformation(_DWORD **a1, __int64 a2)
   unsigned int v41; // edx
   __int64 v42; // rax
 
-  memset_0((void *)a2, 0, 0x498uLL);
+  memset_0((void *)a2, 0, 0x4A0uLL);
   *(_QWORD *)(a2 + 24) = a1[3];
   v4 = *((_DWORD *)a1 + 8);
   *(_DWORD *)(a2 + 192) = v4;

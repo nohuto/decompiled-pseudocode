@@ -319,10 +319,10 @@ LABEL_28:
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(1uLL);
       IopCompleteRequest((ULONG_PTR *)(a2 + 120), (__int64)&v57, &DeviceObject, (ULONG_PTR *)&FileObject, &DeviceObject);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && CurrentIrql <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && CurrentIrql <= 0xFu && v46 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

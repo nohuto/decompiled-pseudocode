@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpDestroyHeapSegment @ 0x18008F96C
+ * XREFs of RtlpDestroyHeapSegment @ 0x1800284AC
  * Callers:
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpHeapLogRangeRelease @ 0x180055A44 (RtlpHeapLogRangeRelease.c)
- *     RtlpSecMemFreeVirtualMemory @ 0x18008FA40 (RtlpSecMemFreeVirtualMemory.c)
+ *     RtlpSecMemFreeVirtualMemory @ 0x180028580 (RtlpSecMemFreeVirtualMemory.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpHeapLogRangeRelease @ 0x18006B624 (RtlpHeapLogRangeRelease.c)
  */
 
 __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
@@ -37,14 +37,14 @@ __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
   }
   else
   {
-    RtlpLogHeapFailure(13, 0LL, v2, v5, v6, 0LL);
+    RtlpLogHeapFailure(13, 0, v2, v5, v6, 0LL);
   }
   v7 = *(_QWORD *)(a1 + 48);
   v8 = *(_QWORD *)(a1 + 40);
   v12 = 0LL;
   v13 = v7;
   v9 = RtlpSecMemFreeVirtualMemory(v4, &v13, &v12, 0x8000LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v10 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v10 = 2147353480LL;

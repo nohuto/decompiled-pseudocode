@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxPlatformStateAvailable @ 0x140203228
+ * XREFs of PopFxPlatformStateAvailable @ 0x140203054
  * Callers:
- *     PopPepUpdateIdleStateRefCount @ 0x140130868 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x140130DD8 (PopPepUpdateIdleStateRefCount.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1402004E8 (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PopUpdateNonAttributedCpuTimeReference @ 0x140207090 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140200314 (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140206EBC (PopUpdateNonAttributedCpuTimeReference.c)
  */
 
 __int64 __fastcall PopFxPlatformStateAvailable(__int64 a1, char a2)

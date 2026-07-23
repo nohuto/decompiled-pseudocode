@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetSystemSdbFilePath @ 0x1408E8DCC
+ * XREFs of SdbpGetSystemSdbFilePath @ 0x1408EA08C
  * Callers:
- *     SdbGetPathCustomSdb @ 0x1408E83E0 (SdbGetPathCustomSdb.c)
- *     SdbResolveDatabaseEx @ 0x1408E84B0 (SdbResolveDatabaseEx.c)
+ *     SdbGetPathCustomSdb @ 0x1408E96A0 (SdbGetPathCustomSdb.c)
+ *     SdbResolveDatabaseEx @ 0x1408E9770 (SdbResolveDatabaseEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetSystemSdbFilePath(_WORD *a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
@@ -20,7 +20,7 @@ __int64 __fastcall SdbpGetSystemSdbFilePath(_WORD *a1, __int64 a2, int a3, __int
   if ( a3 && a3 < 10 )
   {
     v6 = 1LL;
-    v7 = &unk_140355B80;
+    v7 = &unk_140356B80;
     while ( *v7 != a3 )
     {
       ++v6;
@@ -28,7 +28,7 @@ __int64 __fastcall SdbpGetSystemSdbFilePath(_WORD *a1, __int64 a2, int a3, __int
       if ( v6 >= 0xA )
         goto LABEL_8;
     }
-    v8 = (char *)&unk_140355B60 + 32 * v6;
+    v8 = (char *)&unk_140356B60 + 32 * v6;
     if ( !v8 )
     {
 LABEL_8:

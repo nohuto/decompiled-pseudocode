@@ -1,22 +1,22 @@
 /*
- * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x14074B56C
+ * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x14074B72C
  * Callers:
- *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
- *     PnpDeleteAllDependencyRelations @ 0x1406B314C (PnpDeleteAllDependencyRelations.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14074B494 (PnpNewDeviceNodeDependencyCheck.c)
- *     IoDuplicateDependency @ 0x14089D670 (IoDuplicateDependency.c)
- *     IoSetDependency @ 0x14089D840 (IoSetDependency.c)
+ *     IoResolveDependency @ 0x1403BF8D0 (IoResolveDependency.c)
+ *     PnpDeleteAllDependencyRelations @ 0x14061220C (PnpDeleteAllDependencyRelations.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736358 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14074B654 (PnpNewDeviceNodeDependencyCheck.c)
+ *     IoDuplicateDependency @ 0x14089D7D0 (IoDuplicateDependency.c)
+ *     IoSetDependency @ 0x14089D9A0 (IoSetDependency.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x14074B6A0 (PnpReleaseDependencyRelationsLock.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x14074B750 (PipIsDeviceReadyForPowerRelations.c)
- *     PiQueryPowerRelations @ 0x14074C3A4 (PiQueryPowerRelations.c)
- *     PipDereferenceDependencyNode @ 0x14074CAC0 (PipDereferenceDependencyNode.c)
- *     PipCheckIfAllProvidersHaveDevnodes @ 0x14074CAE0 (PipCheckIfAllProvidersHaveDevnodes.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14062EA2C (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x14074B860 (PnpReleaseDependencyRelationsLock.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x14074B910 (PipIsDeviceReadyForPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x14074C564 (PiQueryPowerRelations.c)
+ *     PipDereferenceDependencyNode @ 0x14074CC80 (PipDereferenceDependencyNode.c)
+ *     PipCheckIfAllProvidersHaveDevnodes @ 0x14074CCA0 (PipCheckIfAllProvidersHaveDevnodes.c)
  */
 
 void PipProcessRebuildPowerRelationsQueue()

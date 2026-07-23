@@ -31,7 +31,7 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, __int64 a3, __i
   __int64 v12; // rbx
   wchar_t *Pool; // rbx
   __m128i v14; // xmm0
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   NTSTATUS v16; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   __int128 v19; // [rsp+40h] [rbp-40h] BYREF
@@ -76,7 +76,7 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, __int64 a3, __i
           DestinationString.Buffer = (wchar_t *)(_mm_srli_si128(v14, 8).m128i_u64[0] + 22);
           DestinationString.Length -= 22;
           NtSystemRoot = RtlGetNtSystemRoot();
-          v16 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 4, &DestinationString);
+          v16 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 2, &DestinationString);
         }
         if ( v16 >= 0 )
         {

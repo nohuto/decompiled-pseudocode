@@ -15,22 +15,22 @@
 
 __int64 __fastcall LdrpQueryCurrentPatch(unsigned int a1, unsigned int a2, __int64 a3)
 {
-  _QWORD *v3; // rdi
+  unsigned __int16 *v3; // rdi
   unsigned __int64 v4; // rbx
-  _QWORD *Heap; // rax
+  unsigned __int16 *Heap; // rax
   int v7; // eax
   int UnicodeString; // esi
   unsigned __int16 v9; // ax
   void *v10; // rcx
-  _QWORD v13[4]; // [rsp+38h] [rbp-D0h] BYREF
+  _QWORD BaseAddress[4]; // [rsp+38h] [rbp-D0h] BYREF
   __int128 v14; // [rsp+58h] [rbp-B0h]
 
-  v3 = v13;
+  v3 = (unsigned __int16 *)BaseAddress;
   v4 = __PAIR64__(a2, a1);
-  v13[1] = -1LL;
-  v13[2] = __PAIR64__(a2, a1);
-  v13[0] = 1LL;
-  v13[3] = 0LL;
+  BaseAddress[1] = -1LL;
+  BaseAddress[2] = __PAIR64__(a2, a1);
+  BaseAddress[0] = 1LL;
+  BaseAddress[3] = 0LL;
   v14 = 0LL;
   while ( 1 )
   {
@@ -40,34 +40,32 @@ __int64 __fastcall LdrpQueryCurrentPatch(unsigned int a1, unsigned int a2, __int
       break;
     if ( !LdrpHeap )
       goto LABEL_17;
-    if ( v3 != v13 )
-      RtlFreeHeap(LdrpHeap, 0, (__int64)v3);
-    Heap = (_QWORD *)RtlAllocateHeap(LdrpHeap, 0, a1);
+    if ( v3 != (unsigned __int16 *)BaseAddress )
+      RtlFreeHeap(LdrpHeap, 0, v3);
+    Heap = (unsigned __int16 *)RtlAllocateHeap(LdrpHeap, 0, a1);
     v3 = Heap;
     if ( !Heap )
       return (unsigned int)-1073741801;
-    *Heap = 1LL;
-    Heap[3] = 0LL;
-    Heap[4] = 0LL;
-    Heap[5] = 0LL;
-    Heap[1] = -1LL;
-    Heap[2] = v4;
+    *(_QWORD *)Heap = 1LL;
+    *((_QWORD *)Heap + 3) = 0LL;
+    *((_QWORD *)Heap + 4) = 0LL;
+    *((_QWORD *)Heap + 5) = 0LL;
+    *((_QWORD *)Heap + 1) = -1LL;
+    *((_QWORD *)Heap + 2) = v4;
   }
   if ( v7 >= 0 )
   {
-    if ( *((_WORD *)v3 + 16) )
+    if ( v3[16] )
     {
       if ( *(_QWORD *)(a3 + 8)
-        || (*(_OWORD *)a3 = 0LL,
-            UnicodeString = LdrpAllocateUnicodeString(a3, *((unsigned __int16 *)v3 + 16)),
-            UnicodeString >= 0) )
+        || (*(_OWORD *)a3 = 0LL, UnicodeString = LdrpAllocateUnicodeString(a3, v3[16]), UnicodeString >= 0) )
       {
-        v9 = *((_WORD *)v3 + 16);
+        v9 = v3[16];
         if ( v9 <= *(_WORD *)(a3 + 2) )
         {
           v10 = *(void **)(a3 + 8);
           *(_WORD *)a3 = v9;
-          memmove(v10, (const void *)v3[5], *((unsigned __int16 *)v3 + 16));
+          memmove(v10, *((const void **)v3 + 5), v3[16]);
         }
         else
         {
@@ -81,7 +79,7 @@ __int64 __fastcall LdrpQueryCurrentPatch(unsigned int a1, unsigned int a2, __int
     }
   }
 LABEL_17:
-  if ( v3 && v3 != v13 )
-    RtlFreeHeap(LdrpHeap, 0, (__int64)v3);
+  if ( v3 && v3 != (unsigned __int16 *)BaseAddress )
+    RtlFreeHeap(LdrpHeap, 0, v3);
   return (unsigned int)UnicodeString;
 }

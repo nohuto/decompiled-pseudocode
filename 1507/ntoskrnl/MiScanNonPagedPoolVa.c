@@ -26,7 +26,7 @@ __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3,
   unsigned __int64 v14; // rbx
   __int64 result; // rax
   unsigned __int64 v16; // [rsp+40h] [rbp-78h] BYREF
-  union _SLIST_HEADER *v17; // [rsp+48h] [rbp-70h]
+  _SLIST_HEADER *v17; // [rsp+48h] [rbp-70h]
   unsigned __int64 *v18; // [rsp+50h] [rbp-68h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-60h] BYREF
   int v20; // [rsp+C0h] [rbp+8h]

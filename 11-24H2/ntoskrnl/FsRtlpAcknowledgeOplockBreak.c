@@ -1,43 +1,38 @@
 /*
- * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x140580814
+ * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x14057DC84
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x140A20DD0 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1409E0F60 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x1402601A4 (FsRtlpClearOwner.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14033091C (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x14047FCA8 (FsRtlpModifyThreadPriorities.c)
- *     Feature_5645_7108__private_IsEnabledDeviceUsageNoInline @ 0x1404F48B4 (Feature_5645_7108__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_5466_1379__private_IsEnabledDeviceUsageNoInline @ 0x14057F78C (Feature_5466_1379__private_IsEnabledDeviceUsageNoInline.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x140580BC0 (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpSyncWithAckTimeout @ 0x14058178C (FsRtlpSyncWithAckTimeout.c)
- *     FsRtlpOplockPerfSendData @ 0x14070BDB4 (FsRtlpOplockPerfSendData.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x140A15260 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpClearOwner @ 0x1402907B4 (FsRtlpClearOwner.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402B9194 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpModifyThreadPriorities @ 0x14047A8E8 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x14057DFDC (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpSyncWithAckTimeout @ 0x14057EB0C (FsRtlpSyncWithAckTimeout.c)
+ *     FsRtlpOplockPerfSendData @ 0x140709948 (FsRtlpOplockPerfSendData.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x140A0E080 (FsRtlpOplockUpperLowerCompatible.c)
  */
 
 __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)
 {
-  char v10; // r15
-  int v11; // r14d
+  char v10; // si
+  int v11; // r10d
   int v12; // eax
   unsigned int v13; // eax
-  _QWORD *v14; // rdx
+  _QWORD *v14; // rcx
   _QWORD *v15; // rax
-  __int64 v16; // rcx
+  __int64 v16; // rdx
   __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  unsigned int v21; // esi
-  int v22; // eax
-  _QWORD *v23; // rcx
-  int v24; // [rsp+24h] [rbp-24h]
-  int v25; // [rsp+28h] [rbp-20h]
+  int v18; // eax
+  _QWORD *v19; // rcx
+  unsigned int v20; // r14d
+  int v21; // [rsp+24h] [rbp-24h]
+  int v22; // [rsp+28h] [rbp-20h]
 
   if ( !a1 )
   {
@@ -49,7 +44,6 @@ __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 
   v10 = 1;
   if ( *(_QWORD *)(a1 + 8) == *(_QWORD *)(a2 + 48) )
   {
-    v11 = 16;
     if ( !(unsigned __int8)FsRtlpOplockUpperLowerCompatible(16LL, a5) )
     {
       v12 = *(_DWORD *)(a1 + 144);
@@ -75,7 +69,7 @@ __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 
       *v15 = v14;
       *(_QWORD *)(a3 + 56) = a1;
       v10 = 0;
-      v25 = 16;
+      v21 = v11;
       *(_BYTE *)(a3 + 69) = KeAcquireQueuedSpinLock(7uLL);
       if ( *(_BYTE *)(a3 + 68) )
       {
@@ -86,64 +80,49 @@ __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 
       {
         _InterlockedExchange64((volatile __int64 *)(a3 + 104), (__int64)FsRtlpReadOnlyOplockIrpCancelRoutine);
         KeReleaseQueuedSpinLock(7uLL, *(_BYTE *)(a3 + 69));
-        v11 = 16;
       }
-      v21 = 259;
-      v24 = 259;
+      v22 = 259;
       goto LABEL_20;
     }
-    v22 = *(_DWORD *)(a1 + 144);
-    if ( (v22 & 0x300) != 0 )
+    v18 = *(_DWORD *)(a1 + 144);
+    if ( (v18 & 0x300) != 0 )
     {
-      v21 = 0;
-      v24 = 0;
+      v22 = 0;
 LABEL_19:
       *(_DWORD *)(a3 + 48) = 0;
       IofCompleteRequest((PIRP)a3, 1);
-      v11 = 1;
-      v25 = 1;
+      v21 = 1;
 LABEL_20:
       while ( 1 )
       {
-        v23 = *(_QWORD **)(a1 + 88);
-        if ( v23 == (_QWORD *)(a1 + 88) )
+        v19 = *(_QWORD **)(a1 + 88);
+        if ( v19 == (_QWORD *)(a1 + 88) )
           break;
-        FsRtlpRemoveAndCompleteWaitingIrp(v23, v18, v19, v20);
+        FsRtlpRemoveAndCompleteWaitingIrp(v19);
       }
       if ( v10 )
         ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x746C6644u);
       *(_QWORD *)(a1 + 8) = 0LL;
-      FsRtlpModifyThreadPriorities(a1, 0LL, 0LL);
+      FsRtlpModifyThreadPriorities(a1, 0LL, 0);
       FsRtlpClearOwner(a1, 0LL);
       *(_BYTE *)(a1 + 32) = 0;
-      if ( (unsigned int)Feature_5645_7108__private_IsEnabledDeviceUsageNoInline() )
-      {
-        *(_DWORD *)(a1 + 144) = v25 | *(_DWORD *)(a1 + 144) & 0x20;
-        v21 = v24;
-      }
-      else
-      {
-        *(_DWORD *)(a1 + 144) = v11 | *(_DWORD *)(a1 + 144) & 0x20;
-      }
-      if ( (unsigned int)Feature_5466_1379__private_IsEnabledDeviceUsageNoInline() )
-      {
-        FsRtlpSyncWithAckTimeout(a1 + 176);
-        FsRtlpOplockPerfSendData(a1 + 160);
-      }
-      goto LABEL_30;
+      *(_DWORD *)(a1 + 144) = v21 | *(_DWORD *)(a1 + 144) & 0x20;
+      FsRtlpSyncWithAckTimeout(a1 + 176);
+      FsRtlpOplockPerfSendData(a1 + 160);
+      v20 = v22;
+      goto LABEL_26;
     }
-    if ( (v22 & 0x400) != 0 )
+    if ( (v18 & 0x400) != 0 )
     {
-      v21 = 0;
-      v24 = 0;
+      v22 = 0;
       *(_QWORD *)(a3 + 56) = 8LL;
       goto LABEL_19;
     }
   }
-  v21 = -1073741597;
+  v20 = -1073741597;
   *(_DWORD *)(a3 + 48) = -1073741597;
   IofCompleteRequest((PIRP)a3, 1);
-LABEL_30:
+LABEL_26:
   ExReleaseFastMutexUnsafe(*(PFAST_MUTEX *)(a1 + 152));
-  return v21;
+  return v20;
 }

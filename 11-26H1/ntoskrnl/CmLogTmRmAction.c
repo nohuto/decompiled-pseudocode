@@ -1,11 +1,11 @@
 /*
- * XREFs of CmLogTmRmAction @ 0x1408AF088
+ * XREFs of CmLogTmRmAction @ 0x1408B5494
  * Callers:
- *     CmKtmNotification @ 0x1408ADED0 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1408B4310 (CmKtmNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpTransWriteLog @ 0x1408AD634 (CmpTransWriteLog.c)
- *     HvBufferCheckSum @ 0x1408ADAD0 (HvBufferCheckSum.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpTransWriteLog @ 0x1408B3A74 (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x1408B3F10 (HvBufferCheckSum.c)
  */
 
 NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, unsigned int a3)

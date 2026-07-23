@@ -16,52 +16,52 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall LdrpGetRcConfig(char a1, char a2)
+int __thiscall LdrpGetRcConfig(PVOID BaseOfImage, char a2, char a3)
 {
-  int v2; // ebx
-  int v3; // eax
-  int v4; // esi
-  int v6; // eax
-  char v7[4]; // [esp+Ch] [ebp-1Ch] BYREF
-  int v8; // [esp+10h] [ebp-18h] BYREF
-  _DWORD v9[4]; // [esp+14h] [ebp-14h] BYREF
+  int v3; // ebx
+  int v5; // eax
+  int v6; // esi
+  int v8; // eax
+  int v9; // [esp+Ch] [ebp-1Ch] BYREF
+  int v10; // [esp+10h] [ebp-18h] BYREF
+  int v11[4]; // [esp+14h] [ebp-14h] BYREF
 
-  v9[0] = 0;
-  v2 = -1;
-  if ( !a2 )
+  v11[0] = 0;
+  v3 = -1;
+  if ( !a3 )
     goto LABEL_5;
-  v3 = LdrpGetFromMUIMemCache(0, 8);
-  v4 = v3;
-  v9[0] = v3;
-  if ( v3 != -1 )
+  v5 = LdrpGetFromMUIMemCache(0, 8);
+  v6 = v5;
+  v11[0] = v5;
+  if ( v5 != -1 )
   {
-    if ( v3 )
-      return v4;
+    if ( v5 )
+      return v6;
 LABEL_5:
-    v9[3] = 0;
-    v9[1] = L"MUI";
-    v9[2] = 1;
-    v6 = LdrpSearchResourceSection_U(3, 33554480, &v8);
-    if ( v6 >= 0 )
+    v11[3] = 0;
+    v11[1] = (int)L"MUI";
+    v11[2] = 1;
+    v8 = LdrpSearchResourceSection_U(BaseOfImage, 3, 0x2000030u, (int)&v10);
+    if ( v8 >= 0 )
     {
-      v6 = LdrpAccessResourceDataNoMultipleLanguage(v9, v7);
-      if ( v6 >= 0 )
+      v8 = LdrpAccessResourceDataNoMultipleLanguage(BaseOfImage, (int)v11, (int)&v9);
+      if ( v8 >= 0 )
       {
-        v4 = v9[0];
-        if ( *(_DWORD *)v9[0] == -20054323 )
+        v6 = v11[0];
+        if ( *(_DWORD *)v11[0] == -20054323 )
           goto LABEL_8;
-        v6 = -1073741701;
+        v8 = -1073741701;
       }
     }
-    v4 = 0;
+    v6 = 0;
 LABEL_8:
-    if ( a1 )
+    if ( a2 )
     {
-      if ( v4 )
-        v2 = v4;
-      LdrpSetAlternateResourceModuleHandle(0, v2, 0, 2, v6, 0);
+      if ( v6 )
+        v3 = v6;
+      LdrpSetAlternateResourceModuleHandle(0, v3, 0, 2, v8, 0);
     }
-    return v4;
+    return v6;
   }
   return 0;
 }

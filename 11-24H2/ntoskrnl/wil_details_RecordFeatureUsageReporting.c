@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_RecordFeatureUsageReporting @ 0x140667E50
+ * XREFs of wil_details_RecordFeatureUsageReporting @ 0x140666790
  * Callers:
  *     <none>
  * Callees:
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x1403A6B5C (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
- *     RtlRecordFeatureUsage @ 0x1403A7560 (RtlRecordFeatureUsage.c)
+ *     RtlRecordFeatureUsage @ 0x14048C600 (RtlRecordFeatureUsage.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x14048C7E8 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
  */
 
 void __fastcall wil_details_RecordFeatureUsageReporting(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
@@ -19,7 +19,7 @@ void __fastcall wil_details_RecordFeatureUsageReporting(int a1, __int64 a2, __in
     _m_prefetchw((const void *)(g_wil_details_featureUsageProvider + 100));
     v7 = *(_DWORD *)(g_wil_details_featureUsageProvider + 100) | 1u;
     v8 = _InterlockedOr((volatile signed __int32 *)(g_wil_details_featureUsageProvider + 100), 1u);
-    CmFcpManagerArmFeatureUsageProviderFlushNotification(v7, 1, (v8 & 1) == 0);
+    CmFcpManagerArmFeatureUsageProviderFlushNotification(v7, 1LL, (v8 & 1) == 0);
   }
   if ( v5[1] )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopQueueTargetDpc @ 0x14042883C
+ * XREFs of PopQueueTargetDpc @ 0x14021AB1C
  * Callers:
- *     PopExecuteProcessorCallback @ 0x140428090 (PopExecuteProcessorCallback.c)
- *     PoGetIdleTimes @ 0x1404280E0 (PoGetIdleTimes.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     PpmCapturePerformanceDistribution @ 0x140428B10 (PpmCapturePerformanceDistribution.c)
+ *     PopExecuteProcessorCallback @ 0x14021A370 (PopExecuteProcessorCallback.c)
+ *     PoGetIdleTimes @ 0x14021A3C0 (PoGetIdleTimes.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     PpmCapturePerformanceDistribution @ 0x1404B01CC (PpmCapturePerformanceDistribution.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 LONG __fastcall PopQueueTargetDpc(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -42,8 +42,7 @@ LONG __fastcall PopQueueTargetDpc(ULONG_PTR BugCheckParameter2, __int64 a2)
   }
   _BitScanForward64(&v9, v7);
   v2[1] = (unsigned __int16 *)(v7 & ~(1LL << v9));
-  v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-        + 64 * v8
+  v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v8].Flink
         + (unsigned int)(unsigned __int8)v9);
   *(_QWORD *)(BugCheckParameter2 + 24) = PopExecuteProcessorCallback;
   *(_QWORD *)(BugCheckParameter2 + 56) = 0LL;
@@ -53,5 +52,5 @@ LONG __fastcall PopQueueTargetDpc(ULONG_PTR BugCheckParameter2, __int64 a2)
   *(_QWORD *)(BugCheckParameter2 + 16) = 0LL;
   if ( !v11 )
     *(_WORD *)(BugCheckParameter2 + 2) = v10 + 2048;
-  return KiInsertQueueDpc(BugCheckParameter2, 0LL, 0LL, 0LL, 0);
+  return KiInsertQueueDpc(BugCheckParameter2, 0);
 }

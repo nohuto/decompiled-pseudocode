@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlInitSystem @ 0x140A6B9E0
+ * XREFs of FsRtlInitSystem @ 0x140A6C9E0
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     FsFilterInit @ 0x1403C9318 (FsFilterInit.c)
- *     ExInitializePagedLookasideList @ 0x1407113C0 (ExInitializePagedLookasideList.c)
- *     FsRtlInitializeTieringHeat @ 0x1407C6910 (FsRtlInitializeTieringHeat.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     FsRtlInitializeSmssEvent @ 0x140A6BB14 (FsRtlInitializeSmssEvent.c)
- *     FsRtlInitializeWorkerThread @ 0x140A6BC0C (FsRtlInitializeWorkerThread.c)
- *     FsRtlGetCompatibilityModeValue @ 0x140A6BCF0 (FsRtlGetCompatibilityModeValue.c)
- *     FsRtlInitializeLargeMcbs @ 0x140A6BE18 (FsRtlInitializeLargeMcbs.c)
- *     FsRtlInitializeFileLocks @ 0x140A6BEB4 (FsRtlInitializeFileLocks.c)
- *     FsRtlInitializeTunnels @ 0x140A6C04C (FsRtlInitializeTunnels.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     FsFilterInit @ 0x1403C94B8 (FsFilterInit.c)
+ *     ExInitializePagedLookasideList @ 0x1406BFA10 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitializeTieringHeat @ 0x1407C6C30 (FsRtlInitializeTieringHeat.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     FsRtlInitializeSmssEvent @ 0x140A6CB14 (FsRtlInitializeSmssEvent.c)
+ *     FsRtlInitializeWorkerThread @ 0x140A6CC0C (FsRtlInitializeWorkerThread.c)
+ *     FsRtlGetCompatibilityModeValue @ 0x140A6CCF0 (FsRtlGetCompatibilityModeValue.c)
+ *     FsRtlInitializeLargeMcbs @ 0x140A6CE18 (FsRtlInitializeLargeMcbs.c)
+ *     FsRtlInitializeFileLocks @ 0x140A6CEB4 (FsRtlInitializeFileLocks.c)
+ *     FsRtlInitializeTunnels @ 0x140A6D04C (FsRtlInitializeTunnels.c)
  */
 
 char FsRtlInitSystem()

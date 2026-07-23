@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpIsReadErrorTransient @ 0x140881984
+ * XREFs of HvpIsReadErrorTransient @ 0x140881AE4
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140880C2C (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140880D8C (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x1403759E4 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall HvpIsReadErrorTransient(int a1)
@@ -41,7 +41,7 @@ char __fastcall HvpIsReadErrorTransient(int a1)
         v12 = 4LL;
         v7 = 0x1000000LL;
         v14 = 8LL;
-        tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&byte_140023D75, v1, v2, &v8);
+        tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&byte_140023F6D, v1, v2, &v8);
       }
     }
     return 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCheckNotificationAccess @ 0x1409205D4
+ * XREFs of EtwpCheckNotificationAccess @ 0x14097A0C0
  * Callers:
- *     EtwpUpdatePeriodicCaptureState @ 0x14082D210 (EtwpUpdatePeriodicCaptureState.c)
- *     EtwpValidateEnableNotification @ 0x14091F4CC (EtwpValidateEnableNotification.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x140833450 (EtwpUpdatePeriodicCaptureState.c)
+ *     EtwpValidateEnableNotification @ 0x140979F2C (EtwpValidateEnableNotification.c)
  * Callees:
- *     EtwpCheckGuidAccess @ 0x1409207F8 (EtwpCheckGuidAccess.c)
- *     EtwCheckSecurityLoggerAccess @ 0x140A7FB2C (EtwCheckSecurityLoggerAccess.c)
+ *     EtwpCheckGuidAccess @ 0x1408FC30C (EtwpCheckGuidAccess.c)
+ *     EtwCheckSecurityLoggerAccess @ 0x140A8599C (EtwCheckSecurityLoggerAccess.c)
  */
 
 __int64 __fastcall EtwpCheckNotificationAccess(_QWORD *a1, __int64 a2)
@@ -15,10 +15,10 @@ __int64 __fastcall EtwpCheckNotificationAccess(_QWORD *a1, __int64 a2)
   __int64 v6; // rax
   struct _KTHREAD *CurrentThread; // rdx
 
-  result = EtwpCheckGuidAccess(a1, 128LL, 0LL);
+  result = EtwpCheckGuidAccess((__int64)a1, 0x80u);
   if ( (int)result >= 0 )
   {
-    result = EtwpCheckGuidAccess(a2, 128LL, 0LL);
+    result = EtwpCheckGuidAccess(a2, 0x80u);
     v5 = result;
     if ( (int)result >= 0 )
     {

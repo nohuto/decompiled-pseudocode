@@ -1,10 +1,10 @@
 /*
- * XREFs of _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140908188
+ * XREFs of _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140909448
  * Callers:
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140907D38 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140908FF8 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x14073E7C8 (RtlpLangNameInMultiSzString.c)
- *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     RtlpLangNameInMultiSzString @ 0x14073F9B8 (RtlpLangNameInMultiSzString.c)
+ *     RtlLCIDToCultureName @ 0x140897850 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall RtlpMuiRegValidateAndGetInstallFallbackBase(

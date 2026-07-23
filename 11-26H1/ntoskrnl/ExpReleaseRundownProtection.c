@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpReleaseRundownProtection @ 0x140463F50
+ * XREFs of ExpReleaseRundownProtection @ 0x14045CF10
  * Callers:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     PfSnReferenceProcessTrace @ 0x140374C1C (PfSnReferenceProcessTrace.c)
- *     PfSnLogPageFault @ 0x140374EF0 (PfSnLogPageFault.c)
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     PfSnRemoveProcessTrace @ 0x1404637EC (PfSnRemoveProcessTrace.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14081B7C8 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     PfSnReferenceProcessTrace @ 0x1403769CC (PfSnReferenceProcessTrace.c)
+ *     PfSnLogPageFault @ 0x140376CA0 (PfSnLogPageFault.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     PfSnRemoveProcessTrace @ 0x14045C7AC (PfSnRemoveProcessTrace.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x1408219D8 (SmHwAcceleratorPartitionCtxCleanup.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 void __stdcall ExpReleaseRundownProtection(PEX_RUNDOWN_REF RunRef, ULONG Count)

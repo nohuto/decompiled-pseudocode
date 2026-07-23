@@ -11,64 +11,66 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall sub_1800E1DF8(__int64 a1, void *a2)
+__int64 __fastcall sub_1800E1DF8(HANDLE KeyHandle, void *a2)
 {
-  int inited; // ebx
-  unsigned int i; // ebx
-  void *ProcessHeap; // rcx
+  NTSTATUS inited; // ebx
+  ULONG Length; // ebx
+  PVOID ProcessHeap; // rcx
   _DWORD *Heap; // rdi
-  int ValueKey; // eax
-  int v8; // ecx
-  unsigned int v9; // eax
-  size_t v10; // r8
-  unsigned int v11; // ecx
-  unsigned int v13; // [rsp+30h] [rbp-38h]
-  _BYTE v14[48]; // [rsp+38h] [rbp-30h] BYREF
+  NTSTATUS v8; // eax
+  int v9; // ecx
+  ULONG v10; // eax
+  size_t v11; // r8
+  unsigned __int32 v12; // ecx
+  ULONG ResultLength; // [rsp+30h] [rbp-38h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
 
   memset(a2, 0, 0x400uLL);
-  inited = RtlInitUnicodeStringEx((__int64)v14, (__int64)L"EAFModules");
+  inited = RtlInitUnicodeStringEx(&DestinationString, L"EAFModules");
   if ( inited < 0 )
   {
 LABEL_20:
-    v11 = inited;
+    v12 = inited;
     if ( (int)(inited + 0x80000000) < 0 || inited == -1073741772 )
       return 0LL;
   }
   else
   {
-    for ( i = 1036; ; i = v13 )
+    for ( Length = 1036; ; Length = ResultLength )
     {
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
       if ( !ProcessHeap )
         break;
-      Heap = (_DWORD *)RtlAllocateHeap((__int64)ProcessHeap, dword_18016542C + 1572864, i);
+      Heap = RtlAllocateHeap(ProcessHeap, Flags + 1572864, Length);
       if ( !Heap )
         break;
-      ValueKey = ZwQueryValueKey();
-      inited = ValueKey;
-      if ( ValueKey >= 0 )
+      v8 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Heap, Length, &ResultLength);
+      inited = v8;
+      if ( v8 >= 0 )
       {
-        v8 = Heap[1];
-        if ( ((v8 - 3) & 0xFFFFFFFB) != 0 )
+        v9 = Heap[1];
+        if ( ((v9 - 3) & 0xFFFFFFFB) != 0 )
         {
-          if ( v8 != 1 )
+          if ( v9 != 1 )
             goto LABEL_10;
-          v9 = Heap[2];
-          if ( v9 <= 0x400 )
+          v10 = Heap[2];
+          ResultLength = v10;
+          if ( v10 <= 0x400 )
           {
-            v10 = v9;
+            v11 = v10;
             goto LABEL_13;
           }
 LABEL_18:
           inited = -2147483643;
         }
-        else if ( v8 == 1 )
+        else if ( v9 == 1 )
         {
+          ResultLength = Heap[2];
           if ( !a2 || Heap[2] > 0x400u )
             goto LABEL_18;
-          v10 = (unsigned int)Heap[2];
+          v11 = (unsigned int)Heap[2];
 LABEL_13:
-          memmove(a2, Heap + 3, v10);
+          memmove(a2, Heap + 3, v11);
         }
         else
         {
@@ -76,14 +78,14 @@ LABEL_10:
           inited = -1073741788;
         }
 LABEL_19:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         goto LABEL_20;
       }
-      if ( ValueKey != -2147483643 )
+      if ( v8 != -2147483643 )
         goto LABEL_19;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     }
-    return (unsigned int)-1073741801;
+    return (unsigned __int32)-1073741801;
   }
-  return v11;
+  return v12;
 }

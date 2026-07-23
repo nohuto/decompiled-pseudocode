@@ -1,9 +1,9 @@
 /*
- * XREFs of KiConfigureProcessorBlock @ 0x14099F624
+ * XREFs of KiConfigureProcessorBlock @ 0x1409A0554
  * Callers:
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
- *     KiInitializeDynamicProcessorDpc @ 0x1409AF390 (KiInitializeDynamicProcessorDpc.c)
- *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x1409B02C0 (KiInitializeDynamicProcessorDpc.c)
+ *     KeStartAllProcessors @ 0x140A4E568 (KeStartAllProcessors.c)
  * Callees:
  *     <none>
  */

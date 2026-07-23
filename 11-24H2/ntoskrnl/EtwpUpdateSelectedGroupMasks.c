@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpUpdateSelectedGroupMasks @ 0x14048FBCC
+ * XREFs of EtwpUpdateSelectedGroupMasks @ 0x14048A210
  * Callers:
- *     EtwpEnableMetaProviderGuid @ 0x140430E80 (EtwpEnableMetaProviderGuid.c)
- *     EtwpUpdateGroupMasks @ 0x140830E90 (EtwpUpdateGroupMasks.c)
+ *     EtwpEnableMetaProviderGuid @ 0x1404233C0 (EtwpEnableMetaProviderGuid.c)
+ *     EtwpUpdateGroupMasks @ 0x1409D112C (EtwpUpdateGroupMasks.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpEventWriteTemplateInvalidGroupMask @ 0x1407A7728 (EtwpEventWriteTemplateInvalidGroupMask.c)
- *     EtwpCCSwapStop @ 0x1407B3854 (EtwpCCSwapStop.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1408EB088 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140A16238 (EtwpLogAlwaysPresentRundown.c)
- *     EtwpLogGroupMask @ 0x140A162A4 (EtwpLogGroupMask.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140A8E2D8 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpCCSwapStart @ 0x140ABF2B8 (EtwpCCSwapStart.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpEventWriteTemplateInvalidGroupMask @ 0x1407A7868 (EtwpEventWriteTemplateInvalidGroupMask.c)
+ *     EtwpCCSwapStop @ 0x1407B3CA4 (EtwpCCSwapStop.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x14085C8B8 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140A0F418 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpLogGroupMask @ 0x140A0F484 (EtwpLogGroupMask.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140A8A8A8 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpCCSwapStart @ 0x140ABA320 (EtwpCCSwapStart.c)
  */
 
 __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3)
@@ -28,8 +28,8 @@ __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3)
   int v8; // eax
   int updated; // esi
   __int64 i; // rdx
-  _QWORD *v11; // rax
-  _QWORD *v12; // r15
+  char *v11; // rax
+  char *v12; // r15
   __int64 v13; // r15
   int v14; // eax
   __int64 v15; // rdx
@@ -106,12 +106,12 @@ __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3)
         a1[3]);
     return (unsigned int)updated;
   }
-  v11 = KeAbPreAcquire((__int64)(a1 + 172), 0LL);
+  v11 = (char *)KeAbPreAcquire((__int64)(a1 + 172), 0LL);
   v12 = v11;
   if ( _interlockedbittestandset64(a1 + 172, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 86, (__int64)v11, (__int64)(a1 + 172));
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1 + 86, v11, (__int64)(a1 + 172));
   if ( v12 )
-    *((_BYTE *)v12 + 10) = 1;
+    v12[10] = 1;
   v13 = *((unsigned __int8 *)a1 + 818);
   if ( !a2 )
     goto LABEL_19;

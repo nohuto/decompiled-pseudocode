@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipSMBiosHideMachine @ 0x1407A4B8C
+ * XREFs of WmipSMBiosHideMachine @ 0x1407A4C9C
  * Callers:
- *     WmipGetSMBiosTableData @ 0x140A42038 (WmipGetSMBiosTableData.c)
+ *     WmipGetSMBiosTableData @ 0x140A37918 (WmipGetSMBiosTableData.c)
  * Callees:
- *     WmipSMBiosFindStringAndZero @ 0x1407A4A80 (WmipSMBiosFindStringAndZero.c)
- *     WmipSMBiosFindStructure @ 0x1407A4B04 (WmipSMBiosFindStructure.c)
+ *     WmipSMBiosFindStringAndZero @ 0x1407A4B90 (WmipSMBiosFindStringAndZero.c)
+ *     WmipSMBiosFindStructure @ 0x1407A4C14 (WmipSMBiosFindStructure.c)
  */
 
 void __fastcall WmipSMBiosHideMachine(_BYTE *a1, int a2)

@@ -18,22 +18,22 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-char __fastcall RtlCreateUnicodeString(__int64 a1, const wchar_t *a2)
+BOOLEAN __cdecl RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   int v4; // eax
   unsigned int v5; // esi
-  void *Atom; // rax
+  wchar_t *Atom; // rax
 
-  v4 = wcslen(a2);
+  v4 = wcslen(SourceString);
   v5 = 2 * v4 + 2;
   if ( (unsigned int)(2 * v4 + 1) > 0xFFFD )
     return 0;
-  Atom = (void *)RtlpAllocateAtom();
-  *(_QWORD *)(a1 + 8) = Atom;
+  Atom = (wchar_t *)RtlpAllocateAtom(v5);
+  DestinationString->Buffer = Atom;
   if ( !Atom )
     return 0;
-  *(_WORD *)(a1 + 2) = v5;
-  memmove(Atom, a2, v5);
-  *(_WORD *)a1 = v5 - 2;
+  DestinationString->MaximumLength = v5;
+  memmove(Atom, SourceString, v5);
+  DestinationString->Length = v5 - 2;
   return 1;
 }

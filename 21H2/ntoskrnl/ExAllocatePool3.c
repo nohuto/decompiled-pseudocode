@@ -1,13 +1,13 @@
 /*
- * XREFs of ExAllocatePool3 @ 0x1409B4270
+ * XREFs of ExAllocatePool3 @ 0x1409B5270
  * Callers:
- *     VerifierExAllocatePool3 @ 0x1409D4B10 (VerifierExAllocatePool3.c)
+ *     VerifierExAllocatePool3 @ 0x1409D5B10 (VerifierExAllocatePool3.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     ExpPoolFlagsToPoolType @ 0x1409B4030 (ExpPoolFlagsToPoolType.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140346ED0 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     ExpPoolFlagsToPoolType @ 0x1409B5030 (ExpPoolFlagsToPoolType.c)
  */
 
 PVOID __fastcall ExAllocatePool3(__int64 a1, SIZE_T a2, ULONG a3, __int64 a4, unsigned int a5)
@@ -15,7 +15,7 @@ PVOID __fastcall ExAllocatePool3(__int64 a1, SIZE_T a2, ULONG a3, __int64 a4, un
   char v5; // bp
   char v9; // r15
   EX_POOL_PRIORITY v10; // edi
-  signed int v11; // eax
+  NTSTATUS v11; // eax
   unsigned int i; // edx
   _BYTE v14[4]; // [rsp+30h] [rbp-28h] BYREF
   POOL_TYPE PoolType[9]; // [rsp+34h] [rbp-24h] BYREF

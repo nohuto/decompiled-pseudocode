@@ -55,9 +55,7 @@
 
 NTSTATUS __stdcall ZwDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, ValueName, v2);
+  return KiServiceInternal(KeyHandle);
 }

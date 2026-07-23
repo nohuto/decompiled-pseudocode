@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetClusterPage @ 0x140555970
+ * XREFs of MiGetClusterPage @ 0x140555BB0
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x140210120 (MiResolvePrivateZeroFault.c)
- *     MiCreateSharedZeroPages @ 0x140241770 (MiCreateSharedZeroPages.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B4A20 (MiResolvePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x1402E5FC0 (MiCreateSharedZeroPages.c)
  * Callees:
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14023C0AC (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiIsPteEvaluated @ 0x14027124C (MiIsPteEvaluated.c)
- *     MiComputeZeroClusterMaximum @ 0x14027449C (MiComputeZeroClusterMaximum.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiIsPteEvaluated @ 0x14025F1EC (MiIsPteEvaluated.c)
+ *     MiComputeZeroClusterMaximum @ 0x14026243C (MiComputeZeroClusterMaximum.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402E08FC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiGetClusterPage(
@@ -50,7 +50,7 @@ __int64 __fastcall MiGetClusterPage(
   __int64 v29; // r14
   __int64 v30; // r8
   __int64 v31; // r13
-  unsigned int v32; // eax
+  int v32; // eax
   unsigned int v33; // r9d
   __int64 LargePage; // r15
   __int64 result; // rax
@@ -89,7 +89,7 @@ __int64 __fastcall MiGetClusterPage(
   }
   v11 = (*(_DWORD *)(a1 + 48) >> 12) & 0x3F;
   MiInitializePageColorBase((__int64)v9, v11, (__int64)&v48);
-  v14 = HIDWORD(v48) >> byte_140C4DE8C;
+  v14 = HIDWORD(v48) >> byte_140C4DECC;
   v27 = (*(_DWORD *)(a1 + 48) & 0x100000) == 0;
   LOWORD(v51[0]) = 2;
   v51[1] = v44;
@@ -124,7 +124,7 @@ __int64 __fastcall MiGetClusterPage(
   }
   v23 = v14;
   v24 = v13;
-  v43 = *(_QWORD *)(qword_140C4E648 + 8 * v15);
+  v43 = *(_QWORD *)(qword_140C4E688 + 8 * v15);
   *(_BYTE *)(4544 * v23 + *(_QWORD *)(v43 + 16) + 3251) = 1;
   do
   {

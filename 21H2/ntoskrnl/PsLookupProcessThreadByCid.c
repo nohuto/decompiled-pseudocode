@@ -1,13 +1,13 @@
 /*
- * XREFs of PsLookupProcessThreadByCid @ 0x14069F110
+ * XREFs of PsLookupProcessThreadByCid @ 0x14068F940
  * Callers:
- *     PsOpenThread @ 0x140625D00 (PsOpenThread.c)
- *     PsOpenProcess @ 0x14065A730 (PsOpenProcess.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     PsOpenProcess @ 0x14064F550 (PsOpenProcess.c)
+ *     PsOpenThread @ 0x140691E18 (PsOpenThread.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsLookupThreadByThreadId @ 0x140625630 (PsLookupThreadByThreadId.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     PsLookupThreadByThreadId @ 0x14068F2A0 (PsLookupThreadByThreadId.c)
  */
 
 NTSTATUS __fastcall PsLookupProcessThreadByCid(__int64 a1, _QWORD *a2, PADAPTER_OBJECT *a3)

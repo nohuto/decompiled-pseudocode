@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpReferenceObjectByHandle @ 0x1408FA460
+ * XREFs of ObpReferenceObjectByHandle @ 0x14092A3F0
  * Callers:
- *     ObWaitForMultipleObjects @ 0x140A230B0 (ObWaitForMultipleObjects.c)
+ *     ObWaitForMultipleObjects @ 0x140A2C6D0 (ObWaitForMultipleObjects.c)
  * Callees:
- *     ExSlowReplenishHandleTableEntry @ 0x14044D280 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExHandleLogBadReference @ 0x14046C9F0 (ExHandleLogBadReference.c)
- *     ExFastReplenishHandleTableEntry @ 0x1404ACB20 (ExFastReplenishHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1404453A0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExHandleLogBadReference @ 0x140466170 (ExHandleLogBadReference.c)
+ *     ExFastReplenishHandleTableEntry @ 0x1404A61B0 (ExFastReplenishHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 *__fastcall ObpReferenceObjectByHandle(

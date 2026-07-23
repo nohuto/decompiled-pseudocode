@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpControlRequestCopy @ 0x140A75F5C
+ * XREFs of PfpRpControlRequestCopy @ 0x140A5EAF0
  * Callers:
- *     PfpRpControlRequest @ 0x140A75E88 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x140A5EA1C (PfpRpControlRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128i **a3, __m128i *a4, char a5)
@@ -60,7 +60,7 @@ LABEL_9:
     return (unsigned int)-1073741811;
   if ( (unsigned int)v13 > 0x28uLL )
   {
-    Pool2 = (__m128i *)ExAllocatePool2(0x100uLL);
+    Pool2 = (__m128i *)ExAllocatePool2(0x100uLL, (unsigned int)v13, 0x43526650u);
     if ( !Pool2 )
       return (unsigned int)-1073741670;
   }

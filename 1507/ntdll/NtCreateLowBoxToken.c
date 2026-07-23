@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 NtCreateLowBoxToken()
+NTSTATUS __cdecl NtCreateLowBoxToken(
+        PHANDLE TokenHandle,
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PSID PackageSid,
+        ULONG CapabilityCount,
+        PSID_AND_ATTRIBUTES Capabilities,
+        ULONG HandleCount,
+        HANDLE *Handles)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 165LL;
+  result = 165;
   __asm { syscall; Low latency system call }
   return result;
 }

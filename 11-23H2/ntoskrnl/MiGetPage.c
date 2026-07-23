@@ -1,66 +1,66 @@
 /*
- * XREFs of MiGetPage @ 0x14026D360
+ * XREFs of MiGetPage @ 0x14026D5F0
  * Callers:
  *     MiGetSystemPage @ 0x14021A5F8 (MiGetSystemPage.c)
- *     MiAllocateMdlPagesByLists @ 0x14023B910 (MiAllocateMdlPagesByLists.c)
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiGetPoolPages @ 0x1402E3304 (MiGetPoolPages.c)
- *     MiGetPageTablePages @ 0x1402E40B8 (MiGetPageTablePages.c)
- *     MiGetUltraPage @ 0x1402EC570 (MiGetUltraPage.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiTradeTransitionPage @ 0x1403BDC20 (MiTradeTransitionPage.c)
- *     MiPruneStandbyPages @ 0x14046CFB0 (MiPruneStandbyPages.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
- *     MiReplaceLockedPage @ 0x140636C94 (MiReplaceLockedPage.c)
- *     MiSplitDirectMapPage @ 0x14063F264 (MiSplitDirectMapPage.c)
- *     MiGetExtendedStandbyPage @ 0x1406506B0 (MiGetExtendedStandbyPage.c)
- *     MmAllocateNonChargedSecurePages @ 0x14065749C (MmAllocateNonChargedSecurePages.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
- *     MiDoneWithThisPageGetAnother @ 0x140663F84 (MiDoneWithThisPageGetAnother.c)
- *     MiHandleForkTransitionPte @ 0x140664948 (MiHandleForkTransitionPte.c)
- *     MiGetFileHashPage @ 0x140665F0C (MiGetFileHashPage.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiAllocateTopLevelPage @ 0x140706194 (MiAllocateTopLevelPage.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1408253A8 (MiComputeCacheAttributeSpeeds.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C23C (MmAllocateIndependentPagesEx.c)
- *     MiFillPerSessionProtos @ 0x140A49FAC (MiFillPerSessionProtos.c)
+ *     MiAllocateMdlPagesByLists @ 0x14023B9E0 (MiAllocateMdlPagesByLists.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiGetPoolPages @ 0x1402E3594 (MiGetPoolPages.c)
+ *     MiGetPageTablePages @ 0x1402E4348 (MiGetPageTablePages.c)
+ *     MiGetUltraPage @ 0x1402EC800 (MiGetUltraPage.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiTradeTransitionPage @ 0x1403BDE00 (MiTradeTransitionPage.c)
+ *     MiPruneStandbyPages @ 0x14046D3B0 (MiPruneStandbyPages.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
+ *     MiReplaceLockedPage @ 0x1406371E4 (MiReplaceLockedPage.c)
+ *     MiSplitDirectMapPage @ 0x14063F7B4 (MiSplitDirectMapPage.c)
+ *     MiGetExtendedStandbyPage @ 0x140650C00 (MiGetExtendedStandbyPage.c)
+ *     MmAllocateNonChargedSecurePages @ 0x1406579EC (MmAllocateNonChargedSecurePages.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1406644D4 (MiDoneWithThisPageGetAnother.c)
+ *     MiHandleForkTransitionPte @ 0x140664E98 (MiHandleForkTransitionPte.c)
+ *     MiGetFileHashPage @ 0x14066645C (MiGetFileHashPage.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiAllocateTopLevelPage @ 0x1407063A4 (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x1408256A8 (MiComputeCacheAttributeSpeeds.c)
+ *     MmAllocateIndependentPagesEx @ 0x14086C47C (MmAllocateIndependentPagesEx.c)
+ *     MiFillPerSessionProtos @ 0x140A4A25C (MiFillPerSessionProtos.c)
  *     MiInitializeGapFrames @ 0x140B41EF8 (MiInitializeGapFrames.c)
  *     MiAllocateDummyPage @ 0x140B44E78 (MiAllocateDummyPage.c)
  *     MxSwapPages @ 0x140B58AF8 (MxSwapPages.c)
  *     MiInitializeCacheFlushing @ 0x140B6A51C (MiInitializeCacheFlushing.c)
  * Callees:
  *     MiPfnZeroingNeeded @ 0x14021AEF4 (MiPfnZeroingNeeded.c)
- *     MiGetPerfectColorHeadPage @ 0x14026DC10 (MiGetPerfectColorHeadPage.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiCheckZeroFreeRebalance @ 0x1402D9100 (MiCheckZeroFreeRebalance.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402E80D4 (MiGetFreeOrZeroPageAnyColor.c)
- *     MiPageAvailableEx @ 0x1402E8604 (MiPageAvailableEx.c)
- *     MiRemovePageAnyColor @ 0x1402EB774 (MiRemovePageAnyColor.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
- *     MiNodeHasFreeOrZeroPages @ 0x14064DA6C (MiNodeHasFreeOrZeroPages.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140651854 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
+ *     MiGetPerfectColorHeadPage @ 0x14026DEA0 (MiGetPerfectColorHeadPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiCheckZeroFreeRebalance @ 0x1402D9390 (MiCheckZeroFreeRebalance.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1402E8364 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiPageAvailableEx @ 0x1402E8894 (MiPageAvailableEx.c)
+ *     MiRemovePageAnyColor @ 0x1402EBA04 (MiRemovePageAnyColor.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
+ *     MiNodeHasFreeOrZeroPages @ 0x14064DFBC (MiNodeHasFreeOrZeroPages.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140651DA4 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
  */
 
 __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
@@ -91,7 +91,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
   int v26; // r11d
   int v27; // eax
   __int64 v28; // rdx
-  union _SLIST_HEADER *v29; // rcx
+  _SLIST_HEADER *v29; // rcx
   unsigned int v30; // r15d
   ULONG_PTR v31; // rdi
   int v32; // edx
@@ -104,7 +104,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 *v40; // r8
   int v41; // ecx
   __int64 v42; // rdx
-  union _SLIST_HEADER *v43; // rcx
+  _SLIST_HEADER *v43; // rcx
   __int64 v44; // rax
   unsigned __int64 v45; // rax
   __int64 v46; // rax
@@ -426,7 +426,7 @@ LABEL_12:
       v93 = v28;
       while ( 1 )
       {
-        v29 = (union _SLIST_HEADER *)(v28 + *(_QWORD *)(v23 + 8LL * v27 + 6808));
+        v29 = (_SLIST_HEADER *)(v28 + *(_QWORD *)(v23 + 8LL * v27 + 6808));
         if ( LOWORD(v29->Alignment) )
         {
           PerfectColorHeadPage = RtlpInterlockedPopEntrySList(v29);
@@ -552,7 +552,7 @@ LABEL_56:
       v104 = v42;
       while ( 2 )
       {
-        v43 = (union _SLIST_HEADER *)(v42 + *(_QWORD *)(a1 + 8LL * v41 + 6808));
+        v43 = (_SLIST_HEADER *)(v42 + *(_QWORD *)(a1 + 8LL * v41 + 6808));
         if ( LOWORD(v43->Alignment) )
         {
           PerfectColorHeadPage = RtlpInterlockedPopEntrySList(v43);

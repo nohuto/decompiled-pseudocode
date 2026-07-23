@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkClearForcedMask @ 0x140ACAF9C
+ * XREFs of PpmParkClearForcedMask @ 0x140AC8B58
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmCheckApplyParkConstraints @ 0x1404B38A4 (PpmCheckApplyParkConstraints.c)
- *     PpmParkApplyPolicy @ 0x1404ED2F4 (PpmParkApplyPolicy.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmParkParkingAvailable @ 0x140A723C0 (PpmParkParkingAvailable.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmCheckApplyParkConstraints @ 0x14044BDC4 (PpmCheckApplyParkConstraints.c)
+ *     PpmParkApplyPolicy @ 0x1404E4B18 (PpmParkApplyPolicy.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmParkParkingAvailable @ 0x140A6B7A0 (PpmParkParkingAvailable.c)
  */
 
 __int64 __fastcall PpmParkClearForcedMask(_WORD *a1, __int64 a2, unsigned int a3)
@@ -34,7 +34,7 @@ __int64 __fastcall PpmParkClearForcedMask(_WORD *a1, __int64 a2, unsigned int a3
   v10 = 0;
   for ( i = 0; i < (unsigned int)PpmParkNumNodes; ++i )
   {
-    v12 = PpmParkNodes + 1288LL * i;
+    v12 = PpmParkNodes + 1296LL * i;
     if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline() )
     {
       v13 = (unsigned __int16)*a1;

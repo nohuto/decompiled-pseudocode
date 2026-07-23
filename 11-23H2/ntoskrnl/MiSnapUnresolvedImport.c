@@ -1,30 +1,27 @@
 /*
- * XREFs of MiSnapUnresolvedImport @ 0x140A2B0C8
+ * XREFs of MiSnapUnresolvedImport @ 0x140A2B378
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x1406AE074 (MiResolveImageReferences.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall MiSnapUnresolvedImport(__int64 a1, __int64 *a2, int a3)
+_WORD *__fastcall MiSnapUnresolvedImport(__int64 a1, __int64 *a2, void *a3)
 {
-  __int64 *v3; // rbx
-  __int64 result; // rax
-  __int64 v6; // rdx
+  _WORD *result; // rax
+  _WORD *v6; // rdx
   __int64 v7; // rax
-  char v8; // [rsp+48h] [rbp+20h] BYREF
+  ULONG Size; // [rsp+48h] [rbp+20h] BYREF
 
-  v3 = a2;
-  LOBYTE(a2) = 1;
-  result = RtlImageDirectoryEntryToData(a3, (int)a2, 0, (int)&v8);
+  result = RtlImageDirectoryEntryToData(a3, 1u, 0, &Size);
   v6 = result;
   if ( result )
   {
-    v7 = *v3;
-    if ( *v3 >= 0 )
-      return a1 + v7 + 2;
+    v7 = *a2;
+    if ( *a2 >= 0 )
+      return (_WORD *)(a1 + v7 + 2);
     else
-      return (unsigned __int16)(v7 - *(_WORD *)(v6 + 16));
+      return (_WORD *)(unsigned __int16)(v7 - v6[8]);
   }
   return result;
 }

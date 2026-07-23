@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpMultiSZCchLength @ 0x1800EB96C
+ * XREFs of LdrpMultiSZCchLength @ 0x1800E6C7C
  * Callers:
- *     RtlpConvertCultureNamesToLCIDs @ 0x180120540 (RtlpConvertCultureNamesToLCIDs.c)
- *     RtlpConvertLCIDsToCultureNames @ 0x18013F9D0 (RtlpConvertLCIDsToCultureNames.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x18011E770 (RtlpConvertCultureNamesToLCIDs.c)
+ *     RtlpConvertLCIDsToCultureNames @ 0x18013DBC0 (RtlpConvertLCIDsToCultureNames.c)
  * Callees:
  *     <none>
  */

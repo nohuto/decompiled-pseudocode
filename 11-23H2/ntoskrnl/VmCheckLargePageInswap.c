@@ -1,8 +1,8 @@
 /*
- * XREFs of VmCheckLargePageInswap @ 0x1409DBEC4
+ * XREFs of VmCheckLargePageInswap @ 0x1409DC0C4
  * Callers:
  *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x140342000 (MmOutSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x140342290 (MmOutSwapWorkingSet.c)
  * Callees:
  *     <none>
  */

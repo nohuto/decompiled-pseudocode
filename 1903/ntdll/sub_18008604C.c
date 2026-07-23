@@ -6,7 +6,7 @@
  *     RtlInitUnicodeString @ 0x180016AA0 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall sub_18008604C(__int16 a1, char a2, UNICODE_STRING *a3)
+__int64 __fastcall sub_18008604C(__int16 a1, char a2, _UNICODE_STRING *a3)
 {
   const wchar_t *v4; // rax
   const WCHAR *v5; // rdx

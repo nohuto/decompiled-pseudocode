@@ -7,16 +7,16 @@
  *     RtlAllocateHeap @ 0x18002ED40 (RtlAllocateHeap.c)
  */
 
-__int64 RtlpAllocateSecondLevelDir()
+_QWORD *RtlpAllocateSecondLevelDir()
 {
-  __int64 result; // rax
+  _QWORD *result; // rax
   _QWORD *v1; // rcx
   __int64 v2; // rdx
 
-  result = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 2048LL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x800uLL);
   if ( result )
   {
-    v1 = (_QWORD *)result;
+    v1 = result;
     v2 = 128LL;
     do
     {

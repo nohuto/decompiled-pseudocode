@@ -1,12 +1,12 @@
 /*
- * XREFs of RawFileSystemControl @ 0x1404EEE50
+ * XREFs of RawFileSystemControl @ 0x1404D0F18
  * Callers:
- *     RawDispatch @ 0x1403E98F8 (RawDispatch.c)
+ *     RawDispatch @ 0x1403EAF28 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     RawVerifyVolume @ 0x140210550 (RawVerifyVolume.c)
- *     RawMountVolume @ 0x1403EE6BC (RawMountVolume.c)
- *     RawUserFsCtrl @ 0x140529A54 (RawUserFsCtrl.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     RawVerifyVolume @ 0x14021037C (RawVerifyVolume.c)
+ *     RawMountVolume @ 0x1403EFCEC (RawMountVolume.c)
+ *     RawUserFsCtrl @ 0x140529F94 (RawUserFsCtrl.c)
  */
 
 __int64 __fastcall RawFileSystemControl(__int64 a1, IRP *a2, __int64 a3)

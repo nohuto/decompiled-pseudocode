@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInPageGapPage @ 0x14038C7D0
+ * XREFs of MiInPageGapPage @ 0x14038E580
  * Callers:
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiValidateInPageEntries @ 0x14038C410 (MiValidateInPageEntries.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiValidateInPageEntries @ 0x14038E1C0 (MiValidateInPageEntries.c)
  * Callees:
  *     <none>
  */

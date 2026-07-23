@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwWriteString @ 0x1405A58E0
+ * XREFs of EtwWriteString @ 0x1405A5B10
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140220B80 (EtwpLevelKeywordEnabled.c)
- *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpEventWriteFull @ 0x14027FA90 (EtwpEventWriteFull.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402C5480 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall EtwWriteString(

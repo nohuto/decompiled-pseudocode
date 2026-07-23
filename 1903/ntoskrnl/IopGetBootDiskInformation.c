@@ -28,7 +28,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   bool v7; // cf
   __int64 v8; // rbx
   _QWORD **v9; // r13
-  const char *v10; // rdx
+  const CHAR *v10; // rdx
   ULONG v11; // eax
   NTSTATUS DeviceObjectPointer; // ebx
   struct _DEVICE_OBJECT *v13; // r15
@@ -51,19 +51,19 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   PFILE_OBJECT FileObject; // [rsp+80h] [rbp-88h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-80h] BYREF
   UNICODE_STRING ObjectName; // [rsp+98h] [rbp-70h] BYREF
-  STRING String1; // [rsp+A8h] [rbp-60h] BYREF
+  _STRING String1; // [rsp+A8h] [rbp-60h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+B8h] [rbp-50h] BYREF
   _QWORD **v35; // [rsp+C0h] [rbp-48h]
   __int64 v36; // [rsp+C8h] [rbp-40h]
   _QWORD **v37; // [rsp+D0h] [rbp-38h]
-  STRING SourceString; // [rsp+D8h] [rbp-30h] BYREF
-  STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
-  STRING String2; // [rsp+F8h] [rbp-10h] BYREF
+  _STRING SourceString; // [rsp+D8h] [rbp-30h] BYREF
+  _STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
+  _STRING String2; // [rsp+F8h] [rbp-10h] BYREF
   LARGE_INTEGER Timeout; // [rsp+108h] [rbp+0h] BYREF
   __int64 v42; // [rsp+110h] [rbp+8h]
   __int64 v43; // [rsp+118h] [rbp+10h]
   char pszDest[128]; // [rsp+128h] [rbp+20h] BYREF
-  char v45[128]; // [rsp+1A8h] [rbp+A0h] BYREF
+  CHAR v45[128]; // [rsp+1A8h] [rbp+A0h] BYREF
 
   v36 = a1;
   *(_QWORD *)&DestinationString.Length = 0LL;
@@ -95,7 +95,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   if ( !v7 )
     v6 = a1;
   v9 = *(_QWORD ***)(KeLoaderBlock_0 + 232);
-  v10 = *(const char **)(KeLoaderBlock_0 + 184);
+  v10 = *(const CHAR **)(KeLoaderBlock_0 + 184);
   v37 = v9;
   v35 = (_QWORD **)**v9;
   RtlInitAnsiString(&DestinationString, v10);

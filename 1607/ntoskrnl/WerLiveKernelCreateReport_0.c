@@ -1,7 +1,7 @@
 /*
  * XREFs of WerLiveKernelCreateReport_0 @ 0x140001318
  * Callers:
- *     DbgkWerCaptureLiveKernelDump @ 0x14061BB3C (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14061BBF0 (DbgkWerCaptureLiveKernelDump.c)
  * Callees:
  *     <none>
  */

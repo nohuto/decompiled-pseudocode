@@ -83,10 +83,10 @@ __int64 PopPepIdleTimeoutRoutine()
       v7 = PopPepCountReadyActivities((unsigned int *)i, 0LL, 3);
       PopPepRequestWork(i, ready, v7);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(i + 64));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_10;
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_10;
       if ( CurrentIrql > 0xFu )
         goto LABEL_10;
@@ -105,10 +105,10 @@ __int64 PopPepIdleTimeoutRoutine()
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(i + 64));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_10;
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_10;
       if ( v17 > 0xFu )
         goto LABEL_10;

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDeleteRegistryValue @ 0x140B46070
+ * XREFs of RtlDeleteRegistryValue @ 0x140B480A0
  * Callers:
- *     DifRtlDeleteRegistryValueWrapper @ 0x140695840 (DifRtlDeleteRegistryValueWrapper.c)
- *     WheapResetPolicyDefaults @ 0x140849BE4 (WheapResetPolicyDefaults.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x14093C97C (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     DifRtlDeleteRegistryValueWrapper @ 0x140699420 (DifRtlDeleteRegistryValueWrapper.c)
+ *     WheapResetPolicyDefaults @ 0x14084FEF4 (WheapResetPolicyDefaults.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x14091851C (PerfDiagpSaveActiveDCLLogFileName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     RtlpGetRegistryHandle @ 0x140A11948 (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x140A10B38 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlDeleteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName)

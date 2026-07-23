@@ -8,11 +8,19 @@
  *     _NtAlpcSendWaitReceivePort@32 @ 0x4B2F3240 (_NtAlpcSendWaitReceivePort@32.c)
  */
 
-int __thiscall TppCallbackSendAndDestroyAlpcMessage(_DWORD *this)
+NTSTATUS __thiscall TppCallbackSendAndDestroyAlpcMessage(int this)
 {
-  int v2; // esi
+  NTSTATUS v2; // esi
 
-  v2 = NtAlpcSendWaitReceivePort(this[31], this[32], this[30], 0, 0, 0, 0, 0);
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this[30]);
+  v2 = NtAlpcSendWaitReceivePort(
+         *(HANDLE *)(this + 124),
+         *(_DWORD *)(this + 128),
+         *(PPORT_MESSAGE *)(this + 120),
+         0,
+         0,
+         0,
+         0,
+         0);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(this + 120));
   return v2;
 }

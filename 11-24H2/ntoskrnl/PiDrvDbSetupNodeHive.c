@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDrvDbSetupNodeHive @ 0x140739634
+ * XREFs of PiDrvDbSetupNodeHive @ 0x140737564
  * Callers:
- *     PiDrvDbSetupNodes @ 0x140739ABC (PiDrvDbSetupNodes.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140A79530 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodes @ 0x1407379EC (PiDrvDbSetupNodes.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140A73830 (PiDrvDbLoadNodeWorkerCallback.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     PiDrvDbOverlayNodeHive @ 0x140737740 (PiDrvDbOverlayNodeHive.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x140739154 (PiDrvDbResolveNodeFilePaths.c)
- *     RtlSuffixUnicodeString @ 0x14077D0F0 (RtlSuffixUnicodeString.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     PiDrvDbLoadHive @ 0x140A796D4 (PiDrvDbLoadHive.c)
- *     PiDrvDbUnloadHive @ 0x140A797B0 (PiDrvDbUnloadHive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     PiDrvDbOverlayNodeHive @ 0x140735670 (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x140737084 (PiDrvDbResolveNodeFilePaths.c)
+ *     RtlSuffixUnicodeString @ 0x14077D020 (RtlSuffixUnicodeString.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     PiDrvDbLoadHive @ 0x140A739D4 (PiDrvDbLoadHive.c)
+ *     PiDrvDbUnloadHive @ 0x140A73AB0 (PiDrvDbUnloadHive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
@@ -82,7 +82,10 @@ LABEL_34:
   {
     Destination.Length = 0;
     Destination.MaximumLength = DestinationString.Length + 38;
-    Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Destination.Buffer = (wchar_t *)ExAllocatePool2(
+                                      0x100uLL,
+                                      (unsigned __int16)(DestinationString.Length + 38),
+                                      0x67727453u);
     if ( !Destination.Buffer )
     {
 LABEL_6:
@@ -117,7 +120,7 @@ LABEL_40:
   UnicodeString.Length = 0;
   Length = DestinationString.Length;
   UnicodeString.MaximumLength = *(_WORD *)(a1 + 50) + DestinationString.Length;
-  UnicodeString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+  UnicodeString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, UnicodeString.MaximumLength, 0x67727453u);
   if ( !UnicodeString.Buffer )
     goto LABEL_6;
   appended = RtlAppendUnicodeStringToString(&UnicodeString, (PCUNICODE_STRING)(a1 + 48));
@@ -134,7 +137,7 @@ LABEL_40:
     {
       Destination.MaximumLength = *(_WORD *)(a1 + 34) + Length;
       Destination.Length = 0;
-      Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, Destination.MaximumLength, 0x67727453u);
       if ( !Destination.Buffer )
         goto LABEL_6;
       appended = RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)(a1 + 32));

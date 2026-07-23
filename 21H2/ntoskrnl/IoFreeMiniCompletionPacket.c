@@ -1,18 +1,18 @@
 /*
- * XREFs of IoFreeMiniCompletionPacket @ 0x14067F4A0
+ * XREFs of IoFreeMiniCompletionPacket @ 0x1405D9F40
  * Callers:
- *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140285AA0 (ExpWorkerFactoryCompletionPacketRoutine.c)
- *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
- *     ExpDeleteWorkerFactory @ 0x140287A60 (ExpDeleteWorkerFactory.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140287B04 (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     NtCreateWorkerFactory @ 0x1406D3E40 (NtCreateWorkerFactory.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140202C40 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     PspJobDelete @ 0x1402046D0 (PspJobDelete.c)
+ *     ExpDeleteWorkerFactory @ 0x140204C00 (ExpDeleteWorkerFactory.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140204CA4 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     NtCreateWorkerFactory @ 0x1406AB120 (NtCreateWorkerFactory.c)
  * Callees:
- *     IopFreeMiniCompletionPacket @ 0x1405E4380 (IopFreeMiniCompletionPacket.c)
+ *     IopFreeMiniCompletionPacket @ 0x1406D3AE0 (IopFreeMiniCompletionPacket.c)
  */
 
-void __fastcall IoFreeMiniCompletionPacket(__int64 a1)
+__int64 __fastcall IoFreeMiniCompletionPacket(_QWORD *a1)
 {
-  *(_QWORD *)(a1 + 56) = 0LL;
-  IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)a1);
+  a1[7] = 0LL;
+  return IopFreeMiniCompletionPacket(a1);
 }

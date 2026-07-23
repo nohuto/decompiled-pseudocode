@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpLocateView @ 0x140661CE0
+ * XREFs of AlpcpLocateView @ 0x140656B00
  * Callers:
- *     AlpcpQueryRemoteView @ 0x1405DDA24 (AlpcpQueryRemoteView.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x140661B50 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140656970 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpQueryRemoteView @ 0x1406CD184 (AlpcpQueryRemoteView.c)
  * Callees:
  *     <none>
  */

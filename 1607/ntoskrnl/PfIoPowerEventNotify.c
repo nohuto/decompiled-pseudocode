@@ -1,8 +1,8 @@
 /*
- * XREFs of PfIoPowerEventNotify @ 0x140530748
+ * XREFs of PfIoPowerEventNotify @ 0x140530C88
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1403F7C58 (PopUmpoProcessPowerMessage.c)
- *     PopUmpoSendLegacyEvent @ 0x140548730 (PopUmpoSendLegacyEvent.c)
+ *     PopUmpoProcessPowerMessage @ 0x1403F6B18 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoSendLegacyEvent @ 0x140548C70 (PopUmpoSendLegacyEvent.c)
  * Callees:
  *     PfPowerActionNotify @ 0x1403CFF90 (PfPowerActionNotify.c)
  */

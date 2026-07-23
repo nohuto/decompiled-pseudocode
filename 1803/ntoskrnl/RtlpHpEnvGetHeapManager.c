@@ -17,10 +17,10 @@
  *     <none>
  */
 
-union _RTL_RUN_ONCE *__fastcall RtlpHpEnvGetHeapManager(_DWORD *a1)
+_RTL_RUN_ONCE *__fastcall RtlpHpEnvGetHeapManager(_DWORD *a1)
 {
   if ( (*a1 & 6) == 4 )
-    return *(union _RTL_RUN_ONCE **)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 3424);
+    return *(_RTL_RUN_ONCE **)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 3424);
   else
     return ExPoolState;
 }

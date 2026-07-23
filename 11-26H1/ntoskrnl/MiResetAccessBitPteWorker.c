@@ -1,15 +1,15 @@
 /*
- * XREFs of MiResetAccessBitPteWorker @ 0x14029C4C8
+ * XREFs of MiResetAccessBitPteWorker @ 0x14029BA28
  * Callers:
- *     MiResetAccessBitsVpabCallback @ 0x1404C7860 (MiResetAccessBitsVpabCallback.c)
+ *     MiResetAccessBitsVpabCallback @ 0x1404C15A0 (MiResetAccessBitsVpabCallback.c)
  * Callees:
- *     MiGetVaAge @ 0x14029C6E0 (MiGetVaAge.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x14029CE20 (MiAcquirePrcbAgeTrimLists.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiClearPteAccessed @ 0x1402FF9B0 (MiClearPteAccessed.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
+ *     MiGetVaAge @ 0x14029BC40 (MiGetVaAge.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x14029C380 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiClearPteAccessed @ 0x1402E1A30 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
  */
 
 __int64 __fastcall MiResetAccessBitPteWorker(
@@ -38,14 +38,14 @@ __int64 __fastcall MiResetAccessBitPteWorker(
     && ((v17 = *(_DWORD *)(a4 + 32), (*(_QWORD *)(a4 + 40) & 0x20000000000000LL) == 0)
      && ((*(_DWORD *)(a4 + 32) & 0x8000000) == 0
       || a4 >= 0xFFFFDE0000000000uLL
-      && a4 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+      && a4 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
       && !(unsigned int)MiIsDecayPfn((__int64)(a4 + 0x220000000000LL) / 48)
       && ((v17 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType(a4) != 9))
       ? (v18 = HIBYTE(v17) & 7)
       : (v18 = 5),
         (*(_DWORD *)(a1 + 184) & 0xF) == (_BYTE)v11
       ? (v19 = &MiSystemPartition)
-      : (v19 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174))),
+      : (v19 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174))),
         v18 < v19[4540]) )
   {
     v12 = 0;

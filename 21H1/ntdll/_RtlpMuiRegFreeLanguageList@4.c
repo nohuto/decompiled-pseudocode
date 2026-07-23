@@ -20,14 +20,14 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __thiscall RtlpMuiRegFreeLanguageList(_BYTE *this)
+LOGICAL __thiscall RtlpMuiRegFreeLanguageList(PVOID BaseAddress)
 {
-  int result; // eax
+  LOGICAL result; // eax
 
-  if ( this )
+  if ( BaseAddress )
   {
-    if ( (this[32] & 0x40) == 0 )
-      return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)this);
+    if ( (*((_BYTE *)BaseAddress + 32) & 0x40) == 0 )
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

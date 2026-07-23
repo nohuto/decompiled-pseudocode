@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIsActivityTracingEnabled @ 0x140375090
+ * XREFs of IopIsActivityTracingEnabled @ 0x14025D950
  * Callers:
- *     IopAllocateReserveIrp @ 0x140374518 (IopAllocateReserveIrp.c)
- *     IoMakeAssociatedIrpPriv @ 0x140374CE8 (IoMakeAssociatedIrpPriv.c)
- *     IopAllocateIrpWithExtension @ 0x14037592C (IopAllocateIrpWithExtension.c)
- *     IopAllocateBackpocketIrp @ 0x140595CD8 (IopAllocateBackpocketIrp.c)
- *     IovAllocateIrp @ 0x140BA9550 (IovAllocateIrp.c)
+ *     IopAllocateReserveIrp @ 0x14025CDD8 (IopAllocateReserveIrp.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14025D5A8 (IoMakeAssociatedIrpPriv.c)
+ *     IopAllocateIrpWithExtension @ 0x14025E1EC (IopAllocateIrpWithExtension.c)
+ *     IopAllocateBackpocketIrp @ 0x140592D08 (IopAllocateBackpocketIrp.c)
+ *     IovAllocateIrp @ 0x140BAB550 (IovAllocateIrp.c)
  * Callees:
  *     <none>
  */

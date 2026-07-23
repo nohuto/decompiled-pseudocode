@@ -1,12 +1,12 @@
 /*
- * XREFs of IntPartCriticalFailure @ 0x1405749F4
+ * XREFs of IntPartCriticalFailure @ 0x140574F34
  * Callers:
  *     IntPartCreate @ 0x140B4E724 (IntPartCreate.c)
  *     IntpAllocateProcessorContext @ 0x140B4E8E4 (IntpAllocateProcessorContext.c)
  *     IntpAssignProcessorsToPartitions @ 0x140B4EB70 (IntpAssignProcessorsToPartitions.c)
  *     IntpAddNextProcessorToPartition @ 0x140B4EC04 (IntpAddNextProcessorToPartition.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn IntPartCriticalFailure(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

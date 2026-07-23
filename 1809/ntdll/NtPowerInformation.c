@@ -1,7 +1,7 @@
 /*
- * XREFs of NtPowerInformation @ 0x1800A0EB0
+ * XREFs of NtPowerInformation @ 0x1800A0ED0
  * Callers:
- *     RtlpSystemBootStatusRequest @ 0x1800887F0 (RtlpSystemBootStatusRequest.c)
+ *     RtlpSystemBootStatusRequest @ 0x180088800 (RtlpSystemBootStatusRequest.c)
  *     RtlCheckSystemBootStatusIntegrity @ 0x1800ED970 (RtlCheckSystemBootStatusIntegrity.c)
  *     RtlRestoreSystemBootStatusDefaults @ 0x1800EDDD0 (RtlRestoreSystemBootStatusDefaults.c)
  *     RtlUnlockBootStatusData @ 0x1800EDE40 (RtlUnlockBootStatusData.c)
@@ -12,11 +12,16 @@
  *     <none>
  */
 
-__int64 NtPowerInformation()
+NTSTATUS __cdecl NtPowerInformation(
+        POWER_INFORMATION_LEVEL InformationLevel,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 95LL;
+  result = 95;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

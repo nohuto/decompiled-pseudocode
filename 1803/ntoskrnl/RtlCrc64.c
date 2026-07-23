@@ -6,7 +6,7 @@
  *     RtlpComputeCrcInternal @ 0x140149C5C (RtlpComputeCrcInternal.c)
  */
 
-__int64 __fastcall RtlCrc64(__int64 a1, __int64 a2, __int64 a3)
+ULONGLONG __cdecl RtlCrc64(const void *Buffer, size_t Size, ULONGLONG InitialCrc)
 {
-  return RtlpComputeCrcInternal(a1, a2, a3, &Crc64Ctrl);
+  return RtlpComputeCrcInternal(Buffer, Size, InitialCrc, &Crc64Ctrl);
 }

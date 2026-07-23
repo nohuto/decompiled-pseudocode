@@ -14,89 +14,87 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopBcdGetApplicationPathFromResumeObject(__int64 a1, UNICODE_STRING *a2)
+__int64 __fastcall PopBcdGetApplicationPathFromResumeObject(HANDLE BcdStoreHandle, PUNICODE_STRING Destination)
 {
-  WCHAR *v4; // rsi
-  __int64 v5; // rdi
-  int ElementData; // ebx
-  int v7; // eax
-  __int64 Pool2; // rax
-  PCWSTR Source; // [rsp+20h] [rbp-50h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-48h] BYREF
-  int v12; // [rsp+30h] [rbp-40h] BYREF
-  int v13; // [rsp+34h] [rbp-3Ch] BYREF
-  int v14; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-30h] BYREF
-  PVOID P; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v18; // [rsp+58h] [rbp-18h] BYREF
+  HANDLE v4; // rdi
+  NTSTATUS ElementData; // ebx
+  NTSTATUS v6; // eax
+  wchar_t *Pool2; // rax
+  HANDLE BcdObjectHandle; // [rsp+28h] [rbp-48h] BYREF
+  ULONG BufferSize[4]; // [rsp+30h] [rbp-40h] BYREF
+  HANDLE v11; // [rsp+40h] [rbp-30h] BYREF
+  PVOID P; // [rsp+48h] [rbp-28h]
+  BCD_OBJECT_DESCRIPTION Description; // [rsp+50h] [rbp-20h] BYREF
+  GUID Buffer; // [rsp+58h] [rbp-18h] BYREF
 
-  v17 = 0LL;
+  Description = 0LL;
   P = 0LL;
-  v13 = 0;
+  BufferSize[1] = 0;
+  BcdObjectHandle = 0LL;
   v4 = 0LL;
+  BufferSize[2] = 0;
   v11 = 0LL;
-  v5 = 0LL;
-  Source = 0LL;
-  v14 = 0;
-  v15 = 0LL;
-  v18 = 0LL;
-  if ( !a2 )
-    return (unsigned int)-1073741811;
-  ElementData = BcdOpenObject(a1, &GUID_CURRENT_BOOT_ENTRY, &v11);
-  if ( ElementData >= 0 )
+  Buffer = 0LL;
+  if ( Destination )
   {
-    v12 = 16;
-    ElementData = BcdGetElementData(v11, 587202563LL, &v18, &v12);
+    ElementData = BcdOpenObject(BcdStoreHandle, &GUID_CURRENT_BOOT_ENTRY, &BcdObjectHandle);
     if ( ElementData >= 0 )
     {
-      v7 = BcdOpenObject(a1, &v18, &v15);
-      v5 = v15;
-      ElementData = v7;
-      if ( v7 >= 0 )
+      BufferSize[0] = 16;
+      ElementData = BcdGetElementData(BcdObjectHandle, 0x23000003u, &Buffer, BufferSize);
+      if ( ElementData >= 0 )
       {
-        ElementData = BcdQueryObject(v15, 1LL, &v17, 0LL);
-        if ( ElementData >= 0 )
+        v6 = BcdOpenObject(BcdStoreHandle, &Buffer, &v11);
+        v4 = v11;
+        ElementData = v6;
+        if ( v6 >= 0 )
         {
-          if ( (HIDWORD(v17) & 0xF0000000) != 0x10000000
-            || (HIDWORD(v17) & 0xF00000) != 0x200000
-            || (HIDWORD(v17) & 0xFFFFF) != 4 )
-          {
-            ElementData = -1073741275;
-            goto LABEL_17;
-          }
-          ElementData = PopBcdReadElement(v5, 285212673LL, &P, &v13);
+          ElementData = BcdQueryObject(v11, 1u, (BCD_OBJECT_DESCRIPTION)&Description, 0LL);
           if ( ElementData >= 0 )
           {
-            ElementData = PopBcdReadElement(v5, 301989890LL, &Source, &v14);
-            if ( ElementData >= 0 )
+            if ( (Description.Type & 0xF0000000) == 0x10000000
+              && (Description.Type & 0xF00000) == 0x200000
+              && (Description.Type & 0xFFFFF) == 4 )
             {
-              *(_DWORD *)&a2->Length = 34078720;
-              Pool2 = ExAllocatePool2(0x100uLL);
-              a2->Buffer = (wchar_t *)Pool2;
-              if ( Pool2 )
+              ElementData = PopBcdReadElement(v4, 0x11000001u);
+              if ( ElementData >= 0 )
               {
-                RtlAppendUnicodeToString(a2, (PCWSTR)P + 10);
-                v4 = (WCHAR *)Source;
-                RtlAppendUnicodeToString(a2, Source);
-                goto LABEL_17;
+                ElementData = PopBcdReadElement(v4, 0x12000002u);
+                if ( ElementData >= 0 )
+                {
+                  *(_DWORD *)&Destination->Length = 34078720;
+                  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+                  Destination->Buffer = Pool2;
+                  if ( Pool2 )
+                  {
+                    RtlAppendUnicodeToString(Destination, (PCWSTR)P + 10);
+                    RtlAppendUnicodeToString(Destination, 0LL);
+                  }
+                  else
+                  {
+                    ElementData = -1073741670;
+                  }
+                }
               }
-              ElementData = -1073741670;
             }
-            v4 = (WCHAR *)Source;
+            else
+            {
+              ElementData = -1073741275;
+            }
           }
         }
       }
     }
+    if ( BcdObjectHandle )
+      BcdCloseObject(BcdObjectHandle);
+    if ( v4 )
+      BcdCloseObject(v4);
+    if ( P )
+      ExFreePoolWithTag(P, 0);
   }
-LABEL_17:
-  if ( v11 )
-    BcdCloseObject(v11);
-  if ( v5 )
-    BcdCloseObject(v5);
-  if ( P )
-    ExFreePoolWithTag(P, 0);
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0);
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
   return (unsigned int)ElementData;
 }

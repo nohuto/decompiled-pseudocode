@@ -11,24 +11,18 @@
  *     ZwFlushKey @ 0x1800946A0 (ZwFlushKey.c)
  */
 
-__int64 __fastcall RtlApplyRXact(__int64 a1)
+NTSTATUS __fastcall RtlApplyRXact(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
-  int v4; // edi
-  __int64 v5; // rcx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  void *v1; // rbx
+  NTSTATUS result; // eax
+  NTSTATUS v4; // edi
+  void *v5; // rcx
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 8);
+  v1 = *(void **)(a1 + 8);
   RtlInitUnicodeString(&DestinationString, L"Log");
-  result = ZwSetValueKey(
-             v1,
-             &DestinationString,
-             0LL,
-             3LL,
-             *(_QWORD *)(a1 + 24),
-             *(_DWORD *)(*(_QWORD *)(a1 + 24) + 8LL));
-  if ( (int)result >= 0 )
+  result = ZwSetValueKey(v1, &DestinationString, 0, 3u, *(PVOID *)(a1 + 24), *(_DWORD *)(*(_QWORD *)(a1 + 24) + 8LL));
+  if ( result >= 0 )
   {
     v4 = ZwFlushKey(v1);
     if ( v4 < 0 )
@@ -43,11 +37,11 @@ __int64 __fastcall RtlApplyRXact(__int64 a1)
       {
         ZwDeleteValueKey(v1, &DestinationString);
         RtlAbortRXact(a1);
-        return 0LL;
+        return 0;
       }
     }
     ZwDeleteValueKey(v5, &DestinationString);
-    return (unsigned int)v4;
+    return v4;
   }
   return result;
 }

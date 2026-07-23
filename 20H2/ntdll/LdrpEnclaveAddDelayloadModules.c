@@ -12,14 +12,14 @@ __int64 __fastcall LdrpEnclaveAddDelayloadModules(__int64 a1)
 {
   NTSTATUS inited; // esi
   unsigned __int64 v3; // r15
-  int v4; // eax
-  __int64 v5; // rbp
+  NTSTATUS v4; // eax
+  char *v5; // rbp
   unsigned int v6; // ebx
   unsigned int i; // edi
   __int64 v8; // rcx
-  STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v11; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+78h] [rbp+10h] BYREF
+  char *v12; // [rsp+78h] [rbp+10h] BYREF
 
   inited = 0;
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 56) + 48LL);
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpEnclaveAddDelayloadModules(__int64 a1)
     v6 = 0;
     for ( i = v11 >> 5; v6 < i; ++v6 )
     {
-      v8 = *(unsigned int *)(32LL * v6 + v5 + 4);
+      v8 = *(unsigned int *)&v5[32 * v6 + 4];
       if ( !(_DWORD)v8 )
         break;
       inited = RtlInitAnsiStringEx(&DestinationString, (PCSZ)(v3 + v8));

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteStaleCacheMaps @ 0x1400F0B4C
+ * XREFs of MiDeleteStaleCacheMaps @ 0x1400F0BCC
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void MiDeleteStaleCacheMaps()
@@ -27,32 +27,32 @@ void MiDeleteStaleCacheMaps()
   signed __int32 v12[8]; // [rsp+0h] [rbp-38h] BYREF
   _QWORD v13[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( (__int64 *)qword_14043AD20 != &qword_14043AD20 )
+  if ( (__int64 *)qword_14043BDE0 != &qword_14043BDE0 )
   {
     _InterlockedOr(v12, 0);
     v0 = KiCacheFlushTimeStamp;
-    if ( (unsigned int)(KiCacheFlushTimeStamp - dword_14043AD30) > 2
-      || (dword_14043AD30 & 1) == 0 && (unsigned int)(KiCacheFlushTimeStamp - dword_14043AD30) >= 2 )
+    if ( (unsigned int)(KiCacheFlushTimeStamp - dword_14043BDF0) > 2
+      || (dword_14043BDF0 & 1) == 0 && (unsigned int)(KiCacheFlushTimeStamp - dword_14043BDF0) >= 2 )
     {
       v13[1] = v13;
       v13[0] = v13;
-      v1 = ExAcquireSpinLockExclusive(&dword_14043AD00);
-      while ( (__int64 *)qword_14043AD20 != &qword_14043AD20 )
+      v1 = ExAcquireSpinLockExclusive(&dword_14043BDC0);
+      while ( (__int64 *)qword_14043BDE0 != &qword_14043BDE0 )
       {
-        v2 = (unsigned __int64 *)(qword_14043AD20 - 24);
-        v3 = *(_DWORD *)(qword_14043AD20 - 24 + 56);
+        v2 = (unsigned __int64 *)(qword_14043BDE0 - 24);
+        v3 = *(_DWORD *)(qword_14043BDE0 - 24 + 56);
         if ( (unsigned int)(v0 - v3) <= 2 && ((v3 & 1) != 0 || (unsigned int)(v0 - v3) < 2) )
           break;
-        v4 = (_QWORD *)qword_14043AD20;
-        v5 = *(_QWORD *)qword_14043AD20;
+        v4 = (_QWORD *)qword_14043BDE0;
+        v5 = *(_QWORD *)qword_14043BDE0;
         v6 = (_QWORD *)v2[4];
-        if ( *(_QWORD *)(*(_QWORD *)qword_14043AD20 + 8LL) != qword_14043AD20
-          || *v6 != qword_14043AD20
+        if ( *(_QWORD *)(*(_QWORD *)qword_14043BDE0 + 8LL) != qword_14043BDE0
+          || *v6 != qword_14043BDE0
           || (*v6 = v5,
               *(_QWORD *)(v5 + 8) = v6,
-              RtlAvlRemoveNode((unsigned __int64 *)&qword_14043AD18, v2),
+              RtlAvlRemoveNode((unsigned __int64 *)&qword_14043BDD8, v2),
               v7 = v13[0],
-              --qword_14043AD38,
+              --qword_14043BDF8,
               *(_QWORD **)(v13[0] + 8LL) != v13) )
         {
 LABEL_25:
@@ -63,7 +63,7 @@ LABEL_25:
         *(_QWORD *)(v7 + 8) = v4;
         v13[0] = v4;
       }
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AD00);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BDC0);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v1 < 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();

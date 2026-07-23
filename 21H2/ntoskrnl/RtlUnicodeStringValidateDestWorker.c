@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x14036F020
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x14036F1D0
  * Callers:
- *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
- *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
- *     IopDeviceRemovalForResetComplete @ 0x1408A0710 (IopDeviceRemovalForResetComplete.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x1408F41A0 (PopIdleWakeGenerateDescriptionString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036F14C (RtlUnicodeStringPrintf.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A74B0 (CmpFinishSystemHivesLoad.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0870 (IopDeviceRemovalForResetComplete.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F4300 (PopIdleWakeGenerateDescriptionString.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x140206D9C (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1402AB6CC (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(

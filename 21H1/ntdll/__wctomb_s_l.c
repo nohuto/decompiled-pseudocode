@@ -10,10 +10,10 @@
 
 errno_t __cdecl _wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
 {
-  unsigned int v6; // eax
-  unsigned int v7; // [esp+4h] [ebp-4h] BYREF
+  int v6; // eax
+  ULONG BytesInMultiByteString; // [esp+4h] [ebp-4h] BYREF
 
-  if ( !MbCh && SizeInBytes )
+  if ( !MbCh && (_DWORD)SizeInBytes )
   {
     if ( SizeConverted )
       *SizeConverted = 0;
@@ -21,21 +21,21 @@ errno_t __cdecl _wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, 
   }
   if ( SizeConverted )
     *SizeConverted = -1;
-  if ( SizeInBytes > 0x7FFFFFFF )
+  if ( (unsigned int)SizeInBytes > 0x7FFFFFFF )
   {
     _invalid_parameter();
     return 22;
   }
   if ( MbCh )
   {
-    if ( RtlUnicodeToMultiByteN(MbCh, SizeInBytes, &v7, &WCh, 2u) < 0 )
+    if ( RtlUnicodeToMultiByteN(MbCh, SizeInBytes, &BytesInMultiByteString, (PCWCH)&SizeInBytes + 2, 2u) < 0 )
     {
       *_errno() = 42;
       return *_errno();
     }
     if ( SizeConverted )
     {
-      v6 = v7;
+      v6 = BytesInMultiByteString;
       goto LABEL_16;
     }
   }

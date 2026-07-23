@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_wrap_strlen @ 0x1405ADCE0
+ * XREFs of __asan_wrap_strlen @ 0x1405AAC50
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 __int64 __fastcall _asan_wrap_strlen(ULONG_PTR BugCheckParameter1)
@@ -21,7 +21,7 @@ __int64 __fastcall _asan_wrap_strlen(ULONG_PTR BugCheckParameter1)
   {
     if ( v2 + v3 + 0x800000000000LL == -1LL )
       break;
-    if ( byte_140FCDC2A && v3 >= 0xFFFF800000000000uLL )
+    if ( byte_140FCECAA && v3 >= 0xFFFF800000000000uLL )
     {
       v4 = *(_BYTE *)(((v3 + 0x800000000000LL) >> 3) + KasaniShadow);
       if ( v4 && v4 < 8 && (char)((v3 & 7) + 1) > v4 )

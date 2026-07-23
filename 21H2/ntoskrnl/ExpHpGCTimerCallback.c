@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpHpGCTimerCallback @ 0x1402C7D90
+ * XREFs of ExpHpGCTimerCallback @ 0x1402465F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall ExpHpGCTimerCallback(__int64 a1, void *a2)

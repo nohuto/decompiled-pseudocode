@@ -71,7 +71,7 @@ __int64 __fastcall IopConnectInterrupt(
   __int64 v43; // rax
   __int64 v44; // rcx
   int v45; // [rsp+70h] [rbp-98h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
   int v47; // [rsp+8Ch] [rbp-7Ch]
   unsigned int v48; // [rsp+90h] [rbp-78h]
   ULONG ProcessorIndexFromNumber; // [rsp+94h] [rbp-74h]
@@ -260,7 +260,7 @@ LABEL_16:
   }
   ProcNumber.Number = v27;
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
-  Interrupt = KeAllocateInterrupt((union _SLIST_HEADER *)KiProcessorBlock[ProcessorIndexFromNumber]);
+  Interrupt = KeAllocateInterrupt((_SLIST_HEADER *)KiProcessorBlock[ProcessorIndexFromNumber]);
   v52 = Interrupt;
   if ( Interrupt )
   {

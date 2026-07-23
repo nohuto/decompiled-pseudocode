@@ -19,14 +19,13 @@ __int64 __fastcall RtlpGetNormalization(unsigned int a1, __int64 *a2)
   __int64 v5; // rsi
   __int64 result; // rax
   __int64 v7; // rax
-  __int64 v8; // rdx
-  int NlsSectionPtr; // ebx
-  __int64 Heap; // rax
-  __int64 v11; // rbx
+  NTSTATUS NlsSectionPtr; // ebx
+  char *Heap; // rax
+  char *v10; // rbx
   int Tables; // ebp
-  __int64 *v13; // rax
-  __int64 v14; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v15; // [rsp+60h] [rbp+18h] BYREF
+  _QWORD *v12; // rax
+  __int64 SectionSize; // [rsp+58h] [rbp+10h] BYREF
+  PVOID SectionPointer; // [rsp+60h] [rbp+18h] BYREF
 
   if ( !a2 )
     return 3221225712LL;
@@ -44,28 +43,28 @@ LABEL_3:
   v7 = NormalizationList__Lookup(v4);
   if ( v7 )
   {
-    v15 = *(_QWORD *)(v7 + 8);
-    v14 = *(_QWORD *)(v7 + 16);
+    SectionPointer = *(PVOID *)(v7 + 8);
+    SectionSize = *(_QWORD *)(v7 + 16);
 LABEL_6:
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 144LL);
-    v11 = Heap;
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x90uLL);
+    v10 = Heap;
     if ( Heap )
     {
-      v5 = Heap + 24;
-      Tables = Normalization__LoadTables(a1, v15, v14, Heap + 24);
+      v5 = (__int64)(Heap + 24);
+      Tables = Normalization__LoadTables(a1, SectionPointer, SectionSize, Heap + 24);
       if ( Tables >= 0 )
       {
-        *(_DWORD *)(v11 + 16) = a1;
-        v13 = (__int64 *)off_18015F608[0];
+        *((_DWORD *)v10 + 4) = a1;
+        v12 = off_18015F608[0];
         if ( *(_UNKNOWN ***)off_18015F608[0] != &NormalizationListHead )
           __fastfail(3u);
-        *(_QWORD *)v11 = &NormalizationListHead;
-        *(_QWORD *)(v11 + 8) = v13;
-        *v13 = v11;
-        off_18015F608[0] = (_UNKNOWN **)v11;
+        *(_QWORD *)v10 = &NormalizationListHead;
+        *((_QWORD *)v10 + 1) = v12;
+        *v12 = v10;
+        off_18015F608[0] = (_UNKNOWN **)v10;
         goto LABEL_3;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
       NlsSectionPtr = Tables;
     }
     else
@@ -74,9 +73,7 @@ LABEL_6:
     }
     goto LABEL_14;
   }
-  v8 = a1;
-  LODWORD(v8) = a1 & 0xFFFFFEFF;
-  NlsSectionPtr = ZwGetNlsSectionPtr(12LL, v8, 0LL, &v15, &v14);
+  NlsSectionPtr = ZwGetNlsSectionPtr(0xCu, a1 & 0xFFFFFEFF, 0LL, &SectionPointer, (PULONG)&SectionSize);
   if ( NlsSectionPtr >= 0 )
     goto LABEL_6;
 LABEL_14:

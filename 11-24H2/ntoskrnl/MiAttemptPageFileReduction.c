@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAttemptPageFileReduction @ 0x1403F9154
+ * XREFs of MiAttemptPageFileReduction @ 0x1403EF264
  * Callers:
- *     MiHandlePageFileSizeChanges @ 0x1403F81CC (MiHandlePageFileSizeChanges.c)
+ *     MiHandlePageFileSizeChanges @ 0x1403EE2E4 (MiHandlePageFileSizeChanges.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiOkToShrinkPageFiles @ 0x1403F95BC (MiOkToShrinkPageFiles.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IoSetInformation @ 0x140714820 (IoSetInformation.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiOkToShrinkPageFiles @ 0x1403EF6CC (MiOkToShrinkPageFiles.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IoSetInformation @ 0x1407123B0 (IoSetInformation.c)
  */
 
 int __fastcall MiAttemptPageFileReduction(__int64 a1)

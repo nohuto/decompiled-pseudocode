@@ -1,10 +1,10 @@
 /*
  * XREFs of VfWdInit @ 0x140716D78
  * Callers:
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
  *     XdvExInitializePagedLookasideListInternal @ 0x1406FE394 (XdvExInitializePagedLookasideListInternal.c)
  *     VfWdSetCancelTimeout @ 0x140716E34 (VfWdSetCancelTimeout.c)
  */

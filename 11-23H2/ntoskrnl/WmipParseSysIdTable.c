@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipParseSysIdTable @ 0x1409DFE90
+ * XREFs of WmipParseSysIdTable @ 0x1409E0090
  * Callers:
- *     WmipGetSysIds @ 0x1409DFBC8 (WmipGetSysIds.c)
+ *     WmipGetSysIds @ 0x1409DFDC8 (WmipGetSysIds.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall WmipParseSysIdTable(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLinkHotPatchToBase @ 0x1406426A8
+ * XREFs of MiLinkHotPatchToBase @ 0x140642BF8
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
  *     MiInitializeLoadedModuleList @ 0x140B5CCDC (MiInitializeLoadedModuleList.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdatePatchInProgress @ 0x140642F5C (MiUpdatePatchInProgress.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdatePatchInProgress @ 0x1406434AC (MiUpdatePatchInProgress.c)
  */
 
 _QWORD *__fastcall MiLinkHotPatchToBase(__int64 a1, __int64 a2, int a3)
@@ -25,7 +25,7 @@ _QWORD *__fastcall MiLinkHotPatchToBase(__int64 a1, __int64 a2, int a3)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v8) = 4;
@@ -52,10 +52,10 @@ _QWORD *__fastcall MiLinkHotPatchToBase(__int64 a1, __int64 a2, int a3)
   *(_QWORD *)(a1 + 304) = result;
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v13 = CurrentPrcb->SchedulerAssist;

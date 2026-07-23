@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpLfhContextFree @ 0x18004F530
+ * XREFs of RtlpHpLfhContextFree @ 0x180065110
  * Callers:
- *     RtlpHpFreeHeapSlow @ 0x18002B6C4 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpMetadataFree @ 0x18004EF28 (RtlpHpMetadataFree.c)
- *     RtlpHpSegLfhVsFree @ 0x18004F470 (RtlpHpSegLfhVsFree.c)
- *     RtlpHpVsSubsegmentCreate @ 0x18004FC80 (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x180050DD0 (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpReallocMove @ 0x180094540 (RtlpHpReallocMove.c)
- *     RtlpHpSegReAlloc @ 0x1800A3160 (RtlpHpSegReAlloc.c)
- *     RtlpHpAllocateHeapSlow @ 0x1800ACEF0 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpFreeHeapSlow @ 0x1800580C4 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpSegReAlloc @ 0x18005CF10 (RtlpHpSegReAlloc.c)
+ *     RtlpHpMetadataFree @ 0x180064B08 (RtlpHpMetadataFree.c)
+ *     RtlpHpSegLfhVsFree @ 0x180065050 (RtlpHpSegLfhVsFree.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x180065860 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1800669B0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpReallocMove @ 0x18009EFF0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x18009FA50 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpEnvCompactionSchedule @ 0x18004FAE0 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpEnvCompactionIsScheduled @ 0x1801426C4 (RtlpHpEnvCompactionIsScheduled.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x1800656C0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpEnvCompactionIsScheduled @ 0x180140874 (RtlpHpEnvCompactionIsScheduled.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextFree(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -44,7 +44,7 @@ __int64 __fastcall RtlpHpLfhContextFree(__int64 a1, unsigned __int64 a2, __int64
   int v29; // [rsp+64h] [rbp+1Ch]
 
   v4 = a3;
-  v6 = qword_1801CDEC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
+  v6 = qword_1801CCEC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
   v7 = a3 - HIWORD(v6) - a2;
   v8 = (v7 * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72)) >> 32;
   if ( v7 != (_DWORD)v8 * (unsigned __int16)v6 )

@@ -18,45 +18,33 @@
  *     sub_1800FFAA8 @ 0x1800FFAA8 (sub_1800FFAA8.c)
  */
 
-__int64 __fastcall sub_18001C138(unsigned __int64 a1, unsigned __int64 *a2)
+unsigned __int64 __fastcall sub_18001C138(_QWORD *BaseAddress, PSIZE_T RegionSize)
 {
-  __int64 v4; // rax
-  __int64 v5; // rbp
-  __int64 v6; // rdi
+  _QWORD *v4; // rax
+  _QWORD *v5; // rbp
+  unsigned __int64 v6; // rdi
   unsigned __int8 v7; // al
-  unsigned __int64 v8; // rsi
+  _QWORD *v8; // rsi
   unsigned __int64 v9; // rdx
-  int v10; // eax
-  int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // r15
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // r9
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // rcx
-  __int64 v23; // rdx
-  __int64 v24; // rbp
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // rcx
-  __int64 v29; // rdx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rsi
-  __int64 v33; // rcx
-  __int64 v35; // [rsp+50h] [rbp+8h] BYREF
+  ULONG Protect; // eax
+  NTSTATUS v11; // eax
+  __int64 v12; // r15
+  __int64 UserModeGlobalLogger; // rcx
+  unsigned __int64 v14; // rax
+  ULONG_PTR v15; // r9
+  ULONG_PTR v16; // rdx
+  _QWORD *v17; // rdx
+  __int64 v18; // rbp
+  __int64 v19; // rcx
+  __int64 v20; // rsi
+  __int64 v21; // rcx
+  PVOID BaseAddressa; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = sub_18001C638(a1, *a2);
+  v4 = (_QWORD *)sub_18001C638(BaseAddress, *RegionSize);
   v5 = v4;
-  if ( v4 == a1 + 240 )
+  if ( v4 == BaseAddress + 30 )
     return 0LL;
-  if ( dword_18015BFD8 >= 1 && *(_QWORD *)(v4 + 40) < *a2 )
+  if ( dword_18015BFD8 >= 1 && v4[5] < *RegionSize )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -65,103 +53,109 @@ __int64 __fastcall sub_18001C138(unsigned __int64 a1, unsigned __int64 *a2)
     DbgPrint("(UCRBlock->Size >= *Size)");
     sub_1800FDDA8(1LL);
   }
-  v6 = v5 - 16;
-  v7 = *(_BYTE *)(v5 - 16 + 14);
+  v6 = (unsigned __int64)(v5 - 2);
+  v7 = *((_BYTE *)v5 - 2);
   if ( v7 )
-    v8 = (v6 & 0xFFFFFFFFFFFF0000uLL) - ((unsigned __int64)v7 << 16) + 0x10000;
+    v8 = (_QWORD *)((v6 & 0xFFFFFFFFFFFF0000uLL) - ((unsigned __int64)v7 << 16) + 0x10000);
   else
-    v8 = a1;
-  v35 = *(_QWORD *)(v5 + 32);
-  if ( qword_18015BFA8 != *(_QWORD *)(a1 + 360) )
+    v8 = BaseAddress;
+  BaseAddressa = (PVOID)v5[4];
+  if ( qword_18015BFA8 != BaseAddress[45] )
   {
-    v11 = ((__int64 (__fastcall *)(unsigned __int64, __int64 *, unsigned __int64 *))(qword_18015BFA8 ^ *(_QWORD *)(a1 + 360)))(
-            a1,
-            &v35,
-            a2);
+    v11 = ((__int64 (__fastcall *)(_QWORD *, PVOID *, PSIZE_T))(qword_18015BFA8 ^ BaseAddress[45]))(
+            BaseAddress,
+            &BaseAddressa,
+            RegionSize);
   }
   else
   {
-    v9 = *(_QWORD *)(v5 + 40);
-    if ( v9 - *a2 <= 16LL * *(_QWORD *)(a1 + 176) && v9 < 16 * (unsigned __int64)*(unsigned int *)(a1 + 148) )
-      *a2 = v9;
-    *a2 = (*a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    v10 = sub_18001E548(a1, 1LL);
-    v11 = ZwAllocateVirtualMemory(-1LL, &v35, 0LL, a2, 4096, v10);
-    ++*(_DWORD *)(a1 + 592);
+    v9 = v5[5];
+    if ( v9 - *RegionSize <= 16LL * BaseAddress[22] && v9 < 16 * (unsigned __int64)*((unsigned int *)BaseAddress + 37) )
+      *RegionSize = v9;
+    *RegionSize = (*RegionSize + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    Protect = sub_18001E548(BaseAddress);
+    v11 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, RegionSize, 0x1000u, Protect);
+    ++*((_DWORD *)BaseAddress + 148);
   }
   if ( v11 < 0 )
   {
-    ++*(_DWORD *)(a1 + 600);
+    ++*((_DWORD *)BaseAddress + 150);
     return 0LL;
   }
-  v16 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v13, v12, v14, v15) )
-    v17 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  v12 = 2147353472LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v17 = 2147353472LL;
-  if ( *(_BYTE *)v17 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-    sub_1800FF834(a1, v35, *a2, 2LL);
-  if ( *(_DWORD *)(a1 + 124) )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    sub_1800FF834(BaseAddress, BaseAddressa, *RegionSize, 2LL);
+  if ( *((_DWORD *)BaseAddress + 31) )
   {
-    *(_DWORD *)(v6 + 8) ^= *(_DWORD *)(a1 + 136);
+    *(_DWORD *)(v6 + 8) ^= *((_DWORD *)BaseAddress + 34);
     if ( *(_BYTE *)(v6 + 11) != (*(_BYTE *)(v6 + 8) ^ (unsigned __int8)(*(_BYTE *)(v6 + 9) ^ *(_BYTE *)(v6 + 10))) )
-      sub_1800FDA30(a1, v5 - 16);
+      sub_1800FDA30(BaseAddress, v5 - 2);
   }
   *(_BYTE *)(v6 + 10) = 0;
   *(_BYTE *)(v6 + 15) = 0;
-  sub_18001C6C4(a1, v5);
-  --*(_DWORD *)(v8 + 84);
-  *(_DWORD *)(v8 + 80) -= *(_QWORD *)(v5 + 40) >> 12;
-  *(_QWORD *)(a1 + 544) += *(_QWORD *)(v5 + 40);
-  ++*(_DWORD *)(a1 + 576);
-  --*(_DWORD *)(a1 + 572);
-  v19 = *(_QWORD *)(v5 + 40);
-  if ( v19 >= 0xFF000 )
-    *(_QWORD *)(a1 + 552) -= v19;
-  v20 = *(_QWORD *)(v5 + 40);
-  v21 = *a2;
-  if ( v20 > *a2 || (v22 = v20 + *(_QWORD *)(v5 + 32), v22 == *(_QWORD *)(v8 + 72)) )
+  sub_18001C6C4(BaseAddress, v5);
+  --*((_DWORD *)v8 + 21);
+  *((_DWORD *)v8 + 20) -= v5[5] >> 12;
+  BaseAddress[68] += v5[5];
+  ++*((_DWORD *)BaseAddress + 144);
+  --*((_DWORD *)BaseAddress + 143);
+  v14 = v5[5];
+  if ( v14 >= 0xFF000 )
+    BaseAddress[69] -= v14;
+  v15 = v5[5];
+  v16 = *RegionSize;
+  if ( v15 > *RegionSize || v15 + v5[4] == v8[9] )
   {
-    sub_18001C3EC(a1, v8, *(_DWORD *)(v5 + 32) + v21 - 48, v20 - v21, v5 - 16, (__int64)a2);
-    *a2 *= 16LL;
+    sub_18001C3EC(
+      (_DWORD)BaseAddress,
+      (_DWORD)v8,
+      *((_DWORD *)v5 + 8) + v16 - 48,
+      v15 - v16,
+      (__int64)(v5 - 2),
+      (__int64)RegionSize);
+    *RegionSize *= 16LL;
   }
   else
   {
-    *a2 = v21 + 16LL * *(unsigned __int16 *)(v6 + 8);
+    *RegionSize = v16 + 16LL * *(unsigned __int16 *)(v6 + 8);
   }
   *(_BYTE *)(v6 + 11) = 0;
-  v23 = *(_QWORD *)(v8 + 40);
-  if ( v23 == v8 )
+  v17 = (_QWORD *)v8[5];
+  if ( v17 == v8 )
   {
-    LOBYTE(v24) = 0;
+    LOBYTE(v18) = 0;
   }
   else
   {
-    v24 = ((v6 - v8) >> 16) + 1;
-    if ( (v6 - v8) >> 16 > 0xFC )
-      sub_1800A4DFC(3, v23, v6, v8, 0LL, 0LL);
+    v18 = ((v6 - (unsigned __int64)v8) >> 16) + 1;
+    if ( (v6 - (unsigned __int64)v8) >> 16 > 0xFC )
+      sub_1800A4DFC(3, (_DWORD)v17, v6, (_DWORD)v8, 0LL, 0LL);
   }
-  *(_BYTE *)(v6 + 14) = v24;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v22, v23, v18, v20) )
-    v28 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  *(_BYTE *)(v6 + 14) = v18;
+  if ( RtlGetCurrentServiceSessionId() )
+    v19 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v28 = 2147353472LL;
-  if ( *(_BYTE *)v28 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    v19 = 2147353472LL;
+  if ( *(_BYTE *)v19 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v28, v25, v26, v27) )
-      v16 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-    sub_1800FFAA8(a1, v6, *a2, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v16);
+    if ( RtlGetCurrentServiceSessionId() )
+      v12 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+    sub_1800FFAA8((int)BaseAddress, v6, *RegionSize, 16 * BaseAddress[24], (HANDLE)*(unsigned __int8 *)v12);
   }
-  v32 = 2147353482LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v28, v25, v26, v27) )
-    v33 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+  v20 = 2147353482LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v21 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
   else
-    v33 = 2147353482LL;
-  if ( *(_BYTE *)v33 )
+    v21 = 2147353482LL;
+  if ( *(_BYTE *)v21 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v33, v29, v30, v31) )
-      v32 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
-    sub_1800FFAA8(a1, v6, *a2, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v32);
+    if ( RtlGetCurrentServiceSessionId() )
+      v20 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
+    sub_1800FFAA8((int)BaseAddress, v6, *RegionSize, 16 * BaseAddress[24], (HANDLE)*(unsigned __int8 *)v20);
   }
   return v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteDebugLookupFailed @ 0x1407A71C8
+ * XREFs of EtwpEventWriteDebugLookupFailed @ 0x1407A7308
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x140838564 (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x140A3B8FC (EtwpProviderArrivalCallback.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteDebugLookupFailed(
@@ -22,7 +22,7 @@ NTSTATUS __fastcall EtwpEventWriteDebugLookupFailed(
   __int64 v11; // [rsp+50h] [rbp-9h]
   int v12; // [rsp+58h] [rbp-1h]
   int v13; // [rsp+5Ch] [rbp+3h]
-  __int64 *v14; // [rsp+60h] [rbp+7h]
+  int *v14; // [rsp+60h] [rbp+7h]
   __int64 v15; // [rsp+68h] [rbp+Fh]
   int *v16; // [rsp+70h] [rbp+17h]
   __int64 v17; // [rsp+78h] [rbp+1Fh]

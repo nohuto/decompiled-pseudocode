@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecommitRegion @ 0x140430190
+ * XREFs of MiDecommitRegion @ 0x14042F060
  * Callers:
- *     NtFreeVirtualMemory @ 0x140433DC0 (NtFreeVirtualMemory.c)
- *     MiDeleteTebRange @ 0x1404CD4BC (MiDeleteTebRange.c)
+ *     NtFreeVirtualMemory @ 0x140432C90 (NtFreeVirtualMemory.c)
+ *     MiDeleteTebRange @ 0x1404B2EE8 (MiDeleteTebRange.c)
  * Callees:
- *     PspReturnQuota @ 0x140010AA0 (PspReturnQuota.c)
- *     MiFillCommitReturnInfo @ 0x1400284E8 (MiFillCommitReturnInfo.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnProcessCommitment @ 0x1400A3E4C (MiReturnProcessCommitment.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x140507750 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspReturnQuota @ 0x140010620 (PspReturnQuota.c)
+ *     MiFillCommitReturnInfo @ 0x140028068 (MiFillCommitReturnInfo.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnProcessCommitment @ 0x1400A2774 (MiReturnProcessCommitment.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1404EA6E0 (PspChangeJobMemoryUsageByProcess.c)
  */
 
 void __fastcall MiDecommitRegion(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReferenceSubsection @ 0x140021B6C
+ * XREFs of MiReferenceSubsection @ 0x1400216EC
  * Callers:
- *     MiComputeDataFlushRange @ 0x140021958 (MiComputeDataFlushRange.c)
- *     MiTrimSharedPage @ 0x14008E6E4 (MiTrimSharedPage.c)
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
- *     MiFlushAcquire @ 0x1400A5F00 (MiFlushAcquire.c)
- *     MiUpControlAreaRefs @ 0x14010C9E8 (MiUpControlAreaRefs.c)
- *     MiUpdateActiveSubsection @ 0x1401EAC88 (MiUpdateActiveSubsection.c)
+ *     MiComputeDataFlushRange @ 0x1400214D8 (MiComputeDataFlushRange.c)
+ *     MiTrimSharedPage @ 0x14008DE44 (MiTrimSharedPage.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
+ *     MiFlushAcquire @ 0x1400A4478 (MiFlushAcquire.c)
+ *     MiUpControlAreaRefs @ 0x14010A768 (MiUpControlAreaRefs.c)
+ *     MiUpdateActiveSubsection @ 0x1401EAAB4 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     MiRemoveUnusedSubsection @ 0x1400904A4 (MiRemoveUnusedSubsection.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     MiRemoveUnusedSubsection @ 0x14008FC04 (MiRemoveUnusedSubsection.c)
  */
 
 __int64 __fastcall MiReferenceSubsection(__int64 a1)

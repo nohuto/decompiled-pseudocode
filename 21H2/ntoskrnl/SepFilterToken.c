@@ -1,49 +1,49 @@
 /*
- * XREFs of SepFilterToken @ 0x1405DB0FC
+ * XREFs of SepFilterToken @ 0x1406CA87C
  * Callers:
- *     NtFilterToken @ 0x1405D9FB0 (NtFilterToken.c)
- *     SeFilterToken @ 0x1407C6800 (SeFilterToken.c)
+ *     NtFilterToken @ 0x1406C7EA0 (NtFilterToken.c)
+ *     SeFilterToken @ 0x1407C6B20 (SeFilterToken.c)
  * Callees:
  *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
- *     SepDuplicateLogonSessionReference @ 0x140201A48 (SepDuplicateLogonSessionReference.c)
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
- *     RtlSidHashInitialize @ 0x140355DE0 (RtlSidHashInitialize.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeIsSystemContext @ 0x1405971CC (SeIsSystemContext.c)
- *     SepSetLogonSessionToken @ 0x1405D9EE0 (SepSetLogonSessionToken.c)
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x1405DA360 (SepRemoveDisabledGroupsAndPrivileges.c)
- *     SepSidInSidAndAttributes @ 0x1405DA558 (SepSidInSidAndAttributes.c)
- *     RtlIsPackageSid @ 0x1405DAD60 (RtlIsPackageSid.c)
- *     RtlCopySidAndAttributesArray @ 0x1405DC280 (RtlCopySidAndAttributesArray.c)
- *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
- *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x1406040FC (SepRefDerefLuidToIndexEntryIfNecessary.c)
- *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     RtlIsCapabilitySid @ 0x140676B90 (RtlIsCapabilitySid.c)
- *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SepSetTokenTrust @ 0x140707310 (SepSetTokenTrust.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x1407175BC (SepNewTokenAsRestrictedAsProcessToken.c)
- *     SepSetTokenPackage @ 0x1407197A0 (SepSetTokenPackage.c)
- *     SepModifyTokenPolicyCounter @ 0x14091CB90 (SepModifyTokenPolicyCounter.c)
- *     SepDuplicateTokenUserAndGroups @ 0x1409230BC (SepDuplicateTokenUserAndGroups.c)
- *     SepAddTokenLogonSession @ 0x1409236D0 (SepAddTokenLogonSession.c)
- *     SepDuplicateTokenClaims @ 0x14092527C (SepDuplicateTokenClaims.c)
- *     SepReferenceLowBoxNumberEntry @ 0x140925808 (SepReferenceLowBoxNumberEntry.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     SepDuplicateLogonSessionReference @ 0x1402A5540 (SepDuplicateLogonSessionReference.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     RtlWalkFrameChain @ 0x1402C17B0 (RtlWalkFrameChain.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     KeEnterCriticalRegion @ 0x14035BF60 (KeEnterCriticalRegion.c)
+ *     RtlSidHashInitialize @ 0x140360B30 (RtlSidHashInitialize.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x140360E30 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeIsSystemContext @ 0x1405973FC (SeIsSystemContext.c)
+ *     SepSetLogonSessionToken @ 0x140612290 (SepSetLogonSessionToken.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     RtlIsCapabilitySid @ 0x14066A260 (RtlIsCapabilitySid.c)
+ *     ObCreateObject @ 0x1406ABDC0 (ObCreateObject.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x1406C5C0C (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     SepSetTokenPackage @ 0x1406C7DF0 (SepSetTokenPackage.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x1406C8250 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SepSidInSidAndAttributes @ 0x1406C8448 (SepSidInSidAndAttributes.c)
+ *     RtlIsPackageSid @ 0x1406CA4E0 (RtlIsPackageSid.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406CBA00 (RtlCopySidAndAttributesArray.c)
+ *     SepSetTokenCapabilities @ 0x1406CCA98 (SepSetTokenCapabilities.c)
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x1406F382C (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ *     SepSetTokenSessionById @ 0x1406F3A30 (SepSetTokenSessionById.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SepSetTokenTrust @ 0x14071E6F0 (SepSetTokenTrust.c)
+ *     SepModifyTokenPolicyCounter @ 0x14091CCF0 (SepModifyTokenPolicyCounter.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x14092321C (SepDuplicateTokenUserAndGroups.c)
+ *     SepAddTokenLogonSession @ 0x140923830 (SepAddTokenLogonSession.c)
+ *     SepDuplicateTokenClaims @ 0x1409253DC (SepDuplicateTokenClaims.c)
+ *     SepReferenceLowBoxNumberEntry @ 0x140925968 (SepReferenceLowBoxNumberEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepFilterToken(
@@ -55,13 +55,13 @@ __int64 __fastcall SepFilterToken(
         unsigned int a6,
         _DWORD *a7,
         unsigned int a8,
-        __int64 *a9,
+        PSID *a9,
         ULONG ulAddend,
         PADAPTER_OBJECT *a11)
 {
   _DMA_OPERATIONS *v13; // r15
   unsigned int v14; // edi
-  __int64 *v15; // rbx
+  PSID *v15; // rbx
   _DMA_OPERATIONS *PoolWithTag; // rax
   _DMA_OPERATIONS *v17; // r14
   _DMA_OPERATIONS *v18; // rcx
@@ -85,83 +85,81 @@ __int64 __fastcall SepFilterToken(
   _DMA_OPERATIONS *v37; // rdx
   struct _KPROCESS *v38; // rax
   struct _DMA_ADAPTER *v39; // rbx
-  _DMA_OPERATIONS *v40; // r14
+  _SID_AND_ATTRIBUTES *v40; // r14
   int v41; // eax
   unsigned int v42; // r15d
-  char *v43; // r15
+  _SID_AND_ATTRIBUTES *SidArea; // r15
   __int64 v44; // r8
-  int v45; // eax
+  NTSTATUS v45; // eax
   unsigned int v46; // r12d
-  char *v47; // r14
+  _SID_AND_ATTRIBUTES *v47; // r14
   char **v48; // r13
   unsigned int v49; // edx
-  int v50; // eax
+  NTSTATUS v50; // eax
   struct _DMA_ADAPTER *v51; // rdx
   __int64 v52; // rax
   unsigned int v53; // ecx
   size_t v54; // r14
   char *v55; // r12
-  unsigned int *v56; // r13
+  ULONG *v56; // r13
   char v57; // al
   _DWORD *v58; // rcx
   unsigned int v59; // r15d
   __int64 v60; // r9
-  __int64 v61; // rdx
+  unsigned __int8 *v61; // rdx
   int v62; // eax
   struct _ERESOURCE *v63; // rcx
   int v64; // r14d
   PERESOURCE *PrimaryToken; // rbx
   _DMA_OPERATIONS **v66; // rdx
   int AllocateCommonBufferVector; // edx
-  int v68; // [rsp+28h] [rbp-E0h]
-  int v69; // [rsp+38h] [rbp-D0h]
-  char v70; // [rsp+58h] [rbp-B0h] BYREF
-  char v71; // [rsp+59h] [rbp-AFh]
+  char v68; // [rsp+58h] [rbp-B0h] BYREF
+  char v69[3]; // [rsp+59h] [rbp-AFh] BYREF
   ULONG pulResult; // [rsp+5Ch] [rbp-ACh] BYREF
-  __int64 v73; // [rsp+60h] [rbp-A8h]
-  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-A0h] BYREF
-  ULONG v75[2]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v76; // [rsp+78h] [rbp-90h] BYREF
-  int v77; // [rsp+80h] [rbp-88h]
-  struct _DMA_ADAPTER *v78; // [rsp+88h] [rbp-80h]
+  __int64 v71; // [rsp+60h] [rbp-A8h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-A0h]
+  ULONG v73[2]; // [rsp+70h] [rbp-98h] BYREF
+  PSID RemainingSidArea; // [rsp+78h] [rbp-90h] BYREF
+  int v75; // [rsp+80h] [rbp-88h]
+  struct _DMA_ADAPTER *v76; // [rsp+88h] [rbp-80h]
   _DMA_OPERATIONS **p_DmaOperations; // [rsp+90h] [rbp-78h]
-  _DWORD *v80; // [rsp+98h] [rbp-70h]
-  struct _DMA_ADAPTER *v81; // [rsp+A0h] [rbp-68h]
-  _DMA_OPERATIONS **v82; // [rsp+A8h] [rbp-60h]
-  struct _DMA_ADAPTER *v83; // [rsp+B0h] [rbp-58h]
-  struct _DMA_ADAPTER *v84; // [rsp+B8h] [rbp-50h]
-  __int64 **v85; // [rsp+C0h] [rbp-48h]
-  _DMA_OPERATIONS **v86; // [rsp+C8h] [rbp-40h]
-  unsigned int *p_Version; // [rsp+D0h] [rbp-38h]
+  _DWORD *v78; // [rsp+98h] [rbp-70h]
+  struct _DMA_ADAPTER *v79; // [rsp+A0h] [rbp-68h]
+  _DMA_OPERATIONS **v80; // [rsp+A8h] [rbp-60h]
+  struct _DMA_ADAPTER *v81; // [rsp+B0h] [rbp-58h]
+  struct _DMA_ADAPTER *v82; // [rsp+B8h] [rbp-50h]
+  PSID_AND_ATTRIBUTES *v83; // [rsp+C0h] [rbp-48h]
+  PSID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+C8h] [rbp-40h]
+  ULONG *p_Version; // [rsp+D0h] [rbp-38h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D8h] [rbp-30h] BYREF
-  int v89; // [rsp+F8h] [rbp-10h]
-  int v90; // [rsp+FCh] [rbp-Ch]
-  __int64 v91; // [rsp+100h] [rbp-8h]
-  __int64 v92; // [rsp+108h] [rbp+0h]
-  int v93; // [rsp+110h] [rbp+8h]
-  int v94; // [rsp+114h] [rbp+Ch]
-  __int128 v95; // [rsp+118h] [rbp+10h]
-  struct _SECURITY_SUBJECT_CONTEXT v96; // [rsp+128h] [rbp+20h] BYREF
+  int v87; // [rsp+F8h] [rbp-10h]
+  int v88; // [rsp+FCh] [rbp-Ch]
+  __int64 v89; // [rsp+100h] [rbp-8h]
+  __int64 v90; // [rsp+108h] [rbp+0h]
+  int v91; // [rsp+110h] [rbp+8h]
+  int v92; // [rsp+114h] [rbp+Ch]
+  __int128 v93; // [rsp+118h] [rbp+10h]
+  struct _SECURITY_SUBJECT_CONTEXT v94; // [rsp+128h] [rbp+20h] BYREF
 
   DmaAdapter = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v75[0] = 0;
-  memset(&v96, 0, sizeof(v96));
+  v73[0] = 0;
+  memset(&v94, 0, sizeof(v94));
   pulResult = 0;
   v13 = 0LL;
-  v90 = 0;
-  v94 = 0;
-  v70 = 0;
-  LOBYTE(v73) = KeGetCurrentThread()->PreviousMode;
-  v71 = 0;
-  v77 = a3 & 8;
+  v88 = 0;
+  v92 = 0;
+  v68 = 0;
+  LOBYTE(v71) = KeGetCurrentThread()->PreviousMode;
+  v69[0] = 0;
+  v75 = a3 & 8;
   if ( (a3 & 8) != 0 && (*(_DWORD *)(a1 + 200) & 0x58) != 0 )
     return 3221225485LL;
   v14 = 0;
   if ( a8 )
   {
     v15 = a9;
-    while ( !RtlIsPackageSid(*v15) && !(unsigned __int8)RtlIsCapabilitySid(*v15) )
+    while ( !RtlIsPackageSid(*v15) && !RtlIsCapabilitySid(*v15) )
     {
       ++v14;
       v15 += 2;
@@ -204,7 +202,7 @@ LABEL_16:
   Object = RtlULongAdd(*(_DWORD *)(a1 + 132), ulAddend, &pulResult);
   if ( Object < 0
     || (Object = RtlULongAdd(pulResult, 4u, &pulResult), Object < 0)
-    || (Object = RtlULongAdd(0x490u, pulResult, v75), Object < 0) )
+    || (Object = RtlULongAdd(0x490u, pulResult, v73), Object < 0) )
   {
     v24 = v20;
 LABEL_101:
@@ -215,16 +213,13 @@ LABEL_101:
     return (unsigned int)Object;
   }
   v23 = *(_DWORD *)(a1 + 136);
-  v69 = v23;
   LOBYTE(v23) = a2;
-  v68 = v22;
+  v89 = v22;
   v91 = v22;
-  v93 = v22;
-  v92 = v22;
-  LOBYTE(v22) = a2;
-  v89 = 48;
-  v95 = 0LL;
-  Object = ObCreateObject(v23, (_DWORD)SeTokenObjectType, 0, v22, v68, v75[0], v69, v75[0], (__int64)&DmaAdapter);
+  v90 = v22;
+  v87 = 48;
+  v93 = 0LL;
+  Object = ObCreateObject(v23, (int)SeTokenObjectType, 0, a2);
   v24 = v20;
   if ( Object < 0 )
     goto LABEL_101;
@@ -239,7 +234,7 @@ LABEL_101:
   BYTE4(v27[12].DmaOperations) = 0;
   v27[1].DmaOperations = *(_DMA_OPERATIONS **)(a1 + 24);
   v29 = *(struct _DMA_ADAPTER *)a1;
-  v78 = v27 + 8;
+  v76 = v27 + 8;
   *v27 = v29;
   HIDWORD(v27[8].DmaOperations) = 0;
   *(_DWORD *)&v27[8].Version = 0;
@@ -270,7 +265,7 @@ LABEL_101:
   v32 = &v27[12].DmaOperations;
   LODWORD(v27[7].DmaOperations) = *(_DWORD *)(a1 + 120);
   v33 = *(_DWORD *)(a1 + 200) & 0xFFFFFBD7;
-  v80 = &v27[12].DmaOperations;
+  v78 = &v27[12].DmaOperations;
   LODWORD(v27[12].DmaOperations) = v33;
   *(PADAPTER_OBJECT)((char *)v27 + 88) = *(PADAPTER_OBJECT)(a1 + 88);
   *(PADAPTER_OBJECT)((char *)v27 + 104) = *(PADAPTER_OBJECT)(a1 + 104);
@@ -285,23 +280,23 @@ LABEL_101:
     SepModifyTokenPolicyCounter(&v27[5].DmaOperations, v31);
   }
   v27[67].DmaOperations = 0LL;
-  v82 = &v27[67].DmaOperations;
+  v80 = &v27[67].DmaOperations;
   *(_QWORD *)&v27[68].Version = 0LL;
-  v83 = v27 + 68;
+  v81 = v27 + 68;
   *(_QWORD *)&v27[72].Version = 0LL;
-  v84 = v27 + 72;
+  v82 = v27 + 72;
   v27[49].DmaOperations = 0LL;
-  v85 = (__int64 **)&v27[49].DmaOperations;
+  v83 = (PSID_AND_ATTRIBUTES *)&v27[49].DmaOperations;
   *(_QWORD *)&v27[49].Version = 0LL;
-  p_Version = (unsigned int *)&v27[50].Version;
+  p_Version = (ULONG *)&v27[50].Version;
   *(_DWORD *)&v27[50].Version = 0;
-  v86 = &v27[50].DmaOperations;
+  SidAttrHash = (PSID_AND_ATTRIBUTES_HASH)&v27[50].DmaOperations;
   memset(&v27[50].DmaOperations, 0, 0x110uLL);
   *(_QWORD *)&v27[11].Version = 0LL;
   *(_QWORD *)&v27[69].Version = 0LL;
   v27[69].DmaOperations = 0LL;
   *(_QWORD *)&v27[71].Version = 0LL;
-  v81 = v27 + 11;
+  v79 = v27 + 11;
   Object = SepDuplicateLogonSessionReference((__int64)v27, a1);
   if ( Object < 0 )
     goto LABEL_28;
@@ -342,24 +337,24 @@ LABEL_101:
   {
     v38 = PsGetCurrentProcess();
     v39 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(v38);
-    if ( (int)SeIsSystemContext(v39, &v70) >= 0 && v70 )
+    if ( (int)SeIsSystemContext(v39, &v68) >= 0 && v68 )
       *v32 |= 0x40u;
     HalPutDmaAdapter(v39);
   }
-  v40 = (_DMA_OPERATIONS *)&v27[73];
+  v40 = (_SID_AND_ATTRIBUTES *)&v27[73];
   v41 = ((_BYTE)v27 - 112) & 7;
   if ( (((_BYTE)v27 - 112) & 7) != 0 )
   {
-    v40 = (_DMA_OPERATIONS *)((char *)v40 + (unsigned int)(8 - v41));
+    v40 = (_SID_AND_ATTRIBUTES *)((char *)v40 + (unsigned int)(8 - v41));
     v28 -= 8 - v41;
     pulResult = v28;
   }
   v42 = a8;
   if ( *(_DWORD *)(a1 + 128) > a8 )
     v42 = *(_DWORD *)(a1 + 128);
-  v43 = (char *)v40 + 16 * *(_DWORD *)(a1 + 124) + 16 * v42;
-  v27[9].DmaOperations = v40;
-  v76 = (__int64)v43;
+  SidArea = &v40[*(_DWORD *)(a1 + 124) + v42];
+  v27[9].DmaOperations = (_DMA_OPERATIONS *)v40;
+  RemainingSidArea = SidArea;
   if ( SepTokenSidSharingEnabled )
   {
     Object = SepDuplicateTokenUserAndGroups(a1, v27);
@@ -379,17 +374,17 @@ LABEL_29:
     HIDWORD(v27[7].DmaOperations) = *(_DWORD *)(a1 + 124);
     v45 = RtlCopySidAndAttributesArray(
             *(_DWORD *)(a1 + 124),
-            *(_QWORD *)(a1 + 152),
+            *(PSID_AND_ATTRIBUTES *)(a1 + 152),
             v28,
-            (int)v40,
-            v43,
-            (__int64)&v76,
-            (__int64)&pulResult);
-    v43 = (char *)v76;
+            v40,
+            SidArea,
+            &RemainingSidArea,
+            &pulResult);
+    SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
     Object = v45;
   }
   v46 = 0;
-  v47 = (char *)v40 + (unsigned int)(16 * *(_DWORD *)(a1 + 124));
+  v47 = (_SID_AND_ATTRIBUTES *)((char *)v40 + (unsigned int)(16 * *(_DWORD *)(a1 + 124)));
   *(_QWORD *)&v27[10].Version = v47;
   if ( a8 )
   {
@@ -400,18 +395,18 @@ LABEL_29:
       if ( !v49 || SepSidInSidAndAttributes(*(unsigned __int8 ***)(a1 + 160), v49, v44, *v48) )
       {
         v50 = RtlCopySidAndAttributesArray(
-                1,
-                (unsigned int)a9 + 16 * v46,
+                1u,
+                (PSID_AND_ATTRIBUTES)&a9[2 * v46],
                 pulResult,
-                (int)v47,
-                v43,
-                (__int64)&v76,
-                (__int64)&pulResult);
-        v51 = v78;
+                v47,
+                SidArea,
+                &RemainingSidArea,
+                &pulResult);
+        v51 = v76;
         Object = v50;
-        LODWORD(v47) = (_DWORD)v47 + 16;
-        v43 = (char *)v76;
-        *(_DWORD *)(*(_QWORD *)&v27[10].Version + 16LL * *(unsigned int *)&v78->Version + 8) = 7;
+        ++v47;
+        SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
+        *(_DWORD *)(*(_QWORD *)&v27[10].Version + 16LL * *(unsigned int *)&v76->Version + 8) = 7;
         ++*(_DWORD *)&v51->Version;
       }
       ++v46;
@@ -425,30 +420,30 @@ LABEL_29:
     v53 += *(unsigned __int16 *)(v52 + 2);
   v54 = v53;
   v55 = (char *)ExAllocatePoolWithTag(PagedPool, v53, 0x64546553u);
-  *(_QWORD *)&v81->Version = v55;
+  *(_QWORD *)&v79->Version = v55;
   if ( !v55 )
   {
     Object = -1073741670;
     goto LABEL_28;
   }
-  v56 = (unsigned int *)&v78->Version;
-  if ( *(_DWORD *)(a1 + 128) && !*(_DWORD *)&v78->Version )
+  v56 = (ULONG *)&v76->Version;
+  if ( *(_DWORD *)(a1 + 128) && !*(_DWORD *)&v76->Version )
   {
     Object = -1073741811;
     goto LABEL_28;
   }
   v57 = 0;
-  v58 = v80;
-  if ( *(_DWORD *)&v78->Version )
+  v58 = v78;
+  if ( *(_DWORD *)&v76->Version )
   {
-    *v80 |= 0x810u;
+    *v78 |= 0x810u;
     v57 = 1;
   }
   else
   {
     *(_QWORD *)&v27[10].Version = 0LL;
   }
-  if ( v77 )
+  if ( v75 )
   {
     *v58 |= 0x18u;
     v57 = 1;
@@ -466,25 +461,25 @@ LABEL_29:
     Object = SepSetTokenCapabilities(v27, *(_QWORD *)(a1 + 784), *(_QWORD *)(a1 + 792), v60);
   if ( Object < 0 )
     goto LABEL_28;
-  v61 = *(_QWORD *)(a1 + 784);
+  v61 = *(unsigned __int8 **)(a1 + 784);
   if ( v61 )
-    Object = SepSetTokenPackage(v27, v61);
+    Object = SepSetTokenPackage((__int64)v27, v61);
   if ( Object < 0 )
     goto LABEL_28;
   if ( *(_QWORD *)(a1 + 1080) )
   {
     SepReferenceLowBoxNumberEntry();
-    *v82 = *(_DMA_OPERATIONS **)(a1 + 1080);
+    *v80 = *(_DMA_OPERATIONS **)(a1 + 1080);
   }
   if ( *(_QWORD *)(a1 + 1088) )
   {
     SepReferenceLowBoxNumberEntry();
-    *(_QWORD *)&v83->Version = *(_QWORD *)(a1 + 1088);
+    *(_QWORD *)&v81->Version = *(_QWORD *)(a1 + 1088);
   }
   if ( *(_QWORD *)(a1 + 1152) )
   {
     SepReferenceLowBoxNumberEntry();
-    *(_QWORD *)&v84->Version = *(_QWORD *)(a1 + 1152);
+    *(_QWORD *)&v82->Version = *(_QWORD *)(a1 + 1152);
   }
   v62 = SepSetTokenTrust(v27, *(_QWORD *)(a1 + 1104));
   v63 = *(struct _ERESOURCE **)(a1 + 48);
@@ -499,20 +494,23 @@ LABEL_29:
   KeLeaveCriticalRegion();
   v27[10].DmaOperations = (_DMA_OPERATIONS *)&v55[v59];
   SepRemoveDisabledGroupsAndPrivileges((__int64)v27, a3, a4, a5, a6, a7);
-  RtlSidHashInitialize((__int64 *)v27[9].DmaOperations, HIDWORD(v27[7].DmaOperations), &v27[14].DmaOperations);
-  RtlSidHashInitialize(*(__int64 **)&v27[10].Version, *v56, &v27[31].DmaOperations);
+  RtlSidHashInitialize(
+    (PSID_AND_ATTRIBUTES)v27[9].DmaOperations,
+    HIDWORD(v27[7].DmaOperations),
+    (PSID_AND_ATTRIBUTES_HASH)&v27[14].DmaOperations);
+  RtlSidHashInitialize(*(PSID_AND_ATTRIBUTES *)&v27[10].Version, *v56, (PSID_AND_ATTRIBUTES_HASH)&v27[31].DmaOperations);
   SeCaptureSubjectContext(&SubjectContext);
-  v96.PrimaryToken = SubjectContext.PrimaryToken;
+  v94.PrimaryToken = SubjectContext.PrimaryToken;
   if ( (unsigned __int8)RtlIsSandboxedToken(&SubjectContext)
-    && (unsigned __int8)RtlIsSandboxedToken(&v96)
+    && (unsigned __int8)RtlIsSandboxedToken(&v94)
     && ((PrimaryToken = (PERESOURCE *)SubjectContext.PrimaryToken,
          KeEnterCriticalRegion(),
          ExAcquireResourceSharedLite(PrimaryToken[6], 1u),
-         v64 = SepNewTokenAsRestrictedAsProcessToken(v27, PrimaryToken),
+         v64 = SepNewTokenAsRestrictedAsProcessToken(v27, PrimaryToken, v69),
          ExReleaseResourceLite(PrimaryToken[6]),
          KeLeaveCriticalRegion(),
          v64 < 0)
-     || !v71) )
+     || !v69[0]) )
   {
     HalPutDmaAdapter(v27);
     SeReleaseSubjectContext(&SubjectContext);
@@ -520,8 +518,8 @@ LABEL_29:
   else
   {
     SeReleaseSubjectContext(&SubjectContext);
-    if ( *v85 )
-      RtlSidHashInitialize(*v85, *p_Version, v86);
+    if ( *v83 )
+      RtlSidHashInitialize(*v83, *p_Version, SidAttrHash);
     if ( SeTokenLeakTracking
       && SepTokenLeakMethodWatch == 15
       && PsGetCurrentProcess()[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)SepTokenLeakProcessCid )

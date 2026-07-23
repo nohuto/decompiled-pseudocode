@@ -10,38 +10,38 @@
  *     _RtlpWnfETWEventSubscribe@28 @ 0x4B33C4EC (_RtlpWnfETWEventSubscribe@28.c)
  */
 
-int __fastcall RtlpAddWnfUserSubToNameSub(_DWORD *a1, int a2)
+NTSTATUS __fastcall RtlpAddWnfUserSubToNameSub(int a1, int a2)
 {
   _DWORD *v4; // edx
   _DWORD *v5; // ecx
   _DWORD *v6; // eax
   unsigned int v7; // ecx
   _DWORD *v8; // ebx
-  int v9; // ebx
+  ULONG v9; // ebx
   _DWORD *v10; // ecx
   unsigned int i; // eax
-  unsigned int v12; // eax
-  int v13; // ebx
+  WNF_CHANGE_STAMP v12; // eax
+  NTSTATUS v13; // ebx
   int v14; // eax
   _DWORD *j; // ecx
-  _DWORD v17[2]; // [esp+10h] [ebp-8h] BYREF
+  unsigned __int64 SubscriptionId; // [esp+10h] [ebp-8h] BYREF
 
-  RtlAcquireSRWLockExclusive(dword_4B3A664C + 4);
-  RtlAcquireSRWLockExclusive(a1 + 10);
-  v4 = a1 + 11;
-  v5 = (_DWORD *)a1[12];
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 4));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
+  v4 = (_DWORD *)(a1 + 44);
+  v5 = *(_DWORD **)(a1 + 48);
   v6 = (_DWORD *)(a2 + 4);
-  if ( (_DWORD *)*v5 != a1 + 11 )
+  if ( *v5 != a1 + 44 )
     __fastfail(3u);
   *v6 = v4;
   *(_DWORD *)(a2 + 8) = v5;
   *v5 = v6;
-  a1[12] = v6;
+  *(_DWORD *)(a1 + 48) = v6;
   *(_DWORD *)(a2 + 12) = a1;
-  if ( a1[23] == 1 && (*(_DWORD *)(a2 + 36) & 0xFFFFFFEE) != 0 )
+  if ( *(_DWORD *)(a1 + 92) == 1 && (*(_DWORD *)(a2 + 36) & 0xFFFFFFEE) != 0 )
     *(_DWORD *)(a2 + 100) = 1;
   v7 = 0;
-  v8 = a1 + 15;
+  v8 = (_DWORD *)(a1 + 60);
   do
   {
     if ( ((1 << v7) & *(_DWORD *)(a2 + 36)) != 0 )
@@ -51,18 +51,18 @@ int __fastcall RtlpAddWnfUserSubToNameSub(_DWORD *a1, int a2)
   }
   while ( v7 < 5 );
   v9 = 0;
-  v10 = a1 + 15;
+  v10 = (_DWORD *)(a1 + 60);
   for ( i = 0; i < 5; ++i )
   {
     if ( *v10 )
       v9 |= 1 << i;
     ++v10;
   }
-  ++a1[13];
+  ++*(_DWORD *)(a1 + 52);
   if ( (*(_BYTE *)(a2 + 32) & 4) != 0 )
-    ++a1[14];
+    ++*(_DWORD *)(a1 + 56);
   v12 = *(_DWORD *)(a2 + 28);
-  if ( a1[6] < v12 )
+  if ( *(_DWORD *)(a1 + 24) < v12 )
   {
     for ( j = (_DWORD *)*v4; j != v4; j = (_DWORD *)*j )
     {
@@ -70,20 +70,22 @@ int __fastcall RtlpAddWnfUserSubToNameSub(_DWORD *a1, int a2)
         v12 = j[6];
     }
   }
-  a1[6] = v12;
-  v13 = NtSubscribeWnfStateChange(a1 + 4, v12, v9, v17);
+  *(_DWORD *)(a1 + 24) = v12;
+  v13 = NtSubscribeWnfStateChange((PCWNF_STATE_NAME)(a1 + 16), v12, v9, &SubscriptionId);
   if ( v13 >= 0 )
-  {
-    a1[2] = v17[0];
-    a1[3] = v17[1];
-  }
+    *(_QWORD *)(a1 + 8) = SubscriptionId;
   if ( RtlGetCurrentServiceSessionId() )
     v14 = (int)NtCurrentPeb()->SharedData + 564;
   else
     v14 = 2147353486;
   if ( *(_BYTE *)v14 && v13 >= 0 )
-    RtlpWnfETWEventSubscribe(a1[20], *(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 36), a1[4], a1[5]);
-  RtlReleaseSRWLockExclusive(a1 + 10);
-  RtlReleaseSRWLockExclusive(dword_4B3A664C + 4);
+    RtlpWnfETWEventSubscribe(
+      *(_DWORD *)(a1 + 80),
+      *(_DWORD *)(a2 + 16),
+      *(_DWORD *)(a2 + 36),
+      *(_DWORD *)(a1 + 16),
+      *(_DWORD *)(a1 + 20));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 4));
   return v13;
 }

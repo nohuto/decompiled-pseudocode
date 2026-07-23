@@ -18,6 +18,6 @@ __int64 __fastcall HvlSvmSetDeviceEnabled(int a1, unsigned __int8 a2)
   *(_QWORD *)((char *)&v4 + 4) = 0x140000000LL;
   LODWORD(v4) = a1;
   v5 = a2;
-  v2 = HvcallFastExtended(196779LL, (__int64)&v4, 24LL, 0LL, 0);
+  v2 = HvcallFastExtended(196779LL, (__int64)&v4, 0x18u, 0, 0);
   return HvlpHvToNtStatus(v2);
 }

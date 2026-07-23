@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkNmiInterrupt @ 0x140A19400
+ * XREFs of HalpBlkNmiInterrupt @ 0x140A1A400
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140A180B0 (HalpBlkFatalErrorHalt.c)
- *     HalpBlkMceFastForward @ 0x140A1A2B0 (HalpBlkMceFastForward.c)
+ *     HalpBlkFatalErrorHalt @ 0x140A190B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkMceFastForward @ 0x140A1B2B0 (HalpBlkMceFastForward.c)
  */
 
 void __fastcall HalpBlkNmiInterrupt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpRemoveErrorPort @ 0x140939F70
+ * XREFs of DbgkpRemoveErrorPort @ 0x14093A170
  * Callers:
- *     DbgkFlushErrorPort @ 0x1407513E4 (DbgkFlushErrorPort.c)
- *     DbgkpSendErrorMessage @ 0x14093A27C (DbgkpSendErrorMessage.c)
+ *     DbgkFlushErrorPort @ 0x1407515D4 (DbgkFlushErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x14093A47C (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     DbgkpDereferenceErrorPort @ 0x14053BB88 (DbgkpDereferenceErrorPort.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     DbgkpDereferenceErrorPort @ 0x14053C0D8 (DbgkpDereferenceErrorPort.c)
  */
 
 int __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __int32 *a3)

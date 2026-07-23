@@ -9,7 +9,13 @@
  *     SmEtwLogStoreCorruption @ 0x14059BF8C (SmEtwLogStoreCorruption.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageError(__int64 a1, void *a2, void *a3, ULONG_PTR a4, __int64 a5, int a6)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageError(
+        __int64 a1,
+        void *a2,
+        UCHAR *a3,
+        ULONG_PTR a4,
+        __int64 a5,
+        int a6)
 {
   int v6; // eax
   __int64 v11; // rdx

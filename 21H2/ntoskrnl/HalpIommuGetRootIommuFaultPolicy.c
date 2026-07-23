@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuGetRootIommuFaultPolicy @ 0x1402D400C
+ * XREFs of HalpIommuGetRootIommuFaultPolicy @ 0x14025227C
  * Callers:
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
  * Callees:
  *     <none>
  */

@@ -2,9 +2,9 @@
  * XREFs of BgkResumePrepare @ 0x1403CA94C
  * Callers:
  *     PopMarkComponentsBootPhase @ 0x1403CAFB4 (PopMarkComponentsBootPhase.c)
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
  * Callees:
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
  *     BgGetContext @ 0x1407251F0 (BgGetContext.c)
  *     BgMarkHiberPhase @ 0x14072537C (BgMarkHiberPhase.c)
  *     BgkpLockBgfxCodeSection @ 0x140725674 (BgkpLockBgfxCodeSection.c)

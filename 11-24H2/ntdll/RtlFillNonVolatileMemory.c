@@ -1,40 +1,39 @@
 /*
- * XREFs of RtlFillNonVolatileMemory @ 0x180144F50
+ * XREFs of RtlFillNonVolatileMemory @ 0x180143300
  * Callers:
  *     <none>
  * Callees:
- *     RtlFlushNonVolatileMemory @ 0x180144D20 (RtlFlushNonVolatileMemory.c)
- *     RtlFillMemoryNonTemporal @ 0x180166100 (RtlFillMemoryNonTemporal.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlFlushNonVolatileMemory @ 0x1801430D0 (RtlFlushNonVolatileMemory.c)
+ *     RtlFillMemoryNonTemporal @ 0x1801644C0 (RtlFillMemoryNonTemporal.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlFillNonVolatileMemory(char a1, void *a2, size_t a3, unsigned __int8 a4, __int16 a5)
+DWORD __cdecl RtlFillNonVolatileMemory(PVOID NvToken, void *NvDestination, SIZE_T Size, const BYTE Value, DWORD Flags)
 {
-  unsigned int v5; // ebx
-  __int64 v7; // rdi
+  DWORD v5; // ebx
+  SIZE_T v7; // rdi
 
   v5 = 0;
-  v7 = a3;
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  if ( (a5 & 3) == 1 )
+  v7 = Size;
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  if ( (Flags & 3) == 1 )
   {
-    if ( (a5 & 0x100) != 0 )
-      LOBYTE(v5) = 1;
-    goto LABEL_11;
+    v5 = (Flags & 0x100) != 0;
+    goto LABEL_10;
   }
-  if ( (a5 & 2) == 0 )
+  if ( (Flags & 2) == 0 )
   {
-    memset_thunk_772440563353939046(a2, a4, a3);
+    memset_thunk_772440563353939046(NvDestination, Value, Size);
     return v5;
   }
-  if ( a3 < 8 )
+  if ( Size < 8 )
   {
-LABEL_11:
-    memset_thunk_772440563353939046(a2, a4, a3);
-    return (unsigned int)RtlFlushNonVolatileMemory(a1, (__int64)a2, v7, v5);
+LABEL_10:
+    memset_thunk_772440563353939046(NvDestination, Value, Size);
+    return RtlFlushNonVolatileMemory(NvToken, NvDestination, v7, v5);
   }
-  LOBYTE(a3) = a4;
-  RtlFillMemoryNonTemporal(a2, v7, a3);
+  LOBYTE(Size) = Value;
+  RtlFillMemoryNonTemporal(NvDestination, v7, Size);
   return v5;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringExHandleFillBehindNullW @ 0x1800EE498
+ * XREFs of RtlStringExHandleFillBehindNullW @ 0x1800EE558
  * Callers:
- *     RtlStringCchPrintfExW @ 0x18005CCF0 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x18005CCE0 (RtlStringCchPrintfExW.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

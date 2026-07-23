@@ -1,16 +1,16 @@
 /*
- * XREFs of PopHandleConvergedPowerRequestUpdate @ 0x140679D14
+ * XREFs of PopHandleConvergedPowerRequestUpdate @ 0x14066D454
  * Callers:
- *     PopSystemRequiredCallback @ 0x14067BBB0 (PopSystemRequiredCallback.c)
- *     PopExecutionRequiredCallback @ 0x1406C28F0 (PopExecutionRequiredCallback.c)
+ *     PopExecutionRequiredCallback @ 0x1406215B0 (PopExecutionRequiredCallback.c)
+ *     PopSystemRequiredCallback @ 0x14066F2F0 (PopSystemRequiredCallback.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopHandleSystemRequiredPowerRequestsUpdate @ 0x1402811BC (PopHandleSystemRequiredPowerRequestsUpdate.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopPowerRequestIsExecutionRequiredCapable @ 0x14067B184 (PopPowerRequestIsExecutionRequiredCapable.c)
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14067BC50 (PopUpdatePowerRequestProcessWakeCounter.c)
- *     PopPowerRequestIsExecutionRequiredStatusHeld @ 0x14067BCD0 (PopPowerRequestIsExecutionRequiredStatusHeld.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopHandleSystemRequiredPowerRequestsUpdate @ 0x14026F3FC (PopHandleSystemRequiredPowerRequestsUpdate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestIsExecutionRequiredCapable @ 0x14066E8C4 (PopPowerRequestIsExecutionRequiredCapable.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14066F390 (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     PopPowerRequestIsExecutionRequiredStatusHeld @ 0x14066F410 (PopPowerRequestIsExecutionRequiredStatusHeld.c)
  */
 
 __int64 __fastcall PopHandleConvergedPowerRequestUpdate(__int64 a1, unsigned int a2)

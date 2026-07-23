@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceMdlAllocationEvent @ 0x1404CAFD8
+ * XREFs of EtwTraceMdlAllocationEvent @ 0x1404C4A08
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpGetDurationSince @ 0x1403491B8 (EtwpGetDurationSince.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpGetDurationSince @ 0x14034B238 (EtwpGetDurationSince.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceMdlAllocationEvent(
@@ -25,7 +25,9 @@ BOOLEAN __fastcall EtwTraceMdlAllocationEvent(
   int v15; // [rsp+74h] [rbp-5h]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp-1h] BYREF
 
-  result = EtwEventEnabled(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MDL_ALLOCATION);
+  result = EtwEventEnabled(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+             &KERNEL_MEM_EVENT_MDL_ALLOCATION);
   if ( result )
   {
     v13[0] = EtwpGetDurationSince(a8);
@@ -38,7 +40,15 @@ BOOLEAN __fastcall EtwTraceMdlAllocationEvent(
     v13[3] = a3;
     v13[4] = a4;
     *(_QWORD *)&UserData.Size = 56LL;
-    return EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MDL_ALLOCATION, 0LL, 1u, 0LL, 0LL, 1u, &UserData);
+    return EtwWriteEx(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+             &KERNEL_MEM_EVENT_MDL_ALLOCATION,
+             0LL,
+             1u,
+             0LL,
+             0LL,
+             1u,
+             &UserData);
   }
   return result;
 }

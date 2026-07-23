@@ -31,7 +31,7 @@ void __fastcall MiUpdateDriverLoadInProgress(__int64 a1, _QWORD *a2, int a3, int
   unsigned __int64 v20; // r8
   _QWORD *v21; // rax
   unsigned __int64 LoadedModuleImageAdditionalTablesAddress; // rax
-  __int64 v23; // rdx
+  int v23; // edx
   int v24; // [rsp+68h] [rbp+20h] BYREF
 
   v8 = (_QWORD *)a1;
@@ -139,9 +139,9 @@ LABEL_20:
     v24 = 0;
     LoadedModuleImageAdditionalTablesAddress = MmGetLoadedModuleImageAdditionalTablesAddress(a1, &v24);
     if ( LoadedModuleImageAdditionalTablesAddress )
-      v23 = (unsigned int)(LoadedModuleImageAdditionalTablesAddress + v24 - *(_DWORD *)(a1 + 48));
+      v23 = LoadedModuleImageAdditionalTablesAddress + v24 - *(_DWORD *)(a1 + 48);
     else
-      v23 = *(unsigned int *)(a1 + 64);
-    RtlInsertInvertedFunctionTable(*(_QWORD *)(a1 + 48), v23);
+      v23 = *(_DWORD *)(a1 + 64);
+    RtlInsertInvertedFunctionTable(*(void **)(a1 + 48), v23);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAddBugcheckTriageThread @ 0x14054F6D0
+ * XREFs of IoAddBugcheckTriageThread @ 0x14054FD90
  * Callers:
  *     <none>
  * Callees:
- *     IopAddBugcheckTriageThread @ 0x14055C14C (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageThread @ 0x14055C80C (IopAddBugcheckTriageThread.c)
  */
 
 __int64 __fastcall IoAddBugcheckTriageThread(ULONG a1)

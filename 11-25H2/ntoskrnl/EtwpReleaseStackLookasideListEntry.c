@@ -13,8 +13,8 @@ PSLIST_ENTRY __fastcall EtwpReleaseStackLookasideListEntry(ULONG_PTR BugCheckPar
   ULONG_PTR v1; // r8
   unsigned int v2; // edx
   __int64 v3; // rax
-  struct _SLIST_ENTRY *v4; // rdx
-  union _SLIST_HEADER *v5; // rcx
+  _SLIST_ENTRY *v4; // rdx
+  _SLIST_HEADER *v5; // rcx
 
   v1 = *(_QWORD *)(BugCheckParameter3 + 24);
   if ( v1 && (*(_BYTE *)(v1 + 7) & 2) != 0 )
@@ -23,7 +23,7 @@ PSLIST_ENTRY __fastcall EtwpReleaseStackLookasideListEntry(ULONG_PTR BugCheckPar
   if ( v2 == -1 )
   {
     _InterlockedDecrement(&dword_140E28C5C);
-    v4 = (struct _SLIST_ENTRY *)BugCheckParameter3;
+    v4 = (_SLIST_ENTRY *)BugCheckParameter3;
     v5 = &EtwpStackLookAsideList;
   }
   else
@@ -37,8 +37,8 @@ PSLIST_ENTRY __fastcall EtwpReleaseStackLookasideListEntry(ULONG_PTR BugCheckPar
       _mm_lfence();
       v3 = KiProcessorBlock[v2];
     }
-    v4 = (struct _SLIST_ENTRY *)BugCheckParameter3;
-    v5 = (union _SLIST_HEADER *)(*(_QWORD *)(v3 + 35752) + 384LL);
+    v4 = (_SLIST_ENTRY *)BugCheckParameter3;
+    v5 = (_SLIST_HEADER *)(*(_QWORD *)(v3 + 35752) + 384LL);
   }
   return RtlpInterlockedPushEntrySList(v5, v4);
 }

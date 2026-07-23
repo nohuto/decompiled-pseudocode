@@ -1,17 +1,22 @@
 /*
- * XREFs of ZwCreateDirectoryObjectEx @ 0x1406A79B0
+ * XREFs of ZwCreateDirectoryObjectEx @ 0x1406A8950
  * Callers:
- *     ObpCreateDosDevicesDirectory @ 0x14074375C (ObpCreateDosDevicesDirectory.c)
- *     ObpInitializeRootNamespace @ 0x140743CA8 (ObpInitializeRootNamespace.c)
- *     MiCreatePartitionNamespace @ 0x1407FFE18 (MiCreatePartitionNamespace.c)
- *     ObCreateSiloRootDirectory @ 0x14082ABD4 (ObCreateSiloRootDirectory.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14074168C (ObpCreateDosDevicesDirectory.c)
+ *     ObpInitializeRootNamespace @ 0x140741BD8 (ObpInitializeRootNamespace.c)
+ *     MiCreatePartitionNamespace @ 0x140800558 (MiCreatePartitionNamespace.c)
+ *     ObCreateSiloRootDirectory @ 0x14082B404 (ObCreateSiloRootDirectory.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateDirectoryObjectEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateDirectoryObjectEx(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ShadowDirectoryHandle,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DirectoryHandle);
 }

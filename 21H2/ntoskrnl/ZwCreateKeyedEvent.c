@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwCreateKeyedEvent @ 0x1403FB9C0
+ * XREFs of ZwCreateKeyedEvent @ 0x1403FBBA0
  * Callers:
- *     ExpKeyedEventInitialization @ 0x140A6F2EC (ExpKeyedEventInitialization.c)
+ *     ExpKeyedEventInitialization @ 0x140A702EC (ExpKeyedEventInitialization.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateKeyedEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyedEventHandle);
 }

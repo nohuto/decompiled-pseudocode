@@ -1,12 +1,12 @@
 /*
- * XREFs of KiStartProfileTarget @ 0x1401D7154
+ * XREFs of KiStartProfileTarget @ 0x1401D6F80
  * Callers:
- *     KeStartProfile @ 0x1401D6D44 (KeStartProfile.c)
+ *     KeStartProfile @ 0x1401D6B70 (KeStartProfile.c)
  * Callees:
- *     KeOrAffinityEx @ 0x1400968D0 (KeOrAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KeSubtractAffinityEx @ 0x14014428C (KeSubtractAffinityEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeOrAffinityEx @ 0x1400960D0 (KeOrAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KeSubtractAffinityEx @ 0x1401447FC (KeSubtractAffinityEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 ULONG_PTR __fastcall KiStartProfileTarget(__int64 *Argument)
@@ -55,13 +55,13 @@ ULONG_PTR __fastcall KiStartProfileTarget(__int64 *Argument)
       }
       else
       {
-        v8 = (_QWORD *)qword_14030E4E8;
-        if ( *(__int64 **)qword_14030E4E8 != &KiProfileListHead )
+        v8 = (_QWORD *)qword_14030E528;
+        if ( *(__int64 **)qword_14030E528 != &KiProfileListHead )
           __fastfail(3u);
         *v5 = &KiProfileListHead;
         *(_QWORD *)(v2 + 16) = v8;
         *v8 = v5;
-        qword_14030E4E8 = v2 + 8;
+        qword_14030E528 = v2 + 8;
       }
       v9 = KiProfileSourceListHead;
       if ( (__int64 *)KiProfileSourceListHead == &KiProfileSourceListHead )

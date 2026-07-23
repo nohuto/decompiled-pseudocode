@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateKernelShadowStackOwnerData @ 0x140269D0C
+ * XREFs of MiUpdateKernelShadowStackOwnerData @ 0x14021F29C
  * Callers:
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
  * Callees:
- *     MiValidateKernelShadowStackPage @ 0x14026C2A8 (MiValidateKernelShadowStackPage.c)
+ *     MiValidateKernelShadowStackPage @ 0x140221838 (MiValidateKernelShadowStackPage.c)
  */
 
 unsigned __int64 __fastcall MiUpdateKernelShadowStackOwnerData(

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsReturnProcessPageFileQuota @ 0x1409E5710
+ * XREFs of PsReturnProcessPageFileQuota @ 0x1409DFFA0
  * Callers:
- *     MiReturnFullProcessCharges @ 0x140430F60 (MiReturnFullProcessCharges.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCharges @ 0x1404234A0 (MiReturnFullProcessCharges.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
  * Callees:
- *     PspReturnQuota @ 0x14024C640 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x14027CC50 (PspReturnQuota.c)
  */
 
 signed __int64 __fastcall PsReturnProcessPageFileQuota(ULONG_PTR a1, ULONG_PTR a2)

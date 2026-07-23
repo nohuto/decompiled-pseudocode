@@ -1,16 +1,16 @@
 /*
- * XREFs of PiSwIrpSetAttributes @ 0x1407B0370
+ * XREFs of PiSwIrpSetAttributes @ 0x1407B33D0
  * Callers:
- *     PiSwDispatch @ 0x140A7B430 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x140A8C570 (PiSwDispatch.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14049E7E8 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140525230 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zztt_EtwWriteTransfer @ 0x1405DC23C (McTemplateK0zztt_EtwWriteTransfer.c)
- *     PiSwLock @ 0x14090DC3C (PiSwLock.c)
- *     PiSwDeviceOperationsAllowed @ 0x14090E1D4 (PiSwDeviceOperationsAllowed.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140498338 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405278A0 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zztt_EtwWriteTransfer @ 0x1405DEAEC (McTemplateK0zztt_EtwWriteTransfer.c)
+ *     PiSwLock @ 0x1409AFD6C (PiSwLock.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1409B0304 (PiSwDeviceOperationsAllowed.c)
  */
 
 __int64 __fastcall PiSwIrpSetAttributes(PIRP Irp, __int64 a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall PiSwIrpSetAttributes(PIRP Irp, __int64 a2, __int64 a3)
   v4 = 0;
   MasterIrp = Irp->AssociatedIrp.MasterIrp;
   FsContext2 = (const wchar_t **)CurrentStackLocation->FileObject->FsContext2;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zz_EtwWriteTransfer(
       (__int64)Irp,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_AttributesChange_Start,
@@ -50,7 +50,7 @@ __int64 __fastcall PiSwIrpSetAttributes(PIRP Irp, __int64 a2, __int64 a3)
       }
       else
       {
-        if ( (byte_140EF3DCC & 0x40) != 0 )
+        if ( (byte_140EF412C & 0x40) != 0 )
           McTemplateK0zztt_EtwWriteTransfer(
             v9,
             (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_AttributesChanged,
@@ -71,7 +71,7 @@ __int64 __fastcall PiSwIrpSetAttributes(PIRP Irp, __int64 a2, __int64 a3)
   }
   Irp->IoStatus.Status = v4;
   IofCompleteRequest(Irp, 0);
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       (__int64)FsContext2[2],
       (__int64)KMPnPEvt_SwDevice_AttributesChange_Stop,

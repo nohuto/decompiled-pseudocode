@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIoRateEntryInitialize @ 0x1408EAAB4
+ * XREFs of PspIoRateEntryInitialize @ 0x14085C2E4
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x14085E97C (PspSetJobIoRateControlForVolume.c)
- *     NtCreateJobObject @ 0x1408EAB60 (NtCreateJobObject.c)
+ *     NtCreateJobObject @ 0x14085C390 (NtCreateJobObject.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140AB24C8 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
  */
 
 __int64 __fastcall PspIoRateEntryInitialize(__int64 a1)

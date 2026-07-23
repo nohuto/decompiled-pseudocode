@@ -95,7 +95,7 @@ __int64 __fastcall MiCopyDataPageToImagePage(__int64 a1, void **a2, __int64 *a3,
   __int64 v57; // r9
   __int64 v58; // rdx
   int v59; // eax
-  struct _SLIST_ENTRY *DecayPfn; // rdi
+  _SLIST_ENTRY *DecayPfn; // rdi
   ULONG_PTR v61; // rbx
   ULONG_PTR v62; // r14
   unsigned __int8 v63; // r15

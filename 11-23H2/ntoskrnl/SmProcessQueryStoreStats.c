@@ -1,46 +1,46 @@
 /*
- * XREFs of SmProcessQueryStoreStats @ 0x1408A6994
+ * XREFs of SmProcessQueryStoreStats @ 0x1408A6BE4
  * Callers:
- *     PfpPrivSourceEnum @ 0x1407417B0 (PfpPrivSourceEnum.c)
- *     EtwpLogMemInfoWs @ 0x1408A6B64 (EtwpLogMemInfoWs.c)
+ *     PfpPrivSourceEnum @ 0x1407419A0 (PfpPrivSourceEnum.c)
+ *     EtwpLogMemInfoWs @ 0x1408A6DB4 (EtwpLogMemInfoWs.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x1405C2EC0 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x1405C3430 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
  */
 
 __int64 __fastcall SmProcessQueryStoreStats(struct _EPROCESS *a1, _QWORD *a2, _QWORD *a3)
 {
-  int StoreStats; // r9d
-  __int64 v7; // r10
-  unsigned int *v8; // rdx
+  int v6; // r9d
+  __int64 RegionSize; // r10
+  _ST_DATA_MGR_STATS::$94C4BE97FD0F81C7851F3B6009F5EE10 *Space; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
-  __int64 v11; // rax
-  _DWORD v13[384]; // [rsp+20h] [rbp-628h] BYREF
+  __int64 RegionsInUse; // rax
+  struct _ST_STATS v13; // [rsp+20h] [rbp-628h] BYREF
 
-  memset(v13, 0, sizeof(v13));
-  StoreStats = SmpProcessQueryStoreStats(a1, (struct _ST_STATS *)v13);
-  if ( StoreStats >= 0 )
+  memset(&v13, 0, sizeof(v13));
+  v6 = SmpProcessQueryStoreStats(a1, &v13);
+  if ( v6 >= 0 )
   {
     if ( a2 )
     {
-      v7 = v13[3];
-      v8 = &v13[11];
+      RegionSize = v13.Basic.RegionSize;
+      Space = v13.Basic.UserData.Space;
       v9 = 0LL;
       v10 = 8LL;
       do
       {
-        v11 = *v8;
-        v8 += 2;
-        v9 += v7 * v11;
+        RegionsInUse = Space->RegionsInUse;
+        ++Space;
+        v9 += RegionSize * RegionsInUse;
         *a2 = v9;
         --v10;
       }
       while ( v10 );
     }
     if ( a3 )
-      *a3 = (unsigned __int64)v13[8] << 12;
+      *a3 = (unsigned __int64)v13.Basic.UserData.PagesStored << 12;
   }
-  return (unsigned int)StoreStats;
+  return (unsigned int)v6;
 }

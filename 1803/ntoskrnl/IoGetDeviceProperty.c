@@ -378,7 +378,7 @@ LABEL_11:
                             v10,
                             v11,
                             PropertyBuffer,
-                            (__int64)ResultLength);
+                            ResultLength);
           v13 = DeviceRegProp == -1073741275;
 LABEL_13:
           if ( !v13 )

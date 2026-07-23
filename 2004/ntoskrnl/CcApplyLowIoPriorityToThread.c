@@ -90,7 +90,7 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
           {
             *(_BYTE *)(v13 + 32) |= 2u;
             if ( *(__int64 *)(v13 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v13);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
             v14 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
             v15 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
             *(_BYTE *)(v13 + 25) &= ~1u;
@@ -162,7 +162,7 @@ LABEL_30:
           {
             *(_BYTE *)(v24 + 32) |= 2u;
             if ( *(__int64 *)(v24 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v24);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
             v25 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
             v26 = *(_DWORD *)(v24 + 88) & 0xFFFE0000;
             *(_BYTE *)(v24 + 25) &= ~1u;

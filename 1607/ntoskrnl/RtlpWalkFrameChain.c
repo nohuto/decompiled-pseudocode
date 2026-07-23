@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpWalkFrameChain @ 0x14004F520
+ * XREFs of RtlpWalkFrameChain @ 0x14004F0A0
  * Callers:
- *     RtlWalkFrameChain @ 0x14004F2A0 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x14004EE20 (RtlWalkFrameChain.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     RtlpGetStackLimits @ 0x14004F390 (RtlpGetStackLimits.c)
- *     KeQueryCurrentStackInformation @ 0x14004F3C0 (KeQueryCurrentStackInformation.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x140051360 (RtlpLookupFunctionEntryForStackWalks.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     RtlpUnwindEpilogue @ 0x1400B3C60 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x1400B3E1C (RtlpUnwindOpSlots.c)
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     KeGetNextKernelStackSegment @ 0x1400F0BDC (KeGetNextKernelStackSegment.c)
- *     PspGetBaseTrapFrame @ 0x1400F32E0 (PspGetBaseTrapFrame.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     RtlpWalkWowStack @ 0x14010E674 (RtlpWalkWowStack.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpSameFunction @ 0x1401593E8 (RtlpSameFunction.c)
- *     RtlpTrivialFunction @ 0x140159480 (RtlpTrivialFunction.c)
- *     RtlpCaptureContext @ 0x140166F00 (RtlpCaptureContext.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DEBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     RtlpGetStackLimits @ 0x14004EF10 (RtlpGetStackLimits.c)
+ *     KeQueryCurrentStackInformation @ 0x14004EF40 (KeQueryCurrentStackInformation.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140050EE0 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     RtlpUnwindEpilogue @ 0x1400B1AE0 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x1400B1C9C (RtlpUnwindOpSlots.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     KeGetNextKernelStackSegment @ 0x1400EEA2C (KeGetNextKernelStackSegment.c)
+ *     PspGetBaseTrapFrame @ 0x1400F1130 (PspGetBaseTrapFrame.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     RtlpWalkWowStack @ 0x14010EBD8 (RtlpWalkWowStack.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpSameFunction @ 0x140159958 (RtlpSameFunction.c)
+ *     RtlpTrivialFunction @ 0x1401599F0 (RtlpTrivialFunction.c)
+ *     RtlpCaptureContext @ 0x140167470 (RtlpCaptureContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DCE8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsigned int a4)
@@ -277,7 +277,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
     if ( v122 != 1 )
     {
       v39 = v176;
-      if ( v176 >= qword_140326910 && v176 < qword_140326910 + 0x8000000000LL )
+      if ( v176 >= qword_140326950 && v176 < qword_140326950 + 0x8000000000LL )
       {
         v10 = Process[1].ActiveProcessors.Bitmap[2];
         if ( !v10

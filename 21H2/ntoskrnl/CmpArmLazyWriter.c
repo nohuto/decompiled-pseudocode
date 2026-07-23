@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpArmLazyWriter @ 0x140358040
+ * XREFs of CmpArmLazyWriter @ 0x140362D90
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x140362080 (CmpRecheckHiveVolumePolicy.c)
- *     CmpEnableLazyFlush @ 0x1403A7408 (CmpEnableLazyFlush.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
- *     HvpMarkDirty @ 0x140708560 (HvpMarkDirty.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F73C0 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpEnableLazyFlush @ 0x1403A7558 (CmpEnableLazyFlush.c)
+ *     HvMarkBaseBlockDirty @ 0x14061C16C (HvMarkBaseBlockDirty.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     HvpMarkDirty @ 0x14071F940 (HvpMarkDirty.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

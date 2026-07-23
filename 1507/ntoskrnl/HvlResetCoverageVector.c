@@ -11,7 +11,7 @@
 
 bool HvlResetCoverageVector()
 {
-  union _SLIST_HEADER *v0; // rdi
+  _SLIST_HEADER *v0; // rdi
   char v1; // r12
   char v2; // r13
   struct _KPRCB *CurrentPrcb; // rsi
@@ -21,7 +21,7 @@ bool HvlResetCoverageVector()
   char v7; // r15
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // rbp
+  _SLIST_ENTRY *v10; // rbp
   _BYTE *v11; // rcx
   _SLIST_ENTRY *QuadPart; // rbx
   bool v13; // zf
@@ -33,10 +33,10 @@ bool HvlResetCoverageVector()
   PHYSICAL_ADDRESS v20; // [rsp+28h] [rbp-920h]
   bool v21; // [rsp+28h] [rbp-920h]
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-918h]
-  union _SLIST_HEADER *v23; // [rsp+40h] [rbp-908h]
-  struct _SLIST_ENTRY *v24; // [rsp+48h] [rbp-900h]
-  union _SLIST_HEADER *v25; // [rsp+60h] [rbp-8E8h]
-  struct _SLIST_ENTRY *v26; // [rsp+68h] [rbp-8E0h]
+  _SLIST_HEADER *v23; // [rsp+40h] [rbp-908h]
+  _SLIST_ENTRY *v24; // [rsp+48h] [rbp-900h]
+  _SLIST_HEADER *v25; // [rsp+60h] [rbp-8E8h]
+  _SLIST_ENTRY *v26; // [rsp+68h] [rbp-8E0h]
   _BYTE v27[7]; // [rsp+78h] [rbp-8D0h] BYREF
   _BYTE v28[73]; // [rsp+BFh] [rbp-889h] BYREF
   _BYTE v29[7]; // [rsp+108h] [rbp-840h] BYREF
@@ -55,7 +55,7 @@ bool HvlResetCoverageVector()
       ListEntry = v5;
       Next = (PHYSICAL_ADDRESS)v5[1].Next;
       v19 = 1;
-      v23 = (union _SLIST_HEADER *)CurrentPrcb;
+      v23 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -87,7 +87,7 @@ bool HvlResetCoverageVector()
   }
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    v0 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    v0 = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v9 = RtlpInterlockedPopEntrySList(v0 + 1535);
     v10 = v9;
     if ( v9 )

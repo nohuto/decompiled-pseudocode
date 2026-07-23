@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeInsertQueueApc @ 0x1400C9FD0 (KeInsertQueueApc.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     _local_unwind @ 0x14014D1B0 (_local_unwind.c)
- *     KiCustomAccessRoutine0 @ 0x140168E70 (KiCustomAccessRoutine0.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeInsertQueueApc @ 0x1400C7E70 (KeInsertQueueApc.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     _local_unwind @ 0x14014D720 (_local_unwind.c)
+ *     KiCustomAccessRoutine0 @ 0x1401693E0 (KiCustomAccessRoutine0.c)
  */
 
 void __fastcall ExpTimerDpcRoutine(

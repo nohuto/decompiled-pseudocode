@@ -3,10 +3,10 @@
  * Callers:
  *     EmpParseRuleExpression @ 0x1407A7BE4 (EmpParseRuleExpression.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x1400094D0 (EmpSearchRuleDatabase.c)
- *     EmpSearchCallbackDatabase @ 0x14013CDFC (EmpSearchCallbackDatabase.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strchr @ 0x14014E738 (strchr.c)
+ *     EmpSearchRuleDatabase @ 0x140009044 (EmpSearchRuleDatabase.c)
+ *     EmpSearchCallbackDatabase @ 0x14013D36C (EmpSearchCallbackDatabase.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strchr @ 0x14014ECF8 (strchr.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     EmpInfParseGetGuidFromName @ 0x1407A8524 (EmpInfParseGetGuidFromName.c)

@@ -18,17 +18,17 @@ char LdrpInitializePolicy()
   __int64 v5; // rcx
   __int64 v6; // rcx
   __int64 v7; // rcx
-  int v9; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-38h] BYREF
-  int v11; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-28h] BYREF
-  int v13; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-18h] BYREF
-  _DWORD v15[4]; // [rsp+60h] [rbp-10h] BYREF
+  _PS_PKG_CLAIM v9; // [rsp+30h] [rbp-40h] BYREF
+  unsigned __int64 v10; // [rsp+38h] [rbp-38h] BYREF
+  _PS_PKG_CLAIM v11; // [rsp+40h] [rbp-30h] BYREF
+  unsigned __int64 v12; // [rsp+48h] [rbp-28h] BYREF
+  _PS_PKG_CLAIM v13; // [rsp+50h] [rbp-20h] BYREF
+  unsigned __int64 v14; // [rsp+58h] [rbp-18h] BYREF
+  _PS_PKG_CLAIM v15; // [rsp+60h] [rbp-10h] BYREF
   int v16; // [rsp+90h] [rbp+20h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+28h] BYREF
-  int v18; // [rsp+A0h] [rbp+30h] BYREF
-  __int64 v19; // [rsp+A8h] [rbp+38h] BYREF
+  unsigned __int64 v17; // [rsp+98h] [rbp+28h] BYREF
+  _PS_PKG_CLAIM v18; // [rsp+A0h] [rbp+30h] BYREF
+  unsigned __int64 v19; // [rsp+A8h] [rbp+38h] BYREF
 
   v0 = NtCurrentPeb();
   p_DllPath = &v0->ProcessParameters->DllPath;
@@ -42,7 +42,7 @@ char LdrpInitializePolicy()
     LdrpAppPackagesPath = v3;
     LdrpOriginalAppPackagesPath = v3;
     if ( (int)AppModelPolicy_GetPolicy_Internal((__int64)p_DllPath, 4, &v16, &v18, &v17) < 0 || v16 == 262145 )
-      LdrSetDefaultDllDirectories(4096LL);
+      LdrSetDefaultDllDirectories(0x1000u);
     else
       LdrpPolicyBits &= ~1u;
     if ( (int)AppModelPolicy_GetPolicy_Internal(v4, 7, &v16, &v9, &v19) >= 0 && v16 == 458753 )
@@ -51,7 +51,7 @@ char LdrpInitializePolicy()
       LdrpPolicyBits |= 0x40u;
     if ( (int)AppModelPolicy_GetPolicy_Internal(v6, 32, &v16, &v13, &v12) >= 0 && v16 == 2097153 )
       LdrpPolicyBits |= 4u;
-    LODWORD(ProcessParameters) = AppModelPolicy_GetPolicy_Internal(v7, 54, &v16, v15, &v14) | 0x10000000;
+    LODWORD(ProcessParameters) = AppModelPolicy_GetPolicy_Internal(v7, 54, &v16, &v15, &v14) | 0x10000000;
     if ( (int)ProcessParameters >= 0 && v16 == 3538945 )
     {
       ProcessParameters = v0->ProcessParameters;
@@ -64,7 +64,7 @@ char LdrpInitializePolicy()
   }
   else if ( p_DllPath->Length )
   {
-    LOBYTE(ProcessParameters) = LdrSetDllDirectory();
+    LOBYTE(ProcessParameters) = LdrSetDllDirectory(p_DllPath);
   }
   return (char)ProcessParameters;
 }

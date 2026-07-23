@@ -95,7 +95,7 @@
  *     sub_1800F6B98 @ 0x1800F6B98 (sub_1800F6B98.c)
  */
 
-__int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
+int __fastcall sub_1800CDEF0(__int64 a1, void *a2)
 {
   struct _TEB *v3; // r13
   __int64 ProcessEnvironmentBlock; // r14
@@ -106,159 +106,146 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
   int v9; // eax
   int v10; // eax
   __int64 v11; // rcx
-  _WORD *v12; // rdx
-  unsigned __int16 v13; // r8
-  __int64 v14; // r15
+  WCHAR *v12; // rdx
+  USHORT Length; // r8
+  PIMAGE_NT_HEADERS v14; // r15
   char v15; // al
-  __int64 result; // rax
+  int result; // eax
   _QWORD *v17; // rax
   __int64 v18; // rcx
-  unsigned int v19; // ebx
-  unsigned __int64 v20; // rcx
-  char v21; // al
-  char v22; // cl
-  int SpareUlong0; // ecx
-  int v24; // eax
-  __int64 v25; // rcx
-  unsigned int *v26; // rax
-  unsigned int *v27; // r15
-  int v28; // r12d
-  unsigned int v29; // eax
+  unsigned __int64 v19; // rcx
+  char v20; // al
+  char v21; // cl
+  int WowTebOffset; // ecx
+  NTSTATUS v23; // eax
+  __int64 v24; // rcx
+  unsigned int *v25; // rax
+  unsigned int *v26; // r15
+  ULONG v27; // r12d
+  unsigned int v28; // eax
+  unsigned int v29; // ecx
   unsigned int v30; // ecx
-  unsigned int v31; // ecx
-  __int64 v32; // rax
-  char v33; // al
-  _QWORD *v34; // rcx
-  int v35; // ecx
-  char v36; // al
-  unsigned int v37; // eax
-  int ImageFileExecutionOptions; // ecx
-  unsigned __int64 v39; // r15
-  unsigned __int64 *v40; // r8
-  unsigned __int64 v41; // r9
-  __int64 Heap; // rax
-  void *v43; // r12
-  char v44; // al
-  void *v45; // rax
-  __int64 v46; // rcx
-  __int64 v47; // r13
-  __int64 NtSystemRoot; // rax
-  __int16 v49; // r15
-  __int64 v50; // rax
-  __int64 v51; // r15
-  int *v52; // rax
-  int v53; // edx
-  unsigned __int64 v54; // r13
-  __m128i v55; // xmm0
-  wchar_t *v56; // xmm0_8
-  wchar_t *v57; // r15
-  __int64 v58; // rax
-  unsigned __int64 v59; // r15
-  unsigned __int64 v60; // r12
-  __int64 v61; // rdx
-  __int64 v62; // r12
-  unsigned __int64 v63; // rax
-  unsigned __int64 v64; // r15
+  __int64 v31; // rax
+  char v32; // al
+  _QWORD *v33; // rcx
+  int v34; // ecx
+  char v35; // al
+  unsigned int v36; // eax
+  NTSTATUS v37; // ecx
+  unsigned __int64 v38; // r15
+  SIZE_T SizeOfHeapReserve; // r8
+  SIZE_T SizeOfHeapCommit; // r9
+  PVOID Heap; // rax
+  void *v42; // r12
+  char v43; // al
+  PVOID v44; // rax
+  __int64 v45; // rcx
+  __int64 v46; // r13
+  const WCHAR *NtSystemRoot; // rax
+  USHORT v48; // r15
+  WCHAR *v49; // rax
+  SIZE_T v50; // r15
+  int *v51; // rax
+  int v52; // edx
+  WCHAR *v53; // r13
+  __m128i v54; // xmm0
+  WCHAR *v55; // xmm0_8
+  WCHAR *v56; // r15
+  PWSTR v57; // rax
+  unsigned __int64 v58; // r15
+  SIZE_T v59; // r12
+  __int64 v60; // rdx
+  PVOID v61; // r12
+  char *v62; // rax
+  char *v63; // r15
+  _UNICODE_STRING *v64; // rcx
   __int64 v65; // rcx
-  __int64 v66; // rcx
-  unsigned __int64 *v67; // r8
-  __int64 v68; // r9
-  _QWORD *v69; // rax
-  __int64 v70; // rcx
-  unsigned __int64 v71; // rax
-  unsigned __int64 v72; // r11
-  __int64 v73; // rdx
-  __int64 v74; // rdx
-  int v75; // eax
-  char v76; // r12
-  int v77; // eax
-  _WORD *v78; // r9
-  unsigned __int64 v79; // r8
-  _WORD *v80; // rax
-  _WORD *v81; // r10
-  __int16 v82; // r8
-  const void *v83; // rcx
-  const void *v84; // rax
-  unsigned __int64 v85; // r15
-  unsigned __int64 *v86; // r8
-  __int64 v87; // r9
-  int v88; // eax
-  char v89; // cl
-  unsigned __int64 v90; // rax
-  _QWORD *v91; // r15
-  __int64 v92; // r13
-  unsigned __int64 *v93; // r8
-  __int64 v94; // r9
-  char v95; // r13
-  unsigned __int64 v96; // rcx
-  __int64 v97; // r15
-  char v98; // al
-  unsigned int v99; // ecx
-  __int64 v100; // rcx
-  __int64 v101; // r8
-  __int64 v102; // r9
-  __int64 v103; // [rsp+28h] [rbp-3F0h]
-  __int64 v104; // [rsp+28h] [rbp-3F0h]
-  __int64 v105; // [rsp+30h] [rbp-3E8h]
-  __int64 v106; // [rsp+38h] [rbp-3E0h]
-  int SystemInformation; // [rsp+50h] [rbp-3C8h] BYREF
-  int v108; // [rsp+54h] [rbp-3C4h]
-  char v109; // [rsp+58h] [rbp-3C0h] BYREF
-  char v110; // [rsp+59h] [rbp-3BFh] BYREF
-  char v111[6]; // [rsp+5Ah] [rbp-3BEh] BYREF
-  __int128 v112; // [rsp+60h] [rbp-3B8h] BYREF
-  int v113; // [rsp+70h] [rbp-3A8h] BYREF
-  int v114; // [rsp+74h] [rbp-3A4h] BYREF
-  int v115; // [rsp+78h] [rbp-3A0h]
-  __int64 v116; // [rsp+80h] [rbp-398h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+90h] [rbp-388h] BYREF
-  unsigned __int16 v118; // [rsp+A0h] [rbp-378h] BYREF
-  __int16 v119; // [rsp+A2h] [rbp-376h]
-  unsigned __int64 v120; // [rsp+A8h] [rbp-370h]
-  __int64 v121; // [rsp+B0h] [rbp-368h] BYREF
-  unsigned __int64 v122; // [rsp+B8h] [rbp-360h] BYREF
-  __int64 v123; // [rsp+C0h] [rbp-358h] BYREF
-  __int128 v124; // [rsp+C8h] [rbp-350h] BYREF
-  __m128i v125; // [rsp+D8h] [rbp-340h] BYREF
-  unsigned int v126; // [rsp+E8h] [rbp-330h]
-  unsigned __int64 v127; // [rsp+F0h] [rbp-328h] BYREF
-  __int64 v128; // [rsp+F8h] [rbp-320h]
-  __int64 v129; // [rsp+100h] [rbp-318h]
-  __int64 v130; // [rsp+108h] [rbp-310h]
-  UNICODE_STRING v131; // [rsp+110h] [rbp-308h] BYREF
-  __int64 (__fastcall *v132)(_BYTE *, __int64); // [rsp+120h] [rbp-2F8h] BYREF
-  __int64 v133; // [rsp+128h] [rbp-2F0h] BYREF
-  struct _TEB *v134; // [rsp+138h] [rbp-2E0h]
-  unsigned __int64 v135; // [rsp+140h] [rbp-2D8h] BYREF
-  __int64 v136; // [rsp+148h] [rbp-2D0h]
-  int v137; // [rsp+150h] [rbp-2C8h] BYREF
-  const WCHAR *v138; // [rsp+158h] [rbp-2C0h]
-  int v139; // [rsp+160h] [rbp-2B8h] BYREF
-  _QWORD v140[2]; // [rsp+168h] [rbp-2B0h] BYREF
-  __int64 v141; // [rsp+178h] [rbp-2A0h] BYREF
-  unsigned __int64 v142; // [rsp+180h] [rbp-298h] BYREF
-  __int64 v143; // [rsp+188h] [rbp-290h] BYREF
-  int v144; // [rsp+190h] [rbp-288h]
-  __int64 v145; // [rsp+198h] [rbp-280h]
-  int *v146; // [rsp+1A0h] [rbp-278h]
-  int v147; // [rsp+1A8h] [rbp-270h]
-  __int128 v148; // [rsp+1B0h] [rbp-268h]
-  __int64 v149; // [rsp+1C0h] [rbp-258h] BYREF
-  int v150; // [rsp+1C8h] [rbp-250h]
-  _BYTE v151[56]; // [rsp+1D0h] [rbp-248h] BYREF
-  _OWORD v152[15]; // [rsp+210h] [rbp-208h] BYREF
-  _QWORD v153[12]; // [rsp+300h] [rbp-118h] BYREF
-  __int64 v154[15]; // [rsp+360h] [rbp-B8h] BYREF
-  char v155; // [rsp+3DCh] [rbp-3Ch]
-  __int64 retaddr; // [rsp+418h] [rbp+0h]
+  _QWORD *v66; // rax
+  __int64 v67; // rcx
+  char *v68; // rax
+  char *v69; // r11
+  __int64 v70; // rdx
+  __int64 v71; // rdx
+  int v72; // eax
+  char v73; // r12
+  int v74; // eax
+  WCHAR *v75; // r9
+  WCHAR *v76; // r8
+  WCHAR *v77; // rax
+  WCHAR *v78; // r10
+  __int16 v79; // r8
+  void *v80; // rcx
+  void *v81; // rax
+  PIMAGE_NT_HEADERS v82; // r15
+  int v83; // eax
+  char v84; // cl
+  char *v85; // rax
+  __int64 v86; // r15
+  __int64 v87; // r13
+  char v88; // r13
+  PVOID v89; // rcx
+  __int64 v90; // r15
+  char v91; // al
+  unsigned int v92; // ecx
+  __int64 v93; // rcx
+  PULONG ReturnedLength; // [rsp+28h] [rbp-3F0h]
+  PULONG ReturnedLengtha; // [rsp+28h] [rbp-3F0h]
+  __int64 Wow64; // [rsp+30h] [rbp-3E8h]
+  __int64 v97; // [rsp+38h] [rbp-3E0h]
+  int v98; // [rsp+50h] [rbp-3C8h] BYREF
+  int v99; // [rsp+54h] [rbp-3C4h]
+  char v100; // [rsp+58h] [rbp-3C0h] BYREF
+  char v101; // [rsp+59h] [rbp-3BFh] BYREF
+  char v102[6]; // [rsp+5Ah] [rbp-3BEh] BYREF
+  _UNICODE_STRING v103; // [rsp+60h] [rbp-3B8h] BYREF
+  int Buffer; // [rsp+70h] [rbp-3A8h] BYREF
+  int v105; // [rsp+74h] [rbp-3A4h] BYREF
+  int v106; // [rsp+78h] [rbp-3A0h]
+  HANDLE v107; // [rsp+80h] [rbp-398h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+90h] [rbp-388h] BYREF
+  _UNICODE_STRING SubKey; // [rsp+A0h] [rbp-378h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+B0h] [rbp-368h] BYREF
+  PVOID DllHandle; // [rsp+B8h] [rbp-360h] BYREF
+  HANDLE Handle; // [rsp+C0h] [rbp-358h] BYREF
+  _UNICODE_STRING Destination; // [rsp+C8h] [rbp-350h] BYREF
+  _UNICODE_STRING ImagePathName; // [rsp+D8h] [rbp-340h] BYREF
+  ULONG v115; // [rsp+E8h] [rbp-330h] BYREF
+  PIMAGE_NT_HEADERS v116; // [rsp+F0h] [rbp-328h] BYREF
+  PVOID BaseOfImage; // [rsp+F8h] [rbp-320h]
+  __int64 v118; // [rsp+100h] [rbp-318h]
+  __int64 v119; // [rsp+108h] [rbp-310h]
+  _UNICODE_STRING DestinationString; // [rsp+110h] [rbp-308h] BYREF
+  PVOID ProcedureAddress; // [rsp+120h] [rbp-2F8h] BYREF
+  __int64 v122; // [rsp+128h] [rbp-2F0h] BYREF
+  HANDLE LinkHandle; // [rsp+130h] [rbp-2E8h] BYREF
+  struct _TEB *v124; // [rsp+138h] [rbp-2E0h]
+  _QWORD *v125; // [rsp+140h] [rbp-2D8h] BYREF
+  __int64 v126; // [rsp+148h] [rbp-2D0h]
+  int v127; // [rsp+150h] [rbp-2C8h] BYREF
+  const WCHAR *v128; // [rsp+158h] [rbp-2C0h]
+  DWORD v129; // [rsp+160h] [rbp-2B8h] BYREF
+  PIMAGE_NT_HEADERS v130; // [rsp+168h] [rbp-2B0h] BYREF
+  __int64 SystemInformation; // [rsp+170h] [rbp-2A8h] BYREF
+  __int64 v132; // [rsp+178h] [rbp-2A0h] BYREF
+  char *v133; // [rsp+180h] [rbp-298h] BYREF
+  PVOID v134; // [rsp+188h] [rbp-290h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+190h] [rbp-288h] BYREF
+  __int64 v136; // [rsp+1C0h] [rbp-258h] BYREF
+  int v137; // [rsp+1C8h] [rbp-250h]
+  _BYTE v138[56]; // [rsp+1D0h] [rbp-248h] BYREF
+  _OWORD v139[15]; // [rsp+210h] [rbp-208h] BYREF
+  _QWORD Parameters[12]; // [rsp+300h] [rbp-118h] BYREF
+  PWSTR Path[15]; // [rsp+360h] [rbp-B8h] BYREF
+  char v142; // [rsp+3DCh] [rbp-3Ch]
+  PVOID *retaddr; // [rsp+418h] [rbp+0h]
 
-  v128 = a2;
-  v130 = a1;
-  v137 = 1441812;
-  v138 = L"\\KnownDlls";
-  qword_18015C2F0 = RtlEncodePointer(0LL);
+  BaseOfImage = a2;
+  v119 = a1;
+  v127 = 1441812;
+  v128 = L"\\KnownDlls";
+  Ptr = RtlEncodePointer(0LL);
   v3 = NtCurrentTeb();
-  v134 = v3;
+  v124 = v3;
   ProcessEnvironmentBlock = (__int64)v3->ProcessEnvironmentBlock;
   dword_18015C360 = 88;
   byte_18015C364 = 1;
@@ -272,7 +259,7 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
   byte_18015C3A8 = 0;
   qword_18015C3B0 = 0LL;
   *(_QWORD *)(ProcessEnvironmentBlock + 24) = &dword_18015C360;
-  sub_1800CDEB8((_QWORD *)ProcessEnvironmentBlock);
+  sub_1800CDEB8((PUSHORT *)ProcessEnvironmentBlock);
   v6 = 0;
   v7 = *(_DWORD *)(ProcessEnvironmentBlock + 184) == 1;
   v8 = *(_DWORD *)(ProcessEnvironmentBlock + 184) <= 1u;
@@ -289,30 +276,30 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
   dword_1801596D8 = v10;
   sub_1800F110C();
   v11 = *(_QWORD *)(ProcessEnvironmentBlock + 32);
-  v12 = (_WORD *)(*(_QWORD *)(v11 + 104) + v11);
+  v12 = (WCHAR *)(*(_QWORD *)(v11 + 104) + v11);
   if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
-    v12 = *(_WORD **)(v11 + 104);
-  v120 = (unsigned __int64)v12;
-  v118 = *(_WORD *)(v11 + 96);
-  v13 = v118;
-  v119 = v118 + 2;
-  if ( v118 >= 8u && *v12 == 92 && v12[1] == 63 && v12[2] == 63 && v12[3] == 92 )
+    v12 = *(WCHAR **)(v11 + 104);
+  SubKey.Buffer = v12;
+  SubKey.Length = *(_WORD *)(v11 + 96);
+  Length = SubKey.Length;
+  SubKey.MaximumLength = SubKey.Length + 2;
+  if ( SubKey.Length >= 8u && *v12 == 92 && v12[1] == 63 && v12[2] == 63 && v12[3] == 92 )
   {
-    v118 -= 8;
-    v119 = v13 - 6;
-    v120 = (unsigned __int64)(v12 + 4);
+    SubKey.Length -= 8;
+    SubKey.MaximumLength = Length - 6;
+    SubKey.Buffer = v12 + 4;
     *(_WORD *)(v11 + 96) -= 8;
     *(_WORD *)(v11 + 98) -= 8;
     *(_QWORD *)(v11 + 104) += 8LL;
   }
-  v115 = 1;
+  v106 = 1;
   byte_18015C308 = 0;
-  LOBYTE(v108) = 0;
-  v114 = 0;
-  RtlImageNtHeaderEx(3, *(_QWORD *)(ProcessEnvironmentBlock + 16), 0LL, &v121);
-  v14 = v121;
-  qword_18015C2A8 = v121;
-  if ( byte_18015C298 && (*(_BYTE *)(v121 + 22) & 0x20) == 0 )
+  LOBYTE(v99) = 0;
+  v105 = 0;
+  RtlImageNtHeaderEx(3u, *(PVOID *)(ProcessEnvironmentBlock + 16), 0LL, &OutHeaders);
+  v14 = OutHeaders;
+  qword_18015C2A8 = (__int64)OutHeaders;
+  if ( byte_18015C298 && (OutHeaders->FileHeader.Characteristics & 0x20) == 0 )
   {
     v15 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
@@ -327,7 +314,7 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
     }
     if ( (v15 & 0x10) != 0 )
       __debugbreak();
-    return 3221225659LL;
+    return -1073741637;
   }
   v17 = &unk_18015BFC0;
   v18 = 32LL;
@@ -339,35 +326,37 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
     --v18;
   }
   while ( v18 );
-  RtlImageNtHeaderEx(3, a2, 0LL, v140);
-  v19 = *(_DWORD *)(v140[0] + 80LL);
-  sub_18002AE58(a2, v19);
-  sub_1800DAFC0(a2, v19);
+  RtlImageNtHeaderEx(3u, a2, 0LL, &v130);
+  sub_18002AE58((unsigned __int64)a2, v130->OptionalHeader.SizeOfImage);
+  sub_1800DAFC0(a2);
   sub_1800D078C();
   sub_1800259B4(1);
   if ( (unsigned int)sub_18001F704() == 1 )
     qword_18015C300 = (__int64)&off_1801110E0;
-  v152[12] = xmmword_18016F370;
-  v20 = (_mm_srli_si128((__m128i)xmmword_18016F370, 8).m128i_u64[0] >> 4) & 3;
-  byte_18015C2B0 = (_BYTE)v20 == 1;
-  if ( (_BYTE)v20 == 1 || (v152[13] = xmmword_18016F370, v21 = 0, (_BYTE)v20 == 3) )
-    v21 = 1;
-  byte_18015C2F8 = v21;
-  result = sub_1800CD0D8(&v118, ProcessEnvironmentBlock, a2, &v123, &v116, (__int64)&v141);
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v139[12] = *(_OWORD *)LdrSystemDllInitBlock.MitigationOptionsMap.Map;
+  v19 = (_mm_srli_si128(*(__m128i *)LdrSystemDllInitBlock.MitigationOptionsMap.Map, 8).m128i_u64[0] >> 4) & 3;
+  byte_18015C2B0 = (_BYTE)v19 == 1;
+  if ( (_BYTE)v19 == 1
+    || (v139[13] = *(_OWORD *)LdrSystemDllInitBlock.MitigationOptionsMap.Map, v20 = 0, (_BYTE)v19 == 3) )
   {
-    v22 = dword_180156A70;
+    v20 = 1;
+  }
+  byte_18015C2F8 = v20;
+  result = sub_1800CD0D8(&SubKey.Length, ProcessEnvironmentBlock, (__int64)a2, &Handle, &v107, (__int64)&v132);
+  v98 = result;
+  if ( result < 0 )
+  {
+    v21 = dword_180156A70;
     if ( (dword_180156A70 & 3) == 0 )
       goto LABEL_33;
-    LODWORD(v103) = v3->ClientId.UniqueProcess;
+    LODWORD(ReturnedLength) = v3->ClientId.UniqueProcess;
     sub_1800CA554(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
       3735,
       (unsigned int)"LdrpInitializeProcess",
       0,
       "Initializing the execution options for the process %lx failed with status 0x%08lx\n",
-      v103,
+      ReturnedLength,
       result);
     goto LABEL_32;
   }
@@ -381,121 +370,121 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
       2,
       "Initializing process 0x%p\n",
       v3->ClientId.UniqueProcess);
-  v136 = 0LL;
-  SpareUlong0 = v3->SpareUlong0;
-  dword_18015C290 = SpareUlong0 > 0;
-  if ( v14 && *(_WORD *)(v14 + 24) == 267 && SpareUlong0 <= 0 )
+  v126 = 0LL;
+  WowTebOffset = v3->WowTebOffset;
+  dword_18015C290 = WowTebOffset > 0;
+  if ( v14 && v14->OptionalHeader.Magic == 267 && WowTebOffset <= 0 )
   {
     byte_18015C308 = 1;
     LOBYTE(v14) = 1;
-    v108 = v14;
+    v99 = (int)v14;
     v5 = 1;
-    result = sub_1800CAFA8(*(_QWORD *)(ProcessEnvironmentBlock + 16));
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    result = sub_1800CAFA8(*(void **)(ProcessEnvironmentBlock + 16));
+    v98 = result;
+    if ( result < 0 )
       return result;
   }
   else
   {
-    LOBYTE(v14) = v108;
+    LOBYTE(v14) = v99;
   }
   if ( !dword_18015C290 && !byte_18015C308 )
   {
-    v24 = sub_18001014C(*(_QWORD *)(ProcessEnvironmentBlock + 16), 1, 0xEu, &v139, &v133);
-    v25 = v133;
-    if ( v24 < 0 )
-      v25 = 0LL;
-    v133 = v25;
-    if ( v25 )
+    v23 = sub_18001014C(*(_QWORD *)(ProcessEnvironmentBlock + 16), 1, 0xEu, &v129, (char **)&v122);
+    v24 = v122;
+    if ( v23 < 0 )
+      v24 = 0LL;
+    v122 = v24;
+    if ( v24 )
     {
       byte_18015C308 = 1;
       LODWORD(v14) = (unsigned __int8)v14;
-      if ( (*(_BYTE *)(v25 + 16) & 1) != 0 )
+      if ( (*(_BYTE *)(v24 + 16) & 1) != 0 )
         LODWORD(v14) = 1;
-      v108 = v14;
+      v99 = (int)v14;
     }
   }
-  qword_18015C350 = v128;
+  qword_18015C350 = (__int64)BaseOfImage;
   if ( !dword_18015C290 )
-    v136 = *(_QWORD *)(ProcessEnvironmentBlock + 728);
-  qword_18015BEC0 = *(_QWORD *)(ProcessEnvironmentBlock + 192);
-  v125 = *(__m128i *)(RtlNormalizeProcessParams(*(_QWORD *)(ProcessEnvironmentBlock + 32)) + 96);
-  v26 = 0LL;
+    v126 = *(_QWORD *)(ProcessEnvironmentBlock + 728);
+  Timeout = *(LARGE_INTEGER *)(ProcessEnvironmentBlock + 192);
+  ImagePathName = RtlNormalizeProcessParams(*(PRTL_USER_PROCESS_PARAMETERS *)(ProcessEnvironmentBlock + 32))->ImagePathName;
+  v25 = 0LL;
   if ( !dword_18015C290 && (!byte_18015C308 || !v5) )
-    v26 = sub_18002B3EC(*(_QWORD *)(ProcessEnvironmentBlock + 16));
-  v27 = v26;
-  memset(v153, 0, sizeof(v153));
-  v28 = 2;
-  LODWORD(v153[0]) = 96;
-  if ( v27 )
+    v25 = sub_18002B3EC(*(PVOID *)(ProcessEnvironmentBlock + 16));
+  v26 = v25;
+  memset(Parameters, 0, sizeof(Parameters));
+  v27 = 2;
+  LODWORD(Parameters[0]) = 96;
+  if ( v26 )
   {
-    v29 = *v27;
-    if ( *v27 >= 0x10 )
+    v28 = *v26;
+    if ( *v26 >= 0x10 )
     {
-      *(_DWORD *)(ProcessEnvironmentBlock + 188) &= ~v27[3];
-      v29 = *v27;
+      *(_DWORD *)(ProcessEnvironmentBlock + 188) &= ~v26[3];
+      v28 = *v26;
     }
-    if ( v29 >= 0x14 )
+    if ( v28 >= 0x14 )
     {
-      *(_DWORD *)(ProcessEnvironmentBlock + 188) |= v27[4];
-      v29 = *v27;
+      *(_DWORD *)(ProcessEnvironmentBlock + 188) |= v26[4];
+      v28 = *v26;
     }
-    if ( v29 >= 0x18 && v27[5] )
+    if ( v28 >= 0x18 && v26[5] )
     {
-      qword_18015BEC0 = -10000LL * (int)v27[5];
-      v29 = *v27;
+      Timeout.QuadPart = -10000LL * (int)v26[5];
+      v28 = *v26;
     }
-    if ( v29 >= 0x4C )
+    if ( v28 >= 0x4C )
     {
-      v30 = v27[18];
-      if ( v30 )
+      v29 = v26[18];
+      if ( v29 )
       {
-        v31 = v30 & 0xFFFF0FFF;
-        if ( v31 )
-          v28 = v31;
+        v30 = v29 & 0xFFFF0FFF;
+        if ( v30 )
+          v27 = v30;
       }
     }
-    if ( v29 >= 0x20 && *((_QWORD *)v27 + 3) )
+    if ( v28 >= 0x20 && *((_QWORD *)v26 + 3) )
     {
-      v153[3] = *((_QWORD *)v27 + 3);
-      v29 = *v27;
+      Parameters[3] = *((_QWORD *)v26 + 3);
+      v28 = *v26;
     }
-    if ( v29 >= 0x28 && *((_QWORD *)v27 + 4) )
+    if ( v28 >= 0x28 && *((_QWORD *)v26 + 4) )
     {
-      v153[4] = *((_QWORD *)v27 + 4);
-      v29 = *v27;
+      Parameters[4] = *((_QWORD *)v26 + 4);
+      v28 = *v26;
     }
-    if ( v29 >= 0x38 && *((_QWORD *)v27 + 6) )
+    if ( v28 >= 0x38 && *((_QWORD *)v26 + 6) )
     {
-      v153[5] = *((_QWORD *)v27 + 6);
-      v29 = *v27;
+      Parameters[5] = *((_QWORD *)v26 + 6);
+      v28 = *v26;
     }
-    if ( v29 >= 0x40 )
+    if ( v28 >= 0x40 )
     {
-      v32 = v153[6];
-      if ( *((_QWORD *)v27 + 7) )
-        v32 = *((_QWORD *)v27 + 7);
-      v153[6] = v32;
+      v31 = Parameters[6];
+      if ( *((_QWORD *)v26 + 7) )
+        v31 = *((_QWORD *)v26 + 7);
+      Parameters[6] = v31;
     }
   }
   if ( (*(_BYTE *)(ProcessEnvironmentBlock + 188) & 2) != 0 )
     dword_180156A70 |= 1u;
-  v33 = byte_18015BEB8;
-  if ( qword_18015BEC0 < -36000000000LL )
-    v33 = 1;
-  byte_18015BEB8 = v33;
+  v32 = byte_18015BEB8;
+  if ( Timeout.QuadPart < -36000000000LL )
+    v32 = 1;
+  byte_18015BEB8 = v32;
   dword_18015BEA8 = 0;
   RtlInitializeSListHead(&stru_18015D0E0);
-  v34 = &unk_18015AC20;
+  v33 = &unk_18015AC20;
   do
   {
-    *v34 = v34 + 6;
-    v34 += 6;
+    *v33 = v33 + 6;
+    v33 += 6;
   }
-  while ( v34 <= qword_18015AD40 );
-  *v34 = 0LL;
+  while ( v33 <= qword_18015AD40 );
+  *v33 = 0LL;
   RtlInterlockedPushListSList(&stru_18015D0E0, (signed __int64)&unk_18015AC20, qword_18015AD70, 8);
-  SystemInformation = 0;
+  v98 = 0;
   *(_QWORD *)(ProcessEnvironmentBlock + 824) = &dword_18015C330;
   *(_QWORD *)(ProcessEnvironmentBlock + 120) = &dword_18015C2E0;
   *(_QWORD *)(ProcessEnvironmentBlock + 568) = &dword_18015C2C0;
@@ -511,41 +500,34 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
   qword_18015C2C8 = ProcessEnvironmentBlock + 576;
   *(_DWORD *)(ProcessEnvironmentBlock + 576) |= 1u;
   if ( dword_18015C290 )
-    RtlSetBits(*(_QWORD *)(ProcessEnvironmentBlock + 120), 0, 0x13u);
-  RtlSetBits(*(_QWORD *)(ProcessEnvironmentBlock + 120), 4u, 1u);
-  RtlSetBits(*(_QWORD *)(ProcessEnvironmentBlock + 120), 0x10u, 1u);
-  v35 = *(_DWORD *)(ProcessEnvironmentBlock + 188);
-  if ( (v35 & 0x1000) != 0 || (v36 = byte_18015D404) != 0 )
+    RtlSetBits(*(PRTL_BITMAP *)(ProcessEnvironmentBlock + 120), 0, 0x13u);
+  RtlSetBits(*(PRTL_BITMAP *)(ProcessEnvironmentBlock + 120), 4u, 1u);
+  RtlSetBits(*(PRTL_BITMAP *)(ProcessEnvironmentBlock + 120), 0x10u, 1u);
+  v34 = *(_DWORD *)(ProcessEnvironmentBlock + 188);
+  if ( (v34 & 0x1000) != 0 || (v35 = byte_18015D404) != 0 )
   {
-    v37 = 24;
-    v113 = 24;
+    v36 = 24;
+    Buffer = 24;
     if ( byte_18015C298 )
     {
-      ImageFileExecutionOptions = -1073741772;
+      v37 = -1073741772;
     }
     else
     {
-      LOBYTE(v105) = 0;
-      ImageFileExecutionOptions = LdrQueryImageFileExecutionOptionsEx(
-                                    (__int64)&v118,
-                                    (__int64)L"StackTraceDatabaseSizeInMb",
-                                    4u,
-                                    (__int64)&v113,
-                                    4,
-                                    0LL);
-      v37 = v113;
+      v37 = LdrQueryImageFileExecutionOptionsEx(&SubKey, L"StackTraceDatabaseSizeInMb", 4u, &Buffer, 4u, 0LL, 0);
+      v36 = Buffer;
     }
-    SystemInformation = ImageFileExecutionOptions;
-    if ( ImageFileExecutionOptions >= 0 && v37 >= 0x18 )
+    v98 = v37;
+    if ( v37 >= 0 && v36 >= 0x18 )
     {
-      if ( v37 <= 0x80 )
-        v39 = v37 << 20;
+      if ( v36 <= 0x80 )
+        v38 = v36 << 20;
       else
-        v39 = 0x8000000LL;
+        v38 = 0x8000000LL;
     }
     else
     {
-      v39 = 25165824LL;
+      v38 = 25165824LL;
     }
     if ( (dword_180156A70 & 5) != 0 )
       sub_1800CA554(
@@ -554,47 +536,50 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
         (unsigned int)"LdrpInitializeProcess",
         2,
         "Stack trace database size is %Id Mb\n",
-        v39 >> 20);
-    SystemInformation = sub_1800F6B98(0LL, 0LL, v39);
-    v35 = *(_DWORD *)(ProcessEnvironmentBlock + 188);
-    v36 = byte_18015D404;
+        v38 >> 20);
+    v98 = sub_1800F6B98(0LL, 0LL, v38);
+    v34 = *(_DWORD *)(ProcessEnvironmentBlock + 188);
+    v35 = byte_18015D404;
   }
-  if ( (v35 & 0x1000) != 0 || v36 )
+  if ( (v34 & 0x1000) != 0 || v35 )
     byte_18015AC08 = 1;
   if ( (NtCurrentPeb()->AppCompatFlags.LowPart & 0x400000) != 0 )
   {
     byte_18015AC08 = 1;
     byte_18015AC09 = 1;
   }
-  result = RtlInitializeCriticalSectionEx((__int64)&unk_18015BE80, 0, 0);
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  result = RtlInitializeCriticalSectionEx(&stru_18015BE80, 0, 0);
+  v98 = result;
+  if ( result < 0 )
     return result;
-  *(_QWORD *)(ProcessEnvironmentBlock + 56) = &unk_18015BE80;
-  result = sub_1800EB1A0(&v118);
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  *(_QWORD *)(ProcessEnvironmentBlock + 56) = &stru_18015BE80;
+  result = sub_1800EB1A0(&SubKey);
+  v98 = result;
+  if ( result < 0 )
     return result;
-  v152[14] = xmmword_18016F370;
-  if ( (((unsigned __int64)xmmword_18016F370 >> 12) & 3) == 1 )
-    RtlSetHeapInformation(0LL, 1, 0LL, 0LL);
-  if ( dword_18015C290 || *(_WORD *)(v121 + 24) == 267 )
+  v139[14] = *(_OWORD *)LdrSystemDllInitBlock.MitigationOptionsMap.Map;
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[0] >> 12) & 3) == 1 )
+    RtlSetHeapInformation(0LL, HeapEnableTerminationOnCorruption, 0LL, 0LL);
+  if ( dword_18015C290 || OutHeaders->OptionalHeader.Magic == 267 )
   {
-    v40 = 0LL;
-    v41 = 0LL;
+    SizeOfHeapReserve = 0LL;
+    SizeOfHeapCommit = 0LL;
   }
   else
   {
-    if ( *(_WORD *)(v121 + 72) <= 3u && *(_WORD *)(v121 + 74) < 0x33u )
-      v28 |= 0x10000u;
-    v40 = *(unsigned __int64 **)(v121 + 112);
-    v41 = *(_QWORD *)(v121 + 120);
+    if ( OutHeaders->OptionalHeader.MajorSubsystemVersion <= 3u
+      && OutHeaders->OptionalHeader.MinorSubsystemVersion < 0x33u )
+    {
+      v27 |= 0x10000u;
+    }
+    SizeOfHeapReserve = OutHeaders->OptionalHeader.SizeOfHeapReserve;
+    SizeOfHeapCommit = OutHeaders->OptionalHeader.SizeOfHeapCommit;
   }
-  Heap = RtlCreateHeap(v28, 0LL, v40, v41, 0LL, (__int64)v153);
-  v43 = (void *)Heap;
+  Heap = RtlCreateHeap(v27, 0LL, SizeOfHeapReserve, SizeOfHeapCommit, 0LL, Parameters);
+  v42 = Heap;
   if ( !Heap )
   {
-    v44 = dword_180156A70;
+    v43 = dword_180156A70;
     if ( (dword_180156A70 & 3) == 0 )
       goto LABEL_126;
     sub_1800CA554(
@@ -606,154 +591,154 @@ __int64 __fastcall sub_1800CDEF0(__int64 a1, __int64 a2)
     goto LABEL_125;
   }
   *(_QWORD *)(ProcessEnvironmentBlock + 48) = Heap;
-  RtlInitializeCriticalSection((__int64)&unk_18015CA80);
+  RtlInitializeCriticalSection(&CriticalSection);
   qword_18015CA78 = (__int64)&qword_18015CA70;
   qword_18015CA70 = (__int64)&qword_18015CA70;
   if ( (*(_DWORD *)(ProcessEnvironmentBlock + 188) & 0x800000) != 0 )
   {
-    v45 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 71200LL);
-    qword_18015D448 = (__int64)v45;
-    if ( v45 )
-      memset(v45, 0, 0x11620uLL);
+    v44 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x11620uLL);
+    qword_18015D448 = (__int64)v44;
+    if ( v44 )
+      memset(v44, 0, 0x11620uLL);
   }
-  sub_180072AD0((__int64)v134);
-  qword_18015C288 = (__int64)v43;
+  sub_180072AD0((__int64)v124);
+  HeapHandle = v42;
   if ( ((unsigned __int8)&ListHead & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   ListHead = 0uLL;
   qword_18015A418 = 0LL;
-  SystemInformation = ZwQuerySystemInformation();
-  v46 = qword_18015ADA8;
-  if ( SystemInformation >= 0 )
-    v46 = v140[1];
-  qword_18015ADA8 = v46;
-  dword_18015C294 = RtlCreateTagHeap(v43, 0, (__int64)L"NTDLL!", L"!Process");
+  v98 = ZwQuerySystemInformation(SystemHypervisorSharedPageInformation, &SystemInformation, 8u, 0LL);
+  v45 = qword_18015ADA8;
+  if ( v98 >= 0 )
+    v45 = SystemInformation;
+  qword_18015ADA8 = v45;
+  Flags = RtlCreateTagHeap(v42, 0, (PWSTR)L"NTDLL!", (PWSTR)L"!Process");
   result = sub_18007D0E0();
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
     return result;
-  EtwEventRegister(&qword_180114528, 0LL, 0LL, &qword_18015A410);
-  EtwEventRegister(qword_180118380, (__int64)sub_1800F2530, 0LL, (unsigned __int64 *)&qword_18015AA68);
-  EtwEventRegister(qword_180115DD8, (__int64)sub_1800FD290, 0LL, (unsigned __int64 *)&qword_18015D2D8);
+  EtwEventRegister(&stru_180114528, 0LL, 0LL, &qword_18015A410);
+  EtwEventRegister(&stru_180118380, sub_1800F2530, 0LL, &RegHandle);
+  EtwEventRegister(&stru_180115DD8, sub_1800FD290, 0LL, &qword_18015D2D8);
   if ( (byte_18015D028 & 8) != 0 )
-    sub_1800726B8(&dword_180156650);
+    sub_1800726B8((ULONGLONG *)&dword_180156650);
   result = sub_18004B9A4();
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
     return result;
   result = sub_18007D464();
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
     return result;
-  v47 = *(_QWORD *)(ProcessEnvironmentBlock + 32);
-  v129 = v47;
-  v125 = *(__m128i *)(v47 + 96);
-  v120 = _mm_srli_si128(v125, 8).m128i_u64[0];
-  if ( v123 || v116 )
+  v46 = *(_QWORD *)(ProcessEnvironmentBlock + 32);
+  v118 = v46;
+  ImagePathName = *(_UNICODE_STRING *)(v46 + 96);
+  SubKey.Buffer = (PWCH)_mm_srli_si128((__m128i)ImagePathName, 8).m128i_u64[0];
+  if ( Handle || v107 )
   {
-    SystemInformation = sub_18004AEE4(v116, v123, (__int64)L"DebugProcessHeapOnly", 4u, (__int64)&v114, 4, v105, 0LL);
-    if ( SystemInformation >= 0 && dword_1801563E8 && v114 )
+    v98 = sub_18004AEE4(v107, Handle, L"DebugProcessHeapOnly", 4u, &v105, 4u, Wow64, 0LL);
+    if ( v98 >= 0 && dword_1801563E8 && v105 )
     {
       dword_1801563E8 = 0;
-      *(_DWORD *)off_1801563E0 &= ~0x400u;
+      *Value &= ~0x400u;
     }
   }
   NtSystemRoot = RtlGetNtSystemRoot();
-  RtlInitUnicodeStringEx((__int64)&v131, NtSystemRoot);
-  v49 = v131.Length + 40;
-  v50 = RtlAllocateHeap((__int64)v43, 0, (unsigned int)v131.Length + 38 + 2LL);
-  if ( !v50 )
-    return 3221225495LL;
-  LOWORD(v124) = 0;
-  WORD1(v124) = v49;
-  *((_QWORD *)&v124 + 1) = v50;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, (__int16 *)&v131);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, word_180110350);
+  RtlInitUnicodeStringEx(&DestinationString, NtSystemRoot);
+  v48 = DestinationString.Length + 40;
+  v49 = (WCHAR *)RtlAllocateHeap(v42, 0, (unsigned int)DestinationString.Length + 38 + 2LL);
+  if ( !v49 )
+    return -1073741801;
+  Destination.Length = 0;
+  Destination.MaximumLength = v48;
+  Destination.Buffer = v49;
+  RtlAppendUnicodeStringToString(&Destination, &DestinationString);
+  RtlAppendUnicodeStringToString(&Destination, &stru_180110350);
   if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 0x42) != 2 )
   {
-    v51 = 48LL;
-    v144 = 48;
-    v145 = 0LL;
-    v147 = 64;
-    v146 = &v137;
-    v148 = 0LL;
-    result = ZwOpenDirectoryObject();
-    SystemInformation = result;
-    if ( (_DWORD)result != -1073741772 || (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 0x40) == 0 )
+    v50 = 48LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v127;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    result = ZwOpenDirectoryObject(&DirectoryHandle, 3u, &ObjectAttributes);
+    v98 = result;
+    if ( result != -1073741772 || (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 0x40) == 0 )
     {
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
-        v144 = 48;
-        v145 = qword_18015BEF0;
-        v147 = 64;
-        v146 = (int *)&unk_180110B08;
-        v148 = 0LL;
-        result = ZwOpenSymbolicLinkObject();
-        SystemInformation = result;
-        if ( (int)result >= 0 )
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.RootDirectory = DirectoryHandle;
+        ObjectAttributes.Attributes = 64;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180110B08;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        result = ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes);
+        v98 = result;
+        if ( result >= 0 )
         {
           while ( 1 )
           {
-            v54 = RtlAllocateHeap((__int64)v43, 0, v51);
-            if ( !v54 )
-              return 3221225495LL;
-            word_18015BED0 = 0;
-            word_18015BED2 = v51;
-            qword_18015BED8 = v54;
-            result = ZwQuerySymbolicLinkObject();
-            SystemInformation = result;
-            if ( (int)result >= 0 )
+            v53 = (WCHAR *)RtlAllocateHeap(v42, 0, v50);
+            if ( !v53 )
+              return -1073741801;
+            LinkTarget.Length = 0;
+            LinkTarget.MaximumLength = v50;
+            LinkTarget.Buffer = v53;
+            result = ZwQuerySymbolicLinkObject(LinkHandle, &LinkTarget, &v115);
+            v98 = result;
+            if ( result >= 0 )
             {
-              ZwClose();
-              v47 = v129;
+              ZwClose(LinkHandle);
+              v46 = v118;
               goto LABEL_167;
             }
-            if ( (_DWORD)result != -1073741789 )
+            if ( result != -1073741789 )
             {
-              v22 = dword_180156A70;
+              v21 = dword_180156A70;
               if ( (dword_180156A70 & 3) == 0 )
                 goto LABEL_33;
-              LODWORD(v104) = result;
+              LODWORD(ReturnedLengtha) = result;
               sub_1800CA554(
                 (unsigned int)"minkernel\\ntdll\\ldrinit.c",
                 4490,
                 (unsigned int)"LdrpInitializeProcess",
                 0,
                 "Querying the known DLL directory link object failed with status 0x%08lx\n",
-                v104);
+                ReturnedLengtha);
               goto LABEL_32;
             }
-            RtlFreeHeap((__int64)v43, 0, v54);
-            v51 = v126;
+            RtlFreeHeap(v42, 0, v53);
+            v50 = v115;
           }
         }
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) == 0 )
           goto LABEL_33;
-        LODWORD(v105) = result;
-        v52 = (int *)&unk_180110B08;
-        v53 = 4455;
+        LODWORD(Wow64) = result;
+        v51 = (int *)&unk_180110B08;
+        v52 = 4455;
       }
       else
       {
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) == 0 )
           goto LABEL_33;
-        LODWORD(v105) = result;
-        v52 = &v137;
-        v53 = 4432;
+        LODWORD(Wow64) = result;
+        v51 = &v127;
+        v52 = 4432;
       }
       sub_1800CA554(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        v53,
+        v52,
         (unsigned int)"LdrpInitializeProcess",
         0,
         "Failed to open %wZ with status 0x%08lx\n",
-        v52,
-        v105);
+        v51,
+        Wow64);
 LABEL_32:
-      result = (unsigned int)SystemInformation;
-      v22 = dword_180156A70;
+      result = v98;
+      v21 = dword_180156A70;
       goto LABEL_33;
     }
     if ( (dword_180156A70 & 5) != 0 )
@@ -763,26 +748,26 @@ LABEL_32:
         (unsigned int)"LdrpInitializeProcess",
         2,
         "KnownDLL directory does not yet exist.  SMSS will create it.\n");
-    SystemInformation = 0;
+    v98 = 0;
   }
 LABEL_167:
   if ( dword_18015C290 || byte_18015C298 )
   {
-    UnicodeString = v131;
+    UnicodeString = DestinationString;
   }
   else
   {
-    v55 = *(__m128i *)(v47 + 56);
-    *(_QWORD *)&UnicodeString.Length = *(_QWORD *)(v47 + 56);
-    v56 = (wchar_t *)_mm_srli_si128(v55, 8).m128i_u64[0];
-    UnicodeString.Buffer = v56;
-    if ( !v56 || !UnicodeString.Length || !*v56 )
+    v54 = *(__m128i *)(v46 + 56);
+    *(_QWORD *)&UnicodeString.Length = *(_QWORD *)(v46 + 56);
+    v55 = (WCHAR *)_mm_srli_si128(v54, 8).m128i_u64[0];
+    UnicodeString.Buffer = v55;
+    if ( !v55 || !UnicodeString.Length || !*v55 )
     {
-      v57 = (wchar_t *)RtlAllocateHeap((__int64)v43, 0, 8LL);
-      UnicodeString.Buffer = v57;
-      if ( !v57 )
+      v56 = (WCHAR *)RtlAllocateHeap(v42, 0, 8uLL);
+      UnicodeString.Buffer = v56;
+      if ( !v56 )
       {
-        v44 = dword_180156A70;
+        v43 = dword_180156A70;
         if ( (dword_180156A70 & 3) != 0 )
         {
           sub_1800CA554(
@@ -792,34 +777,34 @@ LABEL_167:
             0,
             "Allocating a buffer to hold the current working directory failed\n");
 LABEL_125:
-          v44 = dword_180156A70;
+          v43 = dword_180156A70;
           goto LABEL_126;
         }
         goto LABEL_126;
       }
-      v115 = 0;
-      v58 = RtlGetNtSystemRoot();
-      *(_DWORD *)v57 = *(_DWORD *)v58;
-      v57[2] = *(_WORD *)(v58 + 4);
+      v106 = 0;
+      v57 = RtlGetNtSystemRoot();
+      *(_DWORD *)v56 = *(_DWORD *)v57;
+      v56[2] = v57[2];
       UnicodeString.Buffer[3] = 0;
       *(_DWORD *)&UnicodeString.Length = 524294;
     }
   }
   sub_18007F528();
-  v59 = (unsigned __int16)v124;
+  v58 = Destination.Length;
   if ( (*(_DWORD *)(*(_QWORD *)(ProcessEnvironmentBlock + 32) + 8LL) & 0x20000000) != 0 )
-    v59 = 2LL * (unsigned __int16)v124 + 22;
-  v60 = v59;
+    v58 = 2LL * Destination.Length + 22;
+  v59 = v58;
   if ( (dword_1801596D4 & 1) == 0 )
   {
-    v60 = v59 + 2 * (v131.Length + 9LL);
+    v59 = v58 + 2 * (DestinationString.Length + 9LL);
     if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 2) != 0 )
-      *(_WORD *)(v47 + 80) = 0;
+      *(_WORD *)(v46 + 80) = 0;
   }
-  *((_QWORD *)&v112 + 1) = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v60);
-  if ( !*((_QWORD *)&v112 + 1) )
+  v103.Buffer = (PWCH)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v59);
+  if ( !v103.Buffer )
   {
-    v44 = dword_180156A70;
+    v43 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
       sub_1800CA554(
@@ -831,41 +816,41 @@ LABEL_125:
       goto LABEL_125;
     }
 LABEL_126:
-    if ( (v44 & 0x10) != 0 )
+    if ( (v43 & 0x10) != 0 )
       __debugbreak();
-    return 3221225495LL;
+    return -1073741801;
   }
-  LOWORD(v112) = 0;
-  WORD1(v112) = v60;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v112, (__int16 *)&v124);
-  v61 = (unsigned __int16)v112;
-  *(_WORD *)(*((_QWORD *)&v112 + 1) + 2 * ((unsigned __int64)(unsigned __int16)v112 >> 1) - 2) = 59;
-  xmmword_18015CFC0 = v112;
-  xmmword_18015C2D0 = v112;
-  LOWORD(v61) = v61 - 2;
-  LOWORD(xmmword_18015C2D0) = v61;
+  v103.Length = 0;
+  v103.MaximumLength = v59;
+  RtlAppendUnicodeStringToString(&v103, &Destination);
+  v60 = v103.Length;
+  v103.Buffer[((unsigned __int64)v103.Length >> 1) - 1] = 59;
+  xmmword_18015CFC0 = (__int128)v103;
+  xmmword_18015C2D0 = (__int128)v103;
+  LOWORD(v60) = v60 - 2;
+  LOWORD(xmmword_18015C2D0) = v60;
   if ( (*(_DWORD *)(*(_QWORD *)(ProcessEnvironmentBlock + 32) + 8LL) & 0x20000000) != 0 )
   {
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v112, (__int16 *)&v124);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v112, L"forwarders;");
+    RtlAppendUnicodeStringToString(&v103, &Destination);
+    RtlAppendUnicodeToString(&v103, L"forwarders;");
   }
-  if ( v60 > v59 )
+  if ( v59 > v58 )
   {
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v112, (__int16 *)&v131);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v112, L"\\system;");
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v112, (__int16 *)&v131);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v112, ";");
-    xmmword_18015CFD0 = v112;
+    RtlAppendUnicodeStringToString(&v103, &DestinationString);
+    RtlAppendUnicodeToString(&v103, L"\\system;");
+    RtlAppendUnicodeStringToString(&v103, &DestinationString);
+    RtlAppendUnicodeToString(&v103, ";");
+    stru_18015CFD0 = v103;
   }
   if ( (unsigned int)(dword_18015D400 - 1) <= 0xFFFFFFFD )
-    sub_1800CC838((__int128 *)v125.m128i_i8, v61);
-  v62 = v128;
-  RtlImageNtHeaderEx(3, v128, 0LL, &v127);
-  v63 = sub_180040F58(0LL);
-  v64 = v63;
-  if ( !v63 )
+    sub_1800CC838(&ImagePathName, v60);
+  v61 = BaseOfImage;
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &v116);
+  v62 = sub_180040F58(0LL);
+  v63 = v62;
+  if ( !v62 )
   {
-    v44 = dword_180156A70;
+    v43 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
       sub_1800CA554(
@@ -878,70 +863,70 @@ LABEL_126:
     }
     goto LABEL_126;
   }
-  qword_18015C348 = v63;
-  *(_DWORD *)(*(_QWORD *)(v63 + 152) + 24LL) = -1;
+  qword_18015C348 = (__int64)v62;
+  *(_DWORD *)(*((_QWORD *)v62 + 19) + 24LL) = -1;
   *(_WORD *)(**(_QWORD **)(qword_18015C348 + 152) - 52LL) = -1;
-  v65 = qword_18015C348;
+  v64 = (_UNICODE_STRING *)qword_18015C348;
   *(_DWORD *)(qword_18015C348 + 104) |= 0x204u;
-  *(_QWORD *)(v65 + 248) -= qword_18016F2E0;
-  v65 += 72LL;
-  *(_OWORD *)v65 = v124;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)v65, word_180110B38);
-  v66 = qword_18015C348;
-  *(_OWORD *)(qword_18015C348 + 88) = *(_OWORD *)word_180110B38;
-  *(_QWORD *)(v66 + 48) = v62;
-  sub_18002C268(v66);
+  v64[15].Buffer = (PWCH)((char *)v64[15].Buffer - LdrSystemDllInitBlock.SystemDllNativeRelocation);
+  v64 = (_UNICODE_STRING *)((char *)v64 + 72);
+  *v64 = Destination;
+  RtlAppendUnicodeStringToString(v64, &stru_180110B38);
+  v65 = qword_18015C348;
+  *(UNICODE_STRING *)(qword_18015C348 + 88) = stru_180110B38;
+  *(_QWORD *)(v65 + 48) = v61;
+  sub_18002C268(v65);
   sub_18003BC9C(*(_QWORD *)(qword_18015C348 + 48), qword_18015C348 + 72, 0x14A5u);
-  sub_18007F390(qword_18015C348, v127, v67, v68);
+  sub_18007F390(qword_18015C348, (__int64)v116);
   result = sub_18002AFBC(qword_18015C348, 0, 1);
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
     return result;
   sub_18003BC9C(*(_QWORD *)(qword_18015C348 + 48), qword_18015C348 + 72, 0x14AEu);
   *(_DWORD *)(*(_QWORD *)(qword_18015C348 + 152) + 56LL) = 9;
   sub_18007A78C();
-  v69 = (_QWORD *)(v64 + 32);
-  v70 = qword_18015C390;
+  v66 = v63 + 32;
+  v67 = qword_18015C390;
   if ( *(__int64 **)(qword_18015C390 + 8) != &qword_18015C390 )
     __fastfail(3u);
-  *v69 = qword_18015C390;
-  *(_QWORD *)(v64 + 40) = &qword_18015C390;
-  *(_QWORD *)(v70 + 8) = v69;
-  qword_18015C390 = v64 + 32;
+  *v66 = qword_18015C390;
+  *((_QWORD *)v63 + 5) = &qword_18015C390;
+  *(_QWORD *)(v67 + 8) = v66;
+  qword_18015C390 = (__int64)(v63 + 32);
   result = sub_180059D2C();
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
   {
-    v22 = dword_180156A70;
+    v21 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
-      LODWORD(v104) = result;
+      LODWORD(ReturnedLengtha) = result;
       sub_1800CA554(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         4807,
         (unsigned int)"LdrpInitializeProcess",
         0,
         "Failed to initialize Parallel loader, st = 0x%x\n",
-        v104);
+        ReturnedLengtha);
       goto LABEL_32;
     }
 LABEL_33:
-    if ( (v22 & 0x10) != 0 )
+    if ( (v21 & 0x10) != 0 )
       __debugbreak();
     return result;
   }
   sub_1800435B4(0);
-  sub_180042054(0LL, 0LL, v154);
-  memset(v152, 0, 0xC0uLL);
-  *(_QWORD *)&v152[1] = v154;
-  LODWORD(v152[2]) = 512;
-  v152[0] = v125;
-  *((_QWORD *)&v152[2] + 1) = &SystemInformation;
-  v71 = sub_180040F58((__int64)v152);
-  v72 = v71;
-  if ( !v71 )
+  sub_180042054(0LL, 0LL, (const WCHAR **)Path);
+  memset(v139, 0, 0xC0uLL);
+  *(_QWORD *)&v139[1] = Path;
+  LODWORD(v139[2]) = 512;
+  v139[0] = ImagePathName;
+  *((_QWORD *)&v139[2] + 1) = &v98;
+  v68 = sub_180040F58((__int64)v139);
+  v69 = v68;
+  if ( !v68 )
   {
-    v44 = dword_180156A70;
+    v43 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
       sub_1800CA554(
@@ -954,72 +939,72 @@ LABEL_33:
     }
     goto LABEL_126;
   }
-  qword_18015BF88 = v71;
-  v73 = 2LL;
+  qword_18015BF88 = (__int64)v68;
+  v70 = 2LL;
   do
   {
     *(_DWORD *)(*(_QWORD *)(qword_18015BF88 + 152) + 24LL) = -1;
-    --v73;
+    --v70;
   }
-  while ( v73 );
+  while ( v70 );
   *(_WORD *)(**(_QWORD **)(qword_18015BF88 + 152) - 52LL) = -1;
-  v74 = qword_18015BF88;
-  *(__m128i *)(qword_18015BF88 + 72) = v125;
-  v75 = *(_DWORD *)(v74 + 104) | 4;
-  *(_DWORD *)(v74 + 104) = v75;
-  v76 = v108;
+  v71 = qword_18015BF88;
+  *(_UNICODE_STRING *)(qword_18015BF88 + 72) = ImagePathName;
+  v72 = *(_DWORD *)(v71 + 104) | 4;
+  *(_DWORD *)(v71 + 104) = v72;
+  v73 = v99;
   if ( byte_18015C308 )
   {
-    v77 = v75 | 0x400000;
-    *(_DWORD *)(v74 + 104) = v77;
-    if ( v76 )
-      *(_DWORD *)(v74 + 104) = v77 | 0x1000000;
+    v74 = v72 | 0x400000;
+    *(_DWORD *)(v71 + 104) = v74;
+    if ( v73 )
+      *(_DWORD *)(v71 + 104) = v74 | 0x1000000;
   }
   if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 4) != 0 )
-    *(_QWORD *)(v74 + 248) = 0LL;
-  v78 = 0LL;
-  v79 = v125.m128i_i64[1] + v125.m128i_u16[0];
-  v80 = (_WORD *)v79;
-  if ( v79 && v79 > v125.m128i_i64[1] )
+    *(_QWORD *)(v71 + 248) = 0LL;
+  v75 = 0LL;
+  v76 = (PWCH)((char *)ImagePathName.Buffer + ImagePathName.Length);
+  v77 = v76;
+  if ( v76 && v76 > ImagePathName.Buffer )
   {
     while ( 1 )
     {
-      v81 = v80--;
-      if ( *v80 == 92 )
+      v78 = v77--;
+      if ( *v77 == 92 )
         break;
-      if ( (unsigned __int64)v80 <= v125.m128i_i64[1] )
+      if ( v77 <= ImagePathName.Buffer )
         goto LABEL_216;
     }
-    v78 = v81;
+    v75 = v78;
   }
 LABEL_216:
-  if ( v78 )
+  if ( v75 )
   {
-    v82 = v79 - (_WORD)v78;
-    *(_WORD *)(v74 + 88) = v82;
-    if ( v125.m128i_u16[1] - (unsigned int)v125.m128i_u16[0] >= 2 )
-      v82 += 2;
-    *(_WORD *)(v74 + 90) = v82;
-    *(_QWORD *)(v74 + 96) = v78;
+    v79 = (_WORD)v76 - (_WORD)v75;
+    *(_WORD *)(v71 + 88) = v79;
+    if ( ImagePathName.MaximumLength - (unsigned int)ImagePathName.Length >= 2 )
+      v79 += 2;
+    *(_WORD *)(v71 + 90) = v79;
+    *(_QWORD *)(v71 + 96) = v75;
   }
   else
   {
-    *(_OWORD *)(v74 + 88) = *(_OWORD *)(v72 + 72);
+    *(_OWORD *)(v71 + 88) = *(_OWORD *)(v69 + 72);
   }
-  v83 = *(const void **)(ProcessEnvironmentBlock + 16);
-  v84 = v83;
-  v85 = v121;
-  if ( *(const void **)(v121 + 48) != v83 && !v76 && !dword_18015C290 )
+  v80 = *(void **)(ProcessEnvironmentBlock + 16);
+  v81 = v80;
+  v82 = OutHeaders;
+  if ( (void *)OutHeaders->OptionalHeader.ImageBase != v80 && !v73 && !dword_18015C290 )
   {
-    result = sub_1800828E0(v83);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    result = sub_1800828E0(v80);
+    v98 = result;
+    if ( result < 0 )
       return result;
-    v84 = *(const void **)(ProcessEnvironmentBlock + 16);
-    v74 = qword_18015BF88;
+    v81 = *(void **)(ProcessEnvironmentBlock + 16);
+    v71 = qword_18015BF88;
   }
-  *(_QWORD *)(v74 + 48) = v84;
-  sub_18002C268(v74);
+  *(_QWORD *)(v71 + 48) = v81;
+  sub_18002C268(v71);
   if ( (dword_180156A70 & 5) != 0 )
     sub_1800CA554(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
@@ -1030,22 +1015,22 @@ LABEL_216:
       qword_18015BF88 + 88,
       qword_18015BF88 + 72,
       &UnicodeString,
-      &DestinationString);
+      &::DestinationString);
   sub_18003BC9C(*(_QWORD *)(qword_18015BF88 + 48), qword_18015BF88 + 72, 0x14A5u);
-  sub_18007F390(qword_18015BF88, v85, v86, v87);
+  sub_18007F390(qword_18015BF88, (__int64)v82);
   result = sub_18002AFBC(qword_18015BF88, 0, dword_18015C290 == 0);
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
     return result;
   *(_DWORD *)(*(_QWORD *)(qword_18015BF88 + 152) + 56LL) = 9;
-  v88 = sub_180076B24(&UnicodeString.Length);
-  SystemInformation = v88;
-  if ( v88 < 0 )
+  v83 = sub_180076B24(&UnicodeString.Length);
+  v98 = v83;
+  if ( v83 < 0 )
   {
-    v89 = dword_180156A70;
+    v84 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
-      LODWORD(v105) = v88;
+      LODWORD(Wow64) = v83;
       sub_1800CA554(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         4985,
@@ -1053,21 +1038,21 @@ LABEL_216:
         0,
         "Initializing the current directory to \"%wZ\" failed with status 0x%08lx\n",
         &UnicodeString,
-        v105);
-      v89 = dword_180156A70;
+        Wow64);
+      v84 = dword_180156A70;
     }
-    if ( (v89 & 0x10) != 0 )
+    if ( (v84 & 0x10) != 0 )
       __debugbreak();
   }
-  if ( !v115 )
+  if ( !v106 )
     RtlFreeUnicodeString(&UnicodeString);
   if ( dword_18016F29C )
   {
-    v90 = sub_180040F58(0LL);
-    v91 = (_QWORD *)v90;
-    if ( !v90 )
+    v85 = sub_180040F58(0LL);
+    v86 = (__int64)v85;
+    if ( !v85 )
     {
-      v44 = dword_180156A70;
+      v43 = dword_180156A70;
       if ( (dword_180156A70 & 3) != 0 )
       {
         sub_1800CA554(
@@ -1080,367 +1065,373 @@ LABEL_216:
       }
       goto LABEL_126;
     }
-    *(_DWORD *)(*(_QWORD *)(v90 + 152) + 24LL) = -1;
-    *(_WORD *)(**(_QWORD **)(v90 + 152) - 52LL) = -1;
-    v92 = v141;
-    *(_DWORD *)(v90 + 104) |= *(_DWORD *)(v141 + 104);
-    *(_QWORD *)(v90 + 248) = *(_QWORD *)(v92 + 248);
-    *(_WORD *)(v90 + 110) = 0;
-    *(_OWORD *)(v90 + 72) = *(_OWORD *)(v92 + 72);
-    *(_OWORD *)(v90 + 88) = *(_OWORD *)(v92 + 88);
-    *(_DWORD *)(v90 + 128) = *(_DWORD *)(v92 + 128);
-    *(_QWORD *)(v90 + 48) = *(_QWORD *)(v92 + 48);
-    sub_18002C268(v90);
-    sub_18003BC9C(v91[6], (__int64)(v91 + 9), 0x14A5u);
-    result = RtlImageNtHeaderEx(3, v91[6], 0LL, &v127);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    *(_DWORD *)(*((_QWORD *)v85 + 19) + 24LL) = -1;
+    *(_WORD *)(**((_QWORD **)v85 + 19) - 52LL) = -1;
+    v87 = v132;
+    *((_DWORD *)v85 + 26) |= *(_DWORD *)(v132 + 104);
+    *((_QWORD *)v85 + 31) = *(_QWORD *)(v87 + 248);
+    *((_WORD *)v85 + 55) = 0;
+    *(_OWORD *)(v85 + 72) = *(_OWORD *)(v87 + 72);
+    *(_OWORD *)(v85 + 88) = *(_OWORD *)(v87 + 88);
+    *((_DWORD *)v85 + 32) = *(_DWORD *)(v87 + 128);
+    *((_QWORD *)v85 + 6) = *(_QWORD *)(v87 + 48);
+    sub_18002C268((__int64)v85);
+    sub_18003BC9C(*(_QWORD *)(v86 + 48), v86 + 72, 0x14A5u);
+    result = RtlImageNtHeaderEx(3u, *(PVOID *)(v86 + 48), 0LL, &v116);
+    v98 = result;
+    if ( result < 0 )
       return result;
-    sub_18007F390((__int64)v91, v127, v93, v94);
-    result = sub_18002AFBC((__int64)v91, 0, 1);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    sub_18007F390(v86, (__int64)v116);
+    result = sub_18002AFBC(v86, 0, 1);
+    v98 = result;
+    if ( result < 0 )
       return result;
-    v91[7] = *(_QWORD *)(v92 + 56);
-    sub_18003BC9C(v91[6], (__int64)(v91 + 9), 0x14ADu);
-    *(_DWORD *)(v91[19] + 56LL) = 7;
+    *(_QWORD *)(v86 + 56) = *(_QWORD *)(v87 + 56);
+    sub_18003BC9C(*(_QWORD *)(v86 + 48), v86 + 72, 0x14ADu);
+    *(_DWORD *)(*(_QWORD *)(v86 + 152) + 56LL) = 7;
     if ( (*(_DWORD *)(ProcessEnvironmentBlock + 188) & 0x100) != 0 || (dword_18016F29C & 2) != 0 )
     {
-      result = sub_1800D3DA8(0, 0, 0, 1, v128, 0LL);
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      result = sub_1800D3DA8(0, 0, 0, 1, (__int64)BaseOfImage, 0LL);
+      v98 = result;
+      if ( result < 0 )
         return result;
       if ( (dword_18016F29C & 2) != 0 )
       {
-        *(_DWORD *)(v91[19] + 56LL) = 9;
-        result = (unsigned int)SystemInformation;
+        *(_DWORD *)(*(_QWORD *)(v86 + 152) + 56LL) = 9;
+        result = v98;
       }
     }
     else
     {
-      v109 = 0;
-      result = sub_180054D18(v91[19], 0LL, &v109);
-      SystemInformation = result;
+      v100 = 0;
+      result = sub_180054D18(*(_QWORD *)(v86 + 152), 0LL, &v100);
+      v98 = result;
     }
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    v85 = v121;
+    v82 = OutHeaders;
   }
   sub_180047B2C();
   if ( dword_18015C290 )
   {
-    if ( v123 )
+    if ( Handle )
     {
-      ZwClose();
-      v123 = 0LL;
+      ZwClose(Handle);
+      Handle = 0LL;
       if ( qword_18015BEE0 )
       {
-        ZwClose();
+        ZwClose(qword_18015BEE0);
         qword_18015BEE0 = 0LL;
       }
     }
-    if ( v116 )
+    if ( v107 )
     {
-      ZwClose();
-      v116 = 0LL;
+      ZwClose(v107);
+      v107 = 0LL;
     }
-    result = sub_180081A8C((__int16 *)&v124);
-    SystemInformation = result;
-    if ( (int)result >= 0 )
+    result = sub_180081A8C(&Destination);
+    v98 = result;
+    if ( result >= 0 )
     {
       if ( *(_BYTE *)(ProcessEnvironmentBlock + 2) )
         sub_1800CCA4C();
       dword_18015CFB8 = 3;
       _interlockedbittestandreset((volatile signed __int32 *)(ProcessEnvironmentBlock + 80), 1u);
-      qword_18016F220(v130);
+      qword_18016F220(v119);
 LABEL_335:
-      if ( v123 )
-        ZwClose();
-      if ( v116 )
-        ZwClose();
-      return 0LL;
+      if ( Handle )
+        ZwClose(Handle);
+      if ( v107 )
+        ZwClose(v107);
+      return 0;
     }
     return result;
   }
-  v135 = 0LL;
+  v125 = 0LL;
   if ( byte_18015C308 )
   {
-    result = sub_180081044(&v135);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    result = sub_180081044((PVOID *)&v125);
+    v98 = result;
+    if ( result < 0 )
       return result;
-    v95 = v108;
-    if ( (_BYTE)v108 )
+    v88 = v99;
+    if ( (_BYTE)v99 )
     {
       result = sub_18008325C(*(_QWORD *)(ProcessEnvironmentBlock + 16));
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      v98 = result;
+      if ( result < 0 )
         return result;
     }
-    if ( (v134->SameTebFlags & 0x400) != 0 )
-      *(_QWORD *)(v130 + 128) = __ROR8__(qword_18015C3C0, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330];
+    if ( (v124->SameTebFlags & 0x400) != 0 )
+      *(_QWORD *)(v119 + 128) = __ROR8__(qword_18015C3C0, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330];
   }
   else
   {
-    v95 = v108;
+    v88 = v99;
   }
   result = sub_18004F9F4();
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
   {
-    v22 = dword_180156A70;
+    v21 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
-      LODWORD(v104) = result;
+      LODWORD(ReturnedLengtha) = result;
       sub_1800CA554(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         5235,
         (unsigned int)"LdrpInitializeProcess",
         0,
         "Initializing TLS slots failed with status 0x%08lx\n",
-        v104);
+        ReturnedLengtha);
       goto LABEL_32;
     }
     goto LABEL_33;
   }
-  if ( v135 )
+  if ( v125 )
   {
-    v110 = 0;
-    result = sub_180054D18(*(_QWORD *)(v135 + 152), 0LL, &v110);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    v101 = 0;
+    result = sub_180054D18(v125[19], 0LL, &v101);
+    v98 = result;
+    if ( result < 0 )
     {
-      v22 = dword_180156A70;
+      v21 = dword_180156A70;
       if ( (dword_180156A70 & 3) != 0 )
       {
-        LODWORD(v104) = result;
+        LODWORD(ReturnedLengtha) = result;
         sub_1800CA554(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
           5254,
           (unsigned int)"LdrpInitializeProcess",
           0,
           "DllMain of MSCOREE (or its dependents) failed with status 0x%08lx\n",
-          v104);
+          ReturnedLengtha);
         goto LABEL_32;
       }
       goto LABEL_33;
     }
   }
-  v132 = 0LL;
-  if ( (unsigned __int16)(*(_WORD *)(v85 + 92) - 2) <= 1u )
+  ProcedureAddress = 0LL;
+  if ( (unsigned __int16)(v82->OptionalHeader.Subsystem - 2) <= 1u )
   {
-    result = LdrLoadDll(16385LL, 0LL, (__int64)&unk_1801101B0, &v122);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    result = LdrLoadDll((PWSTR)0x4001, 0LL, (PUNICODE_STRING)&String2, &DllHandle);
+    v98 = result;
+    if ( result < 0 )
     {
-      if ( (_DWORD)result != -1073741515 )
+      if ( result != -1073741515 )
       {
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) != 0 )
         {
-          LODWORD(v105) = result;
+          LODWORD(Wow64) = result;
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrinit.c",
             5413,
             (unsigned int)"LdrpInitializeProcess",
             0,
             "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-            &unk_1801101B0,
-            v105);
+            &String2,
+            Wow64);
           goto LABEL_32;
         }
         goto LABEL_33;
       }
-      result = LdrLoadDll(16385LL, 0LL, (__int64)word_180110020, &v122);
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      result = LdrLoadDll((PWSTR)0x4001, 0LL, (PUNICODE_STRING)&BaseDllName, &DllHandle);
+      v98 = result;
+      if ( result < 0 )
       {
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) != 0 )
         {
-          LODWORD(v105) = result;
+          LODWORD(Wow64) = result;
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrinit.c",
             5386,
             (unsigned int)"LdrpInitializeProcess",
             0,
             "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-            word_180110020,
-            v105);
+            &BaseDllName,
+            Wow64);
           goto LABEL_32;
         }
         goto LABEL_33;
       }
       result = sub_18007BD78();
-      SystemInformation = result;
-      if ( (int)(result + 0x80000000) >= 0 && (_DWORD)result != -1073741515 )
+      v98 = result;
+      if ( (int)(result + 0x80000000) >= 0 && result != -1073741515 )
       {
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) != 0 )
         {
-          LODWORD(v104) = result;
+          LODWORD(ReturnedLengtha) = result;
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrinit.c",
             5402,
             (unsigned int)"LdrpInitializeProcess",
             0,
             "LdrpCodeAuthzInitialize failed with status 0x%08lx\n",
-            v104);
+            ReturnedLengtha);
           goto LABEL_32;
         }
         goto LABEL_33;
       }
-      SystemInformation = 0;
-      v96 = v122;
+      v98 = 0;
+      v89 = DllHandle;
     }
     else
     {
-      result = LdrGetProcedureAddressForCaller(v122, &qword_180110B18, 0, &qword_18015BEB0, 0, retaddr);
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      result = LdrGetProcedureAddressForCaller(
+                 DllHandle,
+                 (PANSI_STRING)&stru_180110B18,
+                 0,
+                 &qword_18015BEB0,
+                 0,
+                 retaddr);
+      v98 = result;
+      if ( result < 0 )
       {
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) != 0 )
         {
-          LODWORD(v106) = result;
+          LODWORD(v97) = result;
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrinit.c",
             5300,
             (unsigned int)"LdrpInitializeProcess",
             0,
             "Locating procedure \"%Z\" in Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-            &qword_180110B18,
-            &unk_1801101B0,
-            v106);
+            &stru_180110B18,
+            &String2,
+            v97);
           goto LABEL_32;
         }
         goto LABEL_33;
       }
-      LdrGetProcedureAddressForCaller(v122, &qword_180110B28, 0, &v132, 0, retaddr);
+      LdrGetProcedureAddressForCaller(DllHandle, (PANSI_STRING)&stru_180110B28, 0, &ProcedureAddress, 0, retaddr);
       result = sub_18003F7F8();
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      v98 = result;
+      if ( result < 0 )
         return result;
       result = sub_18007BD78();
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      v98 = result;
+      if ( result < 0 )
         return result;
-      result = sub_180041E34(word_180110020, 0, &v142);
-      SystemInformation = result;
-      if ( (int)result < 0 )
+      result = sub_180041E34(&BaseDllName.Length, 0LL, &v133);
+      v98 = result;
+      if ( result < 0 )
       {
-        v22 = dword_180156A70;
+        v21 = dword_180156A70;
         if ( (dword_180156A70 & 3) != 0 )
         {
-          LODWORD(v105) = result;
+          LODWORD(Wow64) = result;
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrinit.c",
             5368,
             (unsigned int)"LdrpInitializeProcess",
             0,
             "Finding \"%wZ\" failed with status 0x%08lx\n",
-            word_180110020,
-            v105);
+            &BaseDllName,
+            Wow64);
           goto LABEL_32;
         }
         goto LABEL_33;
       }
-      v96 = *(_QWORD *)(v142 + 48);
+      v89 = (PVOID)*((_QWORD *)v133 + 6);
     }
-    result = LdrGetProcedureAddressForCaller(v96, &qword_180110B48, 0, &v143, 0, retaddr);
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    result = LdrGetProcedureAddressForCaller(v89, (PANSI_STRING)&stru_180110B48, 0, &v134, 0, retaddr);
+    v98 = result;
+    if ( result < 0 )
     {
-      v22 = dword_180156A70;
+      v21 = dword_180156A70;
       if ( (dword_180156A70 & 3) != 0 )
       {
-        LODWORD(v104) = result;
+        LODWORD(ReturnedLengtha) = result;
         sub_1800CA554(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
           5431,
           (unsigned int)"LdrpInitializeProcess",
           0,
           "Finding KernelbasePostInit failed with status 0x%08lx\n",
-          v104);
+          ReturnedLengtha);
         goto LABEL_32;
       }
       goto LABEL_33;
     }
     result = _guard_dispatch_icall_fptr();
-    SystemInformation = result;
-    if ( (int)result < 0 )
+    v98 = result;
+    if ( result < 0 )
     {
-      v22 = dword_180156A70;
+      v21 = dword_180156A70;
       if ( (dword_180156A70 & 3) != 0 )
       {
-        LODWORD(v104) = result;
+        LODWORD(ReturnedLengtha) = result;
         sub_1800CA554(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
           5439,
           (unsigned int)"LdrpInitializeProcess",
           0,
           "Calling KernelbasePostInit failed with status 0x%08lx\n",
-          v104);
+          ReturnedLengtha);
         goto LABEL_32;
       }
       goto LABEL_33;
     }
-    SystemInformation = 0;
+    v98 = 0;
   }
   sub_1800435B4(0);
   sub_18007EDB4(0LL);
-  v97 = v136;
-  if ( v136 && *(_DWORD *)(v136 + 8) )
+  v90 = v126;
+  if ( v126 && *(_DWORD *)(v126 + 8) )
   {
     *(_QWORD *)(ProcessEnvironmentBlock + 736) = 0LL;
-    sub_180055808(v97);
+    sub_180055808(v90);
   }
-  v98 = byte_18015AC08;
+  v91 = byte_18015AC08;
   if ( (NtCurrentPeb()->AppCompatFlags.LowPart & 0x400000) != 0 )
-    v98 = 1;
-  byte_18015AC08 = v98;
+    v91 = 1;
+  byte_18015AC08 = v91;
   if ( (NtCurrentPeb()->AppCompatFlags.LowPart & 0x10000000) != 0 )
   {
-    *(_DWORD *)(v129 + 1036) = 1;
-    v99 = 1;
+    *(_DWORD *)(v118 + 1036) = 1;
+    v92 = 1;
   }
   else
   {
-    v99 = *(_DWORD *)(v129 + 1036);
+    v92 = *(_DWORD *)(v118 + 1036);
   }
-  sub_180056E90(v99);
+  sub_180056E90(v92);
   dword_18015CFB8 = 1;
   *(_DWORD *)(*(_QWORD *)(qword_18015BF88 + 152) + 56LL) = 2;
-  **((_DWORD **)&v152[2] + 1) = 0;
-  if ( v95 )
+  **((_DWORD **)&v139[2] + 1) = 0;
+  if ( v88 )
   {
     result = sub_180082EDC(qword_18015BF88);
   }
   else
   {
-    LODWORD(v152[2]) |= 1u;
-    sub_180039100((__int64)v152);
+    LODWORD(v139[2]) |= 1u;
+    sub_180039100((__int64)v139);
     sub_1800435B4(1);
-    result = (unsigned int)SystemInformation;
-    if ( SystemInformation < 0 )
+    result = v98;
+    if ( v98 < 0 )
       goto LABEL_316;
-    result = sub_18002DF14(qword_18015BF88, *((__int64 *)&v152[2] + 1));
+    result = sub_18002DF14(qword_18015BF88, *((__int64 *)&v139[2] + 1));
   }
-  SystemInformation = result;
-  if ( (int)result < 0 )
+  v98 = result;
+  if ( result < 0 )
   {
 LABEL_316:
-    v22 = dword_180156A70;
+    v21 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
-      LODWORD(v104) = result;
+      LODWORD(ReturnedLengtha) = result;
       sub_1800CA554(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         5651,
         (unsigned int)"LdrpInitializeProcess",
         0,
         "Walking the import tables of the executable and its static imports failed with status 0x%08lx\n",
-        v104);
+        ReturnedLengtha);
       goto LABEL_32;
     }
     goto LABEL_33;
@@ -1450,52 +1441,52 @@ LABEL_316:
     sub_1800CCA4C();
   sub_180047B2C();
   if ( !qword_18015BEB0
-    || (result = _guard_dispatch_icall_fptr(), SystemInformation = result, (int)result >= 0)
-    && (result = sub_180080B70(v132), SystemInformation = result, (int)result >= 0) )
+    || (result = _guard_dispatch_icall_fptr(), v98 = result, result >= 0)
+    && (result = sub_180080B70((__int64 (__fastcall *)(_BYTE *, __int64))ProcedureAddress), v98 = result, result >= 0) )
   {
-    qword_18015C320 = v130;
+    qword_18015C320 = v119;
     sub_1800435B4(0);
     sub_180046FBC();
-    v111[0] = 0;
-    SystemInformation = sub_180054D18(*(_QWORD *)(qword_18015BF88 + 152), *((__int64 *)&v152[2] + 1), v111);
-    sub_180046F60(v100, 9, SystemInformation);
-    sub_18006B490(*(_QWORD **)(qword_18015BF88 + 152), *((__int64 *)&v152[2] + 1));
+    v102[0] = 0;
+    v98 = sub_180054D18(*(_QWORD *)(qword_18015BF88 + 152), *((__int64 *)&v139[2] + 1), v102);
+    sub_180046F60(v93, 9, v98);
+    sub_18006B490(*(_QWORD **)(qword_18015BF88 + 152), *((__int64 *)&v139[2] + 1));
     sub_180047B2C();
     qword_18015C320 = 0LL;
-    if ( v155 )
-      RtlReleasePath(v154[0]);
-    result = (unsigned int)SystemInformation;
-    if ( SystemInformation < 0 )
+    if ( v142 )
+      RtlReleasePath(Path[0]);
+    result = v98;
+    if ( v98 < 0 )
     {
-      v22 = dword_180156A70;
+      v21 = dword_180156A70;
       if ( (dword_180156A70 & 3) != 0 )
       {
-        LODWORD(v104) = SystemInformation;
+        LODWORD(ReturnedLengtha) = v98;
         sub_1800CA554(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
           5786,
           (unsigned int)"LdrpInitializeProcess",
           0,
           "Running the init routines of the executable's static imports failed with status 0x%08lx\n",
-          v104);
+          ReturnedLengtha);
         goto LABEL_32;
       }
       goto LABEL_33;
     }
     if ( *(_WORD *)(qword_18015BF88 + 110) )
     {
-      v149 = 72LL;
-      v150 = 1;
-      memset(v151, 0, sizeof(v151));
-      RtlActivateActivationContextUnsafeFast((__int64)&v149, *(_QWORD *)(qword_18015BF88 + 136));
-      sub_18003B5F8(1, qword_18015BF88, v101, v102);
-      RtlDeactivateActivationContextUnsafeFast((__int64)&v149);
+      v136 = 72LL;
+      v137 = 1;
+      memset(v138, 0, sizeof(v138));
+      RtlActivateActivationContextUnsafeFast((__int64)&v136, *(_QWORD *)(qword_18015BF88 + 136));
+      sub_18003B5F8(1, qword_18015BF88);
+      RtlDeactivateActivationContextUnsafeFast((__int64)&v136);
     }
     if ( byte_18015CFB4 && !(unsigned __int8)_guard_dispatch_icall_fptr() )
     {
       byte_18015CFB4 = 0;
-      LdrUnloadDll(qword_18015C340);
-      qword_18015C340 = 0LL;
+      LdrUnloadDll(::DllHandle);
+      ::DllHandle = 0LL;
     }
     if ( *(_QWORD *)(ProcessEnvironmentBlock + 560) )
       _guard_dispatch_icall_fptr();

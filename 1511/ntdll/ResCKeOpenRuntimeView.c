@@ -16,76 +16,77 @@
  *     _ResCDupString @ 0x1800F8E80 (_ResCDupString.c)
  */
 
-unsigned __int64 ResCKeOpenRuntimeView()
+_DWORD *ResCKeOpenRuntimeView()
 {
   int BaseFolder; // eax
   unsigned __int16 *v1; // rdi
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  int v4; // edx
-  unsigned __int64 v5; // rbx
-  __int64 v6; // rax
-  __int64 v8; // rcx
-  __int64 v9; // rax
+  _DWORD *Heap; // rax
+  _DWORD *v4; // rbx
+  __int64 v5; // rax
+  void *v6; // rcx
+  LONG v8; // ecx
+  PVOID v9; // rax
   __int64 v10; // rax
   int v11; // eax
-  _DWORD v12[4]; // [rsp+30h] [rbp-238h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-238h] BYREF
   unsigned __int16 v13[264]; // [rsp+40h] [rbp-228h] BYREF
 
-  v12[0] = 0;
+  LODWORD(v12) = 0;
   memset(v13, 0, 520);
   BaseFolder = ResCKeGetBaseFolder(v13);
   v1 = v13;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   if ( (unsigned int)(BaseFolder - 1) > 0x102 )
     v1 = 0LL;
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 8u, 48LL);
-  v5 = Heap;
+  Heap = RtlAllocateHeap(ProcessHeap, 8u, 0x30uLL);
+  v4 = Heap;
   if ( !Heap )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(14LL);
+      RtlSetLastWin32Error(14);
     return 0LL;
   }
-  *(_QWORD *)(Heap + 8) = 0LL;
-  v6 = ResCKeDirectoryOpenMapping(-1, v4, 0, 0, 0, (__int64)v12);
-  *(_QWORD *)(v5 + 16) = v6;
-  if ( !v6 )
+  *((_QWORD *)Heap + 1) = 0LL;
+  v5 = ResCKeDirectoryOpenMapping(-1, 0, (__int64)&v12);
+  *((_QWORD *)v4 + 2) = v5;
+  if ( !v5 )
   {
 LABEL_5:
-    if ( *(_QWORD *)(v5 + 16) )
-      ResCDirectoryFree();
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+    v6 = (void *)*((_QWORD *)v4 + 2);
+    if ( v6 )
+      ResCDirectoryFree(v6);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     return 0LL;
   }
-  if ( !*(_DWORD *)(*(_QWORD *)(v6 + 24) + 68LL) )
+  if ( !*(_DWORD *)(*(_QWORD *)(v5 + 24) + 68LL) )
   {
-    v8 = 536937730LL;
+    v8 = 536937730;
 LABEL_13:
     RtlSetLastWin32Error(v8);
     goto LABEL_5;
   }
-  *(_QWORD *)(*(_QWORD *)(v5 + 16) + 64LL) = ResCKeHitsOpenMapping();
+  *(_QWORD *)(*((_QWORD *)v4 + 2) + 64LL) = ResCKeHitsOpenMapping();
   v9 = RtlAllocateHeap(
-         (__int64)NtCurrentPeb()->ProcessHeap,
+         NtCurrentPeb()->ProcessHeap,
          8u,
-         8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 24LL) + 52LL));
-  *(_QWORD *)(v5 + 24) = v9;
+         8LL * *(unsigned int *)(*(_QWORD *)(*((_QWORD *)v4 + 2) + 24LL) + 52LL));
+  *((_QWORD *)v4 + 3) = v9;
   if ( !v9 )
   {
     if ( NtCurrentTeb()->LastErrorValue )
       goto LABEL_5;
-    v8 = 14LL;
+    v8 = 14;
     goto LABEL_13;
   }
   if ( v1 )
     v10 = ResCDupString(v1);
   else
     v10 = 0LL;
-  *(_DWORD *)v5 |= 0x80u;
-  *(_QWORD *)(v5 + 32) = v10;
-  v11 = v12[0] & 7;
-  *(_QWORD *)(v5 + 40) = 0LL;
-  *(_DWORD *)(v5 + 4) |= v11;
-  return v5;
+  *v4 |= 0x80u;
+  *((_QWORD *)v4 + 4) = v10;
+  v11 = v12 & 7;
+  *((_QWORD *)v4 + 5) = 0LL;
+  v4[1] |= v11;
+  return v4;
 }

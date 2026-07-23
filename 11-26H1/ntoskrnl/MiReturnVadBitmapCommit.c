@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnVadBitmapCommit @ 0x140AE6210
+ * XREFs of MiReturnVadBitmapCommit @ 0x140AE3FD0
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x140B23EB8 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnPageTablePageCommitment @ 0x140B262B8 (MiReturnPageTablePageCommitment.c)
  * Callees:
- *     MiBitmapRangeZeroEx @ 0x140314E24 (MiBitmapRangeZeroEx.c)
- *     RtlAreBitsClearEx @ 0x140431D80 (RtlAreBitsClearEx.c)
- *     MmGetMinWsPagePriority @ 0x1404B1660 (MmGetMinWsPagePriority.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
+ *     MiBitmapRangeZeroEx @ 0x140316E54 (MiBitmapRangeZeroEx.c)
+ *     RtlAreBitsClearEx @ 0x14041EDB0 (RtlAreBitsClearEx.c)
+ *     MmGetMinWsPagePriority @ 0x1404AACF0 (MmGetMinWsPagePriority.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
  */
 
 void __fastcall MiReturnVadBitmapCommit(__int64 a1)

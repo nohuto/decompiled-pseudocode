@@ -8,10 +8,10 @@
  *     RtlUnlockModuleSection @ 0x180073B70 (RtlUnlockModuleSection.c)
  */
 
-signed __int64 sub_180073890()
+void sub_180073890()
 {
-  RtlAcquireSRWLockExclusive(&qword_180166358);
+  RtlAcquireSRWLockExclusive(&stru_180166358);
   if ( !--dword_180166034 )
     RtlUnlockModuleSection(RtlAllocateMemoryZone);
-  return RtlReleaseSRWLockExclusive(&qword_180166358);
+  RtlReleaseSRWLockExclusive(&stru_180166358);
 }

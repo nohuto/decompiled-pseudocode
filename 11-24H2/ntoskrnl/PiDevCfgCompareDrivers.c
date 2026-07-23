@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDevCfgCompareDrivers @ 0x1404AF65C
+ * XREFs of PiDevCfgCompareDrivers @ 0x1404AA058
  * Callers:
- *     PiDevCfgFindDeviceDriver @ 0x140995E90 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1409C86B4 (PiDevCfgFindDeviceDriver.c)
  * Callees:
  *     <none>
  */

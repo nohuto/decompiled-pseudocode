@@ -5,13 +5,13 @@
  *     RtlDestroyMemoryZone @ 0x180002930 (RtlDestroyMemoryZone.c)
  * Callees:
  *     RtlUnlockModuleSection @ 0x180001EA0 (RtlUnlockModuleSection.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 RtlpUnregisterLockedMemoryZone()
+void RtlpUnregisterLockedMemoryZone()
 {
   RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
   if ( !--RtlpLockedMemoryZoneCount )
     RtlUnlockModuleSection(RtlAllocateMemoryZone);
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiShouldYieldProcessor @ 0x1405369D8
+ * XREFs of MiShouldYieldProcessor @ 0x140536C18
  * Callers:
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiInitializeMdlBatchPages @ 0x1402E38E4 (MiInitializeMdlBatchPages.c)
- *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
- *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
- *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiInitializeMdlBatchPages @ 0x140294C34 (MiInitializeMdlBatchPages.c)
+ *     NtGetWriteWatch @ 0x1403373A0 (NtGetWriteWatch.c)
+ *     NtUnlockVirtualMemory @ 0x140338C80 (NtUnlockVirtualMemory.c)
+ *     MiMapUserLargePages @ 0x14055E970 (MiMapUserLargePages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
  */
 
 LOGICAL MiShouldYieldProcessor()

@@ -11,7 +11,7 @@
  *     PspReserveAndCommitUserShadowStack @ 0x140A15118 (PspReserveAndCommitUserShadowStack.c)
  */
 
-__int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, _DWORD *a2, _QWORD *a3, _BYTE *a4, int a5)
+__int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3, _BYTE *a4, int a5)
 {
   unsigned __int64 v5; // rax
   unsigned __int64 v9; // rcx
@@ -21,7 +21,7 @@ __int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, _DWORD
   unsigned __int64 v14; // rdi
   int v15; // ebx
   int v16; // ebx
-  char *ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   unsigned __int64 v18; // rax
   unsigned __int64 v20; // [rsp+30h] [rbp-31h] BYREF
   __int64 v21; // [rsp+38h] [rbp-29h] BYREF
@@ -53,14 +53,14 @@ __int64 __fastcall PspSetupUserShadowStack(_KPROCESS *BugCheckParameter1, _DWORD
   }
   else
   {
-    if ( (a2[12] & 0x100040) == 0x100040 )
+    if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 )
     {
-      ExtendedFeature = RtlLocateExtendedFeature(a2 + 308, 0xBu, 0LL);
+      ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
       if ( ExtendedFeature )
       {
-        *(_QWORD *)((char *)a2 + a2[312] + 1232) |= 0x800uLL;
-        *((_QWORD *)ExtendedFeature + 1) = v21;
-        *(_QWORD *)ExtendedFeature = 1LL;
+        *(_QWORD *)(*(int *)(a2 + 1248) + a2 + 1232) |= 0x800uLL;
+        ExtendedFeature[1] = v21;
+        *ExtendedFeature = 1LL;
       }
     }
     a3[8] = v20;

@@ -1,23 +1,23 @@
 /*
- * XREFs of ExSetTimer @ 0x140280070
+ * XREFs of ExSetTimer @ 0x14026E2B0
  * Callers:
- *     WdtpArmTimer @ 0x14027F8E0 (WdtpArmTimer.c)
- *     RtlpHpScheduleCompaction @ 0x1403082E8 (RtlpHpScheduleCompaction.c)
- *     EnableFlushTimer @ 0x140376764 (EnableFlushTimer.c)
- *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x1404ED920 (CmFcpManagerArmFeatureUsageRetryTimer.c)
- *     WdtpTimerCallback @ 0x1405C67D0 (WdtpTimerCallback.c)
- *     WdipTimeoutCheckRoutine @ 0x1406B5FF0 (WdipTimeoutCheckRoutine.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x14093F664 (EtwpUpdatePeriodicCaptureState.c)
- *     SendCaptureStateNotificationsWorker @ 0x14093F940 (SendCaptureStateNotificationsWorker.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     WdtpArmTimer @ 0x14026DB20 (WdtpArmTimer.c)
+ *     RtlpHpScheduleCompaction @ 0x140313038 (RtlpHpScheduleCompaction.c)
+ *     EnableFlushTimer @ 0x1403762B4 (EnableFlushTimer.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x1404EDB60 (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     WdtpTimerCallback @ 0x1405C6A00 (WdtpTimerCallback.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406154B0 (WdipTimeoutCheckRoutine.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x14093F834 (EtwpUpdatePeriodicCaptureState.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093FB10 (SendCaptureStateNotificationsWorker.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x1402800F4 (ExpCheckForFreedEnhancedTimer.c)
- *     ExpTimerSetParametersAreValid @ 0x140280308 (ExpTimerSetParametersAreValid.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x14026E334 (ExpCheckForFreedEnhancedTimer.c)
+ *     ExpTimerSetParametersAreValid @ 0x14026E548 (ExpTimerSetParametersAreValid.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
-_BOOL8 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, signed __int64 a2, signed __int64 a3, __int64 a4)
 {
   ULONG_PTR BugCheckParameter4; // rdx
   ULONG_PTR v9; // r9

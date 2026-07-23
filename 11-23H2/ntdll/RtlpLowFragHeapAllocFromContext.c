@@ -15,14 +15,14 @@
  *     RtlpLowFragHeapAllocateFromZone @ 0x18006FACC (RtlpLowFragHeapAllocateFromZone.c)
  *     RtlpAffinitizeSegmentInfoForBucket @ 0x180073660 (RtlpAffinitizeSegmentInfoForBucket.c)
  *     RtlpSetSegmentInfo @ 0x180081E48 (RtlpSetSegmentInfo.c)
- *     RtlpLfhFindClearBitAndSet @ 0x1800A06EC (RtlpLfhFindClearBitAndSet.c)
+ *     RtlpLfhFindClearBitAndSet @ 0x1800A06AC (RtlpLfhFindClearBitAndSet.c)
  *     RtlpInterlockedPopEntrySList @ 0x1800A4C40 (RtlpInterlockedPopEntrySList.c)
  *     RtlpInterlockedPushEntrySList @ 0x1800A4C80 (RtlpInterlockedPushEntrySList.c)
  *     InterlockedPushListSList @ 0x1800A4CF0 (InterlockedPushListSList.c)
  *     RtlGetCurrentProcessorNumber @ 0x1800A5D10 (RtlGetCurrentProcessorNumber.c)
- *     RtlpLogHeapAffinityManagerEnable @ 0x1801182C4 (RtlpLogHeapAffinityManagerEnable.c)
- *     RtlpLogHeapSubSegmentActivate @ 0x1801189F4 (RtlpLogHeapSubSegmentActivate.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapAffinityManagerEnable @ 0x180118294 (RtlpLogHeapAffinityManagerEnable.c)
+ *     RtlpLogHeapSubSegmentActivate @ 0x1801189C4 (RtlpLogHeapSubSegmentActivate.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   __int64 HeapData_low; // rcx
   __int64 UniqueThread_low; // rsi
   int v32; // ebx
-  unsigned int CurrentProcessorNumber; // eax
+  ULONG CurrentProcessorNumber; // eax
   __int16 RandomValue32; // ax
   _QWORD *v35; // rax
   volatile signed __int32 *v36; // r13
@@ -64,7 +64,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   _QWORD *v39; // r14
   unsigned int v40; // r15d
   __int64 v41; // rbx
-  union _SLIST_HEADER *v42; // rbp
+  _SLIST_HEADER *v42; // rbp
   PSLIST_ENTRY v43; // rbx
   int v44; // ecx
   PSLIST_ENTRY v45; // rdi
@@ -75,7 +75,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   _SLIST_ENTRY *v50; // rbx
   unsigned int v51; // r14d
   PSLIST_ENTRY v52; // r15
-  union _SLIST_HEADER *v53; // rbp
+  _SLIST_HEADER *v53; // rbp
   PSLIST_ENTRY v54; // rdi
   unsigned int v55; // edi
   unsigned int v56; // r9d
@@ -143,8 +143,8 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   __int64 v118; // [rsp+48h] [rbp-70h]
   unsigned __int16 *v119; // [rsp+50h] [rbp-68h]
   __int64 v120; // [rsp+58h] [rbp-60h]
-  union _SLIST_HEADER *ListHead; // [rsp+60h] [rbp-58h]
-  unsigned int v123; // [rsp+C8h] [rbp+10h]
+  _SLIST_HEADER *ListHead; // [rsp+60h] [rbp-58h]
+  char v123; // [rsp+C8h] [rbp+10h]
 
   v4 = a2 + 169LL;
   v5 = 0LL;
@@ -157,7 +157,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
     HeapData_low = LOBYTE(v29->HeapData);
     UniqueThread_low = LODWORD(v29->ClientId.UniqueThread);
     v5 = (unsigned int)(HeapData_low - 1);
-    v123 = v5;
+    v123 = HeapData_low - 1;
     if ( (int)v5 < 0 || RtlpAffinityState[HeapData_low] != UniqueThread_low )
     {
       v32 = HIDWORD(RtlpAffinityState[0]);
@@ -170,7 +170,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, unsigned __int16 
   }
   v8 = 16LL * *v7;
   v120 = v8;
-  ListHead = (union _SLIST_HEADER *)(a1 + 48 * (v5 + 68));
+  ListHead = (_SLIST_HEADER *)(a1 + 48 * (v5 + 68));
   v9 = *((unsigned __int8 *)v7 + 2);
   if ( (_DWORD)v5 )
     v10 = 192 * v5 + *(_QWORD *)(a1 + 8 * v9 + 2224) - 192LL;
@@ -195,9 +195,7 @@ LABEL_6:
             && (int)RtlpAffinitizeSegmentInfoForBucket(v12, *(unsigned __int8 *)(v47 + 678)) >= 0 )
           {
             *(_BYTE *)(v47 + 679) |= 1u;
-            v48 = (unsigned int)RtlGetCurrentServiceSessionId()
-                ? (char *)NtCurrentPeb()->SharedData + 550
-                : (char *)2147353472;
+            v48 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 550 : (char *)2147353472;
             if ( *v48 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
               RtlpLogHeapAffinityManagerEnable(*(_QWORD *)(v12 + 24), *(unsigned __int8 *)(v47 + 678));
           }
@@ -324,10 +322,8 @@ LABEL_35:
             v36 = 0LL;
             goto LABEL_66;
           }
-          v42 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v118 + 24)
-                                                  + 8LL * *(unsigned __int16 *)(v116 + 172)
-                                                  + 1192)
-                                      + 144LL);
+          v42 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v118 + 24) + 8LL * *(unsigned __int16 *)(v116 + 172) + 1192)
+                                + 144LL);
           v43 = RtlpInterlockedPopEntrySList(v42);
           if ( v43 )
           {
@@ -383,8 +379,8 @@ LABEL_66:
       v50 = 0LL;
       v51 = 0;
       v52 = 0LL;
-      v53 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v118 + 24) + 8LL * *(unsigned __int16 *)(v116 + 172) + 1192)
-                                  + 144LL);
+      v53 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v118 + 24) + 8LL * *(unsigned __int16 *)(v116 + 172) + 1192)
+                            + 144LL);
       v54 = RtlpInterlockedPopEntrySList(v53);
       if ( !v54 )
         goto LABEL_67;
@@ -441,7 +437,7 @@ LABEL_112:
         v85 = *(__int64 **)v36;
         if ( *(_QWORD *)v36 == v10 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v86 = (__int64)NtCurrentPeb()->SharedData + 550;
           else
             v86 = 2147353472LL;
@@ -619,7 +615,7 @@ LABEL_153:
     v69 = RtlpInterlockedPopEntrySList(ListHead);
     if ( !v69 )
     {
-      v92 = RtlpLowFragHeapAllocateFromZone(a1, v123);
+      v92 = RtlpLowFragHeapAllocateFromZone((PRTL_SRWLOCK)a1);
       v72 = v92;
       if ( !v92 )
         goto LABEL_210;
@@ -647,7 +643,7 @@ LABEL_86:
       v10 = v116;
       if ( *(_QWORD *)v72 == v116 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v75 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v75 = 2147353472LL;

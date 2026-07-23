@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateVadStartVpn @ 0x140449454
+ * XREFs of MiUpdateVadStartVpn @ 0x140441BA4
  * Callers:
- *     MiAllocateEnclaveVad @ 0x1407F6D40 (MiAllocateEnclaveVad.c)
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiFindEmptyAddressRangeDownTree @ 0x1408E2120 (MiFindEmptyAddressRangeDownTree.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MiAllocateVad @ 0x1408F82D8 (MiAllocateVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409C3660 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapLockedPagesInUserSpace @ 0x1409C3AE8 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A135A0 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1407F74B4 (MiAllocateEnclaveVad.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x1408DC1EC (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateVad @ 0x1408DC6F8 (MiAllocateVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1408DD544 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x140918CD0 (MiFindEmptyAddressRangeDownTree.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0BD00 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
  *     <none>
  */

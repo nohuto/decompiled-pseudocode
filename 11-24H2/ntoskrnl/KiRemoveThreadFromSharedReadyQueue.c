@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveThreadFromSharedReadyQueue @ 0x14030D6C0
+ * XREFs of KiRemoveThreadFromSharedReadyQueue @ 0x1402D8E60
  * Callers:
- *     KiScanSharedReadyThreads @ 0x1404657E0 (KiScanSharedReadyThreads.c)
- *     KiSetThreadSchedulingGroup @ 0x14047C324 (KiSetThreadSchedulingGroup.c)
+ *     KiSetThreadSchedulingGroup @ 0x1402D6FE8 (KiSetThreadSchedulingGroup.c)
+ *     KiScanSharedReadyThreads @ 0x14045BDC8 (KiScanSharedReadyThreads.c)
  * Callees:
- *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x14030D724 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
+ *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x1402D8EC4 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
  */
 
 __int64 __fastcall KiRemoveThreadFromSharedReadyQueue(__int64 a1, __int64 a2, char a3)

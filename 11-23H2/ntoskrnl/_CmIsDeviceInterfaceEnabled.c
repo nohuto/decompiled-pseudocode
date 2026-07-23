@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmIsDeviceInterfaceEnabled @ 0x1406CECC0
+ * XREFs of _CmIsDeviceInterfaceEnabled @ 0x1406CECF0
  * Callers:
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406C93DC (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     PiPnpRtlInterfaceFilterCallback @ 0x1406CEB60 (PiPnpRtlInterfaceFilterCallback.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14082AF70 (_CmDeviceClassesSubkeyCallback.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406C940C (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     PiPnpRtlInterfaceFilterCallback @ 0x1406CEB90 (PiPnpRtlInterfaceFilterCallback.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x14082B270 (_CmDeviceClassesSubkeyCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __fastcall CmIsDeviceInterfaceEnabled(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4)

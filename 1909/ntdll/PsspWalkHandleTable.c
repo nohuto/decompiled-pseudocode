@@ -12,55 +12,57 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-__int64 __fastcall PsspWalkHandleTable(
-        __int64 a1,
+HANDLE __fastcall PsspWalkHandleTable(
+        HANDLE SourceProcessHandle,
         unsigned int *a2,
         unsigned int a3,
         char a4,
         __int64 (__fastcall *a5)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned int),
         __int64 a6)
 {
-  __int64 result; // rax
+  HANDLE result; // rax
   unsigned int v7; // ebx
   unsigned int v11; // r15d
-  unsigned int v12; // edi
-  char v13; // si
-  __int64 v14; // r9
-  const wchar_t **v15; // rsi
-  __int64 v16; // rbx
-  int v17; // [rsp+54h] [rbp-ACh] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-A8h]
-  __int64 v19; // [rsp+60h] [rbp-A0h]
-  __int64 (__fastcall *v20)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned int); // [rsp+68h] [rbp-98h]
-  __int64 v21; // [rsp+70h] [rbp-90h]
-  char v22; // [rsp+80h] [rbp-80h] BYREF
+  void *v12; // rdx
+  unsigned int v13; // edi
+  char v14; // si
+  __int64 v15; // r9
+  const wchar_t **v16; // rsi
+  __int64 v17; // rbx
+  int v18; // [rsp+54h] [rbp-ACh] BYREF
+  HANDLE TargetHandle; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-A0h]
+  __int64 (__fastcall *v21)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned int); // [rsp+68h] [rbp-98h]
+  HANDLE v22; // [rsp+70h] [rbp-90h]
+  _BYTE ObjectInformation[8]; // [rsp+80h] [rbp-80h] BYREF
   wchar_t *String1; // [rsp+88h] [rbp-78h]
-  char v24; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE v25[64]; // [rsp+170h] [rbp+70h] BYREF
-  _WORD v26[264]; // [rsp+1B0h] [rbp+B0h] BYREF
+  _BYTE v25[64]; // [rsp+130h] [rbp+30h] BYREF
+  _BYTE v26[64]; // [rsp+170h] [rbp+70h] BYREF
+  _WORD v27[264]; // [rsp+1B0h] [rbp+B0h] BYREF
 
-  result = a1;
-  v21 = a1;
+  result = SourceProcessHandle;
+  v22 = SourceProcessHandle;
   v7 = 0;
-  v20 = a5;
-  v19 = a6;
+  v21 = a5;
+  v20 = a6;
   v11 = 0;
   if ( a3 )
   {
     while ( 1 )
     {
-      v12 = 0;
-      Handle = 0LL;
+      v12 = (void *)*a2;
       v13 = 0;
-      v17 = 0;
-      if ( (int)ZwDuplicateObject() < 0 )
+      TargetHandle = 0LL;
+      v14 = 0;
+      v18 = 0;
+      if ( ZwDuplicateObject(result, v12, (HANDLE)0xFFFFFFFFFFFFFFFFLL, &TargetHandle, 0, 0, 2u) < 0 )
         goto LABEL_18;
-      v12 = 4;
-      if ( (int)ZwQueryObject() >= 0 )
+      v13 = 4;
+      if ( ZwQueryObject(TargetHandle, ObjectTypeInformation, ObjectInformation, 0xA8u, 0LL) >= 0 )
         break;
-      NtClose(Handle);
+      NtClose(TargetHandle);
 LABEL_19:
-      result = v21;
+      result = v22;
       ++v11;
       ++a2;
       if ( v11 >= a3 )
@@ -68,58 +70,55 @@ LABEL_19:
     }
     if ( (a4 & 8) != 0 )
     {
-      memset(v26, 0, sizeof(v26));
+      memset(v27, 0, sizeof(v27));
       if ( wcsicmp(String1, L"File") )
       {
-        if ( (int)ZwQueryObject() < 0 )
-          v26[8] = 0;
+        if ( ZwQueryObject(TargetHandle, ObjectNameInformation, v27, 0x210u, 0LL) < 0 )
+          v27[8] = 0;
       }
     }
-    if ( (a4 & 0x10) != 0 && (int)ZwQueryObject() >= 0 )
-      v12 = 20;
-    v17 = 0;
+    if ( (a4 & 0x10) != 0 && ZwQueryObject(TargetHandle, ObjectBasicInformation, v25, 0x38u, 0LL) >= 0 )
+      v13 = 20;
+    v18 = 0;
     if ( (a4 & 0x20) != 0 )
     {
-      v15 = (const wchar_t **)&off_1801191D0;
-      while ( wcsicmp(String1, *v15) )
+      v16 = (const wchar_t **)&off_1801191D0;
+      while ( wcsicmp(String1, *v16) )
       {
         ++v7;
-        v15 += 3;
+        v16 += 3;
         if ( v7 >= 6 )
           goto LABEL_16;
       }
-      v16 = 3LL * v7;
-      if ( ((int (__fastcall *)(HANDLE, _BYTE *, __int64, int *, _QWORD, _DWORD, int))*(&off_1801191D0 + v16 + 1))(
-             Handle,
-             v25,
+      v17 = 3LL * v7;
+      if ( ((int (__fastcall *)(HANDLE, _BYTE *, __int64, int *))*(&off_1801191D0 + v17 + 1))(
+             TargetHandle,
+             v26,
              64LL,
-             &v17,
-             0LL,
-             0,
-             2) < 0
-        || !v17 )
+             &v18) < 0
+        || !v18 )
       {
 LABEL_16:
-        v13 = 0;
+        v14 = 0;
         goto LABEL_17;
       }
-      v13 = (char)(&off_1801191D0)[v16 + 1];
-      v12 |= 0x20u;
+      v14 = (char)(&off_1801191D0)[v17 + 1];
+      v13 |= 0x20u;
     }
 LABEL_17:
-    NtClose(Handle);
+    NtClose(TargetHandle);
 LABEL_18:
-    LOBYTE(v14) = v13;
-    result = v20(
-               v19,
-               v12,
-               *a2,
-               v14,
-               (unsigned __int64)&v22 & -(__int64)((v12 & 4) != 0),
-               (unsigned __int64)v26 & -(__int64)((v12 & 4) != 0),
-               (unsigned __int64)&v24 & -(__int64)((v12 & 0x10) != 0),
-               (unsigned __int64)v25 & -(__int64)((v12 & 0x20) != 0),
-               v17 & (unsigned int)-((v12 & 0x20) != 0));
+    LOBYTE(v15) = v14;
+    result = (HANDLE)v21(
+                       v20,
+                       v13,
+                       *a2,
+                       v15,
+                       (unsigned __int64)ObjectInformation & -(__int64)((v13 & 4) != 0),
+                       (unsigned __int64)v27 & -(__int64)((v13 & 4) != 0),
+                       (unsigned __int64)v25 & -(__int64)((v13 & 0x10) != 0),
+                       (unsigned __int64)v26 & -(__int64)((v13 & 0x20) != 0),
+                       v18 & (unsigned int)-((v13 & 0x20) != 0));
     v7 = 0;
     if ( !(_BYTE)result )
       return result;

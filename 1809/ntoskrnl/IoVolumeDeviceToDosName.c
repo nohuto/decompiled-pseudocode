@@ -1,21 +1,21 @@
 /*
- * XREFs of IoVolumeDeviceToDosName @ 0x140661A40
+ * XREFs of IoVolumeDeviceToDosName @ 0x140662C00
  * Callers:
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
- *     IopQueryNameInternal @ 0x1406605A4 (IopQueryNameInternal.c)
- *     IopValidateJunctionTarget @ 0x14081B6BC (IopValidateJunctionTarget.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
+ *     IopQueryNameInternal @ 0x140661764 (IopQueryNameInternal.c)
+ *     IopValidateJunctionTarget @ 0x14081C8BC (IopValidateJunctionTarget.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoGetDeviceObjectPointer @ 0x140663050 (IoGetDeviceObjectPointer.c)
  */
 
 NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_STRING DosName)

@@ -35,7 +35,7 @@ __int64 __fastcall SbAtomicCaptureContextGuid(int a1, _OWORD *a2, _QWORD *a3)
     }
     if ( a1 == 1 )
     {
-      RtlAcquireSRWLockShared(&SbpContextLock, (unsigned __int64)pShimData, (unsigned __int64)a3, 0LL);
+      RtlAcquireSRWLockShared(&SbpContextLock);
       v8 = *((_OWORD *)v6 + 4);
       *a3 = *(_QWORD *)v6;
       *a2 = v8;

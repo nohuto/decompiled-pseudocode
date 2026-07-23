@@ -154,7 +154,7 @@ void __stdcall RtlUnwindEx(
   v94 = HistoryTable;
   v100 = ReturnValue;
   if ( !(unsigned __int8)RtlpGetStackLimits(&v97, &v99) )
-    RtlRaiseStatus(3221225512LL);
+    RtlRaiseStatus(-1073741784);
   v91 = ContextRecord;
   v9 = ContextRecord;
   v10 = &v118;
@@ -369,7 +369,7 @@ LABEL_121:
                       v10->Rsp = *v77;
                       break;
                     default:
-                      RtlRaiseStatus(3221225727LL);
+                      RtlRaiseStatus(-1073741569);
                   }
                 }
               }
@@ -394,7 +394,7 @@ LABEL_121:
         v96 = ++v27;
         p_BeginAddress = &v29[2 * v74 + 4];
         if ( v27 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
       }
       if ( !v31 )
       {
@@ -488,7 +488,7 @@ LABEL_15:
         }
         v61 = (__int64)v89;
       }
-      v78 = (_DWORD *)RtlpSameFunction(v61, v17, v60 + v17);
+      v78 = (_DWORD *)RtlpSameFunction(v61, v17, (void *)(v60 + v17));
       v17 = ImageBase;
       if ( v78 && v60 != *v78 )
         goto LABEL_24;
@@ -563,7 +563,7 @@ LABEL_44:
       || (v12 = v99, v11 >= v99)
       || (v8 = v102) != 0LL && (unsigned __int64)v102 < v11 )
     {
-      RtlRaiseStatus(3221225512LL);
+      RtlRaiseStatus(-1073741784);
     }
     if ( v16 )
     {
@@ -592,7 +592,7 @@ LABEL_44:
         if ( v44 )
         {
           if ( v44 != 2 )
-            RtlRaiseStatus(3221225510LL);
+            RtlRaiseStatus(-1073741786);
           v13 = ControlPc;
           v38 = FunctionEntry;
           ImageBase = v104;
@@ -656,13 +656,16 @@ LABEL_65:
       v9->Rip = (DWORD64)v101;
     if ( v46->ExceptionCode == -2147483610 )
     {
-      if ( qword_1801572F0 && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v46->ExceptionInformation[0] + 16)) )
+      if ( LdrSystemDllInitBlock.Wow64SharedInformation[9]
+        && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v46->ExceptionInformation[0] + 16)) )
+      {
         __fastfail(0xDu);
+      }
       goto LABEL_71;
     }
     if ( v46->ExceptionCode == -2147483607 && v46->NumberParameters )
     {
-      if ( !qword_1801572F0 )
+      if ( !LdrSystemDllInitBlock.Wow64SharedInformation[9] )
       {
 LABEL_71:
         RtlRestoreContext(v9, v46);
@@ -670,7 +673,7 @@ LABEL_71:
       }
       LdrpValidateUserCallTarget(v46->ExceptionInformation[0]);
     }
-    if ( qword_1801572F0 )
+    if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
     {
       if ( !(unsigned int)RtlGuardIsValidStackPointer(v9->Rsp) )
         __fastfail(0xDu);
@@ -678,6 +681,6 @@ LABEL_71:
     goto LABEL_71;
   }
   if ( v13 == v9->Rip )
-    RtlRaiseStatus(3221225727LL);
-  ZwRaiseException(ExceptionRecorda, v9, 0LL);
+    RtlRaiseStatus(-1073741569);
+  ZwRaiseException(ExceptionRecorda, v9, 0);
 }

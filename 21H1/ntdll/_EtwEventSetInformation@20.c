@@ -8,23 +8,27 @@
  *     _EtwpUseDescriptorType@16 @ 0x4B380958 (_EtwpUseDescriptorType@16.c)
  */
 
-int __stdcall EtwEventSetInformation(int a1, __int16 a2, int a3, int a4, unsigned int a5)
+ULONG __cdecl EtwEventSetInformation(
+        REGHANDLE RegHandle,
+        EVENT_INFO_CLASS InformationClass,
+        PVOID EventInformation,
+        ULONG InformationLength)
 {
-  if ( a3 )
+  if ( InformationClass )
   {
-    if ( a3 == 2 )
+    if ( InformationClass == 2 )
     {
-      if ( a4 && a5 >= 3 && a5 <= 0xFFFF )
-        return EtwpSetProviderTraits(a1, a2);
+      if ( EventInformation && InformationLength >= 3 && InformationLength <= 0xFFFF )
+        return EtwpSetProviderTraits(RegHandle, SWORD2(RegHandle));
       return 87;
     }
-    if ( a3 != 3 )
+    if ( InformationClass != 3 )
       return 50;
-    if ( a4 && a5 == 1 )
-      return EtwpUseDescriptorType(a1, a2);
+    if ( EventInformation && InformationLength == 1 )
+      return EtwpUseDescriptorType(RegHandle, SWORD2(RegHandle));
     return 87;
   }
-  if ( a5 )
+  if ( InformationLength )
     return 87;
-  return EtwpTrackProviderBinary(a1, a2);
+  return EtwpTrackProviderBinary(RegHandle, SWORD2(RegHandle));
 }

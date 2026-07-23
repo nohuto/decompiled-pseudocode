@@ -15,18 +15,18 @@
  */
 
 char __fastcall sub_18000EA74(
-        __int64 a1,
+        char *BaseAddress,
         __int64 a2,
         __int64 a3,
         __int64 a4,
         int a5,
         __int64 a6,
-        unsigned __int64 a7,
+        char *BaseAddressa,
         unsigned __int64 a8)
 {
   unsigned __int64 v9; // rsi
   __int64 v11; // r12
-  unsigned __int64 v12; // r8
+  char *v12; // r8
   __int64 v13; // r14
   __int64 v14; // r12
   signed __int64 v15; // rsi
@@ -35,67 +35,69 @@ char __fastcall sub_18000EA74(
   __int64 v18; // rcx
   __int64 v19; // rdx
   __int64 v20; // rsi
-  __int64 v21; // r8
+  char *v21; // r8
   _QWORD *v22; // rbx
   __int64 *v23; // rax
-  int v25; // eax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // rcx
-  __int16 v31; // ax
-  _QWORD v32[2]; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int NtGlobalFlag; // [rsp+88h] [rbp+48h]
+  ULONG Protect; // eax
+  __int64 UserModeGlobalLogger; // rcx
+  __int16 v27; // ax
+  ULONG_PTR RegionSize[2]; // [rsp+30h] [rbp-10h] BYREF
+  ULONG NtGlobalFlag; // [rsp+88h] [rbp+48h]
 
   v9 = a8;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
   if ( a8 - a6 > 0xFFFFF000 )
     return 0;
   v11 = a3 + 15;
-  v12 = a7;
+  v12 = BaseAddressa;
   v11 &= 0xFFFFFFFFFFFFFFF0uLL;
   a8 = (__int64)(a8 - a6) / 4096;
   v13 = v11 + a2;
   v14 = v11 >> 4;
-  if ( v13 + 80 >= a7 )
+  if ( v13 + 80 >= (unsigned __int64)BaseAddressa )
   {
     if ( v13 + 80 < v9 )
     {
-      v32[0] = (v13 - a7 + 4111) & 0xFFFFFFFFFFFFF000uLL;
-      v25 = sub_18001E548(a1, 1LL);
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &a7, 0LL, v32, 4096, v25) >= 0 )
+      RegionSize[0] = (v13 - (_QWORD)BaseAddressa + 4111) & 0xFFFFFFFFFFFFF000uLL;
+      Protect = sub_18001E548(BaseAddress);
+      if ( ZwAllocateVirtualMemory(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             (PVOID *)&BaseAddressa,
+             0LL,
+             RegionSize,
+             0x1000u,
+             Protect) >= 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v27, v26, v28, v29) )
-          v30 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+        if ( RtlGetCurrentServiceSessionId() )
+          UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
         else
-          v30 = 2147353472LL;
-        if ( *(_BYTE *)v30 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          sub_1800FF834(a1, a7, v32[0], 3LL);
-        v12 = v32[0] + a7;
-        a7 += v32[0];
+          UserModeGlobalLogger = 2147353472LL;
+        if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+          sub_1800FF834(BaseAddress, BaseAddressa, RegionSize[0], 3LL);
+        v12 = &BaseAddressa[RegionSize[0]];
+        BaseAddressa += RegionSize[0];
         goto LABEL_3;
       }
-      ++*(_DWORD *)(a1 + 600);
+      ++*((_DWORD *)BaseAddress + 150);
     }
     return 0;
   }
 LABEL_3:
-  v15 = v9 - v12;
+  v15 = v9 - (_QWORD)v12;
   *(_WORD *)(a2 + 8) = v14;
   *(_WORD *)(a2 + 10) = 1;
   *(_BYTE *)(a2 + 15) = 1;
   v16 = v15 / 4096;
-  *(_WORD *)(a2 + 12) = *(_WORD *)(a1 + 140);
+  *(_WORD *)(a2 + 12) = *((_WORD *)BaseAddress + 70);
   if ( (NtGlobalFlag & 0x1000) != 0 )
   {
-    v31 = sub_18000F3C8(1LL, v15 % 4096);
-    LODWORD(v12) = a7;
-    *(_WORD *)(a2 + 88) = v31;
+    v27 = sub_18000F3C8(1LL, v15 % 4096);
+    LODWORD(v12) = (_DWORD)BaseAddressa;
+    *(_WORD *)(a2 + 88) = v27;
   }
   v17 = a8;
   *(_DWORD *)(a2 + 20) = a5;
-  *(_QWORD *)(a2 + 40) = a1;
+  *(_QWORD *)(a2 + 40) = BaseAddress;
   *(_DWORD *)(a2 + 56) = v17;
   v18 = (unsigned int)(v17 << 12);
   *(_QWORD *)(a2 + 72) = a6 + v18;
@@ -103,12 +105,12 @@ LABEL_3:
   *(_QWORD *)(a2 + 48) = a6;
   *(_QWORD *)(a2 + 64) = v13;
   *(_DWORD *)(a2 + 80) = 0;
-  *(_QWORD *)(a1 + 544) += v18;
-  *(_QWORD *)(a1 + 536) += v18;
+  *((_QWORD *)BaseAddress + 68) += v18;
+  *((_QWORD *)BaseAddress + 67) += v18;
   *(_QWORD *)(a2 + 104) = a2 + 96;
   *(_QWORD *)(a2 + 96) = a2 + 96;
   *(_BYTE *)(a2 + 14) = *(_QWORD *)(a2 + 40) != a2;
-  *(_WORD *)(v13 + 12) = *(_WORD *)(a2 + 8) ^ *(_WORD *)(a1 + 140);
+  *(_WORD *)(v13 + 12) = *(_WORD *)(a2 + 8) ^ *((_WORD *)BaseAddress + 70);
   v19 = *(_QWORD *)(a2 + 40);
   if ( v19 == a2 )
   {
@@ -120,32 +122,32 @@ LABEL_3:
     if ( (unsigned __int64)(v13 - a2) >> 16 > 0xFC )
     {
       sub_1800A4DFC(3, v19, v13, a2, 0LL, 0LL);
-      LODWORD(v12) = a7;
+      LODWORD(v12) = (_DWORD)BaseAddressa;
     }
   }
   *(_BYTE *)(v13 + 14) = v20;
-  sub_18001C3EC(a1, a2, v12 - 48, (_DWORD)v16 << 12, v13, (__int64)v32);
-  if ( *(_DWORD *)(a1 + 124) )
+  sub_18001C3EC((_DWORD)BaseAddress, a2, (_DWORD)v12 - 48, (_DWORD)v16 << 12, v13, (__int64)RegionSize);
+  if ( *((_DWORD *)BaseAddress + 31) )
   {
     *(_BYTE *)(a2 + 11) = *(_BYTE *)(a2 + 8) ^ *(_BYTE *)(a2 + 9) ^ *(_BYTE *)(a2 + 10);
-    *(_DWORD *)(a2 + 8) ^= *(_DWORD *)(a1 + 136);
+    *(_DWORD *)(a2 + 8) ^= *((_DWORD *)BaseAddress + 34);
   }
-  if ( v32[0] )
-    sub_18001D350(a1, v13, v32[0]);
-  v21 = a1 + 288;
+  if ( RegionSize[0] )
+    sub_18001D350(BaseAddress, v13, RegionSize[0]);
+  v21 = BaseAddress + 288;
   v22 = (_QWORD *)(a2 + 24);
-  v23 = *(__int64 **)(a1 + 296);
-  if ( *v23 == a1 + 288 )
+  v23 = (__int64 *)*((_QWORD *)BaseAddress + 37);
+  if ( (char *)*v23 == BaseAddress + 288 )
   {
     *v22 = v21;
     v22[1] = v23;
     *v23 = (__int64)v22;
-    *(_QWORD *)(a1 + 296) = v22;
+    *((_QWORD *)BaseAddress + 37) = v22;
   }
   else
   {
-    sub_1800A4DFC(12, 0, v21, 0, *v23, 0LL);
+    sub_1800A4DFC(12, 0, (_DWORD)v21, 0, *v23, 0LL);
   }
-  ++*(_DWORD *)(a1 + 568);
+  ++*((_DWORD *)BaseAddress + 142);
   return 1;
 }

@@ -120,10 +120,13 @@ LABEL_17:
   *(_QWORD *)SpinLock = *(_QWORD *)(v13 + 24);
 LABEL_19:
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLocka);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v14 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));

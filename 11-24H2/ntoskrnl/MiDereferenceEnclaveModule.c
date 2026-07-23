@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceEnclaveModule @ 0x1407F7650
+ * XREFs of MiDereferenceEnclaveModule @ 0x1407F7DC4
  * Callers:
- *     MiFreeEnclaveModules @ 0x1406F8CB8 (MiFreeEnclaveModules.c)
- *     NtLoadEnclaveData @ 0x1408D9D70 (NtLoadEnclaveData.c)
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
+ *     MiFreeEnclaveModules @ 0x1406F68F0 (MiFreeEnclaveModules.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
+ *     NtLoadEnclaveData @ 0x140A29800 (NtLoadEnclaveData.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferenceEnclaveModule(volatile signed __int32 *a1)

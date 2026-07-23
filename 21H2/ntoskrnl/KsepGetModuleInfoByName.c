@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepGetModuleInfoByName @ 0x1408C0D28
+ * XREFs of KsepGetModuleInfoByName @ 0x1408C0E88
  * Callers:
- *     KsepResolveShimHooks @ 0x1408C00A4 (KsepResolveShimHooks.c)
+ *     KsepResolveShimHooks @ 0x1408C0204 (KsepResolveShimHooks.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlCompareString @ 0x1405EC6B0 (RtlCompareString.c)
- *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlCompareString @ 0x1406DBE10 (RtlCompareString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1406DD260 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, _DWORD *a2, _QWORD *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, _DWORD *a2, _QWO
   NTSTATUS v5; // ebx
   int v6; // ebx
   __int64 v7; // rbp
-  STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   UNICODE_STRING SourceStringa; // [rsp+30h] [rbp-28h] BYREF
   STRING String1; // [rsp+40h] [rbp-18h] BYREF
 

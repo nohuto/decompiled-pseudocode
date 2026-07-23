@@ -1,21 +1,21 @@
 /*
- * XREFs of EmpParseTargetRules @ 0x1409BEFF4
+ * XREFs of EmpParseTargetRules @ 0x1409BFFF4
  * Callers:
- *     EmpParseInfDatabase @ 0x1409BDD1C (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x1409BED1C (EmpParseInfDatabase.c)
  * Callees:
  *     EmpSearchTargetRuleList @ 0x1400106FC (EmpSearchTargetRuleList.c)
  *     EmpSearchRuleDatabase @ 0x140010720 (EmpSearchRuleDatabase.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetSectionLineIndexValueCount @ 0x1409BED7C (CmpGetSectionLineIndexValueCount.c)
- *     EmpInfParseGetGuidFromName @ 0x1409BEF08 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x1409BEFA0 (EmpInfParseGetSectionLineCount.c)
- *     EmpParseTargetRuleStringIndexList @ 0x1409BF22C (EmpParseTargetRuleStringIndexList.c)
- *     CmpGetSectionLineIndex @ 0x1409BF514 (CmpGetSectionLineIndex.c)
- *     CmpGetKeyName @ 0x1409BF630 (CmpGetKeyName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x1409BFD7C (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetGuidFromName @ 0x1409BFF08 (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x1409BFFA0 (EmpInfParseGetSectionLineCount.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x1409C022C (EmpParseTargetRuleStringIndexList.c)
+ *     CmpGetSectionLineIndex @ 0x1409C0514 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x1409C0630 (CmpGetKeyName.c)
  */
 
 __int64 __fastcall EmpParseTargetRules(__int64 a1)

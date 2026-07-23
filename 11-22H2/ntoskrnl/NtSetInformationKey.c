@@ -25,7 +25,11 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3, int a4)
+NTSTATUS __cdecl NtSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
   char v6; // r13
   __int64 *v7; // rdi
@@ -37,15 +41,15 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   __int64 v13; // rdx
   __int64 v14; // rcx
   KPROCESSOR_MODE PreviousMode; // di
-  unsigned __int64 v16; // rdx
+  char *v16; // rdx
   ACCESS_MASK v17; // edx
-  int v18; // esi
+  NTSTATUS v18; // esi
   PVOID v19; // rax
   struct _KTHREAD *CurrentThread; // rax
   char v21; // r14
   KPROCESSOR_MODE v23; // r9
   KPROCESSOR_MODE v24; // r9
-  int v25; // eax
+  NTSTATUS v25; // eax
   char v26; // [rsp+40h] [rbp-158h]
   unsigned __int8 v27; // [rsp+41h] [rbp-157h]
   PVOID Object; // [rsp+48h] [rbp-150h] BYREF
@@ -53,7 +57,7 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   __int64 v30; // [rsp+58h] [rbp-140h]
   HANDLE Handle; // [rsp+60h] [rbp-138h] BYREF
   __int64 v32; // [rsp+68h] [rbp-130h] BYREF
-  int v33; // [rsp+70h] [rbp-128h]
+  ULONG v33; // [rsp+70h] [rbp-128h]
   int v34; // [rsp+74h] [rbp-124h] BYREF
   _QWORD v35[2]; // [rsp+78h] [rbp-120h] BYREF
   int v36; // [rsp+88h] [rbp-110h]
@@ -65,14 +69,14 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   __int64 v42; // [rsp+F8h] [rbp-A0h]
   __int128 v43; // [rsp+100h] [rbp-98h] BYREF
   __int128 *v44; // [rsp+110h] [rbp-88h]
-  int v45; // [rsp+118h] [rbp-80h]
+  NTSTATUS v45; // [rsp+118h] [rbp-80h]
   __int128 v46; // [rsp+11Ch] [rbp-7Ch]
   __int64 v47; // [rsp+12Ch] [rbp-6Ch]
   int v48; // [rsp+134h] [rbp-64h]
   _OWORD v49[2]; // [rsp+138h] [rbp-60h] BYREF
 
-  v33 = a4;
-  Handle = a1;
+  v33 = KeySetInformationLength;
+  Handle = KeyHandle;
   v37 = 0LL;
   v36 = 0;
   v32 = 0LL;
@@ -102,13 +106,14 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v27 = PreviousMode;
-  if ( a2 == 5 )
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
     goto LABEL_5;
-  if ( a2 )
+  if ( KeySetInformationClass )
   {
-    if ( a2 != 1 )
+    if ( KeySetInformationClass != KeyWow64FlagsInformation )
     {
-      if ( a2 == 2 || (v14 = a2 - 3, a2 == 3) )
+      if ( KeySetInformationClass == KeyControlFlagsInformation
+        || (v14 = (unsigned int)(KeySetInformationClass - 3), KeySetInformationClass == KeySetVirtualizationInformation) )
       {
 LABEL_5:
         v26 = 0;
@@ -116,7 +121,7 @@ LABEL_6:
         v14 = 4LL;
         goto LABEL_7;
       }
-      if ( a2 != 4 )
+      if ( KeySetInformationClass != KeySetDebugInformation )
       {
         if ( CmpTraceRoutine )
         {
@@ -161,12 +166,12 @@ LABEL_7:
   }
   if ( PreviousMode )
   {
-    v16 = (unsigned __int64)a3 + (unsigned int)v14;
-    if ( v16 > 0x7FFFFFFF0000LL || v16 < (unsigned __int64)a3 )
+    v16 = (char *)KeySetInformation + (unsigned int)v14;
+    if ( (unsigned __int64)v16 > 0x7FFFFFFF0000LL || v16 < KeySetInformation )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  memmove(&v32, a3, (unsigned int)v14);
-  if ( a2 == 5 )
+  memmove(&v32, KeySetInformation, (unsigned int)v14);
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
     v17 = 0;
   else
     v17 = 2;
@@ -214,7 +219,7 @@ LABEL_46:
     goto LABEL_46;
   if ( CmpTraceRoutine && v19 )
     v30 = v7[1];
-  if ( a2 == 5 )
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
   {
 LABEL_18:
     CurrentThread = KeGetCurrentThread();
@@ -227,7 +232,7 @@ LABEL_18:
     {
       v7 = (__int64 *)Object;
       *(_QWORD *)&v39 = Object;
-      DWORD2(v39) = a2;
+      DWORD2(v39) = KeySetInformationClass;
       *(_QWORD *)&v40 = &v32;
       DWORD2(v40) = v33;
       v18 = CmpCallCallBacksEx(3u, &v39, 0LL, 1, 0x12u, (__int64)Object, (__int64)v35);
@@ -243,22 +248,23 @@ LABEL_18:
       || (v18 = CmKeyBodyReplicateToVirtual(&Object, v27, 2LL, &SubjectContext, &v34), v7 = (__int64 *)Object, v18 >= 0) )
     {
       v9 = v8;
-      if ( a2 == 5 )
+      if ( KeySetInformationClass == KeySetHandleTagsInformation )
       {
         *((_WORD *)v7 + 25) = v32;
         v18 = 0;
       }
       else
       {
-        if ( a2 )
+        if ( KeySetInformationClass )
         {
-          if ( a2 != 1 && a2 != 2 )
+          if ( KeySetInformationClass != KeyWow64FlagsInformation
+            && KeySetInformationClass != KeyControlFlagsInformation )
           {
-            v14 = a2 - 3;
+            v14 = (unsigned int)(KeySetInformationClass - 3);
             if ( (unsigned int)v14 > 1 )
               goto LABEL_25;
           }
-          v25 = CmSetKeyFlags(v7, a2, (unsigned int)v32);
+          v25 = CmSetKeyFlags(v7, (unsigned int)KeySetInformationClass, (unsigned int)v32);
         }
         else
         {
@@ -314,5 +320,5 @@ LABEL_26:
   if ( v29 )
     CmpReleaseShutdownRundown(v14, v13);
   CmCleanupThreadInfo((__int64 *)&v37);
-  return (unsigned int)v18;
+  return v18;
 }

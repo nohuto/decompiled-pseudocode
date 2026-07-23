@@ -29,7 +29,7 @@ int __fastcall PspInitializeThunkContext(__int64 a1, __int64 a2)
   __int64 v12; // rcx
   __int64 BaseTrapFrame; // rax
   __int64 v14; // r8
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
   _QWORD v16[308]; // [rsp+E0h] [rbp-9B8h] BYREF
 
   CurrentThread = KeGetCurrentThread();

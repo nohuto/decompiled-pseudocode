@@ -3,19 +3,19 @@
  * Callers:
  *     RtlQueryTimeZoneInformation @ 0x1800482A0 (RtlQueryTimeZoneInformation.c)
  *     EtwpGetTimeZoneInformation @ 0x180049C68 (EtwpGetTimeZoneInformation.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x1800EE760 (RtlQueryDynamicTimeZoneInformation.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x1800EE720 (RtlQueryDynamicTimeZoneInformation.c)
  * Callees:
  *     RtlpQueryRegistryValues @ 0x180045B3C (RtlpQueryRegistryValues.c)
  *     RtlpGetTimeZoneInfoHandle @ 0x180047DE4 (RtlpGetTimeZoneInfoHandle.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
+int __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
 {
   unsigned int v2; // esi
-  __int64 result; // rax
+  int result; // eax
   int RegistryValues; // edi
   int v6; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
   v2 = Size;
   v6 = 0;
   result = RtlpGetTimeZoneInfoHandle(0, &Handle);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     memset(a1, 0, v2);
     memset(v14, 0, sizeof(v14));
@@ -81,11 +81,11 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
       LODWORD(v14[57]) = 288;
       LODWORD(v14[60]) = 0x4000000;
     }
-    RegistryValues = RtlpQueryRegistryValues(0x40000000, (WCHAR *)Handle, (__int64)v14, 0LL, 0LL, 1);
+    RegistryValues = RtlpQueryRegistryValues(0x40000000, (const WCHAR *)Handle, (__int64)v14, 0LL, 0LL, 1);
     if ( RegistryValues >= 0 && v2 >= 0x1B0 )
       a1[428] = v6 != 0;
     NtClose(Handle);
-    return (unsigned int)RegistryValues;
+    return RegistryValues;
   }
   return result;
 }

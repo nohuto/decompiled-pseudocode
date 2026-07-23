@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpAllocateCriticalMemory @ 0x14073947C
+ * XREFs of PnpAllocateCriticalMemory @ 0x14073963C
  * Callers:
- *     PiProcessQueryAndCancelRemoval @ 0x1407324EC (PiProcessQueryAndCancelRemoval.c)
- *     PnpResizeTargetDeviceBlock @ 0x1407379FC (PnpResizeTargetDeviceBlock.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140737ADC (PnpQueuePendingSurpriseRemoval.c)
- *     PiEventBuildPdoList @ 0x140737DE4 (PiEventBuildPdoList.c)
- *     PnpCompileDeviceInstancePaths @ 0x140738360 (PnpCompileDeviceInstancePaths.c)
- *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
- *     IopAllocateRelationList @ 0x14073928C (IopAllocateRelationList.c)
- *     PiAllocateDeviceObjectList @ 0x1407392E8 (PiAllocateDeviceObjectList.c)
- *     PiEventAllocateVetoBuffer @ 0x140739400 (PiEventAllocateVetoBuffer.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1407326AC (PiProcessQueryAndCancelRemoval.c)
+ *     PnpResizeTargetDeviceBlock @ 0x140737BBC (PnpResizeTargetDeviceBlock.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x140737C9C (PnpQueuePendingSurpriseRemoval.c)
+ *     PiEventBuildPdoList @ 0x140737FA4 (PiEventBuildPdoList.c)
+ *     PnpCompileDeviceInstancePaths @ 0x140738520 (PnpCompileDeviceInstancePaths.c)
+ *     PnpSetTargetDeviceRemove @ 0x140739194 (PnpSetTargetDeviceRemove.c)
+ *     IopAllocateRelationList @ 0x14073944C (IopAllocateRelationList.c)
+ *     PiAllocateDeviceObjectList @ 0x1407394A8 (PiAllocateDeviceObjectList.c)
+ *     PiEventAllocateVetoBuffer @ 0x1407395C0 (PiEventAllocateVetoBuffer.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall PnpAllocateCriticalMemory(int a1, POOL_TYPE a2, SIZE_T a3, ULONG a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpLoadMicrocodeSerialized @ 0x140785120
+ * XREFs of HalpLoadMicrocodeSerialized @ 0x140787C50
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     HalpMcUpdateMicrocode @ 0x140510840 (HalpMcUpdateMicrocode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpMcUpdateMicrocode @ 0x14050A2B0 (HalpMcUpdateMicrocode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void HalpLoadMicrocodeSerialized()
@@ -17,8 +17,8 @@ void HalpLoadMicrocodeSerialized()
   __int64 v2; // rbx
   __int64 v3; // rsi
   unsigned int v4; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -30,7 +30,7 @@ void HalpLoadMicrocodeSerialized()
     v3 = ActiveProcessorCount;
     do
     {
-      v4 = *(_DWORD *)(v2 + *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]);
+      v4 = *(volatile LONG *)((char *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v2);
       Affinity.Reserved[1] = 0;
       Affinity.Reserved[2] = 0;
       *(_DWORD *)&Affinity.Group = (unsigned __int16)(v4 >> 6);

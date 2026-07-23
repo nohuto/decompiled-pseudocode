@@ -1,10 +1,10 @@
 /*
- * XREFs of ResFwFreeContext @ 0x140AF1ED4
+ * XREFs of ResFwFreeContext @ 0x140AF1EE4
  * Callers:
- *     BgFreeContext @ 0x140AF1228 (BgFreeContext.c)
+ *     BgFreeContext @ 0x140AF1238 (BgFreeContext.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     MmFreePagesFromMdl @ 0x1402EC240 (MmFreePagesFromMdl.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     LogFwReport @ 0x140AEC0F4 (LogFwReport.c)
  *     AnFwFadeCompletion @ 0x140AECFB8 (AnFwFadeCompletion.c)
@@ -12,7 +12,7 @@
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  *     ResFwpPageOutBackground @ 0x140AEEBF0 (ResFwpPageOutBackground.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140AEF6DC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpFwReservePoolSwap @ 0x140AF1E38 (BgpFwReservePoolSwap.c)
+ *     BgpFwReservePoolSwap @ 0x140AF1E48 (BgpFwReservePoolSwap.c)
  */
 
 void __fastcall ResFwFreeContext(__int64 a1)
@@ -43,7 +43,7 @@ LABEL_6:
         goto LABEL_6;
       v4 = *(_QWORD *)TxtpTextCache;
     }
-    dword_140C04410 = 0;
+    dword_140C043D8 = 0;
     if ( RasterizerInitialized )
       RaspClearCache();
     AnFwDisableBackgroundUpdateTimer();

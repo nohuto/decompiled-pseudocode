@@ -14,21 +14,21 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiIsAddressGlobal @ 0x1400B22E0 (MiIsAddressGlobal.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x14011A0EC (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140128BF8 (MiEmptyDeferredWorkingSetEntries.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiMakeProtoReadOnly @ 0x1402AFEF8 (MiMakeProtoReadOnly.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiUpdatePfnPriority @ 0x140082AA8 (MiUpdatePfnPriority.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiIsAddressGlobal @ 0x1400B2220 (MiIsAddressGlobal.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiUserPdeOrAbove @ 0x1400F96CC (MiUserPdeOrAbove.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x14011A15C (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140128CC8 (MiEmptyDeferredWorkingSetEntries.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiMakeProtoReadOnly @ 0x1402B00E8 (MiMakeProtoReadOnly.c)
  */
 
 __int64 __fastcall MiResolveTransitionFault(__int64 a1, ULONG_PTR a2, ULONG_PTR a3, _QWORD *a4, _QWORD *a5)
@@ -134,8 +134,8 @@ __int64 __fastcall MiResolveTransitionFault(__int64 a1, ULONG_PTR a2, ULONG_PTR 
       }
     }
     v11 = v10;
-    if ( qword_14043A0C0 && (v10 & 0x10) == 0 )
-      v11 = v10 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v10 & 0x10) == 0 )
+      v11 = v10 & ~qword_14043B180;
     v12 = 48 * ((v11 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
   }
   else
@@ -148,14 +148,14 @@ __int64 __fastcall MiResolveTransitionFault(__int64 a1, ULONG_PTR a2, ULONG_PTR 
         v49 = v45;
         if ( (v45 & 0x800) == 0 )
           return 3221226548LL;
-        if ( (v45 & 1) == 0 && (!v45 || !qword_14043A0C0 || (qword_14043A0C0 & v45) != 0) )
+        if ( (v45 & 1) == 0 && (!v45 || !qword_14043B180 || (qword_14043B180 & v45) != 0) )
         {
-          if ( qword_14043A0C0 )
+          if ( qword_14043B180 )
           {
             if ( (v45 & 0x10) != 0 )
               v45 &= ~0x10uLL;
             else
-              v45 &= ~qword_14043A0C0;
+              v45 &= ~qword_14043B180;
           }
           if ( (*(_QWORD *)(v48 + 48 * ((v45 >> 12) & 0xFFFFFFFFFLL)) & 0x20000000000000LL) != 0 )
             break;
@@ -249,10 +249,10 @@ __int64 __fastcall MiResolveTransitionFault(__int64 a1, ULONG_PTR a2, ULONG_PTR 
           v16 = v14 | 0x42;
       }
     }
-    v17 = qword_14043A0C0;
+    v17 = qword_14043B180;
     v18 = v16;
-    if ( qword_14043A0C0 && (v16 & 0x10) == 0 )
-      v18 = v16 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v16 & 0x10) == 0 )
+      v18 = v16 & ~qword_14043B180;
     v19 = v18 & 0xFFFFFFFFF000LL | MmProtectToPteMask[(v16 >> 5) & 0x1F] & 0xFFFF000000000E7FuLL | 0x21;
     if ( a2 < 0xFFFFF68000000000uLL || a2 > 0xFFFFF6FFFFFFFFFFuLL )
       goto LABEL_21;
@@ -272,7 +272,7 @@ LABEL_21:
     v20 = ZeroPte;
     v21 = v19 & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
     v22 = (*(_QWORD *)(v12 + 40) >> 40) & 0x3FFLL;
-    v23 = *(_QWORD *)(qword_14043A748 + 8 * v22);
+    v23 = *(_QWORD *)(qword_14043B808 + 8 * v22);
     v24 = *(_QWORD *)(v12 + 16);
     v73 = (struct _KEVENT *)v23;
     if ( (v24 & 0x400) == 0 )
@@ -320,7 +320,7 @@ LABEL_27:
         {
           if ( (unsigned int)MiPteHasShadow(v22, v21) )
           {
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
               v28 |= 0x8000000000000000uLL;
             *(_QWORD *)a2 = v28;
             MiWritePteShadow(a2);
@@ -382,7 +382,7 @@ LABEL_52:
                 {
                   if ( (unsigned int)MiPteHasShadow(v55, v54) )
                   {
-                    if ( !HIBYTE(word_14043A1AC) )
+                    if ( !HIBYTE(word_14043B26C) )
                       v21 |= 0x8000000000000000uLL;
                     *(_QWORD *)a2 = v21;
                     MiWritePteShadow(a2);
@@ -505,10 +505,10 @@ LABEL_101:
               v29 = 1;
             }
             v39 = (v33 >> 40) & 0x3FF;
-            v40 = *(_QWORD *)(qword_14043A748 + 8 * v39);
+            v40 = *(_QWORD *)(qword_14043B808 + 8 * v39);
             if ( (_DWORD)CurrentPrcb == 1 )
             {
-              MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8 * v39), 1LL);
+              MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8 * v39), 1LL);
               v36 = (int)a5;
               v29 = 1;
             }
@@ -552,7 +552,7 @@ LABEL_156:
                   v41 = (int)v42 - 192 + 1LL;
                 }
               }
-              _InterlockedExchangeAdd64(&qword_14043E600, v41);
+              _InterlockedExchangeAdd64(&qword_14043F6C0, v41);
               goto LABEL_50;
             }
             _InterlockedExchangeAdd64((volatile signed __int64 *)(v40 + 7360), 1uLL);

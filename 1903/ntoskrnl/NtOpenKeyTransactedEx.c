@@ -10,19 +10,24 @@
  *     CmpTransDereferenceTransaction @ 0x1406335B0 (CmpTransDereferenceTransaction.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   NTSTATUS v9; // eax
   __int64 v10; // rbx
-  int v11; // edi
+  NTSTATUS v11; // edi
   NTSTATUS v12; // eax
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
   PVOID v15; // [rsp+38h] [rbp-20h] BYREF
 
   if ( !(unsigned __int8)CmpAcquireShutdownRundown() )
-    return (unsigned int)-1073741431;
+    return -1073741431;
   v9 = ObReferenceObjectByHandle(
-         Handle,
+         TransactionHandle,
          4u,
          CmRegistryTransactionType,
          KeGetCurrentThread()->PreviousMode,
@@ -33,7 +38,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   if ( v9 == -1073741788 )
   {
     v12 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -48,10 +53,10 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
     v10 = (unsigned __int64)Object | 1;
 LABEL_4:
     if ( v11 >= 0 )
-      v11 = CmOpenKey(a1, a2, a3, a4, v10);
+      v11 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, OpenOptions, v10);
   }
   if ( v10 )
     CmpTransDereferenceTransaction(v10);
   CmpReleaseShutdownRundown();
-  return (unsigned int)v11;
+  return v11;
 }

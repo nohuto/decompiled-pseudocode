@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpRehashIfNeeded @ 0x140602060
+ * XREFs of PfpRpRehashIfNeeded @ 0x1406F17C0
  * Callers:
- *     PfpRpFileKeyUpdate @ 0x140601860 (PfpRpFileKeyUpdate.c)
+ *     PfpRpFileKeyUpdate @ 0x1406F0FC0 (PfpRpFileKeyUpdate.c)
  * Callees:
  *     <none>
  */

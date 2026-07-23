@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnAddProcessTrace @ 0x140530B6C
+ * XREFs of PfSnAddProcessTrace @ 0x14053306C
  * Callers:
- *     PfSnActivateTrace @ 0x1404D0BF8 (PfSnActivateTrace.c)
+ *     PfSnActivateTrace @ 0x1404CA628 (PfSnActivateTrace.c)
  * Callees:
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
  */
 
 __int64 __fastcall PfSnAddProcessTrace(__int64 a1, struct _EX_RUNDOWN_REF *a2)

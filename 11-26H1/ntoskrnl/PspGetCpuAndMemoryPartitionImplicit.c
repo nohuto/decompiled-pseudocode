@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetCpuAndMemoryPartitionImplicit @ 0x140AAE944
+ * XREFs of PspGetCpuAndMemoryPartitionImplicit @ 0x140AAC5A4
  * Callers:
- *     PspGetCpuAndMemoryPartitionContext @ 0x140AAE864 (PspGetCpuAndMemoryPartitionContext.c)
+ *     PspGetCpuAndMemoryPartitionContext @ 0x140AAC4C4 (PspGetCpuAndMemoryPartitionContext.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x140216800 (PsGetEffectiveServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PspLockJobChain @ 0x140AAEBB4 (PspLockJobChain.c)
- *     PspUnlockJobChain @ 0x140AAEE38 (PspUnlockJobChain.c)
+ *     PsGetEffectiveServerSilo @ 0x140216B30 (PsGetEffectiveServerSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PspLockJobChain @ 0x140AAC814 (PspLockJobChain.c)
+ *     PspUnlockJobChain @ 0x140AACA94 (PspUnlockJobChain.c)
  */
 
 __int64 __fastcall PspGetCpuAndMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD *a3, _QWORD *a4)
@@ -61,6 +61,6 @@ __int64 __fastcall PspGetCpuAndMemoryPartitionImplicit(__int64 a1, __int16 a2, _
     }
   }
 LABEL_19:
-  PspUnlockJobChain(a1, CurrentThread, 0LL);
+  PspUnlockJobChain(a1, CurrentThread);
   return v4;
 }

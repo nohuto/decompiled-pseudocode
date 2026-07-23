@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReleaseResourceAndLeavePriorityRegion @ 0x14031BAD0
+ * XREFs of ExReleaseResourceAndLeavePriorityRegion @ 0x14031BCC0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsBoostThreadIoEx @ 0x1400BBED0 (PsBoostThreadIoEx.c)
  */
 
 _QWORD *__fastcall ExReleaseResourceAndLeavePriorityRegion(struct _ERESOURCE *a1)

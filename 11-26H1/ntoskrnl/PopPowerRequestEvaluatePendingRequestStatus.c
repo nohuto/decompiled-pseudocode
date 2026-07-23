@@ -1,42 +1,42 @@
 /*
- * XREFs of PopPowerRequestEvaluatePendingRequestStatus @ 0x1404A66E8
+ * XREFs of PopPowerRequestEvaluatePendingRequestStatus @ 0x14049FD78
  * Callers:
- *     PopPowerRequestRevokeRequests @ 0x1404A5FC0 (PopPowerRequestRevokeRequests.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x1404A61E0 (PopApplyLegacyPowerRequestFlags.c)
- *     PopPowerRequestReferenceAcquire @ 0x1404A6310 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestReferenceRelease @ 0x1404A64A0 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x1404A65D0 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
- *     PopPowerRequestHandleClose @ 0x1404A6668 (PopPowerRequestHandleClose.c)
- *     PopPowerRequestUnrevokeRequests @ 0x1404EF380 (PopPowerRequestUnrevokeRequests.c)
+ *     PopPowerRequestRevokeRequests @ 0x14049F650 (PopPowerRequestRevokeRequests.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x14049F870 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14049F9A0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceRelease @ 0x14049FB30 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14049FC60 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
+ *     PopPowerRequestHandleClose @ 0x14049FCF8 (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestUnrevokeRequests @ 0x1404E8960 (PopPowerRequestUnrevokeRequests.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
  */
 
-int __fastcall PopPowerRequestEvaluatePendingRequestStatus(_BYTE *Object, unsigned __int64 *a2)
+int __fastcall PopPowerRequestEvaluatePendingRequestStatus(_BYTE *Object, void **a2)
 {
-  unsigned __int64 *p_ThreadLock; // rbp
+  void **p_KernelShadowStackInitial; // rbp
   int v4; // esi
   unsigned int v5; // r14d
   char *v6; // rdi
-  unsigned __int64 **v7; // rax
+  void ***v7; // rax
   int v8; // r8d
   int v9; // ecx
   unsigned int v10; // ecx
   _DWORD *v11; // rdx
   int v12; // ecx
   __int64 v13; // rdx
-  unsigned __int64 ***v14; // rcx
-  unsigned __int64 **v15; // rcx
+  void ****v14; // rcx
+  void ***v15; // rcx
   _QWORD *v16; // rax
   __int64 v17; // rcx
   _QWORD *v18; // rdx
 
-  p_ThreadLock = &stru_140F12D20.ThreadLock;
+  p_KernelShadowStackInitial = &stru_140F12EA0.KernelShadowStackInitial;
   if ( a2 )
-    p_ThreadLock = a2;
+    p_KernelShadowStackInitial = a2;
   v4 = 0;
   if ( !Object[32] )
   {
@@ -52,7 +52,7 @@ int __fastcall PopPowerRequestEvaluatePendingRequestStatus(_BYTE *Object, unsign
     while ( v10 < 6 );
   }
   if ( !Object[152] )
-    v4 &= ~LODWORD(stru_140F12D20.Timer.TimerListEntry.Blink) & ~(*((_DWORD *)Object + 6) | *((_DWORD *)Object + 7));
+    v4 &= ~LODWORD(stru_140F12EA0.IoSelfBoostsEntry.Next) & ~(*((_DWORD *)Object + 6) | *((_DWORD *)Object + 7));
   v5 = 0;
   v6 = (char *)&unk_140E019F0;
   do
@@ -113,22 +113,22 @@ LABEL_24:
   {
     ObfReferenceObjectWithTag(Object, 0x72506F50u);
   }
-  v7 = (unsigned __int64 **)(Object + 64);
+  v7 = (void ***)(Object + 64);
   v13 = *((_QWORD *)Object + 8);
   if ( *(_BYTE **)(v13 + 8) != Object + 64 )
     goto LABEL_24;
-  v14 = (unsigned __int64 ***)*((_QWORD *)Object + 9);
+  v14 = (void ****)*((_QWORD *)Object + 9);
   if ( *v14 != v7 )
     goto LABEL_24;
-  *v14 = (unsigned __int64 **)v13;
+  *v14 = (void ***)v13;
   *(_QWORD *)(v13 + 8) = v14;
-  v15 = (unsigned __int64 **)p_ThreadLock[1];
-  if ( *v15 != p_ThreadLock )
+  v15 = (void ***)p_KernelShadowStackInitial[1];
+  if ( *v15 != p_KernelShadowStackInitial )
     goto LABEL_24;
-  *v7 = p_ThreadLock;
+  *v7 = p_KernelShadowStackInitial;
   *((_QWORD *)Object + 9) = v15;
-  *v15 = (unsigned __int64 *)v7;
-  p_ThreadLock[1] = (unsigned __int64)v7;
+  *v15 = (void **)v7;
+  p_KernelShadowStackInitial[1] = v7;
   *((_DWORD *)Object + 22) = 1;
   return (int)v7;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of Amd64EnableMonitoring @ 0x140529160
+ * XREFs of Amd64EnableMonitoring @ 0x1405296B0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x14037B540 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     Amd64AllocateCounter @ 0x140528AF8 (Amd64AllocateCounter.c)
- *     Amd64ConfigureCounter @ 0x140528F20 (Amd64ConfigureCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x14037B6E0 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     Amd64AllocateCounter @ 0x140529048 (Amd64AllocateCounter.c)
+ *     Amd64ConfigureCounter @ 0x140529470 (Amd64ConfigureCounter.c)
  */
 
 __int64 __fastcall Amd64EnableMonitoring(signed __int32 a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD *a5)
@@ -96,10 +96,13 @@ LABEL_8:
   }
 LABEL_21:
   KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -107,7 +110,7 @@ LABEL_21:
       v23 = (v22 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v22;
       if ( v23 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v9);

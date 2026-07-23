@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnGetSectionObject @ 0x14065FC98
+ * XREFs of PfSnGetSectionObject @ 0x140660E58
  * Callers:
- *     PfSnPopulateReadList @ 0x14065F740 (PfSnPopulateReadList.c)
+ *     PfSnPopulateReadList @ 0x140660900 (PfSnPopulateReadList.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PfpFileCheckAttributesForPrefetch @ 0x1400DDAF4 (PfpFileCheckAttributesForPrefetch.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     NtCreateSection @ 0x1405DD740 (NtCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
- *     PfSnIsSectionPrefetchedAfterPhase @ 0x1406600CC (PfSnIsSectionPrefetchedAfterPhase.c)
- *     PfpOpenHandleCreate @ 0x140660368 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1406604CC (PfpOpenHandleClose.c)
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x1400DDB74 (PfpFileCheckAttributesForPrefetch.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     NtCreateSection @ 0x1405DE740 (NtCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065DCA4 (PfSnPrefetchFileMetadata.c)
+ *     PfSnIsSectionPrefetchedAfterPhase @ 0x14066128C (PfSnIsSectionPrefetchedAfterPhase.c)
+ *     PfpOpenHandleCreate @ 0x140661528 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x14066168C (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
  */
 
 __int64 __fastcall PfSnGetSectionObject(
@@ -94,7 +94,7 @@ __int64 __fastcall PfSnGetSectionObject(
     }
     v17 = PfpOpenHandleCreate((unsigned int)v38, *(_QWORD *)(a1 + 8), v39, *(_QWORD *)(a2 + 64), 161, 64, 128, a2 + 32);
     if ( v17 < 0
-      || (v17 = PfpFileCheckAttributesForPrefetch(v38[0], (((dword_14043C070 & 0x10) == 0) << 14) + 4864), v17 < 0) )
+      || (v17 = PfpFileCheckAttributesForPrefetch(v38[0], (((dword_14043D130 & 0x10) == 0) << 14) + 4864), v17 < 0) )
     {
       v15 = (__int64)v38[3];
       goto LABEL_45;

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x1800953E8
+ * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x180062D88
  * Callers:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x180094B78 (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x180094ED0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x180095160 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x1800952B0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x18006251C (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x180062870 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x180062B00 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x180062C50 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
  *     <none>
  */

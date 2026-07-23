@@ -1,59 +1,59 @@
 /*
- * XREFs of MiObtainProtoReference @ 0x1402E5B70
+ * XREFs of MiObtainProtoReference @ 0x1402C7BB0
  * Callers:
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
- *     MiFinishMdlForMappedFileFault @ 0x14036E910 (MiFinishMdlForMappedFileFault.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiInitializePageFileInPageSupport @ 0x1403741B8 (MiInitializePageFileInPageSupport.c)
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     MiCopyFileOnlyPage @ 0x1404B5FDC (MiCopyFileOnlyPage.c)
- *     MiPfPrepareForPageFileRead @ 0x1406F6F80 (MiPfPrepareForPageFileRead.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403706B0 (MiFinishMdlForMappedFileFault.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiInitializePageFileInPageSupport @ 0x140375F68 (MiInitializePageFileInPageSupport.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     MiCopyFileOnlyPage @ 0x1404AF42C (MiCopyFileOnlyPage.c)
+ *     MiPfPrepareForPageFileRead @ 0x1406FBBF0 (MiPfPrepareForPageFileRead.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiAreChargesNeededToLockPage @ 0x1402E5D80 (MiAreChargesNeededToLockPage.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402C7DC0 (MiAreChargesNeededToLockPage.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
-__int64 __fastcall MiObtainProtoReference(__int64 a1, char a2)
+__int64 __fastcall MiObtainProtoReference(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // edi
-  unsigned __int64 v4; // r9
+  unsigned int v4; // edi
+  unsigned __int64 v5; // r9
   __int64 result; // rax
-  bool v6; // di
-  __int64 v7; // rax
-  ULONG *v8; // rsi
+  bool v7; // di
+  __int64 v8; // rax
+  ULONG *v9; // rsi
   struct _KPRCB *CurrentPrcb; // rdx
   signed __int32 CachedResidentAvailable; // eax
-  signed __int32 v11; // ett
-  int v12; // [rsp+38h] [rbp+10h] BYREF
+  signed __int32 v12; // ett
+  int v13; // [rsp+38h] [rbp+10h] BYREF
 
   if ( (a2 & 1) != 0 )
   {
-    v12 = 0;
+    v13 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v12);
+        KeYieldProcessorEx(&v13);
       while ( *(__int64 *)(a1 + 24) < 0 );
     }
   }
   else
   {
-    v3 = 0;
+    v4 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
     {
       do
       {
-        if ( (++v3 & HvlLongSpinCountMask) == 0
+        if ( (++v4 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && KiCheckVpBackingLongSpinWaitHypercall() )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, a2, a3) )
         {
-          HvlNotifyLongSpinWait(v3);
+          HvlNotifyLongSpinWait(v4);
         }
         else
         {
@@ -69,43 +69,43 @@ LABEL_5:
     *(_DWORD *)(a1 + 32) = (*(_DWORD *)(a1 + 32) + 1) ^ (*(_DWORD *)(a1 + 32) ^ (*(_DWORD *)(a1 + 32) + 1)) & 0xFFFF0000;
     goto LABEL_6;
   }
-  v6 = 0;
+  v7 = 0;
   if ( *(__int64 *)(a1 + 40) < 0 && (*(_DWORD *)(a1 + 16) & 0x400LL) != 0 )
   {
-    v6 = 1;
+    v7 = 1;
   }
   else
   {
-    v4 = 0x8000000000000000uLL;
+    v5 = 0x8000000000000000uLL;
     if ( (*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL) <= 0xFFFFF6BFFFFFFF78uLL
       && (*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL) >= 0xFFFFF68000000000uLL )
     {
-      v6 = (*(_BYTE *)(a1 + 35) & 0x20) != 0;
+      v7 = (*(_BYTE *)(a1 + 35) & 0x20) != 0;
     }
   }
-  v7 = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL;
-  v8 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8 * v7);
-  if ( !v6 || (unsigned int)MiChargeCommit(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v7), 1LL, 4LL, v4) )
+  v8 = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL;
+  v9 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8 * v8);
+  if ( !v7 || (unsigned int)MiChargeCommit(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v8), 1LL, 4LL, v5) )
   {
-    if ( v8 == &MiSystemPartition )
+    if ( v9 == &MiSystemPartition )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       CachedResidentAvailable = CurrentPrcb->CachedResidentAvailable;
       while ( (unsigned int)(CachedResidentAvailable - 1) <= 0xFFFFFFFD )
       {
-        v11 = CachedResidentAvailable;
+        v12 = CachedResidentAvailable;
         CachedResidentAvailable = _InterlockedCompareExchange(
                                     (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
                                     CachedResidentAvailable - 1,
                                     CachedResidentAvailable);
-        if ( v11 == CachedResidentAvailable )
+        if ( v12 == CachedResidentAvailable )
           goto LABEL_5;
       }
     }
-    if ( (unsigned int)MiChargePartitionResidentAvailable(v8, 1LL, 0xFFFFFFFFLL) )
+    if ( (unsigned int)MiChargePartitionResidentAvailable(v9, 1LL, 0xFFFFFFFFLL) )
       goto LABEL_5;
-    if ( v6 )
-      MiReturnCommit(v8, 1LL, 0LL);
+    if ( v7 )
+      MiReturnCommit(v9, 1LL, 0LL);
   }
 LABEL_6:
   result = 0x7FFFFFFFFFFFFFFFLL;

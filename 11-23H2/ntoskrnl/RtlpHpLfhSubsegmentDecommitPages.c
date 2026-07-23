@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x140316330
+ * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x1403165C0
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x14031597C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315CC0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140315C0C (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315F50 (RtlpHpLfhSubsegmentFreeBlock.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpAcquireLockShared @ 0x140315B28 (RtlpHpAcquireLockShared.c)
- *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x1403166C0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
- *     RtlpHpScheduleCompaction @ 0x140316904 (RtlpHpScheduleCompaction.c)
- *     RtlpHpAcquireLockExclusive @ 0x140316CC4 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x140351B70 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockShared @ 0x140315DB8 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x140316950 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     RtlpHpScheduleCompaction @ 0x140316B94 (RtlpHpScheduleCompaction.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140316F54 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x140351D10 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2, int a3, __int64 a4, char a5)
@@ -128,7 +128,9 @@ LABEL_16:
       if ( *(_BYTE *)(a1 + 57) )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(v16);
-        if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags
+          && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+          && CurrentIrql <= 0xFu )
         {
           v17 = v35;
           if ( (unsigned __int8)v35 <= 0xFu && CurrentIrql >= 2u )
@@ -166,7 +168,7 @@ LABEL_16:
         if ( *(_BYTE *)(a1 + 57) )
         {
           ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-          if ( KiIrqlFlags && (v29 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v29 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && (v29 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v29 <= 0xFu )
           {
             v18 = v33;
             if ( v33 <= 0xFu && v29 >= 2u )

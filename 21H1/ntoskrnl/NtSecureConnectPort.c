@@ -24,16 +24,16 @@
  *     AlpcpLogConnectSuccess @ 0x1408BF3D8 (AlpcpLogConnectSuccess.c)
  */
 
-__int64 __fastcall NtSecureConnectPort(
-        HANDLE *a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        void *Src,
-        unsigned __int64 a6,
-        unsigned __int64 a7,
-        volatile void *a8,
-        unsigned int *a9)
+NTSTATUS __cdecl NtSecureConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PSID RequiredServerSid,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
   __int64 v11; // r9
   struct _KTHREAD *CurrentThread; // rax
@@ -47,7 +47,7 @@ __int64 __fastcall NtSecureConnectPort(
   __int64 v20; // rcx
   __int64 v21; // rcx
   __int64 v22; // rax
-  void *v23; // rdi
+  PSID v23; // rdi
   int ClientPort; // r15d
   PADAPTER_OBJECT v25; // r13
   int v26; // edi
@@ -60,49 +60,47 @@ __int64 __fastcall NtSecureConnectPort(
   unsigned __int64 v34; // [rsp+48h] [rbp-180h]
   int v35; // [rsp+48h] [rbp-180h]
   char v36; // [rsp+60h] [rbp-168h]
-  int v37; // [rsp+64h] [rbp-164h]
-  unsigned int v38; // [rsp+68h] [rbp-160h] BYREF
+  NTSTATUS v37; // [rsp+64h] [rbp-164h]
+  ULONG v38; // [rsp+68h] [rbp-160h] BYREF
   __int64 v39; // [rsp+70h] [rbp-158h] BYREF
   volatile void *Address; // [rsp+78h] [rbp-150h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+80h] [rbp-148h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+88h] [rbp-140h] BYREF
   HANDLE Handle; // [rsp+90h] [rbp-138h] BYREF
-  unsigned __int64 v44; // [rsp+98h] [rbp-130h]
+  __int64 v44; // [rsp+98h] [rbp-130h]
   ULONG_PTR v45; // [rsp+A0h] [rbp-128h] BYREF
-  HANDLE *v46; // [rsp+A8h] [rbp-120h]
+  PHANDLE v46; // [rsp+A8h] [rbp-120h]
   __m128i v47; // [rsp+B0h] [rbp-118h] BYREF
   __int128 v48; // [rsp+C0h] [rbp-108h]
   __int128 v49; // [rsp+D0h] [rbp-F8h]
-  unsigned int *v50; // [rsp+E0h] [rbp-E8h]
-  _DWORD *v51; // [rsp+E8h] [rbp-E0h]
-  __int128 v52; // [rsp+F0h] [rbp-D8h] BYREF
-  __int64 v53; // [rsp+100h] [rbp-C8h]
-  _OWORD v54[2]; // [rsp+108h] [rbp-C0h] BYREF
-  __int64 v55; // [rsp+128h] [rbp-A0h]
-  __int64 v56[8]; // [rsp+130h] [rbp-98h] BYREF
-  __int64 v57; // [rsp+170h] [rbp-58h] BYREF
-  int v58; // [rsp+178h] [rbp-50h]
+  PULONG v50; // [rsp+E0h] [rbp-E8h]
+  PULONG v51; // [rsp+E8h] [rbp-E0h]
+  _REMOTE_PORT_VIEW v52; // [rsp+F0h] [rbp-D8h] BYREF
+  _OWORD v53[2]; // [rsp+108h] [rbp-C0h] BYREF
+  __int64 v54; // [rsp+128h] [rbp-A0h]
+  __int64 v55[8]; // [rsp+130h] [rbp-98h] BYREF
+  __int64 v56; // [rsp+170h] [rbp-58h] BYREF
+  int v57; // [rsp+178h] [rbp-50h]
 
-  v44 = a2;
-  v46 = a1;
-  v51 = (_DWORD *)a7;
-  Address = a8;
-  v50 = a9;
+  v44 = (__int64)PortName;
+  v46 = PortHandle;
+  v51 = MaxMessageLength;
+  Address = ConnectionInformation;
+  v50 = ConnectionInformationLength;
   DmaAdapter = 0LL;
-  memset(v56, 0, sizeof(v56));
+  memset(v55, 0, sizeof(v55));
   Handle = 0LL;
   v39 = 0LL;
   v45 = 0LL;
-  memset(v54, 0, sizeof(v54));
-  v55 = 0LL;
+  memset(v53, 0, sizeof(v53));
+  v54 = 0LL;
   v38 = 0;
-  v57 = 0LL;
-  v58 = 0;
+  v56 = 0LL;
+  v57 = 0;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v52 = 0LL;
-  v53 = 0LL;
+  memset(&v52, 0, sizeof(v52));
   v47 = 0LL;
   v48 = 0LL;
   v49 = 0LL;
@@ -110,20 +108,20 @@ __int64 __fastcall NtSecureConnectPort(
   v36 = v13;
   if ( !(_BYTE)v13 )
   {
-    if ( a9 )
-      v38 = *a9;
-    if ( a4 )
+    if ( ConnectionInformationLength )
+      v38 = *ConnectionInformationLength;
+    if ( ClientView )
     {
-      v47 = *(__m128i *)a4;
-      v48 = *(_OWORD *)(a4 + 16);
-      v49 = *(_OWORD *)(a4 + 32);
+      v47 = *(__m128i *)&ClientView->Length;
+      v48 = *(_OWORD *)&ClientView->SectionOffset;
+      v49 = *(_OWORD *)&ClientView->ViewBase;
     }
-    if ( a3 )
+    if ( SecurityQos )
     {
-      v57 = *(_QWORD *)a3;
-      v58 = *(_DWORD *)(a3 + 8);
+      v56 = *(_QWORD *)&SecurityQos->Length;
+      v57 = *(_DWORD *)&SecurityQos->ContextTrackingMode;
     }
-    v39 = (__int64)Src;
+    v39 = (__int64)RequiredServerSid;
     goto LABEL_39;
   }
   v14 = (__int64)v46;
@@ -131,20 +129,20 @@ __int64 __fastcall NtSecureConnectPort(
   if ( (unsigned __int64)v46 >= 0x7FFFFFFF0000LL )
     v14 = 0x7FFFFFFF0000LL;
   *(_QWORD *)v14 = *(_QWORD *)v14;
-  if ( a9 )
+  if ( ConnectionInformationLength )
   {
-    v16 = (__int64)a9;
-    if ( (unsigned __int64)a9 >= 0x7FFFFFFF0000LL )
+    v16 = (__int64)ConnectionInformationLength;
+    if ( (unsigned __int64)ConnectionInformationLength >= 0x7FFFFFFF0000LL )
       v16 = 0x7FFFFFFF0000LL;
     v38 = *(_DWORD *)v16;
     ProbeForWrite(Address, v38, 1u);
     LOBYTE(v13) = v36;
     v15 = 0x7FFFFFFF0000LL;
   }
-  if ( a4 )
+  if ( ClientView )
   {
-    v17 = a4;
-    if ( a4 >= 0x7FFFFFFF0000LL )
+    v17 = (__int64)ClientView;
+    if ( (unsigned __int64)ClientView >= 0x7FFFFFFF0000LL )
       v17 = 0x7FFFFFFF0000LL;
     v47 = *(__m128i *)v17;
     v48 = *(_OWORD *)(v17 + 16);
@@ -154,54 +152,54 @@ __int64 __fastcall NtSecureConnectPort(
       v37 = -1073741811;
       goto LABEL_61;
     }
-    if ( (a4 & 3) != 0 )
+    if ( ((unsigned __int8)ClientView & 3) != 0 )
       goto LABEL_37;
-    v18 = a4;
-    if ( a4 >= 0x7FFFFFFF0000LL )
+    v18 = (__int64)ClientView;
+    if ( (unsigned __int64)ClientView >= 0x7FFFFFFF0000LL )
       v18 = 0x7FFFFFFF0000LL;
     *(_BYTE *)v18 = *(_BYTE *)v18;
     *(_BYTE *)(v18 + 47) = *(_BYTE *)(v18 + 47);
   }
-  if ( !a6 )
+  if ( !ServerView )
     goto LABEL_24;
-  v19 = a6;
-  if ( a6 >= 0x7FFFFFFF0000LL )
+  v19 = (__int64)ServerView;
+  if ( (unsigned __int64)ServerView >= 0x7FFFFFFF0000LL )
     v19 = 0x7FFFFFFF0000LL;
   if ( *(_DWORD *)v19 != 24 )
   {
     v37 = -1073741811;
     goto LABEL_61;
   }
-  if ( (a6 & 3) != 0 )
+  if ( ((unsigned __int8)ServerView & 3) != 0 )
 LABEL_37:
     ExRaiseDatatypeMisalignment();
-  v20 = a6;
-  if ( a6 >= 0x7FFFFFFF0000LL )
+  v20 = (__int64)ServerView;
+  if ( (unsigned __int64)ServerView >= 0x7FFFFFFF0000LL )
     v20 = 0x7FFFFFFF0000LL;
   *(_BYTE *)v20 = *(_BYTE *)v20;
   *(_BYTE *)(v20 + 23) = *(_BYTE *)(v20 + 23);
 LABEL_24:
-  if ( a7 )
+  if ( MaxMessageLength )
   {
-    v21 = a7;
-    if ( a7 >= 0x7FFFFFFF0000LL )
+    v21 = (__int64)MaxMessageLength;
+    if ( (unsigned __int64)MaxMessageLength >= 0x7FFFFFFF0000LL )
       v21 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v21 = *(_DWORD *)v21;
   }
-  if ( a3 )
+  if ( SecurityQos )
   {
-    v22 = a3;
-    if ( a3 >= 0x7FFFFFFF0000LL )
+    v22 = (__int64)SecurityQos;
+    if ( (unsigned __int64)SecurityQos >= 0x7FFFFFFF0000LL )
       v22 = 0x7FFFFFFF0000LL;
-    v57 = *(_QWORD *)v22;
-    v58 = *(_DWORD *)(v22 + 8);
+    v56 = *(_QWORD *)v22;
+    v57 = *(_DWORD *)(v22 + 8);
   }
-  v39 = (__int64)Src;
-  if ( !Src || (v37 = SeCaptureSid(Src, v32, 1, (__int64)&v39), v37 >= 0) )
+  v39 = (__int64)RequiredServerSid;
+  if ( !RequiredServerSid || (v37 = SeCaptureSid(RequiredServerSid, v32, 1, (__int64)&v39), v37 >= 0) )
   {
 LABEL_39:
-    v34 = (unsigned __int64)&v57 & -(__int64)(a3 != 0);
-    v23 = (void *)v39;
+    v34 = (unsigned __int64)&v56 & -(__int64)(SecurityQos != 0LL);
+    v23 = (PSID)v39;
     ClientPort = AlpcpCreateClientPort(
                    (unsigned int)&Handle,
                    (unsigned int)&DmaAdapter,
@@ -215,7 +213,7 @@ LABEL_39:
                    v34,
                    1);
     v37 = ClientPort;
-    if ( v23 != Src )
+    if ( v23 != RequiredServerSid )
     {
       LOBYTE(v15) = 1;
       LOBYTE(v13) = v36;
@@ -223,12 +221,12 @@ LABEL_39:
     }
     if ( ClientPort >= 0 )
     {
-      LOWORD(v54[0]) = v38;
-      v44 = (unsigned __int64)&v47 & -(__int64)(a4 != 0);
+      LOWORD(v53[0]) = v38;
+      v44 = (unsigned __int64)&v47 & -(__int64)(ClientView != 0LL);
       LOBYTE(v35) = v36;
       LOBYTE(v33) = 1;
       v25 = DmaAdapter;
-      v26 = AlpcpFormatConnectionRequest(&v45, 0LL, DmaAdapter, Address, v54, 0LL, v44, &BugCheckParameter2, v33, v35);
+      v26 = AlpcpFormatConnectionRequest(&v45, 0LL, DmaAdapter, Address, v53, 0LL, v44, &BugCheckParameter2, v33, v35);
       v37 = v26;
       if ( v26 >= 0 )
       {
@@ -236,10 +234,10 @@ LABEL_39:
         v28 = *(_DWORD *)(v45 + 264);
         if ( AlpcpLogEnabled )
           AlpcpLogConnectRequest(v45);
-        v56[0] = (__int64)v25;
-        v56[1] = v27;
-        LODWORD(v56[6]) = 0x20000;
-        v29 = AlpcpDispatchConnectionRequest(v56);
+        v55[0] = (__int64)v25;
+        v55[1] = v27;
+        LODWORD(v55[6]) = 0x20000;
+        v29 = AlpcpDispatchConnectionRequest(v55);
         v26 = v29;
         v37 = v29;
         if ( v29 < 0 )
@@ -251,12 +249,12 @@ LABEL_39:
         else
         {
           v30 = AlpcpReceiveLegacyConnectionReply(
-                  v56,
+                  v55,
                   (char *)Address,
                   &v38,
                   BugCheckParameter2,
                   v44,
-                  (unsigned __int64)&v52 & -(__int64)(a6 != 0));
+                  (unsigned __int64)&v52 & -(__int64)(ServerView != 0LL));
           v26 = v30;
           v37 = v30;
           if ( v30 )
@@ -269,17 +267,14 @@ LABEL_39:
             if ( AlpcpLogEnabled )
               AlpcpLogConnectSuccess(v28);
             *v46 = Handle;
-            if ( a4 )
+            if ( ClientView )
             {
-              *(__m128i *)a4 = v47;
-              *(_OWORD *)(a4 + 16) = v48;
-              *(_OWORD *)(a4 + 32) = v49;
+              *(__m128i *)&ClientView->Length = v47;
+              *(_OWORD *)&ClientView->SectionOffset = v48;
+              *(_OWORD *)&ClientView->ViewBase = v49;
             }
-            if ( a6 )
-            {
-              *(_OWORD *)a6 = v52;
-              *(_QWORD *)(a6 + 16) = v53;
-            }
+            if ( ServerView )
+              *ServerView = v52;
             if ( v50 )
               *v50 = v38;
             if ( v51 )
@@ -296,5 +291,5 @@ LABEL_39:
   }
 LABEL_61:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v15, v11);
-  return (unsigned int)v37;
+  return v37;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of fabs @ 0x180124820
+ * XREFs of fabs @ 0x180122A50
  * Callers:
  *     <none>
  * Callees:
- *     _except1 @ 0x18012A820 (_except1.c)
- *     _sptype @ 0x18012B2E0 (_sptype.c)
- *     _ctrlfp @ 0x18012B390 (_ctrlfp.c)
+ *     _except1 @ 0x180128A50 (_except1.c)
+ *     _sptype @ 0x180129510 (_sptype.c)
+ *     _ctrlfp @ 0x1801295C0 (_ctrlfp.c)
  */
 
 double __cdecl fabs(double X)

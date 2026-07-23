@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwOpenTransactionManager @ 0x14041DE60
  * Callers:
- *     DifZwOpenTransactionManagerWrapper @ 0x140622ED0 (DifZwOpenTransactionManagerWrapper.c)
+ *     sub_140622ED0 @ 0x140622ED0 (sub_140622ED0.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwOpenTransactionManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TmHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(TmHandle, *(_QWORD *)&DesiredAccess);
 }

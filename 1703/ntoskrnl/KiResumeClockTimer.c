@@ -10,21 +10,21 @@
  *     _guard_dispatch_icall @ 0x140189DC0 (_guard_dispatch_icall.c)
  */
 
-__int64 KiResumeClockTimer()
+LARGE_INTEGER KiResumeClockTimer()
 {
   char v0; // di
   int v1; // ebx
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
   __int64 v3; // rcx
   __int64 v4; // rdx
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
   __int64 v6; // [rsp+38h] [rbp+10h] BYREF
-  LARGE_INTEGER v7; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
   v5 = 0LL;
   v0 = 0;
   v1 = KiClockState;
-  result = (unsigned int)KiClockTimerOwner;
+  result.QuadPart = (unsigned int)KiClockTimerOwner;
   if ( KeGetCurrentPrcb()->Number == KiClockTimerOwner )
   {
     v0 = 1;
@@ -35,7 +35,7 @@ __int64 KiResumeClockTimer()
   }
   off_14033B590[0]();
   LOBYTE(v3) = v0;
-  result = ((__int64 (__fastcall *)(__int64))off_14033B588[0])(v3);
+  result.QuadPart = ((__int64 (__fastcall *)(__int64))off_14033B588[0])(v3);
   if ( v0 )
   {
     ++dword_1403561C4;
@@ -47,8 +47,8 @@ __int64 KiResumeClockTimer()
     if ( v1 == 2 )
       LOBYTE(v1) = _InterlockedExchange(&KiClockState, 0);
     KiEventClockStateChange(0, v1, &v5, &v6);
-    result = RtlGetInterruptTimePrecise(&v7);
-    KiClockTimerNextTickTime = result + (unsigned int)KeTimeIncrement;
+    result = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    KiClockTimerNextTickTime = result.QuadPart + (unsigned int)KeTimeIncrement;
   }
   return result;
 }

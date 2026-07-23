@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSelfTrim @ 0x14065025C
+ * XREFs of MiSelfTrim @ 0x1406507AC
  * Callers:
- *     MiPreUnlockWorkingSetShared @ 0x14035D570 (MiPreUnlockWorkingSetShared.c)
- *     MiHandleForceTrimWorkingSets @ 0x140634AC0 (MiHandleForceTrimWorkingSets.c)
+ *     MiPreUnlockWorkingSetShared @ 0x14035D710 (MiPreUnlockWorkingSetShared.c)
+ *     MiHandleForceTrimWorkingSets @ 0x140635010 (MiHandleForceTrimWorkingSets.c)
  * Callees:
- *     MiReduceWs @ 0x14035D628 (MiReduceWs.c)
- *     MiForceAgeWorkingSet @ 0x1406348A0 (MiForceAgeWorkingSet.c)
- *     MiForcedTrim @ 0x1406348E0 (MiForcedTrim.c)
+ *     MiReduceWs @ 0x14035D7C8 (MiReduceWs.c)
+ *     MiForceAgeWorkingSet @ 0x140634DF0 (MiForceAgeWorkingSet.c)
+ *     MiForcedTrim @ 0x140634E30 (MiForcedTrim.c)
  */
 
 unsigned __int64 __fastcall MiSelfTrim(__int64 a1, __int8 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoVolumeDeviceToGuid @ 0x140701EA0
+ * XREFs of IoVolumeDeviceToGuid @ 0x1407020B0
  * Callers:
- *     IopMountVolume @ 0x1407014E8 (IopMountVolume.c)
- *     CmpVolumeManagerGetContextForFile @ 0x140701C08 (CmpVolumeManagerGetContextForFile.c)
- *     CmpVolumeContextStart @ 0x14084EA00 (CmpVolumeContextStart.c)
- *     FsRtlVolumeDeviceToCorrelationId @ 0x14086CFF0 (FsRtlVolumeDeviceToCorrelationId.c)
- *     CcGetDeviceGuid @ 0x140873530 (CcGetDeviceGuid.c)
+ *     IopMountVolume @ 0x1407016F8 (IopMountVolume.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140701E18 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeContextStart @ 0x14084ED00 (CmpVolumeContextStart.c)
+ *     FsRtlVolumeDeviceToCorrelationId @ 0x14086D230 (FsRtlVolumeDeviceToCorrelationId.c)
+ *     CcGetDeviceGuid @ 0x140873770 (CcGetDeviceGuid.c)
  * Callees:
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     IoVolumeDeviceToGuidPath @ 0x140701F30 (IoVolumeDeviceToGuidPath.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     IoVolumeDeviceToGuidPath @ 0x140702140 (IoVolumeDeviceToGuidPath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

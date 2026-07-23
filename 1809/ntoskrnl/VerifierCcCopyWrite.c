@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierCcCopyWrite @ 0x140930A10
+ * XREFs of VerifierCcCopyWrite @ 0x140931A10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierCcCopyWrite(__int64 a1)

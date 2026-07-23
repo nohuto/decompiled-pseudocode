@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpValidateConnectionMessage @ 0x1404B5ADC
+ * XREFs of AlpcpValidateConnectionMessage @ 0x14049FEBC
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x140409458 (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x1404B4A28 (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x140408318 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x14049EE08 (AlpcpAcceptConnectPort.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of LockShutdownExclusive @ 0x140875C30
+ * XREFs of LockShutdownExclusive @ 0x140875D90
  * Callers:
- *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x14086BA58 (CmShutdownSystem.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void LockShutdownExclusive()

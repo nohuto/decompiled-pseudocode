@@ -376,10 +376,10 @@ char KiCheckForKernelApcDelivery()
     KeGetCurrentIrql();
     __writecr8(1uLL);
     LOBYTE(v0) = KiDeliverApc(0LL, 0LL, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v0) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         LOBYTE(v0) = v0 - 2;
         if ( (unsigned __int8)v0 <= 0xDu )

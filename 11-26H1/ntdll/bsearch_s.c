@@ -1,15 +1,15 @@
 /*
- * XREFs of bsearch_s @ 0x18012A100
+ * XREFs of bsearch_s @ 0x180129E70
  * Callers:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlGuardRestoreContext @ 0x180080B50 (RtlGuardRestoreContext.c)
- *     RtlGuardCheckLongJumpTarget @ 0x180080E50 (RtlGuardCheckLongJumpTarget.c)
- *     RtlGuardCheckExceptionHandler @ 0x180081080 (RtlGuardCheckExceptionHandler.c)
- *     LdrpUnsuppressAddressTakenIat @ 0x1800C6960 (LdrpUnsuppressAddressTakenIat.c)
- *     RtlpGetTargetRvaFlag @ 0x1800C71F4 (RtlpGetTargetRvaFlag.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlGuardRestoreContext @ 0x180077EF0 (RtlGuardRestoreContext.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1800781F0 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlGuardCheckExceptionHandler @ 0x180078420 (RtlGuardCheckExceptionHandler.c)
+ *     LdrpUnsuppressAddressTakenIat @ 0x1800C4120 (LdrpUnsuppressAddressTakenIat.c)
+ *     RtlpGetTargetRvaFlag @ 0x1800C49B4 (RtlpGetTargetRvaFlag.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _guard_check_icall$thunk$15021643654165956172 @ 0x180170010 (_guard_check_icall$thunk$15021643654165956172.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _guard_check_icall$thunk$15021643654165956172 @ 0x18016F010 (_guard_check_icall$thunk$15021643654165956172.c)
  */
 
 void *__cdecl bsearch_s(

@@ -15,7 +15,7 @@
 void __fastcall ExpSetSystemTime(char a1, char a2, __int64 a3, LARGE_INTEGER a4, __int64 *a5)
 {
   LARGE_INTEGER LocalTime; // [rsp+20h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+28h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+28h] [rbp-18h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+68h] [rbp+28h] BYREF
 
   SystemTime = a4;

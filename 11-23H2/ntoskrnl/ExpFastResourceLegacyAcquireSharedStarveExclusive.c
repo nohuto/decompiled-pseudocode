@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060A524
+ * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060AA74
  * Callers:
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     ExAcquireSharedStarveExclusive @ 0x140348D20 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     ExAcquireSharedStarveExclusive @ 0x140348FB0 (ExAcquireSharedStarveExclusive.c)
  * Callees:
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x1403C9884 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403C98E0 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x1404155A8 (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x1403C9A64 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403C9AC0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x14041593C (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

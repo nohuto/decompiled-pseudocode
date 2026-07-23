@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpReportNotifyForKcbStack @ 0x1405DC11C
+ * XREFs of CmpReportNotifyForKcbStack @ 0x1405DD11C
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
- *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
- *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
- *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
- *     CmpReportNotify @ 0x140695438 (CmpReportNotify.c)
+ *     CmDeleteLayeredKey @ 0x14026CEBC (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x1405AADD8 (CmDeleteKey.c)
+ *     CmpCreateChild @ 0x1405AC7A4 (CmpCreateChild.c)
+ *     CmDeleteValueKey @ 0x1405B7634 (CmDeleteValueKey.c)
+ *     CmpSetKeySecurity @ 0x1405B9548 (CmpSetKeySecurity.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmpPerformUnloadKey @ 0x140693550 (CmpPerformUnloadKey.c)
+ *     CmpReportNotify @ 0x1406965F8 (CmpReportNotify.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpReportNotifyHelper @ 0x1405DBEE0 (CmpReportNotifyHelper.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405D9AC0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpReportNotifyHelper @ 0x1405DCEE0 (CmpReportNotifyHelper.c)
  */
 
 __int64 __fastcall CmpReportNotifyForKcbStack(__int64 a1, __int64 a2, int a3, __int64 a4)

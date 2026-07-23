@@ -34,7 +34,7 @@ __int64 __fastcall HvpPerformLogFileRecovery(ULONG_PTR BugCheckParameter2, int a
   unsigned int v10; // r15d
   int v11; // eax
   unsigned int v12; // ebx
-  int v13; // eax
+  NTSTATUS v13; // eax
   unsigned int v14; // r12d
   __int64 Pool; // rax
   __int64 v16; // r8
@@ -45,7 +45,7 @@ __int64 __fastcall HvpPerformLogFileRecovery(ULONG_PTR BugCheckParameter2, int a
   char v21; // r11
   __int64 v22; // r9
   char v23; // cl
-  RTL_BITMAP *v24; // r15
+  _RTL_BITMAP *v24; // r15
   int v25; // eax
   __int64 v26; // rdx
   unsigned int v27; // eax
@@ -89,7 +89,7 @@ LABEL_7:
       }
       if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x20000) != 0 )
       {
-        v13 = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 224), v5);
+        v13 = HvpViewMapExtendStorage(BugCheckParameter2 + 224, v5);
         if ( v13 < 0 )
           SetFailureLocation(v7, 0, 27, v13, 16);
       }
@@ -179,7 +179,7 @@ LABEL_7:
       while ( (unsigned int)v20 < a4[15] );
     }
     HvpSetRangeProtection(BugCheckParameter2, 0LL, *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL), 2);
-    v24 = (RTL_BITMAP *)(BugCheckParameter2 + 112);
+    v24 = (_RTL_BITMAP *)(BugCheckParameter2 + 112);
     RtlMergeBitMaps(BugCheckParameter2 + 112, (unsigned int *)&v35);
     *(_DWORD *)(BugCheckParameter2 + 128) = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 112));
     v25 = HvCheckAndUpdateHiveBackupTimeStamp(BugCheckParameter2);
@@ -207,7 +207,7 @@ LABEL_55:
         *(_BYTE *)(v27 + BugCheckParameter2 + 192) = 1;
       }
       while ( (unsigned int)v26 < a4[15] );
-      v24 = (RTL_BITMAP *)(BugCheckParameter2 + 112);
+      v24 = (_RTL_BITMAP *)(BugCheckParameter2 + 112);
     }
     if ( (a4[22] & 1) != 0 && (*(_DWORD *)(BugCheckParameter2 + 160) & 0x8001) == 0 )
     {

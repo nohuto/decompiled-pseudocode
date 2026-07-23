@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDeleteObjectDispatch @ 0x14081ACF8
+ * XREFs of _PnpDeleteObjectDispatch @ 0x14081B438
  * Callers:
- *     _PnpDeleteObject @ 0x14081ABD4 (_PnpDeleteObject.c)
+ *     _PnpDeleteObject @ 0x14081B314 (_PnpDeleteObject.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpObjectRaiseDeleteEvent @ 0x14081C3DC (_PnpObjectRaiseDeleteEvent.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x1409FBFCC (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpObjectRaiseDeleteEvent @ 0x14081CB1C (_PnpObjectRaiseDeleteEvent.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1409F4D0C (_PnpCtxGetObjectDispatchCallback.c)
  */
 
-__int64 __fastcall PnpDeleteObjectDispatch(__int64 a1, __int64 a2, unsigned int a3, int a4)
+__int64 __fastcall PnpDeleteObjectDispatch(__int64 a1, __int64 a2, int a3, int a4)
 {
   int ObjectDispatchCallback; // ebx
   __int64 v10; // [rsp+30h] [rbp-58h] BYREF
@@ -23,15 +23,15 @@ __int64 __fastcall PnpDeleteObjectDispatch(__int64 a1, __int64 a2, unsigned int 
   }
   else
   {
-    ObjectDispatchCallback = PnpCtxGetObjectDispatchCallback(a1, a3, &v10);
+    ObjectDispatchCallback = PnpCtxGetObjectDispatchCallback(a1, (unsigned int)a3, &v10);
     if ( ObjectDispatchCallback >= 0 )
     {
       if ( v10 )
       {
         v11[0] = a4;
-        ObjectDispatchCallback = guard_dispatch_icall_no_overrides(a1, a2, a3, 4LL);
-        if ( ObjectDispatchCallback >= 0 && (int)a3 >= 7 )
-          PnpObjectRaiseDeleteEvent(a1, a2, a3);
+        ObjectDispatchCallback = guard_dispatch_icall_no_overrides(a1, a2);
+        if ( ObjectDispatchCallback >= 0 && a3 >= 7 )
+          PnpObjectRaiseDeleteEvent(a1, a2, (unsigned int)a3);
       }
       else
       {

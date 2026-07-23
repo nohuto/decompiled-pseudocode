@@ -20,11 +20,11 @@
  *     RtlpLogExceptionHandler @ 0x1800E44E4 (RtlpLogExceptionHandler.c)
  */
 
-__int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
 {
-  unsigned __int8 v2; // r14
-  __int64 v3; // rbx
-  __int64 v4; // r12
+  BOOLEAN v2; // r14
+  PCONTEXT v3; // rbx
+  PEXCEPTION_RECORD v4; // r12
   int v5; // edi
   ULONG64 Rip; // r15
   struct _UNWIND_HISTORY_TABLE *p_HistoryTable; // rsi
@@ -99,10 +99,10 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   unsigned __int64 EstablisherFrame; // [rsp+60h] [rbp-A0h] BYREF
   unsigned __int64 v78; // [rsp+68h] [rbp-98h]
   unsigned int v79; // [rsp+70h] [rbp-90h]
-  __int64 v80; // [rsp+78h] [rbp-88h]
+  PCONTEXT v80; // [rsp+78h] [rbp-88h]
   struct _UNWIND_HISTORY_TABLE *v81; // [rsp+80h] [rbp-80h]
   unsigned __int64 v82; // [rsp+88h] [rbp-78h]
-  __int64 v83; // [rsp+90h] [rbp-70h]
+  PEXCEPTION_RECORD v83; // [rsp+90h] [rbp-70h]
   unsigned __int64 v84; // [rsp+98h] [rbp-68h] BYREF
   unsigned __int64 ImageBase; // [rsp+A0h] [rbp-60h] BYREF
   unsigned __int64 v86; // [rsp+A8h] [rbp-58h] BYREF
@@ -110,19 +110,19 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   ULONG64 v88; // [rsp+B8h] [rbp-48h]
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+C0h] [rbp-40h]
   unsigned __int64 v90; // [rsp+C8h] [rbp-38h]
-  struct _CONTEXT *p_ContextRecord; // [rsp+D8h] [rbp-28h]
+  struct _CONTEXT *v91; // [rsp+D8h] [rbp-28h]
   unsigned __int64 v92; // [rsp+E0h] [rbp-20h]
   PVOID v93; // [rsp+E8h] [rbp-18h]
   struct _UNWIND_HISTORY_TABLE *v94; // [rsp+F0h] [rbp-10h]
   int v95; // [rsp+F8h] [rbp-8h]
-  struct _CONTEXT ContextRecord; // [rsp+100h] [rbp+0h] BYREF
+  struct _CONTEXT v96; // [rsp+100h] [rbp+0h] BYREF
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+5D0h] [rbp+4D0h] BYREF
 
   v2 = 0;
-  v3 = a2;
-  v80 = a2;
-  v4 = a1;
-  v83 = a1;
+  v3 = ContextRecord;
+  v80 = ContextRecord;
+  v4 = ExceptionRecord;
+  v83 = ExceptionRecord;
   v72 = 0;
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x800000) != 0 )
   {
@@ -134,15 +134,15 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
     v2 = 1;
     goto LABEL_62;
   }
-  v5 = *(_DWORD *)(v4 + 4) & 1;
+  v5 = v4->ExceptionFlags & 1;
   v75 = v5;
   if ( !(unsigned __int8)RtlpGetStackLimits(&v84, &v86) )
   {
     v5 |= 8u;
     goto LABEL_61;
   }
-  RtlpCopyContext(&ContextRecord, v3);
-  Rip = *(_QWORD *)(v3 + 248);
+  RtlpCopyContext(&v96, v3);
+  Rip = v3->Rip;
   p_HistoryTable = &HistoryTable;
   v82 = 0LL;
   HistoryTable.Count = 0;
@@ -156,11 +156,11 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
     v74 = v8;
     if ( !v8 )
     {
-      if ( Rip == *(_QWORD *)ContextRecord.Rsp )
+      if ( Rip == *(_QWORD *)v96.Rsp )
         goto LABEL_60;
-      Rsp = ContextRecord.Rsp + 8;
-      ContextRecord.Rip = *(_QWORD *)ContextRecord.Rsp;
-      ContextRecord.Rsp += 8LL;
+      Rsp = v96.Rsp + 8;
+      v96.Rip = *(_QWORD *)v96.Rsp;
+      v96.Rsp += 8LL;
       goto LABEL_57;
     }
     v9 = ImageBase;
@@ -172,7 +172,7 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
     v14 = *(_BYTE *)v11 & 7;
     if ( (v13 & 0xF) == 0 )
     {
-      Rsp = ContextRecord.Rsp;
+      Rsp = v96.Rsp;
 LABEL_9:
       v16 = Rsp;
       EstablisherFrame = Rsp;
@@ -180,7 +180,7 @@ LABEL_9:
     }
     if ( v12 >= *(unsigned __int8 *)(v11 + 1) || (*(_BYTE *)v11 & 0x20) != 0 )
     {
-      Rsp = ContextRecord.Rsp;
+      Rsp = v96.Rsp;
       v39 = *(_BYTE *)(v11 + 3);
       v40 = v13;
     }
@@ -199,13 +199,13 @@ LABEL_9:
         while ( (unsigned int)v68 < *(unsigned __int8 *)(v11 + 2) );
         v10 = v78;
       }
-      Rsp = ContextRecord.Rsp;
+      Rsp = v96.Rsp;
       if ( v12 < *(unsigned __int8 *)(v11 + 2 * v68 + 4) )
         goto LABEL_9;
       v40 = *(unsigned __int8 *)(v11 + 3);
       v39 = *(_BYTE *)(v11 + 3);
     }
-    v16 = *(&ContextRecord.Rax + (v39 & 0xF)) - (int)(v40 & 0xFFFFFFF0);
+    v16 = *(&v96.Rax + (v39 & 0xF)) - (int)(v40 & 0xFFFFFFF0);
     EstablisherFrame = v16;
 LABEL_10:
     if ( v14 < 2 )
@@ -281,10 +281,10 @@ LABEL_22:
         }
         v52 = (__int64)v74;
       }
-      v66 = (_DWORD *)RtlpSameFunction(v52, v9, v51 + v9);
+      v66 = (_DWORD *)RtlpSameFunction(v52, v9, (void *)(v51 + v9));
       if ( !v66 || v51 == *v66 )
       {
-        Rsp = ContextRecord.Rsp;
+        Rsp = v96.Rsp;
         v10 = v78;
 LABEL_75:
         v43 = (char *)Rip;
@@ -305,8 +305,8 @@ LABEL_75:
             if ( v70 == 96 )
             {
               v43 = (char *)(Rip + 4);
-              ContextRecord.Rsp = *(&ContextRecord.Rax + v18);
-              Rsp = *(char *)(Rip + 3) + ContextRecord.Rsp;
+              v96.Rsp = *(&v96.Rax + v18);
+              Rsp = *(char *)(Rip + 3) + v96.Rsp;
               goto LABEL_78;
             }
             if ( v70 != -96 )
@@ -318,8 +318,8 @@ LABEL_79:
                 v45 = *v43;
                 if ( (*v43 & 0xF8) == 0x58 )
                 {
-                  *(&ContextRecord.Rax + (*v43 & 7)) = *(_QWORD *)Rsp;
-                  Rsp = ContextRecord.Rsp + 8;
+                  *(&v96.Rax + (*v43 & 7)) = *(_QWORD *)Rsp;
+                  Rsp = v96.Rsp + 8;
                   ++v43;
                 }
                 else
@@ -328,19 +328,19 @@ LABEL_79:
                   {
                     v46 = *(_QWORD *)Rsp;
                     Rsp += 8LL;
-                    ContextRecord.Rsp = Rsp;
-                    ContextRecord.Rip = v46;
+                    v96.Rsp = Rsp;
+                    v96.Rip = v46;
                     goto LABEL_43;
                   }
-                  *(&ContextRecord.Rax + (v67 & 7 | (unsigned __int64)(8 * (v45 & 1u)))) = *(_QWORD *)Rsp;
-                  Rsp = ContextRecord.Rsp + 8;
+                  *(&v96.Rax + (v67 & 7 | (unsigned __int64)(8 * (v45 & 1u)))) = *(_QWORD *)Rsp;
+                  Rsp = v96.Rsp + 8;
                   v43 += 2;
                 }
 LABEL_78:
-                ContextRecord.Rsp = Rsp;
+                v96.Rsp = Rsp;
               }
             }
-            Rsp = *(&ContextRecord.Rax + v18)
+            Rsp = *(&v96.Rax + v18)
                 + (*(unsigned __int8 *)(Rip + 3) | (unsigned __int64)((*(unsigned __int8 *)(Rip + 4) | (*(unsigned __int16 *)(Rip + 5) << 8)) << 8));
             break;
           default:
@@ -349,7 +349,7 @@ LABEL_78:
         v43 = (char *)(Rip + 7);
         goto LABEL_78;
       }
-      Rsp = ContextRecord.Rsp;
+      Rsp = v96.Rsp;
       goto LABEL_22;
     }
     v54 = *(_BYTE *)(v11 + 2);
@@ -369,8 +369,8 @@ LABEL_78:
       if ( v58 - v59 < (unsigned int)(unsigned __int8)v55 )
       {
 LABEL_163:
-        RtlpUnwindEpilogue(v9, v56, v58 - v59, (_DWORD)v33, (__int64)&ContextRecord, 0LL, 0LL, 0LL);
-        Rsp = ContextRecord.Rsp;
+        RtlpUnwindEpilogue(v9, v56, v58 - v59, (_DWORD)v33, (__int64)&v96, 0LL, 0LL, 0LL);
+        Rsp = v96.Rsp;
         v10 = v78;
         goto LABEL_44;
       }
@@ -411,7 +411,7 @@ LABEL_23:
           if ( v27 < (unsigned __int8)v28[4] )
           {
             v71 = RtlpUnwindOpSlots(*((unsigned __int16 *)v28 + 2));
-            Rsp = ContextRecord.Rsp;
+            Rsp = v96.Rsp;
             v26 = (unsigned int)(v71 + v26);
           }
           else
@@ -440,15 +440,15 @@ LABEL_23:
                     Rsp += (unsigned int)(8 * v29 + 8);
                     goto LABEL_30;
                   case 3:
-                    ContextRecord.Rsp = *(&ContextRecord.Rax + (v25[3] & 0xF));
-                    Rsp = ContextRecord.Rsp - (v25[3] & 0xF0);
+                    v96.Rsp = *(&v96.Rax + (v25[3] & 0xF));
+                    Rsp = v96.Rsp - (v25[3] & 0xF0);
                     goto LABEL_30;
                   case 5:
                     v26 = (unsigned int)(v26 + 2);
-                    *(&ContextRecord.Rax + v29) = *(_QWORD *)(*(unsigned __int16 *)&v25[2 * (unsigned int)(v26 - 1) + 4]
-                                                            + (*(unsigned __int16 *)&v25[2 * v26 + 4] << 16)
-                                                            + v16);
-                    Rsp = ContextRecord.Rsp;
+                    *(&v96.Rax + v29) = *(_QWORD *)(*(unsigned __int16 *)&v25[2 * (unsigned int)(v26 - 1) + 4]
+                                                  + (*(unsigned __int16 *)&v25[2 * v26 + 4] << 16)
+                                                  + v16);
+                    Rsp = v96.Rsp;
                     goto LABEL_31;
                   case 6:
                     LODWORD(v26) = v26 + 1;
@@ -465,10 +465,10 @@ LABEL_23:
                     v62 = *(unsigned __int16 *)&v25[2 * (unsigned int)(v26 - 1) + 4]
                         + (*(unsigned __int16 *)&v25[2 * v26 + 4] << 16);
 LABEL_113:
-                    v63 = &ContextRecord.Xmm0 + (unsigned int)v29;
+                    v63 = &v96.Xmm0 + (unsigned int)v29;
                     v63->Low = *(_QWORD *)(v62 + v16);
                     v63->High = *(_QWORD *)(v62 + v16 + 8);
-                    Rsp = ContextRecord.Rsp;
+                    Rsp = v96.Rsp;
                     goto LABEL_31;
                   case 0xA:
                     v73 = 1;
@@ -478,23 +478,23 @@ LABEL_113:
                       Rsp += 8LL;
                       ++v65;
                     }
-                    ContextRecord.Rip = *(_QWORD *)Rsp;
+                    v96.Rip = *(_QWORD *)Rsp;
                     Rsp = *v65;
                     goto LABEL_30;
                   default:
-                    RtlRaiseStatus(3221225727LL);
+                    RtlRaiseStatus(-1073741569);
                 }
               }
               v26 = (unsigned int)(v26 + 1);
-              *(&ContextRecord.Rax + v29) = *(_QWORD *)(8 * (unsigned int)*(unsigned __int16 *)&v25[2 * v26 + 4] + v16);
-              Rsp = ContextRecord.Rsp;
+              *(&v96.Rax + v29) = *(_QWORD *)(8 * (unsigned int)*(unsigned __int16 *)&v25[2 * v26 + 4] + v16);
+              Rsp = v96.Rsp;
             }
             else
             {
-              *(&ContextRecord.Rax + v29) = *(_QWORD *)Rsp;
-              Rsp = ContextRecord.Rsp + 8;
+              *(&v96.Rax + v29) = *(_QWORD *)Rsp;
+              Rsp = v96.Rsp + 8;
 LABEL_30:
-              ContextRecord.Rsp = Rsp;
+              v96.Rsp = Rsp;
             }
 LABEL_31:
             v26 = (unsigned int)(v26 + 1);
@@ -512,14 +512,14 @@ LABEL_31:
       v79 = ++v22;
       v23 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)&v25[2 * v64 + 4];
       if ( v22 > 0x20 )
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
     }
     if ( !v24 )
     {
       v30 = *(_QWORD *)Rsp;
       Rsp += 8LL;
-      ContextRecord.Rsp = Rsp;
-      ContextRecord.Rip = v30;
+      v96.Rsp = Rsp;
+      v96.Rip = v30;
     }
     v31 = (_BYTE *)(v9 + v23->UnwindInfoAddress);
     if ( (int)Rip - v23->BeginAddress - (int)v9 >= (unsigned __int8)v31[1] && (*v31 & 8) != 0 )
@@ -548,10 +548,10 @@ LABEL_44:
       while ( 1 )
       {
         FunctionEntry = v33;
-        p_ContextRecord = &ContextRecord;
+        v91 = &v96;
         v35 = 0LL;
         v93 = HandlerData;
-        *(_DWORD *)(v4 + 4) = v5;
+        v4->ExceptionFlags = v5;
         ControlPc = Rip;
         v88 = v9;
         v90 = v16;
@@ -559,12 +559,12 @@ LABEL_44:
         v94 = p_HistoryTable;
         v95 = v34;
         if ( v72 )
-          v35 = RtlpLogExceptionHandler(v4, &ContextRecord, Rip, v10);
+          v35 = RtlpLogExceptionHandler(v4, &v96, Rip, v10);
         v36 = RtlpExecuteHandlerForException(v4, v16, v80, &ControlPc);
         if ( v35 )
           *(_DWORD *)(v35 + 1396) = v36;
         v37 = v82;
-        v5 |= *(_DWORD *)(v4 + 4) & 1;
+        v5 |= v4->ExceptionFlags & 1;
         v75 = v5;
         if ( v82 == v16 )
         {
@@ -584,17 +584,17 @@ LABEL_44:
           if ( v90 > v37 )
             v82 = v90;
 LABEL_56:
-          Rsp = ContextRecord.Rsp;
+          Rsp = v96.Rsp;
           goto LABEL_57;
         }
         if ( v36 != 3 )
-          RtlRaiseStatus(3221225510LL);
+          RtlRaiseStatus(-1073741786);
         v9 = v88;
         Rip = ControlPc;
         v33 = FunctionEntry;
         ImageBase = v88;
-        RtlpCopyContext(&ContextRecord, p_ContextRecord);
-        RtlVirtualUnwind(0, v9, Rip, v33, &ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
+        RtlpCopyContext(&v96, v91);
+        RtlVirtualUnwind(0, v9, Rip, v33, &v96, &HandlerData, &EstablisherFrame, 0LL);
         v16 = v90;
         p_HistoryTable = v94;
         v10 = v92;
@@ -604,13 +604,13 @@ LABEL_56:
         v81 = v94;
       }
       if ( (v5 & 1) != 0 )
-        RtlRaiseStatus(3221225509LL);
+        RtlRaiseStatus(-1073741787);
       v3 = v80;
       v2 = 1;
       goto LABEL_62;
     }
 LABEL_57:
-    Rip = ContextRecord.Rip;
+    Rip = v96.Rip;
     if ( (Rsp & 7) != 0 || Rsp < v84 || Rsp >= v86 )
       goto LABEL_60;
   }
@@ -619,7 +619,7 @@ LABEL_60:
   v3 = v80;
   v2 = 0;
 LABEL_61:
-  *(_DWORD *)(v4 + 4) = v5;
+  v4->ExceptionFlags = v5;
 LABEL_62:
   RtlpCallVectoredHandlers(v4, v3, 1LL);
   return v2;

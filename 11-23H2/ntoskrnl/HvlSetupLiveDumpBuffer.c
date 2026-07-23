@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlSetupLiveDumpBuffer @ 0x14054A538
+ * XREFs of HvlSetupLiveDumpBuffer @ 0x14054ABF8
  * Callers:
- *     HvlPrepareLivedumpDescriptor @ 0x140547AB4 (HvlPrepareLivedumpDescriptor.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x140548174 (HvlPrepareLivedumpDescriptor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
  */
 
 __int64 __fastcall HvlSetupLiveDumpBuffer(

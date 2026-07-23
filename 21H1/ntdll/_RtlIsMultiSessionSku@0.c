@@ -8,7 +8,7 @@
  *     _RtlGetCurrentServiceSessionId@0 @ 0x4B2C3BF0 (_RtlGetCurrentServiceSessionId@0.c)
  */
 
-char __stdcall RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   if ( RtlGetCurrentServiceSessionId() )
     return *((_BYTE *)NtCurrentPeb()->SharedData + 28);

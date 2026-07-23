@@ -1,12 +1,12 @@
 /*
  * XREFs of _ui64tow_s @ 0x1403E6110
  * Callers:
- *     LocalGetStringForRelativeAttribute @ 0x1409D3004 (LocalGetStringForRelativeAttribute.c)
+ *     sub_1409D3004 @ 0x1409D3004 (sub_1409D3004.c)
  * Callees:
- *     x64tow_s @ 0x1403E614C (x64tow_s.c)
+ *     sub_1403E614C @ 0x1403E614C (sub_1403E614C.c)
  */
 
 errno_t __cdecl ui64tow_s(unsigned __int64 Val, wchar_t *DstBuf, size_t SizeInWords, int Radix)
 {
-  return x64tow_s(Val, (_DWORD)DstBuf, SizeInWords, Radix, 0);
+  return sub_1403E614C(Val, (_DWORD)DstBuf, SizeInWords, Radix, 0);
 }

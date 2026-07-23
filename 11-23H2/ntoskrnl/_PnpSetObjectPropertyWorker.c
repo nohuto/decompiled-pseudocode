@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpSetObjectPropertyWorker @ 0x140796CFC
+ * XREFs of _PnpSetObjectPropertyWorker @ 0x140796EEC
  * Callers:
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpOpenObjectRegKey @ 0x1406CF960 (_PnpOpenObjectRegKey.c)
- *     _PnpValidatePropertyData @ 0x140796EB8 (_PnpValidatePropertyData.c)
- *     _PnpSetMappedPropertyDispatch @ 0x140797100 (_PnpSetMappedPropertyDispatch.c)
- *     _PnpSetGenericStoreProperty @ 0x1407971C8 (_PnpSetGenericStoreProperty.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407972F4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CF990 (_PnpOpenObjectRegKey.c)
+ *     _PnpValidatePropertyData @ 0x1407970A8 (_PnpValidatePropertyData.c)
+ *     _PnpSetMappedPropertyDispatch @ 0x1407972F0 (_PnpSetMappedPropertyDispatch.c)
+ *     _PnpSetGenericStoreProperty @ 0x1407973B8 (_PnpSetGenericStoreProperty.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407974E4 (_PnpObjectRaisePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PnpSetObjectPropertyWorker(

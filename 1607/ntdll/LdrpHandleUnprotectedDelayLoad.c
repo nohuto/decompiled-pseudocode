@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpHandleUnprotectedDelayLoad @ 0x18007B434
+ * XREFs of LdrpHandleUnprotectedDelayLoad @ 0x18007B424
  * Callers:
- *     LdrResolveDelayLoadedAPI @ 0x1800319E0 (LdrResolveDelayLoadedAPI.c)
+ *     LdrResolveDelayLoadedAPI @ 0x1800319D0 (LdrResolveDelayLoadedAPI.c)
  * Callees:
- *     LdrpGetDelayloadExportDll @ 0x18001136C (LdrpGetDelayloadExportDll.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
- *     LdrpResolveDelayloadAddress @ 0x18007B524 (LdrpResolveDelayloadAddress.c)
- *     LdrpRedirectDelayloadFailure @ 0x18007B728 (LdrpRedirectDelayloadFailure.c)
+ *     LdrpGetDelayloadExportDll @ 0x18001135C (LdrpGetDelayloadExportDll.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
+ *     LdrpResolveDelayloadAddress @ 0x18007B514 (LdrpResolveDelayloadAddress.c)
+ *     LdrpRedirectDelayloadFailure @ 0x18007B718 (LdrpRedirectDelayloadFailure.c)
  */
 
 __int64 __fastcall LdrpHandleUnprotectedDelayLoad(
@@ -19,30 +19,28 @@ __int64 __fastcall LdrpHandleUnprotectedDelayLoad(
 {
   int v8; // ebp
   int v9; // r14d
-  int v10; // ebx
+  NTSTATUS Status; // ebx
   __int64 v11; // r8
   __int64 v12; // rdi
-  char *v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v17; // rax
+  __int64 v14; // rax
   int DelayloadExportDll; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-20h] BYREF
 
   v8 = a2;
   v9 = a1;
-  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, &v19, a6, (__int64)a5);
-  v10 = DelayloadExportDll;
+  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, (__int64 *)&BaseAddress, a6, (__int64)a5);
+  Status = DelayloadExportDll;
   if ( DelayloadExportDll >= 0
     && (g_ShimsEnabled
       ? (v11 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_GetProcAddressForCaller, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)))
       : (v11 = 0LL),
-        v12 = LdrpResolveDelayloadAddress(v9, v19, v8, (_DWORD)a5, v11, (__int64)&DelayloadExportDll),
-        LdrpDereferenceModule(v19, v13, v14, v15),
-        v10 = DelayloadExportDll,
+        v12 = LdrpResolveDelayloadAddress(v9, (_DWORD)BaseAddress, v8, (_DWORD)a5, v11, (__int64)&DelayloadExportDll),
+        LdrpDereferenceModule((char *)BaseAddress),
+        Status = DelayloadExportDll,
         DelayloadExportDll >= 0)
-    || (v17 = LdrpRedirectDelayloadFailure(v9, v19, v8, a3, a4, (__int64)a5, v10), v12 = v17, v10 >= 0)
-    || v17 && ((unsigned int)(v10 + 1073741512) <= 1 || v10 == -1073740671) )
+    || (v14 = LdrpRedirectDelayloadFailure(v9, (int)BaseAddress, v8, a3, a4, (__int64)a5, Status), v12 = v14,
+                                                                                                   Status >= 0)
+    || v14 && ((unsigned int)(Status + 1073741512) <= 1 || Status == -1073740671) )
   {
     *a5 = v12;
   }

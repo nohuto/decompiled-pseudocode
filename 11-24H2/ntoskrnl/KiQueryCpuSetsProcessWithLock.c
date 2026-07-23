@@ -1,8 +1,8 @@
 /*
- * XREFs of KiQueryCpuSetsProcessWithLock @ 0x1404F5260
+ * XREFs of KiQueryCpuSetsProcessWithLock @ 0x1404F2B60
  * Callers:
- *     KeQueryCpuSetsProcess @ 0x1404D43DC (KeQueryCpuSetsProcess.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405C0050 (KiCpuPartitionCheckAffinitization.c)
+ *     KeQueryCpuSetsProcess @ 0x1404CD5EC (KeQueryCpuSetsProcess.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405BD680 (KiCpuPartitionCheckAffinitization.c)
  * Callees:
  *     <none>
  */

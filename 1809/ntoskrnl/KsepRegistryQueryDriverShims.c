@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepRegistryQueryDriverShims @ 0x14067DC94
+ * XREFs of KsepRegistryQueryDriverShims @ 0x14067EE54
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x14067E0A0 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14067F260 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     KsepRegistryOpenKey @ 0x14067DE58 (KsepRegistryOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x14072827C (KsepRegistryQuerySZ.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     KsepRegistryOpenKey @ 0x14067F018 (KsepRegistryOpenKey.c)
+ *     KsepRegistryQuerySZ @ 0x14072946C (KsepRegistryQuerySZ.c)
  */
 
 __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -27,7 +27,7 @@ __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, __int64 a2, __int64 
   if ( Handle )
   {
     ZwClose(Handle);
-    _InterlockedIncrement(dword_14041AB7C);
+    _InterlockedIncrement(&dword_14041BC3C);
   }
   return (unsigned int)SZ;
 }

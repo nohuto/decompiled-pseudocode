@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipGetFilePDO @ 0x14071DB50
+ * XREFs of WmipGetFilePDO @ 0x14071EDF0
  * Callers:
- *     IoWMIHandleToInstanceName @ 0x14071D890 (IoWMIHandleToInstanceName.c)
- *     WmipTranslateFileHandle @ 0x1408B4244 (WmipTranslateFileHandle.c)
+ *     IoWMIHandleToInstanceName @ 0x14071EB30 (IoWMIHandleToInstanceName.c)
+ *     WmipTranslateFileHandle @ 0x1408B5508 (WmipTranslateFileHandle.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoGetAttachedDeviceReference @ 0x1400ACE40 (IoGetAttachedDeviceReference.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IoSynchronousCallDriver @ 0x140128210 (IoSynchronousCallDriver.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoGetAttachedDeviceReference @ 0x1400ACD80 (IoGetAttachedDeviceReference.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IoSynchronousCallDriver @ 0x1401282E0 (IoSynchronousCallDriver.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall WmipGetFilePDO(void *a1, KPROCESSOR_MODE a2, _QWORD *a3)

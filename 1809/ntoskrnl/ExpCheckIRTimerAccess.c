@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCheckIRTimerAccess @ 0x1406CFBAC
+ * XREFs of ExpCheckIRTimerAccess @ 0x1406D0E4C
  * Callers:
- *     NtCreateTimer2 @ 0x14068A550 (NtCreateTimer2.c)
+ *     NtCreateTimer2 @ 0x14068B710 (NtCreateTimer2.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
- *     ExCheckValidIRTimerId @ 0x14013AF74 (ExCheckValidIRTimerId.c)
- *     ExpCheckWakeTimerAccess @ 0x14071EAAC (ExpCheckWakeTimerAccess.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB90 (RtlCheckTokenMembership.c)
+ *     ExCheckValidIRTimerId @ 0x14013B074 (ExCheckValidIRTimerId.c)
+ *     ExpCheckWakeTimerAccess @ 0x14071FD4C (ExpCheckWakeTimerAccess.c)
  */
 
 __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)
@@ -14,8 +14,9 @@ __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)
   __int64 v4; // rcx
   void *v5; // rax
   unsigned int v6; // edi
-  char v7; // al
+  BOOLEAN v7; // al
   unsigned __int16 v9; // [rsp+32h] [rbp+Ah]
+  BOOLEAN IsMember; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = HIWORD(a1);
   if ( (unsigned int)(unsigned __int16)a1 - 1 > 0xD )
@@ -28,12 +29,13 @@ __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)
   v6 = 0;
   if ( a2 )
   {
+    IsMember = 0;
     if ( v5 )
     {
-      if ( (int)RtlCheckTokenMembership(0LL, v5) < 0 )
+      if ( RtlCheckTokenMembership(0LL, v5, &IsMember) < 0 )
         v7 = 0;
       else
-        v7 = 0;
+        v7 = IsMember;
     }
     else
     {

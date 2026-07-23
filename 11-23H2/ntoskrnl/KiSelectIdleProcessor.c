@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSelectIdleProcessor @ 0x1405776B4
+ * XREFs of KiSelectIdleProcessor @ 0x140577BA4
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392E0 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402393B0 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiEndThreadCycleAccumulation @ 0x1402B2C90 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D40 (KiStartThreadCycleAccumulation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x140577198 (KiFindRankBiasedIdleSmtSet.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402B2F20 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402B2FD0 (KiStartThreadCycleAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x140577688 (KiFindRankBiasedIdleSmtSet.c)
  */
 
 __int64 __fastcall KiSelectIdleProcessor(_WORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char *a6)

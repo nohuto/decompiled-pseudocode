@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x14063456C
+ * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x140629384
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x14063419C (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140629228 (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
- *     PiAuVerifyAccessToObject @ 0x1406A0518 (PiAuVerifyAccessToObject.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PiAuVerifyAccessToObject @ 0x1405FF858 (PiAuVerifyAccessToObject.c)
+ *     PnpGetObjectProperty @ 0x14062C84C (PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
@@ -14,7 +14,7 @@ __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
         __int64 a2,
         __int64 a3,
         struct _SECURITY_SUBJECT_CONTEXT *a4,
-        _BYTE *a5)
+        BOOLEAN *a5)
 {
   int ObjectProperty; // eax
   int v7; // ebx
@@ -46,7 +46,7 @@ __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
   {
     if ( v9 != 19 )
       goto LABEL_3;
-    v7 = PiAuVerifyAccessToObject(1u, P, &GenericMapping, a4, (__int64)a5);
+    v7 = PiAuVerifyAccessToObject(1u, P, &GenericMapping, a4, a5);
     if ( v7 < 0 )
     {
 LABEL_2:

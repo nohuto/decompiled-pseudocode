@@ -1,13 +1,13 @@
 /*
- * XREFs of CcCheckContainerWaitForRestore @ 0x1405B0544
+ * XREFs of CcCheckContainerWaitForRestore @ 0x1405B2D54
  * Callers:
- *     CcRegisterForContainerRestore @ 0x1405B0810 (CcRegisterForContainerRestore.c)
+ *     CcRegisterForContainerRestore @ 0x1405B3020 (CcRegisterForContainerRestore.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
  */
 
 __int64 CcCheckContainerWaitForRestore()

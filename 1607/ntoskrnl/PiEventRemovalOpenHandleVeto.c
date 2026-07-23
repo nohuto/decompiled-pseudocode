@@ -1,13 +1,13 @@
 /*
- * XREFs of PiEventRemovalOpenHandleVeto @ 0x14064D3E8
+ * XREFs of PiEventRemovalOpenHandleVeto @ 0x14064D4CC
  * Callers:
- *     PiEventQueryRemoveDevices @ 0x14064CFD0 (PiEventQueryRemoveDevices.c)
+ *     PiEventQueryRemoveDevices @ 0x14064D0B4 (PiEventQueryRemoveDevices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     PnpCollectOpenHandles @ 0x1406428B8 (PnpCollectOpenHandles.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     PnpCollectOpenHandles @ 0x14064299C (PnpCollectOpenHandles.c)
  */
 
 void __fastcall PiEventRemovalOpenHandleVeto(

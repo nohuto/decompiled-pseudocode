@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwGetNotificationResourceManager @ 0x14070CDC4
+ * XREFs of VerifierZwGetNotificationResourceManager @ 0x14070CDF4
  * Callers:
  *     <none>
  * Callees:

@@ -1,43 +1,43 @@
 /*
- * XREFs of CmShutdownSystem @ 0x14086B8F8
+ * XREFs of CmShutdownSystem @ 0x14086BA58
  * Callers:
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     ExBlockOnAddressPushLock @ 0x14029CC60 (ExBlockOnAddressPushLock.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     CmpUnJoinClassOfTrust @ 0x14036173C (CmpUnJoinClassOfTrust.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x140672754 (LOCK_HIVE_LOAD.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     CmShutdownCmRM @ 0x1406BB458 (CmShutdownCmRM.c)
- *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
- *     CmCloseRmHandle @ 0x1406C2CB0 (CmCloseRmHandle.c)
- *     CmCloseTmHandle @ 0x1406C2CD8 (CmCloseTmHandle.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     HvHiveCleanup @ 0x140709C24 (HvHiveCleanup.c)
- *     CmpVolumeContextDecrementRefCount @ 0x14071CA40 (CmpVolumeContextDecrementRefCount.c)
- *     CmpCmdHiveClose @ 0x14071CE14 (CmpCmdHiveClose.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x14071CF7C (CmpVERemoveHiveFromSIDMappingTable.c)
- *     UnlockShutdown @ 0x14071D2E4 (UnlockShutdown.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
- *     CmpFlushTraceLoggingProvider @ 0x14086A758 (CmpFlushTraceLoggingProvider.c)
- *     CmpTraceShutdownFlushStart @ 0x14086AF24 (CmpTraceShutdownFlushStart.c)
- *     CmpTraceShutdownFlushStop @ 0x14086AF94 (CmpTraceShutdownFlushStop.c)
- *     CmpTraceShutdownRundownComplete @ 0x14086B004 (CmpTraceShutdownRundownComplete.c)
- *     CmpTraceShutdownStart @ 0x14086B074 (CmpTraceShutdownStart.c)
- *     CmpTraceShutdownStop @ 0x14086B0E4 (CmpTraceShutdownStop.c)
- *     CmFcShutdownSystem @ 0x14086B184 (CmFcShutdownSystem.c)
- *     CmpFreeAllMemory @ 0x14086BC98 (CmpFreeAllMemory.c)
- *     CmpRecordShutdownStopTime @ 0x14086BF90 (CmpRecordShutdownStopTime.c)
- *     CmpWaitForShutdownRundownRelease @ 0x140875C08 (CmpWaitForShutdownRundownRelease.c)
- *     LockShutdownExclusive @ 0x140875C30 (LockShutdownExclusive.c)
- *     CmpShutdownWorkers @ 0x140876D50 (CmpShutdownWorkers.c)
+ *     CmpUnJoinClassOfTrust @ 0x140213A50 (CmpUnJoinClassOfTrust.c)
+ *     ExBlockOnAddressPushLock @ 0x140213E80 (ExBlockOnAddressPushLock.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     CmpCmdHiveClose @ 0x1405E0548 (CmpCmdHiveClose.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x1405E06B0 (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x1405E0904 (CmpVolumeContextDecrementRefCount.c)
+ *     CmShutdownCmRM @ 0x1405E0E38 (CmShutdownCmRM.c)
+ *     CmCloseTmHandle @ 0x1405E114C (CmCloseTmHandle.c)
+ *     CmCloseRmHandle @ 0x1405E1174 (CmCloseRmHandle.c)
+ *     UnlockShutdown @ 0x14061B8D0 (UnlockShutdown.c)
+ *     HvMarkBaseBlockDirty @ 0x14061C16C (HvMarkBaseBlockDirty.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x140667984 (LOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpDetachFromRegistryProcess @ 0x1406E589C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     HvHiveCleanup @ 0x140721004 (HvHiveCleanup.c)
+ *     CmpFlushTraceLoggingProvider @ 0x14086A8B8 (CmpFlushTraceLoggingProvider.c)
+ *     CmpTraceShutdownFlushStart @ 0x14086B084 (CmpTraceShutdownFlushStart.c)
+ *     CmpTraceShutdownFlushStop @ 0x14086B0F4 (CmpTraceShutdownFlushStop.c)
+ *     CmpTraceShutdownRundownComplete @ 0x14086B164 (CmpTraceShutdownRundownComplete.c)
+ *     CmpTraceShutdownStart @ 0x14086B1D4 (CmpTraceShutdownStart.c)
+ *     CmpTraceShutdownStop @ 0x14086B244 (CmpTraceShutdownStop.c)
+ *     CmFcShutdownSystem @ 0x14086B2E4 (CmFcShutdownSystem.c)
+ *     CmpFreeAllMemory @ 0x14086BDF8 (CmpFreeAllMemory.c)
+ *     CmpRecordShutdownStopTime @ 0x14086C0F0 (CmpRecordShutdownStopTime.c)
+ *     CmpWaitForShutdownRundownRelease @ 0x140875D68 (CmpWaitForShutdownRundownRelease.c)
+ *     LockShutdownExclusive @ 0x140875D90 (LockShutdownExclusive.c)
+ *     CmpShutdownWorkers @ 0x140876EB0 (CmpShutdownWorkers.c)
  */
 
 void __fastcall CmShutdownSystem(int a1)
@@ -58,30 +58,24 @@ void __fastcall CmShutdownSystem(int a1)
   __int64 v14; // rdx
   int v15; // ecx
   unsigned int v16; // ecx
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  _DWORD *v19; // r9
   struct _EX_RUNDOWN_REF *k; // rcx
+  __int64 *v18; // rax
+  struct _EX_RUNDOWN_REF *v19; // rbx
+  struct _EX_RUNDOWN_REF *m; // rcx
   __int64 *v21; // rax
   struct _EX_RUNDOWN_REF *v22; // rbx
-  struct _EX_RUNDOWN_REF *m; // rcx
-  __int64 *v24; // rax
-  struct _EX_RUNDOWN_REF *v25; // rbx
   struct _EX_RUNDOWN_REF *n; // rcx
-  unsigned int v27; // edi
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  _DWORD *v30; // r9
-  struct _PRIVILEGE_SET *v31; // rcx
-  __int64 *v32; // rax
-  __int64 v33; // rbx
-  int v34; // ebx
-  __int64 **v35; // rax
-  struct _PRIVILEGE_SET *v36; // rcx
-  __int64 v37; // [rsp+30h] [rbp-40h] BYREF
-  _OWORD v38[3]; // [rsp+38h] [rbp-38h] BYREF
+  unsigned int v24; // edi
+  struct _PRIVILEGE_SET *v25; // rcx
+  __int64 *v26; // rax
+  __int64 v27; // rbx
+  int v28; // ebx
+  __int64 **v29; // rax
+  struct _PRIVILEGE_SET *v30; // rcx
+  __int64 v31; // [rsp+30h] [rbp-40h] BYREF
+  _OWORD v32[3]; // [rsp+38h] [rbp-38h] BYREF
 
-  memset(v38, 0, sizeof(v38));
+  memset(v32, 0, sizeof(v32));
   if ( a1 )
   {
     CmpTraceShutdownStart();
@@ -95,15 +89,15 @@ void __fastcall CmShutdownSystem(int a1)
     LockShutdownExclusive();
     LOCK_HIVE_LOAD();
     CmpLockRegistryExclusive();
-    LODWORD(v37) = CmpActiveHiveRundownCount;
+    LODWORD(v31) = CmpActiveHiveRundownCount;
     if ( CmpActiveHiveRundownCount > 0 )
     {
       CmpUnlockRegistry();
       UNLOCK_HIVE_LOAD();
       do
       {
-        ExBlockOnAddressPushLock((__int64)&CmpActiveHiveRundownEvent, &CmpActiveHiveRundownCount, &v37, 4uLL, 0LL);
-        LODWORD(v37) = CmpActiveHiveRundownCount;
+        ExBlockOnAddressPushLock((__int64)&CmpActiveHiveRundownEvent, &CmpActiveHiveRundownCount, &v31, 4uLL, 0LL);
+        LODWORD(v31) = CmpActiveHiveRundownCount;
       }
       while ( CmpActiveHiveRundownCount > 0 );
       LOCK_HIVE_LOAD();
@@ -162,52 +156,52 @@ void __fastcall CmShutdownSystem(int a1)
     CmpUnlockRegistry();
     UNLOCK_HIVE_LOAD();
     UnlockShutdown();
-    CmpAttachToRegistryProcess((__int64)v38, v17, v18, v19);
+    CmpAttachToRegistryProcess((__int64)v32);
     CmpTraceShutdownFlushStart();
-    for ( k = 0LL; ; k = v22 )
+    for ( k = 0LL; ; k = v19 )
     {
-      v21 = CmpGetNextActiveHive(k);
-      v22 = (struct _EX_RUNDOWN_REF *)v21;
-      if ( !v21 )
+      v18 = CmpGetNextActiveHive(k);
+      v19 = (struct _EX_RUNDOWN_REF *)v18;
+      if ( !v18 )
         break;
-      if ( !BYTE1(NlsMbCodePageTag) && (v21[20] & 2) == 0 )
-        *((_BYTE *)v21 + 4824) = (int)CmpFlushHive((ULONG_PTR)v21, 0xCu) >= 0;
+      if ( !BYTE1(NlsMbCodePageTag) && (v18[20] & 2) == 0 )
+        *((_BYTE *)v18 + 4824) = (int)CmpFlushHive((ULONG_PTR)v18, 0xCu) >= 0;
     }
     CmpTraceShutdownFlushStop();
-    CmpDetachFromRegistryProcess((__int64)v38);
+    CmpDetachFromRegistryProcess((__int64)v32);
     LockShutdownExclusive();
     LOCK_HIVE_LOAD();
     CmpLockRegistryExclusive();
-    for ( m = 0LL; ; m = v25 )
+    for ( m = 0LL; ; m = v22 )
     {
-      v24 = CmpGetNextActiveHive(m);
-      v25 = (struct _EX_RUNDOWN_REF *)v24;
-      if ( !v24 )
+      v21 = CmpGetNextActiveHive(m);
+      v22 = (struct _EX_RUNDOWN_REF *)v21;
+      if ( !v21 )
         break;
-      CmShutdownCmRM(v24[524], 0LL);
+      CmShutdownCmRM(v21[524], 0LL);
     }
-    for ( n = 0LL; ; n = (struct _EX_RUNDOWN_REF *)v33 )
+    for ( n = 0LL; ; n = (struct _EX_RUNDOWN_REF *)v27 )
     {
-      v32 = CmpGetNextActiveHive(n);
-      v33 = (__int64)v32;
-      if ( !v32 )
+      v26 = CmpGetNextActiveHive(n);
+      v27 = (__int64)v26;
+      if ( !v26 )
         break;
-      CmpUnJoinClassOfTrust((__int64)v32);
-      CmpVERemoveHiveFromSIDMappingTable(v33);
-      v27 = *(_DWORD *)(v33 + 272) + 4096;
-      CmpAttachToRegistryProcess((__int64)v38, v28, v29, v30);
-      HvHiveCleanup(v33);
-      CmpDetachFromRegistryProcess((__int64)v38);
-      if ( *(_BYTE *)(v33 + 4824)
-        && (*(_DWORD *)(v33 + 160) & 0x8000) == 0
-        && (__int64)(*(_QWORD *)(v33 + 1792) - v27) > 0x100000 )
+      CmpUnJoinClassOfTrust((__int64)v26);
+      CmpVERemoveHiveFromSIDMappingTable(v27);
+      v24 = *(_DWORD *)(v27 + 272) + 4096;
+      CmpAttachToRegistryProcess((__int64)v32);
+      HvHiveCleanup(v27);
+      CmpDetachFromRegistryProcess((__int64)v32);
+      if ( *(_BYTE *)(v27 + 4824)
+        && (*(_DWORD *)(v27 + 160) & 0x8000) == 0
+        && (__int64)(*(_QWORD *)(v27 + 1792) - v24) > 0x100000 )
       {
-        CmpDoFileSetSizeEx(v33, 0, v27, 0);
+        CmpDoFileSetSizeEx(v27, 0, v24, 0);
       }
-      CmpCmdHiveClose(v33);
-      v31 = *(struct _PRIVILEGE_SET **)(v33 + 4832);
-      if ( v31 )
-        CmpVolumeContextDecrementRefCount(v31);
+      CmpCmdHiveClose(v27);
+      v25 = *(struct _PRIVILEGE_SET **)(v27 + 4832);
+      if ( v25 )
+        CmpVolumeContextDecrementRefCount(v25);
     }
     HvShutdownComplete = 1;
     if ( (PopShutdownCleanly & 8) != 0 && !(_BYTE)CmFirstTime )
@@ -215,18 +209,18 @@ void __fastcall CmShutdownSystem(int a1)
     CmpUnlockRegistry();
     UNLOCK_HIVE_LOAD();
     UnlockShutdown();
-    v34 = 0;
-    v35 = &CmpWellKnownVolumeList;
+    v28 = 0;
+    v29 = &CmpWellKnownVolumeList;
     if ( CmpWellKnownVolumeList )
     {
       do
       {
-        v36 = (struct _PRIVILEGE_SET *)v35[1];
-        if ( v36 )
-          CmpVolumeContextDecrementRefCount(v36);
-        v35 = &(&CmpWellKnownVolumeList)[2 * (unsigned int)++v34];
+        v30 = (struct _PRIVILEGE_SET *)v29[1];
+        if ( v30 )
+          CmpVolumeContextDecrementRefCount(v30);
+        v29 = &(&CmpWellKnownVolumeList)[2 * (unsigned int)++v28];
       }
-      while ( *v35 );
+      while ( *v29 );
     }
     CmpTraceShutdownStop();
   }

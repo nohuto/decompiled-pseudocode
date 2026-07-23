@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMd5AppendBlocks @ 0x180107620
+ * XREFs of SymCryptMd5AppendBlocks @ 0x180107020
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 unsigned __int64 *__fastcall SymCryptMd5AppendBlocks(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
@@ -168,11 +168,11 @@ unsigned __int64 *__fastcall SymCryptMd5AppendBlocks(int *a1, __int64 a2, unsign
       v42 = v41 + __ROL4__(v26 + v38 + (v40 ^ v39 & (v40 ^ v41)) - 1444681467, 5);
       v43 = v42 + __ROL4__(v39 + (v41 ^ v40 & (v41 ^ v42)) + v85 - 51403784, 9);
       v44 = v43 + __ROL4__(v17 + (v42 ^ v41 & (v42 ^ v43)) + 1735328473 + v40, 14);
-      v45 = v44 + __ROL4__(v25 + v41 - 1926607734 + (v43 ^ v42 & (v44 ^ v43)), 20);
+      v45 = v44 + __ROL4__(v25 + v41 - 1926607734 + (v43 ^ v42 & (v43 ^ v44)), 20);
       v46 = v45 + __ROL4__(v13 + (v44 ^ v45 ^ v43) - 378558 + v42, 4);
       v47 = v46 + __ROL4__(v43 + (v44 ^ v45 ^ v46) + v92 - 2022574463, 11);
-      v48 = v47 + __ROL4__(v84 + (v45 ^ v46 ^ v47) + 1839030562 + v44, 16);
-      v49 = v48 + __ROL4__(v98 + (v46 ^ v47 ^ v48) - 35309556 + v45, 23);
+      v48 = v47 + __ROL4__(v44 + (v46 ^ v47 ^ v45) + v84 + 1839030562, 16);
+      v49 = v48 + __ROL4__(v45 + (v46 ^ v47 ^ v48) + v98 - 35309556, 23);
       v50 = v49 + __ROL4__(v81 + (v47 ^ v48 ^ v49) - 1530992060 + v46, 4);
       v51 = v50 + __ROL4__(v83 + (v48 ^ v49 ^ v50) + 1272893353 + v47, 11);
       v52 = v51 + __ROL4__(v17 + (v49 ^ v50 ^ v51) - 155497632 + v48, 16);

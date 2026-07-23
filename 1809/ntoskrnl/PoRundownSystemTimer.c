@@ -1,11 +1,11 @@
 /*
- * XREFs of PoRundownSystemTimer @ 0x1406DBCBC
+ * XREFs of PoRundownSystemTimer @ 0x1406DCF5C
  * Callers:
- *     ExTraceTimerResolution @ 0x1406DBC5C (ExTraceTimerResolution.c)
+ *     ExTraceTimerResolution @ 0x1406DCEFC (ExTraceTimerResolution.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN PoRundownSystemTimer()

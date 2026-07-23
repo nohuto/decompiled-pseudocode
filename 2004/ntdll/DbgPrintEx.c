@@ -43,10 +43,10 @@
  *     vDbgPrintExWithPrefixInternal @ 0x1800509A8 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrintEx(int a1, int a2, const char *a3, ...)
+ULONG DbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format, ...)
 {
   va_list va; // [rsp+58h] [rbp+20h] BYREF
 
-  va_start(va, a3);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_180121836, a1, a2, (_DWORD)a3, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, ComponentId, Level, Format, (__int64 *)va, 1);
 }

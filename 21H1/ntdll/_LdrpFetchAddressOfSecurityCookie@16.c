@@ -8,22 +8,27 @@
  *     _RtlImageNtHeaderEx@20 @ 0x4B2BE540 (_RtlImageNtHeaderEx@20.c)
  */
 
-unsigned int __fastcall LdrpFetchAddressOfSecurityCookie(unsigned int a1, int a2, _DWORD *a3, _DWORD *a4)
+unsigned int __fastcall LdrpFetchAddressOfSecurityCookie(PVOID BaseOfImage, int a2, _DWORD *a3, _DWORD *a4)
 {
   _DWORD *Config; // esi
   unsigned int v6; // edi
-  char *v7; // eax
-  unsigned __int16 *v9; // [esp+Ch] [ebp-8h] BYREF
-  int v10; // [esp+10h] [ebp-4h]
+  PIMAGE_SECTION_HEADER v7; // eax
+  void *v9; // [esp+0h] [ebp-14h]
+  ULONG v10; // [esp+4h] [ebp-10h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+Ch] [ebp-8h] BYREF
+  int v12; // [esp+10h] [ebp-4h]
 
-  v10 = a2;
-  RtlImageNtHeaderEx(1, a1, 0, 0, &v9);
-  Config = (_DWORD *)LdrImageDirectoryEntryToLoadConfig(a1);
+  v12 = a2;
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  Config = (_DWORD *)LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
   *a3 = 0;
-  if ( Config && *Config >= 0x48u && (v6 = Config[15], v6 > a1) && v6 < a1 + v10 - 4 )
+  if ( Config
+    && *Config >= 0x48u
+    && (v6 = Config[15], v6 > (unsigned int)BaseOfImage)
+    && v6 < (unsigned int)BaseOfImage + v12 - 4 )
   {
-    v7 = RtlSectionTableFromVirtualAddress(v9, v6 - a1);
-    if ( v7 && *((int *)v7 + 9) >= 0 )
+    v7 = RtlSectionTableFromVirtualAddress((PIMAGE_NT_HEADERS)(v6 - (_DWORD)BaseOfImage), v9, v10);
+    if ( v7 && (v7->Characteristics & 0x80000000) == 0 )
       *a3 = 1;
     if ( a4 )
       *a4 = Config;

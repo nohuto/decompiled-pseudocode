@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationProcess @ 0x1401B84B0
+ * XREFs of ZwQueryInformationProcess @ 0x1401B8610
  * Callers:
- *     BiLogFileOwnerProcess @ 0x1403273F0 (BiLogFileOwnerProcess.c)
+ *     BiLogFileOwnerProcess @ 0x1403275E0 (BiLogFileOwnerProcess.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationProcess(
         HANDLE ProcessHandle,
         PROCESSINFOCLASS ProcessInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&ProcessInformationClass, ProcessInformation);
+  return KiServiceInternal(ProcessHandle);
 }

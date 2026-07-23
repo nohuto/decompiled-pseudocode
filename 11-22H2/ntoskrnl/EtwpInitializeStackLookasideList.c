@@ -6,9 +6,9 @@
  *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
  */
 
-union _SLIST_HEADER *EtwpInitializeStackLookasideList()
+_SLIST_HEADER *EtwpInitializeStackLookasideList()
 {
-  union _SLIST_HEADER *result; // rax
+  _SLIST_HEADER *result; // rax
 
   result = &EtwpStackLookAsideList;
   if ( ((unsigned __int8)&EtwpStackLookAsideList & 0xF) != 0 )

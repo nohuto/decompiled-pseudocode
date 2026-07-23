@@ -18,32 +18,32 @@
  *     PsReferenceEffectiveToken @ 0x14061FA40 (PsReferenceEffectiveToken.c)
  */
 
-__int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3, _BYTE *a4, _BYTE *a5)
+__int64 __fastcall SepDesktopAppxSubProcessToken(PERESOURCE *TokenHandle, __int64 a2, char a3, _BYTE *a4, _BYTE *a5)
 {
   char v8; // r14
-  int PackageClaims; // eax
+  NTSTATUS PackageClaims; // eax
   __int64 v10; // r8
   int v11; // ebx
-  int v12; // eax
+  ULONG Flags; // eax
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v14; // rsi
   _KPROCESS *Process; // rdx
   signed __int64 v16; // rax
   signed __int64 v17; // rtt
   signed __int32 v19[8]; // [rsp+0h] [rbp-100h] BYREF
-  __int64 v20; // [rsp+20h] [rbp-E0h]
-  __int64 v21; // [rsp+28h] [rbp-D8h]
-  __int64 *v22; // [rsp+30h] [rbp-D0h]
-  __int64 v23; // [rsp+38h] [rbp-C8h]
+  PSIZE_T AppIdSize; // [rsp+20h] [rbp-E0h]
+  PGUID DynamicId; // [rsp+28h] [rbp-D8h]
+  PPS_PKG_CLAIM PkgClaim; // [rsp+30h] [rbp-D0h]
+  PULONG64 AttributesPresent; // [rsp+38h] [rbp-C8h]
   char v24; // [rsp+40h] [rbp-C0h] BYREF
   char v25; // [rsp+41h] [rbp-BFh] BYREF
-  __int64 v26; // [rsp+48h] [rbp-B8h] BYREF
-  int v27; // [rsp+50h] [rbp-B0h] BYREF
-  int v28; // [rsp+54h] [rbp-ACh] BYREF
-  int v29; // [rsp+58h] [rbp-A8h] BYREF
+  _PS_PKG_CLAIM v26; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG Type; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ResultDataSize; // [rsp+54h] [rbp-ACh] BYREF
+  int Data; // [rsp+58h] [rbp-A8h] BYREF
   int v30; // [rsp+5Ch] [rbp-A4h] BYREF
   __int64 v31; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v32; // [rsp+68h] [rbp-98h] BYREF
+  _PS_PKG_CLAIM v32; // [rsp+68h] [rbp-98h] BYREF
   _DWORD v33[2]; // [rsp+70h] [rbp-90h] BYREF
   int *v34; // [rsp+78h] [rbp-88h]
   int v35[4]; // [rsp+80h] [rbp-80h] BYREF
@@ -61,7 +61,7 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
   __int64 v47; // [rsp+100h] [rbp+0h]
 
   v37 = L"WIN://SYSAPPID";
-  v23 = 0LL;
+  AttributesPresent = 0LL;
   v39 = 0LL;
   *a4 = 0;
   v41 = L"WIN://PKG";
@@ -72,9 +72,9 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
   v32 = 0LL;
   v47 = 0LL;
   v24 = 0;
-  v22 = &v26;
-  v21 = 0LL;
-  v20 = 0LL;
+  PkgClaim = &v26;
+  DynamicId = 0LL;
+  AppIdSize = 0LL;
   v8 = 0;
   v36 = 1966108;
   v38 = 0LL;
@@ -82,13 +82,13 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
   v42 = 0LL;
   v44 = 2097182;
   v46 = 0LL;
-  v27 = 0;
-  v28 = 0;
-  v29 = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
   v30 = 0;
   v25 = 0;
   *a5 = 0;
-  PackageClaims = RtlQueryPackageClaims(a1, 0LL, 0LL, 0LL, v20, v21, v22, v23);
+  PackageClaims = RtlQueryPackageClaims(TokenHandle, 0LL, 0LL, 0LL, AppIdSize, DynamicId, PkgClaim, AttributesPresent);
   v11 = PackageClaims;
   if ( PackageClaims < 0 )
   {
@@ -96,10 +96,10 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
       return (unsigned int)v11;
     v11 = 0;
   }
-  v12 = v26;
-  if ( (v26 & 4) == 0 )
+  Flags = v26.Flags;
+  if ( (v26.Flags & 4) == 0 )
   {
-    if ( (v26 & 0x10000) != 0 )
+    if ( (v26.Flags & 0x10000) != 0 )
       goto LABEL_17;
     v14 = PsReferenceEffectiveToken(
             (unsigned int)KeGetCurrentThread(),
@@ -107,14 +107,14 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
             (unsigned int)&v25,
             (unsigned int)&v31,
             0LL);
-    v11 = RtlQueryPackageClaims(v14, 0LL, 0LL, 0LL, 0LL, 0LL, &v32, 0LL);
+    v11 = RtlQueryPackageClaims((HANDLE)v14, 0LL, 0LL, 0LL, 0LL, 0LL, &v32, 0LL);
     if ( v11 < 0 )
     {
       if ( v11 != -1073741275 )
         goto LABEL_34;
       v11 = 0;
     }
-    if ( (v32 & 0x10004) != 0 )
+    if ( (v32.Flags & 0x10004) != 0 )
       *a4 = 1;
 LABEL_34:
     if ( v14 )
@@ -142,37 +142,37 @@ LABEL_34:
   }
   if ( (a3 & 3) == 3 )
     return (unsigned int)-1073741811;
-  if ( (a3 & 1) != 0 && (v26 & 0x20) != 0 )
+  if ( (a3 & 1) != 0 && (v26.Flags & 0x20) != 0 )
   {
-    v11 = SepDesktopAppModifyTokenBreakaway(a1, &v26, 0LL);
+    v11 = SepDesktopAppModifyTokenBreakaway(TokenHandle, &v26, 0LL);
     if ( v11 < 0 )
       return (unsigned int)v11;
-    v12 = v26;
+    Flags = v26.Flags;
   }
-  if ( (a3 & 6) != 0 || (v12 & 0x20) != 0 )
+  if ( (a3 & 6) != 0 || (Flags & 0x20) != 0 )
   {
-    if ( (a3 & 2) != 0 && (v12 & 0x20) == 0 )
+    if ( (a3 & 2) != 0 && (Flags & 0x20) == 0 )
     {
       LOBYTE(v10) = 1;
-      v11 = SepDesktopAppModifyTokenBreakaway(a1, &v26, v10);
+      v11 = SepDesktopAppModifyTokenBreakaway(TokenHandle, &v26, v10);
       if ( v11 < 0 )
         return (unsigned int)v11;
     }
-    if ( (unsigned __int8)SepVerifyDesktopAppPolicyOverrideCaller(a1) )
+    if ( (unsigned __int8)SepVerifyDesktopAppPolicyOverrideCaller(TokenHandle) )
     {
 LABEL_17:
       *a5 = 1;
       return (unsigned int)v11;
     }
-    v12 = v26;
+    Flags = v26.Flags;
   }
-  if ( BYTE4(v26) == 3 && (v12 & 0x22000) == 0 )
+  if ( LOBYTE(v26.Origin) == 3 && (Flags & 0x22000) == 0 )
   {
     v8 = 1;
-    if ( (int)ZwQueryLicenseValue(a02, &v27, &v29, 4LL, &v28) >= 0 && v27 == 4 && v28 == 4 )
-      v8 = v29 != 1;
+    if ( ZwQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) >= 0 && Type == 4 && ResultDataSize == 4 )
+      v8 = Data != 1;
   }
-  v11 = SepVerifyDesktopAppxImage(v31, a1, v8, &v24);
+  v11 = SepVerifyDesktopAppxImage(v31, (__int64)TokenHandle, v8, &v24);
   if ( v11 >= 0 )
   {
     if ( !v24 )
@@ -191,12 +191,12 @@ LABEL_17:
       CurrentThread = KeGetCurrentThread();
       v33[0] = 1;
       --CurrentThread->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 48), 1u);
+      ExAcquireResourceExclusiveLite(TokenHandle[6], 1u);
       _InterlockedOr(v19, 0);
-      v11 = AuthzBasepSetSecurityAttributesToken(*(_DWORD **)(a1 + 776), v35, (__int64)v33);
-      *(_QWORD *)(a1 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+      v11 = AuthzBasepSetSecurityAttributesToken(TokenHandle[97], v35, (__int64)v33);
+      TokenHandle[7] = (PERESOURCE)(ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement));
       _InterlockedOr(v19, 0);
-      ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
+      ExReleaseResourceLite(TokenHandle[6]);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       *a4 = 1;
       return (unsigned int)v11;

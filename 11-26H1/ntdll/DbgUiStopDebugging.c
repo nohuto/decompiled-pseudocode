@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgUiStopDebugging @ 0x1801394C0
+ * XREFs of DbgUiStopDebugging @ 0x180139230
  * Callers:
- *     DbgUiDebugActiveProcess @ 0x180139270 (DbgUiDebugActiveProcess.c)
+ *     DbgUiDebugActiveProcess @ 0x180138FE0 (DbgUiDebugActiveProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DbgUiStopDebugging(__int64 a1)
+NTSTATUS __cdecl DbgUiStopDebugging(HANDLE Process)
 {
-  return ZwRemoveProcessDebug(a1, NtCurrentTeb()->DbgSsReserved[1]);
+  return ZwRemoveProcessDebug(Process, NtCurrentTeb()->DbgSsReserved[1]);
 }

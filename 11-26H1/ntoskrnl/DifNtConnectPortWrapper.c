@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtConnectPortWrapper @ 0x14066F3C0
+ * XREFs of DifNtConnectPortWrapper @ 0x140672FA0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtConnectPort @ 0x1408E5C70 (NtConnectPort.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtConnectPort @ 0x1408EC230 (NtConnectPort.c)
  */
 
 __int64 __fastcall DifNtConnectPortWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+        HANDLE *a1,
+        UNICODE_STRING *a2,
+        struct _SECURITY_QUALITY_OF_SERVICE *a3,
+        _PORT_VIEW *a4,
+        _REMOTE_PORT_VIEW *ServerView,
+        ULONG *MaxMessageLength,
+        PVOID ConnectionInformation,
+        ULONG *ConnectionInformationLength)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -56,10 +56,10 @@ __int64 __fastcall DifNtConnectPortWrapper(
 LABEL_7:
   v16 = 0;
   v22[8] = a1;
-  v22[4] = a5;
-  v22[3] = a6;
-  v22[2] = a7;
-  v22[1] = a8;
+  v22[4] = ServerView;
+  v22[3] = MaxMessageLength;
+  v22[2] = ConnectionInformation;
+  v22[1] = ConnectionInformationLength;
   v22[7] = a2;
   v22[6] = a3;
   v22[5] = a4;
@@ -75,7 +75,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v23 = NtConnectPort(a1, a2, a3, a4, a5, a6, a7, a8);
+  v23 = NtConnectPort(a1, a2, a3, a4, ServerView, MaxMessageLength, ConnectionInformation, ConnectionInformationLength);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindContiguousPagesPrepare @ 0x14028F3C8
+ * XREFs of MiFindContiguousPagesPrepare @ 0x14028E928
  * Callers:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
  * Callees:
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
  */
 
 __int64 __fastcall MiFindContiguousPagesPrepare(__int64 **a1)

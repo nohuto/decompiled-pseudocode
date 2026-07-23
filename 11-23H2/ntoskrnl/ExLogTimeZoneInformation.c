@@ -1,12 +1,12 @@
 /*
- * XREFs of ExLogTimeZoneInformation @ 0x1403B0B20
+ * XREFs of ExLogTimeZoneInformation @ 0x1403B0D00
  * Callers:
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int ExLogTimeZoneInformation()
@@ -67,7 +67,7 @@ int ExLogTimeZoneInformation()
   v1 = &PspHostSiloGlobals;
   if ( CurrentServerSilo )
     v1 = *(_QWORD **)(CurrentServerSilo + 1488);
-  if ( (unsigned int)dword_140C06798 > 5 )
+  if ( (unsigned int)dword_140C06790 > 5 )
   {
     v2 = v1[157];
     v20 = 0;
@@ -116,8 +116,8 @@ int ExLogTimeZoneInformation()
     v41 = 4;
     v44 = 4;
     LODWORD(CurrentServerSilo) = tlgWriteTransfer_EtwWriteTransfer(
-                                   (__int64)&dword_140C06798,
-                                   (unsigned __int8 *)byte_140035FAB,
+                                   (__int64)&dword_140C06790,
+                                   (unsigned __int8 *)&byte_14003632F,
                                    0LL,
                                    0LL,
                                    0xEu,

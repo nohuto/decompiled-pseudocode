@@ -35,7 +35,7 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   __int64 v22; // [rsp+50h] [rbp-B8h] BYREF
   __int64 v23; // [rsp+58h] [rbp-B0h] BYREF
   _BYTE v24[24]; // [rsp+60h] [rbp-A8h] BYREF
-  char v25[32]; // [rsp+78h] [rbp-90h] BYREF
+  _EVENT_DATA_DESCRIPTOR v25; // [rsp+78h] [rbp-90h] BYREF
   void **v26; // [rsp+98h] [rbp-70h]
   __int64 v27; // [rsp+A0h] [rbp-68h]
   _DWORD *v28; // [rsp+A8h] [rbp-60h]
@@ -73,11 +73,7 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   __int64 v60; // [rsp+1A0h] [rbp+98h]
   PVOID BackTrace[32]; // [rsp+288h] [rbp+180h] BYREF
 
-  RtlRunOnceExecuteOnce(
-    &CastGuardTelemetryInitRunOnce,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))CastGuardTelemetryInitOnce,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&CastGuardTelemetryInitRunOnce, (PRTL_RUN_ONCE_INIT_FN)CastGuardTelemetryInitOnce, 0LL, 0LL);
   ImageBaseAddress = NtCurrentPeb()->ImageBaseAddress;
   v3 = RtlCaptureStackBackTrace(1u, 0x20u, BackTrace, &BackTraceHash);
   v4 = v3;
@@ -155,11 +151,11 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
       v56 = 8LL;
       LOBYTE(v3) = tlgWriteTransfer_EtwEventWriteTransfer(
                      (__int64)&dword_18017E990,
-                     byte_18014AB14,
+                     (unsigned __int8 *)dword_18014AB14,
                      v6,
                      v7,
-                     17,
-                     (__int64)v25);
+                     0x11u,
+                     &v25);
     }
   }
   return v3;

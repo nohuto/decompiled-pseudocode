@@ -56,90 +56,86 @@
  *     ZwWaitForAlertByThreadId @ 0x1800A8B30 (ZwWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall RtlAcquireSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
-  signed __int64 v3; // rbx
-  signed __int64 v4; // rcx
-  bool v5; // cl
-  char *v6; // rdx
-  bool v7; // zf
-  signed __int64 v8; // rax
+  signed __int64 Ptr; // rbx
+  signed __int64 v3; // rcx
+  bool v4; // cl
+  char *v5; // rdx
+  bool v6; // zf
+  signed __int64 v7; // rax
   int i; // ecx
-  unsigned __int64 v11; // [rsp+20h] [rbp-48h] BYREF
-  unsigned __int64 *v12; // [rsp+28h] [rbp-40h]
-  __int64 v13; // [rsp+30h] [rbp-38h]
+  unsigned __int64 v10; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 *v11; // [rsp+28h] [rbp-40h]
+  __int64 v12; // [rsp+30h] [rbp-38h]
   HANDLE UniqueThread; // [rsp+38h] [rbp-30h]
-  int v15; // [rsp+40h] [rbp-28h]
-  signed __int32 v16[9]; // [rsp+44h] [rbp-24h] BYREF
-  int v17; // [rsp+70h] [rbp+8h] BYREF
+  int v14; // [rsp+40h] [rbp-28h]
+  signed __int32 v15[9]; // [rsp+44h] [rbp-24h] BYREF
+  int v16; // [rsp+70h] [rbp+8h] BYREF
 
-  v17 = 0;
-  result = _InterlockedCompareExchange64(a1, 17LL, 0LL);
-  v3 = result;
-  if ( result )
+  v16 = 0;
+  Ptr = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 17LL, 0LL);
+  if ( Ptr )
   {
     while ( 1 )
     {
-      if ( (v3 & 1) != 0 && ((v3 & 2) != 0 || (v3 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+      if ( (Ptr & 1) != 0 && ((Ptr & 2) != 0 || (Ptr & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
       {
         if ( sub_18000BFBC() )
-          ZwTerminateProcess(-1LL, 3221225547LL);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
         UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-        v5 = 0;
-        v16[0] = 2;
-        v13 = 0LL;
-        if ( (v3 & 2) != 0 )
+        v4 = 0;
+        v15[0] = 2;
+        v12 = 0LL;
+        if ( (Ptr & 2) != 0 )
         {
-          v12 = 0LL;
-          v15 = -1;
-          v11 = v3 & 0xFFFFFFFFFFFFFFF0uLL;
-          v6 = (char *)((unsigned __int64)&v11 | v3 & 8 | 7);
-          v5 = (v3 & 4) == 0;
+          v11 = 0LL;
+          v14 = -1;
+          v10 = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+          v5 = (char *)((unsigned __int64)&v10 | Ptr & 8 | 7);
+          v4 = (Ptr & 4) == 0;
         }
         else
         {
-          v15 = -2;
-          v12 = &v11;
-          v6 = (char *)&v11 + 3;
+          v14 = -2;
+          v11 = &v10;
+          v5 = (char *)&v10 + 3;
         }
-        v8 = _InterlockedCompareExchange64(a1, (signed __int64)v6, v3);
-        v7 = v3 == v8;
-        v3 = v8;
-        if ( !v7 )
+        v7 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, (signed __int64)v5, Ptr);
+        v6 = Ptr == v7;
+        Ptr = v7;
+        if ( !v6 )
           goto LABEL_23;
-        if ( v5 )
-          sub_1800774C8(a1);
+        if ( v4 )
+          sub_1800774C8(SRWLock);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
           for ( i = dword_180159D60; i; --i )
           {
-            if ( (v16[0] & 2) == 0 )
+            if ( (v15[0] & 2) == 0 )
               break;
             _mm_pause();
           }
         }
-        if ( _interlockedbittestandreset(v16, 1u) )
+        if ( _interlockedbittestandreset(v15, 1u) )
         {
           do
-            ZwWaitForAlertByThreadId(a1, 0LL);
-          while ( (v16[0] & 4) == 0 );
+            ZwWaitForAlertByThreadId(SRWLock, 0LL);
+          while ( (v15[0] & 4) == 0 );
         }
       }
       else
       {
-        v4 = v3 | 1;
-        if ( (v3 & 2) == 0 )
-          v4 += 16LL;
-        result = _InterlockedCompareExchange64(a1, v4, v3);
-        if ( v3 == result )
-          return result;
+        v3 = Ptr | 1;
+        if ( (Ptr & 2) == 0 )
+          v3 += 16LL;
+        if ( Ptr == _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v3, Ptr) )
+          return;
 LABEL_23:
-        sub_1800662B0(&v17);
-        _m_prefetchw((const void *)a1);
-        v3 = *a1;
+        sub_1800662B0(&v16);
+        _m_prefetchw(SRWLock);
+        Ptr = (signed __int64)SRWLock->Ptr;
       }
     }
   }
-  return result;
 }

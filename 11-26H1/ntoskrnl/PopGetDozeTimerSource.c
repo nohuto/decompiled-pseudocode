@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGetDozeTimerSource @ 0x14060CAA8
+ * XREFs of PopGetDozeTimerSource @ 0x14060FC08
  * Callers:
- *     PopWnfAudioCallback @ 0x140946B50 (PopWnfAudioCallback.c)
+ *     PopWnfAudioCallback @ 0x1409C24C0 (PopWnfAudioCallback.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 PopGetDozeTimerSource()
@@ -13,9 +13,9 @@ __int64 PopGetDozeTimerSource()
   KIRQL v1; // al
 
   v0 = 0;
-  v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  if ( BYTE4(stru_140F0F620.SchedulerAssistLastYieldBoostTime) )
-    v0 = stru_140F0F620.Padding[0];
-  KeReleaseSpinLock(&PopIdleAoAcDozeS4Lock, v1);
+  v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopPdcDeviceListLock.SystemAffinityTokenListHead);
+  if ( byte_140F10354 )
+    v0 = dword_140F10358;
+  KeReleaseSpinLock((PKSPIN_LOCK)&PopPdcDeviceListLock.SystemAffinityTokenListHead, v1);
   return v0;
 }

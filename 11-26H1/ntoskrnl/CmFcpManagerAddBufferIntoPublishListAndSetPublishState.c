@@ -1,8 +1,8 @@
 /*
- * XREFs of CmFcpManagerAddBufferIntoPublishListAndSetPublishState @ 0x140ABFA00
+ * XREFs of CmFcpManagerAddBufferIntoPublishListAndSetPublishState @ 0x140AC1AA0
  * Callers:
- *     CmFcpManagerPublishFeatureUsageData @ 0x140ABF83C (CmFcpManagerPublishFeatureUsageData.c)
- *     CmFcManagerStartRuntimePhase @ 0x140CF0AF0 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcpManagerPublishFeatureUsageData @ 0x140AC18DC (CmFcpManagerPublishFeatureUsageData.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140CF6E68 (CmFcManagerStartRuntimePhase.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ bool __fastcall CmFcpManagerAddBufferIntoPublishListAndSetPublishState(__int64 a
   _QWORD *v5; // r8
   bool result; // al
 
-  v2 = *(_DWORD *)(a1 + 1744);
-  v3 = (_QWORD *)(a1 + 1360);
+  v2 = *(_DWORD *)(a1 + 1816);
+  v3 = (_QWORD *)(a1 + 1432);
   *(_DWORD *)(a2 + 24) = (v2 & 0xFFFFFFE3 | 4) >> 2;
   v4 = (_QWORD *)v3[1];
   v5 = (_QWORD *)*v3;

@@ -1,23 +1,23 @@
 /*
- * XREFs of NtMapUserPhysicalPages @ 0x14065D72C
+ * XREFs of NtMapUserPhysicalPages @ 0x14065D810
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14008BE60 (ExReleaseAutoExpandPushLockShared.c)
- *     MiInitializeTbFlushList @ 0x1400B5A30 (MiInitializeTbFlushList.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1400C7740 (ExAcquireAutoExpandPushLockShared.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1AF8 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiLocatePhysicalViewInTree @ 0x1401F015C (MiLocatePhysicalViewInTree.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14008B5C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     MiInitializeTbFlushList @ 0x1400B3858 (MiInitializeTbFlushList.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1400C55E0 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1924 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiLocatePhysicalViewInTree @ 0x1401EFF88 (MiLocatePhysicalViewInTree.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiCaptureUlongPtrArray @ 0x14065C1E0 (MiCaptureUlongPtrArray.c)
+ *     MiCaptureUlongPtrArray @ 0x14065C2C4 (MiCaptureUlongPtrArray.c)
  */
 
 NTSTATUS __stdcall NtMapUserPhysicalPages(PVOID VirtualAddresses, ULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
@@ -94,7 +94,7 @@ NTSTATUS __stdcall NtMapUserPhysicalPages(PVOID VirtualAddresses, ULONG_PTR Numb
   PteAddress = (volatile __int64 *)MiGetPteAddress(v6);
   v40 = (char *)PteAddress + v12;
   CurrentThread = KeGetCurrentThread();
-  v13 = qword_1403A9360 & 0xFFFFFFFFFFFFFF7FuLL | ((unsigned __int64)(HIBYTE(word_140326AA8) & 1) << 8) | 0xFFFFFFFFF067LL;
+  v13 = qword_1403A9360 & 0xFFFFFFFFFFFFFF7FuLL | ((unsigned __int64)(HIBYTE(word_140326AE8) & 1) << 8) | 0xFFFFFFFFF067LL;
   MiInitializeTbFlushList((__int64)v42, 1, 20);
   v16 = *(_QWORD *)(v15 + 1032);
   v41 = v16;
@@ -134,7 +134,7 @@ LABEL_50:
       v21 = &v9[v37 / 8];
       v22 = *v18;
       v23 = (const signed __int64 *)v18[1];
-      v24 = (unsigned __int64)qword_140326A88 >> 3;
+      v24 = (unsigned __int64)qword_140326AC8 >> 3;
       v25 = (char *)&v9[v37 / 8] - (char *)v8;
       while ( 1 )
       {

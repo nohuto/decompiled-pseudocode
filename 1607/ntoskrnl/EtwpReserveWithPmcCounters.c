@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpReserveWithPmcCounters @ 0x140226E18
+ * XREFs of EtwpReserveWithPmcCounters @ 0x140226C44
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwTraceContextSwap @ 0x1400D6460 (EtwTraceContextSwap.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwTraceContextSwap @ 0x1400D4300 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpMarkLockTryAcquired @ 0x1405281C8 (CmpMarkLockTryAcquired.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpMarkLockTryAcquired @ 0x140528708 (CmpMarkLockTryAcquired.c)
  */
 
 unsigned __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __int64 a4, _QWORD *a5, int a6)

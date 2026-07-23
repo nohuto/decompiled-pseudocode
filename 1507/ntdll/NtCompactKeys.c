@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCompactKeys()
+NTSTATUS __cdecl NtCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 148LL;
+  result = 148;
   __asm { syscall; Low latency system call }
   return result;
 }

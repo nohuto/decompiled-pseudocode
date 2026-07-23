@@ -1,28 +1,28 @@
 /*
- * XREFs of PsCreateMinimalProcess @ 0x14057E30C
+ * XREFs of PsCreateMinimalProcess @ 0x14057E7B8
  * Callers:
- *     SmFirstTimeInit @ 0x1403E3814 (SmFirstTimeInit.c)
- *     PspCreateProcess @ 0x1404EB990 (PspCreateProcess.c)
- *     PspCreatePicoProcess @ 0x1406815A4 (PspCreatePicoProcess.c)
+ *     SmFirstTimeInit @ 0x1403E4E40 (SmFirstTimeInit.c)
+ *     PspCreateProcess @ 0x1404CDA18 (PspCreateProcess.c)
+ *     PspCreatePicoProcess @ 0x140681688 (PspCreatePicoProcess.c)
  *     PspInitPhase3 @ 0x1407BD288 (PspInitPhase3.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1400CD1BC (KeUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeKvaShadowingActive @ 0x1401D8DB4 (KeKvaShadowingActive.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
- *     PspCreateObjectHandle @ 0x140516ED4 (PspCreateObjectHandle.c)
- *     DbgkCreateMinimalProcess @ 0x14057E530 (DbgkCreateMinimalProcess.c)
- *     MmSynchronizeAddressPolicy @ 0x14065BF18 (MmSynchronizeAddressPolicy.c)
- *     PspSetMinimalProcessName @ 0x140681AEC (PspSetMinimalProcessName.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1400CB05C (KeUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeKvaShadowingActive @ 0x1401D8BE0 (KeKvaShadowingActive.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
+ *     PspCreateObjectHandle @ 0x1404FA2C4 (PspCreateObjectHandle.c)
+ *     DbgkCreateMinimalProcess @ 0x14057E9DC (DbgkCreateMinimalProcess.c)
+ *     MmSynchronizeAddressPolicy @ 0x14065BFFC (MmSynchronizeAddressPolicy.c)
+ *     PspSetMinimalProcessName @ 0x140681BD0 (PspSetMinimalProcessName.c)
  */
 
 __int64 __fastcall PsCreateMinimalProcess(
@@ -96,7 +96,7 @@ __int64 __fastcall PsCreateMinimalProcess(
                  (struct _SECURITY_SUBJECT_CONTEXT *)AccessState);
     if ( inserted >= 0 )
     {
-      DbgkCreateMinimalProcess((ULONG_PTR)v14);
+      DbgkCreateMinimalProcess(v14);
       *(_DWORD *)&AccessState[384] |= 0x200u;
       inserted = PspCreateObjectHandle(v14, (__int64)AccessState, (struct _OBJECT_TYPE *)PsProcessType);
       if ( inserted >= 0 )

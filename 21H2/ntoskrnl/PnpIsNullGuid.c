@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpIsNullGuid @ 0x1406E76C0
+ * XREFs of PnpIsNullGuid @ 0x1406FEAA0
  * Callers:
- *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x140730420 (PiDevCfgResetDeviceDriverSettings.c)
- *     PiDevCfgFindDeviceDriver @ 0x14073BD08 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x14073D468 (PiDevCfgBuildDriverConfigurationId.c)
- *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
- *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqIrpQueryCreate @ 0x14062413C (PiDqIrpQueryCreate.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x1407305EC (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgFindDeviceDriver @ 0x14073BEC8 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x14073D628 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgConfigureDevice @ 0x140742FE0 (PiDevCfgConfigureDevice.c)
+ *     IopRegisterDeviceInterface @ 0x140748630 (IopRegisterDeviceInterface.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1407632E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
  */
 
 bool __fastcall PnpIsNullGuid(void *Source2)

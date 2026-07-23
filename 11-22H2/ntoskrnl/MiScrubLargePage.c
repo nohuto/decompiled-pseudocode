@@ -116,10 +116,10 @@ __int64 __fastcall MiScrubLargePage(__int64 a1, ULONG_PTR a2, unsigned int a3)
   {
     MiRemoveFaultNode((__int64)v65);
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -213,10 +213,10 @@ LABEL_42:
   v27 = (volatile signed __int64 *)(v8 + 24);
   v64 = v8 + 24;
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v10 <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v10 <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;
@@ -251,10 +251,10 @@ LABEL_42:
     if ( BYTE6(v65[8]) || v70 || v35 < 0 )
       break;
     _InterlockedAnd64(v27, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v36 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v36 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v36 >= 2u )
       {
         v37 = KeGetCurrentPrcb();
         v38 = v37->SchedulerAssist;
@@ -276,10 +276,10 @@ LABEL_42:
   if ( !v54 )
     MiPageListCollision(v56, 0, 0);
   _InterlockedAnd64(v27, 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v40 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v40 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v40 >= 2u )
     {
       v41 = KeGetCurrentPrcb();
       v42 = v41->SchedulerAssist;
@@ -300,10 +300,10 @@ LABEL_75:
     if ( !BYTE6(v65[8]) )
       MiPageListCollision(v56, 0, 0);
     _InterlockedAnd64(v27, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v46 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v45 <= 0xFu && v46 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v45 <= 0xFu && v46 >= 2u )
       {
         v47 = KeGetCurrentPrcb();
         v48 = v47->SchedulerAssist;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValue @ 0x14015CF20
+ * XREFs of ZwSetSystemEnvironmentValue @ 0x14015D490
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING Value)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(VariableName, Value, v2);
+  return KiServiceInternal(VariableName);
 }

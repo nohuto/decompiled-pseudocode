@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x14089FBD4
+ * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x1408A0E34
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1405BB7A8 (SepAdtAuditObjectAccessWithContext.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1406BCD70 (SeAuditHandleCreation.c)
- *     SeOperationAuditAlarm @ 0x14089DA34 (SeOperationAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140597850 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1405BC7A8 (SepAdtAuditObjectAccessWithContext.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     SeAuditHandleCreation @ 0x1406BE010 (SeAuditHandleCreation.c)
+ *     SeOperationAuditAlarm @ 0x14089EC94 (SeOperationAuditAlarm.c)
  * Callees:
  *     SepAuditingEnabledForSubcategory @ 0x1400131C0 (SepAuditingEnabledForSubcategory.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     SepIsRemovableStorageDevice @ 0x1408A3BE4 (SepIsRemovableStorageDevice.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     SepIsRemovableStorageDevice @ 0x1408A4E44 (SepIsRemovableStorageDevice.c)
  */
 
 __int64 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, const UNICODE_STRING *a2, char a3, char a4)

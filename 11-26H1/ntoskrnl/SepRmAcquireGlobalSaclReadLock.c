@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRmAcquireGlobalSaclReadLock @ 0x1402C5B28
+ * XREFs of SepRmAcquireGlobalSaclReadLock @ 0x1403107C4
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x1402C5A70 (SepExamineGlobalSaclEx.c)
- *     SepRmGlobalSaclFind @ 0x140A906C0 (SepRmGlobalSaclFind.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x140AB6258 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepExamineGlobalSaclEx @ 0x14031070C (SepExamineGlobalSaclEx.c)
+ *     SepRmGlobalSaclFind @ 0x140A95210 (SepRmGlobalSaclFind.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140AB75F8 (SeMaximumAuditMaskFromGlobalSacl.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN SepRmAcquireGlobalSaclReadLock()
@@ -14,5 +14,5 @@ BOOLEAN SepRmAcquireGlobalSaclReadLock()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  return ExAcquireResourceSharedLite(&SepRmGlobalSaclLock, 1u);
+  return ExAcquireResourceSharedLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime, 1u);
 }

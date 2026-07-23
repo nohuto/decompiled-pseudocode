@@ -58,7 +58,7 @@ __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsi
   int v41; // [rsp+6Ch] [rbp-18Ch]
   void *v42; // [rsp+70h] [rbp-188h]
   __int64 v43; // [rsp+78h] [rbp-180h]
-  __int64 v44[2]; // [rsp+80h] [rbp-178h] BYREF
+  LARGE_INTEGER v44[2]; // [rsp+80h] [rbp-178h] BYREF
   _DWORD *v45; // [rsp+90h] [rbp-168h]
   __int128 v46; // [rsp+98h] [rbp-160h] BYREF
   __int64 v47; // [rsp+A8h] [rbp-150h]
@@ -73,7 +73,7 @@ __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsi
   v30[0] = 0;
   v33 = 0LL;
   v31 = 0;
-  v44[0] = 0LL;
+  v44[0].QuadPart = 0LL;
   v7 = a1;
   v34 = a1;
   if ( a5 )
@@ -86,7 +86,7 @@ __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsi
     return 3221225480LL;
   v10 = EtwpOpenLogger(v7, v8, a5, v30);
   v11 = v10;
-  v44[1] = v10;
+  v44[1].QuadPart = v10;
   if ( !v10 )
     return 3221225480LL;
   v45 = (_DWORD *)(v10 + 12);
@@ -173,7 +173,7 @@ LABEL_37:
       v8 = v38;
       CurrentThread = KeGetCurrentThread();
       *(_DWORD *)v21 = a4 | v33;
-      *((_QWORD *)v21 + 2) = v44[0];
+      *((LARGE_INTEGER *)v21 + 2) = v44[0];
       *((_DWORD *)v21 + 10) = CurrentThread->SchedulerApc.SpareLong0;
       *((_DWORD *)v21 + 11) = CurrentThread->UserTime;
       *((_DWORD *)v21 + 2) = CurrentThread[1].CurrentRunTime;

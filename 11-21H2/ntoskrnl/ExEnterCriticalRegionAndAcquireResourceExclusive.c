@@ -1,10 +1,10 @@
 /*
  * XREFs of ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1402AEE80
  * Callers:
- *     DifExEnterCriticalRegionAndAcquireResourceExclusiveWrapper @ 0x140608070 (DifExEnterCriticalRegionAndAcquireResourceExclusiveWrapper.c)
+ *     sub_140608070 @ 0x140608070 (sub_140608070.c)
  * Callees:
- *     ExpAcquireResourceExclusiveLite @ 0x1402AE9D0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpFastResourceLegacyAcquireExclusive @ 0x14039BA38 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     sub_1402AE9D0 @ 0x1402AE9D0 (sub_1402AE9D0.c)
+ *     sub_14039BA38 @ 0x14039BA38 (sub_14039BA38.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -16,7 +16,7 @@ PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceExclusive(PERESOURCE Reso
   struct _KTHREAD *v5; // r8
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   Flag = Resource->Flag;
   if ( (Flag & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
@@ -26,15 +26,15 @@ PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceExclusive(PERESOURCE Reso
     v5 = KeGetCurrentThread();
     if ( CurrentIrql > 1u )
       KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-    if ( (v5->ApcState.InProgressFlags & 2) != 0 )
+    if ( (*((_BYTE *)v5 + 192) & 2) != 0 )
       KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-    if ( !CurrentIrql && (v5->MiscFlags & 0x400) == 0 && !v5->WaitBlock[3].SpareLong )
+    if ( !CurrentIrql && (*((_DWORD *)v5 + 29) & 0x400) == 0 && !*((_DWORD *)v5 + 121) )
       KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-    ExpFastResourceLegacyAcquireExclusive((ULONG_PTR)Resource);
+    sub_14039BA38((ULONG_PTR)Resource);
   }
   else
   {
-    ExpAcquireResourceExclusiveLite((__int64)Resource, 1);
+    sub_1402AE9D0((__int64)Resource, 1);
   }
-  return KeGetCurrentThread()->WaitBlock[2].SparePtr;
+  return (PVOID)*((_QWORD *)KeGetCurrentThread() + 57);
 }

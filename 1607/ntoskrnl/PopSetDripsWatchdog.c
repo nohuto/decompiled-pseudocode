@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSetDripsWatchdog @ 0x1406756C4
+ * XREFs of PopSetDripsWatchdog @ 0x1406757A8
  * Callers:
- *     PdcPoResiliencyClient @ 0x14066FC04 (PdcPoResiliencyClient.c)
- *     PopDripsWatchdogWorkerRoutine @ 0x1406754AC (PopDripsWatchdogWorkerRoutine.c)
+ *     PdcPoResiliencyClient @ 0x14066FCE8 (PdcPoResiliencyClient.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x140675590 (PopDripsWatchdogWorkerRoutine.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     PopCalculateIdleInformation @ 0x140207954 (PopCalculateIdleInformation.c)
- *     PopAcquireDripsWatchdogLock @ 0x140675074 (PopAcquireDripsWatchdogLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     PopCalculateIdleInformation @ 0x140207780 (PopCalculateIdleInformation.c)
+ *     PopAcquireDripsWatchdogLock @ 0x140675158 (PopAcquireDripsWatchdogLock.c)
  */
 
 __int64 PopSetDripsWatchdog()
@@ -27,30 +27,30 @@ __int64 PopSetDripsWatchdog()
   if ( PopDripsWatchdog )
   {
     PopAcquireDripsWatchdogLock();
-    qword_140329B68 = 0LL;
+    qword_140329BA8 = 0LL;
     v0 = MEMORY[0xFFFFF78000000008];
-    if ( !qword_140329B60 )
+    if ( !qword_140329BA0 )
     {
-      qword_140329B60 = MEMORY[0xFFFFF78000000008];
+      qword_140329BA0 = MEMORY[0xFFFFF78000000008];
       PopCalculateIdleInformation((__int64)v6);
-      qword_140329B48 = v7;
-      dword_140329B38 = v8;
-      dword_140329B3C = v9;
+      qword_140329B88 = v7;
+      dword_140329B78 = v8;
+      dword_140329B7C = v9;
     }
-    if ( !qword_140329B50 )
+    if ( !qword_140329B90 )
     {
-      dword_140329B40 = unk_1403036A4;
-      qword_140329B50 = v0;
+      dword_140329B80 = unk_1403035E4;
+      qword_140329B90 = v0;
     }
-    if ( !qword_140329B58 )
-      qword_140329B58 = v0;
-    if ( !qword_140329B70 )
-      qword_140329B70 = qword_1403288A8;
-    qword_140329B78 = 0LL;
+    if ( !qword_140329B98 )
+      qword_140329B98 = v0;
+    if ( !qword_140329BB0 )
+      qword_140329BB0 = qword_1403288E8;
+    qword_140329BB8 = 0LL;
     v5[1] = -1LL;
     v5[0] = 0LL;
-    KeSetTimer2((__int64)&unk_140329C00, -10000000LL * (unsigned int)PopDripsWatchdog, 0LL, (__int64)v5);
-    ExReleaseResourceLite(&stru_140329B98);
+    KeSetTimer2((__int64)&unk_140329C40, -10000000LL * (unsigned int)PopDripsWatchdog, 0LL, (__int64)v5);
+    ExReleaseResourceLite(&stru_140329BD8);
     return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v1, v2, v3);
   }
   return result;

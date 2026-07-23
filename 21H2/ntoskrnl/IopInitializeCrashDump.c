@@ -1,17 +1,17 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x1407B77E8
+ * XREFs of IopInitializeCrashDump @ 0x1407B7D08
  * Callers:
- *     IoConfigureCrashDump @ 0x1403BFE04 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x1407B7754 (IoInitializeCrashDump.c)
- *     IopInitCrashDumpRegCallback @ 0x140A67640 (IopInitCrashDumpRegCallback.c)
+ *     IoConfigureCrashDump @ 0x1403C0230 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x1407B7C74 (IoInitializeCrashDump.c)
+ *     IopInitCrashDumpRegCallback @ 0x140A68640 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopLoadCrashdumpDriver @ 0x1403A7488 (IopLoadCrashdumpDriver.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1403BFF24 (SecureDump_GetSecureDumpSettings.c)
- *     IopReadDumpRegistry @ 0x1403BFF74 (IopReadDumpRegistry.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14078D6B4 (FsRtlIssueFileNotificationFsctl.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopLoadCrashdumpDriver @ 0x1403A75D8 (IopLoadCrashdumpDriver.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1403C0350 (SecureDump_GetSecureDumpSettings.c)
+ *     IopReadDumpRegistry @ 0x1403C03A0 (IopReadDumpRegistry.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14078D874 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 char __fastcall IopInitializeCrashDump(__int64 Handle, __int128 *a2)
@@ -39,7 +39,7 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, __int128 *a2)
     {
       if ( !(_BYTE)v7 )
         goto LABEL_9;
-      if ( qword_140C50CD8 )
+      if ( qword_140C50D08 )
       {
         v8[3] = *(_QWORD *)((char *)&v7 + 4);
         v9 = BYTE1(v7);
@@ -49,11 +49,11 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, __int128 *a2)
         v10 = 0;
         v11 = 0;
         v12 = 0;
-        if ( (int)qword_140C50CD8(v8) >= 0 )
+        if ( (int)qword_140C50D08(v8) >= 0 )
         {
 LABEL_9:
           v7 = *a2;
-          if ( (int)((__int64 (__fastcall *)(__int64, __int64 *, __int128 *))qword_140C50C78)(
+          if ( (int)((__int64 (__fastcall *)(__int64, __int64 *, __int128 *))qword_140C50CA8)(
                       Handle,
                       &CrashdmpDumpBlock,
                       &v7) >= 0 )

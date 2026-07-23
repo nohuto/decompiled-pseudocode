@@ -1,13 +1,13 @@
 /*
- * XREFs of PspQueueDeferredWorkAndWait @ 0x14067E9D4
+ * XREFs of PspQueueDeferredWorkAndWait @ 0x14067EAB8
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x14067E520 (PspConvertSiloToServerSilo.c)
+ *     PspConvertSiloToServerSilo @ 0x14067E604 (PspConvertSiloToServerSilo.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
- *     PspInitializeServerSiloDeferred @ 0x14067E960 (PspInitializeServerSiloDeferred.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
+ *     PspInitializeServerSiloDeferred @ 0x14067EA44 (PspInitializeServerSiloDeferred.c)
  */
 
 int __fastcall PspQueueDeferredWorkAndWait(__int64 a1, __int64 a2)

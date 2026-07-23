@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC
+ * XREFs of CmpValidateHiveSecurityDescriptors @ 0x1405AC0AC
  * Callers:
- *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x1405A948C (CmCheckRegistry.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     CmpResetCachedSecurity @ 0x140581274 (CmpResetCachedSecurity.c)
- *     CmpInitSecurityCache @ 0x1405A7210 (CmpInitSecurityCache.c)
- *     CmpAdjustSecurityCacheSize @ 0x1405A8C54 (CmpAdjustSecurityCacheSize.c)
- *     CmpAddSecurityCellToCache @ 0x1405AB584 (CmpAddSecurityCellToCache.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x1405AD180 (RtlValidRelativeSecurityDescriptor.c)
- *     CmpDestroySecurityCache @ 0x1405AFB54 (CmpDestroySecurityCache.c)
- *     HvIsCellAllocated @ 0x1405DBB00 (HvIsCellAllocated.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpCheckSecurityCellAccess @ 0x1406C9F2C (CmpCheckSecurityCellAccess.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     CmpResetCachedSecurity @ 0x140582274 (CmpResetCachedSecurity.c)
+ *     CmpInitSecurityCache @ 0x1405A8210 (CmpInitSecurityCache.c)
+ *     CmpAdjustSecurityCacheSize @ 0x1405A9C54 (CmpAdjustSecurityCacheSize.c)
+ *     CmpAddSecurityCellToCache @ 0x1405AC584 (CmpAddSecurityCellToCache.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1405AE180 (RtlValidRelativeSecurityDescriptor.c)
+ *     CmpDestroySecurityCache @ 0x1405B0B54 (CmpDestroySecurityCache.c)
+ *     HvIsCellAllocated @ 0x1405DCB00 (HvIsCellAllocated.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
+ *     CmpCheckSecurityCellAccess @ 0x1406CB1CC (CmpCheckSecurityCellAccess.c)
  */
 
 __int64 __fastcall CmpValidateHiveSecurityDescriptors(

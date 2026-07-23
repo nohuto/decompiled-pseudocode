@@ -1,11 +1,11 @@
 /*
- * XREFs of MiExtendPagingFiles @ 0x140A32A3C
+ * XREFs of MiExtendPagingFiles @ 0x140A32CEC
  * Callers:
- *     MiProcessDereferenceList @ 0x1406250B4 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x140625604 (MiProcessDereferenceList.c)
  * Callees:
- *     MiIncreaseCommitLimits @ 0x140396064 (MiIncreaseCommitLimits.c)
- *     MiUpdatePagingFileMinimum @ 0x14063BB88 (MiUpdatePagingFileMinimum.c)
- *     MiAttemptPageFileExtension @ 0x140A32674 (MiAttemptPageFileExtension.c)
+ *     MiIncreaseCommitLimits @ 0x140396244 (MiIncreaseCommitLimits.c)
+ *     MiUpdatePagingFileMinimum @ 0x14063C0D8 (MiUpdatePagingFileMinimum.c)
+ *     MiAttemptPageFileExtension @ 0x140A32924 (MiAttemptPageFileExtension.c)
  */
 
 unsigned __int64 __fastcall MiExtendPagingFiles(__int64 a1)

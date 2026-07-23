@@ -9,33 +9,33 @@
  *     TppAdjustRunningThreadGoalWithLock @ 0x18007F694 (TppAdjustRunningThreadGoalWithLock.c)
  */
 
-void __fastcall TpStartAsyncIoOperation(__int64 a1)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  int v2; // eax
-  __int64 v3; // rdi
-  int v4; // eax
+  volatile int Flags; // eax
+  _TP_POOL *Pool; // rdi
+  unsigned int SelectedCpuSetCount; // eax
 
-  if ( !a1
-    || (v2 = *(_DWORD *)(a1 + 168), (v2 & 0x10000) != 0)
-    || (v2 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppIopCleanupGroupMemberVFuncs
+  if ( !Io
+    || (Flags = Io->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)(PVOID))Io->CleanupGroupMember.VFuncs != &TppIopCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    TppBarrierAdjust(a1 + 56, 1LL, 0LL);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 280));
-    _InterlockedIncrement((volatile signed __int32 *)a1);
-    v3 = *(_QWORD *)(a1 + 144);
-    if ( !v3 || (v4 = *(_DWORD *)(v3 + 440)) == 0 )
-      v4 = MEMORY[0x7FFE03C0];
-    if ( *(_DWORD *)(v3 + 424) != v4 )
+    TppBarrierAdjust(&Io->CleanupGroupMember.CallbackBarrier, 1LL, 0LL);
+    _InterlockedIncrement(&Io->PendingIrpCount);
+    _InterlockedIncrement(&Io->CleanupGroupMember.Refcount.Refcount);
+    Pool = Io->CleanupGroupMember.Pool;
+    if ( !Pool || (SelectedCpuSetCount = Pool->SelectedCpuSetCount) == 0 )
+      SelectedCpuSetCount = MEMORY[0x7FFE03C0];
+    if ( Pool->LastProcCount != SelectedCpuSetCount )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v3 + 72));
-      TppAdjustRunningThreadGoalWithLock(v3);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 72));
+      RtlAcquireSRWLockExclusive(&Pool->Lock);
+      TppAdjustRunningThreadGoalWithLock(Pool);
+      RtlReleaseSRWLockExclusive(&Pool->Lock);
     }
   }
 }

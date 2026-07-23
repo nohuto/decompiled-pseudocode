@@ -23,35 +23,35 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQuerySystemEnvironmentValueEx(
-        __int64 a1,
-        __int128 *a2,
-        volatile void *a3,
-        unsigned int *a4,
-        _DWORD *a5)
+NTSTATUS __cdecl NtQuerySystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        PULONG ValueLength,
+        PULONG Attributes)
 {
   BOOLEAN v9; // bl
   __int64 v10; // rbx
   __int64 v11; // rcx
-  unsigned int v12; // eax
+  ULONG v12; // eax
   unsigned __int64 v13; // rbx
   _WORD *Pool2; // rax
   _WORD *v15; // rsi
   __int64 v16; // r8
-  int EnvironmentVariable; // ebx
+  NTSTATUS EnvironmentVariable; // ebx
   int v18; // eax
   struct _KTHREAD *CurrentThread; // rax
-  int v21; // eax
-  char v22; // cl
-  char v23[4]; // [rsp+30h] [rbp-A8h] BYREF
-  unsigned int v24; // [rsp+34h] [rbp-A4h] BYREF
+  NTSTATUS v21; // eax
+  BOOLEAN v22; // cl
+  BOOLEAN IsMember[4]; // [rsp+30h] [rbp-A8h] BYREF
+  ULONG v24; // [rsp+34h] [rbp-A4h] BYREF
   int v25; // [rsp+38h] [rbp-A0h]
   _WORD *v26; // [rsp+40h] [rbp-98h]
-  int v27; // [rsp+48h] [rbp-90h] BYREF
+  ULONG v27; // [rsp+48h] [rbp-90h] BYREF
   __int64 v28; // [rsp+50h] [rbp-88h] BYREF
   PVOID P; // [rsp+58h] [rbp-80h] BYREF
   __m128i Src; // [rsp+60h] [rbp-78h]
-  __int128 v31; // [rsp+80h] [rbp-58h] BYREF
+  GUID v31; // [rsp+80h] [rbp-58h] BYREF
 
   Src = 0LL;
   v26 = 0LL;
@@ -59,9 +59,14 @@ __int64 __fastcall NtQuerySystemEnvironmentValueEx(
   v24 = 0;
   v27 = 0;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return ExGetFirmwareEnvironmentVariable(a1, (int)a2, (int)a3, (int)a4, (__int64)a5);
+    return ExGetFirmwareEnvironmentVariable(
+             (__int64)VariableName,
+             (int)VendorGuid,
+             (int)Value,
+             (int)ValueLength,
+             (__int64)Attributes);
   v9 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
   if ( !v9 )
   {
@@ -69,12 +74,12 @@ __int64 __fastcall NtQuerySystemEnvironmentValueEx(
       v9 = ExpFirmwareAccessAppContainerCheck(1LL);
     if ( !v9 )
     {
-      v23[0] = 0;
-      v21 = RtlCheckTokenMembershipEx(0LL, SeExports->SeUserModeDriversSid, 0, v23);
-      v22 = v23[0];
+      IsMember[0] = 0;
+      v21 = RtlCheckTokenMembershipEx(0LL, SeExports->SeUserModeDriversSid, 0, IsMember);
+      v22 = IsMember[0];
       if ( v21 < 0 )
         v22 = 0;
-      v23[0] = v22;
+      IsMember[0] = v22;
       if ( !v22 )
       {
         EnvironmentVariable = -1073741727;
@@ -89,37 +94,37 @@ LABEL_40:
     v15 = v26;
     goto LABEL_36;
   }
-  if ( (a1 & 3) != 0 )
+  if ( ((unsigned __int8)VariableName & 3) != 0 )
 LABEL_24:
     ExRaiseDatatypeMisalignment();
   v10 = 0x7FFFFFFF0000LL;
-  Src = *(__m128i *)a1;
+  Src = *(__m128i *)VariableName;
   if ( (unsigned __int16)_mm_cvtsi128_si32(Src) )
   {
     if ( (Src.m128i_i8[8] & 1) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( ((unsigned __int8)a2 & 3) == 0 )
+    if ( ((unsigned __int8)VendorGuid & 3) == 0 )
     {
       v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a4;
+      if ( (unsigned __int64)ValueLength < 0x7FFFFFFF0000LL )
+        v11 = (__int64)ValueLength;
       *(_DWORD *)v11 = *(_DWORD *)v11;
-      v12 = *a4;
-      v24 = *a4;
-      if ( !a3 )
+      v12 = *ValueLength;
+      v24 = *ValueLength;
+      if ( !Value )
       {
         v24 = 0;
         v12 = 0;
       }
       if ( v12 )
-        ProbeForWrite(a3, v12, 1u);
-      if ( a5 )
+        ProbeForWrite(Value, v12, 1u);
+      if ( Attributes )
       {
-        if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-          v10 = (__int64)a5;
+        if ( (unsigned __int64)Attributes < 0x7FFFFFFF0000LL )
+          v10 = (__int64)Attributes;
         *(_DWORD *)v10 = *(_DWORD *)v10;
       }
-      v31 = *a2;
+      v31 = *VendorGuid;
       v13 = Src.m128i_u16[0];
       Pool2 = (_WORD *)ExAllocatePool2(0x40uLL);
       v15 = Pool2;
@@ -131,7 +136,9 @@ LABEL_24:
         P = 0LL;
         v28 = 0LL;
         if ( v24
-          && (LOBYTE(v16) = 1, v18 = ExLockUserBuffer(a3, v24, v16, 1LL, &v28, &P), EnvironmentVariable = v18, v18 < 0) )
+          && (LOBYTE(v16) = 1, v18 = ExLockUserBuffer(Value, v24, v16, 1LL, &v28, &P),
+                               EnvironmentVariable = v18,
+                               v18 < 0) )
         {
           v25 = v18;
         }
@@ -154,9 +161,9 @@ LABEL_24:
           v25 = EnvironmentVariable;
         }
         if ( (int)(EnvironmentVariable + 0x80000000) < 0 || EnvironmentVariable == -1073741789 )
-          *a4 = v24;
-        if ( a5 && EnvironmentVariable >= 0 )
-          *a5 = v27;
+          *ValueLength = v24;
+        if ( Attributes && EnvironmentVariable >= 0 )
+          *Attributes = v27;
       }
       else
       {
@@ -173,5 +180,5 @@ LABEL_24:
 LABEL_36:
   if ( v15 )
     ExFreePoolWithTag(v15, 0);
-  return (unsigned int)EnvironmentVariable;
+  return EnvironmentVariable;
 }

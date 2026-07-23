@@ -9,11 +9,16 @@
  *     <none>
  */
 
-__int64 NtOpenThreadTokenEx()
+NTSTATUS __cdecl NtOpenThreadTokenEx(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        ULONG HandleAttributes,
+        PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 47LL;
+  result = 47;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

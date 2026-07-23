@@ -1,35 +1,35 @@
 /*
- * XREFs of MiProbeAndLockPages @ 0x1403A016C
+ * XREFs of MiProbeAndLockPages @ 0x1403A1ECC
  * Callers:
- *     CcZeroDataInCache @ 0x14039EF58 (CcZeroDataInCache.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmProbeAndLockPages @ 0x14039FC20 (MmProbeAndLockPages.c)
- *     MiGetWorkingSetInfo @ 0x14040F210 (MiGetWorkingSetInfo.c)
- *     MmProbeAndLockPagesPrivate @ 0x1404CCA58 (MmProbeAndLockPagesPrivate.c)
- *     CcPrepareMdlWrite @ 0x1404CDA40 (CcPrepareMdlWrite.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406FC830 (MiPrepareImagePagesForHotPatch.c)
- *     MiApplyImageHotPatch @ 0x14086E638 (MiApplyImageHotPatch.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140876584 (MiLoadDataIntoVsmEnclave.c)
- *     MiCopyVmReadBytes @ 0x140A228B0 (MiCopyVmReadBytes.c)
- *     MiQueryPtePrepare @ 0x140A90EB4 (MiQueryPtePrepare.c)
- *     MmProbeAndLockProcessPages @ 0x140A9A0D0 (MmProbeAndLockProcessPages.c)
- *     MiRotateToFrameBuffer @ 0x140AEC740 (MiRotateToFrameBuffer.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
- *     MiLockKernelScpSection @ 0x140CFAD28 (MiLockKernelScpSection.c)
+ *     CcZeroDataInCache @ 0x1403A0CB8 (CcZeroDataInCache.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmProbeAndLockPages @ 0x1403A1980 (MmProbeAndLockPages.c)
+ *     MiGetWorkingSetInfo @ 0x14040E930 (MiGetWorkingSetInfo.c)
+ *     MmProbeAndLockPagesPrivate @ 0x1404C61F8 (MmProbeAndLockPagesPrivate.c)
+ *     CcPrepareMdlWrite @ 0x1404C7470 (CcPrepareMdlWrite.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140701500 (MiPrepareImagePagesForHotPatch.c)
+ *     MiApplyImageHotPatch @ 0x140874A08 (MiApplyImageHotPatch.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x14087C968 (MiLoadDataIntoVsmEnclave.c)
+ *     MiCopyVmReadBytes @ 0x140A2BED0 (MiCopyVmReadBytes.c)
+ *     MiQueryPtePrepare @ 0x140A95A04 (MiQueryPtePrepare.c)
+ *     MmProbeAndLockProcessPages @ 0x140A9E250 (MmProbeAndLockProcessPages.c)
+ *     MiRotateToFrameBuffer @ 0x140AEF750 (MiRotateToFrameBuffer.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiLockKernelScpSection @ 0x140D010A8 (MiLockKernelScpSection.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiProbeAndLockPrepare @ 0x1402E5470 (MiProbeAndLockPrepare.c)
- *     MiProbeAndLockPacket @ 0x1402EE280 (MiProbeAndLockPacket.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1403A0340 (MiUnlockProbePacketWorkingSet.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MiAddMdlTracker @ 0x1404F3E20 (MiAddMdlTracker.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     MmUnlockPhysicalPagesByVa @ 0x1406EA99C (MmUnlockPhysicalPagesByVa.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiProbeAndLockPrepare @ 0x1402C74B0 (MiProbeAndLockPrepare.c)
+ *     MiProbeAndLockPacket @ 0x1402D0300 (MiProbeAndLockPacket.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1403A20A0 (MiUnlockProbePacketWorkingSet.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MiAddMdlTracker @ 0x1404ED400 (MiAddMdlTracker.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x1406EF63C (MmUnlockPhysicalPagesByVa.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiProbeAndLockPages(__int64 a1, _QWORD *a2)
@@ -109,7 +109,7 @@ __int64 __fastcall MiProbeAndLockPages(__int64 a1, _QWORD *a2)
       {
         MmUnlockPages(v14);
       }
-      ++stru_140E2EB88.QueuePriority;
+      ++stru_140E2ED08.QueuePriority;
     }
     v18 = (volatile signed __int32 *)P;
     if ( P )

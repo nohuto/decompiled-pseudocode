@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegisterInternalCallback @ 0x1409899A0
+ * XREFs of CmRegisterInternalCallback @ 0x140973450
  * Callers:
- *     VrpIncrementSiloCount @ 0x1409FE6BC (VrpIncrementSiloCount.c)
+ *     VrpIncrementSiloCount @ 0x1409F792C (VrpIncrementSiloCount.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x140989A9C (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x14097354C (CmpRegisterCallbackInternal.c)
  */
 
 __int64 __fastcall CmRegisterInternalCallback(__int64 a1, int a2)

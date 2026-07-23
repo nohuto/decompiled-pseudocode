@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpReportTargetDeviceChangeAsyncWorker @ 0x1407209A0
+ * XREFs of PnpReportTargetDeviceChangeAsyncWorker @ 0x14071E530
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PnpSetCustomTargetEvent @ 0x1408B37C0 (PnpSetCustomTargetEvent.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PnpSetCustomTargetEvent @ 0x1408B10B0 (PnpSetCustomTargetEvent.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpReportTargetDeviceChangeAsyncWorker(PVOID P)

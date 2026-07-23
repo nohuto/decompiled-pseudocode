@@ -1,15 +1,15 @@
 /*
- * XREFs of KiPreprocessFault @ 0x1403D2040
+ * XREFs of KiPreprocessFault @ 0x1403D5010
  * Callers:
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
  * Callees:
- *     KiOpDecode @ 0x1403D23D8 (KiOpDecode.c)
- *     KiCheckForAtlThunk @ 0x1403D25C4 (KiCheckForAtlThunk.c)
- *     KiOpPreprocessSecureFault @ 0x1403D2954 (KiOpPreprocessSecureFault.c)
- *     KiEnableOptionalXStateFeatures @ 0x1403D2A3C (KiEnableOptionalXStateFeatures.c)
- *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x1403D2EBC (KiOpCheckUnhandledSecurePciAccessViolation.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiOpDecode @ 0x1403D53A8 (KiOpDecode.c)
+ *     KiCheckForAtlThunk @ 0x1403D5594 (KiCheckForAtlThunk.c)
+ *     KiOpPreprocessSecureFault @ 0x1403D5924 (KiOpPreprocessSecureFault.c)
+ *     KiEnableOptionalXStateFeatures @ 0x1403D5A0C (KiEnableOptionalXStateFeatures.c)
+ *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x1403D5E8C (KiOpCheckUnhandledSecurePciAccessViolation.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall KiPreprocessFault(ULONG_PTR a1, ULONG_PTR a2, unsigned __int8 a3)
@@ -132,8 +132,8 @@ LABEL_2:
   {
     if ( v7 != 51 )
       goto LABEL_6;
-    v8 = *(void **)&stru_140FC01F0.SchedulerAssistPriorityFloor;
-    KernelShadowStack = stru_140FC01F0.KernelShadowStack;
+    v8 = *(void **)&stru_140FC11F0.SchedulerAssistPriorityFloor;
+    KernelShadowStack = stru_140FC11F0.KernelShadowStack;
   }
   if ( *(void **)(a2 + 248) == v8 )
   {

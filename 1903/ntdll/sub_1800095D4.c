@@ -16,18 +16,18 @@ __int64 __fastcall sub_1800095D4(__int64 a1, const WCHAR *a2, char *a3, __int64 
   char v9; // di
   __int64 v10; // r8
   __int64 result; // rax
-  UNICODE_STRING v12[3]; // [rsp+20h] [rbp-38h] BYREF
-  int v13; // [rsp+70h] [rbp+18h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+70h] [rbp+18h] BYREF
   __int16 v14; // [rsp+78h] [rbp+20h] BYREF
 
   v6 = 0;
   v14 = 0;
   v9 = 0;
-  RtlInitUnicodeString(v12, a2);
-  if ( (unsigned __int8)RtlCultureNameToLCID(v12, &v13) )
+  RtlInitUnicodeString(&String, a2);
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
-    v6 = v13;
-    if ( ((v13 - 4096) & 0xFFFFFBFF) != 0 )
+    v6 = Lcid;
+    if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
     {
       v9 = 1;
 LABEL_4:

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x140315038
+ * XREFs of RtlpHpLfhContextCompact @ 0x1403152C8
  * Callers:
- *     RtlpHpHeapCompact @ 0x140337CF4 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x140337F84 (RtlpHpHeapCompact.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpLfhOwnerCompact @ 0x14031597C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpAcquireLockShared @ 0x140315B28 (RtlpHpAcquireLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140315C0C (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpAcquireLockShared @ 0x140315DB8 (RtlpHpAcquireLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2, __int64 a3)
@@ -47,10 +47,10 @@ char __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2, __int64 a3)
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

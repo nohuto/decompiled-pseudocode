@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwQueryInstallUILanguage @ 0x1406A8F90
+ * XREFs of ZwQueryInstallUILanguage @ 0x1406A9F30
  * Callers:
- *     DifZwQueryInstallUILanguageWrapper @ 0x140645D50 (DifZwQueryInstallUILanguageWrapper.c)
- *     _RtlpMuiRegLoadInstalled @ 0x14082DCBC (_RtlpMuiRegLoadInstalled.c)
+ *     DifZwQueryInstallUILanguageWrapper @ 0x140644310 (DifZwQueryInstallUILanguageWrapper.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14082E4EC (_RtlpMuiRegLoadInstalled.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInstallUILanguage(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInstallUILanguage(LANGID *InstallUILanguageId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(InstallUILanguageId);
 }

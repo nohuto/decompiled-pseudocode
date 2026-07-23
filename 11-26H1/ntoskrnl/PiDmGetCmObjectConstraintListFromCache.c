@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x1409A2C44
+ * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x1409636A4
  * Callers:
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1409A2AA8 (PiPnpRtlGetFilteredDeviceInterfaceList.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x140AB07F4 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x140963508 (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x140AAE7D8 (PiPnpRtlGetFilteredDeviceList.c)
  * Callees:
- *     _CmMapPnpObjectTypeToCmObjectType @ 0x1409A2BFC (_CmMapPnpObjectTypeToCmObjectType.c)
- *     PiDmGetObject @ 0x1409A2D70 (PiDmGetObject.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1409A3F50 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
+ *     _CmMapPnpObjectTypeToCmObjectType @ 0x14096365C (_CmMapPnpObjectTypeToCmObjectType.c)
+ *     PiDmGetObject @ 0x1409637D0 (PiDmGetObject.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1409649B0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
  */
 
 __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(

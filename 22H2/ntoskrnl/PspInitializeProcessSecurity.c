@@ -78,7 +78,7 @@ __int64 __fastcall PspInitializeProcessSecurity(
       if ( !v24 && v32 )
       {
         v20 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-        v23 = PspIdentityBasedJobBreakaway((int)v20, (int)v27, v14 + 1);
+        v23 = PspIdentityBasedJobBreakaway(v20, v27, v14 + 1);
       }
     }
     if ( *v14

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x1400E8610
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x1400E8690
  * Callers:
- *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
- *     MmCanFileBeTruncated @ 0x1400E85A0 (MmCanFileBeTruncated.c)
+ *     MmPurgeSection @ 0x1400E7D80 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x1400E8620 (MmCanFileBeTruncated.c)
  * Callees:
  *     MiEndingOffset @ 0x140031090 (MiEndingOffset.c)
- *     MiFindLastSubsection @ 0x140092DF0 (MiFindLastSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmFlushImageSection @ 0x140121F70 (MmFlushImageSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindLastSubsection @ 0x140092D30 (MiFindLastSubsection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmFlushImageSection @ 0x140122040 (MmFlushImageSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char *__fastcall MiCanFileBeTruncatedInternal(
@@ -40,10 +40,10 @@ char *__fastcall MiCanFileBeTruncatedInternal(
     *a5 = 17;
     if ( v8 )
     {
-      v9 = ExAcquireSpinLockExclusive(&dword_140438BC0);
+      v9 = ExAcquireSpinLockExclusive(&dword_140439C80);
       if ( !SectionObjectPointer->ImageSectionObject )
         goto LABEL_3;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
@@ -54,12 +54,12 @@ char *__fastcall MiCanFileBeTruncatedInternal(
     }
     if ( !MmFlushImageSection(SectionObjectPointer, MmFlushForWrite) )
       return 0LL;
-    v9 = ExAcquireSpinLockExclusive(&dword_140438BC0);
+    v9 = ExAcquireSpinLockExclusive(&dword_140439C80);
 LABEL_3:
     DataSectionObject = (char *)SectionObjectPointer->DataSectionObject;
     if ( !SectionObjectPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
       {
         v21 = KeGetCurrentPrcb();
@@ -71,7 +71,7 @@ LABEL_3:
       return 0LL;
     }
     v12 = ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     if ( v12 )
       break;
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )

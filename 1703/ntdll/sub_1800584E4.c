@@ -17,29 +17,29 @@ __int64 sub_1800584E4()
 {
   __int64 *v0; // rbx
   __int64 *v1; // rdi
-  int v2; // eax
+  NTSTATUS v2; // eax
   __int64 v3; // rsi
-  unsigned int v4; // ebx
+  ULONG v4; // ebx
   __int64 result; // rax
-  unsigned int v6; // edi
-  void *Heap; // rax
-  unsigned int v8; // [rsp+70h] [rbp+8h] BYREF
-  int v9; // [rsp+78h] [rbp+10h] BYREF
+  ULONG v6; // edi
+  ULONG *Heap; // rax
+  ULONG NumberToSet; // [rsp+70h] [rbp+8h] BYREF
+  DWORD v9; // [rsp+78h] [rbp+10h] BYREF
   __int64 v10; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+88h] [rbp+20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+88h] [rbp+20h] BYREF
 
   v0 = (__int64 *)qword_18015B350;
-  v8 = 0;
+  NumberToSet = 0;
   if ( (__int64 *)qword_18015B350 == &qword_18015B350 )
     goto LABEL_8;
   do
   {
     v1 = v0;
     v0 = (__int64 *)*v0;
-    RtlImageNtHeaderEx(3, v1[6], 0LL, &v11);
-    if ( *(_WORD *)(v11 + 24) == 523 )
+    RtlImageNtHeaderEx(3u, (PVOID)v1[6], 0LL, &OutHeaders);
+    if ( OutHeaders->OptionalHeader.Magic == 523 )
     {
-      v2 = sub_180032C0C(v1[6], 1, 9u, &v9, &v10);
+      v2 = sub_180032C0C(v1[6], 1, 9u, &v9, (char **)&v10);
       v3 = v10;
       if ( v2 < 0 )
         v3 = 0LL;
@@ -55,7 +55,7 @@ __int64 sub_1800584E4()
             "DLL \"%wZ\" has TLS information at %p\n",
             v1 + 9,
             v3);
-        result = sub_180059294(v3, (_DWORD)v1, (unsigned int)&v8, 0, 0LL);
+        result = sub_180059294(v3, (_DWORD)v1, (unsigned int)&NumberToSet, 0, 0LL);
         if ( (int)result < 0 )
           return result;
         *((_WORD *)v1 + 55) = -1;
@@ -63,36 +63,36 @@ __int64 sub_1800584E4()
     }
   }
   while ( v0 != &qword_18015B350 );
-  v4 = v8;
-  if ( v8 )
+  v4 = NumberToSet;
+  if ( NumberToSet )
   {
-    v6 = v8 + 8;
-    if ( v8 + 8 > 0x20 )
+    v6 = NumberToSet + 8;
+    if ( NumberToSet + 8 > 0x20 )
     {
-      Heap = (void *)RtlAllocateHeap(
-                       (__int64)NtCurrentPeb()->ProcessHeap,
-                       dword_18015B268 + 786432,
-                       4 * (((unsigned __int64)v6 + 31) >> 5));
+      Heap = (ULONG *)RtlAllocateHeap(
+                        NtCurrentPeb()->ProcessHeap,
+                        dword_18015B268 + 786432,
+                        4 * (((unsigned __int64)v6 + 31) >> 5));
       if ( !Heap )
         return 3221225495LL;
       qword_18015B1C0 = ((unsigned __int64)v6 + 31) >> 5;
-      v4 = v8;
+      v4 = NumberToSet;
     }
     else
     {
-      Heap = &unk_18015B1A8;
+      Heap = (ULONG *)&unk_18015B1A8;
       qword_18015B1C0 = 1LL;
     }
-    dword_18015B1B0 = v6;
-    Src = Heap;
-    RtlSetBits(&dword_18015B1B0, 0LL, v4);
-    RtlClearBits(&dword_18015B1B0, v4, 8LL);
+    BitMapHeader.SizeOfBitMap = v6;
+    BitMapHeader.Buffer = Heap;
+    RtlSetBits(&BitMapHeader, 0, v4);
+    RtlClearBits(&BitMapHeader, v4, 8u);
   }
   else
   {
 LABEL_8:
-    dword_18015B1B0 = 0;
-    Src = 0LL;
+    BitMapHeader.SizeOfBitMap = 0;
+    BitMapHeader.Buffer = 0LL;
   }
   return sub_18005905C();
 }

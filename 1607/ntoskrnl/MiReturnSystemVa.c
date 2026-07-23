@@ -1,46 +1,46 @@
 /*
- * XREFs of MiReturnSystemVa @ 0x1400C08D0
+ * XREFs of MiReturnSystemVa @ 0x1400BE760
  * Callers:
- *     MiReleaseSystemCacheView @ 0x140018374 (MiReleaseSystemCacheView.c)
- *     MiFreePagedPoolPages @ 0x14004BBA0 (MiFreePagedPoolPages.c)
- *     MiExpandPagedPool @ 0x1400A296C (MiExpandPagedPool.c)
- *     MiExpandSystemCache @ 0x1400A2B00 (MiExpandSystemCache.c)
- *     MiExpandPtes @ 0x1400A2C68 (MiExpandPtes.c)
- *     MiReturnSystemPtes @ 0x1400C07D0 (MiReturnSystemPtes.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiReturnNonPagedPoolVa @ 0x140103670 (MiReturnNonPagedPoolVa.c)
- *     MiReleaseLargePteMappings @ 0x140125F84 (MiReleaseLargePteMappings.c)
- *     MiMapWithLargePages @ 0x14012E28C (MiMapWithLargePages.c)
- *     MiDeleteBootRange @ 0x140138D04 (MiDeleteBootRange.c)
- *     MiGetLargePageWorkMapping @ 0x14013ADC0 (MiGetLargePageWorkMapping.c)
- *     MiDeleteZeroThreadContext @ 0x14013F1EC (MiDeleteZeroThreadContext.c)
- *     MiExpandSpecialPool @ 0x1401EB618 (MiExpandSpecialPool.c)
- *     MiRemoveSpecialPoolRange @ 0x1401EB91C (MiRemoveSpecialPoolRange.c)
- *     MiUnmapLargePages @ 0x1401F5944 (MiUnmapLargePages.c)
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
- *     MiReserveDriverPtes @ 0x1404CD0DC (MiReserveDriverPtes.c)
- *     MiReleaseDriverPtes @ 0x140544938 (MiReleaseDriverPtes.c)
+ *     MiReleaseSystemCacheView @ 0x140017EF4 (MiReleaseSystemCacheView.c)
+ *     MiFreePagedPoolPages @ 0x14004B720 (MiFreePagedPoolPages.c)
+ *     MiExpandPagedPool @ 0x1400A1294 (MiExpandPagedPool.c)
+ *     MiExpandSystemCache @ 0x1400A1428 (MiExpandSystemCache.c)
+ *     MiExpandPtes @ 0x1400A1590 (MiExpandPtes.c)
+ *     MiReturnSystemPtes @ 0x1400BE660 (MiReturnSystemPtes.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiReturnNonPagedPoolVa @ 0x1401013F0 (MiReturnNonPagedPoolVa.c)
+ *     MiReleaseLargePteMappings @ 0x1401264F4 (MiReleaseLargePteMappings.c)
+ *     MiMapWithLargePages @ 0x14012E7FC (MiMapWithLargePages.c)
+ *     MiDeleteBootRange @ 0x140139274 (MiDeleteBootRange.c)
+ *     MiGetLargePageWorkMapping @ 0x14013B330 (MiGetLargePageWorkMapping.c)
+ *     MiDeleteZeroThreadContext @ 0x14013F75C (MiDeleteZeroThreadContext.c)
+ *     MiExpandSpecialPool @ 0x1401EB444 (MiExpandSpecialPool.c)
+ *     MiRemoveSpecialPoolRange @ 0x1401EB748 (MiRemoveSpecialPoolRange.c)
+ *     MiUnmapLargePages @ 0x1401F5770 (MiUnmapLargePages.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
+ *     MiReserveDriverPtes @ 0x1404B2B08 (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x140544E78 (MiReleaseDriverPtes.c)
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  *     MiMapBBTMemory @ 0x1407A6948 (MiMapBBTMemory.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiReleaseSessionVa @ 0x1400ADE10 (MiReleaseSessionVa.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiFreeUnmappedPageTables @ 0x1400E39D0 (MiFreeUnmappedPageTables.c)
- *     MiNonPagedPoolToNode @ 0x140103D60 (MiNonPagedPoolToNode.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiReleaseSessionVa @ 0x1400AC378 (MiReleaseSessionVa.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiFreeUnmappedPageTables @ 0x1400E1870 (MiFreeUnmappedPageTables.c)
+ *     MiNonPagedPoolToNode @ 0x140101AE0 (MiNonPagedPoolToNode.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 a4)
@@ -155,7 +155,7 @@ void __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2, int a
   v13 = (_QWORD *)v9;
   v4 = a3;
 LABEL_15:
-  for ( i = ExAcquireSpinLockExclusive(&dword_140326D38); v9 < v11; v9 += 8LL )
+  for ( i = ExAcquireSpinLockExclusive(&dword_140326D78); v9 < v11; v9 += 8LL )
   {
     *(_QWORD *)v9 = 0LL;
     if ( (unsigned int)MiPteInShadowRange(v9, v22) )
@@ -168,7 +168,7 @@ LABEL_15:
       ++v13;
     }
   }
-  ExReleaseSpinLockExclusive(&dword_140326D38, i);
+  ExReleaseSpinLockExclusive(&dword_140326D78, i);
   MiFlushTbList(a4);
   v7 = BugCheckParameter2;
 LABEL_24:
@@ -182,25 +182,25 @@ LABEL_24:
     switch ( v4 )
     {
       case 8:
-        p_Region = &qword_140326C60;
+        p_Region = &qword_140326CA0;
         break;
       case 5:
-        p_Region = (__int64 *)&qword_1403269B0[26 * (unsigned int)MiNonPagedPoolToNode(v7) + 11].Region;
+        p_Region = (__int64 *)&qword_1403269F0[26 * (unsigned int)MiNonPagedPoolToNode(v7) + 11].Region;
         break;
       case 6:
-        p_Region = (__int64 *)&unk_140326BC0;
+        p_Region = (__int64 *)&unk_140326C00;
         break;
       case 9:
       case 15:
-        p_Region = &qword_140326AD0;
+        p_Region = &qword_140326B10;
         break;
       case 12:
-        p_Region = &qword_140326B20;
+        p_Region = &qword_140326B60;
         break;
       default:
-        p_Region = (__int64 *)&unk_140326B70;
+        p_Region = (__int64 *)&unk_140326BB0;
         if ( v4 != 11 )
-          p_Region = &qword_140326C10;
+          p_Region = &qword_140326C50;
         break;
     }
     v31 = p_Region;
@@ -264,13 +264,13 @@ LABEL_71:
     }
     _InterlockedExchangeAdd64(&MiState[v4 + 846], -(__int64)v33);
     if ( v4 == 8 )
-      qword_140326AC8 += v8;
+      qword_140326B08 += v8;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
 LABEL_26:
   MiFreeUnmappedPageTables(v40, &v42);
   v27 = v45;
-  if ( v45 && qword_1403251E8 )
+  if ( v45 && qword_140325228 )
   {
     MiReturnCommit((__int64)MiSystemPartition, v45 - v43);
     if ( v49 == 2 )
@@ -282,7 +282,7 @@ LABEL_26:
     }
     else
     {
-      _InterlockedExchangeAdd64(&qword_1403278F0, -v27);
+      _InterlockedExchangeAdd64(&qword_140327930, -v27);
     }
     MiReturnResidentAvailable(v45);
   }

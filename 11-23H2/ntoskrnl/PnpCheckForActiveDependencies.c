@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpCheckForActiveDependencies @ 0x1406CBCBC
+ * XREFs of PnpCheckForActiveDependencies @ 0x1406CBCEC
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
- *     PiProcessQueryDeviceState @ 0x14079328C (PiProcessQueryDeviceState.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
+ *     PiProcessQueryDeviceState @ 0x14079347C (PiProcessQueryDeviceState.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x14022B180 (PipIsDevNodeDNStarted.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PipCheckForUnsatisfiedDependencies @ 0x1406C982C (PipCheckForUnsatisfiedDependencies.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9958 (PnpAcquireDependencyRelationsLock.c)
+ *     PipIsDevNodeDNStarted @ 0x14022B290 (PipIsDevNodeDNStarted.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x1406C985C (PipCheckForUnsatisfiedDependencies.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406C9988 (PnpAcquireDependencyRelationsLock.c)
  */
 
 char __fastcall PnpCheckForActiveDependencies(__int64 a1, unsigned __int8 a2)

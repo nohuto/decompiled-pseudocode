@@ -1,19 +1,19 @@
 /*
- * XREFs of ExSystemTimeToLocalTime @ 0x140347CE0
+ * XREFs of ExSystemTimeToLocalTime @ 0x1403266E0
  * Callers:
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     PopDiagTracePassiveCooling @ 0x1407569DC (PopDiagTracePassiveCooling.c)
- *     PopPowerAdapterPublishRecState @ 0x14075B8C8 (PopPowerAdapterPublishRecState.c)
- *     PopNetGetNextDueRefreshTime @ 0x14075C844 (PopNetGetNextDueRefreshTime.c)
- *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x1407624E0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
- *     ExpRefreshSystemTime @ 0x1407B6864 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1407B6BF0 (NtSetSystemTime.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x1407DA8F4 (CmpUpdateReorganizeRegistryValues.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x140A812AC (HalpUtcTimeToAcpiRealTime.c)
- *     PopDiagTraceActiveCooling @ 0x140ABDA58 (PopDiagTraceActiveCooling.c)
- *     ExpSetSystemTime @ 0x140B6CD90 (ExpSetSystemTime.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     PopDiagTracePassiveCooling @ 0x140754E5C (PopDiagTracePassiveCooling.c)
+ *     PopPowerAdapterPublishRecState @ 0x14075A5D4 (PopPowerAdapterPublishRecState.c)
+ *     PopNetGetNextDueRefreshTime @ 0x14075B7E4 (PopNetGetNextDueRefreshTime.c)
+ *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x140761CB0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
+ *     ExpRefreshSystemTime @ 0x1407B6CB4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1407B7040 (NtSetSystemTime.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407DAE44 (CmpUpdateReorganizeRegistryValues.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140A7BD0C (HalpUtcTimeToAcpiRealTime.c)
+ *     PopDiagTraceActiveCooling @ 0x140AB8AC8 (PopDiagTraceActiveCooling.c)
+ *     ExpSetSystemTime @ 0x140B6E630 (ExpSetSystemTime.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
  */
 
 void __stdcall ExSystemTimeToLocalTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER LocalTime)

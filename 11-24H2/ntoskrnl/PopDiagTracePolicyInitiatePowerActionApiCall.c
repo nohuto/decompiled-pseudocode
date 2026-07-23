@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x140AA8818
+ * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x140AA389C
  * Callers:
- *     NtInitiatePowerAction @ 0x140754BF0 (NtInitiatePowerAction.c)
+ *     NtInitiatePowerAction @ 0x140752F10 (NtInitiatePowerAction.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     PsGetCurrentThreadProcess @ 0x1404709D0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     PsGetCurrentThreadProcess @ 0x14046B080 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)

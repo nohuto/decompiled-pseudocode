@@ -1,15 +1,15 @@
 /*
- * XREFs of MmWaitForCacheManagerPrefetch @ 0x14039F6A8
+ * XREFs of MmWaitForCacheManagerPrefetch @ 0x1403A1408
  * Callers:
- *     CcFetchDataForRead @ 0x1402E6510 (CcFetchDataForRead.c)
- *     CcPerformReadAhead @ 0x140386E18 (CcPerformReadAhead.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x1403968FC (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcFetchDataForRead @ 0x1402C8550 (CcFetchDataForRead.c)
+ *     CcPerformReadAhead @ 0x140388BC8 (CcPerformReadAhead.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x14039867C (MmWaitMultipleForCacheManagerPrefetch.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     MiPfCompleteInPageSupport @ 0x14039FB18 (MiPfCompleteInPageSupport.c)
- *     MiPfCompleteCoalescedIo @ 0x1404B9DEC (MiPfCompleteCoalescedIo.c)
- *     MiReleaseReadListResources @ 0x140A52550 (MiReleaseReadListResources.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     MiPfCompleteInPageSupport @ 0x1403A1878 (MiPfCompleteInPageSupport.c)
+ *     MiPfCompleteCoalescedIo @ 0x1404B367C (MiPfCompleteCoalescedIo.c)
+ *     MiReleaseReadListResources @ 0x140A5B840 (MiReleaseReadListResources.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmWaitForCacheManagerPrefetch(_DWORD *P)

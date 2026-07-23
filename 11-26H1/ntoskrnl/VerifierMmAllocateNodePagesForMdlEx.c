@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierMmAllocateNodePagesForMdlEx @ 0x140C3F200
+ * XREFs of VerifierMmAllocateNodePagesForMdlEx @ 0x140C45210
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViTargetAddToCounter @ 0x140C29598 (ViTargetAddToCounter.c)
- *     VfFaultsInjectResourceFailure @ 0x140C347B4 (VfFaultsInjectResourceFailure.c)
- *     VfFillAllocatePagesForMdl @ 0x140C3FE50 (VfFillAllocatePagesForMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViTargetAddToCounter @ 0x140C2F5A8 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x140C3A7C4 (VfFaultsInjectResourceFailure.c)
+ *     VfFillAllocatePagesForMdl @ 0x140C45E60 (VfFillAllocatePagesForMdl.c)
  */
 
 struct _MDL *__fastcall VerifierMmAllocateNodePagesForMdlEx(__int64 a1, __int64 a2)

@@ -20,7 +20,7 @@ __int64 __fastcall PC_GPT::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
 {
   PC_DISK *v4; // rdx
   __int64 v6; // rbp
-  ULONG MaxPartitionCount; // ecx
+  DWORD MaxPartitionCount; // ecx
   int v8; // r14d
   __int64 v9; // r15
   int Header; // edi
@@ -115,7 +115,7 @@ __int64 __fastcall PC_GPT::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
         while ( 1 )
         {
           v26 = v18;
-          v27 = *(_QWORD *)&a2->PartitionEntry[v18].Mbr - v24;
+          v27 = *(_QWORD *)&a2->PartitionEntry[v18].Mbr.PartitionType - v24;
           if ( !v27 )
             v27 = *(_QWORD *)a2->PartitionEntry[v18].Gpt.PartitionType.Data4 - v19;
           if ( v27 )
@@ -162,7 +162,7 @@ __int64 __fastcall PC_GPT::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
           }
         }
       }
-      v32 = *(_QWORD *)&a2->Mbr.Signature - v24;
+      v32 = *(_QWORD *)&a2->Mbr - v24;
       if ( !v32 )
         v32 = *(_QWORD *)a2->Gpt.DiskId.Data4 - v19;
       if ( !v32 )

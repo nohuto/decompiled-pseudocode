@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCleanupLightWeightTransaction @ 0x1407D09B4
+ * XREFs of CmpCleanupLightWeightTransaction @ 0x1407D0C84
  * Callers:
- *     CmpAbortLightWeightTransaction @ 0x1407D0898 (CmpAbortLightWeightTransaction.c)
- *     CmpCommitLightWeightTransaction @ 0x140A1C46C (CmpCommitLightWeightTransaction.c)
+ *     CmpAbortLightWeightTransaction @ 0x1407D0B68 (CmpAbortLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A1C71C (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     CmpTransDereferenceTransaction @ 0x140768A28 (CmpTransDereferenceTransaction.c)
- *     CmpTransMgrFreeVolatileData @ 0x140768F14 (CmpTransMgrFreeVolatileData.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     CmpTransDereferenceTransaction @ 0x140768C18 (CmpTransDereferenceTransaction.c)
+ *     CmpTransMgrFreeVolatileData @ 0x140769104 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)

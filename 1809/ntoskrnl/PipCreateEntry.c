@@ -1,11 +1,11 @@
 /*
- * XREFs of PipCreateEntry @ 0x1409CC1E8
+ * XREFs of PipCreateEntry @ 0x1409CD1E8
  * Callers:
- *     PipLookupGroupName @ 0x1409CC0EC (PipLookupGroupName.c)
+ *     PipLookupGroupName @ 0x1409CD0EC (PipLookupGroupName.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall PipCreateEntry(const void **a1)

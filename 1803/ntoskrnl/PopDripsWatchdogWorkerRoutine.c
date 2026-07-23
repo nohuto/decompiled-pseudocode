@@ -53,7 +53,7 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
   __int64 v27; // [rsp+70h] [rbp-1h]
   __int64 v28; // [rsp+78h] [rbp+7h]
   int v29; // [rsp+80h] [rbp+Fh]
-  unsigned __int64 v30; // [rsp+88h] [rbp+17h] BYREF
+  unsigned __int64 Buffer; // [rsp+88h] [rbp+17h] BYREF
   unsigned __int64 v31; // [rsp+90h] [rbp+1Fh]
 
   CurrentThread = KeGetCurrentThread();
@@ -152,11 +152,11 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       {
         if ( v11 > v2 && (unsigned int)PopDripsSwHwDivergenceThreshold < (v11 - v2) / 0xF4240 )
         {
-          v30 = v11;
+          Buffer = v11;
           v31 = v2;
-          ZwUpdateWnfStateData((__int64)&WNF_PO_SW_HW_DRIPS_DIVERGENCE, (__int64)&v30, 16LL);
+          ZwUpdateWnfStateData(&WNF_PO_SW_HW_DRIPS_DIVERGENCE, &Buffer, 0x10u, 0LL, 0LL, 0, 0);
           if ( PopDripsSwHwDivergenceEnableLiveDump )
-            DbgkWerCaptureLiveKernelDump(L"DripsDiverge", 420, v30, v31, 0LL, 0LL, 0LL, 0LL, 0);
+            DbgkWerCaptureLiveKernelDump(L"DripsDiverge", 420, Buffer, v31, 0LL, 0LL, 0LL, 0LL, 0);
         }
       }
     }

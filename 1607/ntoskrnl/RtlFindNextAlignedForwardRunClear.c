@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindNextAlignedForwardRunClear @ 0x1400858B4
+ * XREFs of RtlFindNextAlignedForwardRunClear @ 0x1400871A4
  * Callers:
- *     EtwpFindUserBufferSpace @ 0x140491940 (EtwpFindUserBufferSpace.c)
+ *     EtwpFindUserBufferSpace @ 0x1404923D0 (EtwpFindUserBufferSpace.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall RtlFindNextAlignedForwardRunClear(int *a1, __int64 a2, int a3
 LABEL_4:
   for ( i = (_DWORD *)(*((_QWORD *)a1 + 1) + 4 * ((unsigned __int64)v6 >> 5)); (unsigned __int64)i <= v9; ++i )
   {
-    v11 = *i | dword_14026D370[v6 & 0x1F];
+    v11 = *i | dword_14026D390[v6 & 0x1F];
     if ( (v8 & v11) != v8 )
     {
       v6 &= 0xFFFFFFE0;

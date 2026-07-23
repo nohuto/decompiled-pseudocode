@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsInitialization @ 0x140755ED0
+ * XREFs of PopDiagTraceDirectedDripsInitialization @ 0x140754230
  * Callers:
- *     PopDirectedDripsInitializePhase3 @ 0x140C2E174 (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140C30294 (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDirectedDripsInitialization(int a1)
@@ -27,14 +27,14 @@ void __fastcall PopDiagTraceDirectedDripsInitialization(int a1)
 
   v12 = a1;
   if ( PopTriggerDiagHandleRegistered
-    && (unsigned int)dword_140E076F0 > 5
-    && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+    && (unsigned int)dword_140E07680 > 5
+    && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v11 = 0;
     v9 = &v2;
     v2 = v1;
     v10 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&dword_140049714, 0LL, 0LL, 3u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_1400490D0, 0LL, 0LL, 3u, &v8);
   }
   if ( PopDiagHandleRegistered )
   {

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFreeIrp @ 0x14037AA7C
+ * XREFs of PopFreeIrp @ 0x14037A5CC
  * Callers:
- *     PopRequestCompletion @ 0x14037A900 (PopRequestCompletion.c)
- *     PopSystemIrpCompletion @ 0x140997040 (PopSystemIrpCompletion.c)
+ *     PopRequestCompletion @ 0x14037A450 (PopRequestCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140998040 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     PopFxReleasePowerIrp @ 0x1403A4D14 (PopFxReleasePowerIrp.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     PopFxReleasePowerIrp @ 0x1403A4E64 (PopFxReleasePowerIrp.c)
  */
 
 LONG_PTR __fastcall PopFreeIrp(PIRP Irp)

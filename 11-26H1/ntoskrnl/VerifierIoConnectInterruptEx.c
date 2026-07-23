@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierIoConnectInterruptEx @ 0x140C40A00
+ * XREFs of VerifierIoConnectInterruptEx @ 0x140C46A10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViCtxSetPrivateConnectParameters @ 0x140C4108C (ViCtxSetPrivateConnectParameters.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViCtxSetPrivateConnectParameters @ 0x140C4709C (ViCtxSetPrivateConnectParameters.c)
  */
 
 __int64 __fastcall VerifierIoConnectInterruptEx(__int64 a1)

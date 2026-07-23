@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPopulateMsiMessages @ 0x1405413F0
+ * XREFs of HalpPopulateMsiMessages @ 0x14053ECF0
  * Callers:
- *     HalpInterruptRemap @ 0x140540EC4 (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x14053E7C4 (HalpInterruptRemap.c)
  * Callees:
- *     HalpInterruptGenerateMessage @ 0x140540CD0 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptGenerateMessage @ 0x14053E5D0 (HalpInterruptGenerateMessage.c)
  */
 
 __int64 __fastcall HalpPopulateMsiMessages(__int64 a1, __int64 a2, unsigned int a3)

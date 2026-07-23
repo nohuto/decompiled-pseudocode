@@ -1,86 +1,87 @@
 /*
- * XREFs of RtlDeriveCapabilitySidsFromName @ 0x1800101D0
+ * XREFs of RtlDeriveCapabilitySidsFromName @ 0x18005B900
  * Callers:
- *     RtlCapabilityCheck @ 0x18000DFF0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x180059720 (RtlCapabilityCheck.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlUpcaseUnicodeString @ 0x18003AB90 (RtlUpcaseUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x1800A72E0 (RtlPrefixUnicodeString.c)
- *     SymCryptSha256 @ 0x1800FDF8C (SymCryptSha256.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlUpcaseUnicodeString @ 0x180025100 (RtlUpcaseUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1800A6410 (RtlPrefixUnicodeString.c)
+ *     SymCryptSha256 @ 0x1800FD6DC (SymCryptSha256.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-__int64 __fastcall RtlDeriveCapabilitySidsFromName(__int64 a1, __int64 a2, _OWORD *a3)
+NTSTATUS __cdecl RtlDeriveCapabilitySidsFromName(
+        PUNICODE_STRING UnicodeString,
+        PSID CapabilityGroupSid,
+        PSID CapabilitySid)
 {
-  _OWORD *v3; // rbx
-  __int64 result; // rax
-  __int64 v7; // r8
+  NTSTATUS result; // eax
+  __int128 v7; // xmm0
   __int128 v8; // xmm0
-  __int128 v9; // xmm0
-  unsigned int v10; // edi
-  __int128 v11; // xmm1
-  void *Buf1[2]; // [rsp+20h] [rbp-68h] BYREF
-  __int128 v13; // [rsp+30h] [rbp-58h]
-  __int128 v14; // [rsp+40h] [rbp-48h] BYREF
-  __int128 v15; // [rsp+50h] [rbp-38h]
+  unsigned int v9; // edi
+  __int128 v10; // xmm1
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-58h]
+  __int128 v13; // [rsp+40h] [rbp-48h] BYREF
+  __int128 v14; // [rsp+50h] [rbp-38h]
 
-  v3 = a3;
-  *(_OWORD *)Buf1 = 0LL;
-  if ( !a1 || !a2 || !a3 )
+  DestinationString = 0LL;
+  if ( !UnicodeString || !CapabilityGroupSid || !CapabilitySid )
     __fastfail(5u);
-  *a3 = 0LL;
-  a3[1] = 0LL;
-  a3[2] = 0LL;
-  LOBYTE(a3) = 1;
-  *(_OWORD *)a2 = 0LL;
-  *(_OWORD *)(a2 + 16) = 0LL;
-  *(_QWORD *)(a2 + 32) = 0LL;
-  *(_DWORD *)(a2 + 40) = 0;
-  result = RtlUpcaseUnicodeString(Buf1, a1, a3);
-  if ( (int)result >= 0 )
+  *(_OWORD *)CapabilitySid = 0LL;
+  *((_OWORD *)CapabilitySid + 1) = 0LL;
+  *((_OWORD *)CapabilitySid + 2) = 0LL;
+  *(_OWORD *)CapabilityGroupSid = 0LL;
+  *((_OWORD *)CapabilityGroupSid + 1) = 0LL;
+  *((_QWORD *)CapabilityGroupSid + 4) = 0LL;
+  *((_DWORD *)CapabilityGroupSid + 10) = 0;
+  result = RtlUpcaseUnicodeString(&DestinationString, UnicodeString, 1u);
+  if ( result >= 0 )
   {
-    SymCryptSha256(Buf1[1], LOWORD(Buf1[0]), &v14);
+    SymCryptSha256(DestinationString.Buffer, DestinationString.Length, &v13);
+    v7 = v13;
+    *(_WORD *)CapabilityGroupSid = 2305;
+    *(_DWORD *)((char *)CapabilityGroupSid + 2) = RtlpNtAuthority;
+    *((_WORD *)CapabilityGroupSid + 3) = 1280;
+    *((_DWORD *)CapabilityGroupSid + 2) = 32;
+    *(_OWORD *)((char *)CapabilityGroupSid + 12) = v7;
+    v12 = v7;
     v8 = v14;
-    *(_WORD *)a2 = 2305;
-    *(_DWORD *)(a2 + 2) = RtlpNtAuthority;
-    *(_WORD *)(a2 + 6) = 1280;
-    *(_DWORD *)(a2 + 8) = 32;
-    *(_OWORD *)(a2 + 12) = v8;
+    *(_OWORD *)((char *)CapabilityGroupSid + 28) = v14;
+    v9 = 0;
     v13 = v8;
-    v9 = v15;
-    *(_OWORD *)(a2 + 28) = v15;
-    v10 = 0;
-    v14 = v9;
-    while ( v10 < 0xC )
+    while ( v9 < 0xC )
     {
-      if ( LOWORD(Buf1[0]) == *((unsigned __int16 *)&RtlpLegacyApplicationCapabilityNames + 8 * v10)
-        && !memcmp(Buf1[1], *((const void **)&RtlpLegacyApplicationCapabilityNames + 2 * v10 + 1), LOWORD(Buf1[0])) )
+      if ( DestinationString.Length == *((unsigned __int16 *)&RtlpLegacyApplicationCapabilityNames + 8 * v9)
+        && !memcmp(
+              DestinationString.Buffer,
+              *((const void **)&RtlpLegacyApplicationCapabilityNames + 2 * v9 + 1),
+              DestinationString.Length) )
       {
-        *(_WORD *)v3 = 513;
-        *(_DWORD *)((char *)v3 + 2) = RtlpAppPackageAuthority;
-        *((_WORD *)v3 + 3) = 3840;
-        *((_DWORD *)v3 + 2) = 3;
-        *((_DWORD *)v3 + 3) = v10 + 1;
+        *(_WORD *)CapabilitySid = 513;
+        *(_SID_IDENTIFIER_AUTHORITY *)((char *)CapabilitySid + 2) = RtlpAppPackageAuthority;
+        *((_DWORD *)CapabilitySid + 2) = 3;
+        *((_DWORD *)CapabilitySid + 3) = v9 + 1;
         break;
       }
-      ++v10;
+      ++v9;
     }
-    if ( Buf1[1] )
-      RtlpSysVolFree(Buf1[1]);
-    if ( v10 == 12 )
+    if ( DestinationString.Buffer )
+      RtlpSysVolFree(DestinationString.Buffer);
+    if ( v9 == 12 )
     {
-      *(_WORD *)v3 = 2561;
-      LOBYTE(v7) = 1;
-      *(_DWORD *)((char *)v3 + 2) = RtlpAppPackageAuthority;
-      *((_WORD *)v3 + 3) = 3840;
-      *((_DWORD *)v3 + 2) = 3;
-      *((_DWORD *)v3 + 3) = (unsigned __int8)RtlPrefixUnicodeString(&unk_180171290, a1, v7) != 0 ? 0x10000 : 1024;
-      v11 = v14;
-      v3[1] = v13;
-      v3[2] = v11;
+      *(_WORD *)CapabilitySid = 2561;
+      *(_SID_IDENTIFIER_AUTHORITY *)((char *)CapabilitySid + 2) = RtlpAppPackageAuthority;
+      *((_DWORD *)CapabilitySid + 2) = 3;
+      *((_DWORD *)CapabilitySid + 3) = RtlPrefixUnicodeString((PUNICODE_STRING)&String1, UnicodeString, 1u) != 0
+                                     ? 0x10000
+                                     : 1024;
+      v10 = v13;
+      *((_OWORD *)CapabilitySid + 1) = v12;
+      *((_OWORD *)CapabilitySid + 2) = v10;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

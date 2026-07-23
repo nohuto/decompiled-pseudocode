@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140420B66 @ 0x140420B66
  * Callers:
- *     KiDecrementKernelShadowStack @ 0x140420B50 (KiDecrementKernelShadowStack.c)
+ *     sub_140420B50 @ 0x140420B50 (sub_140420B50.c)
  * Callees:
  *     <none>
  */

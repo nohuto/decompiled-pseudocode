@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLookupIoPageNode @ 0x14029859C
+ * XREFs of MiLookupIoPageNode @ 0x14021901C
  * Callers:
- *     MiInsertPhysicalPteMapping @ 0x140298318 (MiInsertPhysicalPteMapping.c)
- *     MmGetCacheAttributeEx @ 0x140532020 (MmGetCacheAttributeEx.c)
- *     MmProtectMdlSystemAddress @ 0x1405321B0 (MmProtectMdlSystemAddress.c)
+ *     MiInsertPhysicalPteMapping @ 0x140218D98 (MiInsertPhysicalPteMapping.c)
+ *     MmGetCacheAttributeEx @ 0x140532260 (MmGetCacheAttributeEx.c)
+ *     MmProtectMdlSystemAddress @ 0x1405323F0 (MmProtectMdlSystemAddress.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -22,8 +22,8 @@ _QWORD *__fastcall MiLookupIoPageNode(unsigned __int64 a1)
   int v10; // edx
   bool v11; // zf
 
-  v2 = ExAcquireSpinLockShared(&dword_140C4EC40);
-  v3 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC48 + 1);
+  v2 = ExAcquireSpinLockShared(&dword_140C4EC80);
+  v3 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC88 + 1);
   v4 = v2;
   while ( v3 )
   {
@@ -39,7 +39,7 @@ _QWORD *__fastcall MiLookupIoPageNode(unsigned __int64 a1)
       v3 = (_QWORD *)v3[1];
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EC40);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EC80);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

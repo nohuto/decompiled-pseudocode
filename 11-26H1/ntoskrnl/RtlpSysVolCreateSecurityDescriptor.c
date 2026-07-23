@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x1407745A0
+ * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x1407775A0
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x140A95BA0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x140A98FD0 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlSetControlSecurityDescriptor @ 0x1408045B0 (RtlSetControlSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlSetControlSecurityDescriptor @ 0x14080A050 (RtlSetControlSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
@@ -63,7 +63,7 @@ LABEL_11:
   Acl = RtlpAddKnownAce((int)v10, 2, 3, 0x1FFFFF, &Sid, 0);
   if ( Acl < 0
     || (Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v10, 0), Acl < 0)
-    || (Acl = RtlSetControlSecurityDescriptor(v5, 4096LL, 4096LL), Acl < 0) )
+    || (Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u), Acl < 0) )
   {
     v12 = v10;
     goto LABEL_11;

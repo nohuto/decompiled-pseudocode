@@ -1,8 +1,8 @@
 /*
- * XREFs of PspGetStorageArrayIfPossible @ 0x140360518
+ * XREFs of PspGetStorageArrayIfPossible @ 0x1402A5448
  * Callers:
- *     PspGetStorageArray @ 0x140715F44 (PspGetStorageArray.c)
- *     PspStorageRemoveObject @ 0x14090EFDC (PspStorageRemoveObject.c)
+ *     PspGetStorageArray @ 0x1406C4594 (PspGetStorageArray.c)
+ *     PspStorageRemoveObject @ 0x14090F13C (PspStorageRemoveObject.c)
  * Callees:
  *     <none>
  */

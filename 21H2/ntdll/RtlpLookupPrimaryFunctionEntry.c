@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpSameFunction @ 0x18007AFA0 (RtlpSameFunction.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
 _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2)
@@ -26,7 +26,7 @@ _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2)
     ++v2;
     a1 = &v5[2 * v4 + 4];
     if ( v2 > 0x20 )
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   return a1;
 }

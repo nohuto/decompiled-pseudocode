@@ -24,10 +24,10 @@
  *     RtlLeaveCriticalSection @ 0x18003A8A0 (RtlLeaveCriticalSection.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rbx
+  PVOID v1; // rax
+  PVOID v2; // rbx
   int v4; // edi
 
   v1 = qword_180166098;
@@ -36,10 +36,10 @@ __int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
   if ( !qword_180166098 )
   {
     sub_180012D4C();
-    RtlEnterCriticalSection(&unk_180163D00);
+    RtlEnterCriticalSection(&CriticalSection);
     if ( !qword_180166098 )
       v4 = sub_1800085C8(&qword_180166098);
-    RtlLeaveCriticalSection(&unk_180163D00);
+    RtlLeaveCriticalSection(&CriticalSection);
     v1 = qword_180166098;
   }
   if ( a1 )

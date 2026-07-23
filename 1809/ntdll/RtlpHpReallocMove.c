@@ -9,7 +9,7 @@
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall RtlpHpReallocMove(_DWORD *a1, const void *a2, __int64 a3, unsigned int a4)
+__int64 __fastcall RtlpHpReallocMove(char *a1, const void *a2, __int64 a3, unsigned int a4)
 {
   void *v8; // rax
   __int64 v9; // rsi
@@ -19,7 +19,7 @@ __int64 __fastcall RtlpHpReallocMove(_DWORD *a1, const void *a2, __int64 a3, uns
   __int64 v13; // rcx
   int v15; // [rsp+60h] [rbp+18h] BYREF
 
-  v8 = (void *)RtlpHpAllocateHeapInternal((__int64)a1, *(_QWORD *)(a3 + 24), *(_QWORD *)(a3 + 32), a4, &v15);
+  v8 = (void *)RtlpHpAllocateHeapInternal(a1, *(_QWORD *)(a3 + 24), *(_QWORD *)(a3 + 32), a4, &v15);
   v9 = (__int64)v8;
   if ( v8 )
   {

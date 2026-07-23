@@ -7,11 +7,15 @@
  *     FindNodeOrParent @ 0x1800641E8 (FindNodeOrParent.c)
  */
 
-__int64 __fastcall RtlInsertElementGenericTableAvl(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+PVOID __cdecl RtlInsertElementGenericTableAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement)
 {
-  int NodeOrParent; // eax
-  _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
+  TABLE_SEARCH_RESULT SearchResult; // eax
+  PVOID NodeOrParent[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  NodeOrParent = FindNodeOrParent(a1, a2, v10);
-  return RtlInsertElementGenericTableFullAvl(a1, a2, a3, a4, v10[0], NodeOrParent);
+  SearchResult = (unsigned int)FindNodeOrParent(Table, Buffer, NodeOrParent);
+  return RtlInsertElementGenericTableFullAvl(Table, Buffer, BufferSize, NewElement, NodeOrParent[0], SearchResult);
 }

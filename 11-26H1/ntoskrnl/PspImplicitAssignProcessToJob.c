@@ -1,20 +1,20 @@
 /*
- * XREFs of PspImplicitAssignProcessToJob @ 0x140984FA8
+ * XREFs of PspImplicitAssignProcessToJob @ 0x140946FB8
  * Callers:
- *     PspInsertProcess @ 0x140983A9C (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140945AAC (PspInsertProcess.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x140216800 (PsGetEffectiveServerSilo.c)
- *     PspEstablishJobHierarchy @ 0x1407F836C (PspEstablishJobHierarchy.c)
- *     PspIncrementJobChainProcessCounts @ 0x1407F8CA4 (PspIncrementJobChainProcessCounts.c)
- *     PspValidateJobAssignmentMemoryPartition @ 0x1407FA100 (PspValidateJobAssignmentMemoryPartition.c)
- *     MmAssignProcessToJob @ 0x14096022C (MmAssignProcessToJob.c)
- *     PspApplyJobChainLimitsToProcess @ 0x140A8FD18 (PspApplyJobChainLimitsToProcess.c)
- *     PspLockJobChain @ 0x140AAEBB4 (PspLockJobChain.c)
- *     PspUnlockJobChain @ 0x140AAEE38 (PspUnlockJobChain.c)
- *     PspValidateJobChainLimits @ 0x140AD6C7C (PspValidateJobChainLimits.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x140B003D8 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspValidateJobAssignmentCpuPartition @ 0x140B101D4 (PspValidateJobAssignmentCpuPartition.c)
- *     PspAssignJobCpuPartitionToProcess @ 0x140B3D5A4 (PspAssignJobCpuPartitionToProcess.c)
+ *     PsGetEffectiveServerSilo @ 0x140216B30 (PsGetEffectiveServerSilo.c)
+ *     PspEstablishJobHierarchy @ 0x1407FDE6C (PspEstablishJobHierarchy.c)
+ *     PspIncrementJobChainProcessCounts @ 0x1407FE7A4 (PspIncrementJobChainProcessCounts.c)
+ *     PspValidateJobAssignmentMemoryPartition @ 0x1407FFB30 (PspValidateJobAssignmentMemoryPartition.c)
+ *     MmAssignProcessToJob @ 0x140A05AEC (MmAssignProcessToJob.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x140A94870 (PspApplyJobChainLimitsToProcess.c)
+ *     PspLockJobChain @ 0x140AAC814 (PspLockJobChain.c)
+ *     PspUnlockJobChain @ 0x140AACA94 (PspUnlockJobChain.c)
+ *     PspValidateJobChainLimits @ 0x140AD398C (PspValidateJobChainLimits.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140B02108 (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspValidateJobAssignmentCpuPartition @ 0x140B11C14 (PspValidateJobAssignmentCpuPartition.c)
+ *     PspAssignJobCpuPartitionToProcess @ 0x140B3F674 (PspAssignJobCpuPartitionToProcess.c)
  */
 
 __int64 __fastcall PspImplicitAssignProcessToJob(__int64 a1, __int64 a2, unsigned int a3)
@@ -69,7 +69,7 @@ LABEL_3:
   {
     v8 = 0;
 LABEL_5:
-    PspUnlockJobChain(a1, CurrentThread, 0LL);
+    PspUnlockJobChain(a1, CurrentThread);
     return (unsigned int)v8;
   }
   if ( !PspValidateJobAssignmentMemoryPartition(EffectiveServerSilo, 0LL, a2, 1)
@@ -101,9 +101,9 @@ LABEL_5:
     while ( v14 );
     _interlockedbittestandset((volatile signed __int32 *)(a2 + 1868), 0x1Fu);
   }
-  PspUnlockJobChain(a1, CurrentThread, 0LL);
+  PspUnlockJobChain(a1, CurrentThread);
   v8 = PspApplyWorkingSetLimitsToProcess(a2);
-  if ( v8 >= 0 && !(unsigned int)MmAssignProcessToJob(a2, 0LL, 0) )
+  if ( v8 >= 0 && !(unsigned int)MmAssignProcessToJob(a2, 0LL, 0LL) )
     return (unsigned int)-1073741756;
   return (unsigned int)v8;
 }

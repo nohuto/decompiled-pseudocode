@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x1406C2260
+ * XREFs of RtlWriteRegistryValue @ 0x1406C3500
  * Callers:
- *     RtlSetPortableOperatingSystem @ 0x1402EFBC0 (RtlSetPortableOperatingSystem.c)
- *     ExpWriteSiloTimeZoneMarker @ 0x140583AE4 (ExpWriteSiloTimeZoneMarker.c)
- *     EtwpEnumerateKeyProviders @ 0x14072387C (EtwpEnumerateKeyProviders.c)
- *     EtwpEnableAutoLoggerProvider @ 0x1407239F8 (EtwpEnableAutoLoggerProvider.c)
- *     RtlpUpdateDynamicTimeZones @ 0x140734DC4 (RtlpUpdateDynamicTimeZones.c)
- *     RtlSetActiveTimeBias @ 0x140734FF4 (RtlSetActiveTimeBias.c)
- *     EtwpEnumerateAutologgerPath @ 0x140741C28 (EtwpEnumerateAutologgerPath.c)
- *     EtwStartAutoLogger @ 0x140741E68 (EtwStartAutoLogger.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x140762790 (WmipSaveGuidSecurityDescriptor.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x14089590C (RtlpSetTimeZoneInformationWorker.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C30 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     WheapCommitPolicy @ 0x1408DC1DC (WheapCommitPolicy.c)
+ *     RtlSetPortableOperatingSystem @ 0x1402EFDB0 (RtlSetPortableOperatingSystem.c)
+ *     ExpWriteSiloTimeZoneMarker @ 0x140584AE4 (ExpWriteSiloTimeZoneMarker.c)
+ *     EtwpEnumerateKeyProviders @ 0x140724B1C (EtwpEnumerateKeyProviders.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140724C98 (EtwpEnableAutoLoggerProvider.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x140735FB4 (RtlpUpdateDynamicTimeZones.c)
+ *     RtlSetActiveTimeBias @ 0x1407361E4 (RtlSetActiveTimeBias.c)
+ *     EtwpEnumerateAutologgerPath @ 0x140742E18 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x140743058 (EtwStartAutoLogger.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x140763980 (WmipSaveGuidSecurityDescriptor.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x140896B6C (RtlpSetTimeZoneInformationWorker.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B1E90 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     WheapCommitPolicy @ 0x1408DD49C (WheapCommitPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x1405C8774 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlWriteRegistryValue(

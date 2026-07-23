@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmResetPerfEngineForProcessor @ 0x14058D618
+ * XREFs of PpmResetPerfEngineForProcessor @ 0x14058DB08
  * Callers:
- *     PopHandleNextState @ 0x140AA811C (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140AA7F8C (PopHandleNextState.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PpmResetPerfTimes @ 0x1403A70A0 (PpmResetPerfTimes.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14059E81C (PpmHeteroHgsProcessorThreadFeedbackInit.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PpmResetPerfTimes @ 0x1403A7280 (PpmResetPerfTimes.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14059ED0C (PpmHeteroHgsProcessorThreadFeedbackInit.c)
  */
 
 __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -19,13 +19,13 @@ __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2, __int6
   __int64 v9; // rdi
   __int64 v10; // rbx
   __int64 v11; // rsi
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v13; // r8
   void (__fastcall *v14)(_QWORD); // rax
   __int64 k; // rsi
   int v16; // eax
   void (__fastcall *v17)(_QWORD); // rax
-  LARGE_INTEGER v19; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = a2;
   v5 = a1;
@@ -62,9 +62,12 @@ __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2, __int6
     {
       if ( *(_QWORD *)(v10 + 408) )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         LOBYTE(v13) = 1;
-        (*(void (__fastcall **)(_QWORD, __int64, __int64))(v10 + 408))(*(_QWORD *)(v11 + 8), InterruptTimePrecise, v13);
+        (*(void (__fastcall **)(_QWORD, LARGE_INTEGER, __int64))(v10 + 408))(
+          *(_QWORD *)(v11 + 8),
+          InterruptTimePrecise,
+          v13);
       }
     }
     else

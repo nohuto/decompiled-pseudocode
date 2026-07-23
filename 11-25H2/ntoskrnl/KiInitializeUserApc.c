@@ -43,7 +43,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _QWORD *v20; // r8
   const char *i; // rax
   unsigned __int64 v22; // rcx
-  int v23; // eax
+  NTSTATUS v23; // eax
   unsigned __int64 v24; // rtt
   unsigned int v25; // r9d
   __int64 v26; // rdx
@@ -57,11 +57,11 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _QWORD *v37; // [rsp+C0h] [rbp-F8h]
   _QWORD *v38; // [rsp+C8h] [rbp-F0h]
   SIZE_T v39; // [rsp+D0h] [rbp-E8h]
-  ULONG_PTR v40[2]; // [rsp+E0h] [rbp-D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+E0h] [rbp-D8h] BYREF
 
   v7 = a4;
   v8 = a3;
-  memset_0(v40, 0, 0x98uLL);
+  memset_0(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   CurrentThread = KeGetCurrentThread();
   if ( a1 )
   {

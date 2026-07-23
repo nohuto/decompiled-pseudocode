@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetIdealNodeNumberThread @ 0x140570760
+ * XREFs of KeGetIdealNodeNumberThread @ 0x140570CA0
  * Callers:
- *     MmAllocateNonCachedMemory @ 0x140A2D910 (MmAllocateNonCachedMemory.c)
- *     MiCreateHardwareEnclave @ 0x140A3D788 (MiCreateHardwareEnclave.c)
- *     MiAllocateUserPhysicalPages @ 0x140A40358 (MiAllocateUserPhysicalPages.c)
- *     MmManagePartitionMoveMemory @ 0x140A457B8 (MmManagePartitionMoveMemory.c)
+ *     MmAllocateNonCachedMemory @ 0x140A2DBC0 (MmAllocateNonCachedMemory.c)
+ *     MiCreateHardwareEnclave @ 0x140A3DA38 (MiCreateHardwareEnclave.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A40608 (MiAllocateUserPhysicalPages.c)
+ *     MmManagePartitionMoveMemory @ 0x140A45A68 (MmManagePartitionMoveMemory.c)
  * Callees:
  *     <none>
  */

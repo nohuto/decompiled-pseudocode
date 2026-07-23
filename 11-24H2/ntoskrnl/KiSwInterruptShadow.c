@@ -1,5 +1,5 @@
 /*
- * XREFs of KiSwInterruptShadow @ 0x140BBBCC0
+ * XREFs of KiSwInterruptShadow @ 0x140BBDCC0
  * Callers:
  *     <none>
  * Callees:

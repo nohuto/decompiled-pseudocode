@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSetAuditInfoForObjectType @ 0x1408A1750
+ * XREFs of SepSetAuditInfoForObjectType @ 0x1408A29B0
  * Callers:
- *     SepExamineSaclEx @ 0x1408A0FC0 (SepExamineSaclEx.c)
+ *     SepExamineSaclEx @ 0x1408A2220 (SepExamineSaclEx.c)
  * Callees:
- *     SepAuditTypeList @ 0x1408A0F14 (SepAuditTypeList.c)
+ *     SepAuditTypeList @ 0x1408A2174 (SepAuditTypeList.c)
  */
 
 __int64 __fastcall SepSetAuditInfoForObjectType(

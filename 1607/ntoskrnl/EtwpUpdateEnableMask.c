@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpUpdateEnableMask @ 0x14048FFF8
+ * XREFs of EtwpUpdateEnableMask @ 0x140490A88
  * Callers:
- *     NtTraceEvent @ 0x1400D5560 (NtTraceEvent.c)
- *     EtwpRegisterUMGuid @ 0x14040E5E0 (EtwpRegisterUMGuid.c)
- *     EtwpRegisterProvider @ 0x140492024 (EtwpRegisterProvider.c)
+ *     NtTraceEvent @ 0x1400D3400 (NtTraceEvent.c)
+ *     EtwpRegisterUMGuid @ 0x14040D4A0 (EtwpRegisterUMGuid.c)
+ *     EtwpRegisterProvider @ 0x140492AB4 (EtwpRegisterProvider.c)
  * Callees:
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     EtwpCheckLoggerControlAccess @ 0x140490208 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140490C98 (EtwpCheckLoggerControlAccess.c)
  */
 
 void __fastcall EtwpUpdateEnableMask(__int64 a1, char a2, char a3, _BYTE *a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateProfile @ 0x1408DA220
+ * XREFs of NtCreateProfile @ 0x1408DB4E0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryGroupAffinity @ 0x1400F3680 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExpProfileCreate @ 0x1408D9BCC (ExpProfileCreate.c)
+ *     KeQueryGroupAffinity @ 0x1400F3700 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExpProfileCreate @ 0x1408DAE8C (ExpProfileCreate.c)
  */
 
 NTSTATUS __stdcall NtCreateProfile(

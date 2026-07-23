@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeSystemSubNodeEnumerationContext @ 0x1403EDE78
+ * XREFs of KeInitializeSystemSubNodeEnumerationContext @ 0x1404529A8
  * Callers:
- *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405EAA58 (KiConfigureCooperativeIdleSearchContextTargets.c)
- *     KiGetNextClockOwner @ 0x1405EE394 (KiGetNextClockOwner.c)
- *     PoAllProcessorsDeepIdle @ 0x1406013E0 (PoAllProcessorsDeepIdle.c)
- *     KiConfigureAllSchedulingInformation @ 0x140CC99F0 (KiConfigureAllSchedulingInformation.c)
+ *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405ED3C8 (KiConfigureCooperativeIdleSearchContextTargets.c)
+ *     KiGetNextClockOwner @ 0x1405F0D04 (KiGetNextClockOwner.c)
+ *     PoAllProcessorsDeepIdle @ 0x140603E90 (PoAllProcessorsDeepIdle.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140CCFA80 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KeEnumerateNextNodeInSystem @ 0x1403EE250 (KeEnumerateNextNodeInSystem.c)
+ *     KeEnumerateNextNodeInSystem @ 0x140452D80 (KeEnumerateNextNodeInSystem.c)
  */
 
 __int64 __fastcall KeInitializeSystemSubNodeEnumerationContext(_QWORD *a1, __int16 a2)

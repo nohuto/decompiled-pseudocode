@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampHashLookupInTable @ 0x140A5B6D0
+ * XREFs of EtwpCovSampHashLookupInTable @ 0x140A68690
  * Callers:
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x14093F1FC (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140A3230C (EtwpCovSampHashMakeRoomAndAcquireLock.c)
  * Callees:
  *     <none>
  */

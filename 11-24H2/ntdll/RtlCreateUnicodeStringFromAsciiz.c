@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlCreateUnicodeStringFromAsciiz @ 0x1800E8410
+ * XREFs of RtlCreateUnicodeStringFromAsciiz @ 0x1800E32B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAnsiStringToUnicodeString @ 0x18000CF60 (RtlAnsiStringToUnicodeString.c)
- *     strlen @ 0x180167CE0 (strlen.c)
+ *     RtlAnsiStringToUnicodeString @ 0x180039960 (RtlAnsiStringToUnicodeString.c)
+ *     strlen @ 0x1801660A0 (strlen.c)
  */
 
-bool __fastcall RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, char *Str)
+BOOLEAN __cdecl RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, PCSTR SourceString)
 {
   size_t v3; // rax
-  STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  ANSI_STRING SourceStringa; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_QWORD *)&SourceString.Length = 0LL;
-  SourceString.Buffer = Str;
-  if ( !Str )
-    return RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 1u) >= 0;
-  v3 = strlen(Str);
+  *(_QWORD *)&SourceStringa.Length = 0LL;
+  SourceStringa.Buffer = (char *)SourceString;
+  if ( !SourceString )
+    return RtlAnsiStringToUnicodeString(DestinationString, &SourceStringa, 1u) >= 0;
+  v3 = strlen(SourceString);
   if ( v3 <= 0xFFFE )
   {
-    SourceString.Length = v3;
-    SourceString.MaximumLength = v3 + 1;
-    return RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 1u) >= 0;
+    SourceStringa.Length = v3;
+    SourceStringa.MaximumLength = v3 + 1;
+    return RtlAnsiStringToUnicodeString(DestinationString, &SourceStringa, 1u) >= 0;
   }
   return 0;
 }

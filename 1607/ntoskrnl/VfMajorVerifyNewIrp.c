@@ -1,7 +1,7 @@
 /*
- * XREFs of VfMajorVerifyNewIrp @ 0x14070E8C8
+ * XREFs of VfMajorVerifyNewIrp @ 0x14070E8F8
  * Callers:
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWalkWowStack @ 0x1404660B0
+ * XREFs of RtlpWalkWowStack @ 0x14045F210
  * Callers:
- *     RtlpWalkFrameChain @ 0x140262EB0 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x140262420 (RtlpWalkFrameChain.c)
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall RtlpWalkWowStack(

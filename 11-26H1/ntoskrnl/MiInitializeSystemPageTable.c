@@ -1,31 +1,31 @@
 /*
- * XREFs of MiInitializeSystemPageTable @ 0x14033AB8C
+ * XREFs of MiInitializeSystemPageTable @ 0x14033CC0C
  * Callers:
- *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x14033B880 (MiCreateSystemPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiFillPhysicalPages @ 0x140289560 (MiFillPhysicalPages.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiIsPageAGapPage @ 0x140339B10 (MiIsPageAGapPage.c)
- *     MiInitializePfnForOtherProcess @ 0x14033B798 (MiInitializePfnForOtherProcess.c)
- *     MiInitializeUsedPtesCount @ 0x1403403C0 (MiInitializeUsedPtesCount.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140363B4C (MiInsertRecursiveTbFlushEntries.c)
- *     MiClearPteAccessedBitRange @ 0x1404E8234 (MiClearPteAccessedBitRange.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     MiReplicatePteChange @ 0x140528570 (MiReplicatePteChange.c)
- *     MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE @ 0x1406F2468 (MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE.c)
- *     MxCopyPage @ 0x140CF5774 (MxCopyPage.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiFillPhysicalPages @ 0x140288AC0 (MiFillPhysicalPages.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiIsPageAGapPage @ 0x14033BB90 (MiIsPageAGapPage.c)
+ *     MiInitializePfnForOtherProcess @ 0x14033D818 (MiInitializePfnForOtherProcess.c)
+ *     MiInitializeUsedPtesCount @ 0x140342440 (MiInitializeUsedPtesCount.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1403658EC (MiInsertRecursiveTbFlushEntries.c)
+ *     MiClearPteAccessedBitRange @ 0x1404E15F4 (MiClearPteAccessedBitRange.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     MiReplicatePteChange @ 0x14052ABE0 (MiReplicatePteChange.c)
+ *     MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE @ 0x1406F70D8 (MI_GET_DIRECTORY_FRAME_FROM_PROCESS_PDE.c)
+ *     MxCopyPage @ 0x140CFBAF4 (MxCopyPage.c)
  */
 
 void __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, unsigned __int64 a3, __int64 a4)
@@ -66,7 +66,7 @@ void __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, unsigne
   v10 = (__int64)(a3 << 25) >> 16;
   v34 = a2 != 0 ? 6 : 4;
   v11 = (a4 + 0x220000000000LL) / 48;
-  if ( (MiFlags & 0x80u) != 0LL && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+  if ( (MiFlags & 0x80u) != 0LL && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero((a4 + 0x220000000000LL) / 48);
     v5 = v35;
@@ -88,7 +88,7 @@ void __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, unsigne
           --v28;
         }
         while ( v28 );
-        if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << a2) & (unsigned __int8)byte_140E2D689) != 0 )
+        if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << a2) & (unsigned __int8)byte_140E2D809) != 0 )
         {
           for ( i = v26; i < v26 + 512; ++i )
           {
@@ -109,7 +109,7 @@ void __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, unsigne
   {
     if ( (v8 & 1) != 0 )
     {
-      if ( (PVOID)((v8 >> 12) & 0xFFFFFFFFFFLL) == qword_140E36000[0] )
+      if ( (PVOID)((v8 >> 12) & 0xFFFFFFFFFFLL) == qword_140E36180[0] )
         goto LABEL_4;
       v24 = *(_QWORD *)v10;
     }
@@ -122,7 +122,7 @@ void __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, unsigne
 LABEL_4:
   LeafVa = MiGetLeafVa(a3);
   if ( LeafVa < 0x7FFFFFFF0000LL
-    || LeafVa >= qword_140E2DE40 && LeafVa <= qword_140E2DE50
+    || LeafVa >= qword_140E2DFC0 && LeafVa <= qword_140E2DFD0
     || LeafVa >= v13 && LeafVa <= 0xFFFFF6FFFFFFFFFFuLL )
   {
     v9 = 2;
@@ -134,7 +134,7 @@ LABEL_4:
     v15 = v34 | 0x98000000;
   ValidPte = MiMakeValidPte(a3, v11, v15);
   v17 = ValidPte;
-  if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << a2) & (unsigned __int8)byte_140E2D689) != 0 )
+  if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << a2) & (unsigned __int8)byte_140E2D809) != 0 )
     v17 = ValidPte & 0xFFFFFFFFFFFFFFDFuLL;
   if ( a2 == 3 && (MiFlags & 0x30) != 0 && (v9 & 2) == 0 )
   {
@@ -179,11 +179,11 @@ LABEL_17:
         MiUnlockPageTableInternal(*(_QWORD *)(a1 + 32), a3);
     }
     if ( a2 == 3 )
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
   }
   if ( (v18 & 1) != 0 )
   {
-    if ( (v18 & 0x20) != 0 && ((unsigned __int8)(1 << a2) & (unsigned __int8)byte_140E2D689) != 0 )
+    if ( (v18 & 0x20) != 0 && ((unsigned __int8)(1 << a2) & (unsigned __int8)byte_140E2D809) != 0 )
       MiClearPteAccessedBitRange(a1, a2, a3);
     MiTransformValidPteInPlace(a3, a2);
     if ( a2 != 3 )
@@ -227,5 +227,5 @@ LABEL_23:
   }
   if ( *(_DWORD *)(v21 + 120) != 1 )
     MiReplicatePteChange(a3, 1LL);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
 }

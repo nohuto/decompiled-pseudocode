@@ -1,9 +1,9 @@
 /*
- * XREFs of StringCbPrintfA @ 0x18011F17C
+ * XREFs of StringCbPrintfA @ 0x18011EF2C
  * Callers:
- *     LdrpLogDbgPrint @ 0x18011F07C (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x18011EE2C (LdrpLogDbgPrint.c)
  * Callees:
- *     _vsnprintf @ 0x180128D30 (_vsnprintf.c)
+ *     _vsnprintf @ 0x180128AA0 (_vsnprintf.c)
  */
 
 HRESULT StringCbPrintfA(STRSAFE_LPSTR pszDest, size_t cbDest, STRSAFE_LPCSTR pszFormat, ...)

@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlDissectDbcs @ 0x14070D150
+ * XREFs of FsRtlDissectDbcs @ 0x14070ACF0
  * Callers:
- *     FsRtlIsHpfsDbcsLegal @ 0x14070D230 (FsRtlIsHpfsDbcsLegal.c)
- *     FsRtlIsFatDbcsLegal @ 0x1409D5580 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14070ADD0 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlIsFatDbcsLegal @ 0x1409C53B0 (FsRtlIsFatDbcsLegal.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMoveBackgroundZeroThreads @ 0x1403C8F60
+ * XREFs of MiMoveBackgroundZeroThreads @ 0x1403A3B00
  * Callers:
- *     MmReportParkedProcessors @ 0x1403C8D50 (MmReportParkedProcessors.c)
+ *     MmReportParkedProcessors @ 0x1403A38F0 (MmReportParkedProcessors.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeSetUserGroupAffinityThread @ 0x1403B2A30 (KeSetUserGroupAffinityThread.c)
- *     MiSelectBestZeroingProcessor @ 0x1403C7C00 (MiSelectBestZeroingProcessor.c)
- *     MiProcessorParked @ 0x1403CA9E8 (MiProcessorParked.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A1240 (KeSetUserGroupAffinityThread.c)
+ *     MiSelectBestZeroingProcessor @ 0x140413840 (MiSelectBestZeroingProcessor.c)
+ *     MiProcessorParked @ 0x1404ADB64 (MiProcessorParked.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
+unsigned __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
 {
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   unsigned __int8 CurrentIrql; // bp
   unsigned int v4; // ebx
   ULONG *v5; // rbp
@@ -31,7 +31,7 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
   _QWORD **v16; // r12
   _QWORD *v17; // rax
   _QWORD *v18; // rcx
-  __int64 v19; // r13
+  _QWORD *v19; // r13
   __int64 v20; // [rsp+20h] [rbp-78h]
   char v21; // [rsp+28h] [rbp-70h]
   volatile LONG *SpinLock; // [rsp+30h] [rbp-68h]
@@ -43,7 +43,7 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
   __int64 v28; // [rsp+B8h] [rbp+20h]
 
   v25 = a1;
-  result = (__int64)&MiSystemPartition;
+  result = (unsigned __int64)&MiSystemPartition;
   if ( a1 == &MiSystemPartition )
   {
     if ( !a2 )
@@ -72,7 +72,7 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
       v6 = *((_QWORD *)v5 + 2) + 57216LL * v4;
       if ( *(_QWORD *)(v6 + 14976) || *(_QWORD *)(v6 + 14992) )
       {
-        v7 = *(void ***)(384LL * v4 + qword_140E2DAF8 + 376);
+        v7 = *(void ***)(384LL * v4 + qword_140E2DC38 + 376);
         SpinLock = (volatile LONG *)(v6 + 15280);
         ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v6 + 15280));
         v8 = *(_QWORD *)(v6 + 15272);
@@ -110,15 +110,15 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
                         do
                         {
                           v18 = (_QWORD *)*v17;
-                          v19 = (__int64)(v17 - 54);
+                          v19 = v17 - 54;
                           v27 = (_QWORD *)*v17;
                           if ( *(v17 - 10) )
                           {
-                            v23 = *(_OWORD *)(v19 + 352);
+                            v23 = *((_OWORD *)v19 + 22);
                             if ( (unsigned int)MiProcessorParked(&v23) )
                             {
-                              KeSetUserGroupAffinityThread(*(_QWORD *)(v19 + 328), (__int64 *)v24);
-                              MiSelectBestZeroingProcessor(v10 - 28, v19, 1, 0);
+                              KeSetUserGroupAffinityThread(v19[41], (__int64 *)v24);
+                              MiSelectBestZeroingProcessor(v10 - 28, v19, 1LL);
                             }
                             v18 = v27;
                           }

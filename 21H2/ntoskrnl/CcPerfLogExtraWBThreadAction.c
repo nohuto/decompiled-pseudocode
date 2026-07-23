@@ -1,10 +1,10 @@
 /*
- * XREFs of CcPerfLogExtraWBThreadAction @ 0x1404EC520
+ * XREFs of CcPerfLogExtraWBThreadAction @ 0x1404EC760
  * Callers:
- *     CcLogExtraWBThreadAction @ 0x1404E9C84 (CcLogExtraWBThreadAction.c)
+ *     CcLogExtraWBThreadAction @ 0x1404E9EC4 (CcLogExtraWBThreadAction.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogExtraWBThreadAction(int a1, int a2, __int64 a3, __int64 a4, __int64 a5)

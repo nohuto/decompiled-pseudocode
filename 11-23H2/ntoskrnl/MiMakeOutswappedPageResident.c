@@ -1,42 +1,42 @@
 /*
- * XREFs of MiMakeOutswappedPageResident @ 0x14061856C
+ * XREFs of MiMakeOutswappedPageResident @ 0x140618ABC
  * Callers:
- *     KiInSwapProcesses @ 0x14034D08C (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14034D22C (KiInSwapProcesses.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetPageTablePfnBuddy @ 0x14029251C (MiSetPageTablePfnBuddy.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     IoPageReadEx @ 0x1402A6810 (IoPageReadEx.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiInitializeInPageSupport @ 0x1402E13A0 (MiInitializeInPageSupport.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E3F60 (MiInitializePfnForOtherProcess.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     MiLockTransitionLeafPageEx @ 0x140347CA8 (MiLockTransitionLeafPageEx.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiValidatePagefilePageHash @ 0x14046F37A (MiValidatePagefilePageHash.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     SmPageRead @ 0x1405C9B00 (SmPageRead.c)
- *     MiFlushAllFilesystemPages @ 0x140629294 (MiFlushAllFilesystemPages.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
- *     MiStoreFaultComplete @ 0x14065C208 (MiStoreFaultComplete.c)
- *     MiReadFromMemoryPagefile @ 0x140660948 (MiReadFromMemoryPagefile.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402927AC (MiSetPageTablePfnBuddy.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     IoPageReadEx @ 0x1402A6AA0 (IoPageReadEx.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiInitializeInPageSupport @ 0x1402E1630 (MiInitializeInPageSupport.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiInitializePfnForOtherProcess @ 0x1402E41F0 (MiInitializePfnForOtherProcess.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     MiIsRetryIoStatus @ 0x1402F4C28 (MiIsRetryIoStatus.c)
+ *     MiLockTransitionLeafPageEx @ 0x140347F38 (MiLockTransitionLeafPageEx.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiValidatePagefilePageHash @ 0x14046F77A (MiValidatePagefilePageHash.c)
+ *     SmPageRead @ 0x1405CA070 (SmPageRead.c)
+ *     MiFlushAllFilesystemPages @ 0x1406297E4 (MiFlushAllFilesystemPages.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
+ *     MiStoreFaultComplete @ 0x14065C758 (MiStoreFaultComplete.c)
+ *     MiReadFromMemoryPagefile @ 0x140660E98 (MiReadFromMemoryPagefile.c)
  */
 
 unsigned __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -126,7 +126,7 @@ unsigned __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2,
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -148,10 +148,10 @@ LABEL_22:
       *(_QWORD *)(v11 + 24) = v19;
       v20 = MiCaptureDirtyBitToPfn(v11);
       _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v23 = CurrentPrcb->SchedulerAssist;
@@ -177,10 +177,10 @@ LABEL_22:
     }
     MiDiscardTransitionPteEx(v11, 0LL);
     _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;
@@ -193,10 +193,10 @@ LABEL_22:
     }
     __writecr8(CurrentIrql);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;
@@ -326,7 +326,7 @@ LABEL_47:
       if ( HIWORD(v71) )
         v71 = (unsigned __int16)v71 | ((HIWORD(v71) - 1) << 16);
       _InterlockedAnd64((volatile signed __int64 *)(v33 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags && (v51 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v51 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v51 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v51 <= 0xFu )
       {
         v52 = v70[0];
         if ( LOBYTE(v70[0]) <= 0xFu && v51 >= 2u )
@@ -387,7 +387,7 @@ LABEL_47:
   *(_QWORD *)(v33 + 16) = MiSwizzleInvalidPte(128LL);
   *(_BYTE *)(v33 + 34) |= 0x10u;
   _InterlockedAnd64((volatile signed __int64 *)(v33 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags && (v59 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v59 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v59 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v59 <= 0xFu )
   {
     v60 = v70[0];
     if ( LOBYTE(v70[0]) <= 0xFu && v59 >= 2u )

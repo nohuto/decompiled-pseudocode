@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSaveXSaveSupport @ 0x140A9F66C
+ * XREFs of KiSaveXSaveSupport @ 0x140A9F4DC
  * Callers:
- *     KeSaveProcessorSpecificFeatures @ 0x14056BFCC (KeSaveProcessorSpecificFeatures.c)
+ *     KeSaveProcessorSpecificFeatures @ 0x14056C68C (KeSaveProcessorSpecificFeatures.c)
  * Callees:
  *     <none>
  */

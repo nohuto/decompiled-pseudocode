@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUdiv128 @ 0x1403A4530
+ * XREFs of RtlUdiv128 @ 0x1403A4710
  * Callers:
- *     HalpTimerCreateReferencePage @ 0x1403A44A8 (HalpTimerCreateReferencePage.c)
+ *     HalpTimerCreateReferencePage @ 0x1403A4688 (HalpTimerCreateReferencePage.c)
  * Callees:
  *     <none>
  */

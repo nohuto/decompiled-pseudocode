@@ -1,44 +1,44 @@
 /*
- * XREFs of SepAdtLogAuditRecord @ 0x1402153F8
+ * XREFs of SepAdtLogAuditRecord @ 0x140215728
  * Callers:
- *     SeReportSecurityEventWithSubCategory @ 0x140215140 (SeReportSecurityEventWithSubCategory.c)
- *     SeAuditBootConfiguration @ 0x14081232C (SeAuditBootConfiguration.c)
- *     SeAuditFipsCryptoSelftests @ 0x1408127E0 (SeAuditFipsCryptoSelftests.c)
- *     SeAuditProcessExit @ 0x1408129B0 (SeAuditProcessExit.c)
- *     SeAuditSystemTimeChange @ 0x140812B38 (SeAuditSystemTimeChange.c)
- *     SepAdtGenerateDiscardAudit @ 0x140812D00 (SepAdtGenerateDiscardAudit.c)
- *     SepAdtLogAuditFailureEvent @ 0x140812DF4 (SepAdtLogAuditFailureEvent.c)
- *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x140812FEC (SepAdtOpenObjectForDeleteAuditAlarm.c)
- *     SepAuditAssignPrimaryToken @ 0x140813228 (SepAuditAssignPrimaryToken.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SeAuditProcessCreation @ 0x140983DEC (SeAuditProcessCreation.c)
- *     SeAuditTransactionStateChange @ 0x1409F8C00 (SeAuditTransactionStateChange.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409F9204 (SepAdtCloseObjectAuditAlarm.c)
- *     SeAuditHandleDuplication @ 0x1409F9428 (SeAuditHandleDuplication.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409F9DCC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409FA180 (SepAdtDeleteObjectAuditAlarm.c)
- *     SeOperationAuditAlarm @ 0x1409FA6B0 (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409FB6F8 (SepAdtStagingEvent.c)
- *     SepAdtTokenRightAdjusted @ 0x140A4325C (SepAdtTokenRightAdjusted.c)
- *     SeAuditHardLinkCreationWithTransaction @ 0x140B14300 (SeAuditHardLinkCreationWithTransaction.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x140B4FC88 (SepAdtObjectReferenceAuditAlarm.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeReportSecurityEventWithSubCategory @ 0x140215470 (SeReportSecurityEventWithSubCategory.c)
+ *     SeAuditBootConfiguration @ 0x14081818C (SeAuditBootConfiguration.c)
+ *     SeAuditFipsCryptoSelftests @ 0x140818640 (SeAuditFipsCryptoSelftests.c)
+ *     SeAuditProcessExit @ 0x140818810 (SeAuditProcessExit.c)
+ *     SeAuditSystemTimeChange @ 0x140818998 (SeAuditSystemTimeChange.c)
+ *     SepAdtGenerateDiscardAudit @ 0x140818B60 (SepAdtGenerateDiscardAudit.c)
+ *     SepAdtLogAuditFailureEvent @ 0x140818C54 (SepAdtLogAuditFailureEvent.c)
+ *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x140818E4C (SepAdtOpenObjectForDeleteAuditAlarm.c)
+ *     SepAuditAssignPrimaryToken @ 0x140819088 (SepAuditAssignPrimaryToken.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091D6BC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED80 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeOperationAuditAlarm @ 0x14091F2B0 (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409202F8 (SepAdtStagingEvent.c)
+ *     SeAuditProcessCreation @ 0x140945DFC (SeAuditProcessCreation.c)
+ *     SepAdtTokenRightAdjusted @ 0x1409FDFBC (SepAdtTokenRightAdjusted.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x140A9EE24 (SepAdtCloseObjectAuditAlarm.c)
+ *     SeAuditHardLinkCreationWithTransaction @ 0x140B16400 (SeAuditHardLinkCreationWithTransaction.c)
+ *     SeAuditHandleDuplication @ 0x140B2A79C (SeAuditHandleDuplication.c)
+ *     SeAuditTransactionStateChange @ 0x140B33F70 (SeAuditTransactionStateChange.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x140B52518 (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B67B6C (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     SepAdtMarshallAuditRecord @ 0x140215680 (SepAdtMarshallAuditRecord.c)
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     SepQueueWorkItem @ 0x140216854 (SepQueueWorkItem.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     SepRmDispatchDataToLsa @ 0x1404DDA94 (SepRmDispatchDataToLsa.c)
- *     SepAuditFailedRaisedIrql @ 0x140533030 (SepAuditFailedRaisedIrql.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SepAdtLogAuditFailureEvent @ 0x140812DF4 (SepAdtLogAuditFailureEvent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtMarshallAuditRecord @ 0x1402159B0 (SepAdtMarshallAuditRecord.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     SepQueueWorkItem @ 0x140216B84 (SepQueueWorkItem.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     SepRmDispatchDataToLsa @ 0x1404D7174 (SepRmDispatchDataToLsa.c)
+ *     SepAuditFailedRaisedIrql @ 0x1405354B0 (SepAuditFailedRaisedIrql.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SepAdtLogAuditFailureEvent @ 0x140818C54 (SepAdtLogAuditFailureEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtLogAuditRecord(_DWORD *Src)
@@ -58,7 +58,7 @@ void __fastcall SepAdtLogAuditRecord(_DWORD *Src)
   _BYTE v14[8]; // [rsp+20h] [rbp-58h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-50h] BYREF
 
-  if ( !HIDWORD(SepRmCapTableLock.Header.WaitListHead.Flink) && (Src[5] & 2) != 0 )
+  if ( !SepRmAuditingEnabled && (Src[5] & 2) != 0 )
     return;
   CurrentIrql = KeGetCurrentIrql();
   v3 = 64LL;
@@ -85,18 +85,18 @@ void __fastcall SepAdtLogAuditRecord(_DWORD *Src)
         ObfDereferenceObjectWithTag(v9, 0x69416553u);
       ExFreePoolWithTag((PVOID)v5, 0);
       SepAdtLastAuditFailStatus = v8;
-      _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.QueuedScb);
+      _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue);
       if ( Src[1] == 521 )
         goto LABEL_16;
       v10 = (unsigned int)v8;
 LABEL_12:
       SepAuditFailedRaisedIrql(v10);
 LABEL_16:
-      if ( LODWORD(RtlpBootStatHandleLock.QueuedScb) && CurrentIrql < 2u && Src[1] != 521 )
+      if ( RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue && CurrentIrql < 2u && Src[1] != 521 )
         SepAdtLogAuditFailureEvent((unsigned int)SepAdtLastAuditFailStatus, 0LL);
       return;
     }
-    if ( HIDWORD(SepRmCapTableLock.Header.WaitListHead.Flink) || (*((_DWORD *)*v7 + 5) & 2) == 0 )
+    if ( SepRmAuditingEnabled || (*((_DWORD *)*v7 + 5) & 2) == 0 )
     {
       v11 = *((_DWORD *)*v7 + 3);
       *(_DWORD *)(v5 + 36) = v11;
@@ -112,7 +112,7 @@ LABEL_16:
         goto LABEL_16;
       }
       v14[0] = 0;
-      if ( (unsigned __int8)SepQueueWorkItem(&RtlpBootStatHandleLock.SchedulerApcFill5[64], v5, v14) )
+      if ( (unsigned __int8)SepQueueWorkItem(&RtlpBootStatHandleLock.SuspendEvent.Header.WaitListHead.Blink, v5, v14) )
         goto LABEL_16;
       v13 = *(void **)(v5 + 56);
       if ( v13 )

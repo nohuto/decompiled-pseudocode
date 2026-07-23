@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetDeviceInterfaceMappedProperty @ 0x1406FC880
+ * XREFs of _CmSetDeviceInterfaceMappedProperty @ 0x1406FDB20
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x14059AE70 (_PnpDispatchDeviceInterface.c)
- *     _CmDeleteDeviceInterfaceWorker @ 0x1408F6D30 (_CmDeleteDeviceInterfaceWorker.c)
+ *     _PnpDispatchDeviceInterface @ 0x14059BE70 (_PnpDispatchDeviceInterface.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x1408F7FF0 (_CmDeleteDeviceInterfaceWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140704B00 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1408FCB74 (_CmDeleteDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E6D84 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140705DA0 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1408FDE34 (_CmDeleteDeviceInterfaceMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfaceMappedProperty(
@@ -33,7 +33,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedProperty(
   v11 = -1073741802;
   if ( !a4 )
   {
-    v12 = &off_140908EF8;
+    v12 = &off_14090A1B8;
     v13 = 0;
     while ( 1 )
     {
@@ -61,7 +61,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedProperty(
     if ( v11 != -1073741802 )
       return v11;
 LABEL_6:
-    v15 = &off_140909420;
+    v15 = &off_14090A6E0;
     v16 = 0;
     while ( 1 )
     {

@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
- *     KiSaveProcessorControlState @ 0x14015D840 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140166F20 (RtlCaptureContext.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlCollectLivedump @ 0x1401C0300 (HvlCollectLivedump.c)
- *     IoFillDumpHeader @ 0x1401C55A4 (IoFillDumpHeader.c)
- *     IopLiveDumpTraceMirroringPhase0End @ 0x1401CB2BC (IopLiveDumpTraceMirroringPhase0End.c)
- *     IopLiveDumpTraceMirroringPhase1End @ 0x1401CB2FC (IopLiveDumpTraceMirroringPhase1End.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
+ *     KiSaveProcessorControlState @ 0x14015DDB0 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140167490 (RtlCaptureContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlCollectLivedump @ 0x1401C01E4 (HvlCollectLivedump.c)
+ *     IoFillDumpHeader @ 0x1401C5444 (IoFillDumpHeader.c)
+ *     IopLiveDumpTraceMirroringPhase0End @ 0x1401CB1A0 (IopLiveDumpTraceMirroringPhase0End.c)
+ *     IopLiveDumpTraceMirroringPhase1End @ 0x1401CB1E0 (IopLiveDumpTraceMirroringPhase1End.c)
  *     IopLiveDumpCorralProcessors @ 0x1403DAA8C (IopLiveDumpCorralProcessors.c)
  *     IopLiveDumpMarkImportantDumpData @ 0x1403DB154 (IopLiveDumpMarkImportantDumpData.c)
  *     IopLiveDumpMarkRequiredDumpData @ 0x1403DB400 (IopLiveDumpMarkRequiredDumpData.c)
@@ -101,7 +101,7 @@ __int64 __fastcall IopLiveDumpEndMirroringCallback(int a1)
           else
           {
             IoFillDumpHeader(
-              *(enum _NT_PRODUCT_TYPE **)(v1 + 384),
+              *(_NT_PRODUCT_TYPE **)(v1 + 384),
               6,
               *(_DWORD *)v1,
               *(_QWORD *)(v1 + 8),

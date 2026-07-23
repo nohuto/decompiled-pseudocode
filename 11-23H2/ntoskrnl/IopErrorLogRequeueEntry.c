@@ -1,11 +1,11 @@
 /*
- * XREFs of IopErrorLogRequeueEntry @ 0x14055E9BC
+ * XREFs of IopErrorLogRequeueEntry @ 0x14055F07C
  * Callers:
- *     IopErrorLogThread @ 0x140872530 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x140872770 (IopErrorLogThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopErrorLogRequeueEntry(__int64 *a1)
@@ -27,10 +27,10 @@ __int64 __fastcall IopErrorLogRequeueEntry(__int64 *a1)
   IopErrorLogListHead = (__int64)a1;
   ErrorLogSessionOpened = 0;
   result = KxReleaseSpinLock((volatile signed __int64 *)&IopErrorLogLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -41,7 +41,7 @@ __int64 __fastcall IopErrorLogRequeueEntry(__int64 *a1)
       v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTrackProviderRegistration @ 0x1405C1F34
+ * XREFs of EtwpTrackProviderRegistration @ 0x1405C2F34
  * Callers:
- *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
- *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
+ *     EtwpRegisterUMGuid @ 0x1405C4970 (EtwpRegisterUMGuid.c)
+ *     EtwpRegisterProvider @ 0x1406BF84C (EtwpRegisterProvider.c)
  * Callees:
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpProviderArrivalCallback @ 0x14070A0A4 (EtwpProviderArrivalCallback.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpProviderArrivalCallback @ 0x14070B344 (EtwpProviderArrivalCallback.c)
  */
 
 __int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)

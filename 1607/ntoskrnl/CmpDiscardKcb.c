@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDiscardKcb @ 0x14000ADEC
+ * XREFs of CmpDiscardKcb @ 0x14000A96C
  * Callers:
- *     CmDeleteLayeredKey @ 0x1401B5DB0 (CmDeleteLayeredKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x1403FD614 (CmpTransMgrFreeVolatileData.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmpSearchForOpenSubKeys @ 0x14049ACE4 (CmpSearchForOpenSubKeys.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpCommitDiscardReplacePost @ 0x14060B950 (CmpCommitDiscardReplacePost.c)
- *     CmpForceInvalidatePostCallback @ 0x14060BC20 (CmpForceInvalidatePostCallback.c)
- *     CmpRefreshWorkerRoutine @ 0x14060DA50 (CmpRefreshWorkerRoutine.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E464 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E7D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmDeleteLayeredKey @ 0x1401B5C94 (CmDeleteLayeredKey.c)
+ *     CmpSearchForOpenSubKeys @ 0x1403E3C04 (CmpSearchForOpenSubKeys.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1403FC4D4 (CmpTransMgrFreeVolatileData.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpCommitDiscardReplacePost @ 0x14060BA04 (CmpCommitDiscardReplacePost.c)
+ *     CmpForceInvalidatePostCallback @ 0x14060BCD4 (CmpForceInvalidatePostCallback.c)
+ *     CmpRefreshWorkerRoutine @ 0x14060DB04 (CmpRefreshWorkerRoutine.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E518 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E88C (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpRemoveKeyControlBlock @ 0x1403FB928 (CmpRemoveKeyControlBlock.c)
- *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x1403FB980 (CmpLockDeletedHashEntryExclusiveByKcb.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14043735C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpRemoveKeyControlBlock @ 0x1403FA7E8 (CmpRemoveKeyControlBlock.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x1403FA840 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x14043622C (CmpDelayDerefKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpDiscardKcb(ULONG_PTR BugCheckParameter4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnicodeStringCopyStringEx @ 0x1405D87D8
+ * XREFs of RtlUnicodeStringCopyStringEx @ 0x1405DAFD8
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140AD1378 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x140AD39B4 (PiDevCfgBuildDriverConfigurationId.c)
- *     PipInitComputerIds @ 0x140D056B0 (PipInitComputerIds.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140AE8544 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140AEACE8 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PipInitComputerIds @ 0x140D0B980 (PipInitComputerIds.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCopyStringEx(

@@ -1,5 +1,5 @@
 /*
- * XREFs of x86BiosFreeBuffer @ 0x1403ADC80
+ * XREFs of x86BiosFreeBuffer @ 0x1403ADE60
  * Callers:
  *     <none>
  * Callees:

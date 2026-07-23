@@ -17,13 +17,13 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   NTSTATUS v6; // r14d
   ULONG v7; // r9d
   char *StringRoutine; // rax
-  unsigned int Length; // r9d
-  unsigned int *Buffer; // r11
-  unsigned int v11; // ecx
+  ULONG UnicodeStringByteCount; // r9d
+  wchar_t *Buffer; // r11
+  ULONG Length; // ecx
   char *v12; // r10
-  unsigned int v13; // r9d
+  ULONG v13; // r9d
   __int64 v14; // rbx
-  unsigned int i; // eax
+  ULONG i; // eax
   int v16; // ebx
   __int64 v17; // rdi
   __int16 v18; // r8
@@ -31,7 +31,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   unsigned __int16 MaximumLength; // cx
   ULONG BytesInMultiByteString; // [rsp+A8h] [rbp+10h] BYREF
   BOOLEAN v23; // [rsp+B0h] [rbp+18h]
-  unsigned int v24; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG UTF8StringActualByteCount; // [rsp+B8h] [rbp+20h] BYREF
 
   v23 = AllocateDestinationString;
   v6 = 0;
@@ -59,52 +59,52 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
       DestinationString->Length = MaximumLength - 1;
     }
   }
-  Length = SourceString->Length;
-  Buffer = (unsigned int *)SourceString->Buffer;
-  v11 = DestinationString->Length;
+  UnicodeStringByteCount = SourceString->Length;
+  Buffer = SourceString->Buffer;
+  Length = DestinationString->Length;
   v12 = DestinationString->Buffer;
   if ( NlsActiveCodePageIsUTF8 )
   {
     if ( SourceString->Length )
-      RtlUnicodeToUTF8N(v12, v11, &v24, Buffer, Length);
+      RtlUnicodeToUTF8N(v12, Length, &UTF8StringActualByteCount, Buffer, UnicodeStringByteCount);
     else
-      v24 = 0;
+      UTF8StringActualByteCount = 0;
   }
   else
   {
-    v13 = Length >> 1;
+    v13 = UnicodeStringByteCount >> 1;
     if ( NlsMbCodePageTag )
     {
       v16 = (int)DestinationString->Buffer;
       v17 = NlsUnicodeToMbAnsiData;
-      while ( v13 && v11 )
+      while ( v13 && Length )
       {
-        v18 = *(_WORD *)(v17 + 2LL * *(unsigned __int16 *)Buffer);
+        v18 = *(_WORD *)(v17 + 2LL * *Buffer);
         LOWORD(BytesInMultiByteString) = v18;
-        Buffer = (unsigned int *)((char *)Buffer + 2);
+        ++Buffer;
         if ( HIBYTE(v18) )
         {
-          v19 = v11--;
+          v19 = Length--;
           if ( v19 < 2 )
             break;
           *v12++ = HIBYTE(v18);
         }
         *v12++ = v18;
-        --v11;
+        --Length;
         --v13;
       }
-      v24 = (_DWORD)v12 - v16;
+      UTF8StringActualByteCount = (_DWORD)v12 - v16;
     }
     else
     {
-      if ( v13 >= v11 )
+      if ( v13 >= Length )
         v13 = DestinationString->Length;
-      v24 = v13;
+      UTF8StringActualByteCount = v13;
       v14 = NlsUnicodeToAnsiData;
       for ( i = 0; i < v13; ++i )
-        v12[i] = *(_BYTE *)(*((unsigned __int16 *)Buffer + i) + v14);
+        v12[i] = *(_BYTE *)(Buffer[i] + v14);
     }
   }
-  DestinationString->Buffer[v24] = 0;
+  DestinationString->Buffer[UTF8StringActualByteCount] = 0;
   return v6;
 }

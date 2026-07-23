@@ -1,15 +1,15 @@
 /*
- * XREFs of PspAssignCpuPartitionsToProcessByHandle @ 0x140B6E144
+ * XREFs of PspAssignCpuPartitionsToProcessByHandle @ 0x140B715F4
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
- *     PspAssignCpuPartitionsToProcess @ 0x1407F28E8 (PspAssignCpuPartitionsToProcess.c)
- *     PspReferenceCpuPartitionByHandle @ 0x1407F2CB4 (PspReferenceCpuPartitionByHandle.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1407F8448 (PspAssignCpuPartitionsToProcess.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1407F8814 (PspReferenceCpuPartitionByHandle.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspAssignCpuPartitionsToProcessByHandle(__int64 a1, char a2, __int64 a3, unsigned int a4, char a5)

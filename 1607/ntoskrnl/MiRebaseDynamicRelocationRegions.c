@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitializeSystemVa @ 0x1407AA428 (MiInitializeSystemVa.c)
  * Callees:
- *     KeFlushEntireTb @ 0x14013CFC0 (KeFlushEntireTb.c)
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeFlushEntireTb @ 0x14013D530 (KeFlushEntireTb.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     MiApplyDynamicRelocations @ 0x1407AA654 (MiApplyDynamicRelocations.c)
  */
 
@@ -43,11 +43,11 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
   v22 = v3;
   if ( (VslGetNestedPageProtectionFlags() & 2) != 0 )
     MiFlags |= 0x100000u;
-  v4 = qword_140327FA0;
+  v4 = qword_140327FE0;
   v5 = 0xFFFFF68000000000uLL;
-  v6 = qword_140327F70;
-  v23 = qword_140327F70;
-  if ( qword_140327FA0 != 0xFFFFF68000000000uLL )
+  v6 = qword_140327FB0;
+  v23 = qword_140327FB0;
+  if ( qword_140327FE0 != 0xFFFFF68000000000uLL )
   {
     v7 = MI_READ_PTE_LOCK_FREE(0xFFFFF6FB7DBEDF68uLL);
     *v8 = v7;

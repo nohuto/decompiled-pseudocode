@@ -8,7 +8,7 @@
  *     KiInsertSchedulingGroupQueue @ 0x140308A1C (KiInsertSchedulingGroupQueue.c)
  */
 
-void __fastcall KiInsertNonMaxOverQuotaScb(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall KiInsertNonMaxOverQuotaScb(__int64 a1, _RTL_RB_TREE *a2, __int64 a3)
 {
   char v3; // si
   char v6; // al

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCommitRequestFailed @ 0x140B61778
+ * XREFs of MiCommitRequestFailed @ 0x140B64818
  * Callers:
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     KeRequestTerminationProcess @ 0x1407B9F48 (KeRequestTerminationProcess.c)
- *     MiLogCommitRequestFailed @ 0x14087B7EC (MiLogCommitRequestFailed.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     KeRequestTerminationProcess @ 0x1407BCFA8 (KeRequestTerminationProcess.c)
+ *     MiLogCommitRequestFailed @ 0x140881BEC (MiLogCommitRequestFailed.c)
  */
 
 void __fastcall MiCommitRequestFailed(__int64 a1)
@@ -16,9 +16,9 @@ void __fastcall MiCommitRequestFailed(__int64 a1)
   int v5; // r9d
 
   CurrentThread = KeGetCurrentThread();
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000001000LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000001000LL) )
   {
     MiLogCommitRequestFailed(v3, a1, v4, v5);
   }

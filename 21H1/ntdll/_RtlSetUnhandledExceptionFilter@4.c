@@ -7,24 +7,22 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __thiscall RtlSetUnhandledExceptionFilter(void *this, int a2)
+void __cdecl RtlSetUnhandledExceptionFilter(PRTLP_UNHANDLED_EXCEPTION_FILTER UnhandledExceptionFilter)
 {
+  PULONG v1; // eax
   int v2; // eax
-  int result; // eax
-  int v4; // eax
-  int v5; // [esp+0h] [ebp-4h] BYREF
+  ULONG *ProcessInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v5 = (int)this;
-  v2 = `RtlpGetCookieValue'::`2'::CookieValue;
+  v1 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v4 = ZwQueryInformationProcess(-1, 36, &v5, 4, 0);
-    if ( v4 < 0 )
-      RtlRaiseStatus(v4);
-    v2 = v5;
-    `RtlpGetCookieValue'::`2'::CookieValue = v5;
+    v2 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+    if ( v2 < 0 )
+      RtlRaiseStatus(v2);
+    v1 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  result = __ROR4__(a2 ^ v2, v2 & 0x1F);
-  RtlpUnhandledExceptionFilter = result;
-  return result;
+  RtlpUnhandledExceptionFilter = __ROR4__(
+                                   (unsigned int)UnhandledExceptionFilter ^ (unsigned int)v1,
+                                   (unsigned __int8)v1 & 0x1F);
 }

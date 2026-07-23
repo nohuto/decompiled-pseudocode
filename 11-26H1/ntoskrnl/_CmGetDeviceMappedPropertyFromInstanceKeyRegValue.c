@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140992C9C
+ * XREFs of _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409536FC
  * Callers:
- *     _PnpDispatchDevice @ 0x1409956A0 (_PnpDispatchDevice.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x140AE2F14 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _PnpDispatchDevice @ 0x140956100 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x140AE0A94 (_CmGetDeviceMappedPropertyKeys.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
@@ -30,8 +30,8 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
   unsigned int i; // r8d
   DEVPROPKEY *v19; // r10
   DEVPROPKEY **v20; // rdi
-  const WCHAR *v21; // r8
-  NTSTATUS v22; // ecx
+  DEVPROPKEY *v21; // r8
+  int v22; // ecx
   __int64 v24; // rax
   int v25; // eax
   int v26; // [rsp+40h] [rbp-10h] BYREF
@@ -59,11 +59,11 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
     v15 = 0;
   }
   v16 = *(_DWORD *)(a4 + 16);
-  v17 = &off_140BD9560;
+  v17 = &off_140BE03F0;
   for ( i = 0; i < 2; ++i )
   {
     v19 = *v17;
-    v20 = &off_140BD9560 + 4 * i;
+    v20 = &off_140BE03F0 + 4 * i;
     if ( v16 == (*v17)->pid )
     {
       a1 = *(_QWORD *)a4 - *(_QWORD *)&v19->fmtid.Data1;
@@ -72,8 +72,8 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
       if ( !a1 )
         break;
     }
-    v17 += 4;
     v20 = 0LL;
+    v17 += 4;
   }
   if ( !v20 )
     return (unsigned int)-1073741264;
@@ -84,7 +84,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
       goto LABEL_15;
     v9 = Handle;
   }
-  v21 = (const WCHAR *)v20[2];
+  v21 = v20[2];
   if ( *(_DWORD *)(a4 + 16) == 2 )
   {
     v24 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Reported.fmtid.Data1;
@@ -96,7 +96,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
       LODWORD(a5) = 4;
       if ( a3 )
         v9 = a3;
-      if ( PnpCtxRegQueryValue(a1, v9, v21, &v26, &a6, (unsigned int *)&a5) >= 0 && v26 == 4 && (_DWORD)a5 == 4 )
+      if ( (int)PnpCtxRegQueryValue(a1, v9, v21, &v26, &a6, &a5) >= 0 && v26 == 4 && (_DWORD)a5 == 4 )
         v25 = a6;
       else
         v25 = 0;
@@ -121,7 +121,7 @@ LABEL_14:
   LODWORD(a5) = v15;
   if ( a3 )
     v9 = a3;
-  v22 = PnpCtxRegQueryValue(a1, v9, v21, &v26, (void *)v12, (unsigned int *)&a5);
+  v22 = PnpCtxRegQueryValue(a1, v9, v21, &v26, v12, &a5);
   if ( v22 == -1073741772 || v22 == -1073741444 )
     goto LABEL_14;
   if ( v22 && v22 != -1073741789 )

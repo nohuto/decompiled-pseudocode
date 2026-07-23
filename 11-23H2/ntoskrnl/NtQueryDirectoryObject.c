@@ -1,51 +1,51 @@
 /*
- * XREFs of NtQueryDirectoryObject @ 0x1406C2630
+ * XREFs of NtQueryDirectoryObject @ 0x1406C2660
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObpLockDirectoryShared @ 0x1406C2AD0 (ObpLockDirectoryShared.c)
- *     ObpUnlockDirectory @ 0x1406C3248 (ObpUnlockDirectory.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObpLockDirectoryShared @ 0x1406C2B00 (ObpLockDirectoryShared.c)
+ *     ObpUnlockDirectory @ 0x1406C3278 (ObpUnlockDirectory.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtQueryDirectoryObject(
-        HANDLE Handle,
-        char *Address,
-        SIZE_T Length,
-        char a4,
-        char a5,
-        int *a6,
-        unsigned int *a7)
+NTSTATUS __cdecl NtQueryDirectoryObject(
+        HANDLE DirectoryHandle,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        BOOLEAN RestartScan,
+        PULONG Context,
+        PULONG ReturnLength)
 {
   __int64 v7; // rbx
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v10; // rdx
   __int64 v11; // rcx
-  int v12; // r14d
+  ULONG v12; // r14d
   __int64 Pool2; // r13
-  NTSTATUS v15; // ebx
+  int v15; // ebx
   void *v16; // rcx
-  unsigned int v17; // r12d
-  int v18; // esi
+  ULONG v17; // r12d
+  ULONG v18; // esi
   _QWORD *v19; // rbx
   unsigned int v20; // ecx
   _QWORD *v21; // rax
   _QWORD *v22; // rdi
-  unsigned int v23; // r13d
-  int v24; // r11d
-  int v25; // eax
+  ULONG v23; // r13d
+  ULONG v24; // r11d
+  ULONG v25; // eax
   __int64 v26; // rbx
   __int64 v27; // rax
   __int64 v28; // r10
   unsigned int v29; // r9d
   unsigned __int16 v30; // r8
-  unsigned int v31; // edx
+  ULONG v31; // edx
   int v32; // eax
   _OWORD *v33; // r11
   int v34; // ecx
@@ -53,62 +53,60 @@ __int64 __fastcall NtQueryDirectoryObject(
   const void **v36; // rdi
   char *v37; // rbx
   char *v38; // rbx
-  unsigned int v39; // eax
+  ULONG v39; // eax
   int v40; // [rsp+30h] [rbp-98h]
   int v41; // [rsp+30h] [rbp-98h]
   int v42; // [rsp+34h] [rbp-94h]
   unsigned int v43; // [rsp+38h] [rbp-90h]
   __int64 v44; // [rsp+40h] [rbp-88h]
   const void **Src; // [rsp+48h] [rbp-80h]
-  int v46; // [rsp+54h] [rbp-74h]
+  ULONG v46; // [rsp+54h] [rbp-74h]
   PVOID Object; // [rsp+58h] [rbp-70h] BYREF
   _QWORD *v48; // [rsp+60h] [rbp-68h]
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-60h] BYREF
   __int128 v50; // [rsp+78h] [rbp-50h] BYREF
   __int64 v51; // [rsp+88h] [rbp-40h]
-  unsigned int v53; // [rsp+E0h] [rbp+18h]
 
-  v53 = Length;
-  v7 = (unsigned int)Length;
+  v7 = Length;
   DestinationString = 0LL;
   v50 = 0LL;
   v51 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, (unsigned int)Length, 2u);
+    ProbeForWrite(Buffer, Length, 2u);
     v10 = 0x7FFFFFFF0000LL;
     v11 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-      v11 = (__int64)a6;
+    if ( (unsigned __int64)Context < 0x7FFFFFFF0000LL )
+      v11 = (__int64)Context;
     *(_DWORD *)v11 = *(_DWORD *)v11;
-    if ( a7 )
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a7 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a7;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ReturnLength;
       *(_DWORD *)v10 = *(_DWORD *)v10;
     }
-    if ( a5 )
+    if ( RestartScan )
       v12 = 0;
     else
-      v12 = *a6;
+      v12 = *Context;
   }
-  else if ( a5 )
+  else if ( RestartScan )
   {
     v12 = 0;
   }
   else
   {
-    v12 = *a6;
+    v12 = *Context;
   }
   if ( (unsigned int)v7 >= (int)v7 + 32 )
-    return 3221225485LL;
+    return -1073741811;
   Pool2 = ExAllocatePool2(257LL, v7 + 32, 1833853519LL);
   Src = (const void **)Pool2;
   if ( !Pool2 )
-    return 3221225626LL;
+    return -1073741670;
   Object = 0LL;
-  v15 = ObReferenceObjectByHandle(Handle, 1u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL);
+  v15 = ObReferenceObjectByHandle(DirectoryHandle, 1u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL);
   if ( v15 >= 0 )
   {
     v44 = Pool2;
@@ -164,18 +162,18 @@ __int64 __fastcall NtQueryDirectoryObject(
               v18 = v24;
               goto LABEL_44;
             }
-            if ( v31 > v53 )
+            if ( v31 > Length )
             {
               v18 = v24;
               v32 = -1073741789;
-              if ( !a4 )
+              if ( !ReturnSingleEntry )
                 v32 = 261;
               v42 = v32;
               v17 += DestinationString.Length
                    + 36
                    + *(unsigned __int16 *)(ObTypeIndexTable[*(unsigned __int8 *)(v26 - 24) ^ v28 ^ (unsigned __int8)ObHeaderCookie]
                                          + 16);
-              if ( !a4 )
+              if ( !ReturnSingleEntry )
                 v17 = v23;
               goto LABEL_44;
             }
@@ -195,7 +193,7 @@ __int64 __fastcall NtQueryDirectoryObject(
             v33 = (_OWORD *)(v44 + 32);
             v44 += 32LL;
             v34 = ++v40;
-            if ( a4 )
+            if ( ReturnSingleEntry )
               goto LABEL_45;
             ++v12;
           }
@@ -229,12 +227,12 @@ LABEL_45:
         {
           v41 = v34 - 1;
           memmove(v35, *(v36 - 2), *((unsigned __int16 *)v36 - 12));
-          *(v36 - 2) = &Address[v35 - (char *)Src];
+          *(v36 - 2) = (char *)Buffer + v35 - (char *)Src;
           v37 = &v35[*((unsigned __int16 *)v36 - 12)];
           *(_WORD *)v37 = 0;
           v37 += 2;
           memmove(v37, *v36, *((unsigned __int16 *)v36 - 4));
-          *v36 = &Address[v37 - (char *)Src];
+          *v36 = (char *)Buffer + v37 - (char *)Src;
           v38 = &v37[*((unsigned __int16 *)v36 - 4)];
           *(_WORD *)v38 = 0;
           v35 = v38 + 2;
@@ -245,15 +243,15 @@ LABEL_45:
       }
     }
     ObpUnlockDirectory(&v50);
-    v39 = v53;
-    if ( v17 <= v53 )
+    v39 = Length;
+    if ( v17 <= Length )
       v39 = v17;
-    memmove(Address, Src, v39);
-    if ( a7 )
-      *a7 = v17;
+    memmove(Buffer, Src, v39);
+    if ( ReturnLength )
+      *ReturnLength = v17;
     v15 = v42;
     if ( v42 >= 0 )
-      *a6 = v18;
+      *Context = v18;
     ObfDereferenceObject(Object);
     v16 = Src;
   }
@@ -262,5 +260,5 @@ LABEL_45:
     v16 = (void *)Pool2;
   }
   ExFreePoolWithTag(v16, 0);
-  return (unsigned int)v15;
+  return v15;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPulseCommitSignal @ 0x140656474
+ * XREFs of MiPulseCommitSignal @ 0x1406569C4
  * Callers:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
  * Callees:
  *     KePulseEvent @ 0x1402206A0 (KePulseEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPulseCommitSignal(__int64 a1)
@@ -28,10 +28,10 @@ __int64 __fastcall MiPulseCommitSignal(__int64 a1)
     KePulseEvent(*(PRKEVENT *)(a1 + 336), 0, 0);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && LockHandle.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

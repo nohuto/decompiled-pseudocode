@@ -4,9 +4,9 @@
  *     CcReleaseByteRangeFromWrite @ 0x1400207F4 (CcReleaseByteRangeFromWrite.c)
  *     CcSetDirtyPinnedData @ 0x1400231C0 (CcSetDirtyPinnedData.c)
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
- *     CcMdlWriteComplete2 @ 0x1400E1928 (CcMdlWriteComplete2.c)
- *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
+ *     CcMdlWriteComplete2 @ 0x1400E19A8 (CcMdlWriteComplete2.c)
+ *     CcPrepareMdlWrite @ 0x1400E1AC0 (CcPrepareMdlWrite.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E7978 (CcPurgeAndClearCacheSection.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -18,26 +18,26 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x14007EF50 (CcInsertIntoDirtySharedCacheMapList.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcBoostLowPriorityWorkerThread @ 0x140107F50 (CcBoostLowPriorityWorkerThread.c)
- *     CcAllocateInitializeMbcb @ 0x14012AD9C (CcAllocateInitializeMbcb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14007EF40 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140107FD0 (CcBoostLowPriorityWorkerThread.c)
+ *     CcAllocateInitializeMbcb @ 0x14012AE6C (CcAllocateInitializeMbcb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcSetDirtyInMask(struct _FAST_MUTEX *a1, __int64 *a2, unsigned int a3, struct _KTHREAD *a4)
@@ -181,7 +181,7 @@ __int64 __fastcall CcSetDirtyInMask(struct _FAST_MUTEX *a1, __int64 *a2, unsigne
       _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140438BC0, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140439C80, CurrentIrql);
     }
     else
     {
@@ -198,7 +198,7 @@ __int64 __fastcall CcSetDirtyInMask(struct _FAST_MUTEX *a1, __int64 *a2, unsigne
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      if ( _interlockedbittestandset(&dword_140438BC0, 0x1Fu) )
+      if ( _interlockedbittestandset(&dword_140439C80, 0x1Fu) )
       {
         v73 = CurrentPrcb->SchedulerAssist;
         if ( v73 )
@@ -211,31 +211,31 @@ __int64 __fastcall CcSetDirtyInMask(struct _FAST_MUTEX *a1, __int64 *a2, unsigne
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
-        v106 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140438BC0, CurrentIrql);
+        v106 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140439C80, CurrentIrql);
       }
-      v15 = dword_140438BC0;
+      v15 = dword_140439C80;
       while ( (v15 & 0xBFFFFFFF) != 0x80000000 )
       {
         if ( (v15 & 0x40000000) == 0 )
         {
-          v83 = _InterlockedCompareExchange(&dword_140438BC0, v15 | 0x40000000, v15);
+          v83 = _InterlockedCompareExchange(&dword_140439C80, v15 | 0x40000000, v15);
           v28 = v15 == v83;
           v15 = v83;
           if ( !v28 )
             continue;
         }
         KeYieldProcessorEx(&v106);
-        v15 = dword_140438BC0;
+        v15 = dword_140439C80;
       }
     }
     if ( *(_QWORD *)v11 )
-      v16 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v11 + 60LL) & 0x3FF));
+      v16 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v11 + 60LL) & 0x3FF));
     else
       v16 = &MiSystemPartition;
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140438BC0, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140439C80, retaddr);
     else
-      dword_140438BC0 = 0;
+      dword_140439C80 = 0;
     v17 = KeGetCurrentPrcb();
     v18 = v17->SchedulerAssist;
     if ( v18 )
@@ -265,15 +265,15 @@ LABEL_240:
     {
       if ( v5->Event.Header.WaitListHead.Flink > (struct _LIST_ENTRY *)0x300000 )
       {
-        ++dword_1404C6A54;
+        ++dword_1404C7B14;
         result = (__int64)RtlpInterlockedPopEntrySList(&CcBitmapLookasideList);
         if ( !result )
         {
-          ++dword_1404C6A58;
-          result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1404C6A70)(
-                     (unsigned int)dword_1404C6A64,
-                     (unsigned int)dword_1404C6A6C,
-                     (unsigned int)dword_1404C6A68);
+          ++dword_1404C7B18;
+          result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1404C7B30)(
+                     (unsigned int)dword_1404C7B24,
+                     (unsigned int)dword_1404C7B2C,
+                     (unsigned int)dword_1404C7B28);
           if ( !result )
           {
             ++CcDbgNumberOfFailedBitmapAllocations;
@@ -330,7 +330,7 @@ LABEL_27:
       v29 = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !_interlockedbittestandreset(&v21->Count, 0) )
-        ExpAcquireFastMutexContended((ULONG_PTR)&v5[5], v25);
+        ExpAcquireFastMutexContended((ULONG_PTR)&v5[5], (PRTL_BALANCED_NODE)v25);
       if ( v25 )
         *(_BYTE *)(v25 + 26) |= 1u;
       v5[5].Owner = KeGetCurrentThread();
@@ -544,7 +544,7 @@ LABEL_140:
         _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
       if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
       {
-        ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140438BC0, v49);
+        ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140439C80, v49);
       }
       else
       {
@@ -561,7 +561,7 @@ LABEL_140:
               KiRemoveSystemWorkPriorityKick(v50);
           }
         }
-        if ( _interlockedbittestandset(&dword_140438BC0, 0x1Fu) )
+        if ( _interlockedbittestandset(&dword_140439C80, 0x1Fu) )
         {
           v74 = v50->SchedulerAssist;
           if ( v74 )
@@ -574,31 +574,31 @@ LABEL_140:
                 KiRemoveSystemWorkPriorityKick(v50);
             }
           }
-          v107 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140438BC0, v49);
+          v107 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140439C80, v49);
         }
-        v52 = dword_140438BC0;
+        v52 = dword_140439C80;
         while ( (v52 & 0xBFFFFFFF) != 0x80000000 )
         {
           if ( (v52 & 0x40000000) == 0 )
           {
-            v90 = _InterlockedCompareExchange(&dword_140438BC0, v52 | 0x40000000, v52);
+            v90 = _InterlockedCompareExchange(&dword_140439C80, v52 | 0x40000000, v52);
             v28 = v52 == v90;
             v52 = v90;
             if ( !v28 )
               continue;
           }
           KeYieldProcessorEx(&v107);
-          v52 = dword_140438BC0;
+          v52 = dword_140439C80;
         }
       }
       if ( *(_QWORD *)v48 )
-        v53 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v48 + 60LL) & 0x3FF));
+        v53 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v48 + 60LL) & 0x3FF));
       else
         v53 = &MiSystemPartition;
       if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140438BC0, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140439C80, retaddr);
       else
-        dword_140438BC0 = 0;
+        dword_140439C80 = 0;
       v54 = KeGetCurrentPrcb();
       v55 = v54->SchedulerAssist;
       if ( v55 )
@@ -647,7 +647,7 @@ LABEL_140:
       *(_BYTE *)(v47 + 140) = 0;
     }
     v58 = 0;
-    if ( !(_BYTE)dword_14054019C )
+    if ( !(_BYTE)dword_14054119C )
     {
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v47 + 192), &LockHandle);
       if ( *(_DWORD *)(v47 + 316) )
@@ -811,11 +811,11 @@ LABEL_94:
   }
   if ( ListEntry )
   {
-    ++dword_1404C6A5C;
-    if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_1404C6A50 )
+    ++dword_1404C7B1C;
+    if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_1404C7B10 )
     {
-      ++dword_1404C6A60;
-      return ((__int64 (*)(void))qword_1404C6A78)();
+      ++dword_1404C7B20;
+      return ((__int64 (*)(void))qword_1404C7B38)();
     }
     else
     {

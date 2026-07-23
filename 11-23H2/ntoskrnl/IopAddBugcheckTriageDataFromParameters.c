@@ -1,19 +1,19 @@
 /*
- * XREFs of IopAddBugcheckTriageDataFromParameters @ 0x140551A74
+ * XREFs of IopAddBugcheckTriageDataFromParameters @ 0x140552134
  * Callers:
- *     IopUpdateMinidumpContext @ 0x140553AE4 (IopUpdateMinidumpContext.c)
+ *     IopUpdateMinidumpContext @ 0x1405541A4 (IopUpdateMinidumpContext.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IopAddBugcheckPnpTriageData @ 0x14055BA58 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14055BAC0 (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x14055BB80 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14055BEE0 (IopAddBugcheckTriageDeviceNode.c)
- *     IopAddBugcheckTriageThread @ 0x14055C14C (IopAddBugcheckTriageThread.c)
- *     PnpInitializeTriageBlock @ 0x140560640 (PnpInitializeTriageBlock.c)
- *     PnpSaveGlobalsToMinidump @ 0x1405606C0 (PnpSaveGlobalsToMinidump.c)
- *     PopInternalAddToDumpFile @ 0x140583160 (PopInternalAddToDumpFile.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14055C118 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14055C180 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14055C240 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14055C5A0 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageThread @ 0x14055C80C (IopAddBugcheckTriageThread.c)
+ *     PnpInitializeTriageBlock @ 0x140560D00 (PnpInitializeTriageBlock.c)
+ *     PnpSaveGlobalsToMinidump @ 0x140560D80 (PnpSaveGlobalsToMinidump.c)
+ *     PopInternalAddToDumpFile @ 0x140583650 (PopInternalAddToDumpFile.c)
  */
 
 char __fastcall IopAddBugcheckTriageDataFromParameters(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 MaxDataSize)

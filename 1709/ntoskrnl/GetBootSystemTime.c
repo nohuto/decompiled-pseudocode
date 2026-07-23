@@ -22,7 +22,7 @@ char __fastcall GetBootSystemTime(__int64 a1, __int64 *a2)
   bool v12; // zf
   LARGE_INTEGER Time; // [rsp+20h] [rbp-30h] BYREF
   unsigned __int64 v15; // [rsp+28h] [rbp-28h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 2280);
   if ( (*(_BYTE *)(a1 + 2304) & 1) == 0 && !ExpRealTimeIsUniversal )

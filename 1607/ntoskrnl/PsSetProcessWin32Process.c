@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetProcessWin32Process @ 0x1404A367C
+ * XREFs of PsSetProcessWin32Process @ 0x14051BA7C
  * Callers:
  *     <none>
  * Callees:
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
  */
 
 __int64 __fastcall PsSetProcessWin32Process(__int64 a1, __int64 a2, __int64 a3)

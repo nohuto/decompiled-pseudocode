@@ -46,9 +46,9 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStWorker(__int64 a1)
   __int64 v13; // rcx
   __int64 UnbiasedInterruptTime; // rax
   struct _KTHREAD *v15; // rdi
-  __int64 v16; // rdx
+  unsigned int v16; // edx
   unsigned __int8 v17; // r15
-  __int64 v18; // r8
+  unsigned int v18; // r8d
   bool v19; // zf
   __int64 v20; // rcx
   __int64 v21; // rsi
@@ -57,16 +57,16 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStWorker(__int64 a1)
   _DWORD *v24; // r15
   __int64 v25; // rcx
   struct _KTHREAD *v26; // rdi
-  __int64 v27; // rdx
+  unsigned int v27; // edx
   struct _KTHREAD *v28; // rdi
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v30; // r12
-  __int64 v31; // r8
+  unsigned int v31; // r8d
   __int64 v32; // rcx
   __int64 v33; // rsi
   __int64 v34; // rdx
   unsigned __int8 v35; // r15
-  __int64 v36; // r8
+  unsigned int v36; // r8d
   __int64 v37; // rcx
   __int64 v38; // rsi
   __int64 v39; // rdx
@@ -164,12 +164,12 @@ LABEL_62:
                     v46 = 0;
                     v28 = KeGetCurrentThread();
                     if ( (unsigned int)MiGetSystemRegionType(v1 + 6024) == 1 )
-                      SessionId = (unsigned int)MmGetSessionIdEx(v28->ApcState.Process);
+                      SessionId = MmGetSessionIdEx(v28->ApcState.Process);
                     else
-                      SessionId = 0xFFFFFFFFLL;
+                      SessionId = -1;
                     --v28->SpecialApcDisable;
                     v30 = ++v28->AbAllocationRegionCount;
-                    LODWORD(v31) = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
+                    v31 = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
                     while ( 1 )
                     {
                       v19 = !_BitScanReverse((unsigned int *)&v32, v31);
@@ -177,11 +177,11 @@ LABEL_62:
                       if ( v19 )
                         break;
                       v33 = (__int64)&v28->LockEntries[v32];
-                      v31 = ~(1 << v32) & (unsigned int)v31;
+                      v31 &= ~(1 << v32);
                       if ( (*(_BYTE *)(v33 + 26) & 1) != 0
                         && (*(_DWORD *)(v33 + 32) & 1) == 0
                         && (*(_QWORD *)(v33 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((v1 + 6024) & 0x7FFFFFFFFFFFFFFCLL)
-                        && *(_DWORD *)(v33 + 40) == (_DWORD)SessionId )
+                        && *(_DWORD *)(v33 + 40) == SessionId )
                       {
                         *(_BYTE *)(v33 + 26) &= ~1u;
                         if ( *(_QWORD *)(v33 + 32) )
@@ -190,7 +190,7 @@ LABEL_62:
                           {
                             *(_BYTE *)(v33 + 32) |= 2u;
                             if ( *(__int64 *)(v33 + 32) < 0 )
-                              KiAbEntryRemoveFromTree(v33, SessionId, v31);
+                              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v33);
                             v46 = 0;
                             v46 = *(_DWORD *)(v33 + 88) & 0x1FFFF;
                             *(_DWORD *)(v33 + 88) &= 0xFFFE0000;
@@ -208,7 +208,7 @@ LABEL_62:
                       }
                     }
                     if ( (*((_DWORD *)&v28->0 + 1) & 0x10000) == 0 )
-                      KeBugCheckEx(0x162u, (ULONG_PTR)v28, v1 + 6024, (unsigned int)SessionId, 0LL);
+                      KeBugCheckEx(0x162u, (ULONG_PTR)v28, v1 + 6024, SessionId, 0LL);
 LABEL_80:
                     --v28->AbAllocationRegionCount;
                     KiAbThreadRemoveBoosts(v28, v1 + 6024, &v46);
@@ -236,12 +236,12 @@ LABEL_80:
                 v47 = 0;
                 v26 = KeGetCurrentThread();
                 if ( (unsigned int)MiGetSystemRegionType(v1 + 6024) == 1 )
-                  v27 = (unsigned int)MmGetSessionIdEx(v26->ApcState.Process);
+                  v27 = MmGetSessionIdEx(v26->ApcState.Process);
                 else
-                  v27 = 0xFFFFFFFFLL;
+                  v27 = -1;
                 --v26->SpecialApcDisable;
                 v35 = ++v26->AbAllocationRegionCount;
-                LODWORD(v36) = ((char)v26->AbEntrySummary | (char)v26->AbOrphanedEntrySummary) ^ 0x3F;
+                v36 = ((char)v26->AbEntrySummary | (char)v26->AbOrphanedEntrySummary) ^ 0x3F;
                 while ( 1 )
                 {
                   v19 = !_BitScanReverse((unsigned int *)&v37, v36);
@@ -249,11 +249,11 @@ LABEL_80:
                   if ( v19 )
                     break;
                   v38 = (__int64)&v26->LockEntries[v37];
-                  v36 = ~(1 << v37) & (unsigned int)v36;
+                  v36 &= ~(1 << v37);
                   if ( (*(_BYTE *)(v38 + 26) & 1) != 0
                     && (*(_DWORD *)(v38 + 32) & 1) == 0
                     && (*(_QWORD *)(v38 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((v1 + 6024) & 0x7FFFFFFFFFFFFFFCLL)
-                    && *(_DWORD *)(v38 + 40) == (_DWORD)v27 )
+                    && *(_DWORD *)(v38 + 40) == v27 )
                   {
                     *(_BYTE *)(v38 + 26) &= ~1u;
                     if ( *(_QWORD *)(v38 + 32) )
@@ -262,7 +262,7 @@ LABEL_80:
                       {
                         *(_BYTE *)(v38 + 32) |= 2u;
                         if ( *(__int64 *)(v38 + 32) < 0 )
-                          KiAbEntryRemoveFromTree(v38, v27, v36);
+                          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v38);
                         v47 = 0;
                         v47 = *(_DWORD *)(v38 + 88) & 0x1FFFF;
                         *(_DWORD *)(v38 + 88) &= 0xFFFE0000;
@@ -280,7 +280,7 @@ LABEL_80:
                   }
                 }
                 if ( (*((_DWORD *)&v26->0 + 1) & 0x10000) == 0 )
-                  KeBugCheckEx(0x162u, (ULONG_PTR)v26, v1 + 6024, (unsigned int)v27, 0LL);
+                  KeBugCheckEx(0x162u, (ULONG_PTR)v26, v1 + 6024, v27, 0LL);
 LABEL_102:
                 --v26->AbAllocationRegionCount;
                 KiAbThreadRemoveBoosts(v26, v1 + 6024, &v47);
@@ -301,7 +301,7 @@ LABEL_106:
       if ( v9 == 258 )
       {
         SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(v1);
-        ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)v1);
+        ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)v1);
         LOBYTE(v13) = 1;
         *(_QWORD *)(v1 + 5928) += *(_QWORD *)(v1 + 5920);
         UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(v13);
@@ -313,12 +313,12 @@ LABEL_106:
           v45 = 0;
           v15 = KeGetCurrentThread();
           if ( (unsigned int)MiGetSystemRegionType(v1 + 6024) == 1 )
-            v16 = (unsigned int)MmGetSessionIdEx(v15->ApcState.Process);
+            v16 = MmGetSessionIdEx(v15->ApcState.Process);
           else
-            v16 = 0xFFFFFFFFLL;
+            v16 = -1;
           --v15->SpecialApcDisable;
           v17 = ++v15->AbAllocationRegionCount;
-          LODWORD(v18) = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
+          v18 = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
           while ( 1 )
           {
             v19 = !_BitScanReverse((unsigned int *)&v20, v18);
@@ -326,11 +326,11 @@ LABEL_106:
             if ( v19 )
               break;
             v21 = (__int64)&v15->LockEntries[v20];
-            v18 = ~(1 << v20) & (unsigned int)v18;
+            v18 &= ~(1 << v20);
             if ( (*(_BYTE *)(v21 + 26) & 1) != 0
               && (*(_DWORD *)(v21 + 32) & 1) == 0
               && (*(_QWORD *)(v21 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((v1 + 6024) & 0x7FFFFFFFFFFFFFFCLL)
-              && *(_DWORD *)(v21 + 40) == (_DWORD)v16 )
+              && *(_DWORD *)(v21 + 40) == v16 )
             {
               *(_BYTE *)(v21 + 26) &= ~1u;
               if ( *(_QWORD *)(v21 + 32) )
@@ -339,7 +339,7 @@ LABEL_106:
                 {
                   *(_BYTE *)(v21 + 32) |= 2u;
                   if ( *(__int64 *)(v21 + 32) < 0 )
-                    KiAbEntryRemoveFromTree(v21, v16, v18);
+                    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v21);
                   v45 = 0;
                   v45 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
                   *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
@@ -357,7 +357,7 @@ LABEL_106:
             }
           }
           if ( (*((_DWORD *)&v15->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)v15, v1 + 6024, (unsigned int)v16, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)v15, v1 + 6024, v16, 0LL);
 LABEL_40:
           --v15->AbAllocationRegionCount;
           KiAbThreadRemoveBoosts(v15, v1 + 6024, &v45);

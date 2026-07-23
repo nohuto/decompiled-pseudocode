@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetThreadPpmPolicy @ 0x140359D7C
+ * XREFs of KeSetThreadPpmPolicy @ 0x140359F1C
  * Callers:
- *     PspSetThreadPpmPolicy @ 0x1407CD220 (PspSetThreadPpmPolicy.c)
+ *     PspSetThreadPpmPolicy @ 0x1407CD4F0 (PspSetThreadPpmPolicy.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
  */
 
 __int64 __fastcall KeSetThreadPpmPolicy(__int64 a1, int a2)
@@ -51,7 +51,7 @@ __int64 __fastcall KeSetThreadPpmPolicy(__int64 a1, int a2)
   v37 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v9) = 4;
@@ -207,10 +207,10 @@ LABEL_62:
     _InterlockedAnd64((volatile signed __int64 *)v12, 0LL);
 LABEL_7:
   *(_QWORD *)(a1 + 64) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v30 = CurrentPrcb->SchedulerAssist;

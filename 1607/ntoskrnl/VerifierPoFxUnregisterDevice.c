@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxUnregisterDevice @ 0x14070CC10
+ * XREFs of VerifierPoFxUnregisterDevice @ 0x14070CC40
  * Callers:
  *     <none>
  * Callees:

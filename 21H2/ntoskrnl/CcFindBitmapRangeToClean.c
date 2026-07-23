@@ -1,8 +1,8 @@
 /*
- * XREFs of CcFindBitmapRangeToClean @ 0x1402B9E1C
+ * XREFs of CcFindBitmapRangeToClean @ 0x14023802C
  * Callers:
- *     CcGetFlushedValidData @ 0x1402B9D30 (CcGetFlushedValidData.c)
- *     CcAcquireByteRangeForWrite @ 0x14030FF40 (CcAcquireByteRangeForWrite.c)
+ *     CcGetFlushedValidData @ 0x140237F40 (CcGetFlushedValidData.c)
+ *     CcAcquireByteRangeForWrite @ 0x14031AC90 (CcAcquireByteRangeForWrite.c)
  * Callees:
  *     <none>
  */

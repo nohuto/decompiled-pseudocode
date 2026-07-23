@@ -1,12 +1,12 @@
 /*
- * XREFs of IoSetOplockPrivateFoExt @ 0x140247E3C
+ * XREFs of IoSetOplockPrivateFoExt @ 0x1402E2088
  * Callers:
- *     FsRtlpOplockEnqueueRH @ 0x140247DCC (FsRtlpOplockEnqueueRH.c)
+ *     FsRtlpOplockEnqueueRH @ 0x1402E2018 (FsRtlpOplockEnqueueRH.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoSetOplockPrivateFoExt(__int64 a1, __int64 a2)
@@ -22,18 +22,18 @@ __int64 __fastcall IoSetOplockPrivateFoExt(__int64 a1, __int64 a2)
   v3 = 0;
   if ( v2 )
   {
-    if ( v2 == qword_140014770 )
+    if ( v2 == &qword_1400145A0 )
       return (unsigned int)-1073741670;
     v6 = 0;
   }
   else
   {
-    Pool2 = (__int64 *)ExAllocatePool2(0x40uLL);
+    Pool2 = (__int64 *)ExAllocatePool2(0x40uLL, 0x60uLL, 0x45466F49u);
     v2 = Pool2;
     v6 = Pool2 == 0LL ? 0xC000009A : 0;
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
     {
-      if ( Pool2 && Pool2 != qword_140014770 )
+      if ( Pool2 && Pool2 != &qword_1400145A0 )
         ExFreePoolWithTag(Pool2, 0);
       v2 = *(__int64 **)(a1 + 208);
     }

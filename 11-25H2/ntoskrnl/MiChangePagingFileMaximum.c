@@ -26,7 +26,7 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   KIRQL v8; // al
   __int64 v9; // rbx
   unsigned __int64 *v10; // r12
-  unsigned int *v11; // r9
+  _RTL_BITMAP *v11; // r9
   unsigned __int64 *v12; // r15
   unsigned __int64 v13; // rdi
   unsigned __int64 v14; // rbp
@@ -45,8 +45,8 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   unsigned __int64 *v27; // [rsp+30h] [rbp-98h]
   __int64 v28; // [rsp+38h] [rbp-90h]
   volatile LONG *v29; // [rsp+40h] [rbp-88h]
-  unsigned int *v30; // [rsp+48h] [rbp-80h]
-  __int64 v31; // [rsp+50h] [rbp-78h]
+  _RTL_BITMAP *v30; // [rsp+48h] [rbp-80h]
+  _RTL_BITMAP *Destination; // [rsp+50h] [rbp-78h]
   _OWORD v32[7]; // [rsp+58h] [rbp-70h] BYREF
   unsigned __int8 v36; // [rsp+E8h] [rbp+20h]
 
@@ -54,7 +54,7 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   v4 = a1;
   memset((char *)v32 + 8, 0, 32);
   RtlSetAllBits((PRTL_BITMAP)(a2 + 8));
-  v31 = a2 + 24;
+  Destination = (_RTL_BITMAP *)(a2 + 24);
   RtlSetAllBits((PRTL_BITMAP)(a2 + 24));
   v7 = (volatile LONG *)(v4 + 200);
   v29 = (volatile LONG *)(v4 + 200);
@@ -64,22 +64,22 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   v36 = v8;
   v28 = v9;
   v27 = (unsigned __int64 *)(v4 + 184);
-  v11 = (unsigned int *)(v9 + 8);
-  v30 = (unsigned int *)(v9 + 8);
+  v11 = (_RTL_BITMAP *)(v9 + 8);
+  v30 = (_RTL_BITMAP *)(v9 + 8);
   if ( a3 )
   {
     v12 = (unsigned __int64 *)(((*v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
     v25 = v12;
     v13 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v14 = (((unsigned int)dword_140E3704C * (unsigned __int64)*v11) >> 12)
-        + ((((unsigned int)dword_140E3704C * (unsigned __int64)*v11) & 0xFFF) != 0);
+    v14 = (((unsigned int)dword_140E3704C * (unsigned __int64)v11->SizeOfBitMap) >> 12)
+        + ((((unsigned int)dword_140E3704C * (unsigned __int64)v11->SizeOfBitMap) & 0xFFF) != 0);
     v26 = v14;
-    if ( *v11 >= *v3 )
+    if ( v11->SizeOfBitMap >= *v3 )
       v15 = (((unsigned int)dword_140E3704C * (unsigned __int64)*v3) >> 12)
           + ((((unsigned int)dword_140E3704C * (unsigned __int64)*v3) & 0xFFF) != 0);
     else
-      v15 = (((unsigned int)dword_140E3704C * (unsigned __int64)*v11) >> 12)
-          + ((((unsigned int)dword_140E3704C * (unsigned __int64)*v11) & 0xFFF) != 0);
+      v15 = (((unsigned int)dword_140E3704C * (unsigned __int64)v11->SizeOfBitMap) >> 12)
+          + ((((unsigned int)dword_140E3704C * (unsigned __int64)v11->SizeOfBitMap) & 0xFFF) != 0);
     if ( v15 )
     {
       v16 = (_QWORD *)v13;
@@ -117,8 +117,8 @@ void __fastcall MiChangePagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
     v26 = 0;
     v15 = 0LL;
   }
-  RtlCopyBitMap(v11, a2 + 8, 0);
-  RtlCopyBitMap((unsigned int *)(v9 + 24), v31, 0);
+  RtlCopyBitMap(v11, (PRTL_BITMAP)(a2 + 8), 0);
+  RtlCopyBitMap((PRTL_BITMAP)(v9 + 24), Destination, 0);
   *(_DWORD *)(v4 + 4) = *(_DWORD *)(a2 + 8);
   v21 = *(_OWORD *)(v9 + 16);
   *((_QWORD *)&v32[0] + 1) = *(_QWORD *)(v9 + 8);

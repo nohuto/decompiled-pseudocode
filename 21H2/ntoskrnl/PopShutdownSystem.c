@@ -1,16 +1,16 @@
 /*
- * XREFs of PopShutdownSystem @ 0x1409B2624
+ * XREFs of PopShutdownSystem @ 0x1409B3554
  * Callers:
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1404F17EC (HvlConfigureMemoryZeroingOnReset.c)
- *     VslNotifyShutdown @ 0x1404FCF64 (VslNotifyShutdown.c)
- *     DbgUnLoadImageSymbols @ 0x140585610 (DbgUnLoadImageSymbols.c)
- *     PopInvokeSystemStateHandler @ 0x140992A68 (PopInvokeSystemStateHandler.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x1409B0EAC (PopSetMemoryOverwriteRequestAction.c)
- *     PopNotifyShutdownListener @ 0x1409B25C0 (PopNotifyShutdownListener.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalReturnToFirmware @ 0x1404BE3E0 (HalReturnToFirmware.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1404F176C (HvlConfigureMemoryZeroingOnReset.c)
+ *     VslNotifyShutdown @ 0x1404FCEE4 (VslNotifyShutdown.c)
+ *     DbgUnLoadImageSymbols @ 0x140585840 (DbgUnLoadImageSymbols.c)
+ *     PopInvokeSystemStateHandler @ 0x140993A68 (PopInvokeSystemStateHandler.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x1409B1DDC (PopSetMemoryOverwriteRequestAction.c)
+ *     PopNotifyShutdownListener @ 0x1409B34F0 (PopNotifyShutdownListener.c)
  */
 
 void __fastcall __noreturn PopShutdownSystem(int a1)
@@ -40,7 +40,7 @@ LABEL_12:
   }
   else if ( PopShutdownPowerOffPolicy )
   {
-    qword_140C24008 = (__int64)PopShutdownHandler;
+    qword_140C231E8 = (__int64)PopShutdownHandler;
   }
   PopInvokeSystemStateHandler(4, 0LL);
   HalReturnToFirmware(1);

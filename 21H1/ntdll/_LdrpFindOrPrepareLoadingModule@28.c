@@ -13,7 +13,7 @@
  */
 
 signed int __fastcall LdrpFindOrPrepareLoadingModule(
-        unsigned __int16 *a1,
+        _UNICODE_STRING *a1,
         int a2,
         int a3,
         int a4,
@@ -26,7 +26,7 @@ signed int __fastcall LdrpFindOrPrepareLoadingModule(
   int PlaceHolder; // edi
   char v12; // al
   int v13; // [esp+Ch] [ebp-Ch] BYREF
-  unsigned __int16 *v14; // [esp+10h] [ebp-8h]
+  _UNICODE_STRING *v14; // [esp+10h] [ebp-8h]
   int v15; // [esp+14h] [ebp-4h]
 
   v8 = 0;
@@ -41,7 +41,7 @@ signed int __fastcall LdrpFindOrPrepareLoadingModule(
   }
   if ( (a3 & 0x200) != 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName(0, a1, a3, a6, &v13);
+    LoadedDllByName = LdrpFindLoadedDllByName(0, &a1->Length, a3, a6, &v13);
 LABEL_4:
     v8 = v13;
     PlaceHolder = LoadedDllByName;
@@ -53,9 +53,9 @@ LABEL_4:
 LABEL_5:
   if ( PlaceHolder == -1073741515 )
   {
-    PlaceHolder = LdrpAllocatePlaceHolder(a1, a2, a3, a4, a5, a6, a7);
+    PlaceHolder = LdrpAllocatePlaceHolder(&a1->Length, a2, a3, a4, a5, a6, a7);
     if ( PlaceHolder >= 0 )
-      return LdrpLoadKnownDll(*(_DWORD **)(*a6 + 92));
+      return LdrpLoadKnownDll(*(_DWORD *)(*a6 + 92));
   }
   else if ( v8 < 0 )
   {
@@ -76,7 +76,7 @@ LABEL_5:
     if ( (v12 & 0x10) != 0 )
       __debugbreak();
     PlaceHolder = -1073741595;
-    LdrpDereferenceModule(*a6);
+    LdrpDereferenceModule((char *)*a6);
     *a6 = 0;
   }
   else

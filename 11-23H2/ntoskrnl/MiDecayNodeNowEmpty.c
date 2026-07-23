@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecayNodeNowEmpty @ 0x14034AA40
+ * XREFs of MiDecayNodeNowEmpty @ 0x14034ABE0
  * Callers:
- *     MiEmptyDecayClusterTimers @ 0x14025AF20 (MiEmptyDecayClusterTimers.c)
- *     MiUnlinkProtectedStandbyPfn @ 0x140285690 (MiUnlinkProtectedStandbyPfn.c)
+ *     MiEmptyDecayClusterTimers @ 0x14025B1B0 (MiEmptyDecayClusterTimers.c)
+ *     MiUnlinkProtectedStandbyPfn @ 0x140285920 (MiUnlinkProtectedStandbyPfn.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRemoveDecayClusterTimer @ 0x14028BCB0 (MiRemoveDecayClusterTimer.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRemoveDecayClusterTimer @ 0x14028BF40 (MiRemoveDecayClusterTimer.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
  */
 
 void __fastcall MiDecayNodeNowEmpty(__int64 a1)
@@ -25,7 +25,7 @@ void __fastcall MiDecayNodeNowEmpty(__int64 a1)
     v4 = a1 - qword_140C68160;
     *(_QWORD *)(v2 + 16) = v3;
     ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C68180);
-    RtlSetBits(&BitMapHeader, v4, 1u);
+    RtlSetBits(&stru_140C68188, v4, 1u);
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68180);
   }
 }

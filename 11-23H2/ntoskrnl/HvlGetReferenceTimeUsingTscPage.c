@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x1403C8620
+ * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x1403C8800
  * Callers:
- *     HvlGetReferenceTime @ 0x1403C85E4 (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTime @ 0x1403C87C4 (HvlGetReferenceTime.c)
  * Callees:
- *     HvlpGetRegister64 @ 0x140548CE0 (HvlpGetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1405493A0 (HvlpGetRegister64.c)
  */
 
 __int64 __fastcall HvlGetReferenceTimeUsingTscPage(_DWORD *a1, __int64 a2)

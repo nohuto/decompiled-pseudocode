@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDqQuerySerializeActionQueue @ 0x1407F94D0
+ * XREFs of PiDqQuerySerializeActionQueue @ 0x1407F97A0
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407F9148 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1407FB64C (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x1407F9418 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x1407FB91C (PiDqIrpQueryGetResult.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     PiDqActionDataCreate @ 0x1407F9854 (PiDqActionDataCreate.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1407F9AD0 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataFree @ 0x1407F9B14 (PiDqActionDataFree.c)
- *     PiDqQueryGetObjectManager @ 0x1407F9F24 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407F9F68 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     PiDqActionDataCreate @ 0x1407F9B24 (PiDqActionDataCreate.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1407F9DA0 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x1407F9DE4 (PiDqActionDataFree.c)
+ *     PiDqQueryGetObjectManager @ 0x1407FA1F4 (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA238 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

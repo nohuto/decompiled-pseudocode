@@ -14,7 +14,7 @@ __int64 RtlpInitDeferredCriticalSection()
 
   RtlFailedCriticalDebugAllocations = 0;
   if ( ((unsigned __int8)&RtlCriticalSectionDebugSList & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   v0 = &RtlpStaticDebugInfo;
   RtlCriticalSectionDebugSList = 0uLL;
   do

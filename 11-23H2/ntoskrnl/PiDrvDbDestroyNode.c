@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbDestroyNode @ 0x14096FE2C
+ * XREFs of PiDrvDbDestroyNode @ 0x14097002C
  * Callers:
- *     PiDrvDbRegisterNode @ 0x14081173C (PiDrvDbRegisterNode.c)
- *     PiDrvDbCreateNode @ 0x140811CDC (PiDrvDbCreateNode.c)
- *     PiDrvDbUnregisterNode @ 0x140971474 (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140811A0C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbCreateNode @ 0x140811FAC (PiDrvDbCreateNode.c)
+ *     PiDrvDbUnregisterNode @ 0x140971674 (PiDrvDbUnregisterNode.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

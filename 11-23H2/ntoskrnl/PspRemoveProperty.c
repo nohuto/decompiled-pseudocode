@@ -1,15 +1,15 @@
 /*
- * XREFs of PspRemoveProperty @ 0x1403C4C58
+ * XREFs of PspRemoveProperty @ 0x1403C4E38
  * Callers:
- *     PsSetThreadProperty @ 0x1403C4B90 (PsSetThreadProperty.c)
- *     PsSetJobProperty @ 0x1405A3E60 (PsSetJobProperty.c)
- *     PspEmptyPropertySet @ 0x14076E2B4 (PspEmptyPropertySet.c)
+ *     PsSetThreadProperty @ 0x1403C4D70 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1405A4350 (PsSetJobProperty.c)
+ *     PspEmptyPropertySet @ 0x14076E4A4 (PspEmptyPropertySet.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PspFindPropertySetEntry @ 0x140332884 (PspFindPropertySetEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspFindPropertySetEntry @ 0x140332B14 (PspFindPropertySetEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -41,10 +41,13 @@ __int64 __fastcall PspRemoveProperty(_QWORD *a1, __int64 a2, _QWORD *a3)
     v9[1] = (PVOID *)v10;
   }
   KxReleaseSpinLock(a1 + 2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

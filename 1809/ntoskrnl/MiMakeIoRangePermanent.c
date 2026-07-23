@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x1402ABA0C
+ * XREFs of MiMakeIoRangePermanent @ 0x1402ABBFC
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x1402ABCC0 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x1402ABEB0 (MiMakeIoRangePermanentDpc.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnmappedIoNode @ 0x1400E59D0 (MiRemoveUnmappedIoNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnmappedIoNode @ 0x1400E5A50 (MiRemoveUnmappedIoNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
@@ -49,20 +49,20 @@ __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
   v5 = *(_QWORD *)(a1 + 32) - v1;
   v30 = 0LL;
   v6 = 0;
-  v29 = ExAcquireSpinLockExclusive(&dword_14043AD00);
+  v29 = ExAcquireSpinLockExclusive(&dword_14043BDC0);
   v7 = v29;
   v8 = v5 + 1;
   if ( !v8 )
     goto LABEL_33;
   do
   {
-    for ( i = (_QWORD *)qword_14043AD10; ; i = (_QWORD *)i[1] )
+    for ( i = (_QWORD *)qword_14043BDD0; ; i = (_QWORD *)i[1] )
     {
       while ( 1 )
       {
         if ( !i )
         {
-          v16 = MiRemoveUnmappedIoNode((unsigned __int64 *)&qword_14043AD18, v1);
+          v16 = MiRemoveUnmappedIoNode((unsigned __int64 *)&qword_14043BDD8, v1);
           v17 = (_QWORD *)v16;
           if ( !v16 )
           {
@@ -137,7 +137,7 @@ LABEL_15:
     }
     if ( (unsigned __int16)*v14 >> 14 == v4 )
       goto LABEL_15;
-    ++dword_14043AD54;
+    ++dword_14043BE14;
     v6 = -1073741800;
     v8 = 0LL;
 LABEL_16:
@@ -150,9 +150,9 @@ LABEL_31:
   if ( v6 < 0 )
     goto LABEL_43;
 LABEL_33:
-  v24 = (_QWORD *)qword_14043AD60;
+  v24 = (_QWORD *)qword_14043BE20;
   v25 = 0;
-  if ( !qword_14043AD60 )
+  if ( !qword_14043BE20 )
     goto LABEL_42;
   while ( 2 )
   {
@@ -160,7 +160,7 @@ LABEL_33:
     {
       if ( *(_QWORD *)(a1 + 24) <= v24[4] )
       {
-        ++dword_14043AD58;
+        ++dword_14043BE18;
         v6 = -1073741800;
         goto LABEL_43;
       }
@@ -183,9 +183,9 @@ LABEL_39:
   }
   v25 = 0;
 LABEL_42:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043AD60, (unsigned __int64)v24, v25, (_QWORD *)a1);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043BE20, (unsigned __int64)v24, v25, (_QWORD *)a1);
 LABEL_43:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AD00);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BDC0);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

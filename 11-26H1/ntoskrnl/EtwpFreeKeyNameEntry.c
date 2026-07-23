@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpFreeKeyNameEntry @ 0x1406C7510
+ * XREFs of EtwpFreeKeyNameEntry @ 0x1406CB210
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpFreeKeyNameEntry(struct _RTL_AVL_TABLE *Table, PVOID Buffer)
+void __fastcall EtwpFreeKeyNameEntry(_RTL_AVL_TABLE *a1, PVOID a2)
 {
-  ExFreePoolWithTag(Buffer, 0x74777445u);
+  ExFreePoolWithTag(a2, 0x74777445u);
 }

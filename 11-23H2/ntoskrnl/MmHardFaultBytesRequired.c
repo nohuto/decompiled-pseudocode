@@ -1,9 +1,9 @@
 /*
- * XREFs of MmHardFaultBytesRequired @ 0x1406F5B20
+ * XREFs of MmHardFaultBytesRequired @ 0x1406F5D30
  * Callers:
- *     CcFetchDataForRead @ 0x1402622C0 (CcFetchDataForRead.c)
+ *     CcFetchDataForRead @ 0x140262550 (CcFetchDataForRead.c)
  * Callees:
- *     MiGetSystemCacheReverseMap @ 0x140262410 (MiGetSystemCacheReverseMap.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402626A0 (MiGetSystemCacheReverseMap.c)
  */
 
 __int64 __fastcall MmHardFaultBytesRequired(__int64 a1)

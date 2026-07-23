@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpIsFastResourceOwned @ 0x1403E1460
+ * XREFs of ExpIsFastResourceOwned @ 0x1403C3A60
  * Callers:
- *     ExReinitializeFastResource @ 0x1403E1310 (ExReinitializeFastResource.c)
- *     ExDeleteFastResource @ 0x1403E13D0 (ExDeleteFastResource.c)
- *     DifExDeleteFastResourceWrapper @ 0x14061D410 (DifExDeleteFastResourceWrapper.c)
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x140656CE4 (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     ExReinitializeFastResource @ 0x1403C3910 (ExReinitializeFastResource.c)
+ *     ExDeleteFastResource @ 0x1403C39D0 (ExDeleteFastResource.c)
+ *     DifExDeleteFastResourceWrapper @ 0x14061B9D0 (DifExDeleteFastResourceWrapper.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x1406553E4 (ExpFastResourceLegacyIsAcquiredShared.c)
  * Callees:
  *     <none>
  */

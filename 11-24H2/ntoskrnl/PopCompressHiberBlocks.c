@@ -1,13 +1,13 @@
 /*
- * XREFs of PopCompressHiberBlocks @ 0x140B5C604
+ * XREFs of PopCompressHiberBlocks @ 0x140B5E674
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     PopGetNextTable @ 0x1405D3444 (PopGetNextTable.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopAddPagesToCompressedPageSet @ 0x140B5C3C4 (PopAddPagesToCompressedPageSet.c)
- *     PopCountDataAsProduced @ 0x140B5C6EC (PopCountDataAsProduced.c)
+ *     PopGetNextTable @ 0x1405D0B64 (PopGetNextTable.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopAddPagesToCompressedPageSet @ 0x140B5E434 (PopAddPagesToCompressedPageSet.c)
+ *     PopCountDataAsProduced @ 0x140B5E75C (PopCountDataAsProduced.c)
  */
 
 __int64 __fastcall PopCompressHiberBlocks(_BYTE *a1, __int64 a2, char a3)

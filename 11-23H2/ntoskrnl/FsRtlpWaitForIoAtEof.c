@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlpWaitForIoAtEof @ 0x140304990
+ * XREFs of FsRtlpWaitForIoAtEof @ 0x140304C20
  * Callers:
- *     FsRtlAcquireEofLock @ 0x140304790 (FsRtlAcquireEofLock.c)
- *     FsRtlGetIoAtEof @ 0x140304CB0 (FsRtlGetIoAtEof.c)
+ *     FsRtlAcquireEofLock @ 0x140304A20 (FsRtlAcquireEofLock.c)
+ *     FsRtlGetIoAtEof @ 0x140304F40 (FsRtlGetIoAtEof.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     FsRtlReleaseHeaderMutex @ 0x1402301C0 (FsRtlReleaseHeaderMutex.c)
- *     FsRtlAcquireHeaderMutex @ 0x140230240 (FsRtlAcquireHeaderMutex.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     KeSetPriorityBoost @ 0x140307990 (KeSetPriorityBoost.c)
- *     IoBoostThreadIoPriority @ 0x14031B320 (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402302B0 (FsRtlReleaseHeaderMutex.c)
+ *     FsRtlAcquireHeaderMutex @ 0x140230330 (FsRtlAcquireHeaderMutex.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x140304E00 (KeQueryPriorityThread.c)
+ *     KeSetPriorityBoost @ 0x140307C20 (KeSetPriorityBoost.c)
+ *     IoBoostThreadIoPriority @ 0x14031B5B0 (IoBoostThreadIoPriority.c)
  */
 
 char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3)

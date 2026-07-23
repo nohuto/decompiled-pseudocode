@@ -1,24 +1,27 @@
 /*
- * XREFs of AVrfpEnableHandleVerifier @ 0x180131DD8
+ * XREFs of AVrfpEnableHandleVerifier @ 0x180130008
  * Callers:
- *     AVrfpEnableVerifierOptions @ 0x18011E874 (AVrfpEnableVerifierOptions.c)
+ *     AVrfpEnableVerifierOptions @ 0x18011CAA4 (AVrfpEnableVerifierOptions.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     NtSetInformationProcess @ 0x180162010 (NtSetInformationProcess.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     NtSetInformationProcess @ 0x1801603D0 (NtSetInformationProcess.c)
  */
 
 __int64 AVrfpEnableHandleVerifier()
 {
-  int v0; // ebx
-  int v1; // eax
+  NTSTATUS v0; // ebx
+  NTSTATUS v1; // eax
   int v3; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  __int64 ProcessInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = 0LL;
-  if ( !AVrfpHandleTraces || (HIDWORD(v4) = AVrfpHandleTraces, v0 = NtSetInformationProcess(-1LL, 32LL, &v4), v0 < 0) )
+  ProcessInformation = 0LL;
+  if ( !AVrfpHandleTraces
+    || (HIDWORD(ProcessInformation) = AVrfpHandleTraces,
+        v0 = NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandleTracing, &ProcessInformation, 8u),
+        v0 < 0) )
   {
     v3 = 0;
-    v1 = NtSetInformationProcess(-1LL, 32LL, &v3);
+    v1 = NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandleTracing, &v3, 4u);
     v0 = v1;
     if ( v1 < 0 )
       DbgPrint("AVRF: failed to enable handle checking (status %X) \n", v1);

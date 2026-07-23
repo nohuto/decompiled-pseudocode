@@ -11,48 +11,42 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall TpWaitForWait(__int64 a1, unsigned int a2)
+void __cdecl TpWaitForWait(PTP_WAIT Wait, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // esi
+  unsigned int v3; // esi
   char v5; // r14
-  __int64 result; // rax
-  __int64 v7; // rbx
-  int v8; // esi
-  int v9; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v6; // rbx
+  unsigned int v7; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = 0;
-  v9 = 0;
+  v7 = 0;
   v5 = 0;
-  result = TppWaitpValidateWait(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppWaitpValidateWait(Wait, 0LL, 0LL) )
   {
-    if ( a2 )
+    if ( CancelPendingCallbacks )
     {
-      v7 = *(_QWORD *)(a1 + 136);
-      RtlAcquireSRWLockExclusive(a1 + 232);
-      ++*(_BYTE *)(a1 + 347);
-      TppCancelWait(a1, v7 + 112, 2LL, &v9);
-      if ( *(_DWORD *)(a1 + 56) )
+      v6 = *((_QWORD *)Wait + 17);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 29);
+      ++*((_BYTE *)Wait + 347);
+      TppCancelWait(Wait, v6 + 112, 2LL, &v7);
+      if ( *((_DWORD *)Wait + 14) )
         v5 = 1;
       else
-        --*(_BYTE *)(a1 + 347);
-      RtlReleaseSRWLockExclusive(a1 + 232);
-      v3 = v9;
+        --*((_BYTE *)Wait + 347);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 29);
+      v3 = v7;
     }
-    result = TppWorkWait(a1, a2);
+    TppWorkWait(Wait, CancelPendingCallbacks);
     if ( v5 )
     {
-      RtlAcquireSRWLockExclusive(a1 + 232);
-      --*(_BYTE *)(a1 + 347);
-      result = RtlReleaseSRWLockExclusive(a1 + 232);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 29);
+      --*((_BYTE *)Wait + 347);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 29);
     }
     if ( v3 )
     {
-      v8 = -v3;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, -v8);
-      if ( (_DWORD)result == v8 )
-        return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v3) == -v3 )
+        (**((void (__fastcall ***)(PTP_WAIT))Wait + 1))(Wait);
     }
   }
-  return result;
 }

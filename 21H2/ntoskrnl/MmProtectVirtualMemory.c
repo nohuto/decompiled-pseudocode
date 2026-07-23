@@ -1,26 +1,26 @@
 /*
- * XREFs of MmProtectVirtualMemory @ 0x1405FA060
+ * XREFs of MmProtectVirtualMemory @ 0x1406E97C0
  * Callers:
- *     KiTpWriteUmMemory @ 0x14051D624 (KiTpWriteUmMemory.c)
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     NtProtectVirtualMemory @ 0x1405F8E40 (NtProtectVirtualMemory.c)
+ *     KiTpWriteUmMemory @ 0x14051D864 (KiTpWriteUmMemory.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1406E85A0 (NtProtectVirtualMemory.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
- *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
- *     MiAllowProtectionChange @ 0x14025F698 (MiAllowProtectionChange.c)
- *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     xHalUnmaskInterrupt @ 0x14036D790 (xHalUnmaskInterrupt.c)
- *     MiProtectEnclavePages @ 0x14054AB30 (MiProtectEnclavePages.c)
- *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
- *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
- *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
- *     MiCheckSecuredVad @ 0x1406623F8 (MiCheckSecuredVad.c)
- *     MiIsRangeFullyCommitted @ 0x1406F02C0 (MiIsRangeFullyCommitted.c)
+ *     MiIsProcessCfgEnabled @ 0x14027C590 (MiIsProcessCfgEnabled.c)
+ *     MiAllowProtectionChange @ 0x14027E54C (MiAllowProtectionChange.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x1402C1520 (MiVadMapsLargeImage.c)
+ *     MiProtectPrivateMemory @ 0x140318750 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     xHalUnmaskInterrupt @ 0x14036D940 (xHalUnmaskInterrupt.c)
+ *     MiProtectEnclavePages @ 0x14054AD70 (MiProtectEnclavePages.c)
+ *     MiProtectAweRegion @ 0x14054D5A4 (MiProtectAweRegion.c)
+ *     MiGetVadPageSize @ 0x14055BFF0 (MiGetVadPageSize.c)
+ *     MiCheckSecuredVad @ 0x140657218 (MiCheckSecuredVad.c)
+ *     MiCommitVadCfgBits @ 0x14068592C (MiCommitVadCfgBits.c)
+ *     MiIsRangeFullyCommitted @ 0x1407076A0 (MiIsRangeFullyCommitted.c)
  */
 
 __int64 __fastcall MmProtectVirtualMemory(
@@ -40,7 +40,7 @@ __int64 __fastcall MmProtectVirtualMemory(
   int ProtectionMask; // ecx
   unsigned __int64 v13; // rsi
   unsigned __int64 v14; // r14
-  volatile signed __int32 *v15; // rax
+  __int64 v15; // rax
   ULONG_PTR v16; // rdi
   unsigned int v17; // r8d
   unsigned int v18; // edx
@@ -163,8 +163,8 @@ LABEL_6:
   P = 0LL;
   v55 = v13 >> 12;
   v15 = MiObtainReferencedVadEx(v14, 0, &v41);
-  v16 = (ULONG_PTR)v15;
-  v54 = (unsigned __int64)v15;
+  v16 = v15;
+  v54 = v15;
   if ( !v15 )
   {
     v26 = v41;
@@ -173,12 +173,12 @@ LABEL_6:
     goto LABEL_80;
   }
   P = (PVOID)v15;
-  if ( v55 > (*((unsigned int *)v15 + 7) | ((unsigned __int64)*((unsigned __int8 *)v15 + 33) << 32)) )
+  if ( v55 > (*(unsigned int *)(v15 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 33) << 32)) )
   {
     v26 = -1073741800;
     goto LABEL_117;
   }
-  if ( (v15[12] & 0x1100000) == 0x1100000 )
+  if ( (*(_DWORD *)(v15 + 48) & 0x1100000) == 0x1100000 )
   {
     if ( !v9 )
     {
@@ -367,7 +367,7 @@ LABEL_80:
     v26 = -1073741800;
     goto LABEL_117;
   }
-  v26 = MiAllowProtectionChange(v60, a1, (__int64)v15, (_DWORD *)v39, v14, v13);
+  v26 = MiAllowProtectionChange(v60, a1, v15, v39, v14, v13);
   if ( v26 < 0 )
     goto LABEL_117;
   if ( (*(_DWORD *)(v16 + 48) & 0x100) != 0 || !MiIsProcessCfgEnabled() || v47 != 1 )
@@ -382,7 +382,7 @@ LABEL_80:
   }
   v58[0] = v14;
   v58[1] = v13;
-  v26 = MiCommitVadCfgBits(v16, v58, 0LL);
+  v26 = MiCommitVadCfgBits(v16, (__int64)v58, 0LL);
   if ( v26 >= 0 )
   {
 LABEL_50:

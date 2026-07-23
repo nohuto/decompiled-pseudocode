@@ -33,28 +33,26 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, __int64 a3, un
   __int64 *v18; // rsi
   char *v19; // rdi
   char *v20; // rdi
-  signed __int64 v22; // r13
-  struct _RTL_USER_PROCESS_PARAMETERS *v23; // rcx
-  __int64 v24; // rcx
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  __int64 v27; // rax
-  signed __int64 v28; // r15
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rcx
-  __int64 v30; // rcx
-  __int64 v31; // rax
-  __int64 v32; // rax
-  unsigned __int16 v33; // r13
-  unsigned __int16 v34; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int16 v35; // [rsp+34h] [rbp-CCh] BYREF
-  unsigned __int16 v36; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int16 v37; // [rsp+3Ch] [rbp-C4h] BYREF
-  signed __int64 v38; // [rsp+40h] [rbp-C0h] BYREF
-  signed __int64 v39; // [rsp+48h] [rbp-B8h] BYREF
-  signed __int64 v40; // [rsp+50h] [rbp-B0h]
-  signed __int64 v41; // [rsp+58h] [rbp-A8h]
-  _QWORD v42[16]; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v43[16]; // [rsp+E0h] [rbp-20h] BYREF
+  REGHANDLE v22; // r13
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  REGHANDLE v27; // r15
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rax
+  unsigned __int16 v31; // r13
+  unsigned __int16 v32; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int16 v33; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned __int16 v34; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned __int16 v35; // [rsp+3Ch] [rbp-C4h] BYREF
+  ULONGLONG v36; // [rsp+40h] [rbp-C0h] BYREF
+  ULONGLONG RegHandle; // [rsp+48h] [rbp-B8h] BYREF
+  ULONGLONG v38; // [rsp+50h] [rbp-B0h]
+  ULONGLONG v39; // [rsp+58h] [rbp-A8h]
+  _QWORD v40[16]; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v41[16]; // [rsp+E0h] [rbp-20h] BYREF
 
   v5 = *(_QWORD *)(a3 + 8);
   v6 = 0LL;
@@ -78,24 +76,24 @@ LABEL_10:
     _mm_lfence();
     v13 = v7;
     v14 = *(__int64 **)(*(_QWORD *)(a3 + 24) + 8 * v7 + 8);
-    memset(v42, 0, sizeof(v42));
+    memset(v40, 0, sizeof(v40));
     v15 = -1LL;
-    v34 = 0;
-    v35 = 0;
+    v32 = 0;
+    v33 = 0;
     if ( !*((_DWORD *)v14 + 11)
-      || (v38 = 0LL, (v16 = (char *)NtCurrentPeb()->pShimData) == 0LL)
+      || (v36 = 0LL, (v16 = (char *)NtCurrentPeb()->pShimData) == 0LL)
       || (v17 = v16 + 1496) == 0LL
       || !*((_DWORD *)v17 + 12)
       || !*((_DWORD *)v17 + 3) )
     {
 LABEL_16:
       v18 = *(__int64 **)(v5 + 8 * v13 + 16);
-      memset(v43, 0, sizeof(v43));
-      v36 = 0;
-      v37 = 0;
+      memset(v41, 0, sizeof(v41));
+      v34 = 0;
+      v35 = 0;
       if ( *((_DWORD *)v18 + 10) )
       {
-        v39 = 0LL;
+        RegHandle = 0LL;
         v19 = (char *)NtCurrentPeb()->pShimData;
         if ( v19 )
         {
@@ -104,54 +102,48 @@ LABEL_16:
           {
             if ( *((_DWORD *)v20 + 12) && *((_DWORD *)v20 + 3) )
             {
-              v28 = *((_QWORD *)v20 + 2);
-              if ( v28 )
+              v27 = *((_QWORD *)v20 + 2);
+              if ( v27 )
                 goto LABEL_48;
-              if ( !(unsigned int)EtwEventRegister((int)&unk_180113EE0, 0LL, 0LL, (__int64)&v39) )
+              if ( !EtwEventRegister(&stru_180113EE0, 0LL, 0LL, &RegHandle) )
               {
-                v28 = _InterlockedCompareExchange64((volatile signed __int64 *)v20 + 2, v39, 0LL);
-                if ( v28 )
+                v27 = _InterlockedCompareExchange64((volatile signed __int64 *)v20 + 2, RegHandle, 0LL);
+                if ( v27 )
                 {
-                  EtwNotificationUnregister(v39, 0LL);
+                  EtwNotificationUnregister(RegHandle, 0LL);
                 }
                 else
                 {
-                  v41 = v39;
-                  ProcessParameters = NtCurrentPeb()->ProcessParameters;
-                  sub_1801063D4(
-                    v39,
-                    (_DWORD)v20 + 48,
-                    0,
-                    ProcessParameters->ImagePathName.Length,
-                    (__int64)ProcessParameters->ImagePathName.Buffer);
-                  v28 = v41;
+                  v39 = RegHandle;
+                  sub_1801063D4(RegHandle, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
+                  v27 = v39;
                 }
-                if ( v28 )
+                if ( v27 )
                 {
 LABEL_48:
-                  v30 = *v18;
-                  v43[0] = v18 + 14;
-                  v31 = -1LL;
-                  v43[1] = 16LL;
+                  v28 = *v18;
+                  v41[0] = v18 + 14;
+                  v29 = -1LL;
+                  v41[1] = 16LL;
                   do
-                    ++v31;
-                  while ( *(_WORD *)(v30 + 2 * v31) );
-                  v43[3] = 2LL;
-                  v43[4] = v30;
-                  v36 = 2 * (v31 + 1);
-                  v43[5] = v36;
-                  v32 = v18[3];
-                  v43[2] = &v36;
+                    ++v29;
+                  while ( *(_WORD *)(v28 + 2 * v29) );
+                  v41[3] = 2LL;
+                  v41[4] = v28;
+                  v34 = 2 * (v29 + 1);
+                  v41[5] = v34;
+                  v30 = v18[3];
+                  v41[2] = &v34;
                   do
                     ++v15;
-                  while ( *(_WORD *)(v32 + 2 * v15) );
-                  v43[8] = v32;
-                  v33 = 2 * (v15 + 1);
-                  v43[7] = 2LL;
-                  v43[6] = &v37;
-                  v43[9] = v33;
-                  v37 = v33;
-                  EtwEventWrite(v28, &unk_180119170, 5LL, v43);
+                  while ( *(_WORD *)(v30 + 2 * v15) );
+                  v41[8] = v30;
+                  v31 = 2 * (v15 + 1);
+                  v41[7] = 2LL;
+                  v41[6] = &v35;
+                  v41[9] = v31;
+                  v35 = v31;
+                  EtwEventWrite(v27, &stru_180119170, 5u, (PEVENT_DATA_DESCRIPTOR)v41);
                 }
               }
             }
@@ -163,55 +155,54 @@ LABEL_48:
     v22 = *((_QWORD *)v17 + 2);
     if ( v22 )
     {
-      v40 = *((_QWORD *)v17 + 2);
+      v38 = *((_QWORD *)v17 + 2);
     }
     else
     {
-      if ( (unsigned int)EtwEventRegister((int)&unk_180113EE0, 0LL, 0LL, (__int64)&v38) )
+      if ( EtwEventRegister(&stru_180113EE0, 0LL, 0LL, &v36) )
       {
 LABEL_41:
         v15 = -1LL;
         goto LABEL_16;
       }
-      v22 = _InterlockedCompareExchange64((volatile signed __int64 *)v17 + 2, v38, 0LL);
+      v22 = _InterlockedCompareExchange64((volatile signed __int64 *)v17 + 2, v36, 0LL);
       if ( v22 )
       {
-        EtwNotificationUnregister(v38, 0LL);
-        v40 = v22;
+        EtwNotificationUnregister(v36, 0LL);
+        v38 = v22;
       }
       else
       {
-        v40 = v38;
-        v23 = NtCurrentPeb()->ProcessParameters;
-        sub_1801063D4(v38, (_DWORD)v17 + 48, 0, v23->ImagePathName.Length, (__int64)v23->ImagePathName.Buffer);
-        v22 = v40;
+        v38 = v36;
+        sub_1801063D4(v36, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
+        v22 = v38;
       }
     }
     if ( v22 )
     {
-      v24 = *v14;
-      v42[0] = (char *)v14 + 52;
-      v25 = -1LL;
-      v42[1] = 16LL;
+      v23 = *v14;
+      v40[0] = (char *)v14 + 52;
+      v24 = -1LL;
+      v40[1] = 16LL;
       do
-        ++v25;
-      while ( *(_WORD *)(v24 + 2 * v25) );
-      v42[4] = v24;
-      v26 = v14[1];
-      v42[2] = &v34;
-      v34 = 2 * (v25 + 1);
-      v42[5] = v34;
-      v27 = -1LL;
-      v42[3] = 2LL;
+        ++v24;
+      while ( *(_WORD *)(v23 + 2 * v24) );
+      v40[4] = v23;
+      v25 = v14[1];
+      v40[2] = &v32;
+      v32 = 2 * (v24 + 1);
+      v40[5] = v32;
+      v26 = -1LL;
+      v40[3] = 2LL;
       do
-        ++v27;
-      while ( *(_WORD *)(v26 + 2 * v27) );
-      v42[8] = v26;
-      v42[7] = 2LL;
-      v35 = 2 * (v27 + 1);
-      v42[6] = &v35;
-      v42[9] = v35;
-      EtwEventWrite(v22, &unk_180119160, 5LL, v42);
+        ++v26;
+      while ( *(_WORD *)(v25 + 2 * v26) );
+      v40[8] = v25;
+      v40[7] = 2LL;
+      v33 = 2 * (v26 + 1);
+      v40[6] = &v33;
+      v40[9] = v33;
+      EtwEventWrite(v22, &EventDescriptor, 5u, (PEVENT_DATA_DESCRIPTOR)v40);
     }
     goto LABEL_41;
   }

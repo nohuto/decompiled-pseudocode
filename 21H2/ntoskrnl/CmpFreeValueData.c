@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFreeValueData @ 0x14066B4B4
+ * XREFs of CmpFreeValueData @ 0x1406602D4
  * Callers:
- *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
- *     CmpSetValueKeyExisting @ 0x140666C88 (CmpSetValueKeyExisting.c)
- *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
- *     CmpCopyValue @ 0x140878D20 (CmpCopyValue.c)
+ *     CmDeleteValueKey @ 0x14065B364 (CmDeleteValueKey.c)
+ *     CmpSetValueKeyExisting @ 0x14065BAA8 (CmpSetValueKeyExisting.c)
+ *     CmpFreeValue @ 0x140660258 (CmpFreeValue.c)
+ *     CmpCopyValue @ 0x140878E80 (CmpCopyValue.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
  */
 
 char __fastcall CmpFreeValueData(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, unsigned int a3)

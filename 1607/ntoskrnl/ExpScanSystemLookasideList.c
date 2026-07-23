@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpScanSystemLookasideList @ 0x14008D6A0
+ * XREFs of ExpScanSystemLookasideList @ 0x14008CE00
  * Callers:
- *     KeBalanceSetManager @ 0x14013EF3C (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x14013F4AC (KeBalanceSetManager.c)
  * Callees:
- *     ExpComputeLookasideDepth @ 0x14008D824 (ExpComputeLookasideDepth.c)
+ *     ExpComputeLookasideDepth @ 0x14008CF84 (ExpComputeLookasideDepth.c)
  */
 
 __int64 ExpScanSystemLookasideList()

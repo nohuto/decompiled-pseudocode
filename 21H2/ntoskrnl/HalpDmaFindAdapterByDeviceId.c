@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaFindAdapterByDeviceId @ 0x1403EFD14
+ * XREFs of HalpDmaFindAdapterByDeviceId @ 0x1403EFE84
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C3BC8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     IidAreIdsStrictlyEqual @ 0x1405C638C (IidAreIdsStrictlyEqual.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     KeReleaseSpinLock @ 0x1402CE500 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C65BC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpDmaFindAdapterByDeviceId(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall HalpDmaFindAdapterByDeviceId(__int64 a1)
   if ( !a1 )
     return 0LL;
   v4 = KeAcquireSpinLockRaiseToDpc(&HalpDmaAdapterListLock);
-  v5 = (__int64 *)qword_140C4BEB8;
+  v5 = (__int64 *)qword_140C4BEF8;
   v6 = v4;
   while ( v5 != &HalpDmaAdapterList )
   {

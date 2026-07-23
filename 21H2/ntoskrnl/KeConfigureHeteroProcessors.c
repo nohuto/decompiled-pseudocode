@@ -1,14 +1,14 @@
 /*
- * XREFs of KeConfigureHeteroProcessors @ 0x1408BA358
+ * XREFs of KeConfigureHeteroProcessors @ 0x1408BA4B8
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x1407BAC0C (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BB39C (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x1403B66BC (KiConfigureCpuSetSchedulingInformation.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeGenericCallDpc @ 0x14029E250 (KeGenericCallDpc.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x1403B682C (KiConfigureCpuSetSchedulingInformation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeConfigureHeteroProcessors(_BYTE *a1, int a2, _DWORD *a3)

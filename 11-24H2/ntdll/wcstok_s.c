@@ -1,9 +1,9 @@
 /*
- * XREFs of wcstok_s @ 0x18012E210
+ * XREFs of wcstok_s @ 0x18012C440
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 wchar_t *__cdecl wcstok_s(wchar_t *String, const wchar_t *Delimiter, wchar_t **Context)

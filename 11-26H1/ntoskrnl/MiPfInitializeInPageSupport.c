@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPfInitializeInPageSupport @ 0x140A90BA8
+ * XREFs of MiPfInitializeInPageSupport @ 0x140A956F8
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
  * Callees:
  *     <none>
  */
@@ -41,14 +41,14 @@ LABEL_4:
   v6 = (__int64 *)(v5 + 12);
   v7 = 0;
   v8 = (((v5[8] + v5[11]) & 0xFFF) + (unsigned __int64)(unsigned int)v5[10] + 4095) >> 12;
-  if ( v8 >= 2 && (v6 > &qword_140E35FF8 || &v6[(unsigned int)(v8 - 1)] < &qword_140E35FF8) )
+  if ( v8 >= 2 && (v6 > &qword_140E36178 || &v6[(unsigned int)(v8 - 1)] < &qword_140E36178) )
   {
     v10 = v8 & 0xFFFFFFFFFFFFFFFEuLL;
     do
       v7 += 2;
     while ( v7 < v10 );
     v11 = 8 * v10;
-    memset64(v6, qword_140E35FF8, v11 >> 3);
+    memset64(v6, qword_140E36178, v11 >> 3);
     v6 = (__int64 *)((char *)v6 + v11);
   }
   while ( 1 )
@@ -57,7 +57,7 @@ LABEL_4:
     if ( v7 >= v8 )
       break;
     ++v7;
-    *v6++ = qword_140E35FF8;
+    *v6++ = qword_140E36178;
   }
   *(_QWORD *)(a1 + 104) = v8;
   *(_QWORD *)(a1 + 136) = 0LL;

@@ -18,11 +18,11 @@
  *     MmStrongCodeGuaranteesEnforced @ 0x140C4AC30 (MmStrongCodeGuaranteesEnforced.c)
  */
 
-__int64 KiVerifyXcpt15()
+void KiVerifyXcpt15()
 {
-  _QWORD v1[34]; // [rsp+0h] [rbp-158h] BYREF
+  _QWORD v0[34]; // [rsp+0h] [rbp-158h] BYREF
 
-  v1[25] = v1;
+  v0[25] = v0;
   KiVerifyXcpt2();
-  return local_unwind((ULONG_PTR)v1, (__int64)&loc_140BCDC64);
+  local_unwind(v0, &loc_140BCDC64);
 }

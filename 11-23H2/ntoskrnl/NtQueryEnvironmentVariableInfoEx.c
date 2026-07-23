@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryEnvironmentVariableInfoEx @ 0x1409FF560
+ * XREFs of NtQueryEnvironmentVariableInfoEx @ 0x1409FF7F0
  * Callers:
- *     PopEnableSystemSleepCheckpoint @ 0x140996DEC (PopEnableSystemSleepCheckpoint.c)
+ *     PopEnableSystemSleepCheckpoint @ 0x140996FEC (PopEnableSystemSleepCheckpoint.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     IoQueryEnvironmentVariableInfoEx @ 0x1409502EC (IoQueryEnvironmentVariableInfoEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     IoQueryEnvironmentVariableInfoEx @ 0x1409504EC (IoQueryEnvironmentVariableInfoEx.c)
  */
 
 __int64 __fastcall NtQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
@@ -14,7 +14,7 @@ __int64 __fastcall NtQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
   struct _KTHREAD *CurrentThread; // rax
   unsigned int EnvironmentVariableInfo; // ebx
 
-  if ( dword_140C31B10 != 2 )
+  if ( dword_140C31AB0 != 2 )
     return 3221225474LL;
   if ( KeGetCurrentThread()->PreviousMode )
     return 3221225569LL;

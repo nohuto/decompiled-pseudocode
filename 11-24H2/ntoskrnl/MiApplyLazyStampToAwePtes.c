@@ -1,11 +1,11 @@
 /*
- * XREFs of MiApplyLazyStampToAwePtes @ 0x14068117C
+ * XREFs of MiApplyLazyStampToAwePtes @ 0x14068236C
  * Callers:
- *     MiFinishPteChangesInPageTable @ 0x1404738AC (MiFinishPteChangesInPageTable.c)
+ *     MiFinishPteChangesInPageTable @ 0x14046D518 (MiFinishPteChangesInPageTable.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x1403AFDC8 (MiIssueFlushTbEntire.c)
- *     MiInitializeTbFlushStamps @ 0x14044464C (MiInitializeTbFlushStamps.c)
- *     MiWriteAweClusterPte @ 0x1404D6FE4 (MiWriteAweClusterPte.c)
+ *     MiIssueFlushTbEntire @ 0x14039E5D8 (MiIssueFlushTbEntire.c)
+ *     MiInitializeTbFlushStamps @ 0x14043A0EC (MiInitializeTbFlushStamps.c)
+ *     MiWriteAweClusterPte @ 0x1404D0434 (MiWriteAweClusterPte.c)
  */
 
 __int64 __fastcall MiApplyLazyStampToAwePtes(__int64 a1)
@@ -51,11 +51,11 @@ __int64 __fastcall MiApplyLazyStampToAwePtes(__int64 a1)
   MiInitializeTbFlushStamps(&v34);
   v5 = v34;
   v6 = v34;
-  if ( qword_140E2DB80 && (v34 & 0x10) == 0 )
-    v6 = v34 & ~qword_140E2DB80;
+  if ( qword_140E2DCC0 && (v34 & 0x10) == 0 )
+    v6 = v34 & ~qword_140E2DCC0;
   if ( (v6 & 0xFFFFFFFF00000000uLL) == 0 )
   {
-    MiIssueFlushTbEntire(2LL, 1LL, qword_140E2DB80);
+    MiIssueFlushTbEntire(2LL, 1LL, qword_140E2DCC0);
     v5 = v34;
   }
   v34 = v5 & 0xFFFFFFFFFFFFFC1FuLL | 0x300;
@@ -155,7 +155,7 @@ LABEL_41:
       v33 = v31;
       do
       {
-        MiWriteAweClusterPte(*(_QWORD *)(a1 + 40), v32++, v34, 6, *(_QWORD *)(a1 + 160));
+        MiWriteAweClusterPte(*(_QWORD *)(a1 + 40), v32++, v34, 6LL, *(_QWORD *)(a1 + 160));
         --v33;
       }
       while ( v33 );

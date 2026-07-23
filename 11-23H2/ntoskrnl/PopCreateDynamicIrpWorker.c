@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCreateDynamicIrpWorker @ 0x140341DA8
+ * XREFs of PopCreateDynamicIrpWorker @ 0x140342038
  * Callers:
- *     PopIrpWorkerControl @ 0x1403B14E0 (PopIrpWorkerControl.c)
- *     PopRunMaximumIrpWorkers @ 0x140598AD4 (PopRunMaximumIrpWorkers.c)
+ *     PopIrpWorkerControl @ 0x1403B16C0 (PopIrpWorkerControl.c)
+ *     PopRunMaximumIrpWorkers @ 0x140598FC4 (PopRunMaximumIrpWorkers.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     PopCreatePowerThread @ 0x140342ADC (PopCreatePowerThread.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     PopCreatePowerThread @ 0x140342D6C (PopCreatePowerThread.c)
  */
 
 __int64 __fastcall PopCreateDynamicIrpWorker(__int64 a1)

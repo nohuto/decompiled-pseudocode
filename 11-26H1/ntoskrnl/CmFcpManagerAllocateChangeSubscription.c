@@ -1,40 +1,40 @@
 /*
- * XREFs of CmFcpManagerAllocateChangeSubscription @ 0x140B48410
+ * XREFs of CmFcpManagerAllocateChangeSubscription @ 0x140B4A1A0
  * Callers:
- *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140B482E0 (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
+ *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140B4A070 (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-unsigned __int8 *__fastcall CmFcpManagerAllocateChangeSubscription(__int64 a1, __int64 a2, __int64 a3)
+_KSCB **__fastcall CmFcpManagerAllocateChangeSubscription(__int64 a1, _KSCB *a2, _KSCB *a3)
 {
   unsigned __int32 v5; // eax
-  unsigned __int8 *result; // rax
+  _KSCB **result; // rax
 
-  if ( BYTE2(CmpFreezeListLock.ForegroundLossTime) )
+  if ( CmpFreezeListLock.SchedulerApcFill3[50] )
   {
-    result = (unsigned __int8 *)ExAllocatePool2(0x40uLL);
+    result = (_KSCB **)ExAllocatePool2(0x40uLL);
     if ( !result )
       return result;
   }
   else
   {
-    v5 = _InterlockedIncrement((volatile signed __int32 *)(&CmpFreezeListLock.ForegroundLossTime + 1));
+    v5 = _InterlockedIncrement((volatile signed __int32 *)&CmpFreezeListLock.SchedulerApcFill5[52]);
     if ( v5 > 3 )
       return 0LL;
-    result = (unsigned __int8 *)(&CmpFreezeListLock.SchedulerAssistPriorityFloor + 24 * v5);
+    result = (_KSCB **)&CmpFreezeListLock.PriorityFloorCounts[96 * v5 + 24];
   }
   *(_OWORD *)result = 0LL;
-  *((_QWORD *)result + 11) = 0LL;
-  *((_QWORD *)result + 3) = 0LL;
-  *((_QWORD *)result + 4) = CmpWorkItemWrapper;
-  *((_QWORD *)result + 5) = result + 16;
-  *((_QWORD *)result + 2) = 0LL;
-  *((_QWORD *)result + 8) = CmFcpChangeSubscriptionWrapper;
+  result[11] = 0LL;
+  result[3] = 0LL;
+  result[4] = (_KSCB *)CmpWorkItemWrapper;
+  result[5] = (_KSCB *)(result + 2);
+  result[2] = 0LL;
+  result[8] = (_KSCB *)CmFcpChangeSubscriptionWrapper;
   *((_DWORD *)result + 14) = 0;
-  *((_QWORD *)result + 6) = 0LL;
+  result[6] = 0LL;
   *((_DWORD *)result + 15) = 4;
-  *((_QWORD *)result + 9) = a3;
-  *((_QWORD *)result + 10) = a2;
+  result[9] = a3;
+  result[10] = a2;
   return result;
 }

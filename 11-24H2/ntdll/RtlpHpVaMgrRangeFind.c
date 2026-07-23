@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVaMgrRangeFind @ 0x180092FA4
+ * XREFs of RtlpHpVaMgrRangeFind @ 0x18009DB34
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x180092D78 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrAlloc @ 0x18009D908 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x180093300 (RtlSparseArrayElementAllocated.c)
+ *     RtlSparseArrayElementAllocated @ 0x18009DE90 (RtlSparseArrayElementAllocated.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVaMgrRangeFind(

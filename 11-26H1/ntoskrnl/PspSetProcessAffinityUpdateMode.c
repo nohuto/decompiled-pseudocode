@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessAffinityUpdateMode @ 0x140B6E5E8
+ * XREFs of PspSetProcessAffinityUpdateMode @ 0x140B71A98
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PspLockUnlockProcessExclusive @ 0x140449A80 (PspLockUnlockProcessExclusive.c)
- *     PspLockAffinityUpdateShared @ 0x1406155F0 (PspLockAffinityUpdateShared.c)
- *     PspUpdateSingleProcessAffinity @ 0x1407F1588 (PspUpdateSingleProcessAffinity.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     PspLockUnlockProcessExclusive @ 0x140441BB0 (PspLockUnlockProcessExclusive.c)
+ *     PspLockAffinityUpdateShared @ 0x140618560 (PspLockAffinityUpdateShared.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1407F70E8 (PspUpdateSingleProcessAffinity.c)
  */
 
 __int64 __fastcall PspSetProcessAffinityUpdateMode(__int64 a1, int *a2)

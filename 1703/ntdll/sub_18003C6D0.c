@@ -9,12 +9,11 @@
  *     RtlHashUnicodeString @ 0x180040070 (RtlHashUnicodeString.c)
  */
 
-__int64 __fastcall sub_18003C6D0(__int64 a1, __int64 a2)
+__int64 __fastcall sub_18003C6D0(_UNICODE_STRING *a1)
 {
-  unsigned int v3; // [rsp+38h] [rbp+10h] BYREF
+  ULONG HashValue; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0;
-  LOBYTE(a2) = 1;
-  RtlHashUnicodeString(a1, a2, 0LL, &v3);
-  return v3;
+  HashValue = 0;
+  RtlHashUnicodeString(a1, 1u, 0, &HashValue);
+  return HashValue;
 }

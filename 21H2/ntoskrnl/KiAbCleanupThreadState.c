@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbCleanupThreadState @ 0x140254728
+ * XREFs of KiAbCleanupThreadState @ 0x140275C98
  * Callers:
- *     KeCleanupThreadState @ 0x1402546C8 (KeCleanupThreadState.c)
+ *     KeCleanupThreadState @ 0x140275C38 (KeCleanupThreadState.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall KiAbCleanupThreadState(ULONG_PTR BugCheckParameter1)

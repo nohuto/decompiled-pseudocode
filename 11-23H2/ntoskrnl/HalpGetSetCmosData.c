@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpGetSetCmosData @ 0x1403A540C
+ * XREFs of HalpGetSetCmosData @ 0x1403A55EC
  * Callers:
- *     HalSetBusDataByOffset @ 0x140396900 (HalSetBusDataByOffset.c)
- *     HalGetBusDataByOffset @ 0x140396AD0 (HalGetBusDataByOffset.c)
- *     HalpGetCmosData @ 0x1403A53F0 (HalpGetCmosData.c)
- *     HalpSetCmosData @ 0x1403A54D0 (HalpSetCmosData.c)
+ *     HalSetBusDataByOffset @ 0x140396AE0 (HalSetBusDataByOffset.c)
+ *     HalGetBusDataByOffset @ 0x140396CB0 (HalGetBusDataByOffset.c)
+ *     HalpGetCmosData @ 0x1403A55D0 (HalpGetCmosData.c)
+ *     HalpSetCmosData @ 0x1403A56B0 (HalpSetCmosData.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x14033BC0C (HalpAcquireCmosSpinLock.c)
- *     HalpCmosReadByte @ 0x140372080 (HalpCmosReadByte.c)
- *     HalpCmosWriteByte @ 0x1403720A0 (HalpCmosWriteByte.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpAcquireCmosSpinLock @ 0x14033BE9C (HalpAcquireCmosSpinLock.c)
+ *     HalpCmosReadByte @ 0x140372220 (HalpCmosReadByte.c)
+ *     HalpCmosWriteByte @ 0x140372240 (HalpCmosWriteByte.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpGetSetCmosData(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
@@ -38,7 +38,7 @@ __int64 __fastcall HalpGetSetCmosData(__int64 a1, __int64 a2, __int64 a3, int a4
       do
       {
         LOBYTE(v10) = *v5;
-        ((void (__fastcall *)(_QWORD, __int64))funcs_1403A54B2[v8])(v7, v10);
+        ((void (__fastcall *)(_QWORD, __int64))funcs_1403A5692[v8])(v7, v10);
         ++v5;
         ++v7;
       }
@@ -47,7 +47,7 @@ __int64 __fastcall HalpGetSetCmosData(__int64 a1, __int64 a2, __int64 a3, int a4
     else
     {
       do
-        *v5++ = ((__int64 (__fastcall *)(_QWORD))funcs_1403A5467[v8])(v7++);
+        *v5++ = ((__int64 (__fastcall *)(_QWORD))funcs_1403A5647[v8])(v7++);
       while ( v7 <= v9 );
     }
   }

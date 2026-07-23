@@ -5,14 +5,14 @@
  *     HdlspDispatch @ 0x140AE9EB0 (HdlspDispatch.c)
  *     HdlspPutMore @ 0x140AEB0B8 (HdlspPutMore.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x1403DF720 (sprintf_s.c)
- *     strcpy_s @ 0x1403DF890 (strcpy_s.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     InbvPortGetByte @ 0x14067959C (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x140679750 (InbvPortPollOnly.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x1403DF900 (sprintf_s.c)
+ *     strcpy_s @ 0x1403DFA70 (strcpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     InbvPortGetByte @ 0x140679AEC (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x140679CA0 (InbvPortPollOnly.c)
  *     HdlspSendStringAtBaud @ 0x140AEB474 (HdlspSendStringAtBaud.c)
  */
 
@@ -60,10 +60,10 @@ char __fastcall HdlspGetLine(void *a1, size_t Size)
     if ( v4 != 0xFF )
     {
       KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -84,10 +84,10 @@ char __fastcall HdlspGetLine(void *a1, size_t Size)
     if ( v4 != 0xFF )
     {
       KxReleaseSpinLock(v5);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v4 <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v4 <= 0xFu && v13 >= 2u )
         {
           v14 = KeGetCurrentPrcb();
           v15 = v14->SchedulerAssist;

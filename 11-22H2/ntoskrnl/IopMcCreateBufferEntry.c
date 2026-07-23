@@ -63,10 +63,13 @@ __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, 
   *v15 = v16;
   qword_140C5D758 = v10 + 16;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5D748);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v14 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

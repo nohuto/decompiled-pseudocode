@@ -1,17 +1,17 @@
 /*
- * XREFs of IoGetLegacyVetoList @ 0x1405B0B64
+ * XREFs of IoGetLegacyVetoList @ 0x1405B1B64
  * Callers:
- *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
- *     PnprLegacyDeviceDriversPresent @ 0x140835268 (PnprLegacyDeviceDriversPresent.c)
- *     ExpQueryLegacyDriverInformation @ 0x1408CC220 (ExpQueryLegacyDriverInformation.c)
+ *     PopFilterCapabilities @ 0x1405B1968 (PopFilterCapabilities.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnprLegacyDeviceDriversPresent @ 0x1408364C8 (PnprLegacyDeviceDriversPresent.c)
+ *     ExpQueryLegacyDriverInformation @ 0x1408CD4E0 (ExpQueryLegacyDriverInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1405B0C1C (IopGetLegacyVetoListDeviceNode.c)
- *     IopGetLegacyVetoListDrivers @ 0x1405C8B80 (IopGetLegacyVetoListDrivers.c)
- *     IopAppendLegacyVeto @ 0x14083A77C (IopAppendLegacyVeto.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1405B1C1C (IopGetLegacyVetoListDeviceNode.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1405C9B80 (IopGetLegacyVetoListDrivers.c)
+ *     IopAppendLegacyVeto @ 0x14083B9DC (IopAppendLegacyVeto.c)
  */
 
 __int64 __fastcall IoGetLegacyVetoList(PVOID *a1, _DWORD *a2)
@@ -53,7 +53,7 @@ __int64 __fastcall IoGetLegacyVetoList(PVOID *a1, _DWORD *a2)
   if ( *a2 && a1 )
   {
     v6 = 0x20000;
-    v7 = &word_140766550;
+    v7 = &word_140767740;
     IopAppendLegacyVeto(&v8, &v6);
     result = v12;
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxCompleteIdleCondition @ 0x1400ACCA4
+ * XREFs of PoFxCompleteIdleCondition @ 0x1400AB20C
  * Callers:
  *     <none>
  * Callees:
- *     PopFxIdleWorkerTail @ 0x1400C1860 (PopFxIdleWorkerTail.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxIdleWorkerTail @ 0x1400BF6F0 (PopFxIdleWorkerTail.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PoFxCompleteIdleCondition(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

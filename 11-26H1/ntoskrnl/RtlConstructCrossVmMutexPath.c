@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlConstructCrossVmMutexPath @ 0x140805C70
+ * XREFs of RtlConstructCrossVmMutexPath @ 0x14080B710
  * Callers:
  *     <none>
  * Callees:
- *     RtlpConstructCrossVmObjectPath @ 0x140805C88 (RtlpConstructCrossVmObjectPath.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x14080B728 (RtlpConstructCrossVmObjectPath.c)
  */
 
 __int64 RtlConstructCrossVmMutexPath()

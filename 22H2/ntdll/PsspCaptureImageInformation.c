@@ -7,47 +7,47 @@
  *     ZwReadVirtualMemory @ 0x18009DCC0 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall PsspCaptureImageInformation(__int64 a1)
+NTSTATUS __fastcall PsspCaptureImageInformation(__int64 a1, void *a2, char *a3)
 {
-  __int64 result; // rax
-  __int64 v3; // rax
-  __int16 v4; // [rsp+30h] [rbp-168h]
-  int v5; // [rsp+70h] [rbp-128h]
-  int v6; // [rsp+78h] [rbp-120h]
-  __int16 v7; // [rsp+88h] [rbp-110h]
-  __int64 v8; // [rsp+A0h] [rbp-F8h]
-  int v9; // [rsp+C0h] [rbp-D8h]
-  int v10; // [rsp+C8h] [rbp-D0h]
+  NTSTATUS result; // eax
+  __int64 v7; // rax
+  _WORD Buffer[30]; // [rsp+30h] [rbp-168h] BYREF
+  int v9; // [rsp+6Ch] [rbp-12Ch]
+  _DWORD v10[6]; // [rsp+70h] [rbp-128h] BYREF
+  __int16 v11; // [rsp+88h] [rbp-110h]
+  __int64 v12; // [rsp+A0h] [rbp-F8h]
+  int v13; // [rsp+C0h] [rbp-D8h]
+  int v14; // [rsp+C8h] [rbp-D0h]
 
   *(_OWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
-  result = ZwReadVirtualMemory();
-  if ( (int)result >= 0 )
+  result = ZwReadVirtualMemory(a2, a3, Buffer, 0x40uLL, 0LL);
+  if ( result >= 0 )
   {
-    if ( v4 != 23117 )
-      return 3221225775LL;
-    result = ZwReadVirtualMemory();
-    if ( (int)result >= 0 )
+    if ( Buffer[0] != 23117 )
+      return -1073741521;
+    result = ZwReadVirtualMemory(a2, &a3[v9], v10, 0xF8uLL, 0LL);
+    if ( result >= 0 )
     {
-      if ( v5 == 17744 )
+      if ( v10[0] == 17744 )
       {
-        if ( v7 == 267 )
+        if ( v11 == 267 )
         {
-          v3 = HIDWORD(v8);
+          v7 = HIDWORD(v12);
           goto LABEL_10;
         }
-        if ( v7 == 523 )
+        if ( v11 == 523 )
         {
-          v3 = v8;
+          v7 = v12;
 LABEL_10:
-          *(_QWORD *)(a1 + 8) = v3;
-          *(_DWORD *)a1 = v6;
-          *(_DWORD *)(a1 + 4) = v9;
-          *(_DWORD *)(a1 + 16) = v10;
-          return 0LL;
+          *(_QWORD *)(a1 + 8) = v7;
+          *(_DWORD *)a1 = v10[2];
+          *(_DWORD *)(a1 + 4) = v13;
+          *(_DWORD *)(a1 + 16) = v14;
+          return 0;
         }
       }
-      return 3221225595LL;
+      return -1073741701;
     }
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HviGetImplementedPhysicalBits @ 0x1406DC850
+ * XREFs of HviGetImplementedPhysicalBits @ 0x1406E0AF0
  * Callers:
- *     RtlGetCpuMaxPhysicalBits @ 0x140BFED2C (RtlGetCpuMaxPhysicalBits.c)
+ *     RtlGetCpuMaxPhysicalBits @ 0x140C04F34 (RtlGetCpuMaxPhysicalBits.c)
  * Callees:
- *     HviGetEnlightenmentInformation @ 0x1406DC6E8 (HviGetEnlightenmentInformation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HviGetEnlightenmentInformation @ 0x1406E0980 (HviGetEnlightenmentInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall HviGetImplementedPhysicalBits(int *a1)

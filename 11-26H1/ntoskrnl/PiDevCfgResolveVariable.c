@@ -1,34 +1,34 @@
 /*
- * XREFs of PiDevCfgResolveVariable @ 0x140A71BD0
+ * XREFs of PiDevCfgResolveVariable @ 0x140A480A0
  * Callers:
- *     PiDevCfgQueryResolveValue @ 0x1405DB494 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgResolveVariableFormatString @ 0x1407AB0D0 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x1407AB780 (PiDevCfgResolveVariableKeyValue.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x1407AB970 (PiDevCfgResolveVariableSwitchCase.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x140987D80 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiDevCfgResolveVariableExpression @ 0x140A71F50 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgCopyDeviceKey @ 0x140A731C8 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140B40E8C (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiDevCfgQueryResolveValue @ 0x1405DDD44 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1407AE0F0 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x1407AE7A0 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1407AE990 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140A47C2C (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgResolveVariableExpression @ 0x140A48420 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140A49C64 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x140B42E9C (PiDevCfgResolveVariableKeyHandle.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x14042F430 (NLS_UPCASE.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1404ED020 (PnpValidateRegistryString.c)
- *     PnpStringToDwordValue @ 0x1404FB41C (PnpStringToDwordValue.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     PiDevCfgFreeVariable @ 0x140988298 (PiDevCfgFreeVariable.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14041C340 (NLS_UPCASE.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x1404E6600 (PnpValidateRegistryString.c)
+ *     PnpStringToDwordValue @ 0x1404F4A2C (PnpStringToDwordValue.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PiDevCfgFreeVariable @ 0x140A429C4 (PiDevCfgFreeVariable.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 *a3)
+__int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, UNICODE_STRING **a3)
 {
   unsigned int v4; // ebx
   unsigned int *v5; // r14
@@ -38,8 +38,8 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 
   __int64 Flink; // r15
   int v10; // edx
   int v11; // r11d
-  const UNICODE_STRING *v12; // r15
-  const UNICODE_STRING *v13; // rsi
+  UNICODE_STRING *v12; // r15
+  UNICODE_STRING *v13; // rsi
   NTSTATUS v14; // eax
   NTSTATUS RegistryValue; // eax
   const wchar_t *v16; // r12
@@ -49,22 +49,22 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 
   const wchar_t **v21; // r12
   const WCHAR *v22; // r13
   int v23; // r15d
-  __int64 Pool2; // rdi
-  const UNICODE_STRING *v25; // rcx
-  __int64 *v26; // rax
+  UNICODE_STRING *Pool2; // rdi
+  UNICODE_STRING *v25; // rcx
+  wchar_t *v26; // rax
   int v27; // eax
   _WORD *v28; // rsi
   __int64 v29; // rax
-  void *v30; // rax
+  wchar_t *v30; // rax
   int *v31; // rax
   __int64 v32; // rcx
-  _QWORD *v33; // rax
+  wchar_t *v33; // rax
   HANDLE KeyHandle; // [rsp+28h] [rbp-59h] BYREF
   int v35; // [rsp+30h] [rbp-51h]
   PVOID P[2]; // [rsp+38h] [rbp-49h] BYREF
   void *Src; // [rsp+48h] [rbp-39h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-31h] BYREF
-  const UNICODE_STRING *v39; // [rsp+60h] [rbp-21h]
+  UNICODE_STRING *v39; // [rsp+60h] [rbp-21h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-19h] BYREF
   int v44; // [rsp+100h] [rbp+7Fh] BYREF
 
@@ -93,17 +93,17 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 
     }
     while ( v11 != 1 );
   }
-  v12 = (const UNICODE_STRING *)(*(_QWORD *)(a1 + 24) + 16LL * (v6 % 0x7F));
+  v12 = (UNICODE_STRING *)(*(_QWORD *)(a1 + 24) + 16LL * (v6 % 0x7F));
   v39 = v12;
-  v13 = *(const UNICODE_STRING **)&v12->Length;
-  if ( *(const UNICODE_STRING **)&v12->Length == v12 )
+  v13 = *(UNICODE_STRING **)&v12->Length;
+  if ( *(UNICODE_STRING **)&v12->Length == v12 )
     goto LABEL_5;
   do
   {
-    Pool2 = (__int64)v13;
+    Pool2 = v13;
     if ( RtlEqualUnicodeString(&DestinationString, v13 + 1, 1u) )
       break;
-    v13 = *(const UNICODE_STRING **)&v13->Length;
+    v13 = *(UNICODE_STRING **)&v13->Length;
     Pool2 = 0LL;
   }
   while ( v13 != v12 );
@@ -126,7 +126,7 @@ LABEL_5:
       {
         if ( i >= 4 )
           goto LABEL_25;
-        v21 = (const wchar_t **)&(&off_140BDADC0)[3 * i];
+        v21 = (const wchar_t **)&(&off_140BE1C70)[3 * i];
         if ( !wcsicmp(*v21, a2) )
           break;
       }
@@ -142,26 +142,26 @@ LABEL_25:
         v23 = v44;
         v18 = 0LL;
 LABEL_27:
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
         if ( !Pool2 )
         {
           v4 = -1073741670;
           goto LABEL_14;
         }
         v25 = v39;
-        v26 = (__int64 *)v39->Buffer;
-        if ( (const UNICODE_STRING *)*v26 != v39 )
+        v26 = v39->Buffer;
+        if ( *(UNICODE_STRING **)v26 != v39 )
 LABEL_29:
           __fastfail(3u);
-        *(_QWORD *)Pool2 = v39;
-        *(_QWORD *)(Pool2 + 8) = v26;
-        *v26 = Pool2;
-        v25->Buffer = (wchar_t *)Pool2;
-        if ( RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 16), v22) )
+        *(_QWORD *)&Pool2->Length = v39;
+        Pool2->Buffer = v26;
+        *(_QWORD *)v26 = Pool2;
+        v25->Buffer = &Pool2->Length;
+        if ( RtlCreateUnicodeString(Pool2 + 1, v22) )
         {
           if ( v18 )
           {
-            *(_DWORD *)(Pool2 + 32) = -1;
+            *(_DWORD *)&Pool2[2].Length = -1;
             v27 = guard_dispatch_icall_no_overrides(a1, (__int64)KeyHandle);
             v4 = v27;
             if ( v27 >= 0 )
@@ -177,26 +177,26 @@ LABEL_38:
           v28 = Src;
           if ( Src )
           {
-            *(_DWORD *)(Pool2 + 32) = 1;
+            *(_DWORD *)&Pool2[2].Length = 1;
             v29 = -1LL;
             do
               ++v29;
             while ( v28[v29] );
-            *(_DWORD *)(Pool2 + 36) = 2 * v29 + 2;
-            v30 = (void *)ExAllocatePool2(0x100uLL);
-            *(_QWORD *)(Pool2 + 40) = v30;
+            *(_DWORD *)(&Pool2[2].MaximumLength + 1) = 2 * v29 + 2;
+            v30 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            Pool2[2].Buffer = v30;
             if ( v30 )
             {
-              memmove(v30, v28, *(unsigned int *)(Pool2 + 36));
+              memmove(v30, v28, *(unsigned int *)(&Pool2[2].MaximumLength + 1));
               goto LABEL_38;
             }
           }
           else
           {
-            *(_DWORD *)(Pool2 + 32) = 4;
-            *(_DWORD *)(Pool2 + 36) = 4;
+            *(_DWORD *)&Pool2[2].Length = 4;
+            *(_DWORD *)(&Pool2[2].MaximumLength + 1) = 4;
             v31 = (int *)ExAllocatePool2(0x100uLL);
-            *(_QWORD *)(Pool2 + 40) = v31;
+            Pool2[2].Buffer = (wchar_t *)v31;
             if ( v31 )
             {
               *v31 = v23;
@@ -206,27 +206,27 @@ LABEL_38:
         }
         v4 = -1073741670;
 LABEL_57:
-        v32 = *(_QWORD *)Pool2;
-        if ( *(_QWORD *)(*(_QWORD *)Pool2 + 8LL) != Pool2 )
+        v32 = *(_QWORD *)&Pool2->Length;
+        if ( *(UNICODE_STRING **)(*(_QWORD *)&Pool2->Length + 8LL) != Pool2 )
           goto LABEL_29;
-        v33 = *(_QWORD **)(Pool2 + 8);
-        if ( *v33 != Pool2 )
+        v33 = Pool2->Buffer;
+        if ( *(UNICODE_STRING **)v33 != Pool2 )
           goto LABEL_29;
-        *v33 = v32;
+        *(_QWORD *)v33 = v32;
         *(_QWORD *)(v32 + 8) = v33;
-        PiDevCfgFreeVariable((UNICODE_STRING *)Pool2);
+        PiDevCfgFreeVariable(Pool2);
 LABEL_14:
         if ( v5 )
           ExFreePoolWithTag(v5, 0);
         goto LABEL_16;
       }
       v18 = 0LL;
-      v23 = dword_140BDADD0[6 * i];
-      Src = (void *)qword_140BDADC8[3 * i];
+      v23 = dword_140BE1C80[6 * i];
+      Src = (void *)qword_140BE1C78[3 * i];
     }
     else
     {
-      RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_140BE1A04, 0, P);
+      RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_140BE88B4, 0, P);
       v5 = (unsigned int *)P[0];
       v4 = RegistryValue;
       if ( RegistryValue < 0 )
@@ -241,10 +241,10 @@ LABEL_14:
       {
         if ( j >= 8 )
           goto LABEL_13;
-        if ( !wcsicmp((&off_140BDB480)[2 * j], v16) )
+        if ( !wcsicmp((&off_140BE2330)[2 * j], v16) )
           break;
       }
-      v18 = (__int64)*(&off_140BDB488 + 2 * j);
+      v18 = (__int64)*(&off_140BE2338 + 2 * j);
       if ( !v18 )
       {
 LABEL_13:
@@ -256,7 +256,7 @@ LABEL_13:
     v22 = a2;
     goto LABEL_27;
   }
-  if ( *(_DWORD *)(Pool2 + 32) != -1 )
+  if ( *(_DWORD *)&Pool2[2].Length != -1 )
     goto LABEL_38;
   v4 = -1073741823;
 LABEL_16:

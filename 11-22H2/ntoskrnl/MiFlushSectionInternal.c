@@ -344,10 +344,13 @@ LABEL_8:
   if ( !*(_QWORD *)(v12 + 32) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v21 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v21 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -426,10 +429,10 @@ LABEL_14:
   if ( (*(_BYTE *)(BugCheckParameter2 + 34) & 8) != 0 )
     MiRemoveUnusedSubsection(BugCheckParameter2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v76 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v76 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v76 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v76 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v76 >= 2u )
     {
       v77 = KeGetCurrentPrcb();
       v78 = v77->SchedulerAssist;
@@ -870,10 +873,10 @@ LABEL_85:
   }
 LABEL_90:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v89 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v89 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v89 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v89 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v89 >= 2u )
     {
       v90 = KeGetCurrentPrcb();
       v91 = v90->SchedulerAssist;

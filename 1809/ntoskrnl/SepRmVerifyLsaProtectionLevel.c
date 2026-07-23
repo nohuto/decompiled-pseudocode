@@ -1,14 +1,14 @@
 /*
- * XREFs of SepRmVerifyLsaProtectionLevel @ 0x14074067C
+ * XREFs of SepRmVerifyLsaProtectionLevel @ 0x14074186C
  * Callers:
- *     SepRmLsaConnectRequest @ 0x1407403F4 (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x1407415E4 (SepRmLsaConnectRequest.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemEnvironmentValueEx @ 0x1401BACB0 (ZwQuerySystemEnvironmentValueEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemEnvironmentValueEx @ 0x1401BAE10 (ZwQuerySystemEnvironmentValueEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 int __fastcall SepRmVerifyLsaProtectionLevel(HANDLE *a1)

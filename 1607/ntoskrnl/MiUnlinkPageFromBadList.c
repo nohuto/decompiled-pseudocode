@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x1401F3054
+ * XREFs of MiUnlinkPageFromBadList @ 0x1401F2E80
  * Callers:
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiMoveEccPagesToFreeList @ 0x1401E2030 (MiMoveEccPagesToFreeList.c)
- *     MiTransferPartitionPageRun @ 0x1401F2058 (MiTransferPartitionPageRun.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiMoveEccPagesToFreeList @ 0x1401E1E5C (MiMoveEccPagesToFreeList.c)
+ *     MiTransferPartitionPageRun @ 0x1401F1E84 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
  */
 
 signed __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1)
@@ -39,11 +39,11 @@ signed __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1)
     *((_QWORD *)v3 + 458) = v4;
   else
     *(_QWORD *)(48 * v5 - 0x58000000000LL) ^= (v4 ^ *(_QWORD *)(48 * v5 - 0x58000000000LL)) & 0xFFFFFFFFFLL;
-  if ( dword_140327060 == 1 )
+  if ( dword_1403270A0 == 1 )
   {
     v6 = v2 & 0x1F;
     LOBYTE(v7) = 1;
-    v8 = (volatile signed __int32 *)(qword_140327080 + 4 * (v2 >> 5));
+    v8 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v2 >> 5);
     if ( v6 + 1 <= 0x20 )
     {
       v9 = 1 << v6;

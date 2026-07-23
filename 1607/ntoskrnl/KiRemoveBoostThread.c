@@ -1,18 +1,18 @@
 /*
- * XREFs of KiRemoveBoostThread @ 0x1400CF3B0
+ * XREFs of KiRemoveBoostThread @ 0x1400CD250
  * Callers:
- *     KeSetEventBoostPriorityEx @ 0x14000CAE8 (KeSetEventBoostPriorityEx.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KeWakeWaitChain @ 0x1400A5CEC (KeWakeWaitChain.c)
- *     KeGenericProcessorCallback @ 0x1400CA714 (KeGenericProcessorCallback.c)
- *     KiCompleteDirectSwitchThread @ 0x1400CF334 (KiCompleteDirectSwitchThread.c)
- *     KeRemovePriorityBoost @ 0x1401D2D10 (KeRemovePriorityBoost.c)
+ *     KeSetEventBoostPriorityEx @ 0x14000C668 (KeSetEventBoostPriorityEx.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KeWakeWaitChain @ 0x1400A4264 (KeWakeWaitChain.c)
+ *     KeGenericProcessorCallback @ 0x1400C85B4 (KeGenericProcessorCallback.c)
+ *     KiCompleteDirectSwitchThread @ 0x1400CD1D4 (KiCompleteDirectSwitchThread.c)
+ *     KeRemovePriorityBoost @ 0x1401D2B3C (KeRemovePriorityBoost.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiSelectReadyThreadEx @ 0x14005DF30 (KiSelectReadyThreadEx.c)
- *     KiAbQueueAutoBoostDpc @ 0x14006C668 (KiAbQueueAutoBoostDpc.c)
- *     KiUpdateThreadState @ 0x140091CEC (KiUpdateThreadState.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiSelectReadyThreadEx @ 0x14005DAB0 (KiSelectReadyThreadEx.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14006C1E8 (KiAbQueueAutoBoostDpc.c)
+ *     KiUpdateThreadState @ 0x14009144C (KiUpdateThreadState.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
  */
 
 char __fastcall KiRemoveBoostThread(__int64 a1, __int64 a2)

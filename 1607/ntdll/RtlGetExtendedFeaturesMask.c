@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetExtendedFeaturesMask @ 0x1800889D0
+ * XREFs of RtlGetExtendedFeaturesMask @ 0x1800889C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLocateXStateChunk @ 0x1800889EC (RtlpLocateXStateChunk.c)
+ *     RtlpLocateXStateChunk @ 0x1800889DC (RtlpLocateXStateChunk.c)
  */
 
-unsigned __int64 RtlGetExtendedFeaturesMask()
+ULONG64 __cdecl RtlGetExtendedFeaturesMask(PCONTEXT_EX ContextEx)
 {
-  return *(_QWORD *)RtlpLocateXStateChunk() & 0xFFFFFFFFFFFFFFFCuLL;
+  return *(_QWORD *)RtlpLocateXStateChunk(ContextEx) & 0xFFFFFFFFFFFFFFFCuLL;
 }

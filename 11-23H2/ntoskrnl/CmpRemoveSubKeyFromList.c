@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpRemoveSubKeyFromList @ 0x14070BD20
+ * XREFs of CmpRemoveSubKeyFromList @ 0x14070BF30
  * Callers:
- *     CmpRemoveSubKey @ 0x14070BC70 (CmpRemoveSubKey.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A28FA8 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A293A0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpRemoveSubKey @ 0x14070BE80 (CmpRemoveSubKey.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29258 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29650 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmpFindSubKeyInRoot @ 0x1406D7E8C (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1406D94E0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextMove @ 0x14070AA08 (HvpGetCellContextMove.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmpFindSubKeyInRoot @ 0x1406D7EBC (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1406D9510 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextMove @ 0x14070AC18 (HvpGetCellContextMove.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 char __fastcall CmpRemoveSubKeyFromList(ULONG_PTR BugCheckParameter2, unsigned int *a2, unsigned int a3)

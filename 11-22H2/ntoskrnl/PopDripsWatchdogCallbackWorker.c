@@ -33,16 +33,19 @@ _QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r8
-  struct _KTHREAD *v18; // rax
-  __int128 v20; // [rsp+30h] [rbp-58h] BYREF
-  OWNER_ENTRY v21; // [rsp+40h] [rbp-48h]
+  __int64 v18; // r9
+  struct _KTHREAD *v19; // rax
+  __int64 v21; // [rsp+20h] [rbp-68h]
+  __int64 v22; // [rsp+28h] [rbp-60h]
+  __int128 v23; // [rsp+30h] [rbp-58h] BYREF
+  OWNER_ENTRY v24; // [rsp+40h] [rbp-48h]
   char ActiveCount; // [rsp+90h] [rbp+8h]
-  __int64 v23; // [rsp+98h] [rbp+10h]
+  __int64 v26; // [rsp+98h] [rbp+10h]
 
   CurrentThread = KeGetCurrentThread();
-  v20 = 0LL;
+  v23 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v21 = 0LL;
+  v24 = 0LL;
   ExAcquireResourceExclusiveLite(Resource, 1u);
   if ( ((__int64)Resource[1].SystemResourcesList.Flink & 4) != 0 && (HIDWORD(Resource[2].Reserved2) & 2) != 0 )
   {
@@ -50,13 +53,13 @@ _QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
     ++HIDWORD(Resource[2].SpinLock);
     PopDripsWatchdogScheduleNextTimer(&Resource[1].SystemResourcesList.Blink);
     v3 = (struct _OWNER_ENTRY *)MEMORY[0xFFFFF78000000008];
-    PopCalculateIdleInformation((__int64)&v20);
-    v4 = v21.TableSize - Resource[3].OwnerEntry.TableSize;
-    if ( v21.TableSize != Resource[3].OwnerEntry.TableSize )
+    PopCalculateIdleInformation((__int64)&v23);
+    v4 = v24.TableSize - Resource[3].OwnerEntry.TableSize;
+    if ( v24.TableSize != Resource[3].OwnerEntry.TableSize )
     {
-      v5 = v20;
+      v5 = v23;
       v6 = PopDripsWatchdogDebounceTickInterval;
-      v7 = v21;
+      v7 = v24;
       HIDWORD(Resource[2].SpinLock) = 0;
       *(_OWORD *)&Resource[3].SharedWaiters = v5;
       Resource[3].OwnerTable = v3;
@@ -85,7 +88,7 @@ _QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
       SpinLock = Resource[2].SpinLock;
       v12 = (char *)v3 - (char *)Resource[3].SystemResourcesList.Blink;
       v13 = (char *)v3 - (char *)Resource[3].OwnerTable;
-      v23 = *(_QWORD *)&Resource[6].ActiveCount;
+      v26 = *(_QWORD *)&Resource[6].ActiveCount;
       ActiveCount = Resource[3].ActiveCount;
       HIDWORD(Resource[2].Reserved2) = Reserved2_high | 4;
       ExReleaseResourceLite(Resource);
@@ -93,15 +96,15 @@ _QWORD *__fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
       PopAcquirePolicyLock(v14);
       if ( v4 || qword_140CF7D18 )
       {
-        PopReleasePolicyLock(v16, v15, v17);
+        PopReleasePolicyLock(v16, v15, v17, v18, v21, v22);
       }
       else
       {
-        PopReleasePolicyLock(v16, v15, v17);
-        PopDripsWatchdogCallbackHandler(Flink_high, SpinLock, v12, v13, v23, ActiveCount);
+        PopReleasePolicyLock(v16, v15, v17, v18, v21, v22);
+        PopDripsWatchdogCallbackHandler(Flink_high, SpinLock, v12, v13, v26, ActiveCount);
       }
-      v18 = KeGetCurrentThread();
-      --v18->KernelApcDisable;
+      v19 = KeGetCurrentThread();
+      --v19->KernelApcDisable;
       ExAcquireResourceExclusiveLite(Resource, 1u);
       Resource[3].SystemResourcesList.Blink = (struct _LIST_ENTRY *)v3;
       HIDWORD(Resource[2].Reserved2) &= ~4u;

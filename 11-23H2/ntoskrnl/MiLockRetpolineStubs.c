@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitializeRetpoline @ 0x140B44F88 (MiInitializeRetpoline.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmCreateMdl @ 0x140356AF0 (MmCreateMdl.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MmCreateMdl @ 0x140356C90 (MmCreateMdl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

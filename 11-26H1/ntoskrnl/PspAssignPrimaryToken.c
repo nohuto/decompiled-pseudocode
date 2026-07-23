@@ -1,20 +1,20 @@
 /*
- * XREFs of PspAssignPrimaryToken @ 0x140773B18
+ * XREFs of PspAssignPrimaryToken @ 0x140776B18
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
- *     PspLockUnlockProcessExclusive @ 0x140449A80 (PspLockUnlockProcessExclusive.c)
- *     PspSynchronizeThreadIsolationDomains @ 0x1404C6128 (PspSynchronizeThreadIsolationDomains.c)
- *     SeExchangePrimaryToken @ 0x140814B78 (SeExchangePrimaryToken.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     SeCheckPrivilegedObject @ 0x140A7A93C (SeCheckPrivilegedObject.c)
- *     SeIsTokenAssignableToProcess @ 0x140AB7984 (SeIsTokenAssignableToProcess.c)
- *     ObClearProcessDeviceMap @ 0x140ADD8B8 (ObClearProcessDeviceMap.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
+ *     PspLockUnlockProcessExclusive @ 0x140441BB0 (PspLockUnlockProcessExclusive.c)
+ *     PspSynchronizeThreadIsolationDomains @ 0x1404BFAD8 (PspSynchronizeThreadIsolationDomains.c)
+ *     SeExchangePrimaryToken @ 0x14081AC68 (SeExchangePrimaryToken.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeCheckPrivilegedObject @ 0x140A8287C (SeCheckPrivilegedObject.c)
+ *     SeIsTokenAssignableToProcess @ 0x140AB8FC4 (SeIsTokenAssignableToProcess.c)
+ *     ObClearProcessDeviceMap @ 0x140ADA628 (ObClearProcessDeviceMap.c)
  */
 
 NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, ULONG_PTR a3, void *a4)

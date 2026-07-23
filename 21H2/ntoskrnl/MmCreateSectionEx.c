@@ -1,14 +1,14 @@
 /*
- * XREFs of MmCreateSectionEx @ 0x1406D4704
+ * XREFs of MmCreateSectionEx @ 0x1406AB9E4
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x1402E9010 (FsRtlCreateSectionForDataScan.c)
- *     MmCreateSection @ 0x1406D4680 (MmCreateSection.c)
+ *     FsRtlCreateSectionForDataScan @ 0x14029A360 (FsRtlCreateSectionForDataScan.c)
+ *     MmCreateSection @ 0x1406AB960 (MmCreateSection.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x14070775C (MiCaptureSectionCreateExtendedParameters.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiCreateSection @ 0x14071CAF0 (MiCreateSection.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x14071EB3C (MiCaptureSectionCreateExtendedParameters.c)
  */
 
 __int64 __fastcall MmCreateSectionEx(

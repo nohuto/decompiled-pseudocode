@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptGenerateMessage @ 0x140540CD0
+ * XREFs of HalpInterruptGenerateMessage @ 0x14053E5D0
  * Callers:
- *     HalpPopulateMsiMessages @ 0x1405413F0 (HalpPopulateMsiMessages.c)
- *     HalpIommuConfigureInterrupt @ 0x140552024 (HalpIommuConfigureInterrupt.c)
+ *     HalpPopulateMsiMessages @ 0x14053ECF0 (HalpPopulateMsiMessages.c)
+ *     HalpIommuConfigureInterrupt @ 0x14054F964 (HalpIommuConfigureInterrupt.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x1403B88E0 (HalGetProcessorIdByNtNumber.c)
- *     HalpInterruptDestinationToTarget @ 0x1403BAD88 (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1402B4970 (HalGetProcessorIdByNtNumber.c)
+ *     HalpInterruptDestinationToTarget @ 0x140370DAC (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptGenerateMessage(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
@@ -94,7 +94,7 @@ __int64 __fastcall HalpInterruptGenerateMessage(__int64 a1, __int64 a2, _QWORD *
     }
   }
   v18 = -1073741637;
-  if ( *(_QWORD *)(v4 + 136) && (v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v4 + 16), &v21, a3, a4), v18 >= 0) )
+  if ( *(_QWORD *)(v4 + 136) && (v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v4 + 16), &v21), v18 >= 0) )
   {
     v13 = -1073740768;
     if ( (((-(__int64)(HalpApicGuestX2Mode != 0) & 0xFF00000100000000uLL) - 0x100000000LL) & *a3) == 0 )

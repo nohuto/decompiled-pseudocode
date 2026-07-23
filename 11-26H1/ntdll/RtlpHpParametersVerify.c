@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpParametersVerify @ 0x180100E90
+ * XREFs of RtlpHpParametersVerify @ 0x1801005E0
  * Callers:
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
  * Callees:
- *     RtlCompareMemoryUlong @ 0x180163260 (RtlCompareMemoryUlong.c)
+ *     RtlCompareMemoryUlong @ 0x180163160 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall RtlpHpParametersVerify(__int64 a1)
@@ -16,11 +16,11 @@ __int64 __fastcall RtlpHpParametersVerify(__int64 a1)
   if ( *(_WORD *)a1 == 3
     && *(_WORD *)(a1 + 2) == 80
     && (*(_DWORD *)(a1 + 4) & 0xFFFFFFFC) == 0
-    && RtlCompareMemoryUlong(a1 + 48, 32LL, 0LL) == 32 )
+    && RtlCompareMemoryUlong((PVOID)(a1 + 48), 0x20uLL, 0) == 32 )
   {
     if ( (*(_BYTE *)(a1 + 4) & 1) != 0 )
     {
-      v4 = RtlCompareMemoryUlong(a1 + 8, 40LL, 0LL) == 40;
+      v4 = RtlCompareMemoryUlong((PVOID)(a1 + 8), 0x28uLL, 0) == 40;
     }
     else
     {
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpHpParametersVerify(__int64 a1)
         || (unsigned int)(v2 - 1) > 0x3E
         || (v2 & 2) != 0
         || *(_DWORD *)(a1 + 16) != -1
-        || RtlCompareMemoryUlong(a1 + 32, 16LL, 0LL) != 16 )
+        || RtlCompareMemoryUlong((PVOID)(a1 + 32), 0x10uLL, 0) != 16 )
       {
         return 0LL;
       }

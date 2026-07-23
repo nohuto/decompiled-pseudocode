@@ -3,16 +3,16 @@
  * Callers:
  *     MiGetInPageSupportBlock @ 0x14002C610 (MiGetInPageSupportBlock.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
- *     MiPfIssueCoalescedSupport @ 0x1402AEFA4 (MiPfIssueCoalescedSupport.c)
- *     MiGetReadyInPageBlock @ 0x14084F2EC (MiGetReadyInPageBlock.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4558 (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x1402AF194 (MiPfIssueCoalescedSupport.c)
+ *     MiGetReadyInPageBlock @ 0x14085054C (MiGetReadyInPageBlock.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 __int64 __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char a2)
@@ -113,7 +113,7 @@ __int64 __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char 
     if ( v4 )
     {
       if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
-        && byte_14043B950[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+        && byte_14043CA10[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
       {
         SessionId = MmGetSessionIdEx(v11->ApcState.Process);
       }

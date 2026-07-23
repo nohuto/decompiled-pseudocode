@@ -3,7 +3,7 @@
  * Callers:
  *     RtlTraceDatabaseAdd @ 0x1800F3210 (RtlTraceDatabaseAdd.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  *     RtlpTraceDatabaseAllocate @ 0x1800F3644 (RtlpTraceDatabaseAllocate.c)
@@ -14,10 +14,10 @@ char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const 
 {
   __int64 v4; // rsi
   __int64 v9; // rax
-  __int64 v10; // rcx
+  _QWORD *v10; // rcx
   unsigned __int64 v11; // rbp
   unsigned __int64 v12; // rax
-  __int64 v13; // rax
+  _QWORD *v13; // rax
   __int64 v14; // r14
   unsigned int v15; // eax
   unsigned int v16; // ecx
@@ -29,31 +29,31 @@ char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const 
     return 0;
   if ( !(unsigned __int8)RtlpTraceDatabaseInternalFind(a1, a2, a3, v18) )
   {
-    v10 = *(_QWORD *)(a1 + 16);
+    v10 = *(_QWORD **)(a1 + 16);
     v11 = 8 * v4 + 56;
-    if ( v11 > *(_QWORD *)(v10 + 40) - *(_QWORD *)(v10 + 48) )
+    if ( v11 > v10[5] - v10[6] )
     {
       v12 = *(_QWORD *)(a1 + 24);
       if ( v12 && *(_QWORD *)(a1 + 32) > v12 )
         goto LABEL_10;
-      v13 = RtlpTraceDatabaseAllocate();
+      v13 = RtlpTraceDatabaseAllocate(0x10000uLL);
       v10 = v13;
       if ( !v13 )
         goto LABEL_10;
       *(_DWORD *)v13 = -1412580421;
-      *(_QWORD *)(v13 + 8) = a1;
-      *(_QWORD *)(v13 + 24) = 0x10000LL;
-      *(_QWORD *)(v13 + 32) = v13;
-      *(_QWORD *)(v13 + 40) = v13 + 0x10000;
-      *(_QWORD *)(v13 + 48) = v13 + 56;
-      *(_QWORD *)(v13 + 16) = *(_QWORD *)(a1 + 16);
+      v13[1] = a1;
+      v13[3] = 0x10000LL;
+      v13[4] = v13;
+      v13[5] = v13 + 0x2000;
+      v13[6] = v13 + 7;
+      v13[2] = *(_QWORD *)(a1 + 16);
       *(_QWORD *)(a1 + 32) += 0x10000LL;
       *(_QWORD *)(a1 + 16) = v13;
     }
-    v14 = *(_QWORD *)(v10 + 48);
-    if ( v11 <= *(_QWORD *)(v10 + 40) - v14 )
+    v14 = v10[6];
+    if ( v11 <= v10[5] - v14 )
     {
-      *(_QWORD *)(v10 + 48) = v14 + v11;
+      v10[6] = v14 + v11;
       *(_DWORD *)v14 = -1412584790;
       *(_DWORD *)(v14 + 8) = v4;
       *(_DWORD *)(v14 + 4) = 1;

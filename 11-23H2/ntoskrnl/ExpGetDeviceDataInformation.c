@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetDeviceDataInformation @ 0x1409F62A8
+ * XREFs of ExpGetDeviceDataInformation @ 0x1409F6538
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     KseQueryDeviceData @ 0x140808000 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x140976900 (KseQueryDeviceDataList.c)
- *     ExpStringCapture @ 0x1409F798C (ExpStringCapture.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     KseQueryDeviceData @ 0x1408082D0 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140976B00 (KseQueryDeviceDataList.c)
+ *     ExpStringCapture @ 0x1409F7C1C (ExpStringCapture.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

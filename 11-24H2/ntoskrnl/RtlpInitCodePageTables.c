@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpInitCodePageTables @ 0x14077EA64
+ * XREFs of RtlpInitCodePageTables @ 0x14077E994
  * Callers:
- *     ExInitializeNls @ 0x140AC1714 (ExInitializeNls.c)
+ *     ExInitializeNls @ 0x140ABC9FC (ExInitializeNls.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     RtlInitCodePageTable @ 0x14077E6B0 (RtlInitCodePageTable.c)
- *     NtGetNlsSectionPtr @ 0x140A08EB0 (NtGetNlsSectionPtr.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     RtlInitCodePageTable @ 0x14077E5E0 (RtlInitCodePageTable.c)
+ *     NtGetNlsSectionPtr @ 0x140A053E0 (NtGetNlsSectionPtr.c)
  */
 
 __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 a2)
 {
-  int v2; // ebp
-  int v3; // r15d
+  ULONG v2; // ebp
+  ULONG v3; // r15d
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   struct _LIST_ENTRY **p_Blink; // rdi
   PUSHORT *v6; // r14
-  PUSHORT *v7; // rbx
+  PVOID *p_Flink; // rbx
   struct _LIST_ENTRY **v8; // rsi
   unsigned __int64 CurrentServerSilo; // rbx
   struct _LIST_ENTRY *v10; // rcx
@@ -28,27 +28,27 @@ __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   p_Blink = &CurrentServerSiloGlobals[64].Blink;
   v6 = (PUSHORT *)&CurrentServerSiloGlobals[72].Blink;
-  v7 = (PUSHORT *)&CurrentServerSiloGlobals[73];
+  p_Flink = (PVOID *)&CurrentServerSiloGlobals[73].Flink;
   v8 = &CurrentServerSiloGlobals[68].Blink;
   if ( (_WORD)v3 != 0xFDE9 && (_WORD)v2 != 0xFDE9 )
   {
-    if ( (int)NtGetNlsSectionPtr(11, v3, 0, (int)CurrentServerSiloGlobals + 1160, 0LL) < 0 )
+    if ( NtGetNlsSectionPtr(0xBu, v3, 0LL, (PVOID *)&CurrentServerSiloGlobals[72].Blink, 0LL) < 0 )
       goto LABEL_7;
     if ( (_WORD)v2 == (_WORD)v3 )
     {
-      *v7 = *v6;
+      *p_Flink = *v6;
       goto LABEL_8;
     }
-    if ( (int)NtGetNlsSectionPtr(11, v2, 0, (_DWORD)v7, 0LL) < 0 )
+    if ( NtGetNlsSectionPtr(0xBu, v2, 0LL, p_Flink, 0LL) < 0 )
     {
 LABEL_7:
       *v6 = 0LL;
-      *v7 = 0LL;
+      *p_Flink = 0LL;
     }
   }
 LABEL_8:
   RtlInitCodePageTable(*v6, (PCPTABLEINFO)p_Blink);
-  RtlInitCodePageTable(*v7, (PCPTABLEINFO)v8);
+  RtlInitCodePageTable((PUSHORT)*p_Flink, (PCPTABLEINFO)v8);
   CurrentServerSilo = PsGetCurrentServerSilo();
   if ( CurrentServerSilo == PdcCreateWatchdogAroundClientCall() )
   {

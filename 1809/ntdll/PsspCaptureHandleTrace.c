@@ -3,34 +3,33 @@
  * Callers:
  *     PsspCaptureProcessInformation @ 0x1801125A8 (PsspCaptureProcessInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
- *     ZwMapViewOfSection @ 0x1800A07E0 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1800A0820 (NtUnmapViewOfSection.c)
- *     NtCreateSection @ 0x1800A0C20 (NtCreateSection.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
+ *     ZwMapViewOfSection @ 0x1800A0800 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x1800A0840 (NtUnmapViewOfSection.c)
+ *     NtCreateSection @ 0x1800A0C40 (NtCreateSection.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-NTSTATUS __fastcall PsspCaptureHandleTrace(__int64 a1, void *a2)
+int __fastcall PsspCaptureHandleTrace(__int64 a1, void *a2)
 {
-  NTSTATUS result; // eax
-  ULONG v5; // eax
+  int result; // eax
+  unsigned int v5; // eax
   unsigned __int64 v6; // rdx
   unsigned int v7; // ecx
   bool v8; // cf
   unsigned int v9; // edx
-  int v10; // edi
+  NTSTATUS v10; // edi
   ULONG ReturnLength; // [rsp+50h] [rbp-B0h] BYREF
-  PVOID v12; // [rsp+58h] [rbp-A8h]
-  HANDLE Handle; // [rsp+60h] [rbp-A0h]
-  ULONG ProcessInformationLength; // [rsp+68h] [rbp-98h]
-  int v15; // [rsp+6Ch] [rbp-94h]
-  __int64 v16; // [rsp+70h] [rbp-90h]
+  PVOID BaseAddress; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+68h] [rbp-98h] BYREF
+  ULONG_PTR ViewSize[2]; // [rsp+70h] [rbp-90h] BYREF
   _DWORD ProcessInformation[44]; // [rsp+80h] [rbp-80h] BYREF
 
   memset(ProcessInformation, 0, sizeof(ProcessInformation));
-  result = NtQueryInformationProcess(a2, (PROCESSINFOCLASS)32, ProcessInformation, 0xB0u, &ReturnLength);
+  result = NtQueryInformationProcess(a2, ProcessHandleTracing, ProcessInformation, 0xB0u, &ReturnLength);
   if ( (int)(result + 0x80000000) >= 0 && result != -1073741820 )
     return result;
   v5 = -1;
@@ -45,36 +44,53 @@ NTSTATUS __fastcall PsspCaptureHandleTrace(__int64 a1, void *a2)
   v8 = v7 + 176 < v7;
   if ( v7 + 176 >= v7 )
     v5 = v7 + 176;
-  ProcessInformationLength = v5;
+  MaximumSize.LowPart = v5;
   if ( v9 < v7 )
     return v8 ? 0xC0000095 : 0;
-  v15 = 0;
-  result = NtCreateSection();
+  MaximumSize.HighPart = 0;
+  result = NtCreateSection(
+             &SectionHandle,
+             0xF0007u,
+             (POBJECT_ATTRIBUTES)&stru_18013A3F8,
+             &MaximumSize,
+             4u,
+             0x8000000u,
+             0LL);
   if ( result >= 0 )
   {
-    v12 = 0LL;
-    v16 = 0LL;
-    v10 = ZwMapViewOfSection();
+    BaseAddress = 0LL;
+    ViewSize[0] = 0LL;
+    v10 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &BaseAddress,
+            0LL,
+            0LL,
+            0LL,
+            ViewSize,
+            ViewShare,
+            0,
+            4u);
     if ( v10 >= 0 )
     {
-      memset(v12, 0, 0xB0uLL);
-      if ( NtQueryInformationProcess(a2, (PROCESSINFOCLASS)32, v12, ProcessInformationLength, &ReturnLength) >= 0 )
+      memset(BaseAddress, 0, 0xB0uLL);
+      if ( NtQueryInformationProcess(a2, ProcessHandleTracing, BaseAddress, MaximumSize.LowPart, &ReturnLength) >= 0 )
       {
-        NtUnmapViewOfSection();
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
         *(_DWORD *)(a1 + 936) = ReturnLength;
-        *(_QWORD *)(a1 + 944) = Handle;
+        *(_QWORD *)(a1 + 944) = SectionHandle;
         *(_QWORD *)(a1 + 952) = MEMORY[0x7FFE0014];
         return 0;
       }
       else
       {
-        NtUnmapViewOfSection();
-        return NtClose(Handle);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+        return NtClose(SectionHandle);
       }
     }
     else
     {
-      NtClose(Handle);
+      NtClose(SectionHandle);
       return v10;
     }
   }

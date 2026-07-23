@@ -1,17 +1,17 @@
 /*
- * XREFs of KiCheckForTimerExpiration @ 0x14029CAE0
+ * XREFs of KiCheckForTimerExpiration @ 0x1402AB5D0
  * Callers:
- *     KeAccumulateTicks @ 0x14029C3C0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402AAEB0 (KeAccumulateTicks.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     KiSetClockIntervalOneShot @ 0x14029D85C (KiSetClockIntervalOneShot.c)
- *     KiSetDpcRequestFlag @ 0x14029DD10 (KiSetDpcRequestFlag.c)
- *     KiResetClockIntervalOneShot @ 0x14029EB4C (KiResetClockIntervalOneShot.c)
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     KiSetClockIntervalOneShot @ 0x1402AC34C (KiSetClockIntervalOneShot.c)
+ *     KiSetDpcRequestFlag @ 0x1402AC800 (KiSetDpcRequestFlag.c)
+ *     KiResetClockIntervalOneShot @ 0x1402AD63C (KiResetClockIntervalOneShot.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall KiCheckForTimerExpiration(_BYTE *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -139,9 +139,9 @@ LABEL_48:
     goto LABEL_23;
   if ( !v14
     && v13 != v12
-    && v8 >= qword_140F220B0
+    && v8 >= qword_140F22250
     && v8 + (unsigned int)KePseudoHrTimeIncrement > (unsigned __int64)(unsigned int)KeNonHrTimeIncrement
-                                                  + qword_140F220B0 )
+                                                  + qword_140F22250 )
   {
     KiLastNonHrTimerExpiration = v8;
     goto LABEL_21;
@@ -154,12 +154,12 @@ LABEL_48:
     v6 = KiNextTimer2DueTime <= v8;
     goto LABEL_22;
   }
-  if ( v13 != v12 && qword_140F22098 <= v8 )
+  if ( v13 != v12 && qword_140F22238 <= v8 )
     goto LABEL_21;
   v5 = a1 + 33;
-  v15 = qword_140F22068;
-  if ( qword_140F22080 < (unsigned __int64)qword_140F22068 )
-    v15 = qword_140F22080;
+  v15 = qword_140F22208;
+  if ( qword_140F22220 < (unsigned __int64)qword_140F22208 )
+    v15 = qword_140F22220;
   if ( v15 <= v8 )
   {
 LABEL_21:
@@ -170,10 +170,10 @@ LABEL_22:
 LABEL_23:
   if ( !*v5 )
     goto LABEL_24;
-  v16 = qword_140F22068;
-  v17 = v8 + (unsigned int)KeMaximumIncrement;
-  if ( qword_140F22080 < (unsigned __int64)qword_140F22068 )
-    v16 = qword_140F22080;
+  v16 = qword_140F22208;
+  v17 = v8 + KeMaximumIncrement;
+  if ( qword_140F22220 < (unsigned __int64)qword_140F22208 )
+    v16 = qword_140F22220;
   if ( v16 > v8 )
   {
     v18 = KiClockOwnerOneShotRequest;

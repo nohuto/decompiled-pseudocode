@@ -2,15 +2,15 @@
  * XREFs of MiRemoveUnusedSubsection @ 0x14021B974
  * Callers:
  *     MiPrepareSegmentForDeletion @ 0x1402197EC (MiPrepareSegmentForDeletion.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiReferenceActiveSubsection @ 0x140288DA0 (MiReferenceActiveSubsection.c)
- *     MiReferenceSubsection @ 0x140289170 (MiReferenceSubsection.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x140339B70 (MiDereferenceControlAreaPfnList.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiReferenceActiveSubsection @ 0x140289030 (MiReferenceActiveSubsection.c)
+ *     MiReferenceSubsection @ 0x140289400 (MiReferenceSubsection.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140339E00 (MiDereferenceControlAreaPfnList.c)
  * Callees:
  *     MiReduceUnusedSubsectionCount @ 0x14021BA00 (MiReduceUnusedSubsectionCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiRemoveUnusedSubsection(__int64 a1)

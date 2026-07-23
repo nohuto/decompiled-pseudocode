@@ -1,22 +1,22 @@
 /*
- * XREFs of PnprQuiesceProcessorDpc @ 0x140A9D480
+ * XREFs of PnprQuiesceProcessorDpc @ 0x140A9D2F0
  * Callers:
  *     <none>
  * Callees:
  *     KeSaveExtendedAndSupervisorState @ 0x14020DDDC (KeSaveExtendedAndSupervisorState.c)
  *     KeRestoreExtendedAndSupervisorState @ 0x14020E028 (KeRestoreExtendedAndSupervisorState.c)
- *     KeGetProcessorNumberFromIndex @ 0x14030CEC0 (KeGetProcessorNumberFromIndex.c)
- *     HalGetProcessorIdByNtNumber @ 0x140384B00 (HalGetProcessorIdByNtNumber.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PnprGetStackLimits @ 0x140562FE4 (PnprGetStackLimits.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BF44 (KeRestoreProcessorSpecificFeatures.c)
- *     KeSaveProcessorSpecificFeatures @ 0x14056BFCC (KeSaveProcessorSpecificFeatures.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeResumeClockTimerSafe @ 0x14056F984 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x14056FAD0 (KeSuspendClockTimerSafe.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x14057265C (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572698 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     PnprMirrorMarkedPages @ 0x140A9D12C (PnprMirrorMarkedPages.c)
+ *     KeGetProcessorNumberFromIndex @ 0x14030D150 (KeGetProcessorNumberFromIndex.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140384CE0 (HalGetProcessorIdByNtNumber.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PnprGetStackLimits @ 0x1405636A4 (PnprGetStackLimits.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x14056C604 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeSaveProcessorSpecificFeatures @ 0x14056C68C (KeSaveProcessorSpecificFeatures.c)
+ *     KeResumeClockTimerSafe @ 0x14056FEC4 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x140570010 (KeSuspendClockTimerSafe.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140572B9C (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572BD8 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     PnprMirrorMarkedPages @ 0x140A9CF9C (PnprMirrorMarkedPages.c)
  */
 
 void __fastcall PnprQuiesceProcessorDpc(
@@ -52,7 +52,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   _OWORD v28[3]; // [rsp+28h] [rbp-60h] BYREF
   __int64 v29; // [rsp+58h] [rbp-30h]
   int v30; // [rsp+80h] [rbp-8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+98h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+98h] [rbp+10h] BYREF
   unsigned int v32; // [rsp+A0h] [rbp+18h]
   __int64 v33; // [rsp+A8h] [rbp+20h] BYREF
 

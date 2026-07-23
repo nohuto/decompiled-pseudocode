@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDmaGuardSystemPolicy @ 0x1407B191C
+ * XREFs of PnpTraceDmaGuardSystemPolicy @ 0x1407B497C
  * Callers:
- *     PipDmgInitPhaseTwo @ 0x1407B12D4 (PipDmgInitPhaseTwo.c)
+ *     PipDmgInitPhaseTwo @ 0x1407B4334 (PipDmgInitPhaseTwo.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PnpTraceDmaGuardSystemPolicy()
@@ -18,7 +18,7 @@ void PnpTraceDmaGuardSystemPolicy()
   int *v5; // [rsp+70h] [rbp-28h]
   __int64 v6; // [rsp+78h] [rbp-20h]
 
-  if ( (unsigned int)dword_140E06EA8 > 5 && tlgKeywordOn((__int64)&dword_140E06EA8, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E06E48 > 5 && tlgKeywordOn((__int64)&dword_140E06E48, 0x400000000000LL) )
   {
     v1 = 2048LL;
     v3 = &v1;
@@ -26,6 +26,6 @@ void PnpTraceDmaGuardSystemPolicy()
     v6 = 4LL;
     v5 = &v0;
     v4 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06EA8, (unsigned __int8 *)&word_14004811E, 0LL, 0LL, 4u, &v2);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06E48, (unsigned __int8 *)byte_140048895, 0LL, 0LL, 4u, &v2);
   }
 }

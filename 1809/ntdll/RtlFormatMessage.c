@@ -6,16 +6,26 @@
  *     RtlFormatMessageEx @ 0x18004F610 (RtlFormatMessageEx.c)
  */
 
-__int64 __fastcall RtlFormatMessage(
-        __int16 *a1,
-        unsigned int a2,
-        char a3,
-        char a4,
-        char a5,
-        __int64 *a6,
-        __int16 *a7,
-        unsigned int a8,
-        _DWORD *a9)
+NTSTATUS __cdecl RtlFormatMessage(
+        PWSTR MessageFormat,
+        ULONG MaximumWidth,
+        BOOLEAN IgnoreInserts,
+        BOOLEAN ArgumentsAreAnsi,
+        BOOLEAN ArgumentsAreAnArray,
+        va_list *Arguments,
+        PWSTR Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  return RtlFormatMessageEx(a1, a2, a3, a4, a5, a6, a7, a8, a9, 0LL);
+  return RtlFormatMessageEx(
+           MessageFormat,
+           MaximumWidth,
+           IgnoreInserts,
+           ArgumentsAreAnsi,
+           ArgumentsAreAnArray,
+           Arguments,
+           Buffer,
+           Length,
+           ReturnLength,
+           0LL);
 }

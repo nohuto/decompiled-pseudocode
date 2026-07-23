@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReadEntirePageHashEntry @ 0x140666C10
+ * XREFs of MiReadEntirePageHashEntry @ 0x140667160
  * Callers:
- *     MiObtainPagefileHashes @ 0x14046F254 (MiObtainPagefileHashes.c)
- *     MiLateWritePageHash @ 0x1406660C8 (MiLateWritePageHash.c)
+ *     MiObtainPagefileHashes @ 0x14046F654 (MiObtainPagefileHashes.c)
+ *     MiLateWritePageHash @ 0x140666618 (MiLateWritePageHash.c)
  * Callees:
  *     <none>
  */

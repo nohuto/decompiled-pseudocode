@@ -13,70 +13,85 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall RtlRemoteCall(int a1, int a2, int a3, unsigned int a4, const void *a5, char a6, char a7)
+NTSTATUS __cdecl RtlRemoteCall(
+        HANDLE ProcessHandle,
+        HANDLE ThreadHandle,
+        PVOID CallSite,
+        ULONG ArgumentCount,
+        PULONG_PTR Arguments,
+        BOOLEAN PassContext,
+        BOOLEAN AlreadySuspended)
 {
-  int result; // eax
-  unsigned int v8; // edi
-  int v9; // edi
-  int v10; // [esp+8h] [ebp-2F4h]
-  int v11; // [esp+14h] [ebp-2E8h]
-  int v12; // [esp+14h] [ebp-2E8h]
-  _DWORD v13[49]; // [esp+18h] [ebp-2E4h] BYREF
-  int v14; // [esp+DCh] [ebp-220h]
-  int v15; // [esp+2E4h] [ebp-18h] BYREF
-  _BYTE v16[16]; // [esp+2E8h] [ebp-14h] BYREF
+  ULONG_PTR *v7; // ebx
+  int v8; // eax
+  NTSTATUS result; // eax
+  ULONG v10; // edi
+  int v11; // edi
+  size_t v12; // [esp-Ch] [ebp-308h]
+  size_t v13; // [esp-Ch] [ebp-308h]
+  ULONG_PTR *v14; // [esp-8h] [ebp-304h]
+  NTSTATUS v15; // [esp+8h] [ebp-2F4h]
+  NTSTATUS v16; // [esp+14h] [ebp-2E8h]
+  char *Esp; // [esp+14h] [ebp-2E8h]
+  _CONTEXT ThreadContext; // [esp+18h] [ebp-2E4h] BYREF
+  char *Buffer; // [esp+2E4h] [ebp-18h] BYREF
+  _BYTE v20[16]; // [esp+2E8h] [ebp-14h] BYREF
 
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v8) = LdrControlFlowGuardEnforced();
+  if ( v8 )
     return -1073741822;
-  v8 = a4;
-  if ( a4 > 4 )
+  v10 = ArgumentCount;
+  if ( ArgumentCount > 4 )
     return -1073741811;
-  if ( a7 || (result = ZwSuspendThread(a2, 0), result >= 0) )
+  HIDWORD(v12) = v7;
+  if ( AlreadySuspended || (result = ZwSuspendThread(ThreadHandle, 0), result >= 0) )
   {
-    v13[0] = 65543;
-    result = NtGetContextThread(a2, (int)v13);
-    v11 = result;
+    ThreadContext.ContextFlags = 65543;
+    result = NtGetContextThread(ThreadHandle, &ThreadContext);
+    v16 = result;
     if ( result < 0 )
     {
-      if ( !a7 )
+      if ( !AlreadySuspended )
       {
-        ZwResumeThread(a2, 0);
-        return v11;
+        ZwResumeThread(ThreadHandle, 0);
+        return v16;
       }
       return result;
     }
-    v12 = v14;
-    if ( a6 )
+    Esp = (char *)ThreadContext.Esp;
+    if ( PassContext )
     {
-      v12 = v14 - 716;
-      result = NtWriteVirtualMemory(a1, v14 - 716, (int)v13, 716, 0);
-      v10 = result;
+      Esp = (char *)(ThreadContext.Esp - 716);
+      result = NtWriteVirtualMemory(ProcessHandle, (PVOID)(ThreadContext.Esp - 716), &ThreadContext, 0x2CCuLL, v7);
+      v15 = result;
       if ( result < 0 )
       {
-        if ( !a7 )
+        if ( !AlreadySuspended )
         {
-          ZwResumeThread(a2, 0);
-          return v10;
+          ZwResumeThread(ThreadHandle, 0);
+          return v15;
         }
         return result;
       }
-      v15 = v12;
-      memcpy(v16, a5, 4 * a4);
-      v8 = a4 + 1;
+      Buffer = Esp;
+      LODWORD(v13) = 4 * ArgumentCount;
+      memcpy(v20, Arguments, v13);
+      v10 = ArgumentCount + 1;
     }
     else
     {
-      memcpy(&v15, a5, 4 * a4);
+      LODWORD(v12) = 4 * ArgumentCount;
+      memcpy(&Buffer, Arguments, v12);
     }
-    if ( !v8 || (v12 -= 4 * v8, v9 = NtWriteVirtualMemory(a1, v12, (int)&v15, 4 * v8, 0), v9 >= 0) )
+    if ( !v10 || (Esp -= 4 * v10, v11 = NtWriteVirtualMemory(ProcessHandle, Esp, &Buffer, 4 * v10, v14), v11 >= 0) )
     {
-      v14 = v12;
-      v13[46] = a3;
-      v9 = ZwSetContextThread(a2, (int)v13);
+      ThreadContext.Esp = (unsigned int)Esp;
+      ThreadContext.Eip = (unsigned int)CallSite;
+      v11 = ZwSetContextThread(ThreadHandle, &ThreadContext);
     }
-    if ( !a7 )
-      ZwResumeThread(a2, 0);
-    return v9;
+    if ( !AlreadySuspended )
+      ZwResumeThread(ThreadHandle, 0);
+    return v11;
   }
   return result;
 }

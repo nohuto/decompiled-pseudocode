@@ -1,12 +1,12 @@
 /*
- * XREFs of VfKeIrqlLogRaise @ 0x140C46D4C
+ * XREFs of VfKeIrqlLogRaise @ 0x140C4CD5C
  * Callers:
- *     ViIrqlExAcquireFastMutex_Exit @ 0x140C3C580 (ViIrqlExAcquireFastMutex_Exit.c)
- *     ViIrqlExTryToAcquireFastMutex_Exit @ 0x140C3C5A0 (ViIrqlExTryToAcquireFastMutex_Exit.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140C46CD4 (ViKeIrqlLogAndTrimMemory.c)
+ *     ViIrqlExAcquireFastMutex_Exit @ 0x140C42590 (ViIrqlExAcquireFastMutex_Exit.c)
+ *     ViIrqlExTryToAcquireFastMutex_Exit @ 0x140C425B0 (ViIrqlExTryToAcquireFastMutex_Exit.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140C4CCE4 (ViKeIrqlLogAndTrimMemory.c)
  * Callees:
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140C34274 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x140C479D8 (ViKeIrqlLogCommon.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140C3A284 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     ViKeIrqlLogCommon @ 0x140C4D9E8 (ViKeIrqlLogCommon.c)
  */
 
 char *__fastcall VfKeIrqlLogRaise(char a1, char a2)

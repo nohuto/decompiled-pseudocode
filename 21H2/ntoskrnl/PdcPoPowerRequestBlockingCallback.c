@@ -1,14 +1,14 @@
 /*
- * XREFs of PdcPoPowerRequestBlockingCallback @ 0x14062BD40
+ * XREFs of PdcPoPowerRequestBlockingCallback @ 0x140670910
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PoUnarmStopWatchCollection @ 0x1402D16C4 (PoUnarmStopWatchCollection.c)
- *     PoArmStopWatchCollection @ 0x1402D1D08 (PoArmStopWatchCollection.c)
- *     PoIsArmedStopWatchCollection @ 0x1402D332C (PoIsArmedStopWatchCollection.c)
- *     PopLogPowerRequestAction @ 0x14062B588 (PopLogPowerRequestAction.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PoArmStopWatchCollection @ 0x140272598 (PoArmStopWatchCollection.c)
+ *     PoUnarmStopWatchCollection @ 0x1402725E8 (PoUnarmStopWatchCollection.c)
+ *     PoIsArmedStopWatchCollection @ 0x140272658 (PoIsArmedStopWatchCollection.c)
+ *     PopLogPowerRequestAction @ 0x14066FB30 (PopLogPowerRequestAction.c)
  */
 
 void __fastcall PdcPoPowerRequestBlockingCallback(char a1)

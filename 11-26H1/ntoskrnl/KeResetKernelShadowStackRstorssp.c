@@ -1,7 +1,7 @@
 /*
- * XREFs of KeResetKernelShadowStackRstorssp @ 0x140B3B0C8
+ * XREFs of KeResetKernelShadowStackRstorssp @ 0x140B3D348
  * Callers:
- *     PspDeleteKernelStack @ 0x1404161E0 (PspDeleteKernelStack.c)
+ *     PspDeleteKernelStack @ 0x14040A7F0 (PspDeleteKernelStack.c)
  * Callees:
  *     <none>
  */

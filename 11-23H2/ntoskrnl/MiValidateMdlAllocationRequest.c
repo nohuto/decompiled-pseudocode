@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateMdlAllocationRequest @ 0x1402F8FAC
+ * XREFs of MiValidateMdlAllocationRequest @ 0x1402F923C
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x1402F8F6C (MiAllocatePagesForMdl.c)
  * Callees:
  *     <none>
  */

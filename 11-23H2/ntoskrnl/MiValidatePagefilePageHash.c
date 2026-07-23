@@ -1,16 +1,16 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x14046F37A
+ * XREFs of MiValidatePagefilePageHash @ 0x14046F77A
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiInPageSkipPage @ 0x14046BBC4 (MiInPageSkipPage.c)
- *     MiObtainPagefileHashes @ 0x14046F254 (MiObtainPagefileHashes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiArePagefileContentsCorrupted @ 0x1406659BC (MiArePagefileContentsCorrupted.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInPageSkipPage @ 0x14046BFC4 (MiInPageSkipPage.c)
+ *     MiObtainPagefileHashes @ 0x14046F654 (MiObtainPagefileHashes.c)
+ *     MiArePagefileContentsCorrupted @ 0x140665F0C (MiArePagefileContentsCorrupted.c)
  */
 
 __int64 __fastcall MiValidatePagefilePageHash(_QWORD *a1)
@@ -103,10 +103,13 @@ __int64 __fastcall MiValidatePagefilePageHash(_QWORD *a1)
       if ( (_BYTE)v11 != 17 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -114,7 +117,7 @@ __int64 __fastcall MiValidatePagefilePageHash(_QWORD *a1)
             v21 = (v20 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v20;
             if ( v21 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(v11);

@@ -6,7 +6,7 @@
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  *     VslConnectSwInterrupt @ 0x140B728D4 (VslConnectSwInterrupt.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140340320 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1403405B0 (VslGetNestedPageProtectionFlags.c)
  */
 
 _BOOL8 KiAreCodePatchesAllowed()

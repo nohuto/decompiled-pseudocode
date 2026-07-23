@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCheckCommitReleaseFromVad @ 0x140669880
+ * XREFs of MiCheckCommitReleaseFromVad @ 0x14066AA50
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x14042D608 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x140424B70 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetNextPageTable @ 0x140235DA0 (MiGetNextPageTable.c)
- *     MiRotatedToFrameBuffer @ 0x140238E74 (MiRotatedToFrameBuffer.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiIsPteInStore @ 0x1402E5460 (MiIsPteInStore.c)
- *     MiIsPrototypePteVadLookup @ 0x140303270 (MiIsPrototypePteVadLookup.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiLockTransitionLeafPageEx @ 0x14036A520 (MiLockTransitionLeafPageEx.c)
- *     MiLocateCloneAddress @ 0x1403E3608 (MiLocateCloneAddress.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x14040E5F0 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiComputeCommitChargeForZeroPteRange @ 0x140669C84 (MiComputeCommitChargeForZeroPteRange.c)
- *     MiComputeImageVadCommitCharge @ 0x140669D44 (MiComputeImageVadCommitCharge.c)
+ *     MiGetNextPageTable @ 0x14020FF30 (MiGetNextPageTable.c)
+ *     MiRotatedToFrameBuffer @ 0x140213AD4 (MiRotatedToFrameBuffer.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140269F40 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402EC2C0 (MiLockTransitionLeafPageEx.c)
+ *     MiIsPrototypePteVadLookup @ 0x14030D150 (MiIsPrototypePteVadLookup.c)
+ *     MiLocateCloneAddress @ 0x1403C9CE8 (MiLocateCloneAddress.c)
+ *     MiIsPteInStore @ 0x140423310 (MiIsPteInStore.c)
+ *     MiComputeCommitChargeForZeroPteRange @ 0x14066AE54 (MiComputeCommitChargeForZeroPteRange.c)
+ *     MiComputeImageVadCommitCharge @ 0x14066AF14 (MiComputeImageVadCommitCharge.c)
  */
 
 __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _QWORD *a6)
@@ -54,7 +54,7 @@ __int64 __fastcall MiCheckCommitReleaseFromVad(__int64 a1, __int64 a2, __int64 a
   v12 = 8 * ((*(unsigned int *)(a4 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a4 + 33) << 32)) & 0xFFFFFFFFFLL)
       - 0x98000000000LL;
   v32 = v12;
-  v13 = MiLockWorkingSetShared(a3);
+  v13 = MiLockWorkingSetShared(a3, 0xFFFFFFFFFLL, 0xFFFFF68000000000uLL, a4);
   for ( i = v13; v11 <= v12; v13 = i )
   {
     NextPageTable = MiGetNextPageTable(v11, v12, v13, 0, &v29);
@@ -107,12 +107,12 @@ LABEL_48:
             goto LABEL_49;
           if ( *(_QWORD *)(a2 + 640) != v24 )
           {
-            if ( qword_140E2DB80 )
+            if ( qword_140E2DCC0 )
             {
               if ( (v20 & 0x10) != 0 )
                 v20 &= ~0x10uLL;
               else
-                v20 &= ~qword_140E2DB80;
+                v20 &= ~qword_140E2DCC0;
             }
             if ( MiLocateCloneAddress(a2, (__int64)v20 >> 16) )
               goto LABEL_49;

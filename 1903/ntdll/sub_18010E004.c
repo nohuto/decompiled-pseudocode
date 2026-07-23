@@ -12,14 +12,14 @@
  *     sub_18010E320 @ 0x18010E320 (sub_18010E320.c)
  */
 
-__int64 __fastcall sub_18010E004(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall sub_18010E004(__int64 a1, __int64 a2, char *a3, char *a4)
 {
   unsigned __int64 v5; // rcx
   unsigned int v7; // ebx
-  __int64 v8; // rcx
-  NTSTATUS DllFullName; // eax
+  PWCH Buffer; // rcx
+  int DllFullName; // eax
   unsigned int v12; // [rsp+20h] [rbp-E0h] BYREF
-  __int128 v13; // [rsp+28h] [rbp-D8h] BYREF
+  _UNICODE_STRING FullDllName; // [rsp+28h] [rbp-D8h] BYREF
   __int64 v14; // [rsp+38h] [rbp-C8h]
   char v15; // [rsp+40h] [rbp-C0h] BYREF
 
@@ -28,34 +28,34 @@ __int64 __fastcall sub_18010E004(__int64 a1, __int64 a2, unsigned __int64 a3, un
   if ( v5 < *((_QWORD *)&xmmword_18017A4E0 + 1)
     || v5 >= *((_QWORD *)&xmmword_18017A4E0 + 1) + (unsigned __int64)(unsigned int)qword_18017A4F0 )
   {
-    sub_18001E620(v5, (signed __int64)&v13, a3, a4);
+    sub_18001E620(v5, (signed __int64)&FullDllName, a3, a4);
   }
   else
   {
-    v13 = xmmword_18017A4E0;
+    FullDllName = (_UNICODE_STRING)xmmword_18017A4E0;
     v14 = qword_18017A4F0;
   }
-  v8 = *((_QWORD *)&v13 + 1);
-  if ( *((_QWORD *)&v13 + 1) )
+  Buffer = FullDllName.Buffer;
+  if ( FullDllName.Buffer )
   {
     if ( (*(_WORD *)(a2 + 98) & 0x3FFF) == 2 )
     {
-      v7 = sub_18010DF30(*((unsigned __int64 *)&v13 + 1), 0x3FFFLL, &v13, &v12);
+      v7 = sub_18010DF30((unsigned __int64)FullDllName.Buffer, 0x3FFFLL, &FullDllName, &v12);
       if ( v7 )
         return v7;
-      return (unsigned int)sub_18010E320(a1, v13, v12);
+      return (unsigned int)sub_18010E320(a1, *(_QWORD *)&FullDllName.Length, v12);
     }
     else
     {
       if ( *(__int16 *)(a2 + 98) >= 0 )
         return v7;
-      *((_QWORD *)&v13 + 1) = &v15;
-      WORD1(v13) = 260;
-      DllFullName = LdrGetDllFullName(v8, (__int64)&v13);
+      FullDllName.Buffer = (PWCH)&v15;
+      FullDllName.MaximumLength = 260;
+      DllFullName = LdrGetDllFullName(Buffer, &FullDllName);
       if ( DllFullName < 0 )
         return RtlNtStatusToDosError(DllFullName);
       else
-        return (unsigned int)sub_18010E144(a1, &v13, a2 + 32);
+        return (unsigned int)sub_18010E144(a1, &FullDllName, a2 + 32);
     }
   }
   return 87;

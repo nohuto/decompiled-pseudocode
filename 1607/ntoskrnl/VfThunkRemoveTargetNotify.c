@@ -1,7 +1,7 @@
 /*
  * XREFs of VfThunkRemoveTargetNotify @ 0x1406FE1D8
  * Callers:
- *     VfTargetDriversRemove @ 0x14012EDE8 (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x14012F358 (VfTargetDriversRemove.c)
  * Callees:
  *     ViThunkFreeSharedThunksArray @ 0x1406FE100 (ViThunkFreeSharedThunksArray.c)
  */

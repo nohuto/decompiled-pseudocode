@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpQueryElamCertInfo @ 0x1409F6AA0
+ * XREFs of ExpQueryElamCertInfo @ 0x1409F6D30
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041B260 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041B2A0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14041B6A0 (ZwCreateSection.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x14041B5F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14041B630 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x14041BA30 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SeRegisterElamCertResources @ 0x140810C80 (SeRegisterElamCertResources.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140946FA0 (IoConvertFileHandleToKernelHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SeRegisterElamCertResources @ 0x140810F50 (SeRegisterElamCertResources.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x1409471A0 (IoConvertFileHandleToKernelHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -85,8 +85,8 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                    2u);
             if ( v3 >= 0 )
             {
-              if ( qword_140C379E8 )
-                v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C379E8)(
+              if ( qword_140C37988 )
+                v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C37988)(
                        0LL,
                        BaseAddress,
                        (LARGE_INTEGER)v5.QuadPart);
@@ -103,8 +103,8 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                 if ( v6 )
                 {
                   memmove(v6, BaseAddress, v5.QuadPart);
-                  if ( qword_140C379E8 )
-                    v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C379E8)(
+                  if ( qword_140C37988 )
+                    v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C37988)(
                            0LL,
                            v2,
                            (LARGE_INTEGER)v5.QuadPart);
@@ -112,7 +112,7 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                     v3 = -1073741637;
                   if ( v3 >= 0 )
                   {
-                    v3 = SeRegisterElamCertResources((ULONGLONG)v2, v7, 1);
+                    v3 = SeRegisterElamCertResources((unsigned __int64)v2, v7, 1);
                     if ( v3 >= 0 )
                       v3 = 0;
                   }

@@ -85,9 +85,9 @@ int *__fastcall KiGetNextTimerExpirationDueTime(
       if ( ((*((_QWORD *)&KiGroupSchedulingOverQuotaMask + (v20 >> 6) + 1) >> (v20 & 0x3F)) & 1) == 0 )
         goto LABEL_7;
     }
-    if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < NextWakeTimeForDeepSleep )
+    if ( KiGenerationEndTick * (unsigned __int64)KeMaximumIncrement < NextWakeTimeForDeepSleep )
     {
-      NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+      NextWakeTimeForDeepSleep = KiGenerationEndTick * KeMaximumIncrement;
       v25 = NextWakeTimeForDeepSleep;
       v13 = 5;
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlRemoveUnicodePrefix @ 0x140ABAAC0
+ * XREFs of RtlRemoveUnicodePrefix @ 0x140ABBF80
  * Callers:
  *     <none>
  * Callees:
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
  */
 
 void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICODE_PREFIX_TABLE_ENTRY PrefixTableEntry)
 {
-  struct _UNICODE_PREFIX_TABLE_ENTRY *CaseMatch; // r9
+  _UNICODE_PREFIX_TABLE_ENTRY *CaseMatch; // r9
   RTL_SPLAY_LINKS *p_Links; // rcx
   _RTL_SPLAY_LINKS *Parent; // rdx
   RTL_SPLAY_LINKS *i; // rdi
@@ -20,15 +20,15 @@ void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICOD
   _RTL_SPLAY_LINKS *v11; // rdx
   _RTL_SPLAY_LINKS *v12; // r8
   RTL_SPLAY_LINKS *k; // rcx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v14; // r8
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v15; // r9
-  UNICODE_PREFIX_TABLE_ENTRY *ii; // rcx
-  UNICODE_PREFIX_TABLE_ENTRY *v17; // rcx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *m; // r8
+  _UNICODE_PREFIX_TABLE_ENTRY *v14; // r8
+  _UNICODE_PREFIX_TABLE_ENTRY *v15; // r9
+  _UNICODE_PREFIX_TABLE_ENTRY *ii; // rcx
+  _UNICODE_PREFIX_TABLE_ENTRY *v17; // rcx
+  _UNICODE_PREFIX_TABLE_ENTRY *m; // r8
   RTL_SPLAY_LINKS *v19; // rcx
-  UNICODE_PREFIX_TABLE_ENTRY *v20; // rax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *NextPrefixTree; // r10
-  UNICODE_PREFIX_TABLE_ENTRY *n; // r9
+  _UNICODE_PREFIX_TABLE_ENTRY *v20; // rax
+  _UNICODE_PREFIX_TABLE_ENTRY *NextPrefixTree; // r10
+  _UNICODE_PREFIX_TABLE_ENTRY *n; // r9
   _RTL_SPLAY_LINKS *v23; // rax
   _RTL_SPLAY_LINKS *RightChild; // rax
 
@@ -78,8 +78,8 @@ void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICOD
       m->NodeTypeCode = PrefixTableEntry->NodeTypeCode;
       m->NextPrefixTree = PrefixTableEntry->NextPrefixTree;
       m->Links = PrefixTableEntry->Links;
-      v20 = (UNICODE_PREFIX_TABLE_ENTRY *)PrefixTableEntry->Links.Parent;
-      if ( v20 == (UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
+      v20 = (_UNICODE_PREFIX_TABLE_ENTRY *)PrefixTableEntry->Links.Parent;
+      if ( v20 == (_UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
       {
         v19->Parent = v19;
         NextPrefixTree = PrefixTableEntry->NextPrefixTree;
@@ -87,13 +87,13 @@ void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICOD
           NextPrefixTree = n;
         NextPrefixTree->NextPrefixTree = m;
       }
-      else if ( v20->NextPrefixTree == (struct _UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
+      else if ( v20->NextPrefixTree == (_UNICODE_PREFIX_TABLE_ENTRY *)&PrefixTableEntry->Links )
       {
-        v20->NextPrefixTree = (struct _UNICODE_PREFIX_TABLE_ENTRY *)v19;
+        v20->NextPrefixTree = (_UNICODE_PREFIX_TABLE_ENTRY *)v19;
       }
       else
       {
-        v20->CaseMatch = (struct _UNICODE_PREFIX_TABLE_ENTRY *)v19;
+        v20->CaseMatch = (_UNICODE_PREFIX_TABLE_ENTRY *)v19;
       }
       v23 = m->Links.LeftChild;
       if ( v23 )

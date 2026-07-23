@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmApplyIdlePolicyChanges @ 0x1405656C0
+ * XREFs of PpmApplyIdlePolicyChanges @ 0x140565900
  * Callers:
  *     <none>
  * Callees:
- *     PpmResetIdlePolicy @ 0x1403C4798 (PpmResetIdlePolicy.c)
+ *     PpmResetIdlePolicy @ 0x1403C4BC8 (PpmResetIdlePolicy.c)
  */
 
 __int64 __fastcall PpmApplyIdlePolicyChanges(__int64 a1)

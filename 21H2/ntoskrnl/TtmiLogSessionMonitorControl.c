@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionMonitorControl @ 0x140903C68
+ * XREFs of TtmiLogSessionMonitorControl @ 0x140903DC8
  * Callers:
- *     TtmSessionMonitorControl @ 0x1408FEF14 (TtmSessionMonitorControl.c)
+ *     TtmSessionMonitorControl @ 0x1408FF074 (TtmSessionMonitorControl.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionMonitorControl(int a1)
@@ -43,7 +43,13 @@ void __fastcall TtmiLogSessionMonitorControl(int a1)
       v7 = v3;
       v15 = 4LL;
       v17 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002B7F1, 0LL, 0LL, 6u, &v9);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140D2D8C8,
+        (unsigned __int8 *)&dword_14002B9BC,
+        0LL,
+        0LL,
+        6u,
+        &v9);
     }
   }
 }

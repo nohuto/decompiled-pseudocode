@@ -1,9 +1,9 @@
 /*
- * XREFs of MiExamineHalVa @ 0x1409DD2B4
+ * XREFs of MiExamineHalVa @ 0x1409DE2B4
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 MiExamineHalVa()

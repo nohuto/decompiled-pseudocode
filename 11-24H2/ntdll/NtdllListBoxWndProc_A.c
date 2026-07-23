@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllListBoxWndProc_A @ 0x180161A50
+ * XREFs of NtdllListBoxWndProc_A @ 0x18015FE10
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllListBoxWndProc_A()
 {
-  off_1801E7190();
+  off_1801E6190();
 }

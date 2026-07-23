@@ -14,7 +14,7 @@
  *     _TppETWTimerSet@8 @ 0x4B384F07 (_TppETWTimerSet@8.c)
  */
 
-int __fastcall TppSetTimer(int a1, int a2, _DWORD *a3, int a4, int a5)
+void __fastcall TppSetTimer(int a1, _RTL_SRWLOCK *a2, _DWORD *a3, int a4, int a5)
 {
   _QWORD *v5; // ebx
   int v6; // edi
@@ -26,28 +26,28 @@ int __fastcall TppSetTimer(int a1, int a2, _DWORD *a3, int a4, int a5)
   __int64 v12; // kr08_8
   int v13; // eax
   int v14; // edx
-  int v16; // ecx
-  int v17; // eax
-  int v18; // eax
-  int v21; // [esp+28h] [ebp-Ch]
-  bool v22; // [esp+33h] [ebp-1h]
+  int v15; // ecx
+  int v16; // eax
+  LONG v17; // eax
+  char *v20; // [esp+28h] [ebp-Ch]
+  bool v21; // [esp+33h] [ebp-1h]
 
   v5 = a3;
   v6 = a1;
   v7 = a3[1] >= 0;
-  v22 = v7;
+  v21 = v7;
   v8 = (_DWORD *)(v6 + 200);
   *(_DWORD *)(v6 + 212) = a5;
-  v21 = (v7 ? 8 : 80) + a2;
+  v20 = (char *)a2 + (v7 ? 8 : 80);
   *(_DWORD *)(v6 + 216) = a4;
   if ( v7 )
   {
     *(_BYTE *)(v6 + 222) |= 2u;
-    v16 = *a3;
-    v17 = a3[1];
+    v15 = *a3;
+    v16 = a3[1];
     *v8 = *a3;
-    *(_DWORD *)(v6 + 204) = v17;
-    if ( !(v17 | v16) )
+    *(_DWORD *)(v6 + 204) = v16;
+    if ( !(v16 | v15) )
     {
       *(_DWORD *)(v6 + 204) = 0;
       *v8 = 1;
@@ -57,8 +57,8 @@ int __fastcall TppSetTimer(int a1, int a2, _DWORD *a3, int a4, int a5)
   {
     if ( v6 == -200 )
     {
-      v18 = RtlNtStatusToDosErrorNoTeb(-1073741811);
-      RtlSetLastWin32Error(v18);
+      v17 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v17);
       v10 = MEMORY[0];
       HIDWORD(v9) = MEMORY[4];
     }
@@ -85,10 +85,10 @@ int __fastcall TppSetTimer(int a1, int a2, _DWORD *a3, int a4, int a5)
   else
     v13 = 2147353478;
   if ( *(_BYTE *)v13 )
-    TppETWTimerSet(v21, v6);
+    TppETWTimerSet(v20, v6);
   RtlAcquireSRWLockExclusive(a2);
-  TppEnqueueTimer(v21, v6);
-  LOBYTE(v14) = v22;
-  TppUpdateSubQueueTimer(v21, v14);
-  return RtlReleaseSRWLockExclusive(a2);
+  TppEnqueueTimer(v20, v6);
+  LOBYTE(v14) = v21;
+  TppUpdateSubQueueTimer(v20, v14);
+  RtlReleaseSRWLockExclusive(a2);
 }

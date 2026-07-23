@@ -1,7 +1,7 @@
 /*
- * XREFs of _RtlpMuiRegDeserializeRegistryInfo @ 0x1800DEFA0
+ * XREFs of _RtlpMuiRegDeserializeRegistryInfo @ 0x1800DBF10
  * Callers:
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18000844C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180053B7C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
  * Callees:
  *     <none>
  */

@@ -7,8 +7,8 @@
  *     _wcsnicmp @ 0x180090FF0 (_wcsnicmp.c)
  *     RtlStringCopyWorkerW_1 @ 0x1800AFD46 (RtlStringCopyWorkerW_1.c)
  *     ValidateStd3Range @ 0x1800B0CAA (ValidateStd3Range.c)
- *     GetUTF32 @ 0x18010D0F0 (GetUTF32.c)
- *     adapt @ 0x18010D154 (adapt.c)
+ *     GetUTF32 @ 0x18010D0C0 (GetUTF32.c)
+ *     adapt @ 0x18010D124 (adapt.c)
  */
 
 __int64 __fastcall punycode_encode(wchar_t *String1, int a2, wchar_t *a3, int *a4, char a5, char a6)

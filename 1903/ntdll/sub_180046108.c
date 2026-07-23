@@ -8,7 +8,7 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall sub_180046108(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall sub_180046108(__int64 a1, size_t Size, unsigned int a3, unsigned int a4)
 {
   size_t v4; // rdi
   bool v5; // zf
@@ -21,8 +21,8 @@ __int64 __fastcall sub_180046108(__int64 a1, unsigned int a2, unsigned int a3, u
   void *v14; // rbx
   __int64 v16; // [rsp+50h] [rbp+8h]
 
-  v4 = a2;
-  v5 = a2 == a3;
+  v4 = (unsigned int)Size;
+  v5 = (_DWORD)Size == a3;
   v6 = a3 + 2;
   if ( v5 )
     v6 = a3;
@@ -39,9 +39,9 @@ __int64 __fastcall sub_180046108(__int64 a1, unsigned int a2, unsigned int a3, u
   else
   {
     v11 = *(unsigned __int8 *)(a1 + 56) - (unsigned __int64)((*(_BYTE *)(a1 + 56) - 1) & 7) + v16 + 7;
-    v12 = *(_BYTE *)(v16 + BYTE1(NtCurrentTeb()->HeapVirtualAffinity) + v10);
+    v12 = *(_BYTE *)(v16 + BYTE1(NtCurrentTeb()->HeapData) + v10);
   }
-  v13 = (void *)sub_18003E150(a1, (_QWORD *)v10, *(_QWORD *)(v11 + 8LL * v12 + v10), (unsigned int)v4, a4);
+  v13 = (void *)sub_18003E150(a1, (_RTL_SRWLOCK *)v10, *(_QWORD *)(v11 + 8LL * v12 + v10), v4, a4);
   v14 = v13;
   if ( v13 && (a4 & 2) != 0 )
     memset(v13, 0, v4);

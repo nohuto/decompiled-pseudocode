@@ -2,7 +2,7 @@
  * XREFs of MiGetImageBitMapInfo @ 0x1402106D4
  * Callers:
  *     MiSelectImageBase @ 0x1406AAA28 (MiSelectImageBase.c)
- *     MiReturnImageBase @ 0x140721CA0 (MiReturnImageBase.c)
+ *     MiReturnImageBase @ 0x140721EA0 (MiReturnImageBase.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of EmpProviderRegister @ 0x140B58860
+ * XREFs of EmpProviderRegister @ 0x140B5B680
  * Callers:
- *     EmProviderRegister @ 0x14078D200 (EmProviderRegister.c)
- *     HalRegisterErrataCallbacks @ 0x140C80000 (HalRegisterErrataCallbacks.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
- *     EmInitSystem @ 0x140D07BB4 (EmInitSystem.c)
+ *     EmProviderRegister @ 0x14078FD30 (EmProviderRegister.c)
+ *     HalRegisterErrataCallbacks @ 0x140C86000 (HalRegisterErrataCallbacks.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
+ *     EmInitSystem @ 0x140D0DE84 (EmInitSystem.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1405B4AD0 (EmpQueueRuleUpdateState.c)
- *     EmpSearchCallbackDatabase @ 0x1405B4E44 (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x1405B4E7C (EmpSearchEntryDatabase.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     EmpQueueRuleUpdateState @ 0x1405B72E0 (EmpQueueRuleUpdateState.c)
+ *     EmpSearchCallbackDatabase @ 0x1405B7654 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x1405B768C (EmpSearchEntryDatabase.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EmpProviderRegister(
@@ -59,10 +59,10 @@ __int64 __fastcall EmpProviderRegister(
   __int64 v37; // r10
   __int64 v38; // rbp
   _QWORD *v39; // rcx
-  _QWORD *v40; // rax
+  unsigned __int8 *v40; // rax
   __int64 v41; // r10
   __int64 v42; // r11
-  _QWORD *v43; // rcx
+  unsigned __int8 *v43; // rcx
   __int64 v44; // rax
   void *v45; // rcx
   unsigned int v46; // edx
@@ -83,14 +83,11 @@ __int64 __fastcall EmpProviderRegister(
   v8 = a1;
   v10 = 0;
   v11 = 0;
-  v12 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.KernelStack, 0LL, 0LL, a4);
-  v14 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.KernelStack, 0LL);
+  v12 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.QuantumTarget, 0LL, 0LL, a4);
+  v14 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.QuantumTarget, 0LL);
   v15 = v12;
   if ( v14 )
-    ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&EmpParseLock.KernelStack,
-      v12,
-      (__int64)&EmpParseLock.KernelStack);
+    ExfAcquirePushLockExclusiveEx(&EmpParseLock.QuantumTarget, v12, (__int64)&EmpParseLock.QuantumTarget);
   if ( v15 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -190,7 +187,7 @@ LABEL_64:
           v43 = v40;
           if ( !v40 )
             goto LABEL_43;
-          v44 = v40[2];
+          v44 = *((_QWORD *)v40 + 2);
           if ( v44 && v44 != v38 )
           {
             v11 = -1073741771;
@@ -198,8 +195,8 @@ LABEL_64:
           }
           *(_QWORD *)(*(_QWORD *)(v19 + 40) + 8 * v41) = v43;
           v37 = (unsigned int)(v41 + 1);
-          v43[2] = *((_QWORD *)&a4->AvailableEntryBitmap + v42);
-          v43[4] = *((_QWORD *)&a4->Entries[0].LockState.0 + v42);
+          *((_QWORD *)v43 + 2) = *((_QWORD *)&a4->AvailableEntryBitmap + v42);
+          *((_QWORD *)v43 + 4) = *((_QWORD *)&a4->Entries[0].LockState.0 + v42);
         }
         v8 = a1;
         goto LABEL_64;
@@ -293,8 +290,8 @@ LABEL_52:
   }
   ExFreePoolWithTag((PVOID)v19, 0x72704D45u);
 LABEL_78:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.KernelStack, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.KernelStack);
-  KeAbPostRelease((unsigned __int64)&EmpParseLock.KernelStack);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.QuantumTarget, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.QuantumTarget);
+  KeAbPostRelease((unsigned __int64)&EmpParseLock.QuantumTarget);
   return v11;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateWorkingSetAgeDistribution @ 0x1402EAE10
+ * XREFs of MiUpdateWorkingSetAgeDistribution @ 0x1402CCE50
  * Callers:
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiRemoveWsle @ 0x140325384 (MiRemoveWsle.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiRemoveWsle @ 0x1403273B4 (MiRemoveWsle.c)
  * Callees:
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
- *     MiInsertActivePageTableLinksTail @ 0x1402EC620 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402EC880 (MiRemoveActivePageTableLinks.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
+ *     MiInsertActivePageTableLinksTail @ 0x1402CE660 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1402CE8C0 (MiRemoveActivePageTableLinks.c)
  */
 
 __int64 __fastcall MiUpdateWorkingSetAgeDistribution(
@@ -88,7 +88,7 @@ LABEL_8:
   _InterlockedAdd64((volatile signed __int64 *)(a1 + 8 * v7 + 56), a4);
   if ( (_BYTE)v7 == 7 && a4 > 0 )
   {
-    v21 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+    v21 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
     if ( *(_QWORD *)(a1 + 112) >= *(_QWORD *)(v21 + 21216) )
       _InterlockedCompareExchange((volatile signed __int32 *)(v21 + 21392), 5, 0);
   }

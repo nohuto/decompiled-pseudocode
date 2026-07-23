@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenCpuPartition @ 0x1409B0520
+ * XREFs of NtOpenCpuPartition @ 0x1409B0720
  * Callers:
  *     <none>
  * Callees:

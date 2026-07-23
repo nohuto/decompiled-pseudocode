@@ -1,9 +1,9 @@
 /*
  * XREFs of SepInitializeAuthorizationCallbacks @ 0x1407A25A8
  * Callers:
- *     SepInitializationPhase1 @ 0x140552FE0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140553520 (SepInitializationPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x140553420 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x140553960 (ExRegisterHost.c)
  */
 
 __int64 __fastcall SepInitializeAuthorizationCallbacks(__int64 a1, __int64 a2)

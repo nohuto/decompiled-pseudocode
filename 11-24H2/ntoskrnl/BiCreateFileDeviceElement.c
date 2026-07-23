@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateFileDeviceElement @ 0x1408132A0
+ * XREFs of BiCreateFileDeviceElement @ 0x1408139E0
  * Callers:
- *     BiCreatePartitionDevice @ 0x14081344C (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x140813B8C (BiCreatePartitionDevice.c)
  * Callees:
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, unsigned int *a3)
@@ -40,7 +40,7 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
   else
   {
     v7 = v5 - Src;
-    Pool2 = (char *)ExAllocatePool2(0x102uLL);
+    Pool2 = (char *)ExAllocatePool2(0x102uLL, 2LL * (unsigned int)(v7 + 1), 0x4B444342u);
     if ( Pool2 )
     {
       v9 = 2LL * (unsigned int)v7;
@@ -57,7 +57,7 @@ __int64 __fastcall BiCreateFileDeviceElement(const wchar_t *Src, _QWORD *a2, uns
         ++v13;
       while ( *(_WORD *)&Pool2[2 * v13] );
       v14 = v12 + 2 * (v13 + 11);
-      v15 = (char *)ExAllocatePool2(0x102uLL);
+      v15 = (char *)ExAllocatePool2(0x102uLL, v14, 0x4B444342u);
       v16 = v15;
       if ( v15 )
       {

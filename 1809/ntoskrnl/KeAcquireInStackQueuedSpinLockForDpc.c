@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockForDpc @ 0x140290C40
+ * XREFs of KeAcquireInStackQueuedSpinLockForDpc @ 0x140290E30
  * Callers:
- *     KeInsertByKeyDeviceQueue @ 0x140294CD0 (KeInsertByKeyDeviceQueue.c)
- *     KeInsertDeviceQueue @ 0x140294D80 (KeInsertDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueue @ 0x140294E00 (KeRemoveByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueueIfBusy @ 0x140294ED0 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     KeRemoveDeviceQueue @ 0x140294FA0 (KeRemoveDeviceQueue.c)
+ *     KeInsertByKeyDeviceQueue @ 0x140294EC0 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x140294F70 (KeInsertDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x140294FF0 (KeRemoveByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1402950C0 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     KeRemoveDeviceQueue @ 0x140295190 (KeRemoveDeviceQueue.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
  */
 
 void __stdcall KeAcquireInStackQueuedSpinLockForDpc(PKSPIN_LOCK SpinLock, PKLOCK_QUEUE_HANDLE LockHandle)

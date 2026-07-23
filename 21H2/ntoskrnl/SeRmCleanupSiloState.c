@@ -1,9 +1,9 @@
 /*
- * XREFs of SeRmCleanupSiloState @ 0x14091C040
+ * XREFs of SeRmCleanupSiloState @ 0x14091C1A0
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x14090640C (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SeRmCleanupSiloState(_QWORD *BugCheckParameter1)

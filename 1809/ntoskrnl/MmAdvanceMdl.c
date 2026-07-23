@@ -1,5 +1,5 @@
 /*
- * XREFs of MmAdvanceMdl @ 0x1402A8B00
+ * XREFs of MmAdvanceMdl @ 0x1402A8CF0
  * Callers:
  *     <none>
  * Callees:
@@ -27,7 +27,7 @@ NTSTATUS __stdcall MmAdvanceMdl(PMDL Mdl, ULONG NumberOfBytes)
   if ( NumberOfBytes >= Mdl->ByteCount )
     return -1073741584;
   v4 = 0;
-  byte_14043ADB0 = 1;
+  byte_14043BE70 = 1;
   ByteOffset = Mdl->ByteOffset;
   ByteCount = Mdl->ByteCount;
   v7 = (((ByteOffset + LODWORD(Mdl->StartVa)) & 0xFFFuLL) + ByteCount + 4095) >> 12;

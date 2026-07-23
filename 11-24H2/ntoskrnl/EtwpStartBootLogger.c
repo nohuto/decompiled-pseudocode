@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpStartBootLogger @ 0x140C3E770
+ * XREFs of EtwpStartBootLogger @ 0x140C408C0
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpStartBootLogger(__int64 a1)
 {
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   UNICODE_STRING *v3; // rbx
   unsigned int started; // edi
   const WCHAR *v5; // rdx

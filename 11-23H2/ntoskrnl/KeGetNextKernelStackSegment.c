@@ -3,8 +3,8 @@
  * Callers:
  *     KiInSwapKernelStacks @ 0x1402227B4 (KiInSwapKernelStacks.c)
  *     KeEnumerateKernelStackSegments @ 0x140222B70 (KeEnumerateKernelStackSegments.c)
- *     RtlpIsFrameInBoundsEx @ 0x1402A65B0 (RtlpIsFrameInBoundsEx.c)
- *     IopMarkPagesForProcessorData @ 0x14055D5E8 (IopMarkPagesForProcessorData.c)
+ *     RtlpIsFrameInBoundsEx @ 0x1402A6840 (RtlpIsFrameInBoundsEx.c)
+ *     IopMarkPagesForProcessorData @ 0x14055DCA8 (IopMarkPagesForProcessorData.c)
  * Callees:
  *     <none>
  */

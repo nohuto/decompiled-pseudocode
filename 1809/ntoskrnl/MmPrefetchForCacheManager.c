@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPrefetchForCacheManager @ 0x140662638
+ * XREFs of MmPrefetchForCacheManager @ 0x1406637F8
  * Callers:
- *     CcFetchDataForRead @ 0x1400AF710 (CcFetchDataForRead.c)
- *     CcPerformReadAhead @ 0x1400DDFC4 (CcPerformReadAhead.c)
- *     CcAsyncReadPrefetch @ 0x1400DFACC (CcAsyncReadPrefetch.c)
+ *     CcFetchDataForRead @ 0x1400AF650 (CcFetchDataForRead.c)
+ *     CcPerformReadAhead @ 0x1400DE044 (CcPerformReadAhead.c)
+ *     CcAsyncReadPrefetch @ 0x1400DFB4C (CcAsyncReadPrefetch.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiReturnCcAccessLog @ 0x1400DFA6C (MiReturnCcAccessLog.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiPfExecuteReadList @ 0x14066279C (MiPfExecuteReadList.c)
- *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
- *     MiGetCcAccessLog @ 0x140662A68 (MiGetCcAccessLog.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiReturnCcAccessLog @ 0x1400DFAEC (MiReturnCcAccessLog.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
+ *     MiPfExecuteReadList @ 0x14066395C (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x140663A90 (MiReleaseReadListResources.c)
+ *     MiGetCcAccessLog @ 0x140663C28 (MiGetCcAccessLog.c)
  */
 
 __int64 __fastcall MmPrefetchForCacheManager(
@@ -34,7 +34,7 @@ __int64 __fastcall MmPrefetchForCacheManager(
   CurrentThread = KeGetCurrentThread();
   CcAccessLog = 0LL;
   v11 = **(_QWORD **)(a1 + 40);
-  if ( dword_14043A8E8 && a5 >= dword_14043A8EC )
+  if ( dword_14043B9A8 && a5 >= dword_14043B9AC )
     CcAccessLog = MiGetCcAccessLog(a1, a4 >> 12);
   if ( (int)MiPfPrepareSequentialReadList(CcAccessLog, v11, a2) >= 0 && a3 )
   {

@@ -1,16 +1,23 @@
 /*
- * XREFs of ZwSystemDebugControl @ 0x140726E10
+ * XREFs of ZwSystemDebugControl @ 0x14072B9E0
  * Callers:
- *     DifZwSystemDebugControlWrapper @ 0x1406BD630 (DifZwSystemDebugControlWrapper.c)
- *     PspLocateSystemDll @ 0x1407EE38C (PspLocateSystemDll.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     DifZwSystemDebugControlWrapper @ 0x1406C1210 (DifZwSystemDebugControlWrapper.c)
+ *     PspLocateSystemDll @ 0x1407F3EEC (PspLocateSystemDll.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSystemDebugControl(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSystemDebugControl(
+        SYSDBG_COMMAND Command,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Command);
 }

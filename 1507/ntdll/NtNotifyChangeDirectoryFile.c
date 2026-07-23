@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 NtNotifyChangeDirectoryFile()
+NTSTATUS __cdecl NtNotifyChangeDirectoryFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 260LL;
+  result = 260;
   __asm { syscall; Low latency system call }
   return result;
 }

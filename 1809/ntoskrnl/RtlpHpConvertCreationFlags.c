@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpConvertCreationFlags @ 0x14016B214
+ * XREFs of RtlpHpConvertCreationFlags @ 0x14016B314
  * Callers:
- *     RtlCreateHeap @ 0x14070AF20 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x14070C1C0 (RtlCreateHeap.c)
  * Callees:
  *     <none>
  */

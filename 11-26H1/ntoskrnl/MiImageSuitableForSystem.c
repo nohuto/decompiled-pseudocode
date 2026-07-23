@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageSuitableForSystem @ 0x140B4E840
+ * XREFs of MiImageSuitableForSystem @ 0x140B510D0
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,27 @@
 /*
- * XREFs of HvLoadHive @ 0x140AC26A0
+ * XREFs of HvLoadHive @ 0x140AC4740
  * Callers:
- *     HvHiveStartFileBacked @ 0x140AC226C (HvHiveStartFileBacked.c)
+ *     HvHiveStartFileBacked @ 0x140AC430C (HvHiveStartFileBacked.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpViewMapStart @ 0x1408B790C (HvpViewMapStart.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1408DBDF0 (HvpRemapAndEnlistHiveBins.c)
- *     CmpTraceHiveMountBaseFileMounted @ 0x140A77868 (CmpTraceHiveMountBaseFileMounted.c)
- *     HvpAdjustHiveFreeDisplay @ 0x140A82700 (HvpAdjustHiveFreeDisplay.c)
- *     CmpFileFlush @ 0x140AAB9C8 (CmpFileFlush.c)
- *     HvpInitMap @ 0x140ABA780 (HvpInitMap.c)
- *     CmpInitializeActualFileSizes @ 0x140ACDD58 (CmpInitializeActualFileSizes.c)
- *     HvpGetHiveHeader @ 0x140ADEAF8 (HvpGetHiveHeader.c)
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
- *     HvpMapHiveImageFromFile @ 0x140B50BCC (HvpMapHiveImageFromFile.c)
- *     HvpMapHiveImageFromViewMap @ 0x140B7E9FC (HvpMapHiveImageFromViewMap.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpViewMapStart @ 0x1408BDEDC (HvpViewMapStart.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1408E23B0 (HvpRemapAndEnlistHiveBins.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x140A80588 (CmpTraceHiveMountBaseFileMounted.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140A88570 (HvpAdjustHiveFreeDisplay.c)
+ *     CmpFileFlush @ 0x140AA8F74 (CmpFileFlush.c)
+ *     HvpInitMap @ 0x140ABBC40 (HvpInitMap.c)
+ *     CmpInitializeActualFileSizes @ 0x140ACFF98 (CmpInitializeActualFileSizes.c)
+ *     HvpGetHiveHeader @ 0x140ADBCE8 (HvpGetHiveHeader.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
+ *     HvpMapHiveImageFromFile @ 0x140B535DC (HvpMapHiveImageFromFile.c)
+ *     HvpMapHiveImageFromViewMap @ 0x140B878DC (HvpMapHiveImageFromViewMap.c)
  */
 
 __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int64 a4)
@@ -52,7 +52,7 @@ __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, 
   unsigned int v29; // r9d
   int v30; // edx
   int v31; // eax
-  int v32; // eax
+  NTSTATUS v32; // eax
   int v33; // ecx
   int v35; // [rsp+20h] [rbp-E0h]
   int v36; // [rsp+20h] [rbp-E0h]
@@ -215,7 +215,7 @@ LABEL_81:
       v53 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)byte_140056CF5,
+        (unsigned __int8 *)byte_140057CE8,
         0LL,
         0LL,
         v23,
@@ -238,7 +238,7 @@ LABEL_39:
   v26 = v38;
   if ( v38 < *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL) + 4096
     && (v40 & 0x20000) == 0
-    && (BYTE2(NlsMbOemCodePageTag) || (CmpCallbackListLock.ApcStateFill[28] & 6) != 0) )
+    && (BYTE2(NlsMbOemCodePageTag) || (CmpContextListLock.ApcStateFill[36] & 6) != 0) )
   {
     if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x200000000000LL) )
     {
@@ -251,13 +251,7 @@ LABEL_39:
       v39 = 0x1000000LL;
       v54 = &v39;
       v55 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)&word_140056D46,
-        0LL,
-        0LL,
-        5u,
-        v49);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140057D39, 0LL, 0LL, 5u, v49);
     }
     *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 4088LL) |= 4u;
     *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL) = (v26 - 4096) & 0xFFFFF000;
@@ -289,7 +283,7 @@ LABEL_39:
             BugCheckParameter2 + 224,
             *(void **)(BugCheckParameter2 + 1544),
             *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL),
-            (__int64)&CmpFreezeListLock.Teb,
+            (__int64)&CmpFreezeListLock.ThreadLock,
             v31);
     v14 = v32;
     if ( v32 < 0 )

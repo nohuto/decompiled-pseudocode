@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x140C59424
+ * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x140C5B5B4
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiCreateBootSlabEntries @ 0x140C58FDC (MiCreateBootSlabEntries.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiCreateBootSlabEntries @ 0x140C5B16C (MiCreateBootSlabEntries.c)
  */
 
 __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
   _BYTE v17[8]; // [rsp+30h] [rbp-A8h] BYREF
   __int64 v18; // [rsp+38h] [rbp-A0h]
 
-  if ( (dword_140E38C04 & 8) != 0 )
+  if ( (dword_140E38D44 & 8) != 0 )
   {
     v1 = *(_QWORD *)(a1 + 360);
     if ( (v1 & 1) != 0 )
@@ -56,7 +56,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
           || !v5
           || !v4
           || (v6 = v4 + v5, v4 + v5 < v5)
-          || (v7 = v6 - 1, v6 - 1 > qword_140E2DBE0) )
+          || (v7 = v6 - 1, v6 - 1 > qword_140E2DD20) )
         {
           KeBugCheckEx(0x1Au, 0x3030311uLL, v5, v4, 0LL);
         }
@@ -69,7 +69,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
           v10 = MiPageToNode(v5);
           if ( v10 != (unsigned int)MiPageToNode(v9 + v5 - 1) )
             KeBugCheckEx(0x1Au, 0x3030316uLL, v5, v9, v10);
-          BootSlabEntries = MiCreateBootSlabEntries(qword_140E38C10 + 16160 + 57216LL * v10, v5, v9, 0);
+          BootSlabEntries = MiCreateBootSlabEntries(qword_140E38D50 + 16160 + 57216LL * v10, v5, v9, 0);
           if ( BootSlabEntries < 0 )
             return (unsigned int)BootSlabEntries;
           v4 -= v9;
@@ -99,10 +99,10 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
   BootSlabEntries = 0;
   if ( (MiFlags & 0x4000) != 0 )
   {
-    v15 = (unsigned int)dword_140E38C04;
+    v15 = (unsigned int)dword_140E38D44;
     memset_0(v17, 0, 0x68uLL);
     v18 = (v15 >> 3) & 1;
-    return (unsigned int)VslpEnterIumSecureMode(2u, 221LL, 0, (__int64)v17);
+    return (unsigned int)VslpEnterIumSecureMode(2u, 0xDDu, 0, (__int64)v17);
   }
   return (unsigned int)BootSlabEntries;
 }

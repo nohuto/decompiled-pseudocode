@@ -1,11 +1,11 @@
 /*
- * XREFs of KdEnterDebugger @ 0x1406F2738
+ * XREFs of KdEnterDebugger @ 0x1406F23D0
  * Callers:
- *     KdpReport @ 0x1400F6510 (KdpReport.c)
- *     KdRefreshDebuggerNotPresent @ 0x14014C444 (KdRefreshDebuggerNotPresent.c)
- *     KdpPrint @ 0x1406F20D8 (KdpPrint.c)
- *     KdpCreateRemoteFile @ 0x1406F2438 (KdpCreateRemoteFile.c)
- *     KdpSymbol @ 0x1406F25E4 (KdpSymbol.c)
+ *     KdpReport @ 0x1400F4360 (KdpReport.c)
+ *     KdRefreshDebuggerNotPresent @ 0x14014C9B4 (KdRefreshDebuggerNotPresent.c)
+ *     KdpCreateRemoteFile @ 0x1406F20D0 (KdpCreateRemoteFile.c)
+ *     KdpSymbol @ 0x1406F227C (KdpSymbol.c)
+ *     KdpPrint @ 0x1406F2E34 (KdpPrint.c)
  *     KdpCommandString @ 0x1406F3C28 (KdpCommandString.c)
  *     KdSendTraceData @ 0x1406F51EC (KdSendTraceData.c)
  *     KdpPrompt @ 0x1406F5E00 (KdpPrompt.c)
@@ -13,10 +13,10 @@
  *     KdpCloseRemoteFile @ 0x1406F6720 (KdpCloseRemoteFile.c)
  *     KdpReadRemoteFile @ 0x1406F6854 (KdpReadRemoteFile.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     VfIsVerifierEnabled @ 0x1400822C8 (VfIsVerifierEnabled.c)
- *     KeFreezeExecution @ 0x1400822D0 (KeFreezeExecution.c)
- *     VfNotifyVerifierOfEvent @ 0x1407028B0 (VfNotifyVerifierOfEvent.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     VfIsVerifierEnabled @ 0x140082F44 (VfIsVerifierEnabled.c)
+ *     KeFreezeExecution @ 0x140082F4C (KeFreezeExecution.c)
+ *     VfNotifyVerifierOfEvent @ 0x1407028E0 (VfNotifyVerifierOfEvent.c)
  */
 
 bool __fastcall KdEnterDebugger(__int64 a1)

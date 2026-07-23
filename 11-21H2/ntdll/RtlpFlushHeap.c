@@ -20,12 +20,12 @@ __int64 __fastcall RtlpFlushHeap(__int64 a1)
   __int64 v2; // rbx
   _BYTE *v4; // rdi
   signed __int32 v5; // esi
-  __int64 DeferredCriticalSectionEvent; // r10
+  void *DeferredCriticalSectionEvent; // r10
   int v8; // eax
   signed __int32 v9[14]; // [rsp+0h] [rbp-38h] BYREF
   unsigned int v10; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( (*(_BYTE *)(a1 + 112) & 1) == 0 && (unsigned int)RtlTryEnterCriticalSection(*(_QWORD *)(a1 + 352)) )
+  if ( (*(_BYTE *)(a1 + 112) & 1) == 0 && RtlTryEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352)) )
   {
     if ( *(_BYTE *)(a1 + 418) == 2 && *(_QWORD *)(a1 + 408) )
       RtlpLowFragHeapFlushCaches();
@@ -40,9 +40,9 @@ __int64 __fastcall RtlpFlushHeap(__int64 a1)
       {
         if ( (*v4 & 1) != 0 )
           RtlpNotOwnerCriticalSection(v2);
-        DeferredCriticalSectionEvent = *(_QWORD *)(v2 + 24);
+        DeferredCriticalSectionEvent = *(void **)(v2 + 24);
         if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v2);
+          DeferredCriticalSectionEvent = (void *)RtlpCreateDeferredCriticalSectionEvent(v2);
         v10 = 0;
         while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)v4, (v5 & 2 | 1) + v5, v5) )
         {
@@ -52,7 +52,7 @@ __int64 __fastcall RtlpFlushHeap(__int64 a1)
         }
         if ( (v5 & 2) != 0 )
         {
-          if ( DeferredCriticalSectionEvent == -1 )
+          if ( DeferredCriticalSectionEvent == (void *)-1LL )
           {
             _InterlockedOr(v9, 0);
             RtlpWakeByAddress(v2 + 8, 0);
@@ -61,10 +61,7 @@ __int64 __fastcall RtlpFlushHeap(__int64 a1)
           {
             v8 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
             if ( v8 < 0 )
-            {
-              RtlRaiseStatus((unsigned int)v8);
-              __debugbreak();
-            }
+              RtlRaiseStatus(v8);
           }
         }
       }

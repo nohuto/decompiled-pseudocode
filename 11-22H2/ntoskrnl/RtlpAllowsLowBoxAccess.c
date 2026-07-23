@@ -101,7 +101,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
          (__int64)v22,
          KeGetCurrentThread()->PreviousMode,
          &v11,
-         (int *)v12);
+         (NTSTATUS *)v12);
   ObfDereferenceObjectWithTag(v17.PrimaryToken, 0x6D6F7441u);
   if ( v7 )
     ExFreePoolWithTag(v7, 0x6D4E7441u);

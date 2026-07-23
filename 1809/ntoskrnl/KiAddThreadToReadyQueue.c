@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAddThreadToReadyQueue @ 0x140298084
+ * XREFs of KiAddThreadToReadyQueue @ 0x140298274
  * Callers:
- *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
+ *     KiSelectNextThread @ 0x1400D71E8 (KiSelectNextThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAddThreadToScbQueue @ 0x140116F94 (KiAddThreadToScbQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x14011756C (KiAddThreadToPrcbQueue.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D15A0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiAddThreadToScbQueue @ 0x140117004 (KiAddThreadToScbQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x1401175DC (KiAddThreadToPrcbQueue.c)
  */
 
 __int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, int a5)

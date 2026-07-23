@@ -1,14 +1,14 @@
 /*
- * XREFs of KeBoostPriorityThread @ 0x140004884
+ * XREFs of KeBoostPriorityThread @ 0x1400049F8
  * Callers:
- *     ExpCreateWorkerThread @ 0x1403E4598 (ExpCreateWorkerThread.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
+ *     ExpCreateWorkerThread @ 0x1403E5BC4 (ExpCreateWorkerThread.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D14F4 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiSetPriorityThread @ 0x1400D2BA0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     EtwTracePriority @ 0x140226010 (EtwTracePriority.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400CF394 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSetPriorityThread @ 0x1400D0A40 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     EtwTracePriority @ 0x140225E3C (EtwTracePriority.c)
  */
 
 void *__fastcall KeBoostPriorityThread(__int64 a1, int a2, __int64 a3)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDeviceRegistration @ 0x140A0CBC4
+ * XREFs of PiDeviceRegistration @ 0x1409BAFC8
  * Callers:
- *     PpDeviceRegistration @ 0x140A0CB38 (PpDeviceRegistration.c)
- *     PnpCleanupDeviceRegistryValues @ 0x140A0D54C (PnpCleanupDeviceRegistryValues.c)
+ *     PpDeviceRegistration @ 0x1409BAF3C (PpDeviceRegistration.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x1409BB950 (PnpCleanupDeviceRegistryValues.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     PpForEachDeviceInstanceDriver @ 0x140A0CE90 (PpForEachDeviceInstanceDriver.c)
- *     IopAllocateUnicodeString @ 0x140A0D4B0 (IopAllocateUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1409BB294 (PpForEachDeviceInstanceDriver.c)
+ *     IopAllocateUnicodeString @ 0x1409BB8B4 (IopAllocateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDeviceRegistration(unsigned __int16 *a1, char a2, UNICODE_STRING *a3)
@@ -68,7 +68,7 @@ LABEL_36:
       && ((unsigned __int16)v7 > (unsigned __int64)(v9 - 2)
        || v8[((unsigned __int64)(unsigned __int16)v7 >> 1) - 1] && v8[(unsigned __int64)(unsigned __int16)v7 >> 1]) )
     {
-      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, (unsigned __int16)v7 + 2LL, 0x75737050u);
       v8 = Pool2;
       if ( !Pool2 )
       {
@@ -82,7 +82,7 @@ LABEL_32:
   }
   else if ( *v8 )
   {
-    v15 = (_WORD *)ExAllocatePool2(0x100uLL);
+    v15 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
     v8 = v15;
     if ( !v15 )
       goto LABEL_32;
@@ -90,7 +90,7 @@ LABEL_32:
   }
 LABEL_16:
   v18 = 512;
-  v6 = (WCHAR *)ExAllocatePool2(0x100uLL);
+  v6 = (WCHAR *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x20207050u);
   if ( !v6 )
     goto LABEL_32;
   DeviceRegProp = CmGetDeviceRegProp(

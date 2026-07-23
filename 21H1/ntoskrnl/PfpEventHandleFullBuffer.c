@@ -7,7 +7,7 @@
  *     PfTFullEventListAdd @ 0x140305B6C (PfTFullEventListAdd.c)
  */
 
-LONG __fastcall PfpEventHandleFullBuffer(struct _SLIST_ENTRY *a1)
+LONG __fastcall PfpEventHandleFullBuffer(_SLIST_ENTRY *a1)
 {
   LONG result; // eax
 

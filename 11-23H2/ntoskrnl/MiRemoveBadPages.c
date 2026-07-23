@@ -1,21 +1,21 @@
 /*
- * XREFs of MiRemoveBadPages @ 0x14062A440
+ * XREFs of MiRemoveBadPages @ 0x14062A990
  * Callers:
- *     MmRemovePhysicalMemory @ 0x140A2D210 (MmRemovePhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x140A2D4C0 (MmRemovePhysicalMemory.c)
  * Callees:
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnBadPagesToBadList @ 0x14062ABA8 (MiReturnBadPagesToBadList.c)
- *     MiSetPfnRemovalRequested @ 0x14064DEB4 (MiSetPfnRemovalRequested.c)
- *     MiUnlinkPageFromBadList @ 0x14064DFC4 (MiUnlinkPageFromBadList.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnBadPagesToBadList @ 0x14062B0F8 (MiReturnBadPagesToBadList.c)
+ *     MiSetPfnRemovalRequested @ 0x14064E404 (MiSetPfnRemovalRequested.c)
+ *     MiUnlinkPageFromBadList @ 0x14064E514 (MiUnlinkPageFromBadList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -122,10 +122,13 @@ __int64 __fastcall MiRemoveBadPages(__int64 a1, unsigned __int64 a2, unsigned __
       if ( (v22 & 0x20000000000000LL) != 0 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v23 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v23 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             v38 = KeGetCurrentPrcb();
             v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));
@@ -148,10 +151,10 @@ LABEL_63:
       if ( !MiIsPageOnBadList(v9) )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v29 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v29 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v29 >= 2u )
           {
             v30 = KeGetCurrentPrcb();
             v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));
@@ -172,10 +175,10 @@ LABEL_63:
       MiSetPfnRemovalRequested(v9, 1LL, 0LL);
       *(_QWORD *)(v9 + 24) |= 0x4000000000000000uLL;
       _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;
@@ -198,10 +201,10 @@ LABEL_63:
       }
     }
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v33 >= 2u )
       {
         v34 = KeGetCurrentPrcb();
         v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v23 + 1));

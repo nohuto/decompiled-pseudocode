@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSetActivityIdIrp @ 0x140482190
+ * XREFs of IoSetActivityIdIrp @ 0x14047BB00
  * Callers:
- *     IoReuseIrp @ 0x140268650 (IoReuseIrp.c)
- *     IoMakeAssociatedIrpPriv @ 0x14045DD08 (IoMakeAssociatedIrpPriv.c)
- *     IopInitActivityIdIrp @ 0x140481F80 (IopInitActivityIdIrp.c)
+ *     IoReuseIrp @ 0x140267BC0 (IoReuseIrp.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1404578A8 (IoMakeAssociatedIrpPriv.c)
+ *     IopInitActivityIdIrp @ 0x14047B8F0 (IopInitActivityIdIrp.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IoSetActivityIdIrp(__int64 a1, _OWORD *a2)

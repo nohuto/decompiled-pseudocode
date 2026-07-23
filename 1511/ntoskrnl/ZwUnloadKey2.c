@@ -9,9 +9,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwUnloadKey2(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(TargetKey);
 }

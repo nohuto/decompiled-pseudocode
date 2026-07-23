@@ -30,7 +30,7 @@ LABEL_2:
     v12 = -1073741701;
     goto LABEL_12;
   }
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)a1);
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)a1);
   v14 = (const void *)HotPatchInformation;
   if ( HotPatchInformation )
   {

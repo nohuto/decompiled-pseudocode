@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpFixedVsAllocate @ 0x140139470
+ * XREFs of RtlpHpFixedVsAllocate @ 0x140139570
  * Callers:
  *     <none>
  * Callees:
@@ -9,13 +9,13 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlFindLongestRunClearEx @ 0x14016E69C (RtlFindLongestRunClearEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlFindClearBitsAndSetEx @ 0x14008AB40 (RtlFindClearBitsAndSetEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlFindLongestRunClearEx @ 0x14016E79C (RtlFindLongestRunClearEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, char a3, _DWORD *a4, _DWORD *a5)
@@ -122,7 +122,7 @@ LABEL_17:
       }
       v23->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v23->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v22], SessionId);
+        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v22].TreeNode, SessionId);
       v29 = 0;
       v29 = v23->BoostBitmap.AllFields & 0x1FFFF;
       v23->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRebuildLargePage @ 0x1402CE3E4
+ * XREFs of MiRebuildLargePage @ 0x1402CE5D4
  * Callers:
- *     MiRebuildLargePages @ 0x1402CE650 (MiRebuildLargePages.c)
+ *     MiRebuildLargePages @ 0x1402CE840 (MiRebuildLargePages.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiConstructNewLargeFreePage @ 0x1400911B0 (MiConstructNewLargeFreePage.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
- *     MiDereferencePageRunsEx @ 0x14012B5F8 (MiDereferencePageRunsEx.c)
- *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C03B0 (MiGetNodeStandbyPageCount.c)
- *     MiFindRebuildCandidate @ 0x1402CE298 (MiFindRebuildCandidate.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiConstructNewLargeFreePage @ 0x1400910F0 (MiConstructNewLargeFreePage.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE374 (MiNodeFreeZeroPages.c)
+ *     MiDereferencePageRunsEx @ 0x14012B6C8 (MiDereferencePageRunsEx.c)
+ *     MiReferencePageRuns @ 0x14012B7A0 (MiReferencePageRuns.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402C05A0 (MiGetNodeStandbyPageCount.c)
+ *     MiFindRebuildCandidate @ 0x1402CE488 (MiFindRebuildCandidate.c)
  */
 
 unsigned __int64 __fastcall MiRebuildLargePage(__int64 a1, unsigned int a2, unsigned __int64 a3)
@@ -47,11 +47,11 @@ unsigned __int64 __fastcall MiRebuildLargePage(__int64 a1, unsigned int a2, unsi
   v6 = a3;
   v8 = 0LL;
   v9 = MiReferencePageRuns(a1, 1u);
-  v10 = qword_14043E508;
+  v10 = qword_14043F5C8;
   v11 = (unsigned int *)v9;
   v26 = (unsigned int *)v9;
   v12 = 0;
-  v20 = qword_14043E508;
+  v20 = qword_14043F5C8;
   v13 = *(_QWORD *)(a1 + 16) + 1984 * v5;
   v21 = v13;
   if ( (unsigned int)v3 > 1 )

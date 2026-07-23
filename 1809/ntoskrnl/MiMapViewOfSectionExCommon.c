@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapViewOfSectionExCommon @ 0x140676C10
+ * XREFs of MiMapViewOfSectionExCommon @ 0x140677DD0
  * Callers:
- *     MmMapViewOfSectionEx @ 0x1400F2938 (MmMapViewOfSectionEx.c)
- *     NtMapViewOfSectionEx @ 0x1406CAB70 (NtMapViewOfSectionEx.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MmMapViewOfSectionEx @ 0x1400F29B8 (MmMapViewOfSectionEx.c)
+ *     NtMapViewOfSectionEx @ 0x1406CBE10 (NtMapViewOfSectionEx.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
- *     MiMapParametersInitialize @ 0x1405F0080 (MiMapParametersInitialize.c)
- *     MiCaptureAllocateMapExtendedParameters @ 0x140675E98 (MiCaptureAllocateMapExtendedParameters.c)
- *     MiMapExParametersInitialize @ 0x140676E6C (MiMapExParametersInitialize.c)
- *     MiMapViewOfSectionCommon @ 0x1406771F0 (MiMapViewOfSectionCommon.c)
- *     DbgkMapViewOfSection @ 0x14067747C (DbgkMapViewOfSection.c)
- *     EtwTiLogMapExecView @ 0x1406CF3E0 (EtwTiLogMapExecView.c)
+ *     MiMapViewOfSection @ 0x1405F0B10 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x1405F1080 (MiMapParametersInitialize.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x140677058 (MiCaptureAllocateMapExtendedParameters.c)
+ *     MiMapExParametersInitialize @ 0x14067802C (MiMapExParametersInitialize.c)
+ *     MiMapViewOfSectionCommon @ 0x1406783B0 (MiMapViewOfSectionCommon.c)
+ *     DbgkMapViewOfSection @ 0x14067863C (DbgkMapViewOfSection.c)
+ *     EtwTiLogMapExecView @ 0x1406D0680 (EtwTiLogMapExecView.c)
  */
 
 __int64 __fastcall MiMapViewOfSectionExCommon(
@@ -53,9 +53,9 @@ __int64 __fastcall MiMapViewOfSectionExCommon(
   if ( (int)result < 0 )
   {
     if ( v18 )
-      ++dword_14043A884;
+      ++dword_14043B944;
     else
-      ++dword_14043A880;
+      ++dword_14043B940;
   }
   else
   {
@@ -92,9 +92,9 @@ __int64 __fastcall MiMapViewOfSectionExCommon(
     if ( MapExtendedParameters < 0 )
     {
       if ( v18 )
-        ++dword_14043A884;
+        ++dword_14043B944;
       else
-        ++dword_14043A880;
+        ++dword_14043B940;
     }
     if ( !a3 )
     {

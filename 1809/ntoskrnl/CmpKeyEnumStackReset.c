@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpKeyEnumStackReset @ 0x1407FF980
+ * XREFs of CmpKeyEnumStackReset @ 0x140800B80
  * Callers:
- *     CmpSubtreeEnumeratorAdvance @ 0x1407FA5AC (CmpSubtreeEnumeratorAdvance.c)
- *     CmpSubtreeEnumeratorReset @ 0x1407FA8D4 (CmpSubtreeEnumeratorReset.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x1407FB7AC (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorReset @ 0x1407FBAD4 (CmpSubtreeEnumeratorReset.c)
  * Callees:
- *     CmpResetKeyNodeStack @ 0x1407FA358 (CmpResetKeyNodeStack.c)
- *     CmpKeyEnumStackEntryCleanup @ 0x1407FF5C8 (CmpKeyEnumStackEntryCleanup.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x1407FF658 (CmpKeyEnumStackEntryInitialize.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1407FF868 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpResetKeyNodeStack @ 0x1407FB558 (CmpResetKeyNodeStack.c)
+ *     CmpKeyEnumStackEntryCleanup @ 0x1408007C8 (CmpKeyEnumStackEntryCleanup.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x140800858 (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140800A68 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpKeyEnumStackReset(__int64 a1)

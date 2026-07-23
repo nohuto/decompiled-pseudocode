@@ -15,41 +15,37 @@
 
 __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
 {
-  unsigned __int64 v2; // rcx
-  __int64 (__fastcall *v3)(_QWORD *, __int64); // r15
+  void *v2; // rcx
+  char *v3; // r15
   __int64 v4; // r12
   bool v5; // al
   int v6; // r8d
-  __int64 v7; // rsi
+  _QWORD *v7; // rsi
   int ProcedureAddress; // ebx
   int v9; // edx
   int v11; // eax
   int v12; // eax
   __int128 v13; // [rsp+30h] [rbp-50h] BYREF
   __int128 v14; // [rsp+40h] [rbp-40h]
-  __int64 v15; // [rsp+50h] [rbp-30h] BYREF
-  __int64 (__fastcall *v16)(_QWORD *, __int64); // [rsp+58h] [rbp-28h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp-30h] BYREF
+  char *v16; // [rsp+58h] [rbp-28h] BYREF
   _QWORD v17[2]; // [rsp+60h] [rbp-20h] BYREF
 
-  v15 = 0LL;
+  BaseAddress = 0LL;
   memset(v17, 0, 12);
-  v2 = *(_QWORD *)(a1 + 184);
+  v2 = *(void **)(a1 + 184);
   v3 = 0LL;
   v13 = 0LL;
   v16 = 0LL;
   v14 = 0LL;
-  LdrpFindLoadedDllByHandle(v2, &v15, 0LL);
+  LdrpFindLoadedDllByHandle(v2, (__int64 *)&BaseAddress, 0LL);
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 176) + 200LL);
   v5 = LdrInitState < 3 || *(_DWORD *)(a1 + 276) == 1;
   v6 = *(_DWORD *)(a1 + 304);
-  v7 = v15;
+  v7 = BaseAddress;
   if ( v6 != 2 && !v5 )
   {
-    ProcedureAddress = LdrpGetProcedureAddress(
-                         *(_QWORD *)(a1 + 48),
-                         "__PatchMainCallout__",
-                         0,
-                         (unsigned __int64 *)&v16);
+    ProcedureAddress = LdrpGetProcedureAddress(*(_QWORD *)(a1 + 48), "__PatchMainCallout__", 0, &v16);
     if ( ProcedureAddress == -1073741267 )
       goto LABEL_25;
     *(_QWORD *)((char *)v17 + 4) = 0LL;
@@ -60,7 +56,7 @@ __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
   *(_QWORD *)&v13 = 2LL;
   *((_QWORD *)&v13 + 1) = -1LL;
   v9 = 0;
-  *(_QWORD *)&v14 = *(_QWORD *)(v7 + 48);
+  *(_QWORD *)&v14 = v7[6];
   *((_QWORD *)&v14 + 1) = *(_QWORD *)(a1 + 48);
   if ( v3 )
   {
@@ -72,7 +68,7 @@ __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
         goto LABEL_11;
       *(_DWORD *)(a1 + 304) = 2;
       HIDWORD(v17[0]) = 0;
-      ProcedureAddress = v3(v17, 12LL);
+      ProcedureAddress = ((__int64 (__fastcall *)(_QWORD *, __int64))v3)(v17, 12LL);
       if ( ProcedureAddress < 0 )
         goto LABEL_26;
       v9 = DWORD1(v13);
@@ -81,24 +77,34 @@ __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
     if ( (int)LdrpApplyPatchImageCommon(&v13, v4) >= 0 )
     {
       HIDWORD(v17[0]) = 1;
-      v12 = v3(v17, 12LL);
+      v12 = ((__int64 (__fastcall *)(_QWORD *, __int64))v3)(v17, 12LL);
       ProcedureAddress = v12;
       if ( v12 < 0 )
       {
-        LdrpLogEtwHotPatchStatus((unsigned __int16 *)(LdrpImageEntry + 88), v7, (unsigned __int16 *)(a1 + 72), v12, 6);
+        LdrpLogEtwHotPatchStatus(
+          (unsigned __int16 *)(LdrpImageEntry + 88),
+          (__int64)v7,
+          (unsigned __int16 *)(a1 + 72),
+          v12,
+          6);
         __fastfail(0x44u);
       }
       goto LABEL_13;
     }
     HIDWORD(v17[0]) = 2;
-    v11 = v3(v17, 12LL);
+    v11 = ((__int64 (__fastcall *)(_QWORD *, __int64))v3)(v17, 12LL);
     ProcedureAddress = v11;
     if ( v11 < 0 )
     {
-      LdrpLogEtwHotPatchStatus((unsigned __int16 *)(LdrpImageEntry + 88), v7, (unsigned __int16 *)(a1 + 72), v11, 7);
+      LdrpLogEtwHotPatchStatus(
+        (unsigned __int16 *)(LdrpImageEntry + 88),
+        (__int64)v7,
+        (unsigned __int16 *)(a1 + 72),
+        v11,
+        7);
       __fastfail(0x44u);
     }
-    *(_DWORD *)(v7 + 304) = 4;
+    *((_DWORD *)v7 + 76) = 4;
 LABEL_25:
     if ( ProcedureAddress >= 0 )
       goto LABEL_14;
@@ -110,8 +116,8 @@ LABEL_25:
   {
     *(_DWORD *)(a1 + 304) = 2;
 LABEL_13:
-    *(_DWORD *)(v7 + 304) = 3;
-    *(_QWORD *)(v7 + 296) = *(_QWORD *)(a1 + 48);
+    *((_DWORD *)v7 + 76) = 3;
+    v7[37] = *(_QWORD *)(a1 + 48);
     goto LABEL_14;
   }
   if ( *(_DWORD *)(a1 + 304) == 1 )
@@ -120,12 +126,12 @@ LABEL_11:
 LABEL_26:
   LdrpLogEtwHotPatchStatus(
     (unsigned __int16 *)(LdrpImageEntry + 88),
-    v7,
+    (__int64)v7,
     (unsigned __int16 *)(a1 + 72),
     ProcedureAddress,
     4);
 LABEL_14:
   if ( v7 )
-    LdrpDereferenceModule(v7);
+    LdrpDereferenceModule((char *)v7);
   return (unsigned int)ProcedureAddress;
 }

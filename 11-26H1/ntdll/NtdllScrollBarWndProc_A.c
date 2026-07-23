@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllScrollBarWndProc_A @ 0x18015EB80
+ * XREFs of NtdllScrollBarWndProc_A @ 0x18015EA80
  * Callers:
  *     <none>
  * Callees:

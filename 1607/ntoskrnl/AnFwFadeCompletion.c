@@ -6,9 +6,9 @@
  *     BgpConsoleDisplayCharacter @ 0x14072A3E8 (BgpConsoleDisplayCharacter.c)
  *     BgpConsoleDisplayString @ 0x14072A77C (BgpConsoleDisplayString.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
  *     LogFwStat @ 0x140727310 (LogFwStat.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)
  */
@@ -19,7 +19,7 @@ void AnFwFadeCompletion()
   {
     LogFwStat(0LL, 7LL, 0LL);
     BgpFwReleaseLock();
-    KeWaitForSingleObject(&stru_1403404A0, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&stru_1403404E0, Executive, 0, 0, 0LL);
     BgpFwAcquireLock();
     if ( qword_1402F4E88 )
     {

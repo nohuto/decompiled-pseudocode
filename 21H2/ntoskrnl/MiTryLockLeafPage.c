@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTryLockLeafPage @ 0x140303978
+ * XREFs of MiTryLockLeafPage @ 0x14030E6C8
  * Callers:
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x140304CB4 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FD78 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiMakeTransitionHeatBatch @ 0x14055FA70 (MiMakeTransitionHeatBatch.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14030FA04 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiConvertStandbyToProto @ 0x140367128 (MiConvertStandbyToProto.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FFB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiMakeTransitionHeatBatch @ 0x14055FCB0 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     MiInvalidPteConforms @ 0x14023B540 (MiInvalidPteConforms.c)
+ *     MiInvalidPteConforms @ 0x1402DFD90 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiTryLockLeafPage(__int64 *a1, __int64 a2, __int64 *a3)
@@ -34,10 +34,10 @@ __int64 __fastcall MiTryLockLeafPage(__int64 *a1, __int64 a2, __int64 *a3)
       if ( MiInvalidPteConforms(v4) )
       {
         v5 = v4;
-        if ( qword_140C4DF40 )
+        if ( qword_140C4DF80 )
         {
           if ( (v4 & 0x10) == 0 )
-            v5 = v4 & ~qword_140C4DF40;
+            v5 = v4 & ~qword_140C4DF80;
         }
 LABEL_8:
         v6 = 48 * ((v5 >> 12) & 0xFFFFFFFFFLL);

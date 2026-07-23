@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpDereferenceStackEntry @ 0x14032A8D0
+ * XREFs of EtwpDereferenceStackEntry @ 0x1403DEC00
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpStackRundown @ 0x14032ACF8 (EtwpStackRundown.c)
- *     EtwpTraceStackKey @ 0x1403EE6C0 (EtwpTraceStackKey.c)
- *     EtwpGetCrimsonStackKey @ 0x1404CC8C8 (EtwpGetCrimsonStackKey.c)
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpTraceStackKey @ 0x1403DE5B0 (EtwpTraceStackKey.c)
+ *     EtwpStackRundown @ 0x1403DEAE4 (EtwpStackRundown.c)
+ *     EtwpGetCrimsonStackKey @ 0x1404C5C9C (EtwpGetCrimsonStackKey.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, union _SLIST_HEADER *a2)
+PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, _SLIST_HEADER *a2)
 {
   PSLIST_ENTRY v3; // rbx
   PSLIST_ENTRY result; // rax
@@ -24,7 +24,7 @@ PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, union 
   int Next; // r9d
   __int64 v11; // rax
   _QWORD *v12; // rcx
-  struct _SLIST_ENTRY *v13; // rdi
+  _SLIST_ENTRY *v13; // rdi
   PSLIST_ENTRY v14; // [rsp+30h] [rbp-B8h] BYREF
   _QWORD v15[18]; // [rsp+40h] [rbp-A8h] BYREF
 

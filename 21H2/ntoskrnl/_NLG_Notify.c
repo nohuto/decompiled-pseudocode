@@ -1,7 +1,7 @@
 /*
- * XREFs of _NLG_Notify @ 0x1403D1960
+ * XREFs of _NLG_Notify @ 0x1403D1AD0
  * Callers:
- *     __C_specific_handler @ 0x1403D0490 (__C_specific_handler.c)
+ *     __C_specific_handler @ 0x1403D0600 (__C_specific_handler.c)
  * Callees:
  *     <none>
  */

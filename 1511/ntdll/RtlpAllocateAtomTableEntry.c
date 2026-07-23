@@ -12,7 +12,7 @@ _QWORD *__fastcall RtlpAllocateAtomTableEntry(unsigned int a1, _QWORD *a2)
   _QWORD *v4; // rcx
   _WORD *v5; // rax
 
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1 + 20LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1 + 20LL);
   v4 = Heap;
   if ( !Heap )
     return 0LL;

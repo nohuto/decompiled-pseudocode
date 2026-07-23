@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmCheckMakeupSkippedChecks @ 0x1404A6C10
+ * XREFs of PpmCheckMakeupSkippedChecks @ 0x1404A02A0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmPerfCompleteMakeup @ 0x1404A6D48 (PpmPerfCompleteMakeup.c)
- *     PpmParkMaximumCoresParked @ 0x1404A6D68 (PpmParkMaximumCoresParked.c)
- *     PpmEventTraceMakeupPerfCheck @ 0x1404A6E08 (PpmEventTraceMakeupPerfCheck.c)
- *     PpmPerfMinimumPerfReached @ 0x1404A6E78 (PpmPerfMinimumPerfReached.c)
- *     PpmParkCompleteMakeup @ 0x14052E080 (PpmParkCompleteMakeup.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmPerfCompleteMakeup @ 0x1404A03D8 (PpmPerfCompleteMakeup.c)
+ *     PpmParkMaximumCoresParked @ 0x1404A03F8 (PpmParkMaximumCoresParked.c)
+ *     PpmEventTraceMakeupPerfCheck @ 0x1404A0498 (PpmEventTraceMakeupPerfCheck.c)
+ *     PpmPerfMinimumPerfReached @ 0x1404A0508 (PpmPerfMinimumPerfReached.c)
+ *     PpmParkCompleteMakeup @ 0x1405305A0 (PpmParkCompleteMakeup.c)
  */
 
 void PpmCheckMakeupSkippedChecks()
@@ -23,11 +23,11 @@ void PpmCheckMakeupSkippedChecks()
   __int64 v7; // rax
   unsigned int i; // r9d
 
-  if ( *(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[4] )
+  if ( PpmCheckMakeupCount )
   {
     if ( (unsigned __int8)PpmParkMaximumCoresParked() && (unsigned __int8)PpmPerfMinimumPerfReached() )
     {
-      v0 = qword_140E0B638[0];
+      v0 = PpmCheckRegistered.Bitmap[0];
       LOWORD(v1) = 0;
       while ( 1 )
       {
@@ -35,15 +35,14 @@ void PpmCheckMakeupSkippedChecks()
         {
           _BitScanForward64(&v2, v0);
           v0 &= ~(1LL << v2);
-          Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                           + 64 * (unsigned __int16)v1
+          Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v1].Flink
                            + (unsigned int)(unsigned __int8)v2));
           PpmPerfCompleteMakeup(Prcb + 35264);
         }
         v1 = (unsigned __int16)(v1 + 1);
-        if ( (unsigned int)v1 >= LOWORD(PpmCheckRegistered[0]) )
+        if ( (unsigned int)v1 >= PpmCheckRegistered.Count )
           break;
-        v0 = qword_140E0B638[v1];
+        v0 = PpmCheckRegistered.Bitmap[v1];
       }
       v4 = *(char **)((char *)&Mm64BitPhysicalAddress + 2);
       v5 = (char *)&Mm64BitPhysicalAddress + 2;
@@ -59,14 +58,14 @@ void PpmCheckMakeupSkippedChecks()
         v4 = *(char **)v4;
       }
       PpmParkCompleteMakeup();
-      *(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[4] = 0;
+      PpmCheckMakeupCount = 0;
     }
     else
     {
       PpmEventTraceMakeupPerfCheck();
-      --*(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[4];
-      ++LODWORD(PopSleepstudySessionLock.ApcState.ApcListHead[0].Flink);
-      *(_DWORD *)&PopSleepstudySessionLock.WaitBlockFill11[100] = 4;
+      --PpmCheckMakeupCount;
+      ++PpmCheckIterations;
+      PpmCheckPipelineIndex = 4;
     }
   }
 }

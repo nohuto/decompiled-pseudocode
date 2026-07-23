@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetStandbyLookaside @ 0x14026EB70
+ * XREFs of MiGetStandbyLookaside @ 0x14026EE00
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DF10 (MiSynchronizeFastPageInsert.c)
- *     MiReplaceStandbyLookaside @ 0x140330C08 (MiReplaceStandbyLookaside.c)
- *     MiPurgingPageFromLookaside @ 0x1403314B0 (MiPurgingPageFromLookaside.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiSynchronizeFastPageInsert @ 0x14026E1A0 (MiSynchronizeFastPageInsert.c)
+ *     MiReplaceStandbyLookaside @ 0x140330E98 (MiReplaceStandbyLookaside.c)
+ *     MiPurgingPageFromLookaside @ 0x140331740 (MiPurgingPageFromLookaside.c)
  * Callees:
  *     <none>
  */

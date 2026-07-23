@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTrimWorkingSetTail @ 0x14011C6B0
+ * XREFs of MiTrimWorkingSetTail @ 0x14011C720
  * Callers:
- *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
+ *     MiTrimPte @ 0x140087BC0 (MiTrimPte.c)
  * Callees:
- *     MiTrimmedEnough @ 0x140087DD8 (MiTrimmedEnough.c)
- *     MiTrimWorkingSetBuildup @ 0x14011C718 (MiTrimWorkingSetBuildup.c)
- *     MiProcessVmAccessedInfo @ 0x1402B363C (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x1402B3700 (MiQueryEPTAccessedState.c)
+ *     MiTrimmedEnough @ 0x140087DC8 (MiTrimmedEnough.c)
+ *     MiTrimWorkingSetBuildup @ 0x14011C788 (MiTrimWorkingSetBuildup.c)
+ *     MiProcessVmAccessedInfo @ 0x1402B382C (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x1402B38F0 (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetTail(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiTrimWorkingSetTail(__int64 a1)
       v6 = *(_QWORD *)(i + 16) - *(_QWORD *)(i + 24);
       *(_QWORD *)(v1 + 8) += v6;
       *(_QWORD *)(i + 24) = *(_QWORD *)(i + 16);
-      v7 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v1 + 174)) + 7024LL);
+      v7 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v1 + 174)) + 7024LL);
       *(_QWORD *)(v7 + 8LL * (*(_DWORD *)i & 0xF) + 2592) += v6;
     }
     v4 = *(_DWORD **)(i + 240);

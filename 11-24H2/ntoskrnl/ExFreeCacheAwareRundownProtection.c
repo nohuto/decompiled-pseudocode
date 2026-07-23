@@ -1,12 +1,12 @@
 /*
- * XREFs of ExFreeCacheAwareRundownProtection @ 0x140484170
+ * XREFs of ExFreeCacheAwareRundownProtection @ 0x14047F710
  * Callers:
- *     PfpPartitionCleanup @ 0x1407473B0 (PfpPartitionCleanup.c)
- *     EtwpCleanupSiloState @ 0x1407A70EC (EtwpCleanupSiloState.c)
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
- *     RawCleanupVcb @ 0x1409A46D4 (RawCleanupVcb.c)
+ *     PfpPartitionCleanup @ 0x1407456A0 (PfpPartitionCleanup.c)
+ *     EtwpCleanupSiloState @ 0x1407A722C (EtwpCleanupSiloState.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
+ *     RawCleanupVcb @ 0x1408AE3C4 (RawCleanupVcb.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ExFreeCacheAwareRundownProtection(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSaveBugCheckRecoveryStatus @ 0x140502860
+ * XREFs of IoSaveBugCheckRecoveryStatus @ 0x1405027E0
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x140524D84 (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524FC4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopWriteBugCheckSelEntries @ 0x140504B9C (IopWriteBugCheckSelEntries.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopWriteBugCheckSelEntries @ 0x140504B1C (IopWriteBugCheckSelEntries.c)
  */
 
 LONG __fastcall IoSaveBugCheckRecoveryStatus(int *a1)

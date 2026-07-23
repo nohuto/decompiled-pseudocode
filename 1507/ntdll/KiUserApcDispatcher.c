@@ -11,8 +11,8 @@
 void __noreturn KiUserApcDispatcher()
 {
   unsigned __int64 v0; // rcx
-  int v1; // eax
-  int v2; // esi
+  NTSTATUS v1; // eax
+  NTSTATUS v2; // esi
   __int64 v3; // rcx
   __int64 retaddr; // [rsp+0h] [rbp+0h] BYREF
   __int64 v5; // [rsp+8h] [rbp+8h]
@@ -37,7 +37,7 @@ LABEL_5:
         RtlRaiseStatus(v2);
       }
     }
-    v1 = ZwContinue();
+    v1 = ZwContinue((PCONTEXT)&retaddr, 1u);
     if ( v1 )
     {
       v2 = v1;

@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwCommitTransaction(HANDLE TransactionHandle, BOOLEAN Wait)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, Wait);
+  return sub_140433F80(TransactionHandle, Wait);
 }

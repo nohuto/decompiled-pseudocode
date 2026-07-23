@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpQuerySiloRegistrySettings @ 0x1403990CC
+ * XREFs of EtwpQuerySiloRegistrySettings @ 0x1403992AC
  * Callers:
- *     EtwpInitializeSiloState @ 0x14083B364 (EtwpInitializeSiloState.c)
+ *     EtwpInitializeSiloState @ 0x14083B664 (EtwpInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7A60 (RtlQueryRegistryValuesEx.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7A90 (RtlQueryRegistryValuesEx.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -24,7 +24,7 @@ void __fastcall EtwpQuerySiloRegistrySettings(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
   int v9; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING *p_UnicodeString; // [rsp+88h] [rbp-78h]
-  _QWORD v11[16]; // [rsp+A0h] [rbp-60h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+A0h] [rbp-60h] BYREF
   __int16 v12; // [rsp+130h] [rbp+30h] BYREF
   HANDLE KeyHandle; // [rsp+138h] [rbp+38h] BYREF
 
@@ -41,15 +41,15 @@ void __fastcall EtwpQuerySiloRegistrySettings(__int64 a1)
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    memset(v11, 0, 0x70uLL);
-    LODWORD(v11[4]) = 1;
-    v11[0] = &EtwpQueryRegistryCallback;
+    memset(QueryTable, 0, sizeof(QueryTable));
+    QueryTable[0].DefaultType = 1;
+    QueryTable[0].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
     v9 = 1;
-    v11[3] = &v9;
-    v11[2] = L"RTBacklogRoot";
-    v11[5] = &v12;
+    QueryTable[0].EntryContext = &v9;
+    QueryTable[0].Name = L"RTBacklogRoot";
+    QueryTable[0].DefaultData = &v12;
     p_UnicodeString = &UnicodeString;
-    if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v11, 0LL, 0LL) >= 0 )
+    if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) >= 0 )
     {
       if ( UnicodeString.Buffer )
       {

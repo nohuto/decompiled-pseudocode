@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDynamicDeviceInterfaceNotification @ 0x140781FB0
+ * XREFs of HalpDynamicDeviceInterfaceNotification @ 0x140784AB0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
  */
 
 __int64 __fastcall HalpDynamicDeviceInterfaceNotification(char *NotificationStructure, PVOID Context)
@@ -34,25 +34,25 @@ __int64 __fastcall HalpDynamicDeviceInterfaceNotification(char *NotificationStru
            &FileObject,
            &DeviceObject) >= 0 )
     {
-      KeWaitForSingleObject(&HalpDeviceBlockUnblockPushLock.ReadOperationCount, WrExecutive, 0, 0, 0LL);
+      KeWaitForSingleObject((PVOID)&HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount, WrExecutive, 0, 0, 0LL);
       v5 = v2;
       v6 = DeviceObject;
       HalpDynamicDevices[v5] = (__int64)DeviceObject;
-      KeSetEvent((PRKEVENT)&HalpDeviceBlockUnblockPushLock.ReadOperationCount, 0, 0);
+      KeSetEvent((PRKEVENT)&HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount, 0, 0);
       PsReferenceSiloContext(v6);
       ObfDereferenceObject(FileObject);
     }
   }
   else
   {
-    KeWaitForSingleObject(&HalpDeviceBlockUnblockPushLock.ReadOperationCount, WrExecutive, 0, 0, 0LL);
+    KeWaitForSingleObject((PVOID)&HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount, WrExecutive, 0, 0, 0LL);
     v4 = (void *)HalpDynamicDevices[v2];
     if ( v4 )
     {
       ObfDereferenceObject(v4);
       HalpDynamicDevices[v2] = 0LL;
     }
-    KeSetEvent((PRKEVENT)&HalpDeviceBlockUnblockPushLock.ReadOperationCount, 0, 0);
+    KeSetEvent((PRKEVENT)&HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount, 0, 0);
   }
   return 0LL;
 }

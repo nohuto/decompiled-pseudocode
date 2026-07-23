@@ -34,7 +34,7 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(
   CurrentThread = KeGetCurrentThread();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v8 = 4;
@@ -46,7 +46,7 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(
   FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread(CurrentThread, BugCheckParameter2, 0LL, SchedulerAssist);
   if ( !FastOwnerEntryForThread )
     KeBugCheckEx(0xE3u, BugCheckParameter2, (ULONG_PTR)CurrentThread, 0LL, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & v10) != 0 && v13 <= v12 && CurrentIrql <= v12 && v13 >= 2u )

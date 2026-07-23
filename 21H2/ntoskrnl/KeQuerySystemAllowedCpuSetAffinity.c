@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x14022A190
+ * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x1402CEA40
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
- *     PpmParkSteerInterrupts @ 0x140228E60 (PpmParkSteerInterrupts.c)
- *     PpmCheckContinueExecution @ 0x14022B780 (PpmCheckContinueExecution.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C94E0 (KeResumeClockTimerFromIdle.c)
+ *     PpmParkSteerInterrupts @ 0x1402CD760 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x1402D0030 (PpmCheckContinueExecution.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeQuerySystemAllowedCpuSetAffinity(_QWORD *a1, __int64 *a2)
@@ -39,7 +39,7 @@ __int64 __fastcall KeQuerySystemAllowedCpuSetAffinity(_QWORD *a1, __int64 *a2)
       v7 = 0;
       if ( KiActiveGroups )
       {
-        v8 = (unsigned __int64 *)&KiSystemAllowedCpuSets;
+        v8 = (unsigned __int64 *)KiSystemAllowedCpuSets;
         do
         {
           v9 = *v8;

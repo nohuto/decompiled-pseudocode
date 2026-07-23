@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlNotifyCleanupOneEntry @ 0x140A856F4
+ * XREFs of FsRtlNotifyCleanupOneEntry @ 0x140A8A2F4
  * Callers:
- *     FsRtlNotifyCleanupAll @ 0x140790910 (FsRtlNotifyCleanupAll.c)
- *     FsRtlNotifyCleanup @ 0x140A85640 (FsRtlNotifyCleanup.c)
+ *     FsRtlNotifyCleanupAll @ 0x140793440 (FsRtlNotifyCleanupAll.c)
+ *     FsRtlNotifyCleanup @ 0x140A8A240 (FsRtlNotifyCleanup.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
- *     FsRtlNotifyCompleteIrp @ 0x140A85F54 (FsRtlNotifyCompleteIrp.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
+ *     FsRtlNotifyCompleteIrp @ 0x140A8AB54 (FsRtlNotifyCompleteIrp.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlNotifyCleanupOneEntry(char *P, _QWORD *a2)

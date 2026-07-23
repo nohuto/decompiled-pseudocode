@@ -1,22 +1,22 @@
 /*
- * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x1405C687C
+ * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x1405C3FAC
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405C5784 (KiAttemptBugcheckRecovery.c)
- *     KiSaveBugcheckRecoveryProgress @ 0x1405C6550 (KiSaveBugcheckRecoveryProgress.c)
- *     KiSetBugCheckRecoveryProgressFlag @ 0x1405C66A8 (KiSetBugCheckRecoveryProgressFlag.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405C2EB4 (KiAttemptBugcheckRecovery.c)
+ *     KiSaveBugcheckRecoveryProgress @ 0x1405C3C80 (KiSaveBugcheckRecoveryProgress.c)
+ *     KiSetBugCheckRecoveryProgressFlag @ 0x1405C3DD8 (KiSetBugCheckRecoveryProgressFlag.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiSendThawExecution @ 0x1404D8230 (KiSendThawExecution.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IoSaveBugCheckProgress @ 0x140591F10 (IoSaveBugCheckProgress.c)
- *     IoSaveInitialBugCheckProgress @ 0x140592120 (IoSaveInitialBugCheckProgress.c)
- *     IoSetBugCheckProgressFlag @ 0x1405922C0 (IoSetBugCheckProgressFlag.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C5B80 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiSendThawExecution @ 0x1404D1680 (KiSendThawExecution.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IoSaveBugCheckProgress @ 0x14058EF30 (IoSaveBugCheckProgress.c)
+ *     IoSaveInitialBugCheckProgress @ 0x14058F140 (IoSaveInitialBugCheckProgress.c)
+ *     IoSetBugCheckProgressFlag @ 0x14058F2E0 (IoSetBugCheckProgressFlag.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C32B0 (KiBugCheckRecoveryFreezeOtherProcessors.c)
  */
 
-__int64 __fastcall KiUpdateBugcheckRecoveryProgress(__int64 a1)
+__int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
 {
   unsigned int v3; // ebx
   char v4; // bp
@@ -38,16 +38,16 @@ __int64 __fastcall KiUpdateBugcheckRecoveryProgress(__int64 a1)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
   if ( (unsigned int)KiBugCheckRecoveryFreezeOtherProcessors(0xF4240u) <= 1 )
   {
-    switch ( *(_DWORD *)a1 )
+    switch ( *a1 )
     {
       case 0:
-        IoSaveInitialBugCheckProgress(*(_DWORD *)(a1 + 16), *(_QWORD *)(a1 + 8));
+        IoSaveInitialBugCheckProgress(a1[4]);
         goto LABEL_15;
       case 1:
-        IoSaveBugCheckProgress(*(_DWORD *)(a1 + 8));
+        IoSaveBugCheckProgress(a1[2]);
         goto LABEL_15;
       case 2:
-        IoSetBugCheckProgressFlag(*(_DWORD *)(a1 + 8));
+        IoSetBugCheckProgressFlag(a1[2]);
         goto LABEL_15;
     }
     KiRecoveryCheckpointsFailure = 1;

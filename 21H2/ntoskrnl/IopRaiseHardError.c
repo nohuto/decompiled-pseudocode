@@ -1,18 +1,18 @@
 /*
- * XREFs of IopRaiseHardError @ 0x140891C00
+ * XREFs of IopRaiseHardError @ 0x140891D60
  * Callers:
- *     IopApcHardError @ 0x140890E90 (IopApcHardError.c)
+ *     IopApcHardError @ 0x140890FF0 (IopApcHardError.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     ExRaiseHardError @ 0x1409562E0 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopRaiseHardError(PIRP Irp, __int64 a2, char *a3)
@@ -21,28 +21,27 @@ void __fastcall IopRaiseHardError(PIRP Irp, __int64 a2, char *a3)
   UNICODE_STRING *Pool; // rax
   UNICODE_STRING *v8; // r14
   NTSTATUS v9; // esi
-  _DWORD *v10; // r9
   _KPROCESS *Process; // rcx
   NTSTATUS Status; // r10d
-  unsigned int v13; // r11d
-  __int64 v14; // r8
-  int v15; // edi
+  unsigned int v12; // r11d
+  __int64 v13; // r8
+  int v14; // edi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  int v17; // [rsp+30h] [rbp-39h] BYREF
-  unsigned int v18; // [rsp+34h] [rbp-35h] BYREF
+  int v16; // [rsp+30h] [rbp-39h] BYREF
+  unsigned int v17; // [rsp+34h] [rbp-35h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-31h] BYREF
-  _OWORD v20[3]; // [rsp+48h] [rbp-21h] BYREF
+  _OWORD v19[3]; // [rsp+48h] [rbp-21h] BYREF
   UNICODE_STRING *p_DestinationString; // [rsp+78h] [rbp+Fh] BYREF
   struct _LIST_ENTRY *Flink; // [rsp+80h] [rbp+17h]
-  struct _LIST_ENTRY *v23; // [rsp+88h] [rbp+1Fh]
+  struct _LIST_ENTRY *v22; // [rsp+88h] [rbp+1Fh]
 
+  v16 = 0;
   v17 = 0;
-  v18 = 0;
   v6 = 0;
-  memset(v20, 0, sizeof(v20));
+  memset(v19, 0, sizeof(v19));
   DestinationString = 0LL;
-  ObQueryNameStringMode(a3, 0LL, 0, &v18, 0);
-  Pool = (UNICODE_STRING *)IopVerifierExAllocatePool(PagedPool, v18);
+  ObQueryNameStringMode(a3, 0LL, 0, &v17, 0);
+  Pool = (UNICODE_STRING *)IopVerifierExAllocatePool(PagedPool, v17);
   v8 = Pool;
   if ( !Pool )
   {
@@ -53,7 +52,7 @@ LABEL_36:
     Irp->IoStatus.Information = 0LL;
     goto LABEL_37;
   }
-  v9 = ObQueryNameStringMode(a3, (__int64)Pool, v18, &v17, 0);
+  v9 = ObQueryNameStringMode(a3, (__int64)Pool, v17, &v16, 0);
   if ( v9 < 0 )
   {
     ExFreePoolWithTag(v8, 0);
@@ -72,7 +71,7 @@ LABEL_36:
   Process = Irp->Tail.Overlay.Thread->Process;
   if ( Process != KeGetCurrentThread()->ApcState.Process )
   {
-    KiStackAttachProcess(Process, 0LL, (__int64)v20, v10);
+    KiStackAttachProcess(Process, 0, (__int64)v19);
     v6 = 1;
   }
   Status = Irp->IoStatus.Status;
@@ -81,17 +80,17 @@ LABEL_36:
     if ( Status <= -1073741806 )
     {
 LABEL_17:
-      v13 = 0;
-      v14 = 0LL;
+      v12 = 0;
+      v13 = 0LL;
       goto LABEL_19;
     }
     if ( Status <= -1073741804 )
     {
 LABEL_16:
-      v13 = 2;
-      v23 = 0LL;
+      v12 = 2;
+      v22 = 0LL;
       p_DestinationString = v8;
-      v14 = 1LL;
+      v13 = 1LL;
       Flink = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
       goto LABEL_19;
     }
@@ -104,30 +103,30 @@ LABEL_16:
   }
   Flink = (struct _LIST_ENTRY *)v8;
   p_DestinationString = &DestinationString;
-  v13 = 3;
-  v14 = 3LL;
-  v23 = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
+  v12 = 3;
+  v13 = 3LL;
+  v22 = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
 LABEL_19:
   if ( ExReadyForErrors )
   {
-    v15 = ExRaiseHardError((unsigned int)Status, v13, v14, &p_DestinationString, 8, &v17);
+    v14 = ExRaiseHardError((unsigned int)Status, v12, v13, &p_DestinationString, 8, &v16);
   }
   else
   {
-    v17 = 0;
-    v15 = -1073741823;
+    v16 = 0;
+    v14 = -1073741823;
   }
   if ( v6 )
-    KiUnstackDetachProcess((__int64)v20, 0);
+    KiUnstackDetachProcess((__int64)v19, 0LL);
   ExFreePoolWithTag(v8, 0);
-  if ( v15 >= 0 && v17 == 9 )
+  if ( v14 >= 0 && v16 == 9 )
   {
     ((void (__fastcall *)(PDEVICE_OBJECT, PIRP))Irp->Tail.Overlay.CurrentStackLocation->DeviceObject->DriverObject->MajorFunction[Irp->Tail.Overlay.CurrentStackLocation->MajorFunction])(
       Irp->Tail.Overlay.CurrentStackLocation->DeviceObject,
       Irp);
     return;
   }
-  if ( v17 == 3 )
+  if ( v16 == 3 )
   {
     CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
     if ( CurrentStackLocation->MajorFunction == 13 && CurrentStackLocation->MinorFunction == 1 )

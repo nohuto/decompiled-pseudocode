@@ -10,52 +10,60 @@
  *     RtlxUnicodeStringToOemSize @ 0x1800E51D0 (RtlxUnicodeStringToOemSize.c)
  */
 
-__int64 __fastcall RtlUnicodeStringToCountedOemString(unsigned __int16 *a1, unsigned int **a2, char a3)
+NTSTATUS __cdecl RtlUnicodeStringToCountedOemString(
+        POEM_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned int v6; // eax
-  __int64 result; // rax
-  __int64 v8; // rax
+  NTSTATUS result; // eax
+  CHAR *v8; // rax
   int v9; // edi
-  unsigned int v10; // [rsp+88h] [rbp+20h] BYREF
+  ULONG BytesInOemString; // [rsp+88h] [rbp+20h] BYREF
 
   if ( NlsMbOemCodePageTag )
-    v6 = RtlxUnicodeStringToOemSize(a2);
+    v6 = RtlxUnicodeStringToOemSize(SourceString);
   else
-    v6 = ((unsigned int)*(unsigned __int16 *)a2 + 2) >> 1;
+    v6 = ((unsigned int)SourceString->Length + 2) >> 1;
   result = v6 - 1;
-  if ( !(_DWORD)result )
+  if ( !result )
   {
-    *(_DWORD *)a1 = 0;
-    *((_QWORD *)a1 + 1) = 0LL;
+    *(_DWORD *)&DestinationString->Length = 0;
+    DestinationString->Buffer = 0LL;
     return result;
   }
   if ( (unsigned int)result > 0xFFFF )
-    return 3221225712LL;
-  *a1 = result;
-  if ( a3 )
+    return -1073741584;
+  DestinationString->Length = result;
+  if ( AllocateDestinationString )
   {
-    a1[1] = result;
-    v8 = sub_18003B5E0((unsigned int)result);
-    *((_QWORD *)a1 + 1) = v8;
+    DestinationString->MaximumLength = result;
+    v8 = (CHAR *)sub_18003B5E0((unsigned int)result);
+    DestinationString->Buffer = v8;
     if ( !v8 )
-      return 3221225495LL;
+      return -1073741801;
   }
-  else if ( (unsigned __int16)result > a1[1] )
+  else if ( (unsigned __int16)result > DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v9 = RtlUnicodeToOemN(*((_BYTE **)a1 + 1), *a1, &v10, a2[1], *(unsigned __int16 *)a2);
-  if ( v9 >= 0 && !sub_180079938(a1, (__int64)a2) )
+  v9 = RtlUnicodeToOemN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInOemString,
+         SourceString->Buffer,
+         SourceString->Length);
+  if ( v9 >= 0 && !sub_180079938(&DestinationString->Length, (__int64)SourceString) )
     v9 = -1073741470;
   if ( v9 >= 0 )
     v9 = 0;
   if ( v9 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(*((_QWORD *)a1 + 1));
-      *((_QWORD *)a1 + 1) = 0LL;
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v9;
+  return v9;
 }

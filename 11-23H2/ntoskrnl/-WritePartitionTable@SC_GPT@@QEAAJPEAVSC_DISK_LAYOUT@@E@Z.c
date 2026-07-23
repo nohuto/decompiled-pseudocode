@@ -1,18 +1,18 @@
 /*
- * XREFs of ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x140674AEC
+ * XREFs of ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14067503C
  * Callers:
- *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140674218 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140674740 (-SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140675DD8 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140674768 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140674C90 (-SetPartition@SC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140676328 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14032D3E0 (RtlComputeCrc32.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x1406743C4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140675EBC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x140675F44 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEA50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140940300 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140940420 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     RtlComputeCrc32 @ 0x14032D670 (RtlComputeCrc32.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140674914 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14067640C (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x140676494 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DED20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140940500 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140940620 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LAYOUT *a2, char a3)
@@ -47,7 +47,7 @@ __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   __int64 v32; // rax
   __int64 v33; // rax
   __int128 v34; // xmm0
-  int v35; // eax
+  ULONG32 v35; // eax
   char *v36; // r9
   SC_DISK *v37; // rcx
   unsigned int v38; // edi
@@ -60,13 +60,13 @@ __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   unsigned int v45; // eax
   __int64 v46; // rbx
   __int64 v47; // rax
-  __int64 v48; // r8
+  ULONG v48; // r8d
   unsigned __int64 v49; // rbx
   int v51; // [rsp+20h] [rbp-68h]
   int v52; // [rsp+24h] [rbp-64h]
   unsigned __int64 v53; // [rsp+28h] [rbp-60h]
   unsigned __int64 v54; // [rsp+30h] [rbp-58h]
-  char *v55; // [rsp+40h] [rbp-48h]
+  char *Buffer; // [rsp+40h] [rbp-48h]
   int v56; // [rsp+90h] [rbp+8h]
   __int64 v57; // [rsp+90h] [rbp+8h]
   unsigned int v59; // [rsp+A8h] [rbp+20h]
@@ -143,7 +143,7 @@ LABEL_27:
     v56 = 0;
     v27 = 1 << *((_DWORD *)*this + 60);
     v28 = &v25[v23 - v27];
-    v55 = &v25[v27];
+    Buffer = &v25[v27];
     if ( *((_DWORD *)a2 + 1) )
     {
       v29 = (__int64)&v25[v27 + 32];
@@ -230,8 +230,8 @@ LABEL_40:
     *(_OWORD *)(v25 + 56) = v34;
     *((_DWORD *)v25 + 21) = v51;
     v57 = v10;
-    *((_DWORD *)v25 + 22) = RtlComputeCrc32(0, v55, v10 << *((_DWORD *)*this + 60));
-    v35 = RtlComputeCrc32(0, v25, 92LL);
+    *((_DWORD *)v25 + 22) = RtlComputeCrc32(0, Buffer, v10 << *((_DWORD *)*this + 60));
+    v35 = RtlComputeCrc32(0, v25, 0x5Cu);
     v36 = v25;
     *((_DWORD *)v25 + 4) = v35;
     v37 = *this;
@@ -253,7 +253,7 @@ LABEL_67:
       v37 = *this;
       v38 = v10 + 1;
       v39 = *((_QWORD *)v25 + 9);
-      v36 = v55;
+      v36 = Buffer;
     }
     Header = SC_DISK::WriteSectors(v37, v10, v39, v36);
     if ( Header >= 0 )
@@ -269,14 +269,14 @@ LABEL_67:
       *((_DWORD *)v28 + 22) = *((_DWORD *)v25 + 22);
       v46 = *((_QWORD *)v28 + 4);
       v47 = *((_QWORD *)v28 + 3);
-      v48 = *((unsigned int *)v28 + 3);
+      v48 = *((_DWORD *)v28 + 3);
       *((_DWORD *)v28 + 4) = 0;
       *((_QWORD *)v28 + 3) = v46;
       v49 = v46 - v57;
       *((_QWORD *)v28 + 9) = v49;
       *((_QWORD *)v28 + 4) = v47;
       *((_DWORD *)v28 + 4) = RtlComputeCrc32(0, v28, v48);
-      Header = SC_DISK::WriteSectors(*this, v38, v49, v55);
+      Header = SC_DISK::WriteSectors(*this, v38, v49, Buffer);
       if ( Header >= 0 )
       {
 LABEL_65:

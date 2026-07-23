@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpWheaReadMsrMisc @ 0x140518A08
+ * XREFs of HalpWheaReadMsrMisc @ 0x140518F58
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x14050332C (HalpMcaPopulateErrorData.c)
- *     HalpCmciSetProcessorConfigAMD @ 0x140505A98 (HalpCmciSetProcessorConfigAMD.c)
- *     HalpIsCmciImplementedAMD @ 0x140A957DC (HalpIsCmciImplementedAMD.c)
+ *     HalpMcaPopulateErrorData @ 0x14050387C (HalpMcaPopulateErrorData.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x140505FE8 (HalpCmciSetProcessorConfigAMD.c)
+ *     HalpIsCmciImplementedAMD @ 0x140A9564C (HalpIsCmciImplementedAMD.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpWheaReadMsrMisc(__int64 a1, int a2)

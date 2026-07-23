@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdatePfnPriority @ 0x1400BDCE0
+ * XREFs of MiUpdatePfnPriority @ 0x1400BBB70
  * Callers:
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
- *     MiUpdatePrefetchPriority @ 0x1400E6670 (MiUpdatePrefetchPriority.c)
- *     MiDeprioritizeVirtualAddresses @ 0x140110334 (MiDeprioritizeVirtualAddresses.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
- *     MiConvertStandbyToProto @ 0x1401F90BC (MiConvertStandbyToProto.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
+ *     MiUpdatePrefetchPriority @ 0x1400E4510 (MiUpdatePrefetchPriority.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x140110898 (MiDeprioritizeVirtualAddresses.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
+ *     MiConvertStandbyToProto @ 0x1401F8EE8 (MiConvertStandbyToProto.c)
  * Callees:
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
  */
 
 __int64 __fastcall MiUpdatePfnPriority(__int64 a1)

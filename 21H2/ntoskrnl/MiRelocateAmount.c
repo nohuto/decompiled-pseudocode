@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRelocateAmount @ 0x1407D5494
+ * XREFs of MiRelocateAmount @ 0x1407D5604
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
  * Callees:
  *     <none>
  */

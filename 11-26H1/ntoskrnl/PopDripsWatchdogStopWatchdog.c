@@ -1,29 +1,29 @@
 /*
- * XREFs of PopDripsWatchdogStopWatchdog @ 0x140A3CCE0
+ * XREFs of PopDripsWatchdogStopWatchdog @ 0x1409F8700
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline @ 0x1404F7B44 (Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409D92BC (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PopDripsWatchdogStopTimer @ 0x140B51AE8 (PopDripsWatchdogStopTimer.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline @ 0x1404F1154 (Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409AA1AC (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PopDripsWatchdogStopTimer @ 0x140B54388 (PopDripsWatchdogStopTimer.c)
  */
 
 void PopDripsWatchdogStopWatchdog()
 {
-  PiDmObjectManagerAcquireExclusiveLock((struct _ERESOURCE *)&PopAdaptiveStandbyLock.QuantumTarget);
-  if ( ((__int64)PopAdaptiveStandbyLock.FirstArgument & 4) != 0 )
+  PiDmObjectManagerAcquireExclusiveLock(&PopDripsWatchdogContext);
+  if ( (dword_140F0BDA8 & 4) != 0 )
   {
     if ( (unsigned int)Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline() )
     {
-      if ( (PopAdaptiveStandbyLock.WaitBlockFill4[4] & 1) != 0 )
-        PopDripsWatchdogStopTimer(&PopAdaptiveStandbyLock.TrapFrame);
-      if ( (PopAdaptiveStandbyLock.NpxState & 0x100000000LL) != 0 )
-        PopDripsWatchdogStopTimer(&PopAdaptiveStandbyLock.WaitBlockFill11[96]);
+      if ( (dword_140F0BE64 & 1) != 0 )
+        PopDripsWatchdogStopTimer(&unk_140F0BDB0);
+      if ( (dword_140F0BF74 & 1) != 0 )
+        PopDripsWatchdogStopTimer(&unk_140F0BEC0);
     }
-    LODWORD(PopAdaptiveStandbyLock.FirstArgument) &= ~4u;
+    dword_140F0BDA8 &= ~4u;
   }
-  ExReleaseResourceLite((PERESOURCE)&PopAdaptiveStandbyLock.QuantumTarget);
+  ExReleaseResourceLite(&PopDripsWatchdogContext);
   KeLeaveCriticalRegion();
 }

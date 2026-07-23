@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpFreeHiveFreeDisplay @ 0x1407CBF54
+ * XREFs of HvpFreeHiveFreeDisplay @ 0x1407CC224
  * Callers:
- *     HvHiveCleanup @ 0x1407096D0 (HvHiveCleanup.c)
+ *     HvHiveCleanup @ 0x1407098E0 (HvHiveCleanup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall HvpFreeHiveFreeDisplay(__int64 a1)

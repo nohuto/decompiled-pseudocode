@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwSetInformationThread @ 0x1406A65B0
+ * XREFs of ZwSetInformationThread @ 0x1406A7550
  * Callers:
- *     ExpWorkerFactoryCreateThread @ 0x1402462F8 (ExpWorkerFactoryCreateThread.c)
- *     DifZwSetInformationThreadWrapper @ 0x140648AC0 (DifZwSetInformationThreadWrapper.c)
- *     DbgkUserReportWorkRoutine @ 0x140707610 (DbgkUserReportWorkRoutine.c)
- *     EtwpCovSampCaptureContextStart @ 0x1407B1F9C (EtwpCovSampCaptureContextStart.c)
- *     BiReleasePrivilege @ 0x1409C0C38 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1409C0C90 (BiAcquirePrivilege.c)
- *     RtlAcquirePrivilege @ 0x1409C1C84 (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x1409C1F04 (RtlImpersonateSelfEx.c)
- *     RtlReleasePrivilege @ 0x140A5134C (RtlReleasePrivilege.c)
+ *     ExpWorkerFactoryCreateThread @ 0x14020F0C8 (ExpWorkerFactoryCreateThread.c)
+ *     DifZwSetInformationThreadWrapper @ 0x140647080 (DifZwSetInformationThreadWrapper.c)
+ *     DbgkUserReportWorkRoutine @ 0x1407051D0 (DbgkUserReportWorkRoutine.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1407B23EC (EtwpCovSampCaptureContextStart.c)
+ *     BiReleasePrivilege @ 0x1409A7288 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1409A72E0 (BiAcquirePrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1409A82D4 (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelfEx @ 0x1409A8554 (RtlImpersonateSelfEx.c)
+ *     RtlReleasePrivilege @ 0x140A4850C (RtlReleasePrivilege.c)
  * Callees:
  *     <none>
  */
@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwSetInformationThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, ThreadInformationClass, ThreadInformation);
+  return KiServiceInternal(ThreadHandle);
 }

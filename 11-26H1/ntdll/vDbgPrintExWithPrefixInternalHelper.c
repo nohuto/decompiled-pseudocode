@@ -1,30 +1,29 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternalHelper @ 0x1800DE744
+ * XREFs of vDbgPrintExWithPrefixInternalHelper @ 0x1800DB6B4
  * Callers:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     vDbgPrintExWithPrefixInternal @ 0x1800DE698 (vDbgPrintExWithPrefixInternal.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1800DB608 (vDbgPrintExWithPrefixInternal.c)
  * Callees:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     RtlStringCbVPrintfA @ 0x1800DE9C0 (RtlStringCbVPrintfA.c)
- *     DbgBreakPointWithStatus @ 0x180126C40 (DbgBreakPointWithStatus.c)
- *     DebugPrint @ 0x180126C50 (DebugPrint.c)
- *     ZwQueryDebugFilterState @ 0x1801618D0 (ZwQueryDebugFilterState.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180163610 (_alloca_probe.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     RtlStringCbVPrintfA @ 0x1800DB930 (RtlStringCbVPrintfA.c)
+ *     DbgBreakPointWithStatus @ 0x1801269B0 (DbgBreakPointWithStatus.c)
+ *     DebugPrint @ 0x1801269C0 (DebugPrint.c)
+ *     ZwQueryDebugFilterState @ 0x1801617D0 (ZwQueryDebugFilterState.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180163510 (_alloca_probe.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 vDbgPrintExWithPrefixInternalHelper(
+__int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
         $660E77B8BF3F239769F146CE1EC8CE2C *a1,
-        unsigned int a2,
-        unsigned int a3,
+        ULONG a2,
+        ULONG a3,
         __int64 a4,
         __int64 a5,
         char a6,
         unsigned int a7,
-        char a8,
-        ...)
+        char a8)
 {
   $660E77B8BF3F239769F146CE1EC8CE2C *v9; // r9
   unsigned int v10; // edx
@@ -38,7 +37,7 @@ __int64 vDbgPrintExWithPrefixInternalHelper(
   unsigned __int64 v18; // rsi
   size_t v19; // rbx
   unsigned int v20; // [rsp+20h] [rbp+0h] BYREF
-  unsigned int v21; // [rsp+24h] [rbp+4h]
+  ULONG v21; // [rsp+24h] [rbp+4h]
   $660E77B8BF3F239769F146CE1EC8CE2C *v22; // [rsp+28h] [rbp+8h]
   int v23; // [rsp+30h] [rbp+10h]
   __int64 v24; // [rsp+38h] [rbp+18h]
@@ -59,7 +58,7 @@ __int64 vDbgPrintExWithPrefixInternalHelper(
   v26 = v11;
   if ( a2 != -1 && (!NtCurrentPeb()->BeingDebugged || a2 != 101) )
   {
-    if ( !(unsigned int)ZwQueryDebugFilterState(a2, a3) )
+    if ( !ZwQueryDebugFilterState(a2, a3) )
       return 0LL;
     v10 = v20;
     v9 = v22;
@@ -116,7 +115,7 @@ __int64 vDbgPrintExWithPrefixInternalHelper(
       result = DebugPrint(&v27, a2, v21);
       if ( a6 != 1 || (_DWORD)result != -2147483645 )
         goto LABEL_19;
-      DbgBreakPointWithStatus(1LL);
+      DbgBreakPointWithStatus(1u);
     }
     result = 0LL;
   }

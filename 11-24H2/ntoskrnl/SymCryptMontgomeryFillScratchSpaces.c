@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptMontgomeryFillScratchSpaces @ 0x14052C4BC
+ * XREFs of SymCryptMontgomeryFillScratchSpaces @ 0x140536460
  * Callers:
- *     SymCryptEcurveInitialize @ 0x140522450 (SymCryptEcurveInitialize.c)
+ *     <none>
  * Callees:
- *     SymCryptEcurveDigitsofScalarMultiplier @ 0x140522408 (SymCryptEcurveDigitsofScalarMultiplier.c)
- *     SymCryptDigitsFromBits @ 0x140523724 (SymCryptDigitsFromBits.c)
- *     SymCryptSizeofIntFromDigits @ 0x140523FFC (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModElementFromModulus @ 0x140524014 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptSizeofEcpointEx @ 0x14052B2B4 (SymCryptSizeofEcpointEx.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x14052B2D0 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x14051FD4C (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptDigitsFromBits @ 0x14052103C (SymCryptDigitsFromBits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x140521914 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14052192C (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptSizeofEcpointEx @ 0x140528AC4 (SymCryptSizeofEcpointEx.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x140528AE0 (SymCryptSizeofEcpointFromCurve.c)
  */
 
 __int64 __fastcall SymCryptMontgomeryFillScratchSpaces(__int64 a1)

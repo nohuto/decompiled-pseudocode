@@ -77,7 +77,7 @@ ULONG_PTR *__fastcall MiDereferenceSegmentThread(__int64 a1)
             break;
           case 6:
             KeResetEvent((PRKEVENT)(a1 + 1728));
-            MiFreeClonePool((union _SLIST_HEADER *)a1);
+            MiFreeClonePool((_SLIST_HEADER *)a1);
             break;
           case 7:
             KeResetEvent(&stru_140388960);

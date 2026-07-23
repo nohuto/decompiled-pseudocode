@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptResetThisProcessor @ 0x1404BC480
+ * XREFs of HalpInterruptResetThisProcessor @ 0x1404BC6C0
  * Callers:
- *     HalpInterruptRebootService @ 0x1404D2650 (HalpInterruptRebootService.c)
+ *     HalpInterruptRebootService @ 0x1404D2890 (HalpInterruptRebootService.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
- *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     HalpInterruptInitializeController @ 0x1403A37A8 (HalpInterruptInitializeController.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3E5C (HalpInterruptInitializeLocalUnit.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE54C (HalpPowerWriteResetCommand.c)
  */
 
 void __noreturn HalpInterruptResetThisProcessor()
@@ -75,5 +75,5 @@ void __noreturn HalpInterruptResetThisProcessor()
     }
   }
   HalpPowerWriteResetCommand(Number, (unsigned __int64)&HalpInterruptProcessorsStarted & -(__int64)(Number != 0));
-  JUMPOUT(0x1404BC5E1LL);
+  JUMPOUT(0x1404BC821LL);
 }

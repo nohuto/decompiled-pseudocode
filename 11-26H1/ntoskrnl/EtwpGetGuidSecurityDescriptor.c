@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140920E70
+ * XREFs of EtwpGetGuidSecurityDescriptor @ 0x1408FC980
  * Callers:
- *     EtwpAccessCheckFromState @ 0x140920BE0 (EtwpAccessCheckFromState.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x140920D60 (EtwpGetSecurityDescriptorByGuid.c)
- *     EtwpInitializeSecurity @ 0x140CE1AF8 (EtwpInitializeSecurity.c)
+ *     EtwpAccessCheckFromState @ 0x1408FC6F0 (EtwpAccessCheckFromState.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1408FC870 (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpInitializeSecurity @ 0x140CE7E98 (EtwpInitializeSecurity.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SeValidSecurityDescriptor @ 0x140A7C990 (SeValidSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SeValidSecurityDescriptor @ 0x140A8DAC0 (SeValidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpGetGuidSecurityDescriptor(UNICODE_STRING *a1, _QWORD *a2)
 {
   void *Pool2; // rdi
   ULONG v4; // r15d
-  struct _LIST_ENTRY *Blink; // r14
-  void *v6; // rbx
+  void *v5; // r14
+  _KTHREAD_WPS_FEEDBACK *WpsFeedback; // rbx
   _DWORD *v7; // r13
   NTSTATUS v8; // esi
   int v9; // ebp
-  unsigned int v11; // ebx
+  unsigned int v10; // ebx
   void *v12; // rax
   ULONG v13; // eax
   int v15; // [rsp+78h] [rbp+10h]
@@ -38,34 +38,34 @@ __int64 __fastcall EtwpGetGuidSecurityDescriptor(UNICODE_STRING *a1, _QWORD *a2)
     Pool2 = (void *)ExAllocatePool2(0x100uLL);
     if ( !Pool2 )
       return 3221225626LL;
-    Blink = ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-    v6 = *(void **)&ExpSysDbgLock.SchedulerAssistPriorityFloor;
+    v5 = (void *)ExpSysDbgLock.Spare35[0];
+    WpsFeedback = ExpSysDbgLock.WpsFeedback;
     ResultLength = 0;
-    if ( *(_OWORD *)&ExpSysDbgLock.InGlobalUpdateVpThreadPriorityList == 0LL )
+    if ( !ExpSysDbgLock.Spare35[0] && !ExpSysDbgLock.WpsFeedback )
     {
-      v11 = -1073741811;
-LABEL_18:
-      ExFreePoolWithTag(Pool2, 0);
-      return v11;
+      v10 = -1073741811;
+      goto LABEL_18;
     }
     if ( v4 >= 0xFFFFFFF0 )
     {
-      v11 = -1073741675;
-      goto LABEL_18;
+      v10 = -1073741675;
+LABEL_18:
+      ExFreePoolWithTag(Pool2, 0);
+      return v10;
     }
     v7 = (_DWORD *)ExAllocatePool2(0x100uLL);
     if ( !v7 )
     {
-      v11 = -1073741801;
+      v10 = -1073741801;
       goto LABEL_18;
     }
     v8 = -1073741772;
-    if ( !Blink
-      || (v8 = ZwQueryValueKey(Blink, a1, KeyValuePartialInformation, v7, v4 + 16, &ResultLength), v8 == -1073741772) )
+    if ( !v5
+      || (v8 = ZwQueryValueKey(v5, a1, KeyValuePartialInformation, v7, v4 + 16, &ResultLength), v8 == -1073741772) )
     {
-      if ( !v6 )
+      if ( !WpsFeedback )
         goto LABEL_14;
-      v8 = ZwQueryValueKey(v6, a1, KeyValuePartialInformation, v7, v4 + 16, &ResultLength);
+      v8 = ZwQueryValueKey(WpsFeedback, a1, KeyValuePartialInformation, v7, v4 + 16, &ResultLength);
     }
     if ( (int)(v8 + 0x80000000) < 0 || v8 == -2147483643 )
     {
@@ -90,7 +90,7 @@ LABEL_15:
     {
       if ( v8 != -1073741789 )
       {
-        v11 = v8;
+        v10 = v8;
         if ( v8 >= 0 && v9 == 3 )
         {
           if ( SeValidSecurityDescriptor(v4, Pool2) )
@@ -100,16 +100,16 @@ LABEL_15:
             if ( v12 )
             {
               memmove(v12, Pool2, v4);
-              v11 = v8;
+              v10 = v8;
             }
             else
             {
-              v11 = -1073741670;
+              v10 = -1073741670;
             }
           }
           else
           {
-            v11 = -1073741703;
+            v10 = -1073741703;
           }
         }
         goto LABEL_18;

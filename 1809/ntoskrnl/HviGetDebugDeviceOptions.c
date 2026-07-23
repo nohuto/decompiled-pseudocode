@@ -1,9 +1,9 @@
 /*
- * XREFs of HviGetDebugDeviceOptions @ 0x140322310
+ * XREFs of HviGetDebugDeviceOptions @ 0x140322500
  * Callers:
  *     <none>
  * Callees:
- *     HviIsHypervisorVendorMicrosoft @ 0x1401863D0 (HviIsHypervisorVendorMicrosoft.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x140186510 (HviIsHypervisorVendorMicrosoft.c)
  */
 
 char __fastcall HviGetDebugDeviceOptions(unsigned __int64 *a1)

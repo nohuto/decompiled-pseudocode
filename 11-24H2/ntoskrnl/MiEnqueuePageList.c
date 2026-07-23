@@ -1,11 +1,11 @@
 /*
- * XREFs of MiEnqueuePageList @ 0x1402F2770
+ * XREFs of MiEnqueuePageList @ 0x1402582B0
  * Callers:
- *     MiAddPageToInsertList @ 0x1402F2180 (MiAddPageToInsertList.c)
+ *     MiAddPageToInsertList @ 0x140257CC0 (MiAddPageToInsertList.c)
  * Callees:
- *     MiInsertPagesInList @ 0x140271500 (MiInsertPagesInList.c)
- *     MiPageToChannel @ 0x1402F3214 (MiPageToChannel.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiInsertPagesInList @ 0x140226A90 (MiInsertPagesInList.c)
+ *     MiPageToChannel @ 0x140258D54 (MiPageToChannel.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall MiEnqueuePageList(__int64 a1, ULONG_PTR a2)
@@ -40,7 +40,7 @@ signed __int64 __fastcall MiEnqueuePageList(__int64 a1, ULONG_PTR a2)
   char *v31; // rax
   int i; // edx
   int v33; // r8d
-  int v34; // edx
+  __int64 v34; // rdx
   int v35; // eax
   ULONG_PTR v36; // r14
   char *v37; // rcx
@@ -61,6 +61,7 @@ signed __int64 __fastcall MiEnqueuePageList(__int64 a1, ULONG_PTR a2)
   ULONG_PTR v52; // rcx
   ULONG_PTR v53; // rcx
   signed __int64 v54; // rcx
+  __int64 v55; // rdx
 
   v2 = 48 * a2;
   v5 = 48 * a2 - 0x220000000000LL;
@@ -102,12 +103,12 @@ signed __int64 __fastcall MiEnqueuePageList(__int64 a1, ULONG_PTR a2)
     v9 = 5;
     if ( (v7 & 0x8000000) == 0
       || v5 >= 0xFFFFDE0000000000uLL
-      && v5 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
-      && ((v52 = 0xAAAAAAAAAAAAAAABuLL * (v2 >> 4), v52 < qword_140E35B00) || v52 >= qword_140E35B00 + 2048)
+      && v5 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+      && ((v52 = 0xAAAAAAAAAAAAAAABuLL * (v2 >> 4), v52 < qword_140E35C40) || v52 >= qword_140E35C40 + 2048)
       && ((BYTE2(v7) & 7) == 6
-       || byte_140E3CAE6
-       && (v53 = v52 >> 9, *(_BYTE *)(qword_140E3D140 + 2 * v53))
-       && *(_BYTE *)(qword_140E3D140 + 2 * v53) != 10) )
+       || byte_140E3CC26
+       && (v53 = v52 >> 9, *(_BYTE *)(qword_140E3D280 + 2 * v53))
+       && *(_BYTE *)(qword_140E3D280 + 2 * v53) != 10) )
     {
       v10 = HIBYTE(v7) & 7;
     }
@@ -122,18 +123,18 @@ signed __int64 __fastcall MiEnqueuePageList(__int64 a1, ULONG_PTR a2)
     {
       if ( v8 < 0xFFFFDE0000000000uLL )
         goto LABEL_7;
-      if ( v8 >= 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL )
+      if ( v8 >= 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL )
         goto LABEL_7;
       v42 = 0xAAAAAAAAAAAAAAABuLL * (v6 >> 4);
-      if ( v42 >= qword_140E35B00 && v42 < qword_140E35B00 + 2048 )
+      if ( v42 >= qword_140E35C40 && v42 < qword_140E35C40 + 2048 )
         goto LABEL_7;
       v13 = BYTE2(v11);
       if ( (BYTE2(v11) & 7) != 6 )
       {
-        if ( !byte_140E3CAE6 )
+        if ( !byte_140E3CC26 )
           goto LABEL_7;
         v43 = v42 >> 9;
-        if ( !*(_BYTE *)(qword_140E3D140 + 2 * v43) || *(_BYTE *)(qword_140E3D140 + 2 * v43) == 10 )
+        if ( !*(_BYTE *)(qword_140E3D280 + 2 * v43) || *(_BYTE *)(qword_140E3D280 + 2 * v43) == 10 )
           goto LABEL_7;
         v13 = BYTE2(v11);
       }
@@ -150,10 +151,10 @@ LABEL_7:
     }
     if ( *(_DWORD *)(a1 + 12) != 2 )
       goto LABEL_12;
-    v30 = dword_140E2DAC4;
-    if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-      || (v31 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, a2 < *(_QWORD *)v31)
-      || dword_140E2DAC0 != dword_140E2DAC4 && a2 >= *((_QWORD *)v31 + 2) )
+    v30 = dword_140E2DC04;
+    if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+      || (v31 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, a2 < *(_QWORD *)v31)
+      || dword_140E2DC00 != dword_140E2DC04 && a2 >= *((_QWORD *)v31 + 2) )
     {
       for ( i = 0; ; i = v33 + 1 )
       {
@@ -162,43 +163,43 @@ LABEL_7:
           if ( v30 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, a2, 0LL, 0LL);
           v33 = (i + v30) >> 1;
-          v31 = (char *)qword_140E2DB20 + 16 * v33;
+          v31 = (char *)qword_140E2DC60 + 16 * v33;
           if ( a2 >= *(_QWORD *)v31 )
             break;
           if ( !v33 )
-            KeBugCheckEx(0x1Au, 0x5180uLL, a2, (ULONG_PTR)qword_140E2DB20, 0LL);
+            KeBugCheckEx(0x1Au, 0x5180uLL, a2, (ULONG_PTR)qword_140E2DC60, 0LL);
           v30 = v33 - 1;
         }
-        if ( v33 == dword_140E2DAC4 || a2 < *((_QWORD *)v31 + 2) )
+        if ( v33 == dword_140E2DC04 || a2 < *((_QWORD *)v31 + 2) )
           break;
       }
-      dword_140E2DAC0 = (i + v30) >> 1;
+      dword_140E2DC00 = (i + v30) >> 1;
     }
-    v34 = dword_140E2DAC4;
+    v34 = (unsigned int)dword_140E2DC04;
     v35 = *((_DWORD *)v31 + 2);
     v36 = 0xAAAAAAAAAAAAAAABuLL * (v6 >> 4);
-    if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-      || (v37 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v36 < *(_QWORD *)v37)
-      || dword_140E2DAC0 != dword_140E2DAC4 && v36 >= *((_QWORD *)v37 + 2) )
+    if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+      || (v37 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v36 < *(_QWORD *)v37)
+      || dword_140E2DC00 != dword_140E2DC04 && v36 >= *((_QWORD *)v37 + 2) )
     {
       for ( j = 0; ; j = v39 + 1 )
       {
         while ( 1 )
         {
-          if ( v34 < j )
+          if ( (int)v34 < j )
             KeBugCheckEx(0x1Au, 0x5180uLL, v36, 0LL, 0LL);
-          v39 = (j + v34) >> 1;
-          v37 = (char *)qword_140E2DB20 + 16 * v39;
+          v39 = (j + (int)v34) >> 1;
+          v37 = (char *)qword_140E2DC60 + 16 * v39;
           if ( v36 >= *(_QWORD *)v37 )
             break;
           if ( !v39 )
-            KeBugCheckEx(0x1Au, 0x5180uLL, v36, (ULONG_PTR)qword_140E2DB20, 0LL);
-          v34 = v39 - 1;
+            KeBugCheckEx(0x1Au, 0x5180uLL, v36, (ULONG_PTR)qword_140E2DC60, 0LL);
+          v34 = (unsigned int)(v39 - 1);
         }
-        if ( v39 == dword_140E2DAC4 || v36 < *((_QWORD *)v37 + 2) )
+        if ( v39 == dword_140E2DC04 || v36 < *((_QWORD *)v37 + 2) )
           break;
       }
-      dword_140E2DAC0 = (j + v34) >> 1;
+      dword_140E2DC00 = (j + (int)v34) >> 1;
     }
     if ( v35 != *((_DWORD *)v37 + 2) )
     {
@@ -206,12 +207,12 @@ LABEL_53:
       MiInsertPagesInList((unsigned __int64 *)a1, 1);
       goto LABEL_12;
     }
-    if ( qword_140E2DB28 )
+    if ( qword_140E2DC68 )
     {
-      v40 = MiPageToChannel(0xAAAAAAAAAAAAAAABuLL * (v2 >> 4));
-      if ( qword_140E2DB28 )
+      v40 = MiPageToChannel(0xAAAAAAAAAAAAAAABuLL * (v2 >> 4), v34);
+      if ( qword_140E2DC68 )
       {
-        v41 = MiPageToChannel(v36);
+        v41 = MiPageToChannel(v36, v55);
 LABEL_52:
         if ( v40 == v41 )
           goto LABEL_12;

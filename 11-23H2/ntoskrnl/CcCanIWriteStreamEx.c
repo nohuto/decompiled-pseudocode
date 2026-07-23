@@ -2,25 +2,25 @@
  * XREFs of CcCanIWriteStreamEx @ 0x14020FC80
  * Callers:
  *     CcCanIWrite @ 0x14020F180 (CcCanIWrite.c)
- *     CcNotifyOfMappedWrite @ 0x140298244 (CcNotifyOfMappedWrite.c)
- *     CcShouldLazyWriteCacheMap @ 0x14029AE50 (CcShouldLazyWriteCacheMap.c)
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
- *     CcCopyWriteWontFlush @ 0x140319820 (CcCopyWriteWontFlush.c)
- *     CcForceWriteThrough @ 0x140369520 (CcForceWriteThrough.c)
- *     CcPostDeferredWrites @ 0x1403C1E48 (CcPostDeferredWrites.c)
- *     CcCanIWriteStream @ 0x140537424 (CcCanIWriteStream.c)
+ *     CcNotifyOfMappedWrite @ 0x1402984D4 (CcNotifyOfMappedWrite.c)
+ *     CcShouldLazyWriteCacheMap @ 0x14029B0E0 (CcShouldLazyWriteCacheMap.c)
+ *     CcMapAndCopyInToCache @ 0x1402CCB80 (CcMapAndCopyInToCache.c)
+ *     CcCopyWriteWontFlush @ 0x140319AB0 (CcCopyWriteWontFlush.c)
+ *     CcForceWriteThrough @ 0x1403696C0 (CcForceWriteThrough.c)
+ *     CcPostDeferredWrites @ 0x1403C2028 (CcPostDeferredWrites.c)
+ *     CcCanIWriteStream @ 0x140537974 (CcCanIWriteStream.c)
  * Callees:
  *     MmEnoughMemoryForWrite @ 0x140210000 (MmEnoughMemoryForWrite.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     CcIsFileObjectDirectMapped @ 0x140319B58 (CcIsFileObjectDirectMapped.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     CcIsFileObjectDirectMapped @ 0x140319DE8 (CcIsFileObjectDirectMapped.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
  */
 
 bool __fastcall CcCanIWriteStreamEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, int a6, _BYTE *a7)
@@ -110,7 +110,7 @@ bool __fastcall CcCanIWriteStreamEx(__int64 a1, __int64 a2, __int64 a3, __int64 
     LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 768);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -190,10 +190,10 @@ LABEL_13:
   KiReleaseQueuedSpinLockInstrumented(&LockHandle, retaddr);
 LABEL_21:
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v32 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && LockHandle.OldIrql <= 0xFu && v32 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && LockHandle.OldIrql <= 0xFu && v32 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v34 = CurrentPrcb->SchedulerAssist;
@@ -241,10 +241,10 @@ LABEL_23:
   {
     KxReleaseQueuedSpinLock(&LockHandle);
     v38 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v39 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && LockHandle.OldIrql <= 0xFu && v39 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && LockHandle.OldIrql <= 0xFu && v39 >= 2u )
       {
         v40 = KeGetCurrentPrcb();
         v41 = v40->SchedulerAssist;

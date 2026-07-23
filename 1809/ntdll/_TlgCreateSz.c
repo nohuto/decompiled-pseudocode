@@ -22,7 +22,7 @@ void __stdcall TlgCreateSz(PEVENT_DATA_DESCRIPTOR pDesc, LPCSTR psz)
     while ( psz[v2] );
   }
   if ( !psz )
-    psz = (LPCSTR)&unk_18011CBC2;
+    psz = (LPCSTR)&Flags;
   pDesc->Reserved = 0;
   pDesc->Ptr = (unsigned __int64)psz;
   pDesc->Size = v2 + 1;

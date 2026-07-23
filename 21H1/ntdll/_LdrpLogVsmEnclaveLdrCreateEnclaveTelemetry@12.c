@@ -15,7 +15,7 @@ char __thiscall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(void *this, int a2, i
   int v5; // ecx
   void *v7; // [esp+Ch] [ebp-64h] BYREF
   _DWORD v8[2]; // [esp+10h] [ebp-60h] BYREF
-  char v9[32]; // [esp+18h] [ebp-58h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+18h] [ebp-58h] BYREF
   const char *v10; // [esp+38h] [ebp-38h]
   int v11; // [esp+3Ch] [ebp-34h]
   int v12; // [esp+40h] [ebp-30h]
@@ -32,7 +32,7 @@ char __thiscall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(void *this, int a2, i
   v3 = NtCurrentPeb();
   if ( v3->ProcessHeap )
   {
-    LOBYTE(v3) = RtlRunOnceExecuteOnce((int)&VsmEnclaveTelemetryInitRunOnce, VsmEnclaveTelemetryInitOnce, 0, 0);
+    LOBYTE(v3) = RtlRunOnceExecuteOnce(&VsmEnclaveTelemetryInitRunOnce, VsmEnclaveTelemetryInitOnce, 0, 0);
     if ( (unsigned int)dword_4B3A3368 > 4 )
     {
       LOBYTE(v3) = _tlgKeywordOn(&dword_4B3A3368, 0x400000000000LL);
@@ -53,7 +53,7 @@ char __thiscall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(void *this, int a2, i
         v19 = 0;
         v20 = 4;
         v21 = 0;
-        LOBYTE(v3) = _tlgWriteTransfer_EtwEventWriteTransfer(v5, v5, 5, v9);
+        LOBYTE(v3) = _tlgWriteTransfer_EtwEventWriteTransfer(v5, v5, 5u, &UserData);
       }
     }
   }

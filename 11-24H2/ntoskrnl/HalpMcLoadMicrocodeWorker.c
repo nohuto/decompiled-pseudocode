@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcLoadMicrocodeWorker @ 0x140559A30
+ * XREFs of HalpMcLoadMicrocodeWorker @ 0x140557660
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptGetIdentifiers @ 0x1404BACE0 (HalpInterruptGetIdentifiers.c)
- *     HalpMcUpdateMicrocode @ 0x1404D1C2C (HalpMcUpdateMicrocode.c)
+ *     HalpInterruptGetIdentifiers @ 0x1404B5B80 (HalpInterruptGetIdentifiers.c)
+ *     HalpMcUpdateMicrocode @ 0x1404CAC6C (HalpMcUpdateMicrocode.c)
  */
 
 ULONG_PTR __fastcall HalpMcLoadMicrocodeWorker(ULONG_PTR Argument)

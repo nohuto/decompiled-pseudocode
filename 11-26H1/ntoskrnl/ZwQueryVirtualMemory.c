@@ -1,25 +1,25 @@
 /*
- * XREFs of ZwQueryVirtualMemory @ 0x140723850
+ * XREFs of ZwQueryVirtualMemory @ 0x140728420
  * Callers:
- *     SepGetStackTraceHash @ 0x140260EE8 (SepGetStackTraceHash.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x140391600 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140391AB4 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x1403D7184 (KiVerifyContextXStateCetUEnabled.c)
- *     RtlpCreateHeap @ 0x1404E3978 (RtlpCreateHeap.c)
- *     RtlpHpFixedHeapCreate @ 0x1404E3BF0 (RtlpHpFixedHeapCreate.c)
- *     DifZwQueryVirtualMemoryWrapper @ 0x1406B4CB0 (DifZwQueryVirtualMemoryWrapper.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x14082A7E0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x14082B320 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x14082BEAC (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     PspFreeUserFiberShadowStack @ 0x14095ED2C (PspFreeUserFiberShadowStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x14095EF5C (PspFreeCurrentThreadUserShadowStack.c)
- *     sub_1409F0AF4 @ 0x1409F0AF4 (sub_1409F0AF4.c)
- *     EtwTiLogReadWriteVm @ 0x140A22020 (EtwTiLogReadWriteVm.c)
- *     EtwTiLogProtectExecVm @ 0x140A79D30 (EtwTiLogProtectExecVm.c)
- *     EtwpTiQueryVad @ 0x140A82DC0 (EtwpTiQueryVad.c)
- *     LdrpResGetMappingSize @ 0x140A9B310 (LdrpResGetMappingSize.c)
- *     PspGetScpCfgFunctions @ 0x140A9B720 (PspGetScpCfgFunctions.c)
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140C3D1D0 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     SepGetStackTraceHash @ 0x140260450 (SepGetStackTraceHash.c)
+ *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x140393390 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140393844 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x1403DA154 (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlpCreateHeap @ 0x1404DCF18 (RtlpCreateHeap.c)
+ *     RtlpHpFixedHeapCreate @ 0x1404DD190 (RtlpHpFixedHeapCreate.c)
+ *     DifZwQueryVirtualMemoryWrapper @ 0x1406B8890 (DifZwQueryVirtualMemoryWrapper.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x140830A20 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x140831560 (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1408320EC (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     PspGetScpCfgFunctions @ 0x1409E5264 (PspGetScpCfgFunctions.c)
+ *     LdrpResGetMappingSize @ 0x1409E6340 (LdrpResGetMappingSize.c)
+ *     sub_1409ED2C4 @ 0x1409ED2C4 (sub_1409ED2C4.c)
+ *     PspFreeUserFiberShadowStack @ 0x140A045EC (PspFreeUserFiberShadowStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x140A0481C (PspFreeCurrentThreadUserShadowStack.c)
+ *     EtwTiLogReadWriteVm @ 0x140A2B640 (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogProtectExecVm @ 0x140A81C70 (EtwTiLogProtectExecVm.c)
+ *     EtwpTiQueryVad @ 0x140A88C30 (EtwpTiQueryVad.c)
+ *     VfMiscMmUnmapLockedPages_Entry @ 0x140C431E0 (VfMiscMmUnmapLockedPages_Entry.c)
  * Callees:
  *     <none>
  */
@@ -34,5 +34,5 @@ NTSTATUS __stdcall ZwQueryVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

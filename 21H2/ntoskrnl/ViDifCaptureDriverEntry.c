@@ -1,8 +1,8 @@
 /*
- * XREFs of ViDifCaptureDriverEntry @ 0x1405A0C7C
+ * XREFs of ViDifCaptureDriverEntry @ 0x1405A0EAC
  * Callers:
- *     VfDifCaptureDriverEntry @ 0x14037DF64 (VfDifCaptureDriverEntry.c)
- *     IovAttachDeviceToDeviceStack @ 0x1409C4A4C (IovAttachDeviceToDeviceStack.c)
+ *     VfDifCaptureDriverEntry @ 0x14037DAB4 (VfDifCaptureDriverEntry.c)
+ *     IovAttachDeviceToDeviceStack @ 0x1409C5A4C (IovAttachDeviceToDeviceStack.c)
  * Callees:
  *     <none>
  */

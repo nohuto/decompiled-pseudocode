@@ -1,16 +1,16 @@
 /*
- * XREFs of IopDequeueIrpFromFileObject @ 0x14031A230
+ * XREFs of IopDequeueIrpFromFileObject @ 0x1402C2DC0
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x140268870 (IopCopyCompleteReadRequest.c)
- *     IopCompleteRequest @ 0x1402A5AC0 (IopCompleteRequest.c)
- *     IopCompleteIrpInFileObjectList @ 0x14031B490 (IopCompleteIrpInFileObjectList.c)
- *     IopDropIrp @ 0x1403C5110 (IopDropIrp.c)
- *     IopIoRingCompleteIrp @ 0x1403C5DA0 (IopIoRingCompleteIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x14025FD20 (IopCopyCompleteReadRequest.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402C4020 (IopCompleteIrpInFileObjectList.c)
+ *     IopCompleteRequest @ 0x1402D51F0 (IopCompleteRequest.c)
+ *     IopDropIrp @ 0x1403B3CD0 (IopDropIrp.c)
+ *     IopIoRingCompleteIrp @ 0x1403B4960 (IopIoRingCompleteIrp.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 int __fastcall IopDequeueIrpFromFileObject(__int64 a1, __int64 a2)

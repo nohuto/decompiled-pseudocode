@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x1405D0778
+ * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x1405D2F88
  * Callers:
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x1404E48C0 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpMarkDeviceNode @ 0x1405D02F4 (IopLiveDumpMarkDeviceNode.c)
- *     IopLiveDumpMarkLoadedModuleList @ 0x1405D04D8 (IopLiveDumpMarkLoadedModuleList.c)
- *     IopLiveDumpMarkProcessorData @ 0x1405D0640 (IopLiveDumpMarkProcessorData.c)
- *     IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x1405D26BC (IopLiveDumpTraceMarkRequiredDumpDataDuration.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     MmAddPrivateDataToCrashDump @ 0x1406F677C (MmAddPrivateDataToCrashDump.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1404DDE60 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x1405D2B04 (IopLiveDumpMarkDeviceNode.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x1405D2CE8 (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopLiveDumpMarkProcessorData @ 0x1405D2E50 (IopLiveDumpMarkProcessorData.c)
+ *     IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x1405D4EAC (IopLiveDumpTraceMarkRequiredDumpDataDuration.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x1406FB3EC (MmAddPrivateDataToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkRequiredDumpData(__int64 a1, __int64 a2)
@@ -53,8 +53,8 @@ __int64 __fastcall IopLiveDumpMarkRequiredDumpData(__int64 a1, __int64 a2)
       result = IopLiveDumpMarkLoadedModuleList((__int64)v15);
       if ( (int)result >= 0 )
       {
-        v11[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
-        v11[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+        v11[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
+        v11[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
         v12 = 0;
         while ( !(unsigned int)KeEnumerateNextProcessor(&v17, v11) )
         {

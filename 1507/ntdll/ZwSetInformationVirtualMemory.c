@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwSetInformationVirtualMemory()
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 386LL;
+  result = 386;
   __asm { syscall; Low latency system call }
   return result;
 }

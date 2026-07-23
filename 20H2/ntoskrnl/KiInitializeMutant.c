@@ -136,7 +136,7 @@ __int64 __fastcall KiInitializeMutant(ULONG_PTR BugCheckParameter2, char a2, __i
     *(_BYTE *)(BugCheckParameter2 + 48) |= 2u;
     if ( a2 )
     {
-      result = KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+      result = KeAbPreAcquire(BugCheckParameter2, 0LL, 1);
       if ( result )
         *(_BYTE *)(result + 26) |= 1u;
     }

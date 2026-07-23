@@ -1,20 +1,20 @@
 /*
- * XREFs of CcQueueLazyWriteScanThread @ 0x140183840
+ * XREFs of CcQueueLazyWriteScanThread @ 0x140183980
  * Callers:
  *     <none>
  * Callees:
  *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x1400D5FF8 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x1400D632C (CcAllocateWorkQueueEntry.c)
- *     CcSetLazyWriteScanQueued @ 0x1400D7470 (CcSetLazyWriteScanQueued.c)
- *     CcNotifyExternalCaches @ 0x140166E3C (CcNotifyExternalCaches.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcDereferencePartition @ 0x14007C988 (CcDereferencePartition.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x1400D6078 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x1400D63AC (CcAllocateWorkQueueEntry.c)
+ *     CcSetLazyWriteScanQueued @ 0x1400D74F0 (CcSetLazyWriteScanQueued.c)
+ *     CcNotifyExternalCaches @ 0x140166F3C (CcNotifyExternalCaches.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)

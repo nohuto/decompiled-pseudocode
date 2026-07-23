@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprLegacyDeviceDriversPresent @ 0x1408ADDF4
+ * XREFs of PnprLegacyDeviceDriversPresent @ 0x1408ADF54
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC3D0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     IoGetLegacyVetoList @ 0x14067B6B0 (IoGetLegacyVetoList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IoGetLegacyVetoList @ 0x14066EDF0 (IoGetLegacyVetoList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 bool PnprLegacyDeviceDriversPresent()

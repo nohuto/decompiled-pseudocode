@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlCaptureContext @ 0x140428FD0
+ * XREFs of RtlCaptureContext @ 0x140429360
  * Callers:
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeSaveStateForHibernate @ 0x14041FAF0 (KeSaveStateForHibernate.c)
- *     ExpSystemErrorHandler @ 0x14042ADE0 (ExpSystemErrorHandler.c)
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
- *     DbgkpLkmdSnapThreadInContext @ 0x14093B16C (DbgkpLkmdSnapThreadInContext.c)
- *     DbgkpWerCaptureLiveTriageDump @ 0x14093B86C (DbgkpWerCaptureLiveTriageDump.c)
- *     LkmdTelCreateReport @ 0x140A76B24 (LkmdTelCreateReport.c)
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpCorralDpc @ 0x140A9AE40 (IopLiveDumpCorralDpc.c)
- *     VfUtilCaptureViolationKernelStack @ 0x140AC24C0 (VfUtilCaptureViolationKernelStack.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeSaveStateForHibernate @ 0x14041FE80 (KeSaveStateForHibernate.c)
+ *     ExpSystemErrorHandler @ 0x14042B170 (ExpSystemErrorHandler.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x14093B36C (DbgkpLkmdSnapThreadInContext.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14093BA6C (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x140A76DD4 (LkmdTelCreateReport.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCorralDpc @ 0x140A9ACB0 (IopLiveDumpCorralDpc.c)
+ *     VfUtilCaptureViolationKernelStack @ 0x140AC24B0 (VfUtilCaptureViolationKernelStack.c)
  * Callees:
  *     <none>
  */

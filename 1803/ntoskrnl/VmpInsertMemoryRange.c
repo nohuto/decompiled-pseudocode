@@ -9,9 +9,9 @@
  *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall VmpInsertMemoryRange(_QWORD *SpinLock, _QWORD *a2, __int64 a3, int a4)
+__int64 __fastcall VmpInsertMemoryRange(PEX_SPIN_LOCK SpinLock, PRTL_BALANCED_NODE Node, __int64 a3, int a4)
 {
-  void *v8; // r14
+  PRTL_BALANCED_NODE v8; // r14
   __int64 v9; // rax
   __int64 v10; // r8
   __int64 v11; // r15
@@ -21,59 +21,59 @@ __int64 __fastcall VmpInsertMemoryRange(_QWORD *SpinLock, _QWORD *a2, __int64 a3
   unsigned int v15; // ebx
   int v16; // edx
   unsigned __int64 v17; // rax
-  unsigned __int64 *v18; // rbx
+  _RTL_BALANCED_NODE **v18; // rbx
   __int64 v19; // rax
   unsigned __int64 v20; // rcx
   int v21; // edx
   unsigned __int64 v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // r8
+  _RTL_BALANCED_NODE *v23; // rax
+  unsigned __int64 ParentValue; // r8
   unsigned __int64 v25; // rcx
-  unsigned __int64 v26; // r9
+  char *v26; // r9
   __int64 v27; // rax
   int v28; // edx
   unsigned __int64 v29; // rax
   __int64 v30; // rax
   unsigned __int64 v31; // rdx
-  bool v32; // r8
+  BOOLEAN v32; // r8
   int v33; // ecx
-  unsigned __int64 v34; // r8
+  _RTL_BALANCED_NODE *v34; // r8
   unsigned __int64 v35; // rax
   __int64 v36; // rax
   unsigned __int64 v37; // rdx
-  bool v38; // r8
+  BOOLEAN v38; // r8
   int v39; // ecx
   unsigned __int64 v40; // r8
   unsigned __int64 v41; // rax
 
   v8 = 0LL;
   v9 = VmpProcessContextLockExclusive(SpinLock);
-  v10 = SpinLock[9];
+  v10 = *((_QWORD *)SpinLock + 9);
   v11 = v9;
   if ( v10 == -1 )
   {
-    SpinLock[9] = a3;
+    *((_QWORD *)SpinLock + 9) = a3;
   }
   else if ( v10 != a3 )
   {
     v15 = -1073740007;
     goto LABEL_91;
   }
-  v12 = (unsigned __int64)(SpinLock + 1);
-  v13 = SpinLock[2];
-  v14 = SpinLock[1];
+  v12 = (unsigned __int64)(SpinLock + 2);
+  v13 = *((_QWORD *)SpinLock + 2);
+  v14 = *((_QWORD *)SpinLock + 1);
   if ( (v13 & 1) != 0 && v14 )
     v14 ^= v12;
   v16 = v13 & 1;
   while ( v14 )
   {
-    if ( a2[7] < *(_QWORD *)(v14 + 24) )
+    if ( Node[2].Children[1] < (_RTL_BALANCED_NODE *)*(_QWORD *)(v14 + 24) )
     {
       v17 = *(_QWORD *)v14;
     }
     else
     {
-      if ( a2[6] <= *(_QWORD *)(v14 + 32) )
+      if ( Node[2].Children[0] <= (_RTL_BALANCED_NODE *)*(_QWORD *)(v14 + 32) )
       {
 LABEL_21:
         v15 = -1073741800;
@@ -86,21 +86,21 @@ LABEL_21:
     else
       v14 = v17;
   }
-  v18 = SpinLock + 3;
-  v19 = SpinLock[4];
-  v20 = SpinLock[3];
+  v18 = (_RTL_BALANCED_NODE **)(SpinLock + 6);
+  v19 = *((_QWORD *)SpinLock + 4);
+  v20 = *((_QWORD *)SpinLock + 3);
   if ( (v19 & 1) != 0 && v20 )
     v20 ^= (unsigned __int64)v18;
   v21 = v19 & 1;
   while ( v20 )
   {
-    if ( a2[9] < *(_QWORD *)(v20 + 64) )
+    if ( Node[3].Children[0] < (_RTL_BALANCED_NODE *)*(_QWORD *)(v20 + 64) )
     {
       v22 = *(_QWORD *)v20;
     }
     else
     {
-      if ( a2[8] <= *(_QWORD *)(v20 + 72) )
+      if ( Node[2].ParentValue <= *(_QWORD *)(v20 + 72) )
         goto LABEL_21;
       v22 = *(_QWORD *)(v20 + 8);
     }
@@ -111,33 +111,33 @@ LABEL_21:
   }
   if ( a4 )
   {
-    v23 = a2[6];
+    v23 = Node[2].Children[0];
     if ( v23 )
     {
-      v24 = a2[8];
-      if ( v24 )
+      ParentValue = Node[2].ParentValue;
+      if ( ParentValue )
       {
         v25 = *(_QWORD *)v12;
-        v26 = v23 - 1;
-        v27 = SpinLock[2];
+        v26 = (char *)&v23[-1].ParentValue + 7;
+        v27 = *((_QWORD *)SpinLock + 2);
         if ( (v27 & 1) != 0 && v25 )
           v25 ^= v12;
         v28 = v27 & 1;
         while ( v25 )
         {
-          if ( v26 > *(_QWORD *)(v25 + 32) )
+          if ( (unsigned __int64)v26 > *(_QWORD *)(v25 + 32) )
           {
             v29 = *(_QWORD *)(v25 + 8);
           }
           else
           {
-            if ( v26 >= *(_QWORD *)(v25 + 24) )
+            if ( (unsigned __int64)v26 >= *(_QWORD *)(v25 + 24) )
             {
-              if ( *(_QWORD *)(v25 + 48) + 1LL != v24 )
+              if ( *(_QWORD *)(v25 + 48) + 1LL != ParentValue )
                 break;
-              v8 = a2;
-              *(_QWORD *)(v25 + 32) = a2[7];
-              *(_QWORD *)(v25 + 48) = a2[9];
+              v8 = Node;
+              *(_QWORD *)(v25 + 32) = Node[2].Children[1];
+              *(_QWORD *)(v25 + 48) = Node[3].Children[0];
               goto LABEL_90;
             }
             v29 = *(_QWORD *)v25;
@@ -152,7 +152,7 @@ LABEL_21:
     v15 = -1073741503;
     goto LABEL_91;
   }
-  v30 = SpinLock[2];
+  v30 = *((_QWORD *)SpinLock + 2);
   v31 = *(_QWORD *)v12;
   if ( (v30 & 1) != 0 && v31 )
     v31 ^= v12;
@@ -160,10 +160,10 @@ LABEL_21:
   v33 = v30 & 1;
   if ( v31 )
   {
-    v34 = a2[6];
+    v34 = Node[2].Children[0];
     while ( 1 )
     {
-      if ( v34 > *(_QWORD *)(v31 + 32) || v34 >= *(_QWORD *)(v31 + 24) )
+      if ( (unsigned __int64)v34 > *(_QWORD *)(v31 + 32) || (unsigned __int64)v34 >= *(_QWORD *)(v31 + 24) )
       {
         v35 = *(_QWORD *)(v31 + 8);
         if ( v33 )
@@ -198,16 +198,16 @@ LABEL_64:
       v31 = v35;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64)(SpinLock + 1), v31, v32, a2 + 3);
-  v36 = SpinLock[4];
-  v37 = *v18;
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v31, v32, Node + 1);
+  v36 = *((_QWORD *)SpinLock + 4);
+  v37 = (unsigned __int64)*v18;
   if ( (v36 & 1) != 0 && v37 )
     v37 ^= (unsigned __int64)v18;
   v38 = 0;
   v39 = v36 & 1;
   if ( !v37 )
     goto LABEL_89;
-  v40 = a2[8];
+  v40 = Node[2].ParentValue;
   while ( 1 )
   {
     if ( v40 <= *(_QWORD *)(v37 + 72) && v40 < *(_QWORD *)(v37 + 64) )
@@ -241,13 +241,13 @@ LABEL_87:
   }
   v38 = 1;
 LABEL_89:
-  RtlRbInsertNodeEx((unsigned __int64)(SpinLock + 3), v37, v38, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 6), (PRTL_BALANCED_NODE)v37, v38, Node);
 LABEL_90:
   v15 = 0;
 LABEL_91:
   if ( v11 != -1 )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)SpinLock);
+    ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
     __writecr8((unsigned __int8)v11);
   }
   if ( v8 )

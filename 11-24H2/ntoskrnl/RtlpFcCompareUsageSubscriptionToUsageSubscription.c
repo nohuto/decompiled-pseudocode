@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1404A4EFC
+ * XREFs of RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x14049FC8C
  * Callers:
- *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x14078D504 (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
- *     RtlpFcUpdateUsageTriggers @ 0x140A35AEC (RtlpFcUpdateUsageTriggers.c)
- *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140A35F1C (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
+ *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x14078D434 (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x140A2B008 (RtlpFcUpdateUsageTriggers.c)
+ *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140A2B438 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
  * Callees:
  *     <none>
  */

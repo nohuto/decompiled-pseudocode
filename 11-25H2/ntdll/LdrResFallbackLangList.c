@@ -15,7 +15,7 @@
  *     NtQueryDefaultLocale @ 0x1801634C0 (NtQueryDefaultLocale.c)
  */
 
-__int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a3, int a4, unsigned __int16 *a5)
+__int64 __fastcall LdrResFallbackLangList(void *a1, __int64 a2, unsigned __int16 a3, int a4, unsigned __int16 *a5)
 {
   int v5; // r12d
   __int64 v6; // rdx
@@ -31,13 +31,13 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a
   unsigned int v16; // eax
   size_t v18; // rax
   unsigned __int16 v19[2]; // [rsp+38h] [rbp-41h] BYREF
-  int v20; // [rsp+3Ch] [rbp-3Dh]
-  int v21; // [rsp+40h] [rbp-39h] BYREF
-  int v22; // [rsp+44h] [rbp-35h] BYREF
+  NTSTATUS v20; // [rsp+3Ch] [rbp-3Dh]
+  DWORD v21; // [rsp+40h] [rbp-39h] BYREF
+  DWORD Lcid; // [rsp+44h] [rbp-35h] BYREF
   int v23; // [rsp+48h] [rbp-31h] BYREF
-  int v24; // [rsp+4Ch] [rbp-2Dh] BYREF
+  DWORD DefaultLocaleId; // [rsp+4Ch] [rbp-2Dh] BYREF
   wchar_t *String; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v26; // [rsp+58h] [rbp-21h] BYREF
+  _UNICODE_STRING v26; // [rsp+58h] [rbp-21h] BYREF
   _QWORD v27[2]; // [rsp+68h] [rbp-11h] BYREF
   _QWORD v28[2]; // [rsp+78h] [rbp-1h] BYREF
 
@@ -49,18 +49,18 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, int a2, unsigned __int16 a
   v26 = 0LL;
   String = 0LL;
   v23 = 0;
-  v22 = 0;
+  Lcid = 0;
   v21 = 0;
-  v24 = 0;
+  DefaultLocaleId = 0;
   v7 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     MergedPrefLanguages = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     MergedPrefLanguages = 2147353477LL;
   v9 = 2147353476LL;
   if ( (*(_BYTE *)MergedPrefLanguages & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       LdrpTraceLoadMUIDll(v27, *((unsigned __int8 *)NtCurrentPeb()->SharedData + 554));
     else
       LdrpTraceLoadMUIDll(v27, MEMORY[0x7FFE0384]);
@@ -169,32 +169,32 @@ LABEL_17:
 LABEL_24:
         v9 = 2147353476LL;
 LABEL_25:
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v7 = (__int64)NtCurrentPeb()->SharedData + 555;
         if ( (*(_BYTE *)v7 & 1) != 0 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v9 = (__int64)NtCurrentPeb()->SharedData + 554;
           LdrpTraceLoadMUIDll(v28, *(unsigned __int8 *)v9);
         }
         return (unsigned int)v20;
       case 3:
-        if ( !a1 || (int)RtlpResUltimateFallbackInfo(a1, a2, &String, &v23, a4) < 0 )
+        if ( !a1 || (int)RtlpResUltimateFallbackInfo(a1, a2, &String, &v23) < 0 )
           goto LABEL_33;
-        *(_QWORD *)&v26 = 0LL;
-        *((_QWORD *)&v26 + 1) = String;
+        *(_QWORD *)&v26.Length = 0LL;
+        v26.Buffer = String;
         if ( String )
         {
           v18 = 2 * wcslen(String);
           if ( v18 >= 0xFFFE )
             LOWORD(v18) = -4;
-          LOWORD(v26) = v18;
-          WORD1(v26) = v18 + 2;
+          v26.Length = v18;
+          v26.MaximumLength = v18 + 2;
         }
-        if ( RtlCultureNameToLCID((unsigned __int16 *)&v26, &v22) )
+        if ( RtlCultureNameToLCID(&v26, &Lcid) )
         {
-          CurrentLocale = v22;
-          v19[0] = v22;
+          CurrentLocale = Lcid;
+          v19[0] = Lcid;
           if ( (a4 & 0x100000) != 0 )
           {
             GetLCIDFromLangListNodeWithLICCheck(
@@ -229,19 +229,18 @@ LABEL_33:
         CurrentLocale = v19[0];
         continue;
       case 5:
-        LOBYTE(MergedPrefLanguages) = 1;
         CurrentLocale = -4370;
-        v20 = NtQueryDefaultLocale(MergedPrefLanguages, &v21);
+        v20 = NtQueryDefaultLocale(1u, &v21);
         if ( v20 < 0 )
           continue;
         CurrentLocale = v21;
         goto LABEL_16;
       case 6:
         CurrentLocale = -4370;
-        v20 = NtQueryDefaultLocale(0LL, &v24);
-        if ( v20 < 0 || v24 == v21 )
+        v20 = NtQueryDefaultLocale(0, &DefaultLocaleId);
+        if ( v20 < 0 || DefaultLocaleId == v21 )
           continue;
-        CurrentLocale = v24;
+        CurrentLocale = DefaultLocaleId;
         goto LABEL_16;
       case 7:
         CurrentLocale = 1033;

@@ -1,19 +1,19 @@
 /*
- * XREFs of CcFlushCachePostProcessOneRange @ 0x14029E9F0
+ * XREFs of CcFlushCachePostProcessOneRange @ 0x14029EC80
  * Callers:
- *     CcFlushCachePriv @ 0x14029CD34 (CcFlushCachePriv.c)
- *     CcWriteBehindAsync @ 0x14053A480 (CcWriteBehindAsync.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x14053AC14 (CcAsyncLazywriteWorkerMulti.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x14053B7A0 (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcFlushCachePriv @ 0x14029CFC4 (CcFlushCachePriv.c)
+ *     CcWriteBehindAsync @ 0x14053A9D0 (CcWriteBehindAsync.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x14053B164 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x14053BCF0 (CcWriteBehindAsyncFlushOneRange.c)
  * Callees:
- *     CcReleaseByteRangeFromWrite @ 0x14025D700 (CcReleaseByteRangeFromWrite.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     CcIsFatalWriteError @ 0x1402F42A8 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x140394304 (CcPerfLogFlushSection.c)
- *     CcPostDeferredWrites @ 0x1403C1E48 (CcPostDeferredWrites.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcReleaseByteRangeFromWrite @ 0x14025D990 (CcReleaseByteRangeFromWrite.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     CcIsFatalWriteError @ 0x1402F4538 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushSection @ 0x1403944E4 (CcPerfLogFlushSection.c)
+ *     CcPostDeferredWrites @ 0x1403C2028 (CcPostDeferredWrites.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall CcFlushCachePostProcessOneRange(__int64 *a1)
@@ -84,10 +84,13 @@ bool __fastcall CcFlushCachePostProcessOneRange(__int64 *a1)
       *(_DWORD *)(v4 + 152) |= 0x400u;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -160,10 +163,10 @@ LABEL_60:
       *(_DWORD *)(v4 + 152) |= 0x400u;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v27 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v28 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
         {
           v29 = KeGetCurrentPrcb();
           v30 = v29->SchedulerAssist;

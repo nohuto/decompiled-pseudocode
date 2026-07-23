@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipCreateGuidObject @ 0x1409CBCD8
+ * XREFs of WmipCreateGuidObject @ 0x1409B4758
  * Callers:
- *     WmipOpenGuidObject @ 0x1409CD4EC (WmipOpenGuidObject.c)
+ *     WmipOpenGuidObject @ 0x1409B27CC (WmipOpenGuidObject.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeCreateAccessState @ 0x14083F490 (SeCreateAccessState.c)
- *     SeDeleteAccessState @ 0x140840F80 (SeDeleteAccessState.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     WmipGetGuidSecurityDescriptor @ 0x1409CBEF4 (WmipGetGuidSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeCreateAccessState @ 0x14083B750 (SeCreateAccessState.c)
+ *     SeDeleteAccessState @ 0x14083D240 (SeDeleteAccessState.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x1409B4974 (WmipGetGuidSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipCreateGuidObject(__int128 *a1, int a2, _OWORD *a3, _QWORD *a4)
@@ -24,27 +24,24 @@ __int64 __fastcall WmipCreateGuidObject(__int128 *a1, int a2, _OWORD *a3, _QWORD
   PVOID v12; // rdi
   __int128 v13; // xmm6
   __int128 v14; // xmm7
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  char *v18; // rsi
-  __int64 v20; // [rsp+28h] [rbp-E0h]
+  char *v15; // rsi
+  __int64 v17; // [rsp+28h] [rbp-E0h]
   PVOID P; // [rsp+58h] [rbp-B0h] BYREF
   char *DestinationString; // [rsp+60h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v24; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v25; // [rsp+88h] [rbp-80h]
-  int v26; // [rsp+90h] [rbp-78h]
-  int v27; // [rsp+94h] [rbp-74h]
-  PVOID v28; // [rsp+98h] [rbp-70h]
-  __int64 v29; // [rsp+A0h] [rbp-68h]
-  struct _ACCESS_STATE v30; // [rsp+A8h] [rbp-60h] BYREF
-  _QWORD v31[28]; // [rsp+148h] [rbp+40h] BYREF
+  __int128 v21; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v22; // [rsp+88h] [rbp-80h]
+  int v23; // [rsp+90h] [rbp-78h]
+  int v24; // [rsp+94h] [rbp-74h]
+  PVOID v25; // [rsp+98h] [rbp-70h]
+  __int64 v26; // [rsp+A0h] [rbp-68h]
+  struct _ACCESS_STATE v27; // [rsp+A8h] [rbp-60h] BYREF
+  _QWORD v28[28]; // [rsp+148h] [rbp+40h] BYREF
 
   P = 0LL;
   DestinationString_8 = 0LL;
-  memset_0(&v30, 0, sizeof(v30));
-  memset_0(v31, 0, sizeof(v31));
+  memset_0(&v27, 0, sizeof(v27));
+  memset_0(v28, 0, sizeof(v28));
   v8 = *((_QWORD *)a1 + 2);
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString_8, (PCWSTR)(*(_QWORD *)(v8 + 8) + 18LL));
@@ -52,26 +49,26 @@ __int64 __fastcall WmipCreateGuidObject(__int128 *a1, int a2, _OWORD *a3, _QWORD
   if ( GuidSecurityDescriptor >= 0 )
   {
     v10 = a1[1];
-    v24 = *a1;
+    v21 = *a1;
     v11 = a1[2];
     v12 = P;
-    v27 = HIDWORD(v10);
-    v25 = 0LL;
-    v29 = *((_QWORD *)&v11 + 1);
-    v28 = P;
-    v26 = 640;
-    GuidSecurityDescriptor = SeCreateAccessState(&v30, v31, a2, &WmipGenericMapping);
+    v24 = HIDWORD(v10);
+    v22 = 0LL;
+    v26 = *((_QWORD *)&v11 + 1);
+    v25 = P;
+    v23 = 640;
+    GuidSecurityDescriptor = SeCreateAccessState(&v27, v28, a2, &WmipGenericMapping);
     if ( GuidSecurityDescriptor >= 0 )
     {
-      v13 = *(_OWORD *)&v30.SubjectSecurityContext.ClientToken;
-      v14 = *(_OWORD *)&v30.SubjectSecurityContext.PrimaryToken;
-      v30.SubjectSecurityContext = WmipSystemSubjectContext;
+      v13 = *(_OWORD *)&v27.SubjectSecurityContext.ClientToken;
+      v14 = *(_OWORD *)&v27.SubjectSecurityContext.PrimaryToken;
+      v27.SubjectSecurityContext = WmipSystemSubjectContext;
       GuidSecurityDescriptor = ObCreateObjectEx(
                                  0,
                                  WmipGuidObjectType,
-                                 (int)&v24,
+                                 (int)&v21,
                                  0,
-                                 v20,
+                                 v17,
                                  168,
                                  0,
                                  0,
@@ -79,22 +76,22 @@ __int64 __fastcall WmipCreateGuidObject(__int128 *a1, int a2, _OWORD *a3, _QWORD
                                  0LL);
       if ( GuidSecurityDescriptor >= 0 )
       {
-        v18 = DestinationString;
+        v15 = DestinationString;
         memset_0(DestinationString, 0, 0xA8uLL);
-        KeInitializeEvent((PRKEVENT)v18, NotificationEvent, 0);
-        *((_DWORD *)v18 + 28) = 4096;
-        *((_DWORD *)v18 + 36) = 4096;
-        *(_OWORD *)(v18 + 24) = *a3;
-        GuidSecurityDescriptor = ObInsertObjectEx((struct _FILE_OBJECT *)v18, &v30, a2, 0, 0, 0LL, 0LL);
+        KeInitializeEvent((PRKEVENT)v15, NotificationEvent, 0);
+        *((_DWORD *)v15 + 28) = 4096;
+        *((_DWORD *)v15 + 36) = 4096;
+        *(_OWORD *)(v15 + 24) = *a3;
+        GuidSecurityDescriptor = ObInsertObjectEx((struct _FILE_OBJECT *)v15, &v27, a2, 0, 0, 0LL, 0LL);
         if ( GuidSecurityDescriptor >= 0 )
         {
-          *a4 = v18;
+          *a4 = v15;
           GuidSecurityDescriptor = 0;
         }
       }
-      *(_OWORD *)&v30.SubjectSecurityContext.ClientToken = v13;
-      *(_OWORD *)&v30.SubjectSecurityContext.PrimaryToken = v14;
-      SeDeleteAccessState((__int64)&v30, v15, v16, v17);
+      *(_OWORD *)&v27.SubjectSecurityContext.ClientToken = v13;
+      *(_OWORD *)&v27.SubjectSecurityContext.PrimaryToken = v14;
+      SeDeleteAccessState((__int64)&v27);
     }
     if ( v12 && v12 != (PVOID)WmipDefaultAccessSd )
       ExFreePoolWithTag(v12, 0);

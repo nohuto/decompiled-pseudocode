@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwPdoPnPDispatch @ 0x14074F0C0
+ * XREFs of PiSwPdoPnPDispatch @ 0x14074F280
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PnpAllocatePWSTR @ 0x140638128 (PnpAllocatePWSTR.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
- *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x140732CF8 (PiSwDestroyDeviceObject.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x14074D5BC (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwCompleteCreate @ 0x14074D690 (PiSwCompleteCreate.c)
- *     PnpAllocateMultiSZ @ 0x14074E1DC (PnpAllocateMultiSZ.c)
- *     PiSwDeviceMakeCompatibleIds @ 0x14074E75C (PiSwDeviceMakeCompatibleIds.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpAllocatePWSTR @ 0x14062CF38 (PnpAllocatePWSTR.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
+ *     PiSwProcessRemove @ 0x140732D98 (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x140732EB8 (PiSwDestroyDeviceObject.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x14074D77C (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwCompleteCreate @ 0x14074D850 (PiSwCompleteCreate.c)
+ *     PnpAllocateMultiSZ @ 0x14074E39C (PnpAllocateMultiSZ.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x14074E91C (PiSwDeviceMakeCompatibleIds.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwPdoPnPDispatch(struct _DEVICE_OBJECT *Object, PIRP Irp)
@@ -40,30 +40,36 @@ __int64 __fastcall PiSwPdoPnPDispatch(struct _DEVICE_OBJECT *Object, PIRP Irp)
   const wchar_t *v20; // rcx
   size_t v21; // rdx
   NTSTATUS MultiSZ; // eax
-  struct _KTHREAD *v24; // rax
-  __int64 v25; // r8
-  _QWORD *v26; // r10
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  struct _KTHREAD *v27; // rax
+  __int64 v28; // r8
+  _QWORD *v29; // r10
   ULONG Length; // ecx
-  ULONG v28; // ecx
-  ULONG v29; // ecx
-  ULONG v30; // ecx
-  wchar_t *v31; // rax
-  struct _KTHREAD *v32; // rax
-  __int64 v33; // rdx
-  ULONG v34; // ecx
+  ULONG v31; // ecx
+  ULONG v32; // ecx
+  ULONG v33; // ecx
+  wchar_t *v34; // rax
   struct _KTHREAD *v35; // rax
+  __int64 v36; // rdx
+  ULONG v37; // ecx
+  struct _KTHREAD *v38; // rax
   GUID *PoolWithTag; // rax
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR Information; // rax
-  ULONG_PTR v39; // rdx
-  unsigned __int64 v40; // rax
-  void *v41; // rcx
-  struct _KTHREAD *v42; // rax
-  int v43; // eax
-  struct _KTHREAD *v44; // rax
-  int v45; // eax
-  _QWORD *v46; // rax
-  ULONG_PTR v47; // rbx
+  ULONG_PTR v42; // rdx
+  unsigned __int64 v43; // rax
+  void *v44; // rcx
+  struct _KTHREAD *v45; // rax
+  int v46; // eax
+  __int64 v47; // rdx
+  __int64 v48; // r8
+  __int64 v49; // r9
+  struct _KTHREAD *v50; // rax
+  int v51; // eax
+  _QWORD *v52; // rax
+  ULONG_PTR v53; // rbx
 
   DeviceExtension = Object->DeviceExtension;
   Status = Irp->IoStatus.Status;
@@ -88,11 +94,11 @@ __int64 __fastcall PiSwPdoPnPDispatch(struct _DEVICE_OBJECT *Object, PIRP Irp)
         if ( *(_QWORD *)DeviceExtension )
         {
           Information = Irp->IoStatus.Information;
-          v39 = Information | 2;
-          v40 = Information & 0xFFFFFFFFFFFFFFFDuLL;
+          v42 = Information | 2;
+          v43 = Information & 0xFFFFFFFFFFFFFFFDuLL;
           if ( (*(_DWORD *)(*(_QWORD *)DeviceExtension + 64LL) & 4) == 0 )
-            v39 = v40;
-          Irp->IoStatus.Information = v39;
+            v42 = v43;
+          Irp->IoStatus.Information = v42;
           goto LABEL_12;
         }
 LABEL_69:
@@ -111,15 +117,15 @@ LABEL_69:
         v19 = v18 - 1;
         if ( !v19 )
         {
-          v42 = KeGetCurrentThread();
-          --v42->KernelApcDisable;
+          v45 = KeGetCurrentThread();
+          --v45->KernelApcDisable;
           ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-          v43 = DeviceExtension[2] | 4;
-          DeviceExtension[2] = v43;
-          PiSwProcessRemove((__int64)Object, (v43 & 8) != 0);
+          v46 = DeviceExtension[2] | 4;
+          DeviceExtension[2] = v46;
+          PiSwProcessRemove((__int64)Object, (v46 & 8) != 0);
 LABEL_59:
           ExReleaseResourceLite(&PiSwLockObj);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v47, v48, v49);
           goto LABEL_20;
         }
         if ( v19 != 2 )
@@ -140,50 +146,50 @@ LABEL_20:
       Status = 0;
       goto LABEL_26;
     }
-    v24 = KeGetCurrentThread();
-    --v24->KernelApcDisable;
+    v27 = KeGetCurrentThread();
+    --v27->KernelApcDisable;
     ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-    v26 = *(_QWORD **)DeviceExtension;
+    v29 = *(_QWORD **)DeviceExtension;
     if ( !*(_QWORD *)DeviceExtension )
       goto LABEL_69;
     Length = CurrentStackLocation->Parameters.Read.Length;
     if ( Length )
     {
-      v28 = Length - 1;
-      if ( !v28 )
+      v31 = Length - 1;
+      if ( !v31 )
       {
-        v41 = (void *)v26[3];
-        if ( !v41 )
+        v44 = (void *)v29[3];
+        if ( !v44 )
           goto LABEL_25;
-        MultiSZ = PnpAllocateMultiSZ(v41, 0x7FFFFFFFLL, v25, &Irp->IoStatus.Information);
+        MultiSZ = PnpAllocateMultiSZ(v44, 0x7FFFFFFFLL, v28, &Irp->IoStatus.Information);
         goto LABEL_24;
       }
-      v29 = v28 - 1;
-      if ( !v29 )
+      v32 = v31 - 1;
+      if ( !v32 )
       {
         MultiSZ = PiSwDeviceMakeCompatibleIds(*(_QWORD *)DeviceExtension, &Irp->IoStatus.Information);
         goto LABEL_24;
       }
-      v30 = v29 - 1;
-      if ( v30 )
+      v33 = v32 - 1;
+      if ( v33 )
       {
-        if ( v30 != 2 || !v26[5] )
+        if ( v33 != 2 || !v29[5] )
           goto LABEL_25;
-        v31 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x4EuLL, 0x57706E50u);
-        Irp->IoStatus.Information = (ULONG_PTR)v31;
-        if ( !v31 )
+        v34 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x4EuLL, 0x57706E50u);
+        Irp->IoStatus.Information = (ULONG_PTR)v34;
+        if ( !v34 )
         {
           Status = -1073741670;
           goto LABEL_25;
         }
-        MultiSZ = PnpStringFromGuid(*(int **)(*(_QWORD *)DeviceExtension + 40LL), v31);
+        MultiSZ = PnpStringFromGuid(*(int **)(*(_QWORD *)DeviceExtension + 40LL), v34);
         goto LABEL_24;
       }
-      v20 = (const wchar_t *)v26[2];
+      v20 = (const wchar_t *)v29[2];
     }
     else
     {
-      v20 = (const wchar_t *)v26[1];
+      v20 = (const wchar_t *)v29[1];
     }
     v21 = 200LL;
 LABEL_23:
@@ -194,22 +200,22 @@ LABEL_24:
   }
   if ( MinorFunction == 12 )
   {
-    v32 = KeGetCurrentThread();
-    --v32->KernelApcDisable;
+    v35 = KeGetCurrentThread();
+    --v35->KernelApcDisable;
     ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-    v33 = *(_QWORD *)DeviceExtension;
+    v36 = *(_QWORD *)DeviceExtension;
     if ( !*(_QWORD *)DeviceExtension )
       goto LABEL_69;
-    v34 = CurrentStackLocation->Parameters.Read.Length;
-    if ( v34 )
+    v37 = CurrentStackLocation->Parameters.Read.Length;
+    if ( v37 )
     {
-      if ( v34 != 1 )
+      if ( v37 != 1 )
         goto LABEL_25;
-      v20 = *(const wchar_t **)(v33 + 56);
+      v20 = *(const wchar_t **)(v36 + 56);
     }
     else
     {
-      v20 = *(const wchar_t **)(v33 + 48);
+      v20 = *(const wchar_t **)(v36 + 48);
     }
     if ( !v20 )
       goto LABEL_25;
@@ -218,8 +224,8 @@ LABEL_24:
   }
   if ( !CurrentStackLocation->MinorFunction )
   {
-    v35 = KeGetCurrentThread();
-    --v35->KernelApcDisable;
+    v38 = KeGetCurrentThread();
+    --v38->KernelApcDisable;
     ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
     if ( (DeviceExtension[2] & 1) == 0 )
     {
@@ -236,12 +242,12 @@ LABEL_24:
     goto LABEL_20;
   if ( MinorFunction == 2 )
   {
-    v44 = KeGetCurrentThread();
-    --v44->KernelApcDisable;
+    v50 = KeGetCurrentThread();
+    --v50->KernelApcDisable;
     ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-    v45 = DeviceExtension[2] | 2;
-    DeviceExtension[2] = v45;
-    PiSwProcessRemove((__int64)Object, (v45 & 8) != 0);
+    v51 = DeviceExtension[2] | 2;
+    DeviceExtension[2] = v51;
+    PiSwProcessRemove((__int64)Object, (v51 & 8) != 0);
     if ( (DeviceExtension[2] & 8) == 0 )
       PiSwDestroyDeviceObject(Object);
     goto LABEL_59;
@@ -252,14 +258,14 @@ LABEL_24:
   {
     if ( CurrentStackLocation->Parameters.Read.Length != 4 )
       goto LABEL_26;
-    v46 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x57706E50u);
-    v47 = (ULONG_PTR)v46;
-    if ( v46 )
+    v52 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x57706E50u);
+    v53 = (ULONG_PTR)v52;
+    if ( v52 )
     {
-      *(_DWORD *)v46 = 1;
-      v46[1] = Object;
+      *(_DWORD *)v52 = 1;
+      v52[1] = Object;
       ObfReferenceObject(Object);
-      Irp->IoStatus.Information = v47;
+      Irp->IoStatus.Information = v53;
       goto LABEL_20;
     }
 LABEL_67:
@@ -296,7 +302,7 @@ LABEL_12:
       Status = 0;
 LABEL_25:
       ExReleaseResourceLite(&PiSwLockObj);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v23, v24, v25);
       goto LABEL_26;
     }
     goto LABEL_69;

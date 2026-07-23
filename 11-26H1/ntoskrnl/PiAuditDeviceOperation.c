@@ -1,18 +1,18 @@
 /*
- * XREFs of PiAuditDeviceOperation @ 0x140905C30
+ * XREFs of PiAuditDeviceOperation @ 0x140B15BF8
  * Callers:
- *     PiAuditDeviceEnableDisableAction @ 0x1407B4FC0 (PiAuditDeviceEnableDisableAction.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x1407B4FF4 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceStart @ 0x140907780 (PiAuditDeviceStart.c)
- *     PiPnpRtlSetObjectProperty @ 0x1409DBA24 (PiPnpRtlSetObjectProperty.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x1407B8020 (PiAuditDeviceEnableDisableAction.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1407B8054 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceStart @ 0x1409AD34C (PiAuditDeviceStart.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140A18C74 (PiPnpRtlSetObjectProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     PnpFindAlternateStringData @ 0x140AA3080 (PnpFindAlternateStringData.c)
- *     SeAuditPlugAndPlay @ 0x140B32F14 (SeAuditPlugAndPlay.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     PnpFindAlternateStringData @ 0x140AA4B50 (PnpFindAlternateStringData.c)
+ *     SeAuditPlugAndPlay @ 0x140B35364 (SeAuditPlugAndPlay.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
@@ -41,26 +41,26 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
   void *v26; // rsi
   int v27; // eax
   __int64 v28; // rax
-  void *v29; // rdi
+  _WORD *v29; // rdi
   int i; // eax
   __int64 v31; // rax
   int v32; // eax
   bool v33; // zf
   const WCHAR *v34; // rdx
   int v35; // [rsp+68h] [rbp-69h] BYREF
-  int v36; // [rsp+6Ch] [rbp-65h] BYREF
-  int v37; // [rsp+70h] [rbp-61h] BYREF
-  unsigned int v38; // [rsp+74h] [rbp-5Dh] BYREF
+  ULONG v36; // [rsp+6Ch] [rbp-65h] BYREF
+  ULONG v37; // [rsp+70h] [rbp-61h] BYREF
+  ULONG v38; // [rsp+74h] [rbp-5Dh] BYREF
   char v39; // [rsp+78h] [rbp-59h]
-  int v40; // [rsp+7Ch] [rbp-55h] BYREF
-  int v41; // [rsp+80h] [rbp-51h] BYREF
+  ULONG v40; // [rsp+7Ch] [rbp-55h] BYREF
+  ULONG v41; // [rsp+80h] [rbp-51h] BYREF
   int v42; // [rsp+84h] [rbp-4Dh] BYREF
   const WCHAR *v43; // [rsp+88h] [rbp-49h] BYREF
   __int64 v44; // [rsp+90h] [rbp-41h]
   __int128 v45; // [rsp+98h] [rbp-39h] BYREF
   __int128 v46; // [rsp+A8h] [rbp-29h] BYREF
   __int128 v47; // [rsp+B8h] [rbp-19h] BYREF
-  _BYTE v48[8]; // [rsp+C8h] [rbp-9h] BYREF
+  int v48; // [rsp+C8h] [rbp-9h] BYREF
   UNICODE_STRING DestinationString; // [rsp+D0h] [rbp-1h] BYREF
   UNICODE_STRING v50; // [rsp+E0h] [rbp+Fh] BYREF
   __int128 v51; // [rsp+F0h] [rbp+1Fh] BYREF
@@ -139,13 +139,13 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
     if ( !Pool2 )
       return (unsigned int)-1073741670;
     ObjectProperty = PnpGetObjectProperty(
-                       PiPnpRtlCtx,
+                       *(__int64 *)&PiPnpRtlCtx,
                        *(_QWORD *)(a1 + 8),
                        1,
-                       0,
+                       0LL,
                        0LL,
                        (__int64)&DEVPKEY_Device_HardwareIds,
-                       (__int64)&v35,
+                       &v35,
                        Pool2,
                        v40,
                        (__int64)&v40,
@@ -176,13 +176,13 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
     while ( 1 )
     {
       v19 = PnpGetObjectProperty(
-              PiPnpRtlCtx,
+              *(__int64 *)&PiPnpRtlCtx,
               *(_QWORD *)(a1 + 8),
               1,
-              0,
+              0LL,
               0LL,
               (__int64)&DEVPKEY_Device_CompatibleIds,
-              (__int64)&v35,
+              &v35,
               v17,
               v36,
               (__int64)&v36,
@@ -217,13 +217,13 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
       if ( !v21 )
         break;
       v22 = PnpGetObjectProperty(
-              PiPnpRtlCtx,
+              *(__int64 *)&PiPnpRtlCtx,
               *(_QWORD *)(a1 + 8),
               1,
-              0,
+              0LL,
               0LL,
               (__int64)&DEVPKEY_Device_LocationInfo,
-              (__int64)&v35,
+              &v35,
               v21,
               v37,
               (__int64)&v37,
@@ -247,15 +247,15 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
         *((_QWORD *)&v45 + 1) = v4;
         v42 = 16;
         if ( (int)PnpGetObjectProperty(
-                    PiPnpRtlCtx,
+                    *(__int64 *)&PiPnpRtlCtx,
                     v24,
                     1,
-                    0,
+                    0LL,
                     0LL,
                     (__int64)&DEVPKEY_Device_ClassGuid,
-                    (__int64)&v35,
+                    &v35,
                     (__int64)&v51,
-                    16,
+                    0x10u,
                     (__int64)&v42,
                     0) < 0
           || v35 != 13
@@ -271,13 +271,13 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
           if ( !v25 )
             goto LABEL_53;
           v27 = PnpGetObjectProperty(
-                  PiPnpRtlCtx,
+                  *(__int64 *)&PiPnpRtlCtx,
                   *(_QWORD *)(a1 + 8),
                   1,
-                  0,
+                  0LL,
                   0LL,
                   (__int64)&DEVPKEY_Device_Class,
-                  (__int64)&v35,
+                  &v35,
                   v25,
                   v41,
                   (__int64)&v41,
@@ -293,30 +293,30 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
             RtlInitUnicodeString(&DestinationString, (PCWSTR)v26);
             v38 = 32;
             v28 = ExAllocatePool2(0x100uLL);
-            v29 = (void *)v28;
+            v29 = (_WORD *)v28;
             if ( v28 )
             {
               for ( i = PnpGetObjectProperty(
-                          PiPnpRtlCtx,
+                          *(__int64 *)&PiPnpRtlCtx,
                           *(_QWORD *)(a1 + 8),
                           1,
-                          0,
+                          0LL,
                           0LL,
                           (__int64)&DEVPKEY_NAME,
-                          (__int64)&v35,
+                          &v35,
                           v28,
                           v38,
                           (__int64)&v38,
                           0);
                     ;
                     i = PnpGetObjectProperty(
-                          PiPnpRtlCtx,
+                          *(__int64 *)&PiPnpRtlCtx,
                           *(_QWORD *)(v44 + 8),
                           1,
-                          0,
+                          0LL,
                           0LL,
                           (__int64)&DEVPKEY_NAME,
-                          (__int64)&v35,
+                          &v35,
                           v31,
                           v38,
                           (__int64)&v38,
@@ -327,7 +327,7 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
                   break;
                 ExFreePoolWithTag(v29, 0);
                 v31 = ExAllocatePool2(0x100uLL);
-                v29 = (void *)v31;
+                v29 = (_WORD *)v31;
                 if ( !v31 )
                   goto LABEL_40;
               }
@@ -336,8 +336,8 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
               v32 = v35;
               if ( v35 == 25 )
               {
-                v33 = (unsigned int)PnpFindAlternateStringData(v29, v38, &v43, v48) == 0;
-                v34 = (const WCHAR *)v29;
+                v33 = (unsigned int)PnpFindAlternateStringData(v29, v38, &v43, &v48) == 0;
+                v34 = v29;
                 v32 = 18;
                 if ( !v33 )
                   v34 = v43;
@@ -347,7 +347,7 @@ __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
               {
                 v34 = 0LL;
                 if ( v35 == 18 )
-                  v34 = (const WCHAR *)v29;
+                  v34 = v29;
               }
               if ( v32 != 18 )
               {

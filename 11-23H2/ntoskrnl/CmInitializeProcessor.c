@@ -1,14 +1,14 @@
 /*
- * XREFs of CmInitializeProcessor @ 0x140A0F90C
+ * XREFs of CmInitializeProcessor @ 0x140A0FBBC
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     CmpAddProcessorConfigurationEntry @ 0x14080C91C (CmpAddProcessorConfigurationEntry.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14080CBEC (CmpAddProcessorConfigurationEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -19,9 +19,9 @@ NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
   NTSTATUS result; // eax
   unsigned int v4; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-9h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+Fh] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
 
   v1 = 0;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;

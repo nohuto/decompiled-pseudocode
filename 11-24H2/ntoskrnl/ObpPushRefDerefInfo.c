@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpPushRefDerefInfo @ 0x140745228
+ * XREFs of ObpPushRefDerefInfo @ 0x140743518
  * Callers:
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ObpPushStackInfoQueue @ 0x140745410 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     ObpPushStackInfoQueue @ 0x140743700 (ObpPushStackInfoQueue.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ObpGetObjectRefInfo @ 0x140744D80 (ObpGetObjectRefInfo.c)
- *     ObpGetTraceIndex @ 0x140744E8C (ObpGetTraceIndex.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ObpGetObjectRefInfo @ 0x140743070 (ObpGetObjectRefInfo.c)
+ *     ObpGetTraceIndex @ 0x14074317C (ObpGetTraceIndex.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall ObpPushRefDerefInfo(
@@ -25,9 +25,9 @@ void __fastcall ObpPushRefDerefInfo(
         int a6)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v11; // rax
+  char *v11; // rax
   signed __int8 v12; // cf
-  _QWORD *v13; // rsi
+  char *v13; // rsi
   unsigned __int16 *v14; // rsi
   unsigned __int16 TraceIndex; // r8
   unsigned __int16 i; // dx
@@ -35,19 +35,19 @@ void __fastcall ObpPushRefDerefInfo(
   __int64 v18; // rcx
   __int64 v19; // rdx
   __int64 v20; // rsi
-  struct _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *Pool2; // rax
   unsigned __int16 *v22; // [rsp+20h] [rbp-38h] BYREF
 
   v22 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v11 = KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
+  v11 = (char *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
   v12 = _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL);
   v13 = v11;
   if ( v12 )
-    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, (__int64)v11, (__int64)&ObpStackTraceLock);
+    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, v11, (__int64)&ObpStackTraceLock);
   if ( v13 )
-    *((_BYTE *)v13 + 10) = 1;
+    v13[10] = 1;
   if ( (ObpTraceFlags & 0x73) != 0 )
   {
     if ( (int)ObpGetObjectRefInfo(a1, &v22) >= 0 )
@@ -84,7 +84,7 @@ void __fastcall ObpPushRefDerefInfo(
     {
       do
       {
-        Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x40uLL);
+        Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(0x40uLL, 0xB0uLL, 0x7452624Fu);
         if ( Pool2 )
           RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, Pool2);
         --v20;

@@ -6,9 +6,16 @@
  *     <none>
  */
 
-__int64 __fastcall ZwGetWriteWatch(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetWriteWatch(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        SIZE_T RegionSize,
+        PVOID *UserAddressArray,
+        PULONG_PTR EntriesInUserAddressArray,
+        PULONG Granularity)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiZeroLargePage @ 0x1402EC08C
+ * XREFs of MiZeroLargePage @ 0x1402EC31C
  * Callers:
- *     MiZeroAndReleasePages @ 0x1402D3030 (MiZeroAndReleasePages.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiZeroAndConvertPage @ 0x140650034 (MiZeroAndConvertPage.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14066713C (MiAllocateLargeProcessPagesFromCache.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiZeroAndReleasePages @ 0x1402D32C0 (MiZeroAndReleasePages.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
+ *     MiZeroAndConvertPage @ 0x140650584 (MiZeroAndConvertPage.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x14066768C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiWriteLargePte @ 0x1402EC26C (MiWriteLargePte.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiWriteLargePte @ 0x1402EC4FC (MiWriteLargePte.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiZeroLargePage(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

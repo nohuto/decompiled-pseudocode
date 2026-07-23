@@ -31,7 +31,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v13; // rsi
   __int64 v15; // rax
   __int64 v16; // rax
-  __int64 v17; // r14
+  _RTL_BALANCED_NODE *v17; // r14
   __int64 v18; // [rsp+20h] [rbp-30h] BYREF
   int v19; // [rsp+28h] [rbp-28h]
   __int16 v20; // [rsp+30h] [rbp-20h] BYREF
@@ -51,7 +51,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, _QWORD *a3)
     if ( !*p_DataSectionObject )
     {
       *p_DataSectionObject = a2;
-      v15 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
+      v15 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject, 0LL);
       if ( v15 )
         *(_BYTE *)(v15 + 26) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140388100);
@@ -108,8 +108,8 @@ LABEL_27:
       *a3 = v8;
       return 0LL;
     }
-    v16 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
-    v17 = v16;
+    v16 = KeAbPreAcquire((ULONG_PTR)p_DataSectionObject, 0LL);
+    v17 = (_RTL_BALANCED_NODE *)v16;
     if ( v16 )
       KeAbPreWait(v16);
     v22 = 0;
@@ -131,7 +131,7 @@ LABEL_27:
     KeWaitForGate(&v20, 18LL);
     if ( v17 )
     {
-      KeAbPreAcquire((ULONG_PTR)p_DataSectionObject);
+      KeAbPreAcquire((ULONG_PTR)p_DataSectionObject, v17);
       KeAbPostReleaseEx((ULONG_PTR)p_DataSectionObject);
     }
     *a3 = 0LL;

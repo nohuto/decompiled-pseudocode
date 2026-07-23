@@ -1,60 +1,53 @@
 /*
- * XREFs of RtlpWow64ChangeThreadStateSuspend @ 0x180138908
+ * XREFs of RtlpWow64ChangeThreadStateSuspend @ 0x180138678
  * Callers:
- *     RtlWow64ChangeThreadState @ 0x180138610 (RtlWow64ChangeThreadState.c)
+ *     RtlWow64ChangeThreadState @ 0x180138380 (RtlWow64ChangeThreadState.c)
  * Callees:
- *     RtlpWow64OpenThreadProcess @ 0x1800F94C8 (RtlpWow64OpenThreadProcess.c)
- *     RtlpWow64IsNinjaSuspendRequiredForThread @ 0x180138A44 (RtlpWow64IsNinjaSuspendRequiredForThread.c)
- *     RtlpWow64NinjaSuspendThread @ 0x180138AD8 (RtlpWow64NinjaSuspendThread.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwResumeThread @ 0x18015F980 (ZwResumeThread.c)
- *     NtChangeThreadState @ 0x180160250 (NtChangeThreadState.c)
+ *     RtlpWow64OpenThreadProcess @ 0x1800F8C38 (RtlpWow64OpenThreadProcess.c)
+ *     RtlpWow64IsNinjaSuspendRequiredForThread @ 0x1801387B4 (RtlpWow64IsNinjaSuspendRequiredForThread.c)
+ *     RtlpWow64NinjaSuspendThread @ 0x180138848 (RtlpWow64NinjaSuspendThread.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwResumeThread @ 0x18015F880 (ZwResumeThread.c)
+ *     NtChangeThreadState @ 0x180160150 (NtChangeThreadState.c)
  */
 
-__int64 __fastcall RtlpWow64ChangeThreadStateSuspend(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
+__int64 __fastcall RtlpWow64ChangeThreadStateSuspend(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE SourceHandle,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 a5)
 {
+  int v5; // r14d
   int IsNinjaSuspendRequiredForThread; // edi
-  int v10; // ebx
-  int v12; // [rsp+30h] [rbp-20h] BYREF
+  SIZE_T ExtendedInformationLengtha; // [rsp+20h] [rbp-30h]
+  ULONG64 Reserved; // [rsp+28h] [rbp-28h]
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
-  __int128 v14; // [rsp+40h] [rbp-10h] BYREF
+  _CLIENT_ID v14; // [rsp+40h] [rbp-10h] BYREF
 
+  v5 = ExtendedInformationLength;
   Handle = 0LL;
-  v12 = 0;
   v14 = 0LL;
-  IsNinjaSuspendRequiredForThread = RtlpWow64OpenThreadProcess(a2, a2, a3, &Handle, &v14);
+  IsNinjaSuspendRequiredForThread = RtlpWow64OpenThreadProcess(
+                                      SourceHandle,
+                                      (__int64)SourceHandle,
+                                      (__int64)ExtendedInformation,
+                                      &Handle,
+                                      &v14);
   if ( IsNinjaSuspendRequiredForThread >= 0 )
   {
-    IsNinjaSuspendRequiredForThread = RtlpWow64IsNinjaSuspendRequiredForThread(Handle, &v14, &v12);
+    IsNinjaSuspendRequiredForThread = RtlpWow64IsNinjaSuspendRequiredForThread(Handle);
     if ( IsNinjaSuspendRequiredForThread >= 0 )
     {
-      if ( v12 )
-      {
-        if ( a4 )
-        {
-          IsNinjaSuspendRequiredForThread = -1073741820;
-        }
-        else if ( a3 || a5 )
-        {
-          IsNinjaSuspendRequiredForThread = -1073741811;
-        }
-        else
-        {
-          IsNinjaSuspendRequiredForThread = RtlpWow64NinjaSuspendThread(Handle, a2, &v14, 0LL);
-          if ( IsNinjaSuspendRequiredForThread >= 0 )
-          {
-            v10 = NtChangeThreadState(a1, a2, 0LL, 0LL, 0, 0);
-            ZwResumeThread(a2, 0LL);
-            IsNinjaSuspendRequiredForThread = 0;
-            if ( v10 < 0 )
-              IsNinjaSuspendRequiredForThread = v10;
-          }
-        }
-      }
-      else
-      {
-        IsNinjaSuspendRequiredForThread = NtChangeThreadState(a1, a2, 0LL, a3, a4, a5);
-      }
+      LODWORD(Reserved) = a5;
+      LODWORD(ExtendedInformationLengtha) = v5;
+      IsNinjaSuspendRequiredForThread = NtChangeThreadState(
+                                          ThreadStateChangeHandle,
+                                          SourceHandle,
+                                          ThreadStateChangeSuspend,
+                                          ExtendedInformation,
+                                          ExtendedInformationLengtha,
+                                          Reserved);
     }
   }
   if ( Handle )

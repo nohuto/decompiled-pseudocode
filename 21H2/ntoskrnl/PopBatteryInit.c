@@ -1,7 +1,7 @@
 /*
- * XREFs of PopBatteryInit @ 0x140A702C8
+ * XREFs of PopBatteryInit @ 0x140A712C8
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -12,30 +12,30 @@ LIST_ENTRY *PopBatteryInit()
   _DWORD *v1; // rax
   LIST_ENTRY *result; // rax
 
-  dword_140C237AC = -1;
-  qword_140C23648 = (__int64)&qword_140C23640;
-  qword_140C23640 = (__int64)&qword_140C23640;
-  qword_140C23658 = (__int64)&qword_140C23650;
+  dword_140C23DCC = -1;
+  qword_140C23C68 = (__int64)&qword_140C23C60;
+  qword_140C23C60 = (__int64)&qword_140C23C60;
+  qword_140C23C78 = (__int64)&qword_140C23C70;
   v0 = 4LL;
-  qword_140C23650 = (__int64)&qword_140C23650;
+  qword_140C23C70 = (__int64)&qword_140C23C70;
   PopBatteryWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopBatteryWorker;
-  v1 = &unk_140C23748;
-  *(_OWORD *)&xmmword_140C237F0 = 0LL;
-  qword_140C23628 = 0LL;
-  xmmword_140C237C8 = 0LL;
+  v1 = &unk_140C23D68;
+  *(_OWORD *)&xmmword_140C23E10 = 0LL;
+  qword_140C23C48 = 0LL;
+  xmmword_140C23DE8 = 0LL;
   *(_QWORD *)&PopCB = 0LL;
-  xmmword_140C23800 = 0LL;
-  xmmword_140C237F0 = 0LL;
-  *(_QWORD *)&xmmword_140C237C8 = 0LL;
-  xmmword_140C23810 = 0LL;
-  LOBYTE(xmmword_140C23800) = 1;
-  byte_140C237A8 = 0;
-  byte_140C237BC = 0;
-  dword_140C237C0 = 0;
-  byte_140C237C4 = 0;
-  dword_140C237B8 = 0;
-  dword_140C237D8 = 0;
-  qword_140C237E0 = 0LL;
+  xmmword_140C23E20 = 0LL;
+  xmmword_140C23E10 = 0LL;
+  *(_QWORD *)&xmmword_140C23DE8 = 0LL;
+  xmmword_140C23E30 = 0LL;
+  LOBYTE(xmmword_140C23E20) = 1;
+  byte_140C23DC8 = 0;
+  byte_140C23DDC = 0;
+  dword_140C23DE0 = 0;
+  byte_140C23DE4 = 0;
+  dword_140C23DD8 = 0;
+  dword_140C23DF8 = 0;
+  qword_140C23E00 = 0LL;
   PopBatteryWorkItem.Parameter = 0LL;
   PopBatteryWorkItem.List.Flink = 0LL;
   do
@@ -45,39 +45,39 @@ LIST_ENTRY *PopBatteryInit()
     --v0;
   }
   while ( v0 );
-  *(_QWORD *)&stru_140C236A8.Header.Lock = 8LL;
-  stru_140C23728.Header.WaitListHead.Blink = &stru_140C23728.Header.WaitListHead;
-  stru_140C23728.Header.WaitListHead.Flink = &stru_140C23728.Header.WaitListHead;
-  qword_140C23700 = (__int64)PopBatteryWakeDpc;
-  stru_140C236A8.Header.WaitListHead.Blink = &stru_140C236A8.Header.WaitListHead;
-  stru_140C236A8.Header.WaitListHead.Flink = &stru_140C236A8.Header.WaitListHead;
-  LOWORD(stru_140C23728.Header.Lock) = 1;
-  stru_140C23728.Header.Size = 6;
-  stru_140C23728.Header.SignalState = 0;
-  qword_140C237E8 = 0LL;
-  dword_140C236E8 = 275;
-  qword_140C23708 = 0LL;
-  qword_140C23720 = 0LL;
-  qword_140C236F8 = 0LL;
-  stru_140C236A8.DueTime.QuadPart = 0LL;
-  stru_140C236A8.Period = 0;
-  stru_140C236A8.Processor = 0;
-  byte_140C23638 = 0;
-  dword_140C2369C = 0;
-  *(_QWORD *)&stru_140C22B80.Header.Lock = 8LL;
+  *(_QWORD *)&stru_140C23CC8.Header.Lock = 8LL;
+  stru_140C23D48.Header.WaitListHead.Blink = &stru_140C23D48.Header.WaitListHead;
+  stru_140C23D48.Header.WaitListHead.Flink = &stru_140C23D48.Header.WaitListHead;
+  qword_140C23D20 = (__int64)PopBatteryWakeDpc;
+  stru_140C23CC8.Header.WaitListHead.Blink = &stru_140C23CC8.Header.WaitListHead;
+  stru_140C23CC8.Header.WaitListHead.Flink = &stru_140C23CC8.Header.WaitListHead;
+  LOWORD(stru_140C23D48.Header.Lock) = 1;
+  stru_140C23D48.Header.Size = 6;
+  stru_140C23D48.Header.SignalState = 0;
+  qword_140C23E08 = 0LL;
+  dword_140C23D08 = 275;
+  qword_140C23D28 = 0LL;
+  qword_140C23D40 = 0LL;
+  qword_140C23D18 = 0LL;
+  stru_140C23CC8.DueTime.QuadPart = 0LL;
+  stru_140C23CC8.Period = 0;
+  stru_140C23CC8.Processor = 0;
+  byte_140C23C58 = 0;
+  dword_140C23CBC = 0;
+  *(_QWORD *)&stru_140C22BE0.Header.Lock = 8LL;
   PopEstimateSpoiledUntilTime = MEMORY[0xFFFFF78000000008] + 300000000LL;
-  qword_140C22B58 = (__int64)PopRefreshEstimateAfterSpoilingDpc;
-  result = &stru_140C22B80.Header.WaitListHead;
-  stru_140C22B80.Header.WaitListHead.Blink = &stru_140C22B80.Header.WaitListHead;
-  stru_140C22B80.Header.WaitListHead.Flink = &stru_140C22B80.Header.WaitListHead;
+  qword_140C22BB8 = (__int64)PopRefreshEstimateAfterSpoilingDpc;
+  result = &stru_140C22BE0.Header.WaitListHead;
+  stru_140C22BE0.Header.WaitListHead.Blink = &stru_140C22BE0.Header.WaitListHead;
+  stru_140C22BE0.Header.WaitListHead.Flink = &stru_140C22BE0.Header.WaitListHead;
   PopPostSpoilingRefresh = 275;
-  qword_140C22B60 = 0LL;
-  qword_140C22B78 = 0LL;
-  qword_140C22B50 = 0LL;
-  stru_140C22B80.DueTime.QuadPart = 0LL;
-  stru_140C22B80.Period = 0;
-  stru_140C22B80.Processor = 0;
-  byte_140C23740 = 1;
+  qword_140C22BC0 = 0LL;
+  qword_140C22BD8 = 0LL;
+  qword_140C22BB0 = 0LL;
+  stru_140C22BE0.DueTime.QuadPart = 0LL;
+  stru_140C22BE0.Period = 0;
+  stru_140C22BE0.Processor = 0;
+  byte_140C23D60 = 1;
   PopBatteryInitiateIgnoreStatusDuringBoot = 1;
   return result;
 }

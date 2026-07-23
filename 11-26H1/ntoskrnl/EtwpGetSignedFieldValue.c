@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpGetSignedFieldValue @ 0x1406C9C8C
+ * XREFs of EtwpGetSignedFieldValue @ 0x1406CDC6C
  * Callers:
- *     EtwpApplyPredicate @ 0x1406C966C (EtwpApplyPredicate.c)
+ *     EtwpApplyPredicate @ 0x1406CD64C (EtwpApplyPredicate.c)
  * Callees:
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ExSystemExceptionFilter @ 0x140836A60 (ExSystemExceptionFilter.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     ExSystemExceptionFilter @ 0x14083CCA0 (ExSystemExceptionFilter.c)
  */
 
 char __fastcall EtwpGetSignedFieldValue(_BYTE *a1, int a2, __int64 *a3, char a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetNextRange @ 0x14073F7D0
+ * XREFs of RtlGetNextRange @ 0x1407409C0
  * Callers:
- *     ArbOverrideConflict @ 0x14073F1F0 (ArbOverrideConflict.c)
- *     ArbShareDriverExclusive @ 0x14073F2A4 (ArbShareDriverExclusive.c)
- *     RtlpIsRangeAvailable @ 0x14073F6F0 (RtlpIsRangeAvailable.c)
+ *     ArbOverrideConflict @ 0x1407403E0 (ArbOverrideConflict.c)
+ *     ArbShareDriverExclusive @ 0x140740494 (ArbShareDriverExclusive.c)
+ *     RtlpIsRangeAvailable @ 0x1407408E0 (RtlpIsRangeAvailable.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ NTSTATUS __stdcall RtlGetNextRange(PRTL_RANGE_LIST_ITERATOR Iterator, PRTL_RANGE
 {
   PLIST_ENTRY RangeListHead; // r11
   _QWORD *Current; // rax
-  struct _LIST_ENTRY *v7; // r8
+  _LIST_ENTRY *v7; // r8
   PLIST_ENTRY MergedHead; // rax
   struct _LIST_ENTRY **p_Blink; // rcx
   NTSTATUS result; // eax
@@ -26,9 +26,9 @@ NTSTATUS __stdcall RtlGetNextRange(PRTL_RANGE_LIST_ITERATOR Iterator, PRTL_RANGE
   if ( Current )
   {
     if ( MoveForwards )
-      v7 = (struct _LIST_ENTRY *)Current[5];
+      v7 = (_LIST_ENTRY *)Current[5];
     else
-      v7 = (struct _LIST_ENTRY *)Current[6];
+      v7 = (_LIST_ENTRY *)Current[6];
     MergedHead = Iterator->MergedHead;
     p_Blink = &v7[-3].Blink;
     if ( MergedHead )

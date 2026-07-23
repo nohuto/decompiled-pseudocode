@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpInitializeAutoLoggers @ 0x1407AF194
+ * XREFs of EtwpInitializeAutoLoggers @ 0x1407AF5E4
  * Callers:
- *     EtwpInitializeSiloState @ 0x1407A815C (EtwpInitializeSiloState.c)
+ *     EtwpInitializeSiloState @ 0x1407A829C (EtwpInitializeSiloState.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     RtlInitializeGenericTableAvl @ 0x14045C170 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwStartAutoLogger @ 0x1407ADDF8 (EtwStartAutoLogger.c)
- *     EtwpEnumerateAutologgerPath @ 0x1407AEE98 (EtwpEnumerateAutologgerPath.c)
- *     EtwpFreeKeyNameList @ 0x1407AF160 (EtwpFreeKeyNameList.c)
- *     RtlGetPersistedStateLocation @ 0x1409CC0E0 (RtlGetPersistedStateLocation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EtwpEnableBootLoggerRegistryProviders @ 0x140C3E488 (EtwpEnableBootLoggerRegistryProviders.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x140451510 (RtlInitializeGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwStartAutoLogger @ 0x1407AE248 (EtwStartAutoLogger.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407AF2E8 (EtwpEnumerateAutologgerPath.c)
+ *     EtwpFreeKeyNameList @ 0x1407AF5B0 (EtwpFreeKeyNameList.c)
+ *     RtlGetPersistedStateLocation @ 0x1409B4B60 (RtlGetPersistedStateLocation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EtwpEnableBootLoggerRegistryProviders @ 0x140C405D8 (EtwpEnableBootLoggerRegistryProviders.c)
  */
 
 PVOID __fastcall EtwpInitializeAutoLoggers(__int64 a1)
@@ -40,8 +40,8 @@ PVOID __fastcall EtwpInitializeAutoLoggers(__int64 a1)
   void *Pool2; // rdi
   void *v22; // rbx
   BOOLEAN NewElement[4]; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v25; // [rsp+4Ch] [rbp-BCh] BYREF
-  RTL_AVL_TABLE Table; // [rsp+58h] [rbp-B0h] BYREF
+  ULONG BufferLengthOut[3]; // [rsp+4Ch] [rbp-BCh] BYREF
+  _RTL_AVL_TABLE Table; // [rsp+58h] [rbp-B0h] BYREF
   WCHAR SourceString[16]; // [rsp+C8h] [rbp-40h] BYREF
   _OWORD Path[8]; // [rsp+E8h] [rbp-20h] BYREF
   int v29; // [rsp+168h] [rbp+60h]
@@ -106,18 +106,32 @@ PVOID __fastcall EtwpInitializeAutoLoggers(__int64 a1)
       }
     }
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x208uLL, 0x74777445u);
   if ( Pool2 )
   {
-    if ( (unsigned int)RtlGetPersistedStateLocation(L"ETWAutoLoggerPath", Pool2, 520, (__int64)&v25) )
+    if ( RtlGetPersistedStateLocation(
+           L"ETWAutoLoggerPath",
+           0LL,
+           0LL,
+           LocationTypeRegistry,
+           (PWCHAR)Pool2,
+           0x208u,
+           BufferLengthOut) )
     {
       ExFreePoolWithTag(Pool2, 0x74777445u);
       Pool2 = 0LL;
     }
-    v22 = (void *)ExAllocatePool2(0x100uLL);
+    v22 = (void *)ExAllocatePool2(0x100uLL, 0x208uLL, 0x74777445u);
     if ( v22 )
     {
-      if ( (unsigned int)RtlGetPersistedStateLocation(L"ETWGlobalLoggerPath", v22, 520, (__int64)&v25) )
+      if ( RtlGetPersistedStateLocation(
+             L"ETWGlobalLoggerPath",
+             0LL,
+             0LL,
+             LocationTypeRegistry,
+             (PWCHAR)v22,
+             0x208u,
+             BufferLengthOut) )
       {
         ExFreePoolWithTag(v22, 0x74777445u);
         v22 = 0LL;

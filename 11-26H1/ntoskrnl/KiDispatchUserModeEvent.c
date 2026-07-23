@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDispatchUserModeEvent @ 0x140C5D200
+ * XREFs of KiDispatchUserModeEvent @ 0x140C63200
  * Callers:
- *     KiEnterUserModeEvent @ 0x140C5D000 (KiEnterUserModeEvent.c)
+ *     KiEnterUserModeEvent @ 0x140C63000 (KiEnterUserModeEvent.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainEntry @ 0x140402A00 (KiSynchronizeUserIsolationDomainEntry.c)
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiRestoreDebugRegisterState @ 0x140533C30 (KiRestoreDebugRegisterState.c)
- *     KiCopyCounters @ 0x1405F3410 (KiCopyCounters.c)
- *     KiRestoreSetContextState @ 0x140728090 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x14072CBF0 (KiInitiateUserApc.c)
- *     KiDispatchUserModeEvent @ 0x140C5D200 (KiDispatchUserModeEvent.c)
+ *     KiSynchronizeUserIsolationDomainEntry @ 0x1403FBB00 (KiSynchronizeUserIsolationDomainEntry.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiRestoreDebugRegisterState @ 0x1405360B0 (KiRestoreDebugRegisterState.c)
+ *     KiCopyCounters @ 0x1405F5DD0 (KiCopyCounters.c)
+ *     KiRestoreSetContextState @ 0x14072CC60 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x1407317C0 (KiInitiateUserApc.c)
+ *     KiDispatchUserModeEvent @ 0x140C63200 (KiDispatchUserModeEvent.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -49,7 +49,7 @@ void __fastcall KiDispatchUserModeEvent(__int64 a1, __int64 a2, double a3, doubl
         *(_BYTE *)(v5 - 85) = 2;
         *(_BYTE *)(v5 - 88) = 1;
         *(_QWORD *)(v5 - 72) = *(_QWORD *)(v5 - 40);
-        JUMPOUT(0x140C5D3B7LL);
+        JUMPOUT(0x140C633B7LL);
       }
     }
     else
@@ -58,7 +58,7 @@ void __fastcall KiDispatchUserModeEvent(__int64 a1, __int64 a2, double a3, doubl
       if ( v12 != 4 )
         v13 = 8LL;
       if ( (v13 & 0x320000000018LL) != 0 )
-        JUMPOUT(0x140C5D3C0LL);
+        JUMPOUT(0x140C633C0LL);
     }
     *(_DWORD *)(v5 + 264) &= ~0x20000u;
     *(_DWORD *)(v5 + 268) &= 0xFFF0FF00;

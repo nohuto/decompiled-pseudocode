@@ -3,9 +3,9 @@
  * Callers:
  *     RtlpIsALicensedRegularLanguage @ 0x18003C1F0 (RtlpIsALicensedRegularLanguage.c)
  *     RtlpIsALicensedLIPLanguage @ 0x18003D078 (RtlpIsALicensedLIPLanguage.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x1800EF824 (RtlpAddLanguagesToMultiSZ.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x180106510 (_RtlpMuiRegAddBaseLanguage.c)
- *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1801073B8 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x1800EF7E4 (RtlpAddLanguagesToMultiSZ.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x1801064D0 (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x180107378 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
  * Callees:
  *     _wcsicmp @ 0x18008E370 (_wcsicmp.c)
  */

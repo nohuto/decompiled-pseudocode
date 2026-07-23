@@ -9,22 +9,22 @@
  *     RtlAcquireSRWLockShared @ 0x180009F00 (RtlAcquireSRWLockShared.c)
  *     RtlpHpStackTraceAllocRemove @ 0x1801049E4 (RtlpHpStackTraceAllocRemove.c)
  *     RtlpHpStackTraceHeapGetContext @ 0x180104F0C (RtlpHpStackTraceHeapGetContext.c)
- *     RtlStackDbStackRemove @ 0x180115FB4 (RtlStackDbStackRemove.c)
+ *     RtlStackDbStackRemove @ 0x180115F50 (RtlStackDbStackRemove.c)
  */
 
-signed __int64 __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, __int64 a2)
 {
-  unsigned __int64 *v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rax
-  __int64 v10; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // [rsp+40h] [rbp+18h] BYREF
 
-  RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext, a2, a3, a4);
-  if ( (dword_180166388 & 1) != 0 && (dword_180166388 & 2) != 0 && (int)RtlpHpStackTraceHeapGetContext(a1, 0, &v10) >= 0 )
+  RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext);
+  if ( (dword_180166388 & 1) != 0
+    && (dword_180166388 & 2) != 0
+    && RtlpHpStackTraceHeapGetContext(a1, 0, (PVOID *)&v5) >= 0 )
   {
-    v8 = RtlpHpStackTraceAllocRemove(v10, (unsigned __int64)a2, v6, v7);
-    if ( v8 )
-      RtlStackDbStackRemove(&qword_180166390, v8);
+    v4 = RtlpHpStackTraceAllocRemove(v5, a2);
+    if ( v4 )
+      RtlStackDbStackRemove(&qword_180166390, v4);
   }
-  return RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
 }

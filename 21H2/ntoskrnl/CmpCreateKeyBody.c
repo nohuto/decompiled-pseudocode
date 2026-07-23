@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpCreateKeyBody @ 0x1406FC690
+ * XREFs of CmpCreateKeyBody @ 0x140713A70
  * Callers:
- *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406225AC (CmpStartSiloRegistryNamespace.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ObpCaptureObjectCreateInformation @ 0x140656440 (ObpCaptureObjectCreateInformation.c)
- *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
- *     ObpFreeObjectNameBuffer @ 0x140661348 (ObpFreeObjectNameBuffer.c)
- *     CmpRecordParseFailure @ 0x14068A510 (CmpRecordParseFailure.c)
- *     CmpTransReferenceTransaction @ 0x1406A3280 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpIsKeyStackDeleted @ 0x1406FB540 (CmpIsKeyStackDeleted.c)
- *     ObpAllocateObject @ 0x1406FF230 (ObpAllocateObject.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
- *     ObpRegisterObject @ 0x1408DEDCC (ObpRegisterObject.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
+ *     CmpTransReferenceTransaction @ 0x1405DEF80 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1405DEFE0 (CmpTransDereferenceTransaction.c)
+ *     CmpRecordParseFailure @ 0x1405E99A0 (CmpRecordParseFailure.c)
+ *     ObpCaptureObjectCreateInformation @ 0x14064B260 (ObpCaptureObjectCreateInformation.c)
+ *     SeReleaseSecurityDescriptor @ 0x140651570 (SeReleaseSecurityDescriptor.c)
+ *     ObpFreeObjectNameBuffer @ 0x140656168 (ObpFreeObjectNameBuffer.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406643E8 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpIsKeyStackDeleted @ 0x140712920 (CmpIsKeyStackDeleted.c)
+ *     ObpAllocateObject @ 0x140716610 (ObpAllocateObject.c)
+ *     ObpRegisterObject @ 0x1408DEF2C (ObpRegisterObject.c)
  */
 
 __int64 __fastcall CmpCreateKeyBody(
@@ -92,7 +92,7 @@ __int64 __fastcall CmpCreateKeyBody(
       {
         CmpRecordParseFailure(a3, 131840, v36);
 LABEL_47:
-        CmpDereferenceKeyControlBlockUnsafe(BugCheckParameter2);
+        CmpDereferenceKeyControlBlockUnsafe((volatile signed __int64 *)BugCheckParameter2);
         return v21;
       }
     }

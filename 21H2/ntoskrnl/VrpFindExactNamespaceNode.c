@@ -4,7 +4,7 @@
  *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
  *     VrpAddNamespaceNodeToList @ 0x1405D33DC (VrpAddNamespaceNodeToList.c)
  *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
- *     VrpPreUnloadKey @ 0x140884160 (VrpPreUnloadKey.c)
+ *     VrpPreUnloadKey @ 0x1408842C0 (VrpPreUnloadKey.c)
  * Callees:
  *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
  */

@@ -429,7 +429,7 @@ __int64 __fastcall CmpDoParseKey(
   __int64 v317; // rbx
   int v318; // eax
   __int64 v319; // rdx
-  struct _SLIST_ENTRY *v320; // rdx
+  _SLIST_ENTRY *v320; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   PGENERIC_MAPPING GenericMapping; // [rsp+30h] [rbp-D0h]
@@ -1937,7 +1937,7 @@ LABEL_690:
                             {
                               if ( KeGetCurrentThread()->PreviousMode == 1
                                 && (SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process),
-                                    SessionId != (unsigned int)RtlGetCurrentServiceSessionId())
+                                    SessionId != RtlGetCurrentServiceSessionId())
                                 && (v271->RemainingDesiredAccess & 0xD0026) != 0
                                 && (unsigned __int8)CmpCheckWrpKeyAccess(v121) )
                               {
@@ -2181,7 +2181,7 @@ LABEL_451:
                                 if ( KeGetCurrentThread()->PreviousMode == 1 )
                                 {
                                   v244 = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-                                  if ( v244 != (unsigned int)RtlGetCurrentServiceSessionId() )
+                                  if ( v244 != RtlGetCurrentServiceSessionId() )
                                   {
                                     if ( (unsigned __int8)CmpCheckWrpKeyAccess(*(_QWORD *)v336) )
                                       CmpPublishEventForPcaResolver(*v159);
@@ -2287,7 +2287,7 @@ LABEL_451:
                                 if ( KeGetCurrentThread()->PreviousMode == 1 )
                                 {
                                   v249 = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-                                  if ( v249 != (unsigned int)RtlGetCurrentServiceSessionId() )
+                                  if ( v249 != RtlGetCurrentServiceSessionId() )
                                   {
                                     if ( (unsigned __int8)CmpCheckWrpKeyAccess(v248) )
                                       CmpPublishEventForPcaResolver(*v159);
@@ -3123,7 +3123,7 @@ LABEL_745:
     PsBoostThreadIo((__int64)KeGetCurrentThread(), v319);
     v16 = SymbolicLinkTarget;
   }
-  v320 = *(struct _SLIST_ENTRY **)&v390[40];
+  v320 = *(_SLIST_ENTRY **)&v390[40];
   if ( *(_QWORD *)&v390[40] )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -3140,7 +3140,7 @@ LABEL_745:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v320);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v320);
     }
     return (unsigned int)SymbolicLinkTarget;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpInitializeInheritedRestrictedSd @ 0x140A689C0
+ * XREFs of PnpInitializeInheritedRestrictedSd @ 0x140A61D70
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     RtlValidSecurityDescriptor @ 0x140867870 (RtlValidSecurityDescriptor.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlValidSecurityDescriptor @ 0x14086BB60 (RtlValidSecurityDescriptor.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpInitializeInheritedRestrictedSd(__int64 a1, __int64 a2, char a3)
@@ -65,7 +65,7 @@ void __fastcall PnpInitializeInheritedRestrictedSd(__int64 a1, __int64 a2, char 
     PnpSetObjectProperty(
       *(__int64 *)&PiPnpRtlCtx,
       *(_QWORD *)(a1 + 48),
-      1u,
+      1,
       a2,
       0LL,
       (__int64)&DEVPKEY_Device_InheritedRestrictedSD,

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceControlAreaForCacheManager @ 0x140021518
+ * XREFs of MiReferenceControlAreaForCacheManager @ 0x140021098
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1400218CC (MiLockSectionControlArea.c)
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140026D70 (MiBuildWakeList.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x14002144C (MiLockSectionControlArea.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1400268F0 (MiBuildWakeList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiReferenceControlAreaForCacheManager(__int64 a1, int a2, int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeGetTopologySiblingGroupAffinityForProcessor @ 0x1402021F4
+ * XREFs of KeGetTopologySiblingGroupAffinityForProcessor @ 0x14032A8E4
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x140200488 (PpmParkComputeUnparkMask.c)
- *     KiBuildShareCountListForSubNodeByAffinity @ 0x14020212C (KiBuildShareCountListForSubNodeByAffinity.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     PpmParkComputeUnparkMask @ 0x140328B7C (PpmParkComputeUnparkMask.c)
+ *     KiBuildShareCountListForSubNodeByAffinity @ 0x14032A81C (KiBuildShareCountListForSubNodeByAffinity.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B5004 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B2278 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
  */
 
 __int64 __fastcall KeGetTopologySiblingGroupAffinityForProcessor(__int64 a1, int a2, _OWORD *a3)

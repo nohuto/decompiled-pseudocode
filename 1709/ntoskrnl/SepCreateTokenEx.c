@@ -41,9 +41,9 @@ __int64 __fastcall SepCreateTokenEx(
         int a6,
         __int64 a7,
         _QWORD *a8,
-        struct _SID_AND_ATTRIBUTES *a9,
+        _SID_AND_ATTRIBUTES *a9,
         ULONG Count,
-        struct _SID_AND_ATTRIBUTES *a11,
+        _SID_AND_ATTRIBUTES *a11,
         unsigned int a12,
         unsigned int a13,
         char **a14,
@@ -546,7 +546,10 @@ LABEL_113:
               &SidArea,
               &SidAreaSize);
           }
-          RtlSidHashInitialize(*((_QWORD *)v66 + 19), *((unsigned int *)v66 + 31), v66 + 232);
+          RtlSidHashInitialize(
+            *((PSID_AND_ATTRIBUTES *)v66 + 19),
+            *((_DWORD *)v66 + 31),
+            (PSID_AND_ATTRIBUTES_HASH)(v66 + 232));
           *((_QWORD *)v66 + 20) = 0LL;
           *((_DWORD *)v66 + 32) = 0;
           v75 = (char *)ExAllocatePoolWithTag(PagedPool, v61, 0x64546553u);

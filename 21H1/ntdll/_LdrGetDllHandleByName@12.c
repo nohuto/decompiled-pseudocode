@@ -10,32 +10,32 @@
  *     _LdrpFatalExceptionFilter@4 @ 0x4B3348A9 (_LdrpFatalExceptionFilter@4.c)
  */
 
-int __stdcall LdrGetDllHandleByName(int a1, int a2, _DWORD *a3)
+NTSTATUS __cdecl LdrGetDllHandleByName(PUNICODE_STRING BaseDllName, PUNICODE_STRING FullDllName, PVOID *DllHandle)
 {
-  int v3; // esi
+  PVOID v3; // esi
   int v5; // [esp+10h] [ebp-24h] BYREF
-  int v6; // [esp+14h] [ebp-20h] BYREF
-  int LoadedDllByName; // [esp+18h] [ebp-1Ch]
+  PVOID BaseAddress; // [esp+14h] [ebp-20h] BYREF
+  NTSTATUS LoadedDllByName; // [esp+18h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
   LoadedDllByName = -1073741823;
   ms_exc.registration.TryLevel = 0;
-  LoadedDllByName = LdrpFindLoadedDllByName(0, &v6, &v5);
+  LoadedDllByName = LdrpFindLoadedDllByName(0, &BaseAddress, &v5);
   if ( LoadedDllByName >= 0 )
   {
     if ( v5 < 7 )
     {
       LoadedDllByName = -1073741515;
-      v3 = v6;
+      v3 = BaseAddress;
     }
     else
     {
-      v3 = v6;
-      LoadedDllByName = LdrpIncrementModuleLoadCount(v6);
+      v3 = BaseAddress;
+      LoadedDllByName = LdrpIncrementModuleLoadCount(BaseAddress);
       if ( LoadedDllByName >= 0 )
-        *a3 = *(_DWORD *)(v3 + 24);
+        *DllHandle = (PVOID)*((_DWORD *)v3 + 6);
     }
-    LdrpDereferenceModule(v3);
+    LdrpDereferenceModule((char *)v3);
   }
   ms_exc.registration.TryLevel = -2;
   return LoadedDllByName;

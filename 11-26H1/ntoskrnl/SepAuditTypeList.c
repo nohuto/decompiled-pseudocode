@@ -1,7 +1,7 @@
 /*
- * XREFs of SepAuditTypeList @ 0x140813EE4
+ * XREFs of SepAuditTypeList @ 0x140819D44
  * Callers:
- *     SepSetAuditInfoForObjectType @ 0x140813F90 (SepSetAuditInfoForObjectType.c)
+ *     SepSetAuditInfoForObjectType @ 0x140819DF0 (SepSetAuditInfoForObjectType.c)
  * Callees:
  *     <none>
  */

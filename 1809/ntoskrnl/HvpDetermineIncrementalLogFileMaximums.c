@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpDetermineIncrementalLogFileMaximums @ 0x140806BB0
+ * XREFs of HvpDetermineIncrementalLogFileMaximums @ 0x140807DB0
  * Callers:
- *     HvAnalyzeLogFiles @ 0x1408060D4 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x1408072D4 (HvAnalyzeLogFiles.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvpIsLogEntryHeaderCoherent @ 0x140806C8C (HvpIsLogEntryHeaderCoherent.c)
- *     HvpReadLogEntryHeader @ 0x14080714C (HvpReadLogEntryHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x140807E8C (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpReadLogEntryHeader @ 0x14080834C (HvpReadLogEntryHeader.c)
  */
 
 __int64 __fastcall HvpDetermineIncrementalLogFileMaximums(__int64 a1, __int64 a2, unsigned int *a3, unsigned int *a4)

@@ -37,8 +37,8 @@ char __fastcall RtlpGrowBlockInPlace(
   unsigned __int64 v20; // rax
   unsigned int v21; // r8d
   char v22; // al
-  unsigned __int64 v23; // r14
-  __int64 v24; // r13
+  SIZE_T v23; // r14
+  SIZE_T v24; // r13
   char v25; // r13
   __int16 v26; // r11
   __int64 v27; // rdx
@@ -134,7 +134,7 @@ LABEL_14:
   }
   *v15 = v16;
   *(_QWORD *)(v16 + 8) = v15;
-  if ( (*(_BYTE *)(v11 + 10) & 8) != 0 && !(unsigned __int8)RtlpCommitBlock(a1, v11, v15) )
+  if ( (*(_BYTE *)(v11 + 10) & 8) != 0 && !(unsigned __int8)RtlpCommitBlock(a1) )
   {
     LOBYTE(v54) = 1;
     RtlpDeCommitFreeBlock(a1, v11, *(unsigned __int16 *)(v11 + 8), v54);
@@ -146,7 +146,7 @@ LABEL_14:
     v23 = 16LL * *(unsigned __int16 *)(v11 + 8) - 32;
     if ( (v22 & 2) != 0 && v23 > 4 )
       v23 = 16LL * *(unsigned __int16 *)(v11 + 8) - 36;
-    v24 = RtlCompareMemoryUlong(v11 + 32, v23, 4277075694LL);
+    v24 = RtlCompareMemoryUlong((PVOID)(v11 + 32), v23, 0xFEEEFEEE);
     if ( v24 != v23 )
     {
       if ( NtCurrentPeb()->Ldr )

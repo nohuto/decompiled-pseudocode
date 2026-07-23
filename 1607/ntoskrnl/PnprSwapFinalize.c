@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprSwapFinalize @ 0x1401D0B38
+ * XREFs of PnprSwapFinalize @ 0x1401D0964
  * Callers:
- *     PnprSwap @ 0x1401D0914 (PnprSwap.c)
+ *     PnprSwap @ 0x1401D0740 (PnprSwap.c)
  * Callees:
- *     PnprRecopyMirrorPages @ 0x1401D07A0 (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x1401D05CC (PnprRecopyMirrorPages.c)
  *     PnprGetMillisecondCounter @ 0x1403DBA40 (PnprGetMillisecondCounter.c)
  */
 

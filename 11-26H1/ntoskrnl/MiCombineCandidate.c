@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCombineCandidate @ 0x1402F3F80
+ * XREFs of MiCombineCandidate @ 0x1402D6000
  * Callers:
- *     MiMapArbitraryPage @ 0x1402F2C80 (MiMapArbitraryPage.c)
- *     MiComputeCombineHash @ 0x1402F39F0 (MiComputeCombineHash.c)
- *     MiSharePagesLockPageTable @ 0x1403072AC (MiSharePagesLockPageTable.c)
- *     MiCrcStillIntact @ 0x140307648 (MiCrcStillIntact.c)
- *     MiRecheckCombineVm @ 0x14040424C (MiRecheckCombineVm.c)
- *     MiCapturePfnVm @ 0x1405136D0 (MiCapturePfnVm.c)
- *     MiCombinePte @ 0x140704430 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     MiMapArbitraryPage @ 0x1402D4D00 (MiMapArbitraryPage.c)
+ *     MiComputeCombineHash @ 0x1402D5A70 (MiComputeCombineHash.c)
+ *     MiSharePagesLockPageTable @ 0x1402E932C (MiSharePagesLockPageTable.c)
+ *     MiCrcStillIntact @ 0x1402E96C8 (MiCrcStillIntact.c)
+ *     MiRecheckCombineVm @ 0x1403FD34C (MiRecheckCombineVm.c)
+ *     MiCapturePfnVm @ 0x14050D140 (MiCapturePfnVm.c)
+ *     MiCombinePte @ 0x140709100 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MI_IS_RESET_PTE @ 0x140367DF0 (MI_IS_RESET_PTE.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MI_IS_RESET_PTE @ 0x140369B90 (MI_IS_RESET_PTE.c)
  */
 
 __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, const __m128i *a3)
@@ -38,7 +38,7 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, const __m128i *a3)
   if ( (v16.m128i_i32[0] & 0x70000u) <= 0x10000 )
     return 0LL;
   v5 = v14.m128i_u64[1];
-  if ( *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)v16.m128i_i64[1] >> 43) & 0x3FF)) != *a1
+  if ( *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)v16.m128i_i64[1] >> 43) & 0x3FF)) != *a1
     && (a2 & 1) == 0 )
   {
     return 0LL;
@@ -56,17 +56,17 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, const __m128i *a3)
   {
     return 0LL;
   }
-  if ( byte_140E3BD26 )
+  if ( byte_140E3BEA6 )
   {
     v6 = (unsigned __int64)((__int64)a3[0x22000000000LL].m128i_i64 / 48) >> 9;
-    if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v6) )
+    if ( *(_BYTE *)(qword_140E3D240 + 2 * v6) )
     {
-      if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v6) != 10 )
+      if ( *(_BYTE *)(qword_140E3D240 + 2 * v6) != 10 )
         return 0LL;
     }
   }
   v7 = v15.m128i_i64[0];
-  if ( (v15.m128i_i8[0] & 1) != 0 || v15.m128i_i64[0] && qword_140E2D740 && (qword_140E2D740 & v15.m128i_i64[0]) == 0 )
+  if ( (v15.m128i_i8[0] & 1) != 0 || v15.m128i_i64[0] && qword_140E2D8C0 && (qword_140E2D8C0 & v15.m128i_i64[0]) == 0 )
     return 0LL;
   v8 = ((unsigned __int64)v15.m128i_i64[0] >> 5) & 0x1F;
   if ( (_DWORD)v8 == 24
@@ -81,7 +81,7 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, const __m128i *a3)
   if ( v9 < 0xFFFF800000000000uLL )
     v10 = 0;
   else
-    v10 = (unsigned __int8)byte_140E37A70[((v9 >> 39) & 0x1FF) - 256];
+    v10 = (unsigned __int8)byte_140E37BF0[((v9 >> 39) & 0x1FF) - 256];
   if ( v5 > 0xFFFFF6BFFFFFFF78uLL )
   {
     if ( v10 != 5 )
@@ -112,11 +112,11 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, const __m128i *a3)
     if ( (v7 & 0x800) == 0 && (v7 & 8) == 0 && (v7 & 4) == 0 )
     {
       v13 = HIDWORD(v7);
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v13 = HIDWORD(v7);
         if ( (v7 & 0x10) == 0 )
-          v13 = HIDWORD(qword_140E2D748) & HIDWORD(v7);
+          v13 = HIDWORD(qword_140E2D8C8) & HIDWORD(v7);
       }
       if ( v13 == 1 )
         return 0LL;

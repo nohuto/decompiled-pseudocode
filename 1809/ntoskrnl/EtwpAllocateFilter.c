@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAllocateFilter @ 0x1408C175C
+ * XREFs of EtwpAllocateFilter @ 0x1408C2A1C
  * Callers:
- *     EtwpValidateFilterDescriptors @ 0x1408C2654 (EtwpValidateFilterDescriptors.c)
- *     EtwpValidateTraceControlFilterDescriptors @ 0x1408C280C (EtwpValidateTraceControlFilterDescriptors.c)
+ *     EtwpValidateFilterDescriptors @ 0x1408C3914 (EtwpValidateFilterDescriptors.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x1408C3ACC (EtwpValidateTraceControlFilterDescriptors.c)
  * Callees:
- *     EtwpAllocateEventNameFilter @ 0x1408C139C (EtwpAllocateEventNameFilter.c)
- *     EtwpAllocatePayloadFilterData @ 0x1408C18F0 (EtwpAllocatePayloadFilterData.c)
- *     EtwpAllocateStringFilterData @ 0x1408C1978 (EtwpAllocateStringFilterData.c)
- *     EtwpCreatePerfectHashFunction @ 0x1408C1F5C (EtwpCreatePerfectHashFunction.c)
+ *     EtwpAllocateEventNameFilter @ 0x1408C265C (EtwpAllocateEventNameFilter.c)
+ *     EtwpAllocatePayloadFilterData @ 0x1408C2BB0 (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocateStringFilterData @ 0x1408C2C38 (EtwpAllocateStringFilterData.c)
+ *     EtwpCreatePerfectHashFunction @ 0x1408C321C (EtwpCreatePerfectHashFunction.c)
  */
 
 __int64 __fastcall EtwpAllocateFilter(int a1, _DWORD *a2, __int64 a3, __int64 a4)

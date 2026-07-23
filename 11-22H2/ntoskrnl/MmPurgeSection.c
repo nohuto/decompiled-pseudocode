@@ -127,10 +127,10 @@ char __fastcall MmPurgeSection(
   if ( (v6 & 1) == 0 && *((_DWORD *)v9 + 22) || !*((_QWORD *)v9 + 8) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v9 + 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -199,10 +199,10 @@ LABEL_11:
     *(_WORD *)(v21 + 32) |= 1u;
     v59 = SpinLock;
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v44 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v16 <= 0xFu && v44 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v16 <= 0xFu && v44 >= 2u )
       {
         v45 = KeGetCurrentPrcb();
         v23 = v45->SchedulerAssist;

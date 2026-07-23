@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpApplyRewaitBoost @ 0x1404EB388
+ * XREFs of ExpApplyRewaitBoost @ 0x1404E4968
  * Callers:
- *     ExpWaitForResource @ 0x140205F8C (ExpWaitForResource.c)
+ *     ExpWaitForResource @ 0x14020606C (ExpWaitForResource.c)
  * Callees:
- *     ExpApplyPriorityBoost @ 0x14020570C (ExpApplyPriorityBoost.c)
+ *     ExpApplyPriorityBoost @ 0x1402057EC (ExpApplyPriorityBoost.c)
  */
 
 void __fastcall ExpApplyRewaitBoost(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

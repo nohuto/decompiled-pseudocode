@@ -16,19 +16,19 @@ __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, unsigned __int8 a2)
   int v4; // ecx
   __int64 v5; // rdx
   __int64 v6; // rcx
-  int v8; // [rsp+58h] [rbp+10h] BYREF
+  int Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 48);
-  v8 = 0;
+  Buffer = 0;
   PopDiagTraceThermalOverthrottleState(v2, a2);
   PopAcquirePolicyLock(v4);
   if ( a2 )
   {
     if ( ++dword_140C22CE8 == 1 )
     {
-      v8 = 1;
+      Buffer = 1;
 LABEL_5:
-      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_OVERTHROTTLE, (__int64)&v8);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_OVERTHROTTLE, &Buffer, 4u, 0LL, 0LL, 0, 0);
     }
   }
   else if ( !--dword_140C22CE8 )

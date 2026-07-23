@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_storeN @ 0x1405AD280
+ * XREFs of __asan_storeN @ 0x1405AA1F0
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 signed __int8 __fastcall _asan_storeN(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)
@@ -15,7 +15,7 @@ signed __int8 __fastcall _asan_storeN(ULONG_PTR BugCheckParameter1, ULONG_PTR Bu
   signed __int8 v7; // cl
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( byte_140FCDC2A )
+  if ( byte_140FCECAA )
   {
     result = 0;
     if ( BugCheckParameter1 >= 0xFFFF800000000000uLL )

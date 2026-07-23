@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetWsleProtection @ 0x1400B5C20
+ * XREFs of MiGetWsleProtection @ 0x1400B5B60
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
- *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiGetPfnProtection @ 0x14011FD90 (MiGetPfnProtection.c)
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140085AF0 (MiSetReadOnlyOnSectionView.c)
+ *     MiWsleFlush @ 0x1400B3250 (MiWsleFlush.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiGetPfnProtection @ 0x14011FE00 (MiGetPfnProtection.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
  * Callees:
  *     <none>
  */

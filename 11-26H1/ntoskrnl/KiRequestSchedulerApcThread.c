@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRequestSchedulerApcThread @ 0x1405F6A2C
+ * XREFs of KiRequestSchedulerApcThread @ 0x1405F93EC
  * Callers:
- *     KiSlistRollbackDpc @ 0x1405E5540 (KiSlistRollbackDpc.c)
+ *     KiSlistRollbackDpc @ 0x1405E7EB0 (KiSlistRollbackDpc.c)
  * Callees:
- *     KiInsertQueueApc @ 0x14020B070 (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiInsertQueueApc @ 0x14020B150 (KiInsertQueueApc.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 __int64 __fastcall KiRequestSchedulerApcThread(__int64 a1)

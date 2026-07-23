@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUseDescriptorTypeUm @ 0x1409E7EA0
+ * XREFs of EtwpUseDescriptorTypeUm @ 0x1409E8130
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall EtwpUseDescriptorTypeUm(__int64 a1)

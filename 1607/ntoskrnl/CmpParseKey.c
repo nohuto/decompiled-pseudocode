@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpParseKey @ 0x14043BF00
+ * XREFs of CmpParseKey @ 0x14043ADD0
  * Callers:
  *     <none>
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140087418 (CmpAllocateTransientPoolWithTag.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmPostCallbackNotification @ 0x140439490 (CmPostCallbackNotification.c)
- *     CmpDoesParseEnterRegistryA @ 0x14043B260 (CmpDoesParseEnterRegistryA.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpCleanupParseContext @ 0x14046466C (CmpCleanupParseContext.c)
- *     CmpRollbackTransactionArray @ 0x140605148 (CmpRollbackTransactionArray.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x1400B0B88 (CmpAllocateTransientPoolWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmPostCallbackNotification @ 0x140438360 (CmPostCallbackNotification.c)
+ *     CmpDoesParseEnterRegistryA @ 0x14043A130 (CmpDoesParseEnterRegistryA.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpCleanupParseContext @ 0x14046353C (CmpCleanupParseContext.c)
+ *     CmpRollbackTransactionArray @ 0x1406051FC (CmpRollbackTransactionArray.c)
  */
 
 __int64 __fastcall CmpParseKey(

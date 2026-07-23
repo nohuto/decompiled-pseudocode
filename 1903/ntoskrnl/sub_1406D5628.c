@@ -16,7 +16,7 @@ __int64 __fastcall sub_1406D5628(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rbx
-  __int64 v6; // rdi
+  PRTL_BALANCED_NODE v6; // rdi
   int v7; // eax
   __int64 v8; // rcx
   int v9; // edi
@@ -32,7 +32,7 @@ __int64 __fastcall sub_1406D5628(__int64 a1, __int64 a2)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v5, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v5, v6, (ULONG_PTR)v5);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v13 = 0LL;
   v7 = sub_1405CACF4(a1 + 184, a2, 8u, &v13, &v11);
   v8 = v12;

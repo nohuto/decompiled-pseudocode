@@ -1,13 +1,13 @@
 /*
- * XREFs of PfTCreateTraceDump @ 0x1403E5A40
+ * XREFs of PfTCreateTraceDump @ 0x1403E7070
  * Callers:
- *     PfTGenerateTrace @ 0x1403E5A04 (PfTGenerateTrace.c)
+ *     PfTGenerateTrace @ 0x1403E7030 (PfTGenerateTrace.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PfTFreeBufferList @ 0x1403E6168 (PfTFreeBufferList.c)
+ *     PfTFreeBufferList @ 0x1403E7798 (PfTFreeBufferList.c)
  */
 
 __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
@@ -85,12 +85,12 @@ __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
 
   v1 = (_WORD *)((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL);
   memset((void *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 120), 0, 0x58uLL);
-  v2 = qword_140328058;
-  v3 = qword_140328060;
+  v2 = qword_140328098;
+  v3 = qword_1403280A0;
   v4 = 0;
   v5 = 0;
   v6 = 0;
-  for ( i = 0; (__int64 *)v2 != &qword_140328058; v2 = *(_QWORD *)v2 )
+  for ( i = 0; (__int64 *)v2 != &qword_140328098; v2 = *(_QWORD *)v2 )
     i += *(_DWORD *)(v2 + 32);
   v8 = 2LL * i;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x74546650u);
@@ -101,9 +101,9 @@ __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
     goto LABEL_62;
   }
   memset(PoolWithTag, 0, v8);
-  v10 = qword_140328060;
-  v11 = &qword_140328030;
-  *(_WORD *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 2) = *(_WORD *)(qword_140328060 + 36);
+  v10 = qword_1403280A0;
+  v11 = &qword_140328070;
+  *(_WORD *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 2) = *(_WORD *)(qword_1403280A0 + 36);
   do
   {
     v11 = (__int64 *)v11[1];
@@ -162,7 +162,7 @@ __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
             while ( 1 )
             {
               v69 = *(_QWORD *)(v69 + 8);
-              if ( (__int64 *)v69 == &qword_140328058 )
+              if ( (__int64 *)v69 == &qword_140328098 )
                 v69 = v10;
               if ( v69 == v3 )
                 break;
@@ -198,7 +198,7 @@ LABEL_17:
         {
           *(_WORD *)(v22 + 2 * v23) = -1;
           ++v6;
-          v10 = qword_140328060;
+          v10 = qword_1403280A0;
         }
       }
       if ( *(_QWORD *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) )
@@ -209,7 +209,7 @@ LABEL_17:
         {
           *(_WORD *)(v24 + 2 * v25) = -1;
           ++v6;
-          v10 = qword_140328060;
+          v10 = qword_1403280A0;
         }
       }
 LABEL_25:
@@ -218,7 +218,7 @@ LABEL_25:
     while ( v12 < *((_DWORD *)v11 + 4) );
     v4 = 0;
   }
-  while ( v11 != (__int64 *)qword_140328030 );
+  while ( v11 != (__int64 *)qword_140328070 );
   if ( v5 )
   {
     v26 = 16 * v5;
@@ -236,7 +236,7 @@ LABEL_25:
       *((_QWORD *)v29 + 4) = 0LL;
       v32 = (char *)(v29 + 14);
       *((_QWORD *)v29 + 5) = 0LL;
-      v33 = &qword_140328030;
+      v33 = &qword_140328070;
       *((_QWORD *)v29 + 6) = 0LL;
       v34 = (v26 + 31) & 0xFFFFFFF8;
       v29[4] = 852013;
@@ -307,7 +307,7 @@ LABEL_25:
                 *(_WORD *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = v41[5];
                 *(_WORD *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = v41[4];
               }
-              v45 = qword_140328060;
+              v45 = qword_1403280A0;
               v46 = (__int64 *)(v1 + 12);
               v47 = 2LL;
               do
@@ -322,7 +322,7 @@ LABEL_25:
                     while ( 1 )
                     {
                       v67 = *(_QWORD *)(v67 + 8);
-                      if ( (__int64 *)v67 == &qword_140328058 )
+                      if ( (__int64 *)v67 == &qword_140328098 )
                         v67 = v45;
                       if ( v67 == v3 )
                         break;
@@ -416,7 +416,7 @@ LABEL_52:
           }
           while ( v4 < *((_DWORD *)v33 + 4) );
         }
-        if ( v33 == (__int64 *)qword_140328030 )
+        if ( v33 == (__int64 *)qword_140328070 )
           break;
         v4 = 0;
       }
@@ -437,7 +437,7 @@ LABEL_52:
   }
   ExFreePoolWithTag(*(PVOID *)(((unsigned __int64)&v71 & 0xFFFFFFFFFFFFFFE0uLL) + 8), 0);
 LABEL_62:
-  PfTFreeBufferList(&unk_140328018);
-  PfTFreeBufferList(&unk_140328040);
+  PfTFreeBufferList(&unk_140328058);
+  PfTFreeBufferList(&unk_140328080);
   return v58;
 }

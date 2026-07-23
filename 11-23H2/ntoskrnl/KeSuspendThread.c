@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSuspendThread @ 0x140309E18
+ * XREFs of KeSuspendThread @ 0x14030A0A8
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PsSuspendThread @ 0x1407DB690 (PsSuspendThread.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PsSuspendThread @ 0x1407DB960 (PsSuspendThread.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiSuspendThread @ 0x140309F1C (KiSuspendThread.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiSuspendThread @ 0x14030A1AC (KiSuspendThread.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSuspendThread(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall KeSuspendThread(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;
@@ -43,10 +43,10 @@ __int64 __fastcall KeSuspendThread(__int64 a1)
   if ( v5 == 127 )
   {
     _InterlockedAnd(v4, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;
@@ -58,12 +58,12 @@ __int64 __fastcall KeSuspendThread(__int64 a1)
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(3221225546LL);
+    RtlRaiseStatus(-1073741750);
   }
   ++*(_BYTE *)(a1 + 644);
   if ( !(unsigned __int8)KiSuspendThread(a1, CurrentPrcb) )
     --*(_BYTE *)(a1 + 644);
   _InterlockedAnd(v4, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v5;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of IopErrorLogThread @ 0x140A48EE0
+ * XREFs of IopErrorLogThread @ 0x140A3FC00
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchCopyNW @ 0x14046744C (RtlStringCchCopyNW.c)
- *     IopErrorLogGetEntry @ 0x1404A8AFC (IopErrorLogGetEntry.c)
- *     IopErrorLogRequeueEntry @ 0x1404CEE50 (IopErrorLogRequeueEntry.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     EtwWriteErrorLogEntry @ 0x140A492C4 (EtwWriteErrorLogEntry.c)
- *     IopErrorLogQueueRequest @ 0x140A49674 (IopErrorLogQueueRequest.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x140A8A394 (EtwQueryTraceHandleByLoggerName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchCopyNW @ 0x14045EEEC (RtlStringCchCopyNW.c)
+ *     IopErrorLogGetEntry @ 0x1404A2F18 (IopErrorLogGetEntry.c)
+ *     IopErrorLogRequeueEntry @ 0x1404C801C (IopErrorLogRequeueEntry.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     EtwWriteErrorLogEntry @ 0x140A3FFE4 (EtwWriteErrorLogEntry.c)
+ *     IopErrorLogQueueRequest @ 0x140A40394 (IopErrorLogQueueRequest.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x140A866D8 (EtwQueryTraceHandleByLoggerName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *IopErrorLogThread()
@@ -78,7 +78,7 @@ LABEL_2:
       if ( (int)ObQueryNameStringMode((char *)v2, (__int64)&v23, 0x110u, &DestinationString, 0) < 0
         || !DestinationString )
       {
-        v6 = &word_140AEA890;
+        v6 = &word_140AEDAC0;
         goto LABEL_14;
       }
       DestinationString_8 = v23;
@@ -114,7 +114,7 @@ LABEL_17:
       v9 = (char *)v1[3];
       if ( v9
         && ((v12 = ObQueryNameStringMode(v9, (__int64)P, 0x110u, &DestinationString, 0), v12 != -1073741820)
-         || (Pool2 = ExAllocatePool2(0x100uLL), (v7 = (UNICODE_STRING *)Pool2) != 0LL)
+         || (Pool2 = ExAllocatePool2(0x100uLL, DestinationString, 0x20206F49u), (v7 = (UNICODE_STRING *)Pool2) != 0LL)
          && (v8 = 1,
              v12 = ObQueryNameStringMode((char *)v1[3], Pool2, DestinationString, &DestinationString, 0),
              v12 != -1073741820))
@@ -125,7 +125,7 @@ LABEL_17:
       }
       else
       {
-        RtlInitUnicodeString(&v20, &word_140AEA890);
+        RtlInitUnicodeString(&v20, &word_140AEDAC0);
         v10 = 0;
       }
       pszDest[0] = 0;

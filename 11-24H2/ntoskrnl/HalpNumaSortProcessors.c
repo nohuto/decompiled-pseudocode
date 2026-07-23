@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpNumaSortProcessors @ 0x140C12634
+ * XREFs of HalpNumaSortProcessors @ 0x140C14634
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140C119F8 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140C139F8 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */

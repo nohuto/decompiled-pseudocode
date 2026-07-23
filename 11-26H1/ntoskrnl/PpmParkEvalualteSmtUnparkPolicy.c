@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x140259220
+ * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x14025AA00
  * Callers:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
  */
 
 char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
@@ -13,7 +13,7 @@ char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
   int v2; // ebx
   int v3; // edi
   int v4; // ecx
-  __int64 SystemCallNumber; // r9
+  __int64 v5; // r9
   _WORD *v6; // r8
   _QWORD v8[2]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v9; // [rsp+30h] [rbp-28h]
@@ -29,14 +29,14 @@ char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
   v13 = 0;
   if ( PpmParkSmtUnparkingPolicy != a1 )
   {
-    BYTE2(PopModernStandbyStateNotify.ThreadLock) = 0;
+    PpmParkUnparkCores = 0;
     LOBYTE(v1) = a1 < 2u;
-    LOWORD(PopModernStandbyStateNotify.ThreadLock) = 1;
-    PopModernStandbyStateNotify.ApcStateFill[16] = a1 < 2u;
+    PpmParkGranularity = 1;
+    PpmParkCoreMask = a1 < 2u;
     if ( a1 < 2u )
     {
       v3 = 0;
-      v8[1] = qword_140E0B638[0];
+      v8[1] = PpmCheckRegistered.Bitmap[0];
       v8[0] = &PpmCheckRegistered;
       v9 = 0;
       while ( 1 )
@@ -48,33 +48,33 @@ char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
         if ( v3 )
         {
           if ( v3 != v4 )
-            PopModernStandbyStateNotify.ApcStateFill[16] = 0;
+            PpmParkCoreMask = 0;
         }
         else
         {
           v3 = v4;
         }
       }
-      if ( PopModernStandbyStateNotify.ApcStateFill[16] )
+      if ( PpmParkCoreMask )
       {
-        LOWORD(PopModernStandbyStateNotify.ThreadLock) = v3;
-        BYTE2(PopModernStandbyStateNotify.ThreadLock) = (_BYTE)v2 == 1;
+        PpmParkGranularity = v3;
+        PpmParkUnparkCores = (_BYTE)v2 == 1;
       }
     }
-    if ( PopModernStandbyStateNotify.SystemCallNumber )
+    if ( PpmParkNumNodes )
     {
-      SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
-      v6 = (_WORD *)(*(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1150LL);
+      v5 = (unsigned int)PpmParkNumNodes;
+      v6 = (_WORD *)(PpmParkNodes + 1150);
       do
       {
         LOWORD(v1) = (unsigned int)*(v6 - 571) / (PpmParkMultiparkGranularity != 0);
         *v6 = (_WORD)v1;
-        if ( (unsigned __int16)v1 < LOWORD(PopModernStandbyStateNotify.ThreadLock) )
-          *v6 = PopModernStandbyStateNotify.ThreadLock;
+        if ( (unsigned __int16)v1 < (unsigned __int16)PpmParkGranularity )
+          *v6 = PpmParkGranularity;
         v6 += 632;
-        --SystemCallNumber;
+        --v5;
       }
-      while ( SystemCallNumber );
+      while ( v5 );
     }
     PpmParkSmtUnparkingPolicy = v2;
     KeSoftParkSmtPolicy = v2;

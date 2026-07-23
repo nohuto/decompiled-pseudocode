@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmOpenCommonClassRegKey @ 0x1404F7AA0
+ * XREFs of _CmOpenCommonClassRegKey @ 0x1404DAA2C
  * Callers:
- *     _CmOpenInterfaceClassRegKey @ 0x1404F6E20 (_CmOpenInterfaceClassRegKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1404D9DAC (_CmOpenInterfaceClassRegKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1404F7BE8 (_CmOpenCommonClassRegKeyWorker.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1404DAB74 (_CmOpenCommonClassRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenCommonClassRegKey(

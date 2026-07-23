@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFindUserBufferSpace @ 0x1405C1B98
+ * XREFs of EtwpFindUserBufferSpace @ 0x1405C2B98
  * Callers:
- *     EtwpRealtimeInjectEtwBuffer @ 0x1405C19BC (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1405C29BC (EtwpRealtimeInjectEtwBuffer.c)
  * Callees:
  *     RtlFindNextAlignedForwardRunClear @ 0x140014BE4 (RtlFindNextAlignedForwardRunClear.c)
  *     RtlInterlockedSetClearRun @ 0x140014CE0 (RtlInterlockedSetClearRun.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B85F0 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall EtwpFindUserBufferSpace(__int64 a1, __int64 a2, int a3, PVOID *a4)

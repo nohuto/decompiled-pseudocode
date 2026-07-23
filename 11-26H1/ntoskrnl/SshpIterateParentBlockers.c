@@ -1,13 +1,13 @@
 /*
- * XREFs of SshpIterateParentBlockers @ 0x14025657C
+ * XREFs of SshpIterateParentBlockers @ 0x140257F0C
  * Callers:
- *     SshpBlockerActiveDereference @ 0x1402564B8 (SshpBlockerActiveDereference.c)
- *     SleepstudyHelperBlockerActiveReference @ 0x140256500 (SleepstudyHelperBlockerActiveReference.c)
+ *     SshpBlockerActiveDereference @ 0x140257E48 (SshpBlockerActiveDereference.c)
+ *     SleepstudyHelperBlockerActiveReference @ 0x140257E90 (SleepstudyHelperBlockerActiveReference.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     SshpBlockerActiveReferenceOperationCallback @ 0x140256660 (SshpBlockerActiveReferenceOperationCallback.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     SshpBlockerActiveReferenceOperationCallback @ 0x140257FF0 (SshpBlockerActiveReferenceOperationCallback.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall SshpIterateParentBlockers(PKSPIN_LOCK SpinLock, __int64 a2, __int64 a3)

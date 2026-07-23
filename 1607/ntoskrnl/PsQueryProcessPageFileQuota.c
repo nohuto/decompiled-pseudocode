@@ -1,7 +1,7 @@
 /*
- * XREFs of PsQueryProcessPageFileQuota @ 0x140581AE0
+ * XREFs of PsQueryProcessPageFileQuota @ 0x140581F8C
  * Callers:
- *     MiLogCommitRequestFailed @ 0x1401ECE34 (MiLogCommitRequestFailed.c)
+ *     MiLogCommitRequestFailed @ 0x1401ECC60 (MiLogCommitRequestFailed.c)
  * Callees:
  *     <none>
  */

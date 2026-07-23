@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaPageGroupAllocateMemory @ 0x140167B28
+ * XREFs of ExpSaPageGroupAllocateMemory @ 0x140167C28
  * Callers:
- *     ExpSaAllocatorAllocate @ 0x140167808 (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorAllocate @ 0x140167908 (ExpSaAllocatorAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -10,17 +10,17 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlFindClearBitsAndSetEx @ 0x14008AB40 (RtlFindClearBitsAndSetEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v3; // rsi
   ULONG_PTR v4; // rbp
-  __int64 v5; // rax
-  __int64 v6; // rbx
+  _RTL_BALANCED_NODE *v5; // rax
+  _RTL_BALANCED_NODE *v6; // rbx
   unsigned __int64 ClearBitsAndSet; // rax
   __int64 v8; // rdi
   struct _KTHREAD *CurrentThread; // rsi
@@ -46,7 +46,7 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v4, v5, v4);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   if ( *(_DWORD *)(a1 + 36) < (unsigned int)v3
     || (ClearBitsAndSet = RtlFindClearBitsAndSetEx((unsigned __int64 *)(a1 + 48), v3, *(unsigned int *)(a1 + 44)),
         ClearBitsAndSet == -1LL) )
@@ -93,7 +93,7 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
         {
           v17->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v17->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v16], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v16].TreeNode, SessionId);
           v21 = 0;
           v21 = v17->BoostBitmap.AllFields & 0x1FFFF;
           v17->BoostBitmap.AllFields &= 0xFFFE0000;

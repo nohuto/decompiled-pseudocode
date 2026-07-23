@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMergeNewProcessAffinity @ 0x1404FED34
+ * XREFs of MiMergeNewProcessAffinity @ 0x1404F8524
  * Callers:
- *     MiNodeZeroConductor @ 0x140B27510 (MiNodeZeroConductor.c)
- *     MiInitializeZeroEngines @ 0x140B277AC (MiInitializeZeroEngines.c)
+ *     MiNodeZeroConductor @ 0x140B29DD0 (MiNodeZeroConductor.c)
+ *     MiInitializeZeroEngines @ 0x140B2A06C (MiInitializeZeroEngines.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall MiMergeNewProcessAffinity(__int64 a1)

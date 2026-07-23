@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x180011230
+ * XREFs of EtwpReserveTraceBuffer @ 0x18005C960
  * Callers:
- *     EtwpTraceUmEvent @ 0x180010AD0 (EtwpTraceUmEvent.c)
- *     EtwpTraceUmMessage @ 0x1800BD9EC (EtwpTraceUmMessage.c)
+ *     EtwpTraceUmEvent @ 0x18005C200 (EtwpTraceUmEvent.c)
+ *     EtwpTraceUmMessage @ 0x1800BB44C (EtwpTraceUmMessage.c)
  * Callees:
- *     RtlQueryPerformanceCounter @ 0x18000E5E0 (RtlQueryPerformanceCounter.c)
- *     EtwpSwitchBuffer @ 0x180011380 (EtwpSwitchBuffer.c)
- *     RtlGetSystemTimePrecise @ 0x180011550 (RtlGetSystemTimePrecise.c)
+ *     RtlQueryPerformanceCounter @ 0x180059D10 (RtlQueryPerformanceCounter.c)
+ *     EtwpSwitchBuffer @ 0x18005CAB0 (EtwpSwitchBuffer.c)
+ *     RtlGetSystemTimePrecise @ 0x18005CC80 (RtlGetSystemTimePrecise.c)
  */
 
-__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, LARGE_INTEGER *a4, _QWORD *a5)
 {
   unsigned int v6; // esi
   unsigned int v8; // r15d
@@ -19,16 +19,13 @@ __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, __int64 a2, unsigned int a
   unsigned __int32 v12; // r14d
 
   v6 = a3;
-  if ( (unsigned int)a2 <= *(_DWORD *)(a1 + 196) )
+  if ( a2 <= *(_DWORD *)(a1 + 196) )
   {
     v8 = *(_DWORD *)(a1 + 192);
     v9 = *(_DWORD *)(a1 + 188);
     v10 = (a2 + 7) & 0xFFFFFFF8;
     if ( a3 >= v9 )
-    {
-      a2 = a3 % v9;
       v6 = a3 % v9;
-    }
     do
     {
       v11 = *(_QWORD *)(a1 + 8LL * v6 + 560);
@@ -49,11 +46,11 @@ __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, __int64 a2, unsigned int a
               }
               else if ( *(_DWORD *)(a1 + 16) == 3 )
               {
-                *a4 = __rdtsc();
+                a4->QuadPart = __rdtsc();
               }
               else
               {
-                RtlQueryPerformanceCounter(a4, a2);
+                RtlQueryPerformanceCounter(a4);
               }
             }
             return v11 + v12;

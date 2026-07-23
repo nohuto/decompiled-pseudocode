@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPteForTrimmedProto @ 0x1402D15D4
+ * XREFs of MiPteForTrimmedProto @ 0x1402B3394
  * Callers:
- *     MiWsleFlush @ 0x14032A510 (MiWsleFlush.c)
+ *     MiWsleFlush @ 0x14032C540 (MiWsleFlush.c)
  * Callees:
- *     MiMakePrototypePteVadLookup @ 0x1402CFD90 (MiMakePrototypePteVadLookup.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiClonePteReadonly @ 0x1404D91C0 (MiClonePteReadonly.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402B1B50 (MiMakePrototypePteVadLookup.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiClonePteReadonly @ 0x1404D28A0 (MiClonePteReadonly.c)
  */
 
 unsigned __int64 __fastcall MiPteForTrimmedProto(__int64 a1, unsigned __int64 a2, char a3)

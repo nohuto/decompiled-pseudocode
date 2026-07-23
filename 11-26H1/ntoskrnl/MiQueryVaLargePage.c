@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueryVaLargePage @ 0x140526064
+ * XREFs of MiQueryVaLargePage @ 0x1405286D4
  * Callers:
- *     MiQueryAddressState @ 0x140305180 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x1402E7200 (MiQueryAddressState.c)
  * Callees:
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiIsLazyStampedPte @ 0x1404893A8 (MiIsLazyStampedPte.c)
- *     MiGetProtectionFromPte @ 0x1405307CC (MiGetProtectionFromPte.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiIsLazyStampedPte @ 0x140482EE8 (MiIsLazyStampedPte.c)
+ *     MiGetProtectionFromPte @ 0x140532CCC (MiGetProtectionFromPte.c)
  */
 
 __int64 __fastcall MiQueryVaLargePage(_QWORD *a1, int a2, __int64 a3)
@@ -45,7 +45,7 @@ __int64 __fastcall MiQueryVaLargePage(_QWORD *a1, int a2, __int64 a3)
     v11 = *(_QWORD *)v3;
 LABEL_17:
     v12 = (v11 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v12 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+    if ( v12 <= qword_140E2D920 && ((*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     {
       v13 = *(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL);
       v14 = 1023;
@@ -53,7 +53,7 @@ LABEL_17:
     }
     else
     {
-      v16 = *(unsigned int *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v12 >> 18));
+      v16 = *(unsigned int *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v12 >> 18));
       v14 = 2047;
       v15 = v16 >> 4;
     }
@@ -69,18 +69,18 @@ LABEL_17:
   if ( (v10 & 0x800) != 0 )
   {
     v11 = *(_QWORD *)v3;
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       if ( (v10 & 0x10) != 0 )
         v11 = v10 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v11 = qword_140E2D748 & v10;
+        v11 = qword_140E2D8C8 & v10;
     }
     goto LABEL_17;
   }
   if ( (v9 & 0x1C) == 0xC && MiIsLazyStampedPte(*(_QWORD *)v3) )
     return 3221225477LL;
-  *(_WORD *)(a3 + 4) = **(_WORD **)(stru_140E2EB88.ThreadLock
+  *(_WORD *)(a3 + 4) = **(_WORD **)(stru_140E2ED08.ThreadLock
                                   + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
   *(_DWORD *)a3 = 4096;
   *(_DWORD *)(a3 + 8) = 16;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertExtentList @ 0x1406FA658
+ * XREFs of MiInsertExtentList @ 0x1406FF328
  * Callers:
- *     MiInsertCopyExtents @ 0x1406FA5AC (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x1406FA964 (MiMergeCopyExtents.c)
+ *     MiInsertCopyExtents @ 0x1406FF27C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x1406FF634 (MiMergeCopyExtents.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall MiInsertExtentList(unsigned int *a1)
@@ -24,7 +24,7 @@ char __fastcall MiInsertExtentList(unsigned int *a1)
 
   v1 = (int)a1[1];
   v3 = 0;
-  v4 = (unsigned __int64 *)&stru_140E2D150.WaitBlockFill11[8 * v1 + 160];
+  v4 = (unsigned __int64 *)&stru_140E2D2D0.WaitBlockFill11[8 * v1 + 160];
   v5 = a1 + 2;
   while ( v3 < *a1 )
   {

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetNumberOfCachedPtes @ 0x1402A5F54
+ * XREFs of MiGetNumberOfCachedPtes @ 0x1402A534C
  * Callers:
- *     MmGetNumberOfFreeSystemPtes @ 0x1402A5DB8 (MmGetNumberOfFreeSystemPtes.c)
- *     MiPteBinsNeedTrimming @ 0x1402A5EF8 (MiPteBinsNeedTrimming.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1402A51B0 (MmGetNumberOfFreeSystemPtes.c)
+ *     MiPteBinsNeedTrimming @ 0x1402A52F0 (MiPteBinsNeedTrimming.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall MiGetNumberOfCachedPtes(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 80);
   v2 = 0LL;
-  if ( (_KWAIT_BLOCK **)a1 == &stru_140E36558.WaitBlockList )
+  if ( (_KWAIT_BLOCK **)a1 == &stru_140E366D8.WaitBlockList )
   {
     v3 = 3LL;
   }
@@ -32,7 +32,7 @@ __int64 __fastcall MiGetNumberOfCachedPtes(__int64 a1)
     if ( (*(_DWORD *)(a1 + 40) & 1) == 0 )
     {
       v4 = 1;
-      if ( (_UNKNOWN *)a1 == &unk_140E34A40 )
+      if ( (_UNKNOWN *)a1 == &unk_140E34BC0 )
         v4 = 2;
       v3 = v4;
     }

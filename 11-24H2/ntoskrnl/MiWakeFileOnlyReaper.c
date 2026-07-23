@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWakeFileOnlyReaper @ 0x1404CF4E8
+ * XREFs of MiWakeFileOnlyReaper @ 0x1404C87B0
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiQueueExtentPfnDeletion @ 0x1404CF468 (MiQueueExtentPfnDeletion.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiQueueExtentPfnDeletion @ 0x1404C8730 (MiQueueExtentPfnDeletion.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void MiWakeFileOnlyReaper()
 {
-  if ( !byte_140E2D601 )
+  if ( !byte_140E2D741 )
   {
-    stru_140E2D5C0.List.Flink = 0LL;
-    stru_140E2D5C0.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteExtentPfns;
-    stru_140E2D5C0.Parameter = (void *)1;
-    ExQueueWorkItem(&stru_140E2D5C0, DelayedWorkQueue);
-    byte_140E2D601 = 1;
+    stru_140E2D700.List.Flink = 0LL;
+    stru_140E2D700.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteExtentPfns;
+    stru_140E2D700.Parameter = (void *)1;
+    ExQueueWorkItem(&stru_140E2D700, DelayedWorkQueue);
+    byte_140E2D741 = 1;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KxContextToKframes @ 0x140279000
+ * XREFs of KxContextToKframes @ 0x140266FA0
  * Callers:
- *     KiInitializeContextThread @ 0x140278B0C (KiInitializeContextThread.c)
- *     KeContextToKframes @ 0x1403FE020 (KeContextToKframes.c)
+ *     KiInitializeContextThread @ 0x140266AAC (KiInitializeContextThread.c)
+ *     KeContextToKframes @ 0x1403FE200 (KeContextToKframes.c)
  * Callees:
- *     RtlXRestoreS @ 0x140381D18 (RtlXRestoreS.c)
- *     KiCopyXStateArea @ 0x140519F90 (KiCopyXStateArea.c)
+ *     RtlXRestoreS @ 0x140381868 (RtlXRestoreS.c)
+ *     KiCopyXStateArea @ 0x14051A1D0 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
@@ -99,7 +99,7 @@ __int64 __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4
       KiCopyXStateArea(v25, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL);
     else
 LABEL_42:
-      RtlXRestoreS(v22, (MEMORY[0xFFFFF780000003E0] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
+      RtlXRestoreS(v22);
   }
   if ( (a4 & 0x100008) == 0x100008 )
   {

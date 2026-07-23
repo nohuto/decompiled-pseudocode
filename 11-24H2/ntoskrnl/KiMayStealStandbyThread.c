@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMayStealStandbyThread @ 0x140298460
+ * XREFs of KiMayStealStandbyThread @ 0x1402A6F50
  * Callers:
- *     KiSearchForNewThreadsInStandby @ 0x140293B18 (KiSearchForNewThreadsInStandby.c)
- *     KiFindStandbyThreadForSteal @ 0x140298390 (KiFindStandbyThreadForSteal.c)
- *     KiUpdateStandbyStealSummaryForStandbyChange @ 0x1404E95F0 (KiUpdateStandbyStealSummaryForStandbyChange.c)
+ *     KiSearchForNewThreadsInStandby @ 0x1402A3718 (KiSearchForNewThreadsInStandby.c)
+ *     KiFindStandbyThreadForSteal @ 0x1402A6E80 (KiFindStandbyThreadForSteal.c)
+ *     KiUpdateStandbyStealSummaryForStandbyChange @ 0x1404E02F0 (KiUpdateStandbyStealSummaryForStandbyChange.c)
  * Callees:
- *     KiGetProcessorClassForPolicy @ 0x14047A714 (KiGetProcessorClassForPolicy.c)
- *     Feature_CrossProcessorClassThreadStealing__private_IsEnabledNoReportingNoInline @ 0x1405C7A3C (Feature_CrossProcessorClassThreadStealing__private_IsEnabledNoReportingNoInline.c)
+ *     KiGetProcessorClassForPolicy @ 0x140475D94 (KiGetProcessorClassForPolicy.c)
+ *     Feature_CrossProcessorClassThreadStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405C5150 (Feature_CrossProcessorClassThreadStealing__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 bool __fastcall KiMayStealStandbyThread(__int64 a1, __int64 a2, char a3)
@@ -43,7 +43,7 @@ bool __fastcall KiMayStealStandbyThread(__int64 a1, __int64 a2, char a3)
 LABEL_14:
           if ( !a2 )
             return 1;
-          if ( !(unsigned int)Feature_CrossProcessorClassThreadStealing__private_IsEnabledNoReportingNoInline() )
+          if ( !(unsigned int)Feature_CrossProcessorClassThreadStealing__private_IsEnabledDeviceUsageNoInline() )
             return *(_BYTE *)(a1 + 35337) == *(_BYTE *)(a2 + 35337);
           if ( !KeHeteroSystem )
             return 1;

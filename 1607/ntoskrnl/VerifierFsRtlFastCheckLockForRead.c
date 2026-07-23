@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlFastCheckLockForRead @ 0x14070C540
+ * XREFs of VerifierFsRtlFastCheckLockForRead @ 0x14070C570
  * Callers:
  *     <none>
  * Callees:

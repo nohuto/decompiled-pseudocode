@@ -64,10 +64,13 @@ bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
       v2 = 0LL;
     }
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -90,10 +93,10 @@ bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
       v16 = v15;
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 1160));
       KxReleaseSpinLock((volatile signed __int64 *)(a1 + 1152));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v17 >= 2u )
         {
           v18 = KeGetCurrentPrcb();
           v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));

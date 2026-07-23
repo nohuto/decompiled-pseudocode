@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaAcquireBufferMappings @ 0x14045BD64
+ * XREFs of HalpDmaAcquireBufferMappings @ 0x14045C164
  * Callers:
- *     HalpDmaFreeMapRegisters @ 0x14045C4F6 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaSyncMapBuffers @ 0x14045CAF2 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaZeroMapBuffers @ 0x140511890 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaFreeMapRegisters @ 0x14045C8F6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaSyncMapBuffers @ 0x14045CEF2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaZeroMapBuffers @ 0x140511DE0 (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A73B0 (MmMapLockedPagesWithReservedMapping.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A7590 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4)

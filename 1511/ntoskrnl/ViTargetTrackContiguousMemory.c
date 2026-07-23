@@ -18,20 +18,20 @@
 void __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY *a2, __int64 a3)
 {
   unsigned int v6; // edi
-  struct _SLIST_ENTRY *PoolWithTag; // rax
-  struct _SLIST_ENTRY *v8; // rbx
+  _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *v8; // rbx
   int v9; // ebp
   _QWORD *v10; // rax
   __int64 v11; // rcx
   unsigned __int64 v12; // rdx
   __int64 v13; // rcx
-  struct _SLIST_ENTRY **v14; // rax
+  _SLIST_ENTRY **v14; // rax
   _BYTE v15[24]; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = 0;
   if ( (unsigned int)ViTargetUpdateTreeAllowed(a1, a2, a3) )
   {
-    PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x61436656u);
+    PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x61436656u);
     v8 = PoolWithTag;
     if ( PoolWithTag )
     {
@@ -52,10 +52,10 @@ void __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY 
           if ( *(_QWORD *)(v11 + 224) < v12 )
             *(_QWORD *)(v11 + 224) = v12;
           v13 = v11 + 232;
-          v14 = *(struct _SLIST_ENTRY ***)(v13 + 8);
+          v14 = *(_SLIST_ENTRY ***)(v13 + 8);
           v8->Next = (_SLIST_ENTRY *)v13;
           *((_QWORD *)&v8->Next + 1) = v14;
-          if ( *v14 != (struct _SLIST_ENTRY *)v13 )
+          if ( *v14 != (_SLIST_ENTRY *)v13 )
             __fastfail(3u);
           *v14 = v8;
           v9 = 1;

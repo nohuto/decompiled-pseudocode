@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x18003D5F0
+ * XREFs of EtwpReserveTraceBuffer @ 0x18001D870
  * Callers:
- *     EtwpTraceUmEvent @ 0x18003CEA0 (EtwpTraceUmEvent.c)
- *     EtwpTraceUmMessage @ 0x1800D723C (EtwpTraceUmMessage.c)
+ *     EtwpTraceUmEvent @ 0x18001D120 (EtwpTraceUmEvent.c)
+ *     EtwpTraceUmMessage @ 0x1800D25AC (EtwpTraceUmMessage.c)
  * Callees:
- *     RtlQueryPerformanceCounter @ 0x18003A620 (RtlQueryPerformanceCounter.c)
- *     EtwpSwitchBuffer @ 0x18003D730 (EtwpSwitchBuffer.c)
- *     RtlGetSystemTimePrecise @ 0x18003D900 (RtlGetSystemTimePrecise.c)
+ *     RtlQueryPerformanceCounter @ 0x18001A8A0 (RtlQueryPerformanceCounter.c)
+ *     EtwpSwitchBuffer @ 0x18001D9B0 (EtwpSwitchBuffer.c)
+ *     RtlGetSystemTimePrecise @ 0x18001DB80 (RtlGetSystemTimePrecise.c)
  */
 
-__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, LARGE_INTEGER *a4, _QWORD *a5)
 {
   unsigned int v6; // edi
   unsigned int v8; // ebp
   unsigned int v9; // ecx
   unsigned int v10; // esi
   __int64 v11; // rax
-  __int64 v12; // rdx
+  unsigned __int32 v12; // edx
   __int64 v13; // rdi
 
   v6 = a3;
@@ -35,10 +35,10 @@ __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned 
         _InterlockedIncrement((volatile signed __int32 *)(v11 + 12));
         if ( *(_DWORD *)(v11 + 44) == 1 && *(_DWORD *)(v11 + 8) <= v8 )
         {
-          v12 = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 8), v10);
-          if ( (unsigned int)v12 + v10 <= v8 )
+          v12 = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 8), v10);
+          if ( v12 + v10 <= v8 )
           {
-            v13 = v11 + (unsigned int)v12;
+            v13 = v11 + v12;
             *a5 = v11;
             if ( a4 )
             {
@@ -48,16 +48,16 @@ __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned 
               }
               else if ( *(_DWORD *)(a1 + 16) == 3 )
               {
-                *a4 = __rdtsc();
+                a4->QuadPart = __rdtsc();
               }
               else
               {
-                RtlQueryPerformanceCounter(a4, v12);
+                RtlQueryPerformanceCounter(a4);
               }
             }
             return v13;
           }
-          if ( (unsigned int)v12 <= v8 )
+          if ( v12 <= v8 )
             *(_DWORD *)(v11 + 4) = v12;
         }
       }

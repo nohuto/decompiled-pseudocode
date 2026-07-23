@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxUpdateAccountingActiveTime @ 0x140311C70
+ * XREFs of PopFxUpdateAccountingActiveTime @ 0x1403A7928
  * Callers:
- *     PopFxPauseDeviceAccounting @ 0x140311B04 (PopFxPauseDeviceAccounting.c)
- *     PopFxUpdateDeviceAccountingEnhanced @ 0x140312FC4 (PopFxUpdateDeviceAccountingEnhanced.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x1403152C4 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140316EF0 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopFxIdleWorkerTail @ 0x1404EB37C (PopFxIdleWorkerTail.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1402BFAA0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopFxPauseDeviceAccounting @ 0x1403A67DC (PopFxPauseDeviceAccounting.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1403A6DE4 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopFxUpdateDeviceAccountingEnhanced @ 0x1403A7470 (PopFxUpdateDeviceAccountingEnhanced.c)
+ *     PopFxIdleWorkerTail @ 0x1404E22FC (PopFxIdleWorkerTail.c)
  * Callees:
  *     <none>
  */

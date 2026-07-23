@@ -1,35 +1,35 @@
 /*
- * XREFs of WmipForwardWmiIrp @ 0x1409CE2C0
+ * XREFs of WmipForwardWmiIrp @ 0x1409B3294
  * Callers:
- *     WmipSendWmiIrp @ 0x1409CD990 (WmipSendWmiIrp.c)
- *     WmipQuerySetExecuteSI @ 0x1409CDA80 (WmipQuerySetExecuteSI.c)
- *     WmipQueryAllData @ 0x1409CDD78 (WmipQueryAllData.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x140A16598 (WmipSendWmiIrpToTraceDeviceList.c)
- *     WmipSetTraceNotify @ 0x140AA6BEC (WmipSetTraceNotify.c)
+ *     WmipSendWmiIrp @ 0x1409B2964 (WmipSendWmiIrp.c)
+ *     WmipQuerySetExecuteSI @ 0x1409B2A54 (WmipQuerySetExecuteSI.c)
+ *     WmipQueryAllData @ 0x1409B2D4C (WmipQueryAllData.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x140A0F778 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipSetTraceNotify @ 0x140AA1CE8 (WmipSetTraceNotify.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     WmipFindRegEntryByProviderId @ 0x140338ED0 (WmipFindRegEntryByProviderId.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IoGetAttachedDeviceReference @ 0x14041D070 (IoGetAttachedDeviceReference.c)
- *     WmipUnreferenceRegEntry @ 0x14046FC2C (WmipUnreferenceRegEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PpmWmiDispatch @ 0x1409CE810 (PpmWmiDispatch.c)
- *     WmipUpdateDeviceStackSize @ 0x1409CF85C (WmipUpdateDeviceStackSize.c)
- *     WmipTranslatePDOInstanceNames @ 0x140A5249C (WmipTranslatePDOInstanceNames.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     WmipFindRegEntryByProviderId @ 0x1402DDC64 (WmipFindRegEntryByProviderId.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IoGetAttachedDeviceReference @ 0x140411960 (IoGetAttachedDeviceReference.c)
+ *     WmipUnreferenceRegEntry @ 0x14046A188 (WmipUnreferenceRegEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmWmiDispatch @ 0x1409B37E0 (PpmWmiDispatch.c)
+ *     WmipUpdateDeviceStackSize @ 0x140A49F18 (WmipUpdateDeviceStackSize.c)
+ *     WmipTranslatePDOInstanceNames @ 0x140A4A4E8 (WmipTranslatePDOInstanceNames.c)
  */
 
 __int64 __fastcall WmipForwardWmiIrp(
         PIRP Irp,
         unsigned __int8 a2,
-        unsigned int a3,
+        int a3,
         UNICODE_STRING *a4,
         unsigned int a5,
         __int64 a6)
 {
   unsigned int v6; // ebx
-  __int64 RegEntryByProviderId; // rax
+  _DWORD *RegEntryByProviderId; // rax
   __int64 v10; // rdi
   int v11; // eax
   PDEVICE_OBJECT v12; // rsi
@@ -52,10 +52,10 @@ __int64 __fastcall WmipForwardWmiIrp(
   v6 = a2;
   memset(&Event, 0, sizeof(Event));
   RegEntryByProviderId = WmipFindRegEntryByProviderId(a3);
-  v10 = RegEntryByProviderId;
+  v10 = (__int64)RegEntryByProviderId;
   if ( RegEntryByProviderId )
   {
-    v11 = *(_DWORD *)(RegEntryByProviderId + 48);
+    v11 = RegEntryByProviderId[12];
     if ( (v11 & 0x20000000) == 0 )
     {
       v12 = *(PDEVICE_OBJECT *)(v10 + 16);
@@ -65,7 +65,7 @@ __int64 __fastcall WmipForwardWmiIrp(
         if ( *(__int64 (__fastcall **)(_DWORD, _DWORD, _DWORD, _DWORD, __int64, __int64))&v12->Type == PpmWmiDispatch )
           v13 = PpmWmiDispatch(v6, (_DWORD)a4, a5, a6, (__int64)v12, (__int64)&v26);
         else
-          v13 = guard_dispatch_icall_no_overrides(v6, a4, a5, a6);
+          v13 = guard_dispatch_icall_no_overrides(v6, a4);
         v14 = v13;
         Irp->IoStatus.Status = v13;
         Irp->IoStatus.Information = v26;

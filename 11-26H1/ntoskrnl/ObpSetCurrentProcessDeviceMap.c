@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpSetCurrentProcessDeviceMap @ 0x140A189CC
+ * XREFs of ObpSetCurrentProcessDeviceMap @ 0x140A21FFC
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     ObpReferenceCurrentDeviceMap @ 0x140A18420 (ObpReferenceCurrentDeviceMap.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x140A21A50 (ObpReferenceCurrentDeviceMap.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ObDereferenceDeviceMap @ 0x1409007F4 (ObDereferenceDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x140A18788 (SeGetTokenDeviceMap.c)
- *     ObpReferenceDeviceMapFastRef @ 0x140A18BC0 (ObpReferenceDeviceMapFastRef.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ObDereferenceDeviceMap @ 0x140930784 (ObDereferenceDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x140A21DB8 (SeGetTokenDeviceMap.c)
+ *     ObpReferenceDeviceMapFastRef @ 0x140A221F0 (ObpReferenceDeviceMapFastRef.c)
  */
 
 __int64 __fastcall ObpSetCurrentProcessDeviceMap(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

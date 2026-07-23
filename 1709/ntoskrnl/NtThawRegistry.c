@@ -7,10 +7,10 @@
  *     SeSinglePrivilegeCheck @ 0x14046C2E0 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
   if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
     return CmThawRegistry();
   else
-    return 3221225569LL;
+    return -1073741727;
 }

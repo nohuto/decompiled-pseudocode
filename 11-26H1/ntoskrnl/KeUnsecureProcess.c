@@ -1,9 +1,9 @@
 /*
- * XREFs of KeUnsecureProcess @ 0x1405E5A08
+ * XREFs of KeUnsecureProcess @ 0x1405E8378
  * Callers:
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
  * Callees:
- *     VslCloseSecureHandle @ 0x1404EE4C0 (VslCloseSecureHandle.c)
+ *     VslCloseSecureHandle @ 0x1404E7AA0 (VslCloseSecureHandle.c)
  */
 
 unsigned __int64 __fastcall KeUnsecureProcess(__int64 a1)

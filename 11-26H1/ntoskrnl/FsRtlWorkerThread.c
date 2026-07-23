@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlWorkerThread @ 0x1405B8090
+ * XREFs of FsRtlWorkerThread @ 0x1405BA900
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall __noreturn FsRtlWorkerThread(PVOID StartContext)
@@ -19,7 +19,7 @@ void __fastcall __noreturn FsRtlWorkerThread(PVOID StartContext)
 
   v1 = (unsigned int)StartContext;
   KeSetPriorityThread(KeGetCurrentThread(), (_DWORD)StartContext + 16);
-  v2 = (struct _KQUEUE *)&VslpReservedTransferLock.SavedApcStateFill[64 * v1 + 32];
+  v2 = (struct _KQUEUE *)&VslpReservedTransferLock.SchedulerApcFill5[64 * v1 + 32];
   do
   {
     EntryArray = 0LL;

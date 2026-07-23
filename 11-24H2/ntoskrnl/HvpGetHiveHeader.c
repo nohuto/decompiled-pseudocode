@@ -1,87 +1,85 @@
 /*
- * XREFs of HvpGetHiveHeader @ 0x14098195C
+ * XREFs of HvpGetHiveHeader @ 0x14096A16C
  * Callers:
- *     HvRecoverFlushProtocolStateFromFiles @ 0x1407DF454 (HvRecoverFlushProtocolStateFromFiles.c)
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x1407DF9A4 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvpHeaderCheckSum @ 0x140BB97A0 (HvpHeaderCheckSum.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvpHeaderCheckSum @ 0x140BBB7A0 (HvpHeaderCheckSum.c)
  */
 
-__int64 __fastcall HvpGetHiveHeader(__int64 a1, _QWORD *a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall HvpGetHiveHeader(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
-  _QWORD *v5; // r15
-  char *v7; // rax
-  char *v8; // rbx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // ecx
-  unsigned int v12; // eax
-  unsigned int v13; // ecx
-  unsigned int v14; // edi
-  int v15; // eax
-  int v17; // eax
+  _QWORD *v4; // r15
+  char *v6; // rax
+  char *v7; // rbx
+  int v8; // ecx
+  unsigned int v9; // eax
+  unsigned int v10; // ecx
+  unsigned int v11; // edi
+  int v12; // eax
+  int v14; // eax
 
   *a2 = 0LL;
-  v5 = a2;
+  v4 = a2;
   LOBYTE(a2) = 1;
-  v7 = (char *)guard_dispatch_icall_no_overrides(*(unsigned int *)(a1 + 132), a2, 842222915LL, a4);
-  v8 = v7;
-  if ( v7 )
+  v6 = (char *)guard_dispatch_icall_no_overrides(*(unsigned int *)(a1 + 132), a2);
+  v7 = v6;
+  if ( v6 )
   {
-    memset_0(v7, 0, 0x1000uLL);
-    if ( (int)guard_dispatch_icall_no_overrides(a1, 0LL, 0LL, v8) >= 0 )
+    memset_0(v6, 0, 0x1000uLL);
+    if ( (int)guard_dispatch_icall_no_overrides(a1, 0LL) >= 0 )
     {
-      if ( *(_DWORD *)v8 == 1718052210 && *((_DWORD *)v8 + 127) == (unsigned int)HvpHeaderCheckSum(v8) )
+      if ( *(_DWORD *)v7 == 1718052210 && *((_DWORD *)v7 + 127) == (unsigned int)HvpHeaderCheckSum(v7) )
       {
-        v11 = *((_DWORD *)v8 + 10);
-        if ( (unsigned int)(v11 - 1) <= 0x7FFFDFFF && (v11 & 0xFFF) == 0 )
+        v8 = *((_DWORD *)v7 + 10);
+        if ( (unsigned int)(v8 - 1) <= 0x7FFFDFFF && (v8 & 0xFFF) == 0 )
         {
-          if ( !*((_DWORD *)v8 + 7) )
+          if ( !*((_DWORD *)v7 + 7) )
           {
-            v12 = *((_DWORD *)v8 + 5);
-            if ( v12 <= 1 )
+            v9 = *((_DWORD *)v7 + 5);
+            if ( v9 <= 1 )
             {
-              v13 = *((_DWORD *)v8 + 6);
-              v14 = 3;
-              if ( v13 >= 3 && (v13 <= 6 || v12 != 1) && *((_DWORD *)v8 + 8) == 1 )
+              v10 = *((_DWORD *)v7 + 6);
+              v11 = 3;
+              if ( v10 >= 3 && (v10 <= 6 || v9 != 1) && *((_DWORD *)v7 + 8) == 1 )
               {
-                *a3 = *(_QWORD *)(v8 + 12);
-                v15 = *((_DWORD *)v8 + 2);
-                *v5 = v8;
-                if ( *((_DWORD *)v8 + 1) == v15 )
-                  *((_DWORD *)v8 + 11) = 1;
+                *a3 = *(_QWORD *)(v7 + 12);
+                v12 = *((_DWORD *)v7 + 2);
+                *v4 = v7;
+                if ( *((_DWORD *)v7 + 1) == v12 )
+                  *((_DWORD *)v7 + 11) = 1;
                 else
                   return 5;
-                return v14;
+                return v11;
               }
             }
           }
           goto LABEL_17;
         }
       }
-      v17 = guard_dispatch_icall_no_overrides(a1, 0LL, 4096LL, v8);
-      if ( v17 == -1073741807 )
+      v14 = guard_dispatch_icall_no_overrides(a1, 0LL);
+      if ( v14 == -1073741807 )
       {
 LABEL_17:
-        v14 = 0;
+        v11 = 0;
 LABEL_18:
-        guard_dispatch_icall_no_overrides(v8, *(unsigned int *)(a1 + 132), v9, v10);
-        return v14;
+        guard_dispatch_icall_no_overrides(v7, *(unsigned int *)(a1 + 132));
+        return v11;
       }
-      if ( v17 >= 0 )
+      if ( v14 >= 0 )
       {
-        if ( *(_DWORD *)v8 == 1852400232 && !*((_DWORD *)v8 + 1) )
+        if ( *(_DWORD *)v7 == 1852400232 && !*((_DWORD *)v7 + 1) )
         {
-          v14 = 4;
-          *a3 = *(_QWORD *)(v8 + 20);
+          v11 = 4;
+          *a3 = *(_QWORD *)(v7 + 20);
           goto LABEL_18;
         }
         goto LABEL_17;
       }
     }
-    v14 = 7;
+    v11 = 7;
     goto LABEL_18;
   }
   return 2LL;

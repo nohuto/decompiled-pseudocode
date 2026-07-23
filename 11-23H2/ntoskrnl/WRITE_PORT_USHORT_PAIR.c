@@ -1,12 +1,12 @@
 /*
- * XREFs of WRITE_PORT_USHORT_PAIR @ 0x1405066D8
+ * XREFs of WRITE_PORT_USHORT_PAIR @ 0x140506C28
  * Callers:
- *     HalMakeBeep @ 0x140506600 (HalMakeBeep.c)
- *     HalpECmosReadByte @ 0x1405157B0 (HalpECmosReadByte.c)
- *     HalpECmosWriteByte @ 0x1405157F0 (HalpECmosWriteByte.c)
- *     HalpPicSetLineState @ 0x140527C70 (HalpPicSetLineState.c)
+ *     HalMakeBeep @ 0x140506B50 (HalMakeBeep.c)
+ *     HalpECmosReadByte @ 0x140515D00 (HalpECmosReadByte.c)
+ *     HalpECmosWriteByte @ 0x140515D40 (HalpECmosWriteByte.c)
+ *     HalpPicSetLineState @ 0x1405281C0 (HalpPicSetLineState.c)
  * Callees:
- *     HalpIoDelay @ 0x14041A6A0 (HalpIoDelay.c)
+ *     HalpIoDelay @ 0x14041AA30 (HalpIoDelay.c)
  */
 
 unsigned __int8 __fastcall WRITE_PORT_USHORT_PAIR(unsigned __int16 a1, unsigned __int16 a2, __int16 a3)

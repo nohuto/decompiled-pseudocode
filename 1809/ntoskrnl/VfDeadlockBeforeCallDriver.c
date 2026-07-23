@@ -1,17 +1,17 @@
 /*
- * XREFs of VfDeadlockBeforeCallDriver @ 0x14093BC58
+ * XREFs of VfDeadlockBeforeCallDriver @ 0x14093CC58
  * Callers:
- *     VfBeforeCallDriver @ 0x1409300A4 (VfBeforeCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409310A4 (VfBeforeCallDriver.c)
  * Callees:
- *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x14030B24C (ViDeadlockDetectionTryConvertSharedToExclusive.c)
- *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockAddThread @ 0x14093C98C (ViDeadlockAddThread.c)
- *     ViDeadlockAllocate @ 0x14093CA4C (ViDeadlockAllocate.c)
- *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x14093D1E4 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x14093D4A8 (ViDeadlockFree.c)
- *     ViDeadlockSearchThread @ 0x14093DCD8 (ViDeadlockSearchThread.c)
+ *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x14030B43C (ViDeadlockDetectionTryConvertSharedToExclusive.c)
+ *     ViLowerIrql @ 0x14030B6FC (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B758 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockAddThread @ 0x14093D98C (ViDeadlockAddThread.c)
+ *     ViDeadlockAllocate @ 0x14093DA4C (ViDeadlockAllocate.c)
+ *     ViDeadlockDetectionLock @ 0x14093E1AC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x14093E1E4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x14093E4A8 (ViDeadlockFree.c)
+ *     ViDeadlockSearchThread @ 0x14093ECD8 (ViDeadlockSearchThread.c)
  */
 
 __int64 __fastcall VfDeadlockBeforeCallDriver(__int64 a1)

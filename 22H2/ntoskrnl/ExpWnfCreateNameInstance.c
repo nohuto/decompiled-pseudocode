@@ -106,7 +106,7 @@ LABEL_42:
     return v14;
   }
   v15 = (volatile signed __int64 *)(a1 + 48);
-  v16 = KeAbPreAcquire(a1 + 48, 0LL, 0LL);
+  v16 = KeAbPreAcquire(a1 + 48, 0LL, 0);
   v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 48), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 48), v16, a1 + 48);
@@ -151,7 +151,7 @@ LABEL_23:
   {
     v12[19].Count = (unsigned __int64)a4;
     v23 = a4[1].EndPadding[7];
-    v24 = KeAbPreAcquire(v23 + 56, 0LL, 0LL);
+    v24 = KeAbPreAcquire(v23 + 56, 0LL, 0);
     v25 = v24;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v23 + 56), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v23 + 56), v24, v23 + 56);

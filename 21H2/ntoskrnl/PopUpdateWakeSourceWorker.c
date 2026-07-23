@@ -1,17 +1,17 @@
 /*
- * XREFs of PopUpdateWakeSourceWorker @ 0x14056F1E0
+ * XREFs of PopUpdateWakeSourceWorker @ 0x14056F420
  * Callers:
  *     <none>
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x1402C6F2C (IoControlPnpDeviceActionQueue.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PopWakeInfoDereference @ 0x14038BA18 (PopWakeInfoDereference.c)
- *     PopReleaseWakeSourceSpinLock @ 0x14038BD14 (PopReleaseWakeSourceSpinLock.c)
- *     PopAcquireWakeSourceSpinLock @ 0x14038BD48 (PopAcquireWakeSourceSpinLock.c)
- *     PopFreeWakeSource @ 0x1408E6A98 (PopFreeWakeSource.c)
- *     PopProcessWakeSourceWork @ 0x1408E6B64 (PopProcessWakeSourceWork.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IoControlPnpDeviceActionQueue @ 0x14024566C (IoControlPnpDeviceActionQueue.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PopWakeInfoDereference @ 0x14038BB68 (PopWakeInfoDereference.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14038BE64 (PopReleaseWakeSourceSpinLock.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14038BE98 (PopAcquireWakeSourceSpinLock.c)
+ *     PopFreeWakeSource @ 0x1408E6BF8 (PopFreeWakeSource.c)
+ *     PopProcessWakeSourceWork @ 0x1408E6CC4 (PopProcessWakeSourceWork.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 PVOID *PopUpdateWakeSourceWorker()

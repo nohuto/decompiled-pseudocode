@@ -1,15 +1,15 @@
 /*
- * XREFs of IopBuildFullDriverPath @ 0x14049DA9C
+ * XREFs of IopBuildFullDriverPath @ 0x140515EA8
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14049D7A4 (PpCheckInDriverDatabase.c)
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
- *     PiNormalizeDeviceText @ 0x1404D48B4 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x1404B7EB8 (PiNormalizeDeviceText.c)
+ *     PpCheckInDriverDatabase @ 0x140515BB0 (PpCheckInDriverDatabase.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall IopBuildFullDriverPath(unsigned __int16 *a1, void *a2, unsigned __int16 *a3)

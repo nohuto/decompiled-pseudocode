@@ -16,11 +16,10 @@
 
 __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v7; // rcx
+  int v8; // ebx
   int v9; // ebx
-  int v10; // ebx
-  __int64 NtSystemRoot; // rax
-  const wchar_t *v12; // rax
+  PWSTR NtSystemRoot; // rax
+  PWSTR v11; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
@@ -31,17 +30,17 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4
       return RtlpQueryPhysicalMemoryPolicy(a3);
     return 3221225485LL;
   }
-  v9 = a1 - 1;
-  if ( v9 )
+  v8 = a1 - 1;
+  if ( v8 )
   {
-    v10 = v9 - 1;
-    if ( !v10 )
+    v9 = v8 - 1;
+    if ( !v9 )
     {
       if ( a4 == 4 )
         return RtlpQueryDiskSpeedPolicy(a3);
       return 3221225485LL;
     }
-    if ( v10 != 1 )
+    if ( v9 != 1 )
       return 3221225475LL;
     if ( a4 == 4 )
     {
@@ -52,9 +51,9 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4
   }
   if ( a4 != 4 )
     return 3221225485LL;
-  if ( (RtlGetSuiteMask(v7) & 0x10000) != 0 )
-    v12 = L"C:\\data\\programs\\windowsapps";
+  if ( (RtlGetSuiteMask() & 0x10000) != 0 )
+    v11 = L"C:\\data\\programs\\windowsapps";
   else
-    v12 = (const wchar_t *)RtlGetNtSystemRoot();
-  return RtlpQueryDiskSpacePolicy(v12, a3);
+    v11 = RtlGetNtSystemRoot();
+  return RtlpQueryDiskSpacePolicy(v11, a3);
 }

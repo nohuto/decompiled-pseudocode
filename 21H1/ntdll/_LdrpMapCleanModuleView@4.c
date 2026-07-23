@@ -10,23 +10,38 @@
 
 int __thiscall LdrpMapCleanModuleView(_DWORD *this)
 {
-  int InformationProcess; // esi
-  int v4; // [esp+Ch] [ebp-Ch] BYREF
-  int v5; // [esp+10h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+14h] [ebp-4h] BYREF
+  NTSTATUS v2; // esi
+  SIZE_T v4; // [esp-14h] [ebp-2Ch]
+  ULONG v5; // [esp+0h] [ebp-18h]
+  ULONG v6; // [esp+4h] [ebp-14h]
+  int v7; // [esp+Ch] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+10h] [ebp-8h] BYREF
+  HANDLE ProcessInformation; // [esp+14h] [ebp-4h] BYREF
 
-  Handle = 0;
-  v5 = 0;
-  v4 = 0;
+  ProcessInformation = 0;
+  BaseAddress = 0;
+  v7 = 0;
   if ( this[8] != LdrpImageEntry )
     return -1073741637;
-  InformationProcess = ZwQueryInformationProcess(-1, 89, (int)&Handle, 4, 0);
-  if ( InformationProcess >= 0 )
+  v2 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessImageSection, &ProcessInformation, 4u, 0);
+  if ( v2 >= 0 )
   {
-    InformationProcess = ZwMapViewOfSection((int)Handle, -1, (int)&v5, 0, 0, 0, (int)&v4, 1, 0x40000, 2);
-    if ( InformationProcess >= 0 )
-      this[26] = v5;
-    NtClose(Handle);
+    HIDWORD(v4) = &v7;
+    LODWORD(v4) = 0;
+    v2 = ZwMapViewOfSection(
+           ProcessInformation,
+           (HANDLE)0xFFFFFFFF,
+           &BaseAddress,
+           0LL,
+           v4,
+           (PLARGE_INTEGER)1,
+           (PSIZE_T)0x40000,
+           ViewUnmap,
+           v5,
+           v6);
+    if ( v2 >= 0 )
+      this[26] = BaseAddress;
+    NtClose(ProcessInformation);
   }
-  return InformationProcess;
+  return v2;
 }

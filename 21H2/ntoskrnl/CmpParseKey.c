@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpParseKey @ 0x1406F8C10
+ * XREFs of CmpParseKey @ 0x14070FFF0
  * Callers:
  *     <none>
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14034FE80 (ExIsResourceAcquiredSharedLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
- *     CmpCallCallBacksEx @ 0x1406F3440 (CmpCallCallBacksEx.c)
- *     CmPostCallbackNotificationEx @ 0x1406F8480 (CmPostCallbackNotificationEx.c)
- *     CmpDoesParseEnterRegistryA @ 0x1406F9120 (CmpDoesParseEnterRegistryA.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x140715CC0 (CmpGetRegistryNamespaceRootForSilo.c)
- *     CmpRollbackTransactionArray @ 0x140875078 (CmpRollbackTransactionArray.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     PsGetCurrentSilo @ 0x14026A8D0 (PsGetCurrentSilo.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14035ABD0 (ExIsResourceAcquiredSharedLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpCleanupParseContext @ 0x14064A8A0 (CmpCleanupParseContext.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x1406C4310 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     CmpCallCallBacksEx @ 0x14070A820 (CmpCallCallBacksEx.c)
+ *     CmPostCallbackNotificationEx @ 0x14070F860 (CmPostCallbackNotificationEx.c)
+ *     CmpDoesParseEnterRegistryA @ 0x140710500 (CmpDoesParseEnterRegistryA.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpRollbackTransactionArray @ 0x1408751D8 (CmpRollbackTransactionArray.c)
  */
 
 __int64 __fastcall CmpParseKey(
@@ -60,7 +60,7 @@ __int64 __fastcall CmpParseKey(
   int v37; // eax
   __int128 v38; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
-  struct _SLIST_ENTRY v40; // [rsp+68h] [rbp-98h] BYREF
+  _SLIST_ENTRY v40; // [rsp+68h] [rbp-98h] BYREF
   __int64 v41; // [rsp+78h] [rbp-88h]
   _QWORD v42[2]; // [rsp+80h] [rbp-80h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+90h] [rbp-70h]

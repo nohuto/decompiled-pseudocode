@@ -1,9 +1,9 @@
 /*
- * XREFs of PopUpdateSmbiosData @ 0x1405348D0
+ * XREFs of PopUpdateSmbiosData @ 0x140534E10
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  * Callees:
- *     PopTraceSmbiosChange @ 0x140209B60 (PopTraceSmbiosChange.c)
+ *     PopTraceSmbiosChange @ 0x14020998C (PopTraceSmbiosChange.c)
  */
 
 void __fastcall PopUpdateSmbiosData(char a1, char a2, int a3, __int64 a4)

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlAreLongPathsEnabled()
+BOOLEAN RtlAreLongPathsEnabled(void)
 {
   return NtCurrentPeb()->BitField >> 7;
 }

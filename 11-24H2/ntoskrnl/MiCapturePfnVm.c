@@ -1,25 +1,24 @@
 /*
- * XREFs of MiCapturePfnVm @ 0x14045B3C4
+ * XREFs of MiCapturePfnVm @ 0x1404507C4
  * Callers:
- *     MiProcessCrcList @ 0x1409F2910 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x1409E6C70 (MiProcessCrcList.c)
  * Callees:
- *     MiCombineCandidate @ 0x14020C0F0 (MiCombineCandidate.c)
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140227FA0 (MiGetPageTablePfnBuddyRaw.c)
- *     MiGetTopLevelPfn @ 0x140228010 (MiGetTopLevelPfn.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiProcessSuitableForCombining @ 0x1402FB97C (MiProcessSuitableForCombining.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     MiGetCombineDomain @ 0x14045B5E4 (MiGetCombineDomain.c)
- *     MiCheckProcessCombineSequence @ 0x14045B5FC (MiCheckProcessCombineSequence.c)
- *     VmCheckPageCombine @ 0x140A53310 (VmCheckPageCombine.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1402FB220 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetTopLevelPfn @ 0x1402FB290 (MiGetTopLevelPfn.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     MiProcessSuitableForCombining @ 0x1403435EC (MiProcessSuitableForCombining.c)
+ *     MiCombineCandidate @ 0x140344930 (MiCombineCandidate.c)
+ *     MiGetCombineDomain @ 0x1404509E4 (MiGetCombineDomain.c)
+ *     MiCheckProcessCombineSequence @ 0x1404509FC (MiCheckProcessCombineSequence.c)
+ *     VmCheckPageCombine @ 0x140A4B300 (VmCheckPageCombine.c)
  */
 
-unsigned __int64 __fastcall MiCapturePfnVm(__int64 a1, ULONG_PTR a2, __int64 a3, __int64 a4, __int64 a5)
+unsigned __int64 __fastcall MiCapturePfnVm(__int64 a1, ULONG_PTR a2, char a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // r14
   unsigned int v7; // r10d
-  unsigned int v8; // ebx
   __int64 v9; // r11
   __int64 v10; // rdx
   unsigned int v11; // ebp
@@ -28,13 +27,15 @@ unsigned __int64 __fastcall MiCapturePfnVm(__int64 a1, ULONG_PTR a2, __int64 a3,
   int v14; // ecx
   __int64 TopLevelPfn; // r12
   PEPROCESS PageTablePfnBuddyRaw; // r14
-  BOOL v17; // eax
-  __int64 v18; // rcx
-  unsigned __int64 v19; // rbx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  BOOL v20; // eax
+  __int64 v21; // rcx
+  unsigned __int64 v22; // rbx
 
   v5 = *(_QWORD **)a1;
   v7 = *(_DWORD *)(a1 + 136);
-  v8 = a3;
   v9 = *(_QWORD *)(a1 + 120);
   v10 = 0LL;
   *(_OWORD *)a5 = 0LL;
@@ -52,12 +53,12 @@ unsigned __int64 __fastcall MiCapturePfnVm(__int64 a1, ULONG_PTR a2, __int64 a3,
     v10 = (unsigned int)(v10 + 1);
   }
   v11 = 1;
-  *(_QWORD *)(a5 + 24) = qword_140E2FE10;
+  *(_QWORD *)(a5 + 24) = qword_140E2FF50;
 LABEL_6:
-  v12 = MiSafeLockPage(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a2 + 0x220000000000LL) >> 4), v10, a3);
+  v12 = MiSafeLockPage(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a2 + 0x220000000000LL) >> 4));
   if ( v12 == 17 )
     return 0LL;
-  v13 = MiCombineCandidate(v5, v8, (_QWORD *)a2);
+  v13 = MiCombineCandidate(v5, a3, (_QWORD *)a2);
   if ( !v13 )
   {
     MiUnlockPage(a2, v12);
@@ -70,35 +71,35 @@ LABEL_6:
   {
     TopLevelPfn = MiGetTopLevelPfn(a2);
     PageTablePfnBuddyRaw = MiGetPageTablePfnBuddyRaw(TopLevelPfn);
-    v17 = MiProcessSuitableForCombining((__int64)PageTablePfnBuddyRaw);
-    v19 = (v18 + 1024) & -(__int64)v17;
+    v20 = MiProcessSuitableForCombining((__int64)PageTablePfnBuddyRaw, v17, v18, v19);
+    v22 = (v21 + 1024) & -(__int64)v20;
     if ( !v11
       && ((HIDWORD(PageTablePfnBuddyRaw[4].ThreadListHead.Flink) & 0x1000) != 0
        || !(unsigned int)MiCheckProcessCombineSequence(PageTablePfnBuddyRaw, *(unsigned int *)(a1 + 288))) )
     {
-      v19 = 0LL;
+      v22 = 0LL;
     }
     if ( ObReferenceObjectSafeWithTag((__int64)PageTablePfnBuddyRaw, 0x62436D4Du) )
       *(_QWORD *)a5 = PageTablePfnBuddyRaw;
     else
-      v19 = 0LL;
+      v22 = 0LL;
     if ( TopLevelPfn != a2 )
       _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   else
   {
-    v19 = (unsigned __int64)&unk_140E37FC0 & -(__int64)(v11 != 0);
+    v22 = (unsigned __int64)&unk_140E38100 & -(__int64)(v11 != 0);
   }
   MiUnlockPage(a2, v12);
-  if ( v19 )
+  if ( v22 )
   {
     if ( !v11 )
-      *(_QWORD *)(a5 + 24) = MiGetCombineDomain(v13, v19);
+      *(_QWORD *)(a5 + 24) = MiGetCombineDomain(v13, v22);
     if ( v13 == 1 )
     {
       if ( *(_QWORD *)(*(_QWORD *)a5 + 1648LL) )
-        v19 &= -(__int64)((unsigned int)VmCheckPageCombine(*(_QWORD *)a5, v11) != 0);
+        v22 &= -(__int64)((unsigned int)VmCheckPageCombine(*(_QWORD *)a5, v11) != 0);
     }
   }
-  return v19;
+  return v22;
 }

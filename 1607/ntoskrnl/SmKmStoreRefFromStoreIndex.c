@@ -1,24 +1,24 @@
 /*
- * XREFs of SmKmStoreRefFromStoreIndex @ 0x14000321C
+ * XREFs of SmKmStoreRefFromStoreIndex @ 0x140003390
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x140002D30 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x140002E5C (SmKmStoreDeleteWhenEmpty.c)
- *     SmKmStoreDereference @ 0x140002F88 (SmKmStoreDereference.c)
- *     SmKmStoreReference @ 0x140002FA4 (SmKmStoreReference.c)
- *     ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140003000 (-SmHighMemPriorityWatchdogWorker@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     SmKmStoreReferenceEx @ 0x1400031E4 (SmKmStoreReferenceEx.c)
- *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14011785C (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAX@Z @ 0x14011A0F4 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAX@Z.c)
- *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x14011D85C (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
- *     SmpProcessQueryStoreStats @ 0x140135264 (SmpProcessQueryStoreStats.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1403E31A8 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmSwapStore @ 0x1403E3434 (SmSwapStore.c)
- *     SmpKeyedStoreCreate @ 0x1403E3548 (SmpKeyedStoreCreate.c)
- *     SmKmStoreDelete @ 0x1403E4174 (SmKmStoreDelete.c)
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     SmStoreCompressionStop @ 0x14054BCFC (SmStoreCompressionStop.c)
- *     SmProcessSystemStoreTrimRequest @ 0x140696EEC (SmProcessSystemStoreTrimRequest.c)
- *     SmKmGetStoreList @ 0x1406980B4 (SmKmGetStoreList.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x140002EA4 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140002FD0 (SmKmStoreDeleteWhenEmpty.c)
+ *     SmKmStoreDereference @ 0x1400030FC (SmKmStoreDereference.c)
+ *     SmKmStoreReference @ 0x140003118 (SmKmStoreReference.c)
+ *     ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140003174 (-SmHighMemPriorityWatchdogWorker@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmKmStoreReferenceEx @ 0x140003358 (SmKmStoreReferenceEx.c)
+ *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x140117DCC (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAX@Z @ 0x14011A664 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAX@Z.c)
+ *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x14011DDCC (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
+ *     SmpProcessQueryStoreStats @ 0x1401357D4 (SmpProcessQueryStoreStats.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1403E47D4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmSwapStore @ 0x1403E4A60 (SmSwapStore.c)
+ *     SmpKeyedStoreCreate @ 0x1403E4B74 (SmpKeyedStoreCreate.c)
+ *     SmKmStoreDelete @ 0x1403E57A0 (SmKmStoreDelete.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     SmStoreCompressionStop @ 0x14054C23C (SmStoreCompressionStop.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x140696FD0 (SmProcessSystemStoreTrimRequest.c)
+ *     SmKmGetStoreList @ 0x140698198 (SmKmGetStoreList.c)
  * Callees:
  *     <none>
  */

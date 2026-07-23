@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwRemoveIoCompletion @ 0x1800A0400
+ * XREFs of ZwRemoveIoCompletion @ 0x1800A0420
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRemoveIoCompletion()
+NTSTATUS __cdecl ZwRemoveIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID *KeyContext,
+        PVOID *ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 9LL;
+  result = 9;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

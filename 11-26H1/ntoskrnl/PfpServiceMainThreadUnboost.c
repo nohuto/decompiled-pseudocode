@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpServiceMainThreadUnboost @ 0x1404FA8B0
+ * XREFs of PfpServiceMainThreadUnboost @ 0x1404F3EC0
  * Callers:
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
@@ -18,18 +18,18 @@ void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
   unsigned __int64 v5; // rcx
 
   UserWaitTime = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&stru_140E66B30.InGlobalUpdateVpThreadPriorityList);
-  if ( !P || stru_140E66B30.SchedulerAssistPriorityFloor == P[41] )
+  v3 = KeAcquireSpinLockRaiseToDpc(&stru_140E66D40.InGlobalUpdateVpThreadPriorityList);
+  if ( !P || stru_140E66D40.SchedulerAssistPriorityFloor == P[41] )
   {
-    UserWaitTime = (void *)stru_140E66B30.UserWaitTime;
-    if ( stru_140E66B30.UserWaitTime )
+    UserWaitTime = (void *)stru_140E66D40.UserWaitTime;
+    if ( stru_140E66D40.UserWaitTime )
     {
-      v5 = stru_140E66B30.UserWaitTime;
-      stru_140E66B30.UserWaitTime = 0LL;
-      KeSetActualBasePriorityThread(v5, LODWORD(stru_140E66B30.GlobalUpdateVpThreadPriorityListEntry.Flink), v4);
+      v5 = stru_140E66D40.UserWaitTime;
+      stru_140E66D40.UserWaitTime = 0LL;
+      KeSetActualBasePriorityThread(v5, LODWORD(stru_140E66D40.GlobalUpdateVpThreadPriorityListEntry.Flink), v4);
     }
   }
-  KeReleaseSpinLock(&stru_140E66B30.InGlobalUpdateVpThreadPriorityList, v3);
+  KeReleaseSpinLock(&stru_140E66D40.InGlobalUpdateVpThreadPriorityList, v3);
   if ( UserWaitTime )
     ObDereferenceObjectDeferDeleteWithTag(UserWaitTime, 0x746C6644u);
   if ( P )

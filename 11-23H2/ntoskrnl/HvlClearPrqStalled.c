@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlClearPrqStalled @ 0x140542A60
+ * XREFs of HvlClearPrqStalled @ 0x140543120
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlClearPrqStalled(int a1)

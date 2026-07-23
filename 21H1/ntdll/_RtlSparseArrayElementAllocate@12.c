@@ -12,14 +12,16 @@ void *__fastcall RtlSparseArrayElementAllocate(int a1, int a2, void *Src)
 {
   int v3; // edi
   void *v4; // esi
-  _BYTE v6[12]; // [esp+8h] [ebp-14h] BYREF
-  _BYTE v7[8]; // [esp+14h] [ebp-8h] BYREF
+  size_t v6; // [esp-4h] [ebp-20h]
+  _BYTE v7[12]; // [esp+8h] [ebp-14h] BYREF
+  _BYTE v8[8]; // [esp+14h] [ebp-8h] BYREF
 
   v3 = *(_DWORD *)(a1 + 4);
   v4 = (void *)((a2 << v3) + *(_DWORD *)(a1 + 12));
-  if ( (int)RtlpCSparseBitmapPageCommit(v6, v7) < 0 )
+  if ( (int)RtlpCSparseBitmapPageCommit(v7, v8) < 0 )
     return 0;
-  memcpy(v4, Src, 1 << v3);
-  RtlpCSparseBitmapUnlock(v6);
+  LODWORD(v6) = 1 << v3;
+  memcpy(v4, Src, v6);
+  RtlpCSparseBitmapUnlock(v7);
   return v4;
 }

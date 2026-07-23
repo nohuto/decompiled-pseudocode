@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x140602F68
+ * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x1406034B8
  * Callers:
- *     EtwpCovSampCaptureCleanupDpc @ 0x140602F50 (EtwpCovSampCaptureCleanupDpc.c)
- *     EtwpCovSampCaptureContextStop @ 0x140603098 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureCleanupDpc @ 0x1406034A0 (EtwpCovSampCaptureCleanupDpc.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1406035E8 (EtwpCovSampCaptureContextStop.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406038B8 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140603E08 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureCleanupLookasides(__int64 a1)
@@ -50,10 +50,10 @@ LABEL_11:
     }
   }
   result = KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -26,15 +26,15 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
   _DWORD *v15; // r8
   int v16; // eax
   bool v17; // zf
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   int v19; // r10d
   unsigned int v20; // [rsp+20h] [rbp-10h] BYREF
-  LARGE_INTEGER v21; // [rsp+28h] [rbp-8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-8h] BYREF
   char v22; // [rsp+60h] [rbp+30h] BYREF
   char v23; // [rsp+68h] [rbp+38h] BYREF
 
   v20 = 0;
-  v21.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v22 = 0;
   v23 = 0;
   memset(a2, 0, 0x88uLL);
@@ -96,8 +96,11 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
     }
     else
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v21);
-      if ( (unsigned int)KiGetPastDueIRTimerInfo(InterruptTimePrecise, &v22, &v23) )
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))KiGetPastDueIRTimerInfo)(
+                           (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+                           &v22,
+                           &v23) )
       {
         v19 = 6;
         *a2 = v22;

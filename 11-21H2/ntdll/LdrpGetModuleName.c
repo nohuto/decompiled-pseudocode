@@ -22,8 +22,8 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
   __int64 v11; // rcx
   size_t v12; // rdi
   __int64 v13; // rcx
-  _WORD v14[8]; // [rsp+20h] [rbp-E0h] BYREF
-  STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
+  USHORT ProcessMachine[8]; // [rsp+20h] [rbp-E0h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
   UNICODE_STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
   wchar_t String1[264]; // [rsp+50h] [rbp-B0h] BYREF
 
@@ -36,7 +36,7 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
     String1[256] = 0;
     if ( !a4 )
       goto LABEL_5;
-    NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v11 = -1LL;
     do
       ++v11;
@@ -53,7 +53,7 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
     v13 = *a1;
     if ( !*a1 )
       v13 = -1LL;
-    if ( (int)RtlWow64GetProcessMachines(v13, v14, 0LL) >= 0
+    if ( RtlWow64GetProcessMachines((HANDLE)v13, ProcessMachine, 0LL) >= 0
       && (SourceString.Buffer = String1,
           SourceString.MaximumLength = v4,
           SourceString.Length = v4,
@@ -61,7 +61,7 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
           DestinationString.Buffer = (char *)&String1[v12],
           DestinationString.Length = -2 * v12 + v4,
           DestinationString.MaximumLength = DestinationString.Length,
-          (int)RtlReplaceSystemDirectoryInPath(&DestinationString, 1LL, v14[0], 0LL) >= 0) )
+          (RtlReplaceSystemDirectoryInPath((PUNICODE_STRING)&DestinationString, 1u, ProcessMachine[0], 0) & 0x80000000) == 0) )
     {
 LABEL_5:
       SourceString.MaximumLength = v4;

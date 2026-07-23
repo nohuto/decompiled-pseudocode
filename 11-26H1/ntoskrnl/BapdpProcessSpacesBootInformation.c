@@ -1,18 +1,18 @@
 /*
- * XREFs of BapdpProcessSpacesBootInformation @ 0x1406CABD0
+ * XREFs of BapdpProcessSpacesBootInformation @ 0x1406CEC00
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessSpacesBootInformation(__int64 a1)
 {
   __int64 Pool2; // rax
   __int64 v2; // rcx
-  struct _KTHREAD *v3; // rbx
+  _QWORD *v3; // rbx
   _DWORD v4[4]; // [rsp+30h] [rbp-10h] BYREF
   unsigned int v5; // [rsp+50h] [rbp+10h] BYREF
 
@@ -24,7 +24,7 @@ void __fastcall BapdpProcessSpacesBootInformation(__int64 a1)
   if ( (unsigned int)BapdpQueryData(a1, v4, 0LL, 0LL, &v5, 0LL) == -1073741789 )
   {
     Pool2 = ExAllocatePool2(0x100uLL);
-    v3 = (struct _KTHREAD *)Pool2;
+    v3 = (_QWORD *)Pool2;
     if ( Pool2 )
     {
       if ( (int)BapdpQueryData(v2, v4, 0LL, Pool2 + 8, &v5, 0LL) < 0 )
@@ -33,8 +33,8 @@ void __fastcall BapdpProcessSpacesBootInformation(__int64 a1)
       }
       else
       {
-        *(_QWORD *)&v3->Header.Lock = v5;
-        ExpSysDbgLock.SchedulerApc.Thread = v3;
+        *v3 = v5;
+        ExpSysDbgLock.SchedulerApc.Reserved[2] = v3;
       }
     }
   }

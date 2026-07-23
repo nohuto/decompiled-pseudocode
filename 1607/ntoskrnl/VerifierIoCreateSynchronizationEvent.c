@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoCreateSynchronizationEvent @ 0x14070C77C
+ * XREFs of VerifierIoCreateSynchronizationEvent @ 0x14070C7AC
  * Callers:
  *     <none>
  * Callees:

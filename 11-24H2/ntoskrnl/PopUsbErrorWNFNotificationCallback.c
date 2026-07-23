@@ -1,15 +1,15 @@
 /*
- * XREFs of PopUsbErrorWNFNotificationCallback @ 0x14075C050
+ * XREFs of PopUsbErrorWNFNotificationCallback @ 0x14075B080
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopBatteryQueueWork @ 0x1404A42EC (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopBatteryQueueWork @ 0x14049F07C (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)
@@ -50,17 +50,17 @@ __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)
     if ( v5 == 12 )
     {
       v2 = v29 == 1;
-      PopAcquireRwLockExclusive(&PopWeakChargerLock);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock);
       PopWeakChargerNotificationUsbStack = v2;
       PopBatteryQueueWork(0x40u);
-      PopReleaseRwLock((signed __int64 *)&PopWeakChargerLock);
+      PopReleaseRwLock(&PopWeakChargerLock);
     }
     else
     {
       v1 = 128;
     }
   }
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v12 = 0;
     v15 = 0;
@@ -86,7 +86,7 @@ __int64 __fastcall PopUsbErrorWNFNotificationCallback(__int64 a1)
     v5 = v1;
     v23 = 1;
     v28 = 0x1000000LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&byte_14004C037, 0LL, 0LL, 8u, &v9);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)word_14004D15A, 0LL, 0LL, 8u, &v9);
   }
   return (unsigned int)v1;
 }

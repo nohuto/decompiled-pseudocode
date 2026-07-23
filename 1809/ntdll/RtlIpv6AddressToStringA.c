@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIpv6AddressToStringA @ 0x18008CAE0
+ * XREFs of RtlIpv6AddressToStringA @ 0x18008CAF0
  * Callers:
  *     RtlIpv6AddressToStringExA @ 0x1800F7D70 (RtlIpv6AddressToStringExA.c)
  * Callees:
- *     sprintf_s @ 0x18009B1C0 (sprintf_s.c)
+ *     sprintf_s @ 0x18009B1D0 (sprintf_s.c)
  */
 
 PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
@@ -11,7 +11,7 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
   unsigned int v2; // r14d
   PSTR v3; // rbp
   char *v4; // rdi
-  USHORT v6; // r9
+  unsigned __int16 v6; // r9
   __int16 v7; // dx
   int v8; // r10d
   int v9; // r11d
@@ -36,19 +36,19 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
   v2 = 8;
   v3 = S + 46;
   v4 = S;
-  if ( *(_DWORD *)Addr->u.Byte )
+  if ( *(_DWORD *)Addr )
     goto LABEL_5;
-  if ( Addr->u.Word[2] )
+  if ( *((_WORD *)Addr + 2) )
     goto LABEL_5;
-  if ( Addr->u.Word[3] )
+  if ( *((_WORD *)Addr + 3) )
     goto LABEL_5;
-  v6 = Addr->u.Word[6];
+  v6 = *((_WORD *)Addr + 6);
   v7 = HIBYTE(v6);
   if ( !v6 )
     goto LABEL_5;
-  if ( Addr->u.Word[4] )
+  if ( *((_WORD *)Addr + 4) )
   {
-    if ( Addr->u.Word[4] == 0xFFFF && !Addr->u.Word[5] )
+    if ( *((_WORD *)Addr + 4) == 0xFFFF && !*((_WORD *)Addr + 5) )
     {
       v27 = sprintf_s(
               v4,
@@ -56,31 +56,39 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
               "::ffff:0:%u.%u.%u.%u",
               (unsigned __int8)v6,
               HIBYTE(v6),
-              Addr->u.Byte[14],
-              Addr->u.Byte[15]);
+              *((unsigned __int8 *)Addr + 14),
+              *((unsigned __int8 *)Addr + 15));
       return &v4[v27];
     }
   }
-  else if ( ((Addr->u.Word[5] + 1) & 0xFFFE) == 0 )
+  else if ( ((*((_WORD *)Addr + 5) + 1) & 0xFFFE) == 0 )
   {
     v25 = (unsigned __int8)v6;
-    v26 = (const char *)&unk_18011CBC2;
-    if ( Addr->u.Word[5] )
+    v26 = (const char *)&Flags;
+    if ( *((_WORD *)Addr + 5) )
       v26 = "ffff:";
-    v27 = sprintf_s(v4, v3 - v4, "::%hs%u.%u.%u.%u", v26, v25, (unsigned __int8)v7, Addr->u.Byte[14], Addr->u.Byte[15]);
+    v27 = sprintf_s(
+            v4,
+            v3 - v4,
+            "::%hs%u.%u.%u.%u",
+            v26,
+            v25,
+            (unsigned __int8)v7,
+            *((unsigned __int8 *)Addr + 14),
+            *((unsigned __int8 *)Addr + 15));
     return &v4[v27];
   }
 LABEL_5:
   v8 = 0;
   v9 = 0;
   v10 = 0;
-  if ( (Addr->u.Word[4] & 0xFFFD) == 0 && Addr->u.Word[5] == 0xFE5E )
+  if ( (*((_WORD *)Addr + 4) & 0xFFFD) == 0 && *((_WORD *)Addr + 5) == 0xFE5E )
     v2 = 6;
   v11 = 0;
   for ( i = 0LL; i < v2; ++i )
   {
     v13 = v11 + 1;
-    if ( Addr->u.Word[i] )
+    if ( *((_WORD *)Addr + i) )
     {
       v10 = v11 + 1;
     }
@@ -114,7 +122,7 @@ LABEL_5:
     {
       if ( v21 && v21 != v19 )
         v4 += sprintf_s(v4, v3 - v4, ":");
-      v23 = sprintf_s(v4, v3 - v4, "%x", (unsigned __int16)__ROR2__(Addr->u.Word[v21], 8));
+      v23 = sprintf_s(v4, v3 - v4, "%x", (unsigned __int16)__ROR2__(*((_WORD *)Addr + v21), 8));
     }
     else
     {
@@ -126,6 +134,13 @@ LABEL_5:
   }
   while ( v21 < v2 );
   if ( v2 < 8 )
-    v4 += sprintf_s(v4, v3 - v4, ":%u.%u.%u.%u", Addr->u.Byte[12], Addr->u.Byte[13], Addr->u.Byte[14], Addr->u.Byte[15]);
+    v4 += sprintf_s(
+            v4,
+            v3 - v4,
+            ":%u.%u.%u.%u",
+            *((unsigned __int8 *)Addr + 12),
+            *((unsigned __int8 *)Addr + 13),
+            *((unsigned __int8 *)Addr + 14),
+            *((unsigned __int8 *)Addr + 15));
   return v4;
 }

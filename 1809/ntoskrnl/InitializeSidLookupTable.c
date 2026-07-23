@@ -1,10 +1,10 @@
 /*
- * XREFs of InitializeSidLookupTable @ 0x1407271B8
+ * XREFs of InitializeSidLookupTable @ 0x140728458
  * Callers:
- *     SddlBaseInitialize @ 0x14017D07C (SddlBaseInitialize.c)
+ *     SddlBaseInitialize @ 0x14017D1BC (SddlBaseInitialize.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
- *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCB70 (RtlSubAuthoritySid.c)
+ *     RtlInitializeSid @ 0x140656830 (RtlInitializeSid.c)
  */
 
 char InitializeSidLookupTable()
@@ -22,7 +22,7 @@ char InitializeSidLookupTable()
   int v11; // edx
   int v12; // edx
   int v13; // edx
-  struct _SID_IDENTIFIER_AUTHORITY *p_IdentifierAuthority; // rdx
+  _SID_IDENTIFIER_AUTHORITY *p_IdentifierAuthority; // rdx
   PULONG v15; // rax
   int v16; // [rsp+20h] [rbp-20h] BYREF
   __int16 v17; // [rsp+24h] [rbp-1Ch]
@@ -30,15 +30,15 @@ char InitializeSidLookupTable()
   __int16 v19; // [rsp+2Ch] [rbp-14h]
   int v20; // [rsp+30h] [rbp-10h] BYREF
   __int16 v21; // [rsp+34h] [rbp-Ch]
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+38h] [rbp-8h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+68h] [rbp+28h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v22; // [rsp+38h] [rbp-8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+68h] [rbp+28h] BYREF
   int v24; // [rsp+70h] [rbp+30h] BYREF
   __int16 v25; // [rsp+74h] [rbp+34h]
-  struct _SID_IDENTIFIER_AUTHORITY v26; // [rsp+78h] [rbp+38h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v26; // [rsp+78h] [rbp+38h] BYREF
 
   *(_WORD *)&v22.Value[4] = 256;
   *(_DWORD *)v22.Value = 0;
-  v0 = &unk_140402000;
+  v0 = &unk_140403000;
   v20 = 0;
   v1 = 0;
   v18 = 0;
@@ -57,7 +57,7 @@ char InitializeSidLookupTable()
     if ( *((_BYTE *)v0 - 16) != 1 || !*(_QWORD *)v0 )
     {
       v2 = v0[3];
-      v3 = (char *)&unk_140402010 + 104 * v1;
+      v3 = (char *)&unk_140403010 + 104 * v1;
       *(_QWORD *)v0 = v3;
       v4 = v2 - 1;
       if ( !v4 )
@@ -69,13 +69,13 @@ char InitializeSidLookupTable()
       v5 = v4 - 1;
       if ( !v5 )
       {
-        p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v20;
+        p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v20;
         goto LABEL_20;
       }
       v6 = v5 - 2;
       if ( !v6 )
       {
-        p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v18;
+        p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v18;
 LABEL_20:
         RtlInitializeSid(v3, p_IdentifierAuthority, 1u);
         v9 = 0;
@@ -97,7 +97,7 @@ LABEL_20:
       v11 = v8 - 2;
       if ( !v11 )
       {
-        p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v16;
+        p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v16;
         goto LABEL_20;
       }
       v12 = v11 - 1;
@@ -126,7 +126,7 @@ LABEL_11:
       }
       if ( v13 == 1 )
       {
-        p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v24;
+        p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v24;
         goto LABEL_20;
       }
     }

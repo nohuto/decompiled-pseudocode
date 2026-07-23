@@ -1,8 +1,8 @@
 /*
- * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x140382A84
+ * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x140382C34
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
- *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EDF00 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopSleepstudyStartNextSession @ 0x140774E98 (PopSleepstudyStartNextSession.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EE060 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
  * Callees:
  *     <none>
  */

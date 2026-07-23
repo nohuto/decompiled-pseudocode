@@ -1,41 +1,41 @@
 /*
- * XREFs of MiCopyPage @ 0x140283E10
+ * XREFs of MiCopyPage @ 0x1402840A0
  * Callers:
  *     MiCopyHeaderIfResident @ 0x14020ECB0 (MiCopyHeaderIfResident.c)
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
- *     MiTradeActivePage @ 0x1402EAE24 (MiTradeActivePage.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     MiSwapStackPageNoDpc @ 0x14039A2CC (MiSwapStackPageNoDpc.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C2C4 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiSplitDirectMapPage @ 0x14063F264 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
- *     MiDuplicateCloneLeaf @ 0x140664088 (MiDuplicateCloneLeaf.c)
- *     MiIdealClusterPage @ 0x14066A490 (MiIdealClusterPage.c)
- *     MiFillPerSessionProtos @ 0x140A49FAC (MiFillPerSessionProtos.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
+ *     MiTradeActivePage @ 0x1402EB0B4 (MiTradeActivePage.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     MiSwapStackPageNoDpc @ 0x14039A4AC (MiSwapStackPageNoDpc.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C814 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiSplitDirectMapPage @ 0x14063F7B4 (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
+ *     MiDuplicateCloneLeaf @ 0x1406645D8 (MiDuplicateCloneLeaf.c)
+ *     MiIdealClusterPage @ 0x14066A9E0 (MiIdealClusterPage.c)
+ *     MiFillPerSessionProtos @ 0x140A4A25C (MiFillPerSessionProtos.c)
  *     MiTradeBootImagePage @ 0x140B46E5C (MiTradeBootImagePage.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiGetPteFromCopyList @ 0x140284030 (MiGetPteFromCopyList.c)
- *     MiReturnPteMappingSet @ 0x140284188 (MiReturnPteMappingSet.c)
- *     MiGetPteMappingSet @ 0x1402841F0 (MiGetPteMappingSet.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiClearPfnImageVerified @ 0x1403353B8 (MiClearPfnImageVerified.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeSetPagePrivilege @ 0x1403D4D14 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeCopyPage @ 0x1404246E0 (KeCopyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCopyPrivilegedPage @ 0x14056EC28 (KeCopyPrivilegedPage.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiGetPteFromCopyList @ 0x1402842C0 (MiGetPteFromCopyList.c)
+ *     MiReturnPteMappingSet @ 0x140284418 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x140284480 (MiGetPteMappingSet.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiClearPfnImageVerified @ 0x140335648 (MiClearPfnImageVerified.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeSetPagePrivilege @ 0x1403D4EF4 (KeSetPagePrivilege.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x140424A70 (KeCopyPage.c)
+ *     KeCopyPrivilegedPage @ 0x14056F168 (KeCopyPrivilegedPage.c)
  */
 
 char __fastcall MiCopyPage(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter2, __int16 a3)
@@ -164,10 +164,10 @@ char __fastcall MiCopyPage(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParam
             MiMarkPfnVerified(v8, 4);
             MiAbortCombineScan(v8);
             _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v48 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v48 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -206,10 +206,10 @@ char __fastcall MiCopyPage(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParam
     if ( v47 != 17 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v36 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v36 >= 2u )
         {
           v37 = KeGetCurrentPrcb();
           v38 = v37->SchedulerAssist;

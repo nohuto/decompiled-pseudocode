@@ -1,20 +1,20 @@
 /*
- * XREFs of AslFileMappingEnsure @ 0x14080915C
+ * XREFs of AslFileMappingEnsure @ 0x14080989C
  * Callers:
- *     AslFileMappingGetFileKindDetail @ 0x1408092FC (AslFileMappingGetFileKindDetail.c)
- *     AslFileMappingGetImageTypeEx @ 0x1408094C0 (AslFileMappingGetImageTypeEx.c)
- *     AslFileAllocAndGetAttributes @ 0x14080C45C (AslFileAllocAndGetAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x14080D0BC (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetExeWrapperAttribute @ 0x14080D7F0 (AslpFileGetExeWrapperAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x14080D9F0 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x14080DB98 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameAttribute @ 0x14080E3B4 (AslpFileGetPeExportNameAttribute.c)
- *     AslpFileGetVersionBlock @ 0x14080E580 (AslpFileGetVersionBlock.c)
- *     AslpFileGetVersionBlockImageOnly @ 0x14080ED88 (AslpFileGetVersionBlockImageOnly.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140809A3C (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140809C00 (AslFileMappingGetImageTypeEx.c)
+ *     AslFileAllocAndGetAttributes @ 0x14080CB9C (AslFileAllocAndGetAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14080D7FC (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetExeWrapperAttribute @ 0x14080DF30 (AslpFileGetExeWrapperAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x14080E130 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x14080E2D8 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameAttribute @ 0x14080EAF4 (AslpFileGetPeExportNameAttribute.c)
+ *     AslpFileGetVersionBlock @ 0x14080ECC0 (AslpFileGetVersionBlock.c)
+ *     AslpFileGetVersionBlockImageOnly @ 0x14080F4C8 (AslpFileGetVersionBlockImageOnly.c)
  * Callees:
- *     RtlFileMapMapView @ 0x1406966E4 (RtlFileMapMapView.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     AslpFileMappingGetFileKind @ 0x140A911CC (AslpFileMappingGetFileKind.c)
+ *     RtlFileMapMapView @ 0x1406977B4 (RtlFileMapMapView.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x140A8D8CC (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslFileMappingEnsure(__int64 a1)

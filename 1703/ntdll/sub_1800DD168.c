@@ -6,20 +6,20 @@
  *     ZwReadVirtualMemory @ 0x1800A5AE0 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall sub_1800DD168(__int64 a1, __int64 a2, bool *a3)
+__int64 __fastcall sub_1800DD168(HANDLE ProcessHandle, __int64 a2, bool *a3)
 {
-  int VirtualMemory; // edx
-  char v6; // [rsp+34h] [rbp-24h]
-  __int64 v7; // [rsp+68h] [rbp+10h]
+  NTSTATUS VirtualMemory; // edx
+  _BYTE v7[40]; // [rsp+30h] [rbp-28h] BYREF
+  PVOID Buffer; // [rsp+68h] [rbp+10h] BYREF
 
-  VirtualMemory = ZwReadVirtualMemory();
+  VirtualMemory = ZwReadVirtualMemory(ProcessHandle, (PVOID)(a2 + 5328), &Buffer, 8uLL, 0LL);
   if ( VirtualMemory >= 0 )
   {
-    if ( v7 )
+    if ( Buffer )
     {
-      VirtualMemory = ZwReadVirtualMemory();
+      VirtualMemory = ZwReadVirtualMemory(ProcessHandle, Buffer, v7, 0x20uLL, 0LL);
       if ( VirtualMemory >= 0 )
-        *a3 = (v6 & 2) != 0;
+        *a3 = (v7[4] & 2) != 0;
     }
     else
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAddProcessesToDump @ 0x14055C5A4
+ * XREFs of IoAddProcessesToDump @ 0x14055CC64
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C86C (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopLiveDumpAddProcesses @ 0x140A9A150 (IopLiveDumpAddProcesses.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF2C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddProcesses @ 0x140A99FC0 (IopLiveDumpAddProcesses.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IoAddProcessesToDump(__int64 a1, __int64 (__fastcall *a2)(__int64, __int64 *, __int64), __int64 a3)

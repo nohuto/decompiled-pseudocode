@@ -1,8 +1,8 @@
 /*
- * XREFs of Amd64FindUncoreById @ 0x14056B188
+ * XREFs of Amd64FindUncoreById @ 0x140568618
  * Callers:
- *     Amd64InitializeUncoreStatusEnhanced @ 0x14056BDF8 (Amd64InitializeUncoreStatusEnhanced.c)
- *     Amd64InitializeUncoreStatusOriginal @ 0x14056BE94 (Amd64InitializeUncoreStatusOriginal.c)
+ *     Amd64InitializeUncoreStatusEnhanced @ 0x140569288 (Amd64InitializeUncoreStatusEnhanced.c)
+ *     Amd64InitializeUncoreStatusOriginal @ 0x140569324 (Amd64InitializeUncoreStatusOriginal.c)
  * Callees:
  *     <none>
  */

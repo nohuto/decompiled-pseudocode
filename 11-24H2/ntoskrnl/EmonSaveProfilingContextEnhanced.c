@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonSaveProfilingContextEnhanced @ 0x140B4F6C0
+ * XREFs of EmonSaveProfilingContextEnhanced @ 0x140B51710
  * Callers:
  *     <none>
  * Callees:
- *     EmonSaveProfilingContextInternalEnhanced @ 0x14055E5AC (EmonSaveProfilingContextInternalEnhanced.c)
+ *     EmonSaveProfilingContextInternalEnhanced @ 0x14055C1DC (EmonSaveProfilingContextInternalEnhanced.c)
  */
 
 __int64 EmonSaveProfilingContextEnhanced()

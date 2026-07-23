@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpStackWalkApc @ 0x14020A200
+ * XREFs of EtwpStackWalkApc @ 0x14020A2E0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall EtwpStackWalkApc(__int16 **a1, __int64 a2, char *a3, _DWORD *a4, _DWORD *a5)

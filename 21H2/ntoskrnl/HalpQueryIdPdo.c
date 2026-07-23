@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpQueryIdPdo @ 0x1407D0980
+ * XREFs of HalpQueryIdPdo @ 0x1407D0AF0
  * Callers:
- *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140765140 (HalpDispatchPnp.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryIdPdo(__int64 a1, int a2, _QWORD *a3)

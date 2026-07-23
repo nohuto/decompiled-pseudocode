@@ -1,5 +1,5 @@
 /*
- * XREFs of ExInitializePagedLookasideList @ 0x1407D6C40
+ * XREFs of ExInitializePagedLookasideList @ 0x1407D6F10
  * Callers:
  *     WmipInitializeAllocs @ 0x140B38A8C (WmipInitializeAllocs.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
@@ -8,7 +8,7 @@
  *     FsRtlInitializeTunnels @ 0x140B68970 (FsRtlInitializeTunnels.c)
  *     FsRtlInitializeFileLocks @ 0x140B68A60 (FsRtlInitializeFileLocks.c)
  * Callees:
- *     ExInitializePagedLookasideListInternal @ 0x1403618B0 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializePagedLookasideListInternal @ 0x140361A50 (ExInitializePagedLookasideListInternal.c)
  */
 
 void __stdcall ExInitializePagedLookasideList(

@@ -37,19 +37,19 @@ void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
       *(_DWORD *)(a1 + 64) = 0;
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(a1 + 72);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
         {
-          RtlReleaseSRWLockExclusive(a1 + 136);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 136));
           if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
           {
-            RtlReleaseSRWLockExclusive(a1 + 240);
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
             if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-              RtlReleaseSRWLockExclusive(a1 + 360);
+              RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 360));
           }
         }
       }
-      RtlReleaseSRWLockExclusive(a1 + 552);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 552));
     }
   }
 }

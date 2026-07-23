@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpImageDirectoryEntryToData32 @ 0x1800DBF00
+ * XREFs of RtlpImageDirectoryEntryToData32 @ 0x1800D6FE0
  * Callers:
- *     RtlpxLookupFunctionTable @ 0x1800166E0 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1800430E0 (RtlpxLookupFunctionTable.c)
  * Callees:
  *     <none>
  */

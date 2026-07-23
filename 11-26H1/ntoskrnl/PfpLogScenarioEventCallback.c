@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpLogScenarioEventCallback @ 0x1407C5760
+ * XREFs of PfpLogScenarioEventCallback @ 0x1407C87C0
  * Callers:
  *     <none>
  * Callees:
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     PfTAccessTracingCheck @ 0x1405FFF34 (PfTAccessTracingCheck.c)
- *     PfTSetTraceWorkerPriority @ 0x1405FFF44 (PfTSetTraceWorkerPriority.c)
- *     PfGenerateTrace @ 0x1407794E8 (PfGenerateTrace.c)
- *     MmPerformMemoryListCommand @ 0x140C0C460 (MmPerformMemoryListCommand.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     PfTAccessTracingCheck @ 0x1406029E4 (PfTAccessTracingCheck.c)
+ *     PfTSetTraceWorkerPriority @ 0x1406029F4 (PfTSetTraceWorkerPriority.c)
+ *     PfGenerateTrace @ 0x14077C418 (PfGenerateTrace.c)
+ *     MmPerformMemoryListCommand @ 0x140C12670 (MmPerformMemoryListCommand.c)
  */
 
 __int64 __fastcall PfpLogScenarioEventCallback(__int64 a1, int *a2)
@@ -43,7 +43,7 @@ __int64 __fastcall PfpLogScenarioEventCallback(__int64 a1, int *a2)
   v10 = PfLogEvent(
           a1,
           27,
-          HIDWORD(stru_140E66B30.WriteOperationCount)
+          HIDWORD(stru_140E66D40.WriteOperationCount)
         + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                         + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
           v14,

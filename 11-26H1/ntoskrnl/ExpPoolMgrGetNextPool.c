@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPoolMgrGetNextPool @ 0x1404E76F8
+ * XREFs of ExpPoolMgrGetNextPool @ 0x1404E0AB4
  * Callers:
- *     ExpPoolMgrRebalanceWorker @ 0x140AC3610 (ExpPoolMgrRebalanceWorker.c)
- *     ExpPoolMgrPhase1Init @ 0x140CE7998 (ExpPoolMgrPhase1Init.c)
+ *     ExpPoolMgrRebalanceWorker @ 0x140AC5280 (ExpPoolMgrRebalanceWorker.c)
+ *     ExpPoolMgrPhase1Init @ 0x140CEDD38 (ExpPoolMgrPhase1Init.c)
  * Callees:
- *     ExpPoolMgrGetNextPoolCommon @ 0x140AC379C (ExpPoolMgrGetNextPoolCommon.c)
+ *     ExpPoolMgrGetNextPoolCommon @ 0x140AC540C (ExpPoolMgrGetNextPoolCommon.c)
  */
 
 __int64 __fastcall ExpPoolMgrGetNextPool(__int64 a1, __int64 a2)

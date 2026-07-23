@@ -1,9 +1,9 @@
 /*
- * XREFs of ObQueryTypeInfo @ 0x14065E9AC
+ * XREFs of ObQueryTypeInfo @ 0x14065FB6C
  * Callers:
- *     NtQueryObject @ 0x140660AB0 (NtQueryObject.c)
+ *     NtQueryObject @ 0x140661C70 (NtQueryObject.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall ObQueryTypeInfo(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)

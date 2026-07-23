@@ -18,11 +18,11 @@ char RtlpHeapTrkDumpOutstandingAllocs()
   int v5; // ecx
   int v6; // ecx
   int v7; // eax
-  void *v9; // [esp+Ch] [ebp-14h]
+  PVOID HeapHandle; // [esp+Ch] [ebp-14h]
   int v10; // [esp+10h] [ebp-10h]
   unsigned int NumberOfHeaps; // [esp+14h] [ebp-Ch]
   int v12; // [esp+14h] [ebp-Ch]
-  int Src; // [esp+18h] [ebp-8h] BYREF
+  int v13; // [esp+18h] [ebp-8h] BYREF
   int v14; // [esp+1Ch] [ebp-4h]
 
   v0 = 0;
@@ -43,25 +43,25 @@ char RtlpHeapTrkDumpOutstandingAllocs()
         if ( v4 )
         {
           v5 = 0;
-          v9 = (void *)v3[2];
+          HeapHandle = (PVOID)v3[2];
           NumberOfHeaps = NtCurrentPeb()->NumberOfHeaps;
           if ( NumberOfHeaps )
           {
             while ( 1 )
             {
               v0 = v10;
-              if ( v9 == NtCurrentPeb()->ProcessHeaps[v5] )
+              if ( HeapHandle == NtCurrentPeb()->ProcessHeaps[v5] )
                 break;
               if ( ++v5 >= NumberOfHeaps )
                 goto LABEL_14;
             }
             v12 = v3[4];
-            Src = 8 * v4;
-            v6 = RtlSizeHeap((int)v9, 0, 8 * v4);
+            v13 = 8 * v4;
+            v6 = RtlSizeHeap(HeapHandle, 0, (PVOID)(8 * v4));
             if ( v6 != -1 )
             {
               v7 = v12 ? *(_DWORD *)(v12 + 12) : 0;
-              if ( !(unsigned __int8)RtlpHeapTrkReportResult(0x14u, v7, v6, &Src, 4u) )
+              if ( !(unsigned __int8)RtlpHeapTrkReportResult(20, 3, v7, v6, &v13, 4) )
                 break;
             }
           }
@@ -74,11 +74,11 @@ LABEL_14:
           goto LABEL_16;
         }
       }
-      RtlReleaseSRWLockExclusive(*(volatile signed __int32 **)(dword_4B3A6D84 + 4 * (v10 & 0xF)));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(dword_4B3A6D84 + 4 * (v10 & 0xF)));
       return 0;
     }
 LABEL_16:
-    RtlReleaseSRWLockExclusive(*(volatile signed __int32 **)(dword_4B3A6D84 + 4 * v2));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(dword_4B3A6D84 + 4 * v2));
     ++v0;
     v1 += 8;
     v10 = v0;

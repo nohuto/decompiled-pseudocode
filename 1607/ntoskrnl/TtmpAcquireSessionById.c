@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmpAcquireSessionById @ 0x140546B74
+ * XREFs of TtmpAcquireSessionById @ 0x1405470B4
  * Callers:
- *     TtmiAcquireCurrentSession @ 0x140546B38 (TtmiAcquireCurrentSession.c)
- *     TtmpDisplayBurstPowerSettingCallback @ 0x1405811F4 (TtmpDisplayBurstPowerSettingCallback.c)
- *     TtmGetSessionDisplayRequiredCount @ 0x14067865C (TtmGetSessionDisplayRequiredCount.c)
- *     TtmNotifyConsoleUserPresent @ 0x1406788B4 (TtmNotifyConsoleUserPresent.c)
- *     TtmNotifyCsStateExited @ 0x140678944 (TtmNotifyCsStateExited.c)
- *     TtmNotifySessionDisplayBurst @ 0x1406789B4 (TtmNotifySessionDisplayBurst.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x140678A30 (TtmNotifySessionDisplayRequiredChange.c)
- *     TtmNotifySessionPowerStateChange @ 0x140678B38 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x140678BC4 (TtmNotifySessionTerminalInput.c)
- *     TtmSessionMonitorControl @ 0x140678C58 (TtmSessionMonitorControl.c)
+ *     TtmiAcquireCurrentSession @ 0x140547078 (TtmiAcquireCurrentSession.c)
+ *     TtmpDisplayBurstPowerSettingCallback @ 0x1405816A0 (TtmpDisplayBurstPowerSettingCallback.c)
+ *     TtmGetSessionDisplayRequiredCount @ 0x140678740 (TtmGetSessionDisplayRequiredCount.c)
+ *     TtmNotifyConsoleUserPresent @ 0x140678998 (TtmNotifyConsoleUserPresent.c)
+ *     TtmNotifyCsStateExited @ 0x140678A28 (TtmNotifyCsStateExited.c)
+ *     TtmNotifySessionDisplayBurst @ 0x140678A98 (TtmNotifySessionDisplayBurst.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x140678B14 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionPowerStateChange @ 0x140678C1C (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x140678CA8 (TtmNotifySessionTerminalInput.c)
+ *     TtmSessionMonitorControl @ 0x140678D3C (TtmSessionMonitorControl.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
  */
 
 __int64 __fastcall TtmpAcquireSessionById(_QWORD *a1, int a2)

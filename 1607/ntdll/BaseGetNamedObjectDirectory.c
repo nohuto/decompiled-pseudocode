@@ -1,8 +1,8 @@
 /*
- * XREFs of BaseGetNamedObjectDirectory @ 0x180102F14
+ * XREFs of BaseGetNamedObjectDirectory @ 0x180102E54
  * Callers:
- *     BaseFormatObjectAttributes @ 0x180102E7C (BaseFormatObjectAttributes.c)
- *     _ResOpenFileMapping @ 0x180104C74 (_ResOpenFileMapping.c)
+ *     BaseFormatObjectAttributes @ 0x180102DBC (BaseFormatObjectAttributes.c)
+ *     _ResOpenFileMapping @ 0x180104BB4 (_ResOpenFileMapping.c)
  * Callees:
  *     NtSetInformationThread @ 0x1800A65C0 (NtSetInformationThread.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
@@ -10,51 +10,49 @@
  *     ZwOpenDirectoryObject @ 0x1800A6F20 (ZwOpenDirectoryObject.c)
  */
 
-__int64 __fastcall BaseGetNamedObjectDirectory(_QWORD *a1)
+NTSTATUS __fastcall BaseGetNamedObjectDirectory(HANDLE *a1)
 {
   __m128i *v2; // rbx
-  __int64 result; // rax
-  int v4; // edi
+  NTSTATUS result; // eax
+  NTSTATUS v4; // edi
   __m128i v5; // xmm0
-  int v6; // ebx
-  __int64 v7; // [rsp+28h] [rbp-48h] BYREF
-  unsigned __int64 v8; // [rsp+30h] [rbp-40h]
-  int v9; // [rsp+38h] [rbp-38h]
-  HANDLE v10; // [rsp+40h] [rbp-30h]
-  __int64 *v11; // [rsp+48h] [rbp-28h]
-  int v12; // [rsp+50h] [rbp-20h]
-  __int128 v13; // [rsp+58h] [rbp-18h]
-  HANDLE Handle; // [rsp+A8h] [rbp+38h]
-  HANDLE v15; // [rsp+B0h] [rbp+40h]
-  __int64 v16; // [rsp+B8h] [rbp+48h]
+  NTSTATUS v6; // ebx
+  __int64 ThreadInformation; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-48h] BYREF
+  unsigned __int64 v9; // [rsp+30h] [rbp-40h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-38h] BYREF
+  HANDLE TokenHandle; // [rsp+A8h] [rbp+38h] BYREF
+  HANDLE Handle; // [rsp+B0h] [rbp+40h] BYREF
+  HANDLE DirectoryHandle; // [rsp+B8h] [rbp+48h] BYREF
 
   v2 = (__m128i *)((char *)NtCurrentPeb()->ReadOnlySharedMemoryBase
                  + *((_QWORD *)NtCurrentPeb()->ReadOnlyStaticServerData + 1)
                  - NtCurrentPeb()->CsrServerReadOnlySharedMemoryBase);
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    result = NtOpenThreadToken();
-    if ( (int)result < 0 )
+    result = NtOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, 4u, 1u, &TokenHandle);
+    if ( result < 0 )
       return result;
-    v4 = NtSetInformationThread();
+    ThreadInformation = 0LL;
+    v4 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     if ( v4 < 0 )
     {
-      NtClose(Handle);
-      return (unsigned int)v4;
+      NtClose(TokenHandle);
+      return v4;
     }
   }
   else
   {
-    Handle = 0LL;
+    TokenHandle = 0LL;
   }
-  v10 = 0LL;
-  v9 = 48;
-  v12 = 64;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
   v5 = v2[2];
-  v7 = v2[2].m128i_i64[0];
-  v8 = _mm_srli_si128(v5, 8).m128i_u64[0];
-  if ( v8 )
-    v8 += (unsigned __int64)NtCurrentPeb()->ReadOnlySharedMemoryBase
+  v8 = v2[2].m128i_i64[0];
+  v9 = _mm_srli_si128(v5, 8).m128i_u64[0];
+  if ( v9 )
+    v9 += (unsigned __int64)NtCurrentPeb()->ReadOnlySharedMemoryBase
         + *((_QWORD *)NtCurrentPeb()->ReadOnlyStaticServerData + 1)
         - *(_QWORD *)((char *)NtCurrentPeb()->ReadOnlySharedMemoryBase
                     + *((_QWORD *)NtCurrentPeb()->ReadOnlyStaticServerData + 1)
@@ -62,29 +60,29 @@ __int64 __fastcall BaseGetNamedObjectDirectory(_QWORD *a1)
                     + 2896)
         - NtCurrentPeb()->CsrServerReadOnlySharedMemoryBase;
   else
-    v8 = 0LL;
-  v11 = &v7;
-  v13 = 0LL;
-  v6 = ZwOpenDirectoryObject();
+    v9 = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v8;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v6 = ZwOpenDirectoryObject(&DirectoryHandle, 0xFu, &ObjectAttributes);
   if ( v6 < 0 )
   {
-    v6 = ZwOpenDirectoryObject();
+    v6 = ZwOpenDirectoryObject(&Handle, 2u, &ObjectAttributes);
     if ( v6 >= 0 )
     {
-      v10 = v15;
-      v9 = 48;
-      v11 = (__int64 *)&unk_180109590;
-      v12 = 64;
-      v13 = 0LL;
-      v6 = ZwOpenDirectoryObject();
-      NtClose(v15);
+      ObjectAttributes.RootDirectory = Handle;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180109590;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v6 = ZwOpenDirectoryObject(&DirectoryHandle, 0xFu, &ObjectAttributes);
+      NtClose(Handle);
     }
   }
-  if ( Handle )
+  if ( TokenHandle )
   {
-    NtSetInformationThread();
-    NtClose(Handle);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &TokenHandle, 8u);
+    NtClose(TokenHandle);
   }
-  *a1 = v16;
-  return (unsigned int)v6;
+  *a1 = DirectoryHandle;
+  return v6;
 }

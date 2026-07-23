@@ -1,11 +1,11 @@
 /*
- * XREFs of MmSetPermanentCacheAttribute @ 0x14084EF00
+ * XREFs of MmSetPermanentCacheAttribute @ 0x140850160
  * Callers:
  *     <none>
  * Callees:
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __int64 a2, int a3, int a4)

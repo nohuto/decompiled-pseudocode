@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlpFindUnicodeStringInSection @ 0x18001B2E0
+ * XREFs of RtlpFindUnicodeStringInSection @ 0x18001B2D0
  * Callers:
- *     RtlFindActivationContextSectionString @ 0x18001AD80 (RtlFindActivationContextSectionString.c)
- *     RtlQueryActivationContextApplicationSettings @ 0x180080A50 (RtlQueryActivationContextApplicationSettings.c)
+ *     RtlFindActivationContextSectionString @ 0x18001AD70 (RtlFindActivationContextSectionString.c)
+ *     RtlQueryActivationContextApplicationSettings @ 0x180080A40 (RtlQueryActivationContextApplicationSettings.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1800195B0 (RtlCompareUnicodeStrings.c)
- *     RtlHashUnicodeString @ 0x18001A870 (RtlHashUnicodeString.c)
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlCompareUnicodeStrings @ 0x1800195A0 (RtlCompareUnicodeStrings.c)
+ *     RtlHashUnicodeString @ 0x18001A860 (RtlHashUnicodeString.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     bsearch @ 0x180099410 (bsearch.c)
  */
 
-__int64 __fastcall RtlpFindUnicodeStringInSection(
+NTSTATUS __fastcall RtlpFindUnicodeStringInSection(
         __int64 a1,
         unsigned __int64 a2,
-        unsigned __int16 *a3,
+        _UNICODE_STRING *a3,
         unsigned int *a4,
         _DWORD *a5,
-        int *a6)
+        ULONG *HashValue)
 {
   char v6; // bl
-  char v7; // r10
+  BOOLEAN v7; // r10
   bool v8; // zf
   unsigned __int64 v11; // r11
   char v13; // r12
   int v14; // ebp
-  unsigned int v15; // r8d
-  __int64 result; // rax
+  ULONG v15; // r8d
+  NTSTATUS result; // eax
   char v17; // dl
-  unsigned int v18; // r9d
+  ULONG v18; // r9d
   __int64 v19; // rcx
   __int64 v20; // rdx
   __int64 v21; // rcx
@@ -40,30 +40,30 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
   char *v27; // r14
   char *v28; // r12
   char *v29; // rax
-  int v30; // ebp
-  unsigned __int16 *v31; // r15
-  unsigned __int64 v32; // r14
+  ULONG v30; // ebp
+  const WCHAR *Buffer; // r15
+  SIZE_T v32; // r14
   unsigned __int64 v33; // rax
   __int64 v34; // rcx
   int v35; // ebp
-  char v36; // [rsp+50h] [rbp-78h]
-  int v37; // [rsp+54h] [rbp-74h] BYREF
-  unsigned int v38; // [rsp+58h] [rbp-70h]
+  BOOLEAN CaseInSensitive; // [rsp+50h] [rbp-78h]
+  ULONG v37; // [rsp+54h] [rbp-74h] BYREF
+  ULONG v38; // [rsp+58h] [rbp-70h]
   unsigned __int64 v39; // [rsp+60h] [rbp-68h]
-  int Key[6]; // [rsp+68h] [rbp-60h] BYREF
+  ULONG Key[6]; // [rsp+68h] [rbp-60h] BYREF
 
   v6 = 1;
   v7 = *(_BYTE *)(a1 + 16) & 1;
   v8 = *(_DWORD *)a1 == 1682469715;
   v11 = a2;
   v39 = a2;
-  v36 = v7;
+  CaseInSensitive = v7;
   v13 = 1;
   if ( !v8 )
-    return 3222601731LL;
+    return -1072365565;
   v14 = 0;
   if ( !*(_DWORD *)(a1 + 20) )
-    return 3222601736LL;
+    return -1072365560;
   v15 = *(_DWORD *)(a1 + 28);
   if ( v15 == -1 )
   {
@@ -72,17 +72,17 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
   }
   else if ( *a5 != v15 )
   {
-    result = RtlHashUnicodeString(a3, v7, v15, a6);
-    if ( (int)result < 0 )
+    result = RtlHashUnicodeString(a3, v7, v15, HashValue);
+    if ( result < 0 )
     {
-      if ( (_DWORD)result != -1073741811 )
+      if ( result != -1073741811 )
         return result;
-      result = RtlHashUnicodeString(a3, v36, 0, &v37);
-      if ( (int)result < 0 )
+      result = RtlHashUnicodeString(a3, CaseInSensitive, 0, &v37);
+      if ( result < 0 )
         return result;
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "RtlpFindUnicodeStringInSection: Unsupported hash algorithm %lu found in string section.\n",
         *(_DWORD *)(a1 + 28));
       v6 = 0;
@@ -93,7 +93,7 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
       *a5 = *(_DWORD *)(a1 + 28);
     }
     v11 = v39;
-    v7 = v36;
+    v7 = CaseInSensitive;
   }
   v17 = v6;
   if ( *(_DWORD *)(a1 + 8) != 1 )
@@ -101,7 +101,7 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
   if ( ((unsigned __int8)v17 & (unsigned __int8)-(*(_DWORD *)(a1 + 32) != 0)) != 0 )
   {
     v19 = *(unsigned int *)(a1 + 32);
-    v38 = *a6;
+    v38 = *HashValue;
     v18 = v38;
     v20 = v38 % *(_DWORD *)(v19 + a1);
     v21 = a1 + *(unsigned int *)(v19 + a1 + 4);
@@ -122,8 +122,8 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
           if ( v33 > v11 )
           {
             DbgPrintEx(
-              51LL,
-              0LL,
+              0x33u,
+              0,
               "SXS: String hash table entry at %p has invalid key offset (= %ld)\n"
               "   Header = %p; Index = %lu; Bucket = %p; Chain = %p\n",
               (const void *)(v24 + a1),
@@ -132,33 +132,33 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
               v37,
               v22,
               v23);
-            return 3222601731LL;
+            return -1072365565;
           }
-          if ( !(unsigned int)RtlCompareUnicodeStrings(
-                                *((unsigned __int16 **)a3 + 1),
-                                (unsigned __int64)*a3 >> 1,
-                                v33 + a1,
-                                (unsigned __int64)*((unsigned __int16 *)v25 + 4) >> 1,
-                                v7) )
+          if ( !RtlCompareUnicodeStrings(
+                  a3->Buffer,
+                  (unsigned __int64)a3->Length >> 1,
+                  (PCWCH)(v33 + a1),
+                  (unsigned __int64)*((unsigned __int16 *)v25 + 4) >> 1,
+                  v7) )
             goto LABEL_33;
           v18 = v38;
           v11 = v39;
         }
-        v7 = v36;
+        v7 = CaseInSensitive;
         if ( ++v14 >= *v22 )
-          return 3222601736LL;
+          return -1072365560;
       }
-      DbgPrintEx(51LL, 0LL, "SXS: String hash collision chain offset at %p (= %ld) out of bounds\n", &v23[v14], v24);
-      return 3222601731LL;
+      DbgPrintEx(0x33u, 0, "SXS: String hash collision chain offset at %p (= %ld) out of bounds\n", &v23[v14], v24);
+      return -1072365565;
     }
-    return 3222601736LL;
+    return -1072365560;
   }
   if ( v13 && (*(_BYTE *)(a1 + 16) & 2) != 0 )
   {
     v26 = *(unsigned int *)(a1 + 20);
     v27 = (char *)(a1 + *(unsigned int *)(a1 + 24));
     v28 = &v27[24 * (unsigned int)(v26 - 1)];
-    Key[0] = *a6;
+    Key[0] = *HashValue;
     v29 = (char *)bsearch(Key, v27, v26, 0x18uLL, RtlpCompareActivationContextStringSectionEntryByPseudoKey);
     v25 = (unsigned int *)v29;
     if ( v29 )
@@ -167,25 +167,25 @@ __int64 __fastcall RtlpFindUnicodeStringInSection(
       {
         do
         {
-          if ( *v25 != *a6 )
+          if ( *v25 != *HashValue )
             break;
           v25 -= 6;
         }
         while ( v25 != (unsigned int *)v27 );
       }
-      v30 = *a6;
-      if ( *v25 != *a6 )
+      v30 = *HashValue;
+      if ( *v25 != *HashValue )
         v25 += 6;
-      v31 = (unsigned __int16 *)*((_QWORD *)a3 + 1);
-      v32 = (unsigned __int64)*a3 >> 1;
+      Buffer = a3->Buffer;
+      v32 = (unsigned __int64)a3->Length >> 1;
       do
       {
-        if ( !(unsigned int)RtlCompareUnicodeStrings(
-                              v31,
-                              v32,
-                              a1 + v25[1],
-                              (unsigned __int64)*((unsigned __int16 *)v25 + 4) >> 1,
-                              v36) )
+        if ( !RtlCompareUnicodeStrings(
+                Buffer,
+                v32,
+                (PCWCH)(a1 + v25[1]),
+                (unsigned __int64)*((unsigned __int16 *)v25 + 4) >> 1,
+                CaseInSensitive) )
           break;
         v25 += 6;
         if ( v25 > (unsigned int *)v28 )
@@ -200,28 +200,28 @@ LABEL_30:
       }
       goto LABEL_33;
     }
-    return 3222601736LL;
+    return -1072365560;
   }
   v35 = *(_DWORD *)(a1 + 20);
   v25 = (unsigned int *)(a1 + *(unsigned int *)(a1 + 24));
   if ( !v35 )
-    return 3222601736LL;
-  while ( v13 && *v25 != *a6
-       || (unsigned int)RtlCompareUnicodeStrings(
-                          *((unsigned __int16 **)a3 + 1),
-                          (unsigned __int64)*a3 >> 1,
-                          a1 + v25[1],
-                          (unsigned __int64)*((unsigned __int16 *)v25 + 4) >> 1,
-                          v7) )
+    return -1072365560;
+  while ( v13 && *v25 != *HashValue
+       || RtlCompareUnicodeStrings(
+            a3->Buffer,
+            (unsigned __int64)a3->Length >> 1,
+            (PCWCH)(a1 + v25[1]),
+            (unsigned __int64)*((unsigned __int16 *)v25 + 4) >> 1,
+            v7) )
   {
-    v7 = v36;
+    v7 = CaseInSensitive;
     v25 += 6;
     if ( !--v35 )
-      return 3222601736LL;
+      return -1072365560;
   }
 LABEL_33:
   if ( !v25 || !v25[3] )
-    return 3222601736LL;
+    return -1072365560;
   if ( a4 )
   {
     v34 = *a4;
@@ -231,5 +231,5 @@ LABEL_33:
     if ( a4 + 17 <= (unsigned int *)((char *)a4 + v34) )
       a4[16] = v25[5];
   }
-  return 0LL;
+  return 0;
 }

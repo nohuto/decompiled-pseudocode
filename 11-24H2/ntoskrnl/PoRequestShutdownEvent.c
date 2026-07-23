@@ -1,9 +1,9 @@
 /*
- * XREFs of PoRequestShutdownEvent @ 0x140A52D40
+ * XREFs of PoRequestShutdownEvent @ 0x140A4AD90
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestShutdownWait @ 0x140A52D84 (PopRequestShutdownWait.c)
+ *     PopRequestShutdownWait @ 0x140A4ADD4 (PopRequestShutdownWait.c)
  */
 
 NTSTATUS __stdcall PoRequestShutdownEvent(PVOID *Event)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_IMDSLicensingIntegration__private_ReportDeviceUsage @ 0x14041A244
+ * XREFs of Feature_IMDSLicensingIntegration__private_ReportDeviceUsage @ 0x14041A5D4
  * Callers:
- *     sub_1406EF570 @ 0x1406EF570 (sub_1406EF570.c)
+ *     sub_1406EF5A0 @ 0x1406EF5A0 (sub_1406EF5A0.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_IMDSLicensingIntegration__private_ReportDeviceUsage()

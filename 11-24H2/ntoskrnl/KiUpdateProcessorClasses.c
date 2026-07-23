@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateProcessorClasses @ 0x1404398F8
+ * XREFs of KiUpdateProcessorClasses @ 0x14042C4B8
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 KiUpdateProcessorClasses()
@@ -77,7 +77,7 @@ LABEL_7:
             {
               _BitScanForward64(&v12, v7);
               v7 &= ~(1LL << v12);
-              v13 = *((unsigned int *)qword_140F21E78 + 64 * v9 + (unsigned int)(unsigned __int8)v12);
+              v13 = *((unsigned int *)qword_140F22998 + 64 * v9 + (unsigned int)(unsigned __int8)v12);
               v14 = KiProcessorBlock[v13];
               v15 = v5 + *(_DWORD *)(v3 + 4) * (_DWORD)v13;
               v16 = (unsigned int)v15;
@@ -91,7 +91,7 @@ LABEL_7:
               if ( v8 <= v22 )
                 v8 = v22;
               *(_BYTE *)(v14 + 35337) = *(_BYTE *)(v3 + 4LL * (unsigned int)v15 + 25);
-              v17 = (_QWORD *)((char *)&unk_140FC7808 + 32 * *(unsigned __int8 *)(v14 + 208));
+              v17 = (_QWORD *)((char *)&unk_140FC8868 + 32 * *(unsigned __int8 *)(v14 + 208));
               v23 = v8;
               if ( *(_BYTE *)(v3 + 4 * v16 + 25) )
                 *v17 &= ~*(_QWORD *)(v14 + 200);

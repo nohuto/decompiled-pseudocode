@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpReceiveLegacyMessage @ 0x14071BB90
+ * XREFs of AlpcpReceiveLegacyMessage @ 0x14071BD90
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x14071BA30 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x14071BC30 (NtReplyWaitReceivePortEx.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x140337710 (ObReferenceObjectSafe.c)
- *     AlpcpUnlockMessage @ 0x14071BEB8 (AlpcpUnlockMessage.c)
- *     AlpcpReadMessageData @ 0x14071BEE8 (AlpcpReadMessageData.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x14071BF68 (AlpcpProbeForWriteMessageHeader.c)
- *     AlpcpReceiveMessagePort @ 0x14073B490 (AlpcpReceiveMessagePort.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x140978F4C (AlpcpGetDataFromUserVaSafe.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafe @ 0x1403379A0 (ObReferenceObjectSafe.c)
+ *     AlpcpUnlockMessage @ 0x14071C0B8 (AlpcpUnlockMessage.c)
+ *     AlpcpReadMessageData @ 0x14071C0E8 (AlpcpReadMessageData.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x14071C168 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpReceiveMessagePort @ 0x14073B680 (AlpcpReceiveMessagePort.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x14097914C (AlpcpGetDataFromUserVaSafe.c)
  */
 
 __int64 __fastcall AlpcpReceiveLegacyMessage(_QWORD *a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)

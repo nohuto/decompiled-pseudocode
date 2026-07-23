@@ -1,54 +1,54 @@
 /*
- * XREFs of RtlAddAccessAllowedAce @ 0x18003CAD0
+ * XREFs of RtlAddAccessAllowedAce @ 0x180027040
  * Callers:
  *     <none>
  * Callees:
- *     RtlValidSid @ 0x18003D140 (RtlValidSid.c)
- *     RtlValidAcl @ 0x18003D180 (RtlValidAcl.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlValidSid @ 0x1800276B0 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x1800276F0 (RtlValidAcl.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlAddAccessAllowedAce(char *a1, unsigned int a2, int a3, unsigned __int8 *a4)
+NTSTATUS __cdecl RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
   unsigned __int8 v8; // al
-  unsigned __int8 v9; // di
-  unsigned __int64 v10; // rcx
+  unsigned __int8 AclRevision; // di
+  PACL v10; // rcx
   unsigned int v11; // edx
-  unsigned __int64 v12; // r9
+  ACL *v12; // r9
   unsigned __int16 v13; // dx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( !(unsigned __int8)RtlValidSid(a4) )
-    return 3221225592LL;
-  if ( (unsigned __int8)*a1 > 4u || a2 > 4 )
-    return 3221225561LL;
-  v8 = a2;
-  v9 = *a1;
-  if ( (unsigned __int8)*a1 <= v8 )
-    v9 = v8;
-  if ( !(unsigned __int8)RtlValidAcl(a1) )
-    return 3221225591LL;
-  v10 = (unsigned __int64)(a1 + 8);
+  if ( !RtlValidSid(Sid) )
+    return -1073741704;
+  if ( Acl->AclRevision > 4u || AceRevision > 4 )
+    return -1073741735;
+  v8 = AceRevision;
+  AclRevision = Acl->AclRevision;
+  if ( Acl->AclRevision <= v8 )
+    AclRevision = v8;
+  if ( !RtlValidAcl(Acl) )
+    return -1073741705;
+  v10 = Acl + 1;
   v11 = 0;
-  v12 = (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)];
-  while ( v11 < *((unsigned __int16 *)a1 + 2) )
+  v12 = (PACL)((char *)Acl + Acl->AclSize);
+  while ( v11 < Acl->AceCount )
   {
     if ( v10 >= v12 )
-      return 3221225591LL;
+      return -1073741705;
     ++v11;
-    v10 += *(unsigned __int16 *)(v10 + 2);
+    v10 = (PACL)((char *)v10 + v10->AclSize);
   }
   if ( v10 > v12 )
     v10 = 0LL;
-  v13 = 4 * (a4[1] + 4);
-  if ( !v10 || v10 + v13 > v12 )
-    return 3221225625LL;
-  *(_WORD *)(v10 + 2) = v13;
-  *(_WORD *)v10 = 0;
-  *(_DWORD *)(v10 + 4) = a3;
-  memmove((void *)(v10 + 8), a4, 4LL * a4[1] + 8);
-  ++*((_WORD *)a1 + 2);
-  result = 0LL;
-  *a1 = v9;
+  v13 = 4 * (*((unsigned __int8 *)Sid + 1) + 4);
+  if ( !v10 || (PACL)((char *)v10 + v13) > v12 )
+    return -1073741671;
+  v10->AclSize = v13;
+  *(_WORD *)&v10->AclRevision = 0;
+  *(_DWORD *)&v10->AceCount = AccessMask;
+  memmove(&v10[1], Sid, 4LL * *((unsigned __int8 *)Sid + 1) + 8);
+  ++Acl->AceCount;
+  result = 0;
+  Acl->AclRevision = AclRevision;
   return result;
 }

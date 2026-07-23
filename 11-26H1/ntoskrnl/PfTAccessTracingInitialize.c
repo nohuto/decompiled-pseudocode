@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTAccessTracingInitialize @ 0x140BE95CC
+ * XREFs of PfTAccessTracingInitialize @ 0x140BEF5CC
  * Callers:
- *     PfTInitialize @ 0x1407C65A4 (PfTInitialize.c)
- *     PfTAccessTracingCleanup @ 0x140BF8DFC (PfTAccessTracingCleanup.c)
+ *     PfTInitialize @ 0x1407C9604 (PfTInitialize.c)
+ *     PfTAccessTracingCleanup @ 0x140BFEDFC (PfTAccessTracingCleanup.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
  */
 
 void __fastcall PfTAccessTracingInitialize(__int64 a1, int a2)

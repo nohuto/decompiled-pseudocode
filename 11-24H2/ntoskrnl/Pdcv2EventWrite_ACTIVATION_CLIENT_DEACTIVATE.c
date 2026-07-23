@@ -1,12 +1,12 @@
 /*
- * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE @ 0x14032FB78
+ * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE @ 0x1402B83F0
  * Callers:
- *     Pdcv2ActivationClientDeactivate @ 0x1409EF760 (Pdcv2ActivationClientDeactivate.c)
+ *     Pdcv2ActivationClientDeactivate @ 0x1409ED030 (Pdcv2ActivationClientDeactivate.c)
  * Callees:
- *     McTemplateU0qqzr1qzr3qqxqpqqzr11q_EtwWriteTransfer @ 0x14032FDC4 (McTemplateU0qqzr1qzr3qqxqpqqzr11q_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McTemplateU0qqzr1qzr3qqxqpqqzr11q_EtwWriteTransfer @ 0x1402B863C (McTemplateU0qqzr1qzr3qqxqpqqzr11q_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE(__int64 a1, unsigned int *a2, int a3)
@@ -81,7 +81,7 @@ __int64 __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE(__int64 a1, unsi
          * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
        - *(_QWORD *)(a1 + 40);
   }
-  if ( (byte_140F04ABA & 0x40) != 0 )
+  if ( (byte_140F04D62 & 0x40) != 0 )
   {
     v14 = -1LL;
     do
@@ -108,7 +108,7 @@ __int64 __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE(__int64 a1, unsi
                v7,
                a1);
   }
-  if ( v9 >= 0x3E8 && (unsigned int)dword_140E08838 > 5 )
+  if ( v9 >= 0x3E8 && (unsigned int)dword_140E088A8 > 5 )
   {
     v20 = v19;
     v28 = 4LL;
@@ -134,7 +134,7 @@ __int64 __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_DEACTIVATE(__int64 a1, unsi
     v23 = 2;
     v42 = 4LL;
     tlgCreate1Sz_wchar_t(v43, v6, v18);
-    return tlgWriteTransfer_EtwWriteTransfer(&dword_140E08838, &dword_1400513A4, 0LL, 0LL, 12, v26);
+    return tlgWriteTransfer_EtwWriteTransfer(&dword_140E088A8, byte_140051F6B, 0LL, 0LL, 12, v26);
   }
   return result;
 }

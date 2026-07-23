@@ -1,22 +1,22 @@
 /*
- * XREFs of PfFbBufferListCleanup @ 0x140865C00
+ * XREFs of PfFbBufferListCleanup @ 0x140866E60
  * Callers:
- *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
+ *     PfTCleanup @ 0x14086643C (PfTCleanup.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY __fastcall PfFbBufferListCleanup(__int64 a1)
 {
-  union _SLIST_HEADER *i; // rcx
+  _SLIST_HEADER *i; // rcx
   ULONG v3; // edx
   PSLIST_ENTRY v4; // rax
   ULONG v5; // edx
   PSLIST_ENTRY v6; // rax
   PSLIST_ENTRY result; // rax
 
-  for ( i = (union _SLIST_HEADER *)(a1 + 32); ; i = (union _SLIST_HEADER *)(a1 + 32) )
+  for ( i = (_SLIST_HEADER *)(a1 + 32); ; i = (_SLIST_HEADER *)(a1 + 32) )
   {
     v4 = RtlpInterlockedPopEntrySList(i);
     if ( !v4 )

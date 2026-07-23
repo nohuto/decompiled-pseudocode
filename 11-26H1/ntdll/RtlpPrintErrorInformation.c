@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpPrintErrorInformation @ 0x180150454
+ * XREFs of RtlpPrintErrorInformation @ 0x180150304
  * Callers:
- *     RtlpReportHeapFailure @ 0x1800D229C (RtlpReportHeapFailure.c)
+ *     RtlpReportHeapFailure @ 0x1800CFA0C (RtlpReportHeapFailure.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
  */
 
-__int64 RtlpPrintErrorInformation()
+ULONG RtlpPrintErrorInformation()
 {
   const char *v0; // rbx
 
-  v0 = (const char *)&unk_180176D3C;
+  v0 = (const char *)&Flags;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("Heap error detected at %p (heap handle %p)\n", (const void *)qword_1801C60F8, (const void *)qword_1801C60F0);
-  if ( dword_1801C60E8 > 12 )
+  DbgPrint("Heap error detected at %p (heap handle %p)\n", (const void *)qword_1801C50F8, (const void *)qword_1801C50F0);
+  if ( dword_1801C50E8 > 12 )
   {
-    if ( dword_1801C60E8 > 18 )
+    if ( dword_1801C50E8 > 18 )
     {
-      switch ( dword_1801C60E8 )
+      switch ( dword_1801C50E8 )
       {
         case 19:
           v0 = "heap_failure_null_heap";
@@ -41,7 +41,7 @@ __int64 RtlpPrintErrorInformation()
     }
     else
     {
-      switch ( dword_1801C60E8 )
+      switch ( dword_1801C50E8 )
       {
         case 18:
           v0 = "heap_failure_vs_subsegment_corruption";
@@ -64,13 +64,13 @@ __int64 RtlpPrintErrorInformation()
       }
     }
   }
-  else if ( dword_1801C60E8 == 12 )
+  else if ( dword_1801C50E8 == 12 )
   {
     v0 = "heap_failure_cross_heap_operation";
   }
-  else if ( dword_1801C60E8 > 6 )
+  else if ( dword_1801C50E8 > 6 )
   {
-    switch ( dword_1801C60E8 )
+    switch ( dword_1801C50E8 )
     {
       case 7:
         v0 = "heap_failure_buffer_underrun";
@@ -89,13 +89,13 @@ __int64 RtlpPrintErrorInformation()
         break;
     }
   }
-  else if ( dword_1801C60E8 == 6 )
+  else if ( dword_1801C50E8 == 6 )
   {
     v0 = "heap_failure_buffer_overrun";
   }
-  else if ( dword_1801C60E8 )
+  else if ( dword_1801C50E8 )
   {
-    switch ( dword_1801C60E8 )
+    switch ( dword_1801C50E8 )
     {
       case 1:
         v0 = "heap_failure_unknown";
@@ -122,32 +122,32 @@ __int64 RtlpPrintErrorInformation()
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("Error code: %d - %s\n", dword_1801C60E8, v0);
-  if ( qword_1801C6100 )
+  DbgPrint("Error code: %d - %s\n", dword_1801C50E8, v0);
+  if ( qword_1801C5100 )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Parameter1: %p\n", (const void *)qword_1801C6100);
+    DbgPrint("Parameter1: %p\n", (const void *)qword_1801C5100);
   }
-  if ( qword_1801C6108 )
+  if ( qword_1801C5108 )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Parameter2: %p\n", (const void *)qword_1801C6108);
+    DbgPrint("Parameter2: %p\n", (const void *)qword_1801C5108);
   }
-  if ( qword_1801C6110 )
+  if ( qword_1801C5110 )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Parameter3: %p\n", (const void *)qword_1801C6110);
+    DbgPrint("Parameter3: %p\n", (const void *)qword_1801C5110);
   }
-  if ( qword_1801C6118 || qword_1801C6120 )
+  if ( qword_1801C5118 || qword_1801C5120 )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -155,8 +155,8 @@ __int64 RtlpPrintErrorInformation()
       DbgPrint("HEAP: ");
     DbgPrint(
       "Last known valid blocks: before - %p, after - %p\n",
-      (const void *)qword_1801C6118,
-      (const void *)qword_1801C6120);
+      (const void *)qword_1801C5118,
+      (const void *)qword_1801C5120);
   }
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);

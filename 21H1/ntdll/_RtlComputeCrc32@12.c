@@ -6,13 +6,13 @@
  *     <none>
  */
 
-int __stdcall RtlComputeCrc32(int a1, int a2, unsigned int a3)
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  unsigned int v3; // edx
-  unsigned int i; // ecx
+  ULONG v3; // edx
+  ULONG32 i; // ecx
 
   v3 = 0;
-  for ( i = ~a1; v3 < a3; ++v3 )
-    i = RtlCrc32Table[(unsigned __int8)(i ^ *(_BYTE *)(v3 + a2))] ^ (i >> 8);
+  for ( i = ~PartialCrc; v3 < Length; ++v3 )
+    i = RtlCrc32Table[(unsigned __int8)(i ^ *((_BYTE *)Buffer + v3))] ^ (i >> 8);
   return ~i;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x14007E5F8
+ * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x14007E678
  * Callers:
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1400A7AB0 (KiPriQueueThreadPriorityChanged.c)
- *     KiSwitchQueue @ 0x1400A8074 (KiSwitchQueue.c)
- *     KiSwitchPriQueue @ 0x1400B2AD4 (KiSwitchPriQueue.c)
- *     KeTerminateThread @ 0x1400F2454 (KeTerminateThread.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1400A6028 (KiPriQueueThreadPriorityChanged.c)
+ *     KiSwitchQueue @ 0x1400A65EC (KiSwitchQueue.c)
+ *     KiSwitchPriQueue @ 0x1400B0A14 (KiSwitchPriQueue.c)
+ *     KeTerminateThread @ 0x1400F02A4 (KeTerminateThread.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiActivateWaiterKQueue @ 0x14007E708 (KiActivateWaiterKQueue.c)
- *     KiActivateWaiterPriQueue @ 0x14007E794 (KiActivateWaiterPriQueue.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiActivateWaiterKQueue @ 0x14007E788 (KiActivateWaiterKQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x14007E814 (KiActivateWaiterPriQueue.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 void __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3)

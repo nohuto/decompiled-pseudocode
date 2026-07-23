@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptRemapFixedLines @ 0x1403AF344
+ * XREFs of HalpInterruptRemapFixedLines @ 0x1403AF524
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x1403AF2FC (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403AF4DC (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x140367DEC (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037CA30 (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIrtAllocateIndex @ 0x14081E298 (HalpIrtAllocateIndex.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x140367F8C (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037CBD0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
+ *     HalpIrtAllocateIndex @ 0x14081E568 (HalpIrtAllocateIndex.c)
  *     HalpHvMapIoApicDeviceInterrupt @ 0x140A87310 (HalpHvMapIoApicDeviceInterrupt.c)
  */
 
@@ -120,10 +120,10 @@ __int64 HalpInterruptRemapFixedLines()
                     v13 = HalpAcquireHighLevelLock(&HalpInterruptLock);
                     v0 = HalpInterruptSetLineStateInternal(v2, (__int64)&v26, v10);
                     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       CurrentIrql = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                         && CurrentIrql <= 0xFu
                         && (unsigned __int8)v13 <= 0xFu
                         && CurrentIrql >= 2u )

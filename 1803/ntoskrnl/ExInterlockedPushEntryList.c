@@ -13,7 +13,7 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PKSPIN_LOCK Lock)
 {
   char v6; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rbx
+  _SINGLE_LIST_ENTRY *Next; // rbx
 
   v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock, (__int64)ListEntry);
   Next = ListHead->Next;

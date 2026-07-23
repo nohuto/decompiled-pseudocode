@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueApc @ 0x1406C8740
+ * XREFs of EtwpCovSampCaptureQueueApc @ 0x1406CC720
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x1406C8944 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x1406CC924 (EtwpCovSampCaptureSample.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     EtwpCovSampCaptureApcRelease @ 0x140261848 (EtwpCovSampCaptureApcRelease.c)
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
- *     EtwpCovSampLookasidePop @ 0x1402C1E48 (EtwpCovSampLookasidePop.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeIsThreadRunning @ 0x1403F72D0 (KeIsThreadRunning.c)
- *     KeTryToInsertQueueApc @ 0x1403F7408 (KeTryToInsertQueueApc.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x140260DB8 (EtwpCovSampCaptureApcRelease.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
+ *     EtwpCovSampLookasidePop @ 0x14030CB08 (EtwpCovSampLookasidePop.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeIsThreadRunning @ 0x1403F0C80 (KeIsThreadRunning.c)
+ *     KeTryToInsertQueueApc @ 0x1403F0DB8 (KeTryToInsertQueueApc.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi
   int v2; // r15d
-  __int64 v3; // r13
+  struct _LIST_ENTRY *Blink; // r13
   int v5; // esi
   volatile signed __int32 *v6; // rbx
   unsigned int v7; // edi
@@ -30,7 +30,7 @@ __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
-  v3 = ExpSysDbgLock.TracingPrivate[0];
+  Blink = ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
   v5 = 1;
   if ( CurrentThread->Process->FreezeCount + ((*(_DWORD *)&CurrentThread->Process->0 >> 3) & 1)
     || CurrentThread->SuspendCount
@@ -41,8 +41,8 @@ __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
   v6 = (volatile signed __int32 *)(&CurrentThread[1].SwapListEntry + 1);
   if ( !_interlockedbittestandset((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0x17u) )
   {
-    v8 = (ExSaDecodeHandle(*(_QWORD *)(v3 + 8)) + 15) & 0xFFFFFFFFFFFFFFF0uLL;
-    v9 = EtwpCovSampLookasidePop(v3, v8 + 16);
+    v8 = (ExSaDecodeHandle((unsigned int)Blink->Blink) + 15) & 0xFFFFFFFFFFFFFFF0uLL;
+    v9 = EtwpCovSampLookasidePop((__int64)Blink, v8 + 16);
     v10 = v9;
     if ( !v9 )
     {
@@ -59,7 +59,7 @@ __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
       (__int64)EtwpCovSampCaptureApcRundown,
       (__int64)EtwpCovSampCaptureApc,
       0,
-      v3);
+      (__int64)Blink);
     *((_QWORD *)&v10[7].Next + 1) = 0LL;
     LODWORD(v10[9].Next) = MEMORY[0xFFFFF78000000320];
     CurrentIrql = KeGetCurrentIrql();

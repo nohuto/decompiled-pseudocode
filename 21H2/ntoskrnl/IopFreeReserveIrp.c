@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFreeReserveIrp @ 0x140500B24
+ * XREFs of IopFreeReserveIrp @ 0x140500AA4
  * Callers:
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     IopFreeIrp @ 0x140353570 (IopFreeIrp.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x14035E2C0 (IopFreeIrp.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     IopFreeBackpocketIrp @ 0x140500AB4 (IopFreeBackpocketIrp.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     IopFreeBackpocketIrp @ 0x140500A34 (IopFreeBackpocketIrp.c)
  */
 
 LONG __fastcall IopFreeReserveIrp(IRP *a1)
@@ -15,20 +15,20 @@ LONG __fastcall IopFreeReserveIrp(IRP *a1)
   a1->AllocationFlags &= 0xDEu;
   if ( a1 == IopReserveIrps )
   {
-    v1 = (struct _KEVENT *)&word_140C45BF0;
-    _InterlockedExchange(&dword_140C45BE8, 0);
+    v1 = (struct _KEVENT *)&word_140C45D30;
+    _InterlockedExchange(&dword_140C45D28, 0);
     return KeSetEvent(v1, 1, 0);
   }
-  if ( a1 == qword_140C45C08 )
+  if ( a1 == qword_140C45D48 )
   {
-    v1 = (struct _KEVENT *)&word_140C45C18;
-    _InterlockedExchange(&dword_140C45C10, 0);
+    v1 = (struct _KEVENT *)&word_140C45D58;
+    _InterlockedExchange(&dword_140C45D50, 0);
     return KeSetEvent(v1, 1, 0);
   }
-  if ( a1 == qword_140C45C30 )
+  if ( a1 == qword_140C45D70 )
   {
-    v1 = &stru_140C45C40;
-    _InterlockedExchange(&dword_140C45C38, 0);
+    v1 = &stru_140C45D80;
+    _InterlockedExchange(&dword_140C45D78, 0);
     return KeSetEvent(v1, 1, 0);
   }
   return IopFreeBackpocketIrp(a1, 1);

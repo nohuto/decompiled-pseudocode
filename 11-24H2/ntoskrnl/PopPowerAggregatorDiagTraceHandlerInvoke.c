@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceHandlerInvoke @ 0x1409BA090
+ * XREFs of PopPowerAggregatorDiagTraceHandlerInvoke @ 0x1409A06E0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x1409B9FD8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x1409A0628 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopPowerAggregatorDiagTraceHandlerInvoke(ULONGLONG a1, __int64 a2)

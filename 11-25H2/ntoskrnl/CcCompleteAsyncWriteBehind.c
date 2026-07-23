@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-char __fastcall CcCompleteAsyncWriteBehind(struct _SLIST_ENTRY *P, char a2)
+char __fastcall CcCompleteAsyncWriteBehind(_SLIST_ENTRY *P, char a2)
 {
   _SLIST_ENTRY *Next; // rdi
   __int64 v3; // r15
@@ -21,10 +21,10 @@ char __fastcall CcCompleteAsyncWriteBehind(struct _SLIST_ENTRY *P, char a2)
   unsigned __int8 v8; // al
   unsigned __int8 v9; // bp
   unsigned __int8 *v10; // rsi
-  struct _SLIST_ENTRY **v11; // rax
+  _SLIST_ENTRY **v11; // rax
   __int64 v12; // rcx
   unsigned int v13; // eax
-  struct _SLIST_ENTRY **v14; // rax
+  _SLIST_ENTRY **v14; // rax
   __int64 v15; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-48h] BYREF
 
@@ -54,7 +54,7 @@ char __fastcall CcCompleteAsyncWriteBehind(struct _SLIST_ENTRY *P, char a2)
     {
       LODWORD(P[8].Next) = 7;
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&v5[52], &LockHandle);
-      v11 = (struct _SLIST_ENTRY **)(v3 + 312);
+      v11 = (_SLIST_ENTRY **)(v3 + 312);
       v12 = *(_QWORD *)(v3 + 312);
       if ( *(_QWORD *)(v12 + 8) != v3 + 312 )
         goto LABEL_13;
@@ -73,7 +73,7 @@ char __fastcall CcCompleteAsyncWriteBehind(struct _SLIST_ENTRY *P, char a2)
       LODWORD(Next[16].Next) = v13 + 1;
       LODWORD(P[8].Next) = 7;
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&v5[52], &LockHandle);
-      v14 = (struct _SLIST_ENTRY **)(v3 + 312);
+      v14 = (_SLIST_ENTRY **)(v3 + 312);
       v15 = *(_QWORD *)(v3 + 312);
       if ( *(_QWORD *)(v15 + 8) != v3 + 312 )
 LABEL_13:

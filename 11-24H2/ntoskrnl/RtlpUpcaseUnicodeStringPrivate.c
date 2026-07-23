@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x140347BD0
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1403265D0
  * Callers:
- *     RtlIsNameInExpression @ 0x1403474C0 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x140347540 (RtlIsNameInUnUpcasedExpression.c)
- *     RtlAreNamesEqual @ 0x140348070 (RtlAreNamesEqual.c)
+ *     RtlIsNameInExpression @ 0x140325F30 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x140325FB0 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlAreNamesEqual @ 0x140326A70 (RtlAreNamesEqual.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *a2)
 {
   __int64 v4; // rsi
-  __int16 *v5; // rdx
-  __int16 v6; // ax
+  unsigned __int16 *v5; // rdx
+  unsigned int v6; // eax
   __int64 Pool2; // rax
   unsigned int v8; // eax
   unsigned int v9; // r11d
@@ -23,10 +23,10 @@ __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *
 
   v4 = *(_QWORD *)(PsGetCurrentServerSiloGlobals(a1, a2) + 1200);
   v6 = *v5;
-  *(_WORD *)(a1 + 2) = *v5;
-  if ( v6 )
+  *(_WORD *)(a1 + 2) = v6;
+  if ( (_WORD)v6 )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, v6, 0x67727453u);
     *(_QWORD *)(a1 + 8) = Pool2;
     if ( !Pool2 )
       return 3221225495LL;

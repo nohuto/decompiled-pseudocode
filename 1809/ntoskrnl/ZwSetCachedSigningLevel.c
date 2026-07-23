@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwSetCachedSigningLevel @ 0x1401BB1D0
+ * XREFs of ZwSetCachedSigningLevel @ 0x1401BB330
  * Callers:
- *     sub_1408E1128 @ 0x1408E1128 (sub_1408E1128.c)
+ *     sub_1408E23E8 @ 0x1408E23E8 (sub_1408E23E8.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetCachedSigningLevel(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(*(_QWORD *)&Flags);
 }

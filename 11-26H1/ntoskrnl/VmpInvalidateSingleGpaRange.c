@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpInvalidateSingleGpaRange @ 0x1406C13D4
+ * XREFs of VmpInvalidateSingleGpaRange @ 0x1406C4FB4
  * Callers:
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
  * Callees:
- *     HvlMapGpaPages @ 0x14048FA54 (HvlMapGpaPages.c)
- *     VmpConvertInvalidateFlagsToMapFlags @ 0x1406C0DDC (VmpConvertInvalidateFlagsToMapFlags.c)
+ *     HvlMapGpaPages @ 0x140489414 (HvlMapGpaPages.c)
+ *     VmpConvertInvalidateFlagsToMapFlags @ 0x1406C49BC (VmpConvertInvalidateFlagsToMapFlags.c)
  */
 
 __int64 __fastcall VmpInvalidateSingleGpaRange(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)

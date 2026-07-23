@@ -1,25 +1,25 @@
 /*
- * XREFs of IoFillTriageDumpBuffer @ 0x140501DC0
+ * XREFs of IoFillTriageDumpBuffer @ 0x140501D40
  * Callers:
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x140504C0C (IopWriteCapsuleTriageDumpToFirmware.c)
- *     DbgkpTriageDumpFillHeaders @ 0x140889A00 (DbgkpTriageDumpFillHeaders.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140504B8C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x140889B60 (DbgkpTriageDumpFillHeaders.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoGetLoadedDriverInfo @ 0x14050245C (IoGetLoadedDriverInfo.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x140503B24 (IopAddRunTimeTriageDataBlocks.c)
- *     IopFillTriageDumpDataBlocks @ 0x140503FA0 (IopFillTriageDumpDataBlocks.c)
- *     IopGetMaxValidMemorySize @ 0x14050414C (IopGetMaxValidMemorySize.c)
- *     IopSizeTriageDumpDataBlocks @ 0x140504764 (IopSizeTriageDumpDataBlocks.c)
- *     IopWriteDriverList @ 0x140504DEC (IopWriteDriverList.c)
- *     KdCopyDataBlock @ 0x140510748 (KdCopyDataBlock.c)
- *     MmWriteTriageInformation @ 0x140538DBC (MmWriteTriageInformation.c)
- *     MmWriteUnloadedDriverInformation @ 0x140538ED8 (MmWriteUnloadedDriverInformation.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     KiIsAddressRangeValid @ 0x1403CA40C (KiIsAddressRangeValid.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoGetLoadedDriverInfo @ 0x1405023DC (IoGetLoadedDriverInfo.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x140503AA4 (IopAddRunTimeTriageDataBlocks.c)
+ *     IopFillTriageDumpDataBlocks @ 0x140503F20 (IopFillTriageDumpDataBlocks.c)
+ *     IopGetMaxValidMemorySize @ 0x1405040CC (IopGetMaxValidMemorySize.c)
+ *     IopSizeTriageDumpDataBlocks @ 0x1405046E4 (IopSizeTriageDumpDataBlocks.c)
+ *     IopWriteDriverList @ 0x140504D6C (IopWriteDriverList.c)
+ *     KdCopyDataBlock @ 0x140510988 (KdCopyDataBlock.c)
+ *     MmWriteTriageInformation @ 0x140538FFC (MmWriteTriageInformation.c)
+ *     MmWriteUnloadedDriverInformation @ 0x140539118 (MmWriteUnloadedDriverInformation.c)
  */
 
 __int64 __fastcall IoFillTriageDumpBuffer(
@@ -64,29 +64,32 @@ __int64 __fastcall IoFillTriageDumpBuffer(
   int v39; // edx
   int v40; // ecx
   __int64 v41; // rdx
-  __int64 v42; // r12
-  unsigned int v43; // r14d
-  __int64 v44; // rax
-  __int64 v45; // rax
-  unsigned __int64 v46; // rdx
+  __int64 v42; // rdx
+  __int64 v43; // r8
+  __int64 v44; // r9
+  __int64 v45; // r12
+  unsigned int v46; // r14d
   __int64 v47; // rax
-  void *v48; // r13
-  __int64 v49; // rax
-  __int64 v50; // rcx
-  size_t v51; // r8
+  __int64 v48; // rax
+  unsigned __int64 v49; // rdx
+  __int64 v50; // rax
+  void *v51; // r13
   __int64 v52; // rax
-  int v53; // esi
-  __int64 v54; // rax
-  int v55[18]; // [rsp+30h] [rbp-48h] BYREF
-  int v56; // [rsp+80h] [rbp+8h] BYREF
-  char v57; // [rsp+90h] [rbp+18h]
-  int v58; // [rsp+98h] [rbp+20h]
+  __int64 v53; // rcx
+  size_t v54; // r8
+  __int64 v55; // rax
+  int v56; // esi
+  __int64 v57; // rax
+  int v58[18]; // [rsp+30h] [rbp-48h] BYREF
+  int v59; // [rsp+80h] [rbp+8h] BYREF
+  char v60; // [rsp+90h] [rbp+18h]
+  int v61; // [rsp+98h] [rbp+20h]
 
-  v58 = a4;
-  v57 = a3;
-  v55[0] = 0;
+  v61 = a4;
+  v60 = a3;
+  v58[0] = 0;
   v13 = a4;
-  v56 = 0;
+  v59 = 0;
   v14 = a3;
   LoadedDriverInfo = 0;
   v17 = a9;
@@ -184,13 +187,13 @@ __int64 __fastcall IoFillTriageDumpBuffer(
           if ( KiIsAddressRangeValid((__int64)DpcStack, 80LL) )
           {
             v31 = *((_QWORD *)v30 - 2);
-            v13 = v58;
+            v13 = v61;
             if ( v27 <= v31 && v31 < v28 )
               v26 = v31;
           }
           else
           {
-            v13 = v58;
+            v13 = v61;
           }
         }
       }
@@ -199,7 +202,7 @@ __int64 __fastcall IoFillTriageDumpBuffer(
       else
         v32 = v28 - v26;
       MaxValidMemorySize = IopGetMaxValidMemorySize(v26, v32);
-      v14 = v57;
+      v14 = v60;
       if ( MaxValidMemorySize )
       {
         if ( v24 + MaxValidMemorySize >= (unsigned int)v22 )
@@ -256,12 +259,12 @@ __int64 __fastcall IoFillTriageDumpBuffer(
   if ( (v13 & 0x40) != 0 )
   {
     LOBYTE(v36) = v14;
-    LoadedDriverInfo = IoGetLoadedDriverInfo(v36, &v56, v55);
+    LoadedDriverInfo = IoGetLoadedDriverInfo(v36, &v59, v58);
     if ( LoadedDriverInfo >= 0 )
     {
-      v39 = v56;
-      v40 = 144 * v56;
-      if ( 144 * v56 )
+      v39 = v59;
+      v40 = 144 * v59;
+      if ( 144 * v59 )
       {
         if ( v24 + v40 >= (unsigned int)v22 )
         {
@@ -277,8 +280,8 @@ __int64 __fastcall IoFillTriageDumpBuffer(
       }
     }
   }
-  v41 = (v55[0] + 7 + 6 * v56) & 0xFFFFFFF8;
-  if ( ((v55[0] + 7 + 6 * v56) & 0xFFFFFFF8) != 0 )
+  v41 = (v58[0] + 7 + 6 * v59) & 0xFFFFFFF8;
+  if ( ((v58[0] + 7 + 6 * v59) & 0xFFFFFFF8) != 0 )
   {
     if ( v24 + (unsigned int)v41 >= (unsigned int)v22 )
     {
@@ -304,69 +307,69 @@ __int64 __fastcall IoFillTriageDumpBuffer(
   if ( !v14 )
   {
     ExReleaseResourceLite(&PsLoadedModuleResource);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v42, v43, v44);
   }
-  v42 = a11;
-  v43 = a10;
+  v45 = a11;
+  v46 = a10;
   if ( (v13 & 0x800) != 0 )
   {
     IopAddRunTimeTriageDataBlocks(a10, a11, a12, a6, a2[9], a2[9] + *((unsigned int *)a2 + 11));
-    v24 = (IopSizeTriageDumpDataBlocks((_DWORD)a2, v43, v42, v24, v22) + 7) & 0xFFFFFFF8;
+    v24 = (IopSizeTriageDumpDataBlocks((_DWORD)a2, v46, v45, v24, v22) + 7) & 0xFFFFFFF8;
     if ( *((_DWORD *)a2 + 31) )
       v25 |= 0x800u;
   }
-  v44 = *((unsigned int *)a2 + 5);
-  if ( (_DWORD)v44 )
-    MmWriteTriageInformation((char *)v34 + v44);
-  v45 = *((unsigned int *)a2 + 7);
-  v46 = (unsigned int)v22;
-  if ( (_DWORD)v45 && v45 + 44800 <= (unsigned __int64)(unsigned int)v22 )
+  v47 = *((unsigned int *)a2 + 5);
+  if ( (_DWORD)v47 )
+    MmWriteTriageInformation((char *)v34 + v47);
+  v48 = *((unsigned int *)a2 + 7);
+  v49 = (unsigned int)v22;
+  if ( (_DWORD)v48 && v48 + 44800 <= (unsigned __int64)(unsigned int)v22 )
   {
-    memmove((char *)v34 + (unsigned int)v45, KeGetCurrentPrcb(), 0xAF00uLL);
-    v46 = (unsigned int)v22;
+    memmove((char *)v34 + (unsigned int)v48, KeGetCurrentPrcb(), 0xAF00uLL);
+    v49 = (unsigned int)v22;
   }
-  v47 = *((unsigned int *)a2 + 8);
-  v48 = Src;
-  if ( (_DWORD)v47 && v47 + 2624 <= v46 )
-    memmove((char *)v34 + (unsigned int)v47, *((const void **)Src + 23), 0xA40uLL);
-  v49 = *((unsigned int *)a2 + 9);
-  if ( (_DWORD)v49 )
+  v50 = *((unsigned int *)a2 + 8);
+  v51 = Src;
+  if ( (_DWORD)v50 && v50 + 2624 <= v49 )
+    memmove((char *)v34 + (unsigned int)v50, *((const void **)Src + 23), 0xA40uLL);
+  v52 = *((unsigned int *)a2 + 9);
+  if ( (_DWORD)v52 )
   {
-    v46 = (unsigned int)v22;
-    if ( v49 + 2200 <= (unsigned __int64)(unsigned int)v22 )
-      memmove((char *)v34 + (unsigned int)v49, v48, 0x898uLL);
+    v49 = (unsigned int)v22;
+    if ( v52 + 2200 <= (unsigned __int64)(unsigned int)v22 )
+      memmove((char *)v34 + (unsigned int)v52, v51, 0x898uLL);
   }
-  v50 = *((unsigned int *)a2 + 10);
-  if ( (_DWORD)v50 )
+  v53 = *((unsigned int *)a2 + 10);
+  if ( (_DWORD)v53 )
   {
-    v51 = *((unsigned int *)a2 + 11);
-    v46 = a2[9];
-    if ( (int)v50 + (int)v51 <= (unsigned int)v22 )
-      memmove((char *)v34 + v50, (const void *)v46, v51);
+    v54 = *((unsigned int *)a2 + 11);
+    v49 = a2[9];
+    if ( (int)v53 + (int)v54 <= (unsigned int)v22 )
+      memmove((char *)v34 + v53, (const void *)v49, v54);
   }
-  v52 = *((unsigned int *)a2 + 28);
-  if ( (_DWORD)v52 && v52 + 896 <= (unsigned __int64)(unsigned int)v22 )
-    KdCopyDataBlock((char *)v34 + (unsigned int)v52, v46);
-  if ( v43 )
-    IopFillTriageDumpDataBlocks(a2, v43, v42, a2 - 1024);
+  v55 = *((unsigned int *)a2 + 28);
+  if ( (_DWORD)v55 && v55 + 896 <= (unsigned __int64)(unsigned int)v22 )
+    KdCopyDataBlock((char *)v34 + (unsigned int)v55, v49);
+  if ( v46 )
+    IopFillTriageDumpDataBlocks(a2, v46, v45, a2 - 1024);
   if ( (_DWORD)v22 != 253948 || a13 )
   {
-    v53 = v24 + 4;
+    v56 = v24 + 4;
     if ( a13 )
-      *a13 = v53 - 0x2000;
+      *a13 = v56 - 0x2000;
   }
   else
   {
-    v53 = 0x40000;
+    v56 = 0x40000;
   }
   if ( a5 )
     *a5 = v25;
-  v54 = (unsigned int)(v53 - 4);
-  *((_DWORD *)a2 + 1) = v53;
-  *((_DWORD *)a2 + 2) = v54;
-  if ( v54 - 0x2000 > (unsigned __int64)(unsigned int)v22 )
+  v57 = (unsigned int)(v56 - 4);
+  *((_DWORD *)a2 + 1) = v56;
+  *((_DWORD *)a2 + 2) = v57;
+  if ( v57 - 0x2000 > (unsigned __int64)(unsigned int)v22 )
     return 3221225626LL;
   result = (unsigned int)LoadedDriverInfo;
-  *(_DWORD *)((char *)a2 + (unsigned int)(v53 - 4) - 0x2000) = 1145524820;
+  *(_DWORD *)((char *)a2 + (unsigned int)(v56 - 4) - 0x2000) = 1145524820;
   return result;
 }

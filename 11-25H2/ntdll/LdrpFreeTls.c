@@ -36,13 +36,13 @@ __int64 LdrpFreeTls()
         do
         {
           if ( *ThreadLocalStoragePointer )
-            RtlFreeHeap(LdrpTlsHeap, 0LL, *((_QWORD *)*ThreadLocalStoragePointer - 1));
+            RtlFreeHeap(LdrpTlsHeap, 0, *((PVOID *)*ThreadLocalStoragePointer - 1));
           ++ThreadLocalStoragePointer;
           --v5;
         }
         while ( v5 );
       }
-      RtlFreeHeap(LdrpTlsHeap, 0LL, v4);
+      RtlFreeHeap(LdrpTlsHeap, 0, v4);
     }
   }
   else

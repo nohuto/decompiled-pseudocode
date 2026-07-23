@@ -1,14 +1,14 @@
 /*
- * XREFs of GxpReadFrameBufferPixels @ 0x14094E9FC
+ * XREFs of GxpReadFrameBufferPixels @ 0x14094F9FC
  * Callers:
- *     BgpGxReadRectangle @ 0x14094E98C (BgpGxReadRectangle.c)
+ *     BgpGxReadRectangle @ 0x14094F98C (BgpGxReadRectangle.c)
  * Callees:
- *     BgpGetResolution @ 0x14013B8C0 (BgpGetResolution.c)
- *     GxpAdjustRectangleToFrameBuffer @ 0x14016F0B0 (GxpAdjustRectangleToFrameBuffer.c)
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     GxpGetRotatedPixelOffset @ 0x14032792C (GxpGetRotatedPixelOffset.c)
+ *     BgpGetResolution @ 0x14013B9C0 (BgpGetResolution.c)
+ *     GxpAdjustRectangleToFrameBuffer @ 0x14016F1B0 (GxpAdjustRectangleToFrameBuffer.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     GxpGetRotatedPixelOffset @ 0x140327B1C (GxpGetRotatedPixelOffset.c)
  */
 
 __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
@@ -61,11 +61,11 @@ __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
   v10 = *(_DWORD *)a1;
   if ( !*(_DWORD *)a1 || *(_DWORD *)(a1 + 8) != v6 || !v2 || v9 + *v2 > (unsigned int)v22 || v10 + v2[1] > HIDWORD(v22) )
     return 3221225485LL;
-  if ( (dword_140405AD0 & 8) != 0 )
+  if ( (dword_140406AD0 & 8) != 0 )
     return 3221225659LL;
   if ( *(_DWORD *)(a1 + 12) < v4 * v9 * v10 )
     return 3221225507LL;
-  if ( (dword_140405AD0 & 2) == 0 )
+  if ( (dword_140406AD0 & 2) == 0 )
     return 3221225473LL;
   result = GxpAdjustRectangleToFrameBuffer((unsigned int *)a1, v2, &v22, (unsigned int *)&v24, &v20, 0);
   if ( (int)result >= 0 )
@@ -78,14 +78,14 @@ __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
       LOBYTE(v12) = 1;
       v30[1] = *(_DWORD *)(a1 + 4);
       v30[3] = *(_DWORD *)(a1 + 12);
-      v30[2] = xmmword_140405A70;
+      v30[2] = xmmword_140406A70;
       v31 = *(_QWORD *)(a1 + 24);
-      v13 = ((__int64 (__fastcall *)(_DWORD *, unsigned int *, __int64))qword_140405A80)(v30, v2, v12);
+      v13 = ((__int64 (__fastcall *)(_DWORD *, unsigned int *, __int64))qword_140406A80)(v30, v2, v12);
       goto LABEL_19;
     }
     v14 = *(char **)(a1 + 24);
     v15 = *(_DWORD *)a1;
-    v21 = (char *)qword_140405A80;
+    v21 = (char *)qword_140406A80;
     if ( BYTE2(BgInternal) )
     {
       HIDWORD(v35) = 0;
@@ -121,7 +121,7 @@ LABEL_30:
     }
     else
     {
-      v16 = (char *)qword_140405A80 + v4 * (*v2 + v23 * v2[1]);
+      v16 = (char *)qword_140406A80 + v4 * (*v2 + v23 * v2[1]);
       if ( !v15 )
       {
 LABEL_19:

@@ -21,7 +21,7 @@
  *     RtlpGetImageBaseViaQueryVirtualMemory @ 0x18007717C (RtlpGetImageBaseViaQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 *a2)
+__int64 __fastcall RtlpxLookupFunctionTable(PVOID BaseAddress, __int64 *a2)
 {
   __int64 v2; // rbx
   bool v4; // zf
@@ -31,7 +31,7 @@ __int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 *a2)
   char *v9; // r8
   unsigned __int64 v10; // rdx
   __int64 result; // rax
-  __int64 ImageBaseViaQueryVirtualMemory; // rax
+  void *ImageBaseViaQueryVirtualMemory; // rax
   __int64 v13; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0LL;
@@ -51,7 +51,7 @@ __int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 *a2)
         v8 = (v7 + v6) >> 1;
         v9 = (char *)&xmmword_18018F510 + 24 * v8;
         v10 = *((_QWORD *)v9 + 1);
-        if ( a1 < v10 )
+        if ( (unsigned __int64)BaseAddress < v10 )
         {
           if ( !v8 )
             break;
@@ -59,7 +59,7 @@ __int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 *a2)
         }
         else
         {
-          if ( a1 < v10 + *((unsigned int *)v9 + 4) )
+          if ( (unsigned __int64)BaseAddress < v10 + *((unsigned int *)v9 + 4) )
           {
             *(_OWORD *)a2 = *(_OWORD *)v9;
             a2[2] = *((_QWORD *)v9 + 2);
@@ -75,8 +75,8 @@ __int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 *a2)
     if ( v2 || !byte_18018F50C )
       return v2;
   }
-  ImageBaseViaQueryVirtualMemory = RtlpGetImageBaseViaQueryVirtualMemory(a1, a2 + 2);
-  a2[1] = ImageBaseViaQueryVirtualMemory;
+  ImageBaseViaQueryVirtualMemory = (void *)RtlpGetImageBaseViaQueryVirtualMemory(BaseAddress);
+  a2[1] = (__int64)ImageBaseViaQueryVirtualMemory;
   if ( !ImageBaseViaQueryVirtualMemory )
     return v2;
   RtlCaptureImageExceptionValues(ImageBaseViaQueryVirtualMemory, &v13, (_DWORD *)a2 + 5);

@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpSendShimEngineInitialNotifications @ 0x180065DAC
+ * XREFs of LdrpSendShimEngineInitialNotifications @ 0x1800ADC7C
  * Callers:
- *     LdrpDynamicShimModule @ 0x180005B7C (LdrpDynamicShimModule.c)
- *     LdrpLoadShimEngine @ 0x180065AE0 (LdrpLoadShimEngine.c)
- *     LdrpSendShimEngineInitialNotifications @ 0x180065DAC (LdrpSendShimEngineInitialNotifications.c)
+ *     LdrpDynamicShimModule @ 0x18003257C (LdrpDynamicShimModule.c)
+ *     LdrpLoadShimEngine @ 0x1800AD9B0 (LdrpLoadShimEngine.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x1800ADC7C (LdrpSendShimEngineInitialNotifications.c)
  * Callees:
- *     LdrpSendShimEngineInitialNotifications @ 0x180065DAC (LdrpSendShimEngineInitialNotifications.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x1800ADC7C (LdrpSendShimEngineInitialNotifications.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpSendShimEngineInitialNotifications(__int64 *a1, __int64 (__fastcall *a2)(__int64 *))

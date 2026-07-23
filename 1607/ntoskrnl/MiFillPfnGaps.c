@@ -3,14 +3,14 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiFillGapAddresses @ 0x1400B53E0 (MiFillGapAddresses.c)
+ *     MiFillGapAddresses @ 0x1400B3218 (MiFillGapAddresses.c)
  *     MiInitializeGapFrames @ 0x14078F08C (MiInitializeGapFrames.c)
  */
 
 __int64 MiFillPfnGaps()
 {
-  if ( !(unsigned int)MiInitializeGapFrames(0LL, &qword_1403276E8) )
+  if ( !(unsigned int)MiInitializeGapFrames(0LL, &qword_140327728) )
     return 0LL;
-  MiFillGapAddresses(0xFFFFFA8000000000uLL, 48 * qword_140326A90 - 0x57FFFFFFFD1LL, (int)&qword_1403276E8);
+  MiFillGapAddresses(0xFFFFFA8000000000uLL, 48 * qword_140326AD0 - 0x57FFFFFFFD1LL, (int)&qword_140327728);
   return 1LL;
 }

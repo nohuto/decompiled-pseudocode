@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64IsProfileBeingUsed @ 0x1405A448C
+ * XREFs of Amd64IsProfileBeingUsed @ 0x1405A6C9C
  * Callers:
- *     Amd64RemoveProfileSource @ 0x1405A4AC0 (Amd64RemoveProfileSource.c)
+ *     Amd64RemoveProfileSource @ 0x1405A72D0 (Amd64RemoveProfileSource.c)
  * Callees:
  *     <none>
  */

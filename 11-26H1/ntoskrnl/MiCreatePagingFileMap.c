@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreatePagingFileMap @ 0x1409B88BC
+ * XREFs of MiCreatePagingFileMap @ 0x14098989C
  * Callers:
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCreatePagingFileCleanup @ 0x140868838 (MiCreatePagingFileCleanup.c)
- *     MiCreatePagingFileFinish @ 0x1409B7E0C (MiCreatePagingFileFinish.c)
- *     MiCreatePagingFileControlArea @ 0x1409B8144 (MiCreatePagingFileControlArea.c)
- *     MiCreatePagingFileCommit @ 0x1409B8504 (MiCreatePagingFileCommit.c)
- *     MiCreatePagingFileMapPrepare @ 0x1409B85F4 (MiCreatePagingFileMapPrepare.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCreatePagingFileCleanup @ 0x14086EC18 (MiCreatePagingFileCleanup.c)
+ *     MiCreatePagingFileFinish @ 0x140988DEC (MiCreatePagingFileFinish.c)
+ *     MiCreatePagingFileControlArea @ 0x140989124 (MiCreatePagingFileControlArea.c)
+ *     MiCreatePagingFileCommit @ 0x1409894E4 (MiCreatePagingFileCommit.c)
+ *     MiCreatePagingFileMapPrepare @ 0x1409895D4 (MiCreatePagingFileMapPrepare.c)
  */
 
 __int64 __fastcall MiCreatePagingFileMap(__int64 a1)

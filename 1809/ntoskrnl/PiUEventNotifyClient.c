@@ -1,19 +1,19 @@
 /*
- * XREFs of PiUEventNotifyClient @ 0x14058F938
+ * XREFs of PiUEventNotifyClient @ 0x140590938
  * Callers:
- *     PiUEventNotifyTargetDeviceChange @ 0x14058F668 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x1406FEED4 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC64 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x14071004C (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x140590668 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x140700174 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14070FF04 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x1407112EC (PiUEventNotifyDeviceInterfaceChange.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PiUEventDequeuePendingEventWorker @ 0x14058EA80 (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventNotifyClientPendingEvent @ 0x14058FA24 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventQueuePendingEvent @ 0x14058FA84 (PiUEventQueuePendingEvent.c)
- *     PiUEventReferenceEventEntry @ 0x14058FAC4 (PiUEventReferenceEventEntry.c)
- *     PiUEventIsClientStuck @ 0x14058FB00 (PiUEventIsClientStuck.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14058FA80 (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x140590A24 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventQueuePendingEvent @ 0x140590A84 (PiUEventQueuePendingEvent.c)
+ *     PiUEventReferenceEventEntry @ 0x140590AC4 (PiUEventReferenceEventEntry.c)
+ *     PiUEventIsClientStuck @ 0x140590B00 (PiUEventIsClientStuck.c)
  */
 
 __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)

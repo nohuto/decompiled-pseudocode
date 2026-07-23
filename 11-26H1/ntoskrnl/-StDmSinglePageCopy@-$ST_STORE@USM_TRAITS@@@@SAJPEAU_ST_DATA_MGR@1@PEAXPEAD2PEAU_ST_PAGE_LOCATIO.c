@@ -1,18 +1,18 @@
 /*
- * XREFs of ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140390230
+ * XREFs of ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140391FE0
  * Callers:
- *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x14038F658 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
- *     ?StDmFinishPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@J@Z @ 0x14038F9F0 (-StDmFinishPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@P.c)
+ *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x140391408 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
+ *     ?StDmFinishPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@J@Z @ 0x1403917A0 (-StDmFinishPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@P.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x140390550 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
- *     SmStoreDecompressBuffer @ 0x1403905E0 (SmStoreDecompressBuffer.c)
- *     SmStoreCompletePendingDecompress @ 0x140443928 (SmStoreCompletePendingDecompress.c)
- *     SmStoreHashCompressedData @ 0x140524388 (SmStoreHashCompressedData.c)
- *     ?StRegionAccessExceptionFilter@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAJ@Z @ 0x14063E680 (-StRegionAccessExceptionFilter@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x140392300 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
+ *     SmStoreDecompressBuffer @ 0x140392390 (SmStoreDecompressBuffer.c)
+ *     SmStoreCompletePendingDecompress @ 0x14043C438 (SmStoreCompletePendingDecompress.c)
+ *     SmStoreHashCompressedData @ 0x1405269F8 (SmStoreHashCompressedData.c)
+ *     ?StRegionAccessExceptionFilter@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAJ@Z @ 0x140642260 (-StRegionAccessExceptionFilter@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_EXCEPTION_POINTERS@@PEAU_ST_DATA.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
@@ -25,7 +25,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
 {
   void *v6; // rsi
   _DWORD *v7; // r10
-  int v9; // r8d
+  __int64 v9; // r8
   int v10; // ebx
   void *v11; // r15
   signed __int64 *v12; // rbx
@@ -47,7 +47,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   v6 = (void *)a4;
   v7 = a3;
   v25 = a3;
-  v9 = 0;
+  v9 = 0LL;
   v10 = 0;
   v11 = (void *)a4;
   if ( (a4 & 1) != 0 )
@@ -71,7 +71,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
     }
     v10 = 1;
     v7 = v25;
-    v9 = 0;
+    v9 = 0LL;
   }
   v13 = *(unsigned __int16 *)(a5 + 4);
   v14 = 0;
@@ -88,7 +88,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
     }
     v7 = (_DWORD *)((char *)v7 + v14);
     v25 = v7;
-    v9 = 0;
+    v9 = 0LL;
   }
   if ( (*(_DWORD *)(a1 + 776) & 0x800000) != 0 && (*v15 & 4) != 0 )
   {
@@ -125,7 +125,7 @@ LABEL_14:
     v18 = v25;
     goto LABEL_21;
   }
-  v24 = SmStoreDecompressBuffer(*(_QWORD *)(a1 + 792), (_DWORD)v11, v9, (_DWORD)v25, v13, a2, a5 + 8);
+  v24 = SmStoreDecompressBuffer(*(_QWORD *)(a1 + 792), v11, v9, v25, v13, a2, a5 + 8);
   if ( v24 == -1073741420 )
   {
     v24 = -1073741552;

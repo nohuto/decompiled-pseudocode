@@ -1,17 +1,17 @@
 /*
- * XREFs of VfIrpLogRecordEvent @ 0x140C3B710
+ * XREFs of VfIrpLogRecordEvent @ 0x140C41720
  * Callers:
- *     IovpCallDriver1 @ 0x140C2B2B8 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140C312C8 (IovpCallDriver1.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140C30FDC (IovUtilIsDeviceObjectMarked.c)
- *     VfMajorBuildIrpLogEntry @ 0x140C31310 (VfMajorBuildIrpLogEntry.c)
- *     ViIrpLogDatabaseFindPointer @ 0x140C3BCC8 (ViIrpLogDatabaseFindPointer.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140C36FEC (IovUtilIsDeviceObjectMarked.c)
+ *     VfMajorBuildIrpLogEntry @ 0x140C37320 (VfMajorBuildIrpLogEntry.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x140C41CD8 (ViIrpLogDatabaseFindPointer.c)
  */
 
 void __fastcall VfIrpLogRecordEvent(__int16 a1, _DWORD *a2, __int64 a3)

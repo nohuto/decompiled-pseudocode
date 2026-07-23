@@ -6,24 +6,24 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlRealSuccessor(_QWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
-  _QWORD *result; // rax
-  _QWORD *j; // rdx
-  _QWORD *i; // rcx
+  PRTL_SPLAY_LINKS result; // rax
+  _RTL_SPLAY_LINKS *j; // rdx
+  _RTL_SPLAY_LINKS *i; // rcx
 
-  result = (_QWORD *)a1[2];
+  result = Links->RightChild;
   if ( result )
   {
-    for ( i = (_QWORD *)result[1]; i; i = (_QWORD *)i[1] )
+    for ( i = result->LeftChild; i; i = i->LeftChild )
       result = i;
   }
   else
   {
-    for ( j = (_QWORD *)*a1; (_QWORD *)j[2] == a1; j = (_QWORD *)*j )
-      a1 = j;
+    for ( j = Links->Parent; j->RightChild == Links; j = j->Parent )
+      Links = j;
     result = 0LL;
-    if ( (_QWORD *)j[1] == a1 )
+    if ( j->LeftChild == Links )
       return j;
   }
   return result;

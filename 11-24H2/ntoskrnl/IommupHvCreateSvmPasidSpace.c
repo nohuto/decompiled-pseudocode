@@ -1,36 +1,34 @@
 /*
- * XREFs of IommupHvCreateSvmPasidSpace @ 0x140565A0C
+ * XREFs of IommupHvCreateSvmPasidSpace @ 0x1405636C4
  * Callers:
- *     IommupGetSystemContext @ 0x140564CE0 (IommupGetSystemContext.c)
+ *     IommupGetSystemContext @ 0x140562910 (IommupGetSystemContext.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvCreateSvmPasidSpace(int a1)
 {
   int v1; // ebx
-  _QWORD *v4; // rax
-  __int64 v5; // r8
-  __int64 v6; // r9
-  signed __int8 v7; // cf
-  _QWORD *v8; // rsi
+  char *v4; // rax
+  signed __int8 v5; // cf
+  char *v6; // rsi
 
   v1 = 0;
   if ( !IommupHvSvmEnabled )
     return 3221225659LL;
   if ( IommupHvSvmPasidSpaceCreated )
     return a1 != IommupHvSvmDomain ? 0xC00000BB : 0;
-  v4 = KeAbPreAcquire((__int64)&IommupHvGlobalPushLock, 0LL);
-  v7 = _interlockedbittestandset64((volatile signed __int32 *)&IommupHvGlobalPushLock, 0LL);
-  v8 = v4;
-  if ( v7 )
-    ExfAcquirePushLockExclusiveEx(&IommupHvGlobalPushLock, (__int64)v4, (__int64)&IommupHvGlobalPushLock);
-  if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+  v4 = (char *)KeAbPreAcquire((__int64)&IommupHvGlobalPushLock, 0LL);
+  v5 = _interlockedbittestandset64((volatile signed __int32 *)&IommupHvGlobalPushLock, 0LL);
+  v6 = v4;
+  if ( v5 )
+    ExfAcquirePushLockExclusiveEx(&IommupHvGlobalPushLock, v4, (__int64)&IommupHvGlobalPushLock);
+  if ( v6 )
+    v6[10] = 1;
   if ( IommupHvSvmPasidSpaceCreated )
   {
     if ( IommupHvSvmDomain != a1 )
@@ -39,7 +37,7 @@ __int64 __fastcall IommupHvCreateSvmPasidSpace(int a1)
   }
   if ( IommupHvPasidSpaceCreated )
     goto LABEL_14;
-  v1 = guard_dispatch_icall_no_overrides(0LL, (unsigned int)IommupHvMaximumAsids, v5, v6);
+  v1 = guard_dispatch_icall_no_overrides(0LL, (unsigned int)IommupHvMaximumAsids);
   if ( v1 >= 0 )
   {
     IommupHvPasidSpaceCreated = 1;

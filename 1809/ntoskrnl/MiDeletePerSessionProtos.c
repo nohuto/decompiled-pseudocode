@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeletePerSessionProtos @ 0x140136FA4
+ * XREFs of MiDeletePerSessionProtos @ 0x1401370A4
  * Callers:
- *     MiFreeSubsectionProtos @ 0x1406C93F0 (MiFreeSubsectionProtos.c)
- *     MiDeleteSessionDriverProtos @ 0x1406E1A58 (MiDeleteSessionDriverProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1406CA690 (MiFreeSubsectionProtos.c)
+ *     MiDeleteSessionDriverProtos @ 0x1406E2CF8 (MiDeleteSessionDriverProtos.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
@@ -10,14 +10,14 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     KeSetPagePrivilege @ 0x14028DE10 (KeSetPagePrivilege.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiDeletePerSessionProtos(unsigned __int64 *P)
@@ -52,7 +52,7 @@ unsigned __int64 __fastcall MiDeletePerSessionProtos(unsigned __int64 *P)
   v9 = *(_WORD *)(v6 + 60) & 0x3FF;
   v10 = *P + ((v7 - *(_QWORD *)(v6 + 136)) >> 3 << 12);
   v17[0] = v10;
-  v11 = *(struct _KEVENT **)(qword_14043A748 + 8 * v9);
+  v11 = *(struct _KEVENT **)(qword_14043B808 + 8 * v9);
   v19 = v4 + 8 * v8;
   if ( v4 < v19 )
   {

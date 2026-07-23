@@ -65,7 +65,7 @@ __int64 __fastcall CmpCloneHwProfile(
   ULONG ResultLength; // [rsp+84h] [rbp-7Ch] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-78h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
-  UNICODE_STRING v34; // [rsp+C8h] [rbp-38h] BYREF
+  UNICODE_STRING GuidString; // [rsp+C8h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+D8h] [rbp-28h] BYREF
   _QWORD *v36[2]; // [rsp+E8h] [rbp-18h] BYREF
   UUID Uuid; // [rsp+F8h] [rbp-8h] BYREF
@@ -84,8 +84,8 @@ __int64 __fastcall CmpCloneHwProfile(
   ValueName.Buffer = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v34.Length = 0LL;
-  v34.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   *KeyHandle = 0LL;
   v25 = 0LL;
@@ -233,11 +233,11 @@ LABEL_10:
               Data = 1;
               RtlInitUnicodeString(&ValueName, L"Cloned");
               ZwSetValueKey(v25, &ValueName, 0, 4u, &Data, 4u);
-              if ( ExUuidCreate(&Uuid) >= 0 && (int)RtlStringFromGUIDEx(&Uuid.Data1, (__int64)&v34, 1) >= 0 )
+              if ( ExUuidCreate(&Uuid) >= 0 && RtlStringFromGUIDEx(&Uuid, &GuidString, 1u) >= 0 )
               {
                 RtlInitUnicodeString(&ValueName, L"HwProfileGuid");
-                ZwSetValueKey(v25, &ValueName, 0, 1u, v34.Buffer, v34.MaximumLength);
-                RtlFreeAnsiString(&v34);
+                ZwSetValueKey(v25, &ValueName, 0, 1u, GuidString.Buffer, GuidString.MaximumLength);
+                RtlFreeAnsiString(&GuidString);
               }
               v13 = ObReferenceObjectByHandle(
                       v7,

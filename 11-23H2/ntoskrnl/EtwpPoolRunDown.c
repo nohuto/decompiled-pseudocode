@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpPoolRunDown @ 0x1409EF54C
+ * XREFs of EtwpPoolRunDown @ 0x1409EF7DC
  * Callers:
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x140606F50 (ExGetBigPoolInfo.c)
- *     ExGetPoolTagInfo @ 0x14082F79C (ExGetPoolTagInfo.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x1406074A0 (ExGetBigPoolInfo.c)
+ *     ExGetPoolTagInfo @ 0x14082FA9C (ExGetPoolTagInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

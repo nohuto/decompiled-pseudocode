@@ -1,10 +1,10 @@
 /*
- * XREFs of PiGetDependentList @ 0x140A0FEBC
+ * XREFs of PiGetDependentList @ 0x1409BE2CC
  * Callers:
- *     IoDuplicateDependency @ 0x14071E100 (IoDuplicateDependency.c)
- *     PnpGetDeviceDependencyList @ 0x140A0DA98 (PnpGetDeviceDependencyList.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x140A0ECA8 (PnpNewDeviceNodeDependencyCheck.c)
- *     PnpProcessDependencyRelations @ 0x140A1123C (PnpProcessDependencyRelations.c)
+ *     IoDuplicateDependency @ 0x14071BC90 (IoDuplicateDependency.c)
+ *     PnpGetDeviceDependencyList @ 0x1409BBE9C (PnpGetDeviceDependencyList.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x1409BD0AC (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpProcessDependencyRelations @ 0x1409BF64C (PnpProcessDependencyRelations.c)
  * Callees:
  *     <none>
  */

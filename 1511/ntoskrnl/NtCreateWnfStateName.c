@@ -16,55 +16,60 @@
  *     ExpWnfRegisterPermanentName @ 0x1404C2D98 (ExpWnfRegisterPermanentName.c)
  */
 
-__int64 __fastcall NtCreateWnfStateName(
-        __int64 *a1,
-        unsigned int a2,
-        __int64 a3,
-        char a4,
-        ULONG64 a5,
-        unsigned int a6,
-        PSECURITY_DESCRIPTOR a7)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  unsigned int v8; // r13d
+  WNF_DATA_SCOPE v8; // r13d
   __int128 *v10; // rdx
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
-  int NameInstance; // edi
+  NTSTATUS NameInstance; // edi
   __int64 v14; // r9
   __int64 v15; // rbx
   _KPROCESS *Process; // rsi
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+38h] [rbp-B0h] BYREF
+  PSECURITY_DESCRIPTOR v18; // [rsp+38h] [rbp-B0h] BYREF
   int v19[2]; // [rsp+40h] [rbp-A8h] BYREF
   __int64 v20; // [rsp+48h] [rbp-A0h] BYREF
-  __int128 *v21; // [rsp+50h] [rbp-98h]
+  PCWNF_TYPE_ID v21; // [rsp+50h] [rbp-98h]
   PSECURITY_DESCRIPTOR v22; // [rsp+58h] [rbp-90h]
-  __int64 *v23; // [rsp+60h] [rbp-88h]
+  PWNF_STATE_NAME v23; // [rsp+60h] [rbp-88h]
   struct _EX_RUNDOWN_REF *v24; // [rsp+78h] [rbp-70h] BYREF
-  unsigned int v25; // [rsp+80h] [rbp-68h] BYREF
-  __int128 *v26; // [rsp+88h] [rbp-60h]
+  ULONG v25; // [rsp+80h] [rbp-68h] BYREF
+  PCWNF_TYPE_ID v26; // [rsp+88h] [rbp-60h]
   PSECURITY_DESCRIPTOR v27; // [rsp+90h] [rbp-58h]
   __int128 v28; // [rsp+98h] [rbp-50h] BYREF
 
-  v8 = a3;
-  v23 = a1;
-  v10 = (__int128 *)a5;
-  v22 = a7;
+  v8 = DataScope;
+  v23 = StateName;
+  v10 = (__int128 *)TypeId;
+  v22 = SecurityDescriptor;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   *(_QWORD *)v19 = 0LL;
-  SecurityDescriptor = 0LL;
-  v21 = (__int128 *)a5;
+  v18 = 0LL;
+  v21 = TypeId;
   if ( !PreviousMode )
   {
-    NameInstance = SeCaptureSecurityDescriptor((_DWORD)a7, 0, 1, 1, (__int64)&SecurityDescriptor);
+    NameInstance = SeCaptureSecurityDescriptor((_DWORD)SecurityDescriptor, 0, 1, 1, (__int64)&v18);
     if ( NameInstance < 0 )
       goto LABEL_27;
 LABEL_13:
-    ExpWnfSpecializeSecurityDescriptor(SecurityDescriptor);
-    if ( a2 <= 3 && a2 && v8 <= 4 && (!a4 || (v8 & 0xFFFFFFFB) == 0 && a2 == 1) && a6 <= 0x1000 )
+    ExpWnfSpecializeSecurityDescriptor(v18);
+    if ( (unsigned int)NameLifetime <= WnfTemporaryStateName
+      && NameLifetime
+      && (unsigned int)v8 <= WnfDataScopeMachine
+      && (!PersistData || (v8 & 0xFFFFFFFB) == 0 && NameLifetime == WnfPermanentStateName)
+      && MaximumStateSize <= 0x1000 )
     {
-      if ( a2 != 3 )
+      if ( NameLifetime != WnfTemporaryStateName )
       {
         if ( !SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, PreviousMode) )
         {
@@ -73,19 +78,19 @@ LABEL_13:
         }
         goto LABEL_20;
       }
-      if ( v8 != 3 )
+      if ( v8 != WnfDataScopeProcess )
       {
 LABEL_20:
-        LOBYTE(v14) = a4;
-        NameInstance = ExpWnfGenerateStateName(&v20, a2, v8, v14);
+        LOBYTE(v14) = PersistData;
+        NameInstance = ExpWnfGenerateStateName(&v20, (unsigned int)NameLifetime, (unsigned int)v8, v14);
         if ( NameInstance >= 0 )
         {
           v15 = v20;
-          *v23 = v20 ^ 0x41C64E6DA3BC0074LL;
-          v25 = a6;
+          *v23 = (_WNF_STATE_NAME)(v20 ^ 0x41C64E6DA3BC0074LL);
+          v25 = MaximumStateSize;
           v26 = v21;
-          v27 = SecurityDescriptor;
-          if ( a2 == 3 )
+          v27 = v18;
+          if ( NameLifetime == WnfTemporaryStateName )
           {
             if ( PreviousMode )
             {
@@ -115,35 +120,35 @@ LABEL_20:
     NameInstance = -1073741811;
     goto LABEL_27;
   }
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (__int64 *)MmUserProbeAddress;
-  *(_BYTE *)a1 = *(_BYTE *)a1;
-  *((_BYTE *)a1 + 7) = *((_BYTE *)a1 + 7);
-  if ( a5 )
+  if ( (unsigned __int64)StateName >= MmUserProbeAddress )
+    StateName = (PWNF_STATE_NAME)MmUserProbeAddress;
+  LOBYTE(StateName->Data[0]) = StateName->Data[0];
+  HIBYTE(StateName->Data[1]) = HIBYTE(StateName->Data[1]);
+  if ( TypeId )
   {
-    if ( a5 >= MmUserProbeAddress )
+    if ( (unsigned __int64)TypeId >= MmUserProbeAddress )
       v10 = (__int128 *)MmUserProbeAddress;
     v28 = *v10;
-    v21 = &v28;
+    v21 = (PCWNF_TYPE_ID)&v28;
   }
-  if ( !a7 )
+  if ( !SecurityDescriptor )
   {
     NameInstance = -1073741819;
     goto LABEL_27;
   }
   LOBYTE(v10) = PreviousMode;
-  NameInstance = SeCaptureSecurityDescriptor((_DWORD)a7, (_DWORD)v10, 1, 1, (__int64)&SecurityDescriptor);
+  NameInstance = SeCaptureSecurityDescriptor((_DWORD)SecurityDescriptor, (_DWORD)v10, 1, 1, (__int64)&v18);
   if ( NameInstance >= 0 )
     goto LABEL_13;
 LABEL_27:
   if ( *(_QWORD *)v19 )
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v19 + 8LL));
-  if ( SecurityDescriptor && SecurityDescriptor != a7 )
+  if ( v18 && v18 != SecurityDescriptor )
   {
-    LOBYTE(a3) = 1;
+    LOBYTE(DataScope) = 1;
     LOBYTE(v10) = PreviousMode;
-    SeReleaseSecurityDescriptor(SecurityDescriptor, v10, a3);
+    SeReleaseSecurityDescriptor(v18, v10, *(_QWORD *)&DataScope);
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)NameInstance;
+  return NameInstance;
 }

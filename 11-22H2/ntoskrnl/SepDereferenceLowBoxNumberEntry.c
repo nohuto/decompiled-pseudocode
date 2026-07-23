@@ -73,7 +73,7 @@ __int64 __fastcall SepDereferenceLowBoxNumberEntry(unsigned int a1, __int64 a2)
     if ( v10 && *(_QWORD *)(a2 + 48) )
     {
       ExRemoveLowBoxAtomReferences();
-      RtlDereferenceAtomTable();
+      RtlDereferenceAtomTable(*(void **)(a2 + 48));
       ExFreePoolWithTag((PVOID)a2, 0);
     }
     return TokenSessionMapEntry;

@@ -11,16 +11,16 @@ __int64 __fastcall PopPerfBoostPowerRequest(char a1)
 {
   int v1; // edx
   char v2; // al
-  int v4; // [rsp+60h] [rbp+18h] BYREF
+  int Buffer; // [rsp+60h] [rbp+18h] BYREF
   int v5; // [rsp+64h] [rbp+1Ch]
 
   v1 = 0;
   v5 = 0;
-  v4 = 0;
+  Buffer = 0;
   if ( a1 )
   {
     PoLatencySensitivityHint(3);
-    v1 = v4;
+    v1 = Buffer;
     v2 = 1;
   }
   else
@@ -28,7 +28,7 @@ __int64 __fastcall PopPerfBoostPowerRequest(char a1)
     v2 = 0;
   }
   v5 = -1;
-  v4 = v1 ^ ((unsigned __int8)v1 ^ (unsigned __int8)(2 * v2)) & 2 | 1;
-  ZwUpdateWnfStateData((__int64)&WNF_SEB_LOW_LATENCY_POWER_REQUEST, (__int64)&v4, 8LL);
+  Buffer = v1 ^ ((unsigned __int8)v1 ^ (unsigned __int8)(2 * v2)) & 2 | 1;
+  ZwUpdateWnfStateData(&WNF_SEB_LOW_LATENCY_POWER_REQUEST, &Buffer, 8u, 0LL, 0LL, 0, 0);
   return 0LL;
 }

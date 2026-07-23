@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x14041C568
+ * XREFs of RtlUnicodeStringCatString @ 0x1404105C0
  * Callers:
- *     CmpIsFileInSystemConfig @ 0x1407E1C10 (CmpIsFileInSystemConfig.c)
- *     AslpPathWildcardAllocMatchNode @ 0x14080B190 (AslpPathWildcardAllocMatchNode.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x14097ACC8 (CmpLogTransactionAbortedWithChildName.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140A255E4 (SshpGenerateDeviceFriendlyName.c)
- *     PopPowerRequestStatsIdConcat @ 0x140A68BC8 (PopPowerRequestStatsIdConcat.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A8190C (PopIdleWakeGenerateInterruptDescriptionString.c)
- *     PopGenerateDeviceFriendlyName @ 0x140A81B2C (PopGenerateDeviceFriendlyName.c)
+ *     CmpIsFileInSystemConfig @ 0x1407E2160 (CmpIsFileInSystemConfig.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x14080B8D0 (AslpPathWildcardAllocMatchNode.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1409634D8 (CmpLogTransactionAbortedWithChildName.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140A195D4 (SshpGenerateDeviceFriendlyName.c)
+ *     PopPowerRequestStatsIdConcat @ 0x140A61F78 (PopPowerRequestStatsIdConcat.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A7C204 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140A7C424 (PopGenerateDeviceFriendlyName.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x14041C5DC (RtlWideCharArrayCopyStringWorker.c)
- *     RtlUnicodeStringValidateWorker_0 @ 0x14041CA50 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x140410634 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x140410AA0 (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCatString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)

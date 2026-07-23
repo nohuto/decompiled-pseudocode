@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuGetDmarptRootAddress @ 0x1405A0B0C
+ * XREFs of HalpIommuGetDmarptRootAddress @ 0x1405A331C
  * Callers:
- *     HalpIommuGetHardwareDomain @ 0x140513EE4 (HalpIommuGetHardwareDomain.c)
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
- *     IommupHvSetUpDomainConfig @ 0x14059E92C (IommupHvSetUpDomainConfig.c)
- *     HalpIommuConstructReservedPageTable @ 0x140BEBC40 (HalpIommuConstructReservedPageTable.c)
+ *     HalpIommuGetHardwareDomain @ 0x14050D954 (HalpIommuGetHardwareDomain.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
+ *     IommupHvSetUpDomainConfig @ 0x1405A110C (IommupHvSetUpDomainConfig.c)
+ *     HalpIommuConstructReservedPageTable @ 0x140BF1C40 (HalpIommuConstructReservedPageTable.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
  */
 
 __int64 __fastcall HalpIommuGetDmarptRootAddress(__int64 a1, unsigned int a2, PHYSICAL_ADDRESS *a3)

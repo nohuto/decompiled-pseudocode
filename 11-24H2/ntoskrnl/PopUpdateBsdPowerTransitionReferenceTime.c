@@ -1,17 +1,17 @@
 /*
- * XREFs of PopUpdateBsdPowerTransitionReferenceTime @ 0x140A8F530
+ * XREFs of PopUpdateBsdPowerTransitionReferenceTime @ 0x140A8BBC8
  * Callers:
- *     PopBsdHandleRequest @ 0x1404A8F44 (PopBsdHandleRequest.c)
+ *     PopBsdHandleRequest @ 0x1404A3364 (PopBsdHandleRequest.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x140460AE0 (RtlComputeCrc32.c)
+ *     RtlComputeCrc32 @ 0x140455F70 (RtlComputeCrc32.c)
  */
 
-__int64 PopUpdateBsdPowerTransitionReferenceTime()
+ULONG32 PopUpdateBsdPowerTransitionReferenceTime()
 {
-  __int64 result; // rax
+  ULONG32 result; // eax
 
-  *(_QWORD *)&xmmword_140E67258 = MEMORY[0xFFFFF78000000014];
-  result = RtlComputeCrc32(0LL, (__int64)&xmmword_140E67258, 8LL);
-  DWORD2(xmmword_140E67258) = result;
+  *(_QWORD *)&xmmword_140E67468 = MEMORY[0xFFFFF78000000014];
+  result = RtlComputeCrc32(0, &xmmword_140E67468, 8u);
+  DWORD2(xmmword_140E67468) = result;
   return result;
 }

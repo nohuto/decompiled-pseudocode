@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptEcpointCopy @ 0x140564310
+ * XREFs of SymCryptEcpointCopy @ 0x140566700
  * Callers:
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140563700 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x140563C20 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptEcpointTransform @ 0x1405647A4 (SymCryptEcpointTransform.c)
- *     SymCryptShortWeierstrassSetDistinguished @ 0x140565A70 (SymCryptShortWeierstrassSetDistinguished.c)
- *     SymCryptShortWeierstrassAdd @ 0x1405664C0 (SymCryptShortWeierstrassAdd.c)
- *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x140566A6C (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140565AF0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140566010 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptEcpointTransform @ 0x140566B94 (SymCryptEcpointTransform.c)
+ *     SymCryptShortWeierstrassAdd @ 0x140574120 (SymCryptShortWeierstrassAdd.c)
+ *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x1405746CC (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
+ *     SymCryptShortWeierstrassSetDistinguished @ 0x140575AB0 (SymCryptShortWeierstrassSetDistinguished.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall SymCryptEcpointCopy(__int64 a1, _BYTE *a2, _BYTE *a3)

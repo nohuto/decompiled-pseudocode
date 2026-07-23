@@ -16,7 +16,7 @@ __int64 __fastcall sub_18000184C(__int64 a1, __int128 *a2, int a3)
 
   if ( (a3 & 0xFFFF0000) == 0x100000 )
   {
-    RtlSetLastWin32Error(87LL);
+    RtlSetLastWin32Error(87);
     return 0xFFFFFFFFLL;
   }
   else

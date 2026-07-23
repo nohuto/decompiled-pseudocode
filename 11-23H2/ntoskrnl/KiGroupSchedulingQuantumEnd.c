@@ -1,29 +1,29 @@
 /*
- * XREFs of KiGroupSchedulingQuantumEnd @ 0x140307F54
+ * XREFs of KiGroupSchedulingQuantumEnd @ 0x1403081E4
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
  * Callees:
  *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
  *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     KiStartRescheduleContext @ 0x140238F20 (KiStartRescheduleContext.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiFindRescheduleContextEntryForPrcb @ 0x140243B70 (KiFindRescheduleContextEntryForPrcb.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KiComputeGroupSchedulingRank @ 0x140305838 (KiComputeGroupSchedulingRank.c)
- *     KiCheckMaxOverQuotaTransition @ 0x140305988 (KiCheckMaxOverQuotaTransition.c)
- *     KiShouldPreemptionBeDeferred @ 0x140307870 (KiShouldPreemptionBeDeferred.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x140307F0C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1403082A8 (KiGroupSchedulingGenerationEnd.c)
- *     KiCommitRescheduleContext @ 0x140308574 (KiCommitRescheduleContext.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030909C (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1403090BC (KiCheckForMaxOverQuotaScb.c)
- *     KiInsertDeferredPreemptionApc @ 0x140309124 (KiInsertDeferredPreemptionApc.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140365570 (KiRecomputeGroupSchedulingRank.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiStartRescheduleContext @ 0x140238FF0 (KiStartRescheduleContext.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x140243C40 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KiComputeGroupSchedulingRank @ 0x140305AC8 (KiComputeGroupSchedulingRank.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x140305C18 (KiCheckMaxOverQuotaTransition.c)
+ *     KiShouldPreemptionBeDeferred @ 0x140307B00 (KiShouldPreemptionBeDeferred.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x14030819C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140308538 (KiGroupSchedulingGenerationEnd.c)
+ *     KiCommitRescheduleContext @ 0x140308804 (KiCommitRescheduleContext.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030932C (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x14030934C (KiCheckForMaxOverQuotaScb.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1403093B4 (KiInsertDeferredPreemptionApc.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x140365710 (KiRecomputeGroupSchedulingRank.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KiGroupSchedulingQuantumEnd(__int64 a1, __int64 *a2, _QWORD *a3, char a4)
@@ -112,7 +112,7 @@ char __fastcall KiGroupSchedulingQuantumEnd(__int64 a1, __int64 *a2, _QWORD *a3,
           if ( KiCheckMaxOverQuotaTransition(v13, v12) )
           {
             if ( (*(_BYTE *)(v13 + 112) & 1) != 0 )
-              KiRemoveSchedulingGroupQueue(a1, v13, 1);
+              KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a1, v13, 1);
             goto LABEL_34;
           }
           if ( *(_QWORD *)v13 >= *(_QWORD *)(v13 + 24) )

@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpCreateNamespaceNode @ 0x1409787E0
+ * XREFs of VrpCreateNamespaceNode @ 0x14093A7F0
  * Callers:
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14097854C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140979150 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14093A55C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14093B160 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     VrpBuildKeyPath @ 0x140977690 (VrpBuildKeyPath.c)
- *     VrpFindBestMatchNamespaceNode @ 0x140977CD0 (VrpFindBestMatchNamespaceNode.c)
- *     VrpGetNextToken @ 0x140978AA0 (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x140978B60 (VrpStripTrailingCharacters.c)
- *     VrpCountPathComponents @ 0x140978BB0 (VrpCountPathComponents.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     VrpBuildKeyPath @ 0x1409396A0 (VrpBuildKeyPath.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x140939CE0 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpGetNextToken @ 0x14093AAB0 (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x14093AB70 (VrpStripTrailingCharacters.c)
+ *     VrpCountPathComponents @ 0x14093ABC0 (VrpCountPathComponents.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpCreateNamespaceNode(

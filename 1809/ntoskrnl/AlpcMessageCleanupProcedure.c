@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcMessageCleanupProcedure @ 0x140696E40
+ * XREFs of AlpcMessageCleanupProcedure @ 0x140698000
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
- *     AlpcpReleaseViewAttribute @ 0x14061CCAC (AlpcpReleaseViewAttribute.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     PsReleaseProcessWakeCounter @ 0x14061D390 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpReleaseViewAttribute @ 0x14061DCAC (AlpcpReleaseViewAttribute.c)
  */
 
 __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPrivateFixup @ 0x140125E40
+ * XREFs of MiPrivateFixup @ 0x140125F10
  * Callers:
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  * Callees:
@@ -20,18 +20,18 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MiInitializeReadInProgressPfn @ 0x1400656E0 (MiInitializeReadInProgressPfn.c)
- *     MiDereferenceControlAreaProbe @ 0x140094CEC (MiDereferenceControlAreaProbe.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MiInitializeReadInProgressPfn @ 0x1400656D0 (MiInitializeReadInProgressPfn.c)
+ *     MiDereferenceControlAreaProbe @ 0x140094C2C (MiDereferenceControlAreaProbe.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRelocateImagePfn @ 0x1405E0930 (MiRelocateImagePfn.c)
+ *     MiAllocateDriverPage @ 0x140654BD4 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiPrivateFixup(__int64 a1, ULONG_PTR a2, int a3, __int64 a4, __int64 a5)
@@ -97,7 +97,7 @@ __int64 __fastcall MiPrivateFixup(__int64 a1, ULONG_PTR a2, int a3, __int64 a4, 
   if ( !v13 || (v10 = (struct _KTHREAD *)Process[1].Affinity.Bitmap[10]) == 0LL )
   {
     v11 = (*(_DWORD *)(a4 + 16) >> 5) & 0x1F;
-    v12 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v7 + 174));
+    v12 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v7 + 174));
     if ( v8 >= 0xFFFF800000000000uLL )
     {
       if ( (MiFlags & 0x10000) == 0 || (MiFlags & 0x4000) == 0 )
@@ -114,7 +114,7 @@ __int64 __fastcall MiPrivateFixup(__int64 a1, ULONG_PTR a2, int a3, __int64 a4, 
       goto LABEL_7;
     }
 LABEL_6:
-    v14 = (_QWORD *)MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+    v14 = (_QWORD *)MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
     if ( !v14 )
       return 3221225626LL;
 LABEL_7:
@@ -126,7 +126,7 @@ LABEL_7:
     {
       Page = MiGetPage(
                (__int64)v12,
-               dword_14043A088 & v44 | (((*(_QWORD *)(v52 + 40) >> 36) & 3) << byte_14043A04A) | (*(_QWORD *)(v52 + 40) >> 58 << byte_14043A049),
+               dword_14043B148 & v44 | (((*(_QWORD *)(v52 + 40) >> 36) & 3) << byte_14043B10A) | (*(_QWORD *)(v52 + 40) >> 58 << byte_14043B109),
                0);
       v16 = Page;
       if ( Page == -1 )
@@ -156,7 +156,7 @@ LABEL_48:
           MiReleaseFreshPage(48 * v16 - 0x58000000000LL);
         MiReturnFaultCharges(v12, 1LL, 2LL);
         if ( v14 )
-          MiReleasePtes((__int64)&qword_14043AFA0, (unsigned __int64)v14, 1u);
+          MiReleasePtes((__int64)&qword_14043C060, (unsigned __int64)v14, 1u);
         return v30;
       }
     }
@@ -199,7 +199,7 @@ LABEL_48:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v28 = 1;
-            if ( !HIBYTE(word_14043A1AC) && (v27 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v27 & 1) != 0 )
               v27 |= 0x8000000000000000uLL;
           }
           else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0
@@ -214,7 +214,7 @@ LABEL_48:
         v29 = v50;
         if ( *(__int64 *)(v52 + 8) < 0 )
           MiRelocateImagePfn((ULONG_PTR)v50, a5, v40, 2);
-        MiReleasePtes((__int64)&qword_14043AFA0, (unsigned __int64)v14, 1u);
+        MiReleasePtes((__int64)&qword_14043C060, (unsigned __int64)v14, 1u);
       }
       else
       {
@@ -262,7 +262,7 @@ LABEL_48:
       return v30;
     }
     if ( v14 )
-      MiReleasePtes((__int64)&qword_14043AFA0, (unsigned __int64)v14, 1u);
+      MiReleasePtes((__int64)&qword_14043C060, (unsigned __int64)v14, 1u);
     MiReleaseFreshPage(v17);
     MiReturnFaultCharges(v12, 1LL, 2LL);
     return 3221225626LL;

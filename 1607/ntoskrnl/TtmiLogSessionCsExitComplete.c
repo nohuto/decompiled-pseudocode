@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionCsExitComplete @ 0x14067B794
+ * XREFs of TtmiLogSessionCsExitComplete @ 0x14067B878
  * Callers:
- *     TtmNotifyCsStateExited @ 0x140678944 (TtmNotifyCsStateExited.c)
+ *     TtmNotifyCsStateExited @ 0x140678A28 (TtmNotifyCsStateExited.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionCsExitComplete()
@@ -25,7 +25,7 @@ void TtmiLogSessionCsExitComplete()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      TlgWrite(&stru_1407478B0, &unk_14027DB45, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027DC45, 0LL, 0LL, 3u, &pData);
     }
   }
 }

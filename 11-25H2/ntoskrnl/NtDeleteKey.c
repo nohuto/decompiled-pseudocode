@@ -31,7 +31,7 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtDeleteKey(HANDLE Handle)
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
   char v2; // r12
   char v3; // r13
@@ -45,7 +45,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
   int v11; // r9d
   char v12; // di
   int v13; // eax
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   char v15; // si
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v17; // rdi
@@ -99,7 +99,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     goto LABEL_38;
   }
   LOBYTE(v11) = PreviousMode;
-  v13 = CmObReferenceObjectByHandle((_DWORD)Handle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v30);
+  v13 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v30);
   v14 = v13;
   if ( v13 == -1073741790 )
   {
@@ -107,7 +107,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     if ( CmDoVirtualTest() )
     {
       LOBYTE(v24) = PreviousMode;
-      v14 = CmObReferenceObjectByHandle((_DWORD)Handle, 131097, v23, v24, (__int64)&Object, (__int64)&v30);
+      v14 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 131097, v23, v24, (__int64)&Object, (__int64)&v30);
       if ( v14 < 0 )
         goto LABEL_68;
       v17 = Object;
@@ -195,7 +195,7 @@ LABEL_25:
         {
           p_TransactionId = 0LL;
         }
-        SeDeleteObjectAuditAlarmWithTransaction(v17, Handle, p_TransactionId);
+        SeDeleteObjectAuditAlarmWithTransaction(v17, KeyHandle, p_TransactionId);
       }
 LABEL_27:
       if ( !v15 )
@@ -246,5 +246,5 @@ LABEL_38:
   if ( v12 )
     CmpReleaseShutdownRundown(v9);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v34);
-  return (unsigned int)v14;
+  return v14;
 }

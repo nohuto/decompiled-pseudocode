@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_PPLEnforcement__private_ReportDeviceUsage @ 0x1403F8B74
+ * XREFs of Feature_PPLEnforcement__private_ReportDeviceUsage @ 0x1403F8BA4
  * Callers:
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x140252F20 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F0A5C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x140285D90 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F1CA0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_PPLEnforcement__private_ReportDeviceUsage()

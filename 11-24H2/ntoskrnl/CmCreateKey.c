@@ -1,25 +1,25 @@
 /*
- * XREFs of CmCreateKey @ 0x140A26874
+ * XREFs of CmCreateKey @ 0x140A1B2F4
  * Callers:
- *     CmCreateKeyCallout @ 0x1406F5150 (CmCreateKeyCallout.c)
+ *     CmCreateKeyCallout @ 0x1406F3150 (CmCreateKeyCallout.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404590C0 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpAllocateParseContext @ 0x1406F509C (CmpAllocateParseContext.c)
- *     CmpFreeParseContext @ 0x1406F50D8 (CmpFreeParseContext.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14044E170 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpAllocateParseContext @ 0x1406F309C (CmpAllocateParseContext.c)
+ *     CmpFreeParseContext @ 0x1406F30D8 (CmpFreeParseContext.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
  */
 
 __int64 __fastcall CmCreateKey(
@@ -124,7 +124,7 @@ __int64 __fastcall CmCreateKey(
         if ( v15 )
         {
           Size = v15;
-          TransientPoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota();
+          TransientPoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota(v12, v15, 0x78634D43u);
           Privileges = TransientPoolWithQuota;
           if ( !TransientPoolWithQuota )
           {
@@ -242,7 +242,7 @@ LABEL_44:
   {
     v28 = v37;
     LOBYTE(v28) = 10;
-    guard_dispatch_icall_no_overrides(v28, v46, (unsigned int)v22, 0LL);
+    guard_dispatch_icall_no_overrides(v28, v46);
   }
   if ( Privileges )
     CmSiFreeMemory(Privileges);

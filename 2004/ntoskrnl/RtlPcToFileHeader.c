@@ -11,19 +11,24 @@
  *     RtlpxLookupFunctionTable @ 0x1402E92F0 (RtlpxLookupFunctionTable.c)
  */
 
-__int64 __fastcall RtlPcToFileHeader(unsigned __int64 a1, _QWORD *a2)
+PVOID __cdecl RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
 {
-  __int64 result; // rax
+  PVOID result; // rax
   __int128 v4; // [rsp+20h] [rbp-28h] BYREF
   __int64 v5; // [rsp+30h] [rbp-18h]
 
   v5 = 0LL;
   v4 = 0LL;
-  if ( a1 >= *(&xmmword_140E00020 + 1) && a1 < *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
+  if ( (unsigned __int64)PcValue >= *(&xmmword_140E00020 + 1)
+    && (unsigned __int64)PcValue < *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
+  {
     v4 = *(_OWORD *)&xmmword_140E00020;
+  }
   else
-    RtlpxLookupFunctionTable(a1, (__int64)&v4);
-  result = *((_QWORD *)&v4 + 1);
-  *a2 = *((_QWORD *)&v4 + 1);
+  {
+    RtlpxLookupFunctionTable((unsigned __int64)PcValue, (__int64)&v4);
+  }
+  result = (PVOID)*((_QWORD *)&v4 + 1);
+  *BaseOfImage = (PVOID)*((_QWORD *)&v4 + 1);
   return result;
 }

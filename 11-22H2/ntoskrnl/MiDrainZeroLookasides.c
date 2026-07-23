@@ -35,7 +35,7 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   _QWORD *v22; // [rsp+30h] [rbp-58h]
   __int64 v23; // [rsp+38h] [rbp-50h]
   unsigned __int64 v24; // [rsp+40h] [rbp-48h]
-  struct _SLIST_ENTRY *Next; // [rsp+48h] [rbp-40h]
+  _SLIST_ENTRY *Next; // [rsp+48h] [rbp-40h]
   unsigned __int8 v26; // [rsp+98h] [rbp+10h]
   unsigned int v27; // [rsp+A0h] [rbp+18h]
 
@@ -77,7 +77,9 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
               v26 = MiLockPageInline((__int64)v13);
               MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)&v13[0x22000000000LL] >> 4), v6);
               _InterlockedAnd64((volatile signed __int64 *)&v13[1].Next + 1, 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags
+                && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+                && CurrentIrql <= 0xFu )
               {
                 v14 = v26;
                 if ( v26 <= 0xFu && CurrentIrql >= 2u )

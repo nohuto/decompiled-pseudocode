@@ -8,10 +8,10 @@
  *     ZwSetEventEx @ 0x180166630 (ZwSetEventEx.c)
  */
 
-signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
+NTSTATUS __fastcall RtlpUnWaitCriticalSection(__int64 a1)
 {
   HANDLE DeferredCriticalSectionEvent; // rax
-  signed __int64 result; // rax
+  NTSTATUS result; // eax
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
   DeferredCriticalSectionEvent = *(HANDLE *)(a1 + 24);
@@ -25,7 +25,7 @@ signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
   else
   {
     result = ZwSetEventEx(DeferredCriticalSectionEvent, 0LL, a1);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       RtlRaiseStatus(result);
   }
   return result;

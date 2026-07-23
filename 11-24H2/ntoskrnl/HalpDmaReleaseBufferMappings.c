@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaReleaseBufferMappings @ 0x14045A854
+ * XREFs of HalpDmaReleaseBufferMappings @ 0x14044FCA4
  * Callers:
- *     HalpDmaZeroMapBuffers @ 0x14054F91C (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaZeroMapBuffers @ 0x14054D25C (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     MmUnmapReservedMapping @ 0x14040F6F0 (MmUnmapReservedMapping.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     MmUnmapReservedMapping @ 0x140433320 (MmUnmapReservedMapping.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall HalpDmaReleaseBufferMappings(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -24,14 +24,14 @@ void __fastcall HalpDmaReleaseBufferMappings(__int64 a1, __int64 a2, unsigned in
     if ( *(_BYTE *)(a4 + 48) )
     {
       MmUnmapReservedMapping(v7, 0x446C6148u, *(PMDL *)a4);
-      if ( !byte_140E3EB38 )
+      if ( !byte_140E3EC78 )
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)(a4 + 24), v8);
         v9 = *(_QWORD *)(a4 + 16);
         if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v9 + 24), 0xFFFFFFFF) == 1
           && !_InterlockedCompareExchange((volatile signed __int32 *)(v9 + 28), 1, 0) )
         {
-          RtlpInterlockedPushEntrySList(&stru_140E3EB40, (PSLIST_ENTRY)v9);
+          RtlpInterlockedPushEntrySList(&stru_140E3EC80, (PSLIST_ENTRY)v9);
         }
       }
     }

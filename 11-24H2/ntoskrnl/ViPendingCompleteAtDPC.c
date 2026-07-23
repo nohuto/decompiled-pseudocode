@@ -1,9 +1,9 @@
 /*
- * XREFs of ViPendingCompleteAtDPC @ 0x140B91E70
+ * XREFs of ViPendingCompleteAtDPC @ 0x140B93E70
  * Callers:
  *     <none>
  * Callees:
- *     ViPendingCompleteAfterWait @ 0x140B91D28 (ViPendingCompleteAfterWait.c)
+ *     ViPendingCompleteAfterWait @ 0x140B93D28 (ViPendingCompleteAfterWait.c)
  */
 
 void __fastcall ViPendingCompleteAtDPC(

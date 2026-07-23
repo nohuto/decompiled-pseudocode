@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPageSizeToPteLevel @ 0x140478750
+ * XREFs of MiPageSizeToPteLevel @ 0x140471ED0
  * Callers:
- *     MiWriteAwePtesPrepare @ 0x14047851C (MiWriteAwePtesPrepare.c)
- *     MiVadPageTableChargeLevel @ 0x1404786D0 (MiVadPageTableChargeLevel.c)
- *     MiCreateUserPhysicalViewCharges @ 0x140770E70 (MiCreateUserPhysicalViewCharges.c)
- *     MiProtectAwePrepare @ 0x140879020 (MiProtectAwePrepare.c)
- *     NtMapUserPhysicalPages @ 0x140B39FC0 (NtMapUserPhysicalPages.c)
+ *     MiWriteAwePtesPrepare @ 0x140471C9C (MiWriteAwePtesPrepare.c)
+ *     MiVadPageTableChargeLevel @ 0x140471E50 (MiVadPageTableChargeLevel.c)
+ *     MiCreateUserPhysicalViewCharges @ 0x140773E70 (MiCreateUserPhysicalViewCharges.c)
+ *     MiProtectAwePrepare @ 0x14087F400 (MiProtectAwePrepare.c)
+ *     NtMapUserPhysicalPages @ 0x140B3C1D0 (NtMapUserPhysicalPages.c)
  * Callees:
  *     <none>
  */

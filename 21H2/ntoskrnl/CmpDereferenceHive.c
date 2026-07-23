@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDereferenceHive @ 0x14071C6CC
+ * XREFs of CmpDereferenceHive @ 0x1405E006C
  * Callers:
- *     CmpDoFlushAll @ 0x14037DE9C (CmpDoFlushAll.c)
- *     CmpLateUnloadHiveWorker @ 0x14071C570 (CmpLateUnloadHiveWorker.c)
+ *     CmpDoFlushAll @ 0x14037D9EC (CmpDoFlushAll.c)
+ *     CmpLateUnloadHiveWorker @ 0x1405DFF10 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
  */
 
 __int64 __fastcall CmpDereferenceHive(volatile signed __int32 *a1)

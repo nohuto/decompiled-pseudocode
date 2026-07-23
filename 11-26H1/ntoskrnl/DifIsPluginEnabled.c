@@ -1,10 +1,10 @@
 /*
- * XREFs of DifIsPluginEnabled @ 0x14064C7D0
+ * XREFs of DifIsPluginEnabled @ 0x1406503B0
  * Callers:
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     DifIsValidTrackingObject @ 0x14064ADB4 (DifIsValidTrackingObject.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     DifIsValidTrackingObject @ 0x14064E994 (DifIsValidTrackingObject.c)
  * Callees:
  *     <none>
  */

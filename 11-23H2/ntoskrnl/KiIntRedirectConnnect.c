@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIntRedirectConnnect @ 0x140580878
+ * XREFs of KiIntRedirectConnnect @ 0x140580D68
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x140320130 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x1403203C0 (KiIntSteerChooseInitialTargetProcessors.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

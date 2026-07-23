@@ -1,13 +1,16 @@
 /*
- * XREFs of PopIsRunningAsLocalSystem @ 0x1406E2708
+ * XREFs of PopIsRunningAsLocalSystem @ 0x1406E39A8
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB90 (RtlCheckTokenMembership.c)
  */
 
-char PopIsRunningAsLocalSystem()
+BOOLEAN PopIsRunningAsLocalSystem()
 {
-  RtlCheckTokenMembership(0LL, SeLocalSystemSid);
-  return 0;
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
+
+  IsMember = 0;
+  RtlCheckTokenMembership(0LL, SeLocalSystemSid, &IsMember);
+  return IsMember;
 }

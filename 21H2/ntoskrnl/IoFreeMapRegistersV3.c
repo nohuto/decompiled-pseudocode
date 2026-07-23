@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeMapRegistersV3 @ 0x1403A2CD4
+ * XREFs of IoFreeMapRegistersV3 @ 0x1403A2E24
  * Callers:
- *     IoFreeMapRegisters @ 0x1403A2CA0 (IoFreeMapRegisters.c)
+ *     IoFreeMapRegisters @ 0x1403A2DF0 (IoFreeMapRegisters.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6358 (HalpDmaProcessMapRegisterQueueV3.c)
- *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6598 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7CF8 (HalpDmaFreeMapRegisters.c)
  */
 
 void __fastcall IoFreeMapRegistersV3(__int64 a1, __int64 a2, unsigned int a3)

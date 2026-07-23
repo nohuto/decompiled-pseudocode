@@ -149,7 +149,7 @@ NTSTATUS __stdcall NtFilterToken(
                    PrivilegeCount,
                    v24,
                    v20,
-                   *(__int64 **)&v22[1],
+                   *(PSID **)&v22[1],
                    v22[0],
                    &v27[1]);
       if ( inserted >= 0 )

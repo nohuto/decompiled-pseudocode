@@ -44,7 +44,7 @@ char SshpPurgeBlockersWorker()
     v1 = KeAbPreAcquire((__int64)&SshpLibraryListLock, 0LL);
     v2 = v1;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&SshpLibraryListLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&SshpLibraryListLock, v1, (__int64)&SshpLibraryListLock);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpLibraryListLock, v1, (__int64)&SshpLibraryListLock);
     if ( v2 )
       *((_BYTE *)v2 + 10) = 1;
     for ( i = (__int64 *)SshpLibraryList; i != &SshpLibraryList; i = (__int64 *)*i )

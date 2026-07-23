@@ -1,18 +1,18 @@
 /*
- * XREFs of ObSetSecurityDescriptorInfo @ 0x14065F2B0
+ * XREFs of ObSetSecurityDescriptorInfo @ 0x1406540D0
  * Callers:
- *     SeDefaultObjectMethod @ 0x14065FC50 (SeDefaultObjectMethod.c)
- *     WmipSecurityMethod @ 0x14069D030 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1405FC100 (WmipSecurityMethod.c)
+ *     SeDefaultObjectMethod @ 0x140654A70 (SeDefaultObjectMethod.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     SeSetSecurityDescriptorInfo @ 0x14065F260 (SeSetSecurityDescriptorInfo.c)
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ObAdjustSecurityQuota @ 0x14065FB48 (ObAdjustSecurityQuota.c)
- *     SeComputeQuotaInformationSize @ 0x14065FBD0 (SeComputeQuotaInformationSize.c)
- *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     SeSetSecurityDescriptorInfo @ 0x140654080 (SeSetSecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     ObAdjustSecurityQuota @ 0x140654968 (ObAdjustSecurityQuota.c)
+ *     SeComputeQuotaInformationSize @ 0x1406549F0 (SeComputeQuotaInformationSize.c)
+ *     ObLogSecurityDescriptor @ 0x140654CD0 (ObLogSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObSetSecurityDescriptorInfo(
@@ -29,14 +29,17 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
   NTSTATUS v12; // ebx
   __int64 v13; // rax
   char v14; // al
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+38h] [rbp-20h]
-  unsigned int v18; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-20h]
+  unsigned int v21; // [rsp+60h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v7 = 0;
-  v18 = 0;
-  v17 = 0LL;
+  v21 = 0;
+  v20 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object - 4), 0LL);
   v11 = (void *)(*(Object - 1) & 0xFFFFFFFFFFFFFFF0uLL);
@@ -57,17 +60,17 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
     v12 = ObLogSecurityDescriptor(ObjectsSecurityDescriptor);
     if ( v12 >= 0 )
     {
-      v12 = SeComputeQuotaInformationSize(ObjectsSecurityDescriptor, &v18);
+      v12 = SeComputeQuotaInformationSize(ObjectsSecurityDescriptor, &v21);
       if ( v12 >= 0 )
       {
-        v12 = ObAdjustSecurityQuota(Object, v18);
+        v12 = ObAdjustSecurityQuota(Object, v21);
         if ( v12 >= 0 )
         {
           v13 = 0LL;
-          if ( v17 )
-            v13 = v17 | 0xF;
+          if ( v20 )
+            v13 = v20 | 0xF;
           v14 = _InterlockedExchange64(Object - 1, v13);
-          v17 = 0LL;
+          v20 = 0LL;
           if ( v11 )
             v7 = (v14 & 0xF) + 1;
         }
@@ -75,9 +78,9 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
     }
   }
   ExReleasePushLockEx((ULONG_PTR)(Object - 4), 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v17 )
-    ObDereferenceSecurityDescriptor(v17, 16LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16, v17);
+  if ( v20 )
+    ObDereferenceSecurityDescriptor(v20, 16LL);
   if ( v11 && v7 )
     ObDereferenceSecurityDescriptor(v11, v7);
   if ( ObjectsSecurityDescriptor )

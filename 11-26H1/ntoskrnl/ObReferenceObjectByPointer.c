@@ -1,24 +1,24 @@
 /*
- * XREFs of ObReferenceObjectByPointer @ 0x14045F750
+ * XREFs of ObReferenceObjectByPointer @ 0x140458E50
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x14078041C (HalpDmaAllocateChildAdapterV3.c)
- *     HalGetAdapterV3 @ 0x140783334 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140783920 (HalGetAdapterV2.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140783D5C (HalpDmaAllocateChildAdapterV2.c)
- *     EtwpRegisterPrivateSession @ 0x14082CEE0 (EtwpRegisterPrivateSession.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     ObpParseSymbolicLinkEx @ 0x140900300 (ObpParseSymbolicLinkEx.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopAllocRealFileObject @ 0x1409337E0 (IopAllocRealFileObject.c)
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
- *     WmipQuerySetExecuteSI @ 0x140A0E7F8 (WmipQuerySetExecuteSI.c)
- *     WmipQueryAllData @ 0x140A0EAFC (WmipQueryAllData.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
- *     NtImpersonateAnonymousToken @ 0x140AB2A30 (NtImpersonateAnonymousToken.c)
- *     WmipRegisterDevice @ 0x140ACD8E8 (WmipRegisterDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140782F1C (HalpDmaAllocateChildAdapterV3.c)
+ *     HalGetAdapterV3 @ 0x140785E68 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140786454 (HalGetAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140786890 (HalpDmaAllocateChildAdapterV2.c)
+ *     EtwpRegisterPrivateSession @ 0x140833120 (EtwpRegisterPrivateSession.c)
+ *     IopAllocRealFileObject @ 0x14090F390 (IopAllocRealFileObject.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     ObpParseSymbolicLinkEx @ 0x140930290 (ObpParseSymbolicLinkEx.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     WmipQuerySetExecuteSI @ 0x140A0D9D4 (WmipQuerySetExecuteSI.c)
+ *     WmipQueryAllData @ 0x140A0DCD8 (WmipQueryAllData.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
+ *     NtImpersonateAnonymousToken @ 0x140AB3DD0 (NtImpersonateAnonymousToken.c)
+ *     WmipRegisterDevice @ 0x140ACFB28 (WmipRegisterDevice.c)
  * Callees:
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointer(

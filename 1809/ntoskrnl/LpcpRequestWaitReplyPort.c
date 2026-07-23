@@ -1,14 +1,14 @@
 /*
- * XREFs of LpcpRequestWaitReplyPort @ 0x1406A44A8
+ * XREFs of LpcpRequestWaitReplyPort @ 0x1406A5748
  * Callers:
- *     LpcRequestWaitReplyPortEx @ 0x1406A43D0 (LpcRequestWaitReplyPortEx.c)
- *     NtRequestWaitReplyPort @ 0x1406A4410 (NtRequestWaitReplyPort.c)
- *     LpcRequestWaitReplyPort @ 0x1406DACB0 (LpcRequestWaitReplyPort.c)
- *     IopSendMessageToTrackService @ 0x14081A954 (IopSendMessageToTrackService.c)
+ *     LpcRequestWaitReplyPortEx @ 0x1406A5670 (LpcRequestWaitReplyPortEx.c)
+ *     NtRequestWaitReplyPort @ 0x1406A56B0 (NtRequestWaitReplyPort.c)
+ *     LpcRequestWaitReplyPort @ 0x1406DBF50 (LpcRequestWaitReplyPort.c)
+ *     IopSendMessageToTrackService @ 0x14081BB54 (IopSendMessageToTrackService.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1406A4570 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140634A50 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x1406A5810 (AlpcpProbeForWriteMessageHeader.c)
  */
 
 __int64 __fastcall LpcpRequestWaitReplyPort(

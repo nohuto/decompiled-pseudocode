@@ -13,7 +13,7 @@ UCHAR __stdcall KeSetIdealProcessorThread(PKTHREAD Thread, UCHAR Processor)
   ULONG ProcessorIndexFromNumber; // eax
   unsigned int IdealProcessor; // eax
   int v6; // eax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
   int v9; // [rsp+40h] [rbp+18h]
 
   v9 = 0;

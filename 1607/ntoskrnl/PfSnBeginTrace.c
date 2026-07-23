@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x1403E9698
+ * XREFs of PfSnBeginTrace @ 0x1403EACC8
  * Callers:
- *     PfSnBeginScenario @ 0x1403E6ED0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1403E8500 (PfSnBeginScenario.c)
  * Callees:
- *     PfSnActivateTrace @ 0x140006A00 (PfSnActivateTrace.c)
- *     PfSnTraceBufferAllocate @ 0x140006B10 (PfSnTraceBufferAllocate.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     PsGetThreadId @ 0x14009E164 (PsGetThreadId.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PfSnActivateTrace @ 0x140006B70 (PfSnActivateTrace.c)
+ *     PfSnTraceBufferAllocate @ 0x140006C80 (PfSnTraceBufferAllocate.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     PsGetThreadId @ 0x14009D964 (PsGetThreadId.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PfSnCleanupTrace @ 0x1403E91BC (PfSnCleanupTrace.c)
+ *     PfSnCleanupTrace @ 0x1403EA7EC (PfSnCleanupTrace.c)
  */
 
 __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD *a4, int a5, __int64 *a6)
@@ -32,7 +32,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
   int v20; // edi
 
   v8 = a2;
-  if ( PfSnNumActiveTraces >= (unsigned int)dword_1403283C8 )
+  if ( PfSnNumActiveTraces >= (unsigned int)dword_140328408 )
   {
     return (unsigned int)-1073741618;
   }
@@ -70,7 +70,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
       v14 = a1[3];
       *(_DWORD *)(v11 + 88) = v8;
       *(_WORD *)(v11 + 486) ^= ((a5 != 0) ^ v13) & 1;
-      v15 = (char *)&unk_1403283A8 + 16 * v8;
+      v15 = (char *)&unk_1403283E8 + 16 * v8;
       *(_OWORD *)(v11 + 72) = v14;
       v16 = *(_DWORD *)v15;
       *(_DWORD *)(v11 + 340) = *(_DWORD *)v15;

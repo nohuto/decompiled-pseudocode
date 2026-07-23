@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCapChkTelemetryRunOnce @ 0x14078CD90
+ * XREFs of RtlpCapChkTelemetryRunOnce @ 0x14078CCC0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
-__int64 __fastcall RtlpCapChkTelemetryRunOnce(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
+__int64 __fastcall RtlpCapChkTelemetryRunOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E087A0, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E08810, 0LL, 0LL);
   KeQueryPerformanceCounter(&RtlpPerformanceCounterFrequency);
   return 1LL;
 }

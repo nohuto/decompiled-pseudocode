@@ -1,16 +1,16 @@
 /*
- * XREFs of PoRegisterCoalescingCallback @ 0x14078FDD0
+ * XREFs of PoRegisterCoalescingCallback @ 0x140791380
  * Callers:
- *     CmpCmdInit @ 0x14078F8B0 (CmpCmdInit.c)
- *     PopCoalescingInitialize @ 0x140A391C0 (PopCoalescingInitialize.c)
- *     CcInitializeCacheManager @ 0x140A3D1B8 (CcInitializeCacheManager.c)
+ *     CmpCmdInit @ 0x140790E60 (CmpCmdInit.c)
+ *     PopCoalescingInitialize @ 0x140A3A1C0 (PopCoalescingInitialize.c)
+ *     CcInitializeCacheManager @ 0x140A3E1B8 (CcInitializeCacheManager.c)
  * Callees:
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     ExCompareExchangeCallBack @ 0x1403A7E6C (ExCompareExchangeCallBack.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     ExCompareExchangeCallBack @ 0x1403A8BFC (ExCompareExchangeCallBack.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoRegisterCoalescingCallback(

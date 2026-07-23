@@ -1,27 +1,27 @@
 /*
- * XREFs of PpmIdleSelectStates @ 0x140395580
+ * XREFs of PpmIdleSelectStates @ 0x1403956D0
  * Callers:
- *     PoIdle @ 0x140221ED0 (PoIdle.c)
+ *     PoIdle @ 0x1402C67D0 (PoIdle.c)
  * Callees:
- *     KiGetNextTimerExpirationDueTime @ 0x1402255A0 (KiGetNextTimerExpirationDueTime.c)
- *     KiEnumerateNextProcessorNumber @ 0x1402284F0 (KiEnumerateNextProcessorNumber.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     PoCopyDeepIdleMask @ 0x1402EC870 (PoCopyDeepIdleMask.c)
- *     PpmCheckPreConditionsForDeepSleep @ 0x1403910EC (PpmCheckPreConditionsForDeepSleep.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmEstimateIdleDuration @ 0x1405659D4 (PpmEstimateIdleDuration.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566410 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x140566CCC (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleSetSynchronizationState @ 0x140566DD0 (PpmIdleSetSynchronizationState.c)
- *     PpmIdleUpdateSelectionStatistics @ 0x1405670C8 (PpmIdleUpdateSelectionStatistics.c)
- *     PpmUnlockProcessors @ 0x140567CF8 (PpmUnlockProcessors.c)
+ *     MmGetNextNode @ 0x140211644 (MmGetNextNode.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     PoCopyDeepIdleMask @ 0x14029DBC0 (PoCopyDeepIdleMask.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1402C9EA0 (KiGetNextTimerExpirationDueTime.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402CCDF0 (KiEnumerateNextProcessorNumber.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     PpmCheckPreConditionsForDeepSleep @ 0x14039123C (PpmCheckPreConditionsForDeepSleep.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmEstimateIdleDuration @ 0x140565C14 (PpmEstimateIdleDuration.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566650 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x140566F0C (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleSetSynchronizationState @ 0x140567010 (PpmIdleSetSynchronizationState.c)
+ *     PpmIdleUpdateSelectionStatistics @ 0x140567308 (PpmIdleUpdateSelectionStatistics.c)
+ *     PpmUnlockProcessors @ 0x140567F38 (PpmUnlockProcessors.c)
  */
 
 __int64 __fastcall PpmIdleSelectStates(
@@ -64,7 +64,7 @@ __int64 __fastcall PpmIdleSelectStates(
   unsigned int v36; // ecx
   unsigned int v37; // edx
   unsigned int i; // eax
-  unsigned int v39; // eax
+  ULONG v39; // eax
   char v40; // al
   int v41; // edi
   __int64 (__fastcall *v42)(_QWORD, __int64); // rax
@@ -91,7 +91,7 @@ __int64 __fastcall PpmIdleSelectStates(
   unsigned int v63; // edx
   unsigned int v64; // eax
   unsigned int j; // ecx
-  unsigned int v66; // eax
+  ULONG v66; // eax
   __int64 v67; // r8
   __int64 v68; // rcx
   __int64 v69; // rdx
@@ -305,7 +305,7 @@ LABEL_9:
   *(_DWORD *)(v11 + 528) = v22;
   if ( PpmIdleRespectIdleStateMax )
   {
-    v23 = BYTE6(PpmCurrentProfile[342 * dword_140C23E8C + 24]);
+    v23 = BYTE6(PpmCurrentProfile[342 * dword_140C2332C + 24]);
     *(_BYTE *)(v11 + 542) = v23;
     if ( v23 )
       *(_WORD *)(v11 + 48) |= 0x4000u;

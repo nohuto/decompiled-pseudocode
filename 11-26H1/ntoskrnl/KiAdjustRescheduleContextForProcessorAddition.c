@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAdjustRescheduleContextForProcessorAddition @ 0x1405FB550
+ * XREFs of KiAdjustRescheduleContextForProcessorAddition @ 0x1405FDFAC
  * Callers:
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405EB014 (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405ED984 (KiFinalizeCoreControlBlockAssignment.c)
  * Callees:
- *     KiIsPrcbThread @ 0x1402BCC10 (KiIsPrcbThread.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     ?KiStartRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KTHREAD@@@Z @ 0x1403C0080 (-KiStartRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAT_KISOLATION.c)
+ *     KiIsPrcbThread @ 0x1403078D0 (KiIsPrcbThread.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     ?KiStartRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KTHREAD@@@Z @ 0x1403C9F80 (-KiStartRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAT_KISOLATION.c)
  */
 
 char __fastcall KiAdjustRescheduleContextForProcessorAddition(unsigned __int8 *a1, struct _KPRCB *a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAllocateProcessorSchedulerStructures @ 0x1405E9EDC
+ * XREFs of KiAllocateProcessorSchedulerStructures @ 0x1405EC84C
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KiAllocateDpcDelegateThread @ 0x1405E9BB8 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateIdleSearchStructures @ 0x1405E9C44 (KiAllocateIdleSearchStructures.c)
- *     KiAllocateSmtIsolationThread @ 0x1405F6524 (KiAllocateSmtIsolationThread.c)
- *     KiAllocateForceParkingData @ 0x1405F8880 (KiAllocateForceParkingData.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405EC528 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateIdleSearchStructures @ 0x1405EC5B4 (KiAllocateIdleSearchStructures.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405F8EE4 (KiAllocateSmtIsolationThread.c)
+ *     KiAllocateForceParkingData @ 0x1405FB2A0 (KiAllocateForceParkingData.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall KiAllocateProcessorSchedulerStructures(_QWORD *a1, __int64 a2, int a3, int a4)

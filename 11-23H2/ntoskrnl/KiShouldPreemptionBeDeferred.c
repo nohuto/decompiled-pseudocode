@@ -1,12 +1,12 @@
 /*
- * XREFs of KiShouldPreemptionBeDeferred @ 0x140307870
+ * XREFs of KiShouldPreemptionBeDeferred @ 0x140307B00
  * Callers:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiStartReadyQueueEnumeratorForRescheduleContext @ 0x1402428B0 (KiStartReadyQueueEnumeratorForRescheduleContext.c)
- *     KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x1402438B0 (KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1402B3000 (KiEvaluateGroupSchedulingPreemption.c)
- *     KiDeferGroupSchedulingPreemption @ 0x140307584 (KiDeferGroupSchedulingPreemption.c)
- *     KiGroupSchedulingQuantumEnd @ 0x140307F54 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiStartReadyQueueEnumeratorForRescheduleContext @ 0x140242980 (KiStartReadyQueueEnumeratorForRescheduleContext.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x140243980 (KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1402B3290 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x140307814 (KiDeferGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1403081E4 (KiGroupSchedulingQuantumEnd.c)
  * Callees:
  *     <none>
  */

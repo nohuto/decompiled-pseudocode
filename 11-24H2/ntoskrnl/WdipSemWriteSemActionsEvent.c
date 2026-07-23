@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemWriteSemActionsEvent @ 0x140AA4368
+ * XREFs of WdipSemWriteSemActionsEvent @ 0x140A9F6F8
  * Callers:
- *     WdipSemDisableScenario @ 0x140A47AF0 (WdipSemDisableScenario.c)
- *     WdipSemEnableScenario @ 0x140A4835C (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140A3D910 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x140A3E10C (WdipSemEnableScenario.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WdipSemFastFree @ 0x1406F99A0 (WdipSemFastFree.c)
- *     WdipSemFastAllocate @ 0x140A48E64 (WdipSemFastAllocate.c)
- *     WdipSemWriteEvent @ 0x140A833D4 (WdipSemWriteEvent.c)
- *     WmiQueryTraceInformation @ 0x140AD91E0 (WmiQueryTraceInformation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WdipSemFastFree @ 0x1406F75E0 (WdipSemFastFree.c)
+ *     WdipSemFastAllocate @ 0x140A3FB7C (WdipSemFastAllocate.c)
+ *     WdipSemWriteEvent @ 0x140A7DEF4 (WdipSemWriteEvent.c)
+ *     WmiQueryTraceInformation @ 0x140ADA530 (WmiQueryTraceInformation.c)
  */
 
 __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int64 a2)
@@ -21,8 +21,8 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int
   int v8; // r14d
   __int64 v9; // r13
   PSLIST_ENTRY v10; // rax
-  struct _SLIST_ENTRY v11; // xmm0
-  struct _SLIST_ENTRY **v12; // rsi
+  _SLIST_ENTRY v11; // xmm0
+  _SLIST_ENTRY **v12; // rsi
   char v14; // [rsp+30h] [rbp-D0h] BYREF
   int TraceInformation; // [rsp+34h] [rbp-CCh] BYREF
   int v16; // [rsp+38h] [rbp-C8h] BYREF
@@ -67,7 +67,7 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int
           v5 = -1073741670;
           goto LABEL_12;
         }
-        v11 = *(struct _SLIST_ENTRY *)v9;
+        v11 = *(_SLIST_ENTRY *)v9;
         v25[v4] = v10;
         v6 = 2LL * (unsigned int)(v4 + 4);
         *v10 = v11;
@@ -84,7 +84,7 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(const EVENT_DESCRIPTOR *a1, __int
 LABEL_12:
       if ( (_DWORD)v4 )
       {
-        v12 = (struct _SLIST_ENTRY **)v25;
+        v12 = (_SLIST_ENTRY **)v25;
         do
         {
           WdipSemFastFree(4, *v12++);

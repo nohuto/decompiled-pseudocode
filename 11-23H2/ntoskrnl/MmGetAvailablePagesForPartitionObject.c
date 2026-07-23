@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetAvailablePagesForPartitionObject @ 0x14036E660
+ * XREFs of MmGetAvailablePagesForPartitionObject @ 0x14036E800
  * Callers:
- *     CcPartitionTelemetryCallback @ 0x140880710 (CcPartitionTelemetryCallback.c)
+ *     CcPartitionTelemetryCallback @ 0x140880950 (CcPartitionTelemetryCallback.c)
  * Callees:
  *     <none>
  */

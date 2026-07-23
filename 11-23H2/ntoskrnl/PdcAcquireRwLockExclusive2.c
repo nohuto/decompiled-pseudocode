@@ -1,10 +1,10 @@
 /*
- * XREFs of PdcAcquireRwLockExclusive2 @ 0x14085AC88
+ * XREFs of PdcAcquireRwLockExclusive2 @ 0x14085AEC8
  * Callers:
- *     Pdcv2ActivationClientRegister @ 0x14085AA64 (Pdcv2ActivationClientRegister.c)
- *     Pdcv2pActivationClientCallback @ 0x1409C8A40 (Pdcv2pActivationClientCallback.c)
+ *     Pdcv2ActivationClientRegister @ 0x14085ACA4 (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C8C40 (Pdcv2pActivationClientCallback.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  */
 
 struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive2(__int64 a1, _BYTE *a2)

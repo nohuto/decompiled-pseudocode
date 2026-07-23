@@ -1,20 +1,20 @@
 /*
- * XREFs of MiZeroPageCalibrate @ 0x1403AFE24
+ * XREFs of MiZeroPageCalibrate @ 0x1403AFF94
  * Callers:
- *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
- *     MiZeroBootLargePages @ 0x1403CABF4 (MiZeroBootLargePages.c)
+ *     MiZeroNodePages @ 0x1403B0390 (MiZeroNodePages.c)
+ *     MiZeroBootLargePages @ 0x1403CAD94 (MiZeroBootLargePages.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x14033B3B0 (ExAllocatePoolMm.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
- *     MiComputeRunTimeZeroComparisons @ 0x1403B0058 (MiComputeRunTimeZeroComparisons.c)
- *     MiAllocateCalibrationResultsMemory @ 0x1403B0180 (MiAllocateCalibrationResultsMemory.c)
- *     MiTimeSingleLargePageZero @ 0x1403B0510 (MiTimeSingleLargePageZero.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExAllocatePoolMm @ 0x140346100 (ExAllocatePoolMm.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeIpiGenericCall @ 0x1403A4C70 (KeIpiGenericCall.c)
+ *     MiComputeRunTimeZeroComparisons @ 0x1403B01C8 (MiComputeRunTimeZeroComparisons.c)
+ *     MiAllocateCalibrationResultsMemory @ 0x1403B02F0 (MiAllocateCalibrationResultsMemory.c)
+ *     MiTimeSingleLargePageZero @ 0x1403B0680 (MiTimeSingleLargePageZero.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiZeroPageCalibrate(ULONG_PTR a1, __int64 a2)

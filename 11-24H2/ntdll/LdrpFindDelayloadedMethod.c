@@ -1,33 +1,33 @@
 /*
- * XREFs of LdrpFindDelayloadedMethod @ 0x18015F078
+ * XREFs of LdrpFindDelayloadedMethod @ 0x18015D438
  * Callers:
- *     LdrQueryOptionalDelayLoadedAPI @ 0x180117C30 (LdrQueryOptionalDelayLoadedAPI.c)
+ *     LdrQueryOptionalDelayLoadedAPI @ 0x180112D60 (LdrQueryOptionalDelayLoadedAPI.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x180008A00 (RtlImageDirectoryEntryToData.c)
- *     LdrpFindDelayloadedMethodInDescriptor @ 0x18015F118 (LdrpFindDelayloadedMethodInDescriptor.c)
+ *     RtlImageDirectoryEntryToData @ 0x180035400 (RtlImageDirectoryEntryToData.c)
+ *     LdrpFindDelayloadedMethodInDescriptor @ 0x18015D4D8 (LdrpFindDelayloadedMethodInDescriptor.c)
  */
 
-__int64 __fastcall LdrpFindDelayloadedMethod(unsigned __int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall LdrpFindDelayloadedMethod(void *a1, __int64 a2, _QWORD *a3)
 {
   __int64 DelayloadedMethodInDescriptor; // rsi
-  __int64 v7; // r12
-  unsigned int v8; // edi
-  unsigned int i; // ebx
-  unsigned int v11; // [rsp+60h] [rbp+18h] BYREF
+  char *v7; // r12
+  ULONG v8; // edi
+  ULONG i; // ebx
+  ULONG v11; // [rsp+60h] [rbp+18h] BYREF
 
   v11 = 0;
   DelayloadedMethodInDescriptor = 0LL;
   *a3 = 0LL;
-  v7 = RtlImageDirectoryEntryToData(a1, 1, 0xDu, &v11);
+  v7 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 0xDu, &v11);
   if ( v7 )
   {
     v8 = v11 >> 5;
     for ( i = 0; i < v8; ++i )
     {
-      DelayloadedMethodInDescriptor = LdrpFindDelayloadedMethodInDescriptor(a1, v7 + 32LL * i, a2);
+      DelayloadedMethodInDescriptor = LdrpFindDelayloadedMethodInDescriptor(a1, &v7[32 * i], a2);
       if ( DelayloadedMethodInDescriptor )
       {
-        *a3 = v7 + 32LL * i;
+        *a3 = &v7[32 * i];
         return DelayloadedMethodInDescriptor;
       }
     }

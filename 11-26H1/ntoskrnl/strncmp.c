@@ -1,24 +1,24 @@
 /*
- * XREFs of strncmp @ 0x14073D360
+ * XREFs of strncmp @ 0x140741F60
  * Callers:
- *     HalpAcpiGetCachedTable @ 0x140342C6C (HalpAcpiGetCachedTable.c)
- *     HalpAcpiCheckAndMapTable @ 0x140343370 (HalpAcpiCheckAndMapTable.c)
- *     RtlLookupImageSectionByName @ 0x1404E4CB0 (RtlLookupImageSectionByName.c)
- *     HvlDebuggerSupportInitialize @ 0x1405B83B0 (HvlDebuggerSupportInitialize.c)
- *     __asan_wrap_strncmp @ 0x1405E21F0 (__asan_wrap_strncmp.c)
- *     EtwpApplyPredicate @ 0x1406C966C (EtwpApplyPredicate.c)
- *     PopPowerRequestStatsIsDetailedRequestReason @ 0x14077BD70 (PopPowerRequestStatsIsDetailedRequestReason.c)
- *     ApiSetLoadSchemaEx @ 0x14084A5E4 (ApiSetLoadSchemaEx.c)
- *     AslpFileHasSecuromWrapper @ 0x14088E7E0 (AslpFileHasSecuromWrapper.c)
- *     AslpFileIsArm64XBinary @ 0x14088E8A8 (AslpFileIsArm64XBinary.c)
- *     AslpHasStarForceWrapper @ 0x14088F370 (AslpHasStarForceWrapper.c)
- *     BiIsWindowsEfiEntry @ 0x1409D4368 (BiIsWindowsEfiEntry.c)
- *     RtlValidateCorrelationVector @ 0x140B2E670 (RtlValidateCorrelationVector.c)
- *     HalpInitializeProfiling @ 0x140BED728 (HalpInitializeProfiling.c)
- *     RtlGetCpuVendor @ 0x140BFEDD8 (RtlGetCpuVendor.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
- *     KdInitSystem @ 0x140C12B60 (KdInitSystem.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     HalpAcpiGetCachedTable @ 0x140344CEC (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiCheckAndMapTable @ 0x1403453F0 (HalpAcpiCheckAndMapTable.c)
+ *     RtlLookupImageSectionByName @ 0x1404DE250 (RtlLookupImageSectionByName.c)
+ *     HvlDebuggerSupportInitialize @ 0x1405BAC20 (HvlDebuggerSupportInitialize.c)
+ *     __asan_wrap_strncmp @ 0x1405E4B60 (__asan_wrap_strncmp.c)
+ *     EtwpApplyPredicate @ 0x1406CD64C (EtwpApplyPredicate.c)
+ *     PopPowerRequestStatsIsDetailedRequestReason @ 0x14077E9B0 (PopPowerRequestStatsIsDetailedRequestReason.c)
+ *     ApiSetLoadSchemaEx @ 0x1408508F4 (ApiSetLoadSchemaEx.c)
+ *     AslpFileHasSecuromWrapper @ 0x140894BDC (AslpFileHasSecuromWrapper.c)
+ *     AslpFileIsArm64XBinary @ 0x140894CA4 (AslpFileIsArm64XBinary.c)
+ *     AslpHasStarForceWrapper @ 0x14089576C (AslpHasStarForceWrapper.c)
+ *     BiIsWindowsEfiEntry @ 0x1409A5348 (BiIsWindowsEfiEntry.c)
+ *     RtlValidateCorrelationVector @ 0x140B305C0 (RtlValidateCorrelationVector.c)
+ *     HalpInitializeProfiling @ 0x140BF3728 (HalpInitializeProfiling.c)
+ *     RtlGetCpuVendor @ 0x140C04FE0 (RtlGetCpuVendor.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
+ *     KdInitSystem @ 0x140C18B60 (KdInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */

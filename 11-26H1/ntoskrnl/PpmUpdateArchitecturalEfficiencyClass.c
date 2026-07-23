@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmUpdateArchitecturalEfficiencyClass @ 0x140CD47F0
+ * XREFs of PpmUpdateArchitecturalEfficiencyClass @ 0x140CDAB70
  * Callers:
- *     PoInitHeteroDetection @ 0x140CCE7E8 (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140CD4948 (PoInitHeteroDetection.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 PpmUpdateArchitecturalEfficiencyClass()

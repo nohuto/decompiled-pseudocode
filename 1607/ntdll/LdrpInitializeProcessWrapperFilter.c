@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpInitializeProcessWrapperFilter @ 0x1800D2690
+ * XREFs of LdrpInitializeProcessWrapperFilter @ 0x1800D2750
  * Callers:
- *     _LdrpInitialize @ 0x1800787B4 (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x1800787A4 (_LdrpInitialize.c)
  * Callees:
- *     RtlReportException @ 0x180006A80 (RtlReportException.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     RtlReportException @ 0x180006A70 (RtlReportException.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpInitializeProcessWrapperFilter(__int64 *a1, _DWORD *a2)
+__int64 __fastcall LdrpInitializeProcessWrapperFilter(const void **a1, _DWORD *a2)
 {
   char v2; // al
   int v5; // ebx
@@ -24,8 +24,8 @@ __int64 __fastcall LdrpInitializeProcessWrapperFilter(__int64 *a1, _DWORD *a2)
       0,
       "Process initialization raised exception 0x%08lx\n\tException record: .exr %p\n\tContext record: .cxr %p\n",
       *(_DWORD *)*a1,
-      (const void *)*a1,
-      (const void *)a1[1]);
+      *a1,
+      a1[1]);
     v2 = LdrpDebugFlags;
   }
   if ( (v2 & 0x10) != 0 )
@@ -33,7 +33,7 @@ __int64 __fastcall LdrpInitializeProcessWrapperFilter(__int64 *a1, _DWORD *a2)
   v5 = 0;
   if ( g_LdrBreakOnLdrpInitializeProcessFailure )
     __debugbreak();
-  v6 = (int)RtlReportException(*a1, a1[1], 2u) < 0;
+  v6 = RtlReportException((PEXCEPTION_RECORD)*a1, (PCONTEXT)a1[1], 2u) < 0;
   result = 1LL;
   LOBYTE(v5) = !v6;
   *a2 = v5;

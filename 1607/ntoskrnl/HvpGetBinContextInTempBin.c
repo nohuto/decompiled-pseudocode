@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpGetBinContextInTempBin @ 0x1401B6CD8
+ * XREFs of HvpGetBinContextInTempBin @ 0x1401B6BBC
  * Callers:
- *     HvpSetRangeProtection @ 0x1405139A4 (HvpSetRangeProtection.c)
+ *     HvpSetRangeProtection @ 0x1404F6D94 (HvpSetRangeProtection.c)
  * Callees:
  *     <none>
  */

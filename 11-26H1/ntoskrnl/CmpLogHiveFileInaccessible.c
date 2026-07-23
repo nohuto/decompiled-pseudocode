@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpLogHiveFileInaccessible @ 0x1408B5990
+ * XREFs of CmpLogHiveFileInaccessible @ 0x1408BBF64
  * Callers:
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1404B02C0 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1408B5DB0 (CmpQueryFileSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SeQueryUserSidToken @ 0x14094E160 (SeQueryUserSidToken.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1404A9950 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1408BC384 (CmpQueryFileSecurityDescriptor.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     SeQueryUserSidToken @ 0x1409C9AA0 (SeQueryUserSidToken.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, ULONG a2, ULONG a3, ULONG a4)
@@ -110,7 +110,7 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, ULONG a2, ULONG a
       p_EventDescriptor = &EventDescriptor;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)&word_140056C8E,
+        (unsigned __int8 *)word_140057C4A,
         0LL,
         0LL,
         6u,
@@ -138,7 +138,7 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, ULONG a2, ULONG a
     v29 = 8LL;
     tlgWriteAgg(
       (__int64)&dword_140E09EE8,
-      (unsigned __int8 *)&byte_140056BFF,
+      (unsigned __int8 *)&word_140057BF2,
       (unsigned int)dword_140E09EE8,
       5u,
       (PEVENT_DATA_DESCRIPTOR)&SubjectContext);
@@ -156,7 +156,7 @@ void __fastcall CmpLogHiveFileInaccessible(UNICODE_STRING *a1, ULONG a2, ULONG a
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 8LL;
     SubjectContext.ImpersonationLevel = *(unsigned __int16 *)off_140E09EF0;
-    SubjectContext.PrimaryToken = word_140056C62;
+    SubjectContext.PrimaryToken = (char *)&dword_140057CBA + 2;
     *((_DWORD *)&SubjectContext.ImpersonationLevel + 1) = 2;
     SubjectContext.ProcessAuditId = (PVOID)0x10000002BLL;
     v16 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;

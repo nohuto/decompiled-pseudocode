@@ -1,17 +1,17 @@
 /*
- * XREFs of KiReadyThread @ 0x140248640
+ * XREFs of KiReadyThread @ 0x1402ECE90
  * Callers:
- *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
- *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
- *     KiProcessThreadWaitList @ 0x14024B2D0 (KiProcessThreadWaitList.c)
+ *     KiProcessExpiredTimerList @ 0x1402EC2F0 (KiProcessExpiredTimerList.c)
+ *     KiReadyOutSwappedThreads @ 0x1402ECCB0 (KiReadyOutSwappedThreads.c)
+ *     KiProcessThreadWaitList @ 0x1402EFB20 (KiProcessThreadWaitList.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiRequestProcessInSwap @ 0x14029BB70 (KiRequestProcessInSwap.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiRequestProcessInSwap @ 0x140213540 (KiRequestProcessInSwap.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
  */
 
-int __fastcall KiReadyThread(__int64 a1, __int64 a2)
+char __fastcall KiReadyThread(__int64 a1, __int64 a2)
 {
   int v2; // eax
   signed __int64 v5; // rax
@@ -34,7 +34,7 @@ int __fastcall KiReadyThread(__int64 a1, __int64 a2)
         KiAcquireKobjectLockSafe(v10);
         if ( (*(_DWORD *)(v10 + 840) & 7) != 0 )
         {
-          LODWORD(v5) = KiRequestProcessInSwap(a2, v10);
+          LOBYTE(v5) = KiRequestProcessInSwap(a2, v10);
           return v5;
         }
         _InterlockedAnd((volatile signed __int32 *)v10, 0xFFFFFF7F);
@@ -59,7 +59,7 @@ int __fastcall KiReadyThread(__int64 a1, __int64 a2)
     KiAcquireKobjectLockSafe(v7);
     if ( (v7[210] & 7) != 0 )
     {
-      LODWORD(v5) = KiRequestProcessInSwap(a2, v7);
+      LOBYTE(v5) = KiRequestProcessInSwap(a2, (__int64)v7);
     }
     else
     {
@@ -78,7 +78,7 @@ int __fastcall KiReadyThread(__int64 a1, __int64 a2)
       }
       while ( v5 != v9 );
       if ( !v5 )
-        LODWORD(v5) = KeSetEvent(&KiSwapEvent, 10, 0);
+        LOBYTE(v5) = KeSetEvent(&KiSwapEvent, 10, 0);
     }
   }
   return v5;

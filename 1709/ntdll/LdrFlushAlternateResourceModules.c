@@ -11,54 +11,53 @@
  *     ResCCloseRuntimeView @ 0x18010BA90 (ResCCloseRuntimeView.c)
  */
 
-char __fastcall LdrFlushAlternateResourceModules(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+char LdrFlushAlternateResourceModules()
 {
-  char v4; // si
-  __int64 v5; // r8
+  char v0; // si
   unsigned int i; // ebx
-  __int64 v7; // rdi
-  __int64 v8; // rdx
-  unsigned __int64 v9; // rdx
-  void *v10; // rcx
-  bool v12; // [rsp+50h] [rbp+8h]
+  char *v2; // rdi
+  __int64 v3; // rdx
+  void *v4; // rdx
+  void *v5; // rcx
+  bool v7; // [rsp+50h] [rbp+8h]
 
-  v4 = 1;
-  v12 = 1;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&MuiCacheSWRLock, a2, a3, a4);
+  v0 = 1;
+  v7 = 1;
+  RtlAcquireSRWLockExclusive(&MuiCacheSWRLock);
   if ( AlternateResourceModuleCount )
   {
     for ( i = 0; i < AlternateResourceModuleCount; ++i )
     {
-      v7 = AlternateResourceModules + 72LL * i;
-      v8 = *(_QWORD *)(v7 + 32);
-      if ( (unsigned __int64)(v8 - 1) <= 0xFFFFFFFFFFFFFFFDuLL && *(_DWORD *)(v7 + 56) == -1 )
+      v2 = (char *)AlternateResourceModules + 72 * i;
+      v3 = *((_QWORD *)v2 + 4);
+      if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL && *((_DWORD *)v2 + 14) == -1 )
       {
-        v9 = v8 & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( *(_DWORD *)(v7 + 64) == -1073741799 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+        v4 = (void *)(v3 & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( *((_DWORD *)v2 + 16) == -1073741799 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
         else
-          NtUnmapViewOfSection(-1LL, v9, v5);
-        *(_QWORD *)(v7 + 32) = 0LL;
-        v10 = *(void **)(v7 + 40);
-        if ( v10 )
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v4);
+        *((_QWORD *)v2 + 4) = 0LL;
+        v5 = (void *)*((_QWORD *)v2 + 5);
+        if ( v5 )
         {
-          NtClose(v10);
-          *(_QWORD *)(v7 + 40) = 0LL;
+          NtClose(v5);
+          *((_QWORD *)v2 + 5) = 0LL;
         }
       }
     }
-    if ( (unsigned __int64)(ResRuntimeView - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    if ( (char *)ResRuntimeView - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
     {
-      v12 = (unsigned int)ResCCloseRuntimeView() != 0;
+      v7 = (unsigned int)ResCCloseRuntimeView(ResRuntimeView) != 0;
       ResRuntimeView = 0LL;
       CMFQueueRear = 0;
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
     AlternateResourceModules = 0LL;
     AlternateResourceModuleCount = 0;
     AltResMemBlockCount = 0;
-    v4 = v12;
+    v0 = v7;
   }
   RtlReleaseSRWLockExclusive(&MuiCacheSWRLock);
-  return v4;
+  return v0;
 }

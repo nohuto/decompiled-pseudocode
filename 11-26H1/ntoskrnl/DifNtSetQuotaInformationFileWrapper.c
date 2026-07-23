@@ -1,14 +1,14 @@
 /*
- * XREFs of DifNtSetQuotaInformationFileWrapper @ 0x14068D470
+ * XREFs of DifNtSetQuotaInformationFileWrapper @ 0x140691050
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtSetQuotaInformationFile @ 0x140799CC0 (NtSetQuotaInformationFile.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtSetQuotaInformationFile @ 0x14079C7F0 (NtSetQuotaInformationFile.c)
  */
 
 __int64 __fastcall DifNtSetQuotaInformationFileWrapper(void *a1, struct _IO_STATUS_BLOCK *a2, void *a3, ULONG a4)

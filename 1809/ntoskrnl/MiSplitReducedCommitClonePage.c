@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSplitReducedCommitClonePage @ 0x1402A8490
+ * XREFs of MiSplitReducedCommitClonePage @ 0x1402A8680
  * Callers:
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
  * Callees:
@@ -12,16 +12,16 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiLockProbePacketWorkingSet @ 0x14009380C (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiLockProbePacketWorkingSet @ 0x14009374C (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x140093794 (MiUnlockProbePacketWorkingSet.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB40C (MiCopyOnWriteCheckConditions.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiSplitReducedCommitClonePage(__int64 *a1)
@@ -147,7 +147,7 @@ LABEL_49:
     }
     *(_BYTE *)(v30 + 32) |= 2u;
     if ( *(__int64 *)(v30 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v30, SessionId);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v30, SessionId);
     v37 = 0;
     v37 = *(_DWORD *)(v30 + 88) & 0x1FFFF;
     *(_DWORD *)(v30 + 88) &= 0xFFFE0000;
@@ -211,7 +211,7 @@ LABEL_16:
     }
     *(_BYTE *)(v13 + 32) |= 2u;
     if ( *(__int64 *)(v13 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v13, v10);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13, v10);
     v36 = 0;
     v36 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
     *(_DWORD *)(v13 + 88) &= 0xFFFE0000;

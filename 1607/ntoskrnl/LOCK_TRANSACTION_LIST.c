@@ -1,8 +1,8 @@
 /*
- * XREFs of LOCK_TRANSACTION_LIST @ 0x1403FDA44
+ * XREFs of LOCK_TRANSACTION_LIST @ 0x1403FC904
  * Callers:
- *     CmpTransEnlistUowInCmTrans @ 0x14000AE94 (CmpTransEnlistUowInCmTrans.c)
- *     CmpRundownUnitOfWork @ 0x1403FD8BC (CmpRundownUnitOfWork.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x14000AA14 (CmpTransEnlistUowInCmTrans.c)
+ *     CmpRundownUnitOfWork @ 0x1403FC77C (CmpRundownUnitOfWork.c)
  * Callees:
  *     <none>
  */

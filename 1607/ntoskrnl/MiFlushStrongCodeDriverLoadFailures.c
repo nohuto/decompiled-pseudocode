@@ -3,13 +3,13 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
  */
 
 __int64 MiFlushStrongCodeDriverLoadFailures()
@@ -42,15 +42,15 @@ __int64 MiFlushStrongCodeDriverLoadFailures()
   Lock = MmAcquireLoadLock();
   while ( 1 )
   {
-    v1 = (unsigned __int16 *)qword_140326830;
-    if ( qword_140326830 == &qword_140326830 )
+    v1 = (unsigned __int16 *)qword_140326870;
+    if ( qword_140326870 == &qword_140326870 )
       break;
-    v3 = *(_QWORD *)qword_140326830;
-    if ( *((PVOID **)qword_140326830 + 1) != &qword_140326830 || *(PVOID *)(v3 + 8) != qword_140326830 )
+    v3 = *(_QWORD *)qword_140326870;
+    if ( *((PVOID **)qword_140326870 + 1) != &qword_140326870 || *(PVOID *)(v3 + 8) != qword_140326870 )
       __fastfail(3u);
-    qword_140326830 = *(PVOID *)qword_140326830;
-    *(_QWORD *)(v3 + 8) = &qword_140326830;
-    if ( hProvider->LevelPlus1 > 5 && TlgKeywordOn(hProvider, 0x400000000000uLL) )
+    qword_140326870 = *(PVOID *)qword_140326870;
+    *(_QWORD *)(v3 + 8) = &qword_140326870;
+    if ( qword_1403277E0->LevelPlus1 > 5 && TlgKeywordOn(qword_1403277E0, 0x400000000000uLL) )
     {
       v4 = (const CHAR *)*((_QWORD *)v1 + 2);
       v10 = *((_DWORD *)v1 + 10);
@@ -69,7 +69,7 @@ __int64 MiFlushStrongCodeDriverLoadFailures()
       v15 = 2;
       v20 = 4;
       v23 = 4;
-      TlgWriteEx(v7, &unk_14027C3EB, v6, (ULONG)v7, v8, v9, 7u, &pData);
+      TlgWriteEx(v7, &unk_14027C4EB, v6, (ULONG)v7, v8, v9, 7u, &pData);
     }
     ExFreePoolWithTag(v1, 0);
   }

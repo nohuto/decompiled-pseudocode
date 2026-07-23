@@ -1,21 +1,21 @@
 /*
- * XREFs of ViTargetRemovingCheckContiguousMemory @ 0x1409D7580
+ * XREFs of ViTargetRemovingCheckContiguousMemory @ 0x1409D8580
  * Callers:
- *     VfTargetDriversRemove @ 0x14037E990 (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x14037E4E0 (VfTargetDriversRemove.c)
  * Callees:
- *     VfUtilFreePoolDispatchLevel @ 0x1405A0740 (VfUtilFreePoolDispatchLevel.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x1405A0970 (VfUtilFreePoolDispatchLevel.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall ViTargetRemovingCheckContiguousMemory(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  struct _SLIST_ENTRY **v2; // rbx
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY **v2; // rbx
+  _SLIST_ENTRY *v3; // rcx
   _SLIST_ENTRY *Next; // rdx
-  struct _SLIST_ENTRY **v5; // rax
+  _SLIST_ENTRY **v5; // rax
 
-  v2 = (struct _SLIST_ENTRY **)(BugCheckParameter3 + 256);
-  if ( (MmVerifierData & 0x800) != 0 && *v2 != (struct _SLIST_ENTRY *)v2 )
+  v2 = (_SLIST_ENTRY **)(BugCheckParameter3 + 256);
+  if ( (MmVerifierData & 0x800) != 0 && *v2 != (_SLIST_ENTRY *)v2 )
     VerifierBugCheckIfAppropriate(
       0xC4u,
       0x62uLL,
@@ -25,10 +25,10 @@ void __fastcall ViTargetRemovingCheckContiguousMemory(ULONG_PTR BugCheckParamete
   while ( 1 )
   {
     v3 = *v2;
-    if ( *v2 == (struct _SLIST_ENTRY *)v2 )
+    if ( *v2 == (_SLIST_ENTRY *)v2 )
       break;
     Next = v3->Next;
-    if ( *(&v3->Next->Next + 1) != v3 || (v5 = (struct _SLIST_ENTRY **)*((_QWORD *)&v3->Next + 1), *v5 != v3) )
+    if ( *(&v3->Next->Next + 1) != v3 || (v5 = (_SLIST_ENTRY **)*((_QWORD *)&v3->Next + 1), *v5 != v3) )
       __fastfail(3u);
     *v5 = Next;
     *((_QWORD *)&Next->Next + 1) = v5;

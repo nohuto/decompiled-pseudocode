@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRemoveLargeFreeLoaderDescriptors @ 0x140A44604
+ * XREFs of MiRemoveLargeFreeLoaderDescriptors @ 0x140A45604
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x1403B14C0 (MiRestrictRangeToNode.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403B1630 (MiRestrictRangeToNode.c)
  */
 
 void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)

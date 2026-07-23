@@ -1,7 +1,7 @@
 /*
- * XREFs of MiZeroLargePage @ 0x140118D7C
+ * XREFs of MiZeroLargePage @ 0x140118DEC
  * Callers:
- *     MiZeroAndConvertLargePage @ 0x140118CC8 (MiZeroAndConvertLargePage.c)
+ *     MiZeroAndConvertLargePage @ 0x140118D38 (MiZeroAndConvertLargePage.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
@@ -10,13 +10,13 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E188C (MiDeleteUltraThreadContext.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCreateUltraThreadContext @ 0x14013CBE4 (MiCreateUltraThreadContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall MiZeroLargePage(__int64 a1, unsigned int a2, int a3)
@@ -79,7 +79,7 @@ unsigned __int64 __fastcall MiZeroLargePage(__int64 a1, unsigned int a2, int a3)
         if ( (unsigned int)MiPteHasShadow(v22, v21) )
         {
           v24 = 1;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_22;
           v25 = (v21 & 1) == 0;
         }
@@ -104,7 +104,7 @@ LABEL_22:
       if ( (unsigned int)MiPteHasShadow(v26, ZeroPte) )
       {
         v28 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v29 = (v27 & 1) == 0;
           goto LABEL_30;
@@ -124,7 +124,7 @@ LABEL_32:
       return MiDeleteUltraThreadContext((__int64)v31);
     }
   }
-  result = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v8);
+  result = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v8);
   v12 = result;
   if ( result )
   {
@@ -133,7 +133,7 @@ LABEL_32:
     {
 LABEL_8:
       KeZeroPages((__int64)(v12 << 25) >> 16, v8 << 12);
-      return MiReleasePtes((__int64)&qword_14043AFA0, v12, v8);
+      return MiReleasePtes((__int64)&qword_14043C060, v12, v8);
     }
     v13 = (_QWORD *)v12;
     v14 = v6 << 12;
@@ -144,7 +144,7 @@ LABEL_8:
       {
         if ( (unsigned int)MiPteHasShadow(v17, v16) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v30 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v30 & 1) != 0 )
             v16 |= 0x8000000000000000uLL;
           *v13 = v16;
           MiWritePteShadow(v13);

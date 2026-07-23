@@ -1,23 +1,23 @@
 /*
- * XREFs of SdbpResolveMatchingFile @ 0x140885488
+ * XREFs of SdbpResolveMatchingFile @ 0x14088B888
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x14077E1F0 (SdbpCheckMatchingWildcardFiles.c)
- *     SdbpCheckMatchingDir @ 0x140882780 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingFiles @ 0x1408829B0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingTextEntry @ 0x140883550 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140780CF0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140888B80 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingFiles @ 0x140888DB0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140889950 (SdbpCheckMatchingTextEntry.c)
  * Callees:
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     SdbpUmaInit_PCWSTR @ 0x1407149BC (SdbpUmaInit_PCWSTR.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     AslImageFileToArchitecture @ 0x14077F1AC (AslImageFileToArchitecture.c)
- *     AslPathClean @ 0x140888FB0 (AslPathClean.c)
- *     AslPathToNetworkPathNt @ 0x1408896D4 (AslPathToNetworkPathNt.c)
- *     AslEnvExpandStrings2 @ 0x14088B3B8 (AslEnvExpandStrings2.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     AslEnvGetProcessWowInfo @ 0x140B6DB80 (AslEnvGetProcessWowInfo.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     SdbpUmaInit_PCWSTR @ 0x1407196AC (SdbpUmaInit_PCWSTR.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     AslImageFileToArchitecture @ 0x140781CAC (AslImageFileToArchitecture.c)
+ *     AslPathClean @ 0x14088F3AC (AslPathClean.c)
+ *     AslPathToNetworkPathNt @ 0x14088FAD0 (AslPathToNetworkPathNt.c)
+ *     AslEnvExpandStrings2 @ 0x1408917B4 (AslEnvExpandStrings2.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     AslEnvGetProcessWowInfo @ 0x140B70F50 (AslEnvGetProcessWowInfo.c)
  */
 
 __int64 __fastcall SdbpResolveMatchingFile(

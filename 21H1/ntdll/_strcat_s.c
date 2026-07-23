@@ -8,17 +8,17 @@
 
 errno_t __cdecl strcat_s(char *Destination, rsize_t SizeInBytes, const char *Source)
 {
-  rsize_t v3; // ecx
-  const char *v4; // esi
+  int v3; // ecx
+  char *v4; // esi
   char *v5; // edx
-  int v6; // edx
+  char *v6; // edx
   char v7; // al
   errno_t v9; // [esp-4h] [ebp-Ch]
 
   if ( Destination && (v3 = SizeInBytes) != 0 )
   {
-    v4 = Source;
-    if ( !Source )
+    v4 = (char *)HIDWORD(SizeInBytes);
+    if ( !HIDWORD(SizeInBytes) )
       goto LABEL_14;
     v5 = Destination;
     do
@@ -31,11 +31,11 @@ errno_t __cdecl strcat_s(char *Destination, rsize_t SizeInBytes, const char *Sou
     while ( v3 );
     if ( v3 )
     {
-      v6 = v5 - Source;
+      v6 = &v5[-HIDWORD(SizeInBytes)];
       do
       {
         v7 = *v4;
-        v4[v6] = *v4;
+        v4[(_DWORD)v6] = *v4;
         ++v4;
         if ( !v7 )
           break;

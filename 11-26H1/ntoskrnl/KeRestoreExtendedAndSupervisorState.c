@@ -1,15 +1,15 @@
 /*
- * XREFs of KeRestoreExtendedAndSupervisorState @ 0x1403D3108
+ * XREFs of KeRestoreExtendedAndSupervisorState @ 0x1403D60D8
  * Callers:
- *     KeRestoreExtendedProcessorState @ 0x1403D30F0 (KeRestoreExtendedProcessorState.c)
- *     DifKeRestoreExtendedProcessorStateWrapper @ 0x140664050 (DifKeRestoreExtendedProcessorStateWrapper.c)
- *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     KeRestoreExtendedProcessorState @ 0x1403D60C0 (KeRestoreExtendedProcessorState.c)
+ *     DifKeRestoreExtendedProcessorStateWrapper @ 0x140667C30 (DifKeRestoreExtendedProcessorStateWrapper.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF8260 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeFreeXStateContext @ 0x1403D3354 (KeFreeXStateContext.c)
- *     RtlXRestoreS @ 0x1403D4E10 (RtlXRestoreS.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeFreeXStateContext @ 0x1403D6324 (KeFreeXStateContext.c)
+ *     RtlXRestoreS @ 0x1403D7DE0 (RtlXRestoreS.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall KeRestoreExtendedAndSupervisorState(ULONG_PTR BugCheckParameter3)

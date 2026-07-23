@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpPrefetchFiles @ 0x140668CA0
+ * XREFs of PfpPrefetchFiles @ 0x140668D84
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1403ECF84 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1403EE5B4 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x14001FEA4 (PfpCheckPrefetchAbort.c)
- *     PfpReadSupportInitialize @ 0x1400AC8BC (PfpReadSupportInitialize.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PfpCheckPrefetchAbort @ 0x14001FA24 (PfpCheckPrefetchAbort.c)
+ *     PfpReadSupportInitialize @ 0x1400AAE24 (PfpReadSupportInitialize.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmPrefetchPagesEx @ 0x14042C0DC (MmPrefetchPagesEx.c)
- *     PfpReadSupportCleanup @ 0x14050921C (PfpReadSupportCleanup.c)
- *     PfpFileBuildReadSupport @ 0x140509310 (PfpFileBuildReadSupport.c)
+ *     MmPrefetchPagesEx @ 0x14042AFAC (MmPrefetchPagesEx.c)
+ *     PfpReadSupportCleanup @ 0x1404EC1AC (PfpReadSupportCleanup.c)
+ *     PfpFileBuildReadSupport @ 0x1404EC2A0 (PfpFileBuildReadSupport.c)
  */
 
 __int64 __fastcall PfpPrefetchFiles(__int64 *a1, char a2)

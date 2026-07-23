@@ -17,7 +17,7 @@ void __fastcall KasanDriverUnloadImage(__int64 a1)
 {
   __int64 v1; // rbp
   unsigned __int64 v2; // rsi
-  unsigned __int64 v3; // rbx
+  unsigned __int64 Root; // rbx
   int v4; // edi
   int v5; // eax
   unsigned __int64 v6; // rax
@@ -26,7 +26,7 @@ void __fastcall KasanDriverUnloadImage(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
-  unsigned __int64 v12; // rcx
+  _RTL_BALANCED_NODE *v12; // rcx
   unsigned __int64 v13; // rbp
   ULONG_PTR *v14; // r14
   ULONG_PTR v15; // rdi
@@ -38,54 +38,57 @@ void __fastcall KasanDriverUnloadImage(__int64 a1)
     return;
   v1 = *(_QWORD *)(a1 + 48);
   v2 = KeAcquireSpinLockRaiseToDpc(&KasanDriverUnloadInfosLock);
-  if ( (qword_140D18538 & 1) != 0 )
+  if ( (*(_BYTE *)&KasanDriverUnloadInfos.0 & 1) != 0 )
   {
-    if ( KasanDriverUnloadInfos )
-      v3 = KasanDriverUnloadInfos ^ (unsigned __int64)&KasanDriverUnloadInfos;
+    if ( KasanDriverUnloadInfos.Root )
+      Root = (unsigned __int64)KasanDriverUnloadInfos.Root ^ (unsigned __int64)&KasanDriverUnloadInfos;
     else
-      v3 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v3 = KasanDriverUnloadInfos;
+    Root = (unsigned __int64)KasanDriverUnloadInfos.Root;
   }
-  v4 = qword_140D18538 & 1;
-  if ( !v3 )
+  v4 = *(_BYTE *)&KasanDriverUnloadInfos.0 & 1;
+  if ( !Root )
     goto LABEL_15;
   do
   {
-    v5 = KasanUnloadInfoCompare(v1, v3);
+    v5 = KasanUnloadInfoCompare(v1, Root);
     if ( v5 < 0 )
     {
-      v6 = *(_QWORD *)v3;
+      v6 = *(_QWORD *)Root;
       if ( v4 && v6 )
         goto LABEL_20;
       goto LABEL_11;
     }
     if ( v5 <= 0 )
       break;
-    v6 = *(_QWORD *)(v3 + 8);
+    v6 = *(_QWORD *)(Root + 8);
     if ( v4 && v6 )
     {
 LABEL_20:
-      v3 ^= v6;
+      Root ^= v6;
       continue;
     }
 LABEL_11:
-    v3 = v6;
+    Root = v6;
   }
-  while ( v3 );
-  if ( v3 )
-    RtlRbRemoveNode(&KasanDriverUnloadInfos, v3);
+  while ( Root );
+  if ( Root )
+    RtlRbRemoveNode(&KasanDriverUnloadInfos, (PRTL_BALANCED_NODE)Root);
 LABEL_15:
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     KiReleaseSpinLockInstrumented(&KasanDriverUnloadInfosLock, retaddr);
   else
     _InterlockedAnd64((volatile signed __int64 *)&KasanDriverUnloadInfosLock, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -97,13 +100,13 @@ LABEL_15:
     }
   }
   __writecr8(v2);
-  if ( v3 )
+  if ( Root )
   {
-    v12 = *(_QWORD *)(v3 + 32);
+    v12 = *(_RTL_BALANCED_NODE **)(Root + 32);
     v13 = 0LL;
     if ( v12 )
     {
-      v14 = (ULONG_PTR *)(v3 + 40);
+      v14 = (ULONG_PTR *)(Root + 40);
       do
       {
         v15 = v14[1];
@@ -120,20 +123,20 @@ LABEL_15:
           if ( v15 >> 3 )
           {
             memset((void *)(KasaniShadow + ((v16 + 0x800000000000LL) >> 3)), 0, v15 >> 3);
-            v12 = *(_QWORD *)(v3 + 32);
+            v12 = *(_RTL_BALANCED_NODE **)(Root + 32);
             v17 += v15 >> 3;
           }
           if ( (v15 & 7) != 0 )
           {
             *v17 = v15 & 7;
-            v12 = *(_QWORD *)(v3 + 32);
+            v12 = *(_RTL_BALANCED_NODE **)(Root + 32);
           }
         }
         ++v13;
         v14 += 2;
       }
-      while ( v13 < v12 );
+      while ( v13 < (unsigned __int64)v12 );
     }
-    ExFreePoolWithTag((PVOID)v3, 0);
+    ExFreePoolWithTag((PVOID)Root, 0);
   }
 }

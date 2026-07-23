@@ -6,18 +6,31 @@
  *     _RtlpCreateUserThreadEx@44 @ 0x4B2F0524 (_RtlpCreateUserThreadEx@44.c)
  */
 
-int __thiscall RtlCreateUserThread(
-        void *this,
-        int a2,
-        int a3,
-        char a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11)
+NTSTATUS __cdecl RtlCreateUserThread(
+        HANDLE ProcessHandle,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        BOOLEAN CreateSuspended,
+        ULONG ZeroBits,
+        SIZE_T MaximumStackSize,
+        SIZE_T CommittedStackSize,
+        PUSER_THREAD_START_ROUTINE StartAddress,
+        PVOID Parameter,
+        PHANDLE ThreadHandle,
+        PCLIENT_ID ClientId)
 {
-  return RtlpCreateUserThreadEx(a4 == 1, a5, a6, a7, this, a8, a9, a10, a11);
+  int v10; // ecx
+  _BYTE v12[12]; // [esp-20h] [ebp-20h]
+
+  *(_QWORD *)&v12[4] = MaximumStackSize;
+  *(_DWORD *)v12 = ZeroBits;
+  return RtlpCreateUserThreadEx(
+           ProcessHandle,
+           CreateSuspended == 1,
+           *(SIZE_T *)v12,
+           SHIDWORD(MaximumStackSize),
+           v10,
+           CommittedStackSize,
+           SHIDWORD(CommittedStackSize),
+           (int)StartAddress,
+           (int)Parameter);
 }

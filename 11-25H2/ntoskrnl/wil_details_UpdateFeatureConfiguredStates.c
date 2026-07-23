@@ -11,15 +11,14 @@
 __int64 *wil_details_UpdateFeatureConfiguredStates()
 {
   __int64 *i; // rcx
-  unsigned int v1; // ecx
-  int v2; // eax
+  RTL_FEATURE_ID v1; // ecx
+  NTSTATUS v2; // eax
   __int16 v3; // dx
   __int16 v4; // dx
   __int64 *result; // rax
   volatile signed __int32 **v6; // rbx
-  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-20h] BYREF
-  int v9; // [rsp+30h] [rbp-18h]
+  ULONGLONG ChangeStamp; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+28h] [rbp-20h] BYREF
 
   for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = (__int64 *)(v6 + 7) )
   {
@@ -30,17 +29,17 @@ __int64 *wil_details_UpdateFeatureConfiguredStates()
     if ( !*((_BYTE *)result + 29) && !*((_BYTE *)result + 30) && !*((_BYTE *)result + 28) )
     {
       v1 = *((_DWORD *)result + 6);
-      v7 = 0LL;
-      v8 = 0LL;
-      v9 = 0;
-      v2 = RtlQueryFeatureConfiguration(v1, 1u, &v7, (__int64)&v8);
+      ChangeStamp = 0LL;
+      *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+      FeatureConfiguration.VariantPayload = 0;
+      v2 = RtlQueryFeatureConfiguration(v1, RtlFeatureConfigurationRuntime, &ChangeStamp, &FeatureConfiguration);
       if ( v2 == -2147483614 || v2 == -1073741275 )
         goto LABEL_12;
       if ( v2 )
       {
         if ( v2 == 279 )
         {
-          v3 = BYTE4(v8) & 0x80;
+          v3 = *((_BYTE *)&FeatureConfiguration + 4) & 0x80;
           goto LABEL_11;
         }
 LABEL_12:
@@ -48,7 +47,7 @@ LABEL_12:
       }
       else
       {
-        v3 = BYTE4(v8) & 0xB0 | (4 * (BYTE4(v8) & 0x40));
+        v3 = *((_BYTE *)&FeatureConfiguration + 4) & 0xB0 | (4 * (*((_BYTE *)&FeatureConfiguration + 4) & 0x40));
 LABEL_11:
         v4 = (8 * v3) | 0x206;
       }

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xxxqqqq_EtwWriteTransfer @ 0x140581F88
+ * XREFs of McTemplateK0xxxqqqq_EtwWriteTransfer @ 0x14057F308
  * Callers:
- *     FsRtlHeatLogTierMove @ 0x14070D630 (FsRtlHeatLogTierMove.c)
+ *     FsRtlHeatLogTierMove @ 0x14070B1D0 (FsRtlHeatLogTierMove.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0xxxqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, const GUID *a3, ...)

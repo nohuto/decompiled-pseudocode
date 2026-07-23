@@ -1,111 +1,107 @@
 /*
- * XREFs of RtlCustomCPToUnicodeN @ 0x18003BB10
+ * XREFs of RtlCustomCPToUnicodeN @ 0x180026080
  * Callers:
- *     RtlOemToUnicodeN @ 0x18009FCA0 (RtlOemToUnicodeN.c)
+ *     RtlOemToUnicodeN @ 0x18009EDD0 (RtlOemToUnicodeN.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x18003BC80 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1800261F0 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlCustomCPToUnicodeN(
-        __int64 a1,
-        _WORD *a2,
-        unsigned int a3,
-        char *a4,
-        unsigned __int8 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlCustomCPToUnicodeN(
+        PCPTABLEINFO CustomCP,
+        PWCH UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCH CustomCPString,
+        ULONG BytesInCustomCPString)
 {
-  _WORD *v7; // r11
-  unsigned int v8; // r8d
-  unsigned int v9; // r10d
+  PWCH v7; // r11
+  ULONG v8; // r8d
+  ULONG v9; // r10d
   __int64 v10; // rdx
-  __int64 v11; // rbx
-  unsigned __int8 *v12; // r9
+  unsigned __int16 *MultiByteTable; // rbx
+  PCH v12; // r9
   __int64 v13; // rax
-  char *v15; // r8
-  unsigned int v16; // ebx
-  unsigned __int8 *v17; // rbx
+  ULONG *v15; // r8
+  NTSTATUS v16; // ebx
+  PCH v17; // rbx
   int v18; // esi
-  __int64 v19; // rdi
-  int v20; // eax
-  __int64 v21; // rdx
-  __int64 v22; // rax
-  char v23; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int16 *DBCSOffsets; // rdi
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  char v22; // [rsp+40h] [rbp+8h] BYREF
 
-  v7 = a2;
-  if ( !a1 || *(_WORD *)a1 == 0xFDE9 )
+  v7 = UnicodeString;
+  if ( !CustomCP || CustomCP->CodePage == 0xFDE9 )
   {
-    v15 = &v23;
-    if ( a4 )
-      v15 = a4;
+    v15 = (ULONG *)&v22;
+    if ( BytesInUnicodeString )
+      v15 = BytesInUnicodeString;
     v16 = 0;
-    if ( a6 )
+    if ( BytesInCustomCPString )
     {
-      if ( (unsigned int)RtlUTF8ToUnicodeN((_DWORD)a2, a3, (_DWORD)v15, (_DWORD)a5, a6) == -1073741789 )
-        return (unsigned int)-2147483643;
+      if ( RtlUTF8ToUnicodeN(UnicodeString, MaxBytesInUnicodeString, v15, CustomCPString, BytesInCustomCPString) == -1073741789 )
+        return -2147483643;
       return v16;
     }
     else
     {
-      *(_DWORD *)v15 = 0;
-      return 0LL;
+      *v15 = 0;
+      return 0;
     }
   }
   else
   {
-    v8 = a6;
-    v9 = a3 >> 1;
-    if ( *(_WORD *)(a1 + 12) )
+    v8 = BytesInCustomCPString;
+    v9 = MaxBytesInUnicodeString >> 1;
+    if ( CustomCP->DBCSCodePage )
     {
-      v17 = a5;
-      v18 = (int)a2;
-      v19 = *(_QWORD *)(a1 + 56);
-      while ( 1 )
+      v17 = CustomCPString;
+      v18 = (int)UnicodeString;
+      DBCSOffsets = CustomCP->DBCSOffsets;
+      while ( v9 && v8 )
       {
-        v20 = (int)v7;
-        if ( !v9 || !v8 )
-          break;
         --v9;
         --v8;
-        v21 = 2LL * *v17;
-        v22 = *(unsigned __int16 *)(v21 + v19);
-        if ( (_WORD)v22 )
+        v20 = (unsigned __int8)*v17;
+        v21 = DBCSOffsets[v20];
+        if ( (_WORD)v21 )
         {
           if ( !v8 )
           {
-            v20 = (_DWORD)v7 + 2;
             *v7 = 0;
+            LODWORD(v7) = (_DWORD)v7 + 2;
             break;
           }
           --v8;
-          *v7++ = *(_WORD *)(v19 + 2 * (v22 + v17[1]));
+          *v7++ = DBCSOffsets[v21 + (unsigned __int8)v17[1]];
           v17 += 2;
         }
         else
         {
-          *v7++ = *(_WORD *)(v21 + *(_QWORD *)(a1 + 32));
+          *v7++ = CustomCP->MultiByteTable[v20];
           ++v17;
         }
       }
-      if ( a4 )
-        *(_DWORD *)a4 = v20 - v18;
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = (_DWORD)v7 - v18;
     }
     else
     {
-      v10 = a6;
-      if ( v9 < a6 )
+      v10 = BytesInCustomCPString;
+      if ( v9 < BytesInCustomCPString )
         v10 = v9;
-      if ( a4 )
-        *(_DWORD *)a4 = 2 * v10;
-      v11 = *(_QWORD *)(a1 + 32);
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = 2 * v10;
+      MultiByteTable = CustomCP->MultiByteTable;
       if ( (_DWORD)v10 )
       {
-        v12 = a5;
+        v12 = CustomCPString;
         do
         {
-          v13 = *v12;
+          v13 = (unsigned __int8)*v12;
           ++v7;
           ++v12;
-          *(v7 - 1) = *(_WORD *)(v11 + 2 * v13);
+          *(v7 - 1) = MultiByteTable[v13];
           --v10;
         }
         while ( v10 );

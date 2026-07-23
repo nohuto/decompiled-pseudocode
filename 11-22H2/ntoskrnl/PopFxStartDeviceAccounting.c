@@ -56,10 +56,13 @@ void PopFxStartDeviceAccounting()
             *(_QWORD *)(i + 624) = v1;
         }
         KxReleaseSpinLock((volatile signed __int64 *)(i + 600));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v3 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -82,10 +85,10 @@ void PopFxStartDeviceAccounting()
               *(_QWORD *)(v5 + 24) = v1;
           }
           KxReleaseSpinLock((volatile signed __int64 *)v5);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v13 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
             {
               v14 = KeGetCurrentPrcb();
               v15 = v14->SchedulerAssist;
@@ -109,10 +112,10 @@ void PopFxStartDeviceAccounting()
     qword_140C3EE58 = 0LL;
     memset(&xmmword_140C3EE60, 0, 0x50uLL);
     KxReleaseSpinLock((volatile signed __int64 *)&PopFxGlobalDeviceAccountingLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

@@ -36,7 +36,7 @@ unsigned __int64 MiDereferenceSessionFinal()
   __int64 v2; // rsi
   void (__fastcall *v3)(_QWORD); // rax
   struct _KTHREAD *v4; // rax
-  union _SLIST_HEADER *v5; // rbp
+  _SLIST_HEADER *v5; // rbp
   __int64 v6; // r15
   ULONG_PTR v7; // r8
   __int64 v8; // rax
@@ -72,7 +72,7 @@ unsigned __int64 MiDereferenceSessionFinal()
   MiFreeSessionSpaceMap();
   if ( (*(_DWORD *)(v2 + 4) & 1) != 0 )
   {
-    v5 = (union _SLIST_HEADER *)(v2 + 192);
+    v5 = (_SLIST_HEADER *)(v2 + 192);
     v6 = 21LL;
     do
     {

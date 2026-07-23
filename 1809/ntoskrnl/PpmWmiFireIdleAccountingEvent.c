@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmWmiFireIdleAccountingEvent @ 0x1402E45E0
+ * XREFs of PpmWmiFireIdleAccountingEvent @ 0x1402E47D0
  * Callers:
  *     <none>
  * Callees:
- *     IoWMIWriteEvent @ 0x14010BDC0 (IoWMIWriteEvent.c)
- *     PpmTranslateIdleAccounting @ 0x1402E3430 (PpmTranslateIdleAccounting.c)
- *     PpmAllocWmiEvent @ 0x1402E44B0 (PpmAllocWmiEvent.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IoWMIWriteEvent @ 0x14010BE40 (IoWMIWriteEvent.c)
+ *     PpmTranslateIdleAccounting @ 0x1402E3620 (PpmTranslateIdleAccounting.c)
+ *     PpmAllocWmiEvent @ 0x1402E46A0 (PpmAllocWmiEvent.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmWmiFireIdleAccountingEvent(__int64 a1)

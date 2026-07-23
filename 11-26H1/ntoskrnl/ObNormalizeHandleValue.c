@@ -1,15 +1,15 @@
 /*
- * XREFs of ObNormalizeHandleValue @ 0x1409FA514
+ * XREFs of ObNormalizeHandleValue @ 0x14091F114
  * Callers:
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409F9204 (SepAdtCloseObjectAuditAlarm.c)
- *     SeAuditHandleDuplication @ 0x1409F9428 (SeAuditHandleDuplication.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409F9DCC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409FA180 (SepAdtDeleteObjectAuditAlarm.c)
- *     SeOperationAuditAlarm @ 0x1409FA6B0 (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409FB6F8 (SepAdtStagingEvent.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091D6BC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED80 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeOperationAuditAlarm @ 0x14091F2B0 (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409202F8 (SepAdtStagingEvent.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x140A9EE24 (SepAdtCloseObjectAuditAlarm.c)
+ *     SeAuditHandleDuplication @ 0x140B2A79C (SeAuditHandleDuplication.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B67B6C (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFanUpdateRunningState @ 0x1409976B8
+ * XREFs of PopFanUpdateRunningState @ 0x1409978B8
  * Callers:
- *     PopFanWorker @ 0x140847C10 (PopFanWorker.c)
+ *     PopFanWorker @ 0x140847F10 (PopFanWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopFanEndCsFanPeriod @ 0x140997200 (PopFanEndCsFanPeriod.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopFanEndCsFanPeriod @ 0x140997400 (PopFanEndCsFanPeriod.c)
  */
 
 void __fastcall PopFanUpdateRunningState(char a1)
@@ -20,18 +20,18 @@ void __fastcall PopFanUpdateRunningState(char a1)
   PopFanTracking = v2;
   if ( v2 )
   {
-    if ( !byte_140C3C944 )
+    if ( !byte_140C3C904 )
     {
-      byte_140C3C944 = 1;
-      qword_140C3C950 = MEMORY[0xFFFFF78000000008];
+      byte_140C3C904 = 1;
+      qword_140C3C910 = MEMORY[0xFFFFF78000000008];
     }
   }
-  else if ( byte_140C3C944 )
+  else if ( byte_140C3C904 )
   {
-    if ( byte_140C3C945 )
+    if ( byte_140C3C905 )
       PopFanEndCsFanPeriod();
-    qword_140C3C950 = 0LL;
-    byte_140C3C944 = 0;
+    qword_140C3C910 = 0LL;
+    byte_140C3C904 = 0;
   }
   PopReleaseRwLock(&PopFanLock);
 }

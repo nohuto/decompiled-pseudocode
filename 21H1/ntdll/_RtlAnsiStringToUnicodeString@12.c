@@ -21,33 +21,34 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
         PCANSI_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  int Length; // esi
+  ULONG Length; // esi
   char *Buffer; // edi
   int v5; // ecx
   unsigned int v6; // ecx
   unsigned int v7; // ecx
   char v8; // al
-  unsigned int v9; // esi
+  ULONG v9; // esi
   char *v10; // ebx
-  unsigned int v11; // edx
+  ULONG v11; // edx
   wchar_t *v12; // edi
-  unsigned int v13; // edx
+  ULONG v13; // edx
   int v14; // esi
-  unsigned int i; // eax
+  ULONG i; // eax
   wchar_t *Heap; // eax
   int v18; // eax
   int v19; // eax
   wchar_t v20; // ax
-  wchar_t *v21; // [esp+14h] [ebp-44h]
-  unsigned int v22; // [esp+34h] [ebp-24h] BYREF
-  int v23; // [esp+38h] [ebp-20h] BYREF
-  char v24; // [esp+3Fh] [ebp-19h]
+  SIZE_T v21; // [esp-4h] [ebp-5Ch]
+  wchar_t *v22; // [esp+14h] [ebp-44h]
+  ULONG v23; // [esp+34h] [ebp-24h] BYREF
+  ULONG UnicodeStringActualByteCount; // [esp+38h] [ebp-20h] BYREF
+  char v25; // [esp+3Fh] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+40h] [ebp-18h]
 
   Length = SourceString->Length;
   Buffer = SourceString->Buffer;
   v5 = 0;
-  v24 = NlsActiveCodePageIsUTF8;
+  v25 = NlsActiveCodePageIsUTF8;
   if ( NlsActiveCodePageIsUTF8 )
   {
     if ( !Length )
@@ -55,8 +56,8 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
       v5 = 0;
       goto LABEL_4;
     }
-    RtlUTF8ToUnicodeN(0, 0, &v23, Buffer, Length);
-    v5 = v23;
+    RtlUTF8ToUnicodeN(0, 0, &UnicodeStringActualByteCount, Buffer, Length);
+    v5 = UnicodeStringActualByteCount;
   }
   else
   {
@@ -81,7 +82,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
       }
     }
 LABEL_4:
-    v23 = v5;
+    UnicodeStringActualByteCount = v5;
   }
   v6 = v5 + 2;
   if ( v6 > 0xFFFE )
@@ -90,7 +91,8 @@ LABEL_4:
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v6;
-    Heap = (wchar_t *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v6);
+    LODWORD(v21) = v6;
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v21);
     DestinationString->Buffer = Heap;
     if ( !Heap )
       return -1073741801;
@@ -101,7 +103,7 @@ LABEL_4:
     v7 = (unsigned __int16)(v6 - 2) + 2;
     if ( v7 > DestinationString->MaximumLength || v7 < 2 )
       return -2147483643;
-    v8 = v24;
+    v8 = v25;
   }
   ms_exc.registration.TryLevel = 0;
   v9 = SourceString->Length;
@@ -111,30 +113,31 @@ LABEL_4:
   if ( v8 )
   {
     if ( SourceString->Length )
-      RtlUTF8ToUnicodeN(v12, v11, &v22, v10, v9);
+      RtlUTF8ToUnicodeN((PWSTR)v12, v11, &v23, v10, v9);
     else
-      v22 = 0;
+      v23 = 0;
   }
   else
   {
     v13 = v11 >> 1;
     if ( NlsMbCodePageTag )
     {
-      v21 = DestinationString->Buffer;
+      v22 = DestinationString->Buffer;
       while ( v13 && v9 )
       {
         --v13;
         --v9;
         v19 = (unsigned __int8)*v10;
-        v23 = (unsigned __int16)NlsLeadByteInfoTable[v19];
-        if ( (_WORD)v23 )
+        UnicodeStringActualByteCount = (unsigned __int16)NlsLeadByteInfoTable[v19];
+        if ( (_WORD)UnicodeStringActualByteCount )
         {
           if ( !v9 )
           {
             *v12++ = 0;
             break;
           }
-          v20 = *(_WORD *)(NlsMbAnsiCodePageTables + 2 * ((unsigned __int16)v23 + (unsigned __int8)v10[1]));
+          v20 = *(_WORD *)(NlsMbAnsiCodePageTables
+                         + 2 * ((unsigned __int16)UnicodeStringActualByteCount + (unsigned __int8)v10[1]));
           v10 += 2;
           --v9;
         }
@@ -145,19 +148,19 @@ LABEL_4:
         }
         *v12++ = v20;
       }
-      v22 = (char *)v12 - (char *)v21;
+      v23 = (char *)v12 - (char *)v22;
     }
     else
     {
       if ( v13 >= v9 )
         v13 = SourceString->Length;
-      v22 = 2 * v13;
+      v23 = 2 * v13;
       v14 = NlsAnsiToUnicodeData;
       for ( i = 0; i < v13; ++i )
         v12[i] = *(_WORD *)(v14 + 2 * (unsigned __int8)v10[i]);
     }
   }
-  DestinationString->Buffer[v22 >> 1] = 0;
+  DestinationString->Buffer[v23 >> 1] = 0;
   ms_exc.registration.TryLevel = -2;
   return 0;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of CcResetGlobalTelemetry @ 0x1407EAEC0
+ * XREFs of CcResetGlobalTelemetry @ 0x1407EB190
  * Callers:
- *     CcPostVolumeTelemetry @ 0x1403D10D0 (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x1403D12B0 (CcPostVolumeTelemetry.c)
  * Callees:
  *     <none>
  */

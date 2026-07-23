@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRemoveDeviceQueue @ 0x140390B70
+ * XREFs of KeRemoveDeviceQueue @ 0x14038A4B0
  * Callers:
- *     IoFreeAdapterChannelV2 @ 0x14038F310 (IoFreeAdapterChannelV2.c)
- *     IopStartNextPacket @ 0x140391548 (IopStartNextPacket.c)
- *     IoFreeController @ 0x140596940 (IoFreeController.c)
- *     DifKeRemoveDeviceQueueWrapper @ 0x140630080 (DifKeRemoveDeviceQueueWrapper.c)
+ *     IoFreeAdapterChannelV2 @ 0x140388C50 (IoFreeAdapterChannelV2.c)
+ *     IopStartNextPacket @ 0x14038AE78 (IopStartNextPacket.c)
+ *     IoFreeController @ 0x140593920 (IoFreeController.c)
+ *     DifKeRemoveDeviceQueueWrapper @ 0x14062E640 (DifKeRemoveDeviceQueueWrapper.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveDeviceQueue(PKDEVICE_QUEUE DeviceQueue)

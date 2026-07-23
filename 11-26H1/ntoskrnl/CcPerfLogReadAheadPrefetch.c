@@ -1,10 +1,10 @@
 /*
- * XREFs of CcPerfLogReadAheadPrefetch @ 0x1404C2838
+ * XREFs of CcPerfLogReadAheadPrefetch @ 0x1404BC088
  * Callers:
- *     CcPerformReadAhead @ 0x140386E18 (CcPerformReadAhead.c)
+ *     CcPerformReadAhead @ 0x140388BC8 (CcPerformReadAhead.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogReadAheadPrefetch(__int64 a1, _QWORD *a2, int a3, int a4)

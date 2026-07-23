@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForceIdleParkUnparkProcessor @ 0x14029AFA8
+ * XREFs of KiForceIdleParkUnparkProcessor @ 0x14029B198
  * Callers:
- *     KiForceIdleParkUnparkDpcRoutine @ 0x14029AF80 (KiForceIdleParkUnparkDpcRoutine.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x14029B300 (KiForceIdleUpdateSchedulerParkState.c)
+ *     KiForceIdleParkUnparkDpcRoutine @ 0x14029B170 (KiForceIdleParkUnparkDpcRoutine.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14029B4F0 (KiForceIdleUpdateSchedulerParkState.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeTransitionProcessorParkState @ 0x14029CF8C (KeTransitionProcessorParkState.c)
  */
 
 __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int6
     if ( !*(_BYTE *)(a1 + 24228) )
     {
       v4 = KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
-      _InterlockedOr64(&qword_140405018[v4 >> 6], 1LL << (v4 & 0x3F));
+      _InterlockedOr64(&qword_140406028[v4 >> 6], 1LL << (v4 & 0x3F));
       result = KeTransitionProcessorParkState(a1);
     }
     CurrentPrcb = KeGetCurrentPrcb();
@@ -87,7 +87,7 @@ __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, __int64 a2, __int6
   else
   {
     _InterlockedAnd64(
-      &qword_140405018[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] >> 6],
+      &qword_140406028[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] >> 6],
       ~(1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] & 0x3F)));
     return KeTransitionProcessorParkState(a1);
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IpmiLibReadSmbiosRecord38 @ 0x14069F974
+ * XREFs of IpmiLibReadSmbiosRecord38 @ 0x1406A0A78
  * Callers:
- *     IpmiHwInitializeContext @ 0x14069F688 (IpmiHwInitializeContext.c)
+ *     IpmiHwInitializeContext @ 0x1406A078C (IpmiHwInitializeContext.c)
  * Callees:
- *     ExGetSystemFirmwareTable @ 0x1407B4100 (ExGetSystemFirmwareTable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExGetSystemFirmwareTable @ 0x1407B4550 (ExGetSystemFirmwareTable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IpmiLibReadSmbiosRecord38(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall IpmiLibReadSmbiosRecord38(__int64 a1)
   SystemFirmwareTable = ExGetSystemFirmwareTable(1381190978LL, 0LL, 0LL, 0LL, &v10);
   if ( SystemFirmwareTable == -1073741789 )
   {
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, v10, 0x494D5049u);
     if ( !Pool2 )
       return (unsigned int)-1073741801;
     SystemFirmwareTable = ExGetSystemFirmwareTable(1381190978LL, 0LL, Pool2, v10, &v10);

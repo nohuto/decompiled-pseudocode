@@ -1,19 +1,24 @@
 /*
- * XREFs of NtOpenKeyTransactedEx @ 0x140974730
+ * XREFs of NtOpenKeyTransactedEx @ 0x140936740
  * Callers:
- *     DifNtOpenKeyTransactedExWrapper @ 0x14067D7E0 (DifNtOpenKeyTransactedExWrapper.c)
- *     NtOpenKeyTransacted @ 0x14084F1C0 (NtOpenKeyTransacted.c)
+ *     DifNtOpenKeyTransactedExWrapper @ 0x1406813C0 (DifNtOpenKeyTransactedExWrapper.c)
+ *     NtOpenKeyTransacted @ 0x1408554D0 (NtOpenKeyTransacted.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmpTransDereferenceTransaction @ 0x1408ECC08 (CmpTransDereferenceTransaction.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     CmOpenKey @ 0x140975160 (CmOpenKey.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmpTransDereferenceTransaction @ 0x1408F31C8 (CmpTransDereferenceTransaction.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     CmOpenKey @ 0x140937170 (CmOpenKey.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   __int64 v9; // rdx
   __int64 v10; // rcx
@@ -21,7 +26,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(__int64 a1, unsigned int a2, __int64 a3
   NTSTATUS v12; // eax
   __int64 v13; // rcx
   __int64 v14; // rbx
-  unsigned int v15; // edi
+  NTSTATUS v15; // edi
   KPROCESSOR_MODE v16; // r9
   NTSTATUS v17; // eax
   int HandleInformation; // [rsp+28h] [rbp-40h]
@@ -39,14 +44,14 @@ __int64 __fastcall NtOpenKeyTransactedEx(__int64 a1, unsigned int a2, __int64 a3
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
   v14 = (__int64)Object;
   v15 = v12;
   if ( v12 == -1073741788 )
   {
     v16 = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v17 = ObReferenceObjectByHandle(Handle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v16, &Object, 0LL);
+    v17 = ObReferenceObjectByHandle(TransactionHandle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v16, &Object, 0LL);
     v14 = (__int64)Object;
     v15 = v17;
     if ( v17 >= 0 )
@@ -57,7 +62,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(__int64 a1, unsigned int a2, __int64 a3
     v14 = (unsigned __int64)Object | 1;
 LABEL_6:
     LOBYTE(HandleInformation) = KeGetCurrentThread()->PreviousMode;
-    v15 = CmOpenKey(a1, a2, a3, a4, v14, HandleInformation);
+    v15 = CmOpenKey(KeyHandle, DesiredAccess, ObjectAttributes, OpenOptions, v14, HandleInformation);
   }
   if ( v14 )
     CmpTransDereferenceTransaction(v14);

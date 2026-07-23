@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVolunteerForTrimFirst @ 0x14012C7F8
+ * XREFs of MiVolunteerForTrimFirst @ 0x14012C8C8
  * Callers:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
  */
 
 unsigned __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
   volatile signed __int64 *v13[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = *(unsigned __int16 *)(a1 + 174);
-  v3 = *(_QWORD **)(qword_14043A748 + 8 * v2);
+  v3 = *(_QWORD **)(qword_14043B808 + 8 * v2);
   v4 = v3[878];
   result = *(_QWORD *)(v4 + 64);
   if ( *(_QWORD *)(a1 + 96) >= result )
@@ -51,8 +51,8 @@ unsigned __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
         v7 = 2;
 LABEL_7:
         v13[0] = 0LL;
-        v13[1] = (volatile signed __int64 *)&qword_14043AE80;
-        KxAcquireQueuedSpinLock((__int64)v13, (volatile __int64 *)&qword_14043AE80, v2);
+        v13[1] = (volatile signed __int64 *)&qword_14043BF40;
+        KxAcquireQueuedSpinLock((__int64)v13, (volatile __int64 *)&qword_14043BF40, v2);
         if ( !*(_BYTE *)(v4 + 53) )
         {
           v8 = (__int64 *)*v6;

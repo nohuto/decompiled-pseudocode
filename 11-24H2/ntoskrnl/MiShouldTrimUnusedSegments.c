@@ -1,9 +1,9 @@
 /*
- * XREFs of MiShouldTrimUnusedSegments @ 0x14049257C
+ * XREFs of MiShouldTrimUnusedSegments @ 0x14048D3EC
  * Callers:
- *     MiCheckControlArea @ 0x14020EFD0 (MiCheckControlArea.c)
- *     MiFreeExcessSegments @ 0x1402EA170 (MiFreeExcessSegments.c)
- *     MiComputeUnusedSegmentReduction @ 0x1403F7C6C (MiComputeUnusedSegmentReduction.c)
+ *     MiCheckControlArea @ 0x140338330 (MiCheckControlArea.c)
+ *     MiFreeExcessSegments @ 0x14034B7B0 (MiFreeExcessSegments.c)
+ *     MiComputeUnusedSegmentReduction @ 0x1403EDBDC (MiComputeUnusedSegmentReduction.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall MiShouldTrimUnusedSegments(ULONG *a1)
   }
   else
   {
-    v2 = qword_140E2CC18;
+    v2 = qword_140E2CD58;
     a1 = &MiSystemPartition;
   }
   if ( !v2 )

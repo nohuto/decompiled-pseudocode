@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDuplicateCloneLeaf @ 0x14030D374
+ * XREFs of MiDuplicateCloneLeaf @ 0x1402EF3F4
  * Callers:
- *     MiHandleForkValidPteCopy @ 0x14030DAD8 (MiHandleForkValidPteCopy.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
+ *     MiHandleForkValidPteCopy @ 0x1402EFB58 (MiHandleForkValidPteCopy.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiUnlockClonePageTable @ 0x14030B67C (MiUnlockClonePageTable.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiUpdateTransitionPteFrame @ 0x14030E180 (MiUpdateTransitionPteFrame.c)
- *     MiInitializePfnForOtherProcess @ 0x14033B798 (MiInitializePfnForOtherProcess.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiUnlockClonePageTable @ 0x1402ED6FC (MiUnlockClonePageTable.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402F0200 (MiUpdateTransitionPteFrame.c)
+ *     MiInitializePfnForOtherProcess @ 0x14033D818 (MiInitializePfnForOtherProcess.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
  */
 
 __int64 __fastcall MiDuplicateCloneLeaf(__int64 a1)
@@ -76,12 +76,12 @@ __int64 __fastcall MiDuplicateCloneLeaf(__int64 a1)
   }
   else
   {
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       if ( (v3 & 0x10) != 0 )
         v4 = v3 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v4 = v3 & qword_140E2D748;
+        v4 = v3 & qword_140E2D8C8;
     }
     v5 = (v4 >> 12) & 0xFFFFFFFFFFLL;
     v6 = 48 * v5 - 0x220000000000LL;
@@ -137,7 +137,7 @@ __int64 __fastcall MiDuplicateCloneLeaf(__int64 a1)
   if ( (*(_QWORD *)(v6 + 40) & 0x20000000000000LL) != 0
     || (*(_DWORD *)(v6 + 32) & 0x8000000) != 0
     && (v6 < 0xFFFFDE0000000000uLL
-     || v6 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     || v6 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      || MiIsDecayPfn((__int64)(v6 + 0x220000000000LL) / 48)
      || (v17 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v6) == 9) )
   {

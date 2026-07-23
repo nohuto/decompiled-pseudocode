@@ -1,21 +1,21 @@
 /*
- * XREFs of MiScanNonPagedPoolVa @ 0x1401635E0
+ * XREFs of MiScanNonPagedPoolVa @ 0x1401636E0
  * Callers:
- *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
- *     MiFindNonPagedPoolVa @ 0x1401634BC (MiFindNonPagedPoolVa.c)
- *     MiRemoveFreePoolMemoryFromDump @ 0x1402AC810 (MiRemoveFreePoolMemoryFromDump.c)
- *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401626D4 (MiFindContiguousMemoryInPool.c)
+ *     MiFindNonPagedPoolVa @ 0x1401635BC (MiFindNonPagedPoolVa.c)
+ *     MiRemoveFreePoolMemoryFromDump @ 0x1402ACA00 (MiRemoveFreePoolMemoryFromDump.c)
+ *     MiScrubNonPagedPool @ 0x140850338 (MiScrubNonPagedPool.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B220 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiScanLeafNonPagedPool @ 0x1401638F0 (MiScanLeafNonPagedPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  union _SLIST_HEADER *v5; // r14
+  _SLIST_HEADER *v5; // r14
   unsigned __int64 v6; // rbx
   __int64 v7; // r13
   unsigned __int64 v8; // rdi
@@ -35,7 +35,7 @@ __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3,
 
   v21 = a3;
   v19 = a1;
-  v5 = &qword_14043A058[25 * a2];
+  v5 = &qword_14043B118[25 * a2];
   v6 = *(&v5[24].Alignment + (int)a3);
   v7 = (__int64)&v5[(int)a3 + 21];
   if ( *(_BYTE *)(a4 + 48) == 1 )

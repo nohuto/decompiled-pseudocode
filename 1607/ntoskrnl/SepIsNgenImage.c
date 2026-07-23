@@ -1,9 +1,9 @@
 /*
- * XREFs of SepIsNgenImage @ 0x14045D470
+ * XREFs of SepIsNgenImage @ 0x14045C340
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x14045D1FC (SeQuerySigningPolicyWorker.c)
+ *     SeQuerySigningPolicyWorker @ 0x14045C0CC (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 char __fastcall SepIsNgenImage(unsigned __int16 *a1)
@@ -15,16 +15,16 @@ char __fastcall SepIsNgenImage(unsigned __int16 *a1)
   unsigned __int16 v6; // ax
   UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = qword_140341558;
-  if ( !qword_140341558 )
+  v1 = qword_140341598;
+  if ( !qword_140341598 )
     return 0;
-  v2 = *(_DWORD *)qword_140341558;
-  if ( !*(_DWORD *)qword_140341558 )
+  v2 = *(_DWORD *)qword_140341598;
+  if ( !*(_DWORD *)qword_140341598 )
     return 0;
   v3 = *a1;
-  if ( *a1 < *(_WORD *)(qword_140341558 + 4) )
+  if ( *a1 < *(_WORD *)(qword_140341598 + 4) )
     return 0;
-  if ( v3 > *(_WORD *)(qword_140341558 + 6) )
+  if ( v3 > *(_WORD *)(qword_140341598 + 6) )
     return 0;
   String1.Buffer = (wchar_t *)(*((_QWORD *)a1 + 1) + 8LL);
   v5 = 0;

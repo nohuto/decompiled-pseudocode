@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetDefaultHardErrorPort()
+NTSTATUS __cdecl NtSetDefaultHardErrorPort(HANDLE DefaultHardErrorPort)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 369LL;
+  result = 369;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpStopRuntimeStackTrace @ 0x1407C5588
+ * XREFs of ObpStopRuntimeStackTrace @ 0x1407C85E8
  * Callers:
- *     ObSetRefTraceInformation @ 0x1407C4514 (ObSetRefTraceInformation.c)
- *     ObSetRefTraceInformationEx @ 0x1407C45C8 (ObSetRefTraceInformationEx.c)
+ *     ObSetRefTraceInformation @ 0x1407C7574 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformationEx @ 0x1407C7628 (ObSetRefTraceInformationEx.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     ObpDestroyStackAndObjectTables @ 0x1407C4A14 (ObpDestroyStackAndObjectTables.c)
- *     ObpProcessPushStackInfoList @ 0x1407C4F58 (ObpProcessPushStackInfoList.c)
- *     ObpSetPoolTags @ 0x1407C50D8 (ObpSetPoolTags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     ObpDestroyStackAndObjectTables @ 0x1407C7A74 (ObpDestroyStackAndObjectTables.c)
+ *     ObpProcessPushStackInfoList @ 0x1407C7FB8 (ObpProcessPushStackInfoList.c)
+ *     ObpSetPoolTags @ 0x1407C8138 (ObpSetPoolTags.c)
  */
 
 __int64 __fastcall ObpStopRuntimeStackTrace(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -26,9 +26,9 @@ __int64 __fastcall ObpStopRuntimeStackTrace(__int64 a1, __int64 a2, __int64 a3, 
   signed __int8 v7; // cf
   AutoBoost *v8; // rdi
   char v9; // bp
-  void **p_SListFaultAddress; // rcx
+  struct _LIST_ENTRY **p_Blink; // rcx
   __int64 v11; // rdx
-  __int64 **v12; // rsi
+  __int64 **Flink; // rsi
   PSLIST_ENTRY v13; // rax
   __int64 v14; // rdi
   __int64 v15; // r8
@@ -36,11 +36,11 @@ __int64 __fastcall ObpStopRuntimeStackTrace(__int64 a1, __int64 a2, __int64 a3, 
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F132C8, 0LL, 0LL, a4);
-  v7 = _interlockedbittestandset64(&stru_140F132C8.Header.Lock, 0LL);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL, 0LL, a4);
+  v7 = _interlockedbittestandset64(&ObpStackTraceLock.Header.Lock, 0LL);
   v8 = v5;
   if ( v7 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F132C8, v5, (__int64)&stru_140F132C8);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ObpStackTraceLock, v5, (__int64)&ObpStackTraceLock);
   LOBYTE(v6) = 1;
   if ( v8 )
   {
@@ -52,48 +52,48 @@ __int64 __fastcall ObpStopRuntimeStackTrace(__int64 a1, __int64 a2, __int64 a3, 
   if ( (ObpTraceFlags & 2) != 0 )
   {
     v9 = (unsigned __int8)v6 & ((unsigned int)ObpTraceFlags >> 7);
-    if ( (stru_140F132C8.SavedApcStateFill[16] & (unsigned __int8)v6) != 0 )
+    if ( ((__int64)ObpStackTraceLock.UserAffinity & (unsigned __int8)v6) != 0 )
     {
-      ObpTraceFlags = *(_DWORD *)&stru_140F132C8.SavedApcStateFill[16] | ObpTraceFlags & 0xFFFFFF0C;
-      if ( (stru_140F132C8.SavedApcStateFill[16] & 0x10) != 0 && LOWORD(stru_140F132C8.SListFaultAddress) )
+      ObpTraceFlags = LODWORD(ObpStackTraceLock.UserAffinity) | ObpTraceFlags & 0xFFFFFF0C;
+      if ( ((__int64)ObpStackTraceLock.UserAffinity & 0x10) != 0 && LOWORD(ObpStackTraceLock.Timer.TimerListEntry.Blink) )
       {
-        p_SListFaultAddress = &stru_140F132C8.SListFaultAddress;
+        p_Blink = &ObpStackTraceLock.Timer.TimerListEntry.Blink;
         v11 = -1LL;
         do
           ++v11;
-        while ( *((_WORD *)&stru_140F132C8.SListFaultAddress + v11) );
+        while ( *((_WORD *)&ObpStackTraceLock.Timer.TimerListEntry.Blink + v11) );
       }
       else
       {
-        p_SListFaultAddress = 0LL;
+        p_Blink = 0LL;
         LODWORD(v11) = 0;
       }
-      ObpSetPoolTags((__int64)p_SListFaultAddress, v11);
-      stru_140F132C8.NpxState = (unsigned __int64)&stru_140F132C8.AffinityVersion & -(__int64)((ObpTraceFlags & 0x20) != 0);
+      ObpSetPoolTags((__int64)p_Blink, v11);
+      ObpStackTraceLock.SavedApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)((unsigned __int64)&ObpStackTraceLock.AffinityVersion & -(__int64)((ObpTraceFlags & 0x20) != 0));
     }
     else
     {
-      v12 = (__int64 **)qword_140F13228;
-      stru_140F132C8.NpxState = 0LL;
-      dword_140F13260[0] = 0;
+      Flink = (__int64 **)ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink;
+      ObpStackTraceLock.SavedApcState.ApcListHead[0].Flink = 0LL;
+      *(_DWORD *)&ObpStackTraceLock.SchedulerApcFill5[80] = 0;
       v13 = RtlpInterlockedFlushSList(&ObpWorkItemFreeList);
-      qword_140F13228 = 0LL;
+      ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink = 0LL;
       v14 = (__int64)v13;
       ObpSetPoolTags(0LL, 0);
       LOBYTE(v15) = v9;
-      ObpDestroyStackAndObjectTables(v12, v14, v15, v16);
+      ObpDestroyStackAndObjectTables(Flink, v14, v15, v16);
       ObpTraceFlags &= 0xFFFFFF0C;
     }
-    if ( stru_140F132C8.SavedApcState.ApcListHead[0].Blink )
+    if ( ObpStackTraceLock.NpxState )
     {
-      ObpTraceFreeMemory(stru_140F132C8.SavedApcState.ApcListHead[0].Blink);
-      RtlInitUnicodeStringEx((PUNICODE_STRING)&stru_140F132C8.600, 0LL);
+      ObpTraceFreeMemory((PVOID)ObpStackTraceLock.NpxState);
+      RtlInitUnicodeStringEx((PUNICODE_STRING)&ObpStackTraceLock.AffinityPrimaryGroup, 0LL);
     }
     ObpProcessPushStackInfoList();
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F132C8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F132C8.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140F132C8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&ObpStackTraceLock);
   KeLeaveGuardedRegion();
   return 0LL;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x140210350
+ * XREFs of ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x1403396B0
  * Callers:
- *     ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x140478EA0 (-KiIdealProcessorRebalancerWorker@@YAXPEAX@Z.c)
+ *     ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x140474920 (-KiIdealProcessorRebalancerWorker@@YAXPEAX@Z.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     ?KiSetProcessConcurrencyCount@@YAXPEAU_KPROCESS@@T_KI_PROCESS_CONCURRENCY_COUNT@@PEAE@Z @ 0x14021061C (-KiSetProcessConcurrencyCount@@YAXPEAU_KPROCESS@@T_KI_PROCESS_CONCURRENCY_COUNT@@PEAE@Z.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KiReleaseProcessLockExclusive @ 0x1403B3B08 (KiReleaseProcessLockExclusive.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     ?KiSetProcessConcurrencyCount@@YAXPEAU_KPROCESS@@T_KI_PROCESS_CONCURRENCY_COUNT@@PEAE@Z @ 0x14033997C (-KiSetProcessConcurrencyCount@@YAXPEAU_KPROCESS@@T_KI_PROCESS_CONCURRENCY_COUNT@@PEAE@Z.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KiReleaseProcessLockExclusive @ 0x1403A2318 (KiReleaseProcessLockExclusive.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
  */
 
 void KiUpdateProcessConcurrencyCounts(void)
 {
-  ULONG_PTR i; // rdi
+  __int64 i; // rdi
   LARGE_INTEGER v1; // rbx
   unsigned __int64 v2; // rsi
   ULONG ActiveProcessorCount; // eax
@@ -31,17 +31,18 @@ void KiUpdateProcessConcurrencyCounts(void)
   __int64 v10; // rcx
   __int64 v11; // rax
   LARGE_INTEGER PerformanceCounter; // rax
-  LARGE_INTEGER v13; // r8
-  LONGLONG v14; // rax
-  unsigned int *v15; // rbx
-  LONGLONG v16; // rcx
-  unsigned __int64 v17; // rsi
+  LONGLONG v13; // rax
+  unsigned int *v14; // rbx
+  LONGLONG v15; // rcx
+  unsigned int v16; // esi
   unsigned __int8 CurrentIrql; // bp
-  unsigned int v19; // eax
-  unsigned int v20; // edx
-  unsigned __int8 v21[8]; // [rsp+30h] [rbp-68h] BYREF
+  unsigned int v18; // eax
+  unsigned int v19; // edx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  unsigned __int8 v22[8]; // [rsp+30h] [rbp-68h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-60h] BYREF
-  _OWORD v23[3]; // [rsp+48h] [rbp-50h] BYREF
+  _OWORD v24[3]; // [rsp+48h] [rbp-50h] BYREF
 
   for ( i = PsGetNextProcess(0LL); i; i = PsGetNextProcess((PVOID)i) )
   {
@@ -73,44 +74,41 @@ void KiUpdateProcessConcurrencyCounts(void)
         while ( v5 );
       }
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
-      v21[0] = 0;
-      v14 = v1.QuadPart + (PerformanceCounter.QuadPart - v1.QuadPart) / 2;
-      v15 = *(unsigned int **)(i + 184);
-      v16 = v14 - *(_QWORD *)(i + 392);
-      *(_QWORD *)(i + 392) = v14;
-      v17 = v2 / ((unsigned __int64)(10000000 * v16) / PerformanceFrequency.QuadPart + 1);
-      if ( (v15[3] & 1) == 0 )
+      v22[0] = 0;
+      v13 = v1.QuadPart + (PerformanceCounter.QuadPart - v1.QuadPart) / 2;
+      v14 = *(unsigned int **)(i + 184);
+      v15 = v13 - *(_QWORD *)(i + 392);
+      *(_QWORD *)(i + 392) = v13;
+      v16 = v2 / ((unsigned __int64)(10000000 * v15) / PerformanceFrequency.QuadPart + 1);
+      if ( (v14[3] & 1) == 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
         if ( KiIrqlFlags )
-          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))KiRaiseIrqlProcessIrqlFlags)(
-            CurrentIrql,
-            2LL,
-            (LARGE_INTEGER)v13.QuadPart);
+          KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
         ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(i + 64));
-        if ( (v15[3] & 1) != 0 )
+        if ( (v14[3] & 1) != 0 )
         {
           KiReleaseProcessLockExclusive(i, CurrentIrql);
         }
         else
         {
-          v19 = *v15;
-          if ( (unsigned int)v17 > KeMaximumProcessors )
-            v20 = (KeMaximumProcessors << 18) - 1;
+          v18 = *v14;
+          if ( v16 > KeMaximumProcessors )
+            v19 = (KeMaximumProcessors << 18) - 1;
           else
-            v20 = (_DWORD)v17 << 18;
-          if ( v20 < v19 )
-            v20 = v19 - ((v19 - v20) >> 4);
-          KiSetProcessConcurrencyCount((struct _KPROCESS *)i, (union _KI_PROCESS_CONCURRENCY_COUNT)v20, v21);
+            v19 = v16 << 18;
+          if ( v19 < v18 )
+            v19 = v18 - ((v18 - v19) >> 4);
+          KiSetProcessConcurrencyCount((struct _KPROCESS *)i, (union _KI_PROCESS_CONCURRENCY_COUNT)v19, v22);
           KiReleaseProcessLockExclusive(i, CurrentIrql);
-          if ( v21[0] )
+          if ( v22[0] )
           {
-            memset(v23, 0, sizeof(v23));
-            KiStackAttachProcess(i);
-            v21[0] = 0;
-            MmAdjustWorkingSetSizeEx(-1, -1, 0, 0, 0, (__int64)v21);
-            KiUnstackDetachProcess(v23, 0LL);
+            memset(v24, 0, sizeof(v24));
+            KiStackAttachProcess((_KPROCESS *)i, 0, (__int64)v24);
+            v22[0] = 0;
+            MmAdjustWorkingSetSizeEx(-1, -1, 0, 0, 0, (__int64)v22);
+            KiUnstackDetachProcess((__int64)v24, 0, v20, v21);
           }
         }
       }

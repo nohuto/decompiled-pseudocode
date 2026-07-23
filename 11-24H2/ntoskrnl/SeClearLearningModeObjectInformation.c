@@ -1,13 +1,13 @@
 /*
- * XREFs of SeClearLearningModeObjectInformation @ 0x140408FE0
+ * XREFs of SeClearLearningModeObjectInformation @ 0x1404014C0
  * Callers:
- *     RtlpAllowsLowBoxAccess @ 0x1404323F0 (RtlpAllowsLowBoxAccess.c)
- *     ObReferenceObjectByName @ 0x14083F230 (ObReferenceObjectByName.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
+ *     RtlpAllowsLowBoxAccess @ 0x14042492C (RtlpAllowsLowBoxAccess.c)
+ *     ObReferenceObjectByName @ 0x14083B4F0 (ObReferenceObjectByName.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
  * Callees:
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
  */
 
 void SeClearLearningModeObjectInformation()

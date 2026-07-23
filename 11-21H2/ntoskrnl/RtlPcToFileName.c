@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlPcToFileName @ 0x1403D6E30
  * Callers:
- *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405689D0 (KiLogSingleDpcSoftTimeoutEvent.c)
- *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x140631D34 (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
+ *     sub_1405689D0 @ 0x1405689D0 (sub_1405689D0.c)
+ *     sub_140631D34 @ 0x140631D34 (sub_140631D34.c)
  *     KitLogFeatureUsage @ 0x140641A10 (KitLogFeatureUsage.c)
  *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     MmUnlockLoadedModuleListShared @ 0x1402DC05C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x1402DC098 (MmLockLoadedModuleListShared.c)
+ *     sub_1402DC05C @ 0x1402DC05C (sub_1402DC05C.c)
+ *     sub_1402DC098 @ 0x1402DC098 (sub_1402DC098.c)
  */
 
 __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)
 
   v3 = 0;
   v9 = 0;
-  MmLockLoadedModuleListShared(&v9);
+  sub_1402DC098(&v9);
   v5 = (PVOID *)PsLoadedModuleList;
   if ( PsLoadedModuleList )
   {
@@ -39,6 +39,6 @@ __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)
   }
   v3 = -1073741275;
 LABEL_8:
-  MmUnlockLoadedModuleListShared(v9);
+  sub_1402DC05C(v9);
   return v3;
 }

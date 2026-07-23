@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsIsLikelySpecialDevice @ 0x140765048
+ * XREFs of PopDirectedDripsIsLikelySpecialDevice @ 0x140764A18
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140764B50 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1407650C0 (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140764520 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x140764A90 (PopDirectedDripsVisitPs4Device.c)
  * Callees:
  *     <none>
  */

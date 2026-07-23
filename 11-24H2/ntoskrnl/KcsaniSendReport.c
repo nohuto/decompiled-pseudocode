@@ -1,13 +1,13 @@
 /*
- * XREFs of KcsaniSendReport @ 0x1405AE980
+ * XREFs of KcsaniSendReport @ 0x1405AB8F0
  * Callers:
- *     KcsanReportTelemetry @ 0x1405AE360 (KcsanReportTelemetry.c)
+ *     KcsanReportTelemetry @ 0x1405AB2D0 (KcsanReportTelemetry.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     KasaniBuildPc @ 0x1405A9F40 (KasaniBuildPc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     KasaniBuildPc @ 0x1405A6EB0 (KasaniBuildPc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KcsaniSendReport(__int64 a1)
@@ -518,7 +518,7 @@ char __fastcall KcsaniSendReport(__int64 a1)
           *(_DWORD *)&EventDescriptor.Id = 184549376;
           EventDescriptor.Keyword = v10;
           UserData.Size = *(unsigned __int16 *)off_140E07040;
-          v78 = byte_14004715D;
+          v78 = byte_14004755D;
           UserData.Reserved = 2;
           v79 = 849;
           v80 = 1;

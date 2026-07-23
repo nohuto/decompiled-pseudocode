@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwSetInformation @ 0x1408287B0
+ * XREFs of EtwSetInformation @ 0x14082E9F0
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     BapdRegisterEtwProvider @ 0x14050AC94 (BapdRegisterEtwProvider.c)
- *     HvlpEtwRegister @ 0x1405C1174 (HvlpEtwRegister.c)
- *     BapdWriteEtwEvents @ 0x1406C9F80 (BapdWriteEtwEvents.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     BapdRecordFirmwareBootStats @ 0x140C07A44 (BapdRecordFirmwareBootStats.c)
- *     PopDiagInitialize @ 0x140CD1950 (PopDiagInitialize.c)
+ *     BapdRegisterEtwProvider @ 0x140504704 (BapdRegisterEtwProvider.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     HvlpEtwRegister @ 0x1405C39E4 (HvlpEtwRegister.c)
+ *     BapdWriteEtwEvents @ 0x1406CDFBC (BapdWriteEtwEvents.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     BapdRecordFirmwareBootStats @ 0x140C0DC54 (BapdRecordFirmwareBootStats.c)
+ *     PopDiagInitialize @ 0x140CD7AF8 (PopDiagInitialize.c)
  * Callees:
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
- *     EtwpTrackProviderBinaryKm @ 0x1408289A8 (EtwpTrackProviderBinaryKm.c)
- *     EtwpSetProviderTraitsKm @ 0x14093D31C (EtwpSetProviderTraitsKm.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     EtwpTrackProviderBinaryKm @ 0x14082EBE8 (EtwpTrackProviderBinaryKm.c)
+ *     EtwpSetProviderTraitsKm @ 0x140918EBC (EtwpSetProviderTraitsKm.c)
  */
 
 NTSTATUS __stdcall EtwSetInformation(

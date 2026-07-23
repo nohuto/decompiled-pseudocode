@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Arm64VcRedistRedirect__private_IsEnabledDeviceUsageNoInline @ 0x180110090
+ * XREFs of Feature_Arm64VcRedistRedirect__private_IsEnabledDeviceUsageNoInline @ 0x18010FC20
  * Callers:
- *     LdrpAppCompatRedirect @ 0x180085190 (LdrpAppCompatRedirect.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrpMapDllSearchPath @ 0x18011C9D0 (LdrpMapDllSearchPath.c)
+ *     LdrpAppCompatRedirect @ 0x18007C530 (LdrpAppCompatRedirect.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrpMapDllSearchPath @ 0x18011C780 (LdrpMapDllSearchPath.c)
  * Callees:
  *     <none>
  */

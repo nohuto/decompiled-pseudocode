@@ -16,14 +16,14 @@
  *     ExpWnfRegisterPermanentName @ 0x14055A4A8 (ExpWnfRegisterPermanentName.c)
  */
 
-__int64 __fastcall NtCreateWnfStateName(
-        __int64 *a1,
-        unsigned int a2,
-        unsigned int a3,
-        char a4,
-        ULONG64 a5,
-        unsigned int a6,
-        PSECURITY_DESCRIPTOR a7)
+NTSTATUS __cdecl NtCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int128 *v10; // rdx
   struct _KTHREAD *CurrentThread; // rax
@@ -39,59 +39,65 @@ __int64 __fastcall NtCreateWnfStateName(
   struct _KTHREAD *v21; // rcx
   __int16 v22; // ax
   SIZE_T NumberOfBytes; // [rsp+28h] [rbp-C0h]
-  int NameInstance; // [rsp+30h] [rbp-B8h]
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+38h] [rbp-B0h] BYREF
+  NTSTATUS NameInstance; // [rsp+30h] [rbp-B8h]
+  PSECURITY_DESCRIPTOR v26; // [rsp+38h] [rbp-B0h] BYREF
   int v27[2]; // [rsp+40h] [rbp-A8h] BYREF
   __int64 v28; // [rsp+48h] [rbp-A0h] BYREF
-  __int64 *v29; // [rsp+50h] [rbp-98h]
+  PWNF_STATE_NAME v29; // [rsp+50h] [rbp-98h]
   _QWORD v30[2]; // [rsp+58h] [rbp-90h] BYREF
-  __int128 *v31; // [rsp+68h] [rbp-80h]
-  unsigned int v32; // [rsp+80h] [rbp-68h] BYREF
-  __int128 *v33; // [rsp+88h] [rbp-60h]
+  PCWNF_TYPE_ID v31; // [rsp+68h] [rbp-80h]
+  ULONG v32; // [rsp+80h] [rbp-68h] BYREF
+  PCWNF_TYPE_ID v33; // [rsp+88h] [rbp-60h]
   PSECURITY_DESCRIPTOR v34; // [rsp+90h] [rbp-58h]
   __int128 v35; // [rsp+98h] [rbp-50h] BYREF
 
-  v29 = a1;
-  v10 = (__int128 *)a5;
-  v30[1] = a7;
+  v29 = StateName;
+  v10 = (__int128 *)TypeId;
+  v30[1] = SecurityDescriptor;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   *(_QWORD *)v27 = 0LL;
-  SecurityDescriptor = 0LL;
-  v31 = (__int128 *)a5;
+  v26 = 0LL;
+  v31 = TypeId;
   if ( PreviousMode )
   {
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      a1 = (__int64 *)MmUserProbeAddress;
-    *(_BYTE *)a1 = *(_BYTE *)a1;
-    *((_BYTE *)a1 + 7) = *((_BYTE *)a1 + 7);
-    if ( a5 )
+    if ( (unsigned __int64)StateName >= MmUserProbeAddress )
+      StateName = (PWNF_STATE_NAME)MmUserProbeAddress;
+    LOBYTE(StateName->Data[0]) = StateName->Data[0];
+    HIBYTE(StateName->Data[1]) = HIBYTE(StateName->Data[1]);
+    if ( TypeId )
     {
-      if ( a5 >= MmUserProbeAddress )
+      if ( (unsigned __int64)TypeId >= MmUserProbeAddress )
         v10 = (__int128 *)MmUserProbeAddress;
       v35 = *v10;
-      v31 = &v35;
+      v31 = (PCWNF_TYPE_ID)&v35;
     }
-    if ( !a7 )
+    if ( !SecurityDescriptor )
     {
       NameInstance = -1073741819;
       goto LABEL_28;
     }
-    NameInstance = SeCaptureSecurityDescriptor((__int64)a7, PreviousMode, PagedPool, 1, &SecurityDescriptor);
+    NameInstance = SeCaptureSecurityDescriptor((__int64)SecurityDescriptor, PreviousMode, PagedPool, 1, &v26);
     if ( NameInstance < 0 )
       goto LABEL_28;
   }
   else
   {
-    NameInstance = SeCaptureSecurityDescriptor((__int64)a7, 0, PagedPool, 1, &SecurityDescriptor);
+    NameInstance = SeCaptureSecurityDescriptor((__int64)SecurityDescriptor, 0, PagedPool, 1, &v26);
     if ( NameInstance < 0 )
       goto LABEL_28;
   }
-  ExpWnfSpecializeSecurityDescriptor(SecurityDescriptor);
-  if ( a2 > 3 || !a2 || a3 > 3 || a4 && (a3 || a2 != 1) || a6 > 0x1000 )
+  ExpWnfSpecializeSecurityDescriptor(v26);
+  if ( (unsigned int)NameLifetime > WnfTemporaryStateName
+    || NameLifetime == WnfWellKnownStateName
+    || (unsigned int)DataScope > WnfDataScopeProcess
+    || PersistData && (DataScope || NameLifetime != WnfPermanentStateName)
+    || MaximumStateSize > 0x1000 )
+  {
     goto LABEL_47;
-  if ( a2 != 3 )
+  }
+  if ( NameLifetime != WnfTemporaryStateName )
   {
     if ( !SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, PreviousMode) )
     {
@@ -100,23 +106,23 @@ __int64 __fastcall NtCreateWnfStateName(
     }
     goto LABEL_20;
   }
-  if ( a3 == 3 )
+  if ( DataScope == WnfDataScopeProcess )
   {
 LABEL_47:
     NameInstance = -1073741811;
     goto LABEL_28;
   }
 LABEL_20:
-  LOBYTE(v13) = a4;
-  NameInstance = ExpWnfGenerateStateName(&v28, a2, a3, v13);
+  LOBYTE(v13) = PersistData;
+  NameInstance = ExpWnfGenerateStateName(&v28, (unsigned int)NameLifetime, (unsigned int)DataScope, v13);
   if ( NameInstance >= 0 )
   {
     v14 = v28;
-    *v29 = v28 ^ 0x41C64E6DA3BC0074LL;
-    v32 = a6;
+    *v29 = (_WNF_STATE_NAME)(v28 ^ 0x41C64E6DA3BC0074LL);
+    v32 = MaximumStateSize;
     v33 = v31;
-    v34 = SecurityDescriptor;
-    if ( a2 == 3 )
+    v34 = v26;
+    if ( NameLifetime == WnfTemporaryStateName )
     {
       if ( PreviousMode )
       {
@@ -130,7 +136,13 @@ LABEL_20:
         v16 = 1;
       }
       LODWORD(NumberOfBytes) = v16;
-      NameInstance = ExpWnfResolveScopeInstance((signed __int64 *)v27, (__int64)Process, 0LL, a3, 0LL, NumberOfBytes);
+      NameInstance = ExpWnfResolveScopeInstance(
+                       (signed __int64 *)v27,
+                       (__int64)Process,
+                       0LL,
+                       (unsigned int)DataScope,
+                       0LL,
+                       NumberOfBytes);
       if ( NameInstance >= 0 )
       {
         NameInstance = ExpWnfCreateNameInstance(v27[0], v14, (unsigned int)&v32, (_DWORD)Process, (__int64)v30);
@@ -158,8 +170,8 @@ LABEL_28:
     if ( v20 != _InterlockedCompareExchange64((volatile signed __int64 *)v19, v20 - 2, v20) )
       ExfReleaseRundownProtection(v19);
   }
-  if ( SecurityDescriptor && SecurityDescriptor != a7 )
-    SeReleaseSecurityDescriptor(SecurityDescriptor, PreviousMode, 1);
+  if ( v26 && v26 != SecurityDescriptor )
+    SeReleaseSecurityDescriptor(v26, PreviousMode, 1);
   v21 = KeGetCurrentThread();
   v22 = v21->KernelApcDisable + 1;
   v21->KernelApcDisable = v22;
@@ -169,5 +181,5 @@ LABEL_28:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)NameInstance;
+  return NameInstance;
 }

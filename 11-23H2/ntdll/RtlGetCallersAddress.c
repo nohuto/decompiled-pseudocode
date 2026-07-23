@@ -6,27 +6,24 @@
  *     RtlCaptureStackBackTrace @ 0x18007A3C0 (RtlCaptureStackBackTrace.c)
  */
 
-USHORT __fastcall RtlGetCallersAddress(PVOID *a1, _QWORD *a2)
+void __cdecl RtlGetCallersAddress(PVOID *CallersAddress, PVOID *CallersCaller)
 {
-  USHORT result; // ax
-  PVOID BackTrace; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-10h]
+  USHORT v4; // ax
+  PVOID BackTrace[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  result = RtlCaptureStackBackTrace(2u, 2u, &BackTrace, 0LL);
-  if ( result )
+  v4 = RtlCaptureStackBackTrace(2u, 2u, BackTrace, 0LL);
+  if ( v4 )
   {
-    *a1 = BackTrace;
-    if ( result >= 2u )
+    *CallersAddress = BackTrace[0];
+    if ( v4 >= 2u )
     {
-      result = v6;
-      *a2 = v6;
-      return result;
+      *CallersCaller = BackTrace[1];
+      return;
     }
   }
   else
   {
-    *a1 = 0LL;
+    *CallersAddress = 0LL;
   }
-  *a2 = 0LL;
-  return result;
+  *CallersCaller = 0LL;
 }

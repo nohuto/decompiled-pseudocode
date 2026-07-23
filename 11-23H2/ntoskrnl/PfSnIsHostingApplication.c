@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnIsHostingApplication @ 0x1407C2BD8
+ * XREFs of PfSnIsHostingApplication @ 0x1407C2EA8
  * Callers:
- *     PfSnCalculateScenarioNameAndHash @ 0x1407C2520 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407C27F0 (PfSnCalculateScenarioNameAndHash.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     wcsstr @ 0x1403DBBA0 (wcsstr.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     wcsstr @ 0x1403DBD80 (wcsstr.c)
  */
 
 char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)

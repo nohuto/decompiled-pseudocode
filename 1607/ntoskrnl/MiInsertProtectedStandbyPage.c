@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertProtectedStandbyPage @ 0x1400701C0
+ * XREFs of MiInsertProtectedStandbyPage @ 0x14006FD40
  * Callers:
- *     MiPfnShareCountIsZero @ 0x1400666E0 (MiPfnShareCountIsZero.c)
- *     MiInsertAndUnlockStandbyPages @ 0x14006FEF0 (MiInsertAndUnlockStandbyPages.c)
+ *     MiPfnShareCountIsZero @ 0x140066260 (MiPfnShareCountIsZero.c)
+ *     MiInsertAndUnlockStandbyPages @ 0x14006FA70 (MiInsertAndUnlockStandbyPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiUpdateAvailableEvents @ 0x14013C7F8 (MiUpdateAvailableEvents.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiUpdateAvailableEvents @ 0x14013CD68 (MiUpdateAvailableEvents.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2)
@@ -60,9 +60,9 @@ __int64 __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2)
     return MiPfnReferenceCountIsZero(a2, v5);
   v8 = MiSystemPartition;
   v9 = (HIDWORD(v6) >> 8) & 0x3FF;
-  v10 = v9 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v9);
+  v10 = v9 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v9);
   v11 = ((unsigned int)HIDWORD(*(_QWORD *)(a1 + 40)) >> 8) & 0x3FF;
-  v12 = v11 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v11);
+  v12 = v11 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v11);
   if ( v12 != v10 || (v7 & 7u) >= 5 )
     return MiPfnReferenceCountIsZero(a2, v5);
   v33[0] = 0LL;
@@ -85,7 +85,7 @@ __int64 __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2)
   }
   *(_BYTE *)(a2 + 35) |= 8u;
   if ( (*(_QWORD *)(a2 + 40) & 0x200000000000000LL) != 0 )
-    _InterlockedIncrement64(&qword_140327340);
+    _InterlockedIncrement64(&qword_140327380);
   else
     _InterlockedIncrement64((volatile signed __int64 *)v10 + 560);
   v16 = 1;
@@ -131,7 +131,7 @@ LABEL_30:
   *(_QWORD *)(a1 + 40) ^= v22 & (v5 ^ *(_QWORD *)(a1 + 40));
   v24 = ((unsigned int)HIDWORD(*(_QWORD *)(a2 + 40)) >> 8) & 0x3FF;
   if ( v24 != 1023 )
-    v8 = *(int **)(qword_140326FF8 + 8LL * v24);
+    v8 = *(int **)(qword_140327038 + 8LL * v24);
   v25 = *(_BYTE *)(a2 + 35);
   if ( (v25 & 8) != 0 )
     v26 = 5;

@@ -110,7 +110,7 @@ LABEL_16:
           CurrentIrql = KeGetCurrentIrql();
           v34 = CurrentIrql;
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( (_BYTE)CurrentIrql == 2 )
@@ -124,10 +124,10 @@ LABEL_16:
           if ( LargePage )
             MiConvertEntireLargePageToSmall(LargePage, 1, 2, 1, 0LL, 0LL, 0LL);
           v18 = v34;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v19 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v19 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v19 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v21 = CurrentPrcb->SchedulerAssist;

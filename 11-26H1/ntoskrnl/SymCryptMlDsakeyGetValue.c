@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptMlDsakeyGetValue @ 0x14055E29C
+ * XREFs of SymCryptMlDsakeyGetValue @ 0x1405607C0
  * Callers:
- *     SymCryptMlDsaSelftest @ 0x140563120 (SymCryptMlDsaSelftest.c)
+ *     SymCryptMlDsaSelftest @ 0x140565630 (SymCryptMlDsaSelftest.c)
  * Callees:
- *     SymCryptMlDsaPkEncode @ 0x140572FE0 (SymCryptMlDsaPkEncode.c)
- *     SymCryptMlDsaSkEncode @ 0x140573DD0 (SymCryptMlDsaSkEncode.c)
+ *     SymCryptMlDsaPkEncode @ 0x1405721EC (SymCryptMlDsaPkEncode.c)
+ *     SymCryptMlDsaSkEncode @ 0x140573034 (SymCryptMlDsaSkEncode.c)
  */
 
 __int64 __fastcall SymCryptMlDsakeyGetValue(__int64 a1, _OWORD *a2, unsigned __int64 a3, int a4, int a5)

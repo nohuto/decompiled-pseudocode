@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetWnfProcessNotificationEvent @ 0x1800A3850
+ * XREFs of NtSetWnfProcessNotificationEvent @ 0x1800A3870
  * Callers:
- *     RtlpWnfRegisterTpNotification @ 0x180080E64 (RtlpWnfRegisterTpNotification.c)
+ *     RtlpWnfRegisterTpNotification @ 0x180080E74 (RtlpWnfRegisterTpNotification.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetWnfProcessNotificationEvent()
+NTSTATUS __cdecl NtSetWnfProcessNotificationEvent(HANDLE NotificationEvent)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 428LL;
+  result = 428;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

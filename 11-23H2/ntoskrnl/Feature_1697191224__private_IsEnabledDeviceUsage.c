@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_1697191224__private_IsEnabledDeviceUsage @ 0x140412938
+ * XREFs of Feature_1697191224__private_IsEnabledDeviceUsage @ 0x140412C78
  * Callers:
- *     NtSetInformationWorkerFactory @ 0x140302E90 (NtSetInformationWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x140303120 (NtSetInformationWorkerFactory.c)
  * Callees:
- *     Feature_1697191224__private_IsEnabledFallback @ 0x140412970 (Feature_1697191224__private_IsEnabledFallback.c)
+ *     Feature_1697191224__private_IsEnabledFallback @ 0x140412CB0 (Feature_1697191224__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_1697191224__private_IsEnabledDeviceUsage()

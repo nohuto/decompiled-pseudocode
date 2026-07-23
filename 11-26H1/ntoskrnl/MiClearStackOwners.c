@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearStackOwners @ 0x140416A90
+ * XREFs of MiClearStackOwners @ 0x14040B0A0
  * Callers:
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
@@ -38,7 +38,7 @@ __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
   }
   else
   {
-    v5 = (unsigned __int8)byte_140E34B64;
+    v5 = (unsigned __int8)byte_140E34CE4;
   }
   v6 = a1 - 8LL * v5;
   v7 = v6 + 8LL * (v5 + 1);
@@ -71,10 +71,10 @@ __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
       }
       if ( v9 == *v8 )
       {
-        v13 = dword_140E2D684;
-        if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-          || (v14 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v10 < *(_QWORD *)v14)
-          || dword_140E2D680 != dword_140E2D684 && v10 >= *((_QWORD *)v14 + 2) )
+        v13 = dword_140E2D804;
+        if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+          || (v14 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v10 < *(_QWORD *)v14)
+          || dword_140E2D800 != dword_140E2D804 && v10 >= *((_QWORD *)v14 + 2) )
         {
           for ( i = 0; ; i = v17 + 1 )
           {
@@ -83,17 +83,17 @@ __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
               if ( v13 < i )
                 KeBugCheckEx(0x1Au, 0x5180uLL, v10, 0LL, 0LL);
               v17 = (i + v13) >> 1;
-              v14 = (char *)qword_140E2D6E0 + 16 * v17;
+              v14 = (char *)qword_140E2D860 + 16 * v17;
               if ( v10 >= *(_QWORD *)v14 )
                 break;
               if ( !v17 )
                 KeBugCheckEx(0x1Au, 0x5180uLL, v10, (ULONG_PTR)v14, 0LL);
               v13 = v17 - 1;
             }
-            if ( v17 == dword_140E2D684 || v10 < *((_QWORD *)v14 + 2) )
+            if ( v17 == dword_140E2D804 || v10 < *((_QWORD *)v14 + 2) )
               break;
           }
-          dword_140E2D680 = (i + v13) >> 1;
+          dword_140E2D800 = (i + v13) >> 1;
         }
         if ( v4 == -1 )
         {

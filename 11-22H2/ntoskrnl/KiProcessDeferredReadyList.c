@@ -69,7 +69,7 @@ char __fastcall KiProcessDeferredReadyList(__int64 a1, _QWORD *a2, unsigned __in
   _DWORD *v28; // rdx
   struct _KPRCB *v29; // r10
   _DWORD *v30; // r9
-  __int64 (__fastcall *v31)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *); // r10
+  __int64 (__fastcall *v31)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *); // r10
   __int16 v32; // r13
   unsigned int *v33; // r14
   unsigned __int8 v34; // di
@@ -79,7 +79,7 @@ char __fastcall KiProcessDeferredReadyList(__int64 a1, _QWORD *a2, unsigned __in
   __int64 (__fastcall *v38)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v39)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v41[2]; // [rsp+40h] [rbp-338h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
   int v43; // [rsp+4Ch] [rbp-32Ch]
   __int128 v44; // [rsp+50h] [rbp-328h] BYREF
   int v45; // [rsp+60h] [rbp-318h]
@@ -192,10 +192,10 @@ char __fastcall KiProcessDeferredReadyList(__int64 a1, _QWORD *a2, unsigned __in
       LOBYTE(v9) = KiSwapContext(v10, v12, (unsigned __int8)v4);
       if ( !(_BYTE)v9 )
         goto LABEL_42;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
         {
           v24 = KeGetCurrentPrcb();
           v25 = v24->SchedulerAssist;
@@ -211,10 +211,10 @@ char __fastcall KiProcessDeferredReadyList(__int64 a1, _QWORD *a2, unsigned __in
       LODWORD(v9) = *(_DWORD *)(v10 + 116);
       if ( (v9 & 0x40) == 0 )
         goto LABEL_42;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v26 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v26 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v26 - 2) <= 0xDu )
         {
           v27 = KeGetCurrentPrcb();
           v28 = v27->SchedulerAssist;
@@ -229,10 +229,10 @@ char __fastcall KiProcessDeferredReadyList(__int64 a1, _QWORD *a2, unsigned __in
     *(_DWORD *)(v10 + 116) &= ~0x40u;
     LOBYTE(v9) = KiDeliverApc(0LL, 0LL, 0LL);
 LABEL_42:
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v9) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         LOBYTE(v9) = v9 - 2;
         if ( (unsigned __int8)v9 <= 0xDu )
@@ -265,9 +265,8 @@ LABEL_42:
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v58 = 3;
-    v31 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                + 120);
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    v31 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v41[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v41[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
     v43 = 1;

@@ -1,19 +1,19 @@
 /*
- * XREFs of SmProcessListRequest @ 0x1409D6DAC
+ * XREFs of SmProcessListRequest @ 0x1409D6FAC
  * Callers:
- *     SmQueryStoreInformation @ 0x14084104C (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x14084134C (SmQueryStoreInformation.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x14076003C (PsReferencePartitionByHandle.c)
- *     SmProcessListRequestExtended @ 0x1409D6FF8 (SmProcessListRequestExtended.c)
- *     SmKmGetStoreList @ 0x1409D8CA0 (SmKmGetStoreList.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x14076022C (PsReferencePartitionByHandle.c)
+ *     SmProcessListRequestExtended @ 0x1409D71F8 (SmProcessListRequestExtended.c)
+ *     SmKmGetStoreList @ 0x1409D8EA0 (SmKmGetStoreList.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessListRequest(_OWORD *a1, unsigned int a2, unsigned int *a3, char a4)

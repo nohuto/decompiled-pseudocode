@@ -32,7 +32,7 @@ __int64 __fastcall PopSessionInputChange(unsigned int a1, char *a2, _DWORD *a3)
     v4 = "Passive";
   if ( (_DWORD)PopConsoleContext != a1 || (v8 = "Console", a1 == -1) )
     v8 = "Remote";
-  PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u input is %s\n", v8, a1, v4);
+  PopPrintEx(3u, (__int64)"PopAdaptive:>>>>> %s session %u input is %s\n", v8, a1, v4);
   v9 = (_DWORD)PopConsoleContext == a1 && a1 != -1;
   v10 = (const EVENT_DESCRIPTOR *)POP_ETW_ADPM_ACTIVE_INPUT;
   if ( !v3 )

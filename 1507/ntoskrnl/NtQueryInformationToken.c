@@ -140,8 +140,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   unsigned int v105; // r14d
   unsigned int v106; // r15d
   unsigned int v107; // ecx
-  struct _SID_AND_ATTRIBUTES *v108; // r9
-  struct _SID_AND_ATTRIBUTES *v109; // rdi
+  _SID_AND_ATTRIBUTES *v108; // r9
+  _SID_AND_ATTRIBUTES *v109; // rdi
   __int64 v110; // rbx
   __int16 v111; // ax
   struct _KTHREAD *v112; // rax
@@ -231,7 +231,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v196; // [rsp+138h] [rbp-90h] BYREF
   PSID_AND_ATTRIBUTES Dest; // [rsp+140h] [rbp-88h]
   _QWORD *v198; // [rsp+148h] [rbp-80h] BYREF
-  struct _SID_AND_ATTRIBUTES Src; // [rsp+150h] [rbp-78h] BYREF
+  _SID_AND_ATTRIBUTES Src; // [rsp+150h] [rbp-78h] BYREF
   int v200; // [rsp+160h] [rbp-68h] BYREF
   __int64 v201; // [rsp+168h] [rbp-60h]
   __int64 v202; // [rsp+170h] [rbp-58h]
@@ -633,13 +633,13 @@ NTSTATUS __stdcall NtQueryInformationToken(
           *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v94 + 3);
           *((_DWORD *)TokenInformation + 1) = v102;
           *(_DWORD *)TokenInformation = v94[31];
-          v108 = (struct _SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
+          v108 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
           *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
           *((_DWORD *)TokenInformation + 5) = v106;
           *((_DWORD *)TokenInformation + 4) = v94[32];
           if ( v94[32] )
           {
-            v109 = (struct _SID_AND_ATTRIBUTES *)((char *)v108 + ((v102 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
+            v109 = (_SID_AND_ATTRIBUTES *)((char *)v108 + ((v102 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
             *((_QWORD *)TokenInformation + 3) = v109;
           }
           else

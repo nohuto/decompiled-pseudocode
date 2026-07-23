@@ -1,9 +1,9 @@
 /*
- * XREFs of ?KiAbpInitializeThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x140497B4C
+ * XREFs of ?KiAbpInitializeThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x14049169C
  * Callers:
- *     KiAbInitializeThreadState @ 0x140497B24 (KiAbInitializeThreadState.c)
+ *     KiAbInitializeThreadState @ 0x140491674 (KiAbInitializeThreadState.c)
  * Callees:
- *     ?KiAbpInitializeThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@K@Z @ 0x140497BAC (-KiAbpInitializeThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@K@Z.c)
+ *     ?KiAbpInitializeThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@K@Z @ 0x1404916FC (-KiAbpInitializeThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@K@Z.c)
  */
 
 void __fastcall AutoBoost::KiAbpInitializeThreadState(

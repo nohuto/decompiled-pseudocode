@@ -1,18 +1,26 @@
 /*
- * XREFs of ZwAlpcSendWaitReceivePort @ 0x1800A1410
+ * XREFs of ZwAlpcSendWaitReceivePort @ 0x1800A1430
  * Callers:
- *     TppCallbackSendAndDestroyAlpcMessage @ 0x1800846D0 (TppCallbackSendAndDestroyAlpcMessage.c)
- *     RtlSendMsgToSm @ 0x18008E610 (RtlSendMsgToSm.c)
+ *     TppCallbackSendAndDestroyAlpcMessage @ 0x1800846E0 (TppCallbackSendAndDestroyAlpcMessage.c)
+ *     RtlSendMsgToSm @ 0x18008E620 (RtlSendMsgToSm.c)
  *     SendMessageToWERService @ 0x1800DE71C (SendMessageToWERService.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcSendWaitReceivePort()
+NTSTATUS __cdecl ZwAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 138LL;
+  result = 138;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

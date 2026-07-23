@@ -1,21 +1,21 @@
 /*
- * XREFs of PopQueueQuerySetIrp @ 0x1403B2B18
+ * XREFs of PopQueueQuerySetIrp @ 0x1403BC828
  * Callers:
- *     PopRequestPowerIrp @ 0x14026FDC4 (PopRequestPowerIrp.c)
- *     PopFxActivateComponentDependents @ 0x1403B25D0 (PopFxActivateComponentDependents.c)
- *     PopNotifyDevice @ 0x140C0DA04 (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x14026F334 (PopRequestPowerIrp.c)
+ *     PopFxActivateComponentDependents @ 0x1403BC2E0 (PopFxActivateComponentDependents.c)
+ *     PopNotifyDevice @ 0x140C13C14 (PopNotifyDevice.c)
  * Callees:
- *     PopDiagTraceIrpStart @ 0x140218C6C (PopDiagTraceIrpStart.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopEnableIrpWatchdog @ 0x1403AACCC (PopEnableIrpWatchdog.c)
- *     PopDeepSleepSetDisengageReason @ 0x1403B40FC (PopDeepSleepSetDisengageReason.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopEnableIrpWatchdog @ 0x1403B49DC (PopEnableIrpWatchdog.c)
+ *     PopDiagTraceIrpStart @ 0x1403BD9D4 (PopDiagTraceIrpStart.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1403BE008 (PopDeepSleepSetDisengageReason.c)
  */
 
 void __fastcall PopQueueQuerySetIrp(PIRP Irp)
@@ -39,7 +39,7 @@ void __fastcall PopQueueQuerySetIrp(PIRP Irp)
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
   __int64 j; // rcx
-  struct _LIST_ENTRY *v20; // rcx
+  struct _LIST_ENTRY *WaitStatus; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
@@ -56,17 +56,17 @@ void __fastcall PopQueueQuerySetIrp(PIRP Irp)
   v8 = *(struct _DEVICE_OBJECT **)(v4 + 32);
   if ( v7 == 2 && *(_DWORD *)(v4 + 188) == 1 )
   {
-    v9 = KeAcquireSpinLockRaiseToDpc(&qword_140F10570);
-    if ( ++dword_140F0FB44 == 1 )
+    v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.Queue);
+    if ( ++PopPendingSetPowerDeviceIrps == 1 )
     {
       PopDeepSleepSetDisengageReason(2LL);
-      if ( !byte_140F0FB48 )
+      if ( !PopDevicePowerTransitionInProgressWorkerQueued )
       {
-        byte_140F0FB48 = 1;
-        ExQueueWorkItem(&qword_140F10580, DelayedWorkQueue);
+        PopDevicePowerTransitionInProgressWorkerQueued = 1;
+        ExQueueWorkItem((PWORK_QUEUE_ITEM)&PpmIdlePolicyLock.ApcStateFill[8], DelayedWorkQueue);
       }
     }
-    KeReleaseSpinLock(&qword_140F10570, v9);
+    KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.Queue, v9);
     v7 = *(_BYTE *)(v4 + 184);
   }
   v10 = *(_DWORD *)(v4 + 188);
@@ -87,18 +87,18 @@ void __fastcall PopQueueQuerySetIrp(PIRP Irp)
     KeReleaseQueuedSpinLock(0xAuLL, v15);
   }
   v3->Tail.Overlay.DeviceQueueEntry.DeviceListEntry.Flink = 0LL;
-  KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
-  stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
+  PopIrpLockThread = (__int64)KeGetCurrentThread();
   p_ListEntry = (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)&v3->Tail.Overlay.ListEntry;
   if ( v2 )
   {
-    v20 = (struct _LIST_ENTRY *)qword_140F10568;
-    if ( *(__int64 **)qword_140F10568 != &qword_140F10560 )
+    WaitStatus = (struct _LIST_ENTRY *)PpmIdlePolicyLock.WaitStatus;
+    if ( *(struct _KTHREAD **)PpmIdlePolicyLock.WaitStatus != (struct _KTHREAD *)&PpmIdlePolicyLock.ApcStateFill[40] )
       goto LABEL_38;
-    p_ListEntry->ListEntry.Flink = (struct _LIST_ENTRY *)&qword_140F10560;
-    v3->Tail.Overlay.ListEntry.Blink = v20;
-    v20->Flink = &p_ListEntry->ListEntry;
-    qword_140F10568 = (__int64)&v3->Tail.Overlay.ListEntry;
+    p_ListEntry->ListEntry.Flink = (struct _LIST_ENTRY *)&PpmIdlePolicyLock.ApcStateFill[40];
+    v3->Tail.Overlay.ListEntry.Blink = WaitStatus;
+    WaitStatus->Flink = &p_ListEntry->ListEntry;
+    PpmIdlePolicyLock.WaitStatus = (volatile __int64)&v3->Tail.Overlay.ListEntry;
   }
   v13 = *(_QWORD *)(v11 + v6 + 8);
   if ( v13 )
@@ -119,10 +119,10 @@ LABEL_18:
         *(_QWORD *)(v11 + v6 + 8) = 0LL;
         goto LABEL_19;
       }
-      if ( !qword_140F0FB50 )
+      if ( !PopInrushIrp )
       {
         Flink = p_ListEntry->ListEntry.Flink;
-        qword_140F0FB50 = (__int64)v3;
+        PopInrushIrp = (__int64)v3;
         if ( (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)Flink->Blink == p_ListEntry )
         {
           Blink = v3->Tail.Overlay.ListEntry.Blink;
@@ -140,11 +140,11 @@ LABEL_38:
   }
   v3 = 0LL;
 LABEL_19:
-  stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+  PopIrpLockThread = 0LL;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v3 )
   {
-    PopDiagTraceIrpStart(v14, (__int64)v3);
+    PopDiagTraceIrpStart(v14, v3);
     PopEnableIrpWatchdog((__int64)v3);
     IofCallDriver(v8, v3);
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of VfMajorRegisterHandlers @ 0x140B93030
+ * XREFs of VfMajorRegisterHandlers @ 0x140B95030
  * Callers:
- *     ViIovInitialization @ 0x140BA4ED4 (ViIovInitialization.c)
+ *     ViIovInitialization @ 0x140BA6ED4 (ViIovInitialization.c)
  * Callees:
  *     <none>
  */

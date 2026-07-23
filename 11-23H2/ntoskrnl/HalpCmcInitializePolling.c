@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCmcInitializePolling @ 0x1403B4448
+ * XREFs of HalpCmcInitializePolling @ 0x1403B4628
  * Callers:
  *     HalpInitializeCmc @ 0x140A8AD2C (HalpInitializeCmc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpCmcInitializeErrorPacketContents @ 0x140380688 (HalpCmcInitializeErrorPacketContents.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x140380828 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
@@ -42,10 +42,10 @@ __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
     HalpCmcPollingInitialized = 1;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&HalpCmcFallbackLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

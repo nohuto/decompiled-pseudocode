@@ -22,7 +22,7 @@ __int64 __fastcall MiAssignSoftwareWsleRegion(__int64 a1, unsigned __int64 a2)
   __int64 v11; // rsi
   __int16 v12; // ax
   __int64 result; // rax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-49h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-49h] BYREF
   _QWORD v15[6]; // [rsp+30h] [rbp-39h] BYREF
   signed __int32 v16[16]; // [rsp+60h] [rbp-9h] BYREF
 

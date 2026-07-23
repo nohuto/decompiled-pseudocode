@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSyncSystemPdes @ 0x14013CC58
+ * XREFs of MiSyncSystemPdes @ 0x14013CD58
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D2B38 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateSystemPdes @ 0x1402A5250 (MiUpdateSystemPdes.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateSystemPdes @ 0x1402A5440 (MiUpdateSystemPdes.c)
  */
 
 __int64 __fastcall MiSyncSystemPdes(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall MiSyncSystemPdes(__int64 a1)
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   if ( (*(_DWORD *)(a1 + 772) & 0x800000) != 0 )
   {
     _InterlockedAnd((volatile signed __int32 *)(a1 + 772), 0xFF7FFFFF);

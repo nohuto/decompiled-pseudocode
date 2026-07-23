@@ -9,12 +9,12 @@
  *     <none>
  */
 
-char __stdcall RtlUpperChar(char a1)
+CHAR __cdecl RtlUpperChar(CHAR Character)
 {
-  char result; // al
+  CHAR result; // al
 
-  result = a1;
-  if ( a1 >= 97 && a1 <= 122 )
-    return a1 ^ 0x20;
+  result = Character;
+  if ( Character >= 97 && Character <= 122 )
+    return Character ^ 0x20;
   return result;
 }

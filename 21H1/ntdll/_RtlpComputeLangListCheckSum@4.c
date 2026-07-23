@@ -13,11 +13,11 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __thiscall RtlpComputeLangListCheckSum(char *this)
+NTSTATUS __thiscall RtlpComputeLangListCheckSum(char *this)
 {
-  int inited; // ebx
+  NTSTATUS inited; // ebx
   char *v2; // edi
-  int v3; // esi
+  ULONG v3; // esi
   int v4; // eax
   _WORD *v5; // edx
   int v6; // eax
@@ -25,10 +25,10 @@ int __thiscall RtlpComputeLangListCheckSum(char *this)
   _WORD *v8; // ecx
   __int16 v9; // ax
   unsigned __int16 *v10; // edi
-  unsigned __int16 *v11; // ebx
+  wchar_t *v11; // ebx
   unsigned __int16 v12; // ax
-  int v13; // edi
-  unsigned __int8 *v14; // edx
+  int Length; // edi
+  unsigned __int8 *Buffer; // edx
   int v15; // ebx
   int v16; // eax
   int v17; // esi
@@ -38,33 +38,34 @@ int __thiscall RtlpComputeLangListCheckSum(char *this)
   int v22; // edi
   int v23; // edi
   int v24; // edi
-  _BYTE v25[8]; // [esp+Ch] [ebp-104h] BYREF
-  UNICODE_STRING DestinationString; // [esp+14h] [ebp-FCh] BYREF
-  char *v27; // [esp+1Ch] [ebp-F4h]
-  int v28; // [esp+20h] [ebp-F0h]
-  int v29; // [esp+24h] [ebp-ECh]
+  size_t v25; // [esp-4h] [ebp-114h]
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-104h] BYREF
+  _UNICODE_STRING v27; // [esp+14h] [ebp-FCh] BYREF
+  char *v28; // [esp+1Ch] [ebp-F4h]
+  int v29; // [esp+20h] [ebp-F0h]
+  int v30; // [esp+24h] [ebp-ECh]
   int i; // [esp+28h] [ebp-E8h]
-  int v31; // [esp+2Ch] [ebp-E4h]
-  int v32; // [esp+30h] [ebp-E0h]
-  int v33; // [esp+34h] [ebp-DCh] BYREF
-  unsigned __int8 *v34; // [esp+38h] [ebp-D8h]
+  NTSTATUS v32; // [esp+2Ch] [ebp-E4h]
+  int v33; // [esp+30h] [ebp-E0h]
+  _UNICODE_STRING String; // [esp+34h] [ebp-DCh] BYREF
   _WORD v35[14]; // [esp+3Ch] [ebp-D4h] BYREF
   _BYTE v36[180]; // [esp+58h] [ebp-B8h] BYREF
 
   inited = 0;
+  LODWORD(v25) = 170;
   v2 = this;
-  v27 = this;
+  v28 = this;
   v3 = 0;
-  memset(v36, 0, 0xAAu);
-  v33 = 0;
-  v34 = 0;
-  v31 = 0;
+  memset(v36, 0, v25);
+  *(_DWORD *)&String.Length = 0;
+  String.Buffer = 0;
+  v32 = 0;
   if ( !v2 )
     return -1073741811;
-  v32 = *((_DWORD *)v2 + 3);
-  if ( !v32 )
+  v33 = *((_DWORD *)v2 + 3);
+  if ( !v33 )
     return -1073741811;
-  v28 = 0;
+  v29 = 0;
   v4 = 0;
   if ( !*((_WORD *)v2 + 2) )
     goto LABEL_28;
@@ -81,8 +82,8 @@ int __thiscall RtlpComputeLangListCheckSum(char *this)
         break;
       case 2:
         v6 = (__int16)v5[2];
-        v7 = v32;
-        v8 = (_WORD *)(*(_DWORD *)(*(_DWORD *)(v32 + 20) + 12) + 28 * v6);
+        v7 = v33;
+        v8 = (_WORD *)(*(_DWORD *)(*(_DWORD *)(v33 + 20) + 12) + 28 * v6);
         goto LABEL_9;
       case 3:
         v35[3] = v5[2];
@@ -90,47 +91,48 @@ int __thiscall RtlpComputeLangListCheckSum(char *this)
       default:
         return -1073741595;
     }
-    v7 = v32;
+    v7 = v33;
     v8 = v35;
 LABEL_9:
     v9 = v8[3];
     if ( v9 <= 0 )
       break;
     inited = RtlInitUnicodeStringEx(
-               (int)v25,
-               (_WORD *)(*(_DWORD *)(*(_DWORD *)(v7 + 24) + 16)
-                       + 2 * *(__int16 *)(*(_DWORD *)(*(_DWORD *)(v7 + 24) + 12) + 2 * v9)));
-    v31 = inited;
+               &DestinationString,
+               (PCWSTR)(*(_DWORD *)(*(_DWORD *)(v7 + 24) + 16)
+                      + 2 * *(__int16 *)(*(_DWORD *)(*(_DWORD *)(v7 + 24) + 12) + 2 * v9)));
+    v32 = inited;
     if ( inited < 0 )
       return inited;
-    v33 = 11141120;
-    v34 = v36;
-    RtlCopyUnicodeString(&v33, v25);
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)v36;
+    RtlCopyUnicodeString(&String, &DestinationString);
 LABEL_12:
     if ( v3 )
     {
-      RtlUpcaseUnicodeString(&v33, &v33, 0);
-      v13 = (unsigned __int16)v33;
-      v14 = v34;
-      if ( (unsigned __int16)v33 >= 8u )
+      RtlUpcaseUnicodeString(&String, &String, 0);
+      Length = String.Length;
+      Buffer = (unsigned __int8 *)String.Buffer;
+      if ( String.Length >= 8u )
       {
-        v29 = (unsigned __int16)v33 >> 3;
-        v15 = v29;
-        v13 = -8 * v29 + (unsigned __int16)v33;
+        v30 = String.Length >> 3;
+        v15 = v30;
+        Length = -8 * v30 + String.Length;
         do
         {
-          v16 = 442596621 * *v14;
-          v17 = 37 * (v14[6] + 37 * (v14[5] + 37 * (v14[4] + 37 * (v14[3] + 37 * (v14[2] + 37 * v14[1])))))
+          v16 = 442596621 * *Buffer;
+          v17 = 37
+              * (Buffer[6] + 37 * (Buffer[5] + 37 * (Buffer[4] + 37 * (Buffer[3] + 37 * (Buffer[2] + 37 * Buffer[1])))))
               - 803794207 * v3
-              + v14[7];
-          v14 += 8;
+              + Buffer[7];
+          Buffer += 8;
           v3 = v16 + v17;
           --v15;
         }
         while ( v15 );
-        inited = v31;
+        inited = v32;
       }
-      v19 = v13 - 1;
+      v19 = Length - 1;
       if ( !v19 )
         goto LABEL_31;
       v20 = v19 - 1;
@@ -150,55 +152,55 @@ LABEL_12:
         goto LABEL_42;
       if ( v24 == 1 )
       {
-        v3 = *v14++ + 37 * v3;
+        v3 = *Buffer++ + 37 * v3;
 LABEL_42:
-        v3 = *v14++ + 37 * v3;
+        v3 = *Buffer++ + 37 * v3;
 LABEL_43:
-        v3 = *v14++ + 37 * v3;
+        v3 = *Buffer++ + 37 * v3;
 LABEL_44:
-        v3 = *v14++ + 37 * v3;
+        v3 = *Buffer++ + 37 * v3;
 LABEL_45:
-        v3 = *v14++ + 37 * v3;
+        v3 = *Buffer++ + 37 * v3;
 LABEL_30:
-        v3 = *v14++ + 37 * v3;
+        v3 = *Buffer++ + 37 * v3;
 LABEL_31:
-        v3 = *v14 + 37 * v3;
+        v3 = *Buffer + 37 * v3;
       }
     }
     else
     {
       v3 = 314159;
-      v10 = (unsigned __int16 *)v34;
-      if ( v34 < &v34[2 * ((unsigned __int16)v33 >> 1)] )
+      v10 = String.Buffer;
+      if ( String.Buffer < &String.Buffer[String.Length >> 1] )
       {
-        v11 = (unsigned __int16 *)&v34[2 * ((unsigned __int16)v33 >> 1)];
+        v11 = &String.Buffer[String.Length >> 1];
         do
         {
           v12 = NLS_UPCASE(*v10++);
           v3 = HIBYTE(v12) + 37 * ((unsigned __int8)v12 + 37 * v3);
         }
         while ( v10 < v11 );
-        inited = v31;
+        inited = v32;
       }
     }
 LABEL_17:
-    v2 = v27;
+    v2 = v28;
     i += 6;
-    if ( ++v28 >= (unsigned int)*((unsigned __int16 *)v27 + 2) )
+    if ( ++v29 >= (unsigned int)*((unsigned __int16 *)v28 + 2) )
       goto LABEL_27;
   }
-  v33 = 11141120;
-  v34 = v36;
-  if ( (unsigned __int8)RtlLCIDToCultureName((unsigned __int16)v8[2], &v33) )
+  *(_DWORD *)&String.Length = 11141120;
+  String.Buffer = (wchar_t *)v36;
+  if ( RtlLCIDToCultureName((unsigned __int16)v8[2], &String) )
     goto LABEL_12;
-  v2 = v27;
+  v2 = v28;
   inited = -1073741595;
 LABEL_27:
   if ( inited < 0 )
     return inited;
 LABEL_28:
-  DestinationString.Buffer = (wchar_t *)(v2 + 36);
-  DestinationString.Length = 0;
-  DestinationString.MaximumLength = 20;
-  return RtlIntegerToUnicodeString(v3, 16, &DestinationString);
+  v27.Buffer = (wchar_t *)(v2 + 36);
+  v27.Length = 0;
+  v27.MaximumLength = 20;
+  return RtlIntegerToUnicodeString(v3, 0x10u, &v27);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptSetMsiOverride @ 0x14050551C
+ * XREFs of HalpInterruptSetMsiOverride @ 0x140505A6C
  * Callers:
- *     HalpPiix4Detect @ 0x140A8F324 (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x140A8F1A4 (HalpPiix4Detect.c)
  *     HalpMiscGetParameters @ 0x140B6A208 (HalpMiscGetParameters.c)
  * Callees:
  *     <none>

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlGetNeutralFallback @ 0x180004170
+ * XREFs of RtlGetNeutralFallback @ 0x18004F8A0
  * Callers:
- *     RtlpAddNeutralsToMergedList @ 0x180004B30 (RtlpAddNeutralsToMergedList.c)
+ *     RtlpAddNeutralsToMergedList @ 0x180050260 (RtlpAddNeutralsToMergedList.c)
  * Callees:
- *     RtlpIsCustomLocale @ 0x180001008 (RtlpIsCustomLocale.c)
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     RtlpNlsGetNameIndex @ 0x180004930 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlLCIDToCultureName @ 0x180005BA0 (RtlLCIDToCultureName.c)
- *     RtlpGetCustomCultureData @ 0x180113878 (RtlpGetCustomCultureData.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpIsCustomLocale @ 0x18004C740 (RtlpIsCustomLocale.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     RtlpNlsGetNameIndex @ 0x180050060 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlLCIDToCultureName @ 0x1800512D0 (RtlLCIDToCultureName.c)
+ *     RtlpGetCustomCultureData @ 0x180113110 (RtlpGetCustomCultureData.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, UNICODE_STRING *a3, _BYTE *a4)
+__int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, _UNICODE_STRING *a3, _BYTE *a4)
 {
   unsigned int v8; // r12d
   __int64 v9; // r9
@@ -50,11 +50,10 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, UNICODE_STRING
   _WORD *v39; // rax
   __int64 v40; // rcx
   __int64 v41; // rdx
-  __int64 v42; // [rsp+20h] [rbp-38h] BYREF
-  wchar_t *v43; // [rsp+28h] [rbp-30h]
-  int v44; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
-  v44 = 0;
+  Lcid = 0;
   v8 = 0;
   if ( a1 && a3 && a4 )
   {
@@ -62,7 +61,7 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, UNICODE_STRING
     if ( a2 )
     {
       v9 = *(_QWORD *)(a1 + 24);
-      v42 = v9;
+      *(_QWORD *)&String.Length = v9;
       if ( *a2 )
       {
         v10 = *(_QWORD *)(a1 + 32);
@@ -73,7 +72,7 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, UNICODE_STRING
           {
             if ( v11 >= *(unsigned __int16 *)(v10 + 6) )
             {
-              v9 = v42;
+              v9 = *(_QWORD *)&String.Length;
               goto LABEL_28;
             }
             v13 = (const wchar_t *)(*(_QWORD *)(v10 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v10 + 16) + i));
@@ -81,7 +80,7 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, UNICODE_STRING
               break;
             ++v11;
           }
-          v9 = v42;
+          v9 = *(_QWORD *)&String.Length;
           if ( v11 < 0 )
             goto LABEL_28;
         }
@@ -92,16 +91,16 @@ LABEL_28:
         }
         if ( (v11 & 0x8000u) != 0 )
         {
-          v42 = 0LL;
-          v43 = a2;
+          *(_QWORD *)&String.Length = 0LL;
+          String.Buffer = a2;
 LABEL_40:
           v32 = 2 * wcslen(a2);
           if ( v32 >= 0xFFFE )
             LOWORD(v32) = -4;
-          LOWORD(v42) = v32;
-          WORD1(v42) = v32 + 2;
+          String.Length = v32;
+          String.MaximumLength = v32 + 2;
 LABEL_43:
-          if ( (unsigned __int8)RtlCultureNameToLCID(&v42, &v44) && ((v44 - 4096) & 0xFFFFFBFF) == 0 )
+          if ( RtlCultureNameToLCID(&String, &Lcid) && ((Lcid - 4096) & 0xFFFFFBFF) == 0 )
           {
             *a4 = 1;
             return v8;
@@ -207,8 +206,8 @@ LABEL_43:
           {
 LABEL_66:
             v8 = -1073741595;
-            v42 = 0LL;
-            v43 = a2;
+            *(_QWORD *)&String.Length = 0LL;
+            String.Buffer = a2;
             goto LABEL_40;
           }
         }
@@ -228,15 +227,15 @@ LABEL_66:
             goto LABEL_66;
           }
         }
-        if ( !(unsigned __int8)RtlLCIDToCultureName((unsigned int)v19, a3) )
+        if ( !RtlLCIDToCultureName(v19, a3) )
           v8 = -1073741595;
         if ( (v8 & 0x80000000) == 0 )
           return v8;
       }
     }
 LABEL_39:
-    v42 = 0LL;
-    v43 = a2;
+    *(_QWORD *)&String.Length = 0LL;
+    String.Buffer = a2;
     if ( !a2 )
       goto LABEL_43;
     goto LABEL_40;

@@ -19,22 +19,23 @@
  *     KeQueryPerformanceCounter @ 0x14031B970 (KeQueryPerformanceCounter.c)
  */
 
-__int64 RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 i; // rbx
-  __int64 v1; // rbp
-  LARGE_INTEGER v2; // rsi
+  LARGE_INTEGER v1; // rbp
+  unsigned __int64 v2; // rsi
   unsigned __int64 v3; // r14
   char v4; // di
   LARGE_INTEGER PerformanceCounter; // rdx
   LONGLONG v6; // rdx
+  LARGE_INTEGER result; // rax
 
   while ( 1 )
   {
     for ( i = MEMORY[0xFFFFF78000000340]; (MEMORY[0xFFFFF78000000340] & 1) != 0; i = MEMORY[0xFFFFF78000000340] )
       _mm_pause();
-    v1 = MEMORY[0xFFFFF78000000014];
-    v2.QuadPart = MEMORY[0xFFFFF78000000348];
+    v1.QuadPart = MEMORY[0xFFFFF78000000014];
+    v2 = MEMORY[0xFFFFF78000000348];
     v3 = MEMORY[0xFFFFF78000000358];
     v4 = MEMORY[0xFFFFF78000000368];
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
@@ -42,10 +43,16 @@ __int64 RtlGetSystemTimePrecise()
       break;
     _mm_pause();
   }
-  if ( PerformanceCounter.QuadPart <= (unsigned __int64)v2.QuadPart )
+  if ( PerformanceCounter.QuadPart <= v2 )
+  {
     return v1;
-  v6 = PerformanceCounter.QuadPart - v2.QuadPart - 1;
-  if ( v4 )
-    v6 <<= v4;
-  return (((unsigned __int64)v6 * (unsigned __int128)v3) >> 64) + v1;
+  }
+  else
+  {
+    v6 = PerformanceCounter.QuadPart - v2 - 1;
+    if ( v4 )
+      v6 <<= v4;
+    result.QuadPart = (((unsigned __int64)v6 * (unsigned __int128)v3) >> 64) + v1.QuadPart;
+  }
+  return result;
 }

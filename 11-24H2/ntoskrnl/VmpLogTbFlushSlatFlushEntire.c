@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpLogTbFlushSlatFlushEntire @ 0x14064BD54
+ * XREFs of VmpLogTbFlushSlatFlushEntire @ 0x14064A314
  * Callers:
- *     VmpFlushTb @ 0x140292380 (VmpFlushTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
+ *     VmpFlushTb @ 0x1402A1F80 (VmpFlushTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void VmpLogTbFlushSlatFlushEntire()
@@ -37,6 +37,6 @@ void VmpLogTbFlushSlatFlushEntire()
     v9 = 4;
     v6 = v1;
     v12 = 8;
-    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_140051DE1, v0, 0, v3, v4, 4u, &v7);
+    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_14005263F, v0, 0, v3, v4, 4u, &v7);
   }
 }

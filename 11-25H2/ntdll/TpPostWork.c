@@ -10,20 +10,20 @@
  *     <none>
  */
 
-void __fastcall TpPostWork(__int64 a1)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  int v1; // eax
+  volatile int Flags; // eax
 
-  if ( !a1
-    || (v1 = *(_DWORD *)(a1 + 168), (v1 & 0x10000) != 0)
-    || (v1 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWorkpCleanupGroupMemberVFuncs
+  if ( !Work
+    || (Flags = Work->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Work->CleanupGroupMember.VFuncs != TppWorkpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    TppWorkPost(a1);
+    TppWorkPost((_RTL_SRWLOCK *)Work);
   }
 }

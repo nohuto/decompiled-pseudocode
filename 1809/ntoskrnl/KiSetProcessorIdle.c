@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetProcessorIdle @ 0x1400D7344
+ * XREFs of KiSetProcessorIdle @ 0x1400D73C4
  * Callers:
  *     KiSearchForNewThread @ 0x140056AE0 (KiSearchForNewThread.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
- *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
- *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
- *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
- *     KiCompleteKernelInit @ 0x140571B50 (KiCompleteKernelInit.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D312C (KiGroupSchedulingGenerationEnd.c)
+ *     KiSelectNextThread @ 0x1400D71E8 (KiSelectNextThread.c)
+ *     KiSchedulerApc @ 0x1400F1850 (KiSchedulerApc.c)
+ *     KeTransitionProcessorParkState @ 0x14029CF8C (KeTransitionProcessorParkState.c)
+ *     KiCompleteKernelInit @ 0x140572B50 (KiCompleteKernelInit.c)
  * Callees:
  *     <none>
  */

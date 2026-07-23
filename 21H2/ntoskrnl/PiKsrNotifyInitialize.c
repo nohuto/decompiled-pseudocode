@@ -1,11 +1,11 @@
 /*
- * XREFs of PiKsrNotifyInitialize @ 0x140A91350
+ * XREFs of PiKsrNotifyInitialize @ 0x140A92350
  * Callers:
- *     PiKsrInitialize @ 0x140A531E8 (PiKsrInitialize.c)
+ *     PiKsrInitialize @ 0x140A541E8 (PiKsrInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037ECF0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x14061C450 (ExCreateCallback.c)
  */
 
 __int64 PiKsrNotifyInitialize()
@@ -18,7 +18,7 @@ __int64 PiKsrNotifyInitialize()
   PnpKsrNotifyLock.Owner = 0LL;
   PnpKsrNotifyLock.Contention = 0;
   PnpKsrNotifyLock.Event.Header.SignalState = 0;
-  qword_140C43178 = (__int64)&PnpKsrNotifyList;
+  qword_140C43168 = (__int64)&PnpKsrNotifyList;
   PnpKsrNotifyList = &PnpKsrNotifyList;
   PnpKsrNotifyLock.Event.Header.WaitListHead.Blink = &PnpKsrNotifyLock.Event.Header.WaitListHead;
   PnpKsrNotifyLock.Event.Header.WaitListHead.Flink = &PnpKsrNotifyLock.Event.Header.WaitListHead;

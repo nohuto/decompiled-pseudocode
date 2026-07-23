@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x1407D6E90
+ * XREFs of PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x1407D9FC0
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerAggregatorEnterScreenOff @ 0x140A38AE8 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x1409F46A8 (PopPowerAggregatorEnterScreenOff.c)
  */
 
 __int64 PopPowerAggregatorScreenOffActiveToScreenOffStateHandler()

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline @ 0x14060F058
+ * XREFs of Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline @ 0x1406122BC
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14025D7A0 (PpmParkComputeUnparkMask.c)
+ *     PpmParkComputeUnparkMask @ 0x14025E0F0 (PpmParkComputeUnparkMask.c)
  * Callees:
- *     Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback @ 0x14060F094 (Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback.c)
+ *     Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback @ 0x1406122F8 (Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PpmParkMixedTopologyPolicyCandidateReset__private_IsEnabledDeviceUsageNoInline()

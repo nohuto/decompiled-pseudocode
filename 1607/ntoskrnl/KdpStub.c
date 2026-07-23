@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpStub @ 0x1400F67A4
+ * XREFs of KdpStub @ 0x1400F45F4
  * Callers:
- *     KdTrap @ 0x1400AE7E0 (KdTrap.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
+ *     KdTrap @ 0x1400ACD48 (KdTrap.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
  * Callees:
- *     KdEnableDebugger @ 0x1401D1624 (KdEnableDebugger.c)
+ *     KdEnableDebugger @ 0x1401D1450 (KdEnableDebugger.c)
  *     KdpTrap @ 0x1406F312C (KdpTrap.c)
  */
 
-char __fastcall KdpStub(int a1, int a2, __int64 a3, __int64 a4, char a5, char a6)
+char KdpStub(int a1, int a2, __int64 a3, __int64 a4, char a5, char a6, ...)
 {
   int v6; // edi
   int v7; // ebx

@@ -1,9 +1,9 @@
 /*
- * XREFs of OBJECT_HEADER_TO_HANDLE_INFO @ 0x1404444D0
+ * XREFs of OBJECT_HEADER_TO_HANDLE_INFO @ 0x14043CFE0
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpInsertHandleCount @ 0x140A48854 (ObpInsertHandleCount.c)
- *     ObpUnlockHandleDatabaseEntry @ 0x140AB74FC (ObpUnlockHandleDatabaseEntry.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpInsertHandleCount @ 0x140A51B44 (ObpInsertHandleCount.c)
+ *     ObpUnlockHandleDatabaseEntry @ 0x140AB8B3C (ObpUnlockHandleDatabaseEntry.c)
  * Callees:
  *     <none>
  */

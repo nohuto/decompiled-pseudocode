@@ -1,27 +1,27 @@
 /*
- * XREFs of MiCopyOnWriteCheckConditions @ 0x140406AD8
+ * XREFs of MiCopyOnWriteCheckConditions @ 0x1403C927C
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MiSystemFault @ 0x140229570 (MiSystemFault.c)
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiMakeProtoPrivate @ 0x140239334 (MiMakeProtoPrivate.c)
- *     MiLockCode @ 0x14023D6F0 (MiLockCode.c)
- *     MiProbeLeafPteAccess @ 0x140283F40 (MiProbeLeafPteAccess.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
- *     MiCopyToUserVa @ 0x1403E2DBC (MiCopyToUserVa.c)
- *     MiSplitPrivatePage @ 0x1404051C4 (MiSplitPrivatePage.c)
- *     MiLockPagedAddress @ 0x14047910C (MiLockPagedAddress.c)
- *     MiLockAweVadsShared @ 0x1404C2D68 (MiLockAweVadsShared.c)
- *     MiSplitReducedCommitClonePage @ 0x1404F9378 (MiSplitReducedCommitClonePage.c)
- *     MiLockDriverPageRange @ 0x14066AEB0 (MiLockDriverPageRange.c)
- *     MiReplaceImportEntry @ 0x14066C12C (MiReplaceImportEntry.c)
- *     MiPrepareImagePagesForHotPatch @ 0x14067D29C (MiPrepareImagePagesForHotPatch.c)
+ *     MiLockCode @ 0x140205480 (MiLockCode.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiProbeLeafPteAccess @ 0x1402394D0 (MiProbeLeafPteAccess.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MiSystemFault @ 0x1402FC7E0 (MiSystemFault.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
+ *     MiSplitPrivatePage @ 0x1403C7720 (MiSplitPrivatePage.c)
+ *     MiCopyToUserVa @ 0x1403C9340 (MiCopyToUserVa.c)
+ *     MiMakeProtoPrivate @ 0x1403C9630 (MiMakeProtoPrivate.c)
+ *     MiLockPagedAddress @ 0x14047499C (MiLockPagedAddress.c)
+ *     MiLockAweVadsShared @ 0x1404BE2A0 (MiLockAweVadsShared.c)
+ *     MiSplitReducedCommitClonePage @ 0x1404F6C58 (MiSplitReducedCommitClonePage.c)
+ *     MiLockDriverPageRange @ 0x14066C080 (MiLockDriverPageRange.c)
+ *     MiReplaceImportEntry @ 0x14066D2FC (MiReplaceImportEntry.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14067E494 (MiPrepareImagePagesForHotPatch.c)
  * Callees:
- *     MiWaitForFreePage @ 0x1402CF708 (MiWaitForFreePage.c)
- *     MiGetCurrentSlabIdentity @ 0x1403FC210 (MiGetCurrentSlabIdentity.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140405E18 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x140405F18 (LOCK_ADDRESS_SPACE.c)
- *     MiReplenishSlabAllocator @ 0x140413B18 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x14021E544 (MiReplenishSlabAllocator.c)
+ *     MiWaitForFreePage @ 0x140260F64 (MiWaitForFreePage.c)
+ *     MiGetCurrentSlabIdentity @ 0x1402619D0 (MiGetCurrentSlabIdentity.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1403C8374 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403C8474 (LOCK_ADDRESS_SPACE.c)
  */
 
 void __fastcall MiCopyOnWriteCheckConditions(__int64 a1, int a2, __int64 a3)
@@ -57,7 +57,7 @@ void __fastcall MiCopyOnWriteCheckConditions(__int64 a1, int a2, __int64 a3)
   {
     if ( a3 )
     {
-      MiReplenishSlabAllocator(a3, 1LL, 0x20000LL);
+      MiReplenishSlabAllocator(a3, 1uLL, 0x20000);
     }
     else
     {
@@ -65,7 +65,7 @@ void __fastcall MiCopyOnWriteCheckConditions(__int64 a1, int a2, __int64 a3)
       v8 = 3;
       if ( CurrentSlabIdentity == -1 )
         v8 = 1;
-      MiWaitForFreePage(*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(v7 + 174)), v8);
+      MiWaitForFreePage(*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(v7 + 174)), v8);
     }
   }
 }

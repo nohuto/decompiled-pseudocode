@@ -3,7 +3,7 @@
  * Callers:
  *     PfPowerActionNotify @ 0x1403CFF90 (PfPowerActionNotify.c)
  * Callees:
- *     PfLogEvent @ 0x1400F0738 (PfLogEvent.c)
+ *     PfLogEvent @ 0x1400EE5B8 (PfLogEvent.c)
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
  *     PfTAccessTracingStart @ 0x1403C83DC (PfTAccessTracingStart.c)
  *     MmPerformMemoryListCommand @ 0x1403D2CFC (MmPerformMemoryListCommand.c)
@@ -22,7 +22,7 @@ __int64 __fastcall PfpPowerActionStartScenarioTracing(__int64 a1, __int64 a2)
   LODWORD(v5) = 4 * (unsigned __int16)*(_DWORD *)(a1 + 52);
   return PfLogEvent(
            27,
-           dword_14032855C
+           dword_14032859C
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
                          + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10),
            &v4,

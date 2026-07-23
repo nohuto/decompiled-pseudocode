@@ -4,7 +4,7 @@
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
  * Callees:
  *     MiAllocateMdlPagesByLists @ 0x140029924 (MiAllocateMdlPagesByLists.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
  */
 
 unsigned __int64 __fastcall MiFindPagesForMdl(
@@ -51,13 +51,13 @@ unsigned __int64 __fastcall MiFindPagesForMdl(
 
   v9 = a2;
   v10 = a1;
-  v36 = qword_14043E508;
+  v36 = qword_14043F5C8;
   v11 = 0LL;
   if ( (unsigned __int16)KeNumberNodes > 1u )
   {
     if ( (a3 & 2) == 0 )
     {
-      v12 = (char *)qword_14043A050 + 2 * a9 * (unsigned __int16)KeNumberNodes;
+      v12 = (char *)qword_14043B110 + 2 * a9 * (unsigned __int16)KeNumberNodes;
       v11 = &v12[(unsigned __int16)KeNumberNodes];
       goto LABEL_4;
     }

@@ -9,37 +9,48 @@
  *     sub_1801058B8 @ 0x1801058B8 (sub_1801058B8.c)
  */
 
-__int64 __fastcall TpAllocTimer(__int64 *a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl TpAllocTimer(
+        PTP_TIMER *Timer,
+        PTP_TIMER_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
   int v4; // edi
-  __int64 Heap; // rax
-  __int64 v9; // rbx
-  __int64 result; // rax
+  int v5; // ebp
+  PTP_TIMER *v7; // r14
+  _TP_TIMER *Heap; // rax
+  _TP_TIMER *v9; // rbx
+  NTSTATUS result; // eax
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = a4;
-  if ( !a1 || !a2 || a4 && (*(_DWORD *)(a4 + 56) & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v4 = (int)CallbackEnviron;
+  v5 = (int)Context;
+  v7 = Timer;
+  if ( !Timer
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || (Timer = (PTP_TIMER *)NtCurrentPeb()->Ldr, *((_BYTE *)Timer + 72)) )
   {
-    sub_1801058B8();
-    return 3221225485LL;
+    sub_1801058B8(Timer, Callback);
+    return -1073741811;
   }
   else
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (dword_18015C000 + 0x100000) | 8u, 360LL);
+    Heap = (_TP_TIMER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (dword_18015C000 + 0x100000) | 8, 0x168uLL);
     v9 = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      result = sub_18001425C(Heap, 0, a3, v4, (__int64)off_180110230, (__int64)off_1801101C0);
-      if ( (int)result >= 0 )
+      *((_QWORD *)Heap + 22) = retaddr;
+      result = sub_18001425C((_DWORD)Heap, 0, v5, v4, (__int64)off_180110230, (__int64)&off_1801101C0);
+      if ( result >= 0 )
       {
-        *(_QWORD *)(v9 + 80) = a2;
-        *a1 = v9;
+        *((_QWORD *)v9 + 10) = Callback;
+        *v7 = v9;
       }
     }
     else
     {
-      return 3221225495LL;
+      return -1073741801;
     }
   }
   return result;

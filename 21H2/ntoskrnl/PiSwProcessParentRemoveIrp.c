@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwProcessParentRemoveIrp @ 0x140738D80
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x140738F40
  * Callers:
- *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x140738AB4 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x140732CF8 (PiSwDestroyDeviceObject.c)
- *     PiSwCloseDescendants @ 0x140738E64 (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x140738EE4 (PiSwFindSwDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PiSwProcessRemove @ 0x140732D98 (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x140732EB8 (PiSwDestroyDeviceObject.c)
+ *     PiSwCloseDescendants @ 0x140739024 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x1407390A4 (PiSwFindSwDevice.c)
  */
 
 _QWORD *__fastcall PiSwProcessParentRemoveIrp(__int64 a1)
@@ -22,7 +22,10 @@ _QWORD *__fastcall PiSwProcessParentRemoveIrp(__int64 a1)
   const wchar_t *v6; // rcx
   __int64 SwDevice; // rax
   __int64 v8; // rdx
-  struct _DEVICE_OBJECT *v10; // rbp
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  struct _DEVICE_OBJECT *v13; // rbp
 
   v1 = a1;
   if ( a1 )
@@ -38,10 +41,10 @@ _QWORD *__fastcall PiSwProcessParentRemoveIrp(__int64 a1)
     v4 = (__int64 *)*v4;
     if ( v5[2] == v1 )
     {
-      v10 = (struct _DEVICE_OBJECT *)v5[3];
-      if ( (*((_DWORD *)v10->DeviceExtension + 2) & 0x20) == 0 )
-        PiSwProcessRemove((__int64)v10, 0);
-      PiSwDestroyDeviceObject(v10);
+      v13 = (struct _DEVICE_OBJECT *)v5[3];
+      if ( (*((_DWORD *)v13->DeviceExtension + 2) & 0x20) == 0 )
+        PiSwProcessRemove((__int64)v13, 0);
+      PiSwDestroyDeviceObject(v13);
     }
   }
   if ( v2 )
@@ -58,5 +61,5 @@ _QWORD *__fastcall PiSwProcessParentRemoveIrp(__int64 a1)
     }
   }
   ExReleaseResourceLite(&PiSwLockObj);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
 }

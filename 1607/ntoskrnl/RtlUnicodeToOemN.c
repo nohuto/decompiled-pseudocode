@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeToOemN @ 0x1404BC854
+ * XREFs of RtlUnicodeToOemN @ 0x1404A8584
  * Callers:
- *     RtlUnicodeStringToOemString @ 0x1404BBE2C (RtlUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1404BBFD0 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x1404A7B5C (RtlUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1404A7D00 (RtlUnicodeStringToCountedOemString.c)
  * Callees:
  *     <none>
  */

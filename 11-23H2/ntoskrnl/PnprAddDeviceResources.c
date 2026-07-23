@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddDeviceResources @ 0x140965550
+ * XREFs of PnprAddDeviceResources @ 0x140965750
  * Callers:
  *     <none>
  * Callees:
- *     PnprAddMemoryResources @ 0x1409655D4 (PnprAddMemoryResources.c)
- *     PnprAddProcessorResources @ 0x1409657CC (PnprAddProcessorResources.c)
- *     PnprIsMemoryDevice @ 0x140966340 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x1409663F8 (PnprIsProcessorDevice.c)
+ *     PnprAddMemoryResources @ 0x1409657D4 (PnprAddMemoryResources.c)
+ *     PnprAddProcessorResources @ 0x1409659CC (PnprAddProcessorResources.c)
+ *     PnprIsMemoryDevice @ 0x140966540 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x1409665F8 (PnprIsProcessorDevice.c)
  */
 
 __int64 __fastcall PnprAddDeviceResources(__int64 a1, __int64 a2)

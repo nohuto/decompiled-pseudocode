@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1409DB994
+ * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1409B66B0
  * Callers:
- *     ExInitializeUtcTimeZoneBias @ 0x1407B5E1C (ExInitializeUtcTimeZoneBias.c)
- *     EtwpAddLogHeader @ 0x1409DAEEC (EtwpAddLogHeader.c)
- *     RtlQueryTimeZoneInformation @ 0x1409DC580 (RtlQueryTimeZoneInformation.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x1409DCD90 (RtlQueryDynamicTimeZoneInformation.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x1407B626C (ExInitializeUtcTimeZoneBias.c)
+ *     EtwpAddLogHeader @ 0x1409D59FC (EtwpAddLogHeader.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
+ *     RtlQueryTimeZoneInformation @ 0x140A94160 (RtlQueryTimeZoneInformation.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x140AA3BA0 (RtlQueryDynamicTimeZoneInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1409DBBB4 (RtlpGetTimeZoneInfoHandle.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1409B6330 (RtlpGetTimeZoneInfoHandle.c)
  */
 
-__int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
+int __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
 {
   unsigned int v2; // esi
-  __int64 result; // rax
+  int result; // eax
   int RegistryValues; // edi
   ULONG v6; // [rsp+20h] [rbp-E0h]
   int v7; // [rsp+30h] [rbp-D0h] BYREF
@@ -70,8 +70,8 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
   v11[1] = 0;
   v7 = 0;
   v13 = 0LL;
-  result = RtlpGetTimeZoneInfoHandle(0LL, &Handle);
-  if ( (int)result >= 0 )
+  result = RtlpGetTimeZoneInfoHandle(0, &Handle);
+  if ( result >= 0 )
   {
     memset_0(a1, 0, v2);
     memset_0(v14, 0, 0x230uLL);
@@ -126,7 +126,7 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
     if ( RegistryValues >= 0 && v2 >= 0x1B0 )
       a1[428] = v7 != 0;
     ZwClose(Handle);
-    return (unsigned int)RegistryValues;
+    return RegistryValues;
   }
   return result;
 }

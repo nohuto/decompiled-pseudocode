@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSystemRequiredSet @ 0x1401786EC
+ * XREFs of PopSystemRequiredSet @ 0x1401787EC
  * Callers:
- *     NtSetThreadExecutionState @ 0x1405872F0 (NtSetThreadExecutionState.c)
+ *     NtSetThreadExecutionState @ 0x1405882F0 (NtSetThreadExecutionState.c)
  * Callees:
- *     PopResetIdleTime @ 0x140138BA0 (PopResetIdleTime.c)
+ *     PopResetIdleTime @ 0x140138CA0 (PopResetIdleTime.c)
  */
 
 __int64 PopSystemRequiredSet()

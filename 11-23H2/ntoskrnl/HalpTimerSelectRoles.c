@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpTimerSelectRoles @ 0x14037A2AC
+ * XREFs of HalpTimerSelectRoles @ 0x14037A44C
  * Callers:
- *     HalpInitializeTimers @ 0x1403A4134 (HalpInitializeTimers.c)
+ *     HalpInitializeTimers @ 0x1403A4314 (HalpInitializeTimers.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377060 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpTimerFindIdealWatchdog @ 0x140379E5C (HalpTimerFindIdealWatchdog.c)
- *     HalpTimerMeasureFrequencies @ 0x140379ED8 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerInitialize @ 0x14037A580 (HalpTimerInitialize.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x14037A720 (HalpTimerPropagateQpcBiasUpdate.c)
- *     HalpTimerFindIdealClockSource @ 0x14037A8C8 (HalpTimerFindIdealClockSource.c)
- *     HalpTimerFindBestAlwaysOnTimer @ 0x14037AD70 (HalpTimerFindBestAlwaysOnTimer.c)
- *     HalpTimerFindIdealPerformanceCounterSource @ 0x14037AE10 (HalpTimerFindIdealPerformanceCounterSource.c)
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
- *     HalpVpptTimerRegister @ 0x14050A044 (HalpVpptTimerRegister.c)
- *     HalpTimerStopProfileInterrupt @ 0x14050AB5C (HalpTimerStopProfileInterrupt.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377200 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpTimerFindIdealWatchdog @ 0x140379FFC (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerMeasureFrequencies @ 0x14037A078 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerInitialize @ 0x14037A720 (HalpTimerInitialize.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x14037A8C0 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerFindIdealClockSource @ 0x14037AA68 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x14037AF10 (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x14037AFB0 (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
+ *     HalpVpptTimerRegister @ 0x14050A594 (HalpVpptTimerRegister.c)
+ *     HalpTimerStopProfileInterrupt @ 0x14050B0AC (HalpTimerStopProfileInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerSelectRoles(__int64 a1, __int64 a2)

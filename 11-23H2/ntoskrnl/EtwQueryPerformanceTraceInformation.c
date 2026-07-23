@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwQueryPerformanceTraceInformation @ 0x14085FEF4
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x140860134
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
  *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     RtlNumberOfSetBits @ 0x140293570 (RtlNumberOfSetBits.c)
- *     RtlFindSetBits @ 0x1402968F0 (RtlFindSetBits.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlNumberOfSetBits @ 0x140293800 (RtlNumberOfSetBits.c)
+ *     RtlFindSetBits @ 0x140296B80 (RtlFindSetBits.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     EtwpDereferenceLoggerSecurityDescriptor @ 0x1406BDAC4 (EtwpDereferenceLoggerSecurityDescriptor.c)
- *     EtwpCheckLoggerControlAccess @ 0x1406BDB0C (EtwpCheckLoggerControlAccess.c)
- *     EtwpReferenceLoggerSecurityDescriptor @ 0x1406BDB60 (EtwpReferenceLoggerSecurityDescriptor.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1406D5D40 (SeQuerySecurityDescriptorInfo.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
- *     EtwpMapEnableFlags @ 0x1407FC0F0 (EtwpMapEnableFlags.c)
- *     EtwpCheckSystemTraceAccess @ 0x140825770 (EtwpCheckSystemTraceAccess.c)
- *     EtwpGetPmcProfileSource @ 0x1409E5FA0 (EtwpGetPmcProfileSource.c)
- *     EtwpUMGLEnabled @ 0x1409E7804 (EtwpUMGLEnabled.c)
- *     EtwpGetSoftRestartInformation @ 0x1409ED334 (EtwpGetSoftRestartInformation.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x1409F3A84 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x1406BDAF4 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406BDB3C (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x1406BDB90 (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1406D5D70 (SeQuerySecurityDescriptorInfo.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
+ *     EtwpMapEnableFlags @ 0x1407FC3C0 (EtwpMapEnableFlags.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140825A70 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpGetPmcProfileSource @ 0x1409E6230 (EtwpGetPmcProfileSource.c)
+ *     EtwpUMGLEnabled @ 0x1409E7A94 (EtwpUMGLEnabled.c)
+ *     EtwpGetSoftRestartInformation @ 0x1409ED5C4 (EtwpGetSoftRestartInformation.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1409F3D14 (EtwpQueryCoverageSamplerInformation.c)
  */
 
 __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int a2, __int64 a3, unsigned int *a4)
@@ -55,9 +55,9 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   unsigned int v28; // edx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int *v30; // rax
-  RTL_BITMAP *v31; // rsi
+  _RTL_BITMAP *v31; // rsi
   unsigned int v32; // eax
-  ULONG v33; // ebx
+  DWORD v33; // ebx
   ULONG v34; // r14d
   _DWORD *i; // r12
   unsigned int v36; // r14d
@@ -72,11 +72,11 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   __int64 *NextProcess; // rax
   struct _KPROCESS *v47; // rdi
   unsigned int ProcessId; // eax
-  ULONG SecurityInformation; // [rsp+30h] [rbp-58h] BYREF
+  DWORD SecurityInformation; // [rsp+30h] [rbp-58h] BYREF
   __int64 v50; // [rsp+38h] [rbp-50h] BYREF
   int v51; // [rsp+40h] [rbp-48h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor[2]; // [rsp+48h] [rbp-40h] BYREF
-  RTL_BITMAP *v53; // [rsp+58h] [rbp-30h]
+  _RTL_BITMAP *v53; // [rsp+58h] [rbp-30h]
   ULONG Length; // [rsp+98h] [rbp+10h] BYREF
 
   SetBits = 0;
@@ -104,14 +104,14 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
         ObjectsSecurityDescriptor[0] = (PSECURITY_DESCRIPTOR)(a1 + 16);
         if ( a2 >= 0x10 )
         {
-          v53 = *(RTL_BITMAP **)(a1 + 8);
+          v53 = *(_RTL_BITMAP **)(a1 + 8);
           v28 = (unsigned __int16)v53;
           if ( (unsigned __int16)v53 == 0xFFFF )
             v28 = *(unsigned __int8 *)(v13 + 4232);
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
           v30 = EtwpAcquireLoggerContextByLoggerId(v13, v28, 1);
-          v31 = (RTL_BITMAP *)v30;
+          v31 = (_RTL_BITMAP *)v30;
           ObjectsSecurityDescriptor[1] = v30;
           if ( v30 )
           {
@@ -162,7 +162,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
         *v12 = 48;
         if ( a2 == 48 )
         {
-          v53 = *(RTL_BITMAP **)(a1 + 8);
+          v53 = *(_RTL_BITMAP **)(a1 + 8);
           v14 = (unsigned __int16)v53;
           if ( (unsigned __int16)v53 == 0xFFFF )
             v14 = *(unsigned __int8 *)(v13 + 4232);
@@ -218,7 +218,7 @@ LABEL_48:
         *v12 = 24;
         if ( a2 >= 0x18 )
         {
-          v53 = *(RTL_BITMAP **)(a1 + 8);
+          v53 = *(_RTL_BITMAP **)(a1 + 8);
           SecurityInformation = *(_DWORD *)(a1 + 4);
           v22 = (unsigned __int16)v53;
           if ( (unsigned __int16)v53 == 0xFFFF )
@@ -306,7 +306,7 @@ LABEL_48:
         return 3221225476LL;
       if ( !PsIsCurrentThreadInServerSilo() )
       {
-        v53 = *(RTL_BITMAP **)(a1 + 8);
+        v53 = *(_RTL_BITMAP **)(a1 + 8);
         v38 = (unsigned __int16)v53;
         if ( (unsigned __int16)v53 == 0xFFFF )
           v38 = *(unsigned __int8 *)(v13 + 4232);
@@ -314,7 +314,7 @@ LABEL_48:
         --v39->KernelApcDisable;
         v40 = EtwpAcquireLoggerContextByLoggerId(v13, v38, 1);
         v17 = v40;
-        v53 = (RTL_BITMAP *)v40;
+        v53 = (_RTL_BITMAP *)v40;
         if ( v40 )
         {
           if ( (v40[3] & 0x2000000) == 0 )

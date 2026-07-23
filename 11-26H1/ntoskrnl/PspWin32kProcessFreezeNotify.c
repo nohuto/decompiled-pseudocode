@@ -1,11 +1,11 @@
 /*
- * XREFs of PspWin32kProcessFreezeNotify @ 0x140B05828
+ * XREFs of PspWin32kProcessFreezeNotify @ 0x140B076C8
  * Callers:
- *     PspPostFreezeOperationWorker @ 0x140AEF430 (PspPostFreezeOperationWorker.c)
+ *     PspPostFreezeOperationWorker @ 0x140AF23D0 (PspPostFreezeOperationWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     EtwTraceWin32kFreezeChangeNotifyStart @ 0x140827D24 (EtwTraceWin32kFreezeChangeNotifyStart.c)
- *     EtwTraceWin32kFreezeChangeNotifyStop @ 0x140827DD8 (EtwTraceWin32kFreezeChangeNotifyStop.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     EtwTraceWin32kFreezeChangeNotifyStart @ 0x14082DF64 (EtwTraceWin32kFreezeChangeNotifyStart.c)
+ *     EtwTraceWin32kFreezeChangeNotifyStop @ 0x14082E018 (EtwTraceWin32kFreezeChangeNotifyStop.c)
  */
 
 void __fastcall PspWin32kProcessFreezeNotify(unsigned int a1, __int64 a2, __int64 a3, __int16 *a4)
@@ -13,7 +13,7 @@ void __fastcall PspWin32kProcessFreezeNotify(unsigned int a1, __int64 a2, __int6
   char v8; // bl
   __int64 i; // rsi
 
-  if ( (unsigned int)dword_140E08F80 > 5 && (qword_140E08F90 & 4) != 0 && (qword_140E08F98 & 4) == qword_140E08F98 )
+  if ( (unsigned int)dword_140E08F40 > 5 && (qword_140E08F50 & 4) != 0 && (qword_140E08F58 & 4) == qword_140E08F58 )
   {
     v8 = 1;
     EtwTraceWin32kFreezeChangeNotifyStart();

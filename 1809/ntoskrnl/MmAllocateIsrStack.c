@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAllocateIsrStack @ 0x1407299EC
+ * XREFs of MmAllocateIsrStack @ 0x14072ABDC
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
- *     MmSetPageProtection @ 0x140133580 (MmSetPageProtection.c)
- *     MiMarkBootGuardPage @ 0x140729A6C (MiMarkBootGuardPage.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MmAllocateIndependentPages @ 0x140109020 (MmAllocateIndependentPages.c)
+ *     MmSetPageProtection @ 0x140133650 (MmSetPageProtection.c)
+ *     MiMarkBootGuardPage @ 0x14072AC5C (MiMarkBootGuardPage.c)
  */
 
 char __fastcall MmAllocateIsrStack(_QWORD *a1, unsigned __int16 a2)

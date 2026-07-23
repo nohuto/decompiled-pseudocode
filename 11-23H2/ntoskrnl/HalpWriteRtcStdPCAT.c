@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWriteRtcStdPCAT @ 0x1405200B0
+ * XREFs of HalpWriteRtcStdPCAT @ 0x140520600
  * Callers:
- *     HalpCmosRangeHandler @ 0x14051FECC (HalpCmosRangeHandler.c)
+ *     HalpCmosRangeHandler @ 0x14052041C (HalpCmosRangeHandler.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x14033BC0C (HalpAcquireCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x14033BE9C (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 __fastcall HalpWriteRtcStdPCAT(__int64 a1, __int64 a2, __int64 a3)

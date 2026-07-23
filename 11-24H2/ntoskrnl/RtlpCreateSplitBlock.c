@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateSplitBlock @ 0x1405EB760
+ * XREFs of RtlpCreateSplitBlock @ 0x1405E8CD0
  * Callers:
- *     RtlpAllocateHeap @ 0x1405EA9AC (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x1405E7EFC (RtlpAllocateHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     RtlpInsertFreeBlock @ 0x1405ED2D8 (RtlpInsertFreeBlock.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F2C1C (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindEntry @ 0x1405F3434 (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x1405F3548 (RtlpHeapAddListEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1405F3810 (RtlpHeapRemoveListEntry.c)
- *     RtlCompareMemoryUlong @ 0x1406B3A10 (RtlCompareMemoryUlong.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpInsertFreeBlock @ 0x1405EA8C0 (RtlpInsertFreeBlock.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405F025C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x1405F0A74 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x1405F0B88 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1405F0E50 (RtlpHeapRemoveListEntry.c)
+ *     RtlCompareMemoryUlong @ 0x1406B49B0 (RtlCompareMemoryUlong.c)
  */
 
 char __fastcall RtlpCreateSplitBlock(ULONG_PTR a1, __int64 a2, ULONG_PTR a3, char a4, char a5, __int16 a6, __int64 a7)

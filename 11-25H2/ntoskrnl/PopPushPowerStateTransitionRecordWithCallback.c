@@ -18,23 +18,23 @@
  */
 
 __int64 __fastcall PopPushPowerStateTransitionRecordWithCallback(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        int a4,
-        __int64 a5)
+        LARGE_INTEGER a1,
+        LONGLONG a2,
+        LARGE_INTEGER a3,
+        ULONG a4,
+        LARGE_INTEGER a5)
 {
   unsigned int v5; // edi
   __int64 v10; // rsi
-  char *v11; // rbx
-  unsigned __int64 v13[5]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER *v11; // rbx
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = 0;
   if ( (unsigned int)(dword_140F0B014 - 1) > 1 )
   {
     return (unsigned int)-1073741101;
   }
-  else if ( a1 && a2 )
+  else if ( a1.QuadPart && a2 )
   {
     PopAcquireRwLockExclusive(&xmmword_140F0C928);
     v10 = (unsigned int)(dword_140F0C920 + 1);
@@ -45,22 +45,22 @@ __int64 __fastcall PopPushPowerStateTransitionRecordWithCallback(
     else
     {
       ++dword_140F0C920;
-      ObpTraceObjectReferenceIfActive(a1 - 48);
-      ObpIncrPointerCount(a1 - 48);
+      ObpTraceObjectReferenceIfActive(a1.LowPart - 48);
+      ObpIncrPointerCount(a1.QuadPart - 48);
       ObpTraceObjectReferenceIfActive(a2 - 48);
       ObpIncrPointerCount(a2 - 48);
-      v11 = (char *)&PopStateTransitonBlameStack + 48 * v10;
-      *((_QWORD *)v11 + 1) = a1;
-      *(_QWORD *)v11 = a2;
-      *((_QWORD *)v11 + 3) = a3;
-      *((_QWORD *)v11 + 5) = 0LL;
-      *((_DWORD *)v11 + 8) = 0;
-      if ( (unsigned int)(a4 - 1) <= 1 && a5 )
+      v11 = (LARGE_INTEGER *)((char *)&PopStateTransitonBlameStack + 48 * v10);
+      v11[1] = a1;
+      v11->QuadPart = a2;
+      v11[3] = a3;
+      v11[5].QuadPart = 0LL;
+      v11[4].LowPart = 0;
+      if ( a4 - 1 <= 1 && a5.QuadPart )
       {
-        *((_QWORD *)v11 + 5) = a5;
-        *((_DWORD *)v11 + 8) = a4;
+        v11[5] = a5;
+        v11[4].LowPart = a4;
       }
-      *((_QWORD *)v11 + 2) = RtlGetInterruptTimePrecise(v13);
+      v11[2] = RtlGetInterruptTimePrecise(&PerformanceCounter);
     }
     PopReleaseRwLock((signed __int64 *)&xmmword_140F0C928);
   }

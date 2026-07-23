@@ -12,7 +12,7 @@ NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
   LARGE_INTEGER v7[2]; // [rsp+30h] [rbp-78h] BYREF
   CHAR v8[80]; // [rsp+40h] [rbp-68h] BYREF
 

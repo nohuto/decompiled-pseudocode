@@ -6,7 +6,7 @@
  *     _RtlpWalkHeapInternal@12 @ 0x4B35A1E8 (_RtlpWalkHeapInternal@12.c)
  */
 
-int __stdcall RtlWalkHeap(int a1, int a2)
+NTSTATUS __cdecl RtlWalkHeap(PVOID HeapHandle, PRTL_HEAP_WALK_ENTRY Entry)
 {
   return RtlpWalkHeapInternal(1);
 }

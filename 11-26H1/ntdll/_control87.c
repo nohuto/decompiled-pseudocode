@@ -1,10 +1,10 @@
 /*
- * XREFs of _control87 @ 0x18012FFC0
+ * XREFs of _control87 @ 0x18012FD30
  * Callers:
- *     _controlfp @ 0x180130270 (_controlfp.c)
+ *     _controlfp @ 0x18012FFE0 (_controlfp.c)
  * Callees:
- *     _get_fpsr @ 0x1801327A0 (_get_fpsr.c)
- *     _set_fpsr @ 0x1801327B0 (_set_fpsr.c)
+ *     _get_fpsr @ 0x180132510 (_get_fpsr.c)
+ *     _set_fpsr @ 0x180132520 (_set_fpsr.c)
  */
 
 unsigned int __cdecl control87(unsigned int NewValue, unsigned int Mask)

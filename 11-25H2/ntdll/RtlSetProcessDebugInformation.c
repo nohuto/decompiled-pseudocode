@@ -15,105 +15,108 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlSetProcessDebugInformation(void *a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlSetProcessDebugInformation(HANDLE UniqueProcessId, ULONG Flags, PRTL_DEBUG_INFORMATION Buffer)
 {
   int InformationThread; // ebx
   char v5; // si
-  __int64 result; // rax
-  unsigned __int64 v7; // r8
+  NTSTATUS result; // eax
+  SIZE_T OffsetFree; // r8
   HANDLE v8; // rdi
-  NTSTATUS v9; // eax
-  HANDLE v10; // rcx
-  int *v11; // r8
-  __int64 v12; // rax
-  _QWORD *v13; // r8
-  __int64 v14; // [rsp+30h] [rbp-29h]
-  _OWORD v15[2]; // [rsp+60h] [rbp+7h] BYREF
+  int v9; // eax
+  void *v10; // rcx
+  PRTL_PROCESS_VERIFIER_OPTIONS VerifierOptions; // r8
+  PRTL_PROCESS_BACKTRACES BackTraces; // rax
+  ULONG *p_NumberOfBackTraceLookups; // r8
+  int v14; // [rsp+30h] [rbp-29h]
+  _OWORD ThreadInformation[2]; // [rsp+60h] [rbp+7h] BYREF
   __int64 v16; // [rsp+80h] [rbp+27h]
   int v17; // [rsp+88h] [rbp+2Fh]
-  HANDLE v18; // [rsp+C0h] [rbp+67h] BYREF
-  int v19; // [rsp+C8h] [rbp+6Fh] BYREF
-  HANDLE Handle; // [rsp+D0h] [rbp+77h] BYREF
+  HANDLE Handle; // [rsp+C0h] [rbp+67h] BYREF
+  ULONG SizeStruct; // [rsp+C8h] [rbp+6Fh] BYREF
+  HANDLE ThreadHandle; // [rsp+D0h] [rbp+77h] BYREF
   LARGE_INTEGER Timeout; // [rsp+D8h] [rbp+7Fh] BYREF
 
   Timeout.QuadPart = -600000000LL;
   v16 = 0LL;
-  memset(v15, 0, sizeof(v15));
+  memset(ThreadInformation, 0, sizeof(ThreadInformation));
   v17 = 0;
   InformationThread = 0;
-  Handle = 0LL;
-  *(_DWORD *)(a3 + 64) = a2;
-  v5 = a2;
-  if ( NtCurrentTeb()->ClientId.UniqueProcess == a1 )
+  ThreadHandle = 0LL;
+  Buffer->Flags = Flags;
+  v5 = Flags;
+  if ( NtCurrentTeb()->ClientId.UniqueProcess == UniqueProcessId )
   {
-    if ( (a2 & 1) != 0 && (NtCurrentPeb()->NtGlobalFlag & 0x2000100) != 0 )
+    if ( (Flags & 1) != 0 && (NtCurrentPeb()->NtGlobalFlag & 0x2000100) != 0 )
     {
-      v11 = *(int **)(a3 + 144);
-      if ( !v11 )
-        return (unsigned int)-1073741801;
-      v19 = *v11;
-      InformationThread = ((__int64 (__fastcall *)(_QWORD, int *))qword_1801CE630)(0LL, &v19);
+      VerifierOptions = Buffer->VerifierOptions;
+      if ( !VerifierOptions )
+        return -1073741801;
+      SizeStruct = VerifierOptions->SizeStruct;
+      InformationThread = ((__int64 (__fastcall *)(_QWORD, ULONG *))qword_1801CE630)(0LL, &SizeStruct);
       if ( InformationThread )
-        return (unsigned int)InformationThread;
+        return InformationThread;
     }
     if ( (v5 & 2) == 0 )
-      return (unsigned int)InformationThread;
-    v12 = *(_QWORD *)(a3 + 104);
-    if ( v12 )
+      return InformationThread;
+    BackTraces = Buffer->BackTraces;
+    if ( BackTraces )
     {
-      if ( *(_DWORD *)v12 )
+      if ( BackTraces->CommittedMemory )
       {
-        v13 = (_QWORD *)(v12 + 8);
+        p_NumberOfBackTraceLookups = &BackTraces->NumberOfBackTraceLookups;
       }
       else
       {
-        if ( *(_DWORD *)(v12 + 4) < 0x18u )
-          return (unsigned int)-1073741811;
-        v13 = (_QWORD *)(v12 + 8);
-        if ( *(_QWORD *)(v12 + 8) || *(_QWORD *)(v12 + 16) )
-          return (unsigned int)-1073741811;
+        if ( BackTraces->ReservedMemory < 0x18 )
+          return -1073741811;
+        p_NumberOfBackTraceLookups = &BackTraces->NumberOfBackTraceLookups;
+        if ( *(_QWORD *)&BackTraces->NumberOfBackTraceLookups || BackTraces->BackTraces[0].SymbolicBackTrace )
+          return -1073741811;
       }
-      return (unsigned int)RtlControlStackTraceDataBase(*(_DWORD *)v12, *(_DWORD *)(v12 + 4), v13);
+      return RtlControlStackTraceDataBase(
+               BackTraces->CommittedMemory,
+               BackTraces->ReservedMemory,
+               p_NumberOfBackTraceLookups);
     }
-    return (unsigned int)-1073741801;
+    return -1073741801;
   }
-  v18 = 0LL;
-  result = RtlpChangeQueryDebugBufferTarget((_QWORD *)a3, (unsigned __int64)a1, 0, &v18);
-  if ( (int)result < 0 )
+  Handle = 0LL;
+  result = RtlpChangeQueryDebugBufferTarget((__int64)Buffer, UniqueProcessId, 0, &Handle);
+  if ( result < 0 )
     return result;
-  v7 = *(_QWORD *)(a3 + 72);
-  if ( v7 > 0xD0 )
-    memmove((void *)(a3 + *(_QWORD *)(a3 + 88) + 208LL), (const void *)(a3 + 208), v7 - 208);
+  OffsetFree = Buffer->OffsetFree;
+  if ( OffsetFree > 0xD0 )
+    memmove((char *)&Buffer[1] + Buffer->ViewSize, &Buffer[1], OffsetFree - 208);
   InformationThread = RtlpCreateUserThreadEx(
-                        (__int64)v18,
+                        Handle,
                         0LL,
                         7,
                         0,
                         0LL,
                         0LL,
                         v14,
-                        (__int64)RtlpSetProcessDebugInformationRemote,
-                        *(_QWORD *)(a3 + 16),
-                        &Handle,
+                        (PUSER_THREAD_START_ROUTINE)RtlpSetProcessDebugInformationRemote,
+                        Buffer->ViewBaseTarget,
+                        &ThreadHandle,
                         0LL);
   if ( InformationThread >= 0 )
   {
-    v8 = Handle;
-    v9 = ZwResumeThread(Handle, 0LL);
+    v8 = ThreadHandle;
+    v9 = ZwResumeThread(ThreadHandle, 0LL);
     InformationThread = v9;
     v10 = v8;
     if ( v9 < 0 || (v9 = NtWaitForSingleObject(v8, 1u, &Timeout), InformationThread = v9, v10 = v8, v9 < 0) )
     {
-      NtTerminateThread(v10, (unsigned int)v9);
+      NtTerminateThread(v10, v9);
     }
     else
     {
-      InformationThread = ZwQueryInformationThread(v8, 0LL, v15);
+      InformationThread = ZwQueryInformationThread(v8, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
       if ( InformationThread >= 0 )
-        InformationThread = v15[0];
+        InformationThread = ThreadInformation[0];
     }
     NtClose(v8);
   }
-  NtClose(v18);
-  return (unsigned int)InformationThread;
+  NtClose(Handle);
+  return InformationThread;
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of PspExitLastThread @ 0x140A41964
+ * XREFs of PspExitLastThread @ 0x1409FD314
  * Callers:
- *     PsTerminateMinimalProcess @ 0x1407FA5A8 (PsTerminateMinimalProcess.c)
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PsTerminateMinimalProcess @ 0x1407FFFD8 (PsTerminateMinimalProcess.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
- *     KeForceResumeProcess @ 0x140203144 (KeForceResumeProcess.c)
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     KeQuerySystemTimeUnsafe @ 0x1404B2F74 (KeQuerySystemTimeUnsafe.c)
- *     PspCatchCriticalBreak @ 0x1407FA818 (PspCatchCriticalBreak.c)
- *     SeAuditProcessExit @ 0x1408129B0 (SeAuditProcessExit.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
- *     LpcExitProcess @ 0x140A41C24 (LpcExitProcess.c)
- *     ExpWnfDeleteProcessContext @ 0x140A41EC4 (ExpWnfDeleteProcessContext.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140A435C0 (SeAuditingWithTokenForSubcategory.c)
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeForceResumeProcess @ 0x140203224 (KeForceResumeProcess.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     KeQuerySystemTimeUnsafe @ 0x1404AC5F4 (KeQuerySystemTimeUnsafe.c)
+ *     PspCatchCriticalBreak @ 0x140800248 (PspCatchCriticalBreak.c)
+ *     SeAuditProcessExit @ 0x140818810 (SeAuditProcessExit.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
+ *     LpcExitProcess @ 0x1409FD5D4 (LpcExitProcess.c)
+ *     ExpWnfDeleteProcessContext @ 0x1409FD874 (ExpWnfDeleteProcessContext.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1409FE320 (SeAuditingWithTokenForSubcategory.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, int a5)
@@ -35,24 +35,22 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, i
   ULONG_PTR v10; // rdi
   struct _KTHREAD *CurrentThread; // rax
   void *v12; // rcx
-  __int64 v13; // r8
-  struct _KLOCK_ENTRIES *v14; // r9
-  void *v15; // rcx
-  struct _KTHREAD *v16; // r15
+  void *v13; // rcx
+  struct _KTHREAD *v14; // r15
   _QWORD *i; // rdi
   __int64 ProcessServerSilo; // rax
-  __int64 v19; // r8
-  struct _KLOCK_ENTRIES *v20; // r9
-  int v21; // eax
-  __int64 v22; // rax
-  __int64 v23; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v24; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v25; // [rsp+48h] [rbp-30h]
-  int v26; // [rsp+50h] [rbp-28h]
+  __int64 v17; // r8
+  struct _KLOCK_ENTRIES *v18; // r9
+  int v19; // eax
+  __int64 v20; // rax
+  __int64 v21; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v22; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v23; // [rsp+48h] [rbp-30h]
+  int v24; // [rsp+50h] [rbp-28h]
 
   v5 = 0LL;
-  v23 = 0LL;
-  v24 = 0uLL;
+  v21 = 0LL;
+  v22 = 0uLL;
   if ( (_DWORD)a1 )
   {
     switch ( (_DWORD)a1 )
@@ -67,9 +65,9 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, i
       case 2:
         if ( *(_QWORD *)(a3 + 664) )
         {
-          v25 = a3;
-          v26 = 0;
-          PsInvokeWin32Callout(0, &v24, 0, 0LL);
+          v23 = a3;
+          v24 = 0;
+          PsInvokeWin32Callout(0, &v22, 0, 0LL);
         }
         break;
       case 3:
@@ -81,14 +79,14 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, i
         {
           if ( KeQuerySystemTimeUnsafe() )
           {
-            KeQuerySystemTimePrecise(&v23);
-            v22 = v23;
+            KeQuerySystemTimePrecise(&v21);
+            v20 = v21;
           }
           else
           {
-            v22 = MEMORY[0xFFFFF78000000014];
+            v20 = MEMORY[0xFFFFF78000000014];
           }
-          *(_QWORD *)(a3 + 1472) = v22;
+          *(_QWORD *)(a3 + 1472) = v20;
         }
         LOBYTE(a1) = 1;
         PspExitProcess(a1, a3);
@@ -102,12 +100,12 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, i
         if ( v12 )
           ExpWnfDeleteProcessContext(v12);
         KeLeaveCriticalRegion();
-        PspRundownSingleProcess((PRKPROCESS)a3, 1, v13, v14);
+        PspRundownSingleProcess((PRKPROCESS)a3);
         LpcExitProcess(a3);
-        v15 = *(void **)(a3 + 1480);
-        if ( v15 )
+        v13 = *(void **)(a3 + 1480);
+        if ( v13 )
         {
-          ExFreePoolWithTag(v15, 0);
+          ExFreePoolWithTag(v13, 0);
           *(_QWORD *)(a3 + 1480) = 0LL;
         }
         break;
@@ -115,16 +113,16 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, i
   }
   else
   {
-    v16 = KeGetCurrentThread();
+    v14 = KeGetCurrentThread();
     if ( !a2 )
-      PspLockProcessExclusive(a3, (__int64)v16, a3, (struct _KLOCK_ENTRIES *)a4);
+      PspLockProcessExclusive(a3, (__int64)v14, a3, (struct _KLOCK_ENTRIES *)a4);
     KeForceResumeProcess(a3);
     if ( *(_DWORD *)(a3 + 1364) == 259 )
     {
-      v21 = a5;
+      v19 = a5;
       if ( a5 == -1073741749 )
-        v21 = *(_DWORD *)(a3 + 908);
-      *(_DWORD *)(a3 + 1364) = v21;
+        v19 = *(_DWORD *)(a3 + 908);
+      *(_DWORD *)(a3 + 1364) = v19;
     }
     for ( i = *(_QWORD **)(a3 + 880); i != (_QWORD *)(a3 + 880); i = (_QWORD *)*i )
     {
@@ -132,15 +130,15 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, __int64 a3, __int64 a4, i
         && !(unsigned __int8)*((_DWORD *)i - 349)
         && ObReferenceObjectSafeWithTag((__int64)(i - 175), 0x65547350u) )
       {
-        PspUnlockProcessExclusive(a3, (__int64)v16);
+        PspUnlockProcessExclusive(a3, (__int64)v14);
         KeWaitForSingleObject(i - 175, Executive, 0, 0, 0LL);
         if ( v5 )
           ObfDereferenceObjectWithTag(v5, 0x65547350u);
         v5 = i - 175;
-        PspLockProcessExclusive(a3, (__int64)v16, v19, v20);
+        PspLockProcessExclusive(a3, (__int64)v14, v17, v18);
       }
     }
-    PspUnlockProcessExclusive(a3, (__int64)v16);
+    PspUnlockProcessExclusive(a3, (__int64)v14);
     if ( v5 )
       ObfDereferenceObjectWithTag(v5, 0x65547350u);
   }

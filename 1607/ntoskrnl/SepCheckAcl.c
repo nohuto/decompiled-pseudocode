@@ -1,8 +1,8 @@
 /*
- * XREFs of SepCheckAcl @ 0x14047ACF4
+ * XREFs of SepCheckAcl @ 0x140479BC4
  * Callers:
- *     SeCaptureSecurityDescriptor @ 0x140420EC0 (SeCaptureSecurityDescriptor.c)
- *     SeCaptureAcl @ 0x14047ABEC (SeCaptureAcl.c)
+ *     SeCaptureSecurityDescriptor @ 0x14041FD80 (SeCaptureSecurityDescriptor.c)
+ *     SeCaptureAcl @ 0x140479ABC (SeCaptureAcl.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipInitializeAllocs @ 0x1409DE458
+ * XREFs of WmipInitializeAllocs @ 0x1409DF458
  * Callers:
- *     WMIInitialize @ 0x1409AFD00 (WMIInitialize.c)
+ *     WMIInitialize @ 0x1409B0D00 (WMIInitialize.c)
  * Callees:
- *     ExInitializePagedLookasideList @ 0x14067BCB0 (ExInitializePagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x14067CE70 (ExInitializePagedLookasideList.c)
  */
 
 void WmipInitializeAllocs()

@@ -4,19 +4,19 @@
  *     <none>
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiDrainSystemAccessLog @ 0x140286CD4 (MiDrainSystemAccessLog.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1402F4CE8 (MiCheckAndProcessCcAccessLog.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     MiGetNextSession @ 0x14035ED08 (MiGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDrainSystemAccessLog @ 0x140286F64 (MiDrainSystemAccessLog.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1402F4F78 (MiCheckAndProcessCcAccessLog.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     MiGetNextSession @ 0x14035EEA8 (MiGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -63,10 +63,13 @@ void MiEmptyAccessLogs()
     stru_140C67FC8.Parameter = 0LL;
     KxReleaseQueuedSpinLock(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -87,10 +90,10 @@ void MiEmptyAccessLogs()
       stru_140C67FC8.Parameter = (void *)2;
       KxReleaseQueuedSpinLock(&LockHandle);
       v1 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v22 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
         {
           v23 = KeGetCurrentPrcb();
           v24 = v23->SchedulerAssist;
@@ -151,10 +154,10 @@ void MiEmptyAccessLogs()
     stru_140C67FC8.Parameter = 0LL;
     KxReleaseQueuedSpinLock(&LockHandle);
     v15 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
       {
         v27 = KeGetCurrentPrcb();
         v28 = v27->SchedulerAssist;

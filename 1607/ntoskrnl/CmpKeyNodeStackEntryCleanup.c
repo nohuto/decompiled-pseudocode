@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpKeyNodeStackEntryCleanup @ 0x14060BCC4
+ * XREFs of CmpKeyNodeStackEntryCleanup @ 0x14060BD78
  * Callers:
- *     CmpKeyEnumStackAdvanceInternal @ 0x14060A1B8 (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpCleanupKeyNodeStack @ 0x14060B8B0 (CmpCleanupKeyNodeStack.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x14060A26C (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpCleanupKeyNodeStack @ 0x14060B964 (CmpCleanupKeyNodeStack.c)
  * Callees:
  *     <none>
  */

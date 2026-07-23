@@ -1,18 +1,18 @@
 /*
- * XREFs of LocalpGetStringForCondition @ 0x1409D6474
+ * XREFs of LocalpGetStringForCondition @ 0x1409D6674
  * Callers:
  *     LocalGetAceCondition @ 0x14069DEA0 (LocalGetAceCondition.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     EncloseSubCondition @ 0x1409D2ECC (EncloseSubCondition.c)
- *     GetOperatorIndexByToken @ 0x1409D3D40 (GetOperatorIndexByToken.c)
- *     GetPrintableAttributeName @ 0x1409D3D64 (GetPrintableAttributeName.c)
- *     GetPrintableOperandValue @ 0x1409D3F6C (GetPrintableOperandValue.c)
- *     ULongAddStringSize @ 0x1409D6A90 (ULongAddStringSize.c)
+ *     EncloseSubCondition @ 0x1409D30CC (EncloseSubCondition.c)
+ *     GetOperatorIndexByToken @ 0x1409D3F40 (GetOperatorIndexByToken.c)
+ *     GetPrintableAttributeName @ 0x1409D3F64 (GetPrintableAttributeName.c)
+ *     GetPrintableOperandValue @ 0x1409D416C (GetPrintableOperandValue.c)
+ *     ULongAddStringSize @ 0x1409D6C90 (ULongAddStringSize.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

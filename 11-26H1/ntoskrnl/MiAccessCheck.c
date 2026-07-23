@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAccessCheck @ 0x1403A69D0
+ * XREFs of MiAccessCheck @ 0x1403A8730
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
- *     MiResolveProtoPteFault @ 0x1403A5DAC (MiResolveProtoPteFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
+ *     MiResolveProtoPteFault @ 0x1403A7B0C (MiResolveProtoPteFault.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiAllowGuardFault @ 0x1403A6CA0 (MiAllowGuardFault.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiAllowGuardFault @ 0x1403A8A00 (MiAllowGuardFault.c)
  */
 
 __int64 __fastcall MiAccessCheck(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, int a4, __int64 a5, char a6)
@@ -70,8 +70,8 @@ LABEL_6:
   if ( a6 )
   {
     v17 = PteShadow;
-    if ( qword_140E2D740 && (PteShadow & 0x10) == 0 )
-      v17 = PteShadow & qword_140E2D748;
+    if ( qword_140E2D8C0 && (PteShadow & 0x10) == 0 )
+      v17 = PteShadow & qword_140E2D8C8;
     v16 = 48 * ((v17 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
   }
   else

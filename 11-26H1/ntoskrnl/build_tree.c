@@ -1,11 +1,11 @@
 /*
- * XREFs of build_tree @ 0x1406362EC
+ * XREFs of build_tree @ 0x1406392F4
  * Callers:
- *     _tr_flush_block @ 0x140635E48 (_tr_flush_block.c)
+ *     _tr_flush_block @ 0x140638E50 (_tr_flush_block.c)
  * Callees:
- *     gen_bitlen @ 0x1406369B8 (gen_bitlen.c)
- *     gen_codes @ 0x140636BCC (gen_codes.c)
- *     pqdownheap @ 0x140636CE4 (pqdownheap.c)
+ *     gen_bitlen @ 0x1406399C0 (gen_bitlen.c)
+ *     gen_codes @ 0x140639BD4 (gen_codes.c)
+ *     pqdownheap @ 0x140639CEC (pqdownheap.c)
  */
 
 __int64 __fastcall build_tree(int *a1, __int64 *a2)

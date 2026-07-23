@@ -1,7 +1,7 @@
 /*
- * XREFs of SdbpBinarySearchUnique @ 0x1407CB6E4
+ * XREFs of SdbpBinarySearchUnique @ 0x1407CB9B4
  * Callers:
- *     SdbpGetFirstIndexedRecord @ 0x1407CB558 (SdbpGetFirstIndexedRecord.c)
+ *     SdbpGetFirstIndexedRecord @ 0x1407CB828 (SdbpGetFirstIndexedRecord.c)
  * Callees:
  *     <none>
  */

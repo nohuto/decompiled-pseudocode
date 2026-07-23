@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpDispatchNewMessage @ 0x140890E80
+ * XREFs of AlpcpDispatchNewMessage @ 0x14089A470
  * Callers:
- *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
+ *     AlpcpSendMessage @ 0x140898440 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14089BE90 (AlpcpDispatchMessage.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x14046EFC0 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1405E5308 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x140892E2C (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1404696D0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405E2830 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14089C45C (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
@@ -25,11 +25,11 @@ __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
   ULONG_PTR v4; // rdi
   __int64 *v5; // r12
   int v6; // ebx
-  _QWORD *v7; // rsi
+  char *v7; // rsi
   __int64 v8; // rbx
   __int64 v9; // rsi
-  _QWORD *v10; // r15
-  _QWORD *v11; // r15
+  char *v10; // r15
+  char *v11; // r15
   __int16 v12; // cx
   __int16 v13; // cx
   __int64 v15; // rcx
@@ -47,11 +47,11 @@ __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
   v17 = v2;
   CurrentThread = KeGetCurrentThread();
   v6 = (*(_DWORD *)(v1 + 416) >> 1) & 3;
-  v7 = KeAbPreAcquire((__int64)(v5 - 2), 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)(v5 - 2), 0LL);
   if ( _InterlockedCompareExchange64(v5 - 2, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v5 - 2, 0, v7, (__int64)(v5 - 2));
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( v6 == 2 )
   {
     v8 = *v5;
@@ -73,18 +73,18 @@ __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
     v9 = 0LL;
   if ( v8 && v9 )
   {
-    v10 = KeAbPreAcquire(v8 + 352, 0LL);
+    v10 = (char *)KeAbPreAcquire(v8 + 352, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 352), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(v8 + 352), 0, v10, v8 + 352);
     if ( v10 )
-      *((_BYTE *)v10 + 10) = 1;
+      v10[10] = 1;
     if ( v9 != v8 )
     {
-      v11 = KeAbPreAcquire(v9 + 352, 0LL);
+      v11 = (char *)KeAbPreAcquire(v9 + 352, 0LL);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v9 + 352), 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(v9 + 352), 0, v11, v9 + 352);
       if ( v11 )
-        *((_BYTE *)v11 + 10) = 1;
+        v11[10] = 1;
     }
     if ( (*(_DWORD *)(v8 + 416) & 0x20) != 0
       || (*(_DWORD *)(v9 + 416) & 0x20) != 0

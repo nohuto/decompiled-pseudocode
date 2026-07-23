@@ -1,26 +1,24 @@
 /*
- * XREFs of MiIsUserQueryVmCallerTrusted @ 0x140987584
+ * XREFs of MiIsUserQueryVmCallerTrusted @ 0x14096FD94
  * Callers:
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     Feature_Servicing_SePrivilegeCheck__private_IsEnabledDeviceUsageNoInline @ 0x140680CE8 (Feature_Servicing_SePrivilegeCheck__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SeCaptureSubjectContextEx @ 0x14083FC40 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     PsReferenceEffectiveToken @ 0x14085D1B0 (PsReferenceEffectiveToken.c)
- *     SeTokenIsAdmin @ 0x1408E91E0 (SeTokenIsAdmin.c)
- *     SePrivilegeCheck @ 0x1409B0320 (SePrivilegeCheck.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SeCaptureSubjectContextEx @ 0x14083BF00 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     PsReferenceEffectiveToken @ 0x140858F20 (PsReferenceEffectiveToken.c)
+ *     SeTokenIsAdmin @ 0x14085AA10 (SeTokenIsAdmin.c)
+ *     SePrivilegeCheck @ 0x14099A020 (SePrivilegeCheck.c)
  */
 
 _BOOL8 __fastcall MiIsUserQueryVmCallerTrusted(PETHREAD Thread)
 {
   void *v2; // rdi
+  BOOL v3; // esi
   struct _KPROCESS *Process; // rdx
-  BOOLEAN v4; // bl
-  BOOL v5; // esi
+  BOOLEAN v5; // bl
   bool v7; // [rsp+30h] [rbp-50h] BYREF
   int v8; // [rsp+34h] [rbp-4Ch] BYREF
   int v9; // [rsp+38h] [rbp-48h] BYREF
@@ -28,31 +26,24 @@ _BOOL8 __fastcall MiIsUserQueryVmCallerTrusted(PETHREAD Thread)
   struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+60h] [rbp-20h] BYREF
 
   v8 = 0;
-  v7 = 0;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   v2 = (void *)PsReferenceEffectiveToken((__int64)Thread, 0x74726853u, &v8, &v7, &v9, 0LL);
-  if ( (unsigned int)Feature_Servicing_SePrivilegeCheck__private_IsEnabledDeviceUsageNoInline() )
+  if ( SeTokenIsAdmin(v2) )
   {
-    if ( !SeTokenIsAdmin(v2) )
-    {
-      Process = Thread->ApcState.Process;
-      RequiredPrivileges.Privilege[0].Attributes = 0;
-      RequiredPrivileges.Privilege[0].Luid = SeProfileSingleProcessPrivilege;
-      RequiredPrivileges.PrivilegeCount = 1;
-      RequiredPrivileges.Control = 1;
-      SeCaptureSubjectContextEx(Thread, Process, &SubjectContext);
-      v4 = SePrivilegeCheck(&RequiredPrivileges, &SubjectContext, 1);
-      SeReleaseSubjectContext(&SubjectContext);
-      v5 = v4 != 0;
-      goto LABEL_7;
-    }
-    goto LABEL_6;
+    v3 = 1;
   }
-  v5 = 0;
-  if ( SeTokenIsAdmin(v2) || SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, 1) )
-LABEL_6:
-    v5 = 1;
-LABEL_7:
+  else
+  {
+    Process = Thread->ApcState.Process;
+    RequiredPrivileges.Privilege[0].Attributes = 0;
+    RequiredPrivileges.Privilege[0].Luid = SeProfileSingleProcessPrivilege;
+    RequiredPrivileges.PrivilegeCount = 1;
+    RequiredPrivileges.Control = 1;
+    SeCaptureSubjectContextEx(Thread, Process, &SubjectContext);
+    v5 = SePrivilegeCheck(&RequiredPrivileges, &SubjectContext, 1);
+    SeReleaseSubjectContext(&SubjectContext);
+    v3 = v5 != 0;
+  }
   if ( v8 == 1 )
   {
     ObFastDereferenceObject((__int64 *)&Thread->Process[1].ActiveProcessors, (ULONG_PTR)v2, 0x74726853u);
@@ -61,5 +52,5 @@ LABEL_7:
   {
     ObfDereferenceObjectWithTag(v2, 0x74726853u);
   }
-  return v5;
+  return v3;
 }

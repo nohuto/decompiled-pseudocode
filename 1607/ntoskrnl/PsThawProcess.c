@@ -1,24 +1,24 @@
 /*
- * XREFs of PsThawProcess @ 0x14051DFE8
+ * XREFs of PsThawProcess @ 0x140501050
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
- *     DbgkpSendApiMessage @ 0x14061A30C (DbgkpSendApiMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x14061A408 (DbgkpSendApiMessageLpc.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
- *     DbgkpResumeProcess @ 0x14061ACA0 (DbgkpResumeProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
+ *     DbgkpSendApiMessage @ 0x14061A3C0 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x14061A4BC (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
+ *     DbgkpResumeProcess @ 0x14061AD54 (DbgkpResumeProcess.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     KeThawProcess @ 0x1400C7448 (KeThawProcess.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     PsSetProcessTelemetryAppState @ 0x1404A33DC (PsSetProcessTelemetryAppState.c)
- *     EtwTraceFreezeThawProcess @ 0x1406A16CC (EtwTraceFreezeThawProcess.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1406A5FA4 (EtwTiLogSuspendResumeProcess.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeThawProcess @ 0x1400C52E8 (KeThawProcess.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     PsSetProcessTelemetryAppState @ 0x14051B7DC (PsSetProcessTelemetryAppState.c)
+ *     EtwTraceFreezeThawProcess @ 0x1406A1804 (EtwTraceFreezeThawProcess.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1406A60DC (EtwTiLogSuspendResumeProcess.c)
  */
 
-void __fastcall PsThawProcess(__int64 BugCheckParameter1, char a2)
+void __fastcall PsThawProcess(ULONG_PTR BugCheckParameter1, char a2)
 {
   int v4; // esi
   struct _KTHREAD *CurrentThread; // r12
@@ -57,7 +57,7 @@ void __fastcall PsThawProcess(__int64 BugCheckParameter1, char a2)
     EtwTiLogSuspendResumeProcess(0LL, CurrentThread, BugCheckParameter1, 3LL);
   if ( a2 )
   {
-    PsSetProcessTelemetryAppState((struct _EX_RUNDOWN_REF *)BugCheckParameter1, 2);
+    PsSetProcessTelemetryAppState(BugCheckParameter1);
     if ( (BYTE8(PerfGlobalGroupMask) & 2) != 0 )
     {
       if ( v4 )

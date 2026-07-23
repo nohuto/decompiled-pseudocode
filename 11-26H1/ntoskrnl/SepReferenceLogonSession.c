@@ -1,16 +1,16 @@
 /*
- * XREFs of SepReferenceLogonSession @ 0x140AB6FB0
+ * XREFs of SepReferenceLogonSession @ 0x140AB85F0
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     SepDuplicateLogonSessionReference @ 0x1404704C0 (SepDuplicateLogonSessionReference.c)
- *     SepLinkLogonSessions @ 0x1404E0EFC (SepLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessions @ 0x14063AEE8 (SepOneWayLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessionsEx @ 0x14063B1C0 (SepOneWayLinkLogonSessionsEx.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     SepDuplicateLogonSessionReference @ 0x140469C40 (SepDuplicateLogonSessionReference.c)
+ *     SepLinkLogonSessions @ 0x1404DA5DC (SepLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessions @ 0x14063DFB0 (SepOneWayLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessionsEx @ 0x14063E288 (SepOneWayLinkLogonSessionsEx.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     SepReferenceLogonSessionSilo @ 0x140AB6FE8 (SepReferenceLogonSessionSilo.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     SepReferenceLogonSessionSilo @ 0x140AB8628 (SepReferenceLogonSessionSilo.c)
  */
 
 __int64 __fastcall SepReferenceLogonSession(__int64 a1, __int64 a2)

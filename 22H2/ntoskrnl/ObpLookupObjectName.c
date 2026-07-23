@@ -390,7 +390,7 @@ int __fastcall ObpLookupObjectName(
       v36 = (v14 & 0x800) != 0;
       if ( (unsigned __int16)v30 < 8u || *(_QWORD *)v35 != ObpDosDevicesShortNamePrefix )
       {
-        if ( (_WORD)v30 == 6 && *(_DWORD *)v35 == ObpDosDevicesShortNameRoot && *(_WORD *)(v35 + 4) == 63 )
+        if ( (_WORD)v30 == 6 && *(_DWORD *)v35 == *(_DWORD *)L"\\??" && *(_WORD *)(v35 + 4) == 63 )
         {
           v55 = (PVOID *)ObpReferenceDeviceMap(v36);
           P = v55;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcaReadErrorCorrected @ 0x1404BD370
+ * XREFs of HalpMcaReadErrorCorrected @ 0x1404BD5B0
  * Callers:
- *     HalpMcaReadError @ 0x1404BA810 (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x1404BAA50 (HalpMcaReadError.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
- *     HalpMcaReadErrorCorrectedAMD @ 0x1404BD3E8 (HalpMcaReadErrorCorrectedAMD.c)
+ *     HalpGetCpuVendor @ 0x1403A108C (HalpGetCpuVendor.c)
+ *     HalpMcaReadErrorCorrectedAMD @ 0x1404BD628 (HalpMcaReadErrorCorrectedAMD.c)
  */
 
 __int64 __fastcall HalpMcaReadErrorCorrected(__int64 a1, _BYTE *a2)

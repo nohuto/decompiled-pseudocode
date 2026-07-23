@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaFindAdapterByDeviceId @ 0x1404FF914
+ * XREFs of HalpDmaFindAdapterByDeviceId @ 0x1404FFE64
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x140828A90 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140828D90 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     IidAreIdsStrictlyEqual @ 0x140673D3C (IidAreIdsStrictlyEqual.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IidAreIdsStrictlyEqual @ 0x14067428C (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpDmaFindAdapterByDeviceId(__int64 a1)
@@ -43,10 +43,13 @@ __int64 __fastcall HalpDmaFindAdapterByDeviceId(__int64 a1)
     v5 = (__int64 *)v5[1];
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaAdapterListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,7 +57,7 @@ __int64 __fastcall HalpDmaFindAdapterByDeviceId(__int64 a1)
       v13 = (v12 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v6);

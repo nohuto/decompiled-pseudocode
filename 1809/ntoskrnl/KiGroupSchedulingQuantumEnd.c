@@ -1,25 +1,25 @@
 /*
- * XREFs of KiGroupSchedulingQuantumEnd @ 0x1400D0F44
+ * XREFs of KiGroupSchedulingQuantumEnd @ 0x1400D0FC4
  * Callers:
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
  * Callees:
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1400D2F54 (KiCheckForMaxOverQuotaScb.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
- *     KiComputeGroupSchedulingRank @ 0x1400D36A0 (KiComputeGroupSchedulingRank.c)
- *     KiShouldPreemptionBeDeferred @ 0x1400D37D0 (KiShouldPreemptionBeDeferred.c)
- *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
- *     KiInsertDeferredPreemptionApc @ 0x1400F27E8 (KiInsertDeferredPreemptionApc.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140116A00 (KiRecomputeGroupSchedulingRank.c)
- *     KiChooseLowestRankedThread @ 0x140116AAC (KiChooseLowestRankedThread.c)
- *     KiRemoveSchedulingGroupQueue @ 0x140116EE8 (KiRemoveSchedulingGroupQueue.c)
- *     KiAddThreadToScbQueue @ 0x140116F94 (KiAddThreadToScbQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x14011756C (KiAddThreadToPrcbQueue.c)
- *     KiCheckMaxOverQuotaTransition @ 0x14012AE3C (KiCheckMaxOverQuotaTransition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D15A0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1400D2FD4 (KiCheckForMaxOverQuotaScb.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D312C (KiGroupSchedulingGenerationEnd.c)
+ *     KiComputeGroupSchedulingRank @ 0x1400D3720 (KiComputeGroupSchedulingRank.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1400D3850 (KiShouldPreemptionBeDeferred.c)
+ *     KiSelectNextThread @ 0x1400D71E8 (KiSelectNextThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1400F2868 (KiInsertDeferredPreemptionApc.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x140116A70 (KiRecomputeGroupSchedulingRank.c)
+ *     KiChooseLowestRankedThread @ 0x140116B1C (KiChooseLowestRankedThread.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x140116F58 (KiRemoveSchedulingGroupQueue.c)
+ *     KiAddThreadToScbQueue @ 0x140117004 (KiAddThreadToScbQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x1401175DC (KiAddThreadToPrcbQueue.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x14012AF0C (KiCheckMaxOverQuotaTransition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
  */
 
 char __fastcall KiGroupSchedulingQuantumEnd(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

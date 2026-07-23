@@ -10,7 +10,7 @@
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   char *ArbitraryUserPointer; // rcx
   volatile __int64 *v4; // r8
   struct _KPRCB *v5; // rcx

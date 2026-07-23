@@ -1,13 +1,13 @@
 /*
- * XREFs of LZ4HC_compress_generic @ 0x1800FBC4C
+ * XREFs of LZ4HC_compress_generic @ 0x1800F6B7C
  * Callers:
- *     LZ4_compress_HC_extStateHC_fastReset @ 0x180154B44 (LZ4_compress_HC_extStateHC_fastReset.c)
+ *     LZ4_compress_HC_extStateHC_fastReset @ 0x180152F04 (LZ4_compress_HC_extStateHC_fastReset.c)
  * Callees:
- *     LZ4HC_countPattern @ 0x1800F83EC (LZ4HC_countPattern.c)
- *     LZ4HC_reverseCountPattern @ 0x1800F8448 (LZ4HC_reverseCountPattern.c)
- *     LZ4HC_compress_generic_dictCtx @ 0x1800FE5EC (LZ4HC_compress_generic_dictCtx.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     LZ4HC_countPattern @ 0x1800F2F5C (LZ4HC_countPattern.c)
+ *     LZ4HC_reverseCountPattern @ 0x1800F2FB8 (LZ4HC_reverseCountPattern.c)
+ *     LZ4HC_compress_generic_dictCtx @ 0x1800F951C (LZ4HC_compress_generic_dictCtx.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LZ4HC_compress_generic(__int64 a1, unsigned int *a2, _BYTE *a3, int *a4, int a5, __int64 a6, int a7)

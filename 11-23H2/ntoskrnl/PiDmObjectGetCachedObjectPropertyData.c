@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x1406D6394
+ * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x1406D63C4
  * Callers:
- *     PiDmObjectGetCachedObjectProperty @ 0x1406D69DC (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406D6A0C (PiDmObjectGetCachedObjectProperty.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     PiDmCacheDataDecode @ 0x1406CC0C4 (PiDmCacheDataDecode.c)
- *     PiDmGetCachedKeyIndex @ 0x1406D61F0 (PiDmGetCachedKeyIndex.c)
- *     PiDmGetCacheKeys @ 0x1406D6344 (PiDmGetCacheKeys.c)
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D8120 (PiDmGetObject.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     PiDmCacheDataDecode @ 0x1406CC0F4 (PiDmCacheDataDecode.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D6220 (PiDmGetCachedKeyIndex.c)
+ *     PiDmGetCacheKeys @ 0x1406D6374 (PiDmGetCacheKeys.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D8150 (PiDmGetObject.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpAssignPasid @ 0x1407C0B08
+ * XREFs of ExpAssignPasid @ 0x1407C0F58
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x14065902C (ExpShareAddressSpaceWithDevice.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406576CC (ExpShareAddressSpaceWithDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExpFreeAsid @ 0x140658CEC (ExpFreeAsid.c)
- *     PsUpdateSvmProcessPasidAllThreads @ 0x1407741A4 (PsUpdateSvmProcessPasidAllThreads.c)
- *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x1408A68E4 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExpFreeAsid @ 0x14065738C (ExpFreeAsid.c)
+ *     PsUpdateSvmProcessPasidAllThreads @ 0x1407743C4 (PsUpdateSvmProcessPasidAllThreads.c)
+ *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x1408FCEF4 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
  */
 
 __int64 __fastcall ExpAssignPasid(volatile signed __int32 *Object, signed __int32 a2)

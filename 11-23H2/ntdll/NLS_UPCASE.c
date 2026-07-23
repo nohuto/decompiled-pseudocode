@@ -17,8 +17,8 @@
  *     RtlUpcaseUnicodeToCustomCPN @ 0x1800F1480 (RtlUpcaseUnicodeToCustomCPN.c)
  *     UpcaseUnicodeToMultiByteNHelper @ 0x1800F160C (UpcaseUnicodeToMultiByteNHelper.c)
  *     UpcaseUnicodeToUTF8NHelper @ 0x1800F1728 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x18010952C (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlIsValidOemCharacter @ 0x18010A984 (RtlIsValidOemCharacter.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x180109500 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlIsValidOemCharacter @ 0x18010A954 (RtlIsValidOemCharacter.c)
  * Callees:
  *     <none>
  */

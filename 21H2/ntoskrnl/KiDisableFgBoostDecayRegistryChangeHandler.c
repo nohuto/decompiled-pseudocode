@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDisableFgBoostDecayRegistryChangeHandler @ 0x1405123E0
+ * XREFs of KiDisableFgBoostDecayRegistryChangeHandler @ 0x140512620
  * Callers:
  *     <none>
  * Callees:
- *     KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B5070 (KiRegisterForDisableFgBoostDecayRegistryNotification.c)
- *     KiGetDisableFgBoostDecayRegKeyHandle @ 0x1403B50F4 (KiGetDisableFgBoostDecayRegKeyHandle.c)
- *     RtlQueryImageFileKeyOption @ 0x1406AEF00 (RtlQueryImageFileKeyOption.c)
+ *     KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B51E0 (KiRegisterForDisableFgBoostDecayRegistryNotification.c)
+ *     KiGetDisableFgBoostDecayRegKeyHandle @ 0x1403B5264 (KiGetDisableFgBoostDecayRegKeyHandle.c)
+ *     RtlQueryImageFileKeyOption @ 0x14060D7A0 (RtlQueryImageFileKeyOption.c)
  */
 
 int KiDisableFgBoostDecayRegistryChangeHandler()

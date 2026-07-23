@@ -1,26 +1,26 @@
 /*
- * XREFs of PpmPerfCalculateQosClassPolicies @ 0x140489930
+ * XREFs of PpmPerfCalculateQosClassPolicies @ 0x140483470
  * Callers:
- *     PpmPerfUpdateDomainPolicy @ 0x140A9D254 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AD8DD8 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x14048ACEC (PpmGetPerfPolicyClass.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     PpmEventQosClassPolicy @ 0x140ACD558 (PpmEventQosClassPolicy.c)
+ *     PpmGetPerfPolicyClass @ 0x14048482C (PpmGetPerfPolicyClass.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     PpmEventQosClassPolicy @ 0x140ACF798 (PpmEventQosClassPolicy.c)
  */
 
 char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
 {
   unsigned __int8 PerfPolicyClass; // al
-  int v3; // ecx
+  int Next_high; // ecx
   unsigned __int8 v4; // r8
   char v5; // r12
   char v6; // r13
   __int64 v7; // rax
   _OWORD *v8; // r15
   __int64 v9; // r10
-  __int64 v10; // rdx
-  __int64 *v11; // r9
+  __int64 WriteTransferCount; // rdx
+  int *v11; // r9
   __m128 v12; // xmm3
   __m128 v13; // xmm2
   _OWORD *v14; // rbx
@@ -104,12 +104,12 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
   __int64 v93; // [rsp+98h] [rbp+27h]
 
   PerfPolicyClass = PpmGetPerfPolicyClass(*(_QWORD *)(a1 + 16));
-  v3 = dword_140F106CC;
+  Next_high = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v82 = PerfPolicyClass;
   v4 = PerfPolicyClass;
   v83 = 0;
   v5 = 0;
-  v87 = dword_140F106CC;
+  v87 = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v6 = 0;
   v85 = 0;
   v7 = 0LL;
@@ -128,23 +128,23 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
     {
       case 0:
 LABEL_30:
-        v11 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+        v11 = (int *)((char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40);
         goto LABEL_31;
       case 1:
-        v10 = PpmEntryLevelPerfProfile;
+        WriteTransferCount = *(_QWORD *)&PopDirectedDripsDiagLock.ThreadTimerDelay;
         v8 = (_OWORD *)(a1 + 544);
 LABEL_10:
-        if ( v10 )
-          v11 = (__int64 *)(v10 + 712LL * v3 + 40);
+        if ( WriteTransferCount )
+          v11 = (int *)(WriteTransferCount + 712LL * Next_high + 40);
         else
           v11 = 0LL;
         goto LABEL_31;
       case 2:
-        v10 = PpmBackgroundProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.WriteTransferCount;
         v8 = (_OWORD *)(a1 + 584);
         goto LABEL_10;
       case 3:
-        v10 = PpmMultimediaQosProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.OtherTransferCount;
         v8 = (_OWORD *)(a1 + 544);
         goto LABEL_10;
     }
@@ -152,30 +152,30 @@ LABEL_10:
     {
       if ( (_DWORD)v9 == 5 )
       {
-        v10 = PpmEcoQosProfile;
+        WriteTransferCount = (__int64)PopDirectedDripsDiagLock.QueuedScb;
         v8 = (_OWORD *)(a1 + 784);
       }
       else
       {
         if ( (_DWORD)v9 != 6 )
           goto LABEL_30;
-        v10 = PpmUtilityQosProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.ReadTransferCount;
         v8 = (_OWORD *)(a1 + 624);
       }
       goto LABEL_10;
     }
     v8 = (_OWORD *)(a1 + 544);
-    if ( !PpmMultimediaQosProfile )
+    if ( !PopDirectedDripsDiagLock.OtherTransferCount )
     {
       v11 = 0LL;
       goto LABEL_16;
     }
-    v11 = (__int64 *)((char *)&unk_140F0B108 + 712 * v3);
+    v11 = &PopDirectedDripsDiagLock.SchedulerAssistPriorityFloor + 178 * Next_high;
 LABEL_31:
     if ( v11 )
     {
       v12 = *(__m128 *)v11;
-      v13 = *(__m128 *)&v11[2 * v4];
+      v13 = *(__m128 *)&v11[4 * v4];
       goto LABEL_17;
     }
 LABEL_16:
@@ -215,12 +215,12 @@ LABEL_17:
       {
         v16 |= 2u;
       }
-      v20 = *(__int64 *)((char *)PpmCurrentProfile + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_LOW_LATENCY.Data1;
+      v20 = *(_QWORD *)((char *)PpmCurrentProfile + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_LOW_LATENCY.Data1;
       if ( !v20 )
-        v20 = *(__int64 *)((char *)PpmCurrentProfile + 20) - *(_QWORD *)GUID_POWER_POLICY_PROFILE_LOW_LATENCY.Data4;
+        v20 = *(_QWORD *)((char *)PpmCurrentProfile + 20) - *(_QWORD *)GUID_POWER_POLICY_PROFILE_LOW_LATENCY.Data4;
       if ( !v20 )
         v16 |= 0x20u;
-      if ( LOBYTE(stru_140F11D08.RealtimePriorityFloor) )
+      if ( PpmPerfMaxOverrideEnabled )
         v16 |= 0x10u;
       if ( PpmPerfQosDisableRefcount )
         v16 |= 1u;
@@ -300,14 +300,14 @@ LABEL_63:
     if ( !v8 )
     {
 LABEL_70:
-      DWORD1(v92) = *((_DWORD *)v11 + v4 + 30);
+      DWORD1(v92) = v11[v4 + 30];
       if ( !v8 )
         goto LABEL_76;
       goto LABEL_71;
     }
     if ( (v28 & 0x400000000LL) != 0 )
     {
-      v34 = *((_DWORD *)v11 + v4 + 30);
+      v34 = v11[v4 + 30];
       v35 = *((_DWORD *)v14 + 5);
       if ( (_DWORD)v9 == 4 )
       {
@@ -336,22 +336,20 @@ LABEL_71:
 LABEL_76:
     LOBYTE(v93) = *((_BYTE *)v11 + v4 + 152);
 LABEL_77:
-    if ( HIDWORD(stru_140F11D08.UpdateVpThreadPriorityDpcStackListEntry.Next) )
+    if ( PpmFrequencyOverride )
     {
-      v38 = (((unsigned __int64)*(unsigned int *)(a1 + 456) >> 1)
-           + 100LL * HIDWORD(stru_140F11D08.UpdateVpThreadPriorityDpcStackListEntry.Next))
+      v38 = (((unsigned __int64)*(unsigned int *)(a1 + 456) >> 1) + 100LL * (unsigned int)PpmFrequencyOverride)
           / *(unsigned int *)(a1 + 456);
       v15 = v4;
       if ( (unsigned int)v38 < v30 )
-        v30 = (((unsigned __int64)*(unsigned int *)(a1 + 456) >> 1)
-             + 100LL * HIDWORD(stru_140F11D08.UpdateVpThreadPriorityDpcStackListEntry.Next))
+        v30 = (((unsigned __int64)*(unsigned int *)(a1 + 456) >> 1) + 100LL * (unsigned int)PpmFrequencyOverride)
             / *(unsigned int *)(a1 + 456);
       LODWORD(Source2) = v30;
       if ( (unsigned int)v38 < v33 )
         v33 = v38;
       DWORD2(Source2) = v33;
     }
-    v39 = *((unsigned int *)v11 + v15 + 21);
+    v39 = (unsigned int)v11[v15 + 21];
     v40 = *(_DWORD *)(a1 + 460);
     v41 = v40;
     if ( (_DWORD)v39 )
@@ -382,7 +380,7 @@ LABEL_90:
     }
     DWORD1(Source2) = v41;
 LABEL_93:
-    v44 = *((unsigned int *)v11 + v15 + 24);
+    v44 = (unsigned int)v11[v15 + 24];
     if ( (_DWORD)v44 )
     {
       v15 = v4;
@@ -419,7 +417,7 @@ LABEL_104:
     {
       if ( v8 && (v88.m128i_i64[0] & 0x800000000LL) == 0 )
         goto LABEL_109;
-      LODWORD(v92) = *((_DWORD *)v11 + 33);
+      LODWORD(v92) = v11[33];
     }
     if ( !v8 )
       goto LABEL_116;
@@ -429,7 +427,7 @@ LABEL_109:
       v47 = *((_BYTE *)v14 + 26);
       if ( v81 == 4 )
       {
-        if ( !v47 && *((_DWORD *)v11 + 28) )
+        if ( !v47 && v11[28] )
         {
 LABEL_116:
           BYTE10(v92) = *((_BYTE *)v11 + 112);
@@ -437,7 +435,7 @@ LABEL_116:
             goto LABEL_122;
         }
       }
-      else if ( v47 && !*((_DWORD *)v11 + 28) )
+      else if ( v47 && !v11[28] )
       {
         goto LABEL_116;
       }
@@ -458,7 +456,7 @@ LABEL_116:
 LABEL_122:
     BYTE11(v92) = *((_BYTE *)v11 + v15 + 137);
 LABEL_123:
-    v50 = *((unsigned int *)v11 + v15 + 35);
+    v50 = (unsigned int)v11[v15 + 35];
     if ( (_DWORD)v50 )
     {
       v51 = (((unsigned __int64)*(unsigned int *)(a1 + 456) >> 1) + 100 * v50) / *(unsigned int *)(a1 + 456);
@@ -615,7 +613,7 @@ LABEL_142:
     }
     if ( v58 )
     {
-      v70 = *((_DWORD *)stru_140FC01F0.Padding + v52);
+      v70 = *((_DWORD *)stru_140FC11F0.Padding + v52);
       if ( v70 == 1 )
         goto LABEL_217;
       if ( v70 == 3 )
@@ -657,7 +655,7 @@ LABEL_210:
       v24 = ++v83;
     }
 LABEL_219:
-    v3 = v87;
+    Next_high = v87;
     v7 = v89 + 1;
     v4 = v82;
     v77 = (unsigned int)++v86 < 7;

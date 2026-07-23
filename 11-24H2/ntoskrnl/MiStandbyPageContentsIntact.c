@@ -1,15 +1,15 @@
 /*
- * XREFs of MiStandbyPageContentsIntact @ 0x140314AD4
+ * XREFs of MiStandbyPageContentsIntact @ 0x1403F1E24
  * Callers:
- *     MiStandbyPageStillCombineCandidate @ 0x140314020 (MiStandbyPageStillCombineCandidate.c)
- *     MiCopyDataPageToImagePage @ 0x1403142D8 (MiCopyDataPageToImagePage.c)
- *     MiConfirmCombinePageContents @ 0x140314938 (MiConfirmCombinePageContents.c)
- *     MiTranslatePageForCopy @ 0x1403961F0 (MiTranslatePageForCopy.c)
- *     MiCopyHeaderIfResident @ 0x1404765F4 (MiCopyHeaderIfResident.c)
+ *     MiCopyHeaderIfResident @ 0x1403F0510 (MiCopyHeaderIfResident.c)
+ *     MiStandbyPageStillCombineCandidate @ 0x1403F136C (MiStandbyPageStillCombineCandidate.c)
+ *     MiCopyDataPageToImagePage @ 0x1403F1624 (MiCopyDataPageToImagePage.c)
+ *     MiConfirmCombinePageContents @ 0x1403F1C84 (MiConfirmCombinePageContents.c)
+ *     MiTranslatePageForCopy @ 0x1403F3CE0 (MiTranslatePageForCopy.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiCheckWriteInProgressFault @ 0x140482B40 (MiCheckWriteInProgressFault.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
+ *     MiCheckWriteInProgressFault @ 0x14047DD38 (MiCheckWriteInProgressFault.c)
  */
 
 __int64 __fastcall MiStandbyPageContentsIntact(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

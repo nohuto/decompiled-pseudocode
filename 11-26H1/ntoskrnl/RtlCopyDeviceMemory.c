@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCopyDeviceMemory @ 0x14055978C
+ * XREFs of RtlCopyDeviceMemory @ 0x14055BC1C
  * Callers:
- *     HalpPreserveNvsArea @ 0x1404F9E98 (HalpPreserveNvsArea.c)
- *     HalpAcpiCopyBiosTable @ 0x1405254AC (HalpAcpiCopyBiosTable.c)
- *     HalpRestoreNvsArea @ 0x140528F30 (HalpRestoreNvsArea.c)
- *     WmipGetSMBiosEventlog @ 0x1408229B8 (WmipGetSMBiosEventlog.c)
- *     WmipGetSMBiosTableData @ 0x140AC4C90 (WmipGetSMBiosTableData.c)
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HalpPreserveNvsArea @ 0x1404F34A8 (HalpPreserveNvsArea.c)
+ *     HalpAcpiCopyBiosTable @ 0x140527B1C (HalpAcpiCopyBiosTable.c)
+ *     HalpRestoreNvsArea @ 0x14052B520 (HalpRestoreNvsArea.c)
+ *     WmipGetSMBiosEventlog @ 0x140828BC8 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSMBiosTableData @ 0x140AC6900 (WmipGetSMBiosTableData.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 char *__fastcall RtlCopyDeviceMemory(char *a1, char *a2, size_t a3)

@@ -9,10 +9,10 @@
 int WerpIsProcessNative()
 {
   int result; // eax
-  _BYTE v1[16]; // [esp+0h] [ebp-30h] BYREF
+  _BYTE ProcessInformation[16]; // [esp+0h] [ebp-30h] BYREF
   int v2; // [esp+10h] [ebp-20h]
 
-  if ( ZwQueryInformationProcess(-1, 37, (int)v1, 48, 0) < 0 )
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessImageInformation, ProcessInformation, 0x30u, 0) < 0 )
     return 0;
   result = 1;
   if ( v2 != 1 )

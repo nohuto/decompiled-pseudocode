@@ -1,15 +1,14 @@
 /*
- * XREFs of EtwpTrackDecodeGuidForSession @ 0x140A62114
+ * XREFs of EtwpTrackDecodeGuidForSession @ 0x140A5AA14
  * Callers:
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
- *     EtwpUpdateRegEntryEnableMask @ 0x14083EBF0 (EtwpUpdateRegEntryEnableMask.c)
- *     AddDecodeGuidToSessions @ 0x140A6206C (AddDecodeGuidToSessions.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x140838494 (EtwpUpdateRegEntryEnableMask.c)
+ *     AddDecodeGuidToSessions @ 0x140A5A96C (AddDecodeGuidToSessions.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
@@ -18,8 +17,8 @@ bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
   unsigned __int64 *v3; // rsi
   __int64 v4; // r14
   bool v6; // bl
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbp
+  char *v7; // rax
+  char *v8; // rbp
   _QWORD *i; // rdx
   __int64 v10; // rcx
   __int64 v11; // rcx
@@ -31,12 +30,12 @@ bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
   v3 = (unsigned __int64 *)(a1 + 688);
   v4 = *(_QWORD *)(a2 + 32);
   v6 = 0;
-  v7 = KeAbPreAcquire(a1 + 688, 0LL);
+  v7 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v3, (__int64)v7, (__int64)v3);
+    ExfAcquirePushLockExclusiveEx(v3, v7, (__int64)v3);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   for ( i = *(_QWORD **)(a1 + 112); i; i = (_QWORD *)*i )
   {
     v10 = *(_QWORD *)(v2 + 34) - i[1];
@@ -54,7 +53,7 @@ bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
   v12 = *(_DWORD *)(a1 + 324) + 2048;
   if ( v12 <= *(_DWORD *)(a1 + 4) && v12 <= 0x10000 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x30uLL, 0x62777445u);
     if ( Pool2 )
     {
       *(_QWORD *)Pool2 = *(_QWORD *)(a1 + 112);

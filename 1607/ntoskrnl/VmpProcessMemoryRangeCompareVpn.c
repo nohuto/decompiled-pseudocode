@@ -1,7 +1,7 @@
 /*
- * XREFs of VmpProcessMemoryRangeCompareVpn @ 0x14022452C
+ * XREFs of VmpProcessMemoryRangeCompareVpn @ 0x140224358
  * Callers:
- *     VmpFlushTbVaRange @ 0x1402240C0 (VmpFlushTbVaRange.c)
+ *     VmpFlushTbVaRange @ 0x140223EEC (VmpFlushTbVaRange.c)
  * Callees:
  *     <none>
  */

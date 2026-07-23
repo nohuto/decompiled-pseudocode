@@ -1,38 +1,38 @@
 /*
- * XREFs of CmpLoadHiveVolatile @ 0x1407CE610
+ * XREFs of CmpLoadHiveVolatile @ 0x1407CEB00
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpCopySyncTree @ 0x1407E1E30 (CmpCopySyncTree.c)
- *     CmpUnlockHiveList @ 0x140844354 (CmpUnlockHiveList.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpConstructNameWithStatus @ 0x140875AB0 (CmpConstructNameWithStatus.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     CmpCopyCompressedName @ 0x14087E8A0 (CmpCopyCompressedName.c)
- *     CmpCopyKeyPartial @ 0x140880F10 (CmpCopyKeyPartial.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpLinkHiveToMaster @ 0x14092C240 (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmpLockHiveListExclusive @ 0x140A5B428 (CmpLockHiveListExclusive.c)
- *     CmpAddToHiveFileList @ 0x140A6A4C4 (CmpAddToHiveFileList.c)
- *     CmpUuidCreate @ 0x140AA1208 (CmpUuidCreate.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140BB9AD0 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140BB9B10 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpCopySyncTree @ 0x1407E2380 (CmpCopySyncTree.c)
+ *     CmpUnlockHiveList @ 0x140840614 (CmpUnlockHiveList.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpConstructNameWithStatus @ 0x140879DE0 (CmpConstructNameWithStatus.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     CmpCopyCompressedName @ 0x140882750 (CmpCopyCompressedName.c)
+ *     CmpCopyKeyPartial @ 0x140884DC0 (CmpCopyKeyPartial.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpLinkHiveToMaster @ 0x14092E380 (CmpLinkHiveToMaster.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmpLockHiveListExclusive @ 0x140A52D38 (CmpLockHiveListExclusive.c)
+ *     CmpAddToHiveFileList @ 0x140A63874 (CmpAddToHiveFileList.c)
+ *     CmpUuidCreate @ 0x140A9C598 (CmpUuidCreate.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140BBBAD0 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140BBBB10 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
@@ -168,7 +168,7 @@ __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
                     if ( (*(_BYTE *)(v13 + 2) & 0x20) == 0 )
                       v15 = *(_WORD *)(v13 + 72);
                     v16 = SourceString->Length + v15 + 2;
-                    DestinationString.Buffer = (wchar_t *)CmpAllocatePool(0x100uLL);
+                    DestinationString.Buffer = (wchar_t *)CmpAllocatePool(0x100uLL, v16, 0x20204D43u);
                     if ( DestinationString.Buffer )
                     {
                       DestinationString.MaximumLength = v16;
@@ -216,14 +216,14 @@ __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
                       {
                         CmpAddToHiveFileList(BugCheckParameter3);
                         CmpLockHiveListExclusive(v19);
-                        v20 = (_QWORD *)qword_140FD8D08;
+                        v20 = (_QWORD *)qword_140FD9D18;
                         v21 = (_QWORD *)(BugCheckParameter3 + 1608);
-                        if ( *(__int64 **)qword_140FD8D08 != &CmpHiveListHead )
+                        if ( *(__int64 **)qword_140FD9D18 != &CmpHiveListHead )
                           __fastfail(3u);
                         *v21 = &CmpHiveListHead;
                         v21[1] = v20;
                         *v20 = v21;
-                        qword_140FD8D08 = (__int64)v21;
+                        qword_140FD9D18 = (__int64)v21;
                         CmpUnlockHiveList();
                         if ( !CmpProfileLoaded )
                         {

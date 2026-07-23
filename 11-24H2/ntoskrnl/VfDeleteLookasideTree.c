@@ -1,16 +1,16 @@
 /*
- * XREFs of VfDeleteLookasideTree @ 0x140B9FE18
+ * XREFs of VfDeleteLookasideTree @ 0x140BA1E18
  * Callers:
- *     VfMiscPluginUnload @ 0x140615040 (VfMiscPluginUnload.c)
+ *     VfMiscPluginUnload @ 0x140613600 (VfMiscPluginUnload.c)
  * Callees:
- *     VfAvlDeleteAllTreeNodes @ 0x140B83BAC (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140B85BAC (VfAvlDeleteAllTreeNodes.c)
  */
 
 __int64 VfDeleteLookasideTree()
 {
   __int64 result; // rax
 
-  VfAvlDeleteAllTreeNodes(qword_140FFCCB0);
+  VfAvlDeleteAllTreeNodes(qword_140FFDCB0);
   result = (unsigned int)_InterlockedExchange(&ViLookasideInitialized, 0);
   _InterlockedExchange(&ViLookasideAllocationFailures, 0);
   return result;

@@ -1,29 +1,29 @@
 /*
- * XREFs of ExGetWakeTimerList @ 0x1404BFC7C
+ * XREFs of ExGetWakeTimerList @ 0x1404BB1AC
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeQueryTimerDueTime @ 0x14048E920 (KeQueryTimerDueTime.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeQueryTimerDueTime @ 0x140488D50 (KeQueryTimerDueTime.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
 {
   _DWORD *v2; // r14
   _QWORD *v3; // r12
-  unsigned __int64 v4; // rbp
+  ULONG_PTR v4; // rbp
   void *v5; // r15
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v6; // rax
+  char *v7; // rdi
   __int64 *i; // rdi
   __int64 v9; // rcx
   int v10; // edi
@@ -50,12 +50,12 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
   --CurrentThread->KernelApcDisable;
   v4 = 0LL;
   v5 = 0LL;
-  v6 = KeAbPreAcquire((__int64)&ExpWakeTimerLock, 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)&ExpWakeTimerLock, 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, (__int64)v6, (__int64)&ExpWakeTimerLock);
+    ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v6, (__int64)&ExpWakeTimerLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   for ( i = (__int64 *)ExpWakeTimerList; i != &ExpWakeTimerList; i = (__int64 *)*i )
   {
     v9 = *(i - 1);
@@ -73,7 +73,7 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
   }
   if ( !v4 )
     v4 = 64LL;
-  Pool2 = ExAllocatePool2(0x101uLL);
+  Pool2 = ExAllocatePool2(0x101uLL, v4, 0x734C6B57u);
   v5 = (void *)Pool2;
   if ( Pool2 )
   {

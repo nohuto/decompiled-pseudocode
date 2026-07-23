@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyLocales @ 0x140A693BC
+ * XREFs of _CmGetInterfaceClassMappedPropertyLocales @ 0x140A6966C
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1407C5DA0 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x1407C6070 (_PnpDispatchInterfaceClass.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyLocales(
 
   v8 = -1073741802;
   v9 = 0;
-  v10 = &off_140A77AB8;
+  v10 = &off_140A77D68;
   *a7 = 0;
   while ( 1 )
   {
@@ -44,7 +44,7 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyLocales(
     v10 += 2;
     if ( v9 )
     {
-      v13 = &off_140A77B68;
+      v13 = &off_140A77E18;
       v14 = 0;
       while ( 1 )
       {

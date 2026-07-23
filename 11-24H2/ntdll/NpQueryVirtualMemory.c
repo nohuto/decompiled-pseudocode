@@ -1,8 +1,8 @@
 /*
- * XREFs of NpQueryVirtualMemory @ 0x180161830
+ * XREFs of NpQueryVirtualMemory @ 0x18015FBF0
  * Callers:
- *     LdrpProcessMappedModule @ 0x180073700 (LdrpProcessMappedModule.c)
- *     LdrpIsImageAddress @ 0x18015F9A0 (LdrpIsImageAddress.c)
+ *     LdrpProcessMappedModule @ 0x18008FFE0 (LdrpProcessMappedModule.c)
+ *     LdrpIsImageAddress @ 0x18015DD60 (LdrpIsImageAddress.c)
  * Callees:
  *     <none>
  */

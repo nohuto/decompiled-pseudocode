@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x140AA26E8
+ * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x140A9DA78
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x14047B300 (IoCheckRedirectionTrustLevel.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1404769B0 (IoCheckRedirectionTrustLevel.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpQueryProcessCommandLine @ 0x14094BCC0 (EtwpQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpQueryProcessCommandLine @ 0x1408F0230 (EtwpQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogRedirectionTrustPolicy(
@@ -218,7 +218,7 @@ void __fastcall EtwTimLogRedirectionTrustPolicy(
   {
     if ( v6 )
       goto LABEL_13;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x28uLL, 0x6E734954u);
     if ( !Pool2 )
       break;
     v6 = _InterlockedCompareExchange64((volatile signed __int64 *)&v5[123], (signed __int64)Pool2, 0LL);
@@ -251,8 +251,8 @@ LABEL_13:
       if ( v11 )
       {
         v17 = v11;
-        v7 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
-        v18 = (void *)ExAllocatePool2(0x100uLL);
+        v7 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, 80LL * v11, 0x6E734954u);
+        v18 = (void *)ExAllocatePool2(0x100uLL, 0x21AuLL, 0x6E734954u);
         v79 = v18;
         v19 = v18;
         if ( v7 && v18 )
@@ -264,7 +264,7 @@ LABEL_13:
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    *v20,
-                   (MEMORY_INFORMATION_CLASS)2,
+                   MemoryMappedFilenameInformation,
                    v19,
                    0x218uLL,
                    0LL) < 0
@@ -453,7 +453,7 @@ LABEL_33:
       EtwWrite(EtwSecurityMitigationsRegHandle, EventDescriptor, 0LL, v43, &UserData);
       if ( v7 )
       {
-        if ( (unsigned int)dword_140E09128 > 5 && tlgKeywordOn((__int64)&dword_140E09128, 0x400000000000LL) )
+        if ( (unsigned int)dword_140E09198 > 5 && tlgKeywordOn((__int64)&dword_140E09198, 0x400000000000LL) )
         {
           v82 = 0x2000000LL;
           v91 = &v82;
@@ -528,15 +528,15 @@ LABEL_33:
           v132[1] = 0;
           v134 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140E09128,
-            (unsigned __int8 *)&word_14005347E,
+            (__int64)&dword_140E09198,
+            (unsigned __int8 *)&word_140053EDE,
             0LL,
             0LL,
             0x18u,
             &v90);
         }
       }
-      else if ( (unsigned int)dword_140E09128 > 5 && tlgKeywordOn((__int64)&dword_140E09128, 0x400000000000LL) )
+      else if ( (unsigned int)dword_140E09198 > 5 && tlgKeywordOn((__int64)&dword_140E09198, 0x400000000000LL) )
       {
         v78 = 0x2000000LL;
         v136 = &v78;
@@ -556,8 +556,8 @@ LABEL_33:
         v147[0] = v47;
         v147[1] = 0;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E09128,
-          (unsigned __int8 *)byte_1400532A9,
+          (__int64)&dword_140E09198,
+          (unsigned __int8 *)byte_140053FA9,
           0LL,
           0LL,
           8u,

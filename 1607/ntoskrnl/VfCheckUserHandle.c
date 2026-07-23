@@ -1,20 +1,20 @@
 /*
  * XREFs of VfCheckUserHandle @ 0x1407117A8
  * Callers:
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObQueryTypeName @ 0x1406671A8 (ObQueryTypeName.c)
- *     VfUtilIsLocalSystem @ 0x140702DE8 (VfUtilIsLocalSystem.c)
- *     VfDriverIsKernelImageAddress @ 0x140704D38 (VfDriverIsKernelImageAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     VfTargetDriversIsEnabled @ 0x14070FFFC (VfTargetDriversIsEnabled.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObQueryTypeName @ 0x14066728C (ObQueryTypeName.c)
+ *     VfUtilIsLocalSystem @ 0x140702E18 (VfUtilIsLocalSystem.c)
+ *     VfDriverIsKernelImageAddress @ 0x140704D68 (VfDriverIsKernelImageAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x14071002C (VfTargetDriversIsEnabled.c)
  */
 
 void __fastcall VfCheckUserHandle(void *a1)

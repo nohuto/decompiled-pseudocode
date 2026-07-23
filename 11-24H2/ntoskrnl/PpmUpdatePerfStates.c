@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmUpdatePerfStates @ 0x140750C40
+ * XREFs of PpmUpdatePerfStates @ 0x14074EF60
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140AC66D0 (PpmPerfUpdateDomainPolicy.c)
- *     PpmReinitializeHeteroEngine @ 0x140AC7948 (PpmReinitializeHeteroEngine.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AC40C8 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AC53D4 (PpmReinitializeHeteroEngine.c)
  */
 
 int __fastcall PpmUpdatePerfStates(unsigned int *a1, __int64 a2, unsigned int a3)

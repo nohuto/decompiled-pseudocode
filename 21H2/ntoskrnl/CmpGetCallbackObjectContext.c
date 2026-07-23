@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetCallbackObjectContext @ 0x14068AFE4
+ * XREFs of CmpGetCallbackObjectContext @ 0x1405EAE54
  * Callers:
- *     CmpCallbackFillObjectContext @ 0x1406F39F0 (CmpCallbackFillObjectContext.c)
+ *     CmpCallbackFillObjectContext @ 0x14070ADD0 (CmpCallbackFillObjectContext.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, __int64 *a2)
@@ -15,6 +15,9 @@ __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, __int64 *a2)
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v7; // rax
   __int64 v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
 
   v2 = 0LL;
   if ( !a1 )
@@ -45,6 +48,6 @@ __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, __int64 *a2)
   }
 LABEL_9:
   ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
   return v2;
 }

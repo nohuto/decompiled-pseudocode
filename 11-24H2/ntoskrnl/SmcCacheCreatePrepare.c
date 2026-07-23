@@ -1,15 +1,15 @@
 /*
- * XREFs of SmcCacheCreatePrepare @ 0x140798D7C
+ * XREFs of SmcCacheCreatePrepare @ 0x140798E8C
  * Callers:
- *     SmcProcessCreateRequest @ 0x140798E7C (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x140798F8C (SmcProcessCreateRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SmcCacheManagerStart @ 0x14079D188 (SmcCacheManagerStart.c)
- *     SmRegistrationCtxStart @ 0x140AB42E8 (SmRegistrationCtxStart.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SmcCacheManagerStart @ 0x14079D298 (SmcCacheManagerStart.c)
+ *     SmRegistrationCtxStart @ 0x140AAF258 (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmcCacheCreatePrepare(__int64 a1)
@@ -17,19 +17,19 @@ __int64 __fastcall SmcCacheCreatePrepare(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v2; // rsi
   int v4; // ebp
-  _QWORD *v5; // rax
-  _QWORD *v6; // r14
+  char *v5; // rax
+  char *v6; // r14
 
   CurrentThread = KeGetCurrentThread();
   v2 = (unsigned __int64 *)(a1 - 136);
   v4 = 0;
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire(a1 - 136, 0LL);
+  v5 = (char *)KeAbPreAcquire(a1 - 136, 0LL);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v5, (__int64)v2);
+    ExfAcquirePushLockExclusiveEx(v2, v5, (__int64)v2);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   if ( (*(_DWORD *)(a1 - 152) & 8) == 0 )
   {
     v4 = SmRegistrationCtxStart(a1 + 560);

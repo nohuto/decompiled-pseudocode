@@ -88,7 +88,7 @@ __int64 __fastcall EtwInitializeSiloState(__int64 a1)
         {
           *((_QWORD *)v4 + 48) = v4;
           *((_QWORD *)v4 + 49) = 0LL;
-          *((_OWORD *)v4 + 2) = SecurityProviderGuid;
+          *((GUID *)v4 + 2) = SecurityProviderGuid;
           *((_QWORD *)PsGetServerSiloGlobals(a1) + 108) = v4;
           if ( PsIsHostSilo(a1) )
           {

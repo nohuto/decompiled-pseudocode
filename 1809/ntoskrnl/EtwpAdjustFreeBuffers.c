@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAdjustFreeBuffers @ 0x1405C1E48
+ * XREFs of EtwpAdjustFreeBuffers @ 0x1405C2E48
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpFlushActiveBuffers @ 0x1405C2178 (EtwpFlushActiveBuffers.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
+ *     EtwpFlushActiveBuffers @ 0x1405C3178 (EtwpFlushActiveBuffers.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     EtwpAllocateFreeBuffers @ 0x1400DD154 (EtwpAllocateFreeBuffers.c)
+ *     EtwpAllocateFreeBuffers @ 0x1400DD1D4 (EtwpAllocateFreeBuffers.c)
  */
 
 __int64 __fastcall EtwpAdjustFreeBuffers(__int64 a1)

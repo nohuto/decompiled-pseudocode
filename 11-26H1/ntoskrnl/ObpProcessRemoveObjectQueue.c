@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpProcessRemoveObjectQueue @ 0x140A59D90
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x140A66D00
  * Callers:
  *     <none>
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269BD0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     ObpDeregisterObject @ 0x140779D4C (ObpDeregisterObject.c)
- *     ObpRemoveObjectRoutine @ 0x140923BC0 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140A5A090 (ObpHandleRevocationBlockRemoveObject.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269140 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     ObpDeregisterObject @ 0x14077CC7C (ObpDeregisterObject.c)
+ *     ObpRemoveObjectRoutine @ 0x1408FF6D0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140A67000 (ObpHandleRevocationBlockRemoveObject.c)
  */
 
 NTSTATUS ObpProcessRemoveObjectQueue()
@@ -38,28 +38,28 @@ NTSTATUS ObpProcessRemoveObjectQueue()
   _SINGLE_LIST_ENTRY *p_IoSelfBoostsEntry; // [rsp+20h] [rbp-38h]
   PVOID *p_Object; // [rsp+28h] [rbp-30h] BYREF
 
-  if ( !qword_140EF3E50 )
+  if ( !qword_140EF41B0 )
   {
     v17 = __rdtsc();
     LODWORD(v17) = 41929663 * ((((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) >> 4);
-    qword_140EF3E50 = (unsigned int)v17;
+    qword_140EF41B0 = (unsigned int)v17;
     if ( !(_DWORD)v17 )
-      qword_140EF3E50 = 1LL;
+      qword_140EF41B0 = 1LL;
     v18 = __rdtsc();
-    qword_140EF3E58 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v18) << 32) | (unsigned int)v18) >> 4)) ^ 0xC51LL;
-    qword_140EF3E60 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+    qword_140EF41B8 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v18) << 32) | (unsigned int)v18) >> 4)) ^ 0xC51LL;
+    qword_140EF41C0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
   }
-  if ( MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140EF3E60 )
+  if ( MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0] >= (unsigned __int64)qword_140EF41C0 )
   {
-    p_IoSelfBoostsEntry = &stru_140FC01F0.IoSelfBoostsEntry;
-    p_Object = &stru_140FC01F0.WaitBlock[3].Object;
-    if ( !qword_140EF3E68 )
+    p_IoSelfBoostsEntry = &stru_140FC11F0.IoSelfBoostsEntry;
+    p_Object = &stru_140FC11F0.WaitBlock[3].Object;
+    if ( !qword_140EF41C8 )
     {
-      if ( !stru_140FC01F0.ThreadFlags2 )
+      if ( !stru_140FC11F0.ThreadFlags2 )
         goto LABEL_18;
-      qword_140EF3E68 = (unsigned int)KiTableInformation;
+      qword_140EF41C8 = (unsigned int)KiTableInformation;
     }
-    if ( stru_140FC01F0.ThreadFlags2 && (_BYTE)KdDebuggerNotPresent )
+    if ( stru_140FC11F0.ThreadFlags2 && (_BYTE)KdDebuggerNotPresent )
     {
       v7 = 0;
       p_p_Object = &p_Object;
@@ -87,21 +87,21 @@ NTSTATUS ObpProcessRemoveObjectQueue()
         --v9;
       }
       while ( v9 );
-      if ( v7 != qword_140EF3E68 )
+      if ( v7 != qword_140EF41C8 )
       {
-        if ( qword_140EF3E20 )
+        if ( qword_140EF4180 )
           goto LABEL_20;
-        qword_140EF3E20 = (unsigned int)__ROR4__(1085440, 204);
-        xmmword_140EF3E28 = 0LL;
-        qword_140EF3E38 = 266LL;
-        qword_140EF3E40 = v11;
+        qword_140EF4180 = (unsigned int)__ROR4__(1085440, 204);
+        xmmword_140EF4188 = 0LL;
+        qword_140EF4198 = 266LL;
+        qword_140EF41A0 = v11;
       }
     }
 LABEL_18:
-    if ( !qword_140EF3E20 )
+    if ( !qword_140EF4180 )
     {
 LABEL_19:
-      qword_140EF3E60 = MEMORY[0xFFFFF78000000008]
+      qword_140EF41C0 = MEMORY[0xFFFFF78000000008]
                       + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
                       - MEMORY[0xFFFFF780000003B0]
                       + 288000000000LL;
@@ -113,7 +113,7 @@ LABEL_20:
         &`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList,
         (PKDEFERRED_ROUTINE)KiSchedulerDpc,
         &`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList);
-    qword_140EF3E48 = 3834048LL;
+    qword_140EF41A8 = 3834048LL;
     KeInsertQueueDpc(&`ObpTraceDeferredDeletionWorker'::`2'::ObjectEventList, 0LL, 0LL);
     goto LABEL_19;
   }

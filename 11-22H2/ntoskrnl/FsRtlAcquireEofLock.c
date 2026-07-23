@@ -100,10 +100,10 @@ signed __int32 __fastcall FsRtlAcquireEofLock(__int64 a1, volatile signed __int3
   v14 = _InterlockedCompareExchange((volatile signed __int32 *)v12, 1, 0);
   if ( v14 )
     ExpReleaseFastMutexContended((volatile signed __int32 *)v12, v14);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v18 >= 2u )
     {
       v19 = KeGetCurrentPrcb();
       v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));

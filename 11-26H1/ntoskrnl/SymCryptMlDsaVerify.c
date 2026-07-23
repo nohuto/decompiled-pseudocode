@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptMlDsaVerify @ 0x14055DD70
+ * XREFs of SymCryptMlDsaVerify @ 0x140560288
  * Callers:
- *     SymCryptMlDsaSelftest @ 0x140563120 (SymCryptMlDsaSelftest.c)
- *     HashpVerifyMldsaSignature @ 0x1408ABDEC (HashpVerifyMldsaSignature.c)
+ *     SymCryptMlDsaSelftest @ 0x140565630 (SymCryptMlDsaSelftest.c)
+ *     HashpVerifyMldsaSignature @ 0x1408B2230 (HashpVerifyMldsaSignature.c)
  * Callees:
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
  */
 
 __int64 __fastcall SymCryptMlDsaVerify(

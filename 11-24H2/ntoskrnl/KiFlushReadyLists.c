@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFlushReadyLists @ 0x1403CBD00
+ * XREFs of KiFlushReadyLists @ 0x1403BC52C
  * Callers:
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiInsertDeferredReadyList @ 0x1403CBE30 (KiInsertDeferredReadyList.c)
- *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1403CBEA0 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiInsertDeferredReadyList @ 0x1403BC660 (KiInsertDeferredReadyList.c)
+ *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1403BC6D0 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
  */
 
 void __fastcall KiFlushReadyLists(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)

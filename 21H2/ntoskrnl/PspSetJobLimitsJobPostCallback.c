@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetJobLimitsJobPostCallback @ 0x1406C0CA0
+ * XREFs of PspSetJobLimitsJobPostCallback @ 0x14061FBB0
  * Callers:
  *     <none>
  * Callees:
- *     PspApplyWorkingSetLimits @ 0x140908A84 (PspApplyWorkingSetLimits.c)
+ *     PspApplyWorkingSetLimits @ 0x140908BE4 (PspApplyWorkingSetLimits.c)
  */
 
 __int64 __fastcall PspSetJobLimitsJobPostCallback(__int64 a1, __int64 a2)
 {
   if ( (*(_DWORD *)(a2 + 8) & 1) == 0 && *(_QWORD *)a2 != a1 )
-    PspApplyWorkingSetLimits(a1);
+    PspApplyWorkingSetLimits();
   return 0LL;
 }

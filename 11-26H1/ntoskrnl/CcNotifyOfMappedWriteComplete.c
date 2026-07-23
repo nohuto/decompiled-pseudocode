@@ -1,16 +1,16 @@
 /*
- * XREFs of CcNotifyOfMappedWriteComplete @ 0x14046D008
+ * XREFs of CcNotifyOfMappedWriteComplete @ 0x140466788
  * Callers:
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     CcGetPartitionForSectionObject @ 0x14039D1F0 (CcGetPartitionForSectionObject.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     CcReleaseByteRangeFromWrite @ 0x14046D170 (CcReleaseByteRangeFromWrite.c)
- *     CcIsFatalWriteError @ 0x14046DAB0 (CcIsFatalWriteError.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     CcGetPartitionForSectionObject @ 0x14039EF50 (CcGetPartitionForSectionObject.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1404668F0 (CcReleaseByteRangeFromWrite.c)
+ *     CcIsFatalWriteError @ 0x140467230 (CcIsFatalWriteError.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, unsigned int a3, int a4)

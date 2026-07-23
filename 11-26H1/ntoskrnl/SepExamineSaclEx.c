@@ -1,17 +1,17 @@
 /*
- * XREFs of SepExamineSaclEx @ 0x1409F7C30
+ * XREFs of SepExamineSaclEx @ 0x140A60770
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x1402C5A70 (SepExamineGlobalSaclEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SepExamineGlobalSaclEx @ 0x14031070C (SepExamineGlobalSaclEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     SepSidInToken @ 0x1402AFC70 (SepSidInToken.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403CDD60 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x14048B6E4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepObjectInTypeList @ 0x1404974E8 (AuthzBasepObjectInTypeList.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     SepSetAuditInfoForObjectType @ 0x140813F90 (SepSetAuditInfoForObjectType.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402FBC90 (AuthzBasepEvaluateAceCondition.c)
+ *     SepSidInToken @ 0x1403DB410 (SepSidInToken.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140485224 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepObjectInTypeList @ 0x140491038 (AuthzBasepObjectInTypeList.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     SepSetAuditInfoForObjectType @ 0x140819DF0 (SepSetAuditInfoForObjectType.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepExamineSaclEx(
@@ -106,7 +106,7 @@ void __fastcall SepExamineSaclEx(
         v14 = a3;
         v17 = a2;
         if ( !v28 )
-          Size = 4 * HIBYTE(RtlpBootStatHandleLock.StateSaveArea->ControlWord) + 8;
+          Size = 4 * *(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL) + 8;
       }
       v23 = 0;
       v24 = (char *)(a1 + 8);
@@ -145,8 +145,8 @@ LABEL_17:
         case 2u:
           if ( !SepSidInToken(v14, a10, (unsigned __int8 *)v24 + 8, 1, 0, a11)
             && (!Size
-             || RtlpBootStatHandleLock.StateSaveArea->ControlWord != *((_WORD *)v24 + 4)
-             || memcmp(RtlpBootStatHandleLock.StateSaveArea, v24 + 8, Size)) )
+             || **(_WORD **)&RtlpBootStatHandleLock.WaitRegister.Flags != *((_WORD *)v24 + 4)
+             || memcmp(*(const void **)&RtlpBootStatHandleLock.WaitRegister.Flags, v24 + 8, Size)) )
           {
             goto LABEL_14;
           }
@@ -195,8 +195,8 @@ LABEL_69:
           {
             if ( !v45
               && (!Size
-               || RtlpBootStatHandleLock.StateSaveArea->ControlWord != *(_WORD *)v44
-               || memcmp(RtlpBootStatHandleLock.StateSaveArea, v44, Size)) )
+               || **(_WORD **)&RtlpBootStatHandleLock.WaitRegister.Flags != *(_WORD *)v44
+               || memcmp(*(const void **)&RtlpBootStatHandleLock.WaitRegister.Flags, v44, Size)) )
             {
               goto LABEL_14;
             }
@@ -210,8 +210,8 @@ LABEL_69:
           }
           if ( !v45
             && (!Size
-             || RtlpBootStatHandleLock.StateSaveArea->ControlWord != *(_WORD *)v44
-             || memcmp(RtlpBootStatHandleLock.StateSaveArea, v44, Size)) )
+             || **(_WORD **)&RtlpBootStatHandleLock.WaitRegister.Flags != *(_WORD *)v44
+             || memcmp(*(const void **)&RtlpBootStatHandleLock.WaitRegister.Flags, v44, Size)) )
           {
             goto LABEL_14;
           }
@@ -229,7 +229,7 @@ LABEL_69:
           v32 = 4 * (unsigned __int8)v24[9] + 8;
           if ( v17 && !v13 )
           {
-            AuthzBasepInitializeResourceClaimsFromSacl(v17, (__int64 *)&v54);
+            AuthzBasepInitializeResourceClaimsFromSacl(v17, &v54);
             v19 = a12;
             v23 = v56;
             v13 = v54;
@@ -268,8 +268,8 @@ LABEL_69:
           if ( v52 != 1
             || !SepSidInToken(a3, a10, (unsigned __int8 *)v24 + 8, 1, 0, a11)
             && (!Size
-             || RtlpBootStatHandleLock.StateSaveArea->ControlWord != *v31
-             || memcmp(RtlpBootStatHandleLock.StateSaveArea, v24 + 8, Size)) )
+             || **(_WORD **)&RtlpBootStatHandleLock.WaitRegister.Flags != *v31
+             || memcmp(*(const void **)&RtlpBootStatHandleLock.WaitRegister.Flags, v24 + 8, Size)) )
           {
             goto LABEL_14;
           }

@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_18000D844 @ 0x18000D844
  * Callers:
- *     sub_180008C50 @ 0x180008C50 (sub_180008C50.c)
+ *     InitFn @ 0x180008C50 (InitFn.c)
  *     RtlDestroyHeap @ 0x18000ABF0 (RtlDestroyHeap.c)
  *     RtlCreateHeap @ 0x18000CA40 (RtlCreateHeap.c)
  *     RtlProtectHeap @ 0x18000D6A0 (RtlProtectHeap.c)
@@ -14,14 +14,14 @@
  *     RtlEnterCriticalSection @ 0x18002F9C0 (RtlEnterCriticalSection.c)
  */
 
-__int64 __fastcall sub_18000D844(__int64 a1, int a2, int a3, int a4)
+NTSTATUS __fastcall sub_18000D844(__int64 a1, int a2, int a3, int a4)
 {
   int v8; // edi
   int v9; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !a4 )
-    result = RtlEnterCriticalSection(&unk_180159A80);
+    result = RtlEnterCriticalSection(&stru_180159A80);
   if ( a2 )
   {
     v8 = a2 - 1;
@@ -49,6 +49,6 @@ __int64 __fastcall sub_18000D844(__int64 a1, int a2, int a3, int a4)
     }
   }
   if ( !a4 )
-    return RtlLeaveCriticalSection(&unk_180159A80);
+    return RtlLeaveCriticalSection(&stru_180159A80);
   return result;
 }

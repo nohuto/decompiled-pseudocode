@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUnlockNameHashEntry @ 0x140603E18
+ * XREFs of CmpUnlockNameHashEntry @ 0x140603ECC
  * Callers:
- *     CmpGetNameControlBlock @ 0x140436F80 (CmpGetNameControlBlock.c)
+ *     CmpGetNameControlBlock @ 0x140435E50 (CmpGetNameControlBlock.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 unsigned __int64 __fastcall CmpUnlockNameHashEntry(unsigned int a1)

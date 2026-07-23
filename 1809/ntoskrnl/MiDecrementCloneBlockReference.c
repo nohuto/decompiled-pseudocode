@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecrementCloneBlockReference @ 0x1402C9630
+ * XREFs of MiDecrementCloneBlockReference @ 0x1402C9820
  * Callers:
  *     MiDeletePteList @ 0x140035B80 (MiDeletePteList.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
  * Callees:
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiDeleteCloneDescriptor @ 0x1402C979C (MiDeleteCloneDescriptor.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiDeleteMergedPte @ 0x14011FC90 (MiDeleteMergedPte.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiDeleteCloneDescriptor @ 0x1402C998C (MiDeleteCloneDescriptor.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CADA8 (MiReturnCrossPartitionCloneCharges.c)
  */
 
 __int64 __fastcall MiDecrementCloneBlockReference(
@@ -27,7 +27,7 @@ __int64 __fastcall MiDecrementCloneBlockReference(
   if ( v5 && v5 != KeGetCurrentThread() )
     KeBugCheckEx(0x1Au, 0x61945uLL, BugCheckParameter2, (ULONG_PTR)BugCheckParameter3, 0LL);
   v7 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 56) + 24LL);
-  if ( *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a3 + 1454)) != v7
+  if ( *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a3 + 1454)) != v7
     && _InterlockedExchangeAdd64(BugCheckParameter3 + 1, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
   {
     MiReturnCrossPartitionCloneCharges(v7);

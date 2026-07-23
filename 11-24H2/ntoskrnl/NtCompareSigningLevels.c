@@ -1,17 +1,18 @@
 /*
- * XREFs of NtCompareSigningLevels @ 0x140A36C60
+ * XREFs of NtCompareSigningLevels @ 0x140A2BAB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall NtCompareSigningLevels(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  int v4; // eax
+  int v2; // eax
 
-  v4 = 0;
-  if ( qword_140F048C0 )
-    v4 = guard_dispatch_icall_no_overrides(a1, a2, qword_140F048C0, a4);
-  return v4 == 0 ? 0xC0000428 : 0;
+  v2 = 0;
+  if ( qword_140F04B60 )
+    v2 = guard_dispatch_icall_no_overrides(FirstSigningLevel, SecondSigningLevel);
+  return v2 == 0 ? 0xC0000428 : 0;
 }

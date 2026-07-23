@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExpandWrongPartitionSkipRange @ 0x140526CB4
+ * XREFs of MiExpandWrongPartitionSkipRange @ 0x140529324
  * Callers:
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
  * Callees:
- *     MiExpandPageSkipRange @ 0x14042DF80 (MiExpandPageSkipRange.c)
- *     MiPfnLargeBitSet @ 0x140430D40 (MiPfnLargeBitSet.c)
+ *     MiExpandPageSkipRange @ 0x14041AE90 (MiExpandPageSkipRange.c)
+ *     MiPfnLargeBitSet @ 0x14041DD70 (MiPfnLargeBitSet.c)
  */
 
 unsigned __int64 __fastcall MiExpandWrongPartitionSkipRange(__int64 a1, __int64 a2, int a3)

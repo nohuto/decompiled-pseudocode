@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMergeCopyExtents @ 0x14067B6F4
+ * XREFs of MiMergeCopyExtents @ 0x14067C8D4
  * Callers:
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiFormCopyExtents @ 0x14067B054 (MiFormCopyExtents.c)
- *     MiInsertExtentList @ 0x14067B39C (MiInsertExtentList.c)
- *     MiLockFileExtentsExclusive @ 0x1407F0608 (MiLockFileExtentsExclusive.c)
- *     MiUnlockFileExtentsExclusive @ 0x1407F0688 (MiUnlockFileExtentsExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiFormCopyExtents @ 0x14067C234 (MiFormCopyExtents.c)
+ *     MiInsertExtentList @ 0x14067C57C (MiInsertExtentList.c)
+ *     MiLockFileExtentsExclusive @ 0x1407F0BD8 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x1407F0C58 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMergeCopyExtents(_QWORD *a1, __int64 a2, __int64 a3, unsigned int **a4)
@@ -107,7 +107,7 @@ __int64 __fastcall MiMergeCopyExtents(_QWORD *a1, __int64 a2, __int64 a3, unsign
     {
       v25 = (__int64)&v9[12 * j + 2];
       if ( *(_QWORD *)(v25 + 32) != 0x8000000000000000uLL )
-        RtlAvlRemoveNode(&qword_140E2D790, v25);
+        RtlAvlRemoveNode(&qword_140E2D8D0, v25);
     }
   }
   MiInsertExtentList(v7);

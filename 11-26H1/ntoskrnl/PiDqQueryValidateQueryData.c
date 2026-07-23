@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqQueryValidateQueryData @ 0x1409903CC
+ * XREFs of PiDqQueryValidateQueryData @ 0x140950E2C
  * Callers:
- *     PiDqIrpQueryCreate @ 0x14098EFF8 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14094FA58 (PiDqIrpQueryCreate.c)
  * Callees:
- *     PnpValidateMultiSz @ 0x140991718 (PnpValidateMultiSz.c)
- *     PiDqGetPnpObjectType @ 0x14099CD00 (PiDqGetPnpObjectType.c)
- *     _PnpValidatePropertyData @ 0x1409DC3B4 (_PnpValidatePropertyData.c)
- *     ValidFilter @ 0x140ADC3C0 (ValidFilter.c)
+ *     PnpValidateMultiSz @ 0x140952178 (PnpValidateMultiSz.c)
+ *     PiDqGetPnpObjectType @ 0x14095D760 (PiDqGetPnpObjectType.c)
+ *     _PnpValidatePropertyData @ 0x140A19604 (_PnpValidatePropertyData.c)
+ *     ValidFilter @ 0x140AD9910 (ValidFilter.c)
  */
 
 __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)

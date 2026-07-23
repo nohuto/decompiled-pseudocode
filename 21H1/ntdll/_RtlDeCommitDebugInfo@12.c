@@ -6,7 +6,7 @@
  *     _RtlpDeCommitQueryDebugInfo@12 @ 0x4B3379F5 (_RtlpDeCommitQueryDebugInfo@12.c)
  */
 
-int __stdcall RtlDeCommitDebugInfo(int a1, int a2, int a3)
+void __cdecl RtlDeCommitDebugInfo(PRTL_DEBUG_INFORMATION Buffer, PVOID p, SIZE_T Size)
 {
-  return RtlpDeCommitQueryDebugInfo(a3);
+  RtlpDeCommitQueryDebugInfo(Size);
 }

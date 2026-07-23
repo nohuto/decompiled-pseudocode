@@ -1,5 +1,5 @@
 /*
- * XREFs of PopReleaseTransitionLock @ 0x14052EA04
+ * XREFs of PopReleaseTransitionLock @ 0x14052EF44
  * Callers:
  *     PopUnlockAfterSleepWorker @ 0x1403C95C8 (PopUnlockAfterSleepWorker.c)
  * Callees:

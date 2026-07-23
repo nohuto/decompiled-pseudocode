@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEnforceDeepSleep @ 0x140B50284
+ * XREFs of PopEnforceDeepSleep @ 0x140B52B14
  * Callers:
- *     PopEnforceResiliencyScenarios @ 0x140B501F8 (PopEnforceResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140B52A88 (PopEnforceResiliencyScenarios.c)
  * Callees:
- *     PopDeepSleepSetDisengageReason @ 0x1403B40FC (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403B42F8 (PopDeepSleepClearDisengageReason.c)
- *     PopDeepSleepEnabled @ 0x1404D1DFC (PopDeepSleepEnabled.c)
- *     KeSetMaxDynamicTickDuration @ 0x1405E4EC4 (KeSetMaxDynamicTickDuration.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1403BE008 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1403BE204 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepEnabled @ 0x1404CB9AC (PopDeepSleepEnabled.c)
+ *     KeSetMaxDynamicTickDuration @ 0x1405E7834 (KeSetMaxDynamicTickDuration.c)
  */
 
 void PopEnforceDeepSleep()
@@ -14,11 +14,8 @@ void PopEnforceDeepSleep()
   unsigned int v0; // ecx
   char v1; // r8
 
-  _InterlockedCompareExchange64(
-    (volatile signed __int64 *)&PopWeakChargerLock.SchedulerApc.ApcListEntry.Blink,
-    KiMaxDynamicTickDuration,
-    0LL);
-  if ( PopDeepSleepEnabled() && unk_140F10DC0 )
+  _InterlockedCompareExchange64(&PopMaxDynamicTickDurationOriginalValue, KiMaxDynamicTickDuration, 0LL);
+  if ( PopDeepSleepEnabled() && PopPdcIdleResiliency )
     v1 = 1;
   if ( v0 )
   {
@@ -40,10 +37,10 @@ void PopEnforceDeepSleep()
   }
   if ( PopDeepSleepEnforced )
   {
-    KeSetMaxDynamicTickDuration((unsigned __int64)PopWeakChargerLock.SchedulerApc.ApcListEntry.Blink);
+    KeSetMaxDynamicTickDuration(PopMaxDynamicTickDurationOriginalValue);
     PopDeepSleepEnforced = 0;
     PopDeepSleepSetDisengageReason(0);
-    if ( !stru_140F10828.WaitBlockFill5[44] )
+    if ( !BYTE4(PpmIdlePolicyLock.Padding[3]) )
       PopDeepSleepSetDisengageReason(1u);
   }
 }

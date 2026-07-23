@@ -4,8 +4,8 @@
  *     RtlpPopulateContext @ 0x18007003C (RtlpPopulateContext.c)
  *     RtlEnumerateEntryHashTable @ 0x1800700E0 (RtlEnumerateEntryHashTable.c)
  *     RtlStronglyEnumerateEntryHashTable @ 0x1800701A0 (RtlStronglyEnumerateEntryHashTable.c)
- *     RtlContractHashTable @ 0x180085480 (RtlContractHashTable.c)
- *     RtlExpandHashTable @ 0x18008C5D0 (RtlExpandHashTable.c)
+ *     RtlContractHashTable @ 0x180085490 (RtlContractHashTable.c)
+ *     RtlExpandHashTable @ 0x18008C5E0 (RtlExpandHashTable.c)
  * Callees:
  *     <none>
  */

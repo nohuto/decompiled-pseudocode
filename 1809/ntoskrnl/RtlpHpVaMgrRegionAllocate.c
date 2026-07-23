@@ -6,7 +6,7 @@
  *     RtlpHpVaMgrAllocAligned @ 0x14000A318 (RtlpHpVaMgrAllocAligned.c)
  *     RtlpHpVaMgrRangeCreate @ 0x14000A3F8 (RtlpHpVaMgrRangeCreate.c)
  *     RtlpHpEnvFreeVA @ 0x14000D2A8 (RtlpHpEnvFreeVA.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRegionAllocate(__int64 a1)

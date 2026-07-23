@@ -99,7 +99,9 @@ LABEL_5:
   v13 = 1;
   if ( (*(_BYTE *)(a1 + 184) & 7) == 4 )
   {
-    if ( PsNtosImageBase && (v9 < PsNtosImageEnd && v9 >= PsNtosImageBase || v9 < PsHalImageEnd && v9 >= PsHalImageBase) )
+    if ( PsNtosImageBase
+      && (v9 < PsNtosImageEnd && v9 >= (unsigned __int64)PsNtosImageBase
+       || v9 < PsHalImageEnd && v9 >= (unsigned __int64)PsHalImageBase) )
     {
       _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C65A50, -(int)v8);
     }

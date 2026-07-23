@@ -19,9 +19,9 @@ void KiCheckAndRearmForceIdle()
   int v2; // ebx
   signed __int32 v3; // eax
   signed __int32 v4; // ett
-  unsigned __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
@@ -51,7 +51,8 @@ void KiCheckAndRearmForceIdle()
   }
   if ( KiForceIdleState == 2 )
 LABEL_21:
-    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v5);
+    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                         + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;

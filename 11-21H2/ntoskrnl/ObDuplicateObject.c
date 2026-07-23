@@ -2,44 +2,44 @@
  * XREFs of ObDuplicateObject @ 0x1407A1F80
  * Callers:
  *     IoConvertFileHandleToKernelHandle @ 0x14065CA50 (IoConvertFileHandleToKernelHandle.c)
- *     PspPropagateHandle @ 0x14066F1F0 (PspPropagateHandle.c)
- *     PspCopyAndFixupParameters @ 0x140672D48 (PspCopyAndFixupParameters.c)
- *     CmpCreateHive @ 0x14068A7FC (CmpCreateHive.c)
+ *     sub_14066F1F0 @ 0x14066F1F0 (sub_14066F1F0.c)
+ *     sub_140672D48 @ 0x140672D48 (sub_140672D48.c)
+ *     sub_14068A7FC @ 0x14068A7FC (sub_14068A7FC.c)
  *     NtDuplicateObject @ 0x1407A1DC0 (NtDuplicateObject.c)
- *     CmpCreateEmptyHiveClone @ 0x14091972C (CmpCreateEmptyHiveClone.c)
- *     DbgkpOpenHandles @ 0x140927AE4 (DbgkpOpenHandles.c)
- *     MiInitializePartitionSpecialPurposeMemory @ 0x14096E4D8 (MiInitializePartitionSpecialPurposeMemory.c)
+ *     sub_14091972C @ 0x14091972C (sub_14091972C.c)
+ *     sub_140927AE4 @ 0x140927AE4 (sub_140927AE4.c)
+ *     sub_14096E4D8 @ 0x14096E4D8 (sub_14096E4D8.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
+ *     sub_1402AC800 @ 0x1402AC800 (sub_1402AC800.c)
+ *     sub_1402AD030 @ 0x1402AD030 (sub_1402AD030.c)
+ *     sub_1402D0930 @ 0x1402D0930 (sub_1402D0930.c)
+ *     sub_1402F3558 @ 0x1402F3558 (sub_1402F3558.c)
+ *     sub_14030D5C0 @ 0x14030D5C0 (sub_14030D5C0.c)
+ *     sub_140347810 @ 0x140347810 (sub_140347810.c)
+ *     sub_1403478A0 @ 0x1403478A0 (sub_1403478A0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
- *     ObpGrantAccess @ 0x140669830 (ObpGrantAccess.c)
- *     ObpPreInterceptHandleDuplicate @ 0x1406BC8F0 (ObpPreInterceptHandleDuplicate.c)
- *     SeAuditHandleCreation @ 0x1406CE5F8 (SeAuditHandleCreation.c)
+ *     sub_140669830 @ 0x140669830 (sub_140669830.c)
+ *     sub_1406BC8F0 @ 0x1406BC8F0 (sub_1406BC8F0.c)
+ *     sub_1406CE5F8 @ 0x1406CE5F8 (sub_1406CE5F8.c)
  *     SeCreateAccessState @ 0x14071F140 (SeCreateAccessState.c)
  *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
  *     NtClose @ 0x140731D50 (NtClose.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
- *     ObpCloseHandle @ 0x140734160 (ObpCloseHandle.c)
+ *     sub_140733B40 @ 0x140733B40 (sub_140733B40.c)
+ *     sub_140734160 @ 0x140734160 (sub_140734160.c)
  *     SeAuditingWithTokenForSubcategory @ 0x14079D560 (SeAuditingWithTokenForSubcategory.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1407A2680 (ObpReferenceProcessObjectByHandle.c)
- *     ExpAllocateHandleTableEntry @ 0x1407A28C0 (ExpAllocateHandleTableEntry.c)
- *     ExpFreeHandleTableEntry @ 0x1407A2BDC (ExpFreeHandleTableEntry.c)
- *     ObpDecrementHandleCount @ 0x1407A2FA0 (ObpDecrementHandleCount.c)
+ *     sub_1407A2680 @ 0x1407A2680 (sub_1407A2680.c)
+ *     sub_1407A28C0 @ 0x1407A28C0 (sub_1407A28C0.c)
+ *     sub_1407A2BDC @ 0x1407A2BDC (sub_1407A2BDC.c)
+ *     sub_1407A2FA0 @ 0x1407A2FA0 (sub_1407A2FA0.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ObpPostInterceptHandleDuplicate @ 0x14088204C (ObpPostInterceptHandleDuplicate.c)
- *     SeAuditHandleDuplication @ 0x1409C750C (SeAuditHandleDuplication.c)
- *     EtwTraceDuplicateHandle @ 0x1409E1FA0 (EtwTraceDuplicateHandle.c)
- *     ExpSetHandleExtraInfo @ 0x1409F9244 (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1409F92FC (ExpUpdateDebugInfo.c)
- *     VfCheckUserHandle @ 0x140A9466C (VfCheckUserHandle.c)
+ *     sub_14088204C @ 0x14088204C (sub_14088204C.c)
+ *     sub_1409C750C @ 0x1409C750C (sub_1409C750C.c)
+ *     sub_1409E1FA0 @ 0x1409E1FA0 (sub_1409E1FA0.c)
+ *     sub_1409F9244 @ 0x1409F9244 (sub_1409F9244.c)
+ *     sub_1409F92FC @ 0x1409F92FC (sub_1409F92FC.c)
+ *     sub_140A9466C @ 0x140A9466C (sub_140A9466C.c)
  */
 
 __int64 __fastcall ObDuplicateObject(
@@ -57,10 +57,10 @@ __int64 __fastcall ObDuplicateObject(
   char v13; // r12
   int v14; // r14d
   __int64 v15; // r8
-  _DWORD *v16; // r9
+  __int64 v16; // r9
   int v17; // ebx
-  _DWORD *v18; // r9
-  unsigned __int64 v19; // rax
+  __int64 v18; // r9
+  __int64 v19; // rax
   int v20; // r15d
   int v21; // edi
   int v22; // r14d
@@ -70,11 +70,11 @@ __int64 __fastcall ObDuplicateObject(
   char v26; // bl
   int v27; // r15d
   ULONG_PTR v28; // rbx
-  char PreviousMode; // r15
+  char v29; // r15
   char v30; // r12
   ACCESS_MASK v31; // edx
   struct _KTHREAD *CurrentThread; // r14
-  unsigned __int64 v33; // rdi
+  __int64 v33; // rdi
   __int64 v34; // rax
   unsigned __int64 v35; // r15
   _QWORD *v36; // rbx
@@ -99,17 +99,17 @@ __int64 __fastcall ObDuplicateObject(
   HANDLE Handle; // [rsp+58h] [rbp-A8h]
   __int64 v57; // [rsp+60h] [rbp-A0h] BYREF
   ULONG_PTR BugCheckParameter1a; // [rsp+68h] [rbp-98h]
-  PEX_RUNDOWN_REF p_Blink; // [rsp+70h] [rbp-90h] BYREF
+  struct _EX_RUNDOWN_REF *v59; // [rsp+70h] [rbp-90h] BYREF
   ACCESS_MASK v60; // [rsp+78h] [rbp-88h] BYREF
   unsigned __int64 v61; // [rsp+80h] [rbp-80h]
   __int64 v62; // [rsp+88h] [rbp-78h] BYREF
   struct _ACCESS_STATE *v63; // [rsp+90h] [rbp-70h]
   __int64 v64; // [rsp+98h] [rbp-68h]
   _QWORD v65[2]; // [rsp+A0h] [rbp-60h] BYREF
-  PEX_RUNDOWN_REF RunRef; // [rsp+B0h] [rbp-50h]
+  struct _EX_RUNDOWN_REF *v66; // [rsp+B0h] [rbp-50h]
   unsigned __int64 v67; // [rsp+B8h] [rbp-48h]
   __int64 v68; // [rsp+C0h] [rbp-40h]
-  unsigned __int64 v69; // [rsp+C8h] [rbp-38h]
+  __int64 v69; // [rsp+C8h] [rbp-38h]
   unsigned __int64 *v70; // [rsp+D0h] [rbp-30h]
   _OWORD v71[3]; // [rsp+D8h] [rbp-28h] BYREF
   struct _ACCESS_STATE v72; // [rsp+110h] [rbp+10h] BYREF
@@ -136,9 +136,8 @@ __int64 __fastcall ObDuplicateObject(
     return 3221225506LL;
   if ( a3 )
   {
-    if ( ((*(_BYTE *)(BugCheckParameter1 + 992) & 1) != 0 || (a3->SecureState.SecureHandle & 1) != 0)
-      && ((_KPROCESS *)BugCheckParameter1 != KeGetCurrentThread()->ApcState.Process
-       || a3 != KeGetCurrentThread()->ApcState.Process) )
+    if ( ((*(_BYTE *)(BugCheckParameter1 + 992) & 1) != 0 || (*((_BYTE *)a3 + 992) & 1) != 0)
+      && (BugCheckParameter1 != *((_QWORD *)KeGetCurrentThread() + 23) || a3 != *((PEPROCESS *)KeGetCurrentThread() + 23)) )
     {
       return 3221225506LL;
     }
@@ -147,16 +146,16 @@ __int64 __fastcall ObDuplicateObject(
   {
     return 3221225506LL;
   }
-  RunRef = (PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112);
-  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+  v66 = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112);
+  if ( !sub_140347810((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112)) )
     return 3221225738LL;
   v15 = *(_QWORD *)(BugCheckParameter1 + 1392);
   if ( !v15 )
   {
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    sub_1402AD030((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112));
     return 3221225738LL;
   }
-  v52 = ObpReferenceProcessObjectByHandle(
+  v52 = sub_1407A2680(
           (_DWORD)Handle,
           BugCheckParameter1,
           v15,
@@ -167,7 +166,7 @@ __int64 __fastcall ObDuplicateObject(
           (__int64)&v57);
   if ( v52 < 0 )
   {
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    sub_1402AD030((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112));
     return (unsigned int)v52;
   }
   v17 = v62;
@@ -177,41 +176,41 @@ __int64 __fastcall ObDuplicateObject(
   {
     if ( (v13 & 1) != 0 )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v71, v16);
+      sub_14030D5C0(BugCheckParameter1, 0LL, (__int64)v71, v16);
       NtClose(Handle);
-      KiUnstackDetachProcess((__int64)v71, 0LL);
+      sub_1402D0930((__int64)v71, 0LL);
       v46 = v52;
     }
     else
     {
       v46 = -1073741811;
     }
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    sub_1402AD030((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112));
     ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
     return v46;
   }
-  p_Blink = (PEX_RUNDOWN_REF)&a3[1].ProfileListHead.Blink;
-  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&a3[1].ProfileListHead.Blink) )
+  v59 = (struct _EX_RUNDOWN_REF *)((char *)a3 + 1112);
+  if ( !sub_140347810((struct _EX_RUNDOWN_REF *)a3 + 139) )
   {
 LABEL_93:
     if ( (v13 & 1) != 0 )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v71, v18);
+      sub_14030D5C0(BugCheckParameter1, 0LL, (__int64)v71, v18);
       NtClose(Handle);
-      KiUnstackDetachProcess((__int64)v71, 0LL);
+      sub_1402D0930((__int64)v71, 0LL);
     }
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    sub_1402AD030((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112));
     ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
     return 3221225738LL;
   }
-  v19 = a3[1].Affinity.StaticBitmap[28];
+  v19 = *((_QWORD *)a3 + 174);
   v69 = v19;
   if ( !v19 )
   {
-    ExReleaseRundownProtection(p_Blink);
+    sub_1402AD030(v59);
     goto LABEL_93;
   }
-  v51 = v19 == ObpKernelHandleTable;
+  v51 = v19 == qword_140C24F88;
   v20 = HIDWORD(v62);
   if ( v14 )
     AccessMask = HIDWORD(v62);
@@ -223,7 +222,7 @@ LABEL_93:
   if ( (v13 & 8) == 0 )
     v22 = v21;
   v61 = (unsigned __int64)Object - 48;
-  v23 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v61 + 24) ^ (unsigned __int64)BYTE1(v61)];
+  v23 = qword_140D07490[(unsigned __int8)dword_140D06C0C ^ *(unsigned __int8 *)(v61 + 24) ^ (unsigned __int64)BYTE1(v61)];
   v64 = v23;
   if ( (AccessMask & 0xF0000000) != 0 )
     RtlMapGenericMask(&AccessMask, (PGENERIC_MAPPING)(v23 + 76));
@@ -235,59 +234,59 @@ LABEL_93:
   {
     v26 = 0;
 LABEL_26:
-    v27 = ObpIncrementHandleCountEx(2u, (__int64)&v54, a3, (__int64)Object, a8, v22, 0LL);
+    v27 = sub_140733B40(2u, (__int64)&v54, (ULONG_PTR)a3, (__int64)Object, a8, v22, 0LL);
     v53 = v27;
     goto LABEL_27;
   }
   if ( (v17 & 8) != 0
     || (v44 = v64,
-        *(__int64 (__fastcall **)(void *, int, ULONG *, char *, ULONG *, __int64 *, POOL_TYPE, GENERIC_MAPPING *))(v64 + 152) != SeDefaultObjectMethod) )
+        *(__int64 (__fastcall **)(void *, int, DWORD *, char *, ULONG *, __int64 *, POOL_TYPE, GENERIC_MAPPING *))(v64 + 152) != sub_140725080) )
   {
     v27 = -1073741790;
     v53 = -1073741790;
     goto LABEL_29;
   }
-  if ( KeGetCurrentThread()->ApcState.Process == a3 )
+  if ( *((PEPROCESS *)KeGetCurrentThread() + 23) == a3 )
   {
     v26 = 0;
   }
   else
   {
-    KiStackAttachProcess(a3, 0LL, (__int64)v71, v18);
+    sub_14030D5C0((ULONG_PTR)a3, 0LL, (__int64)v71, v18);
     v26 = 1;
   }
   SeCreateAccessState((int)&v72, (int)v73, v54, v44 + 76);
   v25 = &v72;
   LODWORD(v50) = v22;
   v63 = &v72;
-  v53 = ObpGrantAccess(2, Object, &v72, a8, v50, &v54);
+  v53 = sub_140669830(2, Object, &v72, a8, v50, &v54);
   v27 = v53;
   if ( v53 >= 0 )
     goto LABEL_26;
 LABEL_27:
   if ( v26 )
-    KiUnstackDetachProcess((__int64)v71, 0LL);
+    sub_1402D0930((__int64)v71, 0LL);
 LABEL_29:
   v28 = BugCheckParameter1a;
   if ( (v13 & 1) != 0 )
   {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1a, 0LL, (__int64)v71, v18);
-    PreviousMode = KeGetCurrentThread()->PreviousMode;
-    if ( (MmVerifierData & 0x100) != 0 && !PreviousMode && !ObpIsKernelHandle((unsigned __int64)Handle, 0) )
-      VfCheckUserHandle(v47);
-    ObpCloseHandle((__int64)Handle, PreviousMode);
-    KiUnstackDetachProcess((__int64)v71, 0LL);
+    sub_14030D5C0(BugCheckParameter1a, 0LL, (__int64)v71, v18);
+    v29 = *((_BYTE *)KeGetCurrentThread() + 562);
+    if ( (dword_140C29FC0 & 0x100) != 0 && !v29 && !sub_1402F3558((unsigned __int64)Handle, 0) )
+      sub_140A9466C(v47);
+    sub_140734160((__int64)Handle, v29);
+    sub_1402D0930((__int64)v71, 0LL);
     v27 = v53;
   }
   if ( v27 < 0 )
   {
     if ( v25 )
     {
-      SepDeleteAccessState((__int64)v25);
+      sub_1403478A0((__int64)v25);
       SeReleaseSubjectContext(&v25->SubjectSecurityContext);
     }
-    ExReleaseRundownProtection(RunRef);
-    ExReleaseRundownProtection(p_Blink);
+    sub_1402AD030(v66);
+    sub_1402AD030(v59);
     ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
     return (unsigned int)v27;
   }
@@ -306,7 +305,7 @@ LABEL_29:
     v42 = v28;
     v43 = Object;
     v60 = v54;
-    v53 = ObpPreInterceptHandleDuplicate((__int64)Object, v51, (int *)&v60, v42, (__int64)a3, (__int64)v65);
+    v53 = sub_1406BC8F0((__int64)Object, v51, (int *)&v60, v42, (__int64)a3, (__int64)v65);
     if ( v53 >= 0 )
     {
       if ( !v51 )
@@ -319,28 +318,28 @@ LABEL_35:
       CurrentThread = KeGetCurrentThread();
       LODWORD(v68) = v31;
       v67 = ((v61 & 0xFFFFFFFFFFFFFFF1uLL) << 16) | ((unsigned __int64)(v30 & 7) << 17) | 1;
-      --CurrentThread->KernelApcDisable;
+      --*((_WORD *)CurrentThread + 242);
       v33 = v69;
-      p_Blink = 0LL;
-      v34 = ExpAllocateHandleTableEntry(v69, &p_Blink);
-      v35 = (unsigned __int64)p_Blink;
+      v59 = 0LL;
+      v34 = sub_1407A28C0(v69, &v59);
+      v35 = (unsigned __int64)v59;
       v36 = (_QWORD *)v34;
       if ( v34 )
       {
-        if ( v57 && (unsigned int)ExpSetHandleExtraInfo(v33, p_Blink, &v57) )
+        if ( v57 && (unsigned int)sub_1409F9244(v33, v59, &v57) )
         {
-          ExpFreeHandleTableEntry(v33, v35, v36);
+          sub_1407A2BDC(v33, v35, v36);
           v35 = 0LL;
         }
         else
         {
           if ( *(_QWORD *)(v33 + 96) )
-            ExpUpdateDebugInfo(v33, CurrentThread, v35, 1LL);
+            sub_1409F92FC(v33, CurrentThread, v35, 1LL);
           v36[1] = v68;
           *v36 = v67;
         }
       }
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      sub_1402AC800((__int64)CurrentThread);
       if ( v35 )
       {
         v37 = (struct _SECURITY_SUBJECT_CONTEXT *)v63;
@@ -349,11 +348,11 @@ LABEL_35:
           v45 = 0LL;
           if ( (*(_BYTE *)(v61 + 26) & 0x20) != 0 )
           {
-            v48 = (char *)ObpInfoMaskToOffset[*(_BYTE *)(v61 + 26) & 0x3F];
+            v48 = (char *)byte_140C25440[*(_BYTE *)(v61 + 26) & 0x3F];
             if ( v61 != (_QWORD)v48 )
               v45 = *(void **)(v61 - (_QWORD)v48);
           }
-          SeAuditHandleCreation((__int64)v63, (void *)v35, v45);
+          sub_1406CE5F8((__int64)v63, (void *)v35, v45);
         }
         if ( (v30 & 4) != 0 )
         {
@@ -367,7 +366,7 @@ LABEL_35:
           v38 = BugCheckParameter1a;
           v39 = (int)Handle;
           if ( v49 )
-            SeAuditHandleDuplication(Handle, v35, BugCheckParameter1a, a3);
+            sub_1409C750C(Handle, v35, BugCheckParameter1a, a3);
         }
         else
         {
@@ -378,7 +377,7 @@ LABEL_35:
       }
       else
       {
-        ObpDecrementHandleCount((ULONG_PTR)a3);
+        sub_1407A2FA0((ULONG_PTR)a3);
         ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
         v38 = BugCheckParameter1a;
         v40 = -1073741670;
@@ -391,25 +390,25 @@ LABEL_35:
         *v70 = v35;
       if ( v37 )
       {
-        SepDeleteAccessState((__int64)v37);
+        sub_1403478A0((__int64)v37);
         SeReleaseSubjectContext(v37 + 1);
       }
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v38 + 1112));
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)&a3[1].ProfileListHead.Blink);
+      sub_1402AD030((struct _EX_RUNDOWN_REF *)(v38 + 1112));
+      sub_1402AD030((struct _EX_RUNDOWN_REF *)a3 + 139);
       if ( (_QWORD *)v65[0] != v65 )
-        ObpPostInterceptHandleDuplicate((_DWORD)Object, v51, v40, v54, (__int64)v65);
+        sub_14088204C((_DWORD)Object, v51, v40, v54, (__int64)v65);
       if ( (xmmword_140D06910 & 0x40) != 0 && v40 >= 0 )
-        EtwTraceDuplicateHandle(v39, v35, (_DWORD)Object, *(_DWORD *)(v38 + 1088), a3[1].Header.WaitListHead.Flink, v64);
+        sub_1409E1FA0(v39, v35, (_DWORD)Object, *(_DWORD *)(v38 + 1088), *((_DWORD *)a3 + 272), v64);
       return (unsigned int)v40;
     }
-    ObpDecrementHandleCount((ULONG_PTR)a3);
+    sub_1407A2FA0((ULONG_PTR)a3);
     if ( v25 )
     {
-      SepDeleteAccessState((__int64)v25);
+      sub_1403478A0((__int64)v25);
       SeReleaseSubjectContext(&v25->SubjectSecurityContext);
     }
-    ExReleaseRundownProtection(RunRef);
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&a3[1].ProfileListHead.Blink);
+    sub_1402AD030(v66);
+    sub_1402AD030((struct _EX_RUNDOWN_REF *)a3 + 139);
     ObfDereferenceObjectWithTag(v43, 0x6E48624Fu);
     return (unsigned int)v53;
   }

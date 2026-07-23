@@ -1,36 +1,36 @@
 /*
- * XREFs of LdrGetDllDirectory @ 0x180075EC0
+ * XREFs of LdrGetDllDirectory @ 0x1800646E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlCopyUnicodeString @ 0x180075F50 (RtlCopyUnicodeString.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlCopyUnicodeString @ 0x180064770 (RtlCopyUnicodeString.c)
  */
 
-__int64 __fastcall LdrGetDllDirectory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl LdrGetDllDirectory(PUNICODE_STRING DllDirectory)
 {
-  unsigned int v3; // edx
-  unsigned int v4; // eax
-  unsigned int v5; // edi
+  unsigned int MaximumLength; // edx
+  unsigned int v3; // eax
+  NTSTATUS v4; // edi
 
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
-  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock, a2);
-  v3 = *(unsigned __int16 *)(a1 + 2);
-  v4 = (unsigned __int16)LdrpDllDirectory + 2;
-  if ( v3 >= v4 )
+    return -1073741811;
+  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
+  MaximumLength = DllDirectory->MaximumLength;
+  v3 = LdrpDllDirectory.Length + 2;
+  if ( MaximumLength >= v3 )
   {
-    RtlCopyUnicodeString(a1, &LdrpDllDirectory);
-    v5 = 0;
+    RtlCopyUnicodeString(DllDirectory, &LdrpDllDirectory);
+    v4 = 0;
   }
   else
   {
-    *(_WORD *)a1 = v4;
-    v5 = -1073741789;
-    if ( (_WORD)v3 )
-      **(_WORD **)(a1 + 8) = 0;
+    DllDirectory->Length = v3;
+    v4 = -1073741789;
+    if ( (_WORD)MaximumLength )
+      *DllDirectory->Buffer = 0;
   }
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
-  return v5;
+  return v4;
 }

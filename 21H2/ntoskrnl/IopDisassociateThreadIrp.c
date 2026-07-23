@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDisassociateThreadIrp @ 0x14050072C
+ * XREFs of IopDisassociateThreadIrp @ 0x1405006AC
  * Callers:
- *     IoCancelThreadIo @ 0x14064C9B0 (IoCancelThreadIo.c)
+ *     IoCancelThreadIo @ 0x1406417D0 (IoCancelThreadIo.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     IoAllocateErrorLogEntry @ 0x1403805B0 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x140380A80 (IoWriteErrorLogEntry.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     IoAllocateErrorLogEntry @ 0x140380100 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x1403805D0 (IoWriteErrorLogEntry.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -77,15 +77,15 @@ LABEL_4:
         *(_QWORD *)(v11 + 8) = p_SystemCallNumber,
         v3[1] = v3,
         *v3 = v3,
-        v12 = (_QWORD *)qword_140C45DE8,
-        *(__int64 **)qword_140C45DE8 != &IopDeadIrps) )
+        v12 = (_QWORD *)qword_140C45CA8,
+        *(__int64 **)qword_140C45CA8 != &IopDeadIrps) )
   {
     __fastfail(3u);
   }
   *v10 = &IopDeadIrps;
   v10[1] = v12;
   *v12 = v10;
-  qword_140C45DE8 = (__int64)v10;
+  qword_140C45CA8 = (__int64)v10;
   if ( *((_BYTE *)v3 + 35) <= *((_BYTE *)v3 + 34)
     && (v14 = v3[20]) != 0
     && (v13 = v3[19], v15 = *(struct _DMA_ADAPTER **)(v13 + 40), *(struct _DMA_ADAPTER **)(v14 + 8) == v15) )

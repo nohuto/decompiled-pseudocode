@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInvalidOpcodeFaultShadow @ 0x14032E400
+ * XREFs of KiInvalidOpcodeFaultShadow @ 0x14032F400
  * Callers:
  *     <none>
  * Callees:

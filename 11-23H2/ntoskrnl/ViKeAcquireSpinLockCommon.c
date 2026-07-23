@@ -1,12 +1,12 @@
 /*
- * XREFs of ViKeAcquireSpinLockCommon @ 0x140AD5D1C
+ * XREFs of ViKeAcquireSpinLockCommon @ 0x140AD5D0C
  * Callers:
- *     VerifierPortKeAcquireSpinLock @ 0x140AD5A10 (VerifierPortKeAcquireSpinLock.c)
+ *     VerifierPortKeAcquireSpinLock @ 0x140AD5A00 (VerifierPortKeAcquireSpinLock.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x140ACBC0C (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DD8 (ViKeIrqlLogAndTrimMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x140ACBBFC (ViTargetIncrementCounter.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DC8 (ViKeIrqlLogAndTrimMemory.c)
  */
 
 unsigned int __fastcall ViKeAcquireSpinLockCommon(ULONG_PTR a1, __int64 a2, _BYTE *a3)

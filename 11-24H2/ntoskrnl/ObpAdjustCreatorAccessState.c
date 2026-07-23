@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpAdjustCreatorAccessState @ 0x14087AD00
+ * XREFs of ObpAdjustCreatorAccessState @ 0x14087EBB0
  * Callers:
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
  * Callees:
- *     SeComputeCreatorDeniedRights @ 0x140359A70 (SeComputeCreatorDeniedRights.c)
- *     SepPrivilegeCheck @ 0x140403670 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140853B30 (SePrivilegedServiceAuditAlarm.c)
- *     ObDereferenceSecurityDescriptor @ 0x140879D10 (ObDereferenceSecurityDescriptor.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x14087AEFC (ObpReferenceSecurityDescriptorSlow.c)
- *     SeAppendPrivileges @ 0x1409D2470 (SeAppendPrivileges.c)
+ *     SeComputeCreatorDeniedRights @ 0x1403B5DC0 (SeComputeCreatorDeniedRights.c)
+ *     SepPrivilegeCheck @ 0x1403FE430 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14084FDF0 (SePrivilegedServiceAuditAlarm.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14087E040 (ObDereferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x14087EDAC (ObpReferenceSecurityDescriptorSlow.c)
+ *     SeAppendPrivileges @ 0x1409C22A0 (SeAppendPrivileges.c)
  */
 
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, char a2, _DWORD *a3, __int64 a4)
@@ -103,7 +103,7 @@ LABEL_14:
                                                            &AccessState->SubjectSecurityContext,
                                                            (__int64)AccessState,
                                                            AccessState->PreviouslyGrantedAccess,
-                                                           (void *)v13);
+                                                           (unsigned int *)v13);
   if ( v13 )
   {
     _m_prefetchw((const void *)(a4 - 8));

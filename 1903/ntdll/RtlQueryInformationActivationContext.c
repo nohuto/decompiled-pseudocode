@@ -21,108 +21,110 @@
  *     sub_1800DF058 @ 0x1800DF058 (sub_1800DF058.c)
  */
 
-__int64 __fastcall RtlQueryInformationActivationContext(
-        int a1,
-        volatile signed __int32 *a2,
-        _DWORD *a3,
-        int a4,
-        __int64 a5,
-        unsigned __int64 a6,
-        _QWORD *a7)
+NTSTATUS __cdecl RtlQueryInformationActivationContext(
+        ULONG Flags,
+        PACTIVATION_CONTEXT ActivationContext,
+        PACTIVATION_CONTEXT_QUERY_INDEX SubInstanceIndex,
+        ACTIVATION_CONTEXT_INFO_CLASS ActivationContextInformationClass,
+        PVOID ActivationContextInformation,
+        SIZE_T ActivationContextInformationLength,
+        PSIZE_T ReturnLength)
 {
-  volatile signed __int32 *v8; // rdi
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r9
-  struct _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // rax
+  PACTIVATION_CONTEXT v8; // rdi
+  char *v10; // r8
+  char *v11; // r9
+  PACTIVATION_CONTEXT_STACK ActivationContextStackPointer; // rax
   const char *v13; // rdx
-  const char *v14; // r10
+  const char *NotificationContext; // r10
   __int64 v15; // rcx
-  int v16; // ebx
-  int v17; // ecx
+  NTSTATUS v16; // ebx
+  __int32 v17; // ecx
   bool v18; // sf
   int v19; // eax
   int v20; // eax
   unsigned int v21; // eax
-  signed __int32 v22; // eax
+  signed __int32 RefCount; // eax
   __int64 v23; // rdx
   __int64 v24; // r8
   __int64 v25; // r9
   __int64 v26; // rcx
   int v27; // eax
   int v29; // [rsp+30h] [rbp-98h]
-  __int64 v30; // [rsp+38h] [rbp-90h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-90h] BYREF
   __int64 v31; // [rsp+40h] [rbp-88h]
   const char *v32; // [rsp+48h] [rbp-80h]
   int v33; // [rsp+50h] [rbp-78h] BYREF
-  int v34; // [rsp+54h] [rbp-74h]
+  __int32 v34; // [rsp+54h] [rbp-74h]
   __int128 v35; // [rsp+58h] [rbp-70h] BYREF
   __int64 v36; // [rsp+68h] [rbp-60h]
   struct _TEB *v37; // [rsp+70h] [rbp-58h]
   struct _TEB *v38; // [rsp+78h] [rbp-50h]
   _DWORD v39[8]; // [rsp+80h] [rbp-48h] BYREF
-  volatile signed __int32 *v40; // [rsp+D8h] [rbp+10h]
+  PACTIVATION_CONTEXT v40; // [rsp+D8h] [rbp+10h]
 
-  v40 = a2;
-  v8 = a2;
+  v40 = ActivationContext;
+  v8 = ActivationContext;
   memset(v39, 0, sizeof(v39));
-  v30 = 0LL;
+  BaseAddress = 0LL;
   v39[6] = 4;
-  if ( a7 )
-    *a7 = 0LL;
-  if ( (a1 & 0x3FFFFFF8) != 0 )
+  if ( ReturnLength )
+    *ReturnLength = 0LL;
+  if ( (Flags & 0x3FFFFFF8) != 0 )
     goto LABEL_84;
-  if ( a1 < 0 && (((a4 - 1) & 0xFFFFFFFA) != 0 || a4 == 2) )
+  if ( (Flags & 0x80000000) != 0
+    && (((ActivationContextInformationClass - 1) & 0xFFFFFFFA) != 0
+     || ActivationContextInformationClass == ActivationContextDetailedInformation) )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - Caller passed meaningless flags/class combination (0x%08lx/0x%08lx)\n",
       "RtlQueryInformationActivationContext",
-      a1,
-      a4);
+      Flags,
+      ActivationContextInformationClass);
 LABEL_77:
     v16 = -1073741585;
     goto LABEL_123;
   }
-  if ( (unsigned int)(a4 - 1) > 6 )
+  if ( (unsigned int)(ActivationContextInformationClass - 1) > 6 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - caller asked for unknown information class %lu\n",
       "RtlQueryInformationActivationContext",
-      a4);
+      ActivationContextInformationClass);
     v16 = -1073741583;
     goto LABEL_123;
   }
-  if ( a6 )
+  if ( ActivationContextInformationLength )
   {
-    if ( !a5 )
+    if ( !ActivationContextInformation )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS: %s() - caller passed nonzero buffer length but NULL buffer pointer\n",
         "RtlQueryInformationActivationContext");
       v16 = -1073741582;
       goto LABEL_123;
     }
   }
-  else if ( !a7 )
+  else if ( !ReturnLength )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - caller supplied no buffer to populate and no place to return required byte count\n",
       "RtlQueryInformationActivationContext");
     v16 = -1073741580;
     goto LABEL_123;
   }
-  if ( (a1 & 7) != 0 )
+  if ( (Flags & 7) != 0 )
   {
-    switch ( a1 & 7 )
+    switch ( Flags & 7 )
     {
-      case 1:
+      case 1u:
         if ( !v8 )
         {
           v38 = NtCurrentTeb();
@@ -132,21 +134,21 @@ LABEL_77:
             v8 = v40;
             goto LABEL_13;
           }
-          v8 = (volatile signed __int32 *)*((_QWORD *)ActivationContextStackPointer->ActiveFrame + 1);
+          v8 = ActivationContextStackPointer->ActiveFrame->ActivationContext;
           goto LABEL_52;
         }
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS: %s() - caller asked to use active activation context but passed %p\n",
           "RtlQueryInformationActivationContext",
-          (const void *)v8);
+          v8);
         goto LABEL_90;
-      case 2:
+      case 2u:
 LABEL_47:
         if ( v8 )
         {
-          v20 = sub_18001869C((unsigned __int64)v8, &v30, &v33);
+          v20 = sub_18001869C((unsigned __int64)v8, (__int64 *)&BaseAddress, &v33);
           v16 = v20;
           v29 = v20;
           if ( v20 >= 0 && v33 < 5 )
@@ -159,7 +161,7 @@ LABEL_47:
             else
             {
               sub_18002E73C(0);
-              v26 = *(_QWORD *)(v30 + 152);
+              v26 = *((_QWORD *)BaseAddress + 19);
               v27 = v29;
               if ( *(_DWORD *)(v26 + 56) != 9 )
                 v27 = -1073741515;
@@ -171,32 +173,32 @@ LABEL_47:
           if ( v16 < 0 )
           {
             DbgPrintEx(
-              51LL,
-              0LL,
+              0x33u,
+              0,
               "SXS: %s() - Caller passed invalid hmodule (%p)\n",
               "RtlQueryInformationActivationContext",
-              (const void *)v8);
+              v8);
             goto LABEL_123;
           }
-          v8 = *(volatile signed __int32 **)(v30 + 136);
+          v8 = (PACTIVATION_CONTEXT)*((_QWORD *)BaseAddress + 17);
 LABEL_52:
           v40 = v8;
           goto LABEL_13;
         }
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS: %s() - Caller asked to use activation context from hmodule but passed NULL\n",
           "RtlQueryInformationActivationContext");
 LABEL_90:
         v16 = -1073741584;
         goto LABEL_123;
-      case 4:
+      case 4u:
         if ( !v8 )
         {
           DbgPrintEx(
-            51LL,
-            0LL,
+            0x33u,
+            0,
             "SXS: %s() - Caller asked to use activation context from address in .dll but passed NULL\n",
             "RtlQueryInformationActivationContext");
           goto LABEL_90;
@@ -215,57 +217,57 @@ LABEL_90:
         if ( !*((_QWORD *)&v35 + 1) )
         {
           DbgPrintEx(
-            51LL,
-            0LL,
+            0x33u,
+            0,
             "SXS: %s() - Caller passed invalid address, not in any .dll (%p)\n",
             "RtlQueryInformationActivationContext",
-            (const void *)v8);
+            v8);
           v16 = -1073741515;
           goto LABEL_123;
         }
-        v8 = (volatile signed __int32 *)*((_QWORD *)&v35 + 1);
-        v40 = (volatile signed __int32 *)*((_QWORD *)&v35 + 1);
+        v8 = (PACTIVATION_CONTEXT)*((_QWORD *)&v35 + 1);
+        v40 = (PACTIVATION_CONTEXT)*((_QWORD *)&v35 + 1);
         goto LABEL_47;
     }
 LABEL_84:
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - Caller passed invalid flags (0x%08lx)\n",
       "RtlQueryInformationActivationContext",
-      a1);
+      Flags);
     goto LABEL_77;
   }
 LABEL_13:
-  v13 = (const char *)((unsigned __int64)v39 & -(__int64)((a1 & 0x40000000) != 0));
-  v14 = 0LL;
+  v13 = (const char *)((unsigned __int64)v39 & -(__int64)((Flags & 0x40000000) != 0));
+  NotificationContext = 0LL;
   v32 = 0LL;
   v15 = 0LL;
   v31 = 0LL;
   if ( v8 )
   {
     v13 = "Actx ";
-    if ( v8 == (volatile signed __int32 *)-4LL )
+    if ( v8 == (PACTIVATION_CONTEXT)-4LL )
     {
       v15 = 776LL;
       v31 = 776LL;
       goto LABEL_17;
     }
-    if ( v8 == (volatile signed __int32 *)-3LL )
+    if ( v8 == (PACTIVATION_CONTEXT)-3LL )
     {
-      v14 = "Actx ";
+      NotificationContext = "Actx ";
       v32 = "Actx ";
     }
     else
     {
-      v14 = (const char *)*((_QWORD *)v8 + 3);
-      v32 = v14;
+      NotificationContext = (const char *)v8->NotificationContext;
+      v32 = NotificationContext;
     }
     goto LABEL_58;
   }
   if ( v13 )
   {
-    v21 = *(_DWORD *)(((unsigned __int64)v39 & -(__int64)((a1 & 0x40000000) != 0)) + 0x18) & 7;
+    v21 = *(_DWORD *)(((unsigned __int64)v39 & -(__int64)((Flags & 0x40000000) != 0)) + 0x18) & 7;
     if ( v21 <= 1 )
     {
       v15 = 760LL;
@@ -292,55 +294,58 @@ LABEL_16:
   v31 = v15;
   v13 = "Actx ";
 LABEL_17:
-  v14 = *(const char **)(&NtCurrentPeb()->InheritedAddressSpace + v15);
-  v32 = v14;
+  NotificationContext = *(const char **)(&NtCurrentPeb()->InheritedAddressSpace + v15);
+  v32 = NotificationContext;
   v8 = v40;
 LABEL_18:
-  if ( v14 )
-    v13 = v14;
-  v14 = v13;
+  if ( NotificationContext )
+    v13 = NotificationContext;
+  NotificationContext = v13;
   v32 = v13;
   v16 = 0;
 LABEL_21:
   if ( v16 < 0 )
     goto LABEL_123;
-  if ( !v14 && (unsigned int)(a4 - 2) <= 5 )
+  if ( !NotificationContext && (unsigned int)(ActivationContextInformationClass - 2) <= 5 )
     goto LABEL_77;
-  v17 = a4 - 1;
-  switch ( a4 )
+  v17 = ActivationContextInformationClass - 1;
+  switch ( ActivationContextInformationClass )
   {
-    case 1:
+    case ActivationContextBasicInformation:
       v34 &= v17;
-      if ( a1 < 0 )
+      if ( (Flags & 0x80000000) != 0 )
         v17 = 1;
       v34 = v17;
-      if ( a7 )
-        *a7 = 0LL;
-      if ( a6 < 0x10 )
+      if ( ReturnLength )
+        *ReturnLength = 0LL;
+      if ( ActivationContextInformationLength < 0x10 )
       {
-        if ( a7 )
-          *a7 = 16LL;
+        if ( ReturnLength )
+          *ReturnLength = 16LL;
         v16 = -1073741789;
       }
       else
       {
-        if ( v14 )
-          *(_DWORD *)(a5 + 8) = *((_DWORD *)v14 + 7);
+        if ( NotificationContext )
+          *((_DWORD *)ActivationContextInformation + 2) = *((_DWORD *)NotificationContext + 7);
         else
-          *(_DWORD *)(a5 + 8) = 0;
-        if ( (v17 & 1) == 0 && v8 && (((unsigned __int64)v8 - 1) | 7) != 0xFFFFFFFFFFFFFFFFuLL && *v8 != 0x7FFFFFFF )
+          *((_DWORD *)ActivationContextInformation + 2) = 0;
+        if ( (v17 & 1) == 0
+          && v8
+          && (((unsigned __int64)&v8[-1].InlineStorageMapEntries[31] + 7) | 7) != 0xFFFFFFFFFFFFFFFFuLL
+          && v8->RefCount != 0x7FFFFFFF )
         {
           do
           {
-            if ( *v8 == 0x7FFFFFFF )
+            if ( v8->RefCount == 0x7FFFFFFF )
               break;
-            v22 = *v8;
+            RefCount = v8->RefCount;
           }
-          while ( v22 != _InterlockedCompareExchange(v8, v22 + 1, v22) );
+          while ( RefCount != _InterlockedCompareExchange(&v8->RefCount, RefCount + 1, RefCount) );
         }
-        *(_QWORD *)a5 = v8;
-        if ( a7 )
-          *a7 = 16LL;
+        *(_QWORD *)ActivationContextInformation = v8;
+        if ( ReturnLength )
+          *ReturnLength = 16LL;
         v16 = 0;
       }
       v18 = v16 < 0;
@@ -348,64 +353,90 @@ LABEL_37:
       if ( v18 )
         break;
       goto LABEL_38;
-    case 2:
-      v19 = sub_180076000((_DWORD)v14, (_DWORD)v13, a5, a6, (__int64)a7);
+    case ActivationContextDetailedInformation:
+      v19 = sub_180076000(
+              (_DWORD)NotificationContext,
+              (_DWORD)v13,
+              (_DWORD)ActivationContextInformation,
+              ActivationContextInformationLength,
+              (__int64)ReturnLength);
       goto LABEL_45;
-    case 3:
-      if ( a3 )
+    case AssemblyDetailedInformationInActivationContext:
+      if ( SubInstanceIndex )
       {
-        v19 = sub_1800DEB44((_DWORD)v14, *a3, a5, a6, (__int64)a7);
+        v19 = sub_1800DEB44(
+                (_DWORD)NotificationContext,
+                SubInstanceIndex->ulAssemblyIndex,
+                (_DWORD)ActivationContextInformation,
+                ActivationContextInformationLength,
+                (__int64)ReturnLength);
         goto LABEL_45;
       }
 LABEL_116:
       v16 = -1073741811;
       break;
-    case 4:
-      if ( a3 )
+    case FileInformationInAssemblyOfAssemblyInActivationContext:
+      if ( SubInstanceIndex )
       {
-        v19 = sub_1800DEDD4((_DWORD)v14, (_DWORD)a3, a5, a6, (__int64)a7);
+        v19 = sub_1800DEDD4(
+                (_DWORD)NotificationContext,
+                (_DWORD)SubInstanceIndex,
+                (_DWORD)ActivationContextInformation,
+                ActivationContextInformationLength,
+                (__int64)ReturnLength);
         goto LABEL_45;
       }
       goto LABEL_116;
-    case 5:
-      if ( a6 >= 0xC )
+    case RunlevelInformationInActivationContext:
+      if ( ActivationContextInformationLength >= 0xC )
       {
-        *(_QWORD *)a5 = 0LL;
-        *(_DWORD *)(a5 + 8) = 0;
-        v16 = sub_180075F10((unsigned int)(a4 - 5), v14, a5);
+        *(_QWORD *)ActivationContextInformation = 0LL;
+        *((_DWORD *)ActivationContextInformation + 2) = 0;
+        v16 = sub_180075F10(
+                (unsigned int)(ActivationContextInformationClass - 5),
+                NotificationContext,
+                ActivationContextInformation);
         if ( v16 < 0 )
           break;
-        if ( a7 )
-          *a7 = 12LL;
+        if ( ReturnLength )
+          *ReturnLength = 12LL;
 LABEL_38:
         v16 = 0;
         break;
       }
       v16 = -1073741789;
-      if ( a7 )
-        *a7 = 12LL;
+      if ( ReturnLength )
+        *ReturnLength = 12LL;
       break;
-    case 6:
-      v19 = sub_180076258(v14, a5, a6, a7);
+    case CompatibilityInformationInActivationContext:
+      v19 = sub_180076258(
+              NotificationContext,
+              ActivationContextInformation,
+              ActivationContextInformationLength,
+              ReturnLength);
 LABEL_45:
       v16 = v19;
       v18 = v19 < 0;
       goto LABEL_37;
-    case 7:
-      v19 = sub_1800DF058(v14, a5, a6, a7);
+    case ActivationContextManifestResourceName:
+      v19 = sub_1800DF058(
+              NotificationContext,
+              ActivationContextInformation,
+              ActivationContextInformationLength,
+              ReturnLength);
       goto LABEL_45;
     default:
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS: %s() - internal coding error; missing switch statement branch for InfoClass == %lu\n",
         "RtlQueryInformationActivationContext",
-        a4);
+        ActivationContextInformationClass);
       v16 = -1073741595;
       break;
   }
 LABEL_123:
-  if ( v30 )
-    sub_18001B678(v30);
-  return (unsigned int)v16;
+  if ( BaseAddress )
+    sub_18001B678((char *)BaseAddress);
+  return v16;
 }

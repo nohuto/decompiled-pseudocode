@@ -2,7 +2,7 @@
  * XREFs of RtlUnicodeStringValidateWorker @ 0x140017850
  * Callers:
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x14015D790 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14015D890 (RtlUnicodeStringValidateDestWorker.c)
  * Callees:
  *     <none>
  */

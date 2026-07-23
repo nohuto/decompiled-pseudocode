@@ -36,7 +36,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
     if ( *(_DWORD *)(a1 + 20) )
     {
       if ( (*(_BYTE *)a1 & 1) != 0 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 20));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 20));
       *(_DWORD *)(a1 + 20) = 0;
     }
     *(_DWORD *)a1 &= ~1u;
@@ -46,7 +46,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
     if ( *(_DWORD *)(a1 + 24) )
     {
       if ( (*(_BYTE *)a1 & 2) != 0 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 24));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 24));
       *(_DWORD *)(a1 + 24) = 0;
     }
     *(_DWORD *)a1 &= ~2u;
@@ -56,7 +56,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
     if ( *(_DWORD *)(a1 + 28) )
     {
       if ( (*(_BYTE *)a1 & 4) != 0 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 28));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 28));
       *(_DWORD *)(a1 + 28) = 0;
     }
     *(_DWORD *)a1 &= ~4u;
@@ -66,7 +66,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
     if ( *(_DWORD *)(a1 + 32) )
     {
       if ( (*(_BYTE *)a1 & 8) != 0 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 32));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 32));
       *(_DWORD *)(a1 + 32) = 0;
     }
     *(_DWORD *)a1 &= ~8u;
@@ -79,7 +79,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
       if ( (*(_BYTE *)a1 & 0x10) != 0 )
       {
         *(_DWORD *)(v5 + 32) &= ~0x40u;
-        RtlpMuiRegFreeLanguageList(*(_DWORD *)(a1 + 36));
+        RtlpMuiRegFreeLanguageList(*(PVOID *)(a1 + 36));
       }
       *(_DWORD *)(a1 + 36) = 0;
     }
@@ -93,7 +93,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
       if ( (*(_BYTE *)a1 & 0x20) != 0 )
       {
         *(_DWORD *)(v6 + 32) &= ~0x40u;
-        RtlpMuiRegFreeLanguageList(*(_DWORD *)(a1 + 40));
+        RtlpMuiRegFreeLanguageList(*(PVOID *)(a1 + 40));
       }
       *(_DWORD *)(a1 + 40) = 0;
     }
@@ -107,7 +107,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
       if ( (*(_BYTE *)a1 & 0x40) != 0 )
       {
         *(_DWORD *)(v7 + 32) &= ~0x40u;
-        RtlpMuiRegFreeLanguageList(*(_DWORD *)(a1 + 52));
+        RtlpMuiRegFreeLanguageList(*(PVOID *)(a1 + 52));
       }
       *(_DWORD *)(a1 + 52) = 0;
     }
@@ -121,7 +121,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
       if ( *(char *)a1 < 0 )
       {
         *(_DWORD *)(v8 + 32) &= ~0x40u;
-        RtlpMuiRegFreeLanguageList(*(_DWORD *)(a1 + 48));
+        RtlpMuiRegFreeLanguageList(*(PVOID *)(a1 + 48));
       }
       *(_DWORD *)(a1 + 48) = 0;
     }
@@ -135,7 +135,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
       if ( (*(_DWORD *)a1 & 0x200) != 0 )
       {
         *(_DWORD *)(v9 + 32) &= ~0x40u;
-        RtlpMuiRegFreeLanguageList(*(_DWORD *)(a1 + 56));
+        RtlpMuiRegFreeLanguageList(*(PVOID *)(a1 + 56));
       }
       *(_DWORD *)(a1 + 56) = 0;
     }
@@ -146,7 +146,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
     if ( *(_DWORD *)(a1 + 80) )
     {
       if ( (*(_DWORD *)a1 & 0x800) != 0 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 80));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 80));
       *(_DWORD *)(a1 + 80) = 0;
     }
     *(_DWORD *)a1 &= ~0x800u;
@@ -155,7 +155,7 @@ int __stdcall RtlpMuiRegFreeRegistryInfo(int a1, int a2)
   {
     RtlpMuiRegFreeRegistryInfo(*(_DWORD *)(a1 + 60), v3);
     if ( *(_DWORD *)(a1 + 60) )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 60));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 60));
     *(_DWORD *)(a1 + 60) = 0;
   }
   return v2;

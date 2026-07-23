@@ -60,7 +60,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   PVOID P; // [rsp+60h] [rbp-A8h] BYREF
   struct _KEVENT Object; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-88h] BYREF
-  STRING SourceString; // [rsp+98h] [rbp-70h] BYREF
+  _STRING SourceString; // [rsp+98h] [rbp-70h] BYREF
   _QWORD *v39; // [rsp+A8h] [rbp-60h]
   PFILE_OBJECT FileObject; // [rsp+B0h] [rbp-58h] BYREF
   __int64 v41; // [rsp+B8h] [rbp-50h]
@@ -69,14 +69,14 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   UNICODE_STRING SymbolicLinkName; // [rsp+D8h] [rbp-30h] BYREF
   LARGE_INTEGER Timeout; // [rsp+E8h] [rbp-20h] BYREF
   char pszDest[128]; // [rsp+F8h] [rbp-10h] BYREF
-  char v47[128]; // [rsp+178h] [rbp+70h] BYREF
+  CHAR v47[128]; // [rsp+178h] [rbp+70h] BYREF
 
   v1 = *(_QWORD **)(a1 + 232);
   v2 = 0;
   v41 = a1;
   P = 0LL;
   CdRomCount = IoGetConfigurationInformation()->CdRomCount;
-  SourceString = (STRING)GUID_DEVINTERFACE_CDROM;
+  SourceString = (_STRING)GUID_DEVINTERFACE_CDROM;
   ConfigurationInformation = IopFetchConfigurationInformation((PZZWSTR *)&P, (GUID *)&SourceString);
   v6 = P;
   v7 = ConfigurationInformation < 0;

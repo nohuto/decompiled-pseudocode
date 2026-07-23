@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeletePendingBadPageNodesAwaitingDeleteList @ 0x140673760
+ * XREFs of MiDeletePendingBadPageNodesAwaitingDeleteList @ 0x140674930
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 MiDeletePendingBadPageNodesAwaitingDeleteList()
@@ -16,24 +16,24 @@ __int64 MiDeletePendingBadPageNodesAwaitingDeleteList()
   PVOID v3; // rbx
   unsigned __int8 v4; // dl
 
-  for ( i = ExAcquireSpinLockExclusive(&dword_140E2FED0); ; i = ExAcquireSpinLockExclusive(&dword_140E2FED0) )
+  for ( i = ExAcquireSpinLockExclusive(&dword_140E30010); ; i = ExAcquireSpinLockExclusive(&dword_140E30010) )
   {
-    v3 = qword_140E2FEE0;
+    v3 = qword_140E30020;
     v4 = i;
-    if ( qword_140E2FEE0 == &qword_140E2FEE0 )
+    if ( qword_140E30020 == &qword_140E30020 )
       break;
-    v1 = *(_QWORD **)qword_140E2FEE0;
-    if ( *(PVOID *)(*(_QWORD *)qword_140E2FEE0 + 8LL) != qword_140E2FEE0
-      || (v2 = (PVOID *)*((_QWORD *)qword_140E2FEE0 + 1), *v2 != qword_140E2FEE0) )
+    v1 = *(_QWORD **)qword_140E30020;
+    if ( *(PVOID *)(*(_QWORD *)qword_140E30020 + 8LL) != qword_140E30020
+      || (v2 = (PVOID *)*((_QWORD *)qword_140E30020 + 1), *v2 != qword_140E30020) )
     {
       __fastfail(3u);
     }
     *v2 = v1;
     v1[1] = v2;
-    --qword_140E2FEF0;
-    MiReleaseSpinLockExclusive(&dword_140E2FED0, v4);
+    --qword_140E30030;
+    MiReleaseSpinLockExclusive(&dword_140E30010, v4);
     ExFreePoolWithTag(v3, 0);
   }
-  byte_140E2FEF8 = 0;
-  return MiReleaseSpinLockExclusive(&dword_140E2FED0, i);
+  byte_140E30038 = 0;
+  return MiReleaseSpinLockExclusive(&dword_140E30010, i);
 }

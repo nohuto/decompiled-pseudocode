@@ -14,7 +14,7 @@ __int64 __fastcall ExGetFirmwareEnvironmentVariable(__int64 a1, int a2, int a3, 
   void *v8; // rdi
   unsigned int FirmwareEnvironmentVariable; // ebx
 
-  if ( dword_140C31B10 != 2 )
+  if ( dword_140C31AB0 != 2 )
     return 3221225474LL;
   v8 = (void *)ExpUnicodeStringToNonpagedWStr();
   if ( !v8 )

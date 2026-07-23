@@ -1,11 +1,11 @@
 /*
- * XREFs of strtok_s @ 0x18009B5D0
+ * XREFs of strtok_s @ 0x18009B5E0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x180090060 (__report_rangecheckfailure.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x180090070 (__report_rangecheckfailure.c)
  */
 
 char *__cdecl strtok_s(char *String, const char *Delimiter, char **Context)

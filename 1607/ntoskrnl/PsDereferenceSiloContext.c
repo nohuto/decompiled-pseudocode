@@ -1,14 +1,14 @@
 /*
- * XREFs of PsDereferenceSiloContext @ 0x1400870F4
+ * XREFs of PsDereferenceSiloContext @ 0x1400019C0
  * Callers:
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     ObpDeleteNameCheck @ 0x140406620 (ObpDeleteNameCheck.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
- *     ObReferenceFileObjectForWrite @ 0x140446E50 (ObReferenceFileObjectForWrite.c)
- *     ObCloseHandleTableEntry @ 0x14044E380 (ObCloseHandleTableEntry.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByNameEx @ 0x140499E04 (ObReferenceObjectByNameEx.c)
- *     CmpCreateServerSiloCallback @ 0x14055F990 (CmpCreateServerSiloCallback.c)
+ *     ObReferenceObjectByNameEx @ 0x1403E4434 (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     ObpDeleteNameCheck @ 0x1404054E0 (ObpDeleteNameCheck.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
+ *     ObReferenceFileObjectForWrite @ 0x140445D20 (ObReferenceFileObjectForWrite.c)
+ *     ObCloseHandleTableEntry @ 0x14044D250 (ObCloseHandleTableEntry.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     CmpCreateServerSiloCallback @ 0x14055FED0 (CmpCreateServerSiloCallback.c)
  * Callees:
  *     <none>
  */

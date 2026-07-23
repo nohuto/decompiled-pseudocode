@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x14028E594
+ * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x14028E824
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x14028E514 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinish @ 0x14028E7A4 (PopDiagTraceIrpFinish.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopComputeWatchdogTimeout @ 0x14028EDF8 (PopComputeWatchdogTimeout.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     IoFindDeviceThatFailedIrp @ 0x140367DA4 (IoFindDeviceThatFailedIrp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagGetDriverName @ 0x1405918C4 (PopDiagGetDriverName.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopComputeWatchdogTimeout @ 0x14028F088 (PopComputeWatchdogTimeout.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     IoFindDeviceThatFailedIrp @ 0x140367F44 (IoFindDeviceThatFailedIrp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagGetDriverName @ 0x140591DB4 (PopDiagGetDriverName.c)
  */
 
 char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
@@ -87,10 +87,10 @@ char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
     }
   }
   LOBYTE(v11) = KxReleaseSpinLock((volatile signed __int64 *)(v3 + 288));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v11) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v11 <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)v11 >= 2u )
@@ -151,7 +151,7 @@ LABEL_19:
               v48 = 4LL;
               v32 = 0x1000000LL;
               v50 = 8LL;
-              LOBYTE(v11) = tlgWriteTransfer_EtwWriteTransfer(&dword_140C03950, byte_1400304F3, 0LL, 0LL, 11, v33);
+              LOBYTE(v11) = tlgWriteTransfer_EtwWriteTransfer(&dword_140C03950, byte_14002FD91, 0LL, 0LL, 11, v33);
             }
           }
           return v11;

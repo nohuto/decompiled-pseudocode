@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlGetMicrocodeLatency @ 0x14070F260
+ * XREFs of HvlGetMicrocodeLatency @ 0x14070CDF0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvcallInitInputControl @ 0x14045B1D0 (HvcallInitInputControl.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvcallInitInputControl @ 0x140450570 (HvcallInitInputControl.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlGetMicrocodeLatency(_QWORD *a1)

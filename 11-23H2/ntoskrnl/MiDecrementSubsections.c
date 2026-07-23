@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecrementSubsections @ 0x14029FA30
+ * XREFs of MiDecrementSubsections @ 0x14029FCC0
  * Callers:
- *     MiAddViewsForSection @ 0x140288770 (MiAddViewsForSection.c)
- *     MiUnmapViewSubsections @ 0x14029CC10 (MiUnmapViewSubsections.c)
- *     MiFlushRelease @ 0x14029F980 (MiFlushRelease.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiReleaseFaultCharges @ 0x1403636B0 (MiReleaseFaultCharges.c)
- *     MiDecrementSubsection @ 0x1403A668C (MiDecrementSubsection.c)
- *     MiUpControlAreaRefs @ 0x140625EFC (MiUpControlAreaRefs.c)
- *     MiUpdateActiveSubsection @ 0x140635BE0 (MiUpdateActiveSubsection.c)
+ *     MiAddViewsForSection @ 0x140288A00 (MiAddViewsForSection.c)
+ *     MiUnmapViewSubsections @ 0x14029CEA0 (MiUnmapViewSubsections.c)
+ *     MiFlushRelease @ 0x14029FC10 (MiFlushRelease.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
+ *     MiReleaseFaultCharges @ 0x140363850 (MiReleaseFaultCharges.c)
+ *     MiDecrementSubsection @ 0x1403A686C (MiDecrementSubsection.c)
+ *     MiUpControlAreaRefs @ 0x14062644C (MiUpControlAreaRefs.c)
+ *     MiUpdateActiveSubsection @ 0x140636130 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiInsertUnusedSubsection @ 0x14028BD00 (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x14028BF90 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
  */
 
 __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)

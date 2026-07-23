@@ -1,8 +1,8 @@
 /*
- * XREFs of xHalGetInterruptTranslator @ 0x140A80EA0
+ * XREFs of xHalGetInterruptTranslator @ 0x140A7B900
  * Callers:
- *     AnFwDisplayBackgroundUpdate @ 0x140BB1E44 (AnFwDisplayBackgroundUpdate.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140BB21B0 (AnFwpBackgroundUpdateTimer.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x140BB3E44 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140BB41B0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
  *     <none>
  */

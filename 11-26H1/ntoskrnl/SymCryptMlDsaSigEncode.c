@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptMlDsaSigEncode @ 0x140573A68
+ * XREFs of SymCryptMlDsaSigEncode @ 0x140572CC0
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
  * Callees:
- *     SymCryptMlDsaHintBitPack @ 0x140572A6C (SymCryptMlDsaHintBitPack.c)
- *     SymCryptMlDsaVectorEncode @ 0x140574380 (SymCryptMlDsaVectorEncode.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     SymCryptMlDsaHintBitPack @ 0x140571C78 (SymCryptMlDsaHintBitPack.c)
+ *     SymCryptMlDsaVectorEncode @ 0x1405735E4 (SymCryptMlDsaVectorEncode.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SymCryptMlDsaSigEncode(

@@ -11,52 +11,52 @@
  *     _wcsicmp @ 0x1800906B0 (_wcsicmp.c)
  */
 
-wchar_t *__fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, __int64 a2)
+int __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)
 {
   __int64 v4; // r14
-  wchar_t *result; // rax
-  unsigned int v6; // ecx
+  wchar_t *Heap; // rax
+  int v6; // ecx
   unsigned int v7; // ecx
   const wchar_t *v8; // rbx
-  __int64 v9; // rdi
+  wchar_t *v9; // rdi
   unsigned int v10; // r13d
   unsigned int v11; // esi
   _WORD *v12; // r15
   __int64 v13; // rax
-  int v14; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
-  unsigned int v16; // [rsp+A0h] [rbp+50h] BYREF
-  int v17; // [rsp+A8h] [rbp+58h] BYREF
+  ULONG Value; // [rsp+30h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v17; // [rsp+A0h] [rbp+50h] BYREF
+  int v18; // [rsp+A8h] [rbp+58h] BYREF
 
-  v17 = 7;
+  v18 = 7;
   v4 = 0LL;
-  v16 = 0;
-  v14 = 0;
+  LODWORD(v17) = 0;
+  Value = 0;
   RtlInitUnicodeString(&DestinationString, L"AlternateCodePage");
-  result = (wchar_t *)LdrpQueryValueKey(a2, (__int64)&DestinationString, &v17, 0LL, &v16);
-  if ( (_DWORD)result != -1073741772 )
+  LODWORD(Heap) = LdrpQueryValueKey(a2, &DestinationString, &v18, 0LL, (ULONG *)&v17);
+  if ( (_DWORD)Heap != -1073741772 )
   {
-    v6 = v16;
-    if ( v16 )
+    v6 = v17;
+    if ( (_DWORD)v17 )
     {
-      if ( (_DWORD)result == -2147483643 )
+      if ( (_DWORD)Heap == -2147483643 )
       {
-        v16 += 2;
+        LODWORD(v17) = v17 + 2;
         v7 = (v6 + 5) & 0xFFFFFFFC;
         if ( v7 )
         {
-          result = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v7);
-          v8 = result;
-          if ( result )
+          Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
+          v8 = Heap;
+          if ( Heap )
           {
-            v9 = (__int64)result;
-            if ( !(unsigned int)LdrpQueryValueKey(a2, (__int64)&DestinationString, &v17, result, &v16)
-              && (v17 == 1 || v17 == 7) )
+            v9 = Heap;
+            if ( !(unsigned int)LdrpQueryValueKey(a2, &DestinationString, &v18, Heap, (ULONG *)&v17)
+              && (v18 == 1 || v18 == 7) )
             {
               v10 = 0;
-              v11 = v16 >> 1;
-              v9 = (__int64)v8;
-              if ( v16 >> 1 )
+              v11 = (unsigned int)v17 >> 1;
+              v9 = (wchar_t *)v8;
+              if ( (unsigned int)v17 >> 1 )
               {
                 v12 = (_WORD *)(a1 + 20);
                 while ( v8 && *v8 )
@@ -64,11 +64,11 @@ wchar_t *__fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, __int64 a2)
                   if ( !wcsicmp(v8, L"*") )
                   {
                     *(_WORD *)(a1 + 20) = -1;
-                    return (wchar_t *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+                    break;
                   }
                   RtlInitUnicodeString(&DestinationString, v8);
-                  if ( (unsigned int)RtlUnicodeStringToInteger(&DestinationString.Length, 0xAu, &v14)
-                    || (++v4, *v12 = v14, ++v12, v4 < 4) )
+                  if ( RtlUnicodeStringToInteger(&DestinationString, 0xAu, &Value)
+                    || (++v4, *v12 = Value, ++v12, v4 < 4) )
                   {
                     v13 = -1LL;
                     do
@@ -79,15 +79,15 @@ wchar_t *__fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, __int64 a2)
                     if ( v10 < v11 )
                       continue;
                   }
-                  return (wchar_t *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+                  break;
                 }
               }
             }
-            return (wchar_t *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+            LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
           }
         }
       }
     }
   }
-  return result;
+  return (int)Heap;
 }

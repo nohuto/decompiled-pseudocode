@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCommitComplete @ 0x140724730
+ * XREFs of ZwCommitComplete @ 0x140729300
  * Callers:
- *     DifZwCommitCompleteWrapper @ 0x14069D400 (DifZwCommitCompleteWrapper.c)
+ *     DifZwCommitCompleteWrapper @ 0x1406A0FE0 (DifZwCommitCompleteWrapper.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwCommitComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVi
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock);
+  return KiServiceInternal(EnlistmentHandle);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerClockInterrupt @ 0x140220450
+ * XREFs of HalpTimerClockInterrupt @ 0x140221DE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14021F300 (HalpTimerWatchdogTriggerSystemReset.c)
- *     HalpMcaQueueDpc @ 0x140220048 (HalpMcaQueueDpc.c)
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     HalpScanForProfilingCorruption @ 0x1404682D4 (HalpScanForProfilingCorruption.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x140220C90 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpMcaQueueDpc @ 0x1402219D8 (HalpMcaQueueDpc.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     HalpScanForProfilingCorruption @ 0x140461914 (HalpScanForProfilingCorruption.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpTimerClockInterrupt(__int64 a1, __int64 a2, __int64 a3)
@@ -24,7 +24,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1, __int64 a2, __int64 a3)
   __int64 v12; // rcx
   struct _KPRCB *CurrentPrcb; // rax
   _QWORD *v14; // rbx
-  unsigned __int64 v15; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = *(_QWORD *)(a1 + 136);
   v4 = *(_BYTE *)(v3 + 41);
@@ -35,7 +35,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1, __int64 a2, __int64 a3)
   guard_dispatch_icall_no_overrides(v5, v5, a3);
   v6 = &IommuInterfaceStateChangeCallbackPushLock.WaitBlock[2].Thread
      + 3 * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *v6 = (struct _KTHREAD *)RtlGetInterruptTimePrecise(&v15);
+  *(LARGE_INTEGER *)v6 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *((_DWORD *)v6 + 2) = KeGetPcr()->Prcb.Number;
   *((_DWORD *)v6 + 3) = KiClockTimerOwner;
   *((_BYTE *)v6 + 16) = 0;

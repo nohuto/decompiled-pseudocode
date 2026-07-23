@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlULongAdd @ 0x1800065F8
+ * XREFs of RtlULongAdd @ 0x1800065E8
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x1800303A8 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x180030398 (LdrpSearchResourceSection_U.c)
  * Callees:
  *     <none>
  */

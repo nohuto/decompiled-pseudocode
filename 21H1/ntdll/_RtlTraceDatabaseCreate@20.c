@@ -8,53 +8,57 @@
  *     _RtlpTraceDatabaseAllocate@12 @ 0x4B36A468 (_RtlpTraceDatabaseAllocate@12.c)
  */
 
-_DWORD *__thiscall RtlTraceDatabaseCreate(
-        void *this,
-        unsigned int a2,
-        int a3,
+_DWORD *__userpurge RtlTraceDatabaseCreate@<eax>(
+        int a1@<ecx>,
+        int a2@<ebx>,
+        unsigned int a3,
         int a4,
         int a5,
-        int (__stdcall *a6)(int a1, int a2))
+        int a6,
+        int (__stdcall *a7)(int a1, int a2))
 {
-  _DWORD *v6; // eax
-  _DWORD *v7; // esi
-  _DWORD *v8; // ebx
-  int (__stdcall *v9)(int, int); // eax
-  size_t v11; // [esp-8h] [ebp-10h]
+  _DWORD *v7; // eax
+  _DWORD *v8; // esi
+  _DWORD *v9; // ebx
+  int (__stdcall *v10)(int, int); // eax
+  size_t v12; // [esp-8h] [ebp-10h]
+  size_t v13; // [esp-8h] [ebp-10h]
 
-  if ( a2 > 0x100000 )
+  if ( a3 > 0x100000 )
     return 0;
-  v6 = (_DWORD *)RtlpTraceDatabaseAllocate(this);
-  v7 = v6;
-  if ( !v6 )
+  v7 = (_DWORD *)RtlpTraceDatabaseAllocate((4 * a3 + 65700) & 0xFFFF0000, a1);
+  v8 = v7;
+  if ( !v7 )
     return 0;
-  v6[2] = a5;
-  v8 = v6 + 34;
-  v6[1] = a4 | 1;
-  v6[4] = a3;
-  *v6 = -1412576052;
-  v6[3] = 0;
-  v6[5] = 0x10000;
-  v6[6] = 0;
-  v6[17] = 0;
-  v6[16] = 0;
-  memset(v6 + 18, 0, 0x40u);
-  RtlInitializeCriticalSectionEx(v7 + 7, 0, 0);
-  v9 = a6;
-  v7[13] = a2;
-  if ( !a6 )
-    v9 = RtlStackTraceHashFunction;
-  v7[15] = v9;
-  v7[36] = 0;
-  *v8 = -1412580421;
-  v7[35] = v7;
-  v7[37] = 0x10000;
-  v11 = 4 * v7[13];
-  v7[3] = v8;
-  v7[14] = v7 + 41;
-  memset(v7 + 41, 0, v11);
-  v7[38] = v7;
-  v7[39] = v7 + 0x4000;
-  v7[40] = &v7[v7[13] + 41];
-  return v7;
+  HIDWORD(v12) = a2;
+  v7[2] = a6;
+  v9 = v7 + 34;
+  v7[1] = a5 | 1;
+  LODWORD(v12) = 64;
+  v7[4] = a4;
+  *v7 = -1412576052;
+  v7[3] = 0;
+  v7[5] = 0x10000;
+  v7[6] = 0;
+  v7[17] = 0;
+  v7[16] = 0;
+  memset(v7 + 18, 0, v12);
+  RtlInitializeCriticalSectionEx((PRTL_CRITICAL_SECTION)(v8 + 7), 0, 0);
+  v10 = a7;
+  v8[13] = a3;
+  if ( !a7 )
+    v10 = RtlStackTraceHashFunction;
+  v8[15] = v10;
+  v8[36] = 0;
+  *v9 = -1412580421;
+  v8[35] = v8;
+  v8[37] = 0x10000;
+  LODWORD(v13) = 4 * v8[13];
+  v8[3] = v9;
+  v8[14] = v8 + 41;
+  memset(v8 + 41, 0, v13);
+  v8[38] = v8;
+  v8[39] = v8 + 0x4000;
+  v8[40] = &v8[v8[13] + 41];
+  return v8;
 }

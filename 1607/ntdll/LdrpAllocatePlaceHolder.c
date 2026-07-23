@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpAllocatePlaceHolder @ 0x18000F5F4
+ * XREFs of LdrpAllocatePlaceHolder @ 0x18000F5E4
  * Callers:
- *     LdrpFindOrPrepareLoadingModule @ 0x18000F89C (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18000F88C (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
  * Callees:
- *     LdrpAllocateModuleEntry @ 0x18000F710 (LdrpAllocateModuleEntry.c)
- *     LdrpLogDllState @ 0x180015E20 (LdrpLogDllState.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     LdrpAllocateModuleEntry @ 0x18000F700 (LdrpAllocateModuleEntry.c)
+ *     LdrpLogDllState @ 0x180015E10 (LdrpLogDllState.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -20,26 +20,26 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
         __int64 *a6,
         __int64 a7)
 {
-  __int64 v10; // rdx
-  __int64 Heap; // rax
-  __int64 v13; // rbx
+  ULONG v10; // edx
+  _QWORD *Heap; // rax
+  _QWORD *v13; // rbx
   __int64 ModuleEntry; // rax
 
-  v10 = (NtdllBaseTag + 0x40000) | 8u;
+  v10 = (NtdllBaseTag + 0x40000) | 8;
   *a6 = 0LL;
   Heap = RtlAllocateHeap(LdrpHeap, v10, *(unsigned __int16 *)a1 + 154LL);
   v13 = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 32) = a7;
-    *(_QWORD *)(Heap + 40) = a5;
-    *(_QWORD *)(Heap + 8) = Heap + 152;
-    *(_DWORD *)(Heap + 24) = a3 | 0x8000;
-    *(_QWORD *)(Heap + 16) = a2;
+    Heap[4] = a7;
+    Heap[5] = a5;
+    Heap[1] = Heap + 19;
+    *((_DWORD *)Heap + 6) = a3 | 0x8000;
+    Heap[2] = a2;
     *(_WORD *)Heap = *(_WORD *)a1;
-    *(_WORD *)(Heap + 2) = *(_WORD *)a1 + 2;
-    memmove((void *)(Heap + 152), a1[1], *(unsigned __int16 *)a1);
-    *(_WORD *)(*(_QWORD *)(v13 + 8) + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
+    *((_WORD *)Heap + 1) = *(_WORD *)a1 + 2;
+    memmove(Heap + 19, a1[1], *(unsigned __int16 *)a1);
+    *(_WORD *)(v13[1] + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
     ModuleEntry = LdrpAllocateModuleEntry(v13);
     *a6 = ModuleEntry;
     if ( ModuleEntry )
@@ -49,7 +49,7 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
     }
     else
     {
-      RtlFreeHeap(LdrpHeap, 0LL, v13);
+      RtlFreeHeap(LdrpHeap, 0, v13);
     }
   }
   return *a6 == 0 ? 0xC0000017 : 0;

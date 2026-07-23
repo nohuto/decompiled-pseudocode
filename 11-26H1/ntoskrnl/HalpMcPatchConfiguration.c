@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcPatchConfiguration @ 0x14059384C
+ * XREFs of HalpMcPatchConfiguration @ 0x140595FCC
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405931E8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140595968 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
  */
 
 __int64 HalpMcPatchConfiguration()

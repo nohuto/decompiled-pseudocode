@@ -1,8 +1,8 @@
 /*
- * XREFs of VfGetPristineDispatchRoutine @ 0x140ACD22C
+ * XREFs of VfGetPristineDispatchRoutine @ 0x140ACD21C
  * Callers:
- *     IovpCallDriver1 @ 0x140ACC1A0 (IovpCallDriver1.c)
- *     VfBeforeCallDriver @ 0x140ACD5DC (VfBeforeCallDriver.c)
+ *     IovpCallDriver1 @ 0x140ACC190 (IovpCallDriver1.c)
+ *     VfBeforeCallDriver @ 0x140ACD5CC (VfBeforeCallDriver.c)
  * Callees:
  *     MmIsDriverVerifying @ 0x14020A570 (MmIsDriverVerifying.c)
  */

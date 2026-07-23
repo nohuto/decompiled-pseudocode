@@ -9,99 +9,109 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall PsspDumpThread(int *a1, int a2, int a3, int a4, int a5, HANDLE ThreadHandle)
+int __userpurge PsspDumpThread@<eax>(
+        int a1@<edx>,
+        int *a2@<ecx>,
+        int a3@<ebx>,
+        unsigned int a4,
+        int a5,
+        int a6,
+        HANDLE ThreadHandle)
 {
-  int v7; // esi
-  void *v8; // eax
-  unsigned int v9; // ecx
+  int v8; // esi
+  int v9; // eax
+  unsigned int v10; // ecx
   int result; // eax
-  bool v11; // zf
-  int v12; // ecx
-  int v13; // edx
-  int v14; // ebx
-  int v15; // ecx
-  void *v16; // [esp-10h] [ebp-3Ch]
-  size_t v17; // [esp-8h] [ebp-34h]
-  void *v18; // [esp-8h] [ebp-34h]
-  unsigned int v20; // [esp+10h] [ebp-1Ch] BYREF
-  size_t Size; // [esp+14h] [ebp-18h]
-  void *v22; // [esp+18h] [ebp-14h]
-  int v23; // [esp+1Ch] [ebp-10h]
-  int v24; // [esp+20h] [ebp-Ch]
+  bool v12; // zf
+  int v13; // ecx
+  int v14; // edx
+  int v15; // ebx
+  int v16; // ecx
+  _CONTEXT *v17; // [esp-10h] [ebp-3Ch]
+  size_t v18; // [esp-8h] [ebp-34h]
+  size_t v19; // [esp-8h] [ebp-34h]
+  _CONTEXT *v20; // [esp-8h] [ebp-34h]
+  unsigned int v22; // [esp+10h] [ebp-1Ch] BYREF
+  unsigned int Size; // [esp+14h] [ebp-18h]
+  _CONTEXT *Size_4; // [esp+18h] [ebp-14h]
+  int v25; // [esp+1Ch] [ebp-10h]
+  int v26; // [esp+20h] [ebp-Ch]
   int ThreadInformation; // [esp+24h] [ebp-8h] BYREF
   ULONG ReturnLength; // [esp+28h] [ebp-4h] BYREF
 
-  v23 = a2;
-  v7 = *a1;
-  v8 = (void *)(*a1 + a5 + 104);
-  Size = (a4 + 15) & 0xFFFFFFF0;
-  v22 = v8;
-  v9 = a1[2];
-  v24 = Size + a5 + 104;
-  result = RtlULongPtrAdd(v9, v24, (int *)&v20);
+  v25 = a1;
+  v8 = *a2;
+  v9 = *a2 + a6 + 104;
+  Size = (a5 + 15) & 0xFFFFFFF0;
+  Size_4 = (_CONTEXT *)v9;
+  v10 = a2[2];
+  v26 = Size + a6 + 104;
+  result = RtlULongPtrAdd(v10, v26, (int *)&v22);
   if ( result >= 0 )
   {
-    if ( v20 <= a1[1] )
+    if ( v22 <= a2[1] )
     {
-      memset((void *)v7, 0, 0x68u);
-      result = NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)0, (PVOID)v7, 0x1Cu, &ReturnLength);
+      HIDWORD(v18) = a3;
+      LODWORD(v18) = 104;
+      memset((void *)v8, 0, v18);
+      result = NtQueryInformationThread(ThreadHandle, ThreadBasicInformation, (PVOID)v8, 0x1Cu, &ReturnLength);
       if ( result >= 0 )
       {
-        if ( (v23 & 0x400) != 0
-          && NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)21, (PVOID)(v7 + 32), 0x10u, &ReturnLength) < 0 )
+        if ( (v25 & 0x400) != 0
+          && NtQueryInformationThread(ThreadHandle, ThreadLastSystemCall, (PVOID)(v8 + 32), 0x10u, &ReturnLength) < 0 )
         {
-          *(_WORD *)(v7 + 36) = -1;
+          *(_WORD *)(v8 + 36) = -1;
         }
-        result = NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)1, (PVOID)(v7 + 48), 0x20u, &ReturnLength);
+        result = NtQueryInformationThread(ThreadHandle, ThreadTimes, (PVOID)(v8 + 48), 0x20u, &ReturnLength);
         if ( result >= 0 )
         {
-          result = NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)9, (PVOID)(v7 + 80), 4u, &ReturnLength);
+          result = NtQueryInformationThread(
+                     ThreadHandle,
+                     ThreadQuerySetWin32StartAddress,
+                     (PVOID)(v8 + 80),
+                     4u,
+                     &ReturnLength);
           if ( result >= 0 )
           {
-            result = NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)20, &ThreadInformation, 4u, &ReturnLength);
+            result = NtQueryInformationThread(ThreadHandle, ThreadIsTerminated, &ThreadInformation, 4u, &ReturnLength);
             if ( result >= 0 )
             {
-              *(_WORD *)(v7 + 98) = (ThreadInformation != 0) | *(_WORD *)(v7 + 98) & 0xFFFE;
-              result = NtQueryInformationThread(
-                         ThreadHandle,
-                         (THREADINFOCLASS)35,
-                         &ThreadInformation,
-                         4u,
-                         &ReturnLength);
+              *(_WORD *)(v8 + 98) = (ThreadInformation != 0) | *(_WORD *)(v8 + 98) & 0xFFFE;
+              result = NtQueryInformationThread(ThreadHandle, ThreadSuspendCount, &ThreadInformation, 4u, &ReturnLength);
               if ( result >= 0 )
               {
-                v11 = (v23 & 0x100) == 0;
-                *(_WORD *)(v7 + 96) = ThreadInformation;
-                if ( !v11 )
+                v12 = (v25 & 0x100) == 0;
+                *(_WORD *)(v8 + 96) = ThreadInformation;
+                if ( !v12 )
                 {
-                  v17 = Size;
-                  v16 = v22;
-                  *(_WORD *)(v7 + 98) = (2 * a4) | *(_WORD *)(v7 + 98) & 1;
-                  memset(v16, 0, v17);
-                  v18 = v22;
-                  *(_DWORD *)v22 = a3;
-                  if ( NtGetContextThread((int)ThreadHandle, (int)v18) < 0 )
+                  v17 = Size_4;
+                  LODWORD(v19) = Size;
+                  *(_WORD *)(v8 + 98) = (2 * a5) | *(_WORD *)(v8 + 98) & 1;
+                  memset(v17, 0, v19);
+                  v20 = Size_4;
+                  Size_4->ContextFlags = a4;
+                  if ( NtGetContextThread(ThreadHandle, v20) < 0 )
                   {
-                    v12 = v24;
-                    *(_WORD *)(v7 + 98) &= 1u;
-                    v24 = v12 - Size;
+                    v13 = v26;
+                    *(_WORD *)(v8 + 98) &= 1u;
+                    v26 = v13 - Size;
                   }
                 }
                 while ( 1 )
                 {
-                  v13 = MEMORY[0x7FFE0018];
-                  v14 = MEMORY[0x7FFE0014];
+                  v14 = MEMORY[0x7FFE0018];
+                  v15 = MEMORY[0x7FFE0014];
                   if ( MEMORY[0x7FFE0018] == MEMORY[0x7FFE001C] )
                     break;
                   _mm_pause();
                 }
-                v15 = v24;
-                *a1 += v24;
-                a1[2] += v15;
-                ++a1[3];
+                v16 = v26;
+                *a2 += v26;
+                a2[2] += v16;
+                ++a2[3];
                 result = 0;
-                *(_DWORD *)(v7 + 88) = v14;
-                *(_DWORD *)(v7 + 92) = v13;
+                *(_DWORD *)(v8 + 88) = v15;
+                *(_DWORD *)(v8 + 92) = v14;
               }
             }
           }

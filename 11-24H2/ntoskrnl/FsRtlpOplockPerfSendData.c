@@ -1,24 +1,24 @@
 /*
- * XREFs of FsRtlpOplockPerfSendData @ 0x14070BDB4
+ * XREFs of FsRtlpOplockPerfSendData @ 0x140709948
  * Callers:
- *     FsRtlpCancelOplockRHIrp @ 0x1404190F0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlUninitializeOplock @ 0x1404E0250 (FsRtlUninitializeOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404E0638 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x1404E3BFC (FsRtlpOplockCleanup.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x140580814 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpCancelExclusiveIrp @ 0x140580A94 (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x140580DB0 (FsRtlpGrantAnyOplockFromExclusive.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14070B5DC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockCleanup @ 0x1403CDA80 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140408EA0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlUninitializeOplock @ 0x1404D98A0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404D9C50 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14057DC84 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14057DEC0 (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x14057E1D0 (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14070919C (FsRtlpOpBatchBreakClosePending.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     FsRtlpOplockIsSubjectToTimeout @ 0x140581758 (FsRtlpOplockIsSubjectToTimeout.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     FsRtlpOplockPerfBucketize @ 0x14070BAF4 (FsRtlpOplockPerfBucketize.c)
- *     FsRtlpOplockPerfCleanupData @ 0x14070BB9C (FsRtlpOplockPerfCleanupData.c)
- *     FsRtlpOplockPerfPrepareToSendData @ 0x14070BD04 (FsRtlpOplockPerfPrepareToSendData.c)
- *     FsRtlpOplockPerfSummarizeData @ 0x14070C164 (FsRtlpOplockPerfSummarizeData.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     FsRtlpOplockIsSubjectToTimeout @ 0x14057EADC (FsRtlpOplockIsSubjectToTimeout.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     FsRtlpOplockPerfBucketize @ 0x140709688 (FsRtlpOplockPerfBucketize.c)
+ *     FsRtlpOplockPerfCleanupData @ 0x140709730 (FsRtlpOplockPerfCleanupData.c)
+ *     FsRtlpOplockPerfPrepareToSendData @ 0x140709898 (FsRtlpOplockPerfPrepareToSendData.c)
+ *     FsRtlpOplockPerfSummarizeData @ 0x140709CF8 (FsRtlpOplockPerfSummarizeData.c)
  */
 
 char __fastcall FsRtlpOplockPerfSendData(_QWORD *a1)
@@ -109,7 +109,7 @@ char __fastcall FsRtlpOplockPerfSendData(_QWORD *a1)
           v63 = 4LL;
           v14 = 0x1000000LL;
           v65 = 8LL;
-          LOBYTE(v1) = tlgWriteAgg((__int64)&dword_140E06C30, (unsigned __int8 *)byte_1400438F0, v5, 5u, (__int64)v59);
+          LOBYTE(v1) = tlgWriteAgg((__int64)&dword_140E06C30, (unsigned __int8 *)byte_140043B93, v5, 5u, (__int64)v59);
         }
       }
 LABEL_15:
@@ -130,33 +130,33 @@ LABEL_15:
           if ( (unsigned int)dword_140E06C30 > 5 && tlgKeywordOn((__int64)&dword_140E06C30, 0x200000000000LL) )
           {
             v25 = &v15;
-            LOWORD(v9) = word_140E65B50;
+            LOWORD(v9) = word_140E65DB0;
             v27 = &v12;
-            v16 = qword_140E65B98;
+            v16 = qword_140E65DF8;
             v29 = &v16;
-            v17 = qword_140E65B58;
+            v17 = qword_140E65DB8;
             v31 = &v17;
-            v18 = qword_140E65B60;
+            v18 = qword_140E65DC0;
             v33 = &v18;
-            v19 = qword_140E65B68;
+            v19 = qword_140E65DC8;
             v35 = &v19;
-            v20 = qword_140E65B80;
+            v20 = qword_140E65DE0;
             v37 = &v20;
-            v21 = qword_140E65B88;
+            v21 = qword_140E65DE8;
             v39 = &v21;
-            v22 = qword_140E65B70;
+            v22 = qword_140E65DD0;
             v41 = &v22;
-            v23 = qword_140E65B78;
+            v23 = qword_140E65DD8;
             v43 = &v23;
             v8 = 16;
             v45 = &v8;
-            v47 = &unk_140E65C30;
+            v47 = &unk_140E65CD0;
             v49 = &v9;
-            v51 = xmmword_140E65B30;
-            v52 = 8 * (unsigned __int16)word_140E65B50;
+            v51 = xmmword_140E65D90;
+            v52 = 8 * (unsigned __int16)word_140E65DB0;
             v54 = &v10;
-            v56 = *((_QWORD *)&xmmword_140E65B30 + 1);
-            v57 = 8 * (unsigned __int16)word_140E65B52;
+            v56 = *((_QWORD *)&xmmword_140E65D90 + 1);
+            v57 = 8 * (unsigned __int16)word_140E65DB2;
             v15 = 0x1000000LL;
             v26 = 8LL;
             LODWORD(v12) = 2;
@@ -173,12 +173,12 @@ LABEL_15:
             v48 = 128LL;
             v50 = 2LL;
             v53 = 0;
-            LOWORD(v10) = word_140E65B52;
+            LOWORD(v10) = word_140E65DB2;
             v55 = 2LL;
             v58 = 0;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140E06C30,
-              (unsigned __int8 *)byte_140043793,
+              (unsigned __int8 *)byte_140043BE9,
               0LL,
               0LL,
               0x12u,

@@ -27,7 +27,7 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
   v5 = a3;
   v6 = 0;
   v8 = 1;
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   v9 = (unsigned int)v5;
   for ( i = *(_QWORD *)(a1 + 8 * v5 + 560); !i || a2 == i; i = *(_QWORD *)(a1 + 8 * v9 + 560) )
   {
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
           **(_QWORD **)(a1 + 264) = v12;
           *(_QWORD *)(a1 + 264) = v12;
         }
-        RtlLeaveCriticalSection(a1 + 72);
+        RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
         goto LABEL_14;
       }
       break;
@@ -66,9 +66,9 @@ __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
       v8 = 0;
       break;
     }
-    RtlSleepConditionVariableCS((signed __int64 *)(a1 + 64), a1 + 72, 0LL);
+    RtlSleepConditionVariableCS((PRTL_CONDITION_VARIABLE)(a1 + 64), (PRTL_CRITICAL_SECTION)(a1 + 72), 0LL);
   }
-  RtlLeaveCriticalSection(a1 + 72);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   if ( !a2 )
     goto LABEL_15;
 LABEL_14:
@@ -78,7 +78,7 @@ LABEL_15:
     && (!*(_DWORD *)(a1 + 352)
      || (unsigned int)(*(_DWORD *)(a1 + 208) - *(_DWORD *)(a1 + 188) - *(_DWORD *)(a1 + 212)) >= *(_DWORD *)(a1 + 352)) )
   {
-    ZwSetEvent(*(_QWORD *)(a1 + 112), 0LL);
+    ZwSetEvent(*(HANDLE *)(a1 + 112), 0LL);
   }
   return v8;
 }

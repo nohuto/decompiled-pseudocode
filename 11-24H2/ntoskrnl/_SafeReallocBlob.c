@@ -1,12 +1,12 @@
 /*
- * XREFs of _SafeReallocBlob @ 0x1406A2AF8
+ * XREFs of _SafeReallocBlob @ 0x1406A3B48
  * Callers:
- *     RtlpMuiRegGrowLanguageConfigList @ 0x14082CC54 (RtlpMuiRegGrowLanguageConfigList.c)
- *     RtlpMuiRegGrowLanguages @ 0x14082CCD8 (RtlpMuiRegGrowLanguages.c)
+ *     RtlpMuiRegGrowLanguageConfigList @ 0x14082D484 (RtlpMuiRegGrowLanguageConfigList.c)
+ *     RtlpMuiRegGrowLanguages @ 0x14082D508 (RtlpMuiRegGrowLanguages.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall SafeReallocBlob(
@@ -16,10 +16,10 @@ void *__fastcall SafeReallocBlob(
         unsigned int a4,
         int a5,
         int a6,
-        _DWORD *a7)
+        unsigned int *a7)
 {
   unsigned __int64 v8; // r8
-  int v9; // eax
+  unsigned int v9; // eax
   void *Pool2; // rax
   void *v11; // rdi
 
@@ -35,7 +35,7 @@ void *__fastcall SafeReallocBlob(
     *a7 = v9;
   if ( !v9 )
     return 0LL;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v9, 0x72746C6Du);
   v11 = Pool2;
   if ( !Pool2 )
     return 0LL;

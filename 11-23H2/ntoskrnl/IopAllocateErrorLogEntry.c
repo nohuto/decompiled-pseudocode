@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAllocateErrorLogEntry @ 0x1403C711C
+ * XREFs of IopAllocateErrorLogEntry @ 0x1403C72FC
  * Callers:
- *     IoAllocateErrorLogEntry @ 0x1403C70E0 (IoAllocateErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x140556748 (IoAllocateGenericErrorLogEntry.c)
+ *     IoAllocateErrorLogEntry @ 0x1403C72C0 (IoAllocateErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140556E08 (IoAllocateGenericErrorLogEntry.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

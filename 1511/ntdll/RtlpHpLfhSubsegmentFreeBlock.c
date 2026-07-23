@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(_QWORD *a1, __int64 a2, __int64 
   int v8; // r10d
   unsigned int v9; // r12d
   unsigned int v11; // edi
-  __int64 v12; // rbp
+  _RTL_SRWLOCK *v12; // rbp
   unsigned int v13; // esi
   __int64 v14; // rcx
   unsigned int v15; // edx
@@ -88,7 +88,7 @@ LABEL_15:
     {
       if ( !v12 && (!(_WORD)v23 || (unsigned __int16)v23 == v22 - 1) )
       {
-        v12 = RtlpHpLfhSubsegmentLockOwner(a2, v7);
+        v12 = (_RTL_SRWLOCK *)RtlpHpLfhSubsegmentLockOwner(a2, v7);
         if ( !v12 )
           return v11;
       }
@@ -102,7 +102,7 @@ LABEL_15:
       {
 LABEL_27:
         if ( v12 )
-          RtlReleaseSRWLockExclusive(v12 + 16);
+          RtlReleaseSRWLockExclusive(v12 + 2);
         return v11;
       }
     }
@@ -111,7 +111,7 @@ LABEL_27:
       v9 = 0;
     }
     v25 = RtlpHpLfhOwnerMoveSubsegment(v12, a2, v9);
-    RtlReleaseSRWLockExclusive(v12 + 16);
+    RtlReleaseSRWLockExclusive(v12 + 2);
     v12 = 0LL;
     if ( v25 )
       RtlpHpLfhBucketAddSubsegment(

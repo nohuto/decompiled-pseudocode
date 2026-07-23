@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpWalkPath @ 0x140825B68
+ * XREFs of CmpWalkPath @ 0x140825E68
  * Callers:
- *     CmpPreserveSystemHiveData @ 0x140A224FC (CmpPreserveSystemHiveData.c)
+ *     CmpPreserveSystemHiveData @ 0x140A227AC (CmpPreserveSystemHiveData.c)
  *     CmSelectQualifiedInstallLanguage @ 0x140B5952C (CmSelectQualifiedInstallLanguage.c)
  *     CmpGetSystemControlValues @ 0x140B59984 (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmpWalkUnicodeStringPath @ 0x140825BB0 (CmpWalkUnicodeStringPath.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmpWalkUnicodeStringPath @ 0x140825EB0 (CmpWalkUnicodeStringPath.c)
  */
 
 __int64 __fastcall CmpWalkPath(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, PCWSTR SourceString)

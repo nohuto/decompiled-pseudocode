@@ -1,9 +1,9 @@
 /*
- * XREFs of PsRevertToUserPagePriorityThread @ 0x1400FDEC0
+ * XREFs of PsRevertToUserPagePriorityThread @ 0x1400FBC40
  * Callers:
- *     SmSetThreadSystemPagePriority @ 0x14011CFD4 (SmSetThreadSystemPagePriority.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     SmSetThreadSystemPagePriority @ 0x14011D544 (SmSetThreadSystemPagePriority.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
  *     <none>
  */

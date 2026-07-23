@@ -1,12 +1,12 @@
 /*
- * XREFs of PsInitializeSyscallProviders @ 0x140C346F4
+ * XREFs of PsInitializeSyscallProviders @ 0x140C36834
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140AA208C (PsRegisterSyscallProviderServiceTableMetadata.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140A9D41C (PsRegisterSyscallProviderServiceTableMetadata.c)
  */
 
 void PsInitializeSyscallProviders()
@@ -19,7 +19,7 @@ void PsInitializeSyscallProviders()
     && (memset_0(v0, 0, 0x68uLL),
         v2 = 32LL,
         v1 = &PspServiceDescriptorGroupTable,
-        (int)VslpEnterIumSecureMode(2u, 234LL, 0, (__int64)v0) >= 0) )
+        (int)VslpEnterIumSecureMode(2u, 0xEAu, 0, (__int64)v0) >= 0) )
   {
     PspSyscallProvidersEnabled = 1;
     PsRegisterSyscallProviderServiceTableMetadata(0);

@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwTestAlert()
+NTSTATUS ZwTestAlert(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 419LL;
+  result = 419;
   __asm { syscall; Low latency system call }
   return result;
 }

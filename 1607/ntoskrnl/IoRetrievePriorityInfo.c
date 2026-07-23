@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRetrievePriorityInfo @ 0x1400EB870
+ * XREFs of IoRetrievePriorityInfo @ 0x1400E96E0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     IoGetIoPriorityHint @ 0x1400EBCB0 (IoGetIoPriorityHint.c)
- *     PsGetBaseIoPriorityThread @ 0x1400EBF30 (PsGetBaseIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     IoGetIoPriorityHint @ 0x1400E9B20 (IoGetIoPriorityHint.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400E9DA0 (PsGetBaseIoPriorityThread.c)
  */
 
 NTSTATUS __stdcall IoRetrievePriorityInfo(

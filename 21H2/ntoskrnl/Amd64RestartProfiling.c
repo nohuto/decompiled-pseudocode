@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64RestartProfiling @ 0x1409A9860
+ * XREFs of Amd64RestartProfiling @ 0x1409AA790
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ConfigureCounter @ 0x1404DD80C (Amd64ConfigureCounter.c)
+ *     Amd64ConfigureCounter @ 0x1404DDA4C (Amd64ConfigureCounter.c)
  */
 
 unsigned __int64 Amd64RestartProfiling()

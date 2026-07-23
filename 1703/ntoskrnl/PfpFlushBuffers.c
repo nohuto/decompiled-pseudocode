@@ -16,12 +16,12 @@
 
 char PfpFlushBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   char *v1; // rdi
   void *v2; // r15
   int v3; // r12d
   PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *v5; // rcx
+  _SLIST_ENTRY *v5; // rcx
   __int64 v6; // rsi
   unsigned __int64 v7; // rdx
   __int64 v8; // rbp
@@ -32,7 +32,7 @@ char PfpFlushBuffers()
   __int64 v14; // rax
   unsigned __int64 *v15; // rcx
   unsigned __int64 v16; // rax
-  struct _SLIST_ENTRY *v17; // rcx
+  _SLIST_ENTRY *v17; // rcx
   unsigned int v18; // [rsp+30h] [rbp-88h] BYREF
   _QWORD v19[2]; // [rsp+38h] [rbp-80h] BYREF
   __int64 Src; // [rsp+48h] [rbp-70h] BYREF

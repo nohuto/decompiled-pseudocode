@@ -3,7 +3,7 @@
  * Callers:
  *     BcpFindMessage @ 0x1407D4224 (BcpFindMessage.c)
  * Callees:
- *     RtlFindMessage @ 0x14051C574 (RtlFindMessage.c)
+ *     RtlFindMessage @ 0x1404FF964 (RtlFindMessage.c)
  */
 
 BYTE *__fastcall ResFwFindMessage(ULONG MessageId)

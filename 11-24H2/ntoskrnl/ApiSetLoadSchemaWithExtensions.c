@@ -1,15 +1,15 @@
 /*
- * XREFs of ApiSetLoadSchemaWithExtensions @ 0x1407C9820
+ * XREFs of ApiSetLoadSchemaWithExtensions @ 0x1407C9D10
  * Callers:
- *     PspSiloLoadApiSets @ 0x1407735E8 (PspSiloLoadApiSets.c)
+ *     PspSiloLoadApiSets @ 0x140773808 (PspSiloLoadApiSets.c)
  * Callees:
- *     ApiSetReleaseSchema @ 0x14065FA14 (ApiSetReleaseSchema.c)
- *     ApiSetGetSchemaVersion @ 0x14065FA30 (ApiSetGetSchemaVersion.c)
- *     ApiSetIsSchemaSealed @ 0x140660970 (ApiSetIsSchemaSealed.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ApiSetLoadSchemaEx @ 0x1407C9704 (ApiSetLoadSchemaEx.c)
- *     ApiSetpLoadSchemaExtensions @ 0x1407C9AE8 (ApiSetpLoadSchemaExtensions.c)
- *     ApiSetpOpenSchemaExtensionsRootNode @ 0x1407C9D98 (ApiSetpOpenSchemaExtensionsRootNode.c)
+ *     ApiSetReleaseSchema @ 0x14065E1E4 (ApiSetReleaseSchema.c)
+ *     ApiSetGetSchemaVersion @ 0x14065E200 (ApiSetGetSchemaVersion.c)
+ *     ApiSetIsSchemaSealed @ 0x14065F140 (ApiSetIsSchemaSealed.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ApiSetLoadSchemaEx @ 0x1407C9BF4 (ApiSetLoadSchemaEx.c)
+ *     ApiSetpLoadSchemaExtensions @ 0x1407C9FD8 (ApiSetpLoadSchemaExtensions.c)
+ *     ApiSetpOpenSchemaExtensionsRootNode @ 0x1407CA288 (ApiSetpOpenSchemaExtensionsRootNode.c)
  */
 
 __int64 __fastcall ApiSetLoadSchemaWithExtensions(__int64 a1, __int64 *a2, size_t *a3)

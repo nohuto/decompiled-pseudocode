@@ -6,23 +6,16 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-void __userpurge sub_4B322305(const void *a1@<edx>, int a2@<ecx>, const void *a3@<edi>, int a4, int a5, int a6)
+void __thiscall sub_4B322305(ULONG Level, int a2, int a3, int a4)
 {
-  int v6; // [esp+0h] [ebp-8h]
-  int v7; // [esp+4h] [ebp-4h]
-
   DbgPrintEx(
     51,
-    a2,
-    "SXS: %s() bad parameters\n"
-    "SXS:   Map                : %p\n"
-    "SXS:   Data               : %p\n"
-    "SXS:   AssemblyRosterIndex: 0x%lx\n"
-    "SXS:   Map->AssemblyCount : 0x%lx\n",
-    "RtlpResolveAssemblyStorageMapEntry",
-    a3,
-    a1,
-    v6,
-    v7);
+    Level,
+    (int)"SXS: %s() bad parameters\n"
+         "SXS:   Map                : %p\n"
+         "SXS:   Data               : %p\n"
+         "SXS:   AssemblyRosterIndex: 0x%lx\n"
+         "SXS:   Map->AssemblyCount : 0x%lx\n",
+    (int)"RtlpResolveAssemblyStorageMapEntry");
   JUMPOUT(0x4B2E2B66);
 }

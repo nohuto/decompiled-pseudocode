@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkComputeDiff @ 0x1404EE290
+ * XREFs of PpmParkComputeDiff @ 0x1404E5A28
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1404EDA40 (PpmParkCalculateCoreParkingMask.c)
- *     PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C (PpmParkCalculateCoreParkingMaskEx.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1404E5250 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8 (PpmParkCalculateCoreParkingMaskEx.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeXorAffinityEx2 @ 0x140354F38 (KeXorAffinityEx2.c)
- *     PpmParkEvaluateRestriction @ 0x1404EE4B8 (PpmParkEvaluateRestriction.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeXorAffinityEx2 @ 0x1402B2C68 (KeXorAffinityEx2.c)
+ *     PpmParkEvaluateRestriction @ 0x1404E5C48 (PpmParkEvaluateRestriction.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned int PpmParkComputeDiff()
@@ -30,7 +30,7 @@ unsigned int PpmParkComputeDiff()
   memset_0(&PpmParkNewSoftParkingMask.8, 0, sizeof(PpmParkNewSoftParkingMask.8));
   for ( i = 0; i < PpmParkNumNodes; ++i )
   {
-    v6 = PpmParkNodes + 1288LL * i;
+    v6 = PpmParkNodes + 1296LL * i;
     if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline(v2, v1, v3, v4) )
     {
       KiOrAffinityEx(
@@ -54,7 +54,7 @@ unsigned int PpmParkComputeDiff()
   if ( PpmParkNumNodes )
   {
     do
-      result = PpmParkEvaluateRestriction(PpmParkNodes + 1288LL * v0++);
+      result = PpmParkEvaluateRestriction(PpmParkNodes + 1296LL * v0++);
     while ( v0 < PpmParkNumNodes );
   }
   return result;

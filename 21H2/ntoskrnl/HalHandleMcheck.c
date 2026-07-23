@@ -1,9 +1,9 @@
 /*
- * XREFs of HalHandleMcheck @ 0x1404BCA60
+ * XREFs of HalHandleMcheck @ 0x1404BCCA0
  * Callers:
- *     KiHandleMcheck @ 0x140512720 (KiHandleMcheck.c)
+ *     KiHandleMcheck @ 0x140512960 (KiHandleMcheck.c)
  * Callees:
- *     HalpHandleMachineCheck @ 0x1404BA1EC (HalpHandleMachineCheck.c)
+ *     HalpHandleMachineCheck @ 0x1404BA42C (HalpHandleMachineCheck.c)
  */
 
 char __fastcall HalHandleMcheck(__int64 a1, __int64 a2, _OWORD *a3)

@@ -1,31 +1,31 @@
 /*
- * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x140A6A3BC
+ * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x140A6A66C
  * Callers:
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1406CC310 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x1406CE1F4 (_CmOpenDeviceRegKeyWorker.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x140787A34 (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x14079AD80 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140A61138 (_CmDeleteCommonClassRegKeyWorker.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A61830 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A61EF4 (_CmDeleteDeviceRegKeyWorker.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A6389C (_CmDeleteDeviceContainerRegKeyWorker.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A65FCC (_CmDeleteDevicePanelRegKeyWorker.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x140A66920 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1406CC340 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x1406CE224 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140787C24 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x14079AF70 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140A613E8 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A61AE0 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A621A4 (_CmDeleteDeviceRegKeyWorker.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A63B4C (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A6627C (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     _CmOpenDevicePanelRegKeyWorker @ 0x140A66BD0 (_CmOpenDevicePanelRegKeyWorker.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
- *     RtlUShortAdd @ 0x1403225C4 (RtlUShortAdd.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryInformationToken @ 0x14041B180 (ZwQueryInformationToken.c)
- *     ZwOpenThreadTokenEx @ 0x14041B340 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x14041B360 (ZwOpenProcessTokenEx.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x1407D0E6C (_SysCtxGetCachedContextBaseKey.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FAD40 (RtlConvertSidToUnicodeString.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     RtlSubAuthoritySid @ 0x140297D60 (RtlSubAuthoritySid.c)
+ *     RtlUShortAdd @ 0x140322854 (RtlUShortAdd.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryInformationToken @ 0x14041B510 (ZwQueryInformationToken.c)
+ *     ZwOpenThreadTokenEx @ 0x14041B6D0 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x14041B6F0 (ZwOpenProcessTokenEx.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x1407D113C (_SysCtxGetCachedContextBaseKey.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407FB010 (RtlConvertSidToUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -39,7 +39,7 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsi
   wchar_t *Pool2; // rax
   __int64 v13; // rcx
   USHORT pusResult[2]; // [rsp+30h] [rbp-99h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
   int TokenInformation; // [rsp+3Ch] [rbp-8Dh] BYREF
   ULONG ReturnLength; // [rsp+40h] [rbp-89h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-81h] BYREF

@@ -49,11 +49,14 @@ __int64 MiInitializeCacheFlushing()
   int v24; // [rsp+30h] [rbp-40h] BYREF
   int v25; // [rsp+34h] [rbp-3Ch] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-38h] BYREF
-  _OWORD v27[2]; // [rsp+40h] [rbp-30h] BYREF
+  _OWORD SystemInformation[2]; // [rsp+40h] [rbp-30h] BYREF
 
-  memset(v27, 0, sizeof(v27));
-  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v27) >= 0 && (BYTE8(v27[0]) & 1) != 0 )
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  if ( ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL) >= 0
+    && (BYTE8(SystemInformation[0]) & 1) != 0 )
+  {
     byte_140C65BE8 = 1;
+  }
   result = MiGetPage((__int64)MiSystemPartition, 0, 0);
   v1 = result;
   if ( result != -1 )
@@ -66,7 +69,7 @@ __int64 MiInitializeCacheFlushing()
     v5 = 2LL;
     __writecr8(2uLL);
     v6 = 4LL;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -145,10 +148,10 @@ __int64 MiInitializeCacheFlushing()
         LOBYTE(v5) = 2;
       }
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= (unsigned __int8)v5 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= (unsigned __int8)v5 )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v18 = CurrentPrcb->SchedulerAssist;

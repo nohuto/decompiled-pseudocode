@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetSystemAddressForImage @ 0x1404CCEDC
+ * XREFs of MiGetSystemAddressForImage @ 0x1404B2908
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiFreePrivateFixupEntryForSystemImage @ 0x14012CCA0 (MiFreePrivateFixupEntryForSystemImage.c)
- *     MiSessionInsertImage @ 0x14012FB6C (MiSessionInsertImage.c)
- *     MiAddPrivateFixupEntryForSystemImage @ 0x140130E64 (MiAddPrivateFixupEntryForSystemImage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiImageSuitableForSystem @ 0x1404CD074 (MiImageSuitableForSystem.c)
- *     MiSelectSystemImageAddress @ 0x1404CD09C (MiSelectSystemImageAddress.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiMapImageInSystemSpace @ 0x140525CC8 (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x140525DFC (MiUnmapImageInSystemSpace.c)
- *     MiReturnSystemImageAddress @ 0x1405448F0 (MiReturnSystemImageAddress.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x14012D210 (MiFreePrivateFixupEntryForSystemImage.c)
+ *     MiSessionInsertImage @ 0x1401300DC (MiSessionInsertImage.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1401313D4 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiImageSuitableForSystem @ 0x1404B2AA0 (MiImageSuitableForSystem.c)
+ *     MiSelectSystemImageAddress @ 0x1404B2AC8 (MiSelectSystemImageAddress.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiMapImageInSystemSpace @ 0x140508D28 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x140508E5C (MiUnmapImageInSystemSpace.c)
+ *     MiReturnSystemImageAddress @ 0x140544E30 (MiReturnSystemImageAddress.c)
  */
 
 unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, char a2, _DWORD *a3)
@@ -99,8 +99,8 @@ unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, char a2, _DWO
   if ( v7
     && v8 != 1
     && (a2 & 2) == 0
-    && ((a2 & 1) == 0 || v7 >= qword_140326910 && v7 < qword_140326910 + 0x8000000000LL)
-    && ((a2 & 1) != 0 || v7 < qword_140326910 || v7 >= qword_140326910 + 0x8000000000LL) )
+    && ((a2 & 1) == 0 || v7 >= qword_140326950 && v7 < qword_140326950 + 0x8000000000LL)
+    && ((a2 & 1) != 0 || v7 < qword_140326950 || v7 >= qword_140326950 + 0x8000000000LL) )
   {
     goto LABEL_15;
   }

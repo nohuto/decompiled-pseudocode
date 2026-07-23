@@ -1,18 +1,18 @@
 /*
- * XREFs of RaspAllocateMemory @ 0x1403875CC
+ * XREFs of RaspAllocateMemory @ 0x1403877AC
  * Callers:
- *     RaspLoadEmptyGlyph @ 0x140384F14 (RaspLoadEmptyGlyph.c)
- *     RaspGetXExtent @ 0x140385CA4 (RaspGetXExtent.c)
- *     RaspScanConvert @ 0x140386240 (RaspScanConvert.c)
- *     RaspCreatePointList @ 0x140386C1C (RaspCreatePointList.c)
- *     RaspRectangleCreate @ 0x140386CD4 (RaspRectangleCreate.c)
- *     RaspInitializeGlyphData @ 0x140386E1C (RaspInitializeGlyphData.c)
- *     RaspCreateSegmentList @ 0x1403871FC (RaspCreateSegmentList.c)
- *     RaspInterpolatePoint @ 0x140387544 (RaspInterpolatePoint.c)
- *     RaspGetCompositeGlyphList @ 0x1406734AC (RaspGetCompositeGlyphList.c)
- *     RaspInitializeCompositeGlyphData @ 0x1406737DC (RaspInitializeCompositeGlyphData.c)
+ *     RaspLoadEmptyGlyph @ 0x1403850F4 (RaspLoadEmptyGlyph.c)
+ *     RaspGetXExtent @ 0x140385E84 (RaspGetXExtent.c)
+ *     RaspScanConvert @ 0x140386420 (RaspScanConvert.c)
+ *     RaspCreatePointList @ 0x140386DFC (RaspCreatePointList.c)
+ *     RaspRectangleCreate @ 0x140386EB4 (RaspRectangleCreate.c)
+ *     RaspInitializeGlyphData @ 0x140386FFC (RaspInitializeGlyphData.c)
+ *     RaspCreateSegmentList @ 0x1403873DC (RaspCreateSegmentList.c)
+ *     RaspInterpolatePoint @ 0x140387724 (RaspInterpolatePoint.c)
+ *     RaspGetCompositeGlyphList @ 0x1406739FC (RaspGetCompositeGlyphList.c)
+ *     RaspInitializeCompositeGlyphData @ 0x140673D2C (RaspInitializeCompositeGlyphData.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
  */
 
 __int64 __fastcall RaspAllocateMemory(unsigned __int64 a1, __int64 *a2)

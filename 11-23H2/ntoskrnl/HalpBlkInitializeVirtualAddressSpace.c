@@ -3,7 +3,7 @@
  * Callers:
  *     HalpBlkInitSystem @ 0x140B48F28 (HalpBlkInitSystem.c)
  * Callees:
- *     HalpMap @ 0x14037E228 (HalpMap.c)
+ *     HalpMap @ 0x14037E3C8 (HalpMap.c)
  *     HalpBlkAllocatePageTablePage @ 0x140B91CD4 (HalpBlkAllocatePageTablePage.c)
  *     HalpBlkAllocateShadowCode @ 0x140B91D5C (HalpBlkAllocateShadowCode.c)
  *     HalpBlkAllocateShadowData @ 0x140B91E34 (HalpBlkAllocateShadowData.c)

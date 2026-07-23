@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmParkCalculateCoreParkingMask @ 0x140353830
+ * XREFs of PpmParkCalculateCoreParkingMask @ 0x1403539D0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeCpuSetQueryUnparkRecommendation @ 0x1404612C2 (KeCpuSetQueryUnparkRecommendation.c)
- *     PpmEventTraceSoftCoreParkingSelection @ 0x14046349E (PpmEventTraceSoftCoreParkingSelection.c)
- *     PpmParkComputeDiff @ 0x1404636D0 (PpmParkComputeDiff.c)
- *     PpmEventLPICoreParking @ 0x14059AA1C (PpmEventLPICoreParking.c)
- *     PpmParkComputeUnparkMask @ 0x14059C604 (PpmParkComputeUnparkMask.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeCpuSetQueryUnparkRecommendation @ 0x1404616C2 (KeCpuSetQueryUnparkRecommendation.c)
+ *     PpmEventTraceSoftCoreParkingSelection @ 0x14046389E (PpmEventTraceSoftCoreParkingSelection.c)
+ *     PpmParkComputeDiff @ 0x140463AD0 (PpmParkComputeDiff.c)
+ *     PpmEventLPICoreParking @ 0x14059AF0C (PpmEventLPICoreParking.c)
+ *     PpmParkComputeUnparkMask @ 0x14059CAF4 (PpmParkComputeUnparkMask.c)
  */
 
 char PpmParkCalculateCoreParkingMask()
@@ -97,7 +97,7 @@ char PpmParkCalculateCoreParkingMask()
   {
     PpmParkSoftParkCurrentRank = 0;
     PpmParkSoftParkRankListChanged = 0;
-    v67 = &PpmCurrentProfile[55 * dword_140C3D86C];
+    v67 = &PpmCurrentProfile[55 * dword_140C3D96C];
     v0 = 100 * *((unsigned __int8 *)v67 + 164);
     v56 = v0;
     if ( PpmParkNewSoftParkRankList )

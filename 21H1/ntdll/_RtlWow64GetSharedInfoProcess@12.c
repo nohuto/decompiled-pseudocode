@@ -7,21 +7,21 @@
  *     _NtReadVirtualMemory@20 @ 0x4B2F2D70 (_NtReadVirtualMemory@20.c)
  */
 
-int __thiscall RtlWow64GetSharedInfoProcess(void *this, int a2, _BYTE *a3, int a4)
+int __thiscall RtlWow64GetSharedInfoProcess(PSIZE_T NumberOfBytesRead, HANDLE ProcessHandle, _BYTE *a3, PVOID Buffer)
 {
   int result; // eax
-  void *v5; // edx
-  void *v6; // [esp+0h] [ebp-4h] BYREF
+  PSIZE_T v5; // edx
+  PSIZE_T ProcessInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v6 = this;
-  result = ZwQueryInformationProcess(a2, 26, (int)&v6, 4, 0);
+  ProcessInformation = NumberOfBytesRead;
+  result = ZwQueryInformationProcess(ProcessHandle, ProcessWow64Information, &ProcessInformation, 4u, 0);
   if ( result >= 0 )
   {
-    v5 = v6;
-    if ( v6 )
+    v5 = ProcessInformation;
+    if ( ProcessInformation )
     {
       *a3 = 1;
-      return NtReadVirtualMemory(a2, (int)v5 + 1152, a4, 40, 0);
+      return NtReadVirtualMemory(ProcessHandle, v5 + 144, Buffer, 0x28uLL, ProcessInformation);
     }
     else
     {

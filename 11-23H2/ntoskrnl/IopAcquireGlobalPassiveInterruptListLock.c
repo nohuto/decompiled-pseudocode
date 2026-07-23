@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAcquireGlobalPassiveInterruptListLock @ 0x1403A35BC
+ * XREFs of IopAcquireGlobalPassiveInterruptListLock @ 0x1403A379C
  * Callers:
- *     IopInsertPassiveInterruptBlock @ 0x1403A2DC0 (IopInsertPassiveInterruptBlock.c)
- *     IopDereferencePassiveInterruptBlock @ 0x1403A328C (IopDereferencePassiveInterruptBlock.c)
- *     IopFindPassiveInterruptBlock @ 0x1403A3528 (IopFindPassiveInterruptBlock.c)
+ *     IopInsertPassiveInterruptBlock @ 0x1403A2FA0 (IopInsertPassiveInterruptBlock.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x1403A346C (IopDereferencePassiveInterruptBlock.c)
+ *     IopFindPassiveInterruptBlock @ 0x1403A3708 (IopFindPassiveInterruptBlock.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  */
 
 void __fastcall IopAcquireGlobalPassiveInterruptListLock(unsigned __int8 *a1)
@@ -16,7 +16,7 @@ void __fastcall IopAcquireGlobalPassiveInterruptListLock(unsigned __int8 *a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )

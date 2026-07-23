@@ -4,35 +4,35 @@
  *     RtlpComputeSearchPath @ 0x180054B80 (RtlpComputeSearchPath.c)
  *     RtlpComputeDllPath @ 0x180056450 (RtlpComputeDllPath.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenKey @ 0x1800A0520 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x1800A05C0 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenKey @ 0x1800A0540 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x1800A05E0 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall RtlpLookupCurDirSetting(__int64 a1, unsigned __int32 a2, volatile signed __int32 *a3)
+__int64 __fastcall RtlpLookupCurDirSetting(PUNICODE_STRING ValueName, unsigned __int32 a2, volatile signed __int32 *a3)
 {
   HANDLE v6; // rbx
   unsigned __int32 v7; // ecx
   __int64 result; // rax
   HANDLE Handle; // [rsp+30h] [rbp-48h] BYREF
-  int v10; // [rsp+38h] [rbp-40h] BYREF
-  _BYTE v11[12]; // [rsp+40h] [rbp-38h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-40h] BYREF
+  _BYTE KeyValueInformation[12]; // [rsp+40h] [rbp-38h] BYREF
   unsigned int v12; // [rsp+4Ch] [rbp-2Ch]
 
   if ( !LdrpIsSecureProcess )
   {
-    Handle = (HANDLE)qword_180166308;
-    v6 = (HANDLE)qword_180166308;
-    if ( !qword_180166308 )
+    Handle = KeyHandle;
+    v6 = KeyHandle;
+    if ( !KeyHandle )
     {
-      if ( (int)NtOpenKey(&Handle, 1LL, &unk_1801186A0) < 0 )
+      if ( NtOpenKey(&Handle, 1u, (POBJECT_ATTRIBUTES)&ObjectAttributes) < 0 )
       {
 LABEL_7:
         v7 = a2;
         goto LABEL_8;
       }
-      v6 = (HANDLE)_InterlockedCompareExchange64(&qword_180166308, (signed __int64)Handle, 0LL);
+      v6 = (HANDLE)_InterlockedCompareExchange64((volatile signed __int64 *)&KeyHandle, (signed __int64)Handle, 0LL);
       if ( v6 )
       {
         NtClose(Handle);
@@ -43,7 +43,8 @@ LABEL_7:
         v6 = Handle;
       }
     }
-    if ( (int)NtQueryValueKey(v6, a1, 2LL, v11, 16, &v10) >= 0 && v10 == 16 )
+    if ( NtQueryValueKey(v6, ValueName, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength) >= 0
+      && ResultLength == 16 )
     {
       v7 = v12;
       if ( v12 <= 1 )

@@ -1,30 +1,30 @@
 /*
- * XREFs of LdrpResGetMappingSize @ 0x14068C510
+ * XREFs of LdrpResGetMappingSize @ 0x1405EC380
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1402A7F28 (LdrpResSearchResourceMappedFile.c)
- *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
- *     LdrResGetRCConfig @ 0x14078BC7C (LdrResGetRCConfig.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140226068 (LdrpResSearchResourceMappedFile.c)
+ *     LdrResSearchResource @ 0x1405EBFB0 (LdrResSearchResource.c)
+ *     LdrResGetRCConfig @ 0x14078BE3C (LdrResGetRCConfig.c)
  * Callees:
- *     LdrpKrnGetDataTableEntry @ 0x1402A8F80 (LdrpKrnGetDataTableEntry.c)
- *     RtlImageNtHeaderEx @ 0x14031C980 (RtlImageNtHeaderEx.c)
- *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1402270C0 (LdrpKrnGetDataTableEntry.c)
+ *     RtlImageNtHeaderEx @ 0x1403276D0 (RtlImageNtHeaderEx.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA9E0 (ZwQueryVirtualMemory.c)
  */
 
-int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
+NTSTATUS __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
 {
   unsigned __int64 v5; // r15
   unsigned __int64 v6; // rbx
-  int result; // eax
+  NTSTATUS result; // eax
   bool v8; // r14
-  __int16 v9; // dx
-  unsigned __int64 v10; // rdi
+  unsigned __int16 Magic; // dx
+  unsigned __int64 SizeOfImage; // rdi
   PVOID *DataTableEntry; // rax
   __int128 MemoryInformation; // [rsp+40h] [rbp-58h] BYREF
   __int128 v13; // [rsp+50h] [rbp-48h]
   __int128 v14; // [rsp+60h] [rbp-38h]
-  __int64 v15; // [rsp+A0h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+A0h] [rbp+8h] BYREF
 
-  v15 = 0LL;
+  OutHeaders = 0LL;
   MemoryInformation = 0LL;
   v13 = 0LL;
   v14 = 0LL;
@@ -48,22 +48,22 @@ LABEL_28:
   v8 = 0;
   if ( (a3 & 0x100) != 0 )
     v8 = (a1 & 1) == 0;
-  result = RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v15);
+  result = RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
   if ( result >= 0 )
   {
-    v9 = *(_WORD *)(v15 + 24);
-    if ( v9 == 267 || v9 == 523 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
     {
-      v10 = *(unsigned int *)(v15 + 80);
+      SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
     }
     else
     {
-      v10 = 0LL;
+      SizeOfImage = 0LL;
       result = -1073741701;
     }
     if ( result >= 0 )
     {
-      if ( !v8 || !v10 )
+      if ( !v8 || !SizeOfImage )
       {
         DataTableEntry = LdrpKrnGetDataTableEntry(a1);
         if ( DataTableEntry )
@@ -77,14 +77,14 @@ LABEL_28:
           result = ZwQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                      (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL),
-                     (MEMORY_INFORMATION_CLASS)3,
+                     MemoryRegionInformation,
                      &MemoryInformation,
                      0x30uLL,
                      0LL);
           if ( result >= 0 )
             v6 = v13;
         }
-        if ( v6 || !v10 )
+        if ( v6 || !SizeOfImage )
         {
 LABEL_27:
           if ( result < 0 )
@@ -93,7 +93,7 @@ LABEL_27:
         }
         result = 0;
       }
-      v6 = v10;
+      v6 = SizeOfImage;
       goto LABEL_27;
     }
   }

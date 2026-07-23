@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagGetPowerSchemeInfo @ 0x140500EDC
+ * XREFs of PopDiagGetPowerSchemeInfo @ 0x1404FA6CC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 unsigned int __fastcall PopDiagGetPowerSchemeInfo(void *Buf1, void *a2, unsigned int *a3)

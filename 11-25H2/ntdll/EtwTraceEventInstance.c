@@ -22,7 +22,7 @@ __int64 __fastcall EtwTraceEventInstance(int a1, __m128i *a2, __int64 *a3, __int
   __int64 v14; // rdx
   unsigned int v15; // edx
   NTSTATUS v17; // eax
-  __m128i v19; // [rsp+20h] [rbp-E0h] BYREF
+  __m128i Fields; // [rsp+20h] [rbp-E0h] BYREF
   __m256i v20; // [rsp+30h] [rbp-D0h]
   int v21; // [rsp+50h] [rbp-B0h]
   int v22; // [rsp+54h] [rbp-ACh]
@@ -31,7 +31,7 @@ __int64 __fastcall EtwTraceEventInstance(int a1, __m128i *a2, __int64 *a3, __int
   unsigned int v25; // [rsp+70h] [rbp-90h]
   int v26; // [rsp+74h] [rbp-8Ch]
 
-  memset_thunk_772440563353939046(&v19, 0, 0x148uLL);
+  memset_thunk_772440563353939046(&Fields, 0, 0x148uLL);
   v8 = 0;
   if ( !a2 )
     return 87LL;
@@ -41,7 +41,7 @@ __int64 __fastcall EtwTraceEventInstance(int a1, __m128i *a2, __int64 *a3, __int
   if ( v9 < 0x38 )
     return 87LL;
   v10 = a2[1];
-  v19 = *a2;
+  Fields = *a2;
   v11 = a2[2];
   *(__m128i *)v20.m256i_i8 = v10;
   *(__m128i *)&v20.m256i_u64[2] = v11;
@@ -74,17 +74,17 @@ __int64 __fastcall EtwTraceEventInstance(int a1, __m128i *a2, __int64 *a3, __int
   {
     v25 = v9 - 56;
     v20.m256i_i32[7] = v12 | 0x100000;
-    v19.m128i_i16[0] = 88;
+    Fields.m128i_i16[0] = 88;
     v24 = &a2[3].m128i_i8[8];
     v26 = 0;
 LABEL_16:
     if ( (a1 & 0x1000000) != 0 )
     {
-      return (unsigned int)EtwpTraceUmEvent(a1, (unsigned __int16 *)&v19, 0x48u, -1072365568);
+      return (unsigned int)EtwpTraceUmEvent(a1, (unsigned __int16 *)&Fields, 0x48u, -1072365568);
     }
     else
     {
-      v17 = NtTraceEvent((unsigned __int16)a1, 2048LL, 72LL, &v19);
+      v17 = NtTraceEvent((HANDLE)(unsigned __int16)a1, 0x800u, 0x48u, &Fields);
       if ( !v17 )
         return v8;
       return RtlNtStatusToDosError(v17);
@@ -93,7 +93,7 @@ LABEL_16:
   if ( (v15 & 0xF) == 0 && v15 <= 0x100 )
   {
     memmove(&v24, &a2[3].m128i_u64[1], v15);
-    v19.m128i_i16[0] = v9 + 16;
+    Fields.m128i_i16[0] = v9 + 16;
     goto LABEL_16;
   }
   return 87LL;

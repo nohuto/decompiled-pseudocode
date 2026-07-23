@@ -1,12 +1,12 @@
 /*
- * XREFs of IoRegisterBootDriverReinitialization @ 0x140AABF00
+ * XREFs of IoRegisterBootDriverReinitialization @ 0x140AA6ED0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IopInterlockedInsertTailList @ 0x1405964F0 (IopInterlockedInsertTailList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IopInterlockedInsertTailList @ 0x140593520 (IopInterlockedInsertTailList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __stdcall IoRegisterBootDriverReinitialization(
@@ -19,7 +19,7 @@ void __stdcall IoRegisterBootDriverReinitialization(
   if ( IopBootDriverReinitCompleted != 1 )
   {
     PsReferenceSiloContext(DriverObject);
-    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x28uLL, 0x69526F49u);
     if ( Pool2 )
     {
       DriverObject->Flags |= 0x20u;

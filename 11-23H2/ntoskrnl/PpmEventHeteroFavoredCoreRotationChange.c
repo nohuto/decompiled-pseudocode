@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHeteroFavoredCoreRotationChange @ 0x14059A0D8
+ * XREFs of PpmEventHeteroFavoredCoreRotationChange @ 0x14059A5C8
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14059C604 (PpmParkComputeUnparkMask.c)
+ *     PpmParkComputeUnparkMask @ 0x14059CAF4 (PpmParkComputeUnparkMask.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventHeteroFavoredCoreRotationChange(int a1, int a2)

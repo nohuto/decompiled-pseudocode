@@ -1,13 +1,13 @@
 /*
- * XREFs of KiOp_Div @ 0x1404AED40
+ * XREFs of KiOp_Div @ 0x1404A83D0
  * Callers:
  *     <none>
  * Callees:
- *     KiOpRetrieveRegMemAddress @ 0x1404AEE8C (KiOpRetrieveRegMemAddress.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
+ *     KiOpRetrieveRegMemAddress @ 0x1404A851C (KiOpRetrieveRegMemAddress.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
  */
 
 __int64 __fastcall KiOp_Div(__int64 a1)

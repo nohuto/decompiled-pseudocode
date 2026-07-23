@@ -1,18 +1,18 @@
 /*
- * XREFs of PopUpdateUpgradeInProgress @ 0x1407C9270
+ * XREFs of PopUpdateUpgradeInProgress @ 0x1407CC310
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x140725870 (ZwNotifyChangeKey.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1409450A8 (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x140945880 (PopLogSleepDisabled.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x14072A440 (ZwNotifyChangeKey.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x1409C0A18 (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x1409C11F0 (PopLogSleepDisabled.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 int __fastcall PopUpdateUpgradeInProgress(void *a1)
@@ -64,15 +64,15 @@ int __fastcall PopUpdateUpgradeInProgress(void *a1)
     goto LABEL_12;
   }
   if ( !a1 && (result = PopLogSleepDisabled(15LL, 8LL, 0LL, 0LL), result < 0)
-    || (stru_140F12D20.MutantListHead.Blink = (struct _LIST_ENTRY *)PopUpdateUpgradeInProgress,
-        *(_QWORD *)&stru_140F12D20.AbWaitEntryCount = KeyHandle,
-        stru_140F12D20.ThreadListEntry.Blink = 0LL,
+    || (qword_140F133B0 = (__int64)PopUpdateUpgradeInProgress,
+        qword_140F133B8 = (__int64)KeyHandle,
+        *(_QWORD *)PopSetupInProgressUpdateWorkItem = 0LL,
         result = ZwNotifyChangeKey(
                    KeyHandle,
                    0LL,
-                   (PIO_APC_ROUTINE)&stru_140F12D20.ThreadListEntry.Blink,
+                   PopSetupInProgressUpdateWorkItem,
                    (PVOID)1,
-                   (PIO_STATUS_BLOCK)&stru_140F12D20.SuspendEvent.Header.WaitListHead.Blink,
+                   &PopSetupInProgressStatusBlock,
                    4u,
                    0,
                    0LL,

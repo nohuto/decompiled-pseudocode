@@ -1,17 +1,17 @@
 /*
- * XREFs of MmMapViewInSystemSpace @ 0x14049552C
+ * XREFs of MmMapViewInSystemSpace @ 0x140495FBC
  * Callers:
- *     LdrpMapResourceFile @ 0x140149CC4 (LdrpMapResourceFile.c)
- *     NtGetNlsSectionPtr @ 0x14047557C (NtGetNlsSectionPtr.c)
- *     KsepShimDbMapToMemory @ 0x140495074 (KsepShimDbMapToMemory.c)
- *     ExUpdateLicenseDataInternal @ 0x140496474 (ExUpdateLicenseDataInternal.c)
- *     NtMapCMFModule @ 0x1404D014C (NtMapCMFModule.c)
- *     PspApiSetCopyToSystemSpace @ 0x14067E198 (PspApiSetCopyToSystemSpace.c)
- *     sub_1406AEC3C @ 0x1406AEC3C (sub_1406AEC3C.c)
+ *     LdrpMapResourceFile @ 0x14014A234 (LdrpMapResourceFile.c)
+ *     NtGetNlsSectionPtr @ 0x14047444C (NtGetNlsSectionPtr.c)
+ *     KsepShimDbMapToMemory @ 0x140495B04 (KsepShimDbMapToMemory.c)
+ *     ExUpdateLicenseDataInternal @ 0x140496F04 (ExUpdateLicenseDataInternal.c)
+ *     NtMapCMFModule @ 0x1404B3BEC (NtMapCMFModule.c)
+ *     PspApiSetCopyToSystemSpace @ 0x14067E27C (PspApiSetCopyToSystemSpace.c)
+ *     sub_1406AED74 @ 0x1406AED74 (sub_1406AED74.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  *     MiInitializeApiSets @ 0x1407A426C (MiInitializeApiSets.c)
  * Callees:
- *     MiMapViewInSystemSpace @ 0x140525ED4 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x140508F34 (MiMapViewInSystemSpace.c)
  */
 
 NTSTATUS __stdcall MmMapViewInSystemSpace(PVOID Section, PVOID *MappedBase, PSIZE_T ViewSize)
@@ -23,7 +23,7 @@ NTSTATUS __stdcall MmMapViewInSystemSpace(PVOID Section, PVOID *MappedBase, PSIZ
   v5 = 0;
   return MiMapViewInSystemSpace(
            (_DWORD)Section,
-           (unsigned int)&unk_140326880,
+           (unsigned int)&unk_1403268C0,
            (_DWORD)MappedBase,
            (_DWORD)ViewSize,
            (__int64)&v4,

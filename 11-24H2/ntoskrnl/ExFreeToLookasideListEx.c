@@ -1,62 +1,60 @@
 /*
- * XREFs of ExFreeToLookasideListEx @ 0x1402CD350
+ * XREFs of ExFreeToLookasideListEx @ 0x1402E6050
  * Callers:
- *     CcFreePrivateCacheMapIgnoreNull @ 0x1402CD2F8 (CcFreePrivateCacheMapIgnoreNull.c)
- *     CcFreeSharedCacheMapIgnoreNull @ 0x1402CD320 (CcFreeSharedCacheMapIgnoreNull.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     NtQueryKey @ 0x140849760 (NtQueryKey.c)
- *     CmpDecommisssionKcb @ 0x140870D10 (CmpDecommisssionKcb.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14087DE20 (CmpDereferenceKeyControlBlockWithLock.c)
- *     NtEnumerateValueKey @ 0x14090C2D0 (NtEnumerateValueKey.c)
- *     CmpBounceContextCleanup @ 0x14097A1D0 (CmpBounceContextCleanup.c)
- *     CmpFreeKeyControlBlock @ 0x1409D6920 (CmpFreeKeyControlBlock.c)
- *     VmAccessFault @ 0x140A07D80 (VmAccessFault.c)
- *     NtQueryValueKey @ 0x140AE41C0 (NtQueryValueKey.c)
+ *     CcFreePrivateCacheMapIgnoreNull @ 0x1402E5FF8 (CcFreePrivateCacheMapIgnoreNull.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x1402E6020 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     NtQueryKey @ 0x140845A20 (NtQueryKey.c)
+ *     CmpDecommisssionKcb @ 0x140875040 (CmpDecommisssionKcb.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140881CD0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     NtEnumerateValueKey @ 0x1408E39F0 (NtEnumerateValueKey.c)
+ *     CmpBounceContextCleanup @ 0x1409629E0 (CmpBounceContextCleanup.c)
+ *     CmpFreeKeyControlBlock @ 0x1409C69A0 (CmpFreeKeyControlBlock.c)
+ *     VmAccessFault @ 0x140A042B0 (VmAccessFault.c)
+ *     NtQueryValueKey @ 0x140AE5AA0 (NtQueryValueKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __stdcall ExFreeToLookasideListEx(PLOOKASIDE_LIST_EX Lookaside, PVOID Entry)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  struct _SLIST_ENTRY *v5; // rdi
-  ULONG_PTR v6; // rcx
-  void *v7; // rcx
-  size_t v8; // r8
+  _SLIST_ENTRY *v3; // rdi
+  ULONG_PTR v4; // rcx
+  void *v5; // rcx
+  size_t v6; // r8
 
   ++Lookaside->L.TotalFrees;
-  v5 = (struct _SLIST_ENTRY *)Entry;
+  v3 = (_SLIST_ENTRY *)Entry;
   if ( LOWORD(Lookaside->L.ListHead.Alignment) >= Lookaside->L.Depth )
   {
     ++Lookaside->L.FreeMisses;
-    guard_dispatch_icall_no_overrides(Entry, Lookaside, v2, v3);
+    guard_dispatch_icall_no_overrides(Entry, Lookaside);
   }
   else
   {
     if ( (void (__stdcall *)(PPRIVILEGE_SET))Lookaside->L.FreeEx == CmSiFreeMemory )
     {
-      v6 = (ULONG_PTR)Entry + 8;
-      if ( byte_140FCDC28 )
+      v4 = (ULONG_PTR)Entry + 8;
+      if ( byte_140FCECA8 )
       {
-        if ( v6 < 0xFFFF800000000000uLL )
-          KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v6, 0LL);
-        if ( (v6 & 7) != 0 )
-          KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v6, 8uLL);
+        if ( v4 < 0xFFFF800000000000uLL )
+          KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v4, 0LL);
+        if ( (v4 & 7) != 0 )
+          KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v4, 8uLL);
         if ( (char *)Entry + Lookaside->L.Size < (char *)Entry + 8 )
-          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v6, Lookaside->L.Size - 8LL);
-        v7 = (void *)(KasaniShadow + (((unsigned __int64)Entry + 0x800000000008LL) >> 3));
-        v8 = (Lookaside->L.Size - 8LL - (unsigned __int64)(((unsigned __int8)Lookaside->L.Size - 9) & 7) + 7) >> 3;
-        if ( v8 )
+          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v4, Lookaside->L.Size - 8LL);
+        v5 = (void *)(KasaniShadow + (((unsigned __int64)Entry + 0x800000000008LL) >> 3));
+        v6 = (Lookaside->L.Size - 8LL - (unsigned __int64)(((unsigned __int8)Lookaside->L.Size - 9) & 7) + 7) >> 3;
+        if ( v6 )
         {
           LOBYTE(Entry) = -116;
-          memset_0(v7, (int)Entry, v8);
+          memset_0(v5, (int)Entry, v6);
         }
       }
     }
-    RtlpInterlockedPushEntrySList(&Lookaside->L.ListHead, v5);
+    RtlpInterlockedPushEntrySList(&Lookaside->L.ListHead, v3);
   }
 }

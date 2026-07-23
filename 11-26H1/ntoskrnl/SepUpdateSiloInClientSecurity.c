@@ -1,15 +1,15 @@
 /*
- * XREFs of SepUpdateSiloInClientSecurity @ 0x140B65550
+ * XREFs of SepUpdateSiloInClientSecurity @ 0x140B685F0
  * Callers:
- *     SeCreateClientSecurityEx @ 0x140929AE0 (SeCreateClientSecurityEx.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140929D90 (AlpcpGetEffectiveTokenMessage.c)
+ *     SeCreateClientSecurityEx @ 0x1409055F0 (SeCreateClientSecurityEx.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1409058A0 (AlpcpGetEffectiveTokenMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsIsHostSilo @ 0x14046E630 (PsIsHostSilo.c)
- *     SepCopyClientTokenAndSetSilo @ 0x140810B24 (SepCopyClientTokenAndSetSilo.c)
- *     ObRetagReferences @ 0x140966310 (ObRetagReferences.c)
- *     SeQueryServerSiloToken @ 0x140A3B0D0 (SeQueryServerSiloToken.c)
- *     SeGetTokenControlInformation @ 0x140A5F5F0 (SeGetTokenControlInformation.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x140467DB0 (PsIsHostSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x1408165B4 (SepCopyClientTokenAndSetSilo.c)
+ *     SeQueryServerSiloToken @ 0x1409F6C30 (SeQueryServerSiloToken.c)
+ *     ObRetagReferences @ 0x140A68380 (ObRetagReferences.c)
+ *     SeGetTokenControlInformation @ 0x140A6C5B0 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepUpdateSiloInClientSecurity(__int64 a1, __int64 a2)

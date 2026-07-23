@@ -1,21 +1,21 @@
 /*
- * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140A9B19C
+ * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140A9B00C
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14094C56C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14094C76C (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlClearAllBitsEx @ 0x14033D1F0 (RtlClearAllBitsEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlCalculateLivedumpSize @ 0x140547750 (HvlCalculateLivedumpSize.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceBufferEstimation @ 0x14055A284 (IopLiveDumpTraceBufferEstimation.c)
- *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14055B2E0 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
- *     IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x14055B594 (IopLiveDumpTraceQueryHvlDumpSizeFailure.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8B70 (RtlNumberOfSetBitsEx.c)
- *     IopLiveDumpCapture @ 0x14094DE5C (IopLiveDumpCapture.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A9A514 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     IopLiveDumpUncorralProcessors @ 0x140A9C608 (IopLiveDumpUncorralProcessors.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlClearAllBitsEx @ 0x14033D480 (RtlClearAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlCalculateLivedumpSize @ 0x140547E10 (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x14055A944 (IopLiveDumpTraceBufferEstimation.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14055B9A0 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x14055BC54 (IopLiveDumpTraceQueryHvlDumpSizeFailure.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A90E0 (RtlNumberOfSetBitsEx.c)
+ *     IopLiveDumpCapture @ 0x14094E05C (IopLiveDumpCapture.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A9A384 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopLiveDumpUncorralProcessors @ 0x140A9C478 (IopLiveDumpUncorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
@@ -115,7 +115,7 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
           v30 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C03870,
-            (unsigned __int8 *)byte_14002C2E1,
+            (unsigned __int8 *)byte_14002C3C9,
             (const GUID *)(a1 + 968),
             (const GUID *)(a1 + 952),
             5u,
@@ -138,9 +138,9 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
   }
   *(_QWORD *)(a1 + 440) = IopLiveDumpGetMillisecondCounter(0) - v3;
   IopLiveDumpTraceBufferEstimation();
-  RtlClearAllBitsEx(a1 + 544);
-  RtlClearAllBitsEx(a1 + 600);
-  RtlClearAllBitsEx(a1 + 656);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 544));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 600));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 656));
   *(_DWORD *)(a1 + 80) &= ~1u;
   if ( (unsigned int)dword_140C03870 > 5 && tlgKeywordOn((__int64)&dword_140C03870, 0x400000000000LL) )
   {
@@ -167,7 +167,7 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     v38 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C03870,
-      (unsigned __int8 *)byte_14002C45B,
+      (unsigned __int8 *)byte_14002C543,
       (const GUID *)(a1 + 968),
       (const GUID *)(a1 + 952),
       9u,

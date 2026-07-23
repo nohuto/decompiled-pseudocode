@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnFindPrefetchVolumeInfoInList @ 0x140660104
+ * XREFs of PfSnFindPrefetchVolumeInfoInList @ 0x1406612C4
  * Callers:
- *     PfSnPrefetchMetadata @ 0x14065ECDC (PfSnPrefetchMetadata.c)
- *     PfSnPopulateReadList @ 0x14065F740 (PfSnPopulateReadList.c)
+ *     PfSnPrefetchMetadata @ 0x14065FE9C (PfSnPrefetchMetadata.c)
+ *     PfSnPopulateReadList @ 0x140660900 (PfSnPopulateReadList.c)
  * Callees:
- *     wcsncmp @ 0x140197800 (wcsncmp.c)
+ *     wcsncmp @ 0x140197940 (wcsncmp.c)
  */
 
 _QWORD *__fastcall PfSnFindPrefetchVolumeInfoInList(wchar_t *Str1, _QWORD *a2, int a3)

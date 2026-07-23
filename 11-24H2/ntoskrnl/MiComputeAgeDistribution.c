@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeAgeDistribution @ 0x1402CF388
+ * XREFs of MiComputeAgeDistribution @ 0x140425950
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402D04F0 (MiComputeSystemTrimCriteria.c)
- *     MiOrderTrimList @ 0x140433A4C (MiOrderTrimList.c)
+ *     MiComputeSystemTrimCriteria @ 0x1402F3C60 (MiComputeSystemTrimCriteria.c)
+ *     MiOrderTrimList @ 0x140425554 (MiOrderTrimList.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
@@ -35,7 +35,7 @@ __int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
   v4 = *(_QWORD **)(a1 + 17600);
   if ( a2 )
   {
-    v5 = ExAcquireSpinLockExclusive(&dword_140E373C0);
+    v5 = ExAcquireSpinLockExclusive(&SpinLock);
     v6 = (_QWORD *)(a1 + 17608);
     v7 = v5;
     v8 = *(_QWORD **)(a1 + 17608);
@@ -68,7 +68,7 @@ __int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
     }
     while ( v9 );
     v4[42] = v14;
-    MiReleaseSpinLockExclusive(&dword_140E373C0, v7);
+    MiReleaseSpinLockExclusive(&SpinLock, v7);
   }
   else
   {

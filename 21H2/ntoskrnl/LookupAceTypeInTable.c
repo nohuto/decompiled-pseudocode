@@ -1,10 +1,10 @@
 /*
- * XREFs of LookupAceTypeInTable @ 0x1406741F8
+ * XREFs of LookupAceTypeInTable @ 0x140669428
  * Callers:
- *     LocalConvertAclToString @ 0x140673794 (LocalConvertAclToString.c)
- *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
+ *     LocalConvertAclToString @ 0x1406689C4 (LocalConvertAclToString.c)
+ *     LocalGetAclForString @ 0x140787A6C (LocalGetAclForString.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAceTypeInTable(wchar_t *Str1, int a2, int a3)
@@ -14,7 +14,7 @@ wchar_t **__fastcall LookupAceTypeInTable(wchar_t *Str1, int a2, int a3)
   unsigned int i; // ebx
 
   v3 = 0LL;
-  v4 = (const wchar_t **)&unk_140C01C38;
+  v4 = (const wchar_t **)&unk_140C01DB8;
   for ( i = 0; i < 0x11; ++i )
   {
     if ( (a3 & (_DWORD)v4[1]) == a3
@@ -25,6 +25,6 @@ wchar_t **__fastcall LookupAceTypeInTable(wchar_t *Str1, int a2, int a3)
     v4 += 3;
   }
   if ( i < 0x11 )
-    return &(&off_140C01C30)[3 * i];
+    return &(&off_140C01DB0)[3 * i];
   return (wchar_t **)v3;
 }

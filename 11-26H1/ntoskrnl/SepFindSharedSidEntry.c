@@ -1,12 +1,12 @@
 /*
- * XREFs of SepFindSharedSidEntry @ 0x140A46BB4
+ * XREFs of SepFindSharedSidEntry @ 0x1409E470C
  * Callers:
- *     SepInsertOrReferenceSharedSidEntries @ 0x140A4621C (SepInsertOrReferenceSharedSidEntries.c)
- *     SepDeReferenceSharedSidEntries @ 0x140A46A88 (SepDeReferenceSharedSidEntries.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1409E43BC (SepInsertOrReferenceSharedSidEntries.c)
+ *     SepDeReferenceSharedSidEntries @ 0x1409E45E0 (SepDeReferenceSharedSidEntries.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x140418450 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x140471940 (RtlGetNextEntryHashTable.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x14040CA60 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x14046B0C0 (RtlGetNextEntryHashTable.c)
  */
 
 PRTL_DYNAMIC_HASH_TABLE_ENTRY __fastcall SepFindSharedSidEntry(unsigned int *Sid1)
@@ -17,7 +17,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __fastcall SepFindSharedSidEntry(unsigned int *Sid
   ULONG_PTR v5; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v7; // rdi
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = g_SepSidMapping;
   v2 = 0LL;

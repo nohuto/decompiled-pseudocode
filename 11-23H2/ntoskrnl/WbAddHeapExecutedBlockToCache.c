@@ -1,17 +1,17 @@
 /*
- * XREFs of WbAddHeapExecutedBlockToCache @ 0x140761B10
+ * XREFs of WbAddHeapExecutedBlockToCache @ 0x140761D00
  * Callers:
- *     WbGetHeapExecutedBlock @ 0x140762918 (WbGetHeapExecutedBlock.c)
+ *     WbGetHeapExecutedBlock @ 0x140762B08 (WbGetHeapExecutedBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     WbAddHeapExecutedBlockToLRU @ 0x140761C3C (WbAddHeapExecutedBlockToLRU.c)
- *     sub_140763028 @ 0x140763028 (sub_140763028.c)
- *     sub_140763150 @ 0x140763150 (sub_140763150.c)
- *     sub_140763D04 @ 0x140763D04 (sub_140763D04.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x140761E2C (WbAddHeapExecutedBlockToLRU.c)
+ *     sub_140763218 @ 0x140763218 (sub_140763218.c)
+ *     sub_140763340 @ 0x140763340 (sub_140763340.c)
+ *     sub_140763EF4 @ 0x140763EF4 (sub_140763EF4.c)
  */
 
 __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD *a3)
@@ -40,7 +40,7 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
     ExfAcquirePushLockExclusiveEx(v4, v8, (__int64)v4);
   if ( v9 )
     *(_BYTE *)(v9 + 18) = 1;
-  v10 = sub_140763150(a1, *(_QWORD *)(a2 + 48), &v18, &v17);
+  v10 = sub_140763340(a1, *(_QWORD *)(a2 + 48), &v18, &v17);
   v12 = v10;
   if ( v10 >= 0 )
   {
@@ -49,10 +49,10 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   }
   else if ( v10 == -1073741198 )
   {
-    v12 = sub_140763D04((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v17);
+    v12 = sub_140763EF4((int)a1 + 8, a2, v11, *(_QWORD *)(a2 + 48), 8, v17);
     if ( v12 >= 0 )
     {
-      v12 = sub_140763028(a2);
+      v12 = sub_140763218(a2);
       if ( v12 >= 0 )
       {
         if ( a3 )

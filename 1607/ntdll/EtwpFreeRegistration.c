@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpFreeRegistration @ 0x1800597D8
+ * XREFs of EtwpFreeRegistration @ 0x1800597C8
  * Callers:
- *     EtwNotificationRegister @ 0x18002A410 (EtwNotificationRegister.c)
- *     EtwNotificationUnregister @ 0x180059700 (EtwNotificationUnregister.c)
+ *     EtwNotificationRegister @ 0x18002A400 (EtwNotificationRegister.c)
+ *     EtwNotificationUnregister @ 0x1800596F0 (EtwNotificationUnregister.c)
  * Callees:
  *     RtlpInterlockedPushEntrySList @ 0x1800A9D70 (RtlpInterlockedPushEntrySList.c)
  *     memset @ 0x1800ACCC0 (memset.c)

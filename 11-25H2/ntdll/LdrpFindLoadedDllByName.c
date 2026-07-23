@@ -38,7 +38,7 @@ __int64 __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int6
   unsigned __int64 v16; // rax
   char *SchedulerSharedDataSlot; // r8
   char *v18; // rcx
-  unsigned __int64 v19; // rax
+  char *v19; // rax
   _QWORD **v20; // r13
   _QWORD *j; // r15
   _QWORD *v22; // rdi
@@ -87,7 +87,7 @@ __int64 __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int6
   __int64 v66; // rax
   signed __int64 v67; // rdx
   signed __int64 v68; // rax
-  __int64 *v69; // rdi
+  _RTL_SRWLOCK *v69; // rdi
   unsigned __int64 v70; // r8
   _QWORD *v71; // r9
   __int64 v72; // rcx
@@ -98,13 +98,13 @@ __int64 __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int6
   signed __int64 v77; // rax
   _QWORD *v78; // rax
   int v79; // [rsp+20h] [rbp-4F8h] BYREF
-  _QWORD v80[2]; // [rsp+28h] [rbp-4F0h] BYREF
+  _QWORD ThreadInformation[2]; // [rsp+28h] [rbp-4F0h] BYREF
   __int128 v81; // [rsp+38h] [rbp-4E0h] BYREF
   _QWORD *v82; // [rsp+48h] [rbp-4D0h]
   _BYTE v83[576]; // [rsp+50h] [rbp-4C8h] BYREF
-  _BYTE v84[576]; // [rsp+290h] [rbp-288h] BYREF
+  _BYTE Fields[576]; // [rsp+290h] [rbp-288h] BYREF
 
-  v80[0] = a5;
+  ThreadInformation[0] = a5;
   v5 = a3;
   v82 = a4;
   v6 = (unsigned __int16 *)i;
@@ -188,13 +188,13 @@ __int64 __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int6
       }
     }
   }
-  v19 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 17LL, 0LL);
+  v19 = (char *)_InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 17LL, 0LL);
   if ( v19 )
     RtlpAcquireSRWLockSharedContended(
       (unsigned __int64)&LdrpModuleDatatableLock,
       i,
       v19,
-      (unsigned __int64)&LdrpModuleDatatableLock);
+      (char *)&LdrpModuleDatatableLock);
   v20 = (_QWORD **)((char *)&LdrpHashTable + 16 * (v14 & 0x1F));
   for ( j = *v20; ; j = (_QWORD *)*j )
   {
@@ -345,23 +345,23 @@ LABEL_46:
   if ( *(_DWORD *)(v30 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v30 - 56LL) & 0x20) == 0 )
     _InterlockedIncrement((volatile signed __int32 *)v22 + 69);
   v31 = 0;
-  v32 = (_DWORD *)v80[0];
+  v32 = (_DWORD *)ThreadInformation[0];
   *v82 = v22;
   if ( v32 )
     *v32 = *(_DWORD *)(v22[19] + 56LL);
 LABEL_51:
-  v33 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, 17LL);
+  v33 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, 17LL);
   v34 = v33;
   if ( v33 != 17 )
   {
     if ( (v33 & 1) == 0 )
-      RtlRaiseStatus(3221226084LL);
+      RtlRaiseStatus(-1073741212);
     while ( (v34 & 2) == 0 )
     {
       v55 = 0LL;
       if ( (v34 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
         v55 = v34 - 16;
-      v57 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v55, v34);
+      v57 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v55, v34);
       v56 = v34 == v57;
       v34 = v57;
       if ( v56 )
@@ -385,7 +385,7 @@ LABEL_51:
       if ( (v34 & 4) != 0 || (v66 = v65 + 4, (v34 & 2) == 0) )
         v66 = v65;
       v67 = v66 + v34;
-      v68 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v66 + v34, v34);
+      v68 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v66 + v34, v34);
       if ( v34 == v68 )
         break;
       v34 = v68;
@@ -397,7 +397,7 @@ LABEL_51:
       {
         while ( (v67 & 1) != 0 )
         {
-          v77 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v67 - 4, v67);
+          v77 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v67 - 4, v67);
           v56 = v67 == v77;
           v67 = v77;
           if ( v56 )
@@ -426,7 +426,7 @@ LABEL_51:
             break;
         }
         v69 = 0LL;
-        v74 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, v67);
+        v74 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, v67);
         v56 = v67 == v74;
         v67 = v74;
         if ( v56 )
@@ -434,7 +434,7 @@ LABEL_51:
       }
       *(_QWORD *)((v67 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v73;
       *(_QWORD *)(v72 + 16) = 0LL;
-      _InterlockedAnd64(&LdrpModuleDatatableLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_152:
@@ -462,9 +462,9 @@ LABEL_52:
           *v37 |= 2u;
           if ( v37[7] < 0 )
           {
-            v80[1] = 0LL;
-            v80[0] = (v37 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            NtSetInformationThread(-2LL, 56LL, v80);
+            ThreadInformation[1] = 0LL;
+            ThreadInformation[0] = (v37 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
           }
           *(_QWORD *)v37 = 0LL;
         }
@@ -482,9 +482,7 @@ LABEL_52:
       v47 = 2147353476LL;
     if ( *(_BYTE *)v47 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v58 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
+      v58 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v58 & 0x20) != 0 )
       {
         v59 = 576LL;
@@ -492,8 +490,7 @@ LABEL_52:
         Heap = v83;
         v60 = *v6 + 2;
         v61 = *v6 + 44;
-        if ( v60 <= 0x214
-          || (Heap = (_BYTE *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, (unsigned int)*v6 + 44)) != 0LL )
+        if ( v60 <= 0x214 || (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)*v6 + 44)) != 0LL )
         {
           if ( v61 > 0x240 )
             v59 = v61;
@@ -506,9 +503,9 @@ LABEL_52:
             v62 = 3;
           Heap[41] = v62;
           LdrpEventAddUnicodeString(v6, Heap + 42, v60, &v79);
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v45 = (__int64)NtCurrentPeb()->SharedData + 554;
-          NtTraceEvent(*(unsigned __int8 *)v45, 1026LL, v61 - 32, Heap);
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v45, 0x402u, v61 - 32, Heap);
           if ( v83 != Heap )
             goto LABEL_101;
         }
@@ -523,18 +520,16 @@ LABEL_52:
       v49 = 2147353476LL;
     if ( *(_BYTE *)v49 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v50 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
+      v50 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v50 & 0x20) != 0 )
       {
         v51 = 576LL;
-        memset_thunk_772440563353939046(v84, 0, 0x240uLL);
-        Heap = v84;
+        memset_thunk_772440563353939046(Fields, 0, 0x240uLL);
+        Heap = Fields;
         v53 = 0;
         if ( v7 )
           v53 = *v7 + 2;
-        if ( v53 <= 0x214 || (Heap = (_BYTE *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, v53 + 42)) != 0LL )
+        if ( v53 <= 0x214 || (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v53 + 42)) != 0LL )
         {
           if ( v53 + 42 > 0x240 )
             v51 = v53 + 42;
@@ -548,12 +543,12 @@ LABEL_52:
           Heap[41] = v54;
           if ( v53 )
             LdrpEventAddUnicodeString(v7, Heap + 42, v53, &v79);
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v45 = (__int64)NtCurrentPeb()->SharedData + 554;
-          NtTraceEvent(*(unsigned __int8 *)v45, 1026LL, v53 + 10, Heap);
-          if ( v84 != Heap )
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v45, 0x402u, v53 + 10, Heap);
+          if ( Fields != Heap )
 LABEL_101:
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         }
       }
     }

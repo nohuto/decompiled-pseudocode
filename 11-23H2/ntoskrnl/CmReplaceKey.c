@@ -1,19 +1,19 @@
 /*
- * XREFs of CmReplaceKey @ 0x140A156F4
+ * XREFs of CmReplaceKey @ 0x140A159A4
  * Callers:
- *     NtReplaceKey @ 0x140A0E4B0 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x140A0E760 (NtReplaceKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwFlushBuffersFile @ 0x14041B6C0 (ZwFlushBuffersFile.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwFlushBuffersFile @ 0x14041BA50 (ZwFlushBuffersFile.c)
  *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1408271A4 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14082722C (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpCmdRenameHive @ 0x140A11978 (CmpCmdRenameHive.c)
- *     CmpDestroyHive @ 0x140A1CCA0 (CmpDestroyHive.c)
- *     CmpPreserveSystemHiveData @ 0x140A224FC (CmpPreserveSystemHiveData.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x1408274A4 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14082752C (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpCmdRenameHive @ 0x140A11C28 (CmpCmdRenameHive.c)
+ *     CmpDestroyHive @ 0x140A1CF50 (CmpDestroyHive.c)
+ *     CmpPreserveSystemHiveData @ 0x140A227AC (CmpPreserveSystemHiveData.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)

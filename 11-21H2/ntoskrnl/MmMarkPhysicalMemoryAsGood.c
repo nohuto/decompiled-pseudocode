@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlinkBadPages @ 0x14058EB84 (MiUnlinkBadPages.c)
+ *     sub_14058EB84 @ 0x14058EB84 (sub_14058EB84.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsGood(_DWORD *a1, _DWORD *a2)
@@ -19,6 +19,6 @@ __int64 __fastcall MmMarkPhysicalMemoryAsGood(_DWORD *a1, _DWORD *a2)
   v5 = v4 + (*(_QWORD *)a2 >> 12);
   if ( v4 >= v5 )
     return 3221225711LL;
-  *(_QWORD *)a2 = MiUnlinkBadPages(v4, v5) << 12;
+  *(_QWORD *)a2 = sub_14058EB84(v4, v5) << 12;
   return 0LL;
 }

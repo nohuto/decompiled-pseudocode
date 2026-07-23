@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpLogApplicationEvent @ 0x140446FB0
+ * XREFs of PfpLogApplicationEvent @ 0x14043FAA0
  * Callers:
- *     PfCalculateProcessHash @ 0x1409E9560 (PfCalculateProcessHash.c)
- *     PfProcessExitNotification @ 0x140A43B50 (PfProcessExitNotification.c)
+ *     PfCalculateProcessHash @ 0x1409D2980 (PfCalculateProcessHash.c)
+ *     PfProcessExitNotification @ 0x140ACACC4 (PfProcessExitNotification.c)
  * Callees:
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
- *     PfpPartitionReferenceParentSafeByProcess @ 0x1404471E0 (PfpPartitionReferenceParentSafeByProcess.c)
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MmGetDirectoryFrameFromProcess @ 0x140B40E7C (MmGetDirectoryFrameFromProcess.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
+ *     PfpPartitionReferenceParentSafeByProcess @ 0x14043FCD0 (PfpPartitionReferenceParentSafeByProcess.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MmGetDirectoryFrameFromProcess @ 0x140B42E8C (MmGetDirectoryFrameFromProcess.c)
  */
 
 __int64 __fastcall PfpLogApplicationEvent(__int64 a1, __int128 *a2)
@@ -111,7 +111,7 @@ __int64 __fastcall PfpLogApplicationEvent(__int64 a1, __int128 *a2)
         v8 = PfLogEvent(
                v7,
                v21,
-               HIDWORD(stru_140E66B30.WriteOperationCount)
+               HIDWORD(stru_140E66D40.WriteOperationCount)
              + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                              + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
                v28,

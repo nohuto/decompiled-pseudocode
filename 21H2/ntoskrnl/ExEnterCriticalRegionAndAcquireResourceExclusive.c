@@ -1,11 +1,11 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x14034BEA0
+ * XREFs of ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140356BF0
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpFastResourceLegacyAcquireExclusive @ 0x14038E464 (ExpFastResourceLegacyAcquireExclusive.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x140357700 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x14038E5B4 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceExclusive(PERESOURCE Resource)

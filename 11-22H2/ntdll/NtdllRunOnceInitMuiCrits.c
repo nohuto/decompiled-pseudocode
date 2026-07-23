@@ -6,7 +6,7 @@
  *     RtlInitializeCriticalSection @ 0x18005D020 (RtlInitializeCriticalSection.c)
  */
 
-__int64 __fastcall NtdllRunOnceInitMuiCrits(__int64 a1, __int64 *a2)
+__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE a1, PRTL_CRITICAL_SECTION *a2, PVOID *a3)
 {
   RtlInitializeCriticalSection(*a2);
   return 1LL;

@@ -20,9 +20,9 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   LIST_ENTRY *p_WaitListHead; // rsi
   struct _KTHREAD *CurrentThread; // r15
   _QWORD *v4; // r14
-  unsigned __int64 v5; // rax
+  PRTL_BALANCED_NODE v5; // rax
   signed __int8 v6; // cf
-  unsigned __int64 v7; // rbp
+  PRTL_BALANCED_NODE v7; // rbp
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *Blink; // rdx
   unsigned __int8 CurrentIrql; // r14
@@ -42,9 +42,9 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
     v6 = _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL);
     v7 = v5;
     if ( v6 )
-      ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v5, (__int16 *)&ExpWakeTimerLock);
+      ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, (__int64)v5, (__int16 *)&ExpWakeTimerLock);
     if ( v7 )
-      *(_BYTE *)(v7 + 26) |= 1u;
+      BYTE2(v7[1].Left) |= 1u;
     Flink = p_WaitListHead->Flink;
     if ( p_WaitListHead->Flink->Blink != p_WaitListHead
       || (Blink = p_WaitListHead->Blink, Blink->Flink != p_WaitListHead) )

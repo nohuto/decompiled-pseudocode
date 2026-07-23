@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlCompleteLockIrpReal @ 0x1403DBA48
+ * XREFs of FsRtlCompleteLockIrpReal @ 0x1403CCD18
  * Callers:
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14024D62C (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlProcessFileLock @ 0x1403DB600 (FsRtlProcessFileLock.c)
- *     FsRtlUninitializeFileLock @ 0x1403DF750 (FsRtlUninitializeFileLock.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x1404CA500 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14027DC3C (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
+ *     FsRtlUninitializeFileLock @ 0x1403BF440 (FsRtlUninitializeFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1403CC8D0 (FsRtlProcessFileLock.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x1404C3A20 (FsRtlPrivateCancelFileLockIrp.c)
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _DWORD *__fastcall FsRtlCompleteLockIrpReal(__int64 a1, __int64 a2, IRP *a3, NTSTATUS a4, _DWORD *a5, __int64 a6)
@@ -22,7 +22,7 @@ _DWORD *__fastcall FsRtlCompleteLockIrpReal(__int64 a1, __int64 a2, IRP *a3, NTS
     if ( a6 )
       *(_QWORD *)(a6 + 120) = 0LL;
     a3->IoStatus.Status = a4;
-    v6 = guard_dispatch_icall_no_overrides(a2, a3, a3, a1);
+    v6 = guard_dispatch_icall_no_overrides(a2, a3);
   }
   else
   {

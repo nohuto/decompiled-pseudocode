@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpViewMapGetLastView @ 0x140724F34
+ * XREFs of HvpViewMapGetLastView @ 0x1406FCF6C
  * Callers:
- *     HvpViewMapExtendStorage @ 0x140724E8C (HvpViewMapExtendStorage.c)
+ *     HvpViewMapExtendStorage @ 0x1406FCEC4 (HvpViewMapExtendStorage.c)
  * Callees:
  *     <none>
  */

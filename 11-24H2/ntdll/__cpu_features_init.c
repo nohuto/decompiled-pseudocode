@@ -1,21 +1,21 @@
 /*
- * XREFs of __cpu_features_init @ 0x18012B4AC
+ * XREFs of __cpu_features_init @ 0x1801296DC
  * Callers:
- *     LdrpInitialize @ 0x1800973E8 (LdrpInitialize.c)
+ *     LdrpInitialize @ 0x18002C238 (LdrpInitialize.c)
  * Callees:
- *     RtlIsProcessorFeaturePresent @ 0x1800975B0 (RtlIsProcessorFeaturePresent.c)
+ *     RtlIsProcessorFeaturePresent @ 0x18002C400 (RtlIsProcessorFeaturePresent.c)
  */
 
 __int64 _cpu_features_init()
 {
-  unsigned __int8 IsProcessorFeaturePresent; // bl
-  unsigned __int8 v1; // al
+  BOOLEAN IsProcessorFeaturePresent; // bl
+  BOOLEAN v1; // al
   char v2; // dl
   char v3; // bl
-  unsigned __int8 v4; // al
+  BOOLEAN v4; // al
   char v5; // dl
   char v6; // bl
-  unsigned __int8 v7; // al
+  BOOLEAN v7; // al
   char v8; // dl
 
   IsProcessorFeaturePresent = RtlIsProcessorFeaturePresent(0x26u);

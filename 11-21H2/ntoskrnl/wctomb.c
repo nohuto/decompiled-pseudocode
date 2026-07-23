@@ -3,17 +3,17 @@
  * Callers:
  *     <none>
  * Callees:
- *     _wctomb_s_l @ 0x1403E38B4 (_wctomb_s_l.c)
+ *     sub_1403E38B4 @ 0x1403E38B4 (sub_1403E38B4.c)
  */
 
 int __cdecl wctomb(char *MbCh, wchar_t WCh)
 {
   int v2; // ebx
-  int SizeConverted; // [rsp+50h] [rbp+18h] BYREF
+  int v4; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = -1;
-  SizeConverted = -1;
-  if ( !wctomb_s_l(&SizeConverted, MbCh, _mb_cur_max, WCh, 0LL) )
-    return SizeConverted;
+  v4 = -1;
+  if ( !(unsigned int)sub_1403E38B4((ULONG *)&v4, MbCh, dword_140C094C4, WCh) )
+    return v4;
   return v2;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpQueryInterface @ 0x1404CDDFC
+ * XREFs of PnpQueryInterface @ 0x14050E494
  * Callers:
- *     PnprQueryReplaceFeatures @ 0x1401D0524 (PnprQueryReplaceFeatures.c)
- *     PnpGetDeviceLocationStrings @ 0x1404CD7D0 (PnpGetDeviceLocationStrings.c)
- *     IoQueryInterface @ 0x1405761A0 (IoQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x1405761E8 (IopQueryInterfaceRecurseUp.c)
- *     IoGetDmaAdapter @ 0x140577C34 (IoGetDmaAdapter.c)
- *     PnprIdentifyUnits @ 0x1406446D8 (PnprIdentifyUnits.c)
+ *     PnprQueryReplaceFeatures @ 0x1401D0350 (PnprQueryReplaceFeatures.c)
+ *     PnpGetDeviceLocationStrings @ 0x14050DE68 (PnpGetDeviceLocationStrings.c)
+ *     IoQueryInterface @ 0x1405766E0 (IoQueryInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x140576728 (IopQueryInterfaceRecurseUp.c)
+ *     IoGetDmaAdapter @ 0x140578174 (IoGetDmaAdapter.c)
+ *     PnprIdentifyUnits @ 0x1406447BC (PnprIdentifyUnits.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x1400C48F0 (IoGetAttachedDeviceReference.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IoBuildSynchronousFsdRequest @ 0x1404CDF10 (IoBuildSynchronousFsdRequest.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1400C2790 (IoGetAttachedDeviceReference.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IoBuildSynchronousFsdRequest @ 0x14050E5A8 (IoBuildSynchronousFsdRequest.c)
  */
 
 __int64 __fastcall PnpQueryInterface(

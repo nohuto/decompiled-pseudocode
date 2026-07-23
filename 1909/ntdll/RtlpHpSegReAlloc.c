@@ -20,7 +20,6 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, unsigned __int6
   unsigned __int64 v11; // rdx
   unsigned int v12; // ebx
   unsigned __int8 v13; // cl
-  unsigned int v14; // r8d
 
   v8 = RtlpHpSegDescriptorValidate(a1, a3);
   if ( !v8 )
@@ -36,12 +35,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, unsigned __int6
     if ( v13 != 12
       || *(_QWORD *)(a4 + 24) <= *(_QWORD *)a4
       || v10 > 0x20000
-      || (v9 = RtlpHpVsContextGrowInPlace(
-                 *(_QWORD *)(a1 + 32),
-                 (v8 & *(_DWORD *)a1) + ((v8 - (v8 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
-                 a3,
-                 a4,
-                 a2)) == 0 )
+      || (v9 = RtlpHpVsContextGrowInPlace(*(PRTL_SRWLOCK *)(a1 + 32), a2)) == 0 )
     {
       if ( (a2 & 0x2000000) == 0 )
         return RtlpHpReallocMove(*(_QWORD *)(a1 + 56), a3, a4, a2);
@@ -55,8 +49,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, unsigned __int6
   }
   else
   {
-    v14 = (unsigned __int16)~*(_WORD *)(v8 + 28);
-    if ( (unsigned int)v11 > v14 && (int)RtlpHpSegPageRangeCommit(a1, v8, v14, (unsigned int)v11 - v14, 0, 0LL) < 0 )
+    if ( (unsigned int)v11 > (unsigned __int16)~*(_WORD *)(v8 + 28) && (int)RtlpHpSegPageRangeCommit(a1, 0, 0LL) < 0 )
       return 0LL;
     if ( *(_DWORD *)(a4 + 16) )
       RtlpHpExtrasMove(a3, *(_QWORD *)a4, a3, *(_QWORD *)(a4 + 24), a2);

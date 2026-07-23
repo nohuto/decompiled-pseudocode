@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpIsKeyStackDeleted @ 0x1406FB540
+ * XREFs of CmpIsKeyStackDeleted @ 0x140712920
  * Callers:
- *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
- *     CmpPromoteKey @ 0x1408802C8 (CmpPromoteKey.c)
+ *     CmpDoWritethroughReparse @ 0x140649EA0 (CmpDoWritethroughReparse.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpIsKeyDeleted @ 0x140667410 (CmpIsKeyDeleted.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1406DBF40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpCreateKeyBody @ 0x140713A70 (CmpCreateKeyBody.c)
+ *     CmpPromoteKey @ 0x140880428 (CmpPromoteKey.c)
  * Callees:
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
  */
 
 char __fastcall CmpIsKeyStackDeleted(__int64 a1, __int64 a2)
@@ -46,7 +46,7 @@ char __fastcall CmpIsKeyStackDeleted(__int64 a1, __int64 a2)
         if ( !NextElement )
           return (char)NextElement;
       }
-      if ( !(unsigned __int8)CmEqualTrans(*((_QWORD *)NextElement + 7), v7) )
+      if ( !CmEqualTrans(*((_QWORD *)NextElement + 7), v7) )
       {
 LABEL_17:
         LOBYTE(NextElement) = 0;

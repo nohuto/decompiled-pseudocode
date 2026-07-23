@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwCancelWaitCompletionPacket()
+NTSTATUS __cdecl ZwCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 144LL;
+  result = 144;
   __asm { syscall; Low latency system call }
   return result;
 }

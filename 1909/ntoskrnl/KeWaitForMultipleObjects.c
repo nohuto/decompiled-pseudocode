@@ -143,8 +143,8 @@ NTSTATUS __stdcall KeWaitForMultipleObjects(
   struct _KPRCB *v80; // rcx
   unsigned __int64 v81; // rax
   char v82; // r14
-  __int64 v83; // rax
-  __int64 v84; // r12
+  PRTL_BALANCED_NODE v83; // rax
+  PRTL_BALANCED_NODE v84; // r12
   __int64 v85; // rcx
   __int64 v86; // rax
   __int64 v87; // r9
@@ -179,7 +179,7 @@ NTSTATUS __stdcall KeWaitForMultipleObjects(
   int v116; // eax
   int v117; // eax
   int v118; // eax
-  __int64 v119; // rax
+  PRTL_BALANCED_NODE v119; // rax
   struct _KPRCB *v120; // rbx
   _DWORD *v121; // rcx
   int v122; // eax
@@ -568,7 +568,7 @@ LABEL_42:
             CurrentThread->AbWaitObject = 0LL;
             v119 = KeAbPreAcquire(AbWaitObject, 0LL, 1);
             if ( v119 )
-              *(_BYTE *)(v119 + 26) |= 1u;
+              BYTE2(v119[1].Left) |= 1u;
           }
           if ( v22 )
           {
@@ -1052,7 +1052,7 @@ LABEL_27:
             KeAbPreWait(v83);
             v21 = v153;
             v20 = Object;
-            v85 = 16 * (*(unsigned __int8 *)(v84 + 24) - 50LL);
+            v85 = 16 * (LOBYTE(v84[1].Children[0]) - 50LL);
             v86 = v29++;
             v176[v86] = (2
                        * (((((unsigned __int128)(v85 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) & 0x8000000000000000uLL) != 0LL)
@@ -1085,7 +1085,7 @@ LABEL_27:
             v88 = v32;
             v154 = v30 & ~(1LL << v87);
             v89 = (char *)KeGetCurrentThread() + 96 * (v176[v32] >> 1);
-            KeAbPreAcquire((ULONG_PTR)Object[v87], (__int64)(v89 + 800), 1);
+            KeAbPreAcquire((ULONG_PTR)Object[v87], (PRTL_BALANCED_NODE)(v89 + 800), 1);
             v89[826] |= 1u;
             if ( v88 >= 6 )
               _report_rangecheckfailure();
@@ -1108,7 +1108,7 @@ LABEL_30:
             if ( v176[v34] )
               v92 = v34;
             v93 = v92;
-            KeAbPreAcquire((ULONG_PTR)Object[v91], (__int64)&KeGetCurrentThread()->LockEntries[v176[v92] >> 1], 0);
+            KeAbPreAcquire((ULONG_PTR)Object[v91], &KeGetCurrentThread()->LockEntries[v176[v92] >> 1].TreeNode, 0);
             KeAbPostReleaseEx((ULONG_PTR)Object[v91]);
             v30 = v155;
             v34 = v93 + 1;

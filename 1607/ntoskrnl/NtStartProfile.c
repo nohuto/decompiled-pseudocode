@@ -1,21 +1,21 @@
 /*
- * XREFs of NtStartProfile @ 0x1406B823C
+ * XREFs of NtStartProfile @ 0x1406B8374
  * Callers:
  *     <none>
  * Callees:
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmSizeOfMdl @ 0x140086AE0 (MmSizeOfMdl.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     KeStartProfile @ 0x1401D6D44 (KeStartProfile.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmSizeOfMdl @ 0x1400883D0 (MmSizeOfMdl.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeStartProfile @ 0x1401D6B70 (KeStartProfile.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     KeInitializeProfile @ 0x14064FC98 (KeInitializeProfile.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     KeInitializeProfile @ 0x14064FD7C (KeInitializeProfile.c)
  */
 
 NTSTATUS __stdcall NtStartProfile(HANDLE ProfileHandle)

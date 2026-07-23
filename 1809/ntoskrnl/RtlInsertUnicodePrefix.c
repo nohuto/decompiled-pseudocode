@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertUnicodePrefix @ 0x1406A2600
+ * XREFs of RtlInsertUnicodePrefix @ 0x1406A38A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x1406A2870 (CompareUnicodeStrings.c)
- *     ComputeUnicodeNameLength @ 0x1406A29D0 (ComputeUnicodeNameLength.c)
+ *     RtlSplay @ 0x14008D5A0 (RtlSplay.c)
+ *     CompareUnicodeStrings @ 0x1406A3B10 (CompareUnicodeStrings.c)
+ *     ComputeUnicodeNameLength @ 0x1406A3C70 (ComputeUnicodeNameLength.c)
  */
 
 BOOLEAN __stdcall RtlInsertUnicodePrefix(
@@ -22,8 +22,8 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
   int v12; // eax
   _RTL_SPLAY_LINKS *LeftChild; // rax
   _RTL_SPLAY_LINKS *v14; // rax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *NextPrefixTree; // rbx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v16; // rax
+  _UNICODE_PREFIX_TABLE_ENTRY *NextPrefixTree; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v16; // rax
   PUNICODE_PREFIX_TABLE_ENTRY v18; // rbp
 
   v6 = ComputeUnicodeNameLength(Prefix);
@@ -91,7 +91,7 @@ LABEL_13:
     NextPrefixTree = i->NextPrefixTree;
     i->NextPrefixTree = 0LL;
     i->NodeTypeCode = 2050;
-    v16 = (struct _UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(&v11->Links)[-1];
+    v16 = (_UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(&v11->Links)[-1];
     v16->NodeTypeCode = 2049;
     PrefixTable->NextPrefixTree = v16;
     v16->NextPrefixTree = NextPrefixTree;

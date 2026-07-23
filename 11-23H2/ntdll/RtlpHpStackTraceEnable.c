@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpStackTraceEnable @ 0x180117570
+ * XREFs of RtlpHpStackTraceEnable @ 0x180117540
  * Callers:
  *     RtlSetLowFragHeapGlobalFlags @ 0x1800B0764 (RtlSetLowFragHeapGlobalFlags.c)
- *     RtlpHpStackTraceConfig @ 0x1801174A8 (RtlpHpStackTraceConfig.c)
+ *     RtlpHpStackTraceConfig @ 0x180117478 (RtlpHpStackTraceConfig.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)

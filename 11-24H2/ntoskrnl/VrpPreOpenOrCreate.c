@@ -1,21 +1,21 @@
 /*
- * XREFs of VrpPreOpenOrCreate @ 0x1409271B4
+ * XREFs of VrpPreOpenOrCreate @ 0x1409292F4
  * Callers:
- *     VrpRegistryCallback @ 0x140849230 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408454F0 (VrpRegistryCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VrpTranslatePath @ 0x1409276F0 (VrpTranslatePath.c)
- *     VrpBuildKeyPath @ 0x140928C80 (VrpBuildKeyPath.c)
- *     CmpFreeExtraParameter @ 0x1409E41A0 (CmpFreeExtraParameter.c)
- *     CmAllocateExtraParameter @ 0x140A23404 (CmAllocateExtraParameter.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VrpTranslatePath @ 0x140929830 (VrpTranslatePath.c)
+ *     VrpBuildKeyPath @ 0x14092ADC0 (VrpBuildKeyPath.c)
+ *     CmpFreeExtraParameter @ 0x1409DEC00 (CmpFreeExtraParameter.c)
+ *     CmAllocateExtraParameter @ 0x140A17814 (CmAllocateExtraParameter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPreOpenOrCreate(UNICODE_STRING ***a1, void *a2)
@@ -54,7 +54,7 @@ __int64 __fastcall VrpPreOpenOrCreate(UNICODE_STRING ***a1, void *a2)
   PCUNICODE_STRING v35; // rdx
   int v36; // ecx
   wchar_t *v37; // rax
-  char *v38; // rdx
+  unsigned __int8 *v38; // rdx
   __int64 v39; // rcx
   wchar_t *v40; // rcx
   PCUNICODE_STRING v41; // rdx
@@ -181,7 +181,7 @@ __int64 __fastcall VrpPreOpenOrCreate(UNICODE_STRING ***a1, void *a2)
       if ( (v44 & 4) == 0 )
       {
         *((_WORD *)Object + 25) = v17[3].MaximumLength;
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, 0x48uLL, 0x67655256u);
         v21 = Pool2;
         if ( Pool2 )
         {
@@ -262,7 +262,7 @@ LABEL_28:
   if ( v8 == -1073740541 )
   {
 LABEL_62:
-    if ( (unsigned int)dword_140E0A5B0 <= 5 )
+    if ( (unsigned int)dword_140E0A620 <= 5 )
       goto LABEL_29;
     v41 = (PCUNICODE_STRING)&EmptyUnicodeString;
     if ( (*v2)->Buffer )
@@ -270,13 +270,13 @@ LABEL_62:
     v36 = v41->Length;
     v37 = v41->Buffer;
     v53 = v56;
-    v38 = &byte_140058FE7;
+    v38 = (unsigned __int8 *)word_1400597E2;
     v54 = 2LL;
     LODWORD(v42) = -1073740541;
     goto LABEL_73;
   }
 LABEL_50:
-  if ( (unsigned int)dword_140E0A5B0 <= 2 )
+  if ( (unsigned int)dword_140E0A620 <= 2 )
     goto LABEL_29;
   v35 = (PCUNICODE_STRING)&EmptyUnicodeString;
   if ( (*v2)->Buffer )
@@ -284,7 +284,7 @@ LABEL_50:
   v36 = v35->Length;
   v37 = v35->Buffer;
   v53 = v56;
-  v38 = byte_140058EA3;
+  v38 = (unsigned __int8 *)byte_140059931;
   v54 = 2LL;
   LODWORD(v42) = v8;
 LABEL_73:
@@ -293,7 +293,7 @@ LABEL_73:
   v57 = &v42;
   v56[1] = 0;
   v58 = 4LL;
-  tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5B0, (unsigned __int8 *)v38, &ActivityId, 0LL, 5u, &v52);
+  tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A620, v38, &ActivityId, 0LL, 5u, &v52);
 LABEL_29:
   if ( v47.Buffer )
     ExFreePoolWithTag(v47.Buffer, 0x67655256u);

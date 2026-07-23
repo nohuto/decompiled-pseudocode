@@ -1,10 +1,10 @@
 /*
- * XREFs of PspInitializeCpuPartitionsPhase0 @ 0x140CD8990
+ * XREFs of PspInitializeCpuPartitionsPhase0 @ 0x140CDED10
  * Callers:
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
- *     PsCreateCpuPartition @ 0x1407F2660 (PsCreateCpuPartition.c)
- *     PspInitializeCpuPartitionsDefaultSd @ 0x140CD8734 (PspInitializeCpuPartitionsDefaultSd.c)
+ *     PsCreateCpuPartition @ 0x1407F81C0 (PsCreateCpuPartition.c)
+ *     PspInitializeCpuPartitionsDefaultSd @ 0x140CDEAB4 (PspInitializeCpuPartitionsDefaultSd.c)
  */
 
 __int64 PspInitializeCpuPartitionsPhase0()
@@ -18,11 +18,11 @@ __int64 PspInitializeCpuPartitionsPhase0()
   __int64 v6; // [rsp+60h] [rbp-18h]
   __int64 v7; // [rsp+68h] [rbp-10h]
 
-  PspSiloMonitorLock.SavedApcState.ApcListHead[1].Flink = 0LL;
+  PspSiloMonitorLock.SavedApcState.ApcListHead[0].Blink = 0LL;
   v1[1] = 0;
   v5 = 0;
-  *(_QWORD *)&KiSystemServiceTraceCallbackLock.ReservedPreviousReadyTimeValue = &KiSystemServiceTraceCallbackLock.AbWaitObject;
-  KiSystemServiceTraceCallbackLock.AbWaitObject = (void *volatile)&KiSystemServiceTraceCallbackLock.AbWaitObject;
+  KiSystemServiceTraceCallbackLock.KernelWaitTime = (unsigned __int64)&KiSystemServiceTraceCallbackLock.ReservedPreviousReadyTimeValue;
+  *(_QWORD *)&KiSystemServiceTraceCallbackLock.ReservedPreviousReadyTimeValue = &KiSystemServiceTraceCallbackLock.ReservedPreviousReadyTimeValue;
   result = PspInitializeCpuPartitionsDefaultSd(&PsCpuPartitionDefaultSd, 0);
   if ( (int)result >= 0 )
   {

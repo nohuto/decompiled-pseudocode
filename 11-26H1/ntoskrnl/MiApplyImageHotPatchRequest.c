@@ -1,52 +1,52 @@
 /*
- * XREFs of MiApplyImageHotPatchRequest @ 0x14086E8A8
+ * XREFs of MiApplyImageHotPatchRequest @ 0x140874C78
  * Callers:
- *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140A9D550 (NtManageHotPatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiDereferenceControlAreaBySection @ 0x14036D708 (MiDereferenceControlAreaBySection.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiWriteVadFlags @ 0x1404737D0 (MiWriteVadFlags.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     MiReferenceMappedControlArea @ 0x1406F02A8 (MiReferenceMappedControlArea.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiApplyImageHotPatch @ 0x14086E638 (MiApplyImageHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x14086F52C (MiCaptureHotPatchInfo.c)
- *     MiDeleteHotPatchEntry @ 0x14086FA4C (MiDeleteHotPatchEntry.c)
- *     MiGetAllRegisteredPatches @ 0x14086FD1C (MiGetAllRegisteredPatches.c)
- *     MiGetProcessHotPatchContext @ 0x14086FFF8 (MiGetProcessHotPatchContext.c)
- *     MiGetVadForHotPatchInProgress @ 0x140870088 (MiGetVadForHotPatchInProgress.c)
- *     MiLogHotPatchOperation @ 0x140871AAC (MiLogHotPatchOperation.c)
- *     MiLogHotPatchOperationStatus @ 0x140871F28 (MiLogHotPatchOperationStatus.c)
- *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
- *     MiPrepareToHotPatchVad @ 0x140873C64 (MiPrepareToHotPatchVad.c)
- *     MiProcessPatchImageCfg @ 0x140873D98 (MiProcessPatchImageCfg.c)
- *     PsWow64GetProcessNtdllType @ 0x1409EA77C (PsWow64GetProcessNtdllType.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     SeCompareSigningLevels @ 0x140A88910 (SeCompareSigningLevels.c)
- *     MiReleaseHotPatchResources @ 0x140B55540 (MiReleaseHotPatchResources.c)
- *     MiInitializeImageHotPatchContext @ 0x140B611FC (MiInitializeImageHotPatchContext.c)
- *     RtlApplyHotPatch @ 0x140C0206C (RtlApplyHotPatch.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiDereferenceControlAreaBySection @ 0x14036F4A8 (MiDereferenceControlAreaBySection.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiWriteVadFlags @ 0x14046CF50 (MiWriteVadFlags.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     MiReferenceMappedControlArea @ 0x1406F4F18 (MiReferenceMappedControlArea.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiApplyImageHotPatch @ 0x140874A08 (MiApplyImageHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x1408758FC (MiCaptureHotPatchInfo.c)
+ *     MiDeleteHotPatchEntry @ 0x140875DB0 (MiDeleteHotPatchEntry.c)
+ *     MiGetAllRegisteredPatches @ 0x14087607C (MiGetAllRegisteredPatches.c)
+ *     MiGetProcessHotPatchContext @ 0x140876358 (MiGetProcessHotPatchContext.c)
+ *     MiGetVadForHotPatchInProgress @ 0x1408763E8 (MiGetVadForHotPatchInProgress.c)
+ *     MiLogHotPatchOperation @ 0x140877E0C (MiLogHotPatchOperation.c)
+ *     MiLogHotPatchOperationStatus @ 0x140878288 (MiLogHotPatchOperationStatus.c)
+ *     MiOpenHotPatchFile @ 0x140879388 (MiOpenHotPatchFile.c)
+ *     MiPrepareToHotPatchVad @ 0x140879FC4 (MiPrepareToHotPatchVad.c)
+ *     MiProcessPatchImageCfg @ 0x14087A0F8 (MiProcessPatchImageCfg.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     PsWow64GetProcessNtdllType @ 0x1409E6F4C (PsWow64GetProcessNtdllType.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     SeCompareSigningLevels @ 0x140A8FB90 (SeCompareSigningLevels.c)
+ *     MiReleaseHotPatchResources @ 0x140B57DDC (MiReleaseHotPatchResources.c)
+ *     MiInitializeImageHotPatchContext @ 0x140B6429C (MiInitializeImageHotPatchContext.c)
+ *     RtlApplyHotPatch @ 0x140C0827C (RtlApplyHotPatch.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiApplyImageHotPatchRequest(__int64 a1)
@@ -454,9 +454,9 @@ LABEL_42:
                         else
                           *((_BYTE *)v49 + 10) = 1;
                       }
-                      if ( stru_140E36558.FirstArgument
-                        && *(_DWORD *)stru_140E36558.FirstArgument
-                        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+                      if ( stru_140E366D8.FirstArgument
+                        && *(_DWORD *)stru_140E366D8.FirstArgument
+                        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
                       {
                         v59 = AllRegisteredPatches;
                         v51 = v95;
@@ -498,7 +498,7 @@ LABEL_42:
                       KeAbPostRelease(v46 + 16);
                       v43 = CurrentThread->SpecialApcDisable++ == -1;
                       if ( v43
-                        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+                        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
                       {
                         KiCheckForKernelApcDelivery(v55, v54);
                       }
@@ -556,9 +556,9 @@ LABEL_46:
     goto LABEL_52;
   v9 = 0x400000000020LL;
 LABEL_48:
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, v9) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, v9) )
   {
     MiLogHotPatchOperationStatus(v38, v69, HIDWORD(v69), (unsigned int)&DestinationString, AllRegisteredPatches, 0);
   }

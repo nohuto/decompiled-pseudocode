@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCallPowerSettingCallback @ 0x1409BDC9C
+ * XREFs of PopCallPowerSettingCallback @ 0x1409A42EC
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x1409BDB60 (PopDispatchPowerSettingCallbacks.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1409A41B0 (PopDispatchPowerSettingCallbacks.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopDiagTracePowerSettingStop @ 0x1409BDDCC (PopDiagTracePowerSettingStop.c)
- *     PopUnreferencePowerSetting @ 0x1409BDE74 (PopUnreferencePowerSetting.c)
- *     PopDiagTracePowerSettingStart @ 0x1409BDE94 (PopDiagTracePowerSettingStart.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopDiagTracePowerSettingStop @ 0x1409A441C (PopDiagTracePowerSettingStop.c)
+ *     PopUnreferencePowerSetting @ 0x1409A44C4 (PopUnreferencePowerSetting.c)
+ *     PopDiagTracePowerSettingStart @ 0x1409A44E4 (PopDiagTracePowerSettingStart.c)
  */
 
 void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
@@ -36,7 +36,7 @@ void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
           KeReleaseGuardedMutex(&PopSettingLock);
           PopDiagTracePowerSettingStart(a1[10], (char *)a1 + 36, (unsigned int)v4[1], v4 + 3);
           CurrentIrql = KeGetCurrentIrql();
-          guard_dispatch_icall_no_overrides((char *)a1 + 52, v4 + 3, (unsigned int)v4[1], a1[11]);
+          guard_dispatch_icall_no_overrides((char *)a1 + 52, v4 + 3);
           v6 = KeGetCurrentIrql();
           if ( v6 != CurrentIrql )
             KeBugCheckEx(0xA0u, 0x900uLL, a1[10], CurrentIrql, v6);

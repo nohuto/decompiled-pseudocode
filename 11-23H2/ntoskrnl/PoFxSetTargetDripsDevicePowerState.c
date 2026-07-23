@@ -1,16 +1,16 @@
 /*
- * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x1409848B0
+ * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x140984AB0
  * Callers:
  *     <none>
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IoAcquireRemoveLockEx @ 0x1403124F0 (IoAcquireRemoveLockEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopFxReleaseDevice @ 0x140462D9C (PopFxReleaseDevice.c)
- *     PopPepGetMinimumDevicePowerState @ 0x14059F090 (PopPepGetMinimumDevicePowerState.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IoAcquireRemoveLockEx @ 0x140312780 (IoAcquireRemoveLockEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopFxReleaseDevice @ 0x14046319C (PopFxReleaseDevice.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x14059F580 (PopPepGetMinimumDevicePowerState.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -58,7 +58,7 @@ LABEL_25:
       v4 = -1073741811;
       goto LABEL_26;
     }
-    v4 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(a1 + 240), 0LL, &byte_14088C8E0, 1u, 0x20u);
+    v4 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(a1 + 240), 0LL, &byte_14088CB20, 1u, 0x20u);
     if ( v4 < 0 )
       goto LABEL_26;
     if ( (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 824), 0, 0) & 0x10) != 0 )
@@ -103,7 +103,7 @@ LABEL_22:
   }
   v4 = -1073741637;
 LABEL_26:
-  RtlInitUnicodeString(&DestinationString, &word_140887DD0);
+  RtlInitUnicodeString(&DestinationString, &word_140888010);
   if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
   {
     v18 = 2LL;
@@ -120,13 +120,7 @@ LABEL_26:
     v24 = 4LL;
     v14 = 0x1000000LL;
     v26 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C03950,
-      (unsigned __int8 *)&dword_14002DB9C,
-      0LL,
-      0LL,
-      7u,
-      &v16);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)&word_14002DBC6, 0LL, 0LL, 7u, &v16);
   }
   return (unsigned int)v4;
 }

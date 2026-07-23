@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDpcGangTarget @ 0x140560320
+ * XREFs of MiDpcGangTarget @ 0x140560560
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiDoGangAssignment @ 0x140560170 (MiDoGangAssignment.c)
- *     MiGetGangAssignment @ 0x1405604F4 (MiGetGangAssignment.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiDoGangAssignment @ 0x1405603B0 (MiDoGangAssignment.c)
+ *     MiGetGangAssignment @ 0x140560734 (MiGetGangAssignment.c)
  */
 
 __int64 __fastcall MiDpcGangTarget(

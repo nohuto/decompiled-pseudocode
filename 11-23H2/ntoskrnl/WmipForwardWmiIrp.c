@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipForwardWmiIrp @ 0x1406C7480
+ * XREFs of WmipForwardWmiIrp @ 0x1406C74B0
  * Callers:
- *     WmipQuerySetExecuteSI @ 0x1406C6D3C (WmipQuerySetExecuteSI.c)
- *     WmipSendWmiIrp @ 0x1406C7398 (WmipSendWmiIrp.c)
- *     WmipQueryAllData @ 0x1406C7A7C (WmipQueryAllData.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x140848E84 (WmipSendWmiIrpToTraceDeviceList.c)
- *     WmipSetTraceNotify @ 0x14086BD80 (WmipSetTraceNotify.c)
+ *     WmipQuerySetExecuteSI @ 0x1406C6D6C (WmipQuerySetExecuteSI.c)
+ *     WmipSendWmiIrp @ 0x1406C73C8 (WmipSendWmiIrp.c)
+ *     WmipQueryAllData @ 0x1406C7AAC (WmipQueryAllData.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x140849184 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipSetTraceNotify @ 0x14086BFC0 (WmipSetTraceNotify.c)
  * Callees:
- *     WmipFindRegEntryByProviderId @ 0x14022A9F4 (WmipFindRegEntryByProviderId.c)
- *     WmipUnreferenceRegEntry @ 0x14022AAB4 (WmipUnreferenceRegEntry.c)
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x14025A100 (IoGetAttachedDeviceReference.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     WmipUpdateDeviceStackSize @ 0x14086C1CC (WmipUpdateDeviceStackSize.c)
- *     WmipTranslatePDOInstanceNames @ 0x14086E7A8 (WmipTranslatePDOInstanceNames.c)
+ *     WmipFindRegEntryByProviderId @ 0x14022AB04 (WmipFindRegEntryByProviderId.c)
+ *     WmipUnreferenceRegEntry @ 0x14022ABC4 (WmipUnreferenceRegEntry.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDeviceReference @ 0x14025A390 (IoGetAttachedDeviceReference.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     WmipUpdateDeviceStackSize @ 0x14086C40C (WmipUpdateDeviceStackSize.c)
+ *     WmipTranslatePDOInstanceNames @ 0x14086E9E8 (WmipTranslatePDOInstanceNames.c)
  */
 
 __int64 __fastcall WmipForwardWmiIrp(

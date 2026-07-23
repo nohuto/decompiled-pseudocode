@@ -1,11 +1,11 @@
 /*
- * XREFs of IpmiLibAddSelBugcheckRecord @ 0x14071D434
+ * XREFs of IpmiLibAddSelBugcheckRecord @ 0x1407220C4
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x140532728 (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelRecord @ 0x14071D6D8 (IpmiLibAddSelRecord.c)
- *     IpmiLibpAddSelRawData @ 0x14071D770 (IpmiLibpAddSelRawData.c)
+ *     IpmiHwContextInitialized @ 0x140534BC8 (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelRecord @ 0x140722368 (IpmiLibAddSelRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x140722400 (IpmiLibpAddSelRawData.c)
  */
 
 __int64 __fastcall IpmiLibAddSelBugcheckRecord(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -46,14 +46,13 @@ __int64 __fastcall IpmiLibAddSelBugcheckRecord(__int64 a1, __int64 a2, __int64 a
     while ( v9 < 5u )
     {
       BYTE10(v13) = v9 + 1;
-      *(_DWORD *)((char *)&v13 + 11) = *((_DWORD *)&KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink + 2 * v9);
+      *(_DWORD *)((char *)&v13 + 11) = KiBugCheckData[v9];
       result = IpmiLibAddSelRecord(v8, &v13, &v14);
       if ( (int)result < 0 )
         return result;
       if ( v9 )
       {
-        *(_DWORD *)((char *)&v13 + 11) = HIDWORD(*((_QWORD *)&KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink
-                                                 + v9));
+        *(_DWORD *)((char *)&v13 + 11) = HIDWORD(KiBugCheckData[v9]);
         result = IpmiLibAddSelRecord(v8, &v13, &v14);
         if ( (int)result < 0 )
           return result;

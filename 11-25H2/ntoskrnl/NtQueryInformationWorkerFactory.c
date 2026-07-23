@@ -11,7 +11,12 @@
  *     ExRaiseDatatypeMisalignment @ 0x14085AF60 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
@@ -32,33 +37,33 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != 7 )
+  if ( WorkerFactoryInformationClass != WorkerFactoryBasicInformation )
     return -1073741821;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v10 = 0x7FFFFFFF0000LL;
     v11 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v11 = a3;
+    if ( (unsigned __int64)WorkerFactoryInformation < 0x7FFFFFFF0000LL )
+      v11 = (__int64)WorkerFactoryInformation;
     *(_BYTE *)v11 = *(_BYTE *)v11;
     *(_BYTE *)(v11 + 119) = *(_BYTE *)(v11 + 119);
-    if ( a5 )
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ReturnLength;
       *(_DWORD *)v10 = 120;
     }
   }
-  else if ( a5 )
+  else if ( ReturnLength )
   {
-    *a5 = 120;
+    *ReturnLength = 120;
   }
-  if ( a4 != 120 )
+  if ( WorkerFactoryInformationLength != 120 )
     return -1073741820;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 8u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(WorkerFactoryHandle, 8u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     HIBYTE(v16) = 0;
@@ -88,14 +93,14 @@ NTSTATUS __fastcall NtQueryInformationWorkerFactory(HANDLE Handle, int a2, unsig
     LODWORD(v22) = *((_DWORD *)v12 + 104);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     ObfDereferenceObjectWithTag(v12, 0x746C6644u);
-    *(_OWORD *)a3 = 0LL;
-    *(_OWORD *)(a3 + 16) = v16;
-    *(_OWORD *)(a3 + 32) = v17;
-    *(_OWORD *)(a3 + 48) = v18;
-    *(_OWORD *)(a3 + 64) = v19;
-    *(_OWORD *)(a3 + 80) = v20;
-    *(_OWORD *)(a3 + 96) = v21;
-    *(_QWORD *)(a3 + 112) = v22;
+    *(_OWORD *)WorkerFactoryInformation = 0LL;
+    *((_OWORD *)WorkerFactoryInformation + 1) = v16;
+    *((_OWORD *)WorkerFactoryInformation + 2) = v17;
+    *((_OWORD *)WorkerFactoryInformation + 3) = v18;
+    *((_OWORD *)WorkerFactoryInformation + 4) = v19;
+    *((_OWORD *)WorkerFactoryInformation + 5) = v20;
+    *((_OWORD *)WorkerFactoryInformation + 6) = v21;
+    *((_QWORD *)WorkerFactoryInformation + 14) = v22;
     return 0;
   }
   return result;

@@ -52,7 +52,7 @@ __int64 __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
     v6 = (volatile signed __int64 *)SepRmCapTable;
     SepRmCapTable = (PRTL_DYNAMIC_HASH_TABLE)v16;
     SepRmEnforceCap = v16 != 0;
-    if ( v16 && (_DWORD)InitSafeBootMode == 1 )
+    if ( v16 && InitSafeBootMode == 1 )
     {
       SepRmDereferenceCapTable((volatile signed __int64 *)SepRmCapTable);
       SepRmCapTable = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x140683808
+ * XREFs of MmSetAccessLogging @ 0x1406849B8
  * Callers:
- *     PfTAccessTracingCleanup @ 0x140B5B46C (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140B5B5B0 (PfTAccessTracingStart.c)
- *     PfTSetTracingPriority @ 0x140B5B62C (PfTSetTracingPriority.c)
+ *     PfTAccessTracingCleanup @ 0x140B5D4DC (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140B5D620 (PfTAccessTracingStart.c)
+ *     PfTSetTracingPriority @ 0x140B5D69C (PfTSetTracingPriority.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 BOOLEAN __fastcall MmSetAccessLogging(_QWORD *a1, int a2, int a3)

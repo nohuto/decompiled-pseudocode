@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSetControlEnforcement @ 0x140BF7410
+ * XREFs of KiSetControlEnforcement @ 0x140BFD410
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
- *     Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline @ 0x1405F4820 (Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline @ 0x1405F71E0 (Feature_CET_User_AMD_Canonicalize_Perf_Fix__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 char __fastcall KiSetControlEnforcement(__int64 a1, _QWORD *a2)

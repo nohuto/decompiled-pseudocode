@@ -264,7 +264,7 @@ LABEL_13:
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    *v20,
-                   (MEMORY_INFORMATION_CLASS)2,
+                   MemoryMappedFilenameInformation,
                    v19,
                    0x218uLL,
                    0LL) < 0

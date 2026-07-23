@@ -12,61 +12,61 @@
  *     SepDeleteClaimAttributes @ 0x1407948F8 (SepDeleteClaimAttributes.c)
  */
 
-__int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a5)
+__int64 __fastcall SepSetTokenClaims(__int64 a1)
 {
-  char v6; // r14
+  char v2; // r14
   __int64 result; // rax
-  unsigned int v8; // ebp
-  PVOID v9; // rbx
+  unsigned int v4; // ebp
+  PVOID v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rsi
-  PVOID P; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rsi
+  PVOID P[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  P = 0LL;
-  v6 = 0;
-  result = SepCreateClaimAttributes((int)&P, a2, a3, a4, a5);
-  v8 = result;
+  P[0] = 0LL;
+  v2 = 0;
+  result = SepCreateClaimAttributes(P);
+  v4 = result;
   if ( (int)result >= 0 )
   {
-    v9 = P;
-    if ( P )
+    v5 = P[0];
+    if ( P[0] )
     {
       if ( !*(_QWORD *)(*(_QWORD *)(a1 + 216) + 112LL) )
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquirePushLockExclusiveEx(*(_QWORD *)(a1 + 216) + 104LL, 0LL);
-        v14 = *(_QWORD *)(a1 + 216);
-        if ( !*(_QWORD *)(v14 + 112) )
+        v10 = *(_QWORD *)(a1 + 216);
+        if ( !*(_QWORD *)(v10 + 112) )
         {
-          v6 = 1;
-          *(_QWORD *)(v14 + 112) = P;
-          v14 = *(_QWORD *)(a1 + 216);
+          v2 = 1;
+          *(PVOID *)(v10 + 112) = P[0];
+          v10 = *(_QWORD *)(a1 + 216);
         }
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v14 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)(v14 + 104), v11, v12, v13);
-        KeAbPostRelease(v14 + 104);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)(v10 + 104), v7, v8, v9);
+        KeAbPostRelease(v10 + 104);
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        v9 = P;
-        if ( v6 )
+        v5 = P[0];
+        if ( v2 )
           goto LABEL_13;
       }
-      if ( (unsigned __int8)SepCompareClaimAttributes(v9, *(_QWORD *)(*(_QWORD *)(a1 + 216) + 112LL)) )
+      if ( (unsigned __int8)SepCompareClaimAttributes(v5, *(_QWORD *)(*(_QWORD *)(a1 + 216) + 112LL)) )
       {
 LABEL_13:
         *(_QWORD *)(a1 + 1096) = *(_QWORD *)(*(_QWORD *)(a1 + 216) + 112LL);
-        if ( !v6 )
-          SepDeleteClaimAttributes(v9);
+        if ( !v2 )
+          SepDeleteClaimAttributes(v5);
       }
       else
       {
         *(_DWORD *)(a1 + 200) |= 0x8000u;
-        *(_QWORD *)(a1 + 1096) = v9;
+        *(_QWORD *)(a1 + 1096) = v5;
       }
-      return v8;
+      return v4;
     }
     else
     {

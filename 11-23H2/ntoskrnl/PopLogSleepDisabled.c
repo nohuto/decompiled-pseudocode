@@ -1,16 +1,16 @@
 /*
- * XREFs of PopLogSleepDisabled @ 0x140873B7C
+ * XREFs of PopLogSleepDisabled @ 0x140873DBC
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopFilterCapabilities @ 0x1407A8694 (PopFilterCapabilities.c)
- *     PopLogDisabledSleepReason @ 0x1407A8980 (PopLogDisabledSleepReason.c)
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
- *     PopUpdateUpgradeInProgress @ 0x140861FD0 (PopUpdateUpgradeInProgress.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopFilterCapabilities @ 0x1407A8884 (PopFilterCapabilities.c)
+ *     PopLogDisabledSleepReason @ 0x1407A8B70 (PopLogDisabledSleepReason.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
+ *     PopUpdateUpgradeInProgress @ 0x140862210 (PopUpdateUpgradeInProgress.c)
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  *     PopInitPlatformSettings @ 0x140B5234C (PopInitPlatformSettings.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PopGetReasonListByReasonCode @ 0x1407A8888 (PopGetReasonListByReasonCode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PopGetReasonListByReasonCode @ 0x1407A8A78 (PopGetReasonListByReasonCode.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -50,13 +50,13 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
         *(_DWORD *)(Pool2 + 28) = a4;
         memmove((void *)(Pool2 + 32), a3, a4);
       }
-      v11 = (_QWORD *)qword_140C3D608;
-      if ( *(__int64 **)qword_140C3D608 != &PowerStateDisableReasonListHead )
+      v11 = (_QWORD *)qword_140C3D628;
+      if ( *(__int64 **)qword_140C3D628 != &PowerStateDisableReasonListHead )
         __fastfail(3u);
       *v10 = &PowerStateDisableReasonListHead;
       v10[1] = v11;
       *v11 = v10;
-      qword_140C3D608 = (__int64)v10;
+      qword_140C3D628 = (__int64)v10;
     }
     else
     {

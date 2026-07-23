@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCleanupFileObjectIosbRange @ 0x14062118C
+ * XREFs of IopCleanupFileObjectIosbRange @ 0x140621240
  * Callers:
- *     IopCleanupProcessResources @ 0x1404CC840 (IopCleanupProcessResources.c)
+ *     IopCleanupProcessResources @ 0x1404B226C (IopCleanupProcessResources.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1400C3FD4 (RtlDeleteElementGenericTableAvl.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1400C1E74 (RtlDeleteElementGenericTableAvl.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

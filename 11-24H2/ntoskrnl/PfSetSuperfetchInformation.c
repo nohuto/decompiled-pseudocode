@@ -1,39 +1,39 @@
 /*
- * XREFs of PfSetSuperfetchInformation @ 0x140932C24
+ * XREFs of PfSetSuperfetchInformation @ 0x1408F573C
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     PfpPartitionDereferenceParent @ 0x140274CCC (PfpPartitionDereferenceParent.c)
- *     PfpPartitionRundownProtectionRelease @ 0x14046FF1C (PfpPartitionRundownProtectionRelease.c)
- *     PfpPartitionRundownProtectionAcquire @ 0x140477518 (PfpPartitionRundownProtectionAcquire.c)
- *     PfTSetTraceWorkerPriority @ 0x1405CC6E0 (PfTSetTraceWorkerPriority.c)
- *     MmSetTrimWhileAgingState @ 0x140678EB4 (MmSetTrimWhileAgingState.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PfGenerateTrace @ 0x14074637C (PfGenerateTrace.c)
- *     PfTCleanup @ 0x140746568 (PfTCleanup.c)
- *     PfTInitialize @ 0x1407468B4 (PfTInitialize.c)
- *     PfTStart @ 0x140746B0C (PfTStart.c)
- *     PfpPartitionFindOrCreate @ 0x1407473E0 (PfpPartitionFindOrCreate.c)
- *     PfpSetParameter @ 0x14074875C (PfpSetParameter.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PfpProcessScenarioPhase @ 0x14093289C (PfpProcessScenarioPhase.c)
- *     PfpDeprioritizeOldPagesInWs @ 0x140932FDC (PfpDeprioritizeOldPagesInWs.c)
- *     PfpPfnPrioRequest @ 0x1409334C4 (PfpPfnPrioRequest.c)
- *     PfpPartitionFindByHandle @ 0x140933E78 (PfpPartitionFindByHandle.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
- *     EtwTiLogSyscallUsage @ 0x140934948 (EtwTiLogSyscallUsage.c)
- *     PfpPrefetchRequest @ 0x140951060 (PfpPrefetchRequest.c)
- *     PfpRpControlRequest @ 0x140A75E88 (PfpRpControlRequest.c)
- *     MmSetMinimumAgeRate @ 0x140A9B73C (MmSetMinimumAgeRate.c)
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140B5B068 (PfpScenCtxPrefetchStateSet.c)
- *     PfpScenCtxServiceThreadSet @ 0x140B5B398 (PfpScenCtxServiceThreadSet.c)
- *     PfpPartitionAccessTraceLockAcquire @ 0x140B5B784 (PfpPartitionAccessTraceLockAcquire.c)
- *     PfpPartitionAccessTraceLockRelease @ 0x140B5B7A0 (PfpPartitionAccessTraceLockRelease.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PfpPartitionDereferenceParent @ 0x14022A25C (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionRundownProtectionRelease @ 0x14046A344 (PfpPartitionRundownProtectionRelease.c)
+ *     PfpPartitionRundownProtectionAcquire @ 0x140473AB8 (PfpPartitionRundownProtectionAcquire.c)
+ *     PfTSetTraceWorkerPriority @ 0x1405C9E50 (PfTSetTraceWorkerPriority.c)
+ *     MmSetTrimWhileAgingState @ 0x14067A094 (MmSetTrimWhileAgingState.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PfGenerateTrace @ 0x14074466C (PfGenerateTrace.c)
+ *     PfTCleanup @ 0x140744858 (PfTCleanup.c)
+ *     PfTInitialize @ 0x140744BA4 (PfTInitialize.c)
+ *     PfTStart @ 0x140744DFC (PfTStart.c)
+ *     PfpPartitionFindOrCreate @ 0x1407456D0 (PfpPartitionFindOrCreate.c)
+ *     PfpSetParameter @ 0x140746A4C (PfpSetParameter.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x1408F5AF4 (PfpDeprioritizeOldPagesInWs.c)
+ *     PfpPfnPrioRequest @ 0x1408F5FDC (PfpPfnPrioRequest.c)
+ *     PfpPartitionFindByHandle @ 0x1408F6998 (PfpPartitionFindByHandle.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     EtwTiLogSyscallUsage @ 0x1408F7468 (EtwTiLogSyscallUsage.c)
+ *     PfpProcessScenarioPhase @ 0x1408F77E8 (PfpProcessScenarioPhase.c)
+ *     PfpPrefetchRequest @ 0x140934A0C (PfpPrefetchRequest.c)
+ *     PfpRpControlRequest @ 0x140A5EA1C (PfpRpControlRequest.c)
+ *     MmSetMinimumAgeRate @ 0x140A96CAC (MmSetMinimumAgeRate.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140B5D0D8 (PfpScenCtxPrefetchStateSet.c)
+ *     PfpScenCtxServiceThreadSet @ 0x140B5D408 (PfpScenCtxServiceThreadSet.c)
+ *     PfpPartitionAccessTraceLockAcquire @ 0x140B5D7F4 (PfpPartitionAccessTraceLockAcquire.c)
+ *     PfpPartitionAccessTraceLockRelease @ 0x140B5D810 (PfpPartitionAccessTraceLockRelease.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4)
@@ -167,7 +167,7 @@ __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, 
           LODWORD(v12) = PfpPartitionFindByHandle(v29, &v34, *((_QWORD *)&v39 + 1), v9);
           if ( (int)v12 < 0 )
             goto LABEL_13;
-          P = (PVOID)ExAllocatePool2(0x100uLL);
+          P = (PVOID)ExAllocatePool2(0x100uLL, v19, 0x44456650u);
           if ( !P )
           {
             LODWORD(v12) = -1073741670;
@@ -222,7 +222,8 @@ LABEL_31:
             ExRaiseDatatypeMisalignment();
           v51 = *(_OWORD *)v31;
           v52 = *(_OWORD *)(v31 + 16);
-          v11 = PfpProcessScenarioPhase(&v51, a4);
+          LOBYTE(v7) = a4;
+          v11 = PfpProcessScenarioPhase(&v51, v7);
           goto LABEL_12;
         }
         goto LABEL_45;
@@ -253,7 +254,7 @@ LABEL_31:
         v47 = *(_QWORD *)v31;
         if ( (_WORD)v47 != 1 || (unsigned int)(HIDWORD(v47) - 1) > 4 )
           goto LABEL_103;
-        v17 = PfpScenCtxPrefetchStateSet((ULONG_PTR)&qword_140E66E80);
+        v17 = PfpScenCtxPrefetchStateSet((ULONG_PTR)&qword_140E66FD0);
 LABEL_102:
         LODWORD(v12) = v17;
         goto LABEL_13;
@@ -273,10 +274,10 @@ LABEL_48:
       if ( a4 && (v31 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v46 = *(_DWORD *)v31;
-      v32 = v46 + dword_140E66E7C;
+      v32 = v46 + dword_140E66FCC;
       LODWORD(v12) = PfpSetParameter(KeyHandle, L"BaseTime", v8, &v32, 4u);
       if ( (int)v12 >= 0 )
-        dword_140E66E7C = v32;
+        dword_140E66FCC = v32;
       break;
     case 0x12:
       if ( DWORD2(v31) != 32 )
@@ -343,7 +344,7 @@ LABEL_48:
                 *(__m128i *)v23 = v24;
                 *(_OWORD *)(v23 + 16) = v50;
               }
-              PfpScenCtxServiceThreadSet((ULONG_PTR)&qword_140E66E80);
+              PfpScenCtxServiceThreadSet((ULONG_PTR)&qword_140E66FD0);
               if ( v36 )
                 PfpPartitionRundownProtectionRelease(v36);
               v36 = 0LL;

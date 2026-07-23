@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTryLockLeafPage @ 0x140022EEC
+ * XREFs of MiTryLockLeafPage @ 0x140022A6C
  * Callers:
- *     MiDeleteClusterSection @ 0x140021D60 (MiDeleteClusterSection.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x140022F98 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiConvertStandbyToProto @ 0x1401F90BC (MiConvertStandbyToProto.c)
+ *     MiDeleteClusterSection @ 0x1400218E0 (MiDeleteClusterSection.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x140022B18 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiConvertStandbyToProto @ 0x1401F8EE8 (MiConvertStandbyToProto.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiTryLockLeafPage(__int64 a1)

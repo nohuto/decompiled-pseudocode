@@ -1,9 +1,9 @@
 /*
- * XREFs of GetCpuManufacturer @ 0x1406DE598
+ * XREFs of GetCpuManufacturer @ 0x1406E2838
  * Callers:
- *     GetMicrocodePatchData @ 0x1406DD430 (GetMicrocodePatchData.c)
- *     MicrocodeUpdate @ 0x1406DD970 (MicrocodeUpdate.c)
- *     MicrocodeValidate @ 0x1406DDB70 (MicrocodeValidate.c)
+ *     GetMicrocodePatchData @ 0x1406E16D0 (GetMicrocodePatchData.c)
+ *     MicrocodeUpdate @ 0x1406E1C10 (MicrocodeUpdate.c)
+ *     MicrocodeValidate @ 0x1406E1E10 (MicrocodeValidate.c)
  * Callees:
  *     <none>
  */

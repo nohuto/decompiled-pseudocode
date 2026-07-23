@@ -13,11 +13,11 @@
 
 int *__fastcall RtlpInterlockedPopEntrySList(unsigned int a1)
 {
-  volatile signed __int32 *v2; // ebx
+  _RTL_SRWLOCK *v2; // ebx
   int *v3; // edi
   int v4; // ecx
 
-  v2 = &RtlpSlistLockedAltLocks[(a1 >> 2) & 0x1F];
+  v2 = &RtlpSlistLockedAltLocks + ((a1 >> 2) & 0x1F);
   RtlAcquireSRWLockExclusive(v2);
   v3 = *(int **)a1;
   if ( *(_DWORD *)a1 )

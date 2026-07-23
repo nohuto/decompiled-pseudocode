@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceShutdownAction @ 0x140572F84
+ * XREFs of PopDiagTraceShutdownAction @ 0x1405731C4
  * Callers:
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceShutdownAction(int a1, int a2, int a3)

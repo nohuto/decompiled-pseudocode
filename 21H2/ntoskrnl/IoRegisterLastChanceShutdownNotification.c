@@ -1,12 +1,12 @@
 /*
- * XREFs of IoRegisterLastChanceShutdownNotification @ 0x1407BE160
+ * XREFs of IoRegisterLastChanceShutdownNotification @ 0x1407BE8F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopInterlockedInsertHeadList @ 0x1403C4F58 (IopInterlockedInsertHeadList.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x1407BE254 (IopLogAuditIoRegisterNotificationEvent.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopInterlockedInsertHeadList @ 0x1403C5388 (IopInterlockedInsertHeadList.c)
+ *     IopLogAuditIoRegisterNotificationEvent @ 0x1407BE9E4 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterLastChanceShutdownNotification(PDEVICE_OBJECT DeviceObject)

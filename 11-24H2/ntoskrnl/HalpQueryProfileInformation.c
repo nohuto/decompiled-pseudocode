@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpQueryProfileInformation @ 0x140ABC9C4
+ * XREFs of HalpQueryProfileInformation @ 0x140AB79E4
  * Callers:
- *     HaliQuerySystemInformation @ 0x140B6B760 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140B6CB90 (HaliQuerySystemInformation.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     HalpQueryProfileSourceList @ 0x1403B53B8 (HalpQueryProfileSourceList.c)
- *     HalpQueryProfileSource @ 0x1404BBCB0 (HalpQueryProfileSource.c)
- *     HalpCollectProfileCorruptionStatus @ 0x1405454B4 (HalpCollectProfileCorruptionStatus.c)
- *     HalpCollectProfileOwnershipStatus @ 0x140545604 (HalpCollectProfileOwnershipStatus.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     HalpQueryProfileSourceList @ 0x140371748 (HalpQueryProfileSourceList.c)
+ *     HalpQueryProfileSource @ 0x1404B6BC0 (HalpQueryProfileSource.c)
+ *     HalpCollectProfileCorruptionStatus @ 0x140542D74 (HalpCollectProfileCorruptionStatus.c)
+ *     HalpCollectProfileOwnershipStatus @ 0x140542EC4 (HalpCollectProfileOwnershipStatus.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpQueryProfileInformation(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -55,7 +55,7 @@ __int64 __fastcall HalpQueryProfileInformation(__int64 a1, __int64 a2, __int64 a
     }
     else
     {
-      return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+      return (unsigned int)guard_dispatch_icall_no_overrides(a1, a2);
     }
   }
   if ( (unsigned int)a2 < 4 )

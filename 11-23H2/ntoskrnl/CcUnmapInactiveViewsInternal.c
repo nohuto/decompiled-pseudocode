@@ -1,30 +1,30 @@
 /*
- * XREFs of CcUnmapInactiveViewsInternal @ 0x1405383E0
+ * XREFs of CcUnmapInactiveViewsInternal @ 0x140538930
  * Callers:
- *     CcUnmapInactiveViews @ 0x140538278 (CcUnmapInactiveViews.c)
+ *     CcUnmapInactiveViews @ 0x1405387C8 (CcUnmapInactiveViews.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x14029CB20 (CcDecrementOpenCount.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     CcGetVacbLargeOffset @ 0x14029F090 (CcGetVacbLargeOffset.c)
- *     CcReferenceVacbArray @ 0x14029F5EC (CcReferenceVacbArray.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     SetVacb @ 0x1402A0B08 (SetVacb.c)
- *     CcSetVacbInFreeList @ 0x1402A0C00 (CcSetVacbInFreeList.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1402A1030 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1402A1070 (CcAcquireBcbLockAndVacbLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     CcCanReuseVacb @ 0x140537E9C (CcCanReuseVacb.c)
- *     CcDereferenceVacbArray @ 0x140537F3C (CcDereferenceVacbArray.c)
- *     CcGetRandomVacbArrayWithReference @ 0x140537FE4 (CcGetRandomVacbArrayWithReference.c)
- *     CcRecalculateVacbArrayHighwaterMark @ 0x140538084 (CcRecalculateVacbArrayHighwaterMark.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CcUnmapVacb @ 0x140721E10 (CcUnmapVacb.c)
- *     RtlRandom @ 0x1407E63E0 (RtlRandom.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x14029CDB0 (CcDecrementOpenCount.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     CcGetVacbLargeOffset @ 0x14029F320 (CcGetVacbLargeOffset.c)
+ *     CcReferenceVacbArray @ 0x14029F87C (CcReferenceVacbArray.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     SetVacb @ 0x1402A0D98 (SetVacb.c)
+ *     CcSetVacbInFreeList @ 0x1402A0E90 (CcSetVacbInFreeList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1402A12C0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1402A1300 (CcAcquireBcbLockAndVacbLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     CcCanReuseVacb @ 0x1405383EC (CcCanReuseVacb.c)
+ *     CcDereferenceVacbArray @ 0x14053848C (CcDereferenceVacbArray.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x140538534 (CcGetRandomVacbArrayWithReference.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x1405385D4 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     CcUnmapVacb @ 0x140722010 (CcUnmapVacb.c)
+ *     RtlRandom @ 0x1407E66B0 (RtlRandom.c)
  */
 
 __int64 __fastcall CcUnmapInactiveViewsInternal(__int64 a1, unsigned int a2, char a3, _QWORD *a4)
@@ -260,10 +260,13 @@ LABEL_52:
                 CcDecrementOpenCount(v22);
                 KxReleaseQueuedSpinLock((volatile signed __int64 **)&v54);
                 OldIrql = v54.OldIrql;
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   CurrentIrql = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v54.OldIrql <= 0xFu && CurrentIrql >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                    && CurrentIrql <= 0xFu
+                    && v54.OldIrql <= 0xFu
+                    && CurrentIrql >= 2u )
                   {
                     CurrentPrcb = KeGetCurrentPrcb();
                     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -271,7 +274,7 @@ LABEL_52:
                     v36 = (v35 & SchedulerAssist[5]) == 0;
                     SchedulerAssist[5] &= v35;
                     if ( v36 )
-                      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
                   }
                 }
                 v7 = v53;
@@ -283,10 +286,10 @@ LABEL_52:
                 CcDecrementOpenCount(v22);
                 KxReleaseQueuedSpinLock((volatile signed __int64 **)&v54);
                 OldIrql = v54.OldIrql;
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v37 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && v54.OldIrql <= 0xFu && v37 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && v54.OldIrql <= 0xFu && v37 >= 2u )
                   {
                     v38 = KeGetCurrentPrcb();
                     v39 = v38->SchedulerAssist;
@@ -294,7 +297,7 @@ LABEL_52:
                     v36 = (v40 & v39[5]) == 0;
                     v39[5] &= v40;
                     if ( v36 )
-                      KiRemoveSystemWorkPriorityKick(v38);
+                      KiRemoveSystemWorkPriorityKick((__int64)v38);
                   }
                 }
                 v4 = v46;

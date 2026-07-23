@@ -1,14 +1,14 @@
 /*
- * XREFs of SepIsImpersonationAllowedDueToCapability @ 0x1407ECCBC
+ * XREFs of SepIsImpersonationAllowedDueToCapability @ 0x1407ECF8C
  * Callers:
- *     SeTokenCanImpersonate @ 0x140734FA0 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x140735190 (SeTokenCanImpersonate.c)
  * Callees:
- *     SeTokenIsRestricted @ 0x140228830 (SeTokenIsRestricted.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     SepSidInTokenSidHash @ 0x1402B6680 (SepSidInTokenSidHash.c)
- *     SepSidInToken @ 0x14035C1BC (SepSidInToken.c)
- *     RtlIsMultiSessionSku @ 0x1407ECD20 (RtlIsMultiSessionSku.c)
- *     SepCheckCapabilities @ 0x1409CF25C (SepCheckCapabilities.c)
+ *     SeTokenIsRestricted @ 0x140228940 (SeTokenIsRestricted.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     SepSidInTokenSidHash @ 0x1402B6910 (SepSidInTokenSidHash.c)
+ *     SepSidInToken @ 0x14035C35C (SepSidInToken.c)
+ *     RtlIsMultiSessionSku @ 0x1407ECFF0 (RtlIsMultiSessionSku.c)
+ *     SepCheckCapabilities @ 0x1409CF45C (SepCheckCapabilities.c)
  */
 
 BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int64 a2)
@@ -26,7 +26,7 @@ BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int
   v2 = 0;
   if ( *(_DWORD *)(a2 + 120) != *(_DWORD *)(Token + 120)
     || (*(_DWORD *)(*(_QWORD *)(a2 + 216) + 32LL) & 0x10) != 0
-    || (unsigned __int8)RtlIsMultiSessionSku() )
+    || RtlIsMultiSessionSku() )
   {
     return 0;
   }

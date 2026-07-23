@@ -1,12 +1,12 @@
 /*
- * XREFs of ViKeWaitSanityChecks @ 0x1409DC60C
+ * XREFs of ViKeWaitSanityChecks @ 0x1409DD60C
  * Callers:
- *     ViKeWaitForMultipleObjectsCommon @ 0x1409DC470 (ViKeWaitForMultipleObjectsCommon.c)
- *     ViKeWaitForSingleObjectCommon @ 0x1409DC558 (ViKeWaitForSingleObjectCommon.c)
+ *     ViKeWaitForMultipleObjectsCommon @ 0x1409DD470 (ViKeWaitForMultipleObjectsCommon.c)
+ *     ViKeWaitForSingleObjectCommon @ 0x1409DD558 (ViKeWaitForSingleObjectCommon.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x140350450 (RtlpGetStackLimits.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C6B0C (VfUtilSynchronizationObjectSanityChecks.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     RtlpGetStackLimits @ 0x14035B1A0 (RtlpGetStackLimits.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C7B0C (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 unsigned __int8 __fastcall ViKeWaitSanityChecks(

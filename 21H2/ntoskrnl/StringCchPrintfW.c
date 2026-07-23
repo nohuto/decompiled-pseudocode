@@ -1,17 +1,17 @@
 /*
- * XREFs of StringCchPrintfW @ 0x1402CA7B8
+ * XREFs of StringCchPrintfW @ 0x1402490A8
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     PfVerifyScenarioBuffer @ 0x1406CEF40 (PfVerifyScenarioBuffer.c)
- *     AdtpBuildMessageString @ 0x1407B8C90 (AdtpBuildMessageString.c)
- *     AdtpBuildGuidString @ 0x14096CE80 (AdtpBuildGuidString.c)
- *     AdtpBuildHexInt64String @ 0x14096CFA8 (AdtpBuildHexInt64String.c)
- *     AdtpBuildIPv4Strings @ 0x14096D06C (AdtpBuildIPv4Strings.c)
- *     AdtpBuildIPv6Strings @ 0x14096D1C4 (AdtpBuildIPv6Strings.c)
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x14096D94C (AdtpBuildSecurityDescriptorUnicodeString.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2B24 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     PfVerifyScenarioBuffer @ 0x1406A6220 (PfVerifyScenarioBuffer.c)
+ *     AdtpBuildMessageString @ 0x1407B91B0 (AdtpBuildMessageString.c)
+ *     AdtpBuildGuidString @ 0x14096D060 (AdtpBuildGuidString.c)
+ *     AdtpBuildHexInt64String @ 0x14096D188 (AdtpBuildHexInt64String.c)
+ *     AdtpBuildIPv4Strings @ 0x14096D24C (AdtpBuildIPv4Strings.c)
+ *     AdtpBuildIPv6Strings @ 0x14096D3A4 (AdtpBuildIPv6Strings.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x14096DB2C (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     _vsnwprintf @ 0x1403D1070 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1403D11E0 (_vsnwprintf.c)
  */
 
 HRESULT StringCchPrintfW(STRSAFE_LPWSTR pszDest, size_t cchDest, STRSAFE_LPCWSTR pszFormat, ...)

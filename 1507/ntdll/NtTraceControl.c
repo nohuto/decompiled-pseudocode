@@ -18,11 +18,17 @@
  *     <none>
  */
 
-__int64 NtTraceControl()
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 422LL;
+  result = 422;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpSendBootDeviceUsageNotification @ 0x1406042CC
+ * XREFs of CmpSendBootDeviceUsageNotification @ 0x140604380
  * Callers:
- *     CmpInitializeSystemHivesLoad @ 0x1405770F4 (CmpInitializeSystemHivesLoad.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     CmpInitializeSystemHivesLoad @ 0x140577634 (CmpInitializeSystemHivesLoad.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     PiPagePathSetState @ 0x14057D324 (PiPagePathSetState.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x14015AC90 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     PiPagePathSetState @ 0x14057D7D0 (PiPagePathSetState.c)
  */
 
 __int64 __fastcall CmpSendBootDeviceUsageNotification(char a1)

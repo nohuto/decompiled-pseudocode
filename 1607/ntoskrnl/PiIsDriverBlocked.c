@@ -1,17 +1,17 @@
 /*
- * XREFs of PiIsDriverBlocked @ 0x14049D1BC
+ * XREFs of PiIsDriverBlocked @ 0x140515678
  * Callers:
- *     PiLookupInDDB @ 0x14049CFB8 (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x1405158D4 (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ExIsProcessorFeaturePresent @ 0x140131F10 (ExIsProcessorFeaturePresent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcsrchr @ 0x14014F0D4 (wcsrchr.c)
- *     PiUpdateDriverDBCache @ 0x14049D278 (PiUpdateDriverDBCache.c)
- *     SdbGetDatabaseMatch @ 0x14049D418 (SdbGetDatabaseMatch.c)
- *     PnpLogEvent @ 0x14062DA98 (PnpLogEvent.c)
- *     SdbQueryDataEx @ 0x1406C193C (SdbQueryDataEx.c)
- *     SdbReadEntryInformation @ 0x1406C1DB8 (SdbReadEntryInformation.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ExIsProcessorFeaturePresent @ 0x140132480 (ExIsProcessorFeaturePresent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x14014F694 (wcsrchr.c)
+ *     SdbGetDatabaseMatch @ 0x140515544 (SdbGetDatabaseMatch.c)
+ *     PiUpdateDriverDBCache @ 0x140515734 (PiUpdateDriverDBCache.c)
+ *     PnpLogEvent @ 0x14062DB4C (PnpLogEvent.c)
+ *     SdbQueryDataEx @ 0x1406C1A74 (SdbQueryDataEx.c)
+ *     SdbReadEntryInformation @ 0x1406C1EF0 (SdbReadEntryInformation.c)
  */
 
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigne
   _OWORD v18[2]; // [rsp+60h] [rbp-11h] BYREF
 
   v5 = *(_QWORD *)&PpDDBHandle;
-  DatabaseMatch = SdbGetDatabaseMatch(PpDDBHandle, a4);
+  DatabaseMatch = SdbGetDatabaseMatch(*(__int64 *)&PpDDBHandle, *(const WCHAR **)(a2 + 8), a3, a3, a4);
   if ( !DatabaseMatch )
   {
     v10 = 0;

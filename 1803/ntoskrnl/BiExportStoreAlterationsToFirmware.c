@@ -8,7 +8,7 @@
  *     BiExportStoreAlterationsToEfi @ 0x1407E49E0 (BiExportStoreAlterationsToEfi.c)
  */
 
-__int64 __fastcall BiExportStoreAlterationsToFirmware(__int64 a1)
+__int64 __fastcall BiExportStoreAlterationsToFirmware(HANDLE BcdStoreHandle)
 {
   int v2; // eax
   int v4; // eax
@@ -18,7 +18,7 @@ __int64 __fastcall BiExportStoreAlterationsToFirmware(__int64 a1)
     return 0LL;
   v4 = v2 - 1;
   if ( !v4 )
-    return BiExportStoreAlterationsToEfi(a1);
+    return BiExportStoreAlterationsToEfi(BcdStoreHandle);
   if ( v4 == 1 )
     return 0LL;
   return 3221225659LL;

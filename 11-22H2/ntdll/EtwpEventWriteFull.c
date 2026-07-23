@@ -39,7 +39,7 @@ __int64 __fastcall EtwpEventWriteFull(
   __int128 v21; // xmm0
   unsigned __int8 v22; // al
   ULONG v23; // eax
-  _BYTE v26[4]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE Fields[4]; // [rsp+68h] [rbp-98h] BYREF
   __int16 v27; // [rsp+6Ch] [rbp-94h]
   unsigned __int16 v28; // [rsp+6Eh] [rbp-92h]
   __int128 v29; // [rsp+90h] [rbp-70h]
@@ -111,7 +111,7 @@ LABEL_33:
       }
       v32 = a3;
       v36 = a4;
-      v19 = NtTraceEvent(*(_QWORD *)(v14 + 88), 768LL, 120LL, v26);
+      v19 = NtTraceEvent(*(HANDLE *)(v14 + 88), 0x300u, 0x78u, Fields);
       v13 = 0LL;
       if ( v19 )
         v9 = RtlNtStatusToDosError(v19);

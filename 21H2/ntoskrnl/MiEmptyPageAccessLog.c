@@ -1,26 +1,26 @@
 /*
- * XREFs of MiEmptyPageAccessLog @ 0x14025BC70
+ * XREFs of MiEmptyPageAccessLog @ 0x14027D1E0
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
- *     MiDrainSystemAccessLog @ 0x14025BB80 (MiDrainSystemAccessLog.c)
- *     MiAllocateAccessLog @ 0x140274CE0 (MiAllocateAccessLog.c)
- *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
+ *     MiAllocateAccessLog @ 0x140262C80 (MiAllocateAccessLog.c)
+ *     MiDrainSystemAccessLog @ 0x14027D0F0 (MiDrainSystemAccessLog.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MmOutSwapProcess @ 0x1402EECE4 (MmOutSwapProcess.c)
+ *     MmDeleteProcessAddressSpace @ 0x14067C848 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ObpTraceObjectDereferenceIfActive @ 0x14024A170 (ObpTraceObjectDereferenceIfActive.c)
- *     MiQueuePageAccessLog @ 0x14025C02C (MiQueuePageAccessLog.c)
- *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
- *     MiGetSubsectionDriverProtos @ 0x1402FCDE0 (MiGetSubsectionDriverProtos.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
+ *     ObReferenceObjectExWithTag @ 0x14021B6A0 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x14023A834 (ObpDeferObjectDeletion.c)
+ *     MiQueuePageAccessLog @ 0x14027D59C (MiQueuePageAccessLog.c)
+ *     ObFastReferenceObjectLocked @ 0x1402AAC68 (ObFastReferenceObjectLocked.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x1402EE9C0 (ObpTraceObjectDereferenceIfActive.c)
+ *     MiGetSubsectionDriverProtos @ 0x140307B30 (MiGetSubsectionDriverProtos.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiEmptyPageAccessLog(PVOID *P)
@@ -133,7 +133,7 @@ void __fastcall MiEmptyPageAccessLog(PVOID *P)
                   }
                   else
                   {
-                    SharedProtos = MiGetSubsectionDriverProtos(*((_QWORD *)v3[6] - (*v9 & 0x1FF)), v3, v20, *v19);
+                    SharedProtos = MiGetSubsectionDriverProtos(*((_QWORD *)v3[6] - (*v9 & 0x1FF)));
                   }
                   v21 = (v18 << 9) - (*(_QWORD *)(SharedProtos + 72) << 9);
                 }
@@ -212,7 +212,7 @@ LABEL_14:
       goto LABEL_29;
     if ( v29 )
     {
-      ObReferenceObjectExWithTag(v30);
+      ObReferenceObjectExWithTag(v30, 15);
       _m_prefetchw((const void *)v25);
       v35 = *v25;
       while ( (v35 & 0xF) == 0 )
@@ -224,7 +224,7 @@ LABEL_14:
         if ( v36 == v35 )
           goto LABEL_29;
       }
-      ObpTraceObjectDereferenceIfActive(v30 - 48);
+      ObpTraceObjectDereferenceIfActive(v30 - 48, 15LL, 1953261124LL);
       BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v30 - 48), 0xFFFFFFFFFFFFFFF1uLL) - 15;
       if ( BugCheckParameter4 <= 0 )
       {
@@ -244,7 +244,7 @@ LABEL_29:
         goto LABEL_30;
     }
     v39 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(v24 + 72));
-    v30 = ObFastReferenceObjectLocked((_QWORD *)(v24 + 64));
+    v30 = ObFastReferenceObjectLocked(v24 + 64);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v24 + 72));
     if ( KiIrqlFlags )
     {

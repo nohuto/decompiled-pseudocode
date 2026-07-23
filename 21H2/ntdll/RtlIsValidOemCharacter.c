@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsValidOemCharacter @ 0x1800FCE7C
+ * XREFs of RtlIsValidOemCharacter @ 0x1800FCE3C
  * Callers:
- *     GetNextWchar @ 0x1800FC6D4 (GetNextWchar.c)
+ *     GetNextWchar @ 0x1800FC694 (GetNextWchar.c)
  * Callees:
  *     NLS_UPCASE @ 0x180016160 (NLS_UPCASE.c)
  *     RtlpIsUtf8Process @ 0x1800627AC (RtlpIsUtf8Process.c)

@@ -8,7 +8,7 @@
  *     LdrRscIsTypeExist @ 0x180034C60 (LdrRscIsTypeExist.c)
  */
 
-int __fastcall LdrIsResItemExist(unsigned __int64 a1, _QWORD *a2, __int64 a3, unsigned int a4)
+int __fastcall LdrIsResItemExist(void *a1, _QWORD *a2, __int64 a3, unsigned int a4)
 {
   _DWORD *RcConfig; // rax
   _DWORD *v7; // rbx

@@ -1,5 +1,5 @@
 /*
- * XREFs of VfPowerIsSystemRestrictedIrp @ 0x140940D10
+ * XREFs of VfPowerIsSystemRestrictedIrp @ 0x140941D10
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvViewMapFlush @ 0x14060FB24
+ * XREFs of HvViewMapFlush @ 0x14060FBD8
  * Callers:
- *     CmpDoSystemCacheWrite @ 0x14060405C (CmpDoSystemCacheWrite.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     CmpDoSystemCacheWrite @ 0x140604110 (CmpDoSystemCacheWrite.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
- *     CcSetDirtyPinnedData @ 0x14006F270 (CcSetDirtyPinnedData.c)
- *     CcFlushCache @ 0x14008F434 (CcFlushCache.c)
- *     HvpViewMapAcquireLockShared @ 0x1401B67C0 (HvpViewMapAcquireLockShared.c)
- *     HvpViewMapReleaseLockShared @ 0x1401B6AF8 (HvpViewMapReleaseLockShared.c)
- *     CcPinRead @ 0x1404BCAF0 (CcPinRead.c)
- *     CcUnpinData @ 0x14050C700 (CcUnpinData.c)
+ *     CcSetDirtyPinnedData @ 0x14006EDF0 (CcSetDirtyPinnedData.c)
+ *     CcFlushCache @ 0x14008EB94 (CcFlushCache.c)
+ *     HvpViewMapAcquireLockShared @ 0x1401B66A4 (HvpViewMapAcquireLockShared.c)
+ *     HvpViewMapReleaseLockShared @ 0x1401B69DC (HvpViewMapReleaseLockShared.c)
+ *     CcPinRead @ 0x1404A8820 (CcPinRead.c)
+ *     CcUnpinData @ 0x1404EF690 (CcUnpinData.c)
  */
 
 __int64 __fastcall HvViewMapFlush(__int64 a1, unsigned int a2, ULONG a3)

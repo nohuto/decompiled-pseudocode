@@ -52,12 +52,12 @@
  *     TppReportExceptionFilter @ 0x18010AF50 (TppReportExceptionFilter.c)
  */
 
-void TppRaiseInvalidParameter()
+void __fastcall TppRaiseInvalidParameter()
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   RtlRaiseException(&ExceptionRecord);
 }

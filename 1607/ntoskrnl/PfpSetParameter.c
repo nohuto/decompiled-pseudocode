@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpSetParameter @ 0x140571C88
+ * XREFs of PfpSetParameter @ 0x1405721C8
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1403EA8E8 (PfSetSuperfetchInformation.c)
- *     PfpSetBaseTime @ 0x140571BF0 (PfpSetBaseTime.c)
+ *     PfSetSuperfetchInformation @ 0x1403EBF18 (PfSetSuperfetchInformation.c)
+ *     PfpSetBaseTime @ 0x140572130 (PfpSetBaseTime.c)
  *     PfpParametersInitialize @ 0x1407B3C34 (PfpParametersInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall PfpSetParameter(HANDLE KeyHandle, const WCHAR *a2, __int64 a3, void *a4, ULONG DataSize)

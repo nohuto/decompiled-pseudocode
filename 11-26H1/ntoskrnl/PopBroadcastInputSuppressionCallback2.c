@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBroadcastInputSuppressionCallback2 @ 0x1407D7270
+ * XREFs of PopBroadcastInputSuppressionCallback2 @ 0x1407DA370
  * Callers:
  *     <none>
  * Callees:
- *     Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060BD08 (Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline.c)
- *     PopBroadcastInputSuppressionCallback @ 0x140B71AF0 (PopBroadcastInputSuppressionCallback.c)
+ *     Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060EE68 (Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x140B76320 (PopBroadcastInputSuppressionCallback.c)
  */
 
 __int64 __fastcall PopBroadcastInputSuppressionCallback2(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

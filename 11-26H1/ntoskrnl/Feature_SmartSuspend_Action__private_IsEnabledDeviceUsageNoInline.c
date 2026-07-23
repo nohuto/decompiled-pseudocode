@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline @ 0x14060CA4C
+ * XREFs of Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline @ 0x14060FBAC
  * Callers:
- *     PopSmartSuspendMakePredictions @ 0x140B6B6EC (PopSmartSuspendMakePredictions.c)
+ *     PopSmartSuspendMakePredictions @ 0x140B6E7E8 (PopSmartSuspendMakePredictions.c)
  * Callees:
- *     Feature_SmartSuspend_Action__private_IsEnabledFallback @ 0x14060CA88 (Feature_SmartSuspend_Action__private_IsEnabledFallback.c)
+ *     Feature_SmartSuspend_Action__private_IsEnabledFallback @ 0x14060FBE8 (Feature_SmartSuspend_Action__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline()

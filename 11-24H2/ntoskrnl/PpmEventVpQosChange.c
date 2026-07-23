@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventVpQosChange @ 0x1405D9E08
+ * XREFs of PpmEventVpQosChange @ 0x1405D7124
  * Callers:
- *     KeCheckAndApplyBamQos @ 0x14029DF30 (KeCheckAndApplyBamQos.c)
- *     PoSetProcessorQos @ 0x14029E1A0 (PoSetProcessorQos.c)
+ *     KeCheckAndApplyBamQos @ 0x1402ACA20 (KeCheckAndApplyBamQos.c)
+ *     PoSetProcessorQos @ 0x1402ACC90 (PoSetProcessorQos.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventVpQosChange(__int64 a1)

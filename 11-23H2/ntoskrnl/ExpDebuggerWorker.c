@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     MmGetDefaultPagePriority @ 0x1402F5F64 (MmGetDefaultPagePriority.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     MmDbgMarkPfnModifiedWorker @ 0x1403A9D34 (MmDbgMarkPfnModifiedWorker.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     DbgBreakPointWithStatus @ 0x140428E30 (DbgBreakPointWithStatus.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     MmGetDefaultPagePriority @ 0x1402F61F4 (MmGetDefaultPagePriority.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     MmDbgMarkPfnModifiedWorker @ 0x1403A9F14 (MmDbgMarkPfnModifiedWorker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     DbgBreakPointWithStatus @ 0x1404291C0 (DbgBreakPointWithStatus.c)
  *     MmPrefetchVirtualMemory @ 0x140681A70 (MmPrefetchVirtualMemory.c)
  *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
- *     PsQuitNextProcessThread @ 0x140885770 (PsQuitNextProcessThread.c)
- *     EtwWmitraceWorker @ 0x1409EB9EC (EtwWmitraceWorker.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
+ *     PsQuitNextProcessThread @ 0x1408859B0 (PsQuitNextProcessThread.c)
+ *     EtwWmitraceWorker @ 0x1409EBC7C (EtwWmitraceWorker.c)
  */
 
 void ExpDebuggerWorker()

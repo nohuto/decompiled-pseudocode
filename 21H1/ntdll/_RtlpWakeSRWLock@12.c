@@ -16,15 +16,15 @@
  *     _ZwAlertThreadByThreadId@4 @ 0x4B2F3080 (_ZwAlertThreadByThreadId@4.c)
  */
 
-signed __int32 __fastcall RtlpWakeSRWLock(volatile signed __int32 *a1, char a2, signed __int32 a3)
+NTSTATUS __fastcall RtlpWakeSRWLock(volatile signed __int32 *a1, char a2, signed __int32 a3)
 {
   volatile signed __int32 *v4; // esi
   _DWORD *v6; // edi
   int v7; // esi
   int v8; // edi
-  signed __int32 result; // eax
+  NTSTATUS result; // eax
   int v10; // edi
-  int v11; // edx
+  void *v11; // edx
   _DWORD *v12; // eax
   char v13; // [esp+Bh] [ebp-5h]
 
@@ -67,7 +67,7 @@ LABEL_4:
         {
 LABEL_9:
           v10 = *(_DWORD *)(v7 + 8);
-          v11 = *(_DWORD *)(v7 + 12);
+          v11 = *(void **)(v7 + 12);
           _interlockedbittestandset((volatile signed __int32 *)(v7 + 20), 2u);
           if ( !_interlockedbittestandreset((volatile signed __int32 *)(v7 + 20), 1u) )
             result = ZwAlertThreadByThreadId(v11);

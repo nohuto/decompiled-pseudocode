@@ -1,34 +1,34 @@
 /*
- * XREFs of BiExportEfiBootManager @ 0x1408F3688
+ * XREFs of BiExportEfiBootManager @ 0x1408F4948
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F4C98 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
- *     BiGetElement @ 0x1408F10F8 (BiGetElement.c)
- *     BiDeleteEfiVariable @ 0x1408F335C (BiDeleteEfiVariable.c)
- *     BiHandleFirmwareDefaultEntry @ 0x1408F3FFC (BiHandleFirmwareDefaultEntry.c)
- *     BiQueryBootEntryOrder @ 0x1408F42E4 (BiQueryBootEntryOrder.c)
- *     BiQueryBootOptions @ 0x1408F43B8 (BiQueryBootOptions.c)
- *     BiSetBootEntryOrder @ 0x1408F453C (BiSetBootEntryOrder.c)
- *     BiSetBootOptions @ 0x1408F45AC (BiSetBootOptions.c)
- *     BiTranslateDisplayOrder @ 0x1408F4700 (BiTranslateDisplayOrder.c)
- *     BiTranslateObjectIdentifier @ 0x1408F485C (BiTranslateObjectIdentifier.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BcdOpenObject @ 0x1407140C4 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140714240 (BcdCloseObject.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
+ *     BiGetElement @ 0x1408F23B8 (BiGetElement.c)
+ *     BiDeleteEfiVariable @ 0x1408F461C (BiDeleteEfiVariable.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x1408F52BC (BiHandleFirmwareDefaultEntry.c)
+ *     BiQueryBootEntryOrder @ 0x1408F55A4 (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x1408F5678 (BiQueryBootOptions.c)
+ *     BiSetBootEntryOrder @ 0x1408F57FC (BiSetBootEntryOrder.c)
+ *     BiSetBootOptions @ 0x1408F586C (BiSetBootOptions.c)
+ *     BiTranslateDisplayOrder @ 0x1408F59C0 (BiTranslateDisplayOrder.c)
+ *     BiTranslateObjectIdentifier @ 0x1408F5B1C (BiTranslateObjectIdentifier.c)
  */
 
-__int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
+__int64 __fastcall BiExportEfiBootManager(void *a1, __int64 a2)
 {
   void *v2; // r13
   ULONG v3; // edi
   ULONG *v4; // r14
   void *v5; // r15
   void *v6; // rsi
-  int v7; // eax
+  NTSTATUS v7; // eax
   int v8; // ebx
   int Element; // eax
   PVOID PoolWithTag; // rax
@@ -63,7 +63,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
   Buf2 = 0LL;
   v6 = 0LL;
   v27 = 0LL;
-  v7 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR.Data1, &Count[1]);
+  v7 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR, (PHANDLE)&Count[1]);
   v8 = v7;
   if ( v7 < 0 )
   {
@@ -71,7 +71,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
       v8 = 0;
     goto LABEL_46;
   }
-  Element = BiGetElement(*(__int64 *)&Count[1], 0x24000001u, &P, Count);
+  Element = BiGetElement(*(HANDLE *)&Count[1], 0x24000001u, &P, Count);
   v8 = Element;
   if ( Element >= 0 )
   {
@@ -99,7 +99,7 @@ LABEL_10:
     }
     BootOptions.Length = 24;
     BootOptions.Version = 1;
-    v14 = BiGetElement(*(__int64 *)&Count[1], 0x25000004u, &v25, &v19);
+    v14 = BiGetElement(*(HANDLE *)&Count[1], 0x25000004u, &v25, &v19);
     v4 = v25;
     v8 = v14;
     if ( v14 < 0 )
@@ -119,7 +119,7 @@ LABEL_10:
         v15 = *v25;
       BootOptions.Timeout = v15;
     }
-    v16 = BiGetElement(*(__int64 *)&Count[1], 0x24000002u, &v26, &v19);
+    v16 = BiGetElement(*(HANDLE *)&Count[1], 0x24000002u, &v26, &v19);
     v2 = v26;
     v8 = v16;
     if ( v16 < 0 )
@@ -175,7 +175,7 @@ LABEL_44:
     ExFreePoolWithTag(P, 0x4B444342u);
 LABEL_46:
   if ( *(_QWORD *)&Count[1] )
-    BcdCloseObject(*(__int64 *)&Count[1]);
+    BcdCloseObject(*(HANDLE *)&Count[1]);
   if ( v4 )
     ExFreePoolWithTag(v4, 0x4B444342u);
   if ( v5 )

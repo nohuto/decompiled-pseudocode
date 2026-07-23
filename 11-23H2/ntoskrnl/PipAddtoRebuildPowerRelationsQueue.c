@@ -1,13 +1,13 @@
 /*
- * XREFs of PipAddtoRebuildPowerRelationsQueue @ 0x14079C498
+ * XREFs of PipAddtoRebuildPowerRelationsQueue @ 0x14079C688
  * Callers:
- *     IoResolveDependency @ 0x140398140 (IoResolveDependency.c)
- *     PipAddDependencyEdgeBetweenNodes @ 0x140398278 (PipAddDependencyEdgeBetweenNodes.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14079C210 (PnpNewDeviceNodeDependencyCheck.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140837EC0 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     IoResolveDependency @ 0x140398320 (IoResolveDependency.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x140398458 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14079C400 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1408381C0 (PipAddDependentsToRebuildPowerRelationsQueue.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x14079C520 (PipIsDeviceReadyForPowerRelations.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x14079C710 (PipIsDeviceReadyForPowerRelations.c)
  */
 
 _QWORD *__fastcall PipAddtoRebuildPowerRelationsQueue(__int64 a1)

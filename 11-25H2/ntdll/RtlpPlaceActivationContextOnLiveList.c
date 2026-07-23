@@ -8,7 +8,7 @@
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
+NTSTATUS __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
 {
   _QWORD *v2; // rax
   __int64 v3; // rcx

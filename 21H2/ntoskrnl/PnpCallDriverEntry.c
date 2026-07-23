@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpCallDriverEntry @ 0x1407703C4
+ * XREFs of PnpCallDriverEntry @ 0x140770584
  * Callers:
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
  * Callees:
- *     PnpFreeWatchdog @ 0x14027F8C4 (PnpFreeWatchdog.c)
- *     ExDeleteTimer @ 0x14027F910 (ExDeleteTimer.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
- *     PnpRecordBlackbox @ 0x1406775B0 (PnpRecordBlackbox.c)
- *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpFreeWatchdog @ 0x14026DB04 (PnpFreeWatchdog.c)
+ *     ExDeleteTimer @ 0x14026DB50 (ExDeleteTimer.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PnpEnableWatchdog @ 0x14066AC94 (PnpEnableWatchdog.c)
+ *     PnpRecordBlackbox @ 0x14066ACF0 (PnpRecordBlackbox.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB9F4 (PnpWatchdogEtwWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCallDriverEntry(__int64 a1, __int64 a2)

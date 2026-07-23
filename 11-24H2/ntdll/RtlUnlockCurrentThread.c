@@ -1,47 +1,47 @@
 /*
- * XREFs of RtlUnlockCurrentThread @ 0x18010DFE0
+ * XREFs of RtlUnlockCurrentThread @ 0x180108EC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUnlockStack @ 0x18010E090 (RtlpUnlockStack.c)
- *     ZwUnlockVirtualMemory @ 0x180165840 (ZwUnlockVirtualMemory.c)
+ *     RtlpUnlockStack @ 0x180108F70 (RtlpUnlockStack.c)
+ *     ZwUnlockVirtualMemory @ 0x180163C00 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 RtlUnlockCurrentThread()
+NTSTATUS RtlUnlockCurrentThread(void)
 {
   struct _TEB *v0; // rbx
   unsigned int LockCount; // eax
   unsigned int v2; // eax
   struct _TEB *v3; // rcx
   __int64 WowTebOffset; // rax
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v7; // [rsp+38h] [rbp+10h] BYREF
   struct _TEB *v8; // [rsp+40h] [rbp+18h] BYREF
-  struct _TEB *v9; // [rsp+48h] [rbp+20h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp+20h] BYREF
 
-  v6 = 0LL;
+  RegionSize = 0LL;
   v0 = NtCurrentTeb();
   LockCount = v0->LockCount;
   if ( !LockCount )
-    return 3221225514LL;
+    return -1073741782;
   v2 = LockCount - 1;
   v0->LockCount = v2;
   if ( !v2 )
   {
     v8 = v0;
     v7 = 6264LL;
-    ZwUnlockVirtualMemory(-1LL, &v8, &v7, 1LL);
+    ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v8, &v7, 1u);
     v3 = NtCurrentTeb();
     WowTebOffset = v3->WowTebOffset;
     if ( (int)WowTebOffset < 0 )
       v3 = (struct _TEB *)((char *)v3 + WowTebOffset);
-    v9 = v3;
+    BaseAddress = v3;
     if ( v0 != v3 )
     {
-      v6 = 6264LL;
-      ZwUnlockVirtualMemory(-1LL, &v9, &v6, 1LL);
+      RegionSize = 6264LL;
+      ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     }
     RtlpUnlockStack();
   }
-  return 0LL;
+  return 0;
 }

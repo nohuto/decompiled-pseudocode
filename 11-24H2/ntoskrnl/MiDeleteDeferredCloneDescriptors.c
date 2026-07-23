@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteDeferredCloneDescriptors @ 0x1404CF22C
+ * XREFs of MiDeleteDeferredCloneDescriptors @ 0x1404C83F8
  * Callers:
- *     MiDeleteCloneZombies @ 0x14048F544 (MiDeleteCloneZombies.c)
+ *     MiDeleteCloneZombies @ 0x140489754 (MiDeleteCloneZombies.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
-struct _SLIST_ENTRY *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)
+_SLIST_ENTRY *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)
 {
-  struct _SLIST_ENTRY *v2; // rsi
+  _SLIST_ENTRY *v2; // rsi
   PSLIST_ENTRY v3; // rdi
   unsigned __int64 *v4; // rbp
-  struct _SLIST_ENTRY *v5; // rbx
+  _SLIST_ENTRY *v5; // rbx
 
   v2 = 0LL;
   v3 = RtlpInterlockedFlushSList((PSLIST_HEADER)(*(_QWORD *)(a1 + 1040) + 1072LL));

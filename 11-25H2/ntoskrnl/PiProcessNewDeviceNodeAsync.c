@@ -23,7 +23,7 @@ __int64 __fastcall PiProcessNewDeviceNodeAsync(ULONG_PTR BugCheckParameter2, int
   __int64 v10; // rcx
 
   v3 = 259;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return (unsigned int)PiProcessNewDeviceNode(BugCheckParameter2);
   v4 = a2 == 0;
   if ( (PnpAsyncOptions & 4) == 0 || a2 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsContextCleanup @ 0x18004F098
+ * XREFs of RtlpHpVsContextCleanup @ 0x180064C78
  * Callers:
- *     RtlpHpHeapDestroy @ 0x180090050 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1800270BC (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpVsSubsegmentCleanup @ 0x18004F144 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlpHpVsSubsegmentFree @ 0x18004F2C4 (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpVsContextGetSlotInfo @ 0x18011C5C0 (RtlpHpVsContextGetSlotInfo.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x180064D24 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentFree @ 0x180064EA4 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x18011A7F0 (RtlpHpVsContextGetSlotInfo.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 void __fastcall RtlpHpVsContextCleanup(_WORD *a1)

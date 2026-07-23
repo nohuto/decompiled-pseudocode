@@ -12,97 +12,92 @@
  *     sub_1800FF834 @ 0x1800FF834 (sub_1800FF834.c)
  */
 
-unsigned __int64 __fastcall sub_18000A020(volatile signed __int64 *a1, int a2)
+PVOID __fastcall sub_18000A020(volatile signed __int64 *BaseAddress, int a2)
 {
   __int64 v2; // rbx
-  int v5; // eax
-  int v6; // esi
-  unsigned __int64 v7; // rdx
+  ULONG Protect; // eax
+  NTSTATUS v6; // esi
+  ULONG_PTR v7; // rdx
   unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rsi
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // rsi
-  int v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  unsigned __int64 v23; // [rsp+30h] [rbp-20h] BYREF
-  unsigned __int64 v24; // [rsp+38h] [rbp-18h] BYREF
-  unsigned __int64 v25; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int64 v26; // [rsp+90h] [rbp+40h] BYREF
-  unsigned __int64 v27; // [rsp+98h] [rbp+48h] BYREF
+  char *v9; // rsi
+  ULONG_PTR v10; // r8
+  ULONG_PTR v11; // rdx
+  ULONG_PTR v12; // rsi
+  ULONG v13; // eax
+  __int64 UserModeGlobalLogger; // rcx
+  __int64 v15; // rcx
+  PVOID v17; // [rsp+30h] [rbp-20h] BYREF
+  ULONG_PTR v18; // [rsp+38h] [rbp-18h] BYREF
+  ULONG_PTR v19[2]; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddressa; // [rsp+90h] [rbp+40h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+48h] BYREF
 
   v2 = 0LL;
-  v27 = 0x200000LL;
-  v26 = 0LL;
-  v23 = 0LL;
-  v5 = sub_18001E548(a1, 1LL);
-  v6 = ZwAllocateVirtualMemory(-1LL, &v26, 0LL, &v27, 0x2000, v5);
+  RegionSize = 0x200000LL;
+  BaseAddressa = 0LL;
+  v17 = 0LL;
+  Protect = sub_18001E548((PVOID)BaseAddress);
+  v6 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x2000u, Protect);
   if ( v6 < 0 )
   {
-    v26 = 0LL;
+    BaseAddressa = 0LL;
   }
   else
   {
-    v7 = v27;
-    v8 = (v26 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
-    v9 = v27 + v26;
-    v23 = v8;
-    v10 = v8 - v26;
-    v24 = v8 - v26;
-    if ( v8 != v26 )
+    v7 = RegionSize;
+    v8 = ((unsigned __int64)BaseAddressa + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
+    v9 = (char *)BaseAddressa + RegionSize;
+    v17 = (PVOID)v8;
+    v10 = v8 - (_QWORD)BaseAddressa;
+    v18 = v8 - (_QWORD)BaseAddressa;
+    if ( (PVOID)v8 != BaseAddressa )
     {
-      ZwFreeVirtualMemory(-1LL, &v26, &v24, 0x8000LL);
-      v8 = v23;
-      v7 = v27;
-      v10 = v24;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &v18, 0x8000u);
+      v8 = (unsigned __int64)v17;
+      v7 = RegionSize;
+      v10 = v18;
     }
     v11 = v7 - v10;
-    v12 = v9 - (v8 + 0x100000);
-    v27 = v11;
-    v24 = v12;
-    v26 = v8 + 0x100000;
+    v12 = (ULONG_PTR)&v9[-v8 - 0x100000];
+    RegionSize = v11;
+    v18 = v12;
+    BaseAddressa = (PVOID)(v8 + 0x100000);
     if ( v12 )
     {
-      ZwFreeVirtualMemory(-1LL, &v26, &v24, 0x8000LL);
-      v8 = v23;
-      v11 = v27;
-      v12 = v24;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &v18, 0x8000u);
+      v8 = (unsigned __int64)v17;
+      v11 = RegionSize;
+      v12 = v18;
     }
-    v26 = v8;
-    v27 = v11 - v12;
-    v25 = (unsigned int)(a2 << 12) + 0x2000LL;
-    v13 = sub_18001E548(a1, 1LL);
-    v6 = ZwAllocateVirtualMemory(-1LL, &v23, 0LL, &v25, 4096, v13);
+    BaseAddressa = (PVOID)v8;
+    RegionSize = v11 - v12;
+    v19[0] = (unsigned int)(a2 << 12) + 0x2000LL;
+    v13 = sub_18001E548((PVOID)BaseAddress);
+    v6 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v17, 0LL, v19, 0x1000u, v13);
     if ( v6 < 0 )
       goto LABEL_22;
-    _InterlockedExchangeAdd64(a1, v27 >> 12);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(_InterlockedExchangeAdd64(a1 + 1, v25 >> 12), v14, v15, v16) )
-      v20 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    _InterlockedExchangeAdd64(BaseAddress, RegionSize >> 12);
+    _InterlockedExchangeAdd64(BaseAddress + 1, v19[0] >> 12);
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v20 = 2147353472LL;
-    if ( *(_BYTE *)v20 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FF834(a1, v23, v25, 12LL);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v20, v17, v18, v19) )
-      v21 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      sub_1800FF834(BaseAddress, v17, v19[0], 12LL);
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
     else
-      v21 = 2147353480LL;
-    if ( *(_BYTE *)v21 )
-      sub_1800FDF88(a1, v23, 0x100000LL);
+      v15 = 2147353480LL;
+    if ( *(_BYTE *)v15 )
+      sub_1800FDF88(BaseAddress, v17, 0x100000LL);
   }
   if ( v6 >= 0 )
-    return v23;
+    return v17;
 LABEL_22:
-  if ( v26 )
+  if ( BaseAddressa )
   {
-    v24 = 0LL;
-    ZwFreeVirtualMemory(-1LL, &v26, &v24, 0x8000LL);
+    v18 = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &v18, 0x8000u);
   }
-  return v2;
+  return (PVOID)v2;
 }

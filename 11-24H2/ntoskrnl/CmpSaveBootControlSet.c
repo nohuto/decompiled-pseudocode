@@ -1,40 +1,40 @@
 /*
- * XREFs of CmpSaveBootControlSet @ 0x1407CC764
+ * XREFs of CmpSaveBootControlSet @ 0x1407CCC54
  * Callers:
- *     CmpAcceptBoot @ 0x1407CF594 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x1407CFA84 (CmpAcceptBoot.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpDrainDelayDerefContext @ 0x14041AEB0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x140424470 (CmpInitializeDelayDerefContext.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwQuerySecurityObject @ 0x1406A9110 (ZwQuerySecurityObject.c)
- *     CmpInvalidateSubtree @ 0x1407DAFE0 (CmpInvalidateSubtree.c)
- *     CmpInvalidateAllHigherLayerKcbs @ 0x1407E11F0 (CmpInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1407E13DC (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
- *     CmpCopySyncTree @ 0x1407E1E30 (CmpCopySyncTree.c)
- *     CmpRebuildKcbCache @ 0x14087B4A8 (CmpRebuildKcbCache.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x14097ACC8 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpTryAcquireKcbIXLocks @ 0x14097ADFC (CmpTryAcquireKcbIXLocks.c)
- *     CmpCleanupRollbackPacket @ 0x14097BC50 (CmpCleanupRollbackPacket.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x14097BCB4 (CmpPrepareForSubtreeInvalidation.c)
- *     CmpAbortRollbackPacket @ 0x140AA66B0 (CmpAbortRollbackPacket.c)
- *     CmpRetryBackOff @ 0x140AB94E0 (CmpRetryBackOff.c)
- *     CmObReferenceObjectByHandle @ 0x140BB9350 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpDrainDelayDerefContext @ 0x14040AEB0 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140418320 (CmpInitializeDelayDerefContext.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwQuerySecurityObject @ 0x1406AA0B0 (ZwQuerySecurityObject.c)
+ *     CmpInvalidateSubtree @ 0x1407DB530 (CmpInvalidateSubtree.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x1407E1740 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1407E192C (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmpCopySyncTree @ 0x1407E2380 (CmpCopySyncTree.c)
+ *     CmpRebuildKcbCache @ 0x14087F358 (CmpRebuildKcbCache.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1409634D8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x14096360C (CmpTryAcquireKcbIXLocks.c)
+ *     CmpCleanupRollbackPacket @ 0x140964460 (CmpCleanupRollbackPacket.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x1409644C4 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpAbortRollbackPacket @ 0x140AA17AC (CmpAbortRollbackPacket.c)
+ *     CmpRetryBackOff @ 0x140AB45A0 (CmpRetryBackOff.c)
+ *     CmObReferenceObjectByHandle @ 0x140BBB350 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
@@ -119,7 +119,7 @@ __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
   {
     if ( ZwQuerySecurityObject(KeyHandle, 4u, 0LL, 0, Length) == -1073741789 )
     {
-      Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+      Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, Length[0], 0x20204D43u);
       if ( Pool )
       {
         if ( ZwQuerySecurityObject(KeyHandle, 4u, Pool, Length[0], Length) < 0 )
@@ -248,16 +248,16 @@ LABEL_33:
     CmpReleaseShutdownRundown();
   if ( v7 < 0 )
   {
-    if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
     {
       v27 = v7;
-      v24 = &byte_140054497;
+      v24 = byte_140054F91;
       goto LABEL_54;
     }
   }
-  else if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+  else if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
   {
-    v24 = byte_140054443;
+    v24 = byte_140054F3D;
     v27 = Disposition[1];
 LABEL_54:
     v41 = 0;
@@ -267,7 +267,7 @@ LABEL_54:
     v42 = &v29;
     v29 = 0x1000000LL;
     v43 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)v24, 0LL, 0LL, 4u, &v38);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)v24, 0LL, 0LL, 4u, &v38);
   }
   return (unsigned int)v7;
 }

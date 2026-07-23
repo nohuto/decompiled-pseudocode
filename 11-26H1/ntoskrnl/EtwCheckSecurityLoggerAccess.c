@@ -1,18 +1,17 @@
 /*
- * XREFs of EtwCheckSecurityLoggerAccess @ 0x140A7FB2C
+ * XREFs of EtwCheckSecurityLoggerAccess @ 0x140A8599C
  * Callers:
- *     EtwpQueryTrace @ 0x14091F240 (EtwpQueryTrace.c)
- *     EtwpCheckNotificationAccess @ 0x1409205D4 (EtwpCheckNotificationAccess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     EtwpQueryTrace @ 0x140979CA0 (EtwpQueryTrace.c)
+ *     EtwpCheckNotificationAccess @ 0x14097A0C0 (EtwpCheckNotificationAccess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     RtlTestProtectedAccess @ 0x140A7FCA4 (RtlTestProtectedAccess.c)
+ *     RtlTestProtectedAccess @ 0x140A85B14 (RtlTestProtectedAccess.c)
  */
 
-__int64 __fastcall EtwCheckSecurityLoggerAccess(__int64 a1, __int64 a2)
+__int64 __fastcall EtwCheckSecurityLoggerAccess(PS_PROTECTION *a1, char a2)
 {
-  if ( !(_BYTE)a2 )
+  if ( a2 )
+    return RtlTestProtectedAccess(a1[1530], (PS_PROTECTION)49) == 0 ? 0xC0000022 : 0;
+  else
     return 0LL;
-  LOBYTE(a1) = *(_BYTE *)(a1 + 1530);
-  LOBYTE(a2) = 49;
-  return (unsigned __int8)RtlTestProtectedAccess(a1, a2) == 0 ? 0xC0000022 : 0;
 }

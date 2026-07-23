@@ -1,10 +1,10 @@
 /*
- * XREFs of BiOpenEffectiveToken @ 0x1409C0E48
+ * XREFs of BiOpenEffectiveToken @ 0x1409A7498
  * Callers:
- *     BiAdjustPrivilege @ 0x1409C0D40 (BiAdjustPrivilege.c)
+ *     BiAdjustPrivilege @ 0x1409A7390 (BiAdjustPrivilege.c)
  * Callees:
- *     ZwOpenThreadTokenEx @ 0x1406A69F0 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x1406A6A10 (ZwOpenProcessTokenEx.c)
+ *     ZwOpenThreadTokenEx @ 0x1406A7990 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x1406A79B0 (ZwOpenProcessTokenEx.c)
  */
 
 int __fastcall BiOpenEffectiveToken(PHANDLE TokenHandle)

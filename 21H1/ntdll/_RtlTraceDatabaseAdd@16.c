@@ -13,11 +13,11 @@ char __stdcall RtlTraceDatabaseAdd(int a1, int a2, void *Src, int a4)
   char v4; // al
   char v5; // bl
 
-  RtlEnterCriticalSection(a1 + 28);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   *(_DWORD *)(a1 + 24) = 0;
   v4 = RtlpTraceDatabaseInternalAdd(Src, a4);
   *(_DWORD *)(a1 + 24) = 0;
   v5 = v4;
-  RtlLeaveCriticalSection(a1 + 28);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   return v5;
 }

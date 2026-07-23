@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWnfNotifySubscription @ 0x140711098
+ * XREFs of ExpWnfNotifySubscription @ 0x1407112A8
  * Callers:
- *     ExpWnfSubscribeWnfStateChange @ 0x1407128C4 (ExpWnfSubscribeWnfStateChange.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140712AD4 (ExpWnfSubscribeWnfStateChange.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     ExpWnfInsertSubscriptionInPendingQueue @ 0x1407145B0 (ExpWnfInsertSubscriptionInPendingQueue.c)
- *     ExpWnfStartKernelDispatcher @ 0x1407DC50C (ExpWnfStartKernelDispatcher.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     ExpWnfInsertSubscriptionInPendingQueue @ 0x1407147C0 (ExpWnfInsertSubscriptionInPendingQueue.c)
+ *     ExpWnfStartKernelDispatcher @ 0x1407DC7DC (ExpWnfStartKernelDispatcher.c)
  */
 
 int __fastcall ExpWnfNotifySubscription(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

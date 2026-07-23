@@ -1,11 +1,11 @@
 /*
- * XREFs of UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x1402C519C
+ * XREFs of UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x1402C538C
  * Callers:
- *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
+ *     MiLockVadRange @ 0x140605B60 (MiLockVadRange.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED(__int64 a1, __int64 a2)

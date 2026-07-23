@@ -1,20 +1,20 @@
 /*
- * XREFs of IommupDeviceEnableSvm @ 0x140933D34
+ * XREFs of IommupDeviceEnableSvm @ 0x140933F34
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x140829364 (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140829664 (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     HalpIommuGetDomainId @ 0x1403A9810 (HalpIommuGetDomainId.c)
- *     IommuGetLeastMaximumSupportedAsidValue @ 0x1403B08F4 (IommuGetLeastMaximumSupportedAsidValue.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IommupPasidDeviceCreate @ 0x14050E6E8 (IommupPasidDeviceCreate.c)
- *     IommupPasidDeviceDelete @ 0x14050E7F4 (IommupPasidDeviceDelete.c)
- *     HalpIommuFreeDomainId @ 0x1405153E8 (HalpIommuFreeDomainId.c)
- *     IommuDisableDevicePasid @ 0x140522070 (IommuDisableDevicePasid.c)
- *     IommuEnableDevicePasid @ 0x140522460 (IommuEnableDevicePasid.c)
- *     IommupMapDeviceInternal @ 0x140523B68 (IommupMapDeviceInternal.c)
- *     IommupUnmapDeviceInternal @ 0x140523F28 (IommupUnmapDeviceInternal.c)
- *     IommupHvAttachPasidDevice @ 0x1405242EC (IommupHvAttachPasidDevice.c)
- *     IommupHvDetachPasidDevice @ 0x140524880 (IommupHvDetachPasidDevice.c)
+ *     HalpIommuGetDomainId @ 0x1403A99F0 (HalpIommuGetDomainId.c)
+ *     IommuGetLeastMaximumSupportedAsidValue @ 0x1403B0AD4 (IommuGetLeastMaximumSupportedAsidValue.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IommupPasidDeviceCreate @ 0x14050EC38 (IommupPasidDeviceCreate.c)
+ *     IommupPasidDeviceDelete @ 0x14050ED44 (IommupPasidDeviceDelete.c)
+ *     HalpIommuFreeDomainId @ 0x140515938 (HalpIommuFreeDomainId.c)
+ *     IommuDisableDevicePasid @ 0x1405225C0 (IommuDisableDevicePasid.c)
+ *     IommuEnableDevicePasid @ 0x1405229B0 (IommuEnableDevicePasid.c)
+ *     IommupMapDeviceInternal @ 0x1405240B8 (IommupMapDeviceInternal.c)
+ *     IommupUnmapDeviceInternal @ 0x140524478 (IommupUnmapDeviceInternal.c)
+ *     IommupHvAttachPasidDevice @ 0x14052483C (IommupHvAttachPasidDevice.c)
+ *     IommupHvDetachPasidDevice @ 0x140524DD0 (IommupHvDetachPasidDevice.c)
  */
 
 __int64 __fastcall IommupDeviceEnableSvm(__int64 a1, char a2, __int64 a3)

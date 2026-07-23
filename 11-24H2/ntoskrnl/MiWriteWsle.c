@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWriteWsle @ 0x140232940
+ * XREFs of MiWriteWsle @ 0x140203470
  * Callers:
- *     MiDecommitAddToList @ 0x1402889A0 (MiDecommitAddToList.c)
- *     MiRemoveWsle @ 0x1402C8340 (MiRemoveWsle.c)
- *     MiCountWslesInPageTableRange @ 0x1402E3F20 (MiCountWslesInPageTableRange.c)
- *     MiSetPagingOfDriver @ 0x14049CBA8 (MiSetPagingOfDriver.c)
- *     MiUnmapKernelScp @ 0x14049DF98 (MiUnmapKernelScp.c)
- *     MiClearDriverTablePtes @ 0x1404F2870 (MiClearDriverTablePtes.c)
- *     MiPageBootRegistry @ 0x140669520 (MiPageBootRegistry.c)
- *     MiCreatePteWsle @ 0x14066E9F0 (MiCreatePteWsle.c)
+ *     MiRemoveWsle @ 0x1402007F4 (MiRemoveWsle.c)
+ *     MiDecommitAddToList @ 0x1402985A0 (MiDecommitAddToList.c)
+ *     MiCountWslesInPageTableRange @ 0x140392E70 (MiCountWslesInPageTableRange.c)
+ *     MiSetPagingOfDriver @ 0x140497850 (MiSetPagingOfDriver.c)
+ *     MiUnmapKernelScp @ 0x140498D98 (MiUnmapKernelScp.c)
+ *     MiClearDriverTablePtes @ 0x1404F0310 (MiClearDriverTablePtes.c)
+ *     MiPageBootRegistry @ 0x14066A6F8 (MiPageBootRegistry.c)
+ *     MiCreatePteWsle @ 0x14066FBC0 (MiCreatePteWsle.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
  */
 
 signed __int64 __fastcall MiWriteWsle(__int64 a1, unsigned __int64 a2, unsigned __int8 a3)

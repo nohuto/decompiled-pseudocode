@@ -1,13 +1,13 @@
 /*
- * XREFs of AllocateOrValidateCharStringBuffer @ 0x18000BE90
+ * XREFs of AllocateOrValidateCharStringBuffer @ 0x180038890
  * Callers:
- *     RtlUnicodeStringToOemString @ 0x1800AF9B0 (RtlUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1800D4300 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x18013C290 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x18013C3A0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18013C490 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x18007C250 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1800CF670 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x18013A480 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x18013A590 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18013A680 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
  */
 
 __int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)

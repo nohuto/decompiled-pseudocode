@@ -1,19 +1,19 @@
 /*
- * XREFs of EmpProviderRegister @ 0x14055420C
+ * XREFs of EmpProviderRegister @ 0x14055474C
  * Callers:
- *     EmProviderRegister @ 0x1405541E8 (EmProviderRegister.c)
+ *     EmProviderRegister @ 0x140554728 (EmProviderRegister.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     EmInitSystem @ 0x1407A6E60 (EmInitSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x14013CC5C (EmpQueueRuleUpdateState.c)
- *     EmpSearchCallbackDatabase @ 0x14013CDFC (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x14013CE30 (EmpSearchEntryDatabase.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EmpQueueRuleUpdateState @ 0x14013D1CC (EmpQueueRuleUpdateState.c)
+ *     EmpSearchCallbackDatabase @ 0x14013D36C (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x14013D3A0 (EmpSearchEntryDatabase.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogHeapFailure @ 0x18009F7AC
+ * XREFs of RtlpLogHeapFailure @ 0x18009F7CC
  * Callers:
  *     RtlReAllocateHeap @ 0x18000C320 (RtlReAllocateHeap.c)
  *     RtlpReAllocateHeapInternal @ 0x18000C3B0 (RtlpReAllocateHeapInternal.c)
@@ -40,11 +40,11 @@
  *     RtlpHpLargeFree @ 0x1800663DC (RtlpHpLargeFree.c)
  *     RtlpLowFragHeapFlushCaches @ 0x180068C90 (RtlpLowFragHeapFlushCaches.c)
  *     RtlpLocalInfoAllocFromCache @ 0x18006915C (RtlpLocalInfoAllocFromCache.c)
- *     RtlpRemoveUCRBlock @ 0x180081ECC (RtlpRemoveUCRBlock.c)
- *     RtlpInsertUCRBlock @ 0x1800863F4 (RtlpInsertUCRBlock.c)
- *     RtlpCoalesceHeap @ 0x18008C1C4 (RtlpCoalesceHeap.c)
- *     RtlpHpVsContextAllocateInternal @ 0x18009F7FC (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpVsContextFreeInternal @ 0x18009FBDC (RtlpHpVsContextFreeInternal.c)
+ *     RtlpRemoveUCRBlock @ 0x180081EDC (RtlpRemoveUCRBlock.c)
+ *     RtlpInsertUCRBlock @ 0x180086404 (RtlpInsertUCRBlock.c)
+ *     RtlpCoalesceHeap @ 0x18008C1D4 (RtlpCoalesceHeap.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x18009F81C (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18009FBFC (RtlpHpVsContextFreeInternal.c)
  *     RtlSetUserFlagsHeap @ 0x1800F2680 (RtlSetUserFlagsHeap.c)
  *     RtlZeroHeap @ 0x1800F5670 (RtlZeroHeap.c)
  *     RtlpAnalyzeHeapFailure @ 0x180103934 (RtlpAnalyzeHeapFailure.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlVerifyUserUnwindTarget @ 0x1409C2830
+ * XREFs of RtlVerifyUserUnwindTarget @ 0x1409C2A30
  * Callers:
- *     KiVerifyContextIpForUserCet @ 0x140570FD0 (KiVerifyContextIpForUserCet.c)
+ *     KiVerifyContextIpForUserCet @ 0x140571510 (KiVerifyContextIpForUserCet.c)
  * Callees:
- *     bsearch_s @ 0x1403D9F10 (bsearch_s.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1405B1E00 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlpFindDynamicEHContinuationTarget @ 0x1409C2A58 (RtlpFindDynamicEHContinuationTarget.c)
+ *     bsearch_s @ 0x1403DA0F0 (bsearch_s.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405B2370 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x1409C2C58 (RtlpFindDynamicEHContinuationTarget.c)
  */
 
 __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int6
   rsize_t v13; // r8
   rsize_t v14; // rax
   unsigned int v15; // [rsp+30h] [rbp-38h]
-  unsigned __int64 v16; // [rsp+38h] [rbp-30h] BYREF
+  char *v16; // [rsp+38h] [rbp-30h] BYREF
   unsigned __int64 v17; // [rsp+40h] [rbp-28h] BYREF
   char *v18; // [rsp+48h] [rbp-20h]
   rsize_t v19; // [rsp+50h] [rbp-18h]
@@ -66,7 +66,7 @@ __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int6
       {
         v12 = *(char **)(v7 + 264);
         v18 = v12;
-        if ( (unsigned __int64)v12 <= v16 )
+        if ( v12 <= v16 )
           return 0LL;
         v13 = *(_QWORD *)(v7 + 272);
         v19 = v13;
@@ -75,7 +75,7 @@ __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int6
       }
       if ( v13 )
       {
-        Key = a1 - v16;
+        Key = a1 - (_DWORD)v16;
         v15 = (*(_DWORD *)(v7 + 144) >> 28) + 4;
         if ( v13 > 0xFFFFFFFFFFFFFFFFuLL / v15 )
           return 3221225621LL;

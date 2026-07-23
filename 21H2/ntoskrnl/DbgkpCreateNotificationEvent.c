@@ -1,23 +1,23 @@
 /*
- * XREFs of DbgkpCreateNotificationEvent @ 0x1407CA510
+ * XREFs of DbgkpCreateNotificationEvent @ 0x1407CA830
  * Callers:
- *     DbgkpInitializePhase1SiloState @ 0x1407CA4D4 (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x1407CA7F4 (DbgkpInitializePhase1SiloState.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x14029E950 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FAE80 (ZwCreateEvent.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
+NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _DWORD *a2)
 {
   NTSTATUS result; // eax
   ULONG v5; // ebx
@@ -29,22 +29,23 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
   ACL *v11; // rbx
   int Acl; // edi
   ACL *v13; // rcx
+  _QWORD *InitialState; // [rsp+20h] [rbp-E0h]
   HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v18; // [rsp+A8h] [rbp-58h]
-  _OWORD Sid[3]; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v20[3]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v19; // [rsp+A8h] [rbp-58h]
+  unsigned __int8 CapabilitySid[48]; // [rsp+B0h] [rbp-50h] BYREF
+  char CapabilityGroupSid[48]; // [rsp+E0h] [rbp-20h] BYREF
 
-  *(_QWORD *)&SourceString.Length = 2621478LL;
-  v18 = 0LL;
+  *(_QWORD *)&UnicodeString.Length = 2621478LL;
+  v19 = 0LL;
   EventHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  SourceString.Buffer = L"lpacInstrumentation";
+  UnicodeString.Buffer = L"lpacInstrumentation";
   *(&ObjectAttributes.Attributes + 1) = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  result = RtlDeriveCapabilitySidsFromName(&SourceString, v20, Sid);
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
     result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -54,7 +55,7 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
       v6 = RtlLengthSid(SeLocalSystemSid) + v5;
       v7 = RtlLengthSid(SeLocalSid) + v6;
       v8 = RtlLengthSid(SeAllAppPackagesSid) + v7;
-      v9 = v8 + RtlLengthSid(Sid) + 68;
+      v9 = v8 + RtlLengthSid(CapabilitySid) + 68;
       PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x6C636144u);
       v11 = PoolWithTag;
       if ( !PoolWithTag )
@@ -63,23 +64,23 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
       v13 = v11;
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeLocalSid, 0);
+        Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, (unsigned __int8 *)SeLocalSid, 0);
         v13 = v11;
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
+          Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
           v13 = v11;
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)Sid, 0);
+            Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, CapabilitySid, 0);
             v13 = v11;
             if ( Acl >= 0 )
             {
-              Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+              Acl = RtlpAddKnownAce(v11, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
               v13 = v11;
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+                Acl = RtlpAddKnownAce(v11, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v11, 0);
@@ -95,12 +96,13 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
                     ExFreePoolWithTag(v11, 0);
                     if ( Acl >= 0 )
                     {
+                      LODWORD(InitialState) = 1801937476;
                       Acl = ObpReferenceObjectByHandleWithTag(
                               (ULONG_PTR)EventHandle,
-                              2,
-                              (__int64)ExEventObjectType,
+                              2LL,
+                              ExEventObjectType,
                               0,
-                              0x6B676244u,
+                              InitialState,
                               a2,
                               0LL,
                               0LL);

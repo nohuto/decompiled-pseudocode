@@ -1,25 +1,22 @@
 /*
- * XREFs of RtlpFtFeatureConfigChangeCallback @ 0x18009F880
+ * XREFs of RtlpFtFeatureConfigChangeCallback @ 0x18009F840
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlpFtFeatureConfigChangeCallback()
+void __fastcall RtlpFtFeatureConfigChangeCallback(PVOID a1)
 {
-  signed __int32 v0; // ecx
-  __int64 result; // rax
-  int v2; // ett
+  int v1; // eax
+  signed __int32 v2; // ecx
 
   do
   {
-    v0 = _ft_g_token + 1;
+    v1 = _ft_g_token;
+    v2 = _ft_g_token + 1;
     if ( (unsigned int)_ft_g_token >= 0x3FF )
-      v0 = 1;
-    v2 = _ft_g_token;
-    result = (unsigned int)_InterlockedCompareExchange(&_ft_g_token, v0, _ft_g_token);
+      v2 = 1;
   }
-  while ( v2 != (_DWORD)result );
-  return result;
+  while ( v1 != _InterlockedCompareExchange(&_ft_g_token, v2, _ft_g_token) );
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpDetermineLatestLogFile @ 0x140881830
+ * XREFs of HvpDetermineLatestLogFile @ 0x140881990
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140880C2C (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140880D8C (HvAnalyzeLogFiles.c)
  * Callees:
  *     <none>
  */

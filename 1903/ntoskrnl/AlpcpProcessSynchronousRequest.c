@@ -85,7 +85,7 @@ __int64 __fastcall AlpcpProcessSynchronousRequest(
   signed __int64 v46; // rcx
   __int64 v47; // r14
   signed __int64 v48; // rax
-  union _SLIST_HEADER *v49; // rcx
+  _SLIST_HEADER *v49; // rcx
   char v51; // bl
   signed __int64 v52; // rax
   volatile signed __int64 *v53; // r12

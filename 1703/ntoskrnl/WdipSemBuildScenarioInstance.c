@@ -7,11 +7,11 @@
  *     WdipSemFastAllocate @ 0x140467AE4 (WdipSemFastAllocate.c)
  */
 
-PSLIST_ENTRY __fastcall WdipSemBuildScenarioInstance(_SLIST_ENTRY *a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall WdipSemBuildScenarioInstance(_SLIST_ENTRY *a1, _SLIST_ENTRY *a2)
 {
   PSLIST_ENTRY v2; // rbx
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY v6; // xmm0
+  _SLIST_ENTRY v6; // xmm0
 
   v2 = 0LL;
   if ( a1 )

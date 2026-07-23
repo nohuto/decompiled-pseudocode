@@ -10,40 +10,37 @@
  *     NtOpenProcessToken @ 0x18009F5A0 (NtOpenProcessToken.c)
  */
 
-__int64 __fastcall RtlAdjustPrivilege(unsigned int a1, bool a2, char a3, bool *a4)
+NTSTATUS __cdecl RtlAdjustPrivilege(ULONG Privilege, BOOLEAN Enable, BOOLEAN Client, PBOOLEAN WasEnabled)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v8; // edi
-  HANDLE Handle[2]; // [rsp+30h] [rbp-40h] BYREF
-  char v10[8]; // [rsp+40h] [rbp-30h] BYREF
-  int v11; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+4Ch] [rbp-24h]
-  int v13; // [rsp+54h] [rbp-1Ch]
-  int v14[3]; // [rsp+58h] [rbp-18h] BYREF
-  int v15; // [rsp+64h] [rbp-Ch]
+  HANDLE TokenHandle[2]; // [rsp+30h] [rbp-40h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp-30h] BYREF
+  _TOKEN_PRIVILEGES NewState; // [rsp+48h] [rbp-28h] BYREF
+  _TOKEN_PRIVILEGES PreviousState; // [rsp+58h] [rbp-18h] BYREF
 
-  if ( a3 == 1 )
-    result = NtOpenThreadToken(-2LL, 40LL, 0LL, Handle);
+  if ( Client == 1 )
+    result = NtOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x28u, 0, TokenHandle);
   else
-    result = NtOpenProcessToken(-1LL, 40LL, Handle);
-  if ( (int)result >= 0 )
+    result = NtOpenProcessToken((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x28u, TokenHandle);
+  if ( result >= 0 )
   {
-    Handle[1] = (HANDLE)a1;
-    v12 = a1;
-    v11 = 1;
-    v13 = a2 ? 2 : 0;
-    v8 = NtAdjustPrivilegesToken(Handle[0], 0LL, &v11, 16LL, v14, v10);
-    NtClose(Handle[0]);
+    TokenHandle[1] = (HANDLE)Privilege;
+    NewState.Privileges[0].Luid = (_LUID)Privilege;
+    NewState.PrivilegeCount = 1;
+    NewState.Privileges[0].Attributes = Enable != 0 ? 2 : 0;
+    v8 = NtAdjustPrivilegesToken(TokenHandle[0], 0, &NewState, 0x10u, &PreviousState, &ReturnLength);
+    NtClose(TokenHandle[0]);
     if ( v8 == 262 )
       v8 = -1073741727;
     if ( v8 >= 0 )
     {
-      if ( v14[0] )
-        *a4 = (v15 & 2) != 0;
+      if ( PreviousState.PrivilegeCount )
+        *WasEnabled = (PreviousState.Privileges[0].Attributes & 2) != 0;
       else
-        *a4 = a2;
+        *WasEnabled = Enable;
     }
-    return (unsigned int)v8;
+    return v8;
   }
   return result;
 }

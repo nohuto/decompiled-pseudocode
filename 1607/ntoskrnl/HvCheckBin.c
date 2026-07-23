@@ -1,15 +1,15 @@
 /*
- * XREFs of HvCheckBin @ 0x14042EFC0
+ * XREFs of HvCheckBin @ 0x14042DE90
  * Callers:
- *     HvCheckHive @ 0x140513594 (HvCheckHive.c)
+ *     HvCheckHive @ 0x1404F6984 (HvCheckHive.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     HvMoveLayoutStats @ 0x14042FA6C (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1404E91F0 (HvAddToLayoutStats.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     HvMoveLayoutStats @ 0x14042E93C (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1404CB2E0 (HvAddToLayoutStats.c)
  */
 
-__int64 __fastcall HvCheckBin(__int64 a1, _DWORD *a2, _DWORD *a3, struct _RTL_BITMAP *a4, __int64 a5)
+__int64 __fastcall HvCheckBin(__int64 a1, _DWORD *a2, _DWORD *a3, _RTL_BITMAP *a4, __int64 a5)
 {
   __int64 v5; // r10
   unsigned int v7; // r9d

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoGetIoRateControl @ 0x140244BF0
+ * XREFs of IoGetIoRateControl @ 0x14020D3D0
  * Callers:
  *     <none>
  * Callees:
- *     IopFindDiskIoAttribution @ 0x140244E70 (IopFindDiskIoAttribution.c)
- *     IoDiskIoAttributionDereference @ 0x140245180 (IoDiskIoAttributionDereference.c)
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     IoDiskIoAttributionQuery @ 0x14030A994 (IoDiskIoAttributionQuery.c)
- *     PsIoRateControlReference @ 0x140464344 (PsIoRateControlReference.c)
+ *     IopFindDiskIoAttribution @ 0x14020D650 (IopFindDiskIoAttribution.c)
+ *     IoDiskIoAttributionDereference @ 0x14020D960 (IoDiskIoAttributionDereference.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     IoDiskIoAttributionQuery @ 0x140314874 (IoDiskIoAttributionQuery.c)
+ *     PsIoRateControlReference @ 0x14045AA74 (PsIoRateControlReference.c)
  */
 
 __int64 __fastcall IoGetIoRateControl(
@@ -52,7 +52,7 @@ __int64 __fastcall IoGetIoRateControl(
   v12 = DiskIoAttribution;
   if ( DiskIoAttribution )
   {
-    if ( !ExAcquireRundownProtection(DiskIoAttribution + 21) )
+    if ( !ExAcquireRundownProtection_0(DiskIoAttribution + 21) )
     {
 LABEL_14:
       IoDiskIoAttributionDereference(v12);

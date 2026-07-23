@@ -1,24 +1,24 @@
 /*
- * XREFs of PpmIdleSelectStates @ 0x14013B680
+ * XREFs of PpmIdleSelectStates @ 0x14013BBF0
  * Callers:
- *     PoIdle @ 0x1400D9F40 (PoIdle.c)
+ *     PoIdle @ 0x1400D7DE0 (PoIdle.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     PoCopyDeepIdleMask @ 0x14007D9D0 (PoCopyDeepIdleMask.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     PpmIdleUpdateSelectionStatistics @ 0x14013B998 (PpmIdleUpdateSelectionStatistics.c)
- *     PpmComputeIdleDurationHint @ 0x14013B9AC (PpmComputeIdleDurationHint.c)
- *     PpmEstimateIdleDuration @ 0x14013BA50 (PpmEstimateIdleDuration.c)
- *     PpmIdleEvaluateConstraints @ 0x14013BC4C (PpmIdleEvaluateConstraints.c)
- *     KeSubtractAffinityEx @ 0x14014428C (KeSubtractAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PpmCheckPreConditionsForDeepSleep @ 0x1401FF7D0 (PpmCheckPreConditionsForDeepSleep.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140200114 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleCheckProcessorStateEligibility @ 0x1402002FC (PpmIdleCheckProcessorStateEligibility.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x1402008A8 (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleSetSynchronizationState @ 0x14020099C (PpmIdleSetSynchronizationState.c)
- *     PpmUnlockProcessors @ 0x1402014F8 (PpmUnlockProcessors.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     PoCopyDeepIdleMask @ 0x14007DA50 (PoCopyDeepIdleMask.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     PpmIdleUpdateSelectionStatistics @ 0x14013BF08 (PpmIdleUpdateSelectionStatistics.c)
+ *     PpmComputeIdleDurationHint @ 0x14013BF1C (PpmComputeIdleDurationHint.c)
+ *     PpmEstimateIdleDuration @ 0x14013BFC0 (PpmEstimateIdleDuration.c)
+ *     PpmIdleEvaluateConstraints @ 0x14013C1BC (PpmIdleEvaluateConstraints.c)
+ *     KeSubtractAffinityEx @ 0x1401447FC (KeSubtractAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PpmCheckPreConditionsForDeepSleep @ 0x1401FF5FC (PpmCheckPreConditionsForDeepSleep.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1401FFF40 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckProcessorStateEligibility @ 0x140200128 (PpmIdleCheckProcessorStateEligibility.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x1402006D4 (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleSetSynchronizationState @ 0x1402007C8 (PpmIdleSetSynchronizationState.c)
+ *     PpmUnlockProcessors @ 0x140201324 (PpmUnlockProcessors.c)
  */
 
 char *__fastcall PpmIdleSelectStates(__int64 a1, _QWORD *a2, _QWORD *a3, char *a4, _DWORD *a5, int *a6, char *a7)

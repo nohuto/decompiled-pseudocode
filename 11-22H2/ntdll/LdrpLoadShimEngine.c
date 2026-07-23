@@ -29,18 +29,18 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
   __int64 v4; // rdi
   __int64 *v5; // rbx
   int Dll; // eax
-  __int64 v8; // rcx
+  _QWORD *v8; // rcx
   int v9; // eax
-  unsigned int v10; // edi
-  __int64 i; // rax
+  unsigned __int32 v10; // edi
+  __int64 *i; // rax
   __int64 v12; // [rsp+30h] [rbp-89h]
-  __int64 v13; // [rsp+40h] [rbp-79h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-71h] BYREF
-  __int64 v15[15]; // [rsp+60h] [rbp-59h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-79h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-71h] BYREF
+  PWSTR Path[15]; // [rsp+60h] [rbp-59h] BYREF
   char v16; // [rsp+DCh] [rbp+23h]
 
   v2 = 1;
-  LdrpInitializeDllPath(0LL, 16385LL, v15);
+  LdrpInitializeDllPath(0LL, 16385LL, (__int64 *)Path);
   g_ShimsLoading = 1;
   v3 = (void (__fastcall *)(_QWORD))(MEMORY[0x7FFE0330] ^ __ROR8__(
                                                             g_pfnSE_ShimDllLoaded,
@@ -48,15 +48,15 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
   while ( *SourceString )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    Dll = LdrpLoadDll((__int64)&DestinationString, (int)v15, 1, (__int64)&v13);
+    Dll = LdrpLoadDll((__int64)&DestinationString, (int)Path, 1, (__int64)&BaseAddress);
     if ( Dll < 0 )
     {
       LODWORD(v12) = Dll;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        2947LL,
+        2947,
         (__int64)"LdrpLoadShimEngine",
-        0LL,
+        0,
         "Loading the shim DLL \"%wZ\" failed with status 0x%08lx\n",
         &DestinationString,
         v12);
@@ -64,47 +64,47 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
     }
     else
     {
-      *(_DWORD *)(v13 + 104) |= 0x100u;
-      LdrpPinModule(v13);
-      v8 = v13;
-      if ( *(_DWORD *)(*(_QWORD *)(v13 + 152) + 56LL) == 7 )
+      *((_DWORD *)BaseAddress + 26) |= 0x100u;
+      LdrpPinModule((__int64)BaseAddress);
+      v8 = BaseAddress;
+      if ( *(_DWORD *)(*((_QWORD *)BaseAddress + 19) + 56LL) == 7 )
       {
-        v9 = LdrpInitializeNode(*(_QWORD *)(v13 + 152));
+        v9 = LdrpInitializeNode(*((_QWORD *)BaseAddress + 19));
         v10 = v9;
         if ( v9 < 0 )
         {
           LODWORD(v12) = v9;
           LdrpLogInternal(
             (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-            2973LL,
+            2973,
             (__int64)"LdrpLoadShimEngine",
-            0LL,
+            0,
             "Initializing the shim DLL \"%wZ\" failed with status 0x%08lx\n",
             &DestinationString,
             v12);
           v2 = 0;
           LdrpInitializationFailure(v10);
-          ZwTerminateProcess(-1LL, v10);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v10);
           break;
         }
-        v8 = v13;
+        v8 = BaseAddress;
       }
-      v3(*(_QWORD *)(v8 + 48));
-      LdrpDereferenceModule(v13);
+      v3(v8[6]);
+      LdrpDereferenceModule((char *)BaseAddress);
     }
     SourceString += (unsigned __int64)DestinationString.MaximumLength >> 1;
   }
   if ( v16 )
-    RtlReleasePath(v15[0]);
+    RtlReleasePath(Path[0]);
   ((void (*)(void))(__ROR8__(g_pfnSE_InstallBeforeInit, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))();
   v4 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
-    for ( i = qword_180184390; (__int64 *)i != &qword_180184390; i = *(_QWORD *)i )
+    for ( i = (__int64 *)qword_180184390; i != &qword_180184390; i = (__int64 *)*i )
     {
-      v13 = i;
-      *(_BYTE *)(i + 105) &= ~8u;
+      BaseAddress = i;
+      *((_BYTE *)i + 105) &= ~8u;
     }
   }
   v5 = (__int64 *)qword_180184390;
@@ -116,12 +116,12 @@ char __fastcall LdrpLoadShimEngine(PCWSTR SourceString)
 LABEL_10:
     if ( v5 == &qword_180184390 )
       break;
-    v13 = (__int64)v5;
+    BaseAddress = v5;
     LdrpSendShimEngineInitialNotifications(v5[19], v4);
   }
   g_ShimsLoading = 0;
   g_ShimsEnabled = 1;
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   LdrpInitializeShimDllDependencies();
   return v2;
 }

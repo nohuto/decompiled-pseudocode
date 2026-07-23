@@ -20,13 +20,13 @@ __int64 __fastcall PfpProcessScenarioPhase(__int64 a1, char a2)
   unsigned int v4; // eax
   int v5; // ecx
   unsigned int v6; // edi
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   __int64 v9; // rdx
   __int64 v10; // r9
   int v11; // r8d
   int v12; // ecx
   int v13; // edx
-  int v14; // ebx
+  ULONG v14; // ebx
   unsigned int v15; // ebx
   void *NextSession; // rax
 

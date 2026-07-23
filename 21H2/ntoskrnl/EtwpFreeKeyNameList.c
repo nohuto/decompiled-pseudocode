@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpFreeKeyNameList @ 0x14079C1E0
+ * XREFs of EtwpFreeKeyNameList @ 0x14079C3E0
  * Callers:
- *     EtwpInitializeAutoLoggers @ 0x14079AFB4 (EtwpInitializeAutoLoggers.c)
- *     EtwpEnableKeyProviders @ 0x14079C0FC (EtwpEnableKeyProviders.c)
+ *     EtwpInitializeAutoLoggers @ 0x14079B1B4 (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnableKeyProviders @ 0x14079C2FC (EtwpEnableKeyProviders.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlEnumerateGenericTableAvl @ 0x1402C9AF0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1402483E0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140252950 (RtlDeleteElementGenericTableAvl.c)
  */
 
 PVOID __fastcall EtwpFreeKeyNameList(PRTL_AVL_TABLE Table)
 {
-  RTL_AVL_TABLE *i; // rbx
+  _RTL_AVL_TABLE *i; // rbx
   PVOID result; // rax
 
   for ( i = Table; ; Table = i )

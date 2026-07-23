@@ -1,13 +1,13 @@
 /*
- * XREFs of PpHotSwapGetDevnodeRemovalPolicy @ 0x140A8F0D4
+ * XREFs of PpHotSwapGetDevnodeRemovalPolicy @ 0x140A93DA4
  * Callers:
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
- *     PiControlGetPropertyData @ 0x140A8E690 (PiControlGetPropertyData.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
+ *     PiControlGetPropertyData @ 0x140A93360 (PiControlGetPropertyData.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PiHotSwapGetDetachableNode @ 0x140B2510C (PiHotSwapGetDetachableNode.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PiHotSwapGetDetachableNode @ 0x140B2729C (PiHotSwapGetDetachableNode.c)
  */
 
 void __fastcall PpHotSwapGetDevnodeRemovalPolicy(__int64 a1, char a2, unsigned int *a3)

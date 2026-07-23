@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmListRemoveObjectWorker @ 0x140AF4068
+ * XREFs of PiDmListRemoveObjectWorker @ 0x140B16674
  * Callers:
- *     PiDmListRemoveObject @ 0x140AF3FE0 (PiDmListRemoveObject.c)
- *     PiDmListRemoveList @ 0x140B6C54C (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x140B165EC (PiDmListRemoveObject.c)
+ *     PiDmListRemoveList @ 0x140B6F648 (PiDmListRemoveList.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     PiDmObjectManagerReleaseLock @ 0x1409D90A4 (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409D92BC (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140AF4174 (PiDmListUpdateAggregationCountWorker.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1409A9F94 (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409AA1AC (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140B16780 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 char *__fastcall PiDmListRemoveObjectWorker(int a1, __int64 a2, unsigned int *a3, __int64 a4, char *a5)

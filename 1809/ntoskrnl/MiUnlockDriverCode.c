@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockDriverCode @ 0x14070DB60
+ * XREFs of MiUnlockDriverCode @ 0x14070EE00
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x14009C6B0 (MiUnlockCodePage.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
  */
 
 __int64 __fastcall MiUnlockDriverCode(__int64 a1)

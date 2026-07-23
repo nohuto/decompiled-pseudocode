@@ -1,9 +1,9 @@
 /*
- * XREFs of strpbrk @ 0x18012CBC0
+ * XREFs of strpbrk @ 0x18012C930
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 char *__cdecl strpbrk(const char *Str, const char *Control)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFanIrpComplete @ 0x14020B274
+ * XREFs of PopFanIrpComplete @ 0x14020B0A0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall PopFanIrpComplete(__int64 a1, __int64 a2, __int64 a3)

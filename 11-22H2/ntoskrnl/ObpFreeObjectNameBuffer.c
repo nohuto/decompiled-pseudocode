@@ -15,11 +15,11 @@
 
 void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
+  v1 = *(_SLIST_ENTRY **)(a1 + 8);
   if ( *(_WORD *)(a1 + 2) == 248 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -36,7 +36,7 @@ void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v1);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v1);
     }
   }
   else

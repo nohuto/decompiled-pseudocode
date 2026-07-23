@@ -1,20 +1,20 @@
 /*
- * XREFs of LookupSidInTable @ 0x140925630
+ * XREFs of LookupSidInTable @ 0x140901140
  * Callers:
- *     SeConvertStringSidToSid @ 0x1404F5470 (SeConvertStringSidToSid.c)
- *     LocalGetAclForString @ 0x1409243B0 (LocalGetAclForString.c)
- *     LocalGetSidForString @ 0x140925520 (LocalGetSidForString.c)
- *     LocalConvertAclToString @ 0x140A607C4 (LocalConvertAclToString.c)
- *     LocalConvertStringSDToSD_Rev1 @ 0x140A61674 (LocalConvertStringSDToSD_Rev1.c)
- *     LocalGetStringForSid @ 0x140A626A0 (LocalGetStringForSid.c)
+ *     SeConvertStringSidToSid @ 0x1404EEA30 (SeConvertStringSidToSid.c)
+ *     LocalGetAclForString @ 0x1408FFEC0 (LocalGetAclForString.c)
+ *     LocalGetSidForString @ 0x140901030 (LocalGetSidForString.c)
+ *     LocalConvertAclToString @ 0x140A6D784 (LocalConvertAclToString.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x140A6E644 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetStringForSid @ 0x140A6F670 (LocalGetStringForSid.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     RtlSubAuthoritySid @ 0x14047F970 (RtlSubAuthoritySid.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlSubAuthorityCountSid @ 0x140491650 (RtlSubAuthorityCountSid.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SddlpAlloc @ 0x140A62788 (SddlpAlloc.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     RtlSubAuthoritySid @ 0x1404792E0 (RtlSubAuthoritySid.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlSubAuthorityCountSid @ 0x14048B1A0 (RtlSubAuthorityCountSid.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SddlpAlloc @ 0x140A6F758 (SddlpAlloc.c)
  */
 
 __int64 __fastcall LookupSidInTable(wchar_t *Str1, PSID Sid, __int64 a3, __int64 a4, int a5, char a6, _QWORD *a7)
@@ -89,7 +89,7 @@ __int64 __fastcall LookupSidInTable(wchar_t *Str1, PSID Sid, __int64 a3, __int64
     }
   }
   v13 = 0;
-  v14 = (PSID *)&unk_140E0CE60;
+  v14 = (PSID *)&unk_140E0CED0;
   do
   {
     if ( v8 )
@@ -99,13 +99,13 @@ __int64 __fastcall LookupSidInTable(wchar_t *Str1, PSID Sid, __int64 a3, __int64
         v15 = v13;
 LABEL_28:
         v18 = 104 * v15;
-        return (__int64)&unk_140E0CE50 + v18;
+        return (__int64)&unk_140E0CEC0 + v18;
       }
     }
     else
     {
       v15 = v13;
-      v16 = (const wchar_t *)((char *)&unk_140E0CE50 + 104 * v13);
+      v16 = (const wchar_t *)((char *)&unk_140E0CEC0 + 104 * v13);
       if ( !wcsnicmp(Str1, v16 + 1, *((unsigned int *)v14 - 1)) )
         goto LABEL_28;
       if ( !v11 || !a6 || a3 || !*((_BYTE *)v14 - 16) || !*v14 )
@@ -132,7 +132,7 @@ LABEL_18:
     if ( !v28 )
     {
       v18 = 104LL * v12;
-      return (__int64)&unk_140E0CE50 + v18;
+      return (__int64)&unk_140E0CEC0 + v18;
     }
     if ( v8 )
     {
@@ -140,7 +140,7 @@ LABEL_18:
     }
     else
     {
-      v23 = (char *)&unk_140E0CE50 + 104 * v12;
+      v23 = (char *)&unk_140E0CEC0 + 104 * v12;
       v24 = (void *)*((_QWORD *)v23 + 2);
       if ( v24 )
       {

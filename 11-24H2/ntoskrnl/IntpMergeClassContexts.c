@@ -1,7 +1,7 @@
 /*
- * XREFs of IntpMergeClassContexts @ 0x140C5CB80
+ * XREFs of IntpMergeClassContexts @ 0x140C5ED10
  * Callers:
- *     IntPartCreate @ 0x140C5CC98 (IntPartCreate.c)
+ *     IntPartCreate @ 0x140C5EE28 (IntPartCreate.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopQueryResourceHandlerInterface @ 0x140818594
+ * XREFs of IopQueryResourceHandlerInterface @ 0x140818864
  * Callers:
- *     IoTranslateBusAddress @ 0x140560360 (IoTranslateBusAddress.c)
- *     IopSetupArbiterAndTranslators @ 0x140817FDC (IopSetupArbiterAndTranslators.c)
- *     IopDuplicateDetection @ 0x140835874 (IopDuplicateDetection.c)
+ *     IoTranslateBusAddress @ 0x140560A20 (IoTranslateBusAddress.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408182AC (IopSetupArbiterAndTranslators.c)
+ *     IopDuplicateDetection @ 0x140835B74 (IopDuplicateDetection.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IopSynchronousCall @ 0x1407683A4 (IopSynchronousCall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopSynchronousCall @ 0x140768594 (IopSynchronousCall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

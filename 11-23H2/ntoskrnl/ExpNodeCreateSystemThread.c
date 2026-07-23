@@ -4,9 +4,9 @@
  *     ExpPartitionCreateSystemThread @ 0x1406835FC (ExpPartitionCreateSystemThread.c)
  * Callees:
  *     KeSelectIdealProcessor @ 0x14020385C (KeSelectIdealProcessor.c)
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall ExpNodeCreateSystemThread(
@@ -22,7 +22,7 @@ __int64 __fastcall ExpNodeCreateSystemThread(
 {
   USHORT v9; // cx
   int v14; // [rsp+50h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-60h] BYREF
 
   v9 = *a1;
   Affinity = 0LL;

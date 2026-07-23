@@ -11,7 +11,11 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-unsigned __int64 __fastcall HalFreeCommonBufferDmarThin(__int64 a1, unsigned int a2, __int64 a3, void *a4)
+unsigned __int64 __fastcall HalFreeCommonBufferDmarThin(
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        _RTL_BALANCED_NODE *a4)
 {
   __int64 *v4; // r14
   __int64 v6; // r12
@@ -22,7 +26,7 @@ unsigned __int64 __fastcall HalFreeCommonBufferDmarThin(__int64 a1, unsigned int
 
   v4 = *(__int64 **)(a1 + 512);
   v6 = a2;
-  result = HalpPopCommonBufferEntry((unsigned __int64)a4, (__int64)v4);
+  result = HalpPopCommonBufferEntry(a4, (__int64)v4);
   v9 = (void *)result;
   if ( result )
   {

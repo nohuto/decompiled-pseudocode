@@ -1,17 +1,17 @@
 /*
- * XREFs of MiIsVadLargePrivate @ 0x140288070
+ * XREFs of MiIsVadLargePrivate @ 0x140288300
  * Callers:
- *     MiCheckUserVirtualAddress @ 0x14025ADB0 (MiCheckUserVirtualAddress.c)
- *     MiInsertVad @ 0x140287C90 (MiInsertVad.c)
- *     MiRemoveVad @ 0x14028A470 (MiRemoveVad.c)
- *     MiPrefetchJumpVad @ 0x140631FD8 (MiPrefetchJumpVad.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
- *     MiCloneVads @ 0x140663278 (MiCloneVads.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiScrubProcessLargePage @ 0x140A46994 (MiScrubProcessLargePage.c)
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x140A48E2C (MiDeletePartialCloneVads.c)
- *     MiMapChildLargePageVads @ 0x140A4927C (MiMapChildLargePageVads.c)
+ *     MiCheckUserVirtualAddress @ 0x14025B040 (MiCheckUserVirtualAddress.c)
+ *     MiInsertVad @ 0x140287F20 (MiInsertVad.c)
+ *     MiRemoveVad @ 0x14028A700 (MiRemoveVad.c)
+ *     MiPrefetchJumpVad @ 0x140632528 (MiPrefetchJumpVad.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
+ *     MiCloneVads @ 0x1406637C8 (MiCloneVads.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiScrubProcessLargePage @ 0x140A46C44 (MiScrubProcessLargePage.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x140A490DC (MiDeletePartialCloneVads.c)
+ *     MiMapChildLargePageVads @ 0x140A4952C (MiMapChildLargePageVads.c)
  * Callees:
  *     <none>
  */

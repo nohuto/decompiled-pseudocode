@@ -1,7 +1,7 @@
 /*
- * XREFs of SepMakeTokenEffectiveOnly @ 0x1406953A8
+ * XREFs of SepMakeTokenEffectiveOnly @ 0x1405F48F8
  * Callers:
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
  * Callees:
  *     <none>
  */

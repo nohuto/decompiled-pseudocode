@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerReadyThread @ 0x140604030
+ * XREFs of EtwpCoverageSamplerReadyThread @ 0x140604580
  * Callers:
- *     EtwTraceReadyThread @ 0x14046745A (EtwTraceReadyThread.c)
+ *     EtwTraceReadyThread @ 0x14046785A (EtwTraceReadyThread.c)
  * Callees:
- *     EtwpCovSampCaptureSample @ 0x140603720 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x140603C70 (EtwpCovSampCaptureSample.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
@@ -27,13 +27,13 @@ __int64 __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
   int v17; // ecx
 
   result = (__int64)KeGetCurrentThread();
-  if ( *(_QWORD *)qword_140C31CC8 != result && *(_QWORD *)qword_140C31CC8 != a1 )
+  if ( *(_QWORD *)qword_140C31C68 != result && *(_QWORD *)qword_140C31C68 != a1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
     result = (__int64)KeGetCurrentThread();
     if ( (_KTHREAD *)result != CurrentPrcb->IdleThread || CurrentPrcb->NestingLevel > 1u )
     {
-      v3 = *(_QWORD *)(qword_140C31CC8 + 8);
+      v3 = *(_QWORD *)(qword_140C31C68 + 8);
       v4 = (unsigned int)v3;
       LODWORD(v3) = ((unsigned int)v3 >> 13) & 0x3FFFF;
       _BitScanReverse(&v5, v3);

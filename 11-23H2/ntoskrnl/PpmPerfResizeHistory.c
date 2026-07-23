@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfResizeHistory @ 0x140986A10
+ * XREFs of PpmPerfResizeHistory @ 0x140986C10
  * Callers:
- *     PpmRegisterPerfStates @ 0x14082E54C (PpmRegisterPerfStates.c)
- *     PpmPerfResizeHistoryAll @ 0x140986ACC (PpmPerfResizeHistoryAll.c)
+ *     PpmRegisterPerfStates @ 0x14082E84C (PpmRegisterPerfStates.c)
+ *     PpmPerfResizeHistoryAll @ 0x140986CCC (PpmPerfResizeHistoryAll.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x14025594C (PpmGetPerfPolicyClass.c)
- *     PpmPerfResetHistory @ 0x140393798 (PpmPerfResetHistory.c)
+ *     PpmGetPerfPolicyClass @ 0x140255A0C (PpmGetPerfPolicyClass.c)
+ *     PpmPerfResetHistory @ 0x140393978 (PpmPerfResetHistory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -22,7 +22,7 @@ __int64 __fastcall PpmPerfResizeHistory(__int64 a1)
   v2 = 0;
   PerfPolicyClass = PpmGetPerfPolicyClass((_BYTE *)a1);
   v5 = *(_DWORD **)(v4 + 32);
-  v6 = *((unsigned __int8 *)&PpmCurrentProfile[55 * dword_140C3D86C + 8] + PerfPolicyClass);
+  v6 = *((unsigned __int8 *)&PpmCurrentProfile[55 * dword_140C3D96C + 8] + PerfPolicyClass);
   if ( v5 )
   {
     if ( *v5 == v6 )

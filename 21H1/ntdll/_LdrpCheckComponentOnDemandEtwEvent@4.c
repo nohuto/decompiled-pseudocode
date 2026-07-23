@@ -21,14 +21,22 @@ char __thiscall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *this)
   char v3; // bl
   int v4; // edi
   int v5; // eax
-  _DWORD v7[2]; // [esp+10h] [ebp-50h] BYREF
+  LARGE_INTEGER Timeout; // [esp+10h] [ebp-50h] BYREF
   unsigned __int16 *v8; // [esp+18h] [ebp-48h]
   int v9; // [esp+1Ch] [ebp-44h] BYREF
   void *UniqueProcess; // [esp+20h] [ebp-40h] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-3Ch] BYREF
-  _DWORD v12[13]; // [esp+28h] [ebp-38h] BYREF
+  HANDLE EventHandle; // [esp+24h] [ebp-3Ch] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+28h] [ebp-38h] BYREF
+  int *v13; // [esp+38h] [ebp-28h]
+  int v14; // [esp+3Ch] [ebp-24h]
+  int v15; // [esp+40h] [ebp-20h]
+  int v16; // [esp+44h] [ebp-1Ch]
+  int v17; // [esp+48h] [ebp-18h]
+  int v18; // [esp+4Ch] [ebp-14h]
+  int v19; // [esp+50h] [ebp-10h]
+  int v20; // [esp+54h] [ebp-Ch]
 
-  Handle = 0;
+  EventHandle = 0;
   v8 = this;
   pShimData = 0;
   v2 = (wchar_t *)*((_DWORD *)this + 1);
@@ -43,42 +51,40 @@ char __thiscall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *this)
     {
       if ( (unsigned __int8)LdrpIsCODServiceEnabled() )
       {
-        if ( NtCreateEvent((int)&Handle, 2031619, 0, 0, 0) >= 0 )
+        if ( NtCreateEvent(&EventHandle, 0x1F0003u, 0, NotificationEvent, 0) >= 0 )
         {
           RtlAcquireSRWLockExclusive(&LdrpCODScenarioLock);
           v4 = 1;
           v3 = 1;
           if ( !LdrpCODScenarioTriggered )
           {
-            pShimData[559] = (int)Handle;
-            v12[0] = &UniqueProcess;
-            v12[2] = 4;
-            v12[6] = 4;
-            v12[4] = &v9;
+            pShimData[559] = (int)EventHandle;
+            UserData.Ptr = (unsigned int)&UniqueProcess;
+            UserData.Size = 4;
+            v15 = 4;
+            v13 = &v9;
             LdrpCODScenarioTriggered = 1;
-            v12[1] = 0;
-            v12[8] = *((_DWORD *)v8 + 1);
+            v17 = *((_DWORD *)v8 + 1);
             v5 = *v8;
-            v12[3] = 0;
-            v12[10] = v5 + 2;
-            v12[5] = 0;
-            v12[7] = 0;
-            v12[9] = 0;
-            v12[11] = 0;
-            if ( !EtwEventWriteNoRegistration((int)UserLoaderGuid, ComponentOnDemand, 3, (int)v12) )
+            UserData.Reserved = 0;
+            v19 = v5 + 2;
+            v14 = 0;
+            v16 = 0;
+            v18 = 0;
+            v20 = 0;
+            if ( !EtwEventWriteNoRegistration(&UserLoaderGuid, &ComponentOnDemand, 3u, &UserData) )
             {
-              v7[1] = -1;
-              v7[0] = -100000000;
-              ZwWaitForSingleObject((int)Handle, 0, (int)v7);
+              Timeout.QuadPart = -100000000LL;
+              ZwWaitForSingleObject(EventHandle, 0, &Timeout);
             }
           }
         }
       }
     }
   }
-  if ( Handle )
+  if ( EventHandle )
   {
-    NtClose(Handle);
+    NtClose(EventHandle);
     *((_DWORD *)pShimData + 1118) = 0;
     *((_DWORD *)pShimData + 1119) = 0;
   }

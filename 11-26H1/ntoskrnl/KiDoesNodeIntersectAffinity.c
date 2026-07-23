@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDoesNodeIntersectAffinity @ 0x1405EF7EC
+ * XREFs of KiDoesNodeIntersectAffinity @ 0x1405F215C
  * Callers:
- *     KeSelectNodeForAffinityAndPartition @ 0x1405EEAC4 (KeSelectNodeForAffinityAndPartition.c)
- *     KiUpdateProcessGlobalIdealNode @ 0x1405F4C14 (KiUpdateProcessGlobalIdealNode.c)
+ *     KeSelectNodeForAffinityAndPartition @ 0x1405F1434 (KeSelectNodeForAffinityAndPartition.c)
+ *     KiUpdateProcessGlobalIdealNode @ 0x1405F75D4 (KiUpdateProcessGlobalIdealNode.c)
  * Callees:
- *     KiQuerySubNodeActiveAffinity @ 0x140467FD0 (KiQuerySubNodeActiveAffinity.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x140470DF0 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x140461720 (KiQuerySubNodeActiveAffinity.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x14046A570 (KeEnumerateNextSchedulerSubNodeInNode.c)
  */
 
 char __fastcall KiDoesNodeIntersectAffinity(__int64 a1, _WORD *a2)

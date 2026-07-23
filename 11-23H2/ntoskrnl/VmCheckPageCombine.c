@@ -1,5 +1,5 @@
 /*
- * XREFs of VmCheckPageCombine @ 0x1408A6A40
+ * XREFs of VmCheckPageCombine @ 0x1408A6C90
  * Callers:
  *     MiCapturePfnVm @ 0x140215CDC (MiCapturePfnVm.c)
  * Callees:

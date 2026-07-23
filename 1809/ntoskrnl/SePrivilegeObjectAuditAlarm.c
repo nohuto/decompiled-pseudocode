@@ -1,10 +1,10 @@
 /*
- * XREFs of SePrivilegeObjectAuditAlarm @ 0x140703880
+ * XREFs of SePrivilegeObjectAuditAlarm @ 0x140704B20
  * Callers:
- *     PspCreateObjectHandle @ 0x140621C88 (PspCreateObjectHandle.c)
- *     SeCheckPrivilegedObject @ 0x14071E264 (SeCheckPrivilegedObject.c)
+ *     PspCreateObjectHandle @ 0x140622C88 (PspCreateObjectHandle.c)
+ *     SeCheckPrivilegedObject @ 0x14071F504 (SeCheckPrivilegedObject.c)
  * Callees:
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BB8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BC8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
  */
 
 char __fastcall SePrivilegeObjectAuditAlarm(

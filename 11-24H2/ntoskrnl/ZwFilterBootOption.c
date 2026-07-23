@@ -1,15 +1,21 @@
 /*
- * XREFs of ZwFilterBootOption @ 0x1406A8190
+ * XREFs of ZwFilterBootOption @ 0x1406A9130
  * Callers:
- *     IopInitializeInMemoryDumpData @ 0x14059488C (IopInitializeInMemoryDumpData.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     IopInitializeInMemoryDumpData @ 0x1405918B0 (IopInitializeInMemoryDumpData.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFilterBootOption(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwFilterBootOption(
+        FILTER_BOOT_OPTION_OPERATION FilterOperation,
+        ULONG ObjectType,
+        ULONG ElementType,
+        PVOID Data,
+        ULONG DataSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&FilterOperation);
 }

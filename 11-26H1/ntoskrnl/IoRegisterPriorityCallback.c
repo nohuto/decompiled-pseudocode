@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterPriorityCallback @ 0x1405CB360
+ * XREFs of IoRegisterPriorityCallback @ 0x1405CDC30
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IoRegisterPriorityCallback(unsigned __int64 a1, unsigned __int64 a2)
@@ -26,7 +26,7 @@ __int64 __fastcall IoRegisterPriorityCallback(unsigned __int64 a1, unsigned __in
   Pool2->Count = 0LL;
   while ( (unsigned int)v6 < 8 )
   {
-    if ( ExCompareExchangeCallBack((signed __int64 *)&IopSessionNotificationLock.CycleTime + v6, Pool2, 0LL) )
+    if ( ExCompareExchangeCallBack(&IopUpdatePriorityCallbackRoutine[v6], Pool2, 0LL) )
     {
       _InterlockedIncrement(&IopUpdatePriorityCallbackRoutineCount);
       *(_DWORD *)(a1 + 16) |= 0x200u;

@@ -15,9 +15,9 @@
 __int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4)
 {
   __int64 *v6; // r14
-  const char *v7; // rsi
+  const CHAR *v7; // rsi
   int ForwardedDll; // esi
-  STRING DestinationString; // [rsp+30h] [rbp-B8h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-B8h] BYREF
   __int64 v11[16]; // [rsp+40h] [rbp-A8h] BYREF
 
   *a3 = 0LL;
@@ -28,7 +28,7 @@ __int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 *a3
   }
   else
   {
-    v7 = (const char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
+    v7 = (const CHAR *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
     if ( !a4 )
       a4 = *(_DWORD *)(a1 + 272);
     LdrpInitializeDllPath(*(_QWORD *)(a1 + 80), a4 | 1LL, v11);

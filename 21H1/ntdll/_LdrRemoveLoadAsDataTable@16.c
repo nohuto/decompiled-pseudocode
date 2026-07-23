@@ -16,145 +16,147 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall LdrRemoveLoadAsDataTable(wchar_t *String2, wchar_t **a2, _DWORD *a3, int a4)
+NTSTATUS __cdecl LdrRemoveLoadAsDataTable(PVOID InitModule, PVOID *BaseModule, PSIZE_T Size, ULONG Flags)
 {
-  wchar_t *v4; // edi
-  wchar_t *v5; // ebx
-  int v6; // esi
+  PVOID v4; // edi
+  void *v5; // ebx
+  NTSTATUS v6; // esi
   unsigned int v7; // ecx
-  int v8; // edx
+  _DWORD *v8; // edx
   unsigned int i; // edi
   int v10; // eax
-  volatile signed __int32 *v11; // eax
+  _ACTIVATION_CONTEXT *v11; // eax
   unsigned int v13; // edi
   const wchar_t *v14; // eax
-  int Heap; // eax
-  int v16; // [esp+18h] [ebp-28h]
-  wchar_t *v17; // [esp+20h] [ebp-20h]
+  _DWORD *Heap; // eax
+  SIZE_T v16; // [esp-4h] [ebp-44h]
+  int v17; // [esp+18h] [ebp-28h]
+  PVOID v18; // [esp+20h] [ebp-20h]
 
-  v4 = String2;
-  if ( !String2 )
+  v4 = InitModule;
+  if ( !InitModule )
     return -1073741811;
   v5 = 0;
-  v17 = 0;
+  v18 = 0;
   v6 = -1073741511;
   LdrpInitMuiCrits();
   RtlEnterCriticalSection(&LoadAsDataCrits);
   v7 = LoadAsDataTableCount;
   if ( !LoadAsDataTableCount )
     goto LABEL_18;
-  if ( (a4 & 0xE00) == 0 )
+  if ( (Flags & 0xE00) == 0 )
   {
     v8 = LoadAsDataTable;
     goto LABEL_5;
   }
-  if ( !a2 )
+  if ( !BaseModule )
   {
     v6 = -1073741811;
     goto LABEL_18;
   }
-  *a2 = 0;
+  *BaseModule = 0;
   v13 = v7;
   v8 = LoadAsDataTable;
   while ( 1 )
   {
     if ( !v13 )
       goto LABEL_32;
-    if ( (a4 & 0x800) != 0 )
+    if ( (Flags & 0x800) != 0 )
     {
-      if ( *(wchar_t **)(24 * v13 + v8 - 12) == String2 )
+      if ( (PVOID)v8[6 * v13 - 3] == InitModule )
       {
-        v5 = *(wchar_t **)(24 * v13 + v8 - 24);
+        v5 = (void *)v8[6 * v13 - 6];
 LABEL_31:
-        v17 = v5;
+        v18 = v5;
         goto LABEL_32;
       }
       goto LABEL_47;
     }
-    if ( (a4 & 0x400) != 0 )
+    if ( (Flags & 0x400) != 0 )
     {
-      v14 = *(const wchar_t **)(24 * v13 + v8 - 20);
+      v14 = (const wchar_t *)v8[6 * v13 - 5];
       if ( v14 )
         break;
     }
-    if ( (a4 & 0x200) != 0 && *(wchar_t **)(24 * v13 + v8 - 24) == String2 )
+    if ( (Flags & 0x200) != 0 && (PVOID)v8[6 * v13 - 6] == InitModule )
     {
-      v5 = *(wchar_t **)(24 * v13 + v8 - 24);
+      v5 = (void *)v8[6 * v13 - 6];
       goto LABEL_31;
     }
 LABEL_47:
     --v13;
   }
-  if ( _wcsicmp(v14, String2) )
+  if ( _wcsicmp(v14, (const wchar_t *)InitModule) )
   {
     v8 = LoadAsDataTable;
     goto LABEL_47;
   }
   v8 = LoadAsDataTable;
-  v5 = *(wchar_t **)(24 * v13 + LoadAsDataTable - 24);
-  v17 = v5;
+  v5 = (void *)*((_DWORD *)LoadAsDataTable + 6 * v13 - 6);
+  v18 = v5;
 LABEL_32:
   if ( v5 )
-    *a2 = v5;
-  if ( (a4 & 0x200000) != 0 )
+    *BaseModule = v5;
+  if ( (Flags & 0x200000) != 0 )
   {
-    if ( v5 && a3 )
+    if ( v5 && Size )
     {
-      *a3 = *(_DWORD *)(24 * v13 + v8 - 16);
-      if ( (a4 & 0x40000) != 0 )
-        ++*(_DWORD *)(24 * v13 + v8 - 8);
+      *(_DWORD *)Size = v8[6 * v13 - 4];
+      if ( (Flags & 0x40000) != 0 )
+        ++v8[6 * v13 - 2];
       v6 = 0;
     }
     goto LABEL_18;
   }
   if ( v5 )
   {
-    if ( (int)--*(_DWORD *)(24 * v13 + v8 - 8) > 0 )
+    if ( (int)--v8[6 * v13 - 2] > 0 )
     {
       v6 = -1073740024;
       goto LABEL_18;
     }
   }
-  v4 = String2;
+  v4 = InitModule;
   v7 = LoadAsDataTableCount;
 LABEL_5:
   if ( !v5 )
   {
     v5 = v4;
-    v17 = v4;
+    v18 = v4;
   }
   for ( i = v7; i; --i )
   {
-    v10 = 24 * i;
-    v16 = 24 * i;
-    if ( *(wchar_t **)(24 * i + v8 - 24) == v5 )
+    v10 = 6 * i;
+    v17 = 24 * i;
+    if ( (void *)v8[6 * i - 6] == v5 )
     {
-      if ( *(_DWORD *)(v10 + v8 - 20) )
+      if ( v8[v10 - 5] )
       {
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v10 + v8 - 20));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v8[v10 - 5]);
         v8 = LoadAsDataTable;
-        v10 = 24 * i;
-        *(_DWORD *)(v16 + LoadAsDataTable - 20) = 0;
-        v5 = v17;
+        v10 = 6 * i;
+        *(_DWORD *)((char *)LoadAsDataTable + v17 - 20) = 0;
+        v5 = v18;
         v7 = LoadAsDataTableCount;
       }
-      v11 = *(volatile signed __int32 **)(v10 + v8 - 4);
-      if ( v11 && v11 != (volatile signed __int32 *)-1 )
+      v11 = (_ACTIVATION_CONTEXT *)v8[v10 - 1];
+      if ( v11 && v11 != (_ACTIVATION_CONTEXT *)-1 )
       {
         RtlReleaseActivationContext(v11);
         v8 = LoadAsDataTable;
-        *(_DWORD *)(v16 + LoadAsDataTable - 4) = 0;
+        *(_DWORD *)((char *)LoadAsDataTable + v17 - 4) = 0;
         v7 = LoadAsDataTableCount;
       }
       if ( i != v7 )
       {
-        qmemcpy((void *)(v8 + v16 - 24), (const void *)(24 * v7 + v8 - 24), 0x18u);
+        qmemcpy(&v8[v17 / 4u - 6], &v8[6 * v7 - 6], 0x18u);
         v7 = LoadAsDataTableCount;
       }
       LoadAsDataTableCount = --v7;
       if ( v7 < LoadAsDataTableBlockCount - 32 )
       {
-        Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v8, 24 * (LoadAsDataTableBlockCount - 32));
+        LODWORD(v16) = 24 * (LoadAsDataTableBlockCount - 32);
+        Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v8, v16);
         v8 = Heap;
         if ( !Heap )
         {
@@ -163,7 +165,7 @@ LABEL_5:
         }
         LoadAsDataTable = Heap;
         LoadAsDataTableBlockCount -= 32;
-        v5 = v17;
+        v5 = v18;
         v7 = LoadAsDataTableCount;
       }
       v6 = 0;

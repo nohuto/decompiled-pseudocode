@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void (__fastcall __noreturn *__fastcall RtlpFunctionAddressTableEntry(unsigned __int64 a1))(int a1)
+void (__cdecl __noreturn *__fastcall RtlpFunctionAddressTableEntry(unsigned __int64 a1))(NTSTATUS Status)
 {
   int v1; // ecx
   int v2; // ecx
@@ -17,24 +17,24 @@ void (__fastcall __noreturn *__fastcall RtlpFunctionAddressTableEntry(unsigned _
   if ( a1 <= 6 )
   {
     if ( !(_DWORD)a1 )
-      return (void (__fastcall __noreturn *)(int))RtlUnwindEx;
+      return (void (__cdecl __noreturn *)(NTSTATUS))RtlUnwindEx;
     v1 = a1 - 1;
     if ( !v1 )
-      return (void (__fastcall __noreturn *)(int))_C_specific_handler;
+      return (void (__cdecl __noreturn *)(NTSTATUS))_C_specific_handler;
     v2 = v1 - 1;
     if ( !v2 )
-      return (void (__fastcall __noreturn *)(int))RtlpExecuteHandlerForException;
+      return (void (__cdecl __noreturn *)(NTSTATUS))RtlpExecuteHandlerForException;
     v3 = v2 - 1;
     if ( !v3 )
-      return (void (__fastcall __noreturn *)(int))RtlDispatchException;
+      return (void (__cdecl __noreturn *)(NTSTATUS))RtlDispatchException;
     v4 = v3 - 1;
     if ( !v4 )
       return RtlRaiseStatus;
     v5 = v4 - 1;
     if ( !v5 )
-      return (void (__fastcall __noreturn *)(int))KiDispatchException;
+      return (void (__cdecl __noreturn *)(NTSTATUS))KiDispatchException;
     if ( v5 == 1 )
-      return (void (__fastcall __noreturn *)(int))KiExceptionDispatch;
+      return (void (__cdecl __noreturn *)(NTSTATUS))KiExceptionDispatch;
   }
   return 0LL;
 }

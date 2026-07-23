@@ -1,10 +1,10 @@
 /*
- * XREFs of PsReferencePrimaryToken @ 0x1406EF420
+ * XREFs of PsReferencePrimaryToken @ 0x1406EF450
  * Callers:
- *     MiCreateSystemSection @ 0x14035F7A0 (MiCreateSystemSection.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     MiCreateSystemSection @ 0x14035F940 (MiCreateSystemSection.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferencePrimaryToken(PEPROCESS Process)

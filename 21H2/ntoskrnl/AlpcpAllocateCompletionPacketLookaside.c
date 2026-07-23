@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpAllocateCompletionPacketLookaside @ 0x1406D4B2C
+ * XREFs of AlpcpAllocateCompletionPacketLookaside @ 0x1406ABE0C
  * Callers:
- *     AlpcpInitializeCompletionList @ 0x14067EC00 (AlpcpInitializeCompletionList.c)
- *     AlpcpAssociateIoCompletionPort @ 0x1406D1FC4 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpInitializeCompletionList @ 0x1405D96A0 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x1406A92A4 (AlpcpAssociateIoCompletionPort.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     IopFreeMiniCompletionPacket @ 0x1405E4380 (IopFreeMiniCompletionPacket.c)
- *     IoAllocateMiniCompletionPacket @ 0x1406D4C00 (IoAllocateMiniCompletionPacket.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoAllocateMiniCompletionPacket @ 0x1406ABEE0 (IoAllocateMiniCompletionPacket.c)
+ *     IopFreeMiniCompletionPacket @ 0x1406D3AE0 (IopFreeMiniCompletionPacket.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int64 a2, __int64 a3)
@@ -20,7 +20,7 @@ char *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int64
   _QWORD *i; // rsi
   __int64 MiniCompletionPacket; // rax
   char *v12; // rsi
-  __int64 v13; // rcx
+  _QWORD *v13; // rcx
 
   v3 = a1;
   PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * a1 + 56, 0x6E496C41u);
@@ -54,9 +54,9 @@ char *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int64
       do
       {
         v12 -= 24;
-        v13 = *(_QWORD *)v12;
-        *(_QWORD *)(v13 + 56) = 0LL;
-        IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)v13);
+        v13 = *(_QWORD **)v12;
+        v13[7] = 0LL;
+        IopFreeMiniCompletionPacket(v13);
         LODWORD(v8) = v8 - 1;
       }
       while ( (_DWORD)v8 );

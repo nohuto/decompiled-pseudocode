@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpMultiSzDeleteString @ 0x140A932B8
+ * XREFs of _PnpMultiSzDeleteString @ 0x140A97E08
  * Callers:
- *     _CmGetDeviceSiblings @ 0x140A92DFC (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceSiblings @ 0x140A9794C (_CmGetDeviceSiblings.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     _PnpMultiSzGetLen @ 0x140992C5C (_PnpMultiSzGetLen.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     _PnpMultiSzGetLen @ 0x1409536BC (_PnpMultiSzGetLen.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PnpMultiSzDeleteString(wchar_t *a1, wchar_t *Str2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of ntoskrnl_20 @ 0x140A7E0D0
+ * XREFs of ntoskrnl_20 @ 0x140A83F40
  * Callers:
- *     ExpGetLicenseTamperState @ 0x1406CD17C (ExpGetLicenseTamperState.c)
- *     ExpSetLicenseTamperState @ 0x1406CD4F4 (ExpSetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x140837E90 (ExSetLicenseTamperState.c)
- *     sub_140838310 @ 0x140838310 (sub_140838310.c)
- *     SLUpdateLicenseDataInternal @ 0x140839788 (SLUpdateLicenseDataInternal.c)
- *     sub_140A7DC40 @ 0x140A7DC40 (sub_140A7DC40.c)
+ *     ExpGetLicenseTamperState @ 0x1406D11AC (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x1406D1524 (ExpSetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x14083E0D0 (ExSetLicenseTamperState.c)
+ *     sub_14083E550 @ 0x14083E550 (sub_14083E550.c)
+ *     SLUpdateLicenseDataInternal @ 0x14083F9C8 (SLUpdateLicenseDataInternal.c)
+ *     sub_140A83AB0 @ 0x140A83AB0 (sub_140A83AB0.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     sub_140880114 @ 0x140880114 (sub_140880114.c)
- *     sub_140A7E498 @ 0x140A7E498 (sub_140A7E498.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     sub_140886514 @ 0x140886514 (sub_140886514.c)
+ *     sub_140A84308 @ 0x140A84308 (sub_140A84308.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ntoskrnl_20(_QWORD *a1, __int64 a2, int a3, struct _KLOCK_ENTRIES *a4)
@@ -64,7 +64,7 @@ __int64 __fastcall ntoskrnl_20(_QWORD *a1, __int64 a2, int a3, struct _KLOCK_ENT
   if ( v12 )
   {
     v18 = (_QWORD *)*v12;
-    sub_140A7E498(&v18);
+    sub_140A84308(&v18);
     v13 = v18;
     v14 = 0;
 LABEL_11:
@@ -94,7 +94,7 @@ LABEL_11:
     Pool2[3] = 0LL;
     Pool2[4] = 0LL;
     *((_BYTE *)Pool2 + 40) = 1;
-    v14 = sub_140880114(v16);
+    v14 = sub_140886514(v16);
     if ( v14 >= 0 )
     {
       a1[5877] = v7;

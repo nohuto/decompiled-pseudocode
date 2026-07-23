@@ -92,7 +92,7 @@ __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
   CurrentIrql = KeGetCurrentIrql();
   v37 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -115,10 +115,10 @@ __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
   if ( v10 + a3 > *(_DWORD *)(a1 + 24) || v11 < v10 )
   {
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
       {
         v34 = KeGetCurrentPrcb();
         v35 = v34->SchedulerAssist;
@@ -131,7 +131,7 @@ __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
     }
     __writecr8(CurrentIrql);
     if ( (v43 & 8) != 0 )
-      RtlRaiseStatus(3221225543LL);
+      RtlRaiseStatus(-1073741753);
     return 3221225543LL;
   }
   else
@@ -185,7 +185,7 @@ LABEL_57:
               v23 = (_QWORD *)(v22 + 8);
               v24 = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
               {
                 v25 = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( v24 == 2 )
@@ -262,7 +262,7 @@ LABEL_27:
       if ( (v43 & 2) != 0 )
         KiCompleteDirectSwitchThread(CurrentPrcb, CurrentPrcb->CurrentThread);
     }
-    KiExitDispatcher((__int64)CurrentPrcb, v21, (struct _PROCESSOR_NUMBER)1, v4, CurrentIrql);
+    KiExitDispatcher((__int64)CurrentPrcb, v21, (_PROCESSOR_NUMBER)1, v4, CurrentIrql);
     if ( v44 )
       *v44 = v10;
     return 0LL;

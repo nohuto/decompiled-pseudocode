@@ -18,7 +18,7 @@ _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
   __int64 v5; // rbp
   __int64 v6; // r14
   WCHAR *v7; // rsi
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v9; // rcx
   __int64 v11; // rsi
   WCHAR *v12; // rbp
@@ -37,9 +37,9 @@ _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
   char *v25; // rsi
   _WORD *result; // rax
   unsigned __int64 v27; // rbp
-  __int64 v28; // rax
+  PWSTR v28; // rax
   size_t v29; // rdi
-  _BYTE *v30; // rdx
+  PWSTR v30; // rdx
   WCHAR *v31; // r15
   WCHAR v32; // r12
   WCHAR v33; // bx
@@ -72,7 +72,7 @@ _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
   {
     NtSystemRoot = RtlGetNtSystemRoot();
     v9 = -1LL;
-    while ( *(_WORD *)(NtSystemRoot + 2 * v9++ + 2) != 0 )
+    while ( NtSystemRoot[++v9] != 0 )
       ;
     v11 = v9 + 1;
 LABEL_35:
@@ -172,11 +172,11 @@ LABEL_32:
     v28 = RtlGetNtSystemRoot();
     do
       ++v3;
-    while ( *(_WORD *)(v28 + 2 * v3) );
+    while ( v28[v3] );
     if ( v3 < v27 )
     {
       v29 = v3;
-      v30 = (_BYTE *)v28;
+      v30 = v28;
       goto LABEL_68;
     }
     goto LABEL_41;
@@ -240,7 +240,7 @@ LABEL_64:
       goto LABEL_72;
   }
   v30 = v37 + 1;
-  v39 = ((char *)v4 - v30) >> 1;
+  v39 = v4 - v30;
   if ( v39 >= v27 )
   {
 LABEL_41:

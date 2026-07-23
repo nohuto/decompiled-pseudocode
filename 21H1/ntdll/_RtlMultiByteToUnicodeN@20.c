@@ -9,87 +9,90 @@
  *     _RtlUTF8ToUnicodeN@20 @ 0x4B2DD1E0 (_RtlUTF8ToUnicodeN@20.c)
  */
 
-int __stdcall RtlMultiByteToUnicodeN(char *a1, unsigned int a2, unsigned int *a3, char *a4, unsigned int a5)
+NTSTATUS __cdecl RtlMultiByteToUnicodeN(
+        PWCH UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  unsigned int v5; // edx
+  ULONG v5; // edx
   int v6; // esi
-  unsigned int i; // ecx
-  unsigned int *v9; // eax
-  char *v10; // esi
-  char *v11; // ecx
-  unsigned int v12; // edi
-  char *v13; // ebx
+  ULONG i; // ecx
+  ULONG *v9; // eax
+  PWCH v10; // esi
+  PWCH v11; // ecx
+  ULONG v12; // edi
+  PCSTR v13; // ebx
   unsigned __int16 v14; // ax
-  __int16 v15; // cx
+  WCHAR v15; // cx
   int v16; // [esp+0h] [ebp-Ch] BYREF
   unsigned int v17; // [esp+4h] [ebp-8h]
-  char *v18; // [esp+8h] [ebp-4h]
+  PWCH v18; // [esp+8h] [ebp-4h]
 
   if ( NlsActiveCodePageIsUTF8 )
   {
-    v9 = a3;
-    if ( !a3 )
-      v9 = (unsigned int *)&v16;
-    if ( a5 )
-      RtlUTF8ToUnicodeN(a1, a2, v9, a4, a5);
+    v9 = BytesInUnicodeString;
+    if ( !BytesInUnicodeString )
+      v9 = (ULONG *)&v16;
+    if ( BytesInMultiByteString )
+      RtlUTF8ToUnicodeN(UnicodeString, MaxBytesInUnicodeString, v9, MultiByteString, BytesInMultiByteString);
     else
       *v9 = 0;
   }
   else
   {
-    v5 = a2 >> 1;
+    v5 = MaxBytesInUnicodeString >> 1;
     if ( NlsMbCodePageTag )
     {
-      v10 = a1;
-      v11 = a1;
-      v18 = a1;
+      v10 = UnicodeString;
+      v11 = UnicodeString;
+      v18 = UnicodeString;
       if ( v5 )
       {
-        v12 = a5;
-        v13 = a4;
+        v12 = BytesInMultiByteString;
+        v13 = MultiByteString;
         while ( v12 )
         {
           --v5;
           --v12;
-          v17 = 2 * (unsigned __int8)*v13;
+          v17 = 2 * *(unsigned __int8 *)v13;
           v14 = NlsLeadByteInfoTable[v17 / 2];
           v16 = v14;
           if ( v14 )
           {
             if ( !v12 )
             {
-              *(_WORD *)v10 = 0;
-              v10 += 2;
+              *v10++ = 0;
               break;
             }
             ++v13;
             --v12;
-            v15 = *(_WORD *)(NlsMbAnsiCodePageTables + 2 * (v14 + (unsigned __int8)*v13));
+            v15 = *(_WORD *)(NlsMbAnsiCodePageTables + 2 * (v14 + *(unsigned __int8 *)v13));
           }
           else
           {
             v15 = *(_WORD *)(v17 + NlsAnsiToUnicodeData);
           }
           ++v13;
-          *(_WORD *)v10 = v15;
-          v10 += 2;
+          *v10++ = v15;
           if ( !v5 )
             break;
         }
         v11 = v18;
       }
-      if ( a3 )
-        *a3 = v10 - v11;
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = (char *)v10 - (char *)v11;
     }
     else
     {
-      if ( v5 >= a5 )
-        v5 = a5;
-      if ( a3 )
-        *a3 = 2 * v5;
+      if ( v5 >= BytesInMultiByteString )
+        v5 = BytesInMultiByteString;
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = 2 * v5;
       v6 = NlsAnsiToUnicodeData;
       for ( i = 0; i < v5; ++i )
-        *(_WORD *)&a1[2 * i] = *(_WORD *)(v6 + 2 * (unsigned __int8)a4[i]);
+        UnicodeString[i] = *(_WORD *)(v6 + 2 * (unsigned __int8)MultiByteString[i]);
     }
   }
   return 0;

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryDpcWatchdogConfiguration @ 0x14056AD0C
+ * XREFs of KeQueryDpcWatchdogConfiguration @ 0x14056B3CC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ExSystemExceptionFilter @ 0x140865AA0 (ExSystemExceptionFilter.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x140865CE0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall KeQueryDpcWatchdogConfiguration(void *a1, size_t Size, int a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpPrepareFlushHeader @ 0x1404694D0
+ * XREFs of HvlpPrepareFlushHeader @ 0x140462AA0
  * Callers:
- *     HvlpSlowFlushAddressSpaceTb @ 0x140469420 (HvlpSlowFlushAddressSpaceTb.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404629F0 (HvlpSlowFlushAddressSpaceTb.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ LABEL_7:
   v8 = *(_QWORD *)(a3 + 8);
   if ( !HvlpVirtualProcessorsIdentityMapped )
   {
-    for ( i = &unk_140FC61D3; ; i += 4 )
+    for ( i = &unk_140FC71C3; ; i += 4 )
     {
       if ( (v8 & 1) != 0 )
         v4 |= 1LL << *(i - 2);

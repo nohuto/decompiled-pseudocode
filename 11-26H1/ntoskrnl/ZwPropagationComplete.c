@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwPropagationComplete @ 0x140725CB0
+ * XREFs of ZwPropagationComplete @ 0x14072A880
  * Callers:
- *     DifZwPropagationCompleteWrapper @ 0x1406AF1F0 (DifZwPropagationCompleteWrapper.c)
+ *     DifZwPropagationCompleteWrapper @ 0x1406B2DD0 (DifZwPropagationCompleteWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPropagationComplete(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPropagationComplete(
+        HANDLE ResourceManagerHandle,
+        ULONG RequestCookie,
+        ULONG BufferLength,
+        PVOID Buffer)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ResourceManagerHandle);
 }

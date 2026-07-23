@@ -1,21 +1,21 @@
 /*
- * XREFs of NtPrivilegeCheck @ 0x140607B40
+ * XREFs of NtPrivilegeCheck @ 0x1406975D0
  * Callers:
  *     <none>
  * Callees:
- *     SepPrivilegeCheck @ 0x14027C450 (SepPrivilegeCheck.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1405DD318 (SeReleaseLuidAndAttributesArray.c)
- *     SeCaptureLuidAndAttributesArray @ 0x14060855C (SeCaptureLuidAndAttributesArray.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepPrivilegeCheck @ 0x14026A3F0 (SepPrivilegeCheck.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x140697FEC (SeCaptureLuidAndAttributesArray.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1406980D0 (SeReleaseLuidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
-  char PreviousMode; // r14
+  KPROCESSOR_MODE PreviousMode; // r14
   NTSTATUS result; // eax
   struct _DMA_ADAPTER *v7; // rcx
   __int64 v8; // rbx
@@ -24,26 +24,27 @@ NTSTATUS __stdcall NtPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredP
   NTSTATUS v11; // ebx
   void *v12; // rbx
   BOOLEAN v13; // di
+  __int64 v14; // rdx
   int Object; // [rsp+20h] [rbp-88h]
   int HandleInformation; // [rsp+28h] [rbp-80h]
-  int v16; // [rsp+30h] [rbp-78h]
+  int v17; // [rsp+30h] [rbp-78h]
   ULONG PrivilegeCount; // [rsp+50h] [rbp-58h]
-  NTSTATUS v18; // [rsp+54h] [rbp-54h]
+  NTSTATUS v19; // [rsp+54h] [rbp-54h]
   unsigned int Size; // [rsp+5Ch] [rbp-4Ch] BYREF
   ULONG Size_4; // [rsp+60h] [rbp-48h]
-  PVOID v21; // [rsp+68h] [rbp-40h] BYREF
+  PVOID v22; // [rsp+68h] [rbp-40h] BYREF
   void *Src; // [rsp+70h] [rbp-38h] BYREF
 
   Src = 0LL;
   Size = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v21 = 0LL;
-  result = ObReferenceObjectByHandle(ClientToken, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &v21, 0LL);
-  v18 = result;
+  v22 = 0LL;
+  result = ObReferenceObjectByHandle(ClientToken, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &v22, 0LL);
+  v19 = result;
   if ( result >= 0 )
   {
-    v7 = (struct _DMA_ADAPTER *)v21;
-    if ( *((_DWORD *)v21 + 48) == 2 && *((int *)v21 + 49) < 1 )
+    v7 = (struct _DMA_ADAPTER *)v22;
+    if ( *((_DWORD *)v22 + 48) == 2 && *((int *)v22 + 49) < 1 )
     {
       v11 = -1073741659;
     }
@@ -64,28 +65,29 @@ NTSTATUS __stdcall NtPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredP
         v8 = (__int64)Result;
       *(_BYTE *)v8 = *(_BYTE *)v8;
       Control = RequiredPrivileges->Control;
-      v11 = v18;
-      if ( v18 >= 0 )
+      v11 = v19;
+      if ( v19 >= 0 )
       {
         v11 = SeCaptureLuidAndAttributesArray(
                 RequiredPrivileges->Privilege,
                 Object,
                 HandleInformation,
-                v16,
+                v17,
                 (__int64)&Src,
                 (__int64)&Size);
         if ( v11 >= 0 )
         {
           v12 = Src;
-          v13 = SepPrivilegeCheck((__int64)v21, (__int64)Src, PrivilegeCount, Control, PreviousMode);
-          HalPutDmaAdapter((PADAPTER_OBJECT)v21);
+          v13 = SepPrivilegeCheck((__int64)v22, (__int64)Src, PrivilegeCount, Control, PreviousMode);
+          HalPutDmaAdapter((PADAPTER_OBJECT)v22);
           memmove(RequiredPrivileges->Privilege, v12, Size);
           *Result = v13;
-          SeReleaseLuidAndAttributesArray(v12, PreviousMode);
+          LOBYTE(v14) = PreviousMode;
+          SeReleaseLuidAndAttributesArray(v12, v14);
           return 0;
         }
       }
-      v7 = (struct _DMA_ADAPTER *)v21;
+      v7 = (struct _DMA_ADAPTER *)v22;
     }
     HalPutDmaAdapter(v7);
     return v11;

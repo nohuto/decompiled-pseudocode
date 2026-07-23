@@ -1,12 +1,12 @@
 /*
- * XREFs of PipLookupGroupName @ 0x140CC2440
+ * XREFs of PipLookupGroupName @ 0x140CC8510
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     IopInitializeSystemDrivers @ 0x140D04488 (IopInitializeSystemDrivers.c)
- *     PipCheckDependencies @ 0x140D0B424 (PipCheckDependencies.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140D0A758 (IopInitializeSystemDrivers.c)
+ *     PipCheckDependencies @ 0x140D116F4 (PipCheckDependencies.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     PipCreateEntry @ 0x140CC16D4 (PipCreateEntry.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     PipCreateEntry @ 0x140CC77A4 (PipCreateEntry.c)
  */
 
 ULONG_PTR __fastcall PipLookupGroupName(const void **String1, int a2)

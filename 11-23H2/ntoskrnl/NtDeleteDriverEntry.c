@@ -1,44 +1,44 @@
 /*
- * XREFs of NtDeleteDriverEntry @ 0x1409FEA30
+ * XREFs of NtDeleteDriverEntry @ 0x1409FECC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403DE3C0 (swprintf_s.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403DE5A0 (swprintf_s.c)
  *     IoGetEnvironmentVariableEx @ 0x1406876A0 (IoGetEnvironmentVariableEx.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x140950474 (IoSetEnvironmentVariableEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     IoSetEnvironmentVariableEx @ 0x140950674 (IoSetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall NtDeleteDriverEntry(unsigned int a1)
+NTSTATUS __cdecl NtDeleteDriverEntry(ULONG Id)
 {
   KPROCESSOR_MODE PreviousMode; // dl
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int EnvironmentVariable; // edi
+  NTSTATUS EnvironmentVariable; // edi
   int v6; // [rsp+30h] [rbp-38h] BYREF
   size_t Dst[3]; // [rsp+38h] [rbp-30h] BYREF
 
-  if ( dword_140C31B10 != 2 )
-    return 3221225474LL;
-  if ( a1 > 0xFFFF )
-    return 3221225485LL;
+  if ( dword_140C31AB0 != 2 )
+    return -1073741822;
+  if ( Id > 0xFFFF )
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-  swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04X", a1);
+  swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04X", Id);
   v6 = 0;
   EnvironmentVariable = IoGetEnvironmentVariableEx(Dst, (__int64)&EfiDriverVariablesGuid, 0LL, &v6, 0LL);
   if ( EnvironmentVariable != -1073741568 )
     goto LABEL_11;
-  if ( ((2 * ((a1 | (2 * a1)) & 0xC4444444)) & a1) != 0 )
+  if ( ((2 * ((Id | (2 * Id)) & 0xC4444444)) & Id) != 0 )
   {
-    swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04x", a1);
+    swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04x", Id);
     v6 = 0;
     EnvironmentVariable = IoGetEnvironmentVariableEx(Dst, (__int64)&EfiDriverVariablesGuid, 0LL, &v6, 0LL);
 LABEL_11:

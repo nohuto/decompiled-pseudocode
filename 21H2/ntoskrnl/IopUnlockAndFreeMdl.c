@@ -1,12 +1,12 @@
 /*
- * XREFs of IopUnlockAndFreeMdl @ 0x1403F11E0
+ * XREFs of IopUnlockAndFreeMdl @ 0x1403F1110
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x1403F16B0 (IopCopyCompleteReadIrp.c)
- *     IopFreeCopyObjectsFromIrp @ 0x1403F1B94 (IopFreeCopyObjectsFromIrp.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F1580 (IopCopyCompleteReadIrp.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1403F1A64 (IopFreeCopyObjectsFromIrp.c)
  * Callees:
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
  */
 
 void __fastcall IopUnlockAndFreeMdl(PMDL Mdl)

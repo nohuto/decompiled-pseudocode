@@ -1,0 +1,15 @@
+/*
+ * XREFs of Feature_ValUxPerf2__private_IsEnabledDeviceOpportunityNoInline @ 0x140669A68
+ * Callers:
+ *     Feature_ValUxPerf2_IsEnabledWithReporting @ 0x140669A20 (Feature_ValUxPerf2_IsEnabledWithReporting.c)
+ * Callees:
+ *     Feature_ValUxPerf2__private_IsEnabledFallback @ 0x140669AD8 (Feature_ValUxPerf2__private_IsEnabledFallback.c)
+ */
+
+__int64 Feature_ValUxPerf2__private_IsEnabledDeviceOpportunityNoInline()
+{
+  if ( (Feature_ValUxPerf2__private_featureState & 0x20) != 0 )
+    return Feature_ValUxPerf2__private_featureState & 1;
+  else
+    return Feature_ValUxPerf2__private_IsEnabledFallback((unsigned int)Feature_ValUxPerf2__private_featureState, 4LL);
+}

@@ -8,10 +8,10 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __stdcall LdrpProcessInitializationComplete()
+HANDLE __stdcall LdrpProcessInitializationComplete()
 {
   int v0; // eax
-  int result; // eax
+  HANDLE result; // eax
   char *v2; // eax
 
   if ( RtlGetCurrentServiceSessionId() )
@@ -27,6 +27,6 @@ int __stdcall LdrpProcessInitializationComplete()
   _InterlockedIncrement(&LdrpProcessInitialized);
   result = LdrpInitCompleteEvent;
   if ( LdrpInitCompleteEvent )
-    return NtSetEvent(LdrpInitCompleteEvent, 0);
+    return (HANDLE)NtSetEvent(LdrpInitCompleteEvent, 0);
   return result;
 }

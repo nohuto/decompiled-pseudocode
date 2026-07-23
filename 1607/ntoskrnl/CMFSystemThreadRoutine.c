@@ -1,28 +1,28 @@
 /*
- * XREFs of CMFSystemThreadRoutine @ 0x1406B95A0
+ * XREFs of CMFSystemThreadRoutine @ 0x1406B96D8
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x140159D00 (ZwWaitForSingleObject.c)
- *     ZwReadFile @ 0x140159D40 (ZwReadFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14015A180 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14015A1C0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     ZwCreateEvent @ 0x14015A580 (ZwCreateEvent.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x14015A270 (ZwWaitForSingleObject.c)
+ *     ZwReadFile @ 0x14015A2B0 (ZwReadFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x14015A6F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14015A730 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x14015AAF0 (ZwCreateEvent.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CMFCreateSecurityDescriptor @ 0x1406B889C (CMFCreateSecurityDescriptor.c)
- *     CMFGetFileSizeEx @ 0x1406B9188 (CMFGetFileSizeEx.c)
- *     CMFGetLargePageSectionSize @ 0x1406B91E8 (CMFGetLargePageSectionSize.c)
- *     CMFReadCompressedSegment @ 0x1406B9298 (CMFReadCompressedSegment.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CMFCreateSecurityDescriptor @ 0x1406B89D4 (CMFCreateSecurityDescriptor.c)
+ *     CMFGetFileSizeEx @ 0x1406B92C0 (CMFGetFileSizeEx.c)
+ *     CMFGetLargePageSectionSize @ 0x1406B9320 (CMFGetLargePageSectionSize.c)
+ *     CMFReadCompressedSegment @ 0x1406B93D0 (CMFReadCompressedSegment.c)
  */
 
 void __fastcall CMFSystemThreadRoutine(int *StartContext)

@@ -164,10 +164,10 @@ char __fastcall MiCopyPage(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParam
             MiMarkPfnVerified(v8, 4);
             MiAbortCombineScan(v8);
             _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v48 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v48 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -206,10 +206,10 @@ char __fastcall MiCopyPage(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParam
     if ( v47 != 17 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v36 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v36 >= 2u )
         {
           v37 = KeGetCurrentPrcb();
           v38 = v37->SchedulerAssist;

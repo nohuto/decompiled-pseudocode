@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapSinglePage @ 0x14010A184
+ * XREFs of MiMapSinglePage @ 0x140107F04
  * Callers:
- *     MiUpdateForkMaps @ 0x140109E0C (MiUpdateForkMaps.c)
- *     MiInitializeForkMaps @ 0x14010C574 (MiInitializeForkMaps.c)
- *     MiFillCombinePage @ 0x1401F9B68 (MiFillCombinePage.c)
+ *     MiUpdateForkMaps @ 0x140107B8C (MiUpdateForkMaps.c)
+ *     MiInitializeForkMaps @ 0x14010A2F4 (MiInitializeForkMaps.c)
+ *     MiFillCombinePage @ 0x1401F9994 (MiFillCombinePage.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)
@@ -42,7 +42,7 @@ ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, unsigned _
   }
   else
   {
-    result = MiReservePtes((__int64)&qword_140327870, 1uLL, a3);
+    result = MiReservePtes((__int64)&qword_1403278B0, 1uLL, a3);
     v8 = (_QWORD *)result;
     if ( !result )
       return result;

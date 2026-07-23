@@ -9,47 +9,47 @@
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  */
 
-signed __int64 __fastcall LdrpUnlockTlsDelayedReclaimTable(int a1)
+void __fastcall LdrpUnlockTlsDelayedReclaimTable(int a1)
 {
-  unsigned __int64 *v1; // rdi
-  volatile signed __int64 *v3; // rbp
+  char *v1; // rdi
+  _RTL_SRWLOCK *v3; // rbp
   int v4; // esi
   void *ProcessHeap; // r15
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // rbx
+  _QWORD *v6; // r8
+  _QWORD *v7; // rbx
 
-  v1 = (unsigned __int64 *)&unk_1801662A0;
-  v3 = (volatile signed __int64 *)&unk_1801662A8;
+  v1 = (char *)&unk_1801662A0;
+  v3 = &stru_1801662A8;
   v4 = 15;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   do
   {
     if ( a1 )
     {
-      v6 = *v1;
-      if ( *v1 )
+      v6 = *(_QWORD **)v1;
+      if ( *(_QWORD *)v1 )
       {
         do
         {
-          v7 = *(_QWORD *)(v6 + 8);
-          RtlFreeHeap((__int64)ProcessHeap, 0, v6);
+          v7 = (_QWORD *)v6[1];
+          RtlFreeHeap(ProcessHeap, 0, v6);
           v6 = v7;
         }
         while ( v7 );
-        *v1 = 0LL;
+        *(_QWORD *)v1 = 0LL;
       }
-      v1[1] = 1LL;
+      *((_QWORD *)v1 + 1) = 1LL;
     }
     RtlReleaseSRWLockExclusive(v3);
     v3 -= 2;
-    v1 -= 2;
+    v1 -= 16;
     --v4;
   }
   while ( v4 >= 0 );
   if ( a1 )
   {
     LdrpActiveThreadCount = 1;
-    LdrpTlsLock = 17LL;
+    LdrpTlsLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)17LL;
   }
-  return RtlReleaseSRWLockShared(&LdrpTlsLock);
+  RtlReleaseSRWLockShared(&LdrpTlsLock);
 }

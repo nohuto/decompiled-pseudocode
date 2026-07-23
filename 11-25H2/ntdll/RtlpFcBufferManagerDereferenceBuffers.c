@@ -14,10 +14,10 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpFcBufferManagerDereferenceBuffers(volatile signed __int64 *a1, __int64 a2)
+void __fastcall RtlpFcBufferManagerDereferenceBuffers(unsigned __int64 *a1, __int64 a2)
 {
   unsigned __int64 v2; // rdx
 
   v2 = (__int64)((unsigned __int128)((a2 - (__int64)a1 - 24) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 4;
-  return RtlReleaseSwapReference(a1, (v2 >> 63) + v2);
+  RtlReleaseSwapReference(a1, (v2 >> 63) + v2);
 }

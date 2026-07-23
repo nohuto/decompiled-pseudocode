@@ -16,21 +16,36 @@ bool __fastcall sub_1800F6FF4(PCWSTR SourceString)
 {
   unsigned __int64 v1; // rbp
   bool v3; // zf
+  HANDLE v4; // rbx
   bool result; // al
-  __int64 v5; // [rsp+50h] [rbp+0h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp+0h] BYREF
 
-  v1 = (unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL;
-  v3 = qword_1801669C8 == 0;
-  *(_QWORD *)((unsigned __int64)&v5 & 0xFFFFFFFFFFFFFFE0uLL) = 0LL;
-  if ( v3 && (int)ZwOpenKey() >= 0 && _InterlockedCompareExchange64(&qword_1801669C8, *(_QWORD *)v1, 0LL) )
-    ZwClose();
+  v1 = (unsigned __int64)&KeyHandle & 0xFFFFFFFFFFFFFFE0uLL;
+  v3 = qword_1801669C8 == 0LL;
+  *(_QWORD *)((unsigned __int64)&KeyHandle & 0xFFFFFFFFFFFFFFE0uLL) = 0LL;
+  if ( v3
+    && ZwOpenKey(
+         (PHANDLE)((unsigned __int64)&KeyHandle & 0xFFFFFFFFFFFFFFE0uLL),
+         1u,
+         (POBJECT_ATTRIBUTES)&stru_180119600) >= 0
+    && _InterlockedCompareExchange64((volatile signed __int64 *)&qword_1801669C8, *(_QWORD *)v1, 0LL) )
+  {
+    ZwClose(*(HANDLE *)v1);
+  }
+  v4 = qword_1801669C8;
   result = 0;
   if ( qword_1801669C8 )
   {
     if ( *SourceString )
     {
       RtlInitUnicodeString((PUNICODE_STRING)(v1 + 16), SourceString);
-      if ( (int)ZwQueryValueKey() >= 0 )
+      if ( ZwQueryValueKey(
+             v4,
+             (PUNICODE_STRING)(v1 + 16),
+             KeyValuePartialInformation,
+             (PVOID)(v1 + 32),
+             0x78u,
+             (PULONG)(v1 + 8)) >= 0 )
         return 1;
     }
   }

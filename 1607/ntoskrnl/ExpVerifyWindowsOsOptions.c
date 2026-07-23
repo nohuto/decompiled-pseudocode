@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpVerifyWindowsOsOptions @ 0x1406B33E4
+ * XREFs of ExpVerifyWindowsOsOptions @ 0x1406B351C
  * Callers:
- *     ExpSetBootEntry @ 0x1406B16BC (ExpSetBootEntry.c)
- *     NtEnumerateBootEntries @ 0x1406B378C (NtEnumerateBootEntries.c)
+ *     ExpSetBootEntry @ 0x1406B17F4 (ExpSetBootEntry.c)
+ *     NtEnumerateBootEntries @ 0x1406B38C4 (NtEnumerateBootEntries.c)
  * Callees:
- *     ExpSafeWcslen @ 0x1406B1694 (ExpSafeWcslen.c)
+ *     ExpSafeWcslen @ 0x1406B17CC (ExpSafeWcslen.c)
  */
 
 __int64 __fastcall ExpVerifyWindowsOsOptions(__int64 a1, unsigned int a2)

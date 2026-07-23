@@ -1,25 +1,44 @@
 /*
- * XREFs of NtSetIoCompletion @ 0x140A5D840
+ * XREFs of NtSetIoCompletion @ 0x140A6A800
  * Callers:
- *     DifNtSetIoCompletionWrapper @ 0x14068D2C0 (DifNtSetIoCompletionWrapper.c)
+ *     DifNtSetIoCompletionWrapper @ 0x140690EA0 (DifNtSetIoCompletionWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoSetIoCompletionEx2 @ 0x140267520 (IoSetIoCompletionEx2.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoSetIoCompletionEx2 @ 0x140266A90 (IoSetIoCompletionEx2.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtSetIoCompletion(void *a1, __int64 a2, __int64 a3, int a4, __int64 a5)
+NTSTATUS __cdecl NtSetIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
   NTSTATUS result; // eax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   int v10; // [rsp+38h] [rbp-20h]
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
 
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 2u, IoCompletionObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             IoCompletionHandle,
+             2u,
+             IoCompletionObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   if ( result >= 0 )
   {
-    v9 = IoSetIoCompletionEx2((__int64)Object, a2, a3, a4, a5, 1u, 0LL, v10);
+    v9 = IoSetIoCompletionEx2(
+           (__int64)Object,
+           (__int64)KeyContext,
+           (__int64)ApcContext,
+           IoStatus,
+           IoStatusInformation,
+           1u,
+           0LL,
+           v10);
     ObfDereferenceObject(Object);
     return v9;
   }

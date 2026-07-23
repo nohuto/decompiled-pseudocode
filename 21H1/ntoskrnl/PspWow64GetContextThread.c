@@ -19,32 +19,32 @@
  *     PspWow64ReadOrWriteThreadCpuArea @ 0x1406FD494 (PspWow64ReadOrWriteThreadCpuArea.c)
  */
 
-__int64 __fastcall PspWow64GetContextThread(__int64 a1, unsigned int *a2, int a3, char a4)
+int __fastcall PspWow64GetContextThread(__int64 a1, ULONG *a2, int a3, char a4)
 {
   __int64 v8; // rdx
   ULONG_PTR v9; // rdi
   __int64 v10; // rax
   __int64 v11; // rax
-  __int64 result; // rax
-  unsigned int v13; // ebx
+  int result; // eax
+  ULONG v13; // ebx
   unsigned __int64 v14; // rax
   void *v15; // rsp
-  int *v16; // r15
+  _CONTEXT *v16; // r15
   __int64 v17; // rcx
-  __int64 v18; // r13
+  PCONTEXT_EX v18; // r13
   unsigned __int64 v19; // rcx
   unsigned __int64 v20; // rcx
   void *v21; // rsp
   void *v22; // rsp
-  _DWORD *v23; // r10
+  PCONTEXT_EX v23; // r10
   int v24; // ecx
   int v25; // [rsp+20h] [rbp-30h]
   int v26; // [rsp+28h] [rbp-28h]
   _BYTE v27[4]; // [rsp+50h] [rbp+0h] BYREF
-  unsigned int v28; // [rsp+54h] [rbp+4h] BYREF
-  _DWORD v29[2]; // [rsp+58h] [rbp+8h] BYREF
-  __int64 v30; // [rsp+60h] [rbp+10h] BYREF
-  __int64 v31; // [rsp+68h] [rbp+18h] BYREF
+  ULONG v28; // [rsp+54h] [rbp+4h] BYREF
+  ULONG ContextLength[2]; // [rsp+58h] [rbp+8h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+60h] [rbp+10h] BYREF
+  PCONTEXT_EX v31; // [rsp+68h] [rbp+18h] BYREF
   __int64 v32; // [rsp+70h] [rbp+20h]
   int v33[4]; // [rsp+78h] [rbp+28h] BYREF
   __int64 v34; // [rsp+88h] [rbp+38h]
@@ -53,17 +53,17 @@ __int64 __fastcall PspWow64GetContextThread(__int64 a1, unsigned int *a2, int a3
   v32 = a1;
   v31 = 0LL;
   memset(v35, 0, 0x2CCuLL);
-  v29[0] = 0;
-  v30 = 0LL;
+  ContextLength[0] = 0;
+  ContextEx = 0LL;
   v27[0] = 0;
   *(_OWORD *)v33 = 0LL;
   v34 = 0LL;
   if ( a3 != 716 )
-    return 3221225476LL;
+    return -1073741820;
   v9 = *(_QWORD *)(a1 + 544);
   v10 = *(_QWORD *)(v9 + 1408);
   if ( !v10 || *(_WORD *)(v10 + 8) != 332 )
-    return 3221225485LL;
+    return -1073741811;
   if ( a4 )
   {
     v11 = (__int64)a2;
@@ -77,56 +77,56 @@ __int64 __fastcall PspWow64GetContextThread(__int64 a1, unsigned int *a2, int a3
   }
   LOBYTE(v8) = a4;
   result = RtlpWow64SanitizeContextFlags(&v28, v8);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v13 = v28;
     if ( !a4 )
     {
-      v16 = (int *)a2;
-      v18 = (__int64)(a2 + 179);
+      v16 = (_CONTEXT *)a2;
+      v18 = (PCONTEXT_EX)(a2 + 179);
 LABEL_15:
       result = PspWow64ReadOrWriteThreadCpuArea(v9, v25, v26, 0LL, (__int64)v27);
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
         if ( v27[0] && (v13 & 0x10040) == 0x10040 )
         {
-          return 3221225659LL;
+          return -1073741637;
         }
         else
         {
-          result = RtlGetExtendedContextLength(0x4010001Fu, v29);
-          if ( (int)result >= 0 )
+          result = RtlGetExtendedContextLength(0x4010001Fu, ContextLength);
+          if ( result >= 0 )
           {
-            v19 = v29[0] + 15LL;
-            if ( v19 <= v29[0] )
+            v19 = ContextLength[0] + 15LL;
+            if ( v19 <= ContextLength[0] )
               v19 = 0xFFFFFFFFFFFFFF0LL;
             v20 = v19 & 0xFFFFFFFFFFFFFFF0uLL;
             v21 = alloca(v20);
             v22 = alloca(v20);
-            result = RtlInitializeExtendedContext((__int64)v27, 0x4010001Fu, (__int64)&v31);
-            if ( (int)result >= 0 )
+            result = RtlInitializeExtendedContext((PCONTEXT)v27, 0x4010001Fu, &v31);
+            if ( result >= 0 )
             {
               if ( (v13 & 0x10040) == 0x10040 )
               {
                 v33[2] |= 0x100040u;
-                v23 = (_DWORD *)v31;
-                *(_QWORD *)(v31 + 16) = *(_QWORD *)(v18 + 16);
-                v23[4] += v18 - (_DWORD)v23;
-                v23[1] = v23[4] + v23[5] - *v23;
+                v23 = v31;
+                v31->XState = v18->XState;
+                v23->XState.Offset += (_DWORD)v18 - (_DWORD)v23;
+                v23->All.Length = v23->XState.Offset + v23->XState.Length - v23->All.Offset;
               }
               result = PspGetContextThreadInternal(v32, (__int64)v27, 0, 1, 1);
-              if ( (int)result >= 0 )
+              if ( result >= 0 )
               {
                 if ( v27[0] )
-                  result = RtlCopyContext((__int64)v16, *v16, (__int64)v35);
+                  result = RtlCopyContext(v16, v16->P1Home, (PCONTEXT)v35);
                 else
                   result = RtlpWow64GetContextOnAmd64(v35, v27, v16);
-                if ( (int)result >= 0 )
+                if ( result >= 0 )
                 {
                   if ( a4 )
                   {
-                    result = RtlpWriteExtendedContext(v24, (int)a2 + 716, (unsigned int)v33, v13, v18);
-                    v29[1] = result;
+                    result = RtlpWriteExtendedContext(v24, (int)a2 + 716, (unsigned int)v33, v13, (__int64)v18);
+                    ContextLength[1] = result;
                   }
                 }
               }
@@ -136,21 +136,21 @@ LABEL_15:
       }
       return result;
     }
-    result = RtlGetExtendedContextLength(v28, v29);
-    if ( (int)result >= 0 )
+    result = RtlGetExtendedContextLength(v28, ContextLength);
+    if ( result >= 0 )
     {
-      v14 = v29[0] + 15LL;
-      if ( v14 <= v29[0] )
+      v14 = ContextLength[0] + 15LL;
+      if ( v14 <= ContextLength[0] )
         v14 = 0xFFFFFFFFFFFFFF0LL;
       v15 = alloca(v14 & 0xFFFFFFFFFFFFFFF0uLL);
-      v16 = (int *)v27;
-      memset(v27, 0, v29[0]);
-      result = RtlInitializeExtendedContext((__int64)v27, v13, (__int64)&v30);
-      if ( (int)result >= 0 )
+      v16 = (_CONTEXT *)v27;
+      memset(v27, 0, ContextLength[0]);
+      result = RtlInitializeExtendedContext((PCONTEXT)v27, v13, &ContextEx);
+      if ( result >= 0 )
       {
-        v18 = v30;
-        result = RtlpReadExtendedContext(v17, 0, v30, v13, (__int64)a2, (__int128 *)v33);
-        if ( (int)result >= 0 )
+        v18 = ContextEx;
+        result = RtlpReadExtendedContext(v17, 0, (__int64)ContextEx, v13, (__int64)a2, (__int128 *)v33);
+        if ( result >= 0 )
           goto LABEL_15;
       }
     }

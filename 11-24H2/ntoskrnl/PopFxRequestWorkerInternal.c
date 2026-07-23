@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxRequestWorkerInternal @ 0x1402A142C
+ * XREFs of PopFxRequestWorkerInternal @ 0x1403AB3E4
  * Callers:
- *     PopFxRequestWorker @ 0x1405D1F20 (PopFxRequestWorker.c)
+ *     PopFxRequestWorker @ 0x1405CF640 (PopFxRequestWorker.c)
  * Callees:
- *     ExpTryQueueWorkItem @ 0x1402A0DCC (ExpTryQueueWorkItem.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     ExpTryQueueWorkItem @ 0x1403AB6FC (ExpTryQueueWorkItem.c)
  */
 
-char __fastcall PopFxRequestWorkerInternal(__int64 a1, char a2)
+__int64 __fastcall PopFxRequestWorkerInternal(__int64 a1, char a2)
 {
   volatile signed __int32 *v3; // rbx
-  signed __int32 v4; // eax
+  __int64 result; // rax
   __int64 v5; // rsi
-  __int64 v7; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
 
   if ( a1 )
   {
@@ -24,28 +24,24 @@ char __fastcall PopFxRequestWorkerInternal(__int64 a1, char a2)
     if ( (a2 & 1) != 0 )
       v3 = (volatile signed __int32 *)&PopFxNoFaultSystemWorkPool;
   }
-  LOBYTE(v4) = KeReleaseSemaphoreEx((PVOID)(v3 + 16), 8, (__int64)&v7);
+  result = KeReleaseSemaphoreEx((PVOID)(v3 + 16), 8, (__int64)&v6);
   if ( !a1 || (*(_BYTE *)(a1 + 24) & 1) != 0 )
   {
     v5 = 0LL;
     do
     {
       _m_prefetchw((const void *)(v3 + 24));
-      v4 = _InterlockedOr(v3 + 24, 1 << v5);
-      if ( (v4 & (1 << v5)) == 0 )
+      result = (unsigned int)_InterlockedOr(v3 + 24, 1 << v5);
+      if ( ((unsigned int)result & (1 << v5)) == 0 )
       {
-        LOBYTE(v4) = ExpTryQueueWorkItem(
-                       *((_QWORD *)PspSystemPartition + 2),
-                       &v3[8 * v5 + 28 + 2 * (unsigned int)v5],
-                       48,
-                       0);
-        if ( (_BYTE)v4 )
-          return v4;
+        result = ExpTryQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), &v3[8 * v5 + 28 + 2 * (unsigned int)v5], 48LL);
+        if ( (_BYTE)result )
+          return result;
         _InterlockedAnd(v3 + 24, ~(1 << v5));
       }
       v5 = (unsigned int)(v5 + 1);
     }
     while ( (unsigned int)v5 < 4 );
   }
-  return v4;
+  return result;
 }

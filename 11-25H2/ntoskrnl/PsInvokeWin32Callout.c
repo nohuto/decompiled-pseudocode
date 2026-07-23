@@ -26,7 +26,7 @@
 __int64 __fastcall PsInvokeWin32Callout(int a1, __int128 *a2, int a3, __int64 a4)
 {
   __int128 *v4; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rsi
+  _RTL_RUN_ONCE *Win32Callouts; // rsi
   struct _EX_RUNDOWN_REF *v6; // rdi
   unsigned int v7; // ebx
   __int128 v9; // [rsp+20h] [rbp-18h] BYREF

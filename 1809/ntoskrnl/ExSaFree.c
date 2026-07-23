@@ -1,10 +1,10 @@
 /*
- * XREFs of ExSaFree @ 0x140167170
+ * XREFs of ExSaFree @ 0x140167270
  * Callers:
- *     ExpFreeFannedOutPushLock @ 0x140167154 (ExpFreeFannedOutPushLock.c)
+ *     ExpFreeFannedOutPushLock @ 0x140167254 (ExpFreeFannedOutPushLock.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExpSaAllocatorFree @ 0x1401671E8 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorFree @ 0x1401672E8 (ExpSaAllocatorFree.c)
  */
 
 __int64 __fastcall ExSaFree(unsigned int a1)

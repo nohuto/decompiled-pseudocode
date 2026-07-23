@@ -1,19 +1,17 @@
 /*
  * XREFs of InbvIsBootDriverInstalled @ 0x1403D8370
  * Callers:
- *     DisplayBootBitmap @ 0x1403D8274 (DisplayBootBitmap.c)
- *     BvgaReleaseResources @ 0x1403D8300 (BvgaReleaseResources.c)
- *     StartFirstUserProcess @ 0x140B263A0 (StartFirstUserProcess.c)
+ *     sub_1403D8274 @ 0x1403D8274 (sub_1403D8274.c)
+ *     sub_1403D8300 @ 0x1403D8300 (sub_1403D8300.c)
+ *     sub_140B263A0 @ 0x140B263A0 (sub_140B263A0.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-char InbvIsBootDriverInstalled()
+char __fastcall InbvIsBootDriverInstalled(__int64 a1, __int64 a2)
 {
-  __int64 (*v0)(void); // rax
-
-  if ( qword_140C54D10 && (v0 = *(__int64 (**)(void))(qword_140C54D10 + 56)) != 0LL )
-    return v0();
+  if ( qword_140C54D10 && *(_QWORD *)(qword_140C54D10 + 56) )
+    return sub_14042A5E0(a1, a2);
   else
     return 0;
 }

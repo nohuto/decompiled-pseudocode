@@ -13,29 +13,34 @@
 
 int __fastcall EtwpDisableTraceProviders(__int16 a1)
 {
-  int v1; // ecx
+  _RTL_SRWLOCK *v1; // ecx
   _BYTE *v2; // esi
   unsigned int v3; // ecx
   _BYTE *v4; // eax
   _BYTE *v5; // eax
   int result; // eax
-  int v7; // ebx
+  _RTL_SRWLOCK *v7; // ebx
   unsigned int i; // eax
   _BYTE *v9; // esi
-  char v11; // [esp+17h] [ebp-81h]
-  _DWORD v12[31]; // [esp+18h] [ebp-80h] BYREF
+  size_t v10; // [esp-4h] [ebp-9Ch]
+  char v12; // [esp+17h] [ebp-81h]
+  _DWORD v13[18]; // [esp+18h] [ebp-80h] BYREF
+  int v14; // [esp+60h] [ebp-38h]
+  __int16 v15; // [esp+66h] [ebp-32h]
+  int v16; // [esp+88h] [ebp-10h]
 
-  memset(v12, 0, 0x78u);
-  v12[6] = -1;
-  v12[18] = 0;
-  v12[28] = 0;
+  LODWORD(v10) = 120;
+  memset(v13, 0, v10);
+  v13[6] = -1;
+  v14 = 0;
+  v16 = 0;
   v1 = 0;
-  v12[0] = 3;
-  v12[1] = 120;
+  v13[0] = 3;
+  v13[1] = 120;
   while ( 1 )
   {
     result = EtwpGetNextRegistration(v1);
-    v7 = result;
+    v7 = (_RTL_SRWLOCK *)result;
     if ( !result )
       return result;
     v2 = (_BYTE *)(result + 102);
@@ -55,12 +60,12 @@ int __fastcall EtwpDisableTraceProviders(__int16 a1)
 LABEL_6:
     if ( v5 )
     {
-      v11 = 0;
-      if ( *(void **)(v7 + 44) != NtCurrentTeb()->ClientId.UniqueThread )
+      v12 = 0;
+      if ( (void *)v7[11].Value != NtCurrentTeb()->ClientId.UniqueThread )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v7 + 36));
-        v11 = 1;
-        *(_DWORD *)(v7 + 44) = NtCurrentTeb()->ClientId.UniqueThread;
+        RtlAcquireSRWLockExclusive(v7 + 9);
+        v12 = 1;
+        v7[11].0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)NtCurrentTeb()->ClientId.UniqueThread;
       }
       for ( i = 0; i < 4; ++i )
       {
@@ -75,18 +80,18 @@ LABEL_6:
 LABEL_18:
       if ( v9 )
       {
-        v12[10] = *(_DWORD *)(v7 + 12);
-        v12[11] = *(_DWORD *)(v7 + 16);
-        v12[12] = *(_DWORD *)(v7 + 20);
-        v12[13] = *(_DWORD *)(v7 + 24);
-        v12[18] = 0;
-        HIWORD(v12[19]) = a1 | 0x8000;
-        EtwpUpdateEnableInfoAndCallback(v7, (int)v12);
+        v13[10] = v7[3].0;
+        v13[11] = v7[4].0;
+        v13[12] = v7[5].0;
+        v13[13] = v7[6].0;
+        v14 = 0;
+        v15 = a1 | 0x8000;
+        EtwpUpdateEnableInfoAndCallback((int)v7, (int)v13);
       }
-      if ( v11 )
+      if ( v12 )
       {
-        *(_DWORD *)(v7 + 44) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v7 + 36));
+        v7[11].Value = 0;
+        RtlReleaseSRWLockExclusive(v7 + 9);
       }
     }
     v1 = v7;

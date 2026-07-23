@@ -1,7 +1,7 @@
 /*
- * XREFs of MmQuerySpecialPoolBlockSize @ 0x1401EC638
+ * XREFs of MmQuerySpecialPoolBlockSize @ 0x1401EC464
  * Callers:
- *     ExQueryPoolBlockSize @ 0x14022D01C (ExQueryPoolBlockSize.c)
+ *     ExQueryPoolBlockSize @ 0x14022CE48 (ExQueryPoolBlockSize.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  * Callees:
  *     <none>

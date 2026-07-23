@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipRegisterDevice @ 0x14086BF88
+ * XREFs of WmipRegisterDevice @ 0x14086C1C8
  * Callers:
- *     IoWMIRegistrationControl @ 0x14086BEB0 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x14086C0F0 (IoWMIRegistrationControl.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A980 (ObReferenceObjectByPointer.c)
- *     WmipUnreferenceRegEntry @ 0x14022AAB4 (WmipUnreferenceRegEntry.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x14025A100 (IoGetAttachedDeviceReference.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     WmipFindRegEntryByDevice @ 0x1403C25C4 (WmipFindRegEntryByDevice.c)
- *     WmipAllocRegEntry @ 0x1403C2684 (WmipAllocRegEntry.c)
- *     WmipDeregisterRegEntry @ 0x1403D4AE0 (WmipDeregisterRegEntry.c)
- *     WmipRegisterOrUpdateDS @ 0x140869FC4 (WmipRegisterOrUpdateDS.c)
- *     WmipQueueRegWork @ 0x14086C0F0 (WmipQueueRegWork.c)
- *     WmipUpdateDeviceStackSize @ 0x14086C1CC (WmipUpdateDeviceStackSize.c)
+ *     ObReferenceObjectByPointer @ 0x14022AA90 (ObReferenceObjectByPointer.c)
+ *     WmipUnreferenceRegEntry @ 0x14022ABC4 (WmipUnreferenceRegEntry.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDeviceReference @ 0x14025A390 (IoGetAttachedDeviceReference.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     WmipFindRegEntryByDevice @ 0x1403C27A4 (WmipFindRegEntryByDevice.c)
+ *     WmipAllocRegEntry @ 0x1403C2864 (WmipAllocRegEntry.c)
+ *     WmipDeregisterRegEntry @ 0x1403D4CC0 (WmipDeregisterRegEntry.c)
+ *     WmipRegisterOrUpdateDS @ 0x14086A204 (WmipRegisterOrUpdateDS.c)
+ *     WmipQueueRegWork @ 0x14086C330 (WmipQueueRegWork.c)
+ *     WmipUpdateDeviceStackSize @ 0x14086C40C (WmipUpdateDeviceStackSize.c)
  */
 
 __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)

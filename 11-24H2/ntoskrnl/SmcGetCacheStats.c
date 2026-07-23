@@ -1,17 +1,17 @@
 /*
- * XREFs of SmcGetCacheStats @ 0x14079D63C
+ * XREFs of SmcGetCacheStats @ 0x14079D74C
  * Callers:
- *     SmcProcessStatsRequest @ 0x14079942C (SmcProcessStatsRequest.c)
+ *     SmcProcessStatsRequest @ 0x14079953C (SmcProcessStatsRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmKmFileInfoGetPath @ 0x140799BE0 (SmKmFileInfoGetPath.c)
- *     SmcCacheDereference @ 0x14079D0D8 (SmcCacheDereference.c)
- *     SmcCacheReference @ 0x14079D328 (SmcCacheReference.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmKmFileInfoGetPath @ 0x140799CF0 (SmKmFileInfoGetPath.c)
+ *     SmcCacheDereference @ 0x14079D1E8 (SmcCacheDereference.c)
+ *     SmcCacheReference @ 0x14079D438 (SmcCacheReference.c)
  */
 
 __int64 __fastcall SmcGetCacheStats(__int64 a1, _DWORD *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall SmcGetCacheStats(__int64 a1, _DWORD *a2)
   signed __int64 *v8; // rdi
   struct _KTHREAD *CurrentThread; // rax
   int v10; // ebp
-  _QWORD *v11; // r14
+  char *v11; // r14
   _DWORD *v12; // rsi
   __int64 v13; // r8
 
@@ -46,11 +46,11 @@ __int64 __fastcall SmcGetCacheStats(__int64 a1, _DWORD *a2)
       CurrentThread = KeGetCurrentThread();
       v10 = 0;
       --CurrentThread->KernelApcDisable;
-      v11 = KeAbPreAcquire(v5 + 160, 0LL);
+      v11 = (char *)KeAbPreAcquire(v5 + 160, 0LL);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 160), 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(v5 + 160), 0, v11, v5 + 160);
       if ( v11 )
-        *((_BYTE *)v11 + 10) = 1;
+        v11[10] = 1;
       v12 = (_DWORD *)(v5 + 168);
       v13 = 16LL;
       do

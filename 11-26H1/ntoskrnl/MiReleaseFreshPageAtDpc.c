@@ -1,27 +1,27 @@
 /*
- * XREFs of MiReleaseFreshPageAtDpc @ 0x140295CA0
+ * XREFs of MiReleaseFreshPageAtDpc @ 0x140295200
  * Callers:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiReplaceLockedPage @ 0x140295664 (MiReplaceLockedPage.c)
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiFillPageFileReadMdl @ 0x140372310 (MiFillPageFileReadMdl.c)
- *     MiMakeDriverPagesPrivate @ 0x14038A9E0 (MiMakeDriverPagesPrivate.c)
- *     MiCompleteSecureProcessFault @ 0x14038AED0 (MiCompleteSecureProcessFault.c)
- *     MiDeleteUltraMapContext @ 0x1404655E0 (MiDeleteUltraMapContext.c)
- *     MiManageUltraSpacePageTable @ 0x14049504C (MiManageUltraSpacePageTable.c)
- *     MiFinalizeImageHeaderPage @ 0x1404C7B8C (MiFinalizeImageHeaderPage.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14070B50C (MiMakeVaRangePhysicallyContiguous.c)
- *     MiSoftFaultClusterTradeGetPage @ 0x14071245C (MiSoftFaultClusterTradeGetPage.c)
- *     MiInitializeCacheFlushing @ 0x140CFF38C (MiInitializeCacheFlushing.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiReplaceLockedPage @ 0x140294BC4 (MiReplaceLockedPage.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiFillPageFileReadMdl @ 0x1403740C0 (MiFillPageFileReadMdl.c)
+ *     MiMakeDriverPagesPrivate @ 0x14038C790 (MiMakeDriverPagesPrivate.c)
+ *     MiCompleteSecureProcessFault @ 0x14038CC80 (MiCompleteSecureProcessFault.c)
+ *     MiDeleteUltraMapContext @ 0x14045E5A0 (MiDeleteUltraMapContext.c)
+ *     MiManageUltraSpacePageTable @ 0x14048EB9C (MiManageUltraSpacePageTable.c)
+ *     MiFinalizeImageHeaderPage @ 0x1404C18CC (MiFinalizeImageHeaderPage.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1407101BC (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiSoftFaultClusterTradeGetPage @ 0x140717154 (MiSoftFaultClusterTradeGetPage.c)
+ *     MiInitializeCacheFlushing @ 0x140D0572C (MiInitializeCacheFlushing.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiReleaseFreshPageAtDpc(__int64 a1, __int64 a2, __int64 a3)
@@ -69,8 +69,8 @@ __int64 __fastcall MiReleaseFreshPageAtDpc(__int64 a1, __int64 a2, __int64 a3)
   v8 = *(_QWORD *)(a1 + 16);
   LOBYTE(v3) = (v8 & 0x3E0) != 0;
   v9 = v3 + 1;
-  if ( qword_140E2D740 && (*(_QWORD *)(a1 + 16) & 0x10) == 0 )
-    HIDWORD(v8) &= HIDWORD(qword_140E2D748);
+  if ( qword_140E2D8C0 && (*(_QWORD *)(a1 + 16) & 0x10) == 0 )
+    HIDWORD(v8) &= HIDWORD(qword_140E2D8C8);
   v10 = v9;
   LODWORD(v10) = v9 | 0x400;
   if ( HIDWORD(v8) != -3 )

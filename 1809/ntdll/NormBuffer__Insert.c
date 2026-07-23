@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__Insert @ 0x1800FBFD8
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  *     NormBuffer__AppendAndSortDecomposed @ 0x1800FBE58 (NormBuffer__AppendAndSortDecomposed.c)
  *     NormBuffer__Insert @ 0x1800FBFD8 (NormBuffer__Insert.c)
  * Callees:

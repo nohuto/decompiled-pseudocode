@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpReplicateKeyToVirtual @ 0x1407DBC0C
+ * XREFs of CmpReplicateKeyToVirtual @ 0x1407DC15C
  * Callers:
- *     CmKeyBodyReplicateToVirtual @ 0x140978D18 (CmKeyBodyReplicateToVirtual.c)
- *     CmpVEExecuteCreateLogic @ 0x140A203DC (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140961528 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140A154DC (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpConvertRegistryShared @ 0x1407D87C4 (CmpConvertRegistryShared.c)
- *     CmpTryConvertRegistryExclusive @ 0x1407D87EC (CmpTryConvertRegistryExclusive.c)
- *     CmpBuildVirtualReplicationStack @ 0x1407DB310 (CmpBuildVirtualReplicationStack.c)
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmpGetVirtualStoreRoot @ 0x1407DBA94 (CmpGetVirtualStoreRoot.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     CmRealKCBToVirtualPath @ 0x14090A7C8 (CmRealKCBToVirtualPath.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpConvertRegistryShared @ 0x1407D8D14 (CmpConvertRegistryShared.c)
+ *     CmpTryConvertRegistryExclusive @ 0x1407D8D3C (CmpTryConvertRegistryExclusive.c)
+ *     CmpBuildVirtualReplicationStack @ 0x1407DB860 (CmpBuildVirtualReplicationStack.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpGetVirtualStoreRoot @ 0x1407DBFE4 (CmpGetVirtualStoreRoot.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     CmRealKCBToVirtualPath @ 0x1408E1EE8 (CmRealKCBToVirtualPath.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
  */
 
 __int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, ULONG_PTR *a4)
@@ -65,7 +65,7 @@ LABEL_27:
       {
         p_DestinationString = &DestinationString;
         LOBYTE(p_DestinationString) = 26;
-        guard_dispatch_icall_no_overrides(p_DestinationString, v27, (unsigned int)VirtualStoreRoot, 0LL);
+        guard_dispatch_icall_no_overrides(p_DestinationString, v27);
       }
       if ( DestinationString.Buffer )
         RtlFreeAnsiString(&DestinationString);
@@ -138,7 +138,7 @@ LABEL_27:
   {
     v9 = &DestinationString;
     LOBYTE(v9) = 26;
-    guard_dispatch_icall_no_overrides(v9, v27, (unsigned int)VirtualStoreRoot, 0LL);
+    guard_dispatch_icall_no_overrides(v9, v27);
   }
   return (unsigned int)VirtualStoreRoot;
 }

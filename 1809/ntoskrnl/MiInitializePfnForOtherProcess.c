@@ -2,20 +2,20 @@
  * XREFs of MiInitializePfnForOtherProcess @ 0x140026C2C
  * Callers:
  *     MiInitializeSystemPageTable @ 0x140026984 (MiInitializeSystemPageTable.c)
- *     MiMapPageFileHash @ 0x14014FCD8 (MiMapPageFileHash.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140184B04 (MiDemoteValidLargePageOneLevel.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
- *     MiMakeLargePageTable @ 0x1402B50E8 (MiMakeLargePageTable.c)
- *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
- *     MiAllocateTopLevelPage @ 0x1406D1BCC (MiAllocateTopLevelPage.c)
- *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
- *     MiInitializeShadowPageTable @ 0x14072A3F4 (MiInitializeShadowPageTable.c)
+ *     MiMapPageFileHash @ 0x14014FDD8 (MiMapPageFileHash.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140184C44 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4558 (MiMakeOutswappedPageResident.c)
+ *     MiMakeLargePageTable @ 0x1402B52D8 (MiMakeLargePageTable.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C9BC8 (MiDuplicateCloneLeaf.c)
+ *     MiAllocateTopLevelPage @ 0x1406D2E6C (MiAllocateTopLevelPage.c)
+ *     MiMapNewSession @ 0x1407171D8 (MiMapNewSession.c)
+ *     MiInitializeShadowPageTable @ 0x14072B5E4 (MiInitializeShadowPageTable.c)
  * Callees:
  *     MiLockAndIncrementShareCount @ 0x140026D44 (MiLockAndIncrementShareCount.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int16 a4)

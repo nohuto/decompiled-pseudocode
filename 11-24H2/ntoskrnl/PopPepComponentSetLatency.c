@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPepComponentSetLatency @ 0x1403169B8
+ * XREFs of PopPepComponentSetLatency @ 0x1402BF568
  * Callers:
- *     PoFxSetComponentLatency @ 0x140316970 (PoFxSetComponentLatency.c)
+ *     PoFxSetComponentLatency @ 0x1402BF520 (PoFxSetComponentLatency.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopPepGetComponentPreferedIdleState @ 0x140316D90 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepRequestWork @ 0x1403170D0 (PopPepRequestWork.c)
- *     PopPepTriggerActivity @ 0x140319270 (PopPepTriggerActivity.c)
- *     PopPepPromoteActivities @ 0x140319590 (PopPepPromoteActivities.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1402BF940 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepRequestWork @ 0x1402BFC80 (PopPepRequestWork.c)
+ *     PopPepTriggerActivity @ 0x1402C1E00 (PopPepTriggerActivity.c)
+ *     PopPepPromoteActivities @ 0x1402C2120 (PopPepPromoteActivities.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall PopPepComponentSetLatency(__int64 a1, unsigned int a2, unsigned __int64 a3)

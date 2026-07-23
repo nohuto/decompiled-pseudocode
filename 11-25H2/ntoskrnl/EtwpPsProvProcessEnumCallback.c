@@ -23,16 +23,16 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(_KPROCESS *BugCheckParameter1, 
   char v4; // si
   struct _KPROCESS *v5; // rcx
   bool v7; // zf
-  ULONG_PTR v8; // r14
+  void *v8; // r14
   int v9; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v10; // [rsp+38h] [rbp-C8h] BYREF
   _OWORD v11[3]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v12[168]; // [rsp+70h] [rbp-90h] BYREF
+  unsigned int PackageSize[168]; // [rsp+70h] [rbp-90h] BYREF
 
   v10 = 0LL;
   v4 = 0;
   memset(v11, 0, sizeof(v11));
-  memset_0(v12, 0, sizeof(v12));
+  memset_0(PackageSize, 0, sizeof(PackageSize));
   if ( !EtwpIsProcessZombie((__int64)BugCheckParameter1) )
   {
     if ( a2[9] )
@@ -59,12 +59,12 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(_KPROCESS *BugCheckParameter1, 
       if ( (*a2 & 0x10) != 0 )
       {
         v9 = 0;
-        v8 = PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
-        EtwpQueryTokenPackageInfo(v8, (__int64)v12, &v9);
+        v8 = (void *)PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
+        EtwpQueryTokenPackageInfo(v8, (WCHAR *)PackageSize, &v9);
         if ( a2[8] )
           EtwpQueryProcessOtherInfo((__int64)BugCheckParameter1, (__int64)&v10);
-        ObFastDereferenceObject((__int64 *)&BugCheckParameter1[1].ActiveProcessors, v8, 1953261124LL);
-        EtwpPsProvTraceProcess((__int64)BugCheckParameter1, v9, v12, (int *)&v10, 771);
+        ObFastDereferenceObject((__int64 *)&BugCheckParameter1[1].ActiveProcessors, (ULONG_PTR)v8, 1953261124LL);
+        EtwpPsProvTraceProcess((__int64)BugCheckParameter1, v9, PackageSize, (int *)&v10, 771);
       }
       if ( v4 )
       {

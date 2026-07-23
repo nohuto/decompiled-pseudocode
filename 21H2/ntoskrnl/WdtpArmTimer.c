@@ -1,9 +1,9 @@
 /*
- * XREFs of WdtpArmTimer @ 0x14027F8E0
+ * XREFs of WdtpArmTimer @ 0x14026DB20
  * Callers:
- *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x14066AC94 (PnpEnableWatchdog.c)
  * Callees:
- *     ExSetTimer @ 0x140280070 (ExSetTimer.c)
+ *     ExSetTimer @ 0x14026E2B0 (ExSetTimer.c)
  */
 
 __int64 __fastcall WdtpArmTimer(__int64 a1)

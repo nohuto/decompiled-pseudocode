@@ -1,18 +1,18 @@
 /*
- * XREFs of KiTimer2Expiration @ 0x14005A0A0
+ * XREFs of KiTimer2Expiration @ 0x140059C20
  * Callers:
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiTimerExpirationDpc @ 0x140123AA8 (KiTimerExpirationDpc.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiTimerExpirationDpc @ 0x140124018 (KiTimerExpirationDpc.c)
  * Callees:
- *     KiProcessThreadWaitList @ 0x14008DCC0 (KiProcessThreadWaitList.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KiSendClockInterruptToClockOwner @ 0x14009DE7C (KiSendClockInterruptToClockOwner.c)
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
- *     KiUpdateTimer2Flags @ 0x1400EC7B0 (KiUpdateTimer2Flags.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiInsertTimer2 @ 0x1400EEA78 (KiInsertTimer2.c)
- *     KiRemoveTimer2 @ 0x1400F9890 (KiRemoveTimer2.c)
- *     KiReleaseSpinLockInstrumented @ 0x1401D3D8C (KiReleaseSpinLockInstrumented.c)
+ *     KiProcessThreadWaitList @ 0x14008D420 (KiProcessThreadWaitList.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KiSendClockInterruptToClockOwner @ 0x14009D67C (KiSendClockInterruptToClockOwner.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x1400EA620 (KiUpdateTimer2Flags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertTimer2 @ 0x1400EC8F8 (KiInsertTimer2.c)
+ *     KiRemoveTimer2 @ 0x1400F76D0 (KiRemoveTimer2.c)
+ *     KiReleaseSpinLockInstrumented @ 0x1401D3BB8 (KiReleaseSpinLockInstrumented.c)
  */
 
 unsigned __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, char a3, __int64 a4)
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, 
     v11 = v9;
     if ( v9 < (__int64)v10 )
     {
-      v12 = (__int64 *)((char *)&unk_14030E2E8 + 24 * v9);
+      v12 = (__int64 *)((char *)&unk_14030E328 + 24 * v9);
       do
       {
         for ( i = *v12; *v12; i = *v12 )
@@ -119,8 +119,8 @@ LABEL_27:
     if ( !KiHRTimerClockActive )
     {
       result = MEMORY[0xFFFFF78000000008] + KeMaximumIncrement;
-      if ( qword_14030E308 < result )
-        return KiSendClockInterruptToClockOwner(MEMORY[0xFFFFF78000000008], qword_14030E308);
+      if ( qword_14030E348 < result )
+        return KiSendClockInterruptToClockOwner(MEMORY[0xFFFFF78000000008], qword_14030E348);
     }
   }
   return result;

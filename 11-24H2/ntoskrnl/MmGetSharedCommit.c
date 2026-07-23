@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetSharedCommit @ 0x14046FD14
+ * XREFs of MmGetSharedCommit @ 0x14046A274
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
- *     ExpQuerySystemPerformanceInformation @ 0x140AE0850 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140AE2138 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmGetSharedCommit()
 {
-  return qword_140E3D8B8;
+  return qword_140E3D9F8;
 }

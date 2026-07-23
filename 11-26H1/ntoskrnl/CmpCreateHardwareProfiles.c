@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCreateHardwareProfiles @ 0x140CE9D78
+ * XREFs of CmpCreateHardwareProfiles @ 0x140CF0118
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     CmpOpenDevicesControlSet @ 0x14084CA20 (CmpOpenDevicesControlSet.c)
- *     CmDeleteKeyRecursive @ 0x1408514B8 (CmDeleteKeyRecursive.c)
- *     CmSetAcpiHwProfile @ 0x140851648 (CmSetAcpiHwProfile.c)
- *     CmpCloneHwProfile @ 0x140852134 (CmpCloneHwProfile.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     CmpAddAliasEntry @ 0x140CE9408 (CmpAddAliasEntry.c)
- *     CmpAddDockingInfo @ 0x140CE9638 (CmpAddDockingInfo.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     CmpOpenDevicesControlSet @ 0x140852D30 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x1408577C8 (CmDeleteKeyRecursive.c)
+ *     CmSetAcpiHwProfile @ 0x140857958 (CmSetAcpiHwProfile.c)
+ *     CmpCloneHwProfile @ 0x140858444 (CmpCloneHwProfile.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     CmpAddAliasEntry @ 0x140CEF7A8 (CmpAddAliasEntry.c)
+ *     CmpAddDockingInfo @ 0x140CEF9D8 (CmpAddDockingInfo.c)
  */
 
 __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
@@ -75,7 +75,7 @@ __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
     v5 = v6;
     if ( v6 == -1073741772 )
     {
-      if ( !HIDWORD(WheapPfaLock.CycleTime) )
+      if ( !HIDWORD(WheapPfaLock.KernelStack) )
         goto LABEL_44;
       ObjectAttributes_8.Length = 48;
       ObjectAttributes_8.ObjectName = (PUNICODE_STRING)&CmpControlString;
@@ -145,7 +145,7 @@ __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
     v5 = ZwOpenKey(&v21, 0x20019u, &ObjectAttributes_8);
     if ( v5 == -1073741772 )
     {
-      if ( !HIDWORD(WheapPfaLock.CycleTime) )
+      if ( !HIDWORD(WheapPfaLock.KernelStack) )
         goto LABEL_44;
       v5 = ZwCreateKey(&v21, 0x20019u, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
     }
@@ -162,7 +162,7 @@ __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
       v5 = ZwOpenKey(&v19, 0x2001Fu, &ObjectAttributes_8);
       if ( v5 == -1073741772 )
       {
-        if ( !HIDWORD(WheapPfaLock.CycleTime) )
+        if ( !HIDWORD(WheapPfaLock.KernelStack) )
           goto LABEL_44;
         v5 = ZwCreateKey(&v19, 0x2001Fu, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
       }
@@ -187,7 +187,7 @@ LABEL_31:
           *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
           if ( ZwCreateKey(&DestinationString, 0x2001Fu, &ObjectAttributes_8, 0, 0LL, 1u, &Disposition) >= 0 )
           {
-            CmpAddDockingInfo((__int64)DestinationString, v7 + 4);
+            CmpAddDockingInfo(DestinationString, v7 + 4);
             ZwClose(DestinationString);
             DestinationString = 0LL;
           }

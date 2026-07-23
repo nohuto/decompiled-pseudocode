@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpHwidSysVolIfDeviceInfoProvider @ 0x14051D564
+ * XREFs of ExpHwidSysVolIfDeviceInfoProvider @ 0x140500954
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpHwidSysVolIfGetDiskInfo @ 0x14051DAC0 (ExpHwidSysVolIfGetDiskInfo.c)
- *     ExpHwidSendSynchronousIrpToDevice @ 0x14051DCA4 (ExpHwidSendSynchronousIrpToDevice.c)
+ *     ExpHwidSysVolIfGetDiskInfo @ 0x140500B70 (ExpHwidSysVolIfGetDiskInfo.c)
+ *     ExpHwidSendSynchronousIrpToDevice @ 0x140500D54 (ExpHwidSendSynchronousIrpToDevice.c)
  */
 
 __int64 __fastcall ExpHwidSysVolIfDeviceInfoProvider(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall ExpHwidSysVolIfDeviceInfoProvider(__int64 a1)
   v12 = *(_DWORD *)L"x:";
   v2 = 0;
   v3 = 0LL;
-  v13 = asc_14058C390[6];
+  v13 = asc_14058C840[6];
   v11 = *(_QWORD *)L"\\??\\x:";
   LOWORD(v12) = *NtSystemRoot.Buffer;
   RtlInitUnicodeString(&v10, (PCWSTR)&v11);

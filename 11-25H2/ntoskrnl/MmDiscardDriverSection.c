@@ -12,23 +12,23 @@
 
 __int64 __fastcall MmDiscardDriverSection(__int64 a1)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v3; // rdi
-  __int64 v4; // rt1
+  _QWORD *v2; // rbx
+  PVOID v3; // rdi
+  PVOID v4; // rt1
   __int64 v6; // [rsp+48h] [rbp+10h] BYREF
   __int64 v7; // [rsp+50h] [rbp+18h] BYREF
 
   v7 = 0LL;
   v6 = 0LL;
-  v2 = MiLockLoadedDataTableEntry(a1, 1);
-  v3 = *(_QWORD *)(v2 + 48);
-  if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3)
-    || (v4 = *(_QWORD *)&KeNumberProcessorsGroup0[9], v3 == v4)
+  v2 = (_QWORD *)MiLockLoadedDataTableEntry(a1, 1);
+  v3 = (PVOID)v2[6];
+  if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v3)
+    || (v4 = *(PVOID *)&KeNumberProcessorsGroup0[9], v3 == v4)
     || v3 == PsHalImageBase )
   {
-    MiSnapDriverRange(v2, 0, 0, a1, (unsigned __int64 *)&v6, (unsigned __int64 *)&v7);
+    MiSnapDriverRange((__int64)v2, 0, 0, a1, (unsigned __int64 *)&v6, (unsigned __int64 *)&v7);
     if ( v6 )
       MiFreeInitializationCode(v2, v6, v7, 0);
   }
-  return MiUnlockLoadedDataTableEntry(v2, 1);
+  return MiUnlockLoadedDataTableEntry((__int64)v2, 1);
 }

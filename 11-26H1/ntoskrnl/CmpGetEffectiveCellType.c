@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetEffectiveCellType @ 0x1408E070C
+ * XREFs of CmpGetEffectiveCellType @ 0x1408E6CCC
  * Callers:
- *     CmpCreateChild @ 0x1408DF4A0 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x1408E5A60 (CmpCreateChild.c)
  * Callees:
  *     <none>
  */

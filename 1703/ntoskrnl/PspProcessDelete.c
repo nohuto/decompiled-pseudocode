@@ -129,7 +129,7 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
     __writecr8(v8);
   }
   if ( *(_QWORD *)(BugCheckParameter2 + 2016) )
-    ZwDeleteWnfStateName();
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)(BugCheckParameter2 + 2016));
   v13 = *(void **)(BugCheckParameter2 + 1056);
   if ( v13 )
   {

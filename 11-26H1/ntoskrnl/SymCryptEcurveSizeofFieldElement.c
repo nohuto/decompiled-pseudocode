@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptEcurveSizeofFieldElement @ 0x14055B438
+ * XREFs of SymCryptEcurveSizeofFieldElement @ 0x14055D91C
  * Callers:
- *     SymCryptEckeySetValue @ 0x14055B8D0 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaSignEx @ 0x14055C9F0 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointGetValue @ 0x14056440C (SymCryptEcpointGetValue.c)
- *     SymCryptEcpointSetValue @ 0x1405645A0 (SymCryptEcpointSetValue.c)
- *     SymCryptEcDhSecretAgreement @ 0x140574A80 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptEckeySetValue @ 0x14055DDB4 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaSignEx @ 0x14055EED8 (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointGetValue @ 0x1405667FC (SymCryptEcpointGetValue.c)
+ *     SymCryptEcpointSetValue @ 0x140566990 (SymCryptEcpointSetValue.c)
+ *     SymCryptEcDhSecretAgreement @ 0x140573CE4 (SymCryptEcDhSecretAgreement.c)
  * Callees:
  *     <none>
  */

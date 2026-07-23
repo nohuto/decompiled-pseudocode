@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHeteroPolicy @ 0x140A9E028
+ * XREFs of PpmEventHeteroPolicy @ 0x140AFBADC
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHeteroPolicy(char a1)
@@ -41,16 +41,16 @@ char __fastcall PpmEventHeteroPolicy(char a1)
     v2 = &PPM_ETW_HETEROGENEOUS_POLICIES_CHANGED;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v1) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v2);
+    LOBYTE(v1) = EtwEventEnabled(PpmEtwHandle, v2);
     if ( (_BYTE)v1 )
     {
       UserData.Ptr = (ULONGLONG)&PpmHeteroPolicy;
       v6 = &PopHeteroSystem;
       *(_QWORD *)&UserData.Size = 4LL;
       v8 = &KiDesiredHeteroCpuPolicy;
-      v10 = &unk_140FBE4CC;
+      v10 = &unk_140FBF4CC;
       v12 = &KiDynamicHeteroCpuPolicyMask;
-      v14 = &unk_140FBE4BC;
+      v14 = &unk_140FBF4BC;
       v16 = KiDynamicHeteroCpuPolicy;
       v18 = &KiDynamicHeteroCpuPolicyImportantPriority;
       v20 = &KiDynamicHeteroCpuPolicyExpectedRuntime;
@@ -67,12 +67,7 @@ char __fastcall PpmEventHeteroPolicy(char a1)
       v4 = v4 & 0xFFFFFFFFFFF800LL | PpmHeteroHgsEnabled & 1 | (2
                                                               * (PpmHeteroHgsThreadEnabled & 1 | (2
                                                                                                 * (PpmHeteroHgsThreadDisabled & 1 | (2 * (PpmHeteroHgsDynamicUpdateEnabled & 1 | (2 * (PpmHeteroHgsDynamicUpdateReasonEnabled & 1 | (2 * (PpmHeteroHgsParkingEnabled & 1 | (2 * (PpmHeteroHgsParkingHintEnabled & 1 | (2 * (PpmHeteroHgsEePerfHintsIndependentEnabled & 1 | ((PpmHeteroHgsCapabilityBits & 0xF | (16LL * (unsigned __int8)PpmHeteroHgsVendor)) << 49))))))))))))))) & 0xFFFFFFFFFFFFF8FFuLL | ((PpmHeteroHgsContainmentState & 2) << 7) & 0xF9FF | ((PpmHeteroHgsContainmentState & 4 | (8LL * (PpmHeteroWpsContainmentEnumOverride & 1))) << 7);
-      LOBYTE(v1) = EtwWrite(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v2,
-                     0LL,
-                     0xAu,
-                     &UserData);
+      LOBYTE(v1) = EtwWrite(PpmEtwHandle, v2, 0LL, 0xAu, &UserData);
     }
   }
   return (char)v1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerStallCounterPowerChange @ 0x140582EE4
+ * XREFs of HalpTimerStallCounterPowerChange @ 0x140585404
  * Callers:
- *     HalpTimerPowerChange @ 0x140582BE4 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x140585104 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpTimerStallCounterPowerChange(ULONG_PTR BugCheckParameter3, char a2)

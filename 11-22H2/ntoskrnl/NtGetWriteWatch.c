@@ -32,14 +32,14 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtGetWriteWatch(
-        void *a1,
-        int a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        volatile void *Address,
-        _QWORD *a6,
-        unsigned __int64 a7)
+NTSTATUS __cdecl NtGetWriteWatch(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        SIZE_T RegionSize,
+        PVOID *UserAddressArray,
+        PULONG_PTR EntriesInUserAddressArray,
+        PULONG Granularity)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // r15
@@ -81,11 +81,11 @@ __int64 __fastcall NtGetWriteWatch(
   struct _LIST_ENTRY *v48; // rcx
   bool v49; // zf
   __int64 v50; // rdx
-  NTSTATUS v51; // esi
+  int v51; // esi
   _BYTE *v52; // rdi
-  __int64 v53; // rbx
+  unsigned __int64 v53; // rbx
   unsigned __int64 v54; // rax
-  __int64 v55; // r11
+  unsigned __int64 v55; // r11
   unsigned __int64 *v56; // r14
   __int64 v57; // rcx
   __int64 *v58; // rax
@@ -100,12 +100,12 @@ __int64 __fastcall NtGetWriteWatch(
   unsigned __int64 v67; // [rsp+48h] [rbp-9E0h]
   unsigned __int64 v68; // [rsp+50h] [rbp-9D8h] BYREF
   __int64 v69; // [rsp+58h] [rbp-9D0h]
-  int v70; // [rsp+60h] [rbp-9C8h]
+  ULONG v70; // [rsp+60h] [rbp-9C8h]
   __int64 LockedVadEvent; // [rsp+68h] [rbp-9C0h]
   unsigned __int64 *v72; // [rsp+70h] [rbp-9B8h]
   void *Src; // [rsp+78h] [rbp-9B0h]
   unsigned int v74; // [rsp+80h] [rbp-9A8h] BYREF
-  __int64 v75; // [rsp+88h] [rbp-9A0h]
+  unsigned __int64 v75; // [rsp+88h] [rbp-9A0h]
   unsigned __int64 v76; // [rsp+90h] [rbp-998h]
   __int64 *v77; // [rsp+98h] [rbp-990h]
   PVOID Object; // [rsp+A0h] [rbp-988h] BYREF
@@ -116,8 +116,8 @@ __int64 __fastcall NtGetWriteWatch(
   PVOID P; // [rsp+C8h] [rbp-960h]
   HANDLE Handle; // [rsp+D0h] [rbp-958h]
   void *v85; // [rsp+D8h] [rbp-950h]
-  _QWORD *v86; // [rsp+E0h] [rbp-948h]
-  _DWORD *v87; // [rsp+E8h] [rbp-940h]
+  PULONG_PTR v86; // [rsp+E0h] [rbp-948h]
+  PULONG v87; // [rsp+E8h] [rbp-940h]
   $115DCDF994C6370D29323EAB0E0C9502 v88; // [rsp+F0h] [rbp-938h] BYREF
   int v89; // [rsp+120h] [rbp-908h] BYREF
   __int16 v90; // [rsp+124h] [rbp-904h]
@@ -128,11 +128,11 @@ __int64 __fastcall NtGetWriteWatch(
   _BYTE v95[152]; // [rsp+140h] [rbp-8E8h] BYREF
   _BYTE v96[2048]; // [rsp+1E0h] [rbp-848h] BYREF
 
-  v70 = a2;
-  Handle = a1;
-  v85 = (void *)Address;
-  v86 = a6;
-  v87 = (_DWORD *)a7;
+  v70 = Flags;
+  Handle = ProcessHandle;
+  v85 = UserAddressArray;
+  v86 = EntriesInUserAddressArray;
+  v87 = Granularity;
   Object = 0LL;
   v74 = 0;
   LODWORD(v68) = 0;
@@ -144,38 +144,38 @@ __int64 __fastcall NtGetWriteWatch(
   v90 = 0;
   v93 = 0LL;
   v94 = 0LL;
-  if ( (a2 & 0xFFFFFFFE) != 0 )
-    return 3221225712LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741584;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a3 > 0x7FFFFFFEFFFFLL )
-      return 3221225713LL;
-    if ( 0x7FFFFFFF0000LL - a3 < a4 )
-      return 3221225714LL;
-    v13 = (__int64)a6;
-    if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+    if ( (unsigned __int64)BaseAddress > 0x7FFFFFFEFFFFLL )
+      return -1073741583;
+    if ( 0x7FFFFFFF0000LL - (__int64)BaseAddress < RegionSize )
+      return -1073741582;
+    v13 = (__int64)EntriesInUserAddressArray;
+    if ( (unsigned __int64)EntriesInUserAddressArray >= 0x7FFFFFFF0000LL )
       v13 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v13 = *(_QWORD *)v13;
-    v14 = *a6;
+    v14 = *EntriesInUserAddressArray;
     v76 = v14;
     if ( !v14 )
-      return 3221225715LL;
+      return -1073741581;
     if ( v14 > 0x1FFFFFFFFFFFFFFFLL )
-      return 3221225715LL;
-    ProbeForWrite(Address, 8 * v14, 8u);
-    v15 = a7;
-    if ( a7 >= 0x7FFFFFFF0000LL )
+      return -1073741581;
+    ProbeForWrite(UserAddressArray, 8 * v14, 8u);
+    v15 = (__int64)Granularity;
+    if ( (unsigned __int64)Granularity >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v15 = *(_DWORD *)v15;
     v16 = v76;
   }
   else
   {
-    v16 = *a6;
-    v76 = *a6;
+    v16 = *EntriesInUserAddressArray;
+    v76 = *EntriesInUserAddressArray;
   }
   Pool = v96;
   Src = v96;
@@ -184,7 +184,7 @@ __int64 __fastcall NtGetWriteWatch(
     Pool = MiAllocatePool(65, 8 * v16, 0x63476D4Du);
     Src = Pool;
     if ( !Pool )
-      return 3221225626LL;
+      return -1073741670;
   }
   v69 = 0LL;
   v77 = (__int64 *)Pool;
@@ -211,8 +211,8 @@ __int64 __fastcall NtGetWriteWatch(
     v20 = (_KPROCESS *)Object;
   }
   v75 = 0LL;
-  v21 = a3 + a4 - 1;
-  if ( a3 > v21 )
+  v21 = (unsigned __int64)BaseAddress + RegionSize - 1;
+  if ( (unsigned __int64)BaseAddress > v21 )
   {
     v51 = -1073741582;
     goto LABEL_103;
@@ -223,9 +223,9 @@ __int64 __fastcall NtGetWriteWatch(
     v19 = 1;
   }
   v72 = &v20[1].ActiveProcessors.StaticBitmap[26];
-  v22 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v22 = (((unsigned __int64)BaseAddress >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v80 = ((v21 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v23 = MiObtainReferencedVadEx(a3, 0, (int *)&v68);
+  v23 = MiObtainReferencedVadEx((unsigned __int64)BaseAddress, 0, (int *)&v68);
   v25 = (__int64)v23;
   v82 = v23;
   if ( !v23 )
@@ -250,12 +250,12 @@ LABEL_103:
   if ( VadMandatoryPageSize > 1 )
   {
     v57 = (VadMandatoryPageSize << 12) - 1;
-    if ( (v57 & a3) != 0 )
+    if ( (v57 & (unsigned __int64)BaseAddress) != 0 )
     {
       v51 = -1073741583;
       goto LABEL_68;
     }
-    if ( (v57 & a4) != 0 )
+    if ( (v57 & RegionSize) != 0 )
     {
       v51 = -1073741582;
       goto LABEL_68;
@@ -273,7 +273,9 @@ LABEL_103:
     v68 = v29;
   }
   LockedVadEvent = MiLocateLockedVadEvent(v25, 4LL);
-  v32 = ((a3 >> 12) - (*(unsigned int *)(v25 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v25 + 32) << 32))) / v30;
+  v32 = (((unsigned __int64)BaseAddress >> 12)
+       - (*(unsigned int *)(v25 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v25 + 32) << 32)))
+      / v30;
   v66 = MiLockWorkingSetShared((__int64)v72);
   v33 = v80;
   if ( v22 > v80 )
@@ -533,5 +535,5 @@ LABEL_137:
 LABEL_78:
   if ( v52 != v96 )
     ExFreePoolWithTag(v52, 0);
-  return (unsigned int)v51;
+  return v51;
 }

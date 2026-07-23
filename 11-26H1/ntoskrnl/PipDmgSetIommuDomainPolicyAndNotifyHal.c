@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x140B13360
+ * XREFs of PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x14096ED2C
  * Callers:
- *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x1407B0EE4 (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x140B13278 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x1407B3F44 (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14096EC44 (PipDmgEnforceEnumerationPolicy.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x14090A260 (PnpDeviceObjectToDeviceInstance.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1409AC818 (PnpDeviceObjectToDeviceInstance.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PipDmgSetIommuDomainPolicyAndNotifyHal(__int64 *a1, int a2, char a3)
@@ -26,19 +26,18 @@ __int64 __fastcall PipDmgSetIommuDomainPolicyAndNotifyHal(__int64 *a1, int a2, c
   v6 = *(_DWORD *)(v3 + 20);
   if ( a2 != v6 && (a3 || v6) )
   {
-    v5 = PnpDeviceObjectToDeviceInstance(a1[4], (__int64)&Handle, 983103);
+    v5 = PnpDeviceObjectToDeviceInstance(a1[4], &Handle, 983103LL);
     if ( v5 >= 0 )
     {
       v5 = PnpSetObjectProperty(
-             *(__int64 *)&PiPnpRtlCtx,
+             PiPnpRtlCtx,
              a1[6],
              1,
-             (__int64)Handle,
              0LL,
              (__int64)&DEVPKEY_Device_IommuDomainPolicy,
              7,
              (__int64)&v10,
-             4u,
+             4,
              0);
       if ( v5 >= 0 )
       {

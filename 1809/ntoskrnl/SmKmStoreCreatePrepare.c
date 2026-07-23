@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmStoreCreatePrepare @ 0x14066B45C
+ * XREFs of SmKmStoreCreatePrepare @ 0x14066C61C
  * Callers:
- *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066BFB4 (SmProcessCreateRequest.c)
  * Callees:
- *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     SmAlloc @ 0x1400E4BD4 (SmAlloc.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall SmKmStoreCreatePrepare(unsigned int *a1, char a2, _QWORD *a3, __int64 a4)

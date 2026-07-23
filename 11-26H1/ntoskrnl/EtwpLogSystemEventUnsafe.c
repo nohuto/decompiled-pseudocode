@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwpLogSystemEventUnsafe @ 0x14041297C
+ * XREFs of EtwpLogSystemEventUnsafe @ 0x140406FB0
  * Callers:
- *     NtTraceEvent @ 0x140411E40 (NtTraceEvent.c)
- *     EtwpTraceThreadRundown @ 0x140412620 (EtwpTraceThreadRundown.c)
- *     EtwpSetMark @ 0x140775508 (EtwpSetMark.c)
- *     EtwpTraceRegistry @ 0x140A07370 (EtwpTraceRegistry.c)
+ *     NtTraceEvent @ 0x1404067D0 (NtTraceEvent.c)
+ *     EtwpTraceThreadRundown @ 0x14051ED18 (EtwpTraceThreadRundown.c)
+ *     EtwpSetMark @ 0x140778508 (EtwpSetMark.c)
+ *     EtwpTraceRegistry @ 0x140A099F0 (EtwpTraceRegistry.c)
  * Callees:
- *     EtwpStackTraceDispatcher @ 0x14020A3A0 (EtwpStackTraceDispatcher.c)
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwpCloseLogger @ 0x140218150 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x1402181E4 (EtwpOpenLogger.c)
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x1402189D0 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpUpdateEventsLostCount @ 0x1402574C0 (EtwpUpdateEventsLostCount.c)
- *     EtwpTraceLastBranchRecord @ 0x140263D10 (EtwpTraceLastBranchRecord.c)
- *     EtwpCopyEventData @ 0x140412D50 (EtwpCopyEventData.c)
- *     LBR_TRACING_ENABLED @ 0x140413468 (LBR_TRACING_ENABLED.c)
- *     IPT_TRACING_ENABLED @ 0x1404134B0 (IPT_TRACING_ENABLED.c)
- *     CONTEXT_TRACING_ENABLED @ 0x140413500 (CONTEXT_TRACING_ENABLED.c)
- *     EtwpSendTraceEvent @ 0x1404A92C8 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1404A93C4 (EtwpInvokeEventCallback.c)
- *     EtwpTraceLostSystemEvent @ 0x1404D81F4 (EtwpTraceLostSystemEvent.c)
- *     EtwpTraceProcessorTrace @ 0x1404D92B0 (EtwpTraceProcessorTrace.c)
- *     EtwpContextRegisterTracingDispatcher @ 0x140507CB4 (EtwpContextRegisterTracingDispatcher.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwpStackTraceDispatcher @ 0x14020A480 (EtwpStackTraceDispatcher.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwpCloseLogger @ 0x140218480 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x140218514 (EtwpOpenLogger.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x140218D00 (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpUpdateEventsLostCount @ 0x140258E50 (EtwpUpdateEventsLostCount.c)
+ *     EtwpTraceLastBranchRecord @ 0x140263280 (EtwpTraceLastBranchRecord.c)
+ *     EtwpCopyEventData @ 0x140407380 (EtwpCopyEventData.c)
+ *     LBR_TRACING_ENABLED @ 0x140407A98 (LBR_TRACING_ENABLED.c)
+ *     IPT_TRACING_ENABLED @ 0x140407AE0 (IPT_TRACING_ENABLED.c)
+ *     CONTEXT_TRACING_ENABLED @ 0x140407B30 (CONTEXT_TRACING_ENABLED.c)
+ *     EtwpSendTraceEvent @ 0x1404A2958 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1404A2A54 (EtwpInvokeEventCallback.c)
+ *     EtwpTraceLostSystemEvent @ 0x1404D19C4 (EtwpTraceLostSystemEvent.c)
+ *     EtwpTraceProcessorTrace @ 0x1404D2990 (EtwpTraceProcessorTrace.c)
+ *     EtwpContextRegisterTracingDispatcher @ 0x140501688 (EtwpContextRegisterTracingDispatcher.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 EtwpLogSystemEventUnsafe(
+signed __int64 __fastcall EtwpLogSystemEventUnsafe(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -34,11 +34,10 @@ __int64 EtwpLogSystemEventUnsafe(
         unsigned int a5,
         unsigned __int16 a6,
         unsigned int a7,
-        char a8,
-        ...)
+        char a8)
 {
   _DWORD *v8; // r13
-  __int64 result; // rax
+  signed __int64 result; // rax
   __int64 v11; // rbx
   unsigned int v12; // esi
   _DWORD *v13; // rax
@@ -125,7 +124,7 @@ __int64 EtwpLogSystemEventUnsafe(
       {
         memset_0(v18, 0, v12);
         EtwpUpdateEventsLostCount(v11);
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_SYSTEM_EVENT) )
+        if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_LOST_SYSTEM_EVENT) )
           EtwpTraceLostSystemEvent(v17, v11 + 136, a7, v20);
       }
       if ( (*(_DWORD *)(v11 + 12) & 0x80000) != 0
@@ -172,7 +171,7 @@ LABEL_19:
     else
     {
       ReserveTraceBufferStatus = EtwpGetReserveTraceBufferStatus(v11, v12);
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_SYSTEM_EVENT) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_LOST_SYSTEM_EVENT) )
         EtwpTraceLostSystemEvent(v17, v11 + 136, a7, ReserveTraceBufferStatus);
     }
     return EtwpCloseLogger(a4, a1, v31[0]);

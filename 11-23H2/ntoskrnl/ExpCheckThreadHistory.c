@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpCheckThreadHistory @ 0x140354F9C
+ * XREFs of ExpCheckThreadHistory @ 0x14035513C
  * Callers:
- *     ExpWorkerFactoryCheckCreate @ 0x1402B8D40 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1402B8FD0 (ExpWorkerFactoryCheckCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall ExpCheckThreadHistory(__int64 a1)

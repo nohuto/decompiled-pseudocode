@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCreateEvent @ 0x14062CF50
+ * XREFs of NtCreateEvent @ 0x14062DF70
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x14065DC4C (PfSnOpenVolumesForPrefetch.c)
- *     PfSnPrefetchMetadata @ 0x14065ECDC (PfSnPrefetchMetadata.c)
- *     PfSnPopulateReadList @ 0x14065F740 (PfSnPopulateReadList.c)
- *     SepAdtOpenEtwReadyEvent @ 0x14073716C (SepAdtOpenEtwReadyEvent.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
- *     FsRtlInitializeSmssEvent @ 0x1409D789C (FsRtlInitializeSmssEvent.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14065EE0C (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnPrefetchMetadata @ 0x14065FE9C (PfSnPrefetchMetadata.c)
+ *     PfSnPopulateReadList @ 0x140660900 (PfSnPopulateReadList.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x14073835C (SepAdtOpenEtwReadyEvent.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
+ *     FsRtlInitializeSmssEvent @ 0x1409D889C (FsRtlInitializeSmssEvent.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall NtCreateEvent(

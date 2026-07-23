@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMarvin32 @ 0x1400847B0
+ * XREFs of SymCryptMarvin32 @ 0x140082910
  * Callers:
- *     HvpGenerateLogEntry @ 0x1404812F0 (HvpGenerateLogEntry.c)
- *     HvpLogEntryCheckHeaderChecksum @ 0x14060302C (HvpLogEntryCheckHeaderChecksum.c)
- *     HvApplyLogFile @ 0x14061212C (HvApplyLogFile.c)
+ *     HvpGenerateLogEntry @ 0x140480044 (HvpGenerateLogEntry.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x1406030E0 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvApplyLogFile @ 0x1406121E0 (HvApplyLogFile.c)
  * Callees:
  *     <none>
  */
@@ -50,7 +50,7 @@ __int64 __fastcall SymCryptMarvin32(__int64 a1, unsigned __int8 *a2, unsigned __
   int v42; // r10d
 
   v4 = HvSymcryptSeed;
-  v6 = dword_140329E94;
+  v6 = dword_140329ED4;
   if ( a3 > 7 )
   {
     v7 = ((a3 - 8) >> 3) + 1;

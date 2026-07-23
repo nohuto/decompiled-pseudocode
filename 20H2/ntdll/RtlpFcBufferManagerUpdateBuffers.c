@@ -16,7 +16,7 @@ void *__fastcall RtlpFcBufferManagerUpdateBuffers(volatile __int64 *a1, volatile
   char *v10; // rax
   char *v11; // rcx
   unsigned __int64 v12; // r10
-  unsigned __int64 i; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 CompareAddress; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = *a1 & 1;
   v6 = (unsigned int)v4;
@@ -47,8 +47,12 @@ void *__fastcall RtlpFcBufferManagerUpdateBuffers(volatile __int64 *a1, volatile
   v12 = (unsigned __int64)_InterlockedExchange64(a1, v8) >> 1;
   if ( v12 )
   {
-    for ( i = v12 + _InterlockedExchangeAdd64(a1 + 1, v12); i; i = *((_QWORD *)a1 + 1) )
-      RtlWaitOnAddress(a1 + 1, &i, 8LL);
+    for ( CompareAddress = v12 + _InterlockedExchangeAdd64(a1 + 1, v12);
+          CompareAddress;
+          CompareAddress = *((_QWORD *)a1 + 1) )
+    {
+      RtlWaitOnAddress((void *)(a1 + 1), &CompareAddress, 8uLL, 0LL);
+    }
   }
   a1[v6 + 21] = 0LL;
   return memset((void *)(v9 + 3), 0, 0x48uLL);

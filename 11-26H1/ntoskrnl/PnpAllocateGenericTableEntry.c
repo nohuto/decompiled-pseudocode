@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpAllocateGenericTableEntry @ 0x140B19160
+ * XREFs of PnpAllocateGenericTableEntry @ 0x140B1B5B0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 PnpAllocateGenericTableEntry()

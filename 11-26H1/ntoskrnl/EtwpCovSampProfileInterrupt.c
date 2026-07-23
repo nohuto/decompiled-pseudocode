@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampProfileInterrupt @ 0x1406C8BF0
+ * XREFs of EtwpCovSampProfileInterrupt @ 0x1406CCBD0
  * Callers:
  *     <none>
  * Callees:
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
- *     EtwpCovSampCaptureSample @ 0x1406C8944 (EtwpCovSampCaptureSample.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
+ *     EtwpCovSampCaptureSample @ 0x1406CC924 (EtwpCovSampCaptureSample.c)
  */
 
 int __fastcall EtwpCovSampProfileInterrupt(__int64 a1, __int64 a2)

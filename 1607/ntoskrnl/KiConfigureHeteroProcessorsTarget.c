@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x1400D4810 (KeIsEmptyAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeSignalCallDpcSynchronize @ 0x1401D6450 (KeSignalCallDpcSynchronize.c)
- *     PoGetProcessorPerformanceClass @ 0x14020A4A0 (PoGetProcessorPerformanceClass.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x1400D26B0 (KeIsEmptyAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeSignalCallDpcSynchronize @ 0x1401D627C (KeSignalCallDpcSynchronize.c)
+ *     PoGetProcessorPerformanceClass @ 0x14020A2CC (PoGetProcessorPerformanceClass.c)
  */
 
 __int64 __fastcall KiConfigureHeteroProcessorsTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

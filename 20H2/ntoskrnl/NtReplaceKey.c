@@ -21,13 +21,13 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtReplaceKey(_OWORD *a1, void *a2, _OWORD *a3)
+NTSTATUS __cdecl NtReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
   char v3; // si
   char PreviousMode; // di
   struct _KTHREAD *CurrentThread; // rax
   BOOLEAN v9; // r13
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   __int64 v11; // r9
   struct _KTHREAD *v12; // rax
   __int64 v13; // r9
@@ -37,7 +37,7 @@ __int64 __fastcall NtReplaceKey(_OWORD *a1, void *a2, _OWORD *a3)
   PADAPTER_OBJECT v17; // rdi
   int v18; // eax
   unsigned int v19; // eax
-  int v21; // [rsp+40h] [rbp-C0h] BYREF
+  NTSTATUS v21; // [rsp+40h] [rbp-C0h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-B8h] BYREF
   _QWORD v23[2]; // [rsp+50h] [rbp-B0h] BYREF
   PVOID P[2]; // [rsp+60h] [rbp-A0h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall NtReplaceKey(_OWORD *a1, void *a2, _OWORD *a3)
   __int128 v29; // [rsp+A0h] [rbp-60h]
   __int128 v30; // [rsp+B0h] [rbp-50h]
   struct _EVENT_DATA_DESCRIPTOR v31; // [rsp+C0h] [rbp-40h] BYREF
-  int *v32; // [rsp+E0h] [rbp-20h]
+  NTSTATUS *v32; // [rsp+E0h] [rbp-20h]
   __int64 v33; // [rsp+E8h] [rbp-18h]
   __int64 *v34; // [rsp+F0h] [rbp-10h]
   __int64 v35; // [rsp+F8h] [rbp-8h]
@@ -79,13 +79,13 @@ __int64 __fastcall NtReplaceKey(_OWORD *a1, void *a2, _OWORD *a3)
         v12 = KeGetCurrentThread();
         --v12->KernelApcDisable;
         v3 = 1;
-        v10 = CmpNameFromAttributes(a1, PreviousMode, (UNICODE_STRING *)v25, v11);
+        v10 = CmpNameFromAttributes(NewFile, PreviousMode, (UNICODE_STRING *)v25, v11);
         if ( v10 >= 0 )
         {
-          v10 = CmpNameFromAttributes(a3, PreviousMode, (UNICODE_STRING *)P, v13);
+          v10 = CmpNameFromAttributes(OldFile, PreviousMode, (UNICODE_STRING *)P, v13);
           if ( v10 >= 0 )
           {
-            v15 = CmObReferenceObjectByHandle(a2, 0, v14, PreviousMode, &DmaAdapter, 0LL);
+            v15 = CmObReferenceObjectByHandle(TargetHandle, 0, v14, PreviousMode, &DmaAdapter, 0LL);
             v17 = DmaAdapter;
             v10 = v15;
             if ( v15 >= 0 )
@@ -169,5 +169,5 @@ __int64 __fastcall NtReplaceKey(_OWORD *a1, void *a2, _OWORD *a3)
     v35 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)&word_140021B2E, 0LL, 0LL, 4u, &v31);
   }
-  return (unsigned int)v10;
+  return v10;
 }

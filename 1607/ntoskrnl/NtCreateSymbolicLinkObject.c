@@ -1,20 +1,20 @@
 /*
- * XREFs of NtCreateSymbolicLinkObject @ 0x140473B2C
+ * XREFs of NtCreateSymbolicLinkObject @ 0x1404729FC
  * Callers:
  *     BuildKnownDlls @ 0x1407A34E0 (BuildKnownDlls.c)
  *     IopReassignSystemRoot @ 0x1407B980C (IopReassignSystemRoot.c)
  *     CreateSystemRootLink @ 0x1407BA050 (CreateSystemRootLink.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlIsSandboxedToken @ 0x140412A10 (RtlIsSandboxedToken.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlIsSandboxedToken @ 0x1404118D0 (RtlIsSandboxedToken.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtCreateSymbolicLinkObject(

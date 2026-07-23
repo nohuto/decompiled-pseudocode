@@ -1,12 +1,12 @@
 /*
- * XREFs of VfRlrsEntry @ 0x1406481D0
+ * XREFs of VfRlrsEntry @ 0x14064BDB0
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VfFaultsInitPhase0 @ 0x140C34584 (VfFaultsInitPhase0.c)
- *     VfFaultsInitPhase1 @ 0x140C346BC (VfFaultsInitPhase1.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VfFaultsInitPhase0 @ 0x140C3A594 (VfFaultsInitPhase0.c)
+ *     VfFaultsInitPhase1 @ 0x140C3A6CC (VfFaultsInitPhase1.c)
  */
 
 __int64 VfRlrsEntry()
@@ -123,7 +123,7 @@ __int64 VfRlrsEntry()
 
   v3 = 412;
   v4 = 0LL;
-  qword_140F08188 = (__int64)ViRlrsUnload;
+  qword_140F084E8 = (__int64)ViRlrsUnload;
   v6 = "ExAllocatePoolWithTag";
   v10 = "ExAllocatePoolWithTagPriority";
   v14 = "ExAllocatePool2";

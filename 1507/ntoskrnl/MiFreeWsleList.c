@@ -569,7 +569,8 @@ LABEL_217:
           if ( (signed __int32 *)v128 == dword_14034FF40 )
           {
             if ( PsNtosImageBase
-              && (v95 >= PsNtosImageBase && v95 < PsNtosImageEnd || v95 >= PsHalImageBase && v95 < PsHalImageEnd) )
+              && (v95 >= (unsigned __int64)PsNtosImageBase && v95 < PsNtosImageEnd
+               || v95 >= (unsigned __int64)PsHalImageBase && v95 < PsHalImageEnd) )
             {
               LODWORD(xmmword_14034EA58) = xmmword_14034EA58 - 1;
             }

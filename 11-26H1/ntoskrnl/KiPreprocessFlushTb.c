@@ -1,12 +1,12 @@
 /*
- * XREFs of KiPreprocessFlushTb @ 0x140430BB0
+ * XREFs of KiPreprocessFlushTb @ 0x14041DBE0
  * Callers:
- *     KeFlushEntireTb @ 0x1405F0BC0 (KeFlushEntireTb.c)
- *     KeFlushSingleTb @ 0x1405F0DF4 (KeFlushSingleTb.c)
+ *     KeFlushEntireTb @ 0x1405F3530 (KeFlushEntireTb.c)
+ *     KeFlushSingleTb @ 0x1405F3764 (KeFlushSingleTb.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiIsFlushEntire @ 0x140430D04 (KiIsFlushEntire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiIsFlushEntire @ 0x14041DD34 (KiIsFlushEntire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KiPreprocessFlushTb(char a1, __int64 a2, int a3, _BYTE *a4, unsigned __int8 *a5)

@@ -17,42 +17,42 @@
  *     RtlpHeapExceptionFilter @ 0x18011F538 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugSizeHeap(unsigned __int64 a1, unsigned int a2, unsigned __int64 a3)
+SIZE_T __fastcall RtlDebugSizeHeap(_DWORD *HeapHandle, ULONG a2, char *a3)
 {
   char v6; // si
-  unsigned int v8; // edi
+  ULONG v8; // edi
   unsigned __int64 v9; // rdx
-  __int64 v10; // rbx
-  signed __int32 v12; // esi
-  HANDLE DeferredCriticalSectionEvent; // rdi
-  __int64 v14; // [rsp+30h] [rbp-58h]
-  unsigned __int64 v15; // [rsp+90h] [rbp+8h] BYREF
-  unsigned int v16; // [rsp+98h] [rbp+10h]
+  _RTL_CRITICAL_SECTION *v10; // rbx
+  signed __int32 LockCount; // esi
+  HANDLE LockSemaphore; // rdi
+  SIZE_T v14; // [rsp+30h] [rbp-58h]
+  _DWORD *v15; // [rsp+90h] [rbp+8h] BYREF
+  ULONG v16; // [rsp+98h] [rbp+10h]
 
   v16 = a2;
-  v15 = a1;
+  v15 = HeapHandle;
   v6 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return ((__int64 (__fastcall *)(unsigned __int64))qword_1801742D0)(a1);
+  if ( (HeapHandle[29] & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(_DWORD *))qword_1801742D0)(HeapHandle);
   v14 = -1LL;
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSizeHeap") )
+  if ( RtlpCheckHeapSignature(HeapHandle, "RtlSizeHeap") )
   {
-    v8 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v8 = HeapHandle[29] | 0x10000000 | a2;
     v16 = v8;
     if ( (v8 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       v8 |= 1u;
       v16 = v8;
       v6 = 1;
     }
-    RtlpValidateHeap(a1, 0LL);
-    v9 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    RtlpValidateHeap((_DWORD)HeapHandle);
+    v9 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v9 -= 16LL * *(unsigned __int8 *)(v9 + 14);
-    if ( RtlpValidateHeapEntry(a1, v9, "RtlSizeHeap") )
-      v14 = RtlSizeHeap(a1, v8, a3);
+    if ( RtlpValidateHeapEntry((unsigned __int64)HeapHandle, v9, "RtlSizeHeap") )
+      v14 = RtlSizeHeap(HeapHandle, v8, a3);
   }
   else
   {
@@ -60,27 +60,27 @@ __int64 __fastcall RtlDebugSizeHeap(unsigned __int64 a1, unsigned int a2, unsign
   }
   if ( v6 )
   {
-    v10 = *(_QWORD *)(a1 + 352);
-    if ( (*(_DWORD *)(v10 + 12))-- == 1 )
+    v10 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+    if ( v10->RecursionCount-- == 1 )
     {
-      *(_QWORD *)(v10 + 16) = 0LL;
-      v12 = _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 8), -1, -2);
-      if ( v12 != -2 )
+      v10->OwningThread = 0LL;
+      LockCount = _InterlockedCompareExchange(&v10->LockCount, -1, -2);
+      if ( LockCount != -2 )
       {
-        if ( (*(_BYTE *)(v10 + 8) & 1) != 0 )
-          RtlpNotOwnerCriticalSection((const void **)v10);
-        DeferredCriticalSectionEvent = *(HANDLE *)(v10 + 24);
-        if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v10);
+        if ( (v10->LockCount & 1) != 0 )
+          RtlpNotOwnerCriticalSection(v10);
+        LockSemaphore = v10->LockSemaphore;
+        if ( !LockSemaphore )
+          LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)v10);
         LODWORD(v15) = 0;
-        while ( v12 != _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 8), (v12 & 2 | 1) + v12, v12) )
+        while ( LockCount != _InterlockedCompareExchange(&v10->LockCount, (LockCount & 2 | 1) + LockCount, LockCount) )
         {
           RtlBackoff((unsigned int *)&v15);
-          _m_prefetchw((const void *)(v10 + 8));
-          v12 = *(_DWORD *)(v10 + 8);
+          _m_prefetchw(&v10->LockCount);
+          LockCount = v10->LockCount;
         }
-        if ( (v12 & 2) != 0 )
-          RtlpUnWaitCriticalSectionEx(v10, (__int64)DeferredCriticalSectionEvent);
+        if ( (LockCount & 2) != 0 )
+          RtlpUnWaitCriticalSectionEx((__int64)v10, LockSemaphore);
       }
     }
   }

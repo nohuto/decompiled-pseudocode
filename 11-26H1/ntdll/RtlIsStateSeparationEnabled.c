@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsStateSeparationEnabled @ 0x1800DBC50
+ * XREFs of RtlIsStateSeparationEnabled @ 0x1800D8B30
  * Callers:
- *     RtlCreateBootStatusDataFile @ 0x18010BE60 (RtlCreateBootStatusDataFile.c)
+ *     RtlCreateBootStatusDataFile @ 0x18010B9B0 (RtlCreateBootStatusDataFile.c)
  * Callees:
  *     <none>
  */
 
-char RtlIsStateSeparationEnabled()
+BOOLEAN RtlIsStateSeparationEnabled(void)
 {
   _DWORD *SharedData; // rax
 

@@ -18,14 +18,17 @@ NTSTATUS __stdcall RtlFormatMessage(
         ULONG BufferSize,
         PULONG ReturnLength)
 {
+  _PARSE_MESSAGE_CONTEXT *v10; // [rsp+48h] [rbp-10h]
+
   return RtlFormatMessageEx(
-           (int)Message,
+           Message,
            MaxWidth,
            IgnoreInserts,
            ArgumentsAreAnsi,
            ArgumentsAreAnArray,
-           (__int64)Arguments,
+           Arguments,
            Buffer,
            BufferSize,
-           (__int64)ReturnLength);
+           ReturnLength,
+           v10);
 }

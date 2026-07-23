@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtInvalidateContextEntry @ 0x1404E06A0
+ * XREFs of IvtInvalidateContextEntry @ 0x1404E08E0
  * Callers:
- *     IvtInvalidateExtendedContextEntry @ 0x1404E06FC (IvtInvalidateExtendedContextEntry.c)
- *     IvtUpdateContextEntry @ 0x1404E0BBC (IvtUpdateContextEntry.c)
+ *     IvtInvalidateExtendedContextEntry @ 0x1404E093C (IvtInvalidateExtendedContextEntry.c)
+ *     IvtUpdateContextEntry @ 0x1404E0DFC (IvtUpdateContextEntry.c)
  * Callees:
- *     IvtIommuSendCommand @ 0x1404E0830 (IvtIommuSendCommand.c)
- *     IvtIommuWaitCommand @ 0x1404E0A30 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1404E0A70 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0C70 (IvtIommuWaitCommand.c)
  */
 
 __int64 __fastcall IvtInvalidateContextEntry(__int64 a1, unsigned __int16 a2, unsigned __int16 a3, __int64 a4, char a5)

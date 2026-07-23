@@ -18,112 +18,162 @@
  *     RtlCloneUserProcess @ 0x1800D6360 (RtlCloneUserProcess.c)
  */
 
-__int64 __fastcall RtlpProcessReflectionStartup(__int64 a1)
+__int64 __fastcall RtlpProcessReflectionStartup(PSIZE_T RegionSize)
 {
-  int VirtualMemory; // r14d
-  int v3; // ecx
-  int v4; // eax
-  HANDLE v5; // r8
-  void *v6; // r15
-  HANDLE v7; // rbx
-  HANDLE v8; // rdi
-  void *v9; // rsi
-  _BYTE v11[8]; // [rsp+50h] [rbp-59h] BYREF
-  HANDLE v12; // [rsp+58h] [rbp-51h]
-  HANDLE v13; // [rsp+60h] [rbp-49h]
-  __int64 v14; // [rsp+68h] [rbp-41h]
-  __int64 v15; // [rsp+70h] [rbp-39h]
+  NTSTATUS v2; // r14d
+  _OWORD *v3; // rax
+  int v4; // ecx
+  NTSTATUS v5; // eax
+  HANDLE ProcessHandle; // r8
+  HANDLE v7; // rdx
+  int v8; // eax
+  __int64 v9; // rcx
+  void *v10; // rdx
+  void *v11; // r15
+  HANDLE v12; // rbx
+  HANDLE ThreadHandle; // rdi
+  void *v14; // rcx
+  void *v15; // rsi
+  void (__fastcall *v16)(_QWORD); // rax
+  void *v17; // rcx
+  ULONG_PTR RegionSizea[2]; // [rsp+40h] [rbp-69h] BYREF
+  _RTL_USER_PROCESS_INFORMATION ProcessInformation; // [rsp+50h] [rbp-59h] BYREF
+  PVOID BaseAddress; // [rsp+110h] [rbp+67h] BYREF
+  HANDLE TargetHandle; // [rsp+118h] [rbp+6Fh] BYREF
+  HANDLE Buffer; // [rsp+120h] [rbp+77h] BYREF
+  HANDLE EventHandle; // [rsp+128h] [rbp+7Fh] BYREF
 
-  VirtualMemory = ZwAllocateVirtualMemory();
-  if ( VirtualMemory < 0 )
+  EventHandle = 0LL;
+  BaseAddress = 0LL;
+  Buffer = 0LL;
+  TargetHandle = 0LL;
+  v2 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x3000u, 4u);
+  if ( v2 < 0 )
   {
-    *(_OWORD *)(a1 + 56) = 0LL;
-    *(_OWORD *)(a1 + 72) = 0LL;
-    return (unsigned int)VirtualMemory;
+    *(_OWORD *)(RegionSize + 7) = 0LL;
+    *(_OWORD *)(RegionSize + 9) = 0LL;
+    goto LABEL_28;
   }
-  MEMORY[0] = *(_OWORD *)a1;
-  MEMORY[0x10] = *(_OWORD *)(a1 + 16);
-  MEMORY[0x20] = *(_OWORD *)(a1 + 32);
-  MEMORY[0x30] = *(_OWORD *)(a1 + 48);
-  MEMORY[0x40] = *(_OWORD *)(a1 + 64);
-  MEMORY[0x50] = *(_QWORD *)(a1 + 80);
-  VirtualMemory = ZwCreateEvent();
-  if ( VirtualMemory < 0 )
-    return (unsigned int)VirtualMemory;
-  v3 = *(_DWORD *)(a1 + 8) & 2 | 4;
-  if ( (*(_DWORD *)(a1 + 8) & 8) == 0 )
-    v3 = *(_DWORD *)(a1 + 8) & 2;
-  v4 = RtlCloneUserProcess(v3 | 1u, 0, 0, 0, (__int64)v11);
-  VirtualMemory = v4;
-  if ( !v4 )
+  v3 = BaseAddress;
+  *(_OWORD *)BaseAddress = *(_OWORD *)RegionSize;
+  v3[1] = *((_OWORD *)RegionSize + 1);
+  v3[2] = *((_OWORD *)RegionSize + 2);
+  v3[3] = *((_OWORD *)RegionSize + 3);
+  v3[4] = *((_OWORD *)RegionSize + 4);
+  *((_QWORD *)v3 + 10) = RegionSize[10];
+  v2 = ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, NotificationEvent, 0);
+  if ( v2 >= 0 )
   {
-    v5 = v12;
-    *(_QWORD *)(a1 + 64) = v13;
-    *(_QWORD *)(a1 + 72) = v14;
-    *(_QWORD *)(a1 + 80) = v15;
-    *(_QWORD *)(a1 + 56) = v5;
-    VirtualMemory = ZwDuplicateObject();
-    if ( VirtualMemory >= 0 )
+    v4 = RegionSize[1] & 2 | 4;
+    if ( (RegionSize[1] & 8) == 0 )
+      v4 = RegionSize[1] & 2;
+    v5 = RtlCloneUserProcess(v4 | 1, 0LL, 0LL, 0LL, &ProcessInformation);
+    v2 = v5;
+    if ( v5 )
     {
-      VirtualMemory = NtWriteVirtualMemory();
-      if ( VirtualMemory >= 0 )
+      if ( v5 == 297 )
       {
-        if ( !*(_QWORD *)(a1 + 48) )
-          goto LABEL_16;
-        VirtualMemory = ZwDuplicateObject();
-        if ( VirtualMemory >= 0 )
+        NtCurrentPeb()->Ldr->ShutdownInProgress = 1;
+        ZwSetEvent(TargetHandle, 0LL);
+        NtClose(TargetHandle);
+        if ( Buffer )
         {
-          if ( (*(_DWORD *)(a1 + 8) & 0x10) == 0 )
-            NtClose(*(HANDLE *)(a1 + 48));
-          VirtualMemory = NtWriteVirtualMemory();
-          if ( VirtualMemory >= 0 )
-          {
-LABEL_16:
-            ZwResumeProcess();
-            NtWaitForSingleObject(0LL, 0, 0LL);
-            v6 = *(void **)(a1 + 32);
-            if ( v6 )
-            {
-              v7 = v12;
-              v8 = v13;
-              v9 = *(void **)(a1 + 40);
-              VirtualMemory = ZwSetEvent();
-              NtWaitForSingleObject(v9, 0, 0LL);
-              NtClose(v7);
-              NtClose(v8);
-              NtClose(v6);
-              NtClose(v9);
-            }
-            return (unsigned int)VirtualMemory;
-          }
+          NtWaitForSingleObject(Buffer, 0, 0LL);
+          NtClose(Buffer);
+        }
+        v16 = (void (__fastcall *)(_QWORD))*((_QWORD *)BaseAddress + 2);
+        if ( v16 )
+        {
+          v16(*((_QWORD *)BaseAddress + 3));
+        }
+        else if ( (*((_DWORD *)BaseAddress + 2) & 4) == 0 )
+        {
+          NtSuspendThread((HANDLE)0xFFFFFFFFFFFFFFFELL, 0LL);
+        }
+        RegionSizea[0] = *(_QWORD *)BaseAddress;
+        v8 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, RegionSizea, 0x8000u);
+        v2 = v8;
+        v9 = -1LL;
+        goto LABEL_8;
+      }
+      RegionSize[7] = 0LL;
+      RegionSize[8] = 0LL;
+      RegionSize[9] = 0LL;
+      RegionSize[10] = 0LL;
+      v17 = (void *)RegionSize[4];
+      if ( v17 )
+        ZwSetEvent(v17, 0LL);
+    }
+    else
+    {
+      ProcessHandle = ProcessInformation.ProcessHandle;
+      v7 = EventHandle;
+      RegionSize[8] = (ULONG_PTR)ProcessInformation.ThreadHandle;
+      *(CLIENT_ID *)(RegionSize + 9) = ProcessInformation.ClientId;
+      RegionSize[7] = (ULONG_PTR)ProcessHandle;
+      v8 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7, ProcessHandle, &TargetHandle, 0x1F0003u, 0, 2u);
+      v9 = (__int64)ProcessInformation.ProcessHandle;
+      v2 = v8;
+      if ( v8 < 0 )
+      {
+LABEL_8:
+        ZwTerminateProcess((HANDLE)v9, v8);
+        goto LABEL_28;
+      }
+      v8 = NtWriteVirtualMemory(ProcessInformation.ProcessHandle, &TargetHandle, &TargetHandle, 8uLL, 0LL);
+      v2 = v8;
+      if ( v8 < 0 )
+        goto LABEL_10;
+      v10 = (void *)RegionSize[6];
+      if ( v10 )
+      {
+        v8 = ZwDuplicateObject(
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               v10,
+               ProcessInformation.ProcessHandle,
+               &Buffer,
+               0x1F0003u,
+               0,
+               2u);
+        v2 = v8;
+        if ( v8 < 0 )
+          goto LABEL_10;
+        if ( (RegionSize[1] & 0x10) == 0 )
+          NtClose((HANDLE)RegionSize[6]);
+        v8 = NtWriteVirtualMemory(ProcessInformation.ProcessHandle, &Buffer, &Buffer, 8uLL, 0LL);
+        v2 = v8;
+        if ( v8 < 0 )
+        {
+LABEL_10:
+          v9 = (__int64)ProcessInformation.ProcessHandle;
+          goto LABEL_8;
         }
       }
+      ZwResumeProcess(ProcessInformation.ProcessHandle);
+      NtWaitForSingleObject(EventHandle, 0, 0LL);
+      v11 = (void *)RegionSize[4];
+      if ( v11 )
+      {
+        v12 = ProcessInformation.ProcessHandle;
+        ThreadHandle = ProcessInformation.ThreadHandle;
+        v14 = (void *)RegionSize[4];
+        v15 = (void *)RegionSize[5];
+        v2 = ZwSetEvent(v14, 0LL);
+        NtWaitForSingleObject(v15, 0, 0LL);
+        NtClose(v12);
+        NtClose(ThreadHandle);
+        NtClose(v11);
+        NtClose(v15);
+      }
     }
-LABEL_8:
-    ZwTerminateProcess();
-    return (unsigned int)VirtualMemory;
   }
-  if ( v4 == 297 )
+LABEL_28:
+  if ( EventHandle )
+    NtClose(EventHandle);
+  if ( BaseAddress )
   {
-    NtCurrentPeb()->Ldr->ShutdownInProgress = 1;
-    ZwSetEvent();
-    NtClose(0LL);
-    if ( MEMORY[0x10] )
-    {
-      MEMORY[0x10](MEMORY[0x18]);
-    }
-    else if ( (MEMORY[8] & 4) == 0 )
-    {
-      NtSuspendThread();
-    }
-    VirtualMemory = ZwFreeVirtualMemory();
-    goto LABEL_8;
+    RegionSizea[0] = *(_QWORD *)BaseAddress;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, RegionSizea, 0x8000u);
   }
-  *(_QWORD *)(a1 + 56) = 0LL;
-  *(_QWORD *)(a1 + 64) = 0LL;
-  *(_QWORD *)(a1 + 72) = 0LL;
-  *(_QWORD *)(a1 + 80) = 0LL;
-  if ( *(_QWORD *)(a1 + 32) )
-    ZwSetEvent();
-  return (unsigned int)VirtualMemory;
+  return (unsigned int)v2;
 }

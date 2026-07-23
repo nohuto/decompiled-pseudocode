@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPluginQuerySocSubsystemMetadata @ 0x1407CDFC0
+ * XREFs of PopPluginQuerySocSubsystemMetadata @ 0x1407D1060
  * Callers:
- *     PopFxLogSocSubsystemMetadata @ 0x1409879C4 (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x140A4271C (PopFxLogSocSubsystemMetadata.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopFxValidateReturnedUnicodeString @ 0x1407CDDB4 (PopFxValidateReturnedUnicodeString.c)
- *     RtlHashUnicodeString @ 0x1409893C0 (RtlHashUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x1407D0E54 (PopFxValidateReturnedUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x140A43AE0 (RtlHashUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopPluginQuerySocSubsystemMetadata(__int64 a1, int a2, __int64 a3)
@@ -29,7 +29,7 @@ char __fastcall PopPluginQuerySocSubsystemMetadata(__int64 a1, int a2, __int64 a
 
   HashValue = a1;
   v3 = *(_DWORD *)(a3 + 28);
-  v5 = stru_140E66FF0.Padding[0];
+  v5 = qword_140E676E8;
   LODWORD(HashValue) = 0;
   v7 = 0;
   v8 = v3;
@@ -55,7 +55,7 @@ char __fastcall PopPluginQuerySocSubsystemMetadata(__int64 a1, int a2, __int64 a
       }
       v7 = guard_dispatch_icall_no_overrides(40LL, a3);
       if ( !v7 )
-        PopFxBugCheck(0x605uLL, 0x28uLL, stru_140E66FF0.Padding[0], 0LL);
+        PopFxBugCheck(0x605uLL, 0x28uLL, qword_140E676E8, 0LL);
       RtlHashUnicodeString(*(PCUNICODE_STRING *)(a3 + 16), 0, 0, (PULONG)&HashValue);
       v14 = *(_QWORD *)(a3 + 16);
       if ( *(_DWORD *)v14 != (_DWORD)v17 || *(_QWORD *)(v14 + 8) != *((_QWORD *)&v17 + 1) || (_DWORD)HashValue != a2 )

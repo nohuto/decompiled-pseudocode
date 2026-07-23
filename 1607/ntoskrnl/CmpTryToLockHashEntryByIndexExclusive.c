@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpTryToLockHashEntryByIndexExclusive @ 0x140603C84
+ * XREFs of CmpTryToLockHashEntryByIndexExclusive @ 0x140603D38
  * Callers:
- *     CmpCleanUpKCBCacheTable @ 0x14049AFB8 (CmpCleanUpKCBCacheTable.c)
+ *     CmpCleanUpKCBCacheTable @ 0x1403E3ED8 (CmpCleanUpKCBCacheTable.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     CmpReferenceHive @ 0x14002D220 (CmpReferenceHive.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     CmpReferenceHive @ 0x14002CDA0 (CmpReferenceHive.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall CmpTryToLockHashEntryByIndexExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)

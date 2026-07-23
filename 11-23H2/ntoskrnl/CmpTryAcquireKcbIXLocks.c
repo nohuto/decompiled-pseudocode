@@ -3,11 +3,11 @@
  * Callers:
  *     CmpPrepareForSubtreeInvalidationWorker @ 0x140682800 (CmpPrepareForSubtreeInvalidationWorker.c)
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpSaveBootControlSet @ 0x140A0A518 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140A159B4 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15EE8 (CmSetLastWriteTimeKey.c)
+ *     CmpSaveBootControlSet @ 0x140A0A7C8 (CmpSaveBootControlSet.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x140A15C64 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A16198 (CmSetLastWriteTimeKey.c)
  * Callees:
  *     CmpTryAcquireIXLockWithRollbackPacket @ 0x140699E9C (CmpTryAcquireIXLockWithRollbackPacket.c)
  */

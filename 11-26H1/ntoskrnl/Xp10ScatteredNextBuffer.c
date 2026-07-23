@@ -1,10 +1,10 @@
 /*
- * XREFs of Xp10ScatteredNextBuffer @ 0x14080EE04
+ * XREFs of Xp10ScatteredNextBuffer @ 0x140814894
  * Callers:
- *     Xp10ExecuteHuffmanDecode @ 0x14080C570 (Xp10ExecuteHuffmanDecode.c)
- *     Xp10ScatteredCopy @ 0x14080EAF8 (Xp10ScatteredCopy.c)
- *     Xp10ScatteredCopyBits @ 0x14080EBA8 (Xp10ScatteredCopyBits.c)
- *     Xp10ScatteredReadBytes @ 0x14080EE58 (Xp10ScatteredReadBytes.c)
+ *     Xp10ExecuteHuffmanDecode @ 0x140812000 (Xp10ExecuteHuffmanDecode.c)
+ *     Xp10ScatteredCopy @ 0x140814588 (Xp10ScatteredCopy.c)
+ *     Xp10ScatteredCopyBits @ 0x140814638 (Xp10ScatteredCopyBits.c)
+ *     Xp10ScatteredReadBytes @ 0x1408148E8 (Xp10ScatteredReadBytes.c)
  * Callees:
  *     <none>
  */

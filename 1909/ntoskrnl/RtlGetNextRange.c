@@ -12,7 +12,7 @@ NTSTATUS __stdcall RtlGetNextRange(PRTL_RANGE_LIST_ITERATOR Iterator, PRTL_RANGE
 {
   PLIST_ENTRY RangeListHead; // r11
   _QWORD *Current; // rax
-  struct _LIST_ENTRY *v7; // r8
+  _LIST_ENTRY *v7; // r8
   PLIST_ENTRY MergedHead; // rax
   struct _LIST_ENTRY **p_Blink; // rcx
   NTSTATUS result; // eax
@@ -26,9 +26,9 @@ NTSTATUS __stdcall RtlGetNextRange(PRTL_RANGE_LIST_ITERATOR Iterator, PRTL_RANGE
   if ( Current )
   {
     if ( MoveForwards )
-      v7 = (struct _LIST_ENTRY *)Current[5];
+      v7 = (_LIST_ENTRY *)Current[5];
     else
-      v7 = (struct _LIST_ENTRY *)Current[6];
+      v7 = (_LIST_ENTRY *)Current[6];
     MergedHead = Iterator->MergedHead;
     p_Blink = &v7[-3].Blink;
     if ( MergedHead )

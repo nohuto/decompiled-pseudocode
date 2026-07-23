@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRundownPriQueue @ 0x14052446C
+ * XREFs of KeRundownPriQueue @ 0x1405246AC
  * Callers:
- *     ExpWorkQueueDestroy @ 0x140956058 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueDestroy @ 0x140956228 (ExpWorkQueueDestroy.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KeRundownQueueCommon @ 0x1402A9DDC (KeRundownQueueCommon.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1402AA214 (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KeRundownQueueCommon @ 0x140227F1C (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x140228354 (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  */
 
 char __fastcall KeRundownPriQueue(unsigned __int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -23,7 +23,7 @@ char __fastcall KeRundownPriQueue(unsigned __int64 a1, __int64 a2, __int64 a3, _
     SchedulerAssist[5] = a3;
   }
   KiAcquireKobjectLockSafe((volatile signed __int32 *)a1, a2, a3, (__int64)SchedulerAssist);
-  KeRundownQueueCommon(a1, (__int64 **)(a1 + 672), a1 + 536, (_DWORD *)0x20, 1);
+  KeRundownQueueCommon(a1, (_QWORD **)(a1 + 672), (_DWORD *)(a1 + 536), 0x20u, 1);
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   KiAcquireReleaseObjectRundownLockExclusive(a1);
   return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0LL, 1LL, 0LL, CurrentIrql);

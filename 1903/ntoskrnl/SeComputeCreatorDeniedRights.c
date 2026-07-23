@@ -24,7 +24,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int64 v12; // rdx
   __int64 v13; // r8
   __int64 v14; // rax
-  __int64 v15; // rcx
+  ACL *v15; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
@@ -69,12 +69,12 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
     {
       if ( v10 >= 0 )
       {
-        v15 = *(_QWORD *)(a4 + 24);
+        v15 = *(ACL **)(a4 + 24);
       }
       else
       {
         v14 = *(unsigned int *)(a4 + 12);
-        v15 = (_DWORD)v14 ? a4 + v14 : 0LL;
+        v15 = (_DWORD)v14 ? (ACL *)(a4 + v14) : 0LL;
       }
     }
     else

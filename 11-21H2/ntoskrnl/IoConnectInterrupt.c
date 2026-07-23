@@ -1,10 +1,10 @@
 /*
  * XREFs of IoConnectInterrupt @ 0x140859030
  * Callers:
- *     DifIoConnectInterruptWrapper @ 0x14060D7A0 (DifIoConnectInterruptWrapper.c)
+ *     sub_14060D7A0 @ 0x14060D7A0 (sub_14060D7A0.c)
  * Callees:
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IopConnectInterruptFullySpecified @ 0x1408590B0 (IopConnectInterruptFullySpecified.c)
+ *     sub_1408590B0 @ 0x1408590B0 (sub_1408590B0.c)
  */
 
 NTSTATUS __stdcall IoConnectInterrupt(
@@ -26,7 +26,7 @@ NTSTATUS __stdcall IoConnectInterrupt(
     KeBugCheckEx(0x121u, 1uLL, KeGetCurrentIrql(), 0LL, 0LL);
   v12[1] = 0LL;
   v12[0] = ProcessorEnableMask;
-  return IopConnectInterruptFullySpecified(
+  return sub_1408590B0(
            (_DWORD)InterruptObject,
            0,
            (_DWORD)ServiceRoutine,

@@ -3,9 +3,9 @@
  * Callers:
  *     PspInitPhase1 @ 0x140B4D1F4 (PspInitPhase1.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x14041C2A0 (ZwCreateDirectoryObject.c)
- *     ObInsertObject @ 0x14076B590 (ObInsertObject.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x14041C630 (ZwCreateDirectoryObject.c)
+ *     ObInsertObject @ 0x14076B780 (ObInsertObject.c)
  */
 
 NTSTATUS PspInitializeCpuPartitionsPhase1()

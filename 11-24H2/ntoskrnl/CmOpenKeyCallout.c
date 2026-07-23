@@ -1,9 +1,9 @@
 /*
- * XREFs of CmOpenKeyCallout @ 0x1406F5060
+ * XREFs of CmOpenKeyCallout @ 0x1406F3060
  * Callers:
  *     <none>
  * Callees:
- *     CmOpenKey @ 0x1409E3DB0 (CmOpenKey.c)
+ *     CmOpenKey @ 0x1409DE810 (CmOpenKey.c)
  */
 
 void __fastcall CmOpenKeyCallout(PVOID Parameter)

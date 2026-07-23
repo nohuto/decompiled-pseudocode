@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessInheritedFromUniqueProcessId @ 0x1400B0FC8
+ * XREFs of PsGetProcessInheritedFromUniqueProcessId @ 0x1400AF038
  * Callers:
  *     <none>
  * Callees:

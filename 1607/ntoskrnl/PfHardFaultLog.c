@@ -1,11 +1,11 @@
 /*
- * XREFs of PfHardFaultLog @ 0x14009E3F4
+ * XREFs of PfHardFaultLog @ 0x14009DDA0
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
  * Callees:
- *     EtwTraceTimedEvent @ 0x14009E50C (EtwTraceTimedEvent.c)
- *     PfLogEvent @ 0x1400F0738 (PfLogEvent.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwTraceTimedEvent @ 0x14009DEB8 (EtwTraceTimedEvent.c)
+ *     PfLogEvent @ 0x1400EE5B8 (PfLogEvent.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall PfHardFaultLog(_QWORD *a1, int a2)
@@ -48,7 +48,7 @@ LABEL_3:
       v10[3] = a1[4];
       v10[1] = (unsigned int)(a1[2] >> 9);
       CurrentThread = KeGetCurrentThread();
-      v10[0] = __PAIR64__(dword_14033B810, v6);
+      v10[0] = __PAIR64__(dword_14033B850, v6);
       v8 = ((__int64)CurrentThread->Process[1].Header.WaitListHead.Blink ^ (__int64)CurrentThread->Process[1].ThreadListHead.Flink) & 0x1FFFFFFFFFFFFFFFLL;
       v9 = a1[3];
       v10[4] = v8;

@@ -1,24 +1,25 @@
 /*
- * XREFs of ObDereferenceDeviceMap @ 0x1406B0914
+ * XREFs of ObDereferenceDeviceMap @ 0x14067BE28
  * Callers:
- *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
- *     PspAssignPrimaryToken @ 0x1407BBA40 (PspAssignPrimaryToken.c)
+ *     PspProcessDelete @ 0x14067D320 (PspProcessDelete.c)
+ *     PspAssignPrimaryToken @ 0x1407BC1D0 (PspAssignPrimaryToken.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceDeviceMap @ 0x14068F1A4 (ObfDereferenceDeviceMap.c)
  */
 
-void __fastcall ObDereferenceDeviceMap(__int64 a1)
+char __fastcall ObDereferenceDeviceMap(__int64 a1)
 {
   __int64 ProcessServerSilo; // rax
   void *ServerSiloGlobals; // rax
   struct _KTHREAD *CurrentThread; // rdx
   ULONG_PTR v5; // rbx
   void *v6; // rsi
+  char result; // al
 
   ProcessServerSilo = PsGetProcessServerSilo(a1);
   ServerSiloGlobals = PsGetServerSiloGlobals(ProcessServerSilo);
@@ -29,7 +30,8 @@ void __fastcall ObDereferenceDeviceMap(__int64 a1)
   v6 = *(void **)(a1 + 1416);
   *(_QWORD *)(a1 + 1416) = 0LL;
   ExReleasePushLockEx(v5, 0LL);
-  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+  result = KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v6 )
-    ObfDereferenceDeviceMap(v6);
+    return ObfDereferenceDeviceMap(v6);
+  return result;
 }

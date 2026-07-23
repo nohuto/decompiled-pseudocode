@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlMergeBitMaps @ 0x14009CD90
+ * XREFs of RtlMergeBitMaps @ 0x14009C590
  * Callers:
- *     HvSynchronizeAndDropTemporaryBins @ 0x1400B4C7C (HvSynchronizeAndDropTemporaryBins.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     MiSelectRelocationStartHint @ 0x14046E94C (MiSelectRelocationStartHint.c)
- *     HvStoreModifiedData @ 0x140480EEC (HvStoreModifiedData.c)
- *     HvUpdateUnreconciledVector @ 0x1404BEA20 (HvUpdateUnreconciledVector.c)
- *     HvFoldBackUnreconciledData @ 0x140605EFC (HvFoldBackUnreconciledData.c)
- *     HvpRecoverData @ 0x1406112B8 (HvpRecoverData.c)
+ *     HvSynchronizeAndDropTemporaryBins @ 0x1400B2AB4 (HvSynchronizeAndDropTemporaryBins.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     MiSelectRelocationStartHint @ 0x14046D81C (MiSelectRelocationStartHint.c)
+ *     HvStoreModifiedData @ 0x14047FC40 (HvStoreModifiedData.c)
+ *     HvUpdateUnreconciledVector @ 0x1404AA750 (HvUpdateUnreconciledVector.c)
+ *     HvFoldBackUnreconciledData @ 0x140605FB0 (HvFoldBackUnreconciledData.c)
+ *     HvpRecoverData @ 0x14061136C (HvpRecoverData.c)
  * Callees:
  *     <none>
  */

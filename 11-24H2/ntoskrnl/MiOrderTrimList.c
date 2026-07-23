@@ -1,18 +1,18 @@
 /*
- * XREFs of MiOrderTrimList @ 0x140433A4C
+ * XREFs of MiOrderTrimList @ 0x140425554
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
  * Callees:
- *     MiComputeAgeDistribution @ 0x1402CF388 (MiComputeAgeDistribution.c)
- *     MiIsStoreProcess @ 0x1402FB9C0 (MiIsStoreProcess.c)
- *     MiUpdateClaimDistribution @ 0x140433CD8 (MiUpdateClaimDistribution.c)
- *     MiWorkingSetVeryLarge @ 0x140433D40 (MiWorkingSetVeryLarge.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiIsStoreProcess @ 0x140343630 (MiIsStoreProcess.c)
+ *     MiUpdateClaimDistribution @ 0x1404257E0 (MiUpdateClaimDistribution.c)
+ *     MiWorkingSetVeryLarge @ 0x140425840 (MiWorkingSetVeryLarge.c)
+ *     MiComputeAgeDistribution @ 0x140425950 (MiComputeAgeDistribution.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-unsigned __int64 __fastcall MiOrderTrimList(__int64 a1, unsigned int a2)
+unsigned __int64 __fastcall MiOrderTrimList(_QWORD *a1, unsigned int a2)
 {
   unsigned int v2; // ebx
   _QWORD *v4; // rsi
@@ -48,10 +48,10 @@ unsigned __int64 __fastcall MiOrderTrimList(__int64 a1, unsigned int a2)
 
   v2 = a2;
   memset_0(Src, 0, sizeof(Src));
-  v4 = (_QWORD *)(a1 + 17608);
+  v4 = a1 + 2201;
   if ( (_QWORD *)*v4 == v4 )
     return 0LL;
-  v5 = *(_QWORD *)(a1 + 17600);
+  v5 = a1[2200];
   v6 = v34;
   v7 = 0LL;
   v32 = 0LL;
@@ -155,7 +155,7 @@ LABEL_11:
         while ( v21 < 0xC );
       }
       v30 = *(_QWORD **)&v34[16 * (unsigned int)j + 8];
-      *(_QWORD *)(a1 + 17616) = v30;
+      a1[2202] = v30;
       *v30 = v4;
       break;
     }
@@ -170,7 +170,7 @@ LABEL_11:
   }
   while ( v25 );
   *(_QWORD *)(v5 + 336) = v7;
-  *(_WORD *)(v5 + 274) = MiComputeAgeDistribution(a1, 0);
+  *(_WORD *)(v5 + 274) = MiComputeAgeDistribution(a1, 0LL);
   result = v32;
   *(_BYTE *)(v5 + 54) = 1;
   return result;

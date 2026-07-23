@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryTimerDueTime @ 0x14048E920
+ * XREFs of KeQueryTimerDueTime @ 0x140488D50
  * Callers:
- *     ExGetWakeTimerList @ 0x1404BFC7C (ExGetWakeTimerList.c)
- *     KiGetNextTimerExpirationDueTime @ 0x1405BBBB0 (KiGetNextTimerExpirationDueTime.c)
- *     NtQueryTimer @ 0x140A4D160 (NtQueryTimer.c)
- *     ExGetNextWakeTime @ 0x140B6DF68 (ExGetNextWakeTime.c)
+ *     ExGetWakeTimerList @ 0x1404BB1AC (ExGetWakeTimerList.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1405B91E0 (KiGetNextTimerExpirationDueTime.c)
+ *     NtQueryTimer @ 0x140A43CF0 (NtQueryTimer.c)
+ *     ExGetNextWakeTime @ 0x140B6FA08 (ExGetNextWakeTime.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeQueryTimerDueTime(__int64 a1)

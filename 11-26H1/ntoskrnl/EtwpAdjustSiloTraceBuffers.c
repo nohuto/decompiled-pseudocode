@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAdjustSiloTraceBuffers @ 0x140488910
+ * XREFs of EtwpAdjustSiloTraceBuffers @ 0x140482450
  * Callers:
- *     EtwpAdjustTraceBuffers @ 0x1404887E0 (EtwpAdjustTraceBuffers.c)
+ *     EtwpAdjustTraceBuffers @ 0x140482320 (EtwpAdjustTraceBuffers.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x140219C44 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140219CD0 (EtwpLockBufferList.c)
- *     EtwpDequeueBuffer @ 0x140219E34 (EtwpDequeueBuffer.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     EtwpRemoveBufferFromGlobalList @ 0x140488AC8 (EtwpRemoveBufferFromGlobalList.c)
- *     EtwpFreeTraceBuffer @ 0x140488B18 (EtwpFreeTraceBuffer.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpDequeueBuffer @ 0x140219118 (EtwpDequeueBuffer.c)
+ *     EtwpUnlockBufferList @ 0x14021A2DC (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x14021B348 (EtwpLockBufferList.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpRemoveBufferFromGlobalList @ 0x140482608 (EtwpRemoveBufferFromGlobalList.c)
+ *     EtwpFreeTraceBuffer @ 0x140482658 (EtwpFreeTraceBuffer.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)

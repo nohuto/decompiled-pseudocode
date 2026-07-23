@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlZeroMemory @ 0x1405665E0
+ * XREFs of RtlZeroMemory @ 0x140566CA0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __stdcall RtlZeroMemory(void *a1, SIZE_T Length)

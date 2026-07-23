@@ -11,57 +11,56 @@
  *     ZwQuerySecurityObject @ 0x1800A7CB0 (ZwQuerySecurityObject.c)
  */
 
-__int64 __fastcall RtlAppxIsFileOwnedByTrustedInstaller(__int64 a1, bool *a2)
+NTSTATUS __cdecl RtlAppxIsFileOwnedByTrustedInstaller(HANDLE FileHandle, PBOOLEAN IsFileOwnedByTrustedInstaller)
 {
-  int SecurityObject; // ebx
-  __int64 Heap; // rsi
-  _DWORD *v6; // rax
-  _WORD *v7; // rdi
-  unsigned __int8 *v8; // [rsp+30h] [rbp-20h] BYREF
-  int v9; // [rsp+38h] [rbp-18h] BYREF
-  const wchar_t *v10; // [rsp+40h] [rbp-10h]
-  char v11; // [rsp+88h] [rbp+38h] BYREF
-  unsigned int v12; // [rsp+90h] [rbp+40h]
-  unsigned int v13; // [rsp+98h] [rbp+48h] BYREF
+  int OwnerSecurityDescriptor; // ebx
+  PVOID Heap; // rsi
+  PVOID v7; // rax
+  void *v8; // rdi
+  PSID Owner; // [rsp+30h] [rbp-20h] BYREF
+  _UNICODE_STRING ServiceName; // [rsp+38h] [rbp-18h] BYREF
+  BOOLEAN OwnerDefaulted; // [rsp+88h] [rbp+38h] BYREF
+  ULONG Length; // [rsp+90h] [rbp+40h] BYREF
+  ULONG ServiceSidLength; // [rsp+98h] [rbp+48h] BYREF
 
-  v8 = 0LL;
-  v13 = 0;
-  v9 = 2228256;
-  v10 = L"TrustedInstaller";
-  if ( !a2 )
-    return 3221225485LL;
-  SecurityObject = ZwQuerySecurityObject();
-  if ( SecurityObject == -1073741789 )
+  Owner = 0LL;
+  ServiceSidLength = 0;
+  *(_DWORD *)&ServiceName.Length = 2228256;
+  ServiceName.Buffer = L"TrustedInstaller";
+  if ( !IsFileOwnedByTrustedInstaller )
+    return -1073741811;
+  OwnerSecurityDescriptor = ZwQuerySecurityObject(FileHandle, 1u, 0LL, 0, &Length);
+  if ( OwnerSecurityDescriptor == -1073741789 )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v12);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
     if ( Heap )
     {
-      SecurityObject = ZwQuerySecurityObject();
-      if ( SecurityObject >= 0 )
+      OwnerSecurityDescriptor = ZwQuerySecurityObject(FileHandle, 1u, Heap, Length, &Length);
+      if ( OwnerSecurityDescriptor >= 0 )
       {
-        SecurityObject = RtlGetOwnerSecurityDescriptor(Heap, &v8, &v11);
-        if ( SecurityObject >= 0 )
+        OwnerSecurityDescriptor = RtlGetOwnerSecurityDescriptor(Heap, &Owner, &OwnerDefaulted);
+        if ( OwnerSecurityDescriptor >= 0 )
         {
-          if ( v8 )
+          if ( Owner )
           {
-            SecurityObject = RtlCreateServiceSid((unsigned __int16 *)&v9, 0LL, &v13);
-            if ( SecurityObject == -1073741789 )
+            OwnerSecurityDescriptor = RtlCreateServiceSid(&ServiceName, 0LL, &ServiceSidLength);
+            if ( OwnerSecurityDescriptor == -1073741789 )
             {
-              v6 = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v13);
-              v7 = v6;
-              if ( v6 )
+              v7 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ServiceSidLength);
+              v8 = v7;
+              if ( v7 )
               {
-                SecurityObject = RtlCreateServiceSid((unsigned __int16 *)&v9, v6, &v13);
-                if ( SecurityObject >= 0 )
-                  *a2 = RtlEqualSid(v8, v7);
-                RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v7);
+                OwnerSecurityDescriptor = RtlCreateServiceSid(&ServiceName, v7, &ServiceSidLength);
+                if ( OwnerSecurityDescriptor >= 0 )
+                  *IsFileOwnedByTrustedInstaller = RtlEqualSid(Owner, v8);
+                RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
               }
             }
           }
         }
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     }
   }
-  return (unsigned int)SecurityObject;
+  return OwnerSecurityDescriptor;
 }

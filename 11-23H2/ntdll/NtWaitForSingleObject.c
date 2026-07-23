@@ -22,7 +22,7 @@
  *     WaitForWerSvc @ 0x1800E8D44 (WaitForWerSvc.c)
  *     LdrpResReadFile @ 0x1800F0870 (LdrpResReadFile.c)
  *     RtlpHeapPerformCrossProcessQuery @ 0x180100668 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x180110690 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
+ *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x180110660 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
  * Callees:
  *     <none>
  */

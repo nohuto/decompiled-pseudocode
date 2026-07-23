@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMCaptureRegistryInputData @ 0x1409FFECC
+ * XREFs of PiCMCaptureRegistryInputData @ 0x14091CC68
  * Callers:
- *     PiCMOpenClassKey @ 0x140916DFC (PiCMOpenClassKey.c)
- *     PiCMOpenDeviceKey @ 0x1409FF7B4 (PiCMOpenDeviceKey.c)
- *     PiCMOpenObjectKey @ 0x1409FFA20 (PiCMOpenObjectKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x140ABE0C4 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x14091B4B8 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x14091C550 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x14091C7BC (PiCMOpenObjectKey.c)
+ *     PiCMOpenClassKey @ 0x140971868 (PiCMOpenClassKey.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140474950 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     PiControlCopyUserModeCallersBuffer @ 0x1409A6B58 (PiControlCopyUserModeCallersBuffer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14046E0D0 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1409675B8 (PiControlCopyUserModeCallersBuffer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMCaptureRegistryInputData(void *Src, unsigned int a2, int a3, __int64 a4)
@@ -19,17 +19,16 @@ __int64 __fastcall PiCMCaptureRegistryInputData(void *Src, unsigned int a2, int 
   int v5; // r9d
   char PreviousMode; // r13
   int v7; // ebx
-  void *v8; // r15
+  __int64 v8; // r15
   _DWORD *v9; // r14
-  unsigned int v10; // r12d
   void *Pool2; // rax
-  __int128 v14; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v15; // [rsp+50h] [rbp-48h]
-  int v16; // [rsp+60h] [rbp-38h]
+  __int128 v13; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v14; // [rsp+50h] [rbp-48h]
+  int v15; // [rsp+60h] [rbp-38h]
 
+  v13 = 0LL;
   v14 = 0LL;
-  v15 = 0LL;
-  v16 = 0;
+  v15 = 0;
   v5 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v7 = 0;
@@ -42,13 +41,13 @@ __int64 __fastcall PiCMCaptureRegistryInputData(void *Src, unsigned int a2, int 
   {
     if ( ((unsigned __int8)Src & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a2 >= 0x24 && (RtlCopyFromUser(&v14, Src, 0x24uLL), v5 = 0, (_DWORD)v14 == 36) )
+    if ( a2 >= 0x24 && (RtlCopyFromUser(&v13, Src, 0x24uLL), v5 = 0, (_DWORD)v13 == 36) )
     {
       *(_DWORD *)a4 = 48;
-      *(_QWORD *)(a4 + 4) = *(_QWORD *)((char *)&v14 + 4);
-      *(_QWORD *)(a4 + 16) = HIDWORD(v14);
-      *(_OWORD *)(a4 + 24) = v15;
-      *(_DWORD *)(a4 + 40) = v16;
+      *(_QWORD *)(a4 + 4) = *(_QWORD *)((char *)&v13 + 4);
+      *(_QWORD *)(a4 + 16) = HIDWORD(v13);
+      *(_OWORD *)(a4 + 24) = v14;
+      *(_DWORD *)(a4 + 40) = v15;
     }
     else
     {
@@ -73,13 +72,12 @@ __int64 __fastcall PiCMCaptureRegistryInputData(void *Src, unsigned int a2, int 
   }
   if ( v7 >= 0 )
   {
-    v8 = *(void **)(a4 + 16);
+    v8 = *(_QWORD *)(a4 + 16);
     *(_QWORD *)(a4 + 16) = 0LL;
     if ( v8 )
     {
       v9 = (_DWORD *)(a4 + 24);
-      v10 = *(_DWORD *)(a4 + 24);
-      if ( v10 >= 2 )
+      if ( *(_DWORD *)(a4 + 24) >= 2u )
       {
         if ( PreviousMode )
         {
@@ -87,7 +85,7 @@ __int64 __fastcall PiCMCaptureRegistryInputData(void *Src, unsigned int a2, int 
           *(_QWORD *)(a4 + 16) = Pool2;
           if ( Pool2 )
           {
-            v7 = PiControlCopyUserModeCallersBuffer(Pool2, v8, v10, 2, PreviousMode, 1);
+            v7 = PiControlCopyUserModeCallersBuffer(Pool2, PreviousMode, 1);
             if ( v7 < 0 )
             {
               ExFreePoolWithTag(*(PVOID *)(a4 + 16), 0);

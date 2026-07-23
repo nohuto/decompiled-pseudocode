@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEnablePagingTheExecutive @ 0x140A5456C
+ * XREFs of MiEnablePagingTheExecutive @ 0x140A5556C
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiEnablePagingOfDriver @ 0x1407A5310 (MiEnablePagingOfDriver.c)
- *     MiLockPagableSections @ 0x140A545BC (MiLockPagableSections.c)
+ *     MiEnablePagingOfDriver @ 0x1407A5510 (MiEnablePagingOfDriver.c)
+ *     MiLockPagableSections @ 0x140A555BC (MiLockPagableSections.c)
  */
 
 __int64 MiEnablePagingTheExecutive()

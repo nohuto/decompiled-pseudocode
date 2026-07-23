@@ -6,9 +6,9 @@
  *     RtlGetCurrentServiceSessionId @ 0x180027780 (RtlGetCurrentServiceSessionId.c)
  */
 
-char RtlIsStateSeparationEnabled()
+BOOLEAN RtlIsStateSeparationEnabled(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     return *((_BYTE *)NtCurrentPeb()->SharedData + 29);
   else
     return (MEMORY[0x7FFE02F0] & 0x400) != 0;

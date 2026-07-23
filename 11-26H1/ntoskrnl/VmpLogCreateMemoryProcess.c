@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpLogCreateMemoryProcess @ 0x14081E534
+ * XREFs of VmpLogCreateMemoryProcess @ 0x140824744
  * Callers:
- *     VmCreateMemoryProcess @ 0x140B4F050 (VmCreateMemoryProcess.c)
+ *     VmCreateMemoryProcess @ 0x140B518E0 (VmCreateMemoryProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 void __fastcall VmpLogCreateMemoryProcess(
@@ -25,7 +25,7 @@ void __fastcall VmpLogCreateMemoryProcess(
         int a10)
 {
   unsigned int ProcessId; // edi
-  unsigned __int64 QuantumTarget; // rbx
+  void *InitialStack; // rbx
   __int64 v14; // r8
   int Object; // [rsp+20h] [rbp-E0h]
   int HandleInformation; // [rsp+28h] [rbp-D8h]
@@ -78,8 +78,8 @@ void __fastcall VmpLogCreateMemoryProcess(
   {
     ProcessId = -1;
   }
-  QuantumTarget = stru_140F066E8.QuantumTarget;
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL) )
+  InitialStack = stru_140F06A28.InitialStack;
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL) )
   {
     v18 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
     v27 = &v18;
@@ -114,8 +114,8 @@ void __fastcall VmpLogCreateMemoryProcess(
     v46 = 8LL;
     v48 = 4LL;
     tlgWriteEx_EtwWriteEx(
-      QuantumTarget,
-      (unsigned __int8 *)&dword_140053554,
+      (__int64)InitialStack,
+      (unsigned __int8 *)&byte_140053F1D,
       v14,
       0,
       Object,

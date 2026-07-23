@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecommitLockNewPageTable @ 0x1403615D8
+ * XREFs of MiDecommitLockNewPageTable @ 0x140363378
  * Callers:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiGetNextPageTable @ 0x140318050 (MiGetNextPageTable.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiDecommitComputeCheckPte @ 0x14041BCD0 (MiDecommitComputeCheckPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiGetNextPageTable @ 0x14031A080 (MiGetNextPageTable.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiDecommitComputeCheckPte @ 0x140413520 (MiDecommitComputeCheckPte.c)
  */
 
 __int64 __fastcall MiDecommitLockNewPageTable(__int64 a1, __int64 a2, __int64 a3)

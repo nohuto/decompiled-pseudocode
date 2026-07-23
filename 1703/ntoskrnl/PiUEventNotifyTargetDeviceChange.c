@@ -35,7 +35,7 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
   _QWORD *v17; // rsi
   __int64 v19; // rdx
   _DWORD *PoolWithTag; // rax
-  __int64 v21; // r8
+  ULONG v21; // r8d
   char v22; // [rsp+80h] [rbp+8h]
   char v23; // [rsp+88h] [rbp+10h]
 
@@ -137,14 +137,14 @@ LABEL_16:
       {
         memset(v1, 0, 0x1000uLL);
         *v1 = -1;
-        v21 = 4LL;
+        v21 = 4;
       }
       else
       {
-        v21 = 4096LL;
+        v21 = 4096;
         *v1 = v4 - 1;
       }
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)v1, v21);
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, v1, v21, 0LL, 0LL, 0, 0);
     }
     KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
     if ( v1 )

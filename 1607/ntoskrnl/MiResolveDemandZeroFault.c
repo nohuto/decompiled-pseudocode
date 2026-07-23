@@ -1,27 +1,27 @@
 /*
- * XREFs of MiResolveDemandZeroFault @ 0x14003AA90
+ * XREFs of MiResolveDemandZeroFault @ 0x14003A610
  * Callers:
- *     MiSystemFault @ 0x14001BFF0 (MiSystemFault.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiResolveProtoPteFault @ 0x140041360 (MiResolveProtoPteFault.c)
- *     MiProtoFault @ 0x1400A3E68 (MiProtoFault.c)
+ *     MiSystemFault @ 0x14001BB70 (MiSystemFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiResolveProtoPteFault @ 0x140040EE0 (MiResolveProtoPteFault.c)
+ *     MiProtoFault @ 0x1400A2790 (MiProtoFault.c)
  * Callees:
- *     MiCheckVirtualAddress @ 0x14001EDF8 (MiCheckVirtualAddress.c)
- *     MiCheckUserVirtualAddress @ 0x14001EED0 (MiCheckUserVirtualAddress.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiCreateSharedZeroPages @ 0x1400390B0 (MiCreateSharedZeroPages.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiResolvePrivateZeroFault @ 0x14003B240 (MiResolvePrivateZeroFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiExpandSharedZeroCluster @ 0x1400B9458 (MiExpandSharedZeroCluster.c)
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCheckVirtualAddress @ 0x14001E978 (MiCheckVirtualAddress.c)
+ *     MiCheckUserVirtualAddress @ 0x14001EA50 (MiCheckUserVirtualAddress.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiCreateSharedZeroPages @ 0x140038C30 (MiCreateSharedZeroPages.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiResolvePrivateZeroFault @ 0x14003ADC0 (MiResolvePrivateZeroFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiExpandSharedZeroCluster @ 0x1400B72E8 (MiExpandSharedZeroCluster.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiResolveDemandZeroFault(
@@ -173,9 +173,9 @@ LABEL_14:
     if ( a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL )
     {
       if ( !v18
-        && !*(_QWORD *)(qword_140327F90 + 276840648)
-        && !*(_QWORD *)(qword_140327F90 + 276840656)
-        && *(_BYTE *)(qword_140327F90 + 276840624) != 1 )
+        && !*(_QWORD *)(qword_140327FD0 + 276840648)
+        && !*(_QWORD *)(qword_140327FD0 + 276840656)
+        && *(_BYTE *)(qword_140327FD0 + 276840624) != 1 )
       {
         goto LABEL_40;
       }
@@ -213,7 +213,7 @@ LABEL_40:
     if ( a2 <= 0xFFFFF6BFFFFFFF78uLL && a2 >= 0xFFFFF68000000000uLL )
     {
       v23 = WORD2(Process[1].InstrumentationCallback);
-      v24 = v23 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v23);
+      v24 = v23 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v23);
       if ( v24[266] && *((_KPROCESS **)v24 + 148) == Process )
       {
         v16 = MiLocateAddress(a1);
@@ -336,7 +336,7 @@ LABEL_92:
       if ( v47 == 1023 )
         v48 = MiSystemPartition;
       else
-        v48 = *(int **)(qword_140326FF8 + 8LL * v47);
+        v48 = *(int **)(qword_140327038 + 8LL * v47);
       if ( v46 == 1 )
         MiReturnCommit(v48, 1LL);
       if ( v48 == MiSystemPartition )
@@ -376,7 +376,7 @@ LABEL_117:
             v50 = (int)CachedResidentAvailable - 192 + 1LL;
           }
         }
-        _InterlockedExchangeAdd64(&qword_140324EC0, v50);
+        _InterlockedExchangeAdd64(&qword_140324F00, v50);
         goto LABEL_122;
       }
       _InterlockedExchangeAdd64((volatile signed __int64 *)v48 + 816, 1uLL);

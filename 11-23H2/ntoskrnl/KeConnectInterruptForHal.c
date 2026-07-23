@@ -1,9 +1,9 @@
 /*
- * XREFs of KeConnectInterruptForHal @ 0x14037D440
+ * XREFs of KeConnectInterruptForHal @ 0x14037D5E0
  * Callers:
- *     HalpCreateInterrupt @ 0x14037D2A8 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x14037D448 (HalpCreateInterrupt.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeConnectInterruptForHal(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall KeConnectInterruptForHal(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -33,10 +33,10 @@ __int64 __fastcall KeConnectInterruptForHal(__int64 a1)
   v2 = *(unsigned int *)(a1 + 88);
   *(_BYTE *)(a1 + 95) = 1;
   KeGetCurrentPrcb()->InterruptObject[v2] = (void *)a1;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

@@ -1,209 +1,222 @@
 /*
- * XREFs of MmCopyMemory @ 0x1402B48E0
+ * XREFs of MmCopyMemory @ 0x140232A90
  * Callers:
  *     <none>
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiGetEffectivePagePriorityThread @ 0x140270E84 (MiGetEffectivePagePriorityThread.c)
- *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
- *     MiCopySinglePage @ 0x1402B4BC4 (MiCopySinglePage.c)
- *     MiTranslatePageForCopy @ 0x1402B4DE4 (MiTranslatePageForCopy.c)
- *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwReadVirtualMemory @ 0x1403FAB80 (ZwReadVirtualMemory.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCheckPhysicalAddressRange @ 0x1405455DC (MiCheckPhysicalAddressRange.c)
+ *     MiCopySinglePage @ 0x140232D74 (MiCopySinglePage.c)
+ *     MiTranslatePageForCopy @ 0x140232F94 (MiTranslatePageForCopy.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14025EE24 (MiGetEffectivePagePriorityThread.c)
+ *     MiPrefetchVirtualMemory @ 0x140262E40 (MiPrefetchVirtualMemory.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiUnlockSystemVa @ 0x14031CE4C (MiUnlockSystemVa.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwReadVirtualMemory @ 0x1403FAD60 (ZwReadVirtualMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiCheckPhysicalAddressRange @ 0x14054581C (MiCheckPhysicalAddressRange.c)
  */
 
-__int64 __fastcall MmCopyMemory(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4, _QWORD *a5)
+NTSTATUS __fastcall MmCopyMemory(
+        char *Buffer,
+        unsigned __int64 BaseAddress,
+        SIZE_T BufferSize,
+        int a4,
+        PSIZE_T NumberOfBytesRead)
 {
-  _QWORD *v5; // r13
-  __int64 v10; // r8
-  unsigned __int64 v11; // r9
-  unsigned __int64 v12; // rsi
-  unsigned __int64 v13; // r15
-  int v14; // edi
-  __int64 v15; // r12
-  _QWORD *v16; // rdx
-  int v17; // ecx
-  __int64 v18; // rax
-  int v19; // eax
-  __int64 v20; // r13
-  unsigned __int64 v21; // r8
-  __int64 v22; // rsi
+  PSIZE_T v5; // r13
+  unsigned __int64 v10; // rsi
+  SIZE_T v11; // r15
+  int v12; // edi
+  SIZE_T v13; // r12
+  __int64 v14; // rdx
+  int v15; // ecx
+  unsigned __int64 v16; // rax
+  int v17; // eax
+  __int64 v18; // r13
+  unsigned __int64 v19; // r8
+  unsigned __int64 v20; // rsi
+  __int64 v21; // rdx
   char EffectivePagePriorityThread; // al
-  int v25; // edi
-  __int64 v26; // rax
+  unsigned int v24; // edi
+  __int64 v25; // rax
   __int64 SessionVm; // r13
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  int v32; // [rsp+38h] [rbp-C8h]
-  __int64 v33; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v34; // [rsp+48h] [rbp-B8h]
-  _QWORD *v35; // [rsp+50h] [rbp-B0h]
-  int v36; // [rsp+58h] [rbp-A8h]
-  __int64 v37; // [rsp+60h] [rbp-A0h]
-  __int64 v38; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v39; // [rsp+70h] [rbp-90h] BYREF
+  SIZE_T v27; // rdx
+  char *v28; // rcx
+  int v29; // [rsp+38h] [rbp-C8h]
+  unsigned __int64 v30; // [rsp+40h] [rbp-C0h] BYREF
+  char *v31; // [rsp+48h] [rbp-B8h]
+  __int64 v32; // [rsp+50h] [rbp-B0h]
+  int v33; // [rsp+58h] [rbp-A8h]
+  __int64 v34; // [rsp+60h] [rbp-A0h]
+  __int64 v35; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v36; // [rsp+70h] [rbp-90h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-88h]
   _KPROCESS *Process; // [rsp+80h] [rbp-80h]
-  _QWORD *v42; // [rsp+88h] [rbp-78h]
-  __int128 v43; // [rsp+90h] [rbp-70h] BYREF
-  _QWORD v44[16]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v39; // [rsp+88h] [rbp-78h]
+  __int128 v40; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD v41[16]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v5 = a5;
-  v34 = a1;
-  v36 = a4;
-  memset(v44, 0, sizeof(v44));
-  v37 = 0LL;
-  *a5 = 0LL;
+  v5 = NumberOfBytesRead;
+  v31 = Buffer;
+  v33 = a4;
+  memset(v41, 0, sizeof(v41));
+  v34 = 0LL;
+  *NumberOfBytesRead = 0LL;
   if ( !a4 || (a4 & 0xFFFFFFFC) != 0 || ((a4 - 1) & a4) != 0 || KeGetCurrentIrql() > 1u )
-    return 3221225714LL;
-  v32 = a4 & 1;
+    return -1073741582;
+  v29 = a4 & 1;
   if ( (a4 & 1) != 0 )
   {
-    if ( (unsigned int)MiCheckPhysicalAddressRange(a2, a3) )
+    if ( (unsigned int)MiCheckPhysicalAddressRange(BaseAddress, BufferSize) )
       goto LABEL_9;
-    return 3221225496LL;
+    return -1073741800;
   }
-  if ( a2 + a3 <= a2 )
-    return 3221225496LL;
-  if ( a2 <= 0x7FFFFFFEFFFFLL )
+  if ( BaseAddress + BufferSize <= BaseAddress )
+    return -1073741800;
+  if ( BaseAddress <= 0x7FFFFFFEFFFFLL )
   {
-    if ( a2 + a3 <= 0x7FFFFFFEFFFFLL )
-      return ZwReadVirtualMemory(-1LL, a2, a1, a3, a5);
-    return 3221225496LL;
+    if ( BaseAddress + BufferSize <= 0x7FFFFFFEFFFFLL )
+      return ZwReadVirtualMemory(
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               (PVOID)BaseAddress,
+               Buffer,
+               BufferSize,
+               NumberOfBytesRead);
+    return -1073741800;
   }
-  if ( a2 < 0xFFFF800000000000uLL )
-    return 3221225496LL;
+  if ( BaseAddress < 0xFFFF800000000000uLL )
+    return -1073741800;
 LABEL_9:
-  v12 = a2 & 0xFFF;
-  v13 = (v12 + a3 + 4095) >> 12;
-  if ( v13 >= 0x100000000LL )
-    return 3221225713LL;
+  v10 = BaseAddress & 0xFFF;
+  v11 = (v10 + BufferSize + 4095) >> 12;
+  if ( v11 >= 0x100000000LL )
+    return -1073741583;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v14 = 0;
-  v42 = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF40, v13, v10, v11);
-  v35 = v42;
-  v15 = a3;
-  v16 = v42;
-  if ( 4096 - v12 <= a3 )
-    v15 = 4096 - v12;
-  v17 = v32;
-  if ( v32 )
-    v18 = a2 >> 12;
+  v12 = 0;
+  v39 = MiReservePtes(&qword_140C4EF80, (unsigned int)v11);
+  v32 = v39;
+  v13 = BufferSize;
+  v14 = v39;
+  if ( 4096 - v10 <= BufferSize )
+    v13 = 4096 - v10;
+  v15 = v29;
+  if ( v29 )
+    v16 = BaseAddress >> 12;
   else
-    v18 = -1LL;
-  v33 = v18;
-  if ( !a3 )
+    v16 = -1LL;
+  v30 = v16;
+  if ( !BufferSize )
     goto LABEL_30;
   while ( 1 )
   {
-    v39 = 0LL;
-    v38 = 0LL;
-    if ( v17 )
+    v36 = 0LL;
+    v35 = 0LL;
+    if ( v15 )
     {
-      v20 = 0LL;
+      v18 = 0LL;
       goto LABEL_19;
     }
-    v19 = MiTranslatePageForCopy(a2, v44, &v33, &v39, &v38);
-    v14 = v19;
-    if ( v19 >= 0 )
+    v17 = MiTranslatePageForCopy(BaseAddress, v41, &v30, &v36, &v35);
+    v12 = v17;
+    if ( v17 >= 0 )
     {
-      v20 = v44[3];
-      if ( v19 == 273 )
+      v18 = v41[3];
+      if ( v17 == 273 )
       {
-        MiUnlockSystemVa(v44);
-        v14 = 0;
-        v30 = v15;
-        if ( v15 )
+        MiUnlockSystemVa(v41);
+        v12 = 0;
+        v27 = v13;
+        if ( v13 )
         {
-          v31 = v34 - v12;
+          v28 = &v31[-v10];
           do
           {
-            *(_BYTE *)(v31 + v12) = *((_BYTE *)&v38 + (v12 & 7));
-            ++v12;
-            --v30;
+            v28[v10] = *((_BYTE *)&v35 + (v10 & 7));
+            ++v10;
+            --v27;
           }
-          while ( v30 );
+          while ( v27 );
         }
 LABEL_24:
-        v37 += v15;
-        a3 -= v15;
-        v34 += v15;
-        a2 += v15;
-        ++v33;
-        v16 = v35;
-        v15 = a3;
-        if ( a3 > 0x1000 )
-          v15 = 4096LL;
-        v12 = 0LL;
-        if ( v35 )
-          v16 = ++v35;
+        v34 += v13;
+        BufferSize -= v13;
+        v31 += v13;
+        BaseAddress += v13;
+        ++v30;
+        v14 = v32;
+        v13 = BufferSize;
+        if ( BufferSize > 0x1000 )
+          v13 = 4096LL;
+        v10 = 0LL;
+        if ( v32 )
+        {
+          v14 = v32 + 8;
+          v32 += 8LL;
+        }
         goto LABEL_28;
       }
-      v16 = v35;
+      v14 = v32;
 LABEL_19:
-      v21 = v12;
-      v22 = v33;
-      v14 = MiCopySinglePage(v34, v33, v21, v15, v16, v36);
-      if ( v20 )
+      v19 = v10;
+      v20 = v30;
+      v12 = MiCopySinglePage(v31, v30, v19, v13, v14, v33);
+      if ( v18 )
       {
-        _InterlockedAnd64((volatile signed __int64 *)(48 * v22 - 0x57FFFFFFFE8LL), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( v39 )
-          MiUnlockProtoPoolPage(v39, 2u);
-        MiUnlockSystemVa(v44);
+        _InterlockedAnd64((volatile signed __int64 *)(48 * v20 - 0x57FFFFFFFE8LL), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( v36 )
+        {
+          LOBYTE(v21) = 2;
+          MiUnlockProtoPoolPage(v36, v21);
+        }
+        MiUnlockSystemVa(v41);
       }
-      if ( v14 < 0 )
+      if ( v12 < 0 )
         goto LABEL_29;
       goto LABEL_24;
     }
-    if ( v19 != -1073741608 )
+    if ( v17 != -1073741608 )
       goto LABEL_29;
-    v43 = 0LL;
-    EffectivePagePriorityThread = MiGetEffectivePagePriorityThread((__int64)CurrentThread);
-    *(_QWORD *)&v43 = a2;
-    v25 = EffectivePagePriorityThread & 7 | 0x80B8;
-    v26 = a3;
+    v40 = 0LL;
+    EffectivePagePriorityThread = MiGetEffectivePagePriorityThread(CurrentThread);
+    *(_QWORD *)&v40 = BaseAddress;
+    v24 = EffectivePagePriorityThread & 7 | 0x80B8;
+    v25 = BufferSize;
     SessionVm = 1LL;
-    if ( a3 > 0x200000 - (a2 & 0x1FFFFF) )
-      v26 = 0x200000 - (a2 & 0x1FFFFF);
-    *((_QWORD *)&v43 + 1) = v26;
-    if ( (unsigned int)MiGetSystemRegionType(a2) == 1 )
+    if ( BufferSize > 0x200000 - (BaseAddress & 0x1FFFFF) )
+      v25 = 0x200000 - (BaseAddress & 0x1FFFFF);
+    *((_QWORD *)&v40 + 1) = v25;
+    if ( (unsigned int)MiGetSystemRegionType(BaseAddress) == 1 )
       break;
 LABEL_49:
-    if ( a2 >= qword_140C4FB38 && a2 <= qword_140C4E368 )
+    if ( BaseAddress >= qword_140C4FB78 && BaseAddress <= qword_140C4E3A8 )
     {
-      v14 = -1073741585;
+      v12 = -1073741585;
       goto LABEL_29;
     }
-    v14 = MiPrefetchVirtualMemory(1uLL, (__int64)&v43, SessionVm, v25);
-    if ( v14 < 0 )
+    v12 = MiPrefetchVirtualMemory(1LL, &v40, SessionVm, v24);
+    if ( v12 < 0 )
       goto LABEL_29;
-    v16 = v35;
+    v14 = v32;
 LABEL_28:
-    if ( !a3 )
+    if ( !BufferSize )
       goto LABEL_29;
-    v17 = v32;
+    v15 = v29;
   }
   if ( Process[1].AffinityPadding[5] && (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
   {
-    SessionVm = MiGetSessionVm(4096LL, v28, v29);
+    SessionVm = MiGetSessionVm();
     goto LABEL_49;
   }
-  v14 = -1073741819;
+  v12 = -1073741819;
 LABEL_29:
-  v5 = a5;
+  v5 = NumberOfBytesRead;
 LABEL_30:
-  if ( v42 )
-    MiReleasePtes((__int64)&qword_140C4EF40, v42, v13);
-  *v5 += v37;
-  return (unsigned int)v14;
+  if ( v39 )
+    MiReleasePtes(&qword_140C4EF80, v39, (unsigned int)v11);
+  *v5 += v34;
+  return v12;
 }

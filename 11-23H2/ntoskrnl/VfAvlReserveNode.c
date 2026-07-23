@@ -2,13 +2,13 @@
  * XREFs of VfAvlReserveNode @ 0x14020A26C
  * Callers:
  *     VfTargetDriversAdd @ 0x14020A190 (VfTargetDriversAdd.c)
- *     ViDevObjAdd @ 0x140AD2470 (ViDevObjAdd.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x140AD2650 (VerifierIoInitializeRemoveLockEx.c)
- *     VfLookasideAdd @ 0x140AE2270 (VfLookasideAdd.c)
- *     VfTrackResource @ 0x140AE4614 (VfTrackResource.c)
+ *     ViDevObjAdd @ 0x140AD2460 (ViDevObjAdd.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x140AD2640 (VerifierIoInitializeRemoveLockEx.c)
+ *     VfLookasideAdd @ 0x140AE2260 (VfLookasideAdd.c)
+ *     VfTrackResource @ 0x140AE4604 (VfTrackResource.c)
  * Callees:
  *     ViAvlNodeInitializeSessionId @ 0x14020A2F8 (ViAvlNodeInitializeSessionId.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

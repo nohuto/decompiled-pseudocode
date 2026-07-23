@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePageMoveInProgressInternal @ 0x14043A010
+ * XREFs of MiUpdatePageMoveInProgressInternal @ 0x14042CA30
  * Callers:
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1404A2E44 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiPurgeZeroListHead @ 0x1404C6774 (MiPurgeZeroListHead.c)
- *     MiHugeRangeFreeToZero @ 0x1404F0BF0 (MiHugeRangeFreeToZero.c)
- *     MiHugePurgeZeroList @ 0x140670894 (MiHugePurgeZeroList.c)
- *     MiScrubLargePage @ 0x14068DA04 (MiScrubLargePage.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14049DD64 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiPurgeZeroListHead @ 0x1404BFBD4 (MiPurgeZeroListHead.c)
+ *     MiHugeRangeFreeToZero @ 0x1404EE690 (MiHugeRangeFreeToZero.c)
+ *     MiHugePurgeZeroList @ 0x140671A64 (MiHugePurgeZeroList.c)
+ *     MiScrubLargePage @ 0x14068EB34 (MiScrubLargePage.c)
  * Callees:
  *     <none>
  */

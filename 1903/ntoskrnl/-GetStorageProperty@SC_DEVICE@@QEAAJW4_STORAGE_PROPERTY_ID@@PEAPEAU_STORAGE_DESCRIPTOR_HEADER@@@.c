@@ -16,7 +16,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
 {
   __int64 v4; // rax
   int v6; // edi
-  ULONG Size; // esi
+  DWORD Size; // esi
   struct _STORAGE_DESCRIPTOR_HEADER *v8; // rbx
   SIZE_T NumberOfBytes; // [rsp+40h] [rbp-48h] BYREF
   _DWORD v11[4]; // [rsp+48h] [rbp-40h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
     {
       while ( 1 )
       {
-        v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, ULONG))(*(_QWORD *)this + 16LL))(
+        v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, DWORD))(*(_QWORD *)this + 16LL))(
                this,
                2954240LL,
                v11,

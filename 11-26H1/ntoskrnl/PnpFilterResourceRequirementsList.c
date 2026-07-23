@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpFilterResourceRequirementsList @ 0x140AA43F4
+ * XREFs of PnpFilterResourceRequirementsList @ 0x140A9FCB4
  * Callers:
- *     PnpGetResourceRequirementsForAssignTable @ 0x140AA534C (PnpGetResourceRequirementsForAssignTable.c)
- *     IopQueryDeviceResources @ 0x140AA5668 (IopQueryDeviceResources.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x140AA0544 (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopQueryDeviceResources @ 0x140AA0860 (IopQueryDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1404D4880 (RtlCmDecodeMemIoResource.c)
- *     RtlIoDecodeMemIoResource @ 0x1404FABC0 (RtlIoDecodeMemIoResource.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpCmResourcesToIoResources @ 0x140AA4F18 (PnpCmResourcesToIoResources.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x1404CE0F0 (RtlCmDecodeMemIoResource.c)
+ *     RtlIoDecodeMemIoResource @ 0x1404F41D0 (RtlIoDecodeMemIoResource.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpCmResourcesToIoResources @ 0x140AA0FBC (PnpCmResourcesToIoResources.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpFilterResourceRequirementsList(_DWORD *Src, unsigned int *a2, int **a3, _DWORD *a4)

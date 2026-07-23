@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceHibernateRevoked @ 0x140756748
+ * XREFs of PopDiagTraceHibernateRevoked @ 0x140754BC8
  * Callers:
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceHibernateRevoked(int a1, int a2, int a3)

@@ -1,17 +1,16 @@
 /*
- * XREFs of ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1403990B0
+ * XREFs of ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1402F63B8
  * Callers:
- *     MiIssueHardFaultIo @ 0x140398DC4 (MiIssueHardFaultIo.c)
- *     SmPageRead @ 0x140399080 (SmPageRead.c)
+ *     SmPageRead @ 0x1402F6388 (SmPageRead.c)
  * Callees:
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x14028F470 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x140291634 (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
- *     SmAcquireReleaseResAvailForRead @ 0x1402F68E0 (SmAcquireReleaseResAvailForRead.c)
- *     SmFpAllocate @ 0x14037C660 (SmFpAllocate.c)
- *     ?SmReadPickStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU?$SMKM_STORE@USM_TRAITS@@@@2@Z @ 0x140399378 (-SmReadPickStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU-$SMKM_STO.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x14029F070 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x1402A1234 (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
+ *     SmFpAllocate @ 0x1402E96E0 (SmFpAllocate.c)
+ *     ?SmReadPickStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU?$SMKM_STORE@USM_TRAITS@@@@2@Z @ 0x1402F6680 (-SmReadPickStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU-$SMKM_STO.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x14033E9F0 (SmAcquireReleaseResAvailForRead.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(
@@ -25,7 +24,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(
   unsigned __int64 v6; // r13
   unsigned int v8; // ebx
   unsigned int v9; // esi
-  signed __int64 v10; // r12
+  _QWORD *v10; // r12
   int PickStore; // eax
   __int64 v12; // r15
   unsigned int v13; // edi
@@ -53,7 +52,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(
   *v5 = a4;
   v9 = *(_DWORD *)(v6 + 40) >> 12;
   LODWORD(a5) = v9;
-  v10 = (signed __int64)v5;
+  v10 = v5;
   v21 = v9;
   PickStore = SMKM_STORE_MGR<SM_TRAITS>::SmReadPickStore(
                 a1,
@@ -80,7 +79,7 @@ LABEL_5:
         Pool2 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 1248));
         if ( Pool2 )
           goto LABEL_7;
-        Pool2 = (_OWORD *)ExAllocatePool2(0x40uLL);
+        Pool2 = (_OWORD *)ExAllocatePool2(0x40uLL, 0x58uLL, 0x61576D73u);
         if ( Pool2 )
           goto LABEL_7;
         LOBYTE(v8) = v8 & 0xFE;
@@ -120,7 +119,7 @@ LABEL_7:
       }
       goto LABEL_14;
     }
-    v18 = SmAcquireReleaseResAvailForRead(a1, (signed __int64)v5, v9, 0) & 1;
+    v18 = SmAcquireReleaseResAvailForRead(a1, v5, v9, 0LL) & 1;
     LOBYTE(v8) = (8 * v18) | v8;
     if ( v18 )
     {
@@ -133,7 +132,7 @@ LABEL_15:
   if ( v12 )
     SmKmStoreDereference(a1, *(_DWORD *)(v12 + 6832));
   if ( (v8 & 4) != 0 )
-    SmAcquireReleaseResAvailForRead(a1, v10, v9, 1);
+    SmAcquireReleaseResAvailForRead(a1, v10, v9, 1LL);
   if ( v10 )
   {
     *(_OWORD *)v5 = 0LL;

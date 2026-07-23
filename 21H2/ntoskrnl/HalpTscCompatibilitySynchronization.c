@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTscCompatibilitySynchronization @ 0x1404C14DC
+ * XREFs of HalpTscCompatibilitySynchronization @ 0x1404C171C
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x14039CBB0 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x14039CD00 (HalpTscSynchronizationWorker.c)
  * Callees:
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
  */
 
 char __fastcall HalpTscCompatibilitySynchronization(__int64 a1)

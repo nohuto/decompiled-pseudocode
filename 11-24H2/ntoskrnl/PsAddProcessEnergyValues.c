@@ -1,12 +1,12 @@
 /*
- * XREFs of PsAddProcessEnergyValues @ 0x1404EE7B4
+ * XREFs of PsAddProcessEnergyValues @ 0x1404E5EF8
  * Callers:
- *     PspQueryJobHierarchyAccountingInformation @ 0x1408EB654 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x1408ED3B0 (PspQueryProcessAccountingInformationCallback.c)
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1409055FC (PopEtEnergyTrackerUpdateAggregate.c)
- *     PspFoldProcessAccountingIntoJob @ 0x1409EAB68 (PspFoldProcessAccountingIntoJob.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x14085CE84 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x14085EBE0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x14099C280 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1409E5458 (PspFoldProcessAccountingIntoJob.c)
  * Callees:
- *     RtlTimelineBitmapMerge @ 0x14040E9F0 (RtlTimelineBitmapMerge.c)
+ *     RtlTimelineBitmapMerge @ 0x140406BF0 (RtlTimelineBitmapMerge.c)
  */
 
 __int64 __fastcall PsAddProcessEnergyValues(_QWORD *a1, __int64 a2)

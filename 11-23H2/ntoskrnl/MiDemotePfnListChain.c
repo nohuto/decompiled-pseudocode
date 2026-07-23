@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDemotePfnListChain @ 0x140667F44
+ * XREFs of MiDemotePfnListChain @ 0x140668494
  * Callers:
- *     MiPopLargePfnList @ 0x1402E700C (MiPopLargePfnList.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x14038BEE0 (MiInitializeLargeMdlLeafPfns.c)
- *     MiMakeLargePageTable @ 0x140637004 (MiMakeLargePageTable.c)
- *     MiFillUserPhysicalMdl @ 0x140649AE4 (MiFillUserPhysicalMdl.c)
- *     MiMapUserLargePages @ 0x140668DC0 (MiMapUserLargePages.c)
+ *     MiPopLargePfnList @ 0x1402E729C (MiPopLargePfnList.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x14038C0C0 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiMakeLargePageTable @ 0x140637554 (MiMakeLargePageTable.c)
+ *     MiFillUserPhysicalMdl @ 0x14064A034 (MiFillUserPhysicalMdl.c)
+ *     MiMapUserLargePages @ 0x140669310 (MiMapUserLargePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
@@ -88,7 +88,7 @@ LABEL_40:
     v29 = v12;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -142,10 +142,10 @@ LABEL_40:
       v2 = v32;
       LODWORD(v11) = v34;
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v26 = CurrentPrcb->SchedulerAssist;

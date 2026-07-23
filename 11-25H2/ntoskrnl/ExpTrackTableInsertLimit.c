@@ -20,7 +20,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
   int v3; // esi
   unsigned int *Pool2; // rdi
   __int64 v5; // rsi
-  __int64 v6; // r14
+  _WNF_STATE_NAME *v6; // r14
   __int64 v7; // r8
   unsigned int *v8; // rcx
   __int64 *v9; // r8
@@ -39,7 +39,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
   unsigned int k; // ebx
   void *v23; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v26; // [rsp+58h] [rbp-30h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+58h] [rbp-30h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0LL;
@@ -53,7 +53,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
       *Pool2 = *(_DWORD *)(a1 + 4);
       while ( (unsigned int)v5 < *(_DWORD *)(a1 + 4) )
       {
-        v6 = ExAllocatePool2(0x40uLL);
+        v6 = (_WNF_STATE_NAME *)ExAllocatePool2(0x40uLL);
         v7 = 14LL * (unsigned int)v5;
         *(_QWORD *)&Pool2[v7 + 2] = v6;
         if ( !v6 )
@@ -61,7 +61,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
           v3 = -1073741670;
           goto LABEL_23;
         }
-        *(_QWORD *)(v6 + 8) = *(unsigned int *)(48 * v5 + a1 + 8);
+        v6[1] = (_WNF_STATE_NAME)*(unsigned int *)(48 * v5 + a1 + 8);
         v8 = &Pool2[v7 + 6];
         v9 = (__int64 *)(48 * v5 + a1 + 24);
         v10 = 2LL;
@@ -75,9 +75,9 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
           --v10;
         }
         while ( v10 );
-        v26 = 0LL;
-        if ( (int)ZwCreateWnfStateName(&v26, 3LL, 0LL) >= 0 )
-          *(_QWORD *)(v6 + 64) = v26;
+        StateName = 0LL;
+        if ( ZwCreateWnfStateName(&StateName, WnfTemporaryStateName, WnfDataScopeSystem, 0, 0LL, 4u, &unk_140E28D50) >= 0 )
+          v6[8] = StateName;
         v5 = (unsigned int)(v5 + 1);
       }
       KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
@@ -95,16 +95,20 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
         }
         else
         {
-          v26 = *v15 & (-1LL << (BYTE4(ExPoolLimitState) & 0x1F));
+          StateName = (_WNF_STATE_NAME)(*v15 & (-1LL << (BYTE4(ExPoolLimitState) & 0x1F)));
           v17 = qword_140E28D48;
           v18 = (37
-               * (BYTE6(v26)
+               * (BYTE2(StateName.Data[1])
                 + 37
-                * (BYTE5(v26)
+                * (BYTE1(StateName.Data[1])
                  + 37
-                 * (BYTE4(v26)
-                  + 37 * (BYTE3(v26) + 37 * (BYTE2(v26) + 37 * (BYTE1(v26) + 37 * ((unsigned __int8)v26 + 11623883)))))))
-               + HIBYTE(v26)) & (unsigned int)((HIDWORD(ExPoolLimitState) >> 5) - 1);
+                 * (LOBYTE(StateName.Data[1])
+                  + 37
+                  * (HIBYTE(StateName.Data[0])
+                   + 37
+                   * (BYTE2(StateName.Data[0])
+                    + 37 * (BYTE1(StateName.Data[0]) + 37 * (LOBYTE(StateName.Data[0]) + 11623883)))))))
+               + HIBYTE(StateName.Data[1])) & (unsigned int)((HIDWORD(ExPoolLimitState) >> 5) - 1);
           *v14 = *(_QWORD *)(qword_140E28D48 + 8 * v18);
           *(_QWORD *)(v17 + 8 * v18) = v14;
           LODWORD(ExPoolLimitState) = ExPoolLimitState + 1;

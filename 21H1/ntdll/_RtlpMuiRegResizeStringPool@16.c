@@ -9,16 +9,18 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall RtlpMuiRegResizeStringPool(int a1, __int16 a2, __int16 a3, char a4)
+int __fastcall RtlpMuiRegResizeStringPool(const void **BaseAddress, __int16 a2, __int16 a3, char a4)
 {
   int v4; // edi
   __int16 v6; // cx
   int v7; // ebx
   int v8; // eax
   int StringPool; // eax
-  size_t v11; // [esp+Ch] [ebp-Ch] BYREF
-  size_t Size; // [esp+10h] [ebp-8h] BYREF
-  int v13; // [esp+14h] [ebp-4h]
+  size_t v11; // [esp-4h] [ebp-1Ch]
+  size_t v12; // [esp-4h] [ebp-1Ch]
+  int Size; // [esp+Ch] [ebp-Ch] BYREF
+  int Size_4; // [esp+10h] [ebp-8h] BYREF
+  int v15; // [esp+14h] [ebp-4h]
 
   v4 = 0;
   if ( a2 < 1 )
@@ -26,35 +28,37 @@ int __fastcall RtlpMuiRegResizeStringPool(int a1, __int16 a2, __int16 a3, char a
   v6 = a3;
   if ( a3 < 1 )
     v6 = 40;
-  if ( a1 )
+  if ( BaseAddress )
   {
     if ( v6 >= 1 )
     {
       v7 = a2;
-      if ( a2 >= (int)*(unsigned __int16 *)(a1 + 6) )
+      if ( a2 >= (int)*((unsigned __int16 *)BaseAddress + 3) )
       {
-        v8 = *(unsigned __int16 *)(a1 + 10);
-        v13 = v6;
+        v8 = *((unsigned __int16 *)BaseAddress + 5);
+        v15 = v6;
         if ( v6 >= v8
           && RtlULongLongToUInt(
-               (int *)&Size,
-               2 * *(unsigned __int16 *)(a1 + 4),
-               (unsigned __int64)*(unsigned __int16 *)(a1 + 4) >> 31) >= 0
+               &Size_4,
+               2 * *((unsigned __int16 *)BaseAddress + 2),
+               (unsigned __int64)*((unsigned __int16 *)BaseAddress + 2) >> 31) >= 0
           && RtlULongLongToUInt(
-               (int *)&v11,
-               2 * *(unsigned __int16 *)(a1 + 8),
-               (unsigned __int64)*(unsigned __int16 *)(a1 + 8) >> 31) >= 0 )
+               &Size,
+               2 * *((unsigned __int16 *)BaseAddress + 4),
+               (unsigned __int64)*((unsigned __int16 *)BaseAddress + 4) >> 31) >= 0 )
         {
-          StringPool = RtlpMuiRegCreateStringPool(v7, v13);
+          StringPool = RtlpMuiRegCreateStringPool(v7, v15);
           v4 = StringPool;
           if ( StringPool )
           {
-            memcpy(*(void **)(StringPool + 12), *(const void **)(a1 + 12), Size);
-            memcpy(*(void **)(v4 + 16), *(const void **)(a1 + 16), v11);
-            *(_WORD *)(v4 + 6) = *(_WORD *)(a1 + 6);
-            *(_WORD *)(v4 + 10) = *(_WORD *)(a1 + 10);
+            LODWORD(v11) = Size_4;
+            memcpy(*(void **)(StringPool + 12), BaseAddress[3], v11);
+            LODWORD(v12) = Size;
+            memcpy(*(void **)(v4 + 16), BaseAddress[4], v12);
+            *(_WORD *)(v4 + 6) = *((_WORD *)BaseAddress + 3);
+            *(_WORD *)(v4 + 10) = *((_WORD *)BaseAddress + 5);
             if ( !a4 )
-              RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
           }
         }
       }

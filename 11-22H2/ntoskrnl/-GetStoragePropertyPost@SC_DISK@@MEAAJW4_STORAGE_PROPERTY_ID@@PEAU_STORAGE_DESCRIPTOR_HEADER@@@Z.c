@@ -9,15 +9,15 @@
 __int64 __fastcall SC_DISK::GetStoragePropertyPost(
         struct _UNICODE_STRING *this,
         int a2,
-        struct _STORAGE_DESCRIPTOR_HEADER *a3)
+        struct _STORAGE_FRU_ID_DESCRIPTOR *a3)
 {
   unsigned int v3; // r9d
-  ULONG Buffer_high; // ecx
-  ULONG Size; // eax
+  DWORD Buffer_high; // ecx
+  DWORD Size; // eax
   int v6; // edx
   int v7; // edx
   int v8; // edx
-  ULONG Version; // ecx
+  DWORD Version; // ecx
 
   v3 = 0;
   if ( a2 > 14 )
@@ -32,16 +32,13 @@ __int64 __fastcall SC_DISK::GetStoragePropertyPost(
         if ( v8 )
         {
           if ( v8 == 7 )
-            return (unsigned int)SC_DISK::GetFruIdDescPost(
-                                   this,
-                                   (struct _STORAGE_FRU_ID_DESCRIPTOR *)a3,
-                                   (unsigned __int8)a3);
+            return (unsigned int)SC_DISK::GetFruIdDescPost(this, a3, (unsigned __int8)a3);
         }
         else
         {
-          Version = a3[4].Version;
+          Version = a3[2].Version;
           if ( Version < a3->Version || Version > a3->Size - 1 )
-            a3[4].Version = 0;
+            a3[2].Version = 0;
         }
       }
     }
@@ -49,9 +46,9 @@ __int64 __fastcall SC_DISK::GetStoragePropertyPost(
   else if ( a2 == 6 )
   {
     Buffer_high = HIDWORD(this[14].Buffer);
-    if ( a3[2].Version != Buffer_high )
+    if ( a3[1].Version != Buffer_high )
       return (unsigned int)-1073739509;
-    Size = a3[2].Size;
+    Size = a3[1].Size;
     if ( Size < Buffer_high || Size % Buffer_high )
       return (unsigned int)-1073739509;
   }

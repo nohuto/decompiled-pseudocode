@@ -1,9 +1,9 @@
 /*
- * XREFs of ResCDirectoryPopulate @ 0x180105D04
+ * XREFs of ResCDirectoryPopulate @ 0x180105D0C
  * Callers:
- *     ResCDirectoryCreateAndPopulate @ 0x180105C14 (ResCDirectoryCreateAndPopulate.c)
+ *     ResCDirectoryCreateAndPopulate @ 0x180105C1C (ResCDirectoryCreateAndPopulate.c)
  * Callees:
- *     ResCDirectoryValidateHeader @ 0x18005D0A0 (ResCDirectoryValidateHeader.c)
+ *     ResCDirectoryValidateHeader @ 0x18005D090 (ResCDirectoryValidateHeader.c)
  */
 
 __int64 __fastcall ResCDirectoryPopulate(_QWORD *a1, __int64 a2, unsigned int a3)

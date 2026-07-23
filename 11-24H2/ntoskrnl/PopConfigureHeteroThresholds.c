@@ -1,9 +1,9 @@
 /*
- * XREFs of PopConfigureHeteroThresholds @ 0x140A2B0A0
+ * XREFs of PopConfigureHeteroThresholds @ 0x140A20D48
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x140A2A938 (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x140A205E0 (PopConfigureHeteroPolicies.c)
  * Callees:
- *     Feature_UpperThresholdInheritance__private_ReportDeviceUsage @ 0x1404A5184 (Feature_UpperThresholdInheritance__private_ReportDeviceUsage.c)
+ *     Feature_UpperThresholdInheritance__private_ReportDeviceUsage @ 0x14049FF14 (Feature_UpperThresholdInheritance__private_ReportDeviceUsage.c)
  */
 
 __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
   __int64 v28; // rdx
   __int128 v29; // [rsp+20h] [rbp-38h]
 
-  v3 = &unk_140E0B3A4;
+  v3 = &unk_140E0B424;
   v4 = 0;
   v5 = 0;
   v6 = 0LL;
@@ -58,7 +58,7 @@ __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
     if ( !(_DWORD)v12 )
     {
 LABEL_9:
-      v6 = &PpmCurrentProfile[0][61 * dword_140F0BA4C + 5];
+      v6 = &PpmCurrentProfile[0][61 * dword_140F0B38C + 5];
       v7 = v29 | 0xF000000000000000uLL;
       *(_QWORD *)&v29 = v29 | 0xF000000000000000uLL;
       goto LABEL_10;
@@ -93,7 +93,7 @@ LABEL_9:
       if ( !PpmMultimediaQosProfile )
         goto LABEL_9;
 LABEL_51:
-      v6 = (__int64 *)(v28 + 488LL * dword_140F0BA4C + 40);
+      v6 = (__int64 *)(v28 + 488LL * dword_140F0B38C + 40);
       v7 = *v6;
       v29 = *(_OWORD *)v6;
       goto LABEL_10;
@@ -102,7 +102,7 @@ LABEL_51:
 LABEL_48:
     if ( v27 )
     {
-      v6 = (__int64 *)(v27 + 488LL * dword_140F0BA4C + 40);
+      v6 = (__int64 *)(v27 + 488LL * dword_140F0B38C + 40);
       v29 = *(_OWORD *)v6;
       v7 = *v6;
     }
@@ -148,7 +148,7 @@ LABEL_10:
   while ( v11 );
   Feature_UpperThresholdInheritance__private_ReportDeviceUsage();
   v17 = *(_BYTE *)(a1 + 76);
-  v18 = &unk_140E0B3AC;
+  v18 = &unk_140E0B42C;
   LOBYTE(v19) = *(_BYTE *)(a1 + 77);
   v20 = 6LL;
   do

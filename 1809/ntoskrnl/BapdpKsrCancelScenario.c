@@ -1,9 +1,9 @@
 /*
- * XREFs of BapdpKsrCancelScenario @ 0x1403193E0
+ * XREFs of BapdpKsrCancelScenario @ 0x1403195D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall BapdpKsrCancelScenario(int a1, int a2)
@@ -12,9 +12,9 @@ __int64 __fastcall BapdpKsrCancelScenario(int a1, int a2)
   __int64 result; // rax
 
   v2 = a1 & 0x3000000;
-  if ( !(_DWORD)v2 || (a2 & 0x3000000) != 0 || !xmmword_140409CD0 )
+  if ( !(_DWORD)v2 || (a2 & 0x3000000) != 0 || !xmmword_14040AD30 )
     return 3221225659LL;
-  result = xmmword_140409CD0(v2, 0LL, 0LL, 0LL);
+  result = xmmword_14040AD30(v2, 0LL, 0LL, 0LL);
   if ( (int)result >= 0 )
     ExSoftRebootFlags &= ~4u;
   return result;

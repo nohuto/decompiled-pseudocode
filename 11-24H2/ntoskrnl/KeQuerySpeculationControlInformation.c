@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQuerySpeculationControlInformation @ 0x140AC3E38
+ * XREFs of KeQuerySpeculationControlInformation @ 0x140AC167C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiIsImportOptimizationEnabled @ 0x14049F1D0 (MiIsImportOptimizationEnabled.c)
- *     KeKvaShadowingActive @ 0x1404A925C (KeKvaShadowingActive.c)
- *     HvlQueryL1tfMitigationInformation @ 0x1404AB3E8 (HvlQueryL1tfMitigationInformation.c)
- *     SpcIsFbClearSupported @ 0x1406A0A3C (SpcIsFbClearSupported.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiIsImportOptimizationEnabled @ 0x14049A000 (MiIsImportOptimizationEnabled.c)
+ *     KeKvaShadowingActive @ 0x1404A367C (KeKvaShadowingActive.c)
+ *     HvlQueryL1tfMitigationInformation @ 0x1404A5A70 (HvlQueryL1tfMitigationInformation.c)
+ *     SpcIsFbClearSupported @ 0x1406A1B44 (SpcIsFbClearSupported.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KeQuerySpeculationControlInformation(void *a1, unsigned int a2, unsigned int *a3)

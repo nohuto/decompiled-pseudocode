@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReuseStandbyPage @ 0x1401F3A84
+ * XREFs of MiReuseStandbyPage @ 0x1401F38B0
  * Callers:
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
  */
 
 __int64 __fastcall MiReuseStandbyPage(ULONG_PTR a1)

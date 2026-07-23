@@ -18,12 +18,12 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStartProfile(void *a1)
+NTSTATUS __cdecl NtStartProfile(HANDLE ProfileHandle)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   NTSTATUS result; // eax
   PADAPTER_OBJECT v3; // rbx
-  int v4; // edi
+  NTSTATUS v4; // edi
   SIZE_T v5; // rax
   char *PoolWithTag; // rax
   void *v7; // rdi
@@ -36,7 +36,7 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  result = ObReferenceObjectByHandle(ProfileHandle, 1u, ExProfileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( result >= 0 )
   {
     KeWaitForSingleObject(&ExpProfileStateMutex, Executive, 0, 0, 0LL);

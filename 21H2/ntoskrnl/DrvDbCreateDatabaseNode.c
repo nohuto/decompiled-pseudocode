@@ -1,21 +1,21 @@
 /*
- * XREFs of DrvDbCreateDatabaseNode @ 0x1407A4268
+ * XREFs of DrvDbCreateDatabaseNode @ 0x1407A4468
  * Callers:
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
- *     DrvDbRegisterDatabase @ 0x1407A41D0 (DrvDbRegisterDatabase.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735BC4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenContext @ 0x1407A420C (DrvDbOpenContext.c)
+ *     DrvDbRegisterDatabase @ 0x1407A43D0 (DrvDbRegisterDatabase.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072DDF8 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x140669AF0 (RtlCreateUnicodeString.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072E2A8 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbCreateDatabaseNode(
@@ -38,7 +38,7 @@ __int64 __fastcall DrvDbCreateDatabaseNode(
   bool v19; // zf
   __int64 v21; // rax
   SIZE_T v22; // rdi
-  const UNICODE_STRING *v23; // rdx
+  __int64 *v23; // rdx
   __int64 v24; // rax
   _QWORD *v25; // rcx
   void *v26; // rbp
@@ -123,7 +123,7 @@ LABEL_25:
       *v16 = v13;
       *(_QWORD *)(a1 + 24) = v13;
       if ( v19
-        || (v23 = *(const UNICODE_STRING **)(a1 + 32)) == 0LL
+        || (v23 = *(__int64 **)(a1 + 32)) == 0LL
         || (LOBYTE(pszFormat) = 1,
             LODWORD(dwFlags) = 0x2000000,
             v18 = DrvDbOpenObjectRegKey((__int64 *)a1, v23, 1u, a2, dwFlags, pszFormat, &v29, &v30, 0LL),

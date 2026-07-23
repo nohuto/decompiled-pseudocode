@@ -1,30 +1,28 @@
 /*
- * XREFs of SymCryptEcurveInitialize @ 0x140522450
+ * XREFs of SymCryptEcurveInitialize @ 0x14051FD94
  * Callers:
- *     SymCryptEcurveAllocate @ 0x140522320 (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveAllocate @ 0x14051FC64 (SymCryptEcurveAllocate.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptIntBitsizeOfValue @ 0x1405237CC (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x1405238E0 (SymCryptIntFromModulus.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptIntIsEqualUint32 @ 0x140523988 (SymCryptIntIsEqualUint32.c)
- *     SymCryptIntSetValue @ 0x140523A08 (SymCryptIntSetValue.c)
- *     SymCryptIntToModulus @ 0x140523AFC (SymCryptIntToModulus.c)
- *     SymCryptModAdd @ 0x140523B40 (SymCryptModAdd.c)
- *     SymCryptModDivPow2 @ 0x140523B7C (SymCryptModDivPow2.c)
- *     SymCryptModElementCreate @ 0x140523BD8 (SymCryptModElementCreate.c)
- *     SymCryptModElementIsEqual @ 0x140523C24 (SymCryptModElementIsEqual.c)
- *     SymCryptModElementSetValue @ 0x140523C6C (SymCryptModElementSetValue.c)
- *     SymCryptModElementSetValueNegUint32 @ 0x140523CF8 (SymCryptModElementSetValueNegUint32.c)
- *     SymCryptModElementSetValueUint32 @ 0x140523D18 (SymCryptModElementSetValueUint32.c)
- *     SymCryptModulusCreate @ 0x140523FCC (SymCryptModulusCreate.c)
- *     SymCryptOfflinePrecomputation @ 0x14052A830 (SymCryptOfflinePrecomputation.c)
- *     SymCryptEcpointCreate @ 0x14052A980 (SymCryptEcpointCreate.c)
- *     SymCryptEcpointSetValue @ 0x14052ABC0 (SymCryptEcpointSetValue.c)
- *     SymCryptTwistedEdwardsFillScratchSpaces @ 0x14052BA6C (SymCryptTwistedEdwardsFillScratchSpaces.c)
- *     SymCryptMontgomeryFillScratchSpaces @ 0x14052C4BC (SymCryptMontgomeryFillScratchSpaces.c)
- *     SymCryptShortWeierstrassFillScratchSpaces @ 0x14052DF44 (SymCryptShortWeierstrassFillScratchSpaces.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1405210E4 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1405211F8 (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1405212A0 (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntSetValue @ 0x140521320 (SymCryptIntSetValue.c)
+ *     SymCryptIntToModulus @ 0x140521414 (SymCryptIntToModulus.c)
+ *     SymCryptModAdd @ 0x140521458 (SymCryptModAdd.c)
+ *     SymCryptModDivPow2 @ 0x140521494 (SymCryptModDivPow2.c)
+ *     SymCryptModElementCreate @ 0x1405214F0 (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x14052153C (SymCryptModElementIsEqual.c)
+ *     SymCryptModElementSetValue @ 0x140521584 (SymCryptModElementSetValue.c)
+ *     SymCryptModElementSetValueNegUint32 @ 0x140521610 (SymCryptModElementSetValueNegUint32.c)
+ *     SymCryptModElementSetValueUint32 @ 0x140521630 (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModulusCreate @ 0x1405218E4 (SymCryptModulusCreate.c)
+ *     SymCryptOfflinePrecomputation @ 0x140528040 (SymCryptOfflinePrecomputation.c)
+ *     SymCryptEcpointCreate @ 0x140528190 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointSetValue @ 0x1405283D0 (SymCryptEcpointSetValue.c)
+ *     SymCryptEcurveFillScratchSpaces @ 0x140528DC0 (SymCryptEcurveFillScratchSpaces.c)
  */
 
 __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int *a3, _DWORD *a4, __int64 a5)
@@ -60,15 +58,14 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
   __int64 v35; // r14
   int v36; // eax
   int v37; // eax
-  int v38; // eax
-  __int64 v39; // rax
-  char *v40; // rbx
-  __int64 v41; // rax
-  int v42; // ebx
-  __int64 *v43; // rcx
-  int v44; // eax
-  unsigned int v45; // edx
-  int v46; // r8d
+  __int64 v38; // rax
+  char *v39; // rbx
+  __int64 v40; // rax
+  int v41; // ebx
+  __int64 *v42; // rcx
+  int v43; // eax
+  unsigned int v44; // edx
+  int v45; // r8d
 
   *a4 = 1;
   v5 = a4 + 168;
@@ -85,35 +82,35 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
   v10 = SymCryptModulusCreate(a4 + 168, a3[4], *a3);
   *(_QWORD *)(v9 + 616) = v10;
   if ( !v10 )
-    goto LABEL_48;
+    goto LABEL_45;
   v11 = SymCryptIntFromModulus(v10);
   v12 = v11;
   if ( !v11 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( (unsigned int)SymCryptIntSetValue(v6, (unsigned int)a1[3], 2LL, v11) )
-    goto LABEL_48;
+    goto LABEL_45;
   v13 = SymCryptIntBitsizeOfValue(v12);
   *(_DWORD *)(v9 + 12) = v13;
   if ( v13 < 0x20 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( (SymCryptIntGetValueLsbits32(v12) & 1) == 0 )
-    goto LABEL_48;
+    goto LABEL_45;
   SymCryptIntToModulus(v12, *(_QWORD *)(v9 + 616), 800 * a1[3], 9, a5, a3[9]);
   v14 = (char *)v5 + a3[4];
   v15 = (char *)v6 + (unsigned int)a1[3];
   v16 = SymCryptModElementCreate(v14, a3[5], *(_QWORD *)(v9 + 616));
   *(_QWORD *)(v9 + 632) = v16;
   if ( !v16 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( (unsigned int)SymCryptModElementSetValue((_DWORD)v15, a1[3], 2, *(_QWORD *)(v9 + 616), v16, a5, a3[9]) )
-    goto LABEL_48;
+    goto LABEL_45;
   v17 = a3[5];
   v18 = &v14[v17];
   v19 = &v15[a1[3]];
   v20 = SymCryptModElementCreate(v18, v17, *(_QWORD *)(v9 + 616));
   *(_QWORD *)(v9 + 640) = v20;
   if ( !v20 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( a1[1] == 1 )
   {
     SymCryptModElementSetValueNegUint32(3, *(_QWORD *)(v9 + 616), v20, a5, a3[9]);
@@ -128,7 +125,7 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
                        *(_QWORD *)(v9 + 640),
                        a5,
                        a3[9]) )
-    goto LABEL_48;
+    goto LABEL_45;
   v21 = &v18[a3[5]];
   v22 = (unsigned int)a1[3];
   v23 = v22 + (_DWORD)v19;
@@ -136,63 +133,51 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
   v25 = SymCryptModulusCreate(v21, a3[7], a3[1]);
   *(_QWORD *)(v9 + 624) = v25;
   if ( !v25 )
-    goto LABEL_48;
+    goto LABEL_45;
   v26 = SymCryptIntFromModulus(v25);
   v27 = v26;
   if ( !v26 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( (unsigned int)SymCryptIntSetValue(v24, (unsigned int)a1[4], 2LL, v26) )
-    goto LABEL_48;
+    goto LABEL_45;
   v28 = SymCryptIntBitsizeOfValue(v27);
   *(_DWORD *)(v9 + 24) = v28;
   if ( v28 < 0x20 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( (SymCryptIntGetValueLsbits32(v27) & 1) == 0 )
-    goto LABEL_48;
+    goto LABEL_45;
   SymCryptIntToModulus(v27, *(_QWORD *)(v9 + 624), 1, 9, a5, a3[9]);
   v29 = &v21[a3[7]];
   v30 = (unsigned int)a1[4] + v24;
   v31 = SymCryptIntCreate(v29, a3[8], a3[2]);
   *(_QWORD *)(v9 + 656) = v31;
   if ( !v31 )
-    goto LABEL_48;
+    goto LABEL_45;
   if ( (unsigned int)SymCryptIntSetValue(v30, (unsigned int)a1[5], 2LL, v31) )
-    goto LABEL_48;
+    goto LABEL_45;
   v32 = SymCryptIntBitsizeOfValue(*(_QWORD *)(v9 + 656)) - 1;
   *(_DWORD *)(v9 + 64) = v32;
   if ( v32 > 8 )
-    goto LABEL_48;
+    goto LABEL_45;
   v33 = 1;
   if ( !(unsigned int)SymCryptIntIsEqualUint32(*(_QWORD *)(v9 + 656), (unsigned int)(1 << v32)) )
-    goto LABEL_48;
+    goto LABEL_45;
   v34 = &v29[a3[8]];
   v35 = (unsigned int)a1[5] + v30;
   v36 = a1[1];
-  switch ( v36 )
+  if ( v36 == 1 || v36 == 2 )
   {
-    case 1:
-      v37 = *(_DWORD *)(v9 + 24) + 1;
-      *(_DWORD *)(v9 + 88) = 6;
-      *(_DWORD *)(v9 + 96) = v37;
-      *(_DWORD *)(v9 + 92) = 16;
-      SymCryptShortWeierstrassFillScratchSpaces(v9);
-      break;
-    case 2:
-      v38 = *(_DWORD *)(v9 + 24) + 1;
-      *(_DWORD *)(v9 + 88) = 6;
-      *(_DWORD *)(v9 + 96) = v38;
-      *(_DWORD *)(v9 + 92) = 16;
-      SymCryptTwistedEdwardsFillScratchSpaces(v9);
-      break;
-    case 3:
-      SymCryptMontgomeryFillScratchSpaces(v9);
-      break;
+    v37 = *(_DWORD *)(v9 + 24) + 1;
+    *(_DWORD *)(v9 + 92) = 16;
+    *(_DWORD *)(v9 + 96) = v37;
+    *(_DWORD *)(v9 + 88) = 6;
   }
-  v39 = SymCryptEcpointCreate(v34, a3[6], v9);
-  *(_QWORD *)(v9 + 648) = v39;
-  if ( !v39 || (unsigned int)SymCryptEcpointSetValue(v9, v23, 2 * a1[3], 2, 2, v39, 1, a5, a3[9]) )
-    goto LABEL_48;
-  v40 = &v34[a3[6]];
+  SymCryptEcurveFillScratchSpaces(v9);
+  v38 = SymCryptEcpointCreate(v34, a3[6], v9);
+  *(_QWORD *)(v9 + 648) = v38;
+  if ( !v38 || (unsigned int)SymCryptEcpointSetValue(v9, v23, 2 * a1[3], 2, 2, v38, 1, a5, a3[9]) )
+    goto LABEL_45;
+  v39 = &v34[a3[6]];
   if ( (unsigned int)(a1[1] - 1) <= 1 )
   {
     *(_QWORD *)(v9 + 104) = *(_QWORD *)(v9 + 648);
@@ -200,12 +185,12 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
     {
       do
       {
-        v41 = SymCryptEcpointCreate(v40, a3[6], v9);
-        *(_QWORD *)(v9 + 8LL * v33 + 104) = v41;
-        if ( !v41 )
-          goto LABEL_48;
+        v40 = SymCryptEcpointCreate(v39, a3[6], v9);
+        *(_QWORD *)(v9 + 8LL * v33 + 104) = v40;
+        if ( !v40 )
+          goto LABEL_45;
         ++v33;
-        v40 += a3[6];
+        v39 += a3[6];
       }
       while ( v33 < *(_DWORD *)(v9 + 92) );
     }
@@ -213,9 +198,9 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
   }
   if ( a1[1] == 3 )
   {
-    v42 = SymCryptModElementCreate(a5, a3[5], *(_QWORD *)(v9 + 616));
-    SymCryptModElementSetValueUint32(2, *(_QWORD *)(v9 + 616), v42, a5 + a3[5], a3[9] - a3[5]);
-    SymCryptModAdd(*(_QWORD *)(v9 + 616), *(_QWORD *)(v9 + 632), v42, *(_QWORD *)(v9 + 632), a5 + a3[5], a3[9] - a3[5]);
+    v41 = SymCryptModElementCreate(a5, a3[5], *(_QWORD *)(v9 + 616));
+    SymCryptModElementSetValueUint32(2, *(_QWORD *)(v9 + 616), v41, a5 + a3[5], a3[9] - a3[5]);
+    SymCryptModAdd(*(_QWORD *)(v9 + 616), *(_QWORD *)(v9 + 632), v41, *(_QWORD *)(v9 + 632), a5 + a3[5], a3[9] - a3[5]);
     SymCryptModDivPow2(
       *(_QWORD *)(v9 + 616),
       *(_QWORD *)(v9 + 632),
@@ -226,35 +211,35 @@ __int64 __fastcall SymCryptEcurveInitialize(_DWORD *a1, __int64 a2, unsigned int
   }
   if ( *a1 == 2 )
   {
-    v43 = (__int64 *)(v35 + (unsigned int)a1[6]);
+    v42 = (__int64 *)(v35 + (unsigned int)a1[6]);
   }
   else
   {
-    v44 = a1[1];
-    if ( v44 == 1 )
+    v43 = a1[1];
+    if ( v43 == 1 )
     {
-      v43 = (__int64 *)SymCryptEcurveParamsV2ExtensionShortWeierstrass;
+      v42 = (__int64 *)SymCryptEcurveParamsV2ExtensionShortWeierstrass;
     }
-    else if ( v44 == 2 )
+    else if ( v43 == 2 )
     {
-      v43 = (__int64 *)SymCryptEcurveParamsV2ExtensionTwistedEdwards[0];
+      v42 = (__int64 *)SymCryptEcurveParamsV2ExtensionTwistedEdwards;
     }
     else
     {
-      v43 = 0LL;
-      if ( v44 == 3 )
-        v43 = (__int64 *)SymCryptEcurveParamsV2ExtensionMontgomery;
+      v42 = 0LL;
+      if ( v43 == 3 )
+        v42 = (__int64 *)SymCryptEcurveParamsV2ExtensionMontgomery;
     }
   }
-  *(_DWORD *)(v9 + 68) = *(_DWORD *)v43;
-  v45 = *((_DWORD *)v43 + 1);
-  *(_DWORD *)(v9 + 72) = v45;
-  v46 = *((_DWORD *)v43 + 2);
-  *(_DWORD *)(v9 + 76) = v46;
-  *(_DWORD *)(v9 + 80) = *((_DWORD *)v43 + 3);
-  if ( v45 > 0x20 || v45 && v45 + v46 > *(_DWORD *)(v9 + 24) + *(_DWORD *)(v9 + 64) )
+  *(_DWORD *)(v9 + 68) = *(_DWORD *)v42;
+  v44 = *((_DWORD *)v42 + 1);
+  *(_DWORD *)(v9 + 72) = v44;
+  v45 = *((_DWORD *)v42 + 2);
+  *(_DWORD *)(v9 + 76) = v45;
+  *(_DWORD *)(v9 + 80) = *((_DWORD *)v42 + 3);
+  if ( v44 > 0x20 || v44 && v44 + v45 > *(_DWORD *)(v9 + 24) + *(_DWORD *)(v9 + 64) )
   {
-LABEL_48:
+LABEL_45:
     SymCryptWipe(v9, a3[3]);
     return 0LL;
   }

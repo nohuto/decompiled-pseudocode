@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAdvanceVadHint @ 0x140695E10
+ * XREFs of MiAdvanceVadHint @ 0x140696FD0
  * Callers:
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x14085A3B8 (MiAllocateEnclaveVad.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ __int64 __fastcall MiAdvanceVadHint(unsigned __int64 a1, unsigned __int64 a2, _D
   int v11; // r9d
   unsigned int v12; // ecx
 
-  result = (unsigned int)(8 * (a3[2] - qword_14043A528));
+  result = (unsigned int)(8 * (a3[2] - qword_14043B5E8));
   v4 = a1 >> 4;
   v5 = a2 >> 4;
   if ( (unsigned int)v5 >= (unsigned int)result )
@@ -36,7 +36,7 @@ __int64 __fastcall MiAdvanceVadHint(unsigned __int64 a1, unsigned __int64 a2, _D
       v7 = 0;
       if ( (unsigned int)v4 < (unsigned int)result )
       {
-        LODWORD(v4) = 8 * (a3[2] - qword_14043A528);
+        LODWORD(v4) = 8 * (a3[2] - qword_14043B5E8);
         v7 = 1;
       }
       if ( (unsigned int)v5 >= v6 )

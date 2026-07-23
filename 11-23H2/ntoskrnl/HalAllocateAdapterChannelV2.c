@@ -1,17 +1,17 @@
 /*
- * XREFs of HalAllocateAdapterChannelV2 @ 0x14045D0E8
+ * XREFs of HalAllocateAdapterChannelV2 @ 0x14045D4E8
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x1403CCDE0 (HalBuildScatterGatherListV2.c)
- *     HalAllocateAdapterChannel @ 0x14045B300 (HalAllocateAdapterChannel.c)
- *     HalRealAllocateAdapterChannelV2 @ 0x14045D370 (HalRealAllocateAdapterChannelV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403CCFC0 (HalBuildScatterGatherListV2.c)
+ *     HalAllocateAdapterChannel @ 0x14045B700 (HalAllocateAdapterChannel.c)
+ *     HalRealAllocateAdapterChannelV2 @ 0x14045D770 (HalRealAllocateAdapterChannelV2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045BF9E (HalpDmaAllocateMapRegisters.c)
- *     IoFreeAdapterChannelV2 @ 0x14045D8D0 (IoFreeAdapterChannelV2.c)
- *     HalpQueueMapBufferWorker @ 0x140505004 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x1405113D8 (HalpDmaQueueAdapter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeInsertDeviceQueue @ 0x140573270 (KeInsertDeviceQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045C39E (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeAdapterChannelV2 @ 0x14045DCD0 (IoFreeAdapterChannelV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140505554 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x140511928 (HalpDmaQueueAdapter.c)
+ *     KeInsertDeviceQueue @ 0x1405737B0 (KeInsertDeviceQueue.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannelV2(
@@ -48,7 +48,7 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v12 = 4;
@@ -70,10 +70,10 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
         IoFreeAdapterChannelV2(a1);
         if ( v5 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v13 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v15 = CurrentPrcb->SchedulerAssist;
@@ -81,7 +81,7 @@ __int64 __fastcall HalAllocateAdapterChannelV2(
               v17 = (v16 & v15[5]) == 0;
               v15[5] &= v16;
               if ( v17 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
             }
           }
           __writecr8(CurrentIrql);
@@ -125,10 +125,10 @@ LABEL_33:
 LABEL_34:
   if ( v5 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
       {
         v23 = KeGetCurrentPrcb();
         v24 = v23->SchedulerAssist;
@@ -136,7 +136,7 @@ LABEL_34:
         v17 = (v25 & v24[5]) == 0;
         v24[5] &= v25;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(v23);
+          KiRemoveSystemWorkPriorityKick((__int64)v23);
       }
     }
     __writecr8(CurrentIrql);

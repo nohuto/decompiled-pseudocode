@@ -1,9 +1,9 @@
 /*
- * XREFs of IopUpdateIrpTransferCount @ 0x140411290
+ * XREFs of IopUpdateIrpTransferCount @ 0x1404109B0
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x14040FD30 (IopCopyCompleteReadRequest.c)
- *     IopIoRingCompleteIrp @ 0x1404113E8 (IopIoRingCompleteIrp.c)
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x14040F450 (IopCopyCompleteReadRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140410B08 (IopIoRingCompleteIrp.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
  * Callees:
  *     <none>
  */
@@ -23,9 +23,7 @@ unsigned __int64 __fastcall IopUpdateIrpTransferCount(__int64 a1, volatile signe
   {
     v7 = *(unsigned int *)(a1 + 56);
     CurrentThread = KeGetCurrentThread();
-    if ( ((__int64)IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink & 2) != 0
-      && a2
-      && a2 == (volatile signed __int64 *)CurrentThread->Process )
+    if ( (IopPerfIoTrackingLock.QuantumTarget & 2) != 0 && a2 && a2 == (volatile signed __int64 *)CurrentThread->Process )
     {
       result = v7;
       CurrentThread->ReadTransferCount += v7;
@@ -45,9 +43,7 @@ unsigned __int64 __fastcall IopUpdateIrpTransferCount(__int64 a1, volatile signe
   {
     v5 = *(unsigned int *)(a1 + 56);
     v6 = KeGetCurrentThread();
-    if ( ((__int64)IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink & 2) != 0
-      && a2
-      && a2 == (volatile signed __int64 *)v6->Process )
+    if ( (IopPerfIoTrackingLock.QuantumTarget & 2) != 0 && a2 && a2 == (volatile signed __int64 *)v6->Process )
     {
       result = v5;
       v6->WriteTransferCount += v5;
@@ -69,9 +65,7 @@ unsigned __int64 __fastcall IopUpdateIrpTransferCount(__int64 a1, volatile signe
     if ( v3 >= 0 )
     {
       v4 = KeGetCurrentThread();
-      if ( ((__int64)IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink & 2) != 0
-        && a2
-        && a2 == (volatile signed __int64 *)v4->Process )
+      if ( (IopPerfIoTrackingLock.QuantumTarget & 2) != 0 && a2 && a2 == (volatile signed __int64 *)v4->Process )
       {
         result = (unsigned int)v3;
         v4->OtherTransferCount += (unsigned int)v3;

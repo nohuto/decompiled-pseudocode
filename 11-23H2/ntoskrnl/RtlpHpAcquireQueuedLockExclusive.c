@@ -1,16 +1,16 @@
 /*
  * XREFs of RtlpHpAcquireQueuedLockExclusive @ 0x140207670
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x14024A0B0 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpVsChunkSplit @ 0x14024A480 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkFree @ 0x14024D600 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsContextFreeList @ 0x14024EDF0 (RtlpHpVsContextFreeList.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A180 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsChunkSplit @ 0x14024A550 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkFree @ 0x14024D6D0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextFreeList @ 0x14024EEC0 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall RtlpHpAcquireQueuedLockExclusive(volatile signed __int32 *a1, int a2, _QWORD *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpAcquireQueuedLockExclusive(volatile signed __int32 *a1,
     a3[1] = a1;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )

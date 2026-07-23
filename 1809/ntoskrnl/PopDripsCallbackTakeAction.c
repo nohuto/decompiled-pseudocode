@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDripsCallbackTakeAction @ 0x140879548
+ * XREFs of PopDripsCallbackTakeAction @ 0x14087A7A8
  * Callers:
- *     PopDripsWatchdogWorkerRoutine @ 0x140879C20 (PopDripsWatchdogWorkerRoutine.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x14087AE80 (PopDripsWatchdogWorkerRoutine.c)
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDeviceConstraintsEnforced @ 0x1402E7158 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14087968C (PopDripsWatchdogInvokeDeviceCallbacks.c)
- *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087973C (PopDripsWatchdogReportDirectedDripsDevice.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D77C0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDeviceConstraintsEnforced @ 0x1402E7348 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x14086A854 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14087A8EC (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087A99C (PopDripsWatchdogReportDirectedDripsDevice.c)
  */
 
 void __fastcall PopDripsCallbackTakeAction(__int64 a1, unsigned int a2, unsigned int a3)
@@ -20,7 +20,7 @@ void __fastcall PopDripsCallbackTakeAction(__int64 a1, unsigned int a2, unsigned
   bool v10; // [rsp+68h] [rbp+20h]
 
   if ( (a2 & 0x180) != 0
-    && ((byte_14043C450 & 1) == 0 || (a2 & 1) != 0)
+    && ((byte_14043D510 & 1) == 0 || (a2 & 1) != 0)
     && PopDeviceConstraintsEnforced()
     && (int)PopFxBuildDripsBlockingDeviceList(a1, v9) >= 0 )
   {
@@ -38,7 +38,7 @@ void __fastcall PopDripsCallbackTakeAction(__int64 a1, unsigned int a2, unsigned
         }
         while ( v7 != v6 );
         if ( (v6 & 1) != 0 && !PopDirectedDripsEnableV2 )
-          v10 = _InterlockedExchangeAdd(&dword_140419164, 0xFFFFFFFF) <= 1;
+          v10 = _InterlockedExchangeAdd(&dword_14041A244, 0xFFFFFFFF) <= 1;
       }
       for ( i = (_QWORD *)v9[0]; i != v9; i = (_QWORD *)*i )
       {

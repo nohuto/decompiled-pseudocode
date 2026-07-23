@@ -2,10 +2,10 @@
  * XREFs of FsRtlFreeTunnelNode @ 0x140014A04
  * Callers:
  *     FsRtlRemoveNodeFromTunnel @ 0x1400146B4 (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlAddToTunnelCacheEx @ 0x1405819D0 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x1405829D0 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlFreeTunnelNode(char *Entry, __int64 *a2)

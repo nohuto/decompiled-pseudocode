@@ -1,31 +1,31 @@
 /*
- * XREFs of MiAllocateMostlyContiguous @ 0x140105140
+ * XREFs of MiAllocateMostlyContiguous @ 0x140102EC0
  * Callers:
- *     MiFindPagesForMdl @ 0x14010404C (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x140101DCC (MiFindPagesForMdl.c)
  * Callees:
  *     MiEmptyKernelStackCache @ 0x14000196C (MiEmptyKernelStackCache.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiReleaseFreshPageLocked @ 0x1400221A4 (MiReleaseFreshPageLocked.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiLargeFreePageToMdl @ 0x14008A124 (MiLargeFreePageToMdl.c)
- *     MiDemoteLargeFreePage @ 0x14008A280 (MiDemoteLargeFreePage.c)
- *     MiDrainZeroLookasides @ 0x1400A8C34 (MiDrainZeroLookasides.c)
- *     MiPfnLargeBitSet @ 0x1401050E4 (MiPfnLargeBitSet.c)
- *     MiActivePageClaimCandidate @ 0x140105A60 (MiActivePageClaimCandidate.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiReleasePteCopyList @ 0x140107034 (MiReleasePteCopyList.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     MiCreatePteCopyList @ 0x140107178 (MiCreatePteCopyList.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
- *     MiObtainTransitionPage @ 0x140107214 (MiObtainTransitionPage.c)
- *     MiLockAndInsertPageInFreeList @ 0x140144DA4 (MiLockAndInsertPageInFreeList.c)
- *     MiReuseStandbyPage @ 0x1401F3A84 (MiReuseStandbyPage.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiReleaseFreshPageLocked @ 0x140021D24 (MiReleaseFreshPageLocked.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiLargeFreePageToMdl @ 0x140089824 (MiLargeFreePageToMdl.c)
+ *     MiDemoteLargeFreePage @ 0x140089980 (MiDemoteLargeFreePage.c)
+ *     MiDrainZeroLookasides @ 0x1400A71B4 (MiDrainZeroLookasides.c)
+ *     MiPfnLargeBitSet @ 0x140102E64 (MiPfnLargeBitSet.c)
+ *     MiActivePageClaimCandidate @ 0x1401037E0 (MiActivePageClaimCandidate.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiReleasePteCopyList @ 0x140104DB4 (MiReleasePteCopyList.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     MiCreatePteCopyList @ 0x140104EF8 (MiCreatePteCopyList.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
+ *     MiObtainTransitionPage @ 0x140104F94 (MiObtainTransitionPage.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140145314 (MiLockAndInsertPageInFreeList.c)
+ *     MiReuseStandbyPage @ 0x1401F38B0 (MiReuseStandbyPage.c)
  */
 
 __int64 __fastcall MiAllocateMostlyContiguous(
@@ -143,7 +143,7 @@ LABEL_6:
         v22 = v56;
         v18 = a7;
         v53 = v17;
-        v60 = (unsigned __int16 *)((char *)qword_1403269A8 + 2 * v17 * (unsigned __int16)KeNumberNodes);
+        v60 = (unsigned __int16 *)((char *)qword_1403269E8 + 2 * v17 * (unsigned __int16)KeNumberNodes);
         v19 = v61;
         v62 = &v60[(unsigned __int16)KeNumberNodes];
         v16 = v63;
@@ -253,7 +253,7 @@ LABEL_57:
     if ( v40 == 1023 )
       v41 = MiSystemPartition;
     else
-      v41 = *(int **)(qword_140326FF8 + 8LL * v40);
+      v41 = *(int **)(qword_140327038 + 8LL * v40);
     if ( v41 != (int *)v9 )
     {
       v42 = MiPfnLargeBitSet((__int64)MiSystemPartition, v35);
@@ -271,7 +271,7 @@ LABEL_57:
     {
       if ( (*(_QWORD *)(v36 + 8) | 0x8000000000000000uLL) == 0xFFFFFFFFFFFFFFFCuLL )
         goto LABEL_34;
-      v44 = dword_1403269F8 & v35 | (((v39 >> 36) & 3) << byte_1403269D8) | (((v39 >> 58) & 0x3F) << byte_1403269C9);
+      v44 = dword_140326A38 & v35 | (((v39 >> 36) & 3) << byte_140326A18) | (((v39 >> 58) & 0x3F) << byte_140326A09);
       _InterlockedAnd64((volatile signed __int64 *)(v36 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       __writecr8(CurrentIrql);
       MiDrainZeroLookasides(v9, v36 + 48 * (v13 - v10 + 1), v10 - v13, v44);

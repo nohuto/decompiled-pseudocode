@@ -1,19 +1,18 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1406BAEFC
+ * XREFs of EtwpTiQueryVad @ 0x14061A1CC
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1406BAE00 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x14061A0D0 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA9E0 (ZwQueryVirtualMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *a4, char a5)
+__int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned int a4, char a5)
 {
-  unsigned int v5; // r12d
   int v8; // ebp
   unsigned int v9; // esi
   unsigned int v10; // edi
@@ -23,7 +22,6 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *
   PVOID PoolWithTag; // rax
   _OWORD v16[3]; // [rsp+30h] [rbp-78h] BYREF
 
-  v5 = (unsigned int)a4;
   memset(v16, 0, sizeof(v16));
   if ( a2 == KeGetCurrentThread()->ApcState.Process )
   {
@@ -31,12 +29,12 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *
   }
   else
   {
-    KiStackAttachProcess(a2, 0LL, (__int64)v16, a4);
+    KiStackAttachProcess(a2, 0, (__int64)v16);
     v8 = 1;
   }
   v9 = 0;
   v10 = 0;
-  if ( v5 )
+  if ( a4 )
   {
     v11 = (PVOID *)(a1 + 56);
     v12 = (char *)(a1 + 8);
@@ -45,7 +43,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         *a3,
-                        (MEMORY_INFORMATION_CLASS)3,
+                        MemoryRegionInformation,
                         v12,
                         0x30uLL,
                         0LL);
@@ -61,7 +59,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *
             || ZwQueryVirtualMemory(
                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                  *a3,
-                 (MEMORY_INFORMATION_CLASS)2,
+                 MemoryMappedFilenameInformation,
                  PoolWithTag,
                  0x200uLL,
                  0LL) >= 0 )
@@ -78,9 +76,9 @@ LABEL_9:
       ++a3;
       v11 += 8;
     }
-    while ( v10 < v5 );
+    while ( v10 < a4 );
   }
   if ( v8 )
-    KiUnstackDetachProcess((__int64)v16, 0);
+    KiUnstackDetachProcess((__int64)v16, 0LL);
   return v9;
 }

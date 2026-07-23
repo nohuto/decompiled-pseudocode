@@ -1,10 +1,10 @@
 /*
  * XREFs of FsRtlAcquireHeaderMutex @ 0x140347B70
  * Callers:
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
+ *     sub_14035D3E0 @ 0x14035D3E0 (sub_14035D3E0.c)
  * Callees:
- *     ExpAcquireFastMutexContended @ 0x14029EF4C (ExpAcquireFastMutexContended.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_14029EF4C @ 0x14029EF4C (sub_14029EF4C.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  */
 
 volatile signed __int32 *__fastcall FsRtlAcquireHeaderMutex(__int64 a1, volatile signed __int32 *a2)
@@ -15,11 +15,11 @@ volatile signed __int32 *__fastcall FsRtlAcquireHeaderMutex(__int64 a1, volatile
   volatile signed __int32 *result; // rax
 
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 48LL);
-  v3 = KeAbPreAcquire(v2, 0LL, 0LL);
+  v3 = sub_140347C10(v2, 0LL, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)v2, 0) )
-    ExpAcquireFastMutexContended(v2, v3);
+    sub_14029EF4C(v2, v3);
   if ( v3 )
     *(_BYTE *)(v3 + 18) = 1;
   *(_QWORD *)(v2 + 8) = KeGetCurrentThread();

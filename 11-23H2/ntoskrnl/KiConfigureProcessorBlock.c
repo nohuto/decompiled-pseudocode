@@ -2,10 +2,10 @@
  * XREFs of KiConfigureProcessorBlock @ 0x140A88BB0
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F2E0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9F150 (KiInitializeDynamicProcessorDpc.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KiGetSubNodeForGroup @ 0x140355760 (KiGetSubNodeForGroup.c)
+ *     KiGetSubNodeForGroup @ 0x140355900 (KiGetSubNodeForGroup.c)
  */
 
 __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)

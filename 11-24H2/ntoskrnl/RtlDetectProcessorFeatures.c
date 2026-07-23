@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDetectProcessorFeatures @ 0x140B60270
+ * XREFs of RtlDetectProcessorFeatures @ 0x140B6233C
  * Callers:
- *     KiSetProcessorSignature @ 0x1405C3320 (KiSetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405C08F0 (KiSetProcessorSignature.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlGetProcessorSignature @ 0x140B60A90 (RtlGetProcessorSignature.c)
- *     RtlpGetSpecificProcessorFlags @ 0x140B60C60 (RtlpGetSpecificProcessorFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetProcessorSignature @ 0x140B62B5C (RtlGetProcessorSignature.c)
+ *     RtlpGetSpecificProcessorFlags @ 0x140B62D30 (RtlpGetSpecificProcessorFlags.c)
  */
 
 __int64 __fastcall RtlDetectProcessorFeatures(int a1, __int64 *a2, __int64 *a3, _DWORD *a4)
@@ -103,7 +103,7 @@ __int64 __fastcall RtlDetectProcessorFeatures(int a1, __int64 *a2, __int64 *a3, 
   v52 = 0;
   v21 = 0;
   v22 = BYTE4(v55);
-  v23 = &dword_140008A24;
+  v23 = &dword_140008804;
   do
   {
     v24 = v23[3];
@@ -142,7 +142,7 @@ __int64 __fastcall RtlDetectProcessorFeatures(int a1, __int64 *a2, __int64 *a3, 
         {
           v71 = v55;
           v72 = v56;
-          guard_dispatch_icall_no_overrides(&v71, &v54, v16, v10);
+          guard_dispatch_icall_no_overrides(&v71, &v54);
           v31 = v54;
           v16 = v58;
           v10 = (unsigned int)v59;
@@ -250,7 +250,7 @@ LABEL_54:
             {
               v71 = v55;
               v72 = v56;
-              guard_dispatch_icall_no_overrides(&v71, &v54, v16, v10);
+              guard_dispatch_icall_no_overrides(&v71, &v54);
               v43 = v54;
             }
             if ( v43 )

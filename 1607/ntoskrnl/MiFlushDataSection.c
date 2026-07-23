@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFlushDataSection @ 0x1400FD7B0
+ * XREFs of MiFlushDataSection @ 0x1400FB530
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1400218CC (MiLockSectionControlArea.c)
- *     MmFlushSection @ 0x140022558 (MmFlushSection.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     CcFlushCache @ 0x14008F434 (CcFlushCache.c)
+ *     MiLockSectionControlArea @ 0x14002144C (MiLockSectionControlArea.c)
+ *     MmFlushSection @ 0x1400220D8 (MmFlushSection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     CcFlushCache @ 0x14008EB94 (CcFlushCache.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLogFailedDriverLoad @ 0x140B518F0
+ * XREFs of MiLogFailedDriverLoad @ 0x140B54190
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     MiResolveImageReferences @ 0x140ADCF50 (MiResolveImageReferences.c)
- *     MiCreateSectionForDriver @ 0x140AEBC54 (MiCreateSectionForDriver.c)
+ *     MiResolveImageReferences @ 0x14097E950 (MiResolveImageReferences.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     MiCreateSectionForDriver @ 0x140AEEB60 (MiCreateSectionForDriver.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     IoWriteErrorLogEntry @ 0x1404E5DA0 (IoWriteErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1405CAD68 (IoAllocateGenericErrorLogEntry.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     IoWriteErrorLogEntry @ 0x1404DF340 (IoWriteErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x1405CD638 (IoAllocateGenericErrorLogEntry.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
-void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const char *a3, NTSTATUS a4)
+void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const CHAR *a3, NTSTATUS a4)
 {
   int v4; // edi
   __int64 v5; // r14

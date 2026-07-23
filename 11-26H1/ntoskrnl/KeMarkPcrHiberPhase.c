@@ -1,9 +1,9 @@
 /*
- * XREFs of KeMarkPcrHiberPhase @ 0x140BF2F24
+ * XREFs of KeMarkPcrHiberPhase @ 0x140BF8F24
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  */
 
 void __fastcall KeMarkPcrHiberPhase(size_t *Address)
@@ -30,7 +30,7 @@ void __fastcall KeMarkPcrHiberPhase(size_t *Address)
   _QWORD *v20; // rsi
   void *v21; // rdi
   ULONG_PTR v22; // rbx
-  PVOID *k; // rbx
+  struct _KTHREAD *k; // rbx
 
   v1 = Address[4];
   v2 = (char *)Address[1];
@@ -159,17 +159,21 @@ LABEL_32:
   v19 = *(void **)(v1 + 34880);
   if ( v19 )
     PoSetHiberRange(0LL, 0x10000u, v19, 0x580uLL, 0x7349654Bu);
-  if ( qword_140F14D38 )
-    PoSetHiberRange(0LL, 0x10000u, qword_140F14D38, 16 * (unsigned int)(unsigned __int8)qword_140F14D28, 0x7272744Du);
-  if ( qword_140F14D40 )
-    PoSetHiberRange(0LL, 0x10000u, qword_140F14D40, 0x58uLL, 0x7272744Du);
+  if ( qword_140F15098 )
+    PoSetHiberRange(0LL, 0x10000u, qword_140F15098, 16 * (unsigned int)(unsigned __int8)qword_140F15088, 0x7272744Du);
+  if ( qword_140F150A0 )
+    PoSetHiberRange(0LL, 0x10000u, qword_140F150A0, 0x58uLL, 0x7272744Du);
   v20 = *(_QWORD **)(v1 + 8);
   v21 = (void *)((v20[6] + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
   v22 = v20[7] - (_QWORD)v21;
   PoSetHiberRange(0LL, 0x10000u, v20, 0x798uLL, 0x6874654Bu);
   PoSetHiberRange(0LL, 0x10000u, v21, v22, 0x7473654Bu);
-  for ( k = (PVOID *)KeBugCheckReasonCallbackListHead; k != &KeBugCheckReasonCallbackListHead; k = (PVOID *)*k )
+  for ( k = (struct _KTHREAD *)KiSupervisorXStateFeaturesLock.QuantumTarget;
+        k != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.QuantumTarget;
+        k = *(struct _KTHREAD **)&k->Header.Lock )
+  {
     PoSetHiberRange(0LL, 0x10000u, k, 0x30uLL, 0x7473654Bu);
+  }
   if ( (_BYTE)KiKernelCetEnabled )
     PoSetHiberRange(
       0LL,
@@ -177,5 +181,5 @@ LABEL_32:
       (PVOID)((v20[132] & 0xFFFFFFFFFFFFF000uLL) + 4096),
       v20[131] - ((v20[132] & 0xFFFFFFFFFFFFF000uLL) + 4096) - 4096,
       0x7373654Bu);
-  PoSetHiberRange(0LL, 0x10000u, ExpSysDbgLock.ApcState.Process, 0x1000uLL, 0x706C7845u);
+  PoSetHiberRange(0LL, 0x10000u, ExpSysDbgLock.WaitBlockList, 0x1000uLL, 0x706C7845u);
 }

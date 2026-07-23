@@ -1,26 +1,26 @@
 /*
- * XREFs of CcLazyWriteScan @ 0x140070CA0
+ * XREFs of CcLazyWriteScan @ 0x140070820
  * Callers:
- *     CcWorkerThread @ 0x140071980 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x140071500 (CcWorkerThread.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     CcUpdateTimeOnLogHandles @ 0x14006D9B0 (CcUpdateTimeOnLogHandles.c)
- *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E6C0 (KeAcquireQueuedSpinLockAtDpcLevel.c)
- *     CcAdjustThrottle @ 0x14006E728 (CcAdjustThrottle.c)
- *     CcRescheduleLazyWriteScan @ 0x14006E8D8 (CcRescheduleLazyWriteScan.c)
- *     CcSetLazyWriteScanQueued @ 0x14006E9FC (CcSetLazyWriteScanQueued.c)
- *     CcShouldLazyWriteCacheMap @ 0x1400713B0 (CcShouldLazyWriteCacheMap.c)
- *     CcPostWorkQueue @ 0x1400714A8 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x140072080 (CcAllocateWorkQueueEntry.c)
- *     CcComputeNextScanTime @ 0x1400B071C (CcComputeNextScanTime.c)
- *     CcPerfLogLoggedStreamsStats @ 0x1400B0A14 (CcPerfLogLoggedStreamsStats.c)
- *     CcPerfLogLazyWriteScan @ 0x1400B2B88 (CcPerfLogLazyWriteScan.c)
- *     CcCalculatePagesToWrite @ 0x1400CBC20 (CcCalculatePagesToWrite.c)
- *     CcScanLogHandleList @ 0x1400CCA0C (CcScanLogHandleList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     CcUpdateTimeOnLogHandles @ 0x14006D530 (CcUpdateTimeOnLogHandles.c)
+ *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E240 (KeAcquireQueuedSpinLockAtDpcLevel.c)
+ *     CcAdjustThrottle @ 0x14006E2A8 (CcAdjustThrottle.c)
+ *     CcRescheduleLazyWriteScan @ 0x14006E458 (CcRescheduleLazyWriteScan.c)
+ *     CcSetLazyWriteScanQueued @ 0x14006E57C (CcSetLazyWriteScanQueued.c)
+ *     CcShouldLazyWriteCacheMap @ 0x140070F30 (CcShouldLazyWriteCacheMap.c)
+ *     CcPostWorkQueue @ 0x140071028 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140071C00 (CcAllocateWorkQueueEntry.c)
+ *     CcComputeNextScanTime @ 0x1400AE78C (CcComputeNextScanTime.c)
+ *     CcPerfLogLoggedStreamsStats @ 0x1400AEA84 (CcPerfLogLoggedStreamsStats.c)
+ *     CcPerfLogLazyWriteScan @ 0x1400B0AC8 (CcPerfLogLazyWriteScan.c)
+ *     CcCalculatePagesToWrite @ 0x1400C9AC0 (CcCalculatePagesToWrite.c)
+ *     CcScanLogHandleList @ 0x1400CA8AC (CcScanLogHandleList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
  */
 
 void __fastcall CcLazyWriteScan(int a1, __int64 a2)
@@ -96,28 +96,28 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
   v61 = KeAcquireQueuedSpinLock(5uLL);
   v6 = v61;
   CcSetLazyWriteScanQueued(v3, 0);
-  *(_QWORD *)&v8 = qword_1403230E0;
+  *(_QWORD *)&v8 = qword_140323100;
   *((_QWORD *)&v8 + 1) = v7;
-  v9 = v8 / (unsigned int)dword_1403230F0;
+  v9 = v8 / (unsigned int)dword_140323110;
   CcAverageAvailablePages = v9;
-  CcAverageDirtyPages = qword_1403230E8 / (unsigned __int64)(unsigned int)dword_1403230F0;
-  if ( (unsigned int)dword_1403230F0 <= 1 )
+  CcAverageDirtyPages = qword_140323108 / (unsigned __int64)(unsigned int)dword_140323110;
+  if ( (unsigned int)dword_140323110 <= 1 )
   {
-    v13 = *(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6464LL);
+    v13 = *(_QWORD *)(*(_QWORD *)qword_140327038 + 6464LL);
     v12 = CcGlobalDirtyPageStatistics;
     v14 = CcGlobalDirtyPageStatistics;
   }
   else
   {
-    v10 = (unsigned int)(dword_1403230F0 - 1);
-    v11 = qword_1403230E8 / (unsigned __int64)(unsigned int)dword_1403230F0 * (unsigned int)v10;
+    v10 = (unsigned int)(dword_140323110 - 1);
+    v11 = qword_140323108 / (unsigned __int64)(unsigned int)dword_140323110 * (unsigned int)v10;
     v12 = CcGlobalDirtyPageStatistics;
-    v13 = *(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6464LL) + v9 * v10;
+    v13 = *(_QWORD *)(*(_QWORD *)qword_140327038 + 6464LL) + v9 * v10;
     v14 = CcGlobalDirtyPageStatistics + v11;
   }
-  qword_1403230E0 = v13;
-  qword_1403230E8 = v14;
-  if ( v12 || byte_1403231C1 )
+  qword_140323100 = v13;
+  qword_140323108 = v14;
+  if ( v12 || byte_1403231E1 )
   {
     v60 = &v59;
     v59 = &v59;
@@ -139,12 +139,12 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
       *v44 = v15;
       v60 = (_QWORD **)v15;
     }
-    byte_1403231C1 = 0;
+    byte_1403231E1 = 0;
     v55 = CcCalculatePagesToWrite(v3, &CcGlobalDirtyPageStatistics, &CcGlobalDirtyPageThresholds, 0LL);
     v16 = v55;
     CcAdjustThrottle((__int64)&CcGlobalDirtyPageStatistics, (__int64)&CcGlobalDirtyPageThresholds);
-    qword_140322F68 = CcGlobalDirtyPageStatistics;
-    LODWORD(qword_140322F70) = v16;
+    qword_140322F88 = CcGlobalDirtyPageStatistics;
+    LODWORD(qword_140322F90) = v16;
     CcPagesYetToWrite = v16;
     *((_DWORD *)CcThroughputStats + 2 * (unsigned int)CcActiveExtraWriteBehindThreads) = v16;
     CcPrevExtraWBThreadCheckTime = MEMORY[0xFFFFF78000000014];
@@ -154,11 +154,11 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
         v3,
         v17,
         CcGlobalDirtyPageStatistics,
-        *(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6464LL),
+        *(_QWORD *)(*(_QWORD *)qword_140327038 + 6464LL),
         CcGlobalDirtyPageThresholds,
         (unsigned int)CcNumberOfMappedVacbs,
-        qword_1403230C8,
-        qword_1403230D0);
+        qword_1403230E8,
+        qword_1403230F0);
     v18 = 0LL;
     v19 = CcLazyWriterCursor - 136;
     if ( CcLazyWriterCursor != 136 )
@@ -225,19 +225,19 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
               else
               {
                 v37 = CcLazyWriterCursor;
-                v38 = qword_140322FE8;
+                v38 = qword_140323008;
                 if ( *(__int64 **)(CcLazyWriterCursor + 8) != &CcLazyWriterCursor
-                  || *(__int64 **)qword_140322FE8 != &CcLazyWriterCursor )
+                  || *(__int64 **)qword_140323008 != &CcLazyWriterCursor )
                 {
                   __fastfail(3u);
                 }
-                *(_QWORD *)qword_140322FE8 = CcLazyWriterCursor;
+                *(_QWORD *)qword_140323008 = CcLazyWriterCursor;
                 *(_QWORD *)(v37 + 8) = v38;
                 v39 = *(_QWORD **)(v19 + 144);
                 if ( *v39 != v20 )
                   __fastfail(3u);
                 CcLazyWriterCursor = v19 + 136;
-                qword_140322FE8 = (__int64)v39;
+                qword_140323008 = (__int64)v39;
                 *v39 = &CcLazyWriterCursor;
                 *(_QWORD *)(v19 + 144) = &CcLazyWriterCursor;
               }
@@ -303,14 +303,14 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
                 *(_QWORD *)(v47 + 8) = v48;
                 *(_QWORD *)(v46 + 8) = 0LL;
                 *(_QWORD *)v46 = 0LL;
-                v49 = (__int64 *)qword_140323088;
-                if ( *(__int64 **)qword_140323088 != &CcFastTeardownWorkQueue )
+                v49 = (__int64 *)qword_1403230A8;
+                if ( *(__int64 **)qword_1403230A8 != &CcFastTeardownWorkQueue )
                   __fastfail(3u);
                 v50 = CcQueueThrottle == 0;
                 *(_QWORD *)v46 = &CcFastTeardownWorkQueue;
                 *(_QWORD *)(v46 + 8) = v49;
                 *v49 = v46;
-                qword_140323088 = v46;
+                qword_1403230A8 = v46;
                 if ( v50 && CcIdleWorkerThreadList != (PWORK_QUEUE_ITEM)&CcIdleWorkerThreadList )
                 {
                   v36 = CcIdleWorkerThreadList;
@@ -355,20 +355,20 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
         if ( v4 )
         {
           v40 = CcLazyWriterCursor;
-          v41 = qword_140322FE8;
+          v41 = qword_140323008;
           if ( *(__int64 **)(CcLazyWriterCursor + 8) != &CcLazyWriterCursor
-            || *(__int64 **)qword_140322FE8 != &CcLazyWriterCursor )
+            || *(__int64 **)qword_140323008 != &CcLazyWriterCursor )
           {
             __fastfail(3u);
           }
-          *(_QWORD *)qword_140322FE8 = CcLazyWriterCursor;
+          *(_QWORD *)qword_140323008 = CcLazyWriterCursor;
           *(_QWORD *)(v40 + 8) = v41;
           v42 = *(_QWORD *)v20;
           if ( *(_QWORD *)(*(_QWORD *)v20 + 8LL) != v20 )
             __fastfail(3u);
           CcLazyWriterCursor = *(_QWORD *)v20;
           v4 = 0;
-          qword_140322FE8 = v20;
+          qword_140323008 = v20;
           *(_QWORD *)(v42 + 8) = &CcLazyWriterCursor;
           *(_QWORD *)v20 = &CcLazyWriterCursor;
         }
@@ -405,7 +405,7 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
     else
     {
       CcForcedDisableLazywriteScan = 1;
-      byte_1403231C0 = 0;
+      byte_1403231E0 = 0;
     }
     KeReleaseQueuedSpinLock(5uLL, v6);
     if ( (xmmword_1403AA2D0 & 0x20000) != 0 )
@@ -415,7 +415,7 @@ void __fastcall CcLazyWriteScan(int a1, __int64 a2)
   }
   else if ( CcDeferredWrites.Flink == &CcDeferredWrites )
   {
-    byte_1403231C0 = 0;
+    byte_1403231E0 = 0;
     KeReleaseQueuedSpinLock(5uLL, v61);
   }
   else

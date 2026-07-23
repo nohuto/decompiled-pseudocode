@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIdleChooseDozeS4Time @ 0x14059E2C8
+ * XREFs of PopIdleChooseDozeS4Time @ 0x14059E7B8
  * Callers:
- *     PopIdleArmAoAcDozeS4Timer @ 0x14059E178 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059E668 (PopIdleArmAoAcDozeS4Timer.c)
  * Callees:
  *     <none>
  */
@@ -17,18 +17,18 @@ char __fastcall PopIdleChooseDozeS4Time(unsigned __int64 *a1, int *a2)
   v3 = 0;
   v4 = 0;
   v5 = 10000000LL * *((unsigned int *)PopPolicy + 22);
-  if ( dword_140C3CD30 )
+  if ( dword_140C3CCD0 )
   {
     v3 = 1;
-    LOBYTE(v4) = dword_140C3CD30 != 1;
+    LOBYTE(v4) = dword_140C3CCD0 != 1;
     v4 += 3;
   }
-  else if ( qword_140C3CD28 > MEMORY[0xFFFFF78000000014] && PopSmartUserPresenceAction == 1 )
+  else if ( qword_140C3CCC8 > MEMORY[0xFFFFF78000000014] && PopSmartUserPresenceAction == 1 )
   {
-    if ( MEMORY[0xFFFFF78000000008] - qword_140C3CD58 <= 10000000
+    if ( MEMORY[0xFFFFF78000000008] - qword_140C3CCF8 <= 10000000
                                                        * (unsigned __int64)(unsigned int)PopSmartUserPresenceGracePeriod )
-      v2 = 10000000LL * (unsigned int)PopSmartUserPresenceGracePeriod - (MEMORY[0xFFFFF78000000008] - qword_140C3CD58);
-    if ( (__int64)(v2 + MEMORY[0xFFFFF78000000014]) < qword_140C3CD28
+      v2 = 10000000LL * (unsigned int)PopSmartUserPresenceGracePeriod - (MEMORY[0xFFFFF78000000008] - qword_140C3CCF8);
+    if ( (__int64)(v2 + MEMORY[0xFFFFF78000000014]) < qword_140C3CCC8
                                                     - 10000000 * ((unsigned int)PopSmartUserPresenceWakeOffset + 60LL)
       && (!v2 || !v5 || v2 < v5) )
     {

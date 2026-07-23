@@ -2,8 +2,8 @@
  * XREFs of RtlStringCchPrintfW @ 0x18000ACEC
  * Callers:
  *     RtlpGetTokenNamedObjectPath @ 0x18000BBE8 (RtlpGetTokenNamedObjectPath.c)
- *     RtlpEtcGetDwordFromPersistedState @ 0x1800A0024 (RtlpEtcGetDwordFromPersistedState.c)
- *     RtlpEtcIsValidFeatureId @ 0x1800A015C (RtlpEtcIsValidFeatureId.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x18009FFE4 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcIsValidFeatureId @ 0x1800A011C (RtlpEtcIsValidFeatureId.c)
  * Callees:
  *     _vsnwprintf @ 0x180090DA0 (_vsnwprintf.c)
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of KasanUnloadInfoCompare @ 0x140565390
+ * XREFs of KasanUnloadInfoCompare @ 0x140565A50
  * Callers:
  *     KasanDriverUnloadImage @ 0x14020B620 (KasanDriverUnloadImage.c)
- *     KasanDriverLoadImage @ 0x1403600B0 (KasanDriverLoadImage.c)
+ *     KasanDriverLoadImage @ 0x140360250 (KasanDriverLoadImage.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetVadWakeList @ 0x14044CC20
+ * XREFs of MiGetVadWakeList @ 0x140443B20
  * Callers:
- *     MiFinishVadDeletion @ 0x14044C9BC (MiFinishVadDeletion.c)
- *     MiFreeRotateView @ 0x1407EDA3C (MiFreeRotateView.c)
- *     MiDeletePartialCloneVads @ 0x1408003E4 (MiDeletePartialCloneVads.c)
- *     MiReleaseVadEventBlocks @ 0x1409B0550 (MiReleaseVadEventBlocks.c)
- *     MiFreePlaceholderStorage @ 0x140A94A68 (MiFreePlaceholderStorage.c)
- *     MiDeleteVadHotPatchState @ 0x140AB2524 (MiDeleteVadHotPatchState.c)
- *     MiFreeVadEventBitmap @ 0x140AC24E4 (MiFreeVadEventBitmap.c)
+ *     MiFinishVadDeletion @ 0x1404438BC (MiFinishVadDeletion.c)
+ *     MiFreeRotateView @ 0x1407EE00C (MiFreeRotateView.c)
+ *     MiDeletePartialCloneVads @ 0x140800B24 (MiDeletePartialCloneVads.c)
+ *     MiReleaseVadEventBlocks @ 0x14099A250 (MiReleaseVadEventBlocks.c)
+ *     MiFreePlaceholderStorage @ 0x140A91218 (MiFreePlaceholderStorage.c)
+ *     MiDeleteVadHotPatchState @ 0x140AAD494 (MiDeleteVadHotPatchState.c)
+ *     MiFreeVadEventBitmap @ 0x140ABD7CC (MiFreeVadEventBitmap.c)
  * Callees:
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     MiUnlockVadCore @ 0x140429670 (MiUnlockVadCore.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     MiUnlockVadCore @ 0x14041D7C0 (MiUnlockVadCore.c)
  */
 
 unsigned __int64 __fastcall MiGetVadWakeList(__int64 a1, int a2)

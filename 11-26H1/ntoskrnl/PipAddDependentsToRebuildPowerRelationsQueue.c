@@ -1,12 +1,12 @@
 /*
- * XREFs of PipAddDependentsToRebuildPowerRelationsQueue @ 0x14090ED20
+ * XREFs of PipAddDependentsToRebuildPowerRelationsQueue @ 0x1409B0E50
  * Callers:
- *     IoResolveDependency @ 0x1404F5D10 (IoResolveDependency.c)
- *     IoDuplicateDependency @ 0x14079F8B0 (IoDuplicateDependency.c)
- *     PnpDeleteAllDependencyRelations @ 0x14090EA44 (PnpDeleteAllDependencyRelations.c)
+ *     IoResolveDependency @ 0x1404EF2D0 (IoResolveDependency.c)
+ *     IoDuplicateDependency @ 0x1407A23F0 (IoDuplicateDependency.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1409B0B74 (PnpDeleteAllDependencyRelations.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x140515F40 (PiListEntryToDependencyEdge.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14091159C (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PiListEntryToDependencyEdge @ 0x14050F9B0 (PiListEntryToDependencyEdge.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1409B367C (PipAddtoRebuildPowerRelationsQueue.c)
  */
 
 void __fastcall PipAddDependentsToRebuildPowerRelationsQueue(__int64 a1)

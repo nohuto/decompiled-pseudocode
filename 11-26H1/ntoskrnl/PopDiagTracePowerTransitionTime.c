@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionTime @ 0x140B2B8B0
+ * XREFs of PopDiagTracePowerTransitionTime @ 0x140B2D930
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PopPowerTransitionTimesInMs @ 0x1404EBB5C (PopPowerTransitionTimesInMs.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PopPowerTransitionTimesInMs @ 0x1404E513C (PopPowerTransitionTimesInMs.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PopDiagTracePowerTransitionTime()
@@ -20,13 +20,13 @@ void PopDiagTracePowerTransitionTime()
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-39h] BYREF
   int *v7; // [rsp+60h] [rbp-29h]
   __int64 v8; // [rsp+68h] [rbp-21h]
-  _KEVENT *p_SuspendEvent; // [rsp+70h] [rbp-19h]
+  int *v9; // [rsp+70h] [rbp-19h]
   __int64 v10; // [rsp+78h] [rbp-11h]
   int *v11; // [rsp+80h] [rbp-9h]
   __int64 v12; // [rsp+88h] [rbp-1h]
   int *v13; // [rsp+90h] [rbp+7h]
   __int64 v14; // [rsp+98h] [rbp+Fh]
-  _SINGLE_LIST_ENTRY *p_PropagateBoostsEntry; // [rsp+A0h] [rbp+17h]
+  int *v15; // [rsp+A0h] [rbp+17h]
   __int64 v16; // [rsp+A8h] [rbp+1Fh]
   int *v17; // [rsp+B0h] [rbp+27h]
   __int64 v18; // [rsp+B8h] [rbp+2Fh]
@@ -39,22 +39,20 @@ void PopDiagTracePowerTransitionTime()
   v3 = 0;
   v1 = 0;
   v0 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_TRANSITIONTIMES) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_TRANSITIONTIMES) )
     {
       PopPowerTransitionTimesInMs(&v0, &v1, &v2, &v3, (__int64)&v4, v5);
       UserData.Ptr = (ULONGLONG)&v0;
       *(_QWORD *)&UserData.Size = 4LL;
       v7 = &v1;
       v8 = 4LL;
-      p_SuspendEvent = &stru_140F10070.SuspendEvent;
+      v9 = &dword_140F10BF0;
       v10 = 4LL;
       v11 = &v2;
       v13 = &v3;
-      p_PropagateBoostsEntry = &stru_140F10070.PropagateBoostsEntry;
+      v15 = &dword_140F10C38;
       v17 = &v4;
       v19 = v5;
       v12 = 4LL;
@@ -62,12 +60,7 @@ void PopDiagTracePowerTransitionTime()
       v16 = 4LL;
       v18 = 4LL;
       v20 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_TRANSITIONTIMES,
-        0LL,
-        8u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_TRANSITIONTIMES, 0LL, 8u, &UserData);
     }
   }
 }

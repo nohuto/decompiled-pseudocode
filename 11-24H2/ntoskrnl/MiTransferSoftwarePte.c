@@ -1,21 +1,21 @@
 /*
- * XREFs of MiTransferSoftwarePte @ 0x14039F300
+ * XREFs of MiTransferSoftwarePte @ 0x140215AA0
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiDecommitHandleTransitionPte @ 0x140286C5C (MiDecommitHandleTransitionPte.c)
- *     MiDecommitAddToList @ 0x1402889A0 (MiDecommitAddToList.c)
- *     MiDecommitHandlePageFileFormatPte @ 0x140289270 (MiDecommitHandlePageFileFormatPte.c)
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
- *     MiFindFreePageFileSpace @ 0x140367D88 (MiFindFreePageFileSpace.c)
- *     MiReservePageFileSpaceForPage @ 0x1403687E0 (MiReservePageFileSpaceForPage.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiWritePageFileHash @ 0x14039E350 (MiWritePageFileHash.c)
- *     MiDeleteSectionCluster @ 0x1403A0124 (MiDeleteSectionCluster.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1403E4774 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140403D20 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14046511C (MiRewriteTrimPteAsDemandZero.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140200A7C (MiRewriteTrimPteAsDemandZero.c)
+ *     MiDeleteSectionCluster @ 0x140216B54 (MiDeleteSectionCluster.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiDecommitHandleTransitionPte @ 0x14029685C (MiDecommitHandleTransitionPte.c)
+ *     MiDecommitAddToList @ 0x1402985A0 (MiDecommitAddToList.c)
+ *     MiDecommitHandlePageFileFormatPte @ 0x140298E70 (MiDecommitHandlePageFileFormatPte.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
+ *     MiFindFreePageFileSpace @ 0x1403C438C (MiFindFreePageFileSpace.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403C5F70 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403D2314 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiReservePageFileSpaceForPage @ 0x1403FDC68 (MiReservePageFileSpaceForPage.c)
+ *     MiWritePageFileHash @ 0x140426540 (MiWritePageFileHash.c)
  * Callees:
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
  */
 
 unsigned __int64 __fastcall MiTransferSoftwarePte(__int64 a1, __int64 a2, unsigned int a3, char a4)
@@ -75,17 +75,17 @@ unsigned __int64 __fastcall MiTransferSoftwarePte(__int64 a1, __int64 a2, unsign
   if ( v9 )
   {
     v12 = v6 << 32;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       if ( (v9 & 0x10) != 0 )
         v13 = (unsigned int)v9 & 0xFFFFFFEF;
       else
-        v13 = ~(_DWORD)qword_140E2DB80 & (unsigned int)v9;
+        v13 = ~(_DWORD)qword_140E2DCC0 & (unsigned int)v9;
       v14 = v13 | v12;
-      if ( (v14 & qword_140E2DB80) != 0 )
+      if ( (v14 & qword_140E2DCC0) != 0 )
         PageFilePte = v14 | 0x10;
       else
-        PageFilePte = qword_140E2DB80 | v14;
+        PageFilePte = qword_140E2DCC0 | v14;
     }
     else
     {

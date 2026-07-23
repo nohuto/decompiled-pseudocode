@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpRemoveSecurityCellList @ 0x1400AB604
+ * XREFs of CmpRemoveSecurityCellList @ 0x1400A9B6C
  * Callers:
- *     CmpDereferenceSecurityNode @ 0x1401B6514 (CmpDereferenceSecurityNode.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
- *     CmpTransMgrFreeVolatileData @ 0x1403FD614 (CmpTransMgrFreeVolatileData.c)
- *     CmpFreeSecurityDescriptor @ 0x1404D972C (CmpFreeSecurityDescriptor.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1404E1020 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x14060E970 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpDereferenceSecurityNode @ 0x1401B63F8 (CmpDereferenceSecurityNode.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1403FC4D4 (CmpTransMgrFreeVolatileData.c)
+ *     CmpFreeSecurityDescriptor @ 0x1404BCD30 (CmpFreeSecurityDescriptor.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1404C4624 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x14060EA24 (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     CmpRemoveFromSecurityCache @ 0x1404D97E8 (CmpRemoveFromSecurityCache.c)
+ *     CmpRemoveFromSecurityCache @ 0x1404BCDEC (CmpRemoveFromSecurityCache.c)
  */
 
 __int64 __fastcall CmpRemoveSecurityCellList(__int64 a1, __int64 a2)

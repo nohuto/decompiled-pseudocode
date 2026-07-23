@@ -9,12 +9,12 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-char __fastcall sub_18010216C(_DWORD *a1)
+char __fastcall sub_18010216C(PVOID *BaseAddress)
 {
   char v2; // bl
 
   v2 = 0;
-  if ( sub_18001F9B0(a1, "RtlWalkHeap") )
-    return sub_180090710((__int64)a1, 0);
+  if ( sub_18001F9B0(BaseAddress, "RtlWalkHeap") )
+    return sub_180090710(BaseAddress, 0);
   return v2;
 }

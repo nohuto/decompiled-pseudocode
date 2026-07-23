@@ -1,11 +1,11 @@
 /*
- * XREFs of ArbInitializeMmConfigRange @ 0x140C1578C
+ * XREFs of ArbInitializeMmConfigRange @ 0x140C1778C
  * Callers:
- *     HalpPciReportMmConfigAddressRange @ 0x140C1322C (HalpPciReportMmConfigAddressRange.c)
+ *     HalpPciReportMmConfigAddressRange @ 0x140C1522C (HalpPciReportMmConfigAddressRange.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall ArbInitializeMmConfigRange(ULONG *Data)

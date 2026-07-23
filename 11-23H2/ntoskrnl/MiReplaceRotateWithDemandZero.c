@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReplaceRotateWithDemandZero @ 0x140A31408
+ * XREFs of MiReplaceRotateWithDemandZero @ 0x140A316B8
  * Callers:
- *     MmRotatePhysicalView @ 0x140A31BD0 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140A31E80 (MmRotatePhysicalView.c)
  * Callees:
  *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiMarkMdlComplete @ 0x140632788 (MiMarkMdlComplete.c)
- *     MiSlowRotateCopy @ 0x140632F64 (MiSlowRotateCopy.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
- *     MiGetVadCacheAttribute @ 0x140660BA4 (MiGetVadCacheAttribute.c)
- *     MiLogVirtualRotateEvent @ 0x140A313B4 (MiLogVirtualRotateEvent.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiMarkMdlComplete @ 0x140632CD8 (MiMarkMdlComplete.c)
+ *     MiSlowRotateCopy @ 0x1406334B4 (MiSlowRotateCopy.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
+ *     MiGetVadCacheAttribute @ 0x1406610F4 (MiGetVadCacheAttribute.c)
+ *     MiLogVirtualRotateEvent @ 0x140A31664 (MiLogVirtualRotateEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

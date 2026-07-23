@@ -1,8 +1,8 @@
 /*
- * XREFs of OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1403604C8
+ * XREFs of OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1402A53F8
  * Callers:
- *     ObpCreateSymbolicLinkName @ 0x1406B8F14 (ObpCreateSymbolicLinkName.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     ObpCreateSymbolicLinkName @ 0x140618538 (ObpCreateSymbolicLinkName.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTpWriteMemory @ 0x14057EF6C
+ * XREFs of KiTpWriteMemory @ 0x14057F45C
  * Callers:
- *     KiTpWriteBreakpoint @ 0x14057EECC (KiTpWriteBreakpoint.c)
+ *     KiTpWriteBreakpoint @ 0x14057F3BC (KiTpWriteBreakpoint.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MmDbgCopyMemory @ 0x1402E5DB0 (MmDbgCopyMemory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiTpWriteUmMemory @ 0x14057F090 (KiTpWriteUmMemory.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MmDbgCopyMemory @ 0x1402E6040 (MmDbgCopyMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiTpWriteUmMemory @ 0x14057F580 (KiTpWriteUmMemory.c)
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)
  */

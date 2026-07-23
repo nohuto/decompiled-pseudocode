@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceMonitorOnWithLidClosed @ 0x1408732E8
+ * XREFs of PopDiagTraceMonitorOnWithLidClosed @ 0x140874548
  * Callers:
- *     PopMonitorInvocation @ 0x1406DC188 (PopMonitorInvocation.c)
+ *     PopMonitorInvocation @ 0x1406DD428 (PopMonitorInvocation.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PopDiagTraceMonitorOnWithLidClosed()
@@ -49,7 +49,7 @@ void PopDiagTraceMonitorOnWithLidClosed()
       v14 = 4LL;
       v16 = 1LL;
       v18 = 1LL;
-      TlgWrite(&pCallbackContext, &unk_14036FE56, 0LL, 0LL, 7u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140370CA7, 0LL, 0LL, 7u, &pData);
     }
   }
 }

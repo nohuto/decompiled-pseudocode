@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwSetTimerEx @ 0x180162770
+ * XREFs of ZwSetTimerEx @ 0x180162670
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetTimerEx()
+NTSTATUS __cdecl ZwSetTimerEx(
+        HANDLE TimerHandle,
+        TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
+        PVOID TimerSetInformation,
+        ULONG TimerSetInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 450LL;
+  result = 450;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

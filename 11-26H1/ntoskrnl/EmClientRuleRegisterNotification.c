@@ -1,9 +1,9 @@
 /*
- * XREFs of EmClientRuleRegisterNotification @ 0x14078CCC0
+ * XREFs of EmClientRuleRegisterNotification @ 0x14078F7F0
  * Callers:
  *     <none>
  * Callees:
- *     EmpClientRuleRegisterNotification @ 0x14078CCE4 (EmpClientRuleRegisterNotification.c)
+ *     EmpClientRuleRegisterNotification @ 0x14078F814 (EmpClientRuleRegisterNotification.c)
  */
 
 __int64 __fastcall EmClientRuleRegisterNotification(__int64 a1)

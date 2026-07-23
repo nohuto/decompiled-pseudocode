@@ -13,7 +13,11 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __int64 *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlCompareExchangePropertyStore(
+        ULONG_PTR Key,
+        PULONG_PTR Comperand,
+        PULONG_PTR Exchange,
+        PULONG_PTR Context)
 {
   int v4; // ebp
   void *v5; // r13
@@ -34,9 +38,9 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
   int v21; // eax
   void *v22; // rbp
   __int64 v23; // rcx
-  __int64 v24; // rcx
-  __int64 v25; // rcx
-  unsigned int v26; // ebx
+  unsigned __int64 v24; // rcx
+  unsigned __int64 v25; // rcx
+  NTSTATUS v26; // ebx
   unsigned __int8 v27; // al
   struct _KPRCB *v28; // r9
   _DWORD *v29; // r8
@@ -44,7 +48,7 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
 
   v4 = 0;
   v5 = 0LL;
-  for ( i = Key; ; i = Key )
+  for ( i = (_OWORD *)Key; ; i = (_OWORD *)Key )
   {
     v8 = (unsigned __int8)RtlpAcquirePropStoreLockExclusive(&RtlpPropStoreLock);
     if ( RtlpPropStoreEntries )
@@ -78,10 +82,10 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
       v12 = 16;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -110,14 +114,14 @@ LABEL_40:
         v5 = v22;
       }
       RtlpPropStoreEntriesTotalCount = v12;
-      i = Key;
+      i = (_OWORD *)Key;
       RtlpPropStoreEntries = Pool2;
 LABEL_28:
       v23 = 3LL * (unsigned int)RtlpPropStoreEntriesActiveCount;
       LODWORD(RtlpPropStoreEntriesActiveCount) = RtlpPropStoreEntriesActiveCount + 1;
       v9 = &Pool2[8 * v23];
-      if ( a3 )
-        v24 = *a3;
+      if ( Exchange )
+        v24 = *Exchange;
       else
         v24 = 0LL;
       *((_QWORD *)v9 + 2) = v24;
@@ -126,10 +130,10 @@ LABEL_28:
       break;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v18 >= 2u )
       {
         v19 = KeGetCurrentPrcb();
         v20 = v19->SchedulerAssist;
@@ -144,10 +148,10 @@ LABEL_28:
     ExFreePoolWithTag(Pool2, 0);
   }
   v25 = *((_QWORD *)v9 + 2);
-  if ( !a3 || v25 == *a3 )
-    *((_QWORD *)v9 + 2) = a2;
-  if ( a4 )
-    *a4 = v25;
+  if ( !Exchange || v25 == *Exchange )
+    *((_QWORD *)v9 + 2) = Comperand;
+  if ( Context )
+    *Context = v25;
   if ( v4 )
   {
     qsort(RtlpPropStoreEntries, (unsigned int)RtlpPropStoreEntriesActiveCount, 0x18uLL, RtlpComparePropertyEntry);
@@ -159,10 +163,10 @@ LABEL_28:
   }
 LABEL_42:
   ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = v28->SchedulerAssist;

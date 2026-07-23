@@ -1,16 +1,16 @@
 /*
- * XREFs of PsCallImageNotifyRoutines @ 0x1406AFC10
+ * XREFs of PsCallImageNotifyRoutines @ 0x1406AFC40
  * Callers:
  *     MiDriverLoadSucceeded @ 0x140695BC4 (MiDriverLoadSucceeded.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     DbgkCreateThread @ 0x14076FC1C (DbgkCreateThread.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     DbgkCreateThread @ 0x14076FE0C (DbgkCreateThread.c)
  * Callees:
  *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
  *     ExDereferenceCallBackBlock @ 0x140214FB0 (ExDereferenceCallBackBlock.c)
  *     KeAreAllApcsDisabled @ 0x140215000 (KeAreAllApcsDisabled.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PerfLogImageLoad @ 0x1406AD914 (PerfLogImageLoad.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PerfLogImageLoad @ 0x1406AD944 (PerfLogImageLoad.c)
  */
 
 _QWORD *__fastcall PsCallImageNotifyRoutines(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -18,7 +18,7 @@ _QWORD *__fastcall PsCallImageNotifyRoutines(unsigned __int16 *a1, __int64 a2, _
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v9; // r15
   _DWORD *v10; // r14
-  union _RTL_RUN_ONCE *v11; // rbx
+  _RTL_RUN_ONCE *v11; // rbx
   __int64 v12; // rdi
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rsi

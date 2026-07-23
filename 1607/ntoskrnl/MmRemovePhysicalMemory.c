@@ -1,11 +1,11 @@
 /*
- * XREFs of MmRemovePhysicalMemory @ 0x140658508
+ * XREFs of MmRemovePhysicalMemory @ 0x1406585EC
  * Callers:
  *     <none>
  * Callees:
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  */
 
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)

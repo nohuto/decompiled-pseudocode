@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpExtendHeap @ 0x14058A6B4
+ * XREFs of RtlpExtendHeap @ 0x14058A8E4
  * Callers:
- *     RtlpAllocateHeap @ 0x140588B30 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x140588D60 (RtlpAllocateHeap.c)
  * Callees:
- *     RtlpHpHeapCheckCommitLimit @ 0x14030AB40 (RtlpHpHeapCheckCommitLimit.c)
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
- *     RtlpCoalesceFreeBlocks @ 0x140589490 (RtlpCoalesceFreeBlocks.c)
- *     RtlpFindAndCommitPages @ 0x14058A938 (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x14058B100 (RtlpInitializeHeapSegment.c)
- *     RtlpInsertFreeBlock @ 0x14058B3AC (RtlpInsertFreeBlock.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x140315890 (RtlpHpHeapCheckCommitLimit.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA940 (ZwFreeVirtualMemory.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405896C0 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpFindAndCommitPages @ 0x14058AB68 (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x14058B330 (RtlpInitializeHeapSegment.c)
+ *     RtlpInsertFreeBlock @ 0x14058B5DC (RtlpInsertFreeBlock.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405937F0 (RtlpAnalyzeHeapFailure.c)
  */
 
 __int64 __fastcall RtlpExtendHeap(__int64 a1, __int64 a2)

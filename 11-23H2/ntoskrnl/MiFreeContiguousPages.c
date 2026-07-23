@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreeContiguousPages @ 0x1403C39DC
+ * XREFs of MiFreeContiguousPages @ 0x1403C3BBC
  * Callers:
- *     MiAllocateContiguousMemory @ 0x1403B9CD4 (MiAllocateContiguousMemory.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
- *     MmRemovePhysicalMemory @ 0x140A2D210 (MmRemovePhysicalMemory.c)
- *     MiRemoveMdlPages @ 0x140A2E53C (MiRemoveMdlPages.c)
- *     MiCreatePagefileMemoryExtents @ 0x140A46EF8 (MiCreatePagefileMemoryExtents.c)
- *     MiDeletePageFileMemoryExtents @ 0x140A47214 (MiDeletePageFileMemoryExtents.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49B64 (MiMapSystemImageWithLargePage.c)
- *     MiUnmapLargeDriver @ 0x140A49F18 (MiUnmapLargeDriver.c)
+ *     MiAllocateContiguousMemory @ 0x1403B9EB4 (MiAllocateContiguousMemory.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmRemovePhysicalMemory @ 0x140A2D4C0 (MmRemovePhysicalMemory.c)
+ *     MiRemoveMdlPages @ 0x140A2E7EC (MiRemoveMdlPages.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A471A8 (MiCreatePagefileMemoryExtents.c)
+ *     MiDeletePageFileMemoryExtents @ 0x140A474C4 (MiDeletePageFileMemoryExtents.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A49E14 (MiMapSystemImageWithLargePage.c)
+ *     MiUnmapLargeDriver @ 0x140A4A1C8 (MiUnmapLargeDriver.c)
  * Callees:
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiResidentPageDangleFree @ 0x14038E9EC (MiResidentPageDangleFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiResidentPageDangleFree @ 0x14038EBCC (MiResidentPageDangleFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeContiguousPages(__int64 a1, unsigned __int64 a2)
@@ -66,10 +66,10 @@ __int64 __fastcall MiFreeContiguousPages(__int64 a1, unsigned __int64 a2)
       MiDecrementShareCount(v7);
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v10 <= 0xFu
           && (unsigned __int8)result >= 2u )

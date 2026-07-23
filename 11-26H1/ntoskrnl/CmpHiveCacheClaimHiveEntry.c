@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpHiveCacheClaimHiveEntry @ 0x140861BB4
+ * XREFs of CmpHiveCacheClaimHiveEntry @ 0x140867F94
  * Callers:
- *     CmpMachineHiveCacheClaimEntry @ 0x1408578F0 (CmpMachineHiveCacheClaimEntry.c)
+ *     CmpMachineHiveCacheClaimEntry @ 0x14085DC80 (CmpMachineHiveCacheClaimEntry.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiWaitForSingleEvent @ 0x1404D0228 (CmSiWaitForSingleEvent.c)
- *     CmpHiveCacheEntryLockAcquire @ 0x140861F1C (CmpHiveCacheEntryLockAcquire.c)
- *     CmpHiveCacheEntryLockRelease @ 0x140861F94 (CmpHiveCacheEntryLockRelease.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiWaitForSingleEvent @ 0x1404C9C58 (CmSiWaitForSingleEvent.c)
+ *     CmpHiveCacheEntryLockAcquire @ 0x1408682FC (CmpHiveCacheEntryLockAcquire.c)
+ *     CmpHiveCacheEntryLockRelease @ 0x140868374 (CmpHiveCacheEntryLockRelease.c)
  */
 
 __int64 __fastcall CmpHiveCacheClaimHiveEntry(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

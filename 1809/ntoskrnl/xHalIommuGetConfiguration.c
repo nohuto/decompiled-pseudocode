@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalIommuGetConfiguration @ 0x1409AB200
+ * XREFs of xHalIommuGetConfiguration @ 0x1409AC200
  * Callers:
  *     <none>
  * Callees:

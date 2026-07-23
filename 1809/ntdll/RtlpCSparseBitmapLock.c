@@ -9,20 +9,16 @@
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpCSparseBitmapLock(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpCSparseBitmapLock(_RTL_SRWLOCK *a1, int a2, __int64 a3)
 {
-  volatile signed __int64 *v6; // rcx
-  int v7; // edi
-  signed __int64 result; // rax
+  _RTL_SRWLOCK *v5; // rcx
 
-  v6 = (volatile signed __int64 *)(a1 + 32);
-  v7 = (int)a2;
-  if ( (_DWORD)a2 == 1 )
-    result = RtlAcquireSRWLockExclusive((unsigned __int64)v6, (unsigned __int64)a2, (unsigned __int64 *)a3, a4);
+  v5 = a1 + 4;
+  if ( a2 == 1 )
+    RtlAcquireSRWLockExclusive(v5);
   else
-    result = RtlAcquireSRWLockShared(v6, a2, a3, a4);
+    RtlAcquireSRWLockShared(v5);
   *(_QWORD *)(a3 + 8) = a1;
   *(_BYTE *)(a3 + 4) = -1;
-  *(_DWORD *)a3 = v7;
-  return result;
+  *(_DWORD *)a3 = a2;
 }

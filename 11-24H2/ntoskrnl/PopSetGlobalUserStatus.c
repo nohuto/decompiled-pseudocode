@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetGlobalUserStatus @ 0x1409BCF2C
+ * XREFs of PopSetGlobalUserStatus @ 0x1409A357C
  * Callers:
- *     PopSetSessionUserStatus @ 0x1409BC5C8 (PopSetSessionUserStatus.c)
+ *     PopSetSessionUserStatus @ 0x1409A2C18 (PopSetSessionUserStatus.c)
  * Callees:
- *     PopExtendConnectionState @ 0x14075F788 (PopExtendConnectionState.c)
- *     PopEvaluateGlobalUserStatus @ 0x1409BCF98 (PopEvaluateGlobalUserStatus.c)
+ *     PopExtendConnectionState @ 0x14075E728 (PopExtendConnectionState.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1409A35E8 (PopEvaluateGlobalUserStatus.c)
  */
 
 __int64 __fastcall PopSetGlobalUserStatus(unsigned int *Buffer, unsigned __int64 a2, __int64 a3, __int64 a4)

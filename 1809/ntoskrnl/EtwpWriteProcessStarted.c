@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpWriteProcessStarted @ 0x1405B2408
+ * XREFs of EtwpWriteProcessStarted @ 0x1405B3408
  * Callers:
- *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14066D6E8 (EtwTraceProcess.c)
  * Callees:
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     _TlgCreateSid @ 0x140012F98 (_TlgCreateSid.c)
- *     PsGetProcessSessionId @ 0x140092310 (PsGetProcessSessionId.c)
- *     PsGetProcessStartKey @ 0x1400CCBB0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmGetSessionCreateTime @ 0x1405B3894 (MmGetSessionCreateTime.c)
+ *     PsGetProcessSessionId @ 0x140092250 (PsGetProcessSessionId.c)
+ *     PsGetProcessStartKey @ 0x1400CCC30 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmGetSessionCreateTime @ 0x1405B4894 (MmGetSessionCreateTime.c)
  */
 
 char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigned __int16 *a4)
@@ -65,9 +65,9 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
   v5 = (unsigned __int16 *)&EmptyUnicodeString;
   if ( v4 )
     v5 = *(unsigned __int16 **)(a1 + 1128);
-  if ( stru_140400308.LevelPlus1 > 5 )
+  if ( stru_1404012D0.LevelPlus1 > 5 )
   {
-    LOBYTE(v4) = TlgKeywordOn(&stru_140400308, 3uLL);
+    LOBYTE(v4) = TlgKeywordOn(&stru_1404012D0, 3uLL);
     if ( (_BYTE)v4 )
     {
       v17 = *(_QWORD *)(a1 + 776);
@@ -113,7 +113,7 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
       v50 = v53;
       v51 = 2LL;
       v53[1] = 0;
-      LOBYTE(v4) = TlgWrite(&stru_140400308, &unk_140372F4E, 0LL, 0LL, 0x13u, &pData);
+      LOBYTE(v4) = TlgWrite(&stru_1404012D0, &unk_140373F47, 0LL, 0LL, 0x13u, &pData);
     }
   }
   return v4;

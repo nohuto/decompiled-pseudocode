@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAddKmRegEntry @ 0x140492360
+ * XREFs of EtwpAddKmRegEntry @ 0x140492DF0
  * Callers:
- *     EtwpRegisterProvider @ 0x140492024 (EtwpRegisterProvider.c)
+ *     EtwpRegisterProvider @ 0x140492AB4 (EtwpRegisterProvider.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpReferenceGuidEntry @ 0x14040E5A0 (EtwpReferenceGuidEntry.c)
+ *     EtwpReferenceGuidEntry @ 0x14040D460 (EtwpReferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpAddKmRegEntry(ULONG_PTR BugCheckParameter2, int a2, unsigned __int64 a3, __int64 a4, _QWORD *a5)

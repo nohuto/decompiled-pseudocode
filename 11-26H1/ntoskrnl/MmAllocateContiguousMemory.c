@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAllocateContiguousMemory @ 0x1404FE200
+ * XREFs of MmAllocateContiguousMemory @ 0x1404F7740
  * Callers:
- *     DifMmAllocateContiguousMemoryWrapper @ 0x140665780 (DifMmAllocateContiguousMemoryWrapper.c)
+ *     DifMmAllocateContiguousMemoryWrapper @ 0x140669360 (DifMmAllocateContiguousMemoryWrapper.c)
  * Callees:
- *     MiAllocateContiguousMemory @ 0x14034A28C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14034C30C (MiAllocateContiguousMemory.c)
  */
 
 PVOID __stdcall MmAllocateContiguousMemory(SIZE_T NumberOfBytes, PHYSICAL_ADDRESS HighestAcceptableAddress)
@@ -13,8 +13,8 @@ PVOID __stdcall MmAllocateContiguousMemory(SIZE_T NumberOfBytes, PHYSICAL_ADDRES
 
   v4 = NumberOfBytes;
   v2 = (unsigned __int64)HighestAcceptableAddress.QuadPart >> 12;
-  if ( v2 > qword_140E2D7A0 )
-    v2 = qword_140E2D7A0;
+  if ( v2 > qword_140E2D920 )
+    v2 = qword_140E2D920;
   return (PVOID)MiAllocateContiguousMemory(
                   &v4,
                   0LL,

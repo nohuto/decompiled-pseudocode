@@ -21,7 +21,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   int v6; // ecx
   int v8; // ecx
   unsigned __int64 v9; // rax
-  int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // eax
   __int64 v12; // rdx
   PVOID Object; // [rsp+40h] [rbp-89h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 512;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v10 = NtOpenSession(&ClientId, 983043, (int)&ObjectAttributes);
+    v10 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
     if ( v10 < 0 )
     {
       UniqueProcess = ClientId.UniqueProcess;

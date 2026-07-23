@@ -42,9 +42,9 @@ bool __fastcall SeAccessCheckWithHint(
         __int64 a8,
         char a9,
         _DWORD *a10,
-        int *a11)
+        NTSTATUS *a11)
 {
-  __int64 v11; // r15
+  void *v11; // r15
   int v15; // ebx
   unsigned int v17; // edi
   unsigned __int16 v18; // r10
@@ -91,8 +91,8 @@ bool __fastcall SeAccessCheckWithHint(
   PVOID v60; // rbx
   bool result; // al
   unsigned int v62; // ecx
-  __int64 v63; // rax
-  int v64; // eax
+  void *v63; // rax
+  NTSTATUS v64; // eax
   char v65; // r12
   int v66; // eax
   int v67; // edx
@@ -104,7 +104,7 @@ bool __fastcall SeAccessCheckWithHint(
   __int64 v73; // rax
   __int16 v74; // dx
   __int64 v75; // rax
-  __int64 v76; // rdx
+  ACL *v76; // rdx
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v79; // rdx
@@ -134,12 +134,12 @@ bool __fastcall SeAccessCheckWithHint(
   char v103; // al
   __int64 v104; // [rsp+58h] [rbp-C8h]
   char v105; // [rsp+A0h] [rbp-80h]
-  char v106; // [rsp+A1h] [rbp-7Fh] BYREF
+  BOOLEAN DominatesTrust; // [rsp+A1h] [rbp-7Fh] BYREF
   char v107; // [rsp+A2h] [rbp-7Eh] BYREF
   char v108; // [rsp+A3h] [rbp-7Dh]
   __int16 v109; // [rsp+A4h] [rbp-7Ch]
   int v110; // [rsp+A8h] [rbp-78h]
-  char v111[4]; // [rsp+ACh] [rbp-74h] BYREF
+  BOOLEAN v111[4]; // [rsp+ACh] [rbp-74h] BYREF
   unsigned int v112; // [rsp+B0h] [rbp-70h]
   unsigned int v113; // [rsp+B4h] [rbp-6Ch]
   PACCESS_TOKEN Token; // [rsp+B8h] [rbp-68h]
@@ -155,7 +155,7 @@ bool __fastcall SeAccessCheckWithHint(
   int v124; // [rsp+100h] [rbp-20h] BYREF
   int v125; // [rsp+104h] [rbp-1Ch] BYREF
   _WORD *i; // [rsp+108h] [rbp-18h]
-  __int64 v127; // [rsp+110h] [rbp-10h]
+  ACL *v127; // [rsp+110h] [rbp-10h]
   __int64 v128; // [rsp+118h] [rbp-8h] BYREF
   __int64 v129; // [rsp+120h] [rbp+0h]
   int v130; // [rsp+128h] [rbp+8h]
@@ -170,7 +170,7 @@ bool __fastcall SeAccessCheckWithHint(
   __int16 v139; // [rsp+165h] [rbp+45h]
   char v140; // [rsp+167h] [rbp+47h]
   char v143; // [rsp+1E0h] [rbp+C0h]
-  __int64 v144; // [rsp+1E0h] [rbp+C0h]
+  void *v144; // [rsp+1E0h] [rbp+C0h]
   char v145; // [rsp+1F0h] [rbp+D0h]
   unsigned __int8 v146; // [rsp+200h] [rbp+E0h]
   char v147; // [rsp+200h] [rbp+E0h]
@@ -243,7 +243,7 @@ bool __fastcall SeAccessCheckWithHint(
   v18 = *(_WORD *)(a1 + 2);
   LODWORD(v19) = 0;
   v20 = v18;
-  v106 = 0;
+  DominatesTrust = 0;
   LOWORD(v20) = v18 & 0x10;
   v111[0] = 0;
   while ( 1 )
@@ -283,29 +283,29 @@ LABEL_14:
   v19 = v24;
   if ( (*(_BYTE *)(v23 + 1) & 8) != 0 )
     goto LABEL_20;
-  if ( !v23 || (v11 = v23 + 8, v148 = *(_DWORD *)(v23 + 4), v23 == -8) )
+  if ( !v23 || (v11 = (void *)(v23 + 8), v148 = *(_DWORD *)(v23 + 4), v23 == -8) )
   {
 LABEL_21:
     v15 = -1;
-    *a11 = v11;
+    *a11 = (int)v11;
   }
   else
   {
     if ( !*(_QWORD *)a3 )
       goto LABEL_152;
-    v144 = *(_QWORD *)(*(_QWORD *)a3 + 1104LL);
-    v64 = RtlSidDominatesForTrust(*(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL), v144, v111);
+    v144 = *(void **)(*(_QWORD *)a3 + 1104LL);
+    v64 = RtlSidDominatesForTrust(*(PSID *)(*((_QWORD *)a3 + 2) + 1104LL), v144, v111);
     if ( v64 >= 0 )
     {
       if ( v111[0] )
         v63 = v144;
       else
 LABEL_152:
-        v63 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL);
-      v64 = RtlSidDominatesForTrust(v63, v11, &v106);
+        v63 = *(void **)(*((_QWORD *)a3 + 2) + 1104LL);
+      v64 = RtlSidDominatesForTrust(v63, v11, &DominatesTrust);
       if ( v64 >= 0 )
       {
-        if ( v106 )
+        if ( DominatesTrust )
           v15 = -1;
         else
           v15 = v148 | 0x1000000;
@@ -413,11 +413,11 @@ LABEL_27:
         v127 = 0LL;
         goto LABEL_199;
       }
-      v76 = a1 + v75;
+      v76 = (ACL *)(a1 + v75);
     }
     else
     {
-      v76 = *(_QWORD *)(a1 + 24);
+      v76 = *(ACL **)(a1 + 24);
     }
     v127 = v76;
     if ( v76 )
@@ -450,13 +450,13 @@ LABEL_199:
 LABEL_35:
   if ( (a2 & 1) != 0 )
   {
-    v106 = 1;
+    DominatesTrust = 1;
     if ( (a5 & 0x2060000) == 0 && !v30 )
       goto LABEL_77;
   }
   else
   {
-    v106 = 0;
+    DominatesTrust = 0;
   }
   if ( (*(_WORD *)(a1 + 2) & 0x8000) != 0 )
   {
@@ -509,7 +509,7 @@ LABEL_47:
             v147 = 1;
             if ( *((_DWORD *)Token + 32) )
             {
-              v41 = SepSidInTokenSidHash((__int64)Token + 504, 0LL, v116, 0, 1, 0);
+              v41 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)((char *)Token + 504), 0LL, v116, 0, 1, 0);
               v147 = v41;
             }
           }
@@ -526,7 +526,7 @@ LABEL_102:
             v30 = v105;
             goto LABEL_79;
           }
-          if ( !v106 )
+          if ( !DominatesTrust )
           {
             v42 = *(_WORD *)(a1 + 2);
             if ( (v42 & 4) != 0 )
@@ -730,7 +730,7 @@ LABEL_79:
       v86 = P;
       if ( !P )
       {
-        v87 = AuthzBasepInitializeResourceClaimsFromSacl(v127, &P);
+        v87 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v127, &P);
         v86 = P;
         v88 = (unsigned __int8)v113;
         if ( v87 < 0 )

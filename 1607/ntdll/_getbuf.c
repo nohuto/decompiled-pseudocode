@@ -1,7 +1,7 @@
 /*
- * XREFs of _getbuf @ 0x1800A0B84
+ * XREFs of _getbuf @ 0x1800A0B80
  * Callers:
- *     _ungetc_nolock @ 0x1800A0AD4 (_ungetc_nolock.c)
+ *     _ungetc_nolock @ 0x1800A0AD0 (_ungetc_nolock.c)
  * Callees:
  *     <none>
  */

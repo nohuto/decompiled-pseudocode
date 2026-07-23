@@ -23,10 +23,10 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, unsigne
   unsigned __int64 v8; // rdi
   unsigned int v9; // eax
   char *Pool; // rax
-  unsigned __int64 v11; // r15
+  char *v11; // r15
   _DWORD *v12; // rax
-  unsigned __int64 v13; // rbx
-  bool v14; // r8
+  signed __int64 v13; // rbx
+  BOOLEAN v14; // r8
   int v15; // r14d
   unsigned __int64 v16; // rax
   unsigned __int64 v17; // rcx
@@ -34,12 +34,12 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, unsigne
   unsigned __int64 v19; // rax
   _QWORD *v20; // rdx
   unsigned __int64 v21; // rbx
-  PVOID P[2]; // [rsp+70h] [rbp-10h] BYREF
+  PRTL_BALANCED_NODE Parent[2]; // [rsp+70h] [rbp-10h] BYREF
   __int64 v25; // [rsp+D8h] [rbp+58h] BYREF
 
   v3 = *(_QWORD *)(a1 + 248);
   v25 = 0LL;
-  *(_OWORD *)P = 0LL;
+  *(_OWORD *)Parent = 0LL;
   SpecialPurposeMemoryPartitionForCaching = MiGetSpecialPurposeMemoryPartitionForCaching(v3, 0);
   if ( SpecialPurposeMemoryPartitionForCaching )
   {
@@ -51,7 +51,7 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, unsigne
       {
         if ( !a3 )
         {
-          MiInsertPageFileMemoryExtents(a1, (__int64)P);
+          MiInsertPageFileMemoryExtents(a1, (__int64)Parent);
           v6 = 0;
           goto LABEL_29;
         }
@@ -79,20 +79,20 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, unsigne
         LODWORD(v8) = (((unsigned int)v8 >> 1) + 511) & 0xFFFFFE00;
       }
       Pool = (char *)MiAllocatePool(64, 0x28uLL, 0x6550694Du);
-      v11 = (unsigned __int64)Pool;
+      v11 = Pool;
       if ( !Pool )
         break;
       v12 = Pool + 24;
       a3 -= v8;
       *v12 = v7;
       v7 += v8;
-      *(_DWORD *)(v11 + 28) = v7 - 1;
-      *(_QWORD *)(v11 + 32) = v25;
-      v13 = (unsigned __int64)P[0];
-      if ( ((__int64)P[1] & 1) != 0 && P[0] )
-        v13 = (unsigned __int64)P ^ (unsigned __int64)P[0];
+      *((_DWORD *)v11 + 7) = v7 - 1;
+      *((_QWORD *)v11 + 4) = v25;
+      v13 = (signed __int64)Parent[0];
+      if ( ((__int64)Parent[1] & 1) != 0 && Parent[0] )
+        v13 = (unsigned __int64)Parent ^ (unsigned __int64)Parent[0];
       v14 = 0;
-      v15 = (__int64)P[1] & 1;
+      v15 = (__int64)Parent[1] & 1;
       if ( v13 )
       {
         while ( 1 )
@@ -130,10 +130,10 @@ LABEL_19:
             }
           }
           v13 = v16;
-          v12 = (_DWORD *)(v11 + 24);
+          v12 = v11 + 24;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)P, v13, v14, v11);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)Parent, (PRTL_BALANCED_NODE)v13, v14, (PRTL_BALANCED_NODE)v11);
     }
     MiFreeContiguousPages(v25, v8);
 LABEL_34:
@@ -145,10 +145,10 @@ LABEL_29:
   {
     v6 = -1073741670;
   }
-  v17 = (unsigned __int64)P[0];
-  if ( ((__int64)P[1] & 1) != 0 && P[0] )
-    v17 = (unsigned __int64)P ^ (unsigned __int64)P[0];
-  v18 = (__int64)P[1] & 1;
+  v17 = (unsigned __int64)Parent[0];
+  if ( ((__int64)Parent[1] & 1) != 0 && Parent[0] )
+    v17 = (unsigned __int64)Parent ^ (unsigned __int64)Parent[0];
+  v18 = (__int64)Parent[1] & 1;
   if ( v17 )
   {
     while ( 1 )

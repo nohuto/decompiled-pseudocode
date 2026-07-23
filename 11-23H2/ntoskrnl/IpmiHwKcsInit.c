@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiHwKcsInit @ 0x14067789C
+ * XREFs of IpmiHwKcsInit @ 0x140677DEC
  * Callers:
- *     IpmiHwInitializeContext @ 0x1406777A8 (IpmiHwInitializeContext.c)
+ *     IpmiHwInitializeContext @ 0x140677CF8 (IpmiHwInitializeContext.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
  */
 
 __int64 IpmiHwKcsInit()
@@ -11,19 +11,19 @@ __int64 IpmiHwKcsInit()
   unsigned int v0; // ebx
 
   v0 = 0;
-  if ( (_QWORD)xmmword_140C2CC30 )
+  if ( (_QWORD)xmmword_140C2CBF0 )
   {
-    xmmword_140C2CC80 = 0LL;
-    if ( BYTE8(xmmword_140C2CC30) )
+    xmmword_140C2CC40 = 0LL;
+    if ( BYTE8(xmmword_140C2CBF0) )
     {
-      *(_QWORD *)&xmmword_140C2CC80 = xmmword_140C2CC30;
-      DWORD2(xmmword_140C2CC80) = 0;
+      *(_QWORD *)&xmmword_140C2CC40 = xmmword_140C2CBF0;
+      DWORD2(xmmword_140C2CC40) = 0;
     }
     else
     {
-      *(_QWORD *)&xmmword_140C2CC80 = MmMapIoSpaceEx(xmmword_140C2CC30, 2LL * BYTE8(WheaIpmiContext), 0x204u);
-      if ( (_QWORD)xmmword_140C2CC80 )
-        DWORD2(xmmword_140C2CC80) = 2 * BYTE8(WheaIpmiContext);
+      *(_QWORD *)&xmmword_140C2CC40 = MmMapIoSpaceEx(xmmword_140C2CBF0, 2LL * BYTE8(WheaIpmiContext), 0x204u);
+      if ( (_QWORD)xmmword_140C2CC40 )
+        DWORD2(xmmword_140C2CC40) = 2 * BYTE8(WheaIpmiContext);
       else
         return (unsigned int)-1073741823;
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x14042C5F8
+ * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x140420CC8
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14042C8CC (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x1404D56D4 (PopDiagTraceSleepStudyBlocker.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140420F9C (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x1404CEF44 (PopDiagTraceSleepStudyBlocker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
@@ -47,14 +47,14 @@ void __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
   __int64 v34; // [rsp+D0h] [rbp+2Fh]
 
   v2 = a2;
-  v16 = qword_140F0F5D0;
+  v16 = PopWnfCsEnterScenarioId;
   v17 = 0LL;
   v18 = 0LL;
   v14 = 0;
   v15 = 0;
   if ( PpmPlatformStates )
   {
-    v3 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.KcsanThread);
+    v3 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
     v4 = PpmPlatformStates;
     v5 = v3;
     for ( i = 0; i < *(_DWORD *)PpmPlatformStates; ++i )
@@ -87,11 +87,11 @@ void __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
           if ( *(_QWORD *)(v12 + v11 + 56) )
           {
             DWORD2(v18) = *(_DWORD *)(v12 + v11 + 16);
-            v15 = *((unsigned __int16 *)stru_140E66FF0.IptSaveArea + 12 * v9 + 8) >> 1;
+            v15 = *(unsigned __int16 *)(stru_140E67200.Padding[4] + 24LL * v9 + 16) >> 1;
             v22 = &v15;
             v23 = 4LL;
-            v13 = *((unsigned __int16 *)stru_140E66FF0.IptSaveArea + 12 * v9 + 8);
-            v24 = *((_QWORD *)stru_140E66FF0.IptSaveArea + 3 * v9 + 3);
+            v13 = *(unsigned __int16 *)(stru_140E67200.Padding[4] + 24LL * v9 + 16);
+            v24 = *(_QWORD *)(stru_140E67200.Padding[4] + 24LL * v9 + 24);
             v31 = &v16;
             v25 = v13;
             v33 = &v17;
@@ -108,6 +108,6 @@ void __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
         while ( v9 < *(_DWORD *)(v10 + v4 + 108) );
       }
     }
-    KeReleaseSpinLock(&stru_140F10070.KcsanThread, v5);
+    KeReleaseSpinLock(&PpmIdleVetoLock, v5);
   }
 }

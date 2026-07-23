@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaAcquireBufferMappings @ 0x14035C1E8
+ * XREFs of HalpDmaAcquireBufferMappings @ 0x14035DF88
  * Callers:
- *     HalpDmaFreeMapRegisters @ 0x140359820 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaSyncMapBuffers @ 0x14035BE40 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaZeroMapBuffers @ 0x140589598 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaFreeMapRegisters @ 0x14035B5C0 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaSyncMapBuffers @ 0x14035DBE0 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaZeroMapBuffers @ 0x14058BC68 (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1404B5970 (MmMapLockedPagesWithReservedMapping.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1404AECD0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -68,7 +68,7 @@ LABEL_4:
   v9 = 0;
   v10 = (_QWORD *)v8;
   Number = KeGetCurrentPrcb()->Number;
-  v12 = *(_QWORD *)(*(_QWORD *)&stru_140E3E928.ThreadFlags2 + 8 * Number);
+  v12 = *(_QWORD *)(*(_QWORD *)&stru_140E3EAA8.ThreadFlags2 + 8 * Number);
   v13 = (_QWORD *)(v12 + 48);
   if ( (_DWORD)v5 )
   {
@@ -86,16 +86,16 @@ LABEL_4:
     while ( v14 );
   }
   v15 = 0LL;
-  v16 = stru_140E3E928.WaitBlockFill7[144] == 0;
+  v16 = stru_140E3EAA8.WaitBlockFill7[144] == 0;
   v17 = 1;
   *(_QWORD *)(v12 + 32) = 0LL;
   *(_QWORD *)(v12 + 40) = (unsigned int)(v9 << 12);
   if ( !v16 )
   {
-    v15 = (PSLIST_ENTRY)*((_QWORD *)&stru_140E3E928.QueueListEntry.Flink->Flink + Number);
+    v15 = (PSLIST_ENTRY)*((_QWORD *)&stru_140E3EAA8.QueueListEntry.Flink->Flink + Number);
     goto LABEL_32;
   }
-  v18 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E3E928.WaitBlockFill11[152]);
+  v18 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E3EAA8.WaitBlockFill11[152]);
   if ( v18 )
   {
     v15 = v18;
@@ -114,12 +114,12 @@ LABEL_32:
   v19 = result;
   if ( !result )
   {
-    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)&stru_140E3E928.WaitBlock[2].Object, &LockHandle);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)&stru_140E3EAA8.WaitBlock[2].Object, &LockHandle);
     v22 = 1;
-    Blink = (int)stru_140E3E928.QueueListEntry.Flink->Flink[1].Blink;
-    if ( *(_DWORD *)&stru_140E3E928.WaitBlockFill11[148] > 1u )
+    Blink = (int)stru_140E3EAA8.QueueListEntry.Flink->Flink[1].Blink;
+    if ( *(_DWORD *)&stru_140E3EAA8.WaitBlockFill11[148] > 1u )
     {
-      p_Blink = &stru_140E3E928.QueueListEntry.Flink->Blink;
+      p_Blink = &stru_140E3EAA8.QueueListEntry.Flink->Blink;
       do
       {
         v25 = *p_Blink;
@@ -136,10 +136,10 @@ LABEL_32:
         if ( v27 >= v26 )
           Blink = v26;
       }
-      while ( v22 < *(_DWORD *)&stru_140E3E928.WaitBlockFill11[148] );
+      while ( v22 < *(_DWORD *)&stru_140E3EAA8.WaitBlockFill11[148] );
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v15 = (PSLIST_ENTRY)*((_QWORD *)&stru_140E3E928.QueueListEntry.Flink->Flink + (unsigned int)v15);
+    v15 = (PSLIST_ENTRY)*((_QWORD *)&stru_140E3EAA8.QueueListEntry.Flink->Flink + (unsigned int)v15);
     goto LABEL_31;
   }
   v17 = 0;

@@ -1,46 +1,46 @@
 /*
  * XREFs of RtlFindClearBitsAndSet @ 0x1402054C0
  * Callers:
- *     MiGetUltraHugeAlreadyActive @ 0x140205E40 (MiGetUltraHugeAlreadyActive.c)
- *     BgpFwReserveAllocate @ 0x1403AA42C (BgpFwReserveAllocate.c)
- *     MiAssignSoftwareWsleRegion @ 0x1403C3A30 (MiAssignSoftwareWsleRegion.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1404588B6 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x140503590 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x140503628 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x140503808 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1405038DC (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
- *     HalpIommuAcquireNewDomain @ 0x140517C90 (HalpIommuAcquireNewDomain.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x140518870 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x1405188FC (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1405189C4 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
- *     MiReserveFaultPte @ 0x140596204 (MiReserveFaultPte.c)
- *     RtlHotPatchSynchronizationRequired @ 0x1405EF908 (RtlHotPatchSynchronizationRequired.c)
- *     SepAddLuidToIndexEntry @ 0x140672348 (SepAddLuidToIndexEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x140696750 (SepGetLowBoxNumberEntry.c)
- *     MiReserveDriverPtes @ 0x1407621C0 (MiReserveDriverPtes.c)
- *     MiGetNewSessionId @ 0x1407F3534 (MiGetNewSessionId.c)
- *     PspStorageAllocSlot @ 0x1408258B8 (PspStorageAllocSlot.c)
- *     HalpIrtAllocateIndex @ 0x140909B14 (HalpIrtAllocateIndex.c)
- *     MiAllocatePartitionId @ 0x14096C1B0 (MiAllocatePartitionId.c)
- *     TtmiCreateTerminal @ 0x1409A2F78 (TtmiCreateTerminal.c)
- *     RtlApplyHotPatch @ 0x140A6BF28 (RtlApplyHotPatch.c)
- *     ViAllocateFromContiguousMemory @ 0x140A871D0 (ViAllocateFromContiguousMemory.c)
- *     MiAssignSystemVa @ 0x140B0751C (MiAssignSystemVa.c)
- *     MiAssignSessionRanges @ 0x140B29EB4 (MiAssignSessionRanges.c)
+ *     sub_140205E40 @ 0x140205E40 (sub_140205E40.c)
+ *     sub_1403AA42C @ 0x1403AA42C (sub_1403AA42C.c)
+ *     sub_1403C3A30 @ 0x1403C3A30 (sub_1403C3A30.c)
+ *     sub_1404588B6 @ 0x1404588B6 (sub_1404588B6.c)
+ *     sub_140503590 @ 0x140503590 (sub_140503590.c)
+ *     sub_140503628 @ 0x140503628 (sub_140503628.c)
+ *     sub_140503808 @ 0x140503808 (sub_140503808.c)
+ *     sub_1405038DC @ 0x1405038DC (sub_1405038DC.c)
+ *     sub_140517C90 @ 0x140517C90 (sub_140517C90.c)
+ *     sub_140518870 @ 0x140518870 (sub_140518870.c)
+ *     sub_1405188FC @ 0x1405188FC (sub_1405188FC.c)
+ *     sub_1405189C4 @ 0x1405189C4 (sub_1405189C4.c)
+ *     sub_140596204 @ 0x140596204 (sub_140596204.c)
+ *     sub_1405EF908 @ 0x1405EF908 (sub_1405EF908.c)
+ *     sub_140672348 @ 0x140672348 (sub_140672348.c)
+ *     sub_140696750 @ 0x140696750 (sub_140696750.c)
+ *     sub_1407621C0 @ 0x1407621C0 (sub_1407621C0.c)
+ *     sub_1407F3534 @ 0x1407F3534 (sub_1407F3534.c)
+ *     sub_1408258B8 @ 0x1408258B8 (sub_1408258B8.c)
+ *     sub_140909B14 @ 0x140909B14 (sub_140909B14.c)
+ *     sub_14096C1B0 @ 0x14096C1B0 (sub_14096C1B0.c)
+ *     sub_1409A2F78 @ 0x1409A2F78 (sub_1409A2F78.c)
+ *     sub_140A6BF28 @ 0x140A6BF28 (sub_140A6BF28.c)
+ *     sub_140A871D0 @ 0x140A871D0 (sub_140A871D0.c)
+ *     sub_140B0751C @ 0x140B0751C (sub_140B0751C.c)
+ *     sub_140B29EB4 @ 0x140B29EB4 (sub_140B29EB4.c)
  * Callees:
  *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
  */
 
 ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  unsigned int SizeOfBitMap; // r13d
+  ULONG SizeOfBitMap; // r13d
   ULONG v4; // esi
-  unsigned int *Buffer; // r10
+  PULONG Buffer; // r10
   ULONG v8; // ebx
-  unsigned int v9; // r9d
+  ULONG v9; // r9d
   __int64 v10; // rcx
   int v11; // r15d
-  unsigned int v12; // r8d
+  ULONG v12; // r8d
   ULONG v13; // edx
   char *v14; // r14
   ULONG v15; // ebp
@@ -52,7 +52,7 @@ ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToF
   unsigned int v21; // r8d
   bool v22; // cc
   ULONG v23; // ebx
-  unsigned int v25; // r9d
+  ULONG v25; // r9d
   bool v26; // zf
   __int64 v27; // rax
   int v28; // r9d
@@ -73,7 +73,7 @@ ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToF
   unsigned __int64 v43; // r8
   __int64 v44; // rax
   __int64 v45; // [rsp+70h] [rbp+8h]
-  unsigned int *v47; // [rsp+88h] [rbp+20h]
+  ULONG *v47; // [rsp+88h] [rbp+20h]
 
   SizeOfBitMap = BitMapHeader->SizeOfBitMap;
   v4 = HintIndex;

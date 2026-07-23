@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIsInputSuppressionEngaged @ 0x1408EED38
+ * XREFs of PopIsInputSuppressionEngaged @ 0x1408EEE98
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ bool __fastcall PopIsInputSuppressionEngaged(int a1)
     && PopEnableInputSuppression
     && !PopErrataReportingIncorrectLidState
     && !PopLidOpened
-    && dword_140C23E8C == 1
+    && dword_140C2332C == 1
     && !PopConsoleExternalDisplayConnected )
   {
     return PopConsoleDisplayState == 0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiApplyBytestreamFixup @ 0x1404A2AEC
+ * XREFs of MiApplyBytestreamFixup @ 0x14049DA7C
  * Callers:
- *     MiSwitchBaseAddress @ 0x1408F6D04 (MiSwitchBaseAddress.c)
+ *     MiSwitchBaseAddress @ 0x140A45C38 (MiSwitchBaseAddress.c)
  * Callees:
  *     <none>
  */

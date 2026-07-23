@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcslwr @ 0x14014D7E0
+ * XREFs of _wcslwr @ 0x14014DD50
  * Callers:
- *     SiGetFirmwareBootDeviceNameFromRegistry @ 0x14054244C (SiGetFirmwareBootDeviceNameFromRegistry.c)
+ *     SiGetFirmwareBootDeviceNameFromRegistry @ 0x14054298C (SiGetFirmwareBootDeviceNameFromRegistry.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 wchar_t *__cdecl wcslwr(wchar_t *String)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmScaleIdleStateValues @ 0x14034F31C
+ * XREFs of PpmScaleIdleStateValues @ 0x14034F4BC
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14034F00C (PpmPerfApplyProcessorState.c)
- *     PpmResetIdlePolicy @ 0x14039FB58 (PpmResetIdlePolicy.c)
+ *     PpmPerfApplyProcessorState @ 0x14034F1AC (PpmPerfApplyProcessorState.c)
+ *     PpmResetIdlePolicy @ 0x14039FD38 (PpmResetIdlePolicy.c)
  * Callees:
- *     HvlGetLpIndexFromProcessorIndex @ 0x14045F450 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlRegisterLogicalProcessorFrequency @ 0x140546D54 (HvlRegisterLogicalProcessorFrequency.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x14045F850 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlRegisterLogicalProcessorFrequency @ 0x140547414 (HvlRegisterLogicalProcessorFrequency.c)
  */
 
 void __fastcall PpmScaleIdleStateValues(__int64 a1)

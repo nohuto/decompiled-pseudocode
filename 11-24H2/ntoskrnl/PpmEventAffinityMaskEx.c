@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventAffinityMaskEx @ 0x1405DD5A0
+ * XREFs of PpmEventAffinityMaskEx @ 0x1405DA420
  * Callers:
- *     PpmEventAffinityMask @ 0x1405D8D90 (PpmEventAffinityMask.c)
+ *     PpmEventAffinityMask @ 0x1405D6230 (PpmEventAffinityMask.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventAffinityMaskEx(PCEVENT_DESCRIPTOR EventDescriptor, _WORD *a2)

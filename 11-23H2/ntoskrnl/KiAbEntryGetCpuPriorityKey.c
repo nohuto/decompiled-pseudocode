@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAbEntryGetCpuPriorityKey @ 0x1403191A0
+ * XREFs of KiAbEntryGetCpuPriorityKey @ 0x140319430
  * Callers:
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiDispatchInterrupt @ 0x140249530 (KiDispatchInterrupt.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiAbSetMinimumThreadPriority @ 0x140318E28 (KiAbSetMinimumThreadPriority.c)
- *     KiAbForceProcessLockEntry @ 0x1403CCA88 (KiAbForceProcessLockEntry.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiDispatchInterrupt @ 0x140249600 (KiDispatchInterrupt.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1403190B8 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbForceProcessLockEntry @ 0x1403CCC68 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     KiAbOwnerComputeCpuPriorityKey @ 0x1403192AC (KiAbOwnerComputeCpuPriorityKey.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x14031953C (KiAbOwnerComputeCpuPriorityKey.c)
  */
 
 char __fastcall KiAbEntryGetCpuPriorityKey(unsigned __int8 *a1)

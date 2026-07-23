@@ -197,7 +197,7 @@ __int64 (__fastcall *__fastcall MiInitSystem(int a1, __int64 a2))(__int64 a1)
     {
       for ( j = 0; !j; j = 1 )
       {
-        if ( (int)MiActOnLargeKernelHalPages(*(_QWORD *)(*((_QWORD *)&MiState + 448) + 48LL)) < 0 )
+        if ( (int)MiActOnLargeKernelHalPages(*(char **)(*((_QWORD *)&MiState + 448) + 48LL)) < 0 )
           MxInstallMoreMemory(30);
       }
       if ( (MiFlags & 0x4000) != 0 )

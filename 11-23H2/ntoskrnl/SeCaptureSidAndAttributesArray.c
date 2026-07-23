@@ -1,20 +1,20 @@
 /*
- * XREFs of SeCaptureSidAndAttributesArray @ 0x1406BCC50
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x1406BCC80
  * Callers:
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     SepLengthSidAndAttributesArray @ 0x1406BD564 (SepLengthSidAndAttributesArray.c)
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     NtAdjustGroupsToken @ 0x1407CA950 (NtAdjustGroupsToken.c)
- *     SepCreateClaimAttributes @ 0x1407CF434 (SepCreateClaimAttributes.c)
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
- *     NtFilterToken @ 0x1407F1850 (NtFilterToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2540 (NtCreateLowBoxToken.c)
- *     SepDuplicateClaimAttributes @ 0x1409D1444 (SepDuplicateClaimAttributes.c)
+ *     NtCreateTokenEx @ 0x1406BB560 (NtCreateTokenEx.c)
+ *     SepLengthSidAndAttributesArray @ 0x1406BD594 (SepLengthSidAndAttributesArray.c)
+ *     SepSetTokenCapabilities @ 0x1406BD648 (SepSetTokenCapabilities.c)
+ *     NtAdjustGroupsToken @ 0x1407CAC20 (NtAdjustGroupsToken.c)
+ *     SepCreateClaimAttributes @ 0x1407CF704 (SepCreateClaimAttributes.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
+ *     NtFilterToken @ 0x1407F1B20 (NtFilterToken.c)
+ *     NtCreateLowBoxToken @ 0x1407F2810 (NtCreateLowBoxToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409D1644 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlValidSid @ 0x1407373A0 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlValidSid @ 0x140737590 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

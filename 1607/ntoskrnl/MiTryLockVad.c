@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTryLockVad @ 0x1400AD0B4
+ * XREFs of MiTryLockVad @ 0x1400AB61C
  * Callers:
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiDeprioritizeVad @ 0x1400ACF60 (MiDeprioritizeVad.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiDeprioritizeVad @ 0x1400AB4C8 (MiDeprioritizeVad.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
  */
 
 __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)

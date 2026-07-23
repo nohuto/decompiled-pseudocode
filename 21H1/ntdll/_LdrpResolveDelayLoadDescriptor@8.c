@@ -7,33 +7,33 @@
  *     _LdrResolveDelayLoadedAPI@24 @ 0x4B2CCA20 (_LdrResolveDelayLoadedAPI@24.c)
  */
 
-int __fastcall LdrpResolveDelayLoadDescriptor(_BYTE *a1, int a2)
+int __fastcall LdrpResolveDelayLoadDescriptor(char *ParentModuleBase, PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor)
 {
-  _DWORD *v2; // ebx
+  char *v2; // ebx
   int v3; // esi
   int v4; // edi
-  char *v5; // eax
-  _BYTE *v7; // [esp+10h] [ebp-8h]
-  int v8; // [esp+14h] [ebp-4h]
+  IMAGE_THUNK_DATA64 *v5; // eax
+  char *v7; // [esp+10h] [ebp-8h]
+  const IMAGE_DELAYLOAD_DESCRIPTOR *v8; // [esp+14h] [ebp-4h]
 
-  v2 = &a1[*(_DWORD *)(a2 + 12)];
-  v8 = a2;
+  v2 = &ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
+  v8 = DelayloadDescriptor;
   v3 = 0;
-  v7 = a1;
+  v7 = ParentModuleBase;
   v4 = 0;
-  if ( *v2 )
+  if ( *(_DWORD *)v2 )
   {
-    v5 = &a1[*(_DWORD *)(a2 + 12)];
+    v5 = (IMAGE_THUNK_DATA64 *)&ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
     do
     {
-      if ( !LdrResolveDelayLoadedAPI(a1, (_BYTE *)a2, 0, 0, v5, 0) )
+      if ( !LdrResolveDelayLoadedAPI(ParentModuleBase, DelayloadDescriptor, 0, 0, v5, 0) )
         v4 = -1073740782;
-      a2 = v8;
+      DelayloadDescriptor = v8;
       ++v3;
-      a1 = v7;
-      v5 = (char *)&v2[v3];
+      ParentModuleBase = v7;
+      v5 = (IMAGE_THUNK_DATA64 *)&v2[4 * v3];
     }
-    while ( *(_DWORD *)v5 );
+    while ( LODWORD(v5->u1.ForwarderString) );
   }
   return v4;
 }

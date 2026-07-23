@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkPostEnclaveModuleMessages @ 0x1405B3CA8
+ * XREFs of DbgkPostEnclaveModuleMessages @ 0x1405B64B8
  * Callers:
- *     DbgkpPostModuleMessages @ 0x140B27048 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140B290F8 (DbgkpPostModuleMessages.c)
  * Callees:
- *     DbgkPostModuleMessage @ 0x1404C6E8C (DbgkPostModuleMessage.c)
+ *     DbgkPostModuleMessage @ 0x1404C083C (DbgkPostModuleMessage.c)
  */
 
 NTSTATUS __fastcall DbgkPostEnclaveModuleMessages(void *a1, void *a2, struct _KEVENT *a3, __int64 a4, unsigned int a5)

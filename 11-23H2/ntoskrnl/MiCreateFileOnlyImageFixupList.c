@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateFileOnlyImageFixupList @ 0x140A339DC
+ * XREFs of MiCreateFileOnlyImageFixupList @ 0x140A33C8C
  * Callers:
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetControlAreaPartition @ 0x1402756B0 (MiGetControlAreaPartition.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiUpdateControlAreaCommitCount @ 0x1402EBFC8 (MiUpdateControlAreaCommitCount.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiGetSubsectionFromPte @ 0x14064E228 (MiGetSubsectionFromPte.c)
- *     MiPageHasRelocations @ 0x1406B130C (MiPageHasRelocations.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetControlAreaPartition @ 0x140275940 (MiGetControlAreaPartition.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiUpdateControlAreaCommitCount @ 0x1402EC258 (MiUpdateControlAreaCommitCount.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiGetSubsectionFromPte @ 0x14064E778 (MiGetSubsectionFromPte.c)
+ *     MiPageHasRelocations @ 0x1406B133C (MiPageHasRelocations.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,0 +1,81 @@
+/*
+ * XREFs of sub_1405CD9A0 @ 0x1405CD9A0
+ * Callers:
+ *     sub_1405DE108 @ 0x1405DE108 (sub_1405DE108.c)
+ * Callees:
+ *     sub_14022B568 @ 0x14022B568 (sub_14022B568.c)
+ *     sub_140287F30 @ 0x140287F30 (sub_140287F30.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_14034EE30 @ 0x14034EE30 (sub_14034EE30.c)
+ *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ */
+
+char __fastcall sub_1405CD9A0(__int64 a1, __int64 a2)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  _QWORD *v4; // rdi
+  __int64 v5; // rcx
+  _QWORD *v6; // rax
+  struct _KTHREAD *v7; // rdi
+  unsigned int v8; // ecx
+  __int64 v9; // rbx
+  unsigned int v10; // edx
+  int v11; // r9d
+
+  CurrentThread = KeGetCurrentThread();
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C23B98, 0LL);
+  v4 = (_QWORD *)(a2 + 200);
+  v5 = *v4;
+  if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v6 = (_QWORD *)v4[1], (_QWORD *)*v6 != v4) )
+    __fastfail(3u);
+  *v6 = v5;
+  *(_QWORD *)(v5 + 8) = v6;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C23B98, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C23B98);
+  v7 = KeGetCurrentThread();
+  if ( (unsigned __int64)&qword_140C23B98 - qword_140C50630 >= 0x8000000000LL )
+    v8 = -1;
+  else
+    v8 = sub_140287F30(*((_QWORD *)v7 + 23));
+  _disable();
+  v9 = (__int64)v7 + 1696;
+  v10 = 0;
+  while ( (*(_QWORD *)v9 & 0x7FFFFFFFFFFFFFFCLL) != ((unsigned __int64)&qword_140C23B98 & 0x7FFFFFFFFFFFFFFCLL)
+       || !*(_BYTE *)(v9 + 18)
+       || (*(_DWORD *)v9 & 1) != 0
+       || *(_DWORD *)(v9 + 8) != v8 )
+  {
+    ++v10;
+    v9 += 96LL;
+    if ( v10 >= 6 )
+      goto LABEL_14;
+  }
+  *(_BYTE *)(v9 + 18) = 0;
+  if ( !v9 )
+  {
+LABEL_14:
+    if ( (*((_DWORD *)v7 + 30) & 0x10000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)v7, (ULONG_PTR)&qword_140C23B98, v8, 0LL);
+    _enable();
+    return sub_1402F9540((__int64)KeGetCurrentThread());
+  }
+  if ( *(__int64 *)v9 < 0 )
+  {
+    *(_BYTE *)v9 |= 2u;
+    _enable();
+    sub_14034EE30(v9);
+    _disable();
+  }
+  v11 = *(_DWORD *)(v9 + 88);
+  *(_DWORD *)(v9 + 88) = 0;
+  *(_BYTE *)(v9 + 17) = 0;
+  *(_QWORD *)v9 = 0LL;
+  *((_BYTE *)v7 + 792) |= 1 << *(_BYTE *)(v9 + 16);
+  _enable();
+  if ( v11 )
+    sub_14022B568((ULONG_PTR)v7, (__int64)&qword_140C23B98, v11);
+  return sub_1402F9540((__int64)KeGetCurrentThread());
+}

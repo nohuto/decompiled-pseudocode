@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsSlotFreeInternal @ 0x18008EA34
+ * XREFs of RtlpHpVsSlotFreeInternal @ 0x1800E045C
  * Callers:
- *     RtlpHpVsSlotFreeList @ 0x18008E93C (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsSlotFreeList @ 0x1800E0364 (RtlpHpVsSlotFreeList.c)
  * Callees:
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlpHpVsSlotFreeInternal(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpVsSlotFreeInternal(unsigned __int64 a1, _RTL_RB_TREE *a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned __int64 v4; // rdi
   __int64 v5; // rbx
@@ -62,5 +62,5 @@ LABEL_12:
     RtlpLogHeapFailure(v12, *(_DWORD *)(a1 + 8) ^ a1, v11, 0, 0LL, 0LL);
     return v5;
   }
-  return RtlpHpVsChunkFree(a1, a2, v11, (unsigned __int64)v6, 0, a4);
+  return RtlpHpVsChunkFree(a1, a2, v11, (__int64)v6, 0, a4);
 }

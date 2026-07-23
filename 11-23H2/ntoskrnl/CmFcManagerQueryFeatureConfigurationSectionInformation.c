@@ -1,19 +1,19 @@
 /*
- * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x1407C6A7C
+ * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x1407C6D4C
  * Callers:
- *     CmQueryFeatureConfigurationSections @ 0x1407C6938 (CmQueryFeatureConfigurationSections.c)
+ *     CmQueryFeatureConfigurationSections @ 0x1407C6C08 (CmQueryFeatureConfigurationSections.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     CmFcpCopySectionState @ 0x1407C6CDC (CmFcpCopySectionState.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     CmFcpCopySectionState @ 0x1407C6FAC (CmFcpCopySectionState.c)
  */
 
 __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
@@ -51,8 +51,8 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
     ExfAcquirePushLockSharedEx((signed __int64 *)&RunOnce, 0LL, v8, (__int64)&RunOnce);
   if ( v8 )
     *(_BYTE *)(v8 + 18) = 1;
-  v9 = qword_140C14038;
-  v10 = &unk_140C14048;
+  v9 = qword_140C13FF8;
+  v10 = &unk_140C14008;
   v11 = 0;
   v12 = 3LL;
   do

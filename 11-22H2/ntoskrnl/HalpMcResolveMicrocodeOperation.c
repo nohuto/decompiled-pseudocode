@@ -16,7 +16,7 @@ __int64 __fastcall HalpMcResolveMicrocodeOperation(__int64 a1)
     if ( a1 )
     {
       McMicrocodeOperation = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))RtlFindExportedRoutineByName(
-                                                                               *(_QWORD *)(a1 + 48),
+                                                                               *(PVOID *)(a1 + 48),
                                                                                "McMicrocodeOperation");
       return McMicrocodeOperation == 0LL ? 0xC00000BB : 0;
     }

@@ -1,24 +1,24 @@
 /*
- * XREFs of HvpViewMapCreateViewsForRegion @ 0x1405A524C
+ * XREFs of HvpViewMapCreateViewsForRegion @ 0x1405A624C
  * Callers:
- *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
- *     HvpViewMapExtendStorage @ 0x1406CC5A0 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapStart @ 0x1405A61A0 (HvpViewMapStart.c)
+ *     HvpViewMapExtendStorage @ 0x1406CD840 (HvpViewMapExtendStorage.c)
  * Callees:
  *     CmSiGetMemoryAllocationGranularity @ 0x14000F124 (CmSiGetMemoryAllocationGranularity.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     CmSiUnmapViewOfSection @ 0x14013608C (CmSiUnmapViewOfSection.c)
- *     HvpViewMapCreateView @ 0x1405A5570 (HvpViewMapCreateView.c)
- *     HvpViewMapMakeViewRangeValid @ 0x1405A5658 (HvpViewMapMakeViewRangeValid.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     CmSiUnmapViewOfSection @ 0x14013618C (CmSiUnmapViewOfSection.c)
+ *     HvpViewMapCreateView @ 0x1405A6570 (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x1405A6658 (HvpViewMapMakeViewRangeValid.c)
  */
 
 __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  PPRIVILEGE_SET v4; // rdi
-  PPRIVILEGE_SET *v5; // rbx
+  _RTL_BALANCED_NODE *v4; // rdi
+  _RTL_BALANCED_NODE *p_Node; // rbx
   __int64 MemoryAllocationGranularity; // rax
   __int64 v9; // r11
-  PPRIVILEGE_SET *v10; // rcx
+  _RTL_BALANCED_NODE *v10; // rcx
   __int64 v11; // r14
   __int64 v12; // rdx
   __int64 v13; // r8
@@ -34,33 +34,32 @@ __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int6
   int v23; // r9d
   int v24; // r8d
   __int64 v25; // r12
-  PPRIVILEGE_SET *v26; // rax
-  PPRIVILEGE_SET v27; // rax
-  PPRIVILEGE_SET v28; // r8
-  PPRIVILEGE_SET v29; // rbx
-  unsigned __int64 *v30; // rbx
-  unsigned __int64 v31; // rdx
-  bool v32; // al
+  _RTL_BALANCED_NODE *v26; // rax
+  _RTL_BALANCED_NODE *v27; // rax
+  _RTL_BALANCED_NODE *v28; // r8
+  _RTL_BALANCED_NODE *v29; // rbx
+  _RTL_RB_TREE *v30; // rbx
+  unsigned __int64 Root; // rdx
+  BOOLEAN v32; // al
   unsigned __int64 v33; // rax
-  __int64 v34; // rax
-  void *v35; // r8
-  PPRIVILEGE_SET v36; // rax
-  void *v37; // r8
-  PPRIVILEGE_SET v39; // [rsp+30h] [rbp-18h] BYREF
-  PPRIVILEGE_SET *v40; // [rsp+38h] [rbp-10h]
+  _RTL_BALANCED_NODE *v34; // rax
+  _RTL_BALANCED_NODE *v35; // r8
+  _RTL_BALANCED_NODE *v36; // rax
+  _RTL_BALANCED_NODE *v37; // r8
+  _RTL_BALANCED_NODE Node; // [rsp+30h] [rbp-18h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+98h] [rbp+50h] BYREF
-  PPRIVILEGE_SET *v43; // [rsp+A0h] [rbp+58h]
-  char v44; // [rsp+A8h] [rbp+60h]
+  _RTL_BALANCED_NODE *v42; // [rsp+A0h] [rbp+58h]
+  char v43; // [rsp+A8h] [rbp+60h]
 
-  v44 = a4;
+  v43 = a4;
   v4 = 0LL;
-  v5 = &v39;
+  p_Node = &Node;
   Privileges = 0LL;
-  v40 = &v39;
-  v39 = (PPRIVILEGE_SET)&v39;
+  Node.Children[1] = &Node;
+  Node.Children[0] = &Node;
   MemoryAllocationGranularity = CmSiGetMemoryAllocationGranularity();
-  v43 = (PPRIVILEGE_SET *)MemoryAllocationGranularity;
-  v10 = (PPRIVILEGE_SET *)MemoryAllocationGranularity;
+  v42 = (_RTL_BALANCED_NODE *)MemoryAllocationGranularity;
+  v10 = (_RTL_BALANCED_NODE *)MemoryAllocationGranularity;
   v11 = 0x200000LL;
   if ( v12 < v13 )
   {
@@ -92,34 +91,34 @@ __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int6
       if ( ViewRangeValid >= 0 )
       {
         v23 = v18;
-        v4 = Privileges;
+        v4 = (_RTL_BALANCED_NODE *)Privileges;
         v24 = a2;
         v25 = a1;
-        ViewRangeValid = HvpViewMapMakeViewRangeValid(a1, (_DWORD)Privileges, v24, v23, v44);
+        ViewRangeValid = HvpViewMapMakeViewRangeValid(a1, (_DWORD)Privileges, v24, v23, v43);
         if ( ViewRangeValid < 0 )
         {
-          v29 = v39;
+          v29 = Node.Children[0];
           goto LABEL_53;
         }
-        v26 = v40;
-        if ( *v40 != (PPRIVILEGE_SET)&v39 )
+        v26 = Node.Children[1];
+        if ( Node.Children[1]->Children[0] != &Node )
           __fastfail(3u);
-        v4->Privilege[0].Luid = (LUID)v40;
-        *(_QWORD *)&v4->PrivilegeCount = &v39;
+        v4->Children[1] = Node.Children[1];
+        v4->Children[0] = &Node;
         a2 = v17;
-        v10 = v43;
-        *v26 = v4;
-        v40 = (PPRIVILEGE_SET *)v4;
+        v10 = v42;
+        v26->Children[0] = v4;
+        Node.Children[1] = v4;
         v4 = 0LL;
         Privileges = 0LL;
       }
       else
       {
-        v10 = v43;
-        v4 = Privileges;
-        if ( v11 <= (__int64)v43 )
+        v10 = v42;
+        v4 = (_RTL_BALANCED_NODE *)Privileges;
+        if ( v11 <= (__int64)v42 )
         {
-          v29 = v39;
+          v29 = Node.Children[0];
           goto LABEL_52;
         }
         v11 /= 2LL;
@@ -127,41 +126,41 @@ __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int6
       v9 = a1;
       if ( a2 >= a3 )
       {
-        v5 = (PPRIVILEGE_SET *)v39;
+        p_Node = Node.Children[0];
         break;
       }
     }
   }
-  v27 = *v5;
-  v28 = (PPRIVILEGE_SET)v5;
-  if ( v5[1] != (PPRIVILEGE_SET)&v39 || (PPRIVILEGE_SET *)v27->Privilege[0].Luid != v5 )
+  v27 = p_Node->Children[0];
+  v28 = p_Node;
+  if ( p_Node->Children[1] != &Node || v27->Children[1] != p_Node )
     __fastfail(3u);
-  v39 = *v5;
-  v10 = &v39;
-  v27->Privilege[0].Luid = (LUID)&v39;
-  v29 = v39;
-  if ( v28 != (PPRIVILEGE_SET)&v39 )
+  Node.Children[0] = p_Node->Children[0];
+  v10 = &Node;
+  v27->Children[1] = &Node;
+  v29 = Node.Children[0];
+  if ( v28 != &Node )
   {
-    v30 = (unsigned __int64 *)(v9 + 40);
+    v30 = (_RTL_RB_TREE *)(v9 + 40);
     v4 = 0LL;
     do
     {
-      v31 = *v30;
-      if ( (v30[1] & 1) != 0 && v31 )
-        v31 ^= (unsigned __int64)v30;
+      Root = (unsigned __int64)v30->Root;
+      if ( ((__int64)v30->Min & 1) != 0 && Root )
+        Root ^= (unsigned __int64)v30;
       v32 = 0;
-      if ( v31 )
+      if ( Root )
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)&v28[2].PrivilegeCount < *(_QWORD *)(v31 + 40) )
+          if ( (signed __int64)v28[1].ParentValue < *(_QWORD *)(Root + 40) )
           {
-            v33 = *(_QWORD *)v31;
-            if ( (v30[1] & 1) != 0 )
+            v33 = *(_QWORD *)Root;
+            if ( ((__int64)v30->Min & 1) != 0 )
             {
               if ( !v33 )
                 goto LABEL_46;
-              v33 ^= v31;
+              v33 ^= Root;
             }
             if ( !v33 )
             {
@@ -172,12 +171,12 @@ LABEL_46:
           }
           else
           {
-            v33 = *(_QWORD *)(v31 + 8);
-            if ( (v30[1] & 1) != 0 )
+            v33 = *(_QWORD *)(Root + 8);
+            if ( ((__int64)v30->Min & 1) != 0 )
             {
               if ( !v33 )
                 goto LABEL_40;
-              v33 ^= v31;
+              v33 ^= Root;
             }
             if ( !v33 )
             {
@@ -186,22 +185,22 @@ LABEL_40:
               break;
             }
           }
-          v31 = v33;
+          Root = v33;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64)v30, v31, v32, v28);
-      v28 = v39;
-      if ( (PPRIVILEGE_SET *)v39->Privilege[0].Luid != &v39 )
+      RtlRbInsertNodeEx(v30, (PRTL_BALANCED_NODE)Root, v32, v28);
+      v28 = Node.Children[0];
+      if ( Node.Children[0]->Children[1] != &Node )
         goto LABEL_59;
-      v34 = *(_QWORD *)&v39->PrivilegeCount;
-      if ( *(PPRIVILEGE_SET *)(*(_QWORD *)&v39->PrivilegeCount + 8LL) != v39 )
+      v34 = Node.Children[0]->Children[0];
+      if ( Node.Children[0]->Children[0]->Children[1] != Node.Children[0] )
         goto LABEL_59;
-      v39 = *(PPRIVILEGE_SET *)&v39->PrivilegeCount;
-      v10 = &v39;
-      *(_QWORD *)(v34 + 8) = &v39;
+      Node.Children[0] = Node.Children[0]->Children[0];
+      v10 = &Node;
+      v34->Children[1] = &Node;
     }
-    while ( v28 != (PPRIVILEGE_SET)&v39 );
-    v29 = v39;
+    while ( v28 != &Node );
+    v29 = Node.Children[0];
   }
   ViewRangeValid = 0;
 LABEL_52:
@@ -209,31 +208,31 @@ LABEL_52:
 LABEL_53:
   if ( v4 )
   {
-    v35 = *(void **)&v4[2].Privilege[0].Attributes;
+    v35 = v4[2].Children[1];
     if ( v35 )
       CmSiUnmapViewOfSection((__int64)v10, *(HANDLE **)(v25 + 24), v35);
-    CmSiFreeMemory(v4);
-    v29 = v39;
+    CmSiFreeMemory((PPRIVILEGE_SET)v4);
+    v29 = Node.Children[0];
   }
-  if ( v29 != (PPRIVILEGE_SET)&v39 )
+  if ( v29 != &Node )
   {
-    v36 = *(PPRIVILEGE_SET *)&v29->PrivilegeCount;
-    if ( (PPRIVILEGE_SET *)v29->Privilege[0].Luid == &v39 )
+    v36 = v29->Children[0];
+    if ( v29->Children[1] == &Node )
     {
-      while ( (PPRIVILEGE_SET)v36->Privilege[0].Luid == v29 )
+      while ( v36->Children[1] == v29 )
       {
-        v39 = v36;
-        v36->Privilege[0].Luid = (LUID)&v39;
-        if ( v29 == (PPRIVILEGE_SET)&v39 )
+        Node.Children[0] = v36;
+        v36->Children[1] = &Node;
+        if ( v29 == &Node )
           return (unsigned int)ViewRangeValid;
-        v37 = *(void **)&v29[2].Privilege[0].Attributes;
+        v37 = v29[2].Children[1];
         if ( v37 )
-          CmSiUnmapViewOfSection((__int64)&v39, *(HANDLE **)(v25 + 24), v37);
-        CmSiFreeMemory(v29);
-        v29 = v39;
-        if ( (PPRIVILEGE_SET *)v39->Privilege[0].Luid != &v39 )
+          CmSiUnmapViewOfSection((__int64)&Node, *(HANDLE **)(v25 + 24), v37);
+        CmSiFreeMemory((PPRIVILEGE_SET)v29);
+        v29 = Node.Children[0];
+        if ( Node.Children[0]->Children[1] != &Node )
           break;
-        v36 = *(PPRIVILEGE_SET *)&v39->PrivilegeCount;
+        v36 = Node.Children[0]->Children[0];
       }
     }
 LABEL_59:

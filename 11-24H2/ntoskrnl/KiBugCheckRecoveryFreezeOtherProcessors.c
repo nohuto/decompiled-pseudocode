@@ -1,20 +1,20 @@
 /*
- * XREFs of KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C5B80
+ * XREFs of KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C32B0
  * Callers:
- *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405C5E70 (KiBugCheckRecoveryPrepareForCrashDump.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405C687C (KiUpdateBugcheckRecoveryProgress.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405C35A0 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405C3FAC (KiUpdateBugcheckRecoveryProgress.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KeRemoveQueueDpcEx @ 0x140464090 (KeRemoveQueueDpcEx.c)
- *     KiSetDebuggerOwner @ 0x1404FB2A4 (KiSetDebuggerOwner.c)
- *     KeFrozenProcessorCount @ 0x1405C1AB4 (KeFrozenProcessorCount.c)
- *     KiSendFreeze @ 0x1405C1F30 (KiSendFreeze.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KeRemoveQueueDpcEx @ 0x14045A7C0 (KeRemoveQueueDpcEx.c)
+ *     KiSetDebuggerOwner @ 0x1404F8B84 (KiSetDebuggerOwner.c)
+ *     KeFrozenProcessorCount @ 0x1405BF084 (KeFrozenProcessorCount.c)
+ *     KiSendFreeze @ 0x1405BF500 (KiSendFreeze.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiBugCheckRecoveryFreezeOtherProcessors(unsigned int a1)

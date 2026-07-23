@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillCombinePage @ 0x1401F9B68
+ * XREFs of MiFillCombinePage @ 0x1401F9994
  * Callers:
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
- *     MiConvertStandbyToProto @ 0x1401F90BC (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
+ *     MiConvertStandbyToProto @ 0x1401F8EE8 (MiConvertStandbyToProto.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiMapSinglePage @ 0x14010A184 (MiMapSinglePage.c)
- *     MiUnmapSinglePage @ 0x14010C5D4 (MiUnmapSinglePage.c)
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiMapSinglePage @ 0x140107F04 (MiMapSinglePage.c)
+ *     MiUnmapSinglePage @ 0x14010A354 (MiUnmapSinglePage.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
  */
 
 ULONG_PTR __fastcall MiFillCombinePage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

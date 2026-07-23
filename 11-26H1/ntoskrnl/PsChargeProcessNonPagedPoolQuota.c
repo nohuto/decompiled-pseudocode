@@ -1,19 +1,19 @@
 /*
- * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40
+ * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0
  * Callers:
- *     MiFreeVadRange @ 0x1403BC958 (MiFreeVadRange.c)
- *     MiSetCloneParentForkInProgress @ 0x1405180AC (MiSetCloneParentForkInProgress.c)
- *     MiCreateCloneChain @ 0x140776874 (MiCreateCloneChain.c)
- *     ExEnableHandleTracing @ 0x1407795D8 (ExEnableHandleTracing.c)
- *     MiCreateAweInfoBitMap @ 0x140878888 (MiCreateAweInfoBitMap.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiCreatePlaceholderStorage @ 0x1409C684C (MiCreatePlaceholderStorage.c)
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
- *     MiBuildNewCloneDescriptor @ 0x140B558E4 (MiBuildNewCloneDescriptor.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
- *     ViIrpAllocateLockedPacket @ 0x140C2C7B0 (ViIrpAllocateLockedPacket.c)
+ *     MiFreeVadRange @ 0x1403C67C8 (MiFreeVadRange.c)
+ *     MiSetCloneParentForkInProgress @ 0x140511B1C (MiSetCloneParentForkInProgress.c)
+ *     MiCreateCloneChain @ 0x14077971C (MiCreateCloneChain.c)
+ *     ExEnableHandleTracing @ 0x14077C508 (ExEnableHandleTracing.c)
+ *     MiCreateAweInfoBitMap @ 0x14087EC68 (MiCreateAweInfoBitMap.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiCreatePlaceholderStorage @ 0x14099782C (MiCreatePlaceholderStorage.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
+ *     MiBuildNewCloneDescriptor @ 0x140B58184 (MiBuildNewCloneDescriptor.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     ViIrpAllocateLockedPacket @ 0x140C327C0 (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     PspExpandQuota @ 0x1403BD8E8 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1403C7758 (PspExpandQuota.c)
  */
 
 __int64 __fastcall PsChargeProcessNonPagedPoolQuota(__int64 a1, unsigned __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall PsChargeProcessNonPagedPoolQuota(__int64 a1, unsigned __int64
   if ( (PEPROCESS)a1 == PsInitialSystemProcess )
     return 0LL;
   v5 = *(unsigned __int64 **)(a1 + 760);
-  v6 = stru_140FC01F0.SchedulerApcFill3[48];
+  v6 = stru_140FC11F0.SchedulerApcFill3[40];
   _m_prefetchw(v5);
   v7 = *v5;
   _InterlockedOr(v19, 0);
@@ -51,11 +51,11 @@ LABEL_5:
     {
       v10 = v7 + a2;
       if ( v7 + a2 < v7 )
-        return *(unsigned int *)&stru_140FC01F0.SchedulerApcFill5[52];
+        return *(unsigned int *)&stru_140FC11F0.SchedulerApcFill5[44];
       if ( v10 <= v9 )
         break;
       if ( (v6 & 1) == 0 || !v5[10] )
-        return *(unsigned int *)&stru_140FC01F0.SchedulerApcFill5[52];
+        return *(unsigned int *)&stru_140FC11F0.SchedulerApcFill5[44];
       v18 = _InterlockedExchange64((volatile __int64 *)v5 + 9, 0LL);
       if ( v18 )
       {
@@ -63,7 +63,7 @@ LABEL_5:
         goto LABEL_5;
       }
       if ( !(unsigned __int8)PspExpandQuota(0, (_DWORD)v5, v7, a2, (__int64)&i) )
-        return *(unsigned int *)&stru_140FC01F0.SchedulerApcFill5[52];
+        return *(unsigned int *)&stru_140FC11F0.SchedulerApcFill5[44];
     }
     v12 = _InterlockedCompareExchange64((volatile signed __int64 *)v5, v10, v7);
     v11 = v7 == v12;

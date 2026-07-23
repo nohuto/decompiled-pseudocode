@@ -12,11 +12,11 @@
  *     RtlpHpSegPageRangeCoalesce @ 0x1800281F0 (RtlpHpSegPageRangeCoalesce.c)
  *     RtlpHpVsContextFree @ 0x180028500 (RtlpHpVsContextFree.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpLogHeapFreeEvent @ 0x18010A2C8 (RtlpLogHeapFreeEvent.c)
- *     RtlpHpTlLogMemStats @ 0x18010B6B0 (RtlpHpTlLogMemStats.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010EDC8 (RtlpHpSegGetDescriptorValidateSafe.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F48C (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlpLogHeapFreeEvent @ 0x18010A288 (RtlpLogHeapFreeEvent.c)
+ *     RtlpHpTlLogMemStats @ 0x18010B670 (RtlpHpTlLogMemStats.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010ED88 (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F44C (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
 __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -37,33 +37,31 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v19; // r14
   char v20; // al
   __int64 v21; // rdx
-  unsigned __int8 v22; // cl
+  BOOLEAN v22; // cl
   __int64 v23; // rcx
   _QWORD *v24; // rbx
   volatile signed __int64 *v25; // rcx
   signed __int64 v26; // rax
   _DWORD *v27; // rcx
   __int64 v28; // rcx
-  bool v30; // zf
-  __int64 v31; // rdx
-  __int64 v32; // r9
+  __int64 v30; // r9
   _DWORD *SharedData; // rcx
-  __int64 v34; // rcx
-  __int64 v35; // r8
-  char v36; // dl
-  char *v37; // rcx
-  __int64 v38; // rdx
-  char v39; // al
-  __int64 v40; // rcx
-  __int64 v41; // rdx
-  signed __int64 v42; // r8
-  signed __int64 v43; // rdx
-  signed __int64 v44; // rtt
-  __int64 v45; // rax
-  _QWORD *v46; // rcx
-  unsigned int v47; // [rsp+30h] [rbp-38h] BYREF
-  int v48; // [rsp+34h] [rbp-34h]
-  char v49; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  char v34; // dl
+  char *v35; // rcx
+  __int64 v36; // rdx
+  char v37; // al
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  signed __int64 v40; // r8
+  signed __int64 v41; // rdx
+  signed __int64 v42; // rtt
+  __int64 v43; // rax
+  _QWORD *v44; // rcx
+  unsigned int v45; // [rsp+30h] [rbp-38h] BYREF
+  int v46; // [rsp+34h] [rbp-34h]
+  __int64 v47; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = 0;
   if ( (RtlpHpAppCompatFlags & 1) != 0 )
@@ -97,10 +95,10 @@ LABEL_87:
   else
   {
     DescriptorValidateSafe += -32LL * *(unsigned __int8 *)(DescriptorValidateSafe + 31);
-    v36 = *(_BYTE *)(DescriptorValidateSafe + 24);
-    if ( (v36 & 3) != 3 )
+    v34 = *(_BYTE *)(DescriptorValidateSafe + 24);
+    if ( (v34 & 3) != 3 )
       goto LABEL_87;
-    v11 = v36 & 0xC;
+    v11 = v34 & 0xC;
     if ( v11 < 8u )
       goto LABEL_87;
   }
@@ -108,31 +106,33 @@ LABEL_87:
   v13 = DescriptorValidateSafe & *(_QWORD *)a1;
   if ( a2 > v13 + ((DescriptorValidateSafe - v13) >> 5 << v12) )
   {
-    v30 = v11 == 8;
-    v31 = v13 + ((DescriptorValidateSafe - v13) >> 5 << v12);
-    if ( v30 )
+    if ( v11 == 8 )
     {
-      v10 = RtlpHpLfhSubsegmentFreeBlock(*(_QWORD *)(a1 + 24), v31, a2, a3);
+      v10 = RtlpHpLfhSubsegmentFreeBlock(
+              *(_QWORD *)(a1 + 24),
+              v13 + ((DescriptorValidateSafe - v13) >> 5 << v12),
+              a2,
+              a3);
     }
     else
     {
-      v10 = RtlpHpVsContextFree(*(_QWORD *)(a1 + 32), v31, a2, a3, (__int64)&v47);
+      v10 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 32), (__int64)&v45);
       if ( v10 )
       {
-        v40 = *(_QWORD *)(a1 + 24);
-        if ( v47 <= (unsigned int)*(unsigned __int16 *)(v40 + 60) - 16 )
-          RtlpHpLfhBucketUpdateStats(v40, v47, 0);
+        v38 = *(_QWORD *)(a1 + 24);
+        if ( v45 <= (unsigned int)*(unsigned __int16 *)(v38 + 60) - 16 )
+          RtlpHpLfhBucketUpdateStats(v38, v45, 0);
       }
     }
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
-      v34 = (__int64)NtCurrentPeb()->SharedData + 550;
+      v32 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v34 = 2147353472LL;
-    if ( *(_BYTE *)v34 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v10 )
+      v32 = 2147353472LL;
+    if ( *(_BYTE *)v32 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v10 )
     {
       LOBYTE(v3) = (*(_BYTE *)(DescriptorValidateSafe + 24) & 0xC) != 8;
-      RtlpLogHeapFreeEvent(*(_QWORD *)(a1 + 56), a2, (unsigned int)(v3 + 2), v32);
+      RtlpLogHeapFreeEvent(*(_QWORD *)(a1 + 56), a2, (unsigned int)(v3 + 2), v30);
     }
   }
   else
@@ -140,22 +140,22 @@ LABEL_87:
     v14 = *(unsigned __int8 *)(DescriptorValidateSafe + 31);
     if ( (unsigned int)(v14 - 1) > 1 )
     {
-      v37 = (char *)(DescriptorValidateSafe + 56);
-      v38 = (unsigned int)(v14 - 2);
+      v35 = (char *)(DescriptorValidateSafe + 56);
+      v36 = (unsigned int)(v14 - 2);
       do
       {
-        v39 = *v37;
-        v37 += 32;
-        *(v37 - 32) = v39 & 0xFE;
-        --v38;
+        v37 = *v35;
+        v35 += 32;
+        *(v35 - 32) = v37 & 0xFE;
+        --v36;
       }
-      while ( v38 );
+      while ( v36 );
     }
-    v48 = a3 & 1;
+    v46 = a3 & 1;
     if ( (a3 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v15 = *(_DWORD *)(DescriptorValidateSafe + 28);
-    v49 = -1;
+    LOBYTE(v47) = -1;
     if ( HIBYTE(v15) != v14 )
     {
       *(_BYTE *)(DescriptorValidateSafe + 31) = 0;
@@ -167,7 +167,7 @@ LABEL_87:
     *(_BYTE *)(DescriptorValidateSafe + 31) = v14;
     *(_DWORD *)DescriptorValidateSafe = -857879331;
     *(_BYTE *)(DescriptorValidateSafe + 24) &= 0xF3u;
-    v16 = RtlpHpSegPageRangeCoalesce(a1, DescriptorValidateSafe, a3, 0, (__int64)&v49);
+    v16 = RtlpHpSegPageRangeCoalesce(a1, (__int64)&v47);
     v18 = *(_BYTE *)(a1 + 13);
     v19 = v16;
     if ( (v18 & 0x10) != 0 && *(unsigned __int8 *)(v16 + 31) == 256 - *(unsigned __int8 *)(a1 + 10) )
@@ -176,11 +176,11 @@ LABEL_87:
       *(_DWORD *)v16 = -857879297;
       if ( v24 )
       {
-        v45 = *v24;
-        if ( *(_QWORD **)(*v24 + 8LL) != v24 || (v46 = (_QWORD *)v24[1], (_QWORD *)*v46 != v24) )
+        v43 = *v24;
+        if ( *(_QWORD **)(*v24 + 8LL) != v24 || (v44 = (_QWORD *)v24[1], (_QWORD *)*v44 != v24) )
           __fastfail(3u);
-        *v46 = v45;
-        *(_QWORD *)(v45 + 8) = v46;
+        *v44 = v43;
+        *(_QWORD *)(v43 + 8) = v44;
         --*(_QWORD *)(a1 + 88);
       }
     }
@@ -196,9 +196,9 @@ LABEL_87:
       *(_BYTE *)(v19 + 30) = v20;
       if ( (*(_QWORD *)(a1 + 104) & 1) != 0 )
       {
-        v35 = *(_QWORD *)(a1 + 96);
-        if ( v35 )
-          v21 = v35 ^ (a1 + 96);
+        v33 = *(_QWORD *)(a1 + 96);
+        if ( v33 )
+          v21 = v33 ^ (a1 + 96);
         else
           v21 = 0LL;
       }
@@ -246,7 +246,7 @@ LABEL_32:
           v21 = v23;
         }
       }
-      RtlRbInsertNodeEx(a1 + 96, v21, v22, v19);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v21, v22, (PRTL_BALANCED_NODE)v19);
       _InterlockedExchangeAdd64(
         (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
         (unsigned __int16)~*(_WORD *)(v19 + 28));
@@ -254,7 +254,7 @@ LABEL_32:
         RtlpHpTlLogMemStats(*(_QWORD *)(a1 + 56), a1 + *(__int16 *)(a1 + 22));
       v24 = 0LL;
     }
-    if ( !v48 )
+    if ( !v46 )
     {
       v25 = (volatile signed __int64 *)(a1 + 64);
       v26 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), 0LL, 1LL);
@@ -263,21 +263,21 @@ LABEL_32:
         v17 = -1LL;
         do
         {
-          v41 = 3LL;
-          v42 = v26 & 6;
-          if ( v42 != 2 )
-            v41 = -1LL;
-          v43 = v26 + v41;
-          v44 = v26;
-          v26 = _InterlockedCompareExchange64(v25, v43, v26);
+          v39 = 3LL;
+          v40 = v26 & 6;
+          if ( v40 != 2 )
+            v39 = -1LL;
+          v41 = v26 + v39;
+          v42 = v26;
+          v26 = _InterlockedCompareExchange64(v25, v41, v26);
         }
-        while ( v44 != v26 );
-        if ( v42 == 2 )
-          RtlpWakeSRWLock(v25, v43, 0);
+        while ( v42 != v26 );
+        if ( v40 == 2 )
+          RtlpWakeSRWLock(v25, v41, 0);
       }
     }
     if ( v24 )
-      RtlpHpSegSegmentFree(a1, (__int64)v24, 0x7FFFFFFFu, 1);
+      RtlpHpSegSegmentFree(a1, (__int64)v24, 0x7FFFFFFF, 1);
     v27 = NtCurrentPeb()->SharedData;
     if ( v27 && *v27 )
       v28 = (__int64)NtCurrentPeb()->SharedData + 550;

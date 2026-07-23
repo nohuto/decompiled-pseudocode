@@ -20,100 +20,126 @@
 
 __int64 __fastcall sub_1800DD9C0(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // r12d
+  int v4; // r12d
   _OWORD *v5; // rdi
   int v7; // ebx
-  _BYTE *v8; // rcx
-  int v9; // r14d
+  char *v8; // rcx
+  NTSTATUS v9; // r14d
   __int64 v10; // rbx
-  unsigned int v11; // ebx
+  ULONG v11; // ebx
   int v12; // eax
-  _DWORD *v13; // rcx
-  _DWORD *v14; // rax
+  _QWORD *v13; // rcx
+  char *v14; // rax
   _OWORD *v15; // rdx
   __int64 v16; // rax
-  unsigned int v18; // [rsp+40h] [rbp-508h]
-  __int64 v19; // [rsp+58h] [rbp-4F0h] BYREF
-  _BYTE *v20; // [rsp+60h] [rbp-4E8h]
-  _DWORD *v21; // [rsp+68h] [rbp-4E0h] BYREF
-  __int64 v22; // [rsp+70h] [rbp-4D8h] BYREF
-  __int64 v23; // [rsp+78h] [rbp-4D0h] BYREF
-  int v24; // [rsp+80h] [rbp-4C8h]
-  unsigned int v25; // [rsp+84h] [rbp-4C4h]
-  __int64 v26; // [rsp+88h] [rbp-4C0h]
-  _BYTE v27[1136]; // [rsp+90h] [rbp-4B8h] BYREF
-  _QWORD v28[4]; // [rsp+500h] [rbp-48h] BYREF
+  unsigned int CrashVerticalProcessHandle; // [rsp+40h] [rbp-508h]
+  HANDLE TargetHandle; // [rsp+48h] [rbp-500h] BYREF
+  HANDLE v20; // [rsp+50h] [rbp-4F8h] BYREF
+  HANDLE EventHandle; // [rsp+58h] [rbp-4F0h] BYREF
+  char *v22; // [rsp+60h] [rbp-4E8h]
+  PVOID BaseAddress; // [rsp+68h] [rbp-4E0h] BYREF
+  HANDLE CrashReportSharedMem; // [rsp+70h] [rbp-4D8h] BYREF
+  HANDLE Handle; // [rsp+78h] [rbp-4D0h] BYREF
+  int v26; // [rsp+80h] [rbp-4C8h]
+  ULONG ProcessId; // [rsp+84h] [rbp-4C4h]
+  __int64 v28; // [rsp+88h] [rbp-4C0h]
+  char v29; // [rsp+90h] [rbp-4B8h] BYREF
+  ULONG Flags[2]; // [rsp+500h] [rbp-48h] BYREF
 
-  v26 = a4;
+  v28 = a4;
   v4 = a3;
   v5 = a2;
-  v23 = 0LL;
-  v19 = 0LL;
-  v22 = 0LL;
-  v7 = 0;
-  v21 = 0LL;
+  Handle = 0LL;
+  EventHandle = 0LL;
+  CrashReportSharedMem = 0LL;
+  TargetHandle = 0LL;
   v20 = 0LL;
+  v7 = 0;
+  BaseAddress = 0LL;
+  v22 = 0LL;
   if ( (a3 & 4) == 0 )
     sub_1800DE578(-1LL, a2, a3);
-  if ( (int)sub_1800DE2C0(&v19, a2, a3) < 0 )
+  if ( (int)sub_1800DE2C0(&EventHandle) < 0 )
   {
-    v19 = 0LL;
+    EventHandle = 0LL;
   }
   else
   {
-    v28[0] = v19;
+    *(_QWORD *)Flags = EventHandle;
     v7 = 1;
   }
-  v24 = sub_1800DE4A0(-1LL, v27);
-  v8 = v27;
-  if ( v24 < 0 )
+  v26 = sub_1800DE4A0((HANDLE)0xFFFFFFFFFFFFFFFFLL);
+  v8 = &v29;
+  if ( v26 < 0 )
     v8 = 0LL;
-  v20 = v8;
-  v9 = sub_1800DE334(&v22, &v21);
+  v22 = v8;
+  v9 = sub_1800DE334(&CrashReportSharedMem, &BaseAddress);
   if ( v9 >= 0 )
   {
-    v28[v7] = v22;
+    *(_QWORD *)&Flags[2 * v7] = CrashReportSharedMem;
     v10 = (unsigned int)(v7 + 1);
-    v18 = v10;
-    if ( (int)ZwDuplicateObject() >= 0 )
+    CrashVerticalProcessHandle = v10;
+    if ( ZwDuplicateObject(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &TargetHandle,
+           0x1FFFFFu,
+           2u,
+           0) < 0 )
     {
-      v28[v10] = 0LL;
+      TargetHandle = 0LL;
+    }
+    else
+    {
+      *(_QWORD *)&Flags[2 * v10] = TargetHandle;
       v10 = (unsigned int)(v10 + 1);
-      v18 = v10;
+      CrashVerticalProcessHandle = v10;
     }
-    if ( (int)ZwDuplicateObject() >= 0 )
+    if ( ZwDuplicateObject(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &v20,
+           0x1FFFFFu,
+           2u,
+           0) < 0 )
     {
-      v28[v10] = 0LL;
-      v18 = v10 + 1;
+      v20 = 0LL;
     }
-    v11 = sub_180070674(-1LL);
-    v25 = v11;
+    else
+    {
+      *(_QWORD *)&Flags[2 * v10] = v20;
+      CrashVerticalProcessHandle = v10 + 1;
+    }
+    v11 = sub_180070674((void *)0xFFFFFFFFFFFFFFFFLL);
+    ProcessId = v11;
     v12 = sub_1800DE5B4(-2LL);
-    v13 = v21;
-    *v21 = 248;
-    *((_QWORD *)v13 + 21) = 1LL;
-    v13[1] = v11;
-    v13[2] = v12;
-    *((_QWORD *)v13 + 23) = 0LL;
-    *((_QWORD *)v13 + 24) = 0LL;
-    *((_QWORD *)v13 + 26) = v19;
-    *((_QWORD *)v13 + 28) = v20;
-    v13[58] = v24;
-    v13[59] = v4;
-    v14 = v21;
-    v21[60] = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-    v15 = v14 + 104;
+    v13 = BaseAddress;
+    *(_DWORD *)BaseAddress = 248;
+    v13[21] = 1LL;
+    *((_DWORD *)v13 + 1) = v11;
+    *((_DWORD *)v13 + 2) = v12;
+    v13[23] = TargetHandle;
+    v13[24] = v20;
+    v13[26] = EventHandle;
+    v13[28] = v22;
+    *((_DWORD *)v13 + 58) = v26;
+    *((_DWORD *)v13 + 59) = v4;
+    v14 = (char *)BaseAddress;
+    *((_DWORD *)BaseAddress + 60) = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
+    v15 = v14 + 416;
     *((_QWORD *)v14 + 31) = 1LL;
     *((_QWORD *)v14 + 32) = 1LL;
-    *(_OWORD *)(v14 + 66) = *(_OWORD *)a1;
-    *(_OWORD *)(v14 + 70) = *(_OWORD *)(a1 + 16);
-    *(_OWORD *)(v14 + 74) = *(_OWORD *)(a1 + 32);
-    *(_OWORD *)(v14 + 78) = *(_OWORD *)(a1 + 48);
-    *(_OWORD *)(v14 + 82) = *(_OWORD *)(a1 + 64);
-    *(_OWORD *)(v14 + 86) = *(_OWORD *)(a1 + 80);
-    *(_OWORD *)(v14 + 90) = *(_OWORD *)(a1 + 96);
-    *(_OWORD *)(v14 + 94) = *(_OWORD *)(a1 + 112);
-    *(_OWORD *)(v14 + 98) = *(_OWORD *)(a1 + 128);
+    *(_OWORD *)(v14 + 264) = *(_OWORD *)a1;
+    *(_OWORD *)(v14 + 280) = *(_OWORD *)(a1 + 16);
+    *(_OWORD *)(v14 + 296) = *(_OWORD *)(a1 + 32);
+    *(_OWORD *)(v14 + 312) = *(_OWORD *)(a1 + 48);
+    *(_OWORD *)(v14 + 328) = *(_OWORD *)(a1 + 64);
+    *(_OWORD *)(v14 + 344) = *(_OWORD *)(a1 + 80);
+    *(_OWORD *)(v14 + 360) = *(_OWORD *)(a1 + 96);
+    *(_OWORD *)(v14 + 376) = *(_OWORD *)(a1 + 112);
+    *(_OWORD *)(v14 + 392) = *(_OWORD *)(a1 + 128);
     *((_QWORD *)v14 + 51) = *(_QWORD *)(a1 + 144);
     v16 = 9LL;
     do
@@ -136,24 +162,34 @@ __int64 __fastcall sub_1800DD9C0(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4)
     v15[2] = v5[2];
     v15[3] = v5[3];
     v15[4] = v5[4];
-    v9 = RtlWerpReportException_0(v25, v22, (__int64)v28, v18, v4, &v23);
+    v9 = RtlWerpReportException_0(ProcessId, CrashReportSharedMem, (ULONG)Flags, (PHANDLE)CrashVerticalProcessHandle);
     if ( v9 >= 0 )
     {
-      if ( !v23 || (v9 = sub_1800DE5E4(0LL, v19, v23, v26), v9 >= 0) )
+      if ( !Handle || (v9 = sub_1800DE5E4(0LL, EventHandle, Handle, v28, v4, &Handle), v9 >= 0) )
         v9 = 0;
     }
   }
-  if ( v20 )
-    PssNtFreeSnapshot((__int64)v20);
-  if ( v21 )
+  if ( v22 )
+    PssNtFreeSnapshot((__int64)v22);
+  if ( BaseAddress )
   {
-    ZwUnmapViewOfSection();
-    if ( v22 )
-      ZwClose();
-    if ( v23 )
-      ZwClose();
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+    if ( CrashReportSharedMem )
+      ZwClose(CrashReportSharedMem);
+    if ( Handle )
+      ZwClose(Handle);
   }
-  if ( v19 )
-    ZwClose();
+  if ( TargetHandle )
+  {
+    ZwClose(TargetHandle);
+    TargetHandle = 0LL;
+  }
+  if ( v20 )
+  {
+    ZwClose(v20);
+    v20 = 0LL;
+  }
+  if ( EventHandle )
+    ZwClose(EventHandle);
   return (unsigned int)v9;
 }

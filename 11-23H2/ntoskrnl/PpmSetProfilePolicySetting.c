@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmSetProfilePolicySetting @ 0x14082BF80
+ * XREFs of PpmSetProfilePolicySetting @ 0x14082C280
  * Callers:
- *     PopSetNewPolicyValue @ 0x14082C4FC (PopSetNewPolicyValue.c)
- *     PpmProcessSettingsFromQueryTable @ 0x14099D3F4 (PpmProcessSettingsFromQueryTable.c)
+ *     PopSetNewPolicyValue @ 0x14082C7FC (PopSetNewPolicyValue.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x14099D5F4 (PpmProcessSettingsFromQueryTable.c)
  * Callees:
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PpmInfoAdjustSetting @ 0x14082C338 (PpmInfoAdjustSetting.c)
- *     PpmInfoReleaseLocks @ 0x14082C600 (PpmInfoReleaseLocks.c)
- *     PpmEventTraceProfileSetting @ 0x14082C630 (PpmEventTraceProfileSetting.c)
- *     PpmReapplyPerfPolicy @ 0x14082C6C0 (PpmReapplyPerfPolicy.c)
- *     PpmGetPolicyAction @ 0x14082C9C4 (PpmGetPolicyAction.c)
- *     PpmReapplyIdlePolicy @ 0x140982AC4 (PpmReapplyIdlePolicy.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PpmInfoAdjustSetting @ 0x14082C638 (PpmInfoAdjustSetting.c)
+ *     PpmInfoReleaseLocks @ 0x14082C900 (PpmInfoReleaseLocks.c)
+ *     PpmEventTraceProfileSetting @ 0x14082C930 (PpmEventTraceProfileSetting.c)
+ *     PpmReapplyPerfPolicy @ 0x14082C9C0 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x14082CCC4 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x140982CC4 (PpmReapplyIdlePolicy.c)
  */
 
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __int64 a4, int a5)
@@ -111,7 +111,7 @@ LABEL_8:
     else
       PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
     v45 = PpmCurrentProfile;
-    v40 = dword_140C3D86C;
+    v40 = dword_140C3D96C;
     v19 = *a1 - *(_QWORD *)&NullGuid.Data1;
     if ( *a1 == *(_QWORD *)&NullGuid.Data1 )
       v19 = a1[1] - *(_QWORD *)NullGuid.Data4;
@@ -192,7 +192,7 @@ LABEL_57:
       if ( v22 )
       {
         LOBYTE(v24) = v13;
-        LOBYTE(v25) = byte_140C394A8;
+        LOBYTE(v25) = byte_140C39428;
         PpmEventTraceProfileSetting(v25, (unsigned int)*v12, (unsigned int)*v10, v24, (__int64)v43, v42, v6, 0);
         v23 = (_QWORD *)v40;
         if ( v45 == PpmDefaultProfile )

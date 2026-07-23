@@ -1,24 +1,24 @@
 /*
- * XREFs of IopGetBootDiskInformation @ 0x140CBE678
+ * XREFs of IopGetBootDiskInformation @ 0x140CC4748
  * Callers:
- *     IoGetBootDiskInformation @ 0x140796420 (IoGetBootDiskInformation.c)
+ *     IoGetBootDiskInformation @ 0x140798F50 (IoGetBootDiskInformation.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlEqualString @ 0x1404A4570 (RtlEqualString.c)
- *     RtlStringCchPrintfA @ 0x14051055C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoGetConfigurationInformation @ 0x14077EB70 (IoGetConfigurationInformation.c)
- *     IopVerifyDiskSignature @ 0x140795CDC (IopVerifyDiskSignature.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlEqualString @ 0x14049DC00 (RtlEqualString.c)
+ *     RtlStringCchPrintfA @ 0x140509FCC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IoGetConfigurationInformation @ 0x140781670 (IoGetConfigurationInformation.c)
+ *     IopVerifyDiskSignature @ 0x14079880C (IopVerifyDiskSignature.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   bool v7; // cf
   __int64 v8; // rbx
   _QWORD **v9; // r13
-  const char *v10; // rdx
+  const CHAR *v10; // rdx
   ULONG v11; // eax
   NTSTATUS DeviceObjectPointer; // ebx
   struct _DEVICE_OBJECT *v13; // r15
@@ -61,7 +61,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   __int128 OutputBuffer; // [rsp+108h] [rbp+0h] BYREF
   __int64 v41; // [rsp+118h] [rbp+10h]
   char pszDest[128]; // [rsp+128h] [rbp+20h] BYREF
-  char v43[128]; // [rsp+1A8h] [rbp+A0h] BYREF
+  CHAR v43[128]; // [rsp+1A8h] [rbp+A0h] BYREF
 
   v33 = a1;
   DeviceObject = 0LL;
@@ -88,7 +88,7 @@ __int64 __fastcall IopGetBootDiskInformation(__int64 a1, unsigned int a2)
   if ( !v7 )
     v6 = a1;
   v9 = *(_QWORD ***)(KeLoaderBlock_0 + 232);
-  v10 = *(const char **)(KeLoaderBlock_0 + 184);
+  v10 = *(const CHAR **)(KeLoaderBlock_0 + 184);
   v34 = v9;
   v32 = (_QWORD **)**v9;
   RtlInitAnsiString(&DestinationString, v10);

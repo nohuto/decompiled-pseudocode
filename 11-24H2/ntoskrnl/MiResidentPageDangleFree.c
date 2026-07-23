@@ -1,8 +1,8 @@
 /*
- * XREFs of MiResidentPageDangleFree @ 0x1403A9C78
+ * XREFs of MiResidentPageDangleFree @ 0x140398908
  * Callers:
- *     MiFreeMdlPageRun @ 0x1403A1D8C (MiFreeMdlPageRun.c)
- *     MiFreeContiguousPages @ 0x1403A95E8 (MiFreeContiguousPages.c)
+ *     MiFreeMdlPageRun @ 0x1402189BC (MiFreeMdlPageRun.c)
+ *     MiFreeContiguousPages @ 0x140398278 (MiFreeContiguousPages.c)
  * Callees:
  *     <none>
  */

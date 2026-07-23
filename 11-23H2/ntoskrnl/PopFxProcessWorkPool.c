@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxProcessWorkPool @ 0x140310FF4
+ * XREFs of PopFxProcessWorkPool @ 0x140311284
  * Callers:
- *     PopFxStaticWorkPoolThread @ 0x1403B2DC0 (PopFxStaticWorkPoolThread.c)
- *     PopFxPluginWork @ 0x140773520 (PopFxPluginWork.c)
+ *     PopFxStaticWorkPoolThread @ 0x1403B2FA0 (PopFxStaticWorkPoolThread.c)
+ *     PopFxPluginWork @ 0x140773710 (PopFxPluginWork.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     PopFxDispatchPluginWorkOnce @ 0x140311B84 (PopFxDispatchPluginWorkOnce.c)
- *     ExInterlockedRemoveHeadList @ 0x14032F2F0 (ExInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x140311E14 (PopFxDispatchPluginWorkOnce.c)
+ *     ExInterlockedRemoveHeadList @ 0x14032F580 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __fastcall PopFxProcessWorkPool(__int64 a1, unsigned int a2)

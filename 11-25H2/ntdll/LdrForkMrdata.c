@@ -8,11 +8,16 @@
  *     <none>
  */
 
-struct _TEB *__fastcall LdrForkMrdata(int a1)
+void __fastcall LdrForkMrdata(int a1)
 {
-  if ( !a1 )
-    return RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
-  if ( a1 == 1 )
-    LdrpMrdataLock = 1LL;
-  return (struct _TEB *)RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  if ( a1 )
+  {
+    if ( a1 == 1 )
+      LdrpMrdataLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+    RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  }
+  else
+  {
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+  }
 }

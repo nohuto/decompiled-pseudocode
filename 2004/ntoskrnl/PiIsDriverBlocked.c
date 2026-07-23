@@ -22,8 +22,8 @@
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
 {
   __int64 v6; // rdx
-  int v7; // esi
-  int v9; // r8d
+  __int64 v7; // rsi
+  __int64 v9; // r8
   unsigned int DatabaseMatch; // r12d
   unsigned int v11; // ebx
   int v13; // r8d
@@ -120,7 +120,7 @@ LABEL_3:
   }
   if ( !v11 || v11 + 1073740949 <= 1 )
   {
-    PiUpdateDriverDBCache(a2, v7, v9, v11, (__int64)v25);
+    PiUpdateDriverDBCache(a2, v7, v9, v11, v25);
     if ( v11 + 1073740949 <= 1 )
     {
       if ( a5 )

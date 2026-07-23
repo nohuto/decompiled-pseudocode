@@ -9,7 +9,7 @@
  *     ExFreePoolWithTag @ 0x1402B2440 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList(union _SLIST_HEADER *a1, int a2)
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList(_SLIST_HEADER *a1, int a2)
 {
   PSLIST_ENTRY v2; // rbx
   PSLIST_ENTRY v3; // rcx

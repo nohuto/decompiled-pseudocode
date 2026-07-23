@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnPowerBoostUpdate @ 0x1407E6DD8
+ * XREFs of PfSnPowerBoostUpdate @ 0x1407E70A8
  * Callers:
- *     PfSnPowerBoost @ 0x1407E6D5C (PfSnPowerBoost.c)
- *     PfSnPowerBoostWorker @ 0x140886030 (PfSnPowerBoostWorker.c)
+ *     PfSnPowerBoost @ 0x1407E702C (PfSnPowerBoost.c)
+ *     PfSnPowerBoostWorker @ 0x140886270 (PfSnPowerBoostWorker.c)
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x14071229C (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1407124AC (ExpNtUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PfSnPowerBoostUpdate(int a1)

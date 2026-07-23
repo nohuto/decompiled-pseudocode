@@ -1,26 +1,31 @@
 /*
- * XREFs of NtCreateTimer2 @ 0x140786180
+ * XREFs of NtCreateTimer2 @ 0x140786370
  * Callers:
- *     NtCreateIRTimer @ 0x1407EAE50 (NtCreateIRTimer.c)
+ *     NtCreateIRTimer @ 0x1407EB120 (NtCreateIRTimer.c)
  * Callees:
- *     ExpExTimerAttributesAreValid @ 0x14031E4B8 (ExpExTimerAttributesAreValid.c)
- *     KeInitializeTimer2 @ 0x14031E500 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x14036F5F8 (KeInitializeIRTimer.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ExpCheckIRTimerAccess @ 0x1407EBA64 (ExpCheckIRTimerAccess.c)
+ *     ExpExTimerAttributesAreValid @ 0x14031E748 (ExpExTimerAttributesAreValid.c)
+ *     KeInitializeTimer2 @ 0x14031E790 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14036F798 (KeInitializeIRTimer.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ExpCheckIRTimerAccess @ 0x1407EBD34 (ExpCheckIRTimerAccess.c)
  */
 
-__int64 __fastcall NtCreateTimer2(__int64 *a1, __int64 a2, __int64 a3, unsigned int a4, int a5)
+NTSTATUS __cdecl NtCreateTimer2(
+        PHANDLE TimerHandle,
+        PVOID Reserved1,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Attributes,
+        ACCESS_MASK DesiredAccess)
 {
   __int64 v7; // rdx
   __int64 v8; // r9
   unsigned int *v9; // r10
   char PreviousMode; // si
   __int64 v11; // rcx
-  int inserted; // ecx
+  NTSTATUS inserted; // ecx
   _QWORD *v13; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v15; // [rsp+20h] [rbp-58h]
   unsigned int v16; // [rsp+50h] [rbp-28h] BYREF
   PVOID Object; // [rsp+58h] [rbp-20h] BYREF
@@ -28,20 +33,20 @@ __int64 __fastcall NtCreateTimer2(__int64 *a1, __int64 a2, __int64 a3, unsigned 
 
   v18 = 0LL;
   Object = 0LL;
-  if ( !ExpExTimerAttributesAreValid(a4) )
-    return 3221225714LL;
+  if ( !ExpExTimerAttributesAreValid(Attributes) )
+    return -1073741582;
   if ( v8 )
-    return 3221225713LL;
-  if ( v9 && (a4 & 2) == 0 )
-    return 3221225712LL;
+    return -1073741583;
+  if ( v9 && (Attributes & 2) == 0 )
+    return -1073741584;
   v16 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
     v11 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v11 = (__int64)a1;
+    if ( (unsigned __int64)TimerHandle < 0x7FFFFFFF0000LL )
+      v11 = (__int64)TimerHandle;
     *(_QWORD *)v11 = *(_QWORD *)v11;
     if ( v9 )
     {
@@ -54,24 +59,24 @@ __int64 __fastcall NtCreateTimer2(__int64 *a1, __int64 a2, __int64 a3, unsigned 
   {
     v16 = *v9;
   }
-  if ( (a4 & 2) == 0 || (LOBYTE(v7) = PreviousMode, result = ExpCheckIRTimerAccess(v16, v7), (int)result >= 0) )
+  if ( (Attributes & 2) == 0 || (LOBYTE(v7) = PreviousMode, result = ExpCheckIRTimerAccess(v16, v7), result >= 0) )
   {
     inserted = ObCreateObjectEx(PreviousMode, ExpIRTimerObjectType, 0LL, PreviousMode, v15, 168, 0, 0, &Object, 0LL);
     if ( inserted >= 0 )
     {
       v13 = Object;
-      if ( (a4 & 2) != 0 )
-        KeInitializeIRTimer((unsigned __int64)Object, 0LL, 0LL, (unsigned __int8 *)&v16, a4);
+      if ( (Attributes & 2) != 0 )
+        KeInitializeIRTimer((unsigned __int64)Object, 0LL, 0LL, (unsigned __int8 *)&v16, Attributes);
       else
-        KeInitializeTimer2((__int64)Object, 0LL, 0LL, a4);
+        KeInitializeTimer2((__int64)Object, 0LL, 0LL, Attributes);
       v13[17] = 0LL;
-      *((_DWORD *)v13 + 40) = a4;
-      inserted = ObInsertObjectEx((char *)v13, 0LL, a5, 0, 0, 0LL, &v18);
+      *((_DWORD *)v13 + 40) = Attributes;
+      inserted = ObInsertObjectEx((char *)v13, 0LL, DesiredAccess, 0, 0, 0LL, &v18);
       v16 = inserted;
       if ( inserted >= 0 )
-        *a1 = v18;
+        *TimerHandle = (HANDLE)v18;
     }
-    return (unsigned int)inserted;
+    return inserted;
   }
   return result;
 }

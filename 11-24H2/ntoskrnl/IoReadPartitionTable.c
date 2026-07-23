@@ -1,16 +1,16 @@
 /*
- * XREFs of IoReadPartitionTable @ 0x14070E170
+ * XREFs of IoReadPartitionTable @ 0x14070BD10
  * Callers:
- *     DifIoReadPartitionTableWrapper @ 0x14062A070 (DifIoReadPartitionTableWrapper.c)
+ *     DifIoReadPartitionTableWrapper @ 0x140628630 (DifIoReadPartitionTableWrapper.c)
  * Callees:
- *     ??0SC_DISK@@QEAA@XZ @ 0x14069D488 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x14069D570 (--1SC_DISK@@UEAA@XZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14069DC5C (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14070DE38 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x14069E51C (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x14069E604 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14069ECF0 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070B8A0 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14070B9D8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReadPartitionTable(
@@ -23,27 +23,29 @@ NTSTATUS __stdcall IoReadPartitionTable(
   struct _DEVICE_OBJECT *v7; // r10
   NTSTATUS v8; // edi
   int PartitionTable; // eax
-  ULONG *v10; // rbx
-  SIZE_T v11; // rbp
-  struct _DRIVE_LAYOUT_INFORMATION *PoolWithTag; // rax
-  __int64 v13; // r8
-  struct _DRIVE_LAYOUT_INFORMATION *v14; // r10
-  __int64 v15; // rcx
-  ULONG *v16; // r9
-  char v17; // al
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  DWORD *v12; // rbx
+  SIZE_T v13; // rbp
+  struct _DRIVE_LAYOUT_INFORMATION *v14; // rax
+  __int64 v15; // r8
+  struct _DRIVE_LAYOUT_INFORMATION *v16; // r10
+  __int64 v17; // rcx
+  DWORD *v18; // r9
+  char v19; // al
   PVOID P; // [rsp+20h] [rbp-1C8h] BYREF
-  _QWORD v20[50]; // [rsp+30h] [rbp-1B8h] BYREF
+  _QWORD v22[50]; // [rsp+30h] [rbp-1B8h] BYREF
 
-  SC_DISK::SC_DISK((SC_DISK *)v20);
-  v20[49] = 0LL;
+  SC_DISK::SC_DISK((SC_DISK *)v22);
+  v22[49] = 0LL;
   P = 0LL;
   *v6 = 0LL;
-  v20[0] = &NT_DISK::`vftable';
-  v8 = NT_DISK::Initialize((NT_DISK *)v20, v7);
+  v22[0] = &NT_DISK::`vftable';
+  v8 = NT_DISK::Initialize((NT_DISK *)v22, v7);
   if ( v8 >= 0 )
   {
-    PartitionTable = SC_DISK::ReadPartitionTable((SC_DISK *)v20, (struct SC_DISK_LAYOUT **)&P);
-    v10 = (ULONG *)P;
+    PartitionTable = SC_DISK::ReadPartitionTable((SC_DISK *)v22, (struct SC_DISK_LAYOUT **)&P);
+    v12 = (DWORD *)P;
     v8 = PartitionTable;
     if ( PartitionTable >= 0 )
     {
@@ -53,33 +55,33 @@ NTSTATUS __stdcall IoReadPartitionTable(
       }
       else
       {
-        v11 = (unsigned int)(144 * *((_DWORD *)P + 1) + 48);
-        PoolWithTag = (struct _DRIVE_LAYOUT_INFORMATION *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x54506F49u);
-        *PartitionBuffer = PoolWithTag;
-        if ( PoolWithTag )
+        v13 = (unsigned int)(144 * *((_DWORD *)P + 1) + 48);
+        v14 = (struct _DRIVE_LAYOUT_INFORMATION *)SC_ENV::Allocate(v13, v10, v11, 0);
+        *PartitionBuffer = v14;
+        if ( v14 )
         {
-          memset_0(PoolWithTag, 0, v11);
-          v13 = 0LL;
-          (*PartitionBuffer)->PartitionCount = v10[1];
-          for ( (*PartitionBuffer)->Signature = v10[2]; (unsigned int)v13 < v10[1]; v13 = (unsigned int)(v13 + 1) )
+          memset_0(v14, 0, v13);
+          v15 = 0LL;
+          (*PartitionBuffer)->PartitionCount = v12[1];
+          for ( (*PartitionBuffer)->Signature = v12[2]; (unsigned int)v15 < v12[1]; v15 = (unsigned int)(v15 + 1) )
           {
-            v14 = *PartitionBuffer;
-            v15 = (unsigned int)v13;
-            v16 = &v10[36 * v13];
+            v16 = *PartitionBuffer;
+            v17 = (unsigned int)v15;
+            v18 = &v12[36 * v15];
             if ( ReturnRecognizedPartitions )
             {
-              v17 = *((_BYTE *)v16 + 80);
-              if ( !v17 || v17 == 5 || v17 == 15 )
+              v19 = *((_BYTE *)v18 + 80);
+              if ( !v19 || v19 == 5 || v19 == 15 )
                 continue;
             }
-            v14->PartitionEntry[v15].StartingOffset.QuadPart = *(_QWORD *)&v10[36 * v13 + 14];
-            v14->PartitionEntry[v15].PartitionLength.QuadPart = *(_QWORD *)&v10[36 * v13 + 16];
-            v14->PartitionEntry[v15].HiddenSectors = v10[36 * v13 + 21];
-            v14->PartitionEntry[v15].PartitionNumber = v10[36 * v13 + 18];
-            v14->PartitionEntry[v15].PartitionType = *((_BYTE *)v16 + 80);
-            v14->PartitionEntry[v15].BootIndicator = BYTE1(v10[36 * v13 + 20]);
-            v14->PartitionEntry[v15].RecognizedPartition = BYTE2(v10[36 * v13 + 20]);
-            v14->PartitionEntry[v15].RewritePartition = v10[36 * v13 + 19];
+            v16->PartitionEntry[v17].StartingOffset.QuadPart = *(_QWORD *)&v12[36 * v15 + 14];
+            v16->PartitionEntry[v17].PartitionLength.QuadPart = *(_QWORD *)&v12[36 * v15 + 16];
+            v16->PartitionEntry[v17].HiddenSectors = v12[36 * v15 + 21];
+            v16->PartitionEntry[v17].PartitionNumber = v12[36 * v15 + 18];
+            v16->PartitionEntry[v17].PartitionType = *((_BYTE *)v18 + 80);
+            v16->PartitionEntry[v17].BootIndicator = BYTE1(v12[36 * v15 + 20]);
+            v16->PartitionEntry[v17].RecognizedPartition = BYTE2(v12[36 * v15 + 20]);
+            v16->PartitionEntry[v17].RewritePartition = v12[36 * v15 + 19];
           }
         }
         else
@@ -88,10 +90,10 @@ NTSTATUS __stdcall IoReadPartitionTable(
         }
       }
     }
-    if ( v10 )
-      ExFreePoolWithTag(v10, 0);
+    if ( v12 )
+      ExFreePoolWithTag(v12, 0);
   }
-  v20[0] = &NT_DISK::`vftable';
-  SC_DISK::~SC_DISK((SC_DISK *)v20);
+  v22[0] = &NT_DISK::`vftable';
+  SC_DISK::~SC_DISK((SC_DISK *)v22);
   return v8;
 }

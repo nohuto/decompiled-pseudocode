@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateMinimumWeight @ 0x1400A6A00
+ * XREFs of KiUpdateMinimumWeight @ 0x1400A4F78
  * Callers:
- *     KeRemoveSchedulingGroup @ 0x1400A6270 (KeRemoveSchedulingGroup.c)
- *     KeSetSchedulingGroupWeights @ 0x1400A678C (KeSetSchedulingGroupWeights.c)
- *     KeSetSchedulingGroupCpuRates @ 0x1400A6898 (KeSetSchedulingGroupCpuRates.c)
+ *     KeRemoveSchedulingGroup @ 0x1400A47E8 (KeRemoveSchedulingGroup.c)
+ *     KeSetSchedulingGroupWeights @ 0x1400A4D04 (KeSetSchedulingGroupWeights.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x1400A4E10 (KeSetSchedulingGroupCpuRates.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpProfileInterrupt @ 0x1405FE030
+ * XREFs of EtwpProfileInterrupt @ 0x1405FE5A0
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpProfileInterrupt(__int64 a1)

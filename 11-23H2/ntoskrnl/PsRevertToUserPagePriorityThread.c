@@ -1,11 +1,11 @@
 /*
  * XREFs of PsRevertToUserPagePriorityThread @ 0x14021075C
  * Callers:
- *     SmSetThreadSystemPagePriority @ 0x1405CDB2C (SmSetThreadSystemPagePriority.c)
+ *     SmSetThreadSystemPagePriority @ 0x1405CE09C (SmSetThreadSystemPagePriority.c)
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 int __fastcall PsRevertToUserPagePriorityThread(__int64 a1, int a2)

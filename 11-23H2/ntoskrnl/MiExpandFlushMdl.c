@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExpandFlushMdl @ 0x140355108
+ * XREFs of MiExpandFlushMdl @ 0x1403552A8
  * Callers:
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)

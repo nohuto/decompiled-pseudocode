@@ -1,15 +1,15 @@
 /*
- * XREFs of ResCCultureMapPopulate @ 0x180105860
+ * XREFs of ResCCultureMapPopulate @ 0x1801057A0
  * Callers:
- *     ResCCultureMapCreateAndPopulate @ 0x1801057C0 (ResCCultureMapCreateAndPopulate.c)
+ *     ResCCultureMapCreateAndPopulate @ 0x180105700 (ResCCultureMapCreateAndPopulate.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  */
 
 __int64 __fastcall ResCCultureMapPopulate(_QWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v5; // ecx
-  unsigned int v6; // ecx
+  LONG v6; // ecx
   __int64 result; // rax
   __int64 v8; // rdx
 

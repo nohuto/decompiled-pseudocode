@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCreateUmReplyObject @ 0x1406A62D8
+ * XREFs of EtwpCreateUmReplyObject @ 0x1406A7578
  * Callers:
- *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
- *     EtwpNotifyGuid @ 0x140658888 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406570F8 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x140659A48 (EtwpNotifyGuid.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpReferenceGuidEntry @ 0x1405C4288 (EtwpReferenceGuidEntry.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeInitializeQueue @ 0x140121AA0 (KeInitializeQueue.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpReferenceGuidEntry @ 0x1405C5288 (EtwpReferenceGuidEntry.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall EtwpCreateUmReplyObject(ULONG_PTR BugCheckParameter2, unsigned __int64 *a2, _QWORD *a3)

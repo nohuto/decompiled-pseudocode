@@ -61,7 +61,7 @@ __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsi
       }
     }
     v13 = v10 | 0x200;
-    KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103);
+    KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103LL);
     v16 = KeySecurityDescriptor;
     if ( KeySecurityDescriptor )
     {

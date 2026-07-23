@@ -1,15 +1,15 @@
 /*
- * XREFs of CmRegisterMachineHiveLoadedNotification @ 0x14080E160
+ * XREFs of CmRegisterMachineHiveLoadedNotification @ 0x14080E430
  * Callers:
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmpWorkItemQueueWork @ 0x14037459C (CmpWorkItemQueueWork.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CmpFindMachineHiveByMountPoint @ 0x14080E4B4 (CmpFindMachineHiveByMountPoint.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpWorkItemQueueWork @ 0x14037473C (CmpWorkItemQueueWork.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpFindMachineHiveByMountPoint @ 0x14080E784 (CmpFindMachineHiveByMountPoint.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAssignProcessorNumberToPrcb @ 0x140376640
+ * XREFs of KiAssignProcessorNumberToPrcb @ 0x1403767E0
  * Callers:
- *     KiConfigureInitialNodes @ 0x1403A8B08 (KiConfigureInitialNodes.c)
- *     KiInitializeProcessorState @ 0x14081D208 (KiInitializeProcessorState.c)
+ *     KiConfigureInitialNodes @ 0x1403A8CE8 (KiConfigureInitialNodes.c)
+ *     KiInitializeProcessorState @ 0x14081D4D8 (KiInitializeProcessorState.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KiFindSubNodeForProcessorNumber @ 0x140376768 (KiFindSubNodeForProcessorNumber.c)
+ *     KiFindSubNodeForProcessorNumber @ 0x140376908 (KiFindSubNodeForProcessorNumber.c)
  */
 
 __int64 __fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, int a3)

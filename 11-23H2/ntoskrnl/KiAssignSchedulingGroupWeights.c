@@ -5,7 +5,7 @@
  *     KeInsertSchedulingGroup @ 0x1402050DC (KeInsertSchedulingGroup.c)
  *     KeSetSchedulingGroupCpuRates @ 0x140205474 (KeSetSchedulingGroupCpuRates.c)
  *     KeRemoveSchedulingGroup @ 0x140206C84 (KeRemoveSchedulingGroup.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1403AFB74 (KeUpdateGroupSchedulingConstants.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1403AFD54 (KeUpdateGroupSchedulingConstants.c)
  * Callees:
  *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNodes @ 0x140868128
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x140868368
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
- *     PipRemoveDevicesInRelationList @ 0x1408817EC (PipRemoveDevicesInRelationList.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971C9C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
+ *     PipRemoveDevicesInRelationList @ 0x140881A2C (PipRemoveDevicesInRelationList.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971E9C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
- *     PoFxIdleDevice @ 0x140322F7C (PoFxIdleDevice.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PiUpdateGuestAssignedState @ 0x1407925C8 (PiUpdateGuestAssignedState.c)
- *     IopEnumerateRelations @ 0x140868390 (IopEnumerateRelations.c)
- *     PnpDeleteLockedDeviceNode @ 0x140868428 (PnpDeleteLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x14032320C (PoFxIdleDevice.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PiUpdateGuestAssignedState @ 0x1407927B8 (PiUpdateGuestAssignedState.c)
+ *     IopEnumerateRelations @ 0x1408685D0 (IopEnumerateRelations.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140868668 (PnpDeleteLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNodes(

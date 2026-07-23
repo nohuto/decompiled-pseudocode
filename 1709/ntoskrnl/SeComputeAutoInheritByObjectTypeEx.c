@@ -12,7 +12,7 @@
  *     ExfReleasePushLockShared @ 0x1400A7E00 (ExfReleasePushLockShared.c)
  */
 
-__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *Index)
 {
   _DWORD *v5; // rdi
   char v6; // r12
@@ -25,23 +25,23 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   __int64 v17; // rcx
   int v18; // eax
   __int16 v20; // ax
-  __int64 v21; // rcx
-  unsigned __int8 *AceByType; // rax
+  ACL *v21; // rcx
+  _DWORD *AceByType; // rax
   __int64 v23; // rax
   __int16 v24; // ax
-  __int64 v25; // rcx
+  ACL *v25; // rcx
   __int64 v26; // rax
-  unsigned __int8 *v27; // rax
+  _BYTE *v27; // rax
 
-  v5 = a5;
+  v5 = Index;
   v6 = 0;
   v11 = 0;
   v12 = 0;
-  if ( a5 )
+  if ( Index )
   {
-    if ( *a5 != 8 )
+    if ( *Index != 8 )
       return 3221225485LL;
-    a5[1] = -1;
+    Index[1] = -1;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -93,22 +93,22 @@ LABEL_13:
     {
       if ( v20 >= 0 )
       {
-        v21 = *(_QWORD *)(a2 + 24);
+        v21 = *(ACL **)(a2 + 24);
       }
       else
       {
         v23 = *(unsigned int *)(a2 + 12);
-        v21 = (_DWORD)v23 ? v23 + a2 : 0LL;
+        v21 = (_DWORD)v23 ? (ACL *)(v23 + a2) : 0LL;
       }
     }
     else
     {
       v21 = 0LL;
     }
-    AceByType = RtlFindAceByType(v21, 17, 0LL);
+    AceByType = RtlFindAceByType(v21, 0x11u, 0LL);
     if ( AceByType )
     {
-      *((_DWORD *)AceByType + 1) |= v12;
+      AceByType[1] |= v12;
       v11 = 0;
     }
   }
@@ -116,7 +116,7 @@ LABEL_13:
   {
     if ( a2 )
     {
-      LODWORD(a5) = 0;
+      LODWORD(Index) = 0;
       while ( 1 )
       {
         v24 = *(_WORD *)(a2 + 2);
@@ -124,25 +124,25 @@ LABEL_13:
         {
           if ( v24 >= 0 )
           {
-            v25 = *(_QWORD *)(a2 + 24);
+            v25 = *(ACL **)(a2 + 24);
           }
           else
           {
             v26 = *(unsigned int *)(a2 + 12);
-            v25 = (_DWORD)v26 ? v26 + a2 : 0LL;
+            v25 = (_DWORD)v26 ? (ACL *)(v26 + a2) : 0LL;
           }
         }
         else
         {
           v25 = 0LL;
         }
-        v27 = RtlFindAceByType(v25, 17, (unsigned int *)&a5);
+        v27 = RtlFindAceByType(v25, 0x11u, (PULONG)&Index);
         if ( v27 )
         {
           if ( (v27[1] & 8) == 0 )
             break;
         }
-        LODWORD(a5) = (_DWORD)a5 + 1;
+        LODWORD(Index) = (_DWORD)Index + 1;
         if ( !v27 )
           goto LABEL_55;
       }

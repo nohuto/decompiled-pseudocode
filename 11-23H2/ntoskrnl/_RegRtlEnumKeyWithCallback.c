@@ -1,13 +1,13 @@
 /*
- * XREFs of _RegRtlEnumKeyWithCallback @ 0x14082B418
+ * XREFs of _RegRtlEnumKeyWithCallback @ 0x14082B718
  * Callers:
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14082B3C0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14082B6C0 (_PnpCtxRegEnumKeyWithCallback.c)
  * Callees:
- *     IoGetStackLimits @ 0x14022E930 (IoGetStackLimits.c)
- *     _SysCtxInternalEnumSubkeyCallback @ 0x140399CAC (_SysCtxInternalEnumSubkeyCallback.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _RegRtlQueryInfoKey @ 0x14086B3E4 (_RegRtlQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x14086B4AC (_RegRtlEnumKey.c)
+ *     IoGetStackLimits @ 0x14022EA40 (IoGetStackLimits.c)
+ *     _SysCtxInternalEnumSubkeyCallback @ 0x140399E8C (_SysCtxInternalEnumSubkeyCallback.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _RegRtlQueryInfoKey @ 0x14086B624 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x14086B6EC (_RegRtlEnumKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

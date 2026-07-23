@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpTransInitializeTransaction @ 0x1408AC920
+ * XREFs of CmpTransInitializeTransaction @ 0x1408B2D64
  * Callers:
- *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x1408F2710 (CmpTransSearchAddTrans.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     CmTmCreateEnlistment @ 0x1408ACAB8 (CmTmCreateEnlistment.c)
- *     CmpStartRMLogs @ 0x1408ACB38 (CmpStartRMLogs.c)
- *     CmpAccountForLogReservation @ 0x1408ACE58 (CmpAccountForLogReservation.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
- *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
- *     CmpTransDereferenceTransaction @ 0x1408ECC08 (CmpTransDereferenceTransaction.c)
- *     CmpTransReferenceTransaction @ 0x1408EE304 (CmpTransReferenceTransaction.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     CmTmCreateEnlistment @ 0x1408B2EFC (CmTmCreateEnlistment.c)
+ *     CmpStartRMLogs @ 0x1408B2F7C (CmpStartRMLogs.c)
+ *     CmpAccountForLogReservation @ 0x1408B3298 (CmpAccountForLogReservation.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
+ *     CmpTransSearchAddTrans @ 0x1408F2710 (CmpTransSearchAddTrans.c)
+ *     CmpTransDereferenceTransaction @ 0x1408F31C8 (CmpTransDereferenceTransaction.c)
+ *     CmpTransReferenceTransaction @ 0x1408F48C4 (CmpTransReferenceTransaction.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)
   if ( !v4 )
     goto LABEL_11;
   v6 = v2;
-  if ( *(struct _LIST_ENTRY **)(a1 + 64) == WheapPfaLock.Timer.Header.WaitListHead.Flink )
+  if ( *(_QWORD *)(a1 + 64) == *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] )
   {
 LABEL_6:
     v1 = *v2;
@@ -74,7 +74,7 @@ LABEL_11:
     if ( (*(_DWORD *)(a1 + 48) & 6) == 0 )
     {
       *(_DWORD *)(a1 + 48) = v5;
-      --*((_DWORD *)&WheapPfaLock.SwapListEntry + 2);
+      --HIDWORD(WheapPfaLock.Timer.Header.WaitListHead.Blink);
       ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
       KeLeaveCriticalRegion();
       _InterlockedOr(v13, 0);
@@ -87,12 +87,12 @@ LABEL_11:
     KeLeaveCriticalRegion();
     goto LABEL_17;
   }
-  if ( !WheapPfaLock.Timer.Header.WaitListHead.Flink )
+  if ( !*(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] )
     return (unsigned int)-1072103419;
   started = CmpTransSearchAddTrans(
               v4,
               0,
-              WheapPfaLock.Timer.Header.WaitListHead.Flink,
+              *(_DWORD *)&WheapPfaLock.WaitBlockFill11[16],
               *(_DWORD *)&stru_140E098B8.WaitBlockFill11[120],
               1,
               (__int64)&v15);

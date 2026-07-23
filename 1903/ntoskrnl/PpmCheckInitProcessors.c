@@ -27,56 +27,53 @@
 LONG __fastcall PpmCheckInitProcessors(int a1)
 {
   __int64 Prcb; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  int v7; // [rsp+20h] [rbp-E0h] BYREF
-  ULONG v8; // [rsp+24h] [rbp-DCh] BYREF
-  unsigned __int16 *v9[2]; // [rsp+28h] [rbp-D8h] BYREF
-  __int16 v10; // [rsp+38h] [rbp-C8h]
-  int v11; // [rsp+3Ah] [rbp-C6h]
-  __int16 v12; // [rsp+3Eh] [rbp-C2h]
-  _QWORD v13[22]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int16 v14[88]; // [rsp+F0h] [rbp-10h] BYREF
+  int v4; // [rsp+20h] [rbp-E0h] BYREF
+  ULONG v5; // [rsp+24h] [rbp-DCh] BYREF
+  unsigned __int16 *v6[2]; // [rsp+28h] [rbp-D8h] BYREF
+  __int16 v7; // [rsp+38h] [rbp-C8h]
+  int v8; // [rsp+3Ah] [rbp-C6h]
+  __int16 v9; // [rsp+3Eh] [rbp-C2h]
+  _QWORD v10[22]; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int16 v11[88]; // [rsp+F0h] [rbp-10h] BYREF
 
-  memset(v14, 0, 0xA8uLL);
-  v11 = 0;
-  v12 = 0;
-  memset(v13, 0, 0xA8uLL);
-  v7 = 0;
+  memset(v11, 0, 0xA8uLL);
+  v8 = 0;
+  v9 = 0;
+  memset(v10, 0, 0xA8uLL);
+  v4 = 0;
   if ( a1 )
   {
-    LODWORD(v13[0]) = 1310721;
-    memset((char *)v13 + 4, 0, 0xA4uLL);
+    LODWORD(v10[0]) = 1310721;
+    memset((char *)v10 + 4, 0, 0xA4uLL);
   }
   else
   {
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-    KeQueryActiveProcessorAffinity((__int64)v14);
-    if ( !(unsigned __int8)KeSubtractAffinityEx(v14, (unsigned __int16 *)PpmCheckRegistered, v13) )
+    KeQueryActiveProcessorAffinity((__int64)v11);
+    if ( !(unsigned __int8)KeSubtractAffinityEx(v11, (unsigned __int16 *)PpmCheckRegistered, v10) )
       return PpmReleaseLock(&PpmPerfPolicyLock);
   }
-  KeOrAffinityEx((unsigned __int16 *)PpmCheckRegistered, (unsigned __int16 *)v13, PpmCheckRegistered);
-  if ( !(unsigned int)KeIsEmptyAffinityEx(v13) )
+  KeOrAffinityEx((unsigned __int16 *)PpmCheckRegistered, (unsigned __int16 *)v10, PpmCheckRegistered);
+  if ( !(unsigned int)KeIsEmptyAffinityEx(v10) )
   {
-    v9[1] = (unsigned __int16 *)v13[1];
-    v9[0] = (unsigned __int16 *)v13;
-    v10 = 0;
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v8, v9) )
+    v6[1] = (unsigned __int16 *)v10[1];
+    v6[0] = (unsigned __int16 *)v10;
+    v7 = 0;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v5, v6) )
     {
-      Prcb = KeGetPrcb(v8);
+      Prcb = KeGetPrcb(v5);
       PpmAllocatePerfCheck(Prcb);
     }
-    PopExecuteOnTargetProcessors((__int64)v13, (__int64)PpmCheckProcessorInit, 0LL, 0LL);
+    PopExecuteOnTargetProcessors((__int64)v10, (__int64)PpmCheckProcessorInit, 0LL, 0LL);
   }
   PpmParkRegisterParking();
   if ( (KeGetCurrentPrcb()->FeatureBits & 0x8000000000LL) != 0 )
   {
     PpmAllowedActions |= 0x400u;
-    v7 |= 0x400u;
-    PpmUpdateProcessorPolicy(&v7, 0LL);
+    v4 |= 0x400u;
+    PpmUpdateProcessorPolicy(&v4, 0LL);
   }
   PpmCheckReInit();
-  PpmCheckApplyParkConstraints(v4, v3, v5);
+  PpmCheckApplyParkConstraints();
   return PpmHvEnableQosEnlightenment();
 }

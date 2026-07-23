@@ -5,7 +5,7 @@
  *     BgpDisplayCharacterDestroyContext @ 0x140728810 (BgpDisplayCharacterDestroyContext.c)
  *     BgpFwLibraryDisable @ 0x140728834 (BgpFwLibraryDisable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
  *     RaspClearCache @ 0x140725934 (RaspClearCache.c)
  *     TxtpDestroyCacheEntry @ 0x1407276A0 (TxtpDestroyCacheEntry.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)

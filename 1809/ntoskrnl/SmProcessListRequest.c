@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessListRequest @ 0x1408AAF28
+ * XREFs of SmProcessListRequest @ 0x1408AC188
  * Callers:
- *     SmQueryStoreInformation @ 0x1406CFD3C (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406D0FDC (SmQueryStoreInformation.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     SmProcessListRequestExtended @ 0x1408AB0F8 (SmProcessListRequestExtended.c)
- *     SmKmGetStoreList @ 0x1408ACC44 (SmKmGetStoreList.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     SmAlloc @ 0x1400E4BD4 (SmAlloc.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     SmProcessListRequestExtended @ 0x1408AC358 (SmProcessListRequestExtended.c)
+ *     SmKmGetStoreList @ 0x1408ADEA4 (SmKmGetStoreList.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessListRequest(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned int *a4, char a5)

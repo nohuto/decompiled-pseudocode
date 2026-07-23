@@ -1,28 +1,28 @@
 /*
- * XREFs of PipMakeGloballyUniqueId @ 0x140A582C0
+ * XREFs of PipMakeGloballyUniqueId @ 0x140A4FA70
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140AA3320 (PiCreateDriverSwDeviceCallback.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140A9E6B0 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlUpcaseUnicodeString @ 0x140962470 (RtlUpcaseUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlUpcaseUnicodeString @ 0x140949F30 (RtlUpcaseUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipMakeGloballyUniqueId(__int64 a1, __int64 a2, wchar_t **a3)
@@ -112,7 +112,7 @@ __int64 __fastcall PipMakeGloballyUniqueId(__int64 a1, __int64 a2, wchar_t **a3)
         goto LABEL_17;
       }
       v18 = v42;
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x12uLL, 0x6E657050u);
       v9 = Pool2;
       if ( Pool2 )
       {
@@ -134,7 +134,7 @@ LABEL_10:
           ++v6;
         while ( v9[v6] );
         v30 = v6 + v15 + 2;
-        v16 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v16 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v30, 0x6E657050u);
         v8 = v16;
         if ( v16 )
         {
@@ -151,7 +151,7 @@ LABEL_10:
       *(_DWORD *)&ValueName.Length = 1966108;
       ValueName.Buffer = L"ParentIdPrefix";
       v30 = 66;
-      v10 = ExAllocatePool2(0x100uLL);
+      v10 = ExAllocatePool2(0x100uLL, 0x42uLL, 0x6E657050u);
       if ( v10 )
       {
         CachedContextBaseKey = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, (PVOID)v10, v30, &v30);
@@ -172,7 +172,7 @@ LABEL_10:
           v36 = v24;
           RtlFreeAnsiString(&ValueName);
           cbDest = 2 * v30;
-          v9 = (wchar_t *)ExAllocatePool2(0x100uLL);
+          v9 = (wchar_t *)ExAllocatePool2(0x100uLL, cbDest, 0x6E657050u);
           if ( !v9 )
             goto LABEL_15;
           LODWORD(ResultLength) = *(_DWORD *)(v3 + 152);
@@ -211,7 +211,7 @@ LABEL_10:
           goto LABEL_16;
         }
         v12 = *(_DWORD *)(v10 + 8);
-        v13 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v13 = (wchar_t *)ExAllocatePool2(0x100uLL, v12, 0x6E657050u);
         v9 = v13;
         if ( v13 )
         {

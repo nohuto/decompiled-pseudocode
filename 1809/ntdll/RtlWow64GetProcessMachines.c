@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlWow64GetProcessMachines @ 0x18007F950
+ * XREFs of RtlWow64GetProcessMachines @ 0x18007F960
  * Callers:
  *     LdrpGetModuleName @ 0x18006A6E8 (LdrpGetModuleName.c)
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQuerySystemInformationEx @ 0x1800A2E10 (NtQuerySystemInformationEx.c)
- *     _alloca_probe @ 0x1800A5210 (_alloca_probe.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQuerySystemInformationEx @ 0x1800A2E30 (NtQuerySystemInformationEx.c)
+ *     _alloca_probe @ 0x1800A5230 (_alloca_probe.c)
  */
 
-__int64 __fastcall RtlWow64GetProcessMachines(__int64 a1, _WORD *a2, __int16 *a3)
+NTSTATUS __cdecl RtlWow64GetProcessMachines(HANDLE ProcessHandle, PUSHORT ProcessMachine, PUSHORT NativeMachine)
 {
   int v5; // r9d
-  __int16 v6; // cx
-  __int16 v7; // dx
-  unsigned int *v9; // rbx
-  unsigned int v10; // r8d
+  USHORT v6; // cx
+  USHORT v7; // dx
+  ULONG *p_ReturnLength; // rbx
+  ULONG v10; // r8d
   __int64 v11; // rsi
-  __int16 v12; // r10
-  __int16 v13; // r11
+  USHORT v12; // r10
+  USHORT v13; // r11
   struct _TEB *v14; // rcx
   __int64 WowTebOffset; // rax
   _WORD *v16; // rax
@@ -26,13 +26,13 @@ __int64 __fastcall RtlWow64GetProcessMachines(__int64 a1, _WORD *a2, __int16 *a3
   unsigned __int64 v18; // rcx
   void *v19; // rsp
   void *v20; // rsp
-  unsigned int v21; // [rsp+30h] [rbp+0h] BYREF
-  __int64 v22; // [rsp+38h] [rbp+8h] BYREF
-  _BYTE v23[16]; // [rsp+40h] [rbp+10h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp+0h] BYREF
+  HANDLE InputBuffer; // [rsp+38h] [rbp+8h] BYREF
+  _BYTE SystemInformation[16]; // [rsp+40h] [rbp+10h] BYREF
 
-  v22 = a1;
+  InputBuffer = ProcessHandle;
   v5 = 0;
-  if ( a1 == -1 )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     if ( !NtCurrentTeb()->WowTebOffset )
     {
@@ -57,34 +57,46 @@ __int64 __fastcall RtlWow64GetProcessMachines(__int64 a1, _WORD *a2, __int16 *a3
         {
           v7 = v16[16];
 LABEL_4:
-          *a2 = v6;
-          if ( a3 )
-            *a3 = v7;
-          return (unsigned int)v5;
+          *ProcessMachine = v6;
+          if ( NativeMachine )
+            *NativeMachine = v7;
+          return v5;
         }
       }
     }
   }
-  v21 = 16;
-  v9 = (unsigned int *)v23;
-  v5 = NtQuerySystemInformationEx(181LL, &v22, 8LL, v23, 16, &v21);
+  ReturnLength = 16;
+  p_ReturnLength = (ULONG *)SystemInformation;
+  v5 = NtQuerySystemInformationEx(
+         SystemSupportedProcessorArchitectures,
+         &InputBuffer,
+         8u,
+         SystemInformation,
+         0x10u,
+         &ReturnLength);
   if ( v5 == -1073741789 )
   {
-    v17 = v21 + 15LL;
-    if ( v17 <= v21 )
+    v17 = ReturnLength + 15LL;
+    if ( v17 <= ReturnLength )
       v17 = 0xFFFFFFFFFFFFFF0LL;
     v18 = v17 & 0xFFFFFFFFFFFFFFF0uLL;
     v19 = alloca(v18);
     v20 = alloca(v18);
-    v9 = &v21;
-    v5 = NtQuerySystemInformationEx(181LL, &v22, 8LL, &v21, v21, &v21);
+    p_ReturnLength = &ReturnLength;
+    v5 = NtQuerySystemInformationEx(
+           SystemSupportedProcessorArchitectures,
+           &InputBuffer,
+           8u,
+           &ReturnLength,
+           ReturnLength,
+           &ReturnLength);
   }
   if ( v5 >= 0 )
   {
-    v10 = *v9;
+    v10 = *p_ReturnLength;
     v6 = 0;
     v7 = 0;
-    for ( LODWORD(v11) = 0; (_WORD)v10; v10 = v9[v11] )
+    for ( LODWORD(v11) = 0; (_WORD)v10; v10 = p_ReturnLength[v11] )
     {
       v12 = v10;
       v13 = v10;
@@ -100,5 +112,5 @@ LABEL_4:
     }
     goto LABEL_4;
   }
-  return (unsigned int)v5;
+  return v5;
 }

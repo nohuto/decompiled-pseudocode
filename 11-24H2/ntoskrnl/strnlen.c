@@ -1,11 +1,11 @@
 /*
- * XREFs of strnlen @ 0x1404FF8C0
+ * XREFs of strnlen @ 0x1404FD180
  * Callers:
- *     EtwpGetEventNameFromEventMetadata @ 0x14032BEA0 (EtwpGetEventNameFromEventMetadata.c)
- *     EtwpApplyEventNameFilter @ 0x1404EFD50 (EtwpApplyEventNameFilter.c)
- *     EtwpSetProviderTraitsCommon @ 0x1408361EC (EtwpSetProviderTraitsCommon.c)
- *     EtwpAllocateEventNameFilter @ 0x1409F3638 (EtwpAllocateEventNameFilter.c)
- *     EtwpGetProviderGroupFromTraits @ 0x140A209C4 (EtwpGetProviderGroupFromTraits.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x1403FB210 (EtwpGetEventNameFromEventMetadata.c)
+ *     EtwpApplyEventNameFilter @ 0x1404ED680 (EtwpApplyEventNameFilter.c)
+ *     EtwpAllocateEventNameFilter @ 0x1409E7998 (EtwpAllocateEventNameFilter.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1409F69B4 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpGetProviderGroupFromTraits @ 0x140A15AC4 (EtwpGetProviderGroupFromTraits.c)
  * Callees:
  *     <none>
  */

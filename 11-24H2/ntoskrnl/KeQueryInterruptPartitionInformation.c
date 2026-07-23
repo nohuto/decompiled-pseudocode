@@ -1,8 +1,8 @@
 /*
- * XREFs of KeQueryInterruptPartitionInformation @ 0x1403B8860
+ * XREFs of KeQueryInterruptPartitionInformation @ 0x1402B48F0
  * Callers:
- *     IntPartIsInterruptSteerable @ 0x1403B80E0 (IntPartIsInterruptSteerable.c)
- *     HalpInterruptAffinityIsSteerable @ 0x1403B879C (HalpInterruptAffinityIsSteerable.c)
+ *     IntPartIsInterruptSteerable @ 0x1402B4170 (IntPartIsInterruptSteerable.c)
+ *     HalpInterruptAffinityIsSteerable @ 0x1402B482C (HalpInterruptAffinityIsSteerable.c)
  * Callees:
  *     <none>
  */

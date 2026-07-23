@@ -41,7 +41,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // rdx
   BOOL v16; // r12d
-  __int64 v17; // r8
+  unsigned int v17; // r8d
   bool v18; // zf
   __int64 v19; // rcx
   int v20; // eax
@@ -108,7 +108,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
       SessionId = 0xFFFFFFFFLL;
     --CurrentThread->SpecialApcDisable;
     v16 = ++CurrentThread->AbAllocationRegionCount == 1;
-    LODWORD(v17) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v17 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v18 = !_BitScanReverse((unsigned int *)&v19, v17);
@@ -118,7 +118,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
       v20 = 1 << v19;
       v21 = v19;
       v22 = &CurrentThread->LockEntries[v21];
-      v17 = ~v20 & (unsigned int)v17;
+      v17 &= ~v20;
       if ( (v22->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v22->LockState.0 & 1) == 0
         && (*(_QWORD *)&v22->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v13 & 0x7FFFFFFFFFFFFFFCLL)
@@ -131,7 +131,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
           {
             v22->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v22->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v21], SessionId, v17);
+              KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v21].TreeNode, SessionId);
             v47 = 0;
             v47 = v22->BoostBitmap.AllFields & 0x1FFFF;
             v22->BoostBitmap.AllFields &= 0xFFFE0000;

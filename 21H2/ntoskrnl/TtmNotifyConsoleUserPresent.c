@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifyConsoleUserPresent @ 0x1408FE8E4
+ * XREFs of TtmNotifyConsoleUserPresent @ 0x1408FEA44
  * Callers:
- *     PopNotifyConsoleUserPresent @ 0x140773100 (PopNotifyConsoleUserPresent.c)
+ *     PopNotifyConsoleUserPresent @ 0x1407732C0 (PopNotifyConsoleUserPresent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     TtmiResetTerminalTimeouts @ 0x1408FD8E8 (TtmiResetTerminalTimeouts.c)
- *     TtmpAcquireSessionById @ 0x1408FF5F0 (TtmpAcquireSessionById.c)
- *     TtmiLogConsoleUserPresent @ 0x1409019A0 (TtmiLogConsoleUserPresent.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     TtmiResetTerminalTimeouts @ 0x1408FDA48 (TtmiResetTerminalTimeouts.c)
+ *     TtmpAcquireSessionById @ 0x1408FF750 (TtmpAcquireSessionById.c)
+ *     TtmiLogConsoleUserPresent @ 0x140901B00 (TtmiLogConsoleUserPresent.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmNotifyConsoleUserPresent(unsigned int a1, unsigned int a2)

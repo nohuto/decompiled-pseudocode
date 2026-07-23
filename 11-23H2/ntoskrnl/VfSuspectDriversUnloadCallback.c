@@ -1,14 +1,14 @@
 /*
- * XREFs of VfSuspectDriversUnloadCallback @ 0x140ADAAE4
+ * XREFs of VfSuspectDriversUnloadCallback @ 0x140ADAAD4
  * Callers:
- *     VfDriverUnloadImage @ 0x140ABCED4 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x140ABCEC4 (VfDriverUnloadImage.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfUtilPrintCheckinString @ 0x140AC2834 (VfUtilPrintCheckinString.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     ViSuspectDriversLookupEntry @ 0x140ADAD10 (ViSuspectDriversLookupEntry.c)
+ *     VfUtilPrintCheckinString @ 0x140AC2824 (VfUtilPrintCheckinString.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     ViSuspectDriversLookupEntry @ 0x140ADAD00 (ViSuspectDriversLookupEntry.c)
  */
 
 LONG __fastcall VfSuspectDriversUnloadCallback(__int64 a1)

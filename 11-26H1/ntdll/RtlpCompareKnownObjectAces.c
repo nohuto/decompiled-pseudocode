@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCompareKnownObjectAces @ 0x180061F60
+ * XREFs of RtlpCompareKnownObjectAces @ 0x18004C4E0
  * Callers:
- *     RtlpCompareAces @ 0x180059660 (RtlpCompareAces.c)
- *     RtlpGenerateInheritedAce @ 0x180060A00 (RtlpGenerateInheritedAce.c)
- *     RtlpIsDuplicateAce @ 0x180061CF0 (RtlpIsDuplicateAce.c)
+ *     RtlpCompareAces @ 0x180043BE0 (RtlpCompareAces.c)
+ *     RtlpGenerateInheritedAce @ 0x18004AF80 (RtlpGenerateInheritedAce.c)
+ *     RtlpIsDuplicateAce @ 0x18004C270 (RtlpIsDuplicateAce.c)
  * Callees:
- *     RtlEqualSid @ 0x180059860 (RtlEqualSid.c)
- *     RtlEqualPrefixSid @ 0x180061EA0 (RtlEqualPrefixSid.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlEqualSid @ 0x180043DE0 (RtlEqualSid.c)
+ *     RtlEqualPrefixSid @ 0x18004C420 (RtlEqualPrefixSid.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   unsigned int v9; // r10d
@@ -22,11 +22,11 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   int v15; // ebp
   unsigned __int8 *v16; // rcx
   bool v17; // zf
-  __int64 v18; // r14
+  __int64 v18; // r12
   unsigned __int8 *v19; // rsi
   int v20; // r8d
-  _WORD *v21; // rdx
-  int v23; // [rsp+20h] [rbp-78h] BYREF
+  void *v21; // rdx
+  int Sid2; // [rsp+20h] [rbp-78h] BYREF
   __int64 v24; // [rsp+24h] [rbp-74h]
 
   v6 = *a2;
@@ -84,9 +84,9 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
       return 1;
     if ( (a2[1] & 3 | ~a2[1] & 8) == 8 && (a3 || a4) )
     {
-      v23 = 257;
+      Sid2 = 257;
       v24 = 50331648LL;
-      if ( RtlEqualPrefixSid(&a1[v18 + (v15 != 0 ? 28LL : 12LL)], &v23) )
+      if ( RtlEqualPrefixSid(&a1[v18 + (v15 != 0 ? 28LL : 12LL)], &Sid2) )
       {
         v20 = *(_DWORD *)&a1[v18 + (v15 != 0 ? 36LL : 20LL)];
         if ( v20 )

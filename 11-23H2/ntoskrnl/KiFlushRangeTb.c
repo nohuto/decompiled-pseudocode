@@ -1,13 +1,13 @@
 /*
- * XREFs of KiFlushRangeTb @ 0x14038CD68
+ * XREFs of KiFlushRangeTb @ 0x14038CF48
  * Callers:
- *     KiIpiProcessRequests @ 0x1403349F0 (KiIpiProcessRequests.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14038C75C (KeFlushMultipleRangeCurrentTb.c)
- *     KiFlushRangeWorker @ 0x14038CD20 (KiFlushRangeWorker.c)
- *     KeFlushMultipleRangeTb @ 0x1403903B4 (KeFlushMultipleRangeTb.c)
+ *     KiIpiProcessRequests @ 0x140334C80 (KiIpiProcessRequests.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14038C93C (KeFlushMultipleRangeCurrentTb.c)
+ *     KiFlushRangeWorker @ 0x14038CF00 (KiFlushRangeWorker.c)
+ *     KeFlushMultipleRangeTb @ 0x140390594 (KeFlushMultipleRangeTb.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x140420160 (KiSetUserTbFlushPending.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1404204F0 (KiSetUserTbFlushPending.c)
  */
 
 char __fastcall KiFlushRangeTb(unsigned __int64 a1, __int64 a2, __int64 a3)

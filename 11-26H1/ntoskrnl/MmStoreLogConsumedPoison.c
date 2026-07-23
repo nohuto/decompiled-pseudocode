@@ -1,11 +1,11 @@
 /*
- * XREFs of MmStoreLogConsumedPoison @ 0x14052DEEC
+ * XREFs of MmStoreLogConsumedPoison @ 0x14053040C
  * Callers:
- *     SmLogConsumedPoison @ 0x1404FE354 (SmLogConsumedPoison.c)
+ *     SmLogConsumedPoison @ 0x1404F7904 (SmLogConsumedPoison.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
@@ -14,7 +14,7 @@ void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
   int v4; // r9d
   __int64 v5; // r10
   __int64 v6; // r11
-  unsigned __int8 *v7; // rdx
+  int *v7; // rdx
   __int64 v8; // r11
   int v9; // [rsp+20h] [rbp-B8h]
   int v10; // [rsp+28h] [rbp-B0h]
@@ -33,16 +33,16 @@ void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
   __int64 *v23; // [rsp+B0h] [rbp-28h]
   __int64 v24; // [rsp+B8h] [rbp-20h]
 
-  if ( stru_140E36558.FirstArgument )
+  if ( stru_140E366D8.FirstArgument )
   {
     if ( a3 )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
       {
         v14 = v8;
         v17 = &v14;
-        v7 = (unsigned __int8 *)&byte_14005A26B;
+        v7 = (int *)&byte_14005B375;
         v15 = 0x1000000LL;
         v19 = &v12;
         v13 = *v3;
@@ -53,12 +53,12 @@ void __fastcall MmStoreLogConsumedPoison(__int64 a1, __int64 a2, __int64 a3)
         goto LABEL_9;
       }
     }
-    else if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-           && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+    else if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+           && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
     {
       v13 = v6;
       v17 = &v13;
-      v7 = (unsigned __int8 *)byte_14005A075;
+      v7 = &dword_14005B314;
       v14 = 0x1000000LL;
       v19 = &v12;
       v21 = &v14;
@@ -68,7 +68,7 @@ LABEL_9:
       v18 = 8LL;
       v20 = 4LL;
       v22 = 8LL;
-      tlgWriteEx_EtwWriteEx(v5, v7, (__int64)v3, 1u, v9, v10, v11, &v16);
+      tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)v7, (__int64)v3, 1u, v9, v10, v11, &v16);
     }
   }
 }

@@ -12,14 +12,14 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
+NTSTATUS __cdecl BcdGetSystemStorePath(PWSTR *BcdSystemStorePath)
 {
   wchar_t *v2; // rdi
   int FirmwareType; // eax
   const wchar_t *v4; // rbp
   int SystemPartition; // eax
   wchar_t *v6; // rsi
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   __int64 v8; // rax
   __int64 v9; // rdx
   __int64 v10; // r14
@@ -39,7 +39,7 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     {
       v7 = -1073741637;
       BiLogMessage(4LL, L"Failed to get system store path. Status: %x", 3221225659LL);
-      return (unsigned int)v7;
+      return v7;
     }
     v4 = L"\\EFI\\Microsoft\\Boot\\BCD";
   }
@@ -69,7 +69,7 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     {
       wcscpy_s(PoolWithTag, (unsigned int)v10, v6);
       wcscat_s(v2, (unsigned int)v10, v4);
-      *a1 = v2;
+      *BcdSystemStorePath = v2;
     }
     else
     {
@@ -80,5 +80,5 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     ExFreePoolWithTag(v6, 0x4B444342u);
   if ( v7 < 0 && v2 )
     ExFreePoolWithTag(v2, 0x4B444342u);
-  return (unsigned int)v7;
+  return v7;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpUnlockHandleDatabaseEntry @ 0x1404BAE80
+ * XREFs of ObpUnlockHandleDatabaseEntry @ 0x1404A6BB0
  * Callers:
- *     ObpIncrementHandleCountEx @ 0x14044DC50 (ObpIncrementHandleCountEx.c)
+ *     ObpIncrementHandleCountEx @ 0x14044CB20 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140096864 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140096064 (OBJECT_HEADER_TO_HANDLE_INFO.c)
  */
 
 __int64 __fastcall ObpUnlockHandleDatabaseEntry(__int64 a1)

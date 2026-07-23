@@ -19,7 +19,7 @@ void __fastcall RtlShiftLeftBitMap(PRTL_BITMAP BitMapHeader, ULONG NumberToClear
     v3 = 0;
     if ( NumberToClear < BitMapHeader->SizeOfBitMap )
     {
-      RtlExtractBitMap((__int64)BitMapHeader, &BitMapHeader->SizeOfBitMap, NumberToClear, SizeOfBitMap - NumberToClear);
+      RtlExtractBitMap(BitMapHeader, BitMapHeader, NumberToClear, SizeOfBitMap - NumberToClear);
       RtlClearBits(BitMapHeader, BitMapHeader->SizeOfBitMap - NumberToClear, NumberToClear);
     }
     else

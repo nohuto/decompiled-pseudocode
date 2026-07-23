@@ -1,15 +1,15 @@
 /*
  * XREFs of ViDeadlockFree @ 0x140715474
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1402239C0 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x140223B18 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1402237EC (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x140223944 (ViDeadlockRemoveMemoryRangeThreads.c)
  *     VfDeadlockAcquireResource @ 0x140713510 (VfDeadlockAcquireResource.c)
  *     VfDeadlockBeforeCallDriver @ 0x140713C50 (VfDeadlockBeforeCallDriver.c)
  *     VfDeadlockInitializeResource @ 0x1407140E4 (VfDeadlockInitializeResource.c)
  *     VfDeadlockReleaseResource @ 0x14071425C (VfDeadlockReleaseResource.c)
  *     ViDeadlockEmptyDatabase @ 0x1407151DC (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall ViDeadlockFree(PVOID Entry, int a2)

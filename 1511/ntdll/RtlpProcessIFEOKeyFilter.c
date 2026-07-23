@@ -15,151 +15,146 @@
  *     NtEnumerateKey @ 0x1800A5700 (NtEnumerateKey.c)
  */
 
-__int64 __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, __int128 *a3)
+NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, _UNICODE_STRING *a3)
 {
   HANDLE *v3; // r15
-  unsigned int v4; // r12d
-  unsigned __int64 v5; // rdi
-  _BYTE *v6; // r13
-  __int64 result; // rax
+  ULONG v4; // r12d
+  void *v5; // rdi
+  WCHAR *v6; // r13
+  NTSTATUS result; // eax
   _BYTE *v9; // rax
-  int inited; // ebx
-  int v11; // r15d
-  int v12; // eax
+  NTSTATUS inited; // ebx
+  ULONG v11; // r15d
+  NTSTATUS v12; // eax
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  unsigned int v15; // [rsp+30h] [rbp-D0h] BYREF
-  int v16; // [rsp+34h] [rbp-CCh]
-  HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
-  int v18; // [rsp+40h] [rbp-C0h]
-  unsigned __int16 v19[4]; // [rsp+48h] [rbp-B8h] BYREF
-  _BYTE *v20; // [rsp+50h] [rbp-B0h]
-  _BYTE *v21; // [rsp+58h] [rbp-A8h]
-  __int128 v22; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE *v23; // [rsp+70h] [rbp-90h]
-  int v24; // [rsp+78h] [rbp-88h] BYREF
-  HANDLE v25; // [rsp+80h] [rbp-80h]
-  unsigned __int16 *v26; // [rsp+88h] [rbp-78h]
-  int v27; // [rsp+90h] [rbp-70h]
-  __int128 v28; // [rsp+98h] [rbp-68h]
-  _BYTE v29[4]; // [rsp+B0h] [rbp-50h] BYREF
-  int v30; // [rsp+B4h] [rbp-4Ch]
-  int v31; // [rsp+B8h] [rbp-48h]
-  int v32; // [rsp+BCh] [rbp-44h]
+  PVOID Heap; // rax
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG Length; // [rsp+34h] [rbp-CCh]
+  HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
+  ULONG v18; // [rsp+40h] [rbp-C0h]
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE *v20; // [rsp+58h] [rbp-A8h]
+  _UNICODE_STRING String2; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE *v22; // [rsp+70h] [rbp-90h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+B0h] [rbp-50h] BYREF
+  int v25; // [rsp+B4h] [rbp-4Ch]
+  int v26; // [rsp+B8h] [rbp-48h]
+  int v27; // [rsp+BCh] [rbp-44h]
 
   v3 = a1;
-  v23 = a1;
+  v22 = a1;
   v4 = 0;
-  Handle = 0LL;
-  v16 = 544;
+  KeyHandle = 0LL;
+  Length = 544;
   v5 = 0LL;
-  v6 = v29;
-  result = RtlInitUnicodeStringEx((__int64)v19, (__int64)L"UseFilter");
-  if ( (int)result < 0 )
+  v6 = (WCHAR *)KeyValueInformation;
+  result = RtlInitUnicodeStringEx(&DestinationString, L"UseFilter");
+  if ( result < 0 )
     return result;
-  result = NtQueryValueKey(*v3, v19, 2LL, v29, 544, &v15);
-  if ( (int)result < 0 )
+  result = NtQueryValueKey(
+             *v3,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x220u,
+             &ResultLength);
+  if ( result < 0 )
   {
-    if ( (_DWORD)result == -1073741772 || (_DWORD)result == -1073741789 || (_DWORD)result == -2147483643 )
-      return 0LL;
+    if ( result == -1073741772 || result == -1073741789 || result == -2147483643 )
+      return 0;
     return result;
   }
-  if ( v30 != 4 || v31 != 4 || !v32 )
-    return 0LL;
-  v22 = *a3;
-  result = RtlInitUnicodeStringEx((__int64)v19, (__int64)L"\\??\\");
-  if ( (int)result >= 0 )
+  if ( v25 != 4 || v26 != 4 || !v27 )
+    return 0;
+  String2 = *a3;
+  result = RtlInitUnicodeStringEx(&DestinationString, L"\\??\\");
+  if ( result >= 0 )
   {
-    if ( RtlPrefixUnicodeString(v19, (unsigned __int16 *)&v22, 1) )
+    if ( RtlPrefixUnicodeString(&DestinationString, &String2, 1u) )
     {
-      LOWORD(v22) = v22 - 8;
-      *((_QWORD *)&v22 + 1) += 8LL;
+      String2.Length -= 8;
+      String2.Buffer += 4;
     }
-    v9 = v29;
+    v9 = KeyValueInformation;
     v18 = 0;
-    v21 = v29;
+    v20 = KeyValueInformation;
     while ( 1 )
     {
-      inited = ((__int64 (__fastcall *)(HANDLE, _QWORD, _QWORD, _BYTE *, int, unsigned int *))NtEnumerateKey)(
-                 *v3,
-                 v4,
-                 0LL,
-                 v9,
-                 v16,
-                 &v15);
+      inited = NtEnumerateKey(*v3, v4, KeyBasicInformation, v9, Length, &ResultLength);
       if ( inited >= 0 )
       {
-        v19[0] = *((_WORD *)v21 + 6);
-        v19[1] = *((_WORD *)v21 + 6);
-        v20 = v21 + 16;
-        v25 = *v3;
-        v26 = v19;
-        v24 = 48;
-        v27 = 576;
-        v28 = 0LL;
-        inited = NtOpenKey(&Handle, 9LL, &v24);
+        DestinationString.Length = *((_WORD *)v20 + 6);
+        DestinationString.MaximumLength = *((_WORD *)v20 + 6);
+        DestinationString.Buffer = (unsigned __int16 *)(v20 + 16);
+        ObjectAttributes.RootDirectory = *v3;
+        ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 576;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        inited = NtOpenKey(&KeyHandle, 9u, &ObjectAttributes);
         if ( inited >= 0 )
           break;
       }
 LABEL_34:
-      v9 = v21;
+      v9 = v20;
       v18 = ++v4;
       if ( inited < 0 )
         goto LABEL_35;
     }
-    inited = RtlInitUnicodeStringEx((__int64)v19, (__int64)L"FilterFullPath");
+    inited = RtlInitUnicodeStringEx(&DestinationString, L"FilterFullPath");
     if ( inited < 0 )
       goto LABEL_33;
-    v11 = v16;
+    v11 = Length;
     while ( 1 )
     {
-      v12 = NtQueryValueKey(Handle, v19, 2LL, v6, v11, &v15);
+      v12 = NtQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, v6, v11, &ResultLength);
       inited = v12;
       if ( v12 != -2147483643 && v12 != -1073741789 )
         goto LABEL_27;
       if ( v5 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
       if ( !ProcessHeap )
         break;
-      Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1572864, v15);
+      Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, ResultLength);
       v5 = Heap;
       if ( !Heap )
         goto LABEL_26;
-      v11 = v15;
-      v6 = (_BYTE *)Heap;
-      v21 = (_BYTE *)Heap;
+      v11 = ResultLength;
+      v6 = (WCHAR *)Heap;
+      v20 = Heap;
 LABEL_27:
       if ( inited != -2147483643 && inited != -1073741789 )
       {
         v4 = v18;
-        v16 = v11;
-        v3 = v23;
+        Length = v11;
+        v3 = v22;
         if ( inited < 0
           || *((_DWORD *)v6 + 1) != 1
           || *((_DWORD *)v6 + 2) > 0xFFFEu
-          || (unsigned int)RtlCompareUnicodeStrings(
-                             *((unsigned __int16 **)&v22 + 1),
-                             (unsigned __int64)(unsigned __int16)v22 >> 1,
-                             (__int64)(v6 + 12),
-                             (unsigned __int64)(unsigned __int16)(*((_WORD *)v6 + 4) - 2) >> 1,
-                             1) )
+          || RtlCompareUnicodeStrings(
+               String2.Buffer,
+               (unsigned __int64)String2.Length >> 1,
+               v6 + 6,
+               (unsigned __int64)(unsigned __int16)(v6[4] - 2) >> 1,
+               1u) )
         {
 LABEL_33:
-          NtClose(Handle);
+          NtClose(KeyHandle);
           goto LABEL_34;
         }
 LABEL_35:
         if ( v5 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
         if ( inited >= 0 )
         {
           NtClose(*v3);
-          *v3 = Handle;
+          *v3 = KeyHandle;
         }
         if ( inited == -2147483622 )
           return 0;
-        return (unsigned int)inited;
+        return inited;
       }
     }
     v5 = 0LL;

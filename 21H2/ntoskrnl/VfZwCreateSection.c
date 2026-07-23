@@ -1,13 +1,13 @@
 /*
- * XREFs of VfZwCreateSection @ 0x1409E9110
+ * XREFs of VfZwCreateSection @ 0x1409EA110
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x1409C7CBC (VfCheckPageProtection.c)
- *     ViZwCheckObjectAttributes @ 0x1409EC85C (ViZwCheckObjectAttributes.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x1409C8CBC (VfCheckPageProtection.c)
+ *     ViZwCheckObjectAttributes @ 0x1409ED85C (ViZwCheckObjectAttributes.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwCreateSection(

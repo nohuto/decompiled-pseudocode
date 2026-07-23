@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwOpenTransaction()
+NTSTATUS __cdecl ZwOpenTransaction(
+        PHANDLE TransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LPGUID Uow,
+        HANDLE TmHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 283LL;
+  result = 283;
   __asm { syscall; Low latency system call }
   return result;
 }

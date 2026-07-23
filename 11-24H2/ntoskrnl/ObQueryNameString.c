@@ -1,16 +1,17 @@
 /*
- * XREFs of ObQueryNameString @ 0x140969A10
+ * XREFs of ObQueryNameString @ 0x1409524A0
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x1403C4D24 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoDeleteDevice @ 0x1403F1B00 (IoDeleteDevice.c)
- *     IopGetFileVolumeNameInformation @ 0x14049B84C (IopGetFileVolumeNameInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x1404BBE8C (SeSetLearningModeObjectInformation.c)
- *     SmKmEtwAppendObjectName @ 0x14060D6C8 (SmKmEtwAppendObjectName.c)
- *     IopCaptureObjectName @ 0x140B69F80 (IopCaptureObjectName.c)
- *     PopFlushVolumeWorker @ 0x140B6BC10 (PopFlushVolumeWorker.c)
- *     VfIrpLogRetrieveWmiData @ 0x140B9B874 (VfIrpLogRetrieveWmiData.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1403B38E4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoDeleteDevice @ 0x1403E5820 (IoDeleteDevice.c)
+ *     IopGetFileVolumeNameInformation @ 0x14049637C (IopGetFileVolumeNameInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x1404B6F50 (SeSetLearningModeObjectInformation.c)
+ *     SepVerifyUIAccessChildProcessImage @ 0x140607418 (SepVerifyUIAccessChildProcessImage.c)
+ *     SmKmEtwAppendObjectName @ 0x14060BC88 (SmKmEtwAppendObjectName.c)
+ *     IopCaptureObjectName @ 0x140B6B690 (IopCaptureObjectName.c)
+ *     PopFlushVolumeWorker @ 0x140B6D040 (PopFlushVolumeWorker.c)
+ *     VfIrpLogRetrieveWmiData @ 0x140B9D874 (VfIrpLogRetrieveWmiData.c)
  * Callees:
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
  */
 
 NTSTATUS __stdcall ObQueryNameString(

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckLargePageOk @ 0x140CFAE64
+ * XREFs of MiCheckLargePageOk @ 0x140D011E4
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiCheckLargePageSystemImage @ 0x140CFB030 (MiCheckLargePageSystemImage.c)
- *     MiVerifyLargeSectionLayout @ 0x140CFB200 (MiVerifyLargeSectionLayout.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiCheckLargePageSystemImage @ 0x140D013B0 (MiCheckLargePageSystemImage.c)
+ *     MiVerifyLargeSectionLayout @ 0x140D01580 (MiVerifyLargeSectionLayout.c)
  */
 
 __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
@@ -15,19 +15,19 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   __int64 **v1; // rsi
   unsigned int v2; // ebp
   unsigned int v3; // edi
-  unsigned __int64 v5; // r15
+  __int64 *v5; // r15
   int v6; // eax
   unsigned int v7; // ecx
   __int64 v8; // rax
   ULONG_PTR v9; // r14
   __int64 v10; // rdi
   _QWORD *v11; // rsi
-  unsigned __int64 v12; // rbp
+  void *v12; // rbp
   _QWORD *v14; // rsi
   int i; // ebp
   unsigned __int64 v16; // rdi
   int v17; // eax
-  __int64 v18; // [rsp+50h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = *(__int64 ***)(BugCheckParameter2 + 16);
   v2 = 0;
@@ -36,12 +36,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   {
     while ( 1 )
     {
-      v5 = (unsigned __int64)v1[6];
-      v6 = MI_IS_PHYSICAL_ADDRESS(v5);
+      v5 = v1[6];
+      v6 = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v5);
       v7 = v2 + 1;
       if ( !v6 )
         v7 = v2;
-      v8 = v5 + *((unsigned int *)v1 + 16);
+      v8 = (__int64)v5 + *((unsigned int *)v1 + 16);
       v2 = v7;
       v9 = v7;
       if ( v3 )
@@ -61,13 +61,13 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   v11 = *(_QWORD **)(BugCheckParameter2 + 16);
   while ( !(_DWORD)v10 )
   {
-    v12 = v11[6];
-    stru_140E2D150.SchedulerApc.Reserved[v10] = v11;
-    v18 = 0LL;
-    RtlImageNtHeaderEx(1, v12, 0LL, &v18);
-    if ( *(_DWORD *)(v18 + 56) != 4096 )
-      KeBugCheckEx(0x1Au, 0x3030307uLL, BugCheckParameter2, *(unsigned int *)(v18 + 56), 0LL);
-    MiVerifyLargeSectionLayout(v12);
+    v12 = (void *)v11[6];
+    stru_140E2D2D0.SchedulerApc.Reserved[v10] = v11;
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, v12, 0LL, &OutHeaders);
+    if ( OutHeaders->OptionalHeader.SectionAlignment != 4096 )
+      KeBugCheckEx(0x1Au, 0x3030307uLL, BugCheckParameter2, OutHeaders->OptionalHeader.SectionAlignment, 0LL);
+    MiVerifyLargeSectionLayout((ULONG_PTR)v12);
     v11 = (_QWORD *)*v11;
     v10 = 1LL;
   }

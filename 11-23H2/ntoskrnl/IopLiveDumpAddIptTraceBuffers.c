@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpAddIptTraceBuffers @ 0x140A9A030
+ * XREFs of IopLiveDumpAddIptTraceBuffers @ 0x140A99EA0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpAddIptTraceBuffers(__int64 a1, __int64 a2)

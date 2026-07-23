@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlpHpTlLogGCTimerFinished @ 0x180109F28
  * Callers:
- *     RtlpHpGCCallback @ 0x18007B300 (RtlpHpGCCallback.c)
+ *     RtlpHpGCCallback @ 0x18007B310 (RtlpHpGCCallback.c)
  * Callees:
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 TLG_STATUS __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, const GUID *a3, const GUID *a4)
@@ -13,6 +13,6 @@ TLG_STATUS __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, const G
   EVENT_DATA_DESCRIPTOR pData; // [rsp+30h] [rbp-38h] BYREF
 
   if ( (unsigned int)dword_18015F698 > 5 )
-    return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C7EE, a3, a4, 2u, &pData);
+    return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C87E, a3, a4, 2u, &pData);
   return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMarkBootKernelStack @ 0x140A4DC44
+ * XREFs of MiMarkBootKernelStack @ 0x140A4EC44
  * Callers:
- *     MiInitializeKernelStacks @ 0x140A4D410 (MiInitializeKernelStacks.c)
+ *     MiInitializeKernelStacks @ 0x140A4E410 (MiInitializeKernelStacks.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiMarkKernelStack @ 0x14023EE00 (MiMarkKernelStack.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiMarkKernelStack @ 0x1402E3650 (MiMarkKernelStack.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiMarkBootKernelStack(unsigned __int64 a1, unsigned __int64 a2)
@@ -59,7 +59,7 @@ LABEL_4:
     MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v4);
 LABEL_10:
     v4 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v4, 0LL);
+    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v4, 0);
     goto LABEL_4;
   }
 LABEL_7:

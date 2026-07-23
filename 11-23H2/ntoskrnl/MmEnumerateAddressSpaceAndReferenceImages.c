@@ -1,22 +1,22 @@
 /*
- * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4CF0
+ * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4EE0
  * Callers:
- *     EtwpEnumerateAddressSpace @ 0x1406ADAFC (EtwpEnumerateAddressSpace.c)
- *     EtwpCovSampEnumerateProcess @ 0x1409F23B0 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpEnumerateAddressSpace @ 0x1406ADB2C (EtwpEnumerateAddressSpace.c)
+ *     EtwpCovSampEnumerateProcess @ 0x1409F2640 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140275530 (MiLockVadShared.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     MiUnlockVadShared @ 0x14032A3E4 (MiUnlockVadShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiFillMapFileInfo @ 0x1408ABE2A (MiFillMapFileInfo.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x1402757C0 (MiLockVadShared.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     MiUnlockVadShared @ 0x14032A674 (MiUnlockVadShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiFillMapFileInfo @ 0x1408AC07A (MiFillMapFileInfo.c)
  */
 
 _QWORD *__fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParameter1, char a2)

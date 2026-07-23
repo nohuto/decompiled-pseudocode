@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlPerformEndOfInterrupt @ 0x1404B6FB0
+ * XREFs of HvlPerformEndOfInterrupt @ 0x1404B07E0
  * Callers:
- *     HvlDummyInterruptCallback @ 0x1405B8760 (HvlDummyInterruptCallback.c)
+ *     HvlDummyInterruptCallback @ 0x1405BAFD0 (HvlDummyInterruptCallback.c)
  * Callees:
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404B7014 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404B0844 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HvlPerformEndOfInterrupt(__int64 a1, __int64 a2)

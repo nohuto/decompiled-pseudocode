@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEnableExecutionRequiredPowerRequests @ 0x14057F32C
+ * XREFs of PopEnableExecutionRequiredPowerRequests @ 0x14057F7D8
  * Callers:
- *     PopExecutionRequiredSettingCallback @ 0x14057F2A0 (PopExecutionRequiredSettingCallback.c)
- *     PopCheckExecutionRequiredPowerRequests @ 0x14066A868 (PopCheckExecutionRequiredPowerRequests.c)
- *     PopCsStateChanged @ 0x14066A964 (PopCsStateChanged.c)
+ *     PopExecutionRequiredSettingCallback @ 0x14057F74C (PopExecutionRequiredSettingCallback.c)
+ *     PopCheckExecutionRequiredPowerRequests @ 0x14066A94C (PopCheckExecutionRequiredPowerRequests.c)
+ *     PopCsStateChanged @ 0x14066AA48 (PopCsStateChanged.c)
  * Callees:
- *     PopEnablePowerExecutionRequest @ 0x14051E148 (PopEnablePowerExecutionRequest.c)
- *     PopDisablePowerExecutionRequest @ 0x140520820 (PopDisablePowerExecutionRequest.c)
+ *     PopEnablePowerExecutionRequest @ 0x1405011B0 (PopEnablePowerExecutionRequest.c)
+ *     PopDisablePowerExecutionRequest @ 0x140503888 (PopDisablePowerExecutionRequest.c)
  */
 
 __int64 __fastcall PopEnableExecutionRequiredPowerRequests(char a1)

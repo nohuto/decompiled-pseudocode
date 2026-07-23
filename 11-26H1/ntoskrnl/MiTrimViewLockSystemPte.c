@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimViewLockSystemPte @ 0x1403A6720
+ * XREFs of MiTrimViewLockSystemPte @ 0x1403A8480
  * Callers:
- *     MiTrimSharedPageFromView @ 0x14046BEB4 (MiTrimSharedPageFromView.c)
+ *     MiTrimSharedPageFromView @ 0x140465634 (MiTrimSharedPageFromView.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
- *     MiSystemVaTypeHasWsles @ 0x1403A67E0 (MiSystemVaTypeHasWsles.c)
- *     MiTrimViewGetFlushList @ 0x1403A7AF8 (MiTrimViewGetFlushList.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
+ *     MiSystemVaTypeHasWsles @ 0x1403A8540 (MiSystemVaTypeHasWsles.c)
+ *     MiTrimViewGetFlushList @ 0x1403A9858 (MiTrimViewGetFlushList.c)
  */
 
 __int64 __fastcall MiTrimViewLockSystemPte(__int64 a1)

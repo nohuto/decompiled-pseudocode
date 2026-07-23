@@ -26,7 +26,7 @@ __int64 __fastcall WbVerifyVirtualAddressSignature(PVOID BaseAddress, unsigned i
   v7 = ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         MemoryWorkingSetExList|MemorySectionName,
+         MemoryImageInformation,
          v11,
          0x18uLL,
          &ReturnLength);

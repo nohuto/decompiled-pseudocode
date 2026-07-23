@@ -7,28 +7,28 @@
  *     ZwQuerySystemInformation @ 0x1403F8830 (ZwQuerySystemInformation.c)
  */
 
-__int64 RtlpInitializeNonVolatileFlush()
+NTSTATUS RtlpInitializeNonVolatileFlush()
 {
-  __int64 result; // rax
-  _OWORD v1[2]; // [rsp+20h] [rbp-38h] BYREF
+  NTSTATUS result; // eax
+  _OWORD SystemInformation[2]; // [rsp+20h] [rbp-38h] BYREF
 
-  memset(v1, 0, sizeof(v1));
-  result = ZwQuerySystemInformation(192LL, v1);
-  if ( (int)result >= 0 )
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  result = ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL);
+  if ( result >= 0 )
   {
-    if ( (BYTE8(v1[0]) & 1) != 0 )
+    if ( (BYTE8(SystemInformation[0]) & 1) != 0 )
       RtlpIsFlushRequired = 0;
-    if ( (v1[0] & 4) != 0 )
+    if ( (SystemInformation[0] & 4) != 0 )
     {
       RtlpOptimalFlushMethod = 2;
     }
     else
     {
-      if ( (v1[0] & 2) == 0 )
+      if ( (SystemInformation[0] & 2) == 0 )
       {
 LABEL_6:
-        result = DWORD1(v1[0]);
-        RtlpClFlushSize = DWORD1(v1[0]);
+        result = DWORD1(SystemInformation[0]);
+        RtlpClFlushSize = DWORD1(SystemInformation[0]);
         return result;
       }
       RtlpOptimalFlushMethod = 3;

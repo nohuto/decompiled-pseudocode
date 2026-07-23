@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpGetNextHive @ 0x140670E04
+ * XREFs of CmpGetNextHive @ 0x1406672E4
  * Callers:
- *     CmpDoFlushAll @ 0x14037DE9C (CmpDoFlushAll.c)
- *     CmpUnblockHiveWrites @ 0x14066FDA8 (CmpUnblockHiveWrites.c)
- *     CmpBlockHiveWrites @ 0x14066FE50 (CmpBlockHiveWrites.c)
- *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
+ *     CmpDoFlushAll @ 0x14037D9EC (CmpDoFlushAll.c)
+ *     CmpUnblockHiveWrites @ 0x140666288 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x140666330 (CmpBlockHiveWrites.c)
+ *     CmLoadAppKey @ 0x1406663CC (CmLoadAppKey.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
 __int64 *__fastcall CmpGetNextHive(volatile signed __int32 *P)
@@ -28,13 +28,13 @@ __int64 *__fastcall CmpGetNextHive(volatile signed __int32 *P)
   while ( v4 != &CmpHiveListHead )
   {
     v1 = v4 - 200;
-    if ( CmpReferenceHive((__int64)(v4 - 200)) )
+    if ( (unsigned __int8)CmpReferenceHive(v4 - 200) )
       break;
     v4 = *v5;
     v1 = 0LL;
   }
   ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
   if ( P && _InterlockedExchangeAdd(P + 1068, 0xFFFFFFFF) == 1 )
-    CmpDeleteHive((PVOID)P);
+    CmpDeleteHive(P);
   return v1;
 }

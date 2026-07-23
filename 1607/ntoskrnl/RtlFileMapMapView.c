@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlFileMapMapView @ 0x140233920
+ * XREFs of RtlFileMapMapView @ 0x14023374C
  * Callers:
- *     AslFileMappingEnsure @ 0x1406C582C (AslFileMappingEnsure.c)
- *     AslFileMappingEnsureMappedAs @ 0x1406C5910 (AslFileMappingEnsureMappedAs.c)
- *     AslpFileGetChecksumAttributes @ 0x1406C7100 (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetVersionBlock @ 0x1406C80D4 (AslpFileGetVersionBlock.c)
+ *     AslFileMappingEnsure @ 0x1406C5964 (AslFileMappingEnsure.c)
+ *     AslFileMappingEnsureMappedAs @ 0x1406C5A48 (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileGetChecksumAttributes @ 0x1406C7238 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetVersionBlock @ 0x1406C820C (AslpFileGetVersionBlock.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwMapViewOfSection @ 0x14015A180 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14015A1C0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmSecureVirtualMemory @ 0x14042A98C (MmSecureVirtualMemory.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwMapViewOfSection @ 0x14015A6F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14015A730 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmSecureVirtualMemory @ 0x14042985C (MmSecureVirtualMemory.c)
  */
 
 __int64 __fastcall RtlFileMapMapView(__int64 a1, char a2)

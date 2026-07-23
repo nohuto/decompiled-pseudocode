@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetDeviceInterfaceName @ 0x140487220
+ * XREFs of _CmGetDeviceInterfaceName @ 0x140512634
  * Callers:
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     IoGetDeviceInterfaceAlias @ 0x140528B50 (IoGetDeviceInterfaceAlias.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     IoGetDeviceInterfaceAlias @ 0x140529090 (IoGetDeviceInterfaceAlias.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     _CmValidateInstallerClassName @ 0x1404F6E60 (_CmValidateInstallerClassName.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     _CmValidateInstallerClassName @ 0x1404D9DEC (_CmValidateInstallerClassName.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
  */
 
 int __fastcall CmGetDeviceInterfaceName(
         size_t a1,
-        const wchar_t *a2,
+        const WCHAR *a2,
         const wchar_t *a3,
         const wchar_t *a4,
         char a5,
@@ -34,7 +34,7 @@ int __fastcall CmGetDeviceInterfaceName(
   size_t pcchRemaining; // [rsp+70h] [rbp+30h] BYREF
 
   pcchRemaining = a1;
-  if ( (int)CmValidateInstallerClassName() < 0 || (int)CmValidateDeviceName(v11, a3) < 0 )
+  if ( (int)CmValidateInstallerClassName(a1, a2) < 0 || (int)CmValidateDeviceName(v11, a3) < 0 )
     return -1073741811;
   v12 = -1LL;
   if ( a4 )

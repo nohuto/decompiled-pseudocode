@@ -412,10 +412,13 @@ LABEL_22:
           *(_QWORD *)(v32 + 8) = v7;
           HalpNPPoolAllocCtx = (__int64)v7;
           KxReleaseSpinLock((volatile signed __int64 *)&qword_140C63EB0);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v8 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -449,10 +452,10 @@ LABEL_22:
   }
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C63EB0);
   v35 = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v56 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v56 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v56 >= 2u )
     {
       v57 = KeGetCurrentPrcb();
       v35 = (unsigned int)(v8 + 1);

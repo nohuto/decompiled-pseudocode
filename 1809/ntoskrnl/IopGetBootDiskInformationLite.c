@@ -1,21 +1,21 @@
 /*
- * XREFs of IopGetBootDiskInformationLite @ 0x1409BDED8
+ * XREFs of IopGetBootDiskInformationLite @ 0x1409BEED8
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x14072CAC0 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x14072DCB0 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     IopCheckDiskName @ 0x14017FB40 (IopCheckDiskName.c)
- *     IopAddBootDiskInformation @ 0x14017FD24 (IopAddBootDiskInformation.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     VhdiGetDiskParameters @ 0x1409F9138 (VhdiGetDiskParameters.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     IopCheckDiskName @ 0x14017FC80 (IopCheckDiskName.c)
+ *     IopAddBootDiskInformation @ 0x14017FE64 (IopAddBootDiskInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     VhdiGetDiskParameters @ 0x1409FA138 (VhdiGetDiskParameters.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
 {
   int DiskParameters; // r14d
-  const char *v3; // rdx
+  const CHAR *v3; // rdx
   int v4; // edx
   _QWORD *v5; // r9
   _QWORD *v6; // r8
@@ -41,18 +41,18 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
   int v27; // [rsp+58h] [rbp-A8h]
   __int128 *v28; // [rsp+60h] [rbp-A0h] BYREF
   _BYTE v29[8]; // [rsp+68h] [rbp-98h] BYREF
-  STRING v30; // [rsp+70h] [rbp-90h] BYREF
+  _STRING v30; // [rsp+70h] [rbp-90h] BYREF
   _DWORD v31[36]; // [rsp+80h] [rbp-80h] BYREF
   _DWORD v32[4]; // [rsp+110h] [rbp+10h] BYREF
-  STRING DestinationString; // [rsp+120h] [rbp+20h] BYREF
-  STRING v34; // [rsp+130h] [rbp+30h] BYREF
-  STRING v35; // [rsp+140h] [rbp+40h] BYREF
+  _STRING DestinationString; // [rsp+120h] [rbp+20h] BYREF
+  _STRING v34; // [rsp+130h] [rbp+30h] BYREF
+  _STRING v35; // [rsp+140h] [rbp+40h] BYREF
 
   v23 = 0;
   v28 = 0LL;
   v32[0] = 536871168;
   DiskParameters = 0;
-  v3 = *(const char **)(KeLoaderBlock_0 + 184);
+  v3 = *(const CHAR **)(KeLoaderBlock_0 + 184);
   v32[1] = 538968064;
   v32[2] = 0x20000000;
   v21 = 0;

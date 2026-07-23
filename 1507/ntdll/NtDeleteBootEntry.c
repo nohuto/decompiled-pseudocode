@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDeleteBootEntry()
+NTSTATUS __cdecl NtDeleteBootEntry(ULONG Id)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 194LL;
+  result = 194;
   __asm { syscall; Low latency system call }
   return result;
 }

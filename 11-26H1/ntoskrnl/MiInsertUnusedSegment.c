@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertUnusedSegment @ 0x1404807E0
+ * XREFs of MiInsertUnusedSegment @ 0x14047A120
  * Callers:
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiCleanSection @ 0x1404DF994 (MiCleanSection.c)
- *     MiSetDeleteOnClose @ 0x14050687C (MiSetDeleteOnClose.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x1406E7694 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiCleanSection @ 0x1404D9074 (MiCleanSection.c)
+ *     MiSetDeleteOnClose @ 0x14050012C (MiSetDeleteOnClose.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x1406EC344 (MiMakeUnusedSegmentDeleteOnClose.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiComputePagedPoolSegmentBytes @ 0x14030BE08 (MiComputePagedPoolSegmentBytes.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     MiReleaseControlAreaCharges @ 0x1404808D0 (MiReleaseControlAreaCharges.c)
- *     MiConvertStaticSubsections @ 0x1404809B0 (MiConvertStaticSubsections.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x1402EDE88 (MiComputePagedPoolSegmentBytes.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     MiReleaseControlAreaCharges @ 0x14047A210 (MiReleaseControlAreaCharges.c)
+ *     MiConvertStaticSubsections @ 0x14047A2F0 (MiConvertStaticSubsections.c)
  */
 
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
   v1 = 0LL;
   if ( (*(_DWORD *)(a1 + 56) & 0x20) == 0 )
     v1 = MiConvertStaticSubsections();
-  v3 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
+  v3 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v3 + 2112));
   if ( !v1 )
     v1 = MiReleaseControlAreaCharges(a1, 1LL);
@@ -64,6 +64,6 @@ LABEL_7:
   v7 = MiComputePagedPoolSegmentBytes(a1);
   *(_QWORD *)(v3 + 2440) += v7;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 2112));
-  _InterlockedAdd64((volatile signed __int64 *)&stru_140E2C7D0.Header.WaitListHead.Flink, v7);
+  _InterlockedAdd64((volatile signed __int64 *)&stru_140E2C950.Header.WaitListHead.Flink, v7);
   return v1;
 }

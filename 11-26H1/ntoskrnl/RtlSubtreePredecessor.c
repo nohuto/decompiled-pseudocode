@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlSubtreePredecessor @ 0x1403B6750
+ * XREFs of RtlSubtreePredecessor @ 0x1403C0650
  * Callers:
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
- *     RtlDeleteNoSplay @ 0x1403B6670 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
+ *     RtlDeleteNoSplay @ 0x1403C0570 (RtlDeleteNoSplay.c)
  * Callees:
  *     <none>
  */

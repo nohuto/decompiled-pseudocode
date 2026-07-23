@@ -2,7 +2,7 @@
  * XREFs of IoGetIoPriorityHint @ 0x140221E10
  * Callers:
  *     IoRetrievePriorityInfo @ 0x14033FD80 (IoRetrievePriorityInfo.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
+ *     sub_140731680 @ 0x140731680 (sub_140731680.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ IO_PRIORITY_HINT __stdcall IoGetIoPriorityHint(PIRP Irp)
     Thread = Irp->Tail.Overlay.Thread;
     if ( Thread )
     {
-      if ( LODWORD(Thread[1].Timer.TimerListEntry.Flink) )
+      if ( *((_DWORD *)Thread + 360) )
         return 2;
     }
   }

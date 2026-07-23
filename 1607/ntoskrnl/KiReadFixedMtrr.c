@@ -14,7 +14,7 @@ unsigned __int64 __fastcall KiReadFixedMtrr(_QWORD *a1)
   unsigned __int64 v3; // rax
   unsigned __int64 v4; // [rsp+8h] [rbp+8h]
 
-  if ( byte_140307B71 == 1 )
+  if ( byte_140307BB1 == 1 )
   {
     v1 = __readmsr(0xC0010010) | 0x80000;
 LABEL_7:
@@ -46,7 +46,7 @@ LABEL_4:
   a1[9] = __readmsr(0x26Eu);
   result = __readmsr(0x26Fu);
   a1[10] = result;
-  if ( byte_140307B71 == 1 )
+  if ( byte_140307BB1 == 1 )
   {
     result = v1 & 0xFFFFFFFFFFF7FFFFuLL;
     __writemsr(0xC0010010, v1 & 0xFFFFFFFFFFF7FFFFuLL);

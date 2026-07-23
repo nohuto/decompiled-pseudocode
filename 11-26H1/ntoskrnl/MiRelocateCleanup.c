@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRelocateCleanup @ 0x1409CAA04
+ * XREFs of MiRelocateCleanup @ 0x14099B9E4
  * Callers:
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
- *     PsRevertToUserPagePriorityThread @ 0x140487F60 (PsRevertToUserPagePriorityThread.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiFreeRelocations @ 0x140AAA400 (MiFreeRelocations.c)
- *     MiFreeImageLoadConfig @ 0x140AAA4CC (MiFreeImageLoadConfig.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsRevertToUserPagePriorityThread @ 0x140481AA0 (PsRevertToUserPagePriorityThread.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiFreeRelocations @ 0x140AA79E0 (MiFreeRelocations.c)
+ *     MiFreeImageLoadConfig @ 0x140AA7AAC (MiFreeImageLoadConfig.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiRelocateCleanup(__int64 a1)

@@ -9,7 +9,7 @@
  *     MiUnlockDriverPages @ 0x140875FFC (MiUnlockDriverPages.c)
  */
 
-void __fastcall MiUnlockEntireDriver(__int64 *a1, __int64 a2)
+void __fastcall MiUnlockEntireDriver(_RTL_BITMAP_EX *a1, __int64 a2)
 {
   __int64 *PteAddress; // rax
   unsigned int v5; // r8d

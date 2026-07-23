@@ -1,35 +1,35 @@
 /*
- * XREFs of CmShutdownSystem1 @ 0x1406E2270
+ * XREFs of CmShutdownSystem1 @ 0x1406E64F0
  * Callers:
- *     CmShutdownSystem @ 0x140854284 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x14085A594 (CmShutdownSystem.c)
  * Callees:
- *     HvpMakeHiveReadOnly @ 0x1406E2924 (HvpMakeHiveReadOnly.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     CmCloseRmHandle @ 0x140776A94 (CmCloseRmHandle.c)
- *     CmCloseTmHandle @ 0x140776ABC (CmCloseTmHandle.c)
- *     CmpRecordShutdownStopTime @ 0x140854628 (CmpRecordShutdownStopTime.c)
- *     CmpShutdownWorkers @ 0x140854BA4 (CmpShutdownWorkers.c)
- *     CmFcShutdownSystem @ 0x140854C94 (CmFcShutdownSystem.c)
- *     CmpTraceShutdownFlushStart @ 0x1408556D0 (CmpTraceShutdownFlushStart.c)
- *     CmpTraceShutdownFlushStop @ 0x140855740 (CmpTraceShutdownFlushStop.c)
- *     CmpTraceShutdownStart @ 0x140855820 (CmpTraceShutdownStart.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140856CB8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140856D48 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpWaitForHiveLoadUnloadRundownRelease @ 0x14085EAA4 (CmpWaitForHiveLoadUnloadRundownRelease.c)
- *     CmShutdownCmRM @ 0x1408AF354 (CmShutdownCmRM.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     HvMarkBaseBlockDirty @ 0x140AE37FC (HvMarkBaseBlockDirty.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
+ *     HvpMakeHiveReadOnly @ 0x1406E6C04 (HvpMakeHiveReadOnly.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     CmCloseRmHandle @ 0x14077993C (CmCloseRmHandle.c)
+ *     CmCloseTmHandle @ 0x140779964 (CmCloseTmHandle.c)
+ *     CmpRecordShutdownStopTime @ 0x14085A938 (CmpRecordShutdownStopTime.c)
+ *     CmpShutdownWorkers @ 0x14085AEB4 (CmpShutdownWorkers.c)
+ *     CmFcShutdownSystem @ 0x14085AFA4 (CmFcShutdownSystem.c)
+ *     CmpTraceShutdownFlushStart @ 0x14085BA68 (CmpTraceShutdownFlushStart.c)
+ *     CmpTraceShutdownFlushStop @ 0x14085BAD8 (CmpTraceShutdownFlushStop.c)
+ *     CmpTraceShutdownStart @ 0x14085BBB8 (CmpTraceShutdownStart.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14085D050 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14085D0E0 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpWaitForHiveLoadUnloadRundownRelease @ 0x140864D94 (CmpWaitForHiveLoadUnloadRundownRelease.c)
+ *     CmShutdownCmRM @ 0x1408B5760 (CmShutdownCmRM.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     HvMarkBaseBlockDirty @ 0x140AE1304 (HvMarkBaseBlockDirty.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmShutdownSystem1(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -101,11 +101,12 @@ __int64 __fastcall CmShutdownSystem1(__int64 a1, __int64 a2, __int64 a3, __int64
       HvMarkBaseBlockDirty(v14);
     }
   }
-  if ( WheapPfaLock.Timer.Header.WaitListHead.Flink )
+  if ( *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] )
   {
     ThreadLock = stru_140E098B8.WaitBlock[2].Thread->ThreadLock;
     v16 = *(_DWORD *)(ThreadLock + 144);
-    if ( WheapPfaLock.Timer.Header.WaitListHead.Flink[1].Flink == WheapPfaLock.Timer.Header.WaitListHead.Flink + 1 )
+    if ( *(_QWORD *)(*(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] + 16LL) == *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16]
+                                                                           + 16LL )
       v17 = v16 & 0xFFFFFFFE;
     else
       v17 = v16 | 1;

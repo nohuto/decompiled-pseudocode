@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryUpdateCompositeInformation @ 0x14086D758
+ * XREFs of PopBatteryUpdateCompositeInformation @ 0x14086E9B8
  * Callers:
- *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14071B020 (PopBatteryWorker.c)
  * Callees:
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopResetCurrentPolicies @ 0x1407475EC (PopResetCurrentPolicies.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopResetCurrentPolicies @ 0x1407487DC (PopResetCurrentPolicies.c)
  */
 
 __int64 PopBatteryUpdateCompositeInformation()
@@ -25,12 +25,12 @@ __int64 PopBatteryUpdateCompositeInformation()
   __m128i v11[3]; // [rsp+50h] [rbp-30h] BYREF
 
   memset(v11, 0, 0x24uLL);
-  v0 = qword_140417930;
+  v0 = qword_1404189D0;
   v1 = v11[1].m128i_u32[2];
   v2 = v11[1].m128i_i32[0];
   v3 = v11[0].m128i_i32[3];
   v4 = v11[0].m128i_i32[0];
-  if ( (__int64 *)qword_140417930 != &qword_140417930 )
+  if ( (__int64 *)qword_1404189D0 != &qword_1404189D0 )
   {
     v5 = v11[1].m128i_u32[3];
     v6 = v11[1].m128i_u32[1];
@@ -52,18 +52,18 @@ __int64 PopBatteryUpdateCompositeInformation()
       if ( v5 < v9 )
         v5 = v9;
     }
-    while ( (__int64 *)v0 != &qword_140417930 );
+    while ( (__int64 *)v0 != &qword_1404189D0 );
     v11[0].m128i_i32[3] = v3;
     v11[0].m128i_i32[0] = v4;
     v11[1].m128i_i32[3] = v5;
     *(__int64 *)((char *)v11[1].m128i_i64 + 4) = __PAIR64__(v1, v6);
   }
-  dword_140417974 = v11[2].m128i_i32[0];
+  dword_140418A14 = v11[2].m128i_i32[0];
   if ( !v2 )
     v2 = v3;
   v11[1].m128i_i32[0] = v2;
-  unk_140417954 = v11[0];
-  *(__m128i *)((char *)&qword_140417960 + 4) = v11[1];
+  unk_1404189F4 = v11[0];
+  *(__m128i *)((char *)&qword_140418A00 + 4) = v11[1];
   DbgPrintEx(
     0x92u,
     2u,
@@ -82,9 +82,9 @@ __int64 PopBatteryUpdateCompositeInformation()
     v1,
     _mm_srli_si128(*(v11 + 16), 8).m128i_i32[1]);
   PopAcquirePolicyLock();
-  if ( byte_14041823F )
+  if ( byte_1404192FF )
   {
-    byte_14041823F = 0;
+    byte_1404192FF = 0;
     PopResetCurrentPolicies();
   }
   return PopReleasePolicyLock();

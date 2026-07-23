@@ -1,16 +1,16 @@
 /*
- * XREFs of AdtpInitializeDriveLetters @ 0x140737734
+ * XREFs of AdtpInitializeDriveLetters @ 0x140738924
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x1407371E8 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x1407383D8 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     StringCopyWorkerW @ 0x140181B64 (StringCopyWorkerW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtQuerySymbolicLinkObject @ 0x140625E20 (NtQuerySymbolicLinkObject.c)
- *     NtOpenSymbolicLinkObject @ 0x140691BB0 (NtOpenSymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     StringCopyWorkerW @ 0x140181CA4 (StringCopyWorkerW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtQuerySymbolicLinkObject @ 0x140626E40 (NtQuerySymbolicLinkObject.c)
+ *     NtOpenSymbolicLinkObject @ 0x140692D70 (NtOpenSymbolicLinkObject.c)
  */
 
 __int64 __fastcall AdtpInitializeDriveLetters(__int64 a1, size_t a2, size_t *a3, const wchar_t *a4)

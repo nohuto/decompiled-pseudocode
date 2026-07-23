@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogExceptionHandler @ 0x18010F0DC
+ * XREFs of RtlpLogExceptionHandler @ 0x18010F0AC
  * Callers:
  *     RtlDispatchException @ 0x18001E680 (RtlDispatchException.c)
  *     RtlpCallVectoredHandlers @ 0x180078068 (RtlpCallVectoredHandlers.c)

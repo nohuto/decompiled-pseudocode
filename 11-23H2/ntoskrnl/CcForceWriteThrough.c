@@ -1,14 +1,14 @@
 /*
- * XREFs of CcForceWriteThrough @ 0x140369520
+ * XREFs of CcForceWriteThrough @ 0x1403696C0
  * Callers:
- *     CcPrepareMdlWrite @ 0x140369190 (CcPrepareMdlWrite.c)
+ *     CcPrepareMdlWrite @ 0x140369330 (CcPrepareMdlWrite.c)
  * Callees:
  *     CcCanIWriteStreamEx @ 0x14020FC80 (CcCanIWriteStreamEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x140319AD0 (CcGetPrivateVolumeCacheMapFromFileObject.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x140319D60 (CcGetPrivateVolumeCacheMapFromFileObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall CcForceWriteThrough(__int64 a1, unsigned int a2, __int64 a3, char a4)
@@ -50,10 +50,13 @@ char __fastcall CcForceWriteThrough(__int64 a1, unsigned int a2, __int64 a3, cha
       PrivateVolumeCacheMapFromFileObject = CcGetPrivateVolumeCacheMapFromFileObject((_QWORD *)a1, v9);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -82,10 +85,10 @@ char __fastcall CcForceWriteThrough(__int64 a1, unsigned int a2, __int64 a3, cha
         *(_DWORD *)(a3 + 152) |= 0x400u;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&v23);
         v17 = v23.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v18 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v23.OldIrql <= 0xFu && v18 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v23.OldIrql <= 0xFu && v18 >= 2u )
           {
             v19 = KeGetCurrentPrcb();
             v20 = v19->SchedulerAssist;

@@ -1,20 +1,20 @@
 /*
- * XREFs of PsTerminateServerSilo @ 0x140905D00
+ * XREFs of PsTerminateServerSilo @ 0x140905E60
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
- *     PsShutdownSystem @ 0x14090A9F4 (PsShutdownSystem.c)
- *     PspCatchCriticalBreak @ 0x14090AEE4 (PspCatchCriticalBreak.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
- *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409065D0 (PspInitializeServerSiloDeferred.c)
+ *     PsShutdownSystem @ 0x14090AB54 (PsShutdownSystem.c)
+ *     PspCatchCriticalBreak @ 0x14090B044 (PspCatchCriticalBreak.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3F30 (ExpSystemErrorHandler2.c)
  * Callees:
- *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406B5B68 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PsIsServerSilo @ 0x1402F70B0 (PsIsServerSilo.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140615028 (PspTerminateAllProcessesInJobHierarchy.c)
  */
 
 void __fastcall PsTerminateServerSilo(__int64 a1)
 {
   unsigned int v1; // edx
-  struct _KEVENT *v2; // rcx
+  volatile signed __int32 *v2; // rcx
 
   if ( a1 )
   {

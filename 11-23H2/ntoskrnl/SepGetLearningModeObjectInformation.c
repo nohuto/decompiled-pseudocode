@@ -1,12 +1,12 @@
 /*
- * XREFs of SepGetLearningModeObjectInformation @ 0x1405B8798
+ * XREFs of SepGetLearningModeObjectInformation @ 0x1405B8D08
  * Callers:
- *     SeLogAccessFailure @ 0x14035B34C (SeLogAccessFailure.c)
+ *     SeLogAccessFailure @ 0x14035B4EC (SeLogAccessFailure.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SepGetCurrentLogLevel @ 0x1405B876C (SepGetCurrentLogLevel.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SepGetCurrentLogLevel @ 0x1405B8CDC (SepGetCurrentLogLevel.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

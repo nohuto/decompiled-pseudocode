@@ -4,9 +4,9 @@
  *     RtlpHpVaMgrRangeFree @ 0x140210970 (RtlpHpVaMgrRangeFree.c)
  *     RtlpHpVaMgrCtxFree @ 0x140210A6C (RtlpHpVaMgrCtxFree.c)
  *     RtlpHpFreeVA @ 0x140212158 (RtlpHpFreeVA.c)
- *     RtlpHpEnvAllocVA @ 0x140286620 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrAlloc @ 0x14030FECC (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x140365028 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpEnvAllocVA @ 0x1402868B0 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrAlloc @ 0x14031015C (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x1403651C8 (RtlpHpVaMgrRegionAllocate.c)
  * Callees:
  *     MmFreePoolMemory @ 0x140212224 (MmFreePoolMemory.c)
  */

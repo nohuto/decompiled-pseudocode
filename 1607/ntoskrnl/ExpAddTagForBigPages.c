@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpAddTagForBigPages @ 0x1400124D0
+ * XREFs of ExpAddTagForBigPages @ 0x140012050
  * Callers:
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x14009A560 (ExTryConvertSharedSpinLockExclusive.c)
- *     ExpResizeBigPageTable @ 0x14009D79C (ExpResizeBigPageTable.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DEBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x140099D60 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExpResizeBigPageTable @ 0x14009CF9C (ExpResizeBigPageTable.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14022DCE8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -69,9 +69,9 @@ __int64 __fastcall ExpAddTagForBigPages(
     }
     if ( v8 )
     {
-      v15 = *(_QWORD *)(qword_140326918 + 8072);
-      v16 = (int *)(qword_140326918 + 7936);
-      v17 = *(_QWORD *)(qword_140326918 + 8080);
+      v15 = *(_QWORD *)(qword_140326958 + 8072);
+      v16 = (int *)(qword_140326958 + 7936);
+      v17 = *(_QWORD *)(qword_140326958 + 8080);
     }
     else
     {

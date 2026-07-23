@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDeregisterObjectWaitBlock @ 0x14033C520
+ * XREFs of KiDeregisterObjectWaitBlock @ 0x14033C6C0
  * Callers:
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140304BB4 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ExpShutdownWorkerFactory @ 0x14031D908 (ExpShutdownWorkerFactory.c)
- *     IopCancelWaitCompletionPacket @ 0x140349BFC (IopCancelWaitCompletionPacket.c)
- *     ExCancelDpcEventWait @ 0x14060BEC0 (ExCancelDpcEventWait.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x140304E44 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ExpShutdownWorkerFactory @ 0x14031DB98 (ExpShutdownWorkerFactory.c)
+ *     IopCancelWaitCompletionPacket @ 0x140349B40 (IopCancelWaitCompletionPacket.c)
+ *     ExCancelDpcEventWait @ 0x14060C410 (ExCancelDpcEventWait.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiDeregisterObjectWaitBlock(volatile signed __int32 *a1, __int64 *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall KiDeregisterObjectWaitBlock(volatile signed __int32 *a1, __in
   v4 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -49,10 +49,10 @@ __int64 __fastcall KiDeregisterObjectWaitBlock(volatile signed __int32 *a1, __in
     *((_BYTE *)a2 + 17) = 5;
   }
   _InterlockedAnd(a1, 0xFFFFFF7F);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpGetSystemSdbFilePath @ 0x140A530E4
+ * XREFs of SdbpGetSystemSdbFilePath @ 0x140A53394
  * Callers:
- *     SdbGetPathCustomSdb @ 0x140A526A0 (SdbGetPathCustomSdb.c)
- *     SdbResolveDatabaseEx @ 0x140A52770 (SdbResolveDatabaseEx.c)
+ *     SdbGetPathCustomSdb @ 0x140A52950 (SdbGetPathCustomSdb.c)
+ *     SdbResolveDatabaseEx @ 0x140A52A20 (SdbResolveDatabaseEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */
 

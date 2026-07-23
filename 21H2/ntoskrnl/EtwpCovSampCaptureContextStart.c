@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStart @ 0x1409422B8
+ * XREFs of EtwpCovSampCaptureContextStart @ 0x140942488
  * Callers:
- *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStart @ 0x14094735C (EtwpCoverageSamplerStart.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     KeSetBasePriorityThread @ 0x140258E60 (KeSetBasePriorityThread.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     ExSaAllocate @ 0x140391554 (ExSaAllocate.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x1403FA540 (ZwSetInformationThread.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpCovSampLookasideGrow @ 0x1405AF3BC (EtwpCovSampLookasideGrow.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x140942908 (EtwpCovSampCaptureFreeLookasides.c)
- *     EtwpCovSampLookasideControlInitialize @ 0x140945160 (EtwpCovSampLookasideControlInitialize.c)
- *     EtwpCovSampLookasideInitialize @ 0x1409451F4 (EtwpCovSampLookasideInitialize.c)
- *     EtwpCovSampStackHashTableAlloc @ 0x140945FC4 (EtwpCovSampStackHashTableAlloc.c)
- *     EtwpCovSampStrideSamplerInitialize @ 0x14094605C (EtwpCovSampStrideSamplerInitialize.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402696D0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeSetBasePriorityThread @ 0x14027A3D0 (KeSetBasePriorityThread.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ExSaAllocate @ 0x1403916A4 (ExSaAllocate.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1403FA720 (ZwSetInformationThread.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpCovSampLookasideGrow @ 0x1405AF5EC (EtwpCovSampLookasideGrow.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140942AD8 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampLookasideControlInitialize @ 0x140945330 (EtwpCovSampLookasideControlInitialize.c)
+ *     EtwpCovSampLookasideInitialize @ 0x1409453C4 (EtwpCovSampLookasideInitialize.c)
+ *     EtwpCovSampStackHashTableAlloc @ 0x140946194 (EtwpCovSampStackHashTableAlloc.c)
+ *     EtwpCovSampStrideSamplerInitialize @ 0x14094622C (EtwpCovSampStrideSamplerInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
@@ -141,7 +141,7 @@ LABEL_21:
   ThreadInformation[0] = 1;
   ThreadInformation[1] = 1;
   ThreadInformation[2] = 1;
-  ZwSetInformationThread(Handle, ThreadIdealProcessorEx|ThreadIsIoPending, ThreadInformation, 0xCu);
+  ZwSetInformationThread(Handle, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
   v8 = (struct _KTHREAD *)*v1;
 LABEL_15:
   v9 = *a1 & 0x200;

@@ -32,8 +32,8 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, __int64 a3, ch
   unsigned __int64 v19; // rcx
   unsigned __int64 v20; // rax
   char v21; // al
-  unsigned __int64 v23; // rsi
-  __int64 v24; // r15
+  SIZE_T v23; // rsi
+  SIZE_T v24; // r15
   int v25; // edx
   __int64 *v26; // r15
   __int64 v27; // rsi
@@ -43,8 +43,8 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, __int64 a3, ch
   unsigned __int64 v31; // rcx
   unsigned __int64 v32; // r9
   char v33; // al
-  unsigned __int64 v34; // rsi
-  __int64 v35; // rbp
+  SIZE_T v34; // rsi
+  SIZE_T v35; // rbp
   __int64 v36; // rax
   __int64 v37; // r9
   __int64 *v38; // r15
@@ -55,8 +55,8 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, __int64 a3, ch
   unsigned __int64 v43; // r9
   unsigned __int64 v44; // rcx
   char v45; // al
-  unsigned __int64 v46; // rsi
-  __int64 v47; // r15
+  SIZE_T v46; // rsi
+  SIZE_T v47; // r15
   __int64 v48; // r9
   __int64 v49; // r9
   __int64 *v50; // r12
@@ -69,8 +69,8 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, __int64 a3, ch
   unsigned __int64 v57; // rcx
   int v58; // ecx
   char v59; // al
-  unsigned __int64 v60; // rsi
-  __int64 v61; // r15
+  SIZE_T v60; // rsi
+  SIZE_T v61; // r15
   __int64 v62; // r9
 
   v5 = 16 * (*(unsigned __int16 *)(a2 + 12) ^ (unsigned __int64)*(unsigned __int16 *)(a1 + 140));
@@ -121,7 +121,7 @@ LABEL_38:
           }
           *v26 = v27;
           *(_QWORD *)(v27 + 8) = v26;
-          if ( (*(_BYTE *)(v7 + 10) & 8) == 0 || (unsigned __int8)RtlpCommitBlock(a1, v7, a3) )
+          if ( (*(_BYTE *)(v7 + 10) & 8) == 0 || (unsigned __int8)RtlpCommitBlock(a1) )
           {
             v33 = *(_BYTE *)(v7 + 10);
             if ( (v33 & 4) != 0 )
@@ -129,7 +129,7 @@ LABEL_38:
               v34 = 16LL * *(unsigned __int16 *)(v7 + 8) - 32;
               if ( (v33 & 2) != 0 && v34 > 4 )
                 v34 = 16LL * *(unsigned __int16 *)(v7 + 8) - 36;
-              v35 = RtlCompareMemoryUlong(v7 + 32, v34, 4277075694LL);
+              v35 = RtlCompareMemoryUlong((PVOID)(v7 + 32), v34, 0xFEEEFEEE);
               if ( v35 != v34 )
               {
                 if ( NtCurrentPeb()->Ldr )
@@ -197,7 +197,7 @@ LABEL_93:
         *(_QWORD *)(v52 + 8) = v50;
         if ( (*(_BYTE *)(v8 + 10) & 8) != 0 )
         {
-          if ( !(unsigned __int8)RtlpCommitBlock(a1, v8, v51) )
+          if ( !(unsigned __int8)RtlpCommitBlock(a1) )
           {
             LOBYTE(v62) = 1;
             RtlpDeCommitFreeBlock(a1, v8, *(unsigned __int16 *)(v8 + 8), v62);
@@ -212,7 +212,7 @@ LABEL_93:
           v60 = 16LL * *v55 - 32;
           if ( (v59 & 2) != 0 && v60 > 4 )
             v60 = 16LL * *v55 - 36;
-          v61 = RtlCompareMemoryUlong(v8 + 32, v60, 4277075694LL);
+          v61 = RtlCompareMemoryUlong((PVOID)(v8 + 32), v60, 0xFEEEFEEE);
           if ( v61 != v60 )
           {
             if ( NtCurrentPeb()->Ldr )
@@ -290,7 +290,7 @@ LABEL_72:
     }
     *v38 = v39;
     *(_QWORD *)(v39 + 8) = v38;
-    if ( (*(_BYTE *)(v8 + 10) & 8) == 0 || (unsigned __int8)RtlpCommitBlock(a1, v8, a3) )
+    if ( (*(_BYTE *)(v8 + 10) & 8) == 0 || (unsigned __int8)RtlpCommitBlock(a1) )
     {
       v45 = *(_BYTE *)(v8 + 10);
       if ( (v45 & 4) != 0 )
@@ -298,7 +298,7 @@ LABEL_72:
         v46 = 16LL * *(unsigned __int16 *)(v8 + 8) - 32;
         if ( (v45 & 2) != 0 && v46 > 4 )
           v46 = 16LL * *(unsigned __int16 *)(v8 + 8) - 36;
-        v47 = RtlCompareMemoryUlong(v8 + 32, v46, 4277075694LL);
+        v47 = RtlCompareMemoryUlong((PVOID)(v8 + 32), v46, 0xFEEEFEEE);
         if ( v47 != v46 )
         {
           if ( NtCurrentPeb()->Ldr )
@@ -349,7 +349,7 @@ LABEL_11:
       }
       *v14 = v15;
       *(_QWORD *)(v15 + 8) = v14;
-      if ( (*(_BYTE *)(v11 + 10) & 8) == 0 || (unsigned __int8)RtlpCommitBlock(a1, v11, a3) )
+      if ( (*(_BYTE *)(v11 + 10) & 8) == 0 || (unsigned __int8)RtlpCommitBlock(a1) )
       {
         v21 = *(_BYTE *)(v11 + 10);
         if ( (v21 & 4) != 0 )
@@ -357,7 +357,7 @@ LABEL_11:
           v23 = 16LL * *(unsigned __int16 *)(v11 + 8) - 32;
           if ( (v21 & 2) != 0 && v23 > 4 )
             v23 = 16LL * *(unsigned __int16 *)(v11 + 8) - 36;
-          v24 = RtlCompareMemoryUlong(v11 + 32, v23, 4277075694LL);
+          v24 = RtlCompareMemoryUlong((PVOID)(v11 + 32), v23, 0xFEEEFEEE);
           if ( v24 != v23 )
           {
             if ( NtCurrentPeb()->Ldr )

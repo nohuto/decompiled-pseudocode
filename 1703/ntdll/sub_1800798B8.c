@@ -16,7 +16,7 @@ __int64 __fastcall sub_1800798B8(wchar_t *Str, int a2)
 {
   unsigned int v4; // ebx
   wchar_t *v5; // rax
-  wchar_t *v6; // rax
+  const WCHAR *v6; // rax
   _QWORD v8[48]; // [rsp+20h] [rbp-188h] BYREF
   int v9; // [rsp+1C0h] [rbp+18h] BYREF
 
@@ -28,7 +28,7 @@ __int64 __fastcall sub_1800798B8(wchar_t *Str, int a2)
     v6 = v5 + 1;
   else
     v6 = Str;
-  if ( (int)RtlInitUnicodeStringEx((__int64)&v8[29], (__int64)v6) < 0 )
+  if ( RtlInitUnicodeStringEx((PUNICODE_STRING)&v8[29], v6) < 0 )
     return 0LL;
   LODWORD(v8[46]) = 4;
   v8[45] = &v9;

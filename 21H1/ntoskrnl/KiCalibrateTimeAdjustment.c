@@ -71,11 +71,11 @@ void __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_DWORD *)(Argument + 16) = v17 / 0x989680;
       *(_QWORD *)(Argument + 16) += v9.QuadPart;
     }
-    v22 = v8 / (unsigned int)KeMaximumIncrement;
+    v22 = v8 / KeMaximumIncrement;
     v11 = *(_QWORD *)(Argument + 8);
-    KiTickOffset = KeMaximumIncrement - v8 % (unsigned int)KeMaximumIncrement;
+    KiTickOffset = KeMaximumIncrement - v8 % KeMaximumIncrement;
     MEMORY[0xFFFFF780000003B0] += v11;
-    LODWORD(v19) = v8 % (unsigned int)KeMaximumIncrement;
+    LODWORD(v19) = v8 % KeMaximumIncrement;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
       __fastfail(5u);
     RtlWriteAcquireTickLock((signed __int64 *)0xFFFFF78000000340LL);

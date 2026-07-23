@@ -1,31 +1,31 @@
 /*
- * XREFs of ExpAllocateHandleTableEntry @ 0x14062D910
+ * XREFs of ExpAllocateHandleTableEntry @ 0x1405E39A0
  * Callers:
- *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
+ *     ExCreateHandleEx @ 0x1405E38B0 (ExCreateHandleEx.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x14062B0A8 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140695888 (ExpAllocateHandleTableEntrySlow.c)
  */
 
-__int64 __fastcall ExpAllocateHandleTableEntry(__int64 a1, _QWORD *a2)
+__int64 __fastcall ExpAllocateHandleTableEntry(int *a1, _QWORD *a2)
 {
   char v2; // al
   unsigned int Number; // r12d
   unsigned int v6; // ebp
   unsigned int v7; // esi
   unsigned int v8; // edi
-  __int64 v9; // rbx
+  int *v9; // rbx
   unsigned int v10; // eax
   char HandleTableEntrySlow; // di
   __int64 result; // rax
   __int64 v13; // r15
   __int64 v14; // rax
   int v15; // eax
-  unsigned int v16; // [rsp+50h] [rbp+8h]
+  int v16; // [rsp+50h] [rbp+8h]
 
-  v2 = *(_BYTE *)(a1 + 44);
+  v2 = *((_BYTE *)a1 + 44);
   if ( (v2 & 4) == 0 )
   {
     if ( (v2 & 1) != 0 )
@@ -36,28 +36,28 @@ __int64 __fastcall ExpAllocateHandleTableEntry(__int64 a1, _QWORD *a2)
     do
     {
       v7 = 0;
-      v16 = *(_DWORD *)a1;
+      v16 = *a1;
       v8 = Number;
       do
       {
-        v9 = a1 + ((v8 + 1LL) << 6);
-        if ( *(_QWORD *)(v9 + 8) )
+        v9 = &a1[16 * v8 + 16];
+        if ( *((_QWORD *)v9 + 1) )
         {
-          ExAcquirePushLockExclusiveEx(a1 + ((v8 + 1LL) << 6), 0LL);
-          v13 = *(_QWORD *)(v9 + 8);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&a1[16 * v8 + 16], 0LL);
+          v13 = *((_QWORD *)v9 + 1);
           if ( v13 )
           {
             v14 = *(_QWORD *)(v13 + 8);
-            *(_QWORD *)(v9 + 8) = v14;
+            *((_QWORD *)v9 + 1) = v14;
             if ( !v14 )
-              *(_QWORD *)(v9 + 16) = 0LL;
-            v15 = ++*(_DWORD *)(v9 + 24);
-            if ( v15 > *(_DWORD *)(v9 + 28) )
-              *(_DWORD *)(v9 + 28) = v15;
+              *((_QWORD *)v9 + 2) = 0LL;
+            v15 = ++v9[6];
+            if ( v15 > v9[7] )
+              v9[7] = v15;
           }
           if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock(a1 + ((v8 + 1LL) << 6));
-          KeAbPostRelease(a1 + ((v8 + 1LL) << 6));
+            ExfTryToWakePushLock(&a1[16 * v8 + 16]);
+          KeAbPostRelease((ULONG_PTR)&a1[16 * v8 + 16]);
           if ( v13 )
           {
             result = v13;
@@ -74,12 +74,12 @@ __int64 __fastcall ExpAllocateHandleTableEntry(__int64 a1, _QWORD *a2)
       }
       while ( v7 < v6 );
       HandleTableEntrySlow = 1;
-      ExAcquirePushLockExclusiveEx(a1 + 56, 0LL);
-      if ( v16 == *(_DWORD *)a1 )
-        HandleTableEntrySlow = ExpAllocateHandleTableEntrySlow((unsigned int *)a1, a1 + ((Number + 1LL) << 6));
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 56), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(a1 + 56);
-      KeAbPostRelease(a1 + 56);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)(a1 + 14), 0LL);
+      if ( v16 == *a1 )
+        HandleTableEntrySlow = ExpAllocateHandleTableEntrySlow(a1, &a1[16 * Number + 16]);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a1 + 7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(a1 + 14);
+      KeAbPostRelease((ULONG_PTR)(a1 + 14));
     }
     while ( HandleTableEntrySlow );
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSlowPte @ 0x1401E88E0
+ * XREFs of MiInitializeSlowPte @ 0x1401E870C
  * Callers:
- *     MiSlowRotateCopy @ 0x1401E8A48 (MiSlowRotateCopy.c)
+ *     MiSlowRotateCopy @ 0x1401E8874 (MiSlowRotateCopy.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiInitializeSlowPte(__int64 a1, unsigned __int64 a2)

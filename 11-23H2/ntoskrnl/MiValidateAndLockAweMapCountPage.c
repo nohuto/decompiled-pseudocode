@@ -1,13 +1,13 @@
 /*
- * XREFs of MiValidateAndLockAweMapCountPage @ 0x14064C18C
+ * XREFs of MiValidateAndLockAweMapCountPage @ 0x14064C6DC
  * Callers:
- *     MiDecrementAweMapCount @ 0x140649648 (MiDecrementAweMapCount.c)
- *     MiIncrementAweMapCount @ 0x14064AAD0 (MiIncrementAweMapCount.c)
+ *     MiDecrementAweMapCount @ 0x140649B98 (MiDecrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x14064B020 (MiIncrementAweMapCount.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
  */
 
 char __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64 a2, __int64 *a3)
@@ -49,7 +49,7 @@ char __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64 a2
   CurrentIrql = KeGetCurrentIrql();
   v12 = 2;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v14 = 4;
@@ -90,19 +90,19 @@ LABEL_23:
         _InterlockedAnd(
           (volatile signed __int32 *)(qword_140C67DF8 + 4 * ((((v5 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
           ~(1 << (((v5 - qword_140C67DF0) >> 3) & 0x1F)));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_41;
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || v17 > 0xFu || CurrentIrql > 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v17 > 0xFu || CurrentIrql > 0xFu )
         goto LABEL_41;
       v18 = v17 < 2u;
       goto LABEL_38;
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu )
     {
       v18 = v20 < v12;
 LABEL_38:

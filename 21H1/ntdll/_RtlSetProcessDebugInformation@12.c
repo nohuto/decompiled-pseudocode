@@ -15,62 +15,63 @@
  *     _AVrfpSetProcessVerifierOptions@4 @ 0x4B3394F3 (_AVrfpSetProcessVerifierOptions@4.c)
  */
 
-int __stdcall RtlSetProcessDebugInformation(void *a1, int a2, int a3)
+NTSTATUS __cdecl RtlSetProcessDebugInformation(HANDLE UniqueProcessId, ULONG Flags, PRTL_DEBUG_INFORMATION Buffer)
 {
   struct _TEB *v3; // eax
   int InformationThread; // esi
-  int result; // eax
+  NTSTATUS result; // eax
   int v6; // ecx
-  unsigned int v7; // eax
+  char *TargetThreadHandle; // eax
   HANDLE v8; // edi
+  size_t v9; // [esp-4h] [ebp-44h]
   HANDLE Handle; // [esp+10h] [ebp-30h] BYREF
   HANDLE ThreadHandle; // [esp+14h] [ebp-2Ch] BYREF
-  _DWORD v11[3]; // [esp+18h] [ebp-28h] BYREF
+  LARGE_INTEGER Timeout; // [esp+18h] [ebp-28h] BYREF
   int ThreadInformation[7]; // [esp+24h] [ebp-1Ch] BYREF
 
   v3 = NtCurrentTeb();
-  v11[1] = -1;
   InformationThread = 0;
-  v11[0] = -600000000;
-  *(_DWORD *)(a3 + 32) = a2;
-  if ( v3->ClientId.UniqueProcess == a1 )
+  Timeout.QuadPart = -600000000LL;
+  Buffer->TargetProcessId = (HANDLE)Flags;
+  if ( v3->ClientId.UniqueProcess == UniqueProcessId )
   {
-    if ( ((a2 & 1) == 0 || (InformationThread = AVrfpSetProcessVerifierOptions(a3)) == 0) && (a2 & 2) != 0 )
-      return RtlpSetProcessBacktraces(a3);
+    if ( ((Flags & 1) == 0 || (InformationThread = AVrfpSetProcessVerifierOptions(Buffer)) == 0) && (Flags & 2) != 0 )
+      return RtlpSetProcessBacktraces(Buffer);
   }
   else
   {
     Handle = 0;
-    result = RtlpChangeQueryDebugBufferTarget(0, &Handle);
+    result = RtlpChangeQueryDebugBufferTarget(Buffer, UniqueProcessId, 0, &Handle);
     if ( result < 0 )
       return result;
-    v7 = *(_DWORD *)(a3 + 36);
-    if ( v7 > 0x68 )
-      memcpy((void *)(a3 + *(_DWORD *)(a3 + 44) + 104), (const void *)(a3 + 104), v7 - 104);
+    TargetThreadHandle = (char *)Buffer->TargetThreadHandle;
+    if ( (unsigned int)TargetThreadHandle > 0x68 )
+    {
+      LODWORD(v9) = TargetThreadHandle - 104;
+      memcpy((char *)&Buffer->CriticalSectionHandle + *(&Buffer->Flags + 1), &Buffer->CriticalSectionHandle, v9);
+    }
     InformationThread = RtlpCreateUserThreadEx(
-                          (int)Handle,
+                          Handle,
                           0,
                           7,
-                          0,
-                          0,
+                          0LL,
                           0,
                           v6,
-                          (int)RtlpSetProcessDebugInformationRemote,
-                          *(void **)(a3 + 8),
+                          (NTSTATUS (__cdecl *)(PVOID))RtlpSetProcessDebugInformationRemote,
+                          Buffer->ViewBaseTarget,
                           &ThreadHandle,
                           0);
     if ( InformationThread >= 0 )
     {
       v8 = ThreadHandle;
-      InformationThread = ZwResumeThread((int)ThreadHandle, 0);
-      if ( InformationThread < 0
-        || (InformationThread = ZwWaitForSingleObject((int)v8, 1, (int)v11), InformationThread < 0) )
+      InformationThread = ZwResumeThread(ThreadHandle, 0);
+      if ( InformationThread < 0 || (InformationThread = ZwWaitForSingleObject(v8, 1u, &Timeout), InformationThread < 0) )
       {
-        ZwTerminateThread((int)v8, InformationThread);
+        ZwTerminateThread(v8, InformationThread);
       }
       else
       {
-        InformationThread = NtQueryInformationThread(v8, (THREADINFOCLASS)0, ThreadInformation, 0x1Cu, 0);
+        InformationThread = NtQueryInformationThread(v8, ThreadBasicInformation, ThreadInformation, 0x1Cu, 0);
         if ( InformationThread >= 0 )
           InformationThread = ThreadInformation[0];
       }

@@ -1,20 +1,20 @@
 /*
- * XREFs of HviLeaveKernelAperture @ 0x140637960
+ * XREFs of HviLeaveKernelAperture @ 0x14063A964
  * Callers:
- *     HviCopyMemory @ 0x14046BDC8 (HviCopyMemory.c)
- *     HviCopyMemoryNonTemporal @ 0x1404F9560 (HviCopyMemoryNonTemporal.c)
+ *     HviCopyMemory @ 0x140465548 (HviCopyMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x1404F2B70 (HviCopyMemoryNonTemporal.c)
  * Callees:
- *     HvipApertureDirectHypercall @ 0x140637A48 (HvipApertureDirectHypercall.c)
- *     HvipApertureVmfuncSwitchEptp @ 0x140732280 (HvipApertureVmfuncSwitchEptp.c)
+ *     HvipApertureDirectHypercall @ 0x14063AA4C (HvipApertureDirectHypercall.c)
+ *     HvipApertureVmfuncSwitchEptp @ 0x140736E50 (HvipApertureVmfuncSwitchEptp.c)
  */
 
 __int64 HviLeaveKernelAperture()
 {
   __int64 result; // rax
 
-  if ( !byte_140E0CD12 )
+  if ( !byte_140E0CD82 )
   {
-    if ( BYTE1(RtlpBootStatHandleLock.ExpectedRunTime) )
+    if ( LOBYTE(RtlpBootStatHandleLock.ExpectedRunTime) )
       result = HvipApertureVmfuncSwitchEptp(0LL);
     else
       result = HvipApertureDirectHypercall(6LL, 0LL);

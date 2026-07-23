@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxIdleWorkerTail @ 0x140312CB8
+ * XREFs of PopFxIdleWorkerTail @ 0x140312F48
  * Callers:
- *     PopFxIdleWorker @ 0x140312B9C (PopFxIdleWorker.c)
- *     PoFxCompleteIdleCondition @ 0x140357300 (PoFxCompleteIdleCondition.c)
+ *     PopFxIdleWorker @ 0x140312E2C (PopFxIdleWorker.c)
+ *     PoFxCompleteIdleCondition @ 0x1403574A0 (PoFxCompleteIdleCondition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponentWorker @ 0x140312420 (PopFxActivateComponentWorker.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x140312E7C (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxCompleteComponentActivation @ 0x140312EFC (PopFxCompleteComponentActivation.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x14031313C (PpmInterlockedUpdateTimeNoFence.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140313170 (PopFxUpdateAccountingActiveTime.c)
- *     PopFxDeactivateComponentDependencies @ 0x1403131E0 (PopFxDeactivateComponentDependencies.c)
- *     PopPluginComponentActive @ 0x14031378C (PopPluginComponentActive.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponentWorker @ 0x1403126B0 (PopFxActivateComponentWorker.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x14031310C (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x14031318C (PopFxCompleteComponentActivation.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x1403133CC (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140313400 (PopFxUpdateAccountingActiveTime.c)
+ *     PopFxDeactivateComponentDependencies @ 0x140313470 (PopFxDeactivateComponentDependencies.c)
+ *     PopPluginComponentActive @ 0x140313A1C (PopPluginComponentActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int a2, int *a3)
@@ -50,10 +50,13 @@ __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int 
     *(_BYTE *)(v6 + 208) = 0;
   }
   KxReleaseSpinLock((volatile signed __int64 *)(v6 + 200));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -100,10 +103,10 @@ __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int 
       *(_BYTE *)(v6 + 208) = 1;
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v6 + 200));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v22 >= 2u )
       {
         v23 = KeGetCurrentPrcb();
         v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));

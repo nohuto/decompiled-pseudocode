@@ -1,14 +1,14 @@
 /*
- * XREFs of IopQueueDeviceResetEvent @ 0x1409575EC
+ * XREFs of IopQueueDeviceResetEvent @ 0x1409577EC
  * Callers:
- *     PiProcessDeviceResetAction @ 0x1405600D8 (PiProcessDeviceResetAction.c)
+ *     PiProcessDeviceResetAction @ 0x140560798 (PiProcessDeviceResetAction.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PnpRequestDeviceRemoval @ 0x1408673BC (PnpRequestDeviceRemoval.c)
- *     PipSetDevNodeProblem @ 0x1408692EC (PipSetDevNodeProblem.c)
- *     IopMarkDeviceToBeReset @ 0x140957470 (IopMarkDeviceToBeReset.c)
- *     PipSetDevNodeStateFlags @ 0x140959A18 (PipSetDevNodeStateFlags.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PnpRequestDeviceRemoval @ 0x1408675FC (PnpRequestDeviceRemoval.c)
+ *     PipSetDevNodeProblem @ 0x14086952C (PipSetDevNodeProblem.c)
+ *     IopMarkDeviceToBeReset @ 0x140957670 (IopMarkDeviceToBeReset.c)
+ *     PipSetDevNodeStateFlags @ 0x140959C18 (PipSetDevNodeStateFlags.c)
  */
 
 __int64 __fastcall IopQueueDeviceResetEvent(struct _DEVICE_OBJECT *MaxDataSize, _BYTE *a2)

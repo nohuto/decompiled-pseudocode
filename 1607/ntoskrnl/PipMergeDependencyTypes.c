@@ -1,9 +1,9 @@
 /*
- * XREFs of PipMergeDependencyTypes @ 0x1401CD384
+ * XREFs of PipMergeDependencyTypes @ 0x1401CD1D0
  * Callers:
- *     PipAddRequestToEdge @ 0x14062AD74 (PipAddRequestToEdge.c)
+ *     PipAddRequestToEdge @ 0x14062AE28 (PipAddRequestToEdge.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PipMergeDependencyTypes(__int64 a1, int a2)

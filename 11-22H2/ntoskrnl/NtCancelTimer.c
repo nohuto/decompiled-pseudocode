@@ -21,7 +21,7 @@
  *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
   KPROCESSOR_MODE PreviousMode; // dl
   NTSTATUS result; // eax
@@ -29,7 +29,7 @@ NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
   struct _OBJECT_TYPE *v7; // rcx
   unsigned __int64 v8; // r12
   _QWORD *v9; // r15
-  char v10; // bl
+  BOOLEAN v10; // bl
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
@@ -67,15 +67,15 @@ NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
   unsigned int v45; // [rsp+A8h] [rbp+20h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( CurrentState && PreviousMode )
   {
     v28 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v28 = (__int64)a2;
+    if ( (unsigned __int64)CurrentState < 0x7FFFFFFF0000LL )
+      v28 = (__int64)CurrentState;
     *(_BYTE *)v28 = *(_BYTE *)v28;
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 2u, 0LL, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(TimerHandle, 2u, 0LL, PreviousMode, &Object, 0LL);
   v38 = result;
   if ( result >= 0 )
   {
@@ -83,7 +83,7 @@ NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
     v7 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
     if ( v7 == ExpIRTimerObjectType )
     {
-      if ( a2 )
+      if ( CurrentState )
       {
         ObfDereferenceObjectWithTag(Object, 0x746C6644u);
         return -1073741811;
@@ -104,10 +104,13 @@ NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
       {
         KxReleaseSpinLock((volatile signed __int64 *)v6 + 8);
         v14 = (unsigned int)KiIrqlFlags;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v8 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -171,10 +174,10 @@ NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
       }
       v39 = ExpCancelTimer((PKTIMER)v6) + 1;
       KxReleaseSpinLock((volatile signed __int64 *)v6 + 8);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v34 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v34 >= 2u )
         {
           v35 = KeGetCurrentPrcb();
           v36 = v35->SchedulerAssist;
@@ -209,8 +212,8 @@ NTSTATUS __fastcall NtCancelTimer(HANDLE Handle, char *a2)
       }
       v10 = v6[4];
       ObDereferenceObjectExWithTag((ULONG_PTR)v6, v39);
-      if ( a2 )
-        *a2 = v10;
+      if ( CurrentState )
+        *CurrentState = v10;
       if ( v9 )
         PoDestroyReasonContext(v9, v11, v12, v13);
       return v38;

@@ -39,8 +39,8 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
   ULONG_PTR v11; // rbp
   int v12; // eax
   __int64 v13; // r12
-  __int64 v14; // rsi
-  __int64 v16; // rax
+  _RTL_BALANCED_NODE *v14; // rsi
+  PRTL_BALANCED_NODE v16; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   unsigned int v18; // ebx
   __int64 v19; // [rsp+70h] [rbp+8h] BYREF
@@ -103,7 +103,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
     v16 = KeAbPreAcquire(v11, 0LL, 0);
     v14 = v16;
     if ( v16 )
-      KeAbPreWait(v16);
+      KeAbPreWait((__int64)v16);
   }
   else
   {

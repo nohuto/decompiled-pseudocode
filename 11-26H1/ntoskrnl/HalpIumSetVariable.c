@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumSetVariable @ 0x140599A10
+ * XREFs of HalpIumSetVariable @ 0x14059C190
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a4, void *Srca)
@@ -19,7 +19,7 @@ __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a
   __int128 v15; // xmm0
   __int64 v16; // rbx
 
-  if ( !qword_140FBB110 || KeGetCurrentIrql() > 2u )
+  if ( !qword_140FBB4B0 || KeGetCurrentIrql() > 2u )
     return 0x8000000000000003uLL;
   v9 = -1LL;
   do

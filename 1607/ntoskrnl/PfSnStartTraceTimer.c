@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnStartTraceTimer @ 0x140006BF4
+ * XREFs of PfSnStartTraceTimer @ 0x140006D64
  * Callers:
- *     PfSnBeginScenario @ 0x1403E6ED0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1403E8500 (PfSnBeginScenario.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)

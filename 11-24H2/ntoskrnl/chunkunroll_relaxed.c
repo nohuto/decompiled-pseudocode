@@ -1,8 +1,8 @@
 /*
- * XREFs of chunkunroll_relaxed @ 0x140601B3C
+ * XREFs of chunkunroll_relaxed @ 0x1405FF17C
  * Callers:
- *     chunkset_core_0 @ 0x1406019EC (chunkset_core_0.c)
- *     inflate_fast_chunk_ @ 0x140601B7C (inflate_fast_chunk_.c)
+ *     chunkset_core_0 @ 0x1405FF02C (chunkset_core_0.c)
+ *     inflate_fast_chunk_ @ 0x1405FF1BC (inflate_fast_chunk_.c)
  * Callees:
  *     <none>
  */

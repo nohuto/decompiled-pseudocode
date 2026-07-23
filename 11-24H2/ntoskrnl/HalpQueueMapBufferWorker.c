@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpQueueMapBufferWorker @ 0x14049D1A8
+ * XREFs of HalpQueueMapBufferWorker @ 0x140497EF8
  * Callers:
- *     HalAllocateAdapterChannelV2 @ 0x14038DACC (HalAllocateAdapterChannelV2.c)
- *     HalBuildScatterGatherListV2 @ 0x14038E070 (HalBuildScatterGatherListV2.c)
- *     IoFreeAdapterChannelV2 @ 0x14038F310 (IoFreeAdapterChannelV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1403907EC (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140392950 (HalpAllocateDmaResourcesInternal.c)
+ *     HalAllocateAdapterChannelV2 @ 0x14038740C (HalAllocateAdapterChannelV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403879B0 (HalBuildScatterGatherListV2.c)
+ *     IoFreeAdapterChannelV2 @ 0x140388C50 (IoFreeAdapterChannelV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14038A12C (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14038C280 (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall HalpQueueMapBufferWorker(__int64 a1, int a2)
@@ -19,7 +19,7 @@ void __fastcall HalpQueueMapBufferWorker(__int64 a1, int a2)
   v4 = *(_BYTE *)(a1 + 442) != 0 ? 4 : 0;
   if ( !_InterlockedCompareExchange((volatile signed __int32 *)((char *)&HalpDmaGrowMapBufferWorkerQueued + v4), 1, 0) )
   {
-    Pool2 = ExAllocatePool2(0x42uLL);
+    Pool2 = ExAllocatePool2(0x42uLL, 0x38uLL, 0x446C6148u);
     if ( Pool2 )
     {
       *(_QWORD *)Pool2 = 0LL;

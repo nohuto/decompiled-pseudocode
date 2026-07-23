@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpSignalPortAndUnlock @ 0x140A5E8B4
+ * XREFs of AlpcpSignalPortAndUnlock @ 0x14088E594
  * Callers:
- *     AlpcpDisconnectPort @ 0x14088C638 (AlpcpDisconnectPort.c)
- *     AlpcpCancelMessage @ 0x140894410 (AlpcpCancelMessage.c)
+ *     AlpcpDisconnectPort @ 0x14088F628 (AlpcpDisconnectPort.c)
+ *     AlpcpCancelMessage @ 0x14089C73C (AlpcpCancelMessage.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     AlpcpQueueIoCompletionPort @ 0x1403BCF10 (AlpcpQueueIoCompletionPort.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1403ABBA0 (AlpcpQueueIoCompletionPort.c)
  */
 
 void __fastcall AlpcpSignalPortAndUnlock(__int64 a1)
@@ -20,8 +20,8 @@ void __fastcall AlpcpSignalPortAndUnlock(__int64 a1)
   volatile signed __int32 *v4; // rcx
   _QWORD **v5; // rsi
   unsigned __int64 *v6; // rdi
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbp
+  char *v7; // rax
+  char *v8; // rbp
   _QWORD *v9; // rax
   _QWORD *v10; // rsi
   __int64 v11; // rdx
@@ -47,12 +47,12 @@ LABEL_8:
   if ( *v5 != v5 )
   {
     v6 = (unsigned __int64 *)(a1 + 224);
-    v7 = KeAbPreAcquire(a1 + 224, 0LL);
+    v7 = (char *)KeAbPreAcquire(a1 + 224, 0LL);
     v8 = v7;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v6, (__int64)v7, (__int64)v6);
+      ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
     if ( v8 )
-      *((_BYTE *)v8 + 10) = 1;
+      v8[10] = 1;
     v9 = *v5;
     if ( *v5 == v5 )
     {

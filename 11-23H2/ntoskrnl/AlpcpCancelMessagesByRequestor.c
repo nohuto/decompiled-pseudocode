@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpCancelMessagesByRequestor @ 0x1407191F4
+ * XREFs of AlpcpCancelMessagesByRequestor @ 0x1407193F4
  * Callers:
- *     AlpcpDisconnectPort @ 0x140718EC0 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x1407190C0 (AlpcpDisconnectPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PsReleaseProcessWakeCounter @ 0x140715700 (PsReleaseProcessWakeCounter.c)
- *     AlpcpUnlockMessage @ 0x14071BEB8 (AlpcpUnlockMessage.c)
- *     AlpcpClearOwnerPortMessage @ 0x14071C028 (AlpcpClearOwnerPortMessage.c)
- *     AlpcpReferenceBlob @ 0x140738B20 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpTransferQuotaMessage @ 0x140779760 (AlpcpTransferQuotaMessage.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x1407797C0 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1407E1748 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PsReleaseProcessWakeCounter @ 0x140715900 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpUnlockMessage @ 0x14071C0B8 (AlpcpUnlockMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x14071C228 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpReferenceBlob @ 0x140738D10 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpTransferQuotaMessage @ 0x140779950 (AlpcpTransferQuotaMessage.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x1407799B0 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1407E1A18 (AlpcpTryLockForCachedReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpCancelMessagesByRequestor(

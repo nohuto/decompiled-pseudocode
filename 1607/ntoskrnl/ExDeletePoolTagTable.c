@@ -1,7 +1,7 @@
 /*
- * XREFs of ExDeletePoolTagTable @ 0x14022CD44
+ * XREFs of ExDeletePoolTagTable @ 0x14022CB70
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
  *     <none>

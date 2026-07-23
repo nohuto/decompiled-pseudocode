@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCompareTokens()
+NTSTATUS __cdecl ZwCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 153LL;
+  result = 153;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

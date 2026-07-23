@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlpCallQueryRegistryRoutine @ 0x1800B6A14
+ * XREFs of RtlpCallQueryRegistryRoutine @ 0x1800832B4
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1800B6140 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1800829E0 (RtlpQueryRegistryValues.c)
  * Callees:
- *     RtlExpandEnvironmentStrings @ 0x180085010 (RtlExpandEnvironmentStrings.c)
- *     RtlpQueryRegistryDirect @ 0x1800B6EE4 (RtlpQueryRegistryDirect.c)
- *     RtlpValidateKeyTrust @ 0x1800B6FDC (RtlpValidateKeyTrust.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlExpandEnvironmentStrings @ 0x180006EC0 (RtlExpandEnvironmentStrings.c)
+ *     RtlpQueryRegistryDirect @ 0x180083784 (RtlpQueryRegistryDirect.c)
+ *     RtlpValidateKeyTrust @ 0x18008387C (RtlpValidateKeyTrust.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpCallQueryRegistryRoutine(
         __int64 a1,
         __int64 a2,
-        char *a3,
+        WCHAR *a3,
         int *a4,
         __int64 a5,
-        __int64 a6,
+        PVOID Environment,
         char a7)
 {
   unsigned int v7; // ebx
   int v9; // r8d
-  char *v11; // rdx
+  WCHAR *v11; // rdx
   __int64 v12; // r10
   unsigned int v13; // ebp
   int v14; // ecx
   int v15; // eax
   char *v16; // r15
-  char *v17; // rsi
+  const WCHAR *v17; // rsi
   unsigned int v18; // edi
   int v19; // ecx
   __int64 result; // rax
@@ -39,21 +39,20 @@ __int64 __fastcall RtlpCallQueryRegistryRoutine(
   int v27; // ecx
   unsigned __int64 v28; // rdi
   unsigned int v29; // eax
-  char *i; // rcx
+  const WCHAR *i; // rcx
   int v31; // ecx
   __int64 v32; // r12
-  char *v33; // rdi
-  char *v34; // r12
-  __int16 v35; // ax
+  const WCHAR *v33; // rdi
+  const WCHAR *v34; // r12
   unsigned int v36; // ebp
   int RegistryDirect; // eax
   unsigned __int16 v38; // r12
-  int v39; // eax
+  NTSTATUS v39; // eax
   unsigned int v40; // edx
-  unsigned __int64 v42[11]; // [rsp+40h] [rbp-58h] BYREF
+  ULONG_PTR ReturnLength[11]; // [rsp+40h] [rbp-58h] BYREF
   __int16 v44; // [rsp+A8h] [rbp+10h]
   int v45; // [rsp+A8h] [rbp+10h]
-  char *v46; // [rsp+B0h] [rbp+18h]
+  WCHAR *v46; // [rsp+B0h] [rbp+18h]
 
   v7 = 0;
   v9 = *a4;
@@ -76,7 +75,7 @@ __int64 __fastcall RtlpCallQueryRegistryRoutine(
           v16 = *(char **)(a2 + 16);
 LABEL_6:
           v13 = *((_DWORD *)a3 + 1);
-          v17 = &a3[*((unsigned int *)a3 + 2)];
+          v17 = (WCHAR *)((char *)a3 + *((unsigned int *)a3 + 2));
           v18 = *((_DWORD *)a3 + 3);
           goto LABEL_7;
         }
@@ -86,7 +85,7 @@ LABEL_6:
           v25 = *((_DWORD *)a3 + 4) + 20;
         v26 = *((_DWORD *)a3 + 4);
         v27 = v26 + 2;
-        v16 = (char *)((unsigned __int64)&a3[v25 + 7] & 0xFFFFFFFFFFFFFFF8uLL);
+        v16 = (char *)(((unsigned __int64)a3 + v25 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
         v28 = (int)(v26 + 2);
         if ( v28 >= 2 )
         {
@@ -97,9 +96,9 @@ LABEL_6:
             *a4 = v27 + (_DWORD)v16 - (_DWORD)a3;
             return result;
           }
-          memmove(v16, a3 + 20, v26);
+          memmove(v16, a3 + 10, v26);
           v12 = a1;
-          v11 = (char *)((unsigned __int64)&v16[v28 + 7] & 0xFFFFFFFFFFFFFFF8uLL);
+          v11 = (WCHAR *)((unsigned __int64)&v16[v28 + 7] & 0xFFFFFFFFFFFFFFF8uLL);
           v9 = v45 - (_DWORD)v11;
           v46 = v11;
           v44 = v45 - (_WORD)v11;
@@ -117,7 +116,7 @@ LABEL_6:
   }
   v18 = *(_DWORD *)(a2 + 48);
   v16 = *(char **)(a2 + 16);
-  v17 = *(char **)(a2 + 40);
+  v17 = *(const WCHAR **)(a2 + 40);
   if ( !v18 )
   {
     v23 = *(_WORD **)(a2 + 40);
@@ -133,7 +132,7 @@ LABEL_6:
     {
       if ( !v17 )
         return 3221225532LL;
-      if ( *(_WORD *)v17 )
+      if ( *v17 )
       {
         do
         {
@@ -166,17 +165,13 @@ LABEL_10:
       v31 = 0;
       v32 = v18 - 4LL;
       v33 = v17;
-      v34 = &v17[v32];
+      v34 = (const WCHAR *)((char *)v17 + v32);
       if ( v17 < v34 )
       {
         do
         {
-          do
-          {
-            v35 = *(_WORD *)v33;
-            v33 += 2;
-          }
-          while ( v35 );
+          while ( *v33++ )
+            ;
           v36 = (_DWORD)v33 - (_DWORD)v17;
           if ( (*(_DWORD *)(a2 + 8) & 0x20) != 0 )
           {
@@ -191,7 +186,7 @@ LABEL_10:
           }
           else
           {
-            RegistryDirect = (*(__int64 (__fastcall **)(char *, __int64, char *, _QWORD, __int64, _QWORD))a2)(
+            RegistryDirect = (*(__int64 (__fastcall **)(char *, __int64, const WCHAR *, _QWORD, __int64, _QWORD))a2)(
                                v16,
                                1LL,
                                v17,
@@ -214,11 +209,11 @@ LABEL_10:
     if ( v13 == 2 && v18 - 2 <= 0xFFFA && (v18 & 1) == 0 )
     {
       v29 = v18 - 2;
-      for ( i = v17; ; i += 2 )
+      for ( i = v17; ; ++i )
       {
         if ( !v29 )
           goto LABEL_13;
-        if ( *(_WORD *)i == 37 )
+        if ( *i == 37 )
           break;
         v29 -= 2;
       }
@@ -231,22 +226,22 @@ LABEL_10:
       {
         if ( (unsigned __int64)v9 <= 0xFFFE )
         {
-          *(_WORD *)&v11[2 * ((unsigned __int64)v9 >> 1) - 2] = 0;
+          v11[((unsigned __int64)v9 >> 1) - 1] = 0;
 LABEL_71:
-          v42[0] = 0LL;
+          ReturnLength[0] = 0LL;
           v39 = RtlExpandEnvironmentStrings(
-                  a6,
+                  Environment,
                   v17,
                   (unsigned __int64)(unsigned __int16)(v18 - 2) >> 1,
                   v11,
                   (unsigned __int64)(unsigned __int16)v9 >> 1,
-                  v42);
+                  ReturnLength);
           v31 = v39;
-          if ( v42[0] > 0x7FFF )
+          if ( ReturnLength[0] > 0x7FFF )
             return (unsigned int)-1073741823;
           if ( v39 >= 0 )
-            v38 = 2 * (LOWORD(v42[0]) - 1);
-          v40 = 2 * LODWORD(v42[0]);
+            v38 = 2 * (LOWORD(ReturnLength[0]) - 1);
+          v40 = 2 * LODWORD(ReturnLength[0]);
           v13 = 1;
           if ( v39 >= 0 )
           {
@@ -266,7 +261,7 @@ LABEL_71:
           goto LABEL_13;
         }
         LOWORD(v9) = -2;
-        *((_WORD *)v11 + 32766) = 0;
+        v11[32766] = 0;
       }
       v44 = v9;
       goto LABEL_71;
@@ -285,7 +280,7 @@ LABEL_13:
   }
   else
   {
-    v21 = (*(__int64 (__fastcall **)(char *, _QWORD, char *, _QWORD, __int64, _QWORD))a2)(
+    v21 = (*(__int64 (__fastcall **)(char *, _QWORD, const WCHAR *, _QWORD, __int64, _QWORD))a2)(
             v16,
             v13,
             v17,

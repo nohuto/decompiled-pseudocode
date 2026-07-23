@@ -1,5 +1,5 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x1402B8A70
+ * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x1402B8C60
  * Callers:
  *     <none>
  * Callees:
@@ -16,18 +16,18 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x1401B88B0 (ZwFsControlFile.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiQueueSyncModifiedWriterApc @ 0x1402B88F8 (MiQueueSyncModifiedWriterApc.c)
- *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124908 (MiPageFileLargestBitmapsRun.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1401B8A10 (ZwFsControlFile.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1402B8AE8 (MiQueueSyncModifiedWriterApc.c)
+ *     MiContractWsSwapPageFile @ 0x14066C944 (MiContractWsSwapPageFile.c)
  */
 
 void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
@@ -137,12 +137,12 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
               }
               updated = MiTransferSoftwarePte(v3, v10, (unsigned int)Event[1].Header.WaitListHead.Blink);
               v13 = updated;
-              if ( qword_14043A0C0 )
+              if ( qword_14043B180 )
               {
                 if ( (updated & 0x10) != 0 )
                   v13 = updated & 0xFFFFFFFFFFFFFFEFuLL;
                 else
-                  v13 = updated & ~qword_14043A0C0;
+                  v13 = updated & ~qword_14043B180;
               }
               v14 = HIDWORD(v13);
               if ( HIDWORD(Event[1].Header.WaitListHead.Blink) )
@@ -212,7 +212,7 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
           {
             v23->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v23->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v16->LockEntries[v22], v18);
+              KiAbEntryRemoveFromTree(&v16->LockEntries[v22].TreeNode, v18);
             v28 = 0;
             v28 = v23->BoostBitmap.AllFields & 0x1FFFF;
             v23->BoostBitmap.AllFields &= 0xFFFE0000;

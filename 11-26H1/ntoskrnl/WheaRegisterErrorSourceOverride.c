@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaRegisterErrorSourceOverride @ 0x1406D7B90
+ * XREFs of WheaRegisterErrorSourceOverride @ 0x1406DBD20
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WheaAddErrorSource @ 0x140847770 (WheaAddErrorSource.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WheaAddErrorSource @ 0x14084D9D0 (WheaAddErrorSource.c)
  */
 
 __int64 __fastcall WheaRegisterErrorSourceOverride(int *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

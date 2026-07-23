@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptHashAppendInternal @ 0x1405681A4
+ * XREFs of SymCryptHashAppendInternal @ 0x140567384
  * Callers:
- *     SymCryptSha1Append @ 0x1405606E0 (SymCryptSha1Append.c)
- *     SymCryptMd5Append @ 0x140561A40 (SymCryptMd5Append.c)
+ *     SymCryptSha1Append @ 0x140562BF0 (SymCryptSha1Append.c)
+ *     SymCryptMd5Append @ 0x140563F50 (SymCryptMd5Append.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x140722950 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x140727520 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 size_t __fastcall SymCryptHashAppendInternal(__int64 a1, unsigned int *a2, char *a3, size_t a4)

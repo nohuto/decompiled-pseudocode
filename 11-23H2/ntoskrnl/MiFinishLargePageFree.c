@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFinishLargePageFree @ 0x1402E7594
+ * XREFs of MiFinishLargePageFree @ 0x1402E7824
  * Callers:
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
+ *     MiProbeUnlockPage @ 0x1402CB400 (MiProbeUnlockPage.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
  */
 
 unsigned __int64 __fastcall MiFinishLargePageFree(__int64 a1, unsigned int a2, int a3, int a4)

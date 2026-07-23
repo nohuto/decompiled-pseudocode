@@ -6,7 +6,15 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtNotifyChangeSession(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __cdecl NtNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
   return Wow64SystemServiceCall();
 }

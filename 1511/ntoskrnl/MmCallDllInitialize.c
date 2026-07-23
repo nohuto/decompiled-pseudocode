@@ -33,7 +33,7 @@ __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
   UNICODE_STRING Destination; // [rsp+20h] [rbp-20h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-10h] BYREF
 
-  result = (__int64)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "DllInitialize");
+  result = (__int64)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "DllInitialize");
   v5 = (__int64 (__fastcall *)(UNICODE_STRING *))result;
   if ( result )
   {

@@ -8,12 +8,16 @@
  *     ObInsertObjectEx @ 0x1408A05E0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateDebugObject(__int64 *a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtCreateDebugObject(
+        PHANDLE DebugObjectHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
   char v4; // r14
   char PreviousMode; // r10
   __int64 v8; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PRKEVENT v10; // rbx
   bool v11; // di
   _KPROCESS *Process; // rax
@@ -22,22 +26,32 @@ __int64 __fastcall NtCreateDebugObject(__int64 *a1, int a2, int a3, int a4)
   PRKEVENT Event; // [rsp+58h] [rbp-30h] BYREF
   __int64 v16[4]; // [rsp+60h] [rbp-28h] BYREF
 
-  v4 = a4;
+  v4 = Flags;
   v16[0] = 0LL;
   Event = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)DebugObjectHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)DebugObjectHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  *a1 = 0LL;
-  if ( (a4 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  result = ObCreateObjectEx(PreviousMode, DbgkDebugObjectType, a3, PreviousMode, v14, 104, 0, 0, &Event, 0LL);
-  if ( (int)result >= 0 )
+  *DebugObjectHandle = 0LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  result = ObCreateObjectEx(
+             PreviousMode,
+             DbgkDebugObjectType,
+             (int)ObjectAttributes,
+             PreviousMode,
+             v14,
+             104,
+             0,
+             0,
+             &Event,
+             0LL);
+  if ( result >= 0 )
   {
     v10 = Event;
     v11 = 1;
@@ -58,12 +72,9 @@ __int64 __fastcall NtCreateDebugObject(__int64 *a1, int a2, int a3, int a4)
       if ( v11 )
         Event[4].Header.LockNV |= 4u;
     }
-    result = ObInsertObjectEx((char *)Event, 0LL, a2, 0, 0, 0LL, (__int64)v16);
-    if ( (int)result >= 0 )
-    {
-      *a1 = v16[0];
-      return (unsigned int)result;
-    }
+    result = ObInsertObjectEx((char *)Event, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)v16);
+    if ( result >= 0 )
+      *DebugObjectHandle = (HANDLE)v16[0];
   }
   return result;
 }

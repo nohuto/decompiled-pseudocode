@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcScheduleLazyWriteScan @ 0x140276758 (CcScheduleLazyWriteScan.c)
+ *     sub_140276758 @ 0x140276758 (sub_140276758.c)
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcChargeDirtyPagesInternal @ 0x14029E120 (CcChargeDirtyPagesInternal.c)
+ *     sub_14029E120 @ 0x14029E120 (sub_14029E120.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 __int64 __fastcall CcAddDirtyPagesToExternalCache(__int64 a1, unsigned __int64 a2)
@@ -20,15 +20,15 @@ __int64 __fastcall CcAddDirtyPagesToExternalCache(__int64 a1, unsigned __int64 a
   __int64 v8; // rax
   unsigned __int64 OldIrql; // rsi
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v11; // r9
   bool v12; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
 
   v2 = *(_QWORD *)(a1 + 56);
   v3 = a2;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  result = (__int64)PspSystemPartition;
-  v6 = *((_QWORD *)PspSystemPartition + 1);
+  result = (__int64)qword_140D06C40;
+  v6 = *((_QWORD *)qword_140D06C40 + 1);
   if ( a2 )
   {
     do
@@ -41,28 +41,28 @@ __int64 __fastcall CcAddDirtyPagesToExternalCache(__int64 a1, unsigned __int64 a
       v8 = *(_QWORD *)(a1 + 8);
       if ( !v8 )
       {
-        CcScheduleLazyWriteScan((_BYTE *)v6, v2, 0LL, 0);
+        sub_140276758((_BYTE *)v6, v2, 0LL, 0);
         v8 = *(_QWORD *)(a1 + 8);
       }
       *(_QWORD *)(a1 + 8) = v7 + v8;
-      CcChargeDirtyPagesInternal(0LL, 0LL, 0LL, v7, v6, v2);
+      sub_14029E120(0LL, 0LL, 0LL, v7, v6, v2);
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-      result = (unsigned int)KiIrqlFlags;
+      result = (unsigned int)dword_140D06B08;
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           result = KeGetCurrentIrql();
           if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v11 = *((_QWORD *)CurrentPrcb + 4375);
             result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= result;
+            v12 = ((unsigned int)result & *(_DWORD *)(v11 + 20)) == 0;
+            *(_DWORD *)(v11 + 20) &= result;
             if ( v12 )
-              result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              result = sub_140418E4C(CurrentPrcb);
           }
         }
       }

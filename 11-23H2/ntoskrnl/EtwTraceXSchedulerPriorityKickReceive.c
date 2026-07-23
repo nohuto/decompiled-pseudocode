@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceXSchedulerPriorityKickReceive @ 0x1405FD7F4
+ * XREFs of EtwTraceXSchedulerPriorityKickReceive @ 0x1405FDD64
  * Callers:
- *     KeSetThreadSchedulerAssist @ 0x14056D21C (KeSetThreadSchedulerAssist.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056D8DC (KeSetThreadSchedulerAssist.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceXSchedulerPriorityKickReceive(__int64 a1, int a2)

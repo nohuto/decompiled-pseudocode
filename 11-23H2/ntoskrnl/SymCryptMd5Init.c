@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMd5Init @ 0x1403FDAE0
+ * XREFs of SymCryptMd5Init @ 0x1403FDCC0
  * Callers:
- *     HashpInitHash @ 0x140A7765C (HashpInitHash.c)
+ *     HashpInitHash @ 0x140A7790C (HashpInitHash.c)
  * Callees:
  *     <none>
  */

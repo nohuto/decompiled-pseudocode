@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUnlockBatchPage @ 0x140318550
+ * XREFs of MiUnlockBatchPage @ 0x14031A580
  * Callers:
- *     MiDeleteSectionCluster @ 0x140318360 (MiDeleteSectionCluster.c)
+ *     MiDeleteSectionCluster @ 0x14031A390 (MiDeleteSectionCluster.c)
  * Callees:
  *     <none>
  */

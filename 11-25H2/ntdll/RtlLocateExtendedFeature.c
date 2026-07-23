@@ -6,44 +6,44 @@
  *     <none>
  */
 
-char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, unsigned int a2, _DWORD *a3)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
   __int64 v3; // r11
-  unsigned int v4; // esi
+  ULONG v4; // esi
   __int64 v5; // r9
-  __int64 v6; // r10
+  __int64 Offset; // r10
   char *v7; // rdx
   __int64 v8; // rax
   unsigned int v9; // ecx
   __int64 v11; // r8
   __int64 v12; // r11
   __int64 v13; // r10
-  int v14; // eax
+  ULONG v14; // eax
 
-  v3 = a2;
-  v4 = a2 - 2;
-  if ( a2 - 2 > 0x3D )
+  v3 = FeatureId;
+  v4 = FeatureId - 2;
+  if ( FeatureId - 2 > 0x3D )
     return 0LL;
-  v5 = 1LL << a2;
-  if ( ((MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & (1LL << a2)) == 0 )
+  v5 = 1LL << FeatureId;
+  if ( ((MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & (1LL << FeatureId)) == 0 )
     return 0LL;
   if ( (MEMORY[0x7FFE03EC] & 0xFFFFFFF8) != 0 )
     return 0LL;
-  v6 = (int)a1[4];
-  if ( *a1 > (int)v6 )
+  Offset = ContextEx->XState.Offset;
+  if ( ContextEx->All.Offset > (int)Offset )
     return 0LL;
-  if ( a1[1] + *a1 < (int)v6 + a1[5] )
+  if ( (signed int)(ContextEx->All.Length + ContextEx->All.Offset) < (signed int)(Offset + ContextEx->XState.Length) )
     return 0LL;
-  v7 = (char *)a1 + v6;
-  if ( !(_DWORD *)((char *)a1 + v6) )
+  v7 = (char *)ContextEx + Offset;
+  if ( !(PCONTEXT_EX)((char *)ContextEx + Offset) )
     return 0LL;
-  if ( a3 )
+  if ( Length )
   {
     if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
       v14 = *(_DWORD *)(4 * v3 + 0x7FFE0604);
     else
       v14 = *(_DWORD *)(8 * v3 + 0x7FFE03F4);
-    *a3 = v14;
+    *Length = v14;
   }
   if ( (MEMORY[0x7FFE03EC] & 2) == 0 )
     return &v7[*(unsigned int *)(8 * v3 + 0x7FFE03F0) - 512];

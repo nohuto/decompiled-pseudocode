@@ -4,16 +4,16 @@
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
- *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiUnlockPageTableRange @ 0x140157CD8 (MiUnlockPageTableRange.c)
+ *     MiDemoteCombinedPte @ 0x14006C1F0 (MiDemoteCombinedPte.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiUnlockPageTableRange @ 0x140157DD8 (MiUnlockPageTableRange.c)
  * Callees:
  *     MiIsLowestPageTablePage @ 0x14001A4EC (MiIsLowestPageTablePage.c)
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockPageTableCharges(ULONG_PTR BugCheckParameter2, int a2)
@@ -81,8 +81,8 @@ LABEL_30:
       break;
     if ( !v4 )
     {
-      result = qword_14043A748;
-      v4 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v2 + 40) >> 40) & 0x3FFLL));
+      result = qword_14043B808;
+      v4 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v2 + 40) >> 40) & 0x3FFLL));
     }
     ++v7;
     if ( !v11 )

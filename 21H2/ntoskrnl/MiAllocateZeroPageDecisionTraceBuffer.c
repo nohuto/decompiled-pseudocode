@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateZeroPageDecisionTraceBuffer @ 0x1403CAE64
+ * XREFs of MiAllocateZeroPageDecisionTraceBuffer @ 0x1403CB004
  * Callers:
- *     MiZeroBootLargePages @ 0x1403CABF4 (MiZeroBootLargePages.c)
+ *     MiZeroBootLargePages @ 0x1403CAD94 (MiZeroBootLargePages.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
  */
 
 _DWORD *__fastcall MiAllocateZeroPageDecisionTraceBuffer(__int64 a1, unsigned int a2)

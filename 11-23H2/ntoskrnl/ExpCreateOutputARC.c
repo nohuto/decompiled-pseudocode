@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCreateOutputARC @ 0x1409FBEA0
+ * XREFs of ExpCreateOutputARC @ 0x1409FC130
  * Callers:
- *     ExpTranslateEfiPath @ 0x14083E520 (ExpTranslateEfiPath.c)
- *     ExpConvertSignatureName @ 0x1409FBC5C (ExpConvertSignatureName.c)
- *     ExpTranslateNtPath @ 0x1409FE45C (ExpTranslateNtPath.c)
+ *     ExpTranslateEfiPath @ 0x14083E820 (ExpTranslateEfiPath.c)
+ *     ExpConvertSignatureName @ 0x1409FBEEC (ExpConvertSignatureName.c)
+ *     ExpTranslateNtPath @ 0x1409FE6EC (ExpTranslateNtPath.c)
  * Callees:
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     ExpFindArcName @ 0x1409FC330 (ExpFindArcName.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     ExpFindArcName @ 0x1409FC5C0 (ExpFindArcName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

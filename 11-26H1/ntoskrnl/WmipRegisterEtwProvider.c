@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipRegisterEtwProvider @ 0x140823D44
+ * XREFs of WmipRegisterEtwProvider @ 0x140829F90
  * Callers:
- *     WmipLinkDataSourceToList @ 0x140A0CC1C (WmipLinkDataSourceToList.c)
+ *     WmipLinkDataSourceToList @ 0x140A0C4DC (WmipLinkDataSourceToList.c)
  * Callees:
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     WmipQueueLegacyEtwWork @ 0x140B2F424 (WmipQueueLegacyEtwWork.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     WmipQueueLegacyEtwWork @ 0x140B31204 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall WmipRegisterEtwProvider(__int64 a1, __int64 a2)

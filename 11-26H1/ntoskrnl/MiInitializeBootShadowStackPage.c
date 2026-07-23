@@ -1,30 +1,30 @@
 /*
- * XREFs of MiInitializeBootShadowStackPage @ 0x140CFC214
+ * XREFs of MiInitializeBootShadowStackPage @ 0x140D02594
  * Callers:
- *     MiInitializeBootKernelShadowStack @ 0x1406FF1A0 (MiInitializeBootKernelShadowStack.c)
- *     MiInitializeBootKernelShadowStacks @ 0x140CFC130 (MiInitializeBootKernelShadowStacks.c)
+ *     MiInitializeBootKernelShadowStack @ 0x140703E70 (MiInitializeBootKernelShadowStack.c)
+ *     MiInitializeBootKernelShadowStacks @ 0x140D024B0 (MiInitializeBootKernelShadowStacks.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x140309350 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiLockPageAndSetDirty @ 0x14031A7E4 (MiLockPageAndSetDirty.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x1402EB3D0 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiLockPageAndSetDirty @ 0x14031C814 (MiLockPageAndSetDirty.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiInitializeBootShadowStackPage(unsigned __int64 a1, int a2)
@@ -92,7 +92,7 @@ void __fastcall MiInitializeBootShadowStackPage(unsigned __int64 a1, int a2)
   if ( v5 )
   {
     MiAcquireNonPagedResources(&MiSystemPartition, 1uLL, 0LL, 0LL);
-    _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, 1uLL);
+    _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, 1uLL);
   }
   v7 = MiVaToFlushVm((__int64)(a1 << 25) >> 16);
   if ( _bittest64(&MiFlags, 0x2Bu) )
@@ -127,7 +127,7 @@ void __fastcall MiInitializeBootShadowStackPage(unsigned __int64 a1, int a2)
     {
       if ( v3 == 1 )
       {
-        MiLockPageAndSetDirty(v4, 1);
+        MiLockPageAndSetDirty(v4, 1, v20);
         v25 = v19 & 0xFFFFFFFFFFFFF7BDuLL;
         v32 = v25;
         v26 = 0;
@@ -179,6 +179,6 @@ void __fastcall MiInitializeBootShadowStackPage(unsigned __int64 a1, int a2)
     MiUnlockWorkingSetShared(v10, v15);
     MiReturnResident((__int64)&MiSystemPartition, 1uLL);
     MiReturnCommit((__int64)&MiSystemPartition, 1LL, 0);
-    _InterlockedDecrement64((volatile signed __int64 *)&stru_140E36558.320);
+    _InterlockedDecrement64((volatile signed __int64 *)&stru_140E366D8.320);
   }
 }

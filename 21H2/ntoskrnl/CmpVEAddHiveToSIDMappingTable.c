@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpVEAddHiveToSIDMappingTable @ 0x1406C2414
+ * XREFs of CmpVEAddHiveToSIDMappingTable @ 0x1406210D4
  * Callers:
- *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpLoadKeyCommon @ 0x14026D10C (CmpLoadKeyCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     CmpAddStringToMapping @ 0x1406C24B4 (CmpAddStringToMapping.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     CmpAddStringToMapping @ 0x140621174 (CmpAddStringToMapping.c)
  */
 
 __int64 __fastcall CmpVEAddHiveToSIDMappingTable(__int64 a1, __int64 a2)

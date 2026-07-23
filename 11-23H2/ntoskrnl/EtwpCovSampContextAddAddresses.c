@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampContextAddAddresses @ 0x1408A8A76
+ * XREFs of EtwpCovSampContextAddAddresses @ 0x1408A8CC6
  * Callers:
- *     EtwpCovSampCaptureBufferProcess @ 0x1408A85D4 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F2B44 (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408A8824 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1409F2DD4 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpCovSampContextAddSamples @ 0x1408A8B70 (EtwpCovSampContextAddSamples.c)
- *     EtwpCovSampProcessMapAddresses @ 0x1408A9A52 (EtwpCovSampProcessMapAddresses.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpCovSampContextAddSamples @ 0x1408A8DC0 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x1408A9CA2 (EtwpCovSampProcessMapAddresses.c)
  */
 
 __int64 __fastcall EtwpCovSampContextAddAddresses(

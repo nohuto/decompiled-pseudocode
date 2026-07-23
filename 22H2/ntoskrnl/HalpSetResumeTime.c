@@ -19,14 +19,13 @@ void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
   ULONGLONG v5; // r9
   __int64 v6; // rdx
   __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9[3]; // [rsp+20h] [rbp-18h] BYREF
-  bool v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  bool v9; // [rsp+48h] [rbp+10h] BYREF
   ULONGLONG pullResult; // [rsp+50h] [rbp+18h] BYREF
-  unsigned __int64 v12; // [rsp+58h] [rbp+20h] BYREF
+  unsigned __int64 v11; // [rsp+58h] [rbp+20h] BYREF
 
-  v9[0] = 0LL;
-  v12 = 0LL;
+  v8[0] = 0LL;
+  v11 = 0LL;
   pullResult = 0LL;
   if ( (_DWORD)a2 )
   {
@@ -38,23 +37,23 @@ void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
         {
           if ( (HalpResumeFlags & 2) == 0 && !ExpRealTimeIsUniversal )
             HalpResumeTime += *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals((__int64)a1, a2) + 133) + 440LL);
-          v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C007F0)(&v12);
+          v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C007F0)(&v11);
           v3 = RtlULongLongMult(v2 - HalpTimeStampAtResume, 0x989680uLL, &pullResult);
-          v5 = pullResult / v12;
+          v5 = pullResult / v11;
           if ( v3 < 0 )
-            v5 = 10000000 * (v4 / v12) + 10000000 * (v4 % v12) / v12;
+            v5 = 10000000 * (v4 / v11) + 10000000 * (v4 % v11) / v11;
           HalpResumeTime += v5;
         }
       }
       else if ( (_DWORD)a2 == 2 )
       {
-        if ( (HalpResumeFlags & 1) != 0 || !HalpResumeTime || HalpQueryVirtualRtc(v9, &v10) && HalpResumeTime < v9[0] )
+        if ( (HalpResumeFlags & 1) != 0 || !HalpResumeTime || HalpQueryVirtualRtc(v8, &v9) && HalpResumeTime < v8[0] )
         {
           HalpVrtcTimeStale = 1;
         }
         else
         {
-          HalpSetVirtualRtc(&HalpResumeTime, v6, v7, v8);
+          HalpSetVirtualRtc((LARGE_INTEGER *)&HalpResumeTime, v6, v7);
           HalpResumeTime = 0LL;
         }
       }

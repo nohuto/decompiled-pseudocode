@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A95130
+ * XREFs of HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A94FA0
  * Callers:
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
- *     HalpHandlePreviousMcaErrors @ 0x140A94FF0 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140A94E60 (HalpHandlePreviousMcaErrors.c)
  * Callees:
- *     HalpMcaReadErrorPresence @ 0x140380524 (HalpMcaReadErrorPresence.c)
- *     HalpMcaClearError @ 0x140502F90 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1405034B0 (HalpMcaReadError.c)
- *     HalpMcaReportError @ 0x140503748 (HalpMcaReportError.c)
+ *     HalpMcaReadErrorPresence @ 0x1403806C4 (HalpMcaReadErrorPresence.c)
+ *     HalpMcaClearError @ 0x1405034E0 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x140503A00 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x140503C98 (HalpMcaReportError.c)
  *     HalpMceInitializeErrorPacketContents @ 0x140A8AB48 (HalpMceInitializeErrorPacketContents.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

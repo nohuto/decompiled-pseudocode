@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipSendWmiIrpToTraceDeviceList @ 0x140B0BA58
+ * XREFs of WmipSendWmiIrpToTraceDeviceList @ 0x140B0D1A8
  * Callers:
- *     WmiSetNetworkNotify @ 0x140823BCC (WmiSetNetworkNotify.c)
- *     WmiTraceRundownNotify @ 0x140B0B964 (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x140829E18 (WmiSetNetworkNotify.c)
+ *     WmiTraceRundownNotify @ 0x140B0D0B4 (WmiTraceRundownNotify.c)
  * Callees:
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     IoInitializeIrp @ 0x1404766A0 (IoInitializeIrp.c)
- *     WmipForwardWmiIrp @ 0x140A0F03C (WmipForwardWmiIrp.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     IoInitializeIrp @ 0x14046FE20 (IoInitializeIrp.c)
+ *     WmipForwardWmiIrp @ 0x140A0E218 (WmipForwardWmiIrp.c)
  */
 
 __int64 __fastcall WmipSendWmiIrpToTraceDeviceList(
@@ -26,9 +26,9 @@ __int64 __fastcall WmipSendWmiIrpToTraceDeviceList(
 
   v6 = a2;
   v8 = 0;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  v9 = (char)(*(_BYTE *)(*(_QWORD *)&EtwpSecurityLock.ForegroundLossTime + 76LL) + 1);
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  v9 = (char)(WmipServiceDeviceObject->StackSize + 1);
+  KeReleaseMutex(&WmipSMMutex, 0);
   Irp = IoAllocateIrp(v9, 0);
   if ( Irp )
   {
@@ -39,7 +39,7 @@ __int64 __fastcall WmipSendWmiIrpToTraceDeviceList(
         IoInitializeIrp(Irp, 72 * v9 + 208, v9);
         --Irp->Tail.Overlay.CurrentStackLocation;
         --Irp->CurrentLocation;
-        Irp->Tail.Overlay.CurrentStackLocation->DeviceObject = *(PDEVICE_OBJECT *)&EtwpSecurityLock.ForegroundLossTime;
+        Irp->Tail.Overlay.CurrentStackLocation->DeviceObject = WmipServiceDeviceObject;
         Irp->Tail.Overlay.Thread = KeGetCurrentThread();
         WmipForwardWmiIrp(Irp, a3, *(_DWORD *)(*(_QWORD *)a1 + 56LL), 0LL, a4, a5);
         a1 += 16LL;

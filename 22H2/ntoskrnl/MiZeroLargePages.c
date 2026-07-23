@@ -135,7 +135,7 @@ __int64 __fastcall MiZeroLargePages(unsigned __int64 a1)
   __int64 v103; // [rsp+88h] [rbp-60h]
   __int64 v104; // [rsp+90h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-50h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+A0h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A0h] [rbp-48h] BYREF
   void *retaddr; // [rsp+E8h] [rbp+0h]
   unsigned int v109; // [rsp+F8h] [rbp+10h]
   int v110; // [rsp+100h] [rbp+18h] BYREF
@@ -715,7 +715,7 @@ LABEL_186:
         if ( *(_DWORD *)(v1 + 268) != (_DWORD)v92 )
         {
           *(_DWORD *)(v1 + 268) = v92;
-          Affinity = *(struct _GROUP_AFFINITY *)(4544 * v92 + *(_QWORD *)(v38 + 16) + 4472);
+          Affinity = *(_GROUP_AFFINITY *)(4544 * v92 + *(_QWORD *)(v38 + 16) + 4472);
           MiSetIdealProcessorThread(&Affinity);
         }
       }

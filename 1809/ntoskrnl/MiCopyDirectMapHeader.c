@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCopyDirectMapHeader @ 0x140852BA4
+ * XREFs of MiCopyDirectMapHeader @ 0x140853E04
  * Callers:
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDeleteSegmentPages @ 0x140094E38 (MiDeleteSegmentPages.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
- *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiReturnPteMappingPair @ 0x1402CE208 (MiReturnPteMappingPair.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     MiDeleteSegmentPages @ 0x140094D78 (MiDeleteSegmentPages.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D8D8 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012ECB0 (MiCreatePteCopyList.c)
+ *     MiPartitionIdToPointer @ 0x140134DB8 (MiPartitionIdToPointer.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiReturnPteMappingPair @ 0x1402CE3F8 (MiReturnPteMappingPair.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiInitializePrototypePtes @ 0x140620030 (MiInitializePrototypePtes.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiCopyDirectMapHeader(__int64 a1, __int64 a2)
@@ -76,12 +76,12 @@ LABEL_29:
     }
     v8 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v6);
     v9 = v8;
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v8 & 0x10) != 0 )
         v9 = v8 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v9 = ~qword_14043A0C0 & v8;
+        v9 = ~qword_14043B180 & v8;
     }
     v10 = (_WORD *)MiPartitionIdToPointer(((unsigned int)HIDWORD(*(_QWORD *)(48 * ((v9 >> 12) & 0xFFFFFFFFFLL)
                                                                            - 0x57FFFFFFFD8LL)) >> 8) & 0x3FF);
@@ -93,7 +93,7 @@ LABEL_29:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v15 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_17;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -112,7 +112,7 @@ LABEL_17:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v19 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_24:
         if ( (v17 & 1) != 0 )

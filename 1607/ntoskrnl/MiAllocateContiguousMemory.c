@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateContiguousMemory @ 0x14009AF40
+ * XREFs of MiAllocateContiguousMemory @ 0x14009A740
  * Callers:
- *     MmAllocateContiguousNodeMemory @ 0x14009AEA0 (MmAllocateContiguousNodeMemory.c)
- *     MmAllocateContiguousMemory @ 0x1401E369C (MmAllocateContiguousMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14009A6A0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemory @ 0x1401E34C8 (MmAllocateContiguousMemory.c)
  * Callees:
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ExInsertPoolTag @ 0x14009B2BC (ExInsertPoolTag.c)
- *     MiFindContiguousMemoryInPool @ 0x14009B2EC (MiFindContiguousMemoryInPool.c)
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MiProtectionToCacheAttribute @ 0x1400E74EC (MiProtectionToCacheAttribute.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1401E35E0 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ExInsertPoolTag @ 0x14009AABC (ExInsertPoolTag.c)
+ *     MiFindContiguousMemoryInPool @ 0x14009AAEC (MiFindContiguousMemoryInPool.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MiProtectionToCacheAttribute @ 0x1400E538C (MiProtectionToCacheAttribute.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1401E340C (MiLogPerfMemoryRangeEvent.c)
  */
 
 unsigned __int64 *__fastcall MiAllocateContiguousMemory(
@@ -89,9 +89,9 @@ unsigned __int64 *__fastcall MiAllocateContiguousMemory(
   {
     v18 = a6;
   }
-  v19 = (char *)qword_1403269A8;
+  v19 = (char *)qword_1403269E8;
   v43 = v18;
-  v20 = (unsigned __int16 *)((char *)qword_1403269A8 + 2 * v18 * v14);
+  v20 = (unsigned __int16 *)((char *)qword_1403269E8 + 2 * v18 * v14);
   if ( a6 == 0x80000000 )
     v21 = &v20[v14];
   else
@@ -190,7 +190,7 @@ LABEL_18:
     if ( ++v20 == v45 )
     {
       v14 = KeNumberNodes;
-      v19 = (char *)qword_1403269A8;
+      v19 = (char *)qword_1403269E8;
       v15 = v47;
       goto LABEL_18;
     }

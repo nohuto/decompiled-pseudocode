@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmResetPlatformIdleAccounting @ 0x140585AF8
+ * XREFs of PpmResetPlatformIdleAccounting @ 0x140585FE8
  * Callers:
- *     PpmInstallCoordinatedIdleStates @ 0x140981DD0 (PpmInstallCoordinatedIdleStates.c)
- *     PpmInstallPlatformIdleStates @ 0x140982410 (PpmInstallPlatformIdleStates.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x140981FD0 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x140982610 (PpmInstallPlatformIdleStates.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PpmResetPlatformIdleAccounting(int *a1)

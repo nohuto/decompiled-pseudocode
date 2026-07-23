@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetPartitionFromFileObject @ 0x1400E0FD0
+ * XREFs of CcGetPartitionFromFileObject @ 0x1400E1050
  * Callers:
- *     CcZeroData @ 0x1400E0C20 (CcZeroData.c)
- *     CcDeferWrite @ 0x140269780 (CcDeferWrite.c)
+ *     CcZeroData @ 0x1400E0CA0 (CcZeroData.c)
+ *     CcDeferWrite @ 0x140269970 (CcDeferWrite.c)
  * Callees:
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
  */
 
 __int64 __fastcall CcGetPartitionFromFileObject(__int64 a1, __int64 a2, __int64 a3)

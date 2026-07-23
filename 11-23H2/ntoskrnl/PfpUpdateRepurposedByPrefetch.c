@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpUpdateRepurposedByPrefetch @ 0x14075D7E0
+ * XREFs of PfpUpdateRepurposedByPrefetch @ 0x14075D9D0
  * Callers:
  *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D490 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D7B0C (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchPrivatePages @ 0x14097E268 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchFilesTrickle @ 0x14075D680 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchDirectoryStream @ 0x1407D7DDC (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchPrivatePages @ 0x14097E468 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PfpGetPageListCount @ 0x14075D8FC (PfpGetPageListCount.c)
+ *     MmQueryMemoryListInformation @ 0x1402F8BE8 (MmQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PfpGetPageListCount @ 0x14075DAEC (PfpGetPageListCount.c)
  */
 
 _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2)

@@ -1,26 +1,29 @@
 /*
- * XREFs of NtCancelIoFileEx @ 0x1409561B0
+ * XREFs of NtCancelIoFileEx @ 0x140949ED0
  * Callers:
- *     DifNtCancelIoFileExWrapper @ 0x14066E190 (DifNtCancelIoFileExWrapper.c)
+ *     DifNtCancelIoFileExWrapper @ 0x140671D70 (DifNtCancelIoFileExWrapper.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     IopCancelIoFile @ 0x140956B1C (IopCancelIoFile.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     IopCancelIoFile @ 0x14094A544 (IopCancelIoFile.c)
  */
 
-__int64 __fastcall NtCancelIoFileEx(void *a1, __int64 a2, unsigned int *a3)
+NTSTATUS __cdecl NtCancelIoFileEx(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoRequestToCancel,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PVOID v8; // rdi
-  unsigned int v9; // ebx
+  NTSTATUS v9; // ebx
   int ULongFromUser; // eax
   PVOID Object; // [rsp+40h] [rbp-28h] BYREF
-  unsigned int Src; // [rsp+48h] [rbp-20h] BYREF
+  NTSTATUS Src; // [rsp+48h] [rbp-20h] BYREF
   int v13; // [rsp+4Ch] [rbp-1Ch]
   __int64 v14; // [rsp+50h] [rbp-18h]
 
@@ -29,21 +32,21 @@ __int64 __fastcall NtCancelIoFileEx(void *a1, __int64 a2, unsigned int *a3)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a3);
-    RtlWriteULongToUser(a3, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser((unsigned int *)IoStatusBlock);
+    RtlWriteULongToUser(IoStatusBlock, ULongFromUser);
   }
-  result = IopReferenceFileObject(a1, 0, PreviousMode, (ULONG_PTR *)&Object, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, (ULONG_PTR *)&Object, 0LL);
+  if ( result >= 0 )
   {
     v8 = Object;
-    v9 = IopCancelIoFile(Object, a2);
+    v9 = IopCancelIoFile(Object, IoRequestToCancel);
     v13 = 0;
     Src = v9;
     v14 = 0LL;
     if ( PreviousMode )
-      RtlCopyToUser(a3, &Src, 0x10uLL);
+      RtlCopyToUser(IoStatusBlock, &Src, 0x10uLL);
     else
-      RtlCopyVolatileMemory(a3, &Src, 0x10uLL);
+      RtlCopyVolatileMemory(IoStatusBlock, &Src, 0x10uLL);
     ObfDereferenceObject(v8);
     return v9;
   }

@@ -10,24 +10,24 @@
  *     NtTraceEvent @ 0x180093EE0 (NtTraceEvent.c)
  */
 
-void *__fastcall RtlSetThreadSubProcessTag(void *a1)
+PVOID __cdecl RtlSetThreadSubProcessTag(PVOID SubProcessTag)
 {
   struct _TEB *v1; // rax
-  void *SubProcessTag; // rbx
-  char v4[6]; // [rsp+20h] [rbp-38h] BYREF
+  PVOID v2; // rbx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v5; // [rsp+26h] [rbp-32h]
   int v6; // [rsp+40h] [rbp-18h]
   int v7; // [rsp+44h] [rbp-14h]
 
   v1 = NtCurrentTeb();
-  SubProcessTag = v1->SubProcessTag;
-  v1->SubProcessTag = a1;
-  if ( MEMORY[0x7FFE0390] && a1 != SubProcessTag )
+  v2 = v1->SubProcessTag;
+  v1->SubProcessTag = SubProcessTag;
+  if ( MEMORY[0x7FFE0390] && SubProcessTag != v2 )
   {
-    v7 = (int)a1;
+    v7 = (int)SubProcessTag;
     v5 = 1349;
-    v6 = (int)SubProcessTag;
-    NtTraceEvent(MEMORY[0x7FFE0390], 1026LL, 8LL, v4);
+    v6 = (int)v2;
+    NtTraceEvent((HANDLE)MEMORY[0x7FFE0390], 0x402u, 8u, Fields);
   }
-  return SubProcessTag;
+  return v2;
 }

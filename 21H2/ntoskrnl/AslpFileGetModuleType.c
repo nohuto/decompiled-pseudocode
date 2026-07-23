@@ -1,7 +1,7 @@
 /*
- * XREFs of AslpFileGetModuleType @ 0x14096B740
+ * XREFs of AslpFileGetModuleType @ 0x14096B920
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2664 (AslFileAllocAndGetAttributes.c)
  * Callees:
  *     <none>
  */

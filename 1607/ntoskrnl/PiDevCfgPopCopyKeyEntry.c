@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDevCfgPopCopyKeyEntry @ 0x1401CF09C
+ * XREFs of PiDevCfgPopCopyKeyEntry @ 0x1401CEE30
  * Callers:
- *     PiDevCfgCopyDeviceKeys @ 0x140636E74 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140636F28 (PiDevCfgCopyDeviceKeys.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

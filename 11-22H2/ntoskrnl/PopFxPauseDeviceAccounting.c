@@ -53,10 +53,13 @@ _QWORD *PopFxPauseDeviceAccounting()
         PopFxMergeActiveTimeAccounting(v4);
       }
       KxReleaseSpinLock((volatile signed __int64 *)(i + 600));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v3 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -78,10 +81,10 @@ _QWORD *PopFxPauseDeviceAccounting()
           PopFxMergeActiveTimeAccounting(v13);
         }
         KxReleaseSpinLock((volatile signed __int64 *)v11);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v14 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v14 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v14 >= 2u )
           {
             v15 = KeGetCurrentPrcb();
             v16 = v15->SchedulerAssist;

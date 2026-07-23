@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferDmaThin @ 0x140390E00
+ * XREFs of HalAllocateCommonBufferDmaThin @ 0x140390FE0
  * Callers:
  *     <none>
  * Callees:
- *     HalAllocateCommonBufferDmaThinEx @ 0x140390E30 (HalAllocateCommonBufferDmaThinEx.c)
+ *     HalAllocateCommonBufferDmaThinEx @ 0x140391010 (HalAllocateCommonBufferDmaThinEx.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferDmaThin(__int64 a1, unsigned int a2, __int64 a3)

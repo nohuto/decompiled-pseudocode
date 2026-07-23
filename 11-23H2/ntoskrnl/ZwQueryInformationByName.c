@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryInformationByName @ 0x14041D780
+ * XREFs of ZwQueryInformationByName @ 0x14041DB10
  * Callers:
- *     SdbpGetFileTimestamp @ 0x140A4E934 (SdbpGetFileTimestamp.c)
+ *     SdbpGetFileTimestamp @ 0x140A4EBE4 (SdbpGetFileTimestamp.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationByName(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationByName(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ObjectAttributes);
 }

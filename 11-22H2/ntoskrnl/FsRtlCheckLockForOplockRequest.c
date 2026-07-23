@@ -39,10 +39,13 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   if ( v5 >= *v2 )
   {
     KxReleaseSpinLock(v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -58,10 +61,10 @@ char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
   else
   {
     KxReleaseSpinLock(v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;

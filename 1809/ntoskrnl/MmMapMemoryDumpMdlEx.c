@@ -1,22 +1,22 @@
 /*
- * XREFs of MmMapMemoryDumpMdlEx @ 0x140144420
+ * XREFs of MmMapMemoryDumpMdlEx @ 0x140144520
  * Callers:
- *     PopGetNextTable @ 0x1401441D0 (PopGetNextTable.c)
- *     MmMapMemoryDumpMdl @ 0x1402AE670 (MmMapMemoryDumpMdl.c)
- *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
- *     PopCreateDumpMdl @ 0x14056A410 (PopCreateDumpMdl.c)
- *     PopHiberCheckResume @ 0x14056B320 (PopHiberCheckResume.c)
- *     IopLiveDumpBufferDumpData @ 0x140577FC0 (IopLiveDumpBufferDumpData.c)
+ *     PopGetNextTable @ 0x1401442D0 (PopGetNextTable.c)
+ *     MmMapMemoryDumpMdl @ 0x1402AE860 (MmMapMemoryDumpMdl.c)
+ *     PopDecompressHiberBlocks @ 0x14056AE60 (PopDecompressHiberBlocks.c)
+ *     PopCreateDumpMdl @ 0x14056B410 (PopCreateDumpMdl.c)
+ *     PopHiberCheckResume @ 0x14056C320 (PopHiberCheckResume.c)
+ *     IopLiveDumpBufferDumpData @ 0x140578FC0 (IopLiveDumpBufferDumpData.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MmMapMemoryDumpMdlEx(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)
@@ -72,7 +72,7 @@ void __fastcall MmMapMemoryDumpMdlEx(unsigned __int64 a1, __int64 a2, __int64 a3
       if ( (unsigned int)MiPteHasShadow() )
       {
         v16 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
 LABEL_21:
           if ( (v17 & 1) != 0 )
@@ -95,7 +95,7 @@ LABEL_7:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v13 = 1LL;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
           goto LABEL_27;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

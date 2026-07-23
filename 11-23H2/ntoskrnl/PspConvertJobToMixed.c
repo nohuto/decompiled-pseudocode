@@ -1,8 +1,8 @@
 /*
- * XREFs of PspConvertJobToMixed @ 0x1409B2164
+ * XREFs of PspConvertJobToMixed @ 0x1409B2364
  * Callers:
  *     PspBindProcessSessionToJob @ 0x14069FBC4 (PspBindProcessSessionToJob.c)
- *     PspSetJobMemoryPartition @ 0x1409B2C24 (PspSetJobMemoryPartition.c)
+ *     PspSetJobMemoryPartition @ 0x1409B2E24 (PspSetJobMemoryPartition.c)
  * Callees:
  *     <none>
  */

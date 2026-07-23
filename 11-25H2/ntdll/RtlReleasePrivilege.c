@@ -11,24 +11,23 @@
  *     NtAdjustPrivilegesToken @ 0x180163A40 (NtAdjustPrivilegesToken.c)
  */
 
-__int64 __fastcall RtlReleasePrivilege(HANDLE *a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl RtlReleasePrivilege(PVOID StatePointer)
 {
-  __int64 v5; // r8
-  __int64 v6; // r9
-  HANDLE v8; // rcx
+  char *v2; // r8
+  void *v3; // rcx
 
-  if ( ((_DWORD)a1[4] & 3) != 1 )
-    NtAdjustPrivilegesToken(*a1, 0LL, a1[2]);
-  if ( ((_BYTE)a1[4] & 1) != 0 )
+  if ( (*((_DWORD *)StatePointer + 8) & 3) != 1 )
+    NtAdjustPrivilegesToken(*(HANDLE *)StatePointer, 0, *((PTOKEN_PRIVILEGES *)StatePointer + 2), 0, 0LL, 0LL);
+  if ( (*((_BYTE *)StatePointer + 32) & 1) != 0 )
   {
-    NtSetInformationThread(-2LL, 5LL, a1 + 1);
-    v8 = a1[1];
-    if ( v8 )
-      NtClose(v8);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, (char *)StatePointer + 8, 8u);
+    v3 = (void *)*((_QWORD *)StatePointer + 1);
+    if ( v3 )
+      NtClose(v3);
   }
-  v5 = (__int64)a1[2];
-  if ( (HANDLE *)v5 != (HANDLE *)((char *)a1 + 36) )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5, a4);
-  NtClose(*a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)a1, v6);
+  v2 = (char *)*((_QWORD *)StatePointer + 2);
+  if ( v2 != (char *)StatePointer + 36 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+  NtClose(*(HANDLE *)StatePointer);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, StatePointer);
 }

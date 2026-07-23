@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRevokeExecutePte @ 0x14011FCE0
+ * XREFs of MiRevokeExecutePte @ 0x14011FD50
  * Callers:
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiGetPfnProtection @ 0x14011FD90 (MiGetPfnProtection.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiGetPfnProtection @ 0x14011FE00 (MiGetPfnProtection.c)
  */
 
 __int64 __fastcall MiRevokeExecutePte(__int64 a1, unsigned __int64 a2)

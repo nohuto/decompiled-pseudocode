@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelper_GenerateGuid @ 0x140580910
+ * XREFs of SleepstudyHelper_GenerateGuid @ 0x140580B50
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperGetBlockerGuid @ 0x1406C1B40 (SleepstudyHelperGetBlockerGuid.c)
+ *     SleepstudyHelperGetBlockerGuid @ 0x140620840 (SleepstudyHelperGetBlockerGuid.c)
  */
 
 __int64 __fastcall SleepstudyHelper_GenerateGuid(int a1, __int64 a2, _OWORD *a3)

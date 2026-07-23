@@ -1,15 +1,15 @@
 /*
- * XREFs of SshpTracingWriteBlockerStateRundown @ 0x1404A8F78
+ * XREFs of SshpTracingWriteBlockerStateRundown @ 0x1404A2608
  * Callers:
- *     SleepstudyHelperBuildBlocker @ 0x140A89550 (SleepstudyHelperBuildBlocker.c)
- *     SshpFreeBlockerEntry @ 0x140AAD54C (SshpFreeBlockerEntry.c)
- *     SshpTracingRundownBlockerState @ 0x140B13E44 (SshpTracingRundownBlockerState.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A90440 (SleepstudyHelperBuildBlocker.c)
+ *     SshpFreeBlockerEntry @ 0x140AAB60C (SshpFreeBlockerEntry.c)
+ *     SshpTracingRundownBlockerState @ 0x140B15904 (SshpTracingRundownBlockerState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall SshpTracingWriteBlockerStateRundown(PCEVENT_DESCRIPTOR EventDescriptor, PKSPIN_LOCK SpinLock)

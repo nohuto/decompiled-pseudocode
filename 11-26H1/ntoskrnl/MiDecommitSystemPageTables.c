@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDecommitSystemPageTables @ 0x1402A46B8
+ * XREFs of MiDecommitSystemPageTables @ 0x1402A3C08
  * Callers:
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiReleaseDriverPtes @ 0x140A80038 (MiReleaseDriverPtes.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiReleaseDriverPtes @ 0x140A85EA8 (MiReleaseDriverPtes.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiDeleteSystemPageTables @ 0x1402A477C (MiDeleteSystemPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiDeleteSystemPageTables @ 0x1402A3CCC (MiDeleteSystemPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
  */
 
 __int64 __fastcall MiDecommitSystemPageTables(__int64 a1, __int64 a2, int a3)

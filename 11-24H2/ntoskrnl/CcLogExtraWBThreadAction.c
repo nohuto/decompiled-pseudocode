@@ -1,11 +1,11 @@
 /*
- * XREFs of CcLogExtraWBThreadAction @ 0x1404CD4DC
+ * XREFs of CcLogExtraWBThreadAction @ 0x1404C68AC
  * Callers:
- *     CcWorkerThread @ 0x1404DB3D0 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x1404D4DF0 (CcWorkerThread.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPerfLogExtraWBThreadAction @ 0x1404CD580 (CcPerfLogExtraWBThreadAction.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogExtraWBThreadAction @ 0x1404C6950 (CcPerfLogExtraWBThreadAction.c)
  */
 
 __int64 __fastcall CcLogExtraWBThreadAction(__int64 a1, __int64 a2, int a3)

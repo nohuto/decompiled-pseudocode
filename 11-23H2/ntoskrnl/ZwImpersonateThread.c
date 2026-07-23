@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwImpersonateThread @ 0x14041CDE0
+ * XREFs of ZwImpersonateThread @ 0x14041D170
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwImpersonateThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ServerThreadHandle);
 }

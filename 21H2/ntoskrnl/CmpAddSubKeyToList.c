@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddSubKeyToList @ 0x140669DA0
+ * XREFs of CmpAddSubKeyToList @ 0x14065EBC0
  * Callers:
- *     CmpAddSubKeyEx @ 0x140668BE4 (CmpAddSubKeyEx.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F3B4 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpAddSubKeyEx @ 0x14065DA04 (CmpAddSubKeyEx.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F514 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F924 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpAddToLeaf @ 0x140669B1C (CmpAddToLeaf.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
- *     CmpSelectLeaf @ 0x14076BC0C (CmpSelectLeaf.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpAddToLeaf @ 0x14065E93C (CmpAddToLeaf.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpSelectLeaf @ 0x14076BDCC (CmpSelectLeaf.c)
  */
 
 char __fastcall CmpAddSubKeyToList(ULONG_PTR BugCheckParameter2, unsigned int *a2, unsigned int a3)
@@ -72,7 +72,7 @@ LABEL_14:
       return v9;
     }
     v26 = 1;
-    CmpCopyCompressedName(v13, v12, v8 + 76);
+    CmpCopyCompressedName(v13, v12, v8 + 76, *(unsigned __int16 *)(v8 + 72));
   }
   else
   {

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x1400F10A0
+ * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x1400EEEF0
  * Callers:
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400F0FE0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400EEE30 (KeExpandKernelStackAndCalloutInternal.c)
  * Callees:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400F12A0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     MmGrowKernelStackEx @ 0x140136510 (MmGrowKernelStackEx.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x14015DB50 (KeGetCurrentStackPointer.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400EF0F0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MmGrowKernelStackEx @ 0x140136A80 (MmGrowKernelStackEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x14015E0C0 (KeGetCurrentStackPointer.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(int a1, int a2, unsigned __int64 a3, int a4, __int64 a5)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsInitializePhase3 @ 0x140A6DC48
+ * XREFs of PopDirectedDripsInitializePhase3 @ 0x140A6EC48
  * Callers:
- *     PopInitializeDirectedDrips @ 0x140A40650 (PopInitializeDirectedDrips.c)
+ *     PopInitializeDirectedDrips @ 0x140A41650 (PopInitializeDirectedDrips.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     PopDiagTraceDirectedDripsInitialization @ 0x1407CBF04 (PopDiagTraceDirectedDripsInitialization.c)
- *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CBFE4 (PopDirectedDripsQueryEnabledMitigations.c)
- *     PopDirectedDripsDiagInitialize @ 0x140A40B60 (PopDirectedDripsDiagInitialize.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     PopDiagTraceDirectedDripsInitialization @ 0x1407CC074 (PopDiagTraceDirectedDripsInitialization.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CC154 (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDirectedDripsDiagInitialize @ 0x140A41B60 (PopDirectedDripsDiagInitialize.c)
  */
 
 __int64 PopDirectedDripsInitializePhase3()
@@ -22,7 +22,7 @@ __int64 PopDirectedDripsInitializePhase3()
   ThreadHandle = 0LL;
   PopDirectedDripsDiagInitialize(3);
   PopDirectedDripsQueryEnabledMitigations((__int64)&PopDirectedDripsState);
-  if ( (dword_140C24C50 & 3) != 0 )
+  if ( (dword_140C24CB0 & 3) != 0 )
   {
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.ObjectName = 0LL;
@@ -45,7 +45,7 @@ __int64 PopDirectedDripsInitializePhase3()
              (POBJECT_TYPE)PsThreadType,
              0,
              0x67446F50u,
-             &qword_140C24C30,
+             &qword_140C24C90,
              0LL);
       ZwClose(ThreadHandle);
       if ( v0 >= 0 )

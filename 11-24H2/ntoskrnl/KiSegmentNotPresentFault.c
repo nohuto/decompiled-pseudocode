@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSegmentNotPresentFault @ 0x1406B9040
+ * XREFs of KiSegmentNotPresentFault @ 0x1406B9F40
  * Callers:
- *     KiSegmentNotPresentFaultShadow @ 0x140BBB6C0 (KiSegmentNotPresentFaultShadow.c)
+ *     KiSegmentNotPresentFaultShadow @ 0x140BBD6C0 (KiSegmentNotPresentFaultShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiSegmentNotPresentFault @ 0x1406B9040 (KiSegmentNotPresentFault.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x1406BED00 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiSegmentNotPresentFault @ 0x1406B9F40 (KiSegmentNotPresentFault.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1406BFC00 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
@@ -64,7 +64,7 @@ void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
       v6 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v6 & 2) != 0 )
-      JUMPOUT(0x1406B92A5LL);
+      JUMPOUT(0x1406BA1A5LL);
     if ( v6 < 0 )
     {
       _mm_lfence();

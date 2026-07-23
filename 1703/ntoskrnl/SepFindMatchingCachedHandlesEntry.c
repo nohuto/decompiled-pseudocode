@@ -19,7 +19,7 @@ __int64 __fastcall SepFindMatchingCachedHandlesEntry(
   PRTL_DYNAMIC_HASH_TABLE_ENTRY NextEntryHashTable; // rax
   int v9; // edi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v10; // rbp
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Context, 0, sizeof(Context));
   v7 = 0;

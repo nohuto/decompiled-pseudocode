@@ -1,50 +1,44 @@
 /*
- * XREFs of IopCloseWaitCompletionPacket @ 0x1400F0820
+ * XREFs of IopCloseWaitCompletionPacket @ 0x1400EE6A0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopCancelWaitCompletionPacket @ 0x1400F9B7C (IopCancelWaitCompletionPacket.c)
- *     EvaluateCurrentState @ 0x1401B8354 (EvaluateCurrentState.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopCancelWaitCompletionPacket @ 0x1400F7970 (IopCancelWaitCompletionPacket.c)
  */
 
 void __fastcall IopCloseWaitCompletionPacket(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  KSPIN_LOCK *v5; // rbx
+  KSPIN_LOCK *v4; // rsi
   KIRQL v6; // al
-  KIRQL v7; // bp
-  KIRQL v8; // si
+  KSPIN_LOCK *v7; // rbx
+  KIRQL v8; // bp
+  KIRQL v9; // bp
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( a4 != 1 )
-    return;
-  v5 = 0LL;
-  if ( !(unsigned int)EvaluateCurrentState(&g_Feature_2544326971_59422651_FeatureDescriptorDetails) )
-    goto LABEL_7;
-  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
-  v5 = *(KSPIN_LOCK **)(a2 + 88);
-  v7 = v6;
-  *(_BYTE *)(a2 + 105) = 1;
-  if ( v5 )
-    ObfReferenceObject(v5);
-  KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), v7);
-  if ( v5 )
+  if ( a4 == 1 )
   {
-    KeAcquireInStackQueuedSpinLock(v5 + 8, &LockHandle);
-LABEL_7:
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
-    EvaluateCurrentState(&g_Feature_2544326971_59422651_FeatureDescriptorDetails);
-    if ( !*(_BYTE *)(a2 + 104) || !(unsigned __int8)IopCancelWaitCompletionPacket((PVOID)a2) )
-      KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), v8);
-    if ( (unsigned int)EvaluateCurrentState(&g_Feature_2544326971_59422651_FeatureDescriptorDetails) )
+    v4 = (KSPIN_LOCK *)(a2 + 96);
+    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
+    v7 = *(KSPIN_LOCK **)(a2 + 88);
+    v8 = v6;
+    *(_BYTE *)(a2 + 105) = 1;
+    if ( v7 )
+      ObfReferenceObject(v7);
+    KeReleaseSpinLock(v4, v8);
+    if ( v7 )
     {
+      KeAcquireInStackQueuedSpinLock(v7 + 8, &LockHandle);
+      v9 = KeAcquireSpinLockRaiseToDpc(v4);
+      if ( !*(_BYTE *)(a2 + 104) || !(unsigned __int8)IopCancelWaitCompletionPacket((PVOID)a2) )
+        KeReleaseSpinLock(v4, v9);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      ObfDereferenceObject(v5);
+      ObfDereferenceObject(v7);
     }
   }
 }

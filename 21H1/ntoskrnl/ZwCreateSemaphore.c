@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreateSemaphore(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SemaphoreHandle);
 }

@@ -9,9 +9,9 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __stdcall RtlpRegisterLockedMemoryZone()
+NTSTATUS __stdcall RtlpRegisterLockedMemoryZone()
 {
-  int v0; // edi
+  NTSTATUS v0; // edi
   int v1; // eax
   int v2; // esi
 

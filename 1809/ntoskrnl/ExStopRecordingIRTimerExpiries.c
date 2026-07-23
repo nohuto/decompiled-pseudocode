@@ -1,10 +1,10 @@
 /*
- * XREFs of ExStopRecordingIRTimerExpiries @ 0x1408CF824
+ * XREFs of ExStopRecordingIRTimerExpiries @ 0x1408D0AE4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PoDiagTraceIRTimerSleepStudyRundown @ 0x1402DE7F0 (PoDiagTraceIRTimerSleepStudyRundown.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PoDiagTraceIRTimerSleepStudyRundown @ 0x1402DE9E0 (PoDiagTraceIRTimerSleepStudyRundown.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void ExStopRecordingIRTimerExpiries()
@@ -20,7 +20,7 @@ void ExStopRecordingIRTimerExpiries()
   if ( v0 )
   {
     v1 = 0;
-    v2 = (const WCHAR **)&unk_1403500B0;
+    v2 = (const WCHAR **)&unk_1403510B0;
     v3 = 15LL;
     do
     {

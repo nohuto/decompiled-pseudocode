@@ -1,22 +1,22 @@
 /*
- * XREFs of VrpIoctlDeviceDispatch @ 0x140807CC0
+ * XREFs of VrpIoctlDeviceDispatch @ 0x140808EC0
  * Callers:
  *     <none>
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     VRegEnabledInJob @ 0x1408082FC (VRegEnabledInJob.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080854C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x1408088A4 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlGetVirtualRootKey @ 0x140808B0C (VrpHandleIoctlGetVirtualRootKey.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140808C80 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140809070 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x14080939C (VrpHandleIoctlLoadDifferencingHiveForHost.c)
- *     VrpHandleIoctlModifyFlags @ 0x140809594 (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408096F0 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098B0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     EtwActivityIdControl @ 0x1400A3A90 (EtwActivityIdControl.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     VRegEnabledInJob @ 0x1408094FC (VRegEnabledInJob.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080974C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140809AA4 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x140809D0C (VrpHandleIoctlGetVirtualRootKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140809E80 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14080A270 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x14080A59C (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlModifyFlags @ 0x14080A794 (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x14080A8F0 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14080AAB0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  */
 
 __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
@@ -59,26 +59,26 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
   if ( (unsigned int)VRegEnabledInJob(&v23) && !VrpAllowContainerNesting )
   {
     v6 = -1073741808;
-    if ( stru_1403FFAD8.LevelPlus1 > 2 )
+    if ( stru_140400AD8.LevelPlus1 > 2 )
     {
       v29 = 0;
       v27 = &v23;
       v23 = v5;
       v28 = 4;
-      TlgWrite(&stru_1403FFAD8, &unk_14036C943, &pActivityId, 0LL, 3u, &Object);
+      TlgWrite(&stru_140400AD8, &unk_14036D8D3, &pActivityId, 0LL, 3u, &Object);
     }
     goto LABEL_29;
   }
   EtwActivityIdControl(1u, &ActivityId);
-  LevelPlus1 = stru_1403FFAD8.LevelPlus1;
-  if ( stru_1403FFAD8.LevelPlus1 > 4 )
+  LevelPlus1 = stru_140400AD8.LevelPlus1;
+  if ( stru_140400AD8.LevelPlus1 > 4 )
   {
     v29 = 0;
     v27 = &v23;
     v23 = v5;
     v28 = 4;
-    TlgWrite(&stru_1403FFAD8, &unk_14036C9CE, &pActivityId, &ActivityId, 3u, &Object);
-    LevelPlus1 = stru_1403FFAD8.LevelPlus1;
+    TlgWrite(&stru_140400AD8, &unk_14036D95E, &pActivityId, &ActivityId, 3u, &Object);
+    LevelPlus1 = stru_140400AD8.LevelPlus1;
   }
   v10 = v5 - 2228228;
   if ( !v10 )
@@ -187,19 +187,19 @@ LABEL_28:
     v23 = v18;
     v27 = &v23;
     v28 = 4;
-    TlgWrite(&stru_1403FFAD8, &unk_14036C9A2, &pActivityId, 0LL, 3u, &Object);
+    TlgWrite(&stru_140400AD8, &unk_14036D932, &pActivityId, 0LL, 3u, &Object);
   }
   v6 = -1073741808;
 LABEL_29:
   *(_DWORD *)(a2 + 48) = v6;
   IofCompleteRequest((PIRP)a2, 0);
-  if ( stru_1403FFAD8.LevelPlus1 > 4 )
+  if ( stru_140400AD8.LevelPlus1 > 4 )
   {
     v29 = 0;
     v27 = &v23;
     v23 = v6;
     v28 = 4;
-    TlgWrite(&stru_1403FFAD8, &unk_14036C9F3, &pActivityId, 0LL, 3u, &Object);
+    TlgWrite(&stru_140400AD8, &unk_14036D983, &pActivityId, 0LL, 3u, &Object);
   }
   return v6;
 }

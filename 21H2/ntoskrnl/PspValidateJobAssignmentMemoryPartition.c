@@ -1,8 +1,8 @@
 /*
- * XREFs of PspValidateJobAssignmentMemoryPartition @ 0x14071FFD8
+ * XREFs of PspValidateJobAssignmentMemoryPartition @ 0x1406F5F64
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406F519C (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
  *     <none>
  */

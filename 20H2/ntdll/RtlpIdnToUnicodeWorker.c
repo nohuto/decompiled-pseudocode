@@ -11,19 +11,19 @@
  *     RtlIsNormalizedString @ 0x1801009F0 (RtlIsNormalizedString.c)
  */
 
-__int64 __fastcall RtlpIdnToUnicodeWorker(int a1, wchar_t *a2, int a3, void *a4, int *a5, void *Src, int a7)
+__int64 __fastcall RtlpIdnToUnicodeWorker(int a1, wchar_t *a2, int a3, void *a4, int *a5, void *Src, int Normalized)
 {
   void *v7; // r15
   wchar_t *v8; // r11
   char v9; // di
   int *v10; // r14
-  void *v11; // r13
+  const WCHAR *v11; // r13
   wchar_t v12; // si
   __int64 result; // rax
   __int64 v14; // r12
   __int64 v15; // r8
-  int v16; // ebx
-  __int64 Heap; // rsi
+  LONG v16; // ebx
+  _BYTE *Heap; // rsi
   __int64 i; // rcx
   __int16 v19; // dx
   __int64 j; // rax
@@ -49,10 +49,10 @@ __int64 __fastcall RtlpIdnToUnicodeWorker(int a1, wchar_t *a2, int a3, void *a4,
       return 3221227286LL;
     a3 = v21 + 1;
   }
-  v11 = Src;
+  v11 = (const WCHAR *)Src;
   v12 = v8[a3 - 1];
-  a7 = v9 & 4;
-  result = punycode_decode(v8, a7 != 0, (v9 & 2) != 0, (__int64)&v23, (__int64)&v22);
+  Normalized = v9 & 4;
+  result = punycode_decode(v8, Normalized != 0, (v9 & 2) != 0, (__int64)&v23, (__int64)&v22);
   if ( (int)result < 0 )
     return result;
   if ( !v12 )
@@ -60,16 +60,16 @@ __int64 __fastcall RtlpIdnToUnicodeWorker(int a1, wchar_t *a2, int a3, void *a4,
   if ( (v9 & 8) != 0 || (_BYTE)v23 )
     goto LABEL_13;
   v14 = v22;
-  if ( a7 )
+  if ( Normalized )
   {
-    if ( (int)RtlIsNormalizedString(1LL, v11, (v22 - (__int64)v11) >> 1, &a7) < 0 || !(_BYTE)a7 )
+    if ( RtlIsNormalizedString(1u, v11, (v22 - (__int64)v11) >> 1, (PBOOLEAN)&Normalized) < 0 || !(_BYTE)Normalized )
       return 3221227286LL;
   }
   v15 = (v14 - (__int64)v11) >> 1;
   if ( v15 < 511 - (v12 == 0) )
   {
     v16 = 511 - (2 - (v12 != 0)) - v15;
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v16);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v16);
     if ( !Heap )
       return 3221225495LL;
     if ( v16 > 0 )
@@ -80,26 +80,26 @@ __int64 __fastcall RtlpIdnToUnicodeWorker(int a1, wchar_t *a2, int a3, void *a4,
         if ( (unsigned __int16)(v19 - 65) <= 0x19u )
         {
           *(_WORD *)(v14 + 2 * i + 2) = v19 + 32;
-          *(_BYTE *)(i + Heap) = 1;
+          Heap[i] = 1;
         }
       }
     }
-    if ( (int)RtlIsNormalizedString(((unsigned __int8)((v9 & 1) == 0) << 8) + 13, v14 + 2, (unsigned int)v16, &a7) >= 0
-      && (_BYTE)a7 )
+    if ( RtlIsNormalizedString((((v9 & 1) == 0) << 8) + 13, (PCWSTR)(v14 + 2), v16, (PBOOLEAN)&Normalized) >= 0
+      && (_BYTE)Normalized )
     {
       if ( v16 > 0 )
       {
         for ( j = 0LL; j < v16; ++j )
         {
-          if ( *(_BYTE *)(j + Heap) == 1 )
+          if ( Heap[j] == 1 )
             *(_WORD *)(v14 + 2 * j + 2) -= 32;
         }
       }
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       v7 = v24;
       goto LABEL_13;
     }
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     return 3221227286LL;
   }
 LABEL_13:

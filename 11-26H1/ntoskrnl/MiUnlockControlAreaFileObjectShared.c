@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockControlAreaFileObjectShared @ 0x1404905CC
+ * XREFs of MiUnlockControlAreaFileObjectShared @ 0x14048A07C
  * Callers:
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 void __fastcall MiUnlockControlAreaFileObjectShared(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall MiUnlockControlAreaFileObjectShared(__int64 a1)
     ExfReleasePushLockShared(v2);
   KeAbPostRelease((unsigned __int64)v2);
   if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
   {
     KiCheckForKernelApcDelivery(v4, v3);
   }

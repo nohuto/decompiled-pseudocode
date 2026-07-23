@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupPerFileContext @ 0x1402C4680
+ * XREFs of FsRtlLookupPerFileContext @ 0x140242C00
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
@@ -54,6 +54,6 @@ LABEL_9:
     v4 = *v8;
   }
   ExReleasePushLockEx((ULONG_PTR)v3, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread(KeGetCurrentThread());
   return v4;
 }

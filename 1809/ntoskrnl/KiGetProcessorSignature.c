@@ -1,11 +1,11 @@
 /*
- * XREFs of KiGetProcessorSignature @ 0x14056F62C
+ * XREFs of KiGetProcessorSignature @ 0x14057062C
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
- *     KiSetFeatureBits @ 0x1405707EC (KiSetFeatureBits.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x1405717EC (KiSetFeatureBits.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiGetCpuVendor @ 0x14056F6EC (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x1405706EC (KiGetCpuVendor.c)
  */
 
 __int64 __fastcall KiGetProcessorSignature(_BYTE *a1, int *a2, int *a3, _DWORD *a4)

@@ -8,10 +8,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall TppETWPoolThreadMin(int a1, int a2)
+NTSTATUS __fastcall TppETWPoolThreadMin(int a1, int a2)
 {
   int v2; // eax
-  _BYTE v4[6]; // [esp+0h] [ebp-30h] BYREF
+  _BYTE Fields[6]; // [esp+0h] [ebp-30h] BYREF
   __int16 v5; // [esp+6h] [ebp-2Ah]
   int v6; // [esp+20h] [ebp-10h]
   int v7; // [esp+24h] [ebp-Ch]
@@ -23,5 +23,5 @@ int __fastcall TppETWPoolThreadMin(int a1, int a2)
     v2 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v2 = 2147353478;
-  return NtTraceEvent(*(unsigned __int8 *)v2, 132098, 8, (int)v4);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x20402u, 8u, Fields);
 }

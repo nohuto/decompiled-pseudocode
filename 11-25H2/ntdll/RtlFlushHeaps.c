@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlFlushHeaps()
+void RtlFlushHeaps(void)
 {
-  return RtlpEnumProcessHeaps((__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpFlushHeapsCallback, 0LL, 4);
+  RtlpEnumProcessHeaps((__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpFlushHeapsCallback, 0LL, 4);
 }

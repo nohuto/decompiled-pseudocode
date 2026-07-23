@@ -17,7 +17,7 @@ NTSTATUS (*PoInitDriverServices())()
     0,
     &GUID_DEVICE_THERMAL_ZONE,
     PnpDriverObject,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopNotifyPolicyDevice,
+    PopNotifyPolicyDevice,
     (PVOID)1,
     &NotificationEntry);
   NotificationEntry = 0LL;
@@ -26,7 +26,7 @@ NTSTATUS (*PoInitDriverServices())()
     0,
     &GUID_DEVICE_BATTERY,
     PnpDriverObject,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopNotifyPolicyDevice,
+    PopNotifyPolicyDevice,
     (PVOID)2,
     &NotificationEntry);
   NotificationEntry = 0LL;
@@ -35,7 +35,7 @@ NTSTATUS (*PoInitDriverServices())()
     0,
     &GUID_DEVICE_MEMORY,
     PnpDriverObject,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopNotifyPolicyDevice,
+    PopNotifyPolicyDevice,
     (PVOID)3,
     &NotificationEntry);
   NotificationEntry = 0LL;
@@ -44,7 +44,7 @@ NTSTATUS (*PoInitDriverServices())()
     0,
     &GUID_DEVICE_ACPI_TIME,
     PnpDriverObject,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopNotifyPolicyDevice,
+    PopNotifyPolicyDevice,
     (PVOID)8,
     &NotificationEntry);
   NotificationEntry = 0LL;
@@ -53,7 +53,7 @@ NTSTATUS (*PoInitDriverServices())()
     0,
     &GUID_DEVICE_FAN,
     PnpDriverObject,
-    (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopNotifyPolicyDevice,
+    PopNotifyPolicyDevice,
     (PVOID)9,
     &NotificationEntry);
   NotificationEntry = 0LL;

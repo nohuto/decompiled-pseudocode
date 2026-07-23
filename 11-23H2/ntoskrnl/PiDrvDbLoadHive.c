@@ -1,41 +1,37 @@
 /*
- * XREFs of PiDrvDbLoadHive @ 0x140867268
+ * XREFs of PiDrvDbLoadHive @ 0x1408674A8
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140811978 (PiDrvDbSetupNodeHive.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140866F80 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodeHive @ 0x140811C48 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x1408671C0 (PiDrvDbLoadNodeWorkerCallback.c)
  * Callees:
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwLoadKeyEx @ 0x14041CF80 (ZwLoadKeyEx.c)
- *     ZwUnloadKey2 @ 0x14041E860 (ZwUnloadKey2.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwLoadKeyEx @ 0x14041D310 (ZwLoadKeyEx.c)
+ *     ZwUnloadKey2 @ 0x14041EBF0 (ZwUnloadKey2.c)
  */
 
-__int64 __fastcall PiDrvDbLoadHive(UNICODE_STRING *a1, __int64 a2, __int64 a3, HANDLE *a4)
+__int64 __fastcall PiDrvDbLoadHive(UNICODE_STRING *a1, UNICODE_STRING *a2, int a3, HANDLE *a4)
 {
-  int Key; // ebx
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-9h] BYREF
-  _QWORD v8[3]; // [rsp+78h] [rbp+27h] BYREF
-  int v9; // [rsp+90h] [rbp+3Fh]
-  int v10; // [rsp+94h] [rbp+43h]
-  __int128 v11; // [rsp+98h] [rbp+47h]
+  NTSTATUS v5; // ebx
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-9h] BYREF
+  OBJECT_ATTRIBUTES SourceFile; // [rsp+78h] [rbp+27h] BYREF
 
   *a4 = 0LL;
-  memset(&ObjectAttributes.Attributes + 1, 0, 20);
-  v10 = 0;
-  ObjectAttributes.RootDirectory = 0LL;
-  v8[1] = 0LL;
-  ObjectAttributes.ObjectName = a1;
-  v8[2] = a2;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  v8[0] = 48LL;
-  ObjectAttributes.Attributes = 576;
-  v9 = 576;
-  v11 = 0LL;
-  Key = ZwLoadKeyEx((__int64)&ObjectAttributes, (__int64)v8);
-  if ( Key >= 0 )
+  memset(&TargetKey.Attributes + 1, 0, 20);
+  memset(&SourceFile.Attributes + 1, 0, 20);
+  TargetKey.RootDirectory = 0LL;
+  SourceFile.RootDirectory = 0LL;
+  TargetKey.ObjectName = a1;
+  SourceFile.ObjectName = a2;
+  *(_QWORD *)&TargetKey.Length = 48LL;
+  *(_QWORD *)&SourceFile.Length = 48LL;
+  TargetKey.Attributes = 576;
+  SourceFile.Attributes = 576;
+  v5 = ZwLoadKeyEx(&TargetKey, &SourceFile, a3 | 0x80, 0LL, 0LL, 0, 0LL, 0LL);
+  if ( v5 >= 0 )
   {
-    Key = ZwOpenKey(a4, 0x2000000u, &ObjectAttributes);
-    if ( Key < 0 )
-      ZwUnloadKey2((__int64)&ObjectAttributes, 0LL);
+    v5 = ZwOpenKey(a4, 0x2000000u, &TargetKey);
+    if ( v5 < 0 )
+      ZwUnloadKey2(&TargetKey, 0);
   }
-  return (unsigned int)Key;
+  return (unsigned int)v5;
 }

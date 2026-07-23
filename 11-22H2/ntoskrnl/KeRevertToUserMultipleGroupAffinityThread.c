@@ -72,7 +72,7 @@ char __fastcall KeRevertToUserMultipleGroupAffinityThread(__int64 a1)
   struct _KPRCB *v40; // r9
   _DWORD *v41; // r8
   int v42; // eax
-  __int64 (__fastcall *v43)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v43)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *); // rax
   __int16 v44; // r12
   unsigned int *v45; // rbx
   unsigned __int64 v46; // rdi
@@ -82,7 +82,7 @@ char __fastcall KeRevertToUserMultipleGroupAffinityThread(__int64 a1)
   __int64 (__fastcall *v50)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v51)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v53[2]; // [rsp+40h] [rbp-328h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
   int v55; // [rsp+4Ch] [rbp-31Ch]
   _QWORD *v56; // [rsp+50h] [rbp-318h] BYREF
   __int128 v57; // [rsp+58h] [rbp-310h] BYREF
@@ -114,7 +114,7 @@ char __fastcall KeRevertToUserMultipleGroupAffinityThread(__int64 a1)
     return MiscFlags;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -275,10 +275,10 @@ LABEL_31:
     }
     if ( !v35 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v36 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v36 - 2) <= 0xDu )
         {
           v37 = KeGetCurrentPrcb();
           v38 = v37->SchedulerAssist;
@@ -292,10 +292,10 @@ LABEL_31:
       *(_DWORD *)(v22 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v39 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
       {
         v40 = KeGetCurrentPrcb();
         v41 = v40->SchedulerAssist;
@@ -325,12 +325,11 @@ LABEL_31:
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v72 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v55 = 1;
     v53[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v53[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v43 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                + 120);
+    v43 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     LOBYTE(MiscFlags) = v43(*(_QWORD *)(HalpInterruptController + 16), v53, &v72, (unsigned int)(v55 + 46), &ProcNumber);
     if ( (v77 & 0x200) != 0 )

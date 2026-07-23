@@ -21,13 +21,13 @@
  *     LdrpInitializeExecutionOptions @ 0x1800DD3AC (LdrpInitializeExecutionOptions.c)
  *     RtlAddFunctionTable @ 0x1800EC510 (RtlAddFunctionTable.c)
  *     RtlGrowFunctionTable @ 0x1800EC830 (RtlGrowFunctionTable.c)
- *     RtlGuardGrantSuppressedCallAccess @ 0x18010B820 (RtlGuardGrantSuppressedCallAccess.c)
- *     RtlRemoteCall @ 0x18010D320 (RtlRemoteCall.c)
+ *     RtlGuardGrantSuppressedCallAccess @ 0x18010B7F0 (RtlGuardGrantSuppressedCallAccess.c)
+ *     RtlRemoteCall @ 0x18010D2F0 (RtlRemoteCall.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
-  return qword_18019C3C8 && (dword_18019C3AC & 1) == 0;
+  return LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0;
 }

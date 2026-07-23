@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDecreaseAvailablePages @ 0x1402F8CD0
+ * XREFs of MiDecreaseAvailablePages @ 0x1402DAD50
  * Callers:
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiReleasePageListSynchronization @ 0x1402F8AB0 (MiReleasePageListSynchronization.c)
- *     MiUnlinkPagesUpdateCounts @ 0x1402F8E80 (MiUnlinkPagesUpdateCounts.c)
- *     MiUnlinkStandbyPage @ 0x1402F9C20 (MiUnlinkStandbyPage.c)
- *     MiReplaceTransitionPageInList @ 0x1402FC830 (MiReplaceTransitionPageInList.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiReleasePageListSynchronization @ 0x1402DAB30 (MiReleasePageListSynchronization.c)
+ *     MiUnlinkPagesUpdateCounts @ 0x1402DAF00 (MiUnlinkPagesUpdateCounts.c)
+ *     MiUnlinkStandbyPage @ 0x1402DBCA0 (MiUnlinkStandbyPage.c)
+ *     MiReplaceTransitionPageInList @ 0x1402DE8B0 (MiReplaceTransitionPageInList.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiUpdateAvailableEventsAtDpc @ 0x1403E5C00 (MiUpdateAvailableEventsAtDpc.c)
- *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E5C8C (MiSlabDemotionLowMemoryConditionUpdate.c)
- *     MiObtainFreePages @ 0x140531914 (MiObtainFreePages.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiUpdateAvailableEventsAtDpc @ 0x1403E8DF0 (MiUpdateAvailableEventsAtDpc.c)
+ *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E8E7C (MiSlabDemotionLowMemoryConditionUpdate.c)
+ *     MiObtainFreePages @ 0x140533DBC (MiObtainFreePages.c)
  */
 
 __int64 __fastcall MiDecreaseAvailablePages(__int64 a1, __int64 a2, unsigned __int64 a3, __int16 a4)

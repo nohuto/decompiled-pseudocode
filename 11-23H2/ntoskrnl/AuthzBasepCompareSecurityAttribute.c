@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCompareSecurityAttribute @ 0x1407C7560
+ * XREFs of AuthzBasepCompareSecurityAttribute @ 0x1407C7830
  * Callers:
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C7464 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A59DA4 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C7734 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A5A054 (AuthzBasepCompareSecurityAttributesInformation.c)
  * Callees:
- *     AuthzBasepFindSecurityAttributeValue @ 0x140225904 (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x140225A14 (AuthzBasepFindSecurityAttributeValue.c)
  */
 
 char __fastcall AuthzBasepCompareSecurityAttribute(__int64 a1, __int64 a2)

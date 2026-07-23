@@ -4,17 +4,17 @@
  *     LdrpHandleUnprotectedDelayLoad @ 0x1800D0A78 (LdrpHandleUnprotectedDelayLoad.c)
  * Callees:
  *     LdrpResolveProcedureAddress @ 0x18000922C (LdrpResolveProcedureAddress.c)
- *     LdrpGetDelayloadAPIInfo @ 0x1800848BC (LdrpGetDelayloadAPIInfo.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     LdrpGetDelayloadAPIInfo @ 0x1800848CC (LdrpGetDelayloadAPIInfo.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     AVrfCallAPILookupCallback @ 0x1800DAB40 (AVrfCallAPILookupCallback.c)
  */
 
 unsigned __int64 __fastcall LdrpResolveDelayloadAddress(
         __int64 a1,
-        __int64 a2,
+        _QWORD *a2,
         __int64 a3,
         __int64 a4,
-        void (__fastcall *a5)(__int64 *, __int64, unsigned __int64, __int64, _QWORD),
+        void (__fastcall *a5)(__int64 *, _QWORD *, unsigned __int64, __int64, _QWORD),
         int *a6)
 {
   int v8; // eax
@@ -32,7 +32,7 @@ unsigned __int64 __fastcall LdrpResolveDelayloadAddress(
   if ( v8 < 0 )
     return v13;
   if ( AvrfpAPILookupCallbacksEnabled )
-    AVrfCallAPILookupCallback(*(_QWORD *)(a1 + 48), *(_QWORD *)(a2 + 48), v13, 1, (__int64)&v13);
+    AVrfCallAPILookupCallback(*(_QWORD *)(a1 + 48), a2[6], v13, 1, (__int64)&v13);
   if ( !a5 )
     return v13;
   v9 = *(_QWORD *)(a1 + 48);

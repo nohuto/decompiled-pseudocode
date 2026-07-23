@@ -1,15 +1,15 @@
 /*
- * XREFs of MmSecureVirtualMemoryEx @ 0x1405F5CB8
+ * XREFs of MmSecureVirtualMemoryEx @ 0x1405F6CB0
  * Callers:
- *     MmSecureVirtualMemory @ 0x1405F5DF0 (MmSecureVirtualMemory.c)
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     VmSecureBackingMemory @ 0x1408B04C0 (VmSecureBackingMemory.c)
- *     AslpFileLargeMapCreate @ 0x1408EE04C (AslpFileLargeMapCreate.c)
+ *     MmSecureVirtualMemory @ 0x1405F6DF0 (MmSecureVirtualMemory.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     VmSecureBackingMemory @ 0x1408B1720 (VmSecureBackingMemory.c)
+ *     AslpFileLargeMapCreate @ 0x1408EF30C (AslpFileLargeMapCreate.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiSecureVad @ 0x1405F35BC (MiSecureVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiSecureVad @ 0x1405F45BC (MiSecureVad.c)
  */
 
 __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, int a3, int a4)
@@ -44,7 +44,7 @@ __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, int 
         v12 = MiSecureVad(v9, a1, a2, v11, v5, &v15);
         MiUnlockAndDereferenceVad(v10);
         if ( v12 >= 0 )
-          return qword_14043A010 ^ (__int64)KeGetCurrentThread()->ApcState.Process ^ v15;
+          return qword_14043B0D0 ^ (__int64)KeGetCurrentThread()->ApcState.Process ^ v15;
       }
       else
       {

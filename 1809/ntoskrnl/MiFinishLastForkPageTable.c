@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFinishLastForkPageTable @ 0x1402C9DF0
+ * XREFs of MiFinishLastForkPageTable @ 0x1402C9FE0
  * Callers:
- *     MiDoneWithThisPageGetAnother @ 0x1402C98E0 (MiDoneWithThisPageGetAnother.c)
- *     MiFreeForkMaps @ 0x1402CA05C (MiFreeForkMaps.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1402C9AD0 (MiDoneWithThisPageGetAnother.c)
+ *     MiFreeForkMaps @ 0x1402CA24C (MiFreeForkMaps.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
@@ -10,11 +10,11 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)
@@ -56,7 +56,7 @@ __int64 __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v10 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v11 = (v9 & 1) == 0;
           goto LABEL_12;

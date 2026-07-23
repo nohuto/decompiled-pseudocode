@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlLookupExceptionHandler @ 0x1403C4E08
+ * XREFs of RtlLookupExceptionHandler @ 0x1403C4FE8
  * Callers:
- *     RtlDispatchException @ 0x1402A3DC0 (RtlDispatchException.c)
- *     KiLockServiceTable @ 0x14034BED0 (KiLockServiceTable.c)
+ *     RtlDispatchException @ 0x1402A4050 (RtlDispatchException.c)
+ *     KiLockServiceTable @ 0x14034C070 (KiLockServiceTable.c)
  *     KiFatalExceptionFilter @ 0x140B73480 (KiFatalExceptionFilter.c)
  * Callees:
- *     RtlpLookupPrimaryFunctionEntry @ 0x1403C4EA0 (RtlpLookupPrimaryFunctionEntry.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1403C5080 (RtlpLookupPrimaryFunctionEntry.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlLookupExceptionHandler(

@@ -1,74 +1,77 @@
 /*
- * XREFs of NtQuerySection @ 0x14093C3B0
+ * XREFs of NtQuerySection @ 0x1409E9AC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
- *     MmGetSectionInformation @ 0x14093C550 (MmGetSectionInformation.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
+ *     MmGetSectionInformation @ 0x1409E9C60 (MmGetSectionInformation.c)
  */
 
-__int64 __fastcall NtQuerySection(
-        ULONG_PTR BugCheckParameter1,
-        unsigned int a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        unsigned __int64 *a5)
+NTSTATUS __cdecl NtQuerySection(
+        HANDLE SectionHandle,
+        SECTION_INFORMATION_CLASS SectionInformationClass,
+        PVOID SectionInformation,
+        SIZE_T SectionInformationLength,
+        PSIZE_T ReturnLength)
 {
-  unsigned __int64 v5; // r14
+  PVOID v5; // r14
   char PreviousMode; // r10
   unsigned __int64 v9; // rcx
   __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rbx
-  int SectionInformation; // edi
+  PVOID v11; // rcx
+  SIZE_T v12; // rbx
+  NTSTATUS v13; // edi
   __int64 v14; // rdx
   PVOID v15; // rsi
   PVOID Object[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  v5 = a3;
+  v5 = SectionInformation;
   Object[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a4 )
+    if ( SectionInformationLength )
     {
-      if ( (a3 & 3) != 0 )
+      if ( ((unsigned __int8)SectionInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v9 = a3 + a4 - 1;
-      if ( a3 > v9 || (v10 = 0x7FFFFFFF0000LL, v9 >= 0x7FFFFFFF0000LL) )
+      v9 = (unsigned __int64)SectionInformation + SectionInformationLength - 1;
+      if ( (unsigned __int64)SectionInformation > v9 || (v10 = 0x7FFFFFFF0000LL, v9 >= 0x7FFFFFFF0000LL) )
         ExRaiseAccessViolation();
-      v11 = (v9 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+      v11 = (PVOID)((v9 & 0xFFFFFFFFFFFFF000uLL) + 4096);
       do
       {
-        *(_BYTE *)a3 = *(_BYTE *)a3;
-        a3 = (a3 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+        *(_BYTE *)SectionInformation = *(_BYTE *)SectionInformation;
+        SectionInformation = (PVOID)(((unsigned __int64)SectionInformation & 0xFFFFFFFFFFFFF000uLL) + 4096);
       }
-      while ( a3 != v11 );
+      while ( SectionInformation != v11 );
     }
     else
     {
       v10 = 0x7FFFFFFF0000LL;
     }
-    if ( a5 )
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ReturnLength;
       *(_QWORD *)v10 = *(_QWORD *)v10;
     }
   }
-  if ( a2 )
+  if ( SectionInformationClass )
   {
-    if ( a2 == 1 )
+    if ( SectionInformationClass == SectionImageInformation )
     {
       v12 = 64LL;
     }
     else
     {
-      if ( a2 != 2 && a2 != 3 )
-        return 3221225475LL;
+      if ( SectionInformationClass != SectionRelocationInformation
+        && SectionInformationClass != SectionOriginalBaseInformation )
+      {
+        return -1073741821;
+      }
       v12 = 8LL;
     }
   }
@@ -76,28 +79,28 @@ __int64 __fastcall NtQuerySection(
   {
     v12 = 24LL;
   }
-  if ( a4 < v12 )
-    return 3221225476LL;
-  SectionInformation = ObpReferenceObjectByHandleWithTag(
-                         BugCheckParameter1,
-                         1,
-                         (__int64)MmSectionObjectType,
-                         PreviousMode,
-                         0x6D566D4Du,
-                         Object,
-                         0LL,
-                         0LL);
-  if ( SectionInformation >= 0 )
+  if ( SectionInformationLength < v12 )
+    return -1073741820;
+  v13 = ObpReferenceObjectByHandleWithTag(
+          (ULONG_PTR)SectionHandle,
+          1,
+          (__int64)MmSectionObjectType,
+          PreviousMode,
+          0x6D566D4Du,
+          Object,
+          0LL,
+          0LL);
+  if ( v13 >= 0 )
   {
-    v14 = a2;
+    v14 = (unsigned int)SectionInformationClass;
     v15 = Object[0];
-    SectionInformation = MmGetSectionInformation(Object[0], v14, v5);
-    if ( SectionInformation >= 0 )
+    v13 = MmGetSectionInformation(Object[0], v14, v5);
+    if ( v13 >= 0 )
     {
-      if ( a5 )
-        *a5 = v12;
+      if ( ReturnLength )
+        *ReturnLength = v12;
     }
     ObfDereferenceObjectWithTag(v15, 0x6D566D4Du);
   }
-  return (unsigned int)SectionInformation;
+  return v13;
 }

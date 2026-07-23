@@ -1,31 +1,31 @@
 /*
- * XREFs of PspUpdateContainerImpersonation @ 0x14037E0F0
+ * XREFs of PspUpdateContainerImpersonation @ 0x14037FEA0
  * Callers:
- *     IopProcessWorkItem @ 0x14037D550 (IopProcessWorkItem.c)
- *     PsImpersonateContainerOfThread @ 0x1404B1D38 (PsImpersonateContainerOfThread.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     IopProcessWorkItem @ 0x14037F300 (IopProcessWorkItem.c)
+ *     PsImpersonateContainerOfThread @ 0x1404AB3F8 (PsImpersonateContainerOfThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x140237F74 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeCheckAndApplyBamQos @ 0x140330350 (KeCheckAndApplyBamQos.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037B2F0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x14037EEC0 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x14051F5B4 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1402398D4 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCheckAndApplyBamQos @ 0x140332380 (KeCheckAndApplyBamQos.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037D0A0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x140380C70 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x140521C58 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspUpdateContainerImpersonation(ULONG_PTR BugCheckParameter1, _QWORD *Object)
@@ -34,7 +34,7 @@ __int64 __fastcall PspUpdateContainerImpersonation(ULONG_PTR BugCheckParameter1,
   _QWORD *v3; // r15
   __int64 CurrentIrql; // rdi
   unsigned int v6; // ebx
-  unsigned int i; // edx
+  int i; // edx
   signed __int32 v8; // eax
   signed __int32 v9; // ett
   ULONG_PTR v10; // r14
@@ -51,9 +51,9 @@ __int64 __fastcall PspUpdateContainerImpersonation(ULONG_PTR BugCheckParameter1,
   __int64 v22; // rdx
   signed __int64 v23; // rbx
   signed __int64 BugCheckParameter4; // rbx
-  __int64 v25; // rcx
+  unsigned __int64 v25; // rcx
   unsigned __int8 v26; // al
-  __int64 v27; // rcx
+  unsigned __int64 v27; // rcx
   unsigned __int8 v28; // al
   int v29; // eax
   int v30; // eax
@@ -139,16 +139,16 @@ LABEL_4:
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags((unsigned __int8)CurrentIrql, 2LL);
   v6 = 0;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    if ( _interlockedbittestandset((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.CurrentRunTime, 0x1Fu) )
-      v6 = ExpWaitForSpinLockExclusiveAndAcquire((int *)&PsAltSystemCallRegistrationLock.CurrentRunTime, CurrentIrql);
-    for ( i = PsAltSystemCallRegistrationLock.CurrentRunTime;
-          (PsAltSystemCallRegistrationLock.CurrentRunTime & 0xBFFFFFFF) != 0x80000000;
-          i = PsAltSystemCallRegistrationLock.CurrentRunTime )
+    if ( _interlockedbittestandset((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.FirstArgument, 0x1Fu) )
+      v6 = ExpWaitForSpinLockExclusiveAndAcquire((int *)&PsAltSystemCallRegistrationLock.FirstArgument, CurrentIrql);
+    for ( i = (int)PsAltSystemCallRegistrationLock.FirstArgument;
+          ((__int64)PsAltSystemCallRegistrationLock.FirstArgument & 0xBFFFFFFF) != 0x80000000;
+          i = (int)PsAltSystemCallRegistrationLock.FirstArgument )
     {
       if ( (i & 0x40000000) == 0 )
-        _InterlockedOr((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.CurrentRunTime, 0x40000000u);
+        _InterlockedOr((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.FirstArgument, 0x40000000u);
       if ( (++v6 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
         && KiCheckVpBackingLongSpinWaitHypercall() )
@@ -165,7 +165,7 @@ LABEL_4:
   else
   {
     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(
-      (int *)&PsAltSystemCallRegistrationLock.CurrentRunTime,
+      (int *)&PsAltSystemCallRegistrationLock.FirstArgument,
       CurrentIrql);
   }
   *(_QWORD *)(BugCheckParameter1 + 1616) = v3;
@@ -445,10 +445,10 @@ LABEL_43:
   else
     KiClearSystemPriority(BugCheckParameter1, 0LL);
 LABEL_46:
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-    PsAltSystemCallRegistrationLock.CurrentRunTime = 0;
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+    LODWORD(PsAltSystemCallRegistrationLock.FirstArgument) = 0;
   else
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&PsAltSystemCallRegistrationLock.CurrentRunTime, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&PsAltSystemCallRegistrationLock.FirstArgument, retaddr);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8((unsigned __int8)CurrentIrql);
@@ -465,14 +465,14 @@ LABEL_46:
       }
     }
   }
-  if ( EtwpPsProvRegHandle )
+  if ( stru_140F03830.Affinity )
   {
-    if ( (v25 = *(_QWORD *)(EtwpPsProvRegHandle + 32), *(_DWORD *)(v25 + 96))
+    if ( (v25 = stru_140F03830.Affinity->StaticBitmap[3], *(_DWORD *)(v25 + 96))
       && ((v26 = *(_BYTE *)(v25 + 100), v26 >= 4u) || !v26)
       && (*(_QWORD *)(v25 + 112) & 0x8000000000002000uLL) != 0
       && (*(_QWORD *)(v25 + 120) & 0x8000000000002000uLL) == *(_QWORD *)(v25 + 120)
-      || *(_WORD *)(EtwpPsProvRegHandle + 102)
-      && (v27 = *(_QWORD *)(EtwpPsProvRegHandle + 40), *(_DWORD *)(v27 + 96))
+      || HIWORD(stru_140F03830.Affinity->StaticBitmap[11])
+      && (v27 = stru_140F03830.Affinity->StaticBitmap[4], *(_DWORD *)(v27 + 96))
       && ((v28 = *(_BYTE *)(v27 + 100), v28 >= 4u) || !v28)
       && (*(_QWORD *)(v27 + 112) & 0x8000000000002000uLL) != 0
       && (*(_QWORD *)(v27 + 120) & 0x8000000000002000uLL) == *(_QWORD *)(v27 + 120) )
@@ -491,7 +491,7 @@ LABEL_46:
       LODWORD(v68) = v30;
       v75 = 4LL;
       v74 = &v68;
-      EtwWriteEx(EtwpPsProvRegHandle, &ThreadWorkOnBehalfUpdate, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
+      EtwWriteEx((REGHANDLE)stru_140F03830.Affinity, &ThreadWorkOnBehalfUpdate, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
     }
   }
   if ( v2 )

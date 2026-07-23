@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwFindBusRelations @ 0x140747084
+ * XREFs of PiSwFindBusRelations @ 0x140747244
  * Callers:
- *     PiSwCloseDescendants @ 0x140738E64 (PiSwCloseDescendants.c)
- *     PiSwFindChildren @ 0x14074705C (PiSwFindChildren.c)
+ *     PiSwCloseDescendants @ 0x140739024 (PiSwCloseDescendants.c)
+ *     PiSwFindChildren @ 0x14074721C (PiSwFindChildren.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
  */
 
 PVOID __fastcall PiSwFindBusRelations(__int64 a1)

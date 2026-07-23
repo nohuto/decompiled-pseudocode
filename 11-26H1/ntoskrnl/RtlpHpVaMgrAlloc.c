@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpVaMgrAlloc @ 0x140350BAC
+ * XREFs of RtlpHpVaMgrAlloc @ 0x140352C2C
  * Callers:
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     RtlpHpVaMgrRangeSplit @ 0x14035098C (RtlpHpVaMgrRangeSplit.c)
- *     RtlpHpVaMgrFree @ 0x140350A00 (RtlpHpVaMgrFree.c)
- *     RtlpHpVaMgrRangeFind @ 0x140350E10 (RtlpHpVaMgrRangeFind.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x1403510D8 (RtlpHpVaMgrRegionAllocate.c)
- *     RtlpHpVaMgrAllocAligned @ 0x14035115C (RtlpHpVaMgrAllocAligned.c)
- *     RtlpHpVaMgrRangeCreate @ 0x1403511E8 (RtlpHpVaMgrRangeCreate.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     RtlpHpVaMgrRangeSplit @ 0x140352A0C (RtlpHpVaMgrRangeSplit.c)
+ *     RtlpHpVaMgrFree @ 0x140352A80 (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrRangeFind @ 0x140352E90 (RtlpHpVaMgrRangeFind.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x140353158 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x1403531DC (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x140353268 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrAlloc(
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(
   unsigned __int64 v4; // r14
   unsigned __int64 v8; // r14
   char v9; // r15
-  __int64 v10; // rax
+  _RTL_BALANCED_NODE *v10; // rax
   __int64 v11; // rsi
   __int64 v12; // r8
   struct _KLOCK_ENTRIES *v13; // r9
@@ -51,11 +51,11 @@ __int64 __fastcall RtlpHpVaMgrAlloc(
   {
     v8 = v4 >> 20;
     v9 = RtlpHpAcquireLockExclusive(&a1->Header.LockNV, BYTE6(a1->InitialStack) & 1, a3, a4);
-    v10 = RtlpHpVaMgrRangeFind(a1, (unsigned __int16)v8, (unsigned __int16)(a3 >> 20), &v27);
-    v11 = v10;
+    v10 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(a1, (unsigned __int16)v8, (unsigned __int16)(a3 >> 20), &v27);
+    v11 = (__int64)v10;
     if ( v10 )
     {
-      RtlRbRemoveNode(&a1->Header.WaitListHead, v10);
+      RtlRbRemoveNode((PRTL_RB_TREE)&a1->Header.WaitListHead, v10);
       v16 = v27;
       if ( v27 != v11 )
       {

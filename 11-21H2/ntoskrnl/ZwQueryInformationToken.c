@@ -2,11 +2,11 @@
  * XREFs of ZwQueryInformationToken @ 0x14041BB80
  * Callers:
  *     RtlCheckTokenCapability @ 0x140201400 (RtlCheckTokenCapability.c)
- *     DifZwQueryInformationTokenWrapper @ 0x140624EA0 (DifZwQueryInformationTokenWrapper.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x140642A44 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     sub_140624EA0 @ 0x140624EA0 (sub_140624EA0.c)
+ *     sub_140642A44 @ 0x140642A44 (sub_140642A44.c)
  *     RtlFormatCurrentUserKeyPath @ 0x14066B5D0 (RtlFormatCurrentUserKeyPath.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC784 (ExpFirmwareAccessAppContainerCheck.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
+ *     sub_1409FC784 @ 0x1409FC784 (sub_1409FC784.c)
+ *     sub_140A2CF6C @ 0x140A2CF6C (sub_140A2CF6C.c)
  * Callees:
  *     <none>
  */
@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwQueryInformationToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&TokenInformationClass);
+  return sub_140433F80(TokenHandle, *(_QWORD *)&TokenInformationClass);
 }

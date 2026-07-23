@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x140470198
+ * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x14046A5C0
  * Callers:
- *     AlpcpDeletePort @ 0x14088B9B0 (AlpcpDeletePort.c)
- *     AlpcpAssociateIoCompletionPort @ 0x140A0A810 (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x140A0AC54 (AlpcpInitializeCompletionList.c)
+ *     AlpcpDeletePort @ 0x14088E9A0 (AlpcpDeletePort.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x140A06D40 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpInitializeCompletionList @ 0x140A07184 (AlpcpInitializeCompletionList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1404701FC (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x14046A624 (AlpcpDeferredFreeCompletionPacketLookaside.c)
  */
 
 void __fastcall AlpcpFreeCompletionPacketLookaside(KSPIN_LOCK *P)

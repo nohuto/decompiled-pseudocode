@@ -1,11 +1,11 @@
 /*
- * XREFs of XmEvaluateIndexSpecifier @ 0x1405348C8
+ * XREFs of XmEvaluateIndexSpecifier @ 0x140534E18
  * Callers:
- *     XmEvaluateAddressSpecifier @ 0x1403B922C (XmEvaluateAddressSpecifier.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B940C (XmEvaluateAddressSpecifier.c)
  * Callees:
- *     XmGetLongImmediate @ 0x140399CD8 (XmGetLongImmediate.c)
- *     XmGetCodeByte @ 0x1403B9414 (XmGetCodeByte.c)
- *     longjmp @ 0x1403D7EE0 (longjmp.c)
+ *     XmGetLongImmediate @ 0x140399EB8 (XmGetLongImmediate.c)
+ *     XmGetCodeByte @ 0x1403B95F4 (XmGetCodeByte.c)
+ *     longjmp @ 0x1403D80C0 (longjmp.c)
  */
 
 __int64 __fastcall XmEvaluateIndexSpecifier(__int64 a1, int a2)

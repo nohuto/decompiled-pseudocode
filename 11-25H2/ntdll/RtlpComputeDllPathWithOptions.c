@@ -35,7 +35,7 @@ __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, __int64 a2)
   {
     v10 = (unsigned int)v5;
     v5 = (unsigned int)(v5 + 1);
-    v11 = (_WORD)LdrpDllDirectory == 0;
+    v11 = LdrpDllDirectory.Length == 0;
     v12[v10] = 6;
     if ( !v11 )
     {

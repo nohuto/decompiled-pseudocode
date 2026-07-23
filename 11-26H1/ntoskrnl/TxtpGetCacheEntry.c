@@ -1,7 +1,7 @@
 /*
- * XREFs of TxtpGetCacheEntry @ 0x1404DC2C4
+ * XREFs of TxtpGetCacheEntry @ 0x1404D59A4
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x1404AD084 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayCharacter @ 0x1404A6714 (BgpTxtDisplayCharacter.c)
  * Callees:
  *     <none>
  */

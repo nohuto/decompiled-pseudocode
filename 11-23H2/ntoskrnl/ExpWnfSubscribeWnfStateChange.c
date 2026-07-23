@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWnfSubscribeWnfStateChange @ 0x1407128C4
+ * XREFs of ExpWnfSubscribeWnfStateChange @ 0x140712AD4
  * Callers:
- *     NtSubscribeWnfStateChange @ 0x1407127F0 (NtSubscribeWnfStateChange.c)
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
+ *     NtSubscribeWnfStateChange @ 0x140712A00 (NtSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExpWnfLookupPermanentName @ 0x14071096C (ExpWnfLookupPermanentName.c)
- *     ExpWnfNotifySubscription @ 0x140711098 (ExpWnfNotifySubscription.c)
- *     ExpWnfCreateNameInstance @ 0x1407117F4 (ExpWnfCreateNameInstance.c)
- *     ExpCaptureWnfStateName @ 0x14071308C (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x140713190 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x140713368 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCheckCallerAccess @ 0x140713834 (ExpWnfCheckCallerAccess.c)
- *     ExpWnfSubscribeNameInstance @ 0x1407139F0 (ExpWnfSubscribeNameInstance.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExpWnfLookupPermanentName @ 0x140710B7C (ExpWnfLookupPermanentName.c)
+ *     ExpWnfNotifySubscription @ 0x1407112A8 (ExpWnfNotifySubscription.c)
+ *     ExpWnfCreateNameInstance @ 0x140711A04 (ExpWnfCreateNameInstance.c)
+ *     ExpCaptureWnfStateName @ 0x14071329C (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x1407133A0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x140713578 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x140713A44 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfSubscribeNameInstance @ 0x140713C00 (ExpWnfSubscribeNameInstance.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of TlgAggregateFlush @ 0x140677300
+ * XREFs of TlgAggregateFlush @ 0x140677850
  * Callers:
- *     CmFcShutdownSystem @ 0x140A11C48 (CmFcShutdownSystem.c)
- *     CmpFlushTraceLoggingProvider @ 0x140A1274C (CmpFlushTraceLoggingProvider.c)
+ *     CmFcShutdownSystem @ 0x140A11EF8 (CmFcShutdownSystem.c)
+ *     CmpFlushTraceLoggingProvider @ 0x140A129FC (CmpFlushTraceLoggingProvider.c)
  * Callees:
- *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1403D6610 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     LookUpTableFlushComplete @ 0x14085CCE0 (LookUpTableFlushComplete.c)
+ *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1403D67F0 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     LookUpTableFlushComplete @ 0x14085CF20 (LookUpTableFlushComplete.c)
  */
 
 void __fastcall TlgAggregateFlush(__int64 a1)

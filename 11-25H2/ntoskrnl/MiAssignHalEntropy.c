@@ -17,7 +17,7 @@ __int64 __fastcall MiAssignHalEntropy(__int64 a1)
   __int16 v5; // ax
   ULONG ClearBitsAndSet; // eax
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-68h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-68h] BYREF
   _BYTE v9[64]; // [rsp+30h] [rbp-58h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 512LL;

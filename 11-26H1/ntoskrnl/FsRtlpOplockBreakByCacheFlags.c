@@ -1,34 +1,34 @@
 /*
- * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x1403F8A0C
+ * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x1403F5200
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1403FB980 (FsRtlCheckOplockEx2.c)
- *     FsRtlOplockBreakToNoneEx @ 0x1405B5F20 (FsRtlOplockBreakToNoneEx.c)
- *     FsRtlCheckUpperOplock @ 0x14078E550 (FsRtlCheckUpperOplock.c)
- *     FsRtlOplockBreakH2 @ 0x140AB6BF0 (FsRtlOplockBreakH2.c)
- *     FsRtlCheckOplockForFsFilterCallback @ 0x140B3D1C0 (FsRtlCheckOplockForFsFilterCallback.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403F8170 (FsRtlCheckOplockEx2.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x1405B8790 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlCheckUpperOplock @ 0x140791080 (FsRtlCheckUpperOplock.c)
+ *     FsRtlOplockBreakH2 @ 0x140AB7FB0 (FsRtlOplockBreakH2.c)
+ *     FsRtlCheckOplockForFsFilterCallback @ 0x140B3F290 (FsRtlCheckOplockForFsFilterCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1403F7FB8 (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F81F0 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403F8514 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpComputeShareableOplockState @ 0x1403F8764 (FsRtlpComputeShareableOplockState.c)
- *     FsRtlpOplockKeysEqual @ 0x1403FB470 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpClearOwner @ 0x1403FCCBC (FsRtlpClearOwner.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FE7A0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpModifyThreadPriorities @ 0x1403FE8E4 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x1404D4D34 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpDoBoost @ 0x1404E2F00 (FsRtlpDoBoost.c)
- *     FsRtlpWaitOnIrp @ 0x1404EC254 (FsRtlpWaitOnIrp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FsRtlpOplockTryStartBreakAckTimeout @ 0x14077BB44 (FsRtlpOplockTryStartBreakAckTimeout.c)
- *     FsRtlpCheckSharingAgainstOplockOwner @ 0x140A35090 (FsRtlpCheckSharingAgainstOplockOwner.c)
- *     FsRtlpFillOutputBuffer @ 0x140ADD764 (FsRtlpFillOutputBuffer.c)
- *     FsRtlpBreakRHOplocksForNonCachedIo @ 0x140B6E340 (FsRtlpBreakRHOplocksForNonCachedIo.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1403F47AC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F49E4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403F4D08 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpComputeShareableOplockState @ 0x1403F4F58 (FsRtlpComputeShareableOplockState.c)
+ *     FsRtlpOplockKeysEqual @ 0x1403F7C60 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpClearOwner @ 0x1403F94AC (FsRtlpClearOwner.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FAF90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403FB0D4 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x1404CE5A4 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpDoBoost @ 0x1404DC574 (FsRtlpDoBoost.c)
+ *     FsRtlpWaitOnIrp @ 0x1404E5834 (FsRtlpWaitOnIrp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FsRtlpOplockTryStartBreakAckTimeout @ 0x14077E784 (FsRtlpOplockTryStartBreakAckTimeout.c)
+ *     FsRtlpCheckSharingAgainstOplockOwner @ 0x140919890 (FsRtlpCheckSharingAgainstOplockOwner.c)
+ *     FsRtlpFillOutputBuffer @ 0x140ADA4D4 (FsRtlpFillOutputBuffer.c)
+ *     FsRtlpBreakRHOplocksForNonCachedIo @ 0x140B717F0 (FsRtlpBreakRHOplocksForNonCachedIo.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
@@ -84,7 +84,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   _QWORD **k; // r12
   _QWORD *v52; // rdx
   struct _EVENT_DATA_DESCRIPTOR *v53; // rax
-  __int16 *v54; // rdx
+  char *v54; // rdx
   __int64 m; // rcx
   _QWORD *v56; // rcx
   __int64 *v57; // r10
@@ -251,7 +251,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   unsigned int *v218; // [rsp+330h] [rbp-9E8h]
   __int64 v219; // [rsp+338h] [rbp-9E0h]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+340h] [rbp-9D8h] BYREF
-  char *v221; // [rsp+350h] [rbp-9C8h]
+  int *v221; // [rsp+350h] [rbp-9C8h]
   int v222; // [rsp+358h] [rbp-9C0h]
   int v223; // [rsp+35Ch] [rbp-9BCh]
   unsigned int *v224; // [rsp+360h] [rbp-9B8h]
@@ -525,7 +525,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
     UserData.Ptr = (ULONGLONG)off_140E06B38;
     UserData.Size = *(unsigned __int16 *)off_140E06B38;
     UserData.Reserved = 2;
-    v221 = byte_1400462F5;
+    v221 = &dword_1400464C4;
     v222 = 84;
     v223 = 1;
     v96 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
@@ -561,7 +561,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
       v219 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)&word_1400464A6,
+        (unsigned __int8 *)&word_14004644E,
         0LL,
         0LL,
         7u,
@@ -592,7 +592,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
       v242 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)&dword_14004642C,
+        (unsigned __int8 *)&dword_1400463D4,
         0LL,
         0LL,
         7u,
@@ -625,7 +625,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
       v206.Ptr = (ULONGLONG)off_140E06B38;
       v206.Size = *(unsigned __int16 *)off_140E06B38;
       v206.Reserved = 2;
-      v207 = &unk_1400463C0;
+      v207 = &unk_140046368;
       v208 = 107;
       v209 = 1;
       v88 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
@@ -656,7 +656,7 @@ LABEL_12:
       v263 = &v97;
       v264 = 4LL;
       v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v254;
-      v54 = word_14004634A;
+      v54 = byte_140046655;
       goto LABEL_165;
     }
     goto LABEL_169;
@@ -683,7 +683,7 @@ LABEL_12:
           v411 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)word_14004565A,
+            (unsigned __int8 *)byte_140045E45,
             0LL,
             0LL,
             6u,
@@ -720,7 +720,7 @@ LABEL_190:
           v348 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)&byte_1400456C7,
+            (unsigned __int8 *)word_140045EB2,
             0LL,
             0LL,
             6u,
@@ -761,7 +761,7 @@ LABEL_190:
           v339 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)byte_140045F09,
+            (unsigned __int8 *)word_140046872,
             0LL,
             0LL,
             6u,
@@ -800,7 +800,7 @@ LABEL_190:
             v329 = &v163;
             v330 = 4LL;
             v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v320;
-            v54 = &word_140045E9E;
+            v54 = (char *)word_140045DDA;
             goto LABEL_165;
           }
         }
@@ -844,7 +844,7 @@ LABEL_169:
           v357 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)byte_140045735,
+            (unsigned __int8 *)byte_140045F20,
             0LL,
             0LL,
             6u,
@@ -875,7 +875,7 @@ LABEL_169:
           v447 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)&word_14004604E,
+            (unsigned __int8 *)&word_140045F8E,
             0LL,
             0LL,
             6u,
@@ -903,7 +903,7 @@ LABEL_172:
           v438 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)word_1400455EA,
+            (unsigned __int8 *)word_140046152,
             0LL,
             0LL,
             6u,
@@ -939,7 +939,7 @@ LABEL_153:
             v429 = 4LL;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140E06B30,
-              (unsigned __int8 *)&dword_14004587C,
+              (unsigned __int8 *)word_140046072,
               0LL,
               0LL,
               6u,
@@ -963,7 +963,7 @@ LABEL_153:
           v420 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)byte_1400458E9,
+            (unsigned __int8 *)&byte_1400460DF,
             0LL,
             0LL,
             6u,
@@ -994,7 +994,7 @@ LABEL_189:
       v456 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)byte_1400460BD,
+        (unsigned __int8 *)byte_140045C9B,
         0LL,
         0LL,
         6u,
@@ -1032,7 +1032,7 @@ LABEL_189:
       v366 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)byte_140046193,
+        (unsigned __int8 *)byte_140045D71,
         0LL,
         0LL,
         6u,
@@ -1114,7 +1114,7 @@ LABEL_287:
       v402 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)byte_140046129,
+        (unsigned __int8 *)&byte_140045D07,
         0LL,
         0LL,
         6u,
@@ -1214,7 +1214,7 @@ LABEL_95:
         v231 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06B30,
-          (unsigned __int8 *)byte_140045CEB,
+          (unsigned __int8 *)&byte_1400469B7,
           0LL,
           0LL,
           6u,
@@ -1271,7 +1271,7 @@ LABEL_95:
                   v274 = &v104;
                   v275 = 4LL;
                   v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v265;
-                  v54 = (__int16 *)byte_140045FE3;
+                  v54 = (char *)&dword_14004694C;
                   goto LABEL_165;
                 }
                 goto LABEL_169;
@@ -1345,7 +1345,7 @@ LABEL_206:
             v285 = &v108;
             v286 = 4LL;
             v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v276;
-            v54 = (__int16 *)&unk_140045F78;
+            v54 = byte_1400468E1;
             goto LABEL_165;
           }
           goto LABEL_169;
@@ -1374,7 +1374,7 @@ LABEL_142:
     v118 = *(_DWORD *)(a1 + 144);
     v374 = &v118;
     v375 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)byte_140045C83, 0LL, 0LL, 6u, &v367);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)byte_1400465ED, 0LL, 0LL, 6u, &v367);
   }
   if ( (a6 & 0x1000) != 0 )
   {
@@ -1408,7 +1408,7 @@ LABEL_142:
             v252 = &v122;
             v253 = 4LL;
             v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v243;
-            v54 = (__int16 *)&unk_140045C18;
+            v54 = (char *)word_140046582;
             goto LABEL_165;
           }
           goto LABEL_169;
@@ -1439,13 +1439,7 @@ LABEL_19:
     v125 = *(_DWORD *)(a1 + 144);
     v383 = &v125;
     v384 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E06B30,
-      (unsigned __int8 *)&byte_140045BAF,
-      0LL,
-      0LL,
-      6u,
-      &v376);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)byte_140046519, 0LL, 0LL, 6u, &v376);
   }
   if ( (a6 & 0x8000000) != 0 )
   {
@@ -1517,7 +1511,7 @@ LABEL_63:
           v296 = &v133;
           v297 = 4LL;
           v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v287;
-          v54 = (__int16 *)&dword_140045B44;
+          v54 = &byte_140046807;
           goto LABEL_165;
         }
         goto LABEL_169;
@@ -1541,7 +1535,7 @@ LABEL_63:
           v393 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06B30,
-            (unsigned __int8 *)byte_140045E2D,
+            (unsigned __int8 *)&word_140046796,
             0LL,
             0LL,
             6u,
@@ -1625,7 +1619,7 @@ LABEL_63:
               v318 = &v141;
               v319 = 4LL;
               v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v309;
-              v54 = (__int16 *)&byte_140045D57;
+              v54 = (char *)&unk_1400466C0;
               goto LABEL_165;
             }
             if ( ii[7] )
@@ -1686,7 +1680,7 @@ LABEL_63:
           v307 = &v137;
           v308 = 4LL;
           v53 = (struct _EVENT_DATA_DESCRIPTOR *)&v298;
-          v54 = word_140045DC2;
+          v54 = byte_14004672B;
 LABEL_165:
           tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)v54, 0LL, 0LL, 7u, v53);
 LABEL_166:

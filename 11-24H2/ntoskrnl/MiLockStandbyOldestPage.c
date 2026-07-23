@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockStandbyOldestPage @ 0x1403F41B8
+ * XREFs of MiLockStandbyOldestPage @ 0x1403E71A8
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140220F00 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14024DC50 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     MiReplaceStandbyLookaside @ 0x14026CCE0 (MiReplaceStandbyLookaside.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiRebuildStandbyLookasideList @ 0x1403F43F0 (MiRebuildStandbyLookasideList.c)
- *     MiRepurposeDecayNode @ 0x1403F49D0 (MiRepurposeDecayNode.c)
+ *     MiReplaceStandbyLookaside @ 0x140222270 (MiReplaceStandbyLookaside.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRebuildStandbyLookasideList @ 0x1403E73E0 (MiRebuildStandbyLookasideList.c)
+ *     MiRepurposeDecayNode @ 0x1403E79C0 (MiRepurposeDecayNode.c)
  */
 
 __int64 __fastcall MiLockStandbyOldestPage(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
@@ -52,7 +52,7 @@ __int64 __fastcall MiLockStandbyOldestPage(__int64 a1, __int64 a2, unsigned int 
       }
       while ( *(__int64 *)(v8 + 24) < 0 );
     }
-    if ( (*(_BYTE *)(v8 + 34) & 7) == 2 && *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL)) == a1 )
+    if ( (*(_BYTE *)(v8 + 34) & 7) == 2 && *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL)) == a1 )
       break;
 LABEL_6:
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -73,10 +73,10 @@ LABEL_6:
   if ( !MiIsDecayPfn(v7) )
     return v7;
   v13 = *(_QWORD *)(v8 + 16);
-  if ( qword_140E2DB80 )
+  if ( qword_140E2DCC0 )
   {
     if ( (v13 & 0x10) == 0 )
-      v13 &= ~qword_140E2DB80;
+      v13 &= ~qword_140E2DCC0;
   }
   v14 = (v13 >> 12) & 0xFFFFFFFFFFLL;
   if ( v14 == v7 )

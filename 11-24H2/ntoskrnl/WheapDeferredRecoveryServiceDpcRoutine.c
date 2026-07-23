@@ -1,57 +1,57 @@
 /*
- * XREFs of WheapDeferredRecoveryServiceDpcRoutine @ 0x14065DC80
+ * XREFs of WheapDeferredRecoveryServiceDpcRoutine @ 0x14065C3A0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-BOOLEAN __fastcall WheapDeferredRecoveryServiceDpcRoutine(PRKDPC Dpc, __int64 a2, __int64 a3, __int64 a4)
+BOOLEAN __fastcall WheapDeferredRecoveryServiceDpcRoutine(PRKDPC Dpc)
 {
-  __int64 v5; // rbx
-  __int64 v6; // rtt
-  __int64 v7; // rtt
-  char v8; // al
-  KIRQL v9; // al
-  signed __int32 v10; // eax
-  bool v11; // cc
+  __int64 v2; // rbx
+  __int64 v3; // rtt
+  __int64 v4; // rtt
+  char v5; // al
+  KIRQL v6; // al
+  signed __int32 v7; // eax
+  bool v8; // cc
   BOOLEAN result; // al
 
-  v5 = WheaDrsList;
-  v6 = WheaDrsList;
-  if ( v6 != _InterlockedCompareExchange64(&WheaDrsList, *(_QWORD *)WheaDrsList, WheaDrsList) )
+  v2 = WheaDrsList;
+  v3 = WheaDrsList;
+  if ( v3 != _InterlockedCompareExchange64(&WheaDrsList, *(_QWORD *)WheaDrsList, WheaDrsList) )
   {
     do
     {
       _mm_pause();
-      v5 = WheaDrsList;
-      v7 = WheaDrsList;
+      v2 = WheaDrsList;
+      v4 = WheaDrsList;
     }
-    while ( v7 != _InterlockedCompareExchange64(&WheaDrsList, *(_QWORD *)WheaDrsList, WheaDrsList) );
+    while ( v4 != _InterlockedCompareExchange64(&WheaDrsList, *(_QWORD *)WheaDrsList, WheaDrsList) );
   }
-  v8 = *(_BYTE *)(v5 + 24);
-  if ( v8 == 2 )
+  v5 = *(_BYTE *)(v2 + 24);
+  if ( v5 == 2 )
   {
-    _InterlockedExchange((volatile __int32 *)(v5 + 8), 0);
-    guard_dispatch_icall_no_overrides(v5, *(_QWORD *)(v5 + 32), a3, a4);
+    _InterlockedExchange((volatile __int32 *)(v2 + 8), 0);
+    guard_dispatch_icall_no_overrides(v2, *(_QWORD *)(v2 + 32));
   }
-  else if ( !v8 )
+  else if ( !v5 )
   {
-    v9 = KeAcquireSpinLockRaiseToDpc(&WheaPassiveDrsListLock);
-    *(_QWORD *)v5 = WheaPassiveDrsList;
-    WheaPassiveDrsList = v5;
-    KeReleaseSpinLock(&WheaPassiveDrsListLock, v9);
+    v6 = KeAcquireSpinLockRaiseToDpc(&WheaPassiveDrsListLock);
+    *(_QWORD *)v2 = WheaPassiveDrsList;
+    WheaPassiveDrsList = v2;
+    KeReleaseSpinLock(&WheaPassiveDrsListLock, v6);
     if ( _InterlockedIncrement(&WheaPassiveDrsItemsToProcess) == 1 )
       ExQueueWorkItem(&WheaDrsWorkItem, CriticalWorkQueue);
   }
-  v10 = _InterlockedExchangeAdd(&WheaDrsItemsToProcess, 0xFFFFFFFF);
-  v11 = v10 <= 1;
-  result = v10 - 1;
-  if ( !v11 )
+  v7 = _InterlockedExchangeAdd(&WheaDrsItemsToProcess, 0xFFFFFFFF);
+  v8 = v7 <= 1;
+  result = v7 - 1;
+  if ( !v8 )
     return KeInsertQueueDpc(Dpc, 0LL, 0LL);
   return result;
 }

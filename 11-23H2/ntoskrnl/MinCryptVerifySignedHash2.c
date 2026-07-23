@@ -1,17 +1,17 @@
 /*
- * XREFs of MinCryptVerifySignedHash2 @ 0x140A6F330
+ * XREFs of MinCryptVerifySignedHash2 @ 0x140A6F5E0
  * Callers:
- *     MinCryptVerifySignedHash @ 0x140A6F308 (MinCryptVerifySignedHash.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifySignedHash @ 0x140A6F5B8 (MinCryptVerifySignedHash.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ?MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z @ 0x14067735C (-MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z.c)
- *     MinAsn1ParseECCSignature @ 0x140677774 (MinAsn1ParseECCSignature.c)
- *     MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6F220 (MinCryptDecodeSignatureAlgorithmIdentifier.c)
- *     MinAsn1ParsePublicKeyInfo @ 0x140A705C8 (MinAsn1ParsePublicKeyInfo.c)
- *     MinAsn1ParseRSAPublicKey @ 0x140A70610 (MinAsn1ParseRSAPublicKey.c)
- *     HashpVerifyEcdsaSignature @ 0x140A771D4 (HashpVerifyEcdsaSignature.c)
- *     HashpVerifyPkcs1Signature @ 0x140A7730C (HashpVerifyPkcs1Signature.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ?MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z @ 0x1406778AC (-MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z.c)
+ *     MinAsn1ParseECCSignature @ 0x140677CC4 (MinAsn1ParseECCSignature.c)
+ *     MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6F4D0 (MinCryptDecodeSignatureAlgorithmIdentifier.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x140A70878 (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x140A708C0 (MinAsn1ParseRSAPublicKey.c)
+ *     HashpVerifyEcdsaSignature @ 0x140A77484 (HashpVerifyEcdsaSignature.c)
+ *     HashpVerifyPkcs1Signature @ 0x140A775BC (HashpVerifyPkcs1Signature.c)
  */
 
 __int64 __fastcall MinCryptVerifySignedHash2(int a1, int a2, int a3, unsigned int *a4, __int64 a5, __int64 a6)

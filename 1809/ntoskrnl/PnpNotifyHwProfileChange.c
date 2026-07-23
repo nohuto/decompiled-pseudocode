@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpNotifyHwProfileChange @ 0x140825CE4
+ * XREFs of PnpNotifyHwProfileChange @ 0x140826EE4
  * Callers:
- *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140825FA4 (PnpRequestHwProfileChangeNotification.c)
+ *     PnpDeviceEventWorker @ 0x14058CBC0 (PnpDeviceEventWorker.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x1408271A4 (PnpRequestHwProfileChangeNotification.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1406FF0D8 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x140700378 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x1407049F4 (PnpNotifyDriverCallback.c)
  */
 
 __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_STRING *a3)

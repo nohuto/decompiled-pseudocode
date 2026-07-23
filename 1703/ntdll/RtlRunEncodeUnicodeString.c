@@ -6,50 +6,41 @@
  *     ZwQuerySystemTime @ 0x1800A5E40 (ZwQuerySystemTime.c)
  */
 
-char __fastcall RtlRunEncodeUnicodeString(_BYTE *a1, unsigned __int16 *a2)
+void __cdecl RtlRunEncodeUnicodeString(PUCHAR Seed, PUNICODE_STRING String)
 {
-  __int64 v4; // rax
+  char v4; // al
   unsigned int v5; // r8d
-  unsigned int v6; // r9d
-  __int64 v7; // rdx
-  _QWORD v9[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v6; // rax
+  unsigned int i; // r9d
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  LARGE_INTEGER SystemTime; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !*a1 )
+  if ( !*Seed )
   {
-    ZwQuerySystemTime(v9);
-    LOBYTE(v4) = BYTE1(v9[0]);
+    ZwQuerySystemTime(&SystemTime);
+    v4 = BYTE1(SystemTime.LowPart);
     v5 = 1;
-    *a1 = BYTE1(v9[0]);
-    if ( !(_BYTE)v4 )
+    *Seed = BYTE1(SystemTime.LowPart);
+    if ( !v4 )
     {
       do
       {
         if ( v5 >= 8 )
           break;
-        v4 = v5++;
-        *a1 |= *((_BYTE *)v9 + v4);
+        v6 = v5++;
+        *Seed |= *((_BYTE *)&SystemTime.LowPart + v6);
       }
-      while ( !*a1 );
+      while ( !*Seed );
     }
-    if ( !*a1 )
-      *a1 = 1;
+    if ( !*Seed )
+      *Seed = 1;
   }
-  if ( *a2 )
+  if ( String->Length )
+    *(_BYTE *)String->Buffer ^= *Seed | 0x43;
+  for ( i = 1; i < String->Length; *((_BYTE *)String->Buffer + v9) ^= *Seed ^ *((_BYTE *)String->Buffer + v8) )
   {
-    LOBYTE(v4) = *a1 | 0x43;
-    **((_BYTE **)a2 + 1) ^= v4;
+    v8 = i - 1;
+    v9 = i++;
   }
-  v6 = 1;
-  if ( *a2 > 1u )
-  {
-    do
-    {
-      v4 = v6 - 1;
-      v7 = v6++;
-      *(_BYTE *)(v7 + *((_QWORD *)a2 + 1)) ^= *a1 ^ *(_BYTE *)(v4 + *((_QWORD *)a2 + 1));
-      LODWORD(v4) = *a2;
-    }
-    while ( v6 < (unsigned int)v4 );
-  }
-  return v4;
 }

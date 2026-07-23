@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpMetadataHeapCtxGet @ 0x140324628
+ * XREFs of RtlpHpMetadataHeapCtxGet @ 0x1403248B8
  * Callers:
- *     RtlpHpMetadataFree @ 0x14032405C (RtlpHpMetadataFree.c)
- *     RtlpHpMetadataAlloc @ 0x140324528 (RtlpHpMetadataAlloc.c)
- *     RtlpHpHeapAllocate @ 0x140389128 (RtlpHpHeapAllocate.c)
- *     RtlpHpMetadataCommit @ 0x1403C7234 (RtlpHpMetadataCommit.c)
+ *     RtlpHpMetadataFree @ 0x1403242EC (RtlpHpMetadataFree.c)
+ *     RtlpHpMetadataAlloc @ 0x1403247B8 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpHeapAllocate @ 0x140389308 (RtlpHpHeapAllocate.c)
+ *     RtlpHpMetadataCommit @ 0x1403C7414 (RtlpHpMetadataCommit.c)
  * Callees:
  *     <none>
  */

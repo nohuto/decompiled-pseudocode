@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPageChainYield @ 0x1403CF100
+ * XREFs of MiGetPageChainYield @ 0x14038F588
  * Callers:
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiWorkingSetIsContended @ 0x1403D01B0 (MiWorkingSetIsContended.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x1403915E0 (MiWorkingSetIsContended.c)
  */
 
 __int64 __fastcall MiGetPageChainYield(__int64 a1, __int64 a2)

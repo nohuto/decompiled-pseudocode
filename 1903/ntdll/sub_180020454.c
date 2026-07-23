@@ -8,24 +8,27 @@
  *     sub_18001F450 @ 0x18001F450 (sub_18001F450.c)
  */
 
-unsigned __int64 __fastcall sub_180020454(unsigned __int64 a1, unsigned int a2, _DWORD *a3, _QWORD *a4)
+unsigned __int64 __fastcall sub_180020454(char *a1, unsigned int a2, _DWORD *a3, _QWORD *a4)
 {
   __int64 v5; // rbp
   _DWORD *v8; // rax
   unsigned __int64 v9; // rdi
-  unsigned __int64 v10; // rdx
-  __int64 v11; // rax
+  char *v10; // rdx
+  PIMAGE_SECTION_HEADER v11; // rax
   __int64 v12; // r11
-  __int64 v14; // [rsp+50h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp+18h] BYREF
 
   v5 = a2;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v14);
+  RtlImageNtHeaderEx(1u, a1, 0LL, &OutHeaders);
   v8 = sub_18001F450(a1);
   *a3 = 0;
-  if ( v8 && *v8 >= 0x70u && (v9 = *((_QWORD *)v8 + 11), v9 > a1) && (v10 = v5 + a1 - 8, v9 < v10) )
+  if ( v8
+    && *v8 >= 0x70u
+    && (v9 = *((_QWORD *)v8 + 11), v9 > (unsigned __int64)a1)
+    && (v10 = &a1[v5 - 8], v9 < (unsigned __int64)v10) )
   {
-    v11 = RtlImageRvaToSection(v14, v10, (int)v9 - (int)a1);
-    if ( v11 && *(int *)(v11 + 36) >= 0 )
+    v11 = RtlImageRvaToSection(OutHeaders, v10, (int)v9 - (int)a1);
+    if ( v11 && (v11->Characteristics & 0x80000000) == 0 )
       *a3 = 1;
     if ( a4 )
       *a4 = v12;

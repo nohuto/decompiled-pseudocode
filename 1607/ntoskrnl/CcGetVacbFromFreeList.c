@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetVacbFromFreeList @ 0x14001866C
+ * XREFs of CcGetVacbFromFreeList @ 0x1400181EC
  * Callers:
- *     CcGetVacbMiss @ 0x14001872C (CcGetVacbMiss.c)
+ *     CcGetVacbMiss @ 0x1400182AC (CcGetVacbMiss.c)
  * Callees:
- *     CcReferenceVacbArray @ 0x140018638 (CcReferenceVacbArray.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     CcReferenceVacbArray @ 0x1400181B8 (CcReferenceVacbArray.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall CcGetVacbFromFreeList(char a1)

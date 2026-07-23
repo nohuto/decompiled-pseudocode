@@ -11,33 +11,32 @@
  *     _LdrpMapCleanModuleView@4 @ 0x4B334528 (_LdrpMapCleanModuleView@4.c)
  */
 
-void *__thiscall LdrpGetImportDescriptorForSnap(_DWORD *this)
+PIMAGE_NT_HEADERS __thiscall LdrpGetImportDescriptorForSnap(int this)
 {
   int v1; // esi
-  int v2; // ebx
-  void *v3; // ecx
-  int v6; // [esp+14h] [ebp-24h] BYREF
-  int v7; // [esp+18h] [ebp-20h] BYREF
-  _DWORD v8[6]; // [esp+1Ch] [ebp-1Ch] BYREF
+  PIMAGE_NT_HEADERS v2; // ebx
+  ULONG Size; // [esp+14h] [ebp-24h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+18h] [ebp-20h] BYREF
+  _DWORD v7[6]; // [esp+1Ch] [ebp-1Ch] BYREF
 
-  v1 = this[8];
-  if ( RtlpImageDirectoryEntryToDataEx(*(_DWORD *)(v1 + 24), 1, 1u, &v6, &v7) >= 0 )
-    v2 = v7;
+  v1 = *(_DWORD *)(this + 32);
+  if ( RtlpImageDirectoryEntryToDataEx(*(_DWORD *)(v1 + 24), 1, 1u, &Size, &OutHeaders) >= 0 )
+    v2 = OutHeaders;
   else
     v2 = 0;
   if ( v1 == LdrpImageEntry )
   {
-    qmemcpy(v8, &unk_4B3A92E8, sizeof(v8));
-    if ( ((v8[3] >> 12) & 3) == 1 )
+    qmemcpy(v7, &unk_4B3A92E8, sizeof(v7));
+    if ( ((v7[3] >> 12) & 3) == 1 )
     {
-      RtlImageNtHeaderEx(3, *(_DWORD *)(v1 + 24), 0, 0, &v7);
-      if ( ((unsigned __int8)LdrpCheckPagesForTampering(v7 + 128, 8)
-         || (unsigned __int8)LdrpCheckPagesForTampering(v2, v6))
+      RtlImageNtHeaderEx(3u, *(PVOID *)(v1 + 24), 0LL, &OutHeaders);
+      if ( ((unsigned __int8)LdrpCheckPagesForTampering(&OutHeaders->OptionalHeader.LoaderFlags, 8)
+         || (unsigned __int8)LdrpCheckPagesForTampering(v2, Size))
         && LdrpMapCleanModuleView(this) >= 0 )
       {
-        return RtlImageDirectoryEntryToData(v3, this[26], 1, 1, (int)&v6);
+        return (PIMAGE_NT_HEADERS)RtlImageDirectoryEntryToData(*(PVOID *)(this + 104), 1u, 1u, &Size);
       }
     }
   }
-  return (void *)v2;
+  return v2;
 }

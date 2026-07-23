@@ -1,13 +1,13 @@
 /*
- * XREFs of KeInitializeGate @ 0x14013A374
+ * XREFs of KeInitializeGate @ 0x14013A474
  * Callers:
- *     KiInitializeProcessor @ 0x14057302C (KiInitializeProcessor.c)
- *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
- *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
- *     MmScrubMemory @ 0x14085FCC4 (MmScrubMemory.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x14088F14C (PspRundownUmsThreadForApcDelivery.c)
+ *     KiInitializeProcessor @ 0x14057402C (KiInitializeProcessor.c)
+ *     PspSetContextThreadInternal @ 0x140621A30 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140621C00 (PspGetContextThreadInternal.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
+ *     MiInitializePartition @ 0x14072BD18 (MiInitializePartition.c)
+ *     MmScrubMemory @ 0x140860F24 (MmScrubMemory.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1408903AC (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
  *     <none>
  */

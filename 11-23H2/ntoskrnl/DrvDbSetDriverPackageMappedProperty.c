@@ -1,20 +1,20 @@
 /*
- * XREFs of DrvDbSetDriverPackageMappedProperty @ 0x140A6D1B4
+ * XREFs of DrvDbSetDriverPackageMappedProperty @ 0x140A6D464
  * Callers:
- *     DrvDbDispatchDriverPackage @ 0x1408763A0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D1B4 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbDispatchDriverPackage @ 0x1408765E0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D464 (DrvDbSetDriverPackageMappedProperty.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     _RegRtlSetValue @ 0x1407D49D4 (_RegRtlSetValue.c)
- *     DrvDbSetRegValueMappedProperty @ 0x140866594 (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x14087692C (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbGetDriverPackageSignerName @ 0x140A6C160 (DrvDbGetDriverPackageSignerName.c)
- *     DrvDbGetDriverPackageSignerScore @ 0x140A6C218 (DrvDbGetDriverPackageSignerScore.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D1B4 (DrvDbSetDriverPackageMappedProperty.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     _RegRtlSetValue @ 0x1407D4CA4 (_RegRtlSetValue.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x1408667D4 (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x140876B6C (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x140A6C410 (DrvDbGetDriverPackageSignerName.c)
+ *     DrvDbGetDriverPackageSignerScore @ 0x140A6C4C8 (DrvDbGetDriverPackageSignerScore.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D464 (DrvDbSetDriverPackageMappedProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

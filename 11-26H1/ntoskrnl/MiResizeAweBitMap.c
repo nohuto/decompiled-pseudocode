@@ -1,19 +1,19 @@
 /*
- * XREFs of MiResizeAweBitMap @ 0x1408791F8
+ * XREFs of MiResizeAweBitMap @ 0x14087F5D8
  * Callers:
- *     MiAllocateUserPhysicalPagesAddMdl @ 0x140877984 (MiAllocateUserPhysicalPagesAddMdl.c)
+ *     MiAllocateUserPhysicalPagesAddMdl @ 0x14087DD64 (MiAllocateUserPhysicalPagesAddMdl.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     RtlCopyBitMapEx @ 0x14044B020 (RtlCopyBitMapEx.c)
- *     MiLockAwePagesShared @ 0x1404F0690 (MiLockAwePagesShared.c)
- *     MiUnlockAweVadsShared @ 0x1404FA958 (MiUnlockAweVadsShared.c)
- *     MiLockAwePagesExclusive @ 0x140701D48 (MiLockAwePagesExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x140702BEC (MiUnlockAwePagesExclusive.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCreateAweInfoBitMap @ 0x140878888 (MiCreateAweInfoBitMap.c)
- *     MiDeleteAweBitMap @ 0x140878E00 (MiDeleteAweBitMap.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     RtlCopyBitMapEx @ 0x140443150 (RtlCopyBitMapEx.c)
+ *     MiLockAwePagesShared @ 0x1404E9C70 (MiLockAwePagesShared.c)
+ *     MiUnlockAweVadsShared @ 0x1404F3F68 (MiUnlockAweVadsShared.c)
+ *     MiLockAwePagesExclusive @ 0x140706A18 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x1407078BC (MiUnlockAwePagesExclusive.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCreateAweInfoBitMap @ 0x14087EC68 (MiCreateAweInfoBitMap.c)
+ *     MiDeleteAweBitMap @ 0x14087F1E0 (MiDeleteAweBitMap.c)
  */
 
 __int64 __fastcall MiResizeAweBitMap(char *Src)

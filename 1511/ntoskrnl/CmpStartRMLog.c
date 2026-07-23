@@ -44,7 +44,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CLFS_LSN plsn2; // [rsp+50h] [rbp-79h] BYREF
   PVOID pvCursorContext; // [rsp+58h] [rbp-71h] BYREF
   PVOID P; // [rsp+60h] [rbp-69h] BYREF
-  UNICODE_STRING v28; // [rsp+68h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-61h] BYREF
   PVOID pvReadContext; // [rsp+78h] [rbp-51h] BYREF
   PCUNICODE_STRING Source; // [rsp+80h] [rbp-49h]
   ULONG pcbReadBuffer; // [rsp+88h] [rbp-41h] BYREF
@@ -67,8 +67,8 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   v44 = 1;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
-  *(_DWORD *)&v28.Length = 0;
-  v28.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   pcbRestartBuffer = 0;
   pvCursorContext = 0LL;
   P = 0LL;
@@ -92,7 +92,7 @@ LABEL_47:
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(qword_1402C77F0 + 64) + 128LL) = *a2;
-    started = RtlStringFromGUIDEx((unsigned int *)(*(_QWORD *)(qword_1402C77F0 + 64) + 128LL), (__int64)&v28, 1);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_1402C77F0 + 64) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_33;
     v8 = (__int64)(a1 + 72);
@@ -107,7 +107,7 @@ LABEL_47:
     Source = &UnicodeString;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
-    started = RtlStringFromGUIDEx((unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), (__int64)&v28, 1);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_33;
     v9 = *((_QWORD *)a1 + 10);
@@ -126,7 +126,7 @@ LABEL_47:
     v12 = (__int64)(a1 + 68);
     while ( 1 )
     {
-      started = CmpStartCLFSLog(Source, &v28, ppvReadContext, v8, v12, (__int64)v11, (__int64)(a1 + 96));
+      started = CmpStartCLFSLog(Source, &GuidString, ppvReadContext, v8, v12, (__int64)v11, (__int64)(a1 + 96));
       if ( started < 0 )
         break;
       pcbInfoBuffer = 120;
@@ -248,8 +248,8 @@ LABEL_33:
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  if ( v28.Buffer )
-    RtlFreeAnsiString(&v28);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   ExFreePoolWithTag(PoolWithTag, 0);
   if ( P )
     ExFreePoolWithTag(P, 0);

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpShutdownPrivateLoggers @ 0x180086170
+ * XREFs of EtwpShutdownPrivateLoggers @ 0x180086180
  * Callers:
  *     RtlExitUserProcess @ 0x18006CF90 (RtlExitUserProcess.c)
  * Callees:
  *     EtwpStopUmLogger @ 0x18004CFF4 (EtwpStopUmLogger.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     EtwpDemuxUmTraceHandle @ 0x18010F274 (EtwpDemuxUmTraceHandle.c)
  */

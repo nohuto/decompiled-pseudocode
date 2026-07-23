@@ -10,7 +10,7 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __fastcall LdrpSendDllNotifications(int a1, int a2, int a3)
+NTSTATUS __fastcall LdrpSendDllNotifications(int a1, int a2, int a3)
 {
   _UNKNOWN **i; // edi
   _DWORD v6[5]; // [esp+10h] [ebp-14h] BYREF
@@ -20,8 +20,8 @@ int __fastcall LdrpSendDllNotifications(int a1, int a2, int a3)
   v6[2] = a1 + 44;
   v6[3] = *(_DWORD *)(a1 + 24);
   v6[4] = *(_DWORD *)(a1 + 32);
-  RtlEnterCriticalSection((int)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   for ( i = (_UNKNOWN **)LdrpDllNotificationList; i != &LdrpDllNotificationList; i = (_UNKNOWN **)*i )
     ((void (__thiscall *)(void *, int, _DWORD *, void *))i[2])(i[2], a2, v6, i[3]);
-  return RtlLeaveCriticalSection((int)&LdrpDllNotificationLock);
+  return RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 }

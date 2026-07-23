@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeTransitionPteValid @ 0x1403035C0
+ * XREFs of MiMakeTransitionPteValid @ 0x1402E5640
  * Callers:
- *     MiProtoFaultApplyPrivateFixups @ 0x1402DA280 (MiProtoFaultApplyPrivateFixups.c)
- *     MiCompleteTransitionPfnFault @ 0x140302030 (MiCompleteTransitionPfnFault.c)
- *     MiResolveProtoCombine @ 0x1403089FC (MiResolveProtoCombine.c)
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiProtectAweTransitionPte @ 0x140702154 (MiProtectAweTransitionPte.c)
+ *     MiProtoFaultApplyPrivateFixups @ 0x1402BC040 (MiProtoFaultApplyPrivateFixups.c)
+ *     MiCompleteTransitionPfnFault @ 0x1402E40B0 (MiCompleteTransitionPfnFault.c)
+ *     MiResolveProtoCombine @ 0x1402EAA7C (MiResolveProtoCombine.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiProtectAweTransitionPte @ 0x140706E24 (MiProtectAweTransitionPte.c)
  * Callees:
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
  */
 
 unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
@@ -48,8 +48,8 @@ unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
     }
   }
   v3 = v1;
-  if ( qword_140E2D740 && (v1 & 0x10) == 0 )
-    v3 = v1 & qword_140E2D748;
+  if ( qword_140E2D8C0 && (v1 & 0x10) == 0 )
+    v3 = v1 & qword_140E2D8C8;
   v4 = v3 & 0xFFFFFFFFFF000LL | MmProtectToPteMask[(v1 >> 5) & 0x1F] & 0xFFF0000000000E7FuLL | 0x21;
   if ( a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL )
   {
@@ -77,8 +77,8 @@ unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
     {
       if ( v9 < 0xFFFFF68000000000uLL || v9 > 0xFFFFF6FFFFFFFFFFuLL )
       {
-        if ( v9 < qword_140E2DE40 || (v7 = BYTE5(stru_140E2D930.Header.WaitListHead.Blink), v9 > qword_140E2DE50) )
-          v7 = BYTE4(stru_140E2D930.Header.WaitListHead.Blink);
+        if ( v9 < qword_140E2DFC0 || (v7 = BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink), v9 > qword_140E2DFD0) )
+          v7 = BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink);
         v6 = v4;
       }
       else
@@ -89,7 +89,7 @@ unsigned __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)
       goto LABEL_9;
     }
   }
-  v7 = BYTE5(stru_140E2D930.Header.WaitListHead.Blink);
+  v7 = BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink);
 LABEL_9:
   v5 = v6 | 0x100;
   if ( !v7 )

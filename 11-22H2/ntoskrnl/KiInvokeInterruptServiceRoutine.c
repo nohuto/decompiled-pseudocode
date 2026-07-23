@@ -65,9 +65,9 @@ bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 Curr
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v6 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v6 - 2) <= 0xDu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == (_BYTE)v6 )
@@ -127,10 +127,10 @@ bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 Curr
   {
     if ( CurrentIrql != (_BYTE)v6 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v18 = CurrentPrcb->SchedulerAssist;

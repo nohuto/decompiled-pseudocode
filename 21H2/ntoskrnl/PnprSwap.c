@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprSwap @ 0x14050FA68
+ * XREFs of PnprSwap @ 0x14050FCA8
  * Callers:
- *     PnprEndMirroring @ 0x1409AD720 (PnprEndMirroring.c)
- *     PnprInitiateReplaceOperation @ 0x1409AD7FC (PnprInitiateReplaceOperation.c)
+ *     PnprEndMirroring @ 0x1409AE650 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x1409AE72C (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PnprSwapFinalize @ 0x14050FC90 (PnprSwapFinalize.c)
- *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
- *     PnprMirrorMarkedPages @ 0x1409AE02C (PnprMirrorMarkedPages.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PnprSwapFinalize @ 0x14050FED0 (PnprSwapFinalize.c)
+ *     MmUnmapReservedMapping @ 0x140531ED0 (MmUnmapReservedMapping.c)
+ *     PnprMirrorMarkedPages @ 0x1409AEF5C (PnprMirrorMarkedPages.c)
  */
 
 __int64 PnprSwap()

@@ -10,24 +10,24 @@
 
 __int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, const WCHAR *a3, _WORD *a4)
 {
-  int v8; // edi
+  DWORD v8; // edi
   __int16 v9; // dx
   __int16 v10; // cx
   __int64 v11; // r9
   __int64 v12; // r8
   __int64 v13; // r10
   bool v15; // zf
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
-  int v17; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   if ( !a1 || !a2 || !a3 || !a4 )
     return 3221225485LL;
   *a4 = -1;
   RtlInitUnicodeString(&DestinationString, a3);
-  if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v17) )
+  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
-    v8 = ((v17 - 4096) & 0xFFFFFBFF) != 0 ? v17 : 0;
-    if ( !*a3 || (v9 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a3, 0LL, &v17), v9 < 0) )
+    v8 = ((Lcid - 4096) & 0xFFFFFBFF) != 0 ? Lcid : 0;
+    if ( !*a3 || (v9 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a3, 0LL, &Lcid), v9 < 0) )
       v9 = -1;
     v10 = 0;
     if ( *(_WORD *)(a2 + 4) )

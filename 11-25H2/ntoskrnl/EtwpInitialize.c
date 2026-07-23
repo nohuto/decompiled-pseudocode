@@ -67,9 +67,6 @@ void __fastcall EtwpInitialize(int a1, int a2, __int64 a3)
   __int64 v19; // rdx
   __int64 v20; // rcx
   ULONG_PTR Pool2; // rax
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
 
   if ( !a3 || (v5 = 1, *(_QWORD *)(a3 + 8) == a3 + 8) )
     v5 = 0;
@@ -228,8 +225,8 @@ LABEL_39:
     &EtwCpuStarvationProvRegHandle);
   EtwRegister(&CpuPartitionProvGuid, 0LL, 0LL, &EtwCpuPartitionProvRegHandle);
   ++EtwpBootPhase;
-  ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL);
-  EtwpTraceSystemInitialization(v23, v22, v24);
+  ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
+  EtwpTraceSystemInitialization();
   if ( (int)guard_dispatch_icall_no_overrides(45LL) < 0 )
     EtwpMaxPmcCounter = 8;
   EtwpMaxProfilingSources = EtwpMaxPmcCounter;

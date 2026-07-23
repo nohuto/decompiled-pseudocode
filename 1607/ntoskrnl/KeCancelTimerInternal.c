@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCancelTimerInternal @ 0x1400AE988
+ * XREFs of KeCancelTimerInternal @ 0x1400ACEF0
  * Callers:
- *     ExpTimerPause @ 0x1400AE8DC (ExpTimerPause.c)
+ *     ExpTimerPause @ 0x1400ACE44 (ExpTimerPause.c)
  * Callees:
- *     KiCancelTimer @ 0x140058050 (KiCancelTimer.c)
+ *     KiCancelTimer @ 0x140057BD0 (KiCancelTimer.c)
  */
 
 char __fastcall KeCancelTimerInternal(__int64 a1, _QWORD *a2, int *a3, unsigned int *a4)

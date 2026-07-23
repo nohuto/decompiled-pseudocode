@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaReleaseBufferMappings @ 0x14045C7D8
+ * XREFs of HalpDmaReleaseBufferMappings @ 0x14045CBD8
  * Callers:
- *     HalpDmaFreeMapRegisters @ 0x14045C4F6 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaSyncMapBuffers @ 0x14045CAF2 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaZeroMapBuffers @ 0x140511890 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaFreeMapRegisters @ 0x14045C8F6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaSyncMapBuffers @ 0x14045CEF2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaZeroMapBuffers @ 0x140511DE0 (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     MmUnmapReservedMapping @ 0x14061E910 (MmUnmapReservedMapping.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     MmUnmapReservedMapping @ 0x14061EE60 (MmUnmapReservedMapping.c)
  */
 
 void __fastcall HalpDmaReleaseBufferMappings(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

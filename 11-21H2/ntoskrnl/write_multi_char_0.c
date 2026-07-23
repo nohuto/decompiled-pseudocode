@@ -1,8 +1,8 @@
 /*
  * XREFs of write_multi_char_0 @ 0x1403E5018
  * Callers:
- *     _output_l @ 0x1403E478C (_output_l.c)
- *     _output_s @ 0x1403E7A78 (_output_s.c)
+ *     sub_1403E478C @ 0x1403E478C (sub_1403E478C.c)
+ *     sub_1403E7A78 @ 0x1403E7A78 (sub_1403E7A78.c)
  * Callees:
  *     write_char_0 @ 0x1403E4FC8 (write_char_0.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSendReplyDataBlock @ 0x140494F40
+ * XREFs of EtwpSendReplyDataBlock @ 0x1404959D0
  * Callers:
- *     NtTraceControl @ 0x14040DD40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x14040CC00 (NtTraceControl.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     EtwpReleaseQueueEntry @ 0x14048E35C (EtwpReleaseQueueEntry.c)
- *     EtwpQueueReply @ 0x140494EB8 (EtwpQueueReply.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     EtwpReleaseQueueEntry @ 0x14048EDEC (EtwpReleaseQueueEntry.c)
+ *     EtwpQueueReply @ 0x140495948 (EtwpQueueReply.c)
  */
 
 __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)

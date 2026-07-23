@@ -1,26 +1,26 @@
 /*
- * XREFs of KiWaitForAllObjects @ 0x1403C0E68
+ * XREFs of KiWaitForAllObjects @ 0x1403CAD68
  * Callers:
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KiCheckDueTimeExpired @ 0x1403C0DD0 (KiCheckDueTimeExpired.c)
- *     KiBeginThreadWait @ 0x1403C2810 (KiBeginThreadWait.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KeAbEncodeLockHandle @ 0x140456960 (KeAbEncodeLockHandle.c)
- *     KiUnlockKobjectArray @ 0x140488670 (KiUnlockKobjectArray.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeAbDecodeLockHandle @ 0x140530FB8 (KeAbDecodeLockHandle.c)
- *     KiWaitSatisfyAny @ 0x1405F7F18 (KiWaitSatisfyAny.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiCheckWaitNext @ 0x140221A60 (KiCheckWaitNext.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KeAbEncodeLockHandle @ 0x14025FF70 (KeAbEncodeLockHandle.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KiCheckDueTimeExpired @ 0x1403CACD0 (KiCheckDueTimeExpired.c)
+ *     KiBeginThreadWait @ 0x1403CC710 (KiBeginThreadWait.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KiUnlockKobjectArray @ 0x1404821B0 (KiUnlockKobjectArray.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeAbDecodeLockHandle @ 0x1405334B8 (KeAbDecodeLockHandle.c)
+ *     KiWaitSatisfyAny @ 0x1405FA938 (KiWaitSatisfyAny.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiWaitForAllObjects(
@@ -89,7 +89,7 @@ __int64 __fastcall KiWaitForAllObjects(
   char v63; // r13
   AutoBoost *v64; // rax
   struct _KLOCK_ENTRY *v65; // rdx
-  AutoBoost *v66; // r15
+  __int64 v66; // r15
   char v67; // al
   __int64 v68; // rcx
   unsigned __int64 v69; // r9
@@ -282,7 +282,7 @@ LABEL_21:
                     v63 = v62;
                     _bittestandreset64((__int64 *)&v54, (unsigned int)v62);
                     v64 = (AutoBoost *)KeAbPreAcquire((__int64)v33[v62], 0LL, 0LL, v32);
-                    v66 = v64;
+                    v66 = (__int64)v64;
                     if ( !v64 )
                       break;
                     v45 |= 1LL << v63;

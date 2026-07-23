@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpAllowDisable @ 0x140AB56EC
  * Callers:
- *     KdDisableDebuggerWithLock @ 0x140567528 (KdDisableDebuggerWithLock.c)
+ *     KdDisableDebuggerWithLock @ 0x140567BE8 (KdDisableDebuggerWithLock.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpParseEfiPath @ 0x140A63B30
+ * XREFs of ExpParseEfiPath @ 0x140A5C430
  * Callers:
- *     ExpTranslateEfiPath @ 0x140A6389C (ExpTranslateEfiPath.c)
+ *     ExpTranslateEfiPath @ 0x140A5C19C (ExpTranslateEfiPath.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpParseEfiPath(char *Src, _QWORD *a2, _QWORD *a3, char *a4)
@@ -90,7 +90,7 @@ LABEL_10:
     if ( v7 )
     {
       v20 = v7 + 2;
-      Pool2 = (_WORD *)ExAllocatePool2(0x40uLL);
+      Pool2 = (_WORD *)ExAllocatePool2(0x40uLL, v20, 0x72766E45u);
       if ( !Pool2 )
         return 3221225626LL;
       v21 = 0;
@@ -109,7 +109,7 @@ LABEL_10:
       v5 = a3;
       Pool2[v24 >> 1] = 0;
     }
-    v18 = (void *)ExAllocatePool2(0x40uLL);
+    v18 = (void *)ExAllocatePool2(0x40uLL, v14, 0x72766E45u);
     *v8 = v18;
     if ( v18 )
     {

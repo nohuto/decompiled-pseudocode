@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpTimeToTimeFields @ 0x14033B6C8
+ * XREFs of RtlpTimeToTimeFields @ 0x14033B958
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
- *     HalpSetVirtualRtc @ 0x14033B5F0 (HalpSetVirtualRtc.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     HalpQueryVirtualRtc @ 0x14050B920 (HalpQueryVirtualRtc.c)
- *     HalEfiSetTime @ 0x14050D2E0 (HalEfiSetTime.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C384 (HalpCheckWakeupTimeAndAdjust.c)
- *     WheapGetTimestamp @ 0x140612354 (WheapGetTimestamp.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
+ *     HalpSetVirtualRtc @ 0x14033B880 (HalpSetVirtualRtc.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     HalpQueryVirtualRtc @ 0x14050BE70 (HalpQueryVirtualRtc.c)
+ *     HalEfiSetTime @ 0x14050D830 (HalEfiSetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x14051C8D4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     WheapGetTimestamp @ 0x1406128A4 (WheapGetTimestamp.c)
  *     GetBootSystemTime @ 0x140B7333C (GetBootSystemTime.c)
  * Callees:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14033B7A4 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14033BA34 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
  */
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 a3)

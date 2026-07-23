@@ -1,19 +1,19 @@
 /*
- * XREFs of MiPurgePartitionStandby @ 0x14046886C
+ * XREFs of MiPurgePartitionStandby @ 0x140461F1C
  * Callers:
- *     MiTrimAllSystemPagableMemory @ 0x140457728 (MiTrimAllSystemPagableMemory.c)
- *     MiPartitionTrimmedEnough @ 0x1404C212C (MiPartitionTrimmedEnough.c)
- *     MiMirrorPurgePartitionPages @ 0x1406EFE60 (MiMirrorPurgePartitionPages.c)
- *     MmPerformMemoryListCommand @ 0x140C0C460 (MmPerformMemoryListCommand.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14044EF98 (MiTrimAllSystemPagableMemory.c)
+ *     MiPartitionTrimmedEnough @ 0x1404BB97C (MiPartitionTrimmedEnough.c)
+ *     MiMirrorPurgePartitionPages @ 0x1406F4AD0 (MiMirrorPurgePartitionPages.c)
+ *     MmPerformMemoryListCommand @ 0x140C12670 (MmPerformMemoryListCommand.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiDetermineNewPfnHeatState @ 0x140497664 (MiDetermineNewPfnHeatState.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiDetermineNewPfnHeatState @ 0x1404911B4 (MiDetermineNewPfnHeatState.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiPurgePartitionStandby(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -56,9 +56,9 @@ LABEL_13:
       break;
     v14 = 48 * v12 - 0x220000000000LL;
     if ( v4
-      && LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3
-      && v12 < *(_QWORD *)&stru_140E2EB88.WaitBlockFill11[64]
-      && _bittest64((const signed __int64 *)&stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v12 >> 6), v12 & 0x3F) )
+      && LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3
+      && v12 < *(_QWORD *)&stru_140E2ED08.WaitBlockFill11[64]
+      && _bittest64((const signed __int64 *)&stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v12 >> 6), v12 & 0x3F) )
     {
       v17 = MiPageToNode(v12);
       MiDetermineNewPfnHeatState(0LL, 3LL, *(_QWORD *)(v8 + 16) + 56320LL * v17);

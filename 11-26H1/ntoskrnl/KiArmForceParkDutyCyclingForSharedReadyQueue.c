@@ -1,11 +1,11 @@
 /*
- * XREFs of KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x140529008
+ * XREFs of KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x14052B5F8
  * Callers:
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiAddThreadToPrcbQueue @ 0x1402BE9E0 (KiAddThreadToPrcbQueue.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiAddThreadToPrcbQueue @ 0x1403096A0 (KiAddThreadToPrcbQueue.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiShouldSearchSharedReadyQueue @ 0x140439680 (KiShouldSearchSharedReadyQueue.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiShouldSearchSharedReadyQueue @ 0x14042BF30 (KiShouldSearchSharedReadyQueue.c)
  */
 
 __int64 __fastcall KiArmForceParkDutyCyclingForSharedReadyQueue(__int64 a1, __int64 a2)

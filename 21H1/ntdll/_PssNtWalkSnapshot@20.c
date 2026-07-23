@@ -10,7 +10,7 @@
  *     _PsspWalkInfoClass_PSS_WALK_VA_SPACE@12 @ 0x4B388E5F (_PsspWalkInfoClass_PSS_WALK_VA_SPACE@12.c)
  */
 
-int __stdcall PssNtWalkSnapshot(unsigned int *a1, int a2, int a3, void *a4, int a5)
+int __stdcall PssNtWalkSnapshot(unsigned int *a1, int a2, int a3, int a4, int a5)
 {
   int result; // eax
   void *retaddr; // [esp+8h] [ebp+4h]
@@ -24,15 +24,15 @@ int __stdcall PssNtWalkSnapshot(unsigned int *a1, int a2, int a3, void *a4, int 
       {
         case 1:
           if ( !a4 || a5 == 52 )
-            return PsspWalkInfoClass_PSS_WALK_VA_SPACE(a4);
+            return PsspWalkInfoClass_PSS_WALK_VA_SPACE(a1, a3, a4);
           break;
         case 2:
           if ( !a4 || a5 == 48 )
-            return PsspWalkInfoClass_PSS_WALK_HANDLES(a4);
+            return PsspWalkInfoClass_PSS_WALK_HANDLES(a1, a3, a4);
           break;
         case 3:
           if ( !a4 || a5 == 104 )
-            return PsspWalkInfoClass_PSS_WALK_THREADS(a4);
+            return PsspWalkInfoClass_PSS_WALK_THREADS(a1, a3, a4);
           break;
         default:
           return -1073741821;
@@ -41,7 +41,7 @@ int __stdcall PssNtWalkSnapshot(unsigned int *a1, int a2, int a3, void *a4, int 
     }
     if ( a4 && a5 != 48 )
       return -1073741820;
-    return PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES(a4);
+    return PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES(a1, a3, a4);
   }
   return result;
 }

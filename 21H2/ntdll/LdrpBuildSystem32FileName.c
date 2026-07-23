@@ -4,7 +4,7 @@
  *     LdrpApplyFileNameRedirection @ 0x18001A514 (LdrpApplyFileNameRedirection.c)
  *     LdrpInitShimEngine @ 0x18006C77C (LdrpInitShimEngine.c)
  *     LdrpCorInitialize @ 0x1800832C4 (LdrpCorInitialize.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1800D0920 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800D08E0 (LdrpGetProcApphelpCheckModule.c)
  * Callees:
  *     RtlGetNtSystemRoot @ 0x180016BB0 (RtlGetNtSystemRoot.c)
  *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x18001A8AC (LdrpAppendUnicodeStringToFilenameBuffer.c)
@@ -15,11 +15,11 @@ __int64 __fastcall LdrpBuildSystem32FileName(_WORD *a1, __int64 a2)
 {
   unsigned int v2; // ebx
   const WCHAR *NtSystemRoot; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   *a1 = 0;
-  NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot((__int64)a1, a2);
+  NtSystemRoot = RtlGetNtSystemRoot();
   RtlInitUnicodeString(&DestinationString, NtSystemRoot);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &DestinationString);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &SlashSystem32SlashString);

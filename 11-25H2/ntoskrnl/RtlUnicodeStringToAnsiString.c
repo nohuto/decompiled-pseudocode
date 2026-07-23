@@ -42,7 +42,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   wchar_t *v15; // r14
   unsigned int v16; // edi
   char *v17; // rbx
-  struct _CPTABLEINFO *p_Blink; // rax
+  _CPTABLEINFO *p_Blink; // rax
   ULONG v19; // esi
   int v20; // r9d
   _WORD *v21; // r8
@@ -133,7 +133,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   else
   {
     _InterlockedOr(v29, 0);
-    p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
   }
   v37 = v15;
   v32 = v16;

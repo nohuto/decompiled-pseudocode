@@ -1,24 +1,24 @@
 /*
- * XREFs of KeFlushSingleCurrentTb @ 0x14038CC20
+ * XREFs of KeFlushSingleCurrentTb @ 0x14038CE00
  * Callers:
- *     MiDbgReleaseAddress @ 0x14038C960 (MiDbgReleaseAddress.c)
- *     MiDbgWriteCheck @ 0x14038CA24 (MiDbgWriteCheck.c)
- *     MiStackTheftIsr @ 0x14062D460 (MiStackTheftIsr.c)
- *     MiDbgTranslatePhysicalAddress @ 0x140643EF8 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x140644260 (MiDbgUnTranslatePhysicalAddress.c)
- *     MmReadProcessPageTables @ 0x140645810 (MmReadProcessPageTables.c)
- *     MmInvalidateDumpAddresses @ 0x140AACFD0 (MmInvalidateDumpAddresses.c)
+ *     MiDbgReleaseAddress @ 0x14038CB40 (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x14038CC04 (MiDbgWriteCheck.c)
+ *     MiStackTheftIsr @ 0x14062D9B0 (MiStackTheftIsr.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140644448 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1406447B0 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MmReadProcessPageTables @ 0x140645D60 (MmReadProcessPageTables.c)
+ *     MmInvalidateDumpAddresses @ 0x140AACE40 (MmInvalidateDumpAddresses.c)
  * Callees:
- *     KiIsSecureProcessFlush @ 0x1402EB260 (KiIsSecureProcessFlush.c)
- *     HvlFlushRangeListTb @ 0x1403CBDAC (HvlFlushRangeListTb.c)
- *     KiPrepareFlushParameters @ 0x1403CEA4C (KiPrepareFlushParameters.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x140420160 (KiSetUserTbFlushPending.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VmFlushTb @ 0x1404664EC (VmFlushTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiPrepareFlushCurrentAffinity @ 0x140572114 (KiPrepareFlushCurrentAffinity.c)
- *     ExFlushTb @ 0x14060D018 (ExFlushTb.c)
+ *     KiIsSecureProcessFlush @ 0x1402EB4F0 (KiIsSecureProcessFlush.c)
+ *     HvlFlushRangeListTb @ 0x1403CBF8C (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x1403CEC2C (KiPrepareFlushParameters.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetUserTbFlushPending @ 0x1404204F0 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VmFlushTb @ 0x1404668EC (VmFlushTb.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140572654 (KiPrepareFlushCurrentAffinity.c)
+ *     ExFlushTb @ 0x14060D568 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushSingleCurrentTb(unsigned __int64 a1, unsigned int a2)
@@ -106,7 +106,7 @@ LABEL_8:
     v23 = v9;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -116,10 +116,10 @@ LABEL_8:
       SchedulerAssist[5] |= v16;
     }
     ExFlushTb(1LL, &v23, a2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v19 = CurrentPrcb->SchedulerAssist;

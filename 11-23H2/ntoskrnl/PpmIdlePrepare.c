@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdlePrepare @ 0x1402C2330
+ * XREFs of PpmIdlePrepare @ 0x1402C25C0
  * Callers:
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     PpmComputeIdleDurationHint @ 0x1402C1F78 (PpmComputeIdleDurationHint.c)
- *     PpmIdleEvaluateConstraints @ 0x1402C2488 (PpmIdleEvaluateConstraints.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     PpmComputeIdleDurationHint @ 0x1402C2208 (PpmComputeIdleDurationHint.c)
+ *     PpmIdleEvaluateConstraints @ 0x1402C2718 (PpmIdleEvaluateConstraints.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmIdlePrepare(

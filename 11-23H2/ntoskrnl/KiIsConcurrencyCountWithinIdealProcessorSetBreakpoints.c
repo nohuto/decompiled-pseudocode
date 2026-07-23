@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints @ 0x1402BE050
+ * XREFs of KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints @ 0x1402BE2E0
  * Callers:
- *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BDFB4 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BE244 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
  * Callees:
  *     <none>
  */

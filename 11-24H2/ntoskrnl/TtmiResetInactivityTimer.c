@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiResetInactivityTimer @ 0x14076FA90
+ * XREFs of TtmiResetInactivityTimer @ 0x14076FCB0
  * Callers:
- *     TtmiResetTerminalTimeouts @ 0x14076FB30 (TtmiResetTerminalTimeouts.c)
- *     TtmpUpdateTerminalState @ 0x140770570 (TtmpUpdateTerminalState.c)
- *     TtmpWnfInactivityTimeoutCallback @ 0x140770730 (TtmpWnfInactivityTimeoutCallback.c)
+ *     TtmiResetTerminalTimeouts @ 0x14076FD50 (TtmiResetTerminalTimeouts.c)
+ *     TtmpUpdateTerminalState @ 0x140770790 (TtmpUpdateTerminalState.c)
+ *     TtmpWnfInactivityTimeoutCallback @ 0x140770950 (TtmpWnfInactivityTimeoutCallback.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     TtmiLogInactivityTimerReset @ 0x14076D10C (TtmiLogInactivityTimerReset.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     TtmiLogInactivityTimerReset @ 0x14076D32C (TtmiLogInactivityTimerReset.c)
  */
 
 void __fastcall TtmiResetInactivityTimer(int a1)

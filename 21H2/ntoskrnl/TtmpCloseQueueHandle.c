@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpCloseQueueHandle @ 0x140905880
+ * XREFs of TtmpCloseQueueHandle @ 0x1409059E0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     TtmiLogQueueHandleClosed @ 0x1409035CC (TtmiLogQueueHandleClosed.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     TtmiLogQueueHandleClosed @ 0x14090372C (TtmiLogQueueHandleClosed.c)
  */
 
 void __fastcall TtmpCloseQueueHandle(struct _KPROCESS *a1)

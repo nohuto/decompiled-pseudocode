@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlAreBitsSetEx @ 0x140463CE0
+ * XREFs of RtlAreBitsSetEx @ 0x1404640E0
  * Callers:
- *     MiPatchDataPagesCallback @ 0x140A3A730 (MiPatchDataPagesCallback.c)
+ *     MiPatchDataPagesCallback @ 0x140A3A9E0 (MiPatchDataPagesCallback.c)
  * Callees:
  *     <none>
  */

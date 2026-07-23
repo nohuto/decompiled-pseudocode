@@ -1,23 +1,23 @@
 /*
- * XREFs of HalSocRequestApi @ 0x1404EF27C
+ * XREFs of HalSocRequestApi @ 0x1404E885C
  * Callers:
- *     HalpApicSetupRegisterAccess @ 0x1405913A8 (HalpApicSetupRegisterAccess.c)
- *     HalpHvCounterUpdateCallback @ 0x140597150 (HalpHvCounterUpdateCallback.c)
- *     HalpHvDiscover @ 0x140597190 (HalpHvDiscover.c)
- *     HalpHvTimerInitialize @ 0x140597300 (HalpHvTimerInitialize.c)
- *     HalpApicTimerDiscover @ 0x140598E58 (HalpApicTimerDiscover.c)
- *     HalpApicTimerIsInvariant @ 0x14059905C (HalpApicTimerIsInvariant.c)
- *     HalpTscDiscover @ 0x140599198 (HalpTscDiscover.c)
- *     HalpTscGetAttributes @ 0x1405992E4 (HalpTscGetAttributes.c)
- *     HalpApicGetCpuInfo @ 0x1405A1604 (HalpApicGetCpuInfo.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405AEAE8 (HalpIvtProcessDrhdEntry.c)
- *     IvtInitializeIommu @ 0x140BEFC90 (IvtInitializeIommu.c)
- *     HsaInitializeIommu @ 0x140BF0BE0 (HsaInitializeIommu.c)
+ *     HalpApicSetupRegisterAccess @ 0x140593B28 (HalpApicSetupRegisterAccess.c)
+ *     HalpHvCounterUpdateCallback @ 0x1405998D0 (HalpHvCounterUpdateCallback.c)
+ *     HalpHvDiscover @ 0x140599910 (HalpHvDiscover.c)
+ *     HalpHvTimerInitialize @ 0x140599A80 (HalpHvTimerInitialize.c)
+ *     HalpApicTimerDiscover @ 0x14059B5D8 (HalpApicTimerDiscover.c)
+ *     HalpApicTimerIsInvariant @ 0x14059B7DC (HalpApicTimerIsInvariant.c)
+ *     HalpTscDiscover @ 0x14059B918 (HalpTscDiscover.c)
+ *     HalpTscGetAttributes @ 0x14059BA64 (HalpTscGetAttributes.c)
+ *     HalpApicGetCpuInfo @ 0x1405A3E14 (HalpApicGetCpuInfo.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1405B12F8 (HalpIvtProcessDrhdEntry.c)
+ *     IvtInitializeIommu @ 0x140BF5C90 (IvtInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x140BF6BE0 (HsaInitializeIommu.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpHvIsFrequencyAvailable @ 0x1405850F8 (HalpHvIsFrequencyAvailable.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpHvIsFrequencyAvailable @ 0x140587618 (HalpHvIsFrequencyAvailable.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, void *a5)
@@ -63,7 +63,7 @@ __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, 
       if ( !(_DWORD)v16 )
       {
         v11 = (__int64 (__fastcall **)())&v26;
-        v26 = xmmword_140FBB028;
+        v26 = xmmword_140FBB3C8;
         v8 = &HalpTimerHvApicCallbackList;
         v9 = 1;
         goto LABEL_3;
@@ -88,7 +88,7 @@ __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, 
       if ( (_RAX & 2) != 0 )
       {
         v11 = (__int64 (__fastcall **)())&HalpTimerHypervisorReferenceTime;
-        HalpTimerHypervisorReferenceTime = qword_140FBB048;
+        HalpTimerHypervisorReferenceTime = qword_140FBB3E8;
         v8 = (__int64 *)&HalpTimerHvReferenceCallbackList;
         v12 = 8;
         v9 = 1;

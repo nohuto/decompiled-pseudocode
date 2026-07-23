@@ -1,18 +1,17 @@
 /*
- * XREFs of ExIsFastResourceHeldExclusive @ 0x1403436B0
+ * XREFs of ExIsFastResourceHeldExclusive @ 0x140322B90
  * Callers:
- *     SepMandatoryIntegrityCheck @ 0x140259F30 (SepMandatoryIntegrityCheck.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x140343740 (ExEnterCriticalRegionAndAcquireResourceShared.c)
- *     SeSecurityAttributePresent @ 0x1403438C0 (SeSecurityAttributePresent.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140343AD0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     SepAcquireOrderedReadLocks @ 0x140343E00 (SepAcquireOrderedReadLocks.c)
- *     SepCanTokenMatchAllPackageSid @ 0x1403440B0 (SepCanTokenMatchAllPackageSid.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1403DCC68 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
- *     DifExIsFastResourceHeldExclusiveWrapper @ 0x14061F390 (DifExIsFastResourceHeldExclusiveWrapper.c)
+ *     SepMandatoryIntegrityCheck @ 0x14028A540 (SepMandatoryIntegrityCheck.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x140322C20 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     SeSecurityAttributePresent @ 0x140322DA0 (SeSecurityAttributePresent.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140322FB0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     SepAcquireOrderedReadLocks @ 0x1403232E0 (SepAcquireOrderedReadLocks.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x140323590 (SepCanTokenMatchAllPackageSid.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1403BC958 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     DifExIsFastResourceHeldExclusiveWrapper @ 0x14061D950 (DifExIsFastResourceHeldExclusiveWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExIsFastResourceHeldExclusive(ULONG_PTR BugCheckParameter2)

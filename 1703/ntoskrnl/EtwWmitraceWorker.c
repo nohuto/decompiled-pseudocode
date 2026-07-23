@@ -29,7 +29,7 @@ void EtwWmitraceWorker()
   int v6; // eax
   int started; // eax
   PVOID Object; // [rsp+48h] [rbp-C0h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
   _BYTE v10[48]; // [rsp+68h] [rbp-A0h] BYREF
   int v11; // [rsp+98h] [rbp-70h]
   int v12; // [rsp+9Ch] [rbp-6Ch]

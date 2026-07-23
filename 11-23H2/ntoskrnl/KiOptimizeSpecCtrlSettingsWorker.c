@@ -1,25 +1,25 @@
 /*
- * XREFs of KiOptimizeSpecCtrlSettingsWorker @ 0x140381840
+ * XREFs of KiOptimizeSpecCtrlSettingsWorker @ 0x1403819E0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KiUpdateSpeculationControl @ 0x140325BC0 (KiUpdateSpeculationControl.c)
- *     KeExitRetpoline @ 0x14034C0DC (KeExitRetpoline.c)
- *     KiIsBranchConfusionPresent @ 0x1403827A4 (KiIsBranchConfusionPresent.c)
- *     KiIsRfdsMitigationDesired @ 0x140410A5C (KiIsRfdsMitigationDesired.c)
- *     KiIsRfdsMitigationSupported @ 0x140410A74 (KiIsRfdsMitigationSupported.c)
- *     KiIsSrsoMitigationDesired @ 0x140410AB0 (KiIsSrsoMitigationDesired.c)
- *     KiIsSrsoMitigationSupported @ 0x140410B58 (KiIsSrsoMitigationSupported.c)
- *     KiIsTsaMitigationDesired @ 0x140410B94 (KiIsTsaMitigationDesired.c)
- *     KiIsTsaMitigationSupported @ 0x140410BB0 (KiIsTsaMitigationSupported.c)
- *     KiSetVirtualMitigationControl @ 0x140410C90 (KiSetVirtualMitigationControl.c)
- *     HvlIsCoreSharingPossible @ 0x14053F880 (HvlIsCoreSharingPossible.c)
- *     HvlIsStibpPairingRecommended @ 0x14053F900 (HvlIsStibpPairingRecommended.c)
- *     KiDetectAmdNonArchSsbdSupport @ 0x140573C18 (KiDetectAmdNonArchSsbdSupport.c)
- *     KiIsBranchConfusionMitigationDesired @ 0x140573D00 (KiIsBranchConfusionMitigationDesired.c)
- *     KiIsBranchConfusionMitigationSupported @ 0x140573D40 (KiIsBranchConfusionMitigationSupported.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KiUpdateSpeculationControl @ 0x140325E50 (KiUpdateSpeculationControl.c)
+ *     KeExitRetpoline @ 0x14034C27C (KeExitRetpoline.c)
+ *     KiIsBranchConfusionPresent @ 0x140382944 (KiIsBranchConfusionPresent.c)
+ *     KiIsRfdsMitigationDesired @ 0x140410CBC (KiIsRfdsMitigationDesired.c)
+ *     KiIsRfdsMitigationSupported @ 0x140410CD4 (KiIsRfdsMitigationSupported.c)
+ *     KiIsSrsoMitigationDesired @ 0x140410D10 (KiIsSrsoMitigationDesired.c)
+ *     KiIsSrsoMitigationSupported @ 0x140410DB8 (KiIsSrsoMitigationSupported.c)
+ *     KiIsTsaMitigationDesired @ 0x140410DF4 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x140410E10 (KiIsTsaMitigationSupported.c)
+ *     KiSetVirtualMitigationControl @ 0x140410EF0 (KiSetVirtualMitigationControl.c)
+ *     HvlIsCoreSharingPossible @ 0x14053FF40 (HvlIsCoreSharingPossible.c)
+ *     HvlIsStibpPairingRecommended @ 0x14053FFC0 (HvlIsStibpPairingRecommended.c)
+ *     KiDetectAmdNonArchSsbdSupport @ 0x140574158 (KiDetectAmdNonArchSsbdSupport.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x140574240 (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x140574280 (KiIsBranchConfusionMitigationSupported.c)
  */
 
 ULONG_PTR __fastcall KiOptimizeSpecCtrlSettingsWorker(ULONG_PTR Argument)

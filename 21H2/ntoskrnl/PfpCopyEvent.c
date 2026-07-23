@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpCopyEvent @ 0x1406CA480
+ * XREFs of PfpCopyEvent @ 0x140678D70
  * Callers:
- *     PfpFlushEventBuffers @ 0x1406CA380 (PfpFlushEventBuffers.c)
- *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
+ *     PfpFlushEventBuffers @ 0x140678C70 (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x140678FB0 (PfpFlushBuffers.c)
  * Callees:
- *     PfpIsProcessInfoPresent @ 0x1402D4668 (PfpIsProcessInfoPresent.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     PfpLogPageAccess @ 0x1406CAA60 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x1406CB0B0 (PfTAcquireLogEntry.c)
+ *     PfpIsProcessInfoPresent @ 0x140273348 (PfpIsProcessInfoPresent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PfpLogPageAccess @ 0x140679350 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x1406799A0 (PfTAcquireLogEntry.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
  */
 
 __int64 __fastcall PfpCopyEvent(__int64 *Src)
@@ -39,7 +39,7 @@ __int64 __fastcall PfpCopyEvent(__int64 *Src)
   if ( (v2 & 0x1F000) != 0xA000LL )
   {
     v13 = (v1 >> 2) & 0x3FF;
-    v14 = PfTAcquireLogEntry(&unk_140C4FBD8, &v18, v13);
+    v14 = PfTAcquireLogEntry(&unk_140C4FC18, &v18, v13);
     if ( !v14 )
       return 3221225626LL;
     memmove((void *)(((v14 + 31) & 0xFFFFFFFFFFFFFFF8uLL) + 16LL * (unsigned int)v18), Src, (unsigned int)(16 * v13));
@@ -62,8 +62,8 @@ __int64 __fastcall PfpCopyEvent(__int64 *Src)
   v10 = PfpLogPageAccess(v8, (unsigned int)&v18, (unsigned int)&v17, (int)Src + 24, 1);
   if ( !v10 )
     return 3221225864LL;
-  v11 = ((qword_140C4FC18 + 47) & 0xFFFFFFFFFFFFFFF8uLL)
-      + 40LL * (*(unsigned __int16 *)(v10 + 10) - (unsigned int)*(unsigned __int16 *)(qword_140C4FC18 + 36));
+  v11 = ((qword_140C4FC58 + 47) & 0xFFFFFFFFFFFFFFF8uLL)
+      + 40LL * (*(unsigned __int16 *)(v10 + 10) - (unsigned int)*(unsigned __int16 *)(qword_140C4FC58 + 36));
   if ( (*(_BYTE *)(v11 + 8) & 4) == 0 || PsLookupProcessByProcessId((HANDLE)*((unsigned int *)Src + 13), &Process) < 0 )
     return 0LL;
   v15 = Process;

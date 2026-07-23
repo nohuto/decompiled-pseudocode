@@ -21,7 +21,7 @@
  *     BgDisplayProgressIndicator @ 0x140BA0628 (BgDisplayProgressIndicator.c)
  */
 
-__int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD *a2, int a3, char a4, __int64 a5)
+__int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, __int64 a2, int a3, char a4, __int64 a5)
 {
   int *ProducerConsumerBuffer; // r12
   unsigned int v9; // esi
@@ -41,7 +41,7 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
   __int64 v23; // r10
   unsigned __int64 v24; // rcx
   unsigned __int64 v25; // rcx
-  unsigned int v26; // edi
+  ULONG v26; // edi
   unsigned int v27; // ecx
   unsigned __int64 v28; // rdi
   __int64 v29; // r9
@@ -58,7 +58,7 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
   int v40; // eax
   _BOOL8 v41; // rcx
   unsigned __int64 v42; // rdx
-  int v45; // [rsp+54h] [rbp-ACh] BYREF
+  ULONG FinalUncompressedSize; // [rsp+54h] [rbp-ACh] BYREF
   unsigned int v46; // [rsp+58h] [rbp-A8h] BYREF
   _DWORD *v47; // [rsp+60h] [rbp-A0h]
   unsigned __int64 v48; // [rsp+68h] [rbp-98h]
@@ -71,9 +71,9 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
   __int64 v55; // [rsp+A0h] [rbp-60h] BYREF
   __int16 v56; // [rsp+A8h] [rbp-58h]
   __int16 v57; // [rsp+AAh] [rbp-56h]
-  __int64 v58; // [rsp+B8h] [rbp-48h]
+  PUCHAR UncompressedBuffer; // [rsp+B8h] [rbp-48h]
   __int64 v59; // [rsp+C0h] [rbp-40h]
-  unsigned int v60; // [rsp+C8h] [rbp-38h]
+  ULONG v60; // [rsp+C8h] [rbp-38h]
   int v61; // [rsp+CCh] [rbp-34h]
   char v62; // [rsp+D0h] [rbp-30h] BYREF
   char v63; // [rsp+150h] [rbp+50h] BYREF
@@ -84,7 +84,7 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
   v9 = 0;
   v49 = 0;
   v52 = 0LL;
-  v45 = 0;
+  FinalUncompressedSize = 0;
   v47 = qword_140F0AE08;
   while ( 1 )
   {
@@ -107,7 +107,7 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
       qword_140F0B248 += (((unsigned __int64)HIDWORD(v13) << 32) | (unsigned int)v13) - v12;
     }
     v46 = 4;
-    v14 = ConsumerPeekAndConsumeBuffer((_DWORD)ProducerConsumerBuffer, (unsigned int)&v46, a3, v10, (__int64)a2);
+    v14 = ConsumerPeekAndConsumeBuffer((_DWORD)ProducerConsumerBuffer, (unsigned int)&v46, a3, v10, a2);
     v15 = v14;
     if ( !v14 )
       break;
@@ -116,10 +116,10 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
                                       4,
                                       (unsigned int)&v49,
                                       (_DWORD)ProducerConsumerBuffer,
-                                      (__int64)a2,
+                                      a2,
                                       1);
     v16 = 8 * (unsigned __int8)*ProducerConsumerBuffer;
-    v17 = PopReadProducerConsumerBuffer((int)v15 + 4, v16, (unsigned int)&v63, (_DWORD)v47, (__int64)a2, 1);
+    v17 = PopReadProducerConsumerBuffer((int)v15 + 4, v16, (unsigned int)&v63, (_DWORD)v47, a2, 1);
     v19 = &v62;
     v20 = (_QWORD *)v17;
     v21 = *ProducerConsumerBuffer;
@@ -149,7 +149,7 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
       PopInternalAddToDumpFile(BugCheckParameter3, 0x1F0u, 0LL);
       KeBugCheckEx(0xA0u, 0x107uLL, 0xAuLL, BugCheckParameter3, 0LL);
     }
-    v25 = a2[1];
+    v25 = *(_QWORD *)(a2 + 8);
     v26 = (_DWORD)v22 << 12;
     v54 = v26;
     v55 = 0LL;
@@ -165,23 +165,23 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
     if ( v27 == v26 )
     {
       ProducerConsumerBuffer = v47;
-      ProducerConsumerCopyFromContextBuffer(v58, v26, v47, v48);
-      a2[9] = __rdtsc() + a2[9] - v51;
+      ProducerConsumerCopyFromContextBuffer(UncompressedBuffer, v26, v47, v48);
+      *(_QWORD *)(a2 + 72) = __rdtsc() + *(_QWORD *)(a2 + 72) - v51;
       v28 = __rdtsc();
       ProducerConsumerBufferComplete(ProducerConsumerBuffer, ProducerConsumerBuffer + 12, v15, v46);
-      a2[10] = __rdtsc() + a2[10] - v28;
+      *(_QWORD *)(a2 + 80) = __rdtsc() + *(_QWORD *)(a2 + 80) - v28;
     }
     else
     {
-      ProducerConsumerCopyFromContextBuffer(a2[3], v27, v47, v48);
+      ProducerConsumerCopyFromContextBuffer(*(_QWORD *)(a2 + 24), v27, v47, v48);
       v29 = v46;
       v30 = v53;
       v48 = __rdtsc();
       v31 = v47;
-      a2[9] = v48 + a2[9] - v51;
+      *(_QWORD *)(a2 + 72) = v48 + *(_QWORD *)(a2 + 72) - v51;
       ProducerConsumerBufferComplete(v31, v30, v15, v29);
       v32 = v50;
-      a2[10] = __rdtsc() + a2[10] - v48;
+      *(_QWORD *)(a2 + 80) = __rdtsc() + *(_QWORD *)(a2 + 80) - v48;
       if ( v32 )
       {
         guard_dispatch_icall_no_overrides(BugCheckParameter3);
@@ -193,41 +193,42 @@ __int64 __fastcall PopDecompressHiberBlocks(ULONG_PTR BugCheckParameter3, _QWORD
       if ( *(_BYTE *)(BugCheckParameter3 + 486) && ((v35 = (unsigned int)v33 >> 29) == 0 || v35 == 1 || v35 == 4) )
         v36 = RtlDecompressBufferEx(
                 *((_WORD *)qword_1400289B0 + (v33 >> 29)),
-                v58,
+                UncompressedBuffer,
                 v26,
-                a2[3],
+                *(PUCHAR *)(a2 + 24),
                 ((unsigned int)v33 >> 8) & 0x1FFFFF,
-                (__int64)&v45);
+                &FinalUncompressedSize,
+                *(PVOID *)(a2 + 16));
       else
         v36 = RtlDecompressBufferProgress(
                 *((_WORD *)qword_1400289B0 + (v33 >> 29)),
-                v58,
+                (int)UncompressedBuffer,
                 v26,
-                a2[3],
+                *(_QWORD *)(a2 + 24),
                 ((unsigned int)v33 >> 8) & 0x1FFFFF,
-                (__int64)&v45,
-                a2[2],
+                (__int64)&FinalUncompressedSize,
+                *(_QWORD *)(a2 + 16),
                 v32,
                 BugCheckParameter3);
       v37 = v36;
       v38 = __rdtsc();
-      if ( v37 < 0 || v45 != v26 )
+      if ( v37 < 0 || FinalUncompressedSize != v26 )
       {
         *(_DWORD *)(BugCheckParameter3 + 204) = -1073741246;
         PopCheckpointSystemSleep(31LL);
         PopInternalAddToDumpFile(BugCheckParameter3, 0x1F0u, 0LL);
         KeBugCheckEx(0xA0u, 0x107uLL, 0xAuLL, BugCheckParameter3, 0LL);
       }
-      v39 = v38 + a2[8] - v34;
-      a2[8] = v39;
+      v39 = v38 + *(_QWORD *)(a2 + 64) - v34;
+      *(_QWORD *)(a2 + 64) = v39;
       if ( v50 )
-        a2[8] = v52 + v39 - qword_140F0B238;
+        *(_QWORD *)(a2 + 64) = v52 + v39 - qword_140F0B238;
       v40 = *ProducerConsumerBuffer;
       LODWORD(ProducerConsumerBuffer) = (_DWORD)v47;
       v41 = (v40 & 0xE0000000) >= 0x40000000;
       v42 = v38 - v48;
-      a2[v41 + 18] += v54;
-      a2[v41 + 16] += v42;
+      *(_QWORD *)(a2 + 8 * v41 + 144) += v54;
+      *(_QWORD *)(a2 + 8 * v41 + 128) += v42;
     }
     if ( !a4 )
       return v9;

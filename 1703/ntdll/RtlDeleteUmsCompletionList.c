@@ -7,15 +7,15 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-__int64 __fastcall RtlDeleteUmsCompletionList(unsigned __int64 a1)
+__int64 __fastcall RtlDeleteUmsCompletionList(HANDLE *BaseAddress)
 {
   __int64 result; // rax
 
   result = 3221225485LL;
-  if ( a1 )
+  if ( BaseAddress )
   {
-    ZwClose();
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    ZwClose(BaseAddress[1]);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     return 0LL;
   }
   return result;

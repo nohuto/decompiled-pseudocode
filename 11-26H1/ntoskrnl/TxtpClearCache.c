@@ -1,9 +1,9 @@
 /*
- * XREFs of TxtpClearCache @ 0x140C52AD4
+ * XREFs of TxtpClearCache @ 0x140C58AD4
  * Callers:
- *     BgpTxtCacheDestroy @ 0x140C52AAC (BgpTxtCacheDestroy.c)
+ *     BgpTxtCacheDestroy @ 0x140C58AAC (BgpTxtCacheDestroy.c)
  * Callees:
- *     TxtpDestroyCacheEntry @ 0x140C52B30 (TxtpDestroyCacheEntry.c)
+ *     TxtpDestroyCacheEntry @ 0x140C58B30 (TxtpDestroyCacheEntry.c)
  */
 
 _UNKNOWN **TxtpClearCache()

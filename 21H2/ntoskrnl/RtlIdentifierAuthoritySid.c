@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIdentifierAuthoritySid @ 0x1405DC248
+ * XREFs of RtlIdentifierAuthoritySid @ 0x1406CB9C8
  * Callers:
- *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x1402A6428 (SepCreateTokenEx.c)
  * Callees:
  *     <none>
  */

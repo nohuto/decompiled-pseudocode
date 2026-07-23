@@ -1,14 +1,14 @@
 /*
- * XREFs of _ResCDupString @ 0x180103814
+ * XREFs of _ResCDupString @ 0x180103754
  * Callers:
- *     ResCKeOpenRuntimeView @ 0x18005A014 (ResCKeOpenRuntimeView.c)
+ *     ResCKeOpenRuntimeView @ 0x18005A004 (ResCKeOpenRuntimeView.c)
  *     ResCKeCreateRuntimeView @ 0x1800FF07C (ResCKeCreateRuntimeView.c)
- *     ResCSegmentCreateMapping @ 0x180100284 (ResCSegmentCreateMapping.c)
- *     ResCCreateCultureMap @ 0x180105644 (ResCCreateCultureMap.c)
- *     ResCLoadCultureMap @ 0x180105A7C (ResCLoadCultureMap.c)
+ *     ResCSegmentCreateMapping @ 0x1801001BC (ResCSegmentCreateMapping.c)
+ *     ResCCreateCultureMap @ 0x180105584 (ResCCreateCultureMap.c)
+ *     ResCLoadCultureMap @ 0x1801059BC (ResCLoadCultureMap.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -31,10 +31,10 @@ char *__fastcall ResCDupString(_WORD *Src)
   }
   if ( i >= 260 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
-  Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 2LL * (i + 1));
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 2LL * (i + 1));
   if ( !Heap )
     return 0LL;
   v6 = 2LL * i;

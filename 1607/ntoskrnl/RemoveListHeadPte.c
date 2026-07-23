@@ -1,15 +1,15 @@
 /*
- * XREFs of RemoveListHeadPte @ 0x14001BEFC
+ * XREFs of RemoveListHeadPte @ 0x14001BA7C
  * Callers:
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
- *     MmAllocateSpecialPool @ 0x1401EBAE0 (MmAllocateSpecialPool.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
+ *     MmAllocateSpecialPool @ 0x1401EB90C (MmAllocateSpecialPool.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
- *     MiMakeLinkedListPte @ 0x1401F2740 (MiMakeLinkedListPte.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
+ *     MiMakeLinkedListPte @ 0x1401F256C (MiMakeLinkedListPte.c)
  */
 
 __int64 __fastcall RemoveListHeadPte(_QWORD *a1)

@@ -9,37 +9,37 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002A460 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpVirtLargeTreeInsertNode(unsigned __int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpVirtLargeTreeInsertNode(PRTL_BALANCED_NODE Node)
 {
-  _QWORD *v5; // rdx
-  bool v6; // al
-  _QWORD *v7; // rcx
+  _RTL_BALANCED_NODE *Root; // rdx
+  BOOLEAN v3; // al
+  _RTL_BALANCED_NODE *v4; // rcx
 
-  RtlAcquireSRWLockExclusive(&qword_180144860, a2, a3, a4);
-  v5 = (_QWORD *)xmmword_180144868;
-  v6 = 0;
-  if ( (_QWORD)xmmword_180144868 )
+  RtlAcquireSRWLockExclusive(&stru_180144860);
+  Root = Parent.Root;
+  v3 = 0;
+  if ( Parent.Root )
   {
     while ( 1 )
     {
-      if ( v5[3] >= *(_QWORD *)(a1 + 24) )
+      if ( Root[1].Children[0] >= Node[1].Children[0] )
       {
-        v7 = (_QWORD *)v5[1];
-        if ( !v7 )
+        v4 = Root->Children[1];
+        if ( !v4 )
         {
-          v6 = 1;
+          v3 = 1;
           break;
         }
       }
       else
       {
-        v7 = (_QWORD *)*v5;
-        if ( !*v5 )
+        v4 = Root->Children[0];
+        if ( !Root->Children[0] )
           break;
       }
-      v5 = v7;
+      Root = v4;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&xmmword_180144868, (unsigned __int64)v5, v6, a1);
-  return RtlReleaseSRWLockExclusive(&qword_180144860);
+  RtlRbInsertNodeEx(&Parent, Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&stru_180144860);
 }

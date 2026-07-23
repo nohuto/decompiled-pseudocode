@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMapViewInSystemSpace @ 0x1405A23A0
+ * XREFs of MmMapViewInSystemSpace @ 0x1405A33A0
  * Callers:
- *     LdrpMapResourceFile @ 0x140176BFC (LdrpMapResourceFile.c)
- *     ExUpdateLicenseDataInternal @ 0x1405A0AD0 (ExUpdateLicenseDataInternal.c)
- *     KsepShimDbMapToMemory @ 0x1405A2050 (KsepShimDbMapToMemory.c)
- *     NtGetNlsSectionPtr @ 0x1406C4DE0 (NtGetNlsSectionPtr.c)
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
- *     ExInitializeLeapSecondData @ 0x140733FC0 (ExInitializeLeapSecondData.c)
- *     EtwpCoverageEnsureContext @ 0x14075B044 (EtwpCoverageEnsureContext.c)
- *     PspApiSetCopyToSystemSpace @ 0x140886A98 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x140887B38 (PspSiloInitializeUserSharedData.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x1408C89B0 (EtwpCoverageSamplerSetBloomFilter.c)
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     MiInitializeApiSets @ 0x1409BCEBC (MiInitializeApiSets.c)
+ *     LdrpMapResourceFile @ 0x140176CFC (LdrpMapResourceFile.c)
+ *     ExUpdateLicenseDataInternal @ 0x1405A1AD0 (ExUpdateLicenseDataInternal.c)
+ *     KsepShimDbMapToMemory @ 0x1405A3050 (KsepShimDbMapToMemory.c)
+ *     NtGetNlsSectionPtr @ 0x1406C6080 (NtGetNlsSectionPtr.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
+ *     ExInitializeLeapSecondData @ 0x1407351B0 (ExInitializeLeapSecondData.c)
+ *     EtwpCoverageEnsureContext @ 0x14075C234 (EtwpCoverageEnsureContext.c)
+ *     PspApiSetCopyToSystemSpace @ 0x140887CF8 (PspApiSetCopyToSystemSpace.c)
+ *     PspSiloInitializeUserSharedData @ 0x140888D98 (PspSiloInitializeUserSharedData.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x1408C9C70 (EtwpCoverageSamplerSetBloomFilter.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     MiInitializeApiSets @ 0x1409BDEBC (MiInitializeApiSets.c)
  * Callees:
- *     MiMapViewInSystemSpace @ 0x1405DF3F4 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x1405E03F4 (MiMapViewInSystemSpace.c)
  */
 
 NTSTATUS __stdcall MmMapViewInSystemSpace(PVOID Section, PVOID *MappedBase, PSIZE_T ViewSize)
@@ -24,7 +24,7 @@ NTSTATUS __stdcall MmMapViewInSystemSpace(PVOID Section, PVOID *MappedBase, PSIZ
   v4 = 0LL;
   return MiMapViewInSystemSpace(
            (_DWORD)Section,
-           (unsigned int)&unk_140438F40,
+           (unsigned int)&unk_14043A000,
            (_DWORD)MappedBase,
            (_DWORD)ViewSize,
            (__int64)&v4,

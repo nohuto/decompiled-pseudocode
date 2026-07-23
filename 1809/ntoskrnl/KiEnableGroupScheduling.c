@@ -1,12 +1,12 @@
 /*
- * XREFs of KiEnableGroupScheduling @ 0x1401912D8
+ * XREFs of KiEnableGroupScheduling @ 0x140191418
  * Callers:
- *     KeInsertSchedulingGroup @ 0x1401159F0 (KeInsertSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x140115A60 (KeInsertSchedulingGroup.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1401913B8 (KeUpdateGroupSchedulingConstants.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1401914F8 (KeUpdateGroupSchedulingConstants.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiEnableGroupScheduling()
@@ -24,7 +24,7 @@ __int64 KiEnableGroupScheduling()
   if ( !KiGroupSchedulingEnabled )
   {
     LOBYTE(v0) = 1;
-    qword_140421D38 = (__int64)&KiSchedulingGroupList;
+    qword_140422E08 = (__int64)&KiSchedulingGroupList;
     KiSchedulingGroupList = (__int64)&KiSchedulingGroupList;
     KeUpdateGroupSchedulingConstants(v0);
     KiGenerationEndTick = MEMORY[0xFFFFF78000000320] + (unsigned int)KiGenerationTicks;

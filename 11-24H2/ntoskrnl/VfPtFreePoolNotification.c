@@ -1,15 +1,14 @@
 /*
- * XREFs of VfPtFreePoolNotification @ 0x140BA96EC
+ * XREFs of VfPtFreePoolNotification @ 0x140BAB6EC
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExpFreePoolChecks @ 0x1402B0D90 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x14035B160 (ExpFreePoolChecks.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x140617E90 (DifObjTrkQeuryInvokeDeleteRange.c)
- *     DifNotifyPluginSystemEvent @ 0x1406189A8 (DifNotifyPluginSystemEvent.c)
- *     ViPtLogPoolTraceWrapper @ 0x140B82100 (ViPtLogPoolTraceWrapper.c)
- *     VfFreeMemoryNotification @ 0x140BA7A7C (VfFreeMemoryNotification.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x140616450 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifNotifyPluginSystemEvent @ 0x140616F68 (DifNotifyPluginSystemEvent.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140B84104 (ViPtLogPoolTraceWrapper.c)
+ *     VfFreeMemoryNotification @ 0x140BA9A7C (VfFreeMemoryNotification.c)
  */
 
 __int64 __fastcall VfPtFreePoolNotification(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)
@@ -27,7 +26,7 @@ __int64 __fastcall VfPtFreePoolNotification(unsigned __int64 a1, int a2, __int64
     v12 = 0;
     *(_QWORD *)&v10 = a4;
     *((_QWORD *)&v10 + 1) = a3;
-    DifNotifyPluginSystemEvent(1, &v10, a3, a4);
+    DifNotifyPluginSystemEvent(1, &v10);
     DifObjTrkQeuryInvokeDeleteRange(a1, a3, 0LL, 0);
     if ( (VfRuleClasses & 8) != 0 )
     {

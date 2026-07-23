@@ -1,16 +1,16 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x1407202C4
+ * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x140724EE4
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x1408A9C44 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x1408B00B4 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     LdrpOpenKey @ 0x1408063C8 (LdrpOpenKey.c)
- *     ValidateRegistrLangType @ 0x1408A963C (ValidateRegistrLangType.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     RtlpMuiRegAddLanguageByName @ 0x140B2DC3C (RtlpMuiRegAddLanguageByName.c)
- *     LdrpQueryValueKey @ 0x140B3C6C8 (LdrpQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     LdrpOpenKey @ 0x14080BE68 (LdrpOpenKey.c)
+ *     ValidateRegistrLangType @ 0x1408AFAAC (ValidateRegistrLangType.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x140B2FCBC (RtlpMuiRegAddLanguageByName.c)
+ *     LdrpQueryValueKey @ 0x140B3E948 (LdrpQueryValueKey.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(int a1)

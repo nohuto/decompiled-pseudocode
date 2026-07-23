@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlRemoveBaseMcbEntry @ 0x1403DF870
+ * XREFs of FsRtlRemoveBaseMcbEntry @ 0x1403BF560
  * Callers:
- *     FsRtlRemoveLargeMcbEntry @ 0x1403DF500 (FsRtlRemoveLargeMcbEntry.c)
+ *     FsRtlRemoveLargeMcbEntry @ 0x1403BF1F0 (FsRtlRemoveLargeMcbEntry.c)
  * Callees:
- *     FsRtlAddEntry @ 0x1403E0290 (FsRtlAddEntry.c)
- *     FsRtlRemoveLargeEntry @ 0x1403E0550 (FsRtlRemoveLargeEntry.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     FsRtlAddEntry @ 0x1403BFF80 (FsRtlAddEntry.c)
+ *     FsRtlRemoveLargeEntry @ 0x1403C0240 (FsRtlRemoveLargeEntry.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 BOOLEAN __stdcall FsRtlRemoveBaseMcbEntry(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG SectorCount)

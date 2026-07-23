@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpRpControlRequestReset @ 0x140B4463C
+ * XREFs of PfpRpControlRequestReset @ 0x1409BDEE4
  * Callers:
- *     PfpRpShutdown @ 0x1407C6CD0 (PfpRpShutdown.c)
- *     PfpRpControlRequestPerform @ 0x140B02FDC (PfpRpControlRequestPerform.c)
+ *     PfpRpShutdown @ 0x1407C9D30 (PfpRpShutdown.c)
+ *     PfpRpControlRequestPerform @ 0x140B04BF0 (PfpRpControlRequestPerform.c)
  * Callees:
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
- *     PfpRpCHashEmpty @ 0x140B44698 (PfpRpCHashEmpty.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
+ *     PfpRpCHashEmpty @ 0x1409BE290 (PfpRpCHashEmpty.c)
  */
 
 __int64 __fastcall PfpRpControlRequestReset(__int64 a1)

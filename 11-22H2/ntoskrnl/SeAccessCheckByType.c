@@ -111,225 +111,223 @@ __int64 __fastcall SeAccessCheckByType(
   unsigned __int8 v56; // dl
   __int64 v57; // rcx
   __int64 v58; // rsi
-  __int64 v59; // rdx
-  __int64 v60; // r8
-  char v61; // r12
-  __int64 v62; // rax
-  unsigned int v63; // ecx
-  __int64 v64; // r8
-  _DWORD *v65; // r9
-  struct _ERESOURCE *v66; // rcx
-  __int64 v67; // rsi
-  __int16 v68; // cx
-  __int64 v69; // rax
-  __int64 v70; // rax
+  char v59; // r12
+  __int64 v60; // rax
+  unsigned int v61; // ecx
+  __int64 v62; // r8
+  _DWORD *v63; // r9
+  struct _ERESOURCE *v64; // rcx
+  __int64 v65; // rsi
+  __int16 v66; // cx
+  __int64 v67; // rax
+  ACL *v68; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
-  __int64 v73; // rdx
-  unsigned int v74; // r14d
-  __int16 v75; // ax
-  __int64 v76; // rdx
-  __int64 v77; // rax
-  int v78; // eax
-  unsigned int v79; // ebx
-  PVOID v80; // r15
-  unsigned int v81; // ecx
-  unsigned int *v82; // rdx
-  _DWORD *v83; // r8
-  __int64 v84; // r13
-  __int64 v85; // r12
+  __int64 v71; // rdx
+  unsigned int v72; // r14d
+  __int16 v73; // ax
+  __int64 v74; // rdx
+  __int64 v75; // rax
+  int v76; // eax
+  unsigned int v77; // ebx
+  PVOID v78; // r15
+  unsigned int v79; // ecx
+  unsigned int *v80; // rdx
+  _DWORD *v81; // r8
+  __int64 v82; // r13
+  __int64 v83; // r12
   unsigned int *Pool2; // rax
-  unsigned int *v87; // rdx
-  __int64 v88; // r13
-  int *v89; // rax
-  char *v90; // r14
-  _DWORD *v91; // rax
-  int *v92; // rax
-  int v93; // r12d
-  char *v94; // r15
-  int v95; // r10d
-  unsigned int v96; // r13d
-  unsigned int v97; // ecx
-  __int64 v98; // rdx
+  unsigned int *v85; // rdx
+  __int64 v86; // r13
+  int *v87; // rax
+  char *v88; // r14
+  _DWORD *v89; // rax
+  int *v90; // rax
+  int v91; // r12d
+  char *v92; // r15
+  int v93; // r10d
+  unsigned int v94; // r13d
+  unsigned int v95; // ecx
+  __int64 v96; // rdx
   _DWORD *i; // rsi
-  __int64 v100; // rbx
-  PVOID v101; // r8
-  int v102; // eax
-  int v103; // edx
-  _QWORD *v104; // rax
-  __int64 v105; // r10
-  __int64 v106; // rdx
-  __int64 v107; // rcx
-  void *v108; // r9
-  int v109; // eax
-  int v110; // ecx
-  _QWORD *v111; // rax
-  __int64 v112; // r8
-  __int64 v113; // rdx
-  __int64 v114; // rcx
-  void *v115; // r9
-  unsigned int v116; // eax
-  unsigned int v117; // ecx
-  int *v118; // r12
-  PVOID v119; // rbx
-  ULONG_PTR v120; // r8
-  __int16 v121; // cx
-  __int16 v122; // ax
+  __int64 v98; // rbx
+  PVOID v99; // r8
+  int v100; // eax
+  int v101; // edx
+  _QWORD *v102; // rax
+  __int64 v103; // r10
+  __int64 v104; // rdx
+  __int64 v105; // rcx
+  void *v106; // r9
+  int v107; // eax
+  int v108; // ecx
+  _QWORD *v109; // rax
+  __int64 v110; // r8
+  __int64 v111; // rdx
+  __int64 v112; // rcx
+  void *v113; // r9
+  unsigned int v114; // eax
+  unsigned int v115; // ecx
+  int *v116; // r12
+  PVOID v117; // rbx
+  ULONG_PTR v118; // r8
+  __int16 v119; // cx
+  __int16 v120; // ax
+  unsigned __int8 v121; // al
+  struct _KTHREAD *v122; // rdx
   unsigned __int8 v123; // al
   struct _KTHREAD *v124; // rdx
-  unsigned __int8 v125; // al
-  struct _KTHREAD *v126; // rdx
-  int v127; // ebx
-  unsigned int v128; // r12d
-  unsigned int v129; // eax
-  unsigned int v130; // edx
-  __int64 v131; // rax
-  unsigned int v132; // r8d
-  unsigned int v133; // r9d
-  __m128i v134; // xmm1
-  unsigned int v135; // r10d
-  __int64 v136; // rax
-  __int64 v137; // rax
-  int v138; // r8d
-  int *v139; // rcx
-  __int64 v140; // rdx
-  unsigned int v141; // ecx
+  int v125; // ebx
+  unsigned int v126; // r12d
+  unsigned int v127; // eax
+  unsigned int v128; // edx
+  __int64 v129; // rax
+  unsigned int v130; // r8d
+  unsigned int v131; // r9d
+  __m128i v132; // xmm1
+  unsigned int v133; // r10d
+  __int64 v134; // rax
+  __int64 v135; // rax
+  int v136; // r8d
+  int *v137; // rcx
+  __int64 v138; // rdx
+  unsigned int v139; // ecx
   unsigned int j; // eax
-  __int64 v143; // rcx
-  struct _KTHREAD *v144; // rax
-  PERESOURCE *v145; // rbx
-  __int64 v146; // rcx
-  PVOID v147; // rdi
+  __int64 v141; // rcx
+  struct _KTHREAD *v142; // rax
+  PERESOURCE *v143; // rbx
+  __int64 v144; // rcx
+  PVOID v145; // rdi
   int Tag; // [rsp+20h] [rbp-2B8h]
   int Taga; // [rsp+20h] [rbp-2B8h]
   int Object; // [rsp+28h] [rbp-2B0h]
   int Objecta; // [rsp+28h] [rbp-2B0h]
   int Objectb; // [rsp+28h] [rbp-2B0h]
-  unsigned __int8 v153; // [rsp+A0h] [rbp-238h]
-  int v154; // [rsp+A4h] [rbp-234h]
-  char v155; // [rsp+A8h] [rbp-230h]
-  char v156; // [rsp+A9h] [rbp-22Fh]
-  char v157; // [rsp+AAh] [rbp-22Eh]
-  unsigned int v158; // [rsp+B0h] [rbp-228h] BYREF
-  PVOID v159; // [rsp+B8h] [rbp-220h]
-  char v160; // [rsp+C0h] [rbp-218h] BYREF
-  char v161; // [rsp+C1h] [rbp-217h] BYREF
-  char v162[6]; // [rsp+C2h] [rbp-216h] BYREF
-  PVOID v163; // [rsp+C8h] [rbp-210h] BYREF
-  int v164; // [rsp+D0h] [rbp-208h]
-  int v165; // [rsp+D4h] [rbp-204h]
-  unsigned int v166; // [rsp+D8h] [rbp-200h]
-  unsigned int v167; // [rsp+DCh] [rbp-1FCh] BYREF
-  char v168; // [rsp+E0h] [rbp-1F8h]
-  unsigned int v169; // [rsp+E8h] [rbp-1F0h]
-  unsigned int v170; // [rsp+F0h] [rbp-1E8h]
-  BOOL v171; // [rsp+F4h] [rbp-1E4h]
-  __int64 v172; // [rsp+F8h] [rbp-1E0h] BYREF
-  int v173; // [rsp+100h] [rbp-1D8h]
+  unsigned __int8 v151; // [rsp+A0h] [rbp-238h]
+  int v152; // [rsp+A4h] [rbp-234h]
+  char v153; // [rsp+A8h] [rbp-230h]
+  char v154; // [rsp+A9h] [rbp-22Fh]
+  char v155; // [rsp+AAh] [rbp-22Eh]
+  unsigned int v156; // [rsp+B0h] [rbp-228h] BYREF
+  PVOID v157; // [rsp+B8h] [rbp-220h]
+  char v158; // [rsp+C0h] [rbp-218h] BYREF
+  char v159; // [rsp+C1h] [rbp-217h] BYREF
+  int v160; // [rsp+C2h] [rbp-216h] BYREF
+  PVOID v161; // [rsp+C8h] [rbp-210h] BYREF
+  int v162; // [rsp+D0h] [rbp-208h]
+  int v163; // [rsp+D4h] [rbp-204h]
+  unsigned int v164; // [rsp+D8h] [rbp-200h]
+  unsigned int v165; // [rsp+DCh] [rbp-1FCh] BYREF
+  char v166; // [rsp+E0h] [rbp-1F8h]
+  unsigned int v167; // [rsp+E8h] [rbp-1F0h]
+  unsigned int v168; // [rsp+F0h] [rbp-1E8h]
+  BOOL v169; // [rsp+F4h] [rbp-1E4h]
+  __int64 v170; // [rsp+F8h] [rbp-1E0h] BYREF
+  int v171; // [rsp+100h] [rbp-1D8h]
   _DWORD Length[3]; // [rsp+104h] [rbp-1D4h]
   volatile void *Address; // [rsp+110h] [rbp-1C8h]
-  int *v176; // [rsp+118h] [rbp-1C0h]
-  int v177; // [rsp+120h] [rbp-1B8h] BYREF
-  PVOID v178; // [rsp+128h] [rbp-1B0h] BYREF
-  __int64 v179; // [rsp+130h] [rbp-1A8h]
-  int *v180; // [rsp+138h] [rbp-1A0h]
-  __int64 v181; // [rsp+140h] [rbp-198h]
-  _OWORD *v182; // [rsp+148h] [rbp-190h] BYREF
-  PVOID v183; // [rsp+150h] [rbp-188h]
-  PVOID v184; // [rsp+158h] [rbp-180h] BYREF
-  __int64 v185; // [rsp+160h] [rbp-178h] BYREF
+  int *v174; // [rsp+118h] [rbp-1C0h]
+  int v175; // [rsp+120h] [rbp-1B8h] BYREF
+  PVOID v176; // [rsp+128h] [rbp-1B0h] BYREF
+  ACL *v177; // [rsp+130h] [rbp-1A8h]
+  int *v178; // [rsp+138h] [rbp-1A0h]
+  __int64 v179; // [rsp+140h] [rbp-198h]
+  _OWORD *v180; // [rsp+148h] [rbp-190h] BYREF
+  PVOID v181; // [rsp+150h] [rbp-188h]
+  PVOID v182; // [rsp+158h] [rbp-180h] BYREF
+  __int64 v183; // [rsp+160h] [rbp-178h] BYREF
   PVOID P; // [rsp+168h] [rbp-170h] BYREF
-  __int64 v187; // [rsp+170h] [rbp-168h] BYREF
-  volatile void *v188; // [rsp+178h] [rbp-160h]
-  int v189; // [rsp+180h] [rbp-158h] BYREF
-  int v190; // [rsp+184h] [rbp-154h] BYREF
-  unsigned int v191; // [rsp+188h] [rbp-150h]
-  int v192; // [rsp+18Ch] [rbp-14Ch] BYREF
-  int v193; // [rsp+190h] [rbp-148h] BYREF
-  int v194[2]; // [rsp+198h] [rbp-140h] BYREF
-  PVOID v195; // [rsp+1A0h] [rbp-138h] BYREF
-  __int16 *v196; // [rsp+1A8h] [rbp-130h]
+  __int64 v185; // [rsp+170h] [rbp-168h] BYREF
+  volatile void *v186; // [rsp+178h] [rbp-160h]
+  int v187; // [rsp+180h] [rbp-158h] BYREF
+  int v188; // [rsp+184h] [rbp-154h] BYREF
+  unsigned int v189; // [rsp+188h] [rbp-150h]
+  int v190; // [rsp+18Ch] [rbp-14Ch] BYREF
+  int v191; // [rsp+190h] [rbp-148h] BYREF
+  BOOLEAN DominatesTrust[8]; // [rsp+198h] [rbp-140h] BYREF
+  PVOID v193; // [rsp+1A0h] [rbp-138h] BYREF
+  __int16 *v194; // [rsp+1A8h] [rbp-130h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+1B0h] [rbp-128h] BYREF
   void *Src; // [rsp+1D0h] [rbp-108h]
-  void *v199; // [rsp+1E8h] [rbp-F0h]
-  void *v200; // [rsp+1F0h] [rbp-E8h]
-  __int128 v201; // [rsp+1F8h] [rbp-E0h] BYREF
-  _DWORD *v202; // [rsp+208h] [rbp-D0h]
-  _DWORD *v203; // [rsp+210h] [rbp-C8h]
-  unsigned int *v204; // [rsp+218h] [rbp-C0h]
-  _OWORD *v205; // [rsp+220h] [rbp-B8h]
-  __int64 v206; // [rsp+228h] [rbp-B0h]
-  unsigned int *v207; // [rsp+230h] [rbp-A8h]
-  _DWORD *v208; // [rsp+238h] [rbp-A0h]
+  void *v197; // [rsp+1E8h] [rbp-F0h]
+  void *v198; // [rsp+1F0h] [rbp-E8h]
+  __int128 v199; // [rsp+1F8h] [rbp-E0h] BYREF
+  _DWORD *v200; // [rsp+208h] [rbp-D0h]
+  _DWORD *v201; // [rsp+210h] [rbp-C8h]
+  unsigned int *v202; // [rsp+218h] [rbp-C0h]
+  _OWORD *v203; // [rsp+220h] [rbp-B8h]
+  __int64 v204; // [rsp+228h] [rbp-B0h]
+  unsigned int *v205; // [rsp+230h] [rbp-A8h]
+  _DWORD *v206; // [rsp+238h] [rbp-A0h]
   _OWORD SecurityDescriptor[2]; // [rsp+240h] [rbp-98h] BYREF
-  __int64 v210; // [rsp+260h] [rbp-78h]
-  __int128 v211; // [rsp+268h] [rbp-70h] BYREF
-  __int64 v212; // [rsp+278h] [rbp-60h]
-  int v213; // [rsp+280h] [rbp-58h]
-  __int128 v214; // [rsp+288h] [rbp-50h] BYREF
+  __int64 v208; // [rsp+260h] [rbp-78h]
+  __int128 v209; // [rsp+268h] [rbp-70h] BYREF
+  __int64 v210; // [rsp+278h] [rbp-60h]
+  int v211; // [rsp+280h] [rbp-58h]
+  __int128 v212; // [rsp+288h] [rbp-50h] BYREF
 
   Src = a2;
-  v166 = a6;
-  v205 = a7;
+  v164 = a6;
+  v203 = a7;
   v14 = (__int64)a10;
-  v204 = a10;
+  v202 = a10;
   v15 = a11;
-  v203 = a11;
-  v202 = a9;
-  v196 = a1;
-  v199 = a2;
-  v200 = a3;
-  v158 = a4;
-  v206 = a5;
-  v169 = a6;
-  v191 = a6;
-  v182 = a7;
-  v188 = a8;
-  v180 = a9;
+  v201 = a11;
+  v200 = a9;
+  v194 = a1;
+  v197 = a2;
+  v198 = a3;
+  v156 = a4;
+  v204 = a5;
+  v167 = a6;
+  v189 = a6;
+  v180 = a7;
+  v186 = a8;
+  v178 = a9;
   *(_QWORD *)&Length[1] = a10;
-  v207 = a10;
+  v205 = a10;
   Address = a11;
-  v208 = a11;
+  v206 = a11;
+  v188 = 0;
+  v181 = 0LL;
+  v187 = 0;
+  v191 = 0;
+  v157 = 0LL;
   v190 = 0;
+  v174 = 0LL;
+  v161 = 0LL;
+  v170 = 0LL;
   v183 = 0LL;
-  v189 = 0;
-  v193 = 0;
-  v159 = 0LL;
-  v192 = 0;
-  v176 = 0LL;
-  v163 = 0LL;
-  v172 = 0LL;
-  v185 = 0LL;
-  v167 = 0;
   v165 = 0;
-  v214 = 0LL;
-  v184 = 0LL;
+  v163 = 0;
+  v212 = 0LL;
+  v182 = 0LL;
   P = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v201 = 0LL;
-  v171 = 0;
-  v168 = 0;
-  v178 = 0LL;
-  v211 = 0LL;
-  v212 = 0LL;
-  v213 = 0;
-  v179 = 0LL;
-  memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
+  v199 = 0LL;
+  v169 = 0;
+  v166 = 0;
+  v176 = 0LL;
+  v209 = 0LL;
   v210 = 0LL;
-  v181 = 0LL;
-  v157 = 0;
-  v156 = 0;
-  v177 = 0;
-  v195 = 0LL;
-  v162[0] = 0;
-  v160 = 0;
-  v161 = 0;
-  *(_QWORD *)v194 = 0LL;
-  v187 = 0LL;
-  v164 = -1073741790;
+  v211 = 0;
+  v177 = 0LL;
+  memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
+  v208 = 0LL;
+  v179 = 0LL;
+  v155 = 0;
+  v154 = 0;
+  v175 = 0;
+  v193 = 0LL;
+  LOBYTE(v160) = 0;
+  v158 = 0;
+  v159 = 0;
+  *(_QWORD *)DominatesTrust = 0LL;
+  v185 = 0LL;
+  v162 = -1073741790;
   Length[0] = 0;
   PreviousMode = (unsigned __int8)KeGetCurrentThread()->PreviousMode;
-  v153 = PreviousMode;
+  v151 = PreviousMode;
   if ( (_BYTE)PreviousMode )
   {
     v18 = 0x7FFFFFFF0000LL;
@@ -342,12 +340,12 @@ __int64 __fastcall SeAccessCheckByType(
     v17 = *a9;
   }
   Length[0] = v17;
-  LODWORD(v182) = -1;
-  LODWORD(v187) = -1;
+  LODWORD(v180) = -1;
+  LODWORD(v185) = -1;
   if ( !(_BYTE)PreviousMode )
   {
     *a11 = 0;
-    *a10 = v158;
+    *a10 = v156;
     return 0LL;
   }
   if ( a12 )
@@ -355,7 +353,7 @@ __int64 __fastcall SeAccessCheckByType(
     if ( !a6 )
     {
       result = 3221225485LL;
-      v20 = v188;
+      v20 = v186;
       goto LABEL_24;
     }
     ProbeForWrite(Address, 4LL * a6, 4u);
@@ -373,35 +371,35 @@ __int64 __fastcall SeAccessCheckByType(
     *(_DWORD *)v22 = *(_DWORD *)v22;
   }
   v23 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)v180 < 0x7FFFFFFF0000LL )
+  if ( (unsigned __int64)v178 < 0x7FFFFFFF0000LL )
     v23 = (__int64)a9;
   *(_DWORD *)v23 = *(_DWORD *)v23;
-  v20 = v188;
-  ProbeForWrite(v188, Length[0], 4u);
-  if ( v188 && Length[0] >= 0x14u )
-    *(_DWORD *)v188 = 0;
+  v20 = v186;
+  ProbeForWrite(v186, Length[0], 4u);
+  if ( v186 && Length[0] >= 0x14u )
+    *(_DWORD *)v186 = 0;
   if ( ((unsigned __int8)a7 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v214 = *a7;
+  v212 = *a7;
   result = 0LL;
-  PreviousMode = v153;
+  PreviousMode = v151;
 LABEL_24:
   v24 = Src;
   if ( (int)result < 0 )
     return result;
-  if ( (v158 & 0xF0000000) != 0 )
+  if ( (v156 & 0xF0000000) != 0 )
   {
     v25 = -1073741594;
 LABEL_322:
-    v154 = v25;
+    v152 = v25;
 LABEL_323:
-    v40 = v153;
+    v40 = v151;
 LABEL_324:
     v37 = a12;
     goto LABEL_325;
   }
   if ( (unsigned __int64)a3 + 6 <= 2 )
-    v26 = SepReferenceTokenUsingPseudoHandle((__int64)a3, v14, (ULONG_PTR *)&v163, v162, (__int64 *)v194);
+    v26 = SepReferenceTokenUsingPseudoHandle((__int64)a3, v14, (ULONG_PTR *)&v161, &v160, DominatesTrust);
   else
     v26 = ObReferenceObjectByHandleWithTag(
             a3,
@@ -409,133 +407,133 @@ LABEL_324:
             (POBJECT_TYPE)SeTokenObjectType,
             PreviousMode,
             0x74726853u,
-            &v163,
+            &v161,
             0LL);
   v25 = v26;
-  v154 = v26;
+  v152 = v26;
   if ( v26 < 0 )
   {
-    v163 = 0LL;
+    v161 = 0LL;
     goto LABEL_323;
   }
   if ( (unsigned __int64)a3 + 6 > 2 )
   {
-    if ( *((_DWORD *)v163 + 48) != 2 )
+    if ( *((_DWORD *)v161 + 48) != 2 )
     {
       v25 = -1073741732;
       goto LABEL_322;
     }
-    if ( *((int *)v163 + 49) < 1 )
+    if ( *((int *)v161 + 49) < 1 )
     {
       v25 = -1073741659;
       goto LABEL_322;
     }
   }
-  v25 = SeCaptureObjectTypeList(v206, v169, v153, &v184);
-  v154 = v25;
+  v25 = SeCaptureObjectTypeList(v204, v167, v151, &v182);
+  v152 = v25;
   if ( v25 < 0 )
     goto LABEL_323;
-  v25 = SeCaptureSecurityDescriptor((_DWORD)v196, v153, 1, 0, (__int64)&v172);
-  v154 = v25;
+  v25 = SeCaptureSecurityDescriptor((_DWORD)v194, v151, 1, 0, (__int64)&v170);
+  v152 = v25;
   if ( v25 < 0 )
     goto LABEL_323;
-  if ( !v172 )
+  if ( !v170 )
     goto LABEL_321;
-  v196 = (__int16 *)(v172 + 2);
-  v27 = *(_WORD *)(v172 + 2);
+  v194 = (__int16 *)(v170 + 2);
+  v27 = *(_WORD *)(v170 + 2);
   if ( v27 >= 0 )
   {
-    v29 = *(_QWORD *)(v172 + 8);
+    v29 = *(_QWORD *)(v170 + 8);
   }
   else
   {
-    v28 = *(unsigned int *)(v172 + 4);
+    v28 = *(unsigned int *)(v170 + 4);
     if ( !(_DWORD)v28 )
       goto LABEL_321;
-    v29 = v172 + v28;
+    v29 = v170 + v28;
   }
   if ( !v29 )
     goto LABEL_321;
   if ( v27 < 0 )
   {
-    v30 = *(unsigned int *)(v172 + 8);
+    v30 = *(unsigned int *)(v170 + 8);
     if ( (_DWORD)v30 )
     {
-      v31 = v172 + v30;
+      v31 = v170 + v30;
       goto LABEL_49;
     }
 LABEL_321:
     v25 = -1073741703;
     goto LABEL_322;
   }
-  v31 = *(_QWORD *)(v172 + 16);
+  v31 = *(_QWORD *)(v170 + 16);
 LABEL_49:
   if ( !v31 )
     goto LABEL_321;
-  if ( v162[0] )
-    v32 = *(_QWORD *)v194;
+  if ( (_BYTE)v160 )
+    v32 = *(_QWORD *)DominatesTrust;
   else
-    v32 = *((_QWORD *)v163 + 138);
+    v32 = *((_QWORD *)v161 + 138);
   LOBYTE(Object) = 1;
-  v33 = (int)v163;
-  v34 = v172;
-  v25 = SepTrustLevelCheck(&v182, v172, 0LL, v163, v32, Object, &v182);
-  v154 = v25;
+  v33 = (int)v161;
+  v34 = v170;
+  v25 = SepTrustLevelCheck(&v180, v170, 0LL, v161, v32, Object, &v180);
+  v152 = v25;
   if ( v25 < 0 )
     goto LABEL_323;
-  v35 = v158 & 0xFDFFFFFF;
-  if ( ((unsigned int)v182 & v158 & 0xFDFFFFFF) != (v158 & 0xFDFFFFFF) )
+  v35 = v156 & 0xFDFFFFFF;
+  if ( ((unsigned int)v180 & v156 & 0xFDFFFFFF) != (v156 & 0xFDFFFFFF) )
   {
-    v160 = 1;
+    v158 = 1;
     goto LABEL_71;
   }
   LOBYTE(PreviousMode) = 1;
-  v25 = SepFilterCheck(v34, (unsigned int)&v178, v33, PreviousMode, (__int64)&v187);
-  v154 = v25;
+  v25 = SepFilterCheck(v34, (unsigned int)&v176, v33, PreviousMode, (__int64)&v185);
+  v152 = v25;
   if ( v25 < 0 )
     goto LABEL_323;
-  if ( ((unsigned int)v187 & v35) != v35 )
+  if ( ((unsigned int)v185 & v35) != v35 )
   {
-    v161 = 1;
+    v159 = 1;
 LABEL_71:
-    LOBYTE(v25) = v171;
+    LOBYTE(v25) = v169;
     v14 = 3221225506LL;
 LABEL_72:
     v36 = 0;
     goto LABEL_73;
   }
-  v25 = SepMandatoryIntegrityCheck((unsigned int)&v214, v34, 0, v33, 1, (__int64)&v201);
-  v154 = v25;
+  v25 = SepMandatoryIntegrityCheck((unsigned int)&v212, v34, 0, v33, 1, (__int64)&v199);
+  v152 = v25;
   if ( v25 < 0 )
     goto LABEL_323;
   LOBYTE(v25) = 0;
-  v171 = v25;
-  if ( DWORD2(v201) && (v35 & (unsigned int)v201) != v35 )
+  v169 = v25;
+  if ( DWORD2(v199) && (v35 & (unsigned int)v199) != v35 )
   {
     v14 = 3221225506LL;
   }
   else
   {
     v14 = 0LL;
-    if ( (v158 & 0x2000000) == 0 )
+    if ( (v156 & 0x2000000) == 0 )
       goto LABEL_61;
   }
-  if ( (*((_DWORD *)v163 + 50) & 0x4000) != 0 )
+  if ( (*((_DWORD *)v161 + 50) & 0x4000) != 0 )
   {
-    LOBYTE(v25) = HIDWORD(v201) <= 0x2000;
-    v171 = HIDWORD(v201) <= 0x2000;
+    LOBYTE(v25) = HIDWORD(v199) <= 0x2000;
+    v169 = HIDWORD(v199) <= 0x2000;
   }
 LABEL_61:
   if ( (int)v14 < 0 && !(_BYTE)v25 )
     goto LABEL_72;
   v14 = (unsigned int)SePrivilegePolicyCheck(
-                        (unsigned int)&v158,
-                        (unsigned int)&v167,
+                        (unsigned int)&v156,
+                        (unsigned int)&v165,
                         0,
-                        (_DWORD)v163,
+                        (_DWORD)v161,
                         (__int64)&P,
-                        v153);
-  if ( v158 || !v167 )
+                        v151);
+  if ( v156 || !v165 )
     goto LABEL_72;
   v36 = 1;
 LABEL_73:
@@ -549,8 +547,8 @@ LABEL_73:
       PreviousMode = (__int64)Address;
       while ( 1 )
       {
-        v170 = v38;
-        if ( v38 >= v169 )
+        v168 = v38;
+        if ( v38 >= v167 )
           break;
         *(_DWORD *)(PreviousMode + 4LL * v38) = v14;
         v15[v38++] = 0;
@@ -561,11 +559,11 @@ LABEL_73:
       *(_DWORD *)Address = v14;
       **(_DWORD **)&Length[1] = 0;
     }
-    v164 = v14;
+    v162 = v14;
     v25 = 0;
-    v154 = 0;
-    v39 = v159;
-    v40 = v153;
+    v152 = 0;
+    v39 = v157;
+    v40 = v151;
     goto LABEL_326;
   }
   v41 = P;
@@ -581,10 +579,10 @@ LABEL_73:
       v45 = v43 + 8;
       if ( !v42 )
         v45 = 8;
-      *v180 = v45;
+      *v178 = v45;
       v25 = -1073741789;
-      v154 = -1073741789;
-      v40 = v153;
+      v152 = -1073741789;
+      v40 = v151;
       ExFreePoolWithTag(v41, 0);
       goto LABEL_324;
     }
@@ -598,31 +596,31 @@ LABEL_73:
   {
     if ( Length[0] < 0x14u )
     {
-      *v180 = 20;
+      *v178 = 20;
       v25 = -1073741789;
-      v154 = -1073741789;
-      v39 = v159;
+      v152 = -1073741789;
+      v39 = v157;
       v37 = a12;
-      v40 = v153;
+      v40 = v151;
       goto LABEL_326;
     }
     *v20 = 0LL;
   }
   if ( v24 )
   {
-    v25 = SeCaptureSid(v24, Tag, 1, (__int64)&v185);
-    v154 = v25;
+    v25 = SeCaptureSid(v24, Tag, 1, (__int64)&v183);
+    v152 = v25;
     if ( v25 < 0 )
     {
-      v185 = 0LL;
+      v183 = 0LL;
       goto LABEL_323;
     }
   }
   SeCaptureSubjectContext(&SubjectContext);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v50 = (char *)v163;
-  v51 = *((_QWORD *)v163 + 6);
+  v50 = (char *)v161;
+  v51 = *((_QWORD *)v161 + 6);
   v52 = *(_WORD *)(v51 + 26);
   v53 = v52 & 0x41;
   if ( FeatureFastResource2 )
@@ -661,58 +659,58 @@ LABEL_366:
   if ( !v56 && (v47->MiscFlags & 0x400) == 0 && !v47->WaitBlock[3].SpareLong )
     goto LABEL_372;
 LABEL_113:
-  v50 = (char *)v163;
+  v50 = (char *)v161;
   if ( (v52 & 1) != 0 )
   {
-    ExpFastResourceLegacyAcquireShared(*((_QWORD *)v163 + 6));
+    ExpFastResourceLegacyAcquireShared(*((_QWORD *)v161 + 6));
     goto LABEL_116;
   }
 LABEL_115:
-  ExpAcquireResourceSharedLite(*((_QWORD *)v163 + 6), 1, (__int64)v47, v48);
+  ExpAcquireResourceSharedLite(*((_QWORD *)v161 + 6), 1, (__int64)v47, v48);
 LABEL_116:
-  if ( *v196 >= 0 )
+  if ( *v194 >= 0 )
   {
-    v58 = *(_QWORD *)(v172 + 8);
+    v58 = *(_QWORD *)(v170 + 8);
   }
   else
   {
-    v57 = *(unsigned int *)(v172 + 4);
+    v57 = *(unsigned int *)(v170 + 4);
     if ( (_DWORD)v57 )
-      v58 = v172 + v57;
+      v58 = v170 + v57;
     else
       v58 = 0LL;
   }
   LOBYTE(Objecta) = 0;
   LOBYTE(Tag) = 0;
-  v61 = SepSidInTokenSidHash(v50 + 232, 0LL, v58, 0LL, Tag, Objecta);
-  v155 = v61;
-  if ( v61 && *((_DWORD *)v50 + 32) )
+  v59 = SepSidInTokenSidHash(v50 + 232, 0LL, v58, 0LL, Tag, Objecta);
+  v153 = v59;
+  if ( v59 && *((_DWORD *)v50 + 32) )
   {
     LOBYTE(Objectb) = 0;
     LOBYTE(Taga) = 1;
-    v61 = SepSidInTokenSidHash(v50 + 504, 0LL, v58, 0LL, Taga, Objectb);
-    v155 = v61;
+    v59 = SepSidInTokenSidHash(v50 + 504, 0LL, v58, 0LL, Taga, Objectb);
+    v153 = v59;
   }
   if ( !SepAllowAccessUponLogoff && (*((_DWORD *)v50 + 50) & 0x20) == 0 )
   {
-    v62 = *((_QWORD *)v50 + 27);
-    if ( v62 )
+    v60 = *((_QWORD *)v50 + 27);
+    if ( v60 )
     {
-      if ( (*(_DWORD *)(v62 + 32) & 0x20) != 0 )
+      if ( (*(_DWORD *)(v60 + 32) & 0x20) != 0 )
       {
         v37 = a12;
         if ( a12 )
         {
-          v63 = 0;
-          v64 = *(_QWORD *)&Length[1];
-          v65 = Address;
+          v61 = 0;
+          v62 = *(_QWORD *)&Length[1];
+          v63 = Address;
           while ( 1 )
           {
-            v170 = v63;
-            if ( v63 >= v169 )
+            v168 = v61;
+            if ( v61 >= v167 )
               break;
-            v65[v63] = -1073741790;
-            *(_DWORD *)(v64 + 4LL * v63++) = 0;
+            v63[v61] = -1073741790;
+            *(_DWORD *)(v62 + 4LL * v61++) = 0;
           }
         }
         else
@@ -720,421 +718,421 @@ LABEL_116:
           *(_DWORD *)Address = -1073741790;
           **(_DWORD **)&Length[1] = 0;
         }
-        v164 = -1073741790;
-        v154 = 0;
-        v40 = v153;
-        v66 = (struct _ERESOURCE *)*((_QWORD *)v50 + 6);
+        v162 = -1073741790;
+        v152 = 0;
+        v40 = v151;
+        v64 = (struct _ERESOURCE *)*((_QWORD *)v50 + 6);
 LABEL_134:
-        ExReleaseResourceLite(v66);
+        ExReleaseResourceLite(v64);
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         SeReleaseSubjectContext(&SubjectContext);
         v25 = 0;
 LABEL_325:
-        v39 = v159;
+        v39 = v157;
         goto LABEL_326;
       }
     }
   }
-  v67 = v172;
+  v65 = v170;
   if ( SepRmEnforceCap )
   {
-    v68 = *(_WORD *)(v172 + 2);
-    if ( (v68 & 0x10) != 0 && KeGetCurrentIrql() < 2u )
+    v66 = *(_WORD *)(v170 + 2);
+    if ( (v66 & 0x10) != 0 && KeGetCurrentIrql() < 2u )
     {
-      if ( v68 >= 0 )
+      if ( v66 >= 0 )
       {
-        v70 = *(_QWORD *)(v172 + 24);
+        v68 = *(ACL **)(v170 + 24);
       }
       else
       {
-        v69 = *(unsigned int *)(v172 + 12);
-        if ( !(_DWORD)v69 )
+        v67 = *(unsigned int *)(v170 + 12);
+        if ( !(_DWORD)v67 )
         {
-          v179 = 0LL;
+          v177 = 0LL;
           goto LABEL_148;
         }
-        v70 = v172 + v69;
+        v68 = (ACL *)(v170 + v67);
       }
-      v179 = v70;
-      if ( v70 )
+      v177 = v68;
+      if ( v68 )
       {
-        ScopedPolicySid = (void *)SepGetScopedPolicySid(v70, v59, v60);
+        ScopedPolicySid = (void *)SepGetScopedPolicySid(v68);
         if ( ScopedPolicySid )
         {
           Cap = SepRmReferenceFindCap(ScopedPolicySid);
-          v73 = v181;
+          v71 = v179;
           if ( Cap < 0 )
-            v73 = SepRmDefaultCap;
-          v181 = v73;
-          v157 = 1;
+            v71 = SepRmDefaultCap;
+          v179 = v71;
+          v155 = 1;
         }
       }
     }
   }
 LABEL_148:
-  v74 = v158;
-  if ( (v158 & 0x2060000) != 0
-    && v61
-    && ((v75 = *(_WORD *)(v67 + 2), (v75 & 4) != 0)
-      ? (v75 >= 0
-       ? (v76 = *(_QWORD *)(v67 + 32))
-       : (v77 = *(unsigned int *)(v67 + 16), (_DWORD)v77)
-       ? (v76 = v67 + v77)
-       : (v76 = 0LL))
-      : (v76 = 0LL),
-        !(unsigned __int8)RtlpOwnerAcesPresent(0LL, v76)) )
+  v72 = v156;
+  if ( (v156 & 0x2060000) != 0
+    && v59
+    && ((v73 = *(_WORD *)(v65 + 2), (v73 & 4) != 0)
+      ? (v73 >= 0
+       ? (v74 = *(_QWORD *)(v65 + 32))
+       : (v75 = *(unsigned int *)(v65 + 16), (_DWORD)v75)
+       ? (v74 = v65 + v75)
+       : (v74 = 0LL))
+      : (v74 = 0LL),
+        !(unsigned __int8)RtlpOwnerAcesPresent(0LL, v74)) )
   {
-    if ( (v74 & 0x2000000) != 0 )
+    if ( (v72 & 0x2000000) != 0 )
     {
-      v78 = 393216;
-      v79 = v167 | 0x60000;
+      v76 = 393216;
+      v77 = v165 | 0x60000;
     }
     else
     {
-      v78 = v74 & 0x60000;
-      v79 = v167 | v74 & 0x60000;
+      v76 = v72 & 0x60000;
+      v77 = v165 | v72 & 0x60000;
     }
-    v165 = v78;
-    v167 = v79;
-    v74 &= 0xFFF9FFFF;
-    v158 = v74;
+    v163 = v76;
+    v165 = v77;
+    v72 &= 0xFFF9FFFF;
+    v156 = v72;
   }
   else
   {
-    v79 = v167;
+    v77 = v165;
   }
-  if ( v74 || v157 && !v36 )
+  if ( v72 || v155 && !v36 )
   {
-    v80 = v163;
+    v78 = v161;
   }
   else
   {
-    v80 = v163;
-    if ( (*((_DWORD *)v163 + 50) & 0x2000) != 0 || !v165 )
+    v78 = v161;
+    if ( (*((_DWORD *)v161 + 50) & 0x2000) != 0 || !v163 )
     {
       v37 = a12;
       if ( a12 )
       {
-        v81 = 0;
-        v82 = v207;
-        v83 = v208;
+        v79 = 0;
+        v80 = v205;
+        v81 = v206;
         while ( 1 )
         {
-          v170 = v81;
-          if ( v81 >= v169 )
+          v168 = v79;
+          if ( v79 >= v167 )
             break;
-          if ( v79 )
+          if ( v77 )
           {
-            v83[v81] = 0;
-            v164 = 0;
-            v82[v81] = v79;
+            v81[v79] = 0;
+            v162 = 0;
+            v80[v79] = v77;
           }
           else
           {
-            v83[v81] = -1073741790;
-            v164 = -1073741790;
-            v82[v81] = 0;
+            v81[v79] = -1073741790;
+            v162 = -1073741790;
+            v80[v79] = 0;
           }
-          ++v81;
+          ++v79;
         }
       }
-      else if ( v79 )
+      else if ( v77 )
       {
         *(_DWORD *)Address = 0;
-        v164 = 0;
-        **(_DWORD **)&Length[1] = v79;
+        v162 = 0;
+        **(_DWORD **)&Length[1] = v77;
       }
       else
       {
         *(_DWORD *)Address = -1073741790;
-        v164 = -1073741790;
+        v162 = -1073741790;
         **(_DWORD **)&Length[1] = 0;
       }
-      v154 = 0;
-      v40 = v153;
-      v66 = (struct _ERESOURCE *)*((_QWORD *)v80 + 6);
+      v152 = 0;
+      v40 = v151;
+      v64 = (struct _ERESOURCE *)*((_QWORD *)v78 + 6);
       goto LABEL_134;
     }
   }
-  v84 = v191;
-  v85 = 8LL * v191;
+  v82 = v189;
+  v83 = 8LL * v189;
   if ( a12 )
   {
-    Pool2 = (unsigned int *)ExAllocatePool2(256LL, 8LL * v191, 1632068947LL);
-    v87 = Pool2;
-    v183 = Pool2;
+    Pool2 = (unsigned int *)ExAllocatePool2(256LL, 8LL * v189, 1632068947LL);
+    v85 = Pool2;
+    v181 = Pool2;
     if ( !Pool2 )
     {
-      ExReleaseResourceLite(*((PERESOURCE *)v80 + 6));
+      ExReleaseResourceLite(*((PERESOURCE *)v78 + 6));
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       SeReleaseSubjectContext(&SubjectContext);
       v25 = -1073741670;
       goto LABEL_322;
     }
-    v88 = v84;
-    v89 = (int *)&Pool2[v88];
+    v86 = v82;
+    v87 = (int *)&Pool2[v86];
   }
   else
   {
-    v87 = (unsigned int *)&v190;
-    v183 = &v190;
-    v89 = &v189;
-    v88 = v191;
+    v85 = (unsigned int *)&v188;
+    v181 = &v188;
+    v87 = &v187;
+    v86 = v189;
   }
-  v180 = v89;
-  LODWORD(v211) = v165;
+  v178 = v87;
+  LODWORD(v209) = v163;
   SepAccessCheck(
-    v67,
-    v185,
+    v65,
+    v183,
     (__int64)SubjectContext.PrimaryToken,
-    (__int64)v80,
-    v74,
-    (__int128 *)v184,
-    v169,
-    &v214,
-    v79,
-    v153,
-    v87,
+    (__int64)v78,
+    v72,
+    (__int128 *)v182,
+    v167,
+    &v212,
+    v77,
+    v151,
+    v85,
     0LL,
-    v89,
+    v87,
     a12,
-    v155,
-    (int *)&v211,
-    (__int64 *)&v178,
+    v153,
+    (int *)&v209,
+    (__int64 *)&v176,
     0LL,
     0LL);
-  v90 = (char *)v180;
-  if ( SepRmEnforceCap && *v180 >= 0 && v157 )
+  v88 = (char *)v178;
+  if ( SepRmEnforceCap && *v178 >= 0 && v155 )
   {
     v37 = a12;
     if ( a12 )
     {
-      v91 = (_DWORD *)ExAllocatePool2(256LL, v85, 1632068947LL);
-      v39 = v91;
-      v159 = v91;
-      if ( !v91 )
+      v89 = (_DWORD *)ExAllocatePool2(256LL, v83, 1632068947LL);
+      v39 = v89;
+      v157 = v89;
+      if ( !v89 )
       {
-        ExReleaseResourceLite(*((PERESOURCE *)v163 + 6));
+        ExReleaseResourceLite(*((PERESOURCE *)v161 + 6));
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         SeReleaseSubjectContext(&SubjectContext);
         v25 = -1073741670;
-        v154 = -1073741670;
-        v40 = v153;
+        v152 = -1073741670;
+        v40 = v151;
         goto LABEL_326;
       }
-      v92 = &v91[v88];
+      v90 = &v89[v86];
     }
     else
     {
-      v159 = &v193;
-      v92 = &v192;
+      v157 = &v191;
+      v90 = &v190;
     }
-    v176 = v92;
-    v93 = *(_DWORD *)v90;
-    v94 = (char *)v183;
-    v95 = *(_DWORD *)v183;
-    v165 = *(_DWORD *)v183;
-    LOBYTE(v173) = 0;
-    v96 = v169;
-    if ( v169 )
+    v174 = v90;
+    v91 = *(_DWORD *)v88;
+    v92 = (char *)v181;
+    v93 = *(_DWORD *)v181;
+    v163 = *(_DWORD *)v181;
+    LOBYTE(v171) = 0;
+    v94 = v167;
+    if ( v167 )
     {
-      v25 = SepCopyObjectTypeList(v184, v169, &v195);
-      v154 = v25;
+      v25 = SepCopyObjectTypeList(v182, v167, &v193);
+      v152 = v25;
       if ( v25 < 0 )
       {
-        v40 = v153;
+        v40 = v151;
         goto LABEL_325;
       }
-      v95 = v165;
+      v93 = v163;
     }
-    v97 = 0;
-    v169 = 0;
-    v98 = v181;
-    for ( i = v163; v97 < *(_DWORD *)(v181 + 60); v98 = v181 )
+    v95 = 0;
+    v167 = 0;
+    v96 = v179;
+    for ( i = v161; v95 < *(_DWORD *)(v179 + 60); v96 = v179 )
     {
-      v100 = *(_QWORD *)(v98 + 8LL * v97 + 64);
-      if ( !*(_QWORD *)(v100 + 24) )
+      v98 = *(_QWORD *)(v96 + 8LL * v95 + 64);
+      if ( !*(_QWORD *)(v98 + 24) )
         goto LABEL_234;
-      v101 = v178;
-      if ( !v178 )
+      v99 = v176;
+      if ( !v176 )
       {
-        v102 = AuthzBasepInitializeResourceClaimsFromSacl(v179, (__int64 *)&v178);
-        v103 = (unsigned __int8)v173;
-        if ( v102 < 0 )
-          v103 = 1;
-        v173 = v103;
-        v101 = v178;
+        v100 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v177, (__int64 *)&v176);
+        v101 = (unsigned __int8)v171;
+        if ( v100 < 0 )
+          v101 = 1;
+        v171 = v101;
+        v99 = v176;
       }
-      v104 = (_QWORD *)*((_QWORD *)i + 137);
-      v105 = v104 ? v104[75] : 0LL;
-      v106 = v104 ? v104[73] : 0LL;
-      v107 = v104 ? v104[74] : 0LL;
-      v108 = v104 ? (void *)v104[72] : 0LL;
-      v109 = AuthzBasepEvaluateAceCondition(
+      v102 = (_QWORD *)*((_QWORD *)i + 137);
+      v103 = v102 ? v102[75] : 0LL;
+      v104 = v102 ? v102[73] : 0LL;
+      v105 = v102 ? v102[74] : 0LL;
+      v106 = v102 ? (void *)v102[72] : 0LL;
+      v107 = AuthzBasepEvaluateAceCondition(
                i,
                *((void **)i + 97),
-               v101,
-               v108,
-               v107,
+               v99,
                v106,
                v105,
-               *(_DWORD **)(v100 + 24),
-               *(_DWORD *)(v100 + 16),
+               v104,
+               v103,
+               *(_DWORD **)(v98 + 24),
+               *(_DWORD *)(v98 + 16),
                1u,
                0,
-               &v177);
-      v154 = v109;
-      v110 = v177;
-      if ( v177 == 1 )
+               &v175);
+      v152 = v107;
+      v108 = v175;
+      if ( v175 == 1 )
         goto LABEL_234;
-      if ( v109 < 0 )
+      if ( v107 < 0 )
         goto LABEL_253;
       if ( (i[50] & 0x10) != 0 )
       {
-        v111 = (_QWORD *)*((_QWORD *)i + 137);
-        if ( v111 )
-          v112 = v111[75];
+        v109 = (_QWORD *)*((_QWORD *)i + 137);
+        if ( v109 )
+          v110 = v109[75];
+        else
+          v110 = 0LL;
+        if ( v109 )
+          v111 = v109[73];
+        else
+          v111 = 0LL;
+        if ( v109 )
+          v112 = v109[74];
         else
           v112 = 0LL;
-        if ( v111 )
-          v113 = v111[73];
+        if ( v109 )
+          v113 = (void *)v109[72];
         else
           v113 = 0LL;
-        if ( v111 )
-          v114 = v111[74];
-        else
-          v114 = 0LL;
-        if ( v111 )
-          v115 = (void *)v111[72];
-        else
-          v115 = 0LL;
-        v154 = AuthzBasepEvaluateAceCondition(
+        v152 = AuthzBasepEvaluateAceCondition(
                  i,
                  *((void **)i + 97),
-                 v178,
-                 v115,
-                 v114,
+                 v176,
                  v113,
                  v112,
-                 *(_DWORD **)(v100 + 24),
-                 *(_DWORD *)(v100 + 16),
+                 v111,
+                 v110,
+                 *(_DWORD **)(v98 + 24),
+                 *(_DWORD *)(v98 + 16),
                  1u,
                  1u,
-                 &v177);
-        if ( v154 < 0 )
+                 &v175);
+        if ( v152 < 0 )
         {
 LABEL_253:
           ExReleaseResourceLite(*((PERESOURCE *)i + 6));
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           SeReleaseSubjectContext(&SubjectContext);
-          v25 = v154;
+          v25 = v152;
           goto LABEL_323;
         }
-        v110 = v177;
+        v108 = v175;
       }
-      if ( (_BYTE)v173 || v110 == 1 )
+      if ( (_BYTE)v171 || v108 == 1 )
       {
 LABEL_234:
-        v154 = SepBuildCapeSecurityDescriptor(SecurityDescriptor);
-        if ( v154 < 0 )
+        v152 = SepBuildCapeSecurityDescriptor(SecurityDescriptor);
+        if ( v152 < 0 )
           goto LABEL_253;
-        v116 = v158;
-        if ( (*(_DWORD *)(v100 + 48) & 1) != 0 )
+        v114 = v156;
+        if ( (*(_DWORD *)(v98 + 48) & 1) != 0 )
         {
-          if ( (v158 & 0x2000000) == 0 )
-            v116 = v167 | v158;
-          v117 = 0;
+          if ( (v156 & 0x2000000) == 0 )
+            v114 = v165 | v156;
+          v115 = 0;
         }
         else
         {
-          v117 = v167;
+          v115 = v165;
         }
-        v118 = (int *)v159;
-        v119 = v195;
+        v116 = (int *)v157;
+        v117 = v193;
         SepAccessCheck(
           (__int64)SecurityDescriptor,
-          v185,
+          v183,
           (__int64)SubjectContext.PrimaryToken,
           (__int64)i,
-          v116,
-          (__int128 *)v195,
-          v96,
-          &v214,
-          v117,
-          v153,
-          (unsigned int *)v159,
+          v114,
+          (__int128 *)v193,
+          v94,
+          &v212,
+          v115,
+          v151,
+          (unsigned int *)v157,
           0LL,
-          v176,
+          v174,
           a12,
-          v155,
-          (int *)&v211,
-          (__int64 *)&v178,
+          v153,
+          (int *)&v209,
+          (__int64 *)&v176,
           0LL,
           0LL);
-        if ( v156 )
-          v95 = *v118 & v165;
+        if ( v154 )
+          v93 = *v116 & v163;
         else
-          v95 = *v118;
-        v165 = v95;
-        if ( v95 )
-          v93 = *v176;
+          v93 = *v116;
+        v163 = v93;
+        if ( v93 )
+          v91 = *v174;
         else
-          v93 = -1073741790;
-        v156 = 1;
-        if ( v119 )
-          SepMergeObjectTypeListAccesses(v184, v119, v96);
-        if ( v93 < 0 )
+          v91 = -1073741790;
+        v154 = 1;
+        if ( v117 )
+          SepMergeObjectTypeListAccesses(v182, v117, v94);
+        if ( v91 < 0 )
           break;
       }
       else
       {
-        v95 = v165;
+        v93 = v163;
       }
-      v97 = v169 + 1;
-      v169 = v97;
+      v95 = v167 + 1;
+      v167 = v95;
     }
-    *(_DWORD *)v90 = v93;
-    *(_DWORD *)v94 &= v95;
+    *(_DWORD *)v88 = v91;
+    *(_DWORD *)v92 &= v93;
   }
   else
   {
-    i = v163;
-    v94 = (char *)v183;
-    v96 = v169;
+    i = v161;
+    v92 = (char *)v181;
+    v94 = v167;
   }
-  v120 = *((_QWORD *)i + 6);
-  v121 = *(_WORD *)(v120 + 26);
-  v122 = v121 & 0x41;
+  v118 = *((_QWORD *)i + 6);
+  v119 = *(_WORD *)(v118 + 26);
+  v120 = v119 & 0x41;
   if ( !FeatureFastResource2 )
   {
-    if ( v122 != 1 )
+    if ( v120 != 1 )
     {
-      if ( (v121 & 1) == 0 )
+      if ( (v119 & 1) == 0 )
         goto LABEL_271;
-      v125 = KeGetCurrentIrql();
-      v126 = KeGetCurrentThread();
-      if ( v125 > 2u )
-        KeBugCheckEx(0x1C6u, 0LL, v125, 2uLL, 0LL);
-      if ( v125 || (v126->MiscFlags & 0x400) != 0 || v126->WaitBlock[3].SpareLong )
+      v123 = KeGetCurrentIrql();
+      v124 = KeGetCurrentThread();
+      if ( v123 > 2u )
+        KeBugCheckEx(0x1C6u, 0LL, v123, 2uLL, 0LL);
+      if ( v123 || (v124->MiscFlags & 0x400) != 0 || v124->WaitBlock[3].SpareLong )
         goto LABEL_262;
 LABEL_372:
       KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
     }
 LABEL_370:
-    KeBugCheckEx(0x1C6u, 0xFuLL, v120, 0LL, 0LL);
+    KeBugCheckEx(0x1C6u, 0xFuLL, v118, 0LL, 0LL);
   }
-  if ( v122 == 1 )
+  if ( v120 == 1 )
     goto LABEL_370;
-  if ( (v121 & 1) == 0 )
+  if ( (v119 & 1) == 0 )
     goto LABEL_271;
-  v123 = KeGetCurrentIrql();
-  v124 = KeGetCurrentThread();
-  if ( v123 > 2u )
-    KeBugCheckEx(0x1C6u, 0LL, v123, 2uLL, 0LL);
-  if ( !v123 && (v124->MiscFlags & 0x400) == 0 && !v124->WaitBlock[3].SpareLong )
+  v121 = KeGetCurrentIrql();
+  v122 = KeGetCurrentThread();
+  if ( v121 > 2u )
+    KeBugCheckEx(0x1C6u, 0LL, v121, 2uLL, 0LL);
+  if ( !v121 && (v122->MiscFlags & 0x400) == 0 && !v122->WaitBlock[3].SpareLong )
     goto LABEL_372;
 LABEL_262:
-  if ( (v121 & 1) != 0 )
+  if ( (v119 & 1) != 0 )
   {
     ExpFastResourceLegacyRelease(*((_QWORD *)i + 6));
     goto LABEL_272;
@@ -1144,37 +1142,37 @@ LABEL_271:
 LABEL_272:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   SeReleaseSubjectContext(&SubjectContext);
-  v127 = v158 & 0x2000000;
-  if ( (v158 & 0x2000000) != 0 )
+  v125 = v156 & 0x2000000;
+  if ( (v156 & 0x2000000) != 0 )
   {
-    if ( !v171 || !*(_WORD *)((char *)&v212 + 5) && (*((_DWORD *)v163 + 50) & 0x3000000) != 0x3000000 )
+    if ( !v169 || !*(_WORD *)((char *)&v210 + 5) && (*((_DWORD *)v161 + 50) & 0x3000000) != 0x3000000 )
     {
-      v128 = v166;
-      v129 = v166;
+      v126 = v164;
+      v127 = v164;
       v37 = a12;
       if ( !a12 )
-        v129 = 0;
-      SepConstrainByMandatory((__int64)&v201, v158, v94, v90, 0LL, v129);
+        v127 = 0;
+      SepConstrainByMandatory((__int64)&v199, v156, v92, v88, 0LL, v127);
       goto LABEL_304;
     }
   }
-  else if ( v171 && !*(_WORD *)((char *)&v212 + 5) )
+  else if ( v169 && !*(_WORD *)((char *)&v210 + 5) )
   {
-    if ( (*((_DWORD *)v163 + 50) & 0x3000000) != 0x3000000 || HIDWORD(v211) )
+    if ( (*((_DWORD *)v161 + 50) & 0x3000000) != 0x3000000 || HIDWORD(v209) )
     {
       v37 = a12;
       if ( a12 )
       {
-        v141 = 0;
+        v139 = 0;
         v15 = *(_DWORD **)&Length[1];
         PreviousMode = (__int64)Address;
         while ( 1 )
         {
-          v170 = v141;
-          if ( v141 >= v96 )
+          v168 = v139;
+          if ( v139 >= v94 )
             break;
-          *(_DWORD *)(PreviousMode + 4LL * v141) = -1073741790;
-          v15[v141++] = 0;
+          *(_DWORD *)(PreviousMode + 4LL * v139) = -1073741790;
+          v15[v139++] = 0;
         }
       }
       else
@@ -1182,103 +1180,103 @@ LABEL_272:
         *(_DWORD *)Address = -1073741790;
         **(_DWORD **)&Length[1] = 0;
       }
-      v164 = -1073741790;
+      v162 = -1073741790;
       v25 = 0;
-      v154 = 0;
-      v39 = v159;
-      v40 = v153;
+      v152 = 0;
+      v39 = v157;
+      v40 = v151;
       goto LABEL_326;
     }
-    HIBYTE(v212) = 1;
+    HIBYTE(v210) = 1;
     v37 = a12;
     if ( a12 )
     {
-      v130 = 0;
-      if ( v96 < 0x10 || (v131 = v96 - 1, v94 <= &v90[4 * v131]) && &v94[4 * v131] >= v90 )
+      v128 = 0;
+      if ( v94 < 0x10 || (v129 = v94 - 1, v92 <= &v88[4 * v129]) && &v92[4 * v129] >= v88 )
       {
-        v133 = v167;
-        v128 = v166;
+        v131 = v165;
+        v126 = v164;
       }
       else
       {
-        v128 = v166;
-        v132 = v166 & 0xFFFFFFF0;
-        v133 = v167;
-        v134 = _mm_or_si128(
-                 _mm_shuffle_epi32(_mm_cvtsi32_si128(v158), 0),
-                 _mm_shuffle_epi32(_mm_cvtsi32_si128(v167), 0));
-        v135 = 8;
+        v126 = v164;
+        v130 = v164 & 0xFFFFFFF0;
+        v131 = v165;
+        v132 = _mm_or_si128(
+                 _mm_shuffle_epi32(_mm_cvtsi32_si128(v156), 0),
+                 _mm_shuffle_epi32(_mm_cvtsi32_si128(v165), 0));
+        v133 = 8;
         do
         {
-          *(_OWORD *)&v90[4 * v130] = 0LL;
-          *(__m128i *)&v94[4 * v130] = v134;
-          v136 = v135 - 4;
-          *(_OWORD *)&v90[4 * v136] = 0LL;
-          *(__m128i *)&v94[4 * v136] = v134;
-          *(_OWORD *)&v90[4 * v135] = 0LL;
-          *(__m128i *)&v94[4 * v135] = v134;
-          v137 = v135 + 4;
-          *(_OWORD *)&v90[4 * v137] = 0LL;
-          *(__m128i *)&v94[4 * v137] = v134;
-          v130 += 16;
-          v135 += 16;
+          *(_OWORD *)&v88[4 * v128] = 0LL;
+          *(__m128i *)&v92[4 * v128] = v132;
+          v134 = v133 - 4;
+          *(_OWORD *)&v88[4 * v134] = 0LL;
+          *(__m128i *)&v92[4 * v134] = v132;
+          *(_OWORD *)&v88[4 * v133] = 0LL;
+          *(__m128i *)&v92[4 * v133] = v132;
+          v135 = v133 + 4;
+          *(_OWORD *)&v88[4 * v135] = 0LL;
+          *(__m128i *)&v92[4 * v135] = v132;
+          v128 += 16;
+          v133 += 16;
         }
-        while ( v130 < v132 );
+        while ( v128 < v130 );
       }
-      if ( v130 < v96 )
+      if ( v128 < v94 )
       {
-        v138 = v133 | v158;
-        v139 = (int *)&v94[4 * v130];
-        v140 = v96 - v130;
+        v136 = v131 | v156;
+        v137 = (int *)&v92[4 * v128];
+        v138 = v94 - v128;
         do
         {
-          *(int *)((char *)v139 + v90 - v94) = 0;
-          *v139++ = v138;
-          --v140;
+          *(int *)((char *)v137 + v88 - v92) = 0;
+          *v137++ = v136;
+          --v138;
         }
-        while ( v140 );
+        while ( v138 );
       }
       goto LABEL_304;
     }
-    *(_DWORD *)v90 = 0;
-    *(_DWORD *)v94 = v167 | v158;
+    *(_DWORD *)v88 = 0;
+    *(_DWORD *)v92 = v165 | v156;
     goto LABEL_303;
   }
   v37 = a12;
 LABEL_303:
-  v128 = v166;
+  v126 = v164;
 LABEL_304:
-  if ( v127 )
+  if ( v125 )
   {
     if ( !v37 )
-      v128 = 0;
-    SepConstrainByConstraintMask((int)v182, v158, v94, v90, 0LL, v128, &v160);
-    SepConstrainByConstraintMask(v187, v158, v94, v90, 0LL, v128, &v161);
+      v126 = 0;
+    SepConstrainByConstraintMask((int)v180, v156, v92, v88, 0LL, v126, &v158);
+    SepConstrainByConstraintMask(v185, v156, v92, v88, 0LL, v126, &v159);
   }
   v15 = Address;
-  *(_DWORD *)Address = *(_DWORD *)v90;
+  *(_DWORD *)Address = *(_DWORD *)v88;
   v14 = *(_QWORD *)&Length[1];
-  **(_DWORD **)&Length[1] = *(_DWORD *)v94;
-  v164 = *(_DWORD *)v90;
-  PreviousMode = (__int64)v176;
-  v39 = v159;
-  if ( SepRmEnforceCap && v156 && *(int *)v90 >= 0 )
+  **(_DWORD **)&Length[1] = *(_DWORD *)v92;
+  v162 = *(_DWORD *)v88;
+  PreviousMode = (__int64)v174;
+  v39 = v157;
+  if ( SepRmEnforceCap && v154 && *(int *)v88 >= 0 )
   {
-    *v15 = *v176;
+    *v15 = *v174;
     *(_DWORD *)v14 &= *v39;
-    v164 = *(_DWORD *)PreviousMode;
+    v162 = *(_DWORD *)PreviousMode;
   }
   if ( v37 )
   {
-    for ( j = 1; ; j = v170 + 1 )
+    for ( j = 1; ; j = v168 + 1 )
     {
-      v170 = j;
-      if ( j >= v96 )
+      v168 = j;
+      if ( j >= v94 )
         break;
-      v143 = 4LL * j;
-      v15[(unsigned __int64)v143 / 4] = *(_DWORD *)&v90[v143];
-      *(_DWORD *)(v14 + v143) = *(_DWORD *)&v94[v143];
-      if ( SepRmEnforceCap && v156 && *(int *)&v90[v143] >= 0 )
+      v141 = 4LL * j;
+      v15[(unsigned __int64)v141 / 4] = *(_DWORD *)&v88[v141];
+      *(_DWORD *)(v14 + v141) = *(_DWORD *)&v92[v141];
+      if ( SepRmEnforceCap && v154 && *(int *)&v88[v141] >= 0 )
       {
         v15[j] = *(_DWORD *)(4LL * j + PreviousMode);
         *(_DWORD *)(v14 + 4LL * j) &= v39[j];
@@ -1286,21 +1284,21 @@ LABEL_304:
     }
   }
   v25 = 0;
-  v154 = 0;
-  v40 = v153;
+  v152 = 0;
+  v40 = v151;
 LABEL_326:
-  if ( v172 && v163 )
+  if ( v170 && v161 )
   {
-    if ( v160 || v161 )
+    if ( v158 || v159 )
       goto LABEL_335;
-    if ( HIDWORD(v211) || (*((_DWORD *)v163 + 50) & 0x4000) == 0 )
+    if ( HIDWORD(v209) || (*((_DWORD *)v161 + 50) & 0x4000) == 0 )
     {
 LABEL_336:
       if ( v25 >= 0
-        && v164 < 0
-        && !HIDWORD(v211)
-        && (*((_DWORD *)v163 + 50) & 0x4000) != 0
-        && (unsigned __int8)SepLpacCausedAccessFailure(&v211, v158) )
+        && v162 < 0
+        && !HIDWORD(v209)
+        && (*((_DWORD *)v161 + 50) & 0x4000) != 0
+        && (unsigned __int8)SepLpacCausedAccessFailure(&v209, v156) )
       {
         SepLogLpacAccessFailure();
       }
@@ -1308,17 +1306,17 @@ LABEL_336:
     }
     if ( v25 >= 0 )
     {
-      if ( v164 < 0 || HIBYTE(v212) )
+      if ( v162 < 0 || HIBYTE(v210) )
       {
 LABEL_335:
-        v144 = KeGetCurrentThread();
-        --v144->KernelApcDisable;
-        v145 = (PERESOURCE *)v163;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)v163 + 6), 1u);
-        SeLogAccessFailure(v145, v172, v167 | v158, v164 >= 0);
-        ExReleaseResourceLite(v145[6]);
+        v142 = KeGetCurrentThread();
+        --v142->KernelApcDisable;
+        v143 = (PERESOURCE *)v161;
+        ExAcquireResourceSharedLite(*((PERESOURCE *)v161 + 6), 1u);
+        SeLogAccessFailure(v143, v170, v165 | v156, v162 >= 0);
+        ExReleaseResourceLite(v143[6]);
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        v25 = v154;
+        v25 = v152;
         goto LABEL_336;
       }
       goto LABEL_336;
@@ -1327,35 +1325,35 @@ LABEL_335:
 LABEL_342:
   if ( v37 )
   {
-    if ( v183 )
-      ExFreePoolWithTag(v183, 0);
+    if ( v181 )
+      ExFreePoolWithTag(v181, 0);
     if ( v39 )
       ExFreePoolWithTag(v39, 0);
   }
-  if ( v163 )
-    ObfDereferenceObjectWithTag(v163, 0x74726853u);
-  if ( v184 )
-    ExFreePoolWithTag(v184, 0);
-  if ( v185 )
+  if ( v161 )
+    ObfDereferenceObjectWithTag(v161, 0x74726853u);
+  if ( v182 )
+    ExFreePoolWithTag(v182, 0);
+  if ( v183 )
   {
     LOBYTE(v15) = 1;
-    SeReleaseSid(v185, v40, v15, PreviousMode);
+    SeReleaseSid(v183, v40, v15, PreviousMode);
   }
-  if ( v172 )
-    SeReleaseSecurityDescriptor(v172, v40, 0LL, PreviousMode);
-  if ( v157 )
+  if ( v170 )
+    SeReleaseSecurityDescriptor(v170, v40, 0LL, PreviousMode);
+  if ( v155 )
   {
-    v146 = *(_QWORD *)(v181 + 32);
-    if ( v146 )
-      SepRmDereferenceCapTable(v146, v14, v15);
+    v144 = *(_QWORD *)(v179 + 32);
+    if ( v144 )
+      SepRmDereferenceCapTable(v144, v14, v15);
   }
-  if ( v195 )
-    ExFreePoolWithTag(v195, 0);
-  v147 = v178;
-  if ( v178 )
+  if ( v193 )
+    ExFreePoolWithTag(v193, 0);
+  v145 = v176;
+  if ( v176 )
   {
-    AuthzBasepFreeSecurityAttributesList(v178, v14, (__int64)v15, PreviousMode);
-    ExFreePoolWithTag(v147, 0);
+    AuthzBasepFreeSecurityAttributesList(v176, v14, (__int64)v15, PreviousMode);
+    ExFreePoolWithTag(v145, 0);
   }
   return (unsigned int)v25;
 }

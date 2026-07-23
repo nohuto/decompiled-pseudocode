@@ -16,20 +16,20 @@
 
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
   unsigned int v4; // ecx
-  __int64 Languages; // rax
-  __int64 StringPool; // rax
+  _QWORD *Languages; // rax
+  _QWORD *StringPool; // rax
   bool v7; // al
   const wchar_t *v8; // rdx
 
   InstallUILanguage = 0;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)NtIsUILanguageComitted() >= 0 )
+  if ( NtIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = NtQueryInstallUILanguage();
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_14;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

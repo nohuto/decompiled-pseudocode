@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRemoveProcessorFromCoreControlBlock @ 0x1405EFDBC
+ * XREFs of KiRemoveProcessorFromCoreControlBlock @ 0x1405F272C
  * Callers:
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405EB014 (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405ED984 (KiFinalizeCoreControlBlockAssignment.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 char __fastcall KiRemoveProcessorFromCoreControlBlock(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpDevNodeInsertIntoTree @ 0x140366A14
+ * XREFs of PpDevNodeInsertIntoTree @ 0x140366BB4
  * Callers:
- *     PipProcessEnumeratedChildDevice @ 0x14079560C (PipProcessEnumeratedChildDevice.c)
- *     IopInitializeDeviceInstanceKey @ 0x1408121C4 (IopInitializeDeviceInstanceKey.c)
- *     IoReportDetectedDevice @ 0x140834DD0 (IoReportDetectedDevice.c)
- *     PiInitializeDevice @ 0x14096DAE4 (PiInitializeDevice.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1407957FC (PipProcessEnumeratedChildDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140812494 (IopInitializeDeviceInstanceKey.c)
+ *     IoReportDetectedDevice @ 0x1408350D0 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x14096DCE4 (PiInitializeDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpDevNodeInsertIntoTree(__int64 a1, __int64 a2)
@@ -32,10 +32,10 @@ __int64 __fastcall PpDevNodeInsertIntoTree(__int64 a1, __int64 a2)
     *(_QWORD *)(a1 + 8) = a2;
   *(_QWORD *)(a1 + 24) = a2;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

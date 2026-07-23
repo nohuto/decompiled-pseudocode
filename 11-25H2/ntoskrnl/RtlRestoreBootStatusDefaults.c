@@ -10,12 +10,12 @@
  *     RtlpRecordBootStatusData @ 0x140A75220 (RtlpRecordBootStatusData.c)
  */
 
-__int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   _BYTE *v2; // rax
   char v3; // cl
   __int64 v4; // rdx
-  NTSTATUS v5; // edx
+  int v5; // edx
   _OWORD *v6; // rcx
   _OWORD *v7; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
@@ -35,7 +35,7 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   IoStatusBlock = 0LL;
   memset_0((char *)Buffer + 4, 0, 0xC4uLL);
   LODWORD(Buffer[0]) = 200;
-  RtlGetNtProductType((_DWORD *)Buffer + 1);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)Buffer + 1);
   DWORD2(v20) = 0;
   v2 = Buffer;
   v3 = 0;
@@ -80,5 +80,5 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
       }
     }
   }
-  return (unsigned int)v5;
+  return v5;
 }

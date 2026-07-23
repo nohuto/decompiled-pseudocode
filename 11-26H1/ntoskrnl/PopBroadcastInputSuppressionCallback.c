@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBroadcastInputSuppressionCallback @ 0x140B71AF0
+ * XREFs of PopBroadcastInputSuppressionCallback @ 0x140B76320
  * Callers:
- *     PopBroadcastInputSuppressionCallback2 @ 0x1407D7270 (PopBroadcastInputSuppressionCallback2.c)
+ *     PopBroadcastInputSuppressionCallback2 @ 0x1407DA370 (PopBroadcastInputSuppressionCallback2.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060BD08 (Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline.c)
- *     PopEvaluateInputSuppressionAction @ 0x140B71BB0 (PopEvaluateInputSuppressionAction.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060EE68 (Feature_InputSuppressionRespectAcLidPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopEvaluateInputSuppressionAction @ 0x140B763E0 (PopEvaluateInputSuppressionAction.c)
  */
 
 __int64 __fastcall PopBroadcastInputSuppressionCallback(_QWORD *a1)

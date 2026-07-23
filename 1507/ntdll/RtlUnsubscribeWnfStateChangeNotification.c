@@ -8,9 +8,7 @@
  *     RtlpRemoveUserSubFromNameSub @ 0x18000B100 (RtlpRemoveUserSubFromNameSub.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfStateChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnsubscribeWnfStateChangeNotification(PWNF_USER_CALLBACK Callback)
 {
-  char v2; // [rsp+30h] [rbp+8h] BYREF
-
-  return RtlpRemoveUserSubFromNameSub(*(_QWORD *)(a1 + 24), a1, &v2);
+  return RtlpRemoveUserSubFromNameSub(*((PVOID *)Callback + 3), Callback);
 }

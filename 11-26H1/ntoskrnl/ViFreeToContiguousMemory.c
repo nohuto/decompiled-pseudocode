@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFreeToContiguousMemory @ 0x140C26ED0
+ * XREFs of ViFreeToContiguousMemory @ 0x140C2CEE0
  * Callers:
- *     ViAllocateMapRegisterFile @ 0x140C25F78 (ViAllocateMapRegisterFile.c)
- *     ViFreeMapRegisterFile @ 0x140C26C90 (ViFreeMapRegisterFile.c)
+ *     ViAllocateMapRegisterFile @ 0x140C2BF88 (ViAllocateMapRegisterFile.c)
+ *     ViFreeMapRegisterFile @ 0x140C2CCA0 (ViFreeMapRegisterFile.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
  */
 
 __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int a3)

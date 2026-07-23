@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpAddIptTraceBuffers @ 0x1405CC4C0
+ * XREFs of IopLiveDumpAddIptTraceBuffers @ 0x1405CECD0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IopLiveDumpAddIptTraceBuffers(__int64 a1, __int64 a2)
@@ -26,8 +26,8 @@ __int64 __fastcall IopLiveDumpAddIptTraceBuffers(__int64 a1, __int64 a2)
   v11 = 0;
   if ( IptInterface )
   {
-    v7[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
-    v7[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+    v7[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
+    v7[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
     v8 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v11, v7) )
     {

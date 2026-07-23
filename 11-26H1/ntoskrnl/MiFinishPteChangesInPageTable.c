@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFinishPteChangesInPageTable @ 0x140527D9C
+ * XREFs of MiFinishPteChangesInPageTable @ 0x14052A40C
  * Callers:
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
- *     MiWriteAwePtesNewPageTable @ 0x140702E64 (MiWriteAwePtesNewPageTable.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
+ *     MiWriteAwePtesNewPageTable @ 0x140707B34 (MiWriteAwePtesNewPageTable.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiUpdateAwePageTable @ 0x140340414 (MiUpdateAwePageTable.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
- *     MiApplyLazyStampToAwePtes @ 0x1407009EC (MiApplyLazyStampToAwePtes.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiUpdateAwePageTable @ 0x140342494 (MiUpdateAwePageTable.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
+ *     MiApplyLazyStampToAwePtes @ 0x1407056BC (MiApplyLazyStampToAwePtes.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFinishPteChangesInPageTable(__int64 **a1)

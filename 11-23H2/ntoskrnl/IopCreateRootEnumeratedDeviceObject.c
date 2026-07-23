@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCreateRootEnumeratedDeviceObject @ 0x140812578
+ * XREFs of IopCreateRootEnumeratedDeviceObject @ 0x140812848
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1408121C4 (IopInitializeDeviceInstanceKey.c)
- *     IopLegacyResourceAllocation @ 0x140815844 (IopLegacyResourceAllocation.c)
- *     IoReportDetectedDevice @ 0x140834DD0 (IoReportDetectedDevice.c)
- *     PiInitializeDevice @ 0x14096DAE4 (PiInitializeDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140812494 (IopInitializeDeviceInstanceKey.c)
+ *     IopLegacyResourceAllocation @ 0x140815B14 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x1408350D0 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x14096DCE4 (PiInitializeDevice.c)
  * Callees:
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
  */
 
 __int64 __fastcall IopCreateRootEnumeratedDeviceObject(_QWORD *a1)

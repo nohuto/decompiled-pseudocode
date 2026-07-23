@@ -95,7 +95,7 @@ __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
             Status = -1073741670;
             goto LABEL_4;
           }
-          ZwResetEvent(*(__int64 *)&v11[1], 0LL);
+          ZwResetEvent(*(HANDLE *)&v11[1], 0LL);
           Status = ZwDeviceIoControlFile(
                      a2,
                      *(HANDLE *)&v11[1],

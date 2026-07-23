@@ -16,20 +16,21 @@ void *sub_180102784()
   char v1; // cl
   unsigned int v2; // ecx
   void *result; // rax
-  char v4; // [rsp+58h] [rbp-20h]
+  _BYTE SystemInformation[56]; // [rsp+20h] [rbp-58h] BYREF
+  char v5; // [rsp+58h] [rbp-20h]
 
   v0 = 1;
   qword_18015D458 = sub_18005C774();
-  if ( (int)ZwQuerySystemInformation() >= 0 )
+  if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) >= 0 )
   {
     v1 = 0;
-    if ( (unsigned int)v4 > 1 )
+    if ( (unsigned int)v5 > 1 )
     {
       do
         ++v1;
-      while ( (unsigned int)v4 >> v1 > 1 );
+      while ( (unsigned int)v5 >> v1 > 1 );
     }
-    v2 = ~((1LL << v1) - 1) & ((1LL << v1) + v4 - 1);
+    v2 = ~((1LL << v1) - 1) & ((1LL << v1) + v5 - 1);
     if ( v2 > 0x40 )
       v2 = 64;
     v0 = v2;

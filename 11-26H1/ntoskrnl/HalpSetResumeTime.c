@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpSetResumeTime @ 0x140594834
+ * XREFs of HalpSetResumeTime @ 0x140596FB4
  * Callers:
- *     HalpEfiInitializeOnResume @ 0x140586FB4 (HalpEfiInitializeOnResume.c)
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
+ *     HalpEfiInitializeOnResume @ 0x1405894D4 (HalpEfiInitializeOnResume.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     HalpSetVirtualRtc @ 0x140451B58 (HalpSetVirtualRtc.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     HalpQueryVirtualRtc @ 0x140585330 (HalpQueryVirtualRtc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     HalpSetVirtualRtc @ 0x140449C88 (HalpSetVirtualRtc.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     HalpQueryVirtualRtc @ 0x140587850 (HalpQueryVirtualRtc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
@@ -26,7 +26,7 @@ void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
   pullResult = 0LL;
   if ( (_DWORD)a2 )
   {
-    if ( HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[16] )
+    if ( BYTE1(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) )
     {
       if ( (_DWORD)a2 == 1 )
       {
@@ -50,7 +50,7 @@ void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
         }
         else
         {
-          HalpSetVirtualRtc(&HalpResumeTime);
+          HalpSetVirtualRtc((LARGE_INTEGER *)&HalpResumeTime);
           HalpResumeTime = 0LL;
         }
       }

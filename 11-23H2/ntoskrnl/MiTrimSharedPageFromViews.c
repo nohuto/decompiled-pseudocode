@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTrimSharedPageFromViews @ 0x1402EFC5C
+ * XREFs of MiTrimSharedPageFromViews @ 0x1402EFEEC
  * Callers:
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1402EFC04 (MiTrimSection.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
@@ -9,46 +9,46 @@
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
  *     MiPrepareAttachThread @ 0x1402178B0 (MiPrepareAttachThread.c)
  *     MiAttachThreadDone @ 0x140217924 (MiAttachThreadDone.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiLockLowestValidPageTable @ 0x14025A290 (MiLockLowestValidPageTable.c)
- *     MiTbFlushType @ 0x14025BAAC (MiTbFlushType.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSynchronizeSystemVa @ 0x1402619B0 (MiSynchronizeSystemVa.c)
- *     MiGetSystemCacheReverseMap @ 0x140262410 (MiGetSystemCacheReverseMap.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402E39BC (MI_WSLE_LOG_ACCESS.c)
- *     MiUnlockSystemVa @ 0x1402EED60 (MiUnlockSystemVa.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KeForceAttachProcess @ 0x140353538 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x14035559C (KeForceDetachProcess.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReplaceLockedPage @ 0x140636C94 (MiReplaceLockedPage.c)
- *     MiDeleteTrimViewInfoList @ 0x14085FB74 (MiDeleteTrimViewInfoList.c)
- *     MmQuitNextSession @ 0x140884910 (MmQuitNextSession.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiLockLowestValidPageTable @ 0x14025A520 (MiLockLowestValidPageTable.c)
+ *     MiTbFlushType @ 0x14025BD3C (MiTbFlushType.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSynchronizeSystemVa @ 0x140261C40 (MiSynchronizeSystemVa.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402626A0 (MiGetSystemCacheReverseMap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     MmGetSessionById @ 0x1402C20C0 (MmGetSessionById.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402E3C4C (MI_WSLE_LOG_ACCESS.c)
+ *     MiUnlockSystemVa @ 0x1402EEFF0 (MiUnlockSystemVa.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeForceAttachProcess @ 0x1403536D8 (KeForceAttachProcess.c)
+ *     KeForceDetachProcess @ 0x14035573C (KeForceDetachProcess.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReplaceLockedPage @ 0x1406371E4 (MiReplaceLockedPage.c)
+ *     MiDeleteTrimViewInfoList @ 0x14085FDB4 (MiDeleteTrimViewInfoList.c)
+ *     MmQuitNextSession @ 0x140884B50 (MmQuitNextSession.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -351,10 +351,13 @@ LABEL_162:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v7 = 0LL;
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           v69 = KeGetCurrentPrcb();
           v70 = v69->SchedulerAssist;
@@ -684,10 +687,10 @@ LABEL_26:
             if ( (v96 & 0x10) == 0 )
               *(_BYTE *)(v46 + 34) = v96 | 0x10;
             _InterlockedAnd64((volatile signed __int64 *)(v46 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v98 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v98 <= 0xFu && v95 <= 0xFu && v98 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v98 <= 0xFu && v95 <= 0xFu && v98 >= 2u )
               {
                 v99 = KeGetCurrentPrcb();
                 v100 = v99->SchedulerAssist;

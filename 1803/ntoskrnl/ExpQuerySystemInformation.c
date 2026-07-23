@@ -130,7 +130,7 @@
  *     BgkQueryBootGraphicsInformation @ 0x14083B524 (BgkQueryBootGraphicsInformation.c)
  */
 
-int __fastcall ExpQuerySystemInformation(
+NTSTATUS __fastcall ExpQuerySystemInformation(
         __int64 a1,
         LOGICAL_PROCESSOR_RELATIONSHIP *a2,
         unsigned int a3,
@@ -152,7 +152,7 @@ int __fastcall ExpQuerySystemInformation(
   __int64 v17; // rdx
   __int64 v18; // r8
   int SystemBasicInformation; // eax
-  int result; // eax
+  NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rax
   __int64 v22; // rcx
   int v23; // eax
@@ -245,7 +245,7 @@ int __fastcall ExpQuerySystemInformation(
   int BootGraphicsInformation; // [rsp+30h] [rbp-828h]
   ULONG Length; // [rsp+34h] [rbp-824h] BYREF
   unsigned __int8 v112; // [rsp+38h] [rbp-820h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+3Ch] [rbp-81Ch] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+3Ch] [rbp-81Ch] BYREF
   ULONG Size; // [rsp+40h] [rbp-818h]
   int Size_4; // [rsp+44h] [rbp-814h]
   unsigned __int16 v116; // [rsp+48h] [rbp-810h]
@@ -255,7 +255,7 @@ int __fastcall ExpQuerySystemInformation(
   ULONG v120; // [rsp+60h] [rbp-7F8h]
   unsigned int v121; // [rsp+64h] [rbp-7F4h]
   SIZE_T NumberOfBytes[8]; // [rsp+68h] [rbp-7F0h] BYREF
-  char v123; // [rsp+AAh] [rbp-7AEh]
+  char Data[65]; // [rsp+AAh] [rbp-7AEh] BYREF
   char v124[17]; // [rsp+EBh] [rbp-76Dh] BYREF
   _DWORD v125[3]; // [rsp+FCh] [rbp-75Ch] BYREF
   LOGICAL_PROCESSOR_RELATIONSHIP *v126; // [rsp+108h] [rbp-750h]
@@ -2282,8 +2282,8 @@ LABEL_211:
       case 186:
         if ( !v8 )
         {
-          v123 = 1;
-          return ZwFilterBootOption(1LL, 270532611LL, 637534368LL);
+          Data[0] = 1;
+          return ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
         }
         if ( a6 )
           *a6 = 0;

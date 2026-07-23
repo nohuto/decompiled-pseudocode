@@ -47,7 +47,7 @@
  *     PopPushPowerStateTransitionRecord @ 0x140B5E108 (PopPushPowerStateTransitionRecord.c)
  */
 
-__int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int a3, int a4)
+__int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_STATE a3, int a4)
 {
   unsigned int v5; // edi
   __int64 v9; // rdx
@@ -70,7 +70,7 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   char v27; // r12
   __int64 v28; // rcx
   char v29; // r15
-  int v30; // ebx
+  POWER_ACTION v30; // ebx
   char v31; // r12
   int v32; // esi
   char v33; // al
@@ -123,8 +123,8 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
   PopAcquireAwaymodeLock();
   PopReadSystemAwayModePolicy();
   if ( (byte_140F0B710 || byte_140F0B711)
-    && a2 == 2
-    && (int)a3 < 5
+    && a2 == PowerActionSleep
+    && a3 < PowerSystemHibernate
     && (dword_140F0AE74 & 0xFFFFFFFA) == 0
     && dword_140F0AE74 != 1 )
   {
@@ -158,7 +158,7 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
     v16 = 1;
   }
   ActionEntryReason = PopPotsGetActionEntryReason((unsigned int)dword_140F0AE74, (unsigned int)dword_140F0AE78);
-  if ( a2 == 8 )
+  if ( a2 == PowerActionDisplayOff )
   {
     if ( !PopConsoleDisplayState )
       return 3221266435LL;
@@ -167,7 +167,7 @@ __int64 __fastcall PopIssueActionRequest(char a1, unsigned int a2, unsigned int 
     PopAcquirePolicyLock(v22, v21);
     return 0LL;
   }
-  if ( a2 - 4 <= 2 )
+  if ( (unsigned int)(a2 - 4) <= 2 )
   {
     v23 = 1;
     LOBYTE(v65) = 1;
@@ -225,7 +225,7 @@ LABEL_44:
   {
     v30 = a2;
     v31 = a1;
-    v32 = PopTransitionSystemPowerState(a2, a3, (unsigned int)v26);
+    v32 = PopTransitionSystemPowerState((unsigned int)a2, (unsigned int)a3, (unsigned int)v26);
   }
   else
   {
@@ -258,8 +258,8 @@ LABEL_44:
       }
       if ( (v26 & 8) != 0 )
         EtwShutdown(1);
-      PopDispatchSuperfetchNotification((unsigned int)v26, a3);
-      v32 = PopTransitionSystemPowerState(a2, a3, (unsigned int)v26);
+      PopDispatchSuperfetchNotification((unsigned int)v26, (unsigned int)a3);
+      v32 = PopTransitionSystemPowerState((unsigned int)a2, (unsigned int)a3, (unsigned int)v26);
       PopAcquirePolicyLock(v36, v35);
       v37 = byte_140F0AF20;
       PopReleasePolicyLock(v39, v38, v40, v41, v65);
@@ -321,8 +321,8 @@ LABEL_44:
       PopDiagTracePowerTransitionTime();
       PopDiagTracePerfTrackData(v26);
       PopShutdownButtonPressTime = 0LL;
-      dword_140F0B3C0 = v30;
-      dword_140F0B3C4 = a3;
+      SystemAction = v30;
+      LightestSystemState = a3;
       PopSleepStats = 1;
     }
     PopCheckpointSystemSleep(41LL);
@@ -330,7 +330,7 @@ LABEL_44:
     RtlBootStatusDisableFlushing(0);
     PopQueueWorkItem((__int64)&PopBsdFlushWorkItem, (WORK_QUEUE_TYPE)(v57 + 1));
     PopDiagTracePowerTransitionEnd((unsigned int)v32);
-    PopPotsLogPowerTransitionReliability((unsigned int)v32, a3, ActionEntryReason);
+    PopPotsLogPowerTransitionReliability((unsigned int)v32, (unsigned int)a3, ActionEntryReason);
   }
   PpmEndHighPerfRequest(2);
   PopAcquirePolicyLock(v59, v58);

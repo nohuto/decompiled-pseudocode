@@ -20,9 +20,9 @@ char __fastcall KeUpdatePendingQosRequest(__int64 a1)
   __int64 v2; // rdi
   unsigned __int8 CurrentIrql; // si
   __int64 v4; // rdx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   signed __int32 v6; // eax
-  unsigned __int64 v8; // [rsp+58h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp+10h] BYREF
 
   v1 = 0;
   v2 = a1;
@@ -41,9 +41,9 @@ char __fastcall KeUpdatePendingQosRequest(__int64 a1)
       if ( KiQosHysteresisTimerPeriod )
       {
         if ( KiClockTimerReducePreciseTimeQueries )
-          InterruptTimePrecise = RtlGetInterruptTimePrecise(&v8);
+          InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         else
-          InterruptTimePrecise = 0LL;
+          InterruptTimePrecise.QuadPart = 0LL;
         KiSetClockTimer(v2, InterruptTimePrecise, -(__int64)(unsigned int)KiQosHysteresisTimerPeriod, 0, 6, 0, 1);
       }
     }

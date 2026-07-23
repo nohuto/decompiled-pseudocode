@@ -1,7 +1,7 @@
 /*
- * XREFs of MiThreadIdealNode @ 0x140617808
+ * XREFs of MiThreadIdealNode @ 0x140617D58
  * Callers:
- *     MiGetLargePagesForSystemMapping @ 0x140A322C4 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140A32574 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     <none>
  */

@@ -5,8 +5,8 @@
  * Callees:
  *     MiSystemVaToDynamicBitmap @ 0x140210FC4 (MiSystemVaToDynamicBitmap.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiBuildDynamicRegion @ 0x14037620C (MiBuildDynamicRegion.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407A9BC8 (MiInitializeSystemWorkingSetList.c)
+ *     MiBuildDynamicRegion @ 0x1403763AC (MiBuildDynamicRegion.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407A9DB8 (MiInitializeSystemWorkingSetList.c)
  */
 
 __int64 MiBuildPagedPool()

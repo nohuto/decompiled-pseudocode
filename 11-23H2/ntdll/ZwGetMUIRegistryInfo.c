@@ -5,16 +5,16 @@
  *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008E420 (RtlpVerifyAndCommitUILanguageSettings.c)
  *     RtlpCleanupRegistryKeys @ 0x1800FBD00 (RtlpCleanupRegistryKeys.c)
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
- *     RtlpRefreshCachedUILanguage @ 0x1801147B0 (RtlpRefreshCachedUILanguage.c)
+ *     RtlpRefreshCachedUILanguage @ 0x180114780 (RtlpRefreshCachedUILanguage.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwGetMUIRegistryInfo()
+NTSTATUS __cdecl ZwGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 253LL;
+  result = 253;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

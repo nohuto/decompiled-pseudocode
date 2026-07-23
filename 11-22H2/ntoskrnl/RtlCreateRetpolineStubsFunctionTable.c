@@ -9,7 +9,7 @@
 
 __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, int a3)
 {
-  __int64 v3; // rbp
+  PVOID v3; // rbp
   _DWORD *RetpolineStubsFunctionTable; // r14
   __int64 result; // rax
   unsigned int v7; // ebx
@@ -24,8 +24,8 @@ __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, 
   v3 = PsNtosImageBase;
   v12 = 0;
   RetpolineStubsFunctionTable = (_DWORD *)RtlpGetRetpolineStubsFunctionTable(
-                                            PsNtosImageBase,
-                                            PsNtosImageBase,
+                                            (_DWORD)PsNtosImageBase,
+                                            (_DWORD)PsNtosImageBase,
                                             (_DWORD)a2,
                                             a3,
                                             (__int64)&v12);
@@ -41,12 +41,12 @@ __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, 
     v10 = v12;
     do
     {
-      v11 = v3 + RetpolineStubsFunctionTable[1];
-      *(v9 - 1) = v3 + *RetpolineStubsFunctionTable - (_DWORD)a2;
+      v11 = (_DWORD)v3 + RetpolineStubsFunctionTable[1];
+      *(v9 - 1) = (_DWORD)v3 + *RetpolineStubsFunctionTable - (_DWORD)a2;
       *v9 = v11 - (_DWORD)a2;
       v9[1] = v8 - (_DWORD)a2;
       v9 += 3;
-      v8 += RtlCalculateUnwindInfoSizeForRetpoline(v3, (__int64)RetpolineStubsFunctionTable, 0LL);
+      v8 += RtlCalculateUnwindInfoSizeForRetpoline((__int64)v3, (__int64)RetpolineStubsFunctionTable, 0LL);
       RetpolineStubsFunctionTable += 3;
       --v10;
     }

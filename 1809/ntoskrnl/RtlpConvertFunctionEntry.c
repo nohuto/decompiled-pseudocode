@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpConvertFunctionEntry @ 0x140184F60
+ * XREFs of RtlpConvertFunctionEntry @ 0x1401850A0
  * Callers:
- *     KiLockExtendedServiceTable @ 0x14019F868 (KiLockExtendedServiceTable.c)
- *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     KiLockExtendedServiceTable @ 0x14019F9A8 (KiLockExtendedServiceTable.c)
+ *     CcInitializeBcbProfiler @ 0x14098F324 (CcInitializeBcbProfiler.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpConvertFunctionEntry(__int64 a1, unsigned __int64 a2)

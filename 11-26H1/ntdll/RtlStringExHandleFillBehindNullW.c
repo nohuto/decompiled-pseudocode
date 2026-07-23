@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleFillBehindNullW @ 0x18014755C
+ * XREFs of RtlStringExHandleFillBehindNullW @ 0x18014740C
  * Callers:
- *     RtlStringCchPrintfExW @ 0x1800496E0 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x180033C60 (RtlStringCchPrintfExW.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlStringExHandleFillBehindNullW(__int64 a1, unsigned __int64 a2, unsigned __int8 a3)

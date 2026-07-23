@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAweViewInserter @ 0x1408D56DC
+ * XREFs of MiAweViewInserter @ 0x1408D583C
  * Callers:
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
  */
 
 char __fastcall MiAweViewInserter(__int64 a1, _QWORD *a2)

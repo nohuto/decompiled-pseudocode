@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1400722E8 (KeGetProcessorNumberFromIndex.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x140082C94 (KeRestoreExtendedAndSupervisorState.c)
- *     KeSaveExtendedAndSupervisorState @ 0x140082EC0 (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x1401141D4 (KeRestoreProcessorSpecificFeatures.c)
- *     PnprGetStackLimits @ 0x1401D048C (PnprGetStackLimits.c)
- *     KeResumeClockTimerSafe @ 0x1401D24B8 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x1401D24F0 (KeSuspendClockTimerSafe.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140071E68 (KeGetProcessorNumberFromIndex.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x140083914 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x140083B40 (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140114744 (KeRestoreProcessorSpecificFeatures.c)
+ *     PnprGetStackLimits @ 0x1401D02B8 (PnprGetStackLimits.c)
+ *     KeResumeClockTimerSafe @ 0x1401D22E4 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x1401D231C (KeSuspendClockTimerSafe.c)
  *     xHalPowerEarlyRestore @ 0x1403D6AEC (xHalPowerEarlyRestore.c)
  *     xHalDpMaskLevelTriggeredInterrupts @ 0x1403D6AF0 (xHalDpMaskLevelTriggeredInterrupts.c)
  *     xHalDpGetInterruptReplayState @ 0x1403D9ECC (xHalDpGetInterruptReplayState.c)
@@ -40,7 +40,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   SIZE_T v19; // rdx
   PVOID v20[16]; // [rsp+20h] [rbp-88h] BYREF
   int v21; // [rsp+A0h] [rbp-8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+B8h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+B8h] [rbp+10h] BYREF
   unsigned int v23; // [rsp+C0h] [rbp+18h] BYREF
   PVOID BaseAddress; // [rsp+C8h] [rbp+20h] BYREF
 

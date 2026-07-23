@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorNotifyCsStateExited @ 0x1408EE5F0
+ * XREFs of PopPowerAggregatorNotifyCsStateExited @ 0x1408EE750
  * Callers:
- *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1408EE7A0 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1408EE900 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x140779D60 (PopBlockSessionSwitch.c)
- *     TtmNotifyLowPowerStateExited @ 0x1408FE978 (TtmNotifyLowPowerStateExited.c)
+ *     PopInvokeWin32Callout @ 0x14066EF08 (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140779F20 (PopBlockSessionSwitch.c)
+ *     TtmNotifyLowPowerStateExited @ 0x1408FEAD8 (TtmNotifyLowPowerStateExited.c)
  */
 
-__int64 PopPowerAggregatorNotifyCsStateExited()
+ULONG PopPowerAggregatorNotifyCsStateExited()
 {
   __int128 v1; // [rsp+20h] [rbp-30h] BYREF
   __int128 v2; // [rsp+30h] [rbp-20h]
@@ -19,7 +19,7 @@ __int64 PopPowerAggregatorNotifyCsStateExited()
   v3 = 0LL;
   v1 = 0LL;
   v2 = 0LL;
-  PopBlockSessionSwitch(1, (int *)&v4);
+  PopBlockSessionSwitch(1, &v4);
   if ( TtmpEnabled == 1 )
   {
     TtmNotifyLowPowerStateExited(v4);
@@ -29,7 +29,7 @@ __int64 PopPowerAggregatorNotifyCsStateExited()
     v1 = 5uLL;
     v2 = 0uLL;
     v3 = 0LL;
-    PopInvokeWin32Callout(5, (__int64)&v1, 1, (int *)&v4);
+    PopInvokeWin32Callout(5u, (__int64)&v1, 1u, (int *)&v4);
   }
-  return PopBlockSessionSwitch(0, (int *)&v4);
+  return PopBlockSessionSwitch(0, &v4);
 }

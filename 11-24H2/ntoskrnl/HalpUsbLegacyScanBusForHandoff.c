@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x14056232C
+ * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x14055FF5C
  * Callers:
- *     HalpErrataInitSystem @ 0x140B4D090 (HalpErrataInitSystem.c)
+ *     HalpErrataInitSystem @ 0x140B4F0D0 (HalpErrataInitSystem.c)
  * Callees:
- *     HalpUsbLegacyDeviceHandoff @ 0x1405621B4 (HalpUsbLegacyDeviceHandoff.c)
- *     HalpUsbLegacyReadPCIConfig @ 0x140562258 (HalpUsbLegacyReadPCIConfig.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpUsbLegacyDeviceHandoff @ 0x14055FDE4 (HalpUsbLegacyDeviceHandoff.c)
+ *     HalpUsbLegacyReadPCIConfig @ 0x14055FE88 (HalpUsbLegacyReadPCIConfig.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int16 HalpUsbLegacyScanBusForHandoff()
@@ -35,13 +35,13 @@ __int16 HalpUsbLegacyScanBusForHandoff()
         {
           v5 = v0 & 0xFFFFFF00;
           v0 = v4 | v0 & 0xFFFFFF00 | (32 * (v3 & 7));
-          PCIConfig = HalpUsbLegacyReadPCIConfig(32 * (v3 & 7u), i, v4 | v5 | (32 * (v3 & 7)), (__int64)v8, 0);
+          PCIConfig = HalpUsbLegacyReadPCIConfig(32 * (v3 & 7u), i, v4 | v5 | (32 * (v3 & 7)));
           if ( !PCIConfig )
             break;
           LOWORD(PCIConfig) = v8[0] - 1;
           if ( (unsigned __int16)(v8[0] - 1) > 0xFFFDu )
             break;
-          PCIConfig = HalpUsbLegacyReadPCIConfig(65533LL, i, v0, (__int64)v8, 0);
+          PCIConfig = HalpUsbLegacyReadPCIConfig(65533LL, i, v0);
           if ( !PCIConfig )
             goto LABEL_11;
           LOWORD(PCIConfig) = HalpUsbLegacyDeviceHandoff(0LL, i, v0, v8);

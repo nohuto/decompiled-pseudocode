@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAcquireRemoveMemoryResources @ 0x14066C724
+ * XREFs of MiAcquireRemoveMemoryResources @ 0x14066D8F4
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiAllocateInitialMemoryBlocks @ 0x1407E8EA4 (MiAllocateInitialMemoryBlocks.c)
+ *     MiAllocateInitialMemoryBlocks @ 0x1407E9474 (MiAllocateInitialMemoryBlocks.c)
  */
 
 __int64 __fastcall MiAcquireRemoveMemoryResources(__int64 a1)

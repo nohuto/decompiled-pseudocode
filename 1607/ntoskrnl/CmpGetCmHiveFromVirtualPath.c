@@ -2,7 +2,7 @@
  * XREFs of CmpGetCmHiveFromVirtualPath @ 0x1403E176C
  * Callers:
  *     CmpVirtualBranchIsReplicated @ 0x1403E14A8 (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140601D0C (CmpVirtualPathPresent.c)
+ *     CmpVirtualPathPresent @ 0x140601DC0 (CmpVirtualPathPresent.c)
  * Callees:
  *     CmpGetMappingHiveForString @ 0x1403E1798 (CmpGetMappingHiveForString.c)
  *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x1403E18A0 (CmpGetVirtualizationIDFromFullVirtualPath.c)

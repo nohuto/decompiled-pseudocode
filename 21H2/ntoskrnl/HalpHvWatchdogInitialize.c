@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHvWatchdogInitialize @ 0x1403652D0
+ * XREFs of HalpHvWatchdogInitialize @ 0x140365480
  * Callers:
  *     <none>
  * Callees:

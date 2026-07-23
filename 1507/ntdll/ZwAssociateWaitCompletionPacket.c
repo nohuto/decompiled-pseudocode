@@ -8,11 +8,19 @@
  *     <none>
  */
 
-__int64 ZwAssociateWaitCompletionPacket()
+NTSTATUS __cdecl ZwAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 140LL;
+  result = 140;
   __asm { syscall; Low latency system call }
   return result;
 }

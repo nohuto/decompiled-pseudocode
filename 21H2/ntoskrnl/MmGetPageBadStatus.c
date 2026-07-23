@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetPageBadStatus @ 0x14052F810
+ * XREFs of MmGetPageBadStatus @ 0x14052FA50
  * Callers:
- *     HalpPmemErrorDeferredHandler @ 0x1404D004C (HalpPmemErrorDeferredHandler.c)
- *     WheapPersistPageForMemoryError @ 0x1405BBB58 (WheapPersistPageForMemoryError.c)
- *     WheapPfaMemoryCheck @ 0x14095E414 (WheapPfaMemoryCheck.c)
+ *     HalpPmemErrorDeferredHandler @ 0x1404D028C (HalpPmemErrorDeferredHandler.c)
+ *     WheapPersistPageForMemoryError @ 0x1405BBD88 (WheapPersistPageForMemoryError.c)
+ *     WheapPfaMemoryCheck @ 0x14095E5F4 (WheapPfaMemoryCheck.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

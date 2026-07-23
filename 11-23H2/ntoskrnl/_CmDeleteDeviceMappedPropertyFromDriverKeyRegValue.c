@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A674A0
+ * XREFs of _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A67750
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140799A70 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140799C60 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1, __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromDriverKeyRegValue(__int64 a1,
   KeyHandle = 0LL;
   v4 = *(_DWORD *)(a3 + 16);
   v5 = 0;
-  v7 = &off_140A7B1B0;
+  v7 = &off_140A7B460;
   do
   {
     v8 = *v7;

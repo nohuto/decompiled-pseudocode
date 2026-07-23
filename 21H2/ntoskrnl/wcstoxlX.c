@@ -1,13 +1,13 @@
 /*
- * XREFs of wcstoxlX @ 0x1403D427C
+ * XREFs of wcstoxlX @ 0x1403D43EC
  * Callers:
- *     wcstol @ 0x1403D4494 (wcstol.c)
- *     wcstolX @ 0x1403D44C4 (wcstolX.c)
- *     wcstoul @ 0x1403D4500 (wcstoul.c)
+ *     wcstol @ 0x1403D4604 (wcstol.c)
+ *     wcstolX @ 0x1403D4634 (wcstolX.c)
+ *     wcstoul @ 0x1403D4670 (wcstoul.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     _iswctype_l @ 0x1403D493C (_iswctype_l.c)
- *     _wchartodigit @ 0x1403D61C4 (_wchartodigit.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     _iswctype_l @ 0x1403D4AAC (_iswctype_l.c)
+ *     _wchartodigit @ 0x1403D6334 (_wchartodigit.c)
  */
 
 __int64 __fastcall wcstoxlX(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4, int a5, int a6)

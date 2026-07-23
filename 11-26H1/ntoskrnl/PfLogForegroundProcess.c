@@ -1,11 +1,11 @@
 /*
- * XREFs of PfLogForegroundProcess @ 0x14025875C
+ * XREFs of PfLogForegroundProcess @ 0x140259F3C
  * Callers:
- *     MiAgeTargetedWorkingSet @ 0x140476D30 (MiAgeTargetedWorkingSet.c)
+ *     MiAgeTargetedWorkingSet @ 0x1404704B0 (MiAgeTargetedWorkingSet.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfLogForegroundProcess(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall PfLogForegroundProcess(__int64 a1, __int64 a2)
       v6 = PfLogEvent(
              v4,
              7,
-             HIDWORD(stru_140E66B30.WriteOperationCount)
+             HIDWORD(stru_140E66D40.WriteOperationCount)
            + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                            + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
              (int)v9,

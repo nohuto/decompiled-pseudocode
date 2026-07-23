@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountBatteryEnergyChange @ 0x1408EC934
+ * XREFs of PopAccountBatteryEnergyChange @ 0x1408ECA94
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
@@ -195,7 +195,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v48 = v2;
       v75 = &v49;
       v77 = &v50;
-      v51 = dword_140C23634;
+      v51 = dword_140C23C54;
       v79 = &v51;
       v3 = (*(_DWORD *)(v23 + 148) & 1) == 0;
       v74 = 4LL;
@@ -261,7 +261,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v99 = 4LL;
       LODWORD(v1) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140C02228,
-                      (unsigned __int8 *)&word_140028E56,
+                      (unsigned __int8 *)byte_140029481,
                       0LL,
                       0LL,
                       0x1Bu,

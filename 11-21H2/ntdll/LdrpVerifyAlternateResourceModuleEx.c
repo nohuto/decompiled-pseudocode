@@ -9,13 +9,7 @@
  *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800DBFF8 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
  */
 
-char __fastcall LdrpVerifyAlternateResourceModuleEx(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        const wchar_t *a4,
-        int a5,
-        int a6)
+char __fastcall LdrpVerifyAlternateResourceModuleEx(void *a1, void *a2, __int64 a3, const wchar_t *a4, int a5, int a6)
 {
   __int64 v9; // rdx
   _DWORD *v10; // rdi
@@ -31,10 +25,10 @@ char __fastcall LdrpVerifyAlternateResourceModuleEx(
     return 1;
   if ( (a5 & 0x1000) != 0 )
   {
-    RCConfig = LdrResGetRCConfig(a1, 0, (unsigned int)&v17, 4096, 1);
+    RCConfig = LdrResGetRCConfig((_DWORD)a1, 0, (unsigned int)&v17, 4096, 1);
     if ( RCConfig >= 0 )
     {
-      if ( (int)LdrResGetRCConfig(a2, 0, (unsigned int)&v18, 4096, 0) < 0 )
+      if ( (int)LdrResGetRCConfig((_DWORD)a2, 0, (unsigned int)&v18, 4096, 0) < 0 )
         return 0;
       v10 = v17;
       v11 = v18;
@@ -45,7 +39,7 @@ char __fastcall LdrpVerifyAlternateResourceModuleEx(
   }
   else
   {
-    v10 = LdrpGetRcConfig(a1, a2, 0, 1);
+    v10 = LdrpGetRcConfig(a1, (__int64)a2, 0, 1);
     if ( v10 )
     {
       v11 = LdrpGetRcConfig(a2, v9, 0, 0);

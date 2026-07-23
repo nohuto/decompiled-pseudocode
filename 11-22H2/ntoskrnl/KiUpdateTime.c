@@ -534,7 +534,7 @@ LABEL_138:
   if ( v30 <= 0 )
   {
     v31 = 1LL;
-    v30 += (unsigned int)KeMaximumIncrement;
+    v30 += KeMaximumIncrement;
     if ( v30 <= 0 )
     {
       v61 = KeNumberProcessorsGroup0[1];
@@ -607,7 +607,7 @@ LABEL_42:
     CurrentIrql = KeGetCurrentIrql();
     v132 = CurrentIrql;
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       v109 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)CurrentIrql == 15 )
@@ -682,10 +682,10 @@ LABEL_42:
     CurrentPrcb->ClockTimerState.ClockTimerEntries[1].TypeFlags |= 3u;
     v35->ClockTimerState.ClockTimerEntries[1].DueTime = v46;
     v35->ClockTimerState.ClockTimerEntries[1].TolerableDelay = v47;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v111 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v111 <= 0xFu && v44 <= 0xFu && v111 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v111 <= 0xFu && v44 <= 0xFu && v111 >= 2u )
       {
         v112 = KeGetCurrentPrcb();
         v113 = v112->SchedulerAssist;

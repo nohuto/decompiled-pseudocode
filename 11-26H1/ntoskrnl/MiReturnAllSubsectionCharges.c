@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReturnAllSubsectionCharges @ 0x1404890DC
+ * XREFs of MiReturnAllSubsectionCharges @ 0x140482C1C
  * Callers:
- *     MiFinishExtendAppend @ 0x140488E60 (MiFinishExtendAppend.c)
+ *     MiFinishExtendAppend @ 0x1404829A0 (MiFinishExtendAppend.c)
  * Callees:
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
  */
 
 __int64 __fastcall MiReturnAllSubsectionCharges(ULONG_PTR BugCheckParameter2)

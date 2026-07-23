@@ -16,7 +16,7 @@
 
 __int64 __fastcall VmpMergeMemoryRanges(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)
 {
-  unsigned __int64 Next; // rsi
+  __int64 Next; // rsi
   PEX_SPIN_LOCK v6; // rbp
   __int64 v7; // r12
   int v8; // edi
@@ -38,9 +38,9 @@ __int64 __fastcall VmpMergeMemoryRanges(PEX_SPIN_LOCK SpinLock, unsigned __int64
   int v25; // eax
   __int64 v26; // rax
   _QWORD *v27; // r14
-  __int64 *v28; // rdi
-  unsigned __int64 *v29; // rbp
-  __int64 v30; // rax
+  _RTL_BALANCED_NODE *v28; // rdi
+  _RTL_RB_TREE *v29; // rbp
+  _RTL_BALANCED_NODE *v30; // rax
   __int64 v31; // rax
   __int64 v33; // [rsp+98h] [rbp+20h] BYREF
 
@@ -55,10 +55,13 @@ LABEL_32:
     if ( v7 != -1 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -140,21 +143,21 @@ LABEL_30:
   {
 LABEL_54:
     v27 = (_QWORD *)*v14;
-    v28 = *(__int64 **)(Next + 40);
-    v29 = (unsigned __int64 *)(v6 + 2);
+    v28 = *(_RTL_BALANCED_NODE **)(Next + 40);
+    v29 = (_RTL_RB_TREE *)(v6 + 2);
     do
     {
-      RtlRbRemoveNode(v29, (unsigned __int64)(v28 + 3));
-      v30 = v28[7];
-      v28[5] = -1LL;
+      RtlRbRemoveNode(v29, v28 + 1);
+      v30 = v28[2].Children[1];
+      v28[1].ParentValue = -1LL;
       v27[7] = v30;
-      *((_DWORD *)v28 + 16) &= ~1u;
+      *(_DWORD *)&v28[2].0 &= ~1u;
       v27 = (_QWORD *)*v27;
-      v28 = (__int64 *)*v28;
+      v28 = v28->Children[0];
     }
     while ( v27 != (_QWORD *)(v9 + 40) );
     v6 = SpinLock;
-    RtlRbRemoveNode((unsigned __int64 *)SpinLock + 3, Next);
+    RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 6), (PRTL_BALANCED_NODE)Next);
     v31 = *(_QWORD *)(Next + 32);
     *(_QWORD *)(Next + 16) = -1LL;
     *(_QWORD *)(v9 + 32) = v31;
@@ -163,10 +166,10 @@ LABEL_54:
     goto LABEL_32;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

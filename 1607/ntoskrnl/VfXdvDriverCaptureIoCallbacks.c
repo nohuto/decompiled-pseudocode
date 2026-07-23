@@ -1,14 +1,14 @@
 /*
  * XREFs of VfXdvDriverCaptureIoCallbacks @ 0x1406FE128
  * Callers:
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
  *     IovAttachDeviceToDeviceStack @ 0x1407008E8 (IovAttachDeviceToDeviceStack.c)
  *     IopInitializeBuiltinDriver @ 0x14079BB9C (IopInitializeBuiltinDriver.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1400B4230 (MmIsDriverVerifying.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmIsDriverVerifying @ 0x1400B20B0 (MmIsDriverVerifying.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     VfUtilEqualUnicodeString @ 0x140702DAC (VfUtilEqualUnicodeString.c)
+ *     VfUtilEqualUnicodeString @ 0x140702DDC (VfUtilEqualUnicodeString.c)
  */
 
 __int64 __fastcall VfXdvDriverCaptureIoCallbacks(struct _DRIVER_OBJECT *a1)

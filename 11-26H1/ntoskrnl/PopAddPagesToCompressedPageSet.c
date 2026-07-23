@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAddPagesToCompressedPageSet @ 0x140BF99B4
+ * XREFs of PopAddPagesToCompressedPageSet @ 0x140BFF9B4
  * Callers:
- *     PopCompressHiberBlocks @ 0x140BF9F94 (PopCompressHiberBlocks.c)
- *     PopWriteHiberImage @ 0x140BFCAD4 (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x140BFFF94 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140C02AD4 (PopWriteHiberImage.c)
  * Callees:
- *     RtlCompressBuffer @ 0x14046A480 (RtlCompressBuffer.c)
- *     RtlCompressBufferProgress @ 0x140617A80 (RtlCompressBufferProgress.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlCompressBuffer @ 0x140463C00 (RtlCompressBuffer.c)
+ *     RtlCompressBufferProgress @ 0x14061AAD0 (RtlCompressBufferProgress.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 int *__fastcall PopAddPagesToCompressedPageSet(
@@ -50,10 +50,10 @@ int *__fastcall PopAddPagesToCompressedPageSet(
   {
     v13 = (UCHAR *)a4;
     v14 = *(_DWORD *)(a2 + 160);
-    v15 = *((_QWORD *)qword_140F0FE08 + 5) - *((_QWORD *)qword_140F0FE08 + 7);
-    if ( v14 && (v16 = *(_DWORD *)(a2 + 164), (int)(100 * v16 / v14) <= dword_140F0FDA4) )
+    v15 = *((_QWORD *)qword_140F10988 + 5) - *((_QWORD *)qword_140F10988 + 7);
+    if ( v14 && (v16 = *(_DWORD *)(a2 + 164), (int)(100 * v16 / v14) <= dword_140F10924) )
     {
-      v17 = *((_DWORD *)qword_140F0FE08 + 2);
+      v17 = *((_DWORD *)qword_140F10988 + 2);
       if ( v15 >= (__int64)((unsigned __int64)v17 >> 1) )
       {
         *(_DWORD *)(a2 + 164) = v16 + 1;
@@ -64,7 +64,7 @@ LABEL_11:
         goto LABEL_12;
       }
     }
-    else if ( v15 >= (__int64)((unsigned __int64)*((unsigned int *)qword_140F0FE08 + 2) >> 1) )
+    else if ( v15 >= (__int64)((unsigned __int64)*((unsigned int *)qword_140F10988 + 2) >> 1) )
     {
       v7 = 1;
       goto LABEL_11;
@@ -83,7 +83,7 @@ LABEL_12:
     {
       v19 = v7;
       v20 = RtlCompressBufferProgress(
-              *((_WORD *)qword_14002F9B8 + v7),
+              *((_WORD *)qword_14002F4F0 + v7),
               v13,
               v10,
               v8,
@@ -97,7 +97,7 @@ LABEL_12:
     {
       v19 = v7;
       v20 = RtlCompressBuffer(
-              *((_WORD *)qword_14002F9B8 + v7),
+              *((_WORD *)qword_14002F4F0 + v7),
               v13,
               v10,
               (PUCHAR)v8,
@@ -111,7 +111,7 @@ LABEL_12:
   {
     WorkSpace = *(void **)(a2 + 16);
     v19 = v7;
-    v22 = *((_WORD *)qword_14002F9B8 + v7);
+    v22 = *((_WORD *)qword_14002F4F0 + v7);
     if ( a7 )
       v20 = RtlCompressBufferProgress(
               v22,

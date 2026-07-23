@@ -1,26 +1,26 @@
 /*
- * XREFs of MiValidFault @ 0x1400E6250
+ * XREFs of MiValidFault @ 0x1400E40F0
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
- *     MiLockPageAndSetDirty @ 0x140015578 (MiLockPageAndSetDirty.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiCheckAndUpdateIoAttribution @ 0x14006EA30 (MiCheckAndUpdateIoAttribution.c)
- *     KeInvalidAccessAllowed @ 0x1400A542C (KeInvalidAccessAllowed.c)
- *     MiCheckSystemNxFault @ 0x1400B0E08 (MiCheckSystemNxFault.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiUpdatePrefetchPriority @ 0x1400E6670 (MiUpdatePrefetchPriority.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiCanGrantExecute @ 0x1401EF6B4 (MiCanGrantExecute.c)
- *     MiValidVirtualizationFault @ 0x1401EFD00 (MiValidVirtualizationFault.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
+ *     MiLockPageAndSetDirty @ 0x1400150F8 (MiLockPageAndSetDirty.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x14006E5B0 (MiCheckAndUpdateIoAttribution.c)
+ *     KeInvalidAccessAllowed @ 0x1400A39A4 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x1400AEE78 (MiCheckSystemNxFault.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiUpdatePrefetchPriority @ 0x1400E4510 (MiUpdatePrefetchPriority.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiCanGrantExecute @ 0x1401EF4E0 (MiCanGrantExecute.c)
+ *     MiValidVirtualizationFault @ 0x1401EFB2C (MiValidVirtualizationFault.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiValidFault(
@@ -147,7 +147,7 @@ LABEL_71:
     if ( v18 )
     {
       v28 = MI_GET_PAGE_FRAME_FROM_PTE(a3);
-      if ( v28 <= qword_140326A90
+      if ( v28 <= qword_140326AD0
         && (!MmPhysicalMemoryBlock || (*(_QWORD *)(48 * v28 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) != 0) )
       {
         v29 = 48 * v28 - 0x58000000000LL;

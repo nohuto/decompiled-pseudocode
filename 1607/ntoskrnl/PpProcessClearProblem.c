@@ -1,10 +1,10 @@
 /*
- * XREFs of PpProcessClearProblem @ 0x1401316DC
+ * XREFs of PpProcessClearProblem @ 0x140131C4C
  * Callers:
- *     PnpDeviceActionWorker @ 0x1400AFA3C (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1400865A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PipForDeviceNodeSubtree @ 0x14051D928 (PipForDeviceNodeSubtree.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PipForDeviceNodeSubtree @ 0x140487410 (PipForDeviceNodeSubtree.c)
  */
 
 __int64 __fastcall PpProcessClearProblem(__int64 a1)

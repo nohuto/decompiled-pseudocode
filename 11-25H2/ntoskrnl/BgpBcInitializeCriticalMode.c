@@ -21,23 +21,23 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
   bool v4; // zf
   int v5; // eax
   PCWSTR v6; // rbx
-  unsigned __int16 *Message; // rax
-  unsigned __int16 *v8; // rax
-  unsigned __int16 *v9; // rax
-  unsigned __int16 *v10; // rax
-  unsigned __int16 *v11; // rax
+  const wchar_t *Message; // rax
+  const wchar_t *v8; // rax
+  const wchar_t *v9; // rax
+  const wchar_t *v10; // rax
+  const wchar_t *v11; // rax
   USHORT Length; // dx
   USHORT *v13; // r8
-  unsigned __int16 *v14; // rax
-  unsigned __int16 *v15; // rax
-  unsigned __int16 *v16; // rax
-  unsigned __int16 *v17; // rax
-  unsigned __int16 *v18; // rax
-  unsigned __int16 *v19; // rax
-  unsigned __int16 *v20; // rax
-  unsigned __int16 *v21; // rax
+  const wchar_t *v14; // rax
+  const wchar_t *v15; // rax
+  const wchar_t *v16; // rax
+  const wchar_t *v17; // rax
+  const wchar_t *v18; // rax
+  const wchar_t *v19; // rax
+  const wchar_t *v20; // rax
+  const wchar_t *v21; // rax
   USHORT *v22; // r8
-  unsigned __int16 *v23; // rax
+  const wchar_t *v23; // rax
   int ProgressMessages; // eax
   USHORT *v25; // r8
   USHORT *v26; // r8

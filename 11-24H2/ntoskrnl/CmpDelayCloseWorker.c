@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpDelayCloseWorker @ 0x1409D6A50
+ * XREFs of CmpDelayCloseWorker @ 0x1409C6AD0
  * Callers:
- *     ExpWorkerThread @ 0x140207CC0 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x14032F2A0 (ExpWorkerThread.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpDrainDelayDerefContext @ 0x14041AEB0 (CmpDrainDelayDerefContext.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpInitializeDelayDerefContext @ 0x140424470 (CmpInitializeDelayDerefContext.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpDeleteHive @ 0x14084475C (CmpDeleteHive.c)
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpDrainDelayDerefContext @ 0x14040AEB0 (CmpDrainDelayDerefContext.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpInitializeDelayDerefContext @ 0x140418320 (CmpInitializeDelayDerefContext.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpDeleteHive @ 0x140840A1C (CmpDeleteHive.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 _KAFFINITY_EX *__fastcall CmpDelayCloseWorker(__int64 a1)
@@ -39,8 +39,8 @@ _KAFFINITY_EX *__fastcall CmpDelayCloseWorker(__int64 a1)
   ULONG_PTR BugCheckParameter4; // rbx
   ULONG_PTR v12; // rbp
   unsigned __int64 *v13; // r15
-  _QWORD *v14; // rax
-  _QWORD *v15; // r13
+  char *v14; // rax
+  char *v15; // r13
   signed __int32 v16; // eax
   signed __int32 v17; // ett
   unsigned int v18; // ebp
@@ -79,17 +79,17 @@ LABEL_3:
         v5 = CmpDelayedCloseElements;
         if ( CmpDelayedCloseElements <= (unsigned int)CmpDelayedCloseSize && (!a1 || !CmpDelayedCloseElements) )
           break;
-        v6 = qword_140EF5508 - 224;
-        if ( *(__int64 **)qword_140EF5508 == &CmpDelayedLRUListHead )
+        v6 = qword_140EF5708 - 224;
+        if ( *(__int64 **)qword_140EF5708 == &CmpDelayedLRUListHead )
         {
-          v7 = *(_QWORD **)(qword_140EF5508 + 8);
-          if ( *v7 == qword_140EF5508 )
+          v7 = *(_QWORD **)(qword_140EF5708 + 8);
+          if ( *v7 == qword_140EF5708 )
             continue;
         }
         __fastfail(3u);
-        qword_140EF5508 = *(_QWORD *)(qword_140EF5508 + 8);
+        qword_140EF5708 = *(_QWORD *)(qword_140EF5708 + 8);
         *v7 = &CmpDelayedLRUListHead;
-        --qword_140FD9418;
+        --qword_140FDA428;
         CmpDelayedCloseElements = v5 - 1;
         *((_QWORD *)v4 - 1) = *(_QWORD *)(v6 + 32);
         *(_QWORD *)v4 = v6;
@@ -114,12 +114,12 @@ LABEL_3:
                                    + 24
                                    * ((unsigned int)(*(_DWORD *)(v12 + 1656) - 1) & ((101027
                                                                                     * ((unsigned int)BugCheckParameter4 ^ (*v10 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)BugCheckParameter4 ^ (*v10 >> 9))) >> 9))));
-          v14 = KeAbPreAcquire((__int64)v13, 0LL);
+          v14 = (char *)KeAbPreAcquire((__int64)v13, 0LL);
           v15 = v14;
           if ( _interlockedbittestandset64((volatile signed __int32 *)v13, 0LL) )
-            ExfAcquirePushLockExclusiveEx(v13, (__int64)v14, (__int64)v13);
+            ExfAcquirePushLockExclusiveEx(v13, v14, (__int64)v13);
           if ( v15 )
-            *((_BYTE *)v15 + 10) = 1;
+            v15[10] = 1;
           v13[1] = (unsigned __int64)KeGetCurrentThread();
           _m_prefetchw((const void *)(v12 + 4232));
           v16 = *(_DWORD *)(v12 + 4232);

@@ -21,14 +21,14 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpMuiRegFreeLanguageList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall RtlpMuiRegFreeLanguageList(_BYTE *a1)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   if ( a1 )
   {
-    if ( (*(_BYTE *)(a1 + 40) & 0x40) == 0 )
-      return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, a4);
+    if ( (a1[40] & 0x40) == 0 )
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   }
   return result;
 }

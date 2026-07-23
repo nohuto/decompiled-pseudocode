@@ -1,9 +1,9 @@
 /*
- * XREFs of MdlInvariantFindMdlInfo @ 0x140642A70
+ * XREFs of MdlInvariantFindMdlInfo @ 0x140646650
  * Callers:
- *     MdlInvariantPostDriverCompletion @ 0x140642AB4 (MdlInvariantPostDriverCompletion.c)
- *     MdlInvariantPostProcessing1 @ 0x140642B44 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x140642D54 (MdlInvariantPreProcessing1.c)
+ *     MdlInvariantPostDriverCompletion @ 0x140646694 (MdlInvariantPostDriverCompletion.c)
+ *     MdlInvariantPostProcessing1 @ 0x140646724 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x140646934 (MdlInvariantPreProcessing1.c)
  * Callees:
  *     <none>
  */

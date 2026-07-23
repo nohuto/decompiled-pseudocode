@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleasePageFileSpace @ 0x14033ECA0
+ * XREFs of MiReleasePageFileSpace @ 0x140340D20
  * Callers:
- *     MiDecommitHandleTransitionPte @ 0x14033DDD4 (MiDecommitHandleTransitionPte.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x14033F350 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiDeletePerSessionProtos @ 0x1404586A0 (MiDeletePerSessionProtos.c)
+ *     MiDecommitHandleTransitionPte @ 0x14033FE54 (MiDecommitHandleTransitionPte.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403413D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiDeletePerSessionProtos @ 0x14044FF10 (MiDeletePerSessionProtos.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
  */
 
 __int64 __fastcall MiReleasePageFileSpace(struct _KEVENT *a1, unsigned __int64 a2, int a3)
@@ -57,6 +57,6 @@ __int64 __fastcall MiReleasePageFileSpace(struct _KEVENT *a1, unsigned __int64 a
   }
   if ( !a2 )
     return 0LL;
-  MiReleasePageFileInfo(a1, a2, 1);
+  MiReleasePageFileInfo(a1, a2, 1LL);
   return 1LL;
 }

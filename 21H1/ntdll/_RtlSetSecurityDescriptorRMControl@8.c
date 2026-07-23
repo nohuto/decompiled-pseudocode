@@ -6,22 +6,21 @@
  *     <none>
  */
 
-char __stdcall RtlSetSecurityDescriptorRMControl(int a1, char *a2)
+void __cdecl RtlSetSecurityDescriptorRMControl(PSECURITY_DESCRIPTOR SecurityDescriptor, PUCHAR RMControl)
 {
   __int16 v2; // ax
-  char result; // al
+  UCHAR v3; // al
 
-  v2 = *(_WORD *)(a1 + 2);
-  if ( a2 )
+  v2 = *((_WORD *)SecurityDescriptor + 1);
+  if ( RMControl )
   {
-    *(_WORD *)(a1 + 2) = v2 | 0x4000;
-    result = *a2;
+    *((_WORD *)SecurityDescriptor + 1) = v2 | 0x4000;
+    v3 = *RMControl;
   }
   else
   {
-    *(_WORD *)(a1 + 2) = v2 & 0xBFFF;
-    result = 0;
+    *((_WORD *)SecurityDescriptor + 1) = v2 & 0xBFFF;
+    v3 = 0;
   }
-  *(_BYTE *)(a1 + 1) = result;
-  return result;
+  *((_BYTE *)SecurityDescriptor + 1) = v3;
 }

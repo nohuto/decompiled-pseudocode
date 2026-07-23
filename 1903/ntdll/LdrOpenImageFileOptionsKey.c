@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall LdrOpenImageFileOptionsKey(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl LdrOpenImageFileOptionsKey(PUNICODE_STRING SubKey, BOOLEAN Wow64, PHANDLE NewKeyHandle)
 {
-  return sub_180073150(a1, 9LL, 0, a3);
+  return sub_180073150(&SubKey->Length, 9LL, 0, NewKeyHandle);
 }

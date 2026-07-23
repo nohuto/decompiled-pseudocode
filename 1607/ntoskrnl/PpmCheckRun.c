@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmCheckRun @ 0x1400D4610
+ * XREFs of PpmCheckRun @ 0x1400D24B0
  * Callers:
- *     PpmCheckStart @ 0x1401114D0 (PpmCheckStart.c)
+ *     PpmCheckStart @ 0x140111A34 (PpmCheckStart.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char PpmCheckRun()

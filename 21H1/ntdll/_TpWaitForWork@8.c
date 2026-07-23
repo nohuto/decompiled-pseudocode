@@ -8,12 +8,8 @@
  *     _TppWorkpValidateWork@12 @ 0x4B2EC4DD (_TppWorkpValidateWork@12.c)
  */
 
-int __stdcall TpWaitForWork(int a1, int a2)
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  int result; // eax
-
-  result = TppWorkpValidateWork(0);
-  if ( result )
-    return TppWorkWait(a1, a2);
-  return result;
+  if ( TppWorkpValidateWork(0) )
+    TppWorkWait(Work, CancelPendingCallbacks);
 }

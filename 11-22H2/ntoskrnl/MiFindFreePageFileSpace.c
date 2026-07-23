@@ -183,10 +183,10 @@ LABEL_91:
             ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
           else
             ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -352,10 +352,10 @@ LABEL_49:
                 ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
               else
                 ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v47 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v21 <= 0xFu && v47 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v21 <= 0xFu && v47 >= 2u )
                 {
                   v48 = KeGetCurrentPrcb();
                   v49 = v48->SchedulerAssist;
@@ -422,10 +422,10 @@ LABEL_49:
         break;
       }
       ExReleaseSpinLockSharedFromDpcLevel(v17);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v44 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v21 <= 0xFu && v44 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v21 <= 0xFu && v44 >= 2u )
         {
           v45 = KeGetCurrentPrcb();
           a4 = (unsigned __int64)v45->SchedulerAssist;

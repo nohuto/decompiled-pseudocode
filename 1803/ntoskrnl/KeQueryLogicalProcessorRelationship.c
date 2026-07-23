@@ -26,8 +26,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v9; // r12
   LOGICAL_PROCESSOR_RELATIONSHIP v10; // edi
   __int64 v11; // rbx
-  ULONG v12; // ebx
-  ULONG v13; // r9d
+  DWORD v12; // ebx
+  DWORD v13; // r9d
   __int64 v14; // rcx
   unsigned __int64 v15; // r10
   unsigned __int16 v16; // r11
@@ -43,17 +43,17 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v27; // rax
   int v28; // eax
   unsigned __int16 v29; // r9
-  USHORT v30; // dx
+  WORD v30; // dx
   _QWORD *v31; // r8
   __int64 v32; // r10
-  USHORT v33; // cx
+  WORD v33; // cx
   __int64 v34; // rax
   unsigned __int16 v35; // dx
   GROUP_AFFINITY *GroupMask; // rcx
   unsigned __int64 *v37; // r8
   unsigned __int64 v38; // r10
   int v39; // edx
-  ULONG v40; // eax
+  DWORD v40; // eax
   unsigned int v41; // r12d
   __int64 v42; // rdi
   unsigned int v43; // r13d
@@ -242,7 +242,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
             Information->Processor.Flags = !v54;
             Information->Relationship = RelationProcessorCore;
             Information->Size = 48;
-            Information->Processor.Reserved[0] = *(_BYTE *)(v11 + 23858);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v11 + 23858);
             Information->Processor.GroupCount = 1;
             *(_QWORD *)((char *)&Information->NumaNode.NodeNumber + 2) = 0LL;
             *(_QWORD *)&Information->Group.Reserved[6] = 0LL;
@@ -293,7 +293,7 @@ LABEL_63:
             Information->Relationship = RelationCache;
             Information->Size = 56;
             Information->Processor.Flags = *(_BYTE *)(v11 + 12 * v47 + 24536);
-            Information->Processor.Reserved[0] = *(_BYTE *)(v11 + 12 * v47 + 24537);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v11 + 12 * v47 + 24537);
             Information->Cache.LineSize = *(_WORD *)(v11 + 12 * v47 + 24538);
             Information->Cache.CacheSize = *(_DWORD *)(v11 + 12 * v47 + 24540);
             Information->Cache.Type = *(_DWORD *)(v11 + 12 * v47 + 24544);

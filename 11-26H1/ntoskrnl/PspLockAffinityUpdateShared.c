@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockAffinityUpdateShared @ 0x1406155F0
+ * XREFs of PspLockAffinityUpdateShared @ 0x140618560
  * Callers:
- *     PspSetProcessAffinityUpdateMode @ 0x140B6E5E8 (PspSetProcessAffinityUpdateMode.c)
+ *     PspSetProcessAffinityUpdateMode @ 0x140B71A98 (PspSetProcessAffinityUpdateMode.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 void __fastcall PspLockAffinityUpdateShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

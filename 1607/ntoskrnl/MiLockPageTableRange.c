@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockPageTableRange @ 0x14012350C
+ * XREFs of MiLockPageTableRange @ 0x140123A7C
  * Callers:
- *     MmStoreAllocateVirtualMemory @ 0x1405320CC (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x14053260C (MmStoreAllocateVirtualMemory.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiLockPageTablePage @ 0x140030530 (MiLockPageTablePage.c)
- *     MiResolvePageTablePage @ 0x14003FD10 (MiResolvePageTablePage.c)
- *     MiUnlockPageTableRange @ 0x140124DB0 (MiUnlockPageTableRange.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiLockPageTablePage @ 0x1400300B0 (MiLockPageTablePage.c)
+ *     MiResolvePageTablePage @ 0x14003F890 (MiResolvePageTablePage.c)
+ *     MiUnlockPageTableRange @ 0x140125320 (MiUnlockPageTableRange.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiLockPageTableRange(ULONG_PTR a1, unsigned __int64 a2)

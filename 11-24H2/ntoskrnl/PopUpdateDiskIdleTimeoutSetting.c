@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUpdateDiskIdleTimeoutSetting @ 0x1409BA840
+ * XREFs of PopUpdateDiskIdleTimeoutSetting @ 0x1409A0E90
  * Callers:
- *     PopCoalescingSetActiveState @ 0x1404ADA60 (PopCoalescingSetActiveState.c)
- *     PopCoalescingPowerSettingCallback @ 0x140751030 (PopCoalescingPowerSettingCallback.c)
- *     PopHardDiskPowerSettingCallback @ 0x140A9F530 (PopHardDiskPowerSettingCallback.c)
- *     PopCoalescingInitialize @ 0x140C2E994 (PopCoalescingInitialize.c)
+ *     PopCoalescingSetActiveState @ 0x1404A8140 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingPowerSettingCallback @ 0x14074F350 (PopCoalescingPowerSettingCallback.c)
+ *     PopHardDiskPowerSettingCallback @ 0x140A9A900 (PopHardDiskPowerSettingCallback.c)
+ *     PopCoalescingInitialize @ 0x140C30AB4 (PopCoalescingInitialize.c)
  * Callees:
- *     PopSetPowerSettingValueAcDc @ 0x1409BC77C (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409A2DCC (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 PopUpdateDiskIdleTimeoutSetting()

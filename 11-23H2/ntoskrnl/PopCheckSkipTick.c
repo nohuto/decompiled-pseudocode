@@ -1,7 +1,7 @@
 /*
- * XREFs of PopCheckSkipTick @ 0x1408649F0
+ * XREFs of PopCheckSkipTick @ 0x140864C30
  * Callers:
- *     PopNewProcessorCallback @ 0x140980420 (PopNewProcessorCallback.c)
+ *     PopNewProcessorCallback @ 0x140980620 (PopNewProcessorCallback.c)
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)

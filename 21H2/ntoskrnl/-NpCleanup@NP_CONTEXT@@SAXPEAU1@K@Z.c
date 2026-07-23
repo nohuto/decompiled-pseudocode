@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14035B21C
+ * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x14029FFBC
  * Callers:
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14035AFCC (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14029FD6C (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall NP_CONTEXT::NpCleanup(struct NP_CONTEXT *a1, int a2)

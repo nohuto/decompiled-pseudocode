@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x180114EF0
+ * XREFs of RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1801102C0
  * Callers:
- *     RtlAddResourceAttributeAce @ 0x18013B100 (RtlAddResourceAttributeAce.c)
+ *     RtlAddResourceAttributeAce @ 0x180139330 (RtlAddResourceAttributeAce.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x1800EC2EC (RtlStringCbLengthW.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlStringCbLengthW @ 0x1800E7158 (RtlStringCbLengthW.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpConvertAbsoluteToRelativeSecurityAttribute(__int64 a1, unsigned int *a2, unsigned int *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDereferenceSubsectionProtos @ 0x1407B5C98
+ * XREFs of MiDereferenceSubsectionProtos @ 0x1407B5F78
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiDereferencePerSessionProtos @ 0x1407B5BB8 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1407B5D00 (MiCreatePerSessionProtos.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiDereferencePerSessionProtos @ 0x1407B5E98 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1407B5FE0 (MiCreatePerSessionProtos.c)
  * Callees:
- *     MiLocateSessionProtosInSubsection @ 0x14033EAA0 (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x14033EB08 (MiUpdatePerSessionProto.c)
+ *     MiLocateSessionProtosInSubsection @ 0x14033ED30 (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x14033ED98 (MiUpdatePerSessionProto.c)
  */
 
 void __fastcall MiDereferenceSubsectionProtos(__int64 a1, unsigned int a2, __int64 *a3)

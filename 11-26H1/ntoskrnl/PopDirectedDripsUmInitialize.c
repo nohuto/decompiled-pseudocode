@@ -1,21 +1,21 @@
 /*
- * XREFs of PopDirectedDripsUmInitialize @ 0x1407E26CC
+ * XREFs of PopDirectedDripsUmInitialize @ 0x1407E775C
  * Callers:
- *     PopDirectedDripsInitializePhase0 @ 0x140CD0A60 (PopDirectedDripsInitializePhase0.c)
+ *     PopDirectedDripsInitializePhase0 @ 0x140CD6C08 (PopDirectedDripsInitializePhase0.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14048F5B0 (RtlInitializeGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x140488F70 (RtlInitializeGenericTableAvl.c)
  */
 
 void PopDirectedDripsUmInitialize()
 {
-  PopDirectedDripsUmLock.Header.WaitListHead.Flink = 0LL;
-  *(_QWORD *)&PopDirectedDripsUmLock.Header.Lock = 0LL;
-  LODWORD(PopDirectedDripsUmLock.Header.WaitListHead.Blink) = 0;
+  qword_140F0AEB8 = 0LL;
+  PopDirectedDripsUmLock = 0LL;
+  PopDirectedDripsUmTestDeviceCount = 0;
   RtlInitializeGenericTableAvl(
-    (PRTL_AVL_TABLE)&PopDirectedDripsUmLock.StackLimit,
+    &PopDirectedDripsUmTestDeviceTable,
     PopDirectedDripsUmTestDeviceCompare,
     PopDirectedDripsUmTestDeviceAllocate,
     PopDirectedDripsUmTestDeviceFree,
     0LL);
-  PopDirectedDripsUmLock.ApcStateFill[0] = 0;
+  PopDirectedDripsUmTestPermissive = 0;
 }

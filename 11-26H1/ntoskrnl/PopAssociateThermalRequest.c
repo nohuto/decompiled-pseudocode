@@ -1,18 +1,18 @@
 /*
- * XREFs of PopAssociateThermalRequest @ 0x1407CB7EC
+ * XREFs of PopAssociateThermalRequest @ 0x1407CE88C
  * Callers:
- *     PoCreateThermalRequest @ 0x1407CB550 (PoCreateThermalRequest.c)
+ *     PoCreateThermalRequest @ 0x1407CE5F0 (PoCreateThermalRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopGetDope @ 0x140438170 (PopGetDope.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140607C84 (PopThermalUpdateTelemetryClientCount.c)
- *     PopAcquireCoolingInterface @ 0x1407CB760 (PopAcquireCoolingInterface.c)
- *     PopCleanCoolingExtension @ 0x1407CB9D0 (PopCleanCoolingExtension.c)
- *     PopRegisterCoolingExtensionProtection @ 0x1407CBED8 (PopRegisterCoolingExtensionProtection.c)
- *     PopDiagTraceCoolingExtension @ 0x140AC1740 (PopDiagTraceCoolingExtension.c)
- *     PopDiagTraceThermalRequest @ 0x140AC18EC (PopDiagTraceThermalRequest.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopGetDope @ 0x140427090 (PopGetDope.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14060A834 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopAcquireCoolingInterface @ 0x1407CE800 (PopAcquireCoolingInterface.c)
+ *     PopCleanCoolingExtension @ 0x1407CEA70 (PopCleanCoolingExtension.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1407CEF78 (PopRegisterCoolingExtensionProtection.c)
+ *     PopDiagTraceCoolingExtension @ 0x140AC37E0 (PopDiagTraceCoolingExtension.c)
+ *     PopDiagTraceThermalRequest @ 0x140AC398C (PopDiagTraceThermalRequest.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
   __int64 v17; // rdx
   __int64 v18; // r8
   struct _KLOCK_ENTRIES *v19; // r9
-  struct _LIST_ENTRY *Blink; // rax
+  _QWORD *v20; // rax
   __int64 v21; // rax
   __int64 v22; // rax
   _QWORD *v23; // rcx
@@ -43,10 +43,10 @@ __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
   Dope = PopGetDope(a2);
   if ( !Dope )
     return (unsigned int)-1073741670;
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10828.SavedApcState.Process, v7, v9, v10);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock, v7, v9, v10);
   if ( *(_QWORD *)(Dope + 64) )
     goto LABEL_11;
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.SavedApcStateFill[32]);
+  PopReleaseRwLock((struct _KTHREAD *)&PopCoolingExtensionLock);
   Pool2 = ExAllocatePool2(0x100uLL);
   v6 = (_QWORD *)Pool2;
   if ( Pool2 )
@@ -68,16 +68,16 @@ __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
       if ( v11 < 0 )
         goto LABEL_21;
     }
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10828.SavedApcState.Process, v17, v18, v19);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock, v17, v18, v19);
     if ( !*(_QWORD *)(Dope + 64) )
     {
-      Blink = stru_140F10828.SavedApcState.ApcListHead[1].Blink;
-      if ( stru_140F10828.SavedApcState.ApcListHead[1].Blink->Flink != (struct _LIST_ENTRY *)&stru_140F10828.SavedApcStateFill[16] )
+      v20 = (_QWORD *)qword_140F0FEB8;
+      if ( *(__int64 **)qword_140F0FEB8 != &PopCoolingExtensionList )
         goto LABEL_14;
-      *v6 = &stru_140F10828.SavedApcState.ApcListHead[1];
-      v6[1] = Blink;
-      Blink->Flink = (struct _LIST_ENTRY *)v6;
-      stru_140F10828.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)v6;
+      *v6 = &PopCoolingExtensionList;
+      v6[1] = v20;
+      *v20 = v6;
+      qword_140F0FEB8 = (__int64)v6;
       *(_QWORD *)(Dope + 64) = v6;
       PopDiagTraceCoolingExtension(v6, POP_ETW_EVENT_COOLING_EXTENSION_ADD);
       v6 = 0LL;
@@ -90,7 +90,7 @@ LABEL_11:
       if ( v11 < 0 )
       {
 LABEL_20:
-        PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.SavedApcStateFill[32]);
+        PopReleaseRwLock((struct _KTHREAD *)&PopCoolingExtensionLock);
         if ( !v6 )
           return (unsigned int)v11;
 LABEL_21:

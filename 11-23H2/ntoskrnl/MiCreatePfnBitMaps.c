@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePfnBitMaps @ 0x14081C29C
+ * XREFs of MiCreatePfnBitMaps @ 0x14081C56C
  * Callers:
- *     MmCreatePartition @ 0x1403AC6AC (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403AC88C (MmCreatePartition.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiSplitPfnBitMaps @ 0x14081C5C8 (MiSplitPfnBitMaps.c)
- *     MiInitializeDynamicBitmap @ 0x14081C7A4 (MiInitializeDynamicBitmap.c)
- *     MiDeletePfnBitMaps @ 0x140A42FA8 (MiDeletePfnBitMaps.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiSplitPfnBitMaps @ 0x14081C898 (MiSplitPfnBitMaps.c)
+ *     MiInitializeDynamicBitmap @ 0x14081CA74 (MiInitializeDynamicBitmap.c)
+ *     MiDeletePfnBitMaps @ 0x140A43258 (MiDeletePfnBitMaps.c)
  *     MiInitializeRebuildCandidateCounts @ 0x140B47430 (MiInitializeRebuildCandidateCounts.c)
  */
 

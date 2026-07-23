@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpProcessorResumeFromIdle @ 0x14029C450
+ * XREFs of HalpProcessorResumeFromIdle @ 0x1402145B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 unsigned __int64 HalpProcessorResumeFromIdle()

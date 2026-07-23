@@ -20,9 +20,9 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rbp
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v6; // r15
-  __int64 v7; // r8
+  unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
   int v10; // eax
@@ -39,12 +39,12 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
   v16 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v2) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+    SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --CurrentThread->SpecialApcDisable;
   v6 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v7) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v7 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v8 = !_BitScanReverse((unsigned int *)&v9, v7);
@@ -54,11 +54,11 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
     v10 = 1 << v9;
     v11 = v9;
     v12 = &CurrentThread->LockEntries[v11];
-    v7 = ~v10 & (unsigned int)v7;
+    v7 &= ~v10;
     if ( (v12->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v12->LockState.0 & 1) == 0
       && (*(_QWORD *)&v12->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v2 & 0x7FFFFFFFFFFFFFFCLL)
-      && v12->LockState.SessionId == (_DWORD)SessionId )
+      && v12->LockState.SessionId == SessionId )
     {
       v12->AcquiredByte &= ~1u;
       if ( v12->LockState.0 )
@@ -67,7 +67,7 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
         {
           v12->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v12->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11], SessionId, v7);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11].TreeNode);
           v16 = 0;
           v16 = v12->BoostBitmap.AllFields & 0x1FFFF;
           v12->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -85,7 +85,7 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)
     }
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x8000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, SessionId, 0LL);
 LABEL_17:
   --CurrentThread->AbAllocationRegionCount;
   KiAbThreadRemoveBoosts(CurrentThread, v2, &v16);

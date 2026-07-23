@@ -1,29 +1,29 @@
 /*
- * XREFs of MiMapViewOfPhysicalSection @ 0x1407544A0
+ * XREFs of MiMapViewOfPhysicalSection @ 0x140755690
  * Callers:
- *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x1405F0B10 (MiMapViewOfSection.c)
  * Callees:
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CD8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     MiSanitizePage @ 0x1400E63D4 (MiSanitizePage.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     MiInsertViewOfPhysicalSection @ 0x14018CC94 (MiInsertViewOfPhysicalSection.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
- *     MiSelectUserAddress @ 0x1405F2360 (MiSelectUserAddress.c)
- *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
- *     MiIsVaRangeAvailable @ 0x1405F49F0 (MiIsVaRangeAvailable.c)
- *     MiAdvanceVadHint @ 0x140695E10 (MiAdvanceVadHint.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiReferenceVad @ 0x140075590 (MiReferenceVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1400767A8 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x140076994 (MiLockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140078284 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiUnlockVad @ 0x1400784A0 (MiUnlockVad.c)
+ *     MiIsProcessCfgEnabled @ 0x1400884AC (MiIsProcessCfgEnabled.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CC8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiIsPfn @ 0x1400A8820 (MiIsPfn.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     MiSanitizePage @ 0x1400E6454 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     MiInsertViewOfPhysicalSection @ 0x14018CDD4 (MiInsertViewOfPhysicalSection.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiInsertVadCharges @ 0x1405F2E60 (MiInsertVadCharges.c)
+ *     MiSelectUserAddress @ 0x1405F3360 (MiSelectUserAddress.c)
+ *     MiCommitVadCfgBits @ 0x1405F55BC (MiCommitVadCfgBits.c)
+ *     MiIsVaRangeAvailable @ 0x1405F59F0 (MiIsVaRangeAvailable.c)
+ *     MiAdvanceVadHint @ 0x140696FD0 (MiAdvanceVadHint.c)
  */
 
 __int64 __fastcall MiMapViewOfPhysicalSection(
@@ -67,7 +67,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(
   unsigned int *v41; // rcx
   __int64 v42; // [rsp+50h] [rbp-68h] BYREF
   __int64 v43; // [rsp+58h] [rbp-60h]
-  struct _RTL_BITMAP *v44; // [rsp+60h] [rbp-58h] BYREF
+  _RTL_BITMAP *v44; // [rsp+60h] [rbp-58h] BYREF
   unsigned __int64 v45; // [rsp+68h] [rbp-50h]
   unsigned __int64 v46; // [rsp+70h] [rbp-48h]
   unsigned __int64 v47; // [rsp+78h] [rbp-40h]
@@ -84,7 +84,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(
       return 3221225626LL;
     memset(PoolWithTag, 0, 0x88uLL);
     *(_QWORD *)(v11 + 16) = -2LL;
-    *(_QWORD *)(v11 + 72) = &qword_140438BF0;
+    *(_QWORD *)(v11 + 72) = &qword_140439CB0;
     v12 = *(_DWORD *)(v11 + 64);
     *(_QWORD *)(v11 + 40) = 0LL;
     *(_DWORD *)(v11 + 64) = v12 & 0xFBFFFFFF;

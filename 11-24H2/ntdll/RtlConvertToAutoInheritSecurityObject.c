@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlConvertToAutoInheritSecurityObject @ 0x180133840
+ * XREFs of RtlConvertToAutoInheritSecurityObject @ 0x180131A70
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,19 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlConvertToAutoInheritSecurityObject(int a1, int a2, int a3, int a4, char a5, __int64 a6)
+NTSTATUS __cdecl RtlConvertToAutoInheritSecurityObject(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CurrentSecurityDescriptor,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        GUID *ObjectType,
+        BOOLEAN IsDirectoryObject,
+        PGENERIC_MAPPING GenericMapping)
 {
-  return RtlpConvertToAutoInheritSecurityObject(a1, a2, a3, a4, a5, a6);
+  return RtlpConvertToAutoInheritSecurityObject(
+           ParentDescriptor,
+           CurrentSecurityDescriptor,
+           NewSecurityDescriptor,
+           ObjectType,
+           IsDirectoryObject,
+           GenericMapping);
 }

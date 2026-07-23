@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptCallbackRandom @ 0x1406A5864
+ * XREFs of SymCryptCallbackRandom @ 0x1406A6864
  * Callers:
- *     SymCryptFdefModSetRandomGeneric @ 0x1405368D0 (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x140530D70 (SymCryptFdefModSetRandomGeneric.c)
  * Callees:
- *     SymCryptFatalEnvWindowsKernelmodeWin8_1nLater @ 0x14051AC34 (SymCryptFatalEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptFatalEnvWindowsKernelmodeWin8_1nLater @ 0x140518504 (SymCryptFatalEnvWindowsKernelmodeWin8_1nLater.c)
  */
 
 void __noreturn SymCryptCallbackRandom()

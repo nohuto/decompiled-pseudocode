@@ -1,24 +1,24 @@
 /*
- * XREFs of IopCopyCompleteReadIrp @ 0x14040FA00
+ * XREFs of IopCopyCompleteReadIrp @ 0x14040F120
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     IopUnlockAndFreeMdl @ 0x14040FCD4 (IopUnlockAndFreeMdl.c)
- *     IopCopyCompleteReadRequest @ 0x14040FD30 (IopCopyCompleteReadRequest.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     IopUnlockAndFreeMdl @ 0x14040F3F4 (IopUnlockAndFreeMdl.c)
+ *     IopCopyCompleteReadRequest @ 0x14040F450 (IopCopyCompleteReadRequest.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, int a3)
@@ -48,10 +48,10 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, int a3)
   unsigned int v27; // r8d
   unsigned int v28; // ecx
   KIRQL v29; // al
-  __int64 *v30; // rdx
+  struct _KTHREAD *Process; // rdx
   KIRQL v31; // r15
   __int64 v32; // r8
-  __int64 *v33; // rax
+  struct _LIST_ENTRY *Flink; // rax
   int v34; // [rsp+40h] [rbp-58h]
   __int64 v37; // [rsp+A8h] [rbp+10h] BYREF
   int v38; // [rsp+B0h] [rbp+18h]
@@ -123,23 +123,26 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, int a3)
     goto LABEL_10;
   }
   v29 = KeAcquireQueuedSpinLock(0xBuLL);
-  v30 = (__int64 *)qword_140F853E0;
+  Process = (struct _KTHREAD *)IopPerfIoTrackingLock.Process;
   v31 = v29;
-  while ( v30 != &qword_140F853E0 )
+  while ( Process != (struct _KTHREAD *)&IopPerfIoTrackingLock.Process )
   {
-    v32 = *v30;
-    if ( v30 - 4 == (__int64 *)v4 )
+    v32 = *(_QWORD *)&Process->Header.Lock;
+    if ( &Process[-1].Padding[1] == (unsigned __int64 *)v4 )
     {
-      if ( *(__int64 **)(v32 + 8) != v30 || (v33 = (__int64 *)v30[1], (__int64 *)*v33 != v30) )
+      if ( *(struct _KTHREAD **)(v32 + 8) != Process
+        || (Flink = Process->Header.WaitListHead.Flink, (struct _KTHREAD *)Flink->Flink != Process) )
+      {
         __fastfail(3u);
-      *v33 = v32;
-      *(_QWORD *)(v32 + 8) = v33;
-      v30[1] = (__int64)v30;
-      *v30 = (__int64)v30;
+      }
+      Flink->Flink = (struct _LIST_ENTRY *)v32;
+      *(_QWORD *)(v32 + 8) = Flink;
+      Process->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)Process;
+      *(_QWORD *)&Process->Header.Lock = Process;
       ObfDereferenceObjectWithTag((PVOID)v11, 0x746C6644u);
       goto LABEL_43;
     }
-    v30 = (__int64 *)*v30;
+    Process = *(struct _KTHREAD **)&Process->Header.Lock;
   }
   if ( !v11 )
   {
@@ -162,7 +165,7 @@ LABEL_43:
 LABEL_10:
   if ( v34 < 0 || v10 )
   {
-    v23 = *(_QWORD *)(v12 - 40);
+    v23 = *(_QWORD *)(v12 - 48);
     v24 = *(_QWORD *)(v23 + 88);
     if ( (v24 & 1) != 0 )
     {
@@ -170,20 +173,20 @@ LABEL_10:
       *(_QWORD *)(v23 + 88) = v24 & 0xFFFFFFFFFFFFFFFEuLL;
     }
     v25 = v39;
-    *(_DWORD *)(*(_QWORD *)(v12 - 40) + 48LL) = v34;
-    *(_BYTE *)(*(_QWORD *)(v12 - 40) + 65LL) = v25;
-    v26 = *(_QWORD *)(v12 - 40);
+    *(_DWORD *)(*(_QWORD *)(v12 - 48) + 48LL) = v34;
+    *(_BYTE *)(*(_QWORD *)(v12 - 48) + 65LL) = v25;
+    v26 = *(_QWORD *)(v12 - 48);
     *a1 = v26;
     IopFreeIrpExtension(v26, 9, 1);
   }
   else
   {
-    v15 = *(_QWORD *)(v12 - 40);
+    v15 = *(_QWORD *)(v12 - 48);
     v16 = *(_QWORD *)(v15 + 184);
-    if ( (*(_DWORD *)(*(_QWORD *)(v12 - 24) + 80LL) & 8) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v12 - 32) + 80LL) & 8) != 0 )
     {
       v27 = *(_DWORD *)(v16 - 64);
-      v28 = *(unsigned __int16 *)(*(_QWORD *)(v12 - 32) + 304LL);
+      v28 = *(unsigned __int16 *)(*(_QWORD *)(v12 - 40) + 304LL);
       if ( !(_WORD)v28 )
         v28 = 4096;
       v17 = v28 + v27 - 1 - (v28 + v27 - 1) % v28;
@@ -197,10 +200,10 @@ LABEL_10:
       v17 = v9;
     }
     *(_DWORD *)(v16 - 64) = v17;
-    *(_QWORD *)(v12 - 56) = IopQueueCopyWrite;
-    *(_QWORD *)(v12 - 48) = v12 - 40;
-    *(_QWORD *)(v12 - 72) = 0LL;
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(v12 - 72), CriticalWorkQueue);
+    *(_QWORD *)(v12 - 64) = IopQueueCopyWrite;
+    *(_QWORD *)(v12 - 56) = v12 - 48;
+    *(_QWORD *)(v12 - 80) = 0LL;
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(v12 - 80), CriticalWorkQueue);
     return 1;
   }
   return v3;

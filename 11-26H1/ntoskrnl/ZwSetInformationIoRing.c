@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwSetInformationIoRing @ 0x140726910
+ * XREFs of ZwSetInformationIoRing @ 0x14072B4E0
  * Callers:
- *     DifZwSetInformationIoRingWrapper @ 0x1406B9FC0 (DifZwSetInformationIoRingWrapper.c)
+ *     DifZwSetInformationIoRingWrapper @ 0x1406BDBA0 (DifZwSetInformationIoRingWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationIoRing(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationIoRing(
+        HANDLE IoRingHandle,
+        ULONG IoRingInformationClass,
+        ULONG IoRingInformationLength,
+        PVOID IoRingInformation)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoRingHandle);
 }

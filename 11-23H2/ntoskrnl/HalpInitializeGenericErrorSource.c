@@ -3,12 +3,12 @@
  * Callers:
  *     HalpInitializeErrSrc @ 0x140A8ACE0 (HalpInitializeErrSrc.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     HalpRegisterPeiErrorSource @ 0x140518BE8 (HalpRegisterPeiErrorSource.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     HalpRegisterPeiErrorSource @ 0x140519138 (HalpRegisterPeiErrorSource.c)
  *     HalpInitGenericErrorSourceEntry @ 0x140A8B0B4 (HalpInitGenericErrorSourceEntry.c)
  *     HalpGenInitialRead @ 0x140A8B2D8 (HalpGenInitialRead.c)
- *     HalpInitGenericErrorSourcePollingRoutine @ 0x140A920D4 (HalpInitGenericErrorSourcePollingRoutine.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x140A96184 (HalpInitGenericErrorSourceEntryV2.c)
+ *     HalpInitGenericErrorSourcePollingRoutine @ 0x140A91F54 (HalpInitGenericErrorSourcePollingRoutine.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140A95FF4 (HalpInitGenericErrorSourceEntryV2.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

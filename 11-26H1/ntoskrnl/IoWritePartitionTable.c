@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWritePartitionTable @ 0x140791450
+ * XREFs of IoWritePartitionTable @ 0x140793F80
  * Callers:
- *     DifIoWritePartitionTableWrapper @ 0x14065F550 (DifIoWritePartitionTableWrapper.c)
+ *     DifIoWritePartitionTableWrapper @ 0x140663130 (DifIoWritePartitionTableWrapper.c)
  * Callees:
- *     ??0SC_DISK@@QEAA@XZ @ 0x14071AC64 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x14071AD4C (--1SC_DISK@@UEAA@XZ.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B84C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140790B20 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140790C5C (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x14071F8F4 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x14071F9DC (--1SC_DISK@@UEAA@XZ.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1407204DC (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140793650 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14079378C (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWritePartitionTable(
@@ -19,7 +19,7 @@ NTSTATUS __stdcall IoWritePartitionTable(
         ULONG NumberOfHeads,
         struct _DRIVE_LAYOUT_INFORMATION *PartitionBuffer)
 {
-  ULONG PartitionCount; // eax
+  DWORD PartitionCount; // eax
   __int64 v7; // rdx
   __int64 v8; // r8
   struct SC_DISK_LAYOUT *v9; // rax

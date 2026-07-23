@@ -1,19 +1,19 @@
 /*
- * XREFs of PiQueryAndAllocateBootResources @ 0x14075028C
+ * XREFs of PiQueryAndAllocateBootResources @ 0x14075044C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
- *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x1407457DC (PipSetDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x14075062C (IopQueryDeviceResources.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
@@ -23,6 +23,9 @@ __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
   int v4; // eax
   HANDLE v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-10h] BYREF
   ULONG DataSize; // [rsp+90h] [rbp+40h] BYREF
   HANDLE KeyHandle; // [rsp+98h] [rbp+48h] BYREF
@@ -77,7 +80,7 @@ __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
         else
           ZwDeleteValueKey(KeyHandle, &ValueName);
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
         v1 = Data;
         if ( !Data )
           goto LABEL_11;

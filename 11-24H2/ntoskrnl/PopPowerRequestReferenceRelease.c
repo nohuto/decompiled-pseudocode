@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerRequestReferenceRelease @ 0x14046BD60
+ * XREFs of PopPowerRequestReferenceRelease @ 0x1404649E0
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x14046BB18 (PopApplyLegacyPowerRequestFlags.c)
- *     PpmEndHighPerfRequest @ 0x14046BC44 (PpmEndHighPerfRequest.c)
- *     PoClearPowerRequest @ 0x14046BD20 (PoClearPowerRequest.c)
- *     PpmDisableHighPerfRequestDeferredExpiration @ 0x1404AFD1C (PpmDisableHighPerfRequestDeferredExpiration.c)
- *     PpmHighPerfRequestExpiration @ 0x1405D7800 (PpmHighPerfRequestExpiration.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140902758 (PopPowerAggregatorEnterScreenOff.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x140A14DA0 (PopPowerRequestActionInfo.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x140464798 (PopApplyLegacyPowerRequestFlags.c)
+ *     PpmEndHighPerfRequest @ 0x1404648C4 (PpmEndHighPerfRequest.c)
+ *     PoClearPowerRequest @ 0x1404649A0 (PoClearPowerRequest.c)
+ *     PpmDisableHighPerfRequestDeferredExpiration @ 0x1404AA70C (PpmDisableHighPerfRequestDeferredExpiration.c)
+ *     PpmHighPerfRequestExpiration @ 0x1405D4D40 (PpmHighPerfRequestExpiration.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140A0DBB8 (PopPowerRequestActionInfo.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140A6E038 (PopPowerAggregatorEnterScreenOff.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopPowerRequestCallbackWorker @ 0x14046C280 (PopPowerRequestCallbackWorker.c)
- *     PopDiagTracePowerRequestChange @ 0x14046C44C (PopDiagTracePowerRequestChange.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopPowerRequestCallbackWorker @ 0x140464F00 (PopPowerRequestCallbackWorker.c)
+ *     PopDiagTracePowerRequestChange @ 0x1404650CC (PopDiagTracePowerRequestChange.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 __int64 __fastcall PopPowerRequestReferenceRelease(_DWORD *Object, unsigned int a2)

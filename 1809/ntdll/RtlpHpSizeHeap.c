@@ -10,7 +10,7 @@
  *     RtlCSparseBitmapBitmaskRead @ 0x18005B4B8 (RtlCSparseBitmapBitmaskRead.c)
  *     RtlpHpVsChunkSize @ 0x18005BCDC (RtlpHpVsChunkSize.c)
  *     RtlpHpLargeAllocSize @ 0x180066A0C (RtlpHpLargeAllocSize.c)
- *     RtlCompareMemory @ 0x1800A4A60 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1800A4A80 (RtlCompareMemory.c)
  *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010D74C (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 

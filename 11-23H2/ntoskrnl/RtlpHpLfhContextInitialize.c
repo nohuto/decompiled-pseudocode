@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x140389704
+ * XREFs of RtlpHpLfhContextInitialize @ 0x1403898E4
  * Callers:
- *     RtlpHpHeapCreate @ 0x140388CB8 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140388E98 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x140317588 (RtlpHeapGenerateRandomValue64.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x140317818 (RtlpHeapGenerateRandomValue64.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhContextInitialize(

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestStatsIdConcat @ 0x1407A8AD0
+ * XREFs of PopPowerRequestStatsIdConcat @ 0x1407A8CC0
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7D30 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7F20 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
  *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
  *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
  *     RtlUnicodeStringCatString @ 0x140209B44 (RtlUnicodeStringCatString.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

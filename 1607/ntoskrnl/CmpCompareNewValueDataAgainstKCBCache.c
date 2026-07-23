@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x140402E58
+ * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x140401D18
  * Callers:
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpGetValueDataFromCache @ 0x1404029F0 (CmpGetValueDataFromCache.c)
- *     CmpTryConvertKcbLockSharedToExclusive @ 0x140402A94 (CmpTryConvertKcbLockSharedToExclusive.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x140402AD0 (CmpUpdateKeyNodeAccessBits.c)
- *     CmpFindNameInListWithStatus @ 0x140402B1C (CmpFindNameInListWithStatus.c)
- *     CmpCleanUpKcbValueCache @ 0x1404372D8 (CmpCleanUpKcbValueCache.c)
+ *     CmpGetValueDataFromCache @ 0x1404018B0 (CmpGetValueDataFromCache.c)
+ *     CmpTryConvertKcbLockSharedToExclusive @ 0x140401954 (CmpTryConvertKcbLockSharedToExclusive.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x140401990 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpFindNameInListWithStatus @ 0x1404019DC (CmpFindNameInListWithStatus.c)
+ *     CmpCleanUpKcbValueCache @ 0x1404361A8 (CmpCleanUpKcbValueCache.c)
  */
 
 __int64 __fastcall CmpCompareNewValueDataAgainstKCBCache(__int64 a1, __int64 a2, int a3, const void *a4, int a5)

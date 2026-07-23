@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCreateSymbolicLinkObject @ 0x1406B6F00
+ * XREFs of NtCreateSymbolicLinkObject @ 0x1406B81A0
  * Callers:
- *     CreateSystemRootLink @ 0x1409DA774 (CreateSystemRootLink.c)
- *     IopReassignSystemRoot @ 0x1409DB7D0 (IopReassignSystemRoot.c)
+ *     CreateSystemRootLink @ 0x1409DB774 (CreateSystemRootLink.c)
+ *     IopReassignSystemRoot @ 0x1409DC7D0 (IopReassignSystemRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObCreateSymbolicLink @ 0x1406B71FC (ObCreateSymbolicLink.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObCreateSymbolicLink @ 0x1406B849C (ObCreateSymbolicLink.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtCreateSymbolicLinkObject(

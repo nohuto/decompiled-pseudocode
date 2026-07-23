@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWakeSingle @ 0x18002A440
+ * XREFs of RtlpWakeSingle @ 0x180015540
  * Callers:
- *     RtlSleepConditionVariableCS @ 0x18004BCD0 (RtlSleepConditionVariableCS.c)
+ *     RtlSleepConditionVariableCS @ 0x180036250 (RtlSleepConditionVariableCS.c)
  * Callees:
- *     RtlpWakeConditionVariable @ 0x18002B160 (RtlpWakeConditionVariable.c)
+ *     RtlpWakeConditionVariable @ 0x180016260 (RtlpWakeConditionVariable.c)
  */
 
 bool __fastcall RtlpWakeSingle(volatile signed __int64 *a1, __int64 a2)

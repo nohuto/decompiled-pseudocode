@@ -1,13 +1,13 @@
 /*
- * XREFs of PopRegisterEnergyEstimation @ 0x1406011A0
+ * XREFs of PopRegisterEnergyEstimation @ 0x140603C50
  * Callers:
  *     <none>
  * Callees:
- *     PopDetermineBucketFrequencies @ 0x140600DEC (PopDetermineBucketFrequencies.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopDetermineBucketFrequencies @ 0x14060389C (PopDetermineBucketFrequencies.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-void __fastcall PopRegisterEnergyEstimation(void *a1, void *a2, char a3)
+void __fastcall PopRegisterEnergyEstimation(_KSWAPPABLE_PAGE *a1, __int64 a2, char a3)
 {
   unsigned int v3; // ebx
   unsigned int *Pool2; // rax
@@ -17,13 +17,13 @@ void __fastcall PopRegisterEnergyEstimation(void *a1, void *a2, char a3)
   _DWORD *v8; // rdx
   unsigned int i; // ecx
 
-  stru_140F12D20.SchedulerApc.Reserved[2] = a1;
-  stru_140F12D20.SchedulerApc.NormalContext = a2;
+  stru_140F12EA0.SchedulerSharedSwappablePage = a1;
+  *(_QWORD *)&stru_140F12EA0.ResourceIndex = a2;
   v3 = 2 - (a3 != 0);
-  if ( !stru_140F12D20.SchedulerApc.SystemArgument1 )
+  if ( !stru_140F12EA0.IptSaveArea )
   {
     Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL);
-    stru_140F12D20.SchedulerApc.SystemArgument1 = Pool2;
+    stru_140F12EA0.IptSaveArea = Pool2;
     if ( Pool2 )
     {
       *Pool2 = v3;

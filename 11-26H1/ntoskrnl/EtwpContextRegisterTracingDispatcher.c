@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpContextRegisterTracingDispatcher @ 0x140507CB4
+ * XREFs of EtwpContextRegisterTracingDispatcher @ 0x140501688
  * Callers:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x140406FB0 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpQueueApc @ 0x14020AA10 (EtwpQueueApc.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     EtwpTraceContextRegisters @ 0x1406C4208 (EtwpTraceContextRegisters.c)
+ *     EtwpQueueApc @ 0x14020AAF0 (EtwpQueueApc.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     EtwpTraceContextRegisters @ 0x1406C7E48 (EtwpTraceContextRegisters.c)
  */
 
 void __fastcall EtwpContextRegisterTracingDispatcher(

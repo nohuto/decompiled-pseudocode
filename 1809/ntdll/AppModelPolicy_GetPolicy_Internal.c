@@ -1,22 +1,27 @@
 /*
- * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x18007455C
+ * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x18007456C
  * Callers:
- *     LdrpInitializePolicy @ 0x1800833F8 (LdrpInitializePolicy.c)
+ *     LdrpInitializePolicy @ 0x180083408 (LdrpInitializePolicy.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x180074720 (RtlQueryPackageClaims.c)
+ *     RtlQueryPackageClaims @ 0x180074730 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD *a3, _WORD *a4, _QWORD *a5)
+__int64 __fastcall AppModelPolicy_GetPolicy_Internal(
+        __int64 a1,
+        int a2,
+        _DWORD *a3,
+        _PS_PKG_CLAIM *a4,
+        unsigned __int64 *a5)
 {
-  int PackageClaims; // r9d
+  NTSTATUS PackageClaims; // r9d
   int v9; // r8d
 
-  PackageClaims = RtlQueryPackageClaims(-4, 0, 0, 0, 0LL, 0LL, (__int64)a4, (__int64)a5);
+  PackageClaims = RtlQueryPackageClaims((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0LL, 0LL, 0LL, 0LL, 0LL, a4, a5);
   if ( PackageClaims == -1073741275 )
   {
     *a5 = 0LL;
     PackageClaims = 0;
-    *a4 = 0;
+    LOWORD(a4->Flags) = 0;
   }
   *a3 = 0;
   if ( PackageClaims >= 0 )
@@ -33,15 +38,15 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
         {
           v9 = 9;
         }
-        else if ( (*(_BYTE *)a4 & 4) != 0 )
+        else if ( (a4->Flags & 4) != 0 )
         {
           v9 = 2;
         }
-        else if ( (*(_BYTE *)a4 & 8) != 0 )
+        else if ( (a4->Flags & 8) != 0 )
         {
           v9 = 7;
         }
-        else if ( (*(_BYTE *)a4 & 0x40) != 0 )
+        else if ( (a4->Flags & 0x40) != 0 )
         {
           v9 = 8;
           if ( a2 == 1 )

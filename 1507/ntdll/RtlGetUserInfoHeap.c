@@ -7,10 +7,15 @@
  *     RtlpHpVirtGetUserInfoHeap @ 0x1800EAD04 (RtlpHpVirtGetUserInfoHeap.c)
  */
 
-__int64 __fastcall RtlGetUserInfoHeap(__int64 a1, int a2, int a3, int a4, __int64 a5)
+BOOLEAN __cdecl RtlGetUserInfoHeap(
+        PVOID HeapHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        PVOID *UserValue,
+        PULONG UserFlags)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtGetUserInfoHeap(a1);
+    return RtlpHpVirtGetUserInfoHeap(HeapHandle);
   else
-    return RtlpGetUserInfoHeapInternal(a1, a2, a3, a4, a5);
+    return RtlpGetUserInfoHeapInternal(HeapHandle, UserFlags);
 }

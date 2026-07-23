@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwInstanceInfoFree @ 0x1406D8D10
+ * XREFs of PiSwInstanceInfoFree @ 0x1406D9FB0
  * Callers:
- *     PiSwInstanceInfoInit @ 0x1406D6DD0 (PiSwInstanceInfoInit.c)
- *     PiSwDeviceFree @ 0x1406D8C08 (PiSwDeviceFree.c)
+ *     PiSwInstanceInfoInit @ 0x1406D8070 (PiSwInstanceInfoInit.c)
+ *     PiSwDeviceFree @ 0x1406D9EA8 (PiSwDeviceFree.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwInstanceInfoFree(__int64 a1)

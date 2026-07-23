@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetTickCount @ 0x1800DF030
+ * XREFs of RtlGetTickCount @ 0x1800DF0F0
  * Callers:
  *     <none>
  * Callees:

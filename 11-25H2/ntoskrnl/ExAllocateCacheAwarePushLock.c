@@ -26,8 +26,8 @@ void *__fastcall ExAllocateCacheAwarePushLock(char a1)
   __int64 i; // rbx
   struct _KPRCB *CurrentPrcb; // rax
   __int64 Pool3; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-38h] BYREF
 
   v1 = 0;
   Affinity = 0LL;

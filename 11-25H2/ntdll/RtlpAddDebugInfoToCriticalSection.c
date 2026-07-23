@@ -17,211 +17,212 @@
  *     RtlpInterlockedPopEntrySList @ 0x180166F90 (RtlpInterlockedPopEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
+void __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
 {
-  PSLIST_ENTRY result; // rax
-  signed __int64 v3; // rbx
-  _SLIST_ENTRY *Next; // rcx
-  unsigned int v5; // edi
-  __int64 v6; // rbp
-  __int64 v7; // rsi
-  volatile signed __int64 v8; // rbx
-  char *v9; // rdx
-  char *v10; // rcx
-  signed __int64 *v12; // rax
-  signed __int64 v13; // rbx
-  __int64 v14; // rax
-  __int64 v15; // r15
-  __int64 v16; // rdx
-  unsigned int v17; // eax
-  _DWORD *v18; // rcx
-  unsigned int v19; // edx
-  __int64 v20; // r13
-  volatile signed __int32 *v21; // rdx
+  _QWORD *Heap; // rbx
+  void *ProcessHeap; // rcx
+  unsigned int v4; // edi
+  PRTL_SRWLOCK v5; // rbp
+  __int64 v6; // rsi
+  volatile signed __int64 v7; // rbx
+  char *v8; // rdx
+  char *v9; // rcx
+  signed __int64 *v11; // rax
+  signed __int64 v12; // rbx
+  __int64 v13; // rax
+  __int64 v14; // r15
+  __int64 v15; // rdx
+  unsigned int v16; // eax
+  _DWORD *v17; // rcx
+  unsigned int v18; // edx
+  __int64 v19; // r13
+  volatile signed __int32 *v20; // rdx
   char *SchedulerSharedDataSlot; // r10
   unsigned int i; // r8d
-  volatile signed __int32 **v24; // rcx
-  _QWORD *v25; // r12
-  char *v26; // r8
+  volatile signed __int32 **v23; // rcx
+  _QWORD *v24; // r12
+  char *v25; // r8
   unsigned int j; // edx
-  __int64 *v28; // rcx
-  unsigned __int64 v29; // rcx
-  unsigned __int64 v30; // rsi
-  unsigned __int64 v31; // [rsp+78h] [rbp+10h] BYREF
-  __int64 v32; // [rsp+80h] [rbp+18h] BYREF
+  PRTL_SRWLOCK *v27; // rcx
+  char *Value; // rcx
+  unsigned __int64 v29; // rsi
+  PVOID BaseAddress; // [rsp+78h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+80h] [rbp+18h] BYREF
 
-  result = RtlpInterlockedPopEntrySList(&RtlCriticalSectionDebugSList);
-  v3 = (signed __int64)result;
-  if ( !result )
+  Heap = RtlpInterlockedPopEntrySList(&RtlCriticalSectionDebugSList);
+  if ( !Heap )
   {
-    result = (PSLIST_ENTRY)NtCurrentPeb();
-    Next = result[3].Next;
-    if ( !Next )
+    ProcessHeap = NtCurrentPeb()->ProcessHeap;
+    if ( !ProcessHeap )
     {
 LABEL_50:
       _InterlockedIncrement(&RtlFailedCriticalDebugAllocations);
-      return result;
+      return;
     }
-    result = (PSLIST_ENTRY)RtlAllocateHeap(Next);
-    v3 = (signed __int64)result;
+    Heap = RtlAllocateHeap(ProcessHeap, 0, 0x30uLL);
   }
-  if ( !v3 )
+  if ( !Heap )
     goto LABEL_50;
-  v5 = 0;
-  *(_WORD *)v3 = 0;
+  v4 = 0;
+  *(_WORD *)Heap = 0;
   if ( (*(_DWORD *)(a1 + 32) & 0x8000000) != 0 )
-    *(_WORD *)v3 = 1;
-  *(_QWORD *)(v3 + 32) = 0LL;
-  *(_QWORD *)(v3 + 8) = a1;
-  *(_DWORD *)(v3 + 40) = 0;
-  *(_WORD *)(v3 + 46) = 17235;
-  v6 = RtlpStackTraceDatabase;
+    *(_WORD *)Heap = 1;
+  Heap[4] = 0LL;
+  Heap[1] = a1;
+  *((_DWORD *)Heap + 10) = 0;
+  *((_WORD *)Heap + 23) = 17235;
+  v5 = RtlpStackTraceDatabase;
   if ( !RtlpStackTraceDatabase )
   {
-    LODWORD(v7) = 0;
+    LODWORD(v6) = 0;
     goto LABEL_9;
   }
-  v14 = RtlStdLogStackTrace(RtlpStackTraceDatabase, 2LL);
-  v15 = v14;
-  if ( !v14 )
+  v13 = RtlStdLogStackTrace(RtlpStackTraceDatabase, 2LL);
+  v14 = v13;
+  if ( !v13 )
   {
-    LODWORD(v7) = 0;
+    LODWORD(v6) = 0;
     goto LABEL_9;
   }
-  v16 = *(unsigned __int16 *)(v14 + 14);
-  v17 = 0;
-  if ( (_WORD)v16 )
+  v15 = *(unsigned __int16 *)(v13 + 14);
+  v16 = 0;
+  if ( (_WORD)v15 )
   {
-    v18 = (_DWORD *)(v15 + 16);
+    v17 = (_DWORD *)(v14 + 16);
     do
     {
-      v17 += *v18;
-      v18 += 2;
-      --v16;
+      v16 += *v17;
+      v17 += 2;
+      --v15;
     }
-    while ( v16 );
+    while ( v15 );
   }
-  v19 = v17 % *(_DWORD *)(v6 + 720);
-  v20 = 2LL * v19;
+  v18 = v16 % *(_DWORD *)&v5[90].0;
+  v19 = 2LL * v18;
   if ( !byte_1801D4988 )
   {
-    v21 = (volatile signed __int32 *)(v6 + 736 + 16LL * v19);
+    v20 = (volatile signed __int32 *)&v5[2 * v18 + 92];
     SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
       for ( i = 0; i < 8; ++i )
       {
-        v24 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
-        if ( !*v24 )
+        v23 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
+        if ( !*v23 )
         {
-          if ( v24 )
-            *v24 = v21;
+          if ( v23 )
+            *v23 = v20;
           break;
         }
       }
     }
-    if ( _interlockedbittestandset64(v21, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(v6 + 736 + 8 * v20);
+    if ( _interlockedbittestandset64(v20, 0LL) )
+      RtlpAcquireSRWLockExclusiveContended(&v5[v19 + 92]);
   }
-  if ( !*(_DWORD *)(v15 + 10) )
+  if ( !*(_DWORD *)(v14 + 10) )
   {
-    v25 = 0LL;
-    v31 = 0LL;
-    v32 = 0LL;
+    v24 = 0LL;
+    BaseAddress = 0LL;
+    RegionSize = 0LL;
     if ( !byte_1801D4988 )
     {
-      v26 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
-      if ( v26 )
+      v25 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
+      if ( v25 )
       {
         for ( j = 0; j < 8; ++j )
         {
-          v28 = (__int64 *)&v26[8 * j];
-          if ( !*v28 )
+          v27 = (PRTL_SRWLOCK *)&v25[8 * j];
+          if ( !*v27 )
           {
-            if ( v28 )
-              *v28 = v6;
+            if ( v27 )
+              *v27 = v5;
             break;
           }
         }
       }
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-        RtlpAcquireSRWLockExclusiveContended(v6);
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
+        RtlpAcquireSRWLockExclusiveContended(v5);
     }
-    v29 = *(_QWORD *)(v6 + 152);
-    v30 = *(_QWORD *)(v6 + 168) - 8LL;
-    v31 = v29;
-    if ( *(_BYTE *)(v6 + 128) )
+    Value = (char *)v5[19].Value;
+    v29 = v5[21].Value - 8;
+    BaseAddress = Value;
+    if ( v5[16].0 )
     {
-      if ( v30 < *(_QWORD *)(v6 + 160) )
+      if ( v29 < v5[20].Value )
       {
 LABEL_45:
         if ( !byte_1801D4988 )
-          RtlReleaseSRWLockExclusive(v6);
-        if ( v25 )
+          RtlReleaseSRWLockExclusive(v5);
+        if ( v24 )
         {
-          *v25 = v15;
-          v7 = (__int64)(*(_QWORD *)(v6 + 184) - (_QWORD)v25) >> 3;
-          *(_WORD *)(v15 + 12) = v7;
-          *(_WORD *)(v15 + 10) = WORD1(v7);
+          *v24 = v14;
+          v6 = (__int64)(v5[23].Value - (_QWORD)v24) >> 3;
+          *(_WORD *)(v14 + 12) = v6;
+          *(_WORD *)(v14 + 10) = WORD1(v6);
         }
         else
         {
-          LODWORD(v7) = 0;
+          LODWORD(v6) = 0;
         }
         goto LABEL_53;
       }
     }
-    else if ( v30 < v29 )
+    else if ( v29 < (unsigned __int64)Value )
     {
-      v32 = 4096LL;
-      if ( v29 - 4096 <= *(_QWORD *)(v6 + 144) )
+      RegionSize = 4096LL;
+      if ( (unsigned __int64)(Value - 4096) <= v5[18].Value )
         goto LABEL_45;
-      v31 = v29 - 4096;
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &v31, 0LL, &v32, 4096, 4) < 0 )
+      BaseAddress = Value - 4096;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
         goto LABEL_45;
-      *(_QWORD *)(v6 + 152) = v31;
+      v5[19].Value = (unsigned __int64)BaseAddress;
     }
-    ++*(_DWORD *)(v6 + 180);
-    v25 = (_QWORD *)v30;
-    *(_QWORD *)(v6 + 168) = v30;
+    ++HIDWORD(v5[22].Ptr);
+    v24 = (_QWORD *)v29;
+    v5[21].Value = v29;
     goto LABEL_45;
   }
-  LODWORD(v7) = *(unsigned __int16 *)(v15 + 12) + (*(unsigned __int16 *)(v15 + 10) << 16);
+  LODWORD(v6) = *(unsigned __int16 *)(v14 + 12) + (*(unsigned __int16 *)(v14 + 10) << 16);
 LABEL_53:
   if ( !byte_1801D4988 )
-    RtlReleaseSRWLockExclusive(v6 + 736 + 8 * v20);
-  if ( !(_DWORD)v7 )
-    RtlStdReleaseStackTrace(v6, v15);
+    RtlReleaseSRWLockExclusive(&v5[v19 + 92]);
+  if ( !(_DWORD)v6 )
+    RtlStdReleaseStackTrace(v5, v14);
 LABEL_9:
-  *(_WORD *)(v3 + 2) = v7;
-  *(_WORD *)(v3 + 44) = WORD1(v7);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)a1, v3, -1LL) != -1 )
-    return (PSLIST_ENTRY)RtlpFreeDebugInfo(v3);
-  v8 = *(_QWORD *)a1;
-  v9 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
-  if ( v9 )
+  *((_WORD *)Heap + 1) = v6;
+  *((_WORD *)Heap + 22) = WORD1(v6);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)a1, (signed __int64)Heap, -1LL) == -1 )
   {
-    while ( v5 < 8 )
+    v7 = *(_QWORD *)a1;
+    v8 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
+    if ( v8 )
     {
-      v10 = &v9[8 * v5];
-      if ( !*(_QWORD *)v10 )
+      while ( v4 < 8 )
       {
-        if ( v10 )
-          *(_QWORD *)v10 = &RtlCriticalSectionLock;
-        break;
+        v9 = &v8[8 * v4];
+        if ( !*(_QWORD *)v9 )
+        {
+          if ( v9 )
+            *(_QWORD *)v9 = &RtlCriticalSectionLock;
+          break;
+        }
+        ++v4;
       }
-      ++v5;
     }
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&RtlCriticalSectionLock, 0LL) )
+      RtlpAcquireSRWLockExclusiveContended(&RtlCriticalSectionLock);
+    v11 = (signed __int64 *)off_1801CE8D8;
+    v12 = v7 + 16;
+    if ( *off_1801CE8D8 != (_UNKNOWN *)&RtlCriticalSectionList )
+      __fastfail(3u);
+    *(_QWORD *)v12 = &RtlCriticalSectionList;
+    *(_QWORD *)(v12 + 8) = v11;
+    *v11 = v12;
+    off_1801CE8D8 = (_UNKNOWN **)v12;
+    RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
   }
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&RtlCriticalSectionLock, 0LL) )
-    RtlpAcquireSRWLockExclusiveContended(&RtlCriticalSectionLock);
-  v12 = (signed __int64 *)off_1801CE8D8;
-  v13 = v8 + 16;
-  if ( *off_1801CE8D8 != (_UNKNOWN *)&RtlCriticalSectionList )
-    __fastfail(3u);
-  *(_QWORD *)v13 = &RtlCriticalSectionList;
-  *(_QWORD *)(v13 + 8) = v12;
-  *v12 = v13;
-  off_1801CE8D8 = (_UNKNOWN **)v13;
-  return (PSLIST_ENTRY)RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
+  else
+  {
+    RtlpFreeDebugInfo(Heap);
+  }
 }

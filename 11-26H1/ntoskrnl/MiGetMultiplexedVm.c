@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetMultiplexedVm @ 0x1402E47B0
+ * XREFs of MiGetMultiplexedVm @ 0x1402C67F0
  * Callers:
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
- *     MiInitializeProbePacketVm @ 0x1402E578C (MiInitializeProbePacketVm.c)
- *     MmSetAddressRangeModifiedEx @ 0x14039A698 (MmSetAddressRangeModifiedEx.c)
- *     MiTrimViewVaIsCandidate @ 0x14046C408 (MiTrimViewVaIsCandidate.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
+ *     MiInitializeProbePacketVm @ 0x1402C77CC (MiInitializeProbePacketVm.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14039C3F8 (MmSetAddressRangeModifiedEx.c)
+ *     MiTrimViewVaIsCandidate @ 0x140465B88 (MiTrimViewVaIsCandidate.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall MiGetMultiplexedVm(__int64 a1, unsigned __int64 a2)
     }
     else
     {
-      v4 = qword_140E37B90 + 16 * (v4 - 1);
+      v4 = qword_140E37D10 + 16 * (v4 - 1);
     }
     if ( v4 )
       v4 += 40 * ((a2 >> 18) & 7);
@@ -45,5 +45,5 @@ __int64 __fastcall MiGetMultiplexedVm(__int64 a1, unsigned __int64 a2)
   v6 = v5 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( (v5 & 1) == 0 )
     v6 = v5;
-  return *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v6 + 60LL) & 0x3FF)) + 22592LL;
+  return *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v6 + 60LL) & 0x3FF)) + 22592LL;
 }

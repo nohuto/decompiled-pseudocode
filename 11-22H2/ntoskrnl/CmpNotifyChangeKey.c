@@ -160,10 +160,10 @@ LABEL_8:
         *v30 = (__int64 *)v27;
         SListFaultAddress[1] = (__int64)v27;
 LABEL_26:
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SListFaultAddress = (__int64 *)(-1LL << (CurrentIrql + 1));

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtFreezeRegistry @ 0x18009F410
+ * XREFs of NtFreezeRegistry @ 0x18009F3D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtFreezeRegistry()
+NTSTATUS __cdecl NtFreezeRegistry(ULONG TimeOutInSeconds)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 239LL;
+  result = 239;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

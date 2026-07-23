@@ -1,11 +1,11 @@
 /*
- * XREFs of VfFaultsAddAllApps @ 0x140C3441C
+ * XREFs of VfFaultsAddAllApps @ 0x140C3A42C
  * Callers:
- *     VfRlrsVolatileConfigUpdate @ 0x140648604 (VfRlrsVolatileConfigUpdate.c)
- *     VfFaultsInitPhase0 @ 0x140C34584 (VfFaultsInitPhase0.c)
- *     VfFaultsSetParameters @ 0x140C34AA4 (VfFaultsSetParameters.c)
+ *     VfRlrsVolatileConfigUpdate @ 0x14064C1E4 (VfRlrsVolatileConfigUpdate.c)
+ *     VfFaultsInitPhase0 @ 0x140C3A594 (VfFaultsInitPhase0.c)
+ *     VfFaultsSetParameters @ 0x140C3AAB4 (VfFaultsSetParameters.c)
  * Callees:
- *     ViFaultsAddAppNoDuplicates @ 0x140C34CA0 (ViFaultsAddAppNoDuplicates.c)
+ *     ViFaultsAddAppNoDuplicates @ 0x140C3ACB0 (ViFaultsAddAppNoDuplicates.c)
  */
 
 __int64 __fastcall VfFaultsAddAllApps(unsigned __int16 *a1, int a2)

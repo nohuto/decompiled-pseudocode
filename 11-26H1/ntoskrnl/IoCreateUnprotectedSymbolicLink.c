@@ -1,20 +1,26 @@
 /*
- * XREFs of IoCreateUnprotectedSymbolicLink @ 0x140796360
+ * XREFs of IoCreateUnprotectedSymbolicLink @ 0x140798E90
  * Callers:
- *     DifIoCreateUnprotectedSymbolicLinkWrapper @ 0x14065B350 (DifIoCreateUnprotectedSymbolicLinkWrapper.c)
+ *     DifIoCreateUnprotectedSymbolicLinkWrapper @ 0x14065EF30 (DifIoCreateUnprotectedSymbolicLinkWrapper.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x140724CF0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1407298C0 (ZwCreateSymbolicLinkObject.c)
  */
 
 NTSTATUS __stdcall IoCreateUnprotectedSymbolicLink(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)
 {
-  NTSTATUS SymbolicLinkObject; // ebx
-  HANDLE Handle; // [rsp+60h] [rbp+10h] BYREF
+  int v2; // ebx
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+  HANDLE LinkHandle; // [rsp+60h] [rbp+10h] BYREF
 
-  Handle = 0LL;
-  SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-  if ( SymbolicLinkObject >= 0 )
-    ZwClose(Handle);
-  return SymbolicLinkObject;
+  ObjectAttributes.ObjectName = SymbolicLinkName;
+  LinkHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 592LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v2 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, DeviceName);
+  if ( v2 >= 0 )
+    ZwClose(LinkHandle);
+  return v2;
 }

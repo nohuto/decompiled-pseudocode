@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsFreeSlabPage @ 0x140553338
+ * XREFs of MiIsFreeSlabPage @ 0x140553578
  * Callers:
- *     MiIsPageSecured @ 0x1402B4D68 (MiIsPageSecured.c)
- *     MiFreeSlabEntries @ 0x1402BA910 (MiFreeSlabEntries.c)
+ *     MiIsPageSecured @ 0x140232F18 (MiIsPageSecured.c)
+ *     MiFreeSlabEntries @ 0x140238B20 (MiFreeSlabEntries.c)
  * Callees:
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
  */
 
 _BOOL8 __fastcall MiIsFreeSlabPage(__int64 a1)

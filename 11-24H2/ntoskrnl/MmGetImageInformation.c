@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetImageInformation @ 0x140837878
+ * XREFs of MmGetImageInformation @ 0x1409F9444
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x140280BA0 (RtlpLookupUserFunctionTable.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x140463C24 (RtlGetImageBaseAndLoadConfig.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1407AB8A4 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x1408375D4 (EtwpLocateDbgIdForRegEntry.c)
- *     KiCheckUserAddressCetCompat @ 0x140837728 (KiCheckUserAddressCetCompat.c)
+ *     RtlpLookupUserFunctionTable @ 0x140236130 (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x14045A364 (RtlGetImageBaseAndLoadConfig.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1407ABD74 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1409F91A0 (EtwpLocateDbgIdForRegEntry.c)
+ *     KiCheckUserAddressCetCompat @ 0x1409F92F4 (KiCheckUserAddressCetCompat.c)
  * Callees:
- *     MiUnlockAndDereferenceVadShared @ 0x1402BB330 (MiUnlockAndDereferenceVadShared.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140362A70 (MiUnlockAndDereferenceVadShared.c)
  */
 
 __int64 __fastcall MmGetImageInformation(unsigned __int64 a1, _QWORD *a2, _QWORD *a3, _DWORD *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall MmGetImageInformation(unsigned __int64 a1, _QWORD *a2, _QWORD
 
   if ( a1 > 0x7FFFFFFEFFFFLL )
     return 3221225485LL;
-  v7 = MiObtainReferencedVadEx(a1, 6LL, &v12);
+  v7 = MiObtainReferencedVadEx(a1, 6LL, &v12, (__int64)a4);
   v10 = 0;
   if ( v7 )
   {

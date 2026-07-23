@@ -1,15 +1,15 @@
 /*
- * XREFs of PsSetPagePriorityThread @ 0x1402F75E4
+ * XREFs of PsSetPagePriorityThread @ 0x140302334
  * Callers:
- *     SmSetThreadPagePriority @ 0x1402E1280 (SmSetThreadPagePriority.c)
- *     IoApplyPriorityInfoThread @ 0x1402F7540 (IoApplyPriorityInfoThread.c)
- *     CcCompleteAsyncRead @ 0x1402F7640 (CcCompleteAsyncRead.c)
- *     CcPerformReadAhead @ 0x1402F9DF0 (CcPerformReadAhead.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     SmSetThreadPagePriority @ 0x1402925D0 (SmSetThreadPagePriority.c)
+ *     IoApplyPriorityInfoThread @ 0x140302290 (IoApplyPriorityInfoThread.c)
+ *     CcCompleteAsyncRead @ 0x140302390 (CcCompleteAsyncRead.c)
+ *     CcPerformReadAhead @ 0x140304B40 (CcPerformReadAhead.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     EtwTracePriority @ 0x1405A7EA4 (EtwTracePriority.c)
+ *     EtwTracePriority @ 0x1405A80D4 (EtwTracePriority.c)
  */
 
 __int64 __fastcall PsSetPagePriorityThread(__int64 a1, int a2)

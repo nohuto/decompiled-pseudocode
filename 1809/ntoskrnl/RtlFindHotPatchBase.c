@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindHotPatchBase @ 0x140899C90
+ * XREFs of RtlFindHotPatchBase @ 0x14089AEF0
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
- *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
- *     RtlFindHotPatchInformation @ 0x140899CBC (RtlFindHotPatchInformation.c)
+ *     MiApplyDriverHotPatch @ 0x1408552E0 (MiApplyDriverHotPatch.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
+ *     MiPrepareToHotPatchImage @ 0x1408585A8 (MiPrepareToHotPatchImage.c)
+ *     RtlFindHotPatchInformation @ 0x14089AF1C (RtlFindHotPatchInformation.c)
  * Callees:
  *     <none>
  */

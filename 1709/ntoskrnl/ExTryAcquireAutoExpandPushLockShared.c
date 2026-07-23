@@ -12,7 +12,7 @@
 
 ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  unsigned __int64 v2; // rsi
+  PRTL_BALANCED_NODE v2; // rsi
   ULONG_PTR v3; // rbx
   int v5; // ebp
   int v6; // ecx
@@ -39,9 +39,9 @@ ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckPara
   if ( v2 )
   {
     if ( v3 )
-      *(_BYTE *)(v2 + 26) |= 1u;
+      BYTE2(v2[1].Left) |= 1u;
     else
-      KeAbPostReleaseEx(BugCheckParameter2, v2);
+      KeAbPostReleaseEx(BugCheckParameter2, (unsigned __int64)v2);
   }
   return v3;
 }

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     IommupGetSystemContext @ 0x1403B0808 (IommupGetSystemContext.c)
- *     IommuGetLeastMaximumSupportedAsidValue @ 0x1403B08F4 (IommuGetLeastMaximumSupportedAsidValue.c)
+ *     IommupGetSystemContext @ 0x1403B09E8 (IommupGetSystemContext.c)
+ *     IommuGetLeastMaximumSupportedAsidValue @ 0x1403B0AD4 (IommuGetLeastMaximumSupportedAsidValue.c)
  */
 
 __int64 __fastcall IommuGetConfiguration(__int64 a1, _DWORD *a2, __int64 a3, PVOID **a4)

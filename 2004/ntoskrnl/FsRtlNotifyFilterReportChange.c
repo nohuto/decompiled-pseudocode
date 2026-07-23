@@ -36,14 +36,14 @@ void __stdcall FsRtlNotifyFilterReportChange(
   PSTRING v11; // r12
   USHORT v13; // r8
   struct _KTHREAD *CurrentThread; // rbx
-  struct _LIST_ENTRY *Flink; // r13
-  struct _LIST_ENTRY *v16; // rdi
-  struct _LIST_ENTRY *v17; // r11
+  _LIST_ENTRY *Flink; // r13
+  _LIST_ENTRY *v16; // rdi
+  _LIST_ENTRY *v17; // r11
   char v18; // dl
   char v19; // r15
   __int16 v20; // r8
   unsigned int Flink_high; // r13d
-  struct _LIST_ENTRY *v22; // rcx
+  _LIST_ENTRY *v22; // rcx
   unsigned __int16 v23; // ax
   int v24; // r14d
   unsigned int v25; // r14d
@@ -54,7 +54,7 @@ void __stdcall FsRtlNotifyFilterReportChange(
   struct _LIST_ENTRY *v30; // rcx
   struct _LIST_ENTRY *PoolWithTag; // rax
   __int64 Blink_low; // rax
-  struct _LIST_ENTRY *v33; // rbx
+  _LIST_ENTRY *v33; // rbx
   __int16 v34; // ax
   __int16 v35; // ax
   struct _LIST_ENTRY *Blink; // r9
@@ -88,20 +88,20 @@ void __stdcall FsRtlNotifyFilterReportChange(
   unsigned __int16 Length; // [rsp+4Ch] [rbp-ECh]
   unsigned __int16 v66; // [rsp+50h] [rbp-E8h]
   int v67; // [rsp+54h] [rbp-E4h]
-  struct _LIST_ENTRY *v68; // [rsp+70h] [rbp-C8h]
-  struct _LIST_ENTRY *v69; // [rsp+78h] [rbp-C0h]
-  STRING OemString; // [rsp+80h] [rbp-B8h] BYREF
+  _LIST_ENTRY *v68; // [rsp+70h] [rbp-C8h]
+  _LIST_ENTRY *v69; // [rsp+78h] [rbp-C0h]
+  OEM_STRING OemString; // [rsp+80h] [rbp-B8h] BYREF
   int v71; // [rsp+90h] [rbp-A8h]
   __int64 v72; // [rsp+98h] [rbp-A0h]
   char *Buffer; // [rsp+A0h] [rbp-98h]
-  STRING v74; // [rsp+A8h] [rbp-90h] BYREF
+  OEM_STRING v74; // [rsp+A8h] [rbp-90h] BYREF
   unsigned int v75; // [rsp+B8h] [rbp-80h]
   unsigned int v76; // [rsp+BCh] [rbp-7Ch]
   struct _LIST_ENTRY **p_Blink; // [rsp+C0h] [rbp-78h]
-  struct _LIST_ENTRY *v78; // [rsp+C8h] [rbp-70h]
-  struct _LIST_ENTRY *v79; // [rsp+D0h] [rbp-68h]
+  _LIST_ENTRY *v78; // [rsp+C8h] [rbp-70h]
+  _LIST_ENTRY *v79; // [rsp+D0h] [rbp-68h]
   _OWORD v80[6]; // [rsp+D8h] [rbp-60h] BYREF
-  struct _LIST_ENTRY *v82; // [rsp+148h] [rbp+10h]
+  _LIST_ENTRY *v82; // [rsp+148h] [rbp+10h]
 
   v82 = NotifyList;
   v10 = TargetNameOffset;

@@ -47,7 +47,7 @@ __int64 __fastcall KeQueryValuesThread(__int64 a1, __int64 a2)
   *(_DWORD *)a2 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -181,10 +181,10 @@ LABEL_7:
 LABEL_20:
   *(_BYTE *)(a2 + 11) = *(_BYTE *)(a1 + 563);
   *(_QWORD *)(a1 + 64) = v6;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v24 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v26 = CurrentPrcb->SchedulerAssist;

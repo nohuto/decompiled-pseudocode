@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertProcessVads @ 0x140711718
+ * XREFs of MiInsertProcessVads @ 0x1406BFD68
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x1407D0EC4 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406BFB24 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x1407D1034 (MmInitializeHandBuiltProcess2.c)
  * Callees:
- *     MiGetWsAndInsertVad @ 0x140316080 (MiGetWsAndInsertVad.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
+ *     MiGetWsAndInsertVad @ 0x140320DD0 (MiGetWsAndInsertVad.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
  */
 
-__int64 __fastcall MiInsertProcessVads(struct _KPROCESS *a1, _QWORD **a2)
+__int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD **a2)
 {
   _QWORD *v2; // rbx
   unsigned int v3; // edi
@@ -22,7 +22,7 @@ __int64 __fastcall MiInsertProcessVads(struct _KPROCESS *a1, _QWORD **a2)
     while ( 1 )
     {
       v6 = (_QWORD *)*v2;
-      result = MiInsertVadCharges((__int64)v2, a1);
+      result = MiInsertVadCharges(v2, a1);
       v3 = result;
       if ( (int)result < 0 )
         break;

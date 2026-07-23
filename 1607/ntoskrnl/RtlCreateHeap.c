@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlCreateHeap @ 0x140540228
+ * XREFs of RtlCreateHeap @ 0x140540768
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
- *     RtlpPopulateListIndex @ 0x14012E690 (RtlpPopulateListIndex.c)
- *     RtlpInitializeHeapSegment @ 0x14012E79C (RtlpInitializeHeapSegment.c)
- *     RtlpCreateHeapEncoding @ 0x14012E95C (RtlpCreateHeapEncoding.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     ZwQueryVirtualMemory @ 0x14015A0E0 (ZwQueryVirtualMemory.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlpHeapExceptionFilter @ 0x1402137E0 (RtlpHeapExceptionFilter.c)
- *     RtlpHeapGenerateRandomValue64 @ 0x1402138F0 (RtlpHeapGenerateRandomValue64.c)
- *     RtlpHeapHandleError @ 0x1402188DC (RtlpHeapHandleError.c)
- *     RtlpHeapLogRangeCreate @ 0x140218908 (RtlpHeapLogRangeCreate.c)
- *     RtlpLogHeapCommit @ 0x140218EA8 (RtlpLogHeapCommit.c)
- *     RtlpLogHeapCreateEvent @ 0x140218FEC (RtlpLogHeapCreateEvent.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
+ *     RtlpPopulateListIndex @ 0x14012EC00 (RtlpPopulateListIndex.c)
+ *     RtlpInitializeHeapSegment @ 0x14012ED0C (RtlpInitializeHeapSegment.c)
+ *     RtlpCreateHeapEncoding @ 0x14012EECC (RtlpCreateHeapEncoding.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x14015A650 (ZwQueryVirtualMemory.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlpHeapExceptionFilter @ 0x14021360C (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x14021371C (RtlpHeapGenerateRandomValue64.c)
+ *     RtlpHeapHandleError @ 0x140218708 (RtlpHeapHandleError.c)
+ *     RtlpHeapLogRangeCreate @ 0x140218734 (RtlpHeapLogRangeCreate.c)
+ *     RtlpLogHeapCommit @ 0x140218CD4 (RtlpLogHeapCommit.c)
+ *     RtlpLogHeapCreateEvent @ 0x140218E18 (RtlpLogHeapCreateEvent.c)
  */
 
 PVOID __stdcall RtlCreateHeap(
@@ -133,13 +133,13 @@ PVOID __stdcall RtlCreateHeap(
   if ( !v53.DeCommitTotalFreeThreshold )
     DeCommitTotalFreeThreshold = qword_1403A9170;
   v51 = DeCommitTotalFreeThreshold;
-  v14 = qword_140328BE8;
-  if ( !qword_140328BE8 )
+  v14 = qword_140328C28;
+  if ( !qword_140328C28 )
   {
     if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
       goto LABEL_64;
     v14 = v61;
-    qword_140328BE8 = v61;
+    qword_140328C28 = v61;
   }
   MaximumAllocationSize = v53.MaximumAllocationSize;
   if ( !v53.MaximumAllocationSize )
@@ -229,7 +229,7 @@ LABEL_65:
         if ( (v8 & 0x40000) != 0 && (v57 & 0x40) == 0 )
           goto LABEL_64;
         memset(MemoryInformation[0], 0, 0x1000uLL);
-        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryBasicVlmInformation, v58, 0x20uLL, 0LL) < 0 )
+        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryRegionInformation, v58, 0x20uLL, 0LL) < 0 )
           goto LABEL_64;
         InitialReserve = v59;
         v42 = v55;

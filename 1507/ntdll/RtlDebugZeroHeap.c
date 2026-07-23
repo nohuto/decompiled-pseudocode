@@ -12,30 +12,30 @@
  *     RtlpValidateHeap @ 0x1800EDA3C (RtlpValidateHeap.c)
  */
 
-__int64 __fastcall RtlDebugZeroHeap(unsigned __int64 a1, unsigned int a2)
+__int64 __fastcall RtlDebugZeroHeap(PRTL_CRITICAL_SECTION *BaseAddress, unsigned int a2)
 {
   char v4; // r14
-  int v6; // esi
-  unsigned int v7; // ebx
+  ULONG v6; // esi
+  unsigned __int32 v7; // ebx
 
   v4 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return qword_180143D30(a1, a2);
-  if ( !RtlpCheckHeapSignature((_DWORD *)a1, "RtlZeroHeap") )
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(PRTL_CRITICAL_SECTION *, _QWORD))qword_180143D30)(BaseAddress, a2);
+  if ( !RtlpCheckHeapSignature(BaseAddress, "RtlZeroHeap") )
     goto LABEL_7;
-  v6 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+  v6 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
   if ( (v6 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(BaseAddress[44]);
     v4 = 1;
     v6 |= 1u;
   }
-  if ( (unsigned __int8)RtlpValidateHeap(a1, 0LL) )
-    v7 = RtlZeroHeap(a1, v6);
+  if ( (unsigned __int8)RtlpValidateHeap(BaseAddress) )
+    v7 = RtlZeroHeap(BaseAddress, v6);
   else
 LABEL_7:
     v7 = -1073741811;
   if ( v4 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return v7;
 }

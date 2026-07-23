@@ -1,24 +1,24 @@
 /*
- * XREFs of MiUpdateImportRelocationsOnDriverPrivatePages @ 0x14039758C
+ * XREFs of MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1403976DC
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075CB78 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075CD38 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiCaptureDirtyBitToPfn @ 0x14030FB10 (MiCaptureDirtyBitToPfn.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateImagePfnImportRelocations @ 0x140397874 (MiUpdateImagePfnImportRelocations.c)
- *     MiReferenceDriverPage @ 0x140397B28 (MiReferenceDriverPage.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031A860 (MiCaptureDirtyBitToPfn.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x1403979C4 (MiUpdateImagePfnImportRelocations.c)
+ *     MiReferenceDriverPage @ 0x140397C78 (MiReferenceDriverPage.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUpdateImportRelocationsOnDriverPrivatePages(__int64 a1, __int64 a2, __int64 a3)
@@ -76,7 +76,7 @@ __int64 __fastcall MiUpdateImportRelocationsOnDriverPrivatePages(__int64 a1, __i
       MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v3);
     }
     v3 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v3, 0LL);
+    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v3, 0);
 LABEL_7:
     v12 = MI_READ_PTE_LOCK_FREE(v7);
     v33 = v12;
@@ -108,7 +108,7 @@ LABEL_7:
         if ( updated != 1 )
         {
           v27 = MiCaptureDirtyBitToPfn(v19);
-          v28 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v19 + 40) >> 39) & 0x3FFLL));
+          v28 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v19 + 40) >> 39) & 0x3FFLL));
         }
         MiRemoveLockedPageChargeAndDecRef(v19);
         _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);

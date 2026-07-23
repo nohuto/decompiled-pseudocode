@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x14064F630
+ * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x14064DD30
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     TelemetryCoverageStringHashInternal @ 0x1404CA964 (TelemetryCoverageStringHashInternal.c)
- *     EtwpCoverageRecord @ 0x140904574 (EtwpCoverageRecord.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1404C3E84 (TelemetryCoverageStringHashInternal.c)
+ *     EtwpCoverageRecord @ 0x1408DC9D4 (EtwpCoverageRecord.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCoverageHighIrqlCPWorkItemCallback(__int64 *a1)

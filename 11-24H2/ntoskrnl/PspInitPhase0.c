@@ -1,30 +1,30 @@
 /*
- * XREFs of PspInitPhase0 @ 0x140C65530
+ * XREFs of PspInitPhase0 @ 0x140C676AC
  * Callers:
- *     PsInitSystem @ 0x140BDE7F8 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140BE07F8 (PsInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcslen @ 0x1404FFED0 (wcslen.c)
- *     strcpy_s @ 0x1405042E0 (strcpy_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     ExCreateHandleTable @ 0x14093BEF4 (ExCreateHandleTable.c)
- *     PspCreateProcess @ 0x140A1B354 (PspCreateProcess.c)
- *     PsCreateSystemThread @ 0x140A22450 (PsCreateSystemThread.c)
- *     PspValidateMitigationOptions @ 0x140A231EC (PspValidateMitigationOptions.c)
- *     PsChangeQuantumTable @ 0x140A32230 (PsChangeQuantumTable.c)
- *     PspValidateMitigationAuditOptions @ 0x140A9C450 (PspValidateMitigationAuditOptions.c)
- *     CmSiRWLockInitialize @ 0x140ABD190 (CmSiRWLockInitialize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     PspInitializeCpuPartitionsPhase0 @ 0x140C356C8 (PspInitializeCpuPartitionsPhase0.c)
- *     PspInitializeSiloStructures @ 0x140C359B4 (PspInitializeSiloStructures.c)
- *     PspInitializeJobStructures @ 0x140C35CF8 (PspInitializeJobStructures.c)
- *     PspTlsInitialize @ 0x140C35E00 (PspTlsInitialize.c)
- *     PspIumInitialize @ 0x140C35E54 (PspIumInitialize.c)
- *     PspInitializeSystemPartitionPhase0 @ 0x140C35F38 (PspInitializeSystemPartitionPhase0.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcslen @ 0x1404FD790 (wcslen.c)
+ *     strcpy_s @ 0x140501BA0 (strcpy_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsCreateSystemThread @ 0x1408F8C00 (PsCreateSystemThread.c)
+ *     ExCreateHandleTable @ 0x14094D1CC (ExCreateHandleTable.c)
+ *     PspCreateProcess @ 0x1409F98C4 (PspCreateProcess.c)
+ *     PspValidateMitigationOptions @ 0x140A175FC (PspValidateMitigationOptions.c)
+ *     PsChangeQuantumTable @ 0x140A261A0 (PsChangeQuantumTable.c)
+ *     PspValidateMitigationAuditOptions @ 0x140A979C0 (PspValidateMitigationAuditOptions.c)
+ *     CmSiRWLockInitialize @ 0x140AB8200 (CmSiRWLockInitialize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     PspInitializeCpuPartitionsPhase0 @ 0x140C37808 (PspInitializeCpuPartitionsPhase0.c)
+ *     PspInitializeSiloStructures @ 0x140C37AF4 (PspInitializeSiloStructures.c)
+ *     PspInitializeJobStructures @ 0x140C37E38 (PspInitializeJobStructures.c)
+ *     PspTlsInitialize @ 0x140C37F40 (PspTlsInitialize.c)
+ *     PspIumInitialize @ 0x140C37F94 (PspIumInitialize.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140C38078 (PspInitializeSystemPartitionPhase0.c)
  */
 
 char __fastcall PspInitPhase0(PVOID StartContext)
@@ -38,14 +38,14 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   __int64 v8; // r9
   int v9; // eax
   size_t v10; // rbx
-  union _RTL_RUN_ONCE *v11; // rcx
-  union _RTL_RUN_ONCE *v12; // rcx
+  _RTL_RUN_ONCE *v11; // rcx
+  _RTL_RUN_ONCE *v12; // rcx
   __int64 v13; // rax
-  union _RTL_RUN_ONCE *v14; // rcx
-  union _RTL_RUN_ONCE *v15; // rcx
+  _RTL_RUN_ONCE *v14; // rcx
+  _RTL_RUN_ONCE *v15; // rcx
   __int64 v16; // rax
-  union _RTL_RUN_ONCE *v17; // rcx
-  union _RTL_RUN_ONCE *v18; // rcx
+  _RTL_RUN_ONCE *v17; // rcx
+  _RTL_RUN_ONCE *v18; // rcx
   __int64 v19; // rax
   _KPROCESS *Process; // rcx
   size_t v21; // rax
@@ -99,7 +99,7 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   v50 = 1;
   v51 = 2;
   v52 = 3;
-  qword_140FC6550 = 0LL;
+  qword_140FC75B8 = 0LL;
   v3 = 6LL;
   v53 = 3;
   v54 = 1;
@@ -123,16 +123,16 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   while ( v3 );
   if ( (unsigned int)PspSystemMitigationOptionsLength < 0x18 )
     memset_0(
-      (void *)(0x140000000LL + (unsigned int)PspSystemMitigationOptionsLength + 16539912LL),
+      (void *)(0x140000000LL + (unsigned int)PspSystemMitigationOptionsLength + 16544064LL),
       0,
       24LL - (unsigned int)PspSystemMitigationOptionsLength);
   v45 = PspSystemMitigationOptions;
   PspSystemMitigationOptionsLength = 24;
-  v46 = qword_140FC6118;
+  v46 = qword_140FC7150;
   if ( (int)PspValidateMitigationOptions((__m128i *)&v45, 1) < 0 )
   {
     PspSystemMitigationOptions = 0LL;
-    qword_140FC6118 = 0LL;
+    qword_140FC7150 = 0LL;
   }
   v7 = (int *)v61;
   v8 = 8LL;
@@ -150,7 +150,7 @@ char __fastcall PspInitPhase0(PVOID StartContext)
       0,
       24LL - (unsigned int)PspSystemMitigationAuditOptionsLength);
   v47 = PspSystemMitigationAuditOptions;
-  v48 = qword_140FC6370;
+  v48 = qword_140FC73C0;
   if ( (int)PspValidateMitigationAuditOptions(&v47) < 0 )
     memset_0(&PspSystemMitigationAuditOptions, 0, v10);
   v11 = &PspCreateThreadNotifyRoutine;
@@ -176,9 +176,9 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   while ( v19 != 1 );
   PsChangeQuantumTable(0, PsRawPrioritySeparation);
   PspActiveProcessLock = 0LL;
-  qword_140F05988 = (__int64)&PsActiveProcessHead;
+  qword_140F05BD8 = (__int64)&PsActiveProcessHead;
   PsActiveProcessHead = (__int64)&PsActiveProcessHead;
-  qword_140F058E8 = (__int64)&PsActiveSessionHead;
+  qword_140F05C28 = (__int64)&PsActiveSessionHead;
   PsActiveSessionHead = (__int64)&PsActiveSessionHead;
   Process = KeGetCurrentThread()->ApcState.Process;
   PsIdleProcess = Process;
@@ -192,13 +192,13 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   if ( (unsigned __int8)Win32kAsyncProcessFreezeThawSupportIsActive() )
   {
     PsFreezeWorkGlobals = 0LL;
-    qword_140F05958 = (__int64)&qword_140F05950;
-    qword_140F05950 = (__int64)&qword_140F05950;
-    stru_140F05960.WorkerRoutine = (void (__fastcall *)(void *))PspPostFreezeOperationWorker;
-    stru_140F05960.Parameter = &PsFreezeWorkGlobals;
-    stru_140F05960.List.Blink = 0LL;
-    qword_140F05948 = 0LL;
-    stru_140F05960.List.Flink = 0LL;
+    qword_140F05C58 = (__int64)&qword_140F05C50;
+    qword_140F05C50 = (__int64)&qword_140F05C50;
+    stru_140F05C60.WorkerRoutine = (void (__fastcall *)(void *))PspPostFreezeOperationWorker;
+    stru_140F05C60.Parameter = &PsFreezeWorkGlobals;
+    stru_140F05C60.List.Blink = 0LL;
+    qword_140F05C48 = 0LL;
+    stru_140F05C60.List.Flink = 0LL;
   }
   memset_0(&v30, 0, 0x80uLL);
   DestinationString.Buffer = (wchar_t *)L"Session";
@@ -364,8 +364,8 @@ char __fastcall PspInitPhase0(PVOID StartContext)
     return 0;
   if ( !PspInitializeSiloStructures() )
     return 0;
-  qword_140FC60B0 = 0LL;
-  qword_140FC60A8 = (__int64)&PspWorkingSetChangeHead;
+  qword_140FC70E8 = 0LL;
+  qword_140FC70E0 = (__int64)&PspWorkingSetChangeHead;
   PspWorkingSetChangeHead = (__int64)&PspWorkingSetChangeHead;
   PspAffinityUpdateLock = 0LL;
   PspCidTable = ExCreateHandleTable(0LL, 0);
@@ -374,13 +374,13 @@ char __fastcall PspInitPhase0(PVOID StartContext)
   CmSiRWLockInitialize(&PsWin32CallBack);
   CmSiRWLockInitialize(&PsWin32NullCallBack);
   *(_BYTE *)(PspCidTable + 44) |= 1u;
-  qword_140F059B0 = (__int64)PspReaper;
-  qword_140F058D0 = (__int64)PspProcessRundownWorker;
+  qword_140F05BB0 = (__int64)PspReaper;
+  qword_140F05C10 = (__int64)PspProcessRundownWorker;
   PspProcessRundownCacheWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspProcessRundownWorkerSingle;
   PsReaperListHead = 0LL;
-  qword_140F059B8 = 0LL;
+  qword_140F05BB8 = 0LL;
   PsReaperWorkItem = 0LL;
-  qword_140F058D8 = 0LL;
+  qword_140F05C18 = 0LL;
   PspProcessRundownWorkItem = 0LL;
   PspProcessRundownCacheWorkItem.Parameter = 0LL;
   PspProcessRundownCacheWorkItem.List.Flink = 0LL;

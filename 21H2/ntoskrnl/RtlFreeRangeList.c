@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlFreeRangeList @ 0x140761590
+ * XREFs of RtlFreeRangeList @ 0x140761750
  * Callers:
- *     ArbTestAllocation @ 0x140760F20 (ArbTestAllocation.c)
- *     RtlCopyRangeList @ 0x140761200 (RtlCopyRangeList.c)
- *     ArbCommitAllocation @ 0x1407613A0 (ArbCommitAllocation.c)
- *     ArbBootAllocation @ 0x1407B3E70 (ArbBootAllocation.c)
- *     ArbInitializeRangeList @ 0x1408670B0 (ArbInitializeRangeList.c)
- *     ArbQueryConflict @ 0x1408671C0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x140867550 (ArbRetestAllocation.c)
- *     ArbRollbackAllocation @ 0x140867720 (ArbRollbackAllocation.c)
- *     ArbStartArbiter @ 0x140867740 (ArbStartArbiter.c)
- *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BC974 (KiTpBuildExcludedKernelTracepointRangeList.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCA5C (KiTpIsExcludedKernelTracepointLocation.c)
- *     RtlMergeRangeLists @ 0x14090FDF0 (RtlMergeRangeLists.c)
+ *     ArbTestAllocation @ 0x1407610E0 (ArbTestAllocation.c)
+ *     RtlCopyRangeList @ 0x1407613C0 (RtlCopyRangeList.c)
+ *     ArbCommitAllocation @ 0x140761560 (ArbCommitAllocation.c)
+ *     ArbBootAllocation @ 0x1407B4010 (ArbBootAllocation.c)
+ *     ArbInitializeRangeList @ 0x140867210 (ArbInitializeRangeList.c)
+ *     ArbQueryConflict @ 0x140867320 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1408676B0 (ArbRetestAllocation.c)
+ *     ArbRollbackAllocation @ 0x140867880 (ArbRollbackAllocation.c)
+ *     ArbStartArbiter @ 0x1408678A0 (ArbStartArbiter.c)
+ *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BCAD4 (KiTpBuildExcludedKernelTracepointRangeList.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCBBC (KiTpIsExcludedKernelTracepointLocation.c)
+ *     RtlMergeRangeLists @ 0x14090FF50 (RtlMergeRangeLists.c)
  * Callees:
- *     RtlpDeleteRangeListEntry @ 0x140761608 (RtlpDeleteRangeListEntry.c)
+ *     RtlpDeleteRangeListEntry @ 0x1407617C8 (RtlpDeleteRangeListEntry.c)
  */
 
 _QWORD *__fastcall RtlFreeRangeList(_QWORD *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCloseStore @ 0x14053B6F4
+ * XREFs of BiCloseStore @ 0x14053BC34
  * Callers:
- *     BiOpenSystemStore @ 0x14053BF5C (BiOpenSystemStore.c)
- *     BcdCloseStore @ 0x14053C8A8 (BcdCloseStore.c)
+ *     BiOpenSystemStore @ 0x14053C49C (BiOpenSystemStore.c)
+ *     BcdCloseStore @ 0x14053CDE8 (BcdCloseStore.c)
  * Callees:
- *     BiSanitizeHandle @ 0x140124DA8 (BiSanitizeHandle.c)
- *     BiSetFirmwareModified @ 0x14012DF80 (BiSetFirmwareModified.c)
- *     BiWasFirmwareModified @ 0x14012DFC4 (BiWasFirmwareModified.c)
- *     BiUnloadHiveByHandle @ 0x140533C28 (BiUnloadHiveByHandle.c)
- *     BiExportStoreAlterationsToFirmware @ 0x140533DB0 (BiExportStoreAlterationsToFirmware.c)
- *     BiCloseKey @ 0x14053DFCC (BiCloseKey.c)
+ *     BiSanitizeHandle @ 0x140125318 (BiSanitizeHandle.c)
+ *     BiSetFirmwareModified @ 0x14012E4F0 (BiSetFirmwareModified.c)
+ *     BiWasFirmwareModified @ 0x14012E534 (BiWasFirmwareModified.c)
+ *     BiUnloadHiveByHandle @ 0x140534168 (BiUnloadHiveByHandle.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x1405342F0 (BiExportStoreAlterationsToFirmware.c)
+ *     BiCloseKey @ 0x14053E50C (BiCloseKey.c)
  */
 
 __int64 __fastcall BiCloseStore(__int64 a1, char a2)

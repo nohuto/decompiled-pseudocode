@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaPageGroupFreeMemory @ 0x1401672B4
+ * XREFs of ExpSaPageGroupFreeMemory @ 0x1401673B4
  * Callers:
- *     ExpSaAllocatorFree @ 0x1401671E8 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorFree @ 0x1401672E8 (ExpSaAllocatorFree.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -11,16 +11,16 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   ULONG_PTR v3; // rsi
   unsigned __int64 v4; // r14
-  __int64 v7; // rax
-  __int64 v8; // rdi
+  _RTL_BALANCED_NODE *v7; // rax
+  _RTL_BALANCED_NODE *v8; // rdi
   bool v9; // bp
   struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // rdx
@@ -43,7 +43,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v3, v7, v3);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   RtlClearBitsEx(a1 + 48, (a2 >> 4) & 0x1FF, v4);
   *(_DWORD *)(a1 + 36) += v4;
   v9 = *(_DWORD *)(a1 + 36) == 512;
@@ -80,7 +80,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
         {
           v18->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v18->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v17], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v17].TreeNode, SessionId);
           v22 = 0;
           v22 = v18->BoostBitmap.AllFields & 0x1FFFF;
           v18->BoostBitmap.AllFields &= 0xFFFE0000;

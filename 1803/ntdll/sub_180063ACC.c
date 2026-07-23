@@ -11,10 +11,10 @@
  *     sub_180063438 @ 0x180063438 (sub_180063438.c)
  */
 
-unsigned __int64 __fastcall sub_180063ACC(__int64 a1, char *a2, unsigned int a3, int *a4)
+unsigned __int64 __fastcall sub_180063ACC(_RTL_SRWLOCK *a1, unsigned __int64 a2, char a3, int *a4)
 {
   int v8; // eax
-  __int64 v9; // rdi
+  _RTL_SRWLOCK *v9; // rdi
   __int64 v10; // rax
   __int64 v11; // r9
   __int64 v13; // rax
@@ -25,17 +25,17 @@ unsigned __int64 __fastcall sub_180063ACC(__int64 a1, char *a2, unsigned int a3,
   }
   else
   {
-    v13 = sub_18006316C((__int64)&unk_18015D838, 2 * ((unsigned __int64)&a2[-qword_18015D878] >> 20));
+    v13 = sub_18006316C((__int64)&unk_18015D838, 2 * ((a2 - qword_18015D878) >> 20));
     if ( !v13 )
       return sub_180063438(a1, a2, a3, (__int64)a4);
     v8 = v13 - 1;
   }
   if ( v8 == 2 )
     return sub_180063438(a1, a2, a3, (__int64)a4);
-  v9 = 120LL * v8 + a1;
-  v10 = sub_180012820(v9 + 112, (unsigned __int64)a2);
+  v9 = &a1[15 * v8];
+  v10 = sub_180012820((__int64)&v9[14], a2);
   if ( v10 )
-    return sub_1800111DC(v9 + 112, v10, (unsigned __int64)a2, v11, a4);
+    return sub_1800111DC((__int64)&v9[14], v10, a2, v11, a4);
   else
     return -1LL;
 }

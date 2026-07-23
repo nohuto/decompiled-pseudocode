@@ -1,16 +1,16 @@
 /*
- * XREFs of IvtAllocateContextTable @ 0x14050F398
+ * XREFs of IvtAllocateContextTable @ 0x140508E08
  * Callers:
- *     IvtAllocateTranslationStructures @ 0x140509968 (IvtAllocateTranslationStructures.c)
- *     IvtSetDeviceSvmCapabilities @ 0x1405A7980 (IvtSetDeviceSvmCapabilities.c)
+ *     IvtAllocateTranslationStructures @ 0x140503418 (IvtAllocateTranslationStructures.c)
+ *     IvtSetDeviceSvmCapabilities @ 0x1405AA190 (IvtSetDeviceSvmCapabilities.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x140597C14 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x140597E30 (ExtEnvFreePhysicalMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14059A394 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14059A5B0 (ExtEnvFreePhysicalMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned int a2)

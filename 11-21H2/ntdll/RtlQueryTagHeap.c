@@ -14,143 +14,146 @@
  *     RtlDebugQueryTagHeap @ 0x18010573C (RtlDebugQueryTagHeap.c)
  */
 
-void *__fastcall RtlQueryTagHeap(__int64 a1, int a2, unsigned __int16 a3, char a4, _DWORD *a5)
+PWSTR __cdecl RtlQueryTagHeap(
+        PVOID HeapHandle,
+        ULONG Flags,
+        USHORT TagIndex,
+        BOOLEAN ResetCounters,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
   int v7; // ecx
   int v8; // edx
-  void *TagHeap; // rax
+  const WCHAR *TagHeap; // rax
   __int64 v10; // rdx
   __int64 v11; // rdx
-  _DWORD *v12; // rcx
-  unsigned __int16 v13; // ax
+  PRTL_HEAP_TAG_INFO v12; // rcx
+  USHORT v13; // ax
   __int64 v14; // rdx
   __int64 v15; // rcx
-  _DWORD *v16; // rdx
-  __int64 v17; // rbx
-  _BYTE *v19; // rdi
+  PRTL_HEAP_TAG_INFO v16; // rdx
+  _RTL_CRITICAL_SECTION *v17; // rbx
+  int *p_LockCount; // rdi
   signed __int32 v20; // esi
-  HANDLE DeferredCriticalSectionEvent; // r10
+  HANDLE LockSemaphore; // r10
   int v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  signed __int32 v26[8]; // [rsp+0h] [rbp-78h] BYREF
-  char v27; // [rsp+30h] [rbp-48h]
-  void *v28; // [rsp+40h] [rbp-38h]
-  __int64 v29; // [rsp+48h] [rbp-30h]
-  __int64 v30; // [rsp+80h] [rbp+8h] BYREF
-  int v31; // [rsp+88h] [rbp+10h]
-  unsigned __int16 v32; // [rsp+90h] [rbp+18h]
+  signed __int32 v24[8]; // [rsp+0h] [rbp-78h] BYREF
+  char v25; // [rsp+30h] [rbp-48h]
+  WCHAR *v26; // [rsp+40h] [rbp-38h]
+  __int64 v27; // [rsp+48h] [rbp-30h]
+  PVOID v28; // [rsp+80h] [rbp+8h] BYREF
+  ULONG v29; // [rsp+88h] [rbp+10h]
+  USHORT v30; // [rsp+90h] [rbp+18h]
 
-  v32 = a3;
-  v31 = a2;
-  v30 = a1;
-  v27 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  v30 = TagIndex;
+  v29 = Flags;
+  v28 = HeapHandle;
+  v25 = 0;
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
     return 0LL;
-  v7 = *(_DWORD *)(a1 + 116);
+  v7 = *((_DWORD *)HeapHandle + 29);
   if ( (v7 & 0x1000000) != 0 || (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
     return 0LL;
-  v28 = 0LL;
-  v8 = v7 | v31;
-  v31 = v8;
+  v26 = 0LL;
+  v8 = v7 | v29;
+  v29 = v8;
   if ( (v8 & 0x61000000) != 0 && (v8 & 0x10000000) == 0 )
   {
-    TagHeap = (void *)RtlDebugQueryTagHeap(a1, v8, v32, a4, (__int64)a5);
+    TagHeap = (const WCHAR *)RtlDebugQueryTagHeap(HeapHandle, TagInfo);
   }
   else
   {
     if ( (v8 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      v27 = 1;
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      v25 = 1;
     }
-    if ( v32 < *(_WORD *)(a1 + 224) && (v10 = *(_QWORD *)(a1 + 232)) != 0 )
+    if ( v30 < *((_WORD *)HeapHandle + 112) && (v10 = *((_QWORD *)HeapHandle + 29)) != 0 )
     {
-      v11 = v10 + 72LL * v32;
-      v29 = v11;
-      v12 = a5;
-      if ( a5 )
+      v11 = v10 + 72LL * v30;
+      v27 = v11;
+      v12 = TagInfo;
+      if ( TagInfo )
       {
-        *a5 = *(_DWORD *)v11;
-        v12[1] = *(_DWORD *)(v11 + 4);
-        *((_QWORD *)v12 + 1) = 16LL * *(_QWORD *)(v11 + 8);
+        TagInfo->NumberOfAllocations = *(_DWORD *)v11;
+        v12->NumberOfFrees = *(_DWORD *)(v11 + 4);
+        v12->BytesAllocated = 16LL * *(_QWORD *)(v11 + 8);
       }
-      if ( a4 )
+      if ( ResetCounters )
       {
         *(_QWORD *)v11 = 0LL;
         *(_QWORD *)(v11 + 8) = 0LL;
       }
-      TagHeap = (void *)(v11 + 20);
+      TagHeap = (const WCHAR *)(v11 + 20);
     }
     else
     {
-      if ( (v32 & 0x8000u) == 0 )
+      if ( (v30 & 0x8000u) == 0 )
         goto LABEL_24;
-      v13 = v32 ^ 0x8000;
-      v32 = v13;
+      v13 = v30 ^ 0x8000;
+      v30 = v13;
       if ( v13 >= 0x81u )
         goto LABEL_24;
-      v14 = *(_QWORD *)(a1 + 328);
+      v14 = *((_QWORD *)HeapHandle + 41);
       if ( !v14 )
         goto LABEL_24;
       v15 = v14 + 16LL * v13;
-      v29 = v15;
-      v16 = a5;
-      if ( a5 )
+      v27 = v15;
+      v16 = TagInfo;
+      if ( TagInfo )
       {
-        *a5 = *(_DWORD *)v15;
-        v16[1] = *(_DWORD *)(v15 + 4);
-        *((_QWORD *)v16 + 1) = 16LL * *(_QWORD *)(v15 + 8);
+        TagInfo->NumberOfAllocations = *(_DWORD *)v15;
+        v16->NumberOfFrees = *(_DWORD *)(v15 + 4);
+        v16->BytesAllocated = 16LL * *(_QWORD *)(v15 + 8);
       }
-      if ( a4 )
+      if ( ResetCounters )
       {
         *(_QWORD *)v15 = 0LL;
         *(_QWORD *)(v15 + 8) = 0LL;
       }
-      TagHeap = &unk_180132BF4;
+      TagHeap = &word_180132BF4;
     }
   }
-  v28 = TagHeap;
+  v26 = (WCHAR *)TagHeap;
 LABEL_24:
-  if ( v27 )
+  if ( v25 )
   {
-    v17 = *(_QWORD *)(a1 + 352);
-    if ( (*(_DWORD *)(v17 + 12))-- == 1 )
+    v17 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+    if ( v17->RecursionCount-- == 1 )
     {
-      *(_QWORD *)(v17 + 16) = 0LL;
-      v19 = (_BYTE *)(v17 + 8);
-      v20 = _InterlockedCompareExchange((volatile signed __int32 *)(v17 + 8), -1, -2);
+      v17->OwningThread = 0LL;
+      p_LockCount = &v17->LockCount;
+      v20 = _InterlockedCompareExchange(&v17->LockCount, -1, -2);
       if ( v20 != -2 )
       {
-        if ( (*v19 & 1) != 0 )
-          RtlpNotOwnerCriticalSection((const void **)v17);
-        DeferredCriticalSectionEvent = *(HANDLE *)(v17 + 24);
-        if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v17);
-        LODWORD(v30) = 0;
-        while ( v20 != _InterlockedCompareExchange((volatile signed __int32 *)v19, (v20 & 2 | 1) + v20, v20) )
+        if ( (*(_BYTE *)p_LockCount & 1) != 0 )
+          RtlpNotOwnerCriticalSection(v17);
+        LockSemaphore = v17->LockSemaphore;
+        if ( !LockSemaphore )
+          LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)v17);
+        LODWORD(v28) = 0;
+        while ( v20 != _InterlockedCompareExchange(p_LockCount, (v20 & 2 | 1) + v20, v20) )
         {
-          RtlBackoff((unsigned int *)&v30);
-          _m_prefetchw(v19);
-          v20 = *(_DWORD *)v19;
+          RtlBackoff((unsigned int *)&v28);
+          _m_prefetchw(p_LockCount);
+          v20 = *p_LockCount;
         }
         if ( (v20 & 2) != 0 )
         {
-          if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
+          if ( LockSemaphore == (HANDLE)-1LL )
           {
-            _InterlockedOr(v26, 0);
-            RtlpWakeByAddress(v17 + 8, 0);
+            _InterlockedOr(v24, 0);
+            RtlpWakeByAddress((unsigned __int64)&v17->LockCount, 0);
             v22 = 0;
           }
           else
           {
-            v22 = ZwSetEvent();
+            v22 = ZwSetEvent(LockSemaphore, 0LL);
           }
           if ( v22 < 0 )
-            RtlRaiseStatus(v22, v23, v24);
+            RtlRaiseStatus(v22);
         }
       }
     }
   }
-  return v28;
+  return v26;
 }

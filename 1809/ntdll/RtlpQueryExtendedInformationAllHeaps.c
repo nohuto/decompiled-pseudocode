@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpQueryExtendedInformationAllHeaps @ 0x18007B24C
+ * XREFs of RtlpQueryExtendedInformationAllHeaps @ 0x18007B25C
  * Callers:
- *     RtlpQueryExtendedHeapInformation @ 0x18007B16C (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007B17C (RtlpQueryExtendedHeapInformation.c)
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x18007B33C (RtlpEnumProcessHeaps.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlpEnumProcessHeaps @ 0x18007B34C (RtlpEnumProcessHeaps.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

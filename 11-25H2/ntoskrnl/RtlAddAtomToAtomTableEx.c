@@ -14,7 +14,7 @@
  *     RtlpInsertStringAtom @ 0x140A2A858 (RtlpInsertStringAtom.c)
  */
 
-__int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int16 *a3, unsigned int a4)
+__int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, WCHAR *a2, USHORT *a3, unsigned int a4)
 {
   int v8; // edi
   __int64 v9; // rcx
@@ -26,8 +26,8 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   unsigned __int64 v15; // rbx
   __int64 v16; // rax
   __int16 v17; // ax
-  unsigned __int16 v18; // cx
-  unsigned __int16 v20[2]; // [rsp+40h] [rbp-58h] BYREF
+  USHORT v18; // cx
+  USHORT IntegerAtom[2]; // [rsp+40h] [rbp-58h] BYREF
   int v21; // [rsp+44h] [rbp-54h]
   size_t Size; // [rsp+48h] [rbp-50h] BYREF
   __int64 v23; // [rsp+50h] [rbp-48h] BYREF
@@ -37,17 +37,17 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   v24 = 0LL;
   v25 = 0LL;
   LODWORD(Size) = 0;
-  v20[0] = 0;
+  IntegerAtom[0] = 0;
   v23 = 0LL;
   if ( (unsigned __int8)RtlpLockAtomTable() )
   {
-    if ( (unsigned __int8)RtlGetIntegerAtom(a2, v20) )
+    if ( RtlGetIntegerAtom(a2, IntegerAtom) )
     {
-      v18 = v20[0];
-      if ( v20[0] >= 0xC000u )
+      v18 = IntegerAtom[0];
+      if ( IntegerAtom[0] >= 0xC000u )
       {
         v18 = 0;
-        v20[0] = 0;
+        IntegerAtom[0] = 0;
         v8 = -1073741811;
         v21 = -1073741811;
       }

@@ -3,8 +3,8 @@
  * Callers:
  *     EtwTracePriority @ 0x140202938 (EtwTracePriority.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTracePriority(__int64 a1, int a2, int a3, int a4)
@@ -43,7 +43,7 @@ LABEL_3:
     v13 = 4LL;
     v15 = 1LL;
     v17 = 1LL;
-    return EtwWriteEx(EtwpPsProvRegHandle, (PCEVENT_DESCRIPTOR)v5, 0LL, 1u, 0LL, 0LL, 4u, &UserData);
+    return EtwWriteEx((REGHANDLE)stru_140F03830.Affinity, (PCEVENT_DESCRIPTOR)v5, 0LL, 1u, 0LL, 0LL, 4u, &UserData);
   }
   v7 = v4 - 1;
   if ( !v7 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAbDeferredProcessingWorker @ 0x14006BA54
+ * XREFs of KiAbDeferredProcessingWorker @ 0x14006B5D4
  * Callers:
  *     <none>
  * Callees:
- *     KiAbPropagateBoosts @ 0x14006BB1C (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x14006BBA8 (KiAbProcessThreadLocks.c)
- *     KiReadyDeferredReadyList @ 0x1400D3558 (KiReadyDeferredReadyList.c)
+ *     KiAbPropagateBoosts @ 0x14006B69C (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x14006B728 (KiAbProcessThreadLocks.c)
+ *     KiReadyDeferredReadyList @ 0x1400D13F8 (KiReadyDeferredReadyList.c)
  */
 
 void __fastcall KiAbDeferredProcessingWorker(

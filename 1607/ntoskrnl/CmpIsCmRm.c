@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpIsCmRm @ 0x1404DA06C
+ * XREFs of CmpIsCmRm @ 0x1404BD670
  * Callers:
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
  */
 
 char __fastcall CmpIsCmRm(char *a1)

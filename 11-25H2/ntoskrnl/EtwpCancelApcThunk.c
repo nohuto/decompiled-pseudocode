@@ -13,5 +13,5 @@ void __fastcall EtwpCancelApcThunk(__int64 a1)
 
   v2 = *(unsigned int ***)(a1 + 56);
   guard_dispatch_icall_no_overrides(v2);
-  EtwpFinalizePendingApc(v2, (struct _SLIST_ENTRY *)a1);
+  EtwpFinalizePendingApc(v2, (_SLIST_ENTRY *)a1);
 }

@@ -24,9 +24,9 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   char result; // al
   unsigned __int8 CurrentIrql; // bl
   const char *v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  bool v9; // r8
+  unsigned __int64 v7; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v9; // r8
   __int64 v10; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 v12[8]; // [rsp+0h] [rbp-70h] BYREF
@@ -57,22 +57,22 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
       ((void (__fastcall *)(__int64))off_1404245B8[0])(v10);
       ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_1404245D0[0])(0LL, KeMaximumIncrement, &v15);
       KiSetPendingTick(1);
-      v8 = KiClockIntervalRequests;
+      Root = (unsigned __int64)KiClockIntervalRequests.Root;
       KeTimeIncrement = v15;
       KiLastRequestedTimeIncrement = KeMaximumIncrement;
       KeNonHrTimeIncrement = v15;
       dword_14044D07C = KeMaximumIncrement;
-      if ( (qword_1405039D0 & 1) != 0 && KiClockIntervalRequests )
-        v8 = (unsigned __int64)&KiClockIntervalRequests ^ KiClockIntervalRequests;
+      if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 && KiClockIntervalRequests.Root )
+        Root = (unsigned __int64)&KiClockIntervalRequests ^ (unsigned __int64)KiClockIntervalRequests.Root;
       v9 = 0;
-      if ( v8 )
+      if ( Root )
       {
         while ( 1 )
         {
-          if ( KeMaximumIncrement < *(_DWORD *)(v8 + 28) )
+          if ( KeMaximumIncrement < *(_DWORD *)(Root + 28) )
           {
-            v7 = *(_QWORD *)v8;
-            if ( (qword_1405039D0 & 1) != 0 )
+            v7 = *(_QWORD *)Root;
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
               if ( !v7 )
               {
@@ -80,15 +80,15 @@ LABEL_31:
                 v9 = 0;
                 break;
               }
-              v7 ^= v8;
+              v7 ^= Root;
             }
             if ( !v7 )
               goto LABEL_31;
           }
           else
           {
-            v7 = *(_QWORD *)(v8 + 8);
-            if ( (qword_1405039D0 & 1) != 0 )
+            v7 = *(_QWORD *)(Root + 8);
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
               if ( !v7 )
               {
@@ -96,19 +96,15 @@ LABEL_34:
                 v9 = 1;
                 break;
               }
-              v7 ^= v8;
+              v7 ^= Root;
             }
             if ( !v7 )
               goto LABEL_34;
           }
-          v8 = v7;
+          Root = v7;
         }
       }
-      RtlRbInsertNodeEx(
-        (unsigned __int64 *)&KiClockIntervalRequests,
-        v8,
-        v9,
-        (unsigned __int64)&KiDefaultClockIntervalRequest);
+      RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v9, &KiDefaultClockIntervalRequest);
       byte_14044D078 = 1;
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
       {

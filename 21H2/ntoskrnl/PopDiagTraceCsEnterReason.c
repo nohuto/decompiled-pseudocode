@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceCsEnterReason @ 0x1408E8CBC
+ * XREFs of PopDiagTraceCsEnterReason @ 0x1408E8E1C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsEnterReason(int a1)
@@ -66,12 +66,12 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
   v3 = (unsigned __int8)PopConsoleExternalDisplayConnected;
   v4 = (unsigned __int8)PopLidOpened;
   v5 = PopCsConsumption;
-  v6 = dword_140C4FFD0;
+  v6 = dword_140C50010;
   v17 = PopWnfCsEnterScenarioId;
   v10 = (unsigned __int8)PopConsoleExternalDisplayConnected;
   v11 = (unsigned __int8)PopLidOpened;
   v9 = PopCsConsumption;
-  v8 = dword_140C4FFD0;
+  v8 = dword_140C50010;
   if ( PopDiagHandleRegistered )
   {
     v7 = PopDiagHandle;
@@ -127,7 +127,7 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
       v46 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140C02228,
-               (unsigned __int8 *)byte_14002830D,
+               (unsigned __int8 *)byte_140028B98,
                0LL,
                0LL,
                8u,

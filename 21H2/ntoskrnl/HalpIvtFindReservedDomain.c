@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIvtFindReservedDomain @ 0x1404E7DCC
+ * XREFs of HalpIvtFindReservedDomain @ 0x1404E800C
  * Callers:
- *     IvtGetBlockedDomain @ 0x1404DFF1C (IvtGetBlockedDomain.c)
+ *     IvtGetBlockedDomain @ 0x1404E015C (IvtGetBlockedDomain.c)
  * Callees:
  *     <none>
  */

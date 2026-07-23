@@ -8,31 +8,38 @@
  *     NLS_DOWNCASE @ 0x1800743E4 (NLS_DOWNCASE.c)
  */
 
-__int64 __fastcall RtlDowncaseUnicodeString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlDowncaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   __int64 v5; // rbx
   __int64 v6; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v8; // r11d
 
   v5 = 0LL;
-  if ( a3 || *a2 )
+  if ( AllocateDestinationString || SourceString->Length )
   {
     v6 = qword_180184810;
-    result = AllocateOrValidateUnicodeStringBuffer(a3, *a2, (__int64 *)(a1 + 8), (_WORD *)(a1 + 2));
-    if ( (int)result < 0 )
+    result = AllocateOrValidateUnicodeStringBuffer(
+               AllocateDestinationString,
+               SourceString->Length,
+               (__int64 *)&DestinationString->Buffer,
+               &DestinationString->MaximumLength);
+    if ( result < 0 )
       return result;
-    v8 = *a2 >> 1;
+    v8 = SourceString->Length >> 1;
     while ( (unsigned int)v5 < v8 )
     {
-      *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * v5) = NLS_DOWNCASE(v6, *(unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2 * v5));
+      DestinationString->Buffer[v5] = NLS_DOWNCASE(v6, SourceString->Buffer[v5]);
       v5 = (unsigned int)(v5 + 1);
     }
-    *(_WORD *)a1 = *a2;
+    DestinationString->Length = SourceString->Length;
   }
   else
   {
-    *(_WORD *)a1 = 0;
+    DestinationString->Length = 0;
   }
-  return 0LL;
+  return 0;
 }

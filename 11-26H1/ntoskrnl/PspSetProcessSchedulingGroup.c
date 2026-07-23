@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetProcessSchedulingGroup @ 0x1409560C4
+ * XREFs of PspSetProcessSchedulingGroup @ 0x140AED7E8
  * Callers:
- *     PspSetCpuRateControlJobPostCallback @ 0x140958080 (PspSetCpuRateControlJobPostCallback.c)
- *     PspApplyJobChainLimitsToProcess @ 0x140A8FD18 (PspApplyJobChainLimitsToProcess.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x140A94870 (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetCpuRateControlJobPostCallback @ 0x140AED760 (PspSetCpuRateControlJobPostCallback.c)
  * Callees:
- *     KeSetProcessSchedulingGroup @ 0x14051FF00 (KeSetProcessSchedulingGroup.c)
+ *     KeSetProcessSchedulingGroup @ 0x1405225A4 (KeSetProcessSchedulingGroup.c)
  */
 
 struct _KSCHEDULING_GROUP *__fastcall PspSetProcessSchedulingGroup(__int64 a1, struct _KSCHEDULING_GROUP *a2)

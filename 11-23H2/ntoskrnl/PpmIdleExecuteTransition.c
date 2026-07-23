@@ -1,48 +1,48 @@
 /*
- * XREFs of PpmIdleExecuteTransition @ 0x1402C5320
+ * XREFs of PpmIdleExecuteTransition @ 0x1402C55B0
  * Callers:
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
  * Callees:
  *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     PpmTestAndLockProcessors @ 0x140255228 (PpmTestAndLockProcessors.c)
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KePrepareNonClockOwnerForIdle @ 0x1402C1CDC (KePrepareNonClockOwnerForIdle.c)
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     PpmExitCoordinatedIdle @ 0x1402C6CD0 (PpmExitCoordinatedIdle.c)
- *     PpmUpdatePerformanceFeedback @ 0x1402C6D40 (PpmUpdatePerformanceFeedback.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
- *     KeAccumulateTicks @ 0x1402C7B10 (KeAccumulateTicks.c)
- *     PpmGetExitSamplingCountdown @ 0x14032C3F4 (PpmGetExitSamplingCountdown.c)
- *     PpmIdleUpdateConcurrency @ 0x14033E960 (PpmIdleUpdateConcurrency.c)
- *     KiCancelClockTimer @ 0x140340C70 (KiCancelClockTimer.c)
- *     KeWakeProcessor @ 0x140341880 (KeWakeProcessor.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403418E0 (KeInterlockedClearProcessorAffinityEx.c)
- *     KePrepareClockTimerForIdle @ 0x140347334 (KePrepareClockTimerForIdle.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x140348BA0 (KeInterlockedSetProcessorAffinityEx.c)
- *     HviIsXboxNanovisorPresent @ 0x1403514C8 (HviIsXboxNanovisorPresent.c)
- *     HalRequestIpi @ 0x14035C190 (HalRequestIpi.c)
- *     KdPowerTransitionEx @ 0x1403AD9F0 (KdPowerTransitionEx.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x140420160 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvlSetPlatformIdleState @ 0x140546EF8 (HvlSetPlatformIdleState.c)
- *     KdCallPowerHandlers @ 0x140567344 (KdCallPowerHandlers.c)
- *     KeQueryWakeSource @ 0x14056C798 (KeQueryWakeSource.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleCompleteExitLatencyTrace @ 0x140584D88 (PpmIdleCompleteExitLatencyTrace.c)
- *     PpmIdleSetSynchronizationState @ 0x14058552C (PpmIdleSetSynchronizationState.c)
- *     PpmPerfFeedbackCounterUpdate @ 0x14058D0C4 (PpmPerfFeedbackCounterUpdate.c)
- *     PpmEventEnterPlatformIdleState @ 0x14059A060 (PpmEventEnterPlatformIdleState.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     PpmTestAndLockProcessors @ 0x1402552E8 (PpmTestAndLockProcessors.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KePrepareNonClockOwnerForIdle @ 0x1402C1F6C (KePrepareNonClockOwnerForIdle.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     PpmExitCoordinatedIdle @ 0x1402C6F60 (PpmExitCoordinatedIdle.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C6FD0 (PpmUpdatePerformanceFeedback.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
+ *     KeAccumulateTicks @ 0x1402C7DA0 (KeAccumulateTicks.c)
+ *     PpmGetExitSamplingCountdown @ 0x14032C684 (PpmGetExitSamplingCountdown.c)
+ *     PpmIdleUpdateConcurrency @ 0x14033EBF0 (PpmIdleUpdateConcurrency.c)
+ *     KiCancelClockTimer @ 0x140340F00 (KiCancelClockTimer.c)
+ *     KeWakeProcessor @ 0x140341B10 (KeWakeProcessor.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140341B70 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KePrepareClockTimerForIdle @ 0x1403475C4 (KePrepareClockTimerForIdle.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140348E30 (KeInterlockedSetProcessorAffinityEx.c)
+ *     HviIsXboxNanovisorPresent @ 0x140351668 (HviIsXboxNanovisorPresent.c)
+ *     HalRequestIpi @ 0x14035C330 (HalRequestIpi.c)
+ *     KdPowerTransitionEx @ 0x1403ADBD0 (KdPowerTransitionEx.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x1404204F0 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlSetPlatformIdleState @ 0x1405475B8 (HvlSetPlatformIdleState.c)
+ *     KdCallPowerHandlers @ 0x140567A04 (KdCallPowerHandlers.c)
+ *     KeQueryWakeSource @ 0x14056CE58 (KeQueryWakeSource.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x140585278 (PpmIdleCompleteExitLatencyTrace.c)
+ *     PpmIdleSetSynchronizationState @ 0x140585A1C (PpmIdleSetSynchronizationState.c)
+ *     PpmPerfFeedbackCounterUpdate @ 0x14058D5B4 (PpmPerfFeedbackCounterUpdate.c)
+ *     PpmEventEnterPlatformIdleState @ 0x14059A550 (PpmEventEnterPlatformIdleState.c)
  */
 
 __int64 __fastcall PpmIdleExecuteTransition(
@@ -1086,7 +1086,7 @@ LABEL_282:
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(0xFuLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               v154 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 15 )
@@ -1096,10 +1096,10 @@ LABEL_282:
               v154[5] |= v155;
             }
             KiCancelClockTimer(v13, 5LL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v156 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v156 <= 0xFu && CurrentIrql <= 0xFu && v156 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v156 <= 0xFu && CurrentIrql <= 0xFu && v156 >= 2u )
               {
                 v157 = KeGetCurrentPrcb();
                 v158 = v157->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaInitDiscard @ 0x140C0FFD4
+ * XREFs of HalpDmaInitDiscard @ 0x140C11FD4
  * Callers:
- *     HalpDmaInitSystem @ 0x140B4D8C0 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x140B4F910 (HalpDmaInitSystem.c)
  * Callees:
- *     HalpDmaInitMemory @ 0x140C108E8 (HalpDmaInitMemory.c)
+ *     HalpDmaInitMemory @ 0x140C128E8 (HalpDmaInitMemory.c)
  */
 
 __int64 __fastcall HalpDmaInitDiscard(__int64 a1)
@@ -12,7 +12,7 @@ __int64 __fastcall HalpDmaInitDiscard(__int64 a1)
   unsigned __int64 v2; // rax
   __int64 v3; // r9
 
-  qword_140E006A0 = (__int64)HaliGetDmaAdapter;
+  qword_140E00770 = (__int64)HaliGetDmaAdapter;
   off_140E00B48[0] = (__int64 (__fastcall *)())HalpDmaLinkDeviceObjectByToken;
   off_140E00B50 = (__int64 (__fastcall *)())HalpDmaCheckAdapterToken;
   off_140E00830[0] = (__int64 (__fastcall *)())HalpAllocateMapRegisters;

@@ -1,15 +1,15 @@
 /*
- * XREFs of VfGetDmaAdapter @ 0x140C248E0
+ * XREFs of VfGetDmaAdapter @ 0x140C2A8F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IoGetDmaAdapter @ 0x1407A16A0 (IoGetDmaAdapter.c)
- *     IoGetDevicePropertyData @ 0x140A98450 (IoGetDevicePropertyData.c)
- *     VF_ASSERT_IRQL @ 0x140C22E9C (VF_ASSERT_IRQL.c)
- *     VfIsPCIBus @ 0x140C25264 (VfIsPCIBus.c)
- *     VfReleaseInactiveDmaAdapter @ 0x140C25B84 (VfReleaseInactiveDmaAdapter.c)
- *     ViHookDmaAdapter @ 0x140C274EC (ViHookDmaAdapter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoGetDmaAdapter @ 0x1407A41E0 (IoGetDmaAdapter.c)
+ *     IoGetDevicePropertyData @ 0x140A9C5D0 (IoGetDevicePropertyData.c)
+ *     VF_ASSERT_IRQL @ 0x140C28EAC (VF_ASSERT_IRQL.c)
+ *     VfIsPCIBus @ 0x140C2B274 (VfIsPCIBus.c)
+ *     VfReleaseInactiveDmaAdapter @ 0x140C2BB94 (VfReleaseInactiveDmaAdapter.c)
+ *     ViHookDmaAdapter @ 0x140C2D4FC (ViHookDmaAdapter.c)
  */
 
 struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAcquireReconcilerQueue @ 0x1406B6E7C
+ * XREFs of CmpAcquireReconcilerQueue @ 0x1406162DC
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     CmpAcquireWriteQueue @ 0x1402C9670 (CmpAcquireWriteQueue.c)
+ *     CmpAcquireWriteQueue @ 0x140247F50 (CmpAcquireWriteQueue.c)
  */
 
 __int64 __fastcall CmpAcquireReconcilerQueue(__int64 a1)

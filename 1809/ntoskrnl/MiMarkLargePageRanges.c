@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkLargePageRanges @ 0x1409B8EB4
+ * XREFs of MiMarkLargePageRanges @ 0x1409B9EB4
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
- *     MiMarkLargePageMappings @ 0x1409B905C (MiMarkLargePageMappings.c)
+ *     MiMarkLargePageMappings @ 0x1409BA05C (MiMarkLargePageMappings.c)
  */
 
 char MiMarkLargePageRanges()

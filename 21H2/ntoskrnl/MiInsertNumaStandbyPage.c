@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertNumaStandbyPage @ 0x140329890
+ * XREFs of MiInsertNumaStandbyPage @ 0x1403345E0
  * Callers:
- *     MiReplaceNumaStandbyPage @ 0x14026B4EC (MiReplaceNumaStandbyPage.c)
- *     MiInsertProtectedStandbyPage @ 0x140329470 (MiInsertProtectedStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x14025948C (MiReplaceNumaStandbyPage.c)
+ *     MiInsertProtectedStandbyPage @ 0x1403341C0 (MiInsertProtectedStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140551610 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiPageToChannel @ 0x1402FF108 (MiPageToChannel.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiPageToChannel @ 0x140309E58 (MiPageToChannel.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  */
 
 __int64 __fastcall MiInsertNumaStandbyPage(__int64 a1)
@@ -24,14 +24,14 @@ __int64 __fastcall MiInsertNumaStandbyPage(__int64 a1)
   __int64 result; // rax
 
   v2 = (a1 + 0x58000000000LL) / 48;
-  v3 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+  v3 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
   v4 = *(_BYTE *)(a1 + 35);
   if ( (v4 & 8) != 0 )
     v5 = 5LL;
   else
     v5 = v4 & 7;
   v6 = *(unsigned int *)(MiSearchNumaNodeTable((a1 + 0x58000000000LL) / 48) + 8);
-  if ( qword_140C4DED0 )
+  if ( qword_140C4DF10 )
     v7 = MiPageToChannel(v2);
   else
     v7 = 0;

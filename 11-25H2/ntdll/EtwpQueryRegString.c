@@ -13,79 +13,71 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall EtwpQueryRegString(const wchar_t *a1, const wchar_t *a2, void *a3, unsigned int a4)
+__int64 __fastcall EtwpQueryRegString(const wchar_t *a1, wchar_t *a2, void *a3, ULONG a4)
 {
   size_t v6; // rax
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   unsigned __int64 v8; // rax
-  unsigned int v10; // ebx
-  __int64 Heap; // rdi
+  ULONG Length; // ebx
+  unsigned int *Heap; // rdi
   size_t v12; // rax
-  __int64 v13; // r9
-  _QWORD v14[2]; // [rsp+30h] [rbp-50h] BYREF
-  _QWORD v15[2]; // [rsp+40h] [rbp-40h] BYREF
-  int v16; // [rsp+50h] [rbp-30h] BYREF
-  int v17; // [rsp+54h] [rbp-2Ch]
-  __int64 v18; // [rsp+58h] [rbp-28h]
-  _QWORD *v19; // [rsp+60h] [rbp-20h]
-  int v20; // [rsp+68h] [rbp-18h]
-  int v21; // [rsp+6Ch] [rbp-14h]
-  __int128 v22; // [rsp+70h] [rbp-10h]
-  HANDLE Handle; // [rsp+B0h] [rbp+30h] BYREF
-  unsigned int v24; // [rsp+C8h] [rbp+48h] BYREF
+  _QWORD v13[2]; // [rsp+30h] [rbp-50h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+40h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+B0h] [rbp+30h] BYREF
+  ULONG ResultLength; // [rsp+C8h] [rbp+48h] BYREF
 
-  v24 = a4;
-  Handle = 0LL;
-  v14[0] = 0LL;
-  v17 = 0;
-  v14[1] = a1;
+  ResultLength = a4;
+  KeyHandle = 0LL;
+  v13[0] = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  v13[1] = a1;
   if ( a1 )
   {
     v6 = 2 * wcslen(a1);
     if ( v6 >= 0xFFFE )
       LOWORD(v6) = -4;
-    LOWORD(v14[0]) = v6;
-    WORD1(v14[0]) = v6 + 2;
+    LOWORD(v13[0]) = v6;
+    WORD1(v13[0]) = v6 + 2;
   }
-  v17 = 0;
-  v21 = 0;
-  v18 = 0LL;
-  v19 = v14;
-  v16 = 48;
-  v22 = 0LL;
-  v20 = 64;
-  v7 = NtOpenKey(&Handle, 131097LL, &v16);
+  *(&ObjectAttributes.Length + 1) = 0;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v13;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  v7 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v7 >= 0 )
   {
-    v8 = 2LL * v24;
-    if ( v8 > 0xFFFFFFFF || (v10 = v8 + 12, (int)v8 + 12 < (unsigned int)v8) )
+    v8 = 2LL * ResultLength;
+    if ( v8 > 0xFFFFFFFF || (Length = v8 + 12, (int)v8 + 12 < (unsigned int)v8) )
     {
-      NtClose(Handle);
+      NtClose(KeyHandle);
       return 3221225621LL;
     }
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v10);
+    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
     if ( Heap )
     {
-      v15[0] = 0LL;
-      v15[1] = a2;
+      *(_QWORD *)&ValueName.Length = 0LL;
+      ValueName.Buffer = a2;
       if ( a2 )
       {
         v12 = 2 * wcslen(a2);
         if ( v12 >= 0xFFFE )
           LOWORD(v12) = -4;
-        LOWORD(v15[0]) = v12;
-        WORD1(v15[0]) = v12 + 2;
+        ValueName.Length = v12;
+        ValueName.MaximumLength = v12 + 2;
       }
-      v7 = NtQueryValueKey(Handle, v15, 2LL, Heap, v10, &v24);
+      v7 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
       if ( v7 >= 0 )
-        memmove(a3, (const void *)(Heap + 12), *(unsigned int *)(Heap + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v13);
+        memmove(a3, Heap + 3, Heap[2]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     }
     else
     {
       v7 = -1073741801;
     }
-    NtClose(Handle);
+    NtClose(KeyHandle);
   }
   return (unsigned int)v7;
 }

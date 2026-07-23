@@ -1,37 +1,41 @@
 /*
- * XREFs of RtlHashUnicodeString @ 0x18001A870
+ * XREFs of RtlHashUnicodeString @ 0x18001A860
  * Callers:
- *     LdrpHashUnicodeString @ 0x180018D08 (LdrpHashUnicodeString.c)
- *     LdrpFindLoadedDllByName @ 0x18001A3DC (LdrpFindLoadedDllByName.c)
- *     RtlpFindUnicodeStringInSection @ 0x18001B2E0 (RtlpFindUnicodeStringInSection.c)
+ *     LdrpHashUnicodeString @ 0x180018CF8 (LdrpHashUnicodeString.c)
+ *     LdrpFindLoadedDllByName @ 0x18001A3CC (LdrpFindLoadedDllByName.c)
+ *     RtlpFindUnicodeStringInSection @ 0x18001B2D0 (RtlpFindUnicodeStringInSection.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlHashUnicodeString(unsigned __int16 *a1, char a2, unsigned int a3, int *a4)
+NTSTATUS __cdecl RtlHashUnicodeString(
+        PUNICODE_STRING String,
+        BOOLEAN CaseInSensitive,
+        ULONG HashAlgorithm,
+        PULONG HashValue)
 {
-  int v4; // eax
-  unsigned __int16 *v6; // r10
+  ULONG v4; // eax
+  wchar_t *Buffer; // r10
   int v7; // r9d
   unsigned __int16 v8; // r11
   int v9; // ecx
   int v11; // ecx
 
   v4 = 0;
-  if ( !a1 )
-    return 3221225485LL;
-  if ( !a4 )
-    return 3221225485LL;
-  v6 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  *a4 = 0;
-  v7 = *a1 >> 1;
-  if ( a3 > 1 )
-    return 3221225485LL;
-  if ( a2 )
+  if ( !String )
+    return -1073741811;
+  if ( !HashValue )
+    return -1073741811;
+  Buffer = String->Buffer;
+  *HashValue = 0;
+  v7 = String->Length >> 1;
+  if ( HashAlgorithm > 1 )
+    return -1073741811;
+  if ( CaseInSensitive )
   {
     for ( ; v7; v4 = v9 + 65599 * v4 )
     {
-      v8 = *v6++;
+      v8 = *Buffer++;
       --v7;
       if ( v8 < 0x61u )
       {
@@ -58,10 +62,10 @@ __int64 __fastcall RtlHashUnicodeString(unsigned __int16 *a1, char a2, unsigned 
   {
     for ( ; v7; --v7 )
     {
-      v11 = *v6++;
+      v11 = *Buffer++;
       v4 = v11 + 65599 * v4;
     }
   }
-  *a4 = v4;
-  return 0LL;
+  *HashValue = v4;
+  return 0;
 }

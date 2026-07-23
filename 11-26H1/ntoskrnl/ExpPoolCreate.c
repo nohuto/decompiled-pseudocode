@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpPoolCreate @ 0x14077DC90
+ * XREFs of ExpPoolCreate @ 0x140780790
  * Callers:
- *     ExCreatePoolInternal @ 0x14077DC44 (ExCreatePoolInternal.c)
+ *     ExCreatePoolInternal @ 0x140780744 (ExCreatePoolInternal.c)
  * Callees:
- *     RtlpHpMetadataAlloc @ 0x140352250 (RtlpHpMetadataAlloc.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlHpEnvContextCreate @ 0x14042FB60 (RtlHpEnvContextCreate.c)
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpPoolHeapCreate @ 0x1408465EC (ExpPoolHeapCreate.c)
- *     ExpPoolHeapDestroy @ 0x1408466CC (ExpPoolHeapDestroy.c)
- *     ExpPoolMgrRegisterPool @ 0x1408474A0 (ExpPoolMgrRegisterPool.c)
+ *     RtlpHpMetadataAlloc @ 0x1403542D4 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlHpEnvContextCreate @ 0x14041CB90 (RtlHpEnvContextCreate.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpPoolHeapCreate @ 0x14084C84C (ExpPoolHeapCreate.c)
+ *     ExpPoolHeapDestroy @ 0x14084C92C (ExpPoolHeapDestroy.c)
+ *     ExpPoolMgrRegisterPool @ 0x14084D700 (ExpPoolMgrRegisterPool.c)
  */
 
 __int64 __fastcall ExpPoolCreate(unsigned int a1, __int64 a2, __int64 a3, const UNICODE_STRING *a4, __int64 *a5)
@@ -52,7 +52,7 @@ __int64 __fastcall ExpPoolCreate(unsigned int a1, __int64 a2, __int64 a3, const 
     {
       memset_0(v13, 0, v11);
       *(_DWORD *)v14 = -1347437123;
-      if ( (dword_140E6BC60 & 1) == 0 )
+      if ( (dword_140E6BF60 & 1) == 0 )
       {
         *(_DWORD *)(v14 + 4) |= 1u;
         v7 = 0x400000;
@@ -93,7 +93,7 @@ __int64 __fastcall ExpPoolCreate(unsigned int a1, __int64 a2, __int64 a3, const 
         }
         while ( v21 );
       }
-      v8 = ExpPoolMgrRegisterPool(&dword_140E6BC60, v14, v19);
+      v8 = ExpPoolMgrRegisterPool(&dword_140E6BF60, v14, v19);
       if ( v8 < 0 )
       {
 LABEL_21:

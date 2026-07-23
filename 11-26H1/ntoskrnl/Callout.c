@@ -1,9 +1,9 @@
 /*
- * XREFs of Callout @ 0x140A1ACB0
+ * XREFs of Callout @ 0x140A242E0
  * Callers:
  *     <none>
  * Callees:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  */
 
 void __fastcall Callout(_DWORD *Parameter)

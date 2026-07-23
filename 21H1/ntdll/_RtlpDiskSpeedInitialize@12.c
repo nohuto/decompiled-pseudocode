@@ -9,10 +9,10 @@
  *     _RtlpGetVolumeHandle@8 @ 0x4B389B86 (_RtlpGetVolumeHandle@8.c)
  */
 
-BOOL __stdcall RtlpDiskSpeedInitialize(int a1, int a2, int a3)
+BOOL __stdcall RtlpDiskSpeedInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  int NtSystemRoot; // eax
-  int VolumeHandle; // esi
+  PWSTR NtSystemRoot; // eax
+  NTSTATUS VolumeHandle; // esi
   int v6; // [esp+4h] [ebp-8h] BYREF
   HANDLE Handle; // [esp+8h] [ebp-4h] BYREF
 
@@ -21,7 +21,7 @@ BOOL __stdcall RtlpDiskSpeedInitialize(int a1, int a2, int a3)
   VolumeHandle = RtlpGetVolumeHandle(NtSystemRoot, &Handle);
   if ( VolumeHandle >= 0 )
   {
-    VolumeHandle = RtlQueryVolumeDiskSpeedPolicy((int)Handle, &v6);
+    VolumeHandle = RtlQueryVolumeDiskSpeedPolicy(Handle, &v6);
     if ( VolumeHandle >= 0 )
     {
       VolumeHandle = 0;

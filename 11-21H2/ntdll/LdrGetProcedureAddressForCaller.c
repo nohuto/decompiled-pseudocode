@@ -40,107 +40,102 @@
  *     RtlValidateUserCallTarget @ 0x18010A264 (RtlValidateUserCallTarget.c)
  */
 
-__int64 __fastcall LdrGetProcedureAddressForCaller(
-        unsigned __int64 a1,
-        const void **a2,
-        __int64 a3,
-        volatile signed __int32 *a4,
-        char a5,
-        unsigned __int64 a6)
+NTSTATUS __cdecl LdrGetProcedureAddressForCaller(
+        PVOID DllHandle,
+        PANSI_STRING ProcedureName,
+        ULONG ProcedureNumber,
+        PVOID *ProcedureAddress,
+        ULONG Flags,
+        PVOID *Callback)
 {
   __int64 v6; // r13
   bool v7; // zf
   int v10; // r12d
   int v11; // r14d
-  size_t v12; // rdi
+  size_t Length; // rdi
   unsigned int v13; // esi
-  __int64 *i; // rbx
+  PVOID *i; // rbx
   struct _TEB *v15; // rax
   signed __int8 v16; // cf
-  __int64 UniqueThread; // rax
-  __int64 *v18; // rax
-  unsigned __int64 v19; // rdx
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // r9
-  unsigned __int64 v22; // rax
-  __int64 v23; // rsi
-  int v24; // ebp
-  unsigned __int64 v25; // rbx
-  __int64 v26; // rsi
-  unsigned int v27; // ebp
-  unsigned __int64 v28; // rdx
-  int v29; // ebx
-  unsigned __int64 v30; // r8
-  unsigned __int64 v31; // r9
-  __int64 v32; // rcx
-  __int64 v33; // rcx
-  __int64 *v34; // rdi
-  __int64 v35; // rax
-  unsigned __int64 v37; // rcx
-  unsigned __int64 v38; // rax
-  __int64 v39; // rax
-  __int64 v40; // rdi
-  unsigned __int64 v41; // rcx
-  __int64 v42; // rcx
-  _BYTE *v43; // r13
-  __int64 v44; // rdx
-  _QWORD *v45; // rcx
+  void *UniqueThread; // rax
+  PVOID *v18; // rax
+  unsigned __int64 Root; // rax
+  __int64 v20; // rsi
+  int v21; // ebp
+  unsigned __int64 v22; // rbx
+  unsigned __int64 v23; // rsi
+  ULONG v24; // ebp
+  NTSTATUS v25; // ebx
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  PVOID v28; // rdi
+  __int64 v29; // rax
+  unsigned __int64 v31; // rcx
+  unsigned __int64 v32; // rax
+  __int64 v33; // rax
+  unsigned __int64 v34; // rdi
+  unsigned __int64 v35; // rcx
+  __int64 v36; // rcx
+  _BYTE *v37; // r13
+  __int64 v38; // rdx
+  _QWORD *v39; // rcx
+  _QWORD *v40; // rsi
+  _QWORD *v41; // rbp
+  _ACTIVATION_CONTEXT *v42; // rcx
+  __int64 v43; // r8
+  _QWORD *v44; // rdx
+  _QWORD *v45; // rdi
   _QWORD *v46; // rsi
-  _QWORD *v47; // rbp
-  volatile signed __int32 *v48; // rcx
-  __int64 v49; // r8
-  _QWORD *v50; // rdx
-  _QWORD *v51; // rdi
-  _QWORD *v52; // rsi
-  volatile signed __int32 *v53; // rcx
-  __int64 v54; // rdi
-  int v55; // [rsp+20h] [rbp-128h]
-  char v56; // [rsp+30h] [rbp-118h]
-  int v57; // [rsp+34h] [rbp-114h] BYREF
-  char v58[8]; // [rsp+38h] [rbp-110h] BYREF
-  _BYTE *Heap; // [rsp+40h] [rbp-108h]
-  __int64 v60; // [rsp+48h] [rbp-100h] BYREF
-  int v61; // [rsp+50h] [rbp-F8h]
-  __int64 *v62; // [rsp+58h] [rbp-F0h]
-  __int64 v63; // [rsp+60h] [rbp-E8h] BYREF
-  char v64[8]; // [rsp+68h] [rbp-E0h] BYREF
-  volatile signed __int32 *v65; // [rsp+70h] [rbp-D8h]
-  _BYTE v66[128]; // [rsp+80h] [rbp-C8h] BYREF
-  int v67; // [rsp+170h] [rbp+28h]
+  _ACTIVATION_CONTEXT *v47; // rcx
+  char *v48; // rdi
+  int v49; // [rsp+20h] [rbp-128h]
+  char v50; // [rsp+30h] [rbp-118h]
+  ULONG v51; // [rsp+34h] [rbp-114h] BYREF
+  char v52[8]; // [rsp+38h] [rbp-110h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-108h]
+  char *v54; // [rsp+48h] [rbp-100h] BYREF
+  int v55; // [rsp+50h] [rbp-F8h]
+  PVOID v56; // [rsp+58h] [rbp-F0h]
+  char *v57; // [rsp+60h] [rbp-E8h] BYREF
+  char v58[8]; // [rsp+68h] [rbp-E0h] BYREF
+  PVOID *v59; // [rsp+70h] [rbp-D8h]
+  _BYTE v60[128]; // [rsp+80h] [rbp-C8h] BYREF
+  ULONG Flagsa; // [rsp+170h] [rbp+28h]
 
   v6 = 0LL;
-  v7 = (a5 & 1) == 0;
-  v67 = a5 & 1;
-  v65 = a4;
-  v57 = a3;
+  v7 = (Flags & 1) == 0;
+  Flagsa = Flags & 1;
+  v59 = ProcedureAddress;
+  v51 = ProcedureNumber;
   v10 = 9;
-  v60 = 0LL;
-  v56 = 0;
-  if ( v7 || !(unsigned int)RtlIsCriticalSectionLockedByThread(&LdrpDllNotificationLock) )
+  v54 = 0LL;
+  v50 = 0;
+  if ( v7 || !RtlIsCriticalSectionLockedByThread(&LdrpDllNotificationLock) )
     v11 = 9;
   else
     v11 = 6;
-  if ( a2 )
+  if ( ProcedureName )
   {
-    v12 = *(unsigned __int16 *)a2;
-    v13 = v12 + 1;
-    if ( *((unsigned __int16 *)a2 + 1) < (unsigned int)(v12 + 1) || (Heap = a2[1], Heap[v12]) )
+    Length = ProcedureName->Length;
+    v13 = Length + 1;
+    if ( ProcedureName->MaximumLength < (unsigned int)(Length + 1)
+      || (BaseAddress = ProcedureName->Buffer, *((_BYTE *)BaseAddress + Length)) )
     {
       if ( v13 <= 0x80 )
       {
-        v43 = v66;
-        Heap = v66;
+        v37 = v60;
+        BaseAddress = v60;
       }
       else
       {
-        Heap = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v13);
-        v43 = Heap;
-        if ( !Heap )
-          return 3221225626LL;
-        v56 = 1;
+        BaseAddress = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v13);
+        v37 = BaseAddress;
+        if ( !BaseAddress )
+          return -1073741670;
+        v50 = 1;
       }
-      memmove(v43, a2[1], v12);
-      v43[(unsigned int)v12] = 0;
+      memmove(v37, ProcedureName->Buffer, Length);
+      v37[(unsigned int)Length] = 0;
       v6 = 0LL;
     }
     else
@@ -150,37 +145,37 @@ __int64 __fastcall LdrGetProcedureAddressForCaller(
   }
   else
   {
-    Heap = 0LL;
+    BaseAddress = 0LL;
   }
-  v62 = 0LL;
-  v61 = 1;
+  v56 = 0LL;
+  v55 = 1;
   for ( i = 0LL; ; LdrpDereferenceEnclave(i) )
   {
     v15 = NtCurrentTeb();
-    v16 = _interlockedbittestandreset(&dword_18017A8A8, 0);
-    UniqueThread = (__int64)v15->ClientId.UniqueThread;
+    v16 = _interlockedbittestandreset(&LdrpEnclaveListLock.LockCount, 0);
+    UniqueThread = v15->ClientId.UniqueThread;
     if ( v16 )
     {
-      qword_18017A8B0 = UniqueThread;
-      dword_18017A8AC = 1;
+      LdrpEnclaveListLock.OwningThread = UniqueThread;
+      LdrpEnclaveListLock.RecursionCount = 1;
     }
-    else if ( qword_18017A8B0 == UniqueThread )
+    else if ( LdrpEnclaveListLock.OwningThread == UniqueThread )
     {
-      ++dword_18017A8AC;
+      ++LdrpEnclaveListLock.RecursionCount;
     }
     else
     {
-      RtlpEnterCriticalSectionContended((__int64)&LdrpEnclaveListLock, (__int64)a2, a3, a4);
+      RtlpEnterCriticalSectionContended((__int64)&LdrpEnclaveListLock);
     }
-    v18 = (__int64 *)LdrpEnclaveList;
-    if ( (__int64 *)LdrpEnclaveList != &LdrpEnclaveList )
+    v18 = (PVOID *)LdrpEnclaveList;
+    if ( LdrpEnclaveList != &LdrpEnclaveList )
     {
       while ( 1 )
       {
         i = v18;
-        if ( a1 == v18[9] )
+        if ( DllHandle == v18[9] )
           break;
-        v18 = (__int64 *)*v18;
+        v18 = (PVOID *)*v18;
         if ( v18 == &LdrpEnclaveList )
           goto LABEL_12;
       }
@@ -193,51 +188,51 @@ LABEL_12:
     }
     _InterlockedIncrement((volatile signed __int32 *)i + 15);
     RtlLeaveCriticalSection(&LdrpEnclaveListLock);
-    RtlEnterCriticalSection((__int64)(i + 2));
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
     if ( i[9] )
       break;
-    RtlLeaveCriticalSection(i + 2);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   if ( *((_DWORD *)i + 14) == 16 && *((_DWORD *)i + 16) == 2 )
   {
-    RtlLeaveCriticalSection(i + 2);
-    v23 = i[14];
-    v24 = 3;
-    v62 = i;
-    v61 = 3;
-    v6 = v23;
-    if ( !v23 )
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
+    v20 = (__int64)i[14];
+    v21 = 3;
+    v56 = i;
+    v55 = 3;
+    v6 = v20;
+    if ( !v20 )
     {
-      v26 = (__int64)Heap;
-      v29 = 0;
-      v27 = v57;
+      v23 = (unsigned __int64)BaseAddress;
+      v25 = 0;
+      v24 = v51;
       goto LABEL_136;
     }
     goto LABEL_26;
   }
-  RtlLeaveCriticalSection(i + 2);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   LdrpDereferenceEnclave(i);
 LABEL_13:
-  v10 = v57;
+  v10 = v51;
   while ( 1 )
   {
-    if ( !a1 )
+    if ( !DllHandle )
     {
 LABEL_151:
-      v29 = -1073741515;
+      v25 = -1073741515;
       goto LABEL_152;
     }
-    if ( a1 != LdrpSystemDllBase )
+    if ( DllHandle != (PVOID)LdrpSystemDllBase )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v19, v20, v21);
-      v22 = LdrpModuleBaseAddressIndex;
-      if ( (qword_18017ADD0 & 1) != 0 )
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
       {
-        if ( !LdrpModuleBaseAddressIndex )
+        if ( !LdrpModuleBaseAddressIndex.Root )
           goto LABEL_20;
-        v22 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+        Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
       }
-      if ( !v22 )
+      if ( !Root )
       {
 LABEL_20:
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
@@ -245,237 +240,240 @@ LABEL_20:
       }
       while ( 1 )
       {
-        if ( a1 >= *(_QWORD *)(v22 - 152) )
+        if ( (unsigned __int64)DllHandle >= *(_QWORD *)(Root - 152) )
         {
-          if ( a1 <= *(_QWORD *)(v22 - 152) )
+          if ( (unsigned __int64)DllHandle <= *(_QWORD *)(Root - 152) )
           {
-            v42 = *(_QWORD *)(v22 - 48);
-            v6 = v22 - 200;
-            if ( *(_DWORD *)(v42 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v42 - 56LL) & 0x20) == 0 )
+            v36 = *(_QWORD *)(Root - 48);
+            v6 = Root - 200;
+            if ( *(_DWORD *)(v36 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v36 - 56LL) & 0x20) == 0 )
             {
               _InterlockedIncrement((volatile signed __int32 *)(v6 + 276));
-              v42 = *(_QWORD *)(v6 + 152);
+              v36 = *(_QWORD *)(v6 + 152);
             }
-            v10 = *(_DWORD *)(v42 + 56);
+            v10 = *(_DWORD *)(v36 + 56);
             goto LABEL_20;
           }
-          v41 = *(_QWORD *)(v22 + 8);
-          if ( (qword_18017ADD0 & 1) != 0 && v41 )
+          v35 = *(_QWORD *)(Root + 8);
+          if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v35 )
           {
 LABEL_97:
-            v22 ^= v41;
+            Root ^= v35;
             goto LABEL_90;
           }
         }
         else
         {
-          v41 = *(_QWORD *)v22;
-          if ( (qword_18017ADD0 & 1) != 0 && v41 )
+          v35 = *(_QWORD *)Root;
+          if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v35 )
             goto LABEL_97;
         }
-        v22 = v41;
+        Root = v35;
 LABEL_90:
-        if ( !v22 )
+        if ( !Root )
           goto LABEL_20;
       }
     }
     v6 = LdrpNtDllDataTableEntry;
     v10 = *(_DWORD *)(*(_QWORD *)(LdrpNtDllDataTableEntry + 152) + 56LL);
 LABEL_21:
-    LODWORD(v23) = v6;
+    LODWORD(v20) = v6;
     if ( !v6 )
       goto LABEL_151;
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 || v10 >= v11 )
       break;
-    LdrpDereferenceModule(v6, v19, v20, v21);
+    LdrpDereferenceModule((char *)v6);
     if ( v10 < 0 )
     {
-      v29 = -1073741811;
+      v25 = -1073741811;
 LABEL_152:
-      v26 = (__int64)Heap;
+      v23 = (unsigned __int64)BaseAddress;
       goto LABEL_54;
     }
     LdrpDrainWorkQueue(0LL);
     LdrpDropLastInProgressCount();
     v6 = 0LL;
   }
-  v24 = 1;
+  v21 = 1;
 LABEL_26:
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v19, v20, v21);
-  v25 = LdrpModuleBaseAddressIndex;
-  if ( (qword_18017ADD0 & 1) != 0 )
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+  v22 = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( !LdrpModuleBaseAddressIndex )
+    if ( !LdrpModuleBaseAddressIndex.Root )
     {
 LABEL_63:
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-      v55 = v24;
-      v27 = v57;
-      v29 = LdrpResolveProcedureAddress(0, v23, (_DWORD)Heap, v57, v55, (__int64)&v60);
+      v49 = v21;
+      v24 = v51;
+      v25 = LdrpResolveProcedureAddress(0, v20, (_DWORD)BaseAddress, v51, v49, (__int64)&v54);
       goto LABEL_132;
     }
-    v25 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    v22 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
   }
-  if ( !v25 )
+  if ( !v22 )
     goto LABEL_63;
   while ( 1 )
   {
-    v37 = *(_QWORD *)(v25 - 152);
-    if ( a6 < v37 )
+    v31 = *(_QWORD *)(v22 - 152);
+    if ( (unsigned __int64)Callback < v31 )
     {
-      v38 = *(_QWORD *)v25;
-      if ( (qword_18017ADD0 & 1) != 0 && v38 )
+      v32 = *(_QWORD *)v22;
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v32 )
         goto LABEL_80;
       goto LABEL_72;
     }
-    if ( a6 < v37 + *(unsigned int *)(v25 - 136) )
+    if ( (unsigned __int64)Callback < v31 + *(unsigned int *)(v22 - 136) )
       break;
-    v38 = *(_QWORD *)(v25 + 8);
-    if ( (qword_18017ADD0 & 1) != 0 && v38 )
+    v32 = *(_QWORD *)(v22 + 8);
+    if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v32 )
     {
 LABEL_80:
-      v25 ^= v38;
+      v22 ^= v32;
       goto LABEL_73;
     }
 LABEL_72:
-    v25 = v38;
+    v22 = v32;
 LABEL_73:
-    if ( !v25 )
+    if ( !v22 )
       goto LABEL_63;
   }
-  v39 = *(_QWORD *)(v25 - 48);
-  v40 = v25 - 200;
-  if ( *(_DWORD *)(v39 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v39 - 56LL) & 0x20) == 0 )
-    _InterlockedIncrement((volatile signed __int32 *)(v40 + 276));
+  v33 = *(_QWORD *)(v22 - 48);
+  v34 = v22 - 200;
+  if ( *(_DWORD *)(v33 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v33 - 56LL) & 0x20) == 0 )
+    _InterlockedIncrement((volatile signed __int32 *)(v34 + 276));
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-  v26 = (__int64)Heap;
-  v27 = v57;
-  v29 = LdrpResolveProcedureAddress(v40, v6, (_DWORD)Heap, v57, v61, (__int64)&v60);
-  if ( v40 )
+  v23 = (unsigned __int64)BaseAddress;
+  v24 = v51;
+  v25 = LdrpResolveProcedureAddress(v34, v6, (_DWORD)BaseAddress, v51, v55, (__int64)&v54);
+  if ( v34 )
   {
-    v32 = *(_QWORD *)(v40 + 152);
-    if ( *(_DWORD *)(v32 + 24) != -1
-      && (*(_BYTE *)(*(_QWORD *)v32 - 56LL) & 0x20) == 0
-      && _InterlockedExchangeAdd((volatile signed __int32 *)(v40 + 276), 0xFFFFFFFF) == 1 )
+    v26 = *(_QWORD *)(v34 + 152);
+    if ( *(_DWORD *)(v26 + 24) != -1
+      && (*(_BYTE *)(*(_QWORD *)v26 - 56LL) & 0x20) == 0
+      && _InterlockedExchangeAdd((volatile signed __int32 *)(v34 + 276), 0xFFFFFFFF) == 1 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v28, v30, v31);
-      v44 = *(_QWORD *)(v40 + 160);
-      if ( *(_QWORD *)(v44 + 8) != v40 + 160 )
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      v38 = *(_QWORD *)(v34 + 160);
+      if ( *(_QWORD *)(v38 + 8) != v34 + 160 )
         goto LABEL_149;
-      v45 = *(_QWORD **)(v40 + 168);
-      if ( *v45 != v40 + 160 )
+      v39 = *(_QWORD **)(v34 + 168);
+      if ( *v39 != v34 + 160 )
         goto LABEL_149;
-      *v45 = v44;
-      *(_QWORD *)(v44 + 8) = v45;
-      v46 = *(_QWORD **)(v40 + 152);
-      v47 = (_QWORD *)*v46;
+      *v39 = v38;
+      *(_QWORD *)(v38 + 8) = v39;
+      v40 = *(_QWORD **)(v34 + 152);
+      v41 = (_QWORD *)*v40;
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-      if ( *(_WORD *)(v40 + 110) )
-        LdrpReleaseTlsEntry(v40, 0LL);
-      LdrpUnmapModule(v40);
-      v48 = *(volatile signed __int32 **)(v40 + 136);
-      if ( (unsigned __int64)v48 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
-        RtlReleaseActivationContext(v48);
-      if ( *(_QWORD *)(v40 + 80) )
-        LdrpFreeUnicodeString(v40 + 72);
-      RtlFreeHeap(LdrpHeap, 0, v40);
-      if ( v47 == v46 )
-        LdrpDestroyNode(v46);
-      v27 = v57;
+      if ( *(_WORD *)(v34 + 110) )
+        LdrpReleaseTlsEntry(v34, 0LL);
+      LdrpUnmapModule(v34);
+      v42 = *(_ACTIVATION_CONTEXT **)(v34 + 136);
+      if ( (unsigned __int64)&v42[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+        RtlReleaseActivationContext(v42);
+      if ( *(_QWORD *)(v34 + 80) )
+        LdrpFreeUnicodeString(v34 + 72);
+      RtlFreeHeap(LdrpHeap, 0, (PVOID)v34);
+      if ( v41 == v40 )
+        LdrpDestroyNode(v40);
+      v24 = v51;
 LABEL_132:
-      v26 = (__int64)Heap;
+      v23 = (unsigned __int64)BaseAddress;
     }
   }
-  if ( v29 < 0 )
+  if ( v25 < 0 )
     goto LABEL_47;
   if ( v10 == 7
-    && !v67
+    && !Flagsa
     && (NtCurrentTeb()->SameTebFlags & 0x1000) != 0
-    && !(unsigned int)RtlIsCriticalSectionLockedByThread(&LdrpDllNotificationLock) )
+    && !RtlIsCriticalSectionLockedByThread(&LdrpDllNotificationLock) )
   {
-    v33 = *(_QWORD *)(v6 + 152);
-    v58[0] = 0;
-    v29 = LdrpInitializeGraphRecurse(v33, 0LL, v58);
-    if ( v29 < 0 )
+    v27 = *(_QWORD *)(v6 + 152);
+    v52[0] = 0;
+    v25 = LdrpInitializeGraphRecurse(v27, 0LL, v52);
+    if ( v25 < 0 )
     {
-      v60 = 0LL;
+      v54 = 0LL;
 LABEL_47:
-      v34 = v62;
-      if ( v29 != -1073741515 )
+      v28 = v56;
+      if ( v25 != -1073741515 )
         goto LABEL_48;
 LABEL_134:
-      v29 = -1073741702;
+      v25 = -1073741702;
       goto LABEL_49;
     }
   }
-  v34 = v62;
-  if ( !v62 )
+  v28 = v56;
+  if ( !v56 )
   {
     if ( AvrfpAPILookupCallbacksEnabled )
-      AVrfCallAPILookupCallback(a6, *(_QWORD *)(v6 + 48), v60, 0, (__int64)&v60);
+      AVrfCallAPILookupCallback((_DWORD)Callback, *(_QWORD *)(v6 + 48), (_DWORD)v54, 0, (__int64)&v54);
     if ( g_ShimsEnabled )
     {
-      v63 = 0LL;
-      ((void (__fastcall *)(__int64 *, __int64, __int64, _QWORD, unsigned __int64))(MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_GetProcAddressForCaller, 64 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
-        &v63,
+      v57 = 0LL;
+      ((void (__fastcall *)(char **, __int64, char *, _QWORD, PVOID *))(MEMORY[0x7FFE0330] ^ __ROR8__(
+                                                                                               g_pfnSE_GetProcAddressForCaller,
+                                                                                               64
+                                                                                             - (MEMORY[0x7FFE0330] & 0x3Fu))))(
+        &v57,
         v6,
-        v60,
+        v54,
         0LL,
-        a6);
-      if ( v63 )
-        v60 = v63;
+        Callback);
+      if ( v57 )
+        v54 = v57;
     }
   }
 LABEL_48:
-  if ( v29 == -1073741502 )
+  if ( v25 == -1073741502 )
     goto LABEL_134;
 LABEL_49:
-  if ( !v34 )
+  if ( !v28 )
   {
-    v35 = *(_QWORD *)(v6 + 152);
-    if ( *(_DWORD *)(v35 + 24) == -1
-      || (*(_BYTE *)(*(_QWORD *)v35 - 56LL) & 0x20) != 0
+    v29 = *(_QWORD *)(v6 + 152);
+    if ( *(_DWORD *)(v29 + 24) == -1
+      || (*(_BYTE *)(*(_QWORD *)v29 - 56LL) & 0x20) != 0
       || _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 276), 0xFFFFFFFF) != 1 )
     {
       goto LABEL_53;
     }
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v28, v30, v31);
-    v49 = *(_QWORD *)(v6 + 160);
-    if ( *(_QWORD *)(v49 + 8) == v6 + 160 )
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v43 = *(_QWORD *)(v6 + 160);
+    if ( *(_QWORD *)(v43 + 8) == v6 + 160 )
     {
-      v50 = *(_QWORD **)(v6 + 168);
-      if ( *v50 == v6 + 160 )
+      v44 = *(_QWORD **)(v6 + 168);
+      if ( *v44 == v6 + 160 )
       {
-        *v50 = v49;
-        *(_QWORD *)(v49 + 8) = v50;
-        v51 = *(_QWORD **)(v6 + 152);
-        v52 = (_QWORD *)*v51;
+        *v44 = v43;
+        *(_QWORD *)(v43 + 8) = v44;
+        v45 = *(_QWORD **)(v6 + 152);
+        v46 = (_QWORD *)*v45;
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
         if ( *(_WORD *)(v6 + 110) )
           LdrpReleaseTlsEntry(v6, 0LL);
         LdrpUnmapModule(v6);
-        v53 = *(volatile signed __int32 **)(v6 + 136);
-        if ( (unsigned __int64)v53 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext(v53);
+        v47 = *(_ACTIVATION_CONTEXT **)(v6 + 136);
+        if ( (unsigned __int64)&v47[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v47);
         if ( *(_QWORD *)(v6 + 80) )
           LdrpFreeUnicodeString(v6 + 72);
-        RtlFreeHeap(LdrpHeap, 0, v6);
-        if ( v52 == v51 )
-          LdrpDestroyNode(v51);
-        v26 = (__int64)Heap;
+        RtlFreeHeap(LdrpHeap, 0, (PVOID)v6);
+        if ( v46 == v45 )
+          LdrpDestroyNode(v45);
+        v23 = (unsigned __int64)BaseAddress;
 LABEL_53:
-        if ( v29 == -1073741702 )
+        if ( v25 == -1073741702 )
         {
-          if ( v26 )
+          if ( v23 )
           {
-            v29 = -1073741511;
+            v25 = -1073741511;
           }
           else
           {
-            v29 = -1073741512;
-            v26 = v27;
+            v25 = -1073741512;
+            v23 = v24;
           }
-          LdrpReportError(0LL, v26, (unsigned int)v29);
+          LdrpReportError(0LL, v23, (unsigned int)v25);
         }
         goto LABEL_54;
       }
@@ -483,30 +481,30 @@ LABEL_53:
 LABEL_149:
     __fastfail(3u);
   }
-  LdrpDereferenceEnclave(v34);
+  LdrpDereferenceEnclave(v28);
 LABEL_136:
-  if ( v29 < 0 )
+  if ( v25 < 0 )
     goto LABEL_53;
-  v60 += *(_QWORD *)(v6 + 184) - *(_QWORD *)(v6 + 48);
+  v54 += *(_QWORD *)(v6 + 184) - *(_QWORD *)(v6 + 48);
 LABEL_54:
-  if ( v56 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v26);
-  if ( !UseWOW64 && v29 >= 0 )
+  if ( v50 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v23);
+  if ( !UseWOW64 && v25 >= 0 )
   {
-    if ( qword_18018F3A8 )
+    if ( LdrSystemDllInitBlock.CfgBitMap )
     {
-      if ( (byte_18018F38C & 1) == 0 && (BYTE5(qword_18018F390) & 3) == 3 )
+      if ( (LdrSystemDllInitBlock.Flags & 1) == 0 && (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3 )
       {
-        v54 = v60;
-        if ( (unsigned int)RtlValidateUserCallTarget(v60, &v57) != 1 && (v57 & 0x10) != 0 )
+        v48 = v54;
+        if ( (unsigned int)RtlValidateUserCallTarget(v54, &v51) != 1 && (v51 & 0x10) != 0 )
         {
-          v29 = RtlGuardGrantSuppressedCallAccess(v54, 4LL, v64);
-          if ( v29 < 0 )
+          v25 = RtlGuardGrantSuppressedCallAccess(v48, 4LL, v58);
+          if ( v25 < 0 )
             __fastfail(0x2Eu);
         }
       }
     }
   }
-  *(_QWORD *)v65 = v60;
-  return (unsigned int)v29;
+  *v59 = v54;
+  return v25;
 }

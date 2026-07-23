@@ -1,17 +1,17 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionUpdate @ 0x140255E78
+ * XREFs of PoTraceSystemTimerResolutionUpdate @ 0x1402577FC
  * Callers:
- *     ExpUpdateTimerResolution @ 0x14052E534 (ExpUpdateTimerResolution.c)
+ *     ExpUpdateTimerResolution @ 0x140530A54 (ExpUpdateTimerResolution.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceSystemTimerResolutionUpdate(int a1)
 {
   const GUID *ActivityId; // r9
-  __int64 v2; // rdx
+  REGHANDLE v2; // rdx
   __int64 v3; // rcx
   unsigned __int8 v4; // al
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-20h] BYREF
@@ -19,19 +19,19 @@ void __fastcall PoTraceSystemTimerResolutionUpdate(int a1)
 
   v6 = a1;
   ActivityId = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    v2 = *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16];
-    if ( *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+    v2 = PopDiagHandle;
+    if ( PopDiagHandle )
     {
-      if ( (v3 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL), *(_DWORD *)(v3 + 96))
+      if ( (v3 = *(_QWORD *)(PopDiagHandle + 32), *(_DWORD *)(v3 + 96))
         && ((v4 = *(_BYTE *)(v3 + 100), v4 >= 4u) || !v4)
         && (*(_QWORD *)(v3 + 112) & 0x4000000000004004LL) != 0
         && (*(_QWORD *)(v3 + 120) & 0x4000000000004004LL) == *(_QWORD *)(v3 + 120)
-        || *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL)
+        || *(_WORD *)(PopDiagHandle + 102)
         && (LOBYTE(v2) = 4,
             (unsigned __int8)EtwpLevelKeywordEnabled(
-                               *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL) + 96LL,
+                               *(_QWORD *)(PopDiagHandle + 40) + 96LL,
                                v2,
                                0x4000000000004004LL,
                                0LL)) )
@@ -39,7 +39,7 @@ void __fastcall PoTraceSystemTimerResolutionUpdate(int a1)
         UserData.Ptr = (ULONGLONG)&v6;
         *(_QWORD *)&UserData.Size = 4LL;
         EtwWriteEx(
-          *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+          PopDiagHandle,
           &POP_ETW_EVENT_TIME_RESOLUTION_UPDATE,
           0LL,
           (ULONG)ActivityId,

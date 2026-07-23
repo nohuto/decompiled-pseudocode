@@ -29,25 +29,25 @@ char RtlIsValidOemCharacter()
   if ( !IsUtf8Process )
   {
     v5 = *v2;
-    if ( word_18017769C )
+    if ( CodePageTable.DBCSCodePage )
     {
-      v10 = (unsigned __int64)*(unsigned __int16 *)(qword_1801776B8 + 2 * v5) >> 8;
+      v10 = (unsigned __int64)*((unsigned __int16 *)CodePageTable.WideCharTable + v5) >> 8;
       if ( *(_WORD *)(qword_1801776E8 + 2 * v10) )
-        v11 = *(_WORD *)(qword_1801776C8
-                       + 2
-                       * (*(unsigned __int16 *)(qword_1801776E8 + 2 * v10)
-                        + (unsigned __int64)*(unsigned __int8 *)(qword_1801776B8 + 2 * v5)));
+        v11 = CodePageTable.DBCSOffsets[*(unsigned __int16 *)(qword_1801776E8 + 2 * v10)
+                                      + (unsigned __int64)*((unsigned __int8 *)CodePageTable.WideCharTable + 2 * v5)];
       else
-        v11 = *(_WORD *)(qword_1801776B0 + 2LL * *(unsigned __int8 *)(qword_1801776B8 + 2 * v5));
+        v11 = CodePageTable.MultiByteTable[*((unsigned __int8 *)CodePageTable.WideCharTable + 2 * v5)];
       v7 = NLS_UPCASE(qword_1801776F8, v11);
       v9 = *(_WORD *)(v12 + 2LL * v7);
     }
     else
     {
-      v7 = NLS_UPCASE(qword_1801776F8, *(_WORD *)(qword_1801776B0 + 2LL * *(unsigned __int8 *)(v5 + qword_1801776B8)));
+      v7 = NLS_UPCASE(
+             qword_1801776F8,
+             CodePageTable.MultiByteTable[*((unsigned __int8 *)CodePageTable.WideCharTable + v5)]);
       v9 = *(char *)(v7 + v8);
     }
-    if ( v9 != word_180177694 )
+    if ( v9 != CodePageTable.DefaultChar )
     {
       *v6 = v7;
       return 1;

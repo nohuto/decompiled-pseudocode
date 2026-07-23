@@ -7,16 +7,16 @@
  *     RtlpDeleteEmptyImageFileOptionsKey @ 0x1800EF57C (RtlpDeleteEmptyImageFileOptionsKey.c)
  *     RtlpCleanupRegistryKeys @ 0x1800FBD00 (RtlpCleanupRegistryKeys.c)
  *     RtlpSetInstallLanguage @ 0x1800FCEB0 (RtlpSetInstallLanguage.c)
- *     RtlpNtMakeTemporaryKey @ 0x1801162E0 (RtlpNtMakeTemporaryKey.c)
+ *     RtlpNtMakeTemporaryKey @ 0x1801162B0 (RtlpNtMakeTemporaryKey.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtDeleteKey()
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 218LL;
+  result = 218;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

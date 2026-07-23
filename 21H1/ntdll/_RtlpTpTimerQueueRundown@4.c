@@ -9,15 +9,15 @@
  *     _ZwAlertThreadByThreadId@4 @ 0x4B2F3080 (_ZwAlertThreadByThreadId@4.c)
  */
 
-int __thiscall RtlpTpTimerQueueRundown(_DWORD *this)
+LOGICAL __thiscall RtlpTpTimerQueueRundown(HANDLE *BaseAddress)
 {
-  if ( this[5] )
+  if ( BaseAddress[5] )
   {
-    ZwAlertThreadByThreadId(this[5]);
+    ZwAlertThreadByThreadId(BaseAddress[5]);
   }
-  else if ( this[2] )
+  else if ( BaseAddress[2] )
   {
-    NtSetEvent(this[2], 0);
+    NtSetEvent(BaseAddress[2], 0);
   }
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

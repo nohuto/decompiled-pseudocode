@@ -1,9 +1,9 @@
 /*
- * XREFs of PerfInfoLogIpiReceive @ 0x14032C6F0
+ * XREFs of PerfInfoLogIpiReceive @ 0x14032E720
  * Callers:
- *     KiIpiProcessRequest @ 0x14032C2E0 (KiIpiProcessRequest.c)
+ *     KiIpiProcessRequest @ 0x14032E310 (KiIpiProcessRequest.c)
  * Callees:
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
  */
 
 __int64 __fastcall PerfInfoLogIpiReceive(__int64 a1, int a2, __int64 a3)

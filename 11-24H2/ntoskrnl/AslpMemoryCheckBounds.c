@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpMemoryCheckBounds @ 0x140696A48
+ * XREFs of AslpMemoryCheckBounds @ 0x140697B18
  * Callers:
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E06C (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080EB1C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslpFileGetVersionBlockImageOnly @ 0x14080ED88 (AslpFileGetVersionBlockImageOnly.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E7AC (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080F25C (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslpFileGetVersionBlockImageOnly @ 0x14080F4C8 (AslpFileGetVersionBlockImageOnly.c)
  * Callees:
  *     <none>
  */

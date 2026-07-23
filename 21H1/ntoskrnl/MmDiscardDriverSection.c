@@ -13,8 +13,8 @@
 
 _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
 {
-  __int64 v2; // rdi
-  unsigned __int64 v3; // rbx
+  _QWORD *v2; // rdi
+  PVOID v3; // rbx
   _QWORD *result; // rax
   unsigned __int64 v5; // rsi
   struct _KTHREAD *Lock; // rbx
@@ -23,12 +23,12 @@ _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
 
   v8 = 0LL;
   v7 = 0LL;
-  v2 = MiLookupDataTableEntry(a1, 1);
-  v3 = *(_QWORD *)(v2 + 48);
-  result = (_QWORD *)MI_IS_PHYSICAL_ADDRESS(v3);
+  v2 = (_QWORD *)MiLookupDataTableEntry(a1, 1);
+  v3 = (PVOID)v2[6];
+  result = (_QWORD *)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v3);
   if ( !(_DWORD)result || v3 == PsNtosImageBase || v3 == PsHalImageBase )
   {
-    result = (_QWORD *)MiSnapDriverRange(v2, 0, 0, a1, &v7, (unsigned __int64 *)&v8);
+    result = (_QWORD *)MiSnapDriverRange((__int64)v2, 0, 0, a1, &v7, (unsigned __int64 *)&v8);
     v5 = v7;
     if ( v7 )
     {

@@ -18,21 +18,21 @@
  *     <none>
  */
 
-char __fastcall RtlFirstFreeAce(__int64 a1, _QWORD *a2)
+BOOLEAN __cdecl RtlFirstFreeAce(PACL Acl, PVOID *FirstFree)
 {
   unsigned int v3; // ecx
-  unsigned __int64 v4; // r8
+  PACL v4; // r8
 
   v3 = 0;
-  *a2 = 0LL;
-  v4 = a1 + 8;
-  if ( *(_WORD *)(a1 + 4) )
+  *FirstFree = 0LL;
+  v4 = Acl + 1;
+  if ( Acl->AceCount )
   {
-    while ( v4 < (unsigned __int64)*(unsigned __int16 *)(a1 + 2) + a1 )
+    while ( v4 < (PACL)((char *)Acl + Acl->AclSize) )
     {
       ++v3;
-      v4 += *(unsigned __int16 *)(v4 + 2);
-      if ( v3 >= *(unsigned __int16 *)(a1 + 4) )
+      v4 = (PACL)((char *)v4 + v4->AclSize);
+      if ( v3 >= Acl->AceCount )
         goto LABEL_2;
     }
     return 0;
@@ -40,8 +40,8 @@ char __fastcall RtlFirstFreeAce(__int64 a1, _QWORD *a2)
   else
   {
 LABEL_2:
-    if ( v4 <= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-      *a2 = v4;
+    if ( v4 <= (PACL)((char *)Acl + Acl->AclSize) )
+      *FirstFree = v4;
     return 1;
   }
 }

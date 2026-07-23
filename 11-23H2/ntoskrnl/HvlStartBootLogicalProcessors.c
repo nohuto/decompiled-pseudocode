@@ -1,25 +1,25 @@
 /*
- * XREFs of HvlStartBootLogicalProcessors @ 0x140376140
+ * XREFs of HvlStartBootLogicalProcessors @ 0x1403762E0
  * Callers:
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037F8A0 (HalQueryMaximumProcessorCount.c)
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpEnableNextLogicalProcessor @ 0x140540DA8 (HvlpEnableNextLogicalProcessor.c)
- *     HvlpGetLpcbByApicId @ 0x140540F8C (HvlpGetLpcbByApicId.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x14054132C (HvlpQueryApicIdAndNumaNode.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
- *     HvlpSelectLpSet @ 0x140541518 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x14054196C (HvlpSelectVpSet.c)
- *     HvlpSetLogicalProcessorProperty @ 0x140541FD4 (HvlpSetLogicalProcessorProperty.c)
- *     HvlNotifyAllProcessorsStarted @ 0x140544E34 (HvlNotifyAllProcessorsStarted.c)
- *     MmAllocateIndependentPages @ 0x14086C220 (MmAllocateIndependentPages.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
- *     HvlpDiscoverTopologyLocal @ 0x140941390 (HvlpDiscoverTopologyLocal.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037FA40 (HalQueryMaximumProcessorCount.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x140541468 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x14054164C (HvlpGetLpcbByApicId.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x1405419EC (HvlpQueryApicIdAndNumaNode.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
+ *     HvlpSelectLpSet @ 0x140541BD8 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x14054202C (HvlpSelectVpSet.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x140542694 (HvlpSetLogicalProcessorProperty.c)
+ *     HvlNotifyAllProcessorsStarted @ 0x1405454F4 (HvlNotifyAllProcessorsStarted.c)
+ *     MmAllocateIndependentPages @ 0x14086C460 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140941590 (HvlpDiscoverTopologyLocal.c)
  */
 
 __int64 __fastcall HvlStartBootLogicalProcessors(int a1)

@@ -27,65 +27,65 @@
  *     LdrpDropLastInProgressCount @ 0x1800F05A0 (LdrpDropLastInProgressCount.c)
  */
 
-__int64 __fastcall LdrUnloadDll(unsigned __int64 a1)
+NTSTATUS __cdecl LdrUnloadDll(PVOID DllHandle)
 {
   __int64 v2; // rsi
-  unsigned __int64 v3; // rax
+  unsigned __int64 Root; // rax
   unsigned __int64 v4; // rcx
   __int64 v5; // rax
   __int64 v6; // rax
   __int64 v7; // rdi
-  unsigned int v8; // ebx
+  NTSTATUS v8; // ebx
   char *v9; // rcx
   char *v11; // rcx
   int v12; // [rsp+48h] [rbp+10h] BYREF
 
   if ( byte_1801D4988 )
-    return 0LL;
+    return 0;
   v2 = 0LL;
-  if ( !a1 )
-    return 3221225781LL;
-  if ( a1 == LdrpSystemDllBase )
+  if ( !DllHandle )
+    return -1073741515;
+  if ( DllHandle == LdrpSystemDllBase )
   {
     v2 = LdrpNtDllDataTableEntry;
     goto LABEL_19;
   }
   RtlAcquireSRWLockShared(&LdrpModuleDatatableLock);
-  v3 = LdrpModuleBaseAddressIndex;
-  if ( (qword_1801D44B0 & 1) != 0 )
+  Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( !LdrpModuleBaseAddressIndex )
+    if ( !LdrpModuleBaseAddressIndex.Root )
       goto LABEL_18;
-    v3 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
   }
-  if ( !v3 )
+  if ( !Root )
     goto LABEL_18;
   do
   {
-    if ( a1 >= *(_QWORD *)(v3 - 152) )
+    if ( (unsigned __int64)DllHandle >= *(_QWORD *)(Root - 152) )
     {
-      if ( a1 <= *(_QWORD *)(v3 - 152) )
+      if ( (unsigned __int64)DllHandle <= *(_QWORD *)(Root - 152) )
         break;
-      v4 = *(_QWORD *)(v3 + 8);
-      if ( (qword_1801D44B0 & 1) != 0 && v4 )
+      v4 = *(_QWORD *)(Root + 8);
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v4 )
       {
-        v3 ^= v4;
+        Root ^= v4;
         continue;
       }
 LABEL_12:
-      v3 = v4;
+      Root = v4;
       continue;
     }
-    v4 = *(_QWORD *)v3;
-    if ( (qword_1801D44B0 & 1) == 0 || !v4 )
+    v4 = *(_QWORD *)Root;
+    if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) == 0 || !v4 )
       goto LABEL_12;
-    v3 ^= v4;
+    Root ^= v4;
   }
-  while ( v3 );
-  if ( v3 )
+  while ( Root );
+  if ( Root )
   {
-    v2 = v3 - 200;
-    v5 = *(_QWORD *)(v3 - 48);
+    v2 = Root - 200;
+    v5 = *(_QWORD *)(Root - 48);
     if ( *(_DWORD *)(v5 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v5 - 56LL) & 0x20) == 0 )
       _InterlockedIncrement((volatile signed __int32 *)(v2 + 276));
   }
@@ -93,12 +93,12 @@ LABEL_18:
   RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
 LABEL_19:
   if ( !v2 )
-    return 3221225781LL;
+    return -1073741515;
   v6 = *(_QWORD *)(v2 + 152);
   v12 = 0;
   if ( *(_DWORD *)(v6 + 24) == 1 )
     goto LABEL_33;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v7 = *(_QWORD *)(v2 + 152);
   v8 = LdrpDecrementNodeLoadCountLockHeld(v7, 1, &v12);
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
@@ -107,12 +107,10 @@ LABEL_19:
     LdrpAcquireLoaderLock();
     LdrpUnloadNode(v7);
     RtlLeaveCriticalSection(&LdrpLoaderLock);
-    v9 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 554 : (char *)2147353476;
+    v9 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 554 : (char *)2147353476;
     if ( *v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v11 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
+      v11 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v11 & 0x20) != 0 )
         LdrpLogEtwEvent(5282, 0LL, 0, 8, 0LL, 0LL);
     }
@@ -132,6 +130,6 @@ LABEL_33:
     }
     v8 = 0;
   }
-  LdrpDereferenceModule(v2);
+  LdrpDereferenceModule((PVOID)v2);
   return v8;
 }

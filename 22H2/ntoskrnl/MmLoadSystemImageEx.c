@@ -83,15 +83,15 @@ __int64 __fastcall MmLoadSystemImageEx(
   char v24; // dl
   int v25; // eax
   PVOID v26; // r8
-  __int64 v27; // rbx
+  void *v27; // rbx
   __int64 v28; // r13
   __int64 v29; // rax
   int v30; // esi
   int inserted; // eax
   unsigned __int64 v32; // rax
   void *PatchTableProtos; // rax
-  __int64 v35; // rsi
-  int v36; // eax
+  PIMAGE_NT_HEADERS v35; // rsi
+  unsigned int TimeDateStamp; // eax
   PVOID v37; // rcx
   ULONG_PTR v38; // rax
   __int64 v39; // rdx
@@ -312,7 +312,7 @@ LABEL_51:
     v15 = P;
     v48 = v50;
   }
-  v27 = SystemAddressForImage;
+  v27 = (void *)SystemAddressForImage;
   v28 = 0LL;
   v45 = 1;
   if ( (a4 & 0x21) == 0
@@ -322,7 +322,7 @@ LABEL_51:
   {
     _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD48 + 3, -v18);
     v30 = v50;
-    v27 = v29;
+    v27 = (void *)v29;
     v15 = P;
     SystemAddressForImage = v29;
     v48 = v50;
@@ -341,12 +341,12 @@ LABEL_51:
     active = -1073741279;
     goto LABEL_51;
   }
-  if ( *(_WORD *)(v35 + 4) != 0x8664 || *(_WORD *)(v35 + 24) != 523 )
+  if ( v35->FileHeader.Machine != 0x8664 || v35->OptionalHeader.Magic != 523 )
   {
     active = -1073741520;
     goto LABEL_51;
   }
-  if ( (MiFlags & 0x10000) == 0 || (active = MiValidateStrongCodeDriverImage(v35, a4), active >= 0) )
+  if ( (MiFlags & 0x10000) == 0 || (active = MiValidateStrongCodeDriverImage((__int64)v35, a4), active >= 0) )
   {
     v30 = v48;
     active = MiConstructLoaderEntry((_DWORD)v15, (unsigned int)&String1, (unsigned int)v59, a4, v48, (__int64)&v57);
@@ -435,10 +435,10 @@ LABEL_116:
     goto LABEL_53;
   }
   memset(&v60[1], 0, 0xA0uLL);
-  DWORD2(v60[8]) = *(_DWORD *)(v35 + 88);
-  v36 = *(_DWORD *)(v35 + 8);
+  DWORD2(v60[8]) = v35->OptionalHeader.CheckSum;
+  TimeDateStamp = v35->FileHeader.TimeDateStamp;
   *(UNICODE_STRING *)((char *)&v60[6] + 8) = String1;
-  HIDWORD(v60[10]) = v36;
+  HIDWORD(v60[10]) = TimeDateStamp;
   MiLogStrongCodeDriverLoadFailure("SectionWXable");
   v13 = v45;
   v21 = Lock;

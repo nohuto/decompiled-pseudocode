@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetDefaultCodePage @ 0x140771E10
+ * XREFs of RtlGetDefaultCodePage @ 0x140771FD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetDefaultCodePage(_WORD *a1, _WORD *a2)
+__int64 __fastcall RtlGetDefaultCodePage(USHORT *a1, _WORD *a2)
 {
   __int64 result; // rax
 

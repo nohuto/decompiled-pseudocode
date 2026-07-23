@@ -1,23 +1,23 @@
 /*
- * XREFs of MiTrimSection @ 0x1402EF974
+ * XREFs of MiTrimSection @ 0x1402EFC04
  * Callers:
- *     MmTrimSection @ 0x1402EF8D8 (MmTrimSection.c)
- *     MiTrimSharedPage @ 0x1403A63BC (MiTrimSharedPage.c)
- *     MiLocateSharedPageViews @ 0x1406364E0 (MiLocateSharedPageViews.c)
+ *     MmTrimSection @ 0x1402EFB68 (MmTrimSection.c)
+ *     MiTrimSharedPage @ 0x1403A659C (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x140636A30 (MiLocateSharedPageViews.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiReferenceSubsection @ 0x140289170 (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiUnlockControlAreaFileObjectShared @ 0x1402F0624 (MiUnlockControlAreaFileObjectShared.c)
- *     MiLockControlAreaFileObjectShared @ 0x1402F068C (MiLockControlAreaFileObjectShared.c)
- *     MiViewMayContainPage @ 0x1402F0BD0 (MiViewMayContainPage.c)
- *     MiAnyProtosAreMapped @ 0x1402F0E98 (MiAnyProtosAreMapped.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiDecrementSubsection @ 0x1403A668C (MiDecrementSubsection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceSubsection @ 0x140289400 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFEEC (MiTrimSharedPageFromViews.c)
+ *     MiUnlockControlAreaFileObjectShared @ 0x1402F08B4 (MiUnlockControlAreaFileObjectShared.c)
+ *     MiLockControlAreaFileObjectShared @ 0x1402F091C (MiLockControlAreaFileObjectShared.c)
+ *     MiViewMayContainPage @ 0x1402F0E60 (MiViewMayContainPage.c)
+ *     MiAnyProtosAreMapped @ 0x1402F1128 (MiAnyProtosAreMapped.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiDecrementSubsection @ 0x1403A686C (MiDecrementSubsection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTrimSection(_QWORD *a1, __int64 a2, int a3, int a4)
@@ -90,10 +90,13 @@ __int64 __fastcall MiTrimSection(_QWORD *a1, __int64 a2, int a3, int a4)
   {
     v44 = *(_QWORD **)(v9 + 8);
     ExReleaseSpinLockSharedFromDpcLevel(v15);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v16 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -119,10 +122,10 @@ __int64 __fastcall MiTrimSection(_QWORD *a1, __int64 a2, int a3, int a4)
         else
           v18 = 0;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v25 <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v25 <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v37 = v36->SchedulerAssist;
@@ -206,10 +209,10 @@ LABEL_19:
     return (unsigned int)MayContainPage;
   }
   ExReleaseSpinLockSharedFromDpcLevel(v15);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

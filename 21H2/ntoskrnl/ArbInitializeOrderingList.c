@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbInitializeOrderingList @ 0x1407A2BFC
+ * XREFs of ArbInitializeOrderingList @ 0x1407A2DFC
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x1407A2578 (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407A2778 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ArbInitializeOrderingList(__int64 a1)

@@ -100,7 +100,7 @@ __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
                        0,
                        0LL,
                        v21,
-                       (_QWORD **)v19,
+                       v19,
                        0LL,
                        0LL,
                        (int *)&v14,

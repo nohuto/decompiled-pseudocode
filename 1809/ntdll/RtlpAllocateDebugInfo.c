@@ -5,7 +5,7 @@
  *     RtlpAddDebugInfoToCriticalSection @ 0x180061B00 (RtlpAddDebugInfoToCriticalSection.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
- *     RtlpInterlockedPopEntrySList @ 0x1800A3D90 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1800A3DB0 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY RtlpAllocateDebugInfo()
@@ -18,7 +18,7 @@ PSLIST_ENTRY RtlpAllocateDebugInfo()
   {
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
     if ( ProcessHeap )
-      return (PSLIST_ENTRY)RtlAllocateHeap((__int64)ProcessHeap, 0, 48LL);
+      return (PSLIST_ENTRY)RtlAllocateHeap(ProcessHeap, 0, 0x30uLL);
   }
   return result;
 }

@@ -11,26 +11,26 @@
 __int64 RtlInitializeHistoryTable()
 {
   unsigned int i; // ebx
-  void (__fastcall __noreturn *v1)(int); // rax
-  unsigned int *v2; // rax
+  void (__cdecl __noreturn *v1)(NTSTATUS); // rax
+  PRUNTIME_FUNCTION v2; // rax
   __int64 v3; // rdi
   unsigned __int64 v4; // r8
   unsigned __int64 v5; // rdx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 ImageBase; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0LL;
+  ImageBase = 0LL;
   for ( i = 0; i < 0xC; ++i )
   {
-    v1 = (void (__fastcall __noreturn *)(int))RtlpFunctionAddressTableEntry(i);
+    v1 = (void (__cdecl __noreturn *)(NTSTATUS))RtlpFunctionAddressTableEntry(i);
     if ( !v1 )
       break;
     if ( v1 == RtlRaiseStatus )
       byte_140E01955 = i;
-    v2 = RtlLookupFunctionEntry((unsigned __int64)v1, &v7, 0LL);
+    v2 = RtlLookupFunctionEntry((DWORD64)v1, &ImageBase, 0LL);
     v3 = 2LL * i;
-    v4 = v7 + *v2;
-    v5 = v7 + v2[1];
-    *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 6] = v7;
+    v4 = ImageBase + v2->BeginAddress;
+    v5 = ImageBase + v2->EndAddress;
+    *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 6] = ImageBase;
     *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 8] = v2;
     if ( v4 < qword_140E01958 )
       qword_140E01958 = v4;

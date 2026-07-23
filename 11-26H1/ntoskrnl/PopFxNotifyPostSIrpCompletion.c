@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxNotifyPostSIrpCompletion @ 0x1406053A8
+ * XREFs of PopFxNotifyPostSIrpCompletion @ 0x140607EA8
  * Callers:
- *     PopSystemIrpCompletion @ 0x140C0DBB0 (PopSystemIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140C13DC0 (PopSystemIrpCompletion.c)
  * Callees:
- *     PopDiagTraceIrpPended @ 0x14050FAB0 (PopDiagTraceIrpPended.c)
+ *     PopDiagTraceIrpPended @ 0x140509520 (PopDiagTraceIrpPended.c)
  */
 
 __int64 __fastcall PopFxNotifyPostSIrpCompletion(__int64 a1, __int64 a2)

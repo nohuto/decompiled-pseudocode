@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpIsBeingRemovedSafely @ 0x1406EE1C8
+ * XREFs of PnpIsBeingRemovedSafely @ 0x1406EF468
  * Callers:
- *     PnpBuildUnsafeRemovalDeviceList @ 0x1406EDB6C (PnpBuildUnsafeRemovalDeviceList.c)
+ *     PnpBuildUnsafeRemovalDeviceList @ 0x1406EEE0C (PnpBuildUnsafeRemovalDeviceList.c)
  * Callees:
  *     <none>
  */

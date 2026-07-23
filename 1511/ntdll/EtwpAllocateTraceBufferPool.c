@@ -23,12 +23,12 @@ ULONG __fastcall EtwpAllocateTraceBufferPool(__int64 a1)
   int v9; // edx
   unsigned int v10; // ebx
   unsigned int v12; // ecx
-  __int64 v13; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-60h] BYREF
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-68h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-60h] BYREF
   __int64 v15; // [rsp+40h] [rbp-58h] BYREF
   int v16; // [rsp+48h] [rbp-50h]
 
-  v14 = 0LL;
+  BaseAddress = 0LL;
   v2 = NtQuerySystemInformation(SystemBasicInformation, &v15, 0x40u, 0LL);
   if ( v2 < 0 )
     return RtlNtStatusToDosError(v2);
@@ -58,15 +58,15 @@ ULONG __fastcall EtwpAllocateTraceBufferPool(__int64 a1)
   *(_DWORD *)(a1 + 216) = v9;
   if ( (*(_DWORD *)(a1 + 332) & 0x400) != 0 )
     *(_DWORD *)(a1 + 220) = *(_DWORD *)(a1 + 224);
-  v13 = (unsigned int)(v9 * *(_DWORD *)(a1 + 220));
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v14, 0LL, &v13, 0x2000, 4) >= 0 )
+  RegionSize = (unsigned int)(v9 * *(_DWORD *)(a1 + 220));
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u) >= 0 )
   {
     v10 = *(_DWORD *)(a1 + 224);
-    *(_QWORD *)(a1 + 432) = v14;
+    *(_QWORD *)(a1 + 432) = BaseAddress;
     if ( (unsigned int)EtwpAllocateFreeBuffers(a1, v10) == v10 )
       return 0;
-    v13 = 0LL;
-    ZwFreeVirtualMemory(-1LL, a1 + 432, &v13, 0x8000LL);
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 432), &RegionSize, 0x8000u);
     *(_QWORD *)(a1 + 432) = 0LL;
   }
   return 8;

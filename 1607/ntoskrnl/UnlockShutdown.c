@@ -1,13 +1,13 @@
 /*
- * XREFs of UnlockShutdown @ 0x1404A0FFC
+ * XREFs of UnlockShutdown @ 0x140519408
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     CmpLazyCommitWorker @ 0x140603320 (CmpLazyCommitWorker.c)
- *     CmpSyncNextBackupHive @ 0x140604D28 (CmpSyncNextBackupHive.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     CmpLazyCommitWorker @ 0x1406033D4 (CmpLazyCommitWorker.c)
+ *     CmpSyncNextBackupHive @ 0x140604DDC (CmpSyncNextBackupHive.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 UnlockShutdown()

@@ -1,15 +1,15 @@
 /*
- * XREFs of SeCodeIntegrityGetBuildExpiryTime @ 0x140863E10
+ * XREFs of SeCodeIntegrityGetBuildExpiryTime @ 0x140864050
  * Callers:
- *     ExpKernelExpirationDateCacheProvider @ 0x140863D80 (ExpKernelExpirationDateCacheProvider.c)
+ *     ExpKernelExpirationDateCacheProvider @ 0x140863FC0 (ExpKernelExpirationDateCacheProvider.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SeCodeIntegrityGetBuildExpiryTime(_QWORD *a1)
 {
-  if ( qword_140C37A50 )
-    return qword_140C37A50();
+  if ( qword_140C379F0 )
+    return qword_140C379F0();
   *a1 = 0LL;
   return 0LL;
 }

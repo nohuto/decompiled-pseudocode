@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceJobAssignProcess @ 0x140AC6388
+ * XREFs of EtwTraceJobAssignProcess @ 0x140AC7F7C
  * Callers:
- *     PspAssignProcessToJobList @ 0x140AC5AE0 (PspAssignProcessToJobList.c)
- *     NtAssignProcessToJobObject @ 0x140AC5B90 (NtAssignProcessToJobObject.c)
+ *     PspAssignProcessToJobList @ 0x140AC7750 (PspAssignProcessToJobList.c)
+ *     NtAssignProcessToJobObject @ 0x140AC7800 (NtAssignProcessToJobObject.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceJobAssignProcess(__int64 a1, __int64 a2, int a3)

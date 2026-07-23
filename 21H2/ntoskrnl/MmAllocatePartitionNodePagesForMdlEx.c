@@ -1,19 +1,19 @@
 /*
- * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0
+ * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x140294640
  * Callers:
- *     MmAllocatePagesForMdlEx @ 0x1402E3290 (MmAllocatePagesForMdlEx.c)
- *     MmAllocateNodePagesForMdlEx @ 0x1403CE960 (MmAllocateNodePagesForMdlEx.c)
- *     HalAllocateCommonBufferVector @ 0x1404C5700 (HalAllocateCommonBufferVector.c)
- *     HalpAllocateCommonBufferThin @ 0x1404CB2F0 (HalpAllocateCommonBufferThin.c)
- *     HvlpDepositPages @ 0x1404F2C04 (HvlpDepositPages.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     EtwpAllocatePartitionMemory @ 0x1405B0608 (EtwpAllocatePartitionMemory.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897910 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     KiComputeNumaCosts @ 0x140A4D2E0 (KiComputeNumaCosts.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402945E0 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1403CEAD0 (MmAllocateNodePagesForMdlEx.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5940 (HalAllocateCommonBufferVector.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB530 (HalpAllocateCommonBufferThin.c)
+ *     HvlpDepositPages @ 0x1404F2B84 (HvlpDepositPages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     EtwpAllocatePartitionMemory @ 0x1405B0838 (EtwpAllocatePartitionMemory.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897A70 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     KiComputeNumaCosts @ 0x140A4E2E0 (KiComputeNumaCosts.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
- *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     MiAllocatePagesForMdl @ 0x140294744 (MiAllocatePagesForMdl.c)
+ *     MiPartitionObjectToPartition @ 0x1402972D0 (MiPartitionObjectToPartition.c)
  */
 
 __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(

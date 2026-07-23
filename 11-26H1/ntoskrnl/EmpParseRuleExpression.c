@@ -1,17 +1,17 @@
 /*
- * XREFs of EmpParseRuleExpression @ 0x140CB653C
+ * XREFs of EmpParseRuleExpression @ 0x140CBC57C
  * Callers:
- *     EmpParseRules @ 0x140CB6F84 (EmpParseRules.c)
+ *     EmpParseRules @ 0x140CBCFC8 (EmpParseRules.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpFreeRuleParserStack @ 0x140CB5D48 (EmpFreeRuleParserStack.c)
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140CB5F44 (EmpInfParseGetValueFromSectionAndKeyName.c)
- *     EmpInfParseSearchDependencyList @ 0x140CB5FE8 (EmpInfParseSearchDependencyList.c)
- *     EmpParseRuleTerm @ 0x140CB6AE8 (EmpParseRuleTerm.c)
- *     EmpRuleParserStackPop @ 0x140CB7A34 (EmpRuleParserStackPop.c)
- *     EmpRuleParserStackPush @ 0x140CB7A8C (EmpRuleParserStackPush.c)
- *     CmpGetSectionLineIndex @ 0x140CB7F54 (CmpGetSectionLineIndex.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpFreeRuleParserStack @ 0x140CBBD88 (EmpFreeRuleParserStack.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140CBBF84 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     EmpInfParseSearchDependencyList @ 0x140CBC028 (EmpInfParseSearchDependencyList.c)
+ *     EmpParseRuleTerm @ 0x140CBCB2C (EmpParseRuleTerm.c)
+ *     EmpRuleParserStackPop @ 0x140CBDA78 (EmpRuleParserStackPop.c)
+ *     EmpRuleParserStackPush @ 0x140CBDAD0 (EmpRuleParserStackPush.c)
+ *     CmpGetSectionLineIndex @ 0x140CBDF98 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpParseRuleExpression(__int64 a1, const char *a2, __int64 a3, __int64 a4)
@@ -26,49 +26,50 @@ __int64 __fastcall EmpParseRuleExpression(__int64 a1, const char *a2, __int64 a3
   _QWORD *v12; // rdi
   ULONG_PTR v13; // rax
   __int64 v14; // rcx
-  _DWORD *v15; // rdi
-  unsigned int v16; // r8d
-  int v17; // r10d
-  __int64 v18; // r9
+  int v15; // eax
+  _DWORD *v16; // rdi
+  unsigned int v17; // r8d
+  int v18; // r10d
+  __int64 v19; // r9
   __int64 i; // rdx
   unsigned int j; // edx
-  int v21; // r11d
-  char v22; // r10
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  _QWORD *v27; // rax
-  _QWORD *v28; // r12
-  _QWORD *v29; // rax
+  int v22; // r11d
+  char v23; // r10
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  _QWORD *v28; // rax
+  _QWORD *v29; // r12
   _QWORD *v30; // rax
-  _QWORD *v31; // r12
-  _QWORD *v32; // rax
-  void *v33; // rcx
+  _QWORD *v31; // rax
+  _QWORD *v32; // r12
+  _QWORD *v33; // rax
   void *v34; // rcx
-  ULONG v35; // edx
-  _QWORD **v36; // rdx
-  _QWORD *v37; // rax
-  _QWORD *v38; // rcx
-  _QWORD *v39; // rdi
-  _QWORD **v40; // rdx
-  _QWORD *v41; // rax
-  _QWORD *v42; // rcx
-  int v44; // [rsp+30h] [rbp-20h]
-  unsigned int v45; // [rsp+34h] [rbp-1Ch] BYREF
+  void *v35; // rcx
+  ULONG v36; // edx
+  _QWORD **v37; // rdx
+  _QWORD *v38; // rax
+  _QWORD *v39; // rcx
+  _QWORD *v40; // rdi
+  _QWORD **v41; // rdx
+  _QWORD *v42; // rax
+  _QWORD *v43; // rcx
+  int v45; // [rsp+30h] [rbp-20h]
+  unsigned int v46; // [rsp+34h] [rbp-1Ch] BYREF
   PVOID P; // [rsp+38h] [rbp-18h] BYREF
-  _DWORD *v47; // [rsp+40h] [rbp-10h] BYREF
-  unsigned int v49; // [rsp+A8h] [rbp+58h] BYREF
+  _DWORD *v48; // [rsp+40h] [rbp-10h] BYREF
+  unsigned int v50; // [rsp+A8h] [rbp+58h] BYREF
 
-  v45 = 0;
-  v47 = 0LL;
-  v49 = 0;
+  v46 = 0;
+  v48 = 0LL;
+  v50 = 0;
   v5 = 0;
   v6 = 0LL;
-  v44 = 0;
+  v45 = 0;
   P = 0LL;
   v7 = a1;
   v8 = 0LL;
-  ValueFromSectionAndKeyName = (_BYTE *)EmpInfParseGetValueFromSectionAndKeyName(a1, (__int64)"Rule", a2, a4, &v45);
+  ValueFromSectionAndKeyName = (_BYTE *)EmpInfParseGetValueFromSectionAndKeyName(a1, (__int64)"Rule", a2, a4, &v46);
   if ( !ValueFromSectionAndKeyName )
   {
     v5 = -1073741275;
@@ -90,10 +91,10 @@ __int64 __fastcall EmpParseRuleExpression(__int64 a1, const char *a2, __int64 a3
       if ( *ValueFromSectionAndKeyName != 63 )
       {
         if ( *ValueFromSectionAndKeyName != 124 )
-          goto LABEL_58;
+          goto LABEL_60;
 LABEL_9:
         if ( *(_DWORD *)v11 < 2u )
-          goto LABEL_58;
+          goto LABEL_60;
         v12 = (_QWORD *)ExAllocatePool2(256LL, 0x38uLL, 0x74734D45u);
         if ( !v12
           || (v12[1] = ExAllocatePool2(256LL, 0x20uLL, 0x74734D45u),
@@ -124,81 +125,83 @@ LABEL_9:
                                  (int)v12 + 24,
                                  (__int64)(v12 + 2)) )
         {
-          goto LABEL_59;
+          goto LABEL_58;
         }
         EmpRuleParserStackPush((_DWORD)v11, 2, (_DWORD)v12, 0, 0);
         goto LABEL_46;
       }
     }
-    v5 = EmpParseRuleTerm(v7, (_DWORD)ValueFromSectionAndKeyName, (unsigned int)&v47, (unsigned int)&P, (__int64)&v49);
-    if ( v5 < 0 )
+    v15 = EmpParseRuleTerm(v7, (_DWORD)ValueFromSectionAndKeyName, (unsigned int)&v48, (unsigned int)&P, (__int64)&v50);
+    v12 = 0LL;
+    v5 = v15;
+    if ( v15 < 0 )
     {
       v6 = P;
-      goto LABEL_67;
+      goto LABEL_68;
     }
-    v15 = v47;
+    v16 = v48;
     if ( *ValueFromSectionAndKeyName == 63 )
     {
-      v16 = v47[14];
-      v17 = v47[15];
+      v17 = v48[14];
+      v18 = v48[15];
     }
     else
     {
-      v16 = v47[10];
-      v17 = v47[11];
+      v17 = v48[10];
+      v18 = v48[11];
     }
     v6 = P;
-    v18 = v17 + v16;
-    if ( (unsigned int)v18 > v49 )
+    v19 = v18 + v17;
+    if ( (unsigned int)v19 > v50 )
     {
-LABEL_58:
+LABEL_60:
       v5 = -1073741811;
-LABEL_67:
+LABEL_61:
       v12 = 0LL;
       goto LABEL_68;
     }
-    for ( i = 0LL; (unsigned int)i < v16; i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < v17; i = (unsigned int)(i + 1) )
     {
       if ( *((_DWORD *)P + i) >= *(_DWORD *)(a3 + 40) )
-        goto LABEL_58;
+        goto LABEL_60;
     }
-    for ( j = v16; j < (unsigned int)v18; ++j )
+    for ( j = v17; j < (unsigned int)v19; ++j )
     {
       if ( *((_DWORD *)P + j) >= *(_DWORD *)(a3 + 44) )
-        goto LABEL_58;
+        goto LABEL_60;
     }
-    v21 = v17 + v16;
-    v22 = *ValueFromSectionAndKeyName;
-    while ( (unsigned int)v18 < v49 )
+    v22 = v18 + v17;
+    v23 = *ValueFromSectionAndKeyName;
+    while ( (unsigned int)v19 < v50 )
     {
-      v23 = *((unsigned int *)P + v18);
-      if ( (unsigned int)v23 >= *(_DWORD *)(a3 + 48) )
-        goto LABEL_58;
-      v24 = (unsigned int)(v18 - v21);
-      v25 = *(_QWORD *)(*(_QWORD *)(a3 + 56) + 8 * v23);
-      if ( !(v22 == 63 ? v25 == *(_QWORD *)&v47[2 * v24 + 18] : v25 == *(_QWORD *)(*((_QWORD *)v47 + 7) + 8 * v24)) )
-        goto LABEL_58;
-      v18 = (unsigned int)(v18 + 1);
+      v24 = *((unsigned int *)P + v19);
+      if ( (unsigned int)v24 >= *(_DWORD *)(a3 + 48) )
+        goto LABEL_60;
+      v25 = (unsigned int)(v19 - v22);
+      v26 = *(_QWORD *)(*(_QWORD *)(a3 + 56) + 8 * v24);
+      if ( !(v23 == 63 ? v26 == *(_QWORD *)&v48[2 * v25 + 18] : v26 == *(_QWORD *)(*((_QWORD *)v48 + 7) + 8 * v25)) )
+        goto LABEL_60;
+      v19 = (unsigned int)(v19 + 1);
     }
-    if ( v22 == 63 )
+    if ( v23 == 63 )
     {
-      v27 = (_QWORD *)ExAllocatePool2(256LL, 0x10uLL, 0x74694D45u);
-      if ( !v27 )
-        goto LABEL_61;
-      *v27 = v15;
-      v28 = v15 + 12;
-      v27[1] = *(_QWORD *)(a3 + 64);
-      *(_QWORD *)(a3 + 64) = v27 + 1;
-      if ( !EmpInfParseSearchDependencyList((_QWORD **)v15 + 6, a3) )
+      v28 = (_QWORD *)ExAllocatePool2(256LL, 0x10uLL, 0x74694D45u);
+      if ( !v28 )
+        goto LABEL_62;
+      *v28 = v16;
+      v29 = v16 + 12;
+      v28[1] = *(_QWORD *)(a3 + 64);
+      *(_QWORD *)(a3 + 64) = v28 + 1;
+      if ( !EmpInfParseSearchDependencyList((_QWORD **)v16 + 6, a3) )
       {
-        v29 = (_QWORD *)ExAllocatePool2(256LL, 0x18uLL, 0x74694D45u);
-        if ( !v29 )
-          goto LABEL_61;
-        *v29 = a3;
-        v29[1] = *v28;
-        *v28 = v29 + 1;
+        v30 = (_QWORD *)ExAllocatePool2(256LL, 0x18uLL, 0x74694D45u);
+        if ( !v30 )
+          goto LABEL_62;
+        *v30 = a3;
+        v30[1] = *v29;
+        *v29 = v30 + 1;
       }
-      if ( (int)EmpRuleParserStackPush((_DWORD)v11, 0, (_DWORD)v15, (_DWORD)v6, v49) >= 0 )
+      if ( (int)EmpRuleParserStackPush((_DWORD)v11, 0, (_DWORD)v16, (_DWORD)v6, v50) >= 0 )
       {
 LABEL_45:
         v6 = 0LL;
@@ -213,27 +216,27 @@ LABEL_46:
       v12 = 0LL;
       goto LABEL_56;
     }
-    v30 = (_QWORD *)ExAllocatePool2(256LL, 0x18uLL, 0x74694D45u);
-    if ( !v30 )
-      goto LABEL_61;
-    *v30 = v15;
-    v31 = v15 + 8;
-    v30[1] = *(_QWORD *)(a3 + 72);
-    *(_QWORD *)(a3 + 72) = v30 + 1;
-    if ( !EmpInfParseSearchDependencyList((_QWORD **)v15 + 4, a3) )
+    v31 = (_QWORD *)ExAllocatePool2(256LL, 0x18uLL, 0x74694D45u);
+    if ( !v31 )
+      goto LABEL_62;
+    *v31 = v16;
+    v32 = v16 + 8;
+    v31[1] = *(_QWORD *)(a3 + 72);
+    *(_QWORD *)(a3 + 72) = v31 + 1;
+    if ( !EmpInfParseSearchDependencyList((_QWORD **)v16 + 4, a3) )
     {
-      v32 = (_QWORD *)ExAllocatePool2(256LL, 0x18uLL, 0x74694D45u);
-      if ( !v32 )
+      v33 = (_QWORD *)ExAllocatePool2(256LL, 0x18uLL, 0x74694D45u);
+      if ( !v33 )
       {
-LABEL_61:
+LABEL_62:
         v5 = -1073741670;
-        goto LABEL_67;
+        goto LABEL_61;
       }
-      *v32 = a3;
-      v32[1] = *v31;
-      *v31 = v32 + 1;
+      *v33 = a3;
+      v33[1] = *v32;
+      *v32 = v33 + 1;
     }
-    if ( (int)EmpRuleParserStackPush((_DWORD)v11, 1, (_DWORD)v15, (_DWORD)v6, v49) < 0 )
+    if ( (int)EmpRuleParserStackPush((_DWORD)v11, 1, (_DWORD)v16, (_DWORD)v6, v50) < 0 )
     {
       v12 = 0LL;
       if ( !v6 )
@@ -248,7 +251,7 @@ LABEL_61:
     }
     P = 0LL;
 LABEL_56:
-    ValueFromSectionAndKeyName = (_BYTE *)CmpGetSectionLineIndex(a1, "Rule", v45, (unsigned int)++v44);
+    ValueFromSectionAndKeyName = (_BYTE *)CmpGetSectionLineIndex(a1, "Rule", v46, (unsigned int)++v45);
     if ( !ValueFromSectionAndKeyName )
       break;
     v7 = a1;
@@ -258,7 +261,7 @@ LABEL_56:
     v8 = (void *)ExAllocatePool2(256LL, 0x20uLL, 0x74694D45u);
     if ( !(unsigned __int8)EmpRuleParserStackPop((_DWORD)v11, (_DWORD)v8, (int)v8 + 8, (int)v8 + 24, (__int64)v8 + 16) )
     {
-LABEL_59:
+LABEL_58:
       v5 = -1073741275;
       goto LABEL_68;
     }
@@ -277,55 +280,55 @@ LABEL_68:
       ExFreePoolWithTag(v6, 0x74734D45u);
     if ( v12 )
     {
-      v33 = (void *)v12[1];
-      if ( v33 )
-        ExFreePoolWithTag(v33, 0x74734D45u);
-      v34 = (void *)v12[4];
+      v34 = (void *)v12[1];
       if ( v34 )
         ExFreePoolWithTag(v34, 0x74734D45u);
-      v35 = 1953713477;
+      v35 = (void *)v12[4];
+      if ( v35 )
+        ExFreePoolWithTag(v35, 0x74734D45u);
+      v36 = 1953713477;
       goto LABEL_86;
     }
 LABEL_87:
     while ( 1 )
     {
-      v38 = *(_QWORD **)(a3 + 72);
-      if ( !v38 )
+      v39 = *(_QWORD **)(a3 + 72);
+      if ( !v39 )
         break;
-      v12 = v38 - 1;
-      *(_QWORD *)(a3 + 72) = *v38;
+      v12 = v39 - 1;
+      *(_QWORD *)(a3 + 72) = *v39;
       while ( 1 )
       {
-        v36 = (_QWORD **)(*v12 + 32LL);
-        v37 = *v36;
-        if ( !*v36 || *(v37 - 1) != a3 )
+        v37 = (_QWORD **)(*v12 + 32LL);
+        v38 = *v37;
+        if ( !*v37 || *(v38 - 1) != a3 )
           break;
-        if ( v37 )
-          *v36 = (_QWORD *)*v37;
-        ExFreePoolWithTag(v37 - 1, 0x74694D45u);
+        if ( v38 )
+          *v37 = (_QWORD *)*v38;
+        ExFreePoolWithTag(v38 - 1, 0x74694D45u);
       }
-      v35 = 1953058117;
+      v36 = 1953058117;
 LABEL_86:
-      ExFreePoolWithTag(v12, v35);
+      ExFreePoolWithTag(v12, v36);
     }
     while ( 1 )
     {
-      v42 = *(_QWORD **)(a3 + 64);
-      if ( !v42 )
+      v43 = *(_QWORD **)(a3 + 64);
+      if ( !v43 )
         break;
-      v39 = v42 - 1;
-      *(_QWORD *)(a3 + 64) = *v42;
+      v40 = v43 - 1;
+      *(_QWORD *)(a3 + 64) = *v43;
       while ( 1 )
       {
-        v40 = (_QWORD **)(*v39 + 48LL);
-        v41 = *v40;
-        if ( !*v40 || *(v41 - 1) != a3 )
+        v41 = (_QWORD **)(*v40 + 48LL);
+        v42 = *v41;
+        if ( !*v41 || *(v42 - 1) != a3 )
           break;
-        if ( v41 )
-          *v40 = (_QWORD *)*v41;
-        ExFreePoolWithTag(v41 - 1, 0x74694D45u);
+        if ( v42 )
+          *v41 = (_QWORD *)*v42;
+        ExFreePoolWithTag(v42 - 1, 0x74694D45u);
       }
-      ExFreePoolWithTag(v39, 0x74694D45u);
+      ExFreePoolWithTag(v40, 0x74694D45u);
     }
     if ( v8 )
       ExFreePoolWithTag(v8, 0x74694D45u);

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmIsDriverSuspectForVerifier @ 0x1409C5F70
+ * XREFs of MmIsDriverSuspectForVerifier @ 0x1409C6F70
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
- *     ViIsDriverSuspectForVerifier @ 0x1409C6CE0 (ViIsDriverSuspectForVerifier.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     VfDriverLock @ 0x1409C35B8 (VfDriverLock.c)
+ *     ViIsDriverSuspectForVerifier @ 0x1409C7CE0 (ViIsDriverSuspectForVerifier.c)
  */
 
 __int64 __fastcall MmIsDriverSuspectForVerifier(__int64 a1)

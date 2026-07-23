@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpGetSecurePageList @ 0x14027A3A0
+ * XREFs of HvlpGetSecurePageList @ 0x14027A590
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x14027699C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x140276B38 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x14027761C (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x140277D98 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140276B8C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140276D28 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x14027780C (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140277F88 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlpGetSecurePageList(int a1, __int64 a2, void *a3, __int64 *a4, _QWORD *a5, _BYTE *a6)
@@ -25,13 +25,13 @@ __int64 __fastcall HvlpGetSecurePageList(int a1, __int64 a2, void *a3, __int64 *
 
   if ( a1 )
   {
-    v10 = &qword_140437428;
-    v11 = (PHYSICAL_ADDRESS *)&unk_140437430;
+    v10 = &qword_1404384E8;
+    v11 = (PHYSICAL_ADDRESS *)&unk_1404384F0;
   }
   else
   {
-    v10 = &qword_140437408;
-    v11 = (PHYSICAL_ADDRESS *)&unk_140437410;
+    v10 = &qword_1404384C8;
+    v11 = (PHYSICAL_ADDRESS *)&unk_1404384D0;
   }
   if ( a3 )
     PhysicalAddress = MmGetPhysicalAddress(a3);

@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwSetSystemInformation()
+NTSTATUS __cdecl ZwSetSystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 398LL;
+  result = 398;
   __asm { syscall; Low latency system call }
   return result;
 }

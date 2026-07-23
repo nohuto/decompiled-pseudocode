@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressDeflateInitCompressionStream @ 0x1405F3CA4
+ * XREFs of RtlCompressDeflateInitCompressionStream @ 0x1405F12E4
  * Callers:
- *     RtlCompressBufferDeflateInternal @ 0x1405F2314 (RtlCompressBufferDeflateInternal.c)
+ *     RtlCompressBufferDeflateInternal @ 0x1405EF954 (RtlCompressBufferDeflateInternal.c)
  * Callees:
- *     AlignWorkspace @ 0x1405F3C88 (AlignWorkspace.c)
- *     deflateReset @ 0x1405F562C (deflateReset.c)
+ *     AlignWorkspace @ 0x1405F12C8 (AlignWorkspace.c)
+ *     deflateReset @ 0x1405F2C6C (deflateReset.c)
  */
 
 __int64 __fastcall RtlCompressDeflateInitCompressionStream(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)

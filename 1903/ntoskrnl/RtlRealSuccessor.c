@@ -20,7 +20,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax
-  struct _RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *v2; // rdx
   _RTL_SPLAY_LINKS *v3; // r8
   _RTL_SPLAY_LINKS *i; // rcx
 

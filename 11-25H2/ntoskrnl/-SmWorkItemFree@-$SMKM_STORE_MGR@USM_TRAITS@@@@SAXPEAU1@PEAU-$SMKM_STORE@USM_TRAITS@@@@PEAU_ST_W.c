@@ -13,17 +13,13 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(
-        __int64 a1,
-        __int64 a2,
-        struct _SLIST_ENTRY *a3,
-        unsigned int *a4)
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2, _SLIST_ENTRY *a3, unsigned int *a4)
 {
   int Next; // ecx
   _SLIST_ENTRY *v7; // rdx
   unsigned int v8; // esi
   int v9; // r12d
-  struct _SLIST_ENTRY v12; // xmm1
+  _SLIST_ENTRY v12; // xmm1
   struct _EX_RUNDOWN_REF *v13; // rdi
   BOOL v14; // r13d
   unsigned int v15; // eax
@@ -32,8 +28,8 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(
   int v18; // eax
   int v19; // ecx
   __int64 v20; // r13
-  struct _SLIST_ENTRY v21; // [rsp+20h] [rbp-58h] BYREF
-  struct _SLIST_ENTRY v22; // [rsp+30h] [rbp-48h]
+  _SLIST_ENTRY v21; // [rsp+20h] [rbp-58h] BYREF
+  _SLIST_ENTRY v22; // [rsp+30h] [rbp-48h]
   _SLIST_ENTRY *v23; // [rsp+40h] [rbp-38h]
   _SLIST_ENTRY *P; // [rsp+90h] [rbp+18h]
 
@@ -144,7 +140,7 @@ LABEL_15:
   }
 LABEL_9:
   if ( (!a4
-     || (unsigned int)((__int64 (__fastcall *)(struct _SLIST_ENTRY *, _QWORD, __int64, _QWORD))SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete)(
+     || (unsigned int)((__int64 (__fastcall *)(_SLIST_ENTRY *, _QWORD, __int64, _QWORD))SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete)(
                         &v21,
                         *(_QWORD *)(a2 + 7576),
                         a2,

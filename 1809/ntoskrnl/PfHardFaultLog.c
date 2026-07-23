@@ -3,9 +3,9 @@
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwTraceSiloTimedEvent @ 0x1403105B8 (EtwTraceSiloTimedEvent.c)
+ *     PfLogEvent @ 0x1400D5478 (PfLogEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwTraceSiloTimedEvent @ 0x1403107A8 (EtwTraceSiloTimedEvent.c)
  */
 
 struct _KTHREAD *__fastcall PfHardFaultLog(_QWORD *a1, int a2, int a3)
@@ -56,7 +56,7 @@ LABEL_3:
       memset(v12, 0, 0x28uLL);
       v9 = (__int64)Process[1].Header.WaitListHead.Flink ^ (__int64)Process[1].ThreadListHead.Flink;
       LODWORD(v12[0]) = 2 * v8;
-      HIDWORD(v12[0]) = dword_1404D7550;
+      HIDWORD(v12[0]) = dword_1404D8610;
       v12[3] = a1[6];
       v12[1] = (unsigned int)(a1[4] >> 9);
       v10 = a1[5];

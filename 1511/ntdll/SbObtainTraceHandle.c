@@ -15,14 +15,11 @@ __int64 __fastcall SbObtainTraceHandle(_QWORD *a1)
   char *pShimData; // rsi
   char *v4; // rsi
   __int64 v5; // rax
-  __int64 v6; // r8
-  __int64 v7; // r9
-  signed __int64 v8; // rbp
-  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rcx
-  unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
+  signed __int64 v6; // rbp
+  ULONGLONG RegHandle; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = 0;
-  v11 = 0LL;
+  RegHandle = 0LL;
   pShimData = (char *)NtCurrentPeb()->pShimData;
   if ( pShimData )
   {
@@ -42,26 +39,20 @@ __int64 __fastcall SbObtainTraceHandle(_QWORD *a1)
             *a1 = v5;
           return 1;
         }
-        if ( !(unsigned int)EtwEventRegister((int)&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, (__int64)&v11) )
+        if ( !EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &RegHandle) )
         {
-          v8 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 2, v11, 0LL);
-          if ( v8 )
+          v6 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 2, RegHandle, 0LL);
+          if ( v6 )
           {
-            EtwNotificationUnregister(v11, 0LL, v6, v7);
+            EtwNotificationUnregister(RegHandle, 0LL);
             if ( a1 )
-              *a1 = v8;
+              *a1 = v6;
           }
           else
           {
             if ( a1 )
-              *a1 = v11;
-            ProcessParameters = NtCurrentPeb()->ProcessParameters;
-            SbpTraceContextUpdate(
-              v11,
-              (_DWORD)v4 + 48,
-              0,
-              ProcessParameters->ImagePathName.Length,
-              (__int64)ProcessParameters->ImagePathName.Buffer);
+              *a1 = RegHandle;
+            SbpTraceContextUpdate(RegHandle, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
           }
           return 1;
         }

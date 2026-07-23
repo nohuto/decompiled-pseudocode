@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputePageFileReadPteCluster @ 0x140370C34
+ * XREFs of MiComputePageFileReadPteCluster @ 0x1403729E4
  * Callers:
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 void __fastcall MiComputePageFileReadPteCluster(__int64 a1, unsigned __int64 *a2)
@@ -132,8 +132,8 @@ LABEL_10:
           v16 = v20;
         if ( (v18 & 8) != 0 )
         {
-          if ( qword_140E2D740 && (v18 & 0x10) == 0 )
-            v18 &= qword_140E2D748;
+          if ( qword_140E2D8C0 && (v18 & 0x10) == 0 )
+            v18 &= qword_140E2D8C8;
           v21 = HIDWORD(v18);
         }
         else
@@ -181,12 +181,12 @@ LABEL_10:
             LODWORD(v21) = v21 + 1;
             if ( v25 )
             {
-              if ( qword_140E2D740 )
+              if ( qword_140E2D8C0 )
               {
                 if ( (v25 & 0x10) != 0 )
                   LODWORD(v25) = v25 & 0xFFFFFFEF;
                 else
-                  LODWORD(v25) = qword_140E2D748 & v25;
+                  LODWORD(v25) = qword_140E2D8C8 & v25;
               }
               v26 = v25;
             }
@@ -195,12 +195,12 @@ LABEL_10:
               v26 = 0;
             }
             v25 = v26 | ((unsigned __int64)(unsigned int)v21 << 32);
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
-              if ( (qword_140E2D740 & v25) != 0 )
+              if ( (qword_140E2D8C0 & v25) != 0 )
                 v25 |= 0x10uLL;
               else
-                v25 |= qword_140E2D740;
+                v25 |= qword_140E2D8C0;
             }
             v27 = *(_QWORD *)v19;
             if ( v19 >= 0xFFFFF6FB7DBED000uLL
@@ -287,8 +287,8 @@ LABEL_38:
           v15 = v34;
         if ( (v30 & 8) != 0 )
         {
-          if ( qword_140E2D740 && (v30 & 0x10) == 0 )
-            v30 &= qword_140E2D748;
+          if ( qword_140E2D8C0 && (v30 & 0x10) == 0 )
+            v30 &= qword_140E2D8C8;
           v35 = HIDWORD(v30);
         }
         else
@@ -333,12 +333,12 @@ LABEL_38:
             LODWORD(v35) = v35 - 1;
             if ( v37 )
             {
-              if ( qword_140E2D740 )
+              if ( qword_140E2D8C0 )
               {
                 if ( (v37 & 0x10) != 0 )
                   LODWORD(v37) = v37 & 0xFFFFFFEF;
                 else
-                  LODWORD(v37) = qword_140E2D748 & v37;
+                  LODWORD(v37) = qword_140E2D8C8 & v37;
               }
               v38 = v37;
             }
@@ -347,12 +347,12 @@ LABEL_38:
               v38 = 0;
             }
             v37 = v38 | ((unsigned __int64)(unsigned int)v35 << 32);
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
-              if ( (qword_140E2D740 & v37) != 0 )
+              if ( (qword_140E2D8C0 & v37) != 0 )
                 v37 |= 0x10uLL;
               else
-                v37 |= qword_140E2D740;
+                v37 |= qword_140E2D8C0;
             }
             PteShadow = *v33;
             if ( (unsigned __int64)v33 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v33 <= 0xFFFFF6FB7DBED7F8uLL )
@@ -405,23 +405,23 @@ LABEL_59:
         v41 = *(_QWORD *)(a1 + 8);
         v42 = v4 - v31;
         v43 = HIDWORD(v41);
-        if ( qword_140E2D740 && (v41 & 0x10) == 0 )
-          v43 = HIDWORD(qword_140E2D748) & HIDWORD(v41);
+        if ( qword_140E2D8C0 && (v41 & 0x10) == 0 )
+          v43 = HIDWORD(qword_140E2D8C8) & HIDWORD(v41);
         v44 = (unsigned int)(v43 - v42);
-        if ( v41 && qword_140E2D740 )
+        if ( v41 && qword_140E2D8C0 )
         {
           if ( (v41 & 0x10) != 0 )
             LODWORD(v41) = v41 & 0xFFFFFFEF;
           else
-            LODWORD(v41) = qword_140E2D748 & v41;
+            LODWORD(v41) = qword_140E2D8C8 & v41;
         }
         v45 = (unsigned int)v41 | (unsigned __int64)(v44 << 32);
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          if ( (qword_140E2D740 & v45) != 0 )
+          if ( (qword_140E2D8C0 & v45) != 0 )
             v45 |= 0x10uLL;
           else
-            v45 |= qword_140E2D740;
+            v45 |= qword_140E2D8C0;
         }
         *(_DWORD *)(a1 + 80) += v42;
         *(_QWORD *)(a1 + 40) = v45;
@@ -438,7 +438,7 @@ LABEL_59:
         v12 = (_QWORD *)v10;
         while ( v11 <= 1 )
         {
-          for ( i = 0; i < dword_140E2D78C; ++i )
+          for ( i = 0; i < dword_140E2D90C; ++i )
           {
             v8 += *(unsigned __int16 *)(*v12 + 16LL * i);
             if ( v8 >= 0x64 )

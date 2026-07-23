@@ -11,7 +11,7 @@
  *     RtlCSparseBitmapBitmaskRead @ 0x180063E58 (RtlCSparseBitmapBitmaskRead.c)
  *     RtlpHpLargeAllocSize @ 0x180087F7C (RtlpHpLargeAllocSize.c)
  *     RtlCompareMemory @ 0x1800A5A20 (RtlCompareMemory.c)
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x1801236BC (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18012368C (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, unsigned int 
   }
   else
   {
-    v31 = RtlCSparseBitmapBitmaskRead(&unk_180188A90, 2 * ((a2 - qword_180188A88) >> 20));
+    v31 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_180188A88) >> 20));
     if ( !v31 || (v10 = v31 - 1, v10 == 2) )
     {
       v29 = RtlpHpLargeAllocSize(a1, a2, v9, 0LL);

@@ -6,11 +6,11 @@
  *     RtlFreeHeap @ 0x1800244A0 (RtlFreeHeap.c)
  */
 
-__int64 CsrFreeCaptureBuffer()
+LOGICAL __fastcall CsrFreeCaptureBuffer(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   if ( !byte_18015B26C )
-    return RtlFreeHeap(qword_18015BA90, 0LL);
+    return RtlFreeHeap(qword_18015BA90, 0, BaseAddress);
   return result;
 }

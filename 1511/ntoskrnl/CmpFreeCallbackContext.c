@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall CmpFreeCallbackContext(struct _SLIST_ENTRY *a1)
+void __fastcall CmpFreeCallbackContext(_SLIST_ENTRY *a1)
 {
   unsigned int v1; // edx
 

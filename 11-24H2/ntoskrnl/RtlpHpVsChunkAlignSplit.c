@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVsChunkAlignSplit @ 0x1402C06F0
+ * XREFs of RtlpHpVsChunkAlignSplit @ 0x140368020
  * Callers:
- *     RtlpHpVsSlotAllocate @ 0x1402C00DC (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpVsSlotAllocate @ 0x140367A10 (RtlpHpVsSlotAllocate.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetNewSessionId @ 0x1407A999C
+ * XREFs of MiGetNewSessionId @ 0x1407A9B8C
  * Callers:
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -26,8 +26,8 @@ __int64 MiGetNewSessionId()
   char v6; // al
   bool v7; // zf
   unsigned int v9; // ebp
-  RTL_BITMAP *Pool; // rax
-  RTL_BITMAP *v11; // r14
+  _RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *v11; // r14
   unsigned __int64 SizeOfBitMap; // rcx
 
   CurrentThread = KeGetCurrentThread();
@@ -46,7 +46,7 @@ __int64 MiGetNewSessionId()
     v9 = qword_140C69910->SizeOfBitMap + 128;
     if ( v9 > 0x7FFFF )
       v9 = 0x7FFFF;
-    Pool = (RTL_BITMAP *)MiAllocatePool(256, 8 * ((v9 >> 6) + ((v9 & 0x3F) != 0) + 2), 0x20206D4Du);
+    Pool = (_RTL_BITMAP *)MiAllocatePool(256, 8 * ((v9 >> 6) + ((v9 & 0x3F) != 0) + 2), 0x20206D4Du);
     v11 = Pool;
     if ( Pool )
     {

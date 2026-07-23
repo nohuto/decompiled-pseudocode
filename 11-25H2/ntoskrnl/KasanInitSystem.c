@@ -24,9 +24,9 @@ void __fastcall KasanInitSystem(__int64 a1, int a2)
 {
   int v3; // edx
   KIRQL v5; // al
-  __int64 v6; // rbx
+  unsigned __int64 Root; // rbx
   KIRQL v7; // di
-  __int64 v8; // rcx
+  unsigned __int64 v8; // rcx
   unsigned __int64 v9; // rax
   char v10; // dl
   ULONG_PTR Pool2; // rax
@@ -103,28 +103,28 @@ void __fastcall KasanInitSystem(__int64 a1, int a2)
         EtwWriteEx(qword_140E07020, &EventDescriptor, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       }
       v5 = KeAcquireSpinLockRaiseToDpc(&KasanDriverUnloadInfosLock);
-      v6 = KasanDriverUnloadInfos;
+      Root = (unsigned __int64)KasanDriverUnloadInfos.Root;
       v7 = v5;
-      if ( KasanDriverUnloadInfos )
+      if ( KasanDriverUnloadInfos.Root )
       {
         while ( 1 )
         {
-          KasaniSendTelemetryDriver(*(_QWORD *)(v6 + 24));
-          v8 = *(_QWORD *)v6;
-          if ( !*(_QWORD *)v6 )
+          KasaniSendTelemetryDriver(*(_QWORD *)(Root + 24));
+          v8 = *(_QWORD *)Root;
+          if ( !*(_QWORD *)Root )
           {
-            v8 = *(_QWORD *)(v6 + 8);
+            v8 = *(_QWORD *)(Root + 8);
             if ( !v8 )
               break;
           }
-          if ( (qword_140E65FF8 & 1) != 0 )
-            v6 ^= v8;
+          if ( (*(_BYTE *)&KasanDriverUnloadInfos.0 & 1) != 0 )
+            Root ^= v8;
           else
 LABEL_30:
-            v6 = v8;
+            Root = v8;
         }
-        v9 = v6;
-        v10 = qword_140E65FF8 & 1;
+        v9 = Root;
+        v10 = *(_BYTE *)&KasanDriverUnloadInfos.0 & 1;
         while ( 1 )
         {
           v9 = *(_QWORD *)(v9 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
@@ -132,7 +132,7 @@ LABEL_30:
           {
             if ( !v9 )
               break;
-            v9 ^= v6;
+            v9 ^= Root;
           }
           if ( !v9 )
             break;
@@ -143,10 +143,10 @@ LABEL_30:
               goto LABEL_29;
             v8 ^= v9;
           }
-          if ( v8 && v8 != v6 )
+          if ( v8 && v8 != Root )
             goto LABEL_30;
 LABEL_29:
-          v6 = v9;
+          Root = v9;
         }
       }
       byte_140FCDC6B = 1;

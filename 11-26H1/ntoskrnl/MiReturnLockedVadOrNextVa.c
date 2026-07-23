@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReturnLockedVadOrNextVa @ 0x14044E7E0
+ * XREFs of MiReturnLockedVadOrNextVa @ 0x140446910
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiLockVadShared @ 0x14027E8D0 (MiLockVadShared.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiWaitForVadDeletion @ 0x140531014 (MiWaitForVadDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiLockVadShared @ 0x14027DE40 (MiLockVadShared.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiWaitForVadDeletion @ 0x140533514 (MiWaitForVadDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReturnLockedVadOrNextVa(unsigned __int64 a1, _QWORD *a2, __int64 *a3)
@@ -65,7 +65,7 @@ LABEL_2:
   {
     MiUnlockVadTree(0, v8);
     v23 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v23 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v23 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v35, v34);
     *a2 = 0LL;
     return 3221225738LL;
@@ -86,7 +86,7 @@ LABEL_2:
               + 1;
           if ( (_BYTE)v10 == 17 )
           {
-            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             {
               _InterlockedAnd(v16, 0xBFFFFFFF);
               _InterlockedDecrement(v16);
@@ -98,7 +98,7 @@ LABEL_2:
           }
           else
           {
-            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             {
               _InterlockedAnd(v16, 0xBFFFFFFF);
               _InterlockedDecrement(v16);
@@ -120,7 +120,7 @@ LABEL_2:
             KeAbPostRelease((unsigned __int64)(v11 + 5));
             v23 = CurrentThread->SpecialApcDisable++ == -1;
             if ( v23
-              && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+              && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
             {
               KiCheckForKernelApcDelivery(v20, v19);
             }
@@ -141,7 +141,7 @@ LABEL_2:
             }
             v23 = CurrentThread->SpecialApcDisable++ == -1;
             if ( v23
-              && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+              && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
             {
               KiCheckForKernelApcDelivery(v27, v26);
             }
@@ -149,7 +149,7 @@ LABEL_2:
           }
           v23 = CurrentThread->SpecialApcDisable++ == -1;
           if ( v23
-            && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
             KiCheckForKernelApcDelivery(v18, v17);
           }
@@ -205,7 +205,7 @@ LABEL_8:
 LABEL_53:
   MiUnlockVadTree(0, v10);
   v23 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v23 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v23 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v33, v32);
   result = 0LL;
   *a3 = v15;

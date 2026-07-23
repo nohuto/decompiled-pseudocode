@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryCurrentWaitInformationThread @ 0x1405F6330
+ * XREFs of KeQueryCurrentWaitInformationThread @ 0x1405F8CF0
  * Callers:
  *     <none>
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 __int64 __fastcall KeQueryCurrentWaitInformationThread(__int64 a1, _BYTE *a2, _DWORD *a3, _QWORD *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall KeQueryCurrentWaitInformationThread(__int64 a1, _BYTE *a2, _D
     if ( a3 )
       *a3 = v11;
     if ( a4 )
-      *a4 = (unsigned int)(KeMaximumIncrement * v12);
+      *a4 = KeMaximumIncrement * v12;
     return 1;
   }
   else

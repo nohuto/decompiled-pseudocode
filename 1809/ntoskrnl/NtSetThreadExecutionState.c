@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetThreadExecutionState @ 0x1405872F0
+ * XREFs of NtSetThreadExecutionState @ 0x1405882F0
  * Callers:
  *     <none>
  * Callees:
@@ -9,13 +9,13 @@
  *     PoCaptureReasonContext @ 0x1400020AC (PoCaptureReasonContext.c)
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     PopSystemRequiredSet @ 0x1401786EC (PopSystemRequiredSet.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopCreateUserPowerRequest @ 0x140588C2C (PopCreateUserPowerRequest.c)
- *     PoEnergyContextUpdateComponentPower @ 0x140603FCC (PoEnergyContextUpdateComponentPower.c)
- *     PopNotifyConsoleUserPresent @ 0x1406DBBC4 (PopNotifyConsoleUserPresent.c)
- *     PopDiagTraceSetThreadExecutionState @ 0x1406DBD5C (PopDiagTraceSetThreadExecutionState.c)
+ *     PopSystemRequiredSet @ 0x1401787EC (PopSystemRequiredSet.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopCreateUserPowerRequest @ 0x140589C2C (PopCreateUserPowerRequest.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x140604FCC (PoEnergyContextUpdateComponentPower.c)
+ *     PopNotifyConsoleUserPresent @ 0x1406DCE64 (PopNotifyConsoleUserPresent.c)
+ *     PopDiagTraceSetThreadExecutionState @ 0x1406DCFFC (PopDiagTraceSetThreadExecutionState.c)
  */
 
 NTSTATUS __stdcall NtSetThreadExecutionState(EXECUTION_STATE esFlags, EXECUTION_STATE *PreviousFlags)

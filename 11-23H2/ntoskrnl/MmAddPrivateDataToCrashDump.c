@@ -1,14 +1,14 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x14062FFF0
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x140630540
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C86C (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopLiveDumpAddPfnDatabase @ 0x140A9A110 (IopLiveDumpAddPfnDatabase.c)
- *     IopLiveDumpAddSessionSpaceStructure @ 0x140A9A1C0 (IopLiveDumpAddSessionSpaceStructure.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BDA4 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF2C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPfnDatabase @ 0x140A99F80 (IopLiveDumpAddPfnDatabase.c)
+ *     IopLiveDumpAddSessionSpaceStructure @ 0x140A9A030 (IopLiveDumpAddSessionSpaceStructure.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BC14 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MiAddPartitionDataToCrashDump @ 0x14062F400 (MiAddPartitionDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MiAddPartitionDataToCrashDump @ 0x14062F950 (MiAddPartitionDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, _QWORD, __int64), char a2)
@@ -46,13 +46,13 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 4) != 0 )
   {
-    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - PsNtosImageBase);
+    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - (_QWORD)PsNtosImageBase);
     if ( v9 < 0 )
       v2 = v9;
   }
   if ( (a2 & 8) != 0 )
   {
-    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - PsHalImageBase);
+    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase);
     if ( v10 < 0 )
       v2 = v10;
   }

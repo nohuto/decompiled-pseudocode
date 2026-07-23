@@ -1,10 +1,10 @@
 /*
- * XREFs of MmDeterminePoolType @ 0x1402D2AAC
+ * XREFs of MmDeterminePoolType @ 0x14025102C
  * Callers:
- *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E6620 (VerifierMmBuildMdlForNonPagedPool.c)
- *     ExFreePoolSanityChecks @ 0x1409ECF50 (ExFreePoolSanityChecks.c)
+ *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E7620 (VerifierMmBuildMdlForNonPagedPool.c)
+ *     ExFreePoolSanityChecks @ 0x1409EDF50 (ExFreePoolSanityChecks.c)
  * Callees:
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
  */
 
 __int64 MmDeterminePoolType()

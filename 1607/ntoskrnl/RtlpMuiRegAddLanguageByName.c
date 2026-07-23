@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegAddLanguageByName @ 0x140560B80
+ * XREFs of RtlpMuiRegAddLanguageByName @ 0x1405610C0
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x140560888 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x140560DC8 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     RtlpMuiRegAddAlternateCodePage @ 0x140140150 (RtlpMuiRegAddAlternateCodePage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpIsALicensedRegularLanguage @ 0x140560FEC (RtlpIsALicensedRegularLanguage.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x1405614BC (_RtlpMuiRegInitAnyLanguage.c)
- *     RtlpMuiRegGetOrAddLangInfo @ 0x14057C950 (RtlpMuiRegGetOrAddLangInfo.c)
- *     RtlpIsALicensedLIPLanguage @ 0x1406E6500 (RtlpIsALicensedLIPLanguage.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x1406E79F0 (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegInitPartialLanguage @ 0x1406E7C34 (_RtlpMuiRegInitPartialLanguage.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1401406C0 (RtlpMuiRegAddAlternateCodePage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpIsALicensedRegularLanguage @ 0x14056152C (RtlpIsALicensedRegularLanguage.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x1405619FC (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14057CDFC (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpIsALicensedLIPLanguage @ 0x1406E6638 (RtlpIsALicensedLIPLanguage.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x1406E7B28 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegInitPartialLanguage @ 0x1406E7D6C (_RtlpMuiRegInitPartialLanguage.c)
  */
 
 __int64 __fastcall RtlpMuiRegAddLanguageByName(__int64 a1, void *a2, __int64 a3, __int64 a4, int a5, __int64 a6)

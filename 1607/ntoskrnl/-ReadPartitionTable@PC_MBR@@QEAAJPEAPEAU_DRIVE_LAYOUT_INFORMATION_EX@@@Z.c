@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ReadPartitionTable@PC_MBR@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x1401476F8
+ * XREFs of ?ReadPartitionTable@PC_MBR@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x140147C68
  * Callers:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
- *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BC98 (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
+ *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BB7C (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14014757C (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x1401479F0 (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
- *     ?CheckSum@MBR@@QEAAKXZ @ 0x140147A30 (-CheckSum@MBR@@QEAAKXZ.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ?IsRecognized@MBR_ENTRY@@QEAAEXZ @ 0x14023BC7C (-IsRecognized@MBR_ENTRY@@QEAAEXZ.c)
- *     PspQueueApcSpecialApc @ 0x1403E5244 (PspQueueApcSpecialApc.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x140147AEC (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x140147F60 (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
+ *     ?CheckSum@MBR@@QEAAKXZ @ 0x140147FA0 (-CheckSum@MBR@@QEAAKXZ.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ?IsRecognized@MBR_ENTRY@@QEAAEXZ @ 0x14023BB60 (-IsRecognized@MBR_ENTRY@@QEAAEXZ.c)
+ *     PspQueueApcSpecialApc @ 0x1403E6870 (PspQueueApcSpecialApc.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
  */
 
 __int64 __fastcall PC_MBR::ReadPartitionTable(PC_DISK **this, struct _DRIVE_LAYOUT_INFORMATION_EX **a2)
@@ -59,7 +59,7 @@ __int64 __fastcall PC_MBR::ReadPartitionTable(PC_DISK **this, struct _DRIVE_LAYO
   memset(Pool, 0, 0x270uLL);
   v8->PartitionStyle = 0;
   v8->Mbr.Signature = *(_DWORD *)(v3 + 440);
-  *(_DWORD *)&v8->Gpt.DiskId.Data2 = MBR::CheckSum((MBR *)v3);
+  v8->Mbr.CheckSum = MBR::CheckSum((MBR *)v3);
   if ( *(_WORD *)(v3 + 510) != 0xAA55 )
     goto LABEL_22;
   v10 = v3 + 450;
@@ -100,7 +100,7 @@ LABEL_10:
       v8->PartitionEntry[v13].Mbr.RecognizedPartition = MBR_ENTRY::IsRecognized((MBR_ENTRY *)(v11 - 4));
       ++v5;
       v8->PartitionEntry[v13].Mbr.HiddenSectors = *(_DWORD *)(v11 + 4);
-      *(_DWORD *)v8->PartitionEntry[v13].Gpt.PartitionType.Data4 = v8->Mbr.Signature;
+      v8->PartitionEntry[v13].Mbr.PartitionId.Data1 = v8->Mbr.Signature;
       *(_QWORD *)&v8->PartitionEntry[v13].Gpt.PartitionId.Data1 = v8->PartitionEntry[v13].StartingOffset.QuadPart;
       *(_DWORD *)&v8->PartitionEntry[v13].Gpt.PartitionType.Data4[4] = v18;
       v15 = v28;

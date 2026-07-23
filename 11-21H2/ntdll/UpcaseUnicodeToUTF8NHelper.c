@@ -9,7 +9,12 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __int64 a4, unsigned int a5)
+__int64 __fastcall UpcaseUnicodeToUTF8NHelper(
+        PCHAR UTF8StringDestination,
+        ULONG UTF8StringMaxByteCount,
+        _DWORD *a3,
+        __int64 a4,
+        unsigned int a5)
 {
   unsigned int v5; // ebp
   unsigned int v6; // esi
@@ -18,14 +23,14 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
   unsigned int v12; // ebx
   __int64 v13; // r15
   __int64 v14; // r10
-  unsigned int *v15; // r9
+  WCHAR *v15; // r9
   unsigned __int16 v16; // ax
   unsigned __int16 *v17; // r9
   __int64 v18; // r11
-  unsigned int v20; // [rsp+30h] [rbp-F8h] BYREF
+  ULONG UTF8StringActualByteCount; // [rsp+30h] [rbp-F8h] BYREF
   __int64 v21; // [rsp+38h] [rbp-F0h]
   _DWORD *v22; // [rsp+40h] [rbp-E8h]
-  unsigned int v23[32]; // [rsp+50h] [rbp-D8h] BYREF
+  WCHAR UnicodeStringSource[64]; // [rsp+50h] [rbp-D8h] BYREF
 
   v5 = 0;
   v6 = a5;
@@ -35,7 +40,7 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
   v9 = a3;
   while ( v6 )
   {
-    if ( !a2 )
+    if ( !UTF8StringMaxByteCount )
       break;
     if ( v6 >= 0x40 )
     {
@@ -50,26 +55,31 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
         goto LABEL_12;
     }
     v13 = v21;
-    v14 = a4 - (_QWORD)v23;
-    v15 = v23;
+    v14 = a4 - (_QWORD)UnicodeStringSource;
+    v15 = UnicodeStringSource;
     do
     {
-      v16 = NLS_UPCASE(v13, *(_WORD *)((char *)v15 + v14));
+      v16 = NLS_UPCASE(v13, *(WCHAR *)((char *)v15 + v14));
       *v17 = v16;
-      v15 = (unsigned int *)(v17 + 1);
+      v15 = v17 + 1;
     }
     while ( v18 != 1 );
     v9 = v22;
 LABEL_12:
-    if ( (int)RtlUnicodeToUTF8N(a1, a2, &v20, v23, 2 * v12) < 0 )
+    if ( RtlUnicodeToUTF8N(
+           UTF8StringDestination,
+           UTF8StringMaxByteCount,
+           &UTF8StringActualByteCount,
+           UnicodeStringSource,
+           2 * v12) < 0 )
     {
-      v7 += v20;
+      v7 += UTF8StringActualByteCount;
       v5 = -2147483643;
       break;
     }
-    a1 += v20;
-    a2 -= v20;
-    v7 += v20;
+    UTF8StringDestination += UTF8StringActualByteCount;
+    UTF8StringMaxByteCount -= UTF8StringActualByteCount;
+    v7 += UTF8StringActualByteCount;
     a4 += 2LL * v12;
     v6 -= v12;
   }

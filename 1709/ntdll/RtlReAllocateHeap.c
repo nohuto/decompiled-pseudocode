@@ -18,13 +18,13 @@
  *     RtlpLogHeapFailure @ 0x18009FBBC (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlReAllocateHeap(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+PVOID __cdecl RtlReAllocateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, SIZE_T Size)
 {
-  if ( !a1 )
-    RtlpLogHeapFailure(18, 0, a3, 0, 0LL, 0LL);
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return RtlpHpReAllocWithExceptionProtection(a1, a2, a3, a4);
+  if ( !HeapHandle )
+    RtlpLogHeapFailure(18, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return (PVOID)RtlpHpReAllocWithExceptionProtection(HeapHandle, Flags, BaseAddress, Size);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpTagReAllocateHeap(a1, a3, a4, a2);
-  return RtlpReAllocateHeapInternal(a1, a2, a3, a4, 0LL, 0LL);
+    return (PVOID)RtlpHpTagReAllocateHeap(HeapHandle, BaseAddress, Size, Flags);
+  return (PVOID)RtlpReAllocateHeapInternal((int)HeapHandle, 0LL, 0LL);
 }

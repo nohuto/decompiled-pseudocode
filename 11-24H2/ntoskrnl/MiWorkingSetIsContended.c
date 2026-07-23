@@ -1,31 +1,31 @@
 /*
- * XREFs of MiWorkingSetIsContended @ 0x1403D01B0
+ * XREFs of MiWorkingSetIsContended @ 0x1403915E0
  * Callers:
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     MiSoftFaultMappedView @ 0x1402E7B9C (MiSoftFaultMappedView.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiQueryAddressSpan @ 0x1403CE718 (MiQueryAddressSpan.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403CEF18 (MiInsertViewOfPhysicalSection.c)
- *     MiGetPageChainYield @ 0x1403CF100 (MiGetPageChainYield.c)
- *     MiFastTrimWorkingSet @ 0x1403CF450 (MiFastTrimWorkingSet.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1403CFA04 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiDecommitHardwareEnclavePages @ 0x1403D172C (MiDecommitHardwareEnclavePages.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiCommitEnclavePages @ 0x140473ACC (MiCommitEnclavePages.c)
- *     MiAddPagesToEnclave @ 0x140473CEC (MiAddPagesToEnclave.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1404C119C (MiUpdatePrivateDemandZeroView.c)
- *     MiProtectEnclavePages @ 0x1404CACEC (MiProtectEnclavePages.c)
- *     MiVadRangeIsIoSpace @ 0x1404CB498 (MiVadRangeIsIoSpace.c)
- *     MiMoveDirtyBitsToPfns @ 0x1404F32E4 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1404F3710 (NtGetWriteWatch.c)
- *     MiSetGraphicsPtes @ 0x140672698 (MiSetGraphicsPtes.c)
- *     MiQueryVaPhysicalContiguity @ 0x140680DC0 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14068CDFC (MiMakeVaRangePhysicallyContiguous.c)
- *     MiScrubLargeMappedPage @ 0x14068D548 (MiScrubLargeMappedPage.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiSoftFaultMappedView @ 0x1403491DC (MiSoftFaultMappedView.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiGetPageChainYield @ 0x14038F588 (MiGetPageChainYield.c)
+ *     MiFastTrimWorkingSet @ 0x140390500 (MiFastTrimWorkingSet.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140390E28 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C8524 (MiInsertViewOfPhysicalSection.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiQueryAddressSpan @ 0x14044AF24 (MiQueryAddressSpan.c)
+ *     MiDecommitHardwareEnclavePages @ 0x14046CF84 (MiDecommitHardwareEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x14046D738 (MiCommitEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14046D958 (MiAddPagesToEnclave.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1404BC78C (MiUpdatePrivateDemandZeroView.c)
+ *     MiProtectEnclavePages @ 0x1404C420C (MiProtectEnclavePages.c)
+ *     MiVadRangeIsIoSpace @ 0x1404C49B8 (MiVadRangeIsIoSpace.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1404F0C98 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x1404F10C0 (NtGetWriteWatch.c)
+ *     MiSetGraphicsPtes @ 0x140673868 (MiSetGraphicsPtes.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140681F6C (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14068DF2C (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiScrubLargeMappedPage @ 0x14068E678 (MiScrubLargeMappedPage.c)
  * Callees:
  *     <none>
  */
@@ -40,7 +40,7 @@ __int64 __fastcall MiWorkingSetIsContended(__int64 a1, int a2)
   if ( (*(_DWORD *)(a1 + 184) & 0xFu) <= 5 )
   {
     if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-      v2 = (__int64 *)&unk_140E38740;
+      v2 = (__int64 *)&unk_140E38880;
     else
       v2 = (__int64 *)(a1 + 192);
     v3 = *v2;

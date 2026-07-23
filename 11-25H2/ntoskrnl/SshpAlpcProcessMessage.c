@@ -9,16 +9,16 @@
  *     SshpSessionManagerOpenControlTrace @ 0x140757A40 (SshpSessionManagerOpenControlTrace.c)
  */
 
-__int64 __fastcall SshpAlpcProcessMessage(__int64 a1, __int64 a2)
+__int64 __fastcall SshpAlpcProcessMessage(PPORT_MESSAGE SendMessageA, __int64 a2)
 {
   unsigned int v3; // ebx
-  int v4; // ecx
+  unsigned int Length; // ecx
   unsigned __int8 v6; // [rsp+50h] [rbp+8h]
   unsigned __int8 v7; // [rsp+50h] [rbp+8h]
 
   v3 = 0;
-  v4 = *(_DWORD *)(a1 + 40);
-  if ( !v4 )
+  Length = SendMessageA[1].u1.Length;
+  if ( !Length )
   {
     if ( (Feature_SleepStudySlimControlEtl__private_featureState & 0x10) == 0 )
     {
@@ -34,7 +34,7 @@ __int64 __fastcall SshpAlpcProcessMessage(__int64 a1, __int64 a2)
     }
     return (unsigned int)-1073741637;
   }
-  if ( v4 != 1 )
+  if ( Length != 1 )
     return (unsigned int)-1073741637;
   if ( (Feature_SleepStudySlimControlEtl__private_featureState & 0x10) == 0 )
   {
@@ -48,7 +48,9 @@ __int64 __fastcall SshpAlpcProcessMessage(__int64 a1, __int64 a2)
       3,
       (__int64)&Feature_SleepStudySlimControlEtl__private_descriptor);
   }
-  *(_DWORD *)(a1 + 48) = SshpSessionManagerOpenControlTrace(*(_QWORD *)(a1 + 48), a2);
-  ZwAlpcSendWaitReceivePort((__int64)qword_140F05790, 0x10000LL);
+  LODWORD(SendMessageA[1].DoNotUseThisField) = SshpSessionManagerOpenControlTrace(
+                                                 (__int64)SendMessageA[1].ClientId.UniqueProcess,
+                                                 a2);
+  ZwAlpcSendWaitReceivePort(PortHandle, 0x10000u, SendMessageA, 0LL, 0LL, 0LL, 0LL, 0LL);
   return v3;
 }

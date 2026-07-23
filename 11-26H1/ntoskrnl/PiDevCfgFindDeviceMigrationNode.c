@@ -1,49 +1,49 @@
 /*
- * XREFs of PiDevCfgFindDeviceMigrationNode @ 0x140A71014
+ * XREFs of PiDevCfgFindDeviceMigrationNode @ 0x140A46B84
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PiDevCfgGetMigrationDeviceIdScore @ 0x1404DE090 (PiDevCfgGetMigrationDeviceIdScore.c)
- *     PnpMultiSzContainsString @ 0x1404FAAEC (PnpMultiSzContainsString.c)
- *     PnpValidateRegistryDword @ 0x1404FCFB8 (PnpValidateRegistryDword.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtQueryKey @ 0x1408F4C30 (NtQueryKey.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     PiDevCfgClearDeviceMigrationNode @ 0x14098BEFC (PiDevCfgClearDeviceMigrationNode.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     _CmIsRootEnumeratedDevice @ 0x1409DC040 (_CmIsRootEnumeratedDevice.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x140A70B50 (PiDevCfgQueryDeviceMigrationNode.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x140A70F80 (PiDevCfgFreeDeviceMigrationNode.c)
- *     PiDevCfgGetDriverPackageId @ 0x140AD296C (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgQueryObjectProperties @ 0x140AD2A4C (PiDevCfgQueryObjectProperties.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PiDevCfgGetMigrationDeviceIdScore @ 0x1404D7770 (PiDevCfgGetMigrationDeviceIdScore.c)
+ *     PnpMultiSzContainsString @ 0x1404F40FC (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryDword @ 0x1404F64F8 (PnpValidateRegistryDword.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtQueryKey @ 0x140924BC0 (NtQueryKey.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x140A1510C (PiDevCfgFreeDeviceMigrationNode.c)
+ *     _CmIsRootEnumeratedDevice @ 0x140A19290 (_CmIsRootEnumeratedDevice.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x140A4661C (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x140A47478 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     PiDevCfgGetDriverPackageId @ 0x140AE9CA0 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgQueryObjectProperties @ 0x140AE9D80 (PiDevCfgQueryObjectProperties.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void *a3, int a4, PVOID **a5)
+__int64 __fastcall PiDevCfgFindDeviceMigrationNode(__int64 *a1, __int64 a2, void *a3, int a4, PVOID **a5)
 {
   ULONG v5; // r14d
   int v6; // esi
   __int64 v7; // r12
-  _QWORD *v8; // r13
+  __int64 *v8; // r13
   PVOID *v9; // r15
-  int v10; // ebx
-  ULONG Length; // edi
+  NTSTATUS v10; // ebx
+  ULONG v11; // edi
   WCHAR *v12; // rbx
   const UNICODE_STRING *v13; // rcx
   NTSTATUS v14; // eax
   __int16 v15; // dx
   const WCHAR *v16; // rdi
   int v17; // eax
-  __int64 v18; // rdi
-  _QWORD *v19; // rax
+  wchar_t **v18; // rdi
+  PVOID *v19; // rax
   __int64 v20; // r9
   __int64 v21; // rdx
   int v22; // ecx
@@ -75,7 +75,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void 
   __int64 v49; // r9
   __int64 v50; // rdx
   int v51; // ecx
-  _QWORD *v52; // r13
+  __int64 *v52; // r13
   __int64 v53; // rax
   __int64 v54; // rcx
   int v55; // ecx
@@ -100,7 +100,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void 
   PVOID v74[2]; // [rsp+90h] [rbp-70h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v76; // [rsp+B0h] [rbp-50h]
-  _QWORD *v77; // [rsp+B8h] [rbp-48h]
+  __int64 *v77; // [rsp+B8h] [rbp-48h]
   PVOID v78[2]; // [rsp+C0h] [rbp-40h] BYREF
   PCWCH String2; // [rsp+D0h] [rbp-30h]
   UNICODE_STRING ValueName; // [rsp+D8h] [rbp-28h] BYREF
@@ -118,7 +118,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void 
   HANDLE KeyHandle; // [rsp+140h] [rbp+40h]
   PVOID **v93; // [rsp+148h] [rbp+48h]
   GUID Guid; // [rsp+150h] [rbp+50h] BYREF
-  __int128 v95; // [rsp+160h] [rbp+60h] BYREF
+  __int128 KeyInformation; // [rsp+160h] [rbp+60h] BYREF
   __int128 v96; // [rsp+170h] [rbp+70h]
   __int64 v97; // [rsp+180h] [rbp+80h]
 
@@ -139,7 +139,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void 
   v68 = 0;
   v9 = 0LL;
   v67 = 0;
-  v95 = 0LL;
+  KeyInformation = 0LL;
   P[0] = 0LL;
   v96 = 0LL;
   P[1] = 0LL;
@@ -155,13 +155,13 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void 
   ValueName = 0LL;
   Data = 0;
   ResultLength = 0;
-  v10 = NtQueryKey(a3, 4u, (unsigned __int64)&v95, 0x28u, &ResultLength);
+  v10 = NtQueryKey(a3, KeyCachedInformation, &KeyInformation, 0x28u, &ResultLength);
   if ( v10 >= 0 )
   {
     if ( !DWORD1(v96) )
       goto LABEL_23;
-    Length = HIDWORD(v96) + 2 * (DWORD2(v96) + 13);
-    v61 = Length;
+    v11 = HIDWORD(v96) + 2 * (DWORD2(v96) + 13);
+    v61 = v11;
     Pool2 = (PVOID)ExAllocatePool2(0x100uLL);
     v12 = (WCHAR *)Pool2;
     if ( Pool2 )
@@ -177,7 +177,7 @@ __int64 __fastcall PiDevCfgFindDeviceMigrationNode(_QWORD *a1, __int64 a2, void 
         {
 LABEL_5:
           v69 = v5;
-          v14 = ZwEnumerateValueKey(KeyHandle, v5, KeyValueFullInformation, v12, Length, &ResultLength);
+          v14 = ZwEnumerateValueKey(KeyHandle, v5, KeyValueFullInformation, v12, v11, &ResultLength);
           ObjectProperties = v14;
           v10 = v14;
           if ( v14 == -2147483622 )
@@ -197,37 +197,35 @@ LABEL_5:
             *((_WORD *)Pool2 + ((unsigned __int64)*((unsigned int *)Pool2 + 4) >> 1) + 10) = v15;
             if ( !CmIsRootEnumeratedDevice(v12 + 10) )
             {
-              v17 = PiDevCfgQueryDeviceMigrationNode((__int64)v8, v12 + 10, &v73);
+              v17 = PiDevCfgQueryDeviceMigrationNode(v8, v12 + 10, &v73);
               ObjectProperties = v17;
               v10 = v17;
               if ( v17 != -1073741772 )
               {
                 if ( v17 < 0 )
                   goto LABEL_19;
-                v18 = v73;
+                v18 = (wchar_t **)v73;
                 *(_DWORD *)(v73 + 180) = v6;
                 v19 = v65;
                 if ( *v65 != &v64 )
                   goto LABEL_14;
-                *(_QWORD *)(v18 + 8) = v65;
-                *(_QWORD *)v18 = &v64;
+                v18[1] = (wchar_t *)v65;
+                *v18 = (wchar_t *)&v64;
                 *v19 = v18;
                 v27 = *(const wchar_t **)(v7 + 8);
                 v65 = (PVOID *)v18;
-                v28 = wcsicmp(*(const wchar_t **)(v18 + 32), v27);
+                v28 = wcsicmp(v18[4], v27);
                 v29 = v28 == 0 ? 0x10000000 : 0;
-                if ( (*(_DWORD *)(v18 + 180) & 0x10000000) != 0 && v28 )
-                  *(_DWORD *)(v18 + 16) |= 1u;
-                v30 = (wchar_t **)(v18 + 56);
-                v31 = v76 - v18;
-                v32 = &qword_140BD8DA0;
+                if ( (*((_DWORD *)v18 + 45) & 0x10000000) != 0 && v28 )
+                  *((_DWORD *)v18 + 4) |= 1u;
+                v30 = v18 + 7;
+                v31 = v76 - (_QWORD)v18;
+                v32 = &qword_140BDFC30;
                 v33 = 2LL;
                 v34 = &v68;
                 do
                 {
-                  MigrationDeviceIdScore = PiDevCfgGetMigrationDeviceIdScore(
-                                             *v30,
-                                             *(wchar_t **)((char *)v30 + v31 - 24));
+                  MigrationDeviceIdScore = PiDevCfgGetMigrationDeviceIdScore(*v30, *(wchar_t **)((char *)v30 + v31 - 8));
                   *(_WORD *)v34 = MigrationDeviceIdScore;
                   if ( MigrationDeviceIdScore != -1 )
                     v29 |= *(_DWORD *)v32;
@@ -251,11 +249,11 @@ LABEL_129:
                 }
                 v38 = *(wchar_t **)(v36 + 144);
                 v7 = v76;
-                if ( v38 && *(_QWORD *)(v76 + 64) )
+                if ( v38 && *(_QWORD *)(v76 + 80) )
                 {
                   while ( *v38 )
                   {
-                    if ( PnpMultiSzContainsString(*(wchar_t **)(v7 + 64), v38) )
+                    if ( PnpMultiSzContainsString(*(wchar_t **)(v7 + 80), v38) )
                     {
                       v29 |= 0x200u;
                       *(_QWORD *)(v36 + 152) = v38;
@@ -468,11 +466,11 @@ LABEL_60:
             }
             v6 = v63;
 LABEL_16:
-            Length = v61;
+            v11 = v61;
             goto LABEL_17;
           }
           ExFreePoolWithTag(Pool2, 0);
-          Length = ResultLength + 2;
+          v11 = ResultLength + 2;
           v61 = ResultLength + 2;
           Pool2 = (PVOID)ExAllocatePool2(0x100uLL);
           v12 = (WCHAR *)Pool2;

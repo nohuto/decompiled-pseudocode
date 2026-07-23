@@ -1,24 +1,23 @@
 /*
- * XREFs of RtlFindLongestRunClear @ 0x1800E40D0
+ * XREFs of RtlFindLongestRunClear @ 0x1800E4190
  * Callers:
  *     <none>
  * Callees:
- *     RtlFindClearRuns @ 0x1800E3DF0 (RtlFindClearRuns.c)
+ *     RtlFindClearRuns @ 0x1800E3EB0 (RtlFindClearRuns.c)
  */
 
-__int64 __fastcall RtlFindLongestRunClear(int *a1, _DWORD *a2)
+ULONG __cdecl RtlFindLongestRunClear(PRTL_BITMAP BitMapHeader, PULONG StartingIndex)
 {
-  int v4; // [rsp+40h] [rbp+18h] BYREF
-  unsigned int v5; // [rsp+44h] [rbp+1Ch]
+  _RTL_BITMAP_RUN RunArray; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (unsigned int)RtlFindClearRuns(a1, (__int64)&v4, 1u, 1) == 1 )
+  if ( RtlFindClearRuns(BitMapHeader, &RunArray, 1u, 1u) == 1 )
   {
-    *a2 = v4;
-    return v5;
+    *StartingIndex = RunArray.StartingIndex;
+    return RunArray.NumberOfBits;
   }
   else
   {
-    *a2 = 0;
-    return 0LL;
+    *StartingIndex = 0;
+    return 0;
   }
 }

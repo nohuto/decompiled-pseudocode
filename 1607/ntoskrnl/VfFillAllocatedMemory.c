@@ -1,7 +1,7 @@
 /*
- * XREFs of VfFillAllocatedMemory @ 0x1407108F0
+ * XREFs of VfFillAllocatedMemory @ 0x140710920
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  *     VerifierMmAllocateContiguousMemory @ 0x14071B638 (VerifierMmAllocateContiguousMemory.c)
  *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x14071B6E0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
  *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x14071B7B4 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
@@ -9,7 +9,7 @@
  *     VerifierMmAllocateNonCachedMemory @ 0x14071BA60 (VerifierMmAllocateNonCachedMemory.c)
  *     VfFillAllocatePagesForMdl @ 0x14071C79C (VfFillAllocatePagesForMdl.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void *__fastcall VfFillAllocatedMemory(void *a1, size_t Size)

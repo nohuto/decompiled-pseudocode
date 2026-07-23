@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerPrepareClockInterrupt @ 0x140581770
+ * XREFs of HalpTimerPrepareClockInterrupt @ 0x140583C90
  * Callers:
- *     HalpTimerClockActivate @ 0x1405810E0 (HalpTimerClockActivate.c)
+ *     HalpTimerClockActivate @ 0x140583600 (HalpTimerClockActivate.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpTimerConfigureInterrupt @ 0x1405819FC (HalpTimerConfigureInterrupt.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpTimerConfigureInterrupt @ 0x140583F1C (HalpTimerConfigureInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerPrepareClockInterrupt(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -18,7 +18,7 @@ __int64 __fastcall HalpTimerPrepareClockInterrupt(__int64 a1, __int64 a2, __int6
   Number = KeGetPcr()->Prcb.Number;
   v5 = HalpClockTimer;
   v8 = 0LL;
-  v6 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * Number);
+  v6 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + Number);
   *((_QWORD *)&v8 + 1) = (unsigned __int16)(v6 >> 6);
   *(_QWORD *)&v8 = 1LL << v6;
   result = HalpTimerConfigureInterrupt(

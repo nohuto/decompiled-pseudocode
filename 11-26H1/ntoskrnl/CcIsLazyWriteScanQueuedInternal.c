@@ -1,8 +1,8 @@
 /*
- * XREFs of CcIsLazyWriteScanQueuedInternal @ 0x140387740
+ * XREFs of CcIsLazyWriteScanQueuedInternal @ 0x1403894F0
  * Callers:
- *     CcQueueLazyWriteScanThreadForVolume @ 0x140387470 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcQueueLazyWriteScanThread @ 0x1405B0D70 (CcQueueLazyWriteScanThread.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x140389220 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcQueueLazyWriteScanThread @ 0x1405B3580 (CcQueueLazyWriteScanThread.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapApplyThresholdChecks @ 0x1405BB6E0
+ * XREFs of WheapApplyThresholdChecks @ 0x1405BB910
  * Callers:
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
  * Callees:
  *     <none>
  */
@@ -35,8 +35,7 @@ char __fastcall WheapApplyThresholdChecks(__int64 a1)
   if ( v5 <= 1 )
     return 0;
   v7 = MEMORY[0xFFFFF78000000320];
-  if ( (_DWORD)v6
-    && (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *(_QWORD *)(a1 + 72)) / 10000000LL > v6 )
+  if ( (_DWORD)v6 && KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *(_QWORD *)(a1 + 72)) / 10000000LL > v6 )
   {
     *(_DWORD *)(a1 + 80) = 1;
     *(_QWORD *)(a1 + 72) = v7;

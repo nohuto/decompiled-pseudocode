@@ -1,18 +1,18 @@
 /*
- * XREFs of SepBuildDaclWithAllApplicationPackageSid @ 0x14069492C
+ * XREFs of SepBuildDaclWithAllApplicationPackageSid @ 0x140694A10
  * Callers:
- *     SepBuildObjectSecurityDescriptor @ 0x140694AD0 (SepBuildObjectSecurityDescriptor.c)
+ *     SepBuildObjectSecurityDescriptor @ 0x140694BB4 (SepBuildObjectSecurityDescriptor.c)
  * Callees:
- *     RtlGetAce @ 0x14000C24C (RtlGetAce.c)
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlGetAce @ 0x14000BDCC (RtlGetAce.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlQueryInformationAcl @ 0x14040700C (RtlQueryInformationAcl.c)
- *     RtlAddAce @ 0x140407348 (RtlAddAce.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x140421800 (RtlpAddKnownAce.c)
+ *     RtlQueryInformationAcl @ 0x140405ECC (RtlQueryInformationAcl.c)
+ *     RtlAddAce @ 0x140406208 (RtlAddAce.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x1404206C0 (RtlpAddKnownAce.c)
  */
 
 NTSTATUS __fastcall SepBuildDaclWithAllApplicationPackageSid(PACL Acl, char a2, ACL **a3)

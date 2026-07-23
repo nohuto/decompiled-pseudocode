@@ -5,50 +5,57 @@
  * Callees:
  *     RtlLeaveCriticalSection @ 0x180014020 (RtlLeaveCriticalSection.c)
  *     LdrpObtainLockedEnclave @ 0x1800142E8 (LdrpObtainLockedEnclave.c)
- *     ZwInitializeEnclave @ 0x1800A21D0 (ZwInitializeEnclave.c)
- *     NtTerminateEnclave @ 0x1800A39B0 (NtTerminateEnclave.c)
- *     RtlCallEnclave @ 0x1800A41B0 (RtlCallEnclave.c)
+ *     ZwInitializeEnclave @ 0x1800A21F0 (ZwInitializeEnclave.c)
+ *     NtTerminateEnclave @ 0x1800A39D0 (NtTerminateEnclave.c)
+ *     RtlCallEnclave @ 0x1800A41D0 (RtlCallEnclave.c)
  *     LdrpDereferenceEnclave @ 0x1800CF33C (LdrpDereferenceEnclave.c)
  *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800D1FFC (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
  */
 
-__int64 __fastcall LdrInitializeEnclave(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl LdrInitializeEnclave(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  int v2; // edi
-  __int64 *v3; // rax
-  __int64 *v4; // rbx
+  int v9; // edi
+  __int64 *v10; // rax
+  __int64 *v11; // rbx
+  PVOID v13; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = 0;
-  v3 = LdrpObtainLockedEnclave(a2, 1);
-  v4 = v3;
-  if ( v3 && *((_DWORD *)v3 + 15) )
+  v9 = 0;
+  v10 = LdrpObtainLockedEnclave((unsigned __int64)BaseAddress, 1);
+  v11 = v10;
+  if ( v10 && *((_DWORD *)v10 + 15) )
   {
-    if ( *((_DWORD *)v3 + 15) != 1 )
+    if ( *((_DWORD *)v10 + 15) != 1 )
     {
-      v2 = -1073741502;
+      v9 = -1073741502;
       goto LABEL_10;
     }
   }
   else
   {
-    v2 = ZwInitializeEnclave();
-    if ( v2 < 0 )
+    v9 = ZwInitializeEnclave(ProcessHandle, BaseAddress, EnclaveInformation, EnclaveInformationLength, EnclaveError);
+    if ( v9 < 0 )
       goto LABEL_10;
   }
-  if ( !v4 )
-    return (unsigned int)v2;
-  *((_DWORD *)v4 + 15) = 1;
-  v2 = RtlCallEnclave();
-  if ( v2 < 0 )
-    NtTerminateEnclave();
+  if ( !v11 )
+    return v9;
+  *((_DWORD *)v11 + 15) = 1;
+  v13 = 0LL;
+  v9 = RtlCallEnclave((LPVOID (__cdecl *)(LPVOID))v11[8], 0LL, 0, &v13);
+  if ( v9 < 0 )
+    NtTerminateEnclave((PVOID)v11[8], 0);
   else
-    *((_DWORD *)v4 + 15) = 2;
+    *((_DWORD *)v11 + 15) = 2;
 LABEL_10:
-  if ( v4 )
+  if ( v11 )
   {
-    RtlLeaveCriticalSection((__int64)(v4 + 2));
-    LdrpDereferenceEnclave(v4);
-    LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry((unsigned int)v2);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v11 + 2));
+    LdrpDereferenceEnclave(v11);
+    LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry((unsigned int)v9);
   }
-  return (unsigned int)v2;
+  return v9;
 }

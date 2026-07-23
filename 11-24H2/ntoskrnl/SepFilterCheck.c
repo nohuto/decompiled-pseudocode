@@ -1,21 +1,21 @@
 /*
- * XREFs of SepFilterCheck @ 0x14035B6A0
+ * XREFs of SepFilterCheck @ 0x1403B9AB0
  * Callers:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SepAdjustAccessStateForConstraints @ 0x1409175B0 (SepAdjustAccessStateForConstraints.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x1409AABF0 (SeAdjustAccessStateForAccessConstraints.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x1409B0CE0 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x140465250 (SepCommonAccessCheckEx.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14090B020 (SepAdjustAccessStateForConstraints.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x140994420 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x14099A7A0 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403450F0 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140360380 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403642B0 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140323B60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1403BAD50 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403BADD4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __int64 a5)
@@ -33,8 +33,8 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
   __int64 v16; // rsi
   unsigned int i; // ecx
   void *v18; // r9
-  __int64 v19; // r8
-  __int64 v20; // r11
+  void *v19; // r8
+  void *v20; // r11
   void **v21; // r14
   void ***v22; // rbx
   void **v23; // rcx
@@ -51,8 +51,8 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
   int v35; // eax
   _QWORD *v36; // rax
   void *v37; // r9
-  __int64 v38; // r8
-  __int64 v39; // r11
+  void *v38; // r8
+  void *v39; // r11
   _QWORD *v40; // rax
   int v41; // eax
   char *v42; // r11
@@ -64,8 +64,8 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
   void **v48; // [rsp+70h] [rbp-58h] BYREF
   char v49; // [rsp+D0h] [rbp+8h]
   int v50; // [rsp+D8h] [rbp+10h]
-  __int64 v51; // [rsp+D8h] [rbp+10h]
-  __int64 v52; // [rsp+D8h] [rbp+10h]
+  void *v51; // [rsp+D8h] [rbp+10h]
+  void *v52; // [rsp+D8h] [rbp+10h]
   char v54; // [rsp+E8h] [rbp+20h]
   unsigned __int16 v55; // [rsp+F0h] [rbp+28h]
 
@@ -149,9 +149,9 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
         if ( v36 )
         {
           v37 = (void *)v36[72];
-          v38 = v36[74];
-          v39 = v36[73];
-          v52 = v36[75];
+          v38 = (void *)v36[74];
+          v39 = (void *)v36[73];
+          v52 = (void *)v36[75];
         }
         else
         {
@@ -170,7 +170,7 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
                 v52,
                 (_DWORD *)(v16 + v55 + 8LL),
                 (unsigned int)*(unsigned __int16 *)(v16 + 2) - v47 - 8,
-                1,
+                1u,
                 0,
                 &v45);
         if ( v50 >= 0 )
@@ -195,9 +195,9 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
           if ( v40 )
           {
             v18 = (void *)v40[72];
-            v19 = v40[74];
-            v20 = v40[73];
-            v51 = v40[75];
+            v19 = (void *)v40[74];
+            v20 = (void *)v40[73];
+            v51 = (void *)v40[75];
           }
           else
           {
@@ -216,8 +216,8 @@ __int64 __fastcall SepFilterCheck(__int64 a1, void **a2, __int64 a3, char a4, __
                   v51,
                   (_DWORD *)(v16 + v55 + 8LL),
                   *(unsigned __int16 *)(v16 + 2) - (unsigned int)v55 - 8,
-                  1,
-                  1,
+                  1u,
+                  1u,
                   &v45);
           if ( v50 >= 0 )
           {

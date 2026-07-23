@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCommitConfiguration @ 0x14055593C
+ * XREFs of IopCommitConfiguration @ 0x140555E7C
  * Callers:
- *     PnpAllocateResources @ 0x1404C82A4 (PnpAllocateResources.c)
- *     PnpRebalance @ 0x1406303D0 (PnpRebalance.c)
- *     PnpReallocateResources @ 0x14064BC7C (PnpReallocateResources.c)
- *     PnpRestoreResourcesInternal @ 0x14064BE48 (PnpRestoreResourcesInternal.c)
+ *     PnpAllocateResources @ 0x14050B1A0 (PnpAllocateResources.c)
+ *     PnpRebalance @ 0x140630484 (PnpRebalance.c)
+ *     PnpReallocateResources @ 0x14064BD60 (PnpReallocateResources.c)
+ *     PnpRestoreResourcesInternal @ 0x14064BF2C (PnpRestoreResourcesInternal.c)
  * Callees:
  *     <none>
  */

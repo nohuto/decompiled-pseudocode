@@ -3,8 +3,8 @@
  * Callers:
  *     MiProcessWsInSwapRanges @ 0x140200438 (MiProcessWsInSwapRanges.c)
  * Callees:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 _QWORD *__fastcall MiReleaseOutSwapReservations(ULONG_PTR *a1, unsigned __int64 a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiPerformGroupConfiguration @ 0x140CCA97C
+ * XREFs of KiPerformGroupConfiguration @ 0x140CD0A5C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     strstr @ 0x140535B20 (strstr.c)
- *     HvlIsSingleGroupRequired @ 0x1405B87E4 (HvlIsSingleGroupRequired.c)
- *     KiFinalizeGroupAssignment @ 0x1405EF864 (KiFinalizeGroupAssignment.c)
- *     KiAssignAllSubNodesToGroup0 @ 0x140CCA564 (KiAssignAllSubNodesToGroup0.c)
- *     KiPerformAutomaticGroupConfiguration @ 0x140CCA5A8 (KiPerformAutomaticGroupConfiguration.c)
- *     KiPerformExplicitGroupAssignment @ 0x140CCA788 (KiPerformExplicitGroupAssignment.c)
- *     KiPopulateNodeInformation @ 0x140CCAA4C (KiPopulateNodeInformation.c)
- *     KiPopulateSubNodes @ 0x140CCADE4 (KiPopulateSubNodes.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     HvlIsSingleGroupRequired @ 0x1405BB054 (HvlIsSingleGroupRequired.c)
+ *     KiFinalizeGroupAssignment @ 0x1405F21D4 (KiFinalizeGroupAssignment.c)
+ *     KiAssignAllSubNodesToGroup0 @ 0x140CD0644 (KiAssignAllSubNodesToGroup0.c)
+ *     KiPerformAutomaticGroupConfiguration @ 0x140CD0688 (KiPerformAutomaticGroupConfiguration.c)
+ *     KiPerformExplicitGroupAssignment @ 0x140CD0868 (KiPerformExplicitGroupAssignment.c)
+ *     KiPopulateNodeInformation @ 0x140CD0B2C (KiPopulateNodeInformation.c)
+ *     KiPopulateSubNodes @ 0x140CD0EC4 (KiPopulateSubNodes.c)
  */
 
 __int64 __fastcall KiPerformGroupConfiguration(__int64 a1)

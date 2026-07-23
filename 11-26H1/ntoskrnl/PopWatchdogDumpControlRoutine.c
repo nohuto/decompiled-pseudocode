@@ -1,17 +1,17 @@
 /*
- * XREFs of PopWatchdogDumpControlRoutine @ 0x1406137A0
+ * XREFs of PopWatchdogDumpControlRoutine @ 0x140616660
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeTriageDumpDataArray @ 0x1404F12A0 (KeInitializeTriageDumpDataArray.c)
- *     KeAddTriageDumpDataBlock @ 0x1405E5DF0 (KeAddTriageDumpDataBlock.c)
- *     strcmp @ 0x14073DC40 (strcmp.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1404EA880 (KeInitializeTriageDumpDataArray.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405E8760 (KeAddTriageDumpDataBlock.c)
+ *     strcmp @ 0x140742840 (strcmp.c)
  */
 
 void __fastcall PopWatchdogDumpControlRoutine(__int64 a1, __int64 a2, __int64 a3)
 {
-  _KEVENT *v5; // rcx
-  _KEVENT *v6; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rdi
   SIZE_T v7; // r9
 
   if ( a2 )
@@ -20,34 +20,32 @@ void __fastcall PopWatchdogDumpControlRoutine(__int64 a1, __int64 a2, __int64 a3
     {
       if ( *(_BYTE *)(a2 - 24) )
       {
-        v5 = *(_KEVENT **)&PopModernStandbyStateNotify.SuspendEvent.Header.Lock;
+        v5 = PopWatchdogList;
         v6 = 0LL;
-        if ( *(struct _KTHREAD **)&PopModernStandbyStateNotify.SuspendEvent.Header.Lock != (struct _KTHREAD *)&PopModernStandbyStateNotify.SuspendEvent )
+        if ( (__int64 *)PopWatchdogList != &PopWatchdogList )
         {
           do
           {
-            if ( v5
-              && BYTE1(v5[8].Header.WaitListHead.Blink)
-              && LODWORD(v5[9].Header.WaitListHead.Flink) == *(_DWORD *)(a3 + 16) )
+            if ( v5 && *(_BYTE *)(v5 + 209) && *(_DWORD *)(v5 + 224) == *(_DWORD *)(a3 + 16) )
             {
               if ( v6 )
               {
-                if ( v5[12].Header.WaitListHead.Blink < v6[12].Header.WaitListHead.Blink )
+                if ( *(_QWORD *)(v5 + 304) < *(_QWORD *)(v6 + 304) )
                   v6 = v5;
               }
               else
               {
                 v6 = v5;
               }
-              BYTE1(v5[8].Header.WaitListHead.Blink) = 0;
+              *(_BYTE *)(v5 + 209) = 0;
             }
-            v5 = *(_KEVENT **)&v5->Header.Lock;
+            v5 = *(_QWORD *)v5;
           }
-          while ( v5 != &PopModernStandbyStateNotify.SuspendEvent );
+          while ( (__int64 *)v5 != &PopWatchdogList );
           if ( v6 )
           {
             KeInitializeTriageDumpDataArray((PKTRIAGE_DUMP_DATA_ARRAY)(a2 + 48), 0x40u);
-            KeAddTriageDumpDataBlock((PKTRIAGE_DUMP_DATA_ARRAY)(a2 + 48), (ULONG)v6, (PVOID)0x190, v7);
+            KeAddTriageDumpDataBlock((PKTRIAGE_DUMP_DATA_ARRAY)(a2 + 48), v6, (PVOID)0x190, v7);
             ++*(_DWORD *)(a2 - 20);
             *(_QWORD *)a3 = a2 + 48;
           }

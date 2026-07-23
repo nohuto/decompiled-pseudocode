@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwMakePermanentObject @ 0x1403FC580
+ * XREFs of ZwMakePermanentObject @ 0x1403FC760
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwMakePermanentObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwMakePermanentObject(HANDLE Handle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Handle);
 }

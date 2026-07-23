@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceIrpFinish @ 0x14012B8F8
+ * XREFs of PopDiagTraceIrpFinish @ 0x14012BE68
  * Callers:
- *     PopRequestCompletion @ 0x14012B590 (PopRequestCompletion.c)
- *     PopDequeueQuerySetIrp @ 0x14012B7CC (PopDequeueQuerySetIrp.c)
+ *     PopRequestCompletion @ 0x14012BB00 (PopRequestCompletion.c)
+ *     PopDequeueQuerySetIrp @ 0x14012BD3C (PopDequeueQuerySetIrp.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     IoFindDeviceThatFailedIrp @ 0x1400B4774 (IoFindDeviceThatFailedIrp.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PopDiagGetDriverName @ 0x140123438 (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1400B25F4 (IoFindDeviceThatFailedIrp.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PopDiagGetDriverName @ 0x1401239A8 (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIrpFinish(__int64 a1)

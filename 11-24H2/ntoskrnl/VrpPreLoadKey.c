@@ -1,37 +1,37 @@
 /*
- * XREFs of VrpPreLoadKey @ 0x140A73F7C
+ * XREFs of VrpPreLoadKey @ 0x140A6D8DC
  * Callers:
- *     VrpRegistryCallback @ 0x140849230 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408454F0 (VrpRegistryCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VrpBuildKeyPath @ 0x140928C80 (VrpBuildKeyPath.c)
- *     VrpDestroyNamespaceNode @ 0x140929080 (VrpDestroyNamespaceNode.c)
- *     VrpUnlockJobContextExclusive @ 0x140929B2C (VrpUnlockJobContextExclusive.c)
- *     VrpCreateNamespaceNode @ 0x140929B68 (VrpCreateNamespaceNode.c)
- *     VrpGetNextToken @ 0x140929E20 (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x140929EE0 (VrpStripTrailingCharacters.c)
- *     VrpLockJobContextExclusive @ 0x14092A064 (VrpLockJobContextExclusive.c)
- *     VrpAddNamespaceNodeToList @ 0x14092A0C4 (VrpAddNamespaceNodeToList.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14092A1E8 (VrpCreateNamespaceNodePlaceholderKey.c)
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
- *     CmSetCallbackObjectContext @ 0x14098AF60 (CmSetCallbackObjectContext.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     VrpFreeKeyContext @ 0x1409F6FD8 (VrpFreeKeyContext.c)
- *     VrpAllocateKeyContext @ 0x1409FE79C (VrpAllocateKeyContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VrpBuildKeyPath @ 0x14092ADC0 (VrpBuildKeyPath.c)
+ *     VrpDestroyNamespaceNode @ 0x14092B1C0 (VrpDestroyNamespaceNode.c)
+ *     VrpUnlockJobContextExclusive @ 0x14092BC6C (VrpUnlockJobContextExclusive.c)
+ *     VrpCreateNamespaceNode @ 0x14092BCA8 (VrpCreateNamespaceNode.c)
+ *     VrpGetNextToken @ 0x14092BF60 (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x14092C020 (VrpStripTrailingCharacters.c)
+ *     VrpLockJobContextExclusive @ 0x14092C1A4 (VrpLockJobContextExclusive.c)
+ *     VrpAddNamespaceNodeToList @ 0x14092C204 (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14092C328 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
+ *     CmSetCallbackObjectContext @ 0x140975570 (CmSetCallbackObjectContext.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     VrpFreeKeyContext @ 0x1409EACB8 (VrpFreeKeyContext.c)
+ *     VrpAllocateKeyContext @ 0x1409F7A0C (VrpAllocateKeyContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
+__int64 __fastcall VrpPreLoadKey(_QWORD *a1, GUID *a2)
 {
   __int64 v3; // r14
   const UNICODE_STRING *v4; // rcx
@@ -41,7 +41,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
   __int64 v8; // rcx
   __int64 v9; // r9
   int NamespaceNodePlaceholderKey; // edi
-  PVOID v11; // r14
+  PGUID v11; // r14
   const wchar_t *v13; // rcx
   unsigned __int16 v14; // ax
   const UNICODE_STRING *v15; // r15
@@ -63,12 +63,12 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
   unsigned __int16 v31; // cx
   char v32; // [rsp+70h] [rbp-238h]
   int v33; // [rsp+74h] [rbp-234h] BYREF
-  PVOID v34; // [rsp+78h] [rbp-230h]
+  PGUID Guid; // [rsp+78h] [rbp-230h]
   PVOID P[2]; // [rsp+80h] [rbp-228h] BYREF
   int v36; // [rsp+90h] [rbp-218h]
   PVOID v37[2]; // [rsp+98h] [rbp-210h] BYREF
   PVOID v38; // [rsp+A8h] [rbp-200h] BYREF
-  UNICODE_STRING Source; // [rsp+B0h] [rbp-1F8h] BYREF
+  UNICODE_STRING GuidString; // [rsp+B0h] [rbp-1F8h] BYREF
   UNICODE_STRING String1; // [rsp+C0h] [rbp-1E8h] BYREF
   UNICODE_STRING *v41; // [rsp+D0h] [rbp-1D8h]
   __int64 v42; // [rsp+D8h] [rbp-1D0h] BYREF
@@ -77,11 +77,11 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
   HANDLE v45; // [rsp+F0h] [rbp-1B8h] BYREF
   HANDLE v46; // [rsp+F8h] [rbp-1B0h] BYREF
   HANDLE v47; // [rsp+100h] [rbp-1A8h] BYREF
-  UNICODE_STRING v48; // [rsp+108h] [rbp-1A0h] BYREF
+  UNICODE_STRING Source; // [rsp+108h] [rbp-1A0h] BYREF
   _QWORD *v49; // [rsp+118h] [rbp-190h]
   HANDLE v50; // [rsp+120h] [rbp-188h] BYREF
   PVOID Object; // [rsp+128h] [rbp-180h]
-  void *v52; // [rsp+130h] [rbp-178h]
+  GUID *v52; // [rsp+130h] [rbp-178h]
   int v53[4]; // [rsp+138h] [rbp-170h] BYREF
   __int128 v54; // [rsp+148h] [rbp-160h]
   __int128 v55; // [rsp+158h] [rbp-150h]
@@ -103,11 +103,11 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
   __int64 v71; // [rsp+218h] [rbp-90h]
   char v72; // [rsp+220h] [rbp-88h] BYREF
 
-  v34 = a2;
+  Guid = a2;
   v49 = a1;
   v52 = a2;
   *(_OWORD *)P = 0LL;
-  *(_QWORD *)&Source.Length = 5111808LL;
+  *(_QWORD *)&GuidString.Length = 5111808LL;
   *(_OWORD *)v53 = 0LL;
   v54 = 0LL;
   v55 = 0LL;
@@ -115,12 +115,12 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
   *(_OWORD *)v56 = 0LL;
   v57 = 0LL;
   v58 = 0LL;
-  v48 = 0LL;
+  Source = 0LL;
   *(_QWORD *)&String1.Length = 0LL;
   v59 = 0LL;
   EtwActivityIdControl(3u, &v59);
   v3 = *a1;
-  Source.Buffer = (wchar_t *)&v72;
+  GuidString.Buffer = (wchar_t *)&v72;
   v32 = 0;
   v36 = 0;
   v4 = *(const UNICODE_STRING **)(v3 + 72);
@@ -145,7 +145,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
   {
     *(_OWORD *)P = *(_OWORD *)*(_QWORD *)(v3 + 8);
   }
-  if ( (unsigned int)dword_140E0A5B0 > 5 )
+  if ( (unsigned int)dword_140E0A620 > 5 )
   {
     v13 = (const wchar_t *)P[1];
     if ( P[1] )
@@ -162,13 +162,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
     v63 = v13;
     v64 = v14;
     v65 = 0;
-    tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E0A5B0,
-      (unsigned __int8 *)&dword_140058DEC,
-      &v59,
-      0LL,
-      4u,
-      v60);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A620, (unsigned __int8 *)byte_1400599F3, &v59, 0LL, 4u, v60);
   }
   v6 = 0;
   String1.Length = 0;
@@ -216,7 +210,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, void *a2)
     {
       NamespaceNodePlaceholderKey = 0;
 LABEL_20:
-      v11 = v34;
+      v11 = Guid;
       goto LABEL_21;
     }
     v15 = &VrpMachineString;
@@ -230,28 +224,28 @@ LABEL_15:
         goto LABEL_44;
       }
     }
-    v48.Buffer = (wchar_t *)((char *)P[1] + 2 * (_QWORD)v38);
-    v48.Length = LOWORD(P[0]) - 2 * (_WORD)v38;
-    v48.MaximumLength = v48.Length;
-    VrpStripTrailingCharacters(&v48.Length);
+    Source.Buffer = (wchar_t *)((char *)P[1] + 2 * (_QWORD)v38);
+    Source.Length = LOWORD(P[0]) - 2 * (_WORD)v38;
+    Source.MaximumLength = Source.Length;
+    VrpStripTrailingCharacters(&Source.Length);
     v16 = 0;
-    Length = v48.Length;
-    Buffer = v48.Buffer;
-    while ( 2LL * v16 < (unsigned __int64)v48.Length )
+    Length = Source.Length;
+    Buffer = Source.Buffer;
+    while ( 2LL * v16 < (unsigned __int64)Source.Length )
     {
       if ( *Buffer == 92 )
         goto LABEL_15;
       ++v16;
       ++Buffer;
     }
-    NamespaceNodePlaceholderKey = RtlStringFromGUIDEx((unsigned int *)v34, (__int64)&Source, 0);
+    NamespaceNodePlaceholderKey = RtlStringFromGUIDEx(Guid, &GuidString, 0);
     if ( NamespaceNodePlaceholderKey >= 0 )
     {
-      ++Source.Buffer;
-      Source.Length -= 4;
-      Source.MaximumLength -= 4;
-      WORD1(v37[0]) = Source.Length + 40 + v15->Length + Length;
-      v37[1] = (PVOID)ExAllocatePool2(0x100uLL);
+      ++GuidString.Buffer;
+      GuidString.Length -= 4;
+      GuidString.MaximumLength -= 4;
+      WORD1(v37[0]) = GuidString.Length + 40 + v15->Length + Length;
+      v37[1] = (PVOID)ExAllocatePool2(0x100uLL, WORD1(v37[0]), 0x67655256u);
       if ( !v37[1] )
       {
         NamespaceNodePlaceholderKey = -1073741670;
@@ -259,16 +253,16 @@ LABEL_15:
       }
       RtlAppendUnicodeStringToString((PUNICODE_STRING)v37, &VrpRootHivePath);
       RtlAppendUnicodeToString((PUNICODE_STRING)v37, L"\\Silo_");
-      RtlAppendUnicodeStringToString((PUNICODE_STRING)v37, &Source);
+      RtlAppendUnicodeStringToString((PUNICODE_STRING)v37, &GuidString);
       RtlAppendUnicodeToString((PUNICODE_STRING)v37, L"_");
       RtlAppendUnicodeStringToString((PUNICODE_STRING)v37, v15);
       RtlAppendUnicodeToString((PUNICODE_STRING)v37, L"_");
-      RtlAppendUnicodeStringToString((PUNICODE_STRING)v37, &v48);
-      VrpLockJobContextExclusive((__int64)v34);
+      RtlAppendUnicodeStringToString((PUNICODE_STRING)v37, &Source);
+      VrpLockJobContextExclusive((__int64)Guid);
       v36 = 1;
       v33 = 1;
       NamespaceNodePlaceholderKey = VrpCreateNamespaceNode(
-                                      (__int64)v34,
+                                      (__int64)Guid,
                                       (const void **)P,
                                       0LL,
                                       (const void **)v37,
@@ -278,7 +272,7 @@ LABEL_15:
       if ( NamespaceNodePlaceholderKey >= 0 )
       {
         v19 = v42;
-        NamespaceNodePlaceholderKey = VrpAddNamespaceNodeToList((unsigned __int64 *)v34, v42);
+        NamespaceNodePlaceholderKey = VrpAddNamespaceNodeToList((unsigned __int64 *)&Guid->Data1, v42);
         if ( NamespaceNodePlaceholderKey >= 0 )
         {
           NamespaceNodePlaceholderKey = VrpCreateNamespaceNodePlaceholderKey(v19);
@@ -369,7 +363,7 @@ LABEL_15:
                           Object = v38;
                           if ( v25 >= 0 )
                           {
-                            KeyContext = (UNICODE_STRING *)VrpAllocateKeyContext(v34);
+                            KeyContext = (UNICODE_STRING *)VrpAllocateKeyContext(Guid);
                             v5 = KeyContext;
                             v41 = KeyContext;
                             if ( KeyContext )
@@ -397,7 +391,7 @@ LABEL_15:
                         **(_QWORD **)(v3 + 56) = v50;
                       }
                       NamespaceNodePlaceholderKey = -1073740541;
-                      if ( (unsigned int)dword_140E0A5B0 > 5 )
+                      if ( (unsigned int)dword_140E0A620 > 5 )
                       {
                         v28 = (const wchar_t *)P[1];
                         if ( P[1] )
@@ -433,8 +427,8 @@ LABEL_15:
                         v70 = &v33;
                         v71 = 4LL;
                         tlgWriteTransfer_EtwWriteTransfer(
-                          (__int64)&dword_140E0A5B0,
-                          (unsigned __int8 *)byte_140058F11,
+                          (__int64)&dword_140E0A620,
+                          (unsigned __int8 *)&byte_1400598AF,
                           &v59,
                           0LL,
                           7u,
@@ -454,20 +448,20 @@ LABEL_19:
   if ( ((NamespaceNodePlaceholderKey + 0x80000000) & 0x80000000) != 0 || NamespaceNodePlaceholderKey == -1073740541 )
     goto LABEL_20;
 LABEL_44:
-  v11 = v34;
+  v11 = Guid;
   if ( v42 )
-    VrpDestroyNamespaceNode((size_t *)v34, v42);
+    VrpDestroyNamespaceNode((size_t *)&Guid->Data1, v42);
 LABEL_21:
   if ( v36 )
     VrpUnlockJobContextExclusive((__int64)v11);
   if ( ((NamespaceNodePlaceholderKey + 0x80000000) & 0x80000000) == 0
     && NamespaceNodePlaceholderKey != -1073740541
-    && (unsigned int)dword_140E0A5B0 > 2 )
+    && (unsigned int)dword_140E0A620 > 2 )
   {
     v33 = NamespaceNodePlaceholderKey;
     v61 = &v33;
     v62 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5B0, (unsigned __int8 *)qword_140058CC0, &v59, 0LL, 3u, v60);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A620, (unsigned __int8 *)&word_140059B1E, &v59, 0LL, 3u, v60);
   }
   if ( v5 )
     VrpFreeKeyContext((PVOID *)v5);

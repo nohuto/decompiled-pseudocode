@@ -27,7 +27,7 @@ __int64 __fastcall sub_1800749F4(unsigned __int64 a1, _QWORD *a2)
   int v18; // r9d
   int v19; // r8d
 
-  RtlAcquireSRWLockShared(&qword_18015A2B0);
+  RtlAcquireSRWLockShared(&stru_18015A2B0);
   v4 = (_QWORD *)qword_18016B290;
   v5 = 0;
   while ( 1 )
@@ -81,7 +81,7 @@ __int64 __fastcall sub_1800749F4(unsigned __int64 a1, _QWORD *a2)
     if ( v9 < *v10 || v9 >= v10[1] )
 LABEL_19:
       v10 = 0LL;
-    RtlReleaseSRWLockShared(&qword_18015A2B0);
+    RtlReleaseSRWLockShared(&stru_18015A2B0);
     if ( v10 )
       *a2 = v7;
     return (__int64)v10;
@@ -92,7 +92,7 @@ LABEL_19:
     {
       v12 = (__int64 (__fastcall *)(unsigned __int64, __int64))*(v4 - 4);
       v13 = *(v4 - 3);
-      RtlReleaseSRWLockShared(&qword_18015A2B0);
+      RtlReleaseSRWLockShared(&stru_18015A2B0);
       *a2 = v7;
       return v12(a1, v13);
     }
@@ -101,7 +101,7 @@ LABEL_19:
     if ( !v14 )
     {
 LABEL_25:
-      RtlReleaseSRWLockShared(&qword_18015A2B0);
+      RtlReleaseSRWLockShared(&stru_18015A2B0);
       return 0LL;
     }
     while ( v15 < *v6 || v15 >= v6[1] )
@@ -110,7 +110,7 @@ LABEL_25:
       if ( ++v5 >= v14 )
         goto LABEL_25;
     }
-    RtlReleaseSRWLockShared(&qword_18015A2B0);
+    RtlReleaseSRWLockShared(&stru_18015A2B0);
     result = (__int64)v6;
     *a2 = v7;
   }

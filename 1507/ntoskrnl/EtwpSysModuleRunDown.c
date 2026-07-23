@@ -23,7 +23,7 @@ __int64 __fastcall EtwpSysModuleRunDown(unsigned int a1, char a2)
   __int64 v14; // [rsp+78h] [rbp-9h]
   __int64 v15; // [rsp+80h] [rbp-1h]
   __int64 v16; // [rsp+88h] [rbp+7h]
-  ULONG_PTR *v17; // [rsp+98h] [rbp+17h] BYREF
+  PVOID *v17; // [rsp+98h] [rbp+17h] BYREF
   __int64 v18; // [rsp+A0h] [rbp+1Fh]
   void *v19; // [rsp+B8h] [rbp+37h]
   __int64 v20; // [rsp+C0h] [rbp+3Fh]
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpSysModuleRunDown(unsigned int a1, char a2)
     if ( !(unsigned int)HvlQueryConnection(&v9) )
     {
       v18 = 8LL;
-      v17 = (ULONG_PTR *)&v9;
+      v17 = (PVOID *)&v9;
       EtwpLogKernelEvent((__int64)&v17, a1, 1u, 0x1422u, 4200450);
     }
   }
@@ -48,7 +48,7 @@ __int64 __fastcall EtwpSysModuleRunDown(unsigned int a1, char a2)
     v4 = 5124;
   v8 = v4;
   v11 = 0;
-  v17 = (ULONG_PTR *)v10;
+  v17 = (PVOID *)v10;
   v14 = 0LL;
   v19 = &EtwpNull;
   v12 = 0;

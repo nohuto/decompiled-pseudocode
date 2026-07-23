@@ -1,12 +1,12 @@
 /*
- * XREFs of SepMakeLogonSessionsSiblings @ 0x14092397C
+ * XREFs of SepMakeLogonSessionsSiblings @ 0x140923ADC
  * Callers:
- *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x140923CF0 (SepRmMakeLogonSessionsSiblingsWrkr.c)
+ *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x140923E50 (SepRmMakeLogonSessionsSiblingsWrkr.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)
@@ -22,12 +22,16 @@ __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)
   struct _ERESOURCE *v12; // rbp
   struct _ERESOURCE *v13; // rcx
   struct _KTHREAD *v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  unsigned int v17; // esi
+  unsigned int v15; // esi
   __int64 *i; // rbx
-  __int64 v19; // rax
-  __int64 v20; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
 
   CurrentThread = KeGetCurrentThread();
   v5 = (unsigned int)(1529154084 * *a1) >> 28;
@@ -52,35 +56,35 @@ __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)
   v14 = KeGetCurrentThread();
   --v14->KernelApcDisable;
   ExAcquireResourceExclusiveLite(v13, 1u);
-  v17 = 0;
+  v15 = 0;
   do
     v9 = *(_QWORD *)v9;
   while ( v9
-       && (*(_QWORD *)(v9 + 160) != PsGetCurrentServerSilo(v16, v15)
+       && (*(_QWORD *)(v9 + 160) != PsGetCurrentServerSilo()
         || *a1 != *(_DWORD *)(v9 + 8)
         || a1[1] != *(_DWORD *)(v9 + 12)) );
   for ( i = *v11;
-        i && (i[20] != PsGetCurrentServerSilo(v16, v15) || *a2 != *((_DWORD *)i + 2) || a2[1] != *((_DWORD *)i + 3));
+        i && (i[20] != PsGetCurrentServerSilo() || *a2 != *((_DWORD *)i + 2) || a2[1] != *((_DWORD *)i + 3));
         i = (__int64 *)*i )
   {
     ;
   }
   if ( v9 && i )
   {
-    v19 = *(_QWORD *)a2;
+    v17 = *(_QWORD *)a2;
     *(_DWORD *)(v9 + 32) |= 0x40u;
-    *(_QWORD *)(v9 + 168) = v19;
-    v20 = *(_QWORD *)a1;
+    *(_QWORD *)(v9 + 168) = v17;
+    v18 = *(_QWORD *)a1;
     *((_DWORD *)i + 8) |= 0x40u;
-    i[21] = v20;
+    i[21] = v18;
   }
   else
   {
-    v17 = -1073741729;
+    v15 = -1073741729;
   }
   ExReleaseResourceLite(v10);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
   ExReleaseResourceLite(v12);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v17;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v22, v23, v24);
+  return v15;
 }

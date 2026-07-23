@@ -1,5 +1,5 @@
 /*
- * XREFs of VfMiscExDeleteResourceLite_Exit @ 0x140B9D870
+ * XREFs of VfMiscExDeleteResourceLite_Exit @ 0x140B9F870
  * Callers:
  *     <none>
  * Callees:

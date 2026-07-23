@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwFlushBuffersFileEx @ 0x1406A81F0
+ * XREFs of ZwFlushBuffersFileEx @ 0x1406A9190
  * Callers:
- *     DifZwFlushBuffersFileExWrapper @ 0x14063FD40 (DifZwFlushBuffersFileExWrapper.c)
+ *     DifZwFlushBuffersFileExWrapper @ 0x14063E300 (DifZwFlushBuffersFileExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFlushBuffersFileEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFlushBuffersFileEx(
+        HANDLE FileHandle,
+        ULONG Flags,
+        PVOID Parameters,
+        ULONG ParametersSize,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

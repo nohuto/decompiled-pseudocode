@@ -1,18 +1,18 @@
 /*
- * XREFs of MiProcessDeleteOnClose @ 0x1406E7900
+ * XREFs of MiProcessDeleteOnClose @ 0x1406EC5B0
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlinkUnusedControlArea @ 0x14030BD54 (MiUnlinkUnusedControlArea.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertListSentinel @ 0x14044D320 (MiInsertListSentinel.c)
- *     MiMarkControlAreaDeleted @ 0x14048CEE8 (MiMarkControlAreaDeleted.c)
- *     MiDeleteCachedSubsections @ 0x1404A6F5C (MiDeleteCachedSubsections.c)
- *     MiDeleteDeleteOnCloseSubsections @ 0x1406E74F0 (MiDeleteDeleteOnCloseSubsections.c)
- *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406E77D8 (MiMoveUnusedSubsectionsToDeleteOnClose.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402EDDD4 (MiUnlinkUnusedControlArea.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertListSentinel @ 0x140445440 (MiInsertListSentinel.c)
+ *     MiMarkControlAreaDeleted @ 0x140486A28 (MiMarkControlAreaDeleted.c)
+ *     MiDeleteCachedSubsections @ 0x1404A05EC (MiDeleteCachedSubsections.c)
+ *     MiDeleteDeleteOnCloseSubsections @ 0x1406EC1A0 (MiDeleteDeleteOnCloseSubsections.c)
+ *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406EC488 (MiMoveUnusedSubsectionsToDeleteOnClose.c)
  */
 
 void __fastcall MiProcessDeleteOnClose(__int64 a1, __int64 a2)

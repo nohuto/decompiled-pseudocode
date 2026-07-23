@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlMultiAppendUnicodeStringBuffer @ 0x1800766A0 (RtlMultiAppendUnicodeStringBuffer.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlMultiAppendUnicodeStringBuffer @ 0x180076690 (RtlMultiAppendUnicodeStringBuffer.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlAppendPathElement(int a1, unsigned __int16 *a2, __m128i *a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrQueryModuleInfoFromLdrEntry32 @ 0x1800CE0D0
+ * XREFs of LdrQueryModuleInfoFromLdrEntry32 @ 0x1800CE090
  * Callers:
  *     <none>
  * Callees:

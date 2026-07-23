@@ -1,35 +1,35 @@
 /*
- * XREFs of SepCommonAccessCheckEx @ 0x140135790
+ * XREFs of SepCommonAccessCheckEx @ 0x140135D00
  * Callers:
- *     SeAccessCheckEx @ 0x140135760 (SeAccessCheckEx.c)
- *     SeSrpAccessCheck @ 0x140219A7C (SeSrpAccessCheck.c)
+ *     SeAccessCheckEx @ 0x140135CD0 (SeAccessCheckEx.c)
+ *     SeSrpAccessCheck @ 0x1402198A8 (SeSrpAccessCheck.c)
  * Callees:
- *     SepLocateTokenTrustLevel @ 0x140012F20 (SepLocateTokenTrustLevel.c)
- *     SepTokenIsOwner @ 0x140061160 (SepTokenIsOwner.c)
- *     SeLogAccessFailure @ 0x1400615D0 (SeLogAccessFailure.c)
- *     SepMandatoryIntegrityCheck @ 0x140063650 (SepMandatoryIntegrityCheck.c)
- *     SeTokenIsRestricted @ 0x14007F740 (SeTokenIsRestricted.c)
- *     SepFreeResourceInfo @ 0x14008D8AC (SepFreeResourceInfo.c)
- *     SepMandatoryToDiscretionary @ 0x14008D9CC (SepMandatoryToDiscretionary.c)
- *     SepTrustLevelCheck @ 0x14008DA00 (SepTrustLevelCheck.c)
- *     RtlpOwnerAcesPresent @ 0x14008DB10 (RtlpOwnerAcesPresent.c)
- *     SepConstrainByMandatory @ 0x14008DC48 (SepConstrainByMandatory.c)
- *     AuthzBasepSetAccessReasons @ 0x140092C00 (AuthzBasepSetAccessReasons.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepAccessCheckEx @ 0x140135DF0 (SepAccessCheckEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SepBuildCapeSecurityDescriptor @ 0x140219AA4 (SepBuildCapeSecurityDescriptor.c)
- *     SepGetScopedPolicySid @ 0x140219BF8 (SepGetScopedPolicySid.c)
- *     SepRmDereferenceCap @ 0x140219C64 (SepRmDereferenceCap.c)
- *     SepRmReferenceFindCap @ 0x14021B670 (SepRmReferenceFindCap.c)
- *     AuthzBasepMergeAccessReasons @ 0x140234440 (AuthzBasepMergeAccessReasons.c)
+ *     SepLocateTokenTrustLevel @ 0x140012AA0 (SepLocateTokenTrustLevel.c)
+ *     SepTokenIsOwner @ 0x140060CE0 (SepTokenIsOwner.c)
+ *     SeLogAccessFailure @ 0x140061150 (SeLogAccessFailure.c)
+ *     SepMandatoryIntegrityCheck @ 0x1400631D0 (SepMandatoryIntegrityCheck.c)
+ *     SeTokenIsRestricted @ 0x14007F7C0 (SeTokenIsRestricted.c)
+ *     SepFreeResourceInfo @ 0x14008D00C (SepFreeResourceInfo.c)
+ *     SepMandatoryToDiscretionary @ 0x14008D12C (SepMandatoryToDiscretionary.c)
+ *     SepTrustLevelCheck @ 0x14008D160 (SepTrustLevelCheck.c)
+ *     RtlpOwnerAcesPresent @ 0x14008D270 (RtlpOwnerAcesPresent.c)
+ *     SepConstrainByMandatory @ 0x14008D3A8 (SepConstrainByMandatory.c)
+ *     AuthzBasepSetAccessReasons @ 0x140092400 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepAccessCheckEx @ 0x140136360 (SepAccessCheckEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1402198D0 (SepBuildCapeSecurityDescriptor.c)
+ *     SepGetScopedPolicySid @ 0x140219A24 (SepGetScopedPolicySid.c)
+ *     SepRmDereferenceCap @ 0x140219A90 (SepRmDereferenceCap.c)
+ *     SepRmReferenceFindCap @ 0x14021B49C (SepRmReferenceFindCap.c)
+ *     AuthzBasepMergeAccessReasons @ 0x14023426C (AuthzBasepMergeAccessReasons.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepAdtAuditThisEventWithContext @ 0x140414D50 (SepAdtAuditThisEventWithContext.c)
- *     SeLockSubjectContext @ 0x14044DBB0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x14044DC10 (SeUnlockSubjectContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140413C10 (SepAdtAuditThisEventWithContext.c)
+ *     SeLockSubjectContext @ 0x14044CA80 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14044CAE0 (SeUnlockSubjectContext.c)
  */
 
 bool __fastcall SepCommonAccessCheckEx(
@@ -99,7 +99,7 @@ bool __fastcall SepCommonAccessCheckEx(
   __int64 v65; // rcx
   __int16 v66; // dx
   __int64 v67; // rax
-  __int64 v68; // rax
+  ACL *v68; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v71; // rdx
@@ -110,7 +110,7 @@ bool __fastcall SepCommonAccessCheckEx(
   unsigned int *v76; // r9
   int v77; // r15d
   PVOID PoolWithTag; // rax
-  _DWORD *v79; // rcx
+  void *v79; // rcx
   __int64 v80; // rcx
   unsigned __int64 v81; // rax
   int v82; // r9d
@@ -181,7 +181,7 @@ bool __fastcall SepCommonAccessCheckEx(
   int v148; // [rsp+C4h] [rbp-6Ch]
   int v149; // [rsp+C8h] [rbp-68h]
   __int64 v150; // [rsp+D0h] [rbp-60h]
-  _DWORD *v151; // [rsp+D8h] [rbp-58h] BYREF
+  void *v151; // [rsp+D8h] [rbp-58h] BYREF
   LONG HighPart; // [rsp+E0h] [rbp-50h]
   int v153; // [rsp+E4h] [rbp-4Ch]
   int v154; // [rsp+E8h] [rbp-48h] BYREF
@@ -195,7 +195,7 @@ bool __fastcall SepCommonAccessCheckEx(
   int v162; // [rsp+11Ch] [rbp-14h] BYREF
   int v163; // [rsp+120h] [rbp-10h] BYREF
   unsigned __int64 v164; // [rsp+128h] [rbp-8h]
-  __int64 v165; // [rsp+130h] [rbp+0h]
+  ACL *v165; // [rsp+130h] [rbp+0h]
   __int64 v166; // [rsp+138h] [rbp+8h]
   __int64 v167; // [rsp+140h] [rbp+10h]
   int v168; // [rsp+148h] [rbp+18h]
@@ -413,11 +413,11 @@ LABEL_99:
       v165 = 0LL;
       goto LABEL_39;
     }
-    v68 = v65 + v67;
+    v68 = (ACL *)(v65 + v67);
   }
   else
   {
-    v68 = *(_QWORD *)(v65 + 24);
+    v68 = *(ACL **)(v65 + 24);
   }
   v165 = v68;
   if ( v68 )
@@ -439,7 +439,7 @@ LABEL_39:
   v30 = 0;
 LABEL_40:
   if ( !v26 || (v7[4] & 0x2060000) != 0 || v30 )
-    IsOwner = SepTokenIsOwner(PrimaryToken, *(_QWORD *)(*((_QWORD *)v7 + 1) + 8LL));
+    IsOwner = SepTokenIsOwner(PrimaryToken);
   else
     IsOwner = 0;
   v32 = v7[4];
@@ -736,7 +736,7 @@ LABEL_167:
     {
       if ( !v151 )
       {
-        v95 = AuthzBasepInitializeResourceClaimsFromSacl(v165, (__int64)&v151);
+        v95 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v165, (__int64)&v151);
         v96 = (unsigned __int8)v160;
         if ( v95 < 0 )
           v96 = 1;

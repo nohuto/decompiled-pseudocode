@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageMightBeZero @ 0x14046A5C0
+ * XREFs of MiPageMightBeZero @ 0x140463D40
  * Callers:
- *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
+ *     MiShareValidPage @ 0x1407096FC (MiShareValidPage.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
  */
 
 _BOOL8 __fastcall MiPageMightBeZero(__int64 a1, __int64 a2, __int64 a3)

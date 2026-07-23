@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpLfhSubsegmentCreate @ 0x140009064
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BADE0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x140009300 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
  *     RtlpHpLfhSubsegmentInitialize @ 0x1400093AC (RtlpHpLfhSubsegmentInitialize.c)
@@ -9,10 +9,10 @@
  *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x140009678 (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 unsigned __int16 *__fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned int a3)

@@ -8,28 +8,28 @@
  *     _RtlCopyUnicodeString@8 @ 0x4B2D5EF0 (_RtlCopyUnicodeString@8.c)
  */
 
-int __stdcall LdrGetDllDirectory(int a1)
+NTSTATUS __cdecl LdrGetDllDirectory(PUNICODE_STRING DllDirectory)
 {
   unsigned int v1; // edx
-  unsigned int v2; // edi
-  int v3; // esi
+  unsigned int MaximumLength; // edi
+  NTSTATUS v3; // esi
 
   if ( (LdrpPolicyBits & 4) == 0 )
     return -1073741811;
   RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
-  v1 = (unsigned __int16)LdrpDllDirectory + 2;
-  v2 = *(unsigned __int16 *)(a1 + 2);
-  if ( v2 >= v1 )
+  v1 = LdrpDllDirectory.Length + 2;
+  MaximumLength = DllDirectory->MaximumLength;
+  if ( MaximumLength >= v1 )
   {
-    RtlCopyUnicodeString(a1, &LdrpDllDirectory);
+    RtlCopyUnicodeString(DllDirectory, &LdrpDllDirectory);
     v3 = 0;
   }
   else
   {
-    *(_WORD *)a1 = v1;
+    DllDirectory->Length = v1;
     v3 = -1073741789;
-    if ( (_WORD)v2 )
-      **(_WORD **)(a1 + 4) = 0;
+    if ( (_WORD)MaximumLength )
+      *DllDirectory->Buffer = 0;
   }
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
   return v3;

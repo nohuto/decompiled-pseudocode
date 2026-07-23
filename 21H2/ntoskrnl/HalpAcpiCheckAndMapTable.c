@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpAcpiCheckAndMapTable @ 0x140294BD8
+ * XREFs of HalpAcpiCheckAndMapTable @ 0x140216898
  * Callers:
- *     HalpAcpiGetRsdt @ 0x140294540 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetTableFromBios @ 0x140294A30 (HalpAcpiGetTableFromBios.c)
- *     HalpAcpiGetFacsMapping @ 0x1403BA7C8 (HalpAcpiGetFacsMapping.c)
- *     HalpAcpiGetAllTablesWork @ 0x1403BB4F4 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiGetRsdt @ 0x140216204 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableFromBios @ 0x1402166F0 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403BA938 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetAllTablesWork @ 0x1403BB664 (HalpAcpiGetAllTablesWork.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x1403BB938 (HalpMap.c)
- *     strncmp @ 0x1403D1540 (strncmp.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BBA00 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x1403BBAA8 (HalpMap.c)
+ *     strncmp @ 0x1403D16B0 (strncmp.c)
  */
 
 __int64 __fastcall HalpAcpiCheckAndMapTable(

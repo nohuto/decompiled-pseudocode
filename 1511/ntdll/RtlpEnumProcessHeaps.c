@@ -14,7 +14,10 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64), __int64 a2, char a3)
+__int64 __fastcall RtlpEnumProcessHeaps(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *a2,
+        char a3)
 {
   struct _PEB *v6; // r15
   int v7; // ebx
@@ -25,12 +28,14 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
   v6 = NtCurrentPeb();
   v7 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   for ( i = 0LL; (unsigned int)i < v6->NumberOfHeaps; i = (unsigned int)(i + 1) )
   {
     ProcessHeaps = v6->ProcessHeaps;
-    _guard_check_icall_fptr();
-    v7 = a1(ProcessHeaps[i], a2);
+    ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+      HashTable,
+      a2);
+    v7 = ((__int64 (__fastcall *)(void *, _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *))HashTable)(ProcessHeaps[i], a2);
     if ( v7 < 0 )
       goto LABEL_12;
   }
@@ -38,14 +43,18 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
   {
     for ( j = 0LL; (unsigned int)j < (unsigned __int16)RtlpNumberOfProtectedHeaps; j = (unsigned int)(j + 1) )
     {
-      _guard_check_icall_fptr();
-      v7 = a1(*((void **)RtlpProtectedHeapsList + j), a2);
+      ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+        HashTable,
+        a2);
+      v7 = ((__int64 (__fastcall *)(_QWORD, _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *))HashTable)(
+             *((_QWORD *)RtlpProtectedHeapsList + j),
+             a2);
       if ( v7 < 0 )
         break;
     }
   }
 LABEL_12:
   if ( (a3 & 1) == 0 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return (unsigned int)v7;
 }

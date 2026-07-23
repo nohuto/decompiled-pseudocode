@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInterruptThunk @ 0x140168F30
+ * XREFs of KiInterruptThunk @ 0x1401694A0
  * Callers:
  *     <none>
  * Callees:

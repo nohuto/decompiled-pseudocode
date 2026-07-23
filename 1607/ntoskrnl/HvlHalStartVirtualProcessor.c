@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlHalStartVirtualProcessor @ 0x1401BCDEC
+ * XREFs of HvlHalStartVirtualProcessor @ 0x1401BCCD0
  * Callers:
  *     <none>
  * Callees:

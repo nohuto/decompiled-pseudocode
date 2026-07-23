@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpLogWaitForNewMessage @ 0x1407429B4
+ * XREFs of AlpcpLogWaitForNewMessage @ 0x1407408E4
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x140895660 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x14089DB00 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AlpcpGetPortNameInformation @ 0x140741DEC (AlpcpGetPortNameInformation.c)
- *     AlpcpInvokeLogCallbacks @ 0x140AA9974 (AlpcpInvokeLogCallbacks.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AlpcpGetPortNameInformation @ 0x14073FFDC (AlpcpGetPortNameInformation.c)
+ *     AlpcpInvokeLogCallbacks @ 0x140AA4A24 (AlpcpInvokeLogCallbacks.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpLogWaitForNewMessage(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall AlpcpLogWaitForNewMessage(__int64 a1)
     v1 = v8;
     v3 = *(unsigned __int16 *)v8 + 30;
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, v3, 0x654C6C41u);
   v5 = Pool2;
   if ( Pool2 )
   {

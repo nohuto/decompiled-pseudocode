@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorDozeTimerArm @ 0x14075914C
+ * XREFs of PopPowerAggregatorDozeTimerArm @ 0x1407575AC
  * Callers:
- *     PopPowerAggregatorEvaluateDozeTimers @ 0x1406F53DC (PopPowerAggregatorEvaluateDozeTimers.c)
+ *     PopPowerAggregatorEvaluateDozeTimers @ 0x1406F33DC (PopPowerAggregatorEvaluateDozeTimers.c)
  * Callees:
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopPowerAggregatorDozeTimerDisarm @ 0x1406F54C4 (PopPowerAggregatorDozeTimerDisarm.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x1409BA124 (PopPowerAggregatorDiagTraceEvent.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopPowerAggregatorDozeTimerDisarm @ 0x1406F34C4 (PopPowerAggregatorDozeTimerDisarm.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1409A0774 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDozeTimerArm(__int64 a1, signed int a2, __int64 a3, __int64 a4)
@@ -31,5 +31,5 @@ __int64 __fastcall PopPowerAggregatorDozeTimerArm(__int64 a1, signed int a2, __i
   UserData.Size = 4;
   v13 = 8;
   PopPowerAggregatorDiagTraceEvent(&POP_ETW_EVENT_POWER_AGGREGATOR_DOZE_TIMER_ARMED, 2u, &UserData);
-  return KeSetTimer2(v7 + a1 + 344, a3, 0LL, 0LL);
+  return KeSetTimer2(v7 + a1 + 344, (LARGE_INTEGER)a3, 0LL, 0LL);
 }

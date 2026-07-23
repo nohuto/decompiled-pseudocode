@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetDefaultLocale()
+NTSTATUS __cdecl NtSetDefaultLocale(BOOLEAN UserProfile, LCID DefaultLocaleId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 370LL;
+  result = 370;
   __asm { syscall; Low latency system call }
   return result;
 }

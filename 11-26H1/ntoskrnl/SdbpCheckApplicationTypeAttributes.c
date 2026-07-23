@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpCheckApplicationTypeAttributes @ 0x140714174
+ * XREFs of SdbpCheckApplicationTypeAttributes @ 0x140718E64
  * Callers:
- *     SdbpCheckBackupApplicationAttributes @ 0x1408824A0 (SdbpCheckBackupApplicationAttributes.c)
- *     SdbpCheckPackageAttributes @ 0x140883D00 (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckBackupApplicationAttributes @ 0x1408888A0 (SdbpCheckBackupApplicationAttributes.c)
+ *     SdbpCheckPackageAttributes @ 0x14088A100 (SdbpCheckPackageAttributes.c)
  * Callees:
- *     ULongLongMult @ 0x14046FB90 (ULongLongMult.c)
- *     SdbReadQWORDTag @ 0x140885B50 (SdbReadQWORDTag.c)
- *     SdbpCheckFromStringVersion @ 0x140887474 (SdbpCheckFromStringVersion.c)
- *     SdbpCheckFromVersion @ 0x1408875A0 (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoStringVersion @ 0x1408875E8 (SdbpCheckUptoStringVersion.c)
- *     SdbpCheckUptoVersion @ 0x140887710 (SdbpCheckUptoVersion.c)
- *     SdbpCheckVersion @ 0x140887758 (SdbpCheckVersion.c)
- *     AslStringPatternMatchW @ 0x1409E7018 (AslStringPatternMatchW.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbReadDWORDTag @ 0x1409E8A54 (SdbReadDWORDTag.c)
+ *     ULongLongMult @ 0x140469310 (ULongLongMult.c)
+ *     SdbReadQWORDTag @ 0x14088BF50 (SdbReadQWORDTag.c)
+ *     SdbpCheckFromStringVersion @ 0x14088D874 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckFromVersion @ 0x14088D99C (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x14088D9E4 (SdbpCheckUptoStringVersion.c)
+ *     SdbpCheckUptoVersion @ 0x14088DB0C (SdbpCheckUptoVersion.c)
+ *     SdbpCheckVersion @ 0x14088DB54 (SdbpCheckVersion.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x1409D5464 (SdbReadDWORDTag.c)
+ *     AslStringPatternMatchW @ 0x1409D59A0 (AslStringPatternMatchW.c)
  */
 
 __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsigned int a3, _QWORD *a4)
@@ -28,8 +28,8 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
   unsigned int FirstTag; // r10d
   ULONGLONG v13; // rax
   char *v14; // r11
-  ULONGLONG v15; // r9
-  ULONGLONG i; // rdi
+  ULONGLONG v15; // rdi
+  ULONGLONG i; // r9
   ULONGLONG v17; // rcx
   ULONGLONG v18; // rcx
   unsigned int v19; // eax
@@ -50,33 +50,33 @@ __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsig
   v10 = 1;
   while ( v6 < 0x40 )
   {
-    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140E0EDD0 + v6));
+    FirstTag = SdbFindFirstTag(a2, a3, *(unsigned __int16 *)((char *)&unk_140E0EE50 + v6));
     if ( !FirstTag )
       goto LABEL_31;
     v13 = a4[2];
-    v14 = (char *)&unk_140E0EDD0;
+    v14 = (char *)&unk_140E0EE50;
     v15 = 0LL;
-    for ( i = 0LL; v15 < v13; i = 0LL )
+    for ( i = 0LL; i < v13; v15 = 0LL )
     {
-      i = 0LL;
-      if ( v15 < v13 )
+      v15 = 0LL;
+      if ( i < v13 )
       {
         v17 = a4[1];
         pullResult = 0LL;
-        if ( ULongLongMult(v17, v15, &pullResult) < 0 || (v18 = a4[5], i = v18 + pullResult, v18 + pullResult < v18) )
-          i = 0LL;
+        if ( ULongLongMult(v17, i, &pullResult) < 0 || (v18 = a4[5], v15 = v18 + pullResult, v18 + pullResult < v18) )
+          v15 = 0LL;
       }
-      if ( *(_WORD *)i == *(_WORD *)&v14[v6 + 2] )
+      if ( *(_WORD *)v15 == *(_WORD *)&v14[v6 + 2] )
         break;
       v13 = a4[2];
-      ++v15;
+      ++i;
     }
     v19 = *(unsigned __int16 *)&v14[v6];
-    if ( !i )
+    if ( !v15 )
     {
       if ( (_WORD)v19 == 24577 )
         goto LABEL_31;
-      if ( (unsigned __int16)SdbGetTagFromTagID(a2, a3, v11, v15) != 28768 )
+      if ( (unsigned __int16)SdbGetTagFromTagID(a2, a3, v11, i) != 28768 )
       {
         AslLogCallPrintf(
           1,
@@ -99,16 +99,16 @@ LABEL_30:
         case 0x6042u:
           goto LABEL_26;
         case 0x6044u:
-          StringTagPtr = SdbGetStringTagPtr(a2, FirstTag, v11, v15);
+          StringTagPtr = SdbGetStringTagPtr(a2, FirstTag, v11, i);
           if ( !StringTagPtr )
             return v4;
-          v22 = SdbpCheckUptoStringVersion(StringTagPtr, *(_QWORD *)(i + 8));
+          v22 = SdbpCheckUptoStringVersion(StringTagPtr, *(_QWORD *)(v15 + 8));
           break;
         case 0x6046u:
-          v27 = SdbGetStringTagPtr(a2, FirstTag, v11, v15);
+          v27 = SdbGetStringTagPtr(a2, FirstTag, v11, i);
           if ( !v27 )
             return v4;
-          v22 = SdbpCheckFromStringVersion(v27, *(_QWORD *)(i + 8));
+          v22 = SdbpCheckFromStringVersion(v27, *(_QWORD *)(v15 + 8));
           break;
         default:
           v20 = v19 == 24648;
@@ -116,10 +116,10 @@ LABEL_25:
           if ( !v20 )
             return v4;
 LABEL_26:
-          v21 = SdbGetStringTagPtr(a2, FirstTag, v11, v15);
+          v21 = SdbGetStringTagPtr(a2, FirstTag, v11, i);
           if ( !v21 )
             return v4;
-          v22 = AslStringPatternMatchW(v21, *(_QWORD *)(i + 8));
+          v22 = AslStringPatternMatchW(v21, *(_QWORD *)(v15 + 8));
           break;
       }
     }
@@ -129,10 +129,10 @@ LABEL_26:
         goto LABEL_26;
       if ( v19 == 16453 )
       {
-        DWORDTag = SdbReadDWORDTag(a2, FirstTag, 0xFFFFFFFFLL, v15);
+        DWORDTag = SdbReadDWORDTag(a2, FirstTag, 0xFFFFFFFFLL, i);
         if ( DWORDTag == -1 )
           return v4;
-        v22 = DWORDTag == *(_DWORD *)(i + 8);
+        v22 = DWORDTag == *(_DWORD *)(v15 + 8);
       }
       else
       {
@@ -152,24 +152,24 @@ LABEL_26:
                 goto LABEL_25;
               }
 LABEL_32:
-              QWORDTag = SdbReadQWORDTag(a2, FirstTag, -1LL, v15);
+              QWORDTag = SdbReadQWORDTag(a2, FirstTag, -1LL, i);
               if ( QWORDTag == -1 )
                 return v4;
-              v22 = SdbpCheckUptoVersion(QWORDTag, *(_QWORD *)(i + 8));
+              v22 = SdbpCheckUptoVersion(QWORDTag, *(_QWORD *)(v15 + 8));
               goto LABEL_28;
             }
 LABEL_34:
-            v24 = SdbReadQWORDTag(a2, FirstTag, -1LL, v15);
+            v24 = SdbReadQWORDTag(a2, FirstTag, -1LL, i);
             if ( v24 == -1 )
               return v4;
-            v22 = SdbpCheckFromVersion(v24, *(_QWORD *)(i + 8));
+            v22 = SdbpCheckFromVersion(v24, *(_QWORD *)(v15 + 8));
             goto LABEL_28;
           }
         }
-        v25 = SdbReadQWORDTag(a2, FirstTag, -1LL, v15);
+        v25 = SdbReadQWORDTag(a2, FirstTag, -1LL, i);
         if ( v25 == -1 )
           return v4;
-        v22 = SdbpCheckVersion(v25, *(_QWORD *)(i + 8));
+        v22 = SdbpCheckVersion(v25, *(_QWORD *)(v15 + 8));
       }
     }
 LABEL_28:

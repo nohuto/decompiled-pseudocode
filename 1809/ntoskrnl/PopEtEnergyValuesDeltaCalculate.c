@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtEnergyValuesDeltaCalculate @ 0x1405FC994
+ * XREFs of PopEtEnergyValuesDeltaCalculate @ 0x1405FD994
  * Callers:
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1405FC7EC (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x1405FD7EC (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     RtlStateDurationDelta @ 0x14008E6F8 (RtlStateDurationDelta.c)
+ *     RtlStateDurationDelta @ 0x14008E618 (RtlStateDurationDelta.c)
  */
 
 __int64 __fastcall PopEtEnergyValuesDeltaCalculate(__int64 a1, _QWORD *a2, __int64 a3, int *a4)

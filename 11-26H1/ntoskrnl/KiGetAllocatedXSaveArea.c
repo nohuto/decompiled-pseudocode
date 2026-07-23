@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetAllocatedXSaveArea @ 0x140479FD0
+ * XREFs of KiGetAllocatedXSaveArea @ 0x140473940
  * Callers:
- *     PspSetContext @ 0x140A32610 (PspSetContext.c)
+ *     PspSetContext @ 0x140A4D570 (PspSetContext.c)
  * Callees:
  *     <none>
  */

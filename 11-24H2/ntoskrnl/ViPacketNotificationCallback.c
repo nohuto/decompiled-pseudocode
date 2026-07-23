@@ -1,12 +1,12 @@
 /*
- * XREFs of ViPacketNotificationCallback @ 0x140B9B530
+ * XREFs of ViPacketNotificationCallback @ 0x140B9D530
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     IovIsDisabledWithoutReboot @ 0x1405A2FFC (IovIsDisabledWithoutReboot.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfIrpDatabaseUninitialize @ 0x140BA4110 (VfIrpDatabaseUninitialize.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     IovIsDisabledWithoutReboot @ 0x14059FF3C (IovIsDisabledWithoutReboot.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfIrpDatabaseUninitialize @ 0x140BA6110 (VfIrpDatabaseUninitialize.c)
  */
 
 void __fastcall ViPacketNotificationCallback(_QWORD *Entry, __int64 a2, int a3)

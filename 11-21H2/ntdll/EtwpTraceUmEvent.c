@@ -27,7 +27,7 @@ __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, u
   unsigned int i; // ecx
   int v16; // r13d
   struct _TEB *v17; // rax
-  unsigned __int64 *v18; // r9
+  LARGE_INTEGER *v18; // r9
   char *v19; // rax
   char *v20; // rdi
   unsigned int j; // r12d
@@ -134,7 +134,7 @@ LABEL_5:
       v16 = v10 & 0x200;
       v17 = NtCurrentTeb();
       v43 = v17;
-      v18 = &v39;
+      v18 = (LARGE_INTEGER *)&v39;
       if ( v16 )
         v18 = 0LL;
       v19 = (char *)EtwpReserveTraceBuffer(v6, v29, v17->CurrentIdealProcessor.Reserved, v18, &v38);

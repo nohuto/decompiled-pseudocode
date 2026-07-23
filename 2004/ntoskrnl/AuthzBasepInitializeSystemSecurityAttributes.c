@@ -12,7 +12,7 @@
 __int64 __fastcall AuthzBasepInitializeSystemSecurityAttributes(__int64 a1)
 {
   _QWORD *SecurityAttributesList; // rbx
-  char IsMultiSessionSku; // al
+  BOOLEAN IsMultiSessionSku; // al
   char v3; // si
   unsigned int v4; // edi
   _DWORD v6[2]; // [rsp+20h] [rbp-40h] BYREF

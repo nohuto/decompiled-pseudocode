@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpInitializeNMI @ 0x1403809F8
+ * XREFs of HalpInitializeNMI @ 0x140380B98
  * Callers:
  *     HalpInitializeErrSrc @ 0x140A8ACE0 (HalpInitializeErrSrc.c)
  * Callees:

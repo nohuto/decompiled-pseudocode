@@ -1,9 +1,9 @@
 /*
- * XREFs of KxTryToAcquireQueuedSpinLock @ 0x14010B080
+ * XREFs of KxTryToAcquireQueuedSpinLock @ 0x140108E00
  * Callers:
- *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14010B068 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeTryToAcquireQueuedSpinLock @ 0x1401D3930 (KeTryToAcquireQueuedSpinLock.c)
- *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1401D3988 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140108DE8 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeTryToAcquireQueuedSpinLock @ 0x1401D375C (KeTryToAcquireQueuedSpinLock.c)
+ *     KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1401D37B4 (KeTryToAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
  *     <none>
  */

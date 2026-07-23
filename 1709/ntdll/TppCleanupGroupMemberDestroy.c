@@ -29,35 +29,35 @@
 
 void __fastcall TppCleanupGroupMemberDestroy(_QWORD *a1)
 {
-  volatile signed __int32 *v2; // rcx
-  __int64 v3; // rcx
+  _ACTIVATION_CONTEXT *v2; // rcx
+  _RTL_SRWLOCK *v3; // rcx
   _QWORD *v4; // rax
   __int64 v5; // rdx
   _QWORD *v6; // rcx
-  volatile signed __int32 *v7; // rcx
-  void *v8; // rdx
-  __int64 *v9; // rcx
-  unsigned __int64 v10; // rdi
-  volatile signed __int32 *v11; // r8
+  PVOID v7; // rcx
+  _RTL_SRWLOCK *v8; // rdx
+  const void **v9; // rcx
+  __int64 v10; // rdi
+  void *v11; // r8
   _QWORD *v12; // rax
   __int64 v13; // r8
   _QWORD *v14; // rdx
-  unsigned __int64 v15[32]; // [rsp+30h] [rbp-118h] BYREF
+  _QWORD v15[32]; // [rsp+30h] [rbp-118h] BYREF
 
   if ( a1[2] )
   {
     TppCleanupGroupRemoveMember(a1);
-    v11 = (volatile signed __int32 *)a1[2];
-    if ( _InterlockedExchangeAdd(v11, 0xFFFFFFFF) == 1 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)TppHeapTag, v11);
+    v11 = (void *)a1[2];
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)v11, 0xFFFFFFFF) == 1 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, v11);
   }
-  v2 = (volatile signed __int32 *)a1[12];
-  if ( v2 != (volatile signed __int32 *)-1LL )
+  v2 = (_ACTIVATION_CONTEXT *)a1[12];
+  if ( v2 != (_ACTIVATION_CONTEXT *)-1LL )
     RtlReleaseActivationContext(v2);
-  v3 = a1[18];
+  v3 = (_RTL_SRWLOCK *)a1[18];
   if ( v3 )
   {
-    RtlAcquireSRWLockExclusive(v3 + 72);
+    RtlAcquireSRWLockExclusive(v3 + 9);
     v4 = a1 + 19;
     v5 = a1[19];
     v6 = (_QWORD *)a1[20];
@@ -67,23 +67,23 @@ void __fastcall TppCleanupGroupMemberDestroy(_QWORD *a1)
     *(_QWORD *)(v5 + 8) = v6;
     a1[20] = a1 + 19;
     *v4 = v4;
-    RtlReleaseSRWLockExclusive(a1[18] + 72LL);
-    v7 = (volatile signed __int32 *)a1[18];
-    if ( v7 == (volatile signed __int32 *)TppPoolpGlobalPool )
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1[18] + 72LL));
+    v7 = (PVOID)a1[18];
+    if ( v7 == TppPoolpGlobalPool )
     {
       v8 = &TppPoolpGlobalPoolLock;
-      v9 = &TppPoolpGlobalPool;
+      v9 = (const void **)&TppPoolpGlobalPool;
 LABEL_11:
-      TppPoolpDereferenceGlobalPool((const void **)v9, (__int64)v8);
+      TppPoolpDereferenceGlobalPool(v9, v8);
       goto LABEL_12;
     }
-    if ( v7 == (volatile signed __int32 *)TppPoolpSerializedPool )
+    if ( v7 == (PVOID)TppPoolpSerializedPool )
     {
-      v8 = &TppPoolpSerializedPoolLock;
-      v9 = &TppPoolpSerializedPool;
+      v8 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
+      v9 = (const void **)&TppPoolpSerializedPool;
       goto LABEL_11;
     }
-    if ( _InterlockedExchangeAdd(v7, 0xFFFFFFFF) == 1 )
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFFFFFF) == 1 )
       TppPoolpFree(v7);
   }
   else
@@ -109,6 +109,6 @@ LABEL_12:
     v15[12] = a1[11];
     TppCallbackCheckThreadBeforeCallback(v15);
     _guard_dispatch_icall_fptr();
-    TppCallbackEpilog(v15);
+    TppCallbackEpilog((unsigned int *)v15);
   }
 }

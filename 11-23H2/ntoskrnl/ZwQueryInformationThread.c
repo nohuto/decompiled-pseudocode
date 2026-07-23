@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryInformationThread @ 0x14041B200
+ * XREFs of ZwQueryInformationThread @ 0x14041B590
  * Callers:
- *     DifZwQueryInformationThreadWrapper @ 0x1405F4A90 (DifZwQueryInformationThreadWrapper.c)
+ *     DifZwQueryInformationThreadWrapper @ 0x1405F5000 (DifZwQueryInformationThreadWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

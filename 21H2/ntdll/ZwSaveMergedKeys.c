@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSaveMergedKeys @ 0x1800A06F0
+ * XREFs of ZwSaveMergedKeys @ 0x1800A06B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSaveMergedKeys()
+NTSTATUS __cdecl ZwSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 390LL;
+  result = 390;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

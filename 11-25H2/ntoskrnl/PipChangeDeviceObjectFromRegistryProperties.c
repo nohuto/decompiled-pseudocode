@@ -28,7 +28,7 @@ __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a
   __int64 v18; // rdx
   int v19; // r15d
   __int64 v20; // rcx
-  ULONG v21; // r14d
+  DWORD v21; // r14d
   __int64 v22; // rdx
   int v23; // r15d
   __int64 RegistrySecurityWithFallback; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a
   BOOLEAN DaclPresent; // [rsp+41h] [rbp-60h] BYREF
   char v38; // [rsp+42h] [rbp-5Fh]
   char v39; // [rsp+43h] [rbp-5Eh]
-  ULONG v40; // [rsp+44h] [rbp-5Dh] BYREF
+  DWORD v40; // [rsp+44h] [rbp-5Dh] BYREF
   BOOLEAN DaclDefaulted[4]; // [rsp+48h] [rbp-59h] BYREF
   int v42; // [rsp+4Ch] [rbp-55h] BYREF
   unsigned int v43; // [rsp+50h] [rbp-51h] BYREF

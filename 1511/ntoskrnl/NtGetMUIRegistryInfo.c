@@ -19,13 +19,13 @@
  *     PsCreateSystemThread @ 0x1404D20DC (PsCreateSystemThread.c)
  */
 
-__int64 __fastcall NtGetMUIRegistryInfo(int a1, unsigned int *a2, volatile void *a3)
+NTSTATUS __cdecl NtGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
-  int v5; // ebx
+  ULONG v5; // ebx
   unsigned int *v6; // rcx
   struct _KTHREAD *CurrentThread; // rax
   char v8; // bl
-  NTSTATUS v9; // esi
+  int v9; // esi
   _DWORD *v10; // rcx
   int v12; // eax
   unsigned int Length; // [rsp+40h] [rbp-B8h]
@@ -42,30 +42,30 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, unsigned int *a2, volatile void 
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-60h] BYREF
   char v25; // [rsp+118h] [rbp+20h]
 
-  v5 = a1;
+  v5 = Flags;
   v25 = 0;
   if ( !KeGetCurrentThread()->PreviousMode || InitSafeBootMode )
     goto LABEL_47;
-  if ( a2 )
+  if ( DataSize )
   {
-    v6 = a2;
-    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+    v6 = DataSize;
+    if ( (unsigned __int64)DataSize >= MmUserProbeAddress )
       v6 = (unsigned int *)MmUserProbeAddress;
     Length = *v6;
     if ( *v6 )
     {
-      if ( !a3 )
+      if ( !Data )
         goto LABEL_48;
       goto LABEL_11;
     }
   }
   else
   {
-    if ( (a1 & 0xA) == 0 )
+    if ( (Flags & 0xA) == 0 )
       goto LABEL_48;
     Length = 0;
   }
-  if ( a3 )
+  if ( Data )
     goto LABEL_48;
 LABEL_11:
   if ( !v5 )
@@ -188,16 +188,16 @@ LABEL_18:
   }
   v9 = 0;
 LABEL_22:
-  v10 = a2;
-  if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+  v10 = DataSize;
+  if ( (unsigned __int64)DataSize >= MmUserProbeAddress )
     v10 = (_DWORD *)MmUserProbeAddress;
   *v10 = *v10;
-  *a2 = MUIRegistryInfoSize;
+  *DataSize = MUIRegistryInfoSize;
   if ( v8 )
   {
-    ProbeForWrite(a3, Length, 1u);
-    memset((void *)a3, 0, Length);
-    memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
+    ProbeForWrite(Data, Length, 1u);
+    memset(Data, 0, Length);
+    memmove(Data, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_26:
   if ( v25 )
@@ -205,5 +205,5 @@ LABEL_26:
     ExReleaseResourceLite(MUIRegistryLock);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v9;
+  return v9;
 }

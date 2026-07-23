@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpProtectPoolEx @ 0x1404C9778
+ * XREFs of CmpProtectPoolEx @ 0x1404C3198
  * Callers:
- *     HvpProtectBinPartial @ 0x1408B955C (HvpProtectBinPartial.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1408DBDF0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpProtectBinPartial @ 0x1408BFB2C (HvpProtectBinPartial.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1408E23B0 (HvpRemapAndEnlistHiveBins.c)
  * Callees:
- *     ExProtectPoolEx @ 0x14024CE7C (ExProtectPoolEx.c)
+ *     ExProtectPoolEx @ 0x14024E7DC (ExProtectPoolEx.c)
  */
 
 __int64 __fastcall CmpProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

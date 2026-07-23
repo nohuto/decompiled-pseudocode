@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeleteClusterPage @ 0x1400922A0
+ * XREFs of MiDeleteClusterPage @ 0x140091A00
  * Callers:
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiAbortCombineScan @ 0x14001D810 (MiAbortCombineScan.c)
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiDeleteBatch @ 0x140064B10 (MiDeleteBatch.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiInsertLargePageInNodeList @ 0x1401FBB4C (MiInsertLargePageInNodeList.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiAbortCombineScan @ 0x14001D390 (MiAbortCombineScan.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiDeleteBatch @ 0x140064690 (MiDeleteBatch.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiInsertLargePageInNodeList @ 0x1401FB978 (MiInsertLargePageInNodeList.c)
  */
 
 __int64 __fastcall MiDeleteClusterPage(__int64 a1, __int64 a2, __int64 a3)
@@ -67,7 +67,7 @@ __int64 __fastcall MiDeleteClusterPage(__int64 a1, __int64 a2, __int64 a3)
   if ( v5 == 1023 )
     v6 = (struct _KEVENT *)MiSystemPartition;
   else
-    v6 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v5);
+    v6 = *(struct _KEVENT **)(qword_140327038 + 8LL * v5);
   v7 = -1LL;
   ContainingPageTable = MiGetContainingPageTable(a1);
   v9 = 0;

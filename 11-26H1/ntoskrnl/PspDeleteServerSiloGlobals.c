@@ -1,22 +1,22 @@
 /*
- * XREFs of PspDeleteServerSiloGlobals @ 0x1407EEE3C
+ * XREFs of PspDeleteServerSiloGlobals @ 0x1407F499C
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x1407EEB8C (PspConvertSiloToServerSilo.c)
- *     PspDeleteSilo @ 0x140B47D68 (PspDeleteSilo.c)
+ *     PspConvertSiloToServerSilo @ 0x1407F46EC (PspConvertSiloToServerSilo.c)
+ *     PspDeleteSilo @ 0x140B49AF8 (PspDeleteSilo.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpDeleteSiloState @ 0x1406CD094 (ExpDeleteSiloState.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ObCleanupSiloState @ 0x1407C216C (ObCleanupSiloState.c)
- *     EtwCleanupSiloState @ 0x14082455C (EtwCleanupSiloState.c)
- *     ExpWnfDeleteScopeInstances @ 0x14084714C (ExpWnfDeleteScopeInstances.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpDeleteSiloState @ 0x1406D10C4 (ExpDeleteSiloState.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ObCleanupSiloState @ 0x1407C51CC (ObCleanupSiloState.c)
+ *     EtwCleanupSiloState @ 0x14082A79C (EtwCleanupSiloState.c)
+ *     ExpWnfDeleteScopeInstances @ 0x14084D3AC (ExpWnfDeleteScopeInstances.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDeleteServerSiloGlobals(char *P)
@@ -43,7 +43,7 @@ void __fastcall PspDeleteServerSiloGlobals(char *P)
   ObCleanupSiloState((volatile __int64 *)P);
   v3 = P + 784;
   if ( *((_QWORD *)P + 99) || *((_QWORD *)P + 101) || *v3 )
-    KeBugCheckEx(0x29u, (ULONG_PTR)v3, (ULONG_PTR)"minkernel\\ntos\\se\\rmmain.c", 0x66BuLL, 0LL);
+    KeBugCheckEx(0x29u, (ULONG_PTR)v3, (ULONG_PTR)"minkernel\\ntos\\se\\rmmain.c", 0x661uLL, 0LL);
   if ( *((_QWORD *)P + 110) )
   {
     CurrentThread = KeGetCurrentThread();

@@ -8,7 +8,7 @@
 
 __int64 __fastcall PdcPoCsEnterExitReason(char a1, int a2)
 {
-  LARGE_INTEGER v4; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
   if ( a1 )
   {
@@ -17,7 +17,7 @@ __int64 __fastcall PdcPoCsEnterExitReason(char a1, int a2)
   else
   {
     PopPdcLastCsExitReason = a2;
-    PopPdcLastCsExitTime = KeQueryInterruptTimePrecise(&v4);
+    PopPdcLastCsExitTime = KeQueryInterruptTimePrecise(&PerformanceCounter).QuadPart;
   }
   return PopEvaluateAggressiveStandbyActions(a1);
 }

@@ -15,7 +15,7 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
+__int64 __fastcall sub_180005B00(_DWORD *BaseAddress, __int64 a2)
 {
   __int64 v2; // r15
   int v3; // ebx
@@ -25,7 +25,7 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
   char v8; // r14
   _QWORD *v9; // rsi
   __int64 result; // rax
-  unsigned int NumberOfHeaps; // ecx
+  ULONG NumberOfHeaps; // ecx
   __int64 v12; // rax
   __int64 v13; // rax
   _DWORD *v14; // rcx
@@ -37,13 +37,13 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
   unsigned __int64 v20; // r15
   __int16 v21; // si
   int v22; // r15d
-  __int64 v23; // rsi
-  __int64 v24; // rcx
+  _DWORD *v23; // rsi
+  PVOID v24; // rcx
   int v25; // esi
   unsigned __int64 v26; // rax
   __int64 v27; // rsi
   __int64 v28; // r14
-  __int64 v29; // rcx
+  PVOID v29; // rcx
   unsigned __int64 v30; // rax
   int v31; // eax
   int v32; // eax
@@ -61,7 +61,7 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
   unsigned __int64 v44; // [rsp+50h] [rbp-B0h] BYREF
   unsigned __int64 v45; // [rsp+58h] [rbp-A8h] BYREF
   _QWORD v46[6]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v47; // [rsp+90h] [rbp-70h]
+  _DWORD *v47; // [rsp+90h] [rbp-70h]
   __int64 v48; // [rsp+98h] [rbp-68h]
   _QWORD v49[22]; // [rsp+A0h] [rbp-60h] BYREF
   _BYTE v50[16]; // [rsp+150h] [rbp+50h] BYREF
@@ -73,19 +73,19 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
   v6 = *(_DWORD *)a2;
   v41 = *(_DWORD *)a2;
   v42 = v2;
-  v7 = *(_DWORD *)(a1 + 16) == -571548178;
+  v7 = BaseAddress[4] == -571548178;
   v43 = v4;
   v48 = 0LL;
   if ( v7 )
   {
     v8 = 1;
     v39 = 1;
-    v9 = (_QWORD *)a1;
-    v47 = a1;
+    v9 = BaseAddress;
+    v47 = BaseAddress;
   }
   else
   {
-    v7 = (*(_DWORD *)(a1 + 116) & 0x1000000) == 0;
+    v7 = (BaseAddress[29] & 0x1000000) == 0;
     v8 = 0;
     v39 = 0;
     v9 = 0LL;
@@ -98,7 +98,7 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
     memset(v49, 0, 0xA8uLL);
     LODWORD(v49[0]) = 2;
     v49[1] = 64LL;
-    v49[2] = a1;
+    v49[2] = BaseAddress;
     if ( v8 )
     {
       v49[4] = *v9 << 12;
@@ -110,8 +110,8 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
     }
     else
     {
-      LODWORD(v49[3]) = *(unsigned __int8 *)(a1 + 386);
-      result = sub_180005640(a1, &v49[4], &v49[5]);
+      LODWORD(v49[3]) = *((unsigned __int8 *)BaseAddress + 386);
+      result = sub_180005640((__int64)BaseAddress, &v49[4], &v49[5]);
     }
     if ( (int)result < 0 )
       return result;
@@ -128,7 +128,7 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
       while ( 1 )
       {
         LOBYTE(v18) = v41 > 3;
-        result = sub_180008414(a1, v46, v18);
+        result = sub_180008414(BaseAddress, v46, v18);
         if ( (_DWORD)result == -2147483622 )
           return 0LL;
         if ( (int)result < 0 )
@@ -139,15 +139,15 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
         if ( v8 || (v46[2] & 0x80000000LL) != 0 )
         {
           v22 = v48;
-          v23 = v46[0];
+          v23 = (_DWORD *)v46[0];
         }
         else
         {
           v22 = v46[0];
-          v23 = v46[0];
+          v23 = (_DWORD *)v46[0];
           v48 = v46[0];
-          if ( v46[0] + 24LL == *(_QWORD *)(a1 + 288) )
-            v23 = a1;
+          if ( v46[0] + 24LL == *((_QWORD *)BaseAddress + 36) )
+            v23 = BaseAddress;
         }
         memset(v49, 0, 0xA8uLL);
         v49[3] = LODWORD(v46[3]) + (unsigned __int64)HIDWORD(v46[3]);
@@ -172,13 +172,13 @@ __int64 __fastcall sub_180005B00(__int64 a1, __int64 a2)
             v25 = v40;
             goto LABEL_36;
           }
-          v24 = a1;
+          v24 = BaseAddress;
         }
         v19 = v46[0];
         v20 = v46[0] + LODWORD(v46[3]);
         v44 = v46[0];
         v45 = v20;
-        v40 = sub_18001E548(v24, 0LL);
+        v40 = sub_18001E548(v24);
         v25 = v40;
 LABEL_36:
         memset(v49, 0, 0xA8uLL);
@@ -279,12 +279,12 @@ LABEL_78:
     else
     {
       v49[2] = v27;
-      v29 = a1;
+      v29 = BaseAddress;
       v30 = *(_QWORD *)(v27 + 32);
     }
     v49[3] = v30;
     LODWORD(v49[4]) = 1;
-    HIDWORD(v49[4]) = sub_18001E548(v29, 0LL);
+    HIDWORD(v49[4]) = sub_18001E548(v29);
     result = v43(v49, v42);
     if ( (int)result < 0 )
       return result;
@@ -358,23 +358,23 @@ LABEL_57:
   }
   else
   {
-    LODWORD(v49[3]) = *(unsigned __int16 *)(a1 + 208);
+    LODWORD(v49[3]) = *((unsigned __int16 *)BaseAddress + 104);
     HIDWORD(v49[2]) = 1;
-    v49[4] = a1;
+    v49[4] = BaseAddress;
     NumberOfHeaps = NtCurrentPeb()->NumberOfHeaps;
-    v49[5] = *(_QWORD *)(a1 + 536);
-    v12 = *(_QWORD *)(a1 + 544) - *(_QWORD *)(a1 + 632);
+    v49[5] = *((_QWORD *)BaseAddress + 67);
+    v12 = *((_QWORD *)BaseAddress + 68) - *((_QWORD *)BaseAddress + 79);
     HIDWORD(v49[3]) = NumberOfHeaps - 1;
     v49[6] = v12;
-    v13 = sub_1800062F4(a1);
-    v14 = *(_DWORD **)(a1 + 312);
+    v13 = sub_1800062F4(BaseAddress);
+    v14 = (_DWORD *)*((_QWORD *)BaseAddress + 39);
     v49[10] = v13;
-    v49[11] = 16LL * *(_QWORD *)(a1 + 192);
-    LODWORD(v49[9]) = *(_DWORD *)(a1 + 572);
-    LODWORD(v49[13]) = *(_DWORD *)(a1 + 560);
-    v49[8] = *(_QWORD *)(a1 + 552);
-    LODWORD(v49[7]) = *(_DWORD *)(a1 + 568);
-    HIDWORD(v49[13]) = *(_DWORD *)(a1 + 576);
+    v49[11] = 16LL * *((_QWORD *)BaseAddress + 24);
+    LODWORD(v49[9]) = BaseAddress[143];
+    LODWORD(v49[13]) = BaseAddress[140];
+    v49[8] = *((_QWORD *)BaseAddress + 69);
+    LODWORD(v49[7]) = BaseAddress[142];
+    HIDWORD(v49[13]) = BaseAddress[144];
     LODWORD(v49[14]) = HIDWORD(v49[13]);
     if ( v14 )
     {
@@ -383,8 +383,8 @@ LABEL_57:
       if ( *(_QWORD *)v14 )
         LODWORD(v49[12]) = *(_DWORD *)(*(_QWORD *)v14 + 16LL) + v15;
     }
-    v16 = *(_QWORD *)(a1 + 352);
-    v17 = *(_DWORD *)(a1 + 588);
+    v16 = *((_QWORD *)BaseAddress + 44);
+    v17 = BaseAddress[147];
     HIDWORD(v49[12]) = v17;
     if ( v16 )
     {

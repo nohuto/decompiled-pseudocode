@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpObjectListCallback @ 0x140820A80
+ * XREFs of _PnpObjectListCallback @ 0x1408211C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnpObjectListCallback(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PnpObjectListCallback(__int64 a1, __int64 a2, const wchar_t *
     ++v4;
   while ( a3[v4] );
   v7 = v4 + 1;
-  if ( !*(_QWORD *)a4 || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, a3, 0LL, *(_QWORD *)(a4 + 8)) )
+  if ( !*(_QWORD *)a4 || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, a3) )
   {
     *(_DWORD *)(a4 + 28) += v7;
     v8 = *(_DWORD *)(a4 + 24);

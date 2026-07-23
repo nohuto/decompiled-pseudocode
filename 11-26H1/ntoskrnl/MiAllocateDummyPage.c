@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateDummyPage @ 0x140CF267C
+ * XREFs of MiAllocateDummyPage @ 0x140CF89FC
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
- *     MiInitializeDummyPages @ 0x140CF32F0 (MiInitializeDummyPages.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
+ *     MiInitializeDummyPages @ 0x140CF9670 (MiInitializeDummyPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
  */
 
 __int64 MiAllocateDummyPage()

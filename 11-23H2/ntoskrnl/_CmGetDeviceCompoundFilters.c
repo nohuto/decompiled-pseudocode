@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetDeviceCompoundFilters @ 0x1407FD450
+ * XREFs of _CmGetDeviceCompoundFilters @ 0x1407FD720
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3BC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3EC (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC7D0 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140A67E0C (_CmGetDeviceCompoundFiltersWorker.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC800 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140A680BC (_CmGetDeviceCompoundFiltersWorker.c)
  */
 
 __int64 __fastcall CmGetDeviceCompoundFilters(

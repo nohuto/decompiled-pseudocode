@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteAweInfo @ 0x140878E84
+ * XREFs of MiDeleteAweInfo @ 0x14087F264
  * Callers:
- *     MiDeleteSectionAwe @ 0x1407014B8 (MiDeleteSectionAwe.c)
- *     MiAllocateAweInfo @ 0x140877584 (MiAllocateAweInfo.c)
- *     MiCreateProcessDefaultAweInfo @ 0x1408789FC (MiCreateProcessDefaultAweInfo.c)
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
+ *     MiDeleteSectionAwe @ 0x140706188 (MiDeleteSectionAwe.c)
+ *     MiAllocateAweInfo @ 0x14087D964 (MiAllocateAweInfo.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x14087EDDC (MiCreateProcessDefaultAweInfo.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExCleanupAutoExpandPushLock @ 0x1404638C0 (ExCleanupAutoExpandPushLock.c)
- *     MiDeleteAweBitMap @ 0x140878E00 (MiDeleteAweBitMap.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExCleanupAutoExpandPushLock @ 0x14045C880 (ExCleanupAutoExpandPushLock.c)
+ *     MiDeleteAweBitMap @ 0x14087F1E0 (MiDeleteAweBitMap.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteAweInfo(_DWORD *P, ULONG_PTR a2)

@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x140AE0850
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x140AE2138
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetNumberOfFreeSystemPtes @ 0x1403FC504 (MmGetNumberOfFreeSystemPtes.c)
- *     MiFreePoolPagesLeft @ 0x140449280 (MiFreePoolPagesLeft.c)
- *     MmGetAvailablePages @ 0x140462128 (MmGetAvailablePages.c)
- *     MmGetTotalCommittedPages @ 0x140462E54 (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x140463210 (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x14046329C (MmGetPeakCommitment.c)
- *     MmGetResidentAvailablePages @ 0x140463D00 (MmGetResidentAvailablePages.c)
- *     MiMaximumCommitmentAvailable @ 0x14046538C (MiMaximumCommitmentAvailable.c)
- *     MmGetSharedCommit @ 0x14046FD14 (MmGetSharedCommit.c)
- *     MmGetProcessPartitionId @ 0x14046FF78 (MmGetProcessPartitionId.c)
- *     ExQueryPoolUsage @ 0x14047101C (ExQueryPoolUsage.c)
- *     MmGetWorkingSetLeafSize @ 0x140471EEC (MmGetWorkingSetLeafSize.c)
- *     MmGetSystemPageCounts @ 0x140494EB8 (MmGetSystemPageCounts.c)
- *     MmGetMdlPagesAllocated @ 0x14049CF60 (MmGetMdlPagesAllocated.c)
- *     MmGetPfnDatabaseCommit @ 0x14049E1EC (MmGetPfnDatabaseCommit.c)
- *     MmGetSystemPageTableCommit @ 0x14049E29C (MmGetSystemPageTableCommit.c)
- *     MmGetContiguousPagesAllocated @ 0x14049EDB4 (MmGetContiguousPagesAllocated.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsQueryRuntimeProcess @ 0x1409C4240 (PsQueryRuntimeProcess.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1403F5EC4 (MmGetNumberOfFreeSystemPtes.c)
+ *     MiFreePoolPagesLeft @ 0x1404419D0 (MiFreePoolPagesLeft.c)
+ *     MmGetAvailablePages @ 0x140457738 (MmGetAvailablePages.c)
+ *     MmGetTotalCommittedPages @ 0x140458464 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1404585C4 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x140459D88 (MmGetPeakCommitment.c)
+ *     MmGetResidentAvailablePages @ 0x14045A440 (MmGetResidentAvailablePages.c)
+ *     MiMaximumCommitmentAvailable @ 0x14045BA70 (MiMaximumCommitmentAvailable.c)
+ *     MmGetSharedCommit @ 0x14046A274 (MmGetSharedCommit.c)
+ *     MmGetProcessPartitionId @ 0x14046A3A0 (MmGetProcessPartitionId.c)
+ *     ExQueryPoolUsage @ 0x14046B794 (ExQueryPoolUsage.c)
+ *     MmGetWorkingSetLeafSize @ 0x14046C6CC (MmGetWorkingSetLeafSize.c)
+ *     MmGetSystemPageCounts @ 0x14048F778 (MmGetSystemPageCounts.c)
+ *     MmGetMdlPagesAllocated @ 0x140497CB0 (MmGetMdlPagesAllocated.c)
+ *     MmGetPfnDatabaseCommit @ 0x140498FEC (MmGetPfnDatabaseCommit.c)
+ *     MmGetSystemPageTableCommit @ 0x14049909C (MmGetSystemPageTableCommit.c)
+ *     MmGetContiguousPagesAllocated @ 0x140499BEC (MmGetContiguousPagesAllocated.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsQueryRuntimeProcess @ 0x1409AF430 (PsQueryRuntimeProcess.c)
  */
 
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)
@@ -324,7 +324,7 @@ void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2,
   if ( v55 > v54 )
     LODWORD(v55) = v54;
   v106 = v55;
-  Src[0] = PsQueryRuntimeProcess(PsIdleProcess, &v141) * (unsigned int)KeMaximumIncrement;
+  Src[0] = PsQueryRuntimeProcess(PsIdleProcess, &v141) * KeMaximumIncrement;
   ExQueryPoolUsage((int)&v94, (int)&v95, (int)&v96, (int)&v97, (__int64)v105, (__int64)v98, (__int64)v99, (__int64)v104);
   v110 = 0LL;
   v111 = 0LL;

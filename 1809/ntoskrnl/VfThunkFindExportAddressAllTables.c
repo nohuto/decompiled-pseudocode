@@ -1,9 +1,9 @@
 /*
- * XREFs of VfThunkFindExportAddressAllTables @ 0x1409B7754
+ * XREFs of VfThunkFindExportAddressAllTables @ 0x1409B8754
  * Callers:
- *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x1409B8610 (VfInitBootDriversLoaded.c)
  * Callees:
- *     ViThunkFindAllExportAddresses @ 0x1409B77F0 (ViThunkFindAllExportAddresses.c)
+ *     ViThunkFindAllExportAddresses @ 0x1409B87F0 (ViThunkFindAllExportAddresses.c)
  */
 
 __int64 __fastcall VfThunkFindExportAddressAllTables(__int64 a1)

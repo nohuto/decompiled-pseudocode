@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpReleaseWriteQueue @ 0x1404E7034
+ * XREFs of CmpReleaseWriteQueue @ 0x1404C9704
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14054DCC4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14054E064 (CmpFinishBeingActiveFlusherAndReconciler.c)
  * Callees:
- *     PsBoostThreadIo @ 0x14002D430 (PsBoostThreadIo.c)
- *     KeRemovePriorityBoost @ 0x1401D2D10 (KeRemovePriorityBoost.c)
+ *     PsBoostThreadIo @ 0x14002CFB0 (PsBoostThreadIo.c)
+ *     KeRemovePriorityBoost @ 0x1401D2B3C (KeRemovePriorityBoost.c)
  */
 
 __int64 __fastcall CmpReleaseWriteQueue(__int64 a1, __int64 a2)

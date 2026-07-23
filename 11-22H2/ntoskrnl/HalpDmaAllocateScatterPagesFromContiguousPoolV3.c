@@ -30,7 +30,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
   bool v17; // zf
   __int64 result; // rax
   ULONG v19; // eax
-  RTL_BITMAP *v20; // rbx
+  _RTL_BITMAP *v20; // rbx
   __int64 v21; // r12
   __int64 v22; // rsi
   ULONG v23; // ebx
@@ -57,10 +57,13 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
 LABEL_3:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -82,7 +85,7 @@ LABEL_11:
   }
   if ( a4 )
   {
-    v20 = *(RTL_BITMAP **)(a2 + 24);
+    v20 = *(_RTL_BITMAP **)(a2 + 24);
     if ( v20->SizeOfBitMap - RtlNumberOfSetBits(v20) < a3 )
       goto LABEL_3;
   }
@@ -113,10 +116,10 @@ LABEL_11:
     *(_DWORD *)(v9 + 208) -= v23;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v27 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;

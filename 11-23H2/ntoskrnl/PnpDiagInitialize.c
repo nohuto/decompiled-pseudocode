@@ -3,8 +3,8 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     McGenEventRegister_EtwRegister @ 0x140374E18 (McGenEventRegister_EtwRegister.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
+ *     McGenEventRegister_EtwRegister @ 0x140374FB8 (McGenEventRegister_EtwRegister.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
  */
 
 __int64 __fastcall PnpDiagInitialize(__int64 a1, __int64 a2)

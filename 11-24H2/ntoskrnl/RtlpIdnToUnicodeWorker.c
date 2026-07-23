@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpIdnToUnicodeWorker @ 0x1405EE95C
+ * XREFs of RtlpIdnToUnicodeWorker @ 0x1405EBF3C
  * Callers:
- *     RtlIdnToUnicode @ 0x1407845A0 (RtlIdnToUnicode.c)
+ *     RtlIdnToUnicode @ 0x1407844D0 (RtlIdnToUnicode.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     punycode_decode @ 0x14078489C (punycode_decode.c)
- *     RtlIsNormalizedString @ 0x140786D60 (RtlIsNormalizedString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     punycode_decode @ 0x1407847CC (punycode_decode.c)
+ *     RtlIsNormalizedString @ 0x140786C90 (RtlIsNormalizedString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpIdnToUnicodeWorker(
@@ -31,11 +31,11 @@ __int64 __fastcall RtlpIdnToUnicodeWorker(
   int v15; // ebx
   __int64 v16; // r12
   __int64 v17; // rdx
-  __int64 v18; // r15
+  signed __int64 v18; // r15
   _BYTE *Pool2; // r14
-  __int64 i; // rcx
+  signed __int64 i; // rcx
   __int16 v21; // dx
-  __int64 j; // rax
+  signed __int64 j; // rax
   __int64 v23; // [rsp+48h] [rbp-8h] BYREF
   size_t pcchLength; // [rsp+98h] [rbp+48h] BYREF
   void *v25; // [rsp+A8h] [rbp+58h]
@@ -90,7 +90,7 @@ LABEL_16:
     goto LABEL_38;
   v18 = v15 - (2 - (v12 != 0)) - (int)v17;
   LODWORD(pcchLength) = v15 - (2 - (v12 != 0)) - v17;
-  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, v18, 0x456E6449u);
   if ( !Pool2 )
     return 3221225495LL;
   if ( v18 > 0 )

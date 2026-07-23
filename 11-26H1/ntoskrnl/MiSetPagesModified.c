@@ -1,36 +1,36 @@
 /*
- * XREFs of MiSetPagesModified @ 0x14045BE6C
+ * XREFs of MiSetPagesModified @ 0x140455A14
  * Callers:
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiGetEffectivePagePriorityThread @ 0x1403719B0 (MiGetEffectivePagePriorityThread.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     MiUpdateControlAreaCommitCount @ 0x1404853D8 (MiUpdateControlAreaCommitCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     MiPrefetchControlArea @ 0x140A4F258 (MiPrefetchControlArea.c)
- *     MiDeleteFileExtents @ 0x140AC35A8 (MiDeleteFileExtents.c)
- *     MiUnmapImageInSystemSpace @ 0x140B1B8C8 (MiUnmapImageInSystemSpace.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140373760 (MiGetEffectivePagePriorityThread.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     MiUpdateControlAreaCommitCount @ 0x14047ED48 (MiUpdateControlAreaCommitCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     MiPrefetchControlArea @ 0x140A58548 (MiPrefetchControlArea.c)
+ *     MiDeleteFileExtents @ 0x140AC5218 (MiDeleteFileExtents.c)
+ *     MiUnmapImageInSystemSpace @ 0x140B1DACC (MiUnmapImageInSystemSpace.c)
  */
 
 __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
@@ -71,7 +71,7 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
   void *v38; // rdx
   AutoBoost *v39; // rsi
   __int64 v40; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v42; // rcx
+  $241382875694CED3D471BC5892DE3337 *v42; // rcx
   __int64 v43; // [rsp+40h] [rbp-E8h]
   __int64 v44; // [rsp+40h] [rbp-E8h]
   unsigned __int64 v45; // [rsp+48h] [rbp-E0h] BYREF
@@ -92,7 +92,7 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
   char v60; // [rsp+140h] [rbp+18h]
 
   v59[0] = 0LL;
-  v4 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*((_DWORD *)a1 + 15) & 0x3FF));
+  v4 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*((_DWORD *)a1 + 15) & 0x3FF));
   v53 = v4;
   v52 = v4;
   v58 = *a1;
@@ -110,7 +110,7 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
   v8 = MiMapImageInSystemSpace(a1, 1LL, v59);
   if ( v8 >= 0 )
   {
-    v56 = &unk_140E36F40;
+    v56 = &unk_140E370C0;
     v9 = *(_QWORD *)&v59[0];
     v50 = *(_QWORD *)&v59[0];
     v10 = 0xFFFFF68000000000uLL;
@@ -219,9 +219,9 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
           _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           if ( v18 )
             MiReleasePageFileInfo(
-              *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL)),
+              *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL)),
               v18,
-              1);
+              1LL);
           v11 = v47;
           v12 = v43;
         }
@@ -266,7 +266,7 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
       if ( v35->SpecialApcDisable++ == -1 )
       {
         v42 = &v35->152;
-        if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v42->ApcState.ApcListHead[0].Flink != v42 )
+        if ( ($241382875694CED3D471BC5892DE3337 *)v42->ApcState.ApcListHead[0].Flink != v42 )
           KiCheckForKernelApcDelivery((__int64)v42, v40);
       }
     }

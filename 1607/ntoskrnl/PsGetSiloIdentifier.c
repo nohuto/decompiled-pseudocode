@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetSiloIdentifier @ 0x140581118
+ * XREFs of PsGetSiloIdentifier @ 0x1405815C4
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x1406E6004 (ObCreateSiloRootDirectory.c)
- *     ObGetSiloRootDirectoryPath @ 0x1406E6284 (ObGetSiloRootDirectoryPath.c)
+ *     ObCreateSiloRootDirectory @ 0x1406E613C (ObCreateSiloRootDirectory.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1406E63BC (ObGetSiloRootDirectoryPath.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
  */
 
 __int64 __fastcall PsGetSiloIdentifier(__int64 a1)

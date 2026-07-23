@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpWriteProcessStarted @ 0x14094E248
+ * XREFs of EtwpWriteProcessStarted @ 0x140A2FF1C
  * Callers:
- *     EtwTraceProcess @ 0x14094CC44 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x1408F11B4 (EtwTraceProcess.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetSessionId @ 0x1403D5E10 (PsGetSessionId.c)
- *     PsGetProcessStartKey @ 0x140452EB0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsGetSessionCreateTime @ 0x14094BFE0 (PsGetSessionCreateTime.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionId @ 0x1403C1560 (PsGetSessionId.c)
+ *     PsGetProcessStartKey @ 0x140447F60 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsGetSessionCreateTime @ 0x1408F0550 (PsGetSessionCreateTime.c)
  */
 
 char __fastcall EtwpWriteProcessStarted(
@@ -74,9 +74,9 @@ char __fastcall EtwpWriteProcessStarted(
   v6 = &EmptyUnicodeString;
   if ( v5 )
     v6 = *(__int64 **)(a1 + 848);
-  if ( (unsigned int)dword_140E090F0 > 5 )
+  if ( (unsigned int)dword_140E09160 > 5 )
   {
-    if ( (qword_140E09100 & 3) == 0 || (LOBYTE(v5) = 1, (qword_140E09108 & 3) != qword_140E09108) )
+    if ( (qword_140E09170 & 3) == 0 || (LOBYTE(v5) = 1, (qword_140E09178 & 3) != qword_140E09178) )
       LOBYTE(v5) = 0;
     if ( (_BYTE)v5 )
     {
@@ -132,8 +132,8 @@ char __fastcall EtwpWriteProcessStarted(
       v59 = *((_QWORD *)a4 + 1);
       v60[0] = *a4;
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E090F0,
-                     (unsigned __int8 *)&word_140052826,
+                     (__int64)&dword_140E09160,
+                     (unsigned __int8 *)byte_140052E5B,
                      0LL,
                      v12,
                      0x14u,

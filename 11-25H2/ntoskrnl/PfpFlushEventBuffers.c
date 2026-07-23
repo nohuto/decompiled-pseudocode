@@ -11,16 +11,16 @@
  *     PfpCopyEvent @ 0x14092363C (PfpCopyEvent.c)
  */
 
-__int64 __fastcall PfpFlushEventBuffers(union _SLIST_HEADER *a1)
+__int64 __fastcall PfpFlushEventBuffers(_SLIST_HEADER *a1)
 {
   _SLIST_ENTRY *v1; // r15
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   int v4; // esi
   PSLIST_ENTRY i; // rdx
-  struct _SLIST_ENTRY *v6; // rax
-  struct _SLIST_ENTRY *v7; // rdi
-  struct _SLIST_ENTRY *v8; // r14
-  struct _SLIST_ENTRY *v10; // rdx
+  _SLIST_ENTRY *v6; // rax
+  _SLIST_ENTRY *v7; // rdi
+  _SLIST_ENTRY *v8; // r14
+  _SLIST_ENTRY *v10; // rdx
 
   v1 = (_SLIST_ENTRY *)&a1[26];
   v3 = 0LL;

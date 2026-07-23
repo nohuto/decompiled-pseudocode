@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnLogPageFault @ 0x1402ECF60
+ * XREFs of PfSnLogPageFault @ 0x14034E5A0
  * Callers:
- *     MiCompleteRestrictedImageFault @ 0x140238F64 (MiCompleteRestrictedImageFault.c)
- *     MiMakeSystemCacheRangeValid @ 0x140243570 (MiMakeSystemCacheRangeValid.c)
- *     MiMakeSystemCachePteValid @ 0x14046F7A8 (MiMakeSystemCachePteValid.c)
- *     MiLogRelocationRva @ 0x1408F567C (MiLogRelocationRva.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14020BFD0 (MiMakeSystemCacheRangeValid.c)
+ *     MiCompleteRestrictedImageFault @ 0x140213BC4 (MiCompleteRestrictedImageFault.c)
+ *     MiMakeSystemCachePteValid @ 0x14021C440 (MiMakeSystemCachePteValid.c)
+ *     MiLogRelocationRva @ 0x14093E524 (MiLogRelocationRva.c)
  * Callees:
- *     ExfReleaseRundownProtection @ 0x1402456A0 (ExfReleaseRundownProtection.c)
- *     PfSnLogPageFaultCommon @ 0x140276060 (PfSnLogPageFaultCommon.c)
- *     PfSnReferenceProcessTrace @ 0x1402ED090 (PfSnReferenceProcessTrace.c)
+ *     ExfReleaseRundownProtection @ 0x14020DE80 (ExfReleaseRundownProtection.c)
+ *     PfSnLogPageFaultCommon @ 0x14022B5F0 (PfSnLogPageFaultCommon.c)
+ *     PfSnReferenceProcessTrace @ 0x14034E6D0 (PfSnReferenceProcessTrace.c)
  */
 
 void __fastcall PfSnLogPageFault(__int64 a1, unsigned __int64 a2, char a3)

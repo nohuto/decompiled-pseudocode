@@ -1,29 +1,29 @@
 /*
- * XREFs of MiInsertHugeRangeInList @ 0x14048E66C
+ * XREFs of MiInsertHugeRangeInList @ 0x1404881AC
  * Callers:
- *     MiHugeRangeFreeToZero @ 0x14048DD70 (MiHugeRangeFreeToZero.c)
- *     MiHugePurgeZeroList @ 0x1405190A8 (MiHugePurgeZeroList.c)
- *     MiAddPartitionHugeRange @ 0x1406EB048 (MiAddPartitionHugeRange.c)
- *     MiDereferenceIoHugeRange @ 0x1406EB388 (MiDereferenceIoHugeRange.c)
- *     MiMarkHugePfnBad @ 0x1406EC7AC (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x1406ECDE4 (MiMarkHugePfnGood.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406ED07C (MiMoveBadHugeRangeCrossPartition.c)
- *     MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406ED210 (MiMoveHibernateHugeRangesFreeToZeroCallback.c)
- *     MiReleaseMemoryRuns @ 0x1406ED4A8 (MiReleaseMemoryRuns.c)
- *     MiInsertHugeRangeInPartition @ 0x140708E54 (MiInsertHugeRangeInPartition.c)
+ *     MiHugeRangeFreeToZero @ 0x1404878B0 (MiHugeRangeFreeToZero.c)
+ *     MiHugePurgeZeroList @ 0x140512B18 (MiHugePurgeZeroList.c)
+ *     MiAddPartitionHugeRange @ 0x1406EFCE8 (MiAddPartitionHugeRange.c)
+ *     MiDereferenceIoHugeRange @ 0x1406F0028 (MiDereferenceIoHugeRange.c)
+ *     MiMarkHugePfnBad @ 0x1406F144C (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x1406F1A84 (MiMarkHugePfnGood.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x1406F1D1C (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406F1EB0 (MiMoveHibernateHugeRangesFreeToZeroCallback.c)
+ *     MiReleaseMemoryRuns @ 0x1406F2148 (MiReleaseMemoryRuns.c)
+ *     MiInsertHugeRangeInPartition @ 0x14070DB08 (MiInsertHugeRangeInPartition.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiWakePageZeroing @ 0x14028E71C (MiWakePageZeroing.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiGetColorHeadHugeRangeBase @ 0x14048E87C (MiGetColorHeadHugeRangeBase.c)
- *     MiMarkHugeRangeTransition @ 0x14048E9EC (MiMarkHugeRangeTransition.c)
- *     MiSimpleInsertHugeRange @ 0x1406EDB90 (MiSimpleInsertHugeRange.c)
- *     MiUpdateHugePageCounts @ 0x1406EDE20 (MiUpdateHugePageCounts.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiWakePageZeroing @ 0x14028DC7C (MiWakePageZeroing.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404883BC (MiGetColorHeadHugeRangeBase.c)
+ *     MiMarkHugeRangeTransition @ 0x14048852C (MiMarkHugeRangeTransition.c)
+ *     MiSimpleInsertHugeRange @ 0x1406F2830 (MiSimpleInsertHugeRange.c)
+ *     MiUpdateHugePageCounts @ 0x1406F2AC0 (MiUpdateHugePageCounts.c)
  */
 
 void __fastcall MiInsertHugeRangeInList(unsigned __int16 *a1, __int64 a2, char a3)
@@ -49,12 +49,12 @@ void __fastcall MiInsertHugeRangeInList(unsigned __int16 *a1, __int64 a2, char a
   unsigned __int8 v24; // [rsp+70h] [rbp+18h]
 
   v3 = a2 & 0x3FFFFF;
-  v7 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v3);
+  v7 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v3);
   v8 = *v7;
   if ( a1 )
     v9 = a1;
   else
-    v9 = (unsigned __int16 *)MiHugePfnPartition((_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v3));
+    v9 = (unsigned __int16 *)MiHugePfnPartition((_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v3));
   v10 = v3 << 18;
   v11 = (unsigned int)MiPageToNode(v10);
   v24 = MiPageToChannel(v10);
@@ -80,7 +80,7 @@ void __fastcall MiInsertHugeRangeInList(unsigned __int16 *a1, __int64 a2, char a
     ColorHeadHugeRangeBase = (volatile signed __int32 *)MiGetColorHeadHugeRangeBase(v14, v12, v15);
     if ( v16 )
     {
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EB10);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EC90);
     }
     else
     {
@@ -114,7 +114,7 @@ void __fastcall MiInsertHugeRangeInList(unsigned __int16 *a1, __int64 a2, char a
     if ( v15 == 1 )
       MiWakePageZeroing((__int64)v9, v20);
     if ( v16 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB10);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EC90);
     else
       _InterlockedAnd64((volatile signed __int64 *)ColorHeadHugeRangeBase, 0xFFFFFFFFFFFFFFF7uLL);
   }

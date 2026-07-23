@@ -11,18 +11,18 @@
  *     _RtlpMuiRegGrowLanguageList@8 @ 0x4B36B8F3 (_RtlpMuiRegGrowLanguageList@8.c)
  */
 
-int __stdcall RtlpLoadMachineUIByPolicy(int a1, int a2, int *a3)
+NTSTATUS __stdcall RtlpLoadMachineUIByPolicy(int a1, int a2, int *a3)
 {
-  int v3; // edi
+  NTSTATUS v3; // edi
   int v5; // esi
   int LanguageList; // eax
   unsigned __int8 v7; // [esp+Fh] [ebp-29h] BYREF
   __int16 v8; // [esp+10h] [ebp-28h] BYREF
-  HANDLE Handle; // [esp+14h] [ebp-24h] BYREF
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-20h] BYREF
-  _DWORD v11[6]; // [esp+20h] [ebp-18h] BYREF
+  HANDLE KeyHandle; // [esp+14h] [ebp-24h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-18h] BYREF
 
-  Handle = 0;
+  KeyHandle = 0;
   v7 = 0;
   v8 = 0;
   if ( !a2 || !a3 )
@@ -33,13 +33,13 @@ int __stdcall RtlpLoadMachineUIByPolicy(int a1, int a2, int *a3)
   if ( !a1 )
   {
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-    v11[0] = 24;
-    v11[2] = &DestinationString;
-    v11[1] = 0;
-    v11[3] = 64;
-    v11[4] = 0;
-    v11[5] = 0;
-    v3 = ZwOpenKey(&Handle, 131097, v11);
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    v3 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( v3 < 0 )
       goto LABEL_5;
   }
@@ -68,7 +68,7 @@ LABEL_17:
   *(_WORD *)(6 * *(unsigned __int16 *)(v5 + 4) + *(_DWORD *)(v5 + 16)) = v7;
   *(_WORD *)(6 * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + *(_DWORD *)(*a3 + 16) + 4) = v8;
 LABEL_5:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v3;
 }

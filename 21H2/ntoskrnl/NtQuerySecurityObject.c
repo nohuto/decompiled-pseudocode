@@ -1,13 +1,13 @@
 /*
- * XREFs of NtQuerySecurityObject @ 0x14068A550
+ * XREFs of NtQuerySecurityObject @ 0x1405E99E0
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140731FF8 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407321B8 (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     SeQuerySecurityAccessMask @ 0x14068A6E8 (SeQuerySecurityAccessMask.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     SeQuerySecurityAccessMask @ 0x1405E9B78 (SeQuerySecurityAccessMask.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtQuerySecurityObject(

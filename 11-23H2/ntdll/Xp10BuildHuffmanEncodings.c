@@ -1,8 +1,8 @@
 /*
- * XREFs of Xp10BuildHuffmanEncodings @ 0x18011D0BC
+ * XREFs of Xp10BuildHuffmanEncodings @ 0x18011D08C
  * Callers:
- *     Xp10BuildAndWriteHuffmanEncodings @ 0x18011C044 (Xp10BuildAndWriteHuffmanEncodings.c)
- *     Xp10BuildAndWriteHuffmanTables @ 0x18011C418 (Xp10BuildAndWriteHuffmanTables.c)
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x18011C014 (Xp10BuildAndWriteHuffmanEncodings.c)
+ *     Xp10BuildAndWriteHuffmanTables @ 0x18011C3E8 (Xp10BuildAndWriteHuffmanTables.c)
  * Callees:
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
@@ -249,13 +249,13 @@ __int64 __fastcall Xp10BuildHuffmanEncodings(
                   v57 = (unsigned __int8)v54;
                   v53 -= 8;
                   v54 >>= 8;
-                  v55 = byte_180148EB0[v57] | (v55 << 8);
+                  v55 = byte_180148F40[v57] | (v55 << 8);
                   --v56;
                 }
                 while ( v56 );
               }
               if ( v53 )
-                v55 = (byte_180148EB0[(unsigned __int8)v54] | (v55 << 8)) >> (8 - v53);
+                v55 = (byte_180148F40[(unsigned __int8)v54] | (v55 << 8)) >> (8 - v53);
               *(_DWORD *)(a5 + 4LL * v52) = v47 & 0x1F ^ (32 * v55);
               ++v51;
             }

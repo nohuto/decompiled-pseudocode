@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeJobStructures @ 0x1409DD960
+ * XREFs of PspInitializeJobStructures @ 0x1409DE960
  * Callers:
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
  * Callees:
- *     ExCreateHandleTable @ 0x140696400 (ExCreateHandleTable.c)
+ *     ExCreateHandleTable @ 0x1406975C0 (ExCreateHandleTable.c)
  */
 
 char PspInitializeJobStructures()
@@ -15,7 +15,7 @@ char PspInitializeJobStructures()
   if ( HandleTable )
   {
     *(_BYTE *)(HandleTable + 44) |= 1u;
-    qword_14096D300 = (__int64)&PspJobList;
+    qword_14096E300 = (__int64)&PspJobList;
     PspJobList = (__int64)&PspJobList;
     PspJobNotificationItem.WorkerRoutine = (void (__fastcall *)(void *))PspJobNotificationWorker;
     PspJobTimeLimitsWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspJobTimeLimitsWork;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpCHashGrow @ 0x140B033A0
+ * XREFs of PfpRpCHashGrow @ 0x140B04FB4
  * Callers:
- *     PfpRpCHashAddEntries @ 0x140B031D8 (PfpRpCHashAddEntries.c)
+ *     PfpRpCHashAddEntries @ 0x140B04DEC (PfpRpCHashAddEntries.c)
  * Callees:
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfpRpCHashGrow(__int64 a1, __int64 a2, unsigned __int64 *a3, struct _KLOCK_ENTRIES *a4)

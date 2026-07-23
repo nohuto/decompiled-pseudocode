@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDbBuildDeviceIdDriverInfMatch @ 0x1406E09D8
+ * XREFs of DrvDbBuildDeviceIdDriverInfMatch @ 0x1406E0B10
  * Callers:
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x1404D5918 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1404B8F1C (DrvDbGetDeviceIdDriverInfMatches.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
  */
 
 int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, wchar_t *a3, unsigned int a4)
@@ -22,14 +22,14 @@ int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, 
   ppszDestEnd = 0LL;
   pcchRemaining = 0LL;
   if ( !v4 )
-    return RtlStringCchCopyExW(a3, a4, &word_140583CF0, 0LL, 0LL, 0x800u);
+    return RtlStringCchCopyExW(a3, a4, &word_1405841A0, 0LL, 0LL, 0x800u);
   if ( v4 <= 2u )
   {
     if ( v4 == 1 )
       v7 = 0;
     else
       v7 = *((unsigned __int16 *)a2 + 1) + 1;
-    result = RtlStringCchPrintfExW(a3, a4, &ppszDestEnd, &pcchRemaining, 0x800u, L"%ws\\%X", &word_140583CF0, v7);
+    result = RtlStringCchPrintfExW(a3, a4, &ppszDestEnd, &pcchRemaining, 0x800u, L"%ws\\%X", &word_1405841A0, v7);
     if ( result >= 0 )
     {
       v8 = a2[1];
@@ -42,7 +42,7 @@ int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, 
   }
   else if ( v4 == 3 )
   {
-    return RtlStringCchPrintfExW(a3, a4, &ppszDestEnd, &pcchRemaining, 0x800u, L"%ws\\*", &word_140583CF0);
+    return RtlStringCchPrintfExW(a3, a4, &ppszDestEnd, &pcchRemaining, 0x800u, L"%ws\\*", &word_1405841A0);
   }
   else
   {

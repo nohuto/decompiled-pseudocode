@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFlushVolumes @ 0x14056D750
+ * XREFs of PopFlushVolumes @ 0x14056E750
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PopDiagTraceEventNoPayload @ 0x140135A60 (PopDiagTraceEventNoPayload.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwFlushKey @ 0x1401B9DF0 (ZwFlushKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopFlushVolumeWorker @ 0x14056D9E0 (PopFlushVolumeWorker.c)
- *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PopDiagTraceEventNoPayload @ 0x140135B30 (PopDiagTraceEventNoPayload.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwFlushKey @ 0x1401B9F50 (ZwFlushKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopFlushVolumeWorker @ 0x14056E9E0 (PopFlushVolumeWorker.c)
+ *     PsCreateSystemThread @ 0x14066BC30 (PsCreateSystemThread.c)
  */
 
 void __fastcall PopFlushVolumes(int a1)
@@ -57,7 +57,7 @@ void __fastcall PopFlushVolumes(int a1)
   else
   {
     v2 = PopFlushPolicy;
-    if ( byte_140417860 )
+    if ( byte_140418900 )
       v2 = 3;
   }
   v3 = v2 | 0x10;
@@ -141,14 +141,14 @@ LABEL_34:
               goto LABEL_34;
             v20->Flink = (struct _LIST_ENTRY *)v14;
             v14->Header.WaitListHead.Flink = v20;
-            v21 = (struct _KEVENT **)qword_140417FB8;
-            if ( *(__int64 **)qword_140417FB8 != &PopVolumeDevices )
+            v21 = (struct _KEVENT **)qword_140419058;
+            if ( *(__int64 **)qword_140419058 != &PopVolumeDevices )
               goto LABEL_34;
             *(_QWORD *)&v16->Header.Lock = &PopVolumeDevices;
             --v6;
             v16->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v21;
             *v21 = v16;
-            qword_140417FB8 = (__int64)v16;
+            qword_140419058 = (__int64)v16;
           }
         }
       }

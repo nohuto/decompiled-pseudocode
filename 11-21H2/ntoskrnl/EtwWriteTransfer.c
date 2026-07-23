@@ -1,7 +1,7 @@
 /*
  * XREFs of EtwWriteTransfer @ 0x1402418C0
  * Callers:
- *     FlushEventEntryList @ 0x1407FAAB8 (FlushEventEntryList.c)
+ *     sub_1407FAAB8 @ 0x1407FAAB8 (sub_1407FAAB8.c)
  * Callees:
  *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiZeroNodePages @ 0x14013A830
+ * XREFs of MiZeroNodePages @ 0x14013ADA0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x1400A8690 (KeFindFirstSetLeftGroupAffinity.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     MiCreateZeroThreadContext @ 0x14013AB00 (MiCreateZeroThreadContext.c)
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
- *     MiDeleteZeroThreadContext @ 0x14013F1EC (MiDeleteZeroThreadContext.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1400A6C08 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     MiCreateZeroThreadContext @ 0x14013B070 (MiCreateZeroThreadContext.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
+ *     MiDeleteZeroThreadContext @ 0x14013F75C (MiDeleteZeroThreadContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThreadEx @ 0x1403E4750 (PsCreateSystemThreadEx.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1403E5D7C (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 void __fastcall MiZeroNodePages(_QWORD *P)
@@ -55,7 +55,7 @@ void __fastcall MiZeroNodePages(_QWORD *P)
   memset(Event, 0, sizeof(Event));
   v1 = P;
   v2 = P[18];
-  KeQueryNodeActiveAffinity(*(_DWORD *)(v2 + 80) >> byte_1403269C9, &Affinity, &Count);
+  KeQueryNodeActiveAffinity(*(_DWORD *)(v2 + 80) >> byte_140326A09, &Affinity, &Count);
   v3 = Count / (unsigned int)KeGetCurrentPrcb()->LogicalProcessorsPerCore;
   if ( !v3 )
     v3 = 1;
@@ -173,8 +173,8 @@ LABEL_20:
   _InterlockedOr(v17, 0);
   v15 = __rdtsc();
   *(_QWORD *)(v2 + 72) = (((unsigned __int64)HIDWORD(v15) << 32) | (unsigned int)v15) - v29;
-  if ( _InterlockedExchangeAdd(&dword_140324C00, 0xFFFFFFFF) == 1 )
-    KeSignalGate((__int64)&word_140324C08, 1u);
+  if ( _InterlockedExchangeAdd(&dword_140324C40, 0xFFFFFFFF) == 1 )
+    KeSignalGate((__int64)&word_140324C48, 1u);
   if ( v1 )
   {
     MiDeleteZeroThreadContext(v1);

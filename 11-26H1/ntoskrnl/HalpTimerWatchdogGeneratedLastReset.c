@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerWatchdogGeneratedLastReset @ 0x140781AD0
+ * XREFs of HalpTimerWatchdogGeneratedLastReset @ 0x1407845D0
  * Callers:
- *     HalpTimerWatchdogLogReset @ 0x140781B20 (HalpTimerWatchdogLogReset.c)
+ *     HalpTimerWatchdogLogReset @ 0x140784620 (HalpTimerWatchdogLogReset.c)
  * Callees:
- *     Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline @ 0x140576A60 (Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline.c)
- *     HalpTimerDidAbnormalResetOccur @ 0x1405853F4 (HalpTimerDidAbnormalResetOccur.c)
+ *     Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline @ 0x140578F90 (Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline.c)
+ *     HalpTimerDidAbnormalResetOccur @ 0x140587914 (HalpTimerDidAbnormalResetOccur.c)
  */
 
 bool HalpTimerWatchdogGeneratedLastReset()

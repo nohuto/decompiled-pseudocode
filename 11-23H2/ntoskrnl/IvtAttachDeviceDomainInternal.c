@@ -1,19 +1,19 @@
 /*
- * XREFs of IvtAttachDeviceDomainInternal @ 0x14052B808
+ * XREFs of IvtAttachDeviceDomainInternal @ 0x14052BD58
  * Callers:
- *     IvtAttachDeviceDomain @ 0x14052B7F0 (IvtAttachDeviceDomain.c)
- *     IvtDetachDeviceDomain @ 0x14052C170 (IvtDetachDeviceDomain.c)
+ *     IvtAttachDeviceDomain @ 0x14052BD40 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x14052C6C0 (IvtDetachDeviceDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     IvtFlushTbInternal @ 0x1403B0E40 (IvtFlushTbInternal.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IvtAllocateTranslationStructures @ 0x14052B77C (IvtAllocateTranslationStructures.c)
- *     IvtGetDomainId @ 0x14052CA0C (IvtGetDomainId.c)
- *     IvtUpdateTranslationStructures @ 0x14052E0DC (IvtUpdateTranslationStructures.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     IvtFlushTbInternal @ 0x1403B1020 (IvtFlushTbInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IvtAllocateTranslationStructures @ 0x14052BCCC (IvtAllocateTranslationStructures.c)
+ *     IvtGetDomainId @ 0x14052CF5C (IvtGetDomainId.c)
+ *     IvtUpdateTranslationStructures @ 0x14052E62C (IvtUpdateTranslationStructures.c)
  */
 
 __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
@@ -93,7 +93,7 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
     LODWORD(v13) = 0x8000;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -112,10 +112,10 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
       a2[3] = (unsigned int)v7[12];
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;
@@ -123,7 +123,7 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
         v22 = (v21 & v20[5]) == 0;
         v20[5] &= v21;
         if ( v22 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);
@@ -143,10 +143,10 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
       v27 = a2[2];
       v28 = *(unsigned __int8 *)(v27 + 96);
       KxReleaseSpinLock((volatile signed __int64 *)(v27 + 88));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v29 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v29 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v29 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -154,7 +154,7 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
           v22 = (v32 & v31[5]) == 0;
           v31[5] &= v32;
           if ( v22 )
-            KiRemoveSystemWorkPriorityKick(v30);
+            KiRemoveSystemWorkPriorityKick((__int64)v30);
         }
       }
       __writecr8(v28);
@@ -176,10 +176,10 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
       *((_QWORD *)v7 + 8) = v23;
       v34 = *((unsigned __int8 *)v7 + 96);
       KxReleaseSpinLock((volatile signed __int64 *)v7 + 11);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v35 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v35 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v35 >= 2u )
         {
           v36 = KeGetCurrentPrcb();
           v37 = v36->SchedulerAssist;
@@ -187,7 +187,7 @@ __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int6
           v22 = (v38 & v37[5]) == 0;
           v37[5] &= v38;
           if ( v22 )
-            KiRemoveSystemWorkPriorityKick(v36);
+            KiRemoveSystemWorkPriorityKick((__int64)v36);
         }
       }
       __writecr8(v34);
@@ -198,7 +198,7 @@ LABEL_48:
       v50[12] = v52;
       v40 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v40 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu )
       {
         v41 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v40 != 15 )
@@ -216,10 +216,10 @@ LABEL_48:
         v42 = *a2;
       }
       IvtFlushTbInternal(a1, 0, (__int64)v7, 1, v42, 0LL, 0, 0LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v43 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v40 <= 0xFu && v43 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v40 <= 0xFu && v43 >= 2u )
         {
           v44 = KeGetCurrentPrcb();
           v45 = v44->SchedulerAssist;
@@ -227,7 +227,7 @@ LABEL_48:
           v22 = (v46 & v45[5]) == 0;
           v45[5] &= v46;
           if ( v22 )
-            KiRemoveSystemWorkPriorityKick(v44);
+            KiRemoveSystemWorkPriorityKick((__int64)v44);
         }
       }
       __writecr8(v40);

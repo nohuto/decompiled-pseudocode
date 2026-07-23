@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDisableWatchdog @ 0x1409DDFA8
+ * XREFs of PnpDisableWatchdog @ 0x140A1B0D4
  * Callers:
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x1404A1EF0 (PnpDeviceCompletionRequestDestroyWorkItem.c)
- *     PnpDelayedRemoveWorker @ 0x140913AC0 (PnpDelayedRemoveWorker.c)
- *     PnpCallAddDevice @ 0x14091480C (PnpCallAddDevice.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x1409DDF60 (PnpDisableAndFreeEventWatchdog.c)
- *     PnpCallDriverEntry @ 0x140A262DC (PnpCallDriverEntry.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14049BA20 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     PnpCallAddDevice @ 0x14096F278 (PnpCallAddDevice.c)
+ *     PnpDelayedRemoveWorker @ 0x1409B5BA0 (PnpDelayedRemoveWorker.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x140A1B08C (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCallDriverEntry @ 0x140A3937C (PnpCallDriverEntry.c)
  * Callees:
- *     WdtpCancelTimer @ 0x1409DDFE0 (WdtpCancelTimer.c)
- *     PnpCancelWatchdog @ 0x1409DE054 (PnpCancelWatchdog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WdtpCancelTimer @ 0x140A1B10C (WdtpCancelTimer.c)
+ *     PnpCancelWatchdog @ 0x140A1B180 (PnpCancelWatchdog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDisableWatchdog(__int64 a1)

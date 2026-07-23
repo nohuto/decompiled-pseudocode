@@ -17,9 +17,9 @@ NTSTATUS __stdcall KeSetHardwareCounterConfiguration(PHARDWARE_COUNTER CounterAr
     return -1073741811;
   if ( Count )
   {
-    if ( KiHwCountersCount )
+    if ( dword_140D01954 )
       return -1073741053;
-    v4 = KiHwCounters;
+    v4 = dword_140C2AEC0;
     v5 = Count;
     p_Index = &CounterArray->Index;
     do
@@ -31,6 +31,6 @@ NTSTATUS __stdcall KeSetHardwareCounterConfiguration(PHARDWARE_COUNTER CounterAr
     }
     while ( v5 );
   }
-  KiHwCountersCount = Count;
+  dword_140D01954 = Count;
   return 0;
 }

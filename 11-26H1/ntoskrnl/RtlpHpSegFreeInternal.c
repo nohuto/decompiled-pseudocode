@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegFreeInternal @ 0x140352AC8
+ * XREFs of RtlpHpSegFreeInternal @ 0x140354B48
  * Callers:
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlpHpAllocateHeapSlow @ 0x140352630 (RtlpHpAllocateHeapSlow.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1403546B4 (RtlpHpAllocateHeapSlow.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
  * Callees:
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpVsContextFree @ 0x140352D10 (RtlpHpVsContextFree.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHpPgContextFree @ 0x14063A300 (RtlpHpPgContextFree.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpVsContextFree @ 0x140354D90 (RtlpHpVsContextFree.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHpPgContextFree @ 0x14063D310 (RtlpHpPgContextFree.c)
  */
 
 __int64 __fastcall RtlpHpSegFreeInternal(__int64 a1, __int64 a2, signed __int64 a3, struct _KLOCK_ENTRIES *a4)

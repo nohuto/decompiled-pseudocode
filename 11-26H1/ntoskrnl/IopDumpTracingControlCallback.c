@@ -1,5 +1,5 @@
 /*
- * XREFs of IopDumpTracingControlCallback @ 0x1405C9600
+ * XREFs of IopDumpTracingControlCallback @ 0x1405CBED0
  * Callers:
  *     <none>
  * Callees:

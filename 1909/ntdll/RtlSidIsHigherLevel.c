@@ -6,21 +6,21 @@
  *     __security_check_cookie @ 0x18008CE50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlSidIsHigherLevel(__int64 a1, __int64 a2, bool *a3)
+NTSTATUS __cdecl RtlSidIsHigherLevel(PSID Sid1, PSID Sid2, PBOOLEAN HigherLevel)
 {
   int v3; // r9d
   int v5; // ecx
 
-  v3 = *(_DWORD *)(a1 + 2);
+  v3 = *(_DWORD *)((char *)Sid1 + 2);
   if ( !v3 )
-    v3 = *(unsigned __int16 *)(a1 + 6) - 4096;
+    v3 = *((unsigned __int16 *)Sid1 + 3) - 4096;
   if ( v3 )
-    return 3221225485LL;
-  v5 = *(_DWORD *)(a2 + 2);
+    return -1073741811;
+  v5 = *(_DWORD *)((char *)Sid2 + 2);
   if ( !v5 )
-    v5 = *(unsigned __int16 *)(a2 + 6) - 4096;
+    v5 = *((unsigned __int16 *)Sid2 + 3) - 4096;
   if ( v5 )
-    return 3221225485LL;
-  *a3 = *(_DWORD *)(a1 + 8) > *(_DWORD *)(a2 + 8);
-  return 0LL;
+    return -1073741811;
+  *HigherLevel = *((_DWORD *)Sid1 + 2) > *((_DWORD *)Sid2 + 2);
+  return 0;
 }

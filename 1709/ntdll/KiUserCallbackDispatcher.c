@@ -10,10 +10,11 @@
 
 void __fastcall __noreturn KiUserCallbackDispatcher(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  int v5; // eax
-  __int64 v6; // [rsp+20h] [rbp+20h]
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // eax
+  __int64 v7; // [rsp+20h] [rbp+20h]
 
-  KiUserCallForwarder(v6, (unsigned int)a5, HIDWORD(a5), (__int64)NtCurrentPeb()->KernelCallbackTable);
-  v5 = ZwCallbackReturn();
-  RtlRaiseStatus(v5);
+  v5 = KiUserCallForwarder(v7, (unsigned int)a5, HIDWORD(a5), (__int64)NtCurrentPeb()->KernelCallbackTable);
+  v6 = ZwCallbackReturn(0LL, 0, v5);
+  RtlRaiseStatus(v6);
 }

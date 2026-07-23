@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFlushCurrentTbOnly @ 0x140173E54
+ * XREFs of KiFlushCurrentTbOnly @ 0x140173F54
  * Callers:
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173F00 (KeFlushCurrentTbOnly.c)
  * Callees:
- *     KiSetUserTbFlushPending @ 0x1401BD130 (KiSetUserTbFlushPending.c)
+ *     KiSetUserTbFlushPending @ 0x1401BD290 (KiSetUserTbFlushPending.c)
  */
 
 struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3, __int64 a4)

@@ -11,49 +11,49 @@
  *     sub_1800FE318 @ 0x1800FE318 (sub_1800FE318.c)
  */
 
-__int64 __fastcall sub_18007488C(_QWORD *a1, __int64 a2, _QWORD *a3)
+NTSTATUS __fastcall sub_18007488C(_QWORD *a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rax
-  _QWORD *v4; // rsi
+  PVOID *v4; // rsi
   __int64 v7; // rbp
-  __int64 result; // rax
-  __int64 v9; // rcx
-  int v10; // eax
+  NTSTATUS result; // eax
+  _DWORD *v9; // rcx
+  ULONG Protect; // eax
   __int64 v11; // rdi
-  __int64 v12; // rcx
-  unsigned __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  __int64 UserModeGlobalLogger; // rcx
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
 
   v3 = a1[4];
-  v4 = a1 + 5;
+  v4 = (PVOID *)(a1 + 5);
   v7 = v3 + a2;
   if ( (unsigned __int64)(v3 + a2) <= a1[5] )
   {
 LABEL_2:
     *a3 = v3;
-    result = 0LL;
+    result = 0;
     a1[4] = v7;
     return result;
   }
-  v9 = a1[3];
-  v13 = (v7 - *v4 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  v10 = sub_18002AE30(v9, 1);
-  result = ZwAllocateVirtualMemory(-1LL, v4, 0LL, &v13, 4096, v10);
-  if ( (int)result >= 0 )
+  v9 = (_DWORD *)a1[3];
+  RegionSize = (v7 - (_QWORD)*v4 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  Protect = sub_18002AE30(v9, 1);
+  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v4, 0LL, &RegionSize, 0x1000u, Protect);
+  if ( result >= 0 )
   {
-    *(_QWORD *)(a1[3] + 544LL) += v13;
+    *(_QWORD *)(a1[3] + 544LL) += RegionSize;
     v11 = 2147353472LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v12 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v12 = 2147353472LL;
-    if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-      sub_1800FE318(a1[3], *v4, v13, 16 * *(_QWORD *)(a1[3] + 192LL), *(unsigned __int8 *)v11);
-      sub_1800FE0A4(a1[3], *v4, v13, 9LL);
+      if ( RtlGetCurrentServiceSessionId() )
+        v11 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+      sub_1800FE318(a1[3], (int)*v4, RegionSize, 16 * *(_QWORD *)(a1[3] + 192LL), (HANDLE)*(unsigned __int8 *)v11);
+      sub_1800FE0A4(a1[3], *v4, RegionSize, 9LL);
     }
-    *v4 += v13;
+    *v4 = (char *)*v4 + RegionSize;
     v3 = a1[4];
     goto LABEL_2;
   }

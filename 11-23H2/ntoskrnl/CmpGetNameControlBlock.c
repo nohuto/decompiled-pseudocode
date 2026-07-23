@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpGetNameControlBlock @ 0x1406D8EE0
+ * XREFs of CmpGetNameControlBlock @ 0x1406D8F10
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmpHashUnicodeComponent @ 0x140708CE0 (CmpHashUnicodeComponent.c)
- *     CmpUnlockNameHashEntry @ 0x140A1F600 (CmpUnlockNameHashEntry.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpHashUnicodeComponent @ 0x140708EF0 (CmpHashUnicodeComponent.c)
+ *     CmpUnlockNameHashEntry @ 0x140A1F8B0 (CmpUnlockNameHashEntry.c)
  */
 
 _DWORD *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2)

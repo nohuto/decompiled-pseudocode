@@ -4,10 +4,10 @@
  *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
  *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)
  *     KeSetSchedulingGroupRankBias @ 0x140205AD8 (KeSetSchedulingGroupRankBias.c)
- *     KiComputeGroupSchedulingRank @ 0x140305838 (KiComputeGroupSchedulingRank.c)
+ *     KiComputeGroupSchedulingRank @ 0x140305AC8 (KiComputeGroupSchedulingRank.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308FE0 (KiIsThreadRankNonZero.c)
- *     KiSetSchedulerAssistPriority @ 0x1404104A0 (KiSetSchedulerAssistPriority.c)
+ *     KiIsThreadRankNonZero @ 0x140309270 (KiIsThreadRankNonZero.c)
+ *     KiSetSchedulerAssistPriority @ 0x140410704 (KiSetSchedulerAssistPriority.c)
  */
 
 void __fastcall KiCheckForEffectivePriorityChange(__int64 a1, __int64 a2, __int64 a3)

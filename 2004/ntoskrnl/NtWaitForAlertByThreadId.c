@@ -6,7 +6,7 @@
  *     KeWaitForAlertByThreadId @ 0x140339758 (KeWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall NtWaitForAlertByThreadId(void *a1, __int64 *a2)
+NTSTATUS __cdecl NtWaitForAlertByThreadId(PVOID Address, PLARGE_INTEGER Timeout)
 {
   char PreviousMode; // cl
   __int64 v5; // rax
@@ -14,13 +14,13 @@ __int64 __fastcall NtWaitForAlertByThreadId(void *a1, __int64 *a2)
 
   v6 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( Timeout && PreviousMode )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)Timeout < 0x7FFFFFFF0000LL )
+      v5 = (__int64)Timeout;
     v6 = *(_QWORD *)v5;
-    a2 = &v6;
+    Timeout = (PLARGE_INTEGER)&v6;
   }
-  return KeWaitForAlertByThreadId(PreviousMode, a2, a1);
+  return KeWaitForAlertByThreadId(PreviousMode, Timeout, Address);
 }

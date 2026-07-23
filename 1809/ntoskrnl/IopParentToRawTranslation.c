@@ -1,11 +1,11 @@
 /*
- * XREFs of IopParentToRawTranslation @ 0x14072EDEC
+ * XREFs of IopParentToRawTranslation @ 0x14072FFDC
  * Callers:
- *     PnpBuildCmResourceList @ 0x14072E7C0 (PnpBuildCmResourceList.c)
- *     IopParentToRawTranslation @ 0x14072EDEC (IopParentToRawTranslation.c)
+ *     PnpBuildCmResourceList @ 0x14072F9B0 (PnpBuildCmResourceList.c)
+ *     IopParentToRawTranslation @ 0x14072FFDC (IopParentToRawTranslation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopParentToRawTranslation @ 0x14072EDEC (IopParentToRawTranslation.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopParentToRawTranslation @ 0x14072FFDC (IopParentToRawTranslation.c)
  */
 
 __int64 __fastcall IopParentToRawTranslation(__int64 a1)

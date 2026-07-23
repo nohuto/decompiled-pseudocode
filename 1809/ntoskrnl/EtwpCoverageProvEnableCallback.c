@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCoverageProvEnableCallback @ 0x1406D05E0
+ * XREFs of EtwpCoverageProvEnableCallback @ 0x1406D1880
  * Callers:
  *     <none>
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A650 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A838 (TelemetryCoverageStringHashInternal.c)
  */
 
 void __fastcall EtwpCoverageProvEnableCallback(
@@ -23,12 +23,12 @@ void __fastcall EtwpCoverageProvEnableCallback(
   char v6; // bl
   _DWORD v7[6]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = TraceLoggingProviderEnabled(&stru_140400340, 0, 1uLL);
-  if ( v4 && !EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140401CEC < MEMORY[0xFFFFF7800000037C] )
+  v4 = TraceLoggingProviderEnabled(&stru_140401340, 0, 1uLL);
+  if ( v4 && !EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140402CD4 < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140401CE8 )
-      dword_140401CE8 = TelemetryCoverageStringHashInternal(off_140401CE0, v7);
-    EtwTelemetryCoverageReport(&off_140401CE0);
+    if ( !dword_140402CD0 )
+      dword_140402CD0 = TelemetryCoverageStringHashInternal(off_140402CC8, v7);
+    EtwTelemetryCoverageReport(&off_140402CC8);
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

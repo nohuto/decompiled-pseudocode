@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpUnlockHiveList @ 0x14049FFBC
+ * XREFs of CmpUnlockHiveList @ 0x1405183C8
  * Callers:
- *     CmpGetNextFailedUnloadHive @ 0x140083CFC (CmpGetNextFailedUnloadHive.c)
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpDeleteHive @ 0x140088098 (CmpDeleteHive.c)
- *     CmpJoinClassOfTrust @ 0x1401B471C (CmpJoinClassOfTrust.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B47B0 (CmpUnJoinClassOfTrust.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
+ *     CmpGetNextFailedUnloadHive @ 0x140081E5C (CmpGetNextFailedUnloadHive.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpDeleteHive @ 0x14010C288 (CmpDeleteHive.c)
+ *     CmpJoinClassOfTrust @ 0x1401B4600 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B4694 (CmpUnJoinClassOfTrust.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
  * Callees:
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 unsigned __int64 CmpUnlockHiveList()

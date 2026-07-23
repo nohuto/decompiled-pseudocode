@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpIsImageAddress @ 0x18015CD38
+ * XREFs of LdrpIsImageAddress @ 0x18015CBF8
  * Callers:
- *     LdrpQueryCurrentPatch @ 0x1800CDC50 (LdrpQueryCurrentPatch.c)
- *     LdrpProcessMappedModule @ 0x18011A098 (LdrpProcessMappedModule.c)
+ *     LdrpQueryCurrentPatch @ 0x1800CB3C0 (LdrpQueryCurrentPatch.c)
+ *     LdrpProcessMappedModule @ 0x180119E48 (LdrpProcessMappedModule.c)
  * Callees:
- *     NpQueryVirtualMemory @ 0x18015EAE0 (NpQueryVirtualMemory.c)
+ *     NpQueryVirtualMemory @ 0x18015E9E0 (NpQueryVirtualMemory.c)
  */
 
 __int64 __fastcall LdrpIsImageAddress(__int64 a1, _DWORD *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlGetCurrentOperation @ 0x1405999E8
+ * XREFs of PiPnpRtlGetCurrentOperation @ 0x14059A9E8
  * Callers:
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x1405998D8 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x14059A8D8 (PiPnpRtlCacheObjectBaseKey.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)

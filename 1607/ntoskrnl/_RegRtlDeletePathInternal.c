@@ -1,18 +1,18 @@
 /*
- * XREFs of _RegRtlDeletePathInternal @ 0x1406E06D0
+ * XREFs of _RegRtlDeletePathInternal @ 0x1406E0808
  * Callers:
- *     _PnpCtxRegDeletePath @ 0x1406D70AC (_PnpCtxRegDeletePath.c)
+ *     _PnpCtxRegDeletePath @ 0x1406D71E4 (_PnpCtxRegDeletePath.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlUnalignedStringCchLengthW @ 0x1400C38D0 (RtlUnalignedStringCchLengthW.c)
- *     wcsrchr @ 0x14014F0D4 (wcsrchr.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1400C1760 (RtlUnalignedStringCchLengthW.c)
+ *     wcsrchr @ 0x14014F694 (wcsrchr.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _RegRtlQueryInfoKey @ 0x1404E1D04 (_RegRtlQueryInfoKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x1405620CC (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140562208 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlQueryInfoKey @ 0x1404C5308 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14056260C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140562748 (_RegRtlDeleteKeyTransacted.c)
  */
 
 __int64 __fastcall RegRtlDeletePathInternal(char *a1, const wchar_t *a2, char a3, void *a4, int a5)

@@ -50,7 +50,7 @@ char __fastcall SepRemoveDisabledGroupsAndPrivileges(
         v14 = SepSidInSidAndAttributes(v10, (unsigned int)a3, a3, *(_QWORD *)(v15 + v13));
       if ( v14 )
         goto LABEL_17;
-      if ( (a2 & 4) != 0 && RtlIsElevatedRid(v15 + *(_QWORD *)(a1 + 152)) )
+      if ( (a2 & 4) != 0 && RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(v15 + *(_QWORD *)(a1 + 152))) )
       {
         v7 = 1;
         v14 = 1;

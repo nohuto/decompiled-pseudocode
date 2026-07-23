@@ -26,8 +26,8 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
   *(_OWORD *)v9 = 0LL;
   v4 = KGetAppModelStateSeparatedRegKeyPath(
          L"AppxPolicies",
-         (__int64)L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
-         (UNICODE_STRING *)v9);
+         L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
+         (PUNICODE_STRING)v9);
   if ( v4 >= 0 )
   {
     v4 = KGetUnlockSetting(v9, a1, a2);
@@ -39,8 +39,8 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
         {
           v4 = KGetAppModelStateSeparatedRegKeyPath(
                  L"AppModelUnlock",
-                 (__int64)L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock",
-                 (UNICODE_STRING *)P);
+                 L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock",
+                 (PUNICODE_STRING)P);
           if ( v4 >= 0 )
           {
             v4 = KGetUnlockSetting(P, a1, a2);

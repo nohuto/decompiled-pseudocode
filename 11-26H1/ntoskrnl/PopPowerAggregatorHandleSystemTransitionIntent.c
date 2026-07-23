@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorHandleSystemTransitionIntent @ 0x140943D20
+ * XREFs of PopPowerAggregatorHandleSystemTransitionIntent @ 0x1409BF690
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140943D98 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x1409BF708 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleSystemTransitionIntent(

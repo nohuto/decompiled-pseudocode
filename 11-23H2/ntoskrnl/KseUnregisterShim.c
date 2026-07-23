@@ -1,17 +1,17 @@
 /*
- * XREFs of KseUnregisterShim @ 0x1409770A0
+ * XREFs of KseUnregisterShim @ 0x1409772A0
  * Callers:
  *     <none>
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     KsepIsShimRegistered @ 0x1408088E0 (KsepIsShimRegistered.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     KsepIsShimRegistered @ 0x140808BB0 (KsepIsShimRegistered.c)
  */
 
 __int64 __fastcall KseUnregisterShim(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
       v6 = -1073741790;
       v7 = v13;
       v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C407C4[2 * v8] = -1073741790;
+      dword_140C40784[2 * v8] = -1073741790;
       KsepHistoryErrors[2 * v8] = 131453;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(
@@ -80,7 +80,7 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
   {
     v6 = -1073741772;
     v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C407C4[2 * v12] = -1073741772;
+    dword_140C40784[2 * v12] = -1073741772;
     KsepHistoryErrors[2 * v12] = 131482;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(3LL, "KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));

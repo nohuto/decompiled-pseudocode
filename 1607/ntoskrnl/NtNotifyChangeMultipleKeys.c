@@ -1,35 +1,35 @@
 /*
- * XREFs of NtNotifyChangeMultipleKeys @ 0x1404009C4
+ * XREFs of NtNotifyChangeMultipleKeys @ 0x1403FF884
  * Callers:
- *     NtNotifyChangeKey @ 0x14040095C (NtNotifyChangeKey.c)
+ *     NtNotifyChangeKey @ 0x1403FF81C (NtNotifyChangeKey.c)
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     KeInitializeApc @ 0x1400F0F58 (KeInitializeApc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpAllocatePostBlock @ 0x140401138 (CmpAllocatePostBlock.c)
- *     CmpNotifyChangeKey @ 0x140401234 (CmpNotifyChangeKey.c)
- *     CmObReferenceObjectByHandle @ 0x14040370C (CmObReferenceObjectByHandle.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpLockTwoKcbsShared @ 0x140438C20 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x140438FD0 (CmpUnlockTwoKcbs.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpCleanupParseContext @ 0x14046466C (CmpCleanupParseContext.c)
- *     CmpFreePostBlock @ 0x14049A988 (CmpFreePostBlock.c)
- *     CmObReferenceObjectByName @ 0x140606CB0 (CmObReferenceObjectByName.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     KeInitializeApc @ 0x1400EEDA8 (KeInitializeApc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpFreePostBlock @ 0x1403E38A8 (CmpFreePostBlock.c)
+ *     CmpAllocatePostBlock @ 0x1403FFFF8 (CmpAllocatePostBlock.c)
+ *     CmpNotifyChangeKey @ 0x1404000F4 (CmpNotifyChangeKey.c)
+ *     CmObReferenceObjectByHandle @ 0x1404025CC (CmObReferenceObjectByHandle.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpLockTwoKcbsShared @ 0x140437AF0 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x140437EA0 (CmpUnlockTwoKcbs.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpCleanupParseContext @ 0x14046353C (CmpCleanupParseContext.c)
+ *     CmObReferenceObjectByName @ 0x140606D64 (CmObReferenceObjectByName.c)
  */
 
 NTSTATUS __stdcall NtNotifyChangeMultipleKeys(
@@ -322,7 +322,7 @@ LABEL_27:
                 }
                 else
                 {
-                  CmpFreePostBlock(v13);
+                  CmpFreePostBlock((__int64)v13);
                   v84 = 0;
                 }
               }
@@ -414,7 +414,7 @@ LABEL_32:
                       v66->Information = 0LL;
                     v31 = 0;
                     if ( v84 )
-                      CmpFreePostBlock(v13);
+                      CmpFreePostBlock((__int64)v13);
                     CmpFreePostBlock(v24);
                     goto LABEL_39;
                   }
@@ -461,7 +461,7 @@ LABEL_32:
                   CmpUnlockRegistry();
 LABEL_89:
                   if ( v18 )
-                    CmpFreePostBlock(v13);
+                    CmpFreePostBlock((__int64)v13);
                   CmpFreePostBlock(v24);
                   goto LABEL_80;
                 }
@@ -487,7 +487,7 @@ LABEL_99:
                   if ( v87 )
                     ObfDereferenceObject(v87);
                   if ( Count == 1 )
-                    CmpFreePostBlock(v13);
+                    CmpFreePostBlock((__int64)v13);
                   v31 = 1;
 LABEL_39:
                   ObfDereferenceObject(v89);
@@ -521,7 +521,7 @@ LABEL_26:
       if ( v87 )
         ObfDereferenceObject(v87);
       if ( Count == 1 )
-        CmpFreePostBlock(v13);
+        CmpFreePostBlock((__int64)v13);
       CmpFreePostBlock(v24);
       v21 = -1073741444;
       goto LABEL_80;

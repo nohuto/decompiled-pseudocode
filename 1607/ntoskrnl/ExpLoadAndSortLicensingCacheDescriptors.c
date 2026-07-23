@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x1404A475C
+ * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x14051CB5C
  * Callers:
- *     ExQueryLicenseValueInternal @ 0x1404A40C0 (ExQueryLicenseValueInternal.c)
+ *     ExQueryLicenseValueInternal @ 0x14051C4C0 (ExQueryLicenseValueInternal.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     sub_140495660 @ 0x140495660 (sub_140495660.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     sub_1405758A4 @ 0x1405758A4 (sub_1405758A4.c)
- *     sub_1406AEF88 @ 0x1406AEF88 (sub_1406AEF88.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     sub_1404960F0 @ 0x1404960F0 (sub_1404960F0.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     sub_140575DE4 @ 0x140575DE4 (sub_140575DE4.c)
+ *     sub_1406AF0C0 @ 0x1406AF0C0 (sub_1406AF0C0.c)
  */
 
 __int64 ExpLoadAndSortLicensingCacheDescriptors()
@@ -86,7 +86,7 @@ __int64 ExpLoadAndSortLicensingCacheDescriptors()
     v12 = off_140747028;
     if ( off_140747028 )
     {
-      v13 = sub_1405758A4();
+      v13 = sub_140575DE4();
       v18 = v13;
       if ( v13 < 0 )
         goto LABEL_39;
@@ -107,7 +107,7 @@ __int64 ExpLoadAndSortLicensingCacheDescriptors()
     v14 = NumOfElements;
     if ( !(_DWORD)NumOfElements )
     {
-      v13 = sub_140495660((__int64)v12, 1, qword_1407494C0, 0x923u, (unsigned int *)&NumOfElements);
+      v13 = sub_1404960F0((__int64)v12, 1, qword_1407494C0, 0x923u, (unsigned int *)&NumOfElements);
       v18 = v13;
       v14 = NumOfElements;
     }
@@ -143,6 +143,6 @@ LABEL_38:
   }
 LABEL_16:
   if ( v21 )
-    sub_1406AEF88(&KernelLicensingCacheCorrupt);
+    sub_1406AF0C0(&KernelLicensingCacheCorrupt);
   return v6;
 }

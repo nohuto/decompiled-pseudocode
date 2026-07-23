@@ -1,16 +1,16 @@
 /*
- * XREFs of PsCaptureExceptionPort @ 0x14076E3A0
+ * XREFs of PsCaptureExceptionPort @ 0x14076E590
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
- *     DbgkForwardException @ 0x140939564 (DbgkForwardException.c)
- *     PspFreezeProcessWorker @ 0x1409B3C00 (PspFreezeProcessWorker.c)
- *     ExpRaiseHardError @ 0x140A00EB8 (ExpRaiseHardError.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
+ *     DbgkForwardException @ 0x140939764 (DbgkForwardException.c)
+ *     PspFreezeProcessWorker @ 0x1409B3E00 (PspFreezeProcessWorker.c)
+ *     ExpRaiseHardError @ 0x140A01148 (ExpRaiseHardError.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
  */
 
 void *__fastcall PsCaptureExceptionPort(__int64 a1)

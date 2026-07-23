@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfGetFrequencyBandStats @ 0x14083FDF8
+ * XREFs of PpmPerfGetFrequencyBandStats @ 0x1408400F8
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
  */
 
 __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1)
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   if ( a1 )
   {
-    v15[1] = (unsigned __int16 *)qword_140C0BE68[0];
+    v15[1] = (unsigned __int16 *)qword_140C0BE78[0];
     v15[0] = (unsigned __int16 *)&PpmCheckRegistered;
     v16 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v19, v15) )

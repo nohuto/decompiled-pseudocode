@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnregisterFeatureUsageProvider @ 0x140B33CE0
+ * XREFs of RtlUnregisterFeatureUsageProvider @ 0x140B36130
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerUnregisterFeatureUsageProvider @ 0x140B33CF8 (CmFcManagerUnregisterFeatureUsageProvider.c)
+ *     CmFcManagerUnregisterFeatureUsageProvider @ 0x140B36148 (CmFcManagerUnregisterFeatureUsageProvider.c)
  */
 
 __int64 __fastcall RtlUnregisterFeatureUsageProvider(__int64 a1)

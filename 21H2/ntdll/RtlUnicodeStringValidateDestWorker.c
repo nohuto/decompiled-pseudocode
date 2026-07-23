@@ -5,7 +5,7 @@
  *     RtlUnicodeStringCbCopyStringN @ 0x18006A1AC (RtlUnicodeStringCbCopyStringN.c)
  *     RtlUnicodeStringCat @ 0x18006A298 (RtlUnicodeStringCat.c)
  *     RtlUnicodeStringCopy @ 0x18006A328 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringCopyString @ 0x1800CC6C8 (RtlUnicodeStringCopyString.c)
+ *     RtlUnicodeStringCopyString @ 0x1800CC688 (RtlUnicodeStringCopyString.c)
  * Callees:
  *     RtlUnicodeStringValidateWorker @ 0x18006A4C0 (RtlUnicodeStringValidateWorker.c)
  */

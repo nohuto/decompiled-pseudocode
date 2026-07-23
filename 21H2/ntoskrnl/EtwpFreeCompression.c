@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpFreeCompression @ 0x1402C7F24
+ * XREFs of EtwpFreeCompression @ 0x140246784
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406146D4 (EtwpFreeLoggerContext.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
- *     EtwpFreePlaceholderList @ 0x1402C80F4 (EtwpFreePlaceholderList.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     EtwpRelinquishCompressionTarget @ 0x1405AD774 (EtwpRelinquishCompressionTarget.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     EtwpFreePlaceholderList @ 0x140246954 (EtwpFreePlaceholderList.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     EtwpRelinquishCompressionTarget @ 0x1405AD9A4 (EtwpRelinquishCompressionTarget.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpFreeCompression(__int64 a1)
@@ -29,7 +29,6 @@ __int64 __fastcall EtwpFreeCompression(__int64 a1)
   __int64 v10; // rdi
   unsigned int v11; // ecx
   __int64 v12; // rdx
-  __int64 v13; // rcx
 
   KeRemoveQueueDpcEx(a1 + 1176, 0LL);
   if ( *(_DWORD *)(a1 + 1152) )
@@ -72,7 +71,7 @@ LABEL_12:
     }
     *(_BYTE *)(v10 + 32) |= 2u;
     if ( *(__int64 *)(v10 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v10);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
     v11 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
     *(_BYTE *)(v10 + 25) &= ~1u;
     *(_DWORD *)(v10 + 88) = v11;
@@ -87,7 +86,7 @@ LABEL_24:
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v8 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v8 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v13);
+      KiCheckForKernelApcDelivery();
     _InterlockedExchange((volatile __int32 *)(a1 + 1152), 0);
   }
   v2 = *(void **)(a1 + 1144);

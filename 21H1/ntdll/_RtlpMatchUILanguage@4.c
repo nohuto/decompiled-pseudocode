@@ -12,17 +12,20 @@
 
 bool __thiscall RtlpMatchUILanguage(PCWSTR SourceString)
 {
-  UNICODE_STRING DestinationString; // [esp+4h] [ebp-C8h] BYREF
-  UNICODE_STRING v4; // [esp+Ch] [ebp-C0h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+4h] [ebp-C8h] BYREF
+  _UNICODE_STRING String2; // [esp+Ch] [ebp-C0h] BYREF
   WCHAR SourceStringa[90]; // [esp+14h] [ebp-B8h] BYREF
 
-  v4.Buffer = (wchar_t *)85;
-  if ( RtlpGetUserOrMachineUILanguage4NLS(1, SourceStringa, (int)&v4.Buffer) < 0 || v4.Buffer >= (wchar_t *)0x55 )
+  String2.Buffer = (wchar_t *)85;
+  if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1, SourceStringa, &String2.Buffer) < 0
+    || String2.Buffer >= (wchar_t *)0x55 )
+  {
     return 0;
-  if ( (unsigned int)(2 * (int)v4.Buffer) >= 0xAA )
+  }
+  if ( (unsigned int)(2 * (int)String2.Buffer) >= 0xAA )
     __report_rangecheckfailure();
-  SourceStringa[(int)v4.Buffer] = 0;
+  SourceStringa[(int)String2.Buffer] = 0;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  RtlInitUnicodeString(&v4, SourceStringa);
-  return !RtlCompareUnicodeString(&DestinationString.Length, &v4.Length, 1);
+  RtlInitUnicodeString(&String2, SourceStringa);
+  return !RtlCompareUnicodeString(&DestinationString, &String2, 1u);
 }

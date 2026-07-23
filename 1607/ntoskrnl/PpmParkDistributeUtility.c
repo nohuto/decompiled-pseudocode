@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkDistributeUtility @ 0x1400D4870
+ * XREFs of PpmParkDistributeUtility @ 0x1400D2710
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x14020AF20 (PpmHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x14020AD4C (PpmHeteroDistributeUtility.c)
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
  */
 
 char PpmParkDistributeUtility()
@@ -51,7 +51,7 @@ char PpmParkDistributeUtility()
   unsigned int v40; // [rsp+A0h] [rbp+28h]
   char *v41; // [rsp+A8h] [rbp+30h]
 
-  v38 = LOBYTE(PpmCurrentProfile[174 * dword_140303E0C + 14]) != 0;
+  v38 = LOBYTE(PpmCurrentProfile[174 * dword_140303D4C + 14]) != 0;
   v0 = PpmParkNumNodes;
   v40 = 0;
   v1 = 0;

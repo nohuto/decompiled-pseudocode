@@ -7,18 +7,21 @@
  *     _RtlpInitializeActivationContextStack@4 @ 0x4B2E4963 (_RtlpInitializeActivationContextStack@4.c)
  */
 
-int __stdcall RtlAllocateActivationContextStack(int *a1)
+int __userpurge RtlAllocateActivationContextStack@<eax>(int a1@<edi>, _DWORD *a2)
 {
-  int Heap; // eax
-  int v2; // edi
+  PVOID Heap; // eax
+  PVOID v3; // edi
+  SIZE_T v5; // [esp-8h] [ebp-Ch]
 
-  if ( *a1 )
+  if ( *a2 )
     return 0;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 24);
-  v2 = Heap;
+  HIDWORD(v5) = a1;
+  LODWORD(v5) = 24;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+  v3 = Heap;
   if ( !Heap )
     return -1073741801;
   RtlpInitializeActivationContextStack(Heap);
-  *a1 = v2;
+  *a2 = v3;
   return 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopSetEnvironmentVariableSysEnv @ 0x1407197F0
+ * XREFs of IopSetEnvironmentVariableSysEnv @ 0x140717380
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopIssueSystemEnvironmentRequest @ 0x1407194A8 (IopIssueSystemEnvironmentRequest.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x140717038 (IopIssueSystemEnvironmentRequest.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetEnvironmentVariableSysEnv(
@@ -30,7 +30,7 @@ __int64 __fastcall IopSetEnvironmentVariableSysEnv(
     ++v7;
   while ( a3[v7] );
   v11 = (unsigned int)(2 * v7 + 2);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)v11 + Size + 32, 0x79536F49u);
   InputBuffer = (_DWORD *)Pool2;
   if ( Pool2 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpOpenLocalDatabaseEx @ 0x140966804
+ * XREFs of SdbpOpenLocalDatabaseEx @ 0x1409669E4
  * Callers:
- *     SdbTagRefToTagID @ 0x1407C2090 (SdbTagRefToTagID.c)
+ *     SdbTagRefToTagID @ 0x1407C25B0 (SdbTagRefToTagID.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbOpenDatabaseEx @ 0x14096408C (SdbOpenDatabaseEx.c)
- *     SdbpCloseLocalDatabaseEx @ 0x140966778 (SdbpCloseLocalDatabaseEx.c)
- *     SdbResolveDatabaseEx @ 0x140966A9C (SdbResolveDatabaseEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbOpenDatabaseEx @ 0x14096426C (SdbOpenDatabaseEx.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x140966958 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140966C7C (SdbResolveDatabaseEx.c)
  */
 
 __int64 __fastcall SdbpOpenLocalDatabaseEx(__int64 a1, __int128 *a2, __int64 a3, PVOID ***a4, unsigned int *a5)

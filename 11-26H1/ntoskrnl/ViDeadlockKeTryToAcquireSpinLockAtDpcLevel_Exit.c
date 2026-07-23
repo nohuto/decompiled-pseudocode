@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit @ 0x140C37AE0
+ * XREFs of ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit @ 0x140C3DAF0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockAcquireResource @ 0x140C47314 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x140C4D324 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit(__int64 a1)

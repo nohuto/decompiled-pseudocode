@@ -1,39 +1,39 @@
 /*
- * XREFs of NtUpdateWnfStateData @ 0x140461CC4
+ * XREFs of NtUpdateWnfStateData @ 0x140460B94
  * Callers:
- *     PfSnPowerBoostUpdate @ 0x1404EB038 (PfSnPowerBoostUpdate.c)
+ *     PfSnPowerBoostUpdate @ 0x1404CD05C (PfSnPowerBoostUpdate.c)
  *     SepSecureBootCheckForUpdates @ 0x1407D1590 (SepSecureBootCheckForUpdates.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExpWnfLookupPermanentName @ 0x1403F620C (ExpWnfLookupPermanentName.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x1404624D4 (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpCaptureWnfStateName @ 0x140462514 (ExpCaptureWnfStateName.c)
- *     ExpWnfCreateNameInstance @ 0x140462594 (ExpWnfCreateNameInstance.c)
- *     ExpWnfLookupNameInstance @ 0x1404628C8 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x1404629B8 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x140462DF0 (ExpWnfCaptureScopeInstanceId.c)
- *     ExpWnfValidatePubSubPreconditions @ 0x140462EB8 (ExpWnfValidatePubSubPreconditions.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1404630B4 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfWriteStateData @ 0x140463388 (ExpWnfWriteStateData.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1404E3BCC (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfLookupPermanentName @ 0x1403F50D0 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x1404613A4 (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpCaptureWnfStateName @ 0x1404613E4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfCreateNameInstance @ 0x140461464 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfLookupNameInstance @ 0x140461798 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x140461888 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x140461CC0 (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x140461D88 (ExpWnfValidatePubSubPreconditions.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140461F84 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfWriteStateData @ 0x140462258 (ExpWnfWriteStateData.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1404C6884 (ExpWnfCheckCrossScopeAccess.c)
  */
 
-__int64 __fastcall NtUpdateWnfStateData(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int128 *a4,
-        __int64 a5,
-        unsigned int a6,
-        int a7)
+NTSTATUS __cdecl NtUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   __int64 v9; // rsi
-  int NameInstance; // edi
+  NTSTATUS NameInstance; // edi
   struct _KTHREAD *v11; // r8
   unsigned __int64 v12; // r9
   __int64 v13; // r10
@@ -43,24 +43,24 @@ __int64 __fastcall NtUpdateWnfStateData(
   unsigned __int64 v17; // rbx
   int v18; // r13d
   int v19; // eax
-  unsigned int v20; // ebx
+  ULONG v20; // ebx
   PVOID v22; // r15
   int Sid; // [rsp+20h] [rbp-D8h]
   int v24; // [rsp+38h] [rbp-C0h]
-  unsigned int v25; // [rsp+3Ch] [rbp-BCh]
+  ULONG v25; // [rsp+3Ch] [rbp-BCh]
   struct _EX_RUNDOWN_REF *v26; // [rsp+40h] [rbp-B8h] BYREF
   PVOID P; // [rsp+48h] [rbp-B0h] BYREF
   int v28; // [rsp+50h] [rbp-A8h]
   unsigned __int64 v29; // [rsp+58h] [rbp-A0h] BYREF
-  __int128 *v30; // [rsp+60h] [rbp-98h]
+  PCWNF_TYPE_ID v30; // [rsp+60h] [rbp-98h]
   int v31[2]; // [rsp+68h] [rbp-90h] BYREF
   PSID v32; // [rsp+70h] [rbp-88h] BYREF
-  __int64 v33; // [rsp+78h] [rbp-80h]
+  const void *v33; // [rsp+78h] [rbp-80h]
   _QWORD v34[2]; // [rsp+90h] [rbp-68h] BYREF
   __int128 v35; // [rsp+A0h] [rbp-58h] BYREF
 
-  v25 = a3;
-  v33 = a2;
+  v25 = Length;
+  v33 = Buffer;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -70,9 +70,9 @@ __int64 __fastcall NtUpdateWnfStateData(
   LODWORD(v9) = 0;
   v34[0] = 0LL;
   v34[1] = 0LL;
-  v30 = a4;
-  LOBYTE(a3) = PreviousMode;
-  NameInstance = ExpCaptureWnfStateName(a1, &v29, a3);
+  v30 = TypeId;
+  LOBYTE(Length) = PreviousMode;
+  NameInstance = ExpCaptureWnfStateName(StateName, &v29, Length);
   if ( NameInstance >= 0 )
   {
     v28 = (v29 >> 4) & 3;
@@ -87,17 +87,17 @@ __int64 __fastcall NtUpdateWnfStateData(
         if ( v12 >= 0x7FFFFFFF0000LL )
           v12 = 0x7FFFFFFF0000LL;
         v35 = *(_OWORD *)v12;
-        v30 = &v35;
+        v30 = (PCWNF_TYPE_ID)&v35;
       }
     }
     LOBYTE(v11) = PreviousMode;
-    NameInstance = ExpWnfCaptureScopeInstanceId((v29 >> 6) & 0xF, a5, v11, &v32, v34);
+    NameInstance = ExpWnfCaptureScopeInstanceId((v29 >> 6) & 0xF, ExplicitScope, v11, &v32, v34);
     if ( NameInstance >= 0 )
     {
       if ( PreviousMode )
       {
         v15 = 0;
-        if ( a5 )
+        if ( ExplicitScope )
         {
           NameInstance = ExpWnfCheckCrossScopeAccess(v29);
           if ( NameInstance < 0 )
@@ -157,7 +157,7 @@ __int64 __fastcall NtUpdateWnfStateData(
           goto LABEL_25;
         v20 = v25;
       }
-      NameInstance = ExpWnfWriteStateData(v26, v33, v20, a6, a7);
+      NameInstance = ExpWnfWriteStateData(v26, v33, v20, MatchingChangeStamp, CheckStamp);
       if ( NameInstance >= 0 )
       {
         ExpWnfNotifyNameSubscribers(v26, 1LL, 1LL);
@@ -175,5 +175,5 @@ LABEL_25:
   LOBYTE(v11) = PreviousMode;
   ExpWnfReleaseCapturedScopeInstanceId((unsigned int)v9, v34, v11);
   KeLeaveCriticalRegion();
-  return (unsigned int)NameInstance;
+  return NameInstance;
 }

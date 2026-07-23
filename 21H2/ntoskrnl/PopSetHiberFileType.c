@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSetHiberFileType @ 0x1408E73B0
+ * XREFs of PopSetHiberFileType @ 0x1408E7510
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     PopSetHiberFileSize @ 0x1408E72A0 (PopSetHiberFileSize.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     PopSetHiberFileSize @ 0x1408E7400 (PopSetHiberFileSize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x1403A7CB0 (PopOpenKey.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     PopValidateHiberFileSize @ 0x140776E28 (PopValidateHiberFileSize.c)
- *     PopCalculateHiberFileSize @ 0x14078D808 (PopCalculateHiberFileSize.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1403A7E00 (PopOpenKey.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     PopValidateHiberFileSize @ 0x140776FE8 (PopValidateHiberFileSize.c)
+ *     PopCalculateHiberFileSize @ 0x14078D9C8 (PopCalculateHiberFileSize.c)
  */
 
 __int64 __fastcall PopSetHiberFileType(int a1, __int64 *a2)

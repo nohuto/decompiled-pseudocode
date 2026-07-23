@@ -1,45 +1,46 @@
 /*
- * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x180097B20
+ * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x18002C970
  * Callers:
- *     RtlpFtInitialize @ 0x180145F1C (RtlpFtInitialize.c)
+ *     RtlpFtInitialize @ 0x1801442CC (RtlpFtInitialize.c)
  * Callees:
- *     RtlpFcEnsureSubscriptionManagerStarted @ 0x180097BBC (RtlpFcEnsureSubscriptionManagerStarted.c)
- *     RtlpFcAllocateChangeRegistration @ 0x180097C08 (RtlpFcAllocateChangeRegistration.c)
- *     RtlpFcInsertChangeRegistration @ 0x180097CA4 (RtlpFcInsertChangeRegistration.c)
- *     TpPostWork @ 0x1800D6E00 (TpPostWork.c)
+ *     RtlpFcEnsureSubscriptionManagerStarted @ 0x18002CA0C (RtlpFcEnsureSubscriptionManagerStarted.c)
+ *     RtlpFcAllocateChangeRegistration @ 0x18002CA58 (RtlpFcAllocateChangeRegistration.c)
+ *     RtlpFcInsertChangeRegistration @ 0x18002CAF4 (RtlpFcInsertChangeRegistration.c)
+ *     TpPostWork @ 0x1800D2170 (TpPostWork.c)
  */
 
-__int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, _QWORD *a3, __int64 *a4)
+NTSTATUS __cdecl RtlRegisterFeatureConfigurationChangeNotification(
+        PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK Callback,
+        PVOID Context,
+        PRTL_FEATURE_CHANGE_STAMP ObservedChangeStamp,
+        PRTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // rax
   __int64 v10; // rcx
-  __int64 v11; // rbx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  PTP_WORK *v11; // rbx
 
-  if ( byte_1801D2908 )
-    return 3221226238LL;
+  if ( byte_1801D1908 )
+    return -1073741058;
   result = RtlpFcEnsureSubscriptionManagerStarted();
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v9 = RtlpFcAllocateChangeRegistration(a1, a2);
-    v11 = v9;
+    v9 = RtlpFcAllocateChangeRegistration(Callback, Context);
+    v11 = (PTP_WORK *)v9;
     if ( v9 )
     {
       RtlpFcInsertChangeRegistration(v10, v9);
-      if ( a3 )
+      if ( ObservedChangeStamp )
       {
-        if ( MEMORY[0x7FFE0720] != *a3 )
-          TpPostWork(*(_QWORD *)(v11 + 40), v12, v13, v14);
+        if ( MEMORY[0x7FFE0720] != *ObservedChangeStamp )
+          TpPostWork(v11[5]);
       }
-      *a4 = v11;
-      return 0LL;
+      *RegistrationHandle = v11;
+      return 0;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

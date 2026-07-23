@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLaInitializeState @ 0x1404DB200
+ * XREFs of HalpLaInitializeState @ 0x1404DB440
  * Callers:
- *     HalpDmaAllocateDomain @ 0x1403C71E8 (HalpDmaAllocateDomain.c)
+ *     HalpDmaAllocateDomain @ 0x1403C7388 (HalpDmaAllocateDomain.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpLaReserveRange @ 0x1404DB3D4 (HalpLaReserveRange.c)
- *     HalpLapDeleteSubtree @ 0x1404DB5F0 (HalpLapDeleteSubtree.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpLaReserveRange @ 0x1404DB614 (HalpLaReserveRange.c)
+ *     HalpLapDeleteSubtree @ 0x1404DB830 (HalpLapDeleteSubtree.c)
  */
 
 __int64 __fastcall HalpLaInitializeState(__int64 a1, __int64 *a2)

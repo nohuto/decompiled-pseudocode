@@ -4,13 +4,13 @@
  *     VfPnpVerifyIrpStackDownward @ 0x1407188EC (VfPnpVerifyIrpStackDownward.c)
  *     VfPnpVerifyIrpStackUpward @ 0x140718A78 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1401E6950 (MmIsNonPagedSystemAddressValid.c)
- *     IovUtilMarkDeviceObject @ 0x14022352C (IovUtilMarkDeviceObject.c)
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1402236DC (ViErrorReport10.c)
- *     IovUtilGetBottomDeviceObject @ 0x14070DFBC (IovUtilGetBottomDeviceObject.c)
- *     IovUtilIsDeviceObjectMarked @ 0x14070E0AC (IovUtilIsDeviceObjectMarked.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1401E677C (MmIsNonPagedSystemAddressValid.c)
+ *     IovUtilMarkDeviceObject @ 0x140223358 (IovUtilMarkDeviceObject.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x140223508 (ViErrorReport10.c)
+ *     IovUtilGetBottomDeviceObject @ 0x14070DFEC (IovUtilGetBottomDeviceObject.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x14070E0DC (IovUtilIsDeviceObjectMarked.c)
  */
 
 char __fastcall ViPnpVerifyMinorWasProcessedProperly(__int64 a1, __int64 a2, int a3, int a4, const void *a5, int a6)

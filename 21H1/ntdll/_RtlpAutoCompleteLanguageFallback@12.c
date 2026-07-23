@@ -32,7 +32,7 @@ int __fastcall RtlpAutoCompleteLanguageFallback(int a1, const WCHAR *a2, int a3)
       v7 = 0;
     if ( v7 )
     {
-      v8 = &a2[wcslen(a2) + 1];
+      v8 = &a2[wcslen((const unsigned __int16 *)a2) + 1];
       if ( v8 )
       {
         while ( 1 )

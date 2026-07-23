@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLazyWriteWorker @ 0x1406E2810
+ * XREFs of CmpLazyWriteWorker @ 0x1406E6AF0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmpCompleteLazyWrite @ 0x1404D48EC (CmpCompleteLazyWrite.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpDiskFullWarning @ 0x140854AE8 (CmpDiskFullWarning.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmpCompleteLazyWrite @ 0x1404CE15C (CmpCompleteLazyWrite.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpDiskFullWarning @ 0x14085ADF8 (CmpDiskFullWarning.c)
  */
 
 void __fastcall __noreturn CmpLazyWriteWorker(PKTIMER Timer)

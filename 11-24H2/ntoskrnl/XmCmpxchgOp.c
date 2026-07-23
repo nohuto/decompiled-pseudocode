@@ -1,10 +1,10 @@
 /*
- * XREFs of XmCmpxchgOp @ 0x1405759C0
+ * XREFs of XmCmpxchgOp @ 0x140572E50
  * Callers:
  *     <none>
  * Callees:
- *     XmSubOperands @ 0x140468260 (XmSubOperands.c)
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmSubOperands @ 0x140460C10 (XmSubOperands.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 __int64 __fastcall XmCmpxchgOp(__int64 a1)

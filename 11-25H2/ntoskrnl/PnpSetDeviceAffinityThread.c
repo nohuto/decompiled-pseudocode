@@ -11,11 +11,11 @@
  *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PnpSetDeviceAffinityThread(__int64 a1, struct _GROUP_AFFINITY *a2)
+__int64 __fastcall PnpSetDeviceAffinityThread(__int64 a1, _GROUP_AFFINITY *a2)
 {
   __int64 v3; // rcx
   unsigned int v5; // r8d
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   if ( !a1 )

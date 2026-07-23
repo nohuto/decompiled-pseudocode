@@ -22,16 +22,16 @@ void __fastcall PerfLogImageUnload(
         unsigned __int16 *a1,
         void *a2,
         void *a3,
-        unsigned __int64 a4,
+        void *a4,
         __int64 a5,
-        int a6,
+        int CheckSum,
         int a7,
         int a8,
         unsigned int a9)
 {
-  __int64 v13; // rdi
-  int v14; // esi
-  unsigned __int64 v15; // rax
+  __int64 ImageBase; // rdi
+  int TimeDateStamp; // esi
+  PIMAGE_NT_HEADERS v15; // rax
   __int64 Pool2; // r14
   int v17; // eax
   unsigned __int16 *v18; // rcx
@@ -39,10 +39,10 @@ void __fastcall PerfLogImageUnload(
   __int64 v20; // [rsp+58h] [rbp-60h]
   __int128 v21; // [rsp+68h] [rbp-50h] BYREF
 
-  v13 = 0LL;
+  ImageBase = 0LL;
   v20 = 0LL;
   v21 = 0LL;
-  v14 = 0;
+  TimeDateStamp = 0;
   v19 = 0;
   if ( EtwpHostSiloState != -4572 && (*(_DWORD *)(EtwpHostSiloState + 4572) & 4) != 0 )
     EtwpCoverageSamplerUnloadImage(a3, a4, a5);
@@ -51,11 +51,11 @@ void __fastcall PerfLogImageUnload(
     v15 = RtlImageNtHeader(a4);
     if ( v15 )
     {
-      a6 = *(_DWORD *)(v15 + 88);
-      v14 = *(_DWORD *)(v15 + 8);
-      v19 = v14;
-      v13 = *(_QWORD *)(v15 + 48);
-      v20 = v13;
+      CheckSum = v15->OptionalHeader.CheckSum;
+      TimeDateStamp = v15->FileHeader.TimeDateStamp;
+      v19 = TimeDateStamp;
+      ImageBase = v15->OptionalHeader.ImageBase;
+      v20 = ImageBase;
     }
   }
   if ( a2 )
@@ -71,11 +71,11 @@ void __fastcall PerfLogImageUnload(
         *(_QWORD *)(Pool2 + 96) = a3;
         *(_QWORD *)(Pool2 + 104) = a4;
         *(_QWORD *)(Pool2 + 112) = a5;
-        *(_DWORD *)(Pool2 + 120) = a6;
-        *(_DWORD *)(Pool2 + 124) = v14;
+        *(_DWORD *)(Pool2 + 120) = CheckSum;
+        *(_DWORD *)(Pool2 + 124) = TimeDateStamp;
         *(_DWORD *)(Pool2 + 128) = a7;
         *(_DWORD *)(Pool2 + 132) = a8;
-        *(_QWORD *)(Pool2 + 136) = v13;
+        *(_QWORD *)(Pool2 + 136) = ImageBase;
         KeInitializeApc(
           Pool2,
           (__int64)KeGetCurrentThread(),
@@ -90,8 +90,8 @@ void __fastcall PerfLogImageUnload(
         ExFreePoolWithTag((PVOID)Pool2, 0);
         ObfDereferenceObject(a2);
         ObfDereferenceObject(a3);
-        v13 = v20;
-        v14 = v19;
+        ImageBase = v20;
+        TimeDateStamp = v19;
       }
     }
     if ( FltMgrCallbacks )
@@ -103,5 +103,5 @@ void __fastcall PerfLogImageUnload(
       a1 = v18;
     }
   }
-  EtwpTraceImageUnload(a1, (__int64)a3, a4, a5, a6, v14, a7, a8, v13, a9);
+  EtwpTraceImageUnload(a1, (__int64)a3, (__int64)a4, a5, CheckSum, TimeDateStamp, a7, a8, ImageBase, a9);
 }

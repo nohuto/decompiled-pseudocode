@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpPrefetchForVirtualFault @ 0x14079F46C
+ * XREFs of VmpPrefetchForVirtualFault @ 0x14079F57C
  * Callers:
- *     VmAccessFault @ 0x140A07D80 (VmAccessFault.c)
+ *     VmAccessFault @ 0x140A042B0 (VmAccessFault.c)
  * Callees:
- *     MmPrefetchVirtualAddresses @ 0x140953070 (MmPrefetchVirtualAddresses.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmPrefetchVirtualAddresses @ 0x140936A20 (MmPrefetchVirtualAddresses.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, 
   __int64 v13; // rax
   __int64 v14; // rax
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 16 * (a3 + 2), 0x76506D56u);
   v7 = (void *)Pool2;
   if ( Pool2 )
   {

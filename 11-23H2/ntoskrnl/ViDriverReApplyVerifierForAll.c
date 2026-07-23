@@ -1,12 +1,12 @@
 /*
- * XREFs of ViDriverReApplyVerifierForAll @ 0x140ACA964
+ * XREFs of ViDriverReApplyVerifierForAll @ 0x140ACA954
  * Callers:
- *     VfDriverInitSuccess @ 0x140ABD430 (VfDriverInitSuccess.c)
+ *     VfDriverInitSuccess @ 0x140ABD420 (VfDriverInitSuccess.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfThunkApplyDriverAddedThunks @ 0x140ADB190 (VfThunkApplyDriverAddedThunks.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x140ADB180 (VfThunkApplyDriverAddedThunks.c)
  *     VfSuspectDriversIsLoaded @ 0x140B96D64 (VfSuspectDriversIsLoaded.c)
  */
 

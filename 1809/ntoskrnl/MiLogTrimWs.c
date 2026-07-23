@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogTrimWs @ 0x140131048
+ * XREFs of MiLogTrimWs @ 0x140131118
  * Callers:
- *     MiTrimWorkingSet @ 0x140130E38 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140130F08 (MiTrimWorkingSet.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     MiFillLogProcessInfo @ 0x1401310F4 (MiFillLogProcessInfo.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     MiFillLogProcessInfo @ 0x1401311C4 (MiFillLogProcessInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -60,7 +60,7 @@ void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
 
   if ( hProvider )
   {
-    MiFillLogProcessInfo(a1, &v16, &psz, *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174)));
+    MiFillLogProcessInfo(a1, &v16, &psz, *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174)));
     if ( v9->LevelPlus1 > 5 )
     {
       if ( TlgKeywordOn(v9, 1uLL) )
@@ -102,7 +102,7 @@ void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
         v46 = 8;
         v49 = 4;
         v52 = 4;
-        TlgWriteEx(v14, &unk_14036DF15, 0LL, v13, 0LL, 0LL, 0xCu, &pData);
+        TlgWriteEx(v14, &unk_14036EFC9, 0LL, v13, 0LL, 0LL, 0xCu, &pData);
       }
     }
   }

@@ -33,7 +33,7 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(__int64 a1, unsigned int a2, unsi
   wchar_t *Pool2; // rax
   __int64 v13; // rcx
   USHORT pusResult[2]; // [rsp+30h] [rbp-99h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
   int TokenInformation; // [rsp+3Ch] [rbp-8Dh] BYREF
   ULONG ReturnLength; // [rsp+40h] [rbp-89h] BYREF
   int v19; // [rsp+44h] [rbp-85h] BYREF

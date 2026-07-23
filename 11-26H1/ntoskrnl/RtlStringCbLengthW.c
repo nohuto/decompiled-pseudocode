@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x14047EE24
+ * XREFs of RtlStringCbLengthW @ 0x140478794
  * Callers:
- *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1404F0C10 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
- *     RtlpGetTokenNamedObjectPath @ 0x14077E4E0 (RtlpGetTokenNamedObjectPath.c)
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     PopFxValidateReturnedUnicodeString @ 0x1407CDDB4 (PopFxValidateReturnedUnicodeString.c)
- *     PpmRegisterProfiles @ 0x1407E1B0C (PpmRegisterProfiles.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1408039A0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     AslpFileVerStringBlockGetValue @ 0x14088F2B8 (AslpFileVerStringBlockGetValue.c)
- *     RtlpPopulateLanguageConfigList @ 0x1408A92D4 (RtlpPopulateLanguageConfigList.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     RtlpValidRelativeAttribute @ 0x1409F5010 (RtlpValidRelativeAttribute.c)
- *     LocalGetStringForRelativeAttribute @ 0x140A5FA78 (LocalGetStringForRelativeAttribute.c)
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x140B28AFC (PopIdleWakeGenerateDescriptionString.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1404EA1F0 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140780FE0 (RtlpGetTokenNamedObjectPath.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x1407D0E54 (PopFxValidateReturnedUnicodeString.c)
+ *     PpmRegisterProfiles @ 0x1407E6B9C (PpmRegisterProfiles.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140809440 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1408956B4 (AslpFileVerStringBlockGetValue.c)
+ *     RtlpPopulateLanguageConfigList @ 0x1408AF744 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpValidRelativeAttribute @ 0x1409E0D60 (RtlpValidRelativeAttribute.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     LocalGetStringForRelativeAttribute @ 0x140A6CA38 (LocalGetStringForRelativeAttribute.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x140B2AFCC (PopIdleWakeGenerateDescriptionString.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

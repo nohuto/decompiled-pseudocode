@@ -1,22 +1,22 @@
 /*
- * XREFs of MiRotateToFrameBufferNoCopy @ 0x140A2ECC0
+ * XREFs of MiRotateToFrameBufferNoCopy @ 0x140A23700
  * Callers:
- *     MmRotatePhysicalView @ 0x140A2E770 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140A231B0 (MmRotatePhysicalView.c)
  * Callees:
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402855E0 (MiLegitimatePageForDriversToMap.c)
- *     MiDeleteRotateAndStopFaults @ 0x1403CC068 (MiDeleteRotateAndStopFaults.c)
- *     MiDereferenceIoPages @ 0x1403CE8E0 (MiDereferenceIoPages.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1403CFA04 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiIsPfn @ 0x14045A380 (MiIsPfn.c)
- *     MiSanitizePage @ 0x140467A44 (MiSanitizePage.c)
- *     MiObtainRotateProtectionRanges @ 0x140499870 (MiObtainRotateProtectionRanges.c)
- *     MiGetVadCacheAttribute @ 0x1404A5498 (MiGetVadCacheAttribute.c)
- *     MiRotateComplete @ 0x1404A62D4 (MiRotateComplete.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiDeleteRotateAndStopFaults @ 0x14026622C (MiDeleteRotateAndStopFaults.c)
+ *     MiDereferenceIoPages @ 0x14038E760 (MiDereferenceIoPages.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140390E28 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14041DB10 (MiLegitimatePageForDriversToMap.c)
+ *     MiIsPfn @ 0x14044F7D0 (MiIsPfn.c)
+ *     MiSanitizePage @ 0x14045F4E4 (MiSanitizePage.c)
+ *     MiObtainRotateProtectionRanges @ 0x140494200 (MiObtainRotateProtectionRanges.c)
+ *     MiGetVadCacheAttribute @ 0x1404A0228 (MiGetVadCacheAttribute.c)
+ *     MiRotateComplete @ 0x1404A0FB4 (MiRotateComplete.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiRotateToFrameBufferNoCopy(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
+__int64 __fastcall MiRotateToFrameBufferNoCopy(ULONG_PTR a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   int v6; // ebx
   unsigned __int64 v7; // r9
@@ -33,7 +33,7 @@ __int64 __fastcall MiRotateToFrameBufferNoCopy(ULONG_PTR a1, unsigned __int64 a2
   int v18; // edx
   unsigned __int64 v19; // rcx
   __int64 v20; // rbx
-  int VadCacheAttribute; // [rsp+40h] [rbp-40h]
+  unsigned int VadCacheAttribute; // [rsp+40h] [rbp-40h]
   __int64 v22; // [rsp+48h] [rbp-38h]
   PVOID P[2]; // [rsp+50h] [rbp-30h] BYREF
   __int128 v24; // [rsp+60h] [rbp-20h] BYREF
@@ -73,7 +73,7 @@ __int64 __fastcall MiRotateToFrameBufferNoCopy(ULONG_PTR a1, unsigned __int64 a2
     ++v10;
     ++v11;
   }
-  v14 = MiObtainRotateProtectionRanges(a1, a2, v22, (__int64)P);
+  v14 = MiObtainRotateProtectionRanges(a1, a2, v22, P);
   if ( v14 < 0 )
   {
 LABEL_17:

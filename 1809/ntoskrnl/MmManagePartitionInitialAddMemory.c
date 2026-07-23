@@ -1,13 +1,13 @@
 /*
- * XREFs of MmManagePartitionInitialAddMemory @ 0x140860978
+ * XREFs of MmManagePartitionInitialAddMemory @ 0x140861BD8
  * Callers:
- *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140609170 (NtManagePartition.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiHotAddPartitionMemory @ 0x1408603D4 (MiHotAddPartitionMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiHotAddPartitionMemory @ 0x140861634 (MiHotAddPartitionMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmManagePartitionInitialAddMemory(unsigned __int16 **a1, _DWORD *a2, __int64 a3, char a4)

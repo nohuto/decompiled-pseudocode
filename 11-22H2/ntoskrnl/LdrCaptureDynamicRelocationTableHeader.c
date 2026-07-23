@@ -9,8 +9,8 @@
  */
 
 __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
-        unsigned __int64 a1,
-        unsigned int a2,
+        char *BaseOfImage,
+        ULONG64 Size,
         __int64 a3,
         unsigned int a4,
         __int64 a5,
@@ -19,20 +19,20 @@ __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
         _QWORD *a8)
 {
   unsigned __int64 v8; // r15
-  int v10; // r10d
+  NTSTATUS v10; // r10d
   unsigned __int16 v11; // bx
   int v12; // esi
   __int64 v13; // r11
-  unsigned __int64 v15; // rdi
-  unsigned __int64 v16; // rax
+  char *v15; // rdi
+  char *v16; // rax
   __int64 v17; // r11
   __int64 v18; // rax
   int v19; // edx
-  __int64 v20; // [rsp+28h] [rbp-30h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+28h] [rbp-30h] BYREF
   __int64 v21; // [rsp+30h] [rbp-28h]
 
-  v8 = a2;
-  v20 = 0LL;
+  v8 = (unsigned int)Size;
+  OutHeaders = 0LL;
   v10 = 0;
   v11 = 0;
   v12 = 0;
@@ -60,17 +60,17 @@ __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
   }
   if ( v11 )
   {
-    v15 = a2 + a1;
-    v10 = RtlImageNtHeaderEx(0, a1, a2, &v20);
+    v15 = &BaseOfImage[(unsigned int)Size];
+    v10 = RtlImageNtHeaderEx(0, BaseOfImage, (unsigned int)Size, &OutHeaders);
     if ( v10 < 0 )
       return (unsigned int)v10;
-    if ( v11 > *(_WORD *)(v20 + 6) )
+    if ( v11 > OutHeaders->FileHeader.NumberOfSections )
       return (unsigned int)-1073741701;
-    v16 = v20 + *(unsigned __int16 *)(v20 + 20) - 16LL + 40LL * v11;
+    v16 = (char *)OutHeaders + 40 * v11 + OutHeaders->FileHeader.SizeOfOptionalHeader - 16;
     if ( v15 <= v16 || v15 < v16 + 40 )
       return (unsigned int)-1073741701;
     _mm_lfence();
-    v17 = (unsigned int)(v12 + *(_DWORD *)(v16 + 12));
+    v17 = (unsigned int)(v12 + *((_DWORD *)v16 + 3));
   }
   else
   {
@@ -79,13 +79,13 @@ __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
     if ( a5 )
       v17 = (unsigned int)(v13 - a5);
     else
-      v17 = (unsigned int)(v13 - a1);
+      v17 = (unsigned int)(v13 - (_DWORD)BaseOfImage);
   }
   if ( v17 + 8 < (unsigned __int64)(unsigned int)v17 )
     return (unsigned int)-1073741701;
   if ( v17 + 8 > v8 )
     return (unsigned int)-1073741701;
-  v21 = *(_QWORD *)(v17 + a1);
+  v21 = *(_QWORD *)&BaseOfImage[v17];
   v18 = v21;
   v19 = HIDWORD(v21) + 8;
   if ( (unsigned int)(HIDWORD(v21) + 8) < HIDWORD(v21)

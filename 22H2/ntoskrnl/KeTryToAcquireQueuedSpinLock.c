@@ -9,7 +9,7 @@
 
 LOGICAL __stdcall KeTryToAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number, PKIRQL OldIrql)
 {
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
   char *v5; // rcx
   unsigned __int8 v6; // al

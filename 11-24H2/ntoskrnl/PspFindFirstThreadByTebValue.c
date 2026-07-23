@@ -1,17 +1,17 @@
 /*
- * XREFs of PspFindFirstThreadByTebValue @ 0x140ABF77C
+ * XREFs of PspFindFirstThreadByTebValue @ 0x140ABA85C
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetThreadId @ 0x14044B4F0 (PsGetThreadId.c)
- *     PsGetThreadTeb @ 0x140456DA0 (PsGetThreadTeb.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsGetNextProcessThread @ 0x14094A700 (PsGetNextProcessThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetThreadId @ 0x140442630 (PsGetThreadId.c)
+ *     PsGetThreadTeb @ 0x14044C5E0 (PsGetThreadTeb.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsGetNextProcessThread @ 0x1408EEC70 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PspFindFirstThreadByTebValue(
@@ -62,7 +62,7 @@ __int64 __fastcall PspFindFirstThreadByTebValue(
       if ( (*((_DWORD *)NextProcessThread + 29) & 0x400) == 0 )
       {
         v12 = (struct _EX_RUNDOWN_REF *)(NextProcessThread + 177);
-        if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)NextProcessThread + 177) )
+        if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)NextProcessThread + 177) )
         {
           ThreadTeb = PsGetThreadTeb((__int64)v11);
           if ( ThreadTeb )
@@ -95,6 +95,6 @@ LABEL_20:
   }
 LABEL_23:
   if ( v7 )
-    KiUnstackDetachProcess((__int64)v19, 0);
+    KiUnstackDetachProcess((__int64)v19, 0, a3, (__int64)a4);
   return v15;
 }

@@ -2,10 +2,10 @@
  * XREFs of MiDeleteVirtualAddresses @ 0x140026134
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiDeleteFinalPageTables @ 0x1400918B8 (MiDeleteFinalPageTables.c)
- *     MiDeleteRotateAndStopFaults @ 0x14013A0F0 (MiDeleteRotateAndStopFaults.c)
+ *     MiDeleteFinalPageTables @ 0x1400917F8 (MiDeleteFinalPageTables.c)
+ *     MiDeleteRotateAndStopFaults @ 0x14013A1F0 (MiDeleteRotateAndStopFaults.c)
  * Callees:
- *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x140067FD0 (MiDeletePagablePteRange.c)
  */
 
 signed __int64 __fastcall MiDeleteVirtualAddresses(int a1, int a2, int a3, __int64 a4)

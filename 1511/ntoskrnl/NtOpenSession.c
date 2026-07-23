@@ -6,22 +6,29 @@
  *     ObOpenObjectByName @ 0x140422190 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenSession(_QWORD *a1, ACCESS_MASK a2, __int64 a3)
+NTSTATUS __cdecl NtOpenSession(PHANDLE SessionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // r8
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v8; // rdx
-  _QWORD v9[4]; // [rsp+48h] [rbp-20h] BYREF
+  void *v9; // [rsp+48h] [rbp-20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v8 = a1;
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+    v8 = SessionHandle;
+    if ( (unsigned __int64)SessionHandle >= MmUserProbeAddress )
       v8 = (_QWORD *)MmUserProbeAddress;
     *v8 = *v8;
   }
-  result = ObOpenObjectByName(a3, MmSessionObjectType, PreviousMode, 0LL, a2, 0LL, v9);
-  *a1 = v9[0];
+  result = ObOpenObjectByName(
+             (__int64)ObjectAttributes,
+             MmSessionObjectType,
+             PreviousMode,
+             0LL,
+             DesiredAccess,
+             0LL,
+             &v9);
+  *SessionHandle = v9;
   return result;
 }

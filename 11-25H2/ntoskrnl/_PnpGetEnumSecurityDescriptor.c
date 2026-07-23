@@ -31,9 +31,9 @@ void *PnpGetEnumSecurityDescriptor()
   ACL *v5; // rsi
   void *v6; // rax
   void *v7; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-29h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v10; // [rsp+40h] [rbp-21h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v11; // [rsp+48h] [rbp-19h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-29h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v10; // [rsp+40h] [rbp-21h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v11; // [rsp+48h] [rbp-19h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-11h] BYREF
   __int64 v13; // [rsp+70h] [rbp+Fh]
   _BYTE Sid[12]; // [rsp+78h] [rbp+17h] BYREF

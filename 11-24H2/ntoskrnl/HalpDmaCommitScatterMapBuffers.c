@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaCommitScatterMapBuffers @ 0x14048F648
+ * XREFs of HalpDmaCommitScatterMapBuffers @ 0x140489858
  * Callers:
- *     HalpDmaAllocateLocalScatterPool @ 0x1406FFA54 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x140A8AA80 (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1406FD694 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140A86DC0 (HalpDmaGrowScatterMapBuffers.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaPrependTranslations @ 0x14038D63C (HalpDmaPrependTranslations.c)
- *     HalpDmaGetTranslationEntries @ 0x14048F7B4 (HalpDmaGetTranslationEntries.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaPrependTranslations @ 0x140386F7C (HalpDmaPrependTranslations.c)
+ *     HalpDmaGetTranslationEntries @ 0x1404899C4 (HalpDmaGetTranslationEntries.c)
  */
 
 __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)

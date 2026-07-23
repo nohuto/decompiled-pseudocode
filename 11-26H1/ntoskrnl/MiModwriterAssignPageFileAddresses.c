@@ -1,15 +1,15 @@
 /*
- * XREFs of MiModwriterAssignPageFileAddresses @ 0x140407170
+ * XREFs of MiModwriterAssignPageFileAddresses @ 0x140400260
  * Callers:
- *     MiGatherPagefilePages @ 0x140406D08 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1403FFDF8 (MiGatherPagefilePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     MiUpdatePfnBackingStore @ 0x140408494 (MiUpdatePfnBackingStore.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     MiUpdatePfnBackingStore @ 0x140401584 (MiUpdatePfnBackingStore.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int16 __fastcall MiModwriterAssignPageFileAddresses(__int64 a1)
@@ -68,7 +68,7 @@ __int16 __fastcall MiModwriterAssignPageFileAddresses(__int64 a1)
     v10 = *v4;
     v11 = 0xFFFFDE0000000000uLL;
     v12 = 48 * *v4 - 0x220000000000LL;
-    if ( *v4 != qword_140E36038 )
+    if ( *v4 != qword_140E361B8 )
     {
       if ( v7 && v7 != (unsigned int)MiPageToNode(v10) + 1 )
         v7 = 0;
@@ -129,20 +129,20 @@ __int16 __fastcall MiModwriterAssignPageFileAddresses(__int64 a1)
             v19 = *(unsigned __int16 *)(v15 + 172);
             if ( v17 )
             {
-              if ( qword_140E2D740 )
+              if ( qword_140E2D8C0 )
               {
                 if ( (v17 & 0x10) != 0 )
                   LODWORD(v17) = v17 & 0xFFFFFFEF;
                 else
-                  LODWORD(v17) = qword_140E2D748 & v17;
+                  LODWORD(v17) = qword_140E2D8C8 & v17;
               }
               PageFilePte = (unsigned int)v17 | 0x400000000LL;
-              if ( qword_140E2D740 )
+              if ( qword_140E2D8C0 )
               {
-                if ( (qword_140E2D740 & PageFilePte) != 0 )
+                if ( (qword_140E2D8C0 & PageFilePte) != 0 )
                   PageFilePte = (unsigned int)v17 | 0x400000010LL;
                 else
-                  PageFilePte |= qword_140E2D740;
+                  PageFilePte |= qword_140E2D8C0;
               }
             }
             else
@@ -176,7 +176,7 @@ __int16 __fastcall MiModwriterAssignPageFileAddresses(__int64 a1)
   while ( v3 < v9 );
   v21 = v30;
   *(_DWORD *)(a1 + 20) = v7;
-  result = 8 * (dword_140FBE21C + 6);
+  result = 8 * (dword_140FBF21C + 6);
   *(_WORD *)(v21 + 112) = result;
   return result;
 }

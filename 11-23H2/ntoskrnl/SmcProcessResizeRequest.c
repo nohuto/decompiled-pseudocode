@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcProcessResizeRequest @ 0x1409D81A4
+ * XREFs of SmcProcessResizeRequest @ 0x1409D83A4
  * Callers:
- *     SmSetStoreInformation @ 0x1407E7D74 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1407E8044 (SmSetStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     SmcStoreResize @ 0x1409DB774 (SmcStoreResize.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     SmcStoreResize @ 0x1409DB974 (SmcStoreResize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmcProcessResizeRequest(unsigned __int64 a1, int a2, char a3)

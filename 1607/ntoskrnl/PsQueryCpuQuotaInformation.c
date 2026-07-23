@@ -1,14 +1,14 @@
 /*
- * XREFs of PsQueryCpuQuotaInformation @ 0x14014C8AC
+ * XREFs of PsQueryCpuQuotaInformation @ 0x14014CE1C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiGetNextSession @ 0x140086628 (MiGetNextSession.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     MmGetSessionSchedulingGroupByProcess @ 0x14046EE54 (MmGetSessionSchedulingGroupByProcess.c)
- *     MmQuitNextSession @ 0x1404F149C (MmQuitNextSession.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiGetNextSession @ 0x140087F18 (MiGetNextSession.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     MmGetSessionSchedulingGroupByProcess @ 0x14046DD24 (MmGetSessionSchedulingGroupByProcess.c)
+ *     MmQuitNextSession @ 0x1404D3590 (MmQuitNextSession.c)
  */
 
 __int64 __fastcall PsQueryCpuQuotaInformation(_DWORD *Address, SIZE_T Length, KPROCESSOR_MODE PreviousMode, _DWORD *a4)

@@ -17,7 +17,7 @@
 __int64 __fastcall PnpSetDeviceInterfacePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         unsigned int a6,
@@ -30,23 +30,22 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
   int v15[2]; // [rsp+50h] [rbp-B0h] BYREF
   int v16; // [rsp+58h] [rbp-A8h]
   int v17; // [rsp+5Ch] [rbp-A4h]
-  _BYTE v18[8]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-98h]
-  _BYTE v20[176]; // [rsp+70h] [rbp-90h] BYREF
+  UNICODE_STRING String; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v19[176]; // [rsp+70h] [rbp-90h] BYREF
 
-  memset(v20, 0, 0xAAuLL);
+  memset(v19, 0, 0xAAuLL);
   *(_QWORD *)v15 = 0LL;
   if ( !a1 || !*(_QWORD *)(a1 + 8) || !*(_WORD *)a1 )
     return (unsigned int)-1073741811;
   if ( a3 )
   {
-    v19 = (__int64)v20;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, v18) )
+    String.Buffer = (wchar_t *)v19;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v19 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -64,7 +63,17 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
       v14 = *(_QWORD *)(a2 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
     if ( v14 )
 LABEL_8:
-      v11 = PnpSetObjectProperty(*(__int64 **)&PiPnpRtlCtx, *(__int64 *)v15, 3u, 0LL, v19, a2, a5, a7, a6, 0);
+      v11 = PnpSetObjectProperty(
+              *(__int64 **)&PiPnpRtlCtx,
+              *(__int64 *)v15,
+              3u,
+              0LL,
+              (__int64)String.Buffer,
+              a2,
+              a5,
+              a7,
+              a6,
+              0);
     else
       v11 = -1073741790;
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C2EB68
+ * XREFs of PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C30C88
  * Callers:
- *     PopUserShutdownScenarioInitialize @ 0x140C2ECB0 (PopUserShutdownScenarioInitialize.c)
+ *     PopUserShutdownScenarioInitialize @ 0x140C30DD0 (PopUserShutdownScenarioInitialize.c)
  * Callees:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1403E4390 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A24F30 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A252E0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SleepstudyHelperCreateLibrary @ 0x140AA0330 (SleepstudyHelperCreateLibrary.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x1403D1F30 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A18F20 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A192D0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateLibrary @ 0x140A9B6C0 (SleepstudyHelperCreateLibrary.c)
  */
 
 __int64 PopUserShutdownInitializeSleepstudyDiagnostics()
@@ -50,7 +50,7 @@ __int64 PopUserShutdownInitializeSleepstudyDiagnostics()
       v3 = v5;
       if ( (int)result < 0 )
         break;
-      result = SleepstudyHelperBuildBlocker(v5, *v2);
+      result = SleepstudyHelperBuildBlocker((int *)v5, *v2);
       if ( (int)result < 0 )
         break;
       v3 = 0LL;

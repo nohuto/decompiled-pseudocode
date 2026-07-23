@@ -1,13 +1,13 @@
 /*
- * XREFs of NtCreateTimer @ 0x14047169C
+ * XREFs of NtCreateTimer @ 0x14047056C
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     PsInsertVirtualizedTimer @ 0x14007E534 (PsInsertVirtualizedTimer.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     PsInsertVirtualizedTimer @ 0x14007E5B4 (PsInsertVirtualizedTimer.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
  */
 
 NTSTATUS __stdcall NtCreateTimer(

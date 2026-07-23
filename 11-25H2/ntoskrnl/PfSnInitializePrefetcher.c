@@ -55,10 +55,10 @@ __int64 PfSnInitializePrefetcher()
     *(_QWORD *)(Pool2 + 128) = 0LL;
     KiSetTimerEx(Pool2, -6000000000LL, 0, 0, Pool2 + 64);
   }
-  qword_140E66E58 = 0LL;
-  xmmword_140E66E60 = 0LL;
+  Parent.Root = 0LL;
+  *(_OWORD *)&Parent.0 = 0LL;
   result = 0LL;
-  qword_140E66E70 = 0LL;
+  Tree.Min = 0LL;
   qword_140E66E78 = 0LL;
   return result;
 }

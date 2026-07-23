@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x140392418
+ * XREFs of PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x1403925F8
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage @ 0x140411424 (Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage.c)
+ *     Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage @ 0x140411630 (Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage.c)
  */
 
 bool PpmHeteroGetHgsPlusParkingEnablementStatus()

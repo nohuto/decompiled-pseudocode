@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpAddTagForBigPages @ 0x140331B30
+ * XREFs of ExpAddTagForBigPages @ 0x140331DC0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1403BA114 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x1403BA4FC (ExInsertPoolTag.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403BA2F4 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403BA6DC (ExInsertPoolTag.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpResizeBigPageTable @ 0x1403B985C (ExpResizeBigPageTable.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x1403C7730 (ExTryConvertSharedSpinLockExclusive.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpResizeBigPageTable @ 0x1403B9A3C (ExpResizeBigPageTable.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x1403C7910 (ExTryConvertSharedSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -82,7 +82,7 @@ __int64 __fastcall ExpAddTagForBigPages(
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -160,10 +160,10 @@ LABEL_5:
             _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
             _InterlockedDecrement(&ExpLargePoolTableLock);
           }
-          if ( !KiIrqlFlags )
+          if ( !(_DWORD)KiIrqlFlags )
             goto LABEL_16;
           v51 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) == 0 )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
             goto LABEL_16;
           if ( v51 > 0xFu )
             goto LABEL_16;
@@ -185,10 +185,10 @@ LABEL_5:
           {
             ExpResizeBigPageTable(v28, v27, P);
             ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v43 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && CurrentIrql <= 0xFu && v43 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && CurrentIrql <= 0xFu && v43 >= 2u )
               {
                 v44 = KeGetCurrentPrcb();
                 v45 = v44->SchedulerAssist;
@@ -214,8 +214,8 @@ LABEL_5:
             return 1LL;
           }
           ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-          if ( !KiIrqlFlags
-            || (v47 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
+          if ( !(_DWORD)KiIrqlFlags
+            || (v47 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
             || v47 > 0xFu
             || CurrentIrql > 0xFu
             || v47 < 2u
@@ -238,10 +238,10 @@ LABEL_21:
       if ( ExTryConvertSharedSpinLockExclusive(&ExpLargePoolTableLock) )
         break;
       ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
         {
           v34 = KeGetCurrentPrcb();
           v35 = v34->SchedulerAssist;
@@ -256,10 +256,10 @@ LABEL_21:
     }
     v25 = ExpResizeBigPageTable(v24, v23, P);
     ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
       {
         v39 = KeGetCurrentPrcb();
         v40 = v39->SchedulerAssist;

@@ -1,45 +1,47 @@
 /*
- * XREFs of RtlExpandEnvironmentStrings @ 0x18009CB40
+ * XREFs of RtlExpandEnvironmentStrings @ 0x18009BC70
  * Callers:
- *     RtlGetPersistedStateLocation @ 0x18003E210 (RtlGetPersistedStateLocation.c)
+ *     RtlGetPersistedStateLocation @ 0x180028780 (RtlGetPersistedStateLocation.c)
  * Callees:
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
  */
 
-__int64 __fastcall RtlExpandEnvironmentStrings(
-        __int64 a1,
-        _WORD *a2,
-        __int64 a3,
-        _WORD *a4,
-        unsigned __int64 a5,
-        _QWORD *a6)
+NTSTATUS __cdecl RtlExpandEnvironmentStrings(
+        PVOID Environment,
+        PCWSTR Source,
+        SIZE_T SourceLength,
+        PWSTR Destination,
+        SIZE_T DestinationLength,
+        PSIZE_T ReturnLength)
 {
-  __int64 v6; // rbx
-  unsigned __int64 v8; // r12
-  int v9; // r14d
-  __int64 v11; // rbp
-  _WORD *v12; // rsi
-  __int64 result; // rax
-  unsigned __int64 v14; // r15
-  int v15; // edx
-  __int64 v16; // rax
-  __int64 v17; // [rsp+80h] [rbp+8h]
-  __int64 v18; // [rsp+90h] [rbp+18h] BYREF
+  SIZE_T v6; // rbx
+  SIZE_T ValueLength; // r12
+  NTSTATUS v9; // r14d
+  ULONG_PTR v11; // rbp
+  PCWSTR v12; // rsi
+  NTSTATUS result; // eax
+  SIZE_T v14; // r15
+  SIZE_T v15; // rax
+  NTSTATUS v16; // edx
+  ULONG_PTR v17; // rax
+  PVOID v18; // [rsp+80h] [rbp+8h]
+  ULONG_PTR v19; // [rsp+90h] [rbp+18h] BYREF
 
-  v17 = a1;
-  v6 = a3;
-  v8 = a5;
+  v18 = Environment;
+  v6 = SourceLength;
+  ValueLength = DestinationLength;
   v9 = 0;
-  v18 = 0LL;
+  v19 = 0LL;
   v11 = 0LL;
-  if ( !a3 )
+  if ( !SourceLength )
     goto LABEL_22;
   do
   {
-    if ( *a2 != 37 )
+    if ( *Source != 37 )
       goto LABEL_3;
     v14 = 0LL;
-    v12 = a2 + 1;
+    v12 = Source + 1;
+    v15 = v6 - 1;
     if ( v6 == 1 )
       goto LABEL_3;
     do
@@ -49,25 +51,26 @@ __int64 __fastcall RtlExpandEnvironmentStrings(
       ++v12;
       ++v14;
     }
-    while ( v14 < v6 - 1 );
+    while ( v14 < v15 );
     if ( v14
-      && v14 < v6 - 1
-      && ((v15 = RtlQueryEnvironmentVariable(a1, a2 + 1, v14, a4, v8, &v18), (int)(v15 + 0x80000000) < 0)
-       || v15 == -1073741789) )
+      && v14 < v15
+      && ((v16 = RtlQueryEnvironmentVariable(Environment, Source + 1, v14, Destination, ValueLength, &v19),
+           (int)(v16 + 0x80000000) < 0)
+       || v16 == -1073741789) )
     {
-      v16 = v18 + v11;
-      v11 = v18 + v11 - 1;
-      if ( v15 != -1073741789 )
-        v11 = v16;
+      v17 = v19 + v11;
+      v11 = v19 + v11 - 1;
+      if ( v16 != -1073741789 )
+        v11 = v17;
       v6 += -2LL - v14;
-      if ( v15 < 0 )
+      if ( v16 < 0 )
       {
-        v9 = v15;
+        v9 = v16;
       }
       else
       {
-        v8 -= v18;
-        a4 += v18;
+        ValueLength -= v19;
+        Destination += v19;
       }
     }
     else
@@ -75,34 +78,34 @@ __int64 __fastcall RtlExpandEnvironmentStrings(
 LABEL_3:
       if ( v9 >= 0 )
       {
-        if ( v8 <= 1 )
+        if ( ValueLength <= 1 )
         {
           v9 = -1073741789;
         }
         else
         {
-          --v8;
-          *a4++ = *a2;
+          --ValueLength;
+          *Destination++ = *Source;
         }
       }
       ++v11;
-      v12 = a2;
+      v12 = Source;
       --v6;
     }
-    a1 = v17;
-    a2 = v12 + 1;
+    Environment = v18;
+    Source = v12 + 1;
   }
   while ( v6 );
   if ( v9 >= 0 )
   {
 LABEL_22:
-    if ( v8 )
-      *a4 = 0;
+    if ( ValueLength )
+      *Destination = 0;
     else
       v9 = -1073741789;
   }
-  result = (unsigned int)v9;
-  if ( a6 )
-    *a6 = v11 + 1;
+  result = v9;
+  if ( ReturnLength )
+    *ReturnLength = v11 + 1;
   return result;
 }

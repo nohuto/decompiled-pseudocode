@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpDestroyTypeArray @ 0x14097C084
+ * XREFs of ObpDestroyTypeArray @ 0x14097C284
  * Callers:
- *     ObEnumerateObjectsByType @ 0x14097B854 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x14097B914 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x14097BA54 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x14097BB14 (ObGetObjectInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

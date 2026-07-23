@@ -1,24 +1,24 @@
 /*
- * XREFs of ExUnregisterExtension @ 0x1408D6EA0
+ * XREFs of ExUnregisterExtension @ 0x1408D8160
  * Callers:
  *     <none>
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExpDereferenceHost @ 0x1408D6F88 (ExpDereferenceHost.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExpDereferenceHost @ 0x1408D8248 (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *p_Count; // rdi
-  __int64 v4; // rax
-  __int64 v5; // rbp
+  _RTL_BALANCED_NODE *v4; // rax
+  _RTL_BALANCED_NODE *v5; // rbp
   void (__fastcall *Count)(__int64, unsigned __int64); // rax
   void (__fastcall *v7)(__int64, unsigned __int64); // rax
 
@@ -30,7 +30,7 @@ __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
   if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
     ExfAcquirePushLockExclusiveEx(p_Count, v4, (ULONG_PTR)p_Count);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   Count = (void (__fastcall *)(__int64, unsigned __int64))a1[6].Count;
   if ( Count )
     Count(2LL, a1[7].Count);

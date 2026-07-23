@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUpdateLargePageCandidates @ 0x140376508
+ * XREFs of MiUpdateLargePageCandidates @ 0x1403766A8
  * Callers:
  *     MiInitializeRebuildCandidateCounts @ 0x140B47430 (MiInitializeRebuildCandidateCounts.c)
  * Callees:

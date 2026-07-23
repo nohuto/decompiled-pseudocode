@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntSubUint32 @ 0x140403758
+ * XREFs of SymCryptFdefIntSubUint32 @ 0x140403938
  * Callers:
- *     SymCryptIntSubUint32 @ 0x1403F952C (SymCryptIntSubUint32.c)
+ *     SymCryptIntSubUint32 @ 0x1403F970C (SymCryptIntSubUint32.c)
  * Callees:
- *     SymCryptFdefRawSubUint32 @ 0x140403D54 (SymCryptFdefRawSubUint32.c)
+ *     SymCryptFdefRawSubUint32 @ 0x140403F34 (SymCryptFdefRawSubUint32.c)
  */
 
 __int64 __fastcall SymCryptFdefIntSubUint32(__int64 a1, __int64 a2, __int64 a3)

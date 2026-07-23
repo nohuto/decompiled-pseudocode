@@ -1,25 +1,25 @@
 /*
- * XREFs of MiInitializeBootShadowStackPage @ 0x140644964
+ * XREFs of MiInitializeBootShadowStackPage @ 0x140644EB4
  * Callers:
- *     MiInitializeBootKernelShadowStacks @ 0x1403B5FEC (MiInitializeBootKernelShadowStacks.c)
- *     MiInitializeBootKernelShadowStack @ 0x140644900 (MiInitializeBootKernelShadowStack.c)
+ *     MiInitializeBootKernelShadowStacks @ 0x1403B61CC (MiInitializeBootKernelShadowStacks.c)
+ *     MiInitializeBootKernelShadowStack @ 0x140644E50 (MiInitializeBootKernelShadowStack.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
  *     MiLockPageAndSetDirty @ 0x140217514 (MiLockPageAndSetDirty.c)
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiLockWorkingSetOptimal @ 0x14028596C (MiLockWorkingSetOptimal.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnlockWorkingSetOptimal @ 0x140650330 (MiUnlockWorkingSetOptimal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiLockWorkingSetOptimal @ 0x140285BFC (MiLockWorkingSetOptimal.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockWorkingSetOptimal @ 0x140650880 (MiUnlockWorkingSetOptimal.c)
  */
 
 __int64 __fastcall MiInitializeBootShadowStackPage(unsigned __int64 a1, int a2)
@@ -64,10 +64,13 @@ __int64 __fastcall MiInitializeBootShadowStackPage(unsigned __int64 a1, int a2)
   if ( (unsigned int)MiCheckSlabPfnBitmap(v4, 1LL, 0) && !(unsigned int)MiCheckSlabPfnBitmap(v4, 1LL, 1) )
     v6 = 1;
   _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

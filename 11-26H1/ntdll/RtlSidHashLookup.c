@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlSidHashLookup @ 0x1800EC680
+ * XREFs of RtlSidHashLookup @ 0x1800EBA70
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int8 *a2)
+PSID_AND_ATTRIBUTES __cdecl RtlSidHashLookup(PSID_AND_ATTRIBUTES_HASH SidAttrHash, PSID Sid)
 {
   __int64 v4; // rax
   __int16 v5; // r8
   unsigned int v6; // r13d
   unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rbx
+  SID_HASH_ENTRY v8; // rbx
   unsigned __int8 v9; // bp
   int v10; // edi
   int v11; // r12d
-  const void **v12; // r15
-  unsigned int v13; // ebx
-  const void **v15; // rdi
+  _SID_AND_ATTRIBUTES *v12; // r15
+  DWORD v13; // ebx
+  _SID_AND_ATTRIBUTES *v15; // rdi
 
-  if ( !a1 || !a2 )
+  if ( !SidAttrHash || !Sid )
     return 0LL;
-  v4 = a2[1];
-  v5 = *(_WORD *)a2;
+  v4 = *((unsigned __int8 *)Sid + 1);
+  v5 = *(_WORD *)Sid;
   v6 = 4 * v4 + 8;
-  v7 = a2[4 * v4 + 4];
-  v8 = *(_QWORD *)(a1 + 8 * (v7 & 0xF) + 16) & *(_QWORD *)(a1 + 8 * (v7 >> 4) + 144);
+  v7 = *((unsigned __int8 *)Sid + 4 * v4 + 4);
+  v8 = SidAttrHash->Hash[v7 & 0xF] & SidAttrHash->Hash[(v7 >> 4) + 16];
   v9 = 0;
 LABEL_4:
   if ( v8 )
@@ -41,32 +41,32 @@ LABEL_4:
         goto LABEL_4;
       }
       v11 = (unsigned __int8)SidHashByteToIndexLookupTable[(unsigned __int8)v10];
-      v12 = (const void **)(*(_QWORD *)(a1 + 8) + 16LL * (v11 + (unsigned int)v9));
-      if ( *(_WORD *)*v12 == v5 )
+      v12 = &SidAttrHash->SidAttr[v11 + (unsigned int)v9];
+      if ( *(_WORD *)v12->Sid == v5 )
       {
-        if ( !memcmp(a2, *v12, v6) )
+        if ( !memcmp(Sid, v12->Sid, v6) )
           return v12;
-        v5 = *(_WORD *)a2;
+        v5 = *(_WORD *)Sid;
       }
       v10 = (unsigned __int8)v10 ^ (1 << v11);
     }
   }
   v13 = 64;
-  if ( *(_DWORD *)a1 <= 0x40u )
+  if ( SidAttrHash->SidCount <= 0x40 )
     return 0LL;
   while ( 1 )
   {
-    if ( v13 >= *(_DWORD *)a1 )
+    if ( v13 >= SidAttrHash->SidCount )
       return 0LL;
-    v15 = (const void **)(*(_QWORD *)(a1 + 8) + 16LL * v13);
-    if ( *(_WORD *)*v15 == v5 )
+    v15 = &SidAttrHash->SidAttr[v13];
+    if ( *(_WORD *)v15->Sid == v5 )
       break;
 LABEL_19:
     ++v13;
   }
-  if ( memcmp(a2, *v15, v6) )
+  if ( memcmp(Sid, v15->Sid, v6) )
   {
-    v5 = *(_WORD *)a2;
+    v5 = *(_WORD *)Sid;
     goto LABEL_19;
   }
   return v15;

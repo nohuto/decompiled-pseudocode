@@ -101,7 +101,7 @@ void __fastcall MiHugePageOperation(__int64 a1, __int64 a2)
       goto LABEL_24;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -210,10 +210,10 @@ LABEL_48:
       if ( v20 )
         MiWritePteShadow((__int64)v7, v19, v21);
       MmInternal[1543] = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v25 = CurrentPrcb->SchedulerAssist;
@@ -227,7 +227,7 @@ LABEL_48:
       __writecr8(CurrentIrql);
       v27 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
       {
         v28 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v27 == 2 )
@@ -305,10 +305,10 @@ LABEL_84:
     else
     {
       MmInternal[1543] = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v39 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
         {
           v40 = KeGetCurrentPrcb();
           v41 = v40->SchedulerAssist;

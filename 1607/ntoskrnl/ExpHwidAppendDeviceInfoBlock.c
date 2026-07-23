@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpHwidAppendDeviceInfoBlock @ 0x1404F5B1C
+ * XREFs of ExpHwidAppendDeviceInfoBlock @ 0x1404D8AA8
  * Callers:
  *     ExpHwidNetworkIfDeviceInfoProvider @ 0x1403E247C (ExpHwidNetworkIfDeviceInfoProvider.c)
- *     sub_1404EF538 @ 0x1404EF538 (sub_1404EF538.c)
- *     sub_1404F0EBC @ 0x1404F0EBC (sub_1404F0EBC.c)
- *     ExpHwidProcessDevice @ 0x1404F59EC (ExpHwidProcessDevice.c)
- *     ExpHwidSysVolIfGetDiskInfo @ 0x14051DAC0 (ExpHwidSysVolIfGetDiskInfo.c)
- *     sub_1406B9CE8 @ 0x1406B9CE8 (sub_1406B9CE8.c)
+ *     sub_1404D15FC @ 0x1404D15FC (sub_1404D15FC.c)
+ *     sub_1404D2FB0 @ 0x1404D2FB0 (sub_1404D2FB0.c)
+ *     ExpHwidProcessDevice @ 0x1404D8978 (ExpHwidProcessDevice.c)
+ *     ExpHwidSysVolIfGetDiskInfo @ 0x140500B70 (ExpHwidSysVolIfGetDiskInfo.c)
+ *     sub_1406B9E20 @ 0x1406B9E20 (sub_1406B9E20.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

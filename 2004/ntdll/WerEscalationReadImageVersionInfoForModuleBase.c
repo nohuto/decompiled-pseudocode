@@ -12,10 +12,10 @@
  *     StringCbLengthW @ 0x18006AFD8 (StringCbLengthW.c)
  */
 
-int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 a1, __int64 a2)
+int __fastcall WerEscalationReadImageVersionInfoForModuleBase(char *BaseOfImage, __int64 a2)
 {
-  __int64 ResourceDirectoryEntry; // rax
-  _DWORD *v5; // rcx
+  __int64 VirtualAddress; // rax
+  PIMAGE_NT_HEADERS v5; // rcx
   bool v6; // cc
   __int64 v7; // rdx
   __int64 v8; // rbx
@@ -30,120 +30,116 @@ int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 a
   __int64 v17; // r8
   __int64 v18; // rbx
   int v19; // r8d
-  __int16 v20; // r14
+  unsigned __int16 v20; // r14
   size_t v21; // rdx
-  unsigned __int64 v23; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v24; // [rsp+28h] [rbp-18h]
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  size_t pcbLength; // [rsp+60h] [rbp+20h] BYREF
+  _UNICODE_STRING String2; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp+20h] BYREF
 
-  v23 = a1;
+  *(_QWORD *)&String2.Length = BaseOfImage;
   *(_OWORD *)a2 = 0LL;
-  LODWORD(ResourceDirectoryEntry) = RtlImageNtHeaderEx(3, a1, 0LL, &pcbLength);
-  if ( (int)ResourceDirectoryEntry >= 0 )
+  LODWORD(VirtualAddress) = RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
+  if ( (int)VirtualAddress >= 0 )
   {
-    v5 = (_DWORD *)pcbLength;
-    *(_DWORD *)a2 = *(_DWORD *)(pcbLength + 8);
-    *(_DWORD *)(a2 + 4) = v5[22];
-    v6 = v5[33] <= 2u;
-    LODWORD(ResourceDirectoryEntry) = v5[20];
-    v24 = (unsigned int)ResourceDirectoryEntry;
+    v5 = OutHeaders;
+    *(_DWORD *)a2 = OutHeaders->FileHeader.TimeDateStamp;
+    *(_DWORD *)(a2 + 4) = v5->OptionalHeader.CheckSum;
+    v6 = v5->OptionalHeader.NumberOfRvaAndSizes <= 2;
+    LODWORD(VirtualAddress) = v5->OptionalHeader.SizeOfImage;
+    String2.Buffer = (wchar_t *)(unsigned int)VirtualAddress;
     if ( !v6 )
     {
-      ResourceDirectoryEntry = (unsigned int)v5[38];
-      if ( (_DWORD)ResourceDirectoryEntry )
+      VirtualAddress = v5->OptionalHeader.DataDirectory[2].VirtualAddress;
+      if ( (_DWORD)VirtualAddress )
       {
-        if ( v5[39] >= 0x10u )
+        if ( v5->OptionalHeader.DataDirectory[2].Size >= 0x10 )
         {
-          LODWORD(ResourceDirectoryEntry) = -(int)ValidatePointer(&v23, a1 + ResourceDirectoryEntry, 16LL);
-          v8 = v7 & -(__int64)((_DWORD)ResourceDirectoryEntry != 0);
+          LODWORD(VirtualAddress) = -(int)ValidatePointer(&String2, &BaseOfImage[VirtualAddress], 16LL);
+          v8 = v7 & -(__int64)((_DWORD)VirtualAddress != 0);
           if ( v8 )
           {
-            ResourceDirectoryEntry = GetResourceDirectoryEntry(
-                                       (__int64)&v23,
-                                       v7 & -(__int64)((_DWORD)ResourceDirectoryEntry != 0),
-                                       *(unsigned __int16 *)((v7 & -(__int64)((_DWORD)ResourceDirectoryEntry != 0)) + 0xC));
-            if ( ResourceDirectoryEntry )
+            VirtualAddress = GetResourceDirectoryEntry(
+                               (__int64)&String2,
+                               v7 & -(__int64)((_DWORD)VirtualAddress != 0),
+                               *(unsigned __int16 *)((v7 & -(__int64)((_DWORD)VirtualAddress != 0)) + 0xC));
+            if ( VirtualAddress )
             {
-              ResourceDirectoryEntry = ((__int64 (__fastcall *)(unsigned __int64 *, __int64, _QWORD, __int64))FindDirectoryEntry)(
-                                         &v23,
-                                         ResourceDirectoryEntry,
-                                         *(unsigned __int16 *)(v8 + 14),
-                                         16LL);
-              if ( ResourceDirectoryEntry )
+              VirtualAddress = ((__int64 (__fastcall *)(_UNICODE_STRING *, __int64, _QWORD, __int64))FindDirectoryEntry)(
+                                 &String2,
+                                 VirtualAddress,
+                                 *(unsigned __int16 *)(v8 + 14),
+                                 16LL);
+              if ( VirtualAddress )
               {
-                v9 = *(unsigned int *)(ResourceDirectoryEntry + 4);
+                v9 = *(unsigned int *)(VirtualAddress + 4);
                 LODWORD(v9) = v9 & 0x7FFFFFFF;
-                LODWORD(ResourceDirectoryEntry) = ValidatePointer(&v23, v8 + v9, 16LL);
-                if ( (_DWORD)ResourceDirectoryEntry )
+                LODWORD(VirtualAddress) = ValidatePointer(&String2, v8 + v9, 16LL);
+                if ( (_DWORD)VirtualAddress )
                 {
-                  ResourceDirectoryEntry = GetResourceDirectoryEntry(
-                                             (__int64)&v23,
-                                             v10,
-                                             *(unsigned __int16 *)(v11 + 12));
-                  if ( ResourceDirectoryEntry )
+                  VirtualAddress = GetResourceDirectoryEntry((__int64)&String2, v10, *(unsigned __int16 *)(v11 + 12));
+                  if ( VirtualAddress )
                   {
-                    ResourceDirectoryEntry = ((__int64 (__fastcall *)(unsigned __int64 *, __int64, _QWORD, __int64))FindDirectoryEntry)(
-                                               &v23,
-                                               ResourceDirectoryEntry,
-                                               *(unsigned __int16 *)(v12 + 14),
-                                               1LL);
-                    if ( ResourceDirectoryEntry )
+                    VirtualAddress = ((__int64 (__fastcall *)(_UNICODE_STRING *, __int64, _QWORD, __int64))FindDirectoryEntry)(
+                                       &String2,
+                                       VirtualAddress,
+                                       *(unsigned __int16 *)(v12 + 14),
+                                       1LL);
+                    if ( VirtualAddress )
                     {
-                      v13 = *(unsigned int *)(ResourceDirectoryEntry + 4);
+                      v13 = *(unsigned int *)(VirtualAddress + 4);
                       LODWORD(v13) = v13 & 0x7FFFFFFF;
-                      LODWORD(ResourceDirectoryEntry) = ValidatePointer(&v23, v8 + v13, 16LL);
-                      if ( (_DWORD)ResourceDirectoryEntry )
+                      LODWORD(VirtualAddress) = ValidatePointer(&String2, v8 + v13, 16LL);
+                      if ( (_DWORD)VirtualAddress )
                       {
-                        ResourceDirectoryEntry = GetResourceDirectoryEntry((__int64)&v23, v14, 0);
-                        if ( ResourceDirectoryEntry )
+                        VirtualAddress = GetResourceDirectoryEntry((__int64)&String2, v14, 0);
+                        if ( VirtualAddress )
                         {
-                          if ( *(int *)(ResourceDirectoryEntry + 4) >= 0 )
+                          if ( *(int *)(VirtualAddress + 4) >= 0 )
                           {
-                            LODWORD(ResourceDirectoryEntry) = ValidatePointer(
-                                                                &v23,
-                                                                v8 + *(unsigned int *)(ResourceDirectoryEntry + 4),
-                                                                16LL);
-                            if ( (_DWORD)ResourceDirectoryEntry )
+                            LODWORD(VirtualAddress) = ValidatePointer(
+                                                        &String2,
+                                                        v8 + *(unsigned int *)(VirtualAddress + 4),
+                                                        16LL);
+                            if ( (_DWORD)VirtualAddress )
                             {
                               if ( v15[1] >= 0x5C )
                               {
-                                LODWORD(ResourceDirectoryEntry) = -(int)ValidatePointer(&v23, a1 + *v15, 92LL);
-                                v18 = v16 & -(__int64)((_DWORD)ResourceDirectoryEntry != 0);
+                                LODWORD(VirtualAddress) = -(int)ValidatePointer(&String2, &BaseOfImage[*v15], 92LL);
+                                v18 = v16 & -(__int64)((_DWORD)VirtualAddress != 0);
                                 if ( v18 )
                                 {
-                                  LODWORD(ResourceDirectoryEntry) = ValidatePointer(
-                                                                      &v23,
-                                                                      v16 & -(__int64)((_DWORD)ResourceDirectoryEntry != 0),
-                                                                      v17);
-                                  if ( (_DWORD)ResourceDirectoryEntry )
+                                  LODWORD(VirtualAddress) = ValidatePointer(
+                                                              &String2,
+                                                              v16 & -(__int64)((_DWORD)VirtualAddress != 0),
+                                                              v17);
+                                  if ( (_DWORD)VirtualAddress )
                                   {
                                     v20 = v19 - 60;
-                                    LODWORD(ResourceDirectoryEntry) = ValidatePointer(
-                                                                        &v23,
-                                                                        v18 + 6,
-                                                                        (unsigned int)(v19 - 60));
-                                    if ( (_DWORD)ResourceDirectoryEntry )
+                                    LODWORD(VirtualAddress) = ValidatePointer(
+                                                                &String2,
+                                                                v18 + 6,
+                                                                (unsigned int)(v19 - 60));
+                                    if ( (_DWORD)VirtualAddress )
                                     {
                                       RtlInitUnicodeString(&DestinationString, L"VS_VERSION_INFO");
-                                      v24 = v18 + 6;
-                                      LODWORD(ResourceDirectoryEntry) = StringCbLengthW(
-                                                                          (STRSAFE_PCNZWCH)(v18 + 6),
-                                                                          v21,
-                                                                          &pcbLength);
-                                      if ( (int)ResourceDirectoryEntry >= 0 )
+                                      String2.Buffer = (wchar_t *)(v18 + 6);
+                                      LODWORD(VirtualAddress) = StringCbLengthW(
+                                                                  (STRSAFE_PCNZWCH)(v18 + 6),
+                                                                  v21,
+                                                                  (size_t *)&OutHeaders);
+                                      if ( (int)VirtualAddress >= 0 )
                                       {
-                                        LOWORD(v23) = pcbLength;
-                                        WORD1(v23) = v20;
-                                        LODWORD(ResourceDirectoryEntry) = RtlCompareUnicodeString(
-                                                                            &DestinationString.Length,
-                                                                            (unsigned __int16 *)&v23,
-                                                                            0);
-                                        if ( !(_DWORD)ResourceDirectoryEntry )
+                                        String2.Length = (unsigned __int16)OutHeaders;
+                                        String2.MaximumLength = v20;
+                                        LODWORD(VirtualAddress) = RtlCompareUnicodeString(
+                                                                    &DestinationString,
+                                                                    &String2,
+                                                                    0);
+                                        if ( !(_DWORD)VirtualAddress )
                                         {
                                           *(_DWORD *)(a2 + 8) = *(_DWORD *)(v18 + 48);
-                                          LODWORD(ResourceDirectoryEntry) = *(_DWORD *)(v18 + 52);
-                                          *(_DWORD *)(a2 + 12) = ResourceDirectoryEntry;
+                                          LODWORD(VirtualAddress) = *(_DWORD *)(v18 + 52);
+                                          *(_DWORD *)(a2 + 12) = VirtualAddress;
                                         }
                                       }
                                     }
@@ -164,5 +160,5 @@ int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 a
       }
     }
   }
-  return ResourceDirectoryEntry;
+  return VirtualAddress;
 }

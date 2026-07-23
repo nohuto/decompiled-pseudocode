@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrQueryModuleInfoFromLdrEntry @ 0x18006DC90
+ * XREFs of LdrQueryModuleInfoFromLdrEntry @ 0x18006DC80
  * Callers:
  *     <none>
  * Callees:
- *     LdrpGetModuleName @ 0x18006D714 (LdrpGetModuleName.c)
- *     LdrpReadMemory @ 0x18006DC04 (LdrpReadMemory.c)
- *     LdrpProtectedCopyMemory @ 0x18006DDF0 (LdrpProtectedCopyMemory.c)
+ *     LdrpGetModuleName @ 0x18006D704 (LdrpGetModuleName.c)
+ *     LdrpReadMemory @ 0x18006DBF4 (LdrpReadMemory.c)
+ *     LdrpProtectedCopyMemory @ 0x18006DDE0 (LdrpProtectedCopyMemory.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
@@ -72,7 +72,7 @@ LABEL_7:
           }
         }
       }
-      return LdrpGetModuleName(a1, (__int64)v21, a2, 0);
+      return LdrpGetModuleName((HANDLE *)a1, (__int64)v21, a2, 0);
     }
   }
   return result;

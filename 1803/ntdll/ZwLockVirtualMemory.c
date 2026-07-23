@@ -2,7 +2,7 @@
  * XREFs of ZwLockVirtualMemory @ 0x18009CB90
  * Callers:
  *     RtlExtendMemoryZone @ 0x180003E90 (RtlExtendMemoryZone.c)
- *     sub_1800487E0 @ 0x1800487E0 (sub_1800487E0.c)
+ *     EnumProc @ 0x1800487E0 (EnumProc.c)
  *     RtlLockMemoryZone @ 0x180049090 (RtlLockMemoryZone.c)
  *     RtlLockCurrentThread @ 0x180081720 (RtlLockCurrentThread.c)
  *     sub_1800817D0 @ 0x1800817D0 (sub_1800817D0.c)
@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 ZwLockVirtualMemory()
+NTSTATUS __cdecl ZwLockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 263LL;
+  result = 263;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

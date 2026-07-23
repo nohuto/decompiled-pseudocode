@@ -6,17 +6,17 @@
  *     RtlpAddKnownObjectAce @ 0x1800F4AB0 (RtlpAddKnownObjectAce.c)
  */
 
-__int64 __fastcall RtlAddAccessAllowedObjectAce(
-        char *a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        void *Src,
-        __int64 a6,
-        unsigned __int8 *a7)
+NTSTATUS __cdecl RtlAddAccessAllowedObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid)
 {
-  if ( Src || a6 )
-    return RtlpAddKnownObjectAce((_DWORD)a1, a2, a3, a4, (__int64)Src, a6, (__int64)a7, 5);
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return RtlpAddKnownObjectAce(Acl, (__int64)ObjectTypeGuid, (__int64)InheritedObjectTypeGuid, Sid, 5);
   else
-    return RtlpAddKnownAce(a1, a2, a3, a4, a7, 0);
+    return RtlpAddKnownAce(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of AuthzBasepAddAccessTypeList @ 0x140228BE4
+ * XREFs of AuthzBasepAddAccessTypeList @ 0x140228CF4
  * Callers:
- *     SepMaximumAccessCheck @ 0x14022A160 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheckEx @ 0x14022AAE8 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x140233540 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x1403CDC70 (SepMaximumAccessCheckEx.c)
+ *     SepMaximumAccessCheck @ 0x14022A270 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14022ABF8 (SepNormalAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x140233610 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1403CDE50 (SepMaximumAccessCheckEx.c)
  * Callees:
- *     AuthzBasepSetAccessReasons @ 0x140229470 (AuthzBasepSetAccessReasons.c)
- *     AuthzBasepSetAppContainerAccessReasons @ 0x14066F0DC (AuthzBasepSetAppContainerAccessReasons.c)
- *     AuthzBasepUpdateParentTypeList @ 0x14066F128 (AuthzBasepUpdateParentTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x140229580 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepSetAppContainerAccessReasons @ 0x14066F62C (AuthzBasepSetAppContainerAccessReasons.c)
+ *     AuthzBasepUpdateParentTypeList @ 0x14066F678 (AuthzBasepUpdateParentTypeList.c)
  */
 
 __int64 __fastcall AuthzBasepAddAccessTypeList(

@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbOpenDatabaseEx @ 0x140A4E550
+ * XREFs of SdbOpenDatabaseEx @ 0x140A4E800
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x140A524CC (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x140A5277C (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     SdbpValidateAndApplyCompatFlags @ 0x140695304 (SdbpValidateAndApplyCompatFlags.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpReadMappedData @ 0x14074288C (SdbpReadMappedData.c)
- *     AslFileMappingDelete @ 0x140756FB8 (AslFileMappingDelete.c)
- *     AslFileMappingCreate @ 0x140757F3C (AslFileMappingCreate.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     SdbGetMergeRedirectPath @ 0x140A4E100 (SdbGetMergeRedirectPath.c)
- *     SdbpOpenCompressedDatabase @ 0x140A53208 (SdbpOpenCompressedDatabase.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A546AC (AslFileMappingEnsureMappedAs.c)
+ *     SdbpReadMappedData @ 0x140742A7C (SdbpReadMappedData.c)
+ *     AslFileMappingDelete @ 0x1407571A8 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x14075812C (AslFileMappingCreate.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4E3B0 (SdbGetMergeRedirectPath.c)
+ *     SdbpOpenCompressedDatabase @ 0x140A534B8 (SdbpOpenCompressedDatabase.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A5495C (AslFileMappingEnsureMappedAs.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

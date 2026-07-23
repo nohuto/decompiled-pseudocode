@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x1403913EC
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14038AD1C
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x1406FF764 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x1406FD3A4 (HalpDmaAllocateLocalContiguousPool.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14038FBDC (HalpDmaGetAdapterVersion.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x140391440 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x14053C26C (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x14038951C (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x14038AD70 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x140539AF8 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPool(

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpUpdatePerProcessTracing @ 0x14069FEB4
+ * XREFs of EtwpUpdatePerProcessTracing @ 0x14069FFEC
  * Callers:
- *     EtwpStartLogger @ 0x14048EE94 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x14053F1B8 (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x14048F924 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x14053F6F8 (EtwpUpdateTrace.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsLookupProcessByProcessId @ 0x140420700 (PsLookupProcessByProcessId.c)
- *     EtwpGetFlagExtension @ 0x140495624 (EtwpGetFlagExtension.c)
- *     EtwpUpdateProcessTracingCallback @ 0x14069FFA4 (EtwpUpdateProcessTracingCallback.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x14041F5C0 (PsLookupProcessByProcessId.c)
+ *     EtwpGetFlagExtension @ 0x1404960B4 (EtwpGetFlagExtension.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x1406A00DC (EtwpUpdateProcessTracingCallback.c)
  */
 
 LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, unsigned int a4)

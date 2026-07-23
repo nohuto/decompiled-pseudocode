@@ -18,46 +18,40 @@ void __fastcall RtlCompleteProcessCloning(unsigned int a1)
 {
   int v2; // edi
   HANDLE UniqueThread; // rdx
-  unsigned __int64 v4; // rdx
-  unsigned __int64 *v5; // r8
-  __int64 v6; // r9
-  unsigned __int64 v7; // rdx
-  unsigned __int64 *v8; // r8
-  __int64 v9; // r9
 
   if ( a1 )
   {
-    qword_18015D258 = 1LL;
+    stru_18015D258.Ptr = (PVOID)1;
     v2 = 1;
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_18015BE98 = 0LL;
-    qword_18015BE90 = (__int64)UniqueThread;
-    dword_18015BE88 = -2;
-    dword_18015BE8C = 1;
-    qword_18015D260 = 1LL;
+    stru_18015BE80.LockSemaphore = 0LL;
+    stru_18015BE80.OwningThread = UniqueThread;
+    stru_18015BE80.LockCount = -2;
+    stru_18015BE80.RecursionCount = 1;
+    stru_18015D260.Ptr = (PVOID)1;
   }
   else
   {
     byte_18015BEB9 = 0;
     v2 = 2;
-    RtlReleaseSRWLockExclusive(&qword_18015D248);
+    RtlReleaseSRWLockExclusive(&stru_18015D248);
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D258);
-  sub_1800D0C68(v2, v4, v5, v6);
+  RtlReleaseSRWLockExclusive(&stru_18015D258);
+  sub_1800D0C68(v2);
   if ( v2 == 1 )
-    qword_18015D2D0 = 1LL;
+    stru_18015D2D0.Ptr = (PVOID)1;
   else
-    RtlReleaseSRWLockExclusive(&qword_18015D2D0);
+    RtlReleaseSRWLockExclusive(&stru_18015D2D0);
   sub_1800EBBBC(a1);
   sub_1800D09C4(a1);
-  RtlLeaveCriticalSection((__int64)&unk_18015BE80);
+  RtlLeaveCriticalSection(&stru_18015BE80);
   sub_1800D1EA8(a1);
-  RtlReleaseSRWLockExclusive(&qword_18015D260);
+  RtlReleaseSRWLockExclusive(&stru_18015D260);
   sub_1800D0858(a1);
   if ( a1 )
   {
     byte_18015BEB9 = 0;
-    RtlAcquireReleaseSRWLockExclusive(&qword_18015D248, v7, v8, v9);
-    RtlWakeAllConditionVariable(&qword_18015D250);
+    RtlAcquireReleaseSRWLockExclusive(&stru_18015D248);
+    RtlWakeAllConditionVariable(&ConditionVariable);
   }
 }

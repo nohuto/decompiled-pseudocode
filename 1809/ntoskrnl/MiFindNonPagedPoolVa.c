@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindNonPagedPoolVa @ 0x1401634BC
+ * XREFs of MiFindNonPagedPoolVa @ 0x1401635BC
  * Callers:
- *     MiAllocatePoolPages @ 0x140162B10 (MiAllocatePoolPages.c)
+ *     MiAllocatePoolPages @ 0x140162C10 (MiAllocatePoolPages.c)
  * Callees:
- *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
- *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
+ *     MiExpandNonPagedPool @ 0x1401627E8 (MiExpandNonPagedPool.c)
+ *     MiScanNonPagedPoolVa @ 0x1401636E0 (MiScanNonPagedPoolVa.c)
  */
 
 unsigned __int64 __fastcall MiFindNonPagedPoolVa(int a1, unsigned __int64 a2, unsigned int a3, _DWORD *a4)
@@ -19,11 +19,11 @@ unsigned __int64 __fastcall MiFindNonPagedPoolVa(int a1, unsigned __int64 a2, un
   v12[0] = 0;
   v5 = a3;
   v13 = 0;
-  v8 = (unsigned __int16 *)((char *)qword_14043A050 + 2 * a3 * (unsigned __int16)KeNumberNodes);
+  v8 = (unsigned __int16 *)((char *)qword_14043B110 + 2 * a3 * (unsigned __int16)KeNumberNodes);
   v9 = &v8[(unsigned __int16)KeNumberNodes];
   while ( 1 )
   {
-    if ( *(_QWORD *)(1984LL * v5 + qword_14043C950 + 1808) || !(_DWORD)InitializationPhase )
+    if ( *(_QWORD *)(1984LL * v5 + qword_14043DA10 + 1808) || !(_DWORD)InitializationPhase )
     {
       if ( (a1 & 0x200) != 0 )
       {
@@ -31,18 +31,18 @@ unsigned __int64 __fastcall MiFindNonPagedPoolVa(int a1, unsigned __int64 a2, un
         if ( v10 != -1 )
         {
           *a4 = 0;
-          return qword_14043A058[25 * v5 + 20].Alignment + (v10 << 12);
+          return qword_14043B118[25 * v5 + 20].Alignment + (v10 << 12);
         }
       }
       v10 = MiScanNonPagedPoolVa(a2, v5, 1LL, v12);
       if ( v10 != -1 )
       {
         *a4 = 2;
-        return qword_14043A058[25 * v5 + 20].Alignment + (v10 << 12);
+        return qword_14043B118[25 * v5 + 20].Alignment + (v10 << 12);
       }
       v10 = MiExpandNonPagedPool(a1, a2, v5, 0, a4);
       if ( v10 != -1 )
-        return qword_14043A058[25 * v5 + 20].Alignment + (v10 << 12);
+        return qword_14043B118[25 * v5 + 20].Alignment + (v10 << 12);
     }
     if ( ++v8 == v9 )
       break;

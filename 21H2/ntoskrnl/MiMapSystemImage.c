@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMapSystemImage @ 0x14075D0C4
+ * XREFs of MiMapSystemImage @ 0x14075D284
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9358 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiMakeZeroedPageTables @ 0x14039DE40 (MiMakeZeroedPageTables.c)
- *     MiUnmapPatchTable @ 0x14053F19C (MiUnmapPatchTable.c)
- *     MiDereferencePerSessionProtos @ 0x1406BC7FC (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
- *     MiBytesToMapSystemImage @ 0x1406D1870 (MiBytesToMapSystemImage.c)
- *     MiAddMappedPtes @ 0x1406E9250 (MiAddMappedPtes.c)
- *     MiChargeSystemImageCommitment @ 0x14075EB64 (MiChargeSystemImageCommitment.c)
- *     MiDeleteSessionDriverProtos @ 0x140779628 (MiDeleteSessionDriverProtos.c)
- *     MiMapPatchTable @ 0x1408CCA18 (MiMapPatchTable.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiMakeZeroedPageTables @ 0x14039DF90 (MiMakeZeroedPageTables.c)
+ *     MiUnmapPatchTable @ 0x14053F3DC (MiUnmapPatchTable.c)
+ *     MiDereferencePerSessionProtos @ 0x14061B9CC (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14061BAE4 (MiCreatePerSessionProtos.c)
+ *     MiBytesToMapSystemImage @ 0x1406A8B50 (MiBytesToMapSystemImage.c)
+ *     MiAddMappedPtes @ 0x140700630 (MiAddMappedPtes.c)
+ *     MiChargeSystemImageCommitment @ 0x14075ED24 (MiChargeSystemImageCommitment.c)
+ *     MiDeleteSessionDriverProtos @ 0x1407797E8 (MiDeleteSessionDriverProtos.c)
+ *     MiMapPatchTable @ 0x1408CCB78 (MiMapPatchTable.c)
  */
 
 __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -78,7 +78,7 @@ LABEL_23:
     if ( v15 >= 0 )
     {
       if ( v10 == 1 )
-        _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD48 + 3, v8);
+        _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4CD88 + 3, v8);
       return 0LL;
     }
     if ( v14 )

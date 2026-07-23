@@ -1,15 +1,15 @@
 /*
- * XREFs of KiGetNextTimerExpirationDueTime @ 0x1402255A0
+ * XREFs of KiGetNextTimerExpirationDueTime @ 0x1402C9EA0
  * Callers:
- *     PpmIdlePrepare @ 0x140224F90 (PpmIdlePrepare.c)
- *     KePrepareClockTimerForIdle @ 0x140293310 (KePrepareClockTimerForIdle.c)
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
- *     KeEstimateClockTickDuration @ 0x140513BA0 (KeEstimateClockTickDuration.c)
+ *     KePrepareClockTimerForIdle @ 0x140211280 (KePrepareClockTimerForIdle.c)
+ *     PpmIdlePrepare @ 0x1402C9890 (PpmIdlePrepare.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
+ *     KeEstimateClockTickDuration @ 0x140513DE0 (KeEstimateClockTickDuration.c)
  * Callees:
- *     KiFindNextTimerDueTime @ 0x140225880 (KiFindNextTimerDueTime.c)
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x1405B60D4 (ExGetNextWakeTimeForDeepSleep.c)
+ *     KiFindNextTimerDueTime @ 0x1402CA180 (KiFindNextTimerDueTime.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x1405B6304 (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 int *__fastcall KiGetNextTimerExpirationDueTime(
@@ -85,9 +85,9 @@ int *__fastcall KiGetNextTimerExpirationDueTime(
       if ( ((*((_QWORD *)&KiGroupSchedulingOverQuotaMask + (v20 >> 6) + 1) >> (v20 & 0x3F)) & 1) == 0 )
         goto LABEL_7;
     }
-    if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < NextWakeTimeForDeepSleep )
+    if ( KiGenerationEndTick * (unsigned __int64)KeMaximumIncrement < NextWakeTimeForDeepSleep )
     {
-      NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+      NextWakeTimeForDeepSleep = KiGenerationEndTick * KeMaximumIncrement;
       v25 = NextWakeTimeForDeepSleep;
       v13 = 5;
     }
@@ -101,15 +101,15 @@ LABEL_7:
     LOBYTE(v16) = 0;
     do
     {
-      v21 = qword_140C31C70[3 * v12];
+      v21 = qword_140C31CD0[3 * v12];
       if ( v12 == 2 )
       {
         if ( v21 < v8 )
-          v8 = qword_140C31C70[6];
+          v8 = qword_140C31CD0[6];
       }
       else if ( v21 < v15 )
       {
-        v15 = qword_140C31C70[3 * v12];
+        v15 = qword_140C31CD0[3 * v12];
         if ( v12 == 4 )
           LOBYTE(v16) = 1;
       }

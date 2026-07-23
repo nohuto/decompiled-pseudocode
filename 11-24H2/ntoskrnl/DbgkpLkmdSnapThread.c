@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpLkmdSnapThread @ 0x14057E9C4
+ * XREFs of DbgkpLkmdSnapThread @ 0x14057BE54
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140707A3C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x1407055FC (DbgkCaptureLiveDump.c)
  * Callees:
- *     KeEnumerateQueueApc @ 0x1405BCEE0 (KeEnumerateQueueApc.c)
- *     DbgkpLkmdLaunchSnapApc @ 0x140708144 (DbgkpLkmdLaunchSnapApc.c)
+ *     KeEnumerateQueueApc @ 0x1405BA510 (KeEnumerateQueueApc.c)
+ *     DbgkpLkmdLaunchSnapApc @ 0x140705D04 (DbgkpLkmdLaunchSnapApc.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

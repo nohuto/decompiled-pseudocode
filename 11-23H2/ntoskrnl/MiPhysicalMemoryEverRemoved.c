@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPhysicalMemoryEverRemoved @ 0x14061BC60
+ * XREFs of MiPhysicalMemoryEverRemoved @ 0x14061C1B0
  * Callers:
- *     MiMapNewPfns @ 0x140A2C910 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x140A2CBC0 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B3C0 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14028B650 (RtlSetBitsEx.c)
  */
 
 __int64 __fastcall MiPhysicalMemoryEverRemoved(unsigned __int64 a1, __int64 a2, int a3)

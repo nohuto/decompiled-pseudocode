@@ -1,19 +1,19 @@
 /*
- * XREFs of ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14069CD88
+ * XREFs of ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14069DE14
  * Callers:
- *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14069C4F8 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E00C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14069D578 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F09C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
- *     crc32 @ 0x140460AF8 (crc32.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14069C6A4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x14069CA64 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?IsUnused@SC_PART_ENTRY@@QEAAEXZ @ 0x14069DB50 (-IsUnused@SC_PART_ENTRY@@QEAAEXZ.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069E0EC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14069E174 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070DD00 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14070DE20 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
+ *     crc32 @ 0x140455F88 (crc32.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14069D728 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x14069DAF0 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?IsUnused@SC_PART_ENTRY@@QEAAEXZ @ 0x14069EBE4 (-IsUnused@SC_PART_ENTRY@@QEAAEXZ.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069F17C (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14069F204 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070B8A0 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14070B9C0 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
  */
 
 __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LAYOUT *a2, char a3)
@@ -109,7 +109,7 @@ __int64 __fastcall SC_GPT::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   else
     v15 = v14 - (unsigned int)v10 - 2;
   v16 = v9 + (2 << *((_DWORD *)v3 + 60));
-  v17 = (char *)SC_ENV::Allocate((unsigned int)v16, v9, v11, (unsigned int)v3);
+  v17 = (char *)SC_ENV::Allocate((unsigned int)v16, v9, v11, 1u);
   v18 = (__int64)v17;
   if ( v17 )
   {

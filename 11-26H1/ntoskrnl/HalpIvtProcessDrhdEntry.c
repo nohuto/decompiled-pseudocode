@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpIvtProcessDrhdEntry @ 0x1405AEAE8
+ * XREFs of HalpIvtProcessDrhdEntry @ 0x1405B12F8
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x1405AEA34 (HalpIvtProcessDmarTable.c)
+ *     HalpIvtProcessDmarTable @ 0x1405B1244 (HalpIvtProcessDmarTable.c)
  * Callees:
- *     RtlIsProcessorFeaturePresent @ 0x1404BF850 (RtlIsProcessorFeaturePresent.c)
- *     HalSocRequestApi @ 0x1404EF27C (HalSocRequestApi.c)
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
- *     HalRegisterPermanentAddressUsage @ 0x140597FD0 (HalRegisterPermanentAddressUsage.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     DmrGetNextDrhdDeviceScope @ 0x1405AFD8C (DmrGetNextDrhdDeviceScope.c)
- *     DmrValidateDeviceScope @ 0x1405B0120 (DmrValidateDeviceScope.c)
- *     DmrEnumerateRmrrDomains @ 0x1405B0218 (DmrEnumerateRmrrDomains.c)
- *     DmrFreeRmrrTree @ 0x1405B0374 (DmrFreeRmrrTree.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExtEnvRegisterIommu @ 0x140CB0DF0 (ExtEnvRegisterIommu.c)
+ *     RtlIsProcessorFeaturePresent @ 0x1404B90A0 (RtlIsProcessorFeaturePresent.c)
+ *     HalSocRequestApi @ 0x1404E885C (HalSocRequestApi.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14059A750 (HalRegisterPermanentAddressUsage.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1405B259C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrValidateDeviceScope @ 0x1405B2930 (DmrValidateDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x1405B2A28 (DmrEnumerateRmrrDomains.c)
+ *     DmrFreeRmrrTree @ 0x1405B2B84 (DmrFreeRmrrTree.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExtEnvRegisterIommu @ 0x140CB6E30 (ExtEnvRegisterIommu.c)
  */
 
 __int64 __fastcall HalpIvtProcessDrhdEntry(__int64 a1, __int64 a2)
@@ -206,7 +206,7 @@ LABEL_77:
       {
         goto LABEL_35;
       }
-      if ( !*((_BYTE *)&HalpDeviceBlockUnblockPushLock.SwapListEntry + 8) )
+      if ( !HalpDeviceBlockUnblockPushLock.ApcState.KernelApcPending )
       {
         v13 &= ~0x100u;
         v49 = v13;

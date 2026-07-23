@@ -1,16 +1,16 @@
 /*
- * XREFs of BcpDisplayErrorInformationModernized @ 0x140699454
+ * XREFs of BcpDisplayErrorInformationModernized @ 0x14069A4D4
  * Callers:
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14069A6B0 (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14069B730 (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     BcpConvertBugDataToString @ 0x14069885C (BcpConvertBugDataToString.c)
- *     BcpDisplayCriticalString @ 0x140698ACC (BcpDisplayCriticalString.c)
- *     BcpDisplayCriticalStringCentered @ 0x140698E30 (BcpDisplayCriticalStringCentered.c)
- *     BcpSanitizeDriverName @ 0x14069A014 (BcpSanitizeDriverName.c)
- *     BcpSetCursorPosition @ 0x14069A0C8 (BcpSetCursorPosition.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     BcpConvertBugDataToString @ 0x1406998DC (BcpConvertBugDataToString.c)
+ *     BcpDisplayCriticalString @ 0x140699B4C (BcpDisplayCriticalString.c)
+ *     BcpDisplayCriticalStringCentered @ 0x140699EB0 (BcpDisplayCriticalStringCentered.c)
+ *     BcpSanitizeDriverName @ 0x14069B094 (BcpSanitizeDriverName.c)
+ *     BcpSetCursorPosition @ 0x14069B148 (BcpSetCursorPosition.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall BcpDisplayErrorInformationModernized(
@@ -58,13 +58,13 @@ __int64 __fastcall BcpDisplayErrorInformationModernized(
   *(_QWORD *)&Destination.Length = 0x4000000LL;
   *(_DWORD *)(&v34.MaximumLength + 1) = 0;
   *(_DWORD *)(&Source.MaximumLength + 1) = 0;
-  v11 = (int *)((char *)&unk_140E0EED0 + 84 * a1);
-  v31 = dword_140EEFAE8;
-  v28 = dword_140EEFAE8;
+  v11 = (int *)((char *)&unk_140E0EFA0 + 84 * a1);
+  v31 = dword_140EEFD38;
+  v28 = dword_140EEFD38;
   Source.MaximumLength = 18;
   Source.Buffer = v37;
-  Destination.Buffer = (wchar_t *)qword_140E3EAA8;
-  if ( RtlAppendUnicodeStringToString(&Destination, &stru_140E3EA30) >= 0
+  Destination.Buffer = (wchar_t *)qword_140E3EBE8;
+  if ( RtlAppendUnicodeStringToString(&Destination, &stru_140E3EB70) >= 0
     && RtlAppendUnicodeToString(&Destination, L" ") >= 0
     && RtlAppendUnicodeStringToString(&Destination, a5 + 1) >= 0 )
   {
@@ -97,33 +97,33 @@ LABEL_15:
             v34.Buffer = (wchar_t *)&v38,
             BcpSanitizeDriverName(a4, &v34),
             *(_QWORD *)&v30.Length = 0LL,
-            v30.MaximumLength = word_140E3EAC8,
-            v30.Buffer = (wchar_t *)qword_140E3EAC0,
-            RtlAppendUnicodeStringToString(&v30, &stru_140E3EA20) >= 0)
+            v30.MaximumLength = word_140E3EC08,
+            v30.Buffer = (wchar_t *)qword_140E3EC00,
+            RtlAppendUnicodeStringToString(&v30, &stru_140E3EB60) >= 0)
         && RtlAppendUnicodeToString(&v30, L" ") >= 0
         && RtlAppendUnicodeStringToString(&v30, &v34) >= 0 )
       {
         v17 = v11[1];
-        dword_140EF0050 |= 0x1000000u;
+        dword_140EF0270 |= 0x1000000u;
         BcpDisplayCriticalStringCentered(&Destination, v17, v12, a1);
         if ( a4 )
         {
-          BcpSetCursorPosition((unsigned int)v27, (unsigned int)dword_140EEFAE8, 0LL);
+          BcpSetCursorPosition((unsigned int)v27, (unsigned int)dword_140EEFD38, 0LL);
           BcpDisplayCriticalStringCentered(&v30, v11[1], v18, a1);
         }
-        v19 = (unsigned int)(v31 + v11[5] + v11[7] - dword_140EEFAE8);
-        dword_140EF0050 &= ~0x1000000u;
+        v19 = (unsigned int)(v31 + v11[5] + v11[7] - dword_140EEFD38);
+        dword_140EF0270 &= ~0x1000000u;
         BcpSetCursorPosition((unsigned int)v27, v19, 0LL);
         BcpDisplayCriticalStringCentered(&Destination, v11[1], v20, a1);
         if ( a4 )
         {
-          BcpSetCursorPosition((unsigned int)v27, (unsigned int)dword_140EEFAE8, 0LL);
+          BcpSetCursorPosition((unsigned int)v27, (unsigned int)dword_140EEFD38, 0LL);
           BcpDisplayCriticalStringCentered(&v30, v11[1], v21, a1);
         }
         v32 = 0;
         v33 = 0LL;
         v27 = *(_QWORD *)&BcpCursor;
-        v28 = dword_140EEFAE8;
+        v28 = dword_140EEFD38;
         BcpSetCursorPosition(0LL, 0LL, (char *)&v33 + 4);
         v22 = 0LL;
         v24 = (unsigned int)(v23 + 4);
@@ -133,7 +133,7 @@ LABEL_15:
           if ( BcpDisplayParameters || (a6 & 8) != 0 && a2 == 317 )
           {
             BcpDisplayCriticalString(&v6[v22 + 2].Length, *v11, v25, a1);
-            BcpSetCursorPosition(0LL, (unsigned int)dword_140EEFAE8, 0LL);
+            BcpSetCursorPosition(0LL, (unsigned int)dword_140EEFD38, 0LL);
           }
           v6 = v36;
           ++v22;

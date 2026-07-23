@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetNextIdleSearchTargetInGeneration @ 0x14023FFD0
+ * XREFs of KiGetNextIdleSearchTargetInGeneration @ 0x140241930
  * Callers:
- *     KiSearchForNewThreadsWithinL0SearchContext @ 0x14023F880 (KiSearchForNewThreadsWithinL0SearchContext.c)
- *     KiSearchForNewThreadsWithinSearchContext @ 0x14023FC00 (KiSearchForNewThreadsWithinSearchContext.c)
+ *     KiSearchForNewThreadsWithinL0SearchContext @ 0x1402411E0 (KiSearchForNewThreadsWithinL0SearchContext.c)
+ *     KiSearchForNewThreadsWithinSearchContext @ 0x140241560 (KiSearchForNewThreadsWithinSearchContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiGetNextIdleSearchTargetInGeneration(
@@ -73,8 +73,7 @@ LABEL_7:
         v15 >>= (unsigned __int8)v18 + 1;
       }
       v19 = v16 - 1;
-      v20 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                             + 64 * *(unsigned __int16 *)(v14 + 136)
+      v20 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int16 *)(v14 + 136)].Flink
                              + v19)];
       if ( v13 == _InterlockedCompareExchange64(
                     (volatile signed __int64 *)(v12 + 24),
@@ -109,8 +108,8 @@ LABEL_18:
   v27 = (unsigned int)(v23 - 1);
   if ( !_interlockedbittestandreset64((volatile signed __int32 *)(v12 + 16), v27) )
     goto LABEL_23;
-  v28 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-        + 64 * *(unsigned __int16 *)(v14 + 136)
+  v28 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                        * *(unsigned __int16 *)(v14 + 136)].Flink
         + v26);
   if ( !KiProcessorBlock[v28] )
     KeBugCheckEx(0x200u, 2uLL, v27 | ((unsigned __int64)*(unsigned __int16 *)(v14 + 136) << 8), (unsigned int)v28, 0LL);

@@ -1,22 +1,22 @@
 /*
- * XREFs of PspEnableProcessOptionalXStateFeatures @ 0x1409AE908
+ * XREFs of PspEnableProcessOptionalXStateFeatures @ 0x1409AEB08
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmDeleteKernelStackEx @ 0x14026F8D0 (MmDeleteKernelStackEx.c)
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x14030AFBC (KeGetProcessorNodeNumberByIndex.c)
- *     KeCopyXfdMaskToPeb @ 0x14032A190 (KeCopyXfdMaskToPeb.c)
- *     KeEnableOptionalXStateFeaturesApc @ 0x1405725D0 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmDeleteKernelStackEx @ 0x14026FB60 (MmDeleteKernelStackEx.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x14030B24C (KeGetProcessorNodeNumberByIndex.c)
+ *     KeCopyXfdMaskToPeb @ 0x14032A420 (KeCopyXfdMaskToPeb.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x140572B10 (KeEnableOptionalXStateFeaturesApc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

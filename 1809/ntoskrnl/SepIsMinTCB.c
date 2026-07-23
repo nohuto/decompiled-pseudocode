@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsMinTCB @ 0x14060D770
+ * XREFs of SepIsMinTCB @ 0x14060E770
  * Callers:
- *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x14060E5D0 (SeQuerySigningPolicy.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     SepIsImageInMinTcbList @ 0x1406B4408 (SepIsImageInMinTcbList.c)
- *     SepSetSystemPaths @ 0x140759F10 (SepSetSystemPaths.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
+ *     SepIsImageInMinTcbList @ 0x1406B56A8 (SepIsImageInMinTcbList.c)
+ *     SepSetSystemPaths @ 0x14075B100 (SepSetSystemPaths.c)
  */
 
 __int64 __fastcall SepIsMinTCB(
@@ -60,7 +60,7 @@ __int64 __fastcall SepIsMinTCB(
   }
   else
   {
-    if ( !RtlPrefixUnicodeString(&stru_14034F780, String2, 1u) && !RtlPrefixUnicodeString(&stru_140355EC0, String2, 1u) )
+    if ( !RtlPrefixUnicodeString(&stru_140350780, String2, 1u) && !RtlPrefixUnicodeString(&stru_140356EC0, String2, 1u) )
       return (unsigned int)-1073741275;
     Length = 42;
   }

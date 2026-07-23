@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x1401754E0
+ * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x1401755E0
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
- *     PpmPerfApplyProcessorState @ 0x14017537C (PpmPerfApplyProcessorState.c)
- *     PoSetProcessorQoS @ 0x1402DB068 (PoSetProcessorQoS.c)
+ *     PpmPerfApplyProcessorState @ 0x14017547C (PpmPerfApplyProcessorState.c)
+ *     PoSetProcessorQoS @ 0x1402DB258 (PoSetProcessorQoS.c)
  * Callees:
- *     PpmEventArbitratorPerfStateChange @ 0x140175608 (PpmEventArbitratorPerfStateChange.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PpmEventArbitratorPerfStateChange @ 0x140175708 (PpmEventArbitratorPerfStateChange.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8 a2, char a3, __int64 a4)

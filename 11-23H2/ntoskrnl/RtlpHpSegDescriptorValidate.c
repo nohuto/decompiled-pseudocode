@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegDescriptorValidate @ 0x140316860
+ * XREFs of RtlpHpSegDescriptorValidate @ 0x140316AF0
  * Callers:
- *     RtlpHpSegFree @ 0x14031515C (RtlpHpSegFree.c)
- *     RtlpHpSegLfhVsDecommit @ 0x140316770 (RtlpHpSegLfhVsDecommit.c)
- *     RtlpHpMetadataCommit @ 0x1403C7234 (RtlpHpMetadataCommit.c)
- *     RtlpHpSizeHeapInternal @ 0x1405B6850 (RtlpHpSizeHeapInternal.c)
- *     RtlpHpSegSetExtraPresent @ 0x1405B6B40 (RtlpHpSegSetExtraPresent.c)
+ *     RtlpHpSegFree @ 0x1403153EC (RtlpHpSegFree.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x140316A00 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1403C7414 (RtlpHpMetadataCommit.c)
+ *     RtlpHpSizeHeapInternal @ 0x1405B6DC0 (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpSegSetExtraPresent @ 0x1405B70B0 (RtlpHpSegSetExtraPresent.c)
  * Callees:
  *     <none>
  */

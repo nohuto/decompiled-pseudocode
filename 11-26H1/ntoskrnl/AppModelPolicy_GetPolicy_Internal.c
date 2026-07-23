@@ -1,18 +1,24 @@
 /*
- * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x14045FB18
+ * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x1404CB0E4
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     SeQuerySigningPolicyWorker @ 0x140A3D144 (SeQuerySigningPolicyWorker.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x140460570 (RtlQueryPackageClaims.c)
- *     Feature_PackagedComElevationSupport__private_IsEnabledNoReportingNoInline @ 0x140460EE4 (Feature_PackagedComElevationSupport__private_IsEnabledNoReportingNoInline.c)
+ *     RtlQueryPackageClaims @ 0x140459AB0 (RtlQueryPackageClaims.c)
+ *     Feature_PackagedComElevationSupport_v2__private_IsEnabledNoReportingNoInline @ 0x14061865C (Feature_PackagedComElevationSupport_v2__private_IsEnabledNoReportingNoInline.c)
  */
 
-__int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD *a3, int *a4, _QWORD *a5)
+__int64 __fastcall AppModelPolicy_GetPolicy_Internal(
+        void *a1,
+        int a2,
+        _DWORD *a3,
+        _PS_PKG_CLAIM *a4,
+        unsigned __int64 *a5)
 {
-  int PackageClaims; // eax
+  NTSTATUS PackageClaims; // eax
   unsigned int v9; // esi
   int v10; // ebx
-  int v11; // eax
+  ULONG Flags; // eax
 
   PackageClaims = RtlQueryPackageClaims(a1, 0LL, 0LL, 0LL, 0LL, 0LL, a4, a5);
   v9 = PackageClaims;
@@ -20,7 +26,7 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
   {
     *a5 = 0LL;
     v9 = 0;
-    *a4 = 0;
+    a4->Flags = 0;
     *a3 = 0;
   }
   else
@@ -38,32 +44,32 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
     }
     else
     {
-      v11 = *a4;
-      if ( (*a4 & 0x10000) == 0 )
+      Flags = a4->Flags;
+      if ( (a4->Flags & 0x10000) == 0 )
       {
-        if ( (v11 & 4) != 0 )
+        if ( (Flags & 4) != 0 )
         {
           v10 = 2;
         }
-        else if ( (v11 & 0x400) != 0 )
+        else if ( (Flags & 0x400) != 0 )
         {
           v10 = 6;
         }
-        else if ( (v11 & 0x800) != 0 )
+        else if ( (Flags & 0x800) != 0 )
         {
           v10 = 7;
         }
-        else if ( (v11 & 0x40) != 0 )
+        else if ( (Flags & 0x40) != 0 )
         {
           v10 = 5;
         }
-        else if ( (v11 & 8) != 0 )
+        else if ( (Flags & 8) != 0 )
         {
           v10 = 4;
         }
         else
         {
-          v10 = (v11 & 0x40000) != 0 ? 10 : 1;
+          v10 = (Flags & 0x40000) != 0 ? 10 : 1;
         }
       }
     }
@@ -75,7 +81,7 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
   *a3 = *((_DWORD *)&`AppModelPolicy_GetPolicy_Internal'::`2'::AppModelPolicy_PolicyValue_Table[5
                                                                                               * (unsigned int)(a2 - 1)]
         + (unsigned int)(v10 - 1));
-  if ( (*a4 & 0x100000) != 0 )
+  if ( (a4->Flags & 0x100000) != 0 )
   {
     switch ( a2 )
     {
@@ -93,7 +99,7 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
         break;
     }
   }
-  if ( (unsigned int)Feature_PackagedComElevationSupport__private_IsEnabledNoReportingNoInline()
+  if ( (unsigned int)Feature_PackagedComElevationSupport_v2__private_IsEnabledNoReportingNoInline()
     && a2 == 15
     && (v10 == 1 || (unsigned int)(v10 - 6) <= 2) )
   {

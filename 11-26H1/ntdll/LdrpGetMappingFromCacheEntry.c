@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x18013BDE8
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x18013BCA8
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x18010FE70 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x18010FA00 (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
  */
 
 char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)
@@ -11,9 +11,9 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
   unsigned __int64 v7; // rcx
   __int64 v8; // rbx
   __int64 v9; // rdx
-  unsigned int v10; // ecx
+  unsigned int SizeOfImage; // ecx
   char result; // al
-  __int64 v12; // [rsp+38h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS v12; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !a2 )
     return 0;
@@ -22,19 +22,19 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
   if ( a1 >= AlternateResourceModuleCount )
     return 0;
   v7 = (unsigned __int64)a1 << 6;
-  v8 = *(_QWORD *)(v7 + AlternateResourceModules + 32);
-  v9 = *(_QWORD *)(v7 + AlternateResourceModules + 48);
+  v8 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 32);
+  v9 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 48);
   if ( !v8 || v8 == -1 )
     return 0;
   if ( !v9 )
   {
     v12 = 0LL;
-    RtlImageNtHeaderEx(1, v8 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v12);
-    if ( !v12 || *(_WORD *)(v12 + 24) != 267 && *(_WORD *)(v12 + 24) != 523 )
+    RtlImageNtHeaderEx(1u, (PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &v12);
+    if ( !v12 || v12->OptionalHeader.Magic != 267 && v12->OptionalHeader.Magic != 523 )
       return 0;
-    v10 = *(_DWORD *)(v12 + 80);
-    v9 = v10;
-    if ( !v10 )
+    SizeOfImage = v12->OptionalHeader.SizeOfImage;
+    v9 = SizeOfImage;
+    if ( !SizeOfImage )
       return 0;
   }
   if ( a2 < (v8 & 0xFFFFFFFFFFFFFFFCuLL) || a2 >= v9 + (v8 & 0xFFFFFFFFFFFFFFFCuLL) )

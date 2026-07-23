@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetDeviceChildren @ 0x140A92F7C
+ * XREFs of _CmGetDeviceChildren @ 0x140A97ACC
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x140992EEC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceSiblings @ 0x140A92DFC (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14095394C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceSiblings @ 0x140A9794C (_CmGetDeviceSiblings.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpMultiSzAppend @ 0x140A933A4 (_PnpMultiSzAppend.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpMultiSzAppend @ 0x140A97EF4 (_PnpMultiSzAppend.c)
  */
 
 int __fastcall CmGetDeviceChildren(__int64 a1, const WCHAR *a2, _WORD *a3, _DWORD *a4)

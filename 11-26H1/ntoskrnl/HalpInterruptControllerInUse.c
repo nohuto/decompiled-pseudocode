@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptControllerInUse @ 0x140590068
+ * XREFs of HalpInterruptControllerInUse @ 0x1405927E8
  * Callers:
- *     HalpInterruptReinitialize @ 0x140BEA368 (HalpInterruptReinitialize.c)
+ *     HalpInterruptReinitialize @ 0x140BF0368 (HalpInterruptReinitialize.c)
  * Callees:
  *     <none>
  */

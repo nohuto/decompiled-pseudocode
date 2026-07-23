@@ -1,22 +1,25 @@
 /*
- * XREFs of TpCallbackReleaseSemaphoreOnCompletion @ 0x180112260
+ * XREFs of TpCallbackReleaseSemaphoreOnCompletion @ 0x180112220
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TpCallbackReleaseSemaphoreOnCompletion(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl TpCallbackReleaseSemaphoreOnCompletion(
+        PTP_CALLBACK_INSTANCE Instance,
+        HANDLE Semaphore,
+        ULONG ReleaseCount)
 {
-  __int64 result; // rax
-
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  result = a2 - 1;
-  if ( (unsigned __int64)(a2 - 1) > 0xFFFFFFFFFFFFFFFDuLL || !(_DWORD)a3 || a1[39] )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  a1[36] |= 8u;
-  a1[39] = a2;
-  a1[40] = a3;
-  return result;
+  if ( Instance && (char *)Semaphore - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL && ReleaseCount && !*((_DWORD *)Instance + 39) )
+  {
+    *((_DWORD *)Instance + 36) |= 8u;
+    *((_DWORD *)Instance + 39) = (_DWORD)Semaphore;
+    *((_DWORD *)Instance + 40) = ReleaseCount;
+  }
+  else
+  {
+    TppRaiseInvalidParameter(Instance, Semaphore, *(_QWORD *)&ReleaseCount);
+  }
 }

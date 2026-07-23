@@ -1,17 +1,17 @@
 /*
- * XREFs of PoInitiateProcessorWake @ 0x1405CDBE0
+ * XREFs of PoInitiateProcessorWake @ 0x1405CB300
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     HalRequestIpi @ 0x1403B67D0 (HalRequestIpi.c)
- *     PpmIdleTransitionStall @ 0x1405CECAC (PpmIdleTransitionStall.c)
- *     PpmIdleUpdateSynchronizationState @ 0x1405CEEC4 (PpmIdleUpdateSynchronizationState.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     HalRequestIpi @ 0x140371AA0 (HalRequestIpi.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     PpmIdleTransitionStall @ 0x1405CC3CC (PpmIdleTransitionStall.c)
+ *     PpmIdleUpdateSynchronizationState @ 0x1405CC5E4 (PpmIdleUpdateSynchronizationState.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall PoInitiateProcessorWake(unsigned int a1)
@@ -25,15 +25,12 @@ char __fastcall PoInitiateProcessorWake(unsigned int a1)
   char v8; // di
   __int64 v9; // r12
   char updated; // al
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  _QWORD v16[2]; // [rsp+20h] [rbp-E0h] BYREF
-  __int128 v17; // [rsp+30h] [rbp-D0h]
-  struct _KAFFINITY_EX v18; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v11; // rdx
+  _QWORD v13[2]; // [rsp+20h] [rbp-E0h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-D0h]
+  struct _KAFFINITY_EX v15; // [rsp+40h] [rbp-C0h] BYREF
 
-  memset_0(&v18, 0, sizeof(v18));
+  memset_0(&v15, 0, sizeof(v15));
   Prcb = KeGetPrcb(a1);
   v5 = *(_QWORD *)(Prcb + 34880);
   v6 = (_DWORD *)(Prcb + 34956);
@@ -55,11 +52,11 @@ char __fastcall PoInitiateProcessorWake(unsigned int a1)
         LOBYTE(v7) = PpmIdleUpdateSynchronizationState(v6, v2, v3);
         if ( (_BYTE)v7 == 5 )
         {
-          *(_QWORD *)&v18.Count = 2097153LL;
-          memset_0(&v18.8, 0, sizeof(v18.8));
-          KiCopyAffinityEx(&v18, v18.Size, (struct _KAFFINITY_EX *)(v5 + 72));
-          if ( !(unsigned int)KeIsEmptyAffinityEx(&v18.Count) )
-            HalRequestIpi(0, &v18.Count);
+          *(_QWORD *)&v15.Count = 2097153LL;
+          memset_0(&v15.8, 0, sizeof(v15.8));
+          KiCopyAffinityEx(&v15, v15.Size, (struct _KAFFINITY_EX *)(v5 + 72));
+          if ( !(unsigned int)KeIsEmptyAffinityEx(&v15.Count) )
+            HalRequestIpi(0, &v15.Count);
           return v8;
         }
       }
@@ -73,16 +70,16 @@ char __fastcall PoInitiateProcessorWake(unsigned int a1)
       {
         if ( !*(_BYTE *)(Prcb + 34941) )
           return 1;
-        v16[0] = 0LL;
-        v16[1] = PopIdleTransitionTimeout;
-        v17 = (unsigned __int64)Prcb;
-        while ( !(unsigned __int8)guard_dispatch_icall_no_overrides(v9, v2, v3, v11) )
+        v13[0] = 0LL;
+        v13[1] = PopIdleTransitionTimeout;
+        v14 = (unsigned __int64)Prcb;
+        while ( !(unsigned __int8)guard_dispatch_icall_no_overrides(v9, v2) )
         {
           if ( HIBYTE(*v6) != 8 )
             return v8;
-          PpmIdleTransitionStall(v16);
+          PpmIdleTransitionStall(v13);
         }
-        return guard_dispatch_icall_no_overrides(v9, v12, v13, v14);
+        return guard_dispatch_icall_no_overrides(v9, v11);
       }
       LOBYTE(v7) = updated;
     }

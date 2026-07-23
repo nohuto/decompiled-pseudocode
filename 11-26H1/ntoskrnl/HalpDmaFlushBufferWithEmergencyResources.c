@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaFlushBufferWithEmergencyResources @ 0x1404413A8
+ * XREFs of HalpDmaFlushBufferWithEmergencyResources @ 0x140439EB8
  * Callers:
- *     HalpDmaFlushBuffer @ 0x14044011C (HalpDmaFlushBuffer.c)
+ *     HalpDmaFlushBuffer @ 0x140438C2C (HalpDmaFlushBuffer.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     KeFlushIoBuffers @ 0x140441180 (KeFlushIoBuffers.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1404B5970 (MmMapLockedPagesWithReservedMapping.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     KeFlushIoBuffers @ 0x140439C90 (KeFlushIoBuffers.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1404AECD0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall HalpDmaFlushBufferWithEmergencyResources(
@@ -31,11 +31,11 @@ void __fastcall HalpDmaFlushBufferWithEmergencyResources(
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140E3E928.QueueListEntry.Blink, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140E3EAA8.QueueListEntry.Blink, &LockHandle);
   v9 = a3 & 0xFFF;
   v10 = (struct _MDL **)(a2 + 48 + 8LL * (unsigned int)((unsigned __int64)(a3 - *(_QWORD *)(a2 + 32)) >> 12));
-  Object = (struct _MDL *)stru_140E3E928.WaitBlock[3].Object;
-  *(_DWORD *)(stru_140E3E928.Spare18 + 40) = 4096 - v9;
+  Object = (struct _MDL *)stru_140E3EAA8.WaitBlock[3].Object;
+  *(_DWORD *)(stru_140E3EAA8.Spare18 + 40) = 4096 - v9;
   Object->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
   Object->ByteOffset = v9;
   while ( a4 )
@@ -44,7 +44,7 @@ void __fastcall HalpDmaFlushBufferWithEmergencyResources(
     Object[1].Next = *v10;
     while ( 1 )
     {
-      v15 = MmMapLockedPagesWithReservedMapping(stru_140E3E928.WaitBlock[2].SparePtr, 0x446C6148u, Object, v12);
+      v15 = MmMapLockedPagesWithReservedMapping(stru_140E3EAA8.WaitBlock[2].SparePtr, 0x446C6148u, Object, v12);
       if ( v15 )
         break;
       if ( ++v12 >= MmMaximumCacheType )

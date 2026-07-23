@@ -1,5 +1,5 @@
 /*
- * XREFs of _wtoi64 @ 0x180098990
+ * XREFs of _wtoi64 @ 0x180098980
  * Callers:
  *     <none>
  * Callees:

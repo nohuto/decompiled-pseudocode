@@ -1,15 +1,15 @@
 /*
- * XREFs of SepInitProcessAuditSd @ 0x14038848C
+ * XREFs of SepInitProcessAuditSd @ 0x14038866C
  * Callers:
- *     SepInitializationPhase1 @ 0x140822A40 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140822D40 (SepInitializationPhase1.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1407365B0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF430 (RtlAddAccessAllowedAce.c)
- *     RtlAddAuditAccessAce @ 0x1409BB0A0 (RtlAddAuditAccessAce.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1407367A0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1407EF700 (RtlAddAccessAllowedAce.c)
+ *     RtlAddAuditAccessAce @ 0x1409BB2A0 (RtlAddAuditAccessAce.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -22,12 +22,14 @@ void SepInitProcessAuditSd()
   ACL *v3; // rdi
   ACL *v4; // rsi
   NTSTATUS Acl; // eax
-  __int64 v6; // rdx
-  __int64 v7; // rdx
+  ULONG v6; // edx
+  void *v7; // r9
   int v8; // r9d
   ULONG v9; // ebp
   ACL *v10; // rax
   ACL *v11; // rsi
+  BOOLEAN v12; // [rsp+20h] [rbp-28h]
+  BOOLEAN v13; // [rsp+28h] [rbp-20h]
 
   v0 = 0LL;
   if ( SepProcessAuditSd )
@@ -46,14 +48,13 @@ void SepInitProcessAuditSd()
       Acl = RtlCreateAcl(Pool2 + 5, v1, 2u);
       if ( Acl < 0 )
         goto LABEL_20;
-      Acl = RtlAddAuditAccessAce(v4, v6, (unsigned int)SepProcessAccessesToAudit);
+      Acl = RtlAddAuditAccessAce(v4, v6, SepProcessAccessesToAudit, v7, v12, v13);
       if ( Acl < 0 )
         goto LABEL_20;
       Acl = RtlCreateSecurityDescriptor(v3, 1u);
       if ( Acl < 0 )
         goto LABEL_20;
-      LOBYTE(v7) = 1;
-      Acl = RtlSetSaclSecurityDescriptor(v3, v7, v4, 0LL);
+      Acl = RtlSetSaclSecurityDescriptor(v3, 1u, v4, 0);
       if ( Acl < 0 )
         goto LABEL_20;
       SepProcessAuditSd = v3;

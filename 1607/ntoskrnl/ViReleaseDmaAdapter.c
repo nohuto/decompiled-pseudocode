@@ -1,17 +1,17 @@
 /*
- * XREFs of ViReleaseDmaAdapter @ 0x14070A24C
+ * XREFs of ViReleaseDmaAdapter @ 0x14070A27C
  * Callers:
- *     VfGetDmaAdapter @ 0x140707428 (VfGetDmaAdapter.c)
- *     VfPutDmaAdapter @ 0x14070804C (VfPutDmaAdapter.c)
- *     VfIoDeleteDevice @ 0x14070D810 (VfIoDeleteDevice.c)
+ *     VfGetDmaAdapter @ 0x140707458 (VfGetDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x14070807C (VfPutDmaAdapter.c)
+ *     VfIoDeleteDevice @ 0x14070D840 (VfIoDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmFreeContiguousMemory @ 0x14009ABB8 (MmFreeContiguousMemory.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmFreeContiguousMemory @ 0x14009A3B8 (MmFreeContiguousMemory.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)

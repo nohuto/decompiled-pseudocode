@@ -1,24 +1,24 @@
 /*
- * XREFs of wcsrchr @ 0x140500180
+ * XREFs of wcsrchr @ 0x1404FDA40
  * Callers:
- *     AslPathGetFileNamePart @ 0x140809DE4 (AslPathGetFileNamePart.c)
- *     BiTranslateSymbolicLinkFile @ 0x140814368 (BiTranslateSymbolicLinkFile.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x14081CC34 (_CmDeleteDevicePanelRegKeyWorker.c)
- *     DrvDbDeleteObjectSubKey @ 0x1408215CC (DrvDbDeleteObjectSubKey.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14092430C (DrvDbGetDriverPackageMappedProperty.c)
- *     SdbGetDatabaseMatchEx @ 0x14095D42C (SdbGetDatabaseMatchEx.c)
- *     PiUpdateDriverDBCache @ 0x1409C5084 (PiUpdateDriverDBCache.c)
- *     PiIsDriverBlocked @ 0x1409C6E6C (PiIsDriverBlocked.c)
- *     PiLookupInDDBCache @ 0x1409C7CE8 (PiLookupInDDBCache.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     _RegRtlDeletePathInternal @ 0x140A6AD38 (_RegRtlDeletePathInternal.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140A71D1C (PopBcdSetDefaultResumeObjectElements.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A797FC (_CmDeleteDeviceRegKeyWorker.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     EtwpGenerateFileName @ 0x140A7F9B8 (EtwpGenerateFileName.c)
- *     PiDqDeleteUserObject @ 0x140A84438 (PiDqDeleteUserObject.c)
- *     AslPathSplit @ 0x140AA64AC (AslPathSplit.c)
- *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140C47160 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ *     AslPathGetFileNamePart @ 0x14080A524 (AslPathGetFileNamePart.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140814AA8 (BiTranslateSymbolicLinkFile.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x14081D374 (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140821D0C (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14092644C (DrvDbGetDriverPackageMappedProperty.c)
+ *     SdbGetDatabaseMatchEx @ 0x140944EEC (SdbGetDatabaseMatchEx.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     PiLookupInDDBCache @ 0x1409B8B68 (PiLookupInDDBCache.c)
+ *     PiIsDriverBlocked @ 0x1409BA914 (PiIsDriverBlocked.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     EtwpGenerateFileName @ 0x1409D6D84 (EtwpGenerateFileName.c)
+ *     _RegRtlDeletePathInternal @ 0x140A64448 (_RegRtlDeletePathInternal.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140A6B0FC (PopBcdSetDefaultResumeObjectElements.c)
+ *     PiUpdateDriverDBCache @ 0x140A6C434 (PiUpdateDriverDBCache.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A73AFC (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiDqDeleteUserObject @ 0x140A7EF78 (PiDqDeleteUserObject.c)
+ *     AslPathSplit @ 0x140AA151C (AslPathSplit.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140C492B0 (CmpGetSystemRelativeRegistryHiveFilePath.c)
  * Callees:
  *     <none>
  */

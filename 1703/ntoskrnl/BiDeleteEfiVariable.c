@@ -13,7 +13,7 @@
 
 __int64 __fastcall BiDeleteEfiVariable(PCWSTR SourceString)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   NTSTATUS v3; // eax
   ULONG *Attributes; // [rsp+20h] [rbp-50h]
   ULONG ReturnLength; // [rsp+30h] [rbp-40h] BYREF

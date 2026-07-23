@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptMarvin32Append @ 0x1403F60AC
+ * XREFs of SymCryptMarvin32Append @ 0x1403F628C
  * Callers:
- *     HvpGenerateLogEntryChecksums @ 0x140705678 (HvpGenerateLogEntryChecksums.c)
+ *     HvpGenerateLogEntryChecksums @ 0x140705888 (HvpGenerateLogEntryChecksums.c)
  * Callees:
- *     SymCryptMarvin32AppendBlocks @ 0x1403F6170 (SymCryptMarvin32AppendBlocks.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     SymCryptMarvin32AppendBlocks @ 0x1403F6350 (SymCryptMarvin32AppendBlocks.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall SymCryptMarvin32Append(__int64 a1, char *a2, size_t a3)

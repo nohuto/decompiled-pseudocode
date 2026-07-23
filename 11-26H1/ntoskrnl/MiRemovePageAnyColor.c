@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemovePageAnyColor @ 0x14028A000
+ * XREFs of MiRemovePageAnyColor @ 0x140289560
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetBestPageFromNode @ 0x140288750 (MiGetBestPageFromNode.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetBestPageFromNode @ 0x140287CB0 (MiGetBestPageFromNode.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiGetPerfectColorHeadPage @ 0x140289A30 (MiGetPerfectColorHeadPage.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiGetPerfectColorHeadPage @ 0x140288F90 (MiGetPerfectColorHeadPage.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3, int a4)
@@ -103,7 +103,7 @@ PSLIST_ENTRY __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3
   v10 = v9 + ((unsigned __int64)(HIWORD(a2) & 3) << 10);
   v56 = v9;
   v11 = (a3 & 0x10) == 0;
-  if ( (unsigned __int8)byte_140E2D718 > 1u )
+  if ( (unsigned __int8)byte_140E2D898 > 1u )
     v12 = (PSLIST_ENTRY *)(v9 + 8 * (v11 + 2 * ((BYTE1(a2) & 1) + 879LL)));
   else
     v12 = (PSLIST_ENTRY *)(v10 + 8 * (v11 + 1));
@@ -113,7 +113,7 @@ PSLIST_ENTRY __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3
   v64 = a4;
   v14 = *(int *)v6;
   v15 = 0LL;
-  if ( (unsigned __int8)byte_140E2D718 > 1u )
+  if ( (unsigned __int8)byte_140E2D898 > 1u )
     v15 = (a2 >> 8) & 1;
   v62[0] = v9;
   v66 = a3;
@@ -123,7 +123,7 @@ PSLIST_ENTRY __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3
                      + 8
                      * (((unsigned __int64)(HIWORD(a2) & 3) << 7) + ((a2 >> 18) & 3) + 3 * (v15 + 2 * (v14 + 2 * v8)))
                      + 800);
-  v17 = dword_140E2D780[((unsigned __int64)a2 >> 16) & 3];
+  v17 = dword_140E2D900[((unsigned __int64)a2 >> 16) & 3];
   v58 = v17;
   v75 = v17;
   v72 = v10 + 16 * (v14 + 8 + 2 * (3LL * (unsigned int)v8 + (((unsigned __int64)a2 >> 18) & 3)));
@@ -305,7 +305,7 @@ LABEL_30:
             {
               if ( (MiFlags & 0x80u) == 0LL )
                 goto LABEL_30;
-              if ( (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) != 0 )
+              if ( (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) != 0 )
                 goto LABEL_30;
               MiArePageContentsZero((__int64)&v36[0x22000000000LL] / 48);
               v36->Next = 0LL;

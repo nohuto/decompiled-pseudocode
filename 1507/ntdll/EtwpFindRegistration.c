@@ -9,13 +9,13 @@
  *     RtlTryAcquireSRWLockShared @ 0x180070C50 (RtlTryAcquireSRWLockShared.c)
  */
 
-_QWORD *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
+_RTL_SRWLOCK *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
 {
-  _QWORD *v2; // rbx
-  _QWORD *v3; // rdi
+  _RTL_SRWLOCK *v2; // rbx
+  _RTL_BALANCED_NODE *Root; // rdi
   int v4; // eax
-  _QWORD *v6; // rax
-  _QWORD *v7; // rcx
+  _RTL_SRWLOCK *Value; // rax
+  _RTL_SRWLOCK *v7; // rcx
   __int64 v8; // [rsp+20h] [rbp-18h] BYREF
   __int16 v9; // [rsp+28h] [rbp-10h]
 
@@ -23,47 +23,47 @@ _QWORD *__fastcall EtwpFindRegistration(__int64 a1, __int16 a2)
   v9 = a2;
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
   v2 = 0LL;
-  v3 = (_QWORD *)EtwpRegistrationTable;
+  Root = EtwpRegistrationTable.Root;
   EtwpProvLockOwner = (int)NtCurrentTeb()->ClientId.UniqueThread;
-  while ( v3 )
+  while ( Root )
   {
-    v4 = EtwpRegistrationCompare(&v8, v3);
+    v4 = EtwpRegistrationCompare(&v8, Root);
     if ( v4 < 0 )
     {
 LABEL_3:
-      v3 = (_QWORD *)*v3;
+      Root = Root->Children[0];
     }
     else
     {
       if ( v4 <= 0 )
       {
-        v2 = v3;
+        v2 = (_RTL_SRWLOCK *)Root;
         goto LABEL_3;
       }
-      v3 = (_QWORD *)v3[1];
+      Root = Root->Children[1];
     }
   }
   if ( v2 )
   {
-    while ( !(unsigned __int8)RtlTryAcquireSRWLockShared(v2 + 9) )
+    while ( !RtlTryAcquireSRWLockShared(v2 + 9) )
     {
-      v6 = (_QWORD *)v2[1];
+      Value = (_RTL_SRWLOCK *)v2[1].Value;
       v7 = v2;
-      if ( v6 )
+      if ( Value )
       {
         do
         {
-          v2 = v6;
-          v6 = (_QWORD *)*v6;
+          v2 = Value;
+          Value = (_RTL_SRWLOCK *)Value->Value;
         }
-        while ( v6 );
+        while ( Value );
       }
       else
       {
         while ( 1 )
         {
-          v2 = (_QWORD *)(v2[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !v2 || (_QWORD *)*v2 == v7 )
+          v2 = (_RTL_SRWLOCK *)(v2[2].Value & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !v2 || (_RTL_SRWLOCK *)v2->Value == v7 )
             break;
           v7 = v2;
         }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpPartitionGetNext @ 0x140382870
+ * XREFs of PfpPartitionGetNext @ 0x140384620
  * Callers:
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     PfpPartitionIterate @ 0x140382630 (PfpPartitionIterate.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     PfpPartitionIterate @ 0x1403843E0 (PfpPartitionIterate.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x1402F0540 (ExAcquireRundownProtectionCacheAware.c)
- *     ExReleaseRundownProtectionCacheAware @ 0x14044F9D0 (ExReleaseRundownProtectionCacheAware.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402D25C0 (ExAcquireRundownProtectionCacheAware.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x140447B00 (ExReleaseRundownProtectionCacheAware.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 *__fastcall PfpPartitionGetNext(__int64 a1, __int64 a2, __int64 a3)
@@ -37,7 +37,7 @@ unsigned __int64 *__fastcall PfpPartitionGetNext(__int64 a1, __int64 a2, __int64
     KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v6 = _InterlockedExchange64((volatile __int64 *)v3, (__int64)&LockHandle);
     if ( v6 )

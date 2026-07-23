@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeWorkingSetList @ 0x14046DDE8
+ * XREFs of MiInitializeWorkingSetList @ 0x14046CCB8
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14046D378 (MmInitializeProcessAddressSpace.c)
- *     MiInitializeSystemWorkingSetList @ 0x1405362FC (MiInitializeSystemWorkingSetList.c)
+ *     MmInitializeProcessAddressSpace @ 0x14046C248 (MmInitializeProcessAddressSpace.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14053683C (MiInitializeSystemWorkingSetList.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPopulateWorkingSetFreeList @ 0x14007BD50 (MiPopulateWorkingSetFreeList.c)
- *     MiInitializeWsleAgeHeads @ 0x1400A1B9C (MiInitializeWsleAgeHeads.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPopulateWorkingSetFreeList @ 0x14007BDD0 (MiPopulateWorkingSetFreeList.c)
+ *     MiInitializeWsleAgeHeads @ 0x1400A04C4 (MiInitializeWsleAgeHeads.c)
  */
 
 char __fastcall MiInitializeWorkingSetList(__int64 a1, ULONG_PTR *a2, int a3, __int64 a4, __int64 a5)
@@ -73,15 +73,15 @@ char __fastcall MiInitializeWorkingSetList(__int64 a1, ULONG_PTR *a2, int a3, __
   *v5 = v19;
   if ( v8 == (_DWORD)v19 )
   {
-    v40 = qword_1403268C8;
-    if ( qword_1403268C0 < (unsigned __int64)qword_1403268C8 )
-      v40 = qword_1403268C0;
+    v40 = qword_140326908;
+    if ( qword_140326900 < (unsigned __int64)qword_140326908 )
+      v40 = qword_140326900;
     goto LABEL_31;
   }
   v21 = v8 - v19 - v19;
   if ( !v21 )
   {
-    v40 = qword_140326C80;
+    v40 = qword_140326CC0;
     v20 = (unsigned __int64)(v9 + 64);
 LABEL_31:
     if ( v40 )
@@ -91,12 +91,12 @@ LABEL_31:
   v22 = v21 - v19;
   if ( !v22 )
   {
-    v40 = qword_140327F30;
+    v40 = qword_140327F70;
     goto LABEL_31;
   }
   if ( v22 == (_DWORD)v19 )
   {
-    v40 = qword_140327FF0;
+    v40 = qword_140328030;
     goto LABEL_31;
   }
 LABEL_6:
@@ -113,8 +113,8 @@ LABEL_6:
     v17 = (unsigned int)(v15 + 1);
     if ( v8 == (_DWORD)v19 )
     {
-      v24 = qword_140326908;
-      v39 = qword_140326918 + 0x4000;
+      v24 = qword_140326948;
+      v39 = qword_140326958 + 0x4000;
     }
     else
     {
@@ -125,16 +125,16 @@ LABEL_6:
   }
   else
   {
-    a4 = qword_140326D00;
+    a4 = qword_140326D40;
     v18[2] = *(_QWORD *)(v16 + 104);
-    v24 = qword_140326D08;
+    v24 = qword_140326D48;
     PteAddress = MiGetPteAddress(0xFFFFF6FB7DBED000uLL);
     *v26 = PteAddress & 0xFFFFFFFFFFFFF000uLL | 9;
     v27 = (_QWORD *)MiGetPteAddress(PteAddress & 0xFFFFFFFFFFFFF000uLL);
     v29 = (__int64 *)(48 * ((*v27 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
-    v30 = qword_140327F90;
+    v30 = qword_140327FD0;
     if ( (v29[5] & 0xFFFFFFFFFLL) != 48 * ((*v27 >> 12) & 0xFFFFFFFFFLL) / 48 )
-      *v29 = (v28 - *(_QWORD *)(qword_140327F90 + 276841312)) >> 3;
+      *v29 = (v28 - *(_QWORD *)(qword_140327FD0 + 276841312)) >> 3;
     v31 = (unsigned __int64 *)(v28 + 8);
     v32 = v30 + 276840816;
     do
@@ -142,9 +142,9 @@ LABEL_6:
       *v31 = v32 | 9;
       v32 = MiGetPteAddress(v32);
       v36 = (__int64 *)(48 * (v35 & (*(_QWORD *)v32 >> 12)) - 0x58000000000LL);
-      v37 = qword_140327F90;
+      v37 = qword_140327FD0;
       if ( (v35 & v36[5]) != 48 * (v35 & (*(_QWORD *)v32 >> 12)) / 48 )
-        *v36 = (v34 - *(_QWORD *)(qword_140327F90 + 276841312)) >> 3;
+        *v36 = (v34 - *(_QWORD *)(qword_140327FD0 + 276841312)) >> 3;
       v31 = (unsigned __int64 *)(v34 + 8);
       --v23;
     }

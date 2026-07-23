@@ -1,12 +1,12 @@
 /*
- * XREFs of CreateNewEventEntry @ 0x1403764F8
+ * XREFs of CreateNewEventEntry @ 0x140376048
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x140375F60 (InsertEventEntryInLookUpTable.c)
+ *     InsertEventEntryInLookUpTable @ 0x140375AB0 (InsertEventEntryInLookUpTable.c)
  * Callees:
- *     CBufferGetNextOffset @ 0x140376730 (CBufferGetNextOffset.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CBufferGetNextOffset @ 0x140376280 (CBufferGetNextOffset.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CreateNewEventEntry(

@@ -1,28 +1,28 @@
 /*
- * XREFs of KiInitSystem @ 0x140C28258
+ * XREFs of KiInitSystem @ 0x140C2A2B4
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KeAbInitialize @ 0x1405C4078 (KeAbInitialize.c)
- *     KiForceSymbolReferences @ 0x140C27FB4 (KiForceSymbolReferences.c)
- *     KiInitializeIdleProcess @ 0x140C28730 (KiInitializeIdleProcess.c)
+ *     KeAbInitialize @ 0x1405C1648 (KeAbInitialize.c)
+ *     KiForceSymbolReferences @ 0x140C2A010 (KiForceSymbolReferences.c)
+ *     KiInitializeIdleProcess @ 0x140C2A7D0 (KiInitializeIdleProcess.c)
  */
 
 __int64 __fastcall KiInitSystem(struct _KPROCESS *a1)
 {
   if ( KiForceSymbolReferencesTrigger )
     KiForceSymbolReferences();
-  qword_140F21E88 = (__int64)&KeBugCheckCallbackListHead;
+  qword_140F229A8 = (__int64)&KeBugCheckCallbackListHead;
   KeBugCheckCallbackListHead = (__int64)&KeBugCheckCallbackListHead;
-  qword_140F21D98 = (__int64)&KeBugCheckReasonCallbackListHead;
+  qword_140F22318 = (__int64)&KeBugCheckReasonCallbackListHead;
   KeBugCheckReasonCallbackListHead = &KeBugCheckReasonCallbackListHead;
-  qword_140F21D78 = (__int64)&KeBugCheckAddRemovePagesCallbackListHead;
+  qword_140F22308 = (__int64)&KeBugCheckAddRemovePagesCallbackListHead;
   KeBugCheckAddRemovePagesCallbackListHead = (__int64)&KeBugCheckAddRemovePagesCallbackListHead;
-  qword_140F21D88 = (__int64)&KeBugCheckTriageDumpDataArrayListHead;
+  qword_140F22328 = (__int64)&KeBugCheckTriageDumpDataArrayListHead;
   KeBugCheckTriageDumpDataArrayListHead = (__int64)&KeBugCheckTriageDumpDataArrayListHead;
-  qword_140F222F8 = (__int64)&KiProfileListHead;
+  qword_140F223B8 = (__int64)&KiProfileListHead;
   KiProfileListHead = (__int64)&KiProfileListHead;
-  qword_140F222E8 = (__int64)&KiProfileSourceListHead;
+  qword_140F223A8 = (__int64)&KiProfileSourceListHead;
   KiProfileSourceListHead = (__int64)&KiProfileSourceListHead;
   KiSwapEvent.Header.WaitListHead.Blink = &KiSwapEvent.Header.WaitListHead;
   KiSwapEvent.Header.WaitListHead.Flink = &KiSwapEvent.Header.WaitListHead;
@@ -31,8 +31,8 @@ __int64 __fastcall KiInitSystem(struct _KPROCESS *a1)
   *((_QWORD *)&xmmword_1412018D0 + 1) = KiArgumentTable;
   KiBalanceSetManagerPeriodicDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)KiBalanceSetManagerDeferredRoutine;
   KiBalanceSetManagerPeriodicDpc.DeferredContext = &KiBalanceSetManagerPeriodicEvent;
-  qword_140F22330 = (__int64)&qword_140F22328;
-  qword_140F22328 = (__int64)&qword_140F22328;
+  qword_140F22710 = (__int64)&qword_140F22708;
+  qword_140F22708 = (__int64)&qword_140F22708;
   LODWORD(xmmword_1412018F0) = 0;
   KiStackProtectNotifyEvent.Header.WaitListHead.Blink = &KiStackProtectNotifyEvent.Header.WaitListHead;
   KiStackProtectNotifyEvent.Header.WaitListHead.Flink = &KiStackProtectNotifyEvent.Header.WaitListHead;
@@ -44,19 +44,19 @@ __int64 __fastcall KiInitSystem(struct _KPROCESS *a1)
   KiProcessOutSwapListHead = 0LL;
   KiStackInSwapListHead = 0LL;
   KeServiceDescriptorTableShadow[0] = KeServiceDescriptorTable;
-  xmmword_140FC6290 = xmmword_1412018D0;
-  *(_OWORD *)&xmmword_140FC62A0 = xmmword_1412018E0;
-  xmmword_140FC62B0 = xmmword_1412018F0;
+  xmmword_140FC72D0 = xmmword_1412018D0;
+  *(_OWORD *)&xmmword_140FC72E0 = xmmword_1412018E0;
+  xmmword_140FC72F0 = xmmword_1412018F0;
   KeServiceDescriptorTableFilter[0] = KeServiceDescriptorTable;
-  xmmword_140FC6390 = xmmword_1412018D0;
-  xmmword_140FC63A0 = xmmword_1412018E0;
-  xmmword_140FC63B0 = xmmword_1412018F0;
+  xmmword_140FC7410 = xmmword_1412018D0;
+  xmmword_140FC7420 = xmmword_1412018E0;
+  xmmword_140FC7430 = xmmword_1412018F0;
   KiBalanceSetManagerPeriodicDpc.TargetInfoAsUlong = 275;
   KiBalanceSetManagerPeriodicDpc.DpcData = 0LL;
   KiBalanceSetManagerPeriodicDpc.ProcessorHistory = 0LL;
   KiBalanceSetManagerPeriodicEvent = 1;
-  byte_140F22322 = 6;
-  dword_140F22324 = 0;
+  byte_140F22702 = 6;
+  dword_140F22704 = 0;
   LOWORD(KiStackProtectNotifyEvent.Header.Lock) = 0;
   KiStackProtectNotifyEvent.Header.Size = 6;
   KiStackProtectNotifyEvent.Header.SignalState = 0;
@@ -73,7 +73,7 @@ __int64 __fastcall KiInitSystem(struct _KPROCESS *a1)
   KiDynamicMemoryLock.Event.Header.WaitListHead.Blink = &KiDynamicMemoryLock.Event.Header.WaitListHead;
   KiDynamicMemoryLock.Event.Header.WaitListHead.Flink = &KiDynamicMemoryLock.Event.Header.WaitListHead;
   KiSetVirtualHeteroClockIntervalRequestDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)KiSetVirtualHeteroClockIntervalRequestDpcRoutine;
-  qword_140F22588 = (__int64)&KiProcessListHead;
+  qword_140F227A8 = (__int64)&KiProcessListHead;
   KiProcessListHead = (__int64)&KiProcessListHead;
   KiDynamicMemoryLock.Owner = 0LL;
   KiDynamicMemoryLock.Contention = 0;

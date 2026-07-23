@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefRawSubUint32 @ 0x14052F81C
+ * XREFs of SymCryptFdefRawSubUint32 @ 0x140529CC4
  * Callers:
- *     SymCryptFdefIntSubMixedSize @ 0x14052F118 (SymCryptFdefIntSubMixedSize.c)
- *     SymCryptFdefIntSubUint32 @ 0x14052F228 (SymCryptFdefIntSubUint32.c)
- *     SymCryptFdefModElementSetValueNegUint32 @ 0x140535E44 (SymCryptFdefModElementSetValueNegUint32.c)
- *     SymCryptFdefModSetRandomGeneric @ 0x1405368D0 (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefIntSubMixedSize @ 0x1405295C0 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefIntSubUint32 @ 0x1405296D0 (SymCryptFdefIntSubUint32.c)
+ *     SymCryptFdefModElementSetValueNegUint32 @ 0x1405302E4 (SymCryptFdefModElementSetValueNegUint32.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x140530D70 (SymCryptFdefModSetRandomGeneric.c)
  * Callees:
  *     <none>
  */

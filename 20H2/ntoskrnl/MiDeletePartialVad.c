@@ -83,9 +83,9 @@ __int64 __fastcall MiDeletePartialVad(_DWORD *P, unsigned __int64 a2, unsigned _
   _DWORD *v32; // rcx
   ULONG_PTR v33; // r14
   struct _KTHREAD *v34; // rbx
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v36; // r15
-  __int64 v37; // rdx
+  unsigned int v37; // edx
   __int64 v38; // r9
   bool v39; // zf
   __int64 v40; // rcx
@@ -537,12 +537,12 @@ LABEL_6:
   v114 = 0;
   v34 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v33) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx((__int64)v34->ApcState.Process);
+    SessionId = MmGetSessionIdEx((__int64)v34->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --v34->SpecialApcDisable;
   v36 = ++v34->AbAllocationRegionCount;
-  LODWORD(v37) = ((char)v34->AbEntrySummary | (char)v34->AbOrphanedEntrySummary) ^ 0x3F;
+  v37 = ((char)v34->AbEntrySummary | (char)v34->AbOrphanedEntrySummary) ^ 0x3F;
   v38 = v33 & 0x7FFFFFFFFFFFFFFCLL;
   v39 = !_BitScanReverse((unsigned int *)&v40, v37);
   v113 = v40;
@@ -550,18 +550,18 @@ LABEL_6:
   {
 LABEL_65:
     if ( (*((_DWORD *)&v34->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v34, v33, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v34, v33, SessionId, 0LL);
   }
   else
   {
     while ( 1 )
     {
       v41 = (__int64)&v34->LockEntries[v40];
-      v37 = ~(1 << v40) & (unsigned int)v37;
+      v37 &= ~(1 << v40);
       if ( (*(_BYTE *)(v41 + 26) & 1) != 0
         && (*(_DWORD *)(v41 + 32) & 1) == 0
         && (*(_QWORD *)(v41 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v38
-        && *(_DWORD *)(v41 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v41 + 40) == SessionId )
       {
         *(_BYTE *)(v41 + 26) &= ~1u;
         if ( *(_QWORD *)(v41 + 32) )
@@ -580,7 +580,7 @@ LABEL_64:
     }
     *(_BYTE *)(v41 + 32) |= 2u;
     if ( *(__int64 *)(v41 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v41, v37, SessionId);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v41);
     v114 = *(_DWORD *)(v41 + 88) & 0x1FFFF;
     *(_DWORD *)(v41 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v41 + 25) &= ~1u;

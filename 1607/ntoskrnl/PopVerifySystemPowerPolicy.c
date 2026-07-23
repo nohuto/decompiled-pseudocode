@@ -1,11 +1,11 @@
 /*
- * XREFs of PopVerifySystemPowerPolicy @ 0x14056E268
+ * XREFs of PopVerifySystemPowerPolicy @ 0x14056E7A8
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopApplyPolicy @ 0x14056DFD8 (PopApplyPolicy.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopApplyPolicy @ 0x14056E518 (PopApplyPolicy.c)
  * Callees:
- *     PopVerifyPowerActionPolicy @ 0x1405409B4 (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x140542C58 (PopVerifySystemPowerState.c)
+ *     PopVerifyPowerActionPolicy @ 0x140540EF4 (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x140543198 (PopVerifySystemPowerState.c)
  */
 
 __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
@@ -46,15 +46,15 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   *(_QWORD *)(a2 + 224) = *((_QWORD *)v4 + 12);
   if ( *(_DWORD *)a2 != 1 )
     return 3221225485LL;
-  if ( HIBYTE(word_140303F64) )
+  if ( HIBYTE(word_140303EA4) )
   {
     *(_DWORD *)(a2 + 72) = 4;
   }
-  else if ( (_BYTE)word_140303F64 )
+  else if ( (_BYTE)word_140303EA4 )
   {
     *(_DWORD *)(a2 + 72) = 3;
   }
-  else if ( byte_140303F63 )
+  else if ( byte_140303EA3 )
   {
     *(_DWORD *)(a2 + 72) = 2;
   }
@@ -79,10 +79,10 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
     *(_DWORD *)(a2 + 192) = DWORD2(PopAdminPolicy);
   if ( *(_DWORD *)(a2 + 192) > HIDWORD(PopAdminPolicy) )
     *(_DWORD *)(a2 + 192) = HIDWORD(PopAdminPolicy);
-  if ( *(_DWORD *)(a2 + 212) < (unsigned int)qword_140303E90 )
-    *(_DWORD *)(a2 + 212) = qword_140303E90;
-  if ( *(_DWORD *)(a2 + 212) > HIDWORD(qword_140303E90) )
-    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140303E90);
+  if ( *(_DWORD *)(a2 + 212) < (unsigned int)qword_140303DD0 )
+    *(_DWORD *)(a2 + 212) = qword_140303DD0;
+  if ( *(_DWORD *)(a2 + 212) > HIDWORD(qword_140303DD0) )
+    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140303DD0);
   PopVerifyPowerActionPolicy((int *)(a2 + 4));
   PopVerifyPowerActionPolicy((int *)(a2 + 16));
   PopVerifyPowerActionPolicy((int *)(a2 + 28));
@@ -127,7 +127,7 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   PopVerifyPowerActionPolicy((int *)(a2 + 220));
   if ( !*(_DWORD *)(a2 + 92) )
     *(_DWORD *)(a2 + 92) = 1;
-  if ( *(_DWORD *)(a2 + 88) && !byte_140303F67 )
+  if ( *(_DWORD *)(a2 + 88) && !byte_140303EA7 )
     *(_DWORD *)(a2 + 88) = 0;
   if ( (unsigned int)(*(_DWORD *)(a2 + 60) - 1) <= 0x3A )
     *(_DWORD *)(a2 + 60) = 60;

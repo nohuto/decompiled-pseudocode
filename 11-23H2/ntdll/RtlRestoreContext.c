@@ -50,13 +50,13 @@ void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD 
   int v39; // [rsp+618h] [rbp+128h]
   int v40; // [rsp+620h] [rbp+130h]
   int v41; // [rsp+628h] [rbp+138h]
-  __int64 v42; // [rsp+630h] [rbp+140h]
+  void *v42; // [rsp+630h] [rbp+140h]
 
   if ( !ExceptionRecord )
   {
 LABEL_6:
-    if ( (*(&qword_18019C3B0 + 1) & 0x1000000000000000LL) == 0
-      && (*(&qword_18019C3B0 + 1) & 0x1000) == 0
+    if ( (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000000000000000LL) == 0
+      && (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000) == 0
       && (ContextRecord->ContextFlags & 0xFFFFFF3F) == 0x10000F )
     {
       if ( (ContextRecord->ContextFlags & 0x100040) == 0x100040 )
@@ -75,7 +75,7 @@ LABEL_6:
       _4C0[6] = ContextRecord->Rip;
       __asm { iretq }
     }
-    if ( (unsigned int)ZwContinue() == -1073740278 )
+    if ( ZwContinue(ContextRecord, 0) == -1073740278 )
       __fastfail(0x30u);
     return;
   }
@@ -108,7 +108,7 @@ LABEL_6:
       ContextRecord->Xmm13 = *(M128A *)(v2 + 208);
       ContextRecord->Xmm14 = *(M128A *)(v2 + 224);
       ContextRecord->Xmm15 = *(M128A *)(v2 + 240);
-      RtlContinueLongJump((__int64)ContextRecord);
+      RtlContinueLongJump(ContextRecord);
       return;
     }
     goto LABEL_6;
@@ -125,10 +125,10 @@ LABEL_6:
   _4C0[3] = v6[19];
   _4C0[0] = v6[31];
   RcFrameConsolidation(
-    (_DWORD)ExceptionRecord,
-    (unsigned int)RcFrameConsolidation,
-    (unsigned int)_4C0,
-    (_DWORD)ExceptionRecord,
+    (int)ExceptionRecord,
+    (int)RcFrameConsolidation,
+    (int)_4C0,
+    (int)ExceptionRecord,
     v16,
     v17,
     v18,

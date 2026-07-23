@@ -1,20 +1,20 @@
 /*
- * XREFs of VmpFlushTb @ 0x1402519C4
+ * XREFs of VmpFlushTb @ 0x140253324
  * Callers:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     VmFlushTb @ 0x14041D644 (VmFlushTb.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     VmFlushTb @ 0x140414E94 (VmFlushTb.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x140251D40 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpInsertInvalidateListRange @ 0x140251FD8 (VmpInsertInvalidateListRange.c)
- *     VmpFlushTbVaRange @ 0x14025248C (VmpFlushTbVaRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     VmpInvalidateOutstandingFaults @ 0x14052233C (VmpInvalidateOutstandingFaults.c)
- *     VmpLogTbFlushSlatFlushEntire @ 0x140529DD8 (VmpLogTbFlushSlatFlushEntire.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1402536A0 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpInsertInvalidateListRange @ 0x140253938 (VmpInsertInvalidateListRange.c)
+ *     VmpFlushTbVaRange @ 0x140253DEC (VmpFlushTbVaRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405249A8 (VmpInvalidateOutstandingFaults.c)
+ *     VmpLogTbFlushSlatFlushEntire @ 0x14052C2F8 (VmpLogTbFlushSlatFlushEntire.c)
  */
 
 void __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, int a2, unsigned __int64 *a3)
@@ -62,12 +62,12 @@ void __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, int a2, unsigned __int64 *a3)
     v3 = -2LL;
     v4 = (char *)CurrentPrcb->VmInternal + 4608;
     *((_DWORD *)CurrentPrcb->VmInternal + 1153) |= 0x100u;
-    if ( stru_140F066E8.QuantumTarget
-      && *(_DWORD *)stru_140F066E8.QuantumTarget
-      && (*(_DWORD *)(stru_140F066E8.QuantumTarget + 16) & 0x100LL) != 0
-      && (*(_QWORD *)(stru_140F066E8.QuantumTarget + 24) & 0x100LL) == *(_QWORD *)(stru_140F066E8.QuantumTarget + 24) )
+    if ( stru_140F06A28.InitialStack
+      && *(_DWORD *)stru_140F06A28.InitialStack
+      && (*((_DWORD *)stru_140F06A28.InitialStack + 4) & 0x100LL) != 0
+      && (*((_QWORD *)stru_140F06A28.InitialStack + 3) & 0x100LL) == *((_QWORD *)stru_140F06A28.InitialStack + 3) )
     {
-      VmpLogTbFlushSlatFlushEntire(*(_QWORD *)(stru_140F066E8.QuantumTarget + 24), *((_QWORD *)SpinLock + 15));
+      VmpLogTbFlushSlatFlushEntire(*((_QWORD *)stru_140F06A28.InitialStack + 3), *((_QWORD *)SpinLock + 15));
     }
     v28 = 0;
     v23 = 0LL;

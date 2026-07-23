@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetNextHandleTableEntry @ 0x14068FBE0
+ * XREFs of ExpGetNextHandleTableEntry @ 0x140690DA0
  * Callers:
- *     ExEnumHandleTable @ 0x14068FAD0 (ExEnumHandleTable.c)
- *     ExQueryProcessHandleInformation @ 0x1408CDE70 (ExQueryProcessHandleInformation.c)
+ *     ExEnumHandleTable @ 0x140690C90 (ExEnumHandleTable.c)
+ *     ExQueryProcessHandleInformation @ 0x1408CF130 (ExQueryProcessHandleInformation.c)
  * Callees:
- *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1405E9990 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpGetNextHandleTableEntry(unsigned int *a1, __int64 a2, __int64 *a3)

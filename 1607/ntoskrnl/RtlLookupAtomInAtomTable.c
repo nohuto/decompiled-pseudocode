@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlLookupAtomInAtomTable @ 0x140429390
+ * XREFs of RtlLookupAtomInAtomTable @ 0x140428260
  * Callers:
- *     NtFindAtom @ 0x140428C60 (NtFindAtom.c)
+ *     NtFindAtom @ 0x140427B30 (NtFindAtom.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     RtlpLockAtomTable @ 0x140421FD0 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
- *     RtlGetIntegerAtom @ 0x1404294DC (RtlGetIntegerAtom.c)
- *     RtlpHashStringToAtom @ 0x140429580 (RtlpHashStringToAtom.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     RtlpLockAtomTable @ 0x140420E90 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlGetIntegerAtom @ 0x1404283AC (RtlGetIntegerAtom.c)
+ *     RtlpHashStringToAtom @ 0x140428450 (RtlpHashStringToAtom.c)
  */
 
 NTSTATUS __stdcall RtlLookupAtomInAtomTable(PRTL_ATOM_TABLE AtomTable, PWSTR AtomName, PRTL_ATOM Atom)
@@ -20,17 +20,17 @@ NTSTATUS __stdcall RtlLookupAtomInAtomTable(PRTL_ATOM_TABLE AtomTable, PWSTR Ato
   NTSTATUS v10; // [rsp+40h] [rbp-38h]
   __int64 v11; // [rsp+48h] [rbp-30h] BYREF
   _BYTE v12[40]; // [rsp+50h] [rbp-28h] BYREF
-  USHORT v13; // [rsp+98h] [rbp+20h] BYREF
+  USHORT IntegerAtom; // [rsp+98h] [rbp+20h] BYREF
 
   if ( !RtlpLockAtomTable(AtomTable) )
     return -1073741811;
-  if ( (unsigned __int8)RtlGetIntegerAtom(AtomName, &v13) )
+  if ( RtlGetIntegerAtom(AtomName, &IntegerAtom) )
   {
-    v8 = v13;
-    if ( v13 >= 0xC000u )
+    v8 = IntegerAtom;
+    if ( IntegerAtom >= 0xC000u )
     {
       v8 = 0;
-      v13 = 0;
+      IntegerAtom = 0;
       v10 = -1073741811;
     }
     else

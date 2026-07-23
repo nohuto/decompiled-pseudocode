@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCmEncodeMemIoResource @ 0x1405E9950
+ * XREFs of RtlCmEncodeMemIoResource @ 0x1405E6EA0
  * Callers:
- *     VslGetSecurePciDeviceBootConfiguration @ 0x14058D360 (VslGetSecurePciDeviceBootConfiguration.c)
- *     HalpReportResourceUsage @ 0x140C0E954 (HalpReportResourceUsage.c)
- *     IopInitializeResourceMap @ 0x140C22F88 (IopInitializeResourceMap.c)
+ *     VslGetSecurePciDeviceBootConfiguration @ 0x14058A650 (VslGetSecurePciDeviceBootConfiguration.c)
+ *     HalpReportResourceUsage @ 0x140C10954 (HalpReportResourceUsage.c)
+ *     IopInitializeResourceMap @ 0x140C24FB8 (IopInitializeResourceMap.c)
  * Callees:
  *     <none>
  */

@@ -18,13 +18,13 @@
 NTSTATUS __thiscall RtlpTpResumeImpersonation(void *this)
 {
   NTSTATUS result; // eax
-  HANDLE Handle; // [esp+0h] [ebp-4h] BYREF
+  HANDLE ThreadInformation; // [esp+0h] [ebp-4h] BYREF
 
-  Handle = this;
+  ThreadInformation = this;
   if ( this )
   {
-    ZwSetInformationThread(-2, 5, &Handle, 4);
-    return NtClose(Handle);
+    ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &ThreadInformation, 4u);
+    return NtClose(ThreadInformation);
   }
   return result;
 }

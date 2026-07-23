@@ -1,13 +1,13 @@
 /*
- * XREFs of PopVerifySystemPowerPolicy @ 0x1409442F4
+ * XREFs of PopVerifySystemPowerPolicy @ 0x1409BFC64
  * Callers:
- *     PopApplyPolicy @ 0x140944018 (PopApplyPolicy.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PopApplyPolicy @ 0x1409BF988 (PopApplyPolicy.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopIsHiberbootSupported @ 0x140776D5C (PopIsHiberbootSupported.c)
- *     PopVerifyPowerActionPolicy @ 0x140944AA0 (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x140B24424 (PopVerifySystemPowerState.c)
- *     PopIsHibernateSupported @ 0x140B2E808 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x140779C04 (PopIsHiberbootSupported.c)
+ *     PopVerifyPowerActionPolicy @ 0x1409C0410 (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x140B268C4 (PopVerifySystemPowerState.c)
+ *     PopIsHibernateSupported @ 0x140B30758 (PopIsHibernateSupported.c)
  */
 
 __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
@@ -17,10 +17,10 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   int *v5; // rbx
   int v6; // eax
   int v7; // ecx
-  unsigned int v8; // eax
+  unsigned int UserAffinity; // eax
   unsigned int v9; // eax
   int *v10; // r10
-  union _KWAIT_BLOCK::$2ACC67C642B9E501E8652DFF4606A234 *p_Thread; // rcx
+  unsigned __int64 *v11; // rcx
   int v12; // r9d
   int v13; // eax
   int v14; // r9d
@@ -67,15 +67,15 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   *(_QWORD *)(a2 + 224) = *((_QWORD *)v4 + 12);
   if ( *(_DWORD *)a2 != 1 )
     return 3221225485LL;
-  if ( stru_140F10828.WaitBlockFill5[29] )
+  if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
   {
     *(_DWORD *)(a2 + 72) = 4;
   }
-  else if ( stru_140F10828.WaitBlockFill5[28] )
+  else if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
   {
     *(_DWORD *)(a2 + 72) = 3;
   }
-  else if ( stru_140F10828.WaitBlockFill5[27] )
+  else if ( BYTE3(PpmIdlePolicyLock.Padding[1]) )
   {
     *(_DWORD *)(a2 + 72) = 2;
   }
@@ -107,32 +107,32 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
     *(_DWORD *)(a2 + 72) = v6;
     v7 = v6;
   }
-  if ( v6 < (int)xmmword_140F10740 )
-    *v5 = xmmword_140F10740;
-  if ( v7 > SDWORD1(xmmword_140F10740) )
-    *(_DWORD *)(a2 + 72) = DWORD1(xmmword_140F10740);
-  v8 = *(_DWORD *)(a2 + 192);
-  if ( v8 < DWORD2(xmmword_140F10740) )
+  if ( v6 < SLODWORD(PpmIdlePolicyLock.Process) )
+    *v5 = (int)PpmIdlePolicyLock.Process;
+  if ( v7 > SHIDWORD(PpmIdlePolicyLock.Process) )
+    *(_DWORD *)(a2 + 72) = HIDWORD(PpmIdlePolicyLock.Process);
+  UserAffinity = *(_DWORD *)(a2 + 192);
+  if ( UserAffinity < LODWORD(PpmIdlePolicyLock.UserAffinity) )
   {
-    *(_DWORD *)(a2 + 192) = DWORD2(xmmword_140F10740);
-    v8 = DWORD2(xmmword_140F10740);
+    *(_DWORD *)(a2 + 192) = PpmIdlePolicyLock.UserAffinity;
+    UserAffinity = (unsigned int)PpmIdlePolicyLock.UserAffinity;
   }
-  if ( v8 > HIDWORD(xmmword_140F10740) )
-    *(_DWORD *)(a2 + 192) = HIDWORD(xmmword_140F10740);
+  if ( UserAffinity > HIDWORD(PpmIdlePolicyLock.UserAffinity) )
+    *(_DWORD *)(a2 + 192) = HIDWORD(PpmIdlePolicyLock.UserAffinity);
   v9 = *(_DWORD *)(a2 + 212);
-  if ( v9 < (unsigned int)qword_140F10750 )
+  if ( v9 < *(_DWORD *)&PpmIdlePolicyLock.UserAffinityPrimaryGroup )
   {
-    *(_DWORD *)(a2 + 212) = qword_140F10750;
-    v9 = qword_140F10750;
+    *(_DWORD *)(a2 + 212) = *(_DWORD *)&PpmIdlePolicyLock.UserAffinityPrimaryGroup;
+    v9 = *(_DWORD *)&PpmIdlePolicyLock.UserAffinityPrimaryGroup;
   }
-  if ( v9 > HIDWORD(qword_140F10750) )
-    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140F10750);
+  if ( v9 > *(_DWORD *)&PpmIdlePolicyLock.SharedComputeUnitsUsed )
+    *(_DWORD *)(a2 + 212) = *(_DWORD *)&PpmIdlePolicyLock.SharedComputeUnitsUsed;
   PopVerifyPowerActionPolicy(a2 + 4);
   PopVerifyPowerActionPolicy(a2 + 16);
   PopVerifyPowerActionPolicy(a2 + 28);
   PopVerifyPowerActionPolicy(a2 + 48);
   v10 = (int *)(a2 + 40);
-  p_Thread = (union _KWAIT_BLOCK::$2ACC67C642B9E501E8652DFF4606A234 *)&stru_140F10828.WaitBlock[0].Thread;
+  v11 = &PpmIdlePolicyLock.Padding[1];
   if ( a2 != -40 )
   {
     v12 = *v10;
@@ -143,8 +143,8 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
       {
         if ( v12 == 5 )
         {
-          if ( PopIsHiberbootSupported((__int64)&stru_140F10828.WaitBlock[0].Thread)
-            || (unsigned __int8)PopIsHibernateSupported(p_Thread) )
+          if ( PopIsHiberbootSupported((__int64)&PpmIdlePolicyLock.Padding[1])
+            || (unsigned __int8)PopIsHibernateSupported(v11) )
           {
             goto LABEL_31;
           }
@@ -157,25 +157,25 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
             if ( v13 != 2 )
               goto LABEL_31;
 LABEL_119:
-            if ( !stru_140F10828.WaitBlockFill5[27] )
+            if ( !BYTE3(PpmIdlePolicyLock.Padding[1]) )
             {
               v12 = 3;
-              if ( !stru_140F10828.WaitBlockFill5[28] )
+              if ( !BYTE4(PpmIdlePolicyLock.Padding[1]) )
               {
                 v12 = 4;
-                if ( !stru_140F10828.WaitBlockFill5[29] )
+                if ( !BYTE5(PpmIdlePolicyLock.Padding[1]) )
                   v12 = 1;
               }
             }
             goto LABEL_31;
           }
 LABEL_117:
-          if ( stru_140F10828.WaitBlockFill5[28] )
+          if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
             goto LABEL_31;
           v12 = 2;
           goto LABEL_119;
         }
-        if ( stru_140F10828.WaitBlockFill5[29] )
+        if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
         {
 LABEL_31:
           *v10 = v12;
@@ -197,7 +197,7 @@ LABEL_32:
       {
         if ( v14 == 5 )
         {
-          if ( PopIsHiberbootSupported((__int64)p_Thread) || (unsigned __int8)PopIsHibernateSupported(p_Thread) )
+          if ( PopIsHiberbootSupported((__int64)v11) || (unsigned __int8)PopIsHibernateSupported(v11) )
             goto LABEL_39;
           v14 = 4;
         }
@@ -208,25 +208,25 @@ LABEL_32:
             if ( v15 != 2 )
               goto LABEL_39;
 LABEL_130:
-            if ( !stru_140F10828.WaitBlockFill5[27] )
+            if ( !BYTE3(PpmIdlePolicyLock.Padding[1]) )
             {
               v14 = 3;
-              if ( !stru_140F10828.WaitBlockFill5[28] )
+              if ( !BYTE4(PpmIdlePolicyLock.Padding[1]) )
               {
                 v14 = 4;
-                if ( !stru_140F10828.WaitBlockFill5[29] )
+                if ( !BYTE5(PpmIdlePolicyLock.Padding[1]) )
                   v14 = 1;
               }
             }
             goto LABEL_39;
           }
 LABEL_128:
-          if ( stru_140F10828.WaitBlockFill5[28] )
+          if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
             goto LABEL_39;
           v14 = 2;
           goto LABEL_130;
         }
-        if ( stru_140F10828.WaitBlockFill5[29] )
+        if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
         {
 LABEL_39:
           *v5 = v14;
@@ -249,7 +249,7 @@ LABEL_40:
       {
         if ( v17 == 5 )
         {
-          if ( PopIsHiberbootSupported((__int64)p_Thread) || (unsigned __int8)PopIsHibernateSupported(p_Thread) )
+          if ( PopIsHiberbootSupported((__int64)v11) || (unsigned __int8)PopIsHibernateSupported(v11) )
             goto LABEL_47;
           v17 = 4;
         }
@@ -260,25 +260,25 @@ LABEL_40:
             if ( v18 != 2 )
               goto LABEL_47;
 LABEL_141:
-            if ( !stru_140F10828.WaitBlockFill5[27] )
+            if ( !BYTE3(PpmIdlePolicyLock.Padding[1]) )
             {
               v17 = 3;
-              if ( !stru_140F10828.WaitBlockFill5[28] )
+              if ( !BYTE4(PpmIdlePolicyLock.Padding[1]) )
               {
                 v17 = 4;
-                if ( !stru_140F10828.WaitBlockFill5[29] )
+                if ( !BYTE5(PpmIdlePolicyLock.Padding[1]) )
                   v17 = 1;
               }
             }
             goto LABEL_47;
           }
 LABEL_139:
-          if ( stru_140F10828.WaitBlockFill5[28] )
+          if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
             goto LABEL_47;
           v17 = 2;
           goto LABEL_141;
         }
-        if ( stru_140F10828.WaitBlockFill5[29] )
+        if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
         {
 LABEL_47:
           *v16 = v17;
@@ -299,7 +299,7 @@ LABEL_48:
     goto LABEL_56;
   if ( v20 == 5 )
   {
-    if ( PopIsHiberbootSupported((__int64)p_Thread) || (unsigned __int8)PopIsHibernateSupported(v38) )
+    if ( PopIsHiberbootSupported((__int64)v11) || (unsigned __int8)PopIsHibernateSupported(v38) )
       goto LABEL_55;
     v20 = 4;
   }
@@ -310,25 +310,25 @@ LABEL_48:
       if ( v21 != 2 )
         goto LABEL_55;
 LABEL_152:
-      if ( !stru_140F10828.WaitBlockFill5[27] )
+      if ( !BYTE3(PpmIdlePolicyLock.Padding[1]) )
       {
         v20 = 3;
-        if ( !stru_140F10828.WaitBlockFill5[28] )
+        if ( !BYTE4(PpmIdlePolicyLock.Padding[1]) )
         {
           v20 = 4;
-          if ( !stru_140F10828.WaitBlockFill5[29] )
+          if ( !BYTE5(PpmIdlePolicyLock.Padding[1]) )
             v20 = 1;
         }
       }
       goto LABEL_55;
     }
 LABEL_150:
-    if ( stru_140F10828.WaitBlockFill5[28] )
+    if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
       goto LABEL_55;
     v20 = 2;
     goto LABEL_152;
   }
-  if ( !stru_140F10828.WaitBlockFill5[29] )
+  if ( !BYTE5(PpmIdlePolicyLock.Padding[1]) )
   {
     v20 = 3;
     goto LABEL_150;
@@ -358,8 +358,8 @@ LABEL_56:
         {
           if ( v26 == 5 )
           {
-            if ( PopIsHiberbootSupported((__int64)&stru_140F10828.WaitBlock[0].Thread)
-              || (unsigned __int8)PopIsHibernateSupported(&stru_140F10828.WaitBlockFill11[24]) )
+            if ( PopIsHiberbootSupported((__int64)&PpmIdlePolicyLock.Padding[1])
+              || (unsigned __int8)PopIsHibernateSupported(&PpmIdlePolicyLock.Padding[1]) )
             {
               goto LABEL_65;
             }
@@ -372,25 +372,25 @@ LABEL_56:
               if ( v27 != 2 )
                 goto LABEL_65;
 LABEL_165:
-              if ( !stru_140F10828.WaitBlockFill5[27] )
+              if ( !BYTE3(PpmIdlePolicyLock.Padding[1]) )
               {
                 v26 = 3;
-                if ( !stru_140F10828.WaitBlockFill5[28] )
+                if ( !BYTE4(PpmIdlePolicyLock.Padding[1]) )
                 {
                   v26 = 4;
-                  if ( !stru_140F10828.WaitBlockFill5[29] )
+                  if ( !BYTE5(PpmIdlePolicyLock.Padding[1]) )
                     v26 = 1;
                 }
               }
               goto LABEL_65;
             }
 LABEL_163:
-            if ( stru_140F10828.WaitBlockFill5[28] )
+            if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
               goto LABEL_65;
             v26 = 2;
             goto LABEL_165;
           }
-          if ( stru_140F10828.WaitBlockFill5[29] )
+          if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
           {
 LABEL_65:
             *v23 = v26;
@@ -428,7 +428,7 @@ LABEL_66:
   v30 = (_DWORD *)(a2 + 88);
   v31 = *(_DWORD *)(a2 + 88);
   v32 = (_DWORD *)(a2 + 88);
-  if ( v31 && !stru_140F10828.WaitBlockFill5[31] )
+  if ( v31 && !HIBYTE(PpmIdlePolicyLock.Padding[1]) )
   {
     *v30 = 0;
     v32 = (_DWORD *)(a2 + 88);

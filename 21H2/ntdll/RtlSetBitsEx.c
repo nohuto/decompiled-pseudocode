@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetBitsEx @ 0x1800ED5B0
+ * XREFs of RtlSetBitsEx @ 0x1800ED570
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 void __fastcall RtlSetBitsEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

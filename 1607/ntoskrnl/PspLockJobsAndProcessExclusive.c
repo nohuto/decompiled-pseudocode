@@ -1,13 +1,13 @@
 /*
- * XREFs of PspLockJobsAndProcessExclusive @ 0x1404F2A94
+ * XREFs of PspLockJobsAndProcessExclusive @ 0x1404D5A20
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     PspLockJobChain @ 0x140469EEC (PspLockJobChain.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     PspLockJobChain @ 0x140468DBC (PspLockJobChain.c)
  */
 
 void __fastcall PspLockJobsAndProcessExclusive(unsigned int *a1, __int64 a2, __int64 a3)

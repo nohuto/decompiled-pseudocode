@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFreeLargePageMemory @ 0x140090970
+ * XREFs of MiFreeLargePageMemory @ 0x1400900D0
  * Callers:
- *     MiFreeMdlPageRun @ 0x140022A34 (MiFreeMdlPageRun.c)
- *     MiDeleteSubsectionPages @ 0x140061C70 (MiDeleteSubsectionPages.c)
- *     MiReturnNonPagedPoolVa @ 0x140103670 (MiReturnNonPagedPoolVa.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     MiFreeLargePages @ 0x1401F5530 (MiFreeLargePages.c)
+ *     MiFreeMdlPageRun @ 0x1400225B4 (MiFreeMdlPageRun.c)
+ *     MiDeleteSubsectionPages @ 0x1400617F0 (MiDeleteSubsectionPages.c)
+ *     MiReturnNonPagedPoolVa @ 0x1401013F0 (MiReturnNonPagedPoolVa.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     MiFreeLargePages @ 0x1401F535C (MiFreeLargePages.c)
  * Callees:
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiInsertLargePageInNodeList @ 0x1401FBB4C (MiInsertLargePageInNodeList.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiInsertLargePageInNodeList @ 0x1401FB978 (MiInsertLargePageInNodeList.c)
  */
 
 unsigned __int64 __fastcall MiFreeLargePageMemory(unsigned __int64 a1, int a2, int a3)

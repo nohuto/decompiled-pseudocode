@@ -8,30 +8,30 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlGUIDFromString(unsigned __int16 *a1, __int64 a2)
+NTSTATUS __cdecl RtlGUIDFromString(PUNICODE_STRING GuidString, PGUID Guid)
 {
-  __int64 v2; // r8
-  __int64 v4; // rax
-  unsigned int v5; // edx
-  __int64 v6; // rcx
+  unsigned __int16 *p_Data2; // r8
+  unsigned __int16 *p_Data3; // rax
+  unsigned int Length; // edx
+  wchar_t *Buffer; // rcx
   unsigned int v7; // r8d
-  __int64 v8; // rdx
-  char *v9; // rax
-  char v10; // cl
+  unsigned __int8 *v8; // rdx
+  unsigned __int8 *v9; // rax
+  unsigned __int8 v10; // cl
   __int128 v12; // [rsp+70h] [rbp-28h] BYREF
 
-  v2 = a2 + 4;
-  v4 = a2 + 6;
-  v5 = *a1;
-  v6 = *((_QWORD *)a1 + 1);
+  p_Data2 = &Guid->Data2;
+  p_Data3 = &Guid->Data3;
+  Length = GuidString->Length;
+  Buffer = GuidString->Buffer;
   v12 = 0LL;
   if ( (unsigned int)ScanHexFormat(
-                       v6,
-                       v5 >> 1,
+                       Buffer,
+                       Length >> 1,
                        L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-                       a2,
-                       v2,
-                       v4,
+                       Guid,
+                       p_Data2,
+                       p_Data3,
                        &v12,
                        (char *)&v12 + 2,
                        (char *)&v12 + 4,
@@ -40,25 +40,25 @@ __int64 __fastcall RtlGUIDFromString(unsigned __int16 *a1, __int64 a2)
                        (char *)&v12 + 10,
                        (char *)&v12 + 12,
                        (char *)&v12 + 14) == -1 )
-    return 3221225485LL;
+    return -1073741811;
   v7 = 0;
-  v8 = a2 + 9;
-  v9 = (char *)&v12 + 2;
+  v8 = &Guid->Data4[1];
+  v9 = (unsigned __int8 *)&v12 + 2;
   do
   {
     v7 += 8;
-    *(_BYTE *)(v8 - 1) = *(v9 - 2);
-    v8 += 8LL;
+    *(v8 - 1) = *(v9 - 2);
+    v8 += 8;
     v10 = *v9;
     v9 += 16;
-    *(_BYTE *)(v8 - 8) = v10;
-    *(_BYTE *)(v8 - 7) = *(v9 - 14);
-    *(_BYTE *)(v8 - 6) = *(v9 - 12);
-    *(_BYTE *)(v8 - 5) = *(v9 - 10);
-    *(_BYTE *)(v8 - 4) = *(v9 - 8);
-    *(_BYTE *)(v8 - 3) = *(v9 - 6);
-    *(_BYTE *)(v8 - 2) = *(v9 - 4);
+    *(v8 - 8) = v10;
+    *(v8 - 7) = *(v9 - 14);
+    *(v8 - 6) = *(v9 - 12);
+    *(v8 - 5) = *(v9 - 10);
+    *(v8 - 4) = *(v9 - 8);
+    *(v8 - 3) = *(v9 - 6);
+    *(v8 - 2) = *(v9 - 4);
   }
   while ( v7 < 8 );
-  return 0LL;
+  return 0;
 }

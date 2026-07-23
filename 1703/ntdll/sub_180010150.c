@@ -11,30 +11,28 @@
  *     ZwTraceControl @ 0x1800A8990 (ZwTraceControl.c)
  */
 
-__int64 sub_180010150()
+__int64 __fastcall sub_180010150(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  char v1; // [rsp+20h] [rbp-30h]
-  _BYTE v2[8]; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v3; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v4; // [rsp+40h] [rbp-10h] BYREF
-  int v5; // [rsp+78h] [rbp+28h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-20h] BYREF
+  HANDLE EventHandle; // [rsp+38h] [rbp-18h] BYREF
+  PTP_WAIT WaitReturn; // [rsp+40h] [rbp-10h] BYREF
+  int InputBuffer; // [rsp+78h] [rbp+28h] BYREF
 
-  v4 = 0LL;
-  v3 = 0LL;
-  v1 = 0;
-  if ( (int)ZwCreateEvent(&v3, 2031619LL, 0LL, 1LL, v1) >= 0 )
+  WaitReturn = 0LL;
+  EventHandle = 0LL;
+  if ( ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, SynchronizationEvent, 0) >= 0 )
   {
-    if ( (int)TpAllocWait(&v4, sub_180052270, v3, 0LL) >= 0 )
+    if ( TpAllocWait(&WaitReturn, sub_180052270, EventHandle, 0LL) >= 0 )
     {
-      TpSetWaitEx(v4, v3, 0LL, 0LL);
-      v5 = v3;
-      if ( (int)ZwTraceControl(27LL, &v5, 4LL, 0LL, 0, v2) >= 0 )
+      TpSetWaitEx(WaitReturn, EventHandle, 0LL, 0LL);
+      InputBuffer = (int)EventHandle;
+      if ( ZwTraceControl(EtwAddNotificationEvent, &InputBuffer, 4u, 0LL, 0, &ReturnLength) >= 0 )
         return 1LL;
     }
-    if ( v4 )
-      TpReleaseWait(v4);
+    if ( WaitReturn )
+      TpReleaseWait(WaitReturn);
   }
-  if ( v3 )
-    ZwClose(v3);
+  if ( EventHandle )
+    ZwClose(EventHandle);
   return 0LL;
 }

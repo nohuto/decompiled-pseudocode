@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920
+ * XREFs of CmpGetSecurityCacheEntryForKcbStack @ 0x1405D9920
  * Callers:
- *     CmpCheckKeyOwnerForPca @ 0x140580A4C (CmpCheckKeyOwnerForPca.c)
- *     CmpGetSecurityDescriptorForKcbStackEx @ 0x140580AA0 (CmpGetSecurityDescriptorForKcbStackEx.c)
- *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmpQueryKeySecurity @ 0x1405CB550 (CmpQueryKeySecurity.c)
- *     CmpCheckNotifyAccess @ 0x1405DC224 (CmpCheckNotifyAccess.c)
- *     CmpCheckCreateAccessOnKcbStack @ 0x1406B55B4 (CmpCheckCreateAccessOnKcbStack.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpCheckKcbStackAccess @ 0x1407F47E4 (CmpCheckKcbStackAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F48C0 (CmpCheckKeyBodyAccess.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F4E14 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpGetSecurityDescriptorForKcbStack @ 0x1407F54C4 (CmpGetSecurityDescriptorForKcbStack.c)
- *     CmpSnapshotKcbStackSecurity @ 0x1407F57AC (CmpSnapshotKcbStackSecurity.c)
+ *     CmpCheckKeyOwnerForPca @ 0x140581A4C (CmpCheckKeyOwnerForPca.c)
+ *     CmpGetSecurityDescriptorForKcbStackEx @ 0x140581AA0 (CmpGetSecurityDescriptorForKcbStackEx.c)
+ *     CmpCreateChild @ 0x1405AC7A4 (CmpCreateChild.c)
+ *     CmpQueryKeySecurity @ 0x1405CC550 (CmpQueryKeySecurity.c)
+ *     CmpCheckNotifyAccess @ 0x1405DD224 (CmpCheckNotifyAccess.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x1406B6854 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpCheckKcbStackAccess @ 0x1407F59E4 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x1407F5AC0 (CmpCheckKeyBodyAccess.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F6014 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpGetSecurityDescriptorForKcbStack @ 0x1407F66C4 (CmpGetSecurityDescriptorForKcbStack.c)
+ *     CmpSnapshotKcbStackSecurity @ 0x1407F69AC (CmpSnapshotKcbStackSecurity.c)
  * Callees:
- *     CmGetKCBCacheSecurity @ 0x1405D8A10 (CmGetKCBCacheSecurity.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmRmIsKCBVisible @ 0x140699930 (CmRmIsKCBVisible.c)
+ *     CmGetKCBCacheSecurity @ 0x1405D9A10 (CmGetKCBCacheSecurity.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405D9AC0 (CmpGetKcbAtLayerHeight.c)
+ *     CmRmIsKCBVisible @ 0x14069AAF0 (CmRmIsKCBVisible.c)
  */
 
 __int64 __fastcall CmpGetSecurityCacheEntryForKcbStack(__int64 a1, __int64 a2, _WORD *a3)

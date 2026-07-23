@@ -9,10 +9,6 @@
 
 void __fastcall TppDestroyTimer(_QWORD *a1)
 {
-  unsigned __int64 v2; // rdx
-  volatile signed __int32 *v3; // r8
-  unsigned __int64 v4; // r9
-
   TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
-  TppCleanupGroupMemberDestroy(a1, v2, v3, v4);
+  TppCleanupGroupMemberDestroy(a1);
 }

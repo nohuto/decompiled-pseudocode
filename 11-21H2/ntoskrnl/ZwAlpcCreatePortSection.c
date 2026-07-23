@@ -1,14 +1,21 @@
 /*
  * XREFs of ZwAlpcCreatePortSection @ 0x14041C6E0
  * Callers:
- *     DifZwAlpcCreatePortSectionWrapper @ 0x14061D070 (DifZwAlpcCreatePortSectionWrapper.c)
+ *     sub_14061D070 @ 0x14061D070 (sub_14061D070.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreatePortSection(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(PortHandle, *(_QWORD *)&Flags);
 }

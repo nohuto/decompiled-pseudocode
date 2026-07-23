@@ -14,12 +14,12 @@ __int64 __fastcall sub_1800031C4(__int64 a1, unsigned int a2)
   unsigned int v3; // eax
   unsigned int v4; // eax
   int v5; // eax
-  __int64 v7; // rcx
+  LONG v7; // ecx
 
   if ( a2 - 1 <= 0x66 || *(_QWORD *)a1 != 0x52494443534552LL || *(_DWORD *)(a1 + 8) != 3 )
   {
 LABEL_18:
-    v7 = 13LL;
+    v7 = 13;
     goto LABEL_19;
   }
   v3 = *(_DWORD *)(a1 + 52);
@@ -34,7 +34,7 @@ LABEL_18:
         {
           if ( a2 && a2 < (unsigned int)sub_180003278() )
           {
-            v7 = 24LL;
+            v7 = 24;
             goto LABEL_19;
           }
           v5 = *(_DWORD *)(a1 + 72);
@@ -52,7 +52,7 @@ LABEL_18:
       }
     }
   }
-  v7 = 536936962LL;
+  v7 = 536936962;
 LABEL_19:
   RtlSetLastWin32Error(v7);
   return 0LL;

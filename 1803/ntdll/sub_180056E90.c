@@ -15,15 +15,7 @@ __int64 __fastcall sub_180056E90(unsigned int a1)
 {
   int v2; // esi
   unsigned int v3; // ebx
-  int v5; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-50h]
-  __int64 v7; // [rsp+30h] [rbp-48h]
-  __int64 v8; // [rsp+38h] [rbp-40h]
-  __int128 v9; // [rsp+40h] [rbp-38h]
-  __int64 v10; // [rsp+50h] [rbp-28h]
-  int v11; // [rsp+58h] [rbp-20h]
-  int v12; // [rsp+5Ch] [rbp-1Ch]
-  int v13; // [rsp+60h] [rbp-18h]
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [rsp+20h] [rbp-58h] BYREF
 
   v2 = 0;
   sub_180056DF4();
@@ -41,25 +33,17 @@ __int64 __fastcall sub_180056E90(unsigned int a1)
   }
   if ( v3 > 1 && !byte_18015C280 )
   {
-    v2 = sub_180057618(&qword_18015D110, 1LL);
+    v2 = sub_180057618(&Pool, 1LL);
     if ( v2 >= 0 )
     {
-      TpSetPoolWorkerThreadIdleTimeout(qword_18015D110, -300000000LL);
-      TpSetPoolMaxThreads(qword_18015D110, v3 - 1);
-      v7 = 0LL;
-      v8 = 0LL;
-      v10 = 0LL;
-      v11 = 0;
-      v9 = 0LL;
-      v6 = qword_18015D110;
-      v5 = 3;
-      v12 = 1;
-      v13 = 72;
-      return (unsigned int)((__int64 (__fastcall *)(__int64 *, void (*)(), _QWORD, int *))TpAllocWork)(
-                             &qword_18015C1F0,
-                             sub_180042660,
-                             0LL,
-                             &v5);
+      TpSetPoolWorkerThreadIdleTimeout(Pool, -300000000LL);
+      TpSetPoolMaxThreads(Pool, v3 - 1);
+      memset(&CallbackEnviron.CleanupGroup, 0, 44);
+      CallbackEnviron.Pool = Pool;
+      CallbackEnviron.Version = 3;
+      CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+      CallbackEnviron.Size = 72;
+      return (unsigned int)TpAllocWork(&Work, (PTP_WORK_CALLBACK)sub_180042660, 0LL, &CallbackEnviron);
     }
   }
   return (unsigned int)v2;

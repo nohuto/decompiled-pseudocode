@@ -1,7 +1,7 @@
 /*
- * XREFs of KeQueryImplementedPhysicalBits @ 0x1405C3720
+ * XREFs of KeQueryImplementedPhysicalBits @ 0x1405C0CF0
  * Callers:
- *     KeQueryKvaShadowInformation @ 0x14073C9A0 (KeQueryKvaShadowInformation.c)
+ *     KeQueryKvaShadowInformation @ 0x14073A8D0 (KeQueryKvaShadowInformation.c)
  * Callees:
  *     <none>
  */

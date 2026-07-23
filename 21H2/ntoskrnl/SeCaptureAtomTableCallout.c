@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCaptureAtomTableCallout @ 0x1402BB4B4
+ * XREFs of SeCaptureAtomTableCallout @ 0x1402396C4
  * Callers:
- *     PsConvertToGuiThread @ 0x14069EF80 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x1405FE150 (PsConvertToGuiThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
  */
 
 LONG_PTR SeCaptureAtomTableCallout()

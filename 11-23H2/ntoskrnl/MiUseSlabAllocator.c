@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUseSlabAllocator @ 0x1402DEAC0
+ * XREFs of MiUseSlabAllocator @ 0x1402DED50
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiFinalizeImageHeaderPage @ 0x140330434 (MiFinalizeImageHeaderPage.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiGetHardFaultPages @ 0x1402DF504 (MiGetHardFaultPages.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiFinalizeImageHeaderPage @ 0x1403306C4 (MiFinalizeImageHeaderPage.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiGetSlabAllocatorTypeByProtection @ 0x14046D60E (MiGetSlabAllocatorTypeByProtection.c)
+ *     MiGetSlabAllocatorTypeByProtection @ 0x14046DA0E (MiGetSlabAllocatorTypeByProtection.c)
  */
 
 __int64 __fastcall MiUseSlabAllocator(__int64 a1, __int64 *a2, __int16 a3, _DWORD *a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExSetResourceOwnerPointerEx @ 0x140096EA0
+ * XREFs of ExSetResourceOwnerPointerEx @ 0x1400966A0
  * Callers:
- *     ExSetResourceOwnerPointer @ 0x14013293C (ExSetResourceOwnerPointer.c)
+ *     ExSetResourceOwnerPointer @ 0x140132EAC (ExSetResourceOwnerPointer.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     ExpFindCurrentThread @ 0x1400970C0 (ExpFindCurrentThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1402283EC (PerfLogExecutiveResourceSetOwnerPointer.c)
- *     EXP_LOCK_RESOURCE @ 0x14022D8A4 (EXP_LOCK_RESOURCE.c)
- *     EXP_UNLOCK_RESOURCE @ 0x14022D918 (EXP_UNLOCK_RESOURCE.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     ExpFindCurrentThread @ 0x1400968C0 (ExpFindCurrentThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PerfLogExecutiveResourceSetOwnerPointer @ 0x140228218 (PerfLogExecutiveResourceSetOwnerPointer.c)
+ *     EXP_LOCK_RESOURCE @ 0x14022D6D0 (EXP_LOCK_RESOURCE.c)
+ *     EXP_UNLOCK_RESOURCE @ 0x14022D744 (EXP_UNLOCK_RESOURCE.c)
  */
 
 void __stdcall ExSetResourceOwnerPointerEx(PERESOURCE Resource, PVOID OwnerPointer, ULONG Flags)

@@ -16,19 +16,19 @@
  *     sub_18001EFB4 @ 0x18001EFB4 (sub_18001EFB4.c)
  */
 
-__int64 __fastcall sub_1800093FC(__int64 a1, int a2)
+__int64 __fastcall sub_1800093FC(size_t Size, int a2)
 {
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // r8
 
-  v4 = RtlRunOnceExecuteOnce(&unk_18015C300, sub_180008C50, 0LL, 0LL);
+  v4 = RtlRunOnceExecuteOnce(&RunOnce, (PRTL_RUN_ONCE_INIT_FN)InitFn, 0LL, 0LL);
   v5 = 0LL;
   if ( v4 >= 0 )
   {
     if ( a2 )
-      return sub_18001EFB4(*(_QWORD *)&qword_18015BFE0, a1, a1, 0x1000000LL);
+      return sub_18001EFB4(qword_18015BFE0, Size);
     else
-      return sub_180009468(*(_QWORD *)&qword_18015BFE0, a1, 0x1000000LL, 0LL);
+      return sub_180009468(qword_18015BFE0);
   }
   return v5;
 }

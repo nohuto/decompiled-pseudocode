@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpPrepareDriverLoading @ 0x14049D6CC
+ * XREFs of PnpPrepareDriverLoading @ 0x140515AD8
  * Callers:
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
  *     IopInitializeBuiltinDriver @ 0x14079BB9C (IopInitializeBuiltinDriver.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PpCheckInDriverDatabase @ 0x14049D7A4 (PpCheckInDriverDatabase.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     PnpSetBlockedDriverEvent @ 0x140642CD0 (PnpSetBlockedDriverEvent.c)
+ *     PpCheckInDriverDatabase @ 0x140515BB0 (PpCheckInDriverDatabase.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PnpSetBlockedDriverEvent @ 0x140642DB4 (PnpSetBlockedDriverEvent.c)
  */
 
 __int64 __fastcall PnpPrepareDriverLoading(int a1, void *a2, void *a3, int a4, _DWORD *a5)

@@ -15,7 +15,7 @@ __int64 __fastcall sub_18002DE34(__int64 a1)
   _QWORD *v4; // rsi
   __int64 result; // rax
   struct _PEB *v6; // rcx
-  __int64 v7; // r8
+  SIZE_T v7; // r8
   _QWORD *Heap; // rax
 
   v1 = word_18015D010;
@@ -35,7 +35,7 @@ LABEL_5:
   v6 = NtCurrentPeb();
   v7 = 8LL * (unsigned __int16)(2 * word_180159750);
   word_180159750 *= 2;
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)v6->ProcessHeap, 0, v7);
+  Heap = RtlAllocateHeap(v6->ProcessHeap, 0, v7);
   v4 = Heap;
   if ( Heap )
   {
@@ -43,7 +43,7 @@ LABEL_5:
     memmove(Heap, off_180156A38, 8LL * (unsigned __int16)word_18015D010);
     if ( off_180156A38 != &unk_18015AB00 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)off_180156A38);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, off_180156A38);
       v1 = word_18015D010;
     }
     off_180156A38 = v4;

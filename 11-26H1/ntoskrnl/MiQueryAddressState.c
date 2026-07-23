@@ -1,28 +1,28 @@
 /*
- * XREFs of MiQueryAddressState @ 0x140305180
+ * XREFs of MiQueryAddressState @ 0x1402E7200
  * Callers:
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
- *     MiQueryAddressSpan @ 0x140304F70 (MiQueryAddressSpan.c)
- *     MiComparePteProtections @ 0x1403069EC (MiComparePteProtections.c)
- *     MiAllowProtectionChange @ 0x140306C24 (MiAllowProtectionChange.c)
- *     MiObtainRotateProtectionRanges @ 0x1404D7300 (MiObtainRotateProtectionRanges.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
+ *     MiQueryAddressSpan @ 0x1402E6FF0 (MiQueryAddressSpan.c)
+ *     MiComparePteProtections @ 0x1402E8A6C (MiComparePteProtections.c)
+ *     MiAllowProtectionChange @ 0x1402E8CA4 (MiAllowProtectionChange.c)
+ *     MiObtainRotateProtectionRanges @ 0x1404D0AD0 (MiObtainRotateProtectionRanges.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiQueryVadForVaAttributes @ 0x140305C54 (MiQueryVadForVaAttributes.c)
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
- *     MiFaultInPagedPool @ 0x140306688 (MiFaultInPagedPool.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiIsLazyStampedPte @ 0x1404893A8 (MiIsLazyStampedPte.c)
- *     MiQueryVaLargePage @ 0x140526064 (MiQueryVaLargePage.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiQueryVadForVaAttributes @ 0x1402E7CD4 (MiQueryVadForVaAttributes.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
+ *     MiFaultInPagedPool @ 0x1402E8708 (MiFaultInPagedPool.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiIsLazyStampedPte @ 0x140482EE8 (MiIsLazyStampedPte.c)
+ *     MiQueryVaLargePage @ 0x1405286D4 (MiQueryVaLargePage.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiQueryAddressState(
@@ -111,7 +111,7 @@ void __fastcall MiQueryAddressState(
   v61 = 0LL;
   CurrentThread = KeGetCurrentThread();
   p_Blink = (__int64)&CurrentThread->ApcState.Process[2].ReadyListHead.Blink;
-  LOWORD(CurrentThread) = **(_WORD **)(stru_140E2EB88.ThreadLock
+  LOWORD(CurrentThread) = **(_WORD **)(stru_140E2ED08.ThreadLock
                                      + 8LL * HIWORD(CurrentThread->ApcState.Process[2].ProcessListEntry.Blink));
   v45 = p_Blink;
   v72 = (__int16)CurrentThread;
@@ -258,7 +258,7 @@ LABEL_42:
           goto LABEL_14;
         if ( v47 && (unsigned int)MiPageTableLockIsContended(v45, v47, v16)
           || ((v40 = *(_DWORD *)(v45 + 184) & 0xF, v40 == 5) || v40 <= 4u)
-          && ((*(_DWORD *)(v45 + 184) & 0xF) != 1 ? (v41 = (__int64 *)(v45 + 192)) : (v41 = &qword_140E37800),
+          && ((*(_DWORD *)(v45 + 184) & 0xF) != 1 ? (v41 = (__int64 *)(v45 + 192)) : (v41 = &qword_140E37980),
               (v42 = *v41, (MmInternal = KeGetCurrentPrcb()->MmInternal) == 0LL) ? (v44 = 0) : (v44 = MmInternal[81]),
               (*(_DWORD *)(((unsigned __int64)v44 << 6) + v42) & 0x40000000) != 0) )
         {
@@ -322,12 +322,12 @@ LABEL_14:
     while ( v25 >= 0xFFFFF68000000000uLL );
     v10 = a6;
   }
-  if ( v25 < 0xFFFF800000000000uLL || v25 >= qword_140E2DE40 && v25 <= qword_140E2DE50 )
+  if ( v25 < 0xFFFF800000000000uLL || v25 >= qword_140E2DFC0 && v25 <= qword_140E2DFD0 )
     AnyMultiplexedVm = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
   else
     AnyMultiplexedVm = (struct _LIST_ENTRY **)MiGetAnyMultiplexedVm(2LL, 0LL);
   v64 = 4149;
-  v28 = MiFastLockLeafPageTable((signed __int64)AnyMultiplexedVm, v24, 0);
+  v28 = MiFastLockLeafPageTable((__int64)AnyMultiplexedVm, v24, 0);
   if ( v28 )
   {
     v29 = v28 - 1;

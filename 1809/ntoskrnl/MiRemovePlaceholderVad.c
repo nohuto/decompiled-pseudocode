@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRemovePlaceholderVad @ 0x1402C4EBC
+ * XREFs of MiRemovePlaceholderVad @ 0x1402C50AC
  * Callers:
- *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
- *     MiPreparePlaceholderVadReplacement @ 0x14085C830 (MiPreparePlaceholderVadReplacement.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140852C58 (MiCoalescePlaceholderAllocations.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x14085DA90 (MiPreparePlaceholderVadReplacement.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,12 +11,12 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiRemoveVad @ 0x1402C5120 (MiRemoveVad.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiRemoveVad @ 0x1402C5310 (MiRemoveVad.c)
  */
 
 __int64 __fastcall MiRemovePlaceholderVad(__int64 a1)
@@ -94,7 +94,7 @@ LABEL_13:
   }
   v16->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v16->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v10->LockEntries[v15], SessionId);
+    KiAbEntryRemoveFromTree(&v10->LockEntries[v15].TreeNode, SessionId);
   v22 = 0;
   v22 = v16->BoostBitmap.AllFields & 0x1FFFF;
   v16->BoostBitmap.AllFields &= 0xFFFE0000;

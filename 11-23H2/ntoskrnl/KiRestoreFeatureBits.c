@@ -1,23 +1,19 @@
 /*
- * XREFs of KiRestoreFeatureBits @ 0x140576690
+ * XREFs of KiRestoreFeatureBits @ 0x140576BD0
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BF44 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x14056C604 (KeRestoreProcessorSpecificFeatures.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382850 (HviIsAnyHypervisorPresent.c)
- *     KeInitializeCatRegisters @ 0x1403837AC (KeInitializeCatRegisters.c)
- *     KiSetVirtualMitigationControl @ 0x140410C90 (KiSetVirtualMitigationControl.c)
- *     KiApplyProcessorErrata @ 0x140410D50 (KiApplyProcessorErrata.c)
+ *     KeInitializeCatRegisters @ 0x14038398C (KeInitializeCatRegisters.c)
+ *     KiSetVirtualMitigationControl @ 0x140410EF0 (KiSetVirtualMitigationControl.c)
+ *     KiApplyProcessorErrata @ 0x140410F5C (KiApplyProcessorErrata.c)
  *     KiCheckMicrocode @ 0x140A8C8B4 (KiCheckMicrocode.c)
  */
 
 __int64 KiRestoreFeatureBits()
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  unsigned __int64 v1; // rdx
-  char CpuType; // al
-  unsigned __int64 v3; // rax
-  unsigned __int64 v4; // rax
-  unsigned __int64 v5; // rax
+  unsigned __int64 v1; // rax
+  unsigned __int64 v2; // rax
   __int64 result; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
@@ -31,34 +27,20 @@ __int64 KiRestoreFeatureBits()
   if ( (KeFeatureBits2 & 0x8000) != 0 )
     __writemsr(0x122u, CurrentPrcb->MsrIa32TsxCtrl);
   KeInitializeCatRegisters();
-  v1 = 0LL;
   __writemsr(0x174u, 0LL);
   __writemsr(0x176u, 0LL);
   __writemsr(0x175u, 0LL);
-  if ( Feature_MSRC101641_Enabled )
-  {
-    KiApplyProcessorErrata(CurrentPrcb);
-  }
-  else if ( CurrentPrcb->CpuVendor == 1 )
-  {
-    CpuType = CurrentPrcb->CpuType;
-    if ( CpuType > 15 && CpuType != 17 && !HviIsAnyHypervisorPresent() )
-    {
-      v3 = __readmsr(0xC0011029) | 2;
-      v1 = HIDWORD(v3);
-      __writemsr(0xC0011029, v3);
-    }
-  }
+  KiApplyProcessorErrata(CurrentPrcb);
   if ( KiFlushPcid && !VslVsmEnabled )
   {
-    v4 = __readcr3();
-    __writecr3(v4 | 2);
+    v1 = __readcr3();
+    __writecr3(v1 | 2);
   }
-  KiCheckMicrocode(CurrentPrcb, v1);
+  KiCheckMicrocode(CurrentPrcb);
   if ( KiUserCetAllowed )
   {
-    v5 = __readcr4();
-    __writecr4(v5 | 0x800000);
+    v2 = __readcr4();
+    __writecr4(v2 | 0x800000);
   }
   result = (unsigned int)KiHresetMask;
   if ( (_DWORD)KiHresetMask )

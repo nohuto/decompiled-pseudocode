@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUnloadKey2 @ 0x14071F1F0
+ * XREFs of NtUnloadKey2 @ 0x140720490
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmUnloadKey @ 0x140691E18 (CmUnloadKey.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmUnloadKey @ 0x140692FD8 (CmUnloadKey.c)
  */
 
 NTSTATUS __stdcall NtUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)

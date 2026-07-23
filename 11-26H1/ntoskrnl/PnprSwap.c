@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprSwap @ 0x1405DBE70
+ * XREFs of PnprSwap @ 0x1405DE720
  * Callers:
- *     PnprEndMirroring @ 0x140BF1670 (PnprEndMirroring.c)
- *     PnprInitiateReplaceOperation @ 0x140BF1744 (PnprInitiateReplaceOperation.c)
+ *     PnprEndMirroring @ 0x140BF7670 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x140BF7744 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     PnprSwapFinalize @ 0x1405DC07C (PnprSwapFinalize.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnprMirrorMarkedPages @ 0x140BF1F18 (PnprMirrorMarkedPages.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     PnprSwapFinalize @ 0x1405DE92C (PnprSwapFinalize.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnprMirrorMarkedPages @ 0x140BF7F18 (PnprMirrorMarkedPages.c)
  */
 
 __int64 __fastcall PnprSwap(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall PnprSwap(__int64 a1, __int64 a2)
       v3 = PnprContext;
       v4 = *(_DWORD *)(PnprContext + 33288);
       if ( !v4 )
-        v4 = 2826;
+        v4 = 2607;
       v5 = *(_DWORD *)(PnprContext + 33292);
       *(_DWORD *)(PnprContext + 33288) = v4;
       if ( !v5 )
@@ -63,7 +63,7 @@ LABEL_10:
       v3 = PnprContext;
       v7 = *(_DWORD *)(PnprContext + 33288);
       if ( !v7 )
-        v7 = 2846;
+        v7 = 2627;
       *(_DWORD *)(PnprContext + 33288) = v7;
       v5 = *(_DWORD *)(v3 + 33292);
       if ( !v5 )

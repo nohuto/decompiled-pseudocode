@@ -1,10 +1,10 @@
 /*
- * XREFs of CarDeleteRuleOverrideEntry @ 0x1406167CC
+ * XREFs of CarDeleteRuleOverrideEntry @ 0x140614D8C
  * Callers:
- *     CarDeregisterRuleClassConfiguration @ 0x140616860 (CarDeregisterRuleClassConfiguration.c)
- *     CarDeregisterRuleOverride @ 0x140616900 (CarDeregisterRuleOverride.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x140614E20 (CarDeregisterRuleClassConfiguration.c)
+ *     CarDeregisterRuleOverride @ 0x140614EC0 (CarDeregisterRuleOverride.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CarDeleteRuleOverrideEntry(void **a1)

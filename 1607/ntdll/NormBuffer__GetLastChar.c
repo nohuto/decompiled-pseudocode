@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__GetLastChar @ 0x1800F1118
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180058890 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180058880 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     <none>
  */

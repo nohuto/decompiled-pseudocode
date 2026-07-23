@@ -1,12 +1,12 @@
 /*
- * XREFs of GetOperatorIndexByName @ 0x1409D3BB8
+ * XREFs of GetOperatorIndexByName @ 0x1409D3DB8
  * Callers:
- *     GetConditionToken @ 0x1409D33A8 (GetConditionToken.c)
+ *     GetConditionToken @ 0x1409D35A8 (GetConditionToken.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     wcsncpy_s @ 0x1403DFF30 (wcsncpy_s.c)
- *     wcstok_s @ 0x1403E0034 (wcstok_s.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     wcsncpy_s @ 0x1403E0110 (wcsncpy_s.c)
+ *     wcstok_s @ 0x1403E0214 (wcstok_s.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of PspDestroyProcessParameterOverrides @ 0x1408A496C
+ * XREFs of PspDestroyProcessParameterOverrides @ 0x140A3564C
  * Callers:
- *     PspDeleteCreateProcessContext @ 0x1408A4758 (PspDeleteCreateProcessContext.c)
- *     PspGetProcessParameterOverrides @ 0x140A50170 (PspGetProcessParameterOverrides.c)
+ *     PspDeleteCreateProcessContext @ 0x1408FAD80 (PspDeleteCreateProcessContext.c)
+ *     PspGetProcessParameterOverrides @ 0x140A46F20 (PspGetProcessParameterOverrides.c)
  * Callees:
  *     <none>
  */

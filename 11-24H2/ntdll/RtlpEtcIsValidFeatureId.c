@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpEtcIsValidFeatureId @ 0x180146F50
+ * XREFs of RtlpEtcIsValidFeatureId @ 0x180145300
  * Callers:
- *     RtlIsFeatureEnabledForEnterprise @ 0x180146C40 (RtlIsFeatureEnabledForEnterprise.c)
+ *     RtlIsFeatureEnabledForEnterprise @ 0x180144FF0 (RtlIsFeatureEnabledForEnterprise.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1800B56AC (RtlStringCchPrintfW.c)
- *     RtlpEtcGetDwordFromRegistry @ 0x180146ED0 (RtlpEtcGetDwordFromRegistry.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlStringCchPrintfW @ 0x180081F4C (RtlStringCchPrintfW.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x180145280 (RtlpEtcGetDwordFromRegistry.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 bool __fastcall RtlpEtcIsValidFeatureId(unsigned int a1, int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeLeaveGuardedRegion @ 0x140324C40
+ * XREFs of KeLeaveGuardedRegion @ 0x140324ED0
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 void KeLeaveGuardedRegion(void)

@@ -6,17 +6,22 @@
  *     RtlQueryPackageClaims @ 0x180069F50 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD *a3, _WORD *a4, _QWORD *a5)
+__int64 __fastcall AppModelPolicy_GetPolicy_Internal(
+        __int64 a1,
+        int a2,
+        _DWORD *a3,
+        _PS_PKG_CLAIM *a4,
+        unsigned __int64 *a5)
 {
-  int PackageClaims; // r8d
+  NTSTATUS PackageClaims; // r8d
   _DWORD *v9; // rdx
 
-  PackageClaims = RtlQueryPackageClaims(-4, 0, 0, 0, 0LL, 0LL, (__int64)a4, (__int64)a5);
+  PackageClaims = RtlQueryPackageClaims((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0LL, 0LL, 0LL, 0LL, 0LL, a4, a5);
   if ( PackageClaims == -1073741275 )
   {
     *a5 = 0LL;
     PackageClaims = 0;
-    *a4 = 0;
+    LOWORD(a4->Flags) = 0;
   }
   *a3 = 0;
   if ( PackageClaims >= 0 )
@@ -37,15 +42,15 @@ __int64 __fastcall AppModelPolicy_GetPolicy_Internal(__int64 a1, int a2, _DWORD 
         {
           v9 = &unk_1801219D4;
         }
-        else if ( (*(_BYTE *)a4 & 4) != 0 )
+        else if ( (a4->Flags & 4) != 0 )
         {
           v9 = &unk_1801219B4;
         }
-        else if ( (*(_BYTE *)a4 & 8) != 0 )
+        else if ( (a4->Flags & 8) != 0 )
         {
           v9 = &unk_1801219C8;
         }
-        else if ( (*(_BYTE *)a4 & 0x40) != 0 )
+        else if ( (a4->Flags & 0x40) != 0 )
         {
           v9 = &unk_1801219CC;
         }

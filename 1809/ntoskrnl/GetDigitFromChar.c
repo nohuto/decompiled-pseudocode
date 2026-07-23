@@ -1,8 +1,8 @@
 /*
- * XREFs of GetDigitFromChar @ 0x1408A76B0
+ * XREFs of GetDigitFromChar @ 0x1408A8910
  * Callers:
- *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1408A9304 (LocalGetRelativeAttributeForString.c)
+ *     GetOperandValue @ 0x1408A8A98 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1408AA564 (LocalGetRelativeAttributeForString.c)
  * Callees:
  *     <none>
  */

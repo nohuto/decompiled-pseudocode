@@ -14,7 +14,7 @@
  *     NtMakeTemporaryObject @ 0x140539A98 (NtMakeTemporaryObject.c)
  */
 
-char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
+char __fastcall IopReassignSystemRoot(__int64 a1, _STRING *a2)
 {
   __int64 v2; // r9
   NTSTATUS v4; // eax

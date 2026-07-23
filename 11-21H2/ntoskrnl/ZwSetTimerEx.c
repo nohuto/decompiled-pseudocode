@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetTimerEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, *(_QWORD *)&TimerSetInformationClass);
+  return sub_140433F80(TimerHandle, *(_QWORD *)&TimerSetInformationClass);
 }

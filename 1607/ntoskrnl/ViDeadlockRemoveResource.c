@@ -1,12 +1,12 @@
 /*
  * XREFs of ViDeadlockRemoveResource @ 0x140715928
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1402239C0 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1402237EC (ViDeadlockRemoveMemoryRangeResources.c)
  *     ViDeadlockAddResource @ 0x14071474C (ViDeadlockAddResource.c)
  *     ViDeadlockEmptyDatabase @ 0x1407151DC (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     VfUtilAddressRangeRemove @ 0x140702BF8 (VfUtilAddressRangeRemove.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeRemove @ 0x140702C28 (VfUtilAddressRangeRemove.c)
  *     ViDeadlockPreprocessOptions @ 0x1407156D0 (ViDeadlockPreprocessOptions.c)
  *     ViDeadlockRemoveNode @ 0x1407157C4 (ViDeadlockRemoveNode.c)
  */

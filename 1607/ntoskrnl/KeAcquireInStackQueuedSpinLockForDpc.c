@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockForDpc @ 0x1400AE784
+ * XREFs of KeAcquireInStackQueuedSpinLockForDpc @ 0x1400ACCEC
  * Callers:
- *     KeInsertDeviceQueue @ 0x1400AE670 (KeInsertDeviceQueue.c)
- *     KeRemoveDeviceQueue @ 0x1400AE6E8 (KeRemoveDeviceQueue.c)
- *     KeInsertByKeyDeviceQueue @ 0x1401D682C (KeInsertByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueue @ 0x1401D68CC (KeRemoveByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1401D6998 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     KeInsertDeviceQueue @ 0x1400ACBD8 (KeInsertDeviceQueue.c)
+ *     KeRemoveDeviceQueue @ 0x1400ACC50 (KeRemoveDeviceQueue.c)
+ *     KeInsertByKeyDeviceQueue @ 0x1401D6658 (KeInsertByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x1401D66F8 (KeRemoveByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1401D67C4 (KeRemoveByKeyDeviceQueueIfBusy.c)
  * Callees:
  *     <none>
  */

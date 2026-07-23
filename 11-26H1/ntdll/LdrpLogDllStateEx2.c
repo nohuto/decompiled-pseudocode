@@ -1,29 +1,29 @@
 /*
- * XREFs of LdrpLogDllStateEx2 @ 0x18009BA10
+ * XREFs of LdrpLogDllStateEx2 @ 0x18009AB40
  * Callers:
- *     LdrLoadDll @ 0x180043A10 (LdrLoadDll.c)
- *     LdrGetDllHandle @ 0x180050FC0 (LdrGetDllHandle.c)
- *     LdrGetDllHandleEx @ 0x1800511B0 (LdrGetDllHandleEx.c)
- *     LdrpGetDllPath @ 0x18009B5E0 (LdrpGetDllPath.c)
- *     LdrpInitializeDllPath @ 0x18009B960 (LdrpInitializeDllPath.c)
+ *     LdrLoadDll @ 0x18002DF80 (LdrLoadDll.c)
+ *     LdrGetDllHandle @ 0x18003B540 (LdrGetDllHandle.c)
+ *     LdrGetDllHandleEx @ 0x18003B730 (LdrGetDllHandleEx.c)
+ *     LdrpGetDllPath @ 0x18009A710 (LdrpGetDllPath.c)
+ *     LdrpInitializeDllPath @ 0x18009AA90 (LdrpInitializeDllPath.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlCreateUnicodeString @ 0x18003DC10 (RtlCreateUnicodeString.c)
- *     LdrpLogEtwEvent @ 0x180084238 (LdrpLogEtwEvent.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlCreateUnicodeString @ 0x180028180 (RtlCreateUnicodeString.c)
+ *     LdrpLogEtwEvent @ 0x18007B5D8 (LdrpLogEtwEvent.c)
  */
 
-char __fastcall LdrpLogDllStateEx2(__int64 a1, const wchar_t *a2, const wchar_t *a3, __int16 a4)
+char __fastcall LdrpLogDllStateEx2(__int64 a1, const WCHAR *a2, const WCHAR *a3, __int16 a4)
 {
   __int64 v7; // rax
   __int64 v8; // rcx
-  char UnicodeString; // bl
-  __int128 v11; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v12; // [rsp+40h] [rbp-18h] BYREF
+  BOOLEAN v9; // bl
+  _UNICODE_STRING v11; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
-  v12 = 0LL;
+  DestinationString = 0LL;
   v11 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v7 = 2147353476LL;
@@ -32,7 +32,7 @@ char __fastcall LdrpLogDllStateEx2(__int64 a1, const wchar_t *a2, const wchar_t 
     v7 = (__int64)NtCurrentPeb();
     if ( (*(_BYTE *)(v7 + 888) & 4) != 0 )
     {
-      LODWORD(v7) = (unsigned int)RtlGetCurrentServiceSessionId();
+      LODWORD(v7) = RtlGetCurrentServiceSessionId();
       if ( (_DWORD)v7 )
       {
         v7 = (__int64)NtCurrentPeb();
@@ -45,25 +45,19 @@ char __fastcall LdrpLogDllStateEx2(__int64 a1, const wchar_t *a2, const wchar_t 
       if ( (*(_BYTE *)v8 & 0x20) != 0 )
       {
         if ( !a2 )
-          a2 = (const wchar_t *)&unk_180178474;
-        UnicodeString = RtlCreateUnicodeString((__int64)&v12, a2);
-        LOBYTE(v7) = RtlCreateUnicodeString((__int64)&v11, a3);
-        if ( UnicodeString )
+          a2 = &word_1801762D4;
+        v9 = RtlCreateUnicodeString(&DestinationString, a2);
+        LOBYTE(v7) = RtlCreateUnicodeString(&v11, a3);
+        if ( v9 )
         {
           if ( (_BYTE)v7 )
           {
-            LOBYTE(v7) = (unsigned __int8)LdrpLogEtwEvent(
-                                            a4,
-                                            0LL,
-                                            0,
-                                            0,
-                                            (unsigned __int16 *)&v11,
-                                            (unsigned __int16 *)&v12);
-            if ( *((_QWORD *)&v11 + 1) )
-              LOBYTE(v7) = RtlpSysVolFree(*((__int64 *)&v11 + 1));
+            LOBYTE(v7) = LdrpLogEtwEvent(a4, 0LL, 0, 0, &v11.Length, &DestinationString.Length);
+            if ( v11.Buffer )
+              LOBYTE(v7) = RtlpSysVolFree(v11.Buffer);
           }
-          if ( *((_QWORD *)&v12 + 1) )
-            LOBYTE(v7) = RtlpSysVolFree(*((__int64 *)&v12 + 1));
+          if ( DestinationString.Buffer )
+            LOBYTE(v7) = RtlpSysVolFree(DestinationString.Buffer);
         }
       }
     }

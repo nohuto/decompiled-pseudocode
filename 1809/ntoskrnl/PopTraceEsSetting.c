@@ -1,10 +1,10 @@
 /*
- * XREFs of PopTraceEsSetting @ 0x140192724
+ * XREFs of PopTraceEsSetting @ 0x140192864
  * Callers:
- *     PopEsUpdateSetting @ 0x140761280 (PopEsUpdateSetting.c)
+ *     PopEsUpdateSetting @ 0x140762470 (PopEsUpdateSetting.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 TLG_STATUS __fastcall PopTraceEsSetting(__int64 a1, int a2, unsigned __int8 a3)
@@ -32,7 +32,7 @@ TLG_STATUS __fastcall PopTraceEsSetting(__int64 a1, int a2, unsigned __int8 a3)
     v9 = 4LL;
     v11 = 4LL;
     v13 = 4LL;
-    return TlgWrite(&pCallbackContext, &unk_1403708CD, 0LL, 0LL, 5u, &pData);
+    return TlgWrite(&pCallbackContext, &unk_140371686, 0LL, 0LL, 5u, &pData);
   }
   return result;
 }

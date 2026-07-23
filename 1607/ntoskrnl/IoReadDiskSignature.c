@@ -1,9 +1,9 @@
 /*
- * XREFs of IoReadDiskSignature @ 0x140574C9C
+ * XREFs of IoReadDiskSignature @ 0x1405751DC
  * Callers:
  *     <none>
  * Callees:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

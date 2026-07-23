@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateDeviceInterface @ 0x1409D3B38
+ * XREFs of _CmCreateDeviceInterface @ 0x1409C3968
  * Callers:
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x1409D3CA4 (_CmCreateDeviceInterfaceWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x1409C3AD4 (_CmCreateDeviceInterfaceWorker.c)
  */
 
 __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
@@ -31,7 +31,7 @@ __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDL
   v20 = a6;
   if ( v10 )
   {
-    v11 = guard_dispatch_icall_no_overrides(a1, a2, 3LL, 2LL);
+    v11 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v11 == -1073741822 )
     {
       v10 = 0LL;
@@ -49,7 +49,7 @@ __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDL
   if ( v10 )
   {
     v16[0] = DeviceInterfaceWorker;
-    v14 = guard_dispatch_icall_no_overrides(a1, a2, 3LL, 2LL);
+    v14 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v14 != -1073741822 )
     {
       if ( v14 != -1073741536 )

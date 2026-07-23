@@ -1,13 +1,13 @@
 /*
- * XREFs of KeInitializeProfileCallback @ 0x140974F60
+ * XREFs of KeInitializeProfileCallback @ 0x140975160
  * Callers:
- *     EtwpSetPmcProfileSource @ 0x1409E6A30 (EtwpSetPmcProfileSource.c)
- *     EtwpTimeProfileStart @ 0x1409E6B48 (EtwpTimeProfileStart.c)
- *     EtwpCoverageSamplerStart @ 0x1409F33D8 (EtwpCoverageSamplerStart.c)
+ *     EtwpSetPmcProfileSource @ 0x1409E6CC0 (EtwpSetPmcProfileSource.c)
+ *     EtwpTimeProfileStart @ 0x1409E6DD8 (EtwpTimeProfileStart.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F3668 (EtwpCoverageSamplerStart.c)
  *     KiInitializeCacheErrataSupport @ 0x140B9623C (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int16 __fastcall KeInitializeProfileCallback(

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepMakeLogonSessionsSiblings @ 0x1409D00C0
+ * XREFs of SepMakeLogonSessionsSiblings @ 0x1409D02C0
  * Callers:
- *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x1409D0450 (SepRmMakeLogonSessionsSiblingsWrkr.c)
+ *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x1409D0650 (SepRmMakeLogonSessionsSiblingsWrkr.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
  */
 
 __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)

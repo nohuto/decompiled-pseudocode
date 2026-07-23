@@ -1,13 +1,13 @@
 /*
- * XREFs of KeInitializeProfileCallback @ 0x1408BC144
+ * XREFs of KeInitializeProfileCallback @ 0x1408BC2A4
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1407981D8 (EtwpEnableKernelTrace.c)
- *     EtwpSetPmcProfileSource @ 0x14093755C (EtwpSetPmcProfileSource.c)
- *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
- *     KiInitializeCacheErrataSupport @ 0x140A920CC (KiInitializeCacheErrataSupport.c)
+ *     EtwpEnableKernelTrace @ 0x1407983D8 (EtwpEnableKernelTrace.c)
+ *     EtwpSetPmcProfileSource @ 0x14093772C (EtwpSetPmcProfileSource.c)
+ *     EtwpCoverageSamplerStart @ 0x14094735C (EtwpCoverageSamplerStart.c)
+ *     KiInitializeCacheErrataSupport @ 0x140A930CC (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 unsigned __int16 __fastcall KeInitializeProfileCallback(_DWORD *a1, __int64 a2, __int64 a3, __int16 a4)

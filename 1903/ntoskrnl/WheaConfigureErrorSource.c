@@ -17,9 +17,9 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
   __int64 v2; // rbp
   volatile signed __int32 *v4; // rbx
   unsigned int v5; // r14d
-  __int64 v6; // rsi
-  __int64 v7; // rax
-  __int64 v8; // rsi
+  PRTL_BALANCED_NODE v6; // rsi
+  _RTL_BALANCED_NODE *v7; // rax
+  _RTL_BALANCED_NODE *v8; // rsi
   __int64 v9; // rax
   __int64 v10; // rax
   __int64 v11; // rax
@@ -38,7 +38,7 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&WheapConfigTableLock, v6, (ULONG_PTR)&WheapConfigTableLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 64 * v2, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64(v4, 0LL) )
@@ -47,7 +47,7 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
       v7,
       (ULONG_PTR)&WheapSourceConfiguration + 64 * v2);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   if ( !*((_BYTE *)v4 + 8) )
   {
     *((_DWORD *)v4 + 3) = *(_DWORD *)a2;

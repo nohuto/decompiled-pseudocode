@@ -22,21 +22,25 @@
  *     ObpVerifyCreatorAccessCheck @ 0x1404AA73C (ObpVerifyCreatorAccessCheck.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  HANDLE *v6; // r12
+  PHANDLE v6; // r12
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v9; // rdi
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   unsigned __int64 v11; // rbx
   int v12; // eax
   _QWORD *v13; // r15
   unsigned __int64 v14; // rbx
   size_t v15; // r8
   __int64 v16; // rcx
-  int v17; // edi
-  NTSTATUS inserted; // r14d
+  NTSTATUS v17; // edi
+  int inserted; // r14d
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v20; // rdi
   __int64 v21; // rax
@@ -53,16 +57,16 @@ __int64 __fastcall NtCreatePrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 
   PVOID P; // [rsp+68h] [rbp-30h]
   HANDLE Handle; // [rsp+70h] [rbp-28h] BYREF
 
-  v6 = a1;
+  v6 = NamespaceHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      a1 = (HANDLE *)MmUserProbeAddress;
-    *a1 = *a1;
+    if ( (unsigned __int64)NamespaceHandle >= MmUserProbeAddress )
+      NamespaceHandle = (PHANDLE)MmUserProbeAddress;
+    *NamespaceHandle = *NamespaceHandle;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v9 = P;
     v10 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -78,7 +82,7 @@ __int64 __fastcall NtCreatePrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 
         v12 = ObCreateObject(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                (__int64)ObjectAttributes,
                 PreviousMode,
                 0,
                 *((_DWORD *)P + 6) + 400,
@@ -115,7 +119,7 @@ __int64 __fastcall NtCreatePrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 
             if ( v17 >= 0 )
             {
               ObfReferenceObject(v13);
-              inserted = ObInsertObject(v13, 0LL, a2, 0, 0LL, &Handle);
+              inserted = ObInsertObject(v13, 0LL, DesiredAccess, 0, 0LL, &Handle);
               PsGetMonitorContextServerSilo(ObSiloMonitor, (_QWORD *)0xFFFFFFFFFFFFFFFFLL, &v31);
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -158,7 +162,7 @@ LABEL_20:
                   PsDereferenceMonitorContextServerSilo(v31);
                   if ( inserted >= 0 )
                     *v6 = Handle;
-                  return (unsigned int)inserted;
+                  return inserted;
                 }
                 v27 = v31;
                 v28 = *(_QWORD *)v14;
@@ -174,13 +178,13 @@ LABEL_20:
             }
           }
           ObfDereferenceObject(v13);
-          return (unsigned int)v17;
+          return v17;
         }
         v10 = v12;
       }
     }
     ExFreePoolWithTag(v9, 0x534E624Fu);
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

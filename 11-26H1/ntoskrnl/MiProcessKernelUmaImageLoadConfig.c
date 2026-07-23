@@ -1,13 +1,13 @@
 /*
- * XREFs of MiProcessKernelUmaImageLoadConfig @ 0x140B059BC
+ * XREFs of MiProcessKernelUmaImageLoadConfig @ 0x140B07A50
  * Callers:
- *     MiProcessLoadConfigForDriver @ 0x140B0594C (MiProcessLoadConfigForDriver.c)
- *     MiReloadBootLoadedDrivers @ 0x140D00CF0 (MiReloadBootLoadedDrivers.c)
+ *     MiProcessLoadConfigForDriver @ 0x140B079E0 (MiProcessLoadConfigForDriver.c)
+ *     MiReloadBootLoadedDrivers @ 0x140D07090 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x14038B930 (MiSetImageProtection.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x140772CFC (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiSetImageProtection @ 0x14038D6E0 (MiSetImageProtection.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x140775CFC (MiLogStrongCodeDriverLoadFailure.c)
  */
 
 __int64 __fastcall MiProcessKernelUmaImageLoadConfig(__int64 a1)
@@ -16,13 +16,13 @@ __int64 __fastcall MiProcessKernelUmaImageLoadConfig(__int64 a1)
   __int64 v3; // rcx
   unsigned __int64 v4; // rax
   unsigned __int64 v5; // rbp
-  __int64 v6; // rax
+  _QWORD *v6; // rax
   unsigned __int64 v7; // rsi
   __int64 v8; // rdx
   _OWORD *v9; // rax
   __int128 v10; // xmm1
   __int64 result; // rax
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = (__int64 (__fastcall **)())&MiKscpUmaKasanFunctions;
   v3 = *(_QWORD *)(a1 + 112);
@@ -39,15 +39,15 @@ __int64 __fastcall MiProcessKernelUmaImageLoadConfig(__int64 a1)
   {
     v5 = 0LL;
   }
-  v6 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 0xAu, &v12);
+  v6 = RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xAu, &Size);
   if ( !v6 )
     return 0LL;
   if ( *(_DWORD *)v6 < 0x148u )
     return 0LL;
-  v7 = *(_QWORD *)(v6 + 320);
+  v7 = v6[40];
   if ( !v7 )
     return 0LL;
-  if ( !v5 || (unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v6 + 320), 336) )
+  if ( !v5 || (unsigned int)MiSetImageProtection(a1, v6[40], 336) )
   {
     v8 = 2LL;
     v9 = (_OWORD *)v7;
@@ -78,6 +78,6 @@ __int64 __fastcall MiProcessKernelUmaImageLoadConfig(__int64 a1)
   }
   MiLogStrongCodeDriverLoadFailure("CfgUnwritableLoadConfig", a1);
   result = 3221225595LL;
-  *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 128;
+  *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 128;
   return result;
 }

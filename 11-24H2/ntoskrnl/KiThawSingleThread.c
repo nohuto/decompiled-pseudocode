@@ -1,56 +1,53 @@
 /*
- * XREFs of KiThawSingleThread @ 0x140296388
+ * XREFs of KiThawSingleThread @ 0x1402DD1F8
  * Callers:
- *     KeThawMultiProcess @ 0x1404903A4 (KeThawMultiProcess.c)
- *     KeForceResumeProcess @ 0x1404A7414 (KeForceResumeProcess.c)
+ *     KeThawMultiProcess @ 0x14048A9E4 (KeThawMultiProcess.c)
+ *     KeForceResumeProcess @ 0x1404A1E44 (KeForceResumeProcess.c)
  * Callees:
- *     KiResumeThread @ 0x14029646C (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x1402DD2DC (KiResumeThread.c)
  */
 
-__int64 __fastcall KiThawSingleThread(__int64 a1, __int64 a2, char a3, char a4)
+void __fastcall KiThawSingleThread(__int64 a1, __int64 a2, char a3, char a4)
 {
   volatile signed __int32 *v4; // rsi
-  __int64 result; // rax
-  __int64 v10; // r8
-  char v11; // r9
-  char v12; // cl
+  __int64 v9; // r8
+  char v10; // r9
+  char v11; // cl
 
   v4 = (volatile signed __int32 *)(a2 + 736);
-  result = KiAcquireKobjectLockSafe(a2 + 736);
-  LOBYTE(v10) = *(_BYTE *)(a2 + 794);
-  v11 = v10 & 2;
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)(a2 + 736));
+  LOBYTE(v9) = *(_BYTE *)(a2 + 794);
+  v10 = v9 & 2;
   if ( a3 )
   {
-    *(_BYTE *)(a2 + 794) = v10 & 0xF9;
-    if ( v11 || (v10 & 4) != 0 )
+    *(_BYTE *)(a2 + 794) = v9 & 0xF9;
+    if ( v10 || (v9 & 4) != 0 )
     {
       _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0xEu);
       if ( !*(_BYTE *)(a2 + 644) )
       {
-        LOBYTE(v10) = 1;
+        LOBYTE(v9) = 1;
         goto LABEL_8;
       }
     }
   }
   else
   {
-    v12 = v10 & 0xFB;
-    result = (unsigned __int8)v10 & 0xFD;
+    v11 = v9 & 0xFB;
     if ( !a4 )
-      v12 = v10 & 0xFD;
-    *(_BYTE *)(a2 + 794) = v12;
-    if ( (v11 || (v10 & 4) != 0) && (v12 & 6) == 0 )
+      v11 = v9 & 0xFD;
+    *(_BYTE *)(a2 + 794) = v11;
+    if ( (v10 || (v9 & 4) != 0) && (v11 & 6) == 0 )
     {
       _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0xEu);
       if ( !*(_BYTE *)(a2 + 644) )
       {
-        v10 = 0LL;
+        v9 = 0LL;
 LABEL_8:
-        result = KiResumeThread(a2, a1, v10);
+        KiResumeThread(a2, a1, v9);
       }
     }
   }
   _InterlockedAnd(v4, 0xFFFFFF7F);
-  return result;
 }

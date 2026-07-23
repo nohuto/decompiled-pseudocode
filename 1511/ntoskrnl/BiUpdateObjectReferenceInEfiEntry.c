@@ -27,18 +27,18 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(_DWORD *a1, void *a2)
   __int64 v10; // rax
   char *v11; // rsi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  GUID v14; // [rsp+30h] [rbp-30h] BYREF
+  GUID Identifier; // [rsp+30h] [rbp-30h] BYREF
   GUID v15; // [rsp+40h] [rbp-20h] BYREF
 
   ObjectReferenceFromEfiEntry = BiGetObjectReferenceFromEfiEntry(a1, &v15);
   if ( ObjectReferenceFromEfiEntry >= 0 )
   {
-    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, &v14);
+    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, &Identifier);
     if ( ObjectReferenceFromEfiEntry >= 0 )
     {
-      v5 = *(_QWORD *)&v15.Data1 - *(_QWORD *)&v14.Data1;
-      if ( *(_QWORD *)&v15.Data1 == *(_QWORD *)&v14.Data1 )
-        v5 = *(_QWORD *)v15.Data4 - *(_QWORD *)v14.Data4;
+      v5 = *(_QWORD *)&v15.Data1 - *(_QWORD *)&Identifier.Data1;
+      if ( *(_QWORD *)&v15.Data1 == *(_QWORD *)&Identifier.Data1 )
+        v5 = *(_QWORD *)v15.Data4 - *(_QWORD *)Identifier.Data4;
       if ( v5 )
       {
         v6 = (unsigned int)(a1[10] - 20);
@@ -57,7 +57,7 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(_DWORD *a1, void *a2)
             while ( aBcdobject[v10] );
             v11 = (char *)a1 + 2 * ((unsigned __int64)(v9 - v8) >> 1) + 2 * v10;
             RtlInitUnicodeString(&DestinationString, 0LL);
-            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx(&v14.Data1, (__int64)&DestinationString, 1);
+            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx(&Identifier, &DestinationString, 1u);
             if ( ObjectReferenceFromEfiEntry >= 0 )
             {
               memmove(v11 + 48, DestinationString.Buffer, DestinationString.Length);

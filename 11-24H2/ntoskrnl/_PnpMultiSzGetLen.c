@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpMultiSzGetLen @ 0x1409B6270
+ * XREFs of _PnpMultiSzGetLen @ 0x1409AD600
  * Callers:
- *     _CmGetDeviceSiblings @ 0x1409B3E64 (_CmGetDeviceSiblings.c)
- *     _PnpMultiSzDeleteString @ 0x1409B43BC (_PnpMultiSzDeleteString.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409B5B50 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceSiblings @ 0x1409AB1F4 (_CmGetDeviceSiblings.c)
+ *     _PnpMultiSzDeleteString @ 0x1409AB74C (_PnpMultiSzDeleteString.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409ACEE0 (_CmGetDeviceMappedPropertyFromRegProp.c)
  * Callees:
  *     <none>
  */

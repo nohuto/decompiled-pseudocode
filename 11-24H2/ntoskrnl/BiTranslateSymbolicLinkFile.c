@@ -1,13 +1,13 @@
 /*
- * XREFs of BiTranslateSymbolicLinkFile @ 0x140814368
+ * XREFs of BiTranslateSymbolicLinkFile @ 0x140814AA8
  * Callers:
- *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140A86C10 (BiGetPartitionVhdFilePathFromUnicodeString.c)
+ *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140A816E8 (BiGetPartitionVhdFilePathFromUnicodeString.c)
  * Callees:
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BiTranslateSymbolicLink @ 0x140A83F4C (BiTranslateSymbolicLink.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BiTranslateSymbolicLink @ 0x140A7EA6C (BiTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiTranslateSymbolicLinkFile(wchar_t *P, wchar_t **a2)
@@ -53,7 +53,7 @@ __int64 __fastcall BiTranslateSymbolicLinkFile(wchar_t *P, wchar_t **a2)
           ++v9;
         while ( v8[v9] );
         Size = 2 * v9 + 2;
-        Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL, (unsigned int)v11 + Size, 0x4B444342u);
         *a2 = Pool2;
         v13 = Pool2;
         if ( !Pool2 )

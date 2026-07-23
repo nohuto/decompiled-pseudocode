@@ -42,8 +42,8 @@ ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
   {
     v9 = Pool2 + 5;
     if ( RtlCreateAcl(Pool2 + 5, v5, 2u) >= 0
-      && (int)RtlpAddKnownAce((__int64)v9, 2u, 0, a1, (unsigned __int8 *)Src, 0) >= 0
-      && (int)RtlpAddKnownAce((__int64)v9, 2u, 0, 983103, (unsigned __int8 *)SeLocalSystemSid, 0) >= 0
+      && (int)RtlpAddKnownAce(v9, 2u, 0, a1, (unsigned __int8 *)Src, 0) >= 0
+      && (int)RtlpAddKnownAce(v9, 2u, 0, 983103, (unsigned __int8 *)SeLocalSystemSid, 0) >= 0
       && RtlCreateSecurityDescriptor(v8, 1u) >= 0
       && RtlSetDaclSecurityDescriptor(v8, 1u, v9, 0) >= 0 )
     {

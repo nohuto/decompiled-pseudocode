@@ -1,18 +1,18 @@
 /*
- * XREFs of VRegSetup @ 0x1408A5210
+ * XREFs of VRegSetup @ 0x1408AB680
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspStorageAllocSlot @ 0x1407FF9E4 (PspStorageAllocSlot.c)
- *     VrpInitializeLoadedDifferencingHives @ 0x1408A5F78 (VrpInitializeLoadedDifferencingHives.c)
- *     ObSetSecurityObjectByPointer @ 0x1408EC3B0 (ObSetSecurityObjectByPointer.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspStorageAllocSlot @ 0x140805414 (PspStorageAllocSlot.c)
+ *     VrpInitializeLoadedDifferencingHives @ 0x1408AC3E8 (VrpInitializeLoadedDifferencingHives.c)
+ *     ObSetSecurityObjectByPointer @ 0x1408F2970 (ObSetSecurityObjectByPointer.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
  */
 
 __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
@@ -58,15 +58,15 @@ __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
          0x22u,
          0x100u,
          0,
-         (PDEVICE_OBJECT *)&WheapPfaLock.SchedulerAssist);
+         (PDEVICE_OBJECT *)&WheapPfaLock.ExtendedFeatureDisableMask);
   if ( v2 < 0 )
     KeBugCheckEx(0x51u, 0x1EuLL, v2, 1uLL, 0LL);
-  WheapPfaLock.AbWaitObject = DriverObject;
-  gLoadedDiffHivesLock.InitialStack = 0LL;
-  v3 = ObSetSecurityObjectByPointer(WheapPfaLock.SchedulerAssist, 12LL, &VrpHardCodedSdBlob);
+  WheapPfaLock.KernelShadowStackInitial = DriverObject;
+  gLoadedDiffHivesLock.StackLimit = 0LL;
+  v3 = ObSetSecurityObjectByPointer(WheapPfaLock.ExtendedFeatureDisableMask, 12LL, &VrpHardCodedSdBlob);
   if ( v3 < 0 )
     KeBugCheckEx(0x51u, 0x1EuLL, v3, 2uLL, 0LL);
-  *((_DWORD *)WheapPfaLock.SchedulerAssist + 12) &= ~0x80u;
+  *(_DWORD *)(WheapPfaLock.ExtendedFeatureDisableMask + 48) &= ~0x80u;
   DriverObject->DriverUnload = (PDRIVER_UNLOAD)VrpRegistryUnload;
   DriverObject->MajorFunction[0] = (PDRIVER_DISPATCH)&VrpRegistryDispatch;
   DriverObject->MajorFunction[2] = (PDRIVER_DISPATCH)&VrpRegistryDispatch;
@@ -84,7 +84,7 @@ __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
   v23 = VrpJobContextDelete;
   v21 = 1;
   v22 = 96;
-  v4 = ObCreateObjectTypeEx(&SourceString, &Src, (__int64)&WheapPfaLock.ThreadTimerDelay);
+  v4 = ObCreateObjectTypeEx(&SourceString, &Src, (__int64)&WheapPfaLock.KernelShadowStackLimit);
   if ( v4 < 0 )
     KeBugCheckEx(0x51u, 0x1EuLL, v4, 4uLL, 0LL);
   v5 = VrpInitializeLoadedDifferencingHives();

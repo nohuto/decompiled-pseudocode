@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaSelLogInitialize @ 0x140C44090
+ * XREFs of WheaSelLogInitialize @ 0x140C461E0
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     WheaSelLogSetNtSchedulerAvailability @ 0x14065B648 (WheaSelLogSetNtSchedulerAvailability.c)
- *     IpmiHwInitializeContext @ 0x14069F688 (IpmiHwInitializeContext.c)
- *     WheaSelLogCheckPoint @ 0x1407C67B0 (WheaSelLogCheckPoint.c)
+ *     WheaSelLogSetNtSchedulerAvailability @ 0x140659D68 (WheaSelLogSetNtSchedulerAvailability.c)
+ *     IpmiHwInitializeContext @ 0x1406A078C (IpmiHwInitializeContext.c)
+ *     WheaSelLogCheckPoint @ 0x1407C6C10 (WheaSelLogCheckPoint.c)
  */
 
 void __fastcall WheaSelLogInitialize(__int64 a1)

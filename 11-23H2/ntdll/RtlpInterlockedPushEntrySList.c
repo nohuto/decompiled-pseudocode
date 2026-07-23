@@ -10,10 +10,10 @@
  *     RtlDeleteResource @ 0x18005AC40 (RtlDeleteResource.c)
  *     RtlpFreeDebugInfo @ 0x18005AF10 (RtlpFreeDebugInfo.c)
  *     RtlInterlockedPushEntrySList @ 0x18006E9D0 (RtlInterlockedPushEntrySList.c)
- *     RtlStdReleaseStackTrace @ 0x18010F650 (RtlStdReleaseStackTrace.c)
- *     RtlpRegisterStackTrace @ 0x180119380 (RtlpRegisterStackTrace.c)
- *     RtlpLocalInfoAllocFromCache @ 0x180119F50 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapFlushCaches @ 0x18011A754 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlStdReleaseStackTrace @ 0x18010F620 (RtlStdReleaseStackTrace.c)
+ *     RtlpRegisterStackTrace @ 0x180119350 (RtlpRegisterStackTrace.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180119F20 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18011A724 (RtlpLowFragHeapFlushCaches.c)
  *     RtlFreeMemoryBlockLookaside @ 0x180131150 (RtlFreeMemoryBlockLookaside.c)
  * Callees:
  *     <none>

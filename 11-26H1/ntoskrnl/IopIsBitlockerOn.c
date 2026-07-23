@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIsBitlockerOn @ 0x1405C99FC
+ * XREFs of IopIsBitlockerOn @ 0x1405CC2CC
  * Callers:
- *     IopInitDumpCapsuleSupport @ 0x1405C99A8 (IopInitDumpCapsuleSupport.c)
+ *     IopInitDumpCapsuleSupport @ 0x1405CC278 (IopInitDumpCapsuleSupport.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140B1C920 (IopOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140B1EB30 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool IopIsBitlockerOn()

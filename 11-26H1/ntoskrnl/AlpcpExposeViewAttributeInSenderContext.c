@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x1409C0C80
+ * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x140991C60
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x1409BEFC0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpExposeAttributesInSenderContext @ 0x1409C0C60 (AlpcpExposeAttributesInSenderContext.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x14098FFA0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpExposeAttributesInSenderContext @ 0x140991C40 (AlpcpExposeAttributesInSenderContext.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14095D738 (MmSecureVirtualMemoryAgainstWrites.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1409BEF10 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteView @ 0x1409C1A54 (AlpcpDeleteView.c)
- *     MmUnsecureVirtualMemory @ 0x1409C1B90 (MmUnsecureVirtualMemory.c)
- *     AlpcpCreateView @ 0x1409C2150 (AlpcpCreateView.c)
- *     AlpcpUnlockBlob @ 0x1409C2710 (AlpcpUnlockBlob.c)
- *     AlpcpRestoreWriteAccess @ 0x140A88A00 (AlpcpRestoreWriteAccess.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14098FEF0 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteView @ 0x140992A34 (AlpcpDeleteView.c)
+ *     MmUnsecureVirtualMemory @ 0x140992B70 (MmUnsecureVirtualMemory.c)
+ *     AlpcpCreateView @ 0x140993130 (AlpcpCreateView.c)
+ *     AlpcpUnlockBlob @ 0x1409936F0 (AlpcpUnlockBlob.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140A02FF8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     AlpcpRestoreWriteAccess @ 0x140A8F764 (AlpcpRestoreWriteAccess.c)
  */
 
 __int64 __fastcall AlpcpExposeViewAttributeInSenderContext(
@@ -82,10 +82,7 @@ LABEL_17:
   {
     if ( (*(_DWORD *)(v4 + 72) & 8) == 0 )
     {
-      v17 = MmSecureVirtualMemoryAgainstWrites(
-              *(struct _KPROCESS **)(v4 + 32),
-              *(_QWORD *)(v4 + 40),
-              *(_QWORD *)(v4 + 48));
+      v17 = MmSecureVirtualMemoryAgainstWrites(*(_QWORD *)(v4 + 32), *(_QWORD *)(v4 + 40), *(_QWORD *)(v4 + 48));
       if ( !v17 )
       {
         if ( *(_QWORD *)(v11 + 64) )
@@ -121,7 +118,7 @@ LABEL_17:
   }
   if ( (*(_DWORD *)(v4 + 72) & 8) != 0 )
     goto LABEL_14;
-  v12 = MmSecureVirtualMemoryAgainstWrites(*(struct _KPROCESS **)(v4 + 32), *(_QWORD *)(v4 + 40), *(_QWORD *)(v4 + 48));
+  v12 = MmSecureVirtualMemoryAgainstWrites(*(_QWORD *)(v4 + 32), *(_QWORD *)(v4 + 40), *(_QWORD *)(v4 + 48));
   if ( !v12 )
   {
     *(_DWORD *)(v8 + 48) &= ~1u;

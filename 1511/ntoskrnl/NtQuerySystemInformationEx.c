@@ -7,28 +7,28 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-int __fastcall NtQuerySystemInformationEx(
-        signed int a1,
-        LOGICAL_PROCESSOR_RELATIONSHIP *a2,
-        unsigned int a3,
-        unsigned __int64 a4,
-        UINT a5,
-        unsigned int *a6)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   int v8; // edx
-  ULONG64 v9; // rcx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
+  char *v9; // rcx
+  __int32 v11; // ecx
+  __int32 v12; // ecx
+  __int32 v13; // ecx
+  __int32 v14; // ecx
   int v15; // ecx
   int v16; // ecx
 
-  if ( !a2 || !a3 )
+  if ( !InputBuffer || !InputBufferLength )
     return -1073741811;
-  if ( a1 > 107 )
+  if ( SystemInformationClass > SystemLogicalProcessorAndGroupInformation )
   {
-    v11 = a1 - 108;
+    v11 = SystemInformationClass - 108;
     if ( v11 )
     {
       v12 = v11 - 13;
@@ -55,21 +55,35 @@ LABEL_15:
     v8 = 2;
     goto LABEL_6;
   }
-  if ( a1 != 107 )
+  if ( SystemInformationClass != SystemLogicalProcessorAndGroupInformation )
   {
-    if ( a1 != 73 && a1 != 8 && a1 != 23 && a1 != 42 && a1 != 61 && a1 != 83 && a1 != 100 )
+    if ( SystemInformationClass != SystemLogicalProcessorInformation
+      && SystemInformationClass != SystemProcessorPerformanceInformation
+      && SystemInformationClass != SystemInterruptInformation
+      && SystemInformationClass != SystemProcessorIdleInformation
+      && SystemInformationClass != SystemProcessorPowerInformation
+      && SystemInformationClass != SystemProcessorIdleCycleTimeInformation
+      && SystemInformationClass != SystemProcessorPerformanceDistribution )
+    {
       return -1073741821;
+    }
     goto LABEL_15;
   }
   v8 = 4;
 LABEL_6:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( ((v8 - 1) & (unsigned int)a2) != 0 )
+    if ( ((v8 - 1) & (unsigned int)InputBuffer) != 0 )
       ExRaiseDatatypeMisalignment();
-    v9 = (ULONG64)a2 + a3;
-    if ( v9 > MmUserProbeAddress || v9 < (unsigned __int64)a2 )
+    v9 = (char *)InputBuffer + InputBufferLength;
+    if ( (unsigned __int64)v9 > MmUserProbeAddress || v9 < InputBuffer )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  return ExpQuerySystemInformation(a1, a2, a3, a4, a5, a6);
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           (LOGICAL_PROCESSOR_RELATIONSHIP *)InputBuffer,
+           InputBufferLength,
+           (unsigned __int64)SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

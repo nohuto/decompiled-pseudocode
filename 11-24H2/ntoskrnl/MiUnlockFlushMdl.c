@@ -1,25 +1,26 @@
 /*
- * XREFs of MiUnlockFlushMdl @ 0x1402F1680
+ * XREFs of MiUnlockFlushMdl @ 0x1402571C0
  * Callers:
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x14020F410 (MiReleaseControlAreaWaiters.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockMdlWritePages @ 0x1402F1FF0 (MiUnlockMdlWritePages.c)
- *     MiRetardMdl @ 0x1402F323C (MiRetardMdl.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUnlockMdlWritePages @ 0x140257B30 (MiUnlockMdlWritePages.c)
+ *     MiRetardMdl @ 0x140258D7C (MiRetardMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseControlAreaWaiters @ 0x140338770 (MiReleaseControlAreaWaiters.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiUnlockFlushMdl(PMDL MemoryDescriptorList, __int64 a2, __int64 a3)
 {
   KIRQL v6; // al
-  __int64 v7; // r8
-  _QWORD *v8; // rbx
-  unsigned __int64 v9; // rdi
-  _QWORD *v10; // rax
+  __int64 *v7; // rbx
+  unsigned __int64 v8; // rdi
+  _QWORD *v9; // rax
+  __int64 *v10; // rdx
   __int64 v11; // rdx
+  __int64 *v12; // r8
 
   if ( _bittest16(&MemoryDescriptorList->MdlFlags, 9u) )
     MiRetardMdl(MemoryDescriptorList);
@@ -28,39 +29,39 @@ void __fastcall MiUnlockFlushMdl(PMDL MemoryDescriptorList, __int64 a2, __int64 
   MiUnlockMdlWritePages(MemoryDescriptorList, a3);
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a2 + 72));
   --*(_DWORD *)(a2 + 76);
-  v8 = 0LL;
-  v9 = v6;
-  v10 = (_QWORD *)(a2 + 80);
-  v11 = *(_QWORD *)(a2 + 80);
-  if ( v11 )
+  v7 = 0LL;
+  v8 = v6;
+  v9 = (_QWORD *)(a2 + 80);
+  v10 = *(__int64 **)(a2 + 80);
+  if ( v10 )
   {
     do
     {
-      v7 = *(_QWORD *)v11;
-      if ( (*(_DWORD *)(v11 + 8) & 8) != 0 )
+      v12 = (__int64 *)*v10;
+      if ( (v10[1] & 8) != 0 )
       {
-        *(_QWORD *)v11 = v8;
-        v8 = (_QWORD *)v11;
-        *v10 = v7;
+        *v10 = (__int64)v7;
+        v7 = v10;
+        *v9 = v12;
       }
       else
       {
-        v10 = (_QWORD *)v11;
+        v9 = v10;
       }
-      v11 = v7;
+      v10 = v12;
     }
-    while ( v7 );
+    while ( v12 );
   }
-  if ( (_BYTE)v9 != 17 )
+  if ( (_BYTE)v8 != 17 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 72));
     if ( KiIrqlFlags )
     {
-      LOBYTE(v11) = v9;
+      LOBYTE(v11) = v8;
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
     }
-    __writecr8(v9);
+    __writecr8(v8);
   }
-  if ( v8 )
-    MiReleaseControlAreaWaiters(v8, v11, v7);
+  if ( v7 )
+    MiReleaseControlAreaWaiters(v7);
 }

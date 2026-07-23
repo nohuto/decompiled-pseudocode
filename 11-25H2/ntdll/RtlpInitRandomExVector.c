@@ -9,7 +9,7 @@
 
 __int64 RtlpInitRandomExVector()
 {
-  NTSTATUS v0; // eax
+  int v0; // eax
   __int32 *v1; // r9
   unsigned __int64 v2; // r8
   __int64 v3; // r10
@@ -17,11 +17,11 @@ __int64 RtlpInitRandomExVector()
   int ProcessInformation; // [rsp+58h] [rbp+20h] BYREF
 
   ProcessInformation = 0;
-  v0 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+  v0 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
   if ( v0 < 0 )
-    RtlRaiseStatus((unsigned int)v0);
+    RtlRaiseStatus(v0);
   v1 = RtlpRandomExConstantVector;
-  LODWORD(v2) = dword_1801EC4D8 ^ ProcessInformation;
+  LODWORD(v2) = LdrSystemDllInitBlock.RngData ^ ProcessInformation;
   v3 = 128LL;
   do
   {

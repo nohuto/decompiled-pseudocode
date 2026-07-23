@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierMmUnmapLockedPages @ 0x1409E71D0
+ * XREFs of VerifierMmUnmapLockedPages @ 0x1409E81D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetProcessExitProcessCalled @ 0x1402CB0E0 (PsGetProcessExitProcessCalled.c)
- *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckRuleEnforcement @ 0x1409C65DC (VfUtilCheckRuleEnforcement.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x1409D72B0 (ViTargetAddToCounter.c)
+ *     PsGetProcessExitProcessCalled @ 0x1402499D0 (PsGetProcessExitProcessCalled.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA9E0 (ZwQueryVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckRuleEnforcement @ 0x1409C75DC (VfUtilCheckRuleEnforcement.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D82B0 (ViTargetAddToCounter.c)
  */
 
 __int64 __fastcall VerifierMmUnmapLockedPages(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, __int64 a3)
@@ -51,7 +51,7 @@ LABEL_8:
       if ( (ZwQueryVirtualMemory(
               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
               (PVOID)BugCheckParameter2,
-              (MEMORY_INFORMATION_CLASS)7,
+              MemoryRegionInformationEx,
               &MemoryInformation,
               0x30uLL,
               0LL) < 0

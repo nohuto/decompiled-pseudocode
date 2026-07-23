@@ -1,35 +1,35 @@
 /*
- * XREFs of MiDemoteValidLargePageOneLevel @ 0x1406F259C
+ * XREFs of MiDemoteValidLargePageOneLevel @ 0x1406F720C
  * Callers:
- *     MiPfnRangeIsZero @ 0x1406E9BA0 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1406EE840 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiConvertLargePfnToSmall @ 0x140206D40 (MiConvertLargePfnToSmall.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiInitializeColorBase @ 0x1402A5898 (MiInitializeColorBase.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiInitializePfnForOtherProcess @ 0x14033B798 (MiInitializePfnForOtherProcess.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiInitializeUsedPtesCount @ 0x1403403C0 (MiInitializeUsedPtesCount.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiUpdateDemotedSubPage @ 0x140434C10 (MiUpdateDemotedSubPage.c)
- *     MiInitializeLargePfnList @ 0x1404617F0 (MiInitializeLargePfnList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiConvertLargePfnToSmall @ 0x140206E20 (MiConvertLargePfnToSmall.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiInitializeColorBase @ 0x1402A4DE8 (MiInitializeColorBase.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiInitializePfnForOtherProcess @ 0x14033D818 (MiInitializePfnForOtherProcess.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiInitializeUsedPtesCount @ 0x140342440 (MiInitializeUsedPtesCount.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiUpdateDemotedSubPage @ 0x14042BCD0 (MiUpdateDemotedSubPage.c)
+ *     MiInitializeLargePfnList @ 0x14045A7B0 (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
@@ -190,7 +190,7 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
   v28 = (v3 << 25) - (v16 << 25);
   ValidPte = MiMakeValidPte(v28 >> 16, v53, v26);
   v30 = ValidPte;
-  if ( ((unsigned __int8)(1 << (v50 - 1)) & (unsigned __int8)byte_140E2D689) != 0 )
+  if ( ((unsigned __int8)(1 << (v50 - 1)) & (unsigned __int8)byte_140E2D809) != 0 )
     v30 = ValidPte & 0xFFFFFFFFFFFFFFDFuLL;
   v31 = MiMapPageInHyperSpaceWorker(v54, v49, 0x80000000);
   v32 = (unsigned __int64 *)v31;

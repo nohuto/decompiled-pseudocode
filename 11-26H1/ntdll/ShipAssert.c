@@ -1,11 +1,11 @@
 /*
- * XREFs of ShipAssert @ 0x1800D5E70
+ * XREFs of ShipAssert @ 0x1800D2E30
  * Callers:
- *     ShipAssertMsgA @ 0x18013AEE0 (ShipAssertMsgA.c)
+ *     ShipAssertMsgA @ 0x18013AC50 (ShipAssertMsgA.c)
  * Callees:
- *     GetShipAssertBuffer @ 0x1800D605C (GetShipAssertBuffer.c)
- *     WerEscalationLazyInit @ 0x1800D6160 (WerEscalationLazyInit.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     GetShipAssertBuffer @ 0x1800D301C (GetShipAssertBuffer.c)
+ *     WerEscalationLazyInit @ 0x1800D3120 (WerEscalationLazyInit.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ShipAssert(int a1, int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall ShipAssert(int a1, int a2)
     v14 = 0;
     if ( ShipAssertBuffer && ShipAssertBuffer != 255 && ShipAssertBuffer != 238 )
     {
-      v11 = ((unsigned __int16)_InterlockedExchangeAdd(&dword_1801C5F70, 1u) + 1) & 0x3FF;
+      v11 = ((unsigned __int16)_InterlockedExchangeAdd(&dword_1801C4F70, 1u) + 1) & 0x3FF;
       *(_DWORD *)(ShipAssertBuffer + 8LL * (unsigned int)v11) = a1;
       *(_DWORD *)(ShipAssertBuffer + 8LL * (unsigned int)v11 + 4) = a2;
     }

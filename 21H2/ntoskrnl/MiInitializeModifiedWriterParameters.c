@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeModifiedWriterParameters @ 0x140A54864
+ * XREFs of MiInitializeModifiedWriterParameters @ 0x140A55864
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
  *     <none>
  */

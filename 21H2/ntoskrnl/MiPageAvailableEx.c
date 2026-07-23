@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPageAvailableEx @ 0x140319464
+ * XREFs of MiPageAvailableEx @ 0x1403241B4
  * Callers:
- *     MiDecreaseAvailablePages @ 0x140319380 (MiDecreaseAvailablePages.c)
- *     MiPageAvailable @ 0x14055BFB4 (MiPageAvailable.c)
+ *     MiDecreaseAvailablePages @ 0x1403240D0 (MiDecreaseAvailablePages.c)
+ *     MiPageAvailable @ 0x14055C1F4 (MiPageAvailable.c)
  * Callees:
  *     <none>
  */

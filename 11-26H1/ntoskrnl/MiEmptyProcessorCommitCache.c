@@ -1,9 +1,9 @@
 /*
- * XREFs of MiEmptyProcessorCommitCache @ 0x1407057E8
+ * XREFs of MiEmptyProcessorCommitCache @ 0x14070A4B8
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 void __fastcall MiEmptyProcessorCommitCache(ULONG *a1)

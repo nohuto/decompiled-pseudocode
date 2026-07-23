@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAuditGetExtendedBiosDataArea @ 0x140A6586C
+ * XREFs of HalpAuditGetExtendedBiosDataArea @ 0x140A6686C
  * Callers:
- *     HalpAuditEnumerateRsdts @ 0x140A65638 (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdts @ 0x140A66638 (HalpAuditEnumerateRsdts.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
  */
 
 __int64 __fastcall HalpAuditGetExtendedBiosDataArea(__int64 a1, _QWORD *a2, _DWORD *a3)

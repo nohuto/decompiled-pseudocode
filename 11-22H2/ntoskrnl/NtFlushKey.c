@@ -29,8 +29,9 @@
  *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
  */
 
-__int64 __fastcall NtFlushKey(int a1)
+NTSTATUS __cdecl NtFlushKey(HANDLE KeyHandle)
 {
+  int v1; // ebx
   void *v2; // rdi
   char v3; // r15
   __int64 v4; // rdx
@@ -41,7 +42,7 @@ __int64 __fastcall NtFlushKey(int a1)
   int v9; // r8d
   int v10; // r9d
   char v11; // r13
-  signed int v12; // ebx
+  int v12; // ebx
   char PreviousMode; // r14
   struct _KTHREAD *CurrentThread; // rax
   __int64 v15; // rdi
@@ -69,6 +70,7 @@ __int64 __fastcall NtFlushKey(int a1)
   _OWORD v38[2]; // [rsp+C8h] [rbp+7h] BYREF
 
   v33 = 0LL;
+  v1 = (int)KeyHandle;
   v35 = 0LL;
   memset(v36, 0, sizeof(v36));
   memset(v37, 0, sizeof(v37));
@@ -89,7 +91,7 @@ __int64 __fastcall NtFlushKey(int a1)
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(v10) = PreviousMode;
-  v12 = CmObReferenceObjectByHandle(a1, 0, v9, v10, (__int64)&v32, (__int64)&v33);
+  v12 = CmObReferenceObjectByHandle(v1, 0, v9, v10, (__int64)&v32, (__int64)&v33);
   if ( v12 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -168,5 +170,5 @@ LABEL_26:
   if ( v11 )
     CmpReleaseShutdownRundown(v8, v7);
   CmCleanupThreadInfo((__int64 *)&v35);
-  return (unsigned int)v12;
+  return v12;
 }

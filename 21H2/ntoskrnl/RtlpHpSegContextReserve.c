@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegContextReserve @ 0x14037B380
+ * XREFs of RtlpHpSegContextReserve @ 0x14037AED0
  * Callers:
- *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AA74 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpSegSegmentAllocate @ 0x1402A3D3C (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegSegmentInitialize @ 0x1402A5420 (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegHeapAddSegment @ 0x1402CB7DC (RtlpHpSegHeapAddSegment.c)
- *     RtlpHpSegFreeRangeInsert @ 0x14030A960 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegSegmentAllocate @ 0x14022117C (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentInitialize @ 0x140222860 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegHeapAddSegment @ 0x140249F2C (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x1403156B0 (RtlpHpSegFreeRangeInsert.c)
  */
 
 __int64 __fastcall RtlpHpSegContextReserve(__int64 a1, __int64 a2, __int64 a3)

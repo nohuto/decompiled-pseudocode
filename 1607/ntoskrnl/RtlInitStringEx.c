@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitStringEx @ 0x14021132C
+ * XREFs of RtlInitStringEx @ 0x140211158
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-NTSTATUS __stdcall RtlInitStringEx(PANSI_STRING DestinationString, PCSZ SourceString)
+NTSTATUS __cdecl RtlInitStringEx(PSTRING DestinationString, PCSZ SourceString)
 {
   return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

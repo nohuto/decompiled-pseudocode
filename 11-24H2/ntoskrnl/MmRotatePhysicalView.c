@@ -1,17 +1,17 @@
 /*
- * XREFs of MmRotatePhysicalView @ 0x140A2E770
+ * XREFs of MmRotatePhysicalView @ 0x140A231B0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     MiGetVadCacheAttribute @ 0x1404A5498 (MiGetVadCacheAttribute.c)
- *     MiLogVirtualRotateEvent @ 0x1407EDA74 (MiLogVirtualRotateEvent.c)
- *     MiRotateToFrameBuffer @ 0x140A2E9A4 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A2ECC0 (MiRotateToFrameBufferNoCopy.c)
- *     MiReplaceRotateWithDemandZero @ 0x140A64CA8 (MiReplaceRotateWithDemandZero.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     MiGetVadCacheAttribute @ 0x1404A0228 (MiGetVadCacheAttribute.c)
+ *     MiLogVirtualRotateEvent @ 0x1407EE044 (MiLogVirtualRotateEvent.c)
+ *     MiRotateToFrameBuffer @ 0x140A233E4 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A23700 (MiRotateToFrameBufferNoCopy.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A5D478 (MiReplaceRotateWithDemandZero.c)
  */
 
 NTSTATUS __stdcall MmRotatePhysicalView(
@@ -26,101 +26,102 @@ NTSTATUS __stdcall MmRotatePhysicalView(
   ULONG_PTR v7; // rdi
   char *v11; // rsi
   unsigned __int64 v12; // rbx
-  __int64 v13; // rax
-  void *v14; // rbp
+  __int64 v13; // r9
+  __int64 v14; // rax
+  void *v15; // rbp
   unsigned int VadCacheAttribute; // eax
-  int v16; // eax
-  NTSTATUS v17; // ebx
-  PVOID v19; // r14
-  __int64 v20; // [rsp+80h] [rbp+8h] BYREF
+  int v17; // eax
+  NTSTATUS v18; // ebx
+  PVOID v20; // r14
+  __int64 v21; // [rsp+80h] [rbp+8h] BYREF
   __int64 ProcessPartition; // [rsp+88h] [rbp+10h]
 
-  LODWORD(v20) = 0;
+  LODWORD(v21) = 0;
   v6 = 0LL;
   v7 = *NumberOfBytes;
   v11 = (char *)VirtualAddress;
   if ( ((unsigned __int16)VirtualAddress & 0xFFF) != 0 )
   {
-    v17 = -1073741585;
+    v18 = -1073741585;
     goto LABEL_13;
   }
   if ( (v7 & 0xFFF) != 0 )
     goto LABEL_24;
   if ( Direction >= MmMaximumRotateDirection )
   {
-    v17 = -1073741583;
+    v18 = -1073741583;
     goto LABEL_13;
   }
   v12 = (unsigned __int64)VirtualAddress + v7 - 1;
   if ( v12 <= (unsigned __int64)VirtualAddress )
   {
 LABEL_24:
-    v17 = -1073741584;
+    v18 = -1073741584;
     goto LABEL_13;
   }
   ProcessPartition = MiGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-  v13 = MiObtainReferencedVadEx((unsigned __int64)v11, 0LL, (int *)&v20);
-  v14 = (void *)v13;
-  if ( !v13 )
+  v14 = MiObtainReferencedVadEx((unsigned __int64)v11, 0LL, (int *)&v21, v13);
+  v15 = (void *)v14;
+  if ( !v14 )
   {
-    v17 = v20;
-    if ( (_DWORD)v20 == -1073741664 )
-      v17 = -1073741819;
+    v18 = v21;
+    if ( (_DWORD)v21 == -1073741664 )
+      v18 = -1073741819;
     goto LABEL_13;
   }
-  if ( (*(_DWORD *)(v13 + 48) & 0x70) != 0x40
-    || (*(unsigned int *)(v13 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 33) << 32)) < v12 >> 12 )
+  if ( (*(_DWORD *)(v14 + 48) & 0x70) != 0x40
+    || (*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32)) < v12 >> 12 )
   {
-    v17 = -1073741800;
+    v18 = -1073741800;
     goto LABEL_12;
   }
-  VadCacheAttribute = MiGetVadCacheAttribute(v13);
+  VadCacheAttribute = MiGetVadCacheAttribute(v14);
   if ( Direction > MmToFrameBufferNoCopy )
   {
     if ( Direction == MmToRegularMemoryNoCopy )
     {
-      v17 = MiReplaceRotateWithDemandZeroNoCopy((__int64)v14, (unsigned __int64)v11, v12, VadCacheAttribute);
-      MiUnlockAndDereferenceVad(v14);
+      v18 = MiReplaceRotateWithDemandZeroNoCopy((__int64)v15, (unsigned __int64)v11, v12, VadCacheAttribute);
+      MiUnlockAndDereferenceVad(v15);
       *NumberOfBytes = v7;
       if ( (WORD2(PerfGlobalGroupMask[0]) & 0x8000) != 0 && v7 )
         MiLogVirtualRotateEvent((__int64)v11, v7, 3);
-      return v17;
+      return v18;
     }
-    v19 = Context;
-    v17 = v20;
+    v20 = Context;
+    v18 = v21;
     while ( v7 )
     {
-      v20 = 0LL;
-      v17 = MiReplaceRotateWithDemandZero(v14, v11, v7, CopyFunction, v19, &v20);
-      v6 += v20;
-      if ( v17 == 1073741849 )
+      v21 = 0LL;
+      v18 = MiReplaceRotateWithDemandZero(v15, v11, v7, CopyFunction, v20, &v21);
+      v6 += v21;
+      if ( v18 == 1073741849 )
         break;
-      v7 -= v20;
-      v11 += v20;
+      v7 -= v21;
+      v11 += v21;
     }
     goto LABEL_12;
   }
   if ( Direction )
-    v16 = MiRotateToFrameBufferNoCopy(v14, v11, NewMdl, v7 >> 12);
+    v17 = MiRotateToFrameBufferNoCopy(v15, v11, NewMdl, v7 >> 12);
   else
-    v16 = MiRotateToFrameBuffer(
+    v17 = MiRotateToFrameBuffer(
             ProcessPartition,
-            (_DWORD)v14,
+            (_DWORD)v15,
             (_DWORD)v11,
             (_DWORD)NewMdl,
             v7 >> 12,
             (__int64)CopyFunction,
             (__int64)Context);
-  v17 = v16;
-  if ( v16 < 0 )
+  v18 = v17;
+  if ( v17 < 0 )
   {
 LABEL_12:
-    MiUnlockAndDereferenceVad(v14);
+    MiUnlockAndDereferenceVad(v15);
 LABEL_13:
     *NumberOfBytes = v6;
-    return v17;
+    return v18;
   }
-  MiUnlockAndDereferenceVad(v14);
+  MiUnlockAndDereferenceVad(v15);
   *NumberOfBytes = v7;
   if ( (WORD2(PerfGlobalGroupMask[0]) & 0x8000) != 0 )
   {

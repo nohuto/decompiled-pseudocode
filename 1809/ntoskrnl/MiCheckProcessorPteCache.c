@@ -3,11 +3,11 @@
  * Callers:
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiEmptyPteBins @ 0x1400EFC10 (MiEmptyPteBins.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiEmptyPteBins @ 0x1400EFC90 (MiEmptyPteBins.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -84,17 +84,17 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1, __int64 a2, __i
     KiRemoveSystemWorkPriorityKick(v50);
   }
   __writecr8(CurrentIrql);
-  v21 = qword_14043AFE0;
+  v21 = qword_14043C0A0;
 LABEL_22:
   while ( 2 )
   {
-    v22 = qword_14043AFE8;
-    v23 = &qword_14043AFA0;
-    if ( qword_14043AFE8 )
+    v22 = qword_14043C0A8;
+    v23 = &qword_14043C060;
+    if ( qword_14043C0A8 )
     {
-      while ( qword_14043AFA0 < v22 )
+      while ( qword_14043C060 < v22 )
       {
-        KeAcquireInStackQueuedSpinLock(&qword_14043AFD0, &LockHandle);
+        KeAcquireInStackQueuedSpinLock(&qword_14043C090, &LockHandle);
         KxReleaseQueuedSpinLock(&LockHandle);
         OldIrql = LockHandle.OldIrql;
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )
@@ -104,13 +104,13 @@ LABEL_22:
           KiRemoveSystemWorkPriorityKick(v52);
         }
         __writecr8(OldIrql);
-        v22 = qword_14043AFE8;
-        if ( !qword_14043AFE8 )
+        v22 = qword_14043C0A8;
+        if ( !qword_14043C0A8 )
           goto LABEL_26;
       }
       v23 = &v54;
-      v54 = qword_14043AFA0 - v22;
-      v55 = qword_14043AFA8 + 8 * (v22 >> 6);
+      v54 = qword_14043C060 - v22;
+      v55 = qword_14043C068 + 8 * (v22 >> 6);
       if ( v21 )
         v21 -= v22;
     }
@@ -139,7 +139,7 @@ LABEL_26:
 LABEL_80:
       if ( !v25 )
       {
-        if ( !(unsigned int)MiEmptyPteBins(&qword_14043AFA0, 0LL, -1LL, a4) )
+        if ( !(unsigned int)MiEmptyPteBins(&qword_14043C060, 0LL, -1LL, a4) )
           return 0LL;
         v21 = 0LL;
         goto LABEL_22;
@@ -156,8 +156,8 @@ LABEL_31:
     if ( v30 > v27 || v30 == -1LL )
       goto LABEL_80;
     a4 = (v30 + v22) & 0xFFFFFFFFFFFFFFC0uLL;
-    v31 = *(_QWORD *)(qword_14043AFA8 + 8 * (a4 >> 6));
-    v32 = (volatile signed __int64 *)(qword_14043AFA8 + 8 * (a4 >> 6));
+    v31 = *(_QWORD *)(qword_14043C068 + 8 * (a4 >> 6));
+    v32 = (volatile signed __int64 *)(qword_14043C068 + 8 * (a4 >> 6));
     if ( v31 == -1LL )
       goto LABEL_92;
     while ( 1 )
@@ -190,12 +190,12 @@ LABEL_92:
     CurrentPrcb->PteBitOffset = a4;
     v35 = ~v31 - ((~v31 >> 1) & 0x5555555555555555LL);
     _InterlockedExchangeAdd64(
-      &qword_14043AFF8,
+      &qword_14043C0B8,
       -(__int64)((0x101010101010101LL
                 * (((v35 & 0x3333333333333333LL)
                   + ((v35 >> 2) & 0x3333333333333333LL)
                   + (((v35 & 0x3333333333333333LL) + ((v35 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56));
-    qword_14043AFE0 = a4 + 64;
+    qword_14043C0A0 = a4 + 64;
   }
   else
   {
@@ -350,12 +350,12 @@ LABEL_10:
     v18 = (char *)v10 + (v8 >> 3);
     if ( v17 + a1 <= 8 )
     {
-      v19 = byte_140362158[a1] << v17;
+      v19 = byte_1403630E8[a1] << v17;
       goto LABEL_13;
     }
     if ( (v8 & 7) != 0 )
     {
-      *v18++ |= byte_140360D38[v17];
+      *v18++ |= byte_140361CC8[v17];
       a1 -= (unsigned int)(8 - v17);
     }
     if ( a1 > 8 )
@@ -366,12 +366,12 @@ LABEL_10:
     }
     if ( a1 )
     {
-      v19 = byte_140362158[a1];
+      v19 = byte_1403630E8[a1];
 LABEL_13:
       *v18 |= v19;
     }
 LABEL_14:
-    v7 = qword_14043AFB0 + 8 * (v8 + CurrentPrcb->PteBitOffset);
+    v7 = qword_14043C070 + 8 * (v8 + CurrentPrcb->PteBitOffset);
   }
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
   {

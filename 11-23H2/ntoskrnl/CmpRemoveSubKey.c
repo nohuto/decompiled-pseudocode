@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpRemoveSubKey @ 0x14070BC70
+ * XREFs of CmpRemoveSubKey @ 0x14070BE80
  * Callers:
- *     CmpFreeKeyByCell @ 0x14070B214 (CmpFreeKeyByCell.c)
+ *     CmpFreeKeyByCell @ 0x14070B424 (CmpFreeKeyByCell.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpRemoveSubKeyFromList @ 0x14070BD20 (CmpRemoveSubKeyFromList.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpRemoveSubKeyFromList @ 0x14070BF30 (CmpRemoveSubKeyFromList.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 char __fastcall CmpRemoveSubKey(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned int a3)

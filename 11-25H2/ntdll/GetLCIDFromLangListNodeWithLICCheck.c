@@ -26,9 +26,9 @@ __int64 __fastcall GetLCIDFromLangListNodeWithLICCheck(
 {
   unsigned __int64 v5; // r14
   unsigned int v7; // edi
-  __int64 v9; // rax
-  __int64 v10; // rbp
-  unsigned int v11; // eax
+  _QWORD *v9; // rax
+  _QWORD *v10; // rbp
+  LCID v11; // eax
   unsigned __int16 *v12; // r9
   int v13; // ecx
   unsigned __int16 v14; // ax
@@ -41,19 +41,19 @@ __int64 __fastcall GetLCIDFromLangListNodeWithLICCheck(
   __int64 v22; // rdx
   __int64 v23; // rcx
   __int16 v24[2]; // [rsp+20h] [rbp-118h] BYREF
-  int v25; // [rsp+24h] [rbp-114h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-110h] BYREF
+  DWORD Lcid; // [rsp+24h] [rbp-114h] BYREF
+  _UNICODE_STRING String; // [rsp+28h] [rbp-110h] BYREF
   _BYTE v27[176]; // [rsp+40h] [rbp-F8h] BYREF
 
   v5 = a3;
   v7 = 0;
-  v25 = 0;
+  Lcid = 0;
   v24[0] = 0;
-  DestinationString = 0LL;
+  String = 0LL;
   memset_thunk_772440563353939046(v27, 0, 0xAAuLL);
   if ( !a2 || !a4 || !a5 || (unsigned __int16)v5 >= *(_WORD *)(a2 + 4) )
     return (unsigned int)-1073741811;
-  v9 = *(_QWORD *)(a2 + 16);
+  v9 = *(_QWORD **)(a2 + 16);
   v10 = g_RegInfo;
   *a5 = 0;
   if ( v9 )
@@ -66,7 +66,7 @@ __int64 __fastcall GetLCIDFromLangListNodeWithLICCheck(
     v13 = *v12;
     if ( v13 == 2 )
     {
-      v14 = *(_WORD *)(28LL * (__int16)v12[2] + *(_QWORD *)(*(_QWORD *)(v10 + 24) + 16LL) + 4);
+      v14 = *(_WORD *)(28LL * (__int16)v12[2] + *(_QWORD *)(v10[3] + 16LL) + 4);
       *a4 = v14;
       if ( v14 )
       {
@@ -76,7 +76,7 @@ LABEL_10:
         return v7;
       }
       v22 = 28LL * (__int16)v12[2];
-      v23 = *(_QWORD *)(*(_QWORD *)(v10 + 24) + 16LL);
+      v23 = *(_QWORD *)(v10[3] + 16LL);
       if ( *(__int16 *)(v22 + v23 + 6) <= 0 )
         return (unsigned int)-1073741595;
       v21 = *(__int16 *)(v22 + v23 + 6);
@@ -96,24 +96,23 @@ LABEL_14:
       v21 = (__int16)v12[2];
     }
     RtlInitUnicodeString(
-      &DestinationString,
-      (PCWSTR)(*(_QWORD *)(*(_QWORD *)(v10 + 32) + 24LL)
-             + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(v10 + 32) + 16LL) + 2 * v21)));
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v25) )
+      &String,
+      (PCWSTR)(*(_QWORD *)(v10[4] + 24LL) + 2LL * *(__int16 *)(*(_QWORD *)(v10[4] + 16LL) + 2 * v21)));
+    if ( RtlCultureNameToLCID(&String, &Lcid) )
     {
-      v18 = v25;
+      v18 = Lcid;
       goto LABEL_14;
     }
     return (unsigned int)-1073741595;
   }
-  DestinationString.MaximumLength = 170;
-  DestinationString.Buffer = (wchar_t *)v27;
-  if ( (unsigned __int8)RtlLCIDToCultureName(v11, &DestinationString) )
+  String.MaximumLength = 170;
+  String.Buffer = (wchar_t *)v27;
+  if ( RtlLCIDToCultureName(v11, &String) )
   {
-    if ( *(_DWORD *)(v10 + 120) >= 0x3E8u )
+    if ( *((_DWORD *)v10 + 30) >= 0x3E8u )
     {
-      Buffer = DestinationString.Buffer;
-      if ( (int)RtlpIsALicensedRegularLanguage(v10, DestinationString.Buffer) < 0
+      Buffer = String.Buffer;
+      if ( (int)RtlpIsALicensedRegularLanguage(v10, String.Buffer) < 0
         && (int)RtlpIsALicensedLIPLanguage(v10, Buffer) < 0 )
       {
         *a5 = 1;
@@ -122,9 +121,9 @@ LABEL_14:
     else
     {
       LOBYTE(v19) = 1;
-      if ( (int)((__int64 (__fastcall *)(__int64, wchar_t *, __int64, __int16 *))RtlpMuiRegGetInstalledLanguageIndexByName)(
+      if ( (int)((__int64 (__fastcall *)(_QWORD *, wchar_t *, __int64, __int16 *))RtlpMuiRegGetInstalledLanguageIndexByName)(
                   v10,
-                  DestinationString.Buffer,
+                  String.Buffer,
                   v19,
                   v24) < 0 )
         *a5 = 1;

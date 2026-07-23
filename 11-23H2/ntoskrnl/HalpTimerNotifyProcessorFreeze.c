@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerNotifyProcessorFreeze @ 0x140334270
+ * XREFs of HalpTimerNotifyProcessorFreeze @ 0x140334500
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerResetProfileAdjustment @ 0x1403342B0 (HalpTimerResetProfileAdjustment.c)
+ *     HalpTimerResetProfileAdjustment @ 0x140334540 (HalpTimerResetProfileAdjustment.c)
  */
 
 char __fastcall HalpTimerNotifyProcessorFreeze(char a1, char a2)

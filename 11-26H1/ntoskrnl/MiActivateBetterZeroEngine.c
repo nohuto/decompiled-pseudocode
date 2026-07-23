@@ -1,10 +1,10 @@
 /*
- * XREFs of MiActivateBetterZeroEngine @ 0x1404E7EA4
+ * XREFs of MiActivateBetterZeroEngine @ 0x1404E1264
  * Callers:
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
  * Callees:
- *     MiDecrementZeroEngineThread @ 0x1403E8DCC (MiDecrementZeroEngineThread.c)
- *     MiWakeZeroingThreads @ 0x14070ED28 (MiWakeZeroingThreads.c)
+ *     MiDecrementZeroEngineThread @ 0x1402F5CAC (MiDecrementZeroEngineThread.c)
+ *     MiWakeZeroingThreads @ 0x140713A28 (MiWakeZeroingThreads.c)
  */
 
 __int64 __fastcall MiActivateBetterZeroEngine(__int64 a1)

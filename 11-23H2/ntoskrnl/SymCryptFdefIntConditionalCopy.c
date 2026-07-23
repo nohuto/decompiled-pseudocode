@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntConditionalCopy @ 0x140405748
+ * XREFs of SymCryptFdefIntConditionalCopy @ 0x140405928
  * Callers:
- *     SymCryptIntConditionalCopy @ 0x1403F92E8 (SymCryptIntConditionalCopy.c)
+ *     SymCryptIntConditionalCopy @ 0x1403F94C8 (SymCryptIntConditionalCopy.c)
  * Callees:
- *     SymCryptFdefMaskedCopyAsm @ 0x140405DE0 (SymCryptFdefMaskedCopyAsm.c)
+ *     SymCryptFdefMaskedCopyAsm @ 0x140405FC0 (SymCryptFdefMaskedCopyAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefIntConditionalCopy(__int64 a1, __int64 a2, unsigned int a3)

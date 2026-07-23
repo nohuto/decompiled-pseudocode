@@ -1,17 +1,17 @@
 /*
  * XREFs of ZwUnlockVirtualMemory @ 0x14041F240
  * Callers:
- *     CmSiUnlockViewOfSection @ 0x14020B600 (CmSiUnlockViewOfSection.c)
- *     SmKmStoreHelperCommandProcess @ 0x14037DAEC (SmKmStoreHelperCommandProcess.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1405F7B94 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     VmColdPagesHint @ 0x140628D00 (VmColdPagesHint.c)
+ *     sub_14020B600 @ 0x14020B600 (sub_14020B600.c)
+ *     sub_14037DAEC @ 0x14037DAEC (sub_14037DAEC.c)
+ *     sub_1405F7B94 @ 0x1405F7B94 (sub_1405F7B94.c)
+ *     sub_140628D00 @ 0x140628D00 (sub_140628D00.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwUnlockVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwUnlockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProcessHandle, BaseAddress);
 }

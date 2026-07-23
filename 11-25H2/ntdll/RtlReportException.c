@@ -60,8 +60,8 @@
  * 00000001800CF0C0: and     r9, rax
  * 00000001800CF0C3: call    RtlReportExceptionHelper
  * 00000001800CF0C8: mov     r8d, edi
- * 00000001800CF0CB: mov     rdx, rsi
- * 00000001800CF0CE: mov     rcx, rbp
+ * 00000001800CF0CB: mov     rdx, rsi; ContextRecord
+ * 00000001800CF0CE: mov     rcx, rbp; ExceptionRecord
  * 00000001800CF0D1: mov     ebx, eax
  * 00000001800CF0D3: call    WerpBreakIntoDebuggerIfPresent
  * 00000001800CF0D8: mov     eax, ebx

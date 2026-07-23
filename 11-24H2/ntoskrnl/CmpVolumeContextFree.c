@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpVolumeContextFree @ 0x140A9BCC0
+ * XREFs of CmpVolumeContextFree @ 0x140A97230
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x140966DB8 (CmpVolumeManagerGetContextForFile.c)
- *     CmpVolumeContextDecrementRefCount @ 0x14097C7A0 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x14094F848 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x140964FB0 (CmpVolumeContextDecrementRefCount.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpVolumeContextCleanup @ 0x140A9BCE4 (CmpVolumeContextCleanup.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpVolumeContextCleanup @ 0x140A97254 (CmpVolumeContextCleanup.c)
  */
 
 void __fastcall CmpVolumeContextFree(PPRIVILEGE_SET Privileges)

@@ -19,26 +19,28 @@
  *     sub_1800DC838 @ 0x1800DC838 (sub_1800DC838.c)
  */
 
-__int64 __fastcall RtlReportException(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlReportException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, ULONG Flags)
 {
   int v3; // ebx
-  unsigned int v8; // ebx
-  int v9; // [rsp+50h] [rbp-28h]
-  __int64 v10; // [rsp+98h] [rbp+20h] BYREF
+  NTSTATUS v8; // ebx
+  _BYTE ProcessInformation[32]; // [rsp+30h] [rbp-48h] BYREF
+  int v10; // [rsp+50h] [rbp-28h]
+  __int64 v11; // [rsp+98h] [rbp+20h] BYREF
 
   v3 = 0;
-  v10 = 0LL;
-  if ( (a3 & 0xFFFFFFE0) != 0 )
-    return 3221225485LL;
-  ((void (*)(void))sub_1800DC838)();
+  v11 = 0LL;
+  if ( (Flags & 0xFFFFFFE0) != 0 )
+    return -1073741811;
+  sub_1800DC838(ExceptionRecord, ContextRecord);
   if ( byte_180165430 )
-    return 0LL;
-  if ( (int)ZwQueryInformationProcess() >= 0 && v9 == 1 )
+    return 0;
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, ProcessInformation, 0x40u, 0LL) >= 0
+    && v10 == 1 )
   {
     v3 = 1;
-    v10 = -300000000LL;
+    v11 = -300000000LL;
   }
-  v8 = sub_1800DBEC0(a1, a2, a3, (unsigned __int64)&v10 & -(__int64)(v3 != 0), 0LL);
-  sub_1800DC838(a1, a2, a3);
+  v8 = sub_1800DBEC0(ExceptionRecord, ContextRecord, Flags, (unsigned __int64)&v11 & -(__int64)(v3 != 0));
+  sub_1800DC838(ExceptionRecord, ContextRecord);
   return v8;
 }

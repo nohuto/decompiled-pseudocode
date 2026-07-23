@@ -2,7 +2,7 @@
  * XREFs of LdrpMultiSZCchLength @ 0x18003B3F4
  * Callers:
  *     RtlSetThreadPreferredUILanguages @ 0x18003BAA0 (RtlSetThreadPreferredUILanguages.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088CD0 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088CE0 (RtlSetProcessPreferredUILanguages.c)
  *     RtlpConvertCultureNamesToLCIDs @ 0x1800EFC00 (RtlpConvertCultureNamesToLCIDs.c)
  *     RtlpConvertLCIDsToCultureNames @ 0x1800EFE10 (RtlpConvertLCIDsToCultureNames.c)
  * Callees:

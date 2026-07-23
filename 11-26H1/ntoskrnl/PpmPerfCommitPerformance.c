@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfCommitPerformance @ 0x140257CD0
+ * XREFs of PpmPerfCommitPerformance @ 0x1402594B0
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckQueueControlAction @ 0x1402577FC (PpmCheckQueueControlAction.c)
+ *     PpmCheckQueueControlAction @ 0x140258FDC (PpmCheckQueueControlAction.c)
  */
 
 __int64 PpmPerfCommitPerformance()
 {
-  return PpmCheckQueueControlAction(qword_140F12248);
+  return PpmCheckQueueControlAction(PpmPerfControlCommitPerformance);
 }

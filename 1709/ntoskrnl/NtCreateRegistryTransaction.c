@@ -12,14 +12,18 @@
  *     ObInsertObjectEx @ 0x1404BC710 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int64 a3, int a4)
+NTSTATUS __cdecl NtCreateRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes,
+        ULONG CreateOptions)
 {
   struct _KTHREAD *CurrentThread; // rax
   BOOLEAN v9; // si
   char PreviousMode; // r15
   __int64 v11; // rax
   _QWORD *v12; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   __int64 v15; // [rsp+20h] [rbp-68h]
   HANDLE Handle; // [rsp+58h] [rbp-30h] BYREF
   PVOID Object[2]; // [rsp+60h] [rbp-28h] BYREF
@@ -31,7 +35,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
   v9 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   if ( v9 )
   {
-    if ( a4 )
+    if ( CreateOptions )
     {
       inserted = -1073741811;
     }
@@ -41,15 +45,25 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
       if ( PreviousMode == 1 )
       {
         v11 = 0x7FFFFFFF0000LL;
-        if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-          v11 = (__int64)a1;
+        if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+          v11 = (__int64)RegistryTransactionHandle;
         *(_QWORD *)v11 = 0LL;
       }
       else
       {
-        *a1 = 0LL;
+        *RegistryTransactionHandle = 0LL;
       }
-      inserted = ObCreateObjectEx(PreviousMode, CmRegistryTransactionType, a3, PreviousMode, v15, 24, 0, 0, Object, 0LL);
+      inserted = ObCreateObjectEx(
+                   PreviousMode,
+                   CmRegistryTransactionType,
+                   (__int64)ObjAttributes,
+                   PreviousMode,
+                   v15,
+                   24,
+                   0,
+                   0,
+                   Object,
+                   0LL);
       if ( inserted >= 0 )
       {
         v12 = Object[0];
@@ -57,11 +71,11 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
         v12[1] = 0LL;
         v12[2] = 0LL;
         v12[1] = 0LL;
-        inserted = ObInsertObjectEx(v12, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&Handle);
+        inserted = ObInsertObjectEx(v12, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&Handle);
         Object[0] = 0LL;
         if ( inserted >= 0 )
         {
-          *a1 = Handle;
+          *RegistryTransactionHandle = Handle;
           Handle = 0LL;
           inserted = 0;
         }
@@ -82,5 +96,5 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

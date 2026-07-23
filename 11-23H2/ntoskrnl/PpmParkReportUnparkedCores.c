@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkReportUnparkedCores @ 0x140356C60
+ * XREFs of PpmParkReportUnparkedCores @ 0x140356E00
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x140252078 (PpmPerfQueueAction.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KiSubtractAffinityEx @ 0x14033D83C (KiSubtractAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x140252138 (PpmPerfQueueAction.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x14033DACC (KiSubtractAffinityEx.c)
  */
 
 char PpmParkReportUnparkedCores()
@@ -32,7 +32,7 @@ char PpmParkReportUnparkedCores()
     return 1;
   }
   PpmCheckCount = KeCountSetBitsAffinityEx((unsigned __int16 *)&PpmPerfNewUnparkedMask);
-  v2[1] = (unsigned __int16 *)qword_140C0D908;
+  v2[1] = (unsigned __int16 *)qword_140C0D7F8;
   v3 = 0;
   v2[0] = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v6, v2) )

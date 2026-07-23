@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x1406E688C
+ * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x1406E69C4
  * Callers:
- *     RtlpMuiRegValidateConfigNode @ 0x14023E914 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x14023E7F8 (RtlpMuiRegValidateConfigNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x14013FF84 (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1401404F4 (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlCultureNameToLCID @ 0x1405617C8 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x140688F04 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6DD0 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1406E70F8 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     RtlCultureNameToLCID @ 0x140561D08 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140688FE8 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6F08 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x1406E7230 (RtlpMuiRegLangInfoMatchesSpec.c)
  */
 
 char __fastcall RtlpMuiRegConfigMatchesInstalled(
@@ -42,7 +42,7 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v26; // r8
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-50h] BYREF
   __int16 v29; // [rsp+88h] [rbp+10h] BYREF
-  int v30; // [rsp+98h] [rbp+20h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+20h] BYREF
 
   v7 = 0LL;
   v8 = a3;
@@ -93,9 +93,9 @@ LABEL_3:
         if ( v21 )
         {
           RtlInitUnicodeString(&DestinationString, v21);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v30) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            v13 = v8 == (__int16)v30;
+            v13 = v8 == (__int16)Lcid;
             goto LABEL_3;
           }
         }

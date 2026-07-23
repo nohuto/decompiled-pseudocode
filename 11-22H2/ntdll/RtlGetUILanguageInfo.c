@@ -23,63 +23,68 @@
  *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x180111C44 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
  */
 
-__int64 __fastcall RtlGetUILanguageInfo(int a1, WCHAR *a2, _WORD *a3, unsigned int *a4, int *a5)
+NTSTATUS __cdecl RtlGetUILanguageInfo(
+        ULONG Flags,
+        PCZZWSTR Languages,
+        PZZWSTR FallbackLanguages,
+        PULONG NumberOfFallbackLanguages,
+        PULONG Attributes)
 {
   char v5; // bl
-  _WORD *v7; // r12
+  PZZWSTR v7; // r12
   WCHAR *v8; // rdi
-  unsigned int v9; // r13d
+  ULONG v9; // r13d
   const WCHAR *v11; // rdi
   int v12; // r8d
   int v13; // eax
-  __int64 v14; // r8
+  PVOID v14; // r8
   __int64 v15; // rdx
-  int v16; // r15d
+  ULONG v16; // r15d
   int v17; // eax
-  __int64 v18; // rsi
-  unsigned int FallbackLanguagesAsMultiSZ; // ebx
+  void *v18; // rsi
+  NTSTATUS FallbackLanguagesAsMultiSZ; // ebx
   __int64 v20; // r12
   int InstalledLanguageIndexByLangId; // eax
   __int64 v22; // r9
   __int64 v23; // r15
-  wchar_t *Heap; // rax
+  PVOID Heap; // rax
   int v25; // r9d
   int FallbackLanguageInfoByLangId; // eax
   char v27; // [rsp+30h] [rbp-61h]
   _WORD v28[2]; // [rsp+34h] [rbp-5Dh] BYREF
-  _WORD *v29; // [rsp+38h] [rbp-59h]
-  unsigned int v30; // [rsp+40h] [rbp-51h] BYREF
+  PZZWSTR v29; // [rsp+38h] [rbp-59h]
+  DWORD Lcid; // [rsp+40h] [rbp-51h] BYREF
   int v31; // [rsp+44h] [rbp-4Dh]
-  __int64 v32; // [rsp+48h] [rbp-49h] BYREF
-  int v33; // [rsp+50h] [rbp-41h]
+  _QWORD *v32; // [rsp+48h] [rbp-49h] BYREF
+  ULONG v33; // [rsp+50h] [rbp-41h]
   int v34; // [rsp+54h] [rbp-3Dh]
-  wchar_t *v35; // [rsp+58h] [rbp-39h]
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-31h] BYREF
-  int *v37; // [rsp+70h] [rbp-21h]
-  UNICODE_STRING v38; // [rsp+78h] [rbp-19h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-39h]
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-31h] BYREF
+  PULONG v37; // [rsp+70h] [rbp-21h]
+  _UNICODE_STRING String; // [rsp+78h] [rbp-19h] BYREF
   __int128 v39; // [rsp+88h] [rbp-9h] BYREF
   __int64 v40; // [rsp+98h] [rbp+7h]
   int v41; // [rsp+A0h] [rbp+Fh]
 
-  v5 = a1;
-  v33 = a1;
-  v29 = a3;
-  v37 = a5;
+  v5 = Flags;
+  v33 = Flags;
+  v29 = FallbackLanguages;
+  v37 = Attributes;
   v32 = 0LL;
-  v7 = a3;
+  v7 = FallbackLanguages;
   v28[0] = -1;
-  v8 = a2;
+  v8 = (WCHAR *)Languages;
   LOBYTE(v31) = 0;
-  v35 = 0LL;
-  if ( a4 )
-    v9 = *a4;
+  BaseAddress = 0LL;
+  if ( NumberOfFallbackLanguages )
+    v9 = *NumberOfFallbackLanguages;
   else
     v9 = 0;
-  if ( !a2 || !*a2 || (a1 & 0xC) == 0xC || (a1 & 0xFFFFFF73) != 0 || v9 && !a3 )
-    return 3221225485LL;
+  if ( !Languages || !*Languages || (Flags & 0xC) == 0xC || (Flags & 0xFFFFFF73) != 0 || v9 && !FallbackLanguages )
+    return -1073741811;
   v15 = 4LL;
-  v16 = a1 & 4;
-  if ( (a1 & 4) == 0 )
+  v16 = Flags & 4;
+  if ( (Flags & 4) == 0 )
     v15 = 85LL;
   if ( (int)RtlpCheckMuiMultiStringSafe(v8, v15) < 0 )
     DbgPrint(
@@ -91,10 +96,10 @@ __int64 __fastcall RtlGetUILanguageInfo(int a1, WCHAR *a2, _WORD *a3, unsigned i
     if ( v9 > 1 )
       v7[1] = 0;
   }
-  if ( a4 )
-    *a4 = 2;
-  if ( a5 )
-    *a5 = 0;
+  if ( NumberOfFallbackLanguages )
+    *NumberOfFallbackLanguages = 2;
+  if ( Attributes )
+    *Attributes = 0;
   v34 = v5 & 0x80;
   if ( v5 < 0 )
     v17 = RtlpInitializeLangRegistryInfo(&v32);
@@ -109,12 +114,12 @@ __int64 __fastcall RtlGetUILanguageInfo(int a1, WCHAR *a2, _WORD *a3, unsigned i
       FallbackLanguagesAsMultiSZ = -1073741823;
       goto LABEL_20;
     }
-    v20 = *(_QWORD *)(v32 + 24);
+    v20 = v32[3];
     if ( v16 )
     {
       v27 = 1;
-      Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
-      v35 = Heap;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+      BaseAddress = Heap;
       if ( !Heap )
       {
         FallbackLanguagesAsMultiSZ = -1073741801;
@@ -124,30 +129,30 @@ LABEL_66:
         v7 = v29;
         goto LABEL_20;
       }
-      DestinationString.Buffer = Heap;
+      DestinationString.Buffer = (wchar_t *)Heap;
       *(_DWORD *)&DestinationString.Length = 11141120;
-      RtlInitUnicodeString(&v38, v8);
-      if ( (int)RtlUnicodeStringToLcid(&v38, &v30) < 0 || !RtlLCIDToCultureName(v30, (__int64)&DestinationString) )
+      RtlInitUnicodeString(&String, v8);
+      if ( (int)RtlUnicodeStringToLcid(&String, &Lcid) < 0 || !RtlLCIDToCultureName(Lcid, &DestinationString) )
       {
-        v14 = (__int64)v35;
+        v14 = BaseAddress;
         FallbackLanguagesAsMultiSZ = -1073741811;
 LABEL_64:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v14);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
         goto LABEL_65;
       }
       v18 = v32;
-      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(v32, v30, 1, v28);
+      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId((__int64)v32, Lcid, 1, v28);
     }
     else
     {
       v27 = 0;
       RtlInitUnicodeString(&DestinationString, v8);
-      if ( !RtlCultureNameToLCID(&DestinationString.Length, (int *)&v30) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       {
         FallbackLanguagesAsMultiSZ = -1073741811;
         goto LABEL_66;
       }
-      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByName(v18, v8, 1, v28);
+      InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByName((__int64)v18, v8, 1, v28);
     }
     FallbackLanguagesAsMultiSZ = InstalledLanguageIndexByLangId;
     if ( InstalledLanguageIndexByLangId < 0 )
@@ -175,14 +180,14 @@ LABEL_64:
           {
             if ( v27 )
             {
-              RtlInitUnicodeString(&v38, v11);
-              if ( (int)RtlUnicodeStringToInteger(&v38.Length, 0x10u, (int *)&v30) < 0 )
+              RtlInitUnicodeString(&String, v11);
+              if ( RtlUnicodeStringToInteger(&String, 0x10u, &Lcid) < 0 )
                 break;
               LOBYTE(v25) = 1;
               FallbackLanguageInfoByLangId = RtlpMuiRegGetFallbackLanguageInfoByLangId(
-                                               v18,
+                                               (_DWORD)v18,
                                                (unsigned int)&v39,
-                                               (unsigned __int16)v30,
+                                               (unsigned __int16)Lcid,
                                                v25,
                                                (__int64)&v39);
             }
@@ -224,22 +229,22 @@ LABEL_13:
             v13 = *(_WORD *)v23 & 0x419F;
           *v37 = v13 | 0x40;
         }
-        if ( !a4 )
+        if ( !NumberOfFallbackLanguages )
           goto LABEL_18;
         v7 = v29;
-        *a4 = v9;
+        *NumberOfFallbackLanguages = v9;
         if ( (_BYTE)v12 )
-          *a4 = 2;
+          *NumberOfFallbackLanguages = 2;
         else
           FallbackLanguagesAsMultiSZ = RtlpMuiRegGetFallbackLanguagesAsMultiSZ(
                                          v33,
-                                         v18,
+                                         (_DWORD)v18,
                                          (unsigned int)&v39,
-                                         (_DWORD)a4,
+                                         (_DWORD)NumberOfFallbackLanguages,
                                          (__int64)v7);
 LABEL_19:
-        v14 = (__int64)v35;
-        if ( !v35 )
+        v14 = BaseAddress;
+        if ( !BaseAddress )
           goto LABEL_20;
         goto LABEL_64;
       }
@@ -252,10 +257,10 @@ LABEL_18:
 LABEL_20:
   if ( v34 && v18 )
     RtlpMuiFreeLangRegistryInfo(v18);
-  if ( !FallbackLanguagesAsMultiSZ && a4 && *a4 > v9 )
+  if ( !FallbackLanguagesAsMultiSZ && NumberOfFallbackLanguages && *NumberOfFallbackLanguages > v9 )
   {
     if ( v7 )
-      return (unsigned int)-1073741789;
+      return -1073741789;
   }
   return FallbackLanguagesAsMultiSZ;
 }

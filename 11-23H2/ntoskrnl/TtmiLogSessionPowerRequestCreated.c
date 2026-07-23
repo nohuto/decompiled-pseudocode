@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionPowerRequestCreated @ 0x1409A9A58
+ * XREFs of TtmiLogSessionPowerRequestCreated @ 0x1409A9C58
  * Callers:
- *     TtmNotifySessionPowerRequestCreated @ 0x1409A4520 (TtmNotifySessionPowerRequestCreated.c)
+ *     TtmNotifySessionPowerRequestCreated @ 0x1409A4720 (TtmNotifySessionPowerRequestCreated.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionPowerRequestCreated()
@@ -38,13 +38,7 @@ void TtmiLogSessionPowerRequestCreated()
       v9 = 4LL;
       v6 = v2;
       v11 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D53918,
-        (unsigned __int8 *)&word_14003326E,
-        0LL,
-        0LL,
-        5u,
-        &v7);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53918, (unsigned __int8 *)word_1400331D2, 0LL, 0LL, 5u, &v7);
     }
   }
 }

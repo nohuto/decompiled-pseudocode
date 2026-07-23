@@ -29,7 +29,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   int v12; // eax
   void *v13; // r14
   NTSTATUS v14; // edi
-  const char *v15; // r15
+  const CHAR *v15; // r15
   unsigned int v21; // r12d
   _DWORD *v22; // r8
   unsigned int v23; // r9d
@@ -38,7 +38,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   unsigned __int64 v36; // rax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   int Data; // [rsp+50h] [rbp-B0h] BYREF
-  STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
+  _STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int64 v40; // [rsp+68h] [rbp-98h] BYREF
   _QWORD v41[9]; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING Handle; // [rsp+C0h] [rbp-40h] BYREF
@@ -108,7 +108,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
     if ( v12 >= 0 )
     {
       NtClose(*(HANDLE *)&Handle.Length);
-      v15 = *(_BYTE *)(a1 + 1521) ? (const char *)(a1 + 25176) : 0LL;
+      v15 = *(_BYTE *)(a1 + 1521) ? (const CHAR *)(a1 + 25176) : 0LL;
       _RAX = 0x80000000LL;
       __asm { cpuid }
       *(_DWORD *)(&Handle.MaximumLength + 1) = _RBX;

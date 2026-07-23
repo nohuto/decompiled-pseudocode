@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSetDeviceToVerify @ 0x1404B4160
+ * XREFs of IoSetDeviceToVerify @ 0x1404AE980
  * Callers:
  *     <none>
  * Callees:

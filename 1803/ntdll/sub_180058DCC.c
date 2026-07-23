@@ -13,9 +13,6 @@ __int64 __fastcall sub_180058DCC(__int64 a1, char a2, int a3, __int64 a4, __int6
 {
   __int64 v6; // rdi
   __int64 result; // rax
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // r8
-  __int64 v12; // r9
 
   v6 = a4;
   if ( a4 )
@@ -29,7 +26,7 @@ __int64 __fastcall sub_180058DCC(__int64 a1, char a2, int a3, __int64 a4, __int6
     if ( v6 )
       *(_QWORD *)(a1 + 32) = *(_QWORD *)(v6 + 48);
     if ( *(_QWORD *)(a1 + 16) )
-      sub_1800570C8((_QWORD *)a1, v10, v11, v12);
+      sub_1800570C8(a1);
     return 0LL;
   }
   return result;

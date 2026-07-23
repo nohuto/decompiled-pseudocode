@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSafebootDriverLoad @ 0x140AB9958
+ * XREFs of IopSafebootDriverLoad @ 0x140AB4A18
  * Callers:
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140A77340 (IopOpenRegistryKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140A71460 (IopOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
@@ -36,16 +36,16 @@ char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
   DestinationString = 0LL;
   if ( a2 )
     *a2 = 0;
-  if ( (_DWORD)InitSafeBootMode == 1 )
+  if ( InitSafeBootMode == 1 )
   {
     v6 = L"MINIMAL";
   }
   else
   {
     result = InitSafeBootMode - 2;
-    if ( (_DWORD)InitSafeBootMode != 2 )
+    if ( InitSafeBootMode != 2 )
     {
-      if ( (_DWORD)InitSafeBootMode == 3 )
+      if ( InitSafeBootMode == 3 )
         return result;
       return 0;
     }
@@ -53,7 +53,7 @@ char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
   }
   RtlInitUnicodeString(&DestinationString, v6);
   Destination.MaximumLength = Source->Length + DestinationString.Length + 8;
-  Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, Destination.MaximumLength, 0x20206F49u);
   if ( !Destination.Buffer )
     return 0;
   RtlCopyUnicodeString(&Destination, &DestinationString);

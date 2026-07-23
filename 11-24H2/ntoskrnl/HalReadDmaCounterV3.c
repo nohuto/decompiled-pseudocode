@@ -1,9 +1,9 @@
 /*
- * XREFs of HalReadDmaCounterV3 @ 0x1404B4D20
+ * XREFs of HalReadDmaCounterV3 @ 0x1404AF520
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaControllerReadDmaCounter @ 0x1404B4D50 (HalpDmaControllerReadDmaCounter.c)
+ *     HalpDmaControllerReadDmaCounter @ 0x1404AF550 (HalpDmaControllerReadDmaCounter.c)
  */
 
 __int64 __fastcall HalReadDmaCounterV3(__int64 a1)

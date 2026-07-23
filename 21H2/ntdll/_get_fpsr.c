@@ -1,5 +1,5 @@
 /*
- * XREFs of _get_fpsr @ 0x1800A4470
+ * XREFs of _get_fpsr @ 0x1800A4430
  * Callers:
  *     _control87 @ 0x180094430 (_control87.c)
  *     _clrfp @ 0x180095850 (_clrfp.c)

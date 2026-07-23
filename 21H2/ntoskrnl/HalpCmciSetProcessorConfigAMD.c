@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCmciSetProcessorConfigAMD @ 0x1404BCE00
+ * XREFs of HalpCmciSetProcessorConfigAMD @ 0x1404BD040
  * Callers:
- *     HalpCmciPollProcessor @ 0x1403A0AAC (HalpCmciPollProcessor.c)
- *     HalpCmciSetProcessorConfig @ 0x1403A0BF8 (HalpCmciSetProcessorConfig.c)
- *     HalpCmciResetStateAMD @ 0x1404BCD20 (HalpCmciResetStateAMD.c)
+ *     HalpCmciPollProcessor @ 0x1403A0BFC (HalpCmciPollProcessor.c)
+ *     HalpCmciSetProcessorConfig @ 0x1403A0D48 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciResetStateAMD @ 0x1404BCF60 (HalpCmciResetStateAMD.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpCmciSetProcessorMiscConfigAMD @ 0x1404BD05C (HalpCmciSetProcessorMiscConfigAMD.c)
- *     HalpWheaReadMsrMisc @ 0x1404CF818 (HalpWheaReadMsrMisc.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpCmciSetProcessorMiscConfigAMD @ 0x1404BD29C (HalpCmciSetProcessorMiscConfigAMD.c)
+ *     HalpWheaReadMsrMisc @ 0x1404CFA58 (HalpWheaReadMsrMisc.c)
  */
 
 char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)

@@ -57,7 +57,7 @@ __int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguratio
     if ( v3 != -1073741275 )
     {
 LABEL_9:
-      ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0LL);
+      ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
       return (unsigned int)ObjectProperty;
     }
 LABEL_10:

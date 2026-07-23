@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCheckForResource @ 0x1405B5624
+ * XREFs of ExpCheckForResource @ 0x1405B5854
  * Callers:
- *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x14021898C (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     VfCheckForResource @ 0x1409E248C (VfCheckForResource.c)
+ *     VfCheckForResource @ 0x1409E348C (VfCheckForResource.c)
  */
 
 __int64 __fastcall ExpCheckForResource(__int64 *a1, ULONG_PTR a2)

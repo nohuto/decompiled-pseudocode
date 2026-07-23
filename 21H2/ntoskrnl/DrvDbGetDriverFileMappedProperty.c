@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDriverFileMappedProperty @ 0x14097D684
+ * XREFs of DrvDbGetDriverFileMappedProperty @ 0x14097D864
  * Callers:
- *     DrvDbDispatchDriverFile @ 0x14097ED80 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverFile @ 0x14097EF60 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14063B5DC (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x14097DE60 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbOpenDriverFileRegKey @ 0x14097E558 (DrvDbOpenDriverFileRegKey.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406303EC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097E040 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbOpenDriverFileRegKey @ 0x14097E738 (DrvDbOpenDriverFileRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverFileMappedProperty(
@@ -61,7 +61,7 @@ __int64 __fastcall DrvDbGetDriverFileMappedProperty(
     }
   }
   v17 = 0LL;
-  for ( i = &off_140009E90; ; i += 5 )
+  for ( i = &off_140009DF0; ; i += 5 )
   {
     v19 = (__int64 *)*i;
     if ( LODWORD((**i)[2]) == v13 )
@@ -77,7 +77,7 @@ __int64 __fastcall DrvDbGetDriverFileMappedProperty(
       return (unsigned int)-1073741802;
   }
   v22 = 5 * v17;
-  v23 = &off_140009E90 + 5 * v17;
+  v23 = &off_140009DF0 + 5 * v17;
   if ( !v23 )
     return (unsigned int)-1073741802;
   if ( !a3 )

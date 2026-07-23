@@ -17,7 +17,7 @@
 
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  struct _SLIST_ENTRY *v5; // r14
+  _SLIST_ENTRY *v5; // r14
   unsigned int ProtectionMask; // esi
   __int64 v7; // r9
   unsigned __int64 v9; // r12

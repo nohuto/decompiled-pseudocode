@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSecurePoolCreate @ 0x1406D103C
+ * XREFs of ExpSecurePoolCreate @ 0x1406D506C
  * Callers:
- *     ExCreatePool @ 0x1406CBA60 (ExCreatePool.c)
+ *     ExCreatePool @ 0x1406CFA90 (ExCreatePool.c)
  * Callees:
- *     RtlpHpMetadataAlloc @ 0x140352250 (RtlpHpMetadataAlloc.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
+ *     RtlpHpMetadataAlloc @ 0x1403542D4 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
  */
 
 __int64 __fastcall ExpSecurePoolCreate(int a1, __int64 a2)

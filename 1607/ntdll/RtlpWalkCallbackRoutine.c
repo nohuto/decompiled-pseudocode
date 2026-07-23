@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWalkCallbackRoutine @ 0x180096190
+ * XREFs of RtlpWalkCallbackRoutine @ 0x180096180
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x18006DF8C (RtlpCommitQueryDebugInfo.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18006DF7C (RtlpCommitQueryDebugInfo.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

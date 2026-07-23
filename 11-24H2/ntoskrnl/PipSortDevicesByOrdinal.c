@@ -1,5 +1,5 @@
 /*
- * XREFs of PipSortDevicesByOrdinal @ 0x1404B6300
+ * XREFs of PipSortDevicesByOrdinal @ 0x1404B0BC0
  * Callers:
  *     <none>
  * Callees:

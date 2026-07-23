@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuDomainFreeLogicalAddressRange @ 0x14045E6EE
+ * XREFs of HalpIommuDomainFreeLogicalAddressRange @ 0x14045EAEE
  * Callers:
- *     IommuUnmapLogicalRange @ 0x14045EB50 (IommuUnmapLogicalRange.c)
- *     IommuFreeReservedLogicalAddressRange @ 0x140525E60 (IommuFreeReservedLogicalAddressRange.c)
- *     IommuMapIdentityRangeEx @ 0x140525F50 (IommuMapIdentityRangeEx.c)
- *     IommuMapLogicalRangeEx @ 0x140526170 (IommuMapLogicalRangeEx.c)
- *     IommuReserveLogicalAddressRange @ 0x1405264F0 (IommuReserveLogicalAddressRange.c)
- *     IommuUnmapIdentityRangeEx @ 0x140526840 (IommuUnmapIdentityRangeEx.c)
+ *     IommuUnmapLogicalRange @ 0x14045EF50 (IommuUnmapLogicalRange.c)
+ *     IommuFreeReservedLogicalAddressRange @ 0x1405263B0 (IommuFreeReservedLogicalAddressRange.c)
+ *     IommuMapIdentityRangeEx @ 0x1405264A0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x1405266C0 (IommuMapLogicalRangeEx.c)
+ *     IommuReserveLogicalAddressRange @ 0x140526A40 (IommuReserveLogicalAddressRange.c)
+ *     IommuUnmapIdentityRangeEx @ 0x140526D90 (IommuUnmapIdentityRangeEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuDomainFreeLogicalAddressRange(__int64 a1, __int16 a2)

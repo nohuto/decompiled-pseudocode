@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetDeviceNumaNode @ 0x1407602C0
+ * XREFs of IoGetDeviceNumaNode @ 0x1407614B0
  * Callers:
- *     IopGetNumaNodeInformation @ 0x14081E59C (IopGetNumaNodeInformation.c)
+ *     IopGetNumaNodeInformation @ 0x14081F79C (IopGetNumaNodeInformation.c)
  * Callees:
- *     KeQueryHighestNodeNumber @ 0x1400E3C20 (KeQueryHighestNodeNumber.c)
+ *     KeQueryHighestNodeNumber @ 0x1400E3CA0 (KeQueryHighestNodeNumber.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceNumaNode(PDEVICE_OBJECT Pdo, PUSHORT NodeNumber)

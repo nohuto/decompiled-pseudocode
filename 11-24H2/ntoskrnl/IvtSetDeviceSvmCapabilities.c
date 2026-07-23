@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtSetDeviceSvmCapabilities @ 0x140571280
+ * XREFs of IvtSetDeviceSvmCapabilities @ 0x14056E710
  * Callers:
  *     <none>
  * Callees:
- *     IvtAllocateContextTable @ 0x1404D4448 (IvtAllocateContextTable.c)
+ *     IvtAllocateContextTable @ 0x1404CD658 (IvtAllocateContextTable.c)
  */
 
 __int64 __fastcall IvtSetDeviceSvmCapabilities(__int64 a1, __int64 a2, char a3)

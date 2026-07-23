@@ -7,19 +7,19 @@
  *     <none>
  */
 
-__int64 __fastcall RtlImageRvaToSection(__int64 a1, __int64 a2, unsigned int a3)
+PIMAGE_SECTION_HEADER __cdecl RtlImageRvaToSection(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG Rva)
 {
-  __int64 v3; // r9
+  _IMAGE_SECTION_HEADER *v3; // r9
   unsigned int i; // eax
-  unsigned int v5; // edx
+  ULONG VirtualAddress; // edx
 
-  v3 = a1 + *(unsigned __int16 *)(a1 + 20) + 24LL;
-  for ( i = 0; i < *(unsigned __int16 *)(a1 + 6); ++i )
+  v3 = (_IMAGE_SECTION_HEADER *)((char *)&NtHeaders->OptionalHeader + NtHeaders->FileHeader.SizeOfOptionalHeader);
+  for ( i = 0; i < NtHeaders->FileHeader.NumberOfSections; ++i )
   {
-    v5 = *(_DWORD *)(v3 + 12);
-    if ( a3 >= v5 && a3 < *(_DWORD *)(v3 + 16) + v5 )
+    VirtualAddress = v3->VirtualAddress;
+    if ( Rva >= VirtualAddress && Rva < v3->SizeOfRawData + VirtualAddress )
       return v3;
-    v3 += 40LL;
+    ++v3;
   }
   return 0LL;
 }

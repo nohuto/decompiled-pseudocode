@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdatePartitionAgeTrimConfiguration @ 0x1404D3164
+ * XREFs of MiUpdatePartitionAgeTrimConfiguration @ 0x1404CC9D4
  * Callers:
- *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A60BC (MiUpdatePartitionMemoryUsage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPagesInChildPartitions @ 0x1404CF078 (MiPagesInChildPartitions.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1406F7A10 (MiInitializeWorkingSetManagerParameters.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPagesInChildPartitions @ 0x1404C8AA8 (MiPagesInChildPartitions.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1406FC6DC (MiInitializeWorkingSetManagerParameters.c)
  */
 
 void __fastcall MiUpdatePartitionAgeTrimConfiguration(__int64 a1)

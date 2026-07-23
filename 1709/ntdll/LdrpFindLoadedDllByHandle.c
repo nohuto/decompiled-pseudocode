@@ -19,11 +19,11 @@
 __int64 __fastcall LdrpFindLoadedDllByHandle(__int64 a1, __int64 *a2, _DWORD *a3)
 {
   __int64 v3; // rbx
-  __int64 v7; // rdi
+  unsigned __int64 Root; // rdi
   int v8; // ebp
   int v9; // eax
-  __int64 v10; // rax
-  __int64 v11; // rax
+  unsigned __int64 v10; // rax
+  _RTL_BALANCED_NODE *v11; // rax
 
   v3 = 0LL;
   if ( a1 )
@@ -37,34 +37,34 @@ __int64 __fastcall LdrpFindLoadedDllByHandle(__int64 a1, __int64 *a2, _DWORD *a3
     else
     {
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-      v7 = LdrpModuleBaseAddressIndex;
-      v8 = byte_1801602C0 & 1;
-      if ( LdrpModuleBaseAddressIndex )
+      Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+      v8 = *(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1;
+      if ( LdrpModuleBaseAddressIndex.Root )
       {
         do
         {
-          v9 = LdrpCompareModuleBaseAddresses(a1, v7);
+          v9 = LdrpCompareModuleBaseAddresses(a1, Root);
           if ( v9 < 0 )
           {
-            v10 = *(_QWORD *)v7;
+            v10 = *(_QWORD *)Root;
           }
           else
           {
             if ( v9 <= 0 )
               break;
-            v10 = *(_QWORD *)(v7 + 8);
+            v10 = *(_QWORD *)(Root + 8);
           }
           if ( v8 && v10 )
-            v7 ^= v10;
+            Root ^= v10;
           else
-            v7 = v10;
+            Root = v10;
         }
-        while ( v7 );
-        if ( v7 )
+        while ( Root );
+        if ( Root )
         {
-          v3 = v7 - 200;
-          v11 = *(_QWORD *)(v7 - 200 + 152);
-          if ( *(_DWORD *)(v11 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v11 - 56LL) & 0x20) == 0 )
+          v3 = Root - 200;
+          v11 = *(_RTL_BALANCED_NODE **)(Root - 200 + 152);
+          if ( LODWORD(v11[1].Children[0]) != -1 && (*(_BYTE *)&v11->Children[0][-3].0 & 0x20) == 0 )
             _InterlockedIncrement((volatile signed __int32 *)(v3 + 276));
           if ( a3 )
             *a3 = *(_DWORD *)(*(_QWORD *)(v3 + 152) + 56LL);

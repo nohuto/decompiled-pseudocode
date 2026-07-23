@@ -1,19 +1,19 @@
 /*
- * XREFs of IopAllocateIrpExtension @ 0x1400DF9B8
+ * XREFs of IopAllocateIrpExtension @ 0x1400DFA38
  * Callers:
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
- *     IoPropagateIrpExtensionEx @ 0x1400DF610 (IoPropagateIrpExtensionEx.c)
- *     IoSetActivityIdIrp @ 0x1400DF960 (IoSetActivityIdIrp.c)
- *     IoSetGenericIrpExtension @ 0x1401407E0 (IoSetGenericIrpExtension.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140284F30 (IoClearAdapterCryptoEngineExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140285030 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x140285080 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140285120 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x140285378 (IopPerfCallDriver.c)
- *     ViGetContextPointer @ 0x140927D34 (ViGetContextPointer.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
+ *     IoPropagateIrpExtensionEx @ 0x1400DF690 (IoPropagateIrpExtensionEx.c)
+ *     IoSetActivityIdIrp @ 0x1400DF9E0 (IoSetActivityIdIrp.c)
+ *     IoSetGenericIrpExtension @ 0x1401408E0 (IoSetGenericIrpExtension.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140285120 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140285220 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x140285270 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140285310 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x140285568 (IopPerfCallDriver.c)
+ *     ViGetContextPointer @ 0x140928D34 (ViGetContextPointer.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall IopAllocateIrpExtension(__int64 a1, int a2)

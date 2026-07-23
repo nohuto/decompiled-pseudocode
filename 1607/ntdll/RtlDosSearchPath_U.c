@@ -1,102 +1,106 @@
 /*
- * XREFs of RtlDosSearchPath_U @ 0x1800675C0
+ * XREFs of RtlDosSearchPath_U @ 0x1800675B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlDetermineDosPathNameType_U @ 0x1800095E0 (RtlDetermineDosPathNameType_U.c)
- *     RtlInitUnicodeStringEx @ 0x180011910 (RtlInitUnicodeStringEx.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlDoesFileExists_UEx @ 0x18006A6C8 (RtlDoesFileExists_UEx.c)
- *     RtlGetFullPathName_U @ 0x18006A930 (RtlGetFullPathName_U.c)
+ *     RtlDetermineDosPathNameType_U @ 0x1800095D0 (RtlDetermineDosPathNameType_U.c)
+ *     RtlInitUnicodeStringEx @ 0x180011900 (RtlInitUnicodeStringEx.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlDoesFileExists_UEx @ 0x18006A6B8 (RtlDoesFileExists_UEx.c)
+ *     RtlGetFullPathName_U @ 0x18006A920 (RtlGetFullPathName_U.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall RtlDosSearchPath_U(__int16 *a1, _WORD *a2, const void *a3, unsigned int a4, __int64 a5, __int64 a6)
+ULONG __cdecl RtlDosSearchPath_U(
+        PCWSTR Path,
+        PCWSTR FileName,
+        PCWSTR Extension,
+        ULONG BufferLength,
+        PWSTR Buffer,
+        PWSTR *FilePart)
 {
-  int v10; // eax
-  __int64 v11; // rdx
-  _WORD *v12; // rcx
-  __int16 v13; // ax
-  unsigned int FullPathName_U; // ebx
-  unsigned int v15; // r15d
-  int v16; // ebp
-  unsigned int v17; // edi
-  unsigned __int64 Heap; // rbp
-  size_t v19; // r12
-  __int16 v20; // ax
-  _WORD *v21; // rdi
-  _WORD v23[28]; // [rsp+20h] [rbp-38h] BYREF
+  RTL_PATH_TYPE v10; // eax
+  PCWSTR v11; // rcx
+  WCHAR v12; // ax
+  ULONG FullPathName_U; // ebx
+  unsigned int Length; // r15d
+  int v15; // ebp
+  unsigned int v16; // edi
+  WCHAR *Heap; // rbp
+  size_t v18; // r12
+  WCHAR v19; // ax
+  WCHAR *v20; // rdi
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
 
-  v10 = RtlDetermineDosPathNameType_U(a2);
-  v12 = a2;
-  if ( v10 != 5 )
+  v10 = RtlDetermineDosPathNameType_U(FileName);
+  v11 = FileName;
+  if ( v10 != RtlPathTypeRelative )
   {
-    LOBYTE(v11) = 1;
-    if ( (unsigned __int8)RtlDoesFileExists_UEx(a2, v11) )
-      return RtlGetFullPathName_U(a2, a4, a5, a6);
-    return 0LL;
+    if ( (unsigned __int8)RtlDoesFileExists_UEx(FileName) )
+      return RtlGetFullPathName_U(FileName, BufferLength, Buffer, FilePart);
+    return 0;
   }
-  v13 = *a2;
+  v12 = *FileName;
   FullPathName_U = 0;
-  while ( v13 )
+  while ( v12 )
   {
-    if ( v13 == 46 )
+    if ( v12 == 46 )
       goto LABEL_6;
-    v13 = *++v12;
+    v12 = *++v11;
   }
-  if ( !a3 )
+  if ( !Extension )
   {
 LABEL_6:
-    v15 = 0;
+    Length = 0;
     goto LABEL_7;
   }
-  if ( (int)RtlInitUnicodeStringEx((__int64)v23, (__int64)a3) < 0 )
-    return 0LL;
-  v15 = v23[0];
+  if ( RtlInitUnicodeStringEx(&DestinationString, Extension) < 0 )
+    return 0;
+  Length = DestinationString.Length;
 LABEL_7:
-  if ( (int)RtlInitUnicodeStringEx((__int64)v23, (__int64)a1) < 0 )
-    return 0LL;
-  v16 = v23[0];
-  if ( (int)RtlInitUnicodeStringEx((__int64)v23, (__int64)a2) < 0 )
-    return 0LL;
-  v17 = v23[0];
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16 + v23[0] + v15 + 6LL);
+  if ( RtlInitUnicodeStringEx(&DestinationString, Path) < 0 )
+    return 0;
+  v15 = DestinationString.Length;
+  if ( RtlInitUnicodeStringEx(&DestinationString, FileName) < 0 )
+    return 0;
+  v16 = DestinationString.Length;
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v15 + DestinationString.Length + Length + 6LL);
   if ( !Heap )
-    return 0LL;
-  v19 = v17;
+    return 0;
+  v18 = v16;
   while ( 1 )
   {
-    v20 = *a1;
-    v21 = (_WORD *)Heap;
-    if ( !*a1 )
+    v19 = *Path;
+    v20 = Heap;
+    if ( !*Path )
       goto LABEL_18;
     do
     {
-      ++a1;
-      if ( v20 == 59 )
+      ++Path;
+      if ( v19 == 59 )
         break;
-      *v21++ = v20;
-      v20 = *a1;
+      *v20++ = v19;
+      v19 = *Path;
     }
-    while ( *a1 );
-    if ( v21 != (_WORD *)Heap && *(v21 - 1) != 92 )
-      *v21++ = 92;
-    if ( !*a1 )
+    while ( *Path );
+    if ( v20 != Heap && *(v20 - 1) != 92 )
+      *v20++ = 92;
+    if ( !*Path )
 LABEL_18:
-      a1 = 0LL;
-    memmove(v21, a2, v19);
-    if ( v15 )
-      memmove((char *)v21 + v19, a3, v15 + 2LL);
+      Path = 0LL;
+    memmove(v20, FileName, v18);
+    if ( Length )
+      memmove((char *)v20 + v18, Extension, Length + 2LL);
     else
-      *(_WORD *)((char *)v21 + v19) = 0;
-    if ( (unsigned __int8)RtlDoesFileExists_UEx(Heap, 0LL) )
+      *(WCHAR *)((char *)v20 + v18) = 0;
+    if ( (unsigned __int8)RtlDoesFileExists_UEx(Heap) )
       break;
-    if ( !a1 )
+    if ( !Path )
       goto LABEL_23;
   }
-  FullPathName_U = RtlGetFullPathName_U(Heap, a4, a5, a6);
+  FullPathName_U = RtlGetFullPathName_U(Heap, BufferLength, Buffer, FilePart);
 LABEL_23:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return FullPathName_U;
 }

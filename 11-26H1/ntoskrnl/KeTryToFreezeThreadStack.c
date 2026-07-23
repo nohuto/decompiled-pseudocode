@@ -1,16 +1,16 @@
 /*
- * XREFs of KeTryToFreezeThreadStack @ 0x1405EC060
+ * XREFs of KeTryToFreezeThreadStack @ 0x1405EE9D0
  * Callers:
- *     MiTradeIsolatedThreadStackPage @ 0x1406F3688 (MiTradeIsolatedThreadStackPage.c)
+ *     MiTradeIsolatedThreadStackPage @ 0x1406F82F8 (MiTradeIsolatedThreadStackPage.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiIsKernelStackSwappable @ 0x14043C160 (KiIsKernelStackSwappable.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiIsKernelStackSwappable @ 0x14042EA10 (KiIsKernelStackSwappable.c)
  */
 
 char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2, unsigned __int64 *a3)
@@ -44,7 +44,7 @@ char __fastcall KeTryToFreezeThreadStack(__int64 a1, _QWORD *a2, unsigned __int6
   v28 = 0LL;
   v26 = 0LL;
   v27 = 0LL;
-  if ( *(_UNKNOWN **)(a1 + 544) == &unk_140FC8F40 )
+  if ( *(_UNKNOWN **)(a1 + 544) == &unk_140FC9F40 )
     return 0;
   v29 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )

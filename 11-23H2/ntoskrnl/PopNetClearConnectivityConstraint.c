@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNetClearConnectivityConstraint @ 0x140996680
+ * XREFs of PopNetClearConnectivityConstraint @ 0x140996880
  * Callers:
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099357C (PopPowerAggregatorDisengageModernStandby.c)
- *     PopNetCompliantNicUpdate @ 0x1409966D4 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140996894 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099377C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopNetCompliantNicUpdate @ 0x1409968D4 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140996A94 (PopNetNonCompliantDeviceUpdate.c)
  * Callees:
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
  */
 
 char __fastcall PopNetClearConnectivityConstraint(int a1)
@@ -19,6 +19,6 @@ char __fastcall PopNetClearConnectivityConstraint(int a1)
     v1 = 1;
   v2 = _InterlockedExchangeAdd(&PopNetGracePeriodState, 0);
   if ( v2 == 2 || v1 )
-    LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_140C3A288, DelayedWorkQueue);
+    LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_140C3A308, DelayedWorkQueue);
   return v2;
 }

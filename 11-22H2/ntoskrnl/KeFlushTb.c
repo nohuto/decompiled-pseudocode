@@ -106,7 +106,7 @@ LABEL_40:
       _InterlockedOr(v48, 0);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xCuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 12 )
@@ -122,10 +122,10 @@ LABEL_40:
       {
 LABEL_32:
         KiFlushCurrentTbOnly(a1);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v17 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)v17 <= 0xFu
             && CurrentIrql <= 0xFu
             && (unsigned __int8)v17 >= 2u )
@@ -156,10 +156,10 @@ LABEL_32:
         if ( ++v21 >= Process->ActiveProcessors.Count )
           goto LABEL_32;
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -199,7 +199,7 @@ LABEL_57:
     v6 = a2 != 0;
   v8 = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v8 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu )
   {
     v26 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v8 == 12 )
@@ -272,10 +272,13 @@ LABEL_13:
       KiFlushCurrentTbWorker(0LL);
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu && v8 <= 0xFu && (unsigned __int8)v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)v17 <= 0xFu
+      && v8 <= 0xFu
+      && (unsigned __int8)v17 >= 2u )
     {
       v38 = KeGetCurrentPrcb();
       v17 = (unsigned int)v8 + 1;
@@ -308,7 +311,7 @@ LABEL_16:
   {
     v41 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v41 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu )
     {
       v42 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v41 == 15 )
@@ -318,10 +321,10 @@ LABEL_16:
       v42[5] |= v43;
     }
     ExFlushTb(0LL, 0LL, a1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v44 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v41 <= 0xFu && v44 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v41 <= 0xFu && v44 >= 2u )
       {
         v45 = KeGetCurrentPrcb();
         v46 = v45->SchedulerAssist;

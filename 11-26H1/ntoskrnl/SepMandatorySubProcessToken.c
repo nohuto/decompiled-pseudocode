@@ -1,38 +1,38 @@
 /*
- * XREFs of SepMandatorySubProcessToken @ 0x1405154C8
+ * XREFs of SepMandatorySubProcessToken @ 0x14050EF38
  * Callers:
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlSidDominates @ 0x140418530 (RtlSidDominates.c)
- *     RtlFindAceByType @ 0x1404330E0 (RtlFindAceByType.c)
- *     SepLocateTokenIntegrity @ 0x140449CB0 (SepLocateTokenIntegrity.c)
- *     Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x14051205C (Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeTokenIsAdmin @ 0x140920530 (SeTokenIsAdmin.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ObQuerySecurityObject @ 0x140AAE4C8 (ObQuerySecurityObject.c)
- *     PsReferenceProcessFilePointer @ 0x140AAE560 (PsReferenceProcessFilePointer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlSidDominates @ 0x14040CB40 (RtlSidDominates.c)
+ *     RtlFindAceByType @ 0x1404281B0 (RtlFindAceByType.c)
+ *     SepLocateTokenIntegrity @ 0x140441DE0 (SepLocateTokenIntegrity.c)
+ *     Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x14050BACC (Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SeTokenIsAdmin @ 0x1409238F0 (SeTokenIsAdmin.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ObQuerySecurityObject @ 0x140AA74AC (ObQuerySecurityObject.c)
+ *     PsReferenceProcessFilePointer @ 0x140AA7550 (PsReferenceProcessFilePointer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, char **a4)
+__int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // r14d
-  char **v5; // r15
+  _QWORD *v5; // r15
   int v6; // eax
-  int SecurityObject; // ebx
+  NTSTATUS SecurityObject; // ebx
   PVOID v10; // r12
   _BYTE *v11; // rsi
   _BYTE *Pool2; // rax
   __int16 v13; // ax
-  __int64 v14; // rcx
+  ACL *v14; // rcx
   __int64 v15; // rax
-  unsigned __int8 *AceByType; // rax
-  char *v17; // r14
-  char **TokenIntegrity; // rax
-  char **v19; // r15
+  char *AceByType; // rax
+  unsigned __int8 *v17; // r14
+  PSID *TokenIntegrity; // rax
+  PSID *v19; // r15
   int IsEnabledDeviceUsageNoInline; // eax
   unsigned __int8 *v21; // rcx
   int v22; // eax
@@ -40,19 +40,19 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   int v24; // eax
   int v25; // eax
   int v26; // edx
-  char *v27; // rax
+  PSID v27; // rax
   int v28; // eax
   unsigned int v29; // ecx
   int v30; // eax
   unsigned int v31; // eax
   __int64 v32; // rax
-  char **v33; // rdx
+  _QWORD *v33; // rdx
   __int64 v34; // rcx
   __int64 v35; // rcx
   int v36; // eax
-  char **v37; // rdx
+  __int64 *v37; // rdx
   __int64 v38; // r11
-  char *v39; // r9
+  __int64 v39; // r9
   int v40; // ecx
   __int64 v41; // r10
   int v42; // r8d
@@ -63,10 +63,10 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   unsigned int v47; // ecx
   int v48; // eax
   unsigned int v49; // eax
-  char v51[4]; // [rsp+30h] [rbp-99h] BYREF
+  BOOLEAN Dominates[4]; // [rsp+30h] [rbp-99h] BYREF
   int v52; // [rsp+34h] [rbp-95h] BYREF
   PVOID Object; // [rsp+38h] [rbp-91h] BYREF
-  char **v54; // [rsp+40h] [rbp-89h]
+  _QWORD *v54; // [rsp+40h] [rbp-89h]
   _BYTE SecurityDescriptor[128]; // [rsp+50h] [rbp-79h] BYREF
 
   v4 = 0;
@@ -75,7 +75,7 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   v5 = a4;
   v6 = *(_DWORD *)(a3 + 1532);
   Object = 0LL;
-  v51[0] = 0;
+  Dominates[0] = 0;
   SecurityObject = 0;
   v10 = 0LL;
   v11 = 0LL;
@@ -107,39 +107,39 @@ LABEL_13:
       }
       if ( v13 >= 0 )
       {
-        v14 = *((_QWORD *)v11 + 3);
+        v14 = (ACL *)*((_QWORD *)v11 + 3);
       }
       else
       {
         v15 = *((unsigned int *)v11 + 3);
         if ( !(_DWORD)v15 )
           goto LABEL_13;
-        v14 = (__int64)&v11[v15];
+        v14 = (ACL *)&v11[v15];
       }
 LABEL_18:
-      AceByType = RtlFindAceByType(v14, 17, 0LL);
+      AceByType = (char *)RtlFindAceByType(v14, 0x11u, 0LL);
       if ( AceByType )
       {
-        v17 = (char *)(AceByType + 8);
-        TokenIntegrity = (char **)SepLocateTokenIntegrity(a2);
+        v17 = (unsigned __int8 *)(AceByType + 8);
+        TokenIntegrity = (PSID *)SepLocateTokenIntegrity(a2);
         v19 = TokenIntegrity;
         if ( !TokenIntegrity )
           goto LABEL_41;
-        SecurityObject = RtlSidDominates(*TokenIntegrity, v17, v51);
+        SecurityObject = RtlSidDominates(*TokenIntegrity, v17, Dominates);
         if ( SecurityObject < 0 )
           goto LABEL_66;
-        if ( v51[0] )
+        if ( Dominates[0] )
         {
           IsEnabledDeviceUsageNoInline = Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline();
-          v21 = (unsigned __int8 *)(v17 + 1);
+          v21 = v17 + 1;
           if ( IsEnabledDeviceUsageNoInline )
           {
             v22 = *v21;
             v23 = (_BYTE)v22 ? *(_DWORD *)&v17[4 * (v22 - 1) + 8] : 0;
-            v24 = (unsigned __int8)(*v19)[1];
+            v24 = *((unsigned __int8 *)*v19 + 1);
             if ( (_BYTE)v24 )
             {
-              if ( v23 < *(_DWORD *)&(*v19)[4 * (v24 - 1) + 8] )
+              if ( v23 < *((_DWORD *)*v19 + (unsigned int)(v24 - 1) + 2) )
                 *(_DWORD *)(a2 + 200) &= ~0x1000u;
             }
           }
@@ -187,7 +187,7 @@ LABEL_42:
       {
         *(_DWORD *)(a2 + 200) &= ~0x1000u;
         v32 = SepLocateTokenIntegrity(a2);
-        v33 = (char **)v32;
+        v33 = (_QWORD *)v32;
         if ( v32 )
         {
           v34 = *(_QWORD *)(*(_QWORD *)(a2 + 216) + 56LL);
@@ -197,9 +197,9 @@ LABEL_42:
             if ( v38 )
             {
               v39 = *v37;
-              v40 = (unsigned __int8)(*v37)[1];
+              v40 = *(unsigned __int8 *)(*v37 + 1);
               if ( (_BYTE)v40 )
-                v4 = *(_DWORD *)&v39[4 * (v40 - 1) + 8];
+                v4 = *(_DWORD *)(v39 + 4LL * (unsigned int)(v40 - 1) + 8);
               v41 = *(_QWORD *)v38;
               v42 = *(unsigned __int8 *)(*(_QWORD *)v38 + 1LL);
               v43 = (unsigned int)(v42 - 1);
@@ -212,7 +212,7 @@ LABEL_42:
                 v45 = 0;
                 if ( (_BYTE)v42 )
                   v45 = *(_DWORD *)(v41 + 4 * v43 + 8);
-                *((_DWORD *)v39 + 2) = v45;
+                *(_DWORD *)(v39 + 8) = v45;
                 *v5 = *v37;
                 v46 = *(unsigned __int8 *)(*(_QWORD *)v38 + 1LL);
                 if ( (_BYTE)v46 )

@@ -2,14 +2,20 @@
  * XREFs of ZwQueryWnfStateNameInformation @ 0x14041E4E0
  * Callers:
  *     RtlRaiseCustomSystemEventTrigger @ 0x1405EDBA0 (RtlRaiseCustomSystemEventTrigger.c)
- *     DbgkpStartSystemErrorHandler @ 0x14092A77C (DbgkpStartSystemErrorHandler.c)
+ *     sub_14092A77C @ 0x14092A77C (sub_14092A77C.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryWnfStateNameInformation(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(StateName, *(_QWORD *)&NameInfoClass);
 }

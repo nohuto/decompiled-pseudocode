@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegisterCallback @ 0x1407D1500
+ * XREFs of CmRegisterCallback @ 0x1407D19F0
  * Callers:
- *     DifCmRegisterCallbackWrapper @ 0x14061A920 (DifCmRegisterCallbackWrapper.c)
+ *     DifCmRegisterCallbackWrapper @ 0x140618EE0 (DifCmRegisterCallbackWrapper.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x140989A9C (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x14097354C (CmpRegisterCallbackInternal.c)
  */
 
 NTSTATUS __stdcall CmRegisterCallback(PEX_CALLBACK_FUNCTION Function, PVOID Context, PLARGE_INTEGER Cookie)

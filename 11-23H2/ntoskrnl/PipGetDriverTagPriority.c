@@ -3,10 +3,10 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1407C21BC (PnpRegSzToString.c)
- *     IopOpenRegistryKeyEx @ 0x140811070 (IopOpenRegistryKeyEx.c)
+ *     PnpRegSzToString @ 0x1407C248C (PnpRegSzToString.c)
+ *     IopOpenRegistryKeyEx @ 0x140811340 (IopOpenRegistryKeyEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

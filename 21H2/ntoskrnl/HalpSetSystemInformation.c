@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpSetSystemInformation @ 0x1407333E0
+ * XREFs of HalpSetSystemInformation @ 0x1407335A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpSetProfileSourceInterval @ 0x14036CD9C (HalpSetProfileSourceInterval.c)
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpSetProfileSourceInterval @ 0x14036CF4C (HalpSetProfileSourceInterval.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpTimerGetProfilingHandler @ 0x1404C1838 (HalpTimerGetProfilingHandler.c)
- *     HalpTimerSetProfilingHandler @ 0x1404C19A4 (HalpTimerSetProfilingHandler.c)
- *     HaliSetSystemInformation @ 0x140866424 (HaliSetSystemInformation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpTimerGetProfilingHandler @ 0x1404C1A78 (HalpTimerGetProfilingHandler.c)
+ *     HalpTimerSetProfilingHandler @ 0x1404C1BE4 (HalpTimerSetProfilingHandler.c)
+ *     HaliSetSystemInformation @ 0x140866584 (HaliSetSystemInformation.c)
  */
 
 __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (**a3)(void))
@@ -45,13 +45,13 @@ __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (**a3)(void)
         return 3221225473LL;
       v6 = 0;
       v7 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
-      if ( qword_140CF55C0 )
+      if ( qword_140CF5600 )
       {
-        if ( qword_140CF55C0 == PsGetCurrentThreadProcessId() )
+        if ( qword_140CF5600 == PsGetCurrentThreadProcessId() )
         {
           HalpPerfInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
           if ( !HalpPerfInterruptHandler )
-            qword_140CF55C0 = 0LL;
+            qword_140CF5600 = 0LL;
         }
         else
         {
@@ -62,7 +62,7 @@ __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (**a3)(void)
       {
         HalpPerfInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
         if ( HalpPerfInterruptHandler )
-          qword_140CF55C0 = PsGetCurrentThreadProcessId();
+          qword_140CF5600 = PsGetCurrentThreadProcessId();
       }
       KxReleaseSpinLock(&HalpPerfInterruptHandlerRegistrationLock);
       if ( !KiIrqlFlags )
@@ -90,18 +90,18 @@ __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (**a3)(void)
         return 3221225476LL;
       v6 = 0;
       v7 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
-      if ( !qword_140CF55B0 )
+      if ( !qword_140CF55F0 )
       {
         HalpTimerSetProfilingHandler(*a3);
         if ( HalpTimerGetProfilingHandler() )
-          qword_140CF55B0 = PsGetCurrentThreadProcessId();
+          qword_140CF55F0 = PsGetCurrentThreadProcessId();
         goto LABEL_34;
       }
-      if ( qword_140CF55B0 == PsGetCurrentThreadProcessId() )
+      if ( qword_140CF55F0 == PsGetCurrentThreadProcessId() )
       {
         HalpTimerSetProfilingHandler(*a3);
         if ( !HalpTimerGetProfilingHandler() )
-          qword_140CF55B0 = 0LL;
+          qword_140CF55F0 = 0LL;
         goto LABEL_34;
       }
       goto LABEL_33;
@@ -114,18 +114,18 @@ __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (**a3)(void)
         return 3221225659LL;
       v6 = 0;
       v7 = KeAcquireSpinLockRaiseToDpc(&HalpPerfInterruptHandlerRegistrationLock);
-      if ( !qword_140CF55B8 )
+      if ( !qword_140CF55F8 )
       {
         HalpProcessorTraceInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
         if ( HalpProcessorTraceInterruptHandler )
-          qword_140CF55B8 = PsGetCurrentThreadProcessId();
+          qword_140CF55F8 = PsGetCurrentThreadProcessId();
         goto LABEL_34;
       }
-      if ( qword_140CF55B8 == PsGetCurrentThreadProcessId() )
+      if ( qword_140CF55F8 == PsGetCurrentThreadProcessId() )
       {
         HalpProcessorTraceInterruptHandler = (__int64 (__fastcall *)(_QWORD))*a3;
         if ( !HalpProcessorTraceInterruptHandler )
-          qword_140CF55B8 = 0LL;
+          qword_140CF55F8 = 0LL;
         goto LABEL_34;
       }
 LABEL_33:

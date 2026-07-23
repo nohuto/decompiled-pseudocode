@@ -144,7 +144,7 @@ __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)
   {
     *(_QWORD *)&v32 = 1LL;
     HvlpSetRegister64(589831, 1uLL);
-    HvlpGetRegister64(589831, (unsigned __int64 *)&v32);
+    HvlpGetRegister64(589831, &v32);
     if ( (v32 & 0x4000000000000000LL) != 0 )
     {
       HvlpSetRegister64(589831, 0x8000000000000001uLL);

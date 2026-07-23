@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWalkEntireImagePageNeedsProcessing @ 0x1406560D0
+ * XREFs of MiWalkEntireImagePageNeedsProcessing @ 0x140656620
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
  * Callees:
- *     MiDoesPageRequireRetpolineImportFixups @ 0x140325440 (MiDoesPageRequireRetpolineImportFixups.c)
- *     MiPageHasRelocations @ 0x1406B130C (MiPageHasRelocations.c)
+ *     MiDoesPageRequireRetpolineImportFixups @ 0x1403256D0 (MiDoesPageRequireRetpolineImportFixups.c)
+ *     MiPageHasRelocations @ 0x1406B133C (MiPageHasRelocations.c)
  */
 
 __int64 __fastcall MiWalkEntireImagePageNeedsProcessing(__int64 a1, __int64 a2, char a3)

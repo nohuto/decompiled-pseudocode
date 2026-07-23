@@ -168,7 +168,7 @@ __int64 CmpCreateKeyControlBlock(__int64 a1, int a2, __int64 a3, ULONG_PTR a4, c
     *(_DWORD *)(v16 + 184) ^= (*(_DWORD *)(v16 + 184) ^ *(unsigned __int16 *)(v21 + 54)) & 0xF;
     *(_DWORD *)(v16 + 184) ^= ((unsigned __int8)*(_DWORD *)(v16 + 184) ^ (unsigned __int8)*(_WORD *)(v21 + 54)) & 0xF0;
     *(_BYTE *)(v16 + 185) = *(_BYTE *)(v21 + 55);
-    v24 = KeAbPreAcquire(v16 + 48, 0LL, 1LL);
+    v24 = KeAbPreAcquire(v16 + 48, 0LL, 1);
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 48), 0LL) )
     {
       if ( v24 )

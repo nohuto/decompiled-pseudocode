@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpLfhContextSlotAllocate @ 0x180092EAC
+ * XREFs of RtlpHpLfhContextSlotAllocate @ 0x180072140
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180092C30 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x180097438 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x18010B444 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117744 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  * Callees:
- *     RtlpHpLfhContextMetadataAllocate @ 0x1800932F8 (RtlpHpLfhContextMetadataAllocate.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x1800944D0 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhSlotInitialize @ 0x1800BF428 (RtlpHpLfhSlotInitialize.c)
+ *     RtlpHpLfhSlotInitialize @ 0x180071FD8 (RtlpHpLfhSlotInitialize.c)
+ *     RtlpHpLfhContextMetadataAllocate @ 0x18007225C (RtlpHpLfhContextMetadataAllocate.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x1800736A0 (RtlpHpLfhContextSlotStandbyProcess.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextSlotAllocate(__int64 a1, __int64 a2)
+_BYTE *__fastcall RtlpHpLfhContextSlotAllocate(__int64 a1, _BYTE *a2)
 {
-  __int64 v4; // rax
-  __int64 v5; // rbx
+  _BYTE *v4; // rax
+  _BYTE *v5; // rbx
 
   RtlpHpLfhContextSlotStandbyProcess(a1, 0LL);
-  v4 = RtlpHpLfhContextMetadataAllocate(a1, 2LL);
+  v4 = (_BYTE *)RtlpHpLfhContextMetadataAllocate(a1, 2LL);
   v5 = v4;
   if ( v4 )
     RtlpHpLfhSlotInitialize(v4, a2, a1);

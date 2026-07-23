@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpMcaReadError @ 0x1404BA810
+ * XREFs of HalpMcaReadError @ 0x1404BAA50
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x1404BADC4 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0C60 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x1404BB004 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A7D20 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpGetMcaPcrContext @ 0x1403A0BC8 (HalpGetMcaPcrContext.c)
- *     HalpWheaReadMsrStatus @ 0x1403A0E1C (HalpWheaReadMsrStatus.c)
- *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalpMcaPopulateErrorData @ 0x1404BA67C (HalpMcaPopulateErrorData.c)
- *     HalpMcaReadErrorCorrected @ 0x1404BD370 (HalpMcaReadErrorCorrected.c)
- *     HalpMcaReadErrorUncorrectedAMD @ 0x1404BD440 (HalpMcaReadErrorUncorrectedAMD.c)
- *     HalpMcaReadErrorUncorrectedUnknown @ 0x1404BD49C (HalpMcaReadErrorUncorrectedUnknown.c)
+ *     HalpGetMcaPcrContext @ 0x1403A0D18 (HalpGetMcaPcrContext.c)
+ *     HalpWheaReadMsrStatus @ 0x1403A0F6C (HalpWheaReadMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x1403A108C (HalpGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalpMcaPopulateErrorData @ 0x1404BA8BC (HalpMcaPopulateErrorData.c)
+ *     HalpMcaReadErrorCorrected @ 0x1404BD5B0 (HalpMcaReadErrorCorrected.c)
+ *     HalpMcaReadErrorUncorrectedAMD @ 0x1404BD680 (HalpMcaReadErrorUncorrectedAMD.c)
+ *     HalpMcaReadErrorUncorrectedUnknown @ 0x1404BD6DC (HalpMcaReadErrorUncorrectedUnknown.c)
  */
 
 __int64 __fastcall HalpMcaReadError(int a1, __int64 a2, int *a3, __int64 a4, __int64 a5)

@@ -7,9 +7,9 @@
  *     RtlImageDirectoryEntryToData @ 0x180032000 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall LdrpCorValidateImage(unsigned __int64 a1)
+__int64 __fastcall LdrpCorValidateImage(void *a1)
 {
-  int v2; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+38h] [rbp+10h] BYREF
 
-  return RtlImageDirectoryEntryToData(a1, 1, 9u, &v2) != 0 ? 0xC000007B : 0;
+  return RtlImageDirectoryEntryToData(a1, 1u, 9u, &Size) != 0LL ? 0xC000007B : 0;
 }

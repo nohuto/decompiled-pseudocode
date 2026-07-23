@@ -1,21 +1,21 @@
 /*
- * XREFs of MmMapMemoryDumpMdlEx @ 0x140113F4C
+ * XREFs of MmMapMemoryDumpMdlEx @ 0x1401144BC
  * Callers:
- *     MmMapMemoryDumpMdl @ 0x1401133F8 (MmMapMemoryDumpMdl.c)
- *     PopGetNextTable @ 0x14011347C (PopGetNextTable.c)
+ *     MmMapMemoryDumpMdl @ 0x140113968 (MmMapMemoryDumpMdl.c)
+ *     PopGetNextTable @ 0x1401139EC (PopGetNextTable.c)
  *     PopCreateDumpMdl @ 0x1403CCEFC (PopCreateDumpMdl.c)
  *     PopDecompressHiberBlocks @ 0x1403CDE5C (PopDecompressHiberBlocks.c)
  *     PopHiberCheckResume @ 0x1403D06EC (PopHiberCheckResume.c)
  *     IopLiveDumpBufferDumpData @ 0x1403DA328 (IopLiveDumpBufferDumpData.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MmMapMemoryDumpMdlEx(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)

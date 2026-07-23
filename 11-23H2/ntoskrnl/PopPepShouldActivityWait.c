@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPepShouldActivityWait @ 0x140314088
+ * XREFs of PopPepShouldActivityWait @ 0x140314318
  * Callers:
- *     PopPepAttemptAcitivityPromotion @ 0x140313EE8 (PopPepAttemptAcitivityPromotion.c)
+ *     PopPepAttemptAcitivityPromotion @ 0x140314178 (PopPepAttemptAcitivityPromotion.c)
  * Callees:
  *     <none>
  */

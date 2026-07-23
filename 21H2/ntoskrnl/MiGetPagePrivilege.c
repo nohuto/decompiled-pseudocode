@@ -1,27 +1,27 @@
 /*
- * XREFs of MiGetPagePrivilege @ 0x1403286F0
+ * XREFs of MiGetPagePrivilege @ 0x140333440
  * Callers:
- *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
- *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiReferencePageForModifiedWrite @ 0x1402568EC (MiReferencePageForModifiedWrite.c)
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
- *     MiClearPfnImageVerified @ 0x1402A3214 (MiClearPfnImageVerified.c)
- *     MiTradeActivePage @ 0x1402B65F0 (MiTradeActivePage.c)
- *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
- *     MiSetSystemCodeProtection @ 0x1402E6818 (MiSetSystemCodeProtection.c)
- *     MiWsleFree @ 0x140327ED0 (MiWsleFree.c)
- *     MiRevertValidPte @ 0x140334300 (MiRevertValidPte.c)
- *     MiCombineCandidate @ 0x1403697A0 (MiCombineCandidate.c)
- *     MiPageMightBeZero @ 0x140369E84 (MiPageMightBeZero.c)
- *     MiDbgWriteCheck @ 0x1405466BC (MiDbgWriteCheck.c)
- *     MmChangeImageProtection @ 0x1406D0DD0 (MmChangeImageProtection.c)
+ *     MiClearPfnImageVerified @ 0x140220654 (MiClearPfnImageVerified.c)
+ *     MiTradeActivePage @ 0x1402347D0 (MiTradeActivePage.c)
+ *     MiMarkPfnVerified @ 0x140236C14 (MiMarkPfnVerified.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x140277E5C (MiReferencePageForModifiedWrite.c)
+ *     MiSetSystemCodeProtection @ 0x140297B68 (MiSetSystemCodeProtection.c)
+ *     MiAllocateWsle @ 0x1402B65C0 (MiAllocateWsle.c)
+ *     MiCompleteProtoPteFault @ 0x1402B8690 (MiCompleteProtoPteFault.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiWsleFree @ 0x140332C20 (MiWsleFree.c)
+ *     MiRevertValidPte @ 0x14033F050 (MiRevertValidPte.c)
+ *     MiCombineCandidate @ 0x140369950 (MiCombineCandidate.c)
+ *     MiPageMightBeZero @ 0x14036A034 (MiPageMightBeZero.c)
+ *     MiDbgWriteCheck @ 0x1405468FC (MiDbgWriteCheck.c)
+ *     MmChangeImageProtection @ 0x1406A80B0 (MmChangeImageProtection.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiGetTopLevelPfn @ 0x14026A4F0 (MiGetTopLevelPfn.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiGetTopLevelPfn @ 0x140258490 (MiGetTopLevelPfn.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
@@ -33,7 +33,7 @@ __int64 __fastcall MiGetPagePrivilege(ULONG_PTR BugCheckParameter2, int a2, _QWO
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
-  __int64 v11; // r9
+  _DWORD *v11; // r9
   unsigned int v12; // esi
   __int64 result; // rax
   unsigned int v14; // esi
@@ -81,8 +81,8 @@ __int64 __fastcall MiGetPagePrivilege(ULONG_PTR BugCheckParameter2, int a2, _QWO
       return v25 + 3;
     }
     v26 = *(_QWORD *)(BugCheckParameter2 + 16);
-    if ( qword_140C4DF40 && (v24 & 0x10) == 0 )
-      v26 = ~qword_140C4DF40 & v24;
+    if ( qword_140C4DF80 && (v24 & 0x10) == 0 )
+      v26 = ~qword_140C4DF80 & v24;
     v27 = v26 >> 16;
     v28 = *(_QWORD *)v27;
     if ( (*(_DWORD *)(*(_QWORD *)v27 + 56LL) & 0x20) == 0 )
@@ -95,7 +95,7 @@ __int64 __fastcall MiGetPagePrivilege(ULONG_PTR BugCheckParameter2, int a2, _QWO
         return 40LL;
       v31 = v24 >> 5;
       v32 = v30 & 0xC0000;
-      if ( (v11 & 0x40000) != 0 )
+      if ( ((unsigned int)v11 & 0x40000) != 0 )
       {
         v33 = 2;
         if ( v32 )
@@ -123,7 +123,7 @@ LABEL_60:
     }
     return 0LL;
   }
-  if ( (v11 & 0x40000) != 0 )
+  if ( ((unsigned int)v11 & 0x40000) != 0 )
   {
     v12 = 17;
     if ( (unsigned __int64)((__int64)(v7 << 25) >> 16) < 0xFFFF800000000000uLL )
@@ -143,8 +143,8 @@ LABEL_60:
           if ( a2 )
             v16 = 17;
           else
-            v16 = MiLockPageInline(v9, v8, v10, (_DWORD *)v11);
-          TopLevelPfn = MiGetTopLevelPfn(BugCheckParameter2, v8, v10, v11);
+            v16 = MiLockPageInline(v9, v8, v10, v11);
+          TopLevelPfn = MiGetTopLevelPfn(BugCheckParameter2);
           v18 = (*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
           _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
           if ( !a2 )

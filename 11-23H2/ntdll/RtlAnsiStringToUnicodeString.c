@@ -23,21 +23,21 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
 {
   __int64 Length; // rdx
   char *Buffer; // r9
-  int v8; // ebx
+  ULONG v8; // ebx
   unsigned int v9; // ebx
   NTSTATUS result; // eax
-  unsigned int v11; // edx
+  ULONG UTF8StringByteCount; // edx
   char *v12; // r9
-  unsigned int v13; // r10d
-  wchar_t *v14; // r11
-  __int16 v15; // cx
-  __int64 *v16; // rdi
-  __int16 v17; // ax
-  __int64 v18; // rbx
-  __int64 v19; // r8
-  unsigned int v20; // r10d
-  unsigned int v21; // edi
-  unsigned int i; // eax
+  ULONG v13; // r10d
+  WCHAR *v14; // r11
+  unsigned __int16 CodePage; // cx
+  unsigned __int16 **p_MultiByteTable; // rdi
+  unsigned __int16 DBCSCodePage; // ax
+  unsigned __int16 *MultiByteTable; // rbx
+  unsigned __int16 *DBCSOffsets; // r8
+  ULONG v20; // r10d
+  ULONG v21; // edi
+  ULONG i; // eax
   int v23; // esi
   __int64 v24; // rcx
   __int64 v25; // rax
@@ -46,24 +46,24 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   __int64 v28; // rax
   signed __int32 v29[8]; // [rsp+0h] [rbp-98h] BYREF
   NTSTATUS v30; // [rsp+30h] [rbp-68h]
-  int v31; // [rsp+38h] [rbp-60h]
-  unsigned int v32; // [rsp+40h] [rbp-58h]
-  int v33; // [rsp+44h] [rbp-54h]
-  wchar_t *v34; // [rsp+48h] [rbp-50h]
+  ULONG v31; // [rsp+38h] [rbp-60h]
+  ULONG v32; // [rsp+40h] [rbp-58h]
+  ULONG v33; // [rsp+44h] [rbp-54h]
+  WCHAR *v34; // [rsp+48h] [rbp-50h]
   char *v35; // [rsp+50h] [rbp-48h]
-  int v36; // [rsp+A8h] [rbp+10h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+A8h] [rbp+10h] BYREF
   BOOLEAN v37; // [rsp+B0h] [rbp+18h]
-  int v38; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG v38; // [rsp+B8h] [rbp+20h] BYREF
 
   v37 = AllocateDestinationString;
   Length = SourceString->Length;
   Buffer = SourceString->Buffer;
   _InterlockedOr(v29, 0);
-  if ( GlobalRtlNlsState == -535 || word_1801847A0 == -535 )
+  if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
   {
     if ( (_DWORD)Length )
     {
-      RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v38, (_DWORD)Buffer, Length);
+      RtlUTF8ToUnicodeN(0LL, 0, &v38, Buffer, Length);
       v8 = v38;
     }
     else
@@ -75,7 +75,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   }
   _InterlockedOr(v29, 0);
   v8 = 0;
-  if ( !word_18018476C )
+  if ( !GlobalRtlNlsState.DBCSCodePage )
   {
     v8 = 2 * Length;
     v38 = 2 * Length;
@@ -105,7 +105,7 @@ LABEL_51:
   v38 = v8;
 LABEL_5:
   v9 = v8 + 2;
-  v36 = v9;
+  UnicodeStringActualByteCount = v9;
   if ( v9 > 0xFFFE )
     return -1073741584;
   if ( AllocateDestinationString )
@@ -135,57 +135,57 @@ LABEL_5:
   v30 = result;
   if ( result >= 0 )
   {
-    v11 = SourceString->Length;
+    UTF8StringByteCount = SourceString->Length;
     v12 = SourceString->Buffer;
     v13 = (unsigned __int16)v9;
     v14 = DestinationString->Buffer;
     _InterlockedOr(v29, 0);
-    if ( GlobalRtlNlsState == -535 || word_1801847A0 == -535 )
+    if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
     {
-      v15 = Utf8TableInfo;
-      v16 = (__int64 *)&xmmword_180184710;
-      v17 = WORD6(Utf8TableInfo);
-      v18 = xmmword_180184710;
-      v19 = qword_180184728;
+      CodePage = Utf8TableInfo.CodePage;
+      p_MultiByteTable = &Utf8TableInfo.MultiByteTable;
+      DBCSCodePage = Utf8TableInfo.DBCSCodePage;
+      MultiByteTable = Utf8TableInfo.MultiByteTable;
+      DBCSOffsets = Utf8TableInfo.DBCSOffsets;
     }
     else
     {
       _InterlockedOr(v29, 0);
-      v15 = GlobalRtlNlsState;
-      v16 = &qword_180184780;
-      v17 = word_18018476C;
-      v18 = qword_180184780;
-      v19 = qword_180184798;
+      CodePage = GlobalRtlNlsState.CodePage;
+      p_MultiByteTable = &GlobalRtlNlsState.MultiByteTable;
+      DBCSCodePage = GlobalRtlNlsState.DBCSCodePage;
+      MultiByteTable = GlobalRtlNlsState.MultiByteTable;
+      DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
     }
-    v31 = v11;
+    v31 = UTF8StringByteCount;
     v35 = v12;
     v34 = v14;
-    if ( v15 == -535 )
+    if ( CodePage == 0xFDE9 )
     {
-      if ( !v11 )
+      if ( !UTF8StringByteCount )
       {
         v21 = 0;
-        v36 = 0;
+        UnicodeStringActualByteCount = 0;
         goto LABEL_37;
       }
-      RtlUTF8ToUnicodeN((_DWORD)v14, v13, (unsigned int)&v36, (_DWORD)v12, v11);
+      RtlUTF8ToUnicodeN(v14, v13, &UnicodeStringActualByteCount, v12, UTF8StringByteCount);
     }
     else
     {
       v20 = v13 >> 1;
       v33 = v20;
-      if ( !v17 )
+      if ( !DBCSCodePage )
       {
-        if ( v20 >= v11 )
-          v20 = v11;
+        if ( v20 >= UTF8StringByteCount )
+          v20 = UTF8StringByteCount;
         v21 = 2 * v20;
-        v36 = 2 * v20;
+        UnicodeStringActualByteCount = 2 * v20;
         for ( i = 0; ; ++i )
         {
           v32 = i;
           if ( i >= v20 )
             break;
-          v14[i] = *(_WORD *)(v18 + 2LL * (unsigned __int8)v12[i]);
+          v14[i] = MultiByteTable[(unsigned __int8)v12[i]];
         }
 LABEL_37:
         v30 = 0;
@@ -194,16 +194,16 @@ LABEL_37:
         return 0;
       }
       v23 = (int)v14;
-      while ( v20 && v11 )
+      while ( v20 && UTF8StringByteCount )
       {
         v33 = --v20;
-        v31 = --v11;
-        v24 = 2LL * (unsigned __int8)*v12;
-        v25 = *(unsigned __int16 *)(v24 + v19);
+        v31 = --UTF8StringByteCount;
+        v24 = (unsigned __int8)*v12;
+        v25 = DBCSOffsets[v24];
         v34 = v14 + 1;
         if ( (_WORD)v25 )
         {
-          if ( !v11 )
+          if ( !UTF8StringByteCount )
           {
             *v14 = 0;
             LODWORD(v14) = (_DWORD)v14 + 2;
@@ -211,21 +211,21 @@ LABEL_37:
           }
           v26 = v12 + 1;
           v35 = v26;
-          *v14 = *(_WORD *)(v19 + 2 * ((unsigned __int8)*v26 + v25));
+          *v14 = DBCSOffsets[(unsigned __int8)*v26 + v25];
           v12 = v26 + 1;
-          v31 = --v11;
+          v31 = --UTF8StringByteCount;
         }
         else
         {
-          *v14 = *(_WORD *)(v24 + *v16);
+          *v14 = (*p_MultiByteTable)[v24];
           ++v12;
         }
         v35 = v12;
         ++v14;
       }
-      v36 = (_DWORD)v14 - v23;
+      UnicodeStringActualByteCount = (_DWORD)v14 - v23;
     }
-    v21 = v36;
+    v21 = UnicodeStringActualByteCount;
     goto LABEL_37;
   }
   return result;

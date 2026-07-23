@@ -1,8 +1,8 @@
 /*
- * XREFs of AslImageFileToArchitecture @ 0x140A57798
+ * XREFs of AslImageFileToArchitecture @ 0x140A57A48
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140A51760 (SdbpResolveMatchingFile.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A53040 (SdbpGetProcessHostGuestArchitectures.c)
+ *     SdbpResolveMatchingFile @ 0x140A51A10 (SdbpResolveMatchingFile.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A532F0 (SdbpGetProcessHostGuestArchitectures.c)
  * Callees:
  *     <none>
  */

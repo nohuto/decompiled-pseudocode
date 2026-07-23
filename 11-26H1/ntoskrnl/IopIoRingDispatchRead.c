@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIoRingDispatchRead @ 0x140B00E10
+ * XREFs of IopIoRingDispatchRead @ 0x140B02B40
  * Callers:
- *     IopProcessIoRingEntry @ 0x140B00D00 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x140B02A30 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     IopMcReleaseMdl @ 0x1404114C8 (IopMcReleaseMdl.c)
- *     IopCompleteIoRingEntry @ 0x140411574 (IopCompleteIoRingEntry.c)
- *     IopReadFile @ 0x1408F856C (IopReadFile.c)
- *     IopIoRingGetBuffer @ 0x140B00FAC (IopIoRingGetBuffer.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     IopMcReleaseMdl @ 0x140410BE8 (IopMcReleaseMdl.c)
+ *     IopCompleteIoRingEntry @ 0x140410C94 (IopCompleteIoRingEntry.c)
+ *     IopReadFile @ 0x1409284FC (IopReadFile.c)
+ *     IopIoRingGetBuffer @ 0x140B02CDC (IopIoRingGetBuffer.c)
  */
 
 void __fastcall IopIoRingDispatchRead(_DWORD *a1, __int64 a2)

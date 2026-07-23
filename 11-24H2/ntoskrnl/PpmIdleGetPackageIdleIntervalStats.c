@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleGetPackageIdleIntervalStats @ 0x140A6797C
+ * XREFs of PpmIdleGetPackageIdleIntervalStats @ 0x140A60E74
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmConvertTimeTo @ 0x14032D92C (PpmConvertTimeTo.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmParkGetParkNode @ 0x140495DBC (PpmParkGetParkNode.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmConvertTimeTo @ 0x140370A00 (PpmConvertTimeTo.c)
+ *     PpmParkGetParkNode @ 0x14049067C (PpmParkGetParkNode.c)
  */
 
 __int64 __fastcall PpmIdleGetPackageIdleIntervalStats(int a1, __int64 a2, ULONGLONG *a3)
@@ -61,7 +61,7 @@ LABEL_10:
     {
       if ( v11 >= 2 )
         break;
-      v12 = *(_QWORD *)(640LL * v11 + *(_QWORD *)(v9 + 1280) + 568);
+      v12 = *(_QWORD *)(640LL * v11 + *(_QWORD *)(v9 + 1288) + 568);
       if ( v12 )
       {
         v5 = 1;

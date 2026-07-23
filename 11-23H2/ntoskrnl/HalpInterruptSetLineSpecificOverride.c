@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptSetLineSpecificOverride @ 0x1405053FC
+ * XREFs of HalpInterruptSetLineSpecificOverride @ 0x14050594C
  * Callers:
- *     HalpPiix4Detect @ 0x140A8F324 (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x140A8F1A4 (HalpPiix4Detect.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpInterruptGsiToLine @ 0x14031FF10 (HalpInterruptGsiToLine.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpInterruptGsiToLine @ 0x1403201A0 (HalpInterruptGsiToLine.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInterruptSetLineSpecificOverride(__int64 a1)
@@ -50,10 +50,13 @@ __int64 __fastcall HalpInterruptSetLineSpecificOverride(__int64 a1)
     *v8 = v4;
     qword_140C60D38 = v4;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptOverridesLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -61,7 +64,7 @@ __int64 __fastcall HalpInterruptSetLineSpecificOverride(__int64 a1)
         v13 = (v12 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v12;
         if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v7);

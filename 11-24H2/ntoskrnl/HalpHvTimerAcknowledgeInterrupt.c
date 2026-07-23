@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvTimerAcknowledgeInterrupt @ 0x14033B050
+ * XREFs of HalpHvTimerAcknowledgeInterrupt @ 0x14031A530
  * Callers:
- *     HalpTimerClockInterrupt @ 0x14033ADE0 (HalpTimerClockInterrupt.c)
- *     KiCallInterruptServiceRoutine @ 0x14033B0A0 (KiCallInterruptServiceRoutine.c)
- *     HalpHvTimerInitialize @ 0x14055F190 (HalpHvTimerInitialize.c)
+ *     HalpTimerClockInterrupt @ 0x14031A2C0 (HalpTimerClockInterrupt.c)
+ *     KiCallInterruptServiceRoutine @ 0x14031A580 (KiCallInterruptServiceRoutine.c)
+ *     HalpHvTimerInitialize @ 0x14055CDC0 (HalpHvTimerInitialize.c)
  * Callees:
  *     <none>
  */

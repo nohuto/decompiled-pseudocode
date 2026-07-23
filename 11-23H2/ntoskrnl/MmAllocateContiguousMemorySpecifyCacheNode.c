@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E190
+ * XREFs of MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E6E0
  * Callers:
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F280 (ExtEnvAllocatePhysicalMemory.c)
- *     DifMmAllocateContiguousMemorySpecifyCacheWrapper @ 0x1405E68B0 (DifMmAllocateContiguousMemorySpecifyCacheWrapper.c)
- *     MmAllocateContiguousMemorySpecifyCache @ 0x14061E160 (MmAllocateContiguousMemorySpecifyCache.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051F7D0 (ExtEnvAllocatePhysicalMemory.c)
+ *     DifMmAllocateContiguousMemorySpecifyCacheWrapper @ 0x1405E6E20 (DifMmAllocateContiguousMemorySpecifyCacheWrapper.c)
+ *     MmAllocateContiguousMemorySpecifyCache @ 0x14061E6B0 (MmAllocateContiguousMemorySpecifyCache.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x1403B9C20 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B9E00 (MmAllocateContiguousNodeMemory.c)
  */
 
 PVOID __stdcall MmAllocateContiguousMemorySpecifyCacheNode(

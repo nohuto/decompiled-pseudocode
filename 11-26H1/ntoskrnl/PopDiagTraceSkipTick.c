@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSkipTick @ 0x1407D4C10
+ * XREFs of PopDiagTraceSkipTick @ 0x1407D7DC8
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSkipTick(unsigned __int8 a1, unsigned __int8 a2)
@@ -20,9 +20,9 @@ void __fastcall PopDiagTraceSkipTick(unsigned __int8 a1, unsigned __int8 a2)
 
   v2 = a2;
   v3 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_SKIP_TICK) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SKIP_TICK) )
     {
       UserData.Ptr = (ULONGLONG)&v4;
       v4 = v3;
@@ -30,12 +30,7 @@ void __fastcall PopDiagTraceSkipTick(unsigned __int8 a1, unsigned __int8 a2)
       v5 = v2;
       *(_QWORD *)&UserData.Size = 4LL;
       v8 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_SKIP_TICK,
-        0LL,
-        2u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SKIP_TICK, 0LL, 2u, &UserData);
     }
   }
 }

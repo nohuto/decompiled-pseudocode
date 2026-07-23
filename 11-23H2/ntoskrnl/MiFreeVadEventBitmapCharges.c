@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeVadEventBitmapCharges @ 0x1407DFA7C
+ * XREFs of MiFreeVadEventBitmapCharges @ 0x1407DFD4C
  * Callers:
- *     MiReleaseVadEventBlocks @ 0x1406FB5DC (MiReleaseVadEventBlocks.c)
- *     MiFreeVadEventBitmap @ 0x140A31F08 (MiFreeVadEventBitmap.c)
+ *     MiReleaseVadEventBlocks @ 0x1406FB7EC (MiReleaseVadEventBlocks.c)
+ *     MiFreeVadEventBitmap @ 0x140A321B8 (MiFreeVadEventBitmap.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B330 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14028B5C0 (PsReturnProcessNonPagedPoolQuota.c)
  */
 
 __int64 __fastcall MiFreeVadEventBitmapCharges(struct _KPROCESS *a1, __int64 a2)

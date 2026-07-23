@@ -15,7 +15,7 @@
 
 __int64 __fastcall SshInitialize(int a1)
 {
-  union _RTL_RUN_ONCE *v1; // r8
+  _RTL_RUN_ONCE *v1; // r8
   _QWORD *v2; // r8
   __int64 v3; // r9
   unsigned int v4; // edx
@@ -23,10 +23,10 @@ __int64 __fastcall SshInitialize(int a1)
 
   if ( !a1 )
   {
-    CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpLibraryListLock);
+    CmSiRWLockInitialize(&SshpLibraryListLock);
     SshpSessionType = 0;
     SshpSessionId = 0LL;
-    v1 = (union _RTL_RUN_ONCE *)&unk_140E08280;
+    v1 = (_RTL_RUN_ONCE *)&unk_140E08280;
     qword_140F05E28 = (__int64)&SshpLibraryList;
     SshpLibraryList = (__int64)&SshpLibraryList;
     do
@@ -38,7 +38,7 @@ __int64 __fastcall SshInitialize(int a1)
       if ( (*((_BYTE *)v2 - 6) & 1) == 0 )
         v4 = *((_DWORD *)v2 - 1) & 0xFFFFFFFC;
       *((_DWORD *)v2 - 1) = v4;
-      v1 = (union _RTL_RUN_ONCE *)(v2 + 6);
+      v1 = (_RTL_RUN_ONCE *)(v2 + 6);
     }
     while ( v3 != 1 );
     qword_140F05DF8 = 0LL;

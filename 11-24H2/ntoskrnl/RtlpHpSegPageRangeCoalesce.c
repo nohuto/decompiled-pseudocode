@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpSegPageRangeCoalesce @ 0x1402B8A00
+ * XREFs of RtlpHpSegPageRangeCoalesce @ 0x140360140
  * Callers:
- *     RtlpHpSegContextCompact @ 0x1402B4260 (RtlpHpSegContextCompact.c)
- *     RtlpHpSegPageRangeShrink @ 0x1402BC4B0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x14035E4C0 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeShrink @ 0x140363BF0 (RtlpHpSegPageRangeShrink.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlpHpEnvCompactionSchedule @ 0x1402B389C (RtlpHpEnvCompactionSchedule.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     RtlpHpSegLockAcquire @ 0x1402BC9B4 (RtlpHpSegLockAcquire.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     RtlpHpSegPageRangeCommit @ 0x1402C1C30 (RtlpHpSegPageRangeCommit.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14035ED20 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14035F6F0 (RtlpHpSegPageRangeCommit.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpHpSegLockAcquire @ 0x1403640F4 (RtlpHpSegLockAcquire.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, unsigned __int8 *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, un
   __int64 v8; // rdx
   unsigned int v9; // r14d
   __int64 v10; // r15
-  __int64 v11; // rbp
+  _RTL_RB_TREE *v11; // rbp
   __int16 *v12; // r12
   __int64 v13; // rax
   __int64 v14; // rbp
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, un
     }
     if ( (unsigned int)v8 <= *(unsigned __int8 *)(a1 + 10) )
     {
-      v11 = a1 + 96;
+      v11 = (_RTL_RB_TREE *)(a1 + 96);
 LABEL_9:
       v12 = (__int16 *)(a1 + 22);
       goto LABEL_10;
@@ -62,10 +62,10 @@ LABEL_9:
     v10 = a2 - 32;
     if ( (*(_BYTE *)(a2 - 8) & 2) == 0 )
       v10 += -32LL * *(unsigned __int8 *)(v10 + 26);
-    v11 = a1 + 96;
+    v11 = (_RTL_RB_TREE *)(a1 + 96);
     if ( (*(_BYTE *)(v10 + 24) & 1) != 0 )
       goto LABEL_9;
-    RtlRbRemoveNode(v11, v10);
+    RtlRbRemoveNode(v11, (PRTL_BALANCED_NODE)v10);
     v12 = (__int16 *)(a1 + 22);
     *(_OWORD *)v10 = 0LL;
     *(_QWORD *)(v10 + 16) = 0LL;
@@ -82,7 +82,7 @@ LABEL_10:
     *(_BYTE *)(a2 + 24) |= 0x11u;
     if ( v7 )
     {
-      RtlRbRemoveNode(v11, v7);
+      RtlRbRemoveNode(v11, (PRTL_BALANCED_NODE)v7);
       *(_OWORD *)v7 = 0LL;
       *(_QWORD *)(v7 + 16) = 0LL;
       v23 = ~(unsigned __int16)*(_DWORD *)(v7 + 28);
@@ -135,7 +135,7 @@ LABEL_10:
       KeAbPostRelease(a1 + 64);
       KeLeaveGuardedRegion();
     }
-    RtlpHpSegPageRangeCommit(a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, (__int64)&v27);
+    RtlpHpSegPageRangeCommit(a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, &v27);
     *v21 = RtlpHpSegLockAcquire(a1);
     *(_BYTE *)(a2 + 24) &= ~0x10u;
   }

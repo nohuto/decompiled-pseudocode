@@ -1,14 +1,14 @@
 /*
- * XREFs of KiModifySystemAllowedCpuSetsWithLock @ 0x14039D4F0
+ * XREFs of KiModifySystemAllowedCpuSetsWithLock @ 0x14039D6D0
  * Callers:
- *     KeModifySystemAllowedCpuSets @ 0x14039D464 (KeModifySystemAllowedCpuSets.c)
- *     KeCpuPartitionMoveCpus @ 0x140574DC4 (KeCpuPartitionMoveCpus.c)
+ *     KeModifySystemAllowedCpuSets @ 0x14039D644 (KeModifySystemAllowedCpuSets.c)
+ *     KeCpuPartitionMoveCpus @ 0x140575304 (KeCpuPartitionMoveCpus.c)
  * Callees:
  *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiValidateCpuSetMasks @ 0x14039D66C (KiValidateCpuSetMasks.c)
- *     KeCpuSetReportParkedProcessors @ 0x14039D6B4 (KeCpuSetReportParkedProcessors.c)
- *     RtlWriteAcquireTickLock @ 0x1403C16E0 (RtlWriteAcquireTickLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiValidateCpuSetMasks @ 0x14039D84C (KiValidateCpuSetMasks.c)
+ *     KeCpuSetReportParkedProcessors @ 0x14039D894 (KeCpuSetReportParkedProcessors.c)
+ *     RtlWriteAcquireTickLock @ 0x1403C18C0 (RtlWriteAcquireTickLock.c)
  */
 
 __int64 __fastcall KiModifySystemAllowedCpuSetsWithLock(unsigned int a1, char *a2, _WORD *a3, int a4, int a5)

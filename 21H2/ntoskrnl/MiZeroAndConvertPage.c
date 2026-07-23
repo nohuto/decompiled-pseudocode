@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroAndConvertPage @ 0x1402B70D0
+ * XREFs of MiZeroAndConvertPage @ 0x1402352B0
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiZeroInParallelWorker @ 0x1402E6010 (MiZeroInParallelWorker.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140295074 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiZeroInParallelWorker @ 0x140297360 (MiZeroInParallelWorker.c)
  * Callees:
- *     MiZeroLargePage @ 0x1402B71F8 (MiZeroLargePage.c)
- *     MiChangePageAttributeContiguous @ 0x1402CF8B8 (MiChangePageAttributeContiguous.c)
- *     MiZeroPhysicalPage @ 0x1402E6380 (MiZeroPhysicalPage.c)
+ *     MiZeroLargePage @ 0x1402353D8 (MiZeroLargePage.c)
+ *     MiChangePageAttributeContiguous @ 0x14024DC38 (MiChangePageAttributeContiguous.c)
+ *     MiZeroPhysicalPage @ 0x1402976D0 (MiZeroPhysicalPage.c)
  */
 
 __int64 __fastcall MiZeroAndConvertPage(__int64 a1, unsigned int a2, int a3, char a4)
@@ -30,7 +30,7 @@ __int64 __fastcall MiZeroAndConvertPage(__int64 a1, unsigned int a2, int a3, cha
   if ( v9 )
   {
     if ( v10 != (_DWORD)v4
-      && dword_140C4DF98[4 * ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) >> 6) + v4] == (_DWORD)v4 )
+      && dword_140C4DFD8[4 * ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) >> 6) + v4] == (_DWORD)v4 )
     {
       MiChangePageAttributeContiguous(v8, v7, (unsigned int)v4);
       v11 = 0;

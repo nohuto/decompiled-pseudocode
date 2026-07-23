@@ -1,10 +1,10 @@
 /*
- * XREFs of CarCopyDriverName @ 0x140648828
+ * XREFs of CarCopyDriverName @ 0x14064C408
  * Callers:
- *     CarGetDriverInfoFromViolationStack @ 0x140648F98 (CarGetDriverInfoFromViolationStack.c)
- *     CarLoadImageHandler @ 0x1406491EC (CarLoadImageHandler.c)
+ *     CarGetDriverInfoFromViolationStack @ 0x14064CB78 (CarGetDriverInfoFromViolationStack.c)
+ *     CarLoadImageHandler @ 0x14064CDCC (CarLoadImageHandler.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall CarCopyDriverName(_WORD *a1, unsigned __int16 *a2)

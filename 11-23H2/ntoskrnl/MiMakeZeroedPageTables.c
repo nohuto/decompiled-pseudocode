@@ -4,10 +4,10 @@
  *     MiSplitBitmapPages @ 0x14020B1E8 (MiSplitBitmapPages.c)
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
  *     MiReserveDriverPtes @ 0x140696DF0 (MiReserveDriverPtes.c)
- *     MiInitializeDynamicBitmap @ 0x14081C7A4 (MiInitializeDynamicBitmap.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140A35068 (MiApplyHotPatchToLoadedDriver.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A43E4C (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiExpandPartitionIds @ 0x140A44920 (MiExpandPartitionIds.c)
+ *     MiInitializeDynamicBitmap @ 0x14081CA74 (MiInitializeDynamicBitmap.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A35318 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A440FC (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiExpandPartitionIds @ 0x140A44BD0 (MiExpandPartitionIds.c)
  * Callees:
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
  */

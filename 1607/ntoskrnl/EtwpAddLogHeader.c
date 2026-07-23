@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpAddLogHeader @ 0x140493E48
+ * XREFs of EtwpAddLogHeader @ 0x1404948D8
  * Callers:
- *     EtwpUpdateFileHeader @ 0x1404947D4 (EtwpUpdateFileHeader.c)
- *     EtwpPreserveLogger @ 0x1406A9E8C (EtwpPreserveLogger.c)
+ *     EtwpUpdateFileHeader @ 0x140495264 (EtwpUpdateFileHeader.c)
+ *     EtwpPreserveLogger @ 0x1406A9FC4 (EtwpPreserveLogger.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpPrepareHeader @ 0x1404913E8 (EtwpPrepareHeader.c)
- *     EtwpAddDebugInfoEvents @ 0x140492EAC (EtwpAddDebugInfoEvents.c)
- *     EtwpIsWow64Logger @ 0x140494288 (EtwpIsWow64Logger.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x14049429C (RtlpQueryTimeZoneInformationWorker.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
- *     EtwpAddBinaryInfoEvents @ 0x1406A6618 (EtwpAddBinaryInfoEvents.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpPrepareHeader @ 0x140491E78 (EtwpPrepareHeader.c)
+ *     EtwpAddDebugInfoEvents @ 0x14049393C (EtwpAddDebugInfoEvents.c)
+ *     EtwpIsWow64Logger @ 0x140494D18 (EtwpIsWow64Logger.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140494D2C (RtlpQueryTimeZoneInformationWorker.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1406A6750 (EtwpAddBinaryInfoEvents.c)
  */
 
 unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)

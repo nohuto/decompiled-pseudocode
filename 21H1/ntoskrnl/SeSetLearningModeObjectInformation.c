@@ -22,10 +22,10 @@
 void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
 {
   void *v2; // rcx
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
-  struct _OBJECT_NAME_INFORMATION *v4; // rdi
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
+  _OBJECT_NAME_INFORMATION *v4; // rdi
   NTSTATUS v5; // eax
-  struct _OBJECT_NAME_INFORMATION *v6; // rax
+  _OBJECT_NAME_INFORMATION *v6; // rax
   SIZE_T v7; // r14
   wchar_t *v8; // rax
   wchar_t *v9; // rsi
@@ -43,7 +43,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
     Object = 0LL;
     if ( ObReferenceObjectByHandle(v2, 0, 0LL, KeGetCurrentThread()->PreviousMode, &Object, 0LL) < 0 )
       goto LABEL_16;
-    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x210uLL, 0x4F526553u);
+    PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x210uLL, 0x4F526553u);
     v4 = PoolWithTag;
     if ( PoolWithTag )
     {
@@ -51,7 +51,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
       if ( v5 != -1073741820 )
         goto LABEL_8;
       ExFreePoolWithTag(v4, 0);
-      v6 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x4F526553u);
+      v6 = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x4F526553u);
       v4 = v6;
       if ( v6 )
       {

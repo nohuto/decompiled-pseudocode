@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpSendTraceEvent @ 0x140227E34
+ * XREFs of EtwpSendTraceEvent @ 0x140227C60
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14007394C (EtwpLogSystemEventUnsafe.c)
- *     EtwpEventWriteFull @ 0x140073CE0 (EtwpEventWriteFull.c)
- *     EtwpTraceMessageVa @ 0x1400D5D90 (EtwpTraceMessageVa.c)
- *     EtwTraceEvent @ 0x14022528C (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x1402256C4 (EtwTraceRaw.c)
- *     EtwpWriteUserEvent @ 0x140510920 (EtwpWriteUserEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1400734CC (EtwpLogSystemEventUnsafe.c)
+ *     EtwpEventWriteFull @ 0x140073860 (EtwpEventWriteFull.c)
+ *     EtwpTraceMessageVa @ 0x1400D3C30 (EtwpTraceMessageVa.c)
+ *     EtwTraceEvent @ 0x1402250B8 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1402254F0 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x1404F38B0 (EtwpWriteUserEvent.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     EtwpGetNextEventOffsetType @ 0x14022AB14 (EtwpGetNextEventOffsetType.c)
- *     EtwpSendDbgId @ 0x1406A5450 (EtwpSendDbgId.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     EtwpGetNextEventOffsetType @ 0x14022A940 (EtwpGetNextEventOffsetType.c)
+ *     EtwpSendDbgId @ 0x1406A5588 (EtwpSendDbgId.c)
  *     KdSendTraceData @ 0x1406F51EC (KdSendTraceData.c)
  */
 

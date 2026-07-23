@@ -1,15 +1,15 @@
 /*
- * XREFs of HalEnableInterrupt @ 0x1404252A0
+ * XREFs of HalEnableInterrupt @ 0x140432390
  * Callers:
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140426C08 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptSetLineState @ 0x1404294DC (HalpInterruptSetLineState.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpEnableSecondaryInterrupt @ 0x140B5EF94 (HalpEnableSecondaryInterrupt.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140433D18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetLineState @ 0x140435168 (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpEnableSecondaryInterrupt @ 0x140B62114 (HalpEnableSecondaryInterrupt.c)
  */
 
 __int64 __fastcall HalEnableInterrupt(__int64 a1)
@@ -55,7 +55,7 @@ LABEL_6:
     {
       v15 = LinesForGsiRange[4];
       v16 = v5 + LinesForGsiRange[5] - LinesForGsiRange[7];
-      v7 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+      v7 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
       LOBYTE(v8) = *(_BYTE *)(a1 + 16);
       v9 = v7;
       v1 = HalpInterruptSetLineState(
@@ -66,7 +66,7 @@ LABEL_6:
              *(_DWORD *)(a1 + 20),
              v10,
              &v13);
-      HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v9);
+      HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v9);
       return v1;
     }
     if ( (unsigned __int8)guard_dispatch_icall_no_overrides(0LL, v5) )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDirectGraphicsCall @ 0x18009F170
+ * XREFs of ZwDirectGraphicsCall @ 0x18009F130
  * Callers:
  *     <none>
  * Callees:

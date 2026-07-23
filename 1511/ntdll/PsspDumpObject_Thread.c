@@ -6,17 +6,32 @@
  *     ZwQueryInformationThread @ 0x1800A5560 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall PsspDumpObject_Thread(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall PsspDumpObject_Thread(
+        HANDLE ThreadHandle,
+        char *ThreadInformation,
+        unsigned int a3,
+        ULONG *ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 0x38 )
-    return 3221225507LL;
-  result = ZwQueryInformationThread(a1, 0LL, a2, 48LL, a4);
-  if ( (int)result < 0 || (result = ZwQueryInformationThread(a1, 9LL, a2 + 48, 8LL, 0LL), (int)result < 0) )
-    *a4 = 0;
+    return -1073741789;
+  result = ZwQueryInformationThread(ThreadHandle, ThreadBasicInformation, ThreadInformation, 0x30u, ReturnLength);
+  if ( result < 0
+    || (result = ZwQueryInformationThread(
+                   ThreadHandle,
+                   ThreadQuerySetWin32StartAddress,
+                   ThreadInformation + 48,
+                   8u,
+                   0LL),
+        result < 0) )
+  {
+    *ReturnLength = 0;
+  }
   else
-    *a4 += 8;
+  {
+    *ReturnLength += 8;
+  }
   return result;
 }

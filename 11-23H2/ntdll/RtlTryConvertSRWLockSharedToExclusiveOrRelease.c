@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
 bool __fastcall RtlTryConvertSRWLockSharedToExclusiveOrRelease(volatile signed __int64 *a1)
@@ -15,7 +15,7 @@ bool __fastcall RtlTryConvertSRWLockSharedToExclusiveOrRelease(volatile signed _
 
   v1 = *a1;
   if ( (*a1 & 1) == 0 )
-    RtlRaiseStatus(3221226084LL);
+    RtlRaiseStatus(-1073741212);
   while ( (v1 & 2) == 0 )
   {
     v3 = v1;

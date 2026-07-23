@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInterlockedSetClearRunEx @ 0x14027F070
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x14027F300
  * Callers:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleaseSmallPteMappings @ 0x1402CBF20 (MiReleaseSmallPteMappings.c)
- *     MiAllocateSlabEntry @ 0x1402E6C40 (MiAllocateSlabEntry.c)
- *     MiInsertSlabEntry @ 0x1402E7080 (MiInsertSlabEntry.c)
- *     MiAttemptCoalesce @ 0x1403461E0 (MiAttemptCoalesce.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleaseSmallPteMappings @ 0x1402CC1B0 (MiReleaseSmallPteMappings.c)
+ *     MiAllocateSlabEntry @ 0x1402E6ED0 (MiAllocateSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x1402E7310 (MiInsertSlabEntry.c)
+ *     MiAttemptCoalesce @ 0x140346470 (MiAttemptCoalesce.c)
  * Callees:
  *     <none>
  */

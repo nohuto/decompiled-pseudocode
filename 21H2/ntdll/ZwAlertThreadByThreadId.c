@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlertThreadByThreadId @ 0x18009E430
+ * XREFs of ZwAlertThreadByThreadId @ 0x18009E3F0
  * Callers:
  *     RtlDeleteCriticalSection @ 0x180010FC0 (RtlDeleteCriticalSection.c)
  *     RtlInitializeResource @ 0x1800112E0 (RtlInitializeResource.c)
@@ -17,11 +17,11 @@
  *     <none>
  */
 
-__int64 ZwAlertThreadByThreadId()
+NTSTATUS __cdecl ZwAlertThreadByThreadId(HANDLE ThreadId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 112LL;
+  result = 112;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslpSecureKernelPeriodicTick @ 0x1404BD340
+ * XREFs of VslpSecureKernelPeriodicTick @ 0x1404B6B20
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 VslpSecureKernelPeriodicTick()
@@ -14,5 +14,5 @@ __int64 VslpSecureKernelPeriodicTick()
 
   memset_0(v1, 0, 0x68uLL);
   VslpEnterIumSecureMode(2u, 0xD1u, 0, (__int64)v1);
-  return (unsigned int)_InterlockedExchange(&VslpSecureKernelPeriodicTickWorkItemActive, 0);
+  return (unsigned int)_InterlockedExchange((volatile __int32 *)&VslpReservedTransferLock.CycleTime, 0);
 }

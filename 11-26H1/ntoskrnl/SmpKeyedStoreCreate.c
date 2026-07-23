@@ -1,19 +1,19 @@
 /*
- * XREFs of SmpKeyedStoreCreate @ 0x140966FB8
+ * XREFs of SmpKeyedStoreCreate @ 0x140ADC25C
  * Callers:
- *     SmProcessCreateNotification @ 0x140966F58 (SmProcessCreateNotification.c)
+ *     SmProcessCreateNotification @ 0x140ADC1FC (SmProcessCreateNotification.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     SmKmStoreDereference @ 0x140265B10 (SmKmStoreDereference.c)
- *     SmKmStoreGet @ 0x140354B70 (SmKmStoreGet.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     SmpKeyedStoreEntryGet @ 0x140409DF0 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x14048EBAC (SmKmStoreDeleteWhenEmpty.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SmpDirtyStoreCreate @ 0x140967114 (SmpDirtyStoreCreate.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     SmKmStoreDereference @ 0x140265080 (SmKmStoreDereference.c)
+ *     SmKmStoreGet @ 0x140356910 (SmKmStoreGet.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     SmpKeyedStoreEntryGet @ 0x140402EE0 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x1404886EC (SmKmStoreDeleteWhenEmpty.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SmpDirtyStoreCreate @ 0x140ADC3B8 (SmpDirtyStoreCreate.c)
  */
 
 __int64 __fastcall SmpKeyedStoreCreate(struct _KTHREAD *a1, struct _SM_PARTITION *a2, __int64 a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiExecuteDpc @ 0x1405C6F50
+ * XREFs of KiExecuteDpc @ 0x1405C4680
  * Callers:
  *     <none>
  * Callees:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1405C30E8 (KiSetSystemAffinityThreadToProcessor.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1405C06B8 (KiSetSystemAffinityThreadToProcessor.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall __noreturn KiExecuteDpc(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall __noreturn KiExecuteDpc(__int64 a1)
   while ( 1 )
   {
     v8 = 0;
-    KeWaitForGate(a1 + 33600, 5LL, 0);
+    KeWaitForGate(a1 + 33600, 5LL);
     v3 = KeGetCurrentThread();
     --v3->SpecialApcDisable;
     do
@@ -41,7 +41,7 @@ void __fastcall __noreturn KiExecuteDpc(__int64 a1)
       if ( KeSmapEnabled )
         __asm { clac }
       _disable();
-      KiExecuteAllDpcs((struct _KPRCB *)a1, (unsigned __int64)CurrentThread, &v8, 1LL);
+      KiExecuteAllDpcs((struct _KPRCB *)a1, (__int64)CurrentThread, &v8, 1LL);
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
       if ( SchedulerAssist )

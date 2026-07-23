@@ -1,19 +1,19 @@
 /*
- * XREFs of MiHotAddPartitionMemory @ 0x140A44CA0
+ * XREFs of MiHotAddPartitionMemory @ 0x140A44F50
  * Callers:
- *     MmManagePartitionInitialAddMemory @ 0x140A456CC (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140A4597C (MmManagePartitionInitialAddMemory.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     RtlAreBitsClearEx @ 0x1403513E0 (RtlAreBitsClearEx.c)
- *     MiHugePagesSupported @ 0x1403C78A4 (MiHugePagesSupported.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551060 (IoUpdateDumpPhysicalRanges.c)
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
- *     MiAddRangeToPartitionTree @ 0x140658B1C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNode @ 0x1406593C8 (MiDeletePartitionPageNode.c)
- *     MiFreePartitionTree @ 0x140659E98 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140A45288 (MiUpdatePartitionLargePfnBitMap.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     RtlAreBitsClearEx @ 0x140351580 (RtlAreBitsClearEx.c)
+ *     MiHugePagesSupported @ 0x1403C7A84 (MiHugePagesSupported.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140551720 (IoUpdateDumpPhysicalRanges.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
+ *     MiAddRangeToPartitionTree @ 0x14065906C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNode @ 0x140659918 (MiDeletePartitionPageNode.c)
+ *     MiFreePartitionTree @ 0x14065A3E8 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A45538 (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiHotAddPartitionMemory(__int64 a1, unsigned __int64 *a2, int *a3)

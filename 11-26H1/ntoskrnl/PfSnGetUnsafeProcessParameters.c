@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnGetUnsafeProcessParameters @ 0x140B119E8
+ * XREFs of PfSnGetUnsafeProcessParameters @ 0x140B13768
  * Callers:
- *     PfSnScanCommandLine @ 0x1409E8F94 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x1409D320C (PfSnScanCommandLine.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 volatile void *PfSnGetUnsafeProcessParameters()

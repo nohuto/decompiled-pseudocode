@@ -191,7 +191,9 @@ LABEL_42:
   v29 = 1LL;
   if ( (a5 & 1) != 0 && *(_BYTE *)(a5 & 0xFFFFFFFFFFFFFFFEuLL) == 4
     || a2 + 0x80000000000LL <= 0x7FFFFFFFFFLL
-    || PsNtosImageBase && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= PsHalImageBase && a2 < PsHalImageEnd) )
+    || PsNtosImageBase
+    && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+     || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
   {
     v29 = 9LL;
   }

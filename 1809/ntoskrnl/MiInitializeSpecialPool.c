@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSpecialPool @ 0x1407155C8
+ * XREFs of MiInitializeSpecialPool @ 0x140716868
  * Callers:
- *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiSessionCreate @ 0x1407162A8 (MiSessionCreate.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiQuerySystemBase @ 0x14013BABC (MiQuerySystemBase.c)
- *     InitializeListHeadPte @ 0x14017006C (InitializeListHeadPte.c)
- *     MiInitializeDynamicRegion @ 0x1409B6DDC (MiInitializeDynamicRegion.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiQuerySystemBase @ 0x14013BBBC (MiQuerySystemBase.c)
+ *     InitializeListHeadPte @ 0x14017016C (InitializeListHeadPte.c)
+ *     MiInitializeDynamicRegion @ 0x1409B7DDC (MiInitializeDynamicRegion.c)
  */
 
 __int64 __fastcall MiInitializeSpecialPool(char a1)
@@ -24,7 +24,7 @@ __int64 __fastcall MiInitializeSpecialPool(char a1)
   v1 = 0xFFFF800000000000uLL;
   if ( (a1 & 0x20) != 0 )
   {
-    v1 = qword_140439FB8;
+    v1 = qword_14043B078;
 LABEL_3:
     PteAddress = MiGetPteAddress(v1);
     InitializeListHeadPte(v3 + 8, PteAddress);
@@ -38,7 +38,7 @@ LABEL_3:
     v9 = MiQuerySystemBase(11);
     if ( (unsigned int)MiInitializeDynamicRegion(13LL, v9, 0x8000000000LL) )
     {
-      dword_140438B14 = 0x4000;
+      dword_140439BD4 = 0x4000;
       goto LABEL_3;
     }
   }

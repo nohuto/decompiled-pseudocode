@@ -19,7 +19,7 @@ unsigned __int64 __fastcall SepFindMatchingLuidEntry(
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v10; // rdi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   unsigned __int64 result; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = 0;
   memset(&Context, 0, sizeof(Context));

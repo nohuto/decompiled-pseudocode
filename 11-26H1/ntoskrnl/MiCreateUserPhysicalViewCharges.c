@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateUserPhysicalViewCharges @ 0x140770E70
+ * XREFs of MiCreateUserPhysicalViewCharges @ 0x140773E70
  * Callers:
- *     MiReserveUserMemoryFinishVad @ 0x14095C5E0 (MiReserveUserMemoryFinishVad.c)
+ *     MiReserveUserMemoryFinishVad @ 0x140A01EA0 (MiReserveUserMemoryFinishVad.c)
  * Callees:
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiGetAweViewPageSize @ 0x140477EDC (MiGetAweViewPageSize.c)
- *     MiPageSizeToPteLevel @ 0x140478750 (MiPageSizeToPteLevel.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiResidentPagesForSpan @ 0x14095DF90 (MiResidentPagesForSpan.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiGetAweViewPageSize @ 0x14047165C (MiGetAweViewPageSize.c)
+ *     MiPageSizeToPteLevel @ 0x140471ED0 (MiPageSizeToPteLevel.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiResidentPagesForSpan @ 0x140A03850 (MiResidentPagesForSpan.c)
  */
 
 __int64 __fastcall MiCreateUserPhysicalViewCharges(__int64 a1)

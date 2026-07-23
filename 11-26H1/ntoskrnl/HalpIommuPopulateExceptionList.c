@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuPopulateExceptionList @ 0x14050C65C
+ * XREFs of HalpIommuPopulateExceptionList @ 0x1405060CC
  * Callers:
- *     HalpIommuInitializeAll @ 0x140C0D57C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140C1378C (HalpIommuInitializeAll.c)
  * Callees:
- *     HalpIommuAddDebuggerException @ 0x14050C67C (HalpIommuAddDebuggerException.c)
+ *     HalpIommuAddDebuggerException @ 0x1405060EC (HalpIommuAddDebuggerException.c)
  */
 
 __int64 HalpIommuPopulateExceptionList()

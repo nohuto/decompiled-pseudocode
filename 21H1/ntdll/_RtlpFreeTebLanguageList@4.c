@@ -10,19 +10,19 @@
  *     _RtlpMuiRegFreeLanguageList@4 @ 0x4B2D32FD (_RtlpMuiRegFreeLanguageList@4.c)
  */
 
-int __thiscall RtlpFreeTebLanguageList(_DWORD *this)
+LOGICAL __thiscall RtlpFreeTebLanguageList(PVOID *BaseAddress)
 {
-  _BYTE *v2; // ecx
-  int result; // eax
+  PVOID v2; // ecx
+  LOGICAL result; // eax
 
-  if ( this )
+  if ( BaseAddress )
   {
-    v2 = (_BYTE *)*this;
-    if ( *this )
+    v2 = *BaseAddress;
+    if ( *BaseAddress )
       RtlpMuiRegFreeLanguageList(v2);
-    if ( this[1] )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this[1]);
-    return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)this);
+    if ( BaseAddress[1] )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress[1]);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

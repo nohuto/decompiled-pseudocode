@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlQueryPropertyStore @ 0x180143310
+ * XREFs of RtlQueryPropertyStore @ 0x1801416C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     bsearch @ 0x180123D40 (bsearch.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     bsearch @ 0x180121F70 (bsearch.c)
  */
 
-__int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryPropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
-  unsigned int v4; // ebx
+  NTSTATUS v4; // ebx
   _QWORD *v5; // rax
 
   RtlAcquireSRWLockShared(&RtlpPropStoreLock);
   v4 = 0;
   if ( RtlpPropStoreEntries
     && (v5 = bsearch(
-               Key,
+               (const void *)Key,
                RtlpPropStoreEntries,
                (unsigned int)RtlpPropStoreEntriesActiveCount,
                0x18uLL,
                (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry)) != 0LL )
   {
-    *a2 = v5[2];
+    *Context = v5[2];
   }
   else
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcUpdatePostUpdate @ 0x140509770
+ * XREFs of HalpMcUpdatePostUpdate @ 0x140503220
  * Callers:
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
- *     HalpProcInitSystem @ 0x140BEB320 (HalpProcInitSystem.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
+ *     HalpProcInitSystem @ 0x140BF1320 (HalpProcInitSystem.c)
  * Callees:
- *     MicrocodeLogRegistry @ 0x1404F72B0 (MicrocodeLogRegistry.c)
+ *     MicrocodeLogRegistry @ 0x1404F08C0 (MicrocodeLogRegistry.c)
  */
 
 __int64 HalpMcUpdatePostUpdate()

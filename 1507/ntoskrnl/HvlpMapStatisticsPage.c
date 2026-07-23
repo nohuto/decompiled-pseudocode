@@ -13,7 +13,7 @@
 
 __int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)
 {
-  union _SLIST_HEADER *v3; // rsi
+  _SLIST_HEADER *v3; // rsi
   char v4; // r13
   unsigned __int8 v5; // bp
   _DWORD *HypercallCachedPages; // rbx
@@ -23,7 +23,7 @@ __int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)
   _QWORD *p_Next; // rdi
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v12; // rax
-  struct _SLIST_ENTRY *v13; // r15
+  _SLIST_ENTRY *v13; // r15
   __int16 v14; // bx
   __int64 v15; // rax
   struct _KPRCB *v16; // rcx
@@ -33,10 +33,10 @@ __int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)
   char v21; // [rsp+24h] [rbp-F4h]
   PHYSICAL_ADDRESS Next; // [rsp+28h] [rbp-F0h]
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-E8h]
-  union _SLIST_HEADER *v25; // [rsp+48h] [rbp-D0h]
-  struct _SLIST_ENTRY *v26; // [rsp+50h] [rbp-C8h]
-  union _SLIST_HEADER *v27; // [rsp+68h] [rbp-B0h]
-  struct _SLIST_ENTRY *v28; // [rsp+70h] [rbp-A8h]
+  _SLIST_HEADER *v25; // [rsp+48h] [rbp-D0h]
+  _SLIST_ENTRY *v26; // [rsp+50h] [rbp-C8h]
+  _SLIST_HEADER *v27; // [rsp+68h] [rbp-B0h]
+  _SLIST_ENTRY *v28; // [rsp+70h] [rbp-A8h]
   _BYTE v31[7]; // [rsp+90h] [rbp-88h] BYREF
   _BYTE v32[9]; // [rsp+97h] [rbp-81h] BYREF
   _BYTE v33[7]; // [rsp+A0h] [rbp-78h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)
       v5 = (unsigned __int8)CurrentPrcb;
       Next = (PHYSICAL_ADDRESS)v8[1].Next;
       v20 = 1;
-      v27 = (union _SLIST_HEADER *)CurrentPrcb;
+      v27 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -87,7 +87,7 @@ __int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)
   }
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    v3 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    v3 = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v12 = RtlpInterlockedPopEntrySList(v3 + 1535);
     p_Next = &v12->Next;
     if ( v12 )

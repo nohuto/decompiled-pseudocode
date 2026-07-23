@@ -9,11 +9,16 @@
  *     <none>
  */
 
-__int64 NtWaitForMultipleObjects()
+NTSTATUS __cdecl NtWaitForMultipleObjects(
+        ULONG Count,
+        HANDLE Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 91LL;
+  result = 91;
   __asm { syscall; Low latency system call }
   return result;
 }

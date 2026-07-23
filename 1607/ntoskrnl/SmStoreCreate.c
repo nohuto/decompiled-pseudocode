@@ -1,12 +1,12 @@
 /*
- * XREFs of SmStoreCreate @ 0x140696FB0
+ * XREFs of SmStoreCreate @ 0x140697094
  * Callers:
- *     SmcStoreCreate @ 0x14069A590 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14069A674 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwSetSystemInformation @ 0x14015CF60 (ZwSetSystemInformation.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmStorePhysicalRequestIssue @ 0x140697148 (SmStorePhysicalRequestIssue.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwSetSystemInformation @ 0x14015D4D0 (ZwSetSystemInformation.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmStorePhysicalRequestIssue @ 0x14069722C (SmStorePhysicalRequestIssue.c)
  */
 
 NTSTATUS __fastcall SmStoreCreate(int a1, __int64 a2, _DWORD *a3)
@@ -35,7 +35,7 @@ NTSTATUS __fastcall SmStoreCreate(int a1, __int64 a2, _DWORD *a3)
   {
     if ( a1 != 1 )
       return -1073741811;
-    result = ZwSetSystemInformation(SystemVerifierFaultsInformation|SystemLocksInformation, SystemInformation, 0x18uLL);
+    result = ZwSetSystemInformation(SystemStoreInformation, SystemInformation, 0x18uLL);
     v9 = v12[10];
   }
   else

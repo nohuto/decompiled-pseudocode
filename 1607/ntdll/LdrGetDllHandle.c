@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrGetDllHandle @ 0x180012190
+ * XREFs of LdrGetDllHandle @ 0x180012180
  * Callers:
- *     CsrClientConnectToServer @ 0x1800751B0 (CsrClientConnectToServer.c)
+ *     CsrClientConnectToServer @ 0x1800751A0 (CsrClientConnectToServer.c)
  *     SbpResolveBasedOnName @ 0x1800FEBF4 (SbpResolveBasedOnName.c)
  * Callees:
- *     LdrGetDllHandleEx @ 0x180012220 (LdrGetDllHandleEx.c)
+ *     LdrGetDllHandleEx @ 0x180012210 (LdrGetDllHandleEx.c)
  */
 
-__int64 __fastcall LdrGetDllHandle(int a1, int a2, int a3, __int64 a4)
+NTSTATUS __cdecl LdrGetDllHandle(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  return LdrGetDllHandleEx(1, a1, a2, a3, a4);
+  return LdrGetDllHandleEx(1u, DllPath, DllCharacteristics, DllName, DllHandle);
 }

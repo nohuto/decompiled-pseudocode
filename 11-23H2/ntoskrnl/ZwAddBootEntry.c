@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwAddBootEntry @ 0x14041BAA0
+ * XREFs of ZwAddBootEntry @ 0x14041BE30
  * Callers:
- *     DifZwAddBootEntryWrapper @ 0x1405EC820 (DifZwAddBootEntryWrapper.c)
- *     BiAddBootEntry @ 0x140A5D74C (BiAddBootEntry.c)
+ *     DifZwAddBootEntryWrapper @ 0x1405ECD90 (DifZwAddBootEntryWrapper.c)
+ *     BiAddBootEntry @ 0x140A5D9FC (BiAddBootEntry.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAddBootEntry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAddBootEntry(PBOOT_ENTRY BootEntry, PULONG Id)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(BootEntry);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestRevokeRequestsForSleep @ 0x1409818D0
+ * XREFs of PopPowerRequestRevokeRequestsForSleep @ 0x140981AD0
  * Callers:
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140993FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409941E0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopPowerRequestRevokeRequests @ 0x140583BC4 (PopPowerRequestRevokeRequests.c)
- *     PopAcquirePowerRequestPushLock @ 0x1407A6ED4 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopPowerRequestRevokeRequests @ 0x1405840B4 (PopPowerRequestRevokeRequests.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1407A70C4 (PopAcquirePowerRequestPushLock.c)
  */
 
 void PopPowerRequestRevokeRequestsForSleep()

@@ -50,7 +50,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerCleanup(__int64 a1)
     {
       do
       {
-        SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((union _SLIST_HEADER *)(v1 + *(_QWORD *)(a1 + 32)), 1);
+        SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((_SLIST_HEADER *)(v1 + *(_QWORD *)(a1 + 32)), 1);
         v1 += 16LL;
         --v3;
       }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetSystemAllowedCpuSets @ 0x14011499C
+ * XREFs of KeSetSystemAllowedCpuSets @ 0x140114A0C
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KeCpuSetReportParkedProcessors @ 0x140114AA4 (KeCpuSetReportParkedProcessors.c)
- *     RtlWriteAcquireTickLock @ 0x140117A70 (RtlWriteAcquireTickLock.c)
- *     KiValidateCpuSetMasks @ 0x140117A94 (KiValidateCpuSetMasks.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140114B14 (KeCpuSetReportParkedProcessors.c)
+ *     RtlWriteAcquireTickLock @ 0x140117AE0 (RtlWriteAcquireTickLock.c)
+ *     KiValidateCpuSetMasks @ 0x140117B04 (KiValidateCpuSetMasks.c)
  */
 
 __int64 __fastcall KeSetSystemAllowedCpuSets(unsigned int a1, char *a2, int a3)
@@ -41,7 +41,7 @@ __int64 __fastcall KeSetSystemAllowedCpuSets(unsigned int a1, char *a2, int a3)
     RtlWriteAcquireTickLock(&KiCpuSetSequence);
     v10 = 0;
     v11 = &KiSystemAllowedCpuSets[v4];
-    v12 = (char *)qword_1405416A8 - v3;
+    v12 = (char *)qword_1405426A8 - v3;
     do
     {
       v13 = *(_QWORD *)&v3[v12];

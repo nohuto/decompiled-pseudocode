@@ -13,7 +13,7 @@ __int64 __fastcall sub_180047564(const void **a1, unsigned int a2)
   unsigned int v2; // ebx
   unsigned int v5; // ebp
   __int64 v6; // rsi
-  void *v7; // rax
+  PVOID v7; // rax
 
   v2 = 0;
   if ( a2 > *((unsigned __int16 *)a1 + 1) )
@@ -25,7 +25,7 @@ __int64 __fastcall sub_180047564(const void **a1, unsigned int a2)
       v5 = 65534;
     if ( a1[1] == a1 + 2 )
     {
-      v7 = (void *)sub_180043FE0(v5);
+      v7 = sub_180043FE0(v5);
       v6 = (__int64)v7;
       if ( !v7 )
         return (unsigned int)-1073741801;

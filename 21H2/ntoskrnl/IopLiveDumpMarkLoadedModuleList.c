@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x1409ACC1C
+ * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x1409ADB4C
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x1409ACDEC (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1409ADD1C (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 (__fastcall **a1)(_QWORD, __int64, __int64))

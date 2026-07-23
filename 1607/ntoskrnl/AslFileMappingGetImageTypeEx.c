@@ -1,12 +1,12 @@
 /*
- * XREFs of AslFileMappingGetImageTypeEx @ 0x1406C5BB4
+ * XREFs of AslFileMappingGetImageTypeEx @ 0x1406C5CEC
  * Callers:
- *     AslFileMappingGetFileKindDetail @ 0x1406C59F0 (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetFileKindDetail @ 0x1406C5B28 (AslFileMappingGetFileKindDetail.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x1406C582C (AslFileMappingEnsure.c)
- *     AslpFileGetImageNtHeader @ 0x1406C7CD4 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x1406C93D0 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1406C5964 (AslFileMappingEnsure.c)
+ *     AslpFileGetImageNtHeader @ 0x1406C7E0C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x1406C9508 (AslpImageRvaToVa.c)
  */
 
 __int64 __fastcall AslFileMappingGetImageTypeEx(_WORD *a1, _WORD *a2, int *a3, _DWORD *a4, __int64 a5)
@@ -16,17 +16,14 @@ __int64 __fastcall AslFileMappingGetImageTypeEx(_WORD *a1, _WORD *a2, int *a3, _
   __int16 v9; // r15
   int v10; // ecx
   int v11; // eax
-  unsigned int v12; // ebx
-  int ImageNtHeader; // eax
-  const char *v14; // r9
-  int v15; // r8d
-  __int64 v16; // rax
-  __int16 v18; // [rsp+30h] [rbp-68h]
-  _QWORD v19[10]; // [rsp+48h] [rbp-50h] BYREF
-  _WORD *v21; // [rsp+A8h] [rbp+10h]
+  int ImageNtHeader; // ebx
+  __int64 v13; // rax
+  __int16 v15; // [rsp+30h] [rbp-68h]
+  _QWORD v16[10]; // [rsp+48h] [rbp-50h] BYREF
+  _WORD *v18; // [rsp+A8h] [rbp+10h]
 
-  v21 = a2;
-  v19[0] = 0LL;
+  v18 = a2;
+  v16[0] = 0LL;
   v7 = 0;
   v8 = 0;
   v9 = 0;
@@ -34,82 +31,70 @@ __int64 __fastcall AslFileMappingGetImageTypeEx(_WORD *a1, _WORD *a2, int *a3, _
   v11 = 0;
   if ( *(_DWORD *)(a5 + 576) == 1 )
   {
-    v12 = -1073741701;
-    goto LABEL_24;
+    ImageNtHeader = -1073741701;
+    goto LABEL_22;
   }
   ImageNtHeader = AslFileMappingEnsure(a5);
-  v12 = ImageNtHeader;
   if ( ImageNtHeader < 0 )
-  {
-    v14 = "AslFileMappingEnsure failed [%x]";
-    v15 = 1095;
-LABEL_5:
-    AslLogCallPrintf(1LL, (unsigned int)"AslFileMappingGetImageTypeEx", v15, (_DWORD)v14, ImageNtHeader);
-LABEL_6:
-    v11 = 0;
-    v10 = 0;
-    a2 = v21;
-    v8 = 0;
-    goto LABEL_24;
-  }
+    goto LABEL_4;
   if ( *(_DWORD *)(a5 + 576) != 6 )
   {
-    v12 = -1073741701;
-    goto LABEL_6;
-  }
-  ImageNtHeader = AslpFileGetImageNtHeader(v19, a5);
-  v12 = ImageNtHeader;
-  if ( ImageNtHeader < 0 )
-  {
-    v14 = "AslpFileGetImageNtHeader failed [%x]";
-    v15 = 1115;
+    ImageNtHeader = -1073741701;
     goto LABEL_5;
   }
-  v8 = *(_WORD *)(v19[0] + 4LL);
-  v18 = v8;
-  v9 = *(_WORD *)(v19[0] + 24LL);
+  ImageNtHeader = AslpFileGetImageNtHeader(v16, a5);
+  if ( ImageNtHeader < 0 )
+  {
+LABEL_4:
+    AslLogCallPrintf(1LL);
+LABEL_5:
+    v11 = 0;
+    v10 = 0;
+    a2 = v18;
+    v8 = 0;
+    goto LABEL_22;
+  }
+  v8 = *(_WORD *)(v16[0] + 4LL);
+  v15 = v8;
+  v9 = *(_WORD *)(v16[0] + 24LL);
   if ( *(_DWORD *)(a5 + 592) || !a3 && !a4 )
-    goto LABEL_12;
+    goto LABEL_10;
   if ( v9 == 267 )
   {
-    v7 = *(_DWORD *)(v19[0] + 232LL);
+    v7 = *(_DWORD *)(v16[0] + 232LL);
   }
   else if ( v9 == 523 )
   {
-    v7 = *(_DWORD *)(v19[0] + 248LL);
+    v7 = *(_DWORD *)(v16[0] + 248LL);
   }
   if ( v7 )
   {
-    v16 = AslpImageRvaToVa(v19[0], a5 + 520, v7);
-    if ( v16 )
+    v13 = AslpImageRvaToVa(v16[0], a5 + 520, v7);
+    if ( v13 )
     {
       v10 = 1;
-      v11 = *(_DWORD *)(v16 + 16);
-      v12 = 0;
+      v11 = *(_DWORD *)(v13 + 16);
+      ImageNtHeader = 0;
     }
     else
     {
-      AslLogCallPrintf(
-        2LL,
-        (unsigned int)"AslFileMappingGetImageTypeEx",
-        1169,
-        (unsigned int)"Failed to find the Cor20Header");
-      v12 = 0;
+      AslLogCallPrintf(2LL);
+      ImageNtHeader = 0;
       v11 = 0;
       v10 = 0;
     }
-    a2 = v21;
-    v8 = v18;
+    a2 = v18;
+    v8 = v15;
   }
   else
   {
-LABEL_12:
-    v12 = 0;
+LABEL_10:
+    ImageNtHeader = 0;
     v11 = 0;
     v10 = 0;
-    a2 = v21;
+    a2 = v18;
   }
-LABEL_24:
+LABEL_22:
   if ( a1 )
     *a1 = v8;
   if ( a2 )
@@ -118,5 +103,5 @@ LABEL_24:
     *a3 = v10;
   if ( a4 )
     *a4 = v11;
-  return v12;
+  return (unsigned int)ImageNtHeader;
 }

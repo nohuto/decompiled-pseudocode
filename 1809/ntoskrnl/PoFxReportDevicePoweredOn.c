@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxReportDevicePoweredOn @ 0x140170C80
+ * XREFs of PoFxReportDevicePoweredOn @ 0x140170D80
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
- *     PopFxCompleteDevicePowerRequired @ 0x140100168 (PopFxCompleteDevicePowerRequired.c)
- *     PopDiagTraceFxDevicePowerState @ 0x1401716BC (PopDiagTraceFxDevicePowerState.c)
- *     PopPepDeviceDState @ 0x140171F84 (PopPepDeviceDState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
- *     PopSystemIrpCompletion @ 0x14056C720 (PopSystemIrpCompletion.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFxIdleComponent @ 0x1400FED8C (PopFxIdleComponent.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x1401001E8 (PopFxCompleteDevicePowerRequired.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x1401717BC (PopDiagTraceFxDevicePowerState.c)
+ *     PopPepDeviceDState @ 0x140172084 (PopPepDeviceDState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
+ *     PopSystemIrpCompletion @ 0x14056D720 (PopSystemIrpCompletion.c)
  */
 
 char __fastcall PoFxReportDevicePoweredOn(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)

@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwGetNlsSectionPtr @ 0x18009F570
+ * XREFs of ZwGetNlsSectionPtr @ 0x18009F530
  * Callers:
  *     RtlpGetNormalization @ 0x180080F40 (RtlpGetNormalization.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwGetNlsSectionPtr()
+NTSTATUS __cdecl ZwGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 250LL;
+  result = 250;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

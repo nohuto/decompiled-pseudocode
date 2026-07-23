@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpQueryKeySecurity @ 0x1405CB550
+ * XREFs of CmpQueryKeySecurity @ 0x1405CC550
  * Callers:
- *     CmpSecurityMethod @ 0x1405CB2E0 (CmpSecurityMethod.c)
+ *     CmpSecurityMethod @ 0x1405CC2E0 (CmpSecurityMethod.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1405CC720 (SeQuerySecurityDescriptorInfo.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1405CCDE0 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405D78BC (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D9920 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x140645050 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406450E0 (CmpUnlockKcbStack.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140695010 (CmpTransSearchAddTransFromKeyBody.c)
  */
 
 __int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, DWORD *a2, void *a3, ULONG *a4, __int64 a5)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x1407C51E8
+ * XREFs of ObpStartRuntimeStackTrace @ 0x1407C8248
  * Callers:
- *     ObSetRefTraceInformation @ 0x1407C4514 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x1407C7574 (ObSetRefTraceInformation.c)
  * Callees:
- *     ObpTraceAllocateMemory @ 0x14052F738 (ObpTraceAllocateMemory.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ObpStartRuntimeStackTraceEx @ 0x1407C53D4 (ObpStartRuntimeStackTraceEx.c)
+ *     ObpTraceAllocateMemory @ 0x140531C58 (ObpTraceAllocateMemory.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ObpStartRuntimeStackTraceEx @ 0x1407C8434 (ObpStartRuntimeStackTraceEx.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)

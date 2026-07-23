@@ -1,17 +1,17 @@
 /*
- * XREFs of MiStoreContractVirtualPagefileApc @ 0x1403659B0
+ * XREFs of MiStoreContractVirtualPagefileApc @ 0x140476BB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiStoreCheckContractPageFile @ 0x140365FDC (MiStoreCheckContractPageFile.c)
- *     MiRefPageFileSpaceBitmaps @ 0x140367484 (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14046FA2C (MiDerefPageFileSpaceBitmaps.c)
- *     MiAttemptChangePagingFileMaximum @ 0x140679D30 (MiAttemptChangePagingFileMaximum.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x1403C5EE8 (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x140469F88 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiStoreCheckContractPageFile @ 0x1404771DC (MiStoreCheckContractPageFile.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x14067AF10 (MiAttemptChangePagingFileMaximum.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiStoreContractVirtualPagefileApc(__int64 a1, struct _KEVENT *a2)
@@ -36,7 +36,7 @@ LONG __fastcall MiStoreContractVirtualPagefileApc(__int64 a1, struct _KEVENT *a2
   int v21; // r9d
   unsigned int *v22; // r15
   bool i; // zf
-  void *v24; // rax
+  _DWORD *v24; // rax
   unsigned int v26; // eax
   bool v27; // zf
   ULONG v28; // esi
@@ -58,7 +58,7 @@ LONG __fastcall MiStoreContractVirtualPagefileApc(__int64 a1, struct _KEVENT *a2
   v9 = (v6 - 0x40000) & 0xFFFC0000;
   if ( v9 < v8 )
     return KeSetEvent(a2, 0, 0);
-  MiRefPageFileSpaceBitmaps(v5, &v31);
+  MiRefPageFileSpaceBitmaps((__int64)v5, (__int64)&v31);
   v11 = 0;
   while ( 1 )
   {
@@ -154,7 +154,7 @@ LABEL_26:
     }
     MiAttemptChangePagingFileMaximum(a1, v28, v10);
   }
-  v24 = (void *)MiDerefPageFileSpaceBitmaps(a1, &v31, 0LL);
+  v24 = MiDerefPageFileSpaceBitmaps(a1, (_DWORD **)&v31, 0);
   if ( v24 )
     ExFreePoolWithTag(v24, 0);
   return KeSetEvent(a2, 0, 0);

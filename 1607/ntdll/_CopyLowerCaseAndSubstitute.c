@@ -1,10 +1,10 @@
 /*
- * XREFs of _CopyLowerCaseAndSubstitute @ 0x1801055B0
+ * XREFs of _CopyLowerCaseAndSubstitute @ 0x1801054F0
  * Callers:
- *     ResCGetIndexedName @ 0x1800957A0 (ResCGetIndexedName.c)
- *     ResCGetName @ 0x180105118 (ResCGetName.c)
+ *     ResCGetIndexedName @ 0x180095790 (ResCGetIndexedName.c)
+ *     ResCGetName @ 0x180105058 (ResCGetName.c)
  * Callees:
- *     towlower @ 0x18009C440 (towlower.c)
+ *     towlower @ 0x18009C430 (towlower.c)
  */
 
 __int64 __fastcall CopyLowerCaseAndSubstitute(__int64 a1, wint_t *a2)

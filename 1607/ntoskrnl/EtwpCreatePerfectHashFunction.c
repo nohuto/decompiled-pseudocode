@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreatePerfectHashFunction @ 0x1406A8DE0
+ * XREFs of EtwpCreatePerfectHashFunction @ 0x1406A8F18
  * Callers:
- *     EtwpValidateFilterDescriptors @ 0x1406A940C (EtwpValidateFilterDescriptors.c)
+ *     EtwpValidateFilterDescriptors @ 0x1406A9544 (EtwpValidateFilterDescriptors.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpFillPerfectHashTable @ 0x1406A8FDC (EtwpFillPerfectHashTable.c)
+ *     EtwpFillPerfectHashTable @ 0x1406A9114 (EtwpFillPerfectHashTable.c)
  */
 
 __int64 __fastcall EtwpCreatePerfectHashFunction(char a1, _WORD *a2, unsigned __int16 a3, _QWORD *a4)

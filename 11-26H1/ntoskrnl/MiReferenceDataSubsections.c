@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceDataSubsections @ 0x14033F1DC
+ * XREFs of MiReferenceDataSubsections @ 0x14034125C
  * Callers:
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
  * Callees:
- *     MiAddViewsForSection @ 0x1402E31A0 (MiAddViewsForSection.c)
- *     MiLocateSubsectionNode @ 0x1402E48B0 (MiLocateSubsectionNode.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     MiDecrementLargeSubsections @ 0x140505D08 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1406FA404 (MiIncrementLargeSubsections.c)
+ *     MiAddViewsForSection @ 0x1402C51E0 (MiAddViewsForSection.c)
+ *     MiLocateSubsectionNode @ 0x1402C68F0 (MiLocateSubsectionNode.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     MiDecrementLargeSubsections @ 0x1404FF5B8 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1406FF0D4 (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiReferenceDataSubsections(__int64 a1, __int64 *a2, unsigned __int64 a3, _DWORD *a4)

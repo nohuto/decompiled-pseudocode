@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpValidateContextFlags @ 0x140276D30
+ * XREFs of RtlpValidateContextFlags @ 0x140264CD0
  * Callers:
- *     RtlGetExtendedContextLength @ 0x140276470 (RtlGetExtendedContextLength.c)
- *     RtlInitializeExtendedContext @ 0x1402764F0 (RtlInitializeExtendedContext.c)
- *     RtlpSanitizeContextFlags @ 0x140276574 (RtlpSanitizeContextFlags.c)
- *     RtlGetExtendedContextLength2 @ 0x1402765C0 (RtlGetExtendedContextLength2.c)
- *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
- *     RtlCopyContext @ 0x1406480E8 (RtlCopyContext.c)
- *     RtlpReadExtendedContext @ 0x140648200 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x140696398 (RtlpWriteExtendedContext.c)
- *     RtlpWow64SanitizeContextFlags @ 0x140696810 (RtlpWow64SanitizeContextFlags.c)
+ *     RtlGetExtendedContextLength @ 0x140264410 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x140264490 (RtlInitializeExtendedContext.c)
+ *     RtlpSanitizeContextFlags @ 0x140264514 (RtlpSanitizeContextFlags.c)
+ *     RtlGetExtendedContextLength2 @ 0x140264560 (RtlGetExtendedContextLength2.c)
+ *     KiContinuePreviousModeUser @ 0x1402649A0 (KiContinuePreviousModeUser.c)
+ *     RtlpWriteExtendedContext @ 0x1405F58E8 (RtlpWriteExtendedContext.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1405F5D60 (RtlpWow64SanitizeContextFlags.c)
+ *     RtlCopyContext @ 0x14063CED8 (RtlCopyContext.c)
+ *     RtlpReadExtendedContext @ 0x14063CFF0 (RtlpReadExtendedContext.c)
  * Callees:
  *     <none>
  */

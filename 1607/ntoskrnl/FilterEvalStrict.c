@@ -1,12 +1,12 @@
 /*
- * XREFs of FilterEvalStrict @ 0x140501F94
+ * XREFs of FilterEvalStrict @ 0x1404E4F24
  * Callers:
- *     FilterEvalStrict @ 0x140501F94 (FilterEvalStrict.c)
- *     FilterEval @ 0x1405027C4 (FilterEval.c)
+ *     FilterEvalStrict @ 0x1404E4F24 (FilterEvalStrict.c)
+ *     FilterEval @ 0x1404E5754 (FilterEval.c)
  * Callees:
- *     FilterEvalStrict @ 0x140501F94 (FilterEvalStrict.c)
- *     PropertyEval @ 0x140502214 (PropertyEval.c)
- *     FindFilterOperatorClose @ 0x14050256C (FindFilterOperatorClose.c)
+ *     FilterEvalStrict @ 0x1404E4F24 (FilterEvalStrict.c)
+ *     PropertyEval @ 0x1404E51A4 (PropertyEval.c)
+ *     FindFilterOperatorClose @ 0x1404E54FC (FindFilterOperatorClose.c)
  */
 
 __int64 __fastcall FilterEvalStrict(

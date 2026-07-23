@@ -1,15 +1,15 @@
 /*
- * XREFs of PipProcessStartPhase1 @ 0x140A0FEF0
+ * XREFs of PipProcessStartPhase1 @ 0x1409BE300
  * Callers:
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
  * Callees:
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1404BD534 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x14072D5B8 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x14072D86C (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x14072D92C (PpProfileQueryHardwareProfileChange.c)
- *     PiDmaGuardProcessPreStart @ 0x140A0FFFC (PiDmaGuardProcessPreStart.c)
- *     IopUncacheInterfaceInformation @ 0x140A104B4 (IopUncacheInterfaceInformation.c)
- *     PnpStartDeviceNode @ 0x140A10740 (PnpStartDeviceNode.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1404B86A4 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x14072B5C8 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x14072B87C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x14072B93C (PpProfileQueryHardwareProfileChange.c)
+ *     PiDmaGuardProcessPreStart @ 0x1409BE40C (PiDmaGuardProcessPreStart.c)
+ *     IopUncacheInterfaceInformation @ 0x1409BE8C4 (IopUncacheInterfaceInformation.c)
+ *     PnpStartDeviceNode @ 0x1409BEB50 (PnpStartDeviceNode.c)
  */
 
 __int64 __fastcall PipProcessStartPhase1(__int64 MaxDataSize, unsigned int a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall PipProcessStartPhase1(__int64 MaxDataSize, unsigned int a2, _
 
   v8 = 0;
   v3 = a3;
-  if ( (byte_140EEFD23 & 0x20) != 0 )
+  if ( (byte_140EEFF63 & 0x20) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       MaxDataSize,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceStart_Start,
@@ -44,7 +44,7 @@ __int64 __fastcall PipProcessStartPhase1(__int64 MaxDataSize, unsigned int a2, _
       started = PnpStartDeviceNode(MaxDataSize, 0LL, a2);
     }
   }
-  if ( (byte_140EEFD23 & 0x20) != 0 )
+  if ( (byte_140EEFF63 & 0x20) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       MaxDataSize,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceStart_Stop,

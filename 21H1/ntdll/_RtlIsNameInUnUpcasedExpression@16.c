@@ -11,17 +11,22 @@
  *     _RtlpUpcaseUnicodeStringPrivate@12 @ 0x4B3618DC (_RtlpUpcaseUnicodeStringPrivate@12.c)
  */
 
-char __thiscall RtlIsNameInUnUpcasedExpression(void *this, int a2, int a3, char a4, int a5)
+BOOLEAN __cdecl RtlIsNameInUnUpcasedExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  int v5; // eax
+  int v4; // ecx
+  NTSTATUS v5; // eax
   int v6; // ecx
 
-  if ( a4 && !a5 )
+  if ( IgnoreCase && !UpcaseTable )
   {
-    v5 = RtlpUpcaseUnicodeStringPrivate(this);
+    v5 = RtlpUpcaseUnicodeStringPrivate(v4);
     if ( v5 < 0 || (v5 = RtlpUpcaseUnicodeStringPrivate(v6), v5 < 0) )
       RtlRaiseStatus(v5);
-    a4 = 0;
+    IgnoreCase = 0;
   }
-  return RtlpIsNameInExpressionPrivate(a4, 1, a5);
+  return RtlpIsNameInExpressionPrivate(IgnoreCase, 1, UpcaseTable);
 }

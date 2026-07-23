@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetSystemBasicInformation @ 0x14027BACC
+ * XREFs of ExpGetSystemBasicInformation @ 0x140269A6C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
- *     ExSystemExceptionFilter @ 0x1407D4F10 (ExSystemExceptionFilter.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140644560 (MmGetNumberOfPhysicalPages.c)
+ *     ExSystemExceptionFilter @ 0x1407D5080 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)
   *(_DWORD *)(a1 + 24) = 0x10000;
   *(_QWORD *)(a1 + 32) = 0x10000LL;
   *(_QWORD *)(a1 + 40) = 0x7FFFFFFEFFFFLL;
-  if ( (unsigned __int16)Group >= (unsigned int)KeActiveProcessors[0] )
+  if ( (unsigned __int16)Group >= (unsigned __int16)KeActiveProcessors )
     v4 = 0LL;
   else
     v4 = qword_140CFC848[Group];
@@ -42,11 +42,11 @@ __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)
     v7 = NumberOfPhysicalPages;
   *(_DWORD *)(a1 + 12) = v7;
   v8 = -1;
-  if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v2) + 6912LL) <= 0xFFFFFFFFuLL )
-    v8 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v2) + 6912LL);
+  if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * v2) + 6912LL) <= 0xFFFFFFFFuLL )
+    v8 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * v2) + 6912LL);
   *(_DWORD *)(a1 + 16) = v8;
-  if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v2) + 6920LL) <= 0xFFFFFFFFuLL )
-    v6 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * v2) + 6920LL);
+  if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * v2) + 6920LL) <= 0xFFFFFFFFuLL )
+    v6 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * v2) + 6920LL);
   *(_DWORD *)(a1 + 20) = v6;
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPreserveMdlList @ 0x140948A98
+ * XREFs of EtwpPreserveMdlList @ 0x140948C68
  * Callers:
- *     EtwpPreserveLogger @ 0x14094885C (EtwpPreserveLogger.c)
+ *     EtwpPreserveLogger @ 0x140948A2C (EtwpPreserveLogger.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpPreserveMdlList(_QWORD *a1, __int64 a2, int a3, __int64 a4)

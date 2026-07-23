@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSplitPageChain @ 0x14049F35C
+ * XREFs of MiSplitPageChain @ 0x14049A18C
  * Callers:
- *     MiUnmapMdlCommon @ 0x14040F900 (MiUnmapMdlCommon.c)
- *     MiGetCachedPoolPages @ 0x14049F260 (MiGetCachedPoolPages.c)
+ *     MiUnmapMdlCommon @ 0x140433530 (MiUnmapMdlCommon.c)
+ *     MiGetCachedPoolPages @ 0x14049A090 (MiGetCachedPoolPages.c)
  * Callees:
  *     <none>
  */

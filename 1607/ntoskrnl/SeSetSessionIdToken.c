@@ -1,17 +1,17 @@
 /*
- * XREFs of SeSetSessionIdToken @ 0x14047AA4C
+ * XREFs of SeSetSessionIdToken @ 0x14047991C
  * Callers:
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14068D078 (SepCopyClientTokenAndSetSilo.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14068D15C (SepCopyClientTokenAndSetSilo.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmGetSessionObjectById @ 0x1401EC9D8 (MmGetSessionObjectById.c)
- *     SepSetTokenLowboxNumber @ 0x140476A64 (SepSetTokenLowboxNumber.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1404A2798 (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenSessionById @ 0x1406930B0 (SepSetTokenSessionById.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmGetSessionObjectById @ 0x1401EC804 (MmGetSessionObjectById.c)
+ *     SepSetTokenLowboxNumber @ 0x140475934 (SepSetTokenLowboxNumber.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14051AB98 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenSessionById @ 0x140693194 (SepSetTokenSessionById.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

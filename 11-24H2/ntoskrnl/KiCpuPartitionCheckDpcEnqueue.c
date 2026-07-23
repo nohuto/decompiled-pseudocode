@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCpuPartitionCheckDpcEnqueue @ 0x1404FADB8
+ * XREFs of KiCpuPartitionCheckDpcEnqueue @ 0x1404F8698
  * Callers:
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
  * Callees:
- *     KiCheckPrcbAffinityEx @ 0x1403B44C0 (KiCheckPrcbAffinityEx.c)
- *     EtwTraceCpuPartitionDpcSchedulingViolation @ 0x14064D6B0 (EtwTraceCpuPartitionDpcSchedulingViolation.c)
+ *     KiCheckPrcbAffinityEx @ 0x140370D80 (KiCheckPrcbAffinityEx.c)
+ *     EtwTraceCpuPartitionDpcSchedulingViolation @ 0x14064BCC0 (EtwTraceCpuPartitionDpcSchedulingViolation.c)
  */
 
 void __fastcall KiCpuPartitionCheckDpcEnqueue(__int64 a1, __int64 a2, __int64 a3)

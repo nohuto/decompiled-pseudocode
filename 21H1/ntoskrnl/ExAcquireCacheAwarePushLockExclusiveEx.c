@@ -15,7 +15,7 @@ volatile signed __int32 *__fastcall ExAcquireCacheAwarePushLockExclusiveEx(volat
   if ( (a2 & 2) != 0 )
     v3 = 0LL;
   else
-    v3 = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0LL);
+    v3 = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0);
   result = ExfAcquireCacheAwarePushLockExclusiveEx(a1, v3, (__int64)a1);
   if ( v3 )
     *(_BYTE *)(v3 + 26) |= 1u;

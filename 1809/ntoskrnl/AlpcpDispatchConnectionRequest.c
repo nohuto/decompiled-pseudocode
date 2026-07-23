@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpDispatchConnectionRequest @ 0x140613B5C
+ * XREFs of AlpcpDispatchConnectionRequest @ 0x140614B5C
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x1406136BC (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1406146BC (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x1401281F0 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1402E9AB4 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafe @ 0x14010C190 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1401282C0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1402E9CA4 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406371B0 (AlpcpSetOwnerPortMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1)

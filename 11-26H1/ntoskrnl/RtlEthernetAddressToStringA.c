@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEthernetAddressToStringA @ 0x14061D8A0
+ * XREFs of RtlEthernetAddressToStringA @ 0x1406208F0
  * Callers:
  *     <none>
  * Callees:
- *     sprintf_s @ 0x14053C4C0 (sprintf_s.c)
+ *     sprintf_s @ 0x14053E940 (sprintf_s.c)
  */
 
 PSTR __stdcall RtlEthernetAddressToStringA(const DL_EUI48 *Addr, PSTR S)

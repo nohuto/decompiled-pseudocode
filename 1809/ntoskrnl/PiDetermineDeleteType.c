@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDetermineDeleteType @ 0x1406EC2C4
+ * XREFs of PiDetermineDeleteType @ 0x1406ED564
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     <none>
  */

@@ -30,7 +30,7 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v7 = 4;
@@ -67,10 +67,10 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
     }
     *(_QWORD *)(a1 + 72) = a2;
     _InterlockedExchange64((volatile __int64 *)(a1 + 32), a3);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;

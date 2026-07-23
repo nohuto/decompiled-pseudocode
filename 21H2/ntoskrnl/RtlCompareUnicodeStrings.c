@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlCompareUnicodeStrings @ 0x140681C90
+ * XREFs of RtlCompareUnicodeStrings @ 0x1405DCCD0
  * Callers:
- *     ApiSetpSearchForApiSet @ 0x1403A3330 (ApiSetpSearchForApiSet.c)
- *     EtwpAvlCompareKeyNames @ 0x1403BCD60 (EtwpAvlCompareKeyNames.c)
- *     ApiSetpSearchForApiSetHost @ 0x1405BE4CC (ApiSetpSearchForApiSetHost.c)
- *     AsiSortValueList @ 0x1405BEE70 (AsiSortValueList.c)
- *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
- *     EtwpExpandFileName @ 0x140681A58 (EtwpExpandFileName.c)
- *     PnpCheckDeviceIdsChanged @ 0x14076A688 (PnpCheckDeviceIdsChanged.c)
- *     sub_1407B1AE0 @ 0x1407B1AE0 (sub_1407B1AE0.c)
- *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
- *     PnpCompareMultiSz @ 0x1408B2284 (PnpCompareMultiSz.c)
- *     PopDirectedDripsUmTestDeviceCompare @ 0x1408F8A40 (PopDirectedDripsUmTestDeviceCompare.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x14098209C (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098233C (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     ApiSetpSearchForApiSet @ 0x1403A3480 (ApiSetpSearchForApiSet.c)
+ *     EtwpAvlCompareKeyNames @ 0x1403BCED0 (EtwpAvlCompareKeyNames.c)
+ *     ApiSetpSearchForApiSetHost @ 0x1405BE6FC (ApiSetpSearchForApiSetHost.c)
+ *     AsiSortValueList @ 0x1405BF0A0 (AsiSortValueList.c)
+ *     EtwpExpandFileName @ 0x1405DCA98 (EtwpExpandFileName.c)
+ *     CmQueryValueKey @ 0x1406E6E60 (CmQueryValueKey.c)
+ *     PnpCheckDeviceIdsChanged @ 0x14076A848 (PnpCheckDeviceIdsChanged.c)
+ *     sub_1407B1C80 @ 0x1407B1C80 (sub_1407B1C80.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8270 (PiDevCfgResolveVariableExpression.c)
+ *     PnpCompareMultiSz @ 0x1408B23E4 (PnpCompareMultiSz.c)
+ *     PopDirectedDripsUmTestDeviceCompare @ 0x1408F8BA0 (PopDirectedDripsUmTestDeviceCompare.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x14098227C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098251C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 LONG __stdcall RtlCompareUnicodeStrings(

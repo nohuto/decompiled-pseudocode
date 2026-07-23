@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpOptIntoSegmentHeap @ 0x18005DA38
+ * XREFs of RtlpHpOptIntoSegmentHeap @ 0x18005DA28
  * Callers:
- *     RtlInitializeHeapManager @ 0x18005D72C (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x18005D71C (RtlInitializeHeapManager.c)
  * Callees:
- *     RtlGetNtProductType @ 0x18002CD40 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x18002CDC0 (RtlGetSuiteMask.c)
- *     RtlQueryPackageIdentity @ 0x18005E010 (RtlQueryPackageIdentity.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x180098480 (_wcsnicmp.c)
+ *     RtlGetNtProductType @ 0x18002CD30 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x18002CDB0 (RtlGetSuiteMask.c)
+ *     RtlQueryPackageIdentity @ 0x18005E000 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x180098470 (_wcsnicmp.c)
  */
 
 __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
@@ -23,10 +23,10 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
   const wchar_t **v10; // r14
   const wchar_t *v11; // r13
   __int64 v12; // rax
-  int v14; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-C8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG_PTR PackageSize; // [rsp+38h] [rbp-C8h] BYREF
   _QWORD v16[6]; // [rsp+40h] [rbp-C0h] BYREF
-  wchar_t String1[128]; // [rsp+70h] [rbp-90h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+70h] [rbp-90h] BYREF
 
   v1 = NtCurrentPeb();
   v16[0] = L"svchost.exe";
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
   v16[5] = L"lsass.exe";
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     goto LABEL_18;
-  if ( RtlGetNtProductType(&v14) && v14 != 1 )
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType != NtProductWinNt )
     return v3;
   if ( (v1->BitField & 0x10) != 0 )
   {
@@ -87,9 +87,9 @@ LABEL_18:
       ++v4;
     }
 LABEL_8:
-    v15 = 256LL;
-    if ( (int)RtlQueryPackageIdentity(-4, (unsigned int)String1, (unsigned int)&v15, 0, 0LL, 0LL) >= 0
-      && !wcsnicmp(String1, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
+    PackageSize = 256LL;
+    if ( RtlQueryPackageIdentity((HANDLE)0xFFFFFFFFFFFFFFFCLL, PackageFullName, &PackageSize, 0LL, 0LL, 0LL) >= 0
+      && !wcsnicmp(PackageFullName, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
     {
       goto LABEL_18;
     }

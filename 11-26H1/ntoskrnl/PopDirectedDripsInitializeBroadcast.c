@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140AC54E8
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x140AC7158
  * Callers:
- *     PopDirectedDripsSuspendDevices @ 0x140AC5204 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140AC6E74 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1404D0FCC (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     IoControlPnpDeviceActionQueue @ 0x1404D7784 (IoControlPnpDeviceActionQueue.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x140504790 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1407E2870 (PopDirectedDripsBuildBroadcastTreePartial.c)
- *     PopPowerAggregatorHandleIntent @ 0x140A3F104 (PopPowerAggregatorHandleIntent.c)
- *     PopDirectedDripsInitializeDeviceTree @ 0x140AC5758 (PopDirectedDripsInitializeDeviceTree.c)
- *     PoInitializeBroadcast @ 0x140AC58BC (PoInitializeBroadcast.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1404CA9FC (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1404D0F4C (IoControlPnpDeviceActionQueue.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1404FE0D4 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1407E7900 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1409FAB24 (PopPowerAggregatorHandleIntent.c)
+ *     PopDirectedDripsInitializeDeviceTree @ 0x140AC73C8 (PopDirectedDripsInitializeDeviceTree.c)
+ *     PoInitializeBroadcast @ 0x140AC752C (PoInitializeBroadcast.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
   unsigned __int32 v4; // ett
   int v5; // r14d
   int v6; // r12d
-  unsigned int v7; // eax
+  int v7; // eax
   unsigned int v8; // r12d
   __int64 v9; // rdx
   __int64 v10; // r8
@@ -43,18 +43,18 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
   __int64 v27; // rcx
   __int64 v28; // r8
   __int64 v29; // r9
-  _OWORD v30[3]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v30[7]; // [rsp+20h] [rbp-38h] BYREF
   int v31; // [rsp+60h] [rbp+8h] BYREF
 
-  v30[0] = 0LL;
+  *(_OWORD *)v30 = 0LL;
   _InterlockedOr(a1, 0);
   v2 = 0;
-  _m_prefetchw(dword_140F12AC0);
-  v3 = dword_140F12AC0[0];
+  _m_prefetchw(&PopDirectedDripsState);
+  v3 = PopDirectedDripsState;
   do
   {
     v4 = v3;
-    v3 = _InterlockedCompareExchange(dword_140F12AC0, v3, v3);
+    v3 = _InterlockedCompareExchange(&PopDirectedDripsState, v3, v3);
   }
   while ( v4 != v3 );
   v5 = (v3 >> 10) & 1 | 2;
@@ -63,16 +63,16 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
   v6 = (v3 >> 12) & 1 | 2;
   if ( (v3 & 0x2000) == 0 )
     v6 = (v3 >> 12) & 1;
-  v7 = dword_140F12AF0 & 1 | 2;
-  if ( (dword_140F12AF0 & 2) == 0 )
-    v7 = dword_140F12AF0 & 1;
+  v7 = dword_140F12E30 & 1 | 2;
+  if ( (dword_140F12E30 & 2) == 0 )
+    v7 = dword_140F12E30 & 1;
   v8 = v5 | v7 & v6;
   if ( v8 )
   {
     IoControlPnpDeviceActionQueue(1);
     PopDirectedDripsInitializeDeviceTree();
     PopFxBuildDirectedDripsCandidateDeviceList(v30, v9, v10, v11);
-    v13 = *(__int64 ****)&v30[0];
+    v13 = (__int64 ***)v30[0];
     v14 = 0;
     v31 = 0;
     while ( v13 != (__int64 ***)v30 )
@@ -152,7 +152,7 @@ LABEL_31:
     {
       PopAcquirePolicyLock(v22, v21);
       PopPowerAggregatorHandleIntent(4u, 0LL, 0LL, (struct _KLOCK_ENTRIES *)0x2A);
-      PopReleasePolicyLock(v27, v26, v28, v29, *(_QWORD *)&v30[0]);
+      PopReleasePolicyLock(v27, v26, v28, v29, v30[0]);
     }
   }
   else

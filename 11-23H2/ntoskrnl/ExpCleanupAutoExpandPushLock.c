@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCleanupAutoExpandPushLock @ 0x1403CFB28
+ * XREFs of ExpCleanupAutoExpandPushLock @ 0x1403CFD08
  * Callers:
- *     ExFreeAutoExpandPushLock @ 0x1403CFB00 (ExFreeAutoExpandPushLock.c)
- *     FsRtlFreeAePushLock @ 0x14053CF60 (FsRtlFreeAePushLock.c)
+ *     ExFreeAutoExpandPushLock @ 0x1403CFCE0 (ExFreeAutoExpandPushLock.c)
+ *     FsRtlFreeAePushLock @ 0x14053D4B0 (FsRtlFreeAePushLock.c)
  * Callees:
- *     ExSaFree @ 0x14035C8DC (ExSaFree.c)
+ *     ExSaFree @ 0x14035CA7C (ExSaFree.c)
  */
 
 char __fastcall ExpCleanupAutoExpandPushLock(__int64 a1)

@@ -30,7 +30,7 @@ void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, _
   unsigned int SessionId; // edx
   unsigned __int8 v12; // r14
   unsigned int v13; // r8d
-  unsigned __int64 v14; // rsi
+  __int64 v14; // rsi
   bool v15; // zf
   __int64 v16; // rcx
   __int64 v17; // rdx
@@ -93,7 +93,7 @@ void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, _
       v25 = v16;
       if ( v15 )
         goto LABEL_22;
-      v14 = (unsigned __int64)&v10->LockEntries[v16];
+      v14 = (__int64)&v10->LockEntries[v16];
       v13 &= ~(1 << v16);
       if ( (*(_BYTE *)(v14 + 26) & 1) != 0
         && (*(_DWORD *)(v14 + 32) & 1) == 0
@@ -114,12 +114,12 @@ LABEL_22:
     }
     *(_BYTE *)(v14 + 32) |= 2u;
     if ( *(__int64 *)(v14 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v14);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v14);
     v26 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
     *(_DWORD *)(v14 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v14 + 25) &= ~1u;
     *(_QWORD *)(v14 + 32) = 0LL;
-    v17 = (__int64)(v14 - (unsigned __int64)v10->LockEntries) / 96;
+    v17 = (signed __int64)(v14 - (unsigned __int64)v10->LockEntries) / 96;
     if ( v12 == 1 )
       v10->AbEntrySummary |= 1 << v17;
     else

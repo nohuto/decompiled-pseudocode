@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreatePteCopyList @ 0x1403608B0
+ * XREFs of MiCreatePteCopyList @ 0x140360A50
  * Callers:
- *     MiGetPteMappingSet @ 0x1402841F0 (MiGetPteMappingSet.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3CFC4 (MiCopyPagesIntoEnclave.c)
+ *     MiGetPteMappingSet @ 0x140284480 (MiGetPteMappingSet.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3D274 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
  */
 
 __int64 __fastcall MiCreatePteCopyList(unsigned int a1, __int64 a2)

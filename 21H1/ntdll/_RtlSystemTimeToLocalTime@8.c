@@ -7,20 +7,20 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-NTSTATUS __stdcall RtlSystemTimeToLocalTime(_DWORD *a1, _DWORD *a2)
+NTSTATUS __cdecl RtlSystemTimeToLocalTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER LocalTime)
 {
   NTSTATUS result; // eax
-  int v3; // ecx
+  unsigned int v3; // ecx
   _BYTE SystemInformation[16]; // [esp+4h] [ebp-34h] BYREF
   __int64 v5; // [esp+14h] [ebp-24h]
 
   result = NtQuerySystemInformation(SystemTimeOfDayInformation, SystemInformation, 0x30u, 0);
   if ( result >= 0 )
   {
-    v3 = *a1 - v5;
-    a2[1] = (unsigned __int64)(*(_QWORD *)a1 - v5) >> 32;
+    v3 = SystemTime->LowPart - v5;
+    LocalTime->HighPart = (unsigned __int64)(SystemTime->QuadPart - v5) >> 32;
     result = 0;
-    *a2 = v3;
+    LocalTime->LowPart = v3;
   }
   return result;
 }

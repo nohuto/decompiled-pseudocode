@@ -21,7 +21,7 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
   __int128 v12; // xmm1
   __int64 v13; // xmm0_8
   __int64 v14; // rax
-  union _SLIST_HEADER *v15; // rdi
+  _SLIST_HEADER *v15; // rdi
   __int64 v16; // rbx
   __int64 v17; // rbx
   unsigned __int64 *v18; // rdi
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
   v14 = *(_QWORD *)(a1 + 40);
   if ( v14 )
     *(_QWORD *)(a1 + 40) = a1 ^ RtlpHpHeapGlobals ^ v14;
-  v15 = (union _SLIST_HEADER *)(a1 + 112);
+  v15 = (_SLIST_HEADER *)(a1 + 112);
   v16 = 7LL;
   do
   {

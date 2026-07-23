@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDeletePrivateNamespace()
+NTSTATUS __cdecl NtDeletePrivateNamespace(HANDLE NamespaceHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 199LL;
+  result = 199;
   __asm { syscall; Low latency system call }
   return result;
 }

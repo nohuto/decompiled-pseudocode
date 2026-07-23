@@ -10,15 +10,15 @@
  *     _RtlReportException@12 @ 0x4B33A4D0 (_RtlReportException@12.c)
  */
 
-int __thiscall LdrpCalloutExceptionFilter(_DWORD *this)
+int __thiscall LdrpCalloutExceptionFilter(int this)
 {
-  int v1; // esi
-  _BYTE *v3; // eax
+  ULONG v1; // esi
+  PIMAGE_NT_HEADERS v3; // eax
 
   v1 = 11;
-  v3 = (_BYTE *)RtlImageNtHeader((int)NtCurrentPeb()->ImageBaseAddress);
+  v3 = RtlImageNtHeader(NtCurrentPeb()->ImageBaseAddress);
   if ( v3 && LdrpIsImageArmadilloProtected(v3) )
     v1 = 15;
-  RtlReportException(*this, this[1], v1);
+  RtlReportException(*(PEXCEPTION_RECORD *)this, *(PCONTEXT *)(this + 4), v1);
   return 1;
 }

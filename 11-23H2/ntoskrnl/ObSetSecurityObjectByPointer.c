@@ -1,15 +1,15 @@
 /*
- * XREFs of ObSetSecurityObjectByPointer @ 0x1407366A0
+ * XREFs of ObSetSecurityObjectByPointer @ 0x140736890
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x1402B3740 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1402B39D0 (SepSetProcessTrustLabelAceForToken.c)
  *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
- *     NtSetSecurityObject @ 0x1407BBD30 (NtSetSecurityObject.c)
- *     IoCreateDeviceSecure @ 0x14083B030 (IoCreateDeviceSecure.c)
- *     PiSwGetChildPdo @ 0x140848320 (PiSwGetChildPdo.c)
- *     VRegSetup @ 0x1408576F0 (VRegSetup.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406BD140 (SepAppendAceToTokenObjectAcl.c)
+ *     NtSetSecurityObject @ 0x1407BC000 (NtSetSecurityObject.c)
+ *     IoCreateDeviceSecure @ 0x14083B330 (IoCreateDeviceSecure.c)
+ *     PiSwGetChildPdo @ 0x140848620 (PiSwGetChildPdo.c)
+ *     VRegSetup @ 0x140857930 (VRegSetup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ObSetSecurityObjectByPointer(__int64 a1, int a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSvmFaultRoutine @ 0x14022F520
+ * XREFs of ExpSvmFaultRoutine @ 0x14022F34C
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall ExpSvmFaultRoutine(unsigned int a1)

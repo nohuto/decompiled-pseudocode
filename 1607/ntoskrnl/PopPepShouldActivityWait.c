@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPepShouldActivityWait @ 0x1400C292C
+ * XREFs of PopPepShouldActivityWait @ 0x1400C07BC
  * Callers:
- *     PopPepAttemptAcitivityPromotion @ 0x1400C2800 (PopPepAttemptAcitivityPromotion.c)
+ *     PopPepAttemptAcitivityPromotion @ 0x1400C0690 (PopPepAttemptAcitivityPromotion.c)
  * Callees:
  *     <none>
  */
@@ -16,9 +16,9 @@ char __fastcall PopPepShouldActivityWait(__int64 a1, int a2, int a3, int a4, cha
   _DWORD **i; // r10
 
   v6 = 136LL * a2;
-  v7 = (char *)&unk_1402576E8;
+  v7 = (char *)&unk_1402576C8;
   if ( !a5 )
-    v7 = (char *)&unk_1402576D0;
+    v7 = (char *)&unk_1402576B0;
   v8 = &v7[v6];
   if ( a3 > a4 )
     return 0;

@@ -1,18 +1,18 @@
 /*
- * XREFs of NtSuspendThread @ 0x1800A0DF0
+ * XREFs of NtSuspendThread @ 0x1800A0DB0
  * Callers:
- *     RtlpProcessReflectionStartup @ 0x1800D6140 (RtlpProcessReflectionStartup.c)
- *     RtlWow64SuspendThread @ 0x1800DC4E0 (RtlWow64SuspendThread.c)
- *     RtlRemoteCall @ 0x1800FF100 (RtlRemoteCall.c)
+ *     RtlpProcessReflectionStartup @ 0x1800D6100 (RtlpProcessReflectionStartup.c)
+ *     RtlWow64SuspendThread @ 0x1800DC4A0 (RtlWow64SuspendThread.c)
+ *     RtlRemoteCall @ 0x1800FF0C0 (RtlRemoteCall.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSuspendThread()
+NTSTATUS __cdecl NtSuspendThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 446LL;
+  result = 446;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

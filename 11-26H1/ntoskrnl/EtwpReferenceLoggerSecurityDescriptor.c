@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x140A6FBA4
+ * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x14097A538
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x14093E008 (EtwQueryPerformanceTraceInformation.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140A31120 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
  */
 
 unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(
@@ -66,9 +66,13 @@ unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&EtwpSecurityLock, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&EtwpSecurityLock, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&EtwpSecurityLock.Header.Lock, 0, v11, &EtwpSecurityLock);
+    v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140F03830.UserWaitTime, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140F03830.UserWaitTime, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx(
+        (signed __int64 *)&stru_140F03830.UserWaitTime,
+        0,
+        v11,
+        (struct _KTHREAD *)&stru_140F03830.UserWaitTime);
     v12 = 0LL;
     if ( v11 )
     {
@@ -80,9 +84,9 @@ unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(
     v8 = *(_QWORD *)(a1 + 784) & 0xFFFFFFFFFFFFFFF0uLL;
     if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 - 24), 1uLL) <= 0 )
       __fastfail(0xEu);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&EtwpSecurityLock, v12, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&EtwpSecurityLock.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&EtwpSecurityLock);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140F03830.UserWaitTime, v12, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&stru_140F03830.UserWaitTime);
+    KeAbPostRelease((unsigned __int64)&stru_140F03830.UserWaitTime);
     KeLeaveCriticalRegion();
   }
   return v8;

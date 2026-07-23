@@ -1,11 +1,11 @@
 /*
- * XREFs of ??$StackPush@I@@YAHIPEAX@Z @ 0x1800FFC4C
+ * XREFs of ??$StackPush@I@@YAHIPEAX@Z @ 0x180105B54
  * Callers:
  *     ??$RecurseValidate@PEAU_RESCDIRECTORY@@@@YAHPEAU_RESCDIRECTORY@@HPEAE@Z @ 0x1800FFA6C (--$RecurseValidate@PEAU_RESCDIRECTORY@@@@YAHPEAU_RESCDIRECTORY@@HPEAE@Z.c)
- *     ResCDirectoryValidateEntries @ 0x180105D60 (ResCDirectoryValidateEntries.c)
+ *     ResCDirectoryValidateEntries @ 0x180105D68 (ResCDirectoryValidateEntries.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -14,9 +14,9 @@ __int64 __fastcall StackPush<unsigned int>(int a1, unsigned int *a2)
   __int64 result; // rax
   unsigned int v5; // eax
   unsigned __int64 v6; // rdi
-  unsigned __int64 v7; // r8
-  void *Heap; // rax
-  void *v9; // rsi
+  SIZE_T v7; // r8
+  PVOID Heap; // rax
+  PVOID v9; // rsi
 
   if ( !a2 || !*((_QWORD *)a2 + 1) )
     return 0LL;
@@ -29,12 +29,12 @@ __int64 __fastcall StackPush<unsigned int>(int a1, unsigned int *a2)
       v7 = 4LL * (unsigned int)v6;
       if ( v7 <= 0xFFFFFFFF )
       {
-        Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
         v9 = Heap;
         if ( Heap )
         {
           memmove(Heap, *((const void **)a2 + 1), 4LL * a2[1]);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *((_QWORD *)a2 + 1));
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)a2 + 1));
           *((_QWORD *)a2 + 1) = v9;
           a2[1] = v6;
           goto LABEL_9;

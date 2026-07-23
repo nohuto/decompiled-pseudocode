@@ -1,10 +1,10 @@
 /*
- * XREFs of __ft_process_handles_array_add @ 0x180146480
+ * XREFs of __ft_process_handles_array_add @ 0x180144830
  * Callers:
- *     RtlGetFeatureToggleConfiguration @ 0x180145CB0 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x180144060 (RtlGetFeatureToggleConfiguration.c)
  * Callees:
- *     __ft_array_insert @ 0x180146144 (__ft_array_insert.c)
- *     __ft_process_marker_get_handle @ 0x1801464E8 (__ft_process_marker_get_handle.c)
+ *     __ft_array_insert @ 0x1801444F4 (__ft_array_insert.c)
+ *     __ft_process_marker_get_handle @ 0x180144898 (__ft_process_marker_get_handle.c)
  */
 
 __int64 __fastcall _ft_process_handles_array_add(__int64 a1, unsigned int a2)

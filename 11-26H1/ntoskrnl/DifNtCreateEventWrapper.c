@@ -1,17 +1,22 @@
 /*
- * XREFs of DifNtCreateEventWrapper @ 0x140670AF0
+ * XREFs of DifNtCreateEventWrapper @ 0x1406746D0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtCreateEvent @ 0x1408EF8C0 (NtCreateEvent.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtCreateEvent @ 0x1408F5E80 (NtCreateEvent.c)
  */
 
-__int64 __fastcall DifNtCreateEventWrapper(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4, char a5)
+__int64 __fastcall DifNtCreateEventWrapper(
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        EVENT_TYPE a4,
+        BOOLEAN InitialState)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -46,7 +51,7 @@ __int64 __fastcall DifNtCreateEventWrapper(__int64 a1, unsigned int a2, __int64 
     }
     v12 = 0;
     *(_QWORD *)&v21 = a1;
-    BYTE8(v19) = a5;
+    BYTE8(v19) = InitialState;
     DWORD2(v20) = a2;
     *(_QWORD *)&v20 = a3;
     HIDWORD(v19) = a4;
@@ -62,7 +67,7 @@ __int64 __fastcall DifNtCreateEventWrapper(__int64 a1, unsigned int a2, __int64 
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v21) = NtCreateEvent(a1, a2, a3, a4, a5);
+  DWORD2(v21) = NtCreateEvent(a1, a2, a3, a4, InitialState);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

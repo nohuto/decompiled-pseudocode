@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptEcpointMultiScalarMul @ 0x140568028
+ * XREFs of SymCryptEcpointMultiScalarMul @ 0x1405671DC
  * Callers:
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSplitMirrorBitMap @ 0x14052F264
+ * XREFs of MiSplitMirrorBitMap @ 0x14052F7A4
  * Callers:
- *     MiActOnMirrorBitmap @ 0x14052F1D0 (MiActOnMirrorBitmap.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiActOnMirrorBitmap @ 0x14052F710 (MiActOnMirrorBitmap.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
  */
 
 __int64 __fastcall MiSplitMirrorBitMap(unsigned __int64 *a1, unsigned __int64 a2, __int64 a3)

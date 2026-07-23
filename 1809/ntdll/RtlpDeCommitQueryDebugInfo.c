@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpDeCommitQueryDebugInfo @ 0x1800DA06C
  * Callers:
- *     RtlQueryProcessModuleInformation @ 0x18007D98C (RtlQueryProcessModuleInformation.c)
+ *     RtlQueryProcessModuleInformation @ 0x18007D99C (RtlQueryProcessModuleInformation.c)
  *     RtlDeCommitDebugInfo @ 0x1800D9460 (RtlDeCommitDebugInfo.c)
  *     RtlQueryProcessBackTraceInformation @ 0x1800D9470 (RtlQueryProcessBackTraceInformation.c)
  *     RtlQueryProcessLockInformation @ 0x1800D99E0 (RtlQueryProcessLockInformation.c)

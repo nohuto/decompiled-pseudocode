@@ -1,21 +1,21 @@
 /*
- * XREFs of MiSynchronizeSystemVa @ 0x1400E9F68
+ * XREFs of MiSynchronizeSystemVa @ 0x1400E9FE8
  * Callers:
- *     MiLockStealSystemVm @ 0x1400E9978 (MiLockStealSystemVm.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
+ *     MiLockStealSystemVm @ 0x1400E99F8 (MiLockStealSystemVm.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB48C (MiTrimSharedPageFromViews.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
- *     MiPageTableStillExists @ 0x140134AC4 (MiPageTableStillExists.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADE90 (MiGetSystemCacheReverseMap.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockSystemVa @ 0x1400ECE44 (MiUnlockSystemVa.c)
+ *     MiPageTableStillExists @ 0x140134B94 (MiPageTableStillExists.c)
  */
 
 __int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, int a3, int a4, __int64 a5)
@@ -88,7 +88,7 @@ LABEL_22:
         v21 = v20 & 0xFFFFFFFFFFFFFFFEuLL;
         if ( (v20 & 1) == 0 )
           v21 = v20;
-        AnyMultiplexedVm = (char *)(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v21 + 60LL) & 0x3FF))
+        AnyMultiplexedVm = (char *)(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v21 + 60LL) & 0x3FF))
                                   + 7424LL);
         goto LABEL_22;
       }

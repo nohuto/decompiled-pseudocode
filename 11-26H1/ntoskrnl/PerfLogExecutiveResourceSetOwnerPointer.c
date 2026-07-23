@@ -1,10 +1,10 @@
 /*
- * XREFs of PerfLogExecutiveResourceSetOwnerPointer @ 0x1406C725C
+ * XREFs of PerfLogExecutiveResourceSetOwnerPointer @ 0x1406CAF5C
  * Callers:
- *     ExpSetResourceOwnerPointerEx @ 0x14043B3BC (ExpSetResourceOwnerPointerEx.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x14042DC6C (ExpSetResourceOwnerPointerEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpGetTrackingLockSlotForThread @ 0x1404960D0 (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x14048FC20 (EtwpGetTrackingLockSlotForThread.c)
  */
 
 struct _KTHREAD *__fastcall PerfLogExecutiveResourceSetOwnerPointer(int a1, __int64 a2)

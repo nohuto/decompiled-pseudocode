@@ -1,9 +1,9 @@
 /*
- * XREFs of NormBuffer__IsBlocked @ 0x1800BE2FC
+ * XREFs of NormBuffer__IsBlocked @ 0x1800B60BC
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x1800BD13C (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x1800B4EFC (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__GetCurrentOutputChar @ 0x1800BE8B0 (NormBuffer__GetCurrentOutputChar.c)
+ *     NormBuffer__GetCurrentOutputChar @ 0x1800B6670 (NormBuffer__GetCurrentOutputChar.c)
  */
 
 bool __fastcall NormBuffer__IsBlocked(_QWORD *a1)

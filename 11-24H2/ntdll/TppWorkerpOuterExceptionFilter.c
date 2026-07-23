@@ -1,16 +1,16 @@
 /*
- * XREFs of TppWorkerpOuterExceptionFilter @ 0x18015C9AC
+ * XREFs of TppWorkerpOuterExceptionFilter @ 0x18015AD6C
  * Callers:
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
  * Callees:
- *     RtlReportException @ 0x180001490 (RtlReportException.c)
- *     TppExceptionFilter @ 0x18015C77C (TppExceptionFilter.c)
- *     TppTerminateProcess @ 0x18015C7E0 (TppTerminateProcess.c)
+ *     RtlReportException @ 0x18010B4F0 (RtlReportException.c)
+ *     TppExceptionFilter @ 0x18015AB3C (TppExceptionFilter.c)
+ *     TppTerminateProcess @ 0x18015ABA0 (TppTerminateProcess.c)
  */
 
-__int64 __fastcall TppWorkerpOuterExceptionFilter(__int64 a1, _DWORD *a2)
+__int64 __fastcall TppWorkerpOuterExceptionFilter(_EXCEPTION_POINTERS *a1, _DWORD *a2)
 {
-  unsigned int v2; // ebx
+  unsigned __int32 v2; // ebx
 
   v2 = 0;
   if ( *a2 )
@@ -19,15 +19,15 @@ __int64 __fastcall TppWorkerpOuterExceptionFilter(__int64 a1, _DWORD *a2)
   }
   else
   {
-    v2 = TppExceptionFilter((const void **)a1);
+    v2 = TppExceptionFilter(a1);
     if ( v2 == 1 )
     {
-      if ( **(_DWORD **)a1 != -1073741571 )
+      if ( a1->ExceptionRecord->ExceptionCode != -1073741571 )
       {
-        TppTerminateProcess((unsigned int **)a1);
+        TppTerminateProcess((NTSTATUS **)a1);
         __debugbreak();
       }
-      RtlReportException(*(_QWORD *)a1, *(_QWORD *)(a1 + 8), 3u);
+      RtlReportException(a1->ExceptionRecord, a1->ContextRecord, 3u);
     }
   }
   return v2;

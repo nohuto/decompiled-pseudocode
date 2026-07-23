@@ -1,11 +1,11 @@
 /*
- * XREFs of MmReturnChargesToLockPagedPool @ 0x140B5D1A0
+ * XREFs of MmReturnChargesToLockPagedPool @ 0x140B60320
  * Callers:
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
  * Callees:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
  */
 
 unsigned __int64 __fastcall MmReturnChargesToLockPagedPool(unsigned __int64 a1, __int64 a2)

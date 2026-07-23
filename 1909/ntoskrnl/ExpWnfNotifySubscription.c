@@ -16,7 +16,7 @@ char __fastcall ExpWnfNotifySubscription(__int64 a1, __int64 a2, int a3, unsigne
 {
   unsigned __int64 *v4; // rbx
   struct _KPROCESS *v8; // rdi
-  __int64 v9; // rsi
+  PRTL_BALANCED_NODE v9; // rsi
   unsigned __int64 v10; // rax
   struct _KEVENT *v11; // rcx
 
@@ -26,7 +26,7 @@ char __fastcall ExpWnfNotifySubscription(__int64 a1, __int64 a2, int a3, unsigne
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, v9, (ULONG_PTR)v4);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   if ( *(_QWORD *)(a2 + 48) && (unsigned int)ExpWnfInsertSubscriptionInPendingQueue(a2, a3) )
     v8 = *(struct _KPROCESS **)(a2 + 40);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 0LL, 17LL) != 17 )

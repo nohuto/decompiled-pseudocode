@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipDereferenceEvent @ 0x140A0B9C4
+ * XREFs of WmipDereferenceEvent @ 0x140B5FA28
  * Callers:
- *     WmipProcessEvent @ 0x140A0D184 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140A0CBD4 (WmipProcessEvent.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipAlign @ 0x1404A4614 (WmipAlign.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     WmipDeliverWnodeToDS @ 0x140B342C8 (WmipDeliverWnodeToDS.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipAlign @ 0x14049DCA4 (WmipAlign.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     WmipDeliverWnodeToDS @ 0x140B36718 (WmipDeliverWnodeToDS.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall WmipDereferenceEvent(__int64 a1)
@@ -20,7 +20,7 @@ char *__fastcall WmipDereferenceEvent(__int64 a1)
   int v1; // ebp
   char *v3; // rdi
   unsigned int v4; // r12d
-  _DWORD *i; // rbx
+  ULONG_PTR i; // rbx
   bool v6; // zf
   int v7; // eax
   unsigned int v8; // r14d
@@ -40,18 +40,18 @@ char *__fastcall WmipDereferenceEvent(__int64 a1)
   v1 = *(_DWORD *)(a1 + 4);
   v3 = 0LL;
   v4 = 0;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  for ( i = *(_DWORD **)EtwpSecurityLock.AbWaitObject; i != EtwpSecurityLock.AbWaitObject; i = *(_DWORD **)i )
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  for ( i = *(_QWORD *)WmipDSHeadPtr; i != WmipDSHeadPtr; i = *(_QWORD *)i )
   {
-    if ( i[14] == v1 )
+    if ( *(_DWORD *)(i + 56) == v1 )
     {
-      WmipReferenceEntry((ULONG_PTR)i);
+      WmipReferenceEntry(i);
       goto LABEL_7;
     }
   }
   i = 0LL;
 LABEL_7:
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   if ( i )
   {
     v6 = (*(_DWORD *)(a1 + 44) & 0x80) == 0;
@@ -64,7 +64,7 @@ LABEL_7:
       if ( !WmipAlign(2, &v18) || (v9 = v18, v8 > ~v18) )
       {
 LABEL_28:
-        WmipUnreferenceEntry(&WmipDSChunkInfo, i);
+        WmipUnreferenceEntry((__int64)&WmipDSChunkInfo, (volatile signed __int64 *)i);
         return v3;
       }
       v18 += v8;
@@ -113,7 +113,7 @@ LABEL_28:
             memmove(&v3[v9 + 2], (const void *)(a1 + 70), v8);
           }
           LOBYTE(v15) = 1;
-          LODWORD(Size) = WmipDeliverWnodeToDS(v15, i, v3, v11);
+          LODWORD(Size) = WmipDeliverWnodeToDS(v15, i, (__int64)v3, v11);
           if ( (Size & 0x80000000) == 0LL )
           {
             v16 = *((_DWORD *)v3 + 11);

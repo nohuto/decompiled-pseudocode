@@ -3,10 +3,10 @@
  * Callers:
  *     sub_140A0FAB0 @ 0x140A0FAB0 (sub_140A0FAB0.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_14029F120 @ 0x14029F120 (sub_14029F120.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     sub_1407E4118 @ 0x1407E4118 (sub_1407E4118.c)
@@ -41,12 +41,12 @@ __int64 __fastcall sub_140A0EFB4(__int64 a1, __int64 a2, _QWORD *a3)
   v21 = v3;
   v20 = *(_QWORD *)(a2 + 32);
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->SpecialApcDisable;
+  --*((_WORD *)CurrentThread + 243);
   v8 = (unsigned __int64 *)(a1 + 176);
-  v9 = KeAbPreAcquire(a1 + 176, 0LL);
+  v9 = sub_140347C10(a1 + 176, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v8, v9, (__int64)v8);
+    sub_14029F120(v8, v9, (__int64)v8);
   if ( v10 )
     *(_BYTE *)(v10 + 18) = 1;
   v11 = sub_140A0F874(a1, &v20, &v19, &v18);
@@ -69,10 +69,10 @@ __int64 __fastcall sub_140A0EFB4(__int64 a1, __int64 a2, _QWORD *a3)
   sub_140A0F1D4(v19);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v8);
-  KeAbPostRelease((ULONG_PTR)v8);
+  sub_1402AFC00((ULONG_PTR)v8);
   v15 = KeGetCurrentThread();
-  v16 = v15->SpecialApcDisable++ == -1;
-  if ( v16 && ($CEA84C04E3712D858E5667A507841A2A *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
+  v16 = (*((_WORD *)v15 + 243))++ == 0xFFFF;
+  if ( v16 && *((struct _KTHREAD **)v15 + 19) != (struct _KTHREAD *)((char *)v15 + 152) )
     KiCheckForKernelApcDelivery();
   return (unsigned int)v13;
 }

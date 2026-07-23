@@ -15,19 +15,19 @@
  *     _RtlpTpETWCallbackStop@20 @ 0x4B385D1F (_RtlpTpETWCallbackStop@20.c)
  */
 
-void __stdcall RtlpTpTimerCallback(int a1, int a2, int a3)
+void __stdcall RtlpTpTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
   struct _TEB *v3; // esi
   int v4; // ebx
   int v5; // eax
   _DWORD *v6; // [esp+10h] [ebp-24h] BYREF
   struct _TEB *v7; // [esp+14h] [ebp-20h]
-  int v8; // [esp+18h] [ebp-1Ch] BYREF
+  int ThreadInformation; // [esp+18h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
-  if ( *(_BYTE *)(a2 + 44) || !_InterlockedExchange((volatile __int32 *)(a2 + 48), 1) )
+  if ( *((_BYTE *)a2 + 44) || !_InterlockedExchange((volatile __int32 *)a2 + 12, 1) )
   {
-    if ( *(_DWORD *)(a2 + 8) )
+    if ( *((_DWORD *)a2 + 2) )
       RtlpTpImpersonate();
     v3 = NtCurrentTeb();
     v7 = v3;
@@ -37,20 +37,20 @@ void __stdcall RtlpTpTimerCallback(int a1, int a2, int a3)
     else
       v5 = 2147353478;
     if ( *(_BYTE *)v5 )
-      RtlpTpETWCallbackStart(*(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), v3->SubProcessTag);
-    TppStartThreadData((int *)&v6, *(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), (int)v3->SubProcessTag);
+      RtlpTpETWCallbackStart(*((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), v3->SubProcessTag);
+    TppStartThreadData((int *)&v6, *((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), (int)v3->SubProcessTag);
     ms_exc.registration.TryLevel = 0;
-    (*(void (__thiscall **)(_DWORD, _DWORD, int))(a2 + 16))(*(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), 1);
+    (*((void (__thiscall **)(_DWORD, _DWORD, int))a2 + 4))(*((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), 1);
     ms_exc.registration.TryLevel = -2;
     if ( NtCurrentTeb()->IsImpersonating )
     {
-      v8 = 0;
-      ZwSetInformationThread(-2, 5, (int)&v8, 4);
+      ThreadInformation = 0;
+      ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &ThreadInformation, 4u);
     }
     if ( RtlGetCurrentServiceSessionId() )
       v4 = (int)NtCurrentPeb()->SharedData + 556;
     if ( *(_BYTE *)v4 )
-      RtlpTpETWCallbackStop(*(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), v7->SubProcessTag);
+      RtlpTpETWCallbackStop(*((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), v7->SubProcessTag);
     TppCompleteThreadData(v6);
   }
 }

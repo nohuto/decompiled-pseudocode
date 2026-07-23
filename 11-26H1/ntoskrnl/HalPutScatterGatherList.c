@@ -1,10 +1,10 @@
 /*
- * XREFs of HalPutScatterGatherList @ 0x14035B550
+ * XREFs of HalPutScatterGatherList @ 0x14035D2F0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutScatterGatherListV2 @ 0x14035B580 (HalPutScatterGatherListV2.c)
- *     HalPutScatterGatherListV3 @ 0x14043ED84 (HalPutScatterGatherListV3.c)
+ *     HalPutScatterGatherListV2 @ 0x14035D320 (HalPutScatterGatherListV2.c)
+ *     HalPutScatterGatherListV3 @ 0x140437894 (HalPutScatterGatherListV3.c)
  */
 
 void __stdcall HalPutScatterGatherList(

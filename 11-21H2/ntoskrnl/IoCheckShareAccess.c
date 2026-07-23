@@ -1,7 +1,7 @@
 /*
  * XREFs of IoCheckShareAccess @ 0x14074B2A0
  * Callers:
- *     DifIoCheckShareAccessWrapper @ 0x14060D540 (DifIoCheckShareAccessWrapper.c)
+ *     sub_14060D540 @ 0x14060D540 (sub_14060D540.c)
  * Callees:
  *     IoCheckLinkShareAccess @ 0x14074B530 (IoCheckLinkShareAccess.c)
  */

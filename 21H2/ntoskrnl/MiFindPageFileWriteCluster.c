@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFindPageFileWriteCluster @ 0x1402D1C28
+ * XREFs of MiFindPageFileWriteCluster @ 0x140250048
  * Callers:
- *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x140256844 (MiGatherPagefilePages.c)
  * Callees:
- *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x1402C3CA0 (MiDerefPageFileSpaceBitmaps.c)
- *     MiRefPageFileSpaceBitmaps @ 0x1402C3D30 (MiRefPageFileSpaceBitmaps.c)
- *     MiSetPageFileAllocationBits @ 0x1402D0BD8 (MiSetPageFileAllocationBits.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     RtlFindLongestRunClearCapped @ 0x140587150 (RtlFindLongestRunClearCapped.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x140242220 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x1402422B0 (MiRefPageFileSpaceBitmaps.c)
+ *     MiSetPageFileAllocationBits @ 0x14024F068 (MiSetPageFileAllocationBits.c)
+ *     MiFindFreePageFileSpace @ 0x1402586B4 (MiFindFreePageFileSpace.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     RtlFindLongestRunClearCapped @ 0x140587380 (RtlFindLongestRunClearCapped.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 unsigned int *__fastcall MiFindPageFileWriteCluster(__int64 a1, ULONG *a2, unsigned int *a3, int a4)
@@ -19,7 +19,7 @@ unsigned int *__fastcall MiFindPageFileWriteCluster(__int64 a1, ULONG *a2, unsig
   __int64 v9; // rax
   __int64 v10; // rcx
   int v11; // r9d
-  unsigned int FreePageFileSpace; // esi
+  ULONG FreePageFileSpace; // esi
   unsigned __int64 v13; // rbx
   unsigned __int64 v14; // rbx
   unsigned int *result; // rax
@@ -48,12 +48,12 @@ unsigned int *__fastcall MiFindPageFileWriteCluster(__int64 a1, ULONG *a2, unsig
   v9 = MiSwizzleInvalidPte(v8);
   v10 = *(_QWORD *)(a1 + 248);
   v28 = ((unsigned __int64)(*(_WORD *)(a1 + 204) & 0xF) << 12) | v9 & 0xFFFFFFFFFFFF0FFFuLL;
-  FreePageFileSpace = MiFindFreePageFileSpace(v10, (__int64)&v28, v4, v11 != 0 ? 38 : 32);
+  FreePageFileSpace = MiFindFreePageFileSpace(v10, &v28, v4, v11 != 0 ? 38 : 32, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0LL);
   if ( FreePageFileSpace )
   {
     v13 = v28;
-    if ( qword_140C4DF40 && (v28 & 0x10) == 0 )
-      v13 = v28 & ~qword_140C4DF40;
+    if ( qword_140C4DF80 && (v28 & 0x10) == 0 )
+      v13 = v28 & ~qword_140C4DF80;
     v14 = HIDWORD(v13);
   }
   else

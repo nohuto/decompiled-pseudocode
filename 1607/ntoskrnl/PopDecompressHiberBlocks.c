@@ -3,11 +3,11 @@
  * Callers:
  *     PopRestoreHiberContext @ 0x1403CDA38 (PopRestoreHiberContext.c)
  * Callees:
- *     RtlDecompressBufferProgress @ 0x1401136F0 (RtlDecompressBufferProgress.c)
- *     MmMapMemoryDumpMdlEx @ 0x140113F4C (MmMapMemoryDumpMdlEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     RtlDecompressBufferProgress @ 0x140113C60 (RtlDecompressBufferProgress.c)
+ *     MmMapMemoryDumpMdlEx @ 0x1401144BC (MmMapMemoryDumpMdlEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  *     PopReadProducerConsumerBuffer @ 0x1403CE2C0 (PopReadProducerConsumerBuffer.c)
  *     ProducerConsumerCopyFromContextBuffer @ 0x1403CE32C (ProducerConsumerCopyFromContextBuffer.c)
  *     ConsumerPeekAndConsumeBuffer @ 0x1403CE3B0 (ConsumerPeekAndConsumeBuffer.c)
@@ -76,30 +76,30 @@ __int64 __fastcall PopDecompressHiberBlocks(
   char v59; // [rsp+150h] [rbp+50h] BYREF
 
   v5 = 0;
-  v6 = (int)qword_140303618;
+  v6 = (int)qword_140303558;
   v47 = a5;
   v48 = 0LL;
-  v44 = (char *)qword_140303618;
+  v44 = (char *)qword_140303558;
   v43 = 0;
   while ( 1 )
   {
     PopHiberCheckForDebugBreak();
-    if ( !qword_140303A28 && BugCheckParameter3[48] == KeGetCurrentPrcb()->Number && byte_1403035C0 )
-      qword_140303A28 = KeQueryPerformanceCounter(0LL).QuadPart;
+    if ( !qword_140303968 && BugCheckParameter3[48] == KeGetCurrentPrcb()->Number && byte_140303500 )
+      qword_140303968 = KeQueryPerformanceCounter(0LL).QuadPart;
     Number = KeGetCurrentPrcb()->Number;
     if ( BugCheckParameter3[48] == (_DWORD)Number
-      && !byte_1403035C1
-      && ((unsigned int)dword_1403035A4 > 0x640 || !byte_1403035C0) )
+      && !byte_140303501
+      && ((unsigned int)dword_1403034E4 > 0x640 || !byte_140303500) )
     {
       v37 = __rdtsc();
-      if ( byte_1403289A0 )
+      if ( byte_1403289E0 )
       {
         LOBYTE(Number) = 1;
         BgDisplayProgressIndicator(Number);
-        byte_140328CD2 = 1;
+        byte_140328D12 = 1;
       }
       v38 = __rdtsc();
-      qword_140303A10 += (((unsigned __int64)HIDWORD(v38) << 32) | (unsigned int)v38) - v37;
+      qword_140303950 += (((unsigned __int64)HIDWORD(v38) << 32) | (unsigned int)v38) - v37;
     }
     v42 = 4;
     v12 = ConsumerPeekAndConsumeBuffer(v6, (unsigned int)&v42, a3, v10, (__int64)a2);
@@ -174,7 +174,7 @@ __int64 __fastcall PopDecompressHiberBlocks(
       if ( v47 )
       {
         v47(BugCheckParameter3);
-        v48 = qword_140303A00;
+        v48 = qword_140303940;
       }
       v30 = ProducerConsumerBuffer;
       v31 = __rdtsc();
@@ -198,7 +198,7 @@ __int64 __fastcall PopDecompressHiberBlocks(
       }
       a2[8] += v33 - v31;
       if ( v47 )
-        a2[8] = v48 + a2[8] - qword_140303A00;
+        a2[8] = v48 + a2[8] - qword_140303940;
       v6 = (int)v44;
       v34 = v33 - v45;
       v35 = (*v30 & 0xC0000000) >= 0x80000000;

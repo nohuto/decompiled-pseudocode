@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataUpdate @ 0x1407A948C
+ * XREFs of EtwTraceLeapSecondDataUpdate @ 0x1407A968C
  * Callers:
- *     ExpReadLeapSecondData @ 0x1407A91B8 (ExpReadLeapSecondData.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     ExpReadLeapSecondData @ 0x1407A93B8 (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
@@ -77,7 +77,7 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
       v35 = 4;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C02BF0,
-                     (unsigned __int8 *)byte_14002C7D3,
+                     (unsigned __int8 *)byte_14002D249,
                      0LL,
                      0LL,
                      6u,

@@ -13,11 +13,15 @@
  *     <none>
  */
 
-__int64 NtOpenProcessTokenEx()
+NTSTATUS __cdecl NtOpenProcessTokenEx(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 48LL;
+  result = 48;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

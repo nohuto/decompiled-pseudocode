@@ -6,45 +6,47 @@
  *     RtlpGetChainHead @ 0x14002D164 (RtlpGetChainHead.c)
  */
 
-_QWORD *__fastcall RtlStronglyEnumerateEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlStronglyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  unsigned int v2; // r10d
-  __int64 v3; // r9
-  unsigned int v4; // r11d
+  unsigned int BucketIndex; // r10d
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v3; // r9
+  unsigned int TableSize; // r11d
   unsigned int v6; // edx
-  _QWORD *result; // rax
-  _QWORD *v8; // rcx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY ChainHead; // rcx
 
-  v2 = *(_DWORD *)(a2 + 32);
-  v3 = a2;
-  v4 = *(_DWORD *)(a1 + 8);
-  v6 = v2;
-  if ( v2 < v4 )
+  BucketIndex = Enumerator->BucketIndex;
+  v3 = Enumerator;
+  TableSize = HashTable->TableSize;
+  v6 = BucketIndex;
+  if ( BucketIndex < TableSize )
   {
     while ( 2 )
     {
-      if ( v6 == v2 )
+      if ( v6 == BucketIndex )
       {
-        result = *(_QWORD **)v3;
-        v8 = *(_QWORD **)(v3 + 24);
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v3->HashEntry.Linkage.Flink;
+        ChainHead = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v3->ChainHead;
       }
       else
       {
-        result = (_QWORD *)RtlpGetChainHead(a1, v6);
-        v8 = result;
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)RtlpGetChainHead((__int64)HashTable, v6);
+        ChainHead = result;
       }
-      while ( (_QWORD *)*result != v8 )
+      while ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink != ChainHead )
       {
-        result = (_QWORD *)*result;
-        if ( result[2] )
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink;
+        if ( result->Signature )
         {
-          *(_DWORD *)(v3 + 32) = v6;
-          *(_QWORD *)(v3 + 24) = v8;
-          *(_QWORD *)v3 = result;
+          v3->BucketIndex = v6;
+          v3->ChainHead = &ChainHead->Linkage;
+          v3->HashEntry.Linkage.Flink = &result->Linkage;
           return result;
         }
       }
-      if ( ++v6 < v4 )
+      if ( ++v6 < TableSize )
         continue;
       break;
     }

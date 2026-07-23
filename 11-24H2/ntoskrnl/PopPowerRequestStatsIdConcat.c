@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestStatsIdConcat @ 0x140A68BC8
+ * XREFs of PopPowerRequestStatsIdConcat @ 0x140A61F78
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A24BE4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A18BD4 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x14041C568 (RtlUnicodeStringCatString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404105C0 (RtlUnicodeStringCatString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsIdConcat(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
@@ -22,7 +22,7 @@ __int64 __fastcall PopPowerRequestStatsIdConcat(PUNICODE_STRING DestinationStrin
   {
     if ( DestinationString->MaximumLength < v5 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v5, 0x54515750u);
       v7 = Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741670;

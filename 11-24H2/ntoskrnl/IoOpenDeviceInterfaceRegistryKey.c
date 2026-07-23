@@ -1,16 +1,16 @@
 /*
- * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x140AADBF0
+ * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x140AA8C70
  * Callers:
- *     DifIoOpenDeviceInterfaceRegistryKeyWrapper @ 0x1406298C0 (DifIoOpenDeviceInterfaceRegistryKeyWrapper.c)
- *     IoWMISuggestInstanceName @ 0x1407A3D50 (IoWMISuggestInstanceName.c)
+ *     DifIoOpenDeviceInterfaceRegistryKeyWrapper @ 0x140627E80 (DifIoOpenDeviceInterfaceRegistryKeyWrapper.c)
+ *     IoWMISuggestInstanceName @ 0x1407A3E60 (IoWMISuggestInstanceName.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1409CAFD4 (IopApplyMutableTagToRegistryKey.c)
- *     PnpUnicodeStringToWstr @ 0x1409D52F0 (PnpUnicodeStringToWstr.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x1409B6214 (IopApplyMutableTagToRegistryKey.c)
+ *     PnpUnicodeStringToWstr @ 0x1409C5120 (PnpUnicodeStringToWstr.c)
  */
 
 NTSTATUS __stdcall IoOpenDeviceInterfaceRegistryKey(

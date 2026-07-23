@@ -6,7 +6,7 @@
  * Callees:
  *     RtlpHeapFindListLookupEntry @ 0x180044AD0 (RtlpHeapFindListLookupEntry.c)
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180116748 (RtlpHeapHandleError.c)
+ *     RtlpHeapHandleError @ 0x180116718 (RtlpHeapHandleError.c)
  */
 
 __int64 *__fastcall RtlpFindUCREntry(__int64 a1, unsigned __int64 a2)

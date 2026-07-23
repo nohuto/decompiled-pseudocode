@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F791C
+ * XREFs of HvlpSlowSendSyntheticClusterIpiEx @ 0x1404F789C
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x140390430 (HvlSendSyntheticClusterIpi.c)
+ *     HvlSendSyntheticClusterIpi @ 0x140390580 (HvlSendSyntheticClusterIpi.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1404FAB30 (HvlpAffinityToHvProcessorSet.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1404FAAB0 (HvlpAffinityToHvProcessorSet.c)
  */
 
 __int64 __fastcall HvlpSlowSendSyntheticClusterIpiEx(__int64 a1, int a2)

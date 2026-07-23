@@ -1,21 +1,21 @@
 /*
- * XREFs of PspClearNoWakeChargeLimitNotification @ 0x1408EDB54
+ * XREFs of PspClearNoWakeChargeLimitNotification @ 0x14085F384
  * Callers:
- *     PspEnforceLimits @ 0x1408EBA7C (PspEnforceLimits.c)
+ *     PspEnforceLimits @ 0x14085D2AC (PspEnforceLimits.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
 LONG_PTR PspClearNoWakeChargeLimitNotification()
 {
   LONG_PTR result; // rax
-  int v1; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   if ( PspNoWakeChargeReferencedProcess )
   {
-    v1 = 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)&v1);
+    Buffer = 0;
+    ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, &Buffer, 4u, 0LL, 0LL, 0, 0);
     result = ObfDereferenceObjectWithTag(PspNoWakeChargeReferencedProcess, 0x624A7350u);
     PspNoWakeChargeReferencedProcess = 0LL;
   }

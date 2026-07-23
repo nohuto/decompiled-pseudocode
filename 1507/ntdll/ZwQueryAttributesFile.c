@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 ZwQueryAttributesFile()
+NTSTATUS __cdecl ZwQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PFILE_BASIC_INFORMATION FileInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 61LL;
+  result = 61;
   __asm { syscall; Low latency system call }
   return result;
 }

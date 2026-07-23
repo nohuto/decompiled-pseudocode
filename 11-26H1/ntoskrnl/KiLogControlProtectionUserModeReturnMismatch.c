@@ -1,10 +1,10 @@
 /*
- * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x1404BD988
+ * XREFs of KiLogControlProtectionUserModeReturnMismatch @ 0x1404B71D4
  * Callers:
- *     KiProcessControlProtection @ 0x1404F7C00 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x1404F1210 (KiProcessControlProtection.c)
  * Callees:
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x14082A7E0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     KiShouldLogUserModeReturnMismatch @ 0x140AC31E8 (KiShouldLogUserModeReturnMismatch.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x140830A20 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     KiShouldLogUserModeReturnMismatch @ 0x140AC4E58 (KiShouldLogUserModeReturnMismatch.c)
  */
 
 __int64 __fastcall KiLogControlProtectionUserModeReturnMismatch(unsigned int a1, __int64 a2, __int64 a3)

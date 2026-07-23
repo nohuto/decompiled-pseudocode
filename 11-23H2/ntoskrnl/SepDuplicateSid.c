@@ -1,11 +1,11 @@
 /*
- * XREFs of SepDuplicateSid @ 0x140711014
+ * XREFs of SepDuplicateSid @ 0x140711224
  * Callers:
- *     SepSetTokenTrust @ 0x14071E7C4 (SepSetTokenTrust.c)
- *     SepDuplicateTokenUserAndGroups @ 0x1409CF7B0 (SepDuplicateTokenUserAndGroups.c)
- *     SepSetTokenUserAndGroups @ 0x1409CF8FC (SepSetTokenUserAndGroups.c)
+ *     SepSetTokenTrust @ 0x14071E9C4 (SepSetTokenTrust.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x1409CF9B0 (SepDuplicateTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x1409CFAFC (SepSetTokenUserAndGroups.c)
  * Callees:
- *     RtlCopySid @ 0x140714F70 (RtlCopySid.c)
+ *     RtlCopySid @ 0x140715180 (RtlCopySid.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

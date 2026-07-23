@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerRequestStatsGetIdForRequest @ 0x140A891F8
+ * XREFs of PopPowerRequestStatsGetIdForRequest @ 0x140A900E8
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x140A89148 (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsCreate @ 0x140A90038 (PopPowerRequestStatsCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     PopPowerRequestStatsIsDetailedRequestReason @ 0x14077BD70 (PopPowerRequestStatsIsDetailedRequestReason.c)
- *     PopPowerRequestStatsFreeId @ 0x140A891C0 (PopPowerRequestStatsFreeId.c)
- *     PopUnicodeStringDeepCopy @ 0x140AE7CB8 (PopUnicodeStringDeepCopy.c)
- *     PopAnsiStringToUnicodeString @ 0x140AFD894 (PopAnsiStringToUnicodeString.c)
- *     PopPowerRequestStatsIdConcat @ 0x140B00BF0 (PopPowerRequestStatsIdConcat.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     PopPowerRequestStatsIsDetailedRequestReason @ 0x14077E9B0 (PopPowerRequestStatsIsDetailedRequestReason.c)
+ *     PopPowerRequestStatsFreeId @ 0x140A900B0 (PopPowerRequestStatsFreeId.c)
+ *     PopUnicodeStringDeepCopy @ 0x140AE5B68 (PopUnicodeStringDeepCopy.c)
+ *     PopAnsiStringToUnicodeString @ 0x140AFF5C0 (PopAnsiStringToUnicodeString.c)
+ *     PopPowerRequestStatsIdConcat @ 0x140B02920 (PopPowerRequestStatsIdConcat.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsGetIdForRequest(__int64 a1, __int64 *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KdDisableDebugger @ 0x1403CFA20
+ * XREFs of KdDisableDebugger @ 0x1403CFB90
  * Callers:
- *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
- *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
- *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
+ *     NtSystemDebugControl @ 0x1407CFD70 (NtSystemDebugControl.c)
+ *     KiVerifyXcpt15 @ 0x140A1C320 (KiVerifyXcpt15.c)
+ *     KiFilterFiberContext @ 0x140A1CBA0 (KiFilterFiberContext.c)
  * Callees:
- *     KdDisableDebuggerWithLock @ 0x1403CFA38 (KdDisableDebuggerWithLock.c)
+ *     KdDisableDebuggerWithLock @ 0x1403CFBA8 (KdDisableDebuggerWithLock.c)
  */
 
 NTSTATUS KdDisableDebugger(void)

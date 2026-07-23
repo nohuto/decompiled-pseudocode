@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetEnabledExtendedFeatures @ 0x1800862E0
+ * XREFs of RtlGetEnabledExtendedFeatures @ 0x1800862F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetEnabledExtendedFeatures(__int64 a1)
+ULONG64 __cdecl RtlGetEnabledExtendedFeatures(ULONG64 FeatureMask)
 {
-  return a1 & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]);
+  return FeatureMask & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]);
 }

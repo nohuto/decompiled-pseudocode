@@ -1,10 +1,10 @@
 /*
- * XREFs of ViLogAndLoadXdv @ 0x140C21F34
+ * XREFs of ViLogAndLoadXdv @ 0x140C27F44
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     ViXdvDriverLoadImage @ 0x140C285C4 (ViXdvDriverLoadImage.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     ViXdvDriverLoadImage @ 0x140C2E5CC (ViXdvDriverLoadImage.c)
  */
 
 char ViLogAndLoadXdv()

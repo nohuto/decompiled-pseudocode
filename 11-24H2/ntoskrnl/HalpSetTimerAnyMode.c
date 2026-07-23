@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpSetTimerAnyMode @ 0x1403BB348
+ * XREFs of HalpSetTimerAnyMode @ 0x140374A84
  * Callers:
- *     HalpVpptUpdatePhysicalTimer @ 0x1403BA018 (HalpVpptUpdatePhysicalTimer.c)
- *     HalpTimerClockPowerChange @ 0x140546A70 (HalpTimerClockPowerChange.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1403729E8 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpTimerClockPowerChange @ 0x140544330 (HalpTimerClockPowerChange.c)
  * Callees:
- *     HalpTimerClearProblem @ 0x1403BB3F0 (HalpTimerClearProblem.c)
- *     HalpSetTimer @ 0x1403BC5B0 (HalpSetTimer.c)
+ *     HalpTimerClearProblem @ 0x140374B2C (HalpTimerClearProblem.c)
+ *     HalpSetTimer @ 0x140375A30 (HalpSetTimer.c)
  */
 
 __int64 __fastcall HalpSetTimerAnyMode(__int64 a1, int a2, __int64 a3, __int64 a4)

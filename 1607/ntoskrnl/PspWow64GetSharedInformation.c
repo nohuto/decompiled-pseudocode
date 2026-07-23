@@ -1,10 +1,10 @@
 /*
- * XREFs of PspWow64GetSharedInformation @ 0x14051AC8C
+ * XREFs of PspWow64GetSharedInformation @ 0x1404FE07C
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspWow64InitThread @ 0x14051AA18 (PspWow64InitThread.c)
- *     PsWow64IsMachineSupported @ 0x14051AC70 (PsWow64IsMachineSupported.c)
- *     CmpSetVersionData @ 0x14055D9A8 (CmpSetVersionData.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspWow64InitThread @ 0x1404FDE08 (PspWow64InitThread.c)
+ *     PsWow64IsMachineSupported @ 0x1404FE060 (PsWow64IsMachineSupported.c)
+ *     CmpSetVersionData @ 0x14055DEE8 (CmpSetVersionData.c)
  * Callees:
  *     <none>
  */

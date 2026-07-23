@@ -1,9 +1,9 @@
 /*
- * XREFs of _guard_icall_handler @ 0x1406B3D70
+ * XREFs of _guard_icall_handler @ 0x1406B4D10
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn guard_icall_handler(__int64 a1, __int64 a2, ULONG_PTR BugCheckParameter4)

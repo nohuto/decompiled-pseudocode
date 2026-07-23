@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExAllocatePoolEx @ 0x140C2F9F0
+ * XREFs of VerifierExAllocatePoolEx @ 0x140C35A00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierExAllocatePoolEx(__int64 a1)

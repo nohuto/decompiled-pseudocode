@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreLogWriteIssueFailure @ 0x14048400C
+ * XREFs of MiStoreLogWriteIssueFailure @ 0x14047F52C
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 *a2, int a3, int a4)
@@ -32,10 +32,10 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 *a2, int a3, int a4)
   int v25; // [rsp+C8h] [rbp+3Fh]
   int v26; // [rsp+CCh] [rbp+43h]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && (*(_BYTE *)(*(_QWORD *)&qword_140E37518 + 16LL) & 2) != 0
-    && (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 2LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && (*(_BYTE *)(*(_QWORD *)&qword_140E37658 + 16LL) & 2) != 0
+    && (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 2LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) )
   {
     v14 = 0;
     v17 = 0;
@@ -57,6 +57,6 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 *a2, int a3, int a4)
     v8 = a3;
     v22 = 4;
     v25 = 4;
-    tlgWriteEx_EtwWriteEx(qword_140E37518, (int)&dword_14005828C, a3, 1, v5, v6, 7u, (__int64)v12);
+    tlgWriteEx_EtwWriteEx(qword_140E37658, (int)&unk_140058B70, a3, 1, v5, v6, 7u, (__int64)v12);
   }
 }

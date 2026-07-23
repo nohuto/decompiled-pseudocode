@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIsUserInitiatedMonitorRequestReason @ 0x14066C208
+ * XREFs of PopIsUserInitiatedMonitorRequestReason @ 0x14066C2EC
  * Callers:
- *     PopCsStateChanged @ 0x14066A964 (PopCsStateChanged.c)
+ *     PopCsStateChanged @ 0x14066AA48 (PopCsStateChanged.c)
  * Callees:
  *     <none>
  */

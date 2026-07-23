@@ -1,15 +1,15 @@
 /*
- * XREFs of qsort @ 0x18012BEB0
+ * XREFs of qsort @ 0x18012BC20
  * Callers:
- *     RtlSetProtectedPolicy @ 0x1800F9120 (RtlSetProtectedPolicy.c)
- *     LdrpCfgProcessLoadConfig @ 0x180119A40 (LdrpCfgProcessLoadConfig.c)
- *     RtlCompareExchangePropertyStore @ 0x180145A60 (RtlCompareExchangePropertyStore.c)
+ *     RtlSetProtectedPolicy @ 0x1800F8890 (RtlSetProtectedPolicy.c)
+ *     LdrpCfgProcessLoadConfig @ 0x1801197F0 (LdrpCfgProcessLoadConfig.c)
+ *     RtlCompareExchangePropertyStore @ 0x180145910 (RtlCompareExchangePropertyStore.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _guard_check_icall$thunk$15021643654165956172 @ 0x180170010 (_guard_check_icall$thunk$15021643654165956172.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _guard_check_icall$thunk$15021643654165956172 @ 0x18016F010 (_guard_check_icall$thunk$15021643654165956172.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 void __cdecl qsort(

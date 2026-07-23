@@ -1,65 +1,65 @@
 /*
- * XREFs of ObpLookupObjectName @ 0x1408FE2F0
+ * XREFs of ObpLookupObjectName @ 0x14092E280
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     ObpInsertOrLocateNamedObject @ 0x1408EEAF0 (ObpInsertOrLocateNamedObject.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1408F50B0 (ObpInsertOrLocateNamedObject.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetThreadServerSilo @ 0x1402167A0 (PsGetThreadServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObDereferenceObjectDeferDelete @ 0x140265670 (ObDereferenceObjectDeferDelete.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     PsGetPermanentSiloContext @ 0x14040B340 (PsGetPermanentSiloContext.c)
- *     SeClearLearningModeObjectInformation @ 0x14042F300 (SeClearLearningModeObjectInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x140430644 (SeSetLearningModeObjectInformation.c)
- *     PsGetCurrentProcessSessionId @ 0x140437260 (PsGetCurrentProcessSessionId.c)
- *     ObpFastReplenishReference @ 0x140444700 (ObpFastReplenishReference.c)
- *     ObReferenceObjectByPointer @ 0x14045F750 (ObReferenceObjectByPointer.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     ObFastReferenceObjectLocked @ 0x14048CC4C (ObFastReferenceObjectLocked.c)
- *     ExfTryAcquirePushLockSharedEx @ 0x1404AB574 (ExfTryAcquirePushLockSharedEx.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     ObCheckCreateObjectAccess @ 0x1408EE440 (ObCheckCreateObjectAccess.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObpParseSymbolicLinkEx @ 0x140900300 (ObpParseSymbolicLinkEx.c)
- *     ObDereferenceDeviceMap @ 0x1409007F4 (ObDereferenceDeviceMap.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     ObpCheckTraverseAccess @ 0x14093C7C8 (ObpCheckTraverseAccess.c)
- *     ObpLockDirectoryExclusive @ 0x1409E21B8 (ObpLockDirectoryExclusive.c)
- *     ObpReferenceCurrentDeviceMap @ 0x140A18420 (ObpReferenceCurrentDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x140A18788 (SeGetTokenDeviceMap.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x140A189CC (ObpSetCurrentProcessDeviceMap.c)
- *     ObpIsUnsecureName @ 0x140A289B4 (ObpIsUnsecureName.c)
- *     RtlGetNtSystemRoot @ 0x140A79090 (RtlGetNtSystemRoot.c)
- *     ObpInsertDirectoryEntry @ 0x140A88ABC (ObpInsertDirectoryEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetThreadServerSilo @ 0x140216AD0 (PsGetThreadServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140264BE0 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     PsGetPermanentSiloContext @ 0x140404430 (PsGetPermanentSiloContext.c)
+ *     SeClearLearningModeObjectInformation @ 0x14041C210 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x14041D674 (SeSetLearningModeObjectInformation.c)
+ *     PsGetCurrentProcessSessionId @ 0x1404261F0 (PsGetCurrentProcessSessionId.c)
+ *     ObpFastReplenishReference @ 0x14043D210 (ObpFastReplenishReference.c)
+ *     ObReferenceObjectByPointer @ 0x140458E50 (ObReferenceObjectByPointer.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     ObFastReferenceObjectLocked @ 0x14048678C (ObFastReferenceObjectLocked.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1404A4C04 (ExfTryAcquirePushLockSharedEx.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     ObCheckCreateObjectAccess @ 0x1408F4A00 (ObCheckCreateObjectAccess.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObpCheckTraverseAccess @ 0x140918368 (ObpCheckTraverseAccess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpParseSymbolicLinkEx @ 0x140930290 (ObpParseSymbolicLinkEx.c)
+ *     ObDereferenceDeviceMap @ 0x140930784 (ObDereferenceDeviceMap.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     ObpLockDirectoryExclusive @ 0x1409DF1C8 (ObpLockDirectoryExclusive.c)
+ *     RtlGetNtSystemRoot @ 0x1409E50B0 (RtlGetNtSystemRoot.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x140A21A50 (ObpReferenceCurrentDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x140A21DB8 (SeGetTokenDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x140A21FFC (ObpSetCurrentProcessDeviceMap.c)
+ *     ObpIsUnsecureName @ 0x140A3BA54 (ObpIsUnsecureName.c)
+ *     ObpInsertDirectoryEntry @ 0x140A8F820 (ObpInsertDirectoryEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 int __fastcall ObpLookupObjectName(
@@ -81,13 +81,13 @@ int __fastcall ObpLookupObjectName(
   unsigned __int64 *v14; // r12
   struct _OBJECT_TYPE *v15; // r13
   unsigned int v16; // r15d
-  unsigned __int16 *v17; // rsi
+  __int64 v17; // rsi
   bool v19; // zf
   __int64 v20; // r14
   PVOID v21; // rdi
   int v22; // ecx
   int v23; // ecx
-  PVOID v24; // rbx
+  void *v24; // rbx
   int result; // eax
   unsigned __int64 *v26; // rdi
   unsigned __int64 *v27; // r13
@@ -101,322 +101,314 @@ int __fastcall ObpLookupObjectName(
   signed __int64 v35; // rax
   signed __int64 v36; // rdx
   __int64 v37; // rtt
-  __int64 v38; // rdx
-  __int64 v39; // r8
-  unsigned __int64 v40; // r8
-  volatile signed __int64 *v41; // rdx
-  signed __int64 v42; // rax
-  signed __int64 v43; // rtt
-  NTSTATUS v44; // ecx
-  PVOID v45; // rax
-  __int64 v46; // rdx
+  unsigned __int64 v38; // r8
+  volatile signed __int64 *v39; // rdx
+  signed __int64 v40; // rax
+  signed __int64 v41; // rtt
+  NTSTATUS v42; // ecx
+  void *v43; // rax
   struct _KTHREAD *CurrentThread; // rdi
   __int64 Process; // rbx
   __int64 ProcessServerSilo; // rsi
-  struct _KLOCK_ENTRIES *v50; // r9
+  struct _KLOCK_ENTRIES *v47; // r9
   __int64 ThreadServerSilo; // r13
-  bool v52; // r14
-  bool v53; // r15
-  struct _KTHREAD *v54; // r12
-  void *v55; // rdx
-  LegacyAutoBoost *v56; // r15
+  bool v49; // r14
+  bool v50; // r15
+  struct _KTHREAD *v51; // r12
+  void *v52; // rdx
+  LegacyAutoBoost *v53; // r15
   _QWORD *p_Lock; // rsi
-  volatile signed __int64 *v58; // r14
+  volatile signed __int64 *v55; // r14
   signed __int64 *ServerSiloGlobals; // rsi
-  signed __int64 v60; // r14
-  signed __int64 v61; // rdx
-  signed __int64 v62; // rax
+  signed __int64 v57; // r14
+  signed __int64 v58; // rdx
+  signed __int64 v59; // rax
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  struct _KTHREAD *v64; // rcx
+  struct _KTHREAD *v61; // rcx
   signed __int64 *p_Blink; // rdi
-  struct _KLOCK_ENTRIES *v66; // r9
-  void *v67; // rdx
-  LegacyAutoBoost *v68; // rbx
-  signed __int64 v69; // rax
-  signed __int64 v70; // rtt
-  __int64 v71; // rdx
-  unsigned __int16 v72; // ax
-  __int64 v73; // rax
-  volatile signed __int64 *v74; // rsi
-  __int64 v75; // r15
-  signed __int64 *v76; // rbx
-  signed __int64 v77; // r13
-  signed __int64 v78; // rdx
-  signed __int64 v79; // rax
-  unsigned int v80; // edx
-  ULONG_PTR v81; // rdi
-  char v82; // cl
-  NTSTATUS v83; // eax
-  signed __int64 v84; // rax
-  signed __int64 v85; // rtt
-  NTSTATUS v86; // edx
-  void *v87; // rdi
-  volatile signed __int64 *v88; // rsi
-  unsigned __int64 v89; // r14
-  signed __int64 v90; // rax
-  signed __int64 v91; // rtt
-  __int16 v92; // cx
-  PVOID v93; // rax
-  __int64 v94; // r15
-  __int64 *v95; // rsi
-  signed __int64 v96; // rax
-  signed __int64 v97; // rdx
-  __int64 v98; // rtt
-  __int64 v99; // rdx
-  __int64 v100; // r8
-  struct _ACCESS_STATE *v101; // r14
-  __int16 v102; // bx
-  PVOID v103; // rdi
-  unsigned __int64 v104; // r14
-  volatile signed __int64 *v105; // rsi
-  signed __int64 v106; // rax
-  signed __int64 v107; // rtt
-  __int64 *v108; // rbx
-  signed __int64 v109; // rax
-  signed __int64 v110; // rdx
-  __int64 v111; // rtt
-  __int64 v112; // rdx
-  __int64 v113; // r8
-  __int16 v114; // cx
-  __int64 v115; // rdi
-  __int64 (__usercall *v116)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64); // rbx
-  unsigned __int16 v117; // r12
-  __int16 v118; // r10
-  __int64 v119; // r8
-  char v120; // bl
-  __int64 v121; // r15
-  volatile signed __int32 *v122; // rdi
-  AutoBoost *v123; // rax
-  void *v124; // rdx
-  AutoBoost *v125; // rsi
-  __int64 v126; // rdi
-  unsigned __int64 v127; // rsi
-  unsigned __int64 v128; // r9
+  struct _KLOCK_ENTRIES *v63; // r9
+  void *v64; // rdx
+  LegacyAutoBoost *v65; // rbx
+  signed __int64 v66; // rax
+  signed __int64 v67; // rtt
+  __int64 v68; // rdx
+  unsigned __int16 v69; // ax
+  __int64 v70; // rax
+  volatile signed __int64 *v71; // rsi
+  __int64 v72; // r15
+  signed __int64 *v73; // rbx
+  signed __int64 v74; // r13
+  signed __int64 v75; // rdx
+  signed __int64 v76; // rax
+  unsigned int v77; // edx
+  ULONG_PTR v78; // rdi
+  char v79; // cl
+  NTSTATUS v80; // eax
+  signed __int64 v81; // rax
+  signed __int64 v82; // rtt
+  NTSTATUS v83; // edx
+  void *v84; // rdi
+  volatile signed __int64 *v85; // rsi
+  unsigned __int64 v86; // r14
+  signed __int64 v87; // rax
+  signed __int64 v88; // rtt
+  __int16 v89; // cx
+  void *v90; // rax
+  __int64 v91; // r15
+  __int64 *v92; // rsi
+  signed __int64 v93; // rax
+  signed __int64 v94; // rdx
+  __int64 v95; // rtt
+  struct _ACCESS_STATE *v96; // r14
+  __int16 v97; // bx
+  PVOID v98; // rdi
+  unsigned __int64 v99; // r14
+  volatile signed __int64 *v100; // rsi
+  signed __int64 v101; // rax
+  signed __int64 v102; // rtt
+  __int64 *v103; // rbx
+  signed __int64 v104; // rax
+  signed __int64 v105; // rdx
+  __int64 v106; // rtt
+  __int16 v107; // cx
+  __int64 v108; // rdi
+  __int64 (__usercall *v109)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64); // rbx
+  unsigned __int16 v110; // r12
+  __int16 v111; // r10
+  __int64 v112; // r8
+  char v113; // bl
+  __int64 v114; // r15
+  volatile signed __int32 *v115; // rdi
+  AutoBoost *v116; // rax
+  void *v117; // rdx
+  AutoBoost *v118; // rsi
+  __int64 v119; // rdi
+  unsigned __int64 v120; // rsi
+  unsigned __int64 v121; // r9
   wchar_t *Buffer; // r14
-  unsigned int v130; // edi
+  unsigned int v123; // edi
+  __int64 v124; // rbx
+  unsigned int v125; // ebx
+  unsigned int v126; // edx
+  int v127; // ebx
+  char v128; // r13
+  int v129; // r13d
+  unsigned __int8 v130; // al
   __int64 v131; // rbx
-  unsigned int v132; // ebx
-  unsigned int v133; // edx
-  int v134; // ebx
-  char v135; // r13
-  int v136; // r13d
-  unsigned __int8 v137; // al
-  __int64 v138; // rbx
-  __int64 v139; // rdi
-  struct _KTHREAD *v140; // rax
-  void *v141; // rdx
-  LegacyAutoBoost *v142; // rdi
-  __int64 v143; // rdx
+  __int64 v132; // rdi
+  struct _KTHREAD *v133; // rax
+  void *v134; // rdx
+  LegacyAutoBoost *v135; // rdi
+  __int64 v136; // rdx
   struct _LIST_ENTRY *Flink; // r12
-  char *v145; // r14
-  __int64 v146; // rsi
-  unsigned __int16 *v147; // r15
-  SIZE_T v148; // rax
-  __int64 v149; // rax
-  unsigned __int16 *v150; // r10
-  char *v151; // r14
-  unsigned __int64 v152; // r8
-  NTSTATUS v153; // eax
-  __int64 v154; // rcx
+  char *v138; // r14
+  __int64 v139; // rsi
+  unsigned __int16 *v140; // r15
+  SIZE_T v141; // rax
+  __int64 v142; // rax
+  unsigned __int16 *v143; // r10
+  char *v144; // r14
+  unsigned __int64 v145; // r8
+  NTSTATUS v146; // eax
   WCHAR *NtSystemRoot; // rax
-  WCHAR v156; // bx
-  WCHAR v157; // dx
-  __int64 v158; // rcx
-  int v159; // edi
-  char *v160; // r14
-  int v161; // eax
-  char *v162; // rbx
-  __int64 v163; // rax
-  PVOID v164; // rax
-  char v165; // si
-  void *v166; // rdx
-  AutoBoost *v167; // rdi
-  signed __int64 *v168; // rbx
-  char v169; // al
-  unsigned __int64 *v170; // r12
-  __int64 (__usercall *v171)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64); // rax
-  __int64 v172; // rax
-  int v173; // ecx
-  PVOID *v174; // rax
-  struct _LIST_ENTRY *v175; // rax
-  struct _KTHREAD *v176; // rcx
-  struct _LIST_ENTRY *v177; // r15
-  struct _KLOCK_ENTRIES *v178; // r9
-  void *v179; // rdx
-  LegacyAutoBoost *v180; // rsi
-  __int64 v181; // rax
-  __int64 v182; // r15
-  __int64 v183; // rax
-  __int128 v184; // rt0
-  char *v185; // rax
-  struct _KTHREAD *v186; // rcx
-  signed __int64 *v187; // rdi
-  struct _KLOCK_ENTRIES *v188; // r9
-  void *v189; // rdx
-  LegacyAutoBoost *v190; // r14
-  struct _OBJECT_TYPE *v191; // rbx
-  _DWORD *v192; // r14
-  ACCESS_MASK v193; // edx
-  KPROCESSOR_MODE v194; // di
-  unsigned int v195; // esi
+  WCHAR v148; // bx
+  WCHAR v149; // dx
+  __int64 v150; // rcx
+  int v151; // edi
+  char *v152; // r14
+  int v153; // eax
+  char *v154; // rbx
+  __int64 v155; // rax
+  void *v156; // rax
+  char v157; // si
+  void *v158; // rdx
+  AutoBoost *v159; // rdi
+  signed __int64 *v160; // rbx
+  char v161; // al
+  unsigned __int64 *v162; // r12
+  __int64 (__usercall *v163)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64); // rax
+  __int64 v164; // rax
+  int v165; // ecx
+  PVOID *v166; // rax
+  struct _LIST_ENTRY *v167; // rax
+  struct _KTHREAD *v168; // rcx
+  struct _LIST_ENTRY *v169; // r15
+  struct _KLOCK_ENTRIES *v170; // r9
+  void *v171; // rdx
+  LegacyAutoBoost *v172; // rsi
+  __int64 v173; // rax
+  __int64 v174; // r15
+  __int64 v175; // rax
+  __int128 v176; // rt0
+  char *v177; // rax
+  struct _KTHREAD *v178; // rcx
+  signed __int64 *v179; // rdi
+  struct _KLOCK_ENTRIES *v180; // r9
+  void *v181; // rdx
+  LegacyAutoBoost *v182; // r14
+  struct _OBJECT_TYPE *v183; // rbx
+  _DWORD *v184; // r14
+  ACCESS_MASK v185; // edx
+  KPROCESSOR_MODE v186; // di
+  unsigned int v187; // esi
   void *Pool2; // rdi
-  __int64 v197; // rbx
-  void *v198; // rcx
-  int v199; // ebx
-  __int64 v200; // r8
-  __int64 v201; // r9
-  signed __int64 *v202; // rbx
-  struct _KLOCK_ENTRIES *v203; // r9
-  void *v204; // rdx
-  LegacyAutoBoost *v205; // rdi
-  char v206; // si
-  char *v207; // rdi
-  int v208; // esi
-  __int64 *v209; // rbx
-  __int64 v210; // rdx
-  char *v211; // r12
-  __int64 v212; // r15
-  unsigned __int16 *v213; // r13
-  SIZE_T v214; // rax
-  __int64 v215; // rax
-  unsigned __int16 *v216; // r10
-  char *v217; // r12
-  unsigned __int64 v218; // r8
+  __int64 v189; // rbx
+  void *v190; // rcx
+  int v191; // ebx
+  __int64 v192; // r8
+  __int64 v193; // r9
+  signed __int64 *v194; // rbx
+  struct _KLOCK_ENTRIES *v195; // r9
+  void *v196; // rdx
+  LegacyAutoBoost *v197; // rdi
+  char v198; // si
+  char *v199; // rdi
+  int v200; // esi
+  __int64 *v201; // rbx
+  __int64 v202; // rdx
+  char *v203; // r12
+  __int64 v204; // r15
+  unsigned __int16 *v205; // r13
+  SIZE_T v206; // rax
+  __int64 v207; // rax
+  unsigned __int16 *v208; // r10
+  char *v209; // r12
+  unsigned __int64 v210; // r8
   __int64 Tag; // [rsp+20h] [rbp-E0h]
-  __int64 v220; // [rsp+28h] [rbp-D8h]
-  __int64 *v221; // [rsp+30h] [rbp-D0h]
-  __int64 v222; // [rsp+38h] [rbp-C8h]
-  __int64 v223; // [rsp+40h] [rbp-C0h]
-  PVOID *v224; // [rsp+48h] [rbp-B8h]
-  PVOID *v225; // [rsp+50h] [rbp-B0h]
-  NTSTATUS v226; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v212; // [rsp+28h] [rbp-D8h]
+  __int64 *v213; // [rsp+30h] [rbp-D0h]
+  __int64 v214; // [rsp+38h] [rbp-C8h]
+  __int64 v215; // [rsp+40h] [rbp-C0h]
+  PVOID *v216; // [rsp+48h] [rbp-B8h]
+  PVOID *v217; // [rsp+50h] [rbp-B0h]
+  NTSTATUS v218; // [rsp+60h] [rbp-A0h] BYREF
   PVOID Object; // [rsp+68h] [rbp-98h]
-  unsigned __int64 v228[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v229[2]; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int16 v230; // [rsp+90h] [rbp-70h]
-  int v231; // [rsp+A0h] [rbp-60h]
-  unsigned int v232; // [rsp+A4h] [rbp-5Ch]
+  unsigned __int64 v220[2]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v221[2]; // [rsp+80h] [rbp-80h] BYREF
+  unsigned __int16 v222; // [rsp+90h] [rbp-70h]
+  int v223; // [rsp+A0h] [rbp-60h]
+  unsigned int v224; // [rsp+A4h] [rbp-5Ch]
   void *Source1; // [rsp+A8h] [rbp-58h]
-  unsigned __int64 v234; // [rsp+B0h] [rbp-50h]
-  int v235; // [rsp+B8h] [rbp-48h]
-  int v236; // [rsp+BCh] [rbp-44h] BYREF
-  signed __int64 *v237; // [rsp+C0h] [rbp-40h]
-  PVOID v238; // [rsp+C8h] [rbp-38h] BYREF
-  signed __int64 *v239; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v240; // [rsp+D8h] [rbp-28h] BYREF
-  PVOID v241; // [rsp+E0h] [rbp-20h]
-  _WORD v242[2]; // [rsp+E8h] [rbp-18h] BYREF
-  int v243; // [rsp+ECh] [rbp-14h]
-  __int64 v244; // [rsp+F0h] [rbp-10h]
-  PVOID v245; // [rsp+F8h] [rbp-8h]
+  unsigned __int64 v226; // [rsp+B0h] [rbp-50h]
+  int v227; // [rsp+B8h] [rbp-48h]
+  NTSTATUS v228; // [rsp+BCh] [rbp-44h] BYREF
+  signed __int64 *v229; // [rsp+C0h] [rbp-40h]
+  PVOID v230; // [rsp+C8h] [rbp-38h] BYREF
+  signed __int64 *v231; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v232; // [rsp+D8h] [rbp-28h] BYREF
+  PVOID v233; // [rsp+E0h] [rbp-20h]
+  _WORD v234[2]; // [rsp+E8h] [rbp-18h] BYREF
+  int v235; // [rsp+ECh] [rbp-14h]
+  __int64 v236; // [rsp+F0h] [rbp-10h]
+  PVOID v237; // [rsp+F8h] [rbp-8h]
   UNICODE_STRING String2; // [rsp+100h] [rbp+0h] BYREF
-  __int128 v247; // [rsp+110h] [rbp+10h] BYREF
-  __int128 v248; // [rsp+120h] [rbp+20h]
-  __int128 v249; // [rsp+130h] [rbp+30h]
-  __int64 v250; // [rsp+140h] [rbp+40h]
-  char v251; // [rsp+1A0h] [rbp+A0h]
-  int v253; // [rsp+1B0h] [rbp+B0h] BYREF
+  __int128 v239; // [rsp+110h] [rbp+10h] BYREF
+  __int128 v240; // [rsp+120h] [rbp+20h]
+  __int128 v241; // [rsp+130h] [rbp+30h]
+  __int64 v242; // [rsp+140h] [rbp+40h]
+  BOOLEAN v243; // [rsp+1A0h] [rbp+A0h]
+  int v245; // [rsp+1B0h] [rbp+B0h] BYREF
   POBJECT_TYPE ObjectType; // [rsp+1B8h] [rbp+B8h]
 
   ObjectType = (POBJECT_TYPE)a4;
-  v253 = a3;
+  v245 = a3;
   v13 = (__int64)a11;
   v14 = 0LL;
-  v242[1] = 0;
-  v245 = 0LL;
-  v238 = 0LL;
+  v234[1] = 0;
+  v237 = 0LL;
+  v230 = 0LL;
   *(_OWORD *)a11 = 0LL;
   *(_QWORD *)(v13 + 16) = 0LL;
   v15 = (struct _OBJECT_TYPE *)a4;
-  v250 = 0LL;
+  v242 = 0LL;
   v16 = a3;
-  v237 = 0LL;
-  v17 = (unsigned __int16 *)a2;
+  v229 = 0LL;
+  v17 = a2;
+  v231 = 0LL;
+  v232 = 0LL;
+  v226 = 0LL;
+  v227 = 64;
   v239 = 0LL;
   v240 = 0LL;
-  v234 = 0LL;
-  v235 = 64;
-  v247 = 0LL;
-  v248 = 0LL;
-  v249 = 0LL;
-  *(_OWORD *)v229 = 0LL;
+  v241 = 0LL;
+  *(_OWORD *)v221 = 0LL;
   if ( a12 )
     *a12 = 0;
   v19 = ObpCaseInsensitive == 0;
   v20 = (__int64)a9;
-  v226 = 0;
-  v236 = 0;
+  v218 = 0;
+  v228 = 0;
   *a13 = 0LL;
-  v242[0] = 16;
-  v251 = 1;
+  v234[0] = 16;
+  v243 = 1;
   Object = 0LL;
   Source1 = 0LL;
-  v243 = -1;
-  v244 = v20;
+  v235 = -1;
+  v236 = v20;
   if ( !v19
     && (*(_BYTE *)(a4 + 66) & 1) != 0
     && (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x80000) == 0 )
   {
     v16 = a3 | 0x40;
-    v253 = a3 | 0x40;
+    v245 = a3 | 0x40;
   }
   v21 = a8;
   v22 = 1;
   if ( (v16 & 0x400) == 0 )
     v22 = a5;
-  v232 = v22;
+  v224 = v22;
   v23 = v16 & 0x40 | 1;
   if ( a8 )
     v23 = v16 & 0x40;
-  v231 = v23;
+  v223 = v23;
   if ( BugCheckParameter1 )
   {
-    result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0LL, 0LL, a5, 0x746C6644u, &v238, 0LL, &v240);
-    v226 = result;
+    result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0, 0LL, a5, 0x746C6644u, &v230, 0LL, &v232);
+    v218 = result;
     if ( result < 0 )
       return result;
-    if ( HIDWORD(v240) )
+    if ( HIDWORD(v232) )
     {
-      v243 &= HIDWORD(v240);
-      if ( (v243 & a10->OriginalDesiredAccess) != a10->OriginalDesiredAccess )
+      v235 &= HIDWORD(v232);
+      if ( (v235 & a10->OriginalDesiredAccess) != a10->OriginalDesiredAccess )
       {
-        ObfDereferenceObject(v238);
+        ObfDereferenceObject(v230);
         return -1073741790;
       }
     }
-    v26 = (unsigned __int64 *)v238;
-    v245 = v238;
-    if ( *v17 )
+    v26 = (unsigned __int64 *)v230;
+    v237 = v230;
+    if ( *(_WORD *)v17 )
     {
-      if ( **((_WORD **)v17 + 1) == 92
-        && ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((char *)v238 - 24) ^ ((unsigned __int16)((_WORD)v238 - 48) >> 8))) != *((_BYTE *)IoFileObjectType + 40) )
+      if ( **(_WORD **)(v17 + 8) == 92
+        && ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((char *)v230 - 24) ^ ((unsigned __int16)((_WORD)v230 - 48) >> 8))) != *((_BYTE *)IoFileObjectType + 40) )
       {
-        ObfDereferenceObject(v238);
+        ObfDereferenceObject(v230);
         return -1073741765;
       }
     }
-    else if ( ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((char *)v238 - 24) ^ ((unsigned __int16)((_WORD)v238 - 48) >> 8))) == ObpDirectoryObjectType->Index )
+    else if ( ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((char *)v230 - 24) ^ ((unsigned __int16)((_WORD)v230 - 48) >> 8))) == ObpDirectoryObjectType->Index )
     {
-      v226 = ObReferenceObjectByPointer(v238, 0, v15, a5);
-      if ( v226 >= 0 )
+      v218 = ObReferenceObjectByPointer(v230, 0, v15, a5);
+      if ( v218 >= 0 )
         v14 = v26;
       ObfDereferenceObject(v26);
       *a13 = v14;
-      return v226;
+      return v218;
     }
-    v27 = (unsigned __int64 *)v238;
+    v27 = (unsigned __int64 *)v230;
     v28 = *(UNICODE_STRING *)v17;
-    *(_OWORD *)v229 = *(_OWORD *)v17;
+    *(_OWORD *)v221 = *(_OWORD *)v17;
     if ( SepLearningModeTokenCount )
     {
-      *((_QWORD *)&v248 + 1) = v17;
-      *(_QWORD *)&v248 = &ObjectType->Name;
-      *(_QWORD *)&v249 = BugCheckParameter1;
-      SeSetLearningModeObjectInformation((__int64)&v247);
-      v29 = (struct _KLOCK_ENTRIES *)v229[1];
-      epi16 = WORD1(v229[0]);
-      v31 = v229[0];
-      v28 = *(UNICODE_STRING *)v229;
+      *((_QWORD *)&v240 + 1) = v17;
+      *(_QWORD *)&v240 = &ObjectType->Name;
+      *(_QWORD *)&v241 = BugCheckParameter1;
+      SeSetLearningModeObjectInformation((__int64)&v239);
+      v29 = (struct _KLOCK_ENTRIES *)v221[1];
+      epi16 = WORD1(v221[0]);
+      v31 = v221[0];
+      v28 = *(UNICODE_STRING *)v221;
       goto LABEL_184;
     }
     v29 = (struct _KLOCK_ENTRIES *)_mm_srli_si128((__m128i)v28, 8).m128i_u64[0];
@@ -430,7 +422,7 @@ int __fastcall ObpLookupObjectName(
     if ( (int)PsGetPermanentSiloContext(v20, PsObjectDirectorySiloContextSlot, (unsigned __int64 *)&a9) >= 0 )
       v24 = a9;
     else
-      v24 = ObpRootDirectoryObject;
+      v24 = *(void **)&ObpStackTraceLock.PriorityFloorCounts[24];
     if ( v24 )
     {
       result = ObReferenceObjectByPointer(v24, 0, v15, a5);
@@ -451,109 +443,106 @@ int __fastcall ObpLookupObjectName(
   }
   if ( SepLearningModeTokenCount )
   {
-    *((_QWORD *)&v248 + 1) = a2;
-    *(_QWORD *)&v248 = a4 + 16;
-    *(_QWORD *)&v249 = 0LL;
-    SeSetLearningModeObjectInformation((__int64)&v247);
+    *((_QWORD *)&v240 + 1) = a2;
+    *(_QWORD *)&v240 = a4 + 16;
+    *(_QWORD *)&v241 = 0LL;
+    SeSetLearningModeObjectInformation((__int64)&v239);
   }
   while ( 1 )
   {
     while ( 1 )
     {
-      v46 = *v17;
-      if ( (unsigned __int16)v46 < 8u || **((_QWORD **)v17 + 1) != 0x5C003F003F005CLL )
+      if ( *(_WORD *)v17 < 8u || **(_QWORD **)(v17 + 8) != 0x5C003F003F005CLL )
       {
-        if ( (_WORD)v46 != 6 )
+        if ( *(_WORD *)v17 != 6 )
           goto LABEL_134;
-        v172 = *((_QWORD *)v17 + 1);
-        v173 = *(_DWORD *)v172 - 4128860;
-        if ( *(_DWORD *)v172 == 4128860 )
-          v173 = *(unsigned __int16 *)(v172 + 4) - 63;
-        if ( v173 )
+        v164 = *(_QWORD *)(v17 + 8);
+        v165 = *(_DWORD *)v164 - 4128860;
+        if ( *(_DWORD *)v164 == 4128860 )
+          v165 = *(unsigned __int16 *)(v164 + 4) - 63;
+        if ( v165 )
           goto LABEL_134;
-        v174 = (PVOID *)ObpReferenceCurrentDeviceMap(
+        v166 = (PVOID *)ObpReferenceCurrentDeviceMap(
                           v16,
-                          &v239,
+                          &v231,
                           0x5C003F003F005CLL,
                           63LL,
                           Tag,
-                          v220,
-                          v221,
-                          v222,
-                          v223,
-                          v224,
-                          v225);
-        v234 = (unsigned __int64)v174;
-        if ( !v174 || !*v174 )
+                          v212,
+                          v213,
+                          v214,
+                          v215,
+                          v216,
+                          v217);
+        v226 = (unsigned __int64)v166;
+        if ( !v166 || !*v166 )
         {
-          v237 = v239;
+          v229 = v231;
 LABEL_394:
           v20 = (__int64)a9;
 LABEL_134:
           if ( !Source1 )
           {
-            v228[0] = 0LL;
-            if ( (int)PsGetPermanentSiloContext(v20, PsObjectDirectorySiloContextSlot, v228) >= 0 )
-              v93 = (PVOID)v228[0];
+            v220[0] = 0LL;
+            if ( (int)PsGetPermanentSiloContext(v20, PsObjectDirectorySiloContextSlot, v220) >= 0 )
+              v90 = (void *)v220[0];
             else
-              v93 = ObpRootDirectoryObject;
-            Source1 = v93;
+              v90 = *(void **)&ObpStackTraceLock.PriorityFloorCounts[24];
+            Source1 = v90;
           }
           v27 = (unsigned __int64 *)Source1;
           goto LABEL_139;
         }
-        v27 = (unsigned __int64 *)*v174;
-        v86 = ObReferenceObjectByPointer(*v174, 0, ObjectType, a5);
-        v226 = v86;
-        v237 = v239;
+        v27 = (unsigned __int64 *)*v166;
+        v83 = ObReferenceObjectByPointer(*v166, 0, ObjectType, a5);
+        v218 = v83;
+        v229 = v231;
 LABEL_281:
         v32 = Object;
         goto LABEL_282;
       }
-      if ( v15 == (struct _OBJECT_TYPE *)IoFileObjectType )
+      if ( v15 == (struct _OBJECT_TYPE *)IoFileObjectType
+        && (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8) != 0
+        && *(_WORD *)v17 >= 0xEu )
       {
-        v154 = *((unsigned int *)&KeGetCurrentThread()[1].SwapListEntry + 2);
-        if ( (v154 & 8) != 0 && *v17 >= 0xEu )
+        NtSystemRoot = RtlGetNtSystemRoot();
+        v148 = RtlUpcaseUnicodeChar(*NtSystemRoot);
+        v149 = RtlUpcaseUnicodeChar(*(_WORD *)(*(_QWORD *)(v17 + 8) + 8LL));
+        if ( (ObpDriveRemappingMitigation & 1) != 0 )
         {
-          NtSystemRoot = (WCHAR *)RtlGetNtSystemRoot(v154, v46, 0x5C003F003F005CLL, 63LL);
-          v156 = RtlUpcaseUnicodeChar(*NtSystemRoot);
-          v157 = RtlUpcaseUnicodeChar(*(_WORD *)(*((_QWORD *)v17 + 1) + 8LL));
-          if ( (ObpDriveRemappingMitigation & 1) != 0 )
-          {
-            v158 = *((_QWORD *)v17 + 1);
-            if ( v156 == v157 && *(_WORD *)(v158 + 10) == 58 && *(_WORD *)(v158 + 12) == 92 )
-              v253 = v16 | 0x800;
-          }
+          v150 = *(_QWORD *)(v17 + 8);
+          if ( v148 == v149 && *(_WORD *)(v150 + 10) == 58 && *(_WORD *)(v150 + 12) == 92 )
+            v245 = v16 | 0x800;
         }
       }
       CurrentThread = KeGetCurrentThread();
-      v234 = 0LL;
-      v237 = 0LL;
-      v239 = 0LL;
+      v226 = 0LL;
+      v229 = 0LL;
+      v231 = 0LL;
       Process = (__int64)CurrentThread->Process;
       ProcessServerSilo = PsGetProcessServerSilo(Process);
       ThreadServerSilo = PsGetThreadServerSilo((__int64)CurrentThread);
-      v52 = ProcessServerSilo != ThreadServerSilo;
-      v53 = ProcessServerSilo != ThreadServerSilo;
-      if ( (((*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0) & !_bittest(&v253, 0xBu)) != 0
+      v49 = ProcessServerSilo != ThreadServerSilo;
+      v50 = ProcessServerSilo != ThreadServerSilo;
+      if ( (((*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0) & !_bittest(&v245, 0xBu)) != 0
         && ProcessServerSilo == ThreadServerSilo
         && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
       {
-        v54 = KeGetCurrentThread();
-        --v54->KernelApcDisable;
-        v56 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CurrentThread[1].WaitBlockList, 0LL, 0LL, v50);
+        v51 = KeGetCurrentThread();
+        --v51->KernelApcDisable;
+        v53 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CurrentThread[1].WaitBlockList, 0LL, 0LL, v47);
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CurrentThread[1].WaitBlockList, 17LL, 0LL) )
           ExfAcquirePushLockSharedEx(
             (signed __int64 *)&CurrentThread[1].WaitBlockList,
             0,
-            v56,
+            v53,
             (struct _KTHREAD *)((char *)CurrentThread + 1424));
-        if ( v56 )
+        if ( v53 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
-            AutoBoost::KiAbpPostAcquire(v56, v55);
+            AutoBoost::KiAbpPostAcquire(v53, v52);
           else
-            *((_BYTE *)v56 + 10) = 1;
+            *((_BYTE *)v53 + 10) = 1;
         }
         if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
         {
@@ -561,92 +550,92 @@ LABEL_281:
           if ( !p_Lock )
             p_Lock = (_QWORD *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
           ObfReferenceObjectWithTag(p_Lock, 0x746C6644u);
-          PspUnlockThreadSecurityShared((__int64)CurrentThread, v54);
-          v53 = v52;
+          PspUnlockThreadSecurityShared((__int64)CurrentThread, v51);
+          v50 = v49;
           if ( p_Lock )
           {
             if ( p_Lock[3] == 999LL )
             {
-              v53 = 1;
+              v50 = 1;
               ObfDereferenceObjectWithTag(p_Lock, 0x746C6644u);
               goto LABEL_378;
             }
-            v228[0] = 0LL;
-            if ( (int)SeGetTokenDeviceMap(p_Lock, v228) >= 0 )
-              v234 = v228[0];
+            v220[0] = 0LL;
+            if ( (int)SeGetTokenDeviceMap(p_Lock, v220) >= 0 )
+              v226 = v220[0];
             ObfDereferenceObjectWithTag(p_Lock, 0x746C6644u);
-            v58 = (volatile signed __int64 *)v234;
-            if ( v234 )
+            v55 = (volatile signed __int64 *)v226;
+            if ( v226 )
               goto LABEL_95;
           }
         }
         else
         {
-          PspUnlockThreadSecurityShared((__int64)CurrentThread, v54);
-          v53 = ProcessServerSilo != ThreadServerSilo;
+          PspUnlockThreadSecurityShared((__int64)CurrentThread, v51);
+          v50 = ProcessServerSilo != ThreadServerSilo;
         }
       }
-      if ( !v53 )
+      if ( !v50 )
       {
         ServerSiloGlobals = (signed __int64 *)(Process + 792);
-        v237 = (signed __int64 *)(Process + 792);
+        v229 = (signed __int64 *)(Process + 792);
         goto LABEL_77;
       }
 LABEL_378:
       ServerSiloGlobals = (signed __int64 *)PsGetServerSiloGlobals(ThreadServerSilo);
-      v237 = ServerSiloGlobals;
+      v229 = ServerSiloGlobals;
 LABEL_77:
-      v239 = ServerSiloGlobals;
+      v231 = ServerSiloGlobals;
       _m_prefetchw(ServerSiloGlobals);
-      v60 = *ServerSiloGlobals;
-      v61 = *ServerSiloGlobals;
+      v57 = *ServerSiloGlobals;
+      v58 = *ServerSiloGlobals;
       if ( (*ServerSiloGlobals & 0xF) != 0 )
       {
         do
         {
-          v62 = _InterlockedCompareExchange64(ServerSiloGlobals, v60 - 1, v60);
-          if ( v60 == v62 )
+          v59 = _InterlockedCompareExchange64(ServerSiloGlobals, v57 - 1, v57);
+          if ( v57 == v59 )
             break;
-          v60 = v62;
-          LOBYTE(v61) = v62;
+          v57 = v59;
+          LOBYTE(v58) = v59;
         }
-        while ( (v62 & 0xF) != 0 );
+        while ( (v59 & 0xF) != 0 );
       }
-      v58 = (volatile signed __int64 *)(v60 & 0xFFFFFFFFFFFFFFF0uLL);
-      v234 = (unsigned __int64)v58;
-      if ( (v61 & 0xF) == 0 )
+      v55 = (volatile signed __int64 *)(v57 & 0xFFFFFFFFFFFFFFF0uLL);
+      v226 = (unsigned __int64)v55;
+      if ( (v58 & 0xF) == 0 )
       {
         CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-        v64 = KeGetCurrentThread();
+        v61 = KeGetCurrentThread();
         p_Blink = (signed __int64 *)&CurrentServerSiloGlobals[7].Blink;
-        --v64->SpecialApcDisable;
-        v68 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL, 0LL, v66);
+        --v61->SpecialApcDisable;
+        v65 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL, 0LL, v63);
         if ( _InterlockedCompareExchange64(p_Blink, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx(p_Blink, 0, v68, (struct _KTHREAD *)p_Blink);
-        if ( v68 )
+          ExfAcquirePushLockSharedEx(p_Blink, 0, v65, (struct _KTHREAD *)p_Blink);
+        if ( v65 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
-            AutoBoost::KiAbpPostAcquire(v68, v67);
+            AutoBoost::KiAbpPostAcquire(v65, v64);
           else
-            *((_BYTE *)v68 + 10) = 1;
+            *((_BYTE *)v65 + 10) = 1;
         }
-        v58 = (volatile signed __int64 *)(*ServerSiloGlobals & 0xFFFFFFFFFFFFFFF0uLL);
-        v234 = (unsigned __int64)v58;
-        if ( v58 )
+        v55 = (volatile signed __int64 *)(*ServerSiloGlobals & 0xFFFFFFFFFFFFFFF0uLL);
+        v226 = (unsigned __int64)v55;
+        if ( v55 )
         {
-          if ( _InterlockedExchangeAdd64(v58 + 30, 0xFuLL) <= 0 )
+          if ( _InterlockedExchangeAdd64(v55 + 30, 0xFuLL) <= 0 )
             __fastfail(0xEu);
           _m_prefetchw(ServerSiloGlobals);
-          v69 = *ServerSiloGlobals;
-          while ( (unsigned __int64)(v69 & 0xF) + 14 <= 0xF
-               && v58 == (volatile signed __int64 *)(v69 & 0xFFFFFFFFFFFFFFF0uLL) )
+          v66 = *ServerSiloGlobals;
+          while ( (unsigned __int64)(v66 & 0xF) + 14 <= 0xF
+               && v55 == (volatile signed __int64 *)(v66 & 0xFFFFFFFFFFFFFFF0uLL) )
           {
-            v70 = v69;
-            v69 = _InterlockedCompareExchange64(ServerSiloGlobals, v69 + 14, v69);
-            if ( v70 == v69 )
+            v67 = v66;
+            v66 = _InterlockedCompareExchange64(ServerSiloGlobals, v66 + 14, v66);
+            if ( v67 == v66 )
               goto LABEL_91;
           }
-          ObDereferenceDeviceMap((PVOID)v58);
+          ObDereferenceDeviceMap((PVOID)v55);
         }
 LABEL_91:
         if ( _InterlockedCompareExchange64(p_Blink, 0LL, 17LL) != 17 )
@@ -654,65 +643,65 @@ LABEL_91:
         KeAbPostRelease((unsigned __int64)p_Blink);
         KeLeaveGuardedRegion();
       }
-      if ( !v58 )
+      if ( !v55 )
       {
-        if ( !v53 )
+        if ( !v50 )
         {
-          v237 = 0LL;
-          v239 = 0LL;
-          v58 = (volatile signed __int64 *)ObpSetCurrentProcessDeviceMap();
-          v234 = (unsigned __int64)v58;
+          v229 = 0LL;
+          v231 = 0LL;
+          v55 = (volatile signed __int64 *)ObpSetCurrentProcessDeviceMap();
+          v226 = (unsigned __int64)v55;
         }
-        if ( !v58 )
+        if ( !v55 )
         {
-          v17 = (unsigned __int16 *)a2;
+          v17 = a2;
           goto LABEL_394;
         }
       }
 LABEL_95:
-      v17 = (unsigned __int16 *)a2;
-      if ( !*v58 )
+      v17 = a2;
+      if ( !*v55 )
         goto LABEL_394;
-      v71 = *(_QWORD *)(a2 + 8);
-      v72 = *(_WORD *)a2 - 8;
+      v68 = *(_QWORD *)(a2 + 8);
+      v69 = *(_WORD *)a2 - 8;
       epi16 = *(_WORD *)(a2 + 2) - 8;
-      v29 = (struct _KLOCK_ENTRIES *)(v71 + 8);
-      v229[1] = v71 + 8;
-      v31 = v72;
-      LOWORD(v229[0]) = v72;
-      WORD1(v229[0]) = epi16;
+      v29 = (struct _KLOCK_ENTRIES *)(v68 + 8);
+      v221[1] = v68 + 8;
+      v31 = v69;
+      LOWORD(v221[0]) = v69;
+      WORD1(v221[0]) = epi16;
       if ( ObjectType == (POBJECT_TYPE)IoFileObjectType
-        && (v231 & 1) != 0
-        && v72 >= 6u
-        && *(_WORD *)(v71 + 10) == 58
-        && *(_WORD *)(v71 + 12) == 92 )
+        && (v223 & 1) != 0
+        && v69 >= 6u
+        && *(_WORD *)(v68 + 10) == 58
+        && *(_WORD *)(v68 + 12) == 92 )
       {
-        v73 = (LOWORD(v29->Thread) | 0x20u) - 97;
-        if ( (unsigned int)v73 < 0x1A )
+        v70 = (LOWORD(v29->Thread) | 0x20u) - 97;
+        if ( (unsigned int)v70 < 0x1A )
           break;
       }
 LABEL_300:
-      v27 = (unsigned __int64 *)*v58;
-      v28 = *(UNICODE_STRING *)v229;
+      v27 = (unsigned __int64 *)*v55;
+      v28 = *(UNICODE_STRING *)v221;
 LABEL_184:
       while ( 1 )
       {
-        v115 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)v27 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v27 - 48) >> 8)];
-        v116 = *(__int64 (__usercall **)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64))(v115 + 144);
-        if ( v116 )
+        v108 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)v27 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v27 - 48) >> 8)];
+        v109 = *(__int64 (__usercall **)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64))(v108 + 144);
+        if ( v109 )
           break;
-        if ( (POBJECT_TYPE)v115 != ObpDirectoryObjectType )
+        if ( (POBJECT_TYPE)v108 != ObpDirectoryObjectType )
           goto LABEL_491;
-        v241 = v27;
+        v233 = v27;
         if ( v31 && LOWORD(v29->Thread) == 92 )
         {
           v29 = (struct _KLOCK_ENTRIES *)((char *)v29 + 2);
           v31 -= 2;
           epi16 -= 2;
-          v229[1] = (__int64)v29;
-          WORD1(v229[0]) = epi16;
-          LOWORD(v229[0]) = v31;
-          v28 = *(UNICODE_STRING *)v229;
+          v221[1] = (__int64)v29;
+          WORD1(v221[0]) = epi16;
+          LOWORD(v221[0]) = v31;
+          v28 = *(UNICODE_STRING *)v221;
         }
         String2 = v28;
         if ( v31 )
@@ -724,182 +713,181 @@ LABEL_184:
             v29 = (struct _KLOCK_ENTRIES *)((char *)v29 + 2);
             v19 = v31 == 2;
             v31 -= 2;
-            v229[1] = (__int64)v29;
-            LOWORD(v229[0]) = v31;
+            v221[1] = (__int64)v29;
+            LOWORD(v221[0]) = v31;
           }
           while ( !v19 );
         }
-        v117 = String2.Length - v31;
-        v118 = epi16 - (String2.Length - v31);
-        v230 = v117;
+        v110 = String2.Length - v31;
+        v111 = epi16 - (String2.Length - v31);
+        v222 = v110;
         String2.Length -= v31;
-        WORD1(v229[0]) = v118;
-        if ( !v117 )
+        WORD1(v221[0]) = v111;
+        if ( !v110 )
           goto LABEL_26;
-        v119 = v232;
-        if ( (_BYTE)v232 && (a10->Flags & 1) == 0 )
+        v112 = v224;
+        if ( (_BYTE)v224 && (a10->Flags & 1) == 0 )
         {
-          LOBYTE(Tag) = v232;
-          v251 = ObpCheckTraverseAccess(v27, a10, a10, v29, Tag, &v236);
-          if ( !v251 )
+          v243 = ObpCheckTraverseAccess((__int64)v27, (ACCESS_MASK)a10, a10, (char)v29, v224, &v228);
+          if ( !v243 )
           {
-            v86 = v236;
-            if ( v236 >= 0 )
+            v83 = v228;
+            if ( v228 >= 0 )
             {
-              v86 = -1073741772;
-              v236 = -1073741772;
+              v83 = -1073741772;
+              v228 = -1073741772;
             }
-            if ( LOWORD(v229[0]) || !a8 )
+            if ( LOWORD(v221[0]) || !a8 )
               goto LABEL_397;
             goto LABEL_229;
           }
-          v31 = v229[0];
+          v31 = v221[0];
         }
         if ( !a8 || v31 )
         {
-          v120 = 0;
+          v113 = 0;
           goto LABEL_196;
         }
 LABEL_229:
-        v120 = 1;
+        v113 = 1;
 LABEL_196:
-        v121 = (__int64)a11;
+        v114 = (__int64)a11;
         if ( *a11 )
         {
-          v122 = (volatile signed __int32 *)(v27 + 37);
-          v123 = (AutoBoost *)KeAbPreAcquire((__int64)(v27 + 37), 0LL, 0LL, v29);
-          v125 = v123;
-          if ( v120 )
+          v115 = (volatile signed __int32 *)(v27 + 37);
+          v116 = (AutoBoost *)KeAbPreAcquire((__int64)(v27 + 37), 0LL, 0LL, v29);
+          v118 = v116;
+          if ( v113 )
           {
-            if ( _interlockedbittestandset64(v122, 0LL) )
-              ExfAcquirePushLockExclusiveEx(v27 + 37, v123, (__int64)(v27 + 37));
-            if ( v125 )
+            if ( _interlockedbittestandset64(v115, 0LL) )
+              ExfAcquirePushLockExclusiveEx(v27 + 37, v116, (__int64)(v27 + 37));
+            if ( v118 )
             {
               if ( (KiAbpGlobalState & 1) != 0 )
                 goto LABEL_290;
 LABEL_202:
-              *((_BYTE *)v125 + 10) = 1;
+              *((_BYTE *)v118 + 10) = 1;
             }
           }
           else
           {
-            if ( _InterlockedCompareExchange64((volatile signed __int64 *)v122, 17LL, 0LL) )
-              ExfAcquirePushLockSharedEx((signed __int64 *)v27 + 37, 0, v123, (struct _KTHREAD *)(v27 + 37));
-            if ( v125 )
+            if ( _InterlockedCompareExchange64((volatile signed __int64 *)v115, 17LL, 0LL) )
+              ExfAcquirePushLockSharedEx((signed __int64 *)v27 + 37, 0, v116, (struct _KTHREAD *)(v27 + 37));
+            if ( v118 )
             {
               if ( (KiAbpGlobalState & 1) == 0 )
                 goto LABEL_202;
 LABEL_290:
-              AutoBoost::KiAbpPostAcquire(v125, v124);
+              AutoBoost::KiAbpPostAcquire(v118, v117);
             }
           }
-          v126 = *(_QWORD *)v121;
-          v127 = 0LL;
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v121 + 296LL), 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared((signed __int64 *)(v126 + 296));
-          KeAbPostRelease(v126 + 296);
-          if ( *(_BYTE *)(v121 + 22) )
+          v119 = *(_QWORD *)v114;
+          v120 = 0LL;
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v114 + 296LL), 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)(v119 + 296));
+          KeAbPostRelease(v119 + 296);
+          if ( *(_BYTE *)(v114 + 22) )
           {
-            ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v121, 0x554C624Fu);
-            *(_BYTE *)(v121 + 22) = 0;
+            ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v114, 0x554C624Fu);
+            *(_BYTE *)(v114 + 22) = 0;
           }
-          *(_QWORD *)v121 = v27;
-          *(_BYTE *)(v121 + 21) = v120;
+          *(_QWORD *)v114 = v27;
+          *(_BYTE *)(v114 + 21) = v113;
           goto LABEL_208;
         }
-        if ( v120 )
+        if ( v113 )
         {
-          ObpLockDirectoryExclusive(a11, v27, v119, v29);
-          v127 = 0LL;
+          ObpLockDirectoryExclusive(a11, v27, v112, v29);
+          v120 = 0LL;
           goto LABEL_208;
         }
         *a11 = v27;
-        *(_BYTE *)(v121 + 21) = 0;
-        v140 = KeGetCurrentThread();
-        --v140->KernelApcDisable;
-        v142 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v27 + 37), 0LL, 0LL, v29);
+        *(_BYTE *)(v114 + 21) = 0;
+        v133 = KeGetCurrentThread();
+        --v133->KernelApcDisable;
+        v135 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v27 + 37), 0LL, 0LL, v29);
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)v27 + 37, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx((signed __int64 *)v27 + 37, 0, v142, (struct _KTHREAD *)(v27 + 37));
-        if ( v142 )
+          ExfAcquirePushLockSharedEx((signed __int64 *)v27 + 37, 0, v135, (struct _KTHREAD *)(v27 + 37));
+        if ( v135 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
           {
-            AutoBoost::KiAbpPostAcquire(v142, v141);
-            v127 = 0LL;
+            AutoBoost::KiAbpPostAcquire(v135, v134);
+            v120 = 0LL;
             goto LABEL_208;
           }
-          *((_BYTE *)v142 + 10) = 1;
+          *((_BYTE *)v135 + 10) = 1;
         }
-        v127 = 0LL;
+        v120 = 0LL;
 LABEL_208:
         Buffer = String2.Buffer;
-        v130 = v117 >> 1;
+        v123 = v110 >> 1;
         Source1 = String2.Buffer;
-        if ( v130 < 4 )
+        if ( v123 < 4 )
         {
-          v132 = 0;
+          v125 = 0;
         }
         else
         {
           do
           {
-            v131 = *(_QWORD *)Buffer;
+            v124 = *(_QWORD *)Buffer;
             if ( (*(_QWORD *)Buffer & 0xFF80FF80FF80FF80uLL) != 0 )
             {
-              v182 = 4LL;
+              v174 = 4LL;
               do
               {
-                v183 = (unsigned __int16)v131;
-                if ( (unsigned __int16)v131 >= 0x61u )
+                v175 = (unsigned __int16)v124;
+                if ( (unsigned __int16)v124 >= 0x61u )
                 {
-                  if ( (unsigned __int16)v131 <= 0x7Au )
-                    v183 = (unsigned int)(unsigned __int16)v131 - 32;
+                  if ( (unsigned __int16)v124 <= 0x7Au )
+                    v175 = (unsigned int)(unsigned __int16)v124 - 32;
                   else
-                    v183 = RtlUpcaseUnicodeChar(v131);
+                    v175 = RtlUpcaseUnicodeChar(v124);
                 }
-                *(_QWORD *)&v184 = v131;
-                *((_QWORD *)&v184 + 1) = v183;
-                v131 = v184 >> 16;
-                --v182;
+                *(_QWORD *)&v176 = v124;
+                *((_QWORD *)&v176 + 1) = v175;
+                v124 = v176 >> 16;
+                --v174;
               }
-              while ( v182 );
+              while ( v174 );
             }
             else
             {
-              v131 &= 0xFFDFFFDFFFDFFFDFuLL;
+              v124 &= 0xFFDFFFDFFFDFFFDFuLL;
             }
             Buffer += 4;
-            v130 -= 4;
-            v127 = v131 + (v127 >> 1) + 3 * v127;
+            v123 -= 4;
+            v120 = v124 + (v120 >> 1) + 3 * v120;
           }
-          while ( v130 >= 4 );
-          v121 = (__int64)a11;
-          v132 = v127 + HIDWORD(v127);
+          while ( v123 >= 4 );
+          v114 = (__int64)a11;
+          v125 = v120 + HIDWORD(v120);
         }
-        while ( v130 )
+        while ( v123 )
         {
-          v133 = *Buffer++;
-          --v130;
-          v134 = (v132 >> 1) + 3 * v132;
-          if ( v133 >= 0x61 )
+          v126 = *Buffer++;
+          --v123;
+          v127 = (v125 >> 1) + 3 * v125;
+          if ( v126 >= 0x61 )
           {
-            if ( v133 > 0x7A )
+            if ( v126 > 0x7A )
             {
-              v132 = RtlUpcaseUnicodeChar(v133) + v134;
+              v125 = RtlUpcaseUnicodeChar(v126) + v127;
               continue;
             }
-            v134 -= 32;
+            v127 -= 32;
           }
-          v132 = v133 + v134;
+          v125 = v126 + v127;
         }
-        v135 = v231;
-        *(_DWORD *)(v121 + 16) = v132;
-        v136 = v135 & 0x40;
-        v137 = v132 % 0x25;
-        *(_BYTE *)(v121 + 20) = v137;
-        v138 = *(_QWORD *)(*(_QWORD *)v121 + 8LL * v137);
-        v139 = *(_QWORD *)v121 + 8LL * v137;
-        if ( !v138 )
+        v128 = v223;
+        *(_DWORD *)(v114 + 16) = v125;
+        v129 = v128 & 0x40;
+        v130 = v125 % 0x25;
+        *(_BYTE *)(v114 + 20) = v130;
+        v131 = *(_QWORD *)(*(_QWORD *)v114 + 8LL * v130);
+        v132 = *(_QWORD *)v114 + 8LL * v130;
+        if ( !v131 )
         {
 LABEL_222:
           v27 = 0LL;
@@ -907,197 +895,197 @@ LABEL_222:
         }
         while ( 1 )
         {
-          if ( *(_DWORD *)(v138 + 16) != *(_DWORD *)(v121 + 16) )
+          if ( *(_DWORD *)(v131 + 16) != *(_DWORD *)(v114 + 16) )
             goto LABEL_221;
           Flink = PsGetCurrentServerSiloGlobals()[75].Flink;
-          if ( v230 != *(_WORD *)(v143 + 8) )
+          if ( v222 != *(_WORD *)(v136 + 8) )
             goto LABEL_221;
-          v145 = *(char **)(v143 + 16);
-          v146 = v230;
-          v147 = (unsigned __int16 *)((char *)Source1 + v230);
-          if ( v136 )
+          v138 = *(char **)(v136 + 16);
+          v139 = v222;
+          v140 = (unsigned __int16 *)((char *)Source1 + v222);
+          if ( v129 )
             break;
-          if ( !memcmp(Source1, v145, v230) )
+          if ( !memcmp(Source1, v138, v222) )
             goto LABEL_240;
 LABEL_258:
-          v121 = (__int64)a11;
+          v114 = (__int64)a11;
 LABEL_221:
-          v139 = v138;
-          v138 = *(_QWORD *)v138;
-          if ( !v138 )
+          v132 = v131;
+          v131 = *(_QWORD *)v131;
+          if ( !v131 )
             goto LABEL_222;
         }
-        v148 = RtlCompareMemory(Source1, v145, v230);
-        if ( v148 != v146 )
+        v141 = RtlCompareMemory(Source1, v138, v222);
+        if ( v141 != v139 )
         {
-          v149 = 2 * (v148 >> 1);
-          v150 = (unsigned __int16 *)((char *)Source1 + v149);
-          v151 = &v145[v149];
-          while ( v150 < v147 )
+          v142 = 2 * (v141 >> 1);
+          v143 = (unsigned __int16 *)((char *)Source1 + v142);
+          v144 = &v138[v142];
+          while ( v143 < v140 )
           {
-            v152 = *v150;
-            v128 = *(unsigned __int16 *)v151;
-            if ( (_WORD)v152 != (_WORD)v128 )
+            v145 = *v143;
+            v121 = *(unsigned __int16 *)v144;
+            if ( (_WORD)v145 != (_WORD)v121 )
             {
-              if ( (unsigned int)v152 >= 0x61 )
+              if ( (unsigned int)v145 >= 0x61 )
               {
-                if ( (unsigned int)v152 > 0x7A )
+                if ( (unsigned int)v145 > 0x7A )
                 {
-                  if ( Flink && (unsigned __int16)v152 >= 0xC0u )
-                    LOWORD(v152) = *((_WORD *)&Flink->Flink
-                                   + (v152 & 0xF)
+                  if ( Flink && (unsigned __int16)v145 >= 0xC0u )
+                    LOWORD(v145) = *((_WORD *)&Flink->Flink
+                                   + (v145 & 0xF)
                                    + *((unsigned __int16 *)&Flink->Flink
-                                     + ((unsigned __int8)v152 >> 4)
-                                     + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v152 >> 8))))
-                                 + v152;
+                                     + ((unsigned __int8)v145 >> 4)
+                                     + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v145 >> 8))))
+                                 + v145;
                 }
                 else
                 {
-                  LOWORD(v152) = v152 - 32;
+                  LOWORD(v145) = v145 - 32;
                 }
               }
-              if ( (unsigned int)v128 >= 0x61 )
+              if ( (unsigned int)v121 >= 0x61 )
               {
-                if ( (unsigned int)v128 > 0x7A )
+                if ( (unsigned int)v121 > 0x7A )
                 {
-                  if ( Flink && (unsigned __int16)v128 >= 0xC0u )
-                    LOWORD(v128) = *((_WORD *)&Flink->Flink
-                                   + (v128 & 0xF)
+                  if ( Flink && (unsigned __int16)v121 >= 0xC0u )
+                    LOWORD(v121) = *((_WORD *)&Flink->Flink
+                                   + (v121 & 0xF)
                                    + *((unsigned __int16 *)&Flink->Flink
-                                     + ((unsigned __int8)v128 >> 4)
-                                     + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v128 >> 8))))
-                                 + v128;
+                                     + ((unsigned __int8)v121 >> 4)
+                                     + (unsigned int)*((unsigned __int16 *)&Flink->Flink + (v121 >> 8))))
+                                 + v121;
                 }
                 else
                 {
-                  LOWORD(v128) = v128 - 32;
+                  LOWORD(v121) = v121 - 32;
                 }
               }
-              if ( (_WORD)v152 != (_WORD)v128 )
+              if ( (_WORD)v145 != (_WORD)v121 )
                 goto LABEL_258;
             }
-            ++v150;
-            v151 += 2;
+            ++v143;
+            v144 += 2;
           }
         }
 LABEL_240:
-        v27 = *(unsigned __int64 **)(v138 + 8);
-        v121 = (__int64)a11;
-        a11[1] = (unsigned __int64 *)v139;
+        v27 = *(unsigned __int64 **)(v131 + 8);
+        v114 = (__int64)a11;
+        a11[1] = (unsigned __int64 *)v132;
         if ( v27 )
           goto LABEL_241;
 LABEL_292:
-        v159 = v231;
-        if ( (v231 & 1) == 0 )
+        v151 = v223;
+        if ( (v223 & 1) == 0 )
           goto LABEL_241;
-        v160 = *(char **)v121;
+        v152 = *(char **)v114;
         while ( 2 )
         {
           while ( 2 )
           {
-            v161 = *((_DWORD *)v160 + 84);
-            v162 = 0LL;
-            if ( (v161 & 4) != 0 )
+            v153 = *((_DWORD *)v152 + 84);
+            v154 = 0LL;
+            if ( (v153 & 4) != 0 )
             {
-              if ( (v159 & 6) == 0 && (v161 & 0x10) != 0 )
+              if ( (v151 & 6) == 0 && (v153 & 0x10) != 0 )
               {
-                if ( RtlIsSandboxedToken(&a10->SubjectSecurityContext, v232) )
-                  v159 |= 2u;
+                if ( RtlIsSandboxedToken(&a10->SubjectSecurityContext, v224) )
+                  v151 |= 2u;
                 else
-                  v159 |= 4u;
-                v231 = v159;
+                  v151 |= 4u;
+                v223 = v151;
               }
-              if ( (*((_DWORD *)v160 + 84) & 0x10) == 0 || (v159 & 2) != 0 )
-                v162 = (char *)*((_QWORD *)v160 + 39);
+              if ( (*((_DWORD *)v152 + 84) & 0x10) == 0 || (v151 & 2) != 0 )
+                v154 = (char *)*((_QWORD *)v152 + 39);
             }
             else
             {
-              v163 = *((_QWORD *)v160 + 38);
-              if ( !v163 )
+              v155 = *((_QWORD *)v152 + 38);
+              if ( !v155 )
                 goto LABEL_241;
-              if ( v163 == v234 )
+              if ( v155 == v226 )
               {
-                v160 = *(char **)(v234 + 8);
+                v152 = *(char **)(v226 + 8);
                 goto LABEL_315;
               }
-              v175 = PsGetCurrentServerSiloGlobals();
-              v176 = KeGetCurrentThread();
-              v177 = v175;
-              --v176->SpecialApcDisable;
-              v180 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&v175[7].Blink, 0LL, 0LL, v178);
-              if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v177[7].Blink, 17LL, 0LL) )
-                ExfAcquirePushLockSharedEx((signed __int64 *)&v177[7].Blink, 0, v180, (struct _KTHREAD *)&v177[7].Blink);
-              if ( v180 )
+              v167 = PsGetCurrentServerSiloGlobals();
+              v168 = KeGetCurrentThread();
+              v169 = v167;
+              --v168->SpecialApcDisable;
+              v172 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&v167[7].Blink, 0LL, 0LL, v170);
+              if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v169[7].Blink, 17LL, 0LL) )
+                ExfAcquirePushLockSharedEx((signed __int64 *)&v169[7].Blink, 0, v172, (struct _KTHREAD *)&v169[7].Blink);
+              if ( v172 )
               {
                 if ( (KiAbpGlobalState & 1) != 0 )
-                  AutoBoost::KiAbpPostAcquire(v180, v179);
+                  AutoBoost::KiAbpPostAcquire(v172, v171);
                 else
-                  *((_BYTE *)v180 + 10) = 1;
+                  *((_BYTE *)v172 + 10) = 1;
               }
-              v181 = *((_QWORD *)v160 + 38);
-              if ( v181 )
-                v162 = *(char **)(v181 + 8);
-              if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v177[7].Blink, 0LL, 17LL) != 17 )
-                ExfReleasePushLockShared((signed __int64 *)&v177[7].Blink);
-              KeAbPostRelease((unsigned __int64)&v177[7].Blink);
+              v173 = *((_QWORD *)v152 + 38);
+              if ( v173 )
+                v154 = *(char **)(v173 + 8);
+              if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v169[7].Blink, 0LL, 17LL) != 17 )
+                ExfReleasePushLockShared((signed __int64 *)&v169[7].Blink);
+              KeAbPostRelease((unsigned __int64)&v169[7].Blink);
               KeLeaveGuardedRegion();
-              v121 = (__int64)a11;
+              v114 = (__int64)a11;
             }
-            v160 = v162;
+            v152 = v154;
 LABEL_315:
-            if ( !v160 )
+            if ( !v152 )
               goto LABEL_241;
-            v165 = *(_BYTE *)(v121 + 22);
-            v167 = (AutoBoost *)KeAbPreAcquire((__int64)(v160 + 296), 0LL, 1LL, (struct _KLOCK_ENTRIES *)v128);
-            if ( !_InterlockedCompareExchange64((volatile signed __int64 *)v160 + 37, 17LL, 0LL)
-              || ExfTryAcquirePushLockSharedEx((signed __int64 *)v160 + 37, 0) )
+            v157 = *(_BYTE *)(v114 + 22);
+            v159 = (AutoBoost *)KeAbPreAcquire((__int64)(v152 + 296), 0LL, 1LL, (struct _KLOCK_ENTRIES *)v121);
+            if ( !_InterlockedCompareExchange64((volatile signed __int64 *)v152 + 37, 17LL, 0LL)
+              || ExfTryAcquirePushLockSharedEx((signed __int64 *)v152 + 37, 0) )
             {
-              if ( v167 )
+              if ( v159 )
               {
                 if ( (KiAbpGlobalState & 1) != 0 )
-                  AutoBoost::KiAbpPostAcquire(v167, v166);
+                  AutoBoost::KiAbpPostAcquire(v159, v158);
                 else
-                  *((_BYTE *)v167 + 10) = 1;
+                  *((_BYTE *)v159 + 10) = 1;
               }
-              v168 = *(signed __int64 **)v121;
-              if ( _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v121 + 296LL), 0LL, 17LL) != 17 )
-                ExfReleasePushLockShared(v168 + 37);
-              KeAbPostRelease((unsigned __int64)(v168 + 37));
-              v169 = 0;
+              v160 = *(signed __int64 **)v114;
+              if ( _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v114 + 296LL), 0LL, 17LL) != 17 )
+                ExfReleasePushLockShared(v160 + 37);
+              KeAbPostRelease((unsigned __int64)(v160 + 37));
+              v161 = 0;
             }
             else
             {
-              if ( v167 )
-                KeAbPostReleaseEx((struct _KTHREAD *)(v160 + 296), (unsigned __int64)v167, v200, v201);
-              ObfReferenceObjectWithTag(v160, 0x554C624Fu);
-              v202 = *(signed __int64 **)v121;
-              if ( _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v121 + 296LL), 0LL, 17LL) != 17 )
-                ExfReleasePushLockShared(v202 + 37);
-              KeAbPostRelease((unsigned __int64)(v202 + 37));
-              v205 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v160 + 296), 0LL, 0LL, v203);
-              if ( _InterlockedCompareExchange64((volatile signed __int64 *)v160 + 37, 17LL, 0LL) )
-                ExfAcquirePushLockSharedEx((signed __int64 *)v160 + 37, 0, v205, (struct _KTHREAD *)(v160 + 296));
-              if ( v205 )
+              if ( v159 )
+                KeAbPostReleaseEx((struct _KTHREAD *)(v152 + 296), (unsigned __int64)v159, v192, v193);
+              ObfReferenceObjectWithTag(v152, 0x554C624Fu);
+              v194 = *(signed __int64 **)v114;
+              if ( _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v114 + 296LL), 0LL, 17LL) != 17 )
+                ExfReleasePushLockShared(v194 + 37);
+              KeAbPostRelease((unsigned __int64)(v194 + 37));
+              v197 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v152 + 296), 0LL, 0LL, v195);
+              if ( _InterlockedCompareExchange64((volatile signed __int64 *)v152 + 37, 17LL, 0LL) )
+                ExfAcquirePushLockSharedEx((signed __int64 *)v152 + 37, 0, v197, (struct _KTHREAD *)(v152 + 296));
+              if ( v197 )
               {
                 if ( (KiAbpGlobalState & 1) != 0 )
-                  AutoBoost::KiAbpPostAcquire(v205, v204);
+                  AutoBoost::KiAbpPostAcquire(v197, v196);
                 else
-                  *((_BYTE *)v205 + 10) = 1;
+                  *((_BYTE *)v197 + 10) = 1;
               }
-              v169 = 1;
+              v161 = 1;
             }
-            *(_BYTE *)(v121 + 22) = v169;
-            if ( v165 )
-              ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v121, 0x554C624Fu);
-            v206 = v231;
-            v207 = &v160[8 * *(unsigned __int8 *)(v121 + 20)];
-            *(_QWORD *)v121 = v160;
-            v208 = v206 & 0x40;
-            v209 = *(__int64 **)v207;
-            if ( !*(_QWORD *)v207 )
+            *(_BYTE *)(v114 + 22) = v161;
+            if ( v157 )
+              ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v114, 0x554C624Fu);
+            v198 = v223;
+            v199 = &v152[8 * *(unsigned __int8 *)(v114 + 20)];
+            *(_QWORD *)v114 = v152;
+            v200 = v198 & 0x40;
+            v201 = *(__int64 **)v199;
+            if ( !*(_QWORD *)v199 )
             {
 LABEL_447:
-              v159 = v231;
+              v151 = v223;
               v27 = 0LL;
               continue;
             }
@@ -1105,171 +1093,171 @@ LABEL_447:
           }
           while ( 1 )
           {
-            if ( *((_DWORD *)v209 + 4) != *(_DWORD *)(v121 + 16) )
+            if ( *((_DWORD *)v201 + 4) != *(_DWORD *)(v114 + 16) )
               goto LABEL_446;
-            v228[0] = (unsigned __int64)PsGetCurrentServerSiloGlobals()[75].Flink;
-            if ( v230 != *(_WORD *)(v210 + 8) )
+            v220[0] = (unsigned __int64)PsGetCurrentServerSiloGlobals()[75].Flink;
+            if ( v222 != *(_WORD *)(v202 + 8) )
               goto LABEL_446;
-            v211 = *(char **)(v210 + 16);
-            v212 = v230;
-            v213 = (unsigned __int16 *)((char *)Source1 + v230);
-            if ( v208 )
+            v203 = *(char **)(v202 + 16);
+            v204 = v222;
+            v205 = (unsigned __int16 *)((char *)Source1 + v222);
+            if ( v200 )
               break;
-            if ( !memcmp(Source1, v211, v230) )
+            if ( !memcmp(Source1, v203, v222) )
               goto LABEL_458;
 LABEL_471:
-            v121 = (__int64)a11;
+            v114 = (__int64)a11;
 LABEL_446:
-            v207 = (char *)v209;
-            v209 = (__int64 *)*v209;
-            if ( !v209 )
+            v199 = (char *)v201;
+            v201 = (__int64 *)*v201;
+            if ( !v201 )
               goto LABEL_447;
           }
-          v214 = RtlCompareMemory(Source1, v211, v230);
-          if ( v214 != v212 )
+          v206 = RtlCompareMemory(Source1, v203, v222);
+          if ( v206 != v204 )
           {
-            v215 = 2 * (v214 >> 1);
-            v216 = (unsigned __int16 *)((char *)Source1 + v215);
-            v217 = &v211[v215];
-            while ( v216 < v213 )
+            v207 = 2 * (v206 >> 1);
+            v208 = (unsigned __int16 *)((char *)Source1 + v207);
+            v209 = &v203[v207];
+            while ( v208 < v205 )
             {
-              v218 = *v216;
-              v128 = *(unsigned __int16 *)v217;
-              if ( (_WORD)v218 != (_WORD)v128 )
+              v210 = *v208;
+              v121 = *(unsigned __int16 *)v209;
+              if ( (_WORD)v210 != (_WORD)v121 )
               {
-                if ( (unsigned int)v218 >= 0x61 )
+                if ( (unsigned int)v210 >= 0x61 )
                 {
-                  if ( (unsigned int)v218 > 0x7A )
+                  if ( (unsigned int)v210 > 0x7A )
                   {
-                    if ( v228[0] && (unsigned __int16)v218 >= 0xC0u )
-                      LOWORD(v218) = *(_WORD *)(v228[0]
+                    if ( v220[0] && (unsigned __int16)v210 >= 0xC0u )
+                      LOWORD(v210) = *(_WORD *)(v220[0]
                                               + 2
-                                              * ((v218 & 0xF)
-                                               + *(unsigned __int16 *)(v228[0]
+                                              * ((v210 & 0xF)
+                                               + *(unsigned __int16 *)(v220[0]
                                                                      + 2LL
-                                                                     * (((unsigned __int8)v218 >> 4)
-                                                                      + (unsigned int)*(unsigned __int16 *)(v228[0] + 2 * (v218 >> 8))))))
-                                   + v218;
+                                                                     * (((unsigned __int8)v210 >> 4)
+                                                                      + (unsigned int)*(unsigned __int16 *)(v220[0] + 2 * (v210 >> 8))))))
+                                   + v210;
                   }
                   else
                   {
-                    LOWORD(v218) = v218 - 32;
+                    LOWORD(v210) = v210 - 32;
                   }
                 }
-                if ( (unsigned int)v128 >= 0x61 )
+                if ( (unsigned int)v121 >= 0x61 )
                 {
-                  if ( (unsigned int)v128 > 0x7A )
+                  if ( (unsigned int)v121 > 0x7A )
                   {
-                    if ( v228[0] && (unsigned __int16)v128 >= 0xC0u )
-                      LOWORD(v128) = *(_WORD *)(v228[0]
+                    if ( v220[0] && (unsigned __int16)v121 >= 0xC0u )
+                      LOWORD(v121) = *(_WORD *)(v220[0]
                                               + 2
-                                              * ((v128 & 0xF)
-                                               + *(unsigned __int16 *)(v228[0]
+                                              * ((v121 & 0xF)
+                                               + *(unsigned __int16 *)(v220[0]
                                                                      + 2LL
-                                                                     * (((unsigned __int8)v128 >> 4)
-                                                                      + (unsigned int)*(unsigned __int16 *)(v228[0] + 2 * (v128 >> 8))))))
-                                   + v128;
+                                                                     * (((unsigned __int8)v121 >> 4)
+                                                                      + (unsigned int)*(unsigned __int16 *)(v220[0] + 2 * (v121 >> 8))))))
+                                   + v121;
                   }
                   else
                   {
-                    LOWORD(v128) = v128 - 32;
+                    LOWORD(v121) = v121 - 32;
                   }
                 }
-                if ( (_WORD)v218 != (_WORD)v128 )
+                if ( (_WORD)v210 != (_WORD)v121 )
                   goto LABEL_471;
               }
-              ++v216;
-              v217 += 2;
+              ++v208;
+              v209 += 2;
             }
           }
 LABEL_458:
-          v27 = (unsigned __int64 *)v209[1];
-          v121 = (__int64)a11;
-          a11[1] = (unsigned __int64 *)v207;
+          v27 = (unsigned __int64 *)v201[1];
+          v114 = (__int64)a11;
+          a11[1] = (unsigned __int64 *)v199;
           if ( !v27 )
           {
-            v159 = v231;
+            v151 = v223;
             continue;
           }
           break;
         }
 LABEL_241:
-        if ( !v251 )
+        if ( !v243 )
         {
           if ( v27 )
           {
-            v86 = v236;
+            v83 = v228;
 LABEL_397:
-            v226 = v86;
+            v218 = v83;
             goto LABEL_281;
           }
 LABEL_323:
-          if ( LOWORD(v229[0]) )
+          if ( LOWORD(v221[0]) )
           {
             v32 = Object;
-            v226 = -1073741766;
+            v218 = -1073741766;
           }
           else
           {
-            v170 = (unsigned __int64 *)a8;
+            v162 = (unsigned __int64 *)a8;
             if ( !a8 )
             {
 LABEL_325:
               v32 = Object;
-              v226 = -1073741772;
+              v218 = -1073741772;
               goto LABEL_27;
             }
-            v191 = ObjectType;
-            v192 = v241;
-            v193 = 4;
-            v194 = v232;
+            v183 = ObjectType;
+            v184 = v233;
+            v185 = 4;
+            v186 = v224;
             if ( ObjectType == ObpDirectoryObjectType )
-              v193 = 8;
+              v185 = 8;
             LOBYTE(Tag) = 0;
-            if ( !ObCheckCreateObjectAccess((__int64)v241, v193, a10, (__int64)&String2, Tag, v232, &v226) )
+            if ( !ObCheckCreateObjectAccess((__int64)v233, v185, a10, (__int64)&String2, Tag, v224, &v218) )
             {
               v32 = Object;
-              if ( v226 >= 0 )
+              if ( v218 >= 0 )
               {
-                v86 = -1073741772;
-                v226 = -1073741772;
+                v83 = -1073741772;
+                v218 = -1073741772;
                 goto LABEL_282;
               }
               goto LABEL_27;
             }
-            if ( v192[85] != -1 && (v191 == MmSectionObjectType || v191 == ObpSymbolicLinkObjectType) )
+            if ( v184[85] != -1 && (v183 == MmSectionObjectType || v183 == ObpSymbolicLinkObjectType) )
             {
-              v199 = v192[85];
-              if ( v199 != (unsigned int)PsGetCurrentProcessSessionId()
-                && !SeSinglePrivilegeCheck((LUID)PspSiloMonitorLock.Timer.Dpc, v194)
+              v191 = v184[85];
+              if ( v191 != (unsigned int)PsGetCurrentProcessSessionId()
+                && !SeSinglePrivilegeCheck(*(LUID *)&PspSiloMonitorLock.WaitBlockFill11[80], v186)
                 && !(unsigned __int8)ObpIsUnsecureName(&String2) )
               {
                 goto LABEL_426;
               }
             }
-            v195 = v230;
+            v187 = v222;
             Pool2 = (void *)ExAllocatePool2(0x100uLL);
             if ( Pool2 )
             {
-              if ( (unsigned __int8)ObpInsertDirectoryEntry(v192, v170) )
+              if ( (unsigned __int8)ObpInsertDirectoryEntry(v184, v162) )
               {
-                memmove(Pool2, Source1, v195);
-                v197 = (__int64)v170 - ObpInfoMaskToOffset[*((_BYTE *)v170 - 22) & 3] - 48;
-                v198 = *(void **)(v197 + 16);
-                if ( v198 )
-                  ExFreePoolWithTag(v198, 0);
+                memmove(Pool2, Source1, v187);
+                v189 = (__int64)v162 - ObpInfoMaskToOffset[*((_BYTE *)v162 - 22) & 3] - 48;
+                v190 = *(void **)(v189 + 16);
+                if ( v190 )
+                  ExFreePoolWithTag(v190, 0);
                 v32 = Object;
-                v27 = v170;
-                *(_WORD *)(v197 + 8) = v195;
-                *(_WORD *)(v197 + 10) = v195;
-                *(_QWORD *)(v197 + 16) = Pool2;
-                v226 = 0;
+                v27 = v162;
+                *(_WORD *)(v189 + 8) = v187;
+                *(_WORD *)(v189 + 10) = v187;
+                *(_QWORD *)(v189 + 16) = Pool2;
+                v218 = 0;
                 goto LABEL_35;
               }
               ExFreePoolWithTag(Pool2, 0);
             }
             v32 = Object;
-            v226 = -1073741670;
+            v218 = -1073741670;
           }
 LABEL_27:
           v33 = (__int64)a11;
@@ -1291,47 +1279,47 @@ LABEL_27:
             }
             *(_QWORD *)v33 = 0LL;
             *(_BYTE *)(v33 + 21) = 0;
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v38, v39);
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           }
           goto LABEL_35;
         }
         if ( !v27 )
           goto LABEL_323;
-        v31 = v229[0];
-        if ( LOWORD(v229[0]) )
+        v31 = v221[0];
+        if ( LOWORD(v221[0]) )
           goto LABEL_244;
-        v171 = *(__int64 (__usercall **)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64))(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)v27 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v27 - 48) >> 8)] + 144);
-        if ( !v171 )
+        v163 = *(__int64 (__usercall **)@<rax>(PVOID@<rcx>, POBJECT_TYPE@<rdx>, int, __int64, __int64, int, int, __int64, __int64))(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)v27 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v27 - 48) >> 8)] + 144);
+        if ( !v163 )
           goto LABEL_280;
-        if ( v171 == ObpParseSymbolicLinkEx )
+        if ( v163 == ObpParseSymbolicLinkEx )
         {
 LABEL_244:
-          v29 = (struct _KLOCK_ENTRIES *)v229[1];
-          epi16 = WORD1(v229[0]);
-          v28 = *(UNICODE_STRING *)v229;
+          v29 = (struct _KLOCK_ENTRIES *)v221[1];
+          epi16 = WORD1(v221[0]);
+          v28 = *(UNICODE_STRING *)v221;
           continue;
         }
         if ( a8 )
         {
 LABEL_280:
-          v86 = ObReferenceObjectByPointer(v27, 0, ObjectType, a5);
-          v226 = v86;
+          v83 = ObReferenceObjectByPointer(v27, 0, ObjectType, a5);
+          v218 = v83;
           goto LABEL_281;
         }
-        v29 = (struct _KLOCK_ENTRIES *)v229[1];
-        epi16 = WORD1(v229[0]);
-        v28 = *(UNICODE_STRING *)v229;
+        v29 = (struct _KLOCK_ENTRIES *)v221[1];
+        epi16 = WORD1(v221[0]);
+        v28 = *(UNICODE_STRING *)v221;
       }
-      v238 = 0LL;
-      if ( v116 == ObpParseSymbolicLinkEx )
+      v230 = 0LL;
+      if ( v109 == ObpParseSymbolicLinkEx )
       {
-        v17 = (unsigned __int16 *)a2;
-        v101 = a10;
-        v102 = v253;
-        v153 = ObpParseSymbolicLinkEx(v27, ObjectType, v253, a2, (__int64)v229, a6, a7, (__int64)v242, (__int64)&v238);
-        v94 = (__int64)a11;
-        v86 = v153;
-        v226 = v153;
+        v17 = a2;
+        v96 = a10;
+        v97 = v245;
+        v146 = ObpParseSymbolicLinkEx(v27, ObjectType, v245, a2, (__int64)v221, a6, a7, (__int64)v234, (__int64)&v230);
+        v91 = (__int64)a11;
+        v83 = v146;
+        v218 = v146;
       }
       else
       {
@@ -1339,328 +1327,328 @@ LABEL_280:
         {
 LABEL_491:
           v32 = Object;
-          v226 = -1073741788;
+          v218 = -1073741788;
           goto LABEL_27;
         }
         PsReferenceSiloContext(v27);
-        v94 = (__int64)a11;
+        v91 = (__int64)a11;
         if ( *a11 )
         {
-          v95 = (__int64 *)(*a11 + 37);
-          _m_prefetchw(v95);
-          v96 = *v95;
-          v97 = *v95 - 16;
-          if ( (*v95 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-            v97 = 0LL;
-          if ( (v96 & 2) != 0 || (v98 = *v95, v98 != _InterlockedCompareExchange64(v95, v97, v96)) )
-            ExfReleasePushLock(v95);
-          KeAbPostRelease((unsigned __int64)v95);
-          if ( *(_BYTE *)(v94 + 22) )
+          v92 = (__int64 *)(*a11 + 37);
+          _m_prefetchw(v92);
+          v93 = *v92;
+          v94 = *v92 - 16;
+          if ( (*v92 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+            v94 = 0LL;
+          if ( (v93 & 2) != 0 || (v95 = *v92, v95 != _InterlockedCompareExchange64(v92, v94, v93)) )
+            ExfReleasePushLock(v92);
+          KeAbPostRelease((unsigned __int64)v92);
+          if ( *(_BYTE *)(v91 + 22) )
           {
-            ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v94, 0x554C624Fu);
-            *(_BYTE *)(v94 + 22) = 0;
+            ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v91, 0x554C624Fu);
+            *(_BYTE *)(v91 + 22) = 0;
           }
-          *(_QWORD *)v94 = 0LL;
-          *(_BYTE *)(v94 + 21) = 0;
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v99, v100);
+          *(_QWORD *)v91 = 0LL;
+          *(_BYTE *)(v91 + 21) = 0;
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         }
-        v101 = a10;
-        v17 = (unsigned __int16 *)a2;
-        if ( (*(_BYTE *)(v115 + 67) & 1) != 0 )
+        v96 = a10;
+        v17 = a2;
+        if ( (*(_BYTE *)(v108 + 67) & 1) != 0 )
         {
-          v225 = &v238;
-          v224 = (PVOID *)v242;
+          v217 = &v230;
+          v216 = (PVOID *)v234;
         }
         else
         {
-          v224 = &v238;
+          v216 = &v230;
         }
-        v223 = a7;
-        v222 = a6;
-        v221 = v229;
-        v220 = a2;
-        LODWORD(Tag) = v253;
-        v226 = guard_dispatch_icall_no_overrides((__int64)v27, (__int64)ObjectType);
+        v215 = a7;
+        v214 = a6;
+        v213 = v221;
+        v212 = a2;
+        LODWORD(Tag) = v245;
+        v218 = guard_dispatch_icall_no_overrides((__int64)v27, (__int64)ObjectType);
         ObfDereferenceObject(v27);
-        v86 = v226;
-        v102 = v253;
+        v83 = v218;
+        v97 = v245;
       }
-      if ( v86 < 0 )
+      if ( v83 < 0 )
         goto LABEL_281;
-      v103 = Object;
-      v27 = (unsigned __int64 *)v238;
+      v98 = Object;
+      v27 = (unsigned __int64 *)v230;
       if ( Object )
       {
         ObDereferenceObjectDeferDelete(Object);
-        v86 = v226;
-        v103 = 0LL;
+        v83 = v218;
+        v98 = 0LL;
         Object = 0LL;
       }
-      if ( v86 != 260 )
+      if ( v83 != 260 )
       {
-        if ( v86 != 872 )
-          v103 = v27;
-        Object = v103;
+        if ( v83 != 872 )
+          v98 = v27;
+        Object = v98;
       }
-      if ( (v243 & v101->OriginalDesiredAccess) != v101->OriginalDesiredAccess )
+      if ( (v235 & v96->OriginalDesiredAccess) != v96->OriginalDesiredAccess )
       {
-        v86 = -1073741790;
+        v83 = -1073741790;
         goto LABEL_397;
       }
-      if ( v86 != 280 && v86 != 260 && v86 != 872 )
+      if ( v83 != 280 && v83 != 260 && v83 != 872 )
         goto LABEL_278;
-      if ( (v102 & 0x1000) != 0 && v86 != 872 )
+      if ( (v97 & 0x1000) != 0 && v83 != 872 )
       {
 LABEL_408:
         v32 = Object;
-        v226 = -1073740533;
+        v218 = -1073740533;
         goto LABEL_27;
       }
-      if ( !--v235 )
+      if ( !--v227 )
         goto LABEL_325;
-      if ( !*v17 )
+      if ( !*(_WORD *)v17 )
       {
 LABEL_26:
         v32 = Object;
-        v226 = -1073741773;
+        v218 = -1073741773;
         goto LABEL_27;
       }
-      v104 = v234;
-      if ( v234 )
+      v99 = v226;
+      if ( v226 )
       {
-        v105 = v237;
-        if ( v237 )
+        v100 = v229;
+        if ( v229 )
         {
-          _m_prefetchw(v237);
-          v106 = *v237;
-          while ( (v104 ^ v106) < 0xF )
+          _m_prefetchw(v229);
+          v101 = *v229;
+          while ( (v99 ^ v101) < 0xF )
           {
-            v107 = v106;
-            v106 = _InterlockedCompareExchange64(v105, v106 + 1, v106);
-            if ( v107 == v106 )
+            v102 = v101;
+            v101 = _InterlockedCompareExchange64(v100, v101 + 1, v101);
+            if ( v102 == v101 )
               goto LABEL_170;
           }
         }
-        ObDereferenceDeviceMap((PVOID)v104);
+        ObDereferenceDeviceMap((PVOID)v99);
 LABEL_170:
-        v86 = v226;
-        v17 = (unsigned __int16 *)a2;
-        v234 = 0LL;
+        v83 = v218;
+        v17 = a2;
+        v226 = 0LL;
       }
-      if ( *(_QWORD *)v94 )
+      if ( *(_QWORD *)v91 )
       {
-        v108 = (__int64 *)(*(_QWORD *)v94 + 296LL);
-        _m_prefetchw(v108);
-        v109 = *v108;
-        v110 = *v108 - 16;
-        if ( (*v108 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-          v110 = 0LL;
-        if ( (v109 & 2) != 0 || (v111 = *v108, v111 != _InterlockedCompareExchange64(v108, v110, v109)) )
-          ExfReleasePushLock(v108);
-        KeAbPostRelease((unsigned __int64)v108);
-        if ( *(_BYTE *)(v94 + 22) )
+        v103 = (__int64 *)(*(_QWORD *)v91 + 296LL);
+        _m_prefetchw(v103);
+        v104 = *v103;
+        v105 = *v103 - 16;
+        if ( (*v103 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+          v105 = 0LL;
+        if ( (v104 & 2) != 0 || (v106 = *v103, v106 != _InterlockedCompareExchange64(v103, v105, v104)) )
+          ExfReleasePushLock(v103);
+        KeAbPostRelease((unsigned __int64)v103);
+        if ( *(_BYTE *)(v91 + 22) )
         {
-          ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v94, 0x554C624Fu);
-          *(_BYTE *)(v94 + 22) = 0;
+          ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)v91, 0x554C624Fu);
+          *(_BYTE *)(v91 + 22) = 0;
         }
-        *(_QWORD *)v94 = 0LL;
-        *(_BYTE *)(v94 + 21) = 0;
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v112, v113);
-        v86 = v226;
+        *(_QWORD *)v91 = 0LL;
+        *(_BYTE *)(v91 + 21) = 0;
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        v83 = v218;
       }
-      v114 = **((_WORD **)v17 + 1);
-      if ( v86 == 280 )
+      v107 = **(_WORD **)(v17 + 8);
+      if ( v83 == 280 )
       {
-        if ( v114 != 92 )
+        if ( v107 != 92 )
         {
-          v29 = (struct _KLOCK_ENTRIES *)*((_QWORD *)v17 + 1);
+          v29 = *(struct _KLOCK_ENTRIES **)(v17 + 8);
           goto LABEL_182;
         }
         goto LABEL_26;
       }
-      if ( v114 != 92 )
+      if ( v107 != 92 )
         goto LABEL_26;
       v20 = (__int64)a9;
-      if ( v86 == 872 )
+      if ( v83 == 872 )
       {
-        v16 = v253;
+        v16 = v245;
         v15 = ObjectType;
-        Source1 = ObpRootDirectoryObject;
+        Source1 = *(void **)&ObpStackTraceLock.PriorityFloorCounts[24];
       }
       else
       {
-        v228[0] = 0LL;
-        if ( (int)PsGetPermanentSiloContext((__int64)a9, PsObjectDirectorySiloContextSlot, v228) >= 0 )
-          v45 = (PVOID)v228[0];
+        v220[0] = 0LL;
+        if ( (int)PsGetPermanentSiloContext((__int64)a9, PsObjectDirectorySiloContextSlot, v220) >= 0 )
+          v43 = (void *)v220[0];
         else
-          v45 = ObpRootDirectoryObject;
-        v16 = v253;
+          v43 = *(void **)&ObpStackTraceLock.PriorityFloorCounts[24];
+        v16 = v245;
         v15 = ObjectType;
-        Source1 = v45;
+        Source1 = v43;
       }
     }
-    v74 = v58;
-    v75 = 8 * v73 + 32;
+    v71 = v55;
+    v72 = 8 * v70 + 32;
     while ( 1 )
     {
-      v76 = (signed __int64 *)((char *)v74 + v75);
-      if ( *(volatile signed __int64 *)((char *)v74 + v75) )
+      v73 = (signed __int64 *)((char *)v71 + v72);
+      if ( *(volatile signed __int64 *)((char *)v71 + v72) )
         break;
 LABEL_389:
-      v74 = (volatile signed __int64 *)*((_QWORD *)v74 + 3);
-      if ( !v74 )
+      v71 = (volatile signed __int64 *)*((_QWORD *)v71 + 3);
+      if ( !v71 )
       {
-        v29 = (struct _KLOCK_ENTRIES *)v229[1];
-        epi16 = WORD1(v229[0]);
-        v31 = v229[0];
-        v58 = (volatile signed __int64 *)v234;
+        v29 = (struct _KLOCK_ENTRIES *)v221[1];
+        epi16 = WORD1(v221[0]);
+        v31 = v221[0];
+        v55 = (volatile signed __int64 *)v226;
         goto LABEL_300;
       }
     }
-    _m_prefetchw(v76);
-    v77 = *v76;
-    v78 = *v76;
-    if ( (*v76 & 0xF) != 0 )
+    _m_prefetchw(v73);
+    v74 = *v73;
+    v75 = *v73;
+    if ( (*v73 & 0xF) != 0 )
     {
       do
       {
-        v79 = _InterlockedCompareExchange64(v76, v77 - 1, v77);
-        if ( v77 == v79 )
+        v76 = _InterlockedCompareExchange64(v73, v74 - 1, v74);
+        if ( v74 == v76 )
           break;
-        v77 = v79;
-        LOBYTE(v78) = v79;
+        v74 = v76;
+        LOBYTE(v75) = v76;
       }
-      while ( (v79 & 0xF) != 0 );
+      while ( (v76 & 0xF) != 0 );
     }
-    v27 = (unsigned __int64 *)(v77 & 0xFFFFFFFFFFFFFFF0uLL);
-    v80 = v78 & 0xF;
-    if ( v80 <= 1 )
+    v27 = (unsigned __int64 *)(v74 & 0xFFFFFFFFFFFFFFF0uLL);
+    v77 = v75 & 0xF;
+    if ( v77 <= 1 )
     {
-      if ( !v80 )
+      if ( !v77 )
       {
 LABEL_381:
-        v185 = (char *)PsGetServerSiloGlobals(*((_QWORD *)v74 + 2));
-        v186 = KeGetCurrentThread();
-        v187 = (signed __int64 *)(v185 + 120);
-        --v186->SpecialApcDisable;
-        v190 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v185 + 120), 0LL, 0LL, v188);
-        if ( _InterlockedCompareExchange64(v187, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx(v187, 0, v190, (struct _KTHREAD *)v187);
-        if ( v190 )
+        v177 = (char *)PsGetServerSiloGlobals(*((_QWORD *)v71 + 2));
+        v178 = KeGetCurrentThread();
+        v179 = (signed __int64 *)(v177 + 120);
+        --v178->SpecialApcDisable;
+        v182 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v177 + 120), 0LL, 0LL, v180);
+        if ( _InterlockedCompareExchange64(v179, 17LL, 0LL) )
+          ExfAcquirePushLockSharedEx(v179, 0, v182, (struct _KTHREAD *)v179);
+        if ( v182 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
-            AutoBoost::KiAbpPostAcquire(v190, v189);
+            AutoBoost::KiAbpPostAcquire(v182, v181);
           else
-            *((_BYTE *)v190 + 10) = 1;
+            *((_BYTE *)v182 + 10) = 1;
         }
         v27 = (unsigned __int64 *)ObFastReferenceObjectLocked(
-                                    (volatile signed __int64 *)((char *)v74 + v75),
+                                    (volatile signed __int64 *)((char *)v71 + v72),
                                     0x554C624Fu);
-        if ( _InterlockedCompareExchange64(v187, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared(v187);
-        KeAbPostRelease((unsigned __int64)v187);
+        if ( _InterlockedCompareExchange64(v179, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v179);
+        KeAbPostRelease((unsigned __int64)v179);
         KeLeaveGuardedRegion();
-        v81 = (ULONG_PTR)v27;
+        v78 = (ULONG_PTR)v27;
         if ( v27 )
           goto LABEL_109;
         goto LABEL_389;
       }
-      ObpFastReplenishReference((signed __int64 *)((char *)v74 + v75), (ULONG_PTR)v27);
+      ObpFastReplenishReference((signed __int64 *)((char *)v71 + v72), (ULONG_PTR)v27);
     }
     ObpTraceObjectReferenceIfActive((__int64)(v27 - 6), 1, 0x554C624Fu);
     if ( !v27 )
       goto LABEL_381;
-    v81 = (ULONG_PTR)v27;
+    v78 = (ULONG_PTR)v27;
 LABEL_109:
-    v229[1] += 4LL;
-    LOWORD(v229[0]) -= 4;
-    v16 = v253;
-    v82 = ObHeaderCookie ^ *(_BYTE *)(v81 - 24) ^ ((unsigned __int16)(v81 - 48) >> 8);
-    v240 = 0LL;
-    if ( v82 == *(_BYTE *)(IoDeviceObjectType + 40) )
-      v83 = IopParseDevice(v81, v253, a2, (__int64)v229, a6, a7, (__int64)v242, (__int64)&v240);
+    v221[1] += 4LL;
+    LOWORD(v221[0]) -= 4;
+    v16 = v245;
+    v79 = ObHeaderCookie ^ *(_BYTE *)(v78 - 24) ^ ((unsigned __int16)(v78 - 48) >> 8);
+    v232 = 0LL;
+    if ( v79 == *(_BYTE *)(IoDeviceObjectType + 40) )
+      v80 = IopParseDevice(v78, v245, a2, (__int64)v221, a6, a7, (__int64)v234, (__int64)&v232);
     else
-      v83 = ObpParseSymbolicLinkEx(
-              (PVOID)v81,
+      v80 = ObpParseSymbolicLinkEx(
+              (PVOID)v78,
               ObjectType,
-              v253,
+              v245,
               a2,
-              (__int64)v229,
+              (__int64)v221,
               a6,
               a7,
-              (__int64)v242,
-              (__int64)&v240);
-    v226 = v83;
-    _m_prefetchw(v76);
-    v84 = *v76;
+              (__int64)v234,
+              (__int64)&v232);
+    v218 = v80;
+    _m_prefetchw(v73);
+    v81 = *v73;
     do
     {
-      if ( (v81 ^ v84) >= 0xF )
+      if ( (v78 ^ v81) >= 0xF )
       {
-        ObfDereferenceObjectWithTag((PVOID)v81, 0x554C624Fu);
+        ObfDereferenceObjectWithTag((PVOID)v78, 0x554C624Fu);
         goto LABEL_116;
       }
-      v85 = v84;
-      v84 = _InterlockedCompareExchange64(v76, v84 + 1, v84);
+      v82 = v81;
+      v81 = _InterlockedCompareExchange64(v73, v81 + 1, v81);
     }
-    while ( v85 != v84 );
+    while ( v82 != v81 );
     if ( ObpTraceFlags )
-      ObpPushStackInfo(v81 - 48, -1, 0x554C624Fu);
+      ObpPushStackInfo(v78 - 48, -1, 0x554C624Fu);
 LABEL_116:
-    v86 = v226;
-    if ( v226 < 0 )
+    v83 = v218;
+    if ( v218 < 0 )
       goto LABEL_281;
-    v27 = (unsigned __int64 *)v240;
-    if ( v226 != 260 )
+    v27 = (unsigned __int64 *)v232;
+    if ( v218 != 260 )
     {
-      v87 = Object;
-      if ( v226 != 872 )
-        v87 = (void *)v240;
-      Object = v87;
+      v84 = Object;
+      if ( v218 != 872 )
+        v84 = (void *)v232;
+      Object = v84;
     }
-    if ( (v243 & a10->OriginalDesiredAccess) != a10->OriginalDesiredAccess )
+    if ( (v235 & a10->OriginalDesiredAccess) != a10->OriginalDesiredAccess )
     {
 LABEL_426:
       v32 = Object;
-      v226 = -1073741790;
+      v218 = -1073741790;
       goto LABEL_27;
     }
-    if ( v226 != 280 && v226 != 872 && v226 != 260 )
+    if ( v218 != 280 && v218 != 872 && v218 != 260 )
       break;
-    if ( (v16 & 0x1000) != 0 && v226 != 872 )
+    if ( (v16 & 0x1000) != 0 && v218 != 872 )
       goto LABEL_408;
-    if ( !--v235 )
+    if ( !--v227 )
       goto LABEL_325;
     if ( !*(_WORD *)a2 )
       goto LABEL_26;
-    v88 = v237;
-    v89 = v234;
-    if ( v237 )
+    v85 = v229;
+    v86 = v226;
+    if ( v229 )
     {
-      _m_prefetchw(v237);
-      v90 = *v237;
-      while ( (v89 ^ v90) < 0xF )
+      _m_prefetchw(v229);
+      v87 = *v229;
+      while ( (v86 ^ v87) < 0xF )
       {
-        v91 = v90;
-        v90 = _InterlockedCompareExchange64(v88, v90 + 1, v90);
-        if ( v91 == v90 )
+        v88 = v87;
+        v87 = _InterlockedCompareExchange64(v85, v87 + 1, v87);
+        if ( v88 == v87 )
           goto LABEL_130;
       }
     }
-    ObDereferenceDeviceMap((PVOID)v89);
+    ObDereferenceDeviceMap((PVOID)v86);
 LABEL_130:
-    v17 = (unsigned __int16 *)a2;
-    v234 = 0LL;
-    v92 = **(_WORD **)(a2 + 8);
-    if ( v226 == 280 )
+    v17 = a2;
+    v226 = 0LL;
+    v89 = **(_WORD **)(a2 + 8);
+    if ( v218 == 280 )
     {
-      if ( v92 != 92 )
+      if ( v89 != 92 )
       {
 LABEL_139:
-        v29 = (struct _KLOCK_ENTRIES *)*((_QWORD *)v17 + 1);
+        v29 = *(struct _KLOCK_ENTRIES **)(v17 + 8);
 LABEL_182:
         v28 = *(UNICODE_STRING *)v17;
-        *(_OWORD *)v229 = *(_OWORD *)v17;
+        *(_OWORD *)v221 = *(_OWORD *)v17;
 LABEL_183:
         v31 = _mm_cvtsi128_si32((__m128i)v28);
         epi16 = _mm_extract_epi16((__m128i)v28, 1);
@@ -1668,69 +1656,69 @@ LABEL_183:
       }
       goto LABEL_26;
     }
-    if ( v92 != 92 )
+    if ( v89 != 92 )
       goto LABEL_26;
     v20 = (__int64)a9;
-    if ( v226 == 872 )
+    if ( v218 == 872 )
     {
       v15 = ObjectType;
-      Source1 = ObpRootDirectoryObject;
+      Source1 = *(void **)&ObpStackTraceLock.PriorityFloorCounts[24];
     }
     else
     {
-      v228[0] = 0LL;
-      if ( (int)PsGetPermanentSiloContext((__int64)a9, PsObjectDirectorySiloContextSlot, v228) >= 0 )
-        v164 = (PVOID)v228[0];
+      v220[0] = 0LL;
+      if ( (int)PsGetPermanentSiloContext((__int64)a9, PsObjectDirectorySiloContextSlot, v220) >= 0 )
+        v156 = (void *)v220[0];
       else
-        v164 = ObpRootDirectoryObject;
+        v156 = *(void **)&ObpStackTraceLock.PriorityFloorCounts[24];
       v15 = ObjectType;
-      Source1 = v164;
+      Source1 = v156;
     }
   }
 LABEL_278:
   if ( !v27 )
   {
-    v86 = -1073741772;
-    v226 = -1073741772;
+    v83 = -1073741772;
+    v218 = -1073741772;
   }
   v32 = 0LL;
 LABEL_282:
-  if ( v86 < 0 )
+  if ( v83 < 0 )
     goto LABEL_27;
 LABEL_35:
   if ( v32 )
     ObDereferenceObjectDeferDelete(v32);
-  if ( v245 )
-    ObDereferenceObjectDeferDelete(v245);
+  if ( v237 )
+    ObDereferenceObjectDeferDelete(v237);
   SeClearLearningModeObjectInformation();
-  v40 = v234;
-  if ( v234 )
+  v38 = v226;
+  if ( v226 )
   {
-    v41 = v237;
-    if ( v237 )
+    v39 = v229;
+    if ( v229 )
     {
-      _m_prefetchw(v237);
-      v42 = *v237;
-      while ( (v40 ^ v42) < 0xF )
+      _m_prefetchw(v229);
+      v40 = *v229;
+      while ( (v38 ^ v40) < 0xF )
       {
-        v43 = v42;
-        v42 = _InterlockedCompareExchange64(v41, v42 + 1, v42);
-        if ( v43 == v42 )
+        v41 = v40;
+        v40 = _InterlockedCompareExchange64(v39, v40 + 1, v40);
+        if ( v41 == v40 )
           goto LABEL_44;
       }
     }
-    ObDereferenceDeviceMap((PVOID)v40);
+    ObDereferenceDeviceMap((PVOID)v38);
   }
 LABEL_44:
-  v44 = v226;
-  if ( v226 < 0 )
+  v42 = v218;
+  if ( v218 < 0 )
   {
     v27 = 0LL;
   }
-  else if ( a12 && v243 != -1 )
+  else if ( a12 && v235 != -1 )
   {
-    *a12 = v243;
+    *a12 = v235;
   }
   *a13 = v27;
-  return v44;
+  return v42;
 }

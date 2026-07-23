@@ -1,23 +1,23 @@
 /*
- * XREFs of KeFreezeExecution @ 0x14051D6F0
+ * XREFs of KeFreezeExecution @ 0x14051D930
  * Callers:
- *     ExpWaitForBootDevices @ 0x1405B33A0 (ExpWaitForBootDevices.c)
- *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     ExpWaitForBootDevices @ 0x1405B35D0 (ExpWaitForBootDevices.c)
+ *     KdEnterDebugger @ 0x1409B8028 (KdEnterDebugger.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KxTryToAcquireSpinLock @ 0x1402D0788 (KxTryToAcquireSpinLock.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiSendFreeze @ 0x14051E180 (KiSendFreeze.c)
- *     KiSetDebuggerOwner @ 0x14051E414 (KiSetDebuggerOwner.c)
- *     KiStartDebugAccumulation @ 0x14051E46C (KiStartDebugAccumulation.c)
- *     RtlWriteTryAcquireTickLock @ 0x14058F408 (RtlWriteTryAcquireTickLock.c)
+ *     KxTryToAcquireSpinLock @ 0x14024EC18 (KxTryToAcquireSpinLock.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiSendFreeze @ 0x14051E3C0 (KiSendFreeze.c)
+ *     KiSetDebuggerOwner @ 0x14051E654 (KiSetDebuggerOwner.c)
+ *     KiStartDebugAccumulation @ 0x14051E6AC (KiStartDebugAccumulation.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14058F638 (RtlWriteTryAcquireTickLock.c)
  */
 
 bool KeFreezeExecution()
@@ -137,9 +137,9 @@ LABEL_25:
       MEMORY[0xFFFFF78000000008] = v15;
       if ( KeMaximumIncrement )
       {
-        KiTickOffset = KeMaximumIncrement * (v15 / (unsigned int)KeMaximumIncrement + 1) - v15;
-        MEMORY[0xFFFFF78000000328] = (v15 / (unsigned int)KeMaximumIncrement) >> 32;
-        MEMORY[0xFFFFF78000000320] = v15 / (unsigned int)KeMaximumIncrement;
+        KiTickOffset = KeMaximumIncrement * (v15 / KeMaximumIncrement + 1) - v15;
+        MEMORY[0xFFFFF78000000328] = (v15 / KeMaximumIncrement) >> 32;
+        MEMORY[0xFFFFF78000000320] = v15 / KeMaximumIncrement;
       }
       ++MEMORY[0xFFFFF78000000340];
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KiAbThreadUnboostIoPriority@LegacyAutoBoost@@YAXPEAU_KTHREAD@@K@Z @ 0x1404E3F84
+ * XREFs of ?KiAbThreadUnboostIoPriority@LegacyAutoBoost@@YAXPEAU_KTHREAD@@K@Z @ 0x1404DD524
  * Callers:
- *     ?KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1404342C4 (-KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PE.c)
+ *     ?KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140429394 (-KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PE.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140205500 (PsBoostThreadIoQoS.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
+ *     PsBoostThreadIoQoS @ 0x1402055E0 (PsBoostThreadIoQoS.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbThreadUnboostIoPriority(

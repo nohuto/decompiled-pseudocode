@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRaiseCreateEvent @ 0x14074BAB0
+ * XREFs of _CmRaiseCreateEvent @ 0x14074BC70
  * Callers:
- *     _CmCreateDeviceInterfaceWorker @ 0x14074B99C (_CmCreateDeviceInterfaceWorker.c)
- *     _CmCreateInterfaceClassWorker @ 0x14074BCD0 (_CmCreateInterfaceClassWorker.c)
- *     _CmCreateDeviceWorker @ 0x14074CD34 (_CmCreateDeviceWorker.c)
- *     _CmCreateDeviceContainerWorker @ 0x1407595C8 (_CmCreateDeviceContainerWorker.c)
- *     _CmCreateInstallerClassWorker @ 0x140974C5C (_CmCreateInstallerClassWorker.c)
- *     _CmCreateDevicePanelWorker @ 0x140977BB4 (_CmCreateDevicePanelWorker.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14074BB5C (_CmCreateDeviceInterfaceWorker.c)
+ *     _CmCreateInterfaceClassWorker @ 0x14074BE90 (_CmCreateInterfaceClassWorker.c)
+ *     _CmCreateDeviceWorker @ 0x14074CEF4 (_CmCreateDeviceWorker.c)
+ *     _CmCreateDeviceContainerWorker @ 0x140759788 (_CmCreateDeviceContainerWorker.c)
+ *     _CmCreateInstallerClassWorker @ 0x140974E3C (_CmCreateInstallerClassWorker.c)
+ *     _CmCreateDevicePanelWorker @ 0x140977D94 (_CmCreateDevicePanelWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406363C8 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     _PnpObjectRaiseCreateEvent @ 0x14074BB14 (_PnpObjectRaiseCreateEvent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x14062B1D8 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _PnpObjectRaiseCreateEvent @ 0x14074BCD4 (_PnpObjectRaiseCreateEvent.c)
  */
 
 __int64 (__fastcall *__fastcall CmRaiseCreateEvent(

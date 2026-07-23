@@ -1,13 +1,13 @@
 /*
- * XREFs of CmObliterateRMTxArray @ 0x14085BBD0
+ * XREFs of CmObliterateRMTxArray @ 0x140861EC4
  * Callers:
- *     CmpTryToRundownHive @ 0x140463B48 (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
+ *     CmpTryToRundownHive @ 0x14045CB08 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     CmpCleanupTransactionState @ 0x1408ACEE8 (CmpCleanupTransactionState.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     CmpCleanupTransactionState @ 0x1408B3328 (CmpCleanupTransactionState.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
  */
 
 _QWORD ***__fastcall CmObliterateRMTxArray(__int64 a1)

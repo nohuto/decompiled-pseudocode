@@ -86,7 +86,7 @@ __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
   struct _KPRCB *v53; // r9
   _DWORD *v54; // r8
   int v55; // eax
-  void (__fastcall *v56)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v56)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v57; // r12
   unsigned int *v58; // rbx
   unsigned __int64 v59; // rdi
@@ -99,7 +99,7 @@ __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
   __int64 (__fastcall *v66)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   int v67; // eax
   _DWORD v69[4]; // [rsp+40h] [rbp-398h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-388h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-388h] BYREF
   int v71; // [rsp+54h] [rbp-384h]
   unsigned int v72; // [rsp+58h] [rbp-380h]
   __int64 v73; // [rsp+60h] [rbp-378h] BYREF
@@ -144,7 +144,7 @@ __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = (unsigned int)(unsigned __int8)v73 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v73 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v73 + 1)) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -388,7 +388,7 @@ LABEL_59:
     }
     if ( !v48 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v49 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && (unsigned __int8)(v49 - 2) <= 0xDu )
@@ -405,7 +405,7 @@ LABEL_59:
       *(_DWORD *)(v35 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v52 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
@@ -434,11 +434,10 @@ LABEL_59:
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v99 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v69[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v69[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v56 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                              + 120);
+    v56 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     v71 = 1;
     _disable();
     v56(*(_QWORD *)(HalpInterruptController + 16), v69, &v99, 47LL, &ProcNumber);

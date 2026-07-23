@@ -210,7 +210,7 @@ LARGE_INTEGER __stdcall KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFreq
 {
   __int64 v2; // rsi
   unsigned __int64 v3; // rbx
-  unsigned __int64 v4; // rdx
+  signed __int64 v4; // rdx
   unsigned __int64 v5; // rax
   int v6; // r8d
   __int64 v7; // rdx
@@ -240,7 +240,7 @@ LARGE_INTEGER __stdcall KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFreq
   __int64 v31; // r14
   __int64 v32; // r8
   LONGLONG v33; // r8
-  unsigned __int64 v34; // rcx
+  signed __int64 v34; // rcx
   __int64 v35; // rdi
   __int64 v36; // rax
   __int64 (__fastcall *v37)(_QWORD); // rdx
@@ -256,7 +256,7 @@ LARGE_INTEGER __stdcall KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFreq
   __int64 v47; // rcx
   signed __int32 v48[8]; // [rsp+0h] [rbp-48h] BYREF
   signed __int64 v49; // [rsp+58h] [rbp+10h] BYREF
-  unsigned __int64 v50; // [rsp+60h] [rbp+18h] BYREF
+  signed __int64 v50; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = HalpPerformanceCounter;
   if ( *(_DWORD *)(HalpPerformanceCounter + 228) != 5 )
@@ -474,7 +474,7 @@ LABEL_56:
           if ( *(_DWORD *)HvlpReferenceTscPage == v29 )
             goto LABEL_54;
         }
-        HvlpGetRegister64(589828, (unsigned __int64 *)&v49);
+        HvlpGetRegister64(589828, &v49);
 LABEL_54:
         v30 = v49;
         goto LABEL_55;

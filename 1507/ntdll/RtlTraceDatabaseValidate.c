@@ -12,7 +12,7 @@ char __fastcall RtlTraceDatabaseValidate(__int64 a1)
   __int64 v2; // r8
   __int64 v3; // r9
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   if ( *(_DWORD *)(a1 + 88) )
   {
@@ -26,6 +26,6 @@ char __fastcall RtlTraceDatabaseValidate(__int64 a1)
     while ( v3 );
   }
   *(_QWORD *)(a1 + 40) = 0LL;
-  RtlLeaveCriticalSection(a1 + 48);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return 1;
 }

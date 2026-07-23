@@ -6,19 +6,19 @@
  *     sub_1800321F8 @ 0x1800321F8 (sub_1800321F8.c)
  */
 
-__int64 __fastcall RtlGetSearchPath(_QWORD *a1)
+NTSTATUS __cdecl RtlGetSearchPath(PWSTR *SearchPathA)
 {
   __int64 v2; // rax
 
   v2 = sub_1800321F8(&qword_180164360, (__int64 (__fastcall *)(__int64, __int64))sub_18006B880, 0LL, 0LL);
   if ( v2 )
   {
-    *a1 = v2 + 112;
-    return 0LL;
+    *SearchPathA = (PWSTR)(v2 + 112);
+    return 0;
   }
   else
   {
-    *a1 = 0LL;
-    return 3221225495LL;
+    *SearchPathA = 0LL;
+    return -1073741801;
   }
 }

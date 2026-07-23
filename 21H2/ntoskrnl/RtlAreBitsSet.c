@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlAreBitsSet @ 0x1402AEB10
+ * XREFs of RtlAreBitsSet @ 0x14022CE70
  * Callers:
- *     MiReleaseDriverPtes @ 0x14075FCF0 (MiReleaseDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x14075FEB0 (MiReleaseDriverPtes.c)
  * Callees:
  *     <none>
  */

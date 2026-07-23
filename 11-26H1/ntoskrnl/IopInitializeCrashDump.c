@@ -1,24 +1,24 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x140793598
+ * XREFs of IopInitializeCrashDump @ 0x1407960C8
  * Callers:
- *     IoConfigureCrashDump @ 0x1405C63E0 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x1407930B8 (IoInitializeCrashDump.c)
- *     IopInitCrashDumpRegCallback @ 0x140CBD560 (IopInitCrashDumpRegCallback.c)
+ *     IoConfigureCrashDump @ 0x1405C8CB0 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x140795BE8 (IoInitializeCrashDump.c)
+ *     IopInitCrashDumpRegCallback @ 0x140CC3630 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x14050DC74 (IopDumpTraceLoadCrashDumpDriverFailure.c)
- *     IopLoadCrashdumpDriver @ 0x14050F1D4 (IopLoadCrashdumpDriver.c)
- *     SecureDump_GetSecureDumpSettings @ 0x140518534 (SecureDump_GetSecureDumpSettings.c)
- *     IopDumpTraceInitializeCrashDumpFailure @ 0x1405C92D0 (IopDumpTraceInitializeCrashDumpFailure.c)
- *     IopReadDumpRegistry @ 0x1405C9ADC (IopReadDumpRegistry.c)
- *     IopInitializeRemovePagesArray @ 0x1405D56F0 (IopInitializeRemovePagesArray.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
- *     ExUuidCreate @ 0x140A76B60 (ExUuidCreate.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140B39144 (FsRtlIssueFileNotificationFsctl.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x1405076E4 (IopDumpTraceLoadCrashDumpDriverFailure.c)
+ *     IopLoadCrashdumpDriver @ 0x140508C44 (IopLoadCrashdumpDriver.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140511FA4 (SecureDump_GetSecureDumpSettings.c)
+ *     IopDumpTraceInitializeCrashDumpFailure @ 0x1405CBBA0 (IopDumpTraceInitializeCrashDumpFailure.c)
+ *     IopReadDumpRegistry @ 0x1405CC3AC (IopReadDumpRegistry.c)
+ *     IopInitializeRemovePagesArray @ 0x1405D7EE0 (IopInitializeRemovePagesArray.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
+ *     ExUuidCreate @ 0x140A7F880 (ExUuidCreate.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140B3B354 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
@@ -31,7 +31,7 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
   PVOID Object; // [rsp+30h] [rbp-49h] BYREF
   __int64 v11; // [rsp+38h] [rbp-41h] BYREF
   int v12; // [rsp+40h] [rbp-39h]
-  UNICODE_STRING SourceString; // [rsp+50h] [rbp-29h] BYREF
+  UNICODE_STRING GuidString; // [rsp+50h] [rbp-29h] BYREF
   _QWORD v14[3]; // [rsp+60h] [rbp-19h] BYREF
   int v15; // [rsp+78h] [rbp-1h]
   int v16; // [rsp+7Ch] [rbp+3h]
@@ -46,7 +46,7 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
     return 0;
   if ( dword_140E0AA24 == -1073741811 )
   {
-    v4 = ExUuidCreate(&Uuid);
+    v4 = ExUuidCreate(&Guid);
     dword_140E0AA24 = v4;
     if ( v4 == 1073872982 )
     {
@@ -55,11 +55,11 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
     }
     if ( v4 >= 0 )
     {
-      *(_QWORD *)&SourceString.Length = 5111808LL;
-      SourceString.Buffer = (wchar_t *)v14;
-      dword_140E0AA24 = RtlStringFromGUIDEx(&Uuid, &SourceString, 0LL);
+      *(_QWORD *)&GuidString.Length = 5111808LL;
+      GuidString.Buffer = (wchar_t *)v14;
+      dword_140E0AA24 = RtlStringFromGUIDEx(&Guid, &GuidString, 0);
       if ( dword_140E0AA24 >= 0 )
-        dword_140E0AA24 = RtlUnicodeStringToAnsiString(&DestinationString, &SourceString, 0);
+        dword_140E0AA24 = RtlUnicodeStringToAnsiString(&DestinationString, &GuidString, 0);
     }
   }
   IopReadDumpRegistry(Handle, &Object);
@@ -71,7 +71,7 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
       return 0;
     if ( (_BYTE)v11 )
     {
-      if ( !qword_140E65EB8 )
+      if ( !qword_140E66058 )
         return 0;
       v15 = HIDWORD(v11);
       v16 = v12;
@@ -84,7 +84,7 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
       if ( (int)guard_dispatch_icall_no_overrides((__int64)v14, v7) < 0 )
         return 0;
     }
-    SourceString = *a2;
+    GuidString = *a2;
     v8 = guard_dispatch_icall_no_overrides(Handle, (__int64)&CrashdmpDumpBlock);
     if ( v8 < 0 )
     {
@@ -94,8 +94,8 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, UNICODE_STRING *a2)
     }
     CrashdmpInitialized = 1;
     *(_DWORD *)(CrashdmpDumpBlock + 1436) = dword_140E0AA24;
-    *(UUID *)(CrashdmpDumpBlock + 1440) = Uuid;
-    *(STRING *)(CrashdmpDumpBlock + 1456) = DestinationString;
+    *(UUID *)(CrashdmpDumpBlock + 1440) = Guid;
+    *(_STRING *)(CrashdmpDumpBlock + 1456) = DestinationString;
     v9 = *(HANDLE *)(CrashdmpDumpBlock + 1352);
     if ( !v9 )
     {

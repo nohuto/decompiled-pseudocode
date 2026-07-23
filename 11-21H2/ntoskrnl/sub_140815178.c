@@ -1,0 +1,104 @@
+/*
+ * XREFs of sub_140815178 @ 0x140815178
+ * Callers:
+ *     sub_1406E6B08 @ 0x1406E6B08 (sub_1406E6B08.c)
+ *     sub_140815DC8 @ 0x140815DC8 (sub_140815DC8.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     sub_140815360 @ 0x140815360 (sub_140815360.c)
+ *     sub_14081538C @ 0x14081538C (sub_14081538C.c)
+ *     sub_14081549C @ 0x14081549C (sub_14081549C.c)
+ *     WmiQueryTraceInformation @ 0x140815520 (WmiQueryTraceInformation.c)
+ */
+
+__int64 __fastcall sub_140815178(__int64 a1, __int64 a2)
+{
+  __int64 v4; // rsi
+  __int64 v5; // rcx
+  NTSTATUS v6; // ebx
+  __int64 v7; // rbx
+  int v8; // r15d
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // eax
+  _QWORD *v13; // rdi
+  int TraceInformation; // [rsp+30h] [rbp-D0h] BYREF
+  int v16; // [rsp+34h] [rbp-CCh] BYREF
+  __int64 Buffer; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v18; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v19[255]; // [rsp+48h] [rbp-B8h]
+  _QWORD v20[124]; // [rsp+840h] [rbp+740h] BYREF
+
+  memset(v20, 0, sizeof(v20));
+  v16 = 0;
+  v4 = 0LL;
+  if ( a1
+    && a2
+    && (LODWORD(Buffer) = _InterlockedExchange(&dword_140C18E98, dword_140C18E98), TraceInformation = 0, (_DWORD)Buffer) )
+  {
+    v6 = WmiQueryTraceInformation(LoggerEventsLostClass, &TraceInformation, 4u, 0LL, &Buffer);
+    if ( v6 >= 0 )
+    {
+      v7 = *(_QWORD *)(a2 + 32);
+      v16 = TraceInformation;
+      v8 = *(_DWORD *)(v7 + 48);
+      v19[1] = v7 + 16;
+      v19[3] = &v16;
+      v18 = v7;
+      v19[0] = 16LL;
+      v19[2] = 2LL;
+      v19[4] = 4LL;
+      v19[5] = v7 + 48;
+      v19[6] = 4LL;
+      if ( *(_DWORD *)(v7 + 48) )
+      {
+        while ( 1 )
+        {
+          Buffer = *(_QWORD *)(v7 + 8 * v4 + 56);
+          v9 = sub_14081538C(4LL, 40LL);
+          v10 = v9;
+          if ( !v9 )
+            break;
+          v11 = Buffer;
+          v20[v4] = v9;
+          *(_OWORD *)v9 = *(_OWORD *)v11;
+          *(_BYTE *)(v9 + 16) = *(_BYTE *)(v11 + 18);
+          *(_QWORD *)(v9 + 24) = *(_QWORD *)(v11 + 24);
+          *(_DWORD *)(v9 + 32) = *(_DWORD *)(v11 + 36);
+          v5 = 2LL * (unsigned int)(v4 + 4);
+          v12 = *(_DWORD *)(a2 + 4 * v4 + 48);
+          v4 = (unsigned int)(v4 + 1);
+          *(_DWORD *)(v10 + 36) = v12;
+          HIDWORD(v19[v5]) = 0;
+          v19[v5 - 1] = v10;
+          LODWORD(v19[v5]) = 40;
+          if ( (unsigned int)v4 >= *(_DWORD *)(v7 + 48) )
+            goto LABEL_8;
+        }
+        v6 = -1073741670;
+      }
+      else
+      {
+LABEL_8:
+        v6 = sub_14081549C(v5, a1, a2 + 16, (unsigned int)(v8 + 4), &v18);
+      }
+      if ( (_DWORD)v4 )
+      {
+        v13 = v20;
+        do
+        {
+          sub_140815360(4LL, *v13++);
+          --v4;
+        }
+        while ( v4 );
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return (unsigned int)v6;
+}

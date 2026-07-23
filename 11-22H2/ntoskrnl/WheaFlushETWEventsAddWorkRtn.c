@@ -11,7 +11,7 @@
 
 void WheaFlushETWEventsAddWorkRtn()
 {
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   _InterlockedAdd(&dword_140C2BA40, 1u);

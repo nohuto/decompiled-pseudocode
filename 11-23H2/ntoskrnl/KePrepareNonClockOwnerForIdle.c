@@ -1,23 +1,23 @@
 /*
- * XREFs of KePrepareNonClockOwnerForIdle @ 0x1402C1CDC
+ * XREFs of KePrepareNonClockOwnerForIdle @ 0x1402C1F6C
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KiFindNextTimerDueTime @ 0x14027E2C0 (KiFindNextTimerDueTime.c)
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiSetNextClockTickDueTime @ 0x1402C8510 (KiSetNextClockTickDueTime.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiShouldRearmClockTimer @ 0x140340E3C (KiShouldRearmClockTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiFindNextTimerDueTime @ 0x14027E550 (KiFindNextTimerDueTime.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiSetNextClockTickDueTime @ 0x1402C87A0 (KiSetNextClockTickDueTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiShouldRearmClockTimer @ 0x1403410CC (KiShouldRearmClockTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v4; // rdx
   __int64 v5; // rbp
   unsigned __int8 CurrentIrql; // si
@@ -37,10 +37,10 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
   int v20; // eax
   bool v21; // zf
   unsigned __int64 v22; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v23; // [rsp+38h] [rbp-50h] BYREF
+  LARGE_INTEGER v23; // [rsp+38h] [rbp-50h] BYREF
   char v24[32]; // [rsp+40h] [rbp-48h] BYREF
 
-  v23 = 0LL;
+  v23.QuadPart = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   InterruptTimePrecise = RtlGetInterruptTimePrecise(&v23);
   v4 = -1LL;
@@ -48,13 +48,13 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
   v5 = -1LL;
   if ( !KiSerializeTimerExpiration )
   {
-    NextTimerDueTime = KiFindNextTimerDueTime((__int64)CurrentPrcb, InterruptTimePrecise, 0, &v22);
+    NextTimerDueTime = KiFindNextTimerDueTime((__int64)CurrentPrcb, InterruptTimePrecise.QuadPart, 0, &v22);
     v4 = v22;
     v5 = NextTimerDueTime;
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -90,7 +90,7 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
       if ( v9->ClockOwner )
         v9->ClockOwner = 0;
       if ( (unsigned int)dword_140C02F60 > 5 )
-        tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, &dword_14002D53C, 0LL, 0LL, 2, v24);
+        tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, &dword_14002D624, 0LL, 0LL, 2, v24);
       NextTickDueTime = -1LL;
       goto LABEL_20;
     }
@@ -102,10 +102,10 @@ __int64 __fastcall KePrepareNonClockOwnerForIdle(__int64 *a1)
   }
   NextTickDueTime = CurrentPrcb->ClockTimerState.NextTickDueTime;
 LABEL_20:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

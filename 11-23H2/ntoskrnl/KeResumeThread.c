@@ -1,13 +1,13 @@
 /*
- * XREFs of KeResumeThread @ 0x14030A22C
+ * XREFs of KeResumeThread @ 0x14030A4BC
  * Callers:
- *     PsMultiResumeThread @ 0x140309D88 (PsMultiResumeThread.c)
- *     PsMultiResumeProcess @ 0x14036A858 (PsMultiResumeProcess.c)
- *     KeAlertResumeThread @ 0x14056ECD0 (KeAlertResumeThread.c)
+ *     PsMultiResumeThread @ 0x14030A018 (PsMultiResumeThread.c)
+ *     PsMultiResumeProcess @ 0x14036A9F8 (PsMultiResumeProcess.c)
+ *     KeAlertResumeThread @ 0x14056F210 (KeAlertResumeThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
  */
 
 __int64 __fastcall KeResumeThread(__int64 a1, unsigned int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall KeResumeThread(__int64 a1, unsigned int a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v12) = 4;
@@ -49,6 +49,6 @@ __int64 __fastcall KeResumeThread(__int64 a1, unsigned int a2)
     }
   }
   _InterlockedAnd(v6, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v8;
 }

@@ -11,33 +11,38 @@
 __int64 TppQueryMaximumGroupCount()
 {
   unsigned __int16 v0; // di
-  __int64 Heap; // rbx
-  int i; // eax
-  int v3; // eax
-  int v5; // [rsp+30h] [rbp-8h]
-  int v6; // [rsp+40h] [rbp+8h] BYREF
-  int v7; // [rsp+48h] [rbp+10h] BYREF
+  _WORD *Heap; // rbx
+  ULONG SystemInformationLength; // eax
+  NTSTATUS v3; // eax
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
+  int InputBuffer; // [rsp+48h] [rbp+10h] BYREF
 
-  v6 = 0;
+  ReturnLength = 0;
   v0 = 0;
   Heap = 0LL;
-  for ( i = 0; ; i = v6 )
+  for ( SystemInformationLength = 0; ; SystemInformationLength = ReturnLength )
   {
-    v7 = 4;
-    v3 = NtQuerySystemInformationEx(107LL, &v7, 4LL, Heap, i, &v6, v5);
+    InputBuffer = 4;
+    v3 = NtQuerySystemInformationEx(
+           SystemLogicalProcessorAndGroupInformation,
+           &InputBuffer,
+           4u,
+           Heap,
+           SystemInformationLength,
+           &ReturnLength);
     if ( v3 >= 0 )
       break;
     if ( v3 != -1073741820 )
       goto LABEL_9;
     if ( Heap )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 786432), Heap);
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, ReturnLength);
     if ( !Heap )
       return v0;
   }
-  v0 = *(_WORD *)(Heap + 8);
+  v0 = Heap[4];
 LABEL_9:
   if ( Heap )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 786432), Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
   return v0;
 }

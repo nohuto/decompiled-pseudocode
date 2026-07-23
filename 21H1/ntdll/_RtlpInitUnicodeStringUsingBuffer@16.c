@@ -9,21 +9,30 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall RtlpInitUnicodeStringUsingBuffer(char a1, const unsigned __int16 *a2, unsigned int a3, int a4)
+int __userpurge RtlpInitUnicodeStringUsingBuffer@<eax>(
+        const WCHAR *a1@<edx>,
+        char a2@<cl>,
+        int a3@<esi>,
+        unsigned int a4,
+        PUNICODE_STRING DestinationString)
 {
-  if ( a1 )
+  size_t v6; // [esp-8h] [ebp-10h]
+
+  if ( a2 )
   {
-    if ( RtlCreateUnicodeString(a4, a2) )
+    if ( RtlCreateUnicodeString(DestinationString, a1) )
       return 0;
     return -1073741801;
   }
   else
   {
-    if ( a3 < 0x55 && *(unsigned __int16 *)(a4 + 2) > 2 * a3 )
+    if ( a4 < 0x55 && DestinationString->MaximumLength > 2 * a4 )
     {
-      memcpy(*(void **)(a4 + 4), a2, (unsigned __int16)(2 * a3));
-      *(_WORD *)(2 * a3 + *(_DWORD *)(a4 + 4)) = 0;
-      *(_WORD *)a4 = 2 * a3;
+      HIDWORD(v6) = a3;
+      LODWORD(v6) = (unsigned __int16)(2 * a4);
+      memcpy(DestinationString->Buffer, a1, v6);
+      DestinationString->Buffer[a4] = 0;
+      DestinationString->Length = 2 * a4;
       return 0;
     }
     return -1073741789;

@@ -8,15 +8,15 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)
+NTSTATUS __cdecl RtlCheckPortableOperatingSystem(PBOOLEAN IsPortable)
 {
-  int v2; // edi
+  NTSTATUS v2; // edi
   _QWORD v4[14]; // [rsp+30h] [rbp-78h] BYREF
   int v5; // [rsp+B8h] [rbp+10h] BYREF
 
   v5 = 0;
   v2 = 0;
-  if ( (int)RtlCheckRegistryKey(2LL, (__int64)L"MiniNT") >= 0 )
+  if ( RtlCheckRegistryKey(2u, (PWSTR)L"MiniNT") >= 0 )
     goto LABEL_6;
   memset(v4, 0, sizeof(v4));
   v4[2] = L"PortableOperatingSystem";
@@ -28,6 +28,6 @@ __int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)
     v2 = -1073741275;
   if ( v2 >= 0 )
 LABEL_6:
-    *a1 = v5 != 0;
-  return (unsigned int)v2;
+    *IsPortable = v5 != 0;
+  return v2;
 }

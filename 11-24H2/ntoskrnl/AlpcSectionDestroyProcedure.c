@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcSectionDestroyProcedure @ 0x140A29100
+ * XREFs of AlpcSectionDestroyProcedure @ 0x140A1DAC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     AlpcDeleteBlobByHandle @ 0x1409E6514 (AlpcDeleteBlobByHandle.c)
- *     AlpcpRemoveResourcePort @ 0x1409E65DC (AlpcpRemoveResourcePort.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     AlpcDeleteBlobByHandle @ 0x1409E0DA4 (AlpcDeleteBlobByHandle.c)
+ *     AlpcpRemoveResourcePort @ 0x1409E0E6C (AlpcpRemoveResourcePort.c)
  */
 
 __int64 __fastcall AlpcSectionDestroyProcedure(__int64 a1)

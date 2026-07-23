@@ -259,20 +259,20 @@
  *     _ZwWaitForAlertByThreadId@8 @ 0x4B2F4680 (_ZwWaitForAlertByThreadId@8.c)
  */
 
-void __stdcall RtlAcquireSRWLockExclusive(volatile signed __int32 *a1)
+void __cdecl RtlAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int32 i; // edx
+  unsigned int i; // edx
   unsigned __int32 v2; // edx
   unsigned int v3; // ecx
   unsigned int v4; // ecx
-  signed __int32 v5; // esi
+  unsigned int Value; // esi
   int j; // edx
   unsigned __int64 v8; // kr00_8
   unsigned int v9; // ecx
   unsigned __int64 v10; // rax
   unsigned int v11; // [esp+14h] [ebp-3Ch]
   bool v12; // [esp+1Ch] [ebp-34h]
-  unsigned __int32 v13; // [esp+20h] [ebp-30h]
+  unsigned int v13; // [esp+20h] [ebp-30h]
   int v14; // [esp+24h] [ebp-2Ch] BYREF
   unsigned int v15; // [esp+28h] [ebp-28h]
   unsigned int v16; // [esp+2Ch] [ebp-24h]
@@ -284,16 +284,16 @@ void __stdcall RtlAcquireSRWLockExclusive(volatile signed __int32 *a1)
   signed __int32 v22[3]; // [esp+44h] [ebp-Ch] BYREF
 
   v14 = 0;
-  if ( _interlockedbittestandset(a1, 0) )
+  if ( _interlockedbittestandset((volatile signed __int32 *)SRWLock, 0) )
   {
-    for ( i = *a1; ; i = v5 )
+    for ( i = SRWLock->Value; ; i = Value )
     {
       v13 = i;
       if ( (i & 1) == 0 )
         break;
       if ( (unsigned __int8)RtlpWaitCouldDeadlock() )
       {
-        ZwTerminateProcess(-1, -1073741749);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFF, -1073741749);
         v2 = v13;
         v3 = 1;
       }
@@ -317,8 +317,8 @@ void __stdcall RtlAcquireSRWLockExclusive(volatile signed __int32 *a1)
         if ( !(v2 >> 4) )
           v21 = -2;
       }
-      v5 = _InterlockedCompareExchange(a1, v4, v2);
-      if ( v5 != v2 )
+      Value = _InterlockedCompareExchange((volatile signed __int32 *)SRWLock, v4, v2);
+      if ( Value != v2 )
         goto LABEL_22;
       if ( v12 )
         RtlpOptimizeSRWLockList(v4);
@@ -352,17 +352,17 @@ void __stdcall RtlAcquireSRWLockExclusive(volatile signed __int32 *a1)
       if ( _interlockedbittestandreset(v22, 1u) )
       {
         do
-          ZwWaitForAlertByThreadId(a1, 0);
+          ZwWaitForAlertByThreadId(SRWLock, 0);
         while ( (v22[0] & 4) == 0 );
       }
 LABEL_20:
       ;
     }
-    if ( _InterlockedCompareExchange(a1, i + 1, i) == i )
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)SRWLock, i + 1, i) == i )
       return;
 LABEL_22:
     RtlBackoff(&v14);
-    v5 = *a1;
+    Value = SRWLock->Value;
     goto LABEL_20;
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReportDirectedDripsCandidateDevice @ 0x140868930
+ * XREFs of PopReportDirectedDripsCandidateDevice @ 0x140869B90
  * Callers:
- *     PoReportDirectedDripsCandidateDevice @ 0x140867AB0 (PoReportDirectedDripsCandidateDevice.c)
- *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087973C (PopDripsWatchdogReportDirectedDripsDevice.c)
- *     PopReportDirectedDripsCandidateChildren @ 0x14087CE84 (PopReportDirectedDripsCandidateChildren.c)
+ *     PoReportDirectedDripsCandidateDevice @ 0x140868D10 (PoReportDirectedDripsCandidateDevice.c)
+ *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087A99C (PopDripsWatchdogReportDirectedDripsDevice.c)
+ *     PopReportDirectedDripsCandidateChildren @ 0x14087E0E4 (PopReportDirectedDripsCandidateChildren.c)
  * Callees:
- *     PipSetDevNodeStateFlags @ 0x140828598 (PipSetDevNodeStateFlags.c)
- *     PopDiagTraceDirectedDripsMarkDevice @ 0x140871F84 (PopDiagTraceDirectedDripsMarkDevice.c)
+ *     PipSetDevNodeStateFlags @ 0x140829798 (PipSetDevNodeStateFlags.c)
+ *     PopDiagTraceDirectedDripsMarkDevice @ 0x1408731E4 (PopDiagTraceDirectedDripsMarkDevice.c)
  */
 
 __int64 __fastcall PopReportDirectedDripsCandidateDevice(__int64 a1, struct _DEVICE_OBJECT *a2)
@@ -22,14 +22,14 @@ __int64 __fastcall PopReportDirectedDripsCandidateDevice(__int64 a1, struct _DEV
   else
   {
     _m_prefetchw(&PopDirectedDripsState);
-    if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 1) != 0 && _InterlockedExchangeAdd(&dword_140419164, 0) <= 0 )
+    if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 1) != 0 && _InterlockedExchangeAdd(&dword_14041A244, 0) <= 0 )
     {
       v4 = PipSetDevNodeStateFlags(a2);
       v2 = v4;
       if ( v4 >= 0 && v4 != 255 )
       {
         PopDiagTraceDirectedDripsMarkDevice(a2);
-        _InterlockedIncrement(&dword_140419170);
+        _InterlockedIncrement(&dword_14041A250);
       }
     }
   }

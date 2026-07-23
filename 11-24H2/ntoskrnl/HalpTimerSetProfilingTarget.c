@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerSetProfilingTarget @ 0x1404BF240
+ * XREFs of HalpTimerSetProfilingTarget @ 0x1404BA774
  * Callers:
- *     EmonSetIntervalEnhanced @ 0x14055E730 (EmonSetIntervalEnhanced.c)
- *     EmonSetIntervalOriginal @ 0x14055E930 (EmonSetIntervalOriginal.c)
- *     Amd64SetInterval @ 0x14056C7D0 (Amd64SetInterval.c)
+ *     EmonSetIntervalEnhanced @ 0x14055C360 (EmonSetIntervalEnhanced.c)
+ *     EmonSetIntervalOriginal @ 0x14055C560 (EmonSetIntervalOriginal.c)
+ *     Amd64SetInterval @ 0x140569C60 (Amd64SetInterval.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
  */
 
 bool HalpTimerSetProfilingTarget()

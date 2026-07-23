@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitialSlabPopulate @ 0x1403B4FF0
+ * XREFs of MiInitialSlabPopulate @ 0x1403B51D0
  * Callers:
  *     <none>
  * Callees:
- *     MiReplenishSlabAllocator @ 0x1402E6AC4 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402E6D54 (MiReplenishSlabAllocator.c)
  */
 
 __int64 __fastcall MiInitialSlabPopulate(__int64 a1, _QWORD *a2)

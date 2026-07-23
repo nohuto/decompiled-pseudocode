@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpInsertEventInQueue @ 0x1403F0BD4
+ * XREFs of PnpInsertEventInQueue @ 0x14048AC64
  * Callers:
- *     PnpSetDeviceInstanceRemovalEvent @ 0x14009F544 (PnpSetDeviceInstanceRemovalEvent.c)
- *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x1400B2E78 (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140138C28 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     PnpSetDeviceClassChange @ 0x1403EEEB4 (PnpSetDeviceClassChange.c)
- *     PnpSetCustomTargetEvent @ 0x1403EF18C (PnpSetCustomTargetEvent.c)
- *     PnpSetPlugPlayEvent @ 0x1403F01EC (PnpSetPlugPlayEvent.c)
- *     PnpSetTargetDeviceRemove @ 0x1404C3F44 (PnpSetTargetDeviceRemove.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x140547ED0 (PnpSynchronizeDeviceEventQueue.c)
- *     PnpSetBlockedDriverEvent @ 0x140642CD0 (PnpSetBlockedDriverEvent.c)
- *     PnpSetDeviceRemovalSafe @ 0x140642D3C (PnpSetDeviceRemovalSafe.c)
- *     PnpSetHwProfileChangeEvent @ 0x140642E34 (PnpSetHwProfileChangeEvent.c)
- *     PnpSetInvalidIDEvent @ 0x140642EC8 (PnpSetInvalidIDEvent.c)
- *     PnpSetPowerVetoEvent @ 0x140642F74 (PnpSetPowerVetoEvent.c)
+ *     PnpSetDeviceInstanceRemovalEvent @ 0x1400850B8 (PnpSetDeviceInstanceRemovalEvent.c)
+ *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x140085FF0 (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140139198 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     PnpSetTargetDeviceRemove @ 0x140484C7C (PnpSetTargetDeviceRemove.c)
+ *     PnpSetDeviceClassChange @ 0x140488DB8 (PnpSetDeviceClassChange.c)
+ *     PnpSetCustomTargetEvent @ 0x1404893D8 (PnpSetCustomTargetEvent.c)
+ *     PnpSetPlugPlayEvent @ 0x14048A464 (PnpSetPlugPlayEvent.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x140548410 (PnpSynchronizeDeviceEventQueue.c)
+ *     PnpSetBlockedDriverEvent @ 0x140642DB4 (PnpSetBlockedDriverEvent.c)
+ *     PnpSetDeviceRemovalSafe @ 0x140642E20 (PnpSetDeviceRemovalSafe.c)
+ *     PnpSetHwProfileChangeEvent @ 0x140642F18 (PnpSetHwProfileChangeEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x140642FAC (PnpSetInvalidIDEvent.c)
+ *     PnpSetPowerVetoEvent @ 0x140643058 (PnpSetPowerVetoEvent.c)
  * Callees:
- *     PnpIsSafeToExamineUserModeTeb @ 0x140007E58 (PnpIsSafeToExamineUserModeTeb.c)
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     Template_z @ 0x1401CDFD0 (Template_z.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x140086AA0 (PnpIsSafeToExamineUserModeTeb.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     Template_z @ 0x1401CDE1C (Template_z.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpCompareGuid @ 0x1403F02F8 (PnpCompareGuid.c)
+ *     PnpCompareGuid @ 0x14048A570 (PnpCompareGuid.c)
  */
 
 __int64 __fastcall PnpInsertEventInQueue(__int64 a1)
@@ -94,7 +94,7 @@ __int64 __fastcall PnpInsertEventInQueue(__int64 a1)
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(PnpDeviceEventList + 64));
   if ( PoolWithTag )
   {
-    PoolWithTag->WorkerRoutine = PnpDeviceEventWorker;
+    PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PnpDeviceEventWorker;
     PoolWithTag->Parameter = PoolWithTag;
     PoolWithTag->List.Flink = 0LL;
     ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);

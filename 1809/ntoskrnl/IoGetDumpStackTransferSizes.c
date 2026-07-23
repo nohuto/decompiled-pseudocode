@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetDumpStackTransferSizes @ 0x140144A6C
+ * XREFs of IoGetDumpStackTransferSizes @ 0x140144B6C
  * Callers:
- *     PopHiberInitializeResources @ 0x1406DF244 (PopHiberInitializeResources.c)
+ *     PopHiberInitializeResources @ 0x1406E04E4 (PopHiberInitializeResources.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 (*__fastcall IoGetDumpStackTransferSizes(_DWORD *a1, _DWORD *a2))(void)
@@ -12,9 +12,9 @@ __int64 (*__fastcall IoGetDumpStackTransferSizes(_DWORD *a1, _DWORD *a2))(void)
 
   if ( CrashdmpImageEntry )
   {
-    result = qword_14043C810;
-    if ( qword_14043C810 )
-      return (__int64 (*)(void))qword_14043C810();
+    result = qword_14043D8D0;
+    if ( qword_14043D8D0 )
+      return (__int64 (*)(void))qword_14043D8D0();
   }
   if ( a1 )
     *a1 = 4096;

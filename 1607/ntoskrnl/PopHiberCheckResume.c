@@ -1,18 +1,18 @@
 /*
  * XREFs of PopHiberCheckResume @ 0x1403D06EC
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x140166C10 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x140167180 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx @ 0x140113F4C (MmMapMemoryDumpMdlEx.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlRestoreEnlightenment @ 0x140171734 (HvlRestoreEnlightenment.c)
- *     HvlNotifyDebugDeviceAvailable @ 0x1401BD530 (HvlNotifyDebugDeviceAvailable.c)
- *     HvlNotifyAcpiReenabled @ 0x1401BF190 (HvlNotifyAcpiReenabled.c)
+ *     MmMapMemoryDumpMdlEx @ 0x1401144BC (MmMapMemoryDumpMdlEx.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlRestoreEnlightenment @ 0x140171C34 (HvlRestoreEnlightenment.c)
+ *     HvlNotifyDebugDeviceAvailable @ 0x1401BD414 (HvlNotifyDebugDeviceAvailable.c)
+ *     HvlNotifyAcpiReenabled @ 0x1401BF074 (HvlNotifyAcpiReenabled.c)
  *     PopCheckpointSystemSleep @ 0x1403CEBA4 (PopCheckpointSystemSleep.c)
  *     xHalPowerEarlyRestore @ 0x1403D6AEC (xHalPowerEarlyRestore.c)
  *     xHalPciEarlyRestore @ 0x1403D6B10 (xHalPciEarlyRestore.c)
- *     CmpMarkLockTryAcquired @ 0x1405281C8 (CmpMarkLockTryAcquired.c)
+ *     CmpMarkLockTryAcquired @ 0x140528708 (CmpMarkLockTryAcquired.c)
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  */
 
@@ -41,9 +41,9 @@ char PopHiberCheckResume()
   __int128 v21; // [rsp+50h] [rbp-138h]
   __int128 v22; // [rsp+60h] [rbp-128h]
 
-  v0 = qword_1403034A0;
+  v0 = qword_1403033E0;
   v1 = 0;
-  v2 = *(_QWORD *)(qword_1403034A0 + 200);
+  v2 = *(_QWORD *)(qword_1403033E0 + 200);
   if ( *(_DWORD *)v2 )
   {
     PopCheckpointSystemSleep(25);
@@ -92,9 +92,9 @@ char PopHiberCheckResume()
       HIWORD(v18) |= 1u;
       memset(*(void **)(v16 + 8), 0, 0x4000uLL);
     }
-    v6 = &qword_1403038B8;
+    v6 = &qword_1403037F8;
     v7 = 3LL;
-    qword_1402FD0D8 = *(_QWORD *)(v2 + 888);
+    qword_1402FD038 = *(_QWORD *)(v2 + 888);
     v8 = (_OWORD *)(v2 + 136);
     do
     {
@@ -121,8 +121,8 @@ char PopHiberCheckResume()
     v6[12] = *((_QWORD *)v8 + 12);
     *(_DWORD *)(v0 + 224) = *(_DWORD *)(v2 + 640);
     *(_BYTE *)(v0 + 4) = 0;
-    qword_140303988 = v3;
-    qword_140303918 = v3 - qword_140303920;
+    qword_1403038C8 = v3;
+    qword_140303858 = v3 - qword_140303860;
     if ( (HvlpFlags & 2) != 0 )
       *(_DWORD *)(v0 + 20) = 0;
     return 1;

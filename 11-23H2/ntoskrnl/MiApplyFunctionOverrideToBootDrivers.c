@@ -3,19 +3,19 @@
  * Callers:
  *     MiApplyBootLoadedDriversFixups @ 0x140B45CC4 (MiApplyBootLoadedDriversFixups.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     RtlApplyFunctionOverrideFixupsToImage @ 0x140375F54 (RtlApplyFunctionOverrideFixupsToImage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     RtlApplyFunctionOverrideFixupsToImage @ 0x1403760F4 (RtlApplyFunctionOverrideFixupsToImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiApplyFunctionOverrideToBootDrivers(__int64 a1)
 {
   __int64 v1; // rsi
   ULONG_PTR v2; // rbx
-  unsigned __int64 v3; // rdi
+  PVOID v3; // rdi
   unsigned int v4; // ebp
   int v5; // eax
   _QWORD v7[14]; // [rsp+30h] [rbp-98h] BYREF
@@ -26,7 +26,7 @@ __int64 __fastcall MiApplyFunctionOverrideToBootDrivers(__int64 a1)
   {
     do
     {
-      v3 = *(_QWORD *)(v2 + 48);
+      v3 = *(PVOID *)(v2 + 48);
       v4 = *(_DWORD *)(v2 + 64);
       if ( v3 != PsNtosImageBase && v3 != PsHalImageBase && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(*(_QWORD *)(v2 + 48)) )
       {

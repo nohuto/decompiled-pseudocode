@@ -1,10 +1,10 @@
 /*
- * XREFs of RcFrameConsolidation @ 0x140407FD0
+ * XREFs of RcFrameConsolidation @ 0x1404081B0
  * Callers:
  *     <none>
  * Callees:
- *     KeCheckStackAndTargetAddress @ 0x1402B2030 (KeCheckStackAndTargetAddress.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeCheckStackAndTargetAddress @ 0x1402301E0 (KeCheckStackAndTargetAddress.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall RcFrameConsolidation(
@@ -29,16 +29,16 @@ void __fastcall RcFrameConsolidation(
         unsigned __int64 a19)
 {
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h]
-  void *v32; // [rsp+F8h] [rbp+F8h]
+  void *v31; // [rsp+F8h] [rbp+F8h]
 
-  v32 = (void *)(*(__int64 (**)(void))(a1 + 32))();
+  v31 = (void *)(*(__int64 (**)(void))(a1 + 32))();
   if ( (a6 & 0xFFFFFFBF) == 0x10000F )
   {
     _mm_setcsr(HIDWORD(a6));
-    KeCheckStackAndTargetAddress((signed __int64)v32, a19);
-    retaddr = v32;
+    KeCheckStackAndTargetAddress((signed __int64)v31, a19);
+    retaddr = v31;
     _disable();
     __asm { iretq }
   }
-  JUMPOUT(0x140407E3FLL);
+  JUMPOUT(0x14040801FLL);
 }

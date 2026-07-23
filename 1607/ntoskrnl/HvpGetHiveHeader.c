@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpGetHiveHeader @ 0x140481CC8
+ * XREFs of HvpGetHiveHeader @ 0x140480A1C
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvpGetHiveHeader(__int64 a1, char **a2, _QWORD *a3)

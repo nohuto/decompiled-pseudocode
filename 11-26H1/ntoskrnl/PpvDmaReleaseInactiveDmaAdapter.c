@@ -1,9 +1,9 @@
 /*
- * XREFs of PpvDmaReleaseInactiveDmaAdapter @ 0x1405DCFC0
+ * XREFs of PpvDmaReleaseInactiveDmaAdapter @ 0x1405DF928
  * Callers:
- *     PiIommuUnblockDevice @ 0x14077916C (PiIommuUnblockDevice.c)
+ *     PiIommuUnblockDevice @ 0x14077C00C (PiIommuUnblockDevice.c)
  * Callees:
- *     VfReleaseInactiveDmaAdapter @ 0x140C25B84 (VfReleaseInactiveDmaAdapter.c)
+ *     VfReleaseInactiveDmaAdapter @ 0x140C2BB94 (VfReleaseInactiveDmaAdapter.c)
  */
 
 __int64 PpvDmaReleaseInactiveDmaAdapter()

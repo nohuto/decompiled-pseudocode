@@ -13,27 +13,30 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-unsigned int __stdcall RtlUpcaseUnicodeString(int a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned __int16 v3; // ax
+  unsigned __int16 Length; // ax
   int v4; // ecx
-  unsigned int result; // eax
+  NTSTATUS result; // eax
   unsigned int i; // edi
-  int StringRoutine; // eax
-  unsigned int v8; // [esp+14h] [ebp-20h]
+  wchar_t *StringRoutine; // eax
+  NTSTATUS v8; // [esp+14h] [ebp-20h]
 
-  v3 = *a2;
-  v4 = *a2;
-  if ( a3 )
+  Length = SourceString->Length;
+  v4 = SourceString->Length;
+  if ( AllocateDestinationString )
   {
-    *(_WORD *)(a1 + 2) = v3;
-    StringRoutine = NtdllpAllocateStringRoutine(v4);
-    *(_DWORD *)(a1 + 4) = StringRoutine;
+    DestinationString->MaximumLength = Length;
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v4);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
       return -1073741801;
-    LOWORD(v4) = *a2;
+    LOWORD(v4) = SourceString->Length;
   }
-  else if ( v3 > *(_WORD *)(a1 + 2) )
+  else if ( Length > DestinationString->MaximumLength )
   {
     return -2147483643;
   }
@@ -41,7 +44,7 @@ unsigned int __stdcall RtlUpcaseUnicodeString(int a1, unsigned __int16 *a2, char
   v8 = result;
   for ( i = 0; i < result; ++i )
   {
-    *(_WORD *)(*(_DWORD *)(a1 + 4) + 2 * i) = NLS_UPCASE(*(_WORD *)(*((_DWORD *)a2 + 1) + 2 * i));
+    DestinationString->Buffer[i] = NLS_UPCASE(SourceString->Buffer[i]);
     result = v8;
   }
   return result;

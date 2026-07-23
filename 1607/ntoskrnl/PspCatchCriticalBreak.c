@@ -1,16 +1,16 @@
 /*
- * XREFs of PspCatchCriticalBreak @ 0x14067FBF8
+ * XREFs of PspCatchCriticalBreak @ 0x14067FCDC
  * Callers:
- *     PspTerminateAllThreads @ 0x1405096F0 (PspTerminateAllThreads.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspTerminateAllThreads @ 0x1404EC680 (PspTerminateAllThreads.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     PsGetServerSiloState @ 0x1400B0120 (PsGetServerSiloState.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     DbgPrompt @ 0x140211374 (DbgPrompt.c)
- *     PsTerminateServerSilo @ 0x14067E178 (PsTerminateServerSilo.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     PsGetServerSiloState @ 0x1400AE2D8 (PsGetServerSiloState.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     DbgPrompt @ 0x1402111A0 (DbgPrompt.c)
+ *     PsTerminateServerSilo @ 0x14067E25C (PsTerminateServerSilo.c)
  */
 
 void PspCatchCriticalBreak(const char *a1, _BYTE *a2, __int64 a3, __int64 a4, ...)

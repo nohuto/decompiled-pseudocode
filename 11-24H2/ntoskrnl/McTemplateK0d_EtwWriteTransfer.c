@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0d_EtwWriteTransfer @ 0x140481B24
+ * XREFs of McTemplateK0d_EtwWriteTransfer @ 0x14047CDE4
  * Callers:
- *     PiSwIrpStartCreate @ 0x1409F8394 (PiSwIrpStartCreate.c)
- *     PiCMGetDeviceInterfaceList @ 0x1409FE7EC (PiCMGetDeviceInterfaceList.c)
- *     PiCMGetDeviceIdList @ 0x140A19E98 (PiCMGetDeviceIdList.c)
- *     PipInitComputerIds @ 0x140C63B74 (PipInitComputerIds.c)
+ *     PiSwIrpStartCreate @ 0x1409F0D04 (PiSwIrpStartCreate.c)
+ *     PiCMGetDeviceInterfaceList @ 0x1409FF400 (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetDeviceIdList @ 0x140A15D5C (PiCMGetDeviceIdList.c)
+ *     PipInitComputerIds @ 0x140C65CF0 (PipInitComputerIds.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0d_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4)

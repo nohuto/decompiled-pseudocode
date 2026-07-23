@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConvertStaticSubsections @ 0x1402A0F18
+ * XREFs of MiConvertStaticSubsections @ 0x1402A11A8
  * Callers:
- *     MiInsertUnusedSegment @ 0x1402A0C98 (MiInsertUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x1402A0F28 (MiInsertUnusedSegment.c)
  * Callees:
- *     MiRemoveViewsFromSection @ 0x14029F8E8 (MiRemoveViewsFromSection.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B494 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiRemoveViewsFromSection @ 0x14029FB78 (MiRemoveViewsFromSection.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B9E4 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiConvertStaticSubsections(__int64 a1)

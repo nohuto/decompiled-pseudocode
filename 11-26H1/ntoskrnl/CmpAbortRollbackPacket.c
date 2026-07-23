@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAbortRollbackPacket @ 0x140B4CB14
+ * XREFs of CmpAbortRollbackPacket @ 0x140B4E8A4
  * Callers:
- *     CmpTryToRundownHive @ 0x140463B48 (CmpTryToRundownHive.c)
- *     CmpSaveBootControlSet @ 0x14084CBB8 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1408B09D8 (CmSetKeyFlags.c)
- *     CmRestoreKey @ 0x140986024 (CmRestoreKey.c)
- *     CmSetLastWriteTimeKey @ 0x140B53BB0 (CmSetLastWriteTimeKey.c)
+ *     CmpTryToRundownHive @ 0x14045CB08 (CmpTryToRundownHive.c)
+ *     CmpSaveBootControlSet @ 0x140852EC8 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1408B6EC8 (CmSetKeyFlags.c)
+ *     CmRestoreKey @ 0x140947D24 (CmRestoreKey.c)
+ *     CmSetLastWriteTimeKey @ 0x140B56450 (CmSetLastWriteTimeKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     TmRollbackEnlistment @ 0x1405347D0 (TmRollbackEnlistment.c)
- *     CmpRollbackLightWeightTransaction @ 0x1408AE484 (CmpRollbackLightWeightTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x1408ECC08 (CmpTransDereferenceTransaction.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     TmRollbackEnlistment @ 0x140536C50 (TmRollbackEnlistment.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1408B48C4 (CmpRollbackLightWeightTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1408F31C8 (CmpTransDereferenceTransaction.c)
  */
 
 __int64 __fastcall CmpAbortRollbackPacket(__int64 a1, _BYTE *a2)

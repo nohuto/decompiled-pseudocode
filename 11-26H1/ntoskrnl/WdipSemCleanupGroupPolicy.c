@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemCleanupGroupPolicy @ 0x140820ED0
+ * XREFs of WdipSemCleanupGroupPolicy @ 0x1408270E0
  * Callers:
- *     WdipSemCleanStart @ 0x14081F4F0 (WdipSemCleanStart.c)
- *     WdipSemLoadGroupPolicy @ 0x140820F00 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemCleanStart @ 0x140825700 (WdipSemCleanStart.c)
+ *     WdipSemLoadGroupPolicy @ 0x140827110 (WdipSemLoadGroupPolicy.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void WdipSemCleanupGroupPolicy()
 {
-  if ( stru_140F066E8.Header.WaitListHead.Blink )
+  if ( stru_140F042A0.Timer.Header.WaitListHead.Blink )
   {
-    ExFreePoolWithTag(stru_140F066E8.Header.WaitListHead.Blink, 0);
-    stru_140F066E8.Header.WaitListHead.Blink = 0LL;
+    ExFreePoolWithTag(stru_140F042A0.Timer.Header.WaitListHead.Blink, 0);
+    stru_140F042A0.Timer.Header.WaitListHead.Blink = 0LL;
   }
 }

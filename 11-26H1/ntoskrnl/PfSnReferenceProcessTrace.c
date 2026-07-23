@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x140374C1C
+ * XREFs of PfSnReferenceProcessTrace @ 0x1403769CC
  * Callers:
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
- *     PfSnLogHelper @ 0x1409E9924 (PfSnLogHelper.c)
- *     PfSnLogStreamCreate @ 0x1409E9998 (PfSnLogStreamCreate.c)
- *     PfSnEndProcessTrace @ 0x140A43CB4 (PfSnEndProcessTrace.c)
- *     PfSnAsyncContextInitialize @ 0x140AE075C (PfSnAsyncContextInitialize.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
+ *     PfSnAsyncContextInitialize @ 0x1409CFE74 (PfSnAsyncContextInitialize.c)
+ *     PfSnLogHelper @ 0x1409D2D44 (PfSnLogHelper.c)
+ *     PfSnLogStreamCreate @ 0x1409D2DB8 (PfSnLogStreamCreate.c)
+ *     PfSnEndProcessTrace @ 0x140ACAE28 (PfSnEndProcessTrace.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     ExpReleaseRundownProtection @ 0x140463F50 (ExpReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     ExpReleaseRundownProtection @ 0x14045CF10 (ExpReleaseRundownProtection.c)
  */
 
 __int64 __fastcall PfSnReferenceProcessTrace(__int64 a1)
@@ -64,11 +64,11 @@ __int64 __fastcall PfSnReferenceProcessTrace(__int64 a1)
       }
       else
       {
-        v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea);
+        v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E67200.StateSaveArea);
         v10 = *(_QWORD *)(a1 + 912) & 0xFFFFFFFFFFFFFFF0uLL;
         if ( v10 )
           v7 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v10 + 360));
-        KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea, v9);
+        KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E67200.StateSaveArea, v9);
         return v10 & -(__int64)(v7 != 0);
       }
     }

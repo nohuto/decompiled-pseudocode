@@ -1,24 +1,24 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1405820EC
+ * XREFs of PspJobIoRateVolumeEntryInsert @ 0x14058231C
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x140909424 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140909584 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x14034B1D0 (RtlRbInsertNodeEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x140530CD0 (MiLockTrackerCompare.c)
+ *     MiLockTrackerCompare @ 0x140530F10 (MiLockTrackerCompare.c)
  */
 
-__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   volatile LONG *v2; // r12
   __int64 v4; // rdi
   KIRQL v5; // al
   unsigned __int64 v6; // r14
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // rbp
-  bool v9; // r8
+  BOOLEAN v9; // r8
   int v10; // esi
   unsigned __int64 v11; // rax
   __int64 result; // rax
@@ -29,7 +29,7 @@ __int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2
   v2 = (volatile LONG *)(a1 + 1456);
   v4 = a1 + 1464;
   v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1456));
-  v6 = *(_QWORD *)(a2 + 24);
+  v6 = (unsigned __int64)a2[1].Children[0];
   v7 = *(_QWORD *)v4;
   v8 = v5;
   if ( (*(_BYTE *)(v4 + 8) & 1) != 0 && v7 )
@@ -75,7 +75,7 @@ LABEL_10:
       v7 = v11;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)v4, v7, v9, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7, v9, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

@@ -1,5 +1,5 @@
 /*
- * XREFs of PnprStartMirroring @ 0x1406D4020
+ * XREFs of PnprStartMirroring @ 0x1406D52C0
  * Callers:
  *     <none>
  * Callees:

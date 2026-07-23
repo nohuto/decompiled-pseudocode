@@ -1,18 +1,18 @@
 /*
- * XREFs of VfInitVerifierComponents @ 0x140703300
+ * XREFs of VfInitVerifierComponents @ 0x140703330
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1407031D4 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140703204 (VfInitSystemNoRebootNeeded.c)
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExSetPoolFlags @ 0x140171A58 (ExSetPoolFlags.c)
- *     VfAvlInitializeTree @ 0x140223C68 (VfAvlInitializeTree.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExSetPoolFlags @ 0x140171F58 (ExSetPoolFlags.c)
+ *     VfAvlInitializeTree @ 0x140223A94 (VfAvlInitializeTree.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     XdvExInitializePagedLookasideListInternal @ 0x1406FE394 (XdvExInitializePagedLookasideListInternal.c)
- *     VfHalVerifierInitialize @ 0x140707B7C (VfHalVerifierInitialize.c)
- *     VfPendingCheckForChanges @ 0x14070CE84 (VfPendingCheckForChanges.c)
- *     VfMajorRegisterHandlers @ 0x14070E5CC (VfMajorRegisterHandlers.c)
+ *     VfHalVerifierInitialize @ 0x140707BAC (VfHalVerifierInitialize.c)
+ *     VfPendingCheckForChanges @ 0x14070CEB4 (VfPendingCheckForChanges.c)
+ *     VfMajorRegisterHandlers @ 0x14070E5FC (VfMajorRegisterHandlers.c)
  *     VfFaultsInitPhase0 @ 0x140710C58 (VfFaultsInitPhase0.c)
  *     VfKeCheckForChanges @ 0x140712BB0 (VfKeCheckForChanges.c)
  *     VfDeadlockInitialize @ 0x140713DF4 (VfDeadlockInitialize.c)
@@ -97,7 +97,11 @@ LABEL_16:
                               HighPoolPriority);
   }
   VfFaultsInitPhase0();
-  if ( (int)VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViLookasideAvl,
+              96LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViLookasideAllocationFailures, 1);
   else
     _InterlockedExchange(&ViLookasideInitialized, 1);
@@ -122,7 +126,11 @@ LABEL_16:
     16,
     VfInitializedWithoutReboot,
     (__int64)ExInitializeNPagedLookasideListInternal);
-  if ( (int)VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViResourceAvl,
+              104LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViResourceNotTracked, 1);
   else
     _InterlockedExchange(&ViResourceInitialized, 1);
@@ -209,11 +217,19 @@ LABEL_16:
     *v15 = v15;
   }
   ViDdiInitialized = 1;
-  if ( (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViRemLockAvl,
+              32LL,
+              136LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViRemLockAllocationFailures, 1);
   else
     _InterlockedExchange(&ViRemLockInitialized, 1);
-  if ( (int)VfAvlInitializeTree(&ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+  if ( (int)VfAvlInitializeTree(
+              &ViDevObjAvl,
+              336LL,
+              24LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
     _InterlockedExchange(&ViDevObjAllocationFailures, 1);
   else
     _InterlockedExchange(&ViDevObjInitialized, 1);

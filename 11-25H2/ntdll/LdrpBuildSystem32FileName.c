@@ -31,12 +31,12 @@ __int64 __fastcall LdrpBuildSystem32FileName(unsigned __int16 *a1, const void **
   unsigned __int64 v20; // rdx
   __int64 v21; // rcx
   unsigned int v23; // esi
-  void *v24; // rbp
+  PVOID v24; // rbp
   unsigned int v25; // r14d
   __int64 v26; // rax
-  void *Atom; // r15
+  PVOID Atom; // r15
   unsigned int v28; // esi
-  void *v29; // rbp
+  PVOID v29; // rbp
 
   *a1 = 0;
   SharedData = NtCurrentPeb()->SharedData;
@@ -78,7 +78,7 @@ LABEL_9:
         v25 = 65534;
       if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
       {
-        Atom = (void *)RtlpAllocateAtom();
+        Atom = RtlpAllocateAtom(v25);
         if ( Atom )
         {
           if ( *a1 )
@@ -107,8 +107,8 @@ LABEL_10:
 LABEL_11:
     v13 = *((_QWORD *)a1 + 1) + *a1;
     v14 = a1 + 1;
-    *(_OWORD *)v13 = *(_OWORD *)L"\\SYSTEM32\\";
-    *(_DWORD *)(v13 + 16) = *(_DWORD *)L"2\\";
+    *(_OWORD *)v13 = *(_OWORD *)SlashSystem32SlashString.Buffer;
+    *(_DWORD *)(v13 + 16) = *((_DWORD *)SlashSystem32SlashString.Buffer + 4);
     v15 = (unsigned __int16)(*a1 + 20);
     v16 = *((_QWORD *)a1 + 1);
     *a1 = v15;
@@ -122,7 +122,7 @@ LABEL_11:
       v28 = 65534;
     if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
     {
-      v29 = (void *)RtlpAllocateAtom();
+      v29 = RtlpAllocateAtom(v28);
       if ( !v29 )
         goto LABEL_46;
       if ( *a1 )
@@ -130,7 +130,7 @@ LABEL_11:
     }
     else
     {
-      v29 = (void *)NtdllpReallocateStringRoutine(v28);
+      v29 = (PVOID)NtdllpReallocateStringRoutine(v28);
       if ( !v29 )
         goto LABEL_46;
     }
@@ -165,7 +165,7 @@ LABEL_15:
       v23 = 65534;
     if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
     {
-      v24 = (void *)RtlpAllocateAtom();
+      v24 = RtlpAllocateAtom(v23);
       if ( !v24 )
         return (unsigned int)-1073741801;
       if ( *a1 )
@@ -173,7 +173,7 @@ LABEL_15:
     }
     else
     {
-      v24 = (void *)NtdllpReallocateStringRoutine(v23);
+      v24 = (PVOID)NtdllpReallocateStringRoutine(v23);
       if ( !v24 )
         return (unsigned int)-1073741801;
     }

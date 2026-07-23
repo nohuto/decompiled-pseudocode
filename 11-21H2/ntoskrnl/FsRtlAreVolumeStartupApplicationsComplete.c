@@ -8,5 +8,5 @@
 
 BOOLEAN FsRtlAreVolumeStartupApplicationsComplete(void)
 {
-  return FsRtlpVolumeStartupApplicationsComplete;
+  return byte_140D3B046;
 }

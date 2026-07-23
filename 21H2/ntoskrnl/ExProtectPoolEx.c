@@ -1,15 +1,15 @@
 /*
- * XREFs of ExProtectPoolEx @ 0x140362BE8
+ * XREFs of ExProtectPoolEx @ 0x1402F7F18
  * Callers:
- *     SmHpBufferProtectEx @ 0x140253F00 (SmHpBufferProtectEx.c)
- *     ExProtectPool @ 0x140362BC8 (ExProtectPool.c)
- *     CmpProtectPool @ 0x140363DB0 (CmpProtectPool.c)
- *     HvpSetRangeProtection @ 0x140709E78 (HvpSetRangeProtection.c)
+ *     CmpProtectPool @ 0x1402513A4 (CmpProtectPool.c)
+ *     SmHpBufferProtectEx @ 0x140275470 (SmHpBufferProtectEx.c)
+ *     ExProtectPool @ 0x1402F7EF8 (ExProtectPool.c)
+ *     HvpSetRangeProtection @ 0x140721258 (HvpSetRangeProtection.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MmProtectPool @ 0x140362D68 (MmProtectPool.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     MmProtectPool @ 0x1402F8098 (MmProtectPool.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpRebuildKcbCache @ 0x1405A8F78
+ * XREFs of CmpRebuildKcbCache @ 0x1405A9F78
  * Callers:
- *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
- *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
- *     CmpSyncKcbCacheForHive @ 0x1407F39A0 (CmpSyncKcbCacheForHive.c)
- *     CmpCommitDiscardReplacePost @ 0x1407F9A60 (CmpCommitDiscardReplacePost.c)
- *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
- *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1405AA000 (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x1407E9AD0 (CmpSaveBootControlSet.c)
+ *     CmpSyncKcbCacheForHive @ 0x1407F4BA0 (CmpSyncKcbCacheForHive.c)
+ *     CmpCommitDiscardReplacePost @ 0x1407FAC60 (CmpCommitDiscardReplacePost.c)
+ *     CmpCloneHwProfile @ 0x1407FC7DC (CmpCloneHwProfile.c)
+ *     CmpRefreshHive @ 0x140803FAC (CmpRefreshHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpRebuildKcbCacheFromNode @ 0x1405AC984 (CmpRebuildKcbCacheFromNode.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1405AD984 (CmpRebuildKcbCacheFromNode.c)
  */
 
 char __fastcall CmpRebuildKcbCache(ULONG_PTR a1)

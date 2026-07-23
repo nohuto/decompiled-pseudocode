@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpValueEnumStackEntryStart @ 0x140492D6C
+ * XREFs of CmpValueEnumStackEntryStart @ 0x14048C8BC
  * Callers:
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140492C70 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14048C7C0 (CmpValueEnumStackStartFromKeyNodeStack.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
  */
 
 void __fastcall CmpValueEnumStackEntryStart(__int64 a1, ULONG_PTR a2, __int64 a3)

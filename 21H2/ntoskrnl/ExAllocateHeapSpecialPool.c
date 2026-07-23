@@ -1,18 +1,18 @@
 /*
- * XREFs of ExAllocateHeapSpecialPool @ 0x1405B9D7C
+ * XREFs of ExAllocateHeapSpecialPool @ 0x1405B9FAC
  * Callers:
- *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x140346F60 (ExAllocateHeapPool.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExGetHeapFromType @ 0x14029554C (ExGetHeapFromType.c)
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
- *     RtlpHpSegAlloc @ 0x140309850 (RtlpHpSegAlloc.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     ExGetHeapFromType @ 0x14021720C (ExGetHeapFromType.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
+ *     RtlpHpSegAlloc @ 0x1403145A0 (RtlpHpSegAlloc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
 unsigned __int64 __fastcall ExAllocateHeapSpecialPool(int a1, ULONG_PTR a2, unsigned int a3)

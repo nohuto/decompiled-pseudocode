@@ -4,8 +4,8 @@
  *     AVrfpChainDuplicateVerificationLayers @ 0x1800DBA38 (AVrfpChainDuplicateVerificationLayers.c)
  * Callees:
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     _stricmp @ 0x180091260 (_stricmp.c)
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     _stricmp @ 0x180091270 (_stricmp.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 __int64 __fastcall AVrfpFindClosestThunkDuplicate(__int64 a1, const wchar_t *a2, const char *a3)

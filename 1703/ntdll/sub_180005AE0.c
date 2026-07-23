@@ -7,10 +7,10 @@
  *     RtlUnlockHeap @ 0x180021980 (RtlUnlockHeap.c)
  */
 
-__int64 __fastcall sub_180005AE0(__int64 a1, __int64 a2)
+__int64 __fastcall sub_180005AE0(void *a1, __int64 a2)
 {
   if ( a2 )
-    RtlLockHeap();
+    RtlLockHeap(a1);
   else
     RtlUnlockHeap(a1);
   return 0LL;

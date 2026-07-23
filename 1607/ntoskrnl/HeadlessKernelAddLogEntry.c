@@ -1,8 +1,8 @@
 /*
- * XREFs of HeadlessKernelAddLogEntry @ 0x140087534
+ * XREFs of HeadlessKernelAddLogEntry @ 0x14010B72C
  * Callers:
- *     PnpBootDeviceWait @ 0x14013BE80 (PnpBootDeviceWait.c)
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
+ *     PnpBootDeviceWait @ 0x14013C3F0 (PnpBootDeviceWait.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
  *     IoInitSystem @ 0x1407936BC (IoInitSystem.c)
  *     PipInitializeCoreDriversByGroup @ 0x14079AB28 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)

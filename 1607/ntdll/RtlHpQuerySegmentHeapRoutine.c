@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlHpQuerySegmentHeapRoutine @ 0x18008A3A0
+ * XREFs of RtlHpQuerySegmentHeapRoutine @ 0x18008A390
  * Callers:
- *     RtlpQueryProcessEnumHeapsRoutine @ 0x180096360 (RtlpQueryProcessEnumHeapsRoutine.c)
+ *     RtlpQueryProcessEnumHeapsRoutine @ 0x180096350 (RtlpQueryProcessEnumHeapsRoutine.c)
  * Callees:
  *     RtlpHpConvertSegmentFlagsToFlags @ 0x1800F7494 (RtlpHpConvertSegmentFlagsToFlags.c)
  */

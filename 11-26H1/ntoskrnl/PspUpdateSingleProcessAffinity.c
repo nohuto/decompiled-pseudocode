@@ -1,16 +1,16 @@
 /*
- * XREFs of PspUpdateSingleProcessAffinity @ 0x1407F1588
+ * XREFs of PspUpdateSingleProcessAffinity @ 0x1407F70E8
  * Callers:
- *     PsUpdateActiveProcessAffinity @ 0x1407F0DD8 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinityUpdateMode @ 0x140B6E5E8 (PspSetProcessAffinityUpdateMode.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1407F6938 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinityUpdateMode @ 0x140B71A98 (PspSetProcessAffinityUpdateMode.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     PspUpdatePebForAffinityChange @ 0x140A9AA04 (PspUpdatePebForAffinityChange.c)
- *     PspSetProcessAffinitySafe @ 0x140AFC7BC (PspSetProcessAffinitySafe.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     PspUpdatePebForAffinityChange @ 0x1409E5A34 (PspUpdatePebForAffinityChange.c)
+ *     PspSetProcessAffinitySafe @ 0x140AFE330 (PspSetProcessAffinitySafe.c)
  */
 
 void __fastcall PspUpdateSingleProcessAffinity(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

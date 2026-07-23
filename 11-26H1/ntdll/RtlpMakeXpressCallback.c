@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpMakeXpressCallback @ 0x1800B9EE0
+ * XREFs of RtlpMakeXpressCallback @ 0x1800B7400
  * Callers:
- *     RtlCompressBufferXpressHuffMax @ 0x1800B8590 (RtlCompressBufferXpressHuffMax.c)
- *     RtlCompressBufferXpressLzStandard @ 0x1800B8F20 (RtlCompressBufferXpressLzStandard.c)
- *     RtlCompressBufferXpressHuffStandard @ 0x1800B9680 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressLzMax @ 0x1801509A0 (RtlCompressBufferXpressLzMax.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1800B5AB0 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x1800B6440 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x1800B6BA0 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressLzMax @ 0x180150850 (RtlCompressBufferXpressLzMax.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 unsigned __int64 __fastcall RtlpMakeXpressCallback(__int64 a1, unsigned __int64 a2, __int64 a3)

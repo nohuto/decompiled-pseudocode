@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpEnumerateKeyProviders @ 0x140A99E54
+ * XREFs of EtwpEnumerateKeyProviders @ 0x140A953C0
  * Callers:
- *     EtwpEnableKeyProviders @ 0x1407AED8C (EtwpEnableKeyProviders.c)
+ *     EtwpEnableKeyProviders @ 0x1407AF1DC (EtwpEnableKeyProviders.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     RtlNtStatusToDosError @ 0x140867430 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x140A54360 (RtlWriteRegistryValue.c)
- *     EtwpEnableAutoLoggerProvider @ 0x140A79EF0 (EtwpEnableAutoLoggerProvider.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     RtlNtStatusToDosError @ 0x14086B8C0 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1409B6290 (RtlWriteRegistryValue.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140A741F0 (EtwpEnableAutoLoggerProvider.c)
  */
 
 int __fastcall EtwpEnumerateKeyProviders(

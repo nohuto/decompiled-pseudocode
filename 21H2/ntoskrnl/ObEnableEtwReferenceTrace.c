@@ -1,12 +1,12 @@
 /*
- * XREFs of ObEnableEtwReferenceTrace @ 0x1408DDF80
+ * XREFs of ObEnableEtwReferenceTrace @ 0x1408DE0E0
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1407981D8 (EtwpEnableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1407983D8 (EtwpEnableKernelTrace.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 char ObEnableEtwReferenceTrace()

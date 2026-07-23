@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpInitializeCoverage @ 0x140742F7C
+ * XREFs of EtwpInitializeCoverage @ 0x14074416C
  * Callers:
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
  * Callees:
- *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     TraceLoggingRegisterEx @ 0x14071EED8 (TraceLoggingRegisterEx.c)
  */
 
 TLG_STATUS EtwpInitializeCoverage()
 {
   MEMORY[0xFFFFF7800000037C] = 1;
   EtwpCoverageLock = 0LL;
-  return TraceLoggingRegisterEx(&stru_140400340, (TLG_PENABLECALLBACK)EtwpCoverageProvEnableCallback, 0LL);
+  return TraceLoggingRegisterEx(&stru_140401340, (TLG_PENABLECALLBACK)EtwpCoverageProvEnableCallback, 0LL);
 }

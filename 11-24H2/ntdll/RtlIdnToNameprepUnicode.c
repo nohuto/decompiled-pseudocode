@@ -1,12 +1,23 @@
 /*
- * XREFs of RtlIdnToNameprepUnicode @ 0x180146840
+ * XREFs of RtlIdnToNameprepUnicode @ 0x180144BF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpNameprepAsciiWorker @ 0x1800B9CC0 (RtlpNameprepAsciiWorker.c)
+ *     RtlpNameprepAsciiWorker @ 0x1800B1A80 (RtlpNameprepAsciiWorker.c)
  */
 
-__int64 __fastcall RtlIdnToNameprepUnicode(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlIdnToNameprepUnicode(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  return RtlpNameprepAsciiWorker(a1, a2, a3, a4, a5, 0);
+  return RtlpNameprepAsciiWorker(
+           Flags,
+           (__int64)SourceString,
+           SourceStringLength,
+           (__int64)DestinationString,
+           (__int64)DestinationStringLength,
+           0);
 }

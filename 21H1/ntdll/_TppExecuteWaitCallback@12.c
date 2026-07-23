@@ -16,7 +16,7 @@
  *     _TppETWCallbackStop@20 @ 0x4B384B22 (_TppETWCallbackStop@20.c)
  */
 
-int __fastcall TppExecuteWaitCallback(_DWORD *a1, int a2, int a3)
+int __fastcall TppExecuteWaitCallback(PTP_CALLBACK_INSTANCE Instance, int a2, int a3)
 {
   int v5; // ebx
   int v6; // ebx
@@ -34,7 +34,7 @@ int __fastcall TppExecuteWaitCallback(_DWORD *a1, int a2, int a3)
   if ( !v5 )
   {
 LABEL_3:
-    TppCleanupGroupMemberCallbackProlog(a1, a2);
+    TppCleanupGroupMemberCallbackProlog(Instance);
 LABEL_4:
     v6 = 2147353478;
     if ( RtlGetCurrentServiceSessionId() )
@@ -44,11 +44,11 @@ LABEL_4:
     if ( *(_BYTE *)v7 )
       TppETWCallbackStart(*(_DWORD *)(a2 + 48), *(_DWORD *)(a2 + 52), *(_DWORD *)(a2 + 60));
     TppStartThreadData(*(_DWORD *)(a2 + 52), *(_DWORD *)(a2 + 60));
-    a1[12] = *(_DWORD *)(a2 + 48);
-    a1[13] = *(_DWORD *)(a2 + 52);
-    (*(void (__thiscall **)(_DWORD, _DWORD *, _DWORD, int, int))(a2 + 48))(
+    *((_DWORD *)Instance + 12) = *(_DWORD *)(a2 + 48);
+    *((_DWORD *)Instance + 13) = *(_DWORD *)(a2 + 52);
+    (*(void (__thiscall **)(_DWORD, PTP_CALLBACK_INSTANCE, _DWORD, int, int))(a2 + 48))(
       *(_DWORD *)(a2 + 48),
-      a1,
+      Instance,
       *(_DWORD *)(a2 + 52),
       a2,
       a3);
@@ -58,10 +58,10 @@ LABEL_4:
       TppETWCallbackStop(*(_DWORD *)(a2 + 48), *(_DWORD *)(a2 + 52), *(_DWORD *)(a2 + 60));
     return TppCompleteThreadData();
   }
-  if ( (int)LdrAddRefDll(0, *(_DWORD *)(a2 + 88)) >= 0 )
+  if ( LdrAddRefDll(0, *(PVOID *)(a2 + 88)) >= 0 )
   {
-    a1[20] |= 0x100u;
-    a1[25] = v5;
+    *((_DWORD *)Instance + 20) |= 0x100u;
+    *((_DWORD *)Instance + 25) = v5;
     goto LABEL_3;
   }
   result = TppBarrierAdjust(0);

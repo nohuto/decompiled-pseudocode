@@ -1,23 +1,23 @@
 /*
- * XREFs of CmNotifyRunDown @ 0x1408A87D0
+ * XREFs of CmNotifyRunDown @ 0x1408FEA30
  * Callers:
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x140205700 (KeRemoveQueueApc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     CmpFreeSubordinatePost @ 0x1408690C4 (CmpFreeSubordinatePost.c)
- *     CmpFreePostBlock @ 0x14086A740 (CmpFreePostBlock.c)
- *     CmpCancelSubordinatePost @ 0x140A36BDC (CmpCancelSubordinatePost.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeRemoveQueueApc @ 0x14032CCE0 (KeRemoveQueueApc.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     CmpFreeSubordinatePost @ 0x14086D3B4 (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x14086EA70 (CmpFreePostBlock.c)
+ *     CmpCancelSubordinatePost @ 0x140A2BA34 (CmpCancelSubordinatePost.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 _KAFFINITY_EX *__fastcall CmNotifyRunDown(__int64 a1)

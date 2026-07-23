@@ -1,7 +1,7 @@
 /*
- * XREFs of PsFreeAffinityToken @ 0x14036F040
+ * XREFs of PsFreeAffinityToken @ 0x14036F1E0
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

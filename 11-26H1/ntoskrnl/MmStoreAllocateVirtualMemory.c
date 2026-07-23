@@ -1,18 +1,18 @@
 /*
- * XREFs of MmStoreAllocateVirtualMemory @ 0x1409F1A98
+ * XREFs of MmStoreAllocateVirtualMemory @ 0x1409EE268
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiFreeVadRange @ 0x1403BC958 (MiFreeVadRange.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiLockPageTableRange @ 0x1404B0CFC (MiLockPageTableRange.c)
- *     MiMakeSecureExclusive @ 0x1404CCC78 (MiMakeSecureExclusive.c)
- *     MiObtainReferencedSecureVad @ 0x1404E4F18 (MiObtainReferencedSecureVad.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmUnsecureVirtualMemory @ 0x1409C1B90 (MmUnsecureVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiFreeVadRange @ 0x1403C67C8 (MiFreeVadRange.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiLockPageTableRange @ 0x1404AA38C (MiLockPageTableRange.c)
+ *     MiMakeSecureExclusive @ 0x1404C6418 (MiMakeSecureExclusive.c)
+ *     MiObtainReferencedSecureVad @ 0x1404DE4B8 (MiObtainReferencedSecureVad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmUnsecureVirtualMemory @ 0x140992B70 (MmUnsecureVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
  */
 
 unsigned __int64 __fastcall MmStoreAllocateVirtualMemory(__int64 a1, int a2)
@@ -70,7 +70,7 @@ unsigned __int64 __fastcall MmStoreAllocateVirtualMemory(__int64 a1, int a2)
   VirtualMemory = MiAllocateVirtualMemory((unsigned int)v17, 0, 0, 0, (__int64)&v32);
   if ( VirtualMemory < 0 )
     return v2;
-  v7 = MiObtainReferencedSecureVad(qword_140E2D640 ^ (unsigned __int64)SecureHandle, &VirtualMemory, v6);
+  v7 = MiObtainReferencedSecureVad(qword_140E2D7C0 ^ (unsigned __int64)SecureHandle, &VirtualMemory, v6);
   v8 = (ULONG_PTR)v7;
   if ( !v7 )
     return v2;

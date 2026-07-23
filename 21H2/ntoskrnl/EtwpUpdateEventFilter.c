@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpUpdateEventFilter @ 0x1407D2714
+ * XREFs of EtwpUpdateEventFilter @ 0x1407D2884
  * Callers:
- *     EtwpUpdateFilterData @ 0x1406E32D0 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x1406BA5B0 (EtwpUpdateFilterData.c)
  * Callees:
  *     <none>
  */

@@ -1,37 +1,37 @@
 /*
- * XREFs of PipInitComputerIds @ 0x140C63B74
+ * XREFs of PipInitComputerIds @ 0x140C65CF0
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x140C633C4 (PipInitializeCoreDriversAndElam.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140C65540 (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x140481B24 (McTemplateK0d_EtwWriteTransfer.c)
- *     RtlUnicodeStringCopyStringEx @ 0x1405A3FC0 (RtlUnicodeStringCopyStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiSwStartCreate @ 0x140730F9C (PiSwStartCreate.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     RtlUpcaseUnicodeString @ 0x140962470 (RtlUpcaseUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     PnpUnicodeStringToWstr @ 0x1409D52F0 (PnpUnicodeStringToWstr.c)
- *     _PnpCtxRegCloseKey @ 0x140A16E6C (_PnpCtxRegCloseKey.c)
- *     IopCreateRegistryKeyEx @ 0x140A71C1C (IopCreateRegistryKeyEx.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     PipHardwareConfigOpenKey @ 0x140ABF208 (PipHardwareConfigOpenKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PipCreateComputerId @ 0x140C203D8 (PipCreateComputerId.c)
- *     PipSmBiosFindStruct @ 0x140C22308 (PipSmBiosFindStruct.c)
- *     PipSmBiosGetString @ 0x140C2237C (PipSmBiosGetString.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14047CDE4 (McTemplateK0d_EtwWriteTransfer.c)
+ *     RtlUnicodeStringCopyStringEx @ 0x1405A0F00 (RtlUnicodeStringCopyStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiSwStartCreate @ 0x14072EFAC (PiSwStartCreate.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x140949F30 (RtlUpcaseUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     PnpUnicodeStringToWstr @ 0x1409C5120 (PnpUnicodeStringToWstr.c)
+ *     _PnpCtxRegCloseKey @ 0x140A1004C (_PnpCtxRegCloseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x140A6AFFC (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     PipHardwareConfigOpenKey @ 0x140ABA270 (PipHardwareConfigOpenKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PipCreateComputerId @ 0x140C22418 (PipCreateComputerId.c)
+ *     PipSmBiosFindStruct @ 0x140C24348 (PipSmBiosFindStruct.c)
+ *     PipSmBiosGetString @ 0x140C243BC (PipSmBiosGetString.c)
  */
 
 __int64 __fastcall PipInitComputerIds(__int64 a1)
@@ -168,7 +168,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   UNICODE_STRING v132; // [rsp+1E8h] [rbp+E0h] BYREF
   UNICODE_STRING v133; // [rsp+1F8h] [rbp+F0h] BYREF
   UNICODE_STRING v134; // [rsp+208h] [rbp+100h] BYREF
-  int v135[60]; // [rsp+218h] [rbp+110h] BYREF
+  GUID v135[15]; // [rsp+218h] [rbp+110h] BYREF
   _WORD v136[16]; // [rsp+308h] [rbp+200h] BYREF
   wchar_t SourceString; // [rsp+328h] [rbp+220h] BYREF
   wchar_t pszDest[8]; // [rsp+330h] [rbp+228h] BYREF
@@ -221,7 +221,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     {
       v15 = *(_DWORD *)(v8 + 12);
       ValueName = v15;
-      v16 = (_BYTE *)MmMapIoSpaceEx(v14, v15, 2u);
+      v16 = (_BYTE *)MmMapIoSpaceEx(v14, v15, 2LL);
       v104 = v16;
       v17 = v16;
       if ( !v16 )
@@ -404,7 +404,7 @@ LABEL_68:
         while ( v41 < 0xA );
         v42 = 0;
         v43 = &UnicodeString;
-        v44 = (PCWSTR *)&off_140009D90;
+        v44 = (PCWSTR *)&off_140009F30;
         do
         {
           RtlInitUnicodeString(&ValueName_8, *v44);
@@ -460,7 +460,7 @@ LABEL_68:
               while ( v52 );
               v136[0] = 0;
               p_DestinationString = &DestinationString;
-              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 7u, v135);
+              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 7u, (int *)v135);
               v49 = 1;
               if ( ComputerId < 0 )
                 goto LABEL_154;
@@ -472,7 +472,7 @@ LABEL_68:
             *(_QWORD *)&v123 = &v130;
             *((_QWORD *)&v123 + 1) = &DestinationString;
             v136[v49] = 1;
-            v54 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, &v135[4 * v49]);
+            v54 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, (int *)&v135[v49]);
             v55 = v49 + 1;
             ComputerId = v54;
             if ( v54 < 0 )
@@ -483,7 +483,7 @@ LABEL_68:
             *(_QWORD *)&v122 = &v129;
             *((_QWORD *)&v122 + 1) = &v130;
             *(_QWORD *)&v123 = &DestinationString;
-            ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 5u, &v135[4 * (unsigned int)v55]);
+            ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 5u, (int *)&v135[(unsigned int)v55]);
             v49 = v55 + 1;
             if ( ComputerId < 0 )
               goto LABEL_154;
@@ -522,7 +522,7 @@ LABEL_68:
                     }
                     while ( v60 );
                     v136[v49] = 3;
-                    ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, &v135[4 * v49++]);
+                    ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, (int *)&v135[v49++]);
                     if ( ComputerId < 0 )
                       goto LABEL_154;
                   }
@@ -540,7 +540,7 @@ LABEL_68:
                 }
                 while ( v62 );
                 v136[v49] = 4;
-                v65 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                v65 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                 ComputerId = v65;
                 if ( v65 < 0 )
                   goto LABEL_154;
@@ -549,7 +549,7 @@ LABEL_68:
               *((_QWORD *)&v121 + 1) = &v126;
               *(_QWORD *)&v122 = &v127;
               v136[v49] = 5;
-              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 3u, &v135[4 * v49++]);
+              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 3u, (int *)&v135[v49++]);
               if ( ComputerId < 0 )
                 goto LABEL_154;
               Buffer = UnicodeString.Buffer;
@@ -575,7 +575,7 @@ LABEL_68:
                     }
                     while ( v66 );
                     v136[v49] = 6;
-                    v69 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                    v69 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                     ComputerId = v69;
                     if ( v69 < 0 )
                       goto LABEL_154;
@@ -584,7 +584,7 @@ LABEL_68:
                 *(_QWORD *)&v121 = &UnicodeString;
                 *((_QWORD *)&v121 + 1) = &v128;
                 v136[v49] = 7;
-                ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                 if ( ComputerId < 0 )
                   goto LABEL_154;
                 Buffer = UnicodeString.Buffer;
@@ -602,7 +602,7 @@ LABEL_68:
                       *(_QWORD *)&v122 = &v131;
                       *((_QWORD *)&v122 + 1) = &v132;
                       v136[v49] = 8;
-                      v70 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                      v70 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                       ComputerId = v70;
                       if ( v70 < 0 )
                         goto LABEL_154;
@@ -611,7 +611,7 @@ LABEL_68:
                   *(_QWORD *)&v121 = &UnicodeString;
                   *((_QWORD *)&v121 + 1) = &v127;
                   v136[v49] = 9;
-                  ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                  ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                   if ( ComputerId < 0 )
                     goto LABEL_154;
                   Buffer = UnicodeString.Buffer;
@@ -637,7 +637,7 @@ LABEL_68:
                         }
                         while ( v71 );
                         v136[v49] = 10;
-                        v74 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                        v74 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                         ComputerId = v74;
                         if ( v74 < 0 )
                           goto LABEL_154;
@@ -646,7 +646,7 @@ LABEL_68:
                     *(_QWORD *)&v121 = &UnicodeString;
                     *((_QWORD *)&v121 + 1) = &v126;
                     v136[v49] = 11;
-                    v75 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                    v75 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                     ComputerId = v75;
                     if ( v75 < 0 )
                       goto LABEL_154;
@@ -663,7 +663,7 @@ LABEL_68:
                       *(_QWORD *)&v121 = &UnicodeString;
                       *((_QWORD *)&v121 + 1) = &v117;
                       v136[v49] = 12;
-                      ComputerId = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                      ComputerId = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                       if ( ComputerId < 0 )
                         goto LABEL_154;
                       Buffer = UnicodeString.Buffer;
@@ -685,14 +685,19 @@ LABEL_68:
                           }
                           while ( v76 );
                           v136[v49] = 13;
-                          ComputerId = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 3u, &v135[4 * v49++]);
+                          ComputerId = PipCreateComputerId(
+                                         v48,
+                                         0LL,
+                                         (unsigned __int16 **)&v121,
+                                         3u,
+                                         (int *)&v135[v49++]);
                           if ( ComputerId < 0 )
                             goto LABEL_154;
                         }
                       }
                       *(_QWORD *)&v121 = &UnicodeString;
                       v136[v49] = 14;
-                      v79 = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 1u, &v135[4 * v49++]);
+                      v79 = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 1u, (int *)&v135[v49++]);
                       ComputerId = v79;
                       if ( v79 < 0 )
                         goto LABEL_154;
@@ -724,7 +729,7 @@ LABEL_154:
             ComputerId = RtlUnicodeStringCopyStringEx(&ValueName_8, L"ComputerMetadata\\", &ValueName_8, 0);
             if ( ComputerId < 0 )
               break;
-            ComputerId = RtlStringFromGUIDEx((unsigned int *)&v135[4 * v82], (__int64)&ValueName_8, 0);
+            ComputerId = RtlStringFromGUIDEx(&v135[v82], &ValueName_8, 0);
             if ( ComputerId < 0 )
               goto LABEL_215;
             ComputerId = RtlUpcaseUnicodeString(&ValueName_8, &ValueName_8, 0);
@@ -753,7 +758,7 @@ LABEL_160:
         ComputerId = PnpSetObjectProperty(
                        *(__int64 *)&PiPnpRtlCtx,
                        (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
-                       5u,
+                       5,
                        0LL,
                        0LL,
                        (__int64)&DEVPKEY_Device_HardwareIds,
@@ -789,12 +794,12 @@ LABEL_164:
           {
             v89 = *v88;
             ValueName_8.Length = 0;
-            if ( *((_BYTE *)qword_140027710 + v89) )
+            if ( *((_BYTE *)qword_140027AE0 + v89) )
             {
               ComputerId = RtlUnicodeStringCopyStringEx(&ValueName_8, L"COMPUTER\\", &ValueName_8, 0);
               if ( ComputerId < 0 )
                 goto LABEL_215;
-              ComputerId = RtlStringFromGUIDEx((unsigned int *)&v135[4 * v87], (__int64)&ValueName_8, 0);
+              ComputerId = RtlStringFromGUIDEx(&v135[v87], &ValueName_8, 0);
               if ( ComputerId < 0 )
                 goto LABEL_215;
               ComputerId = RtlUpcaseUnicodeString(&ValueName_8, &ValueName_8, 0);
@@ -969,7 +974,7 @@ LABEL_217:
                   0,
                   (__int64)&fmtid,
                   1);
-          if ( v98 < 0 && (byte_140EEFD24 & 0x10) != 0 )
+          if ( v98 < 0 && (byte_140EEFF64 & 0x10) != 0 )
             McTemplateK0d_EtwWriteTransfer(v99, (const EVENT_DESCRIPTOR *)KMPnPEvt_CreateOemDevice_Failure, v100, v98);
         }
         else

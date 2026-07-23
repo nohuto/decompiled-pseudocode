@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUpdateExistingPageFile @ 0x14086C380
+ * XREFs of MiUpdateExistingPageFile @ 0x140872760
  * Callers:
- *     MiGetPagingFileHandle @ 0x14086B908 (MiGetPagingFileHandle.c)
+ *     MiGetPagingFileHandle @ 0x140871CE8 (MiGetPagingFileHandle.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MiIssuePageExtendRequest @ 0x1404A4ED0 (MiIssuePageExtendRequest.c)
- *     MiQueuePageFileExtension @ 0x1404E6668 (MiQueuePageFileExtension.c)
- *     MiAttemptChangePagingFileMaximum @ 0x1406F866C (MiAttemptChangePagingFileMaximum.c)
- *     MiCheckAndUpdatePagingFileMinimum @ 0x1406F8C58 (MiCheckAndUpdatePagingFileMinimum.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x140705B5C (MiReduceCommitLimits.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MiIssuePageExtendRequest @ 0x14049E560 (MiIssuePageExtendRequest.c)
+ *     MiQueuePageFileExtension @ 0x1404DFC08 (MiQueuePageFileExtension.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x1406FD33C (MiAttemptChangePagingFileMaximum.c)
+ *     MiCheckAndUpdatePagingFileMinimum @ 0x1406FD928 (MiCheckAndUpdatePagingFileMinimum.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x14070A82C (MiReduceCommitLimits.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiUpdateExistingPageFile(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -53,7 +53,7 @@ __int64 __fastcall MiUpdateExistingPageFile(__int64 a1, __int64 a2, __int64 a3, 
   __int64 v34; // rdx
   __int64 v35; // rcx
   __int64 v36; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v37; // rcx
+  $241382875694CED3D471BC5892DE3337 *v37; // rcx
   int v38; // r13d
   __int64 v39; // rdx
   __int64 v40; // rcx
@@ -102,7 +102,7 @@ __int64 __fastcall MiUpdateExistingPageFile(__int64 a1, __int64 a2, __int64 a3, 
       KeAbPostRelease((unsigned __int64)v7);
       v20 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v20
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v23, v22);
       }
@@ -121,7 +121,7 @@ __int64 __fastcall MiUpdateExistingPageFile(__int64 a1, __int64 a2, __int64 a3, 
       ExfTryToWakePushLock(v7);
     KeAbPostRelease((unsigned __int64)v7);
     v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v19, v18);
     return 3221225485LL;
   }
@@ -152,7 +152,7 @@ LABEL_26:
           KeAbPostRelease((unsigned __int64)v7);
           v20 = CurrentThread->SpecialApcDisable++ == -1;
           if ( v20
-            && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
             KiCheckForKernelApcDelivery(v40, v39);
           }
@@ -186,7 +186,7 @@ LABEL_26:
         KeAbPostRelease((unsigned __int64)v7);
         v20 = CurrentThread->SpecialApcDisable++ == -1;
         if ( v20
-          && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+          && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
           KiCheckForKernelApcDelivery(v33, v32);
         }
@@ -209,7 +209,7 @@ LABEL_55:
     if ( v20 )
     {
       v37 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v37->ApcState.ApcListHead[0].Flink != v37 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v37->ApcState.ApcListHead[0].Flink != v37 )
         KiCheckForKernelApcDelivery((__int64)v37, v36);
     }
     return v31;
@@ -220,7 +220,7 @@ LABEL_55:
       ExfTryToWakePushLock(v7);
     KeAbPostRelease((unsigned __int64)v7);
     v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v28, v27);
     return 3221225713LL;
   }
@@ -249,7 +249,7 @@ LABEL_47:
     ExfTryToWakePushLock(v7);
   KeAbPostRelease((unsigned __int64)v7);
   v20 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v35, v34);
   return 3221225659LL;
 }

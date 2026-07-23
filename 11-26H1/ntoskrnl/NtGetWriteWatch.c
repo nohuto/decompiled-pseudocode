@@ -1,36 +1,43 @@
 /*
- * XREFs of NtGetWriteWatch @ 0x140A8DAE0
+ * XREFs of NtGetWriteWatch @ 0x140A927B0
  * Callers:
- *     DifNtGetWriteWatchWrapper @ 0x140679980 (DifNtGetWriteWatchWrapper.c)
+ *     DifNtGetWriteWatchWrapper @ 0x14067D560 (DifNtGetWriteWatchWrapper.c)
  * Callees:
- *     MiWalkPtesForWriteWatchState @ 0x1403178F8 (MiWalkPtesForWriteWatchState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiGetWriteWatchFinish @ 0x140A8DBB8 (MiGetWriteWatchFinish.c)
- *     MiPrepareWriteWatchPacket @ 0x140A8DCD0 (MiPrepareWriteWatchPacket.c)
+ *     MiWalkPtesForWriteWatchState @ 0x140319928 (MiWalkPtesForWriteWatchState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiGetWriteWatchFinish @ 0x140A92888 (MiGetWriteWatchFinish.c)
+ *     MiPrepareWriteWatchPacket @ 0x140A929A0 (MiPrepareWriteWatchPacket.c)
  */
 
-__int64 __fastcall NtGetWriteWatch(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, __int64 a7)
+NTSTATUS __cdecl NtGetWriteWatch(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        SIZE_T RegionSize,
+        PVOID *UserAddressArray,
+        PULONG_PTR EntriesInUserAddressArray,
+        PULONG Granularity)
 {
   __int64 v11; // rdx
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   _QWORD v14[3]; // [rsp+20h] [rbp-E0h] BYREF
-  int v15; // [rsp+38h] [rbp-C8h]
-  __int64 v16; // [rsp+40h] [rbp-C0h]
-  __int64 v17; // [rsp+48h] [rbp-B8h]
-  __int64 v18; // [rsp+50h] [rbp-B0h]
+  ULONG v15; // [rsp+38h] [rbp-C8h]
+  PVOID v16; // [rsp+40h] [rbp-C0h]
+  SIZE_T v17; // [rsp+48h] [rbp-B8h]
+  PULONG v18; // [rsp+50h] [rbp-B0h]
 
   memset_0(v14, 0, 0x8C8uLL);
-  v14[2] = a1;
-  v15 = a2;
-  v16 = a3;
-  v17 = a4;
-  v14[0] = a5;
-  v14[1] = a6;
-  v18 = a7;
+  v14[2] = ProcessHandle;
+  v15 = Flags;
+  v16 = BaseAddress;
+  v17 = RegionSize;
+  v14[0] = UserAddressArray;
+  v14[1] = EntriesInUserAddressArray;
+  v18 = Granularity;
   v12 = MiPrepareWriteWatchPacket(v14);
   if ( v12 >= 0 )
     MiWalkPtesForWriteWatchState((__int64)v14, v11);
   MiGetWriteWatchFinish(v14, (unsigned int)v12);
-  return (unsigned int)v12;
+  return v12;
 }

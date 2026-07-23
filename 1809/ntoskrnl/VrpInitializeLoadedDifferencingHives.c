@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpInitializeLoadedDifferencingHives @ 0x14075AFC0
+ * XREFs of VrpInitializeLoadedDifferencingHives @ 0x14075C1B0
  * Callers:
- *     VRegSetup @ 0x14075AE00 (VRegSetup.c)
+ *     VRegSetup @ 0x14075BFF0 (VRegSetup.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 VrpInitializeLoadedDifferencingHives()
@@ -16,9 +16,9 @@ __int64 VrpInitializeLoadedDifferencingHives()
   PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x67655256u);
   if ( PoolWithTag )
   {
-    qword_1404378E8 = (__int64)PoolWithTag;
+    qword_1404389A8 = (__int64)PoolWithTag;
     gLoadedDiffHives = 0;
-    dword_1404378E4 = 1024;
+    dword_1404389A4 = 1024;
     if ( (PoolWithTag + 256 >= PoolWithTag ? 0x20 : 0) != 0 )
       memset64(PoolWithTag, (unsigned __int64)&gLoadedDiffHives + 1, PoolWithTag + 256 >= PoolWithTag ? 0x20 : 0);
   }

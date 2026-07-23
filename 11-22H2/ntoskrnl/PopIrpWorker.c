@@ -114,10 +114,13 @@ LABEL_7:
       *(_QWORD *)(v9 + 8) = &PopIrpWorkerList;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -177,7 +180,7 @@ LABEL_7:
       {
         v4 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
         {
           v34 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v4 == 2 )
@@ -191,10 +194,10 @@ LABEL_7:
       (*(void (__fastcall **)(ULONG_PTR, ULONG_PTR))(*(_QWORD *)(v14 + 8) + 288LL))(v14, v13);
       if ( v20 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v36 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v4 <= 0xFu && v36 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v4 <= 0xFu && v36 >= 2u )
           {
             v37 = KeGetCurrentPrcb();
             v38 = v37->SchedulerAssist;

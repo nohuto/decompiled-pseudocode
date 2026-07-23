@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCopyLegacyContextArm64 @ 0x1801202A8
+ * XREFs of RtlpCopyLegacyContextArm64 @ 0x180120058
  * Callers:
- *     RtlCopyContext @ 0x1800C3630 (RtlCopyContext.c)
- *     RtlpCopyLegacyContext @ 0x1800C3B90 (RtlpCopyLegacyContext.c)
+ *     RtlCopyContext @ 0x1800C0D00 (RtlCopyContext.c)
+ *     RtlpCopyLegacyContext @ 0x1800C1260 (RtlpCopyLegacyContext.c)
  * Callees:
- *     Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x1801205AC (Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline @ 0x18012035C (Feature_Servicing_KernelArm64FpLrContextControl__private_IsEnabledNoReportingNoInline.c)
  */
 
 __int64 __fastcall RtlpCopyLegacyContextArm64(__int64 a1, __int64 a2, int a3, __int64 a4)

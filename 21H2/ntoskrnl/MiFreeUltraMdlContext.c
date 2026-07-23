@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeUltraMdlContext @ 0x14055F2D4
+ * XREFs of MiFreeUltraMdlContext @ 0x14055F514
  * Callers:
- *     MmMapMdl @ 0x1405375B0 (MmMapMdl.c)
+ *     MmMapMdl @ 0x1405377F0 (MmMapMdl.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiFreeUltraMdlContext(PSLIST_ENTRY ListEntry)
@@ -17,11 +17,11 @@ PSLIST_ENTRY __fastcall MiFreeUltraMdlContext(PSLIST_ENTRY ListEntry)
   CurrentPrcb = KeGetCurrentPrcb();
   v3 = __rdtsc();
   v4 = ((unsigned int)v3 | ((unsigned __int64)HIDWORD(v3) << 32)) >> 4;
-  v5 = qword_140C4EC38 + ((unsigned __int64)CurrentPrcb->ParentNode->Affinity.Reserved[0] << 9);
+  v5 = qword_140C4EC78 + ((unsigned __int64)CurrentPrcb->ParentNode->Affinity.Reserved[0] << 9);
   for ( i = 0; i < 0x10; ++i )
   {
     LODWORD(v4) = v4 & 7;
-    if ( *(unsigned __int16 *)(((unsigned __int64)(unsigned int)v4 << 6) + v5) <= (dword_140C4EC30
+    if ( *(unsigned __int16 *)(((unsigned __int64)(unsigned int)v4 << 6) + v5) <= (dword_140C4EC70
                                                                                  / (unsigned int)(unsigned __int16)KeNumberNodes) >> 3 )
       break;
     LODWORD(v4) = v4 + 1;

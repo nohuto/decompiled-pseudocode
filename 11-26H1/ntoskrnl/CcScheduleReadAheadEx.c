@@ -1,9 +1,9 @@
 /*
- * XREFs of CcScheduleReadAheadEx @ 0x1404DA260
+ * XREFs of CcScheduleReadAheadEx @ 0x1404D3940
  * Callers:
- *     CcMdlRead @ 0x140AED790 (CcMdlRead.c)
+ *     CcMdlRead @ 0x140AF04E0 (CcMdlRead.c)
  * Callees:
- *     CcScheduleReadAheadNuma @ 0x14021D0F8 (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadNuma @ 0x14021EA88 (CcScheduleReadAheadNuma.c)
  */
 
 void __fastcall CcScheduleReadAheadEx(_QWORD *a1, _QWORD *a2, __int64 a3, struct _KTHREAD *a4)

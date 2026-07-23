@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpPreserveSystemHiveData @ 0x14085F688
+ * XREFs of CmpPreserveSystemHiveData @ 0x140865978
  * Callers:
- *     CmReplaceKey @ 0x140858C90 (CmReplaceKey.c)
+ *     CmReplaceKey @ 0x14085F020 (CmReplaceKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _strnicmp @ 0x140536310 (_strnicmp.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpWalkPath @ 0x140860270 (CmpWalkPath.c)
- *     CmpSetValueKeyExisting @ 0x1408BD1FC (CmpSetValueKeyExisting.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByNumber @ 0x1408DEDA0 (CmpFindSubKeyByNumber.c)
- *     CmpGetValueData @ 0x1409803F0 (CmpGetValueData.c)
- *     CmpCopySyncTree @ 0x14098709C (CmpCopySyncTree.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _strnicmp @ 0x140538790 (_strnicmp.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpWalkPath @ 0x140866560 (CmpWalkPath.c)
+ *     CmpSetValueKeyExisting @ 0x1408C37CC (CmpSetValueKeyExisting.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByNumber @ 0x1408E5360 (CmpFindSubKeyByNumber.c)
+ *     CmpGetValueData @ 0x140942400 (CmpGetValueData.c)
+ *     CmpCopySyncTree @ 0x140948D9C (CmpCopySyncTree.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpPreserveSystemHiveData(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)

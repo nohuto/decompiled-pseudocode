@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64ResumeProfilingInternal @ 0x1405A4C0C
+ * XREFs of Amd64ResumeProfilingInternal @ 0x1405A741C
  * Callers:
- *     Amd64ResumeProfiling @ 0x1405A4BD0 (Amd64ResumeProfiling.c)
+ *     Amd64ResumeProfiling @ 0x1405A73E0 (Amd64ResumeProfiling.c)
  * Callees:
  *     <none>
  */
@@ -63,7 +63,7 @@ LABEL_23:
         if ( *(_DWORD *)v4 != 101 )
         {
 LABEL_22:
-          v11 = *((_DWORD *)&xmmword_140F87600 + (unsigned int)(v8 + v7));
+          v11 = *((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v8 + v7));
           result = __readmsr(v11) | 0x400000;
           __writemsr(v11, result);
           goto LABEL_23;

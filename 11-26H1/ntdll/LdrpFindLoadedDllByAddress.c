@@ -1,23 +1,23 @@
 /*
- * XREFs of LdrpFindLoadedDllByAddress @ 0x1800C6170
+ * XREFs of LdrpFindLoadedDllByAddress @ 0x1800C3930
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     AVrfCallAPILookupCallback @ 0x1800C5D7C (AVrfCallAPILookupCallback.c)
- *     LdrFindEntryForAddress @ 0x1800C6110 (LdrFindEntryForAddress.c)
- *     LdrpCgLogFailure @ 0x18015CE90 (LdrpCgLogFailure.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     AVrfCallAPILookupCallback @ 0x1800C353C (AVrfCallAPILookupCallback.c)
+ *     LdrFindEntryForAddress @ 0x1800C38D0 (LdrFindEntryForAddress.c)
+ *     LdrpCgLogFailure @ 0x18015CD50 (LdrpCgLogFailure.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlpAcquireSRWLockSharedContended @ 0x18004B7F0 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180035D70 (RtlpAcquireSRWLockSharedContended.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDllByAddress(unsigned __int64 a1, unsigned __int64 *a2, _DWORD *a3, _QWORD *a4)
+__int64 __fastcall LdrpFindLoadedDllByAddress(unsigned __int64 a1, unsigned __int64 *a2, _DWORD *a3, char *a4)
 {
   unsigned int v4; // esi
-  _QWORD *v8; // rdx
-  _QWORD *SchedulerSharedDataSlot; // r10
+  char *v8; // rdx
+  char *SchedulerSharedDataSlot; // r10
   __int64 v10; // rax
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // rbx
+  volatile signed __int64 *v11; // rax
+  unsigned __int64 Root; // rbx
   unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rax
   __int64 v15; // rcx
@@ -25,61 +25,68 @@ __int64 __fastcall LdrpFindLoadedDllByAddress(unsigned __int64 a1, unsigned __in
 
   v4 = 0;
   v8 = 0LL;
-  SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
+  SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
     v10 = 0LL;
     a4 = SchedulerSharedDataSlot;
-    while ( *a4 )
+    while ( *(_QWORD *)a4 )
     {
       v10 = (unsigned int)(v10 + 1);
-      ++a4;
+      a4 += 8;
       if ( (unsigned int)v10 >= 8 )
         goto LABEL_8;
     }
-    v8 = &SchedulerSharedDataSlot[v10];
+    v8 = &SchedulerSharedDataSlot[8 * v10];
     if ( v8 )
-      *v8 = &LdrpModuleDatatableLock;
+      *(_QWORD *)v8 = &LdrpModuleDatatableLock;
   }
 LABEL_8:
-  v11 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 17LL, 0LL);
+  v11 = (volatile signed __int64 *)_InterlockedCompareExchange64(
+                                     (volatile signed __int64 *)&LdrpModuleDatatableLock,
+                                     17LL,
+                                     0LL);
   if ( v11 )
-    RtlpAcquireSRWLockSharedContended(&LdrpModuleDatatableLock, (unsigned __int64)v8, v11, (unsigned __int64)a4);
-  v12 = LdrpModuleBaseAddressIndex;
-  if ( (qword_1801CB410 & 1) != 0 )
+    RtlpAcquireSRWLockSharedContended(
+      (volatile signed __int64 *)&LdrpModuleDatatableLock,
+      (unsigned __int64)v8,
+      v11,
+      a4);
+  Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( !LdrpModuleBaseAddressIndex )
+    if ( !LdrpModuleBaseAddressIndex.Root )
     {
-      v12 = 0LL;
+      Root = 0LL;
       goto LABEL_30;
     }
-    v12 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
   }
-  if ( v12 )
+  if ( Root )
   {
     do
     {
-      v13 = *(_QWORD *)(v12 - 152);
+      v13 = *(_QWORD *)(Root - 152);
       if ( a1 < v13 )
       {
-        v14 = *(_QWORD *)v12;
+        v14 = *(_QWORD *)Root;
       }
       else
       {
-        if ( a1 < v13 + *(unsigned int *)(v12 - 136) )
+        if ( a1 < v13 + *(unsigned int *)(Root - 136) )
           break;
-        v14 = *(_QWORD *)(v12 + 8);
+        v14 = *(_QWORD *)(Root + 8);
       }
-      if ( (qword_1801CB410 & 1) != 0 && v14 )
-        v12 ^= v14;
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v14 )
+        Root ^= v14;
       else
-        v12 = v14;
+        Root = v14;
     }
-    while ( v12 );
-    if ( v12 )
+    while ( Root );
+    if ( Root )
     {
-      v15 = *(_QWORD *)(v12 - 48);
-      v16 = v12 - 200;
+      v15 = *(_QWORD *)(Root - 48);
+      v16 = Root - 200;
       if ( *(_DWORD *)(v15 + 24) != -1 && (*(_DWORD *)(*(_QWORD *)v15 - 56LL) & 0x20) == 0 )
         _InterlockedIncrement((volatile signed __int32 *)(v16 + 276));
       *a2 = v16;
@@ -89,7 +96,7 @@ LABEL_8:
   }
 LABEL_30:
   RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
-  if ( !v12 )
+  if ( !Root )
     return (unsigned int)-1073741515;
   return v4;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of PspExpandQuota @ 0x1403BD8E8
+ * XREFs of PspExpandQuota @ 0x1403C7758
  * Callers:
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsChargeProcessPoolQuota @ 0x1403BD360 (PsChargeProcessPoolQuota.c)
- *     PspChargeQuota @ 0x1403BD5A0 (PspChargeQuota.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140C109D0 (ExpAllocatePoolWithQuotaTag.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsChargeProcessPoolQuota @ 0x1403C71D0 (PsChargeProcessPoolQuota.c)
+ *     PspChargeQuota @ 0x1403C7410 (PspChargeQuota.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140C169D0 (ExpAllocatePoolWithQuotaTag.c)
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x1403BDC0C (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1403BDC84 (PspLockQuotaExpansion.c)
- *     PspReleaseReturnedQuota @ 0x140614E04 (PspReleaseReturnedQuota.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspUnlockQuotaExpansion @ 0x1403C7A7C (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1403C7AF4 (PspLockQuotaExpansion.c)
+ *     PspReleaseReturnedQuota @ 0x140617C44 (PspReleaseReturnedQuota.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PspExpandQuota(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int64 *a5)
 {
-  unsigned __int8 *v7; // rsi
+  _KDPC **v7; // rsi
   __int64 v10; // rdx
   unsigned __int64 v11; // rbp
   __int64 v12; // rdx
@@ -27,7 +27,7 @@ char __fastcall PspExpandQuota(unsigned int a1, __int64 a2, __int64 a3, __int64 
 
   v17 = 0;
   v18 = 0LL;
-  v7 = &PsAltSystemCallRegistrationLock.ApcStateFill[56 * a1 + 16];
+  v7 = &PsAltSystemCallRegistrationLock.Timer.Dpc + 7 * (int)a1;
   PspLockQuotaExpansion(v7, &v17);
   v11 = *(_QWORD *)(a2 + 64);
   if ( a3 + a4 <= v11 )

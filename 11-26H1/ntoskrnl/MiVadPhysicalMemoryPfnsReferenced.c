@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadPhysicalMemoryPfnsReferenced @ 0x1404CFA3C
+ * XREFs of MiVadPhysicalMemoryPfnsReferenced @ 0x1404C946C
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
  * Callees:
  *     <none>
  */

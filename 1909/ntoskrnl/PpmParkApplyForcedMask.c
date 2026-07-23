@@ -21,10 +21,7 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *((_WORD *)a1 + 4);
   v4 = *a1;
@@ -36,8 +33,8 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
     goto LABEL_10;
   if ( !a2 )
   {
-    v17 = 0LL;
-    a2 = &v17;
+    v14 = 0LL;
+    a2 = &v14;
     goto LABEL_14;
   }
   if ( !*a2 || PoSoftParkingAllowed )
@@ -73,7 +70,7 @@ LABEL_14:
       {
         PpmParkApplyPolicy();
         PpmParkParkingAvailable();
-        PpmCheckApplyParkConstraints(v15, v14, v16);
+        PpmCheckApplyParkConstraints();
         return v6;
       }
     }

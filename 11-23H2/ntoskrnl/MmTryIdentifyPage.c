@@ -1,12 +1,12 @@
 /*
- * XREFs of MmTryIdentifyPage @ 0x140626730
+ * XREFs of MmTryIdentifyPage @ 0x140626C80
  * Callers:
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9BF90 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9BE00 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  * Callees:
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiIsPageSecured @ 0x1402EED30 (MiIsPageSecured.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiIsPageSecured @ 0x1402EEFC0 (MiIsPageSecured.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmTryIdentifyPage(unsigned __int64 a1, _QWORD *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MmTryIdentifyPage(unsigned __int64 a1, _QWORD *a2)
   v5 = 48 * a1 - 0x220000000000LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v8 = 4;
@@ -48,10 +48,10 @@ __int64 __fastcall MmTryIdentifyPage(unsigned __int64 a1, _QWORD *a2)
       MiIdentifyPfn(a1, a2);
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleCheckProcessorStateEligibility @ 0x140601FCC
+ * XREFs of PpmIdleCheckProcessorStateEligibility @ 0x140604A7C
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     PpmIdleSelectCoordinatedProcessorDependency @ 0x140602698 (PpmIdleSelectCoordinatedProcessorDependency.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     PpmIdleSelectCoordinatedProcessorDependency @ 0x140605148 (PpmIdleSelectCoordinatedProcessorDependency.c)
  * Callees:
- *     PpmCheckIdleVeto @ 0x140601728 (PpmCheckIdleVeto.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmCheckIdleVeto @ 0x1406041D8 (PpmCheckIdleVeto.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmIdleCheckProcessorStateEligibility(

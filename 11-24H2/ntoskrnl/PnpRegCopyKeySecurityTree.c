@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpRegCopyKeySecurityTree @ 0x14072375C
+ * XREFs of PnpRegCopyKeySecurityTree @ 0x1407212EC
  * Callers:
- *     PnpRegCopyKeySecurityTree @ 0x14072375C (PnpRegCopyKeySecurityTree.c)
- *     PipMigrateServiceCallback @ 0x140C21C40 (PipMigrateServiceCallback.c)
+ *     PnpRegCopyKeySecurityTree @ 0x1407212EC (PnpRegCopyKeySecurityTree.c)
+ *     PipMigrateServiceCallback @ 0x140C23C80 (PipMigrateServiceCallback.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PnpRegCopyKeySecurity @ 0x14072362C (PnpRegCopyKeySecurity.c)
- *     PnpRegCopyKeySecurityTree @ 0x14072375C (PnpRegCopyKeySecurityTree.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x140992734 (_PnpCtxRegEnumKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PnpRegCopyKeySecurity @ 0x1407211BC (PnpRegCopyKeySecurity.c)
+ *     PnpRegCopyKeySecurityTree @ 0x1407212EC (PnpRegCopyKeySecurityTree.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14097D774 (_PnpCtxRegEnumKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRegCopyKeySecurityTree(int a1, int a2, __int64 a3, int a4)
@@ -45,7 +45,7 @@ __int64 __fastcall PnpRegCopyKeySecurityTree(int a1, int a2, __int64 a3, int a4)
       v8 = PnpRegCopyKeySecurity((int)v14, (int)Handle);
       if ( v8 >= 0 )
       {
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x400uLL, 0x75737050u);
         if ( Pool2 )
         {
           for ( i = 0; ; ++i )

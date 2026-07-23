@@ -25,7 +25,7 @@
 
 struct _TEB *__fastcall sub_18001AE14(int a1)
 {
-  __int64 v1; // r14
+  HANDLE v1; // r14
   char v2; // si
   char v4; // bp
   __int64 *v5; // rbx
@@ -34,15 +34,15 @@ struct _TEB *__fastcall sub_18001AE14(int a1)
   __int64 v8; // rax
   __int64 v9; // rax
 
-  v1 = qword_18015B200;
+  v1 = EventHandle;
   v2 = 0;
   if ( !a1 )
-    v1 = qword_18015B1C8;
+    v1 = Handle;
   while ( 1 )
   {
     while ( 1 )
     {
-      RtlEnterCriticalSection(&unk_18015B220);
+      RtlEnterCriticalSection(&stru_18015B220);
       v4 = byte_18015B260;
       if ( !byte_18015B260 || a1 == 1 )
       {
@@ -76,17 +76,17 @@ struct _TEB *__fastcall sub_18001AE14(int a1)
         }
         v5 = &qword_18015B250;
       }
-      RtlLeaveCriticalSection(&unk_18015B220);
+      RtlLeaveCriticalSection(&stru_18015B220);
       if ( v2 )
         break;
       if ( &qword_18015B250 == v5 )
-        ZwWaitForSingleObject(v1, 0LL, 0LL);
+        ZwWaitForSingleObject(v1, 0, 0LL);
       else
         sub_180019170((__int64)(v5 - 7), v4);
     }
     if ( !a1 || (__int64 *)qword_18015B1F0 == &qword_18015B1F0 )
       break;
-    RtlEnterCriticalSection(&unk_18015B220);
+    RtlEnterCriticalSection(&stru_18015B220);
     v8 = qword_18015B1F0;
     *(_QWORD *)(qword_18015B1F0 + 8) = &qword_18015B250;
     qword_18015B250 = v8;
@@ -95,7 +95,7 @@ struct _TEB *__fastcall sub_18001AE14(int a1)
     qword_18015B258 = v9;
     qword_18015B1F8 = (__int64)&qword_18015B1F0;
     qword_18015B1F0 = (__int64)&qword_18015B1F0;
-    RtlLeaveCriticalSection(&unk_18015B220);
+    RtlLeaveCriticalSection(&stru_18015B220);
     v2 = 0;
   }
   result = NtCurrentTeb();

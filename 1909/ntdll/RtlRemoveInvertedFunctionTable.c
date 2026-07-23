@@ -8,11 +8,11 @@
  *     RtlxRemoveInvertedFunctionTable @ 0x1800704E0 (RtlxRemoveInvertedFunctionTable.c)
  */
 
-signed __int64 __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)
+void __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)
 {
   __int64 v2; // rcx
 
   RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
   RtlxRemoveInvertedFunctionTable(v2, a1);
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

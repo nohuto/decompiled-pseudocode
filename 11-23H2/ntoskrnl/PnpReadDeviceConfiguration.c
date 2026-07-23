@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpReadDeviceConfiguration @ 0x1408435D8
+ * XREFs of PnpReadDeviceConfiguration @ 0x1408438D8
  * Callers:
- *     PnpGetDeviceResourcesFromRegistry @ 0x14078FFDC (PnpGetDeviceResourcesFromRegistry.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1407901CC (PnpGetDeviceResourcesFromRegistry.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

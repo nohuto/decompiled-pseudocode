@@ -17,25 +17,27 @@ _BYTE *__fastcall SHA256Final(int a1, unsigned __int32 *a2)
   int v5; // ecx
   int v6; // eax
   _BYTE *result; // eax
-  int v8; // [esp+Ch] [ebp-5Ch] BYREF
-  int v9; // [esp+10h] [ebp-58h] BYREF
-  unsigned __int32 *v10; // [esp+14h] [ebp-54h]
-  _BYTE v11[76]; // [esp+18h] [ebp-50h] BYREF
+  size_t v8; // [esp-4h] [ebp-6Ch]
+  int v9; // [esp+Ch] [ebp-5Ch] BYREF
+  int v10; // [esp+10h] [ebp-58h] BYREF
+  unsigned __int32 *v11; // [esp+14h] [ebp-54h]
+  _BYTE v12[76]; // [esp+18h] [ebp-50h] BYREF
 
-  v10 = a2;
+  v11 = a2;
   v3 = 64;
   v4 = 64 - (*(_DWORD *)(a1 + 36) & 0x3F);
   if ( v4 <= 8 )
     v4 += 64;
-  memset(v11, 0, v4 - 8);
+  LODWORD(v8) = v4 - 8;
+  memset(v12, 0, v8);
   v5 = (*(_DWORD *)(a1 + 36) >> 29) | (8 * *(_DWORD *)(a1 + 32));
-  v11[0] = 0x80;
+  v12[0] = 0x80;
   v6 = *(_DWORD *)(a1 + 36);
-  v8 = v5;
-  v9 = 8 * v6;
-  DWORDToBigEndian((unsigned __int32 *)((char *)&v9 + v4), (int)&v8, 2);
+  v9 = v5;
+  v10 = 8 * v6;
+  DWORDToBigEndian((unsigned __int32 *)((char *)&v10 + v4), (int)&v9, 2);
   SHA256Update(v4);
-  DWORDToBigEndian(v10, a1, 8);
+  DWORDToBigEndian(v11, a1, 8);
   SHA256Init(a1);
   result = (_BYTE *)(a1 + 40);
   do

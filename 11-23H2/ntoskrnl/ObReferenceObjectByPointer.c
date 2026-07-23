@@ -1,23 +1,23 @@
 /*
- * XREFs of ObReferenceObjectByPointer @ 0x14022A980
+ * XREFs of ObReferenceObjectByPointer @ 0x14022AA90
  * Callers:
- *     EtwpAddUmRegEntry @ 0x1406BFA44 (EtwpAddUmRegEntry.c)
- *     WmipQuerySetExecuteSI @ 0x1406C6D3C (WmipQuerySetExecuteSI.c)
- *     ObpParseSymbolicLinkEx @ 0x1406C70C0 (ObpParseSymbolicLinkEx.c)
- *     WmipQueryAllData @ 0x1406C7A7C (WmipQueryAllData.c)
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x140767940 (IopAllocateFoExtensionsOnCreate.c)
- *     NtImpersonateAnonymousToken @ 0x1407F4FB0 (NtImpersonateAnonymousToken.c)
- *     EtwpStopTrace @ 0x1407F8284 (EtwpStopTrace.c)
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140827AC0 (HalGetAdapterV2.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140827D60 (HalpDmaAllocateChildAdapterV2.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x140828A90 (HalpDmaAllocateChildAdapterV3.c)
- *     WmipRegisterDevice @ 0x14086BF88 (WmipRegisterDevice.c)
- *     EtwpRegisterPrivateSession @ 0x1409EC85C (EtwpRegisterPrivateSession.c)
+ *     EtwpAddUmRegEntry @ 0x1406BFA74 (EtwpAddUmRegEntry.c)
+ *     WmipQuerySetExecuteSI @ 0x1406C6D6C (WmipQuerySetExecuteSI.c)
+ *     ObpParseSymbolicLinkEx @ 0x1406C70F0 (ObpParseSymbolicLinkEx.c)
+ *     WmipQueryAllData @ 0x1406C7AAC (WmipQueryAllData.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x140767B30 (IopAllocateFoExtensionsOnCreate.c)
+ *     NtImpersonateAnonymousToken @ 0x1407F5280 (NtImpersonateAnonymousToken.c)
+ *     EtwpStopTrace @ 0x1407F8554 (EtwpStopTrace.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140827DC0 (HalGetAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140828060 (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140828D90 (HalpDmaAllocateChildAdapterV3.c)
+ *     WmipRegisterDevice @ 0x14086C1C8 (WmipRegisterDevice.c)
+ *     EtwpRegisterPrivateSession @ 0x1409ECAEC (EtwpRegisterPrivateSession.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointer(

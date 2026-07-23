@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpPrefetchSharedDeref @ 0x140952908
+ * XREFs of PfpPrefetchSharedDeref @ 0x1409362B8
  * Callers:
- *     PfpQueryFileExtentsRequest @ 0x140745C48 (PfpQueryFileExtentsRequest.c)
- *     PfpPrefetchRequestPerform @ 0x140951A08 (PfpPrefetchRequestPerform.c)
- *     PfSnCleanupPrefetchHeader @ 0x140952328 (PfSnCleanupPrefetchHeader.c)
- *     PfpPrefetchSharedConflictNotifyEnd @ 0x140AA8610 (PfpPrefetchSharedConflictNotifyEnd.c)
+ *     PfpQueryFileExtentsRequest @ 0x140743F38 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchRequestPerform @ 0x1409353B4 (PfpPrefetchRequestPerform.c)
+ *     PfSnCleanupPrefetchHeader @ 0x140935CD8 (PfSnCleanupPrefetchHeader.c)
+ *     PfpPrefetchSharedConflictNotifyEnd @ 0x140AA3710 (PfpPrefetchSharedConflictNotifyEnd.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpPrefetchSharedDeref(volatile signed __int64 *a1)

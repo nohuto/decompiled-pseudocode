@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsContextAllocateFinalize @ 0x1402C0C4C
+ * XREFs of RtlpHpVsContextAllocateFinalize @ 0x140368524
  * Callers:
- *     RtlpHpVsContextMultiAlloc @ 0x1402C0B14 (RtlpHpVsContextMultiAlloc.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlHeapZero @ 0x1406B4F30 (RtlHeapZero.c)
+ *     RtlHeapZero @ 0x1406B5ED0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpVsContextAllocateFinalize(__int64 a1, __int64 a2, unsigned int a3, char a4)

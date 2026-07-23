@@ -1,7 +1,7 @@
 /*
- * XREFs of EventDataDescCreateString @ 0x1405A3010
+ * XREFs of EventDataDescCreateString @ 0x14059FF50
  * Callers:
- *     IopLiveDumpTraceEventGeneric @ 0x1405A31E4 (IopLiveDumpTraceEventGeneric.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405A0124 (IopLiveDumpTraceEventGeneric.c)
  * Callees:
  *     <none>
  */

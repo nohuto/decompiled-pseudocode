@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceWorkloadClassUpdate @ 0x14052D120
+ * XREFs of EtwTraceWorkloadClassUpdate @ 0x14052F640
  * Callers:
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
- *     KeEtwRundown @ 0x1405E48E8 (KeEtwRundown.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
+ *     KeEtwRundown @ 0x1405E7258 (KeEtwRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceWorkloadClassUpdate(__int64 a1, char a2, __int16 a3)

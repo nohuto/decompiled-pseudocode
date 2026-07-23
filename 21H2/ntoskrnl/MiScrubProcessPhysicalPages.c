@@ -1,17 +1,17 @@
 /*
- * XREFs of MiScrubProcessPhysicalPages @ 0x1408D6640
+ * XREFs of MiScrubProcessPhysicalPages @ 0x1408D67A0
  * Callers:
- *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x1408DC170 (MiScrubProcesses.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
- *     ExGetCallBackBlockRoutine @ 0x140382160 (ExGetCallBackBlockRoutine.c)
- *     MiLockAwePagesExclusive @ 0x14054CFB8 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiScrubAwePage @ 0x14054DD3C (MiScrubAwePage.c)
- *     MiUnlockAwePagesExclusive @ 0x14054DFA0 (MiUnlockAwePagesExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
- *     MiMakePageBad @ 0x140563934 (MiMakePageBad.c)
- *     MiScrubInterrupted @ 0x140563A58 (MiScrubInterrupted.c)
+ *     RtlFindSetBitsEx @ 0x1402CD210 (RtlFindSetBitsEx.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381CB0 (ExGetCallBackBlockRoutine.c)
+ *     MiLockAwePagesExclusive @ 0x14054D1F8 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiScrubAwePage @ 0x14054DF7C (MiScrubAwePage.c)
+ *     MiUnlockAwePagesExclusive @ 0x14054E1E0 (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
+ *     MiMakePageBad @ 0x140563B74 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x140563C98 (MiScrubInterrupted.c)
  */
 
 char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
@@ -21,10 +21,10 @@ char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
   unsigned __int64 v4; // rax
   __int64 v5; // rbx
   unsigned __int64 v6; // r14
-  unsigned __int64 v7; // rsi
+  ULONG64 v7; // rsi
   __int64 v8; // rcx
   BOOL v9; // eax
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   _DWORD *v11; // r9
   unsigned __int64 v12; // rbp
   __int64 v13; // r14
@@ -48,7 +48,7 @@ char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
     v9 = MiScrubInterrupted(a1);
     while ( !v9 )
     {
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)(v5 + 16), 1uLL, v7);
+      SetBits = RtlFindSetBitsEx((PRTL_BITMAP_EX)(v5 + 16), 1uLL, v7);
       v12 = SetBits;
       if ( SetBits < v7 || SetBits == -1LL )
         break;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViKeObjectAcquired @ 0x14093AFD0
+ * XREFs of ViKeObjectAcquired @ 0x14093BFD0
  * Callers:
- *     VerifierKeWaitForMultipleObjects @ 0x14093A6F0 (VerifierKeWaitForMultipleObjects.c)
- *     VerifierKeWaitForSingleObject @ 0x14093A820 (VerifierKeWaitForSingleObject.c)
+ *     VerifierKeWaitForMultipleObjects @ 0x14093B6F0 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeWaitForSingleObject @ 0x14093B820 (VerifierKeWaitForSingleObject.c)
  * Callees:
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
  */
 
 char __fastcall ViKeObjectAcquired(unsigned int a1, _BYTE **a2, __int64 a3, __int64 a4)

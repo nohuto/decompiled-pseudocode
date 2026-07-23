@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkBoundRangeExceededFault @ 0x140BDBC00
+ * XREFs of HalpBlkBoundRangeExceededFault @ 0x140BDDC00
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140BDB900 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140BDD900 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkBoundRangeExceededFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

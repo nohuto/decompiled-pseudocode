@@ -227,7 +227,7 @@ LABEL_31:
               {
                 v54 = Mcb->Mapping;
                 if ( Mcb->PoolType == 1 )
-                  ExFreeToPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v54);
+                  ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList, v54);
                 else
                   ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v54);
                 Mcb->Mapping = v26;

@@ -5,22 +5,22 @@
  * Callees:
  *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
  *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     RtlpHeapGenerateRandomValue64 @ 0x1403631E0 (RtlpHeapGenerateRandomValue64.c)
+ *     sub_1403631E0 @ 0x1403631E0 (sub_1403631E0.c)
  *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     RtlpHpFixedHeapCreate @ 0x14036FD8C (RtlpHpFixedHeapCreate.c)
- *     RtlpHpLegacyGetEnvHandle @ 0x14037003C (RtlpHpLegacyGetEnvHandle.c)
- *     RtlpHpConvertCreationFlags @ 0x140370054 (RtlpHpConvertCreationFlags.c)
+ *     sub_14036FD8C @ 0x14036FD8C (sub_14036FD8C.c)
+ *     sub_14037003C @ 0x14037003C (sub_14037003C.c)
+ *     sub_140370054 @ 0x140370054 (sub_140370054.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
  *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
  *     ZwQueryVirtualMemory @ 0x14041BBC0 (ZwQueryVirtualMemory.c)
  *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
  *     memset @ 0x140435E00 (memset.c)
- *     RtlpCreateHeapEncoding @ 0x1405E8D90 (RtlpCreateHeapEncoding.c)
- *     RtlpInitializeHeapSegment @ 0x1405EA72C (RtlpInitializeHeapSegment.c)
- *     RtlpHeapExceptionFilter @ 0x1405F1AA4 (RtlpHeapExceptionFilter.c)
- *     RtlpHeapHandleError @ 0x1405F1F34 (RtlpHeapHandleError.c)
- *     RtlpPopulateListIndex @ 0x1405F27C0 (RtlpPopulateListIndex.c)
+ *     sub_1405E8D90 @ 0x1405E8D90 (sub_1405E8D90.c)
+ *     sub_1405EA72C @ 0x1405EA72C (sub_1405EA72C.c)
+ *     sub_1405F1AA4 @ 0x1405F1AA4 (sub_1405F1AA4.c)
+ *     sub_1405F1F34 @ 0x1405F1F34 (sub_1405F1F34.c)
+ *     sub_1405F27C0 @ 0x1405F27C0 (sub_1405F27C0.c)
  */
 
 PVOID __stdcall RtlCreateHeap(
@@ -85,7 +85,7 @@ PVOID __stdcall RtlCreateHeap(
   __int128 v61; // [rsp+160h] [rbp-B8h] BYREF
   __int128 v62; // [rsp+170h] [rbp-A8h]
   __int128 v63; // [rsp+180h] [rbp-98h]
-  _QWORD v64[8]; // [rsp+190h] [rbp-88h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+190h] [rbp-88h] BYREF
 
   InitialReserve = ReserveSize;
   BaseAddress = (PVOID)ReserveSize;
@@ -102,7 +102,7 @@ PVOID __stdcall RtlCreateHeap(
   v63 = 0LL;
   v45 = 0;
   v46 = 0LL;
-  memset(v64, 0, sizeof(v64));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v42 = 0LL;
   v10 = 0LL;
   if ( (Flags & 0x100) == 0 )
@@ -112,7 +112,7 @@ PVOID __stdcall RtlCreateHeap(
     if ( (Flags & 0x10000000) == 0 )
     {
       v16 = Flags & 0xFFF80C00;
-      if ( RtlpHeapErrorHandlerThreshold < 2 )
+      if ( dword_140D04920 < 2 )
       {
         if ( v16 )
           Flags &= 0x7F3FFu;
@@ -120,7 +120,7 @@ PVOID __stdcall RtlCreateHeap(
       else if ( v16 )
       {
         DbgPrint("!(CheckedFlags & ~HEAP_CREATE_VALID_MASK)");
-        RtlpHeapHandleError();
+        sub_1405F1F34();
       }
     }
     memset(&v60[1], 0, 0x60uLL);
@@ -155,10 +155,10 @@ PVOID __stdcall RtlCreateHeap(
     if ( !qword_140D04910 )
     {
       qword_140D04918 = 0x10000LL;
-      if ( (int)ZwQuerySystemInformation(0LL, (__int64)v64) < 0 )
+      if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
         goto LABEL_14;
-      v24 = v64[5];
-      qword_140D04910 = v64[5];
+      v24 = SystemInformation[5];
+      qword_140D04910 = SystemInformation[5];
     }
     v52 = *((_QWORD *)&v60[3] + 1);
     if ( !*((_QWORD *)&v60[3] + 1) )
@@ -249,13 +249,7 @@ PVOID __stdcall RtlCreateHeap(
           if ( (v19 & 0x40000) != 0 && (BYTE4(v59) & 0x40) == 0 )
             goto LABEL_14;
           memset((void *)MemoryInformation, 0, 0x1000uLL);
-          if ( ZwQueryVirtualMemory(
-                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                 HeapBase,
-                 (MEMORY_INFORMATION_CLASS)3,
-                 &v61,
-                 0x30uLL,
-                 0LL) < 0 )
+          if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryRegionInformation, &v61, 0x30uLL, 0LL) < 0 )
             goto LABEL_14;
           v44 = v62;
           v46 = *((_QWORD *)&v58 + 1);
@@ -281,7 +275,7 @@ PVOID __stdcall RtlCreateHeap(
     BaseAddress = 0LL;
     if ( !*((_QWORD *)&v60[5] + 1) )
     {
-      v50 = (RtlpHeapGenerateRandomValue64(v43, v26) & 0x1F) << 16;
+      v50 = (sub_1403631E0(v43, v26) & 0x1F) << 16;
       RegionSize = v44 + v50;
       if ( v44 + v50 < v44 )
       {
@@ -329,7 +323,7 @@ LABEL_96:
         *((_DWORD *)v42 + 28) = v19 & 0xEFFFFFFF;
         *((_DWORD *)v42 + 36) = 0;
         memset((char *)v42 + 568, 0, 0x78uLL);
-        RtlpCreateHeapEncoding((__int64)v42);
+        sub_1405E8D90((__int64)v42);
         *((_DWORD *)v42 + 29) = v19 & 0x6001007D;
         *((_WORD *)v42 + 105) = v33 - (_WORD)v42;
         *((_QWORD *)v42 + 27) = 0LL;
@@ -357,7 +351,7 @@ LABEL_96:
         }
         *((_QWORD *)v42 + 44) = v10;
         *((_DWORD *)v42 + 30) |= 0x80000000;
-        if ( RtlpInitializeHeapSegment(
+        if ( sub_1405EA72C(
                (__int64)v42,
                (__int64)v42,
                v35 + 1104,
@@ -373,7 +367,7 @@ LABEL_96:
           *(_QWORD *)(v33 + 40) = v33 + 56;
           *(_QWORD *)(v33 + 32) = (char *)v42 + 336;
           *(_QWORD *)(v33 + 48) = v33 + 72;
-          RtlpPopulateListIndex((ULONG_PTR)v42, v33);
+          sub_1405F27C0((ULONG_PTR)v42, v33);
           *((_WORD *)v42 + 104) = 0;
           *((_QWORD *)v42 + 20) = v53;
           *((_QWORD *)v42 + 21) = v54;
@@ -381,7 +375,7 @@ LABEL_96:
           *((_QWORD *)v42 + 23) = *(_QWORD *)&v60[0] >> 4;
           *((_QWORD *)v42 + 25) = v52;
           *((_DWORD *)v42 + 37) = (unsigned __int64)(v56[0] + 15) >> 4;
-          *((_QWORD *)v42 + 45) = RtlpHeapKey ^ *((_QWORD *)&v60[5] + 1);
+          *((_QWORD *)v42 + 45) = qword_140C5AE40 ^ *((_QWORD *)&v60[5] + 1);
           *((_DWORD *)v42 + 172) = 4;
           *((_QWORD *)v42 + 87) = 2088960LL;
           *((_QWORD *)v42 + 32) = 31LL;
@@ -413,7 +407,7 @@ LABEL_73:
     goto LABEL_14;
   if ( (Flags & 2) != 0 )
     goto LABEL_14;
-  RtlpHpConvertCreationFlags(Flags, v44);
+  sub_140370054(Flags, v44);
   if ( Parameters->CommitRoutine )
   {
     CommitSize = Parameters->InitialCommit;
@@ -423,8 +417,8 @@ LABEL_73:
     if ( !InitialReserve || CommitSize > InitialReserve )
       goto LABEL_14;
   }
-  *(_OWORD *)v56 = *RtlpHpLegacyGetEnvHandle(v60);
-  v13 = (void *)RtlpHpFixedHeapCreate(HeapBase, v11, InitialReserve, CommitSize, v12, v56);
+  *(_OWORD *)v56 = *sub_14037003C(v60);
+  v13 = (void *)sub_14036FD8C(HeapBase, v11, InitialReserve, CommitSize, v12, v56);
 LABEL_10:
   v14 = v43;
 LABEL_11:

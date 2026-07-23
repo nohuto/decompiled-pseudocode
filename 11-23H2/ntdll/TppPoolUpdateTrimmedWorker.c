@@ -11,40 +11,46 @@
  *     ZwDuplicateObject @ 0x1800A1630 (ZwDuplicateObject.c)
  */
 
-__int64 __fastcall TppPoolUpdateTrimmedWorker(__int64 a1)
+void __fastcall TppPoolUpdateTrimmedWorker(__int64 a1)
 {
-  volatile signed __int64 *v1; // rsi
-  __int64 result; // rax
+  _RTL_SRWLOCK *v1; // rsi
   _QWORD *Heap; // rbx
-  _QWORD *v5; // rcx
-  unsigned int v6; // ebx
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *v4; // rcx
+  unsigned int v5; // ebx
+  HANDLE TargetHandle; // [rsp+50h] [rbp+8h] BYREF
 
-  v1 = (volatile signed __int64 *)(a1 + 72);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  v1 = (_RTL_SRWLOCK *)(a1 + 72);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   if ( (*(_DWORD *)(a1 + 436) & 0xFFE) == 0 )
-    return RtlReleaseSRWLockExclusive(v1);
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8u, 24LL);
+    goto LABEL_2;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 0x18uLL);
   if ( !Heap )
-    return RtlReleaseSRWLockExclusive(v1);
-  if ( (int)ZwDuplicateObject(-1LL, -2LL, -1LL, &v7, 0, 0) < 0 )
+    goto LABEL_2;
+  if ( ZwDuplicateObject(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         (HANDLE)0xFFFFFFFFFFFFFFFELL,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &TargetHandle,
+         0,
+         0,
+         2u) < 0 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, (__int64)Heap);
-    return RtlReleaseSRWLockExclusive(v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
+LABEL_2:
+    RtlReleaseSRWLockExclusive(v1);
+    return;
   }
-  Heap[2] = v7;
-  v5 = *(_QWORD **)(a1 + 464);
-  if ( *v5 != a1 + 456 )
+  Heap[2] = TargetHandle;
+  v4 = *(_QWORD **)(a1 + 464);
+  if ( *v4 != a1 + 456 )
     __fastfail(3u);
-  Heap[1] = v5;
+  Heap[1] = v4;
   *Heap = a1 + 456;
-  *v5 = Heap;
+  *v4 = Heap;
   *(_QWORD *)(a1 + 464) = Heap;
-  v6 = *(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) + 4096)) & 0x7FF000;
-  *(_DWORD *)(a1 + 436) = v6;
+  v5 = *(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) ^ (*(_DWORD *)(a1 + 436) + 4096)) & 0x7FF000;
+  *(_DWORD *)(a1 + 436) = v5;
   RtlReleaseSRWLockExclusive(v1);
-  result = v6 ^ (v6 >> 11);
-  if ( (((unsigned __int16)v6 ^ (unsigned __int16)(v6 >> 11)) & 0xFFE) == 0 )
-    return RtlWakeConditionVariable(a1 + 448);
-  return result;
+  if ( ((v5 ^ (v5 >> 11)) & 0xFFE) == 0 )
+    RtlWakeConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 448));
 }

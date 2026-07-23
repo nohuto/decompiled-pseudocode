@@ -27,8 +27,8 @@ __int64 __fastcall LdrpFastpthReloadedDll(int a1, __int16 a2, __int64 a3, __int6
   int v13; // edx
   _QWORD *v14; // rcx
   _QWORD *v15; // rax
-  __int64 Heap; // rax
-  __int64 *v17; // rdx
+  char *Heap; // rax
+  _QWORD *v17; // rdx
   _QWORD *v18; // rdx
   _QWORD *v19; // r8
   int v20; // edx
@@ -80,11 +80,11 @@ LABEL_16:
         LdrpDropLastInProgressCount();
       }
 LABEL_19:
-      LdrpDereferenceModule(*a4);
+      LdrpDereferenceModule((PVOID)*a4);
       *a4 = 0LL;
       return (unsigned int)Count;
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
     v11 = *(_QWORD *)(a3 + 152);
     if ( *(_DWORD *)(v11 + 24) || (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -96,11 +96,11 @@ LABEL_19:
         if ( !v14 )
         {
 LABEL_28:
-          Heap = RtlAllocateHeap((void *)LdrpHeap);
+          Heap = (char *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
           if ( Heap )
           {
-            *(_DWORD *)(Heap + 24) |= 1u;
-            v17 = *(__int64 **)(v11 + 40);
+            *((_DWORD *)Heap + 6) |= 1u;
+            v17 = *(_QWORD **)(v11 + 40);
             if ( v17 )
             {
               *(_QWORD *)Heap = *v17;
@@ -111,8 +111,8 @@ LABEL_28:
               *(_QWORD *)Heap = Heap;
             }
             *(_QWORD *)(v11 + 40) = Heap;
-            v18 = (_QWORD *)(Heap + 16);
-            *(_QWORD *)(Heap + 8) = v12;
+            v18 = Heap + 16;
+            *((_QWORD *)Heap + 1) = v12;
             v19 = *(_QWORD **)(v12 + 48);
             if ( v19 )
             {
@@ -124,10 +124,10 @@ LABEL_28:
               *v18 = v18;
             }
             *(_QWORD *)(v12 + 48) = v18;
-            v20 = *(_DWORD *)(Heap + 24);
-            *(_QWORD *)(Heap + 24) = v11;
+            v20 = *((_DWORD *)Heap + 6);
+            *((_QWORD *)Heap + 3) = v11;
             if ( (v20 & 1) != 0 )
-              *(_DWORD *)(Heap + 24) = v11 ^ ((unsigned __int8)v20 ^ (unsigned __int8)v11) & 1;
+              *((_DWORD *)Heap + 6) = v11 ^ ((unsigned __int8)v20 ^ (unsigned __int8)v11) & 1;
           }
           else
           {

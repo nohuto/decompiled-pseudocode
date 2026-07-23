@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C86C
+ * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF2C
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x14055C394 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14055CA54 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     IoSaveBugCheckProgress @ 0x1405509E0 (IoSaveBugCheckProgress.c)
- *     IopDumpCallAddPagesCallbacks @ 0x140552598 (IopDumpCallAddPagesCallbacks.c)
- *     IoAddProcessesToDump @ 0x14055C5A4 (IoAddProcessesToDump.c)
- *     IopAddKernelSpacePagesToPartialDump @ 0x14055C7F4 (IopAddKernelSpacePagesToPartialDump.c)
- *     IopMarkPagesForDeviceNode @ 0x14055D08C (IopMarkPagesForDeviceNode.c)
- *     IopMarkPagesForProcessorData @ 0x14055D5E8 (IopMarkPagesForProcessorData.c)
- *     ExAddPrivateDataToCrashDump @ 0x140606BBC (ExAddPrivateDataToCrashDump.c)
- *     MmAddPrivateDataToCrashDump @ 0x14062FFF0 (MmAddPrivateDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     IoSaveBugCheckProgress @ 0x1405510A0 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140552C58 (IopDumpCallAddPagesCallbacks.c)
+ *     IoAddProcessesToDump @ 0x14055CC64 (IoAddProcessesToDump.c)
+ *     IopAddKernelSpacePagesToPartialDump @ 0x14055CEB4 (IopAddKernelSpacePagesToPartialDump.c)
+ *     IopMarkPagesForDeviceNode @ 0x14055D74C (IopMarkPagesForDeviceNode.c)
+ *     IopMarkPagesForProcessorData @ 0x14055DCA8 (IopMarkPagesForProcessorData.c)
+ *     ExAddPrivateDataToCrashDump @ 0x14060710C (ExAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x140630540 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopAddLiveDumpPagesToPartialKernelDump(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

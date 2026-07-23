@@ -1,20 +1,32 @@
 /*
- * XREFs of NtAccessCheck @ 0x140346700
+ * XREFs of NtAccessCheck @ 0x140346990
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
  */
 
-__int64 __fastcall NtAccessCheck(
-        __int16 *a1,
-        void *a2,
-        unsigned int a3,
-        _OWORD *a4,
-        volatile void *a5,
-        _DWORD *a6,
-        unsigned int *a7,
-        _DWORD *a8)
+NTSTATUS __cdecl NtAccessCheck(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
-  return SeAccessCheckByType(a1, 0LL, a2, a3, 0LL, 0, a4, a5, a6, a7, a8, 0);
+  return SeAccessCheckByType(
+           (__int16 *)SecurityDescriptor,
+           0LL,
+           ClientToken,
+           DesiredAccess,
+           0LL,
+           0,
+           GenericMapping,
+           PrivilegeSet,
+           PrivilegeSetLength,
+           GrantedAccess,
+           AccessStatus,
+           0);
 }

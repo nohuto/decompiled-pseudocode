@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeUsedPtesCount @ 0x1403403C0
+ * XREFs of MiInitializeUsedPtesCount @ 0x140342440
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
- *     MiReducePteUseCount @ 0x140361410 (MiReducePteUseCount.c)
- *     MiDeleteNonPagedPoolTail @ 0x140362D10 (MiDeleteNonPagedPoolTail.c)
- *     MiMakeOutswappedPageResident @ 0x14040BF9C (MiMakeOutswappedPageResident.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
+ *     MiReducePteUseCount @ 0x1403631B0 (MiReducePteUseCount.c)
+ *     MiDeleteNonPagedPoolTail @ 0x140364AB0 (MiDeleteNonPagedPoolTail.c)
+ *     MiMakeOutswappedPageResident @ 0x1404296E4 (MiMakeOutswappedPageResident.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
  * Callees:
  *     <none>
  */

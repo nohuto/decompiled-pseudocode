@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpApplyLegacyLogFile @ 0x140862838
+ * XREFs of HvpApplyLegacyLogFile @ 0x140868C18
  * Callers:
- *     HvApplyLogFiles @ 0x140AEB7E4 (HvApplyLogFiles.c)
+ *     HvApplyLogFiles @ 0x140AEE6F0 (HvApplyLogFiles.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpGenerateLogMetadata @ 0x1408B70C4 (HvpGenerateLogMetadata.c)
- *     HvpIsMetadataArrayCoherent @ 0x140AE04B0 (HvpIsMetadataArrayCoherent.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x140B0EF68 (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpUpdateRecoveryVector @ 0x140B45538 (HvpUpdateRecoveryVector.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpGenerateLogMetadata @ 0x1408BD694 (HvpGenerateLogMetadata.c)
+ *     HvpIsMetadataArrayCoherent @ 0x140ADDCF0 (HvpIsMetadataArrayCoherent.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140B10798 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpUpdateRecoveryVector @ 0x140B47574 (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvpApplyLegacyLogFile(
@@ -98,7 +98,7 @@ __int64 __fastcall HvpApplyLegacyLogFile(
         return 0;
       }
     }
-    else if ( BYTE2(NlsMbOemCodePageTag) || (CmpCallbackListLock.ApcStateFill[28] & 6) != 0 )
+    else if ( BYTE2(NlsMbOemCodePageTag) || (CmpContextListLock.ApcStateFill[36] & 6) != 0 )
     {
       a1[1022] |= 4u;
       return 1073741833;

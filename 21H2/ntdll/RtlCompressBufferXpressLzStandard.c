@@ -3,7 +3,7 @@
  * Callers:
  *     RtlCompressBufferXpressLz @ 0x180086860 (RtlCompressBufferXpressLz.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x18010DC04 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x18010DBC4 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLzStandard(

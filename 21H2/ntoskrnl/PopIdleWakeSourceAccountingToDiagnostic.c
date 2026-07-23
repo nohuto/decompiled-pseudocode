@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeSourceAccountingToDiagnostic @ 0x1408F45E0
+ * XREFs of PopIdleWakeSourceAccountingToDiagnostic @ 0x1408F4740
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BA10 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BC50 (PopIdleWakeNotifyModernStandbyExit.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PpmConvertTimeTo @ 0x140576F98 (PpmConvertTimeTo.c)
- *     PopIdleWakeConvertIntervalBucketsTo @ 0x1408F4144 (PopIdleWakeConvertIntervalBucketsTo.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x1408F41A0 (PopIdleWakeGenerateDescriptionString.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmConvertTimeTo @ 0x1405771D8 (PpmConvertTimeTo.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x1408F42A4 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F4300 (PopIdleWakeGenerateDescriptionString.c)
  */
 
 signed int __fastcall PopIdleWakeSourceAccountingToDiagnostic(__int64 a1, _DWORD *a2)

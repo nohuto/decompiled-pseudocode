@@ -1,34 +1,34 @@
 /*
- * XREFs of IopSetEaOrQuotaInformationFile @ 0x1407129A0
+ * XREFs of IopSetEaOrQuotaInformationFile @ 0x140710530
  * Callers:
- *     NtSetQuotaInformationFile @ 0x140718360 (NtSetQuotaInformationFile.c)
+ *     NtSetQuotaInformationFile @ 0x140715EF0 (NtSetQuotaInformationFile.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IopReferenceFileObject @ 0x1403F5300 (IopReferenceFileObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IopProbeAndLockPages_0 @ 0x140438384 (IopProbeAndLockPages_0.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IoCheckQuotaBufferValidity @ 0x140713C00 (IoCheckQuotaBufferValidity.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14096F574 (IopSynchronousApiServiceTail.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140A0C064 (IopAllocateIrpCleanup.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IopReferenceFileObject @ 0x1403EB740 (IopReferenceFileObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IopProbeAndLockPages_0 @ 0x14042AF44 (IopProbeAndLockPages_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IoCheckQuotaBufferValidity @ 0x140711790 (IoCheckQuotaBufferValidity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x140957634 (IopSynchronousApiServiceTail.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140A0B2A4 (IopAllocateIrpCleanup.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2, void *a3, ULONG a4, char a5)
 {
-  size_t v5; // rbx
+  ULONG_PTR v5; // rbx
   struct _KEVENT *v9; // r15
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v11; // rcx
@@ -50,8 +50,8 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
   struct _KEVENT *v27; // rcx
   __int64 v28; // rax
   ULONG Flags; // ecx
-  struct _FILE_QUOTA_INFORMATION *v30; // rdi
-  NTSTATUS v31; // eax
+  _FILE_QUOTA_INFORMATION *v30; // rdi
+  int v31; // eax
   PMDL Mdl; // rcx
   char v33; // bl
   __int64 v34; // r9
@@ -120,7 +120,7 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
     }
     else
     {
-      Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+      Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x76456F49u);
       v9 = Pool2;
       P = Pool2;
       if ( Pool2 )
@@ -170,7 +170,7 @@ LABEL_20:
           ErrorOffset = 0;
           if ( (_DWORD)v5 )
           {
-            v30 = (struct _FILE_QUOTA_INFORMATION *)ExAllocatePool2(0x63uLL);
+            v30 = (_FILE_QUOTA_INFORMATION *)ExAllocatePool2(0x63uLL, v5, 0x42536F49u);
             v24->AssociatedIrp.MasterIrp = (struct _IRP *)v30;
             memmove(v30, a3, v5);
             LODWORD(v5) = a4;

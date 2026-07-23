@@ -148,7 +148,7 @@ LABEL_23:
           if ( (unsigned int)MiSplitLargePfnBitMap(v7, v8) )
           {
             v21 = 0;
-            while ( (unsigned int)MiSplitMirrorBitMap((unsigned __int64 *)&qword_1402FEC98[2 * v21], v7, v8) )
+            while ( (unsigned int)MiSplitMirrorBitMap(&stru_1402FEC98.SizeOfBitMap + 2 * v21, v7, v8) )
             {
               if ( ++v21 >= 2 )
               {

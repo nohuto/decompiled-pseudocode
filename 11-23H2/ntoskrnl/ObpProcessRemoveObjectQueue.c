@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpProcessRemoveObjectQueue @ 0x140749540
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x140749730
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F4E10 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     MmGetNextSession @ 0x14035ECF0 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1406E36A0 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpRemoveObjectRoutine @ 0x140729770 (ObpRemoveObjectRoutine.c)
- *     MmQuitNextSession @ 0x140884910 (MmQuitNextSession.c)
- *     ObpDeregisterObject @ 0x14097C950 (ObpDeregisterObject.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F50A0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     MmGetNextSession @ 0x14035EE90 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1406E36D0 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpRemoveObjectRoutine @ 0x140729970 (ObpRemoveObjectRoutine.c)
+ *     MmQuitNextSession @ 0x140884B50 (MmQuitNextSession.c)
+ *     ObpDeregisterObject @ 0x14097CB50 (ObpDeregisterObject.c)
  */
 
 void ObpProcessRemoveObjectQueue()

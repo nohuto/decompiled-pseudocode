@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryTracePercentageRemaining @ 0x1409463FC
+ * XREFs of PopBatteryTracePercentageRemaining @ 0x1409C1D6C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a4)
@@ -18,9 +18,9 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
   BOOL v8; // [rsp+44h] [rbp-C4h] BYREF
   int v9; // [rsp+48h] [rbp-C0h] BYREF
   int v10; // [rsp+4Ch] [rbp-BCh] BYREF
-  int SListFaultAddress_high; // [rsp+50h] [rbp-B8h] BYREF
+  int v11; // [rsp+50h] [rbp-B8h] BYREF
   int v12; // [rsp+54h] [rbp-B4h] BYREF
-  int SListFaultAddress; // [rsp+58h] [rbp-B0h] BYREF
+  int v13; // [rsp+58h] [rbp-B0h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-A0h] BYREF
   int *v15; // [rsp+78h] [rbp-90h]
   __int64 v16; // [rsp+80h] [rbp-88h]
@@ -39,11 +39,11 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
   __int64 v29; // [rsp+100h] [rbp-8h]
   int *v30; // [rsp+108h] [rbp+0h]
   __int64 v31; // [rsp+110h] [rbp+8h]
-  int *p_SListFaultAddress_high; // [rsp+118h] [rbp+10h]
+  int *v32; // [rsp+118h] [rbp+10h]
   __int64 v33; // [rsp+120h] [rbp+18h]
   int *v34; // [rsp+128h] [rbp+20h]
   __int64 v35; // [rsp+130h] [rbp+28h]
-  int *p_SListFaultAddress; // [rsp+138h] [rbp+30h]
+  int *v36; // [rsp+138h] [rbp+30h]
   __int64 v37; // [rsp+140h] [rbp+38h]
   int v38; // [rsp+178h] [rbp+70h] BYREF
   int v39; // [rsp+180h] [rbp+78h] BYREF
@@ -56,9 +56,7 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
   v5 = a3 == 0;
   if ( PopBatteryEtwRegistered )
   {
-    result = EtwEventEnabled(
-               (REGHANDLE)PopWeakChargerLock.Header.WaitListHead.Blink,
-               &BATTERY_EVT_BATTERY_PERCENT_REMAINING);
+    result = EtwEventEnabled(PopBatteryEtwHandle, &BATTERY_EVT_BATTERY_PERCENT_REMAINING);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v38;
@@ -69,18 +67,13 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v18 = 4LL;
       v19 = &v40;
       v20 = 4LL;
-      result = EtwWrite(
-                 (REGHANDLE)PopWeakChargerLock.Header.WaitListHead.Blink,
-                 &BATTERY_EVT_BATTERY_PERCENT_REMAINING,
-                 0LL,
-                 4u,
-                 &UserData);
+      result = EtwWrite(PopBatteryEtwHandle, &BATTERY_EVT_BATTERY_PERCENT_REMAINING, 0LL, 4u, &UserData);
     }
   }
-  if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+    if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
     {
       v6 = v38;
       v23 = 4LL;
@@ -91,14 +84,14 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v26 = &v8;
       v9 = v40;
       v28 = &v9;
-      v10 = DWORD1(xmmword_140F0FEA0);
+      v10 = DWORD1(xmmword_140F10660);
       v30 = &v10;
-      SListFaultAddress_high = HIDWORD(stru_140F10070.SListFaultAddress);
-      p_SListFaultAddress_high = &SListFaultAddress_high;
-      v12 = xmmword_140F0FED8;
+      v11 = HIDWORD(xmmword_140F10840);
+      v32 = &v11;
+      v12 = xmmword_140F10698;
       v34 = &v12;
-      SListFaultAddress = (int)stru_140F10070.SListFaultAddress;
-      p_SListFaultAddress = &SListFaultAddress;
+      v13 = DWORD2(xmmword_140F10840);
+      v36 = &v13;
       v25 = 4LL;
       v27 = 4LL;
       v29 = 4LL;
@@ -107,8 +100,8 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v35 = 4LL;
       v37 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)byte_14004D8E3,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)&dword_14004E36C,
                0LL,
                0LL,
                0xAu,

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCallbackFillObjectContext @ 0x1406F39F0
+ * XREFs of CmpCallbackFillObjectContext @ 0x14070ADD0
  * Callers:
- *     CmpCallCallBacksEx @ 0x1406F3440 (CmpCallCallBacksEx.c)
+ *     CmpCallCallBacksEx @ 0x14070A820 (CmpCallCallBacksEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpGetCallbackObjectContext @ 0x14068AFE4 (CmpGetCallbackObjectContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpGetCallbackObjectContext @ 0x1405EAE54 (CmpGetCallbackObjectContext.c)
  */
 
 void __fastcall CmpCallbackFillObjectContext(int a1, _DWORD **a2, __int64 *a3)
@@ -38,17 +38,32 @@ void __fastcall CmpCallbackFillObjectContext(int a1, _DWORD **a2, __int64 *a3)
   struct _KTHREAD *v29; // rax
   _QWORD *v30; // rax
   __int64 v31; // rdx
+  __int64 v32; // rdx
+  __int64 v33; // r8
+  __int64 v34; // r9
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v33; // rax
-  __int64 v34; // rdx
-  struct _KTHREAD *v35; // rax
-  __int64 v36; // rdx
-  struct _KTHREAD *v37; // rax
-  _QWORD *v38; // rax
-  __int64 v39; // rdx
-  struct _KTHREAD *v40; // rax
-  _QWORD *v41; // rax
+  _QWORD *v36; // rax
+  __int64 v37; // rdx
+  __int64 v38; // rdx
+  __int64 v39; // r8
+  __int64 v40; // r9
+  struct _KTHREAD *v41; // rax
   __int64 v42; // rdx
+  __int64 v43; // rdx
+  __int64 v44; // r8
+  __int64 v45; // r9
+  struct _KTHREAD *v46; // rax
+  _QWORD *v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rdx
+  __int64 v50; // r8
+  __int64 v51; // r9
+  struct _KTHREAD *v52; // rax
+  _QWORD *v53; // rax
+  __int64 v54; // rdx
+  __int64 v55; // rdx
+  __int64 v56; // r8
+  __int64 v57; // r9
 
   switch ( a1 )
   {
@@ -72,25 +87,25 @@ LABEL_16:
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
             ExAcquirePushLockSharedEx((ULONG_PTR)&CmpContextListLock, 0LL);
-            v33 = (_QWORD *)*v13;
+            v36 = (_QWORD *)*v13;
             if ( (_QWORD *)*v13 != v13 )
             {
-              v34 = *a3;
-              while ( v33[4] != v34 )
+              v37 = *a3;
+              while ( v36[4] != v37 )
               {
-                if ( v33[4] >= v34 )
+                if ( v36[4] >= v37 )
                 {
-                  v33 = (_QWORD *)*v33;
-                  if ( v33 != v13 )
+                  v36 = (_QWORD *)*v36;
+                  if ( v36 != v13 )
                     continue;
                 }
                 goto LABEL_61;
               }
-              v12 = (_DWORD *)v33[7];
+              v12 = (_DWORD *)v36[7];
             }
 LABEL_61:
             ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v38, v39, v40);
           }
         }
       }
@@ -128,7 +143,7 @@ LABEL_11:
             }
 LABEL_56:
             ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v32, v33, v34);
           }
         }
       }
@@ -143,28 +158,28 @@ LABEL_56:
           v16 = v14 + 18;
           if ( (_QWORD *)*v16 != v16 )
           {
-            v37 = KeGetCurrentThread();
-            --v37->KernelApcDisable;
+            v46 = KeGetCurrentThread();
+            --v46->KernelApcDisable;
             ExAcquirePushLockSharedEx((ULONG_PTR)&CmpContextListLock, 0LL);
-            v38 = (_QWORD *)*v16;
+            v47 = (_QWORD *)*v16;
             if ( (_QWORD *)*v16 != v16 )
             {
-              v39 = *a3;
-              while ( v38[4] != v39 )
+              v48 = *a3;
+              while ( v47[4] != v48 )
               {
-                if ( v38[4] >= v39 )
+                if ( v47[4] >= v48 )
                 {
-                  v38 = (_QWORD *)*v38;
-                  if ( v38 != v16 )
+                  v47 = (_QWORD *)*v47;
+                  if ( v47 != v16 )
                     continue;
                 }
                 goto LABEL_76;
               }
-              v15 = (_DWORD *)v38[7];
+              v15 = (_DWORD *)v47[7];
             }
 LABEL_76:
             ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v49, v50, v51);
           }
         }
       }
@@ -258,16 +273,16 @@ LABEL_76:
           v7 = v5 + 18;
           if ( (_QWORD *)*v7 == v7 )
             goto LABEL_10;
-          v35 = KeGetCurrentThread();
-          --v35->KernelApcDisable;
+          v41 = KeGetCurrentThread();
+          --v41->KernelApcDisable;
           ExAcquirePushLockSharedEx((ULONG_PTR)&CmpContextListLock, 0LL);
           v23 = (_QWORD *)*v7;
           if ( (_QWORD *)*v7 == v7 )
             goto LABEL_69;
-          v36 = *a3;
-          while ( v23[4] != v36 )
+          v42 = *a3;
+          while ( v23[4] != v42 )
           {
-            if ( v23[4] >= v36 )
+            if ( v23[4] >= v42 )
             {
               v23 = (_QWORD *)*v23;
               if ( v23 != v7 )
@@ -279,7 +294,7 @@ LABEL_68:
           v6 = (_DWORD *)v23[7];
 LABEL_69:
           ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v43, v44, v45);
 LABEL_10:
           a2[6] = v6;
           return;
@@ -296,13 +311,13 @@ LABEL_10:
           v19 = v17 + 18;
           if ( (_QWORD *)*v19 == v19 )
             goto LABEL_27;
-          v40 = KeGetCurrentThread();
-          --v40->KernelApcDisable;
+          v52 = KeGetCurrentThread();
+          --v52->KernelApcDisable;
           ExAcquirePushLockSharedEx((ULONG_PTR)&CmpContextListLock, 0LL);
-          v41 = (_QWORD *)*v19;
+          v53 = (_QWORD *)*v19;
           if ( (_QWORD *)*v19 == v19 )
             goto LABEL_81;
-          v42 = *a3;
+          v54 = *a3;
           break;
         case 15:
         case 16:
@@ -341,20 +356,20 @@ LABEL_10:
         default:
           return;
       }
-      while ( v41[4] != v42 )
+      while ( v53[4] != v54 )
       {
-        if ( v41[4] >= v42 )
+        if ( v53[4] >= v54 )
         {
-          v41 = (_QWORD *)*v41;
-          if ( v41 != v19 )
+          v53 = (_QWORD *)*v53;
+          if ( v53 != v19 )
             continue;
         }
         goto LABEL_81;
       }
-      v18 = (_DWORD *)v41[7];
+      v18 = (_DWORD *)v53[7];
 LABEL_81:
       ExReleasePushLockEx((ULONG_PTR)&CmpContextListLock, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v55, v56, v57);
 LABEL_27:
       a2[2] = v18;
       return;

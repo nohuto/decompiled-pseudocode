@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmpSessionWorker @ 0x1407E7560
+ * XREFs of TtmpSessionWorker @ 0x1407ED0C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiSessionDeviceListWorker @ 0x1407E52B0 (TtmiSessionDeviceListWorker.c)
- *     TtmpActivateSessionWorker @ 0x1407E6CBC (TtmpActivateSessionWorker.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1407E6ED0 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmpInitiateModernStandbyTransition @ 0x1407E703C (TtmpInitiateModernStandbyTransition.c)
- *     TtmpSessionPowerControl @ 0x1407E74D4 (TtmpSessionPowerControl.c)
- *     TtmiLogSessionDeactivate @ 0x1407EA2F0 (TtmiLogSessionDeactivate.c)
- *     TtmiLogSessionWorkerPass @ 0x1407EAB70 (TtmiLogSessionWorkerPass.c)
- *     TtmiLogSessionWorkerStart @ 0x1407EAC34 (TtmiLogSessionWorkerStart.c)
- *     TtmiLogSessionWorkerStop @ 0x1407EACC4 (TtmiLogSessionWorkerStop.c)
- *     TtmiSessionTerminalListWorker @ 0x1407EC104 (TtmiSessionTerminalListWorker.c)
- *     TtmpAcquireSessionLock @ 0x140A3ACCC (TtmpAcquireSessionLock.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiSessionDeviceListWorker @ 0x1407EAE10 (TtmiSessionDeviceListWorker.c)
+ *     TtmpActivateSessionWorker @ 0x1407EC814 (TtmpActivateSessionWorker.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1407ECA28 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x1407ECB94 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpSessionPowerControl @ 0x1407ED02C (TtmpSessionPowerControl.c)
+ *     TtmiLogSessionDeactivate @ 0x1407EFE50 (TtmiLogSessionDeactivate.c)
+ *     TtmiLogSessionWorkerPass @ 0x1407F06D0 (TtmiLogSessionWorkerPass.c)
+ *     TtmiLogSessionWorkerStart @ 0x1407F0794 (TtmiLogSessionWorkerStart.c)
+ *     TtmiLogSessionWorkerStop @ 0x1407F0824 (TtmiLogSessionWorkerStop.c)
+ *     TtmiSessionTerminalListWorker @ 0x1407F1C68 (TtmiSessionTerminalListWorker.c)
+ *     TtmpAcquireSessionLock @ 0x1409F68CC (TtmpAcquireSessionLock.c)
  */
 
 __int64 __fastcall TtmpSessionWorker(unsigned int *a1)
@@ -126,7 +126,7 @@ LABEL_22:
   }
   a1[1] &= ~2u;
   *((_QWORD *)a1 + 29) = 0LL;
-  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
   KeLeaveCriticalRegion();
   TtmpDereferenceSessionMaybeLast((volatile signed __int32 *)a1);
   return TtmiLogSessionWorkerStop(v2, v3);

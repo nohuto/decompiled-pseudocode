@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsProcessBeingDebugged @ 0x140ADE2B0
+ * XREFs of PsIsProcessBeingDebugged @ 0x140ADB020
  * Callers:
  *     <none>
  * Callees:

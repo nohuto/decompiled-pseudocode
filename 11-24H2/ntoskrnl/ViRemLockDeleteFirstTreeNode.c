@@ -1,19 +1,19 @@
 /*
- * XREFs of ViRemLockDeleteFirstTreeNode @ 0x140B92904
+ * XREFs of ViRemLockDeleteFirstTreeNode @ 0x140B94904
  * Callers:
- *     VerifierIoInitializeRemoveLockEx @ 0x140B92620 (VerifierIoInitializeRemoveLockEx.c)
- *     VfRemLockDeleteMemoryRange @ 0x140BA7AFC (VfRemLockDeleteMemoryRange.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x140B94620 (VerifierIoInitializeRemoveLockEx.c)
+ *     VfRemLockDeleteMemoryRange @ 0x140BA9AFC (VfRemLockDeleteMemoryRange.c)
  * Callees:
- *     VfAvlDeleteTreeNode @ 0x1403F0144 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     VfAvlFreeNodeNoLock @ 0x1406106C8 (VfAvlFreeNodeNoLock.c)
+ *     VfAvlDeleteTreeNode @ 0x1403E3E20 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     VfAvlFreeNodeNoLock @ 0x14060EC88 (VfAvlFreeNodeNoLock.c)
  */
 
 __int64 ViRemLockDeleteFirstTreeNode()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   unsigned __int64 v1; // r8
   __int64 v2; // r9
   __int64 *v3; // rax
@@ -29,7 +29,7 @@ __int64 ViRemLockDeleteFirstTreeNode()
   v3 = (__int64 *)VfAvlLookupTreeNode(&ViRemLockAvl, (__int64)&v7, v1, v2);
   v5 = v3;
   if ( v3 )
-    v0 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViRemLockAvl, (__int64)&v7, *v3, 0LL);
+    v0 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViRemLockAvl, (__int64)&v7, *v3, 0LL);
   VfAvlCleanupLockContext((__int64)&v7, v4);
   if ( !v5 )
     return 0LL;

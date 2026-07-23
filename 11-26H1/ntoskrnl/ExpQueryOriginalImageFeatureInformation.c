@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpQueryOriginalImageFeatureInformation @ 0x140846830
+ * XREFs of ExpQueryOriginalImageFeatureInformation @ 0x14084CA90
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExpGetOriginalImageVersion @ 0x1406D4014 (ExpGetOriginalImageVersion.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExpGetOriginalImageVersion @ 0x1406D80A0 (ExpGetOriginalImageVersion.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExpQueryOriginalImageFeatureInformation(

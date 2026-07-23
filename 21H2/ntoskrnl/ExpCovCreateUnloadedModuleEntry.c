@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x1409570FC
+ * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x1409572CC
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x140773640 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140773800 (ExCovReadjustUnloadedModuleEntry.c)
  * Callees:
- *     ExfReleasePushLock @ 0x1402F1440 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusive @ 0x1402F2C70 (ExfAcquirePushLockExclusive.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
- *     ExpCovFreeUnloadedModuleEntry @ 0x1409573FC (ExpCovFreeUnloadedModuleEntry.c)
- *     ExpCovReadFriendlyName @ 0x140957E4C (ExpCovReadFriendlyName.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x1402FC190 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402FD9C0 (ExfAcquirePushLockExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlDuplicateUnicodeString @ 0x1405EAFA0 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ExpCovFreeUnloadedModuleEntry @ 0x1409575CC (ExpCovFreeUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x14095801C (ExpCovReadFriendlyName.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
@@ -78,13 +78,13 @@ void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
           {
             memset(v10, 0, *(unsigned int *)(a1 + 124));
             memmove(*(void **)(v9 + 56), *(const void **)(a1 + 128), *(unsigned int *)(a1 + 124));
-            v11 = (__int64 *)qword_140C16248;
-            if ( *(__int64 **)qword_140C16248 != &ExpCovUnloadedModuleList )
+            v11 = (__int64 *)qword_140C16268;
+            if ( *(__int64 **)qword_140C16268 != &ExpCovUnloadedModuleList )
               __fastfail(3u);
             *(_QWORD *)v9 = &ExpCovUnloadedModuleList;
             *(_QWORD *)(v9 + 8) = v11;
             *v11 = v9;
-            qword_140C16248 = v9;
+            qword_140C16268 = v9;
             v12 = *(_OWORD *)(a1 + 88);
             ExpCovCurrentPagedPoolInUse = v7;
             v15 = v12;

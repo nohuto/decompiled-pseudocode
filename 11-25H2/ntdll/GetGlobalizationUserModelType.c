@@ -17,7 +17,7 @@ __int64 GetGlobalizationUserModelType()
   result = (unsigned int)dword_1801D4370;
   if ( !dword_1801D4370 )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       result = 1LL;
     else
       result = (MEMORY[0x7FFE02F0] & 0x200 | 0x400u) >> 9;

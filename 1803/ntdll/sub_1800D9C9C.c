@@ -7,13 +7,13 @@
  *     sub_1800D9AD8 @ 0x1800D9AD8 (sub_1800D9AD8.c)
  */
 
-__int64 __fastcall sub_1800D9C9C(__int64 a1)
+NTSTATUS __fastcall sub_1800D9C9C(__int64 a1)
 {
   _QWORD *v2; // rax
   __int64 v3; // rcx
 
   sub_1800D9AD8();
-  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   v2 = (_QWORD *)(a1 + 8);
   v3 = qword_18015D4C8;
   if ( *(__int64 **)(qword_18015D4C8 + 8) != &qword_18015D4C8 )
@@ -22,5 +22,5 @@ __int64 __fastcall sub_1800D9C9C(__int64 a1)
   *(_QWORD *)(a1 + 16) = &qword_18015D4C8;
   *(_QWORD *)(v3 + 8) = v2;
   qword_18015D4C8 = a1 + 8;
-  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

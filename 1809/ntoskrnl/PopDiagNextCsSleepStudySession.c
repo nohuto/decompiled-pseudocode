@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagNextCsSleepStudySession @ 0x140870270
+ * XREFs of PopDiagNextCsSleepStudySession @ 0x1408714D0
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x14071EBD0 (PopConnectedStandbySettingCallback.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
+ *     PopConnectedStandbySettingCallback @ 0x14071FE70 (PopConnectedStandbySettingCallback.c)
+ *     PopDiagStopCsSleepStudySession @ 0x1408717DC (PopDiagStopCsSleepStudySession.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
- *     PopDiagTraceSleepStudyStart @ 0x140874180 (PopDiagTraceSleepStudyStart.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
+ *     PopDiagTraceSleepStudyStart @ 0x1408753E0 (PopDiagTraceSleepStudyStart.c)
  */
 
 char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
@@ -35,7 +35,7 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
   __int128 v17; // xmm0
   __int128 v18; // xmm1
   __int128 v19; // xmm0
-  __int128 v21; // [rsp+40h] [rbp-128h] BYREF
+  __int128 Buffer; // [rsp+40h] [rbp-128h] BYREF
   char v22; // [rsp+50h] [rbp-118h]
   _OWORD v23[15]; // [rsp+60h] [rbp-108h] BYREF
 
@@ -56,10 +56,10 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
       PopWdiCurrentScenario = (__int64)a1;
       memset(v23, 0, sizeof(v23));
       PopCaptureSleepStudyStatistics(v5, v4, (__int64)v23);
-      if ( qword_14043FFC8 )
+      if ( qword_140441088 )
       {
         LOBYTE(v6) = PopWdiCurrentScenarioInstanceId;
-        qword_14043FFC8(PopWdiCurrentScenario, v6);
+        qword_140441088(PopWdiCurrentScenario, v6);
       }
       if ( v3 == &NullGuid )
       {
@@ -107,8 +107,8 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
       KeReleaseMutex(&PopWdiTimerMutex, 0);
       v19 = *(_OWORD *)PopWdiCurrentScenario;
       v22 = PopWdiCurrentScenarioInstanceId;
-      v21 = v19;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_SCENARIO_CHANGE, (__int64)&v21, 20LL);
+      Buffer = v19;
+      ZwUpdateWnfStateData(&WNF_PO_SCENARIO_CHANGE, &Buffer, 0x14u, 0LL, 0LL, 0, 0);
     }
   }
   return v1;

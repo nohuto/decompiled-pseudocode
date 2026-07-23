@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferXpressLzMax @ 0x180150C30
+ * XREFs of RtlCompressBufferXpressLzMax @ 0x18014EFF0
  * Callers:
- *     RtlCompressBufferXpressLz @ 0x1800C10A0 (RtlCompressBufferXpressLz.c)
+ *     RtlCompressBufferXpressLz @ 0x1800B8E60 (RtlCompressBufferXpressLz.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x1800C24C0 (RtlpMakeXpressCallback.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpMakeXpressCallback @ 0x1800BA280 (RtlpMakeXpressCallback.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLzMax(

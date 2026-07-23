@@ -1,7 +1,7 @@
 /*
- * XREFs of IopSaveRestoreConfiguration @ 0x140815AEC
+ * XREFs of IopSaveRestoreConfiguration @ 0x140815DBC
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x140815D78 (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x140816048 (PnpFindBestConfigurationWorker.c)
  * Callees:
  *     <none>
  */

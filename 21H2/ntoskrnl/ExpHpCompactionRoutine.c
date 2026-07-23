@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpHpCompactionRoutine @ 0x1402FAA50
+ * XREFs of ExpHpCompactionRoutine @ 0x1403057A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpHeapCompact @ 0x1402C3FF8 (RtlpHpHeapCompact.c)
- *     ExpHpCompactSessionPools @ 0x1402D5848 (ExpHpCompactSessionPools.c)
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpHeapCompact @ 0x140242578 (RtlpHpHeapCompact.c)
+ *     ExpHpCompactSessionPools @ 0x140286B94 (ExpHpCompactSessionPools.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall ExpHpCompactionRoutine(int a1)
@@ -46,7 +46,7 @@ __int64 __fastcall ExpHpCompactionRoutine(int a1)
   v5 = *((int *)v23 + 2 * v3 + 1);
   v25 = v4;
   v6 = v5;
-  if ( dword_140C58090 )
+  if ( dword_140C580D0 )
   {
     v26 = v4;
     do
@@ -56,7 +56,7 @@ __int64 __fastcall ExpHpCompactionRoutine(int a1)
       {
         do
         {
-          v8 = qword_140C580C0[1048 * v1 + v7];
+          v8 = qword_140C58100[1048 * v1 + v7];
           v9 = *(_QWORD **)(v8 + 40);
           if ( v9 )
           {
@@ -108,7 +108,7 @@ __int64 __fastcall ExpHpCompactionRoutine(int a1)
       }
       ++v1;
     }
-    while ( v1 < dword_140C58090 );
+    while ( v1 < dword_140C580D0 );
     v2 = a1;
     LODWORD(v4) = v25;
   }
@@ -118,13 +118,13 @@ __int64 __fastcall ExpHpCompactionRoutine(int a1)
     LODWORD(v5) = 3;
   while ( v15 <= (int)v5 )
   {
-    v16 = qword_140CDB0C0[v15];
+    v16 = qword_140CDB100[v15];
     result = *(__int16 *)(v16 + 278);
     v17 = *(_QWORD *)(result + v16 + 264) >> *(_BYTE *)(v16 + 267);
     if ( v17 <= 8 )
       v17 = 8LL;
     if ( *(_QWORD *)(result + v16 + 272) + *(_QWORD *)(result + v16 + 280) > v17 )
-      result = RtlpHpHeapCompact(qword_140CDB0C0[v15]);
+      result = RtlpHpHeapCompact(qword_140CDB100[v15]);
     ++v15;
   }
   if ( !v2 )

@@ -6,7 +6,11 @@
  *     NtOpenKeyTransactedEx @ 0x140653510 (NtOpenKeyTransactedEx.c)
  */
 
-__int64 __fastcall NtOpenKeyTransacted(int a1, int a2, int a3, void *Handle)
+NTSTATUS __cdecl NtOpenKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE TransactionHandle)
 {
-  return NtOpenKeyTransactedEx(a1, a2, a3, 0, Handle);
+  return NtOpenKeyTransactedEx(KeyHandle, DesiredAccess, ObjectAttributes, 0, TransactionHandle);
 }

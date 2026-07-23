@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDeferredReadyThread @ 0x1402BBA60
+ * XREFs of KiDeferredReadyThread @ 0x1402BBCF0
  * Callers:
  *     KiSetThreadSchedulingGroup @ 0x140204900 (KiSetThreadSchedulingGroup.c)
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiFastReadyThread @ 0x1402BB984 (KiFastReadyThread.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiFastReadyThread @ 0x1402BBC14 (KiFastReadyThread.c)
  * Callees:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
  */
 
 __int64 __fastcall KiDeferredReadyThread(__int64 a1, __int64 a2)

@@ -12,7 +12,7 @@
  *     VerifierExfTryToWakePushLock @ 0x14071A47C (VerifierExfTryToWakePushLock.c)
  *     ViExReleaseFastMutexCommon @ 0x14071A6B0 (ViExReleaseFastMutexCommon.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 unsigned __int8 __fastcall ViExCheckAPCsDisabled(unsigned int a1, __int64 a2)

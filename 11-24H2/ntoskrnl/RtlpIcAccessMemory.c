@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpIcAccessMemory @ 0x140BB7198
+ * XREFs of RtlpIcAccessMemory @ 0x140BB9198
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140BB74F8 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateGroup11Instruction @ 0x140BB7750 (RtlpIcEmulateGroup11Instruction.c)
- *     RtlpIcEmulateGroup1Instruction @ 0x140BB7818 (RtlpIcEmulateGroup1Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
- *     RtlpIcEmulateMovzx @ 0x140BB81FC (RtlpIcEmulateMovzx.c)
- *     RtlpIcEmulateRegisterPushPop @ 0x140BB830C (RtlpIcEmulateRegisterPushPop.c)
- *     RtlpIcReadOperandValue @ 0x140BB8634 (RtlpIcReadOperandValue.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140BB94F8 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateGroup11Instruction @ 0x140BB9750 (RtlpIcEmulateGroup11Instruction.c)
+ *     RtlpIcEmulateGroup1Instruction @ 0x140BB9818 (RtlpIcEmulateGroup1Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateMovzx @ 0x140BBA1FC (RtlpIcEmulateMovzx.c)
+ *     RtlpIcEmulateRegisterPushPop @ 0x140BBA30C (RtlpIcEmulateRegisterPushPop.c)
+ *     RtlpIcReadOperandValue @ 0x140BBA634 (RtlpIcReadOperandValue.c)
  * Callees:
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
  */
 
 __int64 __fastcall RtlpIcAccessMemory(

@@ -1,8 +1,8 @@
 /*
- * XREFs of ViIrpLogDatabaseFindPointer @ 0x1409418BC
+ * XREFs of ViIrpLogDatabaseFindPointer @ 0x1409428BC
  * Callers:
- *     VfIrpLogDeleteDeviceLogs @ 0x140941140 (VfIrpLogDeleteDeviceLogs.c)
- *     VfIrpLogRecordEvent @ 0x1409412B0 (VfIrpLogRecordEvent.c)
+ *     VfIrpLogDeleteDeviceLogs @ 0x140942140 (VfIrpLogDeleteDeviceLogs.c)
+ *     VfIrpLogRecordEvent @ 0x1409422B0 (VfIrpLogRecordEvent.c)
  * Callees:
  *     <none>
  */

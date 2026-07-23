@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetNonResidentPteHeat @ 0x140224A40
+ * XREFs of MiSetNonResidentPteHeat @ 0x140251DF0
  * Callers:
- *     MiCopyPfnEntryEx @ 0x1402247E0 (MiCopyPfnEntryEx.c)
- *     MiInitializeNewPfns @ 0x14066BBD4 (MiInitializeNewPfns.c)
+ *     MiCopyPfnEntryEx @ 0x140251B90 (MiCopyPfnEntryEx.c)
+ *     MiInitializeNewPfns @ 0x14066CDA4 (MiInitializeNewPfns.c)
  * Callees:
  *     <none>
  */

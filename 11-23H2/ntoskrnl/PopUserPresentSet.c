@@ -1,15 +1,15 @@
 /*
- * XREFs of PopUserPresentSet @ 0x14058DF64
+ * XREFs of PopUserPresentSet @ 0x14058E454
  * Callers:
- *     PopSetSystemState @ 0x14058DF1C (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x14058E40C (PopSetSystemState.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     PopResetIdleTime @ 0x1403B4A68 (PopResetIdleTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     PopResetIdleTime @ 0x1403B4C48 (PopResetIdleTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall PopUserPresentSet(__int32 a1)
@@ -40,10 +40,13 @@ __int64 __fastcall PopUserPresentSet(__int32 a1)
     v4 = PopUserPresentSetStatus;
     v5 = v3;
     KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -57,7 +60,7 @@ __int64 __fastcall PopUserPresentSet(__int32 a1)
     __writecr8(v5);
     result = DbgkWerCaptureLiveKernelDump((unsigned int)L"UserPresenceSet", 160, 273, v4, PopFullWake, 0LL, 0LL, 0LL, 0);
   }
-  if ( byte_140C3D0C1 == 3 )
+  if ( byte_140C3CD81 == 3 )
   {
     _InterlockedOr(&PopPendingUserPresenceDuringSystemSleep, 1u);
     _InterlockedExchange(&PopPendingUserPresenceMonitorOnReason, a1);
@@ -65,15 +68,15 @@ __int64 __fastcall PopUserPresentSet(__int32 a1)
   else
   {
     v11 = KeAcquireSpinLockRaiseToDpc(&PopUserPresentLock);
-    if ( dword_140C3D874 )
+    if ( dword_140C3D974 )
     {
       if ( !PopUserPresentSetStatus )
         KeSetEvent(&PopUserPresentCompletedEvent, 0, 0);
       result = KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v11 <= 0xFu
           && (unsigned __int8)result >= 2u )
@@ -96,10 +99,10 @@ __int64 __fastcall PopUserPresentSet(__int32 a1)
         ExQueueWorkItem(&PopUserPresentWorkItem, DelayedWorkQueue);
       PopUserPresentSetStatus = 1;
       KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v15 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v15 >= 2u )
         {
           v16 = KeGetCurrentPrcb();
           v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));

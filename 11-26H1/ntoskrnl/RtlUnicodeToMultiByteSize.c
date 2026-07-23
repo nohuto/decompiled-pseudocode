@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x14096C100
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x14097CA40
  * Callers:
- *     wcstombs @ 0x1405386B0 (wcstombs.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1408005F0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     NtQuerySystemEnvironmentValue @ 0x14083DE30 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x14083E6B0 (NtSetSystemEnvironmentValue.c)
- *     RtlUnicodeStringToCountedOemString @ 0x14096A750 (RtlUnicodeStringToCountedOemString.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x140B09690 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToOemString @ 0x140B3CB50 (RtlUnicodeStringToOemString.c)
+ *     wcstombs @ 0x14053AB30 (wcstombs.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x140806090 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     NtQuerySystemEnvironmentValue @ 0x140844070 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1408448F0 (NtSetSystemEnvironmentValue.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x14097B090 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x14097E750 (RtlUpcaseUnicodeStringToOemString.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
+ *     RtlUnicodeStringToOemString @ 0x140B3EDD0 (RtlUnicodeStringToOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x14096CCE0 (RtlUnicodeToUTF8N.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x14097D620 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(

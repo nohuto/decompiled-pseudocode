@@ -33,7 +33,7 @@ void PpLastGoodDoBootProcessing()
     PiLastGoodRevertLastKnownDirectory((__int64)&DestinationString, &v3);
     PiLastGoodRevertLastKnownDirectory((__int64)&v6, &v5);
   }
-  else if ( !(_DWORD)InitSafeBootMode )
+  else if ( !InitSafeBootMode )
   {
     v2 = IopFileUtilRename(&DestinationString, &v6, 0LL);
     if ( (int)(v2 + 0x80000000) < 0 || v2 == -1073741772 )

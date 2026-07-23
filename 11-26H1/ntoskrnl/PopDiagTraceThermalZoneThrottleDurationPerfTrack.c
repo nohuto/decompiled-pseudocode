@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140609860
+ * XREFs of PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x14060C420
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceThermalZoneThrottleDurationPerfTrack(int a1, __int64 a2)
@@ -27,11 +27,9 @@ void __fastcall PopDiagTraceThermalZoneThrottleDurationPerfTrack(int a1, __int64
 
   v14 = a1;
   v7 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK) )
     {
       DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a2, 0x67446F50u);
       v4 = DeviceAttachmentBaseRefWithTag;
@@ -49,15 +47,7 @@ void __fastcall PopDiagTraceThermalZoneThrottleDurationPerfTrack(int a1, __int64
           v11 = *(_QWORD *)(v5 + 136);
           v12 = 2 * v6;
           v13 = 0;
-          EtwWriteEx(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            3u,
-            &UserData);
+          EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK, 0LL, 0, 0LL, 0LL, 3u, &UserData);
         }
         ObfDereferenceObjectWithTag(v4, 0x67446F50u);
       }

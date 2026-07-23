@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpCtxOpenContextNodeBaseKey @ 0x140895E88
+ * XREFs of _PnpCtxOpenContextNodeBaseKey @ 0x14089C288
  * Callers:
- *     PiDevCfgEnumDeviceKeys @ 0x1409887D8 (PiDevCfgEnumDeviceKeys.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x140A42F04 (PiDevCfgEnumDeviceKeys.c)
  * Callees:
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PnpCtxOpenContextNodeBaseKey(
@@ -34,7 +34,7 @@ __int64 __fastcall PnpCtxOpenContextNodeBaseKey(
     CachedNodeBaseKey = PnpCtxGetCachedNodeBaseKey(*(_QWORD *)&PiPnpRtlCtx, v8 - 16, a4, &v12);
     if ( CachedNodeBaseKey >= 0 )
     {
-      v10 = PnpCtxRegOpenKey(v7, v12, (unsigned int)&word_140B814F0, 0, 983103, a7);
+      v10 = PnpCtxRegOpenKey(v7, v12, (unsigned int)&word_140B8A320, 0, 983103, a7);
       if ( v10 == -1073741444 )
       {
         return (unsigned int)-1073741595;

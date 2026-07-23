@@ -1,10 +1,10 @@
 /*
- * XREFs of ExReinitializeFastResource @ 0x1406CE150
+ * XREFs of ExReinitializeFastResource @ 0x1406D2180
  * Callers:
- *     DifExReinitializeFastResourceWrapper @ 0x140653890 (DifExReinitializeFastResourceWrapper.c)
+ *     DifExReinitializeFastResourceWrapper @ 0x140657470 (DifExReinitializeFastResourceWrapper.c)
  * Callees:
- *     ExpIsFastResourceOwned @ 0x1403D8310 (ExpIsFastResourceOwned.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpIsFastResourceOwned @ 0x1403DB2E0 (ExpIsFastResourceOwned.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReinitializeFastResource(ULONG_PTR BugCheckParameter2)

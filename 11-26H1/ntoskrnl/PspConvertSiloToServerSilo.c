@@ -1,20 +1,20 @@
 /*
- * XREFs of PspConvertSiloToServerSilo @ 0x1407EEB8C
+ * XREFs of PspConvertSiloToServerSilo @ 0x1407F46EC
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
  * Callees:
- *     PsIsServerSilo @ 0x140216838 (PsIsServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     PspDeleteServerSiloGlobals @ 0x1407EEE3C (PspDeleteServerSiloGlobals.c)
- *     PspQueueDeferredWorkAndWait @ 0x1407EF2D8 (PspQueueDeferredWorkAndWait.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1408277F8 (EtwTraceJobServerSiloStateChange.c)
- *     ObGetSiloRootDirectoryPath @ 0x1408A72EC (ObGetSiloRootDirectoryPath.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspUnlockJobExclusive @ 0x140959DD4 (PspUnlockJobExclusive.c)
- *     PspLockJobExclusive @ 0x14095A894 (PspLockJobExclusive.c)
- *     PsGetParentSilo @ 0x140978D70 (PsGetParentSilo.c)
- *     PspJobHasChildren @ 0x140B09D20 (PspJobHasChildren.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsIsServerSilo @ 0x140216B68 (PsIsServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     PspDeleteServerSiloGlobals @ 0x1407F499C (PspDeleteServerSiloGlobals.c)
+ *     PspQueueDeferredWorkAndWait @ 0x1407F4E38 (PspQueueDeferredWorkAndWait.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x14082DA38 (EtwTraceJobServerSiloStateChange.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1408AD75C (ObGetSiloRootDirectoryPath.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsGetParentSilo @ 0x14093AD80 (PsGetParentSilo.c)
+ *     PspUnlockJobExclusive @ 0x1409FF694 (PspUnlockJobExclusive.c)
+ *     PspLockJobExclusive @ 0x140A00154 (PspLockJobExclusive.c)
+ *     PspJobHasChildren @ 0x140B0BAE0 (PspJobHasChildren.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspConvertSiloToServerSilo(__int64 a1, __int64 a2, ULONG_PTR a3, int a4)

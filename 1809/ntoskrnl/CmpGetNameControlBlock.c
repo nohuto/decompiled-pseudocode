@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpGetNameControlBlock @ 0x1405D6490
+ * XREFs of CmpGetNameControlBlock @ 0x1405D7490
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x1405D6EB0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)
- *     CmpLockNameHashEntryExclusive @ 0x1405D66DC (CmpLockNameHashEntryExclusive.c)
- *     CmpUnlockNameHashEntry @ 0x1405D671C (CmpUnlockNameHashEntry.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpHashUnicodeComponent @ 0x1405B02C4 (CmpHashUnicodeComponent.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     CmpCompareCompressedName @ 0x1405D6D90 (CmpCompareCompressedName.c)
+ *     CmpLockNameHashEntryExclusive @ 0x1405D76DC (CmpLockNameHashEntryExclusive.c)
+ *     CmpUnlockNameHashEntry @ 0x1405D771C (CmpUnlockNameHashEntry.c)
  */
 
 char *__fastcall CmpGetNameControlBlock(__m128i *a1, unsigned int *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSendProcessNotificationToJobChain @ 0x1408EA780
+ * XREFs of PspSendProcessNotificationToJobChain @ 0x14085BFB0
  * Callers:
- *     PspRundownSingleProcess @ 0x1408A8B38 (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x1408FED98 (PspRundownSingleProcess.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PspSendJobNotification @ 0x140493C70 (PspSendJobNotification.c)
- *     PspLockRootJobFromProcess @ 0x1408EB304 (PspLockRootJobFromProcess.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PspSendJobNotification @ 0x14048E6FC (PspSendJobNotification.c)
+ *     PspLockRootJobFromProcess @ 0x14085CB34 (PspLockRootJobFromProcess.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
  */
 
 __int64 __fastcall PspSendProcessNotificationToJobChain(__int64 a1, __int64 a2, int a3)

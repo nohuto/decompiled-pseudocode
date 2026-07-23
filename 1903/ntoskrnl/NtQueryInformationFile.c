@@ -55,7 +55,7 @@ NTSTATUS __stdcall NtQueryInformationFile(
   PFAST_IO_DISPATCH FastIoDispatch; // r13
   struct _KTHREAD *v17; // rax
   __int64 v18; // rdi
-  __int64 v19; // rax
+  PRTL_BALANCED_NODE v19; // rax
   __int64 v20; // rdx
   void *v21; // rcx
   PIRP FastIoQueryBasicInfo; // r11
@@ -207,7 +207,7 @@ NTSTATUS __stdcall NtQueryInformationFile(
         else
         {
           if ( v19 )
-            *(_BYTE *)(v19 + 26) |= 1u;
+            BYTE2(v19[1].Left) |= 1u;
           v13 = *(_QWORD *)&Object[3];
           ObfReferenceObject(*(PVOID *)&Object[3]);
           v12 = 0;

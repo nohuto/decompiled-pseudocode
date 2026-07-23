@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapPredictiveFailureAnalysis @ 0x14095E740
+ * XREFs of WheapPredictiveFailureAnalysis @ 0x14095E920
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x1405BBBD0 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x1405BBE00 (WheapProcessWorkQueueItem.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     WheaAttemptPhysicalPageOffline @ 0x14095D350 (WheaAttemptPhysicalPageOffline.c)
- *     WheapPfaMemoryCheck @ 0x14095E414 (WheapPfaMemoryCheck.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D530 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x14095E5F4 (WheapPfaMemoryCheck.c)
  */
 
 char __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
@@ -21,12 +21,12 @@ char __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
   unsigned int *v7; // r10
   unsigned int *v8; // rcx
   __int64 v9; // rdi
-  __int64 v10; // rax
+  _RTL_BALANCED_NODE *v10; // rax
   unsigned __int64 v11; // rcx
   __int64 v12; // r8
   _DWORD *v13; // r9
   signed __int8 v14; // cf
-  __int64 v15; // rbx
+  _RTL_BALANCED_NODE *v15; // rbx
 
   v1 = a1 + 40;
   LODWORD(v3) = PshedDoPfa(a1 + 40);
@@ -75,7 +75,7 @@ LABEL_13:
         if ( v14 )
           ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v10, (ULONG_PTR)&WheapPfaLock);
         if ( v15 )
-          *(_BYTE *)(v15 + 26) |= 1u;
+          BYTE2(v15[1].Left) |= 1u;
         WheapPfaMemoryCheck(v11, v9, v12, v13);
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock(&WheapPfaLock);

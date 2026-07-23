@@ -1,9 +1,9 @@
 /*
- * XREFs of ValidateStd3Range @ 0x14058D800
+ * XREFs of ValidateStd3Range @ 0x14058DA30
  * Callers:
- *     RtlpValidateAsciiStd3AndLength @ 0x140916758 (RtlpValidateAsciiStd3AndLength.c)
- *     punycode_decode @ 0x1409168DC (punycode_decode.c)
- *     punycode_encode @ 0x140916F24 (punycode_encode.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x1409168B8 (RtlpValidateAsciiStd3AndLength.c)
+ *     punycode_decode @ 0x140916A3C (punycode_decode.c)
+ *     punycode_encode @ 0x140917084 (punycode_encode.c)
  * Callees:
  *     <none>
  */

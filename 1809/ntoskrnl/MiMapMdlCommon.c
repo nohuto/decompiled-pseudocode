@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapMdlCommon @ 0x14018EAF4
+ * XREFs of MiMapMdlCommon @ 0x14018EC34
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x14018E920 (MmMapLockedPagesWithReservedMapping.c)
- *     MmMapLockedRestartPages @ 0x14084C680 (MmMapLockedRestartPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14018EA60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x14084D8E0 (MmMapLockedRestartPages.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiAssignInitialPageAttribute @ 0x14018D1D4 (MiAssignInitialPageAttribute.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiShowBadMapper @ 0x1402A5A44 (MiShowBadMapper.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEBAC (MiWriteValidPteNewPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiAssignInitialPageAttribute @ 0x14018D314 (MiAssignInitialPageAttribute.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiShowBadMapper @ 0x1402A5C34 (MiShowBadMapper.c)
  */
 
 __int64 __fastcall MiMapMdlCommon(__int64 a1, unsigned __int64 a2, int a3, int a4)
@@ -111,7 +111,7 @@ __int64 __fastcall MiMapMdlCommon(__int64 a1, unsigned __int64 a2, int a3, int a
     if ( (unsigned __int64)*v12 <= 0xFFFFFFFFFLL && (*(_QWORD *)(48 * v15 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) != 0 )
     {
       v17 = 48 * v15 - 0x58000000000LL;
-      if ( *(_WORD *)(v17 + 32) == (_WORD)v10 && dword_14043A76C == (_DWORD)v10 )
+      if ( *(_WORD *)(v17 + 32) == (_WORD)v10 && dword_14043B82C == (_DWORD)v10 )
       {
         MiShowBadMapper(v15);
         LOBYTE(a4) = v49;
@@ -167,7 +167,7 @@ LABEL_29:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v32 = v19;
-            if ( !HIBYTE(word_14043A1AC) && ((unsigned __int8)v14 & (unsigned __int8)v19) != 0 )
+            if ( !HIBYTE(word_14043B26C) && ((unsigned __int8)v14 & (unsigned __int8)v19) != 0 )
               v31 |= 0x8000000000000000uLL;
           }
           else
@@ -200,7 +200,7 @@ LABEL_10:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v22 = v19;
-        if ( HIBYTE(word_14043A1AC) == (_BYTE)v10 && ((unsigned __int8)v20 & (unsigned __int8)v19) != 0 )
+        if ( HIBYTE(word_14043B26C) == (_BYTE)v10 && ((unsigned __int8)v20 & (unsigned __int8)v19) != 0 )
           v21 |= 0x8000000000000000uLL;
       }
       else
@@ -270,10 +270,10 @@ LABEL_13:
     }
     while ( v36 );
     MiFlushTbList(&v57, 0xFFFFFFFFF000LL, v41, v42);
-    v44 = ExAcquireSpinLockExclusive(&dword_14043AC80);
-    *v35 = qword_14043AC90;
-    qword_14043AC90 = v34;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AC80);
+    v44 = ExAcquireSpinLockExclusive(&dword_14043BD40);
+    *v35 = qword_14043BD50;
+    qword_14043BD50 = v34;
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BD40);
     v24 = v53;
     v25 = v54;
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v44 < 2u )

@@ -10,139 +10,143 @@
  *     ZwFreeVirtualMemory @ 0x1800A0480 (ZwFreeVirtualMemory.c)
  */
 
-char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)
+char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
 {
-  unsigned __int64 v3; // r15
   unsigned __int64 v5; // r9
   const signed __int64 *v6; // rsi
   unsigned __int64 v7; // rbx
   unsigned __int64 v8; // rdi
-  __int64 v9; // rax
-  volatile signed __int64 *v10; // rcx
-  unsigned __int64 v11; // r9
-  const signed __int64 *v12; // r8
-  const signed __int64 *v13; // rdx
-  unsigned __int64 v14; // rdx
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rax
+  const signed __int64 *v11; // r8
+  const signed __int64 *v12; // r9
+  unsigned __int64 v13; // rdx
+  _RTL_SRWLOCK *v14; // rcx
+  unsigned __int64 v15; // r9
+  const signed __int64 *v16; // r8
+  const signed __int64 *v17; // rdx
+  unsigned __int64 v18; // rdx
   bool i; // zf
-  signed __int32 v17[8]; // [rsp+0h] [rbp-C8h] BYREF
-  int v18; // [rsp+30h] [rbp-98h]
-  int v19; // [rsp+34h] [rbp-94h]
-  unsigned __int64 v20; // [rsp+40h] [rbp-88h]
-  unsigned __int64 *v21; // [rsp+48h] [rbp-80h]
-  unsigned __int64 v22; // [rsp+50h] [rbp-78h]
-  unsigned __int64 v23; // [rsp+58h] [rbp-70h]
-  const signed __int64 *v24; // [rsp+60h] [rbp-68h]
-  unsigned __int64 v25; // [rsp+68h] [rbp-60h]
-  _QWORD v26[11]; // [rsp+70h] [rbp-58h] BYREF
+  signed __int32 v21[8]; // [rsp+0h] [rbp-C8h] BYREF
+  int v22; // [rsp+30h] [rbp-98h]
+  int v23; // [rsp+34h] [rbp-94h]
+  unsigned __int64 v24; // [rsp+40h] [rbp-88h]
+  const signed __int64 *v25; // [rsp+48h] [rbp-80h]
+  unsigned __int64 v26; // [rsp+50h] [rbp-78h]
+  unsigned __int64 v27; // [rsp+58h] [rbp-70h]
+  const signed __int64 *v28; // [rsp+60h] [rbp-68h]
+  unsigned __int64 v29; // [rsp+68h] [rbp-60h]
+  __int64 v30; // [rsp+70h] [rbp-58h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp-50h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp-48h] BYREF
 
-  v3 = a2;
-  v18 = 0;
+  v22 = 0;
   v5 = *(_QWORD *)(a1 + 16);
-  v20 = v5;
+  v24 = v5;
   v6 = *(const signed __int64 **)(a1 + 8);
-  v25 = v5;
-  v24 = v6;
+  v29 = v5;
+  v28 = v6;
   v7 = a2 << 15;
-  v22 = a2 << 15;
+  v26 = a2 << 15;
   v8 = 0x8000LL;
   if ( v5 - (a2 << 15) <= 0x8000 )
     v8 = v5 - (a2 << 15);
-  v23 = v8;
+  v27 = v8;
   while ( 1 )
   {
-    if ( (_DWORD)a3 )
+    if ( a3 )
       goto LABEL_20;
-    a2 = v8 + v7 - 1;
-    if ( a2 >= v5 )
+    v9 = v8 + v7 - 1;
+    if ( v9 >= v5 )
     {
 LABEL_6:
-      LOBYTE(v9) = 0;
+      LOBYTE(v10) = 0;
       goto LABEL_19;
     }
     if ( v8 > 1 )
     {
-      a3 = (unsigned __int64 *)&v6[v7 >> 6];
-      v21 = a3;
-      v5 = (unsigned __int64)&v6[a2 >> 6];
-      if ( a3 == (unsigned __int64 *)v5 )
+      v11 = &v6[v7 >> 6];
+      v25 = v11;
+      v12 = &v6[v9 >> 6];
+      if ( v11 == v12 )
       {
-        a2 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v8) << v7;
+        v13 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v8) << v7;
       }
       else
       {
-        if ( ((-1LL << v7) & *a3) != 0 )
+        if ( ((-1LL << v7) & *v11) != 0 )
           goto LABEL_6;
-        v21 = ++a3;
-        while ( a3 != (unsigned __int64 *)v5 )
+        v25 = ++v11;
+        while ( v11 != v12 )
         {
-          if ( *a3 )
+          if ( *v11 )
             goto LABEL_6;
-          v21 = ++a3;
+          v25 = ++v11;
         }
-        a2 = 0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)a2;
+        v13 = 0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v9;
       }
-      LOBYTE(v9) = (a2 & *a3) == 0;
+      LOBYTE(v10) = (v13 & *v11) == 0;
     }
     else
     {
       if ( v8 != 1 )
         goto LABEL_6;
-      LOBYTE(v9) = !_bittest64(v6, v7);
+      LOBYTE(v10) = !_bittest64(v6, v7);
     }
 LABEL_19:
-    v19 = (unsigned __int8)v9;
-    if ( !(_BYTE)v9 )
+    v23 = (unsigned __int8)v10;
+    if ( !(_BYTE)v10 )
       goto LABEL_39;
 LABEL_20:
-    RtlAcquireSRWLockExclusive(a1 + 24, a2, a3, v5);
-    v26[0] = *(_QWORD *)(a1 + 32);
-    v10 = (volatile signed __int64 *)(a1 + 24);
-    if ( v26[0] == -1LL )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
+    v30 = *(_QWORD *)(a1 + 32);
+    v14 = (_RTL_SRWLOCK *)(a1 + 24);
+    if ( v30 == -1 )
       break;
-    RtlReleaseSRWLockExclusive(v10);
-    RtlpWaitOnAddress((_QWORD *)(a1 + 32), v26, 8LL, 0LL, RtlpWaitOnAddressSpinCount);
-    LOBYTE(v9) = _bittest64(*(const signed __int64 **)a1, v3);
-    if ( !(_BYTE)v9 )
+    RtlReleaseSRWLockExclusive(v14);
+    RtlpWaitOnAddress((_QWORD *)(a1 + 32), &v30, 8LL, 0LL, RtlpWaitOnAddressSpinCount);
+    LOBYTE(v10) = _bittest64(*(const signed __int64 **)a1, a2);
+    if ( !(_BYTE)v10 )
       goto LABEL_39;
-    a3 = 0LL;
-    v5 = v20;
+    a3 = 0;
+    v5 = v24;
   }
-  *(_QWORD *)(a1 + 32) = v3;
-  RtlReleaseSRWLockExclusive(v10);
-  v18 = 1;
-  LOBYTE(v9) = _bittest64(*(const signed __int64 **)a1, v3);
-  if ( (_BYTE)v9 )
+  *(_QWORD *)(a1 + 32) = a2;
+  RtlReleaseSRWLockExclusive(v14);
+  v22 = 1;
+  LOBYTE(v10) = _bittest64(*(const signed __int64 **)a1, a2);
+  if ( (_BYTE)v10 )
   {
-    v11 = v8 + v7 - 1;
-    if ( v11 < v20 )
+    v15 = v8 + v7 - 1;
+    if ( v15 < v24 )
     {
       if ( v8 > 1 )
       {
-        v12 = &v6[v7 >> 6];
-        v13 = &v6[v11 >> 6];
-        if ( v12 == v13 )
+        v16 = &v6[v7 >> 6];
+        v17 = &v6[v15 >> 6];
+        if ( v16 == v17 )
         {
-          v14 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v8) << v7;
+          v18 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v8) << v7;
 LABEL_36:
-          LOBYTE(v9) = (v14 & *v12) == 0;
+          LOBYTE(v10) = (v18 & *v16) == 0;
 LABEL_37:
-          if ( (_BYTE)v9 )
+          if ( (_BYTE)v10 )
           {
 LABEL_38:
-            _interlockedbittestandreset64(*(volatile signed __int32 **)a1, v3);
-            v26[2] = *(_QWORD *)(a1 + 8) + (v3 << 12);
-            v26[1] = 4096LL;
-            LOBYTE(v9) = ZwFreeVirtualMemory();
+            _interlockedbittestandreset64(*(volatile signed __int32 **)a1, a2);
+            BaseAddress = (PVOID)(*(_QWORD *)(a1 + 8) + (a2 << 12));
+            RegionSize = 4096LL;
+            LOBYTE(v10) = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
           }
         }
         else
         {
-          v9 = -1LL << v7;
-          for ( i = ((-1LL << v7) & *v12) == 0; i; i = *v12 == 0 )
+          v10 = -1LL << v7;
+          for ( i = ((-1LL << v7) & *v16) == 0; i; i = *v16 == 0 )
           {
-            if ( ++v12 == v13 )
+            if ( ++v16 == v17 )
             {
-              v14 = 0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v11;
+              v18 = 0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v15;
               goto LABEL_36;
             }
           }
@@ -152,7 +156,7 @@ LABEL_38:
       {
         if ( _bittest64(v6, v7) )
         {
-          LOBYTE(v9) = 0;
+          LOBYTE(v10) = 0;
           goto LABEL_37;
         }
         goto LABEL_38;
@@ -160,11 +164,11 @@ LABEL_38:
     }
   }
 LABEL_39:
-  if ( v18 )
+  if ( v22 )
   {
     *(_QWORD *)(a1 + 32) = -1LL;
-    _InterlockedOr(v17, 0);
-    LOBYTE(v9) = RtlpWakeByAddress(a1 + 32, 1);
+    _InterlockedOr(v21, 0);
+    LOBYTE(v10) = RtlpWakeByAddress(a1 + 32, 1);
   }
-  return v9;
+  return v10;
 }

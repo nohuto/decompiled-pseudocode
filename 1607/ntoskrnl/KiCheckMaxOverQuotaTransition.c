@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCheckMaxOverQuotaTransition @ 0x1400D0428
+ * XREFs of KiCheckMaxOverQuotaTransition @ 0x1400CE2C8
  * Callers:
- *     KiComputeGroupSchedulingRank @ 0x1400D0304 (KiComputeGroupSchedulingRank.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D20C0 (KiGroupSchedulingQuantumEnd.c)
+ *     KiComputeGroupSchedulingRank @ 0x1400CE1A4 (KiComputeGroupSchedulingRank.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400CFF60 (KiGroupSchedulingQuantumEnd.c)
  * Callees:
- *     KiChargeSchedulingGroupCycleTime @ 0x140099104 (KiChargeSchedulingGroupCycleTime.c)
+ *     KiChargeSchedulingGroupCycleTime @ 0x140098904 (KiChargeSchedulingGroupCycleTime.c)
  */
 
 char __fastcall KiCheckMaxOverQuotaTransition(__int64 a1, volatile signed __int64 *a2)

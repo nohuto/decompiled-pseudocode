@@ -1,20 +1,21 @@
 /*
- * XREFs of NtAlpcDeleteResourceReserve @ 0x140A92D00
+ * XREFs of NtAlpcDeleteResourceReserve @ 0x140A97850
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcReferenceBlobByHandle @ 0x1409BED80 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1409C1AB4 (AlpcpDeleteBlob.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcReferenceBlobByHandle @ 0x14098FD60 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x140992A94 (AlpcpDeleteBlob.c)
  */
 
-__int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
+NTSTATUS __cdecl NtAlpcDeleteResourceReserve(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ResourceId)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v4; // edi
+  int v5; // ebx
   struct _KLOCK_ENTRIES *v6; // r9
   PVOID v7; // rsi
   ULONG_PTR v8; // rax
@@ -25,19 +26,20 @@ __int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v4 = (int)ResourceId;
   --CurrentThread->KernelApcDisable;
-  if ( a2 || a3 >= 0 )
+  if ( Flags || (int)ResourceId >= 0 )
   {
     v5 = -1073741811;
   }
   else
   {
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
       v7 = Object;
-      v8 = AlpcReferenceBlobByHandle((_QWORD *)(*((_QWORD *)Object + 2) + 40LL), a3 & 0x7FFFFFFF, AlpcReserveType, v6);
+      v8 = AlpcReferenceBlobByHandle((_QWORD *)(*((_QWORD *)Object + 2) + 40LL), v4 & 0x7FFFFFFF, AlpcReserveType, v6);
       v12 = v8;
       if ( v8 )
       {
@@ -55,5 +57,5 @@ __int64 __fastcall NtAlpcDeleteResourceReserve(void *a1, int a2, int a3)
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v5;
+  return v5;
 }

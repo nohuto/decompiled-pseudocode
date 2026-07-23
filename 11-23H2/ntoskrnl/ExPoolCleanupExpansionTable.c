@@ -1,13 +1,13 @@
 /*
- * XREFs of ExPoolCleanupExpansionTable @ 0x1406072A8
+ * XREFs of ExPoolCleanupExpansionTable @ 0x1406077F8
  * Callers:
- *     ExpInsertPoolTrackerExpansion @ 0x140607B38 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140608088 (ExpInsertPoolTrackerExpansion.c)
  * Callees:
- *     ExpPoolTrackerReturnLimit @ 0x1402AC350 (ExpPoolTrackerReturnLimit.c)
- *     ExGetHeapFromVA @ 0x1402AC3F0 (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     ExpRemovePoolTrackerExpansion @ 0x14046B19A (ExpRemovePoolTrackerExpansion.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
+ *     ExpPoolTrackerReturnLimit @ 0x1402AC5E0 (ExpPoolTrackerReturnLimit.c)
+ *     ExGetHeapFromVA @ 0x1402AC680 (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14046B59A (ExpRemovePoolTrackerExpansion.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, unsigned __int64 a2)

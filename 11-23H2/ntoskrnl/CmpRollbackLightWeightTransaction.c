@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpRollbackLightWeightTransaction @ 0x1407D0830
+ * XREFs of CmpRollbackLightWeightTransaction @ 0x1407D0B00
  * Callers:
  *     CmpAbortRollbackPacket @ 0x140699F88 (CmpAbortRollbackPacket.c)
- *     CmpCloseLightWeightTransaction @ 0x1407D07E0 (CmpCloseLightWeightTransaction.c)
- *     NtRollbackRegistryTransaction @ 0x140A0EA90 (NtRollbackRegistryTransaction.c)
- *     CmpRollbackTransactionArray @ 0x140A1E700 (CmpRollbackTransactionArray.c)
+ *     CmpCloseLightWeightTransaction @ 0x1407D0AB0 (CmpCloseLightWeightTransaction.c)
+ *     NtRollbackRegistryTransaction @ 0x140A0ED40 (NtRollbackRegistryTransaction.c)
+ *     CmpRollbackTransactionArray @ 0x140A1E9B0 (CmpRollbackTransactionArray.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ExBlockOnAddressPushLock @ 0x1403486A0 (ExBlockOnAddressPushLock.c)
- *     CmpAbortLightWeightTransaction @ 0x1407D0898 (CmpAbortLightWeightTransaction.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ExBlockOnAddressPushLock @ 0x140348930 (ExBlockOnAddressPushLock.c)
+ *     CmpAbortLightWeightTransaction @ 0x1407D0B68 (CmpAbortLightWeightTransaction.c)
  */
 
 __int64 __fastcall CmpRollbackLightWeightTransaction(__int64 a1)

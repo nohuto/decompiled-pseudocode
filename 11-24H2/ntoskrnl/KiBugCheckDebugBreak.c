@@ -1,14 +1,14 @@
 /*
- * XREFs of KiBugCheckDebugBreak @ 0x1405B2D70
+ * XREFs of KiBugCheckDebugBreak @ 0x1405AFCE0
  * Callers:
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
- *     KeEnterKernelDebugger @ 0x1405B2830 (KeEnterKernelDebugger.c)
- *     KiAttemptBugcheckRecovery @ 0x1405C5784 (KiAttemptBugcheckRecovery.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
+ *     KeEnterKernelDebugger @ 0x1405AF7A0 (KeEnterKernelDebugger.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405C2EB4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     DbgBreakPointWithStatus @ 0x1404FC810 (DbgBreakPointWithStatus.c)
- *     KiHeadlessDisplayString @ 0x1405B3EC4 (KiHeadlessDisplayString.c)
- *     HeadlessDispatch @ 0x140653C90 (HeadlessDispatch.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     DbgBreakPointWithStatus @ 0x1404FA0D0 (DbgBreakPointWithStatus.c)
+ *     KiHeadlessDisplayString @ 0x1405B0E3C (KiHeadlessDisplayString.c)
+ *     HeadlessDispatch @ 0x1406523F0 (HeadlessDispatch.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall KiBugCheckDebugBreak(ULONG Status)

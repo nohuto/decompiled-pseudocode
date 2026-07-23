@@ -1,22 +1,22 @@
 /*
- * XREFs of IoReserveKsrPersistentMemoryEx @ 0x14071B440
+ * XREFs of IoReserveKsrPersistentMemoryEx @ 0x140718FD0
  * Callers:
- *     IoReserveKsrPersistentMemory @ 0x14071B400 (IoReserveKsrPersistentMemory.c)
+ *     IoReserveKsrPersistentMemory @ 0x140718F90 (IoReserveKsrPersistentMemory.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MmFreePagesFromMdl @ 0x1403A37F0 (MmFreePagesFromMdl.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     MmAllocatePagesForMdlEx @ 0x140411F30 (MmAllocatePagesForMdlEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PipGetDeviceObjectLocation @ 0x14071BA24 (PipGetDeviceObjectLocation.c)
- *     PipGetDriverKsrGuid @ 0x14071BC80 (PipGetDriverKsrGuid.c)
- *     PipGetPersistentMemory @ 0x14071BE10 (PipGetPersistentMemory.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdlEx @ 0x140395340 (MmAllocatePagesForMdlEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     MmFreePagesFromMdl @ 0x14048E2C0 (MmFreePagesFromMdl.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PipGetDeviceObjectLocation @ 0x1407195B4 (PipGetDeviceObjectLocation.c)
+ *     PipGetDriverKsrGuid @ 0x140719810 (PipGetDriverKsrGuid.c)
+ *     PipGetPersistentMemory @ 0x1407199A0 (PipGetPersistentMemory.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoReserveKsrPersistentMemoryEx(
@@ -55,7 +55,7 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
   __int64 v33; // rax
   unsigned int v34; // [rsp+50h] [rbp-71h] BYREF
   unsigned int v35; // [rsp+54h] [rbp-6Dh]
-  int v36; // [rsp+58h] [rbp-69h]
+  unsigned int v36; // [rsp+58h] [rbp-69h]
   PVOID BaseAddress; // [rsp+60h] [rbp-61h]
   PVOID P; // [rsp+68h] [rbp-59h]
   void *Src; // [rsp+70h] [rbp-51h]
@@ -180,7 +180,7 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
     {
       memset_0(BaseAddress, 0, Size);
       v36 = 2 * v35 + 24;
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, v36, 0x61706E50u);
       v19 = Pool2;
       if ( !Pool2 )
         goto LABEL_37;
@@ -190,7 +190,7 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
       *(_DWORD *)(v19 + 20) = a5;
       if ( v28 )
         *(_WORD *)(v19 + 16) = *v28;
-      v29 = ExAllocatePool2(0x40uLL);
+      v29 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x61706E50u);
       v17 = (_QWORD *)v29;
       if ( v29 )
       {
@@ -209,7 +209,7 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
         }
         *(_DWORD *)v17 = v30;
         KsrMdlToMemoryRuns(v18, 0LL, 0LL, &v34);
-        v33 = ExAllocatePool2(0x40uLL);
+        v33 = ExAllocatePool2(0x40uLL, 8LL * v34, 0x61706E50u);
         v25 = (void *)v33;
         if ( v33 )
         {

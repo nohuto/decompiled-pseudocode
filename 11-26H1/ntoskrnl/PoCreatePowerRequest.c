@@ -1,11 +1,11 @@
 /*
- * XREFs of PoCreatePowerRequest @ 0x140436C50
+ * XREFs of PoCreatePowerRequest @ 0x140425BE0
  * Callers:
  *     <none>
  * Callees:
- *     PoCaptureReasonContext @ 0x140436EC8 (PoCaptureReasonContext.c)
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x140425E58 (PoCaptureReasonContext.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
  */
 
 NTSTATUS __stdcall PoCreatePowerRequest(

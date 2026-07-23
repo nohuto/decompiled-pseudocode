@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbDeleteObjectRegKey @ 0x14097CC44
+ * XREFs of DrvDbDeleteObjectRegKey @ 0x14097CE24
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x14063B730 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbDispatchDriverPackage @ 0x14063BFD0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbDispatchDeviceId @ 0x1406C4020 (DrvDbDispatchDeviceId.c)
- *     DrvDbDispatchDriverFile @ 0x14097ED80 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x140630540 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverPackage @ 0x140630DE0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDeviceId @ 0x140672910 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverFile @ 0x14097EF60 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     DrvDbGetObjectDatabaseNode @ 0x14063ECFC (DrvDbGetObjectDatabaseNode.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406405FC (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140640698 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbDeleteObjectSubKey @ 0x14097CDAC (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x140633B0C (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14063540C (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406354A8 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CF8C (DrvDbDeleteObjectSubKey.c)
  */
 
 __int64 __fastcall DrvDbDeleteObjectRegKey(__int64 *a1, int a2, wchar_t *a3, unsigned int a4)
@@ -17,14 +17,14 @@ __int64 __fastcall DrvDbDeleteObjectRegKey(__int64 *a1, int a2, wchar_t *a3, uns
   char v7; // r12
   int ObjectDatabaseNode; // eax
   __int64 v9; // r8
-  const UNICODE_STRING *v10; // rdi
+  __int64 v10; // rdi
   int v11; // ebx
   int v12; // eax
-  const UNICODE_STRING *i; // r14
+  __int64 *i; // r14
   int v14; // eax
   __int64 v15; // r8
   void *v17; // [rsp+20h] [rbp-10h] BYREF
-  const UNICODE_STRING *v18; // [rsp+28h] [rbp-8h] BYREF
+  __int64 v18; // [rsp+28h] [rbp-8h] BYREF
   wchar_t *v19; // [rsp+80h] [rbp+50h] BYREF
   unsigned int v20; // [rsp+88h] [rbp+58h]
 
@@ -40,7 +40,7 @@ __int64 __fastcall DrvDbDeleteObjectRegKey(__int64 *a1, int a2, wchar_t *a3, uns
   {
     if ( v18 )
     {
-      v12 = DrvDbAcquireDatabaseNodeBaseKey(a1, (__int64)v18, a2, &v17);
+      v12 = DrvDbAcquireDatabaseNodeBaseKey(a1, v18, a2, &v17);
       v11 = v12;
       if ( v12 >= 0 )
       {
@@ -53,11 +53,9 @@ __int64 __fastcall DrvDbDeleteObjectRegKey(__int64 *a1, int a2, wchar_t *a3, uns
     }
     else
     {
-      for ( i = (const UNICODE_STRING *)a1[2];
-            i != (const UNICODE_STRING *)(a1 + 2);
-            i = *(const UNICODE_STRING **)&i->Length )
+      for ( i = (__int64 *)a1[2]; i != a1 + 2; i = (__int64 *)*i )
       {
-        v10 = i;
+        v10 = (__int64)i;
         v14 = DrvDbAcquireDatabaseNodeBaseKey(a1, (__int64)i, a2, &v17);
         v11 = v14;
         if ( v14 == -1073740697 )
@@ -94,6 +92,6 @@ LABEL_18:
   }
 LABEL_20:
   if ( v17 )
-    DrvDbReleaseDatabaseNodeBaseKey((__int64)a1, (__int64)v10, v9, v17);
+    DrvDbReleaseDatabaseNodeBaseKey((__int64)a1, v10, v9, v17);
   return (unsigned int)v11;
 }

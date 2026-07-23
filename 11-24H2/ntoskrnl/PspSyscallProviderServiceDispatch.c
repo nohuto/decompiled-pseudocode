@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSyscallProviderServiceDispatch @ 0x1406B3710
+ * XREFs of PspSyscallProviderServiceDispatch @ 0x1406B46B0
  * Callers:
- *     PsSyscallProviderDispatch @ 0x140A9D400 (PsSyscallProviderDispatch.c)
+ *     PsSyscallProviderDispatch @ 0x140A98970 (PsSyscallProviderDispatch.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PspCaptureSystemServiceInMemoryArgs @ 0x1407711A0 (PspCaptureSystemServiceInMemoryArgs.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PspCaptureSystemServiceInMemoryArgs @ 0x1407713C0 (PspCaptureSystemServiceInMemoryArgs.c)
  */
 
 __int64 __fastcall PspSyscallProviderServiceDispatch(_QWORD *a1, __int64 a2, char a3)
@@ -13,9 +13,9 @@ __int64 __fastcall PspSyscallProviderServiceDispatch(_QWORD *a1, __int64 a2, cha
   _BYTE v5[136]; // [rsp+20h] [rbp-88h] BYREF
 
   if ( (a3 & 0xF) == 0 )
-    return guard_dispatch_icall_no_overrides(a1[7], a1[8], a1[9], a1[10]);
+    return guard_dispatch_icall_no_overrides(a1[7], a1[8]);
   result = PspCaptureSystemServiceInMemoryArgs((void *)(a1[48] + 40LL), v5);
   if ( (int)result >= 0 )
-    return guard_dispatch_icall_no_overrides(a1[7], a1[8], a1[9], a1[10]);
+    return guard_dispatch_icall_no_overrides(a1[7], a1[8]);
   return result;
 }

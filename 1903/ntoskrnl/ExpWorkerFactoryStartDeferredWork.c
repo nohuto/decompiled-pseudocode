@@ -36,7 +36,7 @@ _QWORD *__fastcall ExpWorkerFactoryStartDeferredWork(__int64 a1, unsigned __int8
   ULONG_PTR v15; // r13
   struct _KEVENT *v16; // rcx
   struct _KTHREAD *v17; // rdi
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned int v19; // r8d
   bool v20; // zf
   __int64 v21; // rcx
@@ -81,9 +81,9 @@ _QWORD *__fastcall ExpWorkerFactoryStartDeferredWork(__int64 a1, unsigned __int8
       v29 = 0;
       v17 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)(v11 + 44)) == 1 )
-        SessionId = (unsigned int)MmGetSessionIdEx((__int64)v17->ApcState.Process);
+        SessionId = MmGetSessionIdEx((__int64)v17->ApcState.Process);
       else
-        SessionId = 0xFFFFFFFFLL;
+        SessionId = -1;
       --v17->SpecialApcDisable;
       ++v17->AbAllocationRegionCount;
       v19 = ((char)v17->AbEntrySummary | (char)v17->AbOrphanedEntrySummary) ^ 0x3F;
@@ -101,7 +101,7 @@ _QWORD *__fastcall ExpWorkerFactoryStartDeferredWork(__int64 a1, unsigned __int8
         if ( (v24->AcquiredByte & 1) != 0
           && (*(_DWORD *)&v24->LockState.0 & 1) == 0
           && (*(_QWORD *)&v24->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v15 & 0x7FFFFFFFFFFFFFFCLL)
-          && v24->LockState.SessionId == (_DWORD)SessionId )
+          && v24->LockState.SessionId == SessionId )
         {
           v24->AcquiredByte &= ~1u;
           if ( v24->LockState.0 )
@@ -116,13 +116,13 @@ _QWORD *__fastcall ExpWorkerFactoryStartDeferredWork(__int64 a1, unsigned __int8
       {
 LABEL_33:
         if ( (*((_DWORD *)&v17->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v17, v15, (unsigned int)SessionId, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)v17, v15, SessionId, 0LL);
       }
       else
       {
         v24->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v24->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree(&v17->LockEntries[v23], SessionId);
+          KiAbEntryRemoveFromTree(&v17->LockEntries[v23].TreeNode);
         v29 = v24->BoostBitmap.AllFields & 0x1FFFF;
         v24->BoostBitmap.AllFields &= 0xFFFE0000;
         v24->ThreadLocalFlags &= ~1u;

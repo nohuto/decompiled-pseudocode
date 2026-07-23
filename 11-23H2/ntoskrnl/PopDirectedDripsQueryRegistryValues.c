@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsQueryRegistryValues @ 0x140859B38
+ * XREFs of PopDirectedDripsQueryRegistryValues @ 0x140859D78
  * Callers:
- *     PopDirectedDripsQueryEnabledMitigations @ 0x14085990C (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x140859B4C (PopDirectedDripsQueryEnabledMitigations.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
  */
 
 int __fastcall PopDirectedDripsQueryRegistryValues(__int64 a1, _DWORD *a2)

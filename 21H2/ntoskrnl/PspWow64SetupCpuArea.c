@@ -1,10 +1,10 @@
 /*
- * XREFs of PspWow64SetupCpuArea @ 0x140695C88
+ * XREFs of PspWow64SetupCpuArea @ 0x1405F51D8
  * Callers:
- *     PspSetupUserStack @ 0x14064C384 (PspSetupUserStack.c)
+ *     PspSetupUserStack @ 0x1406411A4 (PspSetupUserStack.c)
  * Callees:
- *     RtlpGetLegacyContextLength @ 0x140276670 (RtlpGetLegacyContextLength.c)
- *     RtlpArchContextFlagFromMachine @ 0x140696C94 (RtlpArchContextFlagFromMachine.c)
+ *     RtlpGetLegacyContextLength @ 0x140264610 (RtlpGetLegacyContextLength.c)
+ *     RtlpArchContextFlagFromMachine @ 0x1405F61E4 (RtlpArchContextFlagFromMachine.c)
  */
 
 __int64 __fastcall PspWow64SetupCpuArea(unsigned __int64 *a1, __int64 a2)

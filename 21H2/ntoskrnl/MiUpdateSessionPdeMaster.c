@@ -1,7 +1,7 @@
 /*
  * XREFs of MiUpdateSessionPdeMaster @ 0x1403F7DC8
  * Callers:
- *     MiInitializeSystemPageTable @ 0x1402E5484 (MiInitializeSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x1402967D4 (MiInitializeSystemPageTable.c)
  * Callees:
  *     <none>
  */

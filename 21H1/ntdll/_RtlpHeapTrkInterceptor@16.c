@@ -10,9 +10,9 @@
  *     RtlpHeapTrkTrackRemoveHeap @ 0x4B364F2B (RtlpHeapTrkTrackRemoveHeap.c)
  */
 
-int __stdcall RtlpHeapTrkInterceptor(int a1, unsigned int a2, int a3, int a4)
+int __stdcall RtlpHeapTrkInterceptor(PVOID a1, unsigned int a2, int a3, int a4)
 {
-  int v4; // ebx
+  void *v4; // ebx
   unsigned int v5; // edi
   signed __int32 v6; // esi
   unsigned int v7; // ebx
@@ -20,7 +20,7 @@ int __stdcall RtlpHeapTrkInterceptor(int a1, unsigned int a2, int a3, int a4)
   unsigned int v9; // esi
   signed __int64 v10; // rax
   signed __int64 v11; // rax
-  int v12; // ecx
+  unsigned int v12; // ecx
   int v13; // edx
   volatile signed __int64 *v14; // eax
   unsigned int v15; // esi
@@ -32,15 +32,15 @@ int __stdcall RtlpHeapTrkInterceptor(int a1, unsigned int a2, int a3, int a4)
   signed __int64 v21; // rax
   signed __int64 v22; // rax
   unsigned int v23; // esi
-  __int64 v25; // [esp+8h] [ebp-20h] BYREF
-  __int64 v26; // [esp+10h] [ebp-18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [esp+8h] [ebp-20h] BYREF
+  LARGE_INTEGER v26; // [esp+10h] [ebp-18h] BYREF
   unsigned int v27; // [esp+18h] [ebp-10h]
   unsigned __int32 v28; // [esp+1Ch] [ebp-Ch]
-  int v29; // [esp+20h] [ebp-8h]
+  unsigned int v29; // [esp+20h] [ebp-8h]
   unsigned int v30; // [esp+24h] [ebp-4h]
 
   v4 = a1;
-  if ( a1 == dword_4B3A6D94 || dword_4B3A6DAC == 1 )
+  if ( a1 == HeapHandle || dword_4B3A6DAC == 1 )
     return 0;
   if ( a3 == 2 )
   {
@@ -72,8 +72,8 @@ LABEL_11:
         if ( v6 - v28 >= 0x3E8
           && _InterlockedCompareExchange(*(volatile signed __int32 **)dword_4B3A6958, v6, v28) == v28 )
         {
-          v7 = qword_4B3A6950 / 100;
-          v28 = (unsigned __int64)(qword_4B3A6950 / 100) >> 32;
+          v7 = PerformanceFrequency.QuadPart / 100;
+          v28 = (unsigned __int64)(PerformanceFrequency.QuadPart / 100) >> 32;
           v30 = v7;
           v8 = *(_DWORD *)dword_4B3A6958 + 8;
           do
@@ -112,15 +112,15 @@ LABEL_11:
         }
         else
         {
-          NtQueryPerformanceCounter((int)&v25, 0);
+          NtQueryPerformanceCounter(&PerformanceCounter, 0);
           RtlpHeapTrkTrackAdd(v4, v5);
-          NtQueryPerformanceCounter((int)&v26, 0);
-          v26 -= v25;
-          v12 = ~(_DWORD)v26;
-          v13 = ~HIDWORD(v26);
-          v29 = ~(_DWORD)v26;
+          NtQueryPerformanceCounter(&v26, 0);
+          v26.QuadPart -= PerformanceCounter.QuadPart;
+          v12 = ~v26.LowPart;
+          v13 = ~v26.HighPart;
+          v29 = ~v26.LowPart;
           v14 = (volatile signed __int64 *)(*(_DWORD *)dword_4B3A6958 + 8);
-          v28 = ~HIDWORD(v26);
+          v28 = ~v26.HighPart;
           v30 = (unsigned int)v14;
           do
           {

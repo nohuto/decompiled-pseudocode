@@ -5,8 +5,8 @@
  *     KseDriverLoadImage @ 0x140694730 (KseDriverLoadImage.c)
  * Callees:
  *     KsepPoolAllocatePaged @ 0x140209EA8 (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepStringDuplicateUnicode(__int64 a1, const void **a2)

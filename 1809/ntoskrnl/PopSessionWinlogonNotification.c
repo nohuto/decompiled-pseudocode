@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSessionWinlogonNotification @ 0x140878FFC
+ * XREFs of PopSessionWinlogonNotification @ 0x14087A25C
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
- *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
- *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
- *     PopGetLockConsoleTimeoutUnsafe @ 0x140878DDC (PopGetLockConsoleTimeoutUnsafe.c)
- *     PopLazySensorActiveInput @ 0x140878F20 (PopLazySensorActiveInput.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DD8D0 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DD964 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTraceSessionStates @ 0x1406DD9F0 (PopDiagTraceSessionStates.c)
+ *     PopUpdateTimeouts @ 0x1406DDAA0 (PopUpdateTimeouts.c)
+ *     PopGetLockConsoleTimeoutUnsafe @ 0x14087A03C (PopGetLockConsoleTimeoutUnsafe.c)
+ *     PopLazySensorActiveInput @ 0x14087A180 (PopLazySensorActiveInput.c)
  */
 
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
@@ -45,26 +45,26 @@ __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
     PopAcquireAdaptiveLock(0);
     if ( v2 )
     {
-      byte_14040FDB4 = 1;
+      byte_140410E34 = 1;
       LockConsoleTimeoutUnsafe = PopGetLockConsoleTimeoutUnsafe();
       LODWORD(v11) = LockConsoleTimeoutUnsafe;
       if ( LockConsoleTimeoutUnsafe )
       {
-        if ( !byte_14040FDB5 )
+        if ( !byte_140410E35 )
         {
-          byte_14040FDB6 = 1;
+          byte_140410E36 = 1;
           HIDWORD(PopLazyContext) = LockConsoleTimeoutUnsafe;
-          BYTE1(qword_14040FD90) = 1;
+          BYTE1(qword_140410DF0) = 1;
           PopUpdateTimeouts(a1, (unsigned int *)&v11, 0LL);
         }
       }
     }
     else
     {
-      byte_14040FDB4 = 0;
-      if ( byte_14040FDB6 )
+      byte_140410E34 = 0;
+      if ( byte_140410E36 )
       {
-        byte_14040FDB6 = 0;
+        byte_140410E36 = 0;
         PopLazySensorActiveInput(a1);
       }
     }

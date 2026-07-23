@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateRetpolineImportFixups @ 0x1402C8BF0
+ * XREFs of MiUpdateRetpolineImportFixups @ 0x14043A800
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x1402C89A4 (MiUpdateImagePfnImportRelocations.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14043A5B4 (MiUpdateImagePfnImportRelocations.c)
  * Callees:
- *     RtlApplyImportRelocationToPage @ 0x1402C8EE0 (RtlApplyImportRelocationToPage.c)
+ *     RtlApplyImportRelocationToPage @ 0x14043AAF0 (RtlApplyImportRelocationToPage.c)
  */
 
 __int64 __fastcall MiUpdateRetpolineImportFixups(int a1, __int64 a2, unsigned int a3)
@@ -32,12 +32,12 @@ __int64 __fastcall MiUpdateRetpolineImportFixups(int a1, __int64 a2, unsigned in
   {
     v9 = a3 << 12;
     if ( v8[3] == 3 )
-      result = RtlApplyImportRelocationToPage(a1, v9, a2, (int)qword_140E2D730 + 4, (__int64)(v8 + 4), v7, 1, v5);
+      result = RtlApplyImportRelocationToPage(a1, v9, a2, (int)Base + 4, (__int64)(v8 + 4), v7, 1, v5);
     v10 = (unsigned __int64)(v8 + 6);
     v11 = (unsigned __int64)v8 + *v8 + 12;
     while ( v10 < v11 )
     {
-      result = RtlApplyImportRelocationToPage(a1, v9, v4, (int)qword_140E2D730 + 4, v10, v7, 0, v5);
+      result = RtlApplyImportRelocationToPage(a1, v9, v4, (int)Base + 4, v10, v7, 0, v5);
       v10 += 4LL;
     }
   }

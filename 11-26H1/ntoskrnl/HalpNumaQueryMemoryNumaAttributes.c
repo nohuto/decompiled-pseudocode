@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpNumaQueryMemoryNumaAttributes @ 0x140591EF0
+ * XREFs of HalpNumaQueryMemoryNumaAttributes @ 0x140594670
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaQueryProximityNode @ 0x140592130 (HalpNumaQueryProximityNode.c)
+ *     HalpNumaQueryProximityNode @ 0x1405948B0 (HalpNumaQueryProximityNode.c)
  */
 
 __int64 __fastcall HalpNumaQueryMemoryNumaAttributes(int a1, int a2, _DWORD *a3)

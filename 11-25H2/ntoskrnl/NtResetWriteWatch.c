@@ -14,32 +14,32 @@
  *     ObpReferenceObjectByHandleWithTag @ 0x14084FA30 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtResetWriteWatch(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T RegionSize)
 {
   struct _KTHREAD *CurrentThread; // r9
-  unsigned __int64 v7; // r12
+  char *v7; // r12
   _KPROCESS *Process; // rsi
   void *v9; // r14
   int v10; // ebx
   __int64 v11; // rax
   char *v12; // rsi
-  unsigned int v13; // edi
+  NTSTATUS v13; // edi
   unsigned __int64 VadMandatoryPageSize; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v16; // rax
   ULONG_PTR BugCheckParameter1; // [rsp+40h] [rbp-78h] BYREF
   _OWORD v18[3]; // [rsp+48h] [rbp-70h] BYREF
 
   BugCheckParameter1 = 0LL;
   memset(v18, 0, sizeof(v18));
-  if ( a2 > 0x7FFFFFFEFFFFLL )
-    return 3221225712LL;
-  if ( 0x7FFFFFFF0000LL - a2 < a3 || !a3 )
-    return 3221225713LL;
+  if ( (unsigned __int64)BaseAddress > 0x7FFFFFFEFFFFLL )
+    return -1073741584;
+  if ( 0x7FFFFFFF0000LL - (__int64)BaseAddress < RegionSize || !RegionSize )
+    return -1073741583;
   CurrentThread = KeGetCurrentThread();
-  v7 = a2 + a3 - 1;
+  v7 = (char *)BaseAddress + RegionSize - 1;
   Process = CurrentThread->ApcState.Process;
-  if ( a1 == -1LL )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     v9 = CurrentThread->ApcState.Process;
     v10 = 0;
@@ -47,7 +47,7 @@ __int64 __fastcall NtResetWriteWatch(ULONG_PTR a1, unsigned __int64 a2, unsigned
   else
   {
     result = ObpReferenceObjectByHandleWithTag(
-               a1,
+               (ULONG_PTR)ProcessHandle,
                8,
                (__int64)PsProcessType,
                CurrentThread->PreviousMode,
@@ -55,7 +55,7 @@ __int64 __fastcall NtResetWriteWatch(ULONG_PTR a1, unsigned __int64 a2, unsigned
                &BugCheckParameter1,
                0LL,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v9 = (void *)BugCheckParameter1;
     v10 = 0;
@@ -65,7 +65,7 @@ __int64 __fastcall NtResetWriteWatch(ULONG_PTR a1, unsigned __int64 a2, unsigned
       v10 = 1;
     }
   }
-  v11 = MiObtainReferencedVadEx(a2, 0, (int *)&BugCheckParameter1);
+  v11 = MiObtainReferencedVadEx((unsigned __int64)BaseAddress, 0, (int *)&BugCheckParameter1);
   v12 = (char *)v11;
   if ( !v11 )
   {
@@ -73,20 +73,20 @@ __int64 __fastcall NtResetWriteWatch(ULONG_PTR a1, unsigned __int64 a2, unsigned
     goto LABEL_13;
   }
   if ( (*(_DWORD *)(v11 + 48) & 0x600000) == 0x600000
-    && v7 <= (((*(unsigned int *)(v11 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v11 + 33) << 32)) << 12) | 0xFFF) )
+    && (unsigned __int64)v7 <= (((*(unsigned int *)(v11 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v11 + 33) << 32)) << 12) | 0xFFF) )
   {
     VadMandatoryPageSize = MiGetVadMandatoryPageSize(v11);
     if ( VadMandatoryPageSize <= 1 )
     {
 LABEL_11:
-      MiMoveDirtyBitsToPfns(a2, v7, (__int64)v12, 1u);
+      MiMoveDirtyBitsToPfns((unsigned __int64)BaseAddress, (unsigned __int64)v7, (__int64)v12, 1u);
       v13 = 0;
       goto LABEL_12;
     }
     v16 = (VadMandatoryPageSize << 12) - 1;
-    if ( (v16 & a2) == 0 )
+    if ( (v16 & (unsigned __int64)BaseAddress) == 0 )
     {
-      if ( (v16 & a3) != 0 )
+      if ( (v16 & RegionSize) != 0 )
       {
         v13 = -1073741583;
         goto LABEL_12;
@@ -100,7 +100,7 @@ LABEL_12:
 LABEL_13:
   if ( v10 )
     KiUnstackDetachProcess((__int64)v18, 0LL);
-  if ( a1 != -1LL )
+  if ( ProcessHandle != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(v9, 0x77576D4Du);
   return v13;
 }

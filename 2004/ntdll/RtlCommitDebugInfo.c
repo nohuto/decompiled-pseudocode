@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlCommitDebugInfo()
+PVOID __cdecl RtlCommitDebugInfo(PRTL_DEBUG_INFORMATION Buffer, SIZE_T Size)
 {
-  return RtlpCommitQueryDebugInfo();
+  return RtlpCommitQueryDebugInfo(Buffer, Size);
 }

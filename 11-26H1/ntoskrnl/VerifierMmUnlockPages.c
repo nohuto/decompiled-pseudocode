@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmUnlockPages @ 0x140C3FB40
+ * XREFs of VerifierMmUnlockPages @ 0x140C45B50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViTargetAddToCounter @ 0x140C29598 (ViTargetAddToCounter.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViTargetAddToCounter @ 0x140C2F5A8 (ViTargetAddToCounter.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VerifierMmUnlockPages(ULONG_PTR BugCheckParameter2, __int64 a2)

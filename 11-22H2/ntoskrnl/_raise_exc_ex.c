@@ -18,7 +18,7 @@ __int64 __fastcall raise_exc_ex(
         unsigned int *a6,
         int a7)
 {
-  int v7; // ebp
+  DWORD v7; // ebp
   int v11; // ecx
   int v12; // eax
   int v13; // ecx
@@ -26,12 +26,12 @@ __int64 __fastcall raise_exc_ex(
   __int64 v15; // rax
   unsigned int v16; // eax
   unsigned int *v17; // rsi
-  unsigned int *v18; // rcx
+  _DWORD *v18; // rcx
   unsigned __int64 v19; // rax
   __int64 result; // rax
-  unsigned int *v21; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR Arguments; // [rsp+30h] [rbp+8h] BYREF
 
-  v21 = a1;
+  Arguments = (ULONG_PTR)a1;
   v7 = 0;
   a1[1] = 0;
   a1[2] = 0;
@@ -115,9 +115,9 @@ LABEL_27:
     *((_QWORD *)a1 + 10) = *(_QWORD *)v17;
   }
   clrfp();
-  RaiseException(v7, 0, 1u, &v21);
-  v18 = v21;
-  if ( (v21[2] & 0x10) != 0 )
+  RaiseException(v7, 0, 1u, &Arguments);
+  v18 = (_DWORD *)Arguments;
+  if ( (*(_DWORD *)(Arguments + 8) & 0x10) != 0 )
     *a2 &= ~0x80uLL;
   if ( (v18[2] & 8) != 0 )
     *a2 &= ~0x200uLL;
@@ -129,24 +129,24 @@ LABEL_27:
     *a2 &= ~0x1000uLL;
   switch ( *v18 & 3 )
   {
-    case 0u:
+    case 0:
       *a2 &= 0xFFFFFFFFFFFF9FFFuLL;
       break;
-    case 1u:
+    case 1:
       v19 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x2000;
       goto LABEL_49;
-    case 2u:
+    case 2:
       v19 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x4000;
 LABEL_49:
       *a2 = v19;
       break;
-    case 3u:
+    case 3:
       *a2 |= 0x6000uLL;
       break;
   }
   if ( a7 )
   {
-    result = v18[20];
+    result = (unsigned int)v18[20];
     *v17 = result;
   }
   else

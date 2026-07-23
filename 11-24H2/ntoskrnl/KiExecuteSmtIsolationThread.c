@@ -1,23 +1,23 @@
 /*
- * XREFs of KiExecuteSmtIsolationThread @ 0x1405C2BD0
+ * XREFs of KiExecuteSmtIsolationThread @ 0x1405C01A0
  * Callers:
  *     <none>
  * Callees:
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x140294FC0 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiResumeThreadCycleAccumulation @ 0x14030CC20 (KiResumeThreadCycleAccumulation.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeAttachProcess @ 0x14047B6B0 (KeAttachProcess.c)
- *     KeIdleSpecCtrl @ 0x1404E75A0 (KeIdleSpecCtrl.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSynchronizeIdleIsolationDomainEntry @ 0x1405BEFE0 (KiSynchronizeIdleIsolationDomainEntry.c)
- *     KiSynchronizeIdleIsolationDomainExit @ 0x1405BF078 (KiSynchronizeIdleIsolationDomainExit.c)
- *     HalProcessorIdle @ 0x1406A5AA0 (HalProcessorIdle.c)
- *     KiSwapContext @ 0x1406B2A60 (KiSwapContext.c)
- *     KeExecuteVerw @ 0x1406BFAC0 (KeExecuteVerw.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402A4BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiResumeThreadCycleAccumulation @ 0x1402DBC80 (KiResumeThreadCycleAccumulation.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KeAttachProcess @ 0x140477330 (KeAttachProcess.c)
+ *     KeIdleSpecCtrl @ 0x1404DE260 (KeIdleSpecCtrl.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSynchronizeIdleIsolationDomainEntry @ 0x1405BC610 (KiSynchronizeIdleIsolationDomainEntry.c)
+ *     KiSynchronizeIdleIsolationDomainExit @ 0x1405BC6A8 (KiSynchronizeIdleIsolationDomainExit.c)
+ *     HalProcessorIdle @ 0x1406A6AA0 (HalProcessorIdle.c)
+ *     KiSwapContext @ 0x1406B3A00 (KiSwapContext.c)
+ *     KeExecuteVerw @ 0x1406C09C0 (KeExecuteVerw.c)
  */
 
 void __noreturn KiExecuteSmtIsolationThread()
@@ -52,7 +52,7 @@ void __noreturn KiExecuteSmtIsolationThread()
     if ( (CurrentPrcb->DpcRequestSlot[0] & 0xBF) != 0 )
     {
       _disable();
-      KiRetireDpcList(CurrentPrcb);
+      KiRetireDpcList((__int64)CurrentPrcb);
       v4 = KeGetCurrentPrcb();
       SchedulerAssist = (signed __int32 *)v4->SchedulerAssist;
       if ( SchedulerAssist )

@@ -12,33 +12,36 @@
  *     LdrpInitMuiCrits @ 0x1400DE030 (LdrpInitMuiCrits.c)
  */
 
-_DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, int a4)
+_DWORD *__fastcall LdrpGetFromMUIMemCache(unsigned __int64 DllHandle, __int16 a2, _QWORD *a3, int a4)
 {
   char v4; // si
   _DWORD *v8; // rbx
-  PIMAGE_NT_HEADERS v9; // r13
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  PIMAGE_NT_HEADERS v11; // r13
   int i; // r8d
-  char v12; // [rsp+88h] [rbp+20h]
+  ULONG v13; // edx
+  char v15; // [rsp+88h] [rbp+20h]
 
   v4 = a4;
   v8 = 0LL;
-  v12 = 0;
+  v15 = 0;
   if ( (a4 & 0xC) == 0 || (a4 & 0xFFFFFFF3) != 0 || (a4 & 4) != 0 && !a2 )
     return 0LL;
-  v9 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
-  if ( !v9 )
+  v11 = RtlImageNtHeader((PVOID)(DllHandle & 0xFFFFFFFFFFFFFFFCuLL));
+  if ( !v11 )
     return 0LL;
   if ( a3 )
     *a3 = 0LL;
-  LdrpInitMuiCrits();
+  LdrpInitMuiCrits(v10, v9);
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
   for ( i = AlternateResourceModuleCount - 1; i >= 0; --i )
   {
-    if ( *((_QWORD *)AlternateResourceModules + 9 * i + 1) == a1 )
+    if ( *((_QWORD *)AlternateResourceModules + 9 * i + 1) == DllHandle )
     {
-      if ( *((_DWORD *)AlternateResourceModules + 18 * i + 6) != v9->OptionalHeader.CheckSum )
+      if ( *((_DWORD *)AlternateResourceModules + 18 * i + 6) != v11->OptionalHeader.CheckSum )
       {
-        v12 = 1;
+        v15 = 1;
         break;
       }
       if ( (v4 & 8) != 0 )
@@ -49,7 +52,7 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
           v8 = (_DWORD *)*((_QWORD *)AlternateResourceModules + 9 * i + 2);
           if ( (unsigned __int64)v8 - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v8 != -20054323 )
           {
-            v12 = 1;
+            v15 = 1;
             v8 = 0LL;
           }
           break;
@@ -65,7 +68,7 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
     }
   }
   KeReleaseMutex(&MuiMutex, 0);
-  if ( v12 )
-    LdrUnloadAlternateResourceModuleEx(a1);
+  if ( v15 )
+    LdrUnloadAlternateResourceModuleEx((PVOID)DllHandle, v13);
   return v8;
 }

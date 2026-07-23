@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapReportBootError @ 0x14022FFBC
+ * XREFs of WheapReportBootError @ 0x14022FDE8
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14014C3DC (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14014C94C (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     WheapAllocErrorRecord @ 0x140230508 (WheapAllocErrorRecord.c)
- *     WheapGetErrorSource @ 0x1402308A8 (WheapGetErrorSource.c)
- *     WheapWorkQueueAddItem @ 0x1402312A0 (WheapWorkQueueAddItem.c)
+ *     WheapAllocErrorRecord @ 0x140230334 (WheapAllocErrorRecord.c)
+ *     WheapGetErrorSource @ 0x1402306D4 (WheapGetErrorSource.c)
+ *     WheapWorkQueueAddItem @ 0x1402310CC (WheapWorkQueueAddItem.c)
  */
 
 char __fastcall WheapReportBootError(__int64 a1)
@@ -26,7 +26,7 @@ char __fastcall WheapReportBootError(__int64 a1)
   v6 = WheapAllocErrorRecord(ErrorSource, &v7);
   if ( !v6 )
     return 0;
-  (*((void (__fastcall **)(__int64, __int64, __int64, _QWORD, _QWORD))&unk_140341600 + 6 * *(int *)(v4 + 40)))(
+  (*((void (__fastcall **)(__int64, __int64, __int64, _QWORD, _QWORD))&unk_140341640 + 6 * *(int *)(v4 + 40)))(
     v4 + 89,
     a1,
     v6 + 40,

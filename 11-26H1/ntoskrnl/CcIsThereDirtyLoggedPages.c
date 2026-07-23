@@ -1,13 +1,13 @@
 /*
- * XREFs of CcIsThereDirtyLoggedPages @ 0x140486480
+ * XREFs of CcIsThereDirtyLoggedPages @ 0x14047FE50
  * Callers:
  *     <none>
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall CcIsThereDirtyLoggedPages(__int64 a1, _DWORD *a2, __int64 a3)
@@ -16,7 +16,7 @@ char __fastcall CcIsThereDirtyLoggedPages(__int64 a1, _DWORD *a2, __int64 a3)
   __int64 v5; // r14
   unsigned __int8 CurrentIrql; // di
   __int64 v7; // rdx
-  struct _KTHREAD *Blink; // rcx
+  struct _KTHREAD *KernelWaitTime; // rcx
   __int64 v9; // rdx
   unsigned __int64 *v10; // rdi
   __int64 v11; // rdx
@@ -38,7 +38,7 @@ char __fastcall CcIsThereDirtyLoggedPages(__int64 a1, _DWORD *a2, __int64 a3)
     KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
   v13.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v7 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v13);
     if ( v7 )
@@ -48,24 +48,24 @@ char __fastcall CcIsThereDirtyLoggedPages(__int64 a1, _DWORD *a2, __int64 a3)
   {
     KiAcquireQueuedSpinLockInstrumented((__int64)&v13, (volatile __int64 *)&CcMasterLock);
   }
-  Blink = (struct _KTHREAD *)EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
+  KernelWaitTime = (struct _KTHREAD *)EmpParseLock.KernelWaitTime;
   v9 = *((_QWORD *)PspSystemPartition + 1);
-  if ( (unsigned __int64 *)EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink != &EmpParseLock.InGlobalUpdateVpThreadPriorityList )
+  if ( (unsigned __int64 *)EmpParseLock.KernelWaitTime != &EmpParseLock.KernelWaitTime )
   {
     do
     {
-      v10 = &Blink[-1].Padding[2];
-      if ( Blink[-1].Padding[4] == v5 )
+      v10 = &KernelWaitTime[-1].Padding[2];
+      if ( KernelWaitTime[-1].Padding[4] == v5 )
         break;
-      Blink = *(struct _KTHREAD **)&Blink->Header.Lock;
+      KernelWaitTime = *(struct _KTHREAD **)&KernelWaitTime->Header.Lock;
       v10 = 0LL;
     }
-    while ( Blink != (struct _KTHREAD *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList );
+    while ( KernelWaitTime != (struct _KTHREAD *)&EmpParseLock.KernelWaitTime );
     if ( v10 )
     {
       LockHandle.LockQueue.Next = 0LL;
       LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v9 + 768);
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         v11 = _InterlockedExchange64((volatile __int64 *)(v9 + 768), (__int64)&LockHandle);
         if ( v11 )

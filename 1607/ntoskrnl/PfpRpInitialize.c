@@ -3,9 +3,9 @@
  * Callers:
  *     PfInitializeSuperfetch @ 0x1407B3B44 (PfInitializeSuperfetch.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PfpRpStart @ 0x140572A40 (PfpRpStart.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PfpRpStart @ 0x140572F80 (PfpRpStart.c)
  */
 
 __int64 __fastcall PfpRpInitialize(__int64 a1)
@@ -49,8 +49,8 @@ __int64 __fastcall PfpRpInitialize(__int64 a1)
   *(_QWORD *)(a1 + 16) = a1 + 24;
   *(_QWORD *)(a1 + 136) = 0LL;
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 136));
-  result = (unsigned int)xmmword_140328384;
-  if ( (xmmword_140328384 & 2) != 0 )
+  result = (unsigned int)xmmword_1403283C4;
+  if ( (xmmword_1403283C4 & 2) != 0 )
     return PfpRpStart(a1);
   return result;
 }

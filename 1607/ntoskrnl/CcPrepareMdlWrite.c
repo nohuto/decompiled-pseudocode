@@ -1,22 +1,22 @@
 /*
- * XREFs of CcPrepareMdlWrite @ 0x1400B161C
+ * XREFs of CcPrepareMdlWrite @ 0x1400AF55C
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14061E018 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14061E0CC (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400338E0 (CcMapAndRead.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     CcSetDirtyInMask @ 0x14006F660 (CcSetDirtyInMask.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x140033460 (CcMapAndRead.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     CcSetDirtyInMask @ 0x14006F1E0 (CcSetDirtyInMask.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 void __stdcall CcPrepareMdlWrite(

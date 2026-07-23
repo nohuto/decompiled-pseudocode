@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnLogStreamCreate @ 0x1409E9998
+ * XREFs of PfSnLogStreamCreate @ 0x1409D2DB8
  * Callers:
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PfSnTraceGetLogEntry @ 0x1402662D0 (PfSnTraceGetLogEntry.c)
- *     PfSnReferenceProcessTrace @ 0x140374C1C (PfSnReferenceProcessTrace.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlUpcaseUnicodeString @ 0x1409E9B60 (RtlUpcaseUnicodeString.c)
- *     PfSnFailProcessTrace @ 0x1409E9C58 (PfSnFailProcessTrace.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PfSnTraceGetLogEntry @ 0x140265840 (PfSnTraceGetLogEntry.c)
+ *     PfSnReferenceProcessTrace @ 0x1403769CC (PfSnReferenceProcessTrace.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlUpcaseUnicodeString @ 0x1409D2F80 (RtlUpcaseUnicodeString.c)
+ *     PfSnFailProcessTrace @ 0x1409D3078 (PfSnFailProcessTrace.c)
  */
 
 __int64 __fastcall PfSnLogStreamCreate(__int64 a1)

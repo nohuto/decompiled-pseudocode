@@ -1,35 +1,32 @@
 /*
- * XREFs of RtlReleaseRelativeName @ 0x1800A6DC0
+ * XREFs of RtlReleaseRelativeName @ 0x1800A5EF0
  * Callers:
- *     RtlpFileIsWin32WithRCManifest @ 0x180036E3C (RtlpFileIsWin32WithRCManifest.c)
- *     RtlpResolveAssemblyStorageMapEntry @ 0x1800A28EC (RtlpResolveAssemblyStorageMapEntry.c)
- *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800A3520 (RtlpProbeAssemblyStorageRootForAssembly.c)
- *     LdrpMapResourceFile @ 0x1800A5BB0 (LdrpMapResourceFile.c)
- *     RtlDoesFileExists_UstrEx @ 0x1800A5FB0 (RtlDoesFileExists_UstrEx.c)
- *     RtlDosSearchPath_Ustr @ 0x1800A6100 (RtlDosSearchPath_Ustr.c)
- *     RtlpMUIEnumerateFolder @ 0x18010288C (RtlpMUIEnumerateFolder.c)
- *     LdrpResMapFile @ 0x180109594 (LdrpResMapFile.c)
- *     LdrpCnvrtShortToLongFileName @ 0x1801143AC (LdrpCnvrtShortToLongFileName.c)
+ *     RtlpFileIsWin32WithRCManifest @ 0x180021F9C (RtlpFileIsWin32WithRCManifest.c)
+ *     RtlpMUIEnumerateFolder @ 0x180022388 (RtlpMUIEnumerateFolder.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x1800A1A1C (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800A2650 (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     LdrpMapResourceFile @ 0x1800A4CE0 (LdrpMapResourceFile.c)
+ *     RtlDoesFileExists_UstrEx @ 0x1800A50E0 (RtlDoesFileExists_UstrEx.c)
+ *     RtlDosSearchPath_Ustr @ 0x1800A5230 (RtlDosSearchPath_Ustr.c)
+ *     LdrpResMapFile @ 0x180108F34 (LdrpResMapFile.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x180113BA8 (LdrpCnvrtShortToLongFileName.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
-__int64 __fastcall RtlReleaseRelativeName(__int64 a1)
+void __cdecl RtlReleaseRelativeName(PRTL_RELATIVE_NAME_U RelativeName)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
+  PRTLP_CURDIR_REF CurDirRef; // rbx
 
-  v1 = *(_QWORD *)(a1 + 24);
-  if ( v1 )
+  CurDirRef = RelativeName->CurDirRef;
+  if ( CurDirRef )
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
+    if ( _InterlockedExchangeAdd(&CurDirRef->ReferenceCount, 0xFFFFFFFF) == 1 )
     {
-      NtClose(*(HANDLE *)(v1 + 8));
-      result = RtlFreeHeap_0();
+      NtClose(CurDirRef->DirectoryHandle);
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, CurDirRef);
     }
-    *(_QWORD *)(a1 + 24) = 0LL;
+    RelativeName->CurDirRef = 0LL;
   }
-  return result;
 }

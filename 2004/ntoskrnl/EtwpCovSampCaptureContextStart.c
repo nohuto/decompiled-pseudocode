@@ -141,7 +141,7 @@ LABEL_21:
   ThreadInformation[0] = 1;
   ThreadInformation[1] = 1;
   ThreadInformation[2] = 1;
-  ZwSetInformationThread(Handle, ThreadIdealProcessorEx|ThreadIsIoPending, ThreadInformation, 0xCu);
+  ZwSetInformationThread(Handle, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
   v8 = (struct _KTHREAD *)*v1;
 LABEL_15:
   v9 = *a1 & 0x200;

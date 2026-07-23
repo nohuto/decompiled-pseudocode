@@ -6,19 +6,19 @@
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
  *     CmpQueryHiveRedirectionFileList @ 0x140695B38 (CmpQueryHiveRedirectionFileList.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16A18 (CmpResolveHiveLoadConflict.c)
- *     CmpDestroyHive @ 0x140A1CCA0 (CmpDestroyHive.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A16CC8 (CmpResolveHiveLoadConflict.c)
+ *     CmpDestroyHive @ 0x140A1CF50 (CmpDestroyHive.c)
  *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF5008 (CmpReleaseHiveLoadUnloadRundown.c)
  *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF502C (CmpAcquireHiveLoadUnloadRundown.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
@@ -283,11 +283,11 @@ LABEL_23:
   CmSiFreeMemory(Privileges);
   if ( v26 >= 0 )
   {
-    if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000008LL) )
+    if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000008LL) )
     {
       v54 = 0x1000000LL;
       p_Privileges = &Privileges;
-      v31 = (unsigned __int8 *)&word_140036CB6;
+      v31 = (unsigned __int8 *)&dword_140036F44;
       v94 = 8LL;
       v91 = &v50;
       v32 = 5;
@@ -297,16 +297,16 @@ LABEL_27:
       v90 = 8LL;
       LODWORD(v50) = v26;
       v92 = 4LL;
-      tlgWriteAgg((__int64)&dword_140C043C8, v31, v30, v32, &v88);
+      tlgWriteAgg((__int64)&dword_140C04390, v31, v30, v32, &v88);
       goto LABEL_28;
     }
     goto LABEL_28;
   }
   if ( v15 && (*(_WORD *)(v15 + 8) || *(_WORD *)(v15 + 10) || *(_BYTE *)(v15 + 394)) )
   {
-    if ( (unsigned int)dword_140C043C8 > 5 )
+    if ( (unsigned int)dword_140C04390 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000008LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C04390, 0x400000000008LL) )
       {
         Privileges = (PPRIVILEGE_SET)1;
         v41 = *(unsigned __int16 *)(v15 + 10);
@@ -341,10 +341,10 @@ LABEL_27:
         v85 = 0;
         v54 = 0x1000000LL;
         v87 = 8LL;
-        tlgWriteAgg((__int64)&dword_140C043C8, (unsigned __int8 *)&word_1400371EA, v15 + 394, 0xEu, &v62);
-        v39 = dword_140C043C8;
+        tlgWriteAgg((__int64)&dword_140C04390, (unsigned __int8 *)&word_140036D9E, v15 + 394, 0xEu, &v62);
+        v39 = dword_140C04390;
       }
-      if ( v39 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 8LL) )
+      if ( v39 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 8LL) )
       {
         v43 = *(unsigned __int16 *)(v15 + 8);
         v44 = *(unsigned __int16 *)(v15 + 10);
@@ -374,8 +374,8 @@ LABEL_27:
         v80 = 2LL;
         v82 = (unsigned int)(8 * v45);
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C043C8,
-          (unsigned __int8 *)byte_1400370B1,
+          (__int64)&dword_140C04390,
+          (unsigned __int8 *)byte_140036F97,
           0LL,
           0LL,
           0xCu,
@@ -385,11 +385,11 @@ LABEL_27:
     goto LABEL_29;
   }
 LABEL_34:
-  if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000000LL) )
   {
     v32 = 4;
     p_Privileges = &Privileges;
-    v31 = (unsigned __int8 *)byte_14003706B;
+    v31 = (unsigned __int8 *)&word_140036EFE;
     v91 = &v50;
     goto LABEL_27;
   }

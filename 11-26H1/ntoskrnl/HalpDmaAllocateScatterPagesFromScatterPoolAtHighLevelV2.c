@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2 @ 0x14058C698
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2 @ 0x14058EE18
  * Callers:
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x140579B4C (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x14057C07C (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
  * Callees:
  *     <none>
  */

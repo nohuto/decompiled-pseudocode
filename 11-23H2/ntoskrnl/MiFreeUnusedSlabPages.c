@@ -6,11 +6,11 @@
  *     MiCheckMdlSlabFragmentation @ 0x14021EE44 (MiCheckMdlSlabFragmentation.c)
  *     MiEnumerateSlabAllocators @ 0x14021EF7C (MiEnumerateSlabAllocators.c)
  *     MiSlabUpdateRecentFailure @ 0x14021F214 (MiSlabUpdateRecentFailure.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     MiLogSlabEntriesDemote @ 0x1403D6B60 (MiLogSlabEntriesDemote.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D6D40 (MiLogSlabEntriesDemote.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiFreeUnusedSlabPages(__int64 a1)

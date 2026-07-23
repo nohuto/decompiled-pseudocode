@@ -39,7 +39,7 @@ __int64 __fastcall ObCreateObject(
 {
   struct _KPRCB *CurrentPrcb; // rbx
   _GENERAL_LOOKASIDE *P; // r14
-  struct _SLIST_ENTRY *v15; // rdi
+  _SLIST_ENTRY *v15; // rdi
   int Information; // ebx
   int v17; // ecx
   int v18; // eax
@@ -91,7 +91,7 @@ __int64 __fastcall ObCreateObject(
         (v15 = RtlpInterlockedPopEntrySList(&L->ListHead)) != 0LL)
     || (Type = (unsigned int)L->Type,
         ++L->AllocateMisses,
-        (v15 = (struct _SLIST_ENTRY *)guard_dispatch_icall_no_overrides(Type)) != 0LL) )
+        (v15 = (_SLIST_ENTRY *)guard_dispatch_icall_no_overrides(Type)) != 0LL) )
   {
     LODWORD(v15->Next) = CurrentPrcb->Number;
   }

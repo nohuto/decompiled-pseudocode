@@ -1,13 +1,13 @@
 /*
- * XREFs of MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14007F930
+ * XREFs of MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14007F920
  * Callers:
- *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
+ *     MiTerminateWsle @ 0x14007AC90 (MiTerminateWsle.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121EF0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121FC0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
  */
 
 _BOOL8 __fastcall MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED(unsigned __int64 a1)
@@ -39,7 +39,7 @@ _BOOL8 __fastcall MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED(unsigned __int64 a1)
     if ( (unsigned int)MiPteHasShadow((unsigned int)MiFlags, v1) )
     {
       v6 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v8 = (v1 & 1) == 0;
         goto LABEL_20;

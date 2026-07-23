@@ -9,31 +9,31 @@
  *     sub_18005B814 @ 0x18005B814 (sub_18005B814.c)
  */
 
-__int64 __fastcall RtlDeleteAtomFromAtomTable(__int64 a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlDeleteAtomFromAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  unsigned int v4; // ebx
+  NTSTATUS v4; // ebx
   __int64 v5; // rax
 
   if ( !(unsigned __int8)sub_18005B7E8() )
-    return 3221225485LL;
+    return -1073741811;
   v4 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v4 = 0;
   }
   else
   {
-    v5 = sub_18005B814(a1, a2 & 0x3FFF);
-    if ( v5 && *(_WORD *)(v5 + 10) == a2 && v5 != -12 )
+    v5 = sub_18005B814(AtomTableHandle, Atom & 0x3FFF);
+    if ( v5 && *(_WORD *)(v5 + 10) == Atom && v5 != -12 )
     {
       v4 = 0;
       if ( (*(_BYTE *)(v5 + 14) & 1) != 0 )
         v4 = 1073741849;
       else
-        sub_18005B0C8(v5, v5 + 12, a1);
+        sub_18005B0C8(v5, v5 + 12, AtomTableHandle);
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
   return v4;
 }

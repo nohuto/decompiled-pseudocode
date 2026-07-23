@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpBuildCmResourceList @ 0x140A936D4
+ * XREFs of PnpBuildCmResourceList @ 0x140A8FE84
  * Callers:
- *     IopAllocateBootResourcesInternal @ 0x1407252A8 (IopAllocateBootResourcesInternal.c)
- *     PnpBuildCmResourceLists @ 0x140734434 (PnpBuildCmResourceLists.c)
+ *     IopAllocateBootResourcesInternal @ 0x140722E38 (IopAllocateBootResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x140732364 (PnpBuildCmResourceLists.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopWriteResourceList @ 0x140721170 (IopWriteResourceList.c)
- *     IopParentToRawTranslation @ 0x140721984 (IopParentToRawTranslation.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     IopCreateRegistryKeyEx @ 0x140A71C1C (IopCreateRegistryKeyEx.c)
- *     IopChildToRootTranslation @ 0x140A93B6C (IopChildToRootTranslation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopWriteResourceList @ 0x14071ED00 (IopWriteResourceList.c)
+ *     IopParentToRawTranslation @ 0x14071F514 (IopParentToRawTranslation.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     IopCreateRegistryKeyEx @ 0x140A6AFFC (IopCreateRegistryKeyEx.c)
+ *     IopChildToRootTranslation @ 0x140A9031C (IopChildToRootTranslation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpBuildCmResourceList(__int64 a1, int a2)
@@ -95,7 +95,7 @@ LABEL_42:
     goto LABEL_43;
   }
   LODWORD(v39) = 20 * (v5 + 1);
-  Destination[1] = ExAllocatePool2(0x100uLL);
+  Destination[1] = ExAllocatePool2(0x100uLL, (unsigned int)v39, 0x20207050u);
   v12 = (_DWORD *)Destination[1];
   if ( !Destination[1] )
   {
@@ -105,7 +105,7 @@ LABEL_43:
     *(_QWORD *)(v4 + 48) = 0LL;
     goto LABEL_44;
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(20 * (v5 + 1)), 0x20207050u);
   v14 = Pool2;
   if ( !Pool2 )
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspCreatePicoThread @ 0x14088C440
+ * XREFs of PspCreatePicoThread @ 0x14088D6A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,14 +7,14 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PspCreateUserContext @ 0x140621CFC (PspCreateUserContext.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     PspCreateUserContext @ 0x140622CFC (PspCreateUserContext.c)
  */
 
 __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)

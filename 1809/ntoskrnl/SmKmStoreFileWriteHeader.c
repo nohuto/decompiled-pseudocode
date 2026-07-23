@@ -1,23 +1,23 @@
 /*
- * XREFs of SmKmStoreFileWriteHeader @ 0x1408AE450
+ * XREFs of SmKmStoreFileWriteHeader @ 0x1408AF6B0
  * Callers:
- *     SmKmStoreFileCreate @ 0x1408AD650 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x1408AE8B0 (SmKmStoreFileCreate.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoSynchronousPageWrite @ 0x1400DE6E0 (IoSynchronousPageWrite.c)
- *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
- *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
- *     MmCreateMdl @ 0x140113C40 (MmCreateMdl.c)
- *     MmMdlPageContentsState @ 0x14011BB50 (MmMdlPageContentsState.c)
- *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoSynchronousPageWrite @ 0x1400DE760 (IoSynchronousPageWrite.c)
+ *     SmAlloc @ 0x1400E4BD4 (SmAlloc.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EEDD0 (IoSetThreadHardErrorMode.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140102040 (MmBuildMdlForNonPagedPool.c)
+ *     MmCreateMdl @ 0x140113CB0 (MmCreateMdl.c)
+ *     MmMdlPageContentsState @ 0x14011BBC0 (MmMdlPageContentsState.c)
+ *     RtlComputeCrc32 @ 0x14015B610 (RtlComputeCrc32.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1401B8510 (ZwQueryInformationFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)

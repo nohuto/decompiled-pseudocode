@@ -19,17 +19,15 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlReleasePath(__int64 a1)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  unsigned __int64 v1; // rbx
-  __int64 result; // rax
+  PWSTR v1; // rbx
 
-  v1 = a1 - 112;
-  RtlAcquireSRWLockExclusive(&unk_18015D3D8);
-  if ( (*(_QWORD *)(v1 + 80))-- != 1LL )
+  v1 = Path - 56;
+  RtlAcquireSRWLockExclusive(&stru_18015D3D8);
+  if ( (*((_QWORD *)v1 + 10))-- != 1LL )
     v1 = 0LL;
-  result = RtlReleaseSRWLockExclusive(&unk_18015D3D8);
+  RtlReleaseSRWLockExclusive(&stru_18015D3D8);
   if ( v1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
 }

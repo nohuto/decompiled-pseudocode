@@ -6,15 +6,15 @@
  *     RtlCheckTokenMembershipEx @ 0x14009F5A0 (RtlCheckTokenMembershipEx.c)
  */
 
-char ExpUmdfSidCheck()
+BOOLEAN ExpUmdfSidCheck()
 {
-  int v0; // eax
-  char v1; // cl
-  char v3; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS v0; // eax
+  BOOLEAN v1; // cl
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = 0;
-  v0 = RtlCheckTokenMembershipEx(0LL, SeExports->SeUserModeDriversSid, 0, &v3);
-  v1 = v3;
+  IsMember = 0;
+  v0 = RtlCheckTokenMembershipEx(0LL, SeExports->SeUserModeDriversSid, 0, &IsMember);
+  v1 = IsMember;
   if ( v0 < 0 )
     return 0;
   return v1;

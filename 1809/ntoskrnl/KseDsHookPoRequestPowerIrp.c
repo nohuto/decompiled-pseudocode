@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsHookPoRequestPowerIrp @ 0x1402A06A0
+ * XREFs of KseDsHookPoRequestPowerIrp @ 0x1402A0890
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KsepDsEventRequestPowerIrp @ 0x1402A1380 (KsepDsEventRequestPowerIrp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KsepDsEventRequestPowerIrp @ 0x1402A1570 (KsepDsEventRequestPowerIrp.c)
  */
 
 __int64 __fastcall KseDsHookPoRequestPowerIrp(
@@ -22,7 +22,7 @@ __int64 __fastcall KseDsHookPoRequestPowerIrp(
 
   v7 = (unsigned __int8)a2;
   v8 = a3;
-  v9 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))qword_140401298)(a1, a2, a3);
+  v9 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))qword_140402298)(a1, a2, a3);
   KsepDsEventRequestPowerIrp(*(_QWORD *)(a1 + 8), a1, v11, v7, v8, v9);
   if ( a6 )
     *a6 = v11;

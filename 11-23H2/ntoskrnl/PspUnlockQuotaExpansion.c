@@ -3,14 +3,14 @@
  * Callers:
  *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
  *     PspExpandQuota @ 0x140208400 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x1403AE8D4 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x1405A3BB8 (PspExpandLimit.c)
+ *     PspInsertExpansionEntry @ 0x1403AEAB4 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x1405A40A8 (PspExpandLimit.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspUnlockQuotaExpansion(_DWORD *a1, unsigned __int8 a2)
@@ -29,10 +29,10 @@ __int64 __fastcall PspUnlockQuotaExpansion(_DWORD *a1, unsigned __int8 a2)
   if ( *a1 )
   {
     result = KxReleaseSpinLock(a1 + 4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v3 <= 0xFu
         && (unsigned __int8)result >= 2u )

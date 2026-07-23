@@ -1,14 +1,14 @@
 /*
  * XREFs of IoQueryInterface @ 0x140846710
  * Callers:
- *     HalpIommuGetDeviceId @ 0x1403CD2D0 (HalpIommuGetDeviceId.c)
- *     HalpDmaGetIommuInterface @ 0x1405043D8 (HalpDmaGetIommuInterface.c)
+ *     sub_1403CD2D0 @ 0x1403CD2D0 (sub_1403CD2D0.c)
+ *     sub_1405043D8 @ 0x1405043D8 (sub_1405043D8.c)
  *     ExInitializeDeviceAts @ 0x14063E8C0 (ExInitializeDeviceAts.c)
  *     ExShareAddressSpaceWithDevice @ 0x14063F7C0 (ExShareAddressSpaceWithDevice.c)
- *     HalpGetCacheCoherency @ 0x140846200 (HalpGetCacheCoherency.c)
+ *     sub_140846200 @ 0x140846200 (sub_140846200.c)
  * Callees:
- *     PnpQueryInterface @ 0x14074C6C0 (PnpQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x140846760 (IopQueryInterfaceRecurseUp.c)
+ *     sub_14074C6C0 @ 0x14074C6C0 (sub_14074C6C0.c)
+ *     sub_140846760 @ 0x140846760 (sub_140846760.c)
  */
 
 __int64 __fastcall IoQueryInterface(
@@ -21,7 +21,7 @@ __int64 __fastcall IoQueryInterface(
         void *a7)
 {
   if ( (a2 & 1) != 0 )
-    return IopQueryInterfaceRecurseUp((int)a1, a3, a4, a5, (__int64)a6, a7);
+    return sub_140846760((int)a1, a3, a4, a5, (__int64)a6, a7);
   else
-    return PnpQueryInterface(a1, a3, a5, a4, a6, (USHORT *)a7);
+    return sub_14074C6C0(a1, a3, a5, a4, a6, (USHORT *)a7);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of AslUnicodeStringFree @ 0x140888018
+ * XREFs of AslUnicodeStringFree @ 0x14088E414
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140886554 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x14088C954 (SdbResolveDatabaseEx.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 __int64 __fastcall AslUnicodeStringFree(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSetDriverFlagsExtension @ 0x140375374
+ * XREFs of IopSetDriverFlagsExtension @ 0x14025DC34
  * Callers:
- *     IoMakeAssociatedIrpPriv @ 0x140374CE8 (IoMakeAssociatedIrpPriv.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14025D5A8 (IoMakeAssociatedIrpPriv.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopSetDriverFlagsExtension(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ LABEL_5:
       *((_QWORD *)v2 + 7) = a2;
       return 0LL;
     }
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
     v2 = (_WORD *)Pool2;
     if ( Pool2 )
     {
@@ -38,7 +38,7 @@ LABEL_5:
   }
   else
   {
-    v6 = (_WORD *)ExAllocatePool2(0x40uLL);
+    v6 = (_WORD *)ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
     v2 = v6;
     if ( v6 )
     {

@@ -49,7 +49,7 @@ __int64 __fastcall VerifierIoSetCompletionRoutineEx(
       *PoolWithTagPriority = *(_OWORD *)v15;
       PoolWithTagPriority[1] = *(_OWORD *)(v15 + 16);
       *(_QWORD *)(v14 - 8) = PoolWithTagPriority;
-      VfUtilFreePoolCheckIRQL((struct _SLIST_ENTRY *)v15);
+      VfUtilFreePoolCheckIRQL((_SLIST_ENTRY *)v15);
     }
   }
   return (unsigned int)v12;

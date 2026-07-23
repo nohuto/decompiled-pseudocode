@@ -33,7 +33,9 @@ __int64 __fastcall MiRemoveWsle(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
   v7 = v6 & 0xFFFFFFFFFFFFF000uLL;
   if ( (signed __int32 *)a2 == dword_14034FF40 )
   {
-    if ( PsNtosImageBase && (v7 >= PsNtosImageBase && v7 < PsNtosImageEnd || v7 >= PsHalImageBase && v7 < PsHalImageEnd) )
+    if ( PsNtosImageBase
+      && (v7 >= (unsigned __int64)PsNtosImageBase && v7 < PsNtosImageEnd
+       || v7 >= (unsigned __int64)PsHalImageBase && v7 < PsHalImageEnd) )
     {
       LODWORD(xmmword_14034EA58) = xmmword_14034EA58 - 1;
     }

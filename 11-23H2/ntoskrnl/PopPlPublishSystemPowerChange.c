@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPlPublishSystemPowerChange @ 0x1405A15E8
+ * XREFs of PopPlPublishSystemPowerChange @ 0x1405A1AD8
  * Callers:
- *     PopPlNotifyDeviceDState @ 0x14028DC4C (PopPlNotifyDeviceDState.c)
- *     PopPlNotifyDeviceFState @ 0x14035C630 (PopPlNotifyDeviceFState.c)
- *     PopPlPublishInitialPowerDraw @ 0x1405A1410 (PopPlPublishInitialPowerDraw.c)
- *     PopPlUnregisterDevice @ 0x1405A1E30 (PopPlUnregisterDevice.c)
+ *     PopPlNotifyDeviceDState @ 0x14028DEDC (PopPlNotifyDeviceDState.c)
+ *     PopPlNotifyDeviceFState @ 0x14035C7D0 (PopPlNotifyDeviceFState.c)
+ *     PopPlPublishInitialPowerDraw @ 0x1405A1900 (PopPlPublishInitialPowerDraw.c)
+ *     PopPlUnregisterDevice @ 0x1405A2320 (PopPlUnregisterDevice.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, __int64 a3)
@@ -51,7 +51,7 @@ __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, _
       v10 = a2;
       v20 = 4LL;
       v22 = 4LL;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C03950, (unsigned __int8 *)&byte_140032443, a3, 1u, v7, v8, 7u, &v12);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C03950, (unsigned __int8 *)&byte_14003236B, a3, 1u, v7, v8, 7u, &v12);
     }
     *((_DWORD *)a1 + 7) += a2;
     return (*((__int64 (__fastcall **)(_QWORD, _QWORD))a1 + 5))(*((_QWORD *)a1 + 4), *((unsigned int *)a1 + 7));

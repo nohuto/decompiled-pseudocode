@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxComponentWork @ 0x140111F94
+ * XREFs of PopFxComponentWork @ 0x1401124F8
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     PopFxIdleWorker @ 0x1400C178C (PopFxIdleWorker.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     PopFxIdleWorker @ 0x1400BF61C (PopFxIdleWorker.c)
  */
 
 void __fastcall PopFxComponentWork(__int64 a1)

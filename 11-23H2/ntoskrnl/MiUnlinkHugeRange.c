@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkHugeRange @ 0x140622ABC
+ * XREFs of MiUnlinkHugeRange @ 0x14062300C
  * Callers:
- *     MiGetHugeRangeFromNode @ 0x1403C50E4 (MiGetHugeRangeFromNode.c)
- *     MiGetHugeBadRangeFromNode @ 0x14061FC40 (MiGetHugeBadRangeFromNode.c)
- *     MiHugeRangeFreeToZero @ 0x140620C84 (MiHugeRangeFreeToZero.c)
- *     MiMakeEntireHugePfnGood @ 0x140621514 (MiMakeEntireHugePfnGood.c)
- *     MiMarkHugePfnBad @ 0x140621618 (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x140621DF4 (MiMarkHugePfnGood.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406220B8 (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiGetHugeRangeFromNode @ 0x1403C52C4 (MiGetHugeRangeFromNode.c)
+ *     MiGetHugeBadRangeFromNode @ 0x140620190 (MiGetHugeBadRangeFromNode.c)
+ *     MiHugeRangeFreeToZero @ 0x1406211D4 (MiHugeRangeFreeToZero.c)
+ *     MiMakeEntireHugePfnGood @ 0x140621A64 (MiMakeEntireHugePfnGood.c)
+ *     MiMarkHugePfnBad @ 0x140621B68 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x140622344 (MiMarkHugePfnGood.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x140622608 (MiMoveBadHugeRangeCrossPartition.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiPageListCollision @ 0x1403688AC (MiPageListCollision.c)
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiPageListCollision @ 0x140368A4C (MiPageListCollision.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInterlockedFlushSList @ 0x180076F70
+ * XREFs of RtlInterlockedFlushSList @ 0x180076F60
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTryLockPageAtDpcInline @ 0x1404251B0
+ * XREFs of MiTryLockPageAtDpcInline @ 0x140419060
  * Callers:
- *     MiSetPageZeroInProgress @ 0x14041E500 (MiSetPageZeroInProgress.c)
+ *     MiSetPageZeroInProgress @ 0x140414240 (MiSetPageZeroInProgress.c)
  * Callees:
  *     <none>
  */

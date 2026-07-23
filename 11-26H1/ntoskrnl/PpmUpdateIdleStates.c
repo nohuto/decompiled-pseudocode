@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmUpdateIdleStates @ 0x140AFE7B0
+ * XREFs of PpmUpdateIdleStates @ 0x140B00820
  * Callers:
  *     <none>
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PpmHvUseNativeAlgorithms @ 0x1404EBFCC (PpmHvUseNativeAlgorithms.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmUpdateIdleContext @ 0x1407748DC (PpmUpdateIdleContext.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PpmHvUseNativeAlgorithms @ 0x1404E55AC (PpmHvUseNativeAlgorithms.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmUpdateIdleContext @ 0x1407778DC (PpmUpdateIdleContext.c)
  */
 
 __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
   _QWORD v18[33]; // [rsp+30h] [rbp-D8h] BYREF
 
   memset_0(&v17, 0, 0x108uLL);
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, v2, v3, v4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, v2, v3, v4);
   if ( !a1
     || (ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(a1 + 4)),
         v6 = ProcessorIndexFromNumber,
@@ -54,8 +54,8 @@ __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
   }
   v17 = 2097153LL;
   memset_0(v18, 0, 0x100uLL);
-  v7 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v6) & 0x3F;
-  v8 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v6) >> 6;
+  v7 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v6) & 0x3F;
+  v8 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v6) >> 6;
   if ( (unsigned __int16)v17 > (unsigned int)v8 )
     goto LABEL_7;
   if ( WORD1(v17) > (unsigned int)v8 )
@@ -90,6 +90,6 @@ LABEL_12:
 LABEL_13:
   v15 = updated;
 LABEL_14:
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+  PopReleaseRwLock(&PpmIdlePolicyLock);
   return v15;
 }

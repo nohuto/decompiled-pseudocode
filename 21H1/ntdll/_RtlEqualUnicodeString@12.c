@@ -16,40 +16,40 @@
  *     <none>
  */
 
-char __stdcall RtlEqualUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+BOOLEAN __cdecl RtlEqualUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  int v3; // esi
-  _WORD *v4; // eax
-  char *v5; // edx
-  int v6; // ecx
+  int Length; // esi
+  wchar_t *Buffer; // eax
+  wchar_t *v5; // edx
+  char *v6; // ecx
   unsigned int v7; // ebx
   unsigned int v8; // edi
   __int16 v9; // cx
   __int16 v11; // cx
-  int v12; // esi
-  int v13; // [esp+Ch] [ebp-8h]
-  char *v14; // [esp+10h] [ebp-4h]
+  char *v12; // esi
+  char *v13; // [esp+Ch] [ebp-8h]
+  wchar_t *v14; // [esp+10h] [ebp-4h]
 
-  v3 = *a1;
-  if ( v3 == *a2 )
+  Length = String1->Length;
+  if ( Length == String2->Length )
   {
-    v4 = (_WORD *)*((_DWORD *)a1 + 1);
-    v5 = (char *)v4 + v3;
-    v14 = (char *)v4 + v3;
-    if ( v4 >= (_WORD *)((char *)v4 + v3) )
+    Buffer = String1->Buffer;
+    v5 = (wchar_t *)((char *)Buffer + Length);
+    v14 = (wchar_t *)((char *)Buffer + Length);
+    if ( Buffer >= (wchar_t *)((char *)Buffer + Length) )
       return 1;
-    if ( a3 )
+    if ( CaseInSensitive )
     {
-      v6 = *((_DWORD *)a2 + 1) - (_DWORD)v4;
+      v6 = (char *)((char *)String2->Buffer - (char *)Buffer);
       v13 = v6;
       while ( 1 )
       {
-        v7 = (unsigned __int16)*v4;
-        v8 = *(unsigned __int16 *)((char *)v4 + v6);
+        v7 = *Buffer;
+        v8 = *(unsigned __int16 *)((char *)Buffer + (_DWORD)v6);
         if ( (_WORD)v7 != (_WORD)v8 )
           break;
 LABEL_12:
-        if ( ++v4 >= (_WORD *)v5 )
+        if ( ++Buffer >= v5 )
           return 1;
       }
       if ( v7 < 0x61 )
@@ -104,10 +104,10 @@ LABEL_10:
       LOWORD(v7) = v11;
       goto LABEL_7;
     }
-    v12 = *((_DWORD *)a2 + 1) - (_DWORD)v4;
-    while ( *v4 == *(_WORD *)((char *)v4 + v12) )
+    v12 = (char *)((char *)String2->Buffer - (char *)Buffer);
+    while ( *Buffer == *(wchar_t *)((char *)Buffer + (_DWORD)v12) )
     {
-      if ( ++v4 >= (_WORD *)v5 )
+      if ( ++Buffer >= v5 )
         return 1;
     }
   }

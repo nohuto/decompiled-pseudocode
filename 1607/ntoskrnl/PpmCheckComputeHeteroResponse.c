@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckComputeHeteroResponse @ 0x14020AC4C
+ * XREFs of PpmCheckComputeHeteroResponse @ 0x14020AA78
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     PpmParkCalculateUnparkCount @ 0x1400D4C0C (PpmParkCalculateUnparkCount.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14020B158 (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
- *     PpmEventTraceHeteroResponse @ 0x14020CC94 (PpmEventTraceHeteroResponse.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     PpmParkCalculateUnparkCount @ 0x1400D2AAC (PpmParkCalculateUnparkCount.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14020AF84 (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmEventTraceHeteroResponse @ 0x14020CAC0 (PpmEventTraceHeteroResponse.c)
  */
 
 char PpmCheckComputeHeteroResponse()
@@ -46,7 +46,7 @@ char PpmCheckComputeHeteroResponse()
   _DWORD Base[64]; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD v31[64]; // [rsp+168h] [rbp+60h] BYREF
 
-  v26 = &PpmCurrentProfile[174 * dword_140303E0C + 5];
+  v26 = &PpmCurrentProfile[174 * dword_140303D4C + 5];
   if ( PpmHeteroPolicy != 4 )
   {
 LABEL_44:

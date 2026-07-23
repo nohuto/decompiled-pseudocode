@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvDbGetCompositeMappedPropertyKeys @ 0x140901340
+ * XREFs of DrvDbGetCompositeMappedPropertyKeys @ 0x140902600
  * Callers:
- *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x1409013C4 (DrvDbGetDeviceIdMappedPropertyKeys.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1409014A8 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140901BC4 (DrvDbGetDriverPackageMappedPropertyKeys.c)
+ *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x140902684 (DrvDbGetDeviceIdMappedPropertyKeys.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140902768 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140902E84 (DrvDbGetDriverPackageMappedPropertyKeys.c)
  * Callees:
  *     <none>
  */

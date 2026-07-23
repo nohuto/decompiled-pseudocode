@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDecrementVadsBeingDeleted @ 0x1402A3F00
+ * XREFs of MiDecrementVadsBeingDeleted @ 0x1402A40F0
  * Callers:
- *     MiFinishPlaceholderVadReplacement @ 0x14085C76C (MiFinishPlaceholderVadReplacement.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x14085D9CC (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 LONG __fastcall MiDecrementVadsBeingDeleted(__int64 a1)

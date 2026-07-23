@@ -1,7 +1,7 @@
 /*
- * XREFs of PopInterruptSteeringEnabled @ 0x140189E54
+ * XREFs of PopInterruptSteeringEnabled @ 0x140189F94
  * Callers:
- *     PpmCheckReInit @ 0x14074F114 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140750304 (PpmCheckReInit.c)
  * Callees:
  *     <none>
  */

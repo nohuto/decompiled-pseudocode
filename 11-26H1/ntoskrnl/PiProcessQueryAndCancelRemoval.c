@@ -1,16 +1,16 @@
 /*
- * XREFs of PiProcessQueryAndCancelRemoval @ 0x1409135AC
+ * XREFs of PiProcessQueryAndCancelRemoval @ 0x1409B568C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1407B8884 (PiSendTargetDeviceRemoveCanceledNotification.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407B8904 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x140912530 (PnpNotifyUserModeDeviceRemoval.c)
- *     PnpAllocateCriticalMemory @ 0x140912A94 (PnpAllocateCriticalMemory.c)
- *     PipSendTargetDeviceQueryRemoveNotification @ 0x140B3DBDC (PipSendTargetDeviceQueryRemoveNotification.c)
- *     PnpFinalizeVetoedRemove @ 0x140B5E9D4 (PnpFinalizeVetoedRemove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1407BB8E4 (PiSendTargetDeviceRemoveCanceledNotification.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407BB964 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x1409B4610 (PnpNotifyUserModeDeviceRemoval.c)
+ *     PnpAllocateCriticalMemory @ 0x1409B4B74 (PnpAllocateCriticalMemory.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x140B3FCBC (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PnpFinalizeVetoedRemove @ 0x140B61B54 (PnpFinalizeVetoedRemove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiProcessQueryAndCancelRemoval(

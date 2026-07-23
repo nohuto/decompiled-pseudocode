@@ -1,18 +1,18 @@
 /*
- * XREFs of PiUEventNotifyClient @ 0x1403F0784
+ * XREFs of PiUEventNotifyClient @ 0x14048A9FC
  * Callers:
- *     PiUEventNotifyDeviceInterfaceChange @ 0x1403EF058 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x1403EF800 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyTargetDeviceChange @ 0x1403F0500 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140575A40 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140488F5C (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x140489C70 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14048A778 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140575F80 (PiUEventNotifyDeviceInstancePropertyChange.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1403EF44C (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventNotifyClientPendingEvent @ 0x1403F0858 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventQueuePendingEvent @ 0x1403F08B0 (PiUEventQueuePendingEvent.c)
- *     PiUEventReferenceEventEntry @ 0x1403F08EC (PiUEventReferenceEventEntry.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x140489874 (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x14048AAD0 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventQueuePendingEvent @ 0x14048AB28 (PiUEventQueuePendingEvent.c)
+ *     PiUEventReferenceEventEntry @ 0x14048AB64 (PiUEventReferenceEventEntry.c)
  */
 
 __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)

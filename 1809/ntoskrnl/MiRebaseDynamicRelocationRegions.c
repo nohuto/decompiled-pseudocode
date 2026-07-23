@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRebaseDynamicRelocationRegions @ 0x1409D241C
+ * XREFs of MiRebaseDynamicRelocationRegions @ 0x1409D341C
  * Callers:
- *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x1409D33A8 (MiInitializeSystemVa.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeFlushEntireTb @ 0x140187820 (KeFlushEntireTb.c)
- *     MiApplyDynamicRelocations @ 0x1409D2650 (MiApplyDynamicRelocations.c)
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeFlushEntireTb @ 0x140187960 (KeFlushEntireTb.c)
+ *     MiApplyDynamicRelocations @ 0x1409D3650 (MiApplyDynamicRelocations.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D3744 (MiApplyRetpolineFixupsToKernelAndHal.c)
  */
 
 __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
@@ -35,14 +35,14 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
   v1 = a1;
   v2 = *(__int64 **)(a1 + 16);
   v3 = 0xFFFFF68000000000uLL;
-  v4 = qword_14043BAA0;
-  v5 = qword_14043BAE0;
-  v18 = qword_14043BAA0;
+  v4 = qword_14043CB60;
+  v5 = qword_14043CBA0;
+  v18 = qword_14043CB60;
   v6 = *v2;
-  if ( (MiFlags & 0x8000) == 0 && qword_14043BAE0 == 0xFFFFF68000000000uLL )
+  if ( (MiFlags & 0x8000) == 0 && qword_14043CBA0 == 0xFFFFF68000000000uLL )
     goto LABEL_18;
   v7 = 0;
-  if ( 8 * (((unsigned __int64)qword_14043BAE0 >> 39) & 0x1FF) != 3944 )
+  if ( 8 * (((unsigned __int64)qword_14043CBA0 >> 39) & 0x1FF) != 3944 )
   {
     MI_READ_PTE_LOCK_FREE(0xFFFFF6FB7DBEDF68uLL);
     if ( !MiPteInShadowRange(v8) )
@@ -50,7 +50,7 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v10 = 1LL;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_5;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -79,7 +79,7 @@ LABEL_11:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v10 = 1LL;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_9;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -116,6 +116,6 @@ LABEL_18:
   }
   result = MiApplyRetpolineFixupsToKernelAndHal(v1, v2, v6);
   MmPteBase = v5;
-  qword_1403FEDE0 = v5;
+  qword_1403FFDE0 = v5;
   return result;
 }

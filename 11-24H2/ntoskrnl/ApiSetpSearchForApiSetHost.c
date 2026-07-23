@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetpSearchForApiSetHost @ 0x1406601F4
+ * XREFs of ApiSetpSearchForApiSetHost @ 0x14065E9C4
  * Callers:
- *     ApiSetResolveToHost @ 0x14065FD44 (ApiSetResolveToHost.c)
+ *     ApiSetResolveToHost @ 0x14065E514 (ApiSetResolveToHost.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall ApiSetpSearchForApiSetHost(__int64 a1, const WCHAR *a2, unsigned __int16 a3, __int64 a4)

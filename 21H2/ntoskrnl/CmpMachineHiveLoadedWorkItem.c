@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpMachineHiveLoadedWorkItem @ 0x1407CB970
+ * XREFs of CmpMachineHiveLoadedWorkItem @ 0x1407CBAE0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpMachineHiveCallbackFatalFilter @ 0x14086A160 (CmpMachineHiveCallbackFatalFilter.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpMachineHiveCallbackFatalFilter @ 0x14086A2C0 (CmpMachineHiveCallbackFatalFilter.c)
  */
 
 char __fastcall CmpMachineHiveLoadedWorkItem(__int64 a1)

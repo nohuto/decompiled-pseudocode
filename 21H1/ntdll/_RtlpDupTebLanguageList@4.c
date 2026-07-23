@@ -9,19 +9,21 @@
  *     _RtlpMuiRegDupLanguageConfigList@8 @ 0x4B36B18D (_RtlpMuiRegDupLanguageConfigList@8.c)
  */
 
-int *__thiscall RtlpDupTebLanguageList(int *this)
+PVOID *__thiscall RtlpDupTebLanguageList(int *this)
 {
-  int *Heap; // esi
+  PVOID *Heap; // esi
   int v3; // eax
   int v4; // eax
+  SIZE_T v6; // [esp-4h] [ebp-Ch]
 
   if ( !this )
     return 0;
-  Heap = (int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 8);
+  LODWORD(v6) = 8;
+  Heap = (PVOID *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v6);
   if ( !Heap )
     return 0;
-  if ( *this && (v3 = RtlpMuiRegDupLanguageList(*this), (*Heap = v3) == 0)
-    || this[1] && (v4 = RtlpMuiRegDupLanguageConfigList(), (Heap[1] = v4) == 0) )
+  if ( *this && (v3 = RtlpMuiRegDupLanguageList(*this), (*Heap = (PVOID)v3) == 0)
+    || this[1] && (v4 = RtlpMuiRegDupLanguageConfigList(), (Heap[1] = (PVOID)v4) == 0) )
   {
     RtlpFreeTebLanguageList(Heap);
     return 0;

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetVadWakeList @ 0x14028A170
+ * XREFs of MiGetVadWakeList @ 0x14028A400
  * Callers:
- *     MiFinishVadDeletion @ 0x140289D10 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140289FA0 (MiFinishVadDeletion.c)
  *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiReleaseVadEventBlocks @ 0x1406FB5DC (MiReleaseVadEventBlocks.c)
- *     MiFreeRotateView @ 0x140A312F8 (MiFreeRotateView.c)
- *     MiFreeVadEventBitmap @ 0x140A31F08 (MiFreeVadEventBitmap.c)
- *     MiDeleteVadHotPatchState @ 0x140A369DC (MiDeleteVadHotPatchState.c)
- *     MiDeletePartialCloneVads @ 0x140A48E2C (MiDeletePartialCloneVads.c)
+ *     MiReleaseVadEventBlocks @ 0x1406FB7EC (MiReleaseVadEventBlocks.c)
+ *     MiFreeRotateView @ 0x140A315A8 (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x140A321B8 (MiFreeVadEventBitmap.c)
+ *     MiDeleteVadHotPatchState @ 0x140A36C8C (MiDeleteVadHotPatchState.c)
+ *     MiDeletePartialCloneVads @ 0x140A490DC (MiDeletePartialCloneVads.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 unsigned __int64 __fastcall MiGetVadWakeList(__int64 a1, int a2)
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall MiGetVadWakeList(__int64 a1, int a2)
     v7 = (int *)&Process[1].IdealNode[2];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )

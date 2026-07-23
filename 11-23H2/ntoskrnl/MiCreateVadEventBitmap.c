@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateVadEventBitmap @ 0x1407CCE04
+ * XREFs of MiCreateVadEventBitmap @ 0x1407CD0D4
  * Callers:
- *     MiCreateWriteWatchView @ 0x1407CCB04 (MiCreateWriteWatchView.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CCB64 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiCreateWriteWatchView @ 0x1407CCDD4 (MiCreateWriteWatchView.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1407CCE34 (MiAllocateNewSubAllocatedRegion.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289B40 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140289DD0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x1402E34FC (MiInsertVadEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

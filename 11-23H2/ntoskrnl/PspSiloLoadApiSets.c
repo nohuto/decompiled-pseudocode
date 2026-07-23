@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSiloLoadApiSets @ 0x1409AD9F0
+ * XREFs of PspSiloLoadApiSets @ 0x1409ADBF0
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     ApiSetReleaseSchema @ 0x1406146B0 (ApiSetReleaseSchema.c)
- *     PspQueryForwardersEnabled @ 0x140854708 (PspQueryForwardersEnabled.c)
- *     PspApiSetCopyToSystemSpace @ 0x1409AC8C8 (PspApiSetCopyToSystemSpace.c)
- *     ApiSetLoadSchemaWithExtensions @ 0x140A09DBC (ApiSetLoadSchemaWithExtensions.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     ApiSetReleaseSchema @ 0x140614C00 (ApiSetReleaseSchema.c)
+ *     PspQueryForwardersEnabled @ 0x140854A08 (PspQueryForwardersEnabled.c)
+ *     PspApiSetCopyToSystemSpace @ 0x1409ACAC8 (PspApiSetCopyToSystemSpace.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x140A0A06C (ApiSetLoadSchemaWithExtensions.c)
  */
 
 __int64 __fastcall PspSiloLoadApiSets(struct _LIST_ENTRY *a1)

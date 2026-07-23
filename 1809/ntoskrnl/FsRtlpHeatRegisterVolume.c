@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpHeatRegisterVolume @ 0x140816538
+ * XREFs of FsRtlpHeatRegisterVolume @ 0x140817738
  * Callers:
- *     FsRtlHeatInit @ 0x1408162B0 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x1408174B0 (FsRtlHeatInit.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     McGenEventRegister @ 0x140181D1C (McGenEventRegister.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     McTemplateK0jq @ 0x1402705D0 (McTemplateK0jq.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     McGenEventRegister @ 0x140181E5C (McGenEventRegister.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     McTemplateK0jq @ 0x1402707C0 (McTemplateK0jq.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned int *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
   __int64 **v15; // rax
   __int64 v16; // rdx
   __int64 v17; // rcx
-  __int64 v19; // [rsp+20h] [rbp-38h]
+  void *ExplicitScope; // [rsp+20h] [rbp-38h]
 
   ExAcquireResourceExclusiveLite(&Resource, 1u);
   for ( i = FsRtlTieringHeatData; (__int64 *)i != &FsRtlTieringHeatData; i = *(_QWORD *)i )
@@ -89,10 +89,10 @@ LABEL_21:
   {
     if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 1) != 0 )
     {
-      LODWORD(v19) = *a3;
-      McTemplateK0jq(v17, v16, a2, a1, v19);
+      LODWORD(ExplicitScope) = *a3;
+      McTemplateK0jq(v17, v16, a2, a1, (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

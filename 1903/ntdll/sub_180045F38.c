@@ -20,7 +20,7 @@ void *__fastcall sub_180045F38(_DWORD *a1, const void *a2, __int64 a3, unsigned 
   __int64 v14; // rcx
   __int64 v15; // [rsp+60h] [rbp+18h] BYREF
 
-  v8 = (void *)sub_180046028((_DWORD)a1, *(_QWORD *)(a3 + 24), *(_QWORD *)(a3 + 32), a4, (__int64)&v15);
+  v8 = (void *)sub_180046028(a1, (__int64)&v15);
   v9 = v8;
   if ( v8 )
   {

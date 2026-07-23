@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageCheckCP @ 0x140934F68
+ * XREFs of EtwpCoverageCheckCP @ 0x140935138
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x140771BB8 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771D78 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     TelemetryCoverageTableLocateInternal @ 0x1402C858C (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x1402C85E0 (EtwpCoverageValidateCP.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x140246DEC (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x140246E40 (EtwpCoverageValidateCP.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
@@ -19,11 +19,14 @@ __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
   int v7; // edx
   unsigned int *Internal; // rax
   int v9; // r11d
-  int v11; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  int v14; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = 0;
-  v11 = 0;
-  if ( (unsigned int)EtwpCoverageValidateCP((__int64 *)a2, &v11) )
+  v14 = 0;
+  if ( (unsigned int)EtwpCoverageValidateCP((__int64 *)a2, &v14) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -48,7 +51,7 @@ __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&EtwpCoverageLock);
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
   }
   return v4;
 }

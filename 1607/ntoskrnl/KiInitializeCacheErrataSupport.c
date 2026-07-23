@@ -1,13 +1,13 @@
 /*
  * XREFs of KiInitializeCacheErrataSupport @ 0x1407D0270
  * Callers:
- *     KiInitMachineDependent @ 0x14013907C (KiInitMachineDependent.c)
+ *     KiInitMachineDependent @ 0x1401395EC (KiInitMachineDependent.c)
  * Callees:
- *     KeStartProfile @ 0x1401D6D44 (KeStartProfile.c)
- *     KiDisableCacheErrataSource @ 0x1401D8DBC (KiDisableCacheErrataSource.c)
+ *     KeStartProfile @ 0x1401D6B70 (KeStartProfile.c)
+ *     KiDisableCacheErrataSource @ 0x1401D8BE8 (KiDisableCacheErrataSource.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     KeSetIntervalProfile @ 0x14052A364 (KeSetIntervalProfile.c)
- *     KeInitializeProfileCallback @ 0x14064FD1C (KeInitializeProfileCallback.c)
+ *     KeSetIntervalProfile @ 0x14052A8A4 (KeSetIntervalProfile.c)
+ *     KeInitializeProfileCallback @ 0x14064FE00 (KeInitializeProfileCallback.c)
  */
 
 char __fastcall KiInitializeCacheErrataSupport(char a1)

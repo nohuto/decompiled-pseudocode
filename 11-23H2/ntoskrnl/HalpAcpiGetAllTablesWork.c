@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpAcpiGetAllTablesWork @ 0x14037DC28
+ * XREFs of HalpAcpiGetAllTablesWork @ 0x14037DDC8
  * Callers:
- *     HalpAcpiGetAllTables @ 0x14037D718 (HalpAcpiGetAllTables.c)
+ *     HalpAcpiGetAllTables @ 0x14037D8B8 (HalpAcpiGetAllTables.c)
  * Callees:
- *     HalpAcpiCheckAndMapTable @ 0x1403357EC (HalpAcpiCheckAndMapTable.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     HalpAcpiGetTableWork @ 0x140337070 (HalpAcpiGetTableWork.c)
- *     HalpAcpiCopyBiosTable @ 0x14037DE48 (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiAllocateMemory @ 0x14037DED0 (HalpAcpiAllocateMemory.c)
- *     HalpAcpiCacheTable @ 0x14037DFA0 (HalpAcpiCacheTable.c)
- *     HalpAcpiShouldIgnoreSdevTable @ 0x14040F5BC (HalpAcpiShouldIgnoreSdevTable.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140335A7C (HalpAcpiCheckAndMapTable.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     HalpAcpiGetTableWork @ 0x140337300 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCopyBiosTable @ 0x14037DFE8 (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x14037E070 (HalpAcpiAllocateMemory.c)
+ *     HalpAcpiCacheTable @ 0x14037E140 (HalpAcpiCacheTable.c)
+ *     HalpAcpiShouldIgnoreSdevTable @ 0x14040F79C (HalpAcpiShouldIgnoreSdevTable.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExHandleTableQuery @ 0x1404A2C84
+ * XREFs of ExHandleTableQuery @ 0x14051B084
  * Callers:
- *     ObGetProcessHandleCount @ 0x1404A2C34 (ObGetProcessHandleCount.c)
+ *     ObGetProcessHandleCount @ 0x14051B034 (ObGetProcessHandleCount.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 unsigned __int64 __fastcall ExHandleTableQuery(unsigned int *a1, unsigned int *a2, unsigned int *a3)

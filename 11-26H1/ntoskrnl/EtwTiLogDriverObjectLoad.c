@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogDriverObjectLoad @ 0x140A2549C
+ * XREFs of EtwTiLogDriverObjectLoad @ 0x140A3853C
  * Callers:
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IoCreateDriver @ 0x140B57970 (IoCreateDriver.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IoCreateDriver @ 0x140B5A8C0 (IoCreateDriver.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpTiQueryCodeIntegrityOptions @ 0x140A24FC8 (EtwpTiQueryCodeIntegrityOptions.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpTiQueryCodeIntegrityOptions @ 0x140A38068 (EtwpTiQueryCodeIntegrityOptions.c)
  */
 
 BOOLEAN __fastcall EtwTiLogDriverObjectLoad(unsigned __int16 *a1)
@@ -27,10 +27,10 @@ BOOLEAN __fastcall EtwTiLogDriverObjectLoad(unsigned __int16 *a1)
   __int64 v13; // [rsp+60h] [rbp-10h]
 
   v7 = 0;
-  result = EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, &THREATINT_DRIVER_OBJECT_LOAD);
+  result = EtwEventEnabled(EtwThreatIntProvRegHandle, &THREATINT_DRIVER_OBJECT_LOAD);
   if ( result )
   {
-    result = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x40000000uLL);
+    result = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x40000000uLL);
     if ( result )
     {
       if ( a1 && *a1 )
@@ -51,16 +51,11 @@ BOOLEAN __fastcall EtwTiLogDriverObjectLoad(unsigned __int16 *a1)
       *(_QWORD *)&UserData.Size = 2LL;
       v9 = v3;
       v11 = 0;
-      if ( (int)EtwpTiQueryCodeIntegrityOptions(&v7) < 0 )
+      if ( EtwpTiQueryCodeIntegrityOptions(&v7) < 0 )
         v7 = -1;
       v12 = &v7;
       v13 = 4LL;
-      return EtwWrite(
-               *(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount,
-               &THREATINT_DRIVER_OBJECT_LOAD,
-               0LL,
-               3u,
-               &UserData);
+      return EtwWrite(EtwThreatIntProvRegHandle, &THREATINT_DRIVER_OBJECT_LOAD, 0LL, 3u, &UserData);
     }
   }
   return result;

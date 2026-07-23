@@ -1,13 +1,13 @@
 /*
- * XREFs of MinAsn1ParseSingleExtensionValue @ 0x140A70748
+ * XREFs of MinAsn1ParseSingleExtensionValue @ 0x140A709F8
  * Callers:
  *     MincryptValidateBasicConstraints @ 0x1406812AC (MincryptValidateBasicConstraints.c)
- *     I_MinCryptGetCertificateEKUs @ 0x140A6F770 (I_MinCryptGetCertificateEKUs.c)
+ *     I_MinCryptGetCertificateEKUs @ 0x140A6FA20 (I_MinCryptGetCertificateEKUs.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     MinAsn1ExtractContent @ 0x140A716B8 (MinAsn1ExtractContent.c)
- *     MinAsn1ExtractValues @ 0x140A71804 (MinAsn1ExtractValues.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     MinAsn1ExtractContent @ 0x140A71968 (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x140A71AB4 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MinAsn1ParseSingleExtensionValue(__int64 a1, unsigned int *a2, char *a3, _OWORD *a4)
@@ -61,7 +61,7 @@ __int64 __fastcall MinAsn1ParseSingleExtensionValue(__int64 a1, unsigned int *a2
   do
   {
     v19 = 4;
-    Values = MinAsn1ExtractValues(v11, v10, (unsigned int)&v19, (unsigned int)&qword_14000B350, 5, (__int64)v24);
+    Values = MinAsn1ExtractValues(v11, v10, (unsigned int)&v19, (unsigned int)&qword_14000B330, 5, (__int64)v24);
     if ( Values <= 0 )
     {
       v7 = v22;

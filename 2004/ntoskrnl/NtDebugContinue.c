@@ -12,7 +12,7 @@
  *     DbgkpWakeTarget @ 0x140882A20 (DbgkpWakeTarget.c)
  */
 
-NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
+NTSTATUS __cdecl NtDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
@@ -26,15 +26,21 @@ NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
   __int64 v13; // rdx
   __int64 v14; // r8
   _DWORD *v15; // r9
-  __int128 v16; // [rsp+40h] [rbp-28h]
+  CLIENT_ID v16; // [rsp+40h] [rbp-28h]
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v16 = *a2;
-  if ( a3 != -2147418111 && (a3 <= 0x10000 || a3 > 65538 && a3 != 1073807361 && (a3 <= 1073807362 || a3 > 1073807364)) )
+  v16 = *ClientId;
+  if ( ContinueStatus != -2147418111
+    && (ContinueStatus <= 0x10000
+     || ContinueStatus > 65538
+     && ContinueStatus != 1073807361
+     && (ContinueStatus <= 1073807362 || ContinueStatus > 1073807364)) )
+  {
     return -1073741811;
+  }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(DebugObjectHandle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
   v6 = result;
   if ( result >= 0 )
   {
@@ -47,7 +53,7 @@ NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
       goto LABEL_21;
     while ( 1 )
     {
-      if ( v10[5] == (_QWORD)v16 )
+      if ( (HANDLE)v10[5] == v16.UniqueProcess )
       {
         if ( v7 )
         {
@@ -60,12 +66,12 @@ LABEL_21:
             return -1073741811;
           if ( (PerfGlobalGroupMask[0] & 0x400000) != 0 )
             EtwTraceDebuggerEvent(v8[7], v8[8], 2);
-          *((_DWORD *)v8 + 33) = a3;
+          *((_DWORD *)v8 + 33) = ContinueStatus;
           *((_DWORD *)v8 + 18) = 0;
           DbgkpWakeTarget((char *)v8, v13, v14, v15);
           return v6;
         }
-        if ( v10[6] == *((_QWORD *)&v16 + 1) && (*((_DWORD *)v10 + 19) & 1) != 0 )
+        if ( (HANDLE)v10[6] == v16.UniqueThread && (*((_DWORD *)v10 + 19) & 1) != 0 )
         {
           v11 = (__int64 *)*v10;
           v12 = (__int64 **)v10[1];

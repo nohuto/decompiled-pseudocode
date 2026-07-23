@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpPrintString @ 0x1409192C4
+ * XREFs of KdpPrintString @ 0x14091A2C4
  * Callers:
- *     KdRefreshDebuggerNotPresent @ 0x140193E50 (KdRefreshDebuggerNotPresent.c)
- *     KdpPrint @ 0x140918224 (KdpPrint.c)
+ *     KdRefreshDebuggerNotPresent @ 0x140193F90 (KdRefreshDebuggerNotPresent.c)
+ *     KdpPrint @ 0x140919224 (KdpPrint.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KdpPollBreakInWithPortLock @ 0x14028CDC0 (KdpPollBreakInWithPortLock.c)
- *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KdpPollBreakInWithPortLock @ 0x14028CFB0 (KdpPollBreakInWithPortLock.c)
+ *     KdpCopyMemoryChunks @ 0x1409199A8 (KdpCopyMemoryChunks.c)
  */
 
 bool __fastcall KdpPrintString(struct _SINGLE_LIST_ENTRY **a1)

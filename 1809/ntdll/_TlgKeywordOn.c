@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpLogCapabilityCheckLatency @ 0x18004B4B8 (RtlpLogCapabilityCheckLatency.c)
  *     LdrpLogCFGModuleInfoTelemetry @ 0x18004CDD4 (LdrpLogCFGModuleInfoTelemetry.c)
- *     LdrpResReportResourceAccessInternal @ 0x18007DFE4 (LdrpResReportResourceAccessInternal.c)
+ *     LdrpResReportResourceAccessInternal @ 0x18007DFF4 (LdrpResReportResourceAccessInternal.c)
  *     LdrpLogImportRedirectionTelemetry @ 0x1800D1664 (LdrpLogImportRedirectionTelemetry.c)
  *     LdrpLogIntegrityContinuityTelemetry @ 0x1800D1770 (LdrpLogIntegrityContinuityTelemetry.c)
  *     LdrpLogMapAndVerifyResourceFileFailure @ 0x1800D1A74 (LdrpLogMapAndVerifyResourceFileFailure.c)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeEmptyBootPageTable @ 0x1409F7BF4
+ * XREFs of MiFreeEmptyBootPageTable @ 0x1409F8BF4
  * Callers:
- *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x1409BBD10 (MxCreateFreePfns.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockAndInsertPageInFreeList @ 0x140188C1C (MiLockAndInsertPageInFreeList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140188D5C (MiLockAndInsertPageInFreeList.c)
  */
 
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v5 = v7 + 1;
-      if ( HIBYTE(word_14043A1AC) == (_BYTE)v7 )
+      if ( HIBYTE(word_14043B26C) == (_BYTE)v7 )
       {
         v8 = ((unsigned __int8)v3 & (unsigned __int8)v5) == 0;
         goto LABEL_8;

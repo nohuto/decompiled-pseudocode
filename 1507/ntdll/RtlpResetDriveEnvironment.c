@@ -9,10 +9,10 @@
  *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpResetDriveEnvironment(WCHAR a1)
+NTSTATUS __fastcall RtlpResetDriveEnvironment(WCHAR a1)
 {
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  UNICODE_STRING v4; // [rsp+30h] [rbp-30h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
+  _UNICODE_STRING Value; // [rsp+30h] [rbp-30h] BYREF
   WCHAR v5; // [rsp+40h] [rbp-20h] BYREF
   int v6; // [rsp+42h] [rbp-1Eh]
   __int16 v7; // [rsp+46h] [rbp-1Ah]
@@ -26,6 +26,6 @@ __int64 __fastcall RtlpResetDriveEnvironment(WCHAR a1)
   v5 = a1;
   v6 = 6029370;
   v7 = 0;
-  RtlInitUnicodeString(&v4, &v5);
-  return RtlSetEnvironmentVariable(0LL, &DestinationString, &v4);
+  RtlInitUnicodeString(&Value, &v5);
+  return RtlSetEnvironmentVariable(0LL, &DestinationString, &Value);
 }

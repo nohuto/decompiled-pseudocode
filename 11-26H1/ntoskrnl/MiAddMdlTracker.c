@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAddMdlTracker @ 0x1404F3E20
+ * XREFs of MiAddMdlTracker @ 0x1404ED400
  * Callers:
- *     MiSwitchToTransition @ 0x1402A2130 (MiSwitchToTransition.c)
- *     MiProbeAndLockComplete @ 0x1403A0050 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
+ *     MiSwitchToTransition @ 0x1402A1680 (MiSwitchToTransition.c)
+ *     MiProbeAndLockComplete @ 0x1403A1DB0 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     rapidhash_internal @ 0x14024B730 (rapidhash_internal.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiCaptureStackTraceEx @ 0x14050EB9C (MiCaptureStackTraceEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiGetInstructionPointer @ 0x1406E653C (MiGetInstructionPointer.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     rapidhash_internal @ 0x14024D090 (rapidhash_internal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     MiCaptureStackTraceEx @ 0x14050860C (MiCaptureStackTraceEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiGetInstructionPointer @ 0x1406EB1EC (MiGetInstructionPointer.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)

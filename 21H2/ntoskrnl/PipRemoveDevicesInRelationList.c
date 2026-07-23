@@ -1,14 +1,14 @@
 /*
- * XREFs of PipRemoveDevicesInRelationList @ 0x140735D08
+ * XREFs of PipRemoveDevicesInRelationList @ 0x140735EC8
  * Callers:
- *     PnpDelayedRemoveWorker @ 0x140735EC0 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x140736080 (PnpDelayedRemoveWorker.c)
  * Callees:
- *     IopSortRelationListForRemove @ 0x14073720C (IopSortRelationListForRemove.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140737C58 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140738200 (PnpDeleteLockedDeviceNodes.c)
- *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
- *     IopRemoveRelationFromList @ 0x1408B2894 (IopRemoveRelationFromList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopSortRelationListForRemove @ 0x1407373CC (IopSortRelationListForRemove.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140737E18 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1407383C0 (PnpDeleteLockedDeviceNodes.c)
+ *     IopFreeRelationList @ 0x140739510 (IopFreeRelationList.c)
+ *     IopRemoveRelationFromList @ 0x1408B29F4 (IopRemoveRelationFromList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipRemoveDevicesInRelationList(PVOID P)

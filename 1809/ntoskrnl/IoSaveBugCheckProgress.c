@@ -1,12 +1,12 @@
 /*
- * XREFs of IoSaveBugCheckProgress @ 0x140280220
+ * XREFs of IoSaveBugCheckProgress @ 0x140280410
  * Callers:
- *     IoWriteCrashDump @ 0x1402805AC (IoWriteCrashDump.c)
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
- *     KiDisplayBlueScreen @ 0x140292574 (KiDisplayBlueScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
+ *     IoWriteCrashDump @ 0x14028079C (IoWriteCrashDump.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
+ *     KiDisplayBlueScreen @ 0x140292764 (KiDisplayBlueScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328CFC (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1402804BC (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1402806AC (IoUpdateBugCheckProgressEnvVariable.c)
  */
 
 __int64 __fastcall IoSaveBugCheckProgress(unsigned __int16 a1)

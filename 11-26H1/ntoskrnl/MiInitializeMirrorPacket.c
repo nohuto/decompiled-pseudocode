@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeMirrorPacket @ 0x140777B50
+ * XREFs of MiInitializeMirrorPacket @ 0x14077A9F0
  * Callers:
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     CcNotifyWriteBehind @ 0x1405B0D40 (CcNotifyWriteBehind.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     CcNotifyWriteBehind @ 0x1405B3550 (CcNotifyWriteBehind.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeMirrorPacket(_QWORD *a1, __int64 a2)
@@ -68,7 +68,7 @@ LABEL_21:
   }
 LABEL_24:
   *((_DWORD *)a1 + 16) = (4 * v3) | v7 & 0xFFFFFFFB;
-  if ( (stru_140E36558.WaitRegister.Flags & 8) != 0 )
+  if ( (stru_140E366D8.WaitRegister.Flags & 8) != 0 )
   {
     CurrentProcessorColor = MmGetCurrentProcessorColor();
     PoolMm = ExAllocatePoolMm(64LL, 0xFF0uLL, 2051566925, CurrentProcessorColor | 0x80000000);

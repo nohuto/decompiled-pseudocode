@@ -1,10 +1,10 @@
 /*
- * XREFs of XmEffectiveOffset @ 0x140532BF0
+ * XREFs of XmEffectiveOffset @ 0x140533140
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403B922C (XmEvaluateAddressSpecifier.c)
- *     longjmp @ 0x1403D7EE0 (longjmp.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B940C (XmEvaluateAddressSpecifier.c)
+ *     longjmp @ 0x1403D80C0 (longjmp.c)
  */
 
 __int64 __fastcall XmEffectiveOffset(__int64 a1)

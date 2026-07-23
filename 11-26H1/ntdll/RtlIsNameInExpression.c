@@ -1,32 +1,38 @@
 /*
- * XREFs of RtlIsNameInExpression @ 0x180036670
+ * XREFs of RtlIsNameInExpression @ 0x1800217D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsNameInExpressionPrivate @ 0x1800366E8 (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x180036D30 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlFreeAnsiString @ 0x180056B20 (RtlFreeAnsiString.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x180021848 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x180021E90 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlFreeAnsiString @ 0x1800410A0 (RtlFreeAnsiString.c)
  */
 
-char __fastcall RtlIsNameInExpression(int a1, __int128 *a2, char a3, __int64 a4)
+BOOLEAN __cdecl RtlIsNameInExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  int v6; // eax
-  char IsNameInExpressionPrivate; // bl
-  __int128 v9; // [rsp+30h] [rbp-18h] BYREF
+  int v5; // edi
+  NTSTATUS v6; // eax
+  BOOLEAN IsNameInExpressionPrivate; // bl
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-18h] BYREF
 
-  v9 = 0LL;
-  if ( a3 && !a4 )
+  v5 = (int)Expression;
+  *(_OWORD *)BaseAddress = 0LL;
+  if ( IgnoreCase && !UpcaseTable )
   {
-    v6 = RtlpUpcaseUnicodeStringPrivate(&v9);
+    v6 = RtlpUpcaseUnicodeStringPrivate(BaseAddress, Name);
     if ( v6 < 0 )
-      RtlRaiseStatus((unsigned int)v6);
-    a2 = &v9;
-    a3 = 0;
+      RtlRaiseStatus(v6);
+    Name = (PUNICODE_STRING)BaseAddress;
+    IgnoreCase = 0;
   }
-  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(a1, (_DWORD)a2, a3, 0, a4);
-  if ( *((_QWORD *)&v9 + 1) )
-    RtlpSysVolFree(*((_QWORD *)&v9 + 1));
+  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(v5, (_DWORD)Name, IgnoreCase, 0, (__int64)UpcaseTable);
+  if ( BaseAddress[1] )
+    RtlpSysVolFree(BaseAddress[1]);
   return IsNameInExpressionPrivate;
 }

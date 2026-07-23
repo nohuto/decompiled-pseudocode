@@ -1,28 +1,28 @@
 /*
- * XREFs of PoIdle @ 0x1402C4B60
+ * XREFs of PoIdle @ 0x1402C4DF0
  * Callers:
- *     KiIdleLoop @ 0x1404239C0 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140423D50 (KiIdleLoop.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     PpmIdlePrepare @ 0x1402C2330 (PpmIdlePrepare.c)
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     PpmEventIdleStateChange @ 0x14034E968 (PpmEventIdleStateChange.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034F190 (PpmPerfArbitratorApplyProcessorState.c)
- *     HalRequestIpi @ 0x14035C190 (HalRequestIpi.c)
- *     KeIdleSpecCtrl @ 0x140372610 (KeIdleSpecCtrl.c)
- *     PpmResetProcessorIdleAccounting @ 0x14039FC04 (PpmResetProcessorIdleAccounting.c)
- *     PpmIdleSelectStates @ 0x1403B7470 (PpmIdleSelectStates.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalProcessorIdle @ 0x14041A680 (HalProcessorIdle.c)
- *     KeExecuteVerw @ 0x140435680 (KeExecuteVerw.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeUpdatePendingQosRequest @ 0x14046147C (KeUpdatePendingQosRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmSetPlatformIdleDurationHint @ 0x140585C20 (PpmSetPlatformIdleDurationHint.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     PpmIdlePrepare @ 0x1402C25C0 (PpmIdlePrepare.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     PpmEventIdleStateChange @ 0x14034EB08 (PpmEventIdleStateChange.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x14034F330 (PpmPerfArbitratorApplyProcessorState.c)
+ *     HalRequestIpi @ 0x14035C330 (HalRequestIpi.c)
+ *     KeIdleSpecCtrl @ 0x1403727B0 (KeIdleSpecCtrl.c)
+ *     PpmResetProcessorIdleAccounting @ 0x14039FDE4 (PpmResetProcessorIdleAccounting.c)
+ *     PpmIdleSelectStates @ 0x1403B7650 (PpmIdleSelectStates.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalProcessorIdle @ 0x14041AA10 (HalProcessorIdle.c)
+ *     KeExecuteVerw @ 0x140435A80 (KeExecuteVerw.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeUpdatePendingQosRequest @ 0x14046187C (KeUpdatePendingQosRequest.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x140586110 (PpmSetPlatformIdleDurationHint.c)
  */
 
 __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
@@ -106,8 +106,8 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   v62 = 0;
   memset(&v68[2], 0, 0x100uLL);
   v3 = PpmCurrentProfile;
-  result = dword_140C3D86C;
-  if ( BYTE5(PpmCurrentProfile[55 * dword_140C3D86C + 23]) )
+  result = dword_140C3D96C;
+  if ( BYTE5(PpmCurrentProfile[55 * dword_140C3D96C + 23]) )
     return result;
   v5 = *(_QWORD *)(BugCheckParameter4 + 33600);
   v6 = *(_QWORD *)(BugCheckParameter4 + 33608);

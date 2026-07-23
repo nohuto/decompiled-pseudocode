@@ -8,5 +8,5 @@
 
 void __fastcall KeSetProfileIrql(char a1)
 {
-  KiProfileIrql = a1;
+  byte_140D0501B = a1;
 }

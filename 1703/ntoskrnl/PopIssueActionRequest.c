@@ -61,8 +61,8 @@ __int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_
   signed __int32 v24[8]; // [rsp+0h] [rbp-78h] BYREF
   char v25; // [rsp+20h] [rbp-58h]
   bool v26; // [rsp+21h] [rbp-57h]
-  int v27; // [rsp+24h] [rbp-54h]
-  int v28; // [rsp+28h] [rbp-50h] BYREF
+  ULONG v27; // [rsp+24h] [rbp-54h]
+  ULONG v28; // [rsp+28h] [rbp-50h] BYREF
   unsigned __int64 v29; // [rsp+30h] [rbp-48h] BYREF
   _BYTE v30[8]; // [rsp+38h] [rbp-40h] BYREF
   _BYTE v31[8]; // [rsp+40h] [rbp-38h] BYREF

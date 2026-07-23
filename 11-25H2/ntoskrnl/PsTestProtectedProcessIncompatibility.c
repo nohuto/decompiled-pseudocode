@@ -12,21 +12,13 @@
  *     RtlTestProtectedAccess @ 0x1409BC0CC (RtlTestProtectedAccess.c)
  */
 
-bool __fastcall PsTestProtectedProcessIncompatibility(__int64 a1, __int64 a2, __int64 a3)
+bool __fastcall PsTestProtectedProcessIncompatibility(char a1, PS_PROTECTION *a2, PS_PROTECTION *a3)
 {
   __int64 v3; // r10
-  __int64 v4; // r10
 
-  v3 = a2;
-  if ( a2 == a3 )
-    return 0;
-  if ( !(_BYTE)a1 )
-    return 0;
-  LOBYTE(a2) = *(_BYTE *)(a3 + 1530);
-  LOBYTE(a1) = *(_BYTE *)(v3 + 1530);
-  if ( (unsigned __int8)RtlTestProtectedAccess(a1, a2) )
+  if ( a2 == a3 || !a1 || RtlTestProtectedAccess(a2[1530], a3[1530]) )
     return 0;
   if ( qword_140F04558 )
-    return (unsigned __int8)guard_dispatch_icall_no_overrides(v4) == 0;
+    return (unsigned __int8)guard_dispatch_icall_no_overrides(v3) == 0;
   return 1;
 }

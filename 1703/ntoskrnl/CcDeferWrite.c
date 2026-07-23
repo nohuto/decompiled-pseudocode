@@ -25,10 +25,10 @@ void __stdcall CcDeferWrite(
   _QWORD *PoolWithTag; // rax
   char *PartitionFromFileObject; // rax
   __int64 v12; // rdx
-  struct _LIST_ENTRY *v13; // rdx
+  _LIST_ENTRY *v13; // rdx
   __int64 v14; // rbx
   KSPIN_LOCK *v15; // r8
-  struct _LIST_ENTRY *v16; // rcx
+  _LIST_ENTRY *v16; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x77446343u);
@@ -42,10 +42,10 @@ void __stdcall CcDeferWrite(
     PoolWithTag[7] = Context1;
     PoolWithTag[8] = Context2;
     PartitionFromFileObject = (char *)CcGetPartitionFromFileObject((__int64)FileObject);
-    v13 = (struct _LIST_ENTRY *)(v12 + 24);
+    v13 = (_LIST_ENTRY *)(v12 + 24);
     v14 = (__int64)PartitionFromFileObject;
     v15 = (KSPIN_LOCK *)(PartitionFromFileObject + 832);
-    v16 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 816);
+    v16 = (_LIST_ENTRY *)(PartitionFromFileObject + 816);
     if ( Retrying )
       ExInterlockedInsertHeadList(v16, v13, v15);
     else

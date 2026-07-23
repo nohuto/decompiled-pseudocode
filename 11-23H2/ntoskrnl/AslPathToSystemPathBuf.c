@@ -1,12 +1,12 @@
 /*
- * XREFs of AslPathToSystemPathBuf @ 0x140A553E8
+ * XREFs of AslPathToSystemPathBuf @ 0x140A55698
  * Callers:
- *     SdbpGetPathAppPatch @ 0x140A52C30 (SdbpGetPathAppPatch.c)
- *     AslPathToSystemPath @ 0x140A55328 (AslPathToSystemPath.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x140A573FC (AslEnvGetSystem32DirPathBuf.c)
+ *     SdbpGetPathAppPatch @ 0x140A52EE0 (SdbpGetPathAppPatch.c)
+ *     AslPathToSystemPath @ 0x140A555D8 (AslPathToSystemPath.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x140A576AC (AslEnvGetSystem32DirPathBuf.c)
  * Callees:
- *     RtlStringCchCatW @ 0x14022BC94 (RtlStringCchCatW.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlStringCchCatW @ 0x14022BDA4 (RtlStringCchCatW.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */
 

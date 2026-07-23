@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpRemovePoolTrackerExpansion @ 0x14046B19A
+ * XREFs of ExpRemovePoolTrackerExpansion @ 0x14046B59A
  * Callers:
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     ExInsertPoolTag @ 0x1403BA4FC (ExInsertPoolTag.c)
- *     ExRemovePoolTag @ 0x1403C380C (ExRemovePoolTag.c)
- *     ExPoolCleanupExpansionTable @ 0x1406072A8 (ExPoolCleanupExpansionTable.c)
- *     ExpFreeHeapSpecialPool @ 0x14060F0A8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403BA6DC (ExInsertPoolTag.c)
+ *     ExRemovePoolTag @ 0x1403C39EC (ExRemovePoolTag.c)
+ *     ExPoolCleanupExpansionTable @ 0x1406077F8 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060F5F8 (ExpFreeHeapSpecialPool.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402AC350 (ExpPoolTrackerReturnLimit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpPoolTrackerReturnLimit @ 0x1402AC5E0 (ExpPoolTrackerReturnLimit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
@@ -54,10 +54,10 @@ int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
     ExpPoolTrackerReturnLimit((a3 & 1) == 0, a2, PoolTrackTableExpansion + 80 * v6);
     LODWORD(CurrentIrql) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
     OldIrql = v20.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(CurrentIrql) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)CurrentIrql <= 0xFu
         && v20.OldIrql <= 0xFu
         && (unsigned __int8)CurrentIrql >= 2u )
@@ -68,7 +68,7 @@ int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
         v13 = ((unsigned int)CurrentIrql & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= CurrentIrql;
         if ( v13 )
-          LODWORD(CurrentIrql) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          LODWORD(CurrentIrql) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);
@@ -78,10 +78,10 @@ int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
 LABEL_6:
     CurrentIrql = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
     v10 = v20.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)CurrentIrql <= 0xFu
         && v20.OldIrql <= 0xFu
         && (unsigned __int8)CurrentIrql >= 2u )
@@ -92,7 +92,7 @@ LABEL_6:
         v13 = ((unsigned int)CurrentIrql & v12[5]) == 0;
         v12[5] &= CurrentIrql;
         if ( v13 )
-          CurrentIrql = KiRemoveSystemWorkPriorityKick(v11);
+          CurrentIrql = KiRemoveSystemWorkPriorityKick((__int64)v11);
       }
     }
     __writecr8(v10);

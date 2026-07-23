@@ -6,9 +6,9 @@
  *     _RtlAcquireSRWLockShared@4 @ 0x4B2B5380 (_RtlAcquireSRWLockShared@4.c)
  */
 
-char __fastcall RtlpHpLargeLockAcquireShared(int a1, char a2)
+char __fastcall RtlpHpLargeLockAcquireShared(_RTL_SRWLOCK *a1, char a2)
 {
   if ( (a2 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int32 *)(a1 + 64));
+    RtlAcquireSRWLockShared(a1 + 16);
   return -1;
 }

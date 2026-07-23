@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCalloutWatchdogCallback @ 0x1408FCA60
+ * XREFs of TtmpCalloutWatchdogCallback @ 0x1408FCBC0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140888B30 (DbgkWerCaptureLiveKernelDump.c)
- *     TtmiLogCalloutWatchdogCrashSkipped @ 0x1409016E4 (TtmiLogCalloutWatchdogCrashSkipped.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888C90 (DbgkWerCaptureLiveKernelDump.c)
+ *     TtmiLogCalloutWatchdogCrashSkipped @ 0x140901844 (TtmiLogCalloutWatchdogCrashSkipped.c)
  */
 
 __int64 __fastcall TtmpCalloutWatchdogCallback(

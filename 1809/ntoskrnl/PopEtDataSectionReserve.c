@@ -1,7 +1,7 @@
 /*
- * XREFs of PopEtDataSectionReserve @ 0x14069CEE8
+ * XREFs of PopEtDataSectionReserve @ 0x14069E0A8
  * Callers:
- *     PopEtEnergyTrackerQuery @ 0x14069C1DC (PopEtEnergyTrackerQuery.c)
+ *     PopEtEnergyTrackerQuery @ 0x14069D39C (PopEtEnergyTrackerQuery.c)
  * Callees:
  *     <none>
  */

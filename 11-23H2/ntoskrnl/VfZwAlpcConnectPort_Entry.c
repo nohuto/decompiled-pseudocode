@@ -1,12 +1,12 @@
 /*
- * XREFs of VfZwAlpcConnectPort_Entry @ 0x140AD40E0
+ * XREFs of VfZwAlpcConnectPort_Entry @ 0x140AD40D0
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckObjectAttributes @ 0x140AD4F64 (ViZwCheckObjectAttributes.c)
- *     ViZwCheckUnicodeString @ 0x140AD4FB4 (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x140AD503C (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140AD5078 (ViZwShouldCheck.c)
+ *     ViZwCheckObjectAttributes @ 0x140AD4F54 (ViZwCheckObjectAttributes.c)
+ *     ViZwCheckUnicodeString @ 0x140AD4FA4 (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x140AD502C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140AD5068 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwAlpcConnectPort_Entry(ULONG_PTR *a1)

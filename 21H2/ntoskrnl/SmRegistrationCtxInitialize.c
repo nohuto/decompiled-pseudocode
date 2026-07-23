@@ -1,7 +1,7 @@
 /*
- * XREFs of SmRegistrationCtxInitialize @ 0x1406C3FC0
+ * XREFs of SmRegistrationCtxInitialize @ 0x140622B80
  * Callers:
- *     SmGlobalsInitialize @ 0x140A4B528 (SmGlobalsInitialize.c)
+ *     SmGlobalsInitialize @ 0x140A4C528 (SmGlobalsInitialize.c)
  * Callees:
  *     <none>
  */

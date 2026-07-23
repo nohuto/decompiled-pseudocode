@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIsDecayPfn @ 0x14026EBD0
+ * XREFs of MiIsDecayPfn @ 0x14026EE60
  * Callers:
- *     MiSynchronizeFastPageInsert @ 0x14026DF10 (MiSynchronizeFastPageInsert.c)
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     MiSkipStandbyEntries @ 0x140330FEC (MiSkipStandbyEntries.c)
- *     MiWriteStandbyLookasideEntry @ 0x1403310CC (MiWriteStandbyLookasideEntry.c)
- *     MiFindSuitableLookasideReplacement @ 0x140331130 (MiFindSuitableLookasideReplacement.c)
- *     MiMirrorGatherBrownPages @ 0x140626C78 (MiMirrorGatherBrownPages.c)
- *     MiMirrorReduceBlackWrites @ 0x140628060 (MiMirrorReduceBlackWrites.c)
- *     MiGetStandbyPageType @ 0x140650774 (MiGetStandbyPageType.c)
- *     MiLockStandbyOldestPage @ 0x140650D1C (MiLockStandbyOldestPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
+ *     MiSynchronizeFastPageInsert @ 0x14026E1A0 (MiSynchronizeFastPageInsert.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     MiSkipStandbyEntries @ 0x14033127C (MiSkipStandbyEntries.c)
+ *     MiWriteStandbyLookasideEntry @ 0x14033135C (MiWriteStandbyLookasideEntry.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1403313C0 (MiFindSuitableLookasideReplacement.c)
+ *     MiMirrorGatherBrownPages @ 0x1406271C8 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorReduceBlackWrites @ 0x1406285B0 (MiMirrorReduceBlackWrites.c)
+ *     MiGetStandbyPageType @ 0x140650CC4 (MiGetStandbyPageType.c)
+ *     MiLockStandbyOldestPage @ 0x14065126C (MiLockStandbyOldestPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
  * Callees:
  *     <none>
  */

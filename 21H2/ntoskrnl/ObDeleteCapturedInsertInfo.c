@@ -1,12 +1,12 @@
 /*
- * XREFs of ObDeleteCapturedInsertInfo @ 0x140671F50
+ * XREFs of ObDeleteCapturedInsertInfo @ 0x140667490
  * Callers:
- *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
+ *     CcInitializeCacheMapEx @ 0x1402D2E10 (CcInitializeCacheMapEx.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     SeReleaseSecurityDescriptor @ 0x140651570 (SeReleaseSecurityDescriptor.c)
  */
 
 PSLIST_ENTRY __fastcall ObDeleteCapturedInsertInfo(__int64 a1)

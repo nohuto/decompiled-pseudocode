@@ -1,8 +1,8 @@
 /*
- * XREFs of ExSweepSingleHandle @ 0x1402BEB18
+ * XREFs of ExSweepSingleHandle @ 0x1402BEDA8
  * Callers:
- *     ExDestroyHandle @ 0x14073FA9C (ExDestroyHandle.c)
- *     ObCloseHandleTableEntry @ 0x14073FDC4 (ObCloseHandleTableEntry.c)
+ *     ExDestroyHandle @ 0x14073FC8C (ExDestroyHandle.c)
+ *     ObCloseHandleTableEntry @ 0x14073FFB4 (ObCloseHandleTableEntry.c)
  * Callees:
  *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
  */

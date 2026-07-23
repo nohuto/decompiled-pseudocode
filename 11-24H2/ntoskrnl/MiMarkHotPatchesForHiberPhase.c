@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMarkHotPatchesForHiberPhase @ 0x140B63450
+ * XREFs of MiMarkHotPatchesForHiberPhase @ 0x140B65520
  * Callers:
- *     MmMarkImageForHiberPhase @ 0x140B6312C (MmMarkImageForHiberPhase.c)
+ *     MmMarkImageForHiberPhase @ 0x140B651FC (MmMarkImageForHiberPhase.c)
  * Callees:
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403EA010 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x140B6282C (MiMarkNonPagedHiberPhasePages.c)
- *     MiEnumerateBasePatches @ 0x140B63378 (MiEnumerateBasePatches.c)
- *     MiMarkHotPatchForHiberPhase @ 0x140B633F0 (MiMarkHotPatchForHiberPhase.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403D7CB0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140B648FC (MiMarkNonPagedHiberPhasePages.c)
+ *     MiEnumerateBasePatches @ 0x140B65448 (MiEnumerateBasePatches.c)
+ *     MiMarkHotPatchForHiberPhase @ 0x140B654C0 (MiMarkHotPatchForHiberPhase.c)
  */
 
 __int64 __fastcall MiMarkHotPatchesForHiberPhase(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MiMarkHotPatchesForHiberPhase(__int64 a1)
       0);
   }
   result = MiEnumerateBasePatches(v1, (__int64)MiMarkHotPatchForHiberPhase, 0LL);
-  if ( qword_140E374A0 == v1 )
-    return MiMarkHotPatchForHiberPhase(qword_140E37498);
+  if ( qword_140E375E0 == v1 )
+    return MiMarkHotPatchForHiberPhase(qword_140E375D8);
   return result;
 }

@@ -21,18 +21,18 @@ void RtlpInitializeStackTraceLog()
   unsigned __int64 v4; // r14
   unsigned int v5; // r15d
   unsigned __int64 v6; // rax
-  unsigned __int64 i; // r12
+  SIZE_T i; // r12
   __int64 v8; // rbx
-  __int64 v9; // rbp
-  union _SLIST_HEADER *v10; // rdi
-  union _SLIST_HEADER *v11; // rbx
-  unsigned __int64 v12; // rax
-  __int64 v13; // rcx
+  PVOID v9; // rbp
+  _SLIST_HEADER *v10; // rdi
+  _SLIST_HEADER *v11; // rbx
+  PVOID v12; // rax
+  PVOID v13; // rcx
   _QWORD *v14; // rbx
-  union _SLIST_HEADER *v15; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v16; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v17; // [rsp+80h] [rbp+18h] BYREF
-  void *v18; // [rsp+88h] [rbp+20h] BYREF
+  PVOID Block; // [rsp+70h] [rbp+8h] BYREF
+  PVOID MemoryZone; // [rsp+78h] [rbp+10h] BYREF
+  PVOID v17; // [rsp+80h] [rbp+18h] BYREF
+  PVOID v18; // [rsp+88h] [rbp+20h] BYREF
 
   if ( !RtlpHeapStackTraceLog )
   {
@@ -54,13 +54,13 @@ void RtlpInitializeStackTraceLog()
     for ( i = (v2 + 48 * (v2 / v4) + 4095) & 0xFFFFFFFFFFFFF000uLL; v6 < v4; ++v5 )
       v6 *= 2LL;
     v8 = 32LL * v5;
-    if ( (int)RtlCreateMemoryZone(&v16, (v8 + 4143) & 0xFFFFFFFFFFFFF000uLL, 0) >= 0 )
+    if ( RtlCreateMemoryZone(&MemoryZone, (v8 + 4143) & 0xFFFFFFFFFFFFF000uLL, 0) >= 0 )
     {
-      v9 = v16;
-      if ( (int)RtlAllocateMemoryZone(v16, v8 + 64, &v15) < 0
-        || (v10 = (union _SLIST_HEADER *)(((unsigned __int64)&v15->HeaderX64 + 15) & 0xFFFFFFFFFFFFFFF0uLL),
-            v15 = v10,
-            (int)RtlCreateMemoryZone(&v17, i, 0) < 0) )
+      v9 = MemoryZone;
+      if ( RtlAllocateMemoryZone(MemoryZone, v8 + 64, &Block) < 0
+        || (v10 = (_SLIST_HEADER *)(((unsigned __int64)Block + 15) & 0xFFFFFFFFFFFFFFF0uLL),
+            Block = v10,
+            RtlCreateMemoryZone(&v17, i, 0) < 0) )
       {
         RtlDestroyMemoryZone(v9);
         return;
@@ -69,8 +69,8 @@ void RtlpInitializeStackTraceLog()
       v10->Alignment = 0LL;
       v11 = v10 + 3;
       v12 = v17;
-      v10->Region = v9;
-      v10[1].Alignment = v12;
+      v10->Region = (unsigned __int64)v9;
+      v10[1].Alignment = (unsigned __int64)v12;
       v10[1].Region = 16LL;
       v10[2].Alignment = v4;
       *((_DWORD *)&v10[2].HeaderX64 + 2) = v5;
@@ -84,18 +84,18 @@ void RtlpInitializeStackTraceLog()
         v3 *= 2LL;
         v11 += 2;
       }
-      if ( (int)RtlAllocateMemoryBlockLookaside(v10, 6432LL, &v18) >= 0 )
+      if ( RtlAllocateMemoryBlockLookaside(v10, 0x1920u, &v18) >= 0 )
       {
         v14 = v18;
         memset(v18, 0, 0x1920uLL);
         *v14 = v10;
         if ( !_InterlockedCompareExchange64(&RtlpHeapStackTraceLog, (signed __int64)v14, 0LL) )
           return;
-        v13 = (__int64)v15;
+        v13 = Block;
       }
       else
       {
-        v13 = (__int64)v10;
+        v13 = v10;
       }
       RtlDestroyMemoryBlockLookaside(v13);
     }

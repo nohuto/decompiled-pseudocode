@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlSetSystemGlobalData @ 0x1401B5DDC
+ * XREFs of RtlSetSystemGlobalData @ 0x1401B5F44
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140735864 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall RtlSetSystemGlobalData(__int64 a1, _DWORD *a2)
+DWORD __cdecl RtlSetSystemGlobalData(RTL_SYSTEM_GLOBAL_DATA_ID DataId, PVOID Buffer, DWORD Size)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 584LL) = *a2;
+    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 584LL) = *(_DWORD *)Buffer;
   else
-    MEMORY[0xFFFFF78000000240] = *a2;
-  return 0LL;
+    MEMORY[0xFFFFF78000000240] = *(_DWORD *)Buffer;
+  return 0;
 }

@@ -129,9 +129,9 @@ PHYSICAL_ADDRESS *__fastcall HvlpAcquireHypercallPage(__int64 a1, int a2, __int6
         {
           v19 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v19 != 2 )

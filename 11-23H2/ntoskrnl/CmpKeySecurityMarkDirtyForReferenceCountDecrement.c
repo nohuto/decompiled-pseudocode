@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpKeySecurityMarkDirtyForReferenceCountDecrement @ 0x1404199F4
+ * XREFs of CmpKeySecurityMarkDirtyForReferenceCountDecrement @ 0x140419D84
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x14070CF18 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14070D128 (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     HvMarkCellDirty @ 0x1408ABCF6 (HvMarkCellDirty.c)
+ *     HvMarkCellDirty @ 0x1408ABF46 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpKeySecurityMarkDirtyForReferenceCountDecrement(unsigned int *a1, __int64 a2, unsigned int a3)

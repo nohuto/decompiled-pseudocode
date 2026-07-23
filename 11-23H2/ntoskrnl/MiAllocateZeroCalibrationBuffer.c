@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateZeroCalibrationBuffer @ 0x1403AA918
+ * XREFs of MiAllocateZeroCalibrationBuffer @ 0x1403AAAF8
  * Callers:
- *     MiZeroPageCalibrate @ 0x1403AA5F0 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x1403AA7D0 (MiZeroPageCalibrate.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B9C20 (MmAllocateContiguousNodeMemory.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B9E00 (MmAllocateContiguousNodeMemory.c)
  */
 
 PVOID __fastcall MiAllocateZeroCalibrationBuffer(int a1, SIZE_T a2, int a3)

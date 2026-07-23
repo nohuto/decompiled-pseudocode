@@ -1,8 +1,8 @@
 /*
- * XREFs of IovUtilFlushStackCache @ 0x140AD29FC
+ * XREFs of IovUtilFlushStackCache @ 0x140AD29EC
  * Callers:
- *     IovAttachDeviceToDeviceStack @ 0x140AC0FA4 (IovAttachDeviceToDeviceStack.c)
- *     VfIoDetachDevice @ 0x140AD23C8 (VfIoDetachDevice.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140AC0F94 (IovAttachDeviceToDeviceStack.c)
+ *     VfIoDetachDevice @ 0x140AD23B8 (VfIoDetachDevice.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180095770
+ * XREFs of RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180063110
  * Callers:
- *     RtlpHpLfhOwnerFreeListProcess @ 0x1800952B0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhOwnerGetSubsegment @ 0x1800955E0 (RtlpHpLfhOwnerGetSubsegment.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x180062C50 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhOwnerGetSubsegment @ 0x180062F80 (RtlpHpLfhOwnerGetSubsegment.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
  *     <none>
  */

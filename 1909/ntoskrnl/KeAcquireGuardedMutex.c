@@ -22,16 +22,16 @@
 
 void __stdcall KeAcquireGuardedMutex(PKGUARDED_MUTEX Mutex)
 {
-  __int64 v2; // rbx
+  PRTL_BALANCED_NODE v2; // rbx
   unsigned __int8 CurrentIrql; // si
 
   v2 = KeAbPreAcquire((ULONG_PTR)Mutex, 0LL, 0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset(&Mutex->Count, 0) )
-    ExpAcquireFastMutexContended((ULONG_PTR)Mutex);
+    ExpAcquireFastMutexContended((ULONG_PTR)Mutex, v2);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   Mutex->Owner = KeGetCurrentThread();
   Mutex->OldIrql = CurrentIrql;
 }

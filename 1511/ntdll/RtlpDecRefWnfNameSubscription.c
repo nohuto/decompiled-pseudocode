@@ -11,34 +11,34 @@
  *     RtlpWnfETWEventNameSubRundown @ 0x1800D16E8 (RtlpWnfETWEventNameSubRundown.c)
  */
 
-__int64 __fastcall RtlpDecRefWnfNameSubscription(__int64 a1)
+void __fastcall RtlpDecRefWnfNameSubscription(char *BaseAddress)
 {
-  __int64 v3; // rdx
-  _QWORD *v4; // rcx
-  __int64 v5; // r8
+  char **v2; // rdx
+  PVOID *v3; // rcx
+  void *v4; // r8
 
-  RtlAcquireSRWLockExclusive(qword_180145FA8 + 8);
-  RtlAcquireSRWLockExclusive(a1 + 56);
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 108), 0xFFFFFFFF) == 1 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(qword_180145FA8 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 27, 0xFFFFFFFF) == 1 )
   {
     if ( MEMORY[0x7FFE038E] )
-      RtlpWnfETWEventNameSubRundown(*(_QWORD *)(a1 + 16), a1);
-    NtUnsubscribeWnfStateChange(a1 + 16);
-    v3 = *(_QWORD *)(a1 + 32);
-    v4 = *(_QWORD **)(a1 + 40);
-    if ( *(_QWORD *)(v3 + 8) != a1 + 32 || *v4 != a1 + 32 )
+      RtlpWnfETWEventNameSubRundown(*((_QWORD *)BaseAddress + 2), BaseAddress);
+    NtUnsubscribeWnfStateChange((PCWNF_STATE_NAME)BaseAddress + 2);
+    v2 = (char **)*((_QWORD *)BaseAddress + 4);
+    v3 = (PVOID *)*((_QWORD *)BaseAddress + 5);
+    if ( v2[1] != BaseAddress + 32 || *v3 != BaseAddress + 32 )
       __fastfail(3u);
-    *v4 = v3;
-    *(_QWORD *)(v3 + 8) = v4;
-    RtlReleaseSRWLockExclusive(a1 + 56);
-    v5 = *(_QWORD *)(a1 + 120);
-    if ( v5 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v5);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+    *v3 = v2;
+    v2[1] = (char *)v3;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+    v4 = (void *)*((_QWORD *)BaseAddress + 15);
+    if ( v4 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   else
   {
-    RtlReleaseSRWLockExclusive(a1 + 56);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
   }
-  return RtlReleaseSRWLockExclusive(qword_180145FA8 + 8);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_180145FA8 + 8));
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of VhdVerifyBootDisk @ 0x1408A5FFC
+ * XREFs of VhdVerifyBootDisk @ 0x1408AC46C
  * Callers:
- *     IopCreateArcName @ 0x140B1C9D8 (IopCreateArcName.c)
+ *     IopCreateArcName @ 0x140B1EBE8 (IopCreateArcName.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall VhdVerifyBootDisk(PDEVICE_OBJECT DeviceObject)
@@ -28,12 +28,12 @@ bool __fastcall VhdVerifyBootDisk(PDEVICE_OBJECT DeviceObject)
   IoStatusBlock = 0LL;
   if ( DeviceObject )
   {
-    if ( WheapPfaLock.SchedulerAssistLastYieldBoostTime )
+    if ( qword_140EF00C0 )
     {
       v3 = -1LL;
       do
         ++v3;
-      while ( *(_WORD *)(WheapPfaLock.SchedulerAssistLastYieldBoostTime + 2 * v3) );
+      while ( *(_WORD *)(qword_140EF00C0 + 2 * v3) );
       OutputBufferLength = 2 * v3 + 2;
       OutputBuffer = (void *)ExAllocatePool2(0x40uLL);
       if ( OutputBuffer )
@@ -58,9 +58,7 @@ bool __fastcall VhdVerifyBootDisk(PDEVICE_OBJECT DeviceObject)
             Status = IoStatusBlock.Status;
           }
           if ( Status >= 0 )
-            v1 = wcsicmp(
-                   (const wchar_t *)OutputBuffer,
-                   (const wchar_t *)(WheapPfaLock.SchedulerAssistLastYieldBoostTime + 2)) == 0;
+            v1 = wcsicmp((const wchar_t *)OutputBuffer, (const wchar_t *)(qword_140EF00C0 + 2)) == 0;
         }
         ExFreePoolWithTag(OutputBuffer, 0x42646856u);
       }

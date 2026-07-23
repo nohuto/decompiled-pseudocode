@@ -1,11 +1,11 @@
 /*
- * XREFs of MD4Final @ 0x18010FE80
+ * XREFs of MD4Final @ 0x18010FE40
  * Callers:
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     MD4Update @ 0x180110510 (MD4Update.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     MD4Update @ 0x1801104D0 (MD4Update.c)
  */
 
 __int64 __fastcall MD4Final(_DWORD *a1)

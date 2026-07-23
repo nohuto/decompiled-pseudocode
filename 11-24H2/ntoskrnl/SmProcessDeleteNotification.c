@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessDeleteNotification @ 0x140A51570
+ * XREFs of SmProcessDeleteNotification @ 0x140A4863C
  * Callers:
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
  * Callees:
- *     SmKmStoreGet @ 0x140245714 (SmKmStoreGet.c)
- *     SmpKeyedStoreEntryGet @ 0x1402457A0 (SmpKeyedStoreEntryGet.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x1404492D0 (SmKmStoreDeleteWhenEmpty.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     SmCompressionProcessHoldsPartitionReference @ 0x1404F6D2C (SmCompressionProcessHoldsPartitionReference.c)
+ *     SmKmStoreGet @ 0x14020DEF4 (SmKmStoreGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x14020DF80 (SmpKeyedStoreEntryGet.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140441A20 (SmKmStoreDeleteWhenEmpty.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     SmCompressionProcessHoldsPartitionReference @ 0x1404F4610 (SmCompressionProcessHoldsPartitionReference.c)
  */
 
 void __fastcall SmProcessDeleteNotification(__int64 a1)

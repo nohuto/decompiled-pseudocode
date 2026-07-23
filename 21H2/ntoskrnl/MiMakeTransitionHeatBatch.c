@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMakeTransitionHeatBatch @ 0x14055FA70
+ * XREFs of MiMakeTransitionHeatBatch @ 0x14055FCB0
  * Callers:
- *     MiHandleTransitionFault @ 0x140217450 (MiHandleTransitionFault.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
+ *     MiHandleTransitionFault @ 0x1402BBD50 (MiHandleTransitionFault.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x14033C250 (MmCopyToCachedPage.c)
  * Callees:
- *     MiSetNonResidentPteHeat @ 0x14023E7B0 (MiSetNonResidentPteHeat.c)
- *     MiTryLockLeafPage @ 0x140303978 (MiTryLockLeafPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
+ *     MiLockTransitionLeafPage @ 0x140224B74 (MiLockTransitionLeafPage.c)
+ *     MiSetNonResidentPteHeat @ 0x1402E3000 (MiSetNonResidentPteHeat.c)
+ *     MiTryLockLeafPage @ 0x14030E6C8 (MiTryLockLeafPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     MiGetPrototypePteBoundaries @ 0x140557DAC (MiGetPrototypePteBoundaries.c)
- *     MiAddPageToHeatRanges @ 0x14055F4FC (MiAddPageToHeatRanges.c)
- *     MiGetTransitionPageHeatList @ 0x14055F628 (MiGetTransitionPageHeatList.c)
+ *     MiGetPrototypePteBoundaries @ 0x140557FEC (MiGetPrototypePteBoundaries.c)
+ *     MiAddPageToHeatRanges @ 0x14055F73C (MiAddPageToHeatRanges.c)
+ *     MiGetTransitionPageHeatList @ 0x14055F868 (MiGetTransitionPageHeatList.c)
  */
 
 __int64 __fastcall MiMakeTransitionHeatBatch(__int64 a1, __int64 a2, unsigned __int64 a3)

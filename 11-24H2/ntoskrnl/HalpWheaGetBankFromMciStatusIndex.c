@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWheaGetBankFromMciStatusIndex @ 0x14047D06C
+ * XREFs of HalpWheaGetBankFromMciStatusIndex @ 0x1404781FC
  * Callers:
- *     HalpHvLpReadMcaStatusMsr @ 0x14047CFC8 (HalpHvLpReadMcaStatusMsr.c)
+ *     HalpHvLpReadMcaStatusMsr @ 0x140478158 (HalpHvLpReadMcaStatusMsr.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
  */
 
 __int64 __fastcall HalpWheaGetBankFromMciStatusIndex(__int64 a1)

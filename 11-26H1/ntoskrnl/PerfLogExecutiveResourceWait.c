@@ -1,16 +1,16 @@
 /*
- * XREFs of PerfLogExecutiveResourceWait @ 0x140495E24
+ * XREFs of PerfLogExecutiveResourceWait @ 0x14048F974
  * Callers:
- *     ExpWaitForResource @ 0x140205F8C (ExpWaitForResource.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExpWaitForFastResource @ 0x140275FE0 (ExpWaitForFastResource.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B4158 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402E1B68 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x14043AF30 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpWaitForResource @ 0x14020606C (ExpWaitForResource.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExpWaitForFastResource @ 0x140275550 (ExpWaitForFastResource.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1402C3C28 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402FEE28 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x14042D7E0 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpGetTrackingLockSlotForThread @ 0x1404960D0 (EtwpGetTrackingLockSlotForThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x14048FC20 (EtwpGetTrackingLockSlotForThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfLogExecutiveResourceWait(int a1, __int64 a2, unsigned int a3)

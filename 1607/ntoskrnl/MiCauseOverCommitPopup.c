@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCauseOverCommitPopup @ 0x1401ECD90
+ * XREFs of MiCauseOverCommitPopup @ 0x1401ECBBC
  * Callers:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiPageFileNoFreeSpace @ 0x1401EEBBC (MiPageFileNoFreeSpace.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiPageFileNoFreeSpace @ 0x1401EE9E8 (MiPageFileNoFreeSpace.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of LookUpTableFlushComplete @ 0x1406AEF98
+ * XREFs of LookUpTableFlushComplete @ 0x1406B0238
  * Callers:
- *     TlgAggregateFlush @ 0x14032BA04 (TlgAggregateFlush.c)
- *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406AEF20 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1406AF190 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
- *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406D0CB0 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
+ *     TlgAggregateFlush @ 0x14032BBF4 (TlgAggregateFlush.c)
+ *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406B01C0 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1406B0430 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406D1F50 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     FlushLookUpTableBucket @ 0x140127B78 (FlushLookUpTableBucket.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     UpdateInternalStatsOnFlush @ 0x1406AF30C (UpdateInternalStatsOnFlush.c)
+ *     FlushLookUpTableBucket @ 0x140127C48 (FlushLookUpTableBucket.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     UpdateInternalStatsOnFlush @ 0x1406B05AC (UpdateInternalStatsOnFlush.c)
  */
 
 _UNKNOWN **__fastcall LookUpTableFlushComplete(__int64 a1)
@@ -59,7 +59,7 @@ _UNKNOWN **__fastcall LookUpTableFlushComplete(__int64 a1)
     v5 = v4 + 288;
     if ( *(_QWORD *)(v4 + 288) )
     {
-      if ( stru_1404003B8.LevelPlus1 > 5 && TlgKeywordOn(&stru_1404003B8, 0x400000000000uLL) )
+      if ( stru_1404013B8.LevelPlus1 > 5 && TlgKeywordOn(&stru_1404013B8, 0x400000000000uLL) )
       {
         v6 = *(_OWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 344) + 8LL) - 16LL);
         v17 = &v15;
@@ -87,7 +87,7 @@ _UNKNOWN **__fastcall LookUpTableFlushComplete(__int64 a1)
         v30 = 4LL;
         v32 = 4LL;
         v34 = 4LL;
-        TlgWrite(&stru_1404003B8, &unk_140373FA7, 0LL, 0LL, 0xBu, &pData);
+        TlgWrite(&stru_1404013B8, &unk_140374F37, 0LL, 0LL, 0xBu, &pData);
       }
       memset(&v14[1], 0, 0x28uLL);
       v7 = *(_OWORD *)&v14[3];

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateBootSlabEntries @ 0x140CFE048
+ * XREFs of MiCreateBootSlabEntries @ 0x140D043F0
  * Callers:
- *     MiCreateKernelHalSlabRange @ 0x140CFE280 (MiCreateKernelHalSlabRange.c)
- *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140CFE498 (MiCreateSlabAllocationsFromLoaderBlock.c)
+ *     MiCreateKernelHalSlabRange @ 0x140D04620 (MiCreateKernelHalSlabRange.c)
+ *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140D04838 (MiCreateSlabAllocationsFromLoaderBlock.c)
  * Callees:
- *     MiAllocateSlabEntry @ 0x140206EC0 (MiAllocateSlabEntry.c)
- *     MiSetSlabTypeIdentifiers @ 0x140206F68 (MiSetSlabTypeIdentifiers.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiIsPfnRangeFromSlabAllocation @ 0x1403C621C (MiIsPfnRangeFromSlabAllocation.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     MiInsertSlabEntry @ 0x1404C33F4 (MiInsertSlabEntry.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiAllocateSlabEntry @ 0x140206FA0 (MiAllocateSlabEntry.c)
+ *     MiSetSlabTypeIdentifiers @ 0x140207048 (MiSetSlabTypeIdentifiers.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiIsPfnRangeFromSlabAllocation @ 0x1403D011C (MiIsPfnRangeFromSlabAllocation.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     MiInsertSlabEntry @ 0x1404BCC44 (MiInsertSlabEntry.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiCreateBootSlabEntries(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4)
+__int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   int v4; // r15d
   __int64 v5; // rdi
@@ -23,7 +23,7 @@ __int64 __fastcall MiCreateBootSlabEntries(unsigned __int64 a1, unsigned __int64
   unsigned __int64 v8; // r13
   __int64 v9; // r14
   __int64 SlabEntry; // rax
-  unsigned __int64 v11; // rbx
+  __int64 v11; // rbx
   int v12; // edx
   int v13; // eax
   __int64 v14; // r15
@@ -55,7 +55,7 @@ __int64 __fastcall MiCreateBootSlabEntries(unsigned __int64 a1, unsigned __int64
       v12 |= 3u;
       *(_DWORD *)(v11 + 92) = v12;
     }
-    v13 = dword_140E3D0D4;
+    v13 = dword_140E3D254;
     if ( _bittest(&v13, *(_DWORD *)(a1 + 128)) )
       *(_DWORD *)(v11 + 92) = v12 | 2;
     v14 = 0LL;
@@ -76,7 +76,7 @@ __int64 __fastcall MiCreateBootSlabEntries(unsigned __int64 a1, unsigned __int64
             v14 = v17;
             updated = MiUpdatePageFileHighInPte(*v16, (*(_DWORD *)(v11 + 92) & 2) != 0 ? 7 : 3);
             *v16 = updated;
-            _InterlockedDecrement64(&qword_140E3D880);
+            _InterlockedDecrement64(&qword_140E3DA00);
           }
           v16 += 6;
           --v15;
@@ -85,15 +85,15 @@ __int64 __fastcall MiCreateBootSlabEntries(unsigned __int64 a1, unsigned __int64
       }
     }
     if ( (*(_DWORD *)(v11 + 92) & 1) != 0 )
-      qword_140E3D8A0 += v8;
+      qword_140E3DA20 += v8;
     if ( (*(_DWORD *)(v11 + 92) & 2) == 0 )
     {
       if ( v8 != v14 )
       {
         MiReleaseNonPagedResources((__int64)&MiSystemPartition, v8 - v14);
-        _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, v14 - v8);
+        _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, v14 - v8);
       }
-      qword_140E3D8A8 += v14;
+      qword_140E3DA28 += v14;
       v5 = v21;
     }
     if ( (unsigned int)MiIsPfnRangeFromSlabAllocation(v6, v8) )

@@ -4,7 +4,7 @@
  *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
  *     VrpFreeKeyContext @ 0x14068EC34 (VrpFreeKeyContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

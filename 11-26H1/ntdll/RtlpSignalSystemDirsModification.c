@@ -1,64 +1,62 @@
 /*
- * XREFs of RtlpSignalSystemDirsModification @ 0x18011E5CC
+ * XREFs of RtlpSignalSystemDirsModification @ 0x18011E37C
  * Callers:
- *     LdrpInitializePerUserWindowsDirectory @ 0x1800989AC (LdrpInitializePerUserWindowsDirectory.c)
+ *     LdrpInitializePerUserWindowsDirectory @ 0x180097AD8 (LdrpInitializePerUserWindowsDirectory.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-__int64 __fastcall RtlpSignalSystemDirsModification(__int64 a1, __int64 a2)
+void RtlpSignalSystemDirsModification()
 {
-  __int64 v2; // rbx
-  bool v3; // zf
-  __int64 v4; // rdi
-  __int64 v5; // rsi
-  __int64 result; // rax
+  _QWORD *v0; // rbx
+  bool v1; // zf
+  _QWORD *v2; // rdi
+  _QWORD *v3; // rsi
 
-  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock, a2);
-  v2 = RtlpDllSearchPath;
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  v0 = RtlpDllSearchPath;
   RtlpDllSearchPath = 0LL;
+  if ( v0 )
+  {
+    v1 = v0[10]-- == 1LL;
+    if ( !v1 )
+      v0 = 0LL;
+  }
+  else
+  {
+    v0 = 0LL;
+  }
+  v2 = (_QWORD *)RtlpExeSearchPath;
+  RtlpExeSearchPath = 0LL;
   if ( v2 )
   {
-    v3 = (*(_QWORD *)(v2 + 80))-- == 1LL;
-    if ( !v3 )
+    v1 = v2[10]-- == 1LL;
+    if ( !v1 )
       v2 = 0LL;
   }
   else
   {
     v2 = 0LL;
   }
-  v4 = RtlpExeSearchPath;
-  RtlpExeSearchPath = 0LL;
-  if ( v4 )
-  {
-    v3 = (*(_QWORD *)(v4 + 80))-- == 1LL;
-    if ( !v3 )
-      v4 = 0LL;
-  }
-  else
-  {
-    v4 = 0LL;
-  }
-  v5 = RtlpSearchPath;
+  v3 = (_QWORD *)RtlpSearchPath;
   RtlpSearchPath = 0LL;
-  if ( v5 )
+  if ( v3 )
   {
-    v3 = (*(_QWORD *)(v5 + 80))-- == 1LL;
-    if ( !v3 )
-      v5 = 0LL;
+    v1 = v3[10]-- == 1LL;
+    if ( !v1 )
+      v3 = 0LL;
   }
   else
   {
-    v5 = 0LL;
+    v3 = 0LL;
   }
-  result = (__int64)RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  if ( v0 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v0);
   if ( v2 )
-    result = RtlFreeHeap_0();
-  if ( v4 )
-    result = RtlFreeHeap_0();
-  if ( v5 )
-    return RtlFreeHeap_0();
-  return result;
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v2);
+  if ( v3 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v3);
 }

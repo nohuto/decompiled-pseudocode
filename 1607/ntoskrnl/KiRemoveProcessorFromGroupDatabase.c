@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveProcessorFromGroupDatabase @ 0x1401D3570
+ * XREFs of KiRemoveProcessorFromGroupDatabase @ 0x1401D339C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     KiUncommitNodeAssignment @ 0x1401D35DC (KiUncommitNodeAssignment.c)
+ *     KiUncommitNodeAssignment @ 0x1401D3408 (KiUncommitNodeAssignment.c)
  */
 
 __int64 __fastcall KiRemoveProcessorFromGroupDatabase(__int64 a1)

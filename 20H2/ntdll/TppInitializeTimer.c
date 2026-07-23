@@ -26,7 +26,7 @@ __int64 __fastcall TppInitializeTimer(__int64 a1, char a2, int a3, __int64 a4, _
     if ( v6 )
       *(_QWORD *)(a1 + 32) = *(_QWORD *)(v6 + 48);
     if ( *(_QWORD *)(a1 + 16) )
-      TppCleanupGroupAddMember((_QWORD *)a1);
+      TppCleanupGroupAddMember(a1);
     return 0LL;
   }
   return result;

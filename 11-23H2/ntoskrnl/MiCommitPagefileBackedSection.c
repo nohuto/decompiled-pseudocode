@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCommitPagefileBackedSection @ 0x1407DC088
+ * XREFs of MiCommitPagefileBackedSection @ 0x1407DC358
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7430 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiVadPureReserve @ 0x140277B70 (MiVadPureReserve.c)
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiAddViewsForSection @ 0x140288770 (MiAddViewsForSection.c)
- *     MiChargeSegmentCommit @ 0x140748008 (MiChargeSegmentCommit.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiVadPureReserve @ 0x140277E00 (MiVadPureReserve.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiAddViewsForSection @ 0x140288A00 (MiAddViewsForSection.c)
+ *     MiChargeSegmentCommit @ 0x1407481F8 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MiCommitPagefileBackedSection(

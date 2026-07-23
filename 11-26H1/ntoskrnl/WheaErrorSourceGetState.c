@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaErrorSourceGetState @ 0x1406D4B00
+ * XREFs of WheaErrorSourceGetState @ 0x1406D8BE0
  * Callers:
  *     <none>
  * Callees:
- *     WheapGetErrorSource @ 0x1403DE1E0 (WheapGetErrorSource.c)
+ *     WheapGetErrorSource @ 0x1403E13D0 (WheapGetErrorSource.c)
  */
 
 __int64 __fastcall WheaErrorSourceGetState(unsigned int a1)

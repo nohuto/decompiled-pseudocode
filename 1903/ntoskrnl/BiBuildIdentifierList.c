@@ -27,20 +27,20 @@
  *     BiLookupObjectByIdentifierAndBootEntry @ 0x140931EF8 (BiLookupObjectByIdentifierAndBootEntry.c)
  */
 
-__int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall BiBuildIdentifierList(__int64 BcdStoreHandle, __int64 a2, _QWORD *a3)
 {
   int v3; // r13d
-  __int64 v5; // r14
+  HANDLE v5; // r14
   PCWSTR *v6; // rsi
   int v7; // ebx
   ULONG v8; // r12d
   unsigned int v9; // r15d
   PCWSTR *v10; // r13
-  __int64 v11; // r14
+  HANDLE v11; // r14
   int v12; // esi
   GUID *PoolWithTag; // rax
   GUID *v14; // rbx
-  __int64 v15; // r8
+  BCD_FLAGS v15; // r8d
   GUID **v16; // rax
   GUID **v17; // rax
   PVOID v18; // rcx
@@ -74,8 +74,8 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   GUID *v46; // rax
   _QWORD *v47; // rdx
   _QWORD *v48; // rax
-  __int16 v50[2]; // [rsp+30h] [rbp-79h] BYREF
-  ULONG v51; // [rsp+34h] [rbp-75h] BYREF
+  __int16 Buffer[2]; // [rsp+30h] [rbp-79h] BYREF
+  ULONG BufferSize; // [rsp+34h] [rbp-75h] BYREF
   _QWORD *v52; // [rsp+38h] [rbp-71h] BYREF
   _QWORD *v53; // [rsp+40h] [rbp-69h] BYREF
   _QWORD **v54; // [rsp+48h] [rbp-61h]
@@ -88,7 +88,7 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   PVOID P; // [rsp+80h] [rbp-29h] BYREF
   __int64 v62; // [rsp+88h] [rbp-21h] BYREF
   PVOID v63; // [rsp+90h] [rbp-19h] BYREF
-  __int64 v64; // [rsp+98h] [rbp-11h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+98h] [rbp-11h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-9h] BYREF
   GUID Guid; // [rsp+B0h] [rbp+7h] BYREF
 
@@ -100,37 +100,37 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   DestinationString.Buffer = 0LL;
   *a3 = a3;
   v59 = (GUID *)&v58;
-  v52 = (_QWORD *)a1;
+  v52 = (_QWORD *)BcdStoreHandle;
   v58 = &v58;
-  v5 = a1;
+  v5 = (HANDLE)BcdStoreHandle;
   v62 = 0LL;
   v57 = (GUID *)&v56;
   v6 = 0LL;
-  v50[0] = 0;
+  Buffer[0] = 0;
   v56 = &v56;
   v54 = &v53;
   v53 = &v53;
   v63 = 0LL;
   v60 = 0LL;
   v55 = 0LL;
-  v7 = BiOpenKey(a1, L"Objects", 0x20019u, &v60);
+  v7 = BiOpenKey(BcdStoreHandle, L"Objects", 0x20019u, &v60);
   if ( v7 >= 0 )
   {
-    v7 = BiEnumerateSubKeys(v60, &v55, &v51);
+    v7 = BiEnumerateSubKeys(v60, &v55, &BufferSize);
     if ( v7 < 0 )
       goto LABEL_59;
-    v8 = v51;
+    v8 = BufferSize;
     v9 = 0;
-    if ( v51 )
+    if ( BufferSize )
     {
       v10 = v55;
       while ( 1 )
       {
         RtlInitUnicodeString(&DestinationString, v10[v9]);
-        if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && (int)BcdOpenObject(v5, &Guid.Data1, &v64) >= 0 )
+        if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && BcdOpenObject(v5, &Guid, &BcdObjectHandle) >= 0 )
         {
-          v11 = v64;
-          if ( (int)BiGetObjectDescription(v64, &v62) >= 0
+          v11 = BcdObjectHandle;
+          if ( (int)BiGetObjectDescription((__int64)BcdObjectHandle, &v62) >= 0
             && (HIDWORD(v62) & 0xF0000000) == 0x10000000
             && (HIDWORD(v62) & 0xF00000) == 0x100000 )
           {
@@ -170,8 +170,8 @@ LABEL_67:
                 *v17 = v14;
                 v59 = v14;
               }
-              v51 = 2;
-              if ( (int)BcdGetElementDataWithFlags(v11, 0x16000082u, v15, (__int64)v50, &v51) >= 0 && LOBYTE(v50[0]) )
+              BufferSize = 2;
+              if ( BcdGetElementDataWithFlags(v11, 0x16000082u, v15, Buffer, &BufferSize) >= 0 && LOBYTE(Buffer[0]) )
                 v14[3].Data1 |= 0x10u;
               if ( (int)BiGetSavedBootEntry(v11, &P) >= 0 )
               {
@@ -183,7 +183,7 @@ LABEL_67:
             }
           }
           BcdCloseObject(v11);
-          v5 = (__int64)v52;
+          v5 = v52;
         }
         if ( ++v9 >= v8 )
         {
@@ -192,15 +192,15 @@ LABEL_67:
         }
       }
     }
-    v19 = BiEnumerateBootEntries(&v63, &v51);
+    v19 = BiEnumerateBootEntries(&v63, &BufferSize);
     v20 = v63;
     v7 = v19;
     if ( v19 >= 0 )
     {
-      v21 = v51;
+      v21 = BufferSize;
       v52 = 0LL;
       v22 = (unsigned int *)v63;
-      if ( v51 )
+      if ( BufferSize )
       {
         while ( 1 )
         {

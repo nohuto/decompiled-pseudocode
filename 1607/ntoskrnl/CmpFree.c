@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFree @ 0x140514550
+ * XREFs of CmpFree @ 0x1404F7940
  * Callers:
- *     CmpDeleteHive @ 0x140088098 (CmpDeleteHive.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     HvFreeHivePartial @ 0x140481AF0 (HvFreeHivePartial.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
+ *     CmpDeleteHive @ 0x14010C288 (CmpDeleteHive.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     HvFreeHivePartial @ 0x140480844 (HvFreeHivePartial.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
  * Callees:
- *     CmpReleaseGlobalQuota @ 0x140514570 (CmpReleaseGlobalQuota.c)
+ *     CmpReleaseGlobalQuota @ 0x1404F7960 (CmpReleaseGlobalQuota.c)
  */
 
 void __fastcall CmpFree(void *a1, unsigned int a2)

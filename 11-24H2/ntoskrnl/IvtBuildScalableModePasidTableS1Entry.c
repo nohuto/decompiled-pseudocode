@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtBuildScalableModePasidTableS1Entry @ 0x1404F592C
+ * XREFs of IvtBuildScalableModePasidTableS1Entry @ 0x1404F322C
  * Callers:
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x1404F5314 (IvtUpdateScalableModePasidTablesForPasid.c)
- *     IvtInitializeScalableModePasidTables @ 0x14056F3A8 (IvtInitializeScalableModePasidTables.c)
- *     IvtLegacySetPasidAddressSpace @ 0x140570C50 (IvtLegacySetPasidAddressSpace.c)
- *     IvtSetPasidAddressSpace @ 0x1405712B0 (IvtSetPasidAddressSpace.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x1404F2C14 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtInitializeScalableModePasidTables @ 0x14056C838 (IvtInitializeScalableModePasidTables.c)
+ *     IvtLegacySetPasidAddressSpace @ 0x14056E0E0 (IvtLegacySetPasidAddressSpace.c)
+ *     IvtSetPasidAddressSpace @ 0x14056E740 (IvtSetPasidAddressSpace.c)
  * Callees:
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall IvtBuildScalableModePasidTableS1Entry(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopRequestCompletion @ 0x14012B590
+ * XREFs of PopRequestCompletion @ 0x14012BB00
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     PopFreeIrp @ 0x14012B6E4 (PopFreeIrp.c)
- *     PopDequeueQuerySetIrp @ 0x14012B7CC (PopDequeueQuerySetIrp.c)
- *     PopDiagTraceIrpFinish @ 0x14012B8F8 (PopDiagTraceIrpFinish.c)
- *     PopDiagTraceFxDevicePowerState @ 0x14012BB10 (PopDiagTraceFxDevicePowerState.c)
- *     PopPepDeviceDState @ 0x14012C2A0 (PopPepDeviceDState.c)
- *     PopPepDeviceWaitWake @ 0x14012C338 (PopPepDeviceWaitWake.c)
- *     PopUpdateWakeSource @ 0x140205918 (PopUpdateWakeSource.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     PopFreeIrp @ 0x14012BC54 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x14012BD3C (PopDequeueQuerySetIrp.c)
+ *     PopDiagTraceIrpFinish @ 0x14012BE68 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x14012C080 (PopDiagTraceFxDevicePowerState.c)
+ *     PopPepDeviceDState @ 0x14012C810 (PopPepDeviceDState.c)
+ *     PopPepDeviceWaitWake @ 0x14012C8A8 (PopPepDeviceWaitWake.c)
+ *     PopUpdateWakeSource @ 0x140205744 (PopUpdateWakeSource.c)
  */
 
 __int64 __fastcall PopRequestCompletion(__int64 a1, __int64 a2, __int64 a3)

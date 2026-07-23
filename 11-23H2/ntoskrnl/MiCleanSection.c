@@ -1,17 +1,17 @@
 /*
  * XREFs of MiCleanSection @ 0x1402016FC
  * Callers:
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiAttemptSectionDelete @ 0x14035F720 (MiAttemptSectionDelete.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiAttemptSectionDelete @ 0x14035F8C0 (MiAttemptSectionDelete.c)
  * Callees:
  *     MiDestroySection @ 0x14020184C (MiDestroySection.c)
  *     MiRemoveWakeListEntry @ 0x1402018BC (MiRemoveWakeListEntry.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertUnusedSegment @ 0x1402A0C98 (MiInsertUnusedSegment.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertUnusedSegment @ 0x1402A0F28 (MiInsertUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)
@@ -58,10 +58,13 @@ __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)
     LOWORD(v24) = 263;
     BYTE2(v24) = 6;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -103,10 +106,10 @@ LABEL_17:
   else
     v17 = 0LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v18 >= 2u )
     {
       v19 = KeGetCurrentPrcb();
       v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));

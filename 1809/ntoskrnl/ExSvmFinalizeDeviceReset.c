@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSvmFinalizeDeviceReset @ 0x14031DA80
+ * XREFs of ExSvmFinalizeDeviceReset @ 0x14031DC70
  * Callers:
  *     <none>
  * Callees:
@@ -7,16 +7,16 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExSvmFinalizeDeviceReset(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v3; // rax
+  _RTL_BALANCED_NODE *v3; // rax
   signed __int8 v4; // cf
-  __int64 v5; // rdi
+  _RTL_BALANCED_NODE *v5; // rdi
   __int64 *v6; // rax
   __int64 *v7; // rcx
   unsigned int v8; // edi
@@ -29,7 +29,7 @@ __int64 __fastcall ExSvmFinalizeDeviceReset(__int64 a1)
   if ( v4 )
     ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v3, (ULONG_PTR)&ExpSvmDeviceListLock);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   v6 = (__int64 *)ExpSvmDevices;
   if ( (__int64 *)ExpSvmDevices == &ExpSvmDevices )
   {

@@ -49,8 +49,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v6 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v6,
@@ -66,8 +66,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(v11, 1LL, 16LL) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v12,
         v13);
@@ -79,8 +79,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
                              24LL) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of ac"
         "tivation context data (%lu bytes)\n",
         v15,
@@ -101,8 +101,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(*(unsigned int *)&v18[24 * v19 + 16], 1LL, 16LL) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
         v22,
         v20,
@@ -132,8 +132,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     || (int)v27 + (int)v26 > v6 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       v26,
       v25,
@@ -181,8 +181,8 @@ LABEL_38:
   if ( v36 + (unsigned int)v35 < v36 || (unsigned int)v35 >= v37 || v36 + (unsigned int)v35 > v37 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v35,
       v36,

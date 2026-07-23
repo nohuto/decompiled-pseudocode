@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetPastDueIRTimerInfo @ 0x14029B884
+ * XREFs of KiGetPastDueIRTimerInfo @ 0x14029BA74
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
- *     KeQueryWakeSource @ 0x14028EF1C (KeQueryWakeSource.c)
+ *     KeQueryWakeSource @ 0x14028F10C (KeQueryWakeSource.c)
  * Callees:
  *     <none>
  */
@@ -13,18 +13,18 @@ __int64 __fastcall KiGetPastDueIRTimerInfo(unsigned __int64 a1, _BYTE *a2, _BYTE
   char v4; // cl
   __int64 result; // rax
 
-  if ( a1 < qword_140421DB8 )
+  if ( a1 < qword_140422E98 )
     return 0LL;
-  if ( (qword_140421DB0 & 1) != 0 )
+  if ( (qword_140422E90 & 1) != 0 )
   {
-    if ( qword_140421DB0 == 1 )
+    if ( qword_140422E90 == 1 )
       v3 = 0LL;
     else
-      v3 = qword_140421DB0 ^ ((unsigned __int64)&unk_140421DA8 + 1);
+      v3 = qword_140422E90 ^ ((unsigned __int64)&unk_140422E88 + 1);
   }
   else
   {
-    v3 = qword_140421DB0;
+    v3 = qword_140422E90;
   }
   *a2 = *(_BYTE *)(v3 - 46);
   v4 = *(_BYTE *)(v3 - 45);

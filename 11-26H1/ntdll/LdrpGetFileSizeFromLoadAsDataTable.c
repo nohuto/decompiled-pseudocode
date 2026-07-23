@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpGetFileSizeFromLoadAsDataTable @ 0x180031F90
+ * XREFs of LdrpGetFileSizeFromLoadAsDataTable @ 0x18001D0F0
  * Callers:
- *     LdrpGetImageSize @ 0x1800317E0 (LdrpGetImageSize.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1800318E0 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     LdrpResGetMappingSize @ 0x1800A7DC0 (LdrpResGetMappingSize.c)
+ *     LdrpGetImageSize @ 0x18001C940 (LdrpGetImageSize.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x18001CA40 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpResGetMappingSize @ 0x1800A6EF0 (LdrpResGetMappingSize.c)
  * Callees:
- *     LdrpInitMuiCrits @ 0x180032024 (LdrpInitMuiCrits.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     LdrpInitMuiCrits @ 0x18001D184 (LdrpInitMuiCrits.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
  */
 
 __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
   {
     while ( v3 > 0 )
     {
-      v4 = (_QWORD *)(LoadAsDataTable + 48LL * --v3);
+      v4 = (char *)LoadAsDataTable + 48 * --v3;
       if ( *v4 == a1 )
       {
         v2 = v4[2];

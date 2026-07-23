@@ -1,8 +1,8 @@
 /*
- * XREFs of KiConstrainIdealProcessorSetBreakpoints @ 0x1402247BC
+ * XREFs of KiConstrainIdealProcessorSetBreakpoints @ 0x1402248C4
  * Callers:
- *     KiSelectIdealProcessorSetsForProcess @ 0x1402246E0 (KiSelectIdealProcessorSetsForProcess.c)
- *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BDFB4 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x1402247E8 (KiSelectIdealProcessorSetsForProcess.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BE244 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
  * Callees:
  *     <none>
  */

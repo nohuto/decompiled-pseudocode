@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfCommitPerformance @ 0x14039AE90
+ * XREFs of PpmPerfCommitPerformance @ 0x14039AFE0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfControlExecuteAction @ 0x1402AF68C (PpmPerfControlExecuteAction.c)
+ *     PpmPerfControlExecuteAction @ 0x14022D9EC (PpmPerfControlExecuteAction.c)
  */
 
 bool PpmPerfCommitPerformance()

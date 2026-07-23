@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDifCaptureIoCallbacks @ 0x1405CEFBC
+ * XREFs of ViDifCaptureIoCallbacks @ 0x1405CF52C
  * Callers:
  *     VfDifCaptureIoCallbacks @ 0x140209F20 (VfDifCaptureIoCallbacks.c)
- *     IovAttachDeviceToDeviceStack @ 0x140AC0FA4 (IovAttachDeviceToDeviceStack.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140AC0F94 (IovAttachDeviceToDeviceStack.c)
  * Callees:
- *     ViDifFindIoCallbackContext @ 0x1405CF184 (ViDifFindIoCallbackContext.c)
+ *     ViDifFindIoCallbackContext @ 0x1405CF6F4 (ViDifFindIoCallbackContext.c)
  */
 
 __int64 __fastcall ViDifCaptureIoCallbacks(_QWORD *a1)

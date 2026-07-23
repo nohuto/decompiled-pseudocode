@@ -1,5 +1,5 @@
 /*
- * XREFs of KeCountSetBitsGroupAffinity @ 0x1404A2510
+ * XREFs of KeCountSetBitsGroupAffinity @ 0x14049BF30
  * Callers:
  *     <none>
  * Callees:

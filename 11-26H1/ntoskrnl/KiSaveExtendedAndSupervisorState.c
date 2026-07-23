@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSaveExtendedAndSupervisorState @ 0x1403D4130
+ * XREFs of KiSaveExtendedAndSupervisorState @ 0x1403D7100
  * Callers:
- *     KeSaveExtendedProcessorState @ 0x1403D40C0 (KeSaveExtendedProcessorState.c)
- *     KeSaveExtendedAndSupervisorState @ 0x14050E5B4 (KeSaveExtendedAndSupervisorState.c)
+ *     KeSaveExtendedProcessorState @ 0x1403D7090 (KeSaveExtendedProcessorState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x140508024 (KeSaveExtendedAndSupervisorState.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     RtlXSaveS @ 0x1403D45AC (RtlXSaveS.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     RtlXSaveS @ 0x1403D757C (RtlXSaveS.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KiSaveExtendedAndSupervisorState(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3)
@@ -137,7 +137,7 @@ LABEL_32:
     CurrentThread->LastXStateSaveDebugInfo = v4 & 0xFFFFF | (a3 << 20);
     if ( !CurrentIrql
       && CurrentThread->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
       KiCheckForKernelApcDelivery(SparePtr, a2);
     }

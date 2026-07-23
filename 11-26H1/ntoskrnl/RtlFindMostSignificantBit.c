@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindMostSignificantBit @ 0x140479BE0
+ * XREFs of RtlFindMostSignificantBit @ 0x140473540
  * Callers:
- *     NtMapViewOfSection @ 0x1409C28A0 (NtMapViewOfSection.c)
- *     MiValidateZeroBits @ 0x1409F3F40 (MiValidateZeroBits.c)
+ *     NtMapViewOfSection @ 0x140993880 (NtMapViewOfSection.c)
+ *     MiValidateZeroBits @ 0x1409F0710 (MiValidateZeroBits.c)
  * Callees:
  *     <none>
  */

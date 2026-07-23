@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlProcessFileLock @ 0x1403DB600
+ * XREFs of FsRtlProcessFileLock @ 0x1403CC8D0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
- *     FsRtlFastUnlockSingle @ 0x140249B60 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14024D62C (FsRtlPrivateFastUnlockAll.c)
- *     IoGetRequestorProcess @ 0x1403DBA00 (IoGetRequestorProcess.c)
- *     FsRtlCompleteLockIrpReal @ 0x1403DBA48 (FsRtlCompleteLockIrpReal.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14027DC3C (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
+ *     FsRtlFastUnlockSingle @ 0x1402E3DA0 (FsRtlFastUnlockSingle.c)
+ *     IoGetRequestorProcess @ 0x1403CCCD0 (IoGetRequestorProcess.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1403CCD18 (FsRtlCompleteLockIrpReal.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Context)
@@ -22,12 +22,10 @@ NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Con
   NTSTATUS v11; // ebx
   struct _KPROCESS *RequestorProcess; // rax
   NTSTATUS v14; // eax
-  __int64 v15; // r8
-  __int64 v16; // r9
-  PCOMPLETE_LOCK_IRP_ROUTINE v17; // rax
-  struct _KPROCESS *v18; // rax
-  struct _KPROCESS *v19; // rax
-  unsigned int v20; // eax
+  PCOMPLETE_LOCK_IRP_ROUTINE v15; // rax
+  struct _KPROCESS *v16; // rax
+  struct _KPROCESS *v17; // rax
+  unsigned int v18; // eax
   PCOMPLETE_LOCK_IRP_ROUTINE CompleteLockIrpRoutine; // rcx
   struct _IO_STATUS_BLOCK Iosb; // [rsp+60h] [rbp-28h] BYREF
   LARGE_INTEGER FileOffset; // [rsp+98h] [rbp+10h] BYREF
@@ -54,27 +52,27 @@ NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Con
                 0);
         break;
       case 3u:
-        v18 = IoGetRequestorProcess(Irp);
+        v16 = IoGetRequestorProcess(Irp);
         v14 = FsRtlPrivateFastUnlockAll(
                 (__int64)FileLock,
                 (_RTL_SPLAY_LINKS *)CurrentStackLocation->FileObject,
-                v18,
+                v16,
                 0,
                 0,
                 (__int64)Context);
         break;
       case 4u:
-        v19 = IoGetRequestorProcess(Irp);
-        v20 = FsRtlPrivateFastUnlockAll(
+        v17 = IoGetRequestorProcess(Irp);
+        v18 = FsRtlPrivateFastUnlockAll(
                 (__int64)FileLock,
                 (_RTL_SPLAY_LINKS *)CurrentStackLocation->FileObject,
-                v19,
+                v17,
                 CurrentStackLocation->Parameters.Create.Options,
                 1,
                 (__int64)Context);
         CompleteLockIrpRoutine = FileLock->CompleteLockIrpRoutine;
-        Iosb.Status = v20;
-        FsRtlCompleteLockIrpReal(CompleteLockIrpRoutine, Context, Irp, v20, &Iosb, 0LL);
+        Iosb.Status = v18;
+        FsRtlCompleteLockIrpReal(CompleteLockIrpRoutine, Context, Irp, v18, &Iosb, 0LL);
         return Iosb.Status;
       default:
         v11 = -1073741808;
@@ -84,10 +82,10 @@ LABEL_9:
         return v11;
     }
     v11 = v14;
-    v17 = FileLock->CompleteLockIrpRoutine;
+    v15 = FileLock->CompleteLockIrpRoutine;
     Irp->IoStatus.Status = v11;
-    if ( v17 )
-      return guard_dispatch_icall_no_overrides(Context, Irp, v15, v16);
+    if ( v15 )
+      return guard_dispatch_icall_no_overrides(Context, Irp);
     v7 = Irp;
     goto LABEL_9;
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetLargePagesForSystemMapping @ 0x140AAD164
+ * XREFs of MiGetLargePagesForSystemMapping @ 0x140AA81E4
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1403A62E0 (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14026D5D0 (MiMakeZeroedPageTablesEx.c)
  * Callees:
- *     MiObtainSystemCharges @ 0x1402F779C (MiObtainSystemCharges.c)
- *     MiInitializeDemandCoalesceContext @ 0x14036EEE0 (MiInitializeDemandCoalesceContext.c)
- *     MiThreadIdealNode @ 0x14036F010 (MiThreadIdealNode.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
- *     MiReturnSystemCharges @ 0x14045A7E8 (MiReturnSystemCharges.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiObtainSystemCharges @ 0x14021D05C (MiObtainSystemCharges.c)
+ *     MiInitializeDemandCoalesceContext @ 0x14026AE60 (MiInitializeDemandCoalesceContext.c)
+ *     MiThreadIdealNode @ 0x14026AF90 (MiThreadIdealNode.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MiReturnSystemCharges @ 0x14044FC38 (MiReturnSystemCharges.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, __int64 a2, __int64 a3)
@@ -61,7 +61,7 @@ __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, __int64 a2, __int
   v11 = 1;
   if ( (*(_DWORD *)(a1 + 128) & 8) == 0 && *(_QWORD *)(v8 + 19608) )
   {
-    if ( !(unsigned int)MiObtainSystemCharges(*(ULONG **)(a1 + 96), v10, *(_DWORD *)(a1 + 120)) )
+    if ( !(unsigned int)MiObtainSystemCharges(*(_QWORD *)(a1 + 96), v10, *(_DWORD *)(a1 + 120), a2) )
       return 3221225626LL;
     *(_QWORD *)(a1 + 104) += v10;
     v11 = 1;
@@ -83,7 +83,7 @@ __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, __int64 a2, __int
   v16 = 0;
   v21[0] = 8;
   v22 = v8;
-  v17 = (int *)(qword_140E2DAD0 + 4LL * v13 * (unsigned int)(unsigned __int16)KeNumberNodes);
+  v17 = (int *)(qword_140E2DC10 + 4LL * v13 * (unsigned int)(unsigned __int16)KeNumberNodes);
   v25 = v13;
   v26 = 4;
   v18 = &v17[v14];

@@ -1,21 +1,21 @@
 /*
- * XREFs of HvpFindNextDirtyBlock @ 0x1408B8B70
+ * XREFs of HvpFindNextDirtyBlock @ 0x1408BF140
  * Callers:
- *     HvpGenerateLogEntryDirtyData @ 0x140356378 (HvpGenerateLogEntryDirtyData.c)
- *     HvStoreModifiedData @ 0x1408B7270 (HvStoreModifiedData.c)
- *     HvWriteHivePrimaryFile @ 0x140AAAADC (HvWriteHivePrimaryFile.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140358118 (HvpGenerateLogEntryDirtyData.c)
+ *     HvStoreModifiedData @ 0x1408BD840 (HvStoreModifiedData.c)
+ *     HvWriteHivePrimaryFile @ 0x140AA80BC (HvWriteHivePrimaryFile.c)
  * Callees:
- *     HvpFindNextDirtyRun @ 0x14045D0A0 (HvpFindNextDirtyRun.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpMapEntryGetFreeBin @ 0x1408B8FF0 (HvpMapEntryGetFreeBin.c)
- *     HvpMapEntryGetBlockAddress @ 0x1408B9270 (HvpMapEntryGetBlockAddress.c)
- *     HvpMapEntryIsNewAlloc @ 0x1408DB6C0 (HvpMapEntryIsNewAlloc.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140C58710 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     HvpFindNextDirtyRun @ 0x140457080 (HvpFindNextDirtyRun.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408BF5C0 (HvpMapEntryGetFreeBin.c)
+ *     HvpMapEntryGetBlockAddress @ 0x1408BF840 (HvpMapEntryGetBlockAddress.c)
+ *     HvpMapEntryIsNewAlloc @ 0x1408E1C80 (HvpMapEntryIsNewAlloc.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140C5E710 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 char __fastcall HvpFindNextDirtyBlock(

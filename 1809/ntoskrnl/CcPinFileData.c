@@ -1,12 +1,12 @@
 /*
- * XREFs of CcPinFileData @ 0x1400AE2D0
+ * XREFs of CcPinFileData @ 0x1400AE210
  * Callers:
- *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
- *     CcPinRead @ 0x1406383B0 (CcPinRead.c)
- *     CcPinMappedData @ 0x1406385A0 (CcPinMappedData.c)
- *     CcMapData @ 0x140638A10 (CcMapData.c)
- *     CcPreparePinWrite @ 0x14069FD90 (CcPreparePinWrite.c)
- *     CcMapDataCommon @ 0x14069FF64 (CcMapDataCommon.c)
+ *     CcZeroDataInCache @ 0x1400E0844 (CcZeroDataInCache.c)
+ *     CcPinRead @ 0x1406393D0 (CcPinRead.c)
+ *     CcPinMappedData @ 0x1406395C0 (CcPinMappedData.c)
+ *     CcMapData @ 0x140639A30 (CcMapData.c)
+ *     CcPreparePinWrite @ 0x1406A1050 (CcPreparePinWrite.c)
+ *     CcMapDataCommon @ 0x1406A1224 (CcMapDataCommon.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -18,21 +18,21 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExAcquireSharedStarveExclusive @ 0x1400AE0A0 (ExAcquireSharedStarveExclusive.c)
- *     CcGetBcbListHeadLargeOffset @ 0x1400AE160 (CcGetBcbListHeadLargeOffset.c)
- *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400B0100 (CcMapAndRead.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CcAllocateInitializeBcb @ 0x1400CC318 (CcAllocateInitializeBcb.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcDereferenceFileOffset @ 0x14026A5D4 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x14026A7A0 (CcReferenceFileOffset.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031B888 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1400ADFE0 (ExAcquireSharedStarveExclusive.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x1400AE0A0 (CcGetBcbListHeadLargeOffset.c)
+ *     CcGetVirtualAddress @ 0x1400AFB80 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1400B0040 (CcMapAndRead.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1950 (ExpAcquireSharedStarveExclusive.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CcAllocateInitializeBcb @ 0x1400CC398 (CcAllocateInitializeBcb.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcDereferenceFileOffset @ 0x14026A7C4 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x14026A990 (CcReferenceFileOffset.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14031BA78 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  */
 
 __int64 __fastcall CcPinFileData(
@@ -220,7 +220,7 @@ LABEL_7:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)v13, 0) )
-    ExpAcquireFastMutexContended(v13, v10);
+    ExpAcquireFastMutexContended(v13, (PRTL_BALANCED_NODE)v10);
   if ( v10 )
     *(_BYTE *)(v10 + 26) |= 1u;
   *(_QWORD *)(v13 + 8) = KeGetCurrentThread();
@@ -463,7 +463,7 @@ LABEL_54:
         v53 = KeGetCurrentIrql();
         __writecr8(1uLL);
         if ( !_interlockedbittestandreset((volatile signed __int32 *)v35, 0) )
-          ExpAcquireFastMutexContended(v35, v49);
+          ExpAcquireFastMutexContended(v35, (PRTL_BALANCED_NODE)v49);
         if ( v49 )
           *(_BYTE *)(v49 + 26) |= 1u;
         *(_QWORD *)(v35 + 8) = KeGetCurrentThread();

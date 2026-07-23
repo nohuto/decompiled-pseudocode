@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptShortWeierstrassFillScratchSpaces @ 0x1404024DC
+ * XREFs of SymCryptShortWeierstrassFillScratchSpaces @ 0x1404026BC
  * Callers:
- *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveAllocate @ 0x1403F828C (SymCryptEcurveAllocate.c)
  * Callees:
- *     SymCryptEcurveDigitsofScalarMultiplier @ 0x1403F8814 (SymCryptEcurveDigitsofScalarMultiplier.c)
- *     SymCryptDigitsFromBits @ 0x1403F9240 (SymCryptDigitsFromBits.c)
- *     SymCryptSizeofIntFromDigits @ 0x1403F9A70 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofEcpointEx @ 0x1403FF978 (SymCryptSizeofEcpointEx.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x1403FF994 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x1403F89F4 (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptDigitsFromBits @ 0x1403F9420 (SymCryptDigitsFromBits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F9C50 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofEcpointEx @ 0x1403FFB58 (SymCryptSizeofEcpointEx.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403FFB74 (SymCryptSizeofEcpointFromCurve.c)
  */
 
 __int64 __fastcall SymCryptShortWeierstrassFillScratchSpaces(_DWORD *a1)

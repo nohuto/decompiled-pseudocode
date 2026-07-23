@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSetSystemAwayMode @ 0x140753DC0
+ * XREFs of PopSetSystemAwayMode @ 0x1407520E0
  * Callers:
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     PopDiagTraceEventNoPayload @ 0x14048C7B4 (PopDiagTraceEventNoPayload.c)
- *     PopAcquireUserPresentSpinLock @ 0x1404A3EA8 (PopAcquireUserPresentSpinLock.c)
- *     PopReleaseUserPresentSpinLock @ 0x1404AD400 (PopReleaseUserPresentSpinLock.c)
- *     PopSetAwayModeStatus @ 0x140753D44 (PopSetAwayModeStatus.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404874D4 (PopDiagTraceEventNoPayload.c)
+ *     PopAcquireUserPresentSpinLock @ 0x14049EC38 (PopAcquireUserPresentSpinLock.c)
+ *     PopReleaseUserPresentSpinLock @ 0x1404A7AE0 (PopReleaseUserPresentSpinLock.c)
+ *     PopSetAwayModeStatus @ 0x140752064 (PopSetAwayModeStatus.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
  */
 
 __int64 __fastcall PopSetSystemAwayMode(int a1)
@@ -23,13 +23,13 @@ __int64 __fastcall PopSetSystemAwayMode(int a1)
   v3 = 0;
   if ( a1 )
   {
-    if ( !byte_140F0BA51 )
+    if ( !byte_140F0B391 )
     {
-      if ( byte_140F0BA50 )
+      if ( byte_140F0B390 )
       {
         PopAcquireUserPresentSpinLock(&v3);
         KeResetEvent(&PopUserPresentCompletedEvent);
-        dword_140F0BA54 = 1;
+        dword_140F0B394 = 1;
         if ( PopUserPresentSetStatus )
         {
           PopReleaseUserPresentSpinLock(v3);
@@ -42,7 +42,7 @@ __int64 __fastcall PopSetSystemAwayMode(int a1)
         KeInitializeDpc(
           &PopAwayModeUserPresenceDpcObject,
           (PKDEFERRED_ROUTINE)PopAwayModeUserPresenceDpc,
-          &dword_140F0BA54);
+          &dword_140F0B394);
         KiSetTimerEx(
           (__int64)&PopAwayModeUserPresenceTimer,
           -30000000LL,
@@ -58,7 +58,7 @@ __int64 __fastcall PopSetSystemAwayMode(int a1)
       }
     }
   }
-  else if ( byte_140F0BA51 )
+  else if ( byte_140F0B391 )
   {
     PopSetAwayModeStatus(0);
     PopNotifyConsoleUserPresent(0LL, (unsigned int)PopAwaymodeExitReason);

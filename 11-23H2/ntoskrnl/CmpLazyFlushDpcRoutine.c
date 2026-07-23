@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLazyFlushDpcRoutine @ 0x140365DF0
+ * XREFs of CmpLazyFlushDpcRoutine @ 0x140365F90
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     RtlpComputeEpilogueOffset @ 0x1403F3228 (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine5 @ 0x14042B910 (KiCustomAccessRoutine5.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403F3408 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine5 @ 0x14042BCA0 (KiCustomAccessRoutine5.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall CmpLazyFlushDpcRoutine(

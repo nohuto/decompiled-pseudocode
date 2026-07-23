@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwQuerySecurityAttributesToken @ 0x1407260F0
+ * XREFs of ZwQuerySecurityAttributesToken @ 0x14072ACC0
  * Callers:
- *     DifZwQuerySecurityAttributesTokenWrapper @ 0x1406B3950 (DifZwQuerySecurityAttributesTokenWrapper.c)
+ *     DifZwQuerySecurityAttributesTokenWrapper @ 0x1406B7530 (DifZwQuerySecurityAttributesTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySecurityAttributesToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TokenHandle);
 }

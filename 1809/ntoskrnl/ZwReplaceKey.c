@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwReplaceKey @ 0x1401BAF30
+ * XREFs of ZwReplaceKey @ 0x1401BB090
  * Callers:
  *     <none>
  * Callees:
@@ -13,5 +13,5 @@ NTSTATUS __stdcall ZwReplaceKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, Key, ReplacedObjectAttributes);
+  return KiServiceInternal(ObjectAttributes);
 }

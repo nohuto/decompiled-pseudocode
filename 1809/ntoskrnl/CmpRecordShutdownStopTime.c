@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x1407ED098
+ * XREFs of CmpRecordShutdownStopTime @ 0x1407EE298
  * Callers:
- *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x1407EDAB4 (CmShutdownSystem.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
- *     CmpReadBuildLab @ 0x1407ECF34 (CmpReadBuildLab.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     RtlGetPersistedStateLocation @ 0x140613450 (RtlGetPersistedStateLocation.c)
+ *     CmpReadBuildLab @ 0x1407EE134 (CmpReadBuildLab.c)
  */
 
 __int64 CmpRecordShutdownStopTime()
 {
   struct _PRIVILEGE_SET *v0; // rdi
-  WCHAR *TransientPoolWithTag; // rax
+  WCHAR *TargetPath; // rax
   WCHAR *v2; // rsi
   int PersistedStateLocation; // ebx
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp-19h] BYREF
@@ -31,16 +31,16 @@ __int64 CmpRecordShutdownStopTime()
   v0 = 0LL;
   DataSize = 0;
   v10 = 0LL;
-  TransientPoolWithTag = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u);
-  v2 = TransientPoolWithTag;
-  if ( TransientPoolWithTag )
+  TargetPath = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u);
+  v2 = TargetPath;
+  if ( TargetPath )
   {
     PersistedStateLocation = RtlGetPersistedStateLocation(
                                L"ShutdownPath",
                                0LL,
                                L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\SHUTDOWN",
-                               0,
-                               TransientPoolWithTag,
+                               LocationTypeRegistry,
+                               TargetPath,
                                0x410u,
                                0LL);
     if ( PersistedStateLocation >= 0 )

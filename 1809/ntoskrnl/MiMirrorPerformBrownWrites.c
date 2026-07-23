@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMirrorPerformBrownWrites @ 0x140152394
+ * XREFs of MiMirrorPerformBrownWrites @ 0x140152494
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B220 (RtlFindNextForwardRunClearCappedEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorPerformBrownWrites(__int64 a1, char a2, _QWORD *a3)
@@ -72,8 +72,8 @@ __int64 __fastcall MiMirrorPerformBrownWrites(__int64 a1, char a2, _QWORD *a3)
   v7 = 0LL;
   while ( 1 )
   {
-    v8 = v5 & -(__int64)(v5 < qword_14043A7B0);
-    for ( i = qword_14043A7B0 - 1; i - v8 == -1LL; i = v19 - 1 )
+    v8 = v5 & -(__int64)(v5 < qword_14043B870);
+    for ( i = qword_14043B870 - 1; i - v8 == -1LL; i = v19 - 1 )
     {
       v12 = -1LL;
 LABEL_23:
@@ -81,17 +81,17 @@ LABEL_23:
         goto LABEL_10;
       v19 = v5 + 1;
       v8 = 0LL;
-      if ( v5 + 1 > qword_14043A7B0 )
-        v19 = qword_14043A7B0;
+      if ( v5 + 1 > qword_14043B870 )
+        v19 = qword_14043B870;
     }
-    v10 = (_QWORD *)(qword_14043A7B8 + 8 * (v8 >> 6));
+    v10 = (_QWORD *)(qword_14043B878 + 8 * (v8 >> 6));
     for ( j = ((1LL << (v8 & 0x3F)) - 1) | ~*v10; j == -1; j = ~*v10 )
     {
-      if ( (unsigned __int64)++v10 > qword_14043A7B8 + 8 * (i >> 6) )
+      if ( (unsigned __int64)++v10 > qword_14043B878 + 8 * (i >> 6) )
         goto LABEL_20;
     }
     _BitScanForward64((unsigned __int64 *)&j, ~j);
-    v12 = j + (((__int64)v10 - qword_14043A7B8) >> 3 << 6);
+    v12 = j + (((__int64)v10 - qword_14043B878) >> 3 << 6);
     if ( v12 > i )
     {
 LABEL_20:
@@ -103,11 +103,11 @@ LABEL_20:
 LABEL_10:
     if ( v12 < v5 || v12 == -1LL )
       goto LABEL_19;
-    NextForwardRunClearCapped = RtlFindNextForwardRunClearCappedEx(&qword_14043A7B0, v12, i, &v46);
+    NextForwardRunClearCapped = RtlFindNextForwardRunClearCappedEx(&qword_14043B870, v12, i, &v46);
     v14 = v46;
     v15 = NextForwardRunClearCapped;
     if ( !NextForwardRunClearCapped )
-      v14 = qword_14043A7B0;
+      v14 = qword_14043B870;
     v16 = v14 - v12;
     v17 = v3 & 8;
     if ( !v17 )
@@ -116,7 +116,7 @@ LABEL_10:
       break;
     v20 = v12 & 0x1F;
     v21 = v16;
-    v22 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v12 >> 5));
+    v22 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v12 >> 5));
     if ( v20 + v16 <= 0x20 )
     {
       if ( v16 == 32 )
@@ -155,7 +155,7 @@ LABEL_40:
 LABEL_18:
     v7 = v45;
     v3 = a2;
-    if ( v5 >= qword_14043A7B0 )
+    if ( v5 >= qword_14043B870 )
       goto LABEL_19;
   }
   v47 = 0LL;
@@ -195,7 +195,7 @@ LABEL_18:
     }
     v32 = v5 & 0x1F;
     LOBYTE(v33) = 1;
-    v34 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v5 >> 5));
+    v34 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v5 >> 5));
     if ( v32 + 1 > 0x20 )
     {
       if ( (v5 & 0x1F) != 0 )

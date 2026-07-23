@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUShortAdd @ 0x18013D7D4
+ * XREFs of RtlUShortAdd @ 0x18013D684
  * Callers:
- *     RtlpCreateServerAcl @ 0x18005AFEC (RtlpCreateServerAcl.c)
- *     RtlAddResourceAttributeAce @ 0x18013E5A0 (RtlAddResourceAttributeAce.c)
+ *     RtlpCreateServerAcl @ 0x18004556C (RtlpCreateServerAcl.c)
+ *     RtlAddResourceAttributeAce @ 0x18013E450 (RtlAddResourceAttributeAce.c)
  * Callees:
  *     <none>
  */

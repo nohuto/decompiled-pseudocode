@@ -1,28 +1,29 @@
 /*
- * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1408C2530
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1408C2690
  * Callers:
  *     <none>
  * Callees:
- *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x140205674 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
- *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
- *     AlpcpCaptureIdMessage @ 0x1405E9E40 (AlpcpCaptureIdMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     IoThreadToProcess @ 0x140224230 (IoThreadToProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402A9F0C (PsGetWorkOnBehalfThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1402A9FB4 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     PoEnergyEstimationEnabled @ 0x1402AA040 (PoEnergyEstimationEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsImpersonateContainerOfThread @ 0x1402C0590 (PsImpersonateContainerOfThread.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     AlpcpLookupMessage @ 0x1406D5FD0 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x1406D95A0 (AlpcpCaptureIdMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
+  PPORT_MESSAGE v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  int v5; // edi
+  NTSTATUS v6; // edi
   KPROCESSOR_MODE PreviousMode; // r9
-  __int64 v7; // r9
   struct _KTHREAD *v8; // r14
   struct _KTHREAD *WorkOnBehalfThread; // rax
   struct _KTHREAD *v10; // rsi
@@ -35,8 +36,9 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   __int64 v18; // [rsp+48h] [rbp-20h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-18h]
   int v20; // [rsp+80h] [rbp+18h] BYREF
-  unsigned int v21; // [rsp+88h] [rbp+20h] BYREF
+  int v21; // [rsp+88h] [rbp+20h] BYREF
 
+  v3 = Message;
   v20 = 0;
   v15[0] = 0;
   BugCheckParameter2 = 0LL;
@@ -45,25 +47,25 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   DmaAdapter = 0LL;
-  if ( a3 )
+  if ( Flags )
   {
-    v5 = -1073741811;
+    v6 = -1073741811;
   }
   else
   {
-    AlpcpCaptureIdMessage(a2, &v21, &v20);
+    AlpcpCaptureIdMessage((__int64)Message, &v21, &v20);
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v6 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     DmaAdapter = (PADAPTER_OBJECT)Object;
-    if ( v5 >= 0 )
+    if ( v6 >= 0 )
     {
       if ( (*((_BYTE *)Object + 416) & 6) == 6
-        && KeGetCurrentThread()->ApcState.Process == (_KPROCESS *)*((_QWORD *)Object + 3) )
+        && (Message = (PPORT_MESSAGE)KeGetCurrentThread()->ApcState.Process, Message == *((PPORT_MESSAGE *)Object + 3)) )
       {
-        v5 = AlpcpLookupMessage((__int64)Object, v21, v20, v7, &BugCheckParameter2);
-        v15[1] = v5;
-        if ( v5 >= 0 )
+        v6 = AlpcpLookupMessage((__int64)Object, v21, v20, (__int64)v3, &BugCheckParameter2);
+        v15[1] = v6;
+        if ( v6 >= 0 )
         {
           if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) == 0 )
           {
@@ -108,18 +110,18 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
           else
           {
             AlpcpUnlockMessage(BugCheckParameter2);
-            v5 = -1073740029;
+            v6 = -1073740029;
           }
         }
       }
       else
       {
-        v5 = -1073741790;
+        v6 = -1073741790;
       }
     }
   }
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)Message, *(__int64 *)&Flags, (__int64)v3);
+  return v6;
 }

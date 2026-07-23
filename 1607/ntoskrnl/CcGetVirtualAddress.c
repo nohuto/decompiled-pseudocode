@@ -1,29 +1,29 @@
 /*
- * XREFs of CcGetVirtualAddress @ 0x1400333C0
+ * XREFs of CcGetVirtualAddress @ 0x140032F40
  * Callers:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcMapAndCopyInToCache @ 0x140034F60 (CcMapAndCopyInToCache.c)
- *     CcPurgeAndClearCacheSection @ 0x14006C840 (CcPurgeAndClearCacheSection.c)
- *     CcPrepareMdlWrite @ 0x1400B161C (CcPrepareMdlWrite.c)
- *     CcMapAndCopyFromCache @ 0x140447390 (CcMapAndCopyFromCache.c)
- *     CcMapData @ 0x1404475F0 (CcMapData.c)
- *     CcMapDataCommon @ 0x140458440 (CcMapDataCommon.c)
- *     CcMdlRead @ 0x1404586BC (CcMdlRead.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcMapAndCopyInToCache @ 0x140034AE0 (CcMapAndCopyInToCache.c)
+ *     CcPurgeAndClearCacheSection @ 0x14006C3C0 (CcPurgeAndClearCacheSection.c)
+ *     CcPrepareMdlWrite @ 0x1400AF55C (CcPrepareMdlWrite.c)
+ *     CcMapAndCopyFromCache @ 0x140446260 (CcMapAndCopyFromCache.c)
+ *     CcMapData @ 0x1404464C0 (CcMapData.c)
+ *     CcMapDataCommon @ 0x140457310 (CcMapDataCommon.c)
+ *     CcMdlRead @ 0x14045758C (CcMdlRead.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x140017FC0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x14001872C (CcGetVacbMiss.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcInsertVacbArray @ 0x1401362D4 (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x140136480 (CcAllocateInitializeVacbArray.c)
- *     CcBuildUpHighPriorityMappings @ 0x140147BC0 (CcBuildUpHighPriorityMappings.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     CcUnmapVacbArray @ 0x140017B40 (CcUnmapVacbArray.c)
+ *     CcGetVacbMiss @ 0x1400182AC (CcGetVacbMiss.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcInsertVacbArray @ 0x140136844 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x1401369F0 (CcAllocateInitializeVacbArray.c)
+ *     CcBuildUpHighPriorityMappings @ 0x140148130 (CcBuildUpHighPriorityMappings.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcGetVirtualAddress(
@@ -132,7 +132,7 @@ LABEL_18:
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xFu);
     goto LABEL_26;
   }
-  if ( v14 < qword_140326910 || v14 >= qword_140326910 + 0x8000000000LL )
+  if ( v14 < qword_140326950 || v14 >= qword_140326950 + 0x8000000000LL )
     SessionId = -1;
   else
     SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);

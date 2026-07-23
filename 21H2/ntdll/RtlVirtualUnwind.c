@@ -16,7 +16,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBa
   int v9; // edi
   int v10; // esi
   int v11; // ebp
-  EXCEPTION_ROUTINE *v13; // [rsp+50h] [rbp-28h] BYREF
+  EXCEPTION_DISPOSITION (__cdecl *v13)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+50h] [rbp-28h] BYREF
   _QWORD v14[3]; // [rsp+58h] [rbp-20h] BYREF
 
   v13 = 0LL;

@@ -7,7 +7,7 @@
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlpHpPerHeapStackTraceInitialize(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall RtlpHpPerHeapStackTraceInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   _QWORD *v4; // rax
   unsigned int v5; // ebx

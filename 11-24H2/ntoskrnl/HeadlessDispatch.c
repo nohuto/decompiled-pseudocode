@@ -1,17 +1,17 @@
 /*
- * XREFs of HeadlessDispatch @ 0x140653C90
+ * XREFs of HeadlessDispatch @ 0x1406523F0
  * Callers:
- *     BgkDisplayStringEx @ 0x14058FD04 (BgkDisplayStringEx.c)
- *     BvgaDisplayString @ 0x140590590 (BvgaDisplayString.c)
- *     BvgaSetTextColor @ 0x140590910 (BvgaSetTextColor.c)
- *     BvgaSolidColorFill @ 0x140590970 (BvgaSolidColorFill.c)
- *     KiBugCheckDebugBreak @ 0x1405B2D70 (KiBugCheckDebugBreak.c)
- *     KiDisplayBlueScreen @ 0x1405B38C0 (KiDisplayBlueScreen.c)
- *     KiHeadlessDisplayString @ 0x1405B3EC4 (KiHeadlessDisplayString.c)
- *     EtwpInitializeActivityIdSeed @ 0x1407A80C4 (EtwpInitializeActivityIdSeed.c)
+ *     BgkDisplayStringEx @ 0x14058CD24 (BgkDisplayStringEx.c)
+ *     BvgaDisplayString @ 0x14058D5B0 (BvgaDisplayString.c)
+ *     BvgaSetTextColor @ 0x14058D930 (BvgaSetTextColor.c)
+ *     BvgaSolidColorFill @ 0x14058D990 (BvgaSolidColorFill.c)
+ *     KiBugCheckDebugBreak @ 0x1405AFCE0 (KiBugCheckDebugBreak.c)
+ *     KiDisplayBlueScreen @ 0x1405B0834 (KiDisplayBlueScreen.c)
+ *     KiHeadlessDisplayString @ 0x1405B0E3C (KiHeadlessDisplayString.c)
+ *     EtwpInitializeActivityIdSeed @ 0x1407A8204 (EtwpInitializeActivityIdSeed.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HdlspDispatch @ 0x140BAD320 (HdlspDispatch.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HdlspDispatch @ 0x140BAF320 (HdlspDispatch.c)
  */
 
 __int64 __fastcall HeadlessDispatch(__int64 a1, __int64 a2, __int64 a3, void *a4, size_t *a5)

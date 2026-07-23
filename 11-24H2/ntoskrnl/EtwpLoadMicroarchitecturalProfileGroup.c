@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpLoadMicroarchitecturalProfileGroup @ 0x1407A8694
+ * XREFs of EtwpLoadMicroarchitecturalProfileGroup @ 0x1407A87D4
  * Callers:
- *     EtwpLoadMicroarchitecturalPmcs @ 0x1407A8468 (EtwpLoadMicroarchitecturalPmcs.c)
+ *     EtwpLoadMicroarchitecturalPmcs @ 0x1407A85A8 (EtwpLoadMicroarchitecturalPmcs.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1407A7EEC (EtwpGetMicroarchitecturalPmcAffinity.c)
- *     EtwpGetPmcCpuHierarchyRegistry @ 0x1407A7F9C (EtwpGetPmcCpuHierarchyRegistry.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1407A89A8 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     KiGetCpuVendor @ 0x140B6D9F4 (KiGetCpuVendor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1407A802C (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     EtwpGetPmcCpuHierarchyRegistry @ 0x1407A80DC (EtwpGetPmcCpuHierarchyRegistry.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x1407A8AE8 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     KiGetCpuVendor @ 0x140B6F294 (KiGetCpuVendor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpLoadMicroarchitecturalProfileGroup(HANDLE KeyHandle, __int64 a2)
@@ -31,7 +31,7 @@ void __fastcall EtwpLoadMicroarchitecturalProfileGroup(HANDLE KeyHandle, __int64
   char *v10; // r10
   __int64 v11; // r11
   __int64 v12; // rax
-  size_t v13; // rsi
+  ULONG_PTR v13; // rsi
   WCHAR *Pool2; // rbx
   int v15; // edi
   __int64 v16; // rax
@@ -102,7 +102,7 @@ void __fastcall EtwpLoadMicroarchitecturalProfileGroup(HANDLE KeyHandle, __int64
         ++v5;
       while ( *(_WORD *)(a2 + 2 * v5) );
       v13 = (unsigned int)(2 * v5 + 512);
-      Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+      Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, v13, 0x50777445u);
       v15 = -1;
       while ( ZwEnumerateKey(KeyHandle, ++v15, KeyBasicInformation, KeyInformation, 0x216u, &ResultLength) >= 0 )
       {

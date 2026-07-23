@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSmallVaStillMapsFrame @ 0x140109A20
+ * XREFs of MiSmallVaStillMapsFrame @ 0x1401077A0
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
- *     PsGetCurrentProcess @ 0x140014680 (PsGetCurrentProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiGetProcessShadowPage @ 0x1401EF32C (MiGetProcessShadowPage.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     PsGetCurrentProcess @ 0x140014200 (PsGetCurrentProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiGetProcessShadowPage @ 0x1401EF158 (MiGetProcessShadowPage.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiSmallVaStillMapsFrame(unsigned __int64 a1, __int64 a2)

@@ -13,30 +13,31 @@
 void __fastcall UcpRetrieveCurrentConfigSettings(_DWORD *a1, _BYTE *a2, _BYTE *a3)
 {
   _DWORD *Pool2; // rax
-  _DWORD *v7; // rbx
+  _DWORD *Buffer; // rbx
   unsigned int v8; // r9d
   __int64 v9; // r8
   _DWORD *v10; // rcx
   size_t Size; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+38h] [rbp-30h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+38h] [rbp-30h] BYREF
 
   Size = 0LL;
-  v12 = WNF_UCP_CLIENT_CONFIG_BUFFER;
-  ZwQueryWnfStateData(&v12, 0LL, 0LL, (char *)&Size + 4, 0LL, &Size);
+  StateName = (WNF_STATE_NAME)WNF_UCP_CLIENT_CONFIG_BUFFER;
+  ZwQueryWnfStateData(&StateName, 0LL, 0LL, (PWNF_CHANGE_STAMP)&Size + 1, 0LL, (PULONG)&Size);
   if ( (_DWORD)Size )
   {
     Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
-    v7 = Pool2;
+    Buffer = Pool2;
     if ( Pool2 )
     {
       memset_0(Pool2, 0, (unsigned int)Size);
-      if ( (int)ZwQueryWnfStateData(&v12, 0LL, 0LL, (char *)&Size + 4, v7, &Size) >= 0 && *v7 == 1 )
+      if ( ZwQueryWnfStateData(&StateName, 0LL, 0LL, (PWNF_CHANGE_STAMP)&Size + 1, Buffer, (PULONG)&Size) >= 0
+        && *Buffer == 1 )
       {
-        v8 = v7[1];
+        v8 = Buffer[1];
         v9 = 0LL;
         if ( v8 )
         {
-          v10 = v7 + 5;
+          v10 = Buffer + 5;
           do
           {
             if ( *(v10 - 3) != *a1 )
@@ -59,7 +60,7 @@ void __fastcall UcpRetrieveCurrentConfigSettings(_DWORD *a1, _BYTE *a2, _BYTE *a
             if ( *(v10 - 2) == a1[1] )
             {
 LABEL_16:
-              *a3 = v7[5 * v9 + 6];
+              *a3 = Buffer[5 * v9 + 6];
               break;
             }
 LABEL_14:
@@ -69,7 +70,7 @@ LABEL_14:
           while ( (unsigned int)v9 < v8 );
         }
       }
-      ExFreePoolWithTag(v7, 0x72656355u);
+      ExFreePoolWithTag(Buffer, 0x72656355u);
     }
   }
 }

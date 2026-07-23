@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpProtectedCopyMemory @ 0x18007FB50
+ * XREFs of LdrpProtectedCopyMemory @ 0x18007FB60
  * Callers:
  *     <none>
  * Callees:

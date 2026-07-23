@@ -1,13 +1,13 @@
 /*
- * XREFs of PsLocateSystemDlls @ 0x1407EE038
+ * XREFs of PsLocateSystemDlls @ 0x1407F3B98
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14041D934 (VslGetNestedPageProtectionFlags.c)
- *     ExVerifySuite @ 0x1405277D0 (ExVerifySuite.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PspLocateSystemDll @ 0x1407EE38C (PspLocateSystemDll.c)
- *     PspMapSystemDll @ 0x140962C14 (PspMapSystemDll.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140415184 (VslGetNestedPageProtectionFlags.c)
+ *     ExVerifySuite @ 0x140529E40 (ExVerifySuite.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PspLocateSystemDll @ 0x1407F3EEC (PspLocateSystemDll.c)
+ *     PspMapSystemDll @ 0x140A08A9C (PspMapSystemDll.c)
  */
 
 __int64 PsLocateSystemDlls()
@@ -20,7 +20,7 @@ __int64 PsLocateSystemDlls()
   __int64 v5; // rdx
   int SystemDll; // eax
 
-  if ( !ExVerifySuite(EmbeddedNT) || (PspSiloMonitorLock.SchedulerApcFill4[64] & 1) == 0 )
+  if ( !ExVerifySuite(EmbeddedNT) || (PspSiloMonitorLock.SchedulerApcFill4[68] & 1) == 0 )
   {
     v0 = (_QWORD *)((char *)&ExpPlatformBinaryLock.116 + 4);
     v1 = VslGetNestedPageProtectionFlags(0LL) & 4;

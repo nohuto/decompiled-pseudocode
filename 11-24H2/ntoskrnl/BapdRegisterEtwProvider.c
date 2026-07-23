@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdRegisterEtwProvider @ 0x1404A4CF8
+ * XREFs of BapdRegisterEtwProvider @ 0x14049FA88
  * Callers:
- *     BapdWriteEtwEvents @ 0x1404A4884 (BapdWriteEtwEvents.c)
- *     BapdRecordFirmwareBootStats @ 0x140B60CB0 (BapdRecordFirmwareBootStats.c)
- *     BapdpRecordIumStatus @ 0x140C3F920 (BapdpRecordIumStatus.c)
+ *     BapdWriteEtwEvents @ 0x14049F614 (BapdWriteEtwEvents.c)
+ *     BapdRecordFirmwareBootStats @ 0x140B62D80 (BapdRecordFirmwareBootStats.c)
+ *     BapdpRecordIumStatus @ 0x140C41A70 (BapdpRecordIumStatus.c)
  * Callees:
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     EtwSetInformation @ 0x140AA4AB0 (EtwSetInformation.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     EtwSetInformation @ 0x140AD9290 (EtwSetInformation.c)
  */
 
 NTSTATUS __fastcall BapdRegisterEtwProvider(const GUID *a1, char a2, ULONGLONG *a3)

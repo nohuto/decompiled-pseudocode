@@ -1,19 +1,19 @@
 /*
- * XREFs of BiSetRegistryValue @ 0x140713D84
+ * XREFs of BiSetRegistryValue @ 0x140715024
  * Callers:
- *     BiSetFirmwareModified @ 0x14016E4C8 (BiSetFirmwareModified.c)
- *     BiAddStoreFromFile @ 0x14071101C (BiAddStoreFromFile.c)
- *     BiMarkTreatAsSystemStore @ 0x140711164 (BiMarkTreatAsSystemStore.c)
- *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
- *     BiSetObjectDescription @ 0x1408F0F5C (BiSetObjectDescription.c)
- *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
- *     BiUpdateBcdObject @ 0x1408F48E8 (BiUpdateBcdObject.c)
+ *     BiSetFirmwareModified @ 0x14016E5C8 (BiSetFirmwareModified.c)
+ *     BiAddStoreFromFile @ 0x1407122BC (BiAddStoreFromFile.c)
+ *     BiMarkTreatAsSystemStore @ 0x140712404 (BiMarkTreatAsSystemStore.c)
+ *     BcdSetElementDataWithFlags @ 0x140714610 (BcdSetElementDataWithFlags.c)
+ *     BiSetObjectDescription @ 0x1408F221C (BiSetObjectDescription.c)
+ *     BiCreateEfiEntry @ 0x1408F4060 (BiCreateEfiEntry.c)
+ *     BiUpdateBcdObject @ 0x1408F5BA8 (BiUpdateBcdObject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14013B3D0 (BiSanitizeHandle.c)
- *     BiZwSetValueKey @ 0x14016E64C (BiZwSetValueKey.c)
- *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
- *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     BiSanitizeHandle @ 0x14013B4D0 (BiSanitizeHandle.c)
+ *     BiZwSetValueKey @ 0x14016E74C (BiZwSetValueKey.c)
+ *     BiOpenKey @ 0x140714A20 (BiOpenKey.c)
+ *     BiCloseKey @ 0x140714B90 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiSetRegistryValue(__int64 a1, const WCHAR *a2, const WCHAR *a3, ULONG a4, PVOID a5, ULONG a6)

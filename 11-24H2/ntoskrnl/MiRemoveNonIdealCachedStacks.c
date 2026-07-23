@@ -1,21 +1,21 @@
 /*
- * XREFs of MiRemoveNonIdealCachedStacks @ 0x1406800B0
+ * XREFs of MiRemoveNonIdealCachedStacks @ 0x1406812B0
  * Callers:
- *     MiAdjustCachedStackList @ 0x1402698A4 (MiAdjustCachedStackList.c)
+ *     MiAdjustCachedStackList @ 0x1402AF530 (MiAdjustCachedStackList.c)
  * Callees:
- *     MiDeleteCachedKernelShadowStack @ 0x140269224 (MiDeleteCachedKernelShadowStack.c)
- *     MiKernelShadowStackIdealForCaching @ 0x140477930 (MiKernelShadowStackIdealForCaching.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x14021E9E8 (MiDeleteCachedKernelShadowStack.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140473F28 (MiKernelShadowStackIdealForCaching.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
-PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(_SLIST_HEADER *a1)
 {
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *i; // rdi
-  struct _SLIST_ENTRY *v4; // rbx
-  struct _SLIST_ENTRY *v5; // rbp
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_ENTRY *i; // rdi
+  _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *v5; // rbp
+  _SLIST_HEADER *v6; // rcx
   unsigned __int64 Next; // rdx
   __int64 v8; // rbx
   int v9; // [rsp+40h] [rbp+8h] BYREF
@@ -38,7 +38,7 @@ PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(union _SLIST_HEADER *a1)
       Next = (unsigned __int64)v4[1].Next;
       v8 = v10;
       MiDeleteCachedKernelShadowStack(v10, Next);
-      v6 = (union _SLIST_HEADER *)(v8 + 448);
+      v6 = (_SLIST_HEADER *)(v8 + 448);
     }
     else
     {

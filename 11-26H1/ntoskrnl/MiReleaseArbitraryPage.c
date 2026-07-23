@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleaseArbitraryPage @ 0x1402F2F20
+ * XREFs of MiReleaseArbitraryPage @ 0x1402D4FA0
  * Callers:
- *     MiConvertStandbyToProto @ 0x140306E68 (MiConvertStandbyToProto.c)
+ *     MiConvertStandbyToProto @ 0x1402E8EE8 (MiConvertStandbyToProto.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
  */
 
 __int64 __fastcall MiReleaseArbitraryPage(__int64 a1)

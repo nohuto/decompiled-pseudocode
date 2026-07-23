@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemDisableContextProvider @ 0x140789970
+ * XREFs of WdipSemDisableContextProvider @ 0x140789B30
  * Callers:
- *     WdipSemDisableContextProviders @ 0x140789900 (WdipSemDisableContextProviders.c)
+ *     WdipSemDisableContextProviders @ 0x140789AC0 (WdipSemDisableContextProviders.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     WdipSemCaptureState @ 0x14039F0DC (WdipSemCaptureState.c)
- *     WdipSemEnableDisableTrace @ 0x140789BC8 (WdipSemEnableDisableTrace.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     WdipSemCaptureState @ 0x14039F22C (WdipSemCaptureState.c)
+ *     WdipSemEnableDisableTrace @ 0x140789D88 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
@@ -17,11 +17,14 @@ __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
   int v6; // r8d
   __int64 v7; // rbx
   __int32 v8; // ecx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C1C9C8, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C1C9A8, 0LL);
   if ( a1 )
   {
     WdipSemCaptureState(a1, a2);
@@ -58,7 +61,7 @@ __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
   {
     v3 = -1073741811;
   }
-  ExReleasePushLockEx((ULONG_PTR)&qword_140C1C9C8, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  ExReleasePushLockEx((ULONG_PTR)&qword_140C1C9A8, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
   return (unsigned int)v3;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpVirtualPopShadowStack @ 0x180018EB0
+ * XREFs of RtlpVirtualPopShadowStack @ 0x1800458B0
  * Callers:
- *     RtlpxVirtualUnwind @ 0x180016C30 (RtlpxVirtualUnwind.c)
- *     RtlpUnwindEpilogue @ 0x180117338 (RtlpUnwindEpilogue.c)
+ *     RtlpxVirtualUnwind @ 0x180043630 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindEpilogue @ 0x180112328 (RtlpUnwindEpilogue.c)
  * Callees:
- *     RtlLocateExtendedFeature @ 0x180018F00 (RtlLocateExtendedFeature.c)
+ *     RtlLocateExtendedFeature @ 0x180045900 (RtlLocateExtendedFeature.c)
  */
 
-__int64 __fastcall RtlpVirtualPopShadowStack(__int64 a1)
+_QWORD *__fastcall RtlpVirtualPopShadowStack(__int64 a1)
 {
-  __int64 result; // rax
+  _QWORD *result; // rax
 
-  result = *(_DWORD *)(a1 + 48) & 0x100040;
+  result = (_QWORD *)(*(_DWORD *)(a1 + 48) & 0x100040);
   if ( (_DWORD)result == 1048640 )
   {
-    result = RtlLocateExtendedFeature(a1 + 1232, 11LL);
+    result = RtlLocateExtendedFeature((PCONTEXT_EX)(a1 + 1232), 0xBu, 0LL);
     if ( result )
     {
       if ( (*(_BYTE *)result & 1) != 0 )
-        *(_QWORD *)(result + 8) += 8LL;
+        result[1] += 8LL;
     }
   }
   return result;

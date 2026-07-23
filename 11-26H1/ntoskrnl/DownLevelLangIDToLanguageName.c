@@ -1,17 +1,17 @@
 /*
- * XREFs of DownLevelLangIDToLanguageName @ 0x1404EF488
+ * XREFs of DownLevelLangIDToLanguageName @ 0x1404E8A68
  * Callers:
- *     PnpGetDeviceInterfacePropertyData @ 0x1409DA6C4 (PnpGetDeviceInterfacePropertyData.c)
- *     PnpGetDevicePropertyData @ 0x140A98540 (PnpGetDevicePropertyData.c)
- *     LdrResSearchResource @ 0x140A9AF20 (LdrResSearchResource.c)
- *     ExpSetPendingUILanguage @ 0x140B1E260 (ExpSetPendingUILanguage.c)
- *     PnpGetDeviceInstancePropertyData @ 0x140B2F500 (PnpGetDeviceInstancePropertyData.c)
- *     RtlLCIDToCultureName @ 0x140B5CEE0 (RtlLCIDToCultureName.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140CEBDA4 (CmSelectQualifiedInstallLanguage.c)
+ *     LdrResSearchResource @ 0x1409E5F50 (LdrResSearchResource.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x140A17914 (PnpGetDeviceInterfacePropertyData.c)
+ *     PnpGetDevicePropertyData @ 0x140A9C6C0 (PnpGetDevicePropertyData.c)
+ *     ExpSetPendingUILanguage @ 0x140B202E0 (ExpSetPendingUILanguage.c)
+ *     PnpGetDeviceInstancePropertyData @ 0x140B312E0 (PnpGetDeviceInstancePropertyData.c)
+ *     RtlLCIDToCultureName @ 0x140B60060 (RtlLCIDToCultureName.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140CF20A8 (CmSelectQualifiedInstallLanguage.c)
  * Callees:
- *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140500D5C (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1405056D0 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     bsearch @ 0x140536920 (bsearch.c)
+ *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x1404FA54C (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1404FEF80 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     bsearch @ 0x140538DA0 (bsearch.c)
  */
 
 __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a2, int a3, int a4)
@@ -33,7 +33,7 @@ __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a
     return 0LL;
   v7 = (const struct CultureDataType *)bsearch(
                                          &Key,
-                                         &off_140002460,
+                                         &off_140002450,
                                          0x1B4uLL,
                                          0x10uLL,
                                          (int (__cdecl *)(const void *, const void *))CompareLangIDs);

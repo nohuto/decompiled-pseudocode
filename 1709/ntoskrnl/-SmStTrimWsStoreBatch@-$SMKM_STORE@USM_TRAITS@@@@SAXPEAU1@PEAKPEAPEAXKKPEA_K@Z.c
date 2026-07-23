@@ -111,7 +111,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
       if ( ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              *PoolWithTag,
-             MemoryWorkingSetExList,
+             MemoryWorkingSetExInformation,
              PoolWithTag,
              16 * v7 * v15,
              0LL) >= 0 )

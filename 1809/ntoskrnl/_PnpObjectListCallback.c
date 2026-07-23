@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpObjectListCallback @ 0x140759BE0
+ * XREFs of _PnpObjectListCallback @ 0x14075ADD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlStringCchCopyExW @ 0x14013DE50 (RtlStringCchCopyExW.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpObjectListCallback(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)

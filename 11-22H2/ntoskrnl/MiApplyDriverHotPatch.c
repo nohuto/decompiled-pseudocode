@@ -36,7 +36,7 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall MiApplyDriverHotPatch(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, char a4)
 {
   _QWORD *v6; // r15
   __int64 result; // rax
@@ -63,8 +63,8 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, cha
   _QWORD v28[8]; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD *v29; // [rsp+A8h] [rbp-60h]
   void *v30; // [rsp+B0h] [rbp-58h]
-  __int64 v31[14]; // [rsp+B8h] [rbp-50h] BYREF
-  __int64 v32[20]; // [rsp+128h] [rbp+20h] BYREF
+  _RTL_BITMAP_EX v31[7]; // [rsp+B8h] [rbp-50h] BYREF
+  _RTL_BITMAP_EX v32[10]; // [rsp+128h] [rbp+20h] BYREF
   int v33; // [rsp+1E0h] [rbp+D8h]
 
   v24 = 0;
@@ -75,7 +75,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, cha
   memset(v28, 0, sizeof(v28));
   if ( (*(_DWORD *)(a2 + 196) & 0x20) != 0 )
     return 3221225496LL;
-  v28[3] = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
+  v28[3] = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
   v8 = v28[3];
   HotPatchBase = RtlFindHotPatchBase(v28[3]);
   if ( !HotPatchBase )
@@ -85,12 +85,12 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, cha
   if ( !(unsigned __int8)RtlValidateHotPatchBase(v9, HotPatchBase, v11, v10) )
     return 3221225595LL;
   memset(v31, 0, 0x68uLL);
-  v31[0] = a2;
-  v31[1] = HotPatchBase;
-  LODWORD(v31[3]) = (v11 >> 12) + ((v11 & 0xFFF) != 0);
+  v31[0].SizeOfBitMap = a2;
+  v31[0].Buffer = (unsigned __int64 *)HotPatchBase;
+  LODWORD(v31[1].Buffer) = (v11 >> 12) + ((v11 & 0xFFF) != 0);
   memset(v32, 0, 0x68uLL);
-  v32[0] = a1;
-  LODWORD(v32[3]) = (v10 >> 12) + ((v10 & 0xFFF) != 0);
+  v32[0].SizeOfBitMap = a1;
+  LODWORD(v32[1].Buffer) = (v10 >> 12) + ((v10 & 0xFFF) != 0);
   if ( !*(_QWORD *)(a2 + 280) )
     goto LABEL_11;
   result = VslDetermineHotPatchUndoTableSize(*(_QWORD *)(a2 + 48), &v24);
@@ -196,7 +196,7 @@ LABEL_11:
       if ( SectionStrongImageReference >= 0 )
       {
         if ( (*(_DWORD *)(a2 + 196) & 0x100) != 0 )
-          v28[6] = RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "__PatchMainCallout__");
+          v28[6] = RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "__PatchMainCallout__");
         if ( v28[6] )
         {
           LODWORD(v28[7]) = 0;

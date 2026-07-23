@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGetEnvironmentVariableEx @ 0x1407BE1C0
+ * XREFs of NtGetEnvironmentVariableEx @ 0x1407BE610
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     IoGetEnvironmentVariableEx @ 0x140966F70 (IoGetEnvironmentVariableEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     IoGetEnvironmentVariableEx @ 0x14094FA00 (IoGetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall NtGetEnvironmentVariableEx(int a1, int a2, int a3, int a4, __int64 a5)
@@ -14,7 +14,7 @@ __int64 __fastcall NtGetEnvironmentVariableEx(int a1, int a2, int a3, int a4, __
   struct _KTHREAD *CurrentThread; // rax
   unsigned int EnvironmentVariable; // ebx
 
-  if ( dword_140EFEAF0 != 2 )
+  if ( dword_140EFEE10 != 2 )
     return 3221225474LL;
   if ( KeGetCurrentThread()->PreviousMode )
     return 3221225569LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCCSwapDeleteProcessor @ 0x1405AC4B8
+ * XREFs of EtwpCCSwapDeleteProcessor @ 0x1405AC6E8
  * Callers:
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCCSwapDeleteProcessor(__int64 a1)

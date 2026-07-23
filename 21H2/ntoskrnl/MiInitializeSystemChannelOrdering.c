@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeSystemChannelOrdering @ 0x140A92620
+ * XREFs of MiInitializeSystemChannelOrdering @ 0x140A93620
  * Callers:
- *     MiInitializeChannelOrdering @ 0x14079CCFC (MiInitializeChannelOrdering.c)
+ *     MiInitializeChannelOrdering @ 0x14079CEFC (MiInitializeChannelOrdering.c)
  * Callees:
- *     MiPageToChannel @ 0x1402FF108 (MiPageToChannel.c)
+ *     MiPageToChannel @ 0x140309E58 (MiPageToChannel.c)
  */
 
 void __fastcall MiInitializeSystemChannelOrdering(__int64 a1, unsigned int a2)
@@ -25,7 +25,7 @@ void __fastcall MiInitializeSystemChannelOrdering(__int64 a1, unsigned int a2)
   v4 = (ULONG_PTR *)MxFreeDescriptor[a2];
   if ( v4[1] )
     *(_BYTE *)((unsigned int)MiPageToChannel(*v4) + v3 + 4321) = 2;
-  for ( i = (char *)qword_140C4DED0; *(_QWORD *)i != -1LL; i += 16 )
+  for ( i = (char *)qword_140C4DF10; *(_QWORD *)i != -1LL; i += 16 )
   {
     if ( *((unsigned __int16 *)i + 5) == a2 )
     {

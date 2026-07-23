@@ -1,10 +1,10 @@
 /*
- * XREFs of InitializeListHeadPte @ 0x1401FDFFC
+ * XREFs of InitializeListHeadPte @ 0x1401FDE28
  * Callers:
- *     MiInitializeSpecialPool @ 0x140535D5C (MiInitializeSpecialPool.c)
- *     MiInitializeSystemCache @ 0x140553FFC (MiInitializeSystemCache.c)
+ *     MiInitializeSpecialPool @ 0x14053629C (MiInitializeSpecialPool.c)
+ *     MiInitializeSystemCache @ 0x14055453C (MiInitializeSystemCache.c)
  * Callees:
- *     MiMakeLinkedListPte @ 0x1401F2740 (MiMakeLinkedListPte.c)
+ *     MiMakeLinkedListPte @ 0x1401F256C (MiMakeLinkedListPte.c)
  */
 
 __int64 __fastcall InitializeListHeadPte(unsigned __int64 a1, __int64 a2)

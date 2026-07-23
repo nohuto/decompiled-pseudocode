@@ -2,10 +2,10 @@
  * XREFs of HalpMceInitializeErrorPacketContents @ 0x140A8AB48
  * Callers:
  *     HalpMceInitializeErrorPacket @ 0x140A8AADC (HalpMceInitializeErrorPacket.c)
- *     HalpHandlePreviousMcaErrors @ 0x140A94FF0 (HalpHandlePreviousMcaErrors.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A95130 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140A94E60 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A94FA0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 GUID *__fastcall HalpMceInitializeErrorPacketContents(GUID *a1)

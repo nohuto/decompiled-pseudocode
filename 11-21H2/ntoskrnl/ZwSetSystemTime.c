@@ -1,17 +1,17 @@
 /*
  * XREFs of ZwSetSystemTime @ 0x14041EE40
  * Callers:
- *     DifZwSetSystemTimeWrapper @ 0x140627CD0 (DifZwSetSystemTimeWrapper.c)
- *     ExpTimeZoneInitSiloState @ 0x1409F8178 (ExpTimeZoneInitSiloState.c)
- *     ExpTimeZoneWork @ 0x1409F8250 (ExpTimeZoneWork.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     sub_140627CD0 @ 0x140627CD0 (sub_140627CD0.c)
+ *     sub_1409F8178 @ 0x1409F8178 (sub_1409F8178.c)
+ *     sub_1409F8250 @ 0x1409F8250 (sub_1409F8250.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetSystemTime(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER PreviousTime)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(SystemTime, PreviousTime);
 }

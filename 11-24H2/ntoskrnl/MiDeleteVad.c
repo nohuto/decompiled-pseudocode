@@ -1,51 +1,51 @@
 /*
- * XREFs of MiDeleteVad @ 0x1408E5390
+ * XREFs of MiDeleteVad @ 0x140895840
  * Callers:
- *     MiFreeVadRange @ 0x1403CDBD8 (MiFreeVadRange.c)
- *     MiDeletePartialVad @ 0x1403CDE5C (MiDeletePartialVad.c)
- *     MiCreateEnclave @ 0x1407F7080 (MiCreateEnclave.c)
- *     MiDeleteInsertedCloneVads @ 0x140800264 (MiDeleteInsertedCloneVads.c)
- *     MiFreeToSubAllocatedRegion @ 0x1408DB54C (MiFreeToSubAllocatedRegion.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408DC33C (MiCoalescePlaceholderAllocations.c)
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MiCleanVad @ 0x1408E5224 (MiCleanVad.c)
- *     MiUnmapVad @ 0x1408E5280 (MiUnmapVad.c)
- *     MiMapLockedPagesInUserSpace @ 0x1409C3AE8 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A135A0 (MiMapViewOfPhysicalSection.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x140A61744 (MiUnmapLockedPagesInUserSpace.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140A7084C (MiFinishPlaceholderVadReplacement.c)
+ *     MiFreeVadRange @ 0x14026731C (MiFreeVadRange.c)
+ *     MiDeletePartialVad @ 0x1402675A0 (MiDeletePartialVad.c)
+ *     MiCreateEnclave @ 0x1407F77F4 (MiCreateEnclave.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408009A4 (MiDeleteInsertedCloneVads.c)
+ *     MiCleanVad @ 0x140895DDC (MiCleanVad.c)
+ *     MiUnmapVad @ 0x140895E38 (MiUnmapVad.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MiFreeToSubAllocatedRegion @ 0x1408D9778 (MiFreeToSubAllocatedRegion.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408DA56C (MiCoalescePlaceholderAllocations.c)
+ *     MiMapLockedPagesInUserSpace @ 0x1408DC1EC (MiMapLockedPagesInUserSpace.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0BD00 (MiMapViewOfPhysicalSection.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A59F24 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A69CDC (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     MiUnmapViewSubsections @ 0x14020EC50 (MiUnmapViewSubsections.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiIsVadLargePrivate @ 0x14025FD90 (MiIsVadLargePrivate.c)
- *     MiRemoveVad @ 0x1402601E8 (MiRemoveVad.c)
- *     MiSetVadDeleted @ 0x1402B94A0 (MiSetVadDeleted.c)
- *     MiManageSubsectionView @ 0x1402BAAB0 (MiManageSubsectionView.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MiGetProtoPteAddress @ 0x140301740 (MiGetProtoPteAddress.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiDereferenceControlArea @ 0x14036F494 (MiDereferenceControlArea.c)
- *     MiDeleteVirtualAddresses @ 0x1403CC160 (MiDeleteVirtualAddresses.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiLockAddressSpaceToo @ 0x140405808 (MiLockAddressSpaceToo.c)
- *     MiControlAreaRequiresCharge @ 0x1404166A4 (MiControlAreaRequiresCharge.c)
- *     MiReturnFullProcessCharges @ 0x140430F60 (MiReturnFullProcessCharges.c)
- *     MiReadVadFlags2 @ 0x14044BF3C (MiReadVadFlags2.c)
- *     MiFinishVadDeletion @ 0x14044C9BC (MiFinishVadDeletion.c)
- *     MiDrainSystemAccessLog @ 0x140469AF0 (MiDrainSystemAccessLog.c)
- *     MiDereferenceExtendInfo @ 0x1404844BC (MiDereferenceExtendInfo.c)
- *     MiDecrementLargeSubsections @ 0x1404C8E10 (MiDecrementLargeSubsections.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1404CBAD0 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1404D0550 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1404FA55C (MiInitPerfMemoryFlags.c)
- *     MiRemoveUserPhysicalPagesView @ 0x140682E08 (MiRemoveUserPhysicalPagesView.c)
- *     MiRemoveSharedCommitNode @ 0x1408E5960 (MiRemoveSharedCommitNode.c)
- *     MiFreeLargePageView @ 0x1409B0830 (MiFreeLargePageView.c)
- *     MiDereferencePerSessionProtos @ 0x140A24458 (MiDereferencePerSessionProtos.c)
- *     MiDeleteEnclavePages @ 0x140B6E178 (MiDeleteEnclavePages.c)
+ *     MiDeleteVirtualAddresses @ 0x140266330 (MiDeleteVirtualAddresses.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiIsVadLargePrivate @ 0x1402903A0 (MiIsVadLargePrivate.c)
+ *     MiRemoveVad @ 0x1402907F8 (MiRemoveVad.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiGetProtoPteAddress @ 0x14030BEC0 (MiGetProtoPteAddress.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     MiUnmapViewSubsections @ 0x140337FB0 (MiUnmapViewSubsections.c)
+ *     MiSetVadDeleted @ 0x140360BE0 (MiSetVadDeleted.c)
+ *     MiManageSubsectionView @ 0x1403621F0 (MiManageSubsectionView.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiControlAreaRequiresCharge @ 0x140394370 (MiControlAreaRequiresCharge.c)
+ *     MiLockAddressSpaceToo @ 0x1403C7D64 (MiLockAddressSpaceToo.c)
+ *     MiReturnFullProcessCharges @ 0x1404234A0 (MiReturnFullProcessCharges.c)
+ *     MiDereferenceControlArea @ 0x14042777C (MiDereferenceControlArea.c)
+ *     MiReadVadFlags2 @ 0x14044307C (MiReadVadFlags2.c)
+ *     MiFinishVadDeletion @ 0x1404438BC (MiFinishVadDeletion.c)
+ *     MiDrainSystemAccessLog @ 0x140462A14 (MiDrainSystemAccessLog.c)
+ *     MiDereferenceExtendInfo @ 0x14047FA5C (MiDereferenceExtendInfo.c)
+ *     MiDecrementLargeSubsections @ 0x1404C22C0 (MiDecrementLargeSubsections.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1404C4F4C (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1404C9744 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1404F7E3C (MiInitPerfMemoryFlags.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x140683FF8 (MiRemoveUserPhysicalPagesView.c)
+ *     MiRemoveSharedCommitNode @ 0x140895560 (MiRemoveSharedCommitNode.c)
+ *     MiFreeLargePageView @ 0x14099A530 (MiFreeLargePageView.c)
+ *     MiDereferencePerSessionProtos @ 0x140A18828 (MiDereferencePerSessionProtos.c)
+ *     MiDeleteEnclavePages @ 0x140B6FC18 (MiDeleteEnclavePages.c)
  */
 
 void __fastcall MiDeleteVad(unsigned __int8 *P, __int64 a2)
@@ -62,56 +62,57 @@ void __fastcall MiDeleteVad(unsigned __int8 *P, __int64 a2)
   BOOL IsVadLargePrivate; // eax
   __int64 v14; // rdx
   __int64 v15; // r8
-  int v16; // esi
-  int v17; // ecx
+  __int64 v16; // r9
+  int v17; // esi
   int v18; // ecx
-  __int64 v19; // rcx
-  int v20; // ecx
-  char v21; // cl
-  __int64 v22; // r8
-  char v23; // al
-  void *v24; // rcx
-  unsigned __int64 *v25; // rdi
-  unsigned __int64 *v26; // rsi
-  volatile signed __int64 *v27; // rcx
-  unsigned int v28; // eax
-  unsigned __int64 v29; // rdx
-  __int64 v30; // rdx
+  int v19; // ecx
+  __int64 v20; // rcx
+  int v21; // ecx
+  char v22; // cl
+  __int64 v23; // r8
+  char v24; // al
+  void *v25; // rcx
+  __int64 *v26; // rdi
+  __int64 *v27; // rsi
+  volatile signed __int64 *v28; // rcx
+  unsigned int v29; // eax
+  unsigned __int64 v30; // rdx
+  __int64 v31; // rdx
   unsigned __int64 LockedVadEvent; // rax
-  int v32; // edx
-  __int64 v33; // rcx
-  unsigned __int8 v34; // rax^4
+  int v33; // edx
+  __int64 v34; // rcx
+  unsigned __int8 v35; // rax^4
   unsigned int inited; // eax
-  unsigned __int64 *v36; // [rsp+20h] [rbp-50h] BYREF
-  unsigned __int64 v37; // [rsp+28h] [rbp-48h]
+  __int64 *v37; // [rsp+20h] [rbp-50h] BYREF
+  unsigned __int64 v38; // [rsp+28h] [rbp-48h]
   struct _LIST_ENTRY **p_Blink; // [rsp+30h] [rbp-40h]
-  __int128 v39; // [rsp+38h] [rbp-38h] BYREF
-  __int128 v40; // [rsp+48h] [rbp-28h]
-  __int128 v41; // [rsp+58h] [rbp-18h]
-  __int64 v42; // [rsp+68h] [rbp-8h]
+  __int128 v40; // [rsp+38h] [rbp-38h] BYREF
+  __int128 v41; // [rsp+48h] [rbp-28h]
+  __int128 v42; // [rsp+58h] [rbp-18h]
+  __int64 v43; // [rsp+68h] [rbp-8h]
   _KPROCESS *Process; // [rsp+B0h] [rbp+40h]
-  unsigned __int64 *v44; // [rsp+C8h] [rbp+58h] BYREF
+  __int64 *v45; // [rsp+C8h] [rbp+58h] BYREF
 
-  v42 = 0LL;
-  v39 = 0LL;
+  v43 = 0LL;
   v40 = 0LL;
-  v4 = 0LL;
   v41 = 0LL;
+  v4 = 0LL;
+  v42 = 0LL;
   v5 = (unsigned __int64)P[33] << 32;
   v6 = (unsigned __int64)P[32] << 32;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v36 = 0LL;
-  v44 = 0LL;
+  v37 = 0LL;
+  v45 = 0LL;
   p_Blink = &Process[2].ReadyListHead.Blink;
   v7 = (*((unsigned int *)P + 6) | v6) << 12;
   v8 = ((*((unsigned int *)P + 7) | v5) << 12) | 0xFFF;
   v10 = MiIsVadLargePrivate((__int64)P) ? 0x40 : 0;
   if ( (*(_DWORD *)(v9 + 48) & 0x200000) == 0 )
   {
-    v24 = *(void **)(v9 + 128);
-    if ( v24 )
+    v25 = *(void **)(v9 + 128);
+    if ( v25 )
     {
-      ObfDereferenceObjectWithTag(v24, 0x63536D4Du);
+      ObfDereferenceObjectWithTag(v25, 0x63536D4Du);
       v11 = Process;
     }
   }
@@ -119,119 +120,127 @@ void __fastcall MiDeleteVad(unsigned __int8 *P, __int64 a2)
   if ( (v12 & 0x200000) != 0 && (v12 & 0xC000000) == 0x8000000 )
     MiDeleteEnclavePages(v11, P);
   if ( (P[48] & 0x70) == 0x30 )
-    *((_QWORD *)&v41 + 1) = MiRemoveUserPhysicalPagesView((__int64)P);
+    *((_QWORD *)&v42 + 1) = MiRemoveUserPhysicalPagesView((__int64)P);
   if ( (*((unsigned int *)P + 13) | ((unsigned __int64)P[34] << 32)) == 0x7FFFFFFFDLL )
   {
-    v28 = v10;
+    v29 = v10;
     v10 |= 0x80u;
     if ( *((_QWORD *)P + 2) != -2LL )
-      v10 = v28;
+      v10 = v29;
   }
   if ( v10 < 0x80 )
     MiSetVadDeleted((__int64)P);
   IsVadLargePrivate = MiIsVadLargePrivate((__int64)P);
-  v16 = v15 | 0x800;
+  v17 = v15 | 0x800;
   if ( !IsVadLargePrivate )
-    v16 = v15;
+    v17 = v15;
   if ( (*((_DWORD *)P + 12) & 0x4200000) == 0x4200000 )
-    v16 |= 0x1000u;
+    v17 |= 0x1000u;
   if ( v10 < 0x80 )
   {
-    *(_QWORD *)&v41 = P;
-    MiDeleteVirtualAddresses(v7, v8, v16, (__int64)&v39);
-    if ( (v16 & 0x800) != 0 )
+    *(_QWORD *)&v42 = P;
+    MiDeleteVirtualAddresses(v7, v8, v17, (__int64)&v40);
+    if ( (v17 & 0x800) != 0 )
     {
-      v29 = *((unsigned int *)P + 13) | ((unsigned __int64)P[34] << 32);
-      v37 = v29;
-      if ( v42 )
+      v30 = *((unsigned int *)P + 13) | ((unsigned __int64)P[34] << 32);
+      v38 = v30;
+      if ( v43 )
       {
-        v30 = v42;
-        v42 = 0LL;
-        MiReturnFullProcessCharges((__int64)Process, v30);
-        v29 = v37;
+        v31 = v43;
+        v43 = 0LL;
+        MiReturnFullProcessCharges((__int64)Process, v31);
+        v30 = v38;
       }
-      v15 = v40;
-      v14 = v29 - v40;
+      v15 = v41;
+      v14 = v30 - v41;
       *((_DWORD *)P + 13) = v14;
       P[34] = BYTE4(v14);
       if ( v14 )
       {
         LockedVadEvent = MiLocateLockedVadEvent((__int64)P, 16);
-        MiFreeLargePageView(Process, P, LockedVadEvent, (unsigned int)(v32 - 15));
-        v15 = v40;
+        MiFreeLargePageView(Process, P, LockedVadEvent, (unsigned int)(v33 - 15));
+        v15 = v41;
       }
-      v33 = *((_QWORD *)&v39 + 1);
-      v34 = BYTE12(v39);
-      *((_DWORD *)P + 13) = DWORD2(v39);
-      P[34] = v34;
-      _InterlockedAdd64((volatile signed __int64 *)&Process[3].ProfileListHead, v33 - v15);
-      *(_QWORD *)&v40 = 0LL;
+      v34 = *((_QWORD *)&v40 + 1);
+      v35 = BYTE12(v40);
+      *((_DWORD *)P + 13) = DWORD2(v40);
+      P[34] = v35;
+      _InterlockedAdd64((volatile signed __int64 *)&Process[3].ProfileListHead, v34 - v15);
+      *(_QWORD *)&v41 = 0LL;
     }
   }
-  if ( (v16 & 2) != 0 )
+  if ( (v17 & 2) != 0 )
   {
-    v17 = *((_DWORD *)P + 12);
+    v18 = *((_DWORD *)P + 12);
     v4 = **((_QWORD **)P + 9);
-    if ( (v17 & 0x70) == 0x20 )
+    if ( (v18 & 0x70) == 0x20 )
     {
       if ( (MiReadVadFlags2((__int64)P) & 1) != 0 )
         LOBYTE(v10) = v10 | 0x18;
     }
     else if ( *(_QWORD *)(v4 + 64) )
     {
-      v18 = v17 & 0xF80;
-      if ( v18 == 512 || v18 == 768 )
+      v19 = v18 & 0xF80;
+      if ( v19 == 512 || v19 == 768 )
         _InterlockedDecrement((volatile signed __int32 *)(v4 + 92));
-      MiGetProtoPteAddress((__int64)P, *((unsigned int *)P + 6) | ((unsigned __int64)P[32] << 32), 0, &v36);
+      MiGetProtoPteAddress((__int64)P, *((unsigned int *)P + 6) | ((unsigned __int64)P[32] << 32), 0, (__int64 *)&v37);
       if ( (MiReadVadFlags2((__int64)P) & 1) != 0 )
         LOBYTE(v10) = v10 | 0x20;
-      MiGetProtoPteAddress(v19, *((unsigned int *)P + 7) | ((unsigned __int64)P[33] << 32), 0, &v44);
+      MiGetProtoPteAddress(v20, *((unsigned int *)P + 7) | ((unsigned __int64)P[33] << 32), 0, (__int64 *)&v45);
     }
     if ( (v10 & 8) == 0 )
     {
       if ( (P[48] & 0x70) != 0x50 )
       {
-        MiDrainSystemAccessLog((__int64)p_Blink, v14, v15);
-        v20 = *((_DWORD *)P + 12);
-        if ( (v20 & 0x70) == 0x20 )
+        MiDrainSystemAccessLog((__int64)p_Blink, v14, v15, v16);
+        v21 = *((_DWORD *)P + 12);
+        if ( (v21 & 0x70) == 0x20 )
         {
           if ( (*(_DWORD *)(v4 + 56) & 0x8000000) != 0 )
             LOBYTE(v10) = v10 | 2;
           LOBYTE(v10) = v10 | 4;
         }
-        else if ( (v20 & 0x200000) == 0 && !*(_QWORD *)(v4 + 64) )
+        else if ( (v21 & 0x200000) == 0 && !*(_QWORD *)(v4 + 64) )
         {
-          MiGetProtoPteAddress((__int64)P, *((unsigned int *)P + 6) | ((unsigned __int64)P[32] << 32), 0, &v36);
-          MiGetProtoPteAddress((__int64)P, *((unsigned int *)P + 7) | ((unsigned __int64)P[33] << 32), 0, &v44);
+          MiGetProtoPteAddress(
+            (__int64)P,
+            *((unsigned int *)P + 6) | ((unsigned __int64)P[32] << 32),
+            0,
+            (__int64 *)&v37);
+          MiGetProtoPteAddress(
+            (__int64)P,
+            *((unsigned int *)P + 7) | ((unsigned __int64)P[33] << 32),
+            0,
+            (__int64 *)&v45);
         }
       }
-      v21 = v10 | 1;
+      v22 = v10 | 1;
       if ( *((__int64 *)P + 15) >= 0 )
-        v21 = v10;
-      LOBYTE(v10) = v21 | 8;
+        v22 = v10;
+      LOBYTE(v10) = v22 | 8;
     }
   }
   MiLockAddressSpaceToo((__int64)Process, (__int64)P, a2);
   if ( (v10 & 0x80u) == 0 )
   {
-    v22 = a2;
+    v23 = a2;
     if ( !a2 )
-      v22 = 0LL;
-    MiRemoveVad((__int64)P, 1, v22);
+      v23 = 0LL;
+    MiRemoveVad((__int64)P, 1, v23);
     if ( a2 )
     {
-      v27 = (volatile signed __int64 *)(a2 + 40);
+      v28 = (volatile signed __int64 *)(a2 + 40);
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       {
-        ExfTryToWakePushLock(v27);
-        v27 = (volatile signed __int64 *)(a2 + 40);
+        ExfTryToWakePushLock(v28);
+        v28 = (volatile signed __int64 *)(a2 + 40);
       }
-      KeAbPostRelease((ULONG_PTR)v27);
+      KeAbPostRelease((ULONG_PTR)v28);
     }
   }
-  *((_QWORD *)P + 1) = *((_QWORD *)&v39 + 1);
-  *(_QWORD *)P = v40;
-  if ( (v10 & 0x40) != 0 && (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
+  *((_QWORD *)P + 1) = *((_QWORD *)&v40 + 1);
+  *(_QWORD *)P = v41;
+  if ( (v10 & 0x40) != 0 && (BYTE4(PerfGlobalGroupMask[0]) & 1) != 0 )
   {
     inited = MiInitPerfMemoryFlags(0, 13);
     MiLogPerfMemoryRangeEvent(
@@ -253,11 +262,11 @@ void __fastcall MiDeleteVad(unsigned __int8 *P, __int64 a2)
     }
     if ( (v10 & 4) != 0 && (MiControlAreaRequiresCharge(v4, 0) & 0xFFFFFFFD) == 0 )
       MiReturnCrossPartitionControlAreaCharges(v4);
-    MiRemoveSharedCommitNode(v4, Process, 0LL);
+    MiRemoveSharedCommitNode(v4, (unsigned __int64)Process, 0);
     MiManageSubsectionView(*((__int64 **)P + 9), (_QWORD *)P + 12, 4);
   }
-  v23 = a2 || (v10 & 0x80u) != 0;
-  MiFinishVadDeletion(P, v7, v8, v23);
+  v24 = a2 || (v10 & 0x80u) != 0;
+  MiFinishVadDeletion(P, v7, v8, v24);
   if ( v4 )
   {
     if ( (v10 & 0x10) != 0 )
@@ -266,14 +275,14 @@ void __fastcall MiDeleteVad(unsigned __int8 *P, __int64 a2)
     }
     else
     {
-      v25 = v36;
-      v26 = v44;
-      if ( v36 )
+      v26 = v37;
+      v27 = v45;
+      if ( v37 )
       {
         if ( (v10 & 0x20) != 0 )
-          MiDecrementLargeSubsections((__int64 *)v36, (__int64 *)v44);
+          MiDecrementLargeSubsections(v37, v45);
       }
-      MiUnmapViewSubsections(v4, (ULONG_PTR)v25, (__int64)v26);
+      MiUnmapViewSubsections(v4, (ULONG_PTR)v26, (__int64)v27);
     }
   }
 }

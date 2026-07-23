@@ -1,59 +1,59 @@
 /*
- * XREFs of VmpRemoveMemoryRange @ 0x1405A4E54
+ * XREFs of VmpRemoveMemoryRange @ 0x1405A5084
  * Callers:
- *     VmDeleteMemoryRange @ 0x14092EFA0 (VmDeleteMemoryRange.c)
+ *     VmDeleteMemoryRange @ 0x14092F100 (VmDeleteMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFlushTbVaRange @ 0x1405A37B0 (VmpFlushTbVaRange.c)
- *     VmpProcessContextLockExclusive @ 0x1405A495C (VmpProcessContextLockExclusive.c)
- *     VmpVaRangeNumberOfGpaRanges @ 0x1405A55D0 (VmpVaRangeNumberOfGpaRanges.c)
- *     VmpFreeMemoryRanges @ 0x14092F698 (VmpFreeMemoryRanges.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     VmpFlushTbVaRange @ 0x1405A39E0 (VmpFlushTbVaRange.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A4B8C (VmpProcessContextLockExclusive.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x1405A5800 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpFreeMemoryRanges @ 0x14092F7F8 (VmpFreeMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpRemoveMemoryRange(
         PEX_SPIN_LOCK SpinLock,
         unsigned __int64 a2,
-        unsigned __int64 a3,
+        _RTL_BALANCED_NODE *a3,
         __int64 a4,
         __int64 a5)
 {
-  void *v5; // rsi
+  _RTL_BALANCED_NODE *v5; // rsi
   unsigned __int64 v9; // r12
   unsigned int v10; // ebx
   unsigned __int64 v11; // rsi
   unsigned __int64 v12; // rax
-  unsigned __int64 v13; // r9
-  unsigned __int64 v14; // r8
+  _RTL_BALANCED_NODE *v13; // r9
+  _RTL_BALANCED_NODE *v14; // r8
   unsigned __int64 v15; // rcx
   unsigned __int8 v16; // di
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
   int v20; // eax
-  _QWORD *v22; // rdi
-  _QWORD *v23; // rbx
-  __int64 v24; // rcx
-  _QWORD *v25; // rax
+  _RTL_BALANCED_NODE *v22; // rdi
+  _RTL_BALANCED_NODE *ParentValue; // rbx
+  _RTL_BALANCED_NODE *v24; // rcx
+  _RTL_BALANCED_NODE *v25; // rax
   __int64 v26; // rax
-  unsigned __int64 v27; // r8
+  _RTL_BALANCED_NODE *v27; // r8
   unsigned __int64 v28; // r9
   unsigned __int64 v29; // r10
   bool v30; // zf
   __int64 v31; // [rsp+30h] [rbp-68h] BYREF
   __int128 v32; // [rsp+38h] [rbp-60h] BYREF
   __int64 v33; // [rsp+48h] [rbp-50h]
-  _QWORD *v34; // [rsp+A0h] [rbp+8h]
+  _RTL_BALANCED_NODE *v34; // [rsp+A0h] [rbp+8h]
   __int64 v35; // [rsp+A8h] [rbp+10h] BYREF
-  unsigned __int64 v36; // [rsp+B0h] [rbp+18h]
+  _RTL_BALANCED_NODE *v36; // [rsp+B0h] [rbp+18h]
   PVOID P; // [rsp+B8h] [rbp+20h]
 
   v5 = 0LL;
   v31 = 0LL;
   v34 = 0LL;
-  v36 = a3 + a4 - 1;
+  v36 = (_RTL_BALANCED_NODE *)((char *)a3 + a4 - 1);
   P = 0LL;
   v9 = a4 + a2 - 1;
   v35 = VmpProcessContextLockExclusive(SpinLock);
@@ -73,7 +73,7 @@ __int64 __fastcall VmpRemoveMemoryRange(
   {
     if ( !v12 )
       goto LABEL_16;
-    v13 = *(_QWORD *)(v12 + 32);
+    v13 = *(_RTL_BALANCED_NODE **)(v12 + 32);
     if ( a3 <= v13 )
       break;
     v15 = *(_QWORD *)(v12 + 8);
@@ -83,67 +83,73 @@ LABEL_11:
     else
       v12 = v15;
   }
-  v14 = *(_QWORD *)(v12 + 24);
+  v14 = *(_RTL_BALANCED_NODE **)(v12 + 24);
   if ( a3 < v14 )
   {
     v15 = *(_QWORD *)v12;
     goto LABEL_11;
   }
-  v22 = (_QWORD *)(v12 - 24);
+  v22 = (_RTL_BALANCED_NODE *)(v12 - 24);
   if ( v12 == 24 )
   {
 LABEL_16:
     v10 = -1073741172;
     goto LABEL_17;
   }
-  v23 = (_QWORD *)v22[2];
-  if ( v14 != a3 || v13 != v36 || v23[3] != a2 || v23[4] != v9 )
+  ParentValue = (_RTL_BALANCED_NODE *)v22->ParentValue;
+  if ( v14 != a3
+    || v13 != v36
+    || ParentValue[1].Children[0] != (_RTL_BALANCED_NODE *)a2
+    || ParentValue[1].Children[1] != (_RTL_BALANCED_NODE *)v9 )
   {
-    if ( (unsigned __int64)VmpVaRangeNumberOfGpaRanges(v22[2]) > 1 )
+    if ( (unsigned __int64)VmpVaRangeNumberOfGpaRanges(v22->ParentValue) > 1 )
     {
 LABEL_47:
       v10 = -1073741637;
       goto LABEL_17;
     }
-    if ( a3 == v27 && a2 == v23[3] )
+    if ( a3 == v27 && (_RTL_BALANCED_NODE *)a2 == ParentValue[1].Children[0] )
     {
       v30 = v29 == v28;
       if ( v29 >= v28 )
       {
 LABEL_54:
-        if ( v30 && v9 == v23[4] && a3 > v27 && a2 > v23[3] )
+        if ( v30
+          && (_RTL_BALANCED_NODE *)v9 == ParentValue[1].Children[1]
+          && a3 > v27
+          && (_RTL_BALANCED_NODE *)a2 > ParentValue[1].Children[0] )
         {
-          v22[7] = a3 - 1;
-          v23[4] = a2 - 1;
+          v22[2].Children[1] = (_RTL_BALANCED_NODE *)((char *)a3 - 1);
+          ParentValue[1].Children[1] = (_RTL_BALANCED_NODE *)(a2 - 1);
           goto LABEL_59;
         }
         goto LABEL_47;
       }
-      if ( v9 < v23[4] )
+      if ( (_RTL_BALANCED_NODE *)v9 < ParentValue[1].Children[1] )
       {
-        v22[6] = v29 + 1;
-        v23[3] = v9 + 1;
+        v22[2].Children[0] = (_RTL_BALANCED_NODE *)(v29 + 1);
+        ParentValue[1].Children[0] = (_RTL_BALANCED_NODE *)(v9 + 1);
         goto LABEL_59;
       }
     }
     v30 = v29 == v28;
     goto LABEL_54;
   }
-  RtlRbRemoveNode((unsigned __int64 *)SpinLock + 1, v12);
-  v22[5] = -1LL;
-  v24 = *v22;
-  v25 = (_QWORD *)v22[1];
-  if ( *(_QWORD **)(*v22 + 8LL) != v22 || (_QWORD *)*v25 != v22 )
+  RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v12);
+  v22[1].ParentValue = -1LL;
+  v24 = v22->Children[0];
+  v25 = v22->Children[1];
+  if ( v22->Children[0]->Children[1] != v22 || v25->Children[0] != v22 )
     __fastfail(3u);
-  *v25 = v24;
-  *(_QWORD *)(v24 + 8) = v25;
+  v25->Children[0] = v24;
+  v24->Children[1] = v25;
   P = v22;
-  if ( (_QWORD *)v23[5] == v23 + 5 )
+  if ( ($F6ED6B8C35E0C59DCCEDB1F15AA1B54B *)ParentValue[1].ParentValue == &ParentValue[1].16 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)SpinLock + 3, (unsigned __int64)v23);
-    v23[2] = -1LL;
+    RtlRbRemoveNode((PRTL_RB_TREE)(SpinLock + 6), ParentValue);
+    ParentValue->ParentValue = -1LL;
     v26 = *(_QWORD *)v11;
-    v34 = v23;
+    v34 = ParentValue;
     if ( (SpinLock[4] & 1) == 0 )
       goto LABEL_43;
     if ( !v26 )

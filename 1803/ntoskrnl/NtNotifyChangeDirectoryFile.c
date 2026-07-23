@@ -27,5 +27,5 @@ NTSTATUS __stdcall NtNotifyChangeDirectoryFile(
            BufferSize,
            CompletionFilter,
            WatchTree,
-           1);
+           DirectoryNotifyInformation);
 }

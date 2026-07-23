@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxFindAndReferenceAcpiDevice @ 0x1402D80D4
+ * XREFs of PopFxFindAndReferenceAcpiDevice @ 0x1402D82C4
  * Callers:
- *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1402E83E0 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1402E85D0 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IoAcquireRemoveLockEx @ 0x1400FE310 (IoAcquireRemoveLockEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IoAcquireRemoveLockEx @ 0x1400FE390 (IoAcquireRemoveLockEx.c)
  */
 
 __int64 __fastcall PopFxFindAndReferenceAcpiDevice(__int64 *a1)

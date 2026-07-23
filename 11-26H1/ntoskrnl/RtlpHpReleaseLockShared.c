@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpReleaseLockShared @ 0x14034BE40
+ * XREFs of RtlpHpReleaseLockShared @ 0x14034DEC0
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x140347910 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x140349E18 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034BF30 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
- *     RtlpHpLfhOwnerListCompact @ 0x14034D3B0 (RtlpHpLfhOwnerListCompact.c)
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLargeLockReleaseShared @ 0x1405311A4 (RtlpHpLargeLockReleaseShared.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140349990 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x14034BE98 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034DFB0 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhOwnerListCompact @ 0x14034F430 (RtlpHpLfhOwnerListCompact.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLargeLockReleaseShared @ 0x1405336A4 (RtlpHpLargeLockReleaseShared.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 void __fastcall RtlpHpReleaseLockShared(struct _KTHREAD *a1, int a2, unsigned __int8 a3)
@@ -27,7 +27,7 @@ void __fastcall RtlpHpReleaseLockShared(struct _KTHREAD *a1, int a2, unsigned __
   v3 = a3;
   if ( a2 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(&a1->Header.Lock, 0xBFFFFFFF);
       _InterlockedDecrement(&a1->Header.Lock);
@@ -47,7 +47,7 @@ void __fastcall RtlpHpReleaseLockShared(struct _KTHREAD *a1, int a2, unsigned __
     KeAbPostRelease((unsigned __int64)a1);
     CurrentThread = KeGetCurrentThread();
     v7 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v7 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v7 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery((__int64)CurrentThread, v5);
   }
 }

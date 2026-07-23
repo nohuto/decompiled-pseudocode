@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHvTimerStop @ 0x1403D57E0
+ * XREFs of HalpHvTimerStop @ 0x1403D59C0
  * Callers:
  *     <none>
  * Callees:

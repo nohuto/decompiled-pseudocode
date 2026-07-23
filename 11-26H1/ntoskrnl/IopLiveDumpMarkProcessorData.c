@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpMarkProcessorData @ 0x1405D0640
+ * XREFs of IopLiveDumpMarkProcessorData @ 0x1405D2E50
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x1405D0778 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1405D2F88 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     KeGetProcessorIdtSize @ 0x1405EB9D8 (KeGetProcessorIdtSize.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
+ *     KeGetProcessorIdtSize @ 0x1405EE348 (KeGetProcessorIdtSize.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkProcessorData(__int64 a1, int a2)

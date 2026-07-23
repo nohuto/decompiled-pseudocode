@@ -1,18 +1,16 @@
 /*
- * XREFs of PopIdleWakeInitialize @ 0x1407DD914
+ * XREFs of PopIdleWakeInitialize @ 0x1407E1F44
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTimeFrom @ 0x1403E63A8 (PpmConvertTimeFrom.c)
- *     PopIdleWakeConvertIntervalBucketsFrom @ 0x1407DD8C0 (PopIdleWakeConvertIntervalBucketsFrom.c)
+ *     PpmConvertTimeFrom @ 0x1402F3288 (PpmConvertTimeFrom.c)
+ *     PopIdleWakeConvertIntervalBucketsFrom @ 0x1407E1EF0 (PopIdleWakeConvertIntervalBucketsFrom.c)
  */
 
 void PopIdleWakeInitialize()
 {
-  PopAdaptiveStandbyLock.KernelShadowStack = 0LL;
-  PopAdaptiveStandbyLock.GlobalUpdateVpThreadPriorityListEntry.Flink = (struct _LIST_ENTRY *)PpmConvertTimeFrom(
-                                                                                               50000000LL,
-                                                                                               10000000LL);
+  PopIdleWakeContextLock = 0LL;
+  PopIdleWakeSourceSpuriousThresholdQpc = PpmConvertTimeFrom(50000000LL, 10000000LL);
   PopIdleWakeConvertIntervalBucketsFrom(
     6u,
     (__int64)PopIdleSpuriousWakeBucketLimitsQpc,
@@ -41,13 +39,13 @@ void PopIdleWakeInitialize()
   PopIdleWakeConvertIntervalBucketsFrom(
     9u,
     (__int64)&PopIdleWakeIdleAccountingBucketLimitsMs,
-    &PopAdaptiveStandbyLock.KcsanThread,
+    PopIdleWakeIdleAccountingBucketLimitsQpc,
     1000LL);
-  qword_140F0BE48 = -1LL;
+  qword_140F0C168 = -1LL;
   PopIdleWakeConvertIntervalBucketsFrom(
     0xBu,
     (__int64)&PopIdleWakePeriodAccountingBucketLimitsMs,
-    (_KERNEL_SHADOW_STACK_LIMIT *)&PopAdaptiveStandbyLock.KernelShadowStackLimit.AllFields,
+    PopIdleWakePeriodAccountingBucketLimitsQpc,
     1000LL);
-  PopAdaptiveStandbyLock.Spare32 = (void *)-1LL;
+  qword_140F0C1D8 = -1LL;
 }

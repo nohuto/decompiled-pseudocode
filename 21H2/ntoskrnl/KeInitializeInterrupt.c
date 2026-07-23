@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeInterrupt @ 0x1403A2810
+ * XREFs of KeInitializeInterrupt @ 0x1403A2960
  * Callers:
- *     HalpCreateInterrupt @ 0x1403A26E4 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x1403A2834 (HalpCreateInterrupt.c)
  * Callees:
- *     KeInitializeInterruptEx @ 0x1403775DC (KeInitializeInterruptEx.c)
+ *     KeInitializeInterruptEx @ 0x14037712C (KeInitializeInterruptEx.c)
  */
 
 __int64 (__fastcall *__fastcall KeInitializeInterrupt(

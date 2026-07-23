@@ -7,12 +7,12 @@
  */
 
 // attributes: thunk
-unsigned __int16 *__fastcall LdrProcessRelocationBlockEx(
-        __int16 a1,
-        __int64 a2,
-        int a3,
-        unsigned __int16 *a4,
-        __int64 a5)
+PIMAGE_BASE_RELOCATION __cdecl LdrProcessRelocationBlockEx(
+        ULONG Machine,
+        ULONG_PTR VA,
+        ULONG SizeOfBlock,
+        PUSHORT NextOffset,
+        LONG_PTR Diff)
 {
-  return LdrProcessRelocationBlockLongLong(a1, a2, a3, a4, a5);
+  return (PIMAGE_BASE_RELOCATION)LdrProcessRelocationBlockLongLong(Machine, VA, SizeOfBlock, NextOffset, Diff);
 }

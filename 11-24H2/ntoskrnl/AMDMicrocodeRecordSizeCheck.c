@@ -1,10 +1,10 @@
 /*
- * XREFs of AMDMicrocodeRecordSizeCheck @ 0x1406652D0
+ * XREFs of AMDMicrocodeRecordSizeCheck @ 0x140663BC0
  * Callers:
- *     MicrocodeGetRecord @ 0x1406644E0 (MicrocodeGetRecord.c)
+ *     MicrocodeGetRecord @ 0x140662DD0 (MicrocodeGetRecord.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     AMDMicrocodeV1RecordSizeCheck @ 0x1406653B0 (AMDMicrocodeV1RecordSizeCheck.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     AMDMicrocodeV1RecordSizeCheck @ 0x140663CA0 (AMDMicrocodeV1RecordSizeCheck.c)
  */
 
 __int64 __fastcall AMDMicrocodeRecordSizeCheck(__int64 a1, __int64 a2, unsigned __int64 a3)

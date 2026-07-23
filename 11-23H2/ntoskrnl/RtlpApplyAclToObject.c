@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpApplyAclToObject @ 0x1407116EC
+ * XREFs of RtlpApplyAclToObject @ 0x1407118FC
  * Callers:
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14071165C (ExpWnfSpecializeSecurityDescriptor.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x14071186C (ExpWnfSpecializeSecurityDescriptor.c)
  * Callees:
  *     <none>
  */

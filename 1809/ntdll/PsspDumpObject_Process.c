@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
  */
 
 NTSTATUS __fastcall PsspDumpObject_Process(void *a1, _QWORD *a2, unsigned int a3, ULONG *ReturnLength)

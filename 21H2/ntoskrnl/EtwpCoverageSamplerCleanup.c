@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCoverageSamplerCleanup @ 0x140946194
+ * XREFs of EtwpCoverageSamplerCleanup @ 0x140946364
  * Callers:
- *     EtwpCoverageSamplerDelete @ 0x140946320 (EtwpCoverageSamplerDelete.c)
+ *     EtwpCoverageSamplerDelete @ 0x1409464F0 (EtwpCoverageSamplerDelete.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     EtwpCovSampContextCleanup @ 0x140943074 (EtwpCovSampContextCleanup.c)
- *     EtwpCoverageSamplerFreeTable @ 0x140946338 (EtwpCoverageSamplerFreeTable.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     EtwpCovSampContextCleanup @ 0x140943244 (EtwpCovSampContextCleanup.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x140946508 (EtwpCoverageSamplerFreeTable.c)
  */
 
 void __fastcall EtwpCoverageSamplerCleanup(__int64 a1)

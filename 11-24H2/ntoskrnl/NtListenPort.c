@@ -1,17 +1,17 @@
 /*
- * XREFs of NtListenPort @ 0x140741570
+ * XREFs of NtListenPort @ 0x14073F4A0
  * Callers:
  *     <none>
  * Callees:
- *     NtReplyWaitReceivePortEx @ 0x1408950F0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x14089D590 (NtReplyWaitReceivePortEx.c)
  */
 
-__int64 __fastcall NtListenPort(HANDLE Handle, __int64 a2)
+NTSTATUS __cdecl NtListenPort(HANDLE PortHandle, PPORT_MESSAGE ConnectionRequest)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   do
-    result = NtReplyWaitReceivePortEx(Handle, 0LL);
-  while ( !(_DWORD)result && (*(_WORD *)(a2 + 4) & 0x7FFF) != 0xA );
+    result = NtReplyWaitReceivePortEx(PortHandle, 0LL, 0LL, ConnectionRequest, 0LL);
+  while ( !result && (ConnectionRequest->u2.s2.Type & 0x7FFF) != 0xA );
   return result;
 }

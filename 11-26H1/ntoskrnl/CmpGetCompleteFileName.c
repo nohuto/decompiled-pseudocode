@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetCompleteFileName @ 0x1408B58BC
+ * XREFs of CmpGetCompleteFileName @ 0x1408BBE90
  * Callers:
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiAllocateMemory @ 0x1404BE3D8 (CmSiAllocateMemory.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiAllocateMemory @ 0x1404B7C28 (CmSiAllocateMemory.c)
  */
 
 __int64 __fastcall CmpGetCompleteFileName(UNICODE_STRING *Source, int a2, __int64 a3, UNICODE_STRING *a4)

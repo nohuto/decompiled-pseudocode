@@ -3,17 +3,17 @@
  * Callers:
  *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     _ultow_s @ 0x1403DE7F0 (_ultow_s.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
+ *     _ultow_s @ 0x1403DE9D0 (_ultow_s.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
  *     LookupAccessMaskInTable @ 0x14069DD6C (LookupAccessMaskInTable.c)
  *     LookupAceTypeInTable @ 0x14069DE04 (LookupAceTypeInTable.c)
  *     LocalGetAceCondition @ 0x14069DEA0 (LocalGetAceCondition.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     LookupSidInTable @ 0x1406C3660 (LookupSidInTable.c)
- *     RtlNtStatusToDosError @ 0x1407AA380 (RtlNtStatusToDosError.c)
- *     LocalConvertSidToStringSidW @ 0x140835E44 (LocalConvertSidToStringSidW.c)
- *     LookupAceFlagsInTable @ 0x140840074 (LookupAceFlagsInTable.c)
- *     SddlpUuidToString @ 0x1409D2B58 (SddlpUuidToString.c)
+ *     LookupSidInTable @ 0x1406C3690 (LookupSidInTable.c)
+ *     RtlNtStatusToDosError @ 0x1407AA570 (RtlNtStatusToDosError.c)
+ *     LocalConvertSidToStringSidW @ 0x140836144 (LocalConvertSidToStringSidW.c)
+ *     LookupAceFlagsInTable @ 0x140840374 (LookupAceFlagsInTable.c)
+ *     SddlpUuidToString @ 0x1409D2D58 (SddlpUuidToString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

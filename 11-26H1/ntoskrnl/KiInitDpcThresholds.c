@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitDpcThresholds @ 0x140CC9C0C
+ * XREFs of KiInitDpcThresholds @ 0x140CCFCF4
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     KiInitializeLegacyWatchdogProfileThresholds @ 0x140CCA0B8 (KiInitializeLegacyWatchdogProfileThresholds.c)
+ *     KiInitializeLegacyWatchdogProfileThresholds @ 0x140CD01A0 (KiInitializeLegacyWatchdogProfileThresholds.c)
  */
 
 __int64 KiInitDpcThresholds()
@@ -104,6 +104,6 @@ LABEL_37:
       goto LABEL_37;
     }
   }
-  dword_140FBE3EC = v8 >> 3;
+  dword_140FBF3EC = v8 >> 3;
   return result;
 }

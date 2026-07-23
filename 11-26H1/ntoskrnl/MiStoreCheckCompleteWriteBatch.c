@@ -1,15 +1,15 @@
 /*
- * XREFs of MiStoreCheckCompleteWriteBatch @ 0x14040684C
+ * XREFs of MiStoreCheckCompleteWriteBatch @ 0x1403FF93C
  * Callers:
- *     MiModifiedPageWriter @ 0x1404064D0 (MiModifiedPageWriter.c)
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
+ *     MiModifiedPageWriter @ 0x1403FF5C0 (MiModifiedPageWriter.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiStoreDrainWriteSupports @ 0x1404ADFE4 (MiStoreDrainWriteSupports.c)
- *     ?SmNotifyWriteBatchComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1404B3BE4 (-SmNotifyWriteBatchComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiStoreDrainWriteSupports @ 0x1404A7674 (MiStoreDrainWriteSupports.c)
+ *     ?SmNotifyWriteBatchComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1404AD1B0 (-SmNotifyWriteBatchComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  */
 
 __int64 __fastcall MiStoreCheckCompleteWriteBatch(__int64 a1)

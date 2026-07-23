@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMReturnStatusResultData @ 0x14079A9D0
+ * XREFs of PiCMReturnStatusResultData @ 0x14079ABC0
  * Callers:
- *     PiCMGetDeviceStatus @ 0x140799968 (PiCMGetDeviceStatus.c)
+ *     PiCMGetDeviceStatus @ 0x140799B58 (PiCMGetDeviceStatus.c)
  * Callees:
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PiCMReturnStatusResultData(

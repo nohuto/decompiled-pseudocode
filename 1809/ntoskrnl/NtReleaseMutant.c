@@ -1,11 +1,11 @@
 /*
- * XREFs of NtReleaseMutant @ 0x140698710
+ * XREFs of NtReleaseMutant @ 0x1406998D0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KeReleaseMutant @ 0x1400BF950 (KeReleaseMutant.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtReleaseMutant(HANDLE MutantHandle, PLONG ReleaseCount)

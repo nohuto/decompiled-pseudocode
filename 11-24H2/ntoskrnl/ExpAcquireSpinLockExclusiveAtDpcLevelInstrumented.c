@@ -1,41 +1,41 @@
 /*
- * XREFs of ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14020D650
+ * XREFs of ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1403369B0
  * Callers:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14020D900 (RtlpHpAcquireQueuedLockExclusive.c)
- *     MiAddViewsForSection @ 0x14020DA70 (MiAddViewsForSection.c)
- *     MiReferenceActiveSubsection @ 0x14020E140 (MiReferenceActiveSubsection.c)
- *     MiStoreEvictPageFile @ 0x14020E830 (MiStoreEvictPageFile.c)
- *     MiUnmapViewSubsections @ 0x14020EC50 (MiUnmapViewSubsections.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAddPageToFlushMdl @ 0x140210ED0 (MiAddPageToFlushMdl.c)
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiComputeAgingAmount @ 0x140235450 (MiComputeAgingAmount.c)
- *     MiObtainSystemCacheView @ 0x140241D90 (MiObtainSystemCacheView.c)
- *     KiAbEntryRemoveFromTree @ 0x14025CEE0 (KiAbEntryRemoveFromTree.c)
- *     MiPostInsertVad @ 0x14025EBE0 (MiPostInsertVad.c)
- *     MiIncrementSubsectionViewCount @ 0x1402624F0 (MiIncrementSubsectionViewCount.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PspRevertContainerImpersonation @ 0x1402A2A90 (PspRevertContainerImpersonation.c)
- *     MiTrimSection @ 0x1402B9B70 (MiTrimSection.c)
- *     MiLockPageListAndLastPage @ 0x1402C46F0 (MiLockPageListAndLastPage.c)
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     MiLockVadTree @ 0x1402DEE70 (MiLockVadTree.c)
- *     MiAcquirePageListLock @ 0x1402DF1D0 (MiAcquirePageListLock.c)
- *     MiAttachThreadDone @ 0x1402E2710 (MiAttachThreadDone.c)
- *     PopPepLockActivityLink @ 0x140312A80 (PopPepLockActivityLink.c)
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
- *     MiLockWorkingSetCoreExclusive @ 0x140379CE4 (MiLockWorkingSetCoreExclusive.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14040EFF0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiObtainSystemCacheView @ 0x140209EE0 (MiObtainSystemCacheView.c)
+ *     MiComputeAgingAmount @ 0x14020F5E0 (MiComputeAgingAmount.c)
+ *     MiLockPageListAndLastPage @ 0x140219C30 (MiLockPageListAndLastPage.c)
+ *     MiLockVadTree @ 0x140240750 (MiLockVadTree.c)
+ *     MiAcquirePageListLock @ 0x140240AB0 (MiAcquirePageListLock.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402743B0 (MiIncrementSubsectionViewCount.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028D4F0 (KiAbEntryRemoveFromTree.c)
+ *     MiPostInsertVad @ 0x14028F1F0 (MiPostInsertVad.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x140296038 (MiLockWorkingSetCoreExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     PspRevertContainerImpersonation @ 0x1402D21C0 (PspRevertContainerImpersonation.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     MiAttachThreadDone @ 0x1402FE6F0 (MiAttachThreadDone.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140336C60 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     MiAddViewsForSection @ 0x140336DD0 (MiAddViewsForSection.c)
+ *     MiReferenceActiveSubsection @ 0x1403374A0 (MiReferenceActiveSubsection.c)
+ *     MiStoreEvictPageFile @ 0x140337B90 (MiStoreEvictPageFile.c)
+ *     MiUnmapViewSubsections @ 0x140337FB0 (MiUnmapViewSubsections.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAddPageToFlushMdl @ 0x14033A230 (MiAddPageToFlushMdl.c)
+ *     MiTrimSection @ 0x1403612B0 (MiTrimSection.c)
+ *     PopPepLockActivityLink @ 0x1403A76F0 (PopPepLockActivityLink.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x1404071F0 (MiCheckPurgeAndUpMapCount.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14020D580 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     PerfLogSpinLockAcquire @ 0x14040D6FC (PerfLogSpinLockAcquire.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1403368E0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x14040594C (PerfLogSpinLockAcquire.c)
  */
 
 void __fastcall ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(int *a1, unsigned __int8 a2)
@@ -45,10 +45,9 @@ void __fastcall ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(int *a1, unsig
   int v5; // r15d
   char v6; // si
   unsigned int InterruptCount; // r14d
-  int v8; // edx
-  __int64 v9; // rcx
+  int i; // edx
+  unsigned __int64 v9; // rax
   unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rax
 
   v2 = 0;
   CurrentPrcb = KeGetCurrentPrcb();
@@ -61,35 +60,27 @@ void __fastcall ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(int *a1, unsig
   else
   {
     v6 = 1;
-    v10 = __rdtsc();
+    v9 = __rdtsc();
     InterruptCount = CurrentPrcb->InterruptCount;
-    v5 = v10;
+    v5 = v9;
   }
   ++CurrentPrcb->SynchCounters.SpinLockAcquireCount;
   if ( _interlockedbittestandset(a1, 0x1Fu) )
-    v2 = ExpWaitForSpinLockExclusiveAndAcquire(a1, a2, a2);
-  v8 = *a1;
-  v9 = (unsigned int)*a1;
-  LODWORD(v9) = v9 & 0xBFFFFFFF;
-  if ( (_DWORD)v9 != 0x80000000 )
+    v2 = ExpWaitForSpinLockExclusiveAndAcquire(a1, a2);
+  for ( i = *a1; (*a1 & 0xBFFFFFFF) != 0x80000000; i = *a1 )
   {
-    do
+    if ( (i & 0x40000000) == 0 )
+      _InterlockedOr(a1, 0x40000000u);
+    if ( (++v2 & HvlLongSpinCountMask) == 0
+      && (HvlEnlightenments & 0x40) != 0
+      && KiCheckVpBackingLongSpinWaitHypercall() )
     {
-      if ( (v8 & 0x40000000) == 0 )
-        _InterlockedOr(a1, 0x40000000u);
-      if ( (++v2 & HvlLongSpinCountMask) == 0
-        && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9) )
-      {
-        HvlNotifyLongSpinWait(v2);
-      }
-      else
-      {
-        _mm_pause();
-      }
-      v8 = *a1;
+      HvlNotifyLongSpinWait(v2);
     }
-    while ( (*a1 & 0xBFFFFFFF) != 0x80000000 );
+    else
+    {
+      _mm_pause();
+    }
   }
   if ( v2 )
   {
@@ -98,7 +89,7 @@ void __fastcall ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(int *a1, unsig
   }
   if ( v6 )
   {
-    v11 = __rdtsc();
-    PerfLogSpinLockAcquire((_DWORD)a1, v11, v11 - v5, v2, InterruptCount, 3);
+    v10 = __rdtsc();
+    PerfLogSpinLockAcquire((_DWORD)a1, v10, v10 - v5, v2, InterruptCount, 3);
   }
 }

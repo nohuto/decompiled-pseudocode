@@ -3,15 +3,15 @@
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x140B6137C (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcstoul @ 0x1403DBEF0 (wcstoul.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcstoul @ 0x1403DC0D0 (wcstoul.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  *     KsepRegistryOpenKey @ 0x1406944C4 (KsepRegistryOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x1408446DC (KsepRegistryQuerySZ.c)
- *     KsepRegistryCloseKey @ 0x140844828 (KsepRegistryCloseKey.c)
- *     KsepRegistryQueryMULTISZ @ 0x140977BEC (KsepRegistryQueryMULTISZ.c)
+ *     KsepRegistryQuerySZ @ 0x1408449DC (KsepRegistryQuerySZ.c)
+ *     KsepRegistryCloseKey @ 0x140844B28 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryMULTISZ @ 0x140977DEC (KsepRegistryQueryMULTISZ.c)
  */
 
 __int64 KsepMatchInitBiosInfo()

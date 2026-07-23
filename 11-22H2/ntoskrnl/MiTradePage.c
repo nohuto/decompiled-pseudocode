@@ -137,10 +137,10 @@ LABEL_169:
       {
         v52 = (unsigned int)MiPfnLargeBitSet(&MiSystemPartition, a2);
         _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && i <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && i <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -219,10 +219,10 @@ LABEL_83:
       v23 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * (v67 >> 4)) + 2);
       v24 = ((unsigned int)MiGetPfnChannel(v7) << byte_140C65B8E) | dword_140C65BF8 & a2 | (v23 << byte_140C65B8D);
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && i <= 0xFu && v33 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && i <= 0xFu && v33 >= 2u )
         {
           v34 = KeGetCurrentPrcb();
           v35 = v34->SchedulerAssist;
@@ -266,10 +266,10 @@ LABEL_83:
       if ( (v3 & 0x2000000) != 0 && v20 >= 0x200 || (v3 & 0x1000000) != 0 && v20 == 16 )
         goto LABEL_20;
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v38 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && i <= 0xFu && v38 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && i <= 0xFu && v38 >= 2u )
         {
           v39 = KeGetCurrentPrcb();
           v40 = v39->SchedulerAssist;
@@ -396,7 +396,7 @@ LABEL_87:
       if ( (v3 & 8) != 0 )
         goto LABEL_151;
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v43 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v17) != 0 && v43 <= 0xFu && i <= 0xFu && v43 >= 2u )
@@ -446,10 +446,10 @@ LABEL_87:
       v25 = MiTrimSharedPage(v7, i, v3);
     v26 = v25;
     _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v47 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && i <= 0xFu && v47 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && i <= 0xFu && v47 >= 2u )
       {
         v48 = KeGetCurrentPrcb();
         v49 = v48->SchedulerAssist;
@@ -501,7 +501,7 @@ LABEL_21:
   if ( i != 17 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v57 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v17) != 0 && v57 <= 0xFu && i <= 0xFu && v57 >= 2u )

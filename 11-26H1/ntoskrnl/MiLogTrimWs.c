@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogTrimWs @ 0x1403BAAAC
+ * XREFs of MiLogTrimWs @ 0x1403C491C
  * Callers:
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, int a7, int a8)
@@ -69,15 +69,15 @@ __int64 __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
   __int64 *v66; // [rsp+1A8h] [rbp+A0h]
   __int64 v67; // [rsp+1B0h] [rbp+A8h]
 
-  v11 = *(_QWORD **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a2 + 174));
+  v11 = *(_QWORD **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a2 + 174));
   v12 = v11[2808];
   result = v11[2906];
   v14 = v11[2932];
   v15 = *(_QWORD *)(a2 + 152);
   v16 = *(_QWORD *)(a2 + 160);
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    result = tlgKeywordOn(stru_140E36558.FirstArgument, 1LL);
+    result = tlgKeywordOn(stru_140E366D8.FirstArgument, 1LL);
     if ( (_BYTE)result )
     {
       v20 = *(_DWORD *)(v18 + 184) & 0xF;
@@ -124,7 +124,7 @@ __int64 __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
       v63 = 4LL;
       v65 = 4LL;
       v67 = 4LL;
-      return tlgWriteEx_EtwWriteEx(v23, (int)&word_140057F5A, v23, 1, v24, v25, 0x11u, (__int64)v40);
+      return tlgWriteEx_EtwWriteEx(v23, (int)&byte_140058DC5, v23, 1, v24, v25, 0x11u, (__int64)v40);
     }
   }
   return result;

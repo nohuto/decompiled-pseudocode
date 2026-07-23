@@ -14,42 +14,46 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall LdrLoadAlternateResourceModule(unsigned __int64 a1, _QWORD *a2, __int64 *a3, int a4)
+NTSTATUS __cdecl LdrLoadAlternateResourceModule(
+        PVOID DllHandle,
+        PVOID *ResourceDllBase,
+        ULONG_PTR *ResourceOffset,
+        ULONG Flags)
 {
-  unsigned __int64 v6; // rbx
-  int v7; // esi
+  PVOID v6; // rbx
+  NTSTATUS v7; // esi
   __int64 v8; // rdx
   _DWORD *v9; // rdi
-  __int64 v10; // r12
+  PVOID v10; // r12
   unsigned int v11; // ecx
   char v12; // al
   unsigned int v13; // r8d
   unsigned __int16 *MergedPrefLanguages; // rcx
   unsigned __int16 v15; // bx
-  int v16; // r14d
+  ULONG v16; // r14d
   unsigned int v17; // r8d
   unsigned int v18; // ecx
-  unsigned __int16 v19; // dx
-  int AlternateResourceModule; // eax
+  LANGID v19; // dx
+  NTSTATUS AlternateResourceModule; // eax
   _DWORD *v22; // rax
-  char v23; // al
+  BOOLEAN v23; // al
   _WORD *v24; // rax
   bool v25[4]; // [rsp+30h] [rbp-A9h] BYREF
   unsigned int v26; // [rsp+34h] [rbp-A5h]
   unsigned __int16 v27[2]; // [rsp+38h] [rbp-A1h] BYREF
   unsigned int v28; // [rsp+3Ch] [rbp-9Dh]
   __int64 v29; // [rsp+40h] [rbp-99h]
-  int v30; // [rsp+48h] [rbp-91h]
+  ULONG v30; // [rsp+48h] [rbp-91h]
   unsigned int v31; // [rsp+4Ch] [rbp-8Dh]
-  unsigned __int64 v32; // [rsp+50h] [rbp-89h]
-  int v33; // [rsp+58h] [rbp-81h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-79h] BYREF
+  PVOID DllHandlea; // [rsp+50h] [rbp-89h]
+  DWORD Lcid; // [rsp+58h] [rbp-81h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-79h] BYREF
   _WORD v35[64]; // [rsp+70h] [rbp-69h] BYREF
 
   v26 = 0;
-  v32 = a1;
-  v6 = a1;
-  v30 = a4;
+  DllHandlea = DllHandle;
+  v6 = DllHandle;
+  v30 = Flags;
   memset(v35, 0, sizeof(v35));
   v7 = -1073020927;
   v31 = 0;
@@ -58,8 +62,8 @@ __int64 __fastcall LdrLoadAlternateResourceModule(unsigned __int64 a1, _QWORD *a
   v9 = 0LL;
   v28 = 0;
   v10 = 0LL;
-  if ( !v6 || !a2 )
-    return 3221225485LL;
+  if ( !v6 || !ResourceDllBase )
+    return -1073741811;
   v25[0] = 0;
   while ( 2 )
   {
@@ -86,14 +90,14 @@ __int64 __fastcall LdrLoadAlternateResourceModule(unsigned __int64 a1, _QWORD *a
               if ( v22[31] )
               {
                 RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)v22 + (unsigned int)v22[31]));
-                v23 = RtlCultureNameToLCID(&DestinationString.Length, &v33);
+                v23 = RtlCultureNameToLCID(&DestinationString, &Lcid);
                 v11 = v26;
                 v8 = v29;
                 if ( v23 )
                 {
                   v16 = v30;
-                  v15 = v33;
-                  v27[0] = v33;
+                  v15 = Lcid;
+                  v27[0] = Lcid;
                   if ( (v30 & 0x80u) == 0 && (v9[5] & 0x100) != 0 )
                   {
                     sub_180034D90(v26, (__int64)NtCurrentTeb()->MergedPrefLanguages, 0, v27, v25);
@@ -129,7 +133,7 @@ __int64 __fastcall LdrLoadAlternateResourceModule(unsigned __int64 a1, _QWORD *a
           goto LABEL_23;
         if ( (v30 & 0x80u) == 0 && v25[0] )
         {
-          if ( (v9 || (v9 = sub_180033B60(v32, v29, 0, 1)) != 0LL) && *v9 == -20054323 )
+          if ( (v9 || (v9 = sub_180033B60(DllHandlea, v29, 0, 1)) != 0LL) && *v9 == -20054323 )
           {
             v13 = v28;
             if ( (v9[5] & 0x100) != 0 )
@@ -165,16 +169,16 @@ LABEL_12:
         }
         v11 = v26;
 LABEL_23:
-        v6 = v32;
+        v6 = DllHandlea;
       }
 LABEL_14:
       if ( v31 >= 0x40 )
         goto LABEL_18;
       v35[v31] = v15;
       v19 = v15;
-      v6 = v32;
+      v6 = DllHandlea;
       v31 = v17 + 1;
-      AlternateResourceModule = LdrLoadAlternateResourceModuleEx(v32, v19, a2, a3, v16);
+      AlternateResourceModule = LdrLoadAlternateResourceModuleEx(DllHandlea, v19, ResourceDllBase, ResourceOffset, v16);
       v11 = v26;
       v8 = v29;
       v7 = AlternateResourceModule;
@@ -182,7 +186,7 @@ LABEL_14:
     while ( AlternateResourceModule < 0 );
     if ( (v16 & 0x80u) == 0 )
       goto LABEL_19;
-    if ( !(unsigned __int8)sub_18007DBEC(v6, *a2) )
+    if ( !(unsigned __int8)sub_18007DBEC(v6, *ResourceDllBase) )
     {
       if ( v10 )
       {
@@ -190,9 +194,9 @@ LABEL_14:
       }
       else
       {
-        v10 = *a2;
-        if ( a3 )
-          v8 = *a3;
+        v10 = *ResourceDllBase;
+        if ( ResourceOffset )
+          v8 = *ResourceOffset;
         else
           v8 = 0LL;
         v29 = v8;
@@ -207,10 +211,10 @@ LABEL_18:
 LABEL_19:
   if ( v7 < 0 && (v30 & 0x80u) != 0 && v10 )
   {
-    *a2 = v10;
-    if ( a3 )
-      *a3 = v8;
+    *ResourceDllBase = v10;
+    if ( ResourceOffset )
+      *ResourceOffset = v8;
     return 0;
   }
-  return (unsigned int)v7;
+  return v7;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeSystemLeavesNonZero @ 0x140518F50
+ * XREFs of MiMakeSystemLeavesNonZero @ 0x1405129C0
  * Callers:
- *     MiComputePxeWalkAction @ 0x1403283D0 (MiComputePxeWalkAction.c)
- *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
+ *     MiComputePxeWalkAction @ 0x14032A400 (MiComputePxeWalkAction.c)
+ *     MiCreateSystemPageTable @ 0x14033B880 (MiCreateSystemPageTable.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
  */
 
 void __fastcall MiMakeSystemLeavesNonZero(__int64 a1, unsigned __int64 a2, int a3)

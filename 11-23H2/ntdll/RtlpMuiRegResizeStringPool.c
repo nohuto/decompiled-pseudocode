@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpMuiRegResizeStringPool @ 0x180114204
+ * XREFs of RtlpMuiRegResizeStringPool @ 0x1801141D4
  * Callers:
- *     RtlpMuiRegGrowStringPool @ 0x1801135FC (RtlpMuiRegGrowStringPool.c)
+ *     RtlpMuiRegGrowStringPool @ 0x1801135CC (RtlpMuiRegGrowStringPool.c)
  * Callees:
  *     memmove @ 0x1800A7A40 (memmove.c)
- *     RtlpMuiRegCreateStringPool @ 0x180112A08 (RtlpMuiRegCreateStringPool.c)
- *     RtlpMuiRegFreeStringPool @ 0x180112B1C (RtlpMuiRegFreeStringPool.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1801129D8 (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegFreeStringPool @ 0x180112AEC (RtlpMuiRegFreeStringPool.c)
  */
 
-__int64 __fastcall RtlpMuiRegResizeStringPool(__int64 a1, __int16 a2, __int16 a3, char a4)
+_QWORD *__fastcall RtlpMuiRegResizeStringPool(const void **BaseAddress, __int16 a2, __int16 a3, char a4)
 {
-  __int64 v4; // rdi
+  _QWORD *v4; // rdi
   __int16 v7; // ax
   __int16 v8; // dx
   size_t v9; // rsi
   size_t v10; // rbp
-  __int64 StringPool; // rax
+  _QWORD *StringPool; // rax
 
   v4 = 0LL;
   v7 = 4;
@@ -24,22 +24,22 @@ __int64 __fastcall RtlpMuiRegResizeStringPool(__int64 a1, __int16 a2, __int16 a3
   v8 = 40;
   if ( a3 >= 1 )
     v8 = a3;
-  if ( a1 )
+  if ( BaseAddress )
   {
-    if ( v7 >= (int)*(unsigned __int16 *)(a1 + 6) && v8 >= (int)*(unsigned __int16 *)(a1 + 10) )
+    if ( v7 >= (int)*((unsigned __int16 *)BaseAddress + 3) && v8 >= (int)*((unsigned __int16 *)BaseAddress + 5) )
     {
-      v9 = 2LL * *(unsigned __int16 *)(a1 + 4);
-      v10 = 2LL * *(unsigned __int16 *)(a1 + 8);
+      v9 = 2LL * *((unsigned __int16 *)BaseAddress + 2);
+      v10 = 2LL * *((unsigned __int16 *)BaseAddress + 4);
       StringPool = RtlpMuiRegCreateStringPool(v7, v8);
       v4 = StringPool;
       if ( StringPool )
       {
-        memmove(*(void **)(StringPool + 16), *(const void **)(a1 + 16), v9);
-        memmove(*(void **)(v4 + 24), *(const void **)(a1 + 24), v10);
-        *(_WORD *)(v4 + 6) = *(_WORD *)(a1 + 6);
-        *(_WORD *)(v4 + 10) = *(_WORD *)(a1 + 10);
+        memmove((void *)StringPool[2], BaseAddress[2], v9);
+        memmove((void *)v4[3], BaseAddress[3], v10);
+        *((_WORD *)v4 + 3) = *((_WORD *)BaseAddress + 3);
+        *((_WORD *)v4 + 5) = *((_WORD *)BaseAddress + 5);
         if ( !a4 )
-          RtlpMuiRegFreeStringPool(a1);
+          RtlpMuiRegFreeStringPool(BaseAddress);
       }
     }
   }

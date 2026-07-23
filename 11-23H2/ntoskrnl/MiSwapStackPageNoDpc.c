@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSwapStackPageNoDpc @ 0x14039A2CC
+ * XREFs of MiSwapStackPageNoDpc @ 0x14039A4AC
  * Callers:
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x14062CF80 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x14062D4D0 (MiJumpStackTarget.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiCopyPfnEntryEx @ 0x140219D60 (MiCopyPfnEntryEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiSwapStackPageNoDpc(__int64 a1, __int64 a2)

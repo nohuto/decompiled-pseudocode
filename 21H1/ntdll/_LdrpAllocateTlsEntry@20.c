@@ -11,30 +11,32 @@
  *     _LdrpGenericExceptionFilter@8 @ 0x4B334947 (_LdrpGenericExceptionFilter@8.c)
  */
 
-int __fastcall LdrpAllocateTlsEntry(const void *a1, int a2, int *a3, int a4, int *a5)
+int __fastcall LdrpAllocateTlsEntry(const void *a1, int a2, int *a3, int a4, _DWORD *a5)
 {
-  int Heap; // eax
-  int v7; // ebx
+  _DWORD *Heap; // eax
+  _DWORD *v7; // ebx
   int v8; // edx
-  int *v9; // eax
+  _DWORD *v9; // eax
   int v11; // esi
-  int v13; // [esp+24h] [ebp-20h]
+  SIZE_T v12; // [esp-4h] [ebp-48h]
+  int v14; // [esp+24h] [ebp-20h]
 
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, 40);
+  LODWORD(v12) = 40;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, v12);
   v7 = Heap;
   if ( !Heap )
     return -1073741801;
-  qmemcpy((void *)(Heap + 8), a1, 0x18u);
-  if ( *(_DWORD *)(Heap + 12) < *(_DWORD *)(Heap + 8) )
+  qmemcpy(Heap + 2, a1, 0x18u);
+  if ( Heap[3] < Heap[2] )
   {
     v11 = -1073741701;
 LABEL_15:
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     return v11;
   }
   if ( !a4 )
   {
-    v13 = (*a3)++;
+    v14 = (*a3)++;
     goto LABEL_6;
   }
   v8 = LdrpAcquireTlsIndex(a3, a4);
@@ -43,16 +45,16 @@ LABEL_15:
     v11 = v8;
     goto LABEL_15;
   }
-  v13 = *a3;
+  v14 = *a3;
 LABEL_6:
-  **(_DWORD **)(v7 + 16) = v13;
-  *(_DWORD *)(v7 + 36) = v13;
-  *(_DWORD *)(v7 + 32) = a2;
-  v9 = (int *)off_4B3A33AC;
+  *(_DWORD *)v7[4] = v14;
+  v7[9] = v14;
+  v7[8] = a2;
+  v9 = off_4B3A33AC;
   if ( *off_4B3A33AC != (_UNKNOWN *)&LdrpTlsList )
     __fastfail(3u);
-  *(_DWORD *)v7 = &LdrpTlsList;
-  *(_DWORD *)(v7 + 4) = v9;
+  *v7 = &LdrpTlsList;
+  v7[1] = v9;
   *v9 = v7;
   off_4B3A33AC = (_UNKNOWN **)v7;
   if ( a5 )

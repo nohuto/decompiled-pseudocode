@@ -1,40 +1,43 @@
 /*
- * XREFs of RtlpFindEntry @ 0x180029F40
+ * XREFs of RtlpFindEntry @ 0x180015010
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1800233D0 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x180028890 (RtlpCreateSplitBlock.c)
- *     RtlpValidateHeapSegment @ 0x1800DD034 (RtlpValidateHeapSegment.c)
- *     RtlZeroHeap @ 0x1801465B0 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x18000E4A0 (RtlpFreeHeap.c)
+ *     RtlpCreateSplitBlock @ 0x180013960 (RtlpCreateSplitBlock.c)
+ *     RtlpValidateHeapSegment @ 0x1800D9FA4 (RtlpValidateHeapSegment.c)
+ *     RtlZeroHeap @ 0x180146460 (RtlZeroHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 _QWORD *__fastcall RtlpFindEntry(__int64 a1, unsigned __int64 a2)
 {
-  __int64 *v2; // rdi
+  __int64 *v2; // rbx
   int v3; // esi
   unsigned __int64 v5; // rax
-  int v6; // r12d
-  int i; // eax
-  _QWORD *v8; // rbx
-  __int64 v9; // r15
-  _QWORD *v10; // rax
-  int v11; // edx
-  __int16 v12; // r14
-  __int64 v13; // r8
-  int v14; // edx
-  __int16 v15; // r14
-  __int64 v16; // rax
-  __int64 v17; // r8
-  unsigned int v18; // edx
-  __int64 v19; // r10
-  int v20; // ecx
-  unsigned int v21; // ecx
-  __int64 v22; // rax
-  _QWORD *j; // r14
-  int v25; // edx
-  __int16 v26; // r15
+  int v6; // r13d
+  int v7; // eax
+  int v8; // r11d
+  _QWORD *v9; // r14
+  __int64 v10; // r12
+  _QWORD *v11; // r15
+  _QWORD *v12; // rax
+  int v13; // edx
+  __int16 v14; // bp
+  __int64 v15; // r8
+  int v16; // edx
+  __int16 v17; // bp
+  __int64 v18; // rax
+  __int64 v19; // r8
+  unsigned int v20; // edx
+  __int64 v21; // r10
+  int v22; // ecx
+  unsigned int v23; // ecx
+  unsigned int v24; // eax
+  _QWORD *i; // rbp
+  int v27; // edx
+  __int16 v28; // r12
+  int v29; // [rsp+60h] [rbp+8h]
 
   v2 = *(__int64 **)(a1 + 312);
   v3 = a2;
@@ -52,113 +55,126 @@ _QWORD *__fastcall RtlpFindEntry(__int64 a1, unsigned __int64 a2)
   }
   v6 = v5 - 1;
 LABEL_6:
-  for ( i = *((_DWORD *)v2 + 6); ; i = v6 )
+  v7 = *((_DWORD *)v2 + 6);
+  v8 = a2;
+  v29 = a2;
+  while ( 1 )
   {
-    v8 = (_QWORD *)v2[4];
-    v9 = (unsigned int)(v6 - i);
-    v10 = (_QWORD *)v8[1];
-    if ( v8 == v10 )
-      break;
-    v11 = *((_DWORD *)v10 - 2);
+    v9 = (_QWORD *)v2[4];
+    v10 = (unsigned int)(v6 - v7);
+    v11 = 0LL;
+    v12 = (_QWORD *)v9[1];
+    if ( v9 == v12 )
+    {
+      v11 = (_QWORD *)v2[4];
+      v8 = v3;
+      goto LABEL_25;
+    }
+    v13 = *((_DWORD *)v12 - 2);
     if ( *(_DWORD *)(a1 + 124) )
     {
-      v11 ^= *(_DWORD *)(a1 + 136);
-      v12 = v11;
-      if ( HIBYTE(v11) != ((unsigned __int8)v11 ^ (unsigned __int8)(BYTE1(v11) ^ BYTE2(v11))) )
+      v13 ^= *(_DWORD *)(a1 + 136);
+      v14 = v13;
+      if ( HIBYTE(v13) != ((unsigned __int8)v13 ^ (unsigned __int8)(BYTE1(v13) ^ BYTE2(v13))) )
       {
-        RtlpLogHeapFailure(3, a1, (_DWORD)v10 - 16, 0, 0LL, 0LL);
-        LOWORD(v11) = v12;
+        RtlpLogHeapFailure(3, a1, (_DWORD)v12 - 16, 0, 0LL, 0LL);
+        v8 = v29;
+        LOWORD(v13) = v14;
       }
     }
-    if ( v3 - (unsigned __int16)v11 > 0 )
-      break;
-    v13 = *v8 - 16LL;
-    v14 = *(_DWORD *)(v13 + 8);
+    if ( v3 - (unsigned __int16)v13 > 0 )
+    {
+      v11 = v9;
+      goto LABEL_25;
+    }
+    v15 = *v9 - 16LL;
+    v16 = *(_DWORD *)(v15 + 8);
     if ( *(_DWORD *)(a1 + 124) )
     {
-      v14 ^= *(_DWORD *)(a1 + 136);
-      v15 = v14;
-      if ( HIBYTE(v14) != ((unsigned __int8)v14 ^ (unsigned __int8)(BYTE1(v14) ^ BYTE2(v14))) )
+      v16 ^= *(_DWORD *)(a1 + 136);
+      v17 = v16;
+      if ( HIBYTE(v16) != ((unsigned __int8)v16 ^ (unsigned __int8)(BYTE1(v16) ^ BYTE2(v16))) )
       {
-        RtlpLogHeapFailure(3, a1, v13, 0, 0LL, 0LL);
-        LOWORD(v14) = v15;
+        RtlpLogHeapFailure(3, a1, v15, 0, 0LL, 0LL);
+        v8 = v29;
+        LOWORD(v16) = v17;
       }
     }
-    if ( v3 - (unsigned __int16)v14 <= 0 )
+    if ( v8 - (unsigned __int16)v16 <= 0 )
     {
-      v8 = (_QWORD *)*v8;
-      break;
+      v11 = (_QWORD *)*v9;
+      goto LABEL_25;
     }
     if ( !*v2 && v6 == *((_DWORD *)v2 + 2) - 1 )
+      break;
+    v18 = v2[5];
+    v19 = (unsigned int)v10 >> 5;
+    v20 = *(_DWORD *)(v18 + 4 * v19) & (-1 << (v10 & 0x1F));
+    v21 = v18 + 4 * v19;
+    if ( v20 )
     {
-      if ( *((_DWORD *)v2 + 3) )
-        v9 = (unsigned int)(2 * v9);
-      for ( j = *(_QWORD **)(v2[6] + 8 * v9); v8 != j; j = (_QWORD *)*j )
-      {
-        v25 = *((_DWORD *)j - 2);
-        if ( *(_DWORD *)(a1 + 124) )
-        {
-          v25 ^= *(_DWORD *)(a1 + 136);
-          v26 = v25;
-          if ( HIBYTE(v25) != ((unsigned __int8)v25 ^ (unsigned __int8)(BYTE1(v25) ^ BYTE2(v25))) )
-          {
-            RtlpLogHeapFailure(3, a1, (_DWORD)j - 16, 0, 0LL, 0LL);
-            LOWORD(v25) = v26;
-          }
-        }
-        if ( v3 - (unsigned __int16)v25 <= 0 )
-        {
-          v8 = j;
-          goto LABEL_25;
-        }
-      }
-    }
-    else
-    {
-      v16 = v2[5];
-      v17 = (unsigned int)v9 >> 5;
-      v18 = *(_DWORD *)(v16 + 4 * v17) & (-1 << (v9 & 0x1F));
-      v19 = v16 + 4 * v17;
-      if ( v18 )
-      {
 LABEL_19:
-        if ( (_WORD)v18 )
-        {
-          if ( (_BYTE)v18 )
-            v20 = (unsigned __int8)RtlpBitsClearLow[(unsigned __int8)v18];
-          else
-            v20 = (unsigned __int8)RtlpBitsClearLow[BYTE1(v18)] + 8;
-        }
-        else if ( (v18 & 0xFF0000) != 0 )
-        {
-          v20 = (unsigned __int8)RtlpBitsClearLow[BYTE2(v18)] + 16;
-        }
-        else
-        {
-          v20 = (unsigned __int8)RtlpBitsClearLow[(unsigned __int64)v18 >> 24] + 24;
-        }
-        v21 = 32 * v17 + v20;
-        v22 = 2 * v21;
-        if ( !*((_DWORD *)v2 + 3) )
-          v22 = v21;
-        v8 = *(_QWORD **)(v2[6] + 8 * v22);
-        break;
-      }
-      while ( (unsigned int)v17 <= ((unsigned int)(*((_DWORD *)v2 + 2) - *((_DWORD *)v2 + 6)) >> 5) - 1 )
+      if ( (_WORD)v20 )
       {
-        v18 = *(_DWORD *)(v19 + 4);
-        v19 += 4LL;
-        LODWORD(v17) = v17 + 1;
-        if ( v18 )
-          goto LABEL_19;
+        if ( (_BYTE)v20 )
+          v22 = (unsigned __int8)RtlpBitsClearLow[(unsigned __int8)v20];
+        else
+          v22 = (unsigned __int8)RtlpBitsClearLow[BYTE1(v20)] + 8;
       }
+      else if ( (v20 & 0xFF0000) != 0 )
+      {
+        v22 = (unsigned __int8)RtlpBitsClearLow[BYTE2(v20)] + 16;
+      }
+      else
+      {
+        v22 = (unsigned __int8)RtlpBitsClearLow[(unsigned __int64)v20 >> 24] + 24;
+      }
+      v23 = 32 * v19 + v22;
+      v24 = 2 * v23;
+      if ( !*((_DWORD *)v2 + 3) )
+        v24 = v23;
+      v11 = *(_QWORD **)(v2[6] + 8LL * v24);
+      goto LABEL_25;
     }
-LABEL_27:
+    while ( (unsigned int)v19 <= ((unsigned int)(*((_DWORD *)v2 + 2) - *((_DWORD *)v2 + 6)) >> 5) - 1 )
+    {
+      v20 = *(_DWORD *)(v21 + 4);
+      v21 += 4LL;
+      LODWORD(v19) = v19 + 1;
+      if ( v20 )
+        goto LABEL_19;
+    }
+    v29 = v8;
+LABEL_28:
     v2 = (__int64 *)*v2;
     v6 = *((_DWORD *)v2 + 6);
+    v7 = v6;
+  }
+  if ( *((_DWORD *)v2 + 3) )
+    v10 = (unsigned int)(2 * v10);
+  for ( i = *(_QWORD **)(v2[6] + 8 * v10); v9 != i; i = (_QWORD *)*i )
+  {
+    v27 = *((_DWORD *)i - 2);
+    if ( *(_DWORD *)(a1 + 124) )
+    {
+      v27 ^= *(_DWORD *)(a1 + 136);
+      v28 = v27;
+      if ( HIBYTE(v27) != ((unsigned __int8)v27 ^ (unsigned __int8)(BYTE1(v27) ^ BYTE2(v27))) )
+      {
+        RtlpLogHeapFailure(3, a1, (_DWORD)i - 16, 0, 0LL, 0LL);
+        v8 = v29;
+        LOWORD(v27) = v28;
+      }
+    }
+    if ( v8 - (unsigned __int16)v27 <= 0 )
+    {
+      v11 = i;
+      break;
+    }
   }
 LABEL_25:
-  if ( !v8 )
-    goto LABEL_27;
-  return v8;
+  v29 = v8;
+  if ( !v11 )
+    goto LABEL_28;
+  return v11;
 }

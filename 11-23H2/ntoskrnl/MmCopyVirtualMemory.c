@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCopyVirtualMemory @ 0x1406F78D0
+ * XREFs of MmCopyVirtualMemory @ 0x1406F7AE0
  * Callers:
- *     PsQueryProcessCommandLine @ 0x1403546F0 (PsQueryProcessCommandLine.c)
- *     KiTpWriteUmMemory @ 0x14057F090 (KiTpWriteUmMemory.c)
+ *     PsQueryProcessCommandLine @ 0x140354890 (PsQueryProcessCommandLine.c)
+ *     KiTpWriteUmMemory @ 0x14057F580 (KiTpWriteUmMemory.c)
  * Callees:
- *     MiCopyVirtualMemory @ 0x1406F7910 (MiCopyVirtualMemory.c)
+ *     MiCopyVirtualMemory @ 0x1406F7B20 (MiCopyVirtualMemory.c)
  */
 
 __int64 __fastcall MmCopyVirtualMemory(

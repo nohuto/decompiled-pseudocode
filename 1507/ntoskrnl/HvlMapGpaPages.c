@@ -26,8 +26,8 @@ __int64 __fastcall HvlMapGpaPages(__int64 a1, __int64 a2, int a3, unsigned __int
   _SLIST_ENTRY *Next; // [rsp+28h] [rbp-80h]
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-78h]
   __int64 v23; // [rsp+38h] [rbp-70h]
-  struct _KPRCB *v24; // [rsp+48h] [rbp-60h]
-  struct _SLIST_ENTRY *v25; // [rsp+50h] [rbp-58h]
+  _SLIST_HEADER *v24; // [rsp+48h] [rbp-60h]
+  _SLIST_ENTRY *v25; // [rsp+50h] [rbp-58h]
   _SLIST_ENTRY *v26; // [rsp+58h] [rbp-50h]
   __int16 v27; // [rsp+A0h] [rbp-8h]
   char v28; // [rsp+B0h] [rbp+8h]
@@ -65,7 +65,7 @@ LABEL_6:
   v13 = (unsigned __int8)CurrentPrcb;
   Next = v12[1].Next;
   v28 = 1;
-  v24 = CurrentPrcb;
+  v24 = (_SLIST_HEADER *)CurrentPrcb;
 LABEL_7:
   HypercallCachedPages[1] = 0LL;
   HypercallCachedPages[2] = 0LL;
@@ -95,7 +95,7 @@ LABEL_7:
   if ( (v28 & 1) != 0 )
   {
     ListEntry[1].Next = Next;
-    RtlpInterlockedPushEntrySList(&v24->HypercallPageList, ListEntry);
+    RtlpInterlockedPushEntrySList(v24 + 1535, ListEntry);
   }
   else if ( (v28 & 2) != 0 )
   {

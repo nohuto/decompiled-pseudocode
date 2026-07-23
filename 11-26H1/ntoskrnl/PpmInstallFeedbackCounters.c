@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmInstallFeedbackCounters @ 0x140602A90
+ * XREFs of PpmInstallFeedbackCounters @ 0x140605540
  * Callers:
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     PpmContinueActiveTimeAccumulation @ 0x1403ECDB0 (PpmContinueActiveTimeAccumulation.c)
- *     PpmPerfFeedbackCounterRead @ 0x14046B140 (PpmPerfFeedbackCounterRead.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x1402F7C90 (PpmContinueActiveTimeAccumulation.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     PpmPerfFeedbackCounterRead @ 0x1404648C0 (PpmPerfFeedbackCounterRead.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
@@ -34,13 +34,13 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
   signed __int32 v18; // eax
   signed __int32 v19; // ett
   int v20; // [rsp+30h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY v21; // [rsp+38h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-40h] BYREF
+  _GROUP_AFFINITY v21; // [rsp+38h] [rbp-50h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-40h] BYREF
 
   v4 = *(unsigned int *)(a1 + 36);
   v21 = 0LL;
   v20 = 0;
-  LODWORD(v4) = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v4);
+  LODWORD(v4) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v4);
   *(_QWORD *)&v21.Group = (unsigned __int16)((unsigned int)v4 >> 6);
   v21.Mask = 1LL << v4;
   PreviousAffinity = 0LL;

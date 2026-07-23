@@ -7,11 +7,11 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-void *sub_1800FA2D8()
+PVOID sub_1800FA2D8()
 {
-  void *result; // rax
+  PVOID result; // rax
 
-  result = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 71200LL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x11620uLL);
   qword_180166570 = (__int64)result;
   if ( result )
     return memset(result, 0, 0x11620uLL);

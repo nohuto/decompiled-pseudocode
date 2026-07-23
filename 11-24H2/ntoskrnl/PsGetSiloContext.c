@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetSiloContext @ 0x140465740
+ * XREFs of PsGetSiloContext @ 0x14045D6C0
  * Callers:
  *     <none>
  * Callees:
- *     PspStorageGetObject @ 0x1409F318C (PspStorageGetObject.c)
+ *     PspStorageGetObject @ 0x1409E74EC (PspStorageGetObject.c)
  */
 
 __int64 __fastcall PsGetSiloContext(__int64 a1, __int64 a2, _QWORD *a3)
@@ -13,7 +13,7 @@ __int64 __fastcall PsGetSiloContext(__int64 a1, __int64 a2, _QWORD *a3)
   if ( a1 )
     v3 = *(_QWORD *)(a1 + 1536);
   else
-    v3 = qword_140FCEE30;
+    v3 = qword_140FCFE30;
   *a3 = 0LL;
   return PspStorageGetObject(v3);
 }

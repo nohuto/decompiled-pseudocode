@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpFirmwareAccessAppContainerCheck @ 0x1409FC7E4
+ * XREFs of ExpFirmwareAccessAppContainerCheck @ 0x1409FCA74
  * Callers:
  *     NtQuerySystemEnvironmentValueEx @ 0x140687240 (NtQuerySystemEnvironmentValueEx.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077E8E0 (ExpGetSystemFirmwareTableInformation.c)
- *     NtSetSystemEnvironmentValueEx @ 0x140A002B0 (NtSetSystemEnvironmentValueEx.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14077EAD0 (ExpGetSystemFirmwareTableInformation.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140A00540 (NtSetSystemEnvironmentValueEx.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
- *     RtlCheckTokenMembershipEx @ 0x14031D1F0 (RtlCheckTokenMembershipEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryInformationToken @ 0x14041B180 (ZwQueryInformationToken.c)
- *     RtlRunOnceExecuteOnce @ 0x140757D90 (RtlRunOnceExecuteOnce.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     ExpCapabilityCheck @ 0x1409FBA34 (ExpCapabilityCheck.c)
+ *     RtlSubAuthoritySid @ 0x140297D60 (RtlSubAuthoritySid.c)
+ *     RtlCheckTokenMembershipEx @ 0x14031D480 (RtlCheckTokenMembershipEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x14041B510 (ZwQueryInformationToken.c)
+ *     RtlRunOnceExecuteOnce @ 0x140757F80 (RtlRunOnceExecuteOnce.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     ExpCapabilityCheck @ 0x1409FBCC4 (ExpCapabilityCheck.c)
  */
 
 bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
 {
   int v1; // ecx
-  _BYTE v3[4]; // [rsp+30h] [rbp-D0h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
+  BOOLEAN IsMember[4]; // [rsp+30h] [rbp-D0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
   ULONG ReturnLength; // [rsp+3Ch] [rbp-C4h] BYREF
   HANDLE TokenInformation; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING v7; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING String2; // [rsp+58h] [rbp-A8h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING v9; // [rsp+68h] [rbp-98h] BYREF
   __int128 Sid; // [rsp+78h] [rbp-88h] BYREF
   __int64 v11; // [rsp+88h] [rbp-78h]
@@ -46,12 +46,12 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
   v15[1] = *(_OWORD *)L"t.firmwareRead_cw5n1h2txyewy";
   v17 = aMicrosoftFirmw_0[36];
   v15[3] = *(_OWORD *)L"w5n1h2txyewy";
-  String2.Buffer = (wchar_t *)v15;
+  CapabilityName.Buffer = (wchar_t *)v15;
   v18[1] = *(_OWORD *)L"t.firmwareWrite_cw5n1h2txyewy";
   v20 = *(_DWORD *)L"y";
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_QWORD *)&v9.Length = 917516LL;
-  *(_QWORD *)&String2.Length = 4849736LL;
+  *(_QWORD *)&CapabilityName.Length = 4849736LL;
   v18[3] = *(_OWORD *)L"cw5n1h2txyewy";
   *(_QWORD *)&v7.Length = 4980810LL;
   v7.Buffer = (wchar_t *)v18;
@@ -72,7 +72,7 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
       return 0;
     goto LABEL_6;
   }
-  if ( !ExpCapabilityCheck(&String2) )
+  if ( !ExpCapabilityCheck(&CapabilityName) )
   {
 LABEL_6:
     if ( !ExpCapabilityCheck(&v7) )
@@ -84,12 +84,12 @@ LABEL_6:
     if ( !ExpTestSigningEnabled )
       return 0;
   }
-  v3[0] = 0;
+  IsMember[0] = 0;
   RtlInitializeSid(&Sid, &IdentifierAuthority, 2u);
   *RtlSubAuthoritySid(&Sid, 0) = 32;
   *RtlSubAuthoritySid(&Sid, 1u) = 544;
   return ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, TokenLinkedToken, &TokenInformation, 8u, &ReturnLength) >= 0
       && ReturnLength == 8
-      && (int)RtlCheckTokenMembershipEx(TokenInformation, &Sid, 1, v3) >= 0
-      && v3[0];
+      && RtlCheckTokenMembershipEx(TokenInformation, &Sid, 1u, IsMember) >= 0
+      && IsMember[0];
 }

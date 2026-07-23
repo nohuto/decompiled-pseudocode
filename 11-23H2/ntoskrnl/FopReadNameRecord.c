@@ -3,7 +3,7 @@
  * Callers:
  *     FopReadNamingTable @ 0x140B9C740 (FopReadNamingTable.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1403871C8 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403873A8 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FopReadNameRecord(__int64 a1, unsigned int a2, _WORD *a3)

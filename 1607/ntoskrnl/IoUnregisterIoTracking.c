@@ -1,15 +1,15 @@
 /*
- * XREFs of IoUnregisterIoTracking @ 0x140625070
+ * XREFs of IoUnregisterIoTracking @ 0x140625124
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     IopIrpExtensionControl @ 0x1401C519C (IopIrpExtensionControl.c)
- *     IoPerfReset @ 0x1401CA68C (IoPerfReset.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     IopIrpExtensionControl @ 0x1401C5080 (IopIrpExtensionControl.c)
+ *     IoPerfReset @ 0x1401CA52C (IoPerfReset.c)
  */
 
 void __fastcall IoUnregisterIoTracking(_QWORD *a1)

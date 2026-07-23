@@ -1,20 +1,20 @@
 /*
- * XREFs of MiZeroAndConvertLargePage @ 0x1401FC4CC
+ * XREFs of MiZeroAndConvertLargePage @ 0x1401FC2F8
  * Callers:
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
  * Callees:
- *     MiChangePageAttributeBatch @ 0x14001D640 (MiChangePageAttributeBatch.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiChangePageAttributeBatch @ 0x14001D1C0 (MiChangePageAttributeBatch.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 void __fastcall MiZeroAndConvertLargePage(__int64 a1, unsigned __int64 a2, int a3)
@@ -73,7 +73,7 @@ LABEL_10:
   }
   if ( !v8 )
     goto LABEL_20;
-  if ( *((_DWORD *)&unk_140326A20 + 4 * ((unsigned __int64)v10 >> 6) + v4) == (_DWORD)v4 )
+  if ( *((_DWORD *)&unk_140326A60 + 4 * ((unsigned __int64)v10 >> 6) + v4) == (_DWORD)v4 )
   {
     MiChangePageAttributeBatch(v7, v4, 0LL);
     v7 = 0LL;
@@ -81,7 +81,7 @@ LABEL_10:
   }
 LABEL_11:
   v14 = (a1 + 0x58000000000LL) / 48;
-  v15 = MiReservePtes((__int64)&qword_140327870, (unsigned int)a2, v9);
+  v15 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)a2, v9);
   if ( v15 )
   {
     ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, a1);
@@ -101,7 +101,7 @@ LABEL_11:
       while ( v22 != 1 );
     }
     KeZeroPages((int *)((__int64)(v15 << 25) >> 16), a2 << 12);
-    MiReleasePtes((__int64)&qword_140327870, v15, a2);
+    MiReleasePtes((__int64)&qword_1403278B0, v15, a2);
   }
   else
   {

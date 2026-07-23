@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C0F3C
+ * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C14AC
  * Callers:
- *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1405C0FD8 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1405C1548 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
  * Callees:
- *     SmFpAllocate @ 0x140465F8E (SmFpAllocate.c)
+ *     SmFpAllocate @ 0x14046638E (SmFpAllocate.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(

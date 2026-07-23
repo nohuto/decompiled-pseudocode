@@ -1,16 +1,16 @@
 /*
- * XREFs of CmInitializeProcessor @ 0x140853CB8
+ * XREFs of CmInitializeProcessor @ 0x140859FC8
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     CmpAddProcessorConfigurationEntry @ 0x140853E00 (CmpAddProcessorConfigurationEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14085A110 (CmpAddProcessorConfigurationEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
@@ -19,16 +19,16 @@ NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
   NTSTATUS result; // eax
   unsigned int v4; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-9h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+Fh] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
 
   v1 = 0;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspSiloMonitorLock.648;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32];
   Affinity = 0LL;
   PreviousAffinity = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -38,8 +38,7 @@ NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
     CmpConfigurationData = (PVOID)ExAllocatePool2(0x100uLL);
     if ( CmpConfigurationData )
     {
-      v4 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL
-                                                                                       * *(unsigned int *)(a1 + 36));
+      v4 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + *(unsigned int *)(a1 + 36));
       Affinity.Reserved[1] = 0;
       Affinity.Reserved[2] = 0;
       *(_DWORD *)&Affinity.Group = (unsigned __int16)(v4 >> 6);

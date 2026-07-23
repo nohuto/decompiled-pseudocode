@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAcquireScrubProtection @ 0x14070BC8C
+ * XREFs of MiAcquireScrubProtection @ 0x14071093C
  * Callers:
- *     MiScrubLargePage @ 0x14070C4BC (MiScrubLargePage.c)
+ *     MiScrubLargePage @ 0x14071116C (MiScrubLargePage.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiBeginPageAccessor @ 0x1403C4E34 (MiBeginPageAccessor.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiBeginPageAccessor @ 0x1403CED40 (MiBeginPageAccessor.c)
  */
 
 __int64 __fastcall MiAcquireScrubProtection(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall MiAcquireScrubProtection(__int64 a1)
   v4 = *(_QWORD *)a1;
   v14 = MiPageSizes[v1];
   if ( v2 == 1 )
-    v5 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * ((v4 >> 18) & 0x3FFFFF);
+    v5 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * ((v4 >> 18) & 0x3FFFFF);
   else
     v5 = 48 * v4 - 0x220000000000LL;
   result = MiBeginPageAccessor(a1 + 40, v1, v5, v2);

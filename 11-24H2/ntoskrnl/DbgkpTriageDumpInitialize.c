@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpTriageDumpInitialize @ 0x140709374
+ * XREFs of DbgkpTriageDumpInitialize @ 0x140706F34
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140707A3C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x1407055FC (DbgkCaptureLiveDump.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkpTriageDumpInitialize(
         __int64 a1,
         __int64 a2,
         int a3,
-        __int64 (__fastcall **a4)(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6))
+        __int64 (__fastcall **a4)(__int64 *a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6))
 {
   PVOID PoolWithTag; // rax
 
@@ -29,10 +29,10 @@ __int64 __fastcall DbgkpTriageDumpInitialize(
     *(_DWORD *)(a1 + 40) = 0;
   }
   *a4 = DbgkpTriageDumpFillHeaders;
-  a4[2] = (__int64 (__fastcall *)(__int64, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpSnapData;
-  a4[1] = (__int64 (__fastcall *)(__int64, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpIsMemoryBlockPresent;
-  a4[3] = (__int64 (__fastcall *)(__int64, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpSaveState;
-  a4[4] = (__int64 (__fastcall *)(__int64, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpRestoreState;
-  a4[5] = (__int64 (__fastcall *)(__int64, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpWrite;
+  a4[2] = (__int64 (__fastcall *)(__int64 *, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpSnapData;
+  a4[1] = (__int64 (__fastcall *)(__int64 *, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpIsMemoryBlockPresent;
+  a4[3] = (__int64 (__fastcall *)(__int64 *, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpSaveState;
+  a4[4] = (__int64 (__fastcall *)(__int64 *, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpRestoreState;
+  a4[5] = (__int64 (__fastcall *)(__int64 *, int, __int64, __int64, __int64, __int64))DbgkpTriageDumpWrite;
   return 0LL;
 }

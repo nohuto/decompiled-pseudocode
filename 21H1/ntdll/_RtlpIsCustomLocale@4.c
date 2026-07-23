@@ -13,20 +13,26 @@
 
 bool __thiscall RtlpIsCustomLocale(PCWSTR SourceString)
 {
-  int CustomCultureRegKey; // edi
+  void *CustomCultureRegKey; // edi
   bool result; // al
-  _BYTE v4[4]; // [esp+14h] [ebp-ACh] BYREF
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-A8h] BYREF
-  _BYTE v6[156]; // [esp+20h] [ebp-A0h] BYREF
+  ULONG ResultLength; // [esp+14h] [ebp-ACh] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-A8h] BYREF
+  _BYTE KeyValueInformation[156]; // [esp+20h] [ebp-A0h] BYREF
 
-  CustomCultureRegKey = RtlpGetCustomCultureRegKey();
+  CustomCultureRegKey = (void *)RtlpGetCustomCultureRegKey();
   result = 0;
   if ( CustomCultureRegKey )
   {
     if ( *SourceString )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( (int)ZwQueryValueKey(CustomCultureRegKey, &DestinationString, 2, v6, 120, v4) >= 0 )
+      if ( ZwQueryValueKey(
+             CustomCultureRegKey,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x78u,
+             &ResultLength) >= 0 )
         return 1;
     }
   }

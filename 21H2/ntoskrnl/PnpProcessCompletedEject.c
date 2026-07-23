@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpProcessCompletedEject @ 0x1408A24B0
+ * XREFs of PnpProcessCompletedEject @ 0x1408A2610
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
- *     PnpCompleteDeviceEvent @ 0x1406E7458 (PnpCompleteDeviceEvent.c)
- *     PnpTrackQueryRemoveDevices @ 0x1407344D0 (PnpTrackQueryRemoveDevices.c)
- *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
- *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
- *     PpProfileMarkAllTransitioningDocksEjected @ 0x1408AB6EC (PpProfileMarkAllTransitioningDocksEjected.c)
- *     PnpSetDeviceRemovalSafe @ 0x1408ABEA4 (PnpSetDeviceRemovalSafe.c)
- *     IopWarmEjectDevice @ 0x1408B4610 (IopWarmEjectDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     PnpDisableWatchdog @ 0x14066AC20 (PnpDisableWatchdog.c)
+ *     PnpCompleteDeviceEvent @ 0x1406FE838 (PnpCompleteDeviceEvent.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140734690 (PnpTrackQueryRemoveDevices.c)
+ *     PnpInvalidateRelationsInList @ 0x14073824C (PnpInvalidateRelationsInList.c)
+ *     IopFreeRelationList @ 0x140739510 (IopFreeRelationList.c)
+ *     PpProfileMarkAllTransitioningDocksEjected @ 0x1408AB84C (PpProfileMarkAllTransitioningDocksEjected.c)
+ *     PnpSetDeviceRemovalSafe @ 0x1408AC004 (PnpSetDeviceRemovalSafe.c)
+ *     IopWarmEjectDevice @ 0x1408B4770 (IopWarmEjectDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpProcessCompletedEject(PVOID P)

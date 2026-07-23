@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockPoolCommitPageTable @ 0x1402EA640
+ * XREFs of MiLockPoolCommitPageTable @ 0x14034BC80
  * Callers:
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
- *     MiFillPoolCommitPageTable @ 0x1402EB2D0 (MiFillPoolCommitPageTable.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x14034C910 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     MiLockLowestValidPageTableEx @ 0x140218760 (MiLockLowestValidPageTableEx.c)
- *     MiFastLockLeafPageTable @ 0x1402D90E0 (MiFastLockLeafPageTable.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiFastLockLeafPageTable @ 0x14023A9C0 (MiFastLockLeafPageTable.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402454B0 (MiLockLowestValidPageTableEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiLockPoolCommitPageTable(__int64 a1, ULONG_PTR a2)
+__int64 __fastcall MiLockPoolCommitPageTable(__int64 a1, unsigned __int64 a2)
 {
   __int64 v4; // rbp
   ULONG_PTR v5; // rdi

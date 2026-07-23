@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiFreeTokenIdentity @ 0x140A967E0
+ * XREFs of EtwpTiFreeTokenIdentity @ 0x140A93010
  * Callers:
- *     EtwTiLogImpersonateClient @ 0x140910DC8 (EtwTiLogImpersonateClient.c)
+ *     EtwTiLogImpersonateClient @ 0x1408E8518 (EtwTiLogImpersonateClient.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTiFreeTokenIdentity(__int64 a1)

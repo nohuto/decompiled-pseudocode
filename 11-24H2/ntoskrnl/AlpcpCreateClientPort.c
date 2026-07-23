@@ -1,35 +1,35 @@
 /*
- * XREFs of AlpcpCreateClientPort @ 0x1408649C0
+ * XREFs of AlpcpCreateClientPort @ 0x140868FD0
  * Callers:
- *     AlpcpConnectPort @ 0x1408645A0 (AlpcpConnectPort.c)
- *     NtSecureConnectPort @ 0x14088AF50 (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x140868BB0 (AlpcpConnectPort.c)
+ *     NtSecureConnectPort @ 0x140890D60 (NtSecureConnectPort.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByName @ 0x14083F230 (ObReferenceObjectByName.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     AlpcpSetOwnerProcessPort @ 0x1408633F8 (AlpcpSetOwnerProcessPort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x140863450 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcInitializeHandleTable @ 0x1408636AC (AlpcInitializeHandleTable.c)
- *     AlpcpInitializePort @ 0x140863700 (AlpcpInitializePort.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     AlpcpUnlockBlobUncachedExclusive @ 0x1408963A0 (AlpcpUnlockBlobUncachedExclusive.c)
- *     AlpcpLockBlobExclusive @ 0x14089666C (AlpcpLockBlobExclusive.c)
- *     SeCreateClientSecurity @ 0x140896720 (SeCreateClientSecurity.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     AlpcpAllocateBlob @ 0x14093F8B0 (AlpcpAllocateBlob.c)
- *     AlpcpAllocateMessage @ 0x14093F9C0 (AlpcpAllocateMessage.c)
- *     AlpcpCheckConnectionSecurity @ 0x140A167F4 (AlpcpCheckConnectionSecurity.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByName @ 0x14083B4F0 (ObReferenceObjectByName.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     AlpcpSetOwnerProcessPort @ 0x140867A08 (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x140867A60 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcInitializeHandleTable @ 0x140867CBC (AlpcInitializeHandleTable.c)
+ *     AlpcpInitializePort @ 0x140867D10 (AlpcpInitializePort.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     AlpcpAllocateBlob @ 0x140893EF0 (AlpcpAllocateBlob.c)
+ *     AlpcpAllocateMessage @ 0x140894000 (AlpcpAllocateMessage.c)
+ *     AlpcpUnlockBlobUncachedExclusive @ 0x14089E840 (AlpcpUnlockBlobUncachedExclusive.c)
+ *     AlpcpLockBlobExclusive @ 0x14089EB0C (AlpcpLockBlobExclusive.c)
+ *     SeCreateClientSecurity @ 0x14089EDC0 (SeCreateClientSecurity.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     AlpcpCheckConnectionSecurity @ 0x140A0F9D4 (AlpcpCheckConnectionSecurity.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(
@@ -52,7 +52,7 @@ __int64 __fastcall AlpcpCreateClientPort(
   unsigned __int64 *v15; // r14
   int v16; // ecx
   signed __int64 *v17; // r14
-  _QWORD *v18; // rdi
+  char *v18; // rdi
   __int64 v19; // rdx
   int v20; // edi
   _DWORD *v21; // rdi
@@ -61,7 +61,7 @@ __int64 __fastcall AlpcpCreateClientPort(
   _DWORD *v24; // rsi
   unsigned __int64 **Blob; // r12
   ULONG_PTR *v26; // r13
-  _QWORD *v27; // rax
+  char *v27; // rax
   signed __int8 v28; // cf
   __int64 *v29; // rcx
   __int64 v30; // rax
@@ -70,12 +70,12 @@ __int64 __fastcall AlpcpCreateClientPort(
   _QWORD *v33; // rbx
   int inserted; // ecx
   volatile signed __int32 *v35; // rdi
-  _QWORD *v36; // rax
-  _QWORD *v37; // rsi
+  char *v36; // rax
+  char *v37; // rsi
   PVOID Object; // [rsp+50h] [rbp-20h] BYREF
   PVOID v39; // [rsp+58h] [rbp-18h]
   __int64 v40; // [rsp+60h] [rbp-10h] BYREF
-  _QWORD *v41; // [rsp+68h] [rbp-8h]
+  char *v41; // [rsp+68h] [rbp-8h]
   char v45; // [rsp+D0h] [rbp+60h]
 
   v11 = 0LL;
@@ -107,12 +107,12 @@ __int64 __fastcall AlpcpCreateClientPort(
     if ( !a11 && (v16 & 0x1000) != 0 )
     {
       v35 = (volatile signed __int32 *)((char *)Object + 352);
-      v36 = KeAbPreAcquire((__int64)Object + 352, 0LL);
+      v36 = (char *)KeAbPreAcquire((__int64)Object + 352, 0LL);
       v37 = v36;
       if ( _interlockedbittestandset64(v35, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v15 + 44, (__int64)v36, (__int64)(v15 + 44));
+        ExfAcquirePushLockExclusiveEx(v15 + 44, v36, (__int64)(v15 + 44));
       if ( v37 )
-        *((_BYTE *)v37 + 10) = 1;
+        v37[10] = 1;
       *((_DWORD *)v15 + 104) &= ~0x2000u;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v35, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)v15 + 44);
@@ -123,11 +123,11 @@ __int64 __fastcall AlpcpCreateClientPort(
     if ( a9 || a8 )
     {
       v17 = (signed __int64 *)(v15 + 44);
-      v18 = KeAbPreAcquire((__int64)v17, 0LL);
+      v18 = (char *)KeAbPreAcquire((__int64)v17, 0LL);
       if ( _InterlockedCompareExchange64(v17, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v17, 0, v18, (__int64)v17);
       if ( v18 )
-        *((_BYTE *)v18 + 10) = 1;
+        v18[10] = 1;
       if ( (*((_QWORD *)Object + 3) & 1) == 0 )
         v11 = (void *)*((_QWORD *)Object + 3);
       if ( v11 )
@@ -179,16 +179,16 @@ LABEL_20:
           Blob[2] = (unsigned __int64 *)v21;
           Blob[1] = 0LL;
           AlpcpLockBlobExclusive(v15[2]);
-          v27 = KeAbPreAcquire((__int64)(v15 + 44), 0LL);
+          v27 = (char *)KeAbPreAcquire((__int64)(v15 + 44), 0LL);
           v28 = _interlockedbittestandset64((volatile signed __int32 *)v15 + 88, 0LL);
           v41 = v27;
           if ( v28 )
           {
-            ExfAcquirePushLockExclusiveEx(v15 + 44, (__int64)v27, (__int64)(v15 + 44));
+            ExfAcquirePushLockExclusiveEx(v15 + 44, v27, (__int64)(v15 + 44));
             v27 = v41;
           }
           if ( v27 )
-            *((_BYTE *)v27 + 10) = 1;
+            v27[10] = 1;
           v29 = (__int64 *)(Blob + 3);
           v30 = v15[2] + 24;
           v31 = *(__int64 ***)(v15[2] + 32);

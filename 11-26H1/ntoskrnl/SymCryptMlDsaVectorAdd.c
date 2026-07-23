@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptMlDsaVectorAdd @ 0x140574290
+ * XREFs of SymCryptMlDsaVectorAdd @ 0x1405734F4
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsakeyComputeT @ 0x1405747F8 (SymCryptMlDsakeyComputeT.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsakeyComputeT @ 0x140573A5C (SymCryptMlDsakeyComputeT.c)
  * Callees:
- *     SymCryptMlDsaPolyElementAdd @ 0x1405730B8 (SymCryptMlDsaPolyElementAdd.c)
+ *     SymCryptMlDsaPolyElementAdd @ 0x1405722C4 (SymCryptMlDsaPolyElementAdd.c)
  */
 
 __int64 __fastcall SymCryptMlDsaVectorAdd(_BYTE *a1, __int64 a2, __int64 a3)

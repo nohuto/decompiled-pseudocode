@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpGetMetaProviderContext @ 0x140430F10
+ * XREFs of EtwpGetMetaProviderContext @ 0x140423450
  * Callers:
- *     EtwpEnableMetaProviderGuid @ 0x140430E80 (EtwpEnableMetaProviderGuid.c)
- *     EtwpGetTraceGuidInfo @ 0x1408356A0 (EtwpGetTraceGuidInfo.c)
+ *     EtwpEnableMetaProviderGuid @ 0x1404233C0 (EtwpEnableMetaProviderGuid.c)
+ *     EtwpGetTraceGuidInfo @ 0x1409DD060 (EtwpGetTraceGuidInfo.c)
  * Callees:
  *     <none>
  */

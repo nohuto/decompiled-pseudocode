@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetApicIdFromLpIndex @ 0x14053FF60
+ * XREFs of HvlGetApicIdFromLpIndex @ 0x140540620
  * Callers:
- *     KiQueryProcessorNode @ 0x140377100 (KiQueryProcessorNode.c)
+ *     KiQueryProcessorNode @ 0x1403772A0 (KiQueryProcessorNode.c)
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x1403CEA18 (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403CEBF8 (HvlpGetLpcbByLpIndex.c)
  */
 
 int *__fastcall HvlGetApicIdFromLpIndex(unsigned int a1, _DWORD *a2)

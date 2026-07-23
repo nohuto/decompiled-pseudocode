@@ -21,7 +21,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
   __int64 v12; // rcx
   int v13; // eax
   PVOID PoolWithTag; // rax
-  struct _RTL_BITMAP *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
   PVOID v16; // rdx
   __int64 v17; // rsi
   NTSTATUS result; // eax
@@ -56,14 +56,14 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
                     0x74536D73u);
     if ( !PoolWithTag )
       return -1073741670;
-    v15 = (struct _RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
     *(_DWORD *)(a2 + 840) = *(_DWORD *)(a1 + 12);
     *(_QWORD *)(a2 + 848) = PoolWithTag;
     v13 = *(_DWORD *)(a2 + 776);
   }
   else
   {
-    v15 = (struct _RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
   }
   if ( (v13 & 0x40000) != 0 )
     RtlSetAllBits(v15);
@@ -89,7 +89,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
   memset(v19, 0, sizeof(v19));
   if ( (*a3 & 8) != 0 )
   {
-    result = ZwQuerySystemInformation(SystemLoadGdiDriverInSystemSpaceInformation|0x80, SystemInformation, 0x38u, 0LL);
+    result = ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL);
     if ( result < 0 )
       return result;
     if ( SystemInformation[0] >> 21 >= 0x10uLL )

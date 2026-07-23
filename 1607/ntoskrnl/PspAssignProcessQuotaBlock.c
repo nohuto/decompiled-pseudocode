@@ -1,20 +1,20 @@
 /*
- * XREFs of PspAssignProcessQuotaBlock @ 0x1404D7894
+ * XREFs of PspAssignProcessQuotaBlock @ 0x1404BAE98
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspSetQuotaLimits @ 0x1404DF2C4 (PspSetQuotaLimits.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspSetQuotaLimits @ 0x1404C28C8 (PspSetQuotaLimits.c)
  * Callees:
- *     PspUnlockQuotaListShared @ 0x1400AA5D0 (PspUnlockQuotaListShared.c)
- *     PspLockQuotaListShared @ 0x1400AA60C (PspLockQuotaListShared.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     PspUnlockQuotaListShared @ 0x1400A8B50 (PspUnlockQuotaListShared.c)
+ *     PspLockQuotaListShared @ 0x1400A8B8C (PspLockQuotaListShared.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeQueryUserSidToken @ 0x1403FFC40 (SeQueryUserSidToken.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
- *     PspDereferenceQuotaBlock @ 0x1404A6018 (PspDereferenceQuotaBlock.c)
- *     PspLookupProcessQuotaBlock @ 0x1404D7A50 (PspLookupProcessQuotaBlock.c)
- *     PspReadUserQuotaLimits @ 0x1404D7B68 (PspReadUserQuotaLimits.c)
- *     PspSafeReferenceQuotaBlock @ 0x1404D7CC4 (PspSafeReferenceQuotaBlock.c)
- *     PspInitializeQuotaBlock @ 0x14057C79C (PspInitializeQuotaBlock.c)
+ *     SeQueryUserSidToken @ 0x1403FEB00 (SeQueryUserSidToken.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
+ *     PspLookupProcessQuotaBlock @ 0x1404BB054 (PspLookupProcessQuotaBlock.c)
+ *     PspReadUserQuotaLimits @ 0x1404BB16C (PspReadUserQuotaLimits.c)
+ *     PspSafeReferenceQuotaBlock @ 0x1404BB2C8 (PspSafeReferenceQuotaBlock.c)
+ *     PspDereferenceQuotaBlock @ 0x14051E418 (PspDereferenceQuotaBlock.c)
+ *     PspInitializeQuotaBlock @ 0x14057CC48 (PspInitializeQuotaBlock.c)
  */
 
 __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3)
@@ -22,19 +22,16 @@ __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3
   _BYTE *v5; // r14
   unsigned __int8 v6; // r12
   ULONG v7; // esi
-  __int64 v8; // rdx
-  volatile signed __int32 *v9; // rbx
-  __int64 v10; // r8
-  _BOOL8 v11; // r9
+  volatile signed __int32 *v8; // rbx
   int UserQuotaLimits; // edi
   struct _KTHREAD *CurrentThread; // rsi
-  int *v14; // rdi
-  volatile signed __int64 *v15; // r12
+  int *v11; // rdi
+  volatile signed __int64 *v12; // r12
   volatile signed __int32 *PoolWithTag; // rax
-  __int64 v18; // rdi
+  __int64 v15; // rdi
   ULONG DestinationSidLength[3]; // [rsp+24h] [rbp-55h] BYREF
   _BYTE SourceSid[80]; // [rsp+30h] [rbp-49h] BYREF
-  char v21; // [rsp+80h] [rbp+7h] BYREF
+  char v18; // [rsp+80h] [rbp+7h] BYREF
 
   v5 = 0LL;
   v6 = 0;
@@ -50,12 +47,12 @@ __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3
     v7 = DestinationSidLength[0];
     v5 = SourceSid;
   }
-  v9 = (volatile signed __int32 *)PspLookupProcessQuotaBlock(v5, v7, v6, 0LL);
-  if ( v9 )
+  v8 = (volatile signed __int32 *)PspLookupProcessQuotaBlock(v5, v7, v6, 0LL);
+  if ( v8 )
     goto LABEL_10;
   if ( a1 )
   {
-    v14 = 0LL;
+    v11 = 0LL;
   }
   else
   {
@@ -65,60 +62,60 @@ __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3
     if ( DestinationSidLength[1] )
     {
       CurrentThread = KeGetCurrentThread();
-      v14 = PspDefaultResourceLimits;
-      v15 = (volatile signed __int64 *)PspQuotaBlockTable;
+      v11 = PspDefaultResourceLimits;
+      v12 = (volatile signed __int64 *)PspQuotaBlockTable;
       v5 = 0LL;
       DestinationSidLength[0] = 0;
       PspLockQuotaListShared((__int64)CurrentThread, (volatile signed __int64 *)PspQuotaBlockTable);
-      v9 = (volatile signed __int32 *)PspDefaultQuotaBlock;
+      v8 = (volatile signed __int32 *)PspDefaultQuotaBlock;
       if ( PspDefaultQuotaBlock && (unsigned int)PspSafeReferenceQuotaBlock(PspDefaultQuotaBlock) )
       {
-        PspUnlockQuotaListShared((__int64)CurrentThread, v15);
-        _InterlockedIncrement(v9 + 129);
+        PspUnlockQuotaListShared((__int64)CurrentThread, v12);
+        _InterlockedIncrement(v8 + 129);
         goto LABEL_10;
       }
-      PspUnlockQuotaListShared((__int64)CurrentThread, v15);
+      PspUnlockQuotaListShared((__int64)CurrentThread, v12);
       v7 = DestinationSidLength[0];
       v6 = 1;
     }
     else
     {
-      v14 = (int *)&v21;
+      v11 = (int *)&v18;
     }
   }
   PoolWithTag = (volatile signed __int32 *)ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, v7 + 576LL, 0x62517350u);
-  v9 = PoolWithTag;
+  v8 = PoolWithTag;
   if ( PoolWithTag )
   {
-    UserQuotaLimits = PspInitializeQuotaBlock(a1, v14, PoolWithTag);
+    UserQuotaLimits = PspInitializeQuotaBlock(a1, v11, PoolWithTag);
     if ( UserQuotaLimits < 0 )
     {
 LABEL_27:
-      if ( v9 )
+      if ( v8 )
       {
-        _InterlockedDecrement(v9 + 129);
-        PspDereferenceQuotaBlock(v9, v8, v10, v11);
+        _InterlockedDecrement(v8 + 129);
+        PspDereferenceQuotaBlock((PVOID)v8);
       }
       return (unsigned int)UserQuotaLimits;
     }
     if ( v5 )
-      RtlCopySid(v7, (PSID)(v9 + 144), SourceSid);
-    v18 = PspLookupProcessQuotaBlock(v5, v7, v6, v9);
-    if ( v18 )
+      RtlCopySid(v7, (PSID)(v8 + 144), SourceSid);
+    v15 = PspLookupProcessQuotaBlock(v5, v7, v6, v8);
+    if ( v15 )
     {
-      _InterlockedDecrement(v9 + 129);
-      PspDereferenceQuotaBlock(v9, v8, v10, v11);
-      v9 = (volatile signed __int32 *)v18;
+      _InterlockedDecrement(v8 + 129);
+      PspDereferenceQuotaBlock((PVOID)v8);
+      v8 = (volatile signed __int32 *)v15;
     }
 LABEL_10:
     if ( !*(_QWORD *)(a2 + 1040) )
     {
-      *(_QWORD *)(a2 + 1040) = v9;
+      *(_QWORD *)(a2 + 1040) = v8;
       return 0LL;
     }
     if ( (_UNKNOWN *)_InterlockedCompareExchange64(
                        (volatile signed __int64 *)(a2 + 1040),
-                       (signed __int64)v9,
+                       (signed __int64)v8,
                        (signed __int64)&PspSystemQuotaBlock) == &PspSystemQuotaBlock )
       return 0LL;
     UserQuotaLimits = -1073741823;

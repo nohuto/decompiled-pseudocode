@@ -2,13 +2,13 @@
  * XREFs of MiPfCompleteInPageSupport @ 0x14001A0B8
  * Callers:
  *     MiPfCompletePrefetchIos @ 0x14001A020 (MiPfCompletePrefetchIos.c)
- *     MiPfCompleteCoalescedIo @ 0x1402AED8C (MiPfCompleteCoalescedIo.c)
+ *     MiPfCompleteCoalescedIo @ 0x1402AEF7C (MiPfCompleteCoalescedIo.c)
  * Callees:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
- *     MiInitializePageFaultPacket @ 0x140096218 (MiInitializePageFaultPacket.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiInitializePageFaultPacket @ 0x140096158 (MiInitializePageFaultPacket.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiPfCompleteInPageSupport(__int64 a1, __int64 AnyMultiplexedVm)

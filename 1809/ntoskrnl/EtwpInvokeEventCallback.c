@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpInvokeEventCallback @ 0x140313D54
+ * XREFs of EtwpInvokeEventCallback @ 0x140313F44
  * Callers:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     EtwpTraceMessageVa @ 0x140113240 (EtwpTraceMessageVa.c)
- *     EtwpLogSystemEventUnsafe @ 0x14017C6F8 (EtwpLogSystemEventUnsafe.c)
- *     EtwTraceEvent @ 0x14030E7DC (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x14030EC10 (EtwTraceRaw.c)
- *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     EtwpTraceMessageVa @ 0x1401132B0 (EtwpTraceMessageVa.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14017C82C (EtwpLogSystemEventUnsafe.c)
+ *     EtwTraceEvent @ 0x14030E9CC (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x14030EE00 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x1406483F0 (EtwpWriteUserEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     EtwpGetNextEventOffsetType @ 0x1403154A4 (EtwpGetNextEventOffsetType.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     EtwpGetNextEventOffsetType @ 0x140315694 (EtwpGetNextEventOffsetType.c)
  */
 
 __int64 __fastcall EtwpInvokeEventCallback(__int64 a1, __int64 *a2)

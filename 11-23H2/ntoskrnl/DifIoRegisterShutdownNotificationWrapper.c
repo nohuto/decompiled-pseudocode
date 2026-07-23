@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoRegisterShutdownNotificationWrapper @ 0x1405E0C60
+ * XREFs of DifIoRegisterShutdownNotificationWrapper @ 0x1405E11D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoRegisterShutdownNotification @ 0x14080EB30 (IoRegisterShutdownNotification.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoRegisterShutdownNotification @ 0x14080EE00 (IoRegisterShutdownNotification.c)
  */
 
 NTSTATUS __fastcall DifIoRegisterShutdownNotificationWrapper(PDEVICE_OBJECT DeviceObject)

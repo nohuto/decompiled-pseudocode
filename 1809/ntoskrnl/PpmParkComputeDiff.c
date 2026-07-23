@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkComputeDiff @ 0x1402E7E6C
+ * XREFs of PpmParkComputeDiff @ 0x1402E805C
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1401222B0 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x140122380 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     KeXorAffinityEx @ 0x14028E468 (KeXorAffinityEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeXorAffinityEx @ 0x14028E658 (KeXorAffinityEx.c)
  */
 
 __int64 PpmParkComputeDiff()
@@ -15,7 +15,7 @@ __int64 PpmParkComputeDiff()
   __int64 v3; // r9
 
   PpmPerfNewCoreParkingMask = 1310721;
-  memset(&unk_140403FD4, 0, 0xA4uLL);
+  memset(&unk_140404FD4, 0, 0xA4uLL);
   if ( PpmParkNumNodes )
   {
     v0 = (unsigned int)PpmParkNumNodes;
@@ -27,7 +27,7 @@ __int64 PpmParkComputeDiff()
       if ( (unsigned __int16)PpmPerfNewCoreParkingMask <= *(_WORD *)v1 )
         LOWORD(PpmPerfNewCoreParkingMask) = v2 + 1;
       v1 += 264LL;
-      qword_140403FD8[v2] |= v3;
+      qword_140404FD8[v2] |= v3;
       --v0;
     }
     while ( v0 );

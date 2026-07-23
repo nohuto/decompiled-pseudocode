@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmUpdateDevicePanel @ 0x1407476A8
+ * XREFs of _CmUpdateDevicePanel @ 0x140747868
  * Callers:
- *     PiUpdateDevicePanel @ 0x140748294 (PiUpdateDevicePanel.c)
+ *     PiUpdateDevicePanel @ 0x140748454 (PiUpdateDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _CmQueryDevicePanelPldProperty @ 0x140748120 (_CmQueryDevicePanelPldProperty.c)
- *     _CmGetParentDeviceContainerId @ 0x1407D0884 (_CmGetParentDeviceContainerId.c)
- *     _CmBuildDevicePanelId @ 0x1407D2B34 (_CmBuildDevicePanelId.c)
- *     _CmGetDevicePanelGroup @ 0x1407D40EC (_CmGetDevicePanelGroup.c)
- *     _CmAddPanelDevice @ 0x14097774C (_CmAddPanelDevice.c)
- *     _CmCreateDevicePanel @ 0x140977A44 (_CmCreateDevicePanel.c)
- *     _CmRemovePanelDevice @ 0x140978A98 (_CmRemovePanelDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x1407482E0 (_CmQueryDevicePanelPldProperty.c)
+ *     _CmGetParentDeviceContainerId @ 0x1407D09F4 (_CmGetParentDeviceContainerId.c)
+ *     _CmBuildDevicePanelId @ 0x1407D2CA4 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x1407D425C (_CmGetDevicePanelGroup.c)
+ *     _CmAddPanelDevice @ 0x14097792C (_CmAddPanelDevice.c)
+ *     _CmCreateDevicePanel @ 0x140977C24 (_CmCreateDevicePanel.c)
+ *     _CmRemovePanelDevice @ 0x140978C78 (_CmRemovePanelDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmUpdateDevicePanel(__int64 a1, const WCHAR *a2, __int64 a3)
@@ -154,7 +154,7 @@ __int64 __fastcall CmUpdateDevicePanel(__int64 a1, const WCHAR *a2, __int64 a3)
       DevicePanelGroup = CmGetDevicePanelGroup(v4, 0LL);
       v21 = 0;
       if ( ((v4[2] >> 3) & 7) != 7 )
-        v21 = dword_1400205B0[(v4[2] >> 3) & 7];
+        v21 = dword_140020660[(v4[2] >> 3) & 7];
       v60 = v21;
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x72uLL, 0x52504E50u);
       v5 = PoolWithTag;
@@ -531,7 +531,7 @@ LABEL_16:
                     v28 = 0;
                     v29 = (v4[2] >> 10) & 0xF;
                     if ( (unsigned int)v29 < 9 )
-                      v28 = dword_1400205D0[v29];
+                      v28 = dword_140020680[v29];
                     v50 = v28;
                     ParentDeviceContainerId = PnpSetObjectProperty(
                                                 v3,
@@ -631,7 +631,7 @@ LABEL_16:
                     v33 = 0LL;
                     v34 = (*(_DWORD *)(v31 + 8) >> 3) & 7;
                     if ( v34 < 7 )
-                      v33 = (unsigned int)dword_1400205B0[v34];
+                      v33 = (unsigned int)dword_140020660[v34];
                     v60 = v33;
                     if ( !v5 )
                     {
@@ -919,7 +919,7 @@ LABEL_172:
                     v38 = 0;
                     v39 = (*v15 >> 5) & 0xF;
                     if ( v39 < 5 )
-                      v38 = dword_140040C08[v39];
+                      v38 = dword_140040CF8[v39];
                     v50 = v38;
                     ParentDeviceContainerId = PnpSetObjectProperty(
                                                 v3,
@@ -937,7 +937,7 @@ LABEL_172:
                     v40 = 0;
                     v41 = (*v15 >> 9) & 7;
                     if ( (unsigned int)v41 < 5 )
-                      v40 = dword_140040C28[v41];
+                      v40 = dword_140040CD8[v41];
                     v50 = v40;
                     ParentDeviceContainerId = PnpSetObjectProperty(
                                                 v3,
@@ -957,7 +957,7 @@ LABEL_172:
                     {
                       v43 = 0LL;
                       if ( ((*v15 >> 20) & 7) != 7 )
-                        v43 = (unsigned int)dword_1400205B0[(*v15 >> 20) & 7];
+                        v43 = (unsigned int)dword_140020660[(*v15 >> 20) & 7];
                       v50 = v43;
                       ParentDeviceContainerId = CmBuildDevicePanelId(&v72, (unsigned __int8)(*v15 >> 12), v43, v42);
                       if ( ParentDeviceContainerId < 0 )
@@ -982,7 +982,7 @@ LABEL_172:
                       v45 = 0;
                       v46 = (*v15 >> 23) & 7;
                       if ( (unsigned int)v46 < 5 )
-                        v45 = dword_140040C28[v46];
+                        v45 = dword_140040CD8[v46];
                       v50 = v45;
                       ParentDeviceContainerId = PnpSetObjectProperty(
                                                   v3,
@@ -1135,7 +1135,7 @@ LABEL_172:
                                                         0);
                             if ( ParentDeviceContainerId >= 0 )
                             {
-                              v50 = dword_140040C20[(unsigned __int64)(unsigned int)*v15 >> 31];
+                              v50 = dword_140040CF0[(unsigned __int64)(unsigned int)*v15 >> 31];
                               ParentDeviceContainerId = PnpSetObjectProperty(
                                                           v3,
                                                           (__int64)v5,

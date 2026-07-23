@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDeletePrivateNamespace @ 0x1800A1CD0
+ * XREFs of NtDeletePrivateNamespace @ 0x1800A1CF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtDeletePrivateNamespace()
+NTSTATUS __cdecl NtDeletePrivateNamespace(HANDLE NamespaceHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 208LL;
+  result = 208;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

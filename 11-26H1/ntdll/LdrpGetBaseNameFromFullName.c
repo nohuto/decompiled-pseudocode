@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpGetBaseNameFromFullName @ 0x1800992B0
+ * XREFs of LdrpGetBaseNameFromFullName @ 0x1800983E0
  * Callers:
- *     LdrpResolvePatchDllName @ 0x18009918C (LdrpResolvePatchDllName.c)
- *     LdrpAddRedirectedFunction @ 0x18015DEAC (LdrpAddRedirectedFunction.c)
+ *     LdrpResolvePatchDllName @ 0x1800982BC (LdrpResolvePatchDllName.c)
+ *     LdrpAddRedirectedFunction @ 0x18015DDB0 (LdrpAddRedirectedFunction.c)
  * Callees:
  *     <none>
  */

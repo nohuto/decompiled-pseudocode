@@ -1,10 +1,10 @@
 /*
- * XREFs of KeComputeParallelSha256 @ 0x1401D267C
+ * XREFs of KeComputeParallelSha256 @ 0x1401D24A8
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptSha256Init @ 0x1400B5F40 (SymCryptSha256Init.c)
- *     SymCryptParallelSha256Process @ 0x140237334 (SymCryptParallelSha256Process.c)
+ *     SymCryptSha256Init @ 0x1400B3D68 (SymCryptSha256Init.c)
+ *     SymCryptParallelSha256Process @ 0x140237160 (SymCryptParallelSha256Process.c)
  */
 
 __int64 __fastcall KeComputeParallelSha256(__int64 a1, unsigned __int64 a2)

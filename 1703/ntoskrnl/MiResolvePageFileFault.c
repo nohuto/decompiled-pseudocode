@@ -306,7 +306,8 @@ LABEL_36:
   }
   if ( (unsigned int)MiGetSystemRegionType(v5) == 12
     || PsNtosImageBase
-    && (v23 >= PsNtosImageBase && v23 < PsNtosImageEnd || v23 >= PsHalImageBase && v23 < PsHalImageEnd) )
+    && (v23 >= (unsigned __int64)PsNtosImageBase && v23 < PsNtosImageEnd
+     || v23 >= (unsigned __int64)PsHalImageBase && v23 < PsHalImageEnd) )
   {
     v147 = 8;
   }

@@ -25,7 +25,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   __int64 v11; // r8
   __int64 v12; // rbx
   signed __int32 v14; // ebp
-  __int64 DeferredCriticalSectionEvent; // rdi
+  void *DeferredCriticalSectionEvent; // rdi
   unsigned int v17; // [rsp+50h] [rbp+8h] BYREF
   __int64 v18; // [rsp+68h] [rbp+20h] BYREF
 
@@ -39,7 +39,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
     if ( *(_QWORD *)(a1 + 8 * v3 + 2224) )
     {
       v7 = -1073741302;
@@ -80,9 +80,9 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
       {
         if ( (*(_BYTE *)(v12 + 8) & 1) != 0 )
           RtlpNotOwnerCriticalSection(v12);
-        DeferredCriticalSectionEvent = *(_QWORD *)(v12 + 24);
+        DeferredCriticalSectionEvent = *(void **)(v12 + 24);
         if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v12);
+          DeferredCriticalSectionEvent = (void *)RtlpCreateDeferredCriticalSectionEvent(v12);
         v17 = 0;
         while ( v14 != _InterlockedCompareExchange((volatile signed __int32 *)(v12 + 8), (v14 & 2 | 1) + v14, v14) )
         {

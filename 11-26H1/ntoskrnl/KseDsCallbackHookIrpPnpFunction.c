@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x1405FE5F0
+ * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x140601040
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventPnpIrp @ 0x140533184 (KsepDsEventPnpIrp.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KsepDsEventPnpIrp @ 0x140535604 (KsepDsEventPnpIrp.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpPnpFunction(__int64 a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfAction @ 0x140351770
+ * XREFs of PpmPerfAction @ 0x1402AFC80
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
  * Callees:
- *     PpmPerfApplyProcessorState @ 0x14029F124 (PpmPerfApplyProcessorState.c)
- *     PpmPerfSnapDeliveredPerformance @ 0x140351020 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmCheckContinueExecution @ 0x140351834 (PpmCheckContinueExecution.c)
- *     PpmParkReportUnparkedCore @ 0x140351950 (PpmParkReportUnparkedCore.c)
- *     PpmParkReportParkedCore @ 0x1403519DC (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x1403E9474 (PpmParkReportSoftParkChange.c)
- *     PpmParkReportForceParkChange @ 0x1405DA8CC (PpmParkReportForceParkChange.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ADC20 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402AFD50 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckContinueExecution @ 0x1402B065C (PpmCheckContinueExecution.c)
+ *     PpmParkReportUnparkedCore @ 0x1402B0778 (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x1402B0804 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x1403D7120 (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportForceParkChange @ 0x1405D7BEC (PpmParkReportForceParkChange.c)
  */
 
 void __fastcall PpmPerfAction(
@@ -23,7 +23,7 @@ void __fastcall PpmPerfAction(
 
   v5 = _InterlockedExchange(&DeferredContext->PowerState.PerfActionMask, 0);
   if ( (v5 & 1) != 0 )
-    PpmPerfSnapDeliveredPerformance((__int64)&DeferredContext->PowerState.CheckContext, 0, 0);
+    PpmPerfSnapDeliveredPerformance(&DeferredContext->PowerState.CheckContext, 0LL, 0LL);
   if ( (v5 & 2) != 0 )
     PpmParkReportUnparkedCore(DeferredContext, DeferredContext, SystemArgument1, SystemArgument2);
   if ( (v5 & 4) != 0 )
@@ -32,7 +32,7 @@ void __fastcall PpmPerfAction(
     if ( Constraint->Force )
     {
       Constraint->Force = 0;
-      PpmPerfApplyProcessorState(DeferredContext, 1u);
+      PpmPerfApplyProcessorState(DeferredContext, 1);
     }
     PpmPerfApplyProcessorState(DeferredContext, 0);
   }

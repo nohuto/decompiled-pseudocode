@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiGetHashedBitNumbers @ 0x1403D3A3C
+ * XREFs of EtwpTiGetHashedBitNumbers @ 0x140263290
  * Callers:
- *     EtwpTiClearBloomFilter @ 0x1403D3604 (EtwpTiClearBloomFilter.c)
- *     EtwpTiAsyncVadQueryEventWrite @ 0x1403D3748 (EtwpTiAsyncVadQueryEventWrite.c)
- *     EtwpTiTestBloomFilter @ 0x1403D3AEC (EtwpTiTestBloomFilter.c)
+ *     EtwpTiClearBloomFilter @ 0x140262E58 (EtwpTiClearBloomFilter.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x140262F9C (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiTestBloomFilter @ 0x140263340 (EtwpTiTestBloomFilter.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall EtwpTiGetHashedBitNumbers(unsigned int *a1, __int64 
       * (BYTE5(a3)
        + 37
        * (BYTE4(a3)
-        + 37 * (BYTE3(a3) + 37 * (BYTE2(a3) + 37 * (BYTE1(a3) + 37 * ((unsigned __int8)a3 + 37 * dword_140EFEC50)))))));
+        + 37 * (BYTE3(a3) + 37 * (BYTE2(a3) + 37 * (BYTE1(a3) + 37 * ((unsigned __int8)a3 + 37 * dword_140EFEF70)))))));
   *a1 = v4 % EtwpTiQueryVadBloomFilter;
   a1[1] = HIWORD(v4) % (unsigned int)v3;
   result = a3 / v3;

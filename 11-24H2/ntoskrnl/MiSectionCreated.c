@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSectionCreated @ 0x140312C30
+ * XREFs of MiSectionCreated @ 0x1403F09E0
  * Callers:
- *     MiCreateNewSection @ 0x1409433C0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x14098D630 (MiCreateNewSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MiInitializeNewImageSectionProtos @ 0x140312D98 (MiInitializeNewImageSectionProtos.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiInitializeNewImageSectionProtos @ 0x1403F0B48 (MiInitializeNewImageSectionProtos.c)
  */
 
 __int64 __fastcall MiSectionCreated(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ __int64 __fastcall MiSectionCreated(_DWORD *a1, __int64 a2, __int64 a3, __int64 
     v8 = *(_QWORD *)(v12 + 80);
   }
   *(_QWORD *)(a3 + 64) = *(_QWORD *)(v12 + 64);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2CC00);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2CD40);
   v13 = *(_QWORD **)(a2 + 40);
   if ( v9 )
   {
@@ -64,7 +64,7 @@ __int64 __fastcall MiSectionCreated(_DWORD *a1, __int64 a2, __int64 a3, __int64 
     *v13 = a3;
     *(_DWORD *)(a3 + 56) &= ~2u;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CC00);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CD40);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v12 + 72));
   MiReleaseSpinLockExclusive((_DWORD *)(a3 + 72), v10);
   if ( v9 )

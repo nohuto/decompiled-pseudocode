@@ -1,22 +1,22 @@
 /*
- * XREFs of MiPartitionObjectToPartition @ 0x1403486D4
+ * XREFs of MiPartitionObjectToPartition @ 0x14034A754
  * Callers:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmQueryMemoryListInformation @ 0x1403485A8 (MmQueryMemoryListInformation.c)
- *     MmAllocateContiguousMemoryEx @ 0x140348FD0 (MmAllocateContiguousMemoryEx.c)
- *     MmFreeNonChargedSecurePages @ 0x1403C2E54 (MmFreeNonChargedSecurePages.c)
- *     MmAllocateNonChargedSecurePages @ 0x1404170E8 (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1404E93EC (MmAllocateSecureKernelPages.c)
- *     MmGetNodeFastLargePageCounts @ 0x1404FCD14 (MmGetNodeFastLargePageCounts.c)
- *     MmAllocateMemoryRanges @ 0x140867D80 (MmAllocateMemoryRanges.c)
- *     MmQueryMemoryRanges @ 0x140868080 (MmQueryMemoryRanges.c)
- *     MmGetPageFileInformation @ 0x140B13430 (MmGetPageFileInformation.c)
- *     MmBuildLargePages @ 0x140B20AD8 (MmBuildLargePages.c)
- *     MmGetPhysicalMemoryRangesEx2 @ 0x140B4D600 (MmGetPhysicalMemoryRangesEx2.c)
- *     MmPerformMemoryListCommand @ 0x140C0C460 (MmPerformMemoryListCommand.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmQueryMemoryListInformation @ 0x14034A628 (MmQueryMemoryListInformation.c)
+ *     MmAllocateContiguousMemoryEx @ 0x14034B050 (MmAllocateContiguousMemoryEx.c)
+ *     MmFreeNonChargedSecurePages @ 0x1403CCD54 (MmFreeNonChargedSecurePages.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14040B6F8 (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x1404E279C (MmAllocateSecureKernelPages.c)
+ *     MmGetNodeFastLargePageCounts @ 0x1404F6254 (MmGetNodeFastLargePageCounts.c)
+ *     MmAllocateMemoryRanges @ 0x14086E160 (MmAllocateMemoryRanges.c)
+ *     MmQueryMemoryRanges @ 0x14086E460 (MmQueryMemoryRanges.c)
+ *     MmGetPageFileInformation @ 0x140B14EF4 (MmGetPageFileInformation.c)
+ *     MmBuildLargePages @ 0x140B22ED8 (MmBuildLargePages.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x140B4F390 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmPerformMemoryListCommand @ 0x140C12670 (MmPerformMemoryListCommand.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG *__fastcall MiPartitionObjectToPartition(ULONG **BugCheckParameter2, char a2, _BYTE *a3)
@@ -33,7 +33,7 @@ ULONG *__fastcall MiPartitionObjectToPartition(ULONG **BugCheckParameter2, char 
   {
     if ( BugCheckParameter2 == (ULONG **)-1LL )
     {
-      v7 = (ULONG **)(stru_140E2EB88.ThreadLock
+      v7 = (ULONG **)(stru_140E2ED08.ThreadLock
                     + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
     }
     else

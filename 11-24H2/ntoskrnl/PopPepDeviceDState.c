@@ -1,122 +1,134 @@
 /*
- * XREFs of PopPepDeviceDState @ 0x1403137A0
+ * XREFs of PopPepDeviceDState @ 0x1403A6948
  * Callers:
- *     PopHandleDevicePowerIrpCompletion @ 0x140376270 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x14049CF90 (PopFxHandleReportDevicePoweredOn.c)
- *     PopIrpWorker @ 0x1404EBF10 (PopIrpWorker.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403A65A0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x140497CE0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopIrpWorker @ 0x1404E3650 (PopIrpWorker.c)
  * Callees:
- *     PopPlNotifyDeviceDState @ 0x140312818 (PopPlNotifyDeviceDState.c)
- *     PopPepUpdateConstraints @ 0x1403128A0 (PopPepUpdateConstraints.c)
- *     PopFxUpdateDeviceAccountingEnhanced @ 0x140312FC4 (PopFxUpdateDeviceAccountingEnhanced.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x1403152C4 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140315390 (PopPepUpdateIdleStateRefCount.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x1405D2040 (PopFxUpdateComponentPerfStateNominalChange.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1403A6DE4 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A6EB0 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxUpdateDeviceAccountingEnhanced @ 0x1403A7470 (PopFxUpdateDeviceAccountingEnhanced.c)
+ *     PopPepUpdateConstraints @ 0x1403A750C (PopPepUpdateConstraints.c)
+ *     PopPlNotifyDeviceDState @ 0x1403A78A0 (PopPlNotifyDeviceDState.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x1405CF760 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall PopPepDeviceDState(__int64 a1, int a2, __int64 a3, __int64 a4)
+__int64 __fastcall PopPepDeviceDState(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebp
   __int64 v5; // r14
   int v6; // ebx
   char v7; // r12
-  int v9; // edx
-  unsigned int v10; // edi
-  __int64 v11; // rcx
-  unsigned int v12; // r13d
-  int v13; // edx
-  __int64 v14; // rcx
-  unsigned int v15; // r12d
-  __int64 v16; // rdi
-  __int64 v17; // rbx
+  __int64 result; // rax
+  __int64 v10; // rdx
+  unsigned int v11; // edi
+  __int64 v12; // rcx
+  unsigned int v13; // r13d
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  unsigned int v16; // r12d
+  __int64 v17; // rdi
   __int64 v18; // rbx
+  __int64 v19; // rbx
   unsigned int i; // ebx
-  __int64 v20; // rdx
-  __int64 v21; // [rsp+20h] [rbp-48h] BYREF
-  int v22; // [rsp+28h] [rbp-40h]
-  char v23; // [rsp+2Ch] [rbp-3Ch]
-  __int16 v24; // [rsp+2Dh] [rbp-3Bh]
-  char v25; // [rsp+2Fh] [rbp-39h]
-  unsigned int v26; // [rsp+70h] [rbp+8h]
-  char v27; // [rsp+80h] [rbp+18h]
-  int v28; // [rsp+88h] [rbp+20h]
+  __int64 v21; // rdx
+  __int64 v22; // [rsp+20h] [rbp-48h] BYREF
+  int v23; // [rsp+28h] [rbp-40h]
+  char v24; // [rsp+2Ch] [rbp-3Ch]
+  __int16 v25; // [rsp+2Dh] [rbp-3Bh]
+  char v26; // [rsp+2Fh] [rbp-39h]
+  unsigned int v27; // [rsp+70h] [rbp+8h]
+  char v28; // [rsp+80h] [rbp+18h]
+  int v29; // [rsp+88h] [rbp+20h]
 
-  v28 = a4;
-  v27 = a3;
+  v29 = a4;
+  v28 = a3;
   v4 = 0;
   v5 = a2;
   v6 = a4;
   v7 = a3;
   if ( (_BYTE)a3 )
   {
-    if ( a2 == 1 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 132), 0xFFFFFFFF) == 1 )
-      PopPepUpdateConstraints((_DWORD *)a1, 4, 1);
+    if ( a2 == 1 )
+    {
+      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 132), 0xFFFFFFFF);
+      if ( (_DWORD)result == 1 )
+      {
+        LOBYTE(a3) = 1;
+        result = PopPepUpdateConstraints(a1, 4LL, a3);
+      }
+    }
   }
   else
   {
     if ( a2 > 1 )
     {
       _InterlockedExchange((volatile __int32 *)(a1 + 132), 2);
-      PopPepUpdateConstraints((_DWORD *)a1, 4, 0);
-      if ( (unsigned int)(v6 - 1) <= 1 )
+      PopPepUpdateConstraints(a1, 4LL, 0LL);
+      result = (unsigned int)(v6 - 1);
+      if ( (unsigned int)result <= 1 )
         _InterlockedDecrement((volatile signed __int32 *)(a1 + 132));
     }
-    v9 = *(_DWORD *)(a1 + 168);
-    if ( v9 != (_DWORD)v5 )
-      PopPlNotifyDeviceDState(*(_QWORD *)(a1 + 32), v9, v5, 0);
+    v10 = *(unsigned int *)(a1 + 168);
+    if ( (_DWORD)v10 != (_DWORD)v5 )
+    {
+      LOBYTE(a4) = 0;
+      result = PopPlNotifyDeviceDState(*(_QWORD *)(a1 + 32), v10, (unsigned int)v5, a4);
+    }
   }
   if ( !*(_BYTE *)(a1 + 124) && !*(_BYTE *)(a1 + 188) )
   {
     if ( !v7 )
-      return;
+      return result;
     goto LABEL_24;
   }
-  v10 = 0;
+  v11 = 0;
   if ( (_DWORD)v5 != 4 )
-    v10 = *(_DWORD *)(a1 + 4 * v5 + 140);
-  v11 = *(int *)(a1 + 168);
-  v26 = v10;
-  v12 = 0;
-  if ( (_DWORD)v11 != 4 )
-    v12 = *(_DWORD *)(a1 + 4 * v11 + 140);
-  if ( !v7 && (_DWORD)v11 != (_DWORD)v5 )
+    v11 = *(_DWORD *)(a1 + 4 * v5 + 140);
+  v12 = *(int *)(a1 + 168);
+  v27 = v11;
+  v13 = 0;
+  if ( (_DWORD)v12 != 4 )
+    v13 = *(_DWORD *)(a1 + 4 * v12 + 140);
+  if ( !v7 && (_DWORD)v12 != (_DWORD)v5 )
   {
     if ( (_DWORD)v5 == 1 && *(_DWORD *)(a1 + 180) )
     {
-      v15 = 0;
+      v16 = 0;
       do
       {
-        v16 = 208LL * v15;
-        v17 = *(unsigned int *)(v16 + a1 + 368);
+        v17 = 208LL * v16;
+        v18 = *(unsigned int *)(v17 + a1 + 368);
         PopPepUpdateIdleStateRefCount(
           0LL,
-          *(unsigned int *)(*(_QWORD *)(v16 + a1 + 392) + 24 * v17 + 16),
+          *(unsigned int *)(*(_QWORD *)(v17 + a1 + 392) + 24 * v18 + 16),
           1LL,
-          v16 + a1 + 384);
+          v17 + a1 + 384);
         PopFxUpdateComponentAccountingEnhanced(
           *(_QWORD *)(a1 + 32),
-          *(unsigned int *)(v16 + a1 + 200),
-          (unsigned int)v17,
+          *(unsigned int *)(v17 + a1 + 200),
+          (unsigned int)v18,
           0LL);
-        ++v15;
+        ++v16;
       }
-      while ( v15 < *(_DWORD *)(a1 + 180) );
-      v7 = v27;
-      v10 = v26;
-      v6 = v28;
+      while ( v16 < *(_DWORD *)(a1 + 180) );
+      v7 = v28;
+      v11 = v27;
+      v6 = v29;
     }
-    PopPepUpdateIdleStateRefCount(v12, v10, 1LL, a1 + 184);
-    PopFxUpdateDeviceAccountingEnhanced(*(_QWORD *)(a1 + 32), v5, 0);
+    PopPepUpdateIdleStateRefCount(v13, v11, 1LL, a1 + 184);
+    result = PopFxUpdateDeviceAccountingEnhanced(*(_QWORD *)(a1 + 32), (unsigned int)v5, 0LL);
   }
   if ( *(_BYTE *)(a1 + 124) )
   {
-    v14 = *(_QWORD *)(a1 + 32);
-    v25 = 0;
-    v22 = v5;
-    v23 = v7;
-    v24 = v6 == 1;
-    v21 = *(_QWORD *)(v14 + 72);
-    guard_dispatch_icall_no_overrides(5LL, &v21, a3, a4);
+    v15 = *(_QWORD *)(a1 + 32);
+    v26 = 0;
+    v23 = v5;
+    v24 = v7;
+    v25 = v6 == 1;
+    v22 = *(_QWORD *)(v15 + 72);
+    result = guard_dispatch_icall_no_overrides(5LL, &v22);
   }
   if ( v7 )
   {
@@ -126,13 +138,13 @@ void __fastcall PopPepDeviceDState(__int64 a1, int a2, __int64 a3, __int64 a4)
       {
         for ( i = 0; i < *(_DWORD *)(a1 + 180); ++i )
         {
-          v20 = 208LL * i;
-          if ( *(_BYTE *)(v20 + a1 + 376) )
+          v21 = 208LL * i;
+          if ( *(_BYTE *)(v21 + a1 + 376) )
           {
             LOBYTE(a3) = 1;
             PopFxUpdateComponentPerfStateNominalChange(
               *(_QWORD *)(a1 + 32),
-              *(unsigned int *)(v20 + a1 + 200),
+              *(unsigned int *)(v21 + a1 + 200),
               a3,
               (unsigned int)v5);
           }
@@ -142,30 +154,32 @@ void __fastcall PopPepDeviceDState(__int64 a1, int a2, __int64 a3, __int64 a4)
       {
         do
         {
-          v18 = 208LL * v4;
+          v19 = 208LL * v4;
           PopPepUpdateIdleStateRefCount(
-            *(unsigned int *)(*(_QWORD *)(v18 + a1 + 392) + 24LL * *(unsigned int *)(v18 + a1 + 368) + 16),
+            *(unsigned int *)(*(_QWORD *)(v19 + a1 + 392) + 24LL * *(unsigned int *)(v19 + a1 + 368) + 16),
             0LL,
             0LL,
-            v18 + a1 + 384);
+            v19 + a1 + 384);
           PopFxUpdateComponentAccountingEnhanced(
             *(_QWORD *)(a1 + 32),
-            *(unsigned int *)(v18 + a1 + 200),
-            (unsigned int)(*(_DWORD *)(v18 + a1 + 380) - 1),
+            *(unsigned int *)(v19 + a1 + 200),
+            (unsigned int)(*(_DWORD *)(v19 + a1 + 380) - 1),
             1LL);
           ++v4;
         }
         while ( v4 < *(_DWORD *)(a1 + 180) );
       }
-      PopPepUpdateIdleStateRefCount(v12, v10, 0LL, a1 + 184);
-      PopFxUpdateDeviceAccountingEnhanced(*(_QWORD *)(a1 + 32), v5, 1);
+      PopPepUpdateIdleStateRefCount(v13, v11, 0LL, a1 + 184);
+      result = PopFxUpdateDeviceAccountingEnhanced(*(_QWORD *)(a1 + 32), (unsigned int)v5, 1LL);
     }
 LABEL_24:
-    v13 = *(_DWORD *)(a1 + 168);
-    if ( v13 != (_DWORD)v5 )
+    v14 = *(unsigned int *)(a1 + 168);
+    if ( (_DWORD)v14 != (_DWORD)v5 )
     {
-      PopPlNotifyDeviceDState(*(_QWORD *)(a1 + 32), v13, v5, v7);
+      LOBYTE(a4) = v7;
+      result = PopPlNotifyDeviceDState(*(_QWORD *)(a1 + 32), v14, (unsigned int)v5, a4);
       *(_DWORD *)(a1 + 168) = v5;
     }
   }
+  return result;
 }

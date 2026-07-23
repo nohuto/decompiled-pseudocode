@@ -1,22 +1,22 @@
 /*
- * XREFs of BapdRecordFirmwareBootStats @ 0x140999260
+ * XREFs of BapdRecordFirmwareBootStats @ 0x14099A260
  * Callers:
- *     PopBootLoaderTraceProcess @ 0x14077A118 (PopBootLoaderTraceProcess.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     PopBootLoaderTraceProcess @ 0x14077A2D8 (PopBootLoaderTraceProcess.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     BapdRegisterEtwProvider @ 0x14039B414 (BapdRegisterEtwProvider.c)
- *     ExIsSoftBoot @ 0x14039B470 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     BapdpWriteEventDataToRegistry @ 0x1409994B4 (BapdpWriteEventDataToRegistry.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     BapdRegisterEtwProvider @ 0x14039B564 (BapdRegisterEtwProvider.c)
+ *     ExIsSoftBoot @ 0x14039B5C0 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x14099A4B4 (BapdpWriteEventDataToRegistry.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void BapdRecordFirmwareBootStats()
@@ -121,7 +121,7 @@ void BapdRecordFirmwareBootStats()
         v34 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02E70,
-          (unsigned __int8 *)&word_14002DA5E,
+          (unsigned __int8 *)&word_14002DB1E,
           0LL,
           0LL,
           7u,

@@ -1,7 +1,7 @@
 /*
- * XREFs of VfRandomGetNumber @ 0x140702AD0
+ * XREFs of VfRandomGetNumber @ 0x140702B00
  * Callers:
- *     VfPendingShouldForce @ 0x14070D12C (VfPendingShouldForce.c)
+ *     VfPendingShouldForce @ 0x14070D15C (VfPendingShouldForce.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  *     ViInitSystemPhase0 @ 0x1407B9E64 (ViInitSystemPhase0.c)
  * Callees:

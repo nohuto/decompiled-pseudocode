@@ -13,36 +13,39 @@
  *     RtlpGetEntireXStateAreaLength @ 0x1800532A4 (RtlpGetEntireXStateAreaLength.c)
  */
 
-__int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetExtendedContextLength2(
+        ULONG ContextFlags,
+        PULONG ContextLength,
+        ULONG64 EnabledExtendedFeatures)
 {
-  __int64 result; // rax
-  unsigned int v4; // r11d
-  __int64 v5; // r10
-  int v6; // ebx
-  int v7; // ecx
+  NTSTATUS result; // eax
+  unsigned int v5; // r11d
+  __int64 v6; // r10
+  int v7; // ebx
+  int v8; // ecx
   int EntireXStateAreaLength; // eax
-  int v9; // r11d
-  int v10; // [rsp+20h] [rbp-18h] BYREF
-  _BYTE v11[20]; // [rsp+24h] [rbp-14h] BYREF
-  int v12; // [rsp+58h] [rbp+20h] BYREF
+  int v10; // r11d
+  int v11; // [rsp+20h] [rbp-18h] BYREF
+  _BYTE v12[20]; // [rsp+24h] [rbp-14h] BYREF
+  int v13; // [rsp+58h] [rbp+20h] BYREF
 
-  v10 = 0;
-  v12 = 0;
-  result = RtlpValidateContextFlags(a1, v11);
-  if ( (int)result >= 0 )
+  v11 = 0;
+  v13 = 0;
+  result = RtlpValidateContextFlags(ContextFlags, v12);
+  if ( result >= 0 )
   {
-    RtlpGetLegacyContextLength(v4, &v12, &v10);
-    v6 = v10;
-    v7 = v12 + 24;
-    if ( (v11[0] & 2) != 0 )
+    RtlpGetLegacyContextLength(v5, &v13, &v11);
+    v7 = v11;
+    v8 = v13 + 24;
+    if ( (v12[0] & 2) != 0 )
     {
       if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
-        v5 &= MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL;
-      EntireXStateAreaLength = RtlpGetEntireXStateAreaLength(v5);
-      v7 = EntireXStateAreaLength + v9 - v6 - 448;
+        v6 &= MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL;
+      EntireXStateAreaLength = RtlpGetEntireXStateAreaLength(v6);
+      v8 = EntireXStateAreaLength + v10 - v7 - 448;
     }
-    *a2 = v7 + v6 - 1;
-    return 0LL;
+    *ContextLength = v8 + v7 - 1;
+    return 0;
   }
   return result;
 }

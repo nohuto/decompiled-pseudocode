@@ -1,10 +1,10 @@
 /*
- * XREFs of ExMapHandleToPointerEx @ 0x1405FC384
+ * XREFs of ExMapHandleToPointerEx @ 0x1405FD384
  * Callers:
- *     AlpcpFreeMessageFunction @ 0x1405FC2E0 (AlpcpFreeMessageFunction.c)
+ *     AlpcpFreeMessageFunction @ 0x1405FD2E0 (AlpcpFreeMessageFunction.c)
  * Callees:
- *     ExHandleLogBadReference @ 0x140319E14 (ExHandleLogBadReference.c)
- *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
+ *     ExHandleLogBadReference @ 0x14031A004 (ExHandleLogBadReference.c)
+ *     ExMapHandleToPointer @ 0x1405F66A0 (ExMapHandleToPointer.c)
  */
 
 signed __int64 *__fastcall ExMapHandleToPointerEx(

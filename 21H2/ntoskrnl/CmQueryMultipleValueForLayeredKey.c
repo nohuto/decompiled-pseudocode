@@ -1,21 +1,21 @@
 /*
- * XREFs of CmQueryMultipleValueForLayeredKey @ 0x14086C548
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x14086C6A8
  * Callers:
- *     CmQueryMultipleValueKey @ 0x140669674 (CmQueryMultipleValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x14065E494 (CmQueryMultipleValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpFindNameInListWithStatus @ 0x140665F7C (CmpFindNameInListWithStatus.c)
- *     CmpGetKeyNodeForKcb @ 0x14066BFD4 (CmpGetKeyNodeForKcb.c)
- *     CmpIsValueTombstone @ 0x1406B2EA0 (CmpIsValueTombstone.c)
- *     CmpLockKcbStackShared @ 0x1406FB3E0 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpIsValueTombstone @ 0x140611F60 (CmpIsValueTombstone.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x14065AB50 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpFindNameInListWithStatus @ 0x14065AD9C (CmpFindNameInListWithStatus.c)
+ *     CmpGetKeyNodeForKcb @ 0x140660DF4 (CmpGetKeyNodeForKcb.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406DECB0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpGetValueData @ 0x1406E7B70 (CmpGetValueData.c)
+ *     CmpLockKcbStackShared @ 0x1407127C0 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140712820 (CmpUnlockKcbStack.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(

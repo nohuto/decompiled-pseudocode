@@ -1,9 +1,9 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1403A2350
+ * XREFs of McGenControlCallbackV2 @ 0x1403A2530
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __stdcall McGenControlCallbackV2(

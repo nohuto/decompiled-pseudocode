@@ -13,31 +13,36 @@
  *     ObInsertObjectEx @ 0x14067A230 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateEvent(unsigned __int64 a1, __int64 a2, int a3, EVENT_TYPE a4, BOOLEAN a5)
+NTSTATUS __cdecl NtCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
-  _QWORD *v6; // rdi
+  PHANDLE v6; // rdi
   unsigned __int8 v7; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // [rsp+58h] [rbp-10h] BYREF
 
-  v6 = (_QWORD *)a1;
+  v6 = EventHandle;
   v9 = 0LL;
   v7 = KeGetCurrentThread()->$6A88714AB977AAA8032D9F5E2A96BA31::gap0[10];
   if ( v7 )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)EventHandle >= 0x7FFFFFFF0000LL )
+      EventHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *EventHandle = *EventHandle;
   }
-  if ( (unsigned int)a4 > SynchronizationEvent )
-    return 3221225485LL;
-  result = ObCreateObjectEx(v7, (_DWORD)ExEventObjectType, a3, v7);
-  if ( (int)result >= 0 )
+  if ( (unsigned int)EventType > SynchronizationEvent )
+    return -1073741811;
+  result = ObCreateObjectEx(v7, (_DWORD)ExEventObjectType, (_DWORD)ObjectAttributes, v7);
+  if ( result >= 0 )
   {
-    KeInitializeEvent(0LL, a4, a5);
+    KeInitializeEvent(0LL, EventType, InitialState);
     result = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v9);
-    if ( (int)result >= 0 )
-      *v6 = v9;
+    if ( result >= 0 )
+      *v6 = (HANDLE)v9;
   }
   return result;
 }

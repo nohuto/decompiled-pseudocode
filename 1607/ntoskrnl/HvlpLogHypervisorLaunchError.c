@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpLogHypervisorLaunchError @ 0x1401C0E20
+ * XREFs of HvlpLogHypervisorLaunchError @ 0x1401C0D04
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpWriteEventLog @ 0x1401C1260 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpWriteEventLog @ 0x1401C1144 (HvlpWriteEventLog.c)
  */
 
 __int64 __fastcall HvlpLogHypervisorLaunchError(__int64 *a1)

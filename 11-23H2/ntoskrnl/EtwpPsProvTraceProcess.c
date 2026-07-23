@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpPsProvTraceProcess @ 0x1407523D0
+ * XREFs of EtwpPsProvTraceProcess @ 0x1407525C0
  * Callers:
- *     EtwpWriteProcessEvent @ 0x1407550DC (EtwpWriteProcessEvent.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1409EFA60 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpWriteProcessEvent @ 0x1407552CC (EtwpWriteProcessEvent.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409EFCF0 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     MmGetSessionId @ 0x1402A3C40 (MmGetSessionId.c)
- *     SeQueryTokenIntegrity @ 0x1402F6584 (SeQueryTokenIntegrity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     ObGetProcessHandleCount @ 0x1407425D8 (ObGetProcessHandleCount.c)
- *     PsQueryStatisticsProcess @ 0x140742BB0 (PsQueryStatisticsProcess.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     MmGetSessionId @ 0x1402A3ED0 (MmGetSessionId.c)
+ *     SeQueryTokenIntegrity @ 0x1402F6814 (SeQueryTokenIntegrity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     ObGetProcessHandleCount @ 0x1407427C8 (ObGetProcessHandleCount.c)
+ *     PsQueryStatisticsProcess @ 0x140742DA0 (PsQueryStatisticsProcess.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -58,7 +58,7 @@ unsigned int __fastcall EtwpPsProvTraceProcess(__int64 a1, char a2, unsigned int
   unsigned __int64 v41; // [rsp+90h] [rbp-78h] BYREF
   PVOID TokenInformation; // [rsp+98h] [rbp-70h] BYREF
   PVOID P; // [rsp+A0h] [rbp-68h] BYREF
-  struct _SID_AND_ATTRIBUTES IntegritySA; // [rsp+A8h] [rbp-60h] BYREF
+  _SID_AND_ATTRIBUTES IntegritySA; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-50h] BYREF
   _QWORD v46[14]; // [rsp+C8h] [rbp-40h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+138h] [rbp+30h] BYREF

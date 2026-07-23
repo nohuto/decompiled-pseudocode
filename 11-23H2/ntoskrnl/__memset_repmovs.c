@@ -1,9 +1,9 @@
 /*
- * XREFs of __memset_repmovs @ 0x140435B40
+ * XREFs of __memset_repmovs @ 0x140435F40
  * Callers:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  * Callees:
- *     __memset_query @ 0x140435BC0 (__memset_query.c)
+ *     __memset_query @ 0x140435FC0 (__memset_query.c)
  */
 
 __int64 __fastcall _memset_repmovs(_OWORD *a1, __int64 a2, __int64 a3)

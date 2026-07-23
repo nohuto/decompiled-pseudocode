@@ -1,43 +1,43 @@
 /*
- * XREFs of NtQueryInformationJobObject @ 0x140466FD0
+ * XREFs of NtQueryInformationJobObject @ 0x140465EA0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     PsGetServerSiloServiceSessionId @ 0x140007F34 (PsGetServerSiloServiceSessionId.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     PspGetJobSilo @ 0x140076728 (PspGetJobSilo.c)
- *     KeIsSingleGroupAffinityEx @ 0x140076C7C (KeIsSingleGroupAffinityEx.c)
- *     PsGetJobServerSilo @ 0x140076ECC (PsGetJobServerSilo.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspIsSiloInServerSilo @ 0x14020F6C8 (PspIsSiloInServerSilo.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     PspGetJobSilo @ 0x1400767A8 (PspGetJobSilo.c)
+ *     KeIsSingleGroupAffinityEx @ 0x140076CFC (KeIsSingleGroupAffinityEx.c)
+ *     PsGetJobServerSilo @ 0x140076F4C (PsGetJobServerSilo.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1400860B0 (PsGetServerSiloServiceSessionId.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspIsSiloInServerSilo @ 0x14020F4F4 (PspIsSiloInServerSilo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140466F00 (PspNotificationLimitRateControlToleranceIntervalField.c)
- *     PspNotificationLimitRateControlToleranceField @ 0x140466F18 (PspNotificationLimitRateControlToleranceField.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
- *     PspQueryRateControlHistory @ 0x14046917C (PspQueryRateControlHistory.c)
- *     PspRateControlLimitFlag @ 0x14046946C (PspRateControlLimitFlag.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x1404694D0 (PspUnlockJobMemoryLimitsShared.c)
- *     PspLockJobMemoryLimitsShared @ 0x140469570 (PspLockJobMemoryLimitsShared.c)
- *     PspLimitViolationRateControlToleranceLimitField @ 0x14046963C (PspLimitViolationRateControlToleranceLimitField.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x140469C10 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14048A7F4 (PspAllocateAndQueryNotificationChannel.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x1404DB784 (PspQueryJobHierarchyProcessIdList.c)
- *     PspQueryJobIoAttribution @ 0x1404F19AC (PspQueryJobIoAttribution.c)
- *     PspLockJobListShared @ 0x140680548 (PspLockJobListShared.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x140680614 (PspQueryJobHierarchyInterferenceCount.c)
- *     PspUnlockJobListShared @ 0x140680FA0 (PspUnlockJobListShared.c)
- *     EtwTraceJobSetQuery @ 0x1406A1970 (EtwTraceJobSetQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
- *     ObGetSiloRootDirectoryPath @ 0x1406E6284 (ObGetSiloRootDirectoryPath.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140465DD0 (PspNotificationLimitRateControlToleranceIntervalField.c)
+ *     PspNotificationLimitRateControlToleranceField @ 0x140465DE8 (PspNotificationLimitRateControlToleranceField.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
+ *     PspQueryRateControlHistory @ 0x14046804C (PspQueryRateControlHistory.c)
+ *     PspRateControlLimitFlag @ 0x14046833C (PspRateControlLimitFlag.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1404683A0 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspLockJobMemoryLimitsShared @ 0x140468440 (PspLockJobMemoryLimitsShared.c)
+ *     PspLimitViolationRateControlToleranceLimitField @ 0x14046850C (PspLimitViolationRateControlToleranceLimitField.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140468AE0 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x1404BED88 (PspQueryJobHierarchyProcessIdList.c)
+ *     PspQueryJobIoAttribution @ 0x1404D3AA0 (PspQueryJobIoAttribution.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1404D4B6C (PspAllocateAndQueryNotificationChannel.c)
+ *     PspLockJobListShared @ 0x14068062C (PspLockJobListShared.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x1406806F8 (PspQueryJobHierarchyInterferenceCount.c)
+ *     PspUnlockJobListShared @ 0x140681084 (PspUnlockJobListShared.c)
+ *     EtwTraceJobSetQuery @ 0x1406A1AA8 (EtwTraceJobSetQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1406E63BC (ObGetSiloRootDirectoryPath.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationJobObject(
@@ -434,7 +434,7 @@ LABEL_220:
               v55 = *(_QWORD *)(v54 + 1256);
               *(_DWORD *)(((unsigned __int64)&Size & 0xFFFFFFFFFFFFFFC0uLL) + 0x1D4) = *(_DWORD *)(v55 + 992);
               *(_DWORD *)(((unsigned __int64)&Size & 0xFFFFFFFFFFFFFFC0uLL) + 0x1D8) = *(_DWORD *)(v55 + 996);
-              *(_DWORD *)(((unsigned __int64)&Size & 0xFFFFFFFFFFFFFFC0uLL) + 0x1D0) = PsGetServerSiloServiceSessionId();
+              *(_DWORD *)(((unsigned __int64)&Size & 0xFFFFFFFFFFFFFFC0uLL) + 0x1D0) = PsGetServerSiloServiceSessionId(v54);
               v19 = (const void *)(v5 + 464);
               goto LABEL_219;
             }

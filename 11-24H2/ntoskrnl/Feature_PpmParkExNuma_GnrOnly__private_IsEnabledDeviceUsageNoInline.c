@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PpmParkExNuma_GnrOnly__private_IsEnabledDeviceUsageNoInline @ 0x1405E129C
+ * XREFs of Feature_PpmParkExNuma_GnrOnly__private_IsEnabledDeviceUsageNoInline @ 0x1405DE8BC
  * Callers:
- *     PpmParkRegisterParkingEx @ 0x1405E3C90 (PpmParkRegisterParkingEx.c)
+ *     PpmParkRegisterParkingEx @ 0x1405E1218 (PpmParkRegisterParkingEx.c)
  * Callees:
- *     Feature_PpmParkExNuma_GnrOnly__private_IsEnabledFallback @ 0x1405E12D4 (Feature_PpmParkExNuma_GnrOnly__private_IsEnabledFallback.c)
+ *     Feature_PpmParkExNuma_GnrOnly__private_IsEnabledFallback @ 0x1405DE8F4 (Feature_PpmParkExNuma_GnrOnly__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PpmParkExNuma_GnrOnly__private_IsEnabledDeviceUsageNoInline()

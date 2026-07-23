@@ -14,21 +14,21 @@
 
 void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v5; // rsi
+  _SLIST_ENTRY *v5; // rsi
   ULONG_PTR v6; // r14
   unsigned int v7; // ebx
-  struct _SLIST_ENTRY *v8; // rdx
-  struct _SLIST_ENTRY *Next; // r8
+  _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *Next; // r8
   _SLIST_ENTRY *v10; // rcx
   _SLIST_ENTRY *v11; // rcx
-  struct _SLIST_ENTRY **v12; // rax
+  _SLIST_ENTRY **v12; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
   v5 = 0LL;
   v6 = a2 & 0xFFFFFFFFFFFFF000uLL;
   v7 = ((unsigned __int8)(95 * (a2 >> 12)) ^ (unsigned __int8)((40543 * (unsigned __int64)(unsigned int)(a2 >> 12)) >> 32)) & 0xF;
   KeAcquireInStackQueuedSpinLock(&qword_14034F4D0, &LockHandle);
-  v8 = (struct _SLIST_ENTRY *)((char *)&unk_140350058 + 16 * v7);
+  v8 = (_SLIST_ENTRY *)((char *)&unk_140350058 + 16 * v7);
   Next = v8->Next;
   if ( v8->Next == v8 )
     goto LABEL_16;
@@ -64,7 +64,7 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
         }
       }
       v11 = Next->Next;
-      v12 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
+      v12 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
       if ( *(&Next->Next->Next + 1) != Next || *v12 != Next )
         __fastfail(3u);
       *v12 = v11;

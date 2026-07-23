@@ -1,16 +1,16 @@
 /*
- * XREFs of ExGetLicenseTamperState @ 0x1406ADC34
+ * XREFs of ExGetLicenseTamperState @ 0x1406ADD6C
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x14049779C (ExpGetKernelDataProtection.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x14049822C (ExpGetKernelDataProtection.c)
  */
 
 bool __fastcall ExGetLicenseTamperState(int *a1)

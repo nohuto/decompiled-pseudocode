@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSecurePoolValidate @ 0x1406585D0
+ * XREFs of ExSecurePoolValidate @ 0x140656CB0
  * Callers:
  *     <none>
  * Callees:
- *     ExpSecurePoolFromHandle @ 0x1404F5EFC (ExpSecurePoolFromHandle.c)
+ *     ExpSecurePoolFromHandle @ 0x1404F37FC (ExpSecurePoolFromHandle.c)
  */
 
 _BOOL8 __fastcall ExSecurePoolValidate(__int64 a1)

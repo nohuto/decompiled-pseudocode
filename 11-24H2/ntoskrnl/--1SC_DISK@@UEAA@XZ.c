@@ -1,20 +1,20 @@
 /*
- * XREFs of ??1SC_DISK@@UEAA@XZ @ 0x14069D570
+ * XREFs of ??1SC_DISK@@UEAA@XZ @ 0x14069E604
  * Callers:
- *     ??_GSC_DISK@@UEAAPEAXI@Z @ 0x14069D670 (--_GSC_DISK@@UEAAPEAXI@Z.c)
- *     ??_ENT_DISK@@UEAAPEAXI@Z @ 0x14070DCC0 (--_ENT_DISK@@UEAAPEAXI@Z.c)
- *     IoCreateDisk @ 0x14070DFC0 (IoCreateDisk.c)
- *     IoReadDiskSignature @ 0x14070E070 (IoReadDiskSignature.c)
- *     IoReadPartitionTable @ 0x14070E170 (IoReadPartitionTable.c)
- *     IoReadPartitionTableEx @ 0x14070E340 (IoReadPartitionTableEx.c)
- *     IoSetPartitionInformation @ 0x14070E3F0 (IoSetPartitionInformation.c)
- *     IoSetPartitionInformationEx @ 0x14070E4D0 (IoSetPartitionInformationEx.c)
- *     IoVerifyPartitionTable @ 0x14070E580 (IoVerifyPartitionTable.c)
- *     IoWritePartitionTable @ 0x14070E630 (IoWritePartitionTable.c)
- *     IoWritePartitionTableEx @ 0x14070E7A0 (IoWritePartitionTableEx.c)
+ *     ??_GSC_DISK@@UEAAPEAXI@Z @ 0x14069E700 (--_GSC_DISK@@UEAAPEAXI@Z.c)
+ *     ??_ENT_DISK@@UEAAPEAXI@Z @ 0x14070B860 (--_ENT_DISK@@UEAAPEAXI@Z.c)
+ *     IoCreateDisk @ 0x14070BB60 (IoCreateDisk.c)
+ *     IoReadDiskSignature @ 0x14070BC10 (IoReadDiskSignature.c)
+ *     IoReadPartitionTable @ 0x14070BD10 (IoReadPartitionTable.c)
+ *     IoReadPartitionTableEx @ 0x14070BEE0 (IoReadPartitionTableEx.c)
+ *     IoSetPartitionInformation @ 0x14070BF90 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x14070C070 (IoSetPartitionInformationEx.c)
+ *     IoVerifyPartitionTable @ 0x14070C120 (IoVerifyPartitionTable.c)
+ *     IoWritePartitionTable @ 0x14070C1D0 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x14070C330 (IoWritePartitionTableEx.c)
  * Callees:
- *     ??1SC_DEVICE@@UEAA@XZ @ 0x14069E95C (--1SC_DEVICE@@UEAA@XZ.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
+ *     ??1SC_DEVICE@@UEAA@XZ @ 0x14069F9F4 (--1SC_DEVICE@@UEAA@XZ.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
  */
 
 void __fastcall SC_DISK::~SC_DISK(SC_DISK *this)

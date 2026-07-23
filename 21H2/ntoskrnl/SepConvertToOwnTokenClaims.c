@@ -1,9 +1,9 @@
 /*
- * XREFs of SepConvertToOwnTokenClaims @ 0x14027F84C
+ * XREFs of SepConvertToOwnTokenClaims @ 0x140243B88
  * Callers:
- *     SepStopReferencingLogonSession @ 0x1406774A0 (SepStopReferencingLogonSession.c)
+ *     SepStopReferencingLogonSession @ 0x140612358 (SepStopReferencingLogonSession.c)
  * Callees:
- *     SepDuplicateClaimAttributes @ 0x140925070 (SepDuplicateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409251D0 (SepDuplicateClaimAttributes.c)
  */
 
 __int64 __fastcall SepConvertToOwnTokenClaims(__int64 a1)

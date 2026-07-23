@@ -1,17 +1,16 @@
 /*
- * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x1407FF044
+ * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x1407FF7B4
  * Callers:
- *     MiAllocateSplitVads @ 0x140A245C0 (MiAllocateSplitVads.c)
+ *     MiAllocateSplitVads @ 0x140919FC8 (MiAllocateSplitVads.c)
  * Callees:
- *     MiComputeVadCharges @ 0x140236208 (MiComputeVadCharges.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiUpControlAreaRefs @ 0x1404172CC (MiUpControlAreaRefs.c)
- *     Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline @ 0x14068EBE8 (Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline.c)
- *     MiFreeRotateView @ 0x1407EDA3C (MiFreeRotateView.c)
- *     MiReturnVadCharges @ 0x1408E2F98 (MiReturnVadCharges.c)
- *     MiRemoveSharedCommitNode @ 0x1408E5960 (MiRemoveSharedCommitNode.c)
- *     MiFreePlaceholderStorage @ 0x140A94A68 (MiFreePlaceholderStorage.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiComputeVadCharges @ 0x140210398 (MiComputeVadCharges.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MiUpControlAreaRefs @ 0x1404B355C (MiUpControlAreaRefs.c)
+ *     MiFreeRotateView @ 0x1407EE00C (MiFreeRotateView.c)
+ *     MiRemoveSharedCommitNode @ 0x140895560 (MiRemoveSharedCommitNode.c)
+ *     MiReturnVadCharges @ 0x140919B48 (MiReturnVadCharges.c)
+ *     MiFreePlaceholderStorage @ 0x140A91218 (MiFreePlaceholderStorage.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteNewlyCreatedPartialVads(__int64 a1)
@@ -34,39 +33,27 @@ void __fastcall MiDeleteNewlyCreatedPartialVads(__int64 a1)
     do
     {
       v4 = (void **)*v1;
-      if ( (unsigned int)Feature_Servicing_Mm_RotateSplitResAvailLeak__private_IsEnabledDeviceUsageNoInline() )
-      {
-        if ( !v4 && (v2 & 2) == 0 )
-          goto LABEL_18;
-        MiComputeVadCharges((__int64)v1, (__int64)&v6);
-      }
-      else
-      {
-        MiComputeVadCharges((__int64)v1, (__int64)&v6);
-        if ( !v4 && (v2 & 2) == 0 )
-        {
-          v7 = 0LL;
-          *((_QWORD *)&v6 + 1) = 0LL;
-        }
-      }
+      if ( !*v1 && (v2 & 2) == 0 )
+        goto LABEL_13;
+      MiComputeVadCharges((__int64)v1, (__int64)&v6);
       MiReturnVadCharges(&v6);
       if ( !v4 && (v2 & 2) == 0 )
-        goto LABEL_18;
+        goto LABEL_13;
       if ( ((_DWORD)v1[6] & 0x200000) == 0 )
       {
         v5 = v1[16];
         if ( v5 )
           ObfReferenceObjectWithTag(v5, 0x63536D4Du);
         if ( !v4 && (v2 & 4) == 0 )
-          goto LABEL_18;
+          goto LABEL_13;
         MiUpControlAreaRefs((__int64)v1, 0);
       }
       if ( v4 )
-        goto LABEL_19;
-LABEL_18:
+        goto LABEL_14;
+LABEL_13:
       if ( (v2 & 1) != 0 )
       {
-LABEL_19:
+LABEL_14:
         if ( ((_DWORD)v1[6] & 0x200000) == 0 )
           MiRemoveSharedCommitNode(*(_QWORD *)v1[9], Process, 0LL);
       }

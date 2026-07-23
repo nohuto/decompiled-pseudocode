@@ -14,7 +14,7 @@ __int64 PopCoalescingSetTimer()
 
   if ( (PopCoalescingState & 1) != 0 )
   {
-    PopPrintEx(3LL, (__int64)"PopCoalescing: Coalescing timer activated\n");
+    PopPrintEx(3u, (__int64)"PopCoalescing: Coalescing timer activated\n");
     result = KiSetTimerEx(
                (__int64)&PopCoalescingTimer,
                -10000000LL * PopCoalescingTimerInterval,

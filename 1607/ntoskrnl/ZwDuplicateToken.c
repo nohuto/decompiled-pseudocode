@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwDuplicateToken @ 0x14015A4C0
+ * XREFs of ZwDuplicateToken @ 0x14015AA30
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x1400852B0 (RtlCheckTokenMembershipEx.c)
- *     RtlCheckTokenCapability @ 0x14021060C (RtlCheckTokenCapability.c)
- *     RtlImpersonateSelfEx @ 0x1404DC178 (RtlImpersonateSelfEx.c)
+ *     RtlCheckTokenMembershipEx @ 0x140086B9C (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenCapability @ 0x140210438 (RtlCheckTokenCapability.c)
+ *     RtlImpersonateSelfEx @ 0x1404BF77C (RtlImpersonateSelfEx.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwDuplicateToken(
         HANDLE ExistingTokenHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwDuplicateToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ExistingTokenHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(ExistingTokenHandle);
 }

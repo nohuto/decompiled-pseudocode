@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCoolingExtensionActiveUpdate @ 0x1407D3374
+ * XREFs of PopDiagTraceCoolingExtensionActiveUpdate @ 0x1407D63AC
  * Callers:
- *     PopPropogateCoolingChange @ 0x1404357C4 (PopPropogateCoolingChange.c)
+ *     PopPropogateCoolingChange @ 0x140424D08 (PopPropogateCoolingChange.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCoolingExtensionActiveUpdate(__int64 a1)
@@ -17,11 +17,9 @@ void __fastcall PopDiagTraceCoolingExtensionActiveUpdate(__int64 a1)
   __int64 *v6; // [rsp+50h] [rbp-28h]
   __int64 v7; // [rsp+58h] [rbp-20h]
 
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_COOLING_EXTENSION_ACTIVE_UPDATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COOLING_EXTENSION_ACTIVE_UPDATE) )
     {
       v4 = a1;
       v2 = *(_BYTE *)(a1 + 65) == 0;
@@ -30,12 +28,7 @@ void __fastcall PopDiagTraceCoolingExtensionActiveUpdate(__int64 a1)
       v3 = !v2;
       UserData.Ptr = (ULONGLONG)&v3;
       v6 = &v4;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_COOLING_EXTENSION_ACTIVE_UPDATE,
-        0LL,
-        2u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_COOLING_EXTENSION_ACTIVE_UPDATE, 0LL, 2u, &UserData);
     }
   }
 }

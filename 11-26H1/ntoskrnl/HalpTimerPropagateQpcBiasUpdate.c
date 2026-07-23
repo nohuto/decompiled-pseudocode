@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x1404E5900
+ * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x1404DEEA0
  * Callers:
- *     HalpTimerCalibratePerformanceCounter @ 0x1404E57D4 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
- *     HalpTimerSelectRoles @ 0x140577E78 (HalpTimerSelectRoles.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1404DED74 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
+ *     HalpTimerSelectRoles @ 0x14057A3A8 (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     RtlSetSystemGlobalData @ 0x1404BE960 (RtlSetSystemGlobalData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     RtlSetSystemGlobalData @ 0x1404B81B0 (RtlSetSystemGlobalData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1, __int64 a2)
@@ -18,14 +18,14 @@ void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1, __int64 a2)
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rax
   __int64 v8; // r11
-  unsigned __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 Buffer; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 == HalpPerformanceCounter )
   {
-    if ( !qword_140FBB1B0 )
+    if ( !qword_140FBB550 )
     {
       v4 = *(_QWORD *)(a1 + 208);
-      if ( qword_140FBB1A8 )
+      if ( qword_140FBB548 )
         guard_dispatch_icall_no_overrides(v4, a2);
     }
     if ( *(_DWORD *)(a1 + 228) == 5 )
@@ -39,8 +39,8 @@ void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1, __int64 a2)
         v7 = HalpTimerScaleCounter(v6, v5, 10000000LL);
         if ( v8 < 0 )
           v7 = -(__int64)v7;
-        v9 = v7;
-        RtlSetSystemGlobalData(18, &v9, 8);
+        Buffer = v7;
+        RtlSetSystemGlobalData(GlobalDataIdQpcData, &Buffer, 8u);
       }
     }
     v3 = *(_DWORD *)(a1 + 228);

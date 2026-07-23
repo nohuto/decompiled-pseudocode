@@ -28,27 +28,27 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtEnumerateValueKey(
-        HANDLE Handle,
-        unsigned int a2,
-        unsigned int a3,
-        char *a4,
-        unsigned int a5,
-        _DWORD *a6)
+NTSTATUS __cdecl NtEnumerateValueKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  unsigned int v8; // r14d
+  ULONG v8; // r14d
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r8
   char v13; // di
   int v14; // r8d
   int v15; // r14d
-  int v16; // ebx
-  unsigned int v17; // edi
+  NTSTATUS v16; // ebx
+  ULONG v17; // edi
   __int64 v18; // rcx
   struct _KTHREAD *CurrentThread; // rax
   int v20; // eax
-  unsigned int v21; // eax
+  ULONG v21; // eax
   __int64 v22; // rdx
   __int64 v23; // rcx
   KPROCESSOR_MODE PreviousMode; // r9
@@ -58,7 +58,7 @@ __int64 __fastcall NtEnumerateValueKey(
   PVOID Object; // [rsp+58h] [rbp-1D0h] BYREF
   __int64 v31; // [rsp+60h] [rbp-1C8h] BYREF
   __int64 v32; // [rsp+68h] [rbp-1C0h]
-  unsigned int v33; // [rsp+70h] [rbp-1B8h]
+  ULONG v33; // [rsp+70h] [rbp-1B8h]
   PVOID v34; // [rsp+78h] [rbp-1B0h] BYREF
   PVOID v35; // [rsp+80h] [rbp-1A8h] BYREF
   __int64 v36; // [rsp+88h] [rbp-1A0h]
@@ -66,7 +66,7 @@ __int64 __fastcall NtEnumerateValueKey(
   __int128 v38; // [rsp+A0h] [rbp-188h] BYREF
   __int128 v39; // [rsp+B0h] [rbp-178h] BYREF
   __int128 *v40; // [rsp+C0h] [rbp-168h]
-  int v41; // [rsp+C8h] [rbp-160h]
+  NTSTATUS v41; // [rsp+C8h] [rbp-160h]
   __int128 v42; // [rsp+CCh] [rbp-15Ch]
   __int64 v43; // [rsp+DCh] [rbp-14Ch]
   int v44; // [rsp+E4h] [rbp-144h]
@@ -77,8 +77,8 @@ __int64 __fastcall NtEnumerateValueKey(
   char v49; // [rsp+190h] [rbp-98h]
   _BYTE v50[71]; // [rsp+191h] [rbp-97h] BYREF
 
-  v8 = a2;
-  v33 = a2;
+  v8 = Index;
+  v33 = Index;
   v38 = 0LL;
   LODWORD(v35) = 0;
   memset(v47, 0, sizeof(v47));
@@ -106,15 +106,15 @@ __int64 __fastcall NtEnumerateValueKey(
     v16 = -1073741431;
     goto LABEL_32;
   }
-  if ( a3 > 2 )
+  if ( (unsigned int)KeyValueInformationClass > KeyValuePartialInformation )
   {
     if ( CmpTraceRoutine )
     {
-      if ( Handle )
+      if ( KeyHandle )
       {
         PreviousMode = KeGetCurrentThread()->PreviousMode;
         v35 = 0LL;
-        if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v35, 0LL) >= 0 )
+        if ( ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v35, 0LL) >= 0 )
           ObfDereferenceObject(v35);
       }
     }
@@ -123,10 +123,10 @@ __int64 __fastcall NtEnumerateValueKey(
   else
   {
     v15 = KeGetCurrentThread()->PreviousMode;
-    v16 = CmObReferenceObjectByHandle((_DWORD)Handle, 1, v14, (unsigned __int8)v15, (__int64)&Object, 0LL);
+    v16 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 1, v14, (unsigned __int8)v15, (__int64)&Object, 0LL);
     if ( v16 < 0 )
     {
-      v8 = a2;
+      v8 = Index;
       goto LABEL_32;
     }
     if ( CmpTraceRoutine && Object )
@@ -136,22 +136,25 @@ __int64 __fastcall NtEnumerateValueKey(
     }
     if ( (_BYTE)v15 == 1 )
     {
-      v17 = a5;
-      if ( a5 )
+      v17 = Length;
+      if ( Length )
       {
-        if ( ((unsigned __int8)a4 & 3) != 0 )
+        if ( ((unsigned __int8)KeyValueInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&a4[a5] > 0x7FFFFFFF0000LL || &a4[a5] < a4 )
+        if ( (unsigned __int64)KeyValueInformation + Length > 0x7FFFFFFF0000LL
+          || (char *)KeyValueInformation + Length < KeyValueInformation )
+        {
           MEMORY[0x7FFFFFFF0000] = 0;
+        }
       }
-      v18 = (__int64)a6;
-      if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+      v18 = (__int64)ResultLength;
+      if ( (unsigned __int64)ResultLength >= 0x7FFFFFFF0000LL )
         v18 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v18 = *(_DWORD *)v18;
     }
     else
     {
-      v17 = a5;
+      v17 = Length;
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -159,16 +162,16 @@ __int64 __fastcall NtEnumerateValueKey(
     if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
     {
       *(_QWORD *)&v45[0] = Object;
-      *((_QWORD *)&v45[0] + 1) = __PAIR64__(a3, a2);
-      *(_QWORD *)&v45[1] = a4;
+      *((_QWORD *)&v45[0] + 1) = __PAIR64__(KeyValueInformationClass, Index);
+      *(_QWORD *)&v45[1] = KeyValueInformation;
       DWORD2(v45[1]) = v17;
-      *(_QWORD *)&v45[2] = a6;
+      *(_QWORD *)&v45[2] = ResultLength;
       v20 = CmpCallCallBacksEx(6u, v45, 0LL, 1, 0x15u, (__int64)Object, (__int64)v37);
       v16 = v20;
       if ( v20 < 0 )
       {
         v13 = v26;
-        v8 = a2;
+        v8 = Index;
         if ( v20 == -1073740541 )
           v16 = 0;
         goto LABEL_32;
@@ -176,9 +179,9 @@ __int64 __fastcall NtEnumerateValueKey(
       v27 = 1;
     }
     v16 = CmKeyBodyRemapToVirtualForEnum(&Object, v15, 1, &v34);
-    if ( v16 < 0 || (v16 = CmpBounceContextStart((__int64)v48, a4, v17, v15, 1), v16 < 0) )
+    if ( v16 < 0 || (v16 = CmpBounceContextStart((__int64)v48, KeyValueInformation, v17, v15, 1), v16 < 0) )
     {
-      v8 = a2;
+      v8 = Index;
 LABEL_50:
       v13 = v26;
       goto LABEL_32;
@@ -186,19 +189,28 @@ LABEL_50:
     if ( v34 )
     {
       CmpAttachToRegistryProcess(v47);
-      v8 = a2;
-      v16 = CmEnumerateValueKeyFromMergedView((int)Object, (int)v34, 0, a2, a3, v48[1], v17, (__int64)&v31, 0LL);
+      v8 = Index;
+      v16 = CmEnumerateValueKeyFromMergedView(
+              (int)Object,
+              (int)v34,
+              0,
+              Index,
+              KeyValueInformationClass,
+              v48[1],
+              v17,
+              (__int64)&v31,
+              0LL);
       CmpDetachFromRegistryProcess(v47);
     }
     else
     {
-      v8 = a2;
-      v16 = CmEnumerateValueKey(Object, a2, a3, v48[1], v17, &v31);
+      v8 = Index;
+      v16 = CmEnumerateValueKey(Object, Index, (unsigned int)KeyValueInformationClass, v48[1], v17, &v31);
     }
     if ( v16 < 0 && v16 != -2147483643 && v16 != -1073741789 )
       goto LABEL_50;
     v21 = v31;
-    *a6 = v31;
+    *ResultLength = v31;
     if ( v16 != -1073741789 )
     {
       if ( v17 >= v21 )
@@ -235,5 +247,5 @@ LABEL_32:
   if ( v13 )
     CmpReleaseShutdownRundown(v23, v22);
   CmCleanupThreadInfo((__int64 *)&v38);
-  return (unsigned int)v16;
+  return v16;
 }

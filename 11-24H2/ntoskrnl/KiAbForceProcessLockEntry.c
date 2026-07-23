@@ -1,19 +1,19 @@
 /*
- * XREFs of KiAbForceProcessLockEntry @ 0x1404183E4
+ * XREFs of KiAbForceProcessLockEntry @ 0x140408194
  * Callers:
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
  * Callees:
- *     KiAbIoBoostOwners @ 0x14024EA60 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x14024F2F0 (KiAbCpuBoostOwners.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x140250050 (KiAbEntryGetLockedHeadEntry.c)
- *     EtwTraceAutoBoostProcessLockEntry @ 0x140250910 (EtwTraceAutoBoostProcessLockEntry.c)
- *     KiAbEntryGetCpuPriorityKey @ 0x140251A80 (KiAbEntryGetCpuPriorityKey.c)
- *     KiAbEntryUpdateWaiterTreePosition @ 0x1402BF020 (KiAbEntryUpdateWaiterTreePosition.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KiAbDetermineMinOwnerCpuPriority @ 0x140418590 (KiAbDetermineMinOwnerCpuPriority.c)
- *     KiAbTryIncrementIoWaiterCounts @ 0x140418610 (KiAbTryIncrementIoWaiterCounts.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAbIoBoostOwners @ 0x14027F070 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x14027F900 (KiAbCpuBoostOwners.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x140280660 (KiAbEntryGetLockedHeadEntry.c)
+ *     EtwTraceAutoBoostProcessLockEntry @ 0x140280F20 (EtwTraceAutoBoostProcessLockEntry.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x140282090 (KiAbEntryGetCpuPriorityKey.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x140366760 (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiAbDetermineMinOwnerCpuPriority @ 0x140408340 (KiAbDetermineMinOwnerCpuPriority.c)
+ *     KiAbTryIncrementIoWaiterCounts @ 0x1404083C0 (KiAbTryIncrementIoWaiterCounts.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KiAbForceProcessLockEntry(__int64 a1, __int64 a2)
@@ -97,7 +97,7 @@ LABEL_15:
 LABEL_18:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15, v8);
 LABEL_19:
-  if ( (WORD2(xmmword_140FC5B10) & 0x1000) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x1000) != 0 )
     EtwTraceAutoBoostProcessLockEntry(*(_QWORD *)(v2 - 88LL * (*(_BYTE *)(v2 + 8) & 0x3F) - 16), v6, v10);
   return KiProcessDeferredReadyList(CurrentPrcb, &v19, CurrentIrql);
 }

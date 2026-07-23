@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlOsDeploymentState @ 0x14057FE10
+ * XREFs of RtlOsDeploymentState @ 0x1405802BC
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
  */
 
-__int64 RtlOsDeploymentState()
+OS_DEPLOYEMENT_STATE_VALUES __cdecl RtlOsDeploymentState(DWORD Flags)
 {
-  unsigned int v0; // ebx
+  OS_DEPLOYEMENT_STATE_VALUES v1; // ebx
   HANDLE KeyHandle; // [rsp+30h] [rbp-88h] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-80h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-78h] BYREF
   UNICODE_STRING ValueName; // [rsp+50h] [rbp-68h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-58h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-28h] BYREF
-  int v8; // [rsp+94h] [rbp-24h]
-  int v9; // [rsp+98h] [rbp-20h]
-  int v10; // [rsp+9Ch] [rbp-1Ch]
+  int v9; // [rsp+94h] [rbp-24h]
+  int v10; // [rsp+98h] [rbp-20h]
+  int v11; // [rsp+9Ch] [rbp-1Ch]
 
   KeyHandle = 0LL;
-  v0 = 1;
+  v1 = OS_DEPLOYMENT_STANDARD;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\Setup");
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -35,14 +35,14 @@ __int64 RtlOsDeploymentState()
   {
     RtlInitUnicodeString(&ValueName, L"Compact");
     if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0
-      && v8 == 4
       && v9 == 4
-      && v10 )
+      && v10 == 4
+      && v11 )
     {
-      v0 = 2;
+      v1 = OS_DEPLOYMENT_COMPACT;
     }
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  return v0;
+  return v1;
 }

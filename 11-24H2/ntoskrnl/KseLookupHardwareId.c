@@ -1,13 +1,13 @@
 /*
- * XREFs of KseLookupHardwareId @ 0x14073FD4C
+ * XREFs of KseLookupHardwareId @ 0x14073DC7C
  * Callers:
- *     AhcCacheQueryHwId @ 0x140828F30 (AhcCacheQueryHwId.c)
+ *     AhcCacheQueryHwId @ 0x14082976C (AhcCacheQueryHwId.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     KsepCacheLookup @ 0x14095B438 (KsepCacheLookup.c)
- *     KsepCacheUnlock @ 0x14095B51C (KsepCacheUnlock.c)
- *     AslStringPatternMatchExW @ 0x140960540 (AslStringPatternMatchExW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     KsepCacheLookup @ 0x140942EF8 (KsepCacheLookup.c)
+ *     KsepCacheUnlock @ 0x140942FDC (KsepCacheUnlock.c)
+ *     AslStringPatternMatchExW @ 0x140948000 (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall KseLookupHardwareId(PCWSTR SourceString)
@@ -26,7 +26,7 @@ __int64 __fastcall KseLookupHardwareId(PCWSTR SourceString)
 
   v1 = *SourceString;
   v2 = SourceString + 1;
-  v3 = qword_140E66B30;
+  v3 = qword_140E66C60;
   v13 = 0;
   v5 = -1073741275;
   if ( v1 != 42 )
@@ -41,7 +41,7 @@ __int64 __fastcall KseLookupHardwareId(PCWSTR SourceString)
       break;
     if ( v7 == 42 || v7 == 63 )
     {
-      KsepCacheLock(qword_140E66B30);
+      KsepCacheLock(qword_140E66C60);
       for ( i = *(_QWORD **)(v3 + 32); ; i = (_QWORD *)*i )
       {
         if ( i == (_QWORD *)(v3 + 32) )

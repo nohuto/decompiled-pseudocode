@@ -1,14 +1,14 @@
 /*
- * XREFs of TppReportExceptionFilter @ 0x18015C7BC
+ * XREFs of TppReportExceptionFilter @ 0x18015AB7C
  * Callers:
- *     TpCheckTerminateWorker @ 0x180004410 (TpCheckTerminateWorker.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
+ *     TpCheckTerminateWorker @ 0x1800AAF00 (TpCheckTerminateWorker.c)
  * Callees:
- *     RtlReportException @ 0x180001490 (RtlReportException.c)
+ *     RtlReportException @ 0x18010B4F0 (RtlReportException.c)
  */
 
-__int64 __fastcall TppReportExceptionFilter(__int64 *a1)
+__int64 __fastcall TppReportExceptionFilter(__int64 a1)
 {
-  RtlReportException(*a1, a1[1], 3u);
+  RtlReportException(*(PEXCEPTION_RECORD *)a1, *(PCONTEXT *)(a1 + 8), 3u);
   return 0LL;
 }

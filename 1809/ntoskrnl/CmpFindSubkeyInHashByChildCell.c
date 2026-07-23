@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpFindSubkeyInHashByChildCell @ 0x1406F81DC
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x1406F947C
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405D40B0 (CmpFindSubKeyByNumberEx.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
- *     CmpUnlockHashEntry @ 0x1405D19F8 (CmpUnlockHashEntry.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
- *     CmpUnlockTwoKcbs @ 0x1406BC638 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1406BC684 (CmpLockTwoKcbsShared.c)
- *     CmpLockHashEntryShared @ 0x1406F8370 (CmpLockHashEntryShared.c)
- *     CmpHashCompressedComponent @ 0x1406F83DC (CmpHashCompressedComponent.c)
- *     CmpIsKcbLockAllowed @ 0x1406F843C (CmpIsKcbLockAllowed.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpHashUnicodeComponent @ 0x1405B02C4 (CmpHashUnicodeComponent.c)
+ *     CmpUnlockHashEntry @ 0x1405D29F8 (CmpUnlockHashEntry.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x140693BFC (CmpReferenceKeyControlBlock.c)
+ *     CmpUnlockTwoKcbs @ 0x1406BD8D8 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x1406BD924 (CmpLockTwoKcbsShared.c)
+ *     CmpLockHashEntryShared @ 0x1406F9610 (CmpLockHashEntryShared.c)
+ *     CmpHashCompressedComponent @ 0x1406F967C (CmpHashCompressedComponent.c)
+ *     CmpIsKcbLockAllowed @ 0x1406F96DC (CmpIsKcbLockAllowed.c)
  */
 
 __int64 __fastcall CmpFindSubkeyInHashByChildCell(

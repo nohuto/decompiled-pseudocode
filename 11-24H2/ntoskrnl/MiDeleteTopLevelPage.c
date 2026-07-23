@@ -1,24 +1,28 @@
 /*
- * XREFs of MiDeleteTopLevelPage @ 0x14045BEF4
+ * XREFs of MiDeleteTopLevelPage @ 0x14045128C
  * Callers:
- *     MiDeleteFinalPageTables @ 0x14045BA24 (MiDeleteFinalPageTables.c)
- *     MiDeleteProcessShadow @ 0x14045BC70 (MiDeleteProcessShadow.c)
+ *     MiDeleteFinalPageTables @ 0x140450DBC (MiDeleteFinalPageTables.c)
+ *     MiDeleteProcessShadow @ 0x140451008 (MiDeleteProcessShadow.c)
  * Callees:
- *     MiDecrementShareCountEx @ 0x140220590 (MiDecrementShareCountEx.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiClearContainingMapping @ 0x14045BFFC (MiClearContainingMapping.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiDecrementShareCountEx @ 0x14024D2E0 (MiDecrementShareCountEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiClearContainingMapping @ 0x140451394 (MiClearContainingMapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v2; // rbx
+  __int64 v2; // rbx
   unsigned __int8 CurrentIrql; // si
   unsigned int v4; // edi
-  __int64 v5; // rdx
-  unsigned int v6; // edi
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rdx
+  unsigned int v10; // edi
 
   v2 = 48 * a2 - 0x220000000000LL;
   CurrentIrql = KeGetCurrentIrql();
@@ -48,14 +52,14 @@ __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)
   }
   MiClearContainingMapping(v2);
   *(_QWORD *)(v2 + 24) |= 0x4000000000000000uLL;
-  MiDecrementShareCountEx(v2, 0LL);
-  v6 = MiDecrementShareCountEx(v2, 0LL);
+  MiDecrementShareCountEx(v2, 0LL, v5, v6);
+  v10 = MiDecrementShareCountEx(v2, 0LL, v7, v8);
   _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( KiIrqlFlags )
   {
-    LOBYTE(v5) = CurrentIrql;
-    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v5);
+    LOBYTE(v9) = CurrentIrql;
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
   }
   __writecr8(CurrentIrql);
-  return v6;
+  return v10;
 }

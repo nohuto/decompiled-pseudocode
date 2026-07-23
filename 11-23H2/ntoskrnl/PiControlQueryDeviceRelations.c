@@ -1,12 +1,12 @@
 /*
- * XREFs of PiControlQueryDeviceRelations @ 0x14084DCE0
+ * XREFs of PiControlQueryDeviceRelations @ 0x14084DFE0
  * Callers:
  *     <none>
  * Callees:
- *     PiControlAllocateBufferForUserModeCaller @ 0x14022AE54 (PiControlAllocateBufferForUserModeCaller.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D41F0 (PiControlMakeUserModeCallersCopy.c)
- *     PiQueryDeviceRelations @ 0x14084DDFC (PiQueryDeviceRelations.c)
+ *     PiControlAllocateBufferForUserModeCaller @ 0x14022AF64 (PiControlAllocateBufferForUserModeCaller.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406D4220 (PiControlMakeUserModeCallersCopy.c)
+ *     PiQueryDeviceRelations @ 0x14084E0FC (PiQueryDeviceRelations.c)
  */
 
 __int64 __fastcall PiControlQueryDeviceRelations(__int64 a1, __int16 *a2, __int64 a3, char a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoInitializeIrpEx @ 0x1403D0A50
+ * XREFs of IoInitializeIrpEx @ 0x1403D0C30
  * Callers:
  *     <none>
  * Callees:
- *     IoInitializeIrp @ 0x140334820 (IoInitializeIrp.c)
+ *     IoInitializeIrp @ 0x140334AB0 (IoInitializeIrp.c)
  */
 
 void __fastcall IoInitializeIrpEx(__int64 a1, __int64 a2, USHORT a3, CCHAR a4)

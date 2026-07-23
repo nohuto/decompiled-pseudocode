@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReturnWsToExpansionList @ 0x1403D9400
+ * XREFs of MiReturnWsToExpansionList @ 0x1402F26D0
  * Callers:
- *     MmInSwapProcess @ 0x140338A94 (MmInSwapProcess.c)
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
- *     MiAllowWorkingSetExpansion @ 0x1403D93B0 (MiAllowWorkingSetExpansion.c)
- *     MiEmptyTargetedWorkingSet @ 0x140678830 (MiEmptyTargetedWorkingSet.c)
+ *     MmInSwapProcess @ 0x1402DFEE4 (MmInSwapProcess.c)
+ *     MiAllowWorkingSetExpansion @ 0x1402F2680 (MiAllowWorkingSetExpansion.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
+ *     MiEmptyTargetedWorkingSet @ 0x140679A10 (MiEmptyTargetedWorkingSet.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiReturnWsToExpansionList(__int64 a1, int a2)
@@ -32,10 +32,10 @@ void __fastcall MiReturnWsToExpansionList(__int64 a1, int a2)
   __int64 v15; // rax
 
   v2 = (_QWORD *)(a1 + 24);
-  v3 = (_QWORD *)(*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174)) + 17608LL);
+  v3 = (_QWORD *)(*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174)) + 17608LL);
   if ( !a2 )
   {
-    v4 = *(_QWORD **)(*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174)) + 17616LL);
+    v4 = *(_QWORD **)(*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174)) + 17616LL);
     if ( (_QWORD *)*v4 == v3 )
     {
       *v2 = v3;

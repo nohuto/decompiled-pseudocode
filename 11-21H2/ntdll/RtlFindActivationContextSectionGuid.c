@@ -11,11 +11,16 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800AAAD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlFindActivationContextSectionGuid(int a1, __int64 a2, int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlFindActivationContextSectionGuid(
+        ULONG Flags,
+        PGUID ExtensionGuid,
+        ULONG SectionId,
+        PGUID GuidToFind,
+        PACTCTX_SECTION_KEYED_DATA ReturnedData)
 {
   struct _TEB *v5; // r10
   _PEB *ProcessEnvironmentBlock; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v12; // esi
   _DWORD *v13; // rdi
   __int64 v14; // rbx
@@ -25,8 +30,8 @@ __int64 __fastcall RtlFindActivationContextSectionGuid(int a1, __int64 a2, int a
   _DWORD *v18; // [rsp+48h] [rbp-38h] BYREF
   __int64 v19; // [rsp+50h] [rbp-30h] BYREF
   _DWORD v20[2]; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-20h]
-  int v22; // [rsp+68h] [rbp-18h]
+  PGUID v21; // [rsp+60h] [rbp-20h]
+  ULONG v22; // [rsp+68h] [rbp-18h]
   int v23; // [rsp+6Ch] [rbp-14h]
   int v24; // [rsp+70h] [rbp-10h]
 
@@ -36,21 +41,26 @@ __int64 __fastcall RtlFindActivationContextSectionGuid(int a1, __int64 a2, int a
     && !ProcessEnvironmentBlock->SystemDefaultActivationContextData
     && !v5->ActivationContextStackPointer->ActiveFrame )
   {
-    return 3222601729LL;
+    return -1072365567;
   }
   v17 = 0;
-  result = RtlpFindActivationContextSection_CheckParameters(a1, a2, a3, a4, a5);
-  if ( (int)result >= 0 )
+  result = RtlpFindActivationContextSection_CheckParameters(
+             Flags,
+             (_DWORD)ExtensionGuid,
+             SectionId,
+             (_DWORD)GuidToFind,
+             (__int64)ReturnedData);
+  if ( result >= 0 )
   {
     v20[1] = 0;
     v24 = 0;
     v19 = 0LL;
     v23 = 0;
     v20[0] = 32;
-    v21 = a2;
-    v22 = a3;
+    v21 = ExtensionGuid;
+    v22 = SectionId;
     result = RtlpFindNextActivationContextSection(v20, &v18, &v17, &v19);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       while ( 1 )
       {
@@ -60,26 +70,26 @@ __int64 __fastcall RtlFindActivationContextSectionGuid(int a1, __int64 a2, int a
           v13 = v18;
 LABEL_25:
           DbgPrintEx(
-            51,
+            0x33u,
             0,
             "RtlFindActivationContextSectionGuid() found section at %p (length %lu) which is not a GUID section\n",
             v13,
             v17);
-          return 3222601731LL;
+          return -1072365565;
         }
         v13 = v18;
         if ( *v18 != 1682469703 )
           goto LABEL_25;
-        result = RtlpFindGuidInSection(v18, a4, a5);
-        if ( (int)result >= 0 )
+        result = RtlpFindGuidInSection(v18, GuidToFind, ReturnedData);
+        if ( result >= 0 )
           break;
-        if ( (_DWORD)result != -1072365560 )
+        if ( result != -1072365560 )
           return result;
         result = RtlpFindNextActivationContextSection(v20, &v18, &v17, &v19);
-        if ( (int)result < 0 )
+        if ( result < 0 )
         {
-          if ( (_DWORD)result == -1072365567 )
-            return 3222601736LL;
+          if ( result == -1072365567 )
+            return -1072365560;
           return result;
         }
       }
@@ -99,19 +109,19 @@ LABEL_25:
           }
         }
       }
-      if ( !a5 )
-        return 0LL;
+      if ( !ReturnedData )
+        return 0;
       result = RtlpFindActivationContextSection_FillOutReturnedData(
-                 a1,
-                 a5,
+                 Flags,
+                 ReturnedData,
                  v14,
-                 (unsigned int)v20,
-                 (__int64)v13,
+                 v20,
+                 v13,
                  v13[8],
                  v13[9],
                  v12);
-      if ( (int)result >= 0 )
-        return 0LL;
+      if ( result >= 0 )
+        return 0;
     }
   }
   return result;

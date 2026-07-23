@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateZeroCalibrationBuffer @ 0x140710120
+ * XREFs of MiAllocateZeroCalibrationBuffer @ 0x140714E1C
  * Callers:
- *     MiZeroPageCalibrate @ 0x140710F80 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x140715C7C (MiZeroPageCalibrate.c)
  * Callees:
- *     MiUpdateProtectionMask @ 0x140303850 (MiUpdateProtectionMask.c)
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiFreeZeroCalibrationBuffer @ 0x140710730 (MiFreeZeroCalibrationBuffer.c)
+ *     MiUpdateProtectionMask @ 0x1402E58D0 (MiUpdateProtectionMask.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiFreeZeroCalibrationBuffer @ 0x14071542C (MiFreeZeroCalibrationBuffer.c)
  */
 
 __int64 __fastcall MiAllocateZeroCalibrationBuffer(__int64 a1, int a2, int a3, __int64 a4, int a5)
@@ -65,7 +65,7 @@ __int64 __fastcall MiAllocateZeroCalibrationBuffer(__int64 a1, int a2, int a3, _
       *PagesForMdl = v15;
       v15 = PagesForMdl;
     }
-    v18 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, v13, v8, v12);
+    v18 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, v13, v8, v12);
     v19 = v18;
     if ( !v18 )
       return MiFreeZeroCalibrationBuffer(a1);

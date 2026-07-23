@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreateSection @ 0x1409BA4D4
+ * XREFs of MiCreateSection @ 0x14098B4B4
  * Callers:
- *     MiCreateSystemSection @ 0x14038A4C0 (MiCreateSystemSection.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
- *     MiCreateSectionCommon @ 0x1409B9D9C (MiCreateSectionCommon.c)
- *     MmCreateSectionEx @ 0x1409BA2F0 (MmCreateSectionEx.c)
- *     MmCreateCacheManagerSection @ 0x1409BA478 (MmCreateCacheManagerSection.c)
- *     AlpcpCreateSection @ 0x1409BB8D8 (AlpcpCreateSection.c)
- *     MmCreateSpecialImageSection @ 0x140B7F20C (MmCreateSpecialImageSection.c)
+ *     MiCreateSystemSection @ 0x14038C270 (MiCreateSystemSection.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
+ *     MiCreateSectionCommon @ 0x14098AD7C (MiCreateSectionCommon.c)
+ *     MmCreateSectionEx @ 0x14098B2D0 (MmCreateSectionEx.c)
+ *     MmCreateCacheManagerSection @ 0x14098B458 (MmCreateCacheManagerSection.c)
+ *     AlpcpCreateSection @ 0x14098C8B8 (AlpcpCreateSection.c)
+ *     MmCreateSpecialImageSection @ 0x140B880EC (MmCreateSpecialImageSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiLogSectionObjectEvent @ 0x14077B084 (MiLogSectionObjectEvent.c)
- *     MiCreatePagingFileMap @ 0x1409B88BC (MiCreatePagingFileMap.c)
- *     MiInitializeCreateSectionPacket @ 0x1409BA6F4 (MiInitializeCreateSectionPacket.c)
- *     MiFinishCreateSection @ 0x1409BAAFC (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiLogSectionObjectEvent @ 0x14077DED8 (MiLogSectionObjectEvent.c)
+ *     MiCreatePagingFileMap @ 0x14098989C (MiCreatePagingFileMap.c)
+ *     MiInitializeCreateSectionPacket @ 0x14098B6D4 (MiInitializeCreateSectionPacket.c)
+ *     MiFinishCreateSection @ 0x14098BADC (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
  */
 
 __int64 __fastcall MiCreateSection(
@@ -93,7 +93,7 @@ LABEL_7:
                 SectionPacket >= 0) )
           {
             *a1 = v21;
-            if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x400001) != 0 && !*(_QWORD *)(v20 + 64) )
+            if ( (DWORD1(PerfGlobalGroupMask) & 0x400001) != 0 && !*(_QWORD *)(v20 + 64) )
               MiLogSectionObjectEvent((__int64)v21);
           }
           else

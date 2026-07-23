@@ -1,24 +1,24 @@
 /*
- * XREFs of DifZwPrivilegeObjectAuditAlarmWrapper @ 0x1406AEEA0
+ * XREFs of DifZwPrivilegeObjectAuditAlarmWrapper @ 0x1406B2A80
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwPrivilegeObjectAuditAlarm @ 0x140725C70 (ZwPrivilegeObjectAuditAlarm.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwPrivilegeObjectAuditAlarm @ 0x14072A840 (ZwPrivilegeObjectAuditAlarm.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwPrivilegeObjectAuditAlarmWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        char a6)
+        UNICODE_STRING *a1,
+        void *a2,
+        void *a3,
+        ACCESS_MASK a4,
+        struct _PRIVILEGE_SET *Privileges,
+        BOOLEAN AccessGranted)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -31,12 +31,12 @@ __int64 __fastcall DifZwPrivilegeObjectAuditAlarmWrapper(
   BOOLEAN v17; // di
   __int128 *j; // rbx
   PVOID v20; // [rsp+30h] [rbp-40h] BYREF
-  int v21; // [rsp+38h] [rbp-38h]
-  __int64 v22; // [rsp+40h] [rbp-30h]
-  unsigned int v23; // [rsp+48h] [rbp-28h]
-  __int64 v24; // [rsp+50h] [rbp-20h]
-  __int64 v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h]
+  BOOLEAN v21; // [rsp+38h] [rbp-38h]
+  struct _PRIVILEGE_SET *v22; // [rsp+40h] [rbp-30h]
+  ACCESS_MASK v23; // [rsp+48h] [rbp-28h]
+  void *v24; // [rsp+50h] [rbp-20h]
+  void *v25; // [rsp+58h] [rbp-18h]
+  UNICODE_STRING *v26; // [rsp+60h] [rbp-10h]
   unsigned int v27; // [rsp+68h] [rbp-8h]
   void *retaddr; // [rsp+98h] [rbp+28h]
 
@@ -60,8 +60,8 @@ __int64 __fastcall DifZwPrivilegeObjectAuditAlarmWrapper(
 LABEL_7:
   v14 = 0;
   v26 = a1;
-  v22 = a5;
-  LOBYTE(v21) = a6;
+  v22 = Privileges;
+  v21 = AccessGranted;
   v25 = a2;
   v24 = a3;
   v23 = a4;
@@ -77,7 +77,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v27 = ZwPrivilegeObjectAuditAlarm(a1, a2, a3, a4, a5, a6, v20, v21, v22, v23, v24, v25, v26);
+  v27 = ZwPrivilegeObjectAuditAlarm(a1, a2, a3, a4, Privileges, AccessGranted);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

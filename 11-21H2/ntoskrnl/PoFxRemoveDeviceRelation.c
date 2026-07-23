@@ -3,18 +3,18 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     ExReleaseSpinLockExclusive @ 0x140229990 (ExReleaseSpinLockExclusive.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  *     KeReleaseSpinLock @ 0x1402B1CB0 (KeReleaseSpinLock.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
+ *     sub_1402D25CC @ 0x1402D25CC (sub_1402D25CC.c)
+ *     sub_1402D2864 @ 0x1402D2864 (sub_1402D2864.c)
  *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PopFxIdleComponent @ 0x140355830 (PopFxIdleComponent.c)
- *     PopFxNextComponentChildRelationSafe @ 0x1404198CC (PopFxNextComponentChildRelationSafe.c)
- *     PopFxNextParentRelationSafe @ 0x1404199DC (PopFxNextParentRelationSafe.c)
+ *     sub_140355350 @ 0x140355350 (sub_140355350.c)
+ *     sub_140355830 @ 0x140355830 (sub_140355830.c)
+ *     sub_1404198CC @ 0x1404198CC (sub_1404198CC.c)
+ *     sub_1404199DC @ 0x1404199DC (sub_1404199DC.c)
  */
 
 __int64 __fastcall PoFxRemoveDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3)
@@ -56,7 +56,7 @@ __int64 __fastcall PoFxRemoveDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3)
     ExReleaseSpinLockExclusive(v7, v8);
     return (unsigned int)-1073741584;
   }
-  PopFxAddRefDevice(v9);
+  sub_140355350(v9);
   ExReleaseSpinLockExclusive(v7, v10);
   v11 = *(_DWORD *)(v9 + 828);
   v12 = 0;
@@ -72,12 +72,12 @@ __int64 __fastcall PoFxRemoveDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3)
   }
   if ( v13 )
   {
-    PopFxActivateDevice(*(_QWORD *)(a1 + 96), 0, 0);
+    sub_1402D2864(*(_QWORD *)(a1 + 96), 0, 0);
     v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 1240));
     v24 = 0LL;
     v16 = 0LL;
     v17 = 0;
-    while ( (unsigned __int8)PopFxNextParentRelationSafe(a1 + 1264, v16, &v24) )
+    while ( (unsigned __int8)sub_1404199DC(a1 + 1264, v16, &v24) )
     {
       v18 = (KSPIN_LOCK *)v24;
       if ( *(_QWORD *)(v24 + 24) == v13 )
@@ -93,7 +93,7 @@ __int64 __fastcall PoFxRemoveDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3)
         v17 = 1;
         v18[8] = (KSPIN_LOCK)(v18 + 7);
         *v19 = v19;
-        KxReleaseSpinLock(v18 + 1);
+        KeReleaseSpinLockFromDpcLevel(v18 + 1);
         break;
       }
       v16 = v24;
@@ -103,16 +103,16 @@ __int64 __fastcall PoFxRemoveDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3)
     {
       v22 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v13 + 128));
       v24 = 0LL;
-      for ( i = 0LL; (unsigned __int8)PopFxNextComponentChildRelationSafe(v13, i, &v24); i = v24 )
+      for ( i = 0LL; (unsigned __int8)sub_1404198CC(v13, i, &v24); i = v24 )
         ;
       KeReleaseSpinLock((PKSPIN_LOCK)(v13 + 128), v22);
-      PopFxIdleComponent(v9, *(unsigned int *)(v13 + 16), 2);
+      sub_140355830(v9, *(unsigned int *)(v13 + 16), 2);
     }
     else
     {
       v3 = -1073741811;
     }
-    PoFxIdleDevice(*(_QWORD *)(a1 + 96));
+    sub_1402D25CC(*(_QWORD *)(a1 + 96));
   }
   else
   {

@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlpMuiRegGrowLanguageList @ 0x1800F4F5C
  * Callers:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044194 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpLoadMachineUIByPolicy @ 0x180070B60 (RtlpLoadMachineUIByPolicy.c)
- *     RtlpLoadUserUIByPolicy @ 0x180071A10 (RtlpLoadUserUIByPolicy.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044184 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpLoadMachineUIByPolicy @ 0x180070B50 (RtlpLoadMachineUIByPolicy.c)
+ *     RtlpLoadUserUIByPolicy @ 0x180071A00 (RtlpLoadUserUIByPolicy.c)
  * Callees:
  *     <none>
  */

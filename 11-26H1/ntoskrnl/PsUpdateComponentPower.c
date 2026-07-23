@@ -1,10 +1,10 @@
 /*
- * XREFs of PsUpdateComponentPower @ 0x14045A6F0
+ * XREFs of PsUpdateComponentPower @ 0x140451F70
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x140A8FD18 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessEnergyTrackingStateCallback @ 0x140B20200 (PspSetProcessEnergyTrackingStateCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x140A94870 (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetProcessEnergyTrackingStateCallback @ 0x140B22620 (PspSetProcessEnergyTrackingStateCallback.c)
  * Callees:
- *     PoEnergyContextUpdateComponentPower @ 0x1409505D0 (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1409CBF10 (PoEnergyContextUpdateComponentPower.c)
  */
 
 void __fastcall PsUpdateComponentPower(PEPROCESS a1, unsigned int a2, unsigned __int64 a3)
@@ -14,7 +14,7 @@ void __fastcall PsUpdateComponentPower(PEPROCESS a1, unsigned int a2, unsigned _
   __int64 v6; // rcx
   volatile signed __int64 *v7; // r10
   signed __int64 v8; // rax
-  unsigned int v9; // r9d
+  unsigned int UserWaitTime_high; // r9d
   bool v10; // cc
   signed __int64 v11; // rtt
   signed __int64 v12; // [rsp+30h] [rbp+8h]
@@ -74,32 +74,32 @@ void __fastcall PsUpdateComponentPower(PEPROCESS a1, unsigned int a2, unsigned _
     if ( (struct _LIST_ENTRY *)((char *)Flink + v5) )
     {
       v8 = *v7;
-      v9 = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
-      v10 = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1) <= (unsigned int)*v7;
-      if ( *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1) != (unsigned int)*v7 )
+      UserWaitTime_high = HIDWORD(KsepShimDbLock.UserWaitTime);
+      v10 = HIDWORD(KsepShimDbLock.UserWaitTime) <= (unsigned int)*v7;
+      if ( HIDWORD(KsepShimDbLock.UserWaitTime) != (unsigned int)*v7 )
         goto LABEL_18;
       if ( (v8 & 0x100000000LL) == 0 )
       {
         do
         {
-          v10 = v9 <= (unsigned int)v8;
+          v10 = UserWaitTime_high <= (unsigned int)v8;
 LABEL_18:
           if ( v10 )
           {
-            if ( (unsigned int)v8 - v9 >= 0x20 )
+            if ( (unsigned int)v8 - UserWaitTime_high >= 0x20 )
               return;
-            HIDWORD(v12) = HIDWORD(v8) | (1 << (v8 - v9));
+            HIDWORD(v12) = HIDWORD(v8) | (1 << (v8 - UserWaitTime_high));
             if ( HIDWORD(v12) == HIDWORD(v8) )
               return;
             LODWORD(v12) = v8;
           }
           else
           {
-            if ( v9 - (unsigned int)v8 >= 0x20 )
+            if ( UserWaitTime_high - (unsigned int)v8 >= 0x20 )
               HIDWORD(v12) = 1;
             else
-              HIDWORD(v12) = (HIDWORD(v8) << (v9 - v8)) | 1;
-            LODWORD(v12) = v9;
+              HIDWORD(v12) = (HIDWORD(v8) << (UserWaitTime_high - v8)) | 1;
+            LODWORD(v12) = UserWaitTime_high;
           }
           v11 = v8;
           v8 = _InterlockedCompareExchange64(v7, v12, v8);

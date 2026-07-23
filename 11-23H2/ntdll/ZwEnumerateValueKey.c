@@ -4,18 +4,24 @@
  *     RtlpQueryRegistryValues @ 0x180008C2C (RtlpQueryRegistryValues.c)
  *     RtlpLookupSafeCurDirList @ 0x1800EAB00 (RtlpLookupSafeCurDirList.c)
  *     RtlpIsEmptyImageFileOptionsKey @ 0x1800EF610 (RtlpIsEmptyImageFileOptionsKey.c)
- *     RtlpPopulateLanguageConfigList @ 0x1801144A8 (RtlpPopulateLanguageConfigList.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x180114EB0 (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1801154B0 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180114478 (RtlpPopulateLanguageConfigList.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x180114E80 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x180115480 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwEnumerateValueKey()
+NTSTATUS __cdecl ZwEnumerateValueKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 19LL;
+  result = 19;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

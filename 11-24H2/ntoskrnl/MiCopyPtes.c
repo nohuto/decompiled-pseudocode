@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCopyPtes @ 0x14039437C
+ * XREFs of MiCopyPtes @ 0x14038D998
  * Callers:
- *     MiCopyTopLevelMappings @ 0x140393D4C (MiCopyTopLevelMappings.c)
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MxCopyPage @ 0x140C52474 (MxCopyPage.c)
+ *     MiCopyTopLevelMappings @ 0x14038D368 (MiCopyTopLevelMappings.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MxCopyPage @ 0x140C54604 (MxCopyPage.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
  */
 
 __int64 __fastcall MiCopyPtes(_QWORD *BugCheckParameter2, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiCopyPtes(_QWORD *BugCheckParameter2, __int64 a2, __int64 a3
       {
         result = 0xFFFFF6C000000000uLL;
         if ( (unsigned __int64)v5 >= 0xFFFFF6C000000000uLL )
-          result = MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v5, *(_QWORD *)((char *)v5 + v4), 128);
+          result = MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v5, *(_QWORD *)((char *)v5 + v4), 128LL);
       }
       *v5++ = v6;
       --v3;

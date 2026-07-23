@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x140910CF0
+ * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x140910E50
  * Callers:
  *     <none>
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(

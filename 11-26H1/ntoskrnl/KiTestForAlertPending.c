@@ -1,7 +1,7 @@
 /*
- * XREFs of KiTestForAlertPending @ 0x1404AB1F8
+ * XREFs of KiTestForAlertPending @ 0x1404A4888
  * Callers:
- *     KiResumeThread @ 0x1402C60D8 (KiResumeThread.c)
+ *     KiResumeThread @ 0x140310D78 (KiResumeThread.c)
  * Callees:
  *     <none>
  */

@@ -9,33 +9,34 @@
  *     RtlpGetLastContiguosBase64Position @ 0x4B362583 (RtlpGetLastContiguosBase64Position.c)
  */
 
-int __stdcall RtlValidateCorrelationVector(_BYTE *a1)
+DWORD __cdecl RtlValidateCorrelationVector(PCORRELATION_VECTOR Vector)
 {
   int LastContiguosBase64Position; // esi
   int CorrelationVectorEndPosition; // ebx
   int v4; // esi
   int v5; // ecx
   int v6; // edx
+  size_t v7; // [esp-4h] [ebp-10h]
 
-  if ( !a1 || (int)RtlpGetCorrelationVectorBufferLength(a1) < 0 )
+  if ( !Vector || (int)RtlpGetCorrelationVectorBufferLength(Vector) < 0 )
     return -1073741811;
-  LastContiguosBase64Position = RtlpGetLastContiguosBase64Position(a1);
-  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition(a1);
-  if ( *a1 == 1 )
+  LastContiguosBase64Position = RtlpGetLastContiguosBase64Position(Vector);
+  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition(Vector);
+  if ( Vector->Version == 1 )
   {
     if ( LastContiguosBase64Position != 15 )
       return -1073741811;
   }
-  else if ( *a1 == 2 && LastContiguosBase64Position != 21 )
+  else if ( Vector->Version == 2 && LastContiguosBase64Position != 21 )
   {
     return -1073741811;
   }
   v4 = LastContiguosBase64Position + 1;
-  if ( a1[v4 + 1] != 46 )
+  if ( Vector->Vector[v4] != 46 )
     return -1073741811;
   while ( v4 < CorrelationVectorEndPosition )
   {
-    if ( a1[v4 + 1] == 46 )
+    if ( Vector->Vector[v4] == 46 )
     {
       ++v4;
       v5 = 0;
@@ -44,14 +45,23 @@ int __stdcall RtlValidateCorrelationVector(_BYTE *a1)
       {
         do
         {
-          if ( (unsigned __int8)(a1[v4 + 1] - 48) > 9u )
+          if ( (unsigned __int8)(Vector->Vector[v4] - 48) > 9u )
             break;
           ++v4;
           ++v5;
         }
         while ( v4 < CorrelationVectorEndPosition );
-        if ( v5 && v5 <= 10 && (v5 != 10 || strncmp(&a1[v6 + 1], "2147483647", 0xAu) <= 0) )
-          continue;
+        if ( v5 )
+        {
+          if ( v5 <= 10 )
+          {
+            if ( v5 != 10 )
+              continue;
+            LODWORD(v7) = 10;
+            if ( strncmp(&Vector->Vector[v6], "2147483647", v7) <= 0 )
+              continue;
+          }
+        }
       }
     }
     return -1073741811;

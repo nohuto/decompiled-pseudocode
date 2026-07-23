@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpTrackProviderBinary @ 0x1406BFE18
+ * XREFs of EtwpTrackProviderBinary @ 0x14061ED28
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpProviderArrivalCallback @ 0x1406AAF5C (EtwpProviderArrivalCallback.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     EtwpProviderArrivalCallback @ 0x14060964C (EtwpProviderArrivalCallback.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall EtwpTrackProviderBinary(__int64 a1, void **a2)
@@ -25,12 +25,18 @@ NTSTATUS __fastcall EtwpTrackProviderBinary(__int64 a1, void **a2)
   __int64 v10; // rax
   __int64 v11; // rcx
   __int64 v12; // rax
-  __int64 v13; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 v16; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int *v15; // rax
-  unsigned int *v16; // rbp
-  unsigned int *v17; // rax
-  unsigned int *v18; // rbp
+  __int64 v18; // rax
+  __int64 v19; // rbp
+  __int64 v20; // rax
+  __int64 v21; // rbp
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
   PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp+10h] BYREF
 
   v3 = *a2;
@@ -65,12 +71,12 @@ NTSTATUS __fastcall EtwpTrackProviderBinary(__int64 a1, void **a2)
         v10 = *(_QWORD *)&v6[2].Version;
         if ( *(_DWORD *)(v8 + v10 + 128) )
         {
-          v15 = EtwpAcquireLoggerContextByLoggerId(a1, *(unsigned __int16 *)(v8 + v10 + 134), 0);
-          v16 = v15;
-          if ( v15 )
+          v18 = EtwpAcquireLoggerContextByLoggerId(a1, *(unsigned __int16 *)(v8 + v10 + 134), 0LL);
+          v19 = v18;
+          if ( v18 )
           {
-            EtwpProviderArrivalCallback((__int64)v15, 1, (__int64)DmaAdapter);
-            EtwpReleaseLoggerContext(v16, 0);
+            EtwpProviderArrivalCallback(v18, 1, (__int64)DmaAdapter);
+            EtwpReleaseLoggerContext(v19, 0LL);
           }
         }
         v11 = *(_QWORD *)&v6[2].Version;
@@ -79,12 +85,12 @@ NTSTATUS __fastcall EtwpTrackProviderBinary(__int64 a1, void **a2)
         {
           if ( *(_DWORD *)(v8 + v12 + 128) )
           {
-            v17 = EtwpAcquireLoggerContextByLoggerId(a1, *(unsigned __int16 *)(v8 + v11 + 134), 0);
-            v18 = v17;
-            if ( v17 )
+            v20 = EtwpAcquireLoggerContextByLoggerId(a1, *(unsigned __int16 *)(v8 + v11 + 134), 0LL);
+            v21 = v20;
+            if ( v20 )
             {
-              EtwpProviderArrivalCallback((__int64)v17, 1, (__int64)DmaAdapter);
-              EtwpReleaseLoggerContext(v18, 0);
+              EtwpProviderArrivalCallback(v20, 1, (__int64)DmaAdapter);
+              EtwpReleaseLoggerContext(v21, 0LL);
             }
           }
         }
@@ -95,13 +101,13 @@ NTSTATUS __fastcall EtwpTrackProviderBinary(__int64 a1, void **a2)
     }
     *(_QWORD *)(*(_QWORD *)&v6[2].Version + 416LL) = 0LL;
     ExReleasePushLockEx(*(_QWORD *)&v6[2].Version + 408LL, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v13 = *(_QWORD *)(*(_QWORD *)&v6[2].Version + 400LL);
-    if ( v13 )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
+    v16 = *(_QWORD *)(*(_QWORD *)&v6[2].Version + 400LL);
+    if ( v16 )
     {
-      *(_QWORD *)(v13 + 416) = 0LL;
+      *(_QWORD *)(v16 + 416) = 0LL;
       ExReleasePushLockEx(*(_QWORD *)(*(_QWORD *)&v6[2].Version + 400LL) + 408LL, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v22, v23, v24);
     }
     HalPutDmaAdapter(DmaAdapter);
     return v5;

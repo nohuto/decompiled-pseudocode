@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInheritAcl @ 0x1800CB760
+ * XREFs of RtlpInheritAcl @ 0x1800C3320
  * Callers:
- *     RtlpConvertAclToAutoInherit @ 0x180139B00 (RtlpConvertAclToAutoInherit.c)
+ *     RtlpConvertAclToAutoInherit @ 0x180137D30 (RtlpConvertAclToAutoInherit.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpInheritAcl2 @ 0x1800CB980 (RtlpInheritAcl2.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpInheritAcl2 @ 0x1800C3540 (RtlpInheritAcl2.c)
  */
 
 __int64 __fastcall RtlpInheritAcl(
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpInheritAcl(
         int a12,
         __int64 a13,
         int a14,
-        unsigned __int64 *a15,
+        PVOID *a15,
         _BYTE *a16,
         _DWORD *a17)
 {
@@ -32,8 +32,8 @@ __int64 __fastcall RtlpInheritAcl(
   void *ProcessHeap; // rsi
   unsigned int v23; // eax
   unsigned int v24; // r13d
-  unsigned __int64 *v25; // r14
-  __int64 Heap; // rax
+  PVOID *v25; // r14
+  PVOID Heap; // rax
   int v28; // [rsp+D0h] [rbp+18h] BYREF
 
   v17 = 0;
@@ -49,7 +49,7 @@ __int64 __fastcall RtlpInheritAcl(
     {
       if ( v24 >= 2 )
         return v17;
-      Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1310720, v23);
+      Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v23);
       *v25 = Heap;
       if ( !Heap )
         break;
@@ -69,19 +69,19 @@ __int64 __fastcall RtlpInheritAcl(
               a13,
               a14,
               (__int64)&v28,
-              Heap,
+              (__int64)Heap,
               (__int64)a16,
               (__int64)a17);
       if ( (v17 & 0x80000000) == 0 )
       {
         if ( !v28 )
         {
-          RtlFreeHeap((__int64)ProcessHeap, 0, *v25);
+          RtlFreeHeap(ProcessHeap, 0, *v25);
           *v25 = 0LL;
         }
         return v17;
       }
-      RtlFreeHeap((__int64)ProcessHeap, 0, *v25);
+      RtlFreeHeap(ProcessHeap, 0, *v25);
       *v25 = 0LL;
       if ( v17 != -1073741789 )
         return v17;

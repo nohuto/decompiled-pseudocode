@@ -12,11 +12,17 @@
  *     AlpcpCreateSection @ 0x14052B184 (AlpcpCreateSection.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, void *a4, _QWORD *a5, _QWORD *a6)
+NTSTATUS __cdecl NtAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r15
-  NTSTATUS Section; // edi
+  int Section; // edi
   _QWORD *v11; // rcx
   _QWORD *v12; // rcx
   ULONG_PTR v13; // rsi
@@ -31,7 +37,7 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0xFFFBFFFF) != 0 || (a2 & 0x40000) != 0 && a3 )
+  if ( (Flags & 0xFFFBFFFF) != 0 || (Flags & 0x40000) != 0 && SectionHandle )
   {
     Section = -1073741811;
   }
@@ -39,17 +45,17 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
   {
     if ( PreviousMode )
     {
-      v11 = a5;
-      if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+      v11 = AlpcSectionHandle;
+      if ( (unsigned __int64)AlpcSectionHandle >= MmUserProbeAddress )
         v11 = (_QWORD *)MmUserProbeAddress;
       *v11 = *v11;
-      v12 = a6;
-      if ( (unsigned __int64)a6 >= MmUserProbeAddress )
+      v12 = ActualSectionSize;
+      if ( (unsigned __int64)ActualSectionSize >= MmUserProbeAddress )
         v12 = (_QWORD *)MmUserProbeAddress;
       *v12 = *v12;
     }
     Section = ObReferenceObjectByHandle(
-                Handle,
+                PortHandle,
                 1u,
                 AlpcPortObjectType,
                 KeGetCurrentThread()->PreviousMode,
@@ -57,12 +63,12 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
                 0LL);
     if ( Section >= 0 )
     {
-      Section = AlpcpCreateSection(Object, a4, (__int64)&BugCheckParameter2);
+      Section = AlpcpCreateSection(Object, (PVOID)SectionSize, (__int64)&BugCheckParameter2);
       if ( Section >= 0 )
       {
         v13 = BugCheckParameter2;
-        *a5 = *(_QWORD *)(BugCheckParameter2 + 24);
-        *a6 = *(_QWORD *)(v13 + 8);
+        *AlpcSectionHandle = *(HANDLE *)(BugCheckParameter2 + 24);
+        *ActualSectionSize = *(_QWORD *)(v13 + 8);
         v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 - 24), 0xFFFFFFFFFFFFFFFFuLL);
         v15 = v14 <= 1;
         v16 = v14 - 1;
@@ -85,5 +91,5 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)Section;
+  return Section;
 }

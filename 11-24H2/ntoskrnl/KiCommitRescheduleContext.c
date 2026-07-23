@@ -1,28 +1,28 @@
 /*
- * XREFs of KiCommitRescheduleContext @ 0x140299450
+ * XREFs of KiCommitRescheduleContext @ 0x1402A7F40
  * Callers:
- *     KiSoftParkElectionUnparkProcessor @ 0x140201414 (KiSoftParkElectionUnparkProcessor.c)
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiHandleDeferredPreemption @ 0x14029602C (KiHandleDeferredPreemption.c)
- *     KiSearchForNewThread @ 0x140296D10 (KiSearchForNewThread.c)
- *     KiExitThreadWaitReschedule @ 0x140297854 (KiExitThreadWaitReschedule.c)
- *     KiGroupSchedulingQuantumEnd @ 0x14030AEFC (KiGroupSchedulingQuantumEnd.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14030F980 (KiDeferGroupSchedulingPreemption.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiSetSystemAffinityThread @ 0x1403398F4 (KiSetSystemAffinityThread.c)
- *     KeYieldExecution @ 0x14033C510 (KeYieldExecution.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x1403C9208 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
- *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403E1850 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405B6C9C (KiFinalizeCoreControlBlockAssignment.c)
- *     KiAdjustCoreIsolationReasonThread @ 0x1405C2378 (KiAdjustCoreIsolationReasonThread.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405C8320 (KiForceParkDutyCycleDpcCallback.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiSearchForNewThread @ 0x1402A59F0 (KiSearchForNewThread.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402D7384 (KiDeferGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402D9F5C (KiGroupSchedulingQuantumEnd.c)
+ *     KiHandleDeferredPreemption @ 0x1402E03DC (KiHandleDeferredPreemption.c)
+ *     KiExitThreadWaitReschedule @ 0x1402E1088 (KiExitThreadWaitReschedule.c)
+ *     KiSetSystemAffinityThread @ 0x140318DD4 (KiSetSystemAffinityThread.c)
+ *     KeYieldExecution @ 0x14031B9F0 (KeYieldExecution.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x140329B04 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x1403A3DA8 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
+ *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403C9EC0 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405B3F5C (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiAdjustCoreIsolationReasonThread @ 0x1405BF948 (KiAdjustCoreIsolationReasonThread.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405C5A50 (KiForceParkDutyCycleDpcCallback.c)
  * Callees:
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
  */
 
 __int64 __fastcall KiCommitRescheduleContext(
@@ -40,7 +40,7 @@ __int64 __fastcall KiCommitRescheduleContext(
 
   v4 = 0;
   v8 = a3 | 2;
-  if ( (WORD2(xmmword_140FC5B10) & 0x400) == 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x400) == 0 )
     v8 = a3;
   for ( i = 0LL; (unsigned int)i < *a1; i = (unsigned int)(i + 1) )
     v4 |= KiCommitRescheduleContextEntry(

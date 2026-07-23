@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlBackoff @ 0x1800D6AD0
+ * XREFs of RtlBackoff @ 0x1800D1E40
  * Callers:
- *     LdrpAddUnicodeStringToSnapsBuffer @ 0x1800144D0 (LdrpAddUnicodeStringToSnapsBuffer.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlpQueueWaitBlockToSRWLock @ 0x18004AC20 (RtlpQueueWaitBlockToSRWLock.c)
- *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x1800D5764 (RtlpHpEnvAcquireGlobalLockExclusive.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x1800D63CC (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcUpdateLocalConfiguration @ 0x1800D6550 (RtlpFcUpdateLocalConfiguration.c)
- *     RtlReleaseSwapReference @ 0x1800D6A4C (RtlReleaseSwapReference.c)
+ *     LdrpAddUnicodeStringToSnapsBuffer @ 0x180040ED0 (LdrpAddUnicodeStringToSnapsBuffer.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x180060800 (RtlpQueueWaitBlockToSRWLock.c)
+ *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x1800D0AD4 (RtlpHpEnvAcquireGlobalLockExclusive.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x1800D173C (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x1800D18C0 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlReleaseSwapReference @ 0x1800D1DBC (RtlReleaseSwapReference.c)
  * Callees:
  *     <none>
  */

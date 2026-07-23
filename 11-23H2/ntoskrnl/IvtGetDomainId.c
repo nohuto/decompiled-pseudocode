@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtGetDomainId @ 0x14052CA0C
+ * XREFs of IvtGetDomainId @ 0x14052CF5C
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x14052B808 (IvtAttachDeviceDomainInternal.c)
- *     IvtUpdateScalableModeContextEntry @ 0x14052DC64 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtAttachDeviceDomainInternal @ 0x14052BD58 (IvtAttachDeviceDomainInternal.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052E1B4 (IvtUpdateScalableModeContextEntry.c)
  * Callees:
- *     IvtGetScalableModePasidTables @ 0x14052CCB4 (IvtGetScalableModePasidTables.c)
+ *     IvtGetScalableModePasidTables @ 0x14052D204 (IvtGetScalableModePasidTables.c)
  */
 
 __int64 __fastcall IvtGetDomainId(__int64 a1, __int64 a2)

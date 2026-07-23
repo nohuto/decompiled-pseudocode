@@ -6,7 +6,7 @@
  *     RtlRunOnceExecuteOnce @ 0x1800213E0 (RtlRunOnceExecuteOnce.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogCFGModuleInfoTelemetry(__int64 a1, __int64 a2)
@@ -41,11 +41,7 @@ char __fastcall LdrpLogCFGModuleInfoTelemetry(__int64 a1, __int64 a2)
   v2 = NtCurrentPeb();
   if ( v2->ProcessHeap )
   {
-    LOBYTE(v2) = RtlRunOnceExecuteOnce(
-                   &LibLoaderTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
-                   0LL,
-                   0LL);
+    LOBYTE(v2) = RtlRunOnceExecuteOnce(&LibLoaderTelemetryInitRunOnce, LibLoaderTelemetryInitOnce, 0LL, 0LL);
     if ( dword_18015F4E8 > 5u )
     {
       LOBYTE(v2) = TlgKeywordOn((TraceLoggingHProvider)&dword_18015F4E8, 0x200000000000uLL);
@@ -74,7 +70,7 @@ char __fastcall LdrpLogCFGModuleInfoTelemetry(__int64 a1, __int64 a2)
         v23 = 4;
         v26 = 4;
         v29 = 8;
-        LOBYTE(v2) = TlgWrite(v5, &unk_18012C1A3, (LPCGUID)8, v6, 8u, &pData);
+        LOBYTE(v2) = TlgWrite(v5, &unk_18012C233, (LPCGUID)8, v6, 8u, &pData);
       }
     }
   }

@@ -11,29 +11,31 @@
  *     LdrpCreateLoaderEvents @ 0x1800CB424 (LdrpCreateLoaderEvents.c)
  */
 
-__int64 __fastcall LdrpCompleteProcessCloning(int a1)
+NTSTATUS __fastcall LdrpCompleteProcessCloning(int a1)
 {
   void *UniqueThread; // rcx
   void *v2; // rcx
-  __int64 v3; // rcx
+  NTSTATUS LoaderEvents; // eax
+  __int64 v4; // rcx
 
   if ( a1 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_180145178 = 0LL;
-    qword_180145170 = (__int64)UniqueThread;
-    dword_18014516C = 1;
-    dword_180145168 = -2;
+    LdrpWorkQueueLock.LockSemaphore = 0LL;
+    LdrpWorkQueueLock.OwningThread = UniqueThread;
+    LdrpWorkQueueLock.RecursionCount = 1;
+    LdrpWorkQueueLock.LockCount = -2;
     v2 = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801421F8 = 0LL;
-    qword_1801421F0 = (__int64)v2;
-    dword_1801421E8 = -2;
-    dword_1801421EC = 1;
-    if ( (int)LdrpCreateLoaderEvents() < 0 )
-      ZwTerminateProcess();
+    LdrpLoaderLock.LockSemaphore = 0LL;
+    LdrpLoaderLock.OwningThread = v2;
+    LdrpLoaderLock.LockCount = -2;
+    LdrpLoaderLock.RecursionCount = 1;
+    LoaderEvents = LdrpCreateLoaderEvents();
+    if ( LoaderEvents < 0 )
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, LoaderEvents);
     LdrpMapAndSnapWork = 0LL;
   }
-  RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
-  LdrpReleaseLoaderLock(v3, 13, 0);
+  RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+  LdrpReleaseLoaderLock(v4, 13, 0);
   return LdrpDropLastInProgressCount();
 }

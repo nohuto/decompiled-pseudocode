@@ -73,7 +73,7 @@ void __fastcall KiInterruptSubDispatchNoLock(__int64 a1, __int64 a2, __int64 Cur
   v16 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v4 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v16 )
-    EtwGetKernelTraceTimestamp(v19, 536887296LL, CurrentThread, a4);
+    EtwGetKernelTraceTimestamp(v19, 0x20004000u);
   v17 = KiCallInterruptServiceRoutine(v5, 0LL, CurrentThread, a4);
   if ( *(_BYTE *)(v4 + 243) )
   {

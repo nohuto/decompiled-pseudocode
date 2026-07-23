@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1404CEAE4
+ * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1404C7CB0
  * Callers:
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x14094BCC0 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1408F0230 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int64 a2)
@@ -45,7 +45,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     LastRebalanceQpc = (unsigned __int16 *)Process[1].LastRebalanceQpc;
   EtwpQueryProcessCommandLine(Process, P);
   v6 = P[1];
-  if ( (unsigned int)dword_140E08888 > 5 && tlgKeywordOn((__int64)&dword_140E08888, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E088F8 > 5 && tlgKeywordOn((__int64)&dword_140E088F8, 0x400000000000LL) )
   {
     v7 = *(_DWORD *)(*(_QWORD *)(a1 + 216) + 40LL);
     v15 = &v10;
@@ -66,7 +66,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v24 = 2LL;
     v25 = v6;
     v26[1] = 0;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E08888, (unsigned __int8 *)byte_1400515E5, 0LL, 0LL, 8u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E088F8, (unsigned __int8 *)&byte_1400520DF, 0LL, 0LL, 8u, &v14);
   }
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmDeleteDevicePanelRegKeyWorker @ 0x140A65FCC
+ * XREFs of _CmDeleteDevicePanelRegKeyWorker @ 0x140A6627C
  * Callers:
- *     _CmDeleteDevicePanelRegKey @ 0x140A65E8C (_CmDeleteDevicePanelRegKey.c)
+ *     _CmDeleteDevicePanelRegKey @ 0x140A6613C (_CmDeleteDevicePanelRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862E48 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x140A66700 (_CmGetDevicePanelRegKeyPath.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A3BC (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140863088 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x140A669B0 (_CmGetDevicePanelRegKeyPath.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A66C (_SysCtxRegOpenCurrentUserKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

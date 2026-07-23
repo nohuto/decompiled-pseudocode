@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAdjustTimersAfterDripsExit @ 0x140513F5C
+ * XREFs of KiAdjustTimersAfterDripsExit @ 0x14051419C
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C94E0 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KiAdjustTimerDueTimes @ 0x14039E16C (KiAdjustTimerDueTimes.c)
+ *     KiAdjustTimerDueTimes @ 0x14039E2BC (KiAdjustTimerDueTimes.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

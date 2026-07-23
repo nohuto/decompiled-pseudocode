@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDoneWithThisPageGetAnother @ 0x140AF46EC
+ * XREFs of MiDoneWithThisPageGetAnother @ 0x140AF6D60
  * Callers:
- *     MiUpdateForkMaps @ 0x140AF443C (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x140AF6AB0 (MiUpdateForkMaps.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     MiGetNextPageColor @ 0x14044ADA0 (MiGetNextPageColor.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiFinishLastForkPageTable @ 0x1404D069C (MiFinishLastForkPageTable.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     MiGetNextPageColor @ 0x140442ED0 (MiGetNextPageColor.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiFinishLastForkPageTable @ 0x1404CA0CC (MiFinishLastForkPageTable.c)
  */
 
 __int64 __fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, _KPROCESS *a3)

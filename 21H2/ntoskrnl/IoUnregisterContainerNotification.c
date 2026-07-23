@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterContainerNotification @ 0x140894C80
+ * XREFs of IoUnregisterContainerNotification @ 0x140894DE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExUnregisterCallback @ 0x140381970 (ExUnregisterCallback.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExUnregisterCallback @ 0x1403814C0 (ExUnregisterCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
@@ -16,8 +16,11 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
   struct _KTHREAD *CurrentThread; // rax
   PVOID *v3; // rax
   PVOID *v4; // rbx
-  PVOID *v5; // rcx
-  PVOID **v6; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  PVOID *v8; // rcx
+  PVOID **v9; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -31,15 +34,15 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
     {
       HalPutDmaAdapter((PADAPTER_OBJECT)v4[2]);
       ExUnregisterCallback(CallbackRegistration);
-      v5 = (PVOID *)*v4;
-      if ( *((PVOID **)*v4 + 1) != v4 || (v6 = (PVOID **)v4[1], *v6 != v4) )
+      v8 = (PVOID *)*v4;
+      if ( *((PVOID **)*v4 + 1) != v4 || (v9 = (PVOID **)v4[1], *v9 != v4) )
         __fastfail(3u);
-      *v6 = v5;
-      v5[1] = v6;
+      *v9 = v8;
+      v8[1] = v9;
       ExFreePoolWithTag(v4, 0);
       break;
     }
   }
   ExReleasePushLockEx((ULONG_PTR)&IopSessionNotificationLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
 }

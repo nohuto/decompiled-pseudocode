@@ -23,16 +23,16 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   size_t v6; // r15
   const void *v7; // r12
   volatile signed __int64 *v9; // r14
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rbx
+  PRTL_BALANCED_NODE v10; // rax
+  PRTL_BALANCED_NODE v11; // rbx
   _DWORD *v12; // rdi
   __int32 i; // r14d
   void *v14; // rcx
   struct _KPROCESS *v16; // r12
   _KPROCESS *Process; // r13
   _QWORD *PoolWithTag; // rdi
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rdi
+  PRTL_BALANCED_NODE v19; // rax
+  PRTL_BALANCED_NODE v20; // rdi
   _DWORD *v21; // [rsp+30h] [rbp-D8h]
   NTSTATUS v22; // [rsp+38h] [rbp-D0h]
   PVOID P; // [rsp+40h] [rbp-C8h]
@@ -55,9 +55,9 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   v10 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   v11 = v10;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v10, (__int16 *)(a1 + 80));
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), (__int64)v10, (__int16 *)(a1 + 80));
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   if ( a5 && *(_DWORD *)(a1 + 96) != a4 )
   {
     if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -104,9 +104,9 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   v19 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   v20 = v19;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v19, (__int16 *)(a1 + 80));
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), (__int64)v19, (__int16 *)(a1 + 80));
   if ( v20 )
-    *(_BYTE *)(v20 + 26) |= 1u;
+    BYTE2(v20[1].Left) |= 1u;
   v12 = *(_DWORD **)(a1 + 88);
   if ( v12 == (_DWORD *)1 )
     v12 = 0LL;

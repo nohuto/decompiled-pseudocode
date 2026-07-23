@@ -25,7 +25,11 @@
  *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __cdecl NtQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
   SIZE_T v6; // rsi
   __int64 v8; // rdx
@@ -35,7 +39,7 @@ __int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3,
   __int64 v12; // rcx
   __int64 v13; // r8
   __int64 v14; // r9
-  int v15; // ebx
+  NTSTATUS v15; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v17; // rcx
   size_t v18; // r14
@@ -59,7 +63,7 @@ __int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3,
   _OWORD v37[3]; // [rsp+98h] [rbp-1A0h] BYREF
   _OWORD v38[19]; // [rsp+D0h] [rbp-168h] BYREF
 
-  v6 = a2;
+  v6 = BufferLength;
   v36 = 0LL;
   v35 = 0;
   memset(v37, 0, sizeof(v37));
@@ -96,13 +100,13 @@ __int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3,
   if ( PreviousMode == 1 )
   {
     v17 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v17 = (__int64)a4;
+    if ( (unsigned __int64)RequiredSize < 0x7FFFFFFF0000LL )
+      v17 = (__int64)RequiredSize;
     *(_DWORD *)v17 = *(_DWORD *)v17;
-    ProbeForWrite(a3, v6, 4u);
+    ProbeForWrite(Buffer, v6, 4u);
   }
   v15 = ObReferenceObjectByNameEx(
-          a1,
+          (__int64)TargetKey,
           0LL,
           131097,
           (__int64)CmKeyObjectType,
@@ -139,12 +143,12 @@ LABEL_8:
         v15 = DWORD1(v33);
         CmpUnlockRegistry(v21, v20, v22, v23);
         v29 = 0;
-        *a4 = v33;
+        *RequiredSize = v33;
         v11 = (char *)Src[1];
-        *a3 = *(_DWORD *)Src[1];
+        *(_DWORD *)Buffer = *(_DWORD *)Src[1];
         if ( v15 >= 0 )
         {
-          v24 = v11 - (char *)a3;
+          v24 = v11 - (_BYTE *)Buffer;
           v25 = 0;
           if ( *(_DWORD *)v11 )
           {
@@ -155,7 +159,7 @@ LABEL_8:
             }
             while ( v25 < *(_DWORD *)Src[1] );
           }
-          memmove(a3, v11, v18);
+          memmove(Buffer, v11, v18);
           v15 = 0;
         }
       }
@@ -176,5 +180,5 @@ LABEL_22:
   if ( Src[1] )
     CmSiFreeMemory((PPRIVILEGE_SET)Src[1]);
   CmCleanupThreadInfo((__int64 *)&v36);
-  return (unsigned int)v15;
+  return v15;
 }

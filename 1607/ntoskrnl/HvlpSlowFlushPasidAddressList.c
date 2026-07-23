@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpSlowFlushPasidAddressList @ 0x1401BEB1C
+ * XREFs of HvlpSlowFlushPasidAddressList @ 0x1401BEA00
  * Callers:
- *     HvlSvmFlushPasid @ 0x1401BE320 (HvlSvmFlushPasid.c)
+ *     HvlSvmFlushPasid @ 0x1401BE204 (HvlSvmFlushPasid.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
- *     HvlpFlushPasidAddressSpace @ 0x1401BEA2C (HvlpFlushPasidAddressSpace.c)
- *     HvlpCopyFlushVaList @ 0x1401C15D0 (HvlpCopyFlushVaList.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
+ *     HvlpFlushPasidAddressSpace @ 0x1401BE910 (HvlpFlushPasidAddressSpace.c)
+ *     HvlpCopyFlushVaList @ 0x1401C14B4 (HvlpCopyFlushVaList.c)
  */
 
 char __fastcall HvlpSlowFlushPasidAddressList(unsigned int a1, unsigned int a2, unsigned int a3, __int64 a4)

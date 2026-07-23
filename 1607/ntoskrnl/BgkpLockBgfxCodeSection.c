@@ -1,15 +1,15 @@
 /*
  * XREFs of BgkpLockBgfxCodeSection @ 0x140725674
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x140126E68 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1401273D8 (BgkNotifyDisplayOwnershipChange.c)
  *     BgkResumePrepare @ 0x1403CA94C (BgkResumePrepare.c)
  *     BgkInitialize @ 0x1407D3DF4 (BgkInitialize.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MmLockPagableDataSection @ 0x1404830A8 (MmLockPagableDataSection.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MmLockPagableDataSection @ 0x140481DFC (MmLockPagableDataSection.c)
  */
 
 __int64 BgkpLockBgfxCodeSection()
@@ -25,22 +25,22 @@ __int64 BgkpLockBgfxCodeSection()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328B30, 0LL, 0);
-  v2 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328B30, 0LL);
+  v1 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328B70, 0LL, 0);
+  v2 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328B70, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&qword_140328B30, v1, (ULONG_PTR)&qword_140328B30);
+    ExfAcquirePushLockExclusiveEx(&qword_140328B70, v1, (ULONG_PTR)&qword_140328B70);
   if ( v3 )
     v3[26] |= 1u;
-  v4 = dword_140328990;
-  if ( !dword_140328990 )
+  v4 = dword_1403289D0;
+  if ( !dword_1403289D0 )
   {
     ImageSectionHandle = MmLockPagableDataSection(BgkpLockBgfxCodeSection);
-    v4 = dword_140328990;
+    v4 = dword_1403289D0;
   }
-  dword_140328990 = v4 + 1;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328B30, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328B30);
-  KeAbPostRelease((ULONG_PTR)&qword_140328B30);
+  dword_1403289D0 = v4 + 1;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328B70, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328B70);
+  KeAbPostRelease((ULONG_PTR)&qword_140328B70);
   return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v5, v6, v7);
 }

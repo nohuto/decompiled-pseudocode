@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpGetGlobalLocaleSection @ 0x140612BDC
+ * XREFs of ExpGetGlobalLocaleSection @ 0x1406A268C
  * Callers:
- *     NtInitializeNlsFiles @ 0x140612AA0 (NtInitializeNlsFiles.c)
+ *     NtInitializeNlsFiles @ 0x1406A2550 (NtInitializeNlsFiles.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     RtlStringCchCatW @ 0x140371960 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     RtlStringCchCatW @ 0x1403714B0 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1403FAEC0 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpGetGlobalLocaleSection(_QWORD *a1)
@@ -31,13 +31,16 @@ NTSTATUS __fastcall ExpGetGlobalLocaleSection(_QWORD *a1)
   PVOID v8; // rbx
   PVOID v9; // rbx
   char v10; // si
-  const wchar_t *v11; // r8
-  __int64 v12; // rdx
-  wchar_t *v13; // rcx
-  wchar_t v14; // ax
-  wchar_t *v15; // rax
-  NTSTATUS v16; // eax
-  HANDLE v17; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  const wchar_t *v14; // r8
+  __int64 v15; // rdx
+  wchar_t *v16; // rcx
+  wchar_t v17; // ax
+  wchar_t *v18; // rax
+  NTSTATUS v19; // eax
+  HANDLE v20; // rcx
   HANDLE FileHandle; // [rsp+48h] [rbp-C0h] BYREF
   PVOID Object; // [rsp+50h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-B0h] BYREF
@@ -47,9 +50,9 @@ NTSTATUS __fastcall ExpGetGlobalLocaleSection(_QWORD *a1)
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-68h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-58h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+C0h] [rbp-48h] BYREF
-  int v27; // [rsp+C4h] [rbp-44h]
-  int v28; // [rsp+C8h] [rbp-40h]
-  int v29; // [rsp+CCh] [rbp-3Ch]
+  int v30; // [rsp+C4h] [rbp-44h]
+  int v31; // [rsp+C8h] [rbp-40h]
+  int v32; // [rsp+CCh] [rbp-3Ch]
   wchar_t pszDest[264]; // [rsp+D8h] [rbp-30h] BYREF
 
   v1 = NlsLocaleSectionPointer;
@@ -83,33 +86,33 @@ LABEL_3:
            KeyValueInformation,
            0x14u,
            &ResultLength) >= 0
-      && v27 == 4
-      && v28 == 4 )
+      && v30 == 4
+      && v31 == 4 )
     {
-      v3 = v29;
-      v11 = 0LL;
-      if ( v29 == 5243136 )
-        v11 = L"loc2008.nls";
-      if ( v11 )
+      v3 = v32;
+      v14 = 0LL;
+      if ( v32 == 5243136 )
+        v14 = L"loc2008.nls";
+      if ( v14 )
       {
-        v12 = 260LL;
-        v13 = pszDest;
+        v15 = 260LL;
+        v16 = pszDest;
         do
         {
-          if ( v12 == -2147483386 )
+          if ( v15 == -2147483386 )
             break;
-          v14 = *(wchar_t *)((char *)v13 + (char *)L"\\SystemRoot\\System32\\" - (char *)pszDest);
-          if ( !v14 )
+          v17 = *(wchar_t *)((char *)v16 + (char *)L"\\SystemRoot\\System32\\" - (char *)pszDest);
+          if ( !v17 )
             break;
-          *v13++ = v14;
-          --v12;
+          *v16++ = v17;
+          --v15;
         }
-        while ( v12 );
-        v15 = v13 - 1;
-        if ( v12 )
-          v15 = v13;
-        *v15 = 0;
-        if ( v12 && RtlStringCchCatW(pszDest, 0x104uLL, v11) >= 0 )
+        while ( v15 );
+        v18 = v16 - 1;
+        if ( v15 )
+          v18 = v16;
+        *v18 = 0;
+        if ( v15 && RtlStringCchCatW(pszDest, 0x104uLL, v14) >= 0 )
         {
           RtlInitUnicodeString(&DestinationString, pszDest);
           ObjectAttributes.ObjectName = &DestinationString;
@@ -117,11 +120,11 @@ LABEL_3:
           ObjectAttributes.RootDirectory = 0LL;
           ObjectAttributes.Attributes = 576;
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          v16 = ZwOpenFile(&FileHandle, 0x100000u, &ObjectAttributes, &IoStatusBlock, 1u, 0);
-          v17 = FileHandle;
-          if ( v16 < 0 )
-            v17 = 0LL;
-          FileHandle = v17;
+          v19 = ZwOpenFile(&FileHandle, 0x100000u, &ObjectAttributes, &IoStatusBlock, 1u, 0);
+          v20 = FileHandle;
+          if ( v19 < 0 )
+            v20 = 0LL;
+          FileHandle = v20;
         }
       }
     }
@@ -167,7 +170,7 @@ LABEL_11:
     if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
       ExfTryToWakePushLock(&NlsSectionLock);
     KeAbPostRelease((ULONG_PTR)&NlsSectionLock);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread, v11, v12, v13);
     goto LABEL_3;
   }
   ObjectAttributes.ObjectName = (PUNICODE_STRING)L">@";

@@ -45,7 +45,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   __int64 *v20; // rcx
   void **v21; // rcx
   void **v22; // rax
-  KIRQL *v23; // rcx
+  UCHAR *v23; // rcx
   __int64 v24; // rax
   _QWORD *v25; // rcx
   int v26; // eax
@@ -55,7 +55,7 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   __int64 *v30; // rbx
   __int64 v31; // rcx
   PVOID *v32; // rax
-  KIRQL *v33; // rcx
+  UCHAR *v33; // rcx
   unsigned int v34; // ecx
   unsigned int v35; // ecx
   PIRP v36; // rdi
@@ -105,8 +105,8 @@ __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
   volatile __int64 *v81; // [rsp+60h] [rbp-68h]
   _QWORD *v82; // [rsp+60h] [rbp-68h]
   volatile __int64 *v83; // [rsp+60h] [rbp-68h]
-  KIRQL *v84; // [rsp+70h] [rbp-58h]
-  KIRQL *v85; // [rsp+70h] [rbp-58h]
+  UCHAR *v84; // [rsp+70h] [rbp-58h]
+  UCHAR *v85; // [rsp+70h] [rbp-58h]
   _BYTE v86[24]; // [rsp+78h] [rbp-50h] BYREF
   __int64 v87; // [rsp+90h] [rbp-38h]
   IRP *v88; // [rsp+E0h] [rbp+18h]
@@ -167,7 +167,7 @@ LABEL_10:
             v73 = v22;
             if ( v22 == v21 )
               break;
-            v23 = (KIRQL *)v22[2];
+            v23 = (UCHAR *)v22[2];
             v81 = (volatile __int64 *)v23;
             v84 = v23;
             if ( !v15 )
@@ -175,7 +175,7 @@ LABEL_10:
               if ( (unsigned __int8)FsRtlpOplockKeysEqual(*(_QWORD *)(a2 + 48), v22[3], a4) )
                 goto LABEL_18;
               v22 = v73;
-              v23 = (KIRQL *)v81;
+              v23 = (UCHAR *)v81;
             }
             if ( (a4 & 0x10010000) != 0 )
               return (unsigned int)-1073739511;
@@ -263,7 +263,7 @@ LABEL_177:
         v74 = v32;
         if ( v32 == (PVOID *)v31 )
           goto LABEL_19;
-        v33 = (KIRQL *)v32[2];
+        v33 = (UCHAR *)v32[2];
         v83 = (volatile __int64 *)v33;
         v85 = v33;
         if ( !v15 )
@@ -271,7 +271,7 @@ LABEL_177:
           if ( FsRtlOplockKeysEqual(*(PFILE_OBJECT *)(a2 + 48), (PFILE_OBJECT)v32[3]) )
             goto LABEL_166;
           v32 = v74;
-          v33 = (KIRQL *)v83;
+          v33 = (UCHAR *)v83;
         }
         if ( (a4 & 0x10010000) != 0 )
           return (unsigned int)-1073739511;

@@ -3,25 +3,25 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlQueryActivationContextApplicationSettings @ 0x180080A50 (RtlQueryActivationContextApplicationSettings.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlQueryActivationContextApplicationSettings @ 0x180080A40 (RtlQueryActivationContextApplicationSettings.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 char RtlIsLongPathAwareProcessByManifest()
 {
   struct _PEB *v0; // rax
-  _WORD v2[8]; // [rsp+40h] [rbp-28h] BYREF
+  WCHAR v2[8]; // [rsp+40h] [rbp-28h] BYREF
 
   if ( !byte_180153515 )
   {
-    if ( (int)RtlQueryActivationContextApplicationSettings(
-                0LL,
-                0LL,
-                L"http://schemas.microsoft.com/SMI/2016/WindowsSettings",
-                L"longPathAware",
-                v2,
-                8uLL,
-                0LL) < 0
+    if ( RtlQueryActivationContextApplicationSettings(
+           0,
+           0LL,
+           (PWSTR)L"http://schemas.microsoft.com/SMI/2016/WindowsSettings",
+           (PWSTR)L"longPathAware",
+           v2,
+           8uLL,
+           0LL) < 0
       || ((v2[0] - 84) & 0xFFDF) != 0 )
     {
       byte_180153514 = 0;

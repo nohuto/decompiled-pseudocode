@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUnlockKobjectArray @ 0x14029A548
+ * XREFs of KiUnlockKobjectArray @ 0x14022AAB8
  * Callers:
- *     KiWaitForAllObjects @ 0x14029A090 (KiWaitForAllObjects.c)
+ *     KiWaitForAllObjects @ 0x14022A600 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

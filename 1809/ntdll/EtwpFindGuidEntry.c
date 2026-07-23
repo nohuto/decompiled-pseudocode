@@ -8,64 +8,64 @@
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     EtwpReferenceUmGuidEntry @ 0x180050DC4 (EtwpReferenceUmGuidEntry.c)
- *     EtwpGuidEntryCompare @ 0x180086E50 (EtwpGuidEntryCompare.c)
+ *     EtwpGuidEntryCompare @ 0x180086E60 (EtwpGuidEntryCompare.c)
  */
 
-_QWORD *__fastcall EtwpFindGuidEntry(_QWORD *a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+_QWORD *__fastcall EtwpFindGuidEntry(_QWORD *a1)
 {
-  unsigned __int64 v5; // rbx
-  int v6; // esi
+  unsigned __int64 Root; // rbx
+  int v3; // esi
   _QWORD *i; // rdi
-  int v8; // eax
-  unsigned __int64 v9; // rax
-  _QWORD *v10; // rcx
-  _QWORD **v11; // rax
-  _QWORD *v12; // rcx
+  int v5; // eax
+  unsigned __int64 v6; // rax
+  _QWORD *v7; // rcx
+  _QWORD **v8; // rax
+  _QWORD *v9; // rcx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  v5 = EtwpGuidEntryTable;
-  if ( (qword_180166410 & 1) != 0 && EtwpGuidEntryTable )
-    v5 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
-  v6 = qword_180166410 & 1;
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 && EtwpGuidEntryTable.Root )
+    Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
+  v3 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
   i = 0LL;
-  while ( v5 )
+  while ( Root )
   {
-    v8 = EtwpGuidEntryCompare(a1, v5);
-    if ( v8 >= 0 )
+    v5 = EtwpGuidEntryCompare(a1, Root);
+    if ( v5 >= 0 )
     {
-      if ( v8 > 0 )
+      if ( v5 > 0 )
       {
-        v9 = *(_QWORD *)(v5 + 8);
+        v6 = *(_QWORD *)(Root + 8);
         goto LABEL_10;
       }
-      i = (_QWORD *)v5;
+      i = (_QWORD *)Root;
     }
-    v9 = *(_QWORD *)v5;
+    v6 = *(_QWORD *)Root;
 LABEL_10:
-    if ( v6 && v9 )
-      v5 ^= v9;
+    if ( v3 && v6 )
+      Root ^= v6;
     else
-      v5 = v9;
+      Root = v6;
   }
   if ( i )
   {
     while ( !(unsigned __int8)EtwpReferenceUmGuidEntry(i) )
     {
-      v11 = (_QWORD **)i[1];
-      if ( v11 )
+      v8 = (_QWORD **)i[1];
+      if ( v8 )
       {
-        v12 = *v11;
-        for ( i = (_QWORD *)i[1]; v12; v12 = (_QWORD *)*v12 )
-          i = v12;
+        v9 = *v8;
+        for ( i = (_QWORD *)i[1]; v9; v9 = (_QWORD *)*v9 )
+          i = v9;
       }
       else
       {
         while ( 1 )
         {
           i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !i || (_QWORD *)*i == v10 )
+          if ( !i || (_QWORD *)*i == v7 )
             break;
-          v10 = i;
+          v7 = i;
         }
       }
       if ( !i || *a1 != i[3] || a1[1] != i[4] )

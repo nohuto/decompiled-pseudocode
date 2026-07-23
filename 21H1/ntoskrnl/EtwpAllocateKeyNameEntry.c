@@ -6,7 +6,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-PVOID __fastcall EtwpAllocateKeyNameEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall EtwpAllocateKeyNameEntry(_RTL_AVL_TABLE *a1, unsigned int a2)
 {
-  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x74777445u);
+  return ExAllocatePoolWithTag(PagedPool, a2, 0x74777445u);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtRevertContainerImpersonation @ 0x14037D530
+ * XREFs of NtRevertContainerImpersonation @ 0x14037F2E0
  * Callers:
  *     <none>
  * Callees:
- *     PspRevertContainerImpersonation @ 0x14037D900 (PspRevertContainerImpersonation.c)
+ *     PspRevertContainerImpersonation @ 0x14037F6B0 (PspRevertContainerImpersonation.c)
  */
 
-__int64 NtRevertContainerImpersonation()
+NTSTATUS NtRevertContainerImpersonation(void)
 {
   return PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread());
 }

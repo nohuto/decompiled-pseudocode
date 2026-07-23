@@ -6,11 +6,27 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08B0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlCompressBuffer(unsigned __int16 a1)
+NTSTATUS __cdecl RtlCompressBuffer(
+        USHORT CompressionFormatAndEngine,
+        PUCHAR UncompressedBuffer,
+        ULONG UncompressedBufferSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        ULONG UncompressedChunkSize,
+        PULONG FinalCompressedSize,
+        PVOID WorkSpace)
 {
-  if ( (unsigned __int8)a1 < 2u )
-    return 3221225485LL;
-  if ( (unsigned __int8)a1 > 4u )
-    return 3221226079LL;
-  return RtlCompressBufferProcs[(unsigned __int8)a1](a1 & 0xFF00);
+  if ( (unsigned __int8)CompressionFormatAndEngine < 2u )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormatAndEngine > 4u )
+    return -1073741217;
+  return RtlCompressBufferProcs[(unsigned __int8)CompressionFormatAndEngine](
+           CompressionFormatAndEngine & 0xFF00,
+           UncompressedBuffer,
+           UncompressedBufferSize,
+           CompressedBuffer,
+           CompressedBufferSize,
+           UncompressedChunkSize,
+           FinalCompressedSize,
+           WorkSpace);
 }

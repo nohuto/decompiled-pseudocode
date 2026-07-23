@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenKeyTransacted @ 0x14015BEC0
+ * XREFs of ZwOpenKeyTransacted @ 0x14015C430
  * Callers:
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenKeyTransacted(
         PHANDLE KeyHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwOpenKeyTransacted(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(KeyHandle);
 }

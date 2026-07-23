@@ -16,69 +16,69 @@
  *     RtlGUIDFromString @ 0x140959130 (RtlGUIDFromString.c)
  */
 
-__int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
+DWORD __cdecl RtlRaiseCustomSystemEventTrigger(PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG TriggerConfig)
 {
-  NTSTATUS updated; // ebx
-  __int64 Memory; // rdi
-  int v4; // [rsp+40h] [rbp-9h] BYREF
-  int v5; // [rsp+44h] [rbp-5h] BYREF
-  unsigned int v6; // [rsp+48h] [rbp-1h] BYREF
+  signed int updated; // ebx
+  _DWORD *Buffer; // rdi
+  ULONG BufferSize; // [rsp+40h] [rbp-9h] BYREF
+  int InfoBuffer; // [rsp+44h] [rbp-5h] BYREF
+  ULONG ChangeStamp; // [rsp+48h] [rbp-1h] BYREF
   PVOID P; // [rsp+50h] [rbp+7h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp+Fh] BYREF
   __int128 v9; // [rsp+68h] [rbp+1Fh]
-  __int64 v10; // [rsp+78h] [rbp+2Fh] BYREF
+  WNF_STATE_NAME StateName; // [rsp+78h] [rbp+2Fh] BYREF
   GUID Guid; // [rsp+80h] [rbp+37h] BYREF
 
-  v5 = 0;
-  v6 = 0;
+  InfoBuffer = 0;
+  ChangeStamp = 0;
   P = 0LL;
-  v10 = WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
+  StateName = (WNF_STATE_NAME)WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
   v9 = 0LL;
   DestinationString = 0LL;
   Guid = 0LL;
-  if ( a1 )
+  if ( TriggerConfig )
   {
-    RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 8));
+    RtlInitUnicodeString(&DestinationString, TriggerConfig->TriggerId);
     updated = RtlGUIDFromString(&DestinationString, &Guid);
     if ( updated < 0 )
-      return (unsigned int)updated;
+      return updated;
     if ( _InterlockedExchange(&RtlpCtPublishInProgress, 1) )
-      return (unsigned int)-1073741823;
-    v4 = 4096;
-    Memory = RtlpCtAllocateMemory(4096LL);
-    if ( Memory )
+      return -1073741823;
+    BufferSize = 4096;
+    Buffer = (_DWORD *)RtlpCtAllocateMemory(4096LL);
+    if ( Buffer )
     {
-      updated = ZwQueryWnfStateData(&v10, 0LL, 0LL, &v6, Memory, &v4);
+      updated = ZwQueryWnfStateData(&StateName, 0LL, 0LL, &ChangeStamp, Buffer, &BufferSize);
       if ( updated >= 0 )
       {
-        updated = ZwQueryWnfStateNameInformation(&v10, 2LL, 0LL, &v5, 4);
+        updated = ZwQueryWnfStateNameInformation(&StateName, WnfInfoIsQuiescent, 0LL, &InfoBuffer, 4u);
         if ( updated >= 0 )
         {
-          if ( v5 )
+          if ( InfoBuffer )
           {
-            updated = ZwQueryWnfStateNameInformation(&v10, 1LL, 0LL, &v5, 4);
+            updated = ZwQueryWnfStateNameInformation(&StateName, WnfInfoSubscribersPresent, 0LL, &InfoBuffer, 4u);
             if ( updated >= 0 )
             {
-              if ( v5 )
+              if ( InfoBuffer )
               {
-                v4 = 4096;
-                if ( Memory == -8 )
+                BufferSize = 4096;
+                if ( Buffer == (_DWORD *)-8LL )
                 {
                   updated = -1073741811;
                 }
                 else
                 {
-                  *(_OWORD *)(Memory + 8) = v9;
-                  *(GUID *)(Memory + 24) = Guid;
-                  *(_DWORD *)(Memory + 40) = 16;
-                  v4 = 36;
-                  *(_DWORD *)Memory = 0;
-                  *(_DWORD *)(Memory + 4) = -1;
-                  *(_DWORD *)Memory = 4 * (v4 & 0xFFF | 0x100000);
-                  updated = RtlpCtContextInit(&P, v6);
+                  *(_OWORD *)(Buffer + 2) = v9;
+                  *(GUID *)(Buffer + 6) = Guid;
+                  Buffer[10] = 16;
+                  BufferSize = 36;
+                  *Buffer = 0;
+                  Buffer[1] = -1;
+                  *Buffer = 4 * (BufferSize & 0xFFF | 0x100000);
+                  updated = RtlpCtContextInit(&P, ChangeStamp);
                   if ( updated >= 0 )
                   {
-                    updated = ZwUpdateWnfStateData(&v10, Memory, (unsigned int)(v4 + 8), 0LL, 0LL, v6, 1);
+                    updated = ZwUpdateWnfStateData(&StateName, Buffer, BufferSize + 8, 0LL, 0LL, ChangeStamp, 1u);
                     if ( updated >= 0 )
                     {
                       RtlpCtQueueWorkItem(*(_QWORD *)P);
@@ -107,11 +107,11 @@ __int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
       updated = -1073741670;
     }
     _InterlockedExchange(&RtlpCtPublishInProgress, 0);
-    if ( !Memory )
-      return (unsigned int)updated;
+    if ( !Buffer )
+      return updated;
 LABEL_23:
-    RtlpCtFreeMemory(Memory);
-    return (unsigned int)updated;
+    RtlpCtFreeMemory(Buffer);
+    return updated;
   }
-  return (unsigned int)-1073741811;
+  return -1073741811;
 }

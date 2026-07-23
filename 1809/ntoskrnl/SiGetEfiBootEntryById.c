@@ -1,7 +1,7 @@
 /*
- * XREFs of SiGetEfiBootEntryById @ 0x1408F5298
+ * XREFs of SiGetEfiBootEntryById @ 0x1408F6558
  * Callers:
- *     SiGetEspFromFirmware @ 0x1408F566C (SiGetEspFromFirmware.c)
+ *     SiGetEspFromFirmware @ 0x1408F692C (SiGetEspFromFirmware.c)
  * Callees:
  *     <none>
  */

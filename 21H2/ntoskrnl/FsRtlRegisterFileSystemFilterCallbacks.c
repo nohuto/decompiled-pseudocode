@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlRegisterFileSystemFilterCallbacks @ 0x14039AEB0
+ * XREFs of FsRtlRegisterFileSystemFilterCallbacks @ 0x14039B000
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlRegisterFileSystemFilterCallbacks(

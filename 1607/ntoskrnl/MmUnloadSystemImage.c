@@ -1,17 +1,17 @@
 /*
- * XREFs of MmUnloadSystemImage @ 0x140545D68
+ * XREFs of MmUnloadSystemImage @ 0x1405462A8
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
- *     MiSessionUnloadAllImages @ 0x140531F68 (MiSessionUnloadAllImages.c)
- *     MiLoadImportDll @ 0x140544204 (MiLoadImportDll.c)
- *     IopDeleteDriver @ 0x140545C94 (IopDeleteDriver.c)
- *     PnpReplacePartitionUnit @ 0x1406430D4 (PnpReplacePartitionUnit.c)
- *     PnprLoadPluginDriver @ 0x140644B80 (PnprLoadPluginDriver.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
+ *     MiSessionUnloadAllImages @ 0x1405324A8 (MiSessionUnloadAllImages.c)
+ *     MiLoadImportDll @ 0x140544744 (MiLoadImportDll.c)
+ *     IopDeleteDriver @ 0x1405461D4 (IopDeleteDriver.c)
+ *     PnpReplacePartitionUnit @ 0x1406431B8 (PnpReplacePartitionUnit.c)
+ *     PnprLoadPluginDriver @ 0x140644C64 (PnprLoadPluginDriver.c)
  * Callees:
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  */
 
 __int64 __fastcall MmUnloadSystemImage(ULONG_PTR BugCheckParameter2)

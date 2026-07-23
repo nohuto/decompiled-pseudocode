@@ -68,7 +68,7 @@ __int64 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, unsig
   __int64 v50; // rcx
   int v51; // r8d
   __int64 v52; // rax
-  unsigned int v53[18]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v53[9]; // [rsp+30h] [rbp-48h] BYREF
   int v54; // [rsp+90h] [rbp+18h] BYREF
 
   v8 = a3 | a1[5] & 0x11000001;
@@ -279,7 +279,7 @@ LABEL_37:
       {
         if ( !RtlpHpLargeFree(a1, a2, v12) )
           v14 = 0;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v48 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v48 = 2147353472LL;
@@ -323,7 +323,7 @@ LABEL_37:
       if ( a2 <= v38 )
       {
         RtlpHpSegPageRangeShrink(v35, v37, 0, v12);
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v50 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v50 = 2147353472LL;
@@ -338,13 +338,13 @@ LABEL_37:
         }
         else
         {
-          v14 = RtlpHpVsContextFree(*(_QWORD *)(v35 + 88), v38, a2, v12, v53);
+          v14 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(v35 + 88), v38, a2, v12, v53);
           if ( v14 )
           {
-            if ( v53[0] <= 0x3FF0 )
+            if ( LODWORD(v53[0]) <= 0x3FF0 )
             {
               v43 = *(_QWORD *)(v35 + 80);
-              v44 = RtlpLfhBucketIndexMap[(unsigned __int64)(v53[0] + 15) >> 4];
+              v44 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(LODWORD(v53[0]) + 15) >> 4];
               if ( (*(_QWORD *)(v43 + 8 * v44 + 208) & 1) != 0 )
                 RtlpLfhBucketUsageUpdate(v43, v44, 0LL);
             }

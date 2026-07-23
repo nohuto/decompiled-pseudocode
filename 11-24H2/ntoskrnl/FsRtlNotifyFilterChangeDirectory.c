@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x140A011F0
+ * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x1409FE1C0
  * Callers:
- *     FsRtlNotifyChangeDirectory @ 0x14070DAA0 (FsRtlNotifyChangeDirectory.c)
- *     FsRtlNotifyFullChangeDirectory @ 0x140A01180 (FsRtlNotifyFullChangeDirectory.c)
+ *     FsRtlNotifyChangeDirectory @ 0x14070B640 (FsRtlNotifyChangeDirectory.c)
+ *     FsRtlNotifyFullChangeDirectory @ 0x1409FE150 (FsRtlNotifyFullChangeDirectory.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x1403DCA9C (FsRtlNotifySetCancelRoutine.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     FsRtlIsNotifyOnList @ 0x140A01FD0 (FsRtlIsNotifyOnList.c)
- *     FsRtlNotifyCompleteIrp @ 0x140A021B0 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlCheckNotifyForDelete @ 0x140A023A4 (FsRtlCheckNotifyForDelete.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x1403CB688 (FsRtlNotifySetCancelRoutine.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     FsRtlIsNotifyOnList @ 0x1409FEFA0 (FsRtlIsNotifyOnList.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1409FF180 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlCheckNotifyForDelete @ 0x1409FF374 (FsRtlCheckNotifyForDelete.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlNotifyFilterChangeDirectory(
@@ -65,7 +65,7 @@ void __stdcall FsRtlNotifyFilterChangeDirectory(
   Pool2 = IsNotifyOnList;
   if ( !IsNotifyOnList )
   {
-    Pool2 = ExAllocatePool2(0x120uLL);
+    Pool2 = ExAllocatePool2(0x120uLL, 0x98uLL, 0x4E725346u);
     *(_QWORD *)Pool2 = NotifySync;
     *(_QWORD *)(Pool2 + 8) = FsContext;
     *(_QWORD *)(Pool2 + 128) = CurrentStackLocation->FileObject->FsContext;

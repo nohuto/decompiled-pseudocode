@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTraceHgsPlusRundown @ 0x140576CC8
+ * XREFs of KeTraceHgsPlusRundown @ 0x1405771B8
  * Callers:
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceWorkloadClassUpdate @ 0x1405FD774 (EtwTraceWorkloadClassUpdate.c)
- *     PsGetNextProcessThread @ 0x140742AB0 (PsGetNextProcessThread.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
+ *     EtwTraceWorkloadClassUpdate @ 0x1405FDCE4 (EtwTraceWorkloadClassUpdate.c)
+ *     PsGetNextProcessThread @ 0x140742CA0 (PsGetNextProcessThread.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
  */
 
 void __fastcall KeTraceHgsPlusRundown(char a1)

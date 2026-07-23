@@ -2,20 +2,20 @@
  * XREFs of MiStoreUpdateMemoryConditions @ 0x140222F70
  * Callers:
  *     MiAdjustModifiedPageLoad @ 0x14021F234 (MiAdjustModifiedPageLoad.c)
- *     MiModifiedPageWriter @ 0x1403B2760 (MiModifiedPageWriter.c)
- *     MiFlushAllPagesWorker @ 0x140639CE4 (MiFlushAllPagesWorker.c)
- *     MiFlushAllStoreSwapPages @ 0x140639DEC (MiFlushAllStoreSwapPages.c)
+ *     MiModifiedPageWriter @ 0x1403B2940 (MiModifiedPageWriter.c)
+ *     MiFlushAllPagesWorker @ 0x14063A234 (MiFlushAllPagesWorker.c)
+ *     MiFlushAllStoreSwapPages @ 0x14063A33C (MiFlushAllStoreSwapPages.c)
  * Callees:
  *     MiUseLowIoPriorityForModifiedPages @ 0x140222ED8 (MiUseLowIoPriorityForModifiedPages.c)
  *     KeQueryEffectiveBasePriorityThread @ 0x1402230D4 (KeQueryEffectiveBasePriorityThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140345074 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1405BED04 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140345304 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1405BF274 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
  */
 
 void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)
@@ -43,8 +43,8 @@ void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)
   if ( *(_DWORD *)(a1 + 1268) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-    v12 = KiIrqlFlags;
-    if ( !KiIrqlFlags )
+    v12 = (char)KiIrqlFlags;
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_17;
     goto LABEL_19;
   }
@@ -97,8 +97,8 @@ void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)
       SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList(*(_QWORD *)(*(_QWORD *)(a1 + 200) + 24LL) + 1408LL, 0LL);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-  v12 = KiIrqlFlags;
-  if ( KiIrqlFlags )
+  v12 = (char)KiIrqlFlags;
+  if ( (_DWORD)KiIrqlFlags )
   {
 LABEL_19:
     CurrentIrql = KeGetCurrentIrql();

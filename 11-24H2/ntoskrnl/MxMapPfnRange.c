@@ -1,11 +1,11 @@
 /*
- * XREFs of MxMapPfnRange @ 0x140C52F48
+ * XREFs of MxMapPfnRange @ 0x140C550D8
  * Callers:
- *     MiCreateSparsePfnDatabase @ 0x140C51308 (MiCreateSparsePfnDatabase.c)
+ *     MiCreateSparsePfnDatabase @ 0x140C53498 (MiCreateSparsePfnDatabase.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     MxMapVa @ 0x140C53144 (MxMapVa.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     MxMapVa @ 0x140C552D4 (MxMapVa.c)
  */
 
 unsigned __int64 __fastcall MxMapPfnRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3)

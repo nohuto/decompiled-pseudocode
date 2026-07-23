@@ -40,84 +40,82 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
   _OWORD *v14; // r15
   char v15; // r14
   char v16; // si
-  ULONG_PTR v17; // rbx
-  int v18; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-C8h] BYREF
+  void *v17; // rbx
+  __int64 v18; // [rsp+38h] [rbp-C8h] BYREF
   PVOID P[2]; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v21[14]; // [rsp+50h] [rbp-B0h] BYREF
-  _OWORD v22[2]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v23; // [rsp+E0h] [rbp-20h]
-  int v24; // [rsp+E8h] [rbp-18h]
-  _BYTE v25[100]; // [rsp+ECh] [rbp-14h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v26; // [rsp+150h] [rbp+50h] BYREF
-  _BYTE v27[416]; // [rsp+180h] [rbp+80h] BYREF
+  _QWORD v20[14]; // [rsp+50h] [rbp-B0h] BYREF
+  _OWORD v21[2]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v22; // [rsp+E0h] [rbp-20h]
+  int v23; // [rsp+E8h] [rbp-18h]
+  _BYTE v24[100]; // [rsp+ECh] [rbp-14h] BYREF
+  $115DCDF994C6370D29323EAB0E0C9502 v25; // [rsp+150h] [rbp+50h] BYREF
+  ULONG_PTR PackageSize[52]; // [rsp+180h] [rbp+80h] BYREF
 
-  memset(v25, 0, 0x62uLL);
-  memset(v22, 0, sizeof(v22));
-  v23 = 0LL;
-  v24 = 0;
+  memset(v24, 0, 0x62uLL);
+  memset(v21, 0, sizeof(v21));
+  v22 = 0LL;
+  v23 = 0;
   if ( dword_140C042E8 && tlgKeywordOn((__int64)&dword_140C042E8, 0x600000000001LL) )
   {
-    EtwpInitStateChangeInfo(BugCheckParameter1, v25);
+    EtwpInitStateChangeInfo(BugCheckParameter1, v24);
     v4 = *(_QWORD *)a2 - *(_QWORD *)(a2 + 16);
     v5 = *(_QWORD *)(a2 + 32);
     v6 = *(_QWORD *)a2 - BugCheckParameter1[288].Count;
     v7 = *(_BYTE *)(a2 + 52);
-    v25[1] = *(_BYTE *)(a2 + 48);
+    v24[1] = *(_BYTE *)(a2 + 48);
     v8 = v4;
-    v25[0] = v7;
+    v24[0] = v7;
     v9 = v5 - *(_QWORD *)(a2 + 24);
-    *(_QWORD *)&v25[41] = v8 / 0x2710;
-    *(_QWORD *)&v25[49] = v9 / 0x2710;
-    *(_QWORD *)&v25[57] = v6 / 0x2710;
-    *(_QWORD *)&v25[65] = v5 / 0x2710;
-    *(_QWORD *)&v25[73] = *(_QWORD *)(a2 + 40) / 0x2710uLL;
+    *(_QWORD *)&v24[41] = v8 / 0x2710;
+    *(_QWORD *)&v24[49] = v9 / 0x2710;
+    *(_QWORD *)&v24[57] = v6 / 0x2710;
+    *(_QWORD *)&v24[65] = v5 / 0x2710;
+    *(_QWORD *)&v24[73] = *(_QWORD *)(a2 + 40) / 0x2710uLL;
     if ( v7 == 3 )
     {
-      memset(v21, 0, 0x68uLL);
-      PsQueryStatisticsProcess((__int64)BugCheckParameter1, v21);
-      LODWORD(v22[0]) = ObGetProcessHandleCount(BugCheckParameter1, 0LL);
+      memset(v20, 0, 0x68uLL);
+      PsQueryStatisticsProcess((__int64)BugCheckParameter1, v20);
+      LODWORD(v21[0]) = ObGetProcessHandleCount(BugCheckParameter1, 0LL);
       v10 = -1;
       v11 = -1;
-      *(_QWORD *)((char *)v22 + 4) = BugCheckParameter1[201].Count << 12;
-      *(_QWORD *)((char *)v22 + 12) = BugCheckParameter1[202].Count << 12;
+      *(_QWORD *)((char *)v21 + 4) = BugCheckParameter1[201].Count << 12;
+      *(_QWORD *)((char *)v21 + 12) = BugCheckParameter1[202].Count << 12;
       v12 = -1;
-      if ( v21[5] < 0xFFFFFFFFLL )
-        v12 = v21[5];
-      HIDWORD(v22[1]) = v12;
+      if ( v20[5] < 0xFFFFFFFFLL )
+        v12 = v20[5];
+      HIDWORD(v21[1]) = v12;
       v13 = -1;
-      if ( v21[6] < 0xFFFFFFFFLL )
-        v13 = v21[6];
-      LODWORD(v23) = v13;
-      if ( v21[8] / 1024LL < 0xFFFFFFFFLL )
-        v11 = v21[8] / 1024LL;
-      HIDWORD(v23) = v11;
-      if ( v21[9] / 1024LL < 0xFFFFFFFFLL )
-        v10 = v21[9] / 1024LL;
-      v24 = v10;
-      *(_QWORD *)((char *)&v22[1] + 4) = v21[3];
+      if ( v20[6] < 0xFFFFFFFFLL )
+        v13 = v20[6];
+      LODWORD(v22) = v13;
+      if ( v20[8] / 1024LL < 0xFFFFFFFFLL )
+        v11 = v20[8] / 1024LL;
+      HIDWORD(v22) = v11;
+      if ( v20[9] / 1024LL < 0xFFFFFFFFLL )
+        v10 = v20[9] / 1024LL;
+      v23 = v10;
+      *(_QWORD *)((char *)&v21[1] + 4) = v20[3];
       EtwpWriteAppStateChangeWithStats();
-      v14 = v22;
+      v14 = v21;
     }
     else
     {
-      EtwpWriteAppStateChange(v25);
+      EtwpWriteAppStateChange(v24);
       LODWORD(v14) = 0;
     }
     if ( dword_140C042E8 && tlgKeywordOn((__int64)&dword_140C042E8, 0x400000000000LL) )
     {
-      memset(v27, 0, 0x198uLL);
-      v19 = 0LL;
-      v18 = 0;
+      memset(PackageSize, 0, 0x198uLL);
+      v18 = 0LL;
       *(_OWORD *)P = 0LL;
       v15 = 0;
       v16 = 1;
-      memset(&v26, 0, sizeof(v26));
+      memset(&v25, 0, sizeof(v25));
       if ( (struct _EX_RUNDOWN_REF *)KeGetCurrentThread()->ApcState.Process != BugCheckParameter1 )
       {
         if ( ExAcquireRundownProtection_0(BugCheckParameter1 + 139) )
         {
-          KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v26);
+          KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v25);
           v15 = 1;
         }
         else
@@ -125,26 +123,26 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
           v16 = 0;
         }
       }
-      v17 = PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
-      EtwpQueryTokenPackageInfo(v17, v27, &v18);
-      ObFastDereferenceObject((signed __int64 *)&BugCheckParameter1[151], v17, 0x746C6644u);
+      v17 = (void *)PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
+      EtwpQueryTokenPackageInfo(v17, PackageSize);
+      ObFastDereferenceObject((signed __int64 *)&BugCheckParameter1[151], (unsigned __int64)v17, 0x746C6644u);
       if ( v16 )
       {
         if ( BugCheckParameter1[170].Count && EtwpAppStateChangeSummaryShouldLogCommandLine((__int64)BugCheckParameter1) )
           EtwpQueryProcessCommandLine(BugCheckParameter1, P);
-        EtwpQueryProcessOtherInfo(BugCheckParameter1, &v19);
+        EtwpQueryProcessOtherInfo(BugCheckParameter1, &v18);
       }
       if ( v15 )
       {
-        KiUnstackDetachProcess(&v26);
+        KiUnstackDetachProcess(&v25);
         ExReleaseRundownProtection_0(BugCheckParameter1 + 139);
       }
       EtwpWriteAppStateChangeSummary(
         (_DWORD)BugCheckParameter1,
-        (unsigned int)v25,
+        (unsigned int)v24,
         (_DWORD)v14,
-        (unsigned int)v27,
-        (__int64)&v19,
+        (unsigned int)PackageSize,
+        (__int64)&v18,
         (__int64)P);
       if ( P[1] )
         ExFreePoolWithTag(P[1], 0);

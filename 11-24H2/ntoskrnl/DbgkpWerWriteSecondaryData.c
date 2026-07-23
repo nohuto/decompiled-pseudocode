@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpWerWriteSecondaryData @ 0x140708FFC
+ * XREFs of DbgkpWerWriteSecondaryData @ 0x140706BBC
  * Callers:
- *     DbgkpWerWriteTriageDump @ 0x140709160 (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerWriteTriageDump @ 0x140706D20 (DbgkpWerWriteTriageDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
  */
 
 NTSTATUS __fastcall DbgkpWerWriteSecondaryData(__int64 a1, void *a2)

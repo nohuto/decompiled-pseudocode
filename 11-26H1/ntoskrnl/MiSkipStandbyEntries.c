@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSkipStandbyEntries @ 0x1402CB680
+ * XREFs of MiSkipStandbyEntries @ 0x1402AD440
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x1402CB3C4 (MiRebuildStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402AD184 (MiRebuildStandbyLookasideList.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
  */
 
 __int64 __fastcall MiSkipStandbyEntries(__int64 a1, ULONG_PTR a2, int a3, int a4, unsigned __int64 a5)
@@ -30,16 +30,16 @@ __int64 __fastcall MiSkipStandbyEntries(__int64 a1, ULONG_PTR a2, int a3, int a4
         break;
       while ( 1 )
       {
-        if ( v8 >= qword_140E347B0 && v8 < qword_140E347B0 + 2048 && a3 != 2 )
+        if ( v8 >= qword_140E34930 && v8 < qword_140E34930 + 2048 && a3 != 2 )
         {
           v13 = *(_QWORD *)(v12 + 16);
-          if ( qword_140E2D740 && (v13 & 0x10) == 0 )
-            v13 &= qword_140E2D748;
+          if ( qword_140E2D8C0 && (v13 & 0x10) == 0 )
+            v13 &= qword_140E2D8C8;
           v8 = (v13 >> 12) & 0xFFFFFFFFFFLL;
-          if ( v8 < qword_140E347B0 || v8 >= qword_140E347B0 + 2048 )
+          if ( v8 < qword_140E34930 || v8 >= qword_140E34930 + 2048 )
             v12 = 0LL;
         }
-        if ( v10 < qword_140E347B0 || v10 >= qword_140E347B0 + 2048 )
+        if ( v10 < qword_140E34930 || v10 >= qword_140E34930 + 2048 )
         {
           if ( (*(_DWORD *)(v11 + 32) & 0x8000000) == 0 || (unsigned int)MiGetPfnSlabType(v11) != 9 )
             goto LABEL_13;
@@ -67,7 +67,7 @@ LABEL_14:
         v10 = v8;
         if ( (unsigned int)++v5 < a5 )
           break;
-        if ( a4 || v8 == 0x3FFFFFFFFFLL || v8 < qword_140E347B0 || v8 >= qword_140E347B0 + 2048 )
+        if ( a4 || v8 == 0x3FFFFFFFFFLL || v8 < qword_140E34930 || v8 >= qword_140E34930 + 2048 )
           return v8;
         v5 = v9;
         v11 = 48 * v8 - 0x220000000000LL;

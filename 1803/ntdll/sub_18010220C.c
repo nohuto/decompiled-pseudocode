@@ -21,7 +21,7 @@ __int64 __fastcall sub_18010220C(__int64 a1)
   v3 = 0;
   if ( *(_DWORD *)(a1 + 4) )
     return 0LL;
-  if ( RtlCompareMemoryUlong((_DWORD *)(a1 + 48), 0x20uLL, 0) != 32 )
+  if ( RtlCompareMemoryUlong((PVOID)(a1 + 48), 0x20uLL, 0) != 32 )
     return 0LL;
   if ( *(_DWORD *)(a1 + 8) )
     return 0LL;
@@ -31,7 +31,7 @@ __int64 __fastcall sub_18010220C(__int64 a1)
     return 0LL;
   if ( *(_DWORD *)(a1 + 16) != -1 )
     return 0LL;
-  if ( RtlCompareMemoryUlong((_DWORD *)(a1 + 32), 0x10uLL, 0) != 16 )
+  if ( RtlCompareMemoryUlong((PVOID)(a1 + 32), 0x10uLL, 0) != 16 )
     return 0LL;
   v4 = v2 & 0xFFFFFFF3;
   if ( *(_QWORD *)(a1 + 24) )

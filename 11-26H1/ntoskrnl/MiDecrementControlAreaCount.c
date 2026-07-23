@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDecrementControlAreaCount @ 0x1404AFCD0
+ * XREFs of MiDecrementControlAreaCount @ 0x1404A9360
  * Callers:
- *     MiCheckForControlAreaDeletion @ 0x14030BAE0 (MiCheckForControlAreaDeletion.c)
- *     MiDeleteControlArea @ 0x1404881E0 (MiDeleteControlArea.c)
- *     MiDrainCrossPartitionUsage @ 0x1406F0580 (MiDrainCrossPartitionUsage.c)
+ *     MiCheckForControlAreaDeletion @ 0x1402EDB60 (MiCheckForControlAreaDeletion.c)
+ *     MiDeleteControlArea @ 0x140481D20 (MiDeleteControlArea.c)
+ *     MiDrainCrossPartitionUsage @ 0x1406F51F0 (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 int __fastcall MiDecrementControlAreaCount(__int64 a1, volatile signed __int64 *a2)

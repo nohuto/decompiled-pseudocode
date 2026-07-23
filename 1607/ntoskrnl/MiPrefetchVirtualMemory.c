@@ -1,22 +1,22 @@
 /*
- * XREFs of MiPrefetchVirtualMemory @ 0x1400BFCA0
+ * XREFs of MiPrefetchVirtualMemory @ 0x1400BDB30
  * Callers:
- *     MiInPageSingleKernelStack @ 0x140095124 (MiInPageSingleKernelStack.c)
- *     MiPrefetchRestOfCluster @ 0x1400B2664 (MiPrefetchRestOfCluster.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MmCopyMemory @ 0x1401E51D4 (MmCopyMemory.c)
- *     MiPrefetchDriverPages @ 0x1404CA5A4 (MiPrefetchDriverPages.c)
- *     NtSetInformationVirtualMemory @ 0x1404F3D10 (NtSetInformationVirtualMemory.c)
- *     MmPrefetchVirtualMemory @ 0x1404F4680 (MmPrefetchVirtualMemory.c)
+ *     MiInPageSingleKernelStack @ 0x140094924 (MiInPageSingleKernelStack.c)
+ *     MiPrefetchRestOfCluster @ 0x1400B05A4 (MiPrefetchRestOfCluster.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MmCopyMemory @ 0x1401E5000 (MmCopyMemory.c)
+ *     MiPrefetchDriverPages @ 0x1404B0324 (MiPrefetchDriverPages.c)
+ *     NtSetInformationVirtualMemory @ 0x1404D6C9C (NtSetInformationVirtualMemory.c)
+ *     MmPrefetchVirtualMemory @ 0x1404D760C (MmPrefetchVirtualMemory.c)
  * Callees:
- *     MiPfCompletePrefetchIos @ 0x140023914 (MiPfCompletePrefetchIos.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     MiPfCoalesceAndIssueIOs @ 0x1400AA7D4 (MiPfCoalesceAndIssueIOs.c)
- *     MiIsSessionMetadata @ 0x1400C0158 (MiIsSessionMetadata.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MiLeapPrefetch @ 0x1401E8460 (MiLeapPrefetch.c)
+ *     MiPfCompletePrefetchIos @ 0x140023494 (MiPfCompletePrefetchIos.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x1400A8D54 (MiPfCoalesceAndIssueIOs.c)
+ *     MiIsSessionMetadata @ 0x1400BDFE8 (MiIsSessionMetadata.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MiLeapPrefetch @ 0x1401E828C (MiLeapPrefetch.c)
  */
 
 __int64 __fastcall MiPrefetchVirtualMemory(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
@@ -89,10 +89,10 @@ LABEL_4:
         break;
       }
       v13 = *v12 + (v35 << 12);
-      if ( v13 < qword_140327F90 || v13 > qword_140326CF8 )
+      if ( v13 < qword_140327FD0 || v13 > qword_140326D38 )
       {
         v14 = 0;
-        v15 = (char *)&unk_140326DB8;
+        v15 = (char *)&unk_140326DF8;
         while ( 1 )
         {
           v16 = (*(_BYTE *)(*(_QWORD *)v15 + 184LL) & 7) == 2
@@ -118,7 +118,7 @@ LABEL_4:
               }
               while ( v17 >= v19 );
             }
-            if ( v17 < qword_140326910 || v17 >= qword_140326910 + 0x8000000000LL )
+            if ( v17 < qword_140326950 || v17 >= qword_140326950 + 0x8000000000LL )
             {
               if ( v17 < 0xFFFF800000000000uLL )
               {

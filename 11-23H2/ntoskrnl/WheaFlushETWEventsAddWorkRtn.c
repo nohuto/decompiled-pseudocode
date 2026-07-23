@@ -1,25 +1,25 @@
 /*
- * XREFs of WheaFlushETWEventsAddWorkRtn @ 0x140612F74
+ * XREFs of WheaFlushETWEventsAddWorkRtn @ 0x1406134C4
  * Callers:
- *     WheaProcessWaitingETWEvents @ 0x140613100 (WheaProcessWaitingETWEvents.c)
+ *     WheaProcessWaitingETWEvents @ 0x140613650 (WheaProcessWaitingETWEvents.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeSetTargetProcessorDpcEx @ 0x14036BCD0 (KeSetTargetProcessorDpcEx.c)
- *     WheaFlushETWEventsSelectProcessor @ 0x1405802C0 (WheaFlushETWEventsSelectProcessor.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14036BE70 (KeSetTargetProcessorDpcEx.c)
+ *     WheaFlushETWEventsSelectProcessor @ 0x1405807B0 (WheaFlushETWEventsSelectProcessor.c)
  */
 
 void WheaFlushETWEventsAddWorkRtn()
 {
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
-  _InterlockedAdd(&dword_140C2BA60, 1u);
-  if ( dword_140C2BA60 <= 1 )
+  _InterlockedAdd(&dword_140C2BA20, 1u);
+  if ( dword_140C2BA20 <= 1 )
   {
     if ( KeGetCurrentIrql() <= 2u )
     {
-      ExQueueWorkItem(&stru_140C2BA40, DelayedWorkQueue);
+      ExQueueWorkItem(&stru_140C2BA00, DelayedWorkQueue);
     }
     else
     {

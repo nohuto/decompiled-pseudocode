@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbFindNextTag @ 0x1404E791C
+ * XREFs of SdbFindNextTag @ 0x1404C9CA8
  * Callers:
- *     KsepDbGetDriverShims @ 0x14048471C (KsepDbGetDriverShims.c)
- *     SdbpScanIndexes @ 0x140505A0C (SdbpScanIndexes.c)
- *     KsepDbCacheReadDevice @ 0x140534FDC (KsepDbCacheReadDevice.c)
+ *     SdbpScanIndexes @ 0x1404E899C (SdbpScanIndexes.c)
+ *     KsepDbGetDriverShims @ 0x140513AA4 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x14053551C (KsepDbCacheReadDevice.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x140501250 (SdbGetTagFromTagID.c)
- *     SdbGetNextChild @ 0x140504604 (SdbGetNextChild.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1404E41E0 (SdbGetTagFromTagID.c)
+ *     SdbGetNextChild @ 0x1404E7594 (SdbGetNextChild.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbFindNextTag(__int64 a1, unsigned int a2, unsigned int a3)
@@ -35,7 +35,7 @@ __int64 __fastcall SdbFindNextTag(__int64 a1, unsigned int a2, unsigned int a3)
   }
   else
   {
-    AslLogCallPrintf(1, (unsigned int)"SdbFindNextTag", 94, (unsigned int)"Invalid tagid 0x%lx", v4);
+    AslLogCallPrintf(1, (unsigned int)"SdbFindNextTag", 94, (unsigned int)"Invalid tagid 0x%lx");
     return 0LL;
   }
 }

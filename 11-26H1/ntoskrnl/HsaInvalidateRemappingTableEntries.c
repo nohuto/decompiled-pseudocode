@@ -1,12 +1,12 @@
 /*
- * XREFs of HsaInvalidateRemappingTableEntries @ 0x14047E348
+ * XREFs of HsaInvalidateRemappingTableEntries @ 0x140477CB8
  * Callers:
- *     HsaInvalidateRemappingTableEntry @ 0x14047E330 (HsaInvalidateRemappingTableEntry.c)
- *     HsaUpdateRemappingDestination @ 0x1405AADD0 (HsaUpdateRemappingDestination.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405AAF8C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     HsaInvalidateRemappingTableEntry @ 0x140477CA0 (HsaInvalidateRemappingTableEntry.c)
+ *     HsaUpdateRemappingDestination @ 0x1405AD5E0 (HsaUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405AD79C (HsaUpdateRemappingTableInDeviceTableEntry.c)
  * Callees:
- *     HsaIommuWaitCommand @ 0x14047E660 (HsaIommuWaitCommand.c)
- *     HsaIommuSendCommand @ 0x14047E698 (HsaIommuSendCommand.c)
+ *     HsaIommuWaitCommand @ 0x140477FD0 (HsaIommuWaitCommand.c)
+ *     HsaIommuSendCommand @ 0x140478008 (HsaIommuSendCommand.c)
  */
 
 __int64 __fastcall HsaInvalidateRemappingTableEntries(__int64 a1, __int64 a2, unsigned int a3)

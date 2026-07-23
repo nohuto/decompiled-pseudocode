@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceActiveCooling @ 0x1407D2580
+ * XREFs of PopDiagTraceActiveCooling @ 0x1407D55EC
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ExSystemTimeToLocalTime @ 0x140215090 (ExSystemTimeToLocalTime.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ExSystemTimeToLocalTime @ 0x1402153C0 (ExSystemTimeToLocalTime.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceActiveCooling(__int64 a1, __int64 a2, char a3, unsigned int a4)
@@ -47,18 +47,12 @@ void __fastcall PopDiagTraceActiveCooling(__int64 a1, __int64 a2, char a3, unsig
   v22 = 0;
   v20 = 0;
   LocalTime.QuadPart = 0LL;
-  if ( byte_140E67628
-    && (a4
-     || EtwEventEnabled(
-          *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-          &POP_ETW_EVENT_ACTIVE_COOLING_DIAGNOSTIC)) )
+  if ( PopDiagHandleRegistered && (a4 || EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_ACTIVE_COOLING_DIAGNOSTIC)) )
   {
     v8 = a4 <= 1;
     if ( a4 == 1 )
     {
-      if ( !EtwEventEnabled(
-              *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-              &POP_ETW_EVENT_ACTIVE_COOLING_OPERATIONAL) )
+      if ( !EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_ACTIVE_COOLING_OPERATIONAL) )
         return;
       v8 = 1;
     }
@@ -107,7 +101,7 @@ void __fastcall PopDiagTraceActiveCooling(__int64 a1, __int64 a2, char a3, unsig
           v19 = &POP_ETW_EVENT_ACTIVE_COOLING_DIAGNOSTIC;
           if ( a4 )
             v19 = &POP_ETW_EVENT_ACTIVE_COOLING_OPERATIONAL;
-          EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v19, 0LL, 0xFu, &UserData);
+          EtwWrite(PopDiagHandle, v19, 0LL, 0xFu, &UserData);
         }
         ObfDereferenceObjectWithTag(v10, 0x67446F50u);
       }

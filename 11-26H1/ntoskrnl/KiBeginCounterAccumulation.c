@@ -1,8 +1,8 @@
 /*
- * XREFs of KiBeginCounterAccumulation @ 0x140494B90
+ * XREFs of KiBeginCounterAccumulation @ 0x14048E6E0
  * Callers:
- *     KiEndDebugAccumulation @ 0x1405025A0 (KiEndDebugAccumulation.c)
- *     KeEnableProfiling @ 0x140B5A4B4 (KeEnableProfiling.c)
+ *     KiEndDebugAccumulation @ 0x1404FBE70 (KiEndDebugAccumulation.c)
+ *     KeEnableProfiling @ 0x140B5D7D0 (KeEnableProfiling.c)
  * Callees:
  *     <none>
  */

@@ -19,7 +19,7 @@
  *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall MiResizeAweBitMap(char **P)
+__int64 __fastcall MiResizeAweBitMap(_RTL_BITMAP_EX *P)
 {
   struct _KTHREAD *CurrentThread; // r14
   __int64 Process; // rsi
@@ -29,12 +29,12 @@ __int64 __fastcall MiResizeAweBitMap(char **P)
   __int16 v7; // ax
   unsigned __int64 v8; // r13
   SIZE_T v9; // r12
-  PVOID PoolWithTag; // rax
+  unsigned __int64 *PoolWithTag; // rax
   __int64 v12; // r8
   __int64 v13; // r9
-  char **v14; // rbp
+  _RTL_BITMAP_EX *v14; // rbp
   ULONG_PTR v15; // r15
-  char **v16; // rax
+  _RTL_BITMAP_EX *v16; // rax
   __int64 v17; // r8
   __int64 v18; // r9
   __int64 v19; // r8
@@ -42,9 +42,9 @@ __int64 __fastcall MiResizeAweBitMap(char **P)
   int v21; // r12d
   __int64 v22; // r8
   __int64 v23; // r9
-  __int128 v24; // [rsp+20h] [rbp-48h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+20h] [rbp-48h] BYREF
   PVOID v25[2]; // [rsp+30h] [rbp-38h]
-  PVOID Pa; // [rsp+78h] [rbp+10h]
+  unsigned __int64 *Pa; // [rsp+78h] [rbp+10h]
 
   CurrentThread = KeGetCurrentThread();
   v25[0] = 0LL;
@@ -61,37 +61,37 @@ __int64 __fastcall MiResizeAweBitMap(char **P)
   }
   v8 = v5 + 1;
   v9 = 8 * (((unsigned __int64)(v5 + 1) >> 6) + ((((_BYTE)v5 + 1) & 0x3F) != 0));
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x4C646156u);
+  PoolWithTag = (unsigned __int64 *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x4C646156u);
   Pa = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)&v24 = v8;
-  *((_QWORD *)&v24 + 1) = PoolWithTag;
-  RtlClearAllBitsEx((__int64)&v24);
+  BitMapHeader.SizeOfBitMap = v8;
+  BitMapHeader.Buffer = PoolWithTag;
+  RtlClearAllBitsEx(&BitMapHeader);
   LOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
   if ( (*(_DWORD *)(Process + 772) & 0x20) != 0 )
   {
     UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process, v12, v13);
-    if ( P != *(char ***)(Process + 1032) )
+    if ( P != *(_RTL_BITMAP_EX **)(Process + 1032) )
       ExFreePoolWithTag(P, 0);
     LODWORD(v4) = -1073741558;
     goto LABEL_27;
   }
-  v14 = *(char ***)(Process + 1032);
+  v14 = *(_RTL_BITMAP_EX **)(Process + 1032);
   if ( v14 )
   {
     if ( P != v14 )
       ExFreePoolWithTag(P, 0);
     --CurrentThread->SpecialApcDisable;
-    v15 = (ULONG_PTR)(v14 + 2);
-    ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)(v14 + 2), 0LL);
+    v15 = (ULONG_PTR)&v14[1];
+    ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)&v14[1], 0LL);
     v16 = 0LL;
     if ( P == v14 )
       v16 = P;
     P = v16;
-    if ( v8 <= (unsigned __int64)*v14 )
+    if ( v8 <= v14->SizeOfBitMap )
     {
-      ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)(v14 + 2), 0LL);
+      ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)&v14[1], 0LL);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process, v17, v18);
 LABEL_27:
@@ -119,16 +119,16 @@ LABEL_27:
   }
   if ( v14 )
   {
-    RtlCopyBitMapEx(v14, (char **)&v24, v19);
-    *(_OWORD *)v25 = *(_OWORD *)v14;
-    *(_OWORD *)v14 = v24;
+    RtlCopyBitMapEx((char **)v14, (char **)&BitMapHeader, v19);
+    *(_RTL_BITMAP_EX *)v25 = *v14;
+    *v14 = BitMapHeader;
     ExReleaseAutoExpandPushLockExclusive(v15, 0LL);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   else
   {
-    *(_OWORD *)P = v24;
-    ExInitializeAutoExpandPushLock(P + 2, 1);
+    *P = BitMapHeader;
+    ExInitializeAutoExpandPushLock(&P[1].SizeOfBitMap, 1);
     *(_QWORD *)(Process + 1032) = P;
   }
   UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process, v22, v23);

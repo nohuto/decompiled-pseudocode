@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReflectCommitRemovedFromPartition @ 0x140709640
+ * XREFs of MiReflectCommitRemovedFromPartition @ 0x14070E2F4
  * Callers:
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
  * Callees:
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReduceCommitLimits @ 0x140705B5C (MiReduceCommitLimits.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReduceCommitLimits @ 0x14070A82C (MiReduceCommitLimits.c)
  */
 
 void __fastcall MiReflectCommitRemovedFromPartition(__int64 a1, __int64 a2)

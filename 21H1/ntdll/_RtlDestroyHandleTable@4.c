@@ -7,26 +7,26 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __stdcall RtlDestroyHandleTable(_DWORD *a1)
+NTSTATUS __cdecl RtlDestroyHandleTable(PRTL_HANDLE_TABLE HandleTable)
 {
-  int v1; // esi
-  int v2; // ecx
-  int v4; // [esp+4h] [ebp-8h] BYREF
-  int v5; // [esp+8h] [ebp-4h] BYREF
+  NTSTATUS v1; // esi
+  PRTL_HANDLE_TABLE_ENTRY CommittedHandles; // ecx
+  PVOID BaseAddress; // [esp+4h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+8h] [ebp-4h] BYREF
 
   v1 = 0;
-  v2 = a1[5];
-  v4 = v2;
-  if ( v2 )
+  CommittedHandles = HandleTable->CommittedHandles;
+  BaseAddress = CommittedHandles;
+  if ( CommittedHandles )
   {
-    if ( a1[2] )
+    if ( HandleTable->Reserved[0] )
     {
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, CommittedHandles);
     }
     else
     {
-      v5 = a1[7] - v2;
-      return NtFreeVirtualMemory(-1, &v4, &v5, 0x8000);
+      LODWORD(RegionSize) = (char *)HandleTable->MaxReservedHandles - (char *)CommittedHandles;
+      return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
     }
   }
   return v1;

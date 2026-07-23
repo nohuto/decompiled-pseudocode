@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAddHaltBlockToWaitList @ 0x1405BA560
+ * XREFs of KiAddHaltBlockToWaitList @ 0x1405B7B90
  * Callers:
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KxWaitForLockOwnerShipWithIrql @ 0x14040D57C (KxWaitForLockOwnerShipWithIrql.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KxWaitForLockOwnerShipWithIrql @ 0x1404057CC (KxWaitForLockOwnerShipWithIrql.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
  * Callees:
  *     <none>
  */

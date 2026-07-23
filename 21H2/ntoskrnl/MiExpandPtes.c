@@ -1,25 +1,25 @@
 /*
- * XREFs of MiExpandPtes @ 0x1402B3298
+ * XREFs of MiExpandPtes @ 0x140231448
  * Callers:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
- *     MiSplitBitmapPages @ 0x1402B40F0 (MiSplitBitmapPages.c)
- *     MiObtainSessionVa @ 0x1402B41B4 (MiObtainSessionVa.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     MiObtainSystemVa @ 0x140231990 (MiObtainSystemVa.c)
+ *     MiSplitBitmapPages @ 0x1402322A0 (MiSplitBitmapPages.c)
+ *     MiObtainSessionVa @ 0x140232364 (MiObtainSessionVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiReturnSystemVa @ 0x140305338 (MiReturnSystemVa.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
@@ -91,7 +91,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
   v6 = (v3 & 4) != 0 ? 16LL : 1LL;
   v56 = v6;
   if ( a2 >= 0x200 )
-    v5 = a1 == &qword_140C4EF40;
+    v5 = a1 == &qword_140C4EF80;
   v7 = (a2 + 511) & 0xFFFFFFFFFFFFFE00uLL;
   v8 = v7 >> 9;
   v53 = v7 / v6;
@@ -200,7 +200,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
           {
             *(_BYTE *)(v35 + 32) |= 2u;
             if ( *(__int64 *)(v35 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v35);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v35);
             *(_DWORD *)(v35 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v35 + 25) &= ~1u;
             *(_QWORD *)(v35 + 32) = 0LL;
@@ -222,7 +222,7 @@ LABEL_53:
     KiAbThreadRemoveBoosts((ULONG_PTR)v30);
     v33 = v30->SpecialApcDisable++ == -1;
     if ( v33 && ($C459BD0D405E8E46662177FB3D0A143F *)v30->ApcState.ApcListHead[0].Flink != &v30->152 )
-      KiCheckForKernelApcDelivery(1LL);
+      KiCheckForKernelApcDelivery();
     KiLeaveGuardedRegionUnsafe(v57);
   }
   if ( v51 )
@@ -235,9 +235,9 @@ LABEL_22:
     {
       _InterlockedExchangeAdd64(a1 + 11, v53);
       _InterlockedExchangeAdd64(a1 + 7, v53);
-      if ( (dword_140CFB17C & 2) != 0 && a1 == &qword_140C4EF40 )
+      if ( (dword_140CFB17C & 2) != 0 && a1 == &qword_140C4EF80 )
       {
-        v44 = qword_140C4EAE0 + ((unsigned __int64)(2 * v54) >> 3);
+        v44 = qword_140C4EB20 + ((unsigned __int64)(2 * v54) >> 3);
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 6, &LockHandle);
         if ( !(unsigned int)MiSplitBitmapPages(v60, v44, ((2 * (_BYTE)v54) & 7) + 2 * v53) )
           dword_140CFB17C &= ~2u;

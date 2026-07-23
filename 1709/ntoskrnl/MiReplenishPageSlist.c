@@ -20,7 +20,7 @@
 unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v4; // r12
-  union _SLIST_HEADER *v5; // rax
+  _SLIST_HEADER *v5; // rax
   __int64 v6; // rbx
   unsigned __int64 v7; // rcx
   unsigned __int64 result; // rax
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
   __int64 v11; // rdx
   __int64 v12; // rdi
   unsigned __int64 *v13; // r13
-  struct _SLIST_ENTRY *v14; // r15
+  _SLIST_ENTRY *v14; // r15
   __int64 v15; // rsi
   __int64 v16; // rdi
   __int64 v17; // rbx
@@ -47,14 +47,14 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
   unsigned int v30; // [rsp+28h] [rbp-110h]
   volatile signed __int64 *v31; // [rsp+30h] [rbp-108h]
   unsigned __int64 v32; // [rsp+38h] [rbp-100h]
-  struct _SLIST_ENTRY *List; // [rsp+40h] [rbp-F8h]
-  union _SLIST_HEADER *ListHead; // [rsp+48h] [rbp-F0h]
+  _SLIST_ENTRY *List; // [rsp+40h] [rbp-F8h]
+  _SLIST_HEADER *ListHead; // [rsp+48h] [rbp-F0h]
   unsigned __int64 v35; // [rsp+50h] [rbp-E8h]
   unsigned int v36; // [rsp+64h] [rbp-D4h]
   _QWORD v37[17]; // [rsp+68h] [rbp-D0h] BYREF
 
   v4 = a2;
-  v5 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * a2 + 4072) + 16LL * a3);
+  v5 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * a2 + 4072) + 16LL * a3);
   v6 = a3;
   v7 = *(unsigned int *)(a1 + 5212);
   ListHead = v5;
@@ -100,7 +100,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
       v16 = v13[2];
       result = 0xFFFFFA8000000000uLL;
       v17 = 48 * v16 - 0x58000000000LL;
-      List = (struct _SLIST_ENTRY *)v17;
+      List = (_SLIST_ENTRY *)v17;
       while ( 1 )
       {
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v17 + 24), 0x3FuLL) )
@@ -138,14 +138,14 @@ LABEL_46:
             return MiIncreaseAvailablePages(a1, v9);
           return result;
         }
-        v14 = (struct _SLIST_ENTRY *)v17;
+        v14 = (_SLIST_ENTRY *)v17;
         if ( dword_140388B14 == 1 )
         {
           LOBYTE(v18) = 1;
           v19 = (unsigned __int128)((v17 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
           v20 = (v17 + 0x58000000000LL) / 48;
           v21 = ((v19 < 0) + (unsigned __int8)(v19 >> 3)) & 0x1F;
-          v22 = (volatile signed __int32 *)(qword_140388B70 + 4 * (v20 >> 5));
+          v22 = (volatile signed __int32 *)stru_140388B68.Buffer + (v20 >> 5);
           if ( (unsigned __int64)(v21 + 1) > 0x20 )
           {
             if ( (((v19 < 0) + (unsigned __int8)(v19 >> 3)) & 0x1F) != 0 )

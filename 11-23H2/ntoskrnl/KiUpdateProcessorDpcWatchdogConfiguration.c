@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateProcessorDpcWatchdogConfiguration @ 0x14056B3D0
+ * XREFs of KiUpdateProcessorDpcWatchdogConfiguration @ 0x14056BA90
  * Callers:
  *     <none>
  * Callees:
- *     KiApplyProcessorDpcLimits @ 0x140A8ECE8 (KiApplyProcessorDpcLimits.c)
+ *     KiApplyProcessorDpcLimits @ 0x140A8EB60 (KiApplyProcessorDpcLimits.c)
  */
 
 __int64 KiUpdateProcessorDpcWatchdogConfiguration()

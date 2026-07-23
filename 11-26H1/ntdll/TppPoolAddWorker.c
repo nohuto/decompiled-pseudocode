@@ -1,27 +1,27 @@
 /*
- * XREFs of TppPoolAddWorker @ 0x1800E2D68
+ * XREFs of TppPoolAddWorker @ 0x1800E15C8
  * Callers:
- *     TppWorkerThread @ 0x18003E5E0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x180028B50 (TppWorkerThread.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-struct _TEB *__fastcall TppPoolAddWorker(__int64 a1, __int64 a2)
+void __fastcall TppPoolAddWorker(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  _QWORD *v4; // rax
-  _QWORD *v5; // rdx
+  _RTL_SRWLOCK *v4; // rax
+  _RTL_SRWLOCK **Value; // rdx
 
   *(_DWORD *)(a2 + 40) = NtCurrentTeb()->ClientId.UniqueThread;
   *(_QWORD *)(a2 + 48) = a1;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 72), a2);
-  v4 = (_QWORD *)(a2 + 16);
-  v5 = *(_QWORD **)(a1 + 104);
-  if ( *v5 != a1 + 96 )
+  RtlAcquireSRWLockExclusive(a1 + 9);
+  v4 = (_RTL_SRWLOCK *)(a2 + 16);
+  Value = (_RTL_SRWLOCK **)a1[13].Value;
+  if ( *Value != &a1[12] )
     __fastfail(3u);
-  *v4 = a1 + 96;
-  *(_QWORD *)(a2 + 24) = v5;
-  *v5 = v4;
-  *(_QWORD *)(a1 + 104) = v4;
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  v4->Value = (unsigned __int64)&a1[12];
+  *(_QWORD *)(a2 + 24) = Value;
+  *Value = v4;
+  a1[13].Value = (unsigned __int64)v4;
+  RtlReleaseSRWLockExclusive(a1 + 9);
 }

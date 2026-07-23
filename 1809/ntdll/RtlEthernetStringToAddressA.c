@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     __isascii @ 0x180090520 (__isascii.c)
- *     isdigit @ 0x180090660 (isdigit.c)
- *     islower @ 0x1800906C0 (islower.c)
- *     isxdigit @ 0x1800907B0 (isxdigit.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     __isascii @ 0x180090530 (__isascii.c)
+ *     isdigit @ 0x180090670 (isdigit.c)
+ *     islower @ 0x1800906D0 (islower.c)
+ *     isxdigit @ 0x1800907C0 (isxdigit.c)
  */
 
 LONG __stdcall RtlEthernetStringToAddressA(PCSTR S, PCSTR *Terminator, DL_EUI48 *Addr)

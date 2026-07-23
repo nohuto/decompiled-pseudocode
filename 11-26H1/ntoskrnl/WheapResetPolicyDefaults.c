@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapResetPolicyDefaults @ 0x140849BE4
+ * XREFs of WheapResetPolicyDefaults @ 0x14084FEF4
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x1406D8A48 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1406DCBD8 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
- *     RtlDeleteRegistryValue @ 0x140B46070 (RtlDeleteRegistryValue.c)
+ *     RtlDeleteRegistryValue @ 0x140B480A0 (RtlDeleteRegistryValue.c)
  */
 
 __int64 WheapResetPolicyDefaults()

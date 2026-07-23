@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpGxReadRectangle @ 0x14094E98C
+ * XREFs of BgpGxReadRectangle @ 0x14094F98C
  * Callers:
- *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
+ *     AnFwDisplayFade @ 0x14094FBA8 (AnFwDisplayFade.c)
  * Callees:
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     GxpReadFrameBufferPixels @ 0x14094E9FC (GxpReadFrameBufferPixels.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x14095021C (BgpGxRectangleCreate.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     GxpReadFrameBufferPixels @ 0x14094F9FC (GxpReadFrameBufferPixels.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x14095121C (BgpGxRectangleCreate.c)
  */
 
 __int64 __fastcall BgpGxReadRectangle(_QWORD *a1, __int64 a2)

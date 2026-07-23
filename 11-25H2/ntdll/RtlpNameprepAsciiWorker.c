@@ -16,13 +16,13 @@ __int64 __fastcall RtlpNameprepAsciiWorker(
         __int64 a5,
         char a6)
 {
-  __int64 Heap; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rdi
+  PVOID Heap; // rbx
+  PVOID v11; // rax
+  void *v12; // rdi
   unsigned int v13; // esi
 
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
-  v11 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x406uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
+  v11 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x406uLL);
   v12 = v11;
   if ( Heap && v11 )
   {

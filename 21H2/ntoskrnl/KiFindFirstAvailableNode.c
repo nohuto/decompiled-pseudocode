@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFindFirstAvailableNode @ 0x1403B5D7C
+ * XREFs of KiFindFirstAvailableNode @ 0x1403B5EEC
  * Callers:
- *     KiQueryProcessorNode @ 0x1403B5C9C (KiQueryProcessorNode.c)
+ *     KiQueryProcessorNode @ 0x1403B5E0C (KiQueryProcessorNode.c)
  * Callees:
- *     KiIsNodeFull @ 0x1403B5DDC (KiIsNodeFull.c)
+ *     KiIsNodeFull @ 0x1403B5F4C (KiIsNodeFull.c)
  */
 
 __int64 KiFindFirstAvailableNode()

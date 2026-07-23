@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpMultiSzDeleteString @ 0x1409B43BC
+ * XREFs of _PnpMultiSzDeleteString @ 0x1409AB74C
  * Callers:
- *     _CmGetDeviceSiblings @ 0x1409B3E64 (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceSiblings @ 0x1409AB1F4 (_CmGetDeviceSiblings.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _PnpMultiSzGetLen @ 0x1409B6270 (_PnpMultiSzGetLen.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _PnpMultiSzGetLen @ 0x1409AD600 (_PnpMultiSzGetLen.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PnpMultiSzDeleteString(wchar_t *a1, wchar_t *Str2)
@@ -47,7 +47,7 @@ char __fastcall PnpMultiSzDeleteString(wchar_t *a1, wchar_t *Str2)
     if ( v8 )
     {
       v9 = v8;
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v8, 0x52504E50u);
       v11 = Pool2;
       if ( Pool2 )
       {

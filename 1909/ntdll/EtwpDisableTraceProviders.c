@@ -13,7 +13,7 @@
 
 __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
 {
-  unsigned __int64 v2; // rcx
+  _RTL_SRWLOCK *v2; // rcx
   _BYTE *v3; // rdi
   __int64 v4; // rcx
   _BYTE *v5; // rax
@@ -58,7 +58,7 @@ LABEL_6:
       v9 = 0;
       if ( *(_DWORD *)(v8 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v8 + 64));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v8 + 64));
         v9 = 1;
         *(_DWORD *)(v8 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
       }
@@ -87,9 +87,9 @@ LABEL_18:
       if ( v9 )
       {
         *(_DWORD *)(v8 + 80) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 64));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 64));
       }
     }
-    v2 = v8;
+    v2 = (_RTL_SRWLOCK *)v8;
   }
 }

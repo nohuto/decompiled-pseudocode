@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeReservationRun @ 0x140AC1DFC
+ * XREFs of MiFreeReservationRun @ 0x140AC3E9C
  * Callers:
- *     MiFreeWorkingSetSwapContext @ 0x140AC1D44 (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x140AC1DB0 (MiFreeReservationRuns.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140AC3DE4 (MiFreeWorkingSetSwapContext.c)
+ *     MiFreeReservationRuns @ 0x140AC3E50 (MiFreeReservationRuns.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiGetPageFileHigh @ 0x140433240 (MiGetPageFileHigh.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiGetPageFileHigh @ 0x140428310 (MiGetPageFileHigh.c)
  */
 
 void __fastcall MiFreeReservationRun(struct _KEVENT *a1, __int64 a2)
@@ -20,7 +20,7 @@ void __fastcall MiFreeReservationRun(struct _KEVENT *a1, __int64 a2)
     PageFileHigh = MiGetPageFileHigh(*(_QWORD *)a2);
     do
     {
-      MiReleasePageFileInfo(a1, *(_QWORD *)a2, 0);
+      MiReleasePageFileInfo(a1, *(_QWORD *)a2, 0LL);
       updated = MiUpdatePageFileHighInPte(*(_QWORD *)a2, ++PageFileHigh);
       v6 = (*(_DWORD *)(a2 + 8))-- == 1;
       *(_QWORD *)a2 = updated;

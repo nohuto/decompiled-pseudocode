@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlStringCchCopyA @ 0x14012A7F4
+ * XREFs of RtlStringCchCopyA @ 0x14012A8C4
  * Callers:
- *     EtwpCoverageAddToStringBuffer @ 0x14012A7A8 (EtwpCoverageAddToStringBuffer.c)
- *     EtwpCoverageRecordAtHighIrql @ 0x14030F05C (EtwpCoverageRecordAtHighIrql.c)
- *     AslpFileQueryExportName @ 0x1408ED874 (AslpFileQueryExportName.c)
- *     EmpParseStrings @ 0x1409BEDC8 (EmpParseStrings.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x14012A878 (EtwpCoverageAddToStringBuffer.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x14030F24C (EtwpCoverageRecordAtHighIrql.c)
+ *     AslpFileQueryExportName @ 0x1408EEB34 (AslpFileQueryExportName.c)
+ *     EmpParseStrings @ 0x1409BFDC8 (EmpParseStrings.c)
  * Callees:
- *     RtlStringCopyWorkerA_0 @ 0x14012A83C (RtlStringCopyWorkerA_0.c)
+ *     RtlStringCopyWorkerA_0 @ 0x14012A90C (RtlStringCopyWorkerA_0.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)

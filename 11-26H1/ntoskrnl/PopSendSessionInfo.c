@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSendSessionInfo @ 0x140B46330
+ * XREFs of PopSendSessionInfo @ 0x140B48360
  * Callers:
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
- *     PopAdaptivePowerSettingCallback @ 0x140ABC470 (PopAdaptivePowerSettingCallback.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140ABE290 (PopAdaptivePowerSettingCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwPowerInformation @ 0x140723FD0 (ZwPowerInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopInvokeWin32CalloutWithWatchdog @ 0x140A3F7F4 (PopInvokeWin32CalloutWithWatchdog.c)
- *     PopDiagTraceWin32kCalloutStart @ 0x140A3F92C (PopDiagTraceWin32kCalloutStart.c)
- *     PopIsStateTransitionBlockingThread @ 0x140C05B3C (PopIsStateTransitionBlockingThread.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x140728BA0 (ZwPowerInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopInvokeWin32CalloutWithWatchdog @ 0x1409FB214 (PopInvokeWin32CalloutWithWatchdog.c)
+ *     PopDiagTraceWin32kCalloutStart @ 0x1409FB34C (PopDiagTraceWin32kCalloutStart.c)
+ *     PopIsStateTransitionBlockingThread @ 0x140C0BD4C (PopIsStateTransitionBlockingThread.c)
  */
 
 char __fastcall PopSendSessionInfo(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -46,7 +46,7 @@ char __fastcall PopSendSessionInfo(int a1, __int64 a2, __int64 a3, __int64 a4)
   LODWORD(v19) = 0;
   v17 = 0LL;
   v18 = 0LL;
-  if ( LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) )
+  if ( BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) )
   {
     DWORD2(v17) = 20;
     *(_QWORD *)&v18 = a4;
@@ -85,11 +85,9 @@ char __fastcall PopSendSessionInfo(int a1, __int64 a2, __int64 a3, __int64 a4)
     v15 = &v16;
     v14 = 0;
     v13 = v9;
-    if ( byte_140E67628 )
+    if ( PopDiagHandleRegistered )
     {
-      LOBYTE(v4) = EtwEventEnabled(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_WIN32_INFO_CALLOUT_END);
+      LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_WIN32_INFO_CALLOUT_END);
       if ( (_BYTE)v4 )
       {
         UserData.Ptr = (ULONGLONG)&v15;
@@ -98,12 +96,7 @@ char __fastcall PopSendSessionInfo(int a1, __int64 a2, __int64 a3, __int64 a4)
         v25 = 4LL;
         v26 = &v14;
         v27 = 4LL;
-        LOBYTE(v4) = EtwWrite(
-                       *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                       &POP_ETW_EVENT_WIN32_INFO_CALLOUT_END,
-                       0LL,
-                       3u,
-                       &UserData);
+        LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_WIN32_INFO_CALLOUT_END, 0LL, 3u, &UserData);
       }
     }
   }

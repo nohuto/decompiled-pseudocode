@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcGetLoadConfiguration @ 0x1405598B4
+ * XREFs of HalpMcGetLoadConfiguration @ 0x1405574E4
  * Callers:
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 __fastcall HalpMcGetLoadConfiguration(_BYTE *a1)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpMcGetLoadConfiguration(_BYTE *a1)
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
   MmGetSystemRoutineAddress(&DestinationString);
-  v2 = (int)guard_dispatch_icall_no_overrides(2LL, L"McUpdate", v5, 0LL) < 0;
+  v2 = (int)guard_dispatch_icall_no_overrides(2LL, L"McUpdate") < 0;
   result = v10;
   if ( !v2 )
     result = v10 & 1;

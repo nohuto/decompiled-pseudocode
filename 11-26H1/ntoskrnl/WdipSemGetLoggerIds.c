@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemGetLoggerIds @ 0x140ADADBC
+ * XREFs of WdipSemGetLoggerIds @ 0x140AD786C
  * Callers:
- *     WdipSemCleanStart @ 0x14081F4F0 (WdipSemCleanStart.c)
- *     WdipSemEnableScenario @ 0x140AD9304 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140AD9550 (WdipSemDisableScenario.c)
+ *     WdipSemCleanStart @ 0x140825700 (WdipSemCleanStart.c)
+ *     WdipSemEnableScenario @ 0x140AD5DB4 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140AD6000 (WdipSemDisableScenario.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x14091ED40 (EtwpAcquireLoggerContextByLoggerName.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x1409797A0 (EtwpAcquireLoggerContextByLoggerName.c)
  */
 
 __int64 WdipSemGetLoggerIds()
@@ -56,7 +56,7 @@ LABEL_5:
   v5 = v11;
   v4 = 0;
 LABEL_6:
-  _InterlockedExchange((_DWORD *)&stru_140F066E8.SListFaultAddress + 1, v5);
+  _InterlockedExchange((volatile __int32 *)&stru_140F06A28.QuantumTarget, v5);
   RtlInitUnicodeString(&DestinationString, L"WdiContextLog");
   if ( !DestinationString.Buffer || !DestinationString.Length )
   {
@@ -80,7 +80,7 @@ LABEL_9:
   v8 = v1;
   v0 = 0;
 LABEL_10:
-  _InterlockedExchange((volatile __int32 *)&stru_140F066E8.SListFaultAddress, v8);
+  _InterlockedExchange((_DWORD *)&stru_140F06A28.QuantumTarget + 1, v8);
   if ( v4 < 0 )
     return (unsigned int)v4;
   return v0;

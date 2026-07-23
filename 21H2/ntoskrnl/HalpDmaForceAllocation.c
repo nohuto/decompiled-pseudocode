@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDmaForceAllocation @ 0x1404C7974
+ * XREFs of HalpDmaForceAllocation @ 0x1404C7BB4
  * Callers:
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6CEC (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6F2C (HalpDmaAllocateMapRegistersAtHighLevel.c)
  * Callees:
  *     <none>
  */

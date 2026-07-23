@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpDebuggerWorker @ 0x140915030
+ * XREFs of ExpDebuggerWorker @ 0x140916030
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
- *     MmGetDefaultPagePriority @ 0x1400E219C (MmGetDefaultPagePriority.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     MmDbgMarkPfnModifiedWorker @ 0x14018F9C4 (MmDbgMarkPfnModifiedWorker.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     DbgBreakPointWithStatus @ 0x1401C5350 (DbgBreakPointWithStatus.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     MmPrefetchVirtualMemory @ 0x14066BDA8 (MmPrefetchVirtualMemory.c)
- *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
- *     PsQuitNextProcessThread @ 0x1406D0C90 (PsQuitNextProcessThread.c)
- *     EtwWmitraceWorker @ 0x1408BD780 (EtwWmitraceWorker.c)
+ *     MmGetDefaultPagePriority @ 0x1400E221C (MmGetDefaultPagePriority.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     MmDbgMarkPfnModifiedWorker @ 0x14018FB04 (MmDbgMarkPfnModifiedWorker.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     DbgBreakPointWithStatus @ 0x1401C54B0 (DbgBreakPointWithStatus.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     MmPrefetchVirtualMemory @ 0x14066CF68 (MmPrefetchVirtualMemory.c)
+ *     PsTerminateProcess @ 0x1406CAB74 (PsTerminateProcess.c)
+ *     PsQuitNextProcessThread @ 0x1406D1F30 (PsQuitNextProcessThread.c)
+ *     EtwWmitraceWorker @ 0x1408BEA40 (EtwWmitraceWorker.c)
  */
 
 void ExpDebuggerWorker()

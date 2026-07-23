@@ -9,7 +9,7 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *Buf2)
+char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, PSID Sid2)
 {
   int v4; // esi
   int v5; // edi
@@ -19,27 +19,26 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   _DWORD *v9; // edx
   int v10; // esi
   int v12; // eax
-  bool v13; // al
+  BOOLEAN v13; // al
   int v14; // [esp+10h] [ebp-4Ch]
-  void *Buf1; // [esp+18h] [ebp-44h]
-  unsigned __int8 *Buf1a; // [esp+18h] [ebp-44h]
+  PSID v16; // [esp+18h] [ebp-44h]
+  PSID v17; // [esp+18h] [ebp-44h]
   int v18; // [esp+1Ch] [ebp-40h]
   int v19; // [esp+1Ch] [ebp-40h]
-  unsigned __int8 *v20; // [esp+20h] [ebp-3Ch] BYREF
-  __int16 v21; // [esp+24h] [ebp-38h]
-  _BYTE v22[8]; // [esp+28h] [ebp-34h] BYREF
-  int v23; // [esp+30h] [ebp-2Ch]
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [esp+20h] [ebp-3Ch] BYREF
+  _BYTE Sid[8]; // [esp+28h] [ebp-34h] BYREF
+  int v22; // [esp+30h] [ebp-2Ch]
 
   v4 = *a1;
   v5 = *a2;
-  v20 = a2;
+  *(_DWORD *)IdentifierAuthority.Value = a2;
   if ( RtlBaseAceType[v5] != RtlBaseAceType[v4] || RtlIsSystemAceType[v5] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
     return 0;
   v6 = a2 + 12;
   v14 = *((_DWORD *)a2 + 2) & 1;
   v7 = v14 != 0 ? (_DWORD *)(a2 + 12) : 0;
-  Buf1 = (void *)(*((_DWORD *)a2 + 2) & 2);
-  if ( Buf1 )
+  v16 = (PSID)(*((_DWORD *)a2 + 2) & 2);
+  if ( v16 )
   {
     if ( v14 )
       v6 = a2 + 28;
@@ -86,30 +85,33 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
     return 0;
   }
   v19 = 16 * v18;
-  Buf1a = &v20[16 * v14 + (Buf1 != 0 ? 28 : 12)];
-  if ( !RtlEqualSid(Buf1a, &a1[(v10 != 0 ? 0x10 : 0) + 12 + v19]) )
+  v17 = (PSID)(16 * v14 + *(_DWORD *)IdentifierAuthority.Value + (v16 != 0 ? 28 : 12));
+  if ( !RtlEqualSid(v17, &a1[(v10 != 0 ? 0x10 : 0) + 12 + v19]) )
   {
-    if ( (v20[1] & 3 | ~v20[1] & 8) != 8 || !a3 && !Buf2 )
+    if ( (*(_BYTE *)(*(_DWORD *)IdentifierAuthority.Value + 1) & 3 | ~*(_BYTE *)(*(_DWORD *)IdentifierAuthority.Value + 1) & 8) != 8
+      || !a3 && !Sid2 )
+    {
       return 0;
-    v21 = 768;
-    v20 = 0;
-    if ( RtlInitializeSid((int)v22, (int)&v20, 1u) < 0 )
+    }
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
       return 0;
-    v23 = 0;
-    if ( !RtlEqualPrefixSid(&a1[(v10 != 0 ? 0x10 : 0) + 12 + v19], v22) )
+    v22 = 0;
+    if ( !RtlEqualPrefixSid(&a1[(v10 != 0 ? 0x10 : 0) + 12 + v19], Sid) )
       return 0;
     v12 = *(_DWORD *)&a1[v19 + (v10 != 0 ? 36 : 20)];
     if ( v12 )
     {
-      if ( v12 != 1 || !Buf2 )
+      if ( v12 != 1 || !Sid2 )
         return 0;
-      v13 = RtlEqualSid(Buf1a, Buf2);
+      v13 = RtlEqualSid(v17, Sid2);
     }
     else
     {
       if ( !a3 )
         return 0;
-      v13 = RtlEqualSid(Buf1a, a3);
+      v13 = RtlEqualSid(v17, a3);
     }
     if ( !v13 )
       return 0;

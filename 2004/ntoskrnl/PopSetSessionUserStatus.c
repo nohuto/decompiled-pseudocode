@@ -25,7 +25,7 @@ __int64 __fastcall PopSetSessionUserStatus(unsigned int a1, unsigned int a2)
     LODWORD(qword_140C20360) = a2;
   Src = a2;
   v4 = (const wchar_t *)PopPrintUserActivityPresence(a2);
-  PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u user presence/activity state: %S\n", a1, v4);
+  PopPrintEx(3u, (__int64)"PopAdaptive: Session %u user presence/activity state: %S\n", a1, v4);
   PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_INPUT_STATE, a1, a2);
   PopSetPowerSettingValue(&GUID_SESSION_USER_PRESENCE, a1, 0, 4u, &Src);
   PopSetPowerSettingValue(&GUID_SESSION_USER_PRESENCE, a1, 1, 4u, &Src);

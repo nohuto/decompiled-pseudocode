@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpGetNextHive @ 0x1403FC878
+ * XREFs of CmpGetNextHive @ 0x1403FB738
  * Callers:
  *     CmpUnblockHiveWrites @ 0x1403E13D8 (CmpUnblockHiveWrites.c)
  *     CmpBlockHiveWrites @ 0x1403E141C (CmpBlockHiveWrites.c)
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     CmpReferenceHive @ 0x14002D220 (CmpReferenceHive.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     CmpReferenceHive @ 0x14002CDA0 (CmpReferenceHive.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
  */
 
 __int64 *__fastcall CmpGetNextHive(__int64 a1)

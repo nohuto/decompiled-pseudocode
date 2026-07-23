@@ -1,12 +1,12 @@
 /*
- * XREFs of PspStorageEmptyArray @ 0x14088F414
+ * XREFs of PspStorageEmptyArray @ 0x140890674
  * Callers:
- *     PspJobDeleteStorageArrays @ 0x1406067C8 (PspJobDeleteStorageArrays.c)
+ *     PspJobDeleteStorageArrays @ 0x1406077C8 (PspJobDeleteStorageArrays.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspStorageEmptyArray(ULONG_PTR BugCheckParameter2, unsigned int a2)

@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpLogContextSwapEvent @ 0x140412F7C
+ * XREFs of EtwpLogContextSwapEvent @ 0x1404075AC
  * Callers:
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     EtwTraceContextSwap @ 0x140412DE0 (EtwTraceContextSwap.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     EtwTraceContextSwap @ 0x140407410 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpStackTraceDispatcher @ 0x14020A3A0 (EtwpStackTraceDispatcher.c)
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwpCCSwapTrace @ 0x140217180 (EtwpCCSwapTrace.c)
- *     EtwpReserveWithPmcCounters @ 0x140218290 (EtwpReserveWithPmcCounters.c)
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
- *     EtwpReserveWithPebsIndex @ 0x1402189FC (EtwpReserveWithPebsIndex.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
- *     EtwpTraceLastBranchRecord @ 0x140263D10 (EtwpTraceLastBranchRecord.c)
- *     LBR_TRACING_ENABLED @ 0x140413468 (LBR_TRACING_ENABLED.c)
- *     IPT_TRACING_ENABLED @ 0x1404134B0 (IPT_TRACING_ENABLED.c)
- *     CONTEXT_TRACING_ENABLED @ 0x140413500 (CONTEXT_TRACING_ENABLED.c)
- *     EtwpTraceLostSystemEvent @ 0x1404D81F4 (EtwpTraceLostSystemEvent.c)
- *     EtwpTraceProcessorTrace @ 0x1404D92B0 (EtwpTraceProcessorTrace.c)
- *     EtwpContextRegisterTracingDispatcher @ 0x140507CB4 (EtwpContextRegisterTracingDispatcher.c)
+ *     EtwpStackTraceDispatcher @ 0x14020A480 (EtwpStackTraceDispatcher.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwpCCSwapTrace @ 0x1402174B0 (EtwpCCSwapTrace.c)
+ *     EtwpReserveWithPmcCounters @ 0x1402185C0 (EtwpReserveWithPmcCounters.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveWithPebsIndex @ 0x140218D2C (EtwpReserveWithPebsIndex.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpTraceLastBranchRecord @ 0x140263280 (EtwpTraceLastBranchRecord.c)
+ *     LBR_TRACING_ENABLED @ 0x140407A98 (LBR_TRACING_ENABLED.c)
+ *     IPT_TRACING_ENABLED @ 0x140407AE0 (IPT_TRACING_ENABLED.c)
+ *     CONTEXT_TRACING_ENABLED @ 0x140407B30 (CONTEXT_TRACING_ENABLED.c)
+ *     EtwpTraceLostSystemEvent @ 0x1404D19C4 (EtwpTraceLostSystemEvent.c)
+ *     EtwpTraceProcessorTrace @ 0x1404D2990 (EtwpTraceProcessorTrace.c)
+ *     EtwpContextRegisterTracingDispatcher @ 0x140501688 (EtwpContextRegisterTracingDispatcher.c)
  */
 
 void __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
@@ -109,7 +109,7 @@ LABEL_26:
       if ( !v21 )
       {
 LABEL_68:
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_SYSTEM_EVENT) )
+        if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_LOST_SYSTEM_EVENT) )
           EtwpTraceLostSystemEvent(1316LL, v12 + 136, 5265925LL, 3221225495LL);
         goto LABEL_67;
       }

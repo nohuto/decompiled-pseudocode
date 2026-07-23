@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcaReadErrorUncorrected @ 0x140543860
+ * XREFs of HalpMcaReadErrorUncorrected @ 0x1405411B0
  * Callers:
- *     HalpMcaReadError @ 0x14053FE0C (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x14053D70C (HalpMcaReadError.c)
  * Callees:
- *     HalpWheaWriteMsrStatus @ 0x14047D0C0 (HalpWheaWriteMsrStatus.c)
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
+ *     HalpWheaWriteMsrStatus @ 0x140478250 (HalpWheaWriteMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
  */
 
 unsigned __int8 HalpMcaReadErrorUncorrected()

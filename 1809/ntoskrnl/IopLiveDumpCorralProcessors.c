@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpCorralProcessors @ 0x140578704
+ * XREFs of IopLiveDumpCorralProcessors @ 0x140579704
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140579890 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     IopLiveDumpTraceSystemQuiesceStart @ 0x1402861FC (IopLiveDumpTraceSystemQuiesceStart.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140578D24 (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpLockPages @ 0x140820370 (IopLiveDumpLockPages.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     IopLiveDumpTraceSystemQuiesceStart @ 0x1402863EC (IopLiveDumpTraceSystemQuiesceStart.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140579D24 (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpLockPages @ 0x140821570 (IopLiveDumpLockPages.c)
  */
 
 __int64 __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
@@ -48,7 +48,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
   DeferredContext[88] = CurrentIrql;
   KeInitializeDpc((PRKDPC)(DeferredContext + 24), (PKDEFERRED_ROUTINE)IopLiveDumpCorralDpc, DeferredContext);
   DeferredContext[25] = 2;
-  v8[1] = (unsigned __int16 *)qword_1405416A8[0];
+  v8[1] = (unsigned __int16 *)qword_1405426A8[0];
   v8[0] = (unsigned __int16 *)KeActiveProcessors;
   v9 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v8) )

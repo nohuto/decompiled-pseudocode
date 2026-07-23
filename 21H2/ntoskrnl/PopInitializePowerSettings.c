@@ -1,16 +1,16 @@
 /*
- * XREFs of PopInitializePowerSettings @ 0x140A7230C
+ * XREFs of PopInitializePowerSettings @ 0x140A7330C
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
 
-__int64 *PopInitializePowerSettings()
+const WNF_STATE_NAME *PopInitializePowerSettings()
 {
   _QWORD *v0; // rax
   __int64 v1; // rcx
-  __int64 *result; // rax
+  const WNF_STATE_NAME *result; // rax
 
   v0 = &PopSessionSpecificLists;
   v1 = 2LL;
@@ -25,9 +25,9 @@ __int64 *PopInitializePowerSettings()
   PopPendingPowerSettingUpdateLock = 0LL;
   PopSettingLock.Event.Header.WaitListHead.Blink = &PopSettingLock.Event.Header.WaitListHead;
   PopSettingLock.Event.Header.WaitListHead.Flink = &PopSettingLock.Event.Header.WaitListHead;
-  qword_140C23068 = (__int64)&PopRegisteredPowerSettingCallbacks;
+  qword_140C23668 = (__int64)&PopRegisteredPowerSettingCallbacks;
   PopRegisteredPowerSettingCallbacks = (__int64)&PopRegisteredPowerSettingCallbacks;
-  qword_140C23088 = (__int64)&PopPowerSettings;
+  qword_140C236A8 = (__int64)&PopPowerSettings;
   PopPowerSettings = &PopPowerSettings;
   result = &WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE;
   PopPrimaryDisplayVisibleStateErratum = (__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE;
@@ -37,7 +37,7 @@ __int64 *PopInitializePowerSettings()
   LOWORD(PopSettingLock.Event.Header.Lock) = 1;
   PopSettingLock.Event.Header.Size = 6;
   PopSettingLock.Event.Header.SignalState = 0;
-  xmmword_140C243E8 = 0LL;
-  qword_140C243F8 = 0LL;
+  xmmword_140C24468 = 0LL;
+  qword_140C24478 = 0LL;
   return result;
 }

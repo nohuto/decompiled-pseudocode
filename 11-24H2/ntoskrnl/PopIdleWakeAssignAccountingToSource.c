@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeAssignAccountingToSource @ 0x1405DAA44
+ * XREFs of PopIdleWakeAssignAccountingToSource @ 0x1405D7D64
  * Callers:
- *     PopIdleWakeFindOrAllocateWakeSource @ 0x1405DAB88 (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x1405D7EA8 (PopIdleWakeFindOrAllocateWakeSource.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
  */
 
 char __fastcall PopIdleWakeAssignAccountingToSource(__int64 a1, __int64 a2, int a3, __int64 a4)

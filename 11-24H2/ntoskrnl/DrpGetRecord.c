@@ -1,9 +1,9 @@
 /*
- * XREFs of DrpGetRecord @ 0x140665030
+ * XREFs of DrpGetRecord @ 0x140663920
  * Callers:
- *     MicrocodeGetRecord @ 0x1406644E0 (MicrocodeGetRecord.c)
+ *     MicrocodeGetRecord @ 0x140662DD0 (MicrocodeGetRecord.c)
  * Callees:
- *     DrpVerifyData @ 0x1406650FC (DrpVerifyData.c)
+ *     DrpVerifyData @ 0x1406639EC (DrpVerifyData.c)
  */
 
 __int64 DrpGetRecord()

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeVadRange @ 0x1400272B4
+ * XREFs of MiFreeVadRange @ 0x140026E34
  * Callers:
- *     NtFreeVirtualMemory @ 0x140433DC0 (NtFreeVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1405320CC (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x140532AC0 (MmStoreFreeVirtualMemory.c)
+ *     NtFreeVirtualMemory @ 0x140432C90 (NtFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x14053260C (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140533000 (MmStoreFreeVirtualMemory.c)
  * Callees:
- *     MiLocateVadEvent @ 0x140015564 (MiLocateVadEvent.c)
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiPrepareVadDelete @ 0x14042E184 (MiPrepareVadDelete.c)
- *     PerfInfoLogVirtualFree @ 0x1406A3098 (PerfInfoLogVirtualFree.c)
+ *     MiLocateVadEvent @ 0x1400150E4 (MiLocateVadEvent.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiPrepareVadDelete @ 0x14042D054 (MiPrepareVadDelete.c)
+ *     PerfInfoLogVirtualFree @ 0x1406A31D0 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MiFreeVadRange(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)

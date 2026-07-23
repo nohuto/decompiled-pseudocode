@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapMemoryDumpMdlEx @ 0x140383580
+ * XREFs of MmMapMemoryDumpMdlEx @ 0x140383730
  * Callers:
- *     PopCreateDumpMdl @ 0x140993BB4 (PopCreateDumpMdl.c)
- *     IopLiveDumpBufferDumpData @ 0x1409AB3FC (IopLiveDumpBufferDumpData.c)
+ *     PopCreateDumpMdl @ 0x140994BB4 (PopCreateDumpMdl.c)
+ *     IopLiveDumpBufferDumpData @ 0x1409AC32C (IopLiveDumpBufferDumpData.c)
  * Callees:
- *     MiMapMemoryDumpMdl @ 0x140383A04 (MiMapMemoryDumpMdl.c)
+ *     MiMapMemoryDumpMdl @ 0x140383BB4 (MiMapMemoryDumpMdl.c)
  */
 
 __int64 __fastcall MmMapMemoryDumpMdlEx(__int64 a1, __int64 a2, __int64 a3, int a4)

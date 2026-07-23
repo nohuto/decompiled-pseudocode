@@ -9,12 +9,12 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-union _SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
+_SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
 {
-  union _SLIST_HEADER *PoolWithTag; // rax
-  union _SLIST_HEADER *v3; // rbx
+  _SLIST_HEADER *PoolWithTag; // rax
+  _SLIST_HEADER *v3; // rbx
 
-  PoolWithTag = (union _SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x130uLL, 0x44566656u);
+  PoolWithTag = (_SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x130uLL, 0x44566656u);
   v3 = PoolWithTag;
   if ( PoolWithTag )
   {

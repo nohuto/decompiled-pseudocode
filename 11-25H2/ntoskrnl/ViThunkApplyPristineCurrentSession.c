@@ -16,18 +16,18 @@ __int64 __fastcall ViThunkApplyPristineCurrentSession(ULONG_PTR BugCheckParamete
   __int64 v3; // rsi
   _QWORD *v4; // r14
   _DWORD *v5; // r15
-  unsigned int v6; // edi
+  ULONG v6; // edi
   __int64 v7; // rcx
   __int64 Pristine; // r10
   int v9; // r11d
   __int64 v10; // rcx
   __int64 v11; // rcx
-  unsigned int v13; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v13; // [rsp+40h] [rbp+8h] BYREF
 
   v13 = 0;
   v2 = 0;
   v3 = 0LL;
-  v4 = (_QWORD *)RtlImageDirectoryEntryToData(*(_QWORD *)(BugCheckParameter2 + 48), 1, 0xCu, &v13);
+  v4 = RtlImageDirectoryEntryToData(*(PVOID *)(BugCheckParameter2 + 48), 1u, 0xCu, &v13);
   if ( v4 && v13 )
   {
     v5 = ViWdmThunksWithIatIndex;

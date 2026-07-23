@@ -6,20 +6,20 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCreateToken(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
-        int a12,
-        int a13)
+NTSTATUS __cdecl NtCreateToken(
+        PHANDLE TokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TOKEN_TYPE Type,
+        PLUID AuthenticationId,
+        PLARGE_INTEGER ExpirationTime,
+        PTOKEN_USER User,
+        PTOKEN_GROUPS Groups,
+        PTOKEN_PRIVILEGES Privileges,
+        PTOKEN_OWNER Owner,
+        PTOKEN_PRIMARY_GROUP PrimaryGroup,
+        PTOKEN_DEFAULT_DACL DefaultDacl,
+        PTOKEN_SOURCE Source)
 {
   return Wow64SystemServiceCall();
 }

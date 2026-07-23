@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUpdatePowerButtonHoldState @ 0x1404CA678
+ * XREFs of PopUpdatePowerButtonHoldState @ 0x1404C3B98
  * Callers:
- *     PoSetPowerButtonHoldState @ 0x1405CFAE0 (PoSetPowerButtonHoldState.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     PoSetPowerButtonHoldState @ 0x1405CD250 (PoSetPowerButtonHoldState.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopUpdatePowerButtonHoldState(char a1)
@@ -19,30 +19,30 @@ void __fastcall PopUpdatePowerButtonHoldState(char a1)
   v2 = KeAcquireSpinLockRaiseToDpc(&PopPowerButtonHold);
   v3 = 0;
   v4 = v2;
-  v5 = 1LL << ((dword_140F07724 + dword_140F07728) & 0x3F);
+  v5 = 1LL << ((dword_140F07B44 + dword_140F07B48) & 0x3F);
   if ( a1 )
   {
-    qword_140F07730 |= v5;
+    qword_140F07B50 |= v5;
     v3 = 1;
-    ++dword_140F07728;
+    ++dword_140F07B48;
   }
   else
   {
-    qword_140F07730 &= ~v5;
-    ++dword_140F07724;
+    qword_140F07B50 &= ~v5;
+    ++dword_140F07B44;
   }
-  if ( v3 != (xmmword_140F07898 & 1) )
+  if ( v3 != (xmmword_140F07AF8 & 1) )
   {
     if ( a1 )
     {
-      ++DWORD1(xmmword_140F07898);
-      LODWORD(xmmword_140F07898) = xmmword_140F07898 | 1;
+      ++DWORD1(xmmword_140F07AF8);
+      LODWORD(xmmword_140F07AF8) = xmmword_140F07AF8 | 1;
     }
     else
     {
-      LODWORD(xmmword_140F07898) = 0;
+      LODWORD(xmmword_140F07AF8) = 0;
     }
-    PopQueueWorkItem((__int64)&unk_140F07870, CriticalWorkQueue);
+    PopQueueWorkItem((__int64)&unk_140F07AD0, CriticalWorkQueue);
   }
   KeReleaseSpinLock(&PopPowerButtonHold, v4);
 }

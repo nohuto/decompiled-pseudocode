@@ -1,7 +1,7 @@
 /*
  * XREFs of IoDeleteSymbolicLink @ 0x140811120
  * Callers:
- *     DifIoDeleteSymbolicLinkWrapper @ 0x14060E8A0 (DifIoDeleteSymbolicLinkWrapper.c)
+ *     sub_14060E8A0 @ 0x14060E8A0 (sub_14060E8A0.c)
  * Callees:
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     ZwMakeTemporaryObject @ 0x14041DA20 (ZwMakeTemporaryObject.c)

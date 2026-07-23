@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierSeValidSecurityDescriptor @ 0x14070CD74
+ * XREFs of VerifierSeValidSecurityDescriptor @ 0x14070CDA4
  * Callers:
  *     <none>
  * Callees:

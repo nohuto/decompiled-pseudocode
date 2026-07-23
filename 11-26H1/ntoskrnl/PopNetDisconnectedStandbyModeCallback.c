@@ -1,13 +1,13 @@
 /*
- * XREFs of PopNetDisconnectedStandbyModeCallback @ 0x1407DA4E0
+ * XREFs of PopNetDisconnectedStandbyModeCallback @ 0x1407DE3D0
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
-__int64 __fastcall PopNetDisconnectedStandbyModeCallback(__int64 a1, int *a2, int a3)
+__int64 __fastcall PopNetDisconnectedStandbyModeCallback(__int64 a1, _DWORD *a2, int a3)
 {
   unsigned int v4; // ebx
   __int64 v5; // rdx
@@ -16,11 +16,11 @@ __int64 __fastcall PopNetDisconnectedStandbyModeCallback(__int64 a1, int *a2, in
   __int64 v8; // r9
   __int64 v10; // [rsp+20h] [rbp-8h]
 
-  if ( a3 == 4 && (unsigned int)*a2 <= 1 )
+  if ( a3 == 4 && *a2 <= 1u )
   {
     v4 = 0;
     PopAcquirePolicyLock(a1, a2);
-    dword_140F1071C = *a2;
+    HIDWORD(PpmIdlePolicyLock.InGlobalForegroundList) = *a2;
     PopReleasePolicyLock(v6, v5, v7, v8, v10);
   }
   else

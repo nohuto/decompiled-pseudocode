@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerCalculateDistribution @ 0x1400632F0
+ * XREFs of KiIntSteerCalculateDistribution @ 0x1400632E0
  * Callers:
  *     KeIntSteerPeriodic @ 0x1400626A0 (KeIntSteerPeriodic.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
- *     KiIntSteerComputeCpuSet @ 0x14029A930 (KiIntSteerComputeCpuSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
+ *     KiIntSteerComputeCpuSet @ 0x14029AB20 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerCalculateDistribution(unsigned __int16 *a1, unsigned int a2)

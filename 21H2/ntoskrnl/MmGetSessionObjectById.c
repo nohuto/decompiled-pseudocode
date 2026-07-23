@@ -1,19 +1,19 @@
 /*
- * XREFs of MmGetSessionObjectById @ 0x140206364
+ * XREFs of MmGetSessionObjectById @ 0x1402AAC94
  * Callers:
- *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
- *     NtSetInformationObject @ 0x140691630 (NtSetInformationObject.c)
- *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
- *     IoGetContainerInformation @ 0x1408949C0 (IoGetContainerInformation.c)
- *     IoRegisterContainerNotification @ 0x140894A40 (IoRegisterContainerNotification.c)
+ *     NtSetInformationObject @ 0x1405F14A0 (NtSetInformationObject.c)
+ *     SeSetSessionIdToken @ 0x140619180 (SeSetSessionIdToken.c)
+ *     SepSetTokenSessionById @ 0x1406F3A30 (SepSetTokenSessionById.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     SeExchangePrimaryToken @ 0x1407BC3D4 (SeExchangePrimaryToken.c)
+ *     IoGetContainerInformation @ 0x140894B20 (IoGetContainerInformation.c)
+ *     IoRegisterContainerNotification @ 0x140894BA0 (IoRegisterContainerNotification.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

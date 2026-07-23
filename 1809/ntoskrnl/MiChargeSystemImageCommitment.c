@@ -1,14 +1,14 @@
 /*
- * XREFs of MiChargeSystemImageCommitment @ 0x1406831FC
+ * XREFs of MiChargeSystemImageCommitment @ 0x1406843BC
  * Callers:
- *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
+ *     MiMapSystemImage @ 0x1406832A4 (MiMapSystemImage.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall MiChargeSystemImageCommitment(__int64 a1)

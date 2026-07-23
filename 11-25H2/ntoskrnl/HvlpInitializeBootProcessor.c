@@ -29,8 +29,8 @@ __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
   signed __int32 v14[8]; // [rsp+0h] [rbp-40h] BYREF
   __int64 v15; // [rsp+20h] [rbp-20h] BYREF
   __int128 v16; // [rsp+28h] [rbp-18h] BYREF
-  unsigned __int64 v17; // [rsp+78h] [rbp+38h] BYREF
-  unsigned __int64 v18; // [rsp+80h] [rbp+40h] BYREF
+  __int64 v17; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v18; // [rsp+80h] [rbp+40h] BYREF
   __int64 v19; // [rsp+88h] [rbp+48h] BYREF
 
   v1 = 0LL;

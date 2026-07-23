@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDetectModelSpecificFeatures @ 0x1405652E0
+ * XREFs of KiDetectModelSpecificFeatures @ 0x1405662E0
  * Callers:
- *     KiSetProcessorSignature @ 0x14056F7A8 (KiSetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405707A8 (KiSetProcessorSignature.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
  */
 
 __int64 __fastcall KiDetectModelSpecificFeatures(__int64 a1)

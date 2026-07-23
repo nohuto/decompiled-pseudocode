@@ -1,9 +1,9 @@
 /*
- * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER @ 0x140607D48
+ * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER @ 0x140605350
  * Callers:
- *     Pdcv2ActivationClientRegister @ 0x14078D95C (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2ActivationClientRegister @ 0x14078D88C (Pdcv2ActivationClientRegister.c)
  * Callees:
- *     McTemplateU0qqqqzr3_EtwWriteTransfer @ 0x140607648 (McTemplateU0qqqqzr3_EtwWriteTransfer.c)
+ *     McTemplateU0qqqqzr3_EtwWriteTransfer @ 0x140604C50 (McTemplateU0qqqqzr3_EtwWriteTransfer.c)
  */
 
 void __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ void __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER(__int64 a1, __int64 a
     v2 = *(_DWORD *)(a1 + 32);
     v3 = (const wchar_t *)(a1 + 120);
   }
-  if ( (byte_140F04ABA & 0x40) != 0 )
+  if ( (byte_140F04D62 & 0x40) != 0 )
   {
     v4 = -1LL;
     do

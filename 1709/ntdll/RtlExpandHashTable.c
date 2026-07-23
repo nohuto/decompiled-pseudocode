@@ -10,16 +10,16 @@
  *     memset @ 0x1800A6C80 (memset.c)
  */
 
-char __fastcall RtlExpandHashTable(__int64 a1)
+BOOLEAN __cdecl RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  int v1; // edx
+  unsigned int TableSize; // edx
   unsigned int v3; // ecx
   int v4; // esi
   unsigned int v5; // ecx
   unsigned int v6; // esi
-  _QWORD *v7; // rdi
+  void **v7; // rdi
   __int64 v8; // rbp
-  unsigned int v9; // edx
+  unsigned int Pivot; // edx
   __int64 ChainHead; // rax
   _QWORD *v11; // r9
   __int64 v12; // r10
@@ -30,34 +30,34 @@ char __fastcall RtlExpandHashTable(__int64 a1)
   __int64 v17; // rax
   _QWORD *v18; // rcx
   _QWORD *v19; // rax
-  int v20; // edx
-  __int64 SecondLevelDir; // rax
-  __int64 v23; // rbp
+  unsigned int DivisorMask; // edx
+  PVOID SecondLevelDir; // rax
+  void *Directory; // rbp
   _QWORD *Heap; // rax
   _QWORD *v25; // rdi
   unsigned int v26; // [rsp+40h] [rbp+8h]
 
-  v1 = *(_DWORD *)(a1 + 8);
-  if ( v1 == 8388480 || *(_DWORD *)(a1 + 28) )
+  TableSize = HashTable->TableSize;
+  if ( TableSize == 8388480 || HashTable->NumEnumerators )
     return 0;
-  _BitScanReverse(&v3, v1 + 128);
+  _BitScanReverse(&v3, TableSize + 128);
   v4 = 1 << v3;
   v5 = v3 - 7;
-  v6 = (v1 + 128) ^ v4;
+  v6 = (TableSize + 128) ^ v4;
   v26 = v5;
-  if ( v1 == 128 )
+  if ( TableSize == 128 )
   {
-    v23 = *(_QWORD *)(a1 + 32);
-    Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 128LL);
+    Directory = HashTable->Directory;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x80uLL);
     v25 = Heap;
     if ( !Heap )
       return 0;
     memset(Heap, 0, 0x80uLL);
     v5 = v26;
-    *v25 = v23;
-    *(_QWORD *)(a1 + 32) = v25;
+    *v25 = Directory;
+    HashTable->Directory = v25;
   }
-  v7 = *(_QWORD **)(a1 + 32);
+  v7 = (void **)HashTable->Directory;
   v8 = v5;
   if ( !v7[v5] )
   {
@@ -67,18 +67,18 @@ char __fastcall RtlExpandHashTable(__int64 a1)
       v7[v8] = SecondLevelDir;
       goto LABEL_5;
     }
-    if ( *(_DWORD *)(a1 + 8) == 128 )
+    if ( HashTable->TableSize == 128 )
     {
-      *(_QWORD *)(a1 + 32) = *v7;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v7);
+      HashTable->Directory = *v7;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     }
     return 0;
   }
 LABEL_5:
-  v9 = *(_DWORD *)(a1 + 12);
-  ++*(_DWORD *)(a1 + 8);
-  ChainHead = RtlpGetChainHead(a1, v9);
-  ++*(_DWORD *)(a1 + 12);
+  Pivot = HashTable->Pivot;
+  ++HashTable->TableSize;
+  ChainHead = RtlpGetChainHead((__int64)HashTable, Pivot);
+  ++HashTable->Pivot;
   v11 = (_QWORD *)ChainHead;
   v13 = (_QWORD *)(16LL * v6 + v12);
   v13[1] = v13;
@@ -89,8 +89,9 @@ LABEL_5:
     do
     {
       v15 = *(_QWORD **)v14;
-      v16 = *(_DWORD *)(*(_QWORD *)v14 + 16LL) >> *(_DWORD *)(a1 + 4);
-      if ( (((2 * *(_DWORD *)(a1 + 16)) | 1) & ((69069 * v16 + 1) & 0xFFFF0000 | ((unsigned int)(1103515245 * v16 + 12345) >> 16))) == *(_DWORD *)(a1 + 8) - 1 )
+      v16 = *(_DWORD *)(*(_QWORD *)v14 + 16LL) >> HashTable->Shift;
+      if ( (((2 * HashTable->DivisorMask) | 1) & ((69069 * v16 + 1) & 0xFFFF0000 | ((unsigned int)(1103515245 * v16
+                                                                                                 + 12345) >> 16))) == HashTable->TableSize - 1 )
       {
         v17 = *v15;
         if ( *(_QWORD **)(*v15 + 8LL) != v15 || (v18 = (_QWORD *)v15[1], (_QWORD *)*v18 != v15) )
@@ -112,15 +113,15 @@ LABEL_5:
     }
     while ( *(_QWORD **)v14 != v11 );
     if ( (_QWORD *)*v13 != v13 )
-      ++*(_DWORD *)(a1 + 24);
+      ++HashTable->NonEmptyBuckets;
     if ( (_QWORD *)*v11 == v11 )
-      --*(_DWORD *)(a1 + 24);
+      --HashTable->NonEmptyBuckets;
   }
-  v20 = *(_DWORD *)(a1 + 16);
-  if ( *(_DWORD *)(a1 + 12) == v20 + 1 )
+  DivisorMask = HashTable->DivisorMask;
+  if ( HashTable->Pivot == DivisorMask + 1 )
   {
-    *(_DWORD *)(a1 + 12) = 0;
-    *(_DWORD *)(a1 + 16) = (2 * v20) | 1;
+    HashTable->Pivot = 0;
+    HashTable->DivisorMask = (2 * DivisorMask) | 1;
   }
   return 1;
 }

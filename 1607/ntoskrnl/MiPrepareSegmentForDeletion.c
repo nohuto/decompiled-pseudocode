@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPrepareSegmentForDeletion @ 0x140090154
+ * XREFs of MiPrepareSegmentForDeletion @ 0x14008F8B4
  * Callers:
- *     MiSegmentDelete @ 0x1404B81E4 (MiSegmentDelete.c)
+ *     MiSegmentDelete @ 0x1404A25C4 (MiSegmentDelete.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140026D70 (MiBuildWakeList.c)
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDrainControlAreaWrites @ 0x1400901EC (MiDrainControlAreaWrites.c)
- *     MiRemoveUnusedSubsection @ 0x1400904A4 (MiRemoveUnusedSubsection.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1400268F0 (MiBuildWakeList.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainControlAreaWrites @ 0x14008F94C (MiDrainControlAreaWrites.c)
+ *     MiRemoveUnusedSubsection @ 0x14008FC04 (MiRemoveUnusedSubsection.c)
  */
 
 __int64 *__fastcall MiPrepareSegmentForDeletion(__int64 a1, __int64 a2)

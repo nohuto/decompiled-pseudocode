@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpTlLogMemStats @ 0x180109C6C
+ * XREFs of RtlpHpTlLogMemStats @ 0x180104B9C
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x1800910C4 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x18009BC50 (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+ULONG __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   __int64 v5; // [rsp+30h] [rbp-59h] BYREF
   __int64 v6; // [rsp+38h] [rbp-51h] BYREF
   __int64 v7; // [rsp+40h] [rbp-49h] BYREF
   __int64 v8; // [rsp+48h] [rbp-41h] BYREF
   __int64 v9; // [rsp+50h] [rbp-39h] BYREF
-  _BYTE v10[32]; // [rsp+60h] [rbp-29h] BYREF
+  _EVENT_DATA_DESCRIPTOR v10; // [rsp+60h] [rbp-29h] BYREF
   __int64 *v11; // [rsp+80h] [rbp-9h]
   __int64 v12; // [rsp+88h] [rbp-1h]
   __int64 *v13; // [rsp+90h] [rbp+7h]
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __in
   __int64 *v19; // [rsp+C0h] [rbp+37h]
   __int64 v20; // [rsp+C8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1801CC670 > 5 )
+  if ( (unsigned int)dword_1801CB670 > 5 )
   {
     v5 = a1;
     v11 = &v5;
@@ -44,7 +44,13 @@ __int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __in
     v16 = 8LL;
     v18 = 8LL;
     v20 = 8LL;
-    return tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CC670, byte_1801A2363, a3, a4, 7, (__int64)v10);
+    return tlgWriteTransfer_EtwEventWriteTransfer(
+             (__int64)&dword_1801CB670,
+             (unsigned __int8 *)dword_1801A1503,
+             a3,
+             a4,
+             7u,
+             &v10);
   }
   return result;
 }

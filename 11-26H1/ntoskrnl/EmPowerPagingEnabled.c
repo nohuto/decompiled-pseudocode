@@ -1,15 +1,15 @@
 /*
- * XREFs of EmPowerPagingEnabled @ 0x140B3B648
+ * XREFs of EmPowerPagingEnabled @ 0x140B3D8C8
  * Callers:
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
  */
 
 void __fastcall EmPowerPagingEnabled(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -27,11 +27,14 @@ void __fastcall EmPowerPagingEnabled(char a1, __int64 a2, __int64 a3, struct _KL
 
   memset(&Event, 0, sizeof(Event));
   v5 = 0;
-  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.CycleTime, 0LL, 0LL, a4);
-  v8 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.CycleTime, 0LL);
+  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.Header.WaitListHead.Blink, 0LL, 0LL, a4);
+  v8 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.Header.WaitListHead.Blink, 0LL);
   v9 = v6;
   if ( v8 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&EmpParseLock.CycleTime, v6, (__int64)&EmpParseLock.CycleTime);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&EmpParseLock.Header.WaitListHead.Blink,
+      v6,
+      (__int64)&EmpParseLock.Header.WaitListHead.Blink);
   if ( v9 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -41,29 +44,34 @@ void __fastcall EmPowerPagingEnabled(char a1, __int64 a2, __int64 a3, struct _KL
   }
   if ( a1 )
   {
-    *(_DWORD *)&EmpParseLock.WaitRegister.Flags |= 0x80000000;
+    *((_DWORD *)&EmpParseLock.0 + 1) |= 0x80000000;
   }
   else
   {
-    *(_DWORD *)&EmpParseLock.WaitRegister.Flags &= ~0x80000000;
-    if ( *(_DWORD *)&EmpParseLock.WaitRegister.Flags )
+    *((_DWORD *)&EmpParseLock.0 + 1) &= ~0x80000000;
+    if ( *((_DWORD *)&EmpParseLock.0 + 1) )
     {
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
       v5 = 1;
-      EmpParseLock.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)&Event;
+      *(_QWORD *)&EmpParseLock.WaitRegister.Flags = &Event;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.CycleTime, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.CycleTime);
-  KeAbPostRelease((unsigned __int64)&EmpParseLock.CycleTime);
+  if ( (_InterlockedExchangeAdd64(
+          (volatile signed __int64 *)&EmpParseLock.Header.WaitListHead.Blink,
+          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.Header.WaitListHead.Blink);
+  KeAbPostRelease((unsigned __int64)&EmpParseLock.Header.WaitListHead.Blink);
   if ( v5 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    v11 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.CycleTime, 0LL, 0LL, v10);
-    v8 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.CycleTime, 0LL);
+    v11 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.Header.WaitListHead.Blink, 0LL, 0LL, v10);
+    v8 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.Header.WaitListHead.Blink, 0LL);
     v13 = v11;
     if ( v8 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&EmpParseLock.CycleTime, v11, (__int64)&EmpParseLock.CycleTime);
+      ExfAcquirePushLockExclusiveEx(
+        (unsigned __int64 *)&EmpParseLock.Header.WaitListHead.Blink,
+        v11,
+        (__int64)&EmpParseLock.Header.WaitListHead.Blink);
     if ( v13 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -71,9 +79,11 @@ void __fastcall EmPowerPagingEnabled(char a1, __int64 a2, __int64 a3, struct _KL
       else
         *((_BYTE *)v13 + 10) = 1;
     }
-    EmpParseLock.SchedulingGroup = 0LL;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.CycleTime, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.CycleTime);
-    KeAbPostRelease((unsigned __int64)&EmpParseLock.CycleTime);
+    *(_QWORD *)&EmpParseLock.WaitRegister.Flags = 0LL;
+    if ( (_InterlockedExchangeAdd64(
+            (volatile signed __int64 *)&EmpParseLock.Header.WaitListHead.Blink,
+            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.Header.WaitListHead.Blink);
+    KeAbPostRelease((unsigned __int64)&EmpParseLock.Header.WaitListHead.Blink);
   }
 }

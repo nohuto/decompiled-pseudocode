@@ -21,8 +21,9 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
+NTSTATUS __cdecl NtQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
+  int v3; // ebx
   char v4; // si
   __int64 v5; // rdx
   __int64 v6; // rcx
@@ -30,16 +31,17 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
   __int64 v8; // r9
   __int64 v9; // rcx
   char v10; // r14
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   char PreviousMode; // dl
   __int64 v13; // rcx
   _QWORD *v14; // rdi
-  int v15; // ebx
+  ULONG v15; // ebx
   __int64 v16; // rcx
   PVOID Object; // [rsp+48h] [rbp-250h] BYREF
   int v19; // [rsp+50h] [rbp-248h]
   _KAFFINITY_EX v20[2]; // [rsp+58h] [rbp-240h] BYREF
 
+  v3 = (int)TargetKey;
   memset(v20, 0, 64);
   memset_0(&v20[0].StaticBitmap[8], 0, 0x1D0uLL);
   v19 = 0;
@@ -54,12 +56,12 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
     if ( PreviousMode == 1 )
     {
       v13 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v13 = (__int64)a2;
+      if ( (unsigned __int64)HandleCount < 0x7FFFFFFF0000LL )
+        v13 = (__int64)HandleCount;
       *(_DWORD *)v13 = *(_DWORD *)v13;
     }
     v11 = ObReferenceObjectByNameEx(
-            a1,
+            v3,
             0,
             131097,
             (_DWORD)CmKeyObjectType,
@@ -81,7 +83,7 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
           CmpDetachFromRegistryProcess(&v20[0].StaticBitmap[1]);
           CmpUnlockRegistry(v16);
           v4 = 0;
-          *a2 = v15;
+          *HandleCount = v15;
           v11 = 0;
         }
         else
@@ -103,5 +105,5 @@ __int64 __fastcall NtQueryOpenSubKeys(int a1, _DWORD *a2)
   if ( Object )
     ObfDereferenceObject(Object);
   CmCleanupThreadInfo((_KAFFINITY_EX **)v20);
-  return (unsigned int)v11;
+  return v11;
 }

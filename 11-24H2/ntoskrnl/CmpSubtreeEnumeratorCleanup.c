@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSubtreeEnumeratorCleanup @ 0x140915F94
+ * XREFs of CmpSubtreeEnumeratorCleanup @ 0x140909A04
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpPromoteSubtree @ 0x140914928 (CmpPromoteSubtree.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140915678 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpPromoteSubtree @ 0x140908398 (CmpPromoteSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1409090E8 (CmpDoAccessCheckOnLayeredSubtree.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpKeyEnumStackCleanup @ 0x140916A64 (CmpKeyEnumStackCleanup.c)
- *     CmpCleanupKeyNodeStack @ 0x140916C58 (CmpCleanupKeyNodeStack.c)
- *     CmpCleanupKcbStack @ 0x1409172A0 (CmpCleanupKcbStack.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpKeyEnumStackCleanup @ 0x14090A4D4 (CmpKeyEnumStackCleanup.c)
+ *     CmpCleanupKeyNodeStack @ 0x14090A6C8 (CmpCleanupKeyNodeStack.c)
+ *     CmpCleanupKcbStack @ 0x14090AD10 (CmpCleanupKcbStack.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorCleanup(__int64 a1)

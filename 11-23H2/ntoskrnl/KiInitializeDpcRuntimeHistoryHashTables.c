@@ -3,11 +3,11 @@
  * Callers:
  *     KeInitSystem @ 0x140B4DED4 (KeInitSystem.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
- *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x1408219C0 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x140821CC0 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
  */
 
 __int64 KiInitializeDpcRuntimeHistoryHashTables()

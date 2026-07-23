@@ -1,23 +1,23 @@
 /*
- * XREFs of DifNtRaiseHardErrorWrapper @ 0x1406875B0
+ * XREFs of DifNtRaiseHardErrorWrapper @ 0x14068B190
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtRaiseHardError @ 0x140840420 (NtRaiseHardError.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtRaiseHardError @ 0x140846660 (NtRaiseHardError.c)
  */
 
 __int64 __fastcall DifNtRaiseHardErrorWrapper(
-        unsigned int a1,
-        unsigned int a2,
-        unsigned int a3,
-        __int64 a4,
-        int a5,
-        __int64 a6)
+        NTSTATUS a1,
+        ULONG a2,
+        ULONG a3,
+        unsigned __int64 *a4,
+        ULONG ValidResponseOptions,
+        ULONG *Response)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -56,8 +56,8 @@ __int64 __fastcall DifNtRaiseHardErrorWrapper(
   *(_QWORD *)&v21 = ReturnAddressForWrappers;
 LABEL_7:
   v14 = 0;
-  LODWORD(v22) = a5;
-  *((_QWORD *)&v21 + 1) = a6;
+  LODWORD(v22) = ValidResponseOptions;
+  *((_QWORD *)&v21 + 1) = Response;
   *(_QWORD *)((char *)&v23 + 4) = __PAIR64__(a1, a2);
   LODWORD(v23) = a3;
   *((_QWORD *)&v22 + 1) = a4;
@@ -73,19 +73,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  HIDWORD(v23) = NtRaiseHardError(
-                   a1,
-                   a2,
-                   a3,
-                   a4,
-                   a5,
-                   a6,
-                   v21,
-                   *((_QWORD *)&v21 + 1),
-                   v22,
-                   *((_QWORD *)&v22 + 1),
-                   v23,
-                   *((_QWORD *)&v23 + 1));
+  HIDWORD(v23) = NtRaiseHardError(a1, a2, a3, a4, ValidResponseOptions, Response);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

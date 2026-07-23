@@ -62,24 +62,24 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  unsigned int v2; // eax
-  _DWORD v3[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v4; // [rsp+28h] [rbp-570h]
-  __int64 v5; // [rsp+30h] [rbp-568h]
-  int v6; // [rsp+38h] [rbp-560h]
-  _BYTE v7[248]; // [rsp+C0h] [rbp-4D8h] BYREF
-  __int64 v8; // [rsp+1B8h] [rbp-3E0h]
+  BOOLEAN v2; // bl
+  NTSTATUS v3; // eax
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  sub_1800A06B0((__int64)v7);
-  v3[0] = a1;
-  v4 = 0LL;
-  v6 = 0;
-  v5 = v8;
-  v3[1] = 1;
-  if ( !NtCurrentPeb()->BeingDebugged )
-    sub_18006A670((__int64)v3, (__int64)v7);
-  v2 = ZwRaiseException();
-  RtlRaiseStatus(v2);
+  sub_1800A06B0((__int64)&ContextRecord);
+  ExceptionRecord.ExceptionCode = Status;
+  v2 = 0;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionAddress = (PVOID)ContextRecord.Rip;
+  ExceptionRecord.ExceptionFlags = 1;
+  if ( NtCurrentPeb()->BeingDebugged )
+    v2 = 1;
+  else
+    sub_18006A670((__int64)&ExceptionRecord, (__int64)&ContextRecord);
+  v3 = ZwRaiseException(&ExceptionRecord, &ContextRecord, v2);
+  RtlRaiseStatus(v3);
 }

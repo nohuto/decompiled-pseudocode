@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryIoRingCapabilities(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryIoRingCapabilities(SIZE_T IoRingCapabilitiesLength, PVOID IoRingCapabilities)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoRingCapabilitiesLength);
 }

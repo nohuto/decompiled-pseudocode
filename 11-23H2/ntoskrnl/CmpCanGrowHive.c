@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCanGrowHive @ 0x140750158
+ * XREFs of CmpCanGrowHive @ 0x140750348
  * Callers:
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

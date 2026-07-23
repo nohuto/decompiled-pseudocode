@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonGetCountersBitmap @ 0x140595774
+ * XREFs of EmonGetCountersBitmap @ 0x140597EF4
  * Callers:
- *     EmonReserveProfileResources @ 0x140596360 (EmonReserveProfileResources.c)
+ *     EmonReserveProfileResources @ 0x140598AE0 (EmonReserveProfileResources.c)
  * Callees:
  *     <none>
  */

@@ -1,35 +1,35 @@
 /*
- * XREFs of DbgkpWakeTarget @ 0x140885B10
+ * XREFs of DbgkpWakeTarget @ 0x140885C70
  * Callers:
- *     DbgkClearProcessDebugObject @ 0x140772F90 (DbgkClearProcessDebugObject.c)
- *     DbgkpCloseObject @ 0x140884830 (DbgkpCloseObject.c)
- *     DbgkpSetProcessDebugObject @ 0x140885810 (DbgkpSetProcessDebugObject.c)
- *     NtDebugContinue @ 0x140885F50 (NtDebugContinue.c)
+ *     DbgkClearProcessDebugObject @ 0x140773150 (DbgkClearProcessDebugObject.c)
+ *     DbgkpCloseObject @ 0x140884990 (DbgkpCloseObject.c)
+ *     DbgkpSetProcessDebugObject @ 0x140885970 (DbgkpSetProcessDebugObject.c)
+ *     NtDebugContinue @ 0x1408860B0 (NtDebugContinue.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     PsResumeThread @ 0x14064CCE0 (PsResumeThread.c)
- *     DbgkpFreeDebugEvent @ 0x140884AC4 (DbgkpFreeDebugEvent.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     PsResumeThread @ 0x140641B00 (PsResumeThread.c)
+ *     DbgkpFreeDebugEvent @ 0x140884C24 (DbgkpFreeDebugEvent.c)
  */
 
-void __fastcall DbgkpWakeTarget(char *P, __int64 a2, __int64 a3, _DWORD *a4)
+void __fastcall DbgkpWakeTarget(char *P)
 {
-  int v4; // eax
-  struct _EX_RUNDOWN_REF *v6; // rdi
+  int v1; // eax
+  struct _EX_RUNDOWN_REF *v3; // rdi
 
-  v4 = *((_DWORD *)P + 19);
-  v6 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)P + 8);
-  if ( (v4 & 0x20) != 0 )
+  v1 = *((_DWORD *)P + 19);
+  v3 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)P + 8);
+  if ( (v1 & 0x20) != 0 )
   {
-    PsResumeThread(*((_QWORD *)P + 8), 0LL, a3, a4);
-    v4 = *((_DWORD *)P + 19);
+    PsResumeThread(*((_QWORD *)P + 8), 0LL);
+    v1 = *((_DWORD *)P + 19);
   }
-  if ( (v4 & 8) != 0 )
+  if ( (v1 & 8) != 0 )
   {
-    ExReleaseRundownProtection_0(v6 + 159);
-    v4 = *((_DWORD *)P + 19);
+    ExReleaseRundownProtection(v3 + 159);
+    v1 = *((_DWORD *)P + 19);
   }
-  if ( (v4 & 2) != 0 )
+  if ( (v1 & 2) != 0 )
     DbgkpFreeDebugEvent(P);
   else
     KeSetEvent((PRKEVENT)(P + 16), 0, 0);

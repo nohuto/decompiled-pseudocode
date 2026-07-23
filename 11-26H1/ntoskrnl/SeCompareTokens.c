@@ -1,18 +1,18 @@
 /*
- * XREFs of SeCompareTokens @ 0x140A28A40
+ * XREFs of SeCompareTokens @ 0x140A3BAE0
  * Callers:
- *     EtwTiLogImpersonateClient @ 0x1409294AC (EtwTiLogImpersonateClient.c)
- *     NtCompareTokens @ 0x140A2A4A0 (NtCompareTokens.c)
+ *     EtwTiLogImpersonateClient @ 0x140904FBC (EtwTiLogImpersonateClient.c)
+ *     NtCompareTokens @ 0x140A3D530 (NtCompareTokens.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     SepAcquireOrderedReadLocks @ 0x1402B2790 (SepAcquireOrderedReadLocks.c)
- *     SeTokenIsRestricted @ 0x140461340 (SeTokenIsRestricted.c)
- *     SepReleaseOrderedReadLocks @ 0x140486088 (SepReleaseOrderedReadLocks.c)
- *     SeTokenIsWriteRestricted @ 0x14048CB70 (SeTokenIsWriteRestricted.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     SepCompareSidAndAttributeArrays @ 0x140A28C98 (SepCompareSidAndAttributeArrays.c)
- *     SepCompareClaimAttributes @ 0x140A28D7C (SepCompareClaimAttributes.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A292B8 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     SepAcquireOrderedReadLocks @ 0x1402FD460 (SepAcquireOrderedReadLocks.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     SeTokenIsRestricted @ 0x14045A300 (SeTokenIsRestricted.c)
+ *     SepReleaseOrderedReadLocks @ 0x14047F9F8 (SepReleaseOrderedReadLocks.c)
+ *     SeTokenIsWriteRestricted @ 0x1404866B0 (SeTokenIsWriteRestricted.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     SepCompareSidAndAttributeArrays @ 0x140A3BD38 (SepCompareSidAndAttributeArrays.c)
+ *     SepCompareClaimAttributes @ 0x140A3BE1C (SepCompareClaimAttributes.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140A3C358 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
  */
 
 __int64 __fastcall SeCompareTokens(struct _KTHREAD *Token, struct _KTHREAD *a2, bool *a3)

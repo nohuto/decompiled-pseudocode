@@ -11,43 +11,43 @@
 
 __int64 __fastcall LdrpFindOrPrepareEnclaveModule(
         _QWORD *a1,
-        __int64 a2,
+        _UNICODE_STRING *a2,
         __int64 a3,
         int a4,
         __int64 a5,
-        _QWORD *a6,
+        __int64 ***a6,
         __int64 a7)
 {
   unsigned int v7; // edi
-  const void **v9; // rsi
-  char v11; // al
-  const void **v12; // rcx
-  _QWORD *i; // rbx
+  _UNICODE_STRING *v9; // rsi
+  BOOLEAN v11; // al
+  _UNICODE_STRING *v12; // rcx
+  __int64 **i; // rbx
 
   v7 = 0;
-  v9 = (const void **)a2;
+  v9 = a2;
   *a6 = 0LL;
   if ( (a4 & 0x20) != 0 )
   {
-    if ( RtlEqualUnicodeString(word_180132570, a2, 1) )
+    if ( RtlEqualUnicodeString((PUNICODE_STRING)&stru_180132570, a2, 1u) )
     {
       if ( a5 == a1[15] || a5 == a1[16] )
-        v9 = (const void **)&unk_1801325B0;
+        v9 = (_UNICODE_STRING *)&unk_1801325B0;
     }
     else
     {
-      v11 = RtlPrefixUnicodeString(L"\b\n", (__int64)v9, 1);
-      v12 = (const void **)&unk_1801325B0;
+      v11 = RtlPrefixUnicodeString((PUNICODE_STRING)&stru_180132580, v9, 1u);
+      v12 = (_UNICODE_STRING *)&unk_1801325B0;
       if ( !v11 )
         v12 = v9;
       v9 = v12;
     }
   }
-  for ( i = (_QWORD *)a1[12]; ; i = (_QWORD *)*i )
+  for ( i = (__int64 **)a1[12]; ; i = (__int64 **)*i )
   {
     if ( i == a1 + 12 )
-      return (unsigned int)LdrpCreatePendingEnclaveModule(a1, v9, a4, 8, a3, a5, a6, a7);
-    if ( RtlEqualUnicodeString((unsigned __int16 *)v9, i[22], 1) )
+      return (unsigned int)LdrpCreatePendingEnclaveModule(a1, (const void **)v9, a4, 8, a3, a5, a6, a7);
+    if ( RtlEqualUnicodeString(v9, (PUNICODE_STRING)i[22], 1u) )
       break;
   }
   *a6 = i;

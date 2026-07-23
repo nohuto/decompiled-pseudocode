@@ -3,7 +3,7 @@
  * Callers:
  *     ExAllocateCacheAwarePushLock @ 0x140389430 (ExAllocateCacheAwarePushLock.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
+ *     sub_140348B40 @ 0x140348B40 (sub_140348B40.c)
  */
 
 __int64 __fastcall ExFreeCacheAwarePushLock(ULONG_PTR *BugCheckParameter3)
@@ -18,11 +18,11 @@ __int64 __fastcall ExFreeCacheAwarePushLock(ULONG_PTR *BugCheckParameter3)
     do
     {
       if ( *v2 )
-        ExFreeHeapPool(*v2);
+        sub_140348B40(*v2);
       ++v2;
       --v3;
     }
     while ( v3 );
   }
-  return ExFreeHeapPool((ULONG_PTR)BugCheckParameter3);
+  return sub_140348B40((ULONG_PTR)BugCheckParameter3);
 }

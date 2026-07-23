@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4
+ * XREFs of CmpLightWeightPrepareSetValueKeyUoW @ 0x1406962A4
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     CmpSwapValueInList @ 0x14010EEFC (CmpSwapValueInList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpAddValueKeyNew @ 0x1405ACC78 (CmpAddValueKeyNew.c)
- *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
- *     CmpFreeValue @ 0x1405ADB5C (CmpFreeValue.c)
- *     CmpMarkValueDataDirty @ 0x1405AE578 (CmpMarkValueDataDirty.c)
- *     CmpInitializeValueNameString @ 0x1405AF46C (CmpInitializeValueNameString.c)
- *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x140693878 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpLightWeightCreateSetValueData @ 0x140695608 (CmpLightWeightCreateSetValueData.c)
+ *     CmpSwapValueInList @ 0x14010EF7C (CmpSwapValueInList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpAddValueKeyNew @ 0x1405ADC78 (CmpAddValueKeyNew.c)
+ *     CmpAddValueToListEx @ 0x1405AE8B0 (CmpAddValueToListEx.c)
+ *     CmpFreeValue @ 0x1405AEB5C (CmpFreeValue.c)
+ *     CmpMarkValueDataDirty @ 0x1405AF578 (CmpMarkValueDataDirty.c)
+ *     CmpInitializeValueNameString @ 0x1405B046C (CmpInitializeValueNameString.c)
+ *     CmpFindNameInList @ 0x1405D162C (CmpFindNameInList.c)
+ *     CmpGetValueData @ 0x1405D30A0 (CmpGetValueData.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x140694A38 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpLightWeightCreateSetValueData @ 0x1406967C8 (CmpLightWeightCreateSetValueData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareSetValueKeyUoW(__int64 a1)

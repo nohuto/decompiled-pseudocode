@@ -1,38 +1,38 @@
 /*
- * XREFs of BcdOpenStore @ 0x140803098
+ * XREFs of BcdOpenStore @ 0x140803368
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x140611D90 (WheaPersistBadPageToBcd.c)
- *     PoInitHiberServices @ 0x140801AE8 (PoInitHiberServices.c)
- *     PopBcdOpen @ 0x140801E1C (PopBcdOpen.c)
- *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
- *     PopFreeHiberContext @ 0x1409885F0 (PopFreeHiberContext.c)
- *     BcdOpenStoreFromFile @ 0x140A5C348 (BcdOpenStoreFromFile.c)
+ *     WheaPersistBadPageToBcd @ 0x1406122E0 (WheaPersistBadPageToBcd.c)
+ *     PoInitHiberServices @ 0x140801DB8 (PoInitHiberServices.c)
+ *     PopBcdOpen @ 0x1408020EC (PopBcdOpen.c)
+ *     PopAllocateHiberContext @ 0x140987F38 (PopAllocateHiberContext.c)
+ *     PopFreeHiberContext @ 0x1409887F0 (PopFreeHiberContext.c)
+ *     BcdOpenStoreFromFile @ 0x140A5C5F8 (BcdOpenStoreFromFile.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     BiMarkTreatAsSystemStore @ 0x140802250 (BiMarkTreatAsSystemStore.c)
- *     BiAddStoreFromFile @ 0x140802668 (BiAddStoreFromFile.c)
- *     BiOpenSystemStore @ 0x1408034C4 (BiOpenSystemStore.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiAcquireBcdSyncMutant @ 0x140805634 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1408056DC (BiReleaseBcdSyncMutant.c)
- *     BiDeleteRegistryValue @ 0x140807274 (BiDeleteRegistryValue.c)
- *     BiCleanupLoadedStores @ 0x140807BE4 (BiCleanupLoadedStores.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     BiMarkTreatAsSystemStore @ 0x140802520 (BiMarkTreatAsSystemStore.c)
+ *     BiAddStoreFromFile @ 0x140802938 (BiAddStoreFromFile.c)
+ *     BiOpenSystemStore @ 0x140803794 (BiOpenSystemStore.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x140805904 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1408059AC (BiReleaseBcdSyncMutant.c)
+ *     BiDeleteRegistryValue @ 0x140807544 (BiDeleteRegistryValue.c)
+ *     BiCleanupLoadedStores @ 0x140807EB4 (BiCleanupLoadedStores.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BcdOpenStore(unsigned __int16 *a1, unsigned int a2, __int64 *a3)
+NTSTATUS __cdecl BcdOpenStore(UNICODE_STRING *BcdFilePath, BCD_OPEN_FLAGS BcdOpenFlags, PHANDLE BcdStoreHandle)
 {
-  unsigned __int16 *v3; // rbx
+  UNICODE_STRING *v3; // rbx
   char v4; // si
-  int v7; // r14d
+  __int32 v7; // r14d
   int v8; // eax
   unsigned int v9; // edi
   __int64 v10; // rcx
   int v11; // eax
-  unsigned int v12; // ebx
-  const wchar_t *v14; // r8
-  unsigned int v15; // r10d
+  NTSTATUS v12; // ebx
+  const wchar_t *Buffer; // r8
+  NTSTATUS v15; // r10d
   unsigned int v16; // ebp
   _DWORD *Pool2; // rax
   void *v18; // r14
@@ -40,34 +40,39 @@ __int64 __fastcall BcdOpenStore(unsigned __int16 *a1, unsigned int a2, __int64 *
   __int64 v20; // rcx
   int v21; // eax
   __int64 v22; // rcx
-  __int64 v23; // rdi
+  void *v23; // rdi
   int v24; // eax
-  __int64 v25; // [rsp+78h] [rbp+20h] BYREF
+  void *v25; // [rsp+78h] [rbp+20h] BYREF
 
-  v3 = a1;
-  v4 = a2 & 1;
-  LOBYTE(a1) = a2 & 1;
-  v7 = a2 & 2;
-  v8 = BiAcquireBcdSyncMutant(a1);
+  v3 = BcdFilePath;
+  v4 = BcdOpenFlags & 1;
+  LOBYTE(BcdFilePath) = BcdOpenFlags & 1;
+  v7 = BcdOpenFlags & 2;
+  v8 = BiAcquireBcdSyncMutant(BcdFilePath);
   if ( v8 < 0 )
   {
     if ( v3 )
-      v14 = (const wchar_t *)*((_QWORD *)v3 + 1);
+      Buffer = v3->Buffer;
     else
-      v14 = L"NULL";
-    BiLogMessage(4LL, L"BcdOpenStore: Failed to acquire BCD sync Mutant. Store: %wsFlags: 0x%x Status: %x", v14, a2, v8);
+      Buffer = L"NULL";
+    BiLogMessage(
+      4LL,
+      L"BcdOpenStore: Failed to acquire BCD sync Mutant. Store: %wsFlags: 0x%x Status: %x",
+      Buffer,
+      (unsigned int)BcdOpenFlags,
+      v8);
     return v15;
   }
   else
   {
     v25 = 0LL;
     v9 = 0;
-    BiLogMessage(2LL, L"Opening store. Flags: 0x%x", a2);
+    BiLogMessage(2LL, L"Opening store. Flags: 0x%x", (unsigned int)BcdOpenFlags);
     if ( v3 )
     {
       if ( !v4 )
         BiCleanupLoadedStores(0LL);
-      v16 = *v3 + 14;
+      v16 = v3->Length + 14;
       Pool2 = (_DWORD *)ExAllocatePool2(258LL, v16, 1262764866LL);
       v18 = Pool2;
       if ( Pool2 )
@@ -76,8 +81,8 @@ __int64 __fastcall BcdOpenStore(unsigned __int16 *a1, unsigned int a2, __int64 *
         v19 = Pool2 + 3;
         Pool2[1] = v16;
         Pool2[2] = 3;
-        memmove(Pool2 + 3, *((const void **)v3 + 1), *v3);
-        *((_WORD *)v19 + ((unsigned __int64)*v3 >> 1)) = 0;
+        memmove(Pool2 + 3, v3->Buffer, v3->Length);
+        *((_WORD *)v19 + ((unsigned __int64)v3->Length >> 1)) = 0;
         BiLogMessage(2LL, L"Store path: \"%s\"", v19);
         if ( v4 )
         {
@@ -90,10 +95,10 @@ __int64 __fastcall BcdOpenStore(unsigned __int16 *a1, unsigned int a2, __int64 *
         {
           v23 = v25;
           BiDeleteRegistryValue(v25, L"GuidCache", L"Description");
-          v24 = BiMarkTreatAsSystemStore(v23, 0);
+          v24 = BiMarkTreatAsSystemStore((__int64)v23, 0);
           v12 = v24;
           if ( v24 >= 0 )
-            *a3 = v23;
+            *BcdStoreHandle = v23;
           else
             BiLogMessage(4LL, L"Failed to clear system store flag. Status: %x", (unsigned int)v24);
         }
@@ -126,7 +131,7 @@ __int64 __fastcall BcdOpenStore(unsigned __int16 *a1, unsigned int a2, __int64 *
         BiLogMessage(v10, L"Store will be synchronized with firmware.");
       else
         v9 = 2;
-      v11 = BiOpenSystemStore(a3, v9);
+      v11 = BiOpenSystemStore(BcdStoreHandle, v9);
       v12 = v11;
       if ( v11 < 0 )
         BiLogMessage(4LL, L"Failed to open system store. Status: %x", (unsigned int)v11);

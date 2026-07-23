@@ -1,10 +1,10 @@
 /*
- * XREFs of wcsnlen @ 0x14014F0B4
+ * XREFs of wcsnlen @ 0x14014F674
  * Callers:
- *     _wcslwr_s @ 0x14014D82C (_wcslwr_s.c)
- *     RtlpQueryTimeZoneKeyNameRoutine @ 0x14057FBFC (RtlpQueryTimeZoneKeyNameRoutine.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1406885BC (RtlpSetTimeZoneInformationWorker.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1406D518C (BiGetObjectReferenceFromEfiEntry.c)
+ *     _wcslwr_s @ 0x14014DD9C (_wcslwr_s.c)
+ *     RtlpQueryTimeZoneKeyNameRoutine @ 0x1405800A8 (RtlpQueryTimeZoneKeyNameRoutine.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1406886A0 (RtlpSetTimeZoneInformationWorker.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1406D52C4 (BiGetObjectReferenceFromEfiEntry.c)
  * Callees:
  *     <none>
  */

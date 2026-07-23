@@ -56,7 +56,7 @@ __int64 __fastcall PpmIdlePrepare(
   unsigned int v37; // edx
   unsigned int v38; // ecx
   unsigned int i; // eax
-  unsigned int v40; // eax
+  ULONG v40; // eax
   __int64 v41; // r12
   __int64 v42; // rax
   unsigned int v43; // ebx

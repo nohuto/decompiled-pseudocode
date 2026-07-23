@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpMapHiveImageFromViewMap @ 0x1407502D8
+ * XREFs of HvpMapHiveImageFromViewMap @ 0x1407504C8
  * Callers:
- *     HvLoadHive @ 0x14074ED44 (HvLoadHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
+ *     HvLoadHive @ 0x14074EF34 (HvLoadHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     CmpClaimGlobalQuota @ 0x140702F9C (CmpClaimGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x1407031AC (CmpClaimGlobalQuota.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)
  */
 

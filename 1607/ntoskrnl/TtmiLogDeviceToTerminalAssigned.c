@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceToTerminalAssigned @ 0x14067ABCC
+ * XREFs of TtmiLogDeviceToTerminalAssigned @ 0x14067ACB0
  * Callers:
- *     TtmiAssignDevice @ 0x140676F34 (TtmiAssignDevice.c)
+ *     TtmiAssignDevice @ 0x140677018 (TtmiAssignDevice.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogDeviceToTerminalAssigned(int a1, int a2)
@@ -43,7 +43,7 @@ void __fastcall TtmiLogDeviceToTerminalAssigned(int a1, int a2)
       v10 = 4;
       v13 = 4;
       v16 = 4;
-      TlgWrite(&stru_1407478B0, &unk_14027E0A1, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027E1A1, 0LL, 0LL, 5u, &pData);
     }
   }
 }

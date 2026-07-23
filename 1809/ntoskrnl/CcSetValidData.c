@@ -1,12 +1,12 @@
 /*
- * XREFs of CcSetValidData @ 0x140126AA4
+ * XREFs of CcSetValidData @ 0x140126B74
  * Callers:
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
  */
 
 __int64 __fastcall CcSetValidData(struct _FILE_OBJECT *a1, __int64 *a2)

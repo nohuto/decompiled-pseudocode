@@ -13,40 +13,45 @@
  *     _RtlpHpTagQueryTags@12 @ 0x4B370317 (_RtlpHpTagQueryTags@12.c)
  */
 
-int __stdcall RtlQueryHeapInformation(int a1, int a2, _DWORD *a3, unsigned int a4, _DWORD *a5)
+NTSTATUS __cdecl RtlQueryHeapInformation(
+        PVOID HeapHandle,
+        HEAP_INFORMATION_CLASS HeapInformationClass,
+        PVOID HeapInformation,
+        SIZE_T HeapInformationLength,
+        PSIZE_T ReturnLength)
 {
-  if ( a2 == -2147483647 )
-    return RtlpQueryErrorInformationAddress(a5);
-  if ( a2 )
+  if ( HeapInformationClass == -2147483647 )
+    return RtlpQueryErrorInformationAddress(HIDWORD(HeapInformationLength));
+  if ( HeapInformationClass )
   {
-    if ( a2 != 2 )
+    if ( HeapInformationClass != 2 )
     {
-      if ( a2 == 4 )
-        return RtlpHpTagQueryTags(a5);
-      if ( a2 == 5 )
-        return RtlpHpStackTraceSerialize(a5);
+      if ( HeapInformationClass == 4 )
+        return RtlpHpTagQueryTags(HIDWORD(HeapInformationLength));
+      if ( HeapInformationClass == 5 )
+        return RtlpHpStackTraceSerialize(HIDWORD(HeapInformationLength));
       return -1073741811;
     }
-    if ( a4 < 0x2C )
+    if ( (unsigned int)HeapInformationLength < 0x2C )
       return -1073741811;
-    return RtlpQueryExtendedHeapInformation(a5);
+    return RtlpQueryExtendedHeapInformation(HIDWORD(HeapInformationLength));
   }
-  else if ( *(_DWORD *)(a1 + 8) == -571548178 || (*(_DWORD *)(a1 + 68) & 0x1000000) == 0 )
+  else if ( *((_DWORD *)HeapHandle + 2) == -571548178 || (*((_DWORD *)HeapHandle + 17) & 0x1000000) == 0 )
   {
-    if ( a4 >= 4 )
+    if ( (unsigned int)HeapInformationLength >= 4 )
     {
-      if ( *(_DWORD *)(a1 + 8) == -571548178 )
-        *a3 = 2;
+      if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
+        *(_DWORD *)HeapInformation = 2;
       else
-        *a3 = *(unsigned __int8 *)(a1 + 235);
-      if ( a5 )
-        *a5 = 4;
+        *(_DWORD *)HeapInformation = *((unsigned __int8 *)HeapHandle + 235);
+      if ( HIDWORD(HeapInformationLength) )
+        *(_DWORD *)HIDWORD(HeapInformationLength) = 4;
       return 0;
     }
     else
     {
-      if ( a5 )
-        *a5 = 4;
+      if ( HIDWORD(HeapInformationLength) )
+        *(_DWORD *)HIDWORD(HeapInformationLength) = 4;
       return -1073741789;
     }
   }

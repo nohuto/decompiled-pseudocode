@@ -1,24 +1,24 @@
 /*
- * XREFs of HvAnalyzeLogFiles @ 0x140983108
+ * XREFs of HvAnalyzeLogFiles @ 0x14096B918
  * Callers:
- *     HvRecoverFlushProtocolStateFromFiles @ 0x1407DF454 (HvRecoverFlushProtocolStateFromFiles.c)
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x1407DF9A4 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvpCompareLogSequenceNumbers @ 0x1407E62A4 (HvpCompareLogSequenceNumbers.c)
- *     HvpLogIneligibleLogHeader @ 0x1407E62D8 (HvpLogIneligibleLogHeader.c)
- *     HvpIsReadErrorTransient @ 0x140983744 (HvpIsReadErrorTransient.c)
- *     HvpLogUnreadableLog @ 0x1409838E8 (HvpLogUnreadableLog.c)
- *     HvpLogInvalidLogHeader @ 0x140983AF0 (HvpLogInvalidLogHeader.c)
- *     HvpDetermineResultingLoggingState @ 0x140984078 (HvpDetermineResultingLoggingState.c)
- *     HvpDetermineLogFileApplicationOrder @ 0x14098413C (HvpDetermineLogFileApplicationOrder.c)
- *     HvpAnalyzeSingleLogFile @ 0x1409847EC (HvpAnalyzeSingleLogFile.c)
- *     HvpHeaderCheckSum @ 0x140BB97A0 (HvpHeaderCheckSum.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvpCompareLogSequenceNumbers @ 0x1407E6874 (HvpCompareLogSequenceNumbers.c)
+ *     HvpLogIneligibleLogHeader @ 0x1407E68A8 (HvpLogIneligibleLogHeader.c)
+ *     HvpIsReadErrorTransient @ 0x14096BF54 (HvpIsReadErrorTransient.c)
+ *     HvpLogUnreadableLog @ 0x14096C0F8 (HvpLogUnreadableLog.c)
+ *     HvpLogInvalidLogHeader @ 0x14096C300 (HvpLogInvalidLogHeader.c)
+ *     HvpDetermineResultingLoggingState @ 0x14096C888 (HvpDetermineResultingLoggingState.c)
+ *     HvpDetermineLogFileApplicationOrder @ 0x14096C94C (HvpDetermineLogFileApplicationOrder.c)
+ *     HvpAnalyzeSingleLogFile @ 0x14096CFFC (HvpAnalyzeSingleLogFile.c)
+ *     HvpHeaderCheckSum @ 0x140BBB7A0 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvAnalyzeLogFiles(
@@ -109,7 +109,7 @@ __int64 __fastcall HvAnalyzeLogFiles(
   LODWORD(v56[0].Ptr) = a5;
   for ( i = 0LL; (unsigned int)i < a5; i = (unsigned int)(i + 1) )
   {
-    v11 = guard_dispatch_icall_no_overrides(*(_QWORD *)&v7[6 * i + 4], 0LL, 512LL, (char *)&v53 + 8 * i);
+    v11 = guard_dispatch_icall_no_overrides(*(_QWORD *)&v7[6 * i + 4], 0LL);
     v12 = v11;
     if ( v11 >= 0 )
     {
@@ -129,26 +129,26 @@ __int64 __fastcall HvAnalyzeLogFiles(
   if ( !a5 )
   {
 LABEL_11:
-    v23 = dword_140E09EE8;
-    v24 = qword_140E09F00;
-    if ( (unsigned int)dword_140E09EE8 > 5 )
+    v23 = dword_140E09F58;
+    v24 = qword_140E09F70;
+    if ( (unsigned int)dword_140E09F58 > 5 )
     {
-      if ( (qword_140E09EF8 & 8) != 0 && (qword_140E09F00 & 8) == qword_140E09F00 )
+      if ( (qword_140E09F68 & 8) != 0 && (qword_140E09F70 & 8) == qword_140E09F70 )
       {
         *(_QWORD *)&v57 = &v51;
         v51 = 0x1000000LL;
         *((_QWORD *)&v57 + 1) = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E09EE8,
-          (unsigned __int8 *)byte_140055D43,
+          (__int64)&dword_140E09F58,
+          (unsigned __int8 *)word_1400567FA,
           0LL,
           0LL,
           3u,
           v56);
-        v24 = qword_140E09F00;
-        v23 = dword_140E09EE8;
+        v24 = qword_140E09F70;
+        v23 = dword_140E09F58;
       }
-      if ( v23 > 5 && (qword_140E09EF8 & 0x400000000008LL) != 0 && (v24 & 0x400000000008LL) == v24 )
+      if ( v23 > 5 && (qword_140E09F68 & 0x400000000008LL) != 0 && (v24 & 0x400000000008LL) == v24 )
       {
         *(_QWORD *)&v57 = &v51;
         v51 = 1LL;
@@ -156,7 +156,7 @@ LABEL_11:
         *((_QWORD *)&v57 + 1) = 8LL;
         v54 = 0x1000000LL;
         *((_QWORD *)&v58 + 1) = 8LL;
-        tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055D77, v9, 4u, (__int64)v56);
+        tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)&unk_1400567B0, v9, 4u, (__int64)v56);
       }
     }
     return 3221225804LL;
@@ -247,16 +247,22 @@ LABEL_9:
   }
   if ( !v29 )
   {
-    if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000008LL) )
+    if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000008LL) )
     {
       *(_QWORD *)&v57 = &v51;
       *((_QWORD *)&v57 + 1) = 8LL;
       v51 = 0x1000000LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055DC1, 0LL, 0LL, 3u, v56);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140E09F58,
+        (unsigned __int8 *)&word_14005677E,
+        0LL,
+        0LL,
+        3u,
+        v56);
     }
     return 3221225804LL;
   }
-  if ( (unsigned int)dword_140E09EE8 > 5 && (qword_140E09EF8 & 8) != 0 && (qword_140E09F00 & 8) == qword_140E09F00 )
+  if ( (unsigned int)dword_140E09F58 > 5 && (qword_140E09F68 & 8) != 0 && (qword_140E09F70 & 8) == qword_140E09F70 )
   {
     v65 = 0;
     v68 = 0;
@@ -278,7 +284,7 @@ LABEL_9:
     v70 = 1;
     v73 = 4;
     v76 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055DF3, 0LL, 0LL, 7u, &v62);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)byte_140056721, 0LL, 0LL, 7u, &v62);
   }
   LOBYTE(v8) = a3;
   HvpDetermineLogFileApplicationOrder(v56, v8);

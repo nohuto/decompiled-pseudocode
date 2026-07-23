@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSharePagesLockPageTable @ 0x1403072AC
+ * XREFs of MiSharePagesLockPageTable @ 0x1402E932C
  * Callers:
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiCombineCandidate @ 0x1402F3F80 (MiCombineCandidate.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiReplenishCombineResources @ 0x14048356C (MiReplenishCombineResources.c)
- *     MiCheckProcessCombineSequence @ 0x140497E80 (MiCheckProcessCombineSequence.c)
- *     MiGetCombineDomain @ 0x1404A2F70 (MiGetCombineDomain.c)
- *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiCombineCandidate @ 0x1402D6000 (MiCombineCandidate.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiReplenishCombineResources @ 0x14047CE9C (MiReplenishCombineResources.c)
+ *     MiCheckProcessCombineSequence @ 0x1404919D0 (MiCheckProcessCombineSequence.c)
+ *     MiGetCombineDomain @ 0x14049C990 (MiGetCombineDomain.c)
+ *     MiShareValidPage @ 0x1407096FC (MiShareValidPage.c)
  */
 
 __int64 __fastcall MiSharePagesLockPageTable(__int64 *a1, __int64 a2)
@@ -77,7 +77,7 @@ __int64 __fastcall MiSharePagesLockPageTable(__int64 *a1, __int64 a2)
     if ( (*(_QWORD *)v8 & 1) != 0 )
     {
       v15 = (v13 >> 12) & 0xFFFFFFFFFFLL;
-      if ( v15 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+      if ( v15 > qword_140E2D920 || ((*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
         return 3221225473LL;
       v16 = (const __m128i *)(48 * v15 - 0x220000000000LL);
       LODWORD(v24) = 0;
@@ -107,7 +107,7 @@ __int64 __fastcall MiSharePagesLockPageTable(__int64 *a1, __int64 a2)
       }
       else
       {
-        if ( *(_QWORD *)(a2 + 24) == qword_140E2EA50 || v17 != 1 )
+        if ( *(_QWORD *)(a2 + 24) == qword_140E2EBD0 || v17 != 1 )
         {
           v22 = v25;
         }

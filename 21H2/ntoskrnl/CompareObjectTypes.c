@@ -1,5 +1,5 @@
 /*
- * XREFs of CompareObjectTypes @ 0x1405C3A30
+ * XREFs of CompareObjectTypes @ 0x1405C3C60
  * Callers:
  *     <none>
  * Callees:

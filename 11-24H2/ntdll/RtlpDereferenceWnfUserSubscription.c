@@ -1,54 +1,54 @@
 /*
- * XREFs of RtlpDereferenceWnfUserSubscription @ 0x180099550
+ * XREFs of RtlpDereferenceWnfUserSubscription @ 0x18002E3A0
  * Callers:
- *     RtlpRemoveUserSubFromNameSub @ 0x180099388 (RtlpRemoveUserSubFromNameSub.c)
+ *     RtlpRemoveUserSubFromNameSub @ 0x18002E1D8 (RtlpRemoveUserSubFromNameSub.c)
  * Callees:
- *     RtlpWakeByAddress @ 0x180014E60 (RtlpWakeByAddress.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpDecrementWnfSerializationGroup @ 0x180099634 (RtlpDecrementWnfSerializationGroup.c)
+ *     RtlpDecrementWnfSerializationGroup @ 0x18002E484 (RtlpDecrementWnfSerializationGroup.c)
+ *     RtlpWakeByAddress @ 0x180041860 (RtlpWakeByAddress.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
-signed __int64 __fastcall RtlpDereferenceWnfUserSubscription(unsigned __int64 a1, _QWORD *a2, _QWORD *a3, __int64 a4)
+LOGICAL __fastcall RtlpDereferenceWnfUserSubscription(volatile signed __int64 *BaseAddress, _QWORD *a2, _QWORD *a3)
 {
-  signed __int64 v7; // rax
-  bool v8; // cc
-  signed __int64 v9; // rax
-  signed __int64 result; // rax
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  _QWORD *v13; // rcx
-  _DWORD *v14; // r14
-  signed __int32 v15[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int64 v6; // rax
+  bool v7; // cc
+  signed __int64 v8; // rax
+  LOGICAL result; // eax
+  __int64 v10; // rcx
+  volatile signed __int64 **v11; // rdx
+  PVOID *v12; // rcx
+  _DWORD *v13; // r14
+  signed __int32 v14[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 32), 0xFFFFFFFFFFFFFFFFuLL);
-  v8 = v7 <= 1;
-  v9 = v7 - 1;
-  if ( v8 )
+  v6 = _InterlockedExchangeAdd64(BaseAddress + 4, 0xFFFFFFFFFFFFFFFFuLL);
+  v7 = v6 <= 1;
+  v8 = v6 - 1;
+  if ( v7 )
   {
-    if ( v9 )
+    if ( v8 )
       __fastfail(0xEu);
-    v11 = *(_QWORD *)(a1 + 80);
-    if ( v11 )
-      RtlpDecrementWnfSerializationGroup(v11, a2, a3, a4);
-    v12 = *(_QWORD *)(a1 + 8);
-    if ( *(_QWORD *)(v12 + 8) != a1 + 8 || (v13 = *(_QWORD **)(a1 + 16), *v13 != a1 + 8) )
+    v10 = *((_QWORD *)BaseAddress + 10);
+    if ( v10 )
+      RtlpDecrementWnfSerializationGroup(v10);
+    v11 = (volatile signed __int64 **)*((_QWORD *)BaseAddress + 1);
+    if ( v11[1] != BaseAddress + 1 || (v12 = (PVOID *)*((_QWORD *)BaseAddress + 2), *v12 != BaseAddress + 1) )
       __fastfail(3u);
-    *v13 = v12;
-    *(_QWORD *)(v12 + 8) = v13;
-    v14 = *(_DWORD **)(a1 + 88);
-    *a2 = *(_QWORD *)(a1 + 96);
-    *a3 = *(_QWORD *)(a1 + 104);
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
-    if ( v14 )
+    *v12 = v11;
+    v11[1] = (volatile signed __int64 *)v12;
+    v13 = (_DWORD *)*((_QWORD *)BaseAddress + 11);
+    *a2 = *((_QWORD *)BaseAddress + 12);
+    *a3 = *((_QWORD *)BaseAddress + 13);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)BaseAddress);
+    if ( v13 )
     {
-      *v14 = 1;
-      _InterlockedOr(v15, 0);
-      return RtlpWakeByAddress((unsigned __int64)v14, 0, 0LL);
+      *v13 = 1;
+      _InterlockedOr(v14, 0);
+      return RtlpWakeByAddress(v13, 0LL, 0LL);
     }
   }
   else
   {
-    result = 0LL;
+    result = 0;
     *a2 = 0LL;
     *a3 = 0LL;
   }

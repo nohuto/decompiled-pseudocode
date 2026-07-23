@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUmsTrapEntryContinue @ 0x1401D0CC0
+ * XREFs of KiUmsTrapEntryContinue @ 0x1401D0DC0
  * Callers:
  *     <none>
  * Callees:
- *     KiSwapToUmsThreadContinue @ 0x14029DC20 (KiSwapToUmsThreadContinue.c)
+ *     KiSwapToUmsThreadContinue @ 0x14029DE10 (KiSwapToUmsThreadContinue.c)
  */
 
 __int64 __fastcall KiUmsTrapEntryContinue()

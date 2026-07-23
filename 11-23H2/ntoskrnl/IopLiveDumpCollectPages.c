@@ -1,24 +1,24 @@
 /*
- * XREFs of IopLiveDumpCollectPages @ 0x140A9AB04
+ * XREFs of IopLiveDumpCollectPages @ 0x140A9A974
  * Callers:
- *     IopLiveDumpCapture @ 0x14094DE5C (IopLiveDumpCapture.c)
- *     IopLiveDumpEndMirroringCallback @ 0x140A9B0F0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpCapture @ 0x14094E05C (IopLiveDumpCapture.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140A9AF60 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
  *     KeSaveSupervisorState @ 0x14020E48C (KeSaveSupervisorState.c)
- *     KiSaveProcessorControlState @ 0x14041EDA0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvlCollectLivedump @ 0x140547834 (HvlCollectLivedump.c)
- *     IoFillDumpHeader @ 0x14054FBC8 (IoFillDumpHeader.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceCaptureProcessorContextDuration @ 0x14055A65C (IopLiveDumpTraceCaptureProcessorContextDuration.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8B70 (RtlNumberOfSetBitsEx.c)
- *     IopLiveDumpGenerateIptSecondaryData @ 0x140A9B57C (IopLiveDumpGenerateIptSecondaryData.c)
- *     IopLiveDumpMarkImportantDumpData @ 0x140A9BA00 (IopLiveDumpMarkImportantDumpData.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BDA4 (IopLiveDumpMarkRequiredDumpData.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x140A9C160 (IopLiveDumpPopulateBitmapForDump.c)
- *     IopLiveDumpStartDumpDataBuffering @ 0x140A9C538 (IopLiveDumpStartDumpDataBuffering.c)
- *     IopLiveDumpUncorralProcessors @ 0x140A9C608 (IopLiveDumpUncorralProcessors.c)
+ *     KiSaveProcessorControlState @ 0x14041F130 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlCollectLivedump @ 0x140547EF4 (HvlCollectLivedump.c)
+ *     IoFillDumpHeader @ 0x140550288 (IoFillDumpHeader.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCaptureProcessorContextDuration @ 0x14055AD1C (IopLiveDumpTraceCaptureProcessorContextDuration.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A90E0 (RtlNumberOfSetBitsEx.c)
+ *     IopLiveDumpGenerateIptSecondaryData @ 0x140A9B3EC (IopLiveDumpGenerateIptSecondaryData.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x140A9B870 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BC14 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A9BFD0 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpStartDumpDataBuffering @ 0x140A9C3A8 (IopLiveDumpStartDumpDataBuffering.c)
+ *     IopLiveDumpUncorralProcessors @ 0x140A9C478 (IopLiveDumpUncorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpCollectPages(__int64 a1)
@@ -58,7 +58,7 @@ __int64 __fastcall IopLiveDumpCollectPages(__int64 a1)
   }
   if ( (v1 & 1) == 0 )
     IoFillDumpHeader(
-      *(char **)(a1 + 560),
+      *(_DWORD **)(a1 + 560),
       6,
       *(_DWORD *)a1,
       *(_QWORD *)(a1 + 8),

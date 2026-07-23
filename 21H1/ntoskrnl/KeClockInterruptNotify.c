@@ -31,13 +31,13 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2, __int64 a3, __int
 {
   unsigned __int8 v4; // r14
   struct _KPRCB *CurrentPrcb; // rsi
-  char *v7; // r12
+  LARGE_INTEGER *v7; // r12
   struct _KPRCB *v8; // rbx
   _DWORD *SchedulerAssist; // rcx
   int v10; // eax
   _DWORD *v11; // rcx
   int v12; // eax
-  __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   __int64 v14; // rdx
   int v15; // eax
   char v16; // r13
@@ -95,7 +95,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2, __int64 a3, __int
   __int64 v68; // [rsp+48h] [rbp-60h] BYREF
   __int64 v69; // [rsp+50h] [rbp-58h] BYREF
   __int64 v70; // [rsp+58h] [rbp-50h] BYREF
-  __int64 v71; // [rsp+60h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp-48h] BYREF
   int v72; // [rsp+A0h] [rbp-8h]
   char v73; // [rsp+C0h] [rbp+18h]
 
@@ -103,7 +103,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2, __int64 a3, __int
   v68 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   v7 = 0LL;
-  v71 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v73 = 0;
   v67 = 0LL;
   if ( KiForceIdleDisabled )
@@ -143,8 +143,8 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2, __int64 a3, __int
   }
   if ( !CurrentPrcb->ClockOwner || !KeIsForceIdleEngaged() )
     goto LABEL_22;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v71);
-  PoExecuteIdleCheck(InterruptTimePrecise);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  ((void (__fastcall *)(_QWORD))PoExecuteIdleCheck)((LARGE_INTEGER)InterruptTimePrecise.QuadPart);
   if ( KiForceIdleWatchdogResetCount == 32 )
   {
     off_140C008C0[0]();
@@ -155,7 +155,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2, __int64 a3, __int
     v15 = KiForceIdleWatchdogResetCount + 1;
   }
   KiForceIdleWatchdogResetCount = v15;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiForceIdleActiveLastStartTime) > 0x1312D00 )
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiForceIdleActiveLastStartTime) > 0x1312D00 )
   {
     LOBYTE(v14) = 1;
     KiResetForceIdle(2LL, v14);
@@ -165,11 +165,11 @@ LABEL_22:
   }
   ++qword_140C315B0;
   v16 = 1;
-  v7 = (char *)&KiClockTickSkipTraces + 16 * (unsigned int)KiClockTickSkipTraceIndex;
+  v7 = (LARGE_INTEGER *)((char *)&KiClockTickSkipTraces + 16 * (unsigned int)KiClockTickSkipTraceIndex);
   v73 = 1;
   KiClockTickSkipTraceIndex = ((_BYTE)KiClockTickSkipTraceIndex + 1) & 0xF;
-  *v7 = 0;
-  *((_QWORD *)v7 + 1) = InterruptTimePrecise;
+  LOBYTE(v7->LowPart) = 0;
+  v7[1] = InterruptTimePrecise;
 LABEL_23:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
   PrcbFlags = (__int64)KeGetCurrentPrcb();
@@ -475,7 +475,7 @@ LABEL_118:
     }
     __writecr8(v59);
     if ( v7 )
-      *v7 = 1;
+      LOBYTE(v7->LowPart) = 1;
     ++qword_140C315B8;
   }
 }

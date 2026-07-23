@@ -1,46 +1,44 @@
 /*
- * XREFs of _ResFindClose @ 0x18010426C
+ * XREFs of _ResFindClose @ 0x1801041AC
  * Callers:
- *     ResCGetHighestCacheIndex @ 0x180104E9C (ResCGetHighestCacheIndex.c)
+ *     ResCGetHighestCacheIndex @ 0x180104DDC (ResCGetHighestCacheIndex.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlDeleteCriticalSection @ 0x1800523B0 (RtlDeleteCriticalSection.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlDeleteCriticalSection @ 0x1800523A0 (RtlDeleteCriticalSection.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  */
 
-__int64 __fastcall ResFindClose(unsigned __int64 a1)
+__int64 __fastcall ResFindClose(_RTL_CRITICAL_SECTION *BaseAddress)
 {
-  __int64 *v3; // rdi
-  char *v4; // rdx
-  __int64 v5; // r9
-  unsigned __int64 v6; // r8
+  _RTL_CRITICAL_SECTION *v3; // rdi
+  void *v4; // r8
 
-  if ( a1 == 1 )
+  if ( BaseAddress == (_RTL_CRITICAL_SECTION *)1 )
     return 1LL;
-  if ( a1 == -1LL )
+  if ( BaseAddress == (_RTL_CRITICAL_SECTION *)-1LL )
   {
-    RtlSetLastWin32Error(6u);
+    RtlSetLastWin32Error(6);
     return 0LL;
   }
   else
   {
-    v3 = (__int64 *)(a1 + 40);
-    RtlEnterCriticalSection(a1 + 40);
-    if ( NtClose(*(HANDLE *)a1) < 0 )
+    v3 = BaseAddress + 1;
+    RtlEnterCriticalSection(BaseAddress + 1);
+    if ( NtClose(BaseAddress->DebugInfo) < 0 )
     {
-      RtlLeaveCriticalSection((__int64)v3);
+      RtlLeaveCriticalSection(v3);
       return 0LL;
     }
     else
     {
-      v6 = *(_QWORD *)(a1 + 8);
-      if ( v6 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
-      RtlDeleteCriticalSection(v3, v4, v6, v5);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      v4 = *(void **)&BaseAddress->LockCount;
+      if ( v4 )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+      RtlDeleteCriticalSection(v3);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       return 1LL;
     }
   }

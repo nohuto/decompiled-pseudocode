@@ -5,7 +5,7 @@
  *     _vscwprintf @ 0x18008E0C0 (_vscwprintf.c)
  * Callees:
  *     _invalid_parameter @ 0x18008C868 (_invalid_parameter.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall vscprintf_helper(__int64 (__fastcall *a1)(__int64 *), __int64 a2)

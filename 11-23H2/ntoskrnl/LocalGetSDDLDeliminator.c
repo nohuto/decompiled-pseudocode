@@ -3,7 +3,7 @@
  * Callers:
  *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
  * Callees:
- *     wcschr @ 0x1403DB910 (wcschr.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
  *     FContainCallBackAce @ 0x14069E4E0 (FContainCallBackAce.c)
  */
 

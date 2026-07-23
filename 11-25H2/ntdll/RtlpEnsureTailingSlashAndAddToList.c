@@ -11,7 +11,7 @@
 __int64 __fastcall RtlpEnsureTailingSlashAndAddToList(__int64 a1, __int64 a2)
 {
   unsigned __int16 v5; // bp
-  __int64 Heap; // rax
+  char *Heap; // rax
   _QWORD *v7; // rbx
   _WORD *v8; // rcx
   _QWORD *v9; // rax
@@ -22,14 +22,14 @@ __int64 __fastcall RtlpEnsureTailingSlashAndAddToList(__int64 a1, __int64 a2)
     return 0LL;
   }
   v5 = *(_WORD *)a2 + 2;
-  Heap = RtlAllocateHeap((char *)LdrpHeap, NtdllBaseTag + 0x40000, v5 + 32LL);
-  v7 = (_QWORD *)Heap;
-  v8 = (_WORD *)(Heap + 16);
+  Heap = (char *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, v5 + 32LL);
+  v7 = Heap;
+  v8 = Heap + 16;
   if ( Heap )
   {
     *v8 = 0;
-    *(_QWORD *)(Heap + 24) = Heap + 32;
-    *(_WORD *)(Heap + 18) = v5;
+    *((_QWORD *)Heap + 3) = Heap + 32;
+    *((_WORD *)Heap + 9) = v5;
     RtlUnicodeStringCopy((__int64)v8, (unsigned __int16 *)a2);
     v9 = *(_QWORD **)(a1 + 8);
     if ( *v9 != a1 )

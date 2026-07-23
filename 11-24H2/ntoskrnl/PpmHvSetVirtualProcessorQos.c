@@ -1,23 +1,22 @@
 /*
- * XREFs of PpmHvSetVirtualProcessorQos @ 0x1405DC000
+ * XREFs of PpmHvSetVirtualProcessorQos @ 0x1405D8ED0
  * Callers:
- *     KeCheckAndApplyBamQos @ 0x14029DF30 (KeCheckAndApplyBamQos.c)
- *     PoSetProcessorQos @ 0x14029E1A0 (PoSetProcessorQos.c)
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
+ *     KeCheckAndApplyBamQos @ 0x1402ACA20 (KeCheckAndApplyBamQos.c)
+ *     PoSetProcessorQos @ 0x1402ACC90 (PoSetProcessorQos.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
  * Callees:
- *     HvlpSetRegister64 @ 0x1404D3CC0 (HvlpSetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404CCED0 (HvlpSetRegister64.c)
  */
 
-__int64 __fastcall PpmHvSetVirtualProcessorQos(__int64 a1, int a2)
+void __fastcall PpmHvSetVirtualProcessorQos(__int64 a1, int a2)
 {
-  __int64 result; // rax
+  __int64 v2; // rax
 
-  result = *(_QWORD *)(a1 + 36536);
-  if ( result )
+  v2 = *(_QWORD *)(a1 + 36536);
+  if ( v2 )
   {
-    *(_DWORD *)(result + 4) = a2;
-    *(_DWORD *)(result + 12) = 1;
-    return HvlpSetRegister64(589851, 0xFFFFFFFEuLL);
+    *(_DWORD *)(v2 + 4) = a2;
+    *(_DWORD *)(v2 + 12) = 1;
+    HvlpSetRegister64(589851, 0xFFFFFFFEuLL);
   }
-  return result;
 }

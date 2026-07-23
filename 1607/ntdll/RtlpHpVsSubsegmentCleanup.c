@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsSubsegmentCleanup @ 0x180052830
+ * XREFs of RtlpHpVsSubsegmentCleanup @ 0x180052820
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x18001C5A0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsContextFree @ 0x18001CC40 (RtlpHpVsContextFree.c)
- *     RtlpHpSegHeapDestroy @ 0x180052528 (RtlpHpSegHeapDestroy.c)
+ *     RtlpHpVsChunkSplit @ 0x18001C590 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsContextFree @ 0x18001CC30 (RtlpHpVsContextFree.c)
+ *     RtlpHpSegHeapDestroy @ 0x180052518 (RtlpHpSegHeapDestroy.c)
  * Callees:
  *     <none>
  */

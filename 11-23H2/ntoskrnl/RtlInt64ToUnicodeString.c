@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlInt64ToUnicodeString @ 0x140710D60
+ * XREFs of RtlInt64ToUnicodeString @ 0x140710F70
  * Callers:
- *     ExpWnfComposeValueName @ 0x140710CC0 (ExpWnfComposeValueName.c)
+ *     ExpWnfComposeValueName @ 0x140710ED0 (ExpWnfComposeValueName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlLargeIntegerToChar @ 0x140710E10 (RtlLargeIntegerToChar.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlLargeIntegerToChar @ 0x140711020 (RtlLargeIntegerToChar.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
-  ULONGLONG v7[2]; // [rsp+30h] [rbp-78h] BYREF
-  _BYTE v8[80]; // [rsp+40h] [rbp-68h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
+  LARGE_INTEGER v7[2]; // [rsp+30h] [rbp-78h] BYREF
+  CHAR v8[80]; // [rsp+40h] [rbp-68h] BYREF
 
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  v7[0] = Value;
-  result = RtlLargeIntegerToChar(v7, Base, 65LL, v8);
+  v7[0].QuadPart = Value;
+  result = RtlLargeIntegerToChar(v7, Base, 65, v8);
   if ( result >= 0 )
   {
     SourceString.MaximumLength = 65;

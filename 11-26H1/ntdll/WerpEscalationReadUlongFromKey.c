@@ -1,50 +1,56 @@
 /*
- * XREFs of WerpEscalationReadUlongFromKey @ 0x1800D6DA4
+ * XREFs of WerpEscalationReadUlongFromKey @ 0x1800D3D64
  * Callers:
- *     WerpEscalationIsWMRSendStringSet @ 0x1800D6CCC (WerpEscalationIsWMRSendStringSet.c)
- *     WerpEscalationIsDisabled @ 0x18013AEEC (WerpEscalationIsDisabled.c)
+ *     WerpEscalationIsWMRSendStringSet @ 0x1800D3C8C (WerpEscalationIsWMRSendStringSet.c)
+ *     WerpEscalationIsDisabled @ 0x18013AC5C (WerpEscalationIsDisabled.c)
  * Callees:
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall WerpEscalationReadUlongFromKey(__int64 a1, const wchar_t *a2, _DWORD *a3)
+NTSTATUS __fastcall WerpEscalationReadUlongFromKey(HANDLE KeyHandle, wchar_t *String, _DWORD *a3)
 {
   size_t v5; // rax
-  __int64 result; // rax
-  int v7; // [rsp+30h] [rbp-40h] BYREF
-  _QWORD v8[2]; // [rsp+38h] [rbp-38h] BYREF
-  __int128 v9; // [rsp+48h] [rbp-28h] BYREF
+  NTSTATUS result; // eax
+  ULONG ResultLength; // [rsp+30h] [rbp-40h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+38h] [rbp-38h] BYREF
+  __int128 KeyValueInformation; // [rsp+48h] [rbp-28h] BYREF
   int v10; // [rsp+58h] [rbp-18h]
 
-  v8[1] = a2;
+  ValueName.Buffer = String;
   v10 = 0;
-  v7 = 0;
+  ResultLength = 0;
   *a3 = 0;
-  v8[0] = 0LL;
-  v9 = 0LL;
-  if ( a2 )
+  *(_QWORD *)&ValueName.Length = 0LL;
+  KeyValueInformation = 0LL;
+  if ( String )
   {
-    v5 = 2 * wcslen(a2);
+    v5 = 2 * wcslen(String);
     if ( v5 >= 0xFFFE )
       LOWORD(v5) = -4;
-    LOWORD(v8[0]) = v5;
-    WORD1(v8[0]) = v5 + 2;
+    ValueName.Length = v5;
+    ValueName.MaximumLength = v5 + 2;
   }
-  result = NtQueryValueKey(a1, v8, 2LL, &v9, 20, &v7);
-  if ( (_DWORD)result == -1073741772 )
-    return 3221225524LL;
-  if ( (int)result >= 0 )
+  result = NtQueryValueKey(
+             KeyHandle,
+             &ValueName,
+             KeyValuePartialInformation,
+             &KeyValueInformation,
+             0x14u,
+             &ResultLength);
+  if ( result == -1073741772 )
+    return -1073741772;
+  if ( result >= 0 )
   {
-    if ( *(_QWORD *)((char *)&v9 + 4) == 0x400000004LL )
+    if ( *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
     {
-      *a3 = HIDWORD(v9);
-      return 0LL;
+      *a3 = HIDWORD(KeyValueInformation);
+      return 0;
     }
     else
     {
-      return 3221225473LL;
+      return -1073741823;
     }
   }
   return result;

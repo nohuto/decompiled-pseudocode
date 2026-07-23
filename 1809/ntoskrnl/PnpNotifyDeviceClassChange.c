@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpNotifyDeviceClassChange @ 0x14070A554
+ * XREFs of PnpNotifyDeviceClassChange @ 0x14070B7F4
  * Callers:
- *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x14058CBC0 (PnpDeviceEventWorker.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
@@ -9,12 +9,12 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1406FF0D8 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x140703754 (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x14070A6E0 (IopGetSessionIdFromSymbolicName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x140700378 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x1407049F4 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x14070B980 (IopGetSessionIdFromSymbolicName.c)
  */
 
 __int64 __fastcall PnpNotifyDeviceClassChange(__int128 *a1, _DWORD *a2, __int64 a3)

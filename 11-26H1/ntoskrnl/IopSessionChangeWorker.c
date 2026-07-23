@@ -1,12 +1,12 @@
 /*
- * XREFs of IopSessionChangeWorker @ 0x1404392D0
+ * XREFs of IopSessionChangeWorker @ 0x140427F30
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExNotifyWithProcessing @ 0x140439330 (ExNotifyWithProcessing.c)
- *     PsSetSessionObjectIoEvent @ 0x140B4726C (PsSetSessionObjectIoEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExNotifyWithProcessing @ 0x140427F90 (ExNotifyWithProcessing.c)
+ *     PsSetSessionObjectIoEvent @ 0x140B4929C (PsSetSessionObjectIoEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopSessionChangeWorker(PVOID *P)

@@ -6,9 +6,8 @@
  *     <none>
  */
 
-int __stdcall RtlQueryPerformanceFrequency(_DWORD *a1)
+LOGICAL __cdecl RtlQueryPerformanceFrequency(PLARGE_INTEGER PerformanceFrequency)
 {
-  *a1 = MEMORY[0x7FFE0300];
-  a1[1] = MEMORY[0x7FFE0304];
+  PerformanceFrequency->QuadPart = MEMORY[0x7FFE0300];
   return 1;
 }

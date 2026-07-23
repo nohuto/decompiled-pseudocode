@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGenerateInheritAcl @ 0x1406C3A90
+ * XREFs of RtlpGenerateInheritAcl @ 0x1406C3AC0
  * Callers:
- *     RtlpInheritAcl2 @ 0x1406C40D0 (RtlpInheritAcl2.c)
+ *     RtlpInheritAcl2 @ 0x1406C4100 (RtlpInheritAcl2.c)
  * Callees:
- *     RtlFindAceByType @ 0x1402AD1F0 (RtlFindAceByType.c)
- *     RtlpGenerateInheritedAce @ 0x1406C3C60 (RtlpGenerateInheritedAce.c)
+ *     RtlFindAceByType @ 0x1402AD480 (RtlFindAceByType.c)
+ *     RtlpGenerateInheritedAce @ 0x1406C3C90 (RtlpGenerateInheritedAce.c)
  */
 
 __int64 __fastcall RtlpGenerateInheritAcl(
@@ -21,14 +21,14 @@ __int64 __fastcall RtlpGenerateInheritAcl(
         int a11,
         char a12,
         _DWORD *a13,
-        __int64 a14,
+        PACL Acl,
         _BYTE *a15)
 {
   int v15; // ebp
   __int64 v16; // rbx
   unsigned int v17; // edi
   unsigned int v19; // esi
-  __int64 v20; // r12
+  ACL *v20; // r12
   int v21; // r14d
   int v22; // r13d
   __int64 result; // rax
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpGenerateInheritAcl(
   *a15 = 0;
   if ( *(_WORD *)(a1 + 4) )
   {
-    v20 = a14;
+    v20 = Acl;
     v21 = a11;
     v22 = a10;
     while ( 1 )
@@ -63,7 +63,7 @@ __int64 __fastcall RtlpGenerateInheritAcl(
       {
         if ( v21 == 3 )
         {
-          if ( RtlFindAceByType(v20, 17, 0LL) )
+          if ( RtlFindAceByType(v20, 0x11u, 0LL) )
           {
 LABEL_13:
             if ( !v24 )
@@ -86,7 +86,7 @@ LABEL_5:
                      a9,
                      v22,
                      (__int64)&v25,
-                     v20,
+                     (__int64)v20,
                      (__int64)v26,
                      (__int64)&v27);
           if ( (_DWORD)result == -1073741789 )

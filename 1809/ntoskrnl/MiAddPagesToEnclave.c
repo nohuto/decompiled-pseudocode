@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAddPagesToEnclave @ 0x1402BC8E4
+ * XREFs of MiAddPagesToEnclave @ 0x1402BCAD4
  * Callers:
- *     MiCommitEnclavePages @ 0x1402BCF34 (MiCommitEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x1402BD124 (MiCommitEnclavePages.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -9,24 +9,24 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
- *     KeAddEnclavePage @ 0x14028F7B4 (KeAddEnclavePage.c)
- *     MiGetPageForEnclave @ 0x1402BDFCC (MiGetPageForEnclave.c)
- *     MiInitializeEnclavePfn @ 0x1402BE030 (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x1402BE7D8 (MiReserveEnclavePages.c)
- *     MiReturnEnclavePage @ 0x1402BE8E0 (MiReturnEnclavePage.c)
- *     MiWriteEnclavePte @ 0x1402BEA28 (MiWriteEnclavePte.c)
- *     MiReturnReservedEnclavePages @ 0x14085A6C0 (MiReturnReservedEnclavePages.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D8D8 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012ECB0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131930 (MiReleasePteCopyList.c)
+ *     KeAddEnclavePage @ 0x14028F9A4 (KeAddEnclavePage.c)
+ *     MiGetPageForEnclave @ 0x1402BE1BC (MiGetPageForEnclave.c)
+ *     MiInitializeEnclavePfn @ 0x1402BE220 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x1402BE9C8 (MiReserveEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x1402BEAD0 (MiReturnEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x1402BEC18 (MiWriteEnclavePte.c)
+ *     MiReturnReservedEnclavePages @ 0x14085B920 (MiReturnReservedEnclavePages.c)
  */
 
 __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PTR a3, ULONG_PTR a4, unsigned int a5)
@@ -75,7 +75,7 @@ __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PT
     return 3221225496LL;
   v9 = 0LL;
   v10 = &KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
-  v11 = *(_QWORD *)(qword_14043A748 + 8LL * v10[87]);
+  v11 = *(_QWORD *)(qword_14043B808 + 8LL * v10[87]);
   v12 = *(_QWORD *)(a1 + 104);
   v37 = v11;
   if ( v12 >= a2 || (v9 = a2 - v12, result = MiReserveEnclavePages(a1, v11, a2 - v12), (int)result >= 0) )
@@ -160,7 +160,7 @@ LABEL_44:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v30 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v31 = (v28 & 1) == 0;
               goto LABEL_53;
@@ -188,7 +188,7 @@ LABEL_53:
 LABEL_69:
           MiReleasePteCopyList((__int64)v40);
           if ( v14 )
-            MiReleasePtes((__int64)&qword_14043AFA0, v14, 1u);
+            MiReleasePtes((__int64)&qword_14043C060, v14, 1u);
           if ( v9 )
             MiReturnReservedEnclavePages(a1, v9);
           return (unsigned int)v15;
@@ -208,7 +208,7 @@ LABEL_59:
         v26 = a3;
       }
     }
-    v13 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+    v13 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
     v14 = v13;
     if ( !v13 )
     {
@@ -216,13 +216,13 @@ LABEL_8:
       v15 = -1073741670;
       goto LABEL_69;
     }
-    MiMakeValidPte(v13, qword_14043ADE0, 536870913);
+    MiMakeValidPte(v13, qword_14043BEA0, 536870913);
     if ( MiPteInShadowRange(v14) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
         v17 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v18 = (v16 & 1) == 0;
           goto LABEL_15;

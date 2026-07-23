@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpArmLazyWriter @ 0x14027B0B0
+ * XREFs of CmpArmLazyWriter @ 0x140230640
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1404648A0 (CmpRecheckHiveVolumePolicy.c)
- *     CmpEnableLazyFlush @ 0x1404AD184 (CmpEnableLazyFlush.c)
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x14045AFD0 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpEnableLazyFlush @ 0x1404A7864 (CmpEnableLazyFlush.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall CmpArmLazyWriter(int a1, unsigned __int64 *a2, char a3)

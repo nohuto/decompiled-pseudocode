@@ -29,11 +29,8 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
   char *v10; // rsi
   __int64 v11; // rdx
   int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  void *v18; // rax
+  __int64 v13; // rcx
+  void *v15; // rax
 
   v2 = *(unsigned __int16 *)a1;
   v5 = 0;
@@ -72,14 +69,14 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
     _InterlockedOr((volatile signed __int32 *)(v9 + 816), 4u);
   if ( (a2 & 0x8000) != 0 )
   {
-    v18 = (void *)(v9 + 272);
+    v15 = (void *)(v9 + 272);
 LABEL_22:
-    *(_QWORD *)(v9 + 264) = v18;
+    *(_QWORD *)(v9 + 264) = v15;
     goto LABEL_14;
   }
   if ( (a2 & 0x4000) != 0 )
   {
-    v18 = &EtwpGlobalSequence;
+    v15 = &EtwpGlobalSequence;
     goto LABEL_22;
   }
 LABEL_14:
@@ -99,12 +96,12 @@ LABEL_14:
   *(_DWORD *)(v9 + 224) = 2 * EtwpQueryUsedProcessorCount(v9);
   if ( (a2 & 0x4000000) == 0 )
     goto LABEL_19;
-  if ( EtwpInitializeCompression(v14) >= 0 )
+  if ( EtwpInitializeCompression(v13) >= 0 )
   {
     *(_DWORD *)(v9 + 224) += 4;
 LABEL_19:
     *(_DWORD *)(v9 + 236) = *(_DWORD *)(v9 + 224) + 22;
-    KeQuerySystemTimePrecise((__int64 *)(v9 + 792), v13, v15, v16);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)(v9 + 792));
     KeInitializeMutex((PRKMUTEX)(v9 + 632), 0);
     *(_QWORD *)(v9 + 688) = 0LL;
     *(_QWORD *)(v9 + 336) = v9 + 328;

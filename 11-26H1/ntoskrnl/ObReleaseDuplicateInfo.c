@@ -1,10 +1,10 @@
 /*
- * XREFs of ObReleaseDuplicateInfo @ 0x140A99D68
+ * XREFs of ObReleaseDuplicateInfo @ 0x140A9DEE8
  * Callers:
- *     AlpcHandleDataDestroyProcedure @ 0x140A99D00 (AlpcHandleDataDestroyProcedure.c)
+ *     AlpcHandleDataDestroyProcedure @ 0x140A9DE80 (AlpcHandleDataDestroyProcedure.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpDecrementHandleCount2 @ 0x1408F0360 (ObpDecrementHandleCount2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpDecrementHandleCount2 @ 0x1408F6920 (ObpDecrementHandleCount2.c)
  */
 
 LONG_PTR __fastcall ObReleaseDuplicateInfo(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

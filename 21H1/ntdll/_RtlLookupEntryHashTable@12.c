@@ -6,18 +6,21 @@
  *     _RtlpPopulateContext@12 @ 0x4B35B59E (_RtlpPopulateContext@12.c)
  */
 
-int __stdcall RtlLookupEntryHashTable(int a1, int a2, char *a3)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlLookupEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        ULONG_PTR Signature,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
   char *v3; // esi
-  int result; // eax
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // eax
   char v5; // [esp+8h] [ebp-Ch] BYREF
 
-  v3 = a3;
-  if ( !a3 )
+  v3 = (char *)HIDWORD(Signature);
+  if ( !HIDWORD(Signature) )
     v3 = &v5;
-  RtlpPopulateContext(a2);
-  result = **((_DWORD **)v3 + 1);
-  if ( *(_DWORD *)v3 == result || *(_DWORD *)(result + 8) != a2 )
+  RtlpPopulateContext(Signature);
+  result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)**((_DWORD **)v3 + 1);
+  if ( *(PRTL_DYNAMIC_HASH_TABLE_ENTRY *)v3 == result || result->Signature != (_DWORD)Signature )
     return 0;
   return result;
 }

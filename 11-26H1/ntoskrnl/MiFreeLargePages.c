@@ -1,22 +1,22 @@
 /*
- * XREFs of MiFreeLargePages @ 0x1403C700C
+ * XREFs of MiFreeLargePages @ 0x1403D0F00
  * Callers:
- *     MiDeletePagablePteRange @ 0x140361860 (MiDeletePagablePteRange.c)
- *     MiDeleteSubsectionLargePages @ 0x140510EFC (MiDeleteSubsectionLargePages.c)
- *     MiFreeContiguousLargePageRun @ 0x140701770 (MiFreeContiguousLargePageRun.c)
- *     MiDecommitRegion @ 0x14095FDBC (MiDecommitRegion.c)
+ *     MiDeletePagablePteRange @ 0x140363600 (MiDeletePagablePteRange.c)
+ *     MiDeleteSubsectionLargePages @ 0x14050A96C (MiDeleteSubsectionLargePages.c)
+ *     MiFreeContiguousLargePageRun @ 0x140706440 (MiFreeContiguousLargePageRun.c)
+ *     MiDecommitRegion @ 0x140A0567C (MiDecommitRegion.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReturnCrossPartitionCharges @ 0x14036E1E8 (MiReturnCrossPartitionCharges.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     MiLargePageHasNoDanglingReferences @ 0x1403C61CC (MiLargePageHasNoDanglingReferences.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiFreeLargeProcessPagesToCache @ 0x140711B98 (MiFreeLargeProcessPagesToCache.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReturnCrossPartitionCharges @ 0x14036FF88 (MiReturnCrossPartitionCharges.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     MiLargePageHasNoDanglingReferences @ 0x1403D00CC (MiLargePageHasNoDanglingReferences.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140716898 (MiFreeLargeProcessPagesToCache.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFreeLargePages(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, char a5)
@@ -96,9 +96,9 @@ __int64 __fastcall MiFreeLargePages(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *
   ActiveProcessors = Process[2].ActiveProcessors;
   Blink_high = HIWORD(Process[2].ProcessListEntry.Blink);
   v60 = ActiveProcessors[4].StaticBitmap[14];
-  v56 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high);
+  v56 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high);
   LODWORD(ActiveProcessors) = (*(_DWORD *)(a2 + 32) >> 22) & 3;
-  v46 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
+  v46 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
   v48 = (int)ActiveProcessors;
   v13 = MiPageToNode((a2 + 0x220000000000LL) / 48);
 LABEL_2:
@@ -107,7 +107,7 @@ LABEL_2:
     v58 = 8 * (*(_QWORD *)a2 & 0xFFFFFFFFFFELL | 0xFFFFF00000000000uLL);
   else
     v58 = 0LL;
-  v54 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL));
+  v54 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL));
   v47 = (*(_DWORD *)(a2 + 32) >> 22) & 3;
   v15 = MiPageToNode(v14);
   v50 = v15;

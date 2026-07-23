@@ -11,19 +11,19 @@
  *     RtlpGetCustomCultureData @ 0x1800FCE10 (RtlpGetCustomCultureData.c)
  */
 
-char __fastcall RtlIsValidLocaleName(PCWSTR SourceString, int a2)
+BOOLEAN __cdecl RtlIsValidLocaleName(PCWSTR LocaleName, ULONG Flags)
 {
   char v2; // di
   int NameIndex; // eax
 
-  v2 = a2;
-  if ( !SourceString || (a2 & 0xFFFFFFFD) != 0 || !pTblPtrs && !RtlpLoadNlsData() )
+  v2 = Flags;
+  if ( !LocaleName || (Flags & 0xFFFFFFFD) != 0 || !pTblPtrs && !RtlpLoadNlsData() )
     return 0;
-  NameIndex = RtlpNlsGetNameIndex((__int64)SourceString);
+  NameIndex = RtlpNlsGetNameIndex((__int64)LocaleName);
   if ( NameIndex < 0 )
   {
-    if ( !RtlpIsCustomLocale(SourceString)
-      || (v2 & 2) == 0 && (int)RtlpGetCustomCultureData(SourceString, 0LL, 0LL, 0LL) < 0 )
+    if ( !RtlpIsCustomLocale(LocaleName)
+      || (v2 & 2) == 0 && (int)RtlpGetCustomCultureData(LocaleName, 0LL, 0LL, 0LL) < 0 )
     {
       return 0;
     }

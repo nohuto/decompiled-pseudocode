@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeCacheSizes @ 0x1409BBF1C
+ * XREFs of MiInitializeCacheSizes @ 0x1409BCF1C
  * Callers:
- *     MiInitializeColors @ 0x1409BBE94 (MiInitializeColors.c)
+ *     MiInitializeColors @ 0x1409BCE94 (MiInitializeColors.c)
  * Callees:
- *     MiInitializeLargePageColorSizes @ 0x14017F330 (MiInitializeLargePageColorSizes.c)
+ *     MiInitializeLargePageColorSizes @ 0x14017F470 (MiInitializeLargePageColorSizes.c)
  */
 
 __int64 MiInitializeCacheSizes()
@@ -19,7 +19,7 @@ __int64 MiInitializeCacheSizes()
   __int64 result; // rax
 
   SecondLevelCacheSize = KeGetPcr()->SecondLevelCacheSize;
-  dword_14043A070 = SecondLevelCacheSize;
+  dword_14043B130 = SecondLevelCacheSize;
   SecondLevelCacheAssociativity = KeGetPcr()->SecondLevelCacheAssociativity;
   if ( SecondLevelCacheAssociativity )
     SecondLevelCacheSize /= SecondLevelCacheAssociativity;
@@ -30,19 +30,19 @@ __int64 MiInitializeCacheSizes()
   }
   if ( SecondLevelCacheSize - 8 > 0xF8 )
   {
-    if ( qword_14043E510 < 0x80000 )
-      SecondLevelCacheSize = qword_14043E510 < 0x40000 ? 64 : 128;
+    if ( qword_14043F5D0 < 0x80000 )
+      SecondLevelCacheSize = qword_14043F5D0 < 0x40000 ? 64 : 128;
     else
       SecondLevelCacheSize = 256;
   }
-  dword_14043A08C = SecondLevelCacheSize;
-  dword_14043A088 = SecondLevelCacheSize - 1;
+  dword_14043B14C = SecondLevelCacheSize;
+  dword_14043B148 = SecondLevelCacheSize - 1;
   v3 = SecondLevelCacheSize >> 4;
   if ( (SecondLevelCacheSize & 0xF) != 0 )
     ++v3;
   if ( _BitScanReverse((unsigned int *)&v5, v3) )
     v3 = 1 << v5;
-  dword_14043A108 = v3;
+  dword_14043B1C8 = v3;
   MiInitializeLargePageColorSizes();
   CurrentPrcb = KeGetCurrentPrcb();
   CacheCount = CurrentPrcb->CacheCount;
@@ -52,15 +52,15 @@ __int64 MiInitializeCacheSizes()
     do
     {
       if ( Cache->Level == 1 && (Cache->Type & 0xFFFFFFFD) == 0 )
-        dword_14043A074 = Cache->Size;
+        dword_14043B134 = Cache->Size;
       ++Cache;
       --CacheCount;
     }
     while ( CacheCount );
   }
   result = 0x4000LL;
-  if ( (unsigned int)dword_14043A074 < 0x4000 )
-    dword_14043A074 = 0x4000;
-  dword_14043A09C = 256;
+  if ( (unsigned int)dword_14043B134 < 0x4000 )
+    dword_14043B134 = 0x4000;
+  dword_14043B15C = 256;
   return result;
 }

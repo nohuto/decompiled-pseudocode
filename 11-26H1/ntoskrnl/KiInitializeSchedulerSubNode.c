@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeSchedulerSubNode @ 0x1405EFB24
+ * XREFs of KiInitializeSchedulerSubNode @ 0x1405F2494
  * Callers:
- *     KiAllocateSchedulerSubNode @ 0x1405EF38C (KiAllocateSchedulerSubNode.c)
- *     KiConfigureInitialNodes @ 0x1405EF678 (KiConfigureInitialNodes.c)
+ *     KiAllocateSchedulerSubNode @ 0x1405F1CFC (KiAllocateSchedulerSubNode.c)
+ *     KiConfigureInitialNodes @ 0x1405F1FE8 (KiConfigureInitialNodes.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall KiInitializeSchedulerSubNode(_WORD *a1, _WORD *a2)

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiIdentifyPfn @ 0x1402F0EF0
+ * XREFs of MiIdentifyPfn @ 0x1402D2F70
  * Callers:
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MiDecommitPrivatePageTail @ 0x1402DB300 (MiDecommitPrivatePageTail.c)
- *     MiIdentifyPfnWrapper @ 0x1402F0D20 (MiIdentifyPfnWrapper.c)
- *     MmSetPfnListInfo @ 0x1402F21D0 (MmSetPfnListInfo.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiCombineWithExisting @ 0x140308244 (MiCombineWithExisting.c)
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiCopyOnWriteInitializeTargetPage @ 0x14036B648 (MiCopyOnWriteInitializeTargetPage.c)
- *     MmTryIdentifyPage @ 0x1406EF388 (MmTryIdentifyPage.c)
- *     MiUpdateBadPfnIdentity @ 0x1406F2184 (MiUpdateBadPfnIdentity.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MiDecommitPrivatePageTail @ 0x1402BD0C0 (MiDecommitPrivatePageTail.c)
+ *     MiIdentifyPfnWrapper @ 0x1402D2DA0 (MiIdentifyPfnWrapper.c)
+ *     MmSetPfnListInfo @ 0x1402D4250 (MmSetPfnListInfo.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiCombineWithExisting @ 0x1402EA2C4 (MiCombineWithExisting.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiCopyOnWriteInitializeTargetPage @ 0x14036D3E8 (MiCopyOnWriteInitializeTargetPage.c)
+ *     MmTryIdentifyPage @ 0x1406F4028 (MmTryIdentifyPage.c)
+ *     MiUpdateBadPfnIdentity @ 0x1406F6DF4 (MiUpdateBadPfnIdentity.c)
  * Callees:
- *     MiHyperPage @ 0x140293000 (MiHyperPage.c)
- *     MiIdentifyPageType @ 0x1402F15C0 (MiIdentifyPageType.c)
- *     MiIdentifyResidentPage @ 0x1402F17A0 (MiIdentifyResidentPage.c)
- *     MiIdentifyProtoPage @ 0x1402F1EE0 (MiIdentifyProtoPage.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPfnToOwningProcess @ 0x140404320 (MiPfnToOwningProcess.c)
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
- *     MiIdentifyAwePage @ 0x140415764 (MiIdentifyAwePage.c)
+ *     MiHyperPage @ 0x140292560 (MiHyperPage.c)
+ *     MiIdentifyPageType @ 0x1402D3640 (MiIdentifyPageType.c)
+ *     MiIdentifyResidentPage @ 0x1402D3820 (MiIdentifyResidentPage.c)
+ *     MiIdentifyProtoPage @ 0x1402D3F60 (MiIdentifyProtoPage.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPfnToOwningProcess @ 0x1403FD420 (MiPfnToOwningProcess.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiIdentifyAwePage @ 0x140409D94 (MiIdentifyAwePage.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -59,14 +59,14 @@ unsigned __int64 __fastcall MiIdentifyPfn(unsigned __int64 a1, __int64 a2, unsig
   v29 = 0LL;
   v30 = 0LL;
   v31 = 0LL;
-  if ( *(_QWORD *)&stru_140E2EB88.WaitRegister.Flags )
+  if ( *(_QWORD *)&stru_140E2ED08.WaitRegister.Flags )
   {
     if ( v6 < 0x400000 )
     {
       v21 = v6 & 0x3FFFFF;
-      if ( _bittest64(*(const signed __int64 **)&stru_140E2EB88.WaitRegister.Flags, v21) )
+      if ( _bittest64(*(const signed __int64 **)&stru_140E2ED08.WaitRegister.Flags, v21) )
       {
-        v22 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v21) & 7LL;
+        v22 = *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v21) & 7LL;
         if ( v22 == 5 || !v22 )
           goto LABEL_41;
         v26 = v22 - 1;
@@ -116,7 +116,7 @@ LABEL_4:
     goto LABEL_5;
   }
   if ( (unsigned __int64)&v29 < 0xFFFFDE0000000000uLL
-    || (unsigned __int64)&v29 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+    || (unsigned __int64)&v29 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
     || (unsigned int)MiIsDecayPfn((__int64)&STACK[0x220000000020] / 48) )
   {
 LABEL_57:
@@ -246,7 +246,7 @@ LABEL_64:
           *a3 = v19;
           if ( v14 < 0xFFFFF68000000000uLL || v14 > 0xFFFFF6FFFFFFFFFFuLL )
           {
-            if ( v14 < qword_140E2DE40 || v14 > qword_140E2DE50 )
+            if ( v14 < qword_140E2DFC0 || v14 > qword_140E2DFD0 )
               v20 = v19 & 0xFFFFFFFFFFFFFFF0uLL;
             else
               v20 = v19 & 0xFFFFFFFFFFFFFFF0uLL | 0xC;

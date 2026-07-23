@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x140506388
+ * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1404E9318
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1405067F4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1404E9784 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     _PnpStringFromGuid @ 0x1404E9270 (_PnpStringFromGuid.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404F64E0 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     _PnpHasDerivedKeys @ 0x140506698 (_PnpHasDerivedKeys.c)
- *     _PnpNotifyDerivedKeys @ 0x140506728 (_PnpNotifyDerivedKeys.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     _PnpStringFromGuid @ 0x1404CB360 (_PnpStringFromGuid.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404D946C (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     _PnpHasDerivedKeys @ 0x1404E9628 (_PnpHasDerivedKeys.c)
+ *     _PnpNotifyDerivedKeys @ 0x1404E96B8 (_PnpNotifyDerivedKeys.c)
  */
 
 __int64 __fastcall PnpDeviceRaisePropertyChangeEventWorker(
@@ -77,8 +77,8 @@ LABEL_22:
   *((_QWORD *)&v18 + 1) = a4;
   v19 = a5;
   a6(a1, a2, 1LL);
-  PnpNotifyDerivedKeys(a1, a2, 1, a5, (__int64)&off_1402582F0, 9, (__int64)&v18, (__int64)a6);
-  HasDerivedKeys = PnpHasDerivedKeys(a5, &off_140258290, 3LL);
+  PnpNotifyDerivedKeys(a1, a2, 1, a5, (__int64)&off_1402582E0, 9, (__int64)&v18, (__int64)a6);
+  HasDerivedKeys = PnpHasDerivedKeys(a5, &off_140258280, 3LL);
   v13 = HasDerivedKeys;
   if ( v11 || HasDerivedKeys )
   {
@@ -98,7 +98,7 @@ LABEL_22:
     {
       if ( ObjectProperty < 0 )
         goto LABEL_31;
-      if ( RtlCompareMemory(&unk_14025EA90, Source2, 0x10uLL) == 16 )
+      if ( RtlCompareMemory(&unk_14025E998, Source2, 0x10uLL) == 16 )
         goto LABEL_7;
       if ( PnpStringFromGuid(Source2, v27) < 0 )
       {
@@ -115,12 +115,12 @@ LABEL_31:
       if ( v13 )
       {
         v18 = 0LL;
-        PnpNotifyDerivedKeys(a1, (unsigned int)v27, 5, a5, (__int64)&off_140258290, 3, (__int64)&v18, (__int64)a6);
+        PnpNotifyDerivedKeys(a1, (unsigned int)v27, 5, a5, (__int64)&off_140258280, 3, (__int64)&v18, (__int64)a6);
       }
     }
   }
 LABEL_7:
-  result = PnpHasDerivedKeys(a5, &off_1402582D8, 1LL);
+  result = PnpHasDerivedKeys(a5, &off_1402582C8, 1LL);
   if ( v11 || (_BYTE)result )
   {
     v21 = a6;
@@ -128,7 +128,7 @@ LABEL_7:
     if ( (_BYTE)result )
     {
       v22 = a5;
-      v23 = &off_1402582D8;
+      v23 = &off_1402582C8;
       LODWORD(v24) = 1;
     }
     result = CmGetMatchingFilteredDeviceInterfaceList(

@@ -26,7 +26,7 @@ __int64 __fastcall ResCDirectoryGetEntryCopyAndIndex(__int64 a1, __int128 *a2, _
   else
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     v9 = 0LL;
   }
   if ( !v9 )

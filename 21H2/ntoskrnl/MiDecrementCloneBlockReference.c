@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecrementCloneBlockReference @ 0x140559E88
+ * XREFs of MiDecrementCloneBlockReference @ 0x14055A0C8
  * Callers:
- *     MiDeletePteList @ 0x140231820 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiDeletePteList @ 0x1402D6070 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x1402DB4B0 (MiDeletePteRun.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x1403427D0 (MiDeleteVa.c)
  * Callees:
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiDeleteMergedPte @ 0x140366E48 (MiDeleteMergedPte.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiDeleteCloneDescriptor @ 0x140559FF4 (MiDeleteCloneDescriptor.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x14055B6E0 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiDeleteMergedPte @ 0x140366FF8 (MiDeleteMergedPte.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiDeleteCloneDescriptor @ 0x14055A234 (MiDeleteCloneDescriptor.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x14055B920 (MiReturnCrossPartitionCloneCharges.c)
  */
 
 __int64 __fastcall MiDecrementCloneBlockReference(
@@ -27,7 +27,7 @@ __int64 __fastcall MiDecrementCloneBlockReference(
   if ( v5 && v5 != KeGetCurrentThread() )
     KeBugCheckEx(0x1Au, 0x61945uLL, BugCheckParameter2, (ULONG_PTR)BugCheckParameter3, 0LL);
   v7 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 56) + 24LL);
-  if ( *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a3 + 1838)) != v7
+  if ( *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a3 + 1838)) != v7
     && _InterlockedExchangeAdd64(BugCheckParameter3 + 1, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
   {
     MiReturnCrossPartitionCloneCharges(v7);

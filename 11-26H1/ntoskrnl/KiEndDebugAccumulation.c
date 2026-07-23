@@ -1,13 +1,13 @@
 /*
- * XREFs of KiEndDebugAccumulation @ 0x1405025A0
+ * XREFs of KiEndDebugAccumulation @ 0x1404FBE70
  * Callers:
- *     KeThawExecution @ 0x140502280 (KeThawExecution.c)
- *     KiFreezeTargetExecution @ 0x1405F5E50 (KiFreezeTargetExecution.c)
+ *     KeThawExecution @ 0x1404FBB50 (KeThawExecution.c)
+ *     KiFreezeTargetExecution @ 0x1405F8810 (KiFreezeTargetExecution.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiAccumulateTicksFromCycles @ 0x1403F7DB0 (KiAccumulateTicksFromCycles.c)
- *     KiAccumulateProcessorCycleStats @ 0x1404472C0 (KiAccumulateProcessorCycleStats.c)
- *     KiBeginCounterAccumulation @ 0x140494B90 (KiBeginCounterAccumulation.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiAccumulateTicksFromCycles @ 0x1403F18F0 (KiAccumulateTicksFromCycles.c)
+ *     KiAccumulateProcessorCycleStats @ 0x14043FDB0 (KiAccumulateProcessorCycleStats.c)
+ *     KiBeginCounterAccumulation @ 0x14048E6E0 (KiBeginCounterAccumulation.c)
  */
 
 void __fastcall KiEndDebugAccumulation(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall KiEndDebugAccumulation(__int64 a1)
   __int64 v11; // rcx
   unsigned __int64 v12; // [rsp+20h] [rbp-28h]
 
-  if ( !*(_BYTE *)(a1 + 32) && *(_BYTE *)(a1 + 34524) && !LOBYTE(stru_140F10828.WriteOperationCount) )
+  if ( !*(_BYTE *)(a1 + 32) && *(_BYTE *)(a1 + 34524) && !PoAllProcIntrDisabled )
   {
     *(_BYTE *)(a1 + 32) = 1;
     PerformanceCounter = KeQueryPerformanceCounter(0LL);

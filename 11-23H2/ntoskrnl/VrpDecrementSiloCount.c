@@ -1,14 +1,14 @@
 /*
- * XREFs of VrpDecrementSiloCount @ 0x140A71F64
+ * XREFs of VrpDecrementSiloCount @ 0x140A72214
  * Callers:
- *     VrpJobContextDelete @ 0x140A72020 (VrpJobContextDelete.c)
+ *     VrpJobContextDelete @ 0x140A722D0 (VrpJobContextDelete.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmUnRegisterCallback @ 0x140A0F1C0 (CmUnRegisterCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmUnRegisterCallback @ 0x140A0F470 (CmUnRegisterCallback.c)
  */
 
 _QWORD *VrpDecrementSiloCount()

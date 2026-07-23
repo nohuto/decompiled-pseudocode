@@ -233,7 +233,7 @@ bool __fastcall MiInitSystem(int a1, __int64 a2)
             if ( ((_DWORD)v19[13] & 0x2000) == 0 )
             {
               v20 = v19[6];
-              if ( v20 == (PVOID)PsNtosImageBase )
+              if ( v20 == PsNtosImageBase )
               {
                 v21 = RtlImageNtHeader(v20);
                 MiMarkKernelImageCfgBits((__int64)v19, (__int64)v21);

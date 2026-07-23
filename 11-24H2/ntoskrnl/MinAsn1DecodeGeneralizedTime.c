@@ -1,16 +1,16 @@
 /*
- * XREFs of MinAsn1DecodeGeneralizedTime @ 0x140827B88
+ * XREFs of MinAsn1DecodeGeneralizedTime @ 0x140828358
  * Callers:
- *     I_MinCryptVerifyRFC3161TimeStamp @ 0x140826598 (I_MinCryptVerifyRFC3161TimeStamp.c)
- *     MinAsn1DecodeTime @ 0x140827FE4 (MinAsn1DecodeTime.c)
+ *     I_MinCryptVerifyRFC3161TimeStamp @ 0x140826D68 (I_MinCryptVerifyRFC3161TimeStamp.c)
+ *     MinAsn1DecodeTime @ 0x1408287B4 (MinAsn1DecodeTime.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1404266B0 (RtlTimeFieldsToTime.c)
- *     atoi @ 0x1404FDBE0 (atoi.c)
- *     isdigit @ 0x1404FE9B0 (isdigit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     I_MinAsn1AdjustFileTime @ 0x140827998 (I_MinAsn1AdjustFileTime.c)
- *     I_MinAsn1MultiplyAndDivide @ 0x140827AAC (I_MinAsn1MultiplyAndDivide.c)
- *     I_MinAsn1ScanFrac @ 0x140827B08 (I_MinAsn1ScanFrac.c)
+ *     RtlTimeFieldsToTime @ 0x14041A560 (RtlTimeFieldsToTime.c)
+ *     atoi @ 0x1404FB4A0 (atoi.c)
+ *     isdigit @ 0x1404FC270 (isdigit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     I_MinAsn1AdjustFileTime @ 0x140828168 (I_MinAsn1AdjustFileTime.c)
+ *     I_MinAsn1MultiplyAndDivide @ 0x14082827C (I_MinAsn1MultiplyAndDivide.c)
+ *     I_MinAsn1ScanFrac @ 0x1408282D8 (I_MinAsn1ScanFrac.c)
  */
 
 bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)
@@ -49,7 +49,7 @@ bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)
   PLARGE_INTEGER v33; // rbx
   int v35; // [rsp+20h] [rbp-40h] BYREF
   int v36; // [rsp+24h] [rbp-3Ch] BYREF
-  TIME_FIELDS TimeFields; // [rsp+28h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+28h] [rbp-38h] BYREF
   int v38; // [rsp+38h] [rbp-28h]
   int v39; // [rsp+3Ch] [rbp-24h]
   int v40; // [rsp+40h] [rbp-20h]

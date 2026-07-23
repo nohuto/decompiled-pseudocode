@@ -1,24 +1,24 @@
 /*
- * XREFs of SepAppendAceToTokenObjectAcl @ 0x14065F440
+ * XREFs of SepAppendAceToTokenObjectAcl @ 0x140654260
  * Callers:
  *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
- *     SeCopyClientToken @ 0x140661D04 (SeCopyClientToken.c)
- *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
+ *     SeCopyClientToken @ 0x140656B24 (SeCopyClientToken.c)
+ *     NtCreateLowBoxToken @ 0x140669C50 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlFindAceBySid @ 0x14027E910 (RtlFindAceBySid.c)
- *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlAddAce @ 0x14065F130 (RtlAddAce.c)
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
- *     RtlQueryInformationAcl @ 0x14065FAA0 (RtlQueryInformationAcl.c)
- *     ObSetSecurityObjectByPointer @ 0x140660460 (ObSetSecurityObjectByPointer.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlFindAceBySid @ 0x14026C8B0 (RtlFindAceBySid.c)
+ *     RtlGetAce @ 0x14026C9B0 (RtlGetAce.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlAddAce @ 0x140653F50 (RtlAddAce.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     ObpGetObjectSecurity @ 0x140654620 (ObpGetObjectSecurity.c)
+ *     RtlQueryInformationAcl @ 0x1406548C0 (RtlQueryInformationAcl.c)
+ *     ObSetSecurityObjectByPointer @ 0x140655280 (ObSetSecurityObjectByPointer.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
@@ -42,11 +42,11 @@ __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
   PVOID Ace; // [rsp+48h] [rbp-80h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-78h] BYREF
   __int64 v23; // [rsp+70h] [rbp-58h]
-  __int64 v24; // [rsp+78h] [rbp-50h] BYREF
+  __int64 AclInformation; // [rsp+78h] [rbp-50h] BYREF
   int v25; // [rsp+80h] [rbp-48h]
 
   v19 = a2;
-  v24 = 0LL;
+  AclInformation = 0LL;
   v25 = 0;
   P = 0LL;
   v17[0] = 0;
@@ -54,7 +54,7 @@ __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
   AclRevision = 0;
   v23 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  result = ObpGetObjectSecurity(a1, &P, v17);
+  result = ObpGetObjectSecurity(a1, &P, v17, 0LL);
   v6 = P;
   Acl = result;
   if ( (int)result >= 0 )
@@ -78,15 +78,15 @@ LABEL_7:
         {
           if ( !RtlFindAceBySid((__int64)v10, a3, 0LL) )
           {
-            Acl = RtlQueryInformationAcl(v10, &v24, 12LL, 2LL);
+            Acl = RtlQueryInformationAcl(v10, &AclInformation, 0xCu, AclSizeInformation);
             if ( Acl >= 0 )
             {
-              Acl = RtlQueryInformationAcl(v10, &AclRevision, 4LL, 1LL);
+              Acl = RtlQueryInformationAcl(v10, &AclRevision, 4u, AclRevisionInformation);
               if ( Acl >= 0 )
               {
                 v11 = RtlLengthSid(a3);
-                v12 = HIDWORD(v24);
-                v13 = (v11 + HIDWORD(v24) + 11) & 0xFFFFFFFC;
+                v12 = HIDWORD(AclInformation);
+                v13 = (v11 + HIDWORD(AclInformation) + 11) & 0xFFFFFFFC;
                 PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v13, 0x63416553u);
                 v15 = PoolWithTag;
                 if ( PoolWithTag )
@@ -101,7 +101,7 @@ LABEL_7:
                       Acl = RtlAddAce(v15, v16, 0, Ace, v12 - 8);
                       if ( Acl >= 0 )
                       {
-                        Acl = RtlpAddKnownAce((__int64)v15, v16, 0, v19, (unsigned __int8 *)a3, 0);
+                        Acl = RtlpAddKnownAce(v15, v16, 0, v19, (unsigned __int8 *)a3, 0);
                         if ( Acl >= 0 )
                         {
                           LOBYTE(SecurityDescriptor[0]) = 1;

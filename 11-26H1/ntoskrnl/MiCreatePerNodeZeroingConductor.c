@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreatePerNodeZeroingConductor @ 0x14087F110
+ * XREFs of MiCreatePerNodeZeroingConductor @ 0x140885510
  * Callers:
- *     MiZeroPageThread @ 0x14070F040 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x140713D40 (MiZeroPageThread.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetNodeSystemInformation @ 0x14047F0A0 (MiGetNodeSystemInformation.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetNodeSystemInformation @ 0x140478A10 (MiGetNodeSystemInformation.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePerNodeZeroingConductor(__int64 a1, unsigned int a2, char a3)
@@ -37,7 +37,7 @@ __int64 __fastcall MiCreatePerNodeZeroingConductor(__int64 a1, unsigned int a2, 
   *v12 = v12;
   v10[161] = a3;
   v13 = *(_QWORD *)(*(_QWORD *)(a1 + 256) + 128LL);
-  v14 = &qword_140E2D698;
+  v14 = &qword_140E2D818;
   if ( (*(_BYTE *)(NodeSystemInformation + 36) & 1) == 0 )
     v14 = (__int64 *)NodeSystemInformation;
   v16 = *(_OWORD *)*v14;

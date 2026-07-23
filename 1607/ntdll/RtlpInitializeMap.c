@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpInitializeMap @ 0x1800ED5FC
+ * XREFs of RtlpInitializeMap @ 0x1800ED6BC
  * Callers:
- *     RtlpInitializeLeakDetection @ 0x1800ED558 (RtlpInitializeLeakDetection.c)
- *     RtlpSetBlockInfo @ 0x1800EDD38 (RtlpSetBlockInfo.c)
+ *     RtlpInitializeLeakDetection @ 0x1800ED618 (RtlpInitializeLeakDetection.c)
+ *     RtlpSetBlockInfo @ 0x1800EDDF8 (RtlpSetBlockInfo.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

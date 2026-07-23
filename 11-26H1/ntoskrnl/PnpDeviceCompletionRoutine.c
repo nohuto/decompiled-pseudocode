@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpDeviceCompletionRoutine @ 0x1404937E0
+ * XREFs of PnpDeviceCompletionRoutine @ 0x14048D330
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140493910 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x1404939D8 (PnpDeviceCompletionRequestDestroy.c)
- *     PnpDiagnosticTraceObject @ 0x140493A8C (PnpDiagnosticTraceObject.c)
- *     PnpTraceStartDevice @ 0x140493B60 (PnpTraceStartDevice.c)
- *     IoFindDeviceThatFailedIrp @ 0x1404D3D90 (IoFindDeviceThatFailedIrp.c)
- *     PnpGetDriverNameFromString @ 0x1405DA100 (PnpGetDriverNameFromString.c)
- *     PnpRecordBootDriverFailure @ 0x1405DA300 (PnpRecordBootDriverFailure.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14048D460 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14048D528 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDiagnosticTraceObject @ 0x14048D5DC (PnpDiagnosticTraceObject.c)
+ *     PnpTraceStartDevice @ 0x14048D6B0 (PnpTraceStartDevice.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1404CD600 (IoFindDeviceThatFailedIrp.c)
+ *     PnpGetDriverNameFromString @ 0x1405DC900 (PnpGetDriverNameFromString.c)
+ *     PnpRecordBootDriverFailure @ 0x1405DCB00 (PnpRecordBootDriverFailure.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionRoutine(__int64 a1, IRP *a2, __int64 a3, __int64 a4)

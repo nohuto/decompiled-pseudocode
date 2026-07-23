@@ -1,17 +1,17 @@
 /*
- * XREFs of MiClearDriverHotPatchPtes @ 0x140854900
+ * XREFs of MiClearDriverHotPatchPtes @ 0x140855B60
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x1400EDB84 (MiInitializeTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1400EDC04 (MiInitializeTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiClearDriverHotPatchPtes(__int64 a1)
@@ -36,7 +36,7 @@ void __fastcall MiClearDriverHotPatchPtes(__int64 a1)
   v3 = PteAddress + 8LL * ((v2 >> 12) + ((v2 & 0xFFF) != 0));
   v4 = 0;
   v5 = (__int64)(v3 << 25) >> 16;
-  v6 = ((unsigned int)dword_140438E74 >> 12) + ((dword_140438E74 & 0xFFF) != 0);
+  v6 = ((unsigned int)dword_140439F34 >> 12) + ((dword_140439F34 & 0xFFF) != 0);
   if ( v6 )
   {
     while ( 1 )
@@ -57,7 +57,7 @@ LABEL_14:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v9 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
             v11 = (v8 & 1) == 0;
             goto LABEL_9;

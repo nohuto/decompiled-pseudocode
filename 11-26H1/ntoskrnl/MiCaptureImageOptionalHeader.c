@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureImageOptionalHeader @ 0x140A57688
+ * XREFs of MiCaptureImageOptionalHeader @ 0x140A64C08
  * Callers:
- *     MiVerifyImageHeader @ 0x140A573AC (MiVerifyImageHeader.c)
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
+ *     MiVerifyImageHeader @ 0x140A6492C (MiVerifyImageHeader.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall MiCaptureImageOptionalHeader(__int64 a1, __int64 a2)

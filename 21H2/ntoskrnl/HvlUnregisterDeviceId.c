@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlUnregisterDeviceId @ 0x1404F73F0
+ * XREFs of HvlUnregisterDeviceId @ 0x1404F7370
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlUnregisterDeviceId(unsigned __int64 a1)

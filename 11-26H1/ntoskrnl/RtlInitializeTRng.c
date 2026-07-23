@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitializeTRng @ 0x140493744
+ * XREFs of RtlInitializeTRng @ 0x14048D290
  * Callers:
- *     PsInitializeThreadRngState @ 0x1404936B8 (PsInitializeThreadRngState.c)
+ *     PsInitializeThreadRngState @ 0x14048D204 (PsInitializeThreadRngState.c)
  * Callees:
  *     <none>
  */

@@ -6,7 +6,7 @@
  *     _RtlpCreateHashTable@16 @ 0x4B35B3EB (_RtlpCreateHashTable@16.c)
  */
 
-int __stdcall RtlCreateHashTable(int a1, int a2, int a3)
+BOOLEAN __cdecl RtlCreateHashTable(PRTL_DYNAMIC_HASH_TABLE *HashTable, ULONG Shift, ULONG Flags)
 {
-  return RtlpCreateHashTable(a2, a3);
+  return RtlpCreateHashTable(Shift, Flags);
 }

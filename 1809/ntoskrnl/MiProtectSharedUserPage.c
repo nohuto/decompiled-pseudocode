@@ -1,13 +1,13 @@
 /*
- * XREFs of MiProtectSharedUserPage @ 0x1409DF218
+ * XREFs of MiProtectSharedUserPage @ 0x1409E0218
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void MiProtectSharedUserPage()
@@ -24,14 +24,14 @@ void MiProtectSharedUserPage()
   __int64 v9; // [rsp+38h] [rbp-C0h]
 
   v0 = MI_READ_PTE_LOCK_FREE(0xFFFFF6FBC0000000uLL);
-  if ( v0 >= 0 || (BYTE1(v0) & 1) != (_BYTE)word_14043A1AC )
+  if ( v0 >= 0 || (BYTE1(v0) & 1) != (_BYTE)word_14043B26C )
   {
     v7 = 20LL;
     v5 = 0;
     v6 = 0;
     v8 = 0LL;
     v9 = 0LL;
-    MiWriteValidPteNewProtection(v1, v0 & 0xFFFFFFFFFFFFFEFFuLL | ((word_14043A1AC & 1 | 0xFF80000000000000uLL) << 8));
+    MiWriteValidPteNewProtection(v1, v0 & 0xFFFFFFFFFFFFFEFFuLL | ((word_14043B26C & 1 | 0xFF80000000000000uLL) << 8));
     MiInsertTbFlushEntry((__int64)&v5, 0xFFFFF78000000000uLL, 1LL, 0);
     MiFlushTbList(&v5, v2, v3, v4);
   }

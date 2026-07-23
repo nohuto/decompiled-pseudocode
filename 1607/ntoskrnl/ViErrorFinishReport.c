@@ -1,24 +1,24 @@
 /*
- * XREFs of ViErrorFinishReport @ 0x14070EBC4
+ * XREFs of ViErrorFinishReport @ 0x14070EBF4
  * Callers:
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1402236DC (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x140223768 (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x140223804 (ViErrorReport6.c)
- *     ViGenericVerifyIrpStackDownward @ 0x140703950 (ViGenericVerifyIrpStackDownward.c)
- *     ViGenericVerifyNewIrp @ 0x140703C0C (ViGenericVerifyNewIrp.c)
- *     VfIoDeleteDevice @ 0x14070D810 (VfIoDeleteDevice.c)
- *     VfIoDetachDevice @ 0x14070D97C (VfIoDetachDevice.c)
- *     VfErrorReport7 @ 0x14070EA1C (VfErrorReport7.c)
- *     VfErrorReport8 @ 0x14070EAAC (VfErrorReport8.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x140223508 (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x140223594 (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x140223630 (ViErrorReport6.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140703980 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyNewIrp @ 0x140703C3C (ViGenericVerifyNewIrp.c)
+ *     VfIoDeleteDevice @ 0x14070D840 (VfIoDeleteDevice.c)
+ *     VfIoDetachDevice @ 0x14070D9AC (VfIoDetachDevice.c)
+ *     VfErrorReport7 @ 0x14070EA4C (VfErrorReport7.c)
+ *     VfErrorReport8 @ 0x14070EADC (VfErrorReport8.c)
  *     VerifierNtCreateFile @ 0x14071C968 (VerifierNtCreateFile.c)
  *     VerifierNtReadFile @ 0x14071CA84 (VerifierNtReadFile.c)
  *     VerifierNtWriteFile @ 0x14071CB9C (VerifierNtWriteFile.c)
  * Callees:
- *     DbgPrompt @ 0x140211374 (DbgPrompt.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x14070EB30 (VfErrorStoreTriageInformation.c)
+ *     DbgPrompt @ 0x1402111A0 (DbgPrompt.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x14070EB60 (VfErrorStoreTriageInformation.c)
  */
 
 __int64 __fastcall ViErrorFinishReport(int a1, ULONG_PTR a2, ULONG_PTR a3, __int64 a4)

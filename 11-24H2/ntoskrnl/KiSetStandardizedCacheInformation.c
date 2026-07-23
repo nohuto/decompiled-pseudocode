@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetStandardizedCacheInformation @ 0x140B5A508
+ * XREFs of KiSetStandardizedCacheInformation @ 0x140B5C570
  * Callers:
- *     KiSetCacheInformation @ 0x140B59730 (KiSetCacheInformation.c)
- *     KiSetCacheInformationAmd @ 0x140B59874 (KiSetCacheInformationAmd.c)
+ *     KiSetCacheInformation @ 0x140B5B7B0 (KiSetCacheInformation.c)
+ *     KiSetCacheInformationAmd @ 0x140B5B8F4 (KiSetCacheInformationAmd.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiSetStandardizedCacheInformation(__int64 a1, unsigned int a2)

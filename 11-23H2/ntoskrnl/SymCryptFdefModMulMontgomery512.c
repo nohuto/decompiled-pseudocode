@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefModMulMontgomery512 @ 0x140404B50
+ * XREFs of SymCryptFdefModMulMontgomery512 @ 0x140404D30
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptFdefRawMul512Asm @ 0x140406CB0 (SymCryptFdefRawMul512Asm.c)
- *     SymCryptFdefMontgomeryReduce512Asm @ 0x140407480 (SymCryptFdefMontgomeryReduce512Asm.c)
+ *     SymCryptFdefRawMul512Asm @ 0x140406E90 (SymCryptFdefRawMul512Asm.c)
+ *     SymCryptFdefMontgomeryReduce512Asm @ 0x140407660 (SymCryptFdefMontgomeryReduce512Asm.c)
  */
 
 __int64 __fastcall SymCryptFdefModMulMontgomery512(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

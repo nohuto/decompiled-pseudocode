@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllEditWndProcWorker @ 0x18009D5D0
+ * XREFs of NtdllEditWndProcWorker @ 0x18009D590
  * Callers:
  *     <none>
  * Callees:

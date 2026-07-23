@@ -1,33 +1,33 @@
 /*
- * XREFs of MiDeleteSubsectionPages @ 0x140061C70
+ * XREFs of MiDeleteSubsectionPages @ 0x1400617F0
  * Callers:
- *     MiDeleteSegmentPages @ 0x140090080 (MiDeleteSegmentPages.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
+ *     MiDeleteSegmentPages @ 0x14008F7E0 (MiDeleteSegmentPages.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiDeleteClusterSection @ 0x140021D60 (MiDeleteClusterSection.c)
- *     MiDecrementSubsectionViewCount @ 0x140022860 (MiDecrementSubsectionViewCount.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiPfnShareCountIsZero @ 0x1400666E0 (MiPfnShareCountIsZero.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiDereferenceControlAreaPfnList @ 0x14008FC70 (MiDereferenceControlAreaPfnList.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
- *     MiInvalidateCollidedIos @ 0x1400B27C4 (MiInvalidateCollidedIos.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiDeleteClusterSection @ 0x1400218E0 (MiDeleteClusterSection.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400223E0 (MiDecrementSubsectionViewCount.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiPfnShareCountIsZero @ 0x140066260 (MiPfnShareCountIsZero.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiDereferenceControlAreaPfnList @ 0x14008F3D0 (MiDereferenceControlAreaPfnList.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
+ *     MiInvalidateCollidedIos @ 0x1400B0704 (MiInvalidateCollidedIos.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -167,7 +167,7 @@ LABEL_12:
       {
         v19 = MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE(&v55);
 LABEL_18:
-        if ( v19 <= qword_140326A90
+        if ( v19 <= qword_140326AD0
           && (!MmPhysicalMemoryBlock || (*(_QWORD *)(48 * v19 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) != 0) )
         {
           v22 = v20 + 48 * v19;
@@ -271,7 +271,7 @@ LABEL_27:
             v56 = (struct _KEVENT *)MiSystemPartition;
             goto LABEL_62;
           }
-          v56 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v40);
+          v56 = *(struct _KEVENT **)(qword_140327038 + 8LL * v40);
         }
         v41 = 4;
       }

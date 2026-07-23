@@ -4,7 +4,7 @@
  *     RtlpLowFragHeapAllocFromContext @ 0x18003D560 (RtlpLowFragHeapAllocFromContext.c)
  *     RtlInterlockedPushListSListEx @ 0x1800B0CF0 (RtlInterlockedPushListSListEx.c)
  *     LdrpInitializeProcess @ 0x1800DDBD0 (LdrpInitializeProcess.c)
- *     RtlpLocalInfoAllocFromCache @ 0x180119F50 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180119F20 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
  *     <none>
  */

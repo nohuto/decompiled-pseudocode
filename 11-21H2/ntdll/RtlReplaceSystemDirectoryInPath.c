@@ -8,41 +8,40 @@
  *     RtlpWow64SelectSystem32PathInternal @ 0x1800F642C (RtlpWow64SelectSystem32PathInternal.c)
  */
 
-__int64 __fastcall RtlReplaceSystemDirectoryInPath(unsigned __int16 *a1, __int64 a2, unsigned __int16 a3, char a4)
+ULONG __cdecl RtlReplaceSystemDirectoryInPath(
+        PUNICODE_STRING Destination,
+        USHORT Machine,
+        USHORT TargetMachine,
+        BOOLEAN IncludePathSeperator)
 {
-  unsigned __int16 v5; // di
-  __int64 result; // rax
+  USHORT v5; // di
+  ULONG result; // eax
   __int64 v8; // rdx
-  unsigned int v9; // ebx
+  ULONG v9; // ebx
   size_t v10; // rdi
-  char *UnicodeSubstring; // rax
-  unsigned __int16 v12[8]; // [rsp+20h] [rbp-28h] BYREF
+  PWCHAR UnicodeSubstring; // rax
+  _UNICODE_STRING SearchString; // [rsp+20h] [rbp-28h] BYREF
   unsigned __int16 v13; // [rsp+30h] [rbp-18h] BYREF
   void *Src; // [rsp+38h] [rbp-10h]
 
-  v5 = a2;
-  if ( (_WORD)a2 == a3 )
-    return 0LL;
-  LOBYTE(a2) = a4;
-  result = RtlpWow64SelectSystem32PathInternal(a3, a2, &v13);
+  v5 = Machine;
+  if ( Machine == TargetMachine )
+    return 0;
+  LOBYTE(Machine) = IncludePathSeperator;
+  result = RtlpWow64SelectSystem32PathInternal(TargetMachine, Machine, &v13);
   v9 = 0;
-  if ( (int)result >= 0 )
+  if ( (result & 0x80000000) == 0 )
   {
-    LOBYTE(v8) = a4;
-    result = RtlpWow64SelectSystem32PathInternal(v5, v8, v12);
-    if ( (int)result >= 0 )
+    LOBYTE(v8) = IncludePathSeperator;
+    result = RtlpWow64SelectSystem32PathInternal(v5, v8, &SearchString);
+    if ( (result & 0x80000000) == 0 )
     {
       v10 = v13;
-      if ( v12[0] == v13 )
-      {
-        UnicodeSubstring = RtlFindUnicodeSubstring(a1, v12, 1);
-        if ( UnicodeSubstring )
-          memmove(UnicodeSubstring, Src, v10);
-      }
-      else
-      {
-        return (unsigned int)-1073741811;
-      }
+      if ( SearchString.Length != v13 )
+        return -1073741811;
+      UnicodeSubstring = RtlFindUnicodeSubstring(Destination, &SearchString, 1u);
+      if ( UnicodeSubstring )
+        memmove(UnicodeSubstring, Src, v10);
       return v9;
     }
   }

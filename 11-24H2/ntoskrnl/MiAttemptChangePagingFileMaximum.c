@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAttemptChangePagingFileMaximum @ 0x140679D30
+ * XREFs of MiAttemptChangePagingFileMaximum @ 0x14067AF10
  * Callers:
- *     MiStoreContractVirtualPagefileApc @ 0x1403659B0 (MiStoreContractVirtualPagefileApc.c)
- *     MiStoreExtendVirtualPagefile @ 0x1404F6510 (MiStoreExtendVirtualPagefile.c)
- *     MiCreatePagingFile @ 0x1407EE364 (MiCreatePagingFile.c)
+ *     MiStoreContractVirtualPagefileApc @ 0x140476BB0 (MiStoreContractVirtualPagefileApc.c)
+ *     MiStoreExtendVirtualPagefile @ 0x1404F3E10 (MiStoreExtendVirtualPagefile.c)
+ *     MiCreatePagingFile @ 0x1407EE934 (MiCreatePagingFile.c)
  * Callees:
- *     MiChangePagingFileMaximum @ 0x140679DB0 (MiChangePagingFileMaximum.c)
- *     MiReleasePageHash @ 0x140691310 (MiReleasePageHash.c)
- *     MiReservePageHash @ 0x140691370 (MiReservePageHash.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x1407EDF2C (MiCreatePageFileSpaceBitmaps.c)
+ *     MiChangePagingFileMaximum @ 0x14067AF90 (MiChangePagingFileMaximum.c)
+ *     MiReleasePageHash @ 0x1406923E0 (MiReleasePageHash.c)
+ *     MiReservePageHash @ 0x140692440 (MiReservePageHash.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x1407EE4FC (MiCreatePageFileSpaceBitmaps.c)
  */
 
 __int64 __fastcall MiAttemptChangePagingFileMaximum(__int64 a1, unsigned int a2)

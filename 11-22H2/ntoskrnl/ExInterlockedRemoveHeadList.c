@@ -12,7 +12,7 @@
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *Flink; // r14
+  _LIST_ENTRY *Flink; // r14
   volatile signed __int32 *SchedulerAssist; // rcx
   struct _LIST_ENTRY *v6; // rax
   struct _KPRCB *v7; // rcx

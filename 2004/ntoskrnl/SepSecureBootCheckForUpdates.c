@@ -10,17 +10,17 @@
  *     NtUpdateWnfStateData @ 0x140622790 (NtUpdateWnfStateData.c)
  */
 
-NTSTATUS SepSecureBootCheckForUpdates()
+int SepSecureBootCheckForUpdates()
 {
-  NTSTATUS result; // eax
-  ULONG ResultLength; // [rsp+40h] [rbp-9h] BYREF
+  int result; // eax
+  ULONG MatchingChangeStamp; // [rsp+40h] [rbp-9h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+7h] BYREF
   __int128 KeyValueInformation; // [rsp+80h] [rbp+37h] BYREF
   int v5; // [rsp+90h] [rbp+47h]
 
   KeyHandle = 0LL;
-  ResultLength = 0;
+  MatchingChangeStamp = 0;
   ObjectAttributes.Length = 48;
   *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
@@ -38,9 +38,9 @@ NTSTATUS SepSecureBootCheckForUpdates()
                KeyValuePartialInformation,
                &KeyValueInformation,
                0x14u,
-               &ResultLength);
+               &MatchingChangeStamp);
     if ( result >= 0 && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL && HIDWORD(KeyValueInformation) )
-      result = NtUpdateWnfStateData((int)&WNF_SBS_UPDATE_AVAILABLE, 0, 0, 0, 0LL, 0, 0);
+      result = NtUpdateWnfStateData(&WNF_SBS_UPDATE_AVAILABLE, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   if ( KeyHandle )
     return ZwClose(KeyHandle);

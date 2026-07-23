@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar @ 0x14068D5F0
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x14068E7B0
  * Callers:
- *     _safecrt_mbtowc @ 0x140196170 (_safecrt_mbtowc.c)
- *     toupper @ 0x140197510 (toupper.c)
- *     _mbstrlen @ 0x14019980C (_mbstrlen.c)
+ *     _safecrt_mbtowc @ 0x1401962B0 (_safecrt_mbtowc.c)
+ *     toupper @ 0x140197650 (toupper.c)
+ *     _mbstrlen @ 0x14019994C (_mbstrlen.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x1406BD870 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406BEB10 (RtlUTF8ToUnicodeN.c)
  */
 
 WCHAR __stdcall RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)

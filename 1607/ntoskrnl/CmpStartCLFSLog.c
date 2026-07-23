@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpStartCLFSLog @ 0x1404DAE78
+ * XREFs of CmpStartCLFSLog @ 0x1404BE47C
  * Callers:
- *     CmpStartRMLog @ 0x1404DAAE0 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x1404BE0E4 (CmpStartRMLog.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsDisableImpersonation @ 0x140413A60 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x140413BB0 (PsRestoreImpersonation.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140611640 (CmpAddRemoveContainerToCLFSLog.c)
+ *     PsDisableImpersonation @ 0x140412920 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140412A70 (PsRestoreImpersonation.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x1406116F4 (CmpAddRemoveContainerToCLFSLog.c)
  */
 
 __int64 __fastcall CmpStartCLFSLog(
@@ -37,7 +37,7 @@ __int64 __fastcall CmpStartCLFSLog(
   ULONG pcbInfoBuffer; // [rsp+80h] [rbp-59h] BYREF
   PVOID ppvMarshalContext; // [rsp+88h] [rbp-51h] BYREF
   PULONGLONG pcbContainer; // [rsp+90h] [rbp-49h]
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
   _BYTE v26[48]; // [rsp+A8h] [rbp-31h] BYREF
 
   pcbContainer = a6;

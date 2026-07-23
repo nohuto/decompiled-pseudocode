@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTracePriority @ 0x140310288
+ * XREFs of EtwTracePriority @ 0x140310478
  * Callers:
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1400D6984 (KeSetPriorityAndQuantumProcess.c)
- *     PsSetPagePriorityThread @ 0x1400DEF00 (PsSetPagePriorityThread.c)
- *     PsSetIoPriorityThread @ 0x1400DEF58 (PsSetIoPriorityThread.c)
- *     KeBoostPriorityThread @ 0x1400E3380 (KeBoostPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1400CD3F0 (KeSetBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400D6A04 (KeSetPriorityAndQuantumProcess.c)
+ *     PsSetPagePriorityThread @ 0x1400DEF80 (PsSetPagePriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x1400DEFD8 (PsSetIoPriorityThread.c)
+ *     KeBoostPriorityThread @ 0x1400E3400 (KeBoostPriorityThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpPsProvTracePriority @ 0x140311494 (EtwpPsProvTracePriority.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpPsProvTracePriority @ 0x140311684 (EtwpPsProvTracePriority.c)
  */
 
 void __fastcall EtwTracePriority(__int64 a1, unsigned __int16 a2, int a3, int a4, _BYTE *a5)

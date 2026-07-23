@@ -1,28 +1,28 @@
 /*
- * XREFs of IopDeleteFile @ 0x1404463A0
+ * XREFs of IopDeleteFile @ 0x140445270
  * Callers:
  *     <none>
  * Callees:
- *     IopDequeueIrpFromThread @ 0x14002DDE0 (IopDequeueIrpFromThread.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IoGetAttachedDevice @ 0x14002DEC0 (IoGetAttachedDevice.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopQueueThreadIrp @ 0x14002E170 (IopQueueThreadIrp.c)
- *     IopAllocateIrpMustSucceed @ 0x14002E210 (IopAllocateIrpMustSucceed.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     IopDecrementDeviceObjectRef @ 0x14002ECF0 (IopDecrementDeviceObjectRef.c)
- *     IopIncrementDeviceObjectRefCount @ 0x14002EDD0 (IopIncrementDeviceObjectRefCount.c)
- *     IopDecrementVpbRefCount @ 0x14002EE70 (IopDecrementVpbRefCount.c)
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopDecrementDeviceObjectRefCount @ 0x14007F460 (IopDecrementDeviceObjectRefCount.c)
- *     IopDeleteFileObjectExtension @ 0x1400998A0 (IopDeleteFileObjectExtension.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     IopDequeueIrpFromThread @ 0x14002D960 (IopDequeueIrpFromThread.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IoGetAttachedDevice @ 0x14002DA40 (IoGetAttachedDevice.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopQueueThreadIrp @ 0x14002DCF0 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpMustSucceed @ 0x14002DD90 (IopAllocateIrpMustSucceed.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14002E870 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14002E950 (IopIncrementDeviceObjectRefCount.c)
+ *     IopDecrementVpbRefCount @ 0x14002E9F0 (IopDecrementVpbRefCount.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x14007F4E0 (IopDecrementDeviceObjectRefCount.c)
+ *     IopDeleteFileObjectExtension @ 0x1400990A0 (IopDeleteFileObjectExtension.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopCloseFile @ 0x140443140 (IopCloseFile.c)
- *     FsRtlPTeardownPerFileObjectContexts @ 0x14046B684 (FsRtlPTeardownPerFileObjectContexts.c)
+ *     IopCloseFile @ 0x140442010 (IopCloseFile.c)
+ *     FsRtlPTeardownPerFileObjectContexts @ 0x14046A554 (FsRtlPTeardownPerFileObjectContexts.c)
  */
 
 void __fastcall IopDeleteFile(ULONG_PTR BugCheckParameter1)

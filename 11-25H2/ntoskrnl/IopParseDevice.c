@@ -238,7 +238,7 @@ __int64 __fastcall IopParseDevice(
   _DWORD *CurrentIrql; // r8
   unsigned __int64 DeviceType; // rax
   __int64 v149; // rcx
-  int ActiveConsoleId; // esi
+  ULONG ActiveConsoleId; // esi
   unsigned __int64 v151; // rax
   int v152; // esi
   char v153; // al

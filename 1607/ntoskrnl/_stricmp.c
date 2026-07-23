@@ -1,8 +1,8 @@
 /*
- * XREFs of _stricmp @ 0x14014D394
+ * XREFs of _stricmp @ 0x14014D904
  * Callers:
  *     ViThunkSnapSharedExportByName @ 0x1406FE014 (ViThunkSnapSharedExportByName.c)
- *     VfCheckImageCompliance @ 0x140703D18 (VfCheckImageCompliance.c)
+ *     VfCheckImageCompliance @ 0x140703D48 (VfCheckImageCompliance.c)
  *     HdlspBugCheckProcessing @ 0x140722CBC (HdlspBugCheckProcessing.c)
  *     CmpSearchSectionByName @ 0x1407A8C5C (CmpSearchSectionByName.c)
  *     CmpSetupConfigurationTree @ 0x1407AC78C (CmpSetupConfigurationTree.c)

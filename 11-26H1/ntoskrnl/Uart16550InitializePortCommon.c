@@ -1,15 +1,15 @@
 /*
- * XREFs of Uart16550InitializePortCommon @ 0x140721C54
+ * XREFs of Uart16550InitializePortCommon @ 0x140726824
  * Callers:
- *     IaLpssInitializePort @ 0x1407216A0 (IaLpssInitializePort.c)
- *     IaLpssSetPowerD0 @ 0x140721950 (IaLpssSetPowerD0.c)
- *     Uart16550InitializePort @ 0x140721C30 (Uart16550InitializePort.c)
- *     Uart16550LegacyInitializePort @ 0x140721D10 (Uart16550LegacyInitializePort.c)
- *     Uart16550MmInitializePort @ 0x140721D80 (Uart16550MmInitializePort.c)
+ *     IaLpssInitializePort @ 0x140726270 (IaLpssInitializePort.c)
+ *     IaLpssSetPowerD0 @ 0x140726520 (IaLpssSetPowerD0.c)
+ *     Uart16550InitializePort @ 0x140726800 (Uart16550InitializePort.c)
+ *     Uart16550LegacyInitializePort @ 0x1407268E0 (Uart16550LegacyInitializePort.c)
+ *     Uart16550MmInitializePort @ 0x140726950 (Uart16550MmInitializePort.c)
  * Callees:
- *     Uart16550SetBaud @ 0x140721F00 (Uart16550SetBaud.c)
- *     UartpSetAccess @ 0x14072263C (UartpSetAccess.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     Uart16550SetBaud @ 0x140726AD0 (Uart16550SetBaud.c)
+ *     UartpSetAccess @ 0x14072720C (UartpSetAccess.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall Uart16550InitializePortCommon(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)

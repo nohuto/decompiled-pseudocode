@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSystemIdleContextUpdate @ 0x140945714
+ * XREFs of PopDiagTraceSystemIdleContextUpdate @ 0x1409C1084
  * Callers:
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSystemIdleContextUpdate(int a1, int a2, int a3, int a4, char a5)
@@ -31,11 +31,9 @@ char __fastcall PopDiagTraceSystemIdleContextUpdate(int a1, int a2, int a3, int 
   v19 = a3;
   v18 = a2;
   v17 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v5) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_SYSTEM_IDLE_CONTEXT_UPDATE);
+    LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SYSTEM_IDLE_CONTEXT_UPDATE);
     if ( (_BYTE)v5 )
     {
       UserData.Ptr = (ULONGLONG)&v17;
@@ -48,12 +46,7 @@ char __fastcall PopDiagTraceSystemIdleContextUpdate(int a1, int a2, int a3, int 
       v14 = &a5;
       v13 = 4LL;
       v15 = 4LL;
-      LOBYTE(v5) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_SYSTEM_IDLE_CONTEXT_UPDATE,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v5) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SYSTEM_IDLE_CONTEXT_UPDATE, 0LL, 5u, &UserData);
     }
   }
   return (char)v5;

@@ -16,9 +16,9 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
 {
   unsigned int v6; // eax
   __int64 v7; // rdx
-  char *v8; // rax
-  NTSTATUS v9; // edi
-  int v11; // [rsp+78h] [rbp+20h] BYREF
+  CHAR *v8; // rax
+  int v9; // edi
+  ULONG BytesInOemString; // [rsp+78h] [rbp+20h] BYREF
 
   v6 = RtlxUnicodeStringToOemSize(SourceString);
   if ( v6 > 0xFFFF )
@@ -27,7 +27,7 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v6;
-    v8 = (char *)sub_18006D6B8(v6, v7);
+    v8 = (CHAR *)sub_18006D6B8(v6, v7);
     DestinationString->Buffer = v8;
     if ( !v8 )
       return -1073741801;
@@ -39,19 +39,19 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   v9 = RtlUnicodeToOemN(
          DestinationString->Buffer,
          DestinationString->Length,
-         (unsigned int)&v11,
+         &BytesInOemString,
          SourceString->Buffer,
          SourceString->Length);
   if ( v9 >= 0 )
   {
-    DestinationString->Buffer[v11] = 0;
+    DestinationString->Buffer[BytesInOemString] = 0;
     v9 = 0;
   }
   if ( v9 < 0 )
   {
     if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(DestinationString->Buffer);
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
   }

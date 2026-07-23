@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDqQuerySerializeActionQueue @ 0x14098E76C
+ * XREFs of PiDqQuerySerializeActionQueue @ 0x14094F1CC
  * Callers:
- *     PiDqIrpQueryGetResult @ 0x14098E4A4 (PiDqIrpQueryGetResult.c)
- *     PiDqIrpQueryCreate @ 0x14098EFF8 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x14094EF04 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x14094FA58 (PiDqIrpQueryCreate.c)
  * Callees:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryLock @ 0x14098FDD0 (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x14098FE44 (PiDqQueryUnlock.c)
- *     PiDqQueryGetObjectManager @ 0x1409902F0 (PiDqQueryGetObjectManager.c)
- *     PiDqActionDataCreate @ 0x1409907EC (PiDqActionDataCreate.c)
- *     PiDqActionDataFree @ 0x140990C3C (PiDqActionDataFree.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1409A8548 (PiDqQueryActionQueueEntryFree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14094F4E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryLock @ 0x140950830 (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x1409508A4 (PiDqQueryUnlock.c)
+ *     PiDqQueryGetObjectManager @ 0x140950D50 (PiDqQueryGetObjectManager.c)
+ *     PiDqActionDataCreate @ 0x14095124C (PiDqActionDataCreate.c)
+ *     PiDqActionDataFree @ 0x14095169C (PiDqActionDataFree.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x140968F58 (PiDqQueryActionQueueEntryFree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqQuerySerializeActionQueue(__int64 a1, __int64 a2, int a3, char a4, int *a5, _DWORD *a6)
@@ -78,7 +78,7 @@ LABEL_18:
         {
           if ( v24 )
           {
-            NdrMesTypeEncode3(v15[0], "TP 3\a", &off_140004B10, &off_140E06EF0, 1, &v24);
+            NdrMesTypeEncode3(v15[0], "TP 3\a", &off_1400047E8, &off_140E06EF0, 1, &v24);
             if ( (_BYTE)v23 )
             {
               v7 = -1073741819;

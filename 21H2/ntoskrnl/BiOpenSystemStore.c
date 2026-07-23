@@ -1,26 +1,26 @@
 /*
- * XREFs of BiOpenSystemStore @ 0x14078381C
+ * XREFs of BiOpenSystemStore @ 0x1407839DC
  * Callers:
- *     BcdOpenStore @ 0x140782E48 (BcdOpenStore.c)
- *     SepSecureBootCorrectBcd @ 0x1409241E8 (SepSecureBootCorrectBcd.c)
+ *     BcdOpenStore @ 0x140783008 (BcdOpenStore.c)
+ *     SepSecureBootCorrectBcd @ 0x140924348 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiSetFirmwareModified @ 0x14039B498 (BiSetFirmwareModified.c)
- *     BiWasFirmwareModified @ 0x14039B4CC (BiWasFirmwareModified.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     wcstoul @ 0x1403D4500 (wcstoul.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     BiLoadSystemStore @ 0x140781BD4 (BiLoadSystemStore.c)
- *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
- *     BiCleanupLoadedStores @ 0x1407820A8 (BiCleanupLoadedStores.c)
- *     BiIsSystemStore @ 0x1407833A8 (BiIsSystemStore.c)
- *     BiEnumerateSubKeys @ 0x140783528 (BiEnumerateSubKeys.c)
- *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
- *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
- *     BiGetFirmwareType @ 0x1407849DC (BiGetFirmwareType.c)
- *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
- *     BiOpenKeyNonBcd @ 0x140785980 (BiOpenKeyNonBcd.c)
- *     BiBindEfiNamespaceObjects @ 0x140970888 (BiBindEfiNamespaceObjects.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     BiSetFirmwareModified @ 0x14039B5E8 (BiSetFirmwareModified.c)
+ *     BiWasFirmwareModified @ 0x14039B61C (BiWasFirmwareModified.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403D4670 (wcstoul.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     BiLoadSystemStore @ 0x140781D94 (BiLoadSystemStore.c)
+ *     BiCloseStore @ 0x140781EC0 (BiCloseStore.c)
+ *     BiCleanupLoadedStores @ 0x140782268 (BiCleanupLoadedStores.c)
+ *     BiIsSystemStore @ 0x140783568 (BiIsSystemStore.c)
+ *     BiEnumerateSubKeys @ 0x1407836E8 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x1407845C4 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078474C (BiCloseKey.c)
+ *     BiGetFirmwareType @ 0x140784B9C (BiGetFirmwareType.c)
+ *     BiLogMessage @ 0x140784F5C (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x140785B40 (BiOpenKeyNonBcd.c)
+ *     BiBindEfiNamespaceObjects @ 0x140970A68 (BiBindEfiNamespaceObjects.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiOpenSystemStore(__int64 *a1, unsigned int a2)
@@ -123,7 +123,7 @@ LABEL_15:
       }
       else
       {
-        v5 = BiBindEfiNamespaceObjects(v2);
+        v5 = BiBindEfiNamespaceObjects((HANDLE)v2);
       }
     }
     else

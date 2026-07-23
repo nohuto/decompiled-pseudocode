@@ -49,10 +49,13 @@ void __fastcall MiSetSubsectionBase(ULONG_PTR BugCheckParameter2, __int64 a2, un
     *(_DWORD *)(BugCheckParameter2 + 48) = v14;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v10);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

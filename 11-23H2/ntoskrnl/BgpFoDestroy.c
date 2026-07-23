@@ -4,7 +4,7 @@
  *     BgpFwLibraryDisable @ 0x140AEC1EC (BgpFwLibraryDisable.c)
  *     BgpFwLibraryDestroy @ 0x140AEEA88 (BgpFwLibraryDestroy.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     FopFreeFontData @ 0x140AEC314 (FopFreeFontData.c)
  */
 

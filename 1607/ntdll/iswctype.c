@@ -1,10 +1,10 @@
 /*
  * XREFs of iswctype @ 0x18009A240
  * Callers:
- *     RtlIpv6StringToAddressExW @ 0x180055810 (RtlIpv6StringToAddressExW.c)
- *     RtlIpv6StringToAddressW @ 0x180055A20 (RtlIpv6StringToAddressW.c)
- *     RtlIpv4StringToAddressExW @ 0x1800562A0 (RtlIpv4StringToAddressExW.c)
- *     RtlIpv4StringToAddressW @ 0x1800563F0 (RtlIpv4StringToAddressW.c)
+ *     RtlIpv6StringToAddressExW @ 0x180055800 (RtlIpv6StringToAddressExW.c)
+ *     RtlIpv6StringToAddressW @ 0x180055A10 (RtlIpv6StringToAddressW.c)
+ *     RtlIpv4StringToAddressExW @ 0x180056290 (RtlIpv4StringToAddressExW.c)
+ *     RtlIpv4StringToAddressW @ 0x1800563E0 (RtlIpv4StringToAddressW.c)
  *     iswalnum @ 0x18009A170 (iswalnum.c)
  *     iswalpha @ 0x18009A180 (iswalpha.c)
  *     iswdigit @ 0x18009A1B0 (iswdigit.c)
@@ -13,11 +13,11 @@
  *     iswprint @ 0x18009A1E0 (iswprint.c)
  *     iswspace @ 0x18009A1F0 (iswspace.c)
  *     iswxdigit @ 0x18009A200 (iswxdigit.c)
- *     towlower @ 0x18009C440 (towlower.c)
+ *     towlower @ 0x18009C430 (towlower.c)
  *     _whiteout @ 0x1800A503C (_whiteout.c)
  *     _winput_s @ 0x1800A5094 (_winput_s.c)
- *     RtlUnicodeStringToLcid @ 0x1800E6058 (RtlUnicodeStringToLcid.c)
- *     RtlEthernetStringToAddressW @ 0x1800EE2E0 (RtlEthernetStringToAddressW.c)
+ *     RtlUnicodeStringToLcid @ 0x1800E6118 (RtlUnicodeStringToLcid.c)
+ *     RtlEthernetStringToAddressW @ 0x1800EE3A0 (RtlEthernetStringToAddressW.c)
  * Callees:
  *     <none>
  */

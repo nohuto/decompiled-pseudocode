@@ -7,46 +7,46 @@
  *     EtwpGetNextRegistration @ 0x180063EF4 (EtwpGetNextRegistration.c)
  */
 
-__int64 __fastcall EtwEnumerateProcessRegGuids(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+ULONG __cdecl EtwEnumerateProcessRegGuids(PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength)
 {
-  unsigned int v6; // edi
-  unsigned int v7; // ebx
-  __int64 result; // rax
+  ULONG v5; // edi
+  ULONG v6; // ebx
+  ULONG result; // eax
   __int64 i; // rax
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // r8
-  unsigned __int64 v12; // rcx
-  __int64 v13; // r9
-  unsigned int j; // eax
+  _RTL_SRWLOCK *v9; // rcx
+  ULONG v10; // r9d
+  ULONG j; // eax
+  __int64 v12; // r8
+  unsigned __int64 v13; // rdx
 
-  v6 = (unsigned int)a2 >> 4;
-  v7 = 0;
-  if ( !a1 && (_DWORD)a2 )
-    return 87LL;
-  for ( i = EtwpGetNextRegistration(0LL, a2, a3, a4); ; i = EtwpGetNextRegistration(v12, v10, v11, v13) )
+  v5 = OutBufferSize >> 4;
+  v6 = 0;
+  if ( !OutBuffer && OutBufferSize )
+    return 87;
+  for ( i = EtwpGetNextRegistration(0LL); ; i = EtwpGetNextRegistration(v9) )
   {
-    v12 = i;
+    v9 = (_RTL_SRWLOCK *)i;
     if ( !i )
       break;
-    v13 = v6;
-    if ( v7 < v6 )
-      v13 = v7;
-    for ( j = 0; j < (unsigned int)v13; ++j )
+    v10 = v5;
+    if ( v6 < v5 )
+      v10 = v6;
+    for ( j = 0; j < v10; ++j )
     {
-      v11 = (unsigned __int64 *)(16LL * j);
-      v10 = *(_QWORD *)(v12 + 32) - *(unsigned __int64 *)((char *)v11 + a1);
-      if ( !v10 )
-        v10 = *(_QWORD *)(v12 + 40) - *(unsigned __int64 *)((char *)v11 + a1 + 8);
-      if ( !v10 )
+      v12 = 16LL * j;
+      v13 = v9[4].Value - *(_QWORD *)((char *)OutBuffer + v12);
+      if ( !v13 )
+        v13 = v9[5].Value - *(_QWORD *)((char *)OutBuffer + v12 + 8);
+      if ( !v13 )
         goto LABEL_17;
     }
-    if ( v7 < v6 )
-      *(_OWORD *)(16LL * v7 + a1) = *(_OWORD *)(v12 + 32);
-    ++v7;
+    if ( v6 < v5 )
+      *((_OWORD *)OutBuffer + v6) = *(_OWORD *)&v9[4].0;
+    ++v6;
 LABEL_17:
     ;
   }
-  result = v6 < v7 ? 0x7A : 0;
-  *(_DWORD *)a3 = 16 * v7;
+  result = v5 < v6 ? 0x7A : 0;
+  *ReturnLength = 16 * v6;
   return result;
 }

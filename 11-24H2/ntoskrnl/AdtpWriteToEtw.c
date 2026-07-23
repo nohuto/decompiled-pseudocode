@@ -1,17 +1,17 @@
 /*
- * XREFs of AdtpWriteToEtw @ 0x140AE821C
+ * XREFs of AdtpWriteToEtw @ 0x140AEB4C0
  * Callers:
- *     SepRmCallLsa @ 0x14034A120 (SepRmCallLsa.c)
+ *     SepRmCallLsa @ 0x1403C17F0 (SepRmCallLsa.c)
  * Callees:
- *     EtwWriteKMSecurityEvent @ 0x1403482A0 (EtwWriteKMSecurityEvent.c)
- *     AdtpNormalizeAuditInfoHelper @ 0x140453388 (AdtpNormalizeAuditInfoHelper.c)
- *     AdtpPackageParameters @ 0x1404534B8 (AdtpPackageParameters.c)
- *     AdtpCleanupParameterAllocations @ 0x1404720C8 (AdtpCleanupParameterAllocations.c)
- *     Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline @ 0x140696F3C (Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline @ 0x140696F90 (Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AdtpGetCategoryAndSubCategoryId @ 0x140A47480 (AdtpGetCategoryAndSubCategoryId.c)
+ *     EtwWriteKMSecurityEvent @ 0x140326CA0 (EtwWriteKMSecurityEvent.c)
+ *     AdtpNormalizeAuditInfoHelper @ 0x140448438 (AdtpNormalizeAuditInfoHelper.c)
+ *     AdtpPackageParameters @ 0x140448568 (AdtpPackageParameters.c)
+ *     AdtpCleanupParameterAllocations @ 0x14046E394 (AdtpCleanupParameterAllocations.c)
+ *     Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline @ 0x140697FBC (Feature_Servicing_EnhancedAuditingForKerberosEtypes__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline @ 0x140698010 (Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AdtpGetCategoryAndSubCategoryId @ 0x140A3D3F0 (AdtpGetCategoryAndSubCategoryId.c)
  */
 
 __int64 __fastcall AdtpWriteToEtw(__int64 a1, _BYTE *a2)

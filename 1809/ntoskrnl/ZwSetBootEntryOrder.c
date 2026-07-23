@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwSetBootEntryOrder @ 0x1401BB190
+ * XREFs of ZwSetBootEntryOrder @ 0x1401BB2F0
  * Callers:
- *     BiSetBootEntryOrder @ 0x1408F453C (BiSetBootEntryOrder.c)
+ *     BiSetBootEntryOrder @ 0x1408F57FC (BiSetBootEntryOrder.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwSetBootEntryOrder(PULONG Ids, PULONG Count)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Ids, Count, v2);
+  return KiServiceInternal(Ids);
 }

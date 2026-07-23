@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUpdateAvailableEventsAtDpc @ 0x1402D19B0
+ * XREFs of MiUpdateAvailableEventsAtDpc @ 0x140261834
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiUnlinkStandbyPage @ 0x140270760 (MiUnlinkStandbyPage.c)
- *     MiInsertPagesInList @ 0x140271500 (MiInsertPagesInList.c)
- *     MiDecreaseAvailablePages @ 0x1402D1620 (MiDecreaseAvailablePages.c)
- *     MiIncreaseAvailablePages @ 0x1403F66D0 (MiIncreaseAvailablePages.c)
- *     MiUpdatePageThresholdsDpc @ 0x1404B4650 (MiUpdatePageThresholdsDpc.c)
- *     MiUpdateAvailableEvents @ 0x1406856C4 (MiUpdateAvailableEvents.c)
+ *     MiUnlinkStandbyPage @ 0x140225CF0 (MiUnlinkStandbyPage.c)
+ *     MiInsertPagesInList @ 0x140226A90 (MiInsertPagesInList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiDecreaseAvailablePages @ 0x140261500 (MiDecreaseAvailablePages.c)
+ *     MiIncreaseAvailablePages @ 0x140263490 (MiIncreaseAvailablePages.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiUpdatePageThresholdsDpc @ 0x1404AEE90 (MiUpdatePageThresholdsDpc.c)
+ *     MiUpdateAvailableEvents @ 0x1406867F4 (MiUpdateAvailableEvents.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiUpdateAvailableEventsAtDpc(__int64 a1)

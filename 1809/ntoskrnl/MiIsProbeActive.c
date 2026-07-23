@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsProbeActive @ 0x140122E7C
+ * XREFs of MiIsProbeActive @ 0x140122F4C
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x1401229F0 (MiReplaceRotateWithDemandZero.c)
- *     MmIsIoSpaceActive @ 0x1402ABD80 (MmIsIoSpaceActive.c)
- *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140122AC0 (MiReplaceRotateWithDemandZero.c)
+ *     MmIsIoSpaceActive @ 0x1402ABF70 (MmIsIoSpaceActive.c)
+ *     MiSwitchToTransition @ 0x1402AF830 (MiSwitchToTransition.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2, char a3)
@@ -39,10 +39,10 @@ __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2, char a3)
 
   v4 = 0;
   v5 = 0;
-  v8 = ExAcquireSpinLockShared(&dword_14043AD00);
-  v9 = (_QWORD *)qword_14043AD08[0];
+  v8 = ExAcquireSpinLockShared(&dword_14043BDC0);
+  v9 = (_QWORD *)qword_14043BDC8[0];
   v10 = v8;
-  if ( qword_14043AD08[0] )
+  if ( qword_14043BDC8[0] )
   {
     if ( (a3 & 1) != 0 )
     {
@@ -72,7 +72,7 @@ LABEL_61:
             }
             else
             {
-              v28 = (_QWORD *)qword_14043AD08[0];
+              v28 = (_QWORD *)qword_14043BDC8[0];
               while ( v28 )
               {
                 v29 = v28[5];
@@ -158,7 +158,7 @@ LABEL_61:
         }
       }
     }
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_14043AD00);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_14043BDC0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -169,7 +169,7 @@ LABEL_61:
   }
   else
   {
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_14043AD00);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_14043BDC0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
     {
       v12 = KeGetCurrentPrcb();

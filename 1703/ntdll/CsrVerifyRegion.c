@@ -10,7 +10,7 @@ bool __fastcall CsrVerifyRegion(unsigned __int64 a1, unsigned int a2)
 {
   struct _PEB *v3; // rcx
   unsigned __int64 v4; // r9
-  void *ReadOnlySharedMemoryBase; // rdx
+  PVOID ReadOnlySharedMemoryBase; // rdx
   bool result; // al
 
   result = 0;

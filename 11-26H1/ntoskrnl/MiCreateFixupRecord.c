@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateFixupRecord @ 0x140AF1608
+ * XREFs of MiCreateFixupRecord @ 0x140AF4248
  * Callers:
- *     MiScanRelocationPage @ 0x14087B644 (MiScanRelocationPage.c)
+ *     MiScanRelocationPage @ 0x140881A44 (MiScanRelocationPage.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
  */
 
 __int64 __fastcall MiCreateFixupRecord(__int64 a1, __int64 a2, unsigned int a3, int a4, int a5, _WORD *a6, _QWORD *a7)

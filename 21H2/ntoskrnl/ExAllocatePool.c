@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocatePool @ 0x1402D2D70
+ * XREFs of ExAllocatePool @ 0x1402512F0
  * Callers:
- *     VerifierExAllocatePool @ 0x1409D48F0 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePool @ 0x1409D58F0 (VerifierExAllocatePool.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __stdcall ExAllocatePool(POOL_TYPE PoolType, SIZE_T NumberOfBytes)

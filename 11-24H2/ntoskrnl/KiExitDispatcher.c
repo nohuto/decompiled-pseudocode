@@ -1,154 +1,152 @@
 /*
- * XREFs of KiExitDispatcher @ 0x14031E7A0
+ * XREFs of KiExitDispatcher @ 0x1402C7330
  * Callers:
- *     KeRegisterObjectNotification @ 0x140205AB0 (KeRegisterObjectNotification.c)
- *     MiReleaseControlAreaWaiters @ 0x14020F410 (MiReleaseControlAreaWaiters.c)
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140257E60 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExReleaseFastResource @ 0x14025BE50 (ExReleaseFastResource.c)
- *     ExpReleaseFastResourceShared @ 0x14025C680 (ExpReleaseFastResourceShared.c)
- *     ExpReleaseFastResourceExclusiveSlow @ 0x14025D7C0 (ExpReleaseFastResourceExclusiveSlow.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiSchedulerApc @ 0x140295D20 (KiSchedulerApc.c)
- *     ExpTryQueueWorkItem @ 0x1402A0DCC (ExpTryQueueWorkItem.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A3010 (NtWaitForWorkViaWorkerFactory.c)
- *     ExpReleaseResourceForThreadLite @ 0x1402D6BE0 (ExpReleaseResourceForThreadLite.c)
- *     KeSignalGate @ 0x14030AB68 (KeSignalGate.c)
- *     IopCompleteIrpInFileObjectList @ 0x14031B490 (IopCompleteIrpInFileObjectList.c)
- *     AlpcpSignal @ 0x14031BB60 (AlpcpSignal.c)
- *     IoSetIoCompletionEx @ 0x14031C620 (IoSetIoCompletionEx.c)
- *     KiInsertQueue @ 0x14031CA10 (KiInsertQueue.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     FsRtlReleaseHeaderMutex @ 0x14031E170 (FsRtlReleaseHeaderMutex.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExQueueWorkItemFromIo @ 0x140323D10 (ExQueueWorkItemFromIo.c)
- *     ExpQueueWorkItem @ 0x140324510 (ExpQueueWorkItem.c)
- *     AlpcpSignalAndWait @ 0x140324E10 (AlpcpSignalAndWait.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ExpSetTimerObject @ 0x1403329C0 (ExpSetTimerObject.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     KeSetTimer @ 0x140335230 (KeSetTimer.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeAlertThreadByThreadIdEx @ 0x140338518 (KeAlertThreadByThreadIdEx.c)
- *     KeInsertQueue @ 0x1403BCC20 (KeInsertQueue.c)
- *     IopPassiveInterruptDpc @ 0x1403BCD90 (IopPassiveInterruptDpc.c)
- *     AlpcpQueueIoCompletionPort @ 0x1403BCF10 (AlpcpQueueIoCompletionPort.c)
- *     KeInsertQueueEx @ 0x1403BD5D0 (KeInsertQueueEx.c)
- *     AlpcpQueueIoCompletion @ 0x1403BD9A0 (AlpcpQueueIoCompletion.c)
- *     IoSetIoCompletionEx3 @ 0x1403BDE10 (IoSetIoCompletionEx3.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1403BE580 (NtReleaseWorkerFactoryWorker.c)
- *     KeWakeWaitChain @ 0x1403D7B10 (KeWakeWaitChain.c)
- *     KeTimeOutQueueWaiters @ 0x1403D7DA0 (KeTimeOutQueueWaiters.c)
- *     ExpCommitWakeFastResource @ 0x1403D8410 (ExpCommitWakeFastResource.c)
- *     KeSetEventBoostPriorityEx @ 0x1403D8BE8 (KeSetEventBoostPriorityEx.c)
- *     KeReleaseSemaphore @ 0x1403D91C0 (KeReleaseSemaphore.c)
- *     MiReturnWsToExpansionList @ 0x1403D9400 (MiReturnWsToExpansionList.c)
- *     KeRundownQueueEx @ 0x14041B7C8 (KeRundownQueueEx.c)
- *     KeDeleteMutant @ 0x14041BA48 (KeDeleteMutant.c)
- *     KeResumeThread @ 0x140460900 (KeResumeThread.c)
- *     KeFreezeProcess @ 0x1404634A0 (KeFreezeProcess.c)
- *     KePulseEvent @ 0x1404674D0 (KePulseEvent.c)
- *     KeRequestTerminationThread @ 0x140479818 (KeRequestTerminationThread.c)
- *     KeAlertThread @ 0x140479900 (KeAlertThread.c)
- *     KeForceResumeThread @ 0x140479A40 (KeForceResumeThread.c)
- *     KiSetSystemTimeDpc @ 0x14047BEC0 (KiSetSystemTimeDpc.c)
- *     KiRundownMutants @ 0x14047E1B8 (KiRundownMutants.c)
- *     KeSuspendThread @ 0x140483128 (KeSuspendThread.c)
- *     KeThawMultiProcess @ 0x1404903A4 (KeThawMultiProcess.c)
- *     KeSetProcess @ 0x14049F4A0 (KeSetProcess.c)
- *     KeForceResumeProcess @ 0x1404A7414 (KeForceResumeProcess.c)
- *     FsRtlpPostStackOverflow @ 0x1405821AC (FsRtlpPostStackOverflow.c)
- *     KeRegisterObjectDpc @ 0x1405B14F4 (KeRegisterObjectDpc.c)
- *     KeAlertMultipleThreadByThreadId @ 0x1405B7AE8 (KeAlertMultipleThreadByThreadId.c)
- *     KeAdjustTimerDelayProcess @ 0x1405B8208 (KeAdjustTimerDelayProcess.c)
- *     KeInsertHeadQueue @ 0x1405BD220 (KeInsertHeadQueue.c)
- *     KeRundownPriQueue @ 0x1405C9434 (KeRundownPriQueue.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140288470 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExReleaseFastResource @ 0x14028C460 (ExReleaseFastResource.c)
+ *     ExpReleaseFastResourceShared @ 0x14028CC90 (ExpReleaseFastResourceShared.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x14028DDD0 (ExpReleaseFastResourceExclusiveSlow.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402C4020 (IopCompleteIrpInFileObjectList.c)
+ *     AlpcpSignal @ 0x1402C46F0 (AlpcpSignal.c)
+ *     IoSetIoCompletionEx @ 0x1402C51B0 (IoSetIoCompletionEx.c)
+ *     KiInsertQueue @ 0x1402C55A0 (KiInsertQueue.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402C6D00 (FsRtlReleaseHeaderMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExQueueWorkItemFromIo @ 0x1402CC8A0 (ExQueueWorkItemFromIo.c)
+ *     ExpQueueWorkItem @ 0x1402CD0A0 (ExpQueueWorkItem.c)
+ *     AlpcpSignalAndWait @ 0x1402CD9A0 (AlpcpSignalAndWait.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402D2740 (NtWaitForWorkViaWorkerFactory.c)
+ *     KeAlertThreadByThreadIdEx @ 0x1402DE598 (KeAlertThreadByThreadIdEx.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x1402E00D0 (KiSchedulerApc.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402E0738 (KeSetEventBoostPriorityEx.c)
+ *     KeWakeWaitChain @ 0x1402F15F0 (KeWakeWaitChain.c)
+ *     KeTimeOutQueueWaiters @ 0x1402F1880 (KeTimeOutQueueWaiters.c)
+ *     ExpCommitWakeFastResource @ 0x1402F1EF0 (ExpCommitWakeFastResource.c)
+ *     KeReleaseSemaphore @ 0x1402F2490 (KeReleaseSemaphore.c)
+ *     MiReturnWsToExpansionList @ 0x1402F26D0 (MiReturnWsToExpansionList.c)
+ *     KeSignalGate @ 0x140314A48 (KeSignalGate.c)
+ *     KeSetTimer @ 0x1403161F0 (KeSetTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeRegisterObjectNotification @ 0x14032D090 (KeRegisterObjectNotification.c)
+ *     MiReleaseControlAreaWaiters @ 0x140338770 (MiReleaseControlAreaWaiters.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140357E60 (ExpReleaseResourceForThreadLite.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     ExpTryQueueWorkItem @ 0x1403AB6FC (ExpTryQueueWorkItem.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1403ABBA0 (AlpcpQueueIoCompletionPort.c)
+ *     KeInsertQueueEx @ 0x1403AC260 (KeInsertQueueEx.c)
+ *     AlpcpQueueIoCompletion @ 0x1403AC630 (AlpcpQueueIoCompletion.c)
+ *     IoSetIoCompletionEx3 @ 0x1403ACAA0 (IoSetIoCompletionEx3.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1403AD210 (NtReleaseWorkerFactoryWorker.c)
+ *     KeRundownQueueEx @ 0x14040F308 (KeRundownQueueEx.c)
+ *     KeDeleteMutant @ 0x14040F588 (KeDeleteMutant.c)
+ *     KeResumeThread @ 0x140455D98 (KeResumeThread.c)
+ *     IopPassiveInterruptDpc @ 0x140456570 (IopPassiveInterruptDpc.c)
+ *     KeInsertQueue @ 0x14045A460 (KeInsertQueue.c)
+ *     KePulseEvent @ 0x14045EF70 (KePulseEvent.c)
+ *     KeRequestTerminationThread @ 0x1404750A8 (KeRequestTerminationThread.c)
+ *     KeAlertThread @ 0x140475190 (KeAlertThread.c)
+ *     KeForceResumeThread @ 0x1404752D0 (KeForceResumeThread.c)
+ *     KiSetSystemTimeDpc @ 0x140477490 (KiSetSystemTimeDpc.c)
+ *     KiRundownMutants @ 0x1404793A8 (KiRundownMutants.c)
+ *     KeSuspendThread @ 0x14047E25C (KeSuspendThread.c)
+ *     KeThawMultiProcess @ 0x14048A9E4 (KeThawMultiProcess.c)
+ *     KeFreezeProcess @ 0x14048E57C (KeFreezeProcess.c)
+ *     KeSetProcess @ 0x14049A2E8 (KeSetProcess.c)
+ *     KeForceResumeProcess @ 0x1404A1E44 (KeForceResumeProcess.c)
+ *     FsRtlpPostStackOverflow @ 0x14057F52C (FsRtlpPostStackOverflow.c)
+ *     KeRegisterObjectDpc @ 0x1405AE464 (KeRegisterObjectDpc.c)
+ *     KeAlertMultipleThreadByThreadId @ 0x1405B50C0 (KeAlertMultipleThreadByThreadId.c)
+ *     KeAdjustTimerDelayProcess @ 0x1405B57E8 (KeAdjustTimerDelayProcess.c)
+ *     KeInsertHeadQueue @ 0x1405BA850 (KeInsertHeadQueue.c)
+ *     KeRundownPriQueue @ 0x1405C6B64 (KeRundownPriQueue.c)
  * Callees:
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x140294FC0 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiAbProcessPreContextSwitch @ 0x140295A00 (KiAbProcessPreContextSwitch.c)
- *     KiAcquireMultiplePrcbLocks @ 0x140298E80 (KiAcquireMultiplePrcbLocks.c)
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
- *     KiProcessThreadWaitList @ 0x14031EA20 (KiProcessThreadWaitList.c)
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiSwapContext @ 0x1406B2A60 (KiSwapContext.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402A4BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiAbProcessPreContextSwitch @ 0x1402A5600 (KiAbProcessPreContextSwitch.c)
+ *     KiAcquireMultiplePrcbLocks @ 0x1402A7970 (KiAcquireMultiplePrcbLocks.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
+ *     KiProcessThreadWaitList @ 0x1402C75B0 (KiProcessThreadWaitList.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiSwapContext @ 0x1406B3A00 (KiSwapContext.c)
  */
 
 void __fastcall KiExitDispatcher(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned int a4, unsigned __int8 a5)
 {
-  char v5; // bl
-  unsigned __int64 v8; // rsi
-  _KTHREAD *v9; // rax
-  _KTHREAD *v10; // rbp
-  _KTHREAD *v11; // rcx
-  unsigned __int8 v12; // al
-  _KTHREAD *v13; // rbx
-  char v14; // al
-  __int64 v15; // r8
-  int v16; // edx
-  char v17; // r9
-  unsigned __int64 v18; // [rsp+20h] [rbp-38h] BYREF
-  int v19; // [rsp+28h] [rbp-30h] BYREF
-  __int128 v20; // [rsp+2Ch] [rbp-2Ch]
-  unsigned __int64 v21; // [rsp+60h] [rbp+8h] BYREF
+  char v6; // bl
+  unsigned __int64 v9; // rsi
+  _KTHREAD *v10; // rax
+  _KTHREAD *v11; // rbp
+  _KTHREAD *v12; // rcx
+  unsigned __int8 v13; // al
+  _KTHREAD *v14; // rbx
+  char v15; // al
+  __int64 v16; // r8
+  int v17; // edx
+  char v18; // r9
+  unsigned __int64 v19; // [rsp+20h] [rbp-38h] BYREF
+  int v20; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v21; // [rsp+2Ch] [rbp-2Ch]
+  unsigned __int64 v22; // [rsp+60h] [rbp+8h] BYREF
 
-  v5 = a2 & 1;
+  v6 = a2 & 1;
   if ( *(_QWORD *)(a1 + 11528)
-    && (!v5 && (a2 & 4) == 0 || !(unsigned __int8)KiDirectSwitchThread(a1, a4, (a2 & 2) != 0)) )
+    && (!v6 && (a2 & 4) == 0 || !(unsigned __int8)KiDirectSwitchThread(a1, a4, (a2 & 2) != 0)) )
   {
-    KiProcessThreadWaitList(a1, a3);
+    KiProcessThreadWaitList(a1, a3, a4, 0LL);
   }
-  if ( v5 )
+  if ( v6 )
   {
-    v11 = *(_KTHREAD **)(a1 + 8);
-    v12 = a5;
-    v11->MiscFlags |= 4u;
-    v11->WaitIrql = v12;
+    v12 = *(_KTHREAD **)(a1 + 8);
+    v13 = a5;
+    v12->MiscFlags |= 4u;
+    v12->WaitIrql = v13;
     return;
   }
-  v8 = a5;
-  v9 = *(_KTHREAD **)(a1 + 16);
+  v9 = a5;
+  v10 = *(_KTHREAD **)(a1 + 16);
   if ( a5 < 2u )
   {
-    v10 = *(_KTHREAD **)(a1 + 8);
-    if ( v9 )
+    v11 = *(_KTHREAD **)(a1 + 8);
+    if ( v10 )
     {
-      KiAbProcessPreContextSwitch(v10, 0);
-      v21 = a1;
-      v18 = a1 & 0xFFFFFFFFFFFFFFFEuLL;
-      KiAcquireMultiplePrcbLocks((__int64 *)&v21, 1u);
-      v13 = *(_KTHREAD **)(a1 + 16);
+      KiAbProcessPreContextSwitch(v11, 0);
+      v22 = a1;
+      v19 = a1 & 0xFFFFFFFFFFFFFFFEuLL;
+      KiAcquireMultiplePrcbLocks((__int64 *)&v22, 1u);
+      v14 = *(_KTHREAD **)(a1 + 16);
       *(_QWORD *)(a1 + 16) = 0LL;
-      KiCaptureTotalCyclesCurrentThread(a1, v10);
-      KiUpdatePriorityMatrixForRunningTransition((_QWORD *)a1, (__int64)v13);
-      v10->WaitReason = 32;
-      v10->WaitIrql = v8;
-      KiQueueReadyThread((struct _KPRCB *)a1, (__int64)&v18, (ULONG_PTR)v10);
-      LOBYTE(v13) = KiSwapContext(v10, v13, (unsigned __int8)v8);
-      KiAbProcessPostContextSwitch((__int64)v10);
-      if ( !(_BYTE)v13 )
+      KiCaptureTotalCyclesCurrentThread(a1, v11);
+      KiUpdatePriorityMatrixForRunningTransition((_QWORD *)a1, (__int64)v14);
+      v11->WaitReason = 32;
+      v11->WaitIrql = v9;
+      KiQueueReadyThread((struct _KPRCB *)a1, (__int64)&v19, (ULONG_PTR)v11);
+      LOBYTE(v14) = KiSwapContext(v11, v14, (unsigned __int8)v9);
+      KiAbProcessPostContextSwitch(v11);
+      if ( !(_BYTE)v14 )
         goto LABEL_12;
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), 1LL);
     }
     else
     {
-      if ( (v10->MiscFlags & 0x40) == 0 )
+      if ( (v11->MiscFlags & 0x40) == 0 )
       {
 LABEL_12:
         if ( KiIrqlFlags )
-          KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v8);
-        __writecr8(v8);
+          KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v9);
+        __writecr8(v9);
         return;
       }
       if ( KiIrqlFlags )
@@ -158,11 +156,11 @@ LABEL_12:
       }
     }
     __writecr8(1uLL);
-    v10->MiscFlags &= ~0x40u;
+    v11->MiscFlags &= ~0x40u;
     KiDeliverApc(0, 0LL, 0LL);
     goto LABEL_12;
   }
-  if ( v9 && !*(_BYTE *)(a1 + 14522) )
+  if ( v10 && !*(_BYTE *)(a1 + 14522) )
   {
     if ( *(_BYTE *)(a1 + 32) )
     {
@@ -170,20 +168,20 @@ LABEL_12:
     }
     else
     {
-      v20 = 0LL;
+      v21 = 0LL;
       if ( KiAmdTprLowerInterruptDelayDynamicWorkaround )
       {
-        v14 = HalpDisableInterrupts(a1, a2, KeGetCurrentPrcb());
-        v16 = *(_DWORD *)(v15 + 168);
-        v17 = v14;
-        *(_DWORD *)(v15 + 168) = v16 | 4;
-        if ( !v16 )
+        v15 = HalpDisableInterrupts(a1, a2, KeGetCurrentPrcb());
+        v17 = *(_DWORD *)(v16 + 168);
+        v18 = v15;
+        *(_DWORD *)(v16 + 168) = v17 | 4;
+        if ( !v17 )
           __writemsr(0xC0010015, __readmsr(0xC0010015) | 0x100000000LL);
-        if ( v17 )
+        if ( v18 )
           _enable();
       }
-      v19 = 5;
-      HalpInterruptSendIpi(&v19, 47LL);
+      v20 = 5;
+      HalpInterruptSendIpi(&v20, 47LL);
     }
   }
 }

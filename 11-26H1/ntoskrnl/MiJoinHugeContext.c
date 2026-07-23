@@ -1,12 +1,12 @@
 /*
- * XREFs of MiJoinHugeContext @ 0x140356AE4
+ * XREFs of MiJoinHugeContext @ 0x140358884
  * Callers:
- *     MiGetUltraHugeAlreadyActive @ 0x140358430 (MiGetUltraHugeAlreadyActive.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x14035A1D0 (MiGetUltraHugeAlreadyActive.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
- *     MiCompleteJoinHugeContext @ 0x140358B98 (MiCompleteJoinHugeContext.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
+ *     MiCompleteJoinHugeContext @ 0x14035A938 (MiCompleteJoinHugeContext.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
  */
 
 __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
@@ -26,15 +26,15 @@ __int64 __fastcall MiJoinHugeContext(__int64 a1, __int64 a2, int a3)
   v7 = *(_QWORD *)(a1 + 168);
   if ( *(_BYTE *)(a1 + 68) )
   {
-    v12 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (*(_QWORD *)(a1 + 168) & 0x3FFFFFLL);
+    v12 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (*(_QWORD *)(a1 + 168) & 0x3FFFFFLL);
     *(_QWORD *)&v13 = v12;
     MiLockHugePfnAtDpc(v12);
     if ( (*(_QWORD *)(a1 + 24) & 1) == 0 )
       goto LABEL_4;
     _InterlockedAnd(
-      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
-                                + 4 * ((((v12 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << ((v12 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
+                                + 4 * ((((v12 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << ((v12 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     return 0LL;
   }
   v8 = 48 * v7 - 0x220000000000LL;

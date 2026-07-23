@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertNewZeroThread @ 0x14068F930
+ * XREFs of MiInsertNewZeroThread @ 0x140690A00
  * Callers:
- *     MiStartZeroEngineThreads @ 0x1407FF9CC (MiStartZeroEngineThreads.c)
+ *     MiStartZeroEngineThreads @ 0x14080010C (MiStartZeroEngineThreads.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiDeleteZeroThreadContext @ 0x1403C6608 (MiDeleteZeroThreadContext.c)
- *     MiIncrementZeroEngineThread @ 0x1403C7B8C (MiIncrementZeroEngineThread.c)
- *     MiRemoveThreadFromEngineLists @ 0x1403C81EC (MiRemoveThreadFromEngineLists.c)
- *     MiEngineAffinity @ 0x1404716E0 (MiEngineAffinity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiMakeSpaceForConductorListZeroThread @ 0x1407FF6D0 (MiMakeSpaceForConductorListZeroThread.c)
- *     ObReferenceObjectByHandleWithTag @ 0x14084B7A0 (ObReferenceObjectByHandleWithTag.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiDeleteZeroThreadContext @ 0x140412560 (MiDeleteZeroThreadContext.c)
+ *     MiIncrementZeroEngineThread @ 0x1404137CC (MiIncrementZeroEngineThread.c)
+ *     MiRemoveThreadFromEngineLists @ 0x140413E2C (MiRemoveThreadFromEngineLists.c)
+ *     MiEngineAffinity @ 0x14046C2B0 (MiEngineAffinity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiMakeSpaceForConductorListZeroThread @ 0x1407FFE14 (MiMakeSpaceForConductorListZeroThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140847A60 (ObReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInsertNewZeroThread(_QWORD *P)

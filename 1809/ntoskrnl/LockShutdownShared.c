@@ -1,5 +1,5 @@
 /*
- * XREFs of LockShutdownShared @ 0x1405AFFB0
+ * XREFs of LockShutdownShared @ 0x1405B0FB0
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
  * Callees:

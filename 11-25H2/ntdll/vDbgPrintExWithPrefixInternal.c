@@ -11,17 +11,27 @@
  *     vDbgPrintExWithPrefixInternalHelper @ 0x1800EC7EC (vDbgPrintExWithPrefixInternalHelper.c)
  */
 
-__int64 __fastcall vDbgPrintExWithPrefixInternal(int a1, int a2, int a3, int a4, __int64 a5, char a6)
+__int64 __fastcall vDbgPrintExWithPrefixInternal(
+        __int64 a1,
+        unsigned int a2,
+        unsigned int a3,
+        __int64 a4,
+        __int64 a5,
+        char a6)
 {
   unsigned int v6; // ebx
-  char v7; // cf
+  bool v7; // cf
   __int64 result; // rax
+  int v13; // [rsp+28h] [rbp-30h]
+  int v14; // [rsp+38h] [rbp-20h]
 
   v6 = 128;
   v7 = 1;
   do
   {
-    result = vDbgPrintExWithPrefixInternalHelper(a1, a2, a3, a4, a5, a6, v6, v7);
+    LOBYTE(v14) = v7;
+    LOBYTE(v13) = a6;
+    result = vDbgPrintExWithPrefixInternalHelper(a1, a2, a3, a4, a5, v13, v6, v14);
     if ( (_DWORD)result != -2147483643 )
       break;
     if ( v6 >= 0x200 )

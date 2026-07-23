@@ -1,19 +1,19 @@
 /*
- * XREFs of _tr_flush_block @ 0x140602828
+ * XREFs of _tr_flush_block @ 0x1405FFE68
  * Callers:
- *     deflate_fast @ 0x1405F57B0 (deflate_fast.c)
- *     deflate_huff @ 0x1405F5D0C (deflate_huff.c)
- *     deflate_rle @ 0x1405F5E7C (deflate_rle.c)
- *     deflate_slow @ 0x1405F6160 (deflate_slow.c)
+ *     deflate_fast @ 0x1405F2DF0 (deflate_fast.c)
+ *     deflate_huff @ 0x1405F334C (deflate_huff.c)
+ *     deflate_rle @ 0x1405F34BC (deflate_rle.c)
+ *     deflate_slow @ 0x1405F37A0 (deflate_slow.c)
  * Callees:
- *     _tr_stored_block @ 0x140602AF0 (_tr_stored_block.c)
- *     bi_windup @ 0x140602C80 (bi_windup.c)
- *     build_tree @ 0x140602CE0 (build_tree.c)
- *     compress_block @ 0x140602F28 (compress_block.c)
- *     detect_data_type @ 0x140603324 (detect_data_type.c)
- *     init_block @ 0x14060366C (init_block.c)
- *     scan_tree @ 0x1406037A4 (scan_tree.c)
- *     send_all_trees @ 0x1406038C0 (send_all_trees.c)
+ *     _tr_stored_block @ 0x140600130 (_tr_stored_block.c)
+ *     bi_windup @ 0x1406002C0 (bi_windup.c)
+ *     build_tree @ 0x140600320 (build_tree.c)
+ *     compress_block @ 0x140600568 (compress_block.c)
+ *     detect_data_type @ 0x140600964 (detect_data_type.c)
+ *     init_block @ 0x140600CAC (init_block.c)
+ *     scan_tree @ 0x140600DE4 (scan_tree.c)
+ *     send_all_trees @ 0x140600F00 (send_all_trees.c)
  */
 
 __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -83,7 +83,7 @@ LABEL_11:
   LODWORD(v8) = 18;
   for ( i = 18LL; i >= 3; --i )
   {
-    if ( *(_WORD *)(a1 + 4LL * *((unsigned __int8 *)qword_140035818 + i) + 2806) )
+    if ( *(_WORD *)(a1 + 4LL * *((unsigned __int8 *)qword_140035C08 + i) + 2806) )
       break;
     LODWORD(v8) = v8 - 1;
   }
@@ -127,8 +127,8 @@ LABEL_12:
         v33 = v27 >> (16 - v32);
       }
       *(_WORD *)(a1 + 5980) = v33;
-      v34 = qword_140035830;
-      v35 = qword_1400357A0;
+      v34 = qword_140035C20;
+      v35 = qword_140035B90;
     }
     else
     {

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIntegerToUnicode @ 0x18003D010
+ * XREFs of RtlIntegerToUnicode @ 0x180027580
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180007380 (RtlGetThreadPreferredUILanguages.c)
- *     RtlGetFileMUIPath @ 0x180035550 (RtlGetFileMUIPath.c)
- *     LdrpConvertLangFallbackListToMultiSz @ 0x180039EC0 (LdrpConvertLangFallbackListToMultiSz.c)
- *     RtlpMuiRegTryToAppendLangId @ 0x18003C6F0 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlConvertSidToUnicodeString @ 0x18003CD70 (RtlConvertSidToUnicodeString.c)
+ *     RtlGetFileMUIPath @ 0x1800206B0 (RtlGetFileMUIPath.c)
+ *     LdrpConvertLangFallbackListToMultiSz @ 0x180024430 (LdrpConvertLangFallbackListToMultiSz.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180026C60 (RtlpMuiRegTryToAppendLangId.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800272E0 (RtlConvertSidToUnicodeString.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180052AB0 (RtlGetThreadPreferredUILanguages.c)
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlIntegerToUnicode(unsigned int a1, unsigned int a2, int a3, char *a4)

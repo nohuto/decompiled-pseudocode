@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlWaitForWnfMetaNotification @ 0x1800F6A40
+ * XREFs of RtlWaitForWnfMetaNotification @ 0x1800F0FA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x1800991AC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180099E20 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwCreateEvent @ 0x180162590 (ZwCreateEvent.c)
- *     NtQueryWnfStateNameInformation @ 0x180164AA0 (NtQueryWnfStateNameInformation.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18002DFFC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18002EC70 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwCreateEvent @ 0x180160950 (ZwCreateEvent.c)
+ *     NtQueryWnfStateNameInformation @ 0x180162E60 (NtQueryWnfStateNameInformation.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlWaitForWnfMetaNotification(__int64 a1, int a2, unsigned int a3, __int64 a4, int *a5)
+__int64 __fastcall RtlWaitForWnfMetaNotification(WNF_STATE_NAME a1, int a2, unsigned int a3, __int64 a4, int *a5)
 {
   __int64 v5; // rsi
   __int64 v6; // r13
@@ -21,22 +21,21 @@ __int64 __fastcall RtlWaitForWnfMetaNotification(__int64 a1, int a2, unsigned in
   NTSTATUS Event; // ebx
   int v12; // eax
   int v13; // ecx
-  int v14; // [rsp+20h] [rbp-51h]
-  int v15; // [rsp+50h] [rbp-21h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-19h] BYREF
+  int InfoBuffer; // [rsp+50h] [rbp-21h] BYREF
+  __int64 v15; // [rsp+58h] [rbp-19h] BYREF
   LARGE_INTEGER Timeout; // [rsp+60h] [rbp-11h] BYREF
-  HANDLE Handle[2]; // [rsp+68h] [rbp-9h] BYREF
-  __int64 v19; // [rsp+78h] [rbp+7h]
-  __int64 v20; // [rsp+80h] [rbp+Fh] BYREF
+  HANDLE EventHandle[2]; // [rsp+68h] [rbp-9h] BYREF
+  __int64 v18; // [rsp+78h] [rbp+7h]
+  WNF_STATE_NAME StateName; // [rsp+80h] [rbp+Fh] BYREF
 
   Timeout.QuadPart = 0LL;
   v5 = 0LL;
-  v15 = 0;
+  InfoBuffer = 0;
   v6 = a3;
   *a5 = 0;
-  v20 = a1;
-  v19 = 0LL;
-  *(_OWORD *)Handle = 0LL;
+  StateName = a1;
+  v18 = 0LL;
+  *(_OWORD *)EventHandle = 0LL;
   if ( (a2 & 0xFFFFFFF1) != 0 )
   {
     Event = -1073741811;
@@ -49,18 +48,18 @@ __int64 __fastcall RtlWaitForWnfMetaNotification(__int64 a1, int a2, unsigned in
       v9 = 0;
       if ( v8 )
       {
-        Event = NtQueryWnfStateNameInformation(&v20, 2LL, 0LL, &v15, 4);
+        Event = NtQueryWnfStateNameInformation(&StateName, WnfInfoIsQuiescent, 0LL, &InfoBuffer, 4u);
         if ( Event < 0 )
           goto LABEL_10;
-        if ( v15 )
+        if ( InfoBuffer )
           v9 = 8;
       }
       if ( (a2 & 6) != 0 )
       {
-        Event = NtQueryWnfStateNameInformation(&v20, 1LL, 0LL, &v15, 4);
+        Event = NtQueryWnfStateNameInformation(&StateName, WnfInfoSubscribersPresent, 0LL, &InfoBuffer, 4u);
         if ( Event < 0 )
           goto LABEL_10;
-        if ( v15 )
+        if ( InfoBuffer )
         {
           v13 = v9 | 2;
           if ( (a2 & 2) == 0 )
@@ -80,41 +79,40 @@ __int64 __fastcall RtlWaitForWnfMetaNotification(__int64 a1, int a2, unsigned in
       }
       if ( v5 )
         break;
-      LOBYTE(v14) = 0;
-      Event = ZwCreateEvent(&Handle[1], 2031619LL, 0LL, 0LL, v14);
+      Event = ZwCreateEvent(&EventHandle[1], 0x1F0003u, 0LL, NotificationEvent, 0);
       if ( Event < 0 )
         goto LABEL_12;
-      v16 = 0LL;
+      v15 = 0LL;
       if ( !a2 || (a2 & 0x11) != 0 )
       {
         Event = -1073741811;
         goto LABEL_10;
       }
       v12 = RtlpSubscribeWnfStateChangeNotificationInternal(
-              &v16,
-              v20,
+              (PVOID *)&v15,
+              *(_QWORD *)&StateName,
               -1,
               (int)RtlpWnfMetaCallbackProc,
-              (__int64)Handle,
+              (__int64)EventHandle,
               0LL,
               0,
               1,
               a2);
-      v5 = v16;
+      v5 = v15;
       Event = v12;
       if ( v12 < 0 )
         goto LABEL_10;
     }
     Timeout.QuadPart = -10000 * v6;
-    Event = NtWaitForSingleObject(Handle[1], 0, &Timeout);
+    Event = NtWaitForSingleObject(EventHandle[1], 0, &Timeout);
     if ( !Event )
-      *a5 = (int)Handle[0];
+      *a5 = (int)EventHandle[0];
 LABEL_10:
     if ( v5 )
       RtlUnsubscribeWnfNotificationWaitForCompletion(v5);
   }
 LABEL_12:
-  if ( Handle[1] )
-    NtClose(Handle[1]);
+  if ( EventHandle[1] )
+    NtClose(EventHandle[1]);
   return (unsigned int)Event;
 }

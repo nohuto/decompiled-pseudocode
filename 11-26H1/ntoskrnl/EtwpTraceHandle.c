@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpTraceHandle @ 0x140A81CA4
+ * XREFs of EtwpTraceHandle @ 0x140A87B14
  * Callers:
- *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObCloseHandleTableEntry2 @ 0x14092AF00 (ObCloseHandleTableEntry2.c)
  * Callees:
- *     EtwpTraceKernelEventWithFilter @ 0x1404CE4E8 (EtwpTraceKernelEventWithFilter.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1404C7F18 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpTraceHandle(unsigned __int16 a1, int a2, char *a3, __int64 a4)
+void __fastcall EtwpTraceHandle(unsigned __int16 a1, int a2, __int64 a3, __int64 a4)
 {
   int v5; // r13d
   unsigned int v6; // esi
@@ -21,7 +21,7 @@ void __fastcall EtwpTraceHandle(unsigned __int16 a1, int a2, char *a3, __int64 a
   unsigned int v12; // edi
   __int64 v13; // rax
   __int64 v14; // rdx
-  unsigned __int16 *v15; // r11
+  unsigned __int8 *v15; // r11
   unsigned int v16; // ebx
   unsigned int v17; // r8d
   __int64 v18; // rax
@@ -62,14 +62,14 @@ void __fastcall EtwpTraceHandle(unsigned __int16 a1, int a2, char *a3, __int64 a
       if ( v13 && (*(_DWORD *)(v13 + 16) & 0x40) != 0 )
       {
         v14 = 0LL;
-        v15 = (unsigned __int16 *)((char *)&EtwpObjectTypeFilter + 20 * v11);
-        v16 = *v15;
+        v15 = &stru_140F03830.WaitBlockFill5[20 * v11 + 48];
+        v16 = *(unsigned __int16 *)v15;
 LABEL_9:
         if ( (unsigned int)v14 < v16 )
         {
           v17 = 0;
           v18 = 0LL;
-          v30[0] = *(_DWORD *)&v15[2 * v14 + 2];
+          v30[0] = *(_DWORD *)&v15[4 * v14 + 4];
           v29[0] = v5;
           while ( v17 < 4 )
           {

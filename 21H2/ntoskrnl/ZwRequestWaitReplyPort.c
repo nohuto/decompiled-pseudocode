@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwRequestWaitReplyPort @ 0x1403FA7E0
+ * XREFs of ZwRequestWaitReplyPort @ 0x1403FA9C0
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x1402C1C08 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x1402400A8 (SepRmDispatchDataToLsa.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRequestWaitReplyPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRequestWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage, PPORT_MESSAGE ReplyMessage)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

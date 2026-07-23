@@ -1,31 +1,30 @@
 /*
- * XREFs of PiDrvDbSetupNodeHive @ 0x14083F0F8
+ * XREFs of PiDrvDbSetupNodeHive @ 0x140840358
  * Callers:
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D60 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDrvDbSetupNodes @ 0x14073A7C4 (PiDrvDbSetupNodes.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140681F20 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodes @ 0x14073B9B4 (PiDrvDbSetupNodes.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiDrvDbUnloadHive @ 0x140683760 (PiDrvDbUnloadHive.c)
- *     PiDrvDbLoadHive @ 0x1406837A8 (PiDrvDbLoadHive.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
- *     PiDrvDbOverlayNodeHive @ 0x14083DD8C (PiDrvDbOverlayNodeHive.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x14083ECD8 (PiDrvDbResolveNodeFilePaths.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     PiDrvDbUnloadHive @ 0x140684920 (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x140684968 (PiDrvDbLoadHive.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
+ *     PiDrvDbOverlayNodeHive @ 0x14083EFEC (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x14083FF38 (PiDrvDbResolveNodeFilePaths.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
 {
   char v3; // si
-  __int64 v5; // r8
-  NTSTATUS v6; // eax
+  NTSTATUS v5; // eax
   int appended; // ebx
   unsigned __int16 i; // cx
-  int v9; // eax
+  int v8; // eax
   UNICODE_STRING Destination; // [rsp+20h] [rbp-60h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
@@ -44,10 +43,10 @@ __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v6 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-    appended = v6;
+    v5 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+    appended = v5;
 LABEL_9:
-    if ( v6 < 0 )
+    if ( v5 < 0 )
       goto LABEL_28;
 LABEL_24:
     appended = PiDrvDbResolveNodeFilePaths(a1, (__int64)KeyHandle);
@@ -77,9 +76,9 @@ LABEL_5:
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v6 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-    appended = v6;
-    if ( v6 != -1073741772 )
+    v5 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+    appended = v5;
+    if ( v5 != -1073741772 )
       goto LABEL_9;
 LABEL_27:
     appended = 0;
@@ -115,11 +114,11 @@ LABEL_27:
       appended = RtlAppendUnicodeStringToString(&Destination, &DestinationString);
       if ( appended < 0 )
         goto LABEL_28;
-      v9 = PiDrvDbLoadHive(&Destination, (__int64)&UnicodeString, 0x2000LL, &KeyHandle);
-      appended = v9;
-      if ( v9 != -1073741772 )
+      v8 = PiDrvDbLoadHive(&Destination, &UnicodeString, 0x2000, &KeyHandle);
+      appended = v8;
+      if ( v8 != -1073741772 )
       {
-        if ( v9 < 0 )
+        if ( v8 < 0 )
           goto LABEL_28;
         v3 = 1;
         goto LABEL_24;
@@ -131,7 +130,7 @@ LABEL_28:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v3 )
-    PiDrvDbUnloadHive(&Destination, 0LL, v5);
+    PiDrvDbUnloadHive(&Destination, 0LL);
   RtlFreeAnsiString(&UnicodeString);
   RtlFreeAnsiString(&Destination);
   return (unsigned int)appended;

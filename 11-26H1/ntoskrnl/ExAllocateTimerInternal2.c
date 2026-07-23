@@ -1,16 +1,16 @@
 /*
- * XREFs of ExAllocateTimerInternal2 @ 0x140456D20
+ * XREFs of ExAllocateTimerInternal2 @ 0x14044E590
  * Callers:
- *     ExAllocateTimer @ 0x140456CE0 (ExAllocateTimer.c)
- *     ExAllocateTimerInternal @ 0x1406CEBB0 (ExAllocateTimerInternal.c)
+ *     ExAllocateTimer @ 0x14044E550 (ExAllocateTimer.c)
+ *     ExAllocateTimerInternal @ 0x1406D2BE0 (ExAllocateTimerInternal.c)
  * Callees:
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     KeInitializeIRTimer @ 0x140456C5C (KeInitializeIRTimer.c)
- *     ExpExTimerAttributesAreValid @ 0x140456E8C (ExpExTimerAttributesAreValid.c)
- *     KiInitializeTimer2 @ 0x140456EEC (KiInitializeTimer2.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     KeInitializeIRTimer @ 0x14044E4C8 (KeInitializeIRTimer.c)
+ *     ExpExTimerAttributesAreValid @ 0x14044E6FC (ExpExTimerAttributesAreValid.c)
+ *     KiInitializeTimer2 @ 0x14044E75C (KiInitializeTimer2.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExAllocateTimerInternal2(__int64 a1, __int64 a2, unsigned __int16 *a3, unsigned int a4)
@@ -41,10 +41,10 @@ __int64 __fastcall ExAllocateTimerInternal2(__int64 a1, __int64 a2, unsigned __i
       KiInitializeTimer2(Pool2, a1, a2, (unsigned int)v5);
     }
     *(_QWORD *)(v9 + 136) = KiWaitNever ^ __ROR8__(
-                                            v9 ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink),
+                                            v9 ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink),
                                             KiWaitNever);
     v10 = KiWaitNever ^ __ROR8__(
-                          v9 ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink),
+                          v9 ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink),
                           KiWaitNever);
     *(_BYTE *)(v9 + 152) = ExpTimerFreedCookie;
     *(_QWORD *)(v9 + 144) = v10;

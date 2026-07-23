@@ -65,7 +65,7 @@ char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
     return 1;
   v13 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v13 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu )
   {
     v14 = KeGetCurrentPrcb()->SchedulerAssist;
     v15 = 4;
@@ -75,10 +75,10 @@ char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
     v14[5] = (_DWORD)SchedulerAssist;
   }
   v6 = ExpFindFastOwnerEntryForThread2(CurrentThread, v3, (_DWORD)SchedulerAssist, 0) != 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v13 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v13 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;

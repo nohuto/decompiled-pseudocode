@@ -1,12 +1,12 @@
 /*
- * XREFs of IidCloneDeviceId @ 0x1408170D8
+ * XREFs of IidCloneDeviceId @ 0x140817818
  * Callers:
- *     HalpIommuCloneDeviceId @ 0x1404D9C34 (HalpIommuCloneDeviceId.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x1406FCCC0 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpIommuCloneDeviceId @ 0x1404D36B0 (HalpIommuCloneDeviceId.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1406FA900 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     IidCloneDeviceIdAcpi @ 0x14069C000 (IidCloneDeviceIdAcpi.c)
- *     IidCloneDeviceIdPci @ 0x14069C048 (IidCloneDeviceIdPci.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     IidCloneDeviceIdAcpi @ 0x14069D080 (IidCloneDeviceIdAcpi.c)
+ *     IidCloneDeviceIdPci @ 0x14069D0C8 (IidCloneDeviceIdPci.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall IidCloneDeviceId(_DWORD *Src, void *a2, size_t a3)

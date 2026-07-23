@@ -1,23 +1,23 @@
 /*
- * XREFs of ExAcquireFastResourceSharedStarveExclusive @ 0x1403DCCD0
+ * XREFs of ExAcquireFastResourceSharedStarveExclusive @ 0x1403BC9C0
  * Callers:
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1403DCC68 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
- *     DifExAcquireFastResourceSharedStarveExclusiveWrapper @ 0x14061B8D0 (DifExAcquireFastResourceSharedStarveExclusiveWrapper.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1403BC958 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     DifExAcquireFastResourceSharedStarveExclusiveWrapper @ 0x140619E90 (DifExAcquireFastResourceSharedStarveExclusiveWrapper.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140341510 (ExpAcquireFastResourceSharedSlow.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x1403209F0 (ExpAcquireFastResourceSharedSlow.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceSharedStarveExclusive(__int64 *BugCheckParameter2, ULONG_PTR a2, char a3)
 {
   __int16 v3; // r9
-  char v6; // r10
+  int v6; // r10d
   char v7; // di
   int v8; // r12d
   unsigned __int8 v9; // r8
@@ -25,7 +25,7 @@ char __fastcall ExAcquireFastResourceSharedStarveExclusive(__int64 *BugCheckPara
   struct _KTHREAD *CurrentThread; // rdx
   ULONG_PTR v12; // r9
   char v13; // al
-  char v14; // r15
+  unsigned int v14; // r15d
   ULONG_PTR v15; // r9
   int v16; // ecx
   unsigned __int64 v17; // r14

@@ -1,12 +1,12 @@
 /*
- * XREFs of ResCDirectoryValidate @ 0x1800FFF9C
+ * XREFs of ResCDirectoryValidate @ 0x1800FFED4
  * Callers:
- *     ResCKeDirectoryOpenMapping @ 0x18005A110 (ResCKeDirectoryOpenMapping.c)
+ *     ResCKeDirectoryOpenMapping @ 0x18005A100 (ResCKeDirectoryOpenMapping.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCDirectoryValidateHeader @ 0x18005D0A0 (ResCDirectoryValidateHeader.c)
- *     ??$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z @ 0x1800FFD14 (--$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z.c)
- *     ResCDirectoryValidateEntries @ 0x180105D60 (ResCDirectoryValidateEntries.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCDirectoryValidateHeader @ 0x18005D090 (ResCDirectoryValidateHeader.c)
+ *     ??$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z @ 0x1800FFC4C (--$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z.c)
+ *     ResCDirectoryValidateEntries @ 0x180105D68 (ResCDirectoryValidateEntries.c)
  */
 
 __int64 __fastcall ResCDirectoryValidate(__int64 a1, unsigned int a2, __int64 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall ResCDirectoryValidate(__int64 a1, unsigned int a2, __int64 a3
   v4 = 3;
   if ( !a1 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
   v6 = *(_DWORD **)(a1 + 24);

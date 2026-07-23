@@ -18,7 +18,7 @@ __int64 __fastcall MiStoreCheckCompleteWriteBatch(__int64 a1)
   KIRQL v4; // r15
   unsigned int v5; // edi
   __int64 v6; // rbp
-  union _SLIST_HEADER *v7; // rcx
+  _SLIST_HEADER *v7; // rcx
   PSLIST_ENTRY v8; // rsi
   PSLIST_ENTRY v9; // rcx
 
@@ -35,7 +35,7 @@ __int64 __fastcall MiStoreCheckCompleteWriteBatch(__int64 a1)
       {
         do
         {
-          v7 = (union _SLIST_HEADER *)(*(_QWORD *)(v6 + 1296) + 16LL * v5);
+          v7 = (_SLIST_HEADER *)(*(_QWORD *)(v6 + 1296) + 16LL * v5);
           if ( LOWORD(v7->Alignment) )
           {
             v8 = RtlpInterlockedFlushSList(v7);

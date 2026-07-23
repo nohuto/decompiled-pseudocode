@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerStallExecutionProcessor @ 0x14037BA20
+ * XREFs of HalpTimerStallExecutionProcessor @ 0x14037D7D0
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x1405822C8 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerMeasureFrequencies @ 0x1405847E8 (HalpTimerMeasureFrequencies.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, __int64
   int v3; // eax
   char v5; // r13
   __int64 Number; // rcx
-  struct _GROUP_AFFINITY v8; // xmm6
+  _GROUP_AFFINITY v8; // xmm6
   unsigned int v9; // ecx
   __int64 v10; // rdx
   __int64 v11; // rcx
@@ -52,9 +52,9 @@ void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, __int64
   _KAFFINITY_EX *v40; // r8
   char v41; // [rsp+30h] [rbp-98h]
   unsigned int v42[3]; // [rsp+34h] [rbp-94h] BYREF
-  struct _GROUP_AFFINITY v43; // [rsp+40h] [rbp-88h] BYREF
+  _GROUP_AFFINITY v43; // [rsp+40h] [rbp-88h] BYREF
   __int128 v44; // [rsp+50h] [rbp-78h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-68h] BYREF
   int v46; // [rsp+C0h] [rbp-8h]
 
   v3 = *(_DWORD *)(a1 + 224);
@@ -74,17 +74,17 @@ void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, __int64
   v8 = 0LL;
   v41 = 1;
   *(_DWORD *)((char *)&v44 + 10) = 0;
-  v9 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * Number);
+  v9 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + Number);
   v10 = 1LL << v9;
   HIWORD(v44) = 0;
   DWORD2(v44) = (unsigned __int16)(v9 >> 6);
   *(_QWORD *)&v44 = 1LL << v9;
   v43.Mask = 0LL;
-  if ( (unsigned __int16)(v9 >> 6) < *(_WORD *)&stru_140FC01F0.WaitRegister.Flags
-    && (v11 = 8LL * (unsigned __int16)(v9 >> 6), (v10 & *(_QWORD *)((char *)&stru_140FC01F0.116 + v11 + 4)) != 0) )
+  if ( (unsigned __int16)(v9 >> 6) < *(_WORD *)&stru_140FC11F0.WaitRegister.Flags
+    && (v11 = 8LL * (unsigned __int16)(v9 >> 6), (v10 & *(_QWORD *)((char *)&stru_140FC11F0.116 + v11 + 4)) != 0) )
   {
     v12 = 1;
-    v10 &= *(_QWORD *)((char *)&stru_140FC01F0.116 + v11 + 4);
+    v10 &= *(_QWORD *)((char *)&stru_140FC11F0.116 + v11 + 4);
     *(_QWORD *)&v44 = v10;
   }
   else
@@ -167,7 +167,7 @@ LABEL_21:
   KiProcessDeferredReadyList(CurrentPrcb, &v43, CurrentIrql);
   PreviousAffinity = v8;
   KeGetCurrentIrql();
-  if ( v12 && (WORD2(xmmword_140FBFC10) & 0x200) != 0 )
+  if ( v12 && (WORD2(xmmword_140FC0C10) & 0x200) != 0 )
     KiCpuPartitionCheckAffinitization(CurrentThread->Process, CurrentThread, CurrentThread->Affinity, 1LL);
 LABEL_24:
   if ( (*(_DWORD *)(a1 + 224) & 0x10000) != 0 )
@@ -184,7 +184,7 @@ LABEL_24:
   v24 = 0LL;
   v42[0] = 0;
   v25 = (KeFeatureBits2 & 0x800000) != 0
-     && !qword_140FBB040
+     && !qword_140FBB3E0
      && (*(_DWORD *)(a1 + 224) & 0x6000) == 0
      && *(_DWORD *)(a1 + 228) == 5;
   v27 = *(_QWORD *)(a1 + 192) * a2 + 9999999;
@@ -207,7 +207,7 @@ LABEL_24:
         {
           v24 = (unsigned int)(v24 + 1);
           v42[0] = v24;
-          if ( ((unsigned int)v24 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+          if ( ((unsigned int)v24 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
             _mm_pause();
           else
             guard_dispatch_icall_no_overrides((unsigned int)v24, v26, v24);

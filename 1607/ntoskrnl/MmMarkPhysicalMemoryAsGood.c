@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsGood @ 0x1401E275C
+ * XREFs of MmMarkPhysicalMemoryAsGood @ 0x1401E2588
  * Callers:
  *     <none>
  * Callees:
- *     MiMoveEccPagesToFreeList @ 0x1401E2030 (MiMoveEccPagesToFreeList.c)
+ *     MiMoveEccPagesToFreeList @ 0x1401E1E5C (MiMoveEccPagesToFreeList.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsGood(_QWORD *a1, _QWORD *a2)

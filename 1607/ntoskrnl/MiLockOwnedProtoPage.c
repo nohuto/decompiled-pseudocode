@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockOwnedProtoPage @ 0x140022970
+ * XREFs of MiLockOwnedProtoPage @ 0x1400224F0
  * Callers:
- *     MiRelockProtoPoolPage @ 0x140022910 (MiRelockProtoPoolPage.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
+ *     MiRelockProtoPoolPage @ 0x140022490 (MiRelockProtoPoolPage.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiWriteValidPteVolatile @ 0x1400FF0F4 (MiWriteValidPteVolatile.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiWriteValidPteVolatile @ 0x1400FCE74 (MiWriteValidPteVolatile.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiLockOwnedProtoPage(__int64 a1, unsigned __int8 a2)

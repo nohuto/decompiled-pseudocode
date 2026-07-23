@@ -1,19 +1,19 @@
 /*
- * XREFs of KeBoostPriorityThread @ 0x14052C560
+ * XREFs of KeBoostPriorityThread @ 0x14052EA80
  * Callers:
- *     ExpCreateWorkerThread @ 0x140A0346C (ExpCreateWorkerThread.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     ExpCreateWorkerThread @ 0x140A78ABC (ExpCreateWorkerThread.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
  *     EtwTracePriority @ 0x140202938 (EtwTracePriority.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiQueryQuantumReset @ 0x140239A30 (KiQueryQuantumReset.c)
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x14051F5B4 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiQueryQuantumReset @ 0x14023B390 (KiQueryQuantumReset.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline @ 0x140521C58 (Feature_StackingDecayBoosts__private_IsEnabledNoReportingNoInline.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void *__fastcall KeBoostPriorityThread(struct _KTHREAD *a1, int a2, __int64 a3, __int64 a4)
@@ -41,8 +41,8 @@ void *__fastcall KeBoostPriorityThread(struct _KTHREAD *a1, int a2, __int64 a3, 
   int v26; // [rsp+70h] [rbp+8h] BYREF
   struct _SINGLE_LIST_ENTRY v27; // [rsp+80h] [rbp+18h] BYREF
 
-  result = &unk_140FC8F40;
-  if ( a1->Process != (_KPROCESS *)&unk_140FC8F40 )
+  result = &unk_140FC9F40;
+  if ( a1->Process != (_KPROCESS *)&unk_140FC9F40 )
   {
     v27.Next = 0LL;
     v7 = 0;

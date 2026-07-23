@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpBlockHiveWrites @ 0x1408B1DD0
+ * XREFs of CmpBlockHiveWrites @ 0x1408B83AC
  * Callers:
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140AF47D8 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140AF6E78 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpGetNextHive @ 0x1408B30D0 (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1408C6580 (CmpDereferenceHive.c)
- *     CmpReferenceHive @ 0x1408C8740 (CmpReferenceHive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
+ *     CmpGetNextHive @ 0x1408B9680 (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x1408CCB50 (CmpDereferenceHive.c)
+ *     CmpReferenceHive @ 0x1408CECF0 (CmpReferenceHive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpBlockHiveWrites(void *a1, int a2, _QWORD *a3)

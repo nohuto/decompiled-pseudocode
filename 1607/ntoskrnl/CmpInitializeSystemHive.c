@@ -3,17 +3,17 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmpLinkHiveToMaster @ 0x1404A10B4 (CmpLinkHiveToMaster.c)
- *     CmpSetupLoggingState @ 0x14055D100 (CmpSetupLoggingState.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14055E73C (CmpHiveRootSecurityDescriptor.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmpLinkHiveToMaster @ 0x1405194C0 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x14055D640 (CmpSetupLoggingState.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x14055EC7C (CmpHiveRootSecurityDescriptor.c)
  */
 
 char __fastcall CmpInitializeSystemHive(ULONG_PTR BugCheckParameter3)
@@ -28,7 +28,7 @@ char __fastcall CmpInitializeSystemHive(ULONG_PTR BugCheckParameter3)
   int v9; // ebx
   __int64 v11; // [rsp+68h] [rbp-A0h] BYREF
   ULONG_PTR v12; // [rsp+70h] [rbp-98h] BYREF
-  STRING DestinationString; // [rsp+78h] [rbp-90h] BYREF
+  _STRING DestinationString; // [rsp+78h] [rbp-90h] BYREF
   ULONG_PTR BugCheckParameter3a[44]; // [rsp+88h] [rbp-80h] BYREF
 
   LOBYTE(v11) = 0;

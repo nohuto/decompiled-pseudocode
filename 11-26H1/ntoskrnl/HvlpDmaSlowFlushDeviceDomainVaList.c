@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpDmaSlowFlushDeviceDomainVaList @ 0x1405BE844
+ * XREFs of HvlpDmaSlowFlushDeviceDomainVaList @ 0x1405C10B4
  * Callers:
- *     HvlDmaFlushDeviceDomainVaList @ 0x1405BC4B0 (HvlDmaFlushDeviceDomainVaList.c)
+ *     HvlDmaFlushDeviceDomainVaList @ 0x1405BED20 (HvlDmaFlushDeviceDomainVaList.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpCopyFlushVaList @ 0x14032BEF0 (HvlpCopyFlushVaList.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
- *     HvlDmaFlushDeviceDomain @ 0x1405BC420 (HvlDmaFlushDeviceDomain.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     HvlpCopyFlushVaList @ 0x14032DF20 (HvlpCopyFlushVaList.c)
+ *     HvlDmaFlushDeviceDomain @ 0x1405BEC90 (HvlDmaFlushDeviceDomain.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HvlpDmaSlowFlushDeviceDomainVaList(int *a1, unsigned int a2, void *a3, char a4)

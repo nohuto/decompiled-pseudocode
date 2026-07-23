@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwDeleteFile_Entry @ 0x140C32820
+ * XREFs of VfZwDeleteFile_Entry @ 0x140C38830
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckObjectAttributes @ 0x140C33120 (ViZwCheckObjectAttributes.c)
- *     ViZwShouldCheck @ 0x140C47B84 (ViZwShouldCheck.c)
+ *     ViZwCheckObjectAttributes @ 0x140C39130 (ViZwCheckObjectAttributes.c)
+ *     ViZwShouldCheck @ 0x140C4DB94 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwDeleteFile_Entry(__int64 a1, __int64 a2)

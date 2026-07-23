@@ -7,25 +7,23 @@
  *     ZwReleaseSemaphore @ 0x180163360 (ZwReleaseSemaphore.c)
  */
 
-__int64 __fastcall RtlConvertExclusiveToShared(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl RtlConvertExclusiveToShared(PRTL_RESOURCE Resource)
 {
-  __int64 result; // rax
-  __int64 v5; // rdx
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  LONG v1; // edx
+  int v2; // eax
+  LONG PreviousCount; // [rsp+30h] [rbp+8h] BYREF
 
-  *(_QWORD *)(a1 + 72) = 0LL;
-  v6 = 0;
-  _InterlockedExchange((volatile __int32 *)(a1 + 68), 1);
-  result = *(unsigned int *)(a1 + 48);
-  if ( (_DWORD)result )
+  Resource->ExclusiveOwnerThread = 0LL;
+  PreviousCount = 0;
+  _InterlockedExchange(&Resource->NumberOfActive, 1);
+  if ( Resource->NumberOfWaitingShared )
   {
-    v5 = (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 48), 0);
-    if ( (_DWORD)v5 )
+    v1 = _InterlockedExchange((volatile __int32 *)&Resource->NumberOfWaitingShared, 0);
+    if ( v1 )
     {
-      result = ZwReleaseSemaphore(*(_QWORD *)(a1 + 40), v5, &v6, a4);
-      if ( (int)result < 0 )
-        RtlRaiseStatus(result);
+      v2 = ZwReleaseSemaphore(Resource->SharedSemaphore, v1, &PreviousCount);
+      if ( v2 < 0 )
+        RtlRaiseStatus(v2);
     }
   }
-  return result;
 }

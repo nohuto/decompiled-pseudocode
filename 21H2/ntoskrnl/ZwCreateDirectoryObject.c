@@ -1,17 +1,16 @@
 /*
- * XREFs of ZwCreateDirectoryObject @ 0x1403FB880
+ * XREFs of ZwCreateDirectoryObject @ 0x1403FBA60
  * Callers:
- *     SeGetTokenDeviceMap @ 0x140692CBC (SeGetTokenDeviceMap.c)
- *     SepInitializationPhase1 @ 0x14079D378 (SepInitializationPhase1.c)
- *     ObpInitializeRootNamespace @ 0x1407A0990 (ObpInitializeRootNamespace.c)
- *     ObpGetSilosRootDirectory @ 0x14098098C (ObpGetSilosRootDirectory.c)
- *     CmpInitializeDriverStores @ 0x140A5831C (CmpInitializeDriverStores.c)
- *     ExInitializeNls @ 0x140A73EC4 (ExInitializeNls.c)
+ *     SeGetTokenDeviceMap @ 0x1405F2340 (SeGetTokenDeviceMap.c)
+ *     SepInitializationPhase1 @ 0x14079D578 (SepInitializationPhase1.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0B90 (ObpInitializeRootNamespace.c)
+ *     ObpGetSilosRootDirectory @ 0x140980B6C (ObpGetSilosRootDirectory.c)
+ *     CmpInitializeDriverStores @ 0x140A5931C (CmpInitializeDriverStores.c)
+ *     ExInitializeNls @ 0x140A74EC4 (ExInitializeNls.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateDirectoryObject(
         PHANDLE DirectoryHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwCreateDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(DirectoryHandle);
 }

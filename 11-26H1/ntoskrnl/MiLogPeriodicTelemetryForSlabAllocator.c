@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x1404596F0
+ * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x140450F70
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, __int64 a2)
@@ -73,10 +73,10 @@ __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, 
   __int64 *v65; // [rsp+200h] [rbp+100h]
   __int64 v66; // [rsp+208h] [rbp+108h]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000000400LL) != 0 )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000000400LL) != 0 )
   {
-    v3 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+    v3 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
     if ( (v3 & 0x400000000400LL) == v3 )
     {
       v13 = *(_QWORD *)(a2 + 120);
@@ -141,7 +141,7 @@ __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, 
       v64 = 4LL;
       v27 = 0x1000000LL;
       v66 = 8LL;
-      tlgWriteAgg((int)stru_140E36558.FirstArgument, (int)&byte_140059D29, v3, 21, &v28);
+      tlgWriteAgg((int)stru_140E366D8.FirstArgument, (int)&word_14005A7BA, v3, 21, &v28);
     }
   }
   return 0LL;

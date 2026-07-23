@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStackTheftFreezeProcessors @ 0x14062D31C
+ * XREFs of MiStackTheftFreezeProcessors @ 0x14062D86C
  * Callers:
- *     MiJumpStackTarget @ 0x14062CF80 (MiJumpStackTarget.c)
+ *     MiJumpStackTarget @ 0x14062D4D0 (MiJumpStackTarget.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiStackTheftFreezeProcessors(ULONG_PTR Context)
@@ -27,7 +27,7 @@ __int64 __fastcall MiStackTheftFreezeProcessors(ULONG_PTR Context)
   MiLockNestedPageAtDpcInline(v2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -40,10 +40,10 @@ __int64 __fastcall MiStackTheftFreezeProcessors(ULONG_PTR Context)
   *(_DWORD *)(Context + 68) = ActiveProcessorCount;
   *(_DWORD *)(Context + 64) = ActiveProcessorCount;
   KeIpiGenericCall(MiStackTheftIsr, Context);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = CurrentPrcb->SchedulerAssist;

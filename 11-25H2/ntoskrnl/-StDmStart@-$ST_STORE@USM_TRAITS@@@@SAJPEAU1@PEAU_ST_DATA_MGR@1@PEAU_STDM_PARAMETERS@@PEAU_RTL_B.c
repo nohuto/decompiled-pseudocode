@@ -20,7 +20,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   bool v12; // zf
   __int64 v13; // rcx
   __int64 Pool2; // rdx
-  RTL_BITMAP *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
   __int64 v16; // rdx
   __int64 result; // rax
   __int64 v18; // rdx
@@ -60,14 +60,14 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   *(_QWORD *)(a2 + 928) = v13;
   if ( v12 )
   {
-    v15 = (RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
   }
   else
   {
     Pool2 = ExAllocatePool2(0x40uLL);
     if ( !Pool2 )
       return 3221225626LL;
-    v15 = (RTL_BITMAP *)(a2 + 840);
+    v15 = (_RTL_BITMAP *)(a2 + 840);
     *(_DWORD *)(a2 + 840) = *(_DWORD *)(a1 + 12);
     *(_QWORD *)(a2 + 848) = Pool2;
   }
@@ -95,7 +95,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
   v23 = 0;
   if ( (v20 & 8) != 0 )
   {
-    result = SmQuerySystemInformation(*(_QWORD *)(a2 + 800) | 1LL, v18, (__int64)v28);
+    result = SmQuerySystemInformation(*(_QWORD *)(a2 + 800) | 1LL, v18, v28);
     if ( (int)result < 0 )
       return result;
     if ( *(_QWORD *)&v28[0] >> 21 >= 0x10uLL )

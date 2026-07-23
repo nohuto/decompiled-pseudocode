@@ -29,7 +29,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
   unsigned int DeviceAperture; // ebx
   int v11; // r12d
   unsigned int v12; // r15d
-  RTL_BITMAP *v13; // r14
+  _RTL_BITMAP *v13; // r14
   ULONG ClearBitsAndSet; // esi
   unsigned int v15; // ecx
   ULONG v17; // edx

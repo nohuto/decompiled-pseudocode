@@ -6,23 +6,23 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtAccessCheckByTypeResultListAndAuditAlarm(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
-        int a12,
-        int a13,
-        int a14,
-        int a15,
-        int a16)
+NTSTATUS __cdecl NtAccessCheckByTypeResultListAndAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        ACCESS_MASK DesiredAccess,
+        AUDIT_EVENT_TYPE AuditType,
+        ULONG Flags,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus,
+        PBOOLEAN GenerateOnClose)
 {
   return Wow64SystemServiceCall();
 }

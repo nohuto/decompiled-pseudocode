@@ -13,20 +13,24 @@
 NTSTATUS __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, HANDLE *a2)
 {
   NTSTATUS result; // eax
-  int v4; // [esp-8h] [ebp-58h]
-  int v5; // [esp-4h] [ebp-54h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+Ch] [ebp-44h] BYREF
-  _BYTE v7[8]; // [esp+14h] [ebp-3Ch] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+1Ch] [ebp-34h] BYREF
+  size_t v4; // [esp-Ch] [ebp-5Ch]
+  int v5; // [esp-8h] [ebp-58h]
+  const wchar_t *v6; // [esp-4h] [ebp-54h]
+  int v7; // [esp-4h] [ebp-54h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+Ch] [ebp-44h] BYREF
+  _BYTE v9[8]; // [esp+14h] [ebp-3Ch] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+1Ch] [ebp-34h] BYREF
   HANDLE FileHandle; // [esp+34h] [ebp-1Ch] BYREF
   wchar_t pszDest[10]; // [esp+38h] [ebp-18h] BYREF
 
-  v5 = *a1;
+  v6 = (const wchar_t *)*a1;
+  HIDWORD(v4) = L"\\??\\%C:";
+  LODWORD(v4) = 20;
   FileHandle = 0;
-  StringCbPrintfW(pszDest, 0x14u, L"\\??\\%C:");
-  RtlUnicodeStringInitWorker((int)v7, pszDest, v4, v5);
+  StringCbPrintfW(pszDest, v4, v6);
+  RtlUnicodeStringInitWorker((int)v9, pszDest, v5, v7);
   ObjectAttributes.Length = 24;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v7;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v9;
   ObjectAttributes.RootDirectory = 0;
   ObjectAttributes.Attributes = 64;
   ObjectAttributes.SecurityDescriptor = 0;

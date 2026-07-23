@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRegisterBoundCallback @ 0x1401D2A80
+ * XREFs of KeRegisterBoundCallback @ 0x1401D28AC
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x140136688 (ExCompareExchangeCallBack.c)
- *     PspQueueApcSpecialApc @ 0x1403E5244 (PspQueueApcSpecialApc.c)
- *     ExAllocateCallBack @ 0x14054CCD0 (ExAllocateCallBack.c)
- *     MmVerifyCallbackFunction @ 0x1406597F4 (MmVerifyCallbackFunction.c)
+ *     ExCompareExchangeCallBack @ 0x140136BF8 (ExCompareExchangeCallBack.c)
+ *     PspQueueApcSpecialApc @ 0x1403E6870 (PspQueueApcSpecialApc.c)
+ *     ExAllocateCallBack @ 0x14054D210 (ExAllocateCallBack.c)
+ *     MmVerifyCallbackFunction @ 0x1406598D8 (MmVerifyCallbackFunction.c)
  */
 
 __int64 __fastcall KeRegisterBoundCallback(__int64 a1)

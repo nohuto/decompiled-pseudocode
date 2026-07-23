@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcCreateSecurityContext @ 0x1403FB380
+ * XREFs of ZwAlpcCreateSecurityContext @ 0x1403FB560
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreateSecurityContext(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpFindSubKeyByNumberEx @ 0x1405F35A0
+ * XREFs of CmpFindSubKeyByNumberEx @ 0x1406E2D00
  * Callers:
- *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140870448 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmEnumerateKey @ 0x1406E3AB0 (CmEnumerateKey.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x1408705A8 (CmpFindSubKeyByNumberFromMergedView.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
- *     CmpDoFindSubKeyByNumber @ 0x1405F2D00 (CmpDoFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
- *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmRmIsKCBVisible @ 0x1406FC5D0 (CmRmIsKCBVisible.c)
- *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x140766570 (CmpFindSubkeyInHashByChildCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpReferenceKeyControlBlock @ 0x1405E09D4 (CmpReferenceKeyControlBlock.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
+ *     CmpIsKeyDeleted @ 0x140667410 (CmpIsKeyDeleted.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1406DE0FC (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1406E2460 (CmpDoFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumber @ 0x1406E2C40 (CmpFindSubKeyByNumber.c)
+ *     CmRmIsKCBVisible @ 0x1407139B0 (CmRmIsKCBVisible.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140766730 (CmpFindSubkeyInHashByChildCell.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberEx(
@@ -44,7 +44,7 @@ __int64 __fastcall CmpFindSubKeyByNumberEx(
   _DWORD *v25; // rdx
   int v26; // r9d
   int SubkeyInHashByChildCell; // eax
-  __int64 NextElement; // rax
+  char *NextElement; // rax
   int v29; // eax
   __int16 *v30; // rax
   unsigned int i; // [rsp+30h] [rbp-48h]
@@ -52,8 +52,8 @@ __int64 __fastcall CmpFindSubKeyByNumberEx(
   unsigned int v33; // [rsp+40h] [rbp-38h]
   unsigned int v34; // [rsp+44h] [rbp-34h]
   _DWORD v35[2]; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v36; // [rsp+50h] [rbp-28h]
-  __int64 v37; // [rsp+58h] [rbp-20h] BYREF
+  char *v36; // [rsp+50h] [rbp-28h]
+  _QWORD *v37; // [rsp+58h] [rbp-20h] BYREF
   _DWORD v38[2]; // [rsp+60h] [rbp-18h] BYREF
   _DWORD v39[2]; // [rsp+68h] [rbp-10h] BYREF
   int v40; // [rsp+B0h] [rbp+38h]
@@ -99,7 +99,7 @@ __int64 __fastcall CmpFindSubKeyByNumberEx(
     v14 = 0LL;
     for ( i = 0; v19 < v33; i = v19 )
     {
-      v20 = v37;
+      v20 = (int)v37;
       v21 = v19 < (unsigned int)v37;
       v22 = *(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8);
       BugCheckParameter2 = 0LL;
@@ -128,11 +128,8 @@ __int64 __fastcall CmpFindSubKeyByNumberEx(
       if ( (int)result < 0 )
         return result;
       v10 = BugCheckParameter2;
-      if ( !BugCheckParameter2
-        || (unsigned __int8)CmRmIsKCBVisible(BugCheckParameter2, a7) && !(unsigned __int8)CmpIsKeyDeleted(v10, a7) )
-      {
+      if ( !BugCheckParameter2 || (unsigned __int8)CmRmIsKCBVisible(BugCheckParameter2, a7) && !CmpIsKeyDeleted(v10, a7) )
         ++v40;
-      }
       if ( v40 == a3 + 1 )
       {
         v19 = i;
@@ -150,25 +147,25 @@ __int64 __fastcall CmpFindSubKeyByNumberEx(
       *a4 = -1;
       while ( 1 )
       {
-        NextElement = CmListGetNextElement(a5 + 208, &v37, 32LL);
+        NextElement = CmListGetNextElement((_QWORD **)(a5 + 208), &v37, 32);
         v36 = NextElement;
         if ( !NextElement )
           break;
-        if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a7) )
+        if ( CmEqualTrans(*((_QWORD *)NextElement + 7), a7) )
         {
-          v29 = *(_DWORD *)(v36 + 68);
+          v29 = *((_DWORD *)v36 + 17);
           if ( v29 == 1 )
           {
-            v10 = *(_QWORD *)(v36 + 88);
+            v10 = *((_QWORD *)v36 + 11);
           }
           else
           {
             if ( v29 != 10 )
               goto LABEL_46;
-            v10 = *(_QWORD *)(v36 + 96);
+            v10 = *((_QWORD *)v36 + 12);
           }
           BugCheckParameter2 = v10;
-          if ( (unsigned __int8)CmRmIsKCBVisible(v10, a7) && !(unsigned __int8)CmpIsKeyDeleted(v10, a7) )
+          if ( (unsigned __int8)CmRmIsKCBVisible(v10, a7) && !CmpIsKeyDeleted(v10, a7) )
           {
             if ( v40 == a3 )
             {

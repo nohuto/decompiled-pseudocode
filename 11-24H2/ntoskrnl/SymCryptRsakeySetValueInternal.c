@@ -1,26 +1,25 @@
 /*
- * XREFs of SymCryptRsakeySetValueInternal @ 0x140521B70
+ * XREFs of SymCryptRsakeySetValueInternal @ 0x14051F4C4
  * Callers:
- *     SymCryptRsakeySetValue @ 0x140521B08 (SymCryptRsakeySetValue.c)
+ *     SymCryptRsakeySetValue @ 0x14051F45C (SymCryptRsakeySetValue.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x140521068 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptRsakeyCalculatePrivateFields @ 0x14052158C (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptRsakeyCreateAllObjects @ 0x1405219BC (SymCryptRsakeyCreateAllObjects.c)
- *     SymCryptDigitsFromBits @ 0x140523724 (SymCryptDigitsFromBits.c)
- *     SymCryptDivisorCreate @ 0x14052373C (SymCryptDivisorCreate.c)
- *     SymCryptIntBitsizeOfValue @ 0x1405237CC (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x1405238E0 (SymCryptIntFromModulus.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptIntSetValue @ 0x140523A08 (SymCryptIntSetValue.c)
- *     SymCryptIntToModulus @ 0x140523AFC (SymCryptIntToModulus.c)
- *     SymCryptSizeofDivisorFromDigits @ 0x140523FE4 (SymCryptSizeofDivisorFromDigits.c)
- *     SymCryptSizeofIntFromDigits @ 0x140523FFC (SymCryptSizeofIntFromDigits.c)
- *     SymCryptRsaSelftest @ 0x140529908 (SymCryptRsaSelftest.c)
- *     SymCryptRsaSignVerifyPct @ 0x140529B14 (SymCryptRsaSignVerifyPct.c)
- *     SymCryptCallbackAlloc @ 0x1406A5810 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x1406A5848 (SymCryptCallbackFree.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14051E938 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x14051EE5C (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptRsakeyCreateAllObjects @ 0x14051F310 (SymCryptRsakeyCreateAllObjects.c)
+ *     SymCryptDigitsFromBits @ 0x14052103C (SymCryptDigitsFromBits.c)
+ *     SymCryptDivisorCreate @ 0x140521054 (SymCryptDivisorCreate.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1405210E4 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1405211F8 (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntSetValue @ 0x140521320 (SymCryptIntSetValue.c)
+ *     SymCryptIntToModulus @ 0x140521414 (SymCryptIntToModulus.c)
+ *     SymCryptSizeofDivisorFromDigits @ 0x1405218FC (SymCryptSizeofDivisorFromDigits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x140521914 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptRsaSelftest @ 0x140527228 (SymCryptRsaSelftest.c)
+ *     SymCryptCallbackAlloc @ 0x1406A6810 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x1406A6848 (SymCryptCallbackFree.c)
  */
 
 __int64 __fastcall SymCryptRsakeySetValueInternal(
@@ -95,21 +94,21 @@ __int64 __fastcall SymCryptRsakeySetValueInternal(
   __int64 v68; // r13
   __int64 v69; // rdi
   __int64 v70; // rax
-  unsigned int v71; // [rsp+30h] [rbp-78h]
-  unsigned int v72; // [rsp+30h] [rbp-78h]
-  int i; // [rsp+30h] [rbp-78h]
-  unsigned int v74; // [rsp+34h] [rbp-74h]
-  unsigned int v75; // [rsp+38h] [rbp-70h]
-  unsigned int v76; // [rsp+3Ch] [rbp-6Ch]
-  unsigned int v77; // [rsp+40h] [rbp-68h]
-  unsigned int v78; // [rsp+44h] [rbp-64h]
-  int v79; // [rsp+48h] [rbp-60h]
-  __int64 v80; // [rsp+48h] [rbp-60h]
-  unsigned __int64 v81; // [rsp+50h] [rbp-58h]
-  unsigned __int64 v82; // [rsp+50h] [rbp-58h]
-  unsigned __int64 v83; // [rsp+58h] [rbp-50h]
-  unsigned __int64 v84; // [rsp+60h] [rbp-48h]
-  unsigned __int64 v85; // [rsp+68h] [rbp-40h]
+  unsigned int v71; // [rsp+40h] [rbp-78h]
+  unsigned int v72; // [rsp+40h] [rbp-78h]
+  int i; // [rsp+40h] [rbp-78h]
+  unsigned int v74; // [rsp+44h] [rbp-74h]
+  unsigned int v75; // [rsp+48h] [rbp-70h]
+  unsigned int v76; // [rsp+4Ch] [rbp-6Ch]
+  unsigned int v77; // [rsp+50h] [rbp-68h]
+  unsigned int v78; // [rsp+54h] [rbp-64h]
+  int v79; // [rsp+58h] [rbp-60h]
+  __int64 v80; // [rsp+58h] [rbp-60h]
+  unsigned __int64 v81; // [rsp+60h] [rbp-58h]
+  unsigned __int64 v82; // [rsp+60h] [rbp-58h]
+  unsigned __int64 v83; // [rsp+68h] [rbp-50h]
+  unsigned __int64 v84; // [rsp+70h] [rbp-48h]
+  unsigned __int64 v85; // [rsp+78h] [rbp-40h]
 
   v12 = a11;
   v13 = a2;
@@ -231,7 +230,7 @@ LABEL_18:
     v15 = SymCryptIntSetValue(v14, v13, a10, v47);
     if ( v15 )
     {
-LABEL_104:
+LABEL_99:
       SymCryptWipe(v46, v18);
       SymCryptCallbackFree(v46);
       return v15;
@@ -243,13 +242,13 @@ LABEL_104:
     {
 LABEL_71:
       v15 = 32782;
-      goto LABEL_104;
+      goto LABEL_99;
     }
     if ( v49 < 0x100 )
     {
 LABEL_73:
       v15 = 32769;
-      goto LABEL_104;
+      goto LABEL_99;
     }
     v50 = *(_QWORD *)(a12 + 120);
     v51 = SymCryptIntFromModulus(v50);
@@ -266,7 +265,7 @@ LABEL_73:
     {
       v15 = SymCryptRsakeyCalculatePrimesFromPrivateExponent(a12, a5, a6, a10, v46, v18);
       if ( v15 )
-        goto LABEL_104;
+        goto LABEL_99;
       v80 = SymCryptIntCreate(v46, v71, v17);
       v56 = v18 - v71;
       v54 = v71 + v46;
@@ -290,7 +289,7 @@ LABEL_73:
           v58 = v57;
           v15 = SymCryptIntSetValue(a7[v57], a8[v57], a10, v55);
           if ( v15 )
-            goto LABEL_104;
+            goto LABEL_99;
           v59 = SymCryptIntBitsizeOfValue(v80);
           *(_DWORD *)(a12 + 4 * v58 + 32) = v59;
           v60 = SymCryptDigitsFromBits(v59);
@@ -315,7 +314,7 @@ LABEL_73:
         v63 = SymCryptIntFromModulus(*(_QWORD *)(a12 + 8 * v61 + 128));
         v15 = SymCryptIntSetValue(a7[v62], a8[v62], a10, v63);
         if ( v15 )
-          goto LABEL_104;
+          goto LABEL_99;
         v64 = SymCryptIntFromModulus(*(_QWORD *)(a12 + 8 * v62 + 128));
         if ( (SymCryptIntGetValueLsbits32(v64) & 1) == 0 )
           goto LABEL_71;
@@ -329,33 +328,23 @@ LABEL_73:
     v68 = v75 + v54;
     v69 = v67;
     v70 = SymCryptDivisorCreate(v68, v76, v17);
-    v15 = SymCryptRsakeyCalculatePrivateFields(a12, v70, v80, v69, v76 + v68, v56 - v75 - v76);
+    v15 = SymCryptRsakeyCalculatePrivateFields(a12, v70, v80, v69, v76 + v68, v56 - v75 - v76, a11 & 0x200);
     if ( v15 )
-      goto LABEL_104;
+      goto LABEL_99;
     v12 = a11;
     *(_BYTE *)(a12 + 8) = 1;
 LABEL_95:
     *(_DWORD *)a12 = v12;
-    if ( (v12 & 0x100) != 0 )
-      goto LABEL_104;
-    if ( (g_SymCryptFipsSelftestsPerformed & 8) == 0 )
+    if ( (v12 & 0x100) == 0 )
     {
-      SymCryptRsaSelftest();
-      _InterlockedOr(&g_SymCryptFipsSelftestsPerformed, 8u);
+      if ( (g_SymCryptFipsSelftestsPerformed & 8) == 0 )
+      {
+        SymCryptRsaSelftest();
+        _InterlockedOr(&g_SymCryptFipsSelftestsPerformed, 8u);
+      }
+      *(_DWORD *)a12 |= 1u;
     }
-    if ( !*(_BYTE *)(a12 + 8) )
-      goto LABEL_104;
-    *(_DWORD *)a12 |= 0x1000u;
-    if ( (*(_DWORD *)a12 & 0x101) == 0 )
-    {
-      v15 = SymCryptRsaSignVerifyPct(a12);
-      if ( v15 )
-        goto LABEL_104;
-      _InterlockedOr((volatile signed __int32 *)a12, 1u);
-    }
-    if ( (v12 & 0x1000) == 0 )
-      *(_DWORD *)a12 ^= 0x1000u;
-    goto LABEL_104;
+    goto LABEL_99;
   }
   if ( !a9 )
     goto LABEL_18;

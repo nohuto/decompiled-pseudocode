@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlGetCoverageData @ 0x14053F5B8
+ * XREFs of HvlGetCoverageData @ 0x14053FC78
  * Callers:
- *     ExpCovQueryHypervisorInformation @ 0x140A06548 (ExpCovQueryHypervisorInformation.c)
+ *     ExpCovQueryHypervisorInformation @ 0x140A067D8 (ExpCovQueryHypervisorInformation.c)
  * Callees:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     IopAllocateMdl @ 0x1402FC37C (IopAllocateMdl.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 bool __fastcall HvlGetCoverageData(char a1, unsigned int a2, __int64 a3, __int64 a4)

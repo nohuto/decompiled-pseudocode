@@ -1,24 +1,24 @@
 /*
- * XREFs of MiSegmentDelete @ 0x140A816BC
+ * XREFs of MiSegmentDelete @ 0x140A8752C
  * Callers:
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiDeleteCachedSubsections @ 0x1404A6F5C (MiDeleteCachedSubsections.c)
- *     MiDestroySection @ 0x1404E6B64 (MiDestroySection.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiDeleteCachedSubsections @ 0x1404A05EC (MiDeleteCachedSubsections.c)
+ *     MiDestroySection @ 0x1404E0004 (MiDestroySection.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14021D5D4 (IoDiskIoAttributionDereference.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiDeleteSegmentPages @ 0x140478E6C (MiDeleteSegmentPages.c)
- *     MiReleaseControlAreaCharges @ 0x1404808D0 (MiReleaseControlAreaCharges.c)
- *     MiPrepareSegmentForDeletion @ 0x1404874E0 (MiPrepareSegmentForDeletion.c)
- *     MiDereferenceControlAreaProbe @ 0x1404881AC (MiDereferenceControlAreaProbe.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x1404DF5BC (DbgUnLoadImageSymbolsUnicode.c)
- *     MiLogSectionCreate @ 0x14086893C (MiLogSectionCreate.c)
- *     MiDeletePageFileSectionNodes @ 0x140A8186C (MiDeletePageFileSectionNodes.c)
+ *     IoDiskIoAttributionDereference @ 0x14021EF64 (IoDiskIoAttributionDereference.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiDeleteSegmentPages @ 0x1404727CC (MiDeleteSegmentPages.c)
+ *     MiReleaseControlAreaCharges @ 0x14047A210 (MiReleaseControlAreaCharges.c)
+ *     MiPrepareSegmentForDeletion @ 0x140480F20 (MiPrepareSegmentForDeletion.c)
+ *     MiDereferenceControlAreaProbe @ 0x140481CEC (MiDereferenceControlAreaProbe.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x1404D8C9C (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiLogSectionCreate @ 0x14086ED1C (MiLogSectionCreate.c)
+ *     MiDeletePageFileSectionNodes @ 0x140A876DC (MiDeletePageFileSectionNodes.c)
  */
 
 void __fastcall MiSegmentDelete(__int64 a1)

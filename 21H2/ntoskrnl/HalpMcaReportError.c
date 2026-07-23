@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpMcaReportError @ 0x1404BAA90
+ * XREFs of HalpMcaReportError @ 0x1404BACD0
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x1404BADC4 (HalpMceHandlerCore.c)
- *     HalpMceHandlerWithRendezvous @ 0x1404BAF18 (HalpMceHandlerWithRendezvous.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0C60 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x1404BB004 (HalpMceHandlerCore.c)
+ *     HalpMceHandlerWithRendezvous @ 0x1404BB158 (HalpMceHandlerWithRendezvous.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A7D20 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpTranslateToLegacyMcaException @ 0x1404BB098 (HalpTranslateToLegacyMcaException.c)
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpTranslateToLegacyMcaException @ 0x1404BB2D8 (HalpTranslateToLegacyMcaException.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
  */
 
 __int64 __fastcall HalpMcaReportError(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiZeroPageWorkMapping @ 0x14029A678
+ * XREFs of MiZeroPageWorkMapping @ 0x14021987C
  * Callers:
- *     MiPageListCollision @ 0x14029A618 (MiPageListCollision.c)
- *     MiReleaseLargeZeroingVa @ 0x14054FE78 (MiReleaseLargeZeroingVa.c)
+ *     MiPageListCollision @ 0x14021981C (MiPageListCollision.c)
+ *     MiReleaseLargeZeroingVa @ 0x1405500B8 (MiReleaseLargeZeroingVa.c)
  * Callees:
- *     MiVaIsUltra @ 0x1402754B0 (MiVaIsUltra.c)
- *     MiInsertLargeTbFlushEntry @ 0x14029A7DC (MiInsertLargeTbFlushEntry.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1402199E0 (MiInsertLargeTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiVaIsUltra @ 0x140263450 (MiVaIsUltra.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void *__fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __int64 a2, char a3)
@@ -28,23 +28,22 @@ void *__fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __int64 a2, cha
   __int64 v13; // rsi
   _QWORD *j; // rbp
   BOOL v15; // esi
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
+  __int64 v16; // rdx
+  __int64 v17; // rcx
   unsigned __int64 i; // rcx
-  __int64 v20; // r14
-  _QWORD v21[24]; // [rsp+20h] [rbp-108h] BYREF
+  __int64 v19; // r14
+  _QWORD v20[24]; // [rsp+20h] [rbp-108h] BYREF
 
   v4 = a1;
-  result = memset(v21, 0, 0xB8uLL);
-  LODWORD(v21[1]) = 20;
+  result = memset(v20, 0, 0xB8uLL);
+  LODWORD(v20[1]) = 20;
   v8 = 0LL;
-  v21[3] = 0LL;
+  v20[3] = 0LL;
   v9 = 1LL;
   v10 = 1;
   if ( (unsigned int)v4 <= 1 )
   {
-    result = (void *)MiInsertLargeTbFlushEntry(v21, (unsigned int)(2 - v4), a2);
+    result = (void *)MiInsertLargeTbFlushEntry(v20, (unsigned int)(2 - v4), a2);
     v9 = 1LL;
     v8 = 1LL;
   }
@@ -56,7 +55,7 @@ void *__fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __int64 a2, cha
       if ( i > 0xFFFFF6FFFFFFFFFFuLL )
         break;
     }
-    result = (void *)MiVaIsUltra(i);
+    result = (void *)MiVaIsUltra(i, v7, 1LL, 0xFFFFF68000000000uLL);
     if ( (_DWORD)result )
     {
       v10 = 0;
@@ -74,7 +73,7 @@ void *__fastcall MiZeroPageWorkMapping(unsigned int a1, unsigned __int64 a2, cha
     {
       v8 = v9;
 LABEL_7:
-      result = (void *)MiInsertTbFlushEntry(v21, v13, v9, 0LL);
+      result = (void *)MiInsertTbFlushEntry(v20, v13, v9, 0LL);
       goto LABEL_8;
     }
     v8 = MiLargePageSizes[v4];
@@ -85,15 +84,15 @@ LABEL_7:
     }
     if ( (unsigned int)v4 <= (unsigned int)v9 )
     {
-      v20 = (unsigned int)(2 - v4);
+      v19 = (unsigned int)(2 - v4);
       do
       {
-        result = (void *)MiInsertTbFlushEntry(v21, v13, v8, 0LL);
+        result = (void *)MiInsertTbFlushEntry(v20, v13, v8, 0LL);
         v8 <<= 9;
         v13 = (__int64)((v13 << 25) - v12) >> 16;
-        --v20;
+        --v19;
       }
-      while ( v20 );
+      while ( v19 );
     }
     v8 = 512LL;
   }
@@ -101,17 +100,17 @@ LABEL_8:
   for ( j = (_QWORD *)(a2 + 8 * v8); a2 < (unsigned __int64)j; a2 += 8LL )
   {
     v15 = 0;
-    result = (void *)MiPteInShadowRange(a2, v7);
+    result = (void *)MiPteInShadowRange(a2);
     if ( (_DWORD)result )
     {
-      result = (void *)MiPteHasShadow(v16, v7, v17, v18);
+      result = (void *)MiPteHasShadow(v17, v16);
       v15 = (_DWORD)result != 0;
     }
     *(_QWORD *)a2 = 0LL;
     if ( v15 )
-      result = (void *)MiWritePteShadow(a2, 0LL);
+      result = (void *)MiWritePteShadow(a2);
   }
   if ( v10 )
-    return (void *)MiFlushTbList(v21);
+    return (void *)MiFlushTbList(v20);
   return result;
 }

@@ -33,7 +33,7 @@ __int64 __fastcall ExCpuSetResourceManagerAccessCheck(KPROCESSOR_MODE a1)
     (__int64)&ExpRestrictedGenericMapping,
     a1,
     &v6,
-    (int *)&v5);
+    (NTSTATUS *)&v5);
   SeReleaseSubjectContext(&SubjectContext);
   return v5;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwWorkerFactoryWorkerReady @ 0x1406A6430
+ * XREFs of ZwWorkerFactoryWorkerReady @ 0x1406A73D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwWorkerFactoryWorkerReady()
+NTSTATUS __cdecl ZwWorkerFactoryWorkerReady(HANDLE WorkerFactoryHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal();
+  return KiServiceInternal(WorkerFactoryHandle);
 }

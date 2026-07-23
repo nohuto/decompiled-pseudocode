@@ -2,13 +2,13 @@
  * XREFs of ExGetHeapFromVA @ 0x14000E644
  * Callers:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
- *     ExpHpCompactionRoutine @ 0x1401B7770 (ExpHpCompactionRoutine.c)
+ *     ExFreeLargePool @ 0x14009AD10 (ExFreeLargePool.c)
+ *     ExFreeHeapPages @ 0x14015B374 (ExFreeHeapPages.c)
+ *     ExpHpCompactionRoutine @ 0x1401B78D0 (ExpHpCompactionRoutine.c)
  * Callees:
  *     RtlpHpGetOwnerHeap @ 0x14000E6C0 (RtlpHpGetOwnerHeap.c)
- *     MiDeterminePoolType @ 0x14007BF30 (MiDeterminePoolType.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiDeterminePoolType @ 0x14007BF20 (MiDeterminePoolType.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExGetHeapFromVA(ULONG_PTR BugCheckParameter3)

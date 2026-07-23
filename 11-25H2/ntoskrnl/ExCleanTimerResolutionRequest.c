@@ -19,12 +19,12 @@ __int64 ExCleanTimerResolutionRequest()
   _KAFFINITY_EX *Affinity; // r8
   _KAB_UM_PROCESS_TREE *Trees; // rdi
   __int64 result; // rax
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActualTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
+  ActualTime = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].DirectoryTableBase & 0x100000000000LL) != 0 )
-    ZwSetTimerResolution((unsigned int)KeMaximumIncrement, 0LL, &v6);
+    ZwSetTimerResolution(KeMaximumIncrement, 0, &ActualTime);
   ExAcquireTimeRefreshLockExclusive();
   v1 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
   DeepFreezeStartTime = Process[3].DeepFreezeStartTime;

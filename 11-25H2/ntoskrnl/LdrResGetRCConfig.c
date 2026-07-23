@@ -12,12 +12,12 @@
  *     LdrpResGetMappingSize @ 0x140A54258 (LdrpResGetMappingSize.c)
  */
 
-int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4, char a5)
+NTSTATUS __fastcall LdrResGetRCConfig(__int64 a1, ULONG64 a2, _QWORD *a3, int a4, char a5)
 {
   int v9; // edi
   _DWORD *v10; // rax
   int v11; // edi
-  int result; // eax
+  NTSTATUS result; // eax
   int v13; // ecx
   _DWORD *v14; // r8
   __int64 v15; // rdx
@@ -43,7 +43,7 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4, cha
   int v35; // ecx
   __int64 v36; // r9
   _DWORD *v37; // [rsp+58h] [rbp-80h] BYREF
-  __int64 v38; // [rsp+60h] [rbp-78h] BYREF
+  ULONG64 v38; // [rsp+60h] [rbp-78h] BYREF
   __int64 v39[2]; // [rsp+68h] [rbp-70h] BYREF
   _QWORD v40[3]; // [rsp+78h] [rbp-60h] BYREF
 
@@ -71,9 +71,9 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4, cha
     return v11;
   }
 LABEL_11:
-  if ( a2 || v9 || (result = LdrpResGetMappingSize(a1, (unsigned __int64 *)&v38, a4), result >= 0) )
+  if ( a2 || v9 || (result = LdrpResGetMappingSize(a1, &v38, a4), result >= 0) )
   {
-    v13 = LdrpResSearchResourceMappedFile(a1, v38, v9 != 0 ? 8240 : 4144, v40, 3, &v37, v39, 0LL, 0LL);
+    v13 = LdrpResSearchResourceMappedFile((void *)a1, v38, v9 != 0 ? 8240 : 4144, v40, 3, &v37, v39, 0LL, 0LL);
     if ( v13 < 0 )
     {
       if ( v13 != -1073741701 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwGetTraceLoggerHandle @ 0x1800E4DF0
+ * XREFs of EtwGetTraceLoggerHandle @ 0x1800E2CA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSetLastWin32Error @ 0x180056610 (RtlSetLastWin32Error.c)
- *     EtwpGetMaxLogger @ 0x1800E4EF8 (EtwpGetMaxLogger.c)
+ *     RtlSetLastWin32Error @ 0x180040B90 (RtlSetLastWin32Error.c)
+ *     EtwpGetMaxLogger @ 0x1800E2DA8 (EtwpGetMaxLogger.c)
  */
 
 __int64 __fastcall EtwGetTraceLoggerHandle(__int64 a1)
 {
   __int64 v1; // rbx
-  unsigned int v3; // ecx
+  LONG v3; // ecx
 
   if ( !a1 )
   {
@@ -28,7 +28,7 @@ LABEL_6:
   if ( (unsigned __int16)v1 >= (unsigned int)EtwpGetMaxLogger() && (_WORD)v1 != 0xFFFF )
   {
     v1 = -1LL;
-    RtlSetLastWin32Error(6u);
+    RtlSetLastWin32Error(6);
   }
   return v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SepValidateCAPIDs @ 0x140597F84
+ * XREFs of SepValidateCAPIDs @ 0x1405981B4
  * Callers:
- *     SeRmReferenceFindCapName @ 0x140597CD4 (SeRmReferenceFindCapName.c)
+ *     SeRmReferenceFindCapName @ 0x140597F04 (SeRmReferenceFindCapName.c)
  * Callees:
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
  */
 
 __int64 __fastcall SepValidateCAPIDs(__int64 a1, PSID *a2)

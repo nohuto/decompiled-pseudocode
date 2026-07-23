@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpConstructIptData @ 0x140948298
+ * XREFs of EtwpConstructIptData @ 0x140948468
  * Callers:
- *     EtwpUpdateProcessorTraceConfiguration @ 0x14094833C (EtwpUpdateProcessorTraceConfiguration.c)
+ *     EtwpUpdateProcessorTraceConfiguration @ 0x14094850C (EtwpUpdateProcessorTraceConfiguration.c)
  * Callees:
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     ZwLoadDriver @ 0x1403FC460 (ZwLoadDriver.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     ZwLoadDriver @ 0x1403FC640 (ZwLoadDriver.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpConstructIptData(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of _vswprintf_l @ 0x180128C64
+ * XREFs of _vswprintf_l @ 0x1801289D4
  * Callers:
- *     _vswprintf @ 0x180128C50 (_vswprintf.c)
+ *     _vswprintf @ 0x1801289C0 (_vswprintf.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _flsbuf @ 0x18012EA18 (_flsbuf.c)
- *     _woutput_l @ 0x18012F3A0 (_woutput_l.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _flsbuf @ 0x18012E788 (_flsbuf.c)
+ *     _woutput_l @ 0x18012F110 (_woutput_l.c)
  */
 
 int __cdecl vswprintf_l(

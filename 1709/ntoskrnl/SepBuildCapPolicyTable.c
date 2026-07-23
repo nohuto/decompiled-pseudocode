@@ -73,7 +73,7 @@ LABEL_14:
   v8[12] = v4;
   *((_QWORD *)v8 + 7) = v9;
   v6 = 0LL;
-  HashTable = RtlpCreateHashTable((struct _RTL_DYNAMIC_HASH_TABLE **)&v14, 0x80u, 0, 0);
+  HashTable = RtlpCreateHashTable((_RTL_DYNAMIC_HASH_TABLE **)&v14, 0x80u, 0, 0);
   v11 = v14;
   if ( HashTable )
   {

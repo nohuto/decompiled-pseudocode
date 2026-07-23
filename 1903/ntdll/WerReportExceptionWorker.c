@@ -13,13 +13,22 @@
 
 __int64 __fastcall WerReportExceptionWorker(__int64 a1)
 {
-  unsigned int v1; // ebx
+  void *v1; // rbx
+  PVOID BaseAddress; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
-  RtlReportExceptionEx(a1 + 16, 2LL, *(_DWORD *)(a1 + 8) & 0x1F, -1LL, *(_QWORD *)a1);
-  ZwFreeVirtualMemory();
-  ZwSetInformationThread();
-  ZwResumeThread();
-  v1 = ZwClose();
-  ZwTerminateThread();
-  return v1;
+  RegionSize = 0LL;
+  BaseAddress = (PVOID)a1;
+  RtlReportExceptionEx(
+    (PEXCEPTION_RECORD)(a1 + 16),
+    (PCONTEXT)2,
+    *(_DWORD *)(a1 + 8) & 0x1F,
+    (PLARGE_INTEGER)0xFFFFFFFFFFFFFFFFLL);
+  v1 = *(void **)BaseAddress;
+  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+  ZwSetInformationThread(v1, ThreadDbgkWerReportActive, &unk_18012F8E0, 4u);
+  ZwResumeThread(v1, 0LL);
+  LODWORD(v1) = ZwClose(v1);
+  ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, 0);
+  return (unsigned int)v1;
 }

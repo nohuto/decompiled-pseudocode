@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlUnlockMemoryBlockLookaside @ 0x1800E15A0
+ * XREFs of RtlUnlockMemoryBlockLookaside @ 0x1800DEE40
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlUnlockMemoryZone @ 0x1800E1600 (RtlUnlockMemoryZone.c)
- *     RtlpUnregisterLockedMemoryBlockLookaside @ 0x1800E18F4 (RtlpUnregisterLockedMemoryBlockLookaside.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlUnlockMemoryZone @ 0x1800DEEA0 (RtlUnlockMemoryZone.c)
+ *     RtlpUnregisterLockedMemoryBlockLookaside @ 0x1800DF194 (RtlpUnregisterLockedMemoryBlockLookaside.c)
  */
 
-__int64 __fastcall RtlUnlockMemoryBlockLookaside(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlUnlockMemoryBlockLookaside(PVOID MemoryBlockLookaside)
 {
-  int v3; // ecx
-  unsigned int v4; // edi
-  int v5; // ecx
+  int v2; // ecx
+  NTSTATUS v3; // edi
+  int v4; // ecx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1, a2);
-  v3 = *(_DWORD *)(a1 + 44);
-  v4 = 0;
-  if ( v3 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  v2 = *((_DWORD *)MemoryBlockLookaside + 11);
+  v3 = 0;
+  if ( v2 )
   {
-    v5 = v3 - 1;
-    *(_DWORD *)(a1 + 44) = v5;
-    if ( !v5 )
+    v4 = v2 - 1;
+    *((_DWORD *)MemoryBlockLookaside + 11) = v4;
+    if ( !v4 )
     {
-      RtlUnlockMemoryZone(*(_QWORD *)(a1 + 16));
-      RtlUnlockMemoryZone(*(_QWORD *)(a1 + 8));
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 2));
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 1));
       RtlpUnregisterLockedMemoryBlockLookaside();
     }
   }
   else
   {
-    v4 = -1073741823;
+    v3 = -1073741823;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-  return v4;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  return v3;
 }

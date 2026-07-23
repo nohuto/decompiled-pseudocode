@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetVolumeInformationFile @ 0x1406A9C90
+ * XREFs of ZwSetVolumeInformationFile @ 0x1406AAC30
  * Callers:
- *     DifZwSetVolumeInformationFileWrapper @ 0x1406495C0 (DifZwSetVolumeInformationFileWrapper.c)
+ *     DifZwSetVolumeInformationFileWrapper @ 0x140647B80 (DifZwSetVolumeInformationFileWrapper.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetVolumeInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

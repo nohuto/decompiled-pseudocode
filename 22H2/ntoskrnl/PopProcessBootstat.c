@@ -10,24 +10,24 @@
  *     PopCheckShutdownMarker @ 0x140A447E0 (PopCheckShutdownMarker.c)
  */
 
-__int64 PopProcessBootstat()
+int PopProcessBootstat()
 {
-  __int64 result; // rax
-  __int128 v1; // [rsp+20h] [rbp-28h] BYREF
+  int result; // eax
+  __int128 DataBuffer; // [rsp+20h] [rbp-28h] BYREF
   int v2; // [rsp+30h] [rbp-18h]
 
   PopCheckShutdownMarker();
   v2 = 0;
-  v1 = 0LL;
-  result = RtlGetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
-  if ( (int)result >= 0 )
+  DataBuffer = 0LL;
+  result = RtlGetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
+  if ( result >= 0 )
   {
-    if ( HIDWORD(v1) )
+    if ( HIDWORD(DataBuffer) )
     {
       PopTraceBootError();
       v2 = 0;
-      v1 = 0LL;
-      return RtlSetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
+      DataBuffer = 0LL;
+      return RtlSetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
     }
   }
   return result;

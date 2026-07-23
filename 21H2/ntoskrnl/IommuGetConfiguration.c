@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuGetConfiguration @ 0x140A6FE20
+ * XREFs of IommuGetConfiguration @ 0x140A70E20
  * Callers:
  *     <none>
  * Callees:
- *     IommupGetSystemContext @ 0x1403CC014 (IommupGetSystemContext.c)
+ *     IommupGetSystemContext @ 0x1403CC184 (IommupGetSystemContext.c)
  */
 
 __int64 __fastcall IommuGetConfiguration(unsigned int a1, _DWORD *a2, unsigned int *a3, PVOID **a4)

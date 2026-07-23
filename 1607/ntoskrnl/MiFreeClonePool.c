@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeClonePool @ 0x1400B47F4
+ * XREFs of MiFreeClonePool @ 0x1400B2674
  * Callers:
- *     MiProcessDereferenceList @ 0x14012259C (MiProcessDereferenceList.c)
- *     MiDereferenceSegmentThread @ 0x140141554 (MiDereferenceSegmentThread.c)
+ *     MiProcessDereferenceList @ 0x140122B0C (MiProcessDereferenceList.c)
+ *     MiDereferenceSegmentThread @ 0x140141AC4 (MiDereferenceSegmentThread.c)
  * Callees:
- *     MiUnlockPagedAddress @ 0x1400B4854 (MiUnlockPagedAddress.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
+ *     MiUnlockPagedAddress @ 0x1400B26D4 (MiUnlockPagedAddress.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -18,7 +18,7 @@ PSLIST_ENTRY MiFreeClonePool()
 
   while ( 1 )
   {
-    result = RtlpInterlockedPopEntrySList(&stru_140326950);
+    result = RtlpInterlockedPopEntrySList(&stru_140326990);
     v1 = result;
     if ( !result )
       break;

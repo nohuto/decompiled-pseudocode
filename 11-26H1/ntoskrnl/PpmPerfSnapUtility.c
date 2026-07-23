@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfSnapUtility @ 0x14041FB20
+ * XREFs of PpmPerfSnapUtility @ 0x140417360
  * Callers:
- *     PpmCheckSnapAllUtility @ 0x14041FA00 (PpmCheckSnapAllUtility.c)
+ *     PpmCheckSnapAllUtility @ 0x140417240 (PpmCheckSnapAllUtility.c)
  * Callees:
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x1404205F0 (PpmHeteroIsMultiClassParkingEnabled.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x140417E30 (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall PpmPerfSnapUtility(__int64 a1)
@@ -158,7 +158,7 @@ void __fastcall PpmPerfSnapUtility(__int64 a1)
               {
                 if ( v29 == 2 || (v30 = v29 - 1) == 0 )
                 {
-                  v31 = *((_BYTE *)&stru_140FC01F0.StackBase + v28);
+                  v31 = *((_BYTE *)&stru_140FC11F0.CycleTime + v28);
                 }
                 else if ( (unsigned int)(v30 - 2) > 1 )
                 {
@@ -166,7 +166,7 @@ void __fastcall PpmPerfSnapUtility(__int64 a1)
                 }
                 else
                 {
-                  v31 = *((_BYTE *)&stru_140FC01F0.CycleTime + v28);
+                  v31 = *((_BYTE *)&stru_140FC11F0.StackBase + v28);
                 }
                 if ( v31 > *(_BYTE *)(a1 + 88) )
                 {

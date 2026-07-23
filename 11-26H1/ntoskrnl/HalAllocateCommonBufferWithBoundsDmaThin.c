@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferWithBoundsDmaThin @ 0x1404FAF60
+ * XREFs of HalAllocateCommonBufferWithBoundsDmaThin @ 0x1404F4570
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateCommonBufferDmaThin @ 0x140348C34 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14034ACB4 (HalpAllocateCommonBufferDmaThin.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferWithBoundsDmaThin(

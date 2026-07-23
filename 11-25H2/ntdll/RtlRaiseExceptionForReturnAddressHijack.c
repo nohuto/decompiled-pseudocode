@@ -6,7 +6,7 @@
  *     RtlRaiseException @ 0x180075020 (RtlRaiseException.c)
  */
 
-void RtlRaiseExceptionForReturnAddressHijack()
+void RtlRaiseExceptionForReturnAddressHijack(void)
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+18h] [rbp-C0h] BYREF
 

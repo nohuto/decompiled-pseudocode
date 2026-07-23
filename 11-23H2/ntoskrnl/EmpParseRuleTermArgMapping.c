@@ -3,7 +3,7 @@
  * Callers:
  *     EmpParseRuleTerm @ 0x140B55ED8 (EmpParseRuleTerm.c)
  * Callees:
- *     strtoul @ 0x1403D8E38 (strtoul.c)
+ *     strtoul @ 0x1403D9018 (strtoul.c)
  */
 
 bool __fastcall EmpParseRuleTermArgMapping(char *Str, __int64 a2, int a3, int a4, int a5)

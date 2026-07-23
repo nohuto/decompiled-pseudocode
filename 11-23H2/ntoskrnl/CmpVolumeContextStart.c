@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpVolumeContextStart @ 0x14084EA00
+ * XREFs of CmpVolumeContextStart @ 0x14084ED00
  * Callers:
- *     CmpVolumeContextCreate @ 0x14084E968 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCreate @ 0x14084EC68 (CmpVolumeContextCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B800 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x14041BB90 (ZwCreateFile.c)
  *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     IoVolumeDeviceToGuid @ 0x140701EA0 (IoVolumeDeviceToGuid.c)
- *     IoVolumeDeviceToGuidPath @ 0x140701F30 (IoVolumeDeviceToGuidPath.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     IoVolumeDeviceToGuid @ 0x1407020B0 (IoVolumeDeviceToGuid.c)
+ *     IoVolumeDeviceToGuidPath @ 0x140702140 (IoVolumeDeviceToGuidPath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

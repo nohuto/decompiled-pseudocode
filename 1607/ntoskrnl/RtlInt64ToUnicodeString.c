@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlInt64ToUnicodeString @ 0x1403F6568
+ * XREFs of RtlInt64ToUnicodeString @ 0x1403F542C
  * Callers:
- *     ExpWnfComposeValueName @ 0x1403F64D8 (ExpWnfComposeValueName.c)
+ *     ExpWnfComposeValueName @ 0x1403F539C (ExpWnfComposeValueName.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlLargeIntegerToChar @ 0x1403F6A40 (RtlLargeIntegerToChar.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlLargeIntegerToChar @ 0x1403F5900 (RtlLargeIntegerToChar.c)
  */
 
 NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-78h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-78h] BYREF
   CHAR v7[80]; // [rsp+30h] [rbp-68h] BYREF
 
   *(_QWORD *)&SourceString.Length = Value;

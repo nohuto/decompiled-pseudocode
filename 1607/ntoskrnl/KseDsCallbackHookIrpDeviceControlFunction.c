@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsCallbackHookIrpDeviceControlFunction @ 0x1401DD080
+ * XREFs of KseDsCallbackHookIrpDeviceControlFunction @ 0x1401DCEAC
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventDataIrp @ 0x1401DD654 (KsepDsEventDataIrp.c)
+ *     KsepDsEventDataIrp @ 0x1401DD480 (KsepDsEventDataIrp.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpDeviceControlFunction(__int64 a1, __int64 a2)

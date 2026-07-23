@@ -1,26 +1,26 @@
 /*
- * XREFs of KiFreezeTargetExecution @ 0x1402976DC
+ * XREFs of KiFreezeTargetExecution @ 0x1402978CC
  * Callers:
- *     KiCheckForFreezeExecution @ 0x14028D658 (KiCheckForFreezeExecution.c)
+ *     KiCheckForFreezeExecution @ 0x14028D848 (KiCheckForFreezeExecution.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiRestoreProcessorControlState @ 0x1401BBE40 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x1401BBF10 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeRestoreSupervisorState @ 0x1402941E0 (KeRestoreSupervisorState.c)
- *     KeSaveSupervisorState @ 0x140294278 (KeSaveSupervisorState.c)
- *     KiCheckStall @ 0x14029759C (KiCheckStall.c)
- *     KiEndDebugAccumulation @ 0x140297630 (KiEndDebugAccumulation.c)
- *     KiSetDebuggerOwner @ 0x140297C00 (KiSetDebuggerOwner.c)
- *     KiStartDebugAccumulation @ 0x140297C58 (KiStartDebugAccumulation.c)
- *     KiRestoreProcessorState @ 0x14029CBEC (KiRestoreProcessorState.c)
- *     KiSaveProcessorState @ 0x14029CD00 (KiSaveProcessorState.c)
- *     KdpReportExceptionStateChange @ 0x140916954 (KdpReportExceptionStateChange.c)
- *     VfStartBranchTracing @ 0x140936448 (VfStartBranchTracing.c)
- *     VfStopBranchTracing @ 0x1409364D0 (VfStopBranchTracing.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRestoreProcessorControlState @ 0x1401BBFA0 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1401BC070 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x1401C5650 (RtlCaptureContext.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeRestoreSupervisorState @ 0x1402943D0 (KeRestoreSupervisorState.c)
+ *     KeSaveSupervisorState @ 0x140294468 (KeSaveSupervisorState.c)
+ *     KiCheckStall @ 0x14029778C (KiCheckStall.c)
+ *     KiEndDebugAccumulation @ 0x140297820 (KiEndDebugAccumulation.c)
+ *     KiSetDebuggerOwner @ 0x140297DF0 (KiSetDebuggerOwner.c)
+ *     KiStartDebugAccumulation @ 0x140297E48 (KiStartDebugAccumulation.c)
+ *     KiRestoreProcessorState @ 0x14029CDDC (KiRestoreProcessorState.c)
+ *     KiSaveProcessorState @ 0x14029CEF0 (KiSaveProcessorState.c)
+ *     KdpReportExceptionStateChange @ 0x140917954 (KdpReportExceptionStateChange.c)
+ *     VfStartBranchTracing @ 0x140937448 (VfStartBranchTracing.c)
+ *     VfStopBranchTracing @ 0x1409374D0 (VfStopBranchTracing.c)
  */
 
 __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
@@ -59,7 +59,7 @@ __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
     KiStartDebugAccumulation(CurrentPrcb);
     CurrentPrcb->IpiFrozen = 2;
     LOBYTE(v9) = 1;
-    ((void (__fastcall *)(__int64, _QWORD))off_1403FE478[0])(v9, 0LL);
+    ((void (__fastcall *)(__int64, _QWORD))off_1403FF478[0])(v9, 0LL);
     if ( a1 )
     {
       KiSaveProcessorState(a1, a2);
@@ -90,7 +90,7 @@ __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
     if ( v13 )
       _InterlockedAnd(v13, 0xFFFDFFFF);
     LOBYTE(v12) = KiResumeForReboot;
-    ((void (__fastcall *)(_QWORD, __int64))off_1403FE478[0])(0LL, v12);
+    ((void (__fastcall *)(_QWORD, __int64))off_1403FF478[0])(0LL, v12);
     if ( a1 )
       KiRestoreProcessorState(a1, a2);
     else

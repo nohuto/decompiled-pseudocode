@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpDispatchPnp @ 0x140A78F20
+ * XREFs of HalpDispatchPnp @ 0x140A73220
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     HalpPassIrpFromFdoToPdo @ 0x1404D6FBC (HalpPassIrpFromFdoToPdo.c)
- *     HalpInitializeLateSystemActions @ 0x14053BD1C (HalpInitializeLateSystemActions.c)
- *     HalpQueryIdFdo @ 0x1406FED94 (HalpQueryIdFdo.c)
- *     HalpQueryIdPdo @ 0x1406FEE50 (HalpQueryIdPdo.c)
- *     HalpQueryResources @ 0x1406FEF30 (HalpQueryResources.c)
- *     HalpQueryAcpiResourceRequirements @ 0x1407026A8 (HalpQueryAcpiResourceRequirements.c)
- *     HalpQueryDeviceRelations @ 0x140A79080 (HalpQueryDeviceRelations.c)
- *     HalpQueryInterface @ 0x140AAEB24 (HalpQueryInterface.c)
- *     HalpInitSystemHelper @ 0x140B4B718 (HalpInitSystemHelper.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1404D040C (HalpPassIrpFromFdoToPdo.c)
+ *     HalpInitializeLateSystemActions @ 0x1405395FC (HalpInitializeLateSystemActions.c)
+ *     HalpQueryIdFdo @ 0x1406FC9D4 (HalpQueryIdFdo.c)
+ *     HalpQueryIdPdo @ 0x1406FCA90 (HalpQueryIdPdo.c)
+ *     HalpQueryResources @ 0x1406FCB70 (HalpQueryResources.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407002E8 (HalpQueryAcpiResourceRequirements.c)
+ *     HalpQueryDeviceRelations @ 0x140A73380 (HalpQueryDeviceRelations.c)
+ *     HalpQueryInterface @ 0x140AA9A00 (HalpQueryInterface.c)
+ *     HalpInitSystemHelper @ 0x140B4D758 (HalpInitSystemHelper.c)
  */
 
 NTSTATUS __fastcall HalpDispatchPnp(__int64 a1, IRP *a2)
@@ -154,7 +154,7 @@ LABEL_11:
     {
       if ( v2[8] == 129 )
       {
-        DeviceRelations = HalpQueryAcpiResourceRequirements(&a2->IoStatus.Information);
+        DeviceRelations = HalpQueryAcpiResourceRequirements((unsigned int **)&a2->IoStatus.Information);
         goto LABEL_5;
       }
       if ( v2[8] != 130 && v2[8] != 131 )

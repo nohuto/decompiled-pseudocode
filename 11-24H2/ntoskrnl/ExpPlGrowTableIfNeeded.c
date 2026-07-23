@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPlGrowTableIfNeeded @ 0x140654F74
+ * XREFs of ExpPlGrowTableIfNeeded @ 0x140653674
  * Callers:
- *     ExpTrackTableInsertLimit @ 0x140655330 (ExpTrackTableInsertLimit.c)
+ *     ExpTrackTableInsertLimit @ 0x140653A30 (ExpTrackTableInsertLimit.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 ExpPlGrowTableIfNeeded()
@@ -49,7 +49,7 @@ __int64 ExpPlGrowTableIfNeeded()
   {
     while ( 1 )
     {
-      Pool2 = (char *)ExAllocatePool2(0x40uLL);
+      Pool2 = (char *)ExAllocatePool2(0x40uLL, 8LL * (unsigned int)v0, 0x6C6F6F50u);
       if ( !Pool2 )
         return (unsigned int)-1073741801;
       KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
@@ -80,7 +80,7 @@ __int64 ExpPlGrowTableIfNeeded()
         {
           do
           {
-            v11 = qword_140E28F88;
+            v11 = qword_140E290C8;
             while ( 1 )
             {
               v12 = *(_QWORD **)(v11 + 8LL * v9);
@@ -105,8 +105,8 @@ __int64 ExpPlGrowTableIfNeeded()
           }
           while ( v9 < HIDWORD(ExPoolLimitState) >> 5 );
         }
-        v14 = qword_140E28F88;
-        qword_140E28F88 = (__int64)Pool2;
+        v14 = qword_140E290C8;
+        qword_140E290C8 = (__int64)Pool2;
         HIDWORD(ExPoolLimitState) = (32 * v0) | v8 & 0x1F;
         Pool2 = (char *)v14;
         break;

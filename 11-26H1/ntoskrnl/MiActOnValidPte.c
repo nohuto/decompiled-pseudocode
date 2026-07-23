@@ -1,25 +1,25 @@
 /*
- * XREFs of MiActOnValidPte @ 0x140297138
+ * XREFs of MiActOnValidPte @ 0x140296698
  * Callers:
- *     MiActOnPte @ 0x1402D4420 (MiActOnPte.c)
+ *     MiActOnPte @ 0x1402B61E0 (MiActOnPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiUpdatePfnPriority @ 0x1402992A0 (MiUpdatePfnPriority.c)
- *     MiUpdateWsleAge @ 0x14029C120 (MiUpdateWsleAge.c)
- *     MiGetVaAge @ 0x14029C6E0 (MiGetVaAge.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MI_IS_RESET_PTE @ 0x140367DF0 (MI_IS_RESET_PTE.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiUpdatePfnPriority @ 0x140298800 (MiUpdatePfnPriority.c)
+ *     MiUpdateWsleAge @ 0x14029B680 (MiUpdateWsleAge.c)
+ *     MiGetVaAge @ 0x14029BC40 (MiGetVaAge.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MI_IS_RESET_PTE @ 0x140369B90 (MI_IS_RESET_PTE.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiActOnValidPte(__int64 a1, __int64 a2, __int64 a3)
@@ -93,7 +93,7 @@ __int64 __fastcall MiActOnValidPte(__int64 a1, __int64 a2, __int64 a3)
   v10 = *(_QWORD *)(a1 + 48);
   v11 = (v7 >> 12) & 0xFFFFFFFFFFLL;
   v45 = v10;
-  if ( v11 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+  if ( v11 > qword_140E2D920 || ((*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
     return 3221226548LL;
   v12 = 48 * v11 - 0x220000000000LL;
   if ( *(__int64 *)(v12 + 8) <= 0 || (*(_QWORD *)(v12 + 40) & 0x10000000000LL) != 0 )
@@ -236,22 +236,22 @@ LABEL_91:
   }
   *(_QWORD *)(a1 + 16) = v19;
   if ( v19 )
-    *(_QWORD *)(a1 + 8) = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
+    *(_QWORD *)(a1 + 8) = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
   v21 = *(_QWORD *)(v12 + 16);
-  if ( v21 && qword_140E2D740 )
+  if ( v21 && qword_140E2D8C0 )
   {
     if ( (v21 & 0x10) != 0 )
       LODWORD(v21) = v21 & 0xFFFFFFEF;
     else
-      LODWORD(v21) = qword_140E2D748 & v21;
+      LODWORD(v21) = qword_140E2D8C8 & v21;
   }
   v22 = (unsigned int)v21 | 0x100000000LL;
-  if ( qword_140E2D740 )
+  if ( qword_140E2D8C0 )
   {
-    if ( (qword_140E2D740 & v22) != 0 )
+    if ( (qword_140E2D8C0 & v22) != 0 )
       v22 = (unsigned int)v21 | 0x100000010LL;
     else
-      v22 |= qword_140E2D740;
+      v22 |= qword_140E2D8C0;
   }
   v40 = v22;
   v23 = v22;

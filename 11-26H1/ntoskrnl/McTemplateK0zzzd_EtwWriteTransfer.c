@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DC438
+ * XREFs of McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DECE8
  * Callers:
- *     PiSwStartCreate @ 0x1407B06FC (PiSwStartCreate.c)
- *     PiSwStopDestroy @ 0x14090FEE8 (PiSwStopDestroy.c)
- *     PiSwGetChildPdo @ 0x140A7AAD4 (PiSwGetChildPdo.c)
- *     PiSwIrpCleanup @ 0x140A7AF04 (PiSwIrpCleanup.c)
- *     PiSwBusRelationAdd @ 0x140A7C3EC (PiSwBusRelationAdd.c)
- *     PiProcessDriverInstance @ 0x140AD5550 (PiProcessDriverInstance.c)
+ *     PiSwStartCreate @ 0x1407B375C (PiSwStartCreate.c)
+ *     PiSwStopDestroy @ 0x1409B2018 (PiSwStopDestroy.c)
+ *     PiSwGetChildPdo @ 0x140A8BC18 (PiSwGetChildPdo.c)
+ *     PiSwIrpCleanup @ 0x140A8C048 (PiSwIrpCleanup.c)
+ *     PiSwBusRelationAdd @ 0x140A8D51C (PiSwBusRelationAdd.c)
+ *     PiProcessDriverInstance @ 0x140AD2500 (PiProcessDriverInstance.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14049F320 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x140498E70 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zzzd_EtwWriteTransfer(

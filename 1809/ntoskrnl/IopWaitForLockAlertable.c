@@ -1,11 +1,11 @@
 /*
  * XREFs of IopWaitForLockAlertable @ 0x14000EBDC
  * Callers:
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
- *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
+ *     IopAcquireFileObjectLock @ 0x1405A4480 (IopAcquireFileObjectLock.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PsIsThreadTerminating @ 0x1400891D0 (PsIsThreadTerminating.c)
+ *     PsIsThreadTerminating @ 0x1400891C0 (PsIsThreadTerminating.c)
  */
 
 NTSTATUS __fastcall IopWaitForLockAlertable(PVOID Object, char a2, char a3)

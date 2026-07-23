@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFinishCreateSection @ 0x1409BAAFC
+ * XREFs of MiFinishCreateSection @ 0x14098BADC
  * Callers:
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiInsertBasedSection @ 0x140774714 (MiInsertBasedSection.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     MiCreatePerSessionProtos @ 0x1409CFA34 (MiCreatePerSessionProtos.c)
- *     MiDereferencePerSessionProtos @ 0x140A96D34 (MiDereferencePerSessionProtos.c)
- *     ObCheckActiveHandles @ 0x140AF42CC (ObCheckActiveHandles.c)
- *     MiDereferenceFailedControlArea @ 0x140B25454 (MiDereferenceFailedControlArea.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiInsertBasedSection @ 0x140777714 (MiInsertBasedSection.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     MiCreatePerSessionProtos @ 0x1409A0A14 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140A9AEB4 (MiDereferencePerSessionProtos.c)
+ *     ObCheckActiveHandles @ 0x140AF6940 (ObCheckActiveHandles.c)
+ *     MiDereferenceFailedControlArea @ 0x140B275E4 (MiDereferenceFailedControlArea.c)
  */
 
 __int64 __fastcall MiFinishCreateSection(int *a1)

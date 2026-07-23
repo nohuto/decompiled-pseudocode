@@ -1,27 +1,27 @@
 /*
- * XREFs of IoWriteCrashDump @ 0x1405C7FAC
+ * XREFs of IoWriteCrashDump @ 0x1405CA87C
  * Callers:
- *     IoRetryAsMiniDump @ 0x1405C7454 (IoRetryAsMiniDump.c)
- *     KiBugCheckWriteCrashDump @ 0x1405E7910 (KiBugCheckWriteCrashDump.c)
+ *     IoRetryAsMiniDump @ 0x1405C9D24 (IoRetryAsMiniDump.c)
+ *     KiBugCheckWriteCrashDump @ 0x1405EA280 (KiBugCheckWriteCrashDump.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     MmSnapTriageDumpInformation @ 0x14044A658 (MmSnapTriageDumpInformation.c)
- *     KdCheckForDebugBreak @ 0x140487E4C (KdCheckForDebugBreak.c)
- *     IoSetBugCheckProgressFlag @ 0x140532C30 (IoSetBugCheckProgressFlag.c)
- *     DumpCtlCheckErrorLocation @ 0x1405C610C (DumpCtlCheckErrorLocation.c)
- *     DumpCtlCheckExitStatus @ 0x1405C6130 (DumpCtlCheckExitStatus.c)
- *     IoEscalateBugCheck @ 0x1405C6638 (IoEscalateBugCheck.c)
- *     IoSaveBugCheckProgress @ 0x1405C7540 (IoSaveBugCheckProgress.c)
- *     IoSetBugCheckProgressAndFlag @ 0x1405C798C (IoSetBugCheckProgressAndFlag.c)
- *     IopCollectTriageDumpData @ 0x1405C8974 (IopCollectTriageDumpData.c)
- *     IopDumpCallAddPagesCallbacks @ 0x1405C8C08 (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x1405C8D68 (IopDumpCallRemovePagesCallbacks.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CA224 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     IopWriteTriageDumpToFirmware @ 0x1405CA3D8 (IopWriteTriageDumpToFirmware.c)
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
- *     MmGetDumpRange @ 0x1406F6934 (MmGetDumpRange.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     MmSnapTriageDumpInformation @ 0x140442788 (MmSnapTriageDumpInformation.c)
+ *     KdCheckForDebugBreak @ 0x14048198C (KdCheckForDebugBreak.c)
+ *     IoSetBugCheckProgressFlag @ 0x1405350D0 (IoSetBugCheckProgressFlag.c)
+ *     DumpCtlCheckErrorLocation @ 0x1405C897C (DumpCtlCheckErrorLocation.c)
+ *     DumpCtlCheckExitStatus @ 0x1405C89A0 (DumpCtlCheckExitStatus.c)
+ *     IoEscalateBugCheck @ 0x1405C8F08 (IoEscalateBugCheck.c)
+ *     IoSaveBugCheckProgress @ 0x1405C9E10 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressAndFlag @ 0x1405CA25C (IoSetBugCheckProgressAndFlag.c)
+ *     IopCollectTriageDumpData @ 0x1405CB244 (IopCollectTriageDumpData.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1405CB4D8 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x1405CB638 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CCAF4 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopWriteTriageDumpToFirmware @ 0x1405CCCA8 (IopWriteTriageDumpToFirmware.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
+ *     MmGetDumpRange @ 0x1406FB5A4 (MmGetDumpRange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 char __fastcall IoWriteCrashDump(
@@ -92,7 +92,7 @@ char __fastcall IoWriteCrashDump(
   KdCheckForDebugBreak();
   if ( CapsuleTriageDumpBlockInitialized == 1 )
     return IopWriteCapsuleTriageDumpToFirmware(a1, a2, a3, a4, a5, (__int64)a6, a7);
-  if ( DWORD1(xmmword_140E660E8) && !byte_140E660E4 )
+  if ( DWORD1(xmmword_140E662A8) && !byte_140E662A4 )
   {
     IoSetBugCheckProgressFlag(0x400000);
     return 0;
@@ -123,10 +123,10 @@ char __fastcall IoWriteCrashDump(
       v18 = 0;
     if ( VslVsmEnabled )
     {
-      v19 = 2 * *(_DWORD *)&VslpReservedTransferLock.ApcStateFill[32];
-      *(_DWORD *)&VslpReservedTransferLock.ApcStateFill[32] *= 2;
+      v19 = 2 * LODWORD(VslpReservedTransferLock.Queue);
+      LODWORD(VslpReservedTransferLock.Queue) *= 2;
       if ( v18 )
-        *(_DWORD *)&VslpReservedTransferLock.ApcStateFill[32] = v19 | 1;
+        LODWORD(VslpReservedTransferLock.Queue) = v19 | 1;
     }
     LOBYTE(v17) = 1;
     ViVerifyDma = 0;
@@ -167,11 +167,11 @@ char __fastcall IoWriteCrashDump(
     v27[3] = v26[3];
     v27[4] = v26[4];
     *(_QWORD *)(CrashdmpDumpBlock + 1296) = &KdDebuggerDataBlock;
-    *(_QWORD *)(CrashdmpDumpBlock + 1304) = &PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
+    *(_QWORD *)(CrashdmpDumpBlock + 1304) = &PsAltSystemCallRegistrationLock.WaitBlock[2];
     *(_QWORD *)(CrashdmpDumpBlock + 1312) = &PsLoadedModuleList;
     *(_QWORD *)(CrashdmpDumpBlock + 1320) = MmPfnDatabase;
-    *(_QWORD *)(CrashdmpDumpBlock + 16) = &KeBugCheckReasonCallbackListHead;
-    *(_QWORD *)(CrashdmpDumpBlock + 1416) = &KeBugCheckTriageDumpDataArrayListHead;
+    *(_QWORD *)(CrashdmpDumpBlock + 16) = &KiSupervisorXStateFeaturesLock.QuantumTarget;
+    *(_QWORD *)(CrashdmpDumpBlock + 1416) = &KiSupervisorXStateFeaturesLock.StackLimit;
     *(_BYTE *)(CrashdmpDumpBlock + 1432) = 4;
     if ( a8 )
       v29 = *(_QWORD *)(*(_QWORD *)(a7 + 184) + 40LL);

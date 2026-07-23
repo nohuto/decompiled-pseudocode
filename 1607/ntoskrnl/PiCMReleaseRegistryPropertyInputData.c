@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCMReleaseRegistryPropertyInputData @ 0x140502F70
+ * XREFs of PiCMReleaseRegistryPropertyInputData @ 0x1404E5F00
  * Callers:
- *     PiCMGetRegistryProperty @ 0x140502DC0 (PiCMGetRegistryProperty.c)
- *     PiCMSetRegistryProperty @ 0x140648880 (PiCMSetRegistryProperty.c)
+ *     PiCMGetRegistryProperty @ 0x1404E5D50 (PiCMGetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x140648964 (PiCMSetRegistryProperty.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1400C38B0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1400C1740 (PiControlFreeUserModeCallersBuffer.c)
  */
 
 __int64 __fastcall PiCMReleaseRegistryPropertyInputData(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeCpuSetAffinity @ 0x1400F21FC
+ * XREFs of KiComputeCpuSetAffinity @ 0x1400F004C
  * Callers:
- *     KiComputeThreadAffinity @ 0x1400F2060 (KiComputeThreadAffinity.c)
+ *     KiComputeThreadAffinity @ 0x1400EFEB0 (KiComputeThreadAffinity.c)
  * Callees:
  *     <none>
  */

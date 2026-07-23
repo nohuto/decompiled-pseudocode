@@ -12,31 +12,31 @@
  *     sub_180073E1C @ 0x180073E1C (sub_180073E1C.c)
  */
 
-__int64 __fastcall sub_1800225E4(int a1, __int16 a2, __int64 a3, __int64 *a4)
+__int64 __fastcall sub_1800225E4(PUNICODE_STRING a1, __int16 a2, __int64 a3, __int64 *a4)
 {
   int v6; // ebx
-  int v7; // eax
+  _UNICODE_STRING *v7; // rax
   __int16 v9; // si
-  int v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
-  v10 = 0;
+  LODWORD(v10) = 0;
   v6 = -1073741275;
   if ( (a2 & 0x20) != 0 )
   {
     v7 = a1;
-    a1 = 0;
+    a1 = 0LL;
   }
   else
   {
     if ( (a2 & 0x200) == 0 )
       return (unsigned int)v6;
-    v7 = 0;
+    v7 = 0LL;
   }
-  v6 = sub_180022698(v7, a1, a2, (_DWORD)a4, (__int64)&v10);
+  v6 = sub_180022698(v7, a1, (__int64)&v10);
   if ( v6 >= 0 )
   {
     v6 = -1073741275;
-    if ( v10 != 9 )
+    if ( (_DWORD)v10 != 9 )
       goto LABEL_11;
     v6 = sub_18002228C(*a4);
     if ( v6 >= 0 )
@@ -55,7 +55,7 @@ __int64 __fastcall sub_1800225E4(int a1, __int16 a2, __int64 a3, __int64 *a4)
     if ( v6 < 0 )
     {
 LABEL_11:
-      sub_18001B678(*a4);
+      sub_18001B678((char *)*a4);
       *a4 = 0LL;
     }
   }

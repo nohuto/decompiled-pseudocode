@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeCommitment @ 0x1407059A4
+ * XREFs of MiInitializeCommitment @ 0x14070A674
  * Callers:
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
  */
 
 void __fastcall MiInitializeCommitment(__int64 a1)
@@ -51,9 +51,9 @@ void __fastcall MiInitializeCommitment(__int64 a1)
       do
       {
         v9 = *v7;
-        if ( dword_140E2D78C )
+        if ( dword_140E2D90C )
         {
-          v10 = (unsigned int)dword_140E2D78C;
+          v10 = (unsigned int)dword_140E2D90C;
           do
           {
             v11 = *v9;
@@ -77,7 +77,7 @@ void __fastcall MiInitializeCommitment(__int64 a1)
   if ( v1 != v4 )
     MiChargeCommit((ULONG *)a1, v1 - v4, 2u);
   if ( (ULONG *)a1 == &MiSystemPartition )
-    stru_140E36558.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)(*(_QWORD *)(a1 + 23104)
-                                                                           - (unsigned __int64)stru_140E36558.WaitBlock[0].Thread
-                                                                           - qword_140E3D880);
+    stru_140E366D8.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)(*(_QWORD *)(a1 + 23104)
+                                                                           - (unsigned __int64)stru_140E366D8.WaitBlock[0].Thread
+                                                                           - qword_140E3DA00);
 }

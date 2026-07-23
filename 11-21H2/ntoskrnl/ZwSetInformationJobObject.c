@@ -1,14 +1,19 @@
 /*
  * XREFs of ZwSetInformationJobObject @ 0x14041EBA0
  * Callers:
- *     DifZwSetInformationJobObjectWrapper @ 0x1406272D0 (DifZwSetInformationJobObjectWrapper.c)
+ *     sub_1406272D0 @ 0x1406272D0 (sub_1406272D0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationJobObject(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(JobHandle, *(_QWORD *)&JobObjectInformationClass);
 }

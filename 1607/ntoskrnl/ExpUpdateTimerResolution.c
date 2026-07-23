@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpUpdateTimerResolution @ 0x140006F0C
+ * XREFs of ExpUpdateTimerResolution @ 0x14000707C
  * Callers:
- *     ExSetTimerResolution @ 0x14014C1E4 (ExSetTimerResolution.c)
- *     NtSetTimerResolution @ 0x1403E9CD4 (NtSetTimerResolution.c)
+ *     ExSetTimerResolution @ 0x14014C754 (ExSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1403EB304 (NtSetTimerResolution.c)
  * Callees:
- *     ExpUpdateTimerConfiguration @ 0x140007024 (ExpUpdateTimerConfiguration.c)
- *     PoTraceSystemTimerResolutionUpdate @ 0x1400B4CF0 (PoTraceSystemTimerResolutionUpdate.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpUpdateTimerConfiguration @ 0x140007194 (ExpUpdateTimerConfiguration.c)
+ *     PoTraceSystemTimerResolutionUpdate @ 0x1400B2B28 (PoTraceSystemTimerResolutionUpdate.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)

@@ -10,42 +10,45 @@
  *     RtlGetAppContainerSidType @ 0x180044670 (RtlGetAppContainerSidType.c)
  */
 
-__int64 __fastcall RtlGetAppContainerParent(__int64 a1, __int64 *a2)
+NTSTATUS __cdecl RtlGetAppContainerParent(PSID AppContainerSid, PSID *AppContainerSidParent)
 {
-  __int64 Heap; // rax
-  __int64 v5; // rbx
+  _DWORD *Heap; // rax
+  _DWORD *v5; // rbx
   __int64 v6; // rbp
   int v7; // edi
   _DWORD *v8; // rcx
-  __int64 v9; // rsi
-  int v11; // [rsp+48h] [rbp+10h] BYREF
+  char *v9; // rsi
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+48h] [rbp+10h] BYREF
 
-  *a2 = 0LL;
-  if ( (int)RtlGetAppContainerSidType(a1, &v11) < 0 || v11 != 1 )
-    return 3221225485LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, 40LL);
+  *AppContainerSidParent = 0LL;
+  if ( RtlGetAppContainerSidType(AppContainerSid, &AppContainerSidType) < 0
+    || AppContainerSidType != ChildAppContainerSidType )
+  {
+    return -1073741811;
+  }
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, 0x28uLL);
   v5 = Heap;
   if ( !Heap )
-    return 3221225626LL;
+    return -1073741670;
   v6 = 8LL;
-  v7 = RtlInitializeSid(Heap, (__int64)&RtlpAppPackageAuthority, 8u);
+  v7 = RtlInitializeSid(Heap, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 8u);
   if ( v7 < 0 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
   else
   {
-    v8 = (_DWORD *)(v5 + 8);
-    v9 = a1 - v5;
+    v8 = v5 + 2;
+    v9 = (char *)((_BYTE *)AppContainerSid - (_BYTE *)v5);
     do
     {
-      *v8 = *(_DWORD *)((char *)v8 + v9);
+      *v8 = *(_DWORD *)((char *)v8 + (_QWORD)v9);
       ++v8;
       --v6;
     }
     while ( v6 );
-    *a2 = v5;
+    *AppContainerSidParent = v5;
     return 0;
   }
-  return (unsigned int)v7;
+  return v7;
 }

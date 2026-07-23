@@ -1,19 +1,19 @@
 /*
- * XREFs of _PnpGetObjectPropertyKeys @ 0x1409917C0
+ * XREFs of _PnpGetObjectPropertyKeys @ 0x14097C800
  * Callers:
- *     PiDqPnPGetObjectPropertyKeys @ 0x140991658 (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
- *     PiCMGetObjectPropertyKeys @ 0x140A65294 (PiCMGetObjectPropertyKeys.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x14097C698 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
+ *     PiCMGetObjectPropertyKeys @ 0x140A5DA64 (PiCMGetObjectPropertyKeys.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x140991E90 (_PnpGetObjectPropertyKeysWorker.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x14097CED0 (_PnpGetObjectPropertyKeysWorker.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyKeys(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        int a3,
         __int64 a4,
         int a5,
         char a6,
@@ -48,7 +48,7 @@ __int64 __fastcall PnpGetObjectPropertyKeys(
   v22 = a4;
   if ( v13 )
   {
-    v14 = guard_dispatch_icall_no_overrides(a1, a2, a3, 6LL);
+    v14 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v14 == -1073741822 )
     {
       v13 = 0LL;
@@ -66,7 +66,7 @@ __int64 __fastcall PnpGetObjectPropertyKeys(
   if ( !v13 )
     return v16;
   v21[0] = ObjectPropertyKeysWorker;
-  v18 = guard_dispatch_icall_no_overrides(a1, a2, a3, 6LL);
+  v18 = guard_dispatch_icall_no_overrides(a1, a2);
   v19 = v18;
   if ( v18 == -1073741822 )
     return v16;

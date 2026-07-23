@@ -16,132 +16,132 @@
  *     sub_1800E0728 @ 0x1800E0728 (sub_1800E0728.c)
  */
 
-char __fastcall sub_1800593F0(__int64 a1, _QWORD *a2, _QWORD *a3, __int64 a4, __int16 a5, int a6, int a7, __int64 a8)
+char __fastcall sub_1800593F0(__int64 a1, _QWORD *a2, HANDLE *a3, __int64 a4, __int16 a5, int a6, int a7, __int64 a8)
 {
   unsigned int i; // edi
   unsigned __int64 v12; // rsi
-  unsigned __int64 v13; // rcx
+  char *v13; // rcx
   unsigned int j; // edi
   unsigned __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // rax
-  int v18; // r8d
+  char *v16; // rdx
+  PIMAGE_NT_HEADERS v17; // rax
+  DWORD CheckSum; // r8d
   unsigned __int64 v19; // rcx
-  __int64 v20; // rdx
+  char *v20; // rdx
   unsigned __int64 v21; // rsi
-  unsigned __int64 v22; // rcx
-  __int64 v23; // rax
-  __int64 v24; // rax
+  char *v22; // rcx
+  HANDLE v23; // rax
+  PVOID v24; // rax
   __int64 v25; // rax
-  __int64 v26; // rax
-  __int64 v27; // rcx
-  __int64 Heap; // rax
+  HANDLE v26; // rax
+  char *v27; // rcx
+  PVOID Heap; // rax
   unsigned __int64 v29; // rbx
-  unsigned __int64 v30; // rcx
+  char *v30; // rcx
 
   if ( !a1 || (a6 & 0xFFFFFFCC) != 0 || (a6 & 3) == 3 || (a6 & 1) != 0 && !a2 )
     return 0;
-  RtlAcquireSRWLockExclusive(&qword_1801664B0);
+  RtlAcquireSRWLockExclusive(&stru_1801664B0);
   for ( i = 0; ; ++i )
   {
     if ( i >= dword_180164340 )
       goto LABEL_10;
     v12 = (unsigned __int64)i << 6;
-    v13 = v12 + qword_180164338;
-    if ( *(_QWORD *)(v12 + qword_180164338 + 8) != a1 )
+    v13 = (char *)BaseAddress + v12;
+    if ( *(_QWORD *)((char *)BaseAddress + v12 + 8) != a1 )
     {
       if ( (a6 & 0x10) != 0
         && dword_18016434C
-        && (unsigned __int64)(*(_QWORD *)(v13 + 40) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
+        && (unsigned __int64)(*((_QWORD *)v13 + 5) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
       {
         sub_1800E0728(v13, 0LL);
       }
       continue;
     }
-    if ( (a6 & 2) != 0 && *(_QWORD *)(v13 + 16) )
+    if ( (a6 & 2) != 0 && *((_QWORD *)v13 + 2) )
       goto LABEL_73;
-    if ( (a6 & 1) != 0 && *(_QWORD *)(v13 + 32) && a5 && *(_WORD *)v13 == a5 )
+    if ( (a6 & 1) != 0 && *((_QWORD *)v13 + 4) && a5 && *(_WORD *)v13 == a5 )
       break;
   }
   if ( *a2 == -1LL )
   {
 LABEL_50:
-    v27 = qword_180164338;
-    *a2 = *(_QWORD *)(v12 + qword_180164338 + 32);
+    v27 = (char *)BaseAddress;
+    *a2 = *(_QWORD *)((char *)BaseAddress + v12 + 32);
     if ( a3 )
-      *a3 = *(_QWORD *)(v12 + v27 + 40);
+      *a3 = *(HANDLE *)&v27[v12 + 40];
     goto LABEL_73;
   }
   if ( (a6 & 0x20) == 0 )
   {
-    ZwUnmapViewOfSection(-1LL);
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(*a2 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( a3 )
       ZwClose(*a3);
     goto LABEL_50;
   }
-  if ( *(_QWORD *)(v13 + 32) == -1LL )
-    *(_QWORD *)(v13 + 32) = 0LL;
+  if ( *((_QWORD *)v13 + 4) == -1LL )
+    *((_QWORD *)v13 + 4) = 0LL;
 LABEL_10:
   if ( (a6 & 0x10) != 0 )
     goto LABEL_73;
-  if ( qword_180164338 )
+  if ( BaseAddress )
   {
     if ( dword_180164340 >= (unsigned int)dword_180164344 )
     {
       Heap = RtlReAllocateHeap(
-               (__int64)NtCurrentPeb()->ProcessHeap,
+               NtCurrentPeb()->ProcessHeap,
                8u,
-               qword_180164338,
+               BaseAddress,
                (unsigned __int64)(unsigned int)(dword_180164344 + 32) << 6);
       if ( !Heap )
         goto LABEL_73;
-      qword_180164338 = Heap;
+      BaseAddress = Heap;
       dword_180164344 += 32;
     }
   }
   else
   {
-    v24 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2048LL);
+    v24 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x800uLL);
     if ( !v24 )
       goto LABEL_73;
-    qword_180164338 = v24;
+    BaseAddress = v24;
     dword_180164344 = 32;
   }
   for ( j = 0; j < dword_180164340; ++j )
   {
     v15 = (unsigned __int64)j << 6;
-    v16 = qword_180164338;
-    if ( *(_QWORD *)(v15 + qword_180164338 + 8) == a1 )
+    v16 = (char *)BaseAddress;
+    if ( *(_QWORD *)((char *)BaseAddress + v15 + 8) == a1 )
     {
-      if ( (a6 & 2) != 0 && !*(_QWORD *)(v15 + qword_180164338 + 16) )
+      if ( (a6 & 2) != 0 && !*(_QWORD *)((char *)BaseAddress + v15 + 16) )
       {
-        *(_QWORD *)(v15 + qword_180164338 + 16) = a4;
-        *(_DWORD *)(v15 + v16 + 56) = a7;
+        *(_QWORD *)((char *)BaseAddress + v15 + 16) = a4;
+        *(_DWORD *)&v16[v15 + 56] = a7;
         goto LABEL_73;
       }
       if ( (a6 & 1) != 0 )
       {
         v21 = (unsigned __int64)j << 6;
-        v22 = v21 + qword_180164338;
-        if ( !*(_QWORD *)(v21 + qword_180164338 + 32) && (!*(_WORD *)v22 || *(_WORD *)v22 == a5) )
+        v22 = (char *)BaseAddress + v21;
+        if ( !*(_QWORD *)((char *)BaseAddress + v21 + 32) && (!*(_WORD *)v22 || *(_WORD *)v22 == a5) )
         {
-          *(_QWORD *)(v22 + 32) = *a2;
+          *((_QWORD *)v22 + 4) = *a2;
           if ( a3 )
             v23 = *a3;
           else
             v23 = 0LL;
-          *(_QWORD *)(v22 + 40) = v23;
+          *((_QWORD *)v22 + 5) = v23;
           *(_WORD *)v22 = a5;
-          *(_DWORD *)(v22 + 56) = a7;
-          *(_QWORD *)(v22 + 48) = a8;
+          *((_DWORD *)v22 + 14) = a7;
+          *((_QWORD *)v22 + 6) = a8;
           if ( dword_18016434C )
           {
             LOBYTE(v16) = 1;
             if ( (int)sub_1800E0728(v22, v16) >= 0
               && (dword_18016434C & 2) != 0
-              && *(_DWORD *)(v21 + qword_180164338 + 56) == -1073741799 )
+              && *(_DWORD *)((char *)BaseAddress + v21 + 56) == -1073741799 )
             {
-              *a2 = *(_QWORD *)(v21 + qword_180164338 + 32);
+              *a2 = *(_QWORD *)((char *)BaseAddress + v21 + 32);
             }
           }
           goto LABEL_73;
@@ -149,55 +149,55 @@ LABEL_10:
       }
     }
   }
-  v17 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+  v17 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
   if ( v17 )
   {
-    v18 = *(_DWORD *)(v17 + 88);
+    CheckSum = v17->OptionalHeader.CheckSum;
     v19 = (unsigned __int64)(unsigned int)dword_180164340 << 6;
-    v20 = qword_180164338;
-    *(_QWORD *)(v19 + qword_180164338 + 8) = a1;
-    *(_QWORD *)(v19 + v20 + 16) = a4;
+    v20 = (char *)BaseAddress;
+    *(_QWORD *)((char *)BaseAddress + v19 + 8) = a1;
+    *(_QWORD *)&v20[v19 + 16] = a4;
     if ( (a6 & 1) != 0 )
     {
       if ( a2 )
         v25 = *a2;
       else
         v25 = 0LL;
-      *(_QWORD *)(v19 + v20 + 32) = v25;
+      *(_QWORD *)&v20[v19 + 32] = v25;
       if ( a3 )
         v26 = *a3;
       else
         v26 = 0LL;
-      *(_QWORD *)(v19 + v20 + 40) = v26;
-      *(_QWORD *)(v19 + v20 + 48) = a8;
+      *(_QWORD *)&v20[v19 + 40] = v26;
+      *(_QWORD *)&v20[v19 + 48] = a8;
     }
     else
     {
-      *(_QWORD *)(v19 + v20 + 32) = 0LL;
-      *(_QWORD *)(v19 + v20 + 40) = 0LL;
-      *(_QWORD *)(v19 + v20 + 48) = 0LL;
+      *(_QWORD *)&v20[v19 + 32] = 0LL;
+      *(_QWORD *)&v20[v19 + 40] = 0LL;
+      *(_QWORD *)&v20[v19 + 48] = 0LL;
     }
-    *(_WORD *)(v19 + v20) = a5;
-    *(_DWORD *)(v19 + v20 + 24) = v18;
-    *(_DWORD *)(v19 + v20 + 56) = a7;
+    *(_WORD *)&v20[v19] = a5;
+    *(_DWORD *)&v20[v19 + 24] = CheckSum;
+    *(_DWORD *)&v20[v19 + 56] = a7;
     if ( dword_18016434C )
     {
       if ( (a6 & 1) != 0 )
       {
         v29 = (unsigned __int64)j << 6;
-        v30 = v29 + v20;
+        v30 = &v20[v29];
         LOBYTE(v20) = 1;
         if ( (int)sub_1800E0728(v30, v20) >= 0
           && (dword_18016434C & 2) != 0
-          && *(_DWORD *)(v29 + qword_180164338 + 56) == -1073741799 )
+          && *(_DWORD *)((char *)BaseAddress + v29 + 56) == -1073741799 )
         {
-          *a2 = *(_QWORD *)(v29 + qword_180164338 + 32);
+          *a2 = *(_QWORD *)((char *)BaseAddress + v29 + 32);
         }
       }
     }
     ++dword_180164340;
   }
 LABEL_73:
-  RtlReleaseSRWLockExclusive(&qword_1801664B0);
+  RtlReleaseSRWLockExclusive(&stru_1801664B0);
   return 1;
 }

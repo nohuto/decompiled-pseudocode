@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStackTheftFreezeProcessors @ 0x1401E65E4
+ * XREFs of MiStackTheftFreezeProcessors @ 0x1401E6410
  * Callers:
- *     MiJumpStackTarget @ 0x1401E63E8 (MiJumpStackTarget.c)
+ *     MiJumpStackTarget @ 0x1401E6214 (MiJumpStackTarget.c)
  * Callees:
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x14012FA64 (KeIpiGenericCall.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x14012FFD4 (KeIpiGenericCall.c)
  */
 
 __int64 __fastcall MiStackTheftFreezeProcessors(ULONG_PTR Context)

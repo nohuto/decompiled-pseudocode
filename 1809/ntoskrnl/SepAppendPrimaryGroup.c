@@ -1,9 +1,9 @@
 /*
- * XREFs of SepAppendPrimaryGroup @ 0x14089BE40
+ * XREFs of SepAppendPrimaryGroup @ 0x14089D0A0
  * Callers:
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 void *__fastcall SepAppendPrimaryGroup(__int64 a1, unsigned __int8 *a2)

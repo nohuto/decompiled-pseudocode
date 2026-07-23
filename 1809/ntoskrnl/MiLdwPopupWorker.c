@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLdwPopupWorker @ 0x14084E920
+ * XREFs of MiLdwPopupWorker @ 0x14084FB80
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     CcMmLogLostDelayedWriteError @ 0x140269C40 (CcMmLogLostDelayedWriteError.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140269E30 (CcMmLogLostDelayedWriteError.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 LONG_PTR __fastcall MiLdwPopupWorker(__int64 a1)

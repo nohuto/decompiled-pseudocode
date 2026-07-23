@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCancelIrpsInCurrentThreadList @ 0x1400A1F6C
+ * XREFs of IopCancelIrpsInCurrentThreadList @ 0x1400A0894
  * Callers:
- *     IopCancelIrpsInCurrentThreadListApcRoutine @ 0x1404CC87C (IopCancelIrpsInCurrentThreadListApcRoutine.c)
- *     IopCancelIrpsInThreadList @ 0x1404CC8BC (IopCancelIrpsInThreadList.c)
+ *     IopCancelIrpsInCurrentThreadListApcRoutine @ 0x1404B22A8 (IopCancelIrpsInCurrentThreadListApcRoutine.c)
+ *     IopCancelIrpsInThreadList @ 0x1404B22E8 (IopCancelIrpsInThreadList.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall IopCancelIrpsInCurrentThreadList(__int64 a1, __int64 a2, __int64 a3, char a4)

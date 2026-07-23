@@ -1,10 +1,10 @@
 /*
- * XREFs of PopManageTransitionRecordRequest @ 0x140984498
+ * XREFs of PopManageTransitionRecordRequest @ 0x140984698
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     PoDelistPowerStateTransitionBlocker @ 0x140AA616C (PoDelistPowerStateTransitionBlocker.c)
- *     PopPushPowerStateTransitionRecord @ 0x140AA620C (PopPushPowerStateTransitionRecord.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA5FDC (PoDelistPowerStateTransitionBlocker.c)
+ *     PopPushPowerStateTransitionRecord @ 0x140AA607C (PopPushPowerStateTransitionRecord.c)
  */
 
 __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64 a3, __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64
     return 3221225485LL;
   if ( (unsigned int)a3 < 0x28 )
     return 3221225507LL;
-  if ( (unsigned int)(dword_140C3D264 - 1) > 1 )
+  if ( (unsigned int)(dword_140C3CF24 - 1) > 1 )
     return 3221226195LL;
   v5 = *(unsigned int *)(a2 + 8);
   if ( (_DWORD)v5 )

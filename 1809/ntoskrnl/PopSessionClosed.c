@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSessionClosed @ 0x1406E13F8
+ * XREFs of PopSessionClosed @ 0x1406E2698
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
- *     PopFreeSessionState @ 0x1406E1438 (PopFreeSessionState.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     PopDiagTraceSessionStates @ 0x1406DD9F0 (PopDiagTraceSessionStates.c)
+ *     PopFreeSessionState @ 0x1406E26D8 (PopFreeSessionState.c)
  */
 
 __int64 __fastcall PopSessionClosed(unsigned int a1)

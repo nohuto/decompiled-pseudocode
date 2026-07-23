@@ -6,16 +6,16 @@
  * Callees:
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     PnpSetCustomTargetEvent @ 0x14078AB30 (PnpSetCustomTargetEvent.c)
+ *     sub_14078AB30 @ 0x14078AB30 (sub_14078AB30.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObject, PVOID NotificationStructure)
 {
   _DWORD *DeviceNode; // rcx
-  GUID *v5; // rdi
+  __int128 *v5; // rdi
   int v6; // eax
   int v7; // ecx
   NTSTATUS result; // eax
@@ -38,16 +38,16 @@ NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObjec
   DeviceNode = PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;
   if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
   {
-    IoAddTriageDumpDataBlock((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
+    sub_1403D99B4((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
     DriverObject = PhysicalDeviceObject->DriverObject;
     if ( DriverObject )
     {
-      IoAddTriageDumpDataBlock((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
+      sub_1403D99B4((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
       p_DriverName = &PhysicalDeviceObject->DriverObject->DriverName;
       if ( p_DriverName->Length )
       {
-        IoAddTriageDumpDataBlock((ULONG)p_DriverName, (PVOID)2);
-        IoAddTriageDumpDataBlock(
+        sub_1403D99B4((ULONG)p_DriverName, (PVOID)2);
+        sub_1403D99B4(
           (ULONG)PhysicalDeviceObject->DriverObject->DriverName.Buffer,
           (PVOID)PhysicalDeviceObject->DriverObject->DriverName.Length);
       }
@@ -56,18 +56,18 @@ NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObjec
     if ( v11 )
     {
       v12 = (unsigned __int16 *)(v11 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x310);
+      sub_1403D99B4((ULONG)v11, (PVOID)0x310);
       if ( *v12 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
-        IoAddTriageDumpDataBlock(*((_QWORD *)v12 + 1), (PVOID)*v12);
+        sub_1403D99B4((ULONG)v12, (PVOID)2);
+        sub_1403D99B4(*((_QWORD *)v12 + 1), (PVOID)*v12);
       }
       DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
       v14 = (char *)DeviceObjectExtension->DeviceNode + 56;
       if ( *v14 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
-        IoAddTriageDumpDataBlock(
+        sub_1403D99B4((ULONG)v14, (PVOID)2);
+        sub_1403D99B4(
           *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
         DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
@@ -78,27 +78,27 @@ NTSTATUS __stdcall IoReportTargetDeviceChange(PDEVICE_OBJECT PhysicalDeviceObjec
         v16 = (_WORD *)(v15 + 56);
         if ( *v16 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+          sub_1403D99B4((ULONG)v16, (PVOID)2);
           v17 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+          sub_1403D99B4(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
         }
       }
     }
 LABEL_29:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
   }
-  v5 = (GUID *)((char *)NotificationStructure + 4);
-  if ( (char *)NotificationStructure + 4 == (char *)&GUID_TARGET_DEVICE_QUERY_REMOVE )
+  v5 = (__int128 *)((char *)NotificationStructure + 4);
+  if ( (char *)NotificationStructure + 4 == (char *)&qword_140010CE8 )
     return -1073741808;
-  if ( RtlCompareMemory(v5, &GUID_TARGET_DEVICE_QUERY_REMOVE, 0x10uLL) == 16 )
+  if ( RtlCompareMemory(v5, &qword_140010CE8, 0x10uLL) == 16 )
     return -1073741808;
-  if ( v5 == &GUID_TARGET_DEVICE_REMOVE_CANCELLED )
+  if ( v5 == &xmmword_140010CC8 )
     return -1073741808;
-  if ( RtlCompareMemory(v5, &GUID_TARGET_DEVICE_REMOVE_CANCELLED, 0x10uLL) == 16 )
+  if ( RtlCompareMemory(v5, &xmmword_140010CC8, 0x10uLL) == 16 )
     return -1073741808;
-  if ( v5 == &GUID_TARGET_DEVICE_REMOVE_COMPLETE )
+  if ( v5 == &xmmword_140010CF8 )
     return -1073741808;
-  if ( RtlCompareMemory(v5, &GUID_TARGET_DEVICE_REMOVE_COMPLETE, 0x10uLL) == 16 )
+  if ( RtlCompareMemory(v5, &xmmword_140010CF8, 0x10uLL) == 16 )
     return -1073741808;
   v6 = *((unsigned __int16 *)NotificationStructure + 1);
   if ( (unsigned __int16)v6 < 0x24u )
@@ -107,7 +107,7 @@ LABEL_29:
   if ( v7 != -1 && v7 > v6 - 36 )
     return -1073741808;
   KeInitializeEvent(&Event, NotificationEvent, 0);
-  result = PnpSetCustomTargetEvent(
+  result = sub_14078AB30(
              PhysicalDeviceObject,
              (__int64)&Event,
              &v19,

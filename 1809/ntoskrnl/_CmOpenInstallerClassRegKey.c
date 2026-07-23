@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmOpenInstallerClassRegKey @ 0x14059EB8C
+ * XREFs of _CmOpenInstallerClassRegKey @ 0x14059FB8C
  * Callers:
- *     PiCMOpenClassKey @ 0x1406A6D20 (PiCMOpenClassKey.c)
- *     _CmGetDeviceSoftwareKey @ 0x1406B2464 (_CmGetDeviceSoftwareKey.c)
- *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
- *     PpForEachDeviceInstanceDriver @ 0x1406EE4FC (PpForEachDeviceInstanceDriver.c)
- *     _PnpDispatchInstallerClass @ 0x1406F09B0 (_PnpDispatchInstallerClass.c)
- *     _CmGetInstallerClassCompoundFilters @ 0x1406F0F5C (_CmGetInstallerClassCompoundFilters.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x1406F13A8 (_CmGetInstallerClassRegPropWorker.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1406F161C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmCreateInstallerClassWorker @ 0x1408F6200 (_CmCreateInstallerClassWorker.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x1408F854C (_CmSetInstallerClassRegPropWorker.c)
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408FD10C (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x1408FF888 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     PiCMOpenClassKey @ 0x1406A7FC0 (PiCMOpenClassKey.c)
+ *     _CmGetDeviceSoftwareKey @ 0x1406B3704 (_CmGetDeviceSoftwareKey.c)
+ *     PipCallDriverAddDevice @ 0x1406E7EEC (PipCallDriverAddDevice.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1406EF79C (PpForEachDeviceInstanceDriver.c)
+ *     _PnpDispatchInstallerClass @ 0x1406F1C50 (_PnpDispatchInstallerClass.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1406F21FC (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x1406F2648 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1406F28BC (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmCreateInstallerClassWorker @ 0x1408F74C0 (_CmCreateInstallerClassWorker.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x1408F980C (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408FE3CC (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140900B48 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  * Callees:
- *     _CmOpenCommonClassRegKey @ 0x14059EBD4 (_CmOpenCommonClassRegKey.c)
+ *     _CmOpenCommonClassRegKey @ 0x14059FBD4 (_CmOpenCommonClassRegKey.c)
  */
 
 __int64 __fastcall CmOpenInstallerClassRegKey(

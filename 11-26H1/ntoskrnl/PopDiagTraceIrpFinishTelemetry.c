@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x14021A4A4
+ * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x14021BE34
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x14021A300 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinish @ 0x14021BC90 (PopDiagTraceIrpFinish.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopComputeWatchdogTimeout @ 0x1403AAE28 (PopComputeWatchdogTimeout.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     PopDiagGetDriverName @ 0x140486FD8 (PopDiagGetDriverName.c)
- *     IoFindDeviceThatFailedIrp @ 0x1404D3D90 (IoFindDeviceThatFailedIrp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopComputeWatchdogTimeout @ 0x1403B4B38 (PopComputeWatchdogTimeout.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     PopDiagGetDriverName @ 0x1404809A8 (PopDiagGetDriverName.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1404CD600 (IoFindDeviceThatFailedIrp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
@@ -81,9 +81,9 @@ void __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
         v1 = (const WCHAR *)v45;
     }
     v14 = (unsigned int)PopComputeWatchdogTimeout(v3);
-    if ( (unsigned int)dword_140E07598 > 5
-      && (qword_140E075A8 & 0x400000000000LL) != 0
-      && (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+    if ( (unsigned int)dword_140E07560 > 5
+      && (qword_140E07570 & 0x400000000000LL) != 0
+      && (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
     {
       v19 = v8;
       v28 = &v19;
@@ -111,8 +111,8 @@ void __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
       v26 = 0x1000000LL;
       v44 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E07598,
-        (unsigned __int8 *)&dword_14004CAE4,
+        (__int64)&dword_140E07560,
+        (unsigned __int8 *)&byte_14004D707,
         0LL,
         0LL,
         0xBu,

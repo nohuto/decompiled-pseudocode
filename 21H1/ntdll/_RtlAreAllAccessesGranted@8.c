@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __stdcall RtlAreAllAccessesGranted(int a1, int a2)
+BOOLEAN __cdecl RtlAreAllAccessesGranted(ACCESS_MASK GrantedAccess, ACCESS_MASK DesiredAccess)
 {
-  return (a2 & ~a1) == 0;
+  return (DesiredAccess & ~GrantedAccess) == 0;
 }

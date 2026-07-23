@@ -1,54 +1,54 @@
 /*
- * XREFs of KiQueueReadyThread @ 0x140223650
+ * XREFs of KiQueueReadyThread @ 0x140224FE0
  * Callers:
- *     KiDispatchInterrupt @ 0x140223290 (KiDispatchInterrupt.c)
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
+ *     KiDispatchInterrupt @ 0x140224C20 (KiDispatchInterrupt.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
  * Callees:
- *     EtwTraceReadyQueueInsertion @ 0x14022476C (EtwTraceReadyQueueInsertion.c)
- *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x140224840 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiEnterDeferredReadyState @ 0x14022E6D0 (KiEnterDeferredReadyState.c)
- *     KiIsThreadExemptFromForcePark @ 0x14022F9EC (KiIsThreadExemptFromForcePark.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14022FA40 (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiShouldPreemptionBeDeferred @ 0x140230510 (KiShouldPreemptionBeDeferred.c)
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiQueryQuantumReset @ 0x140239A30 (KiQueryQuantumReset.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiScheduleSoftParkElectionIfNecessary @ 0x1402BDF30 (KiScheduleSoftParkElectionIfNecessary.c)
- *     KiCheckPrcbAffinityEx @ 0x1402BDFC0 (KiCheckPrcbAffinityEx.c)
- *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x1402BF0FC (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     ?KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x140335F70 (-KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z.c)
- *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140336618 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14033678C (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiChargeSchedulingGroupCycleTime@@YAEPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@@Z @ 0x140336890 (-KiChargeSchedulingGroupCycleTime@@YAEPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@@Z.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1403C0220 (KiUpdateVPBackingThreadPriority.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x14042C030 (KeInterlockedSetProcessorAffinityEx.c)
- *     ?KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x140445CD8 (-KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@.c)
- *     KiCheckThreadAffinity @ 0x140463360 (KiCheckThreadAffinity.c)
- *     ?KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z @ 0x140467070 (-KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z.c)
- *     KiComputeNewPriority @ 0x14048C910 (KiComputeNewPriority.c)
- *     KiTryScheduleNextForegroundBoost @ 0x140493E74 (KiTryScheduleNextForegroundBoost.c)
- *     KiAddThreadToScbQueue @ 0x1404AC16C (KiAddThreadToScbQueue.c)
- *     KiSetClockTimerDeadlineNoWake @ 0x1404E7144 (KiSetClockTimerDeadlineNoWake.c)
- *     EtwTraceIdealProcessor @ 0x1404E78D8 (EtwTraceIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x14050D0F8 (EtwTraceThreadAffinity.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x140529008 (KiArmForceParkDutyCyclingForSharedReadyQueue.c)
- *     EtwTraceScbRankChange @ 0x1406C4D3C (EtwTraceScbRankChange.c)
+ *     EtwTraceReadyQueueInsertion @ 0x1402260FC (EtwTraceReadyQueueInsertion.c)
+ *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x1402261D0 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiEnterDeferredReadyState @ 0x140230060 (KiEnterDeferredReadyState.c)
+ *     KiIsThreadExemptFromForcePark @ 0x14023137C (KiIsThreadExemptFromForcePark.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402313D0 (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiShouldPreemptionBeDeferred @ 0x140231EA0 (KiShouldPreemptionBeDeferred.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiQueryQuantumReset @ 0x14023B390 (KiQueryQuantumReset.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140308BF0 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KiCheckPrcbAffinityEx @ 0x140308C80 (KiCheckPrcbAffinityEx.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x140309DBC (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     ?KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x140337FA0 (-KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z.c)
+ *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x140338648 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1403387BC (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiChargeSchedulingGroupCycleTime@@YAEPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@@Z @ 0x1403388C0 (-KiChargeSchedulingGroupCycleTime@@YAEPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@@Z.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1403CA120 (KiUpdateVPBackingThreadPriority.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140420700 (KeInterlockedSetProcessorAffinityEx.c)
+ *     ?KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x14043E7DC (-KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@.c)
+ *     KiCheckThreadAffinity @ 0x14045C320 (KiCheckThreadAffinity.c)
+ *     ?KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z @ 0x1404607C0 (-KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     KiComputeNewPriority @ 0x140486450 (KiComputeNewPriority.c)
+ *     KiTryScheduleNextForegroundBoost @ 0x14048D9C4 (KiTryScheduleNextForegroundBoost.c)
+ *     KiAddThreadToScbQueue @ 0x1404A57FC (KiAddThreadToScbQueue.c)
+ *     KiSetClockTimerDeadlineNoWake @ 0x1404E0500 (KiSetClockTimerDeadlineNoWake.c)
+ *     EtwTraceIdealProcessor @ 0x1404E0C98 (EtwTraceIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x140506B68 (EtwTraceThreadAffinity.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x14052B5F8 (KiArmForceParkDutyCyclingForSharedReadyQueue.c)
+ *     EtwTraceScbRankChange @ 0x1406C897C (EtwTraceScbRankChange.c)
  */
 
 _KTHREAD *__fastcall KiQueueReadyThread(struct _KPRCB *a1, unsigned __int64 a2, __int64 RunningSummary, int a4)
@@ -340,7 +340,7 @@ LABEL_3:
             }
           }
         }
-        if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0
+        if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0
           && (Rank != v10->Rank || (v79 != 0) != ((v10->PrcbLockFlags >> 1) & 1)) )
         {
           v10->PrcbLockFlags |= 0x100u;
@@ -875,7 +875,7 @@ LABEL_80:
   KiAddThreadToScbQueue(v8, v50);
 LABEL_87:
   v63 = 0;
-  if ( (WORD2(xmmword_140FBFC10) & 0x800) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x800) != 0 )
   {
     v63 = 1;
     _InterlockedIncrement16((volatile signed __int16 *)v7 + 434);
@@ -947,7 +947,7 @@ LABEL_95:
     LOBYTE(v116) = (*((_DWORD *)v7 + 29) & 8) != 0;
     result = (_KTHREAD *)EtwTraceThreadAffinity((_DWORD)v7, *((unsigned __int16 *)v7 + 292), v116, 0, v7[72], 1334);
   }
-  if ( v125 != v124 && (xmmword_140FBFC10 & 0x8000000) != 0 )
+  if ( v125 != v124 && (xmmword_140FC0C10 & 0x8000000) != 0 )
     return (_KTHREAD *)EtwTraceIdealProcessor(v7, 1350LL, v125, v124);
   return result;
 }

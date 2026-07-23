@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpGenerateFileName @ 0x1800888C4
+ * XREFs of EtwpGenerateFileName @ 0x1800888D4
  * Callers:
  *     EtwpAddLogHeaderToLogFile @ 0x1800514D0 (EtwpAddLogHeaderToLogFile.c)
  * Callees:
  *     RtlFreeAnsiString @ 0x18002A5F0 (RtlFreeAnsiString.c)
  *     RtlCreateUnicodeString @ 0x1800427A0 (RtlCreateUnicodeString.c)
  *     RtlNtStatusToDosError @ 0x18004EDE0 (RtlNtStatusToDosError.c)
- *     StringCbPrintfW @ 0x1800889C0 (StringCbPrintfW.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     memcmp @ 0x180093CB0 (memcmp.c)
- *     wcschr @ 0x180095A40 (wcschr.c)
- *     wcsrchr @ 0x180095C80 (wcsrchr.c)
- *     wcsstr @ 0x180095D10 (wcsstr.c)
+ *     StringCbPrintfW @ 0x1800889D0 (StringCbPrintfW.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     memcmp @ 0x180093CC0 (memcmp.c)
+ *     wcschr @ 0x180095A50 (wcschr.c)
+ *     wcsrchr @ 0x180095C90 (wcsrchr.c)
+ *     wcsstr @ 0x180095D20 (wcsstr.c)
  */
 
-ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int32 *a2, UNICODE_STRING *a3)
+ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int32 *a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // rsi
   NTSTATUS v8; // ecx
@@ -27,7 +27,7 @@ ULONG __fastcall EtwpGenerateFileName(const wchar_t **a1, volatile signed __int3
       && memcmp(a1[1], pszDest, *(unsigned __int16 *)a1) )
     {
       RtlFreeAnsiString(a3);
-      RtlCreateUnicodeString((__int64)a3, pszDest);
+      RtlCreateUnicodeString(a3, pszDest);
       return 0;
     }
     v8 = -1073741776;

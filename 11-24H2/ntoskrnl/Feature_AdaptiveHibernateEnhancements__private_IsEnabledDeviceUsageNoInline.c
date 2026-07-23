@@ -1,21 +1,22 @@
 /*
- * XREFs of Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D787C
+ * XREFs of Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D4DFC
  * Callers:
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1407596E0 (PopPowerAggregatorHandleModernStandbyIntent.c)
- *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140759914 (PopPowerAggregatorNotifyPdcPhaseState.c)
- *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140759F40 (PopPowerAggregatorTriggerAdaptiveAction.c)
- *     PopDelayedPdcRegistrationWorker @ 0x14075D450 (PopDelayedPdcRegistrationWorker.c)
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407604EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
- *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x140760D48 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
- *     PopAdaptiveStandbyHandleBatteryUpdate @ 0x140761118 (PopAdaptiveStandbyHandleBatteryUpdate.c)
- *     PopAdaptiveStandbyInitialize @ 0x1407617F8 (PopAdaptiveStandbyInitialize.c)
- *     PopAdaptiveStandbySessionStart @ 0x140762088 (PopAdaptiveStandbySessionStart.c)
- *     PopAdaptiveStandbySessionStop @ 0x1407622D0 (PopAdaptiveStandbySessionStop.c)
- *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x1407624E0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
- *     PopAdaptiveStandbyTraceSessionSettings @ 0x14076298C (PopAdaptiveStandbyTraceSessionSettings.c)
- *     PopAdaptiveStandbyWnfCallback @ 0x140762DD0 (PopAdaptiveStandbyWnfCallback.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140757B40 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140757DB4 (PopPowerAggregatorNotifyPdcPhaseState.c)
+ *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140758390 (PopPowerAggregatorTriggerAdaptiveAction.c)
+ *     PopDelayedPdcRegistrationWorker @ 0x14075C3F0 (PopDelayedPdcRegistrationWorker.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x14075F4EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x14075FEF4 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
+ *     PopAdaptiveStandbyHandleBatteryUpdate @ 0x140760484 (PopAdaptiveStandbyHandleBatteryUpdate.c)
+ *     PopAdaptiveStandbyInitialize @ 0x140760B64 (PopAdaptiveStandbyInitialize.c)
+ *     PopAdaptiveStandbyPowerSettingCallback @ 0x1407612D0 (PopAdaptiveStandbyPowerSettingCallback.c)
+ *     PopAdaptiveStandbySessionStart @ 0x140761630 (PopAdaptiveStandbySessionStart.c)
+ *     PopAdaptiveStandbySessionStop @ 0x1407619D0 (PopAdaptiveStandbySessionStop.c)
+ *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x140761CB0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
+ *     PopAdaptiveStandbyTraceSessionSettings @ 0x14076215C (PopAdaptiveStandbyTraceSessionSettings.c)
+ *     PopAdaptiveStandbyWnfCallback @ 0x140762640 (PopAdaptiveStandbyWnfCallback.c)
  * Callees:
- *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledFallback @ 0x1405D78B4 (Feature_AdaptiveHibernateEnhancements__private_IsEnabledFallback.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledFallback @ 0x1405D4E34 (Feature_AdaptiveHibernateEnhancements__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline()

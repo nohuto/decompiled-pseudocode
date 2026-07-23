@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPfIssueCoalescedSupport @ 0x1404CB7F0
+ * XREFs of MiPfIssueCoalescedSupport @ 0x1404C5220
  * Callers:
- *     MiPfIssueCoalesceCandidates @ 0x14039FF60 (MiPfIssueCoalesceCandidates.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1403A1CC0 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     IoPageReadEx @ 0x14026BD90 (IoPageReadEx.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiInitializeInPageSupport @ 0x140397270 (MiInitializeInPageSupport.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     IoPageReadEx @ 0x14026B300 (IoPageReadEx.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiInitializeInPageSupport @ 0x140398FF0 (MiInitializeInPageSupport.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 struct _LIST_ENTRY *__fastcall MiPfIssueCoalescedSupport(_QWORD *a1, unsigned int a2)
@@ -80,7 +80,7 @@ struct _LIST_ENTRY *__fastcall MiPfIssueCoalescedSupport(_QWORD *a1, unsigned in
           v15 = (unsigned int)(*((_DWORD *)v11 + 24) - v5);
           v5 += v15;
           v9 += v15;
-          memset64(v7, qword_140E35FF8, (unsigned __int64)(8 * ((unsigned int)v15 >> 12)) >> 3);
+          memset64(v7, qword_140E36178, (unsigned __int64)(8 * ((unsigned int)v15 >> 12)) >> 3);
           v7 = (struct _LIST_ENTRY *)((char *)v7 + 8 * ((unsigned __int64)(8 * ((unsigned int)v15 >> 12)) >> 3));
         }
       }

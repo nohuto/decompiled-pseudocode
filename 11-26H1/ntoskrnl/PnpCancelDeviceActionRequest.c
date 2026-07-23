@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpCancelDeviceActionRequest @ 0x1405DB734
+ * XREFs of PnpCancelDeviceActionRequest @ 0x1405DDFE4
  * Callers:
- *     PiCMDeviceAction @ 0x14098CC84 (PiCMDeviceAction.c)
- *     PiControlGetSetDeviceStatus @ 0x1409A74C0 (PiControlGetSetDeviceStatus.c)
- *     PiQueueDeviceRequest @ 0x140B60570 (PiQueueDeviceRequest.c)
+ *     PiCMDeviceAction @ 0x14094D6E4 (PiCMDeviceAction.c)
+ *     PiControlGetSetDeviceStatus @ 0x140967F20 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x140B63610 (PiQueueDeviceRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 void __fastcall PnpCancelDeviceActionRequest(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

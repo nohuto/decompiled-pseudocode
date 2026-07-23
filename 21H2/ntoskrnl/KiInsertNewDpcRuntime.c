@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInsertNewDpcRuntime @ 0x140522C18
+ * XREFs of KiInsertNewDpcRuntime @ 0x140522E58
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402472B0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x1402EBB00 (KiExecuteAllDpcs.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     KiDpcRuntimeHistoryHashTableAllocate @ 0x140522BF4 (KiDpcRuntimeHistoryHashTableAllocate.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     KiDpcRuntimeHistoryHashTableAllocate @ 0x140522E34 (KiDpcRuntimeHistoryHashTableAllocate.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall KiInsertNewDpcRuntime(__int64 a1, __int64 a2, __int64 a3)

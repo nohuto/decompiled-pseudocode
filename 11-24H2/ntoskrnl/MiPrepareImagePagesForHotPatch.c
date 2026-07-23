@@ -1,26 +1,26 @@
 /*
- * XREFs of MiPrepareImagePagesForHotPatch @ 0x14067D29C
+ * XREFs of MiPrepareImagePagesForHotPatch @ 0x14067E494
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x1407F5540 (MiPrepareToHotPatchImage.c)
- *     MmPrepareImagePagesForHotPatch @ 0x1407F6184 (MmPrepareImagePagesForHotPatch.c)
+ *     MiPrepareToHotPatchImage @ 0x1407F5C30 (MiPrepareToHotPatchImage.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x1407F68F8 (MmPrepareImagePagesForHotPatch.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x1402176A0 (MiMakeSystemAddressValid.c)
- *     MiCountSharedPages @ 0x140235F64 (MiCountSharedPages.c)
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiGetProtoPteAddress @ 0x140301740 (MiGetProtoPteAddress.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiCopyOnWriteCheckConditions @ 0x140406AD8 (MiCopyOnWriteCheckConditions.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiLogHotPatchPagesLocked @ 0x1407F431C (MiLogHotPatchPagesLocked.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1409DE7C8 (MiReturnFullProcessCommitment.c)
+ *     MiCountSharedPages @ 0x1402100F4 (MiCountSharedPages.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x140244700 (MiMakeSystemAddressValid.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiGetProtoPteAddress @ 0x14030BEC0 (MiGetProtoPteAddress.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403C927C (MiCopyOnWriteCheckConditions.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLogHotPatchPagesLocked @ 0x1407F4A10 (MiLogHotPatchPagesLocked.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1409D8398 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiPrepareImagePagesForHotPatch(__int64 *a1, ULONG_PTR a2, __int64 a3)
@@ -30,198 +30,205 @@ __int64 __fastcall MiPrepareImagePagesForHotPatch(__int64 *a1, ULONG_PTR a2, __i
   __int64 v6; // rdi
   unsigned __int64 v7; // r14
   __int64 v8; // r13
-  __int64 v9; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   __int64 result; // rax
-  unsigned __int64 v11; // r12
-  int v12; // ebx
-  volatile unsigned __int64 v13; // rbx
-  __int64 v14; // rdi
-  __int64 v15; // rdi
-  unsigned int v16; // ebx
-  _KPROCESS *v17; // r9
-  int v18; // edi
-  int v19; // ebx
-  struct _MDL *v20; // rax
-  struct _MDL *v21; // rsi
-  __int64 v22; // r14
-  struct _MDL *v23; // rdi
-  unsigned __int64 v24; // r12
+  unsigned __int64 v13; // r12
+  int v14; // ebx
+  volatile unsigned __int64 v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // rdi
+  __int64 v20; // rdi
+  unsigned int v21; // ebx
+  _KPROCESS *v22; // r9
+  int v23; // edi
+  __int64 v24; // rdx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  int v27; // ebx
+  struct _MDL *v28; // rax
+  struct _MDL *v29; // rsi
+  __int64 v30; // r14
+  struct _MDL *v31; // rdi
+  unsigned __int64 v32; // r12
   unsigned __int8 CurrentIrql; // r15
-  __int64 v26; // rbx
-  unsigned __int16 v27; // cx
-  __int64 v28; // r8
-  __int64 v29; // rax
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  int v32; // [rsp+30h] [rbp-A8h]
-  __int64 v33; // [rsp+38h] [rbp-A0h]
+  __int64 v34; // rbx
+  unsigned __int16 v35; // cx
+  __int64 v36; // r8
+  __int64 v37; // rax
+  __int64 v38; // rcx
+  __int64 v39; // rdx
+  int v40; // [rsp+30h] [rbp-A8h]
+  __int64 v41; // [rsp+38h] [rbp-A0h]
   ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-98h]
-  __int64 v35; // [rsp+48h] [rbp-90h]
-  unsigned int v36; // [rsp+50h] [rbp-88h] BYREF
-  _KPROCESS *v37; // [rsp+58h] [rbp-80h]
-  __int64 v38; // [rsp+60h] [rbp-78h]
+  __int64 v43; // [rsp+48h] [rbp-90h]
+  unsigned int v44; // [rsp+50h] [rbp-88h] BYREF
+  _KPROCESS *v45; // [rsp+58h] [rbp-80h]
+  __int64 v46; // [rsp+60h] [rbp-78h]
   PMDL Mdl; // [rsp+68h] [rbp-70h]
-  __int64 v40[3]; // [rsp+70h] [rbp-68h] BYREF
-  unsigned __int64 v41; // [rsp+88h] [rbp-50h]
-  unsigned __int64 *v42; // [rsp+90h] [rbp-48h] BYREF
-  unsigned __int8 v46; // [rsp+F8h] [rbp+20h]
+  __int64 v48[3]; // [rsp+70h] [rbp-68h] BYREF
+  unsigned __int64 v49; // [rsp+88h] [rbp-50h]
+  __int64 v50[9]; // [rsp+90h] [rbp-48h] BYREF
+  unsigned __int8 v54; // [rsp+F8h] [rbp+20h]
 
-  v42 = 0LL;
-  v40[0] = 0LL;
+  v50[0] = 0LL;
+  v48[0] = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v37 = Process;
-  v40[1] = (__int64)Process;
+  v45 = Process;
+  v48[1] = (__int64)Process;
   p_Blink = (__int64)&Process[2].ReadyListHead.Blink;
   v6 = *a1;
-  v33 = v6;
-  v40[2] = *a1;
+  v41 = v6;
+  v48[2] = *a1;
   Mdl = 0LL;
   v7 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v41 = v7 + 8 * (a3 - 1);
+  v49 = v7 + 8 * (a3 - 1);
   v8 = 0LL;
-  v38 = 0LL;
-  v9 = MiCountSharedPages(v6, v7, v41);
-  v35 = v9;
-  if ( v9 )
+  v46 = 0LL;
+  v43 = MiCountSharedPages(v6, v7, v49);
+  if ( v43 )
   {
-    result = MiChargeFullProcessCommitment(Process, v9);
+    result = MiChargeFullProcessCommitment(Process);
     if ( (int)result < 0 )
       return result;
   }
   BugCheckParameter2 = a2;
-  v11 = 0LL;
-  v12 = 1;
-  v32 = 1;
-  v46 = MiLockWorkingSetShared(p_Blink);
-  while ( v7 <= v41 )
+  v13 = 0LL;
+  v14 = 1;
+  v40 = 1;
+  v54 = MiLockWorkingSetShared(p_Blink, v9, v10, v11);
+  while ( v7 <= v49 )
   {
-    if ( v12 || (v7 & 0xFFF) == 0 )
+    if ( v14 || (v7 & 0xFFF) == 0 )
     {
-      if ( v11 )
-        MiUnlockPageTableInternal(p_Blink, v11);
-      v11 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiMakeSystemAddressValid(v7, (*(_DWORD *)(v6 + 48) >> 12) & 0x7F, v46, 0);
-      v32 = 0;
+      if ( v13 )
+        MiUnlockPageTableInternal(p_Blink, v13);
+      v13 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      MiMakeSystemAddressValid(v7, (*(_DWORD *)(v6 + 48) >> 12) & 0x7F, v54, 0);
+      v40 = 0;
     }
-    v13 = *(_QWORD *)v7;
+    v15 = *(_QWORD *)v7;
     if ( (*(_QWORD *)v7 & 1) != 0 )
     {
-      v14 = 48 * ((v13 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-      if ( *(__int64 *)(v14 + 40) >= 0 || (*(_QWORD *)(v14 + 40) & 0x10000000000LL) == 0 && *(__int64 *)(v14 + 8) > 0 )
+      v19 = 48 * ((v15 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
+      if ( *(__int64 *)(v19 + 40) >= 0 || (*(_QWORD *)(v19 + 40) & 0x10000000000LL) == 0 && *(__int64 *)(v19 + 8) > 0 )
         goto LABEL_23;
-      v15 = *(_QWORD *)(v14 + 8);
-      if ( (v15 | 0x8000000000000000uLL) != MiGetProtoPteAddress(v33, BugCheckParameter2 >> 12, 0, &v42) )
+      v20 = *(_QWORD *)(v19 + 8);
+      if ( (v20 | 0x8000000000000000uLL) != MiGetProtoPteAddress(v41, BugCheckParameter2 >> 12, 0, v50) )
         goto LABEL_23;
-      if ( (v13 & 0x800) != 0 )
+      if ( (v15 & 0x800) != 0 )
       {
-        MiUnlockPageTableInternal(p_Blink, v11);
-        MiUnlockWorkingSetShared(p_Blink, v46);
-        v16 = -1073741755;
-        v6 = v33;
+        MiUnlockPageTableInternal(p_Blink, v13);
+        MiUnlockWorkingSetShared(p_Blink, v54);
+        v21 = -1073741755;
+        v6 = v41;
         goto LABEL_18;
       }
-      v18 = MiCopyOnWrite(BugCheckParameter2, (volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL, 0, (__int128 *)v40);
-      if ( v18 >= 0 )
+      v23 = MiCopyOnWrite(BugCheckParameter2, (volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL, 0, v48);
+      if ( v23 >= 0 )
       {
-        if ( (v13 & 0x200) == 0 )
-          v38 = ++v8;
+        if ( (v15 & 0x200) == 0 )
+          v46 = ++v8;
 LABEL_23:
         v7 += 8LL;
         BugCheckParameter2 += 4096LL;
-        v6 = v33;
-        v12 = v32;
+        v6 = v41;
+        v14 = v40;
       }
       else
       {
-        MiUnlockPageTableInternal(p_Blink, v11);
-        MiUnlockWorkingSetShared(p_Blink, v46);
-        v11 = 0LL;
-        MiCopyOnWriteCheckConditions(p_Blink, v18, v40[0]);
-        v12 = 1;
-        v32 = 1;
-        MiLockWorkingSetShared(p_Blink);
-        v6 = v33;
+        MiUnlockPageTableInternal(p_Blink, v13);
+        MiUnlockWorkingSetShared(p_Blink, v54);
+        v13 = 0LL;
+        MiCopyOnWriteCheckConditions(p_Blink, v23, v48[0]);
+        v14 = 1;
+        v40 = 1;
+        MiLockWorkingSetShared(p_Blink, v24, v25, v26);
+        v6 = v41;
       }
     }
     else
     {
-      MiUnlockPageTableInternal(p_Blink, v11);
-      MiUnlockWorkingSetShared(p_Blink, v46);
-      v11 = 0LL;
-      v12 = 1;
-      v32 = 1;
-      MiLockWorkingSetShared(p_Blink);
+      MiUnlockPageTableInternal(p_Blink, v13);
+      MiUnlockWorkingSetShared(p_Blink, v54);
+      v13 = 0LL;
+      v14 = 1;
+      v40 = 1;
+      MiLockWorkingSetShared(p_Blink, v16, v17, v18);
     }
   }
-  MiUnlockPageTableInternal(p_Blink, v11);
-  MiUnlockWorkingSetShared(p_Blink, v46);
-  v19 = a3;
-  v20 = IoAllocateMdl((PVOID)a2, (_DWORD)a3 << 12, 0, 0, 0LL);
-  v21 = v20;
-  Mdl = v20;
-  if ( v20 )
+  MiUnlockPageTableInternal(p_Blink, v13);
+  MiUnlockWorkingSetShared(p_Blink, v54);
+  v27 = a3;
+  v28 = IoAllocateMdl((PVOID)a2, (_DWORD)a3 << 12, 0, 0, 0LL);
+  v29 = v28;
+  Mdl = v28;
+  if ( v28 )
   {
-    MmProbeAndLockPages(v20, 0, IoReadAccess);
-    v21->MdlFlags |= 0x80u;
-    v22 = 0LL;
-    v23 = v21 + 1;
-    v24 = (unsigned __int64)&v21[1] + 8 * a3;
+    MmProbeAndLockPages(v28, 0, IoReadAccess);
+    v29->MdlFlags |= 0x80u;
+    v30 = 0LL;
+    v31 = v29 + 1;
+    v32 = (unsigned __int64)&v29[1] + 8 * a3;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
-    if ( (unsigned __int64)v23 < v24 )
+    if ( (unsigned __int64)v31 < v32 )
     {
       do
       {
-        v26 = 48 * (__int64)v23->Next - 0x220000000000LL;
-        v36 = 0;
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v26 + 24), 0x3FuLL) )
+        v34 = 48 * (__int64)v31->Next - 0x220000000000LL;
+        v44 = 0;
+        while ( _interlockedbittestandset64((volatile signed __int32 *)(v34 + 24), 0x3FuLL) )
         {
           do
-            KeYieldProcessorEx(&v36);
-          while ( *(__int64 *)(v26 + 24) < 0 );
+            KeYieldProcessorEx(&v44);
+          while ( *(__int64 *)(v34 + 24) < 0 );
         }
-        v27 = ((*(_QWORD *)(v26 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0) + 2;
-        if ( (*(_BYTE *)(v26 + 34) & 8) == 0 )
-          v27 = ((*(_QWORD *)(v26 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0) + 1;
-        if ( (unsigned __int16)*(_DWORD *)(v26 + 32) > v27 )
-          ++v22;
-        _InterlockedAnd64((volatile signed __int64 *)(v26 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        v23 = (struct _MDL *)((char *)v23 + 8);
+        v35 = ((*(_QWORD *)(v34 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0) + 2;
+        if ( (*(_BYTE *)(v34 + 34) & 8) == 0 )
+          v35 = ((*(_QWORD *)(v34 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0) + 1;
+        if ( (unsigned __int16)*(_DWORD *)(v34 + 32) > v35 )
+          ++v30;
+        _InterlockedAnd64((volatile signed __int64 *)(v34 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        v31 = (struct _MDL *)((char *)v31 + 8);
       }
-      while ( (unsigned __int64)v23 < v24 );
-      v19 = a3;
+      while ( (unsigned __int64)v31 < v32 );
+      v27 = a3;
     }
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
-    v6 = v33;
-    if ( v22 )
+    v6 = v41;
+    if ( v30 )
     {
-      v28 = *(_QWORD *)(***(_QWORD ***)(v33 + 72) + 56LL);
-      MiLogHotPatchPagesLocked(a2, (v19 << 12) + a2 - 1, *(_DWORD *)(v28 + 60), *(_DWORD *)(v28 + 72), v22);
+      v36 = *(_QWORD *)(***(_QWORD ***)(v41 + 72) + 56LL);
+      MiLogHotPatchPagesLocked(a2, (v27 << 12) + a2 - 1, *(_DWORD *)(v36 + 60), *(_DWORD *)(v36 + 72), v30);
     }
-    v29 = a1[7];
-    if ( v29 )
-      v21->Next = (struct _MDL *)v29;
-    a1[7] = (__int64)v21;
-    v16 = 0;
+    v37 = a1[7];
+    if ( v37 )
+      v29->Next = (struct _MDL *)v37;
+    a1[7] = (__int64)v29;
+    v21 = 0;
   }
   else
   {
-    v16 = -1073741670;
+    v21 = -1073741670;
   }
 LABEL_18:
-  v17 = v37;
+  v22 = v45;
   if ( v8 )
   {
-    v30 = *(unsigned int *)(v6 + 52);
-    v31 = v8 + (v30 | ((unsigned __int64)*(unsigned __int8 *)(v6 + 34) << 32));
-    *(_DWORD *)(v6 + 52) = v8 + v30;
-    *(_BYTE *)(v6 + 34) = BYTE4(v31);
+    v38 = *(unsigned int *)(v6 + 52);
+    v39 = v8 + (v38 | ((unsigned __int64)*(unsigned __int8 *)(v6 + 34) << 32));
+    *(_DWORD *)(v6 + 52) = v8 + v38;
+    *(_BYTE *)(v6 + 34) = BYTE4(v39);
   }
-  if ( v35 != v8 )
-    MiReturnFullProcessCommitment(v17, v35 - v8);
-  return v16;
+  if ( v43 != v8 )
+    MiReturnFullProcessCommitment(v22);
+  return v21;
 }

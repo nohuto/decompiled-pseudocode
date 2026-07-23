@@ -1,15 +1,15 @@
 /*
- * XREFs of HalEfiGetTime @ 0x14050CE4C
+ * XREFs of HalEfiGetTime @ 0x14050D39C
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
  * Callees:
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B3E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     HalpEfiDecrementEfiCall @ 0x14035EB04 (HalpEfiDecrementEfiCall.c)
- *     HalpConvertEfiToNtStatus @ 0x14035EB2C (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14035EB60 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035EB88 (HalpEfiStartRuntimeCode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B670 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     HalpEfiDecrementEfiCall @ 0x14035ECA4 (HalpEfiDecrementEfiCall.c)
+ *     HalpConvertEfiToNtStatus @ 0x14035ECCC (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x14035ED00 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x14035ED28 (HalpEfiStartRuntimeCode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalEfiGetTime(PLARGE_INTEGER SystemTime)

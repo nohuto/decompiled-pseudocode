@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextStart @ 0x1801142B8
+ * XREFs of RtlpHpLfhContextStart @ 0x180113AB4
  * Callers:
- *     RtlpHpHeapCreate @ 0x18008DE64 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180104964 (RtlpHpHeapCreate.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextStart(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransSearchAddLightWeightTrans @ 0x1408ED0C4
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x1408F3684
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
- *     CmpTransReferenceTransaction @ 0x1408EE304 (CmpTransReferenceTransaction.c)
- *     CmpTransAllocateTrans @ 0x140AC3B1C (CmpTransAllocateTrans.c)
- *     CmpBindHiveToTrans @ 0x140AC3BE8 (CmpBindHiveToTrans.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
+ *     CmpTransReferenceTransaction @ 0x1408F48C4 (CmpTransReferenceTransaction.c)
+ *     CmpTransAllocateTrans @ 0x140AC578C (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x140AC5858 (CmpBindHiveToTrans.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, _QWORD *a4)
@@ -68,13 +68,13 @@ LABEL_19:
     goto LABEL_19;
   }
   *((_DWORD *)v13 + 12) = 128;
-  v14 = (_QWORD *)qword_140EF9AE8;
-  if ( *(__int64 **)qword_140EF9AE8 != &CmpLightTransactionList )
+  v14 = (_QWORD *)qword_140EF9E28;
+  if ( *(__int64 **)qword_140EF9E28 != &CmpLightTransactionList )
     __fastfail(3u);
   *v13 = &CmpLightTransactionList;
   v13[1] = v14;
   *v14 = v13;
-  qword_140EF9AE8 = (__int64)v13;
+  qword_140EF9E28 = (__int64)v13;
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
   KeLeaveCriticalRegion();
   v9 = 0;

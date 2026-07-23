@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x140410E44
+ * XREFs of KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x140411050
  * Callers:
  *     KiRemoveThreadFromReadyQueue @ 0x140206BE0 (KiRemoveThreadFromReadyQueue.c)
  * Callees:
- *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243C20 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
+ *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243CF0 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
  */
 
 __int64 __fastcall KiUpdateLocalReadyQueueStatisticsOnRemoval(__int64 a1, __int64 a2)

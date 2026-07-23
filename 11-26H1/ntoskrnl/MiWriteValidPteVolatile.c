@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWriteValidPteVolatile @ 0x14044AF20
+ * XREFs of MiWriteValidPteVolatile @ 0x140443050
  * Callers:
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14047F0C4 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiProtectDriverSectionPte @ 0x1406E5D50 (MiProtectDriverSectionPte.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140478A34 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiProtectDriverSectionPte @ 0x1406EAA00 (MiProtectDriverSectionPte.c)
  * Callees:
  *     <none>
  */

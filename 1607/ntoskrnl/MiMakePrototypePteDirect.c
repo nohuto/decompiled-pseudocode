@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMakePrototypePteDirect @ 0x1401F2758
+ * XREFs of MiMakePrototypePteDirect @ 0x1401F2584
  * Callers:
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     MiResolveSharedZeroFault @ 0x140042000 (MiResolveSharedZeroFault.c)
- *     MiTrimSystemImagePages @ 0x140084004 (MiTrimSystemImagePages.c)
- *     MiFillPteWithProto @ 0x1400A0F24 (MiFillPteWithProto.c)
- *     MiExpandSharedZeroCluster @ 0x1400B9458 (MiExpandSharedZeroCluster.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiWriteSharedDemandZeroPte @ 0x1400C02F0 (MiWriteSharedDemandZeroPte.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiHandleForkTransitionPte @ 0x1401F71F0 (MiHandleForkTransitionPte.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
- *     MiConvertStandbyToProto @ 0x1401F90BC (MiConvertStandbyToProto.c)
- *     MiAddMappedPtes @ 0x140526020 (MiAddMappedPtes.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     MiResolveSharedZeroFault @ 0x140041B80 (MiResolveSharedZeroFault.c)
+ *     MiTrimSystemImagePages @ 0x140082164 (MiTrimSystemImagePages.c)
+ *     MiFillPteWithProto @ 0x14009F84C (MiFillPteWithProto.c)
+ *     MiExpandSharedZeroCluster @ 0x1400B72E8 (MiExpandSharedZeroCluster.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiWriteSharedDemandZeroPte @ 0x1400BE180 (MiWriteSharedDemandZeroPte.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiHandleForkTransitionPte @ 0x1401F701C (MiHandleForkTransitionPte.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
+ *     MiConvertStandbyToProto @ 0x1401F8EE8 (MiConvertStandbyToProto.c)
+ *     MiAddMappedPtes @ 0x140509080 (MiAddMappedPtes.c)
  * Callees:
  *     <none>
  */

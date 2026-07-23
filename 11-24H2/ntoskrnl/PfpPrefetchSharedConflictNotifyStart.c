@@ -1,23 +1,24 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140AA4250
+ * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140A9F5E0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreWait @ 0x14033E810 (KeAbPreWait.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeAbPreWait @ 0x14031DCF0 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(ULONG_PTR *a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
-  _QWORD *v5; // rdi
-  _QWORD *v6; // rax
+  char *v5; // rdi
+  char *v6; // rax
   __int64 v7; // rdx
   __int64 v8; // r8
+  __int64 v9; // r9
 
   v3 = 0;
   v5 = 0LL;
-  ++dword_140E66FCC;
+  ++dword_140E6711C;
   if ( a1 )
   {
     *((_DWORD *)a1 + 18) = 1;
@@ -32,11 +33,11 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(ULONG_PTR *a1, __int64 a
   {
     a1 = &PfGlobals;
   }
-  v6 = KeAbPreAcquire((__int64)a1, 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)a1, 0LL);
   v5 = v6;
   if ( v6 )
   {
-    KeAbPreWait((__int64)v6, v7, v8);
+    KeAbPreWait(v6, v7, v8, v9);
     goto LABEL_9;
   }
 LABEL_6:

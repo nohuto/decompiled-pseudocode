@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteCloneDescriptor @ 0x140663E40
+ * XREFs of MiDeleteCloneDescriptor @ 0x140664390
  * Callers:
- *     MiDecrementCloneBlockReference @ 0x140663D4C (MiDecrementCloneBlockReference.c)
- *     MiDeleteInsertedCloneVads @ 0x140A48CB8 (MiDeleteInsertedCloneVads.c)
+ *     MiDecrementCloneBlockReference @ 0x14066429C (MiDecrementCloneBlockReference.c)
+ *     MiDeleteInsertedCloneVads @ 0x140A48F68 (MiDeleteInsertedCloneVads.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B330 (PsReturnProcessNonPagedPoolQuota.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     MiDecrementCloneHeaderCount @ 0x140663E0C (MiDecrementCloneHeaderCount.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14028B5C0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     MiDecrementCloneHeaderCount @ 0x14066435C (MiDecrementCloneHeaderCount.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

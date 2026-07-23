@@ -1,10 +1,10 @@
 /*
  * XREFs of OBJECT_HEADER_TO_QUOTA_INFO @ 0x14001622C
  * Callers:
- *     ObAdjustSecurityQuota @ 0x1405C99A4 (ObAdjustSecurityQuota.c)
- *     ObpChargeQuotaForObject @ 0x1405C9A24 (ObpChargeQuotaForObject.c)
- *     NtQueryObject @ 0x140660AB0 (NtQueryObject.c)
- *     ObGetObjectInformation @ 0x140861C60 (ObGetObjectInformation.c)
+ *     ObAdjustSecurityQuota @ 0x1405CA9A4 (ObAdjustSecurityQuota.c)
+ *     ObpChargeQuotaForObject @ 0x1405CAA24 (ObpChargeQuotaForObject.c)
+ *     NtQueryObject @ 0x140661C70 (NtQueryObject.c)
+ *     ObGetObjectInformation @ 0x140862EC0 (ObGetObjectInformation.c)
  * Callees:
  *     <none>
  */

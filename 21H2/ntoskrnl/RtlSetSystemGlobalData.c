@@ -1,20 +1,21 @@
 /*
- * XREFs of RtlSetSystemGlobalData @ 0x1403F8534
+ * XREFs of RtlSetSystemGlobalData @ 0x1403F8564
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 __fastcall RtlSetSystemGlobalData(__int64 a1, _DWORD *a2)
+// local variable allocation has failed, the output may be wrong!
+DWORD __cdecl RtlSetSystemGlobalData(RTL_SYSTEM_GLOBAL_DATA_ID DataId, PVOID Buffer, DWORD Size)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
 
-  if ( PsIsCurrentThreadInServerSilo(a1, (__int64)a2) )
-    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(v4, v3) + 141) + 584LL) = *a2;
+  if ( PsIsCurrentThreadInServerSilo(*(__int64 *)&DataId, (__int64)Buffer) )
+    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(v5, v4) + 141) + 584LL) = *(_DWORD *)Buffer;
   else
-    MEMORY[0xFFFFF78000000240] = *a2;
-  return 0LL;
+    MEMORY[0xFFFFF78000000240] = *(_DWORD *)Buffer;
+  return 0;
 }

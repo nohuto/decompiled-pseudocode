@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGetSystemTime @ 0x1401114D0
+ * XREFs of EtwpGetSystemTime @ 0x140111540
  * Callers:
  *     <none>
  * Callees:

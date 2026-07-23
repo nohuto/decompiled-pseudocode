@@ -1,41 +1,41 @@
 /*
- * XREFs of WheaLogInternalEvent @ 0x140380A50
+ * XREFs of WheaLogInternalEvent @ 0x140380BF0
  * Callers:
- *     HalpCmcLogPollingTimeoutEvent @ 0x140502624 (HalpCmcLogPollingTimeoutEvent.c)
- *     HalpCmciHandler @ 0x14050573C (HalpCmciHandler.c)
- *     IoSaveBugCheckProgress @ 0x1405509E0 (IoSaveBugCheckProgress.c)
- *     IoSaveBugCheckRecoveryStatus @ 0x140550ABC (IoSaveBugCheckRecoveryStatus.c)
- *     KiBugCheckProgressCpusFrozen @ 0x140569980 (KiBugCheckProgressCpusFrozen.c)
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
- *     WheapInitErrorReportDeviceDriver @ 0x140611928 (WheapInitErrorReportDeviceDriver.c)
- *     WheaPersistBadPageToRegistry @ 0x140611F50 (WheaPersistBadPageToRegistry.c)
- *     WheapCreateRecordFromGenericErrorData @ 0x140612858 (WheapCreateRecordFromGenericErrorData.c)
- *     WheapProcessOfflineList @ 0x140614470 (WheapProcessOfflineList.c)
- *     HalpCmcWorkerRoutine @ 0x14081E6F0 (HalpCmcWorkerRoutine.c)
- *     WheaAddErrorSource @ 0x14081EB20 (WheaAddErrorSource.c)
- *     WheapLogInitEvent @ 0x14085669C (WheapLogInitEvent.c)
- *     WheapProcessWaitingETWEvents @ 0x140860F40 (WheapProcessWaitingETWEvents.c)
- *     WheaRemoveErrorSource @ 0x140A078C0 (WheaRemoveErrorSource.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140A07AA0 (WheaRemoveErrorSourceDeviceDriver.c)
- *     WheapAttemptPhysicalPageOffline @ 0x140A0819C (WheapAttemptPhysicalPageOffline.c)
- *     WheapClearPoison @ 0x140A084B0 (WheapClearPoison.c)
- *     WheapLogAddToDefectListFail @ 0x140A08630 (WheapLogAddToDefectListFail.c)
- *     WheapExecuteRowFailureCheck @ 0x140A089C0 (WheapExecuteRowFailureCheck.c)
- *     WheapPfaLogPageMonitorRemoval @ 0x140A08C20 (WheapPfaLogPageMonitorRemoval.c)
- *     WheapLogPolicyTelemetry @ 0x140A098F4 (WheapLogPolicyTelemetry.c)
- *     WheapTrackPendingPage @ 0x140A09C08 (WheapTrackPendingPage.c)
+ *     HalpCmcLogPollingTimeoutEvent @ 0x140502B74 (HalpCmcLogPollingTimeoutEvent.c)
+ *     HalpCmciHandler @ 0x140505C8C (HalpCmciHandler.c)
+ *     IoSaveBugCheckProgress @ 0x1405510A0 (IoSaveBugCheckProgress.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x14055117C (IoSaveBugCheckRecoveryStatus.c)
+ *     KiBugCheckProgressCpusFrozen @ 0x14056A040 (KiBugCheckProgressCpusFrozen.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x140611E78 (WheapInitErrorReportDeviceDriver.c)
+ *     WheaPersistBadPageToRegistry @ 0x1406124A0 (WheaPersistBadPageToRegistry.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x140612DA8 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapProcessOfflineList @ 0x1406149C0 (WheapProcessOfflineList.c)
+ *     HalpCmcWorkerRoutine @ 0x14081E9C0 (HalpCmcWorkerRoutine.c)
+ *     WheaAddErrorSource @ 0x14081EDF0 (WheaAddErrorSource.c)
+ *     WheapLogInitEvent @ 0x14085699C (WheapLogInitEvent.c)
+ *     WheapProcessWaitingETWEvents @ 0x140861180 (WheapProcessWaitingETWEvents.c)
+ *     WheaRemoveErrorSource @ 0x140A07B50 (WheaRemoveErrorSource.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x140A07D50 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0844C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapClearPoison @ 0x140A08760 (WheapClearPoison.c)
+ *     WheapLogAddToDefectListFail @ 0x140A088E0 (WheapLogAddToDefectListFail.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A08C70 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x140A08ED0 (WheapPfaLogPageMonitorRemoval.c)
+ *     WheapLogPolicyTelemetry @ 0x140A09BA4 (WheapLogPolicyTelemetry.c)
+ *     WheapTrackPendingPage @ 0x140A09EB8 (WheapTrackPendingPage.c)
  *     HalpInitGenericErrorSourceEntry @ 0x140A8B0B4 (HalpInitGenericErrorSourceEntry.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x140A96184 (HalpInitGenericErrorSourceEntryV2.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140A95FF4 (HalpInitGenericErrorSourceEntryV2.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     WheaIsCriticalState @ 0x140380B70 (WheaIsCriticalState.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     WheaSelLogEvent @ 0x1406100F8 (WheaSelLogEvent.c)
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     WheaIsCriticalState @ 0x140380D10 (WheaIsCriticalState.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     WheaSelLogEvent @ 0x140610648 (WheaSelLogEvent.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  */
 
 LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
@@ -47,7 +47,7 @@ LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
   __int64 v6; // rax
   unsigned int v7; // esi
   ULONG **v8; // rbx
-  ULONG *DeviceObject; // rax
+  ULONG ***v9; // rax
   _QWORD InputBuffer[4]; // [rsp+48h] [rbp-49h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-29h] BYREF
   char *v12; // [rsp+78h] [rbp-19h]
@@ -103,7 +103,7 @@ LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
         v20 = Src;
         v22 = 0;
         return EtwWriteEx(
-                 (REGHANDLE)WheapDispatchPtr.Queue.ListEntry.Flink,
+                 (REGHANDLE)WheapDispatchPtr.Queue.Wcb.DeviceRoutine,
                  &EVENT_WHEA_LOG_ENTRY,
                  0LL,
                  0,
@@ -126,14 +126,14 @@ LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
       {
         v8 = (ULONG **)((char *)&WheapDeferredEventBuffer + (unsigned int)WheapDeferredEventTotalBytes);
         memmove(v8 + 2, Src, v6 + 32);
-        DeviceObject = (ULONG *)WheapDispatchPtr.Queue.Wcb.DeviceObject;
+        v9 = *(ULONG ****)&WheapDispatchPtr.DeviceQueue.Type;
         WheapDeferredEventTotalBytes = v7;
-        if ( *(struct _DEVICE_OBJECT **)WheapDispatchPtr.Queue.Wcb.DeviceObject != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters )
+        if ( **(struct _DEVICE_OBJECT ***)&WheapDispatchPtr.DeviceQueue.Type != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.AlignmentRequirement )
           __fastfail(3u);
-        *v8 = &WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters;
-        v8[1] = DeviceObject;
-        *(_QWORD *)DeviceObject = v8;
-        WheapDispatchPtr.Queue.Wcb.DeviceObject = v8;
+        *v8 = &WheapDispatchPtr.AlignmentRequirement;
+        v8[1] = (ULONG *)v9;
+        *v9 = v8;
+        *(_QWORD *)&WheapDispatchPtr.DeviceQueue.Type = v8;
       }
       return KeSetEvent(&WheapDeferredInternalLogsEventLock, 0, 0);
     }

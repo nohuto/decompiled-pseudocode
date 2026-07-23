@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRelocateImageAgain @ 0x1407142BC
+ * XREFs of MiRelocateImageAgain @ 0x1406C290C
  * Callers:
- *     MiValidateExistingImage @ 0x140713E5C (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x1406C24AC (MiValidateExistingImage.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiImageUnused @ 0x1402BBF0C (MiImageUnused.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14035F0A4 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14035F2A0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MiGetControlAreaLoadConfig @ 0x14035F2D8 (MiGetControlAreaLoadConfig.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MiReturnImageBase @ 0x1406EABD8 (MiReturnImageBase.c)
- *     MiUpdateCfgSystemWideBitmap @ 0x140714460 (MiUpdateCfgSystemWideBitmap.c)
- *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
- *     MiSwitchBaseAddress @ 0x1407149DC (MiSwitchBaseAddress.c)
+ *     MiImageUnused @ 0x14023A11C (MiImageUnused.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1402A3FD4 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1402A41D0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402A4208 (MiGetControlAreaLoadConfig.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x1406C2AB0 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x1406C2B74 (MiSelectImageBase.c)
+ *     MiSwitchBaseAddress @ 0x1406C302C (MiSwitchBaseAddress.c)
+ *     MiReturnImageBase @ 0x140701FB8 (MiReturnImageBase.c)
  */
 
 __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2)
@@ -51,7 +51,7 @@ __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2)
   if ( (*(_DWORD *)(a1 + 92) & 0x400000) == 0 )
   {
     v12 = *(_QWORD *)(v6 + 32);
-    v7 = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF40, 1u, v9, v10);
+    v7 = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF80, 1u, v9, v10);
     if ( !v7 )
     {
       *(_DWORD *)(a1 + 92) |= 0x400000u;
@@ -87,9 +87,9 @@ LABEL_13:
           MiSwitchBaseAddress(a1, v14, v7, SessionId);
           goto LABEL_10;
         }
-        if ( qword_140C1DB40 )
+        if ( qword_140C1DB60 )
         {
-          updated = qword_140C1DB40(*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v14);
+          updated = qword_140C1DB60(*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v14);
           if ( updated >= 0 )
             goto LABEL_13;
         }
@@ -104,7 +104,7 @@ LABEL_13:
 LABEL_3:
   MI_UNLOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v5);
   if ( v7 )
-    MiReleasePtes((__int64)&qword_140C4EF40, v7, 1u);
-  MiReturnImageBase((__int64)&v17);
+    MiReleasePtes((__int64)&qword_140C4EF80, v7, 1u);
+  MiReturnImageBase(&v17);
   return (unsigned int)updated;
 }

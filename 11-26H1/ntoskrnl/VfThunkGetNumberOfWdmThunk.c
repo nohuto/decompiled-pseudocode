@@ -1,7 +1,7 @@
 /*
- * XREFs of VfThunkGetNumberOfWdmThunk @ 0x140C354A0
+ * XREFs of VfThunkGetNumberOfWdmThunk @ 0x140C3B4B0
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
  * Callees:
  *     <none>
  */

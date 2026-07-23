@@ -22,9 +22,9 @@ __int64 __fastcall MiAddPartitionHugeRange(_WORD *a1, __int64 a2, int a3, int a4
   unsigned __int64 v7; // rdi
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rsi
-  __int64 *v14; // rdx
-  __int64 v15; // r9
-  unsigned __int64 v16; // r10
+  unsigned __int64 *v14; // rdx
+  unsigned __int64 v15; // r9
+  unsigned __int64 *v16; // r10
   bool v17; // zf
   bool i; // zf
   __int64 v19; // rax
@@ -42,21 +42,21 @@ __int64 __fastcall MiAddPartitionHugeRange(_WORD *a1, __int64 a2, int a3, int a4
   v11 = (*(_QWORD *)(a2 + 32) >> 18) & 0x3FFFFFLL;
   v12 = (*(_QWORD *)(a2 + 40) >> 18) & 0x3FFFFFLL;
   v23 = ExAcquireSpinLockExclusive(&dword_140E2FDC0);
-  if ( v11 >= qword_140E2FD70 )
+  if ( v11 >= stru_140E2FD70.SizeOfBitMap )
     goto LABEL_8;
   if ( v12 > 1 )
   {
-    if ( qword_140E2FD70 - v11 >= v12 )
+    if ( stru_140E2FD70.SizeOfBitMap - v11 >= v12 )
     {
-      v14 = (__int64 *)(qword_140E2FD78 + 8 * (v11 >> 6));
+      v14 = &stru_140E2FD70.Buffer[v11 >> 6];
       v15 = *v14;
-      v16 = qword_140E2FD78 + 8 * ((v11 + v12 - 1) >> 6);
-      if ( v14 != (__int64 *)v16 )
+      v16 = &stru_140E2FD70.Buffer[(v11 + v12 - 1) >> 6];
+      if ( v14 != v16 )
       {
         for ( i = (v15 & (-1LL << v11)) == 0; i; i = v19 == 0 )
         {
           v19 = *++v14;
-          if ( v14 == (__int64 *)v16 )
+          if ( v14 == v16 )
           {
             v17 = (v19 & (0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v11 + (unsigned __int8)v12 - 1))) == 0;
             goto LABEL_20;
@@ -77,9 +77,7 @@ LABEL_9:
     return 3221225496LL;
   }
   if ( v12 != 1
-    || _bittest64(
-         (const signed __int64 *)(qword_140E2FD78 + 8 * ((unsigned __int64)(unsigned int)v11 >> 6)),
-         v11 & 0x3F) )
+    || _bittest64((const signed __int64 *)&stru_140E2FD70.Buffer[(unsigned __int64)(unsigned int)v11 >> 6], v11 & 0x3F) )
   {
     goto LABEL_8;
   }
@@ -92,7 +90,7 @@ LABEL_21:
   do
   {
     MiLockHugePfnInternal((__int64)v20);
-    RtlSetBitsEx((__int64)&qword_140E2FD70, v11 & 0x3FFFFF, 1uLL);
+    RtlSetBitsEx((__int64)&stru_140E2FD70, v11 & 0x3FFFFF, 1uLL);
     *v20 = v21;
     if ( a3 == 3 )
       MiUpdateHugePageCounts(a1, v11, 1LL, 1LL);

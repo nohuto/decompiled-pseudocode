@@ -1,12 +1,12 @@
 /*
- * XREFs of CcUnregisterExternalCache @ 0x1401B1924
+ * XREFs of CcUnregisterExternalCache @ 0x1401B1808
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDeductDirtyPagesFromExternalCache @ 0x1401341C8 (CcDeductDirtyPagesFromExternalCache.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x140134738 (CcDeductDirtyPagesFromExternalCache.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall CcUnregisterExternalCache(unsigned __int64 *a1)

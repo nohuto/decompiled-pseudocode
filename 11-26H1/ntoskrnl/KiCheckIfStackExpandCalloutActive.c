@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCheckIfStackExpandCalloutActive @ 0x1402038B0
+ * XREFs of KiCheckIfStackExpandCalloutActive @ 0x140203990
  * Callers:
- *     KeTerminateThread @ 0x140203388 (KeTerminateThread.c)
+ *     KeTerminateThread @ 0x140203468 (KeTerminateThread.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiCheckIfStackExpandCalloutActive(ULONG_PTR BugCheckParameter1)

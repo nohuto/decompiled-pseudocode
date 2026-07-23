@@ -18,7 +18,7 @@ _QWORD *__fastcall PsCallImageNotifyRoutines(unsigned __int16 *a1, __int64 a2, _
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v9; // r15
   _DWORD *v10; // r14
-  union _RTL_RUN_ONCE *v11; // rbx
+  _RTL_RUN_ONCE *v11; // rbx
   __int64 v12; // rdi
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rsi

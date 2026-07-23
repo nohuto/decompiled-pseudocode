@@ -1,24 +1,22 @@
 /*
- * XREFs of PiUEventDispatch @ 0x1406E1BC0
+ * XREFs of PiUEventDispatch @ 0x1406B8EA0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1406E15A8 (PiUEventFreeClientRegistrationContext.c)
- *     PiUEventHandleIoctl @ 0x1406E1C5C (PiUEventHandleIoctl.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1406B8888 (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventHandleIoctl @ 0x1406B8F3C (PiUEventHandleIoctl.c)
  */
 
 __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)
 {
   int Status; // edi
-  IRP *v3; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
   UCHAR MajorFunction; // al
   IRP *v6; // rcx
   char *FsContext2; // rcx
 
   Status = a2->IoStatus.Status;
-  v3 = a2;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   if ( Status >= 0 )
   {
@@ -30,13 +28,12 @@ __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)
         FsContext2 = (char *)CurrentStackLocation->FileObject->FsContext2;
         if ( FsContext2 )
         {
-          LOBYTE(a2) = 1;
-          PiUEventFreeClientRegistrationContext(FsContext2, (__int64)a2);
+          PiUEventFreeClientRegistrationContext(FsContext2, 1);
           CurrentStackLocation->FileObject->FsContext2 = 0LL;
         }
         Status = 0;
-        v6 = v3;
-        v3->IoStatus.Status = 0;
+        v6 = a2;
+        a2->IoStatus.Status = 0;
         goto LABEL_9;
       }
       v6 = a2;

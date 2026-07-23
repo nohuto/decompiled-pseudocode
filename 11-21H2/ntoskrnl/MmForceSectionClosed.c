@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiForceSectionClosed @ 0x14023E9A0 (MiForceSectionClosed.c)
+ *     sub_14023E9A0 @ 0x14023E9A0 (sub_14023E9A0.c)
  */
 
 BOOLEAN __stdcall MmForceSectionClosed(PSECTION_OBJECT_POINTERS SectionObjectPointer, BOOLEAN DelayClose)
@@ -12,8 +12,8 @@ BOOLEAN __stdcall MmForceSectionClosed(PSECTION_OBJECT_POINTERS SectionObjectPoi
   int v4; // eax
 
   v3 = DelayClose != 0 ? 5 : 1;
-  v4 = MiForceSectionClosed(SectionObjectPointer, v3, 0LL);
+  v4 = sub_14023E9A0(SectionObjectPointer, v3, 0LL);
   if ( !v4 )
-    v4 = MiForceSectionClosed(SectionObjectPointer, v3 & 0xFFFFFFFC | 2, 0LL);
+    v4 = sub_14023E9A0(SectionObjectPointer, v3 & 0xFFFFFFFC | 2, 0LL);
   return v4 != 2;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFindDevice @ 0x140C12214
+ * XREFs of HalpFindDevice @ 0x140C18214
  * Callers:
- *     HalpKdReleaseDebuggingDevice @ 0x140C12760 (HalpKdReleaseDebuggingDevice.c)
- *     HalpKdSetupDebuggingDevice @ 0x140C127C0 (HalpKdSetupDebuggingDevice.c)
- *     HalpRegisterDeviceInUse @ 0x140C129D4 (HalpRegisterDeviceInUse.c)
+ *     HalpKdReleaseDebuggingDevice @ 0x140C18760 (HalpKdReleaseDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x140C187C0 (HalpKdSetupDebuggingDevice.c)
+ *     HalpRegisterDeviceInUse @ 0x140C189D4 (HalpRegisterDeviceInUse.c)
  * Callees:
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
  */
 
 struct _KTHREAD *__fastcall HalpFindDevice(__int64 a1)

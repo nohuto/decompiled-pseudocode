@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpMcExportAndChargeNeededData @ 0x140701DA4
+ * XREFs of HalpMcExportAndChargeNeededData @ 0x1406FF9E4
  * Callers:
- *     HalpMcUpdateInitializeBSP @ 0x140559BAC (HalpMcUpdateInitializeBSP.c)
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
+ *     HalpMcUpdateInitializeBSP @ 0x1405577DC (HalpMcUpdateInitializeBSP.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmObtainChargesToLockPagedPool @ 0x1407ED700 (MmObtainChargesToLockPagedPool.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmObtainChargesToLockPagedPool @ 0x1407EDCD0 (MmObtainChargesToLockPagedPool.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpMcExportAndChargeNeededData(void *Src, size_t Size)
@@ -26,7 +26,7 @@ __int64 __fastcall HalpMcExportAndChargeNeededData(void *Src, size_t Size)
     return 0LL;
   }
   v5 = (Size + 4095) & 0xFFFFF000;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v5, 0x636C6148u);
   v7 = Pool2;
   if ( Pool2 )
   {
@@ -43,7 +43,7 @@ LABEL_8:
       return 0LL;
     }
     ExFreePoolWithTag(v7, 0x636C6148u);
-    v7 = (void *)ExAllocatePool2(0x40uLL);
+    v7 = (void *)ExAllocatePool2(0x40uLL, ((_DWORD)v2 + 4095) & 0xFFFFF000, 0x636C6148u);
     if ( v7 )
       goto LABEL_8;
   }

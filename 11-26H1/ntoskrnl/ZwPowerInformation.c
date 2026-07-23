@@ -1,28 +1,28 @@
 /*
- * XREFs of ZwPowerInformation @ 0x140723FD0
+ * XREFs of ZwPowerInformation @ 0x140728BA0
  * Callers:
- *     HalpSetShutdownResetHandler @ 0x14057FA2C (HalpSetShutdownResetHandler.c)
- *     DifZwPowerInformationWrapper @ 0x1406AE5C0 (DifZwPowerInformationWrapper.c)
- *     HaliAcpiMachineStateInit @ 0x1407854C0 (HaliAcpiMachineStateInit.c)
- *     PoGetLightestSystemStateForEject @ 0x1407C89C8 (PoGetLightestSystemStateForEject.c)
- *     RtlCheckSystemBootStatusIntegrity @ 0x1408058F0 (RtlCheckSystemBootStatusIntegrity.c)
- *     RtlRestoreSystemBootStatusDefaults @ 0x140805C30 (RtlRestoreSystemBootStatusDefaults.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x140953D78 (PspRecordCrashedProcessIntoBlackbox.c)
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140A38E44 (PopPowerAggregatorNotifyCsStateExited.c)
- *     PopArmIdlePhaseWatchdog @ 0x140A396D0 (PopArmIdlePhaseWatchdog.c)
- *     PopControlMonitor @ 0x140A39C20 (PopControlMonitor.c)
- *     PopNotifyConsoleUserPresent @ 0x140A3DB40 (PopNotifyConsoleUserPresent.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x140A3EEB4 (PopDisarmIdlePhaseWatchdog.c)
- *     PopInvokeWin32CalloutWithWatchdog @ 0x140A3F7F4 (PopInvokeWin32CalloutWithWatchdog.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
- *     RtlpGetSetBootStatusData @ 0x140ACBB20 (RtlpGetSetBootStatusData.c)
- *     RtlSetSystemBootStatus @ 0x140B0B080 (RtlSetSystemBootStatus.c)
- *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140B1320C (PnpPowerStateTransitionWatchdogPushRecord.c)
- *     RtlpRecordBootStatusData @ 0x140B141E8 (RtlpRecordBootStatusData.c)
- *     RtlpSystemBootStatusRequest @ 0x140B1B7B4 (RtlpSystemBootStatusRequest.c)
- *     PopSendSessionInfo @ 0x140B46330 (PopSendSessionInfo.c)
- *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140B46AD8 (PnpPowerStateTransitionWatchdogPopRecord.c)
- *     PopCreateIdlePhaseWatchdog @ 0x140CD57F0 (PopCreateIdlePhaseWatchdog.c)
+ *     HalpSetShutdownResetHandler @ 0x140581F4C (HalpSetShutdownResetHandler.c)
+ *     DifZwPowerInformationWrapper @ 0x1406B21A0 (DifZwPowerInformationWrapper.c)
+ *     HaliAcpiMachineStateInit @ 0x140787FF0 (HaliAcpiMachineStateInit.c)
+ *     PoGetLightestSystemStateForEject @ 0x1407CBA68 (PoGetLightestSystemStateForEject.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x14080B390 (RtlCheckSystemBootStatusIntegrity.c)
+ *     RtlRestoreSystemBootStatusDefaults @ 0x14080B6D0 (RtlRestoreSystemBootStatusDefaults.c)
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x14096EBD8 (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x1409CF6B8 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x1409F4A04 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1409F52D8 (PopArmIdlePhaseWatchdog.c)
+ *     PopControlMonitor @ 0x1409F5820 (PopControlMonitor.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409F9560 (PopNotifyConsoleUserPresent.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1409FA8D4 (PopDisarmIdlePhaseWatchdog.c)
+ *     PopInvokeWin32CalloutWithWatchdog @ 0x1409FB214 (PopInvokeWin32CalloutWithWatchdog.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
+ *     RtlpGetSetBootStatusData @ 0x140ACDD60 (RtlpGetSetBootStatusData.c)
+ *     RtlSetSystemBootStatus @ 0x140B0C7D0 (RtlSetSystemBootStatus.c)
+ *     RtlpRecordBootStatusData @ 0x140B162E8 (RtlpRecordBootStatusData.c)
+ *     RtlpSystemBootStatusRequest @ 0x140B1DA64 (RtlpSystemBootStatusRequest.c)
+ *     PopSendSessionInfo @ 0x140B48360 (PopSendSessionInfo.c)
+ *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140B48B08 (PnpPowerStateTransitionWatchdogPopRecord.c)
+ *     PopCreateIdlePhaseWatchdog @ 0x140CDBB44 (PopCreateIdlePhaseWatchdog.c)
  * Callees:
  *     <none>
  */
@@ -37,5 +37,5 @@ NTSTATUS __stdcall ZwPowerInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationLevel, InputBuffer);
+  return KiServiceInternal(*(_QWORD *)&InformationLevel);
 }

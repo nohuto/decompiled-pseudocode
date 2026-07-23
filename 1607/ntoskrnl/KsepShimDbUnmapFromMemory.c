@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepShimDbUnmapFromMemory @ 0x140499B78
+ * XREFs of KsepShimDbUnmapFromMemory @ 0x1404CEA10
  * Callers:
- *     KseShimDatabaseClose @ 0x140484800 (KseShimDatabaseClose.c)
+ *     KseShimDatabaseClose @ 0x140513B88 (KseShimDatabaseClose.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     SdbReleaseDatabase @ 0x140499BF8 (SdbReleaseDatabase.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     SdbReleaseDatabase @ 0x1404CEA90 (SdbReleaseDatabase.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
  */
 
 int KsepShimDbUnmapFromMemory()

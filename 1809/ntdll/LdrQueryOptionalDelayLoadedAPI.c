@@ -9,33 +9,37 @@
  *     LdrpGetDelayloadDescriptor @ 0x1800D09C4 (LdrpGetDelayloadDescriptor.c)
  */
 
-__int64 __fastcall LdrQueryOptionalDelayLoadedAPI(const void *a1, unsigned __int8 *a2, __int64 a3, int a4)
+NTSTATUS __cdecl LdrQueryOptionalDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCSTR DllName,
+        PCSTR ProcedureName,
+        ULONG Flags)
 {
   int v7; // ecx
-  __int64 *DelayloadedMethodInDescriptor; // rax
-  _BYTE *v9; // rbx
-  __int64 DelayloadDescriptor; // rax
-  _BYTE *v11; // [rsp+30h] [rbp-18h] BYREF
+  IMAGE_THUNK_DATA64 *ThunkAddress; // rax
+  const IMAGE_DELAYLOAD_DESCRIPTOR *v9; // rbx
+  __int64 v10; // rax
+  PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  if ( a4 )
-    return 3221225485LL;
-  v7 = *a2 - (unsigned __int8)asc_18012D23C[0];
+  if ( Flags )
+    return -1073741811;
+  v7 = *(unsigned __int8 *)DllName - (unsigned __int8)asc_18012D2CC[0];
   if ( !v7 )
-    v7 = a2[1] - (unsigned __int8)asc_18012D23C[1];
+    v7 = *((unsigned __int8 *)DllName + 1) - (unsigned __int8)asc_18012D2CC[1];
   if ( v7 )
   {
-    DelayloadDescriptor = LdrpGetDelayloadDescriptor(a1);
-    v9 = (_BYTE *)DelayloadDescriptor;
-    if ( !DelayloadDescriptor )
-      return 3221225781LL;
-    DelayloadedMethodInDescriptor = (__int64 *)LdrpFindDelayloadedMethodInDescriptor(a1, DelayloadDescriptor, a3);
+    v10 = LdrpGetDelayloadDescriptor(ParentModuleBase);
+    v9 = (const IMAGE_DELAYLOAD_DESCRIPTOR *)v10;
+    if ( !v10 )
+      return -1073741515;
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)LdrpFindDelayloadedMethodInDescriptor(ParentModuleBase, v10, ProcedureName);
   }
   else
   {
-    DelayloadedMethodInDescriptor = (__int64 *)LdrpFindDelayloadedMethod(a1, a3, &v11);
-    v9 = v11;
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)LdrpFindDelayloadedMethod(ParentModuleBase, ProcedureName, DelayloadDescriptor);
+    v9 = DelayloadDescriptor[0];
   }
-  if ( DelayloadedMethodInDescriptor )
-    return LdrResolveDelayLoadedAPI(a1, v9, 0LL, 0LL, DelayloadedMethodInDescriptor, 0) == 0 ? 0xC0000139 : 0;
-  return 3221225781LL;
+  if ( ThunkAddress )
+    return LdrResolveDelayLoadedAPI(ParentModuleBase, v9, 0LL, 0LL, ThunkAddress, 0) == 0LL ? 0xC0000139 : 0;
+  return -1073741515;
 }

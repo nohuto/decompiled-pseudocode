@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLockHashEntryShared @ 0x1404A0480
+ * XREFs of CmpLockHashEntryShared @ 0x14051888C
  * Callers:
- *     CmpWalkOneLevel @ 0x14002D9B0 (CmpWalkOneLevel.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1404A01C8 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1404A0334 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpWalkOneLevel @ 0x14002D530 (CmpWalkOneLevel.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1405185D4 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x140518740 (CmpPerformSingleKcbCacheLookup.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     CmpReferenceHive @ 0x14002D220 (CmpReferenceHive.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     CmpReferenceHive @ 0x14002CDA0 (CmpReferenceHive.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, unsigned int a2)

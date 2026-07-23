@@ -6,19 +6,19 @@
  *     _LdrpGetLoadAsEntry@8 @ 0x4B2B88CA (_LdrpGetLoadAsEntry@8.c)
  */
 
-int __stdcall LdrGetFileNameFromLoadAsDataTable(int a1, _DWORD *a2)
+NTSTATUS __cdecl LdrGetFileNameFromLoadAsDataTable(PVOID Module, PVOID *pFileNamePrt)
 {
-  int result; // eax
-  _BYTE v3[4]; // [esp+8h] [ebp-18h] BYREF
-  int v4; // [esp+Ch] [ebp-14h]
+  NTSTATUS result; // eax
+  char v3[4]; // [esp+8h] [ebp-18h] BYREF
+  void *v4; // [esp+Ch] [ebp-14h]
 
-  if ( !a1 || !a2 )
+  if ( !Module || !pFileNamePrt )
     return -1073741811;
-  result = LdrpGetLoadAsEntry(a1, v3);
+  result = LdrpGetLoadAsEntry((int)Module, v3);
   if ( result >= 0 )
   {
     if ( v4 )
-      *a2 = v4;
+      *pFileNamePrt = v4;
     else
       return -1073741823;
   }

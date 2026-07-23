@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetZeroExceptionInfo @ 0x14070E53C
+ * XREFs of MiGetZeroExceptionInfo @ 0x14071323C
  * Callers:
- *     MiPerformTimedMemoryZeroing @ 0x14051ED50 (MiPerformTimedMemoryZeroing.c)
+ *     MiPerformTimedMemoryZeroing @ 0x1405213F4 (MiPerformTimedMemoryZeroing.c)
  * Callees:
- *     MiGetZeroingContext @ 0x14045D650 (MiGetZeroingContext.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetZeroingContext @ 0x140457050 (MiGetZeroingContext.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetZeroExceptionInfo(_DWORD **a1, ULONG_PTR a2, _DWORD *a3, _QWORD *a4)

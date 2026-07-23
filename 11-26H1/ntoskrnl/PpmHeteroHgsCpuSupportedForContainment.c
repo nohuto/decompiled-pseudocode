@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroHgsCpuSupportedForContainment @ 0x14060AC14
+ * XREFs of PpmHeteroHgsCpuSupportedForContainment @ 0x14060D87C
  * Callers:
- *     PpmHeteroHgsDetectContainmentPresence @ 0x14060ACD4 (PpmHeteroHgsDetectContainmentPresence.c)
+ *     PpmHeteroHgsDetectContainmentPresence @ 0x14060D93C (PpmHeteroHgsDetectContainmentPresence.c)
  * Callees:
- *     KeIsEmptyGroupMask @ 0x14040B460 (KeIsEmptyGroupMask.c)
- *     PpmHeteroIsIntelCpuSupportedForContainment @ 0x1406130EC (PpmHeteroIsIntelCpuSupportedForContainment.c)
+ *     KeIsEmptyGroupMask @ 0x140404550 (KeIsEmptyGroupMask.c)
+ *     PpmHeteroIsIntelCpuSupportedForContainment @ 0x140615F88 (PpmHeteroIsIntelCpuSupportedForContainment.c)
  */
 
 char PpmHeteroHgsCpuSupportedForContainment()

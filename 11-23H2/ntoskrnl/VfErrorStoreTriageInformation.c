@@ -1,10 +1,10 @@
 /*
- * XREFs of VfErrorStoreTriageInformation @ 0x140AD36B4
+ * XREFs of VfErrorStoreTriageInformation @ 0x140AD36A4
  * Callers:
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViErrorFinishReport @ 0x140AD3754 (ViErrorFinishReport.c)
- *     ViWdIrpTimedOut @ 0x140ADE41C (ViWdIrpTimedOut.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140AE4B88 (ViCtxCheckAndReleaseIsrState.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViErrorFinishReport @ 0x140AD3744 (ViErrorFinishReport.c)
+ *     ViWdIrpTimedOut @ 0x140ADE40C (ViWdIrpTimedOut.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140AE4B78 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
  *     <none>
  */

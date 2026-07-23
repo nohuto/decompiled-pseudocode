@@ -1,21 +1,21 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E69C
+ * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056EBDC
  * Callers:
- *     KeSetThreadSchedulerAssist @ 0x14056D21C (KeSetThreadSchedulerAssist.c)
- *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056E040 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056EAAC (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056D8DC (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056E580 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056EFEC (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiComputePriorityFloor @ 0x1402B0E3C (KiComputePriorityFloor.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8430 (KiSetBasePriorityAndClearDecrement.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x140410388 (KiReadGuestSchedulerAssistPriority.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
- *     KiCheckAssistDataForBamQosLevelOverride @ 0x14056DE7C (KiCheckAssistDataForBamQosLevelOverride.c)
- *     EtwTraceXSchedulerPriorityUpdate @ 0x1405FD868 (EtwTraceXSchedulerPriorityUpdate.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiComputePriorityFloor @ 0x1402B10CC (KiComputePriorityFloor.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402B86C0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x140410464 (KiReadGuestSchedulerAssistPriority.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
+ *     KiCheckAssistDataForBamQosLevelOverride @ 0x14056E53C (KiCheckAssistDataForBamQosLevelOverride.c)
+ *     EtwTraceXSchedulerPriorityUpdate @ 0x1405FDDD8 (EtwTraceXSchedulerPriorityUpdate.c)
  */
 
 char __fastcall KiUpdateVpBackingThreadPriorityFromTopLevel(ULONG_PTR BugCheckParameter1, unsigned __int64 a2)

@@ -1,18 +1,12 @@
 /*
- * XREFs of EtwpTraceRegistry @ 0x1409378D0
+ * XREFs of EtwpTraceRegistry @ 0x140937AA0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogRegistryEvent @ 0x140936F04 (EtwpLogRegistryEvent.c)
+ *     EtwpLogRegistryEvent @ 0x1409370D4 (EtwpLogRegistryEvent.c)
  */
 
-unsigned int *__fastcall EtwpTraceRegistry(
-        unsigned __int8 a1,
-        __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6)
+unsigned int *__fastcall EtwpTraceRegistry(unsigned __int8 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)
 {
   unsigned int *result; // rax
   unsigned int v11; // ebx

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmOpenDeviceContainerRegKey @ 0x1408B62A4
+ * XREFs of _CmOpenDeviceContainerRegKey @ 0x1408B3C14
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x1408B5FD0 (_PnpDispatchDeviceContainer.c)
- *     _CmCreateDeviceContainerWorker @ 0x140A54D7C (_CmCreateDeviceContainerWorker.c)
+ *     _PnpDispatchDeviceContainer @ 0x1408B3940 (_PnpDispatchDeviceContainer.c)
+ *     _CmCreateDeviceContainerWorker @ 0x140A4CCCC (_CmCreateDeviceContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x1408B77A0 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x1408B5110 (_CmOpenDeviceContainerRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenDeviceContainerRegKey(
@@ -42,7 +42,7 @@ __int64 __fastcall CmOpenDeviceContainerRegKey(
   v21 = a7;
   if ( v10 )
   {
-    v11 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 11LL);
+    v11 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v11 == -1073741822 )
     {
       v10 = 0LL;
@@ -60,7 +60,7 @@ __int64 __fastcall CmOpenDeviceContainerRegKey(
   if ( !v10 )
     goto LABEL_5;
   v16[0] = v12;
-  v15 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 11LL);
+  v15 = guard_dispatch_icall_no_overrides(a1, a2);
   if ( v15 == -1073741822 )
     goto LABEL_5;
   if ( v15 == -1073741536 )

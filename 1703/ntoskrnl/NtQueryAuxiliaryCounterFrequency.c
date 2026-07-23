@@ -7,16 +7,16 @@
  *     ProbeForWrite @ 0x140527A00 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQueryAuxiliaryCounterFrequency(_QWORD *a1)
+NTSTATUS __cdecl NtQueryAuxiliaryCounterFrequency(PLARGE_INTEGER AuxiliaryCounterFrequency)
 {
-  __int64 result; // rax
-  __int64 v3; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LONGLONG v3; // [rsp+48h] [rbp+10h] BYREF
 
   if ( !KeGetCurrentThread()->PreviousMode )
     return off_14033B640[0]();
-  ProbeForWrite(a1, 8uLL, 4u);
-  result = ((__int64 (__fastcall *)(__int64 *))off_14033B640[0])(&v3);
-  if ( (int)result >= 0 )
-    *a1 = v3;
+  ProbeForWrite(AuxiliaryCounterFrequency, 8uLL, 4u);
+  result = ((__int64 (__fastcall *)(LONGLONG *))off_14033B640[0])(&v3);
+  if ( result >= 0 )
+    AuxiliaryCounterFrequency->QuadPart = v3;
   return result;
 }

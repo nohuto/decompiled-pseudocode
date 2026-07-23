@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetMountFlag @ 0x14046ED70
+ * XREFs of IopGetMountFlag @ 0x140469480
  * Callers:
- *     NtQueryVolumeInformationFile @ 0x14096EFA0 (NtQueryVolumeInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x140957060 (NtQueryVolumeInformationFile.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
  */
 
 bool __fastcall IopGetMountFlag(__int64 a1)

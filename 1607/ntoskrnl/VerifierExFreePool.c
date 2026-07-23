@@ -1,7 +1,7 @@
 /*
- * XREFs of VerifierExFreePool @ 0x1407023D0
+ * XREFs of VerifierExFreePool @ 0x140702400
  * Callers:
- *     VerifierExFreePoolEx @ 0x1407023E8 (VerifierExFreePoolEx.c)
+ *     VerifierExFreePoolEx @ 0x140702418 (VerifierExFreePoolEx.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmGetThroughputInfoCallback @ 0x14020A744
+ * XREFs of PpmGetThroughputInfoCallback @ 0x14020A570
  * Callers:
  *     <none>
  * Callees:
- *     PpmSnapPerformanceAccumulation @ 0x1400D9590 (PpmSnapPerformanceAccumulation.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PpmSnapPerformanceAccumulation @ 0x1400D7430 (PpmSnapPerformanceAccumulation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PpmGetThroughputInfoCallback(LARGE_INTEGER *a1, __int64 a2)

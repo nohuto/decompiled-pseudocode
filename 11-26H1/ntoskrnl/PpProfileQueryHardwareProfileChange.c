@@ -1,12 +1,12 @@
 /*
- * XREFs of PpProfileQueryHardwareProfileChange @ 0x1407AD5BC
+ * XREFs of PpProfileQueryHardwareProfileChange @ 0x1407B061C
  * Callers:
- *     PipProcessStartPhase1 @ 0x1409108E0 (PipProcessStartPhase1.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase1 @ 0x1409B29C0 (PipProcessStartPhase1.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PnpRequestHwProfileChangeNotification @ 0x1407A1E04 (PnpRequestHwProfileChangeNotification.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x1407A4944 (PnpRequestHwProfileChangeNotification.c)
  */
 
 __int64 __fastcall PpProfileQueryHardwareProfileChange(char a1, int a2, int a3, __int64 a4)

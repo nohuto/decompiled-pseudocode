@@ -1,19 +1,19 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140535C54
+ * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1405361A4
  * Callers:
  *     CcCanIWrite @ 0x14020F180 (CcCanIWrite.c)
- *     CcUninitializeCacheMap @ 0x14029BC40 (CcUninitializeCacheMap.c)
- *     CcSetDirtyInMask @ 0x1402C8FF0 (CcSetDirtyInMask.c)
- *     CcChargeDirtyPagesInternal @ 0x1402FCAF0 (CcChargeDirtyPagesInternal.c)
- *     CcQueueLazyWriteScanThread @ 0x140536E40 (CcQueueLazyWriteScanThread.c)
+ *     CcUninitializeCacheMap @ 0x14029BED0 (CcUninitializeCacheMap.c)
+ *     CcSetDirtyInMask @ 0x1402C9280 (CcSetDirtyInMask.c)
+ *     CcChargeDirtyPagesInternal @ 0x1402FCD80 (CcChargeDirtyPagesInternal.c)
+ *     CcQueueLazyWriteScanThread @ 0x140537390 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x14029BC14 (CcIsWriteBehindThreadpoolAtLowPriority.c)
- *     CcGetCurrentNumaNode @ 0x140329650 (CcGetCurrentNumaNode.c)
- *     CcBoostLowPriorityWorkerThread @ 0x14036D6E4 (CcBoostLowPriorityWorkerThread.c)
- *     CcAdjustWriteBehindThreadPool @ 0x140535BD8 (CcAdjustWriteBehindThreadPool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x14029BEA4 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcGetCurrentNumaNode @ 0x1403298E0 (CcGetCurrentNumaNode.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14036D884 (CcBoostLowPriorityWorkerThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x140536128 (CcAdjustWriteBehindThreadPool.c)
  */
 
 signed __int32 __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
@@ -65,10 +65,10 @@ LABEL_14:
 LABEL_17:
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && LockHandle.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -79,7 +79,7 @@ LABEL_17:
       v13 = (result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v13 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

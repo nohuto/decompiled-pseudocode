@@ -22,7 +22,7 @@ __int64 __fastcall HvlSvmGetSystemCapabilities(__int64 a1)
   unsigned int v6; // ecx
   int v7; // eax
   char v8; // r15
-  union _SLIST_HEADER *v9; // rbp
+  _SLIST_HEADER *v9; // rbp
   unsigned __int8 v10; // r14
   _QWORD *p_Next; // rdi
   struct _KPRCB *CurrentPrcb; // rsi
@@ -30,17 +30,17 @@ __int64 __fastcall HvlSvmGetSystemCapabilities(__int64 a1)
   char *v14; // rsi
   PHYSICAL_ADDRESS PhysicalAddress; // r12
   PSLIST_ENTRY v16; // rax
-  struct _SLIST_ENTRY *v17; // r13
+  _SLIST_ENTRY *v17; // r13
   __int64 HypercallCachedPages; // rax
   struct _KPRCB *v19; // rcx
   struct _KPRCB *v20; // rcx
   char v21; // [rsp+20h] [rbp-148h]
   PSLIST_ENTRY ListEntry; // [rsp+28h] [rbp-140h]
   PHYSICAL_ADDRESS Next; // [rsp+30h] [rbp-138h]
-  union _SLIST_HEADER *v24; // [rsp+40h] [rbp-128h]
-  struct _SLIST_ENTRY *v25; // [rsp+48h] [rbp-120h]
-  struct _KPRCB *v26; // [rsp+60h] [rbp-108h]
-  struct _SLIST_ENTRY *v27; // [rsp+68h] [rbp-100h]
+  _SLIST_HEADER *v24; // [rsp+40h] [rbp-128h]
+  _SLIST_ENTRY *v25; // [rsp+48h] [rbp-120h]
+  _SLIST_HEADER *v26; // [rsp+60h] [rbp-108h]
+  _SLIST_ENTRY *v27; // [rsp+68h] [rbp-100h]
   _DWORD v28[4]; // [rsp+78h] [rbp-F0h] BYREF
   _DWORD v29[4]; // [rsp+88h] [rbp-E0h] BYREF
   unsigned int v30[4]; // [rsp+98h] [rbp-D0h] BYREF
@@ -94,7 +94,7 @@ __int64 __fastcall HvlSvmGetSystemCapabilities(__int64 a1)
       v10 = (unsigned __int8)CurrentPrcb;
       Next = (PHYSICAL_ADDRESS)v13[1].Next;
       v21 = 1;
-      v26 = CurrentPrcb;
+      v26 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -133,7 +133,7 @@ LABEL_27:
     v17 = v25;
     goto LABEL_28;
   }
-  v9 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+  v9 = (_SLIST_HEADER *)KeGetCurrentPrcb();
   v16 = RtlpInterlockedPopEntrySList(v9 + 1535);
   v14 = (char *)v16;
   if ( !v16 )
@@ -168,7 +168,7 @@ LABEL_28:
   if ( (v21 & 1) != 0 )
   {
     ListEntry[1].Next = (_SLIST_ENTRY *)Next.QuadPart;
-    RtlpInterlockedPushEntrySList(&v26->HypercallPageList, ListEntry);
+    RtlpInterlockedPushEntrySList(v26 + 1535, ListEntry);
   }
   else if ( (v21 & 2) != 0 )
   {

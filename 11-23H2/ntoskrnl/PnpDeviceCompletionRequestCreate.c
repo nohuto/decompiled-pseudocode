@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionRequestCreate @ 0x140794E8C
+ * XREFs of PnpDeviceCompletionRequestCreate @ 0x14079507C
  * Callers:
- *     PnpStartDeviceNode @ 0x1407934D0 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x140794D7C (PipEnumerateDevice.c)
- *     PiProcessNewDeviceNodeAsync @ 0x1407E24A8 (PiProcessNewDeviceNodeAsync.c)
+ *     PnpStartDeviceNode @ 0x1407936C0 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x140794F6C (PipEnumerateDevice.c)
+ *     PiProcessNewDeviceNodeAsync @ 0x1407E2778 (PiProcessNewDeviceNodeAsync.c)
  * Callees:
- *     PnpEnableWatchdog @ 0x14078601C (PnpEnableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x14078620C (PnpEnableWatchdog.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

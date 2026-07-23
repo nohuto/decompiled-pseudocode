@@ -1,15 +1,15 @@
 /*
- * XREFs of HvWriteLogFile @ 0x1403F5A70
+ * XREFs of HvWriteLogFile @ 0x1403F4934
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpTraceHiveFlushWroteLogFile @ 0x1403F5A08 (CmpTraceHiveFlushWroteLogFile.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140480DF4 (HvpLogTypeToLogArrayIndex.c)
- *     HvpGenerateLogEntry @ 0x1404812F0 (HvpGenerateLogEntry.c)
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
+ *     CmpTraceHiveFlushWroteLogFile @ 0x1403F48CC (CmpTraceHiveFlushWroteLogFile.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x14047FB48 (HvpLogTypeToLogArrayIndex.c)
+ *     HvpGenerateLogEntry @ 0x140480044 (HvpGenerateLogEntry.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
  */
 
 __int64 __fastcall HvWriteLogFile(__int64 a1, char a2, unsigned int a3, unsigned int *a4)

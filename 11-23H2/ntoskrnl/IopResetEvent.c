@@ -1,10 +1,9 @@
 /*
- * XREFs of IopResetEvent @ 0x1402AF910
+ * XREFs of IopResetEvent @ 0x1402AFBA0
  * Callers:
- *     IopAllocateAndPopulateWriteIrp @ 0x140224220 (IopAllocateAndPopulateWriteIrp.c)
- *     IopCloseFile @ 0x140730000 (IopCloseFile.c)
+ *     IopCloseFile @ 0x1407301F0 (IopCloseFile.c)
  * Callees:
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
  */
 
 LONG __fastcall IopResetEvent(__int64 a1)

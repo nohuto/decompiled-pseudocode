@@ -14,10 +14,5 @@ NTSTATUS __stdcall NtOpenEnlistment(
         LPGUID EnlistmentGuid,
         POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  return __imp_NtOpenEnlistment(
-           EnlistmentHandle,
-           DesiredAccess,
-           ResourceManagerHandle,
-           EnlistmentGuid,
-           ObjectAttributes);
+  return NtOpenEnlistment_0(EnlistmentHandle, DesiredAccess, ResourceManagerHandle, EnlistmentGuid, ObjectAttributes);
 }

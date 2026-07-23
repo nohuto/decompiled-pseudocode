@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryTimerResolution @ 0x1401BACF0
+ * XREFs of ZwQueryTimerResolution @ 0x1401BAE50
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwQueryTimerResolution(PULONG MinimumResolution, PULONG Maxim
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(MinimumResolution, MaximumResolution, ActualResolution);
+  return KiServiceInternal(MinimumResolution);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of IoSynchronousPageWriteEx @ 0x14026B9F0
+ * XREFs of IoSynchronousPageWriteEx @ 0x14026AF60
  * Callers:
- *     MiZeroPageWrite @ 0x14046D748 (MiZeroPageWrite.c)
- *     IoSynchronousPageWrite @ 0x1404ACAF0 (IoSynchronousPageWrite.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405C7D7C (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     MiZeroPageWrite @ 0x140466EC8 (MiZeroPageWrite.c)
+ *     IoSynchronousPageWrite @ 0x1404A6180 (IoSynchronousPageWrite.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405CA64C (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     MmIsFileObjectAPagingFile @ 0x14026C320 (MmIsFileObjectAPagingFile.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     IoSetDiskIoAttributionFromThread @ 0x14026CD00 (IoSetDiskIoAttributionFromThread.c)
- *     IopAllocateReserveIrp @ 0x14027006C (IopAllocateReserveIrp.c)
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopReferenceIoAttributionFromProcess @ 0x140467C50 (IopReferenceIoAttributionFromProcess.c)
- *     IopAllocateBackpocketIrp @ 0x140531A0C (IopAllocateBackpocketIrp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     MmIsFileObjectAPagingFile @ 0x14026B890 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14026C270 (IoSetDiskIoAttributionFromThread.c)
+ *     IopAllocateReserveIrp @ 0x14026F5DC (IopAllocateReserveIrp.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x1404613A0 (IopReferenceIoAttributionFromProcess.c)
+ *     IopAllocateBackpocketIrp @ 0x140533EB4 (IopAllocateBackpocketIrp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall IoSynchronousPageWriteEx(
@@ -85,11 +85,11 @@ LABEL_5:
           || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x2000000) != 0
           || KeGetCurrentThread()[1].TrapFrame == (_KTRAP_FRAME *)2 )
         {
-          ++LODWORD(IopSessionNotificationLock.StackLimit);
+          ++IoPagingWriteLowPriorityCount;
         }
         else
         {
-          ++HIDWORD(IopSessionNotificationLock.InitialStack);
+          ++IoPagingWriteLowPriorityBumpedCount;
           v16 = 2LL;
         }
       }

@@ -65,12 +65,12 @@ __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, unsigned int a2, unsigned int 
   v3 = 0LL;
   v4 = *(_DWORD *)(a1 + 16);
   LODWORD(v36) = *(_DWORD *)(a1 + 20);
-  v8 = *(_QWORD *)a1 - SecurityProviderGuid;
-  v7 = *(_QWORD *)a1 == (_QWORD)SecurityProviderGuid;
+  v8 = *(_QWORD *)a1 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v7 = *(_QWORD *)a1 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v33 = 0LL;
   Object = 0LL;
   if ( v7 )
-    v8 = *(_QWORD *)(a1 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v8 = *(_QWORD *)(a1 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v8 )
     return 3221225506LL;
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, (unsigned int)(v4 - 2) > 1);

@@ -10,17 +10,22 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopNetSetResiliencyPhaseBias(__int64 a1, __int64 a2, __int64 a3)
-{
-  char v3; // bl
-  __int64 v4; // rcx
-
-  v3 = a1;
-  PopReleasePolicyLock(a1, a2, a3);
-  if ( qword_140C6B050 )
-  {
-    LOBYTE(v4) = v3;
-    qword_140C6B050(v4);
-  }
-  return PopAcquirePolicyLock(v4);
-}
+/*
+ * Hex-Rays decompilation failed for PopNetSetResiliencyPhaseBias @ 0x140996A28
+ * Reason: Hex-Rays returned no pseudocode for 0x140996A28
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 0000000140996A28: push    rbx
+ * 0000000140996A2A: sub     rsp, 20h
+ * 0000000140996A2E: mov     bl, cl
+ * 0000000140996A30: call    PopReleasePolicyLock
+ * 0000000140996A35: mov     rax, cs:qword_140C6B050
+ * 0000000140996A3C: test    rax, rax
+ * 0000000140996A3F: jz      short loc_140996A48
+ * 0000000140996A41: mov     cl, bl
+ * 0000000140996A43: call    _guard_dispatch_icall
+ * 0000000140996A48: call    PopAcquirePolicyLock
+ * 0000000140996A4D: add     rsp, 20h
+ * 0000000140996A51: pop     rbx
+ * 0000000140996A52: retn
+ */

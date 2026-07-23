@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializePagedHeaps @ 0x140659CEC
+ * XREFs of ExInitializePagedHeaps @ 0x14065838C
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     ExCreateHeap @ 0x140659CA0 (ExCreateHeap.c)
- *     RtlpDynamicLookasideInitialize @ 0x1406A1B78 (RtlpDynamicLookasideInitialize.c)
+ *     ExCreateHeap @ 0x140658340 (ExCreateHeap.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1406A2BC8 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 ExInitializePagedHeaps()
@@ -25,7 +25,7 @@ __int64 ExInitializePagedHeaps()
   {
     v9 = 0LL;
     LOBYTE(v9) = 2;
-    if ( i >= dword_140E6BC10 )
+    if ( i >= dword_140E6BE10 )
       break;
     BYTE2(v9) = i;
     v1 = 8384LL * i;
@@ -61,7 +61,7 @@ __int64 ExInitializePagedHeaps()
     v6 = v9;
     *(_BYTE *)(v10 + 333) |= 8u;
     *(_BYTE *)(v5 + 525) |= 8u;
-    qword_140EEEC50 = v5;
+    qword_140EEEE50 = v5;
     v9 = v6;
     v2 = ExCreateHeap(&v9, 0x400000LL, &v10);
     if ( v2 >= 0 )
@@ -69,7 +69,7 @@ __int64 ExInitializePagedHeaps()
       v7 = v10;
       *(_BYTE *)(v10 + 333) |= 8u;
       *(_BYTE *)(v7 + 525) |= 8u;
-      qword_140EEEC58 = v7;
+      qword_140EEEE58 = v7;
     }
   }
   return (unsigned int)v2;

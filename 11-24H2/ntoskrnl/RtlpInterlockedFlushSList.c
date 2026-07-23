@@ -1,50 +1,50 @@
 /*
- * XREFs of RtlpInterlockedFlushSList @ 0x1406B3910
+ * XREFs of RtlpInterlockedFlushSList @ 0x1406B48B0
  * Callers:
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiDrainZeroLookasides @ 0x14022A040 (MiDrainZeroLookasides.c)
- *     RtlpHpVsContextFree @ 0x1402B2F20 (RtlpHpVsContextFree.c)
- *     RtlpHpVsContextCompact @ 0x1402B3A2C (RtlpHpVsContextCompact.c)
- *     RtlpDynamicLookasideFlush @ 0x1402B4E68 (RtlpDynamicLookasideFlush.c)
- *     MiStoreDrainWriteSupports @ 0x1402CF620 (MiStoreDrainWriteSupports.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x1402D001C (MiStoreCheckCompleteWriteBatch.c)
- *     MiFreePageFileHashPfns @ 0x1402D2BA0 (MiFreePageFileHashPfns.c)
- *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14037E408 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     EtwpCovSampCaptureQueueDpc @ 0x1404598A0 (EtwpCovSampCaptureQueueDpc.c)
- *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x140467EF4 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
- *     ExpFlushGeneralLookaside @ 0x140475FF0 (ExpFlushGeneralLookaside.c)
- *     ExFlushLookasideListEx @ 0x1404760F0 (ExFlushLookasideListEx.c)
- *     PfFbBufferListFlushStandby @ 0x1404775E4 (PfFbBufferListFlushStandby.c)
- *     EtwpCancelPendingApcs @ 0x14048C6E8 (EtwpCancelPendingApcs.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x140493E00 (ExpWorkerFactoryDeferredThreadCreation.c)
- *     EtwpFreeApcPool @ 0x14049A610 (EtwpFreeApcPool.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1404CF22C (MiDeleteDeferredCloneDescriptors.c)
- *     KiFreeTemporaryStacks @ 0x1405BC470 (KiFreeTemporaryStacks.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140651EDC (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
- *     ExpPlProcessNotifications @ 0x1406551D0 (ExpPlProcessNotifications.c)
- *     MiRemoveNonIdealCachedStacks @ 0x1406800B0 (MiRemoveNonIdealCachedStacks.c)
- *     MiInsertPteTracker @ 0x1406913D4 (MiInsertPteTracker.c)
- *     ObpInitStackAndObjectTables @ 0x140745058 (ObpInitStackAndObjectTables.c)
- *     ObpStopRuntimeStackTrace @ 0x1407458D4 (ObpStopRuntimeStackTrace.c)
- *     PfTCleanup @ 0x140746568 (PfTCleanup.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CB08 (SmHwAcceleratorPartitionCtxCleanup.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1407B24B0 (EtwpCovSampCaptureWorkerThread.c)
- *     CmUnRegisterCallback @ 0x1407D1530 (CmUnRegisterCallback.c)
- *     PfpFlushEventBuffers @ 0x14094F57C (PfpFlushEventBuffers.c)
- *     PfpFlushBuffers @ 0x14094F8D0 (PfpFlushBuffers.c)
- *     EtwpFreeStackCache @ 0x140A44770 (EtwpFreeStackCache.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x140AB6D0C (EtwpCovSampCaptureFreeLookasides.c)
- *     PfTAccessTracingCleanup @ 0x140B5B46C (PfTAccessTracingCleanup.c)
- *     ViPoolDelayFreeTrimThreadRoutine @ 0x140B9A510 (ViPoolDelayFreeTrimThreadRoutine.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MiDrainZeroLookasides @ 0x1402FD2B0 (MiDrainZeroLookasides.c)
+ *     MiFreePageFileHashPfns @ 0x140353E18 (MiFreePageFileHashPfns.c)
+ *     RtlpHpVsContextFree @ 0x14035BAE0 (RtlpHpVsContextFree.c)
+ *     RtlpHpVsContextCompact @ 0x14035CB7C (RtlpHpVsContextCompact.c)
+ *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140378128 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     EtwpCovSampCaptureQueueDpc @ 0x14044E5D0 (EtwpCovSampCaptureQueueDpc.c)
+ *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1404608A4 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ *     RtlpDynamicLookasideFlush @ 0x1404644CC (RtlpDynamicLookasideFlush.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x14046FE3C (MiStoreCheckCompleteWriteBatch.c)
+ *     MiStoreDrainWriteSupports @ 0x140470054 (MiStoreDrainWriteSupports.c)
+ *     ExpFlushGeneralLookaside @ 0x140472090 (ExpFlushGeneralLookaside.c)
+ *     ExFlushLookasideListEx @ 0x140472190 (ExFlushLookasideListEx.c)
+ *     PfFbBufferListFlushStandby @ 0x140473B84 (PfFbBufferListFlushStandby.c)
+ *     EtwpCancelPendingApcs @ 0x140487408 (EtwpCancelPendingApcs.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x14048E88C (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     EtwpFreeApcPool @ 0x140495034 (EtwpFreeApcPool.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1404C83F8 (MiDeleteDeferredCloneDescriptors.c)
+ *     KiFreeTemporaryStacks @ 0x1405B9AA0 (KiFreeTemporaryStacks.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406505DC (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     ExpPlProcessNotifications @ 0x1406538D0 (ExpPlProcessNotifications.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x1406812B0 (MiRemoveNonIdealCachedStacks.c)
+ *     MiInsertPteTracker @ 0x1406924A4 (MiInsertPteTracker.c)
+ *     ObpInitStackAndObjectTables @ 0x140743348 (ObpInitStackAndObjectTables.c)
+ *     ObpStopRuntimeStackTrace @ 0x140743BC4 (ObpStopRuntimeStackTrace.c)
+ *     PfTCleanup @ 0x140744858 (PfTCleanup.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CC18 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1407B2900 (EtwpCovSampCaptureWorkerThread.c)
+ *     CmUnRegisterCallback @ 0x1407D1A20 (CmUnRegisterCallback.c)
+ *     PfpFlushEventBuffers @ 0x140971A8C (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x140971DE0 (PfpFlushBuffers.c)
+ *     EtwpFreeStackCache @ 0x140A3A000 (EtwpFreeStackCache.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140AB0FE4 (EtwpCovSampCaptureFreeLookasides.c)
+ *     PfTAccessTracingCleanup @ 0x140B5D4DC (PfTAccessTracingCleanup.c)
+ *     ViPoolDelayFreeTrimThreadRoutine @ 0x140B9C510 (ViPoolDelayFreeTrimThreadRoutine.c)
  * Callees:
  *     <none>
  */
 
 PSLIST_ENTRY __stdcall RtlpInterlockedFlushSList(PSLIST_HEADER ListHead)
 {
-  union _SLIST_HEADER v1; // rax
+  _SLIST_HEADER v1; // rax
   signed __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
   unsigned __int8 v4; // tt
 
   _m_prefetchw(ListHead);

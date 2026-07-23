@@ -1,8 +1,8 @@
 /*
- * XREFs of IopVerifyDiskSignature @ 0x140713A4C
+ * XREFs of IopVerifyDiskSignature @ 0x1407115DC
  * Callers:
- *     IopCreateArcName @ 0x140A75840 (IopCreateArcName.c)
- *     IopGetBootDiskInformation @ 0x140C1D87C (IopGetBootDiskInformation.c)
+ *     IopCreateArcName @ 0x140A6FCE0 (IopCreateArcName.c)
+ *     IopGetBootDiskInformation @ 0x140C1F8BC (IopGetBootDiskInformation.c)
  * Callees:
  *     <none>
  */

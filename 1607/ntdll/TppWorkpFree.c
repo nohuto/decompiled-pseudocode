@@ -1,14 +1,14 @@
 /*
- * XREFs of TppWorkpFree @ 0x18003B5B0
+ * XREFs of TppWorkpFree @ 0x18003B5A0
  * Callers:
- *     TppWorkCallbackEpilog @ 0x180020610 (TppWorkCallbackEpilog.c)
+ *     TppWorkCallbackEpilog @ 0x180020600 (TppWorkCallbackEpilog.c)
  * Callees:
- *     TppCleanupGroupMemberDestroy @ 0x18003B5F0 (TppCleanupGroupMemberDestroy.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18003B5E0 (TppCleanupGroupMemberDestroy.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TppWorkpFree(__int64 a1)
+LOGICAL __fastcall TppWorkpFree(PVOID BaseAddress)
 {
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a1);
+  TppCleanupGroupMemberDestroy(BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
 }

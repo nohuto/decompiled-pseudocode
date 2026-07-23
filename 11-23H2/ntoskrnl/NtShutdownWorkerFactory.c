@@ -1,23 +1,23 @@
 /*
- * XREFs of NtShutdownWorkerFactory @ 0x140367BF0
+ * XREFs of NtShutdownWorkerFactory @ 0x140367D90
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     ExpShutdownWorkerFactory @ 0x14031D908 (ExpShutdownWorkerFactory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x140865AA0 (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     ExpShutdownWorkerFactory @ 0x14031DB98 (ExpShutdownWorkerFactory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ExSystemExceptionFilter @ 0x140865CE0 (ExSystemExceptionFilter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2)
+NTSTATUS __cdecl NtShutdownWorkerFactory(HANDLE WorkerFactoryHandle, LONG *PendingWorkerCount)
 {
   KPROCESSOR_MODE PreviousMode; // r9
-  NTSTATUS v4; // esi
+  int v4; // esi
   struct _EX_RUNDOWN_REF *v5; // rbx
   unsigned __int8 OldIrql; // bl
   unsigned __int8 CurrentIrql; // al
@@ -33,13 +33,13 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)PendingWorkerCount & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (unsigned __int64)(a2 + 1) > 0x7FFFFFFF0000LL || a2 + 1 < a2 )
+    if ( (unsigned __int64)(PendingWorkerCount + 1) > 0x7FFFFFFF0000LL || PendingWorkerCount + 1 < PendingWorkerCount )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
   Object = 0LL;
-  v4 = ObReferenceObjectByHandle(a1, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  v4 = ObReferenceObjectByHandle(WorkerFactoryHandle, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( v4 >= 0 )
   {
     v5 = (struct _EX_RUNDOWN_REF *)Object;
@@ -47,15 +47,18 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
     ExWaitForRundownProtectionRelease(v5 + 13);
     v5 += 49;
     v15 = v5;
-    _InterlockedExchangeAdd(a2, v5->Count);
+    _InterlockedExchangeAdd(PendingWorkerCount, v5->Count);
     KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
     LODWORD(v5->Count) = 0;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -69,5 +72,5 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
     __writecr8(OldIrql);
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   }
-  return (unsigned int)v4;
+  return v4;
 }

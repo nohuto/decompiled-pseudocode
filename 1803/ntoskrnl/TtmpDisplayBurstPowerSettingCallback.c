@@ -19,7 +19,7 @@ __int64 __fastcall TtmpDisplayBurstPowerSettingCallback(
         PVOID Context)
 {
   int v4; // ebx
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v8; // eax
   _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
 

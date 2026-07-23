@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpNodeHotAddProcessorWorker @ 0x140955D50
+ * XREFs of ExpNodeHotAddProcessorWorker @ 0x140955F20
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
- *     PsQuitNextPartition @ 0x1405842D0 (PsQuitNextPartition.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1406A91D4 (KeSynchronizeWithDynamicProcessors.c)
- *     ExpWorkQueueManagerStart @ 0x1407C21E4 (ExpWorkQueueManagerStart.c)
+ *     PsGetNextPartition @ 0x140250E68 (PsGetNextPartition.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     PsQuitNextPartition @ 0x140584500 (PsQuitNextPartition.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x140607154 (KeSynchronizeWithDynamicProcessors.c)
+ *     ExpWorkQueueManagerStart @ 0x1407C2704 (ExpWorkQueueManagerStart.c)
  */
 
 void __fastcall ExpNodeHotAddProcessorWorker(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExLogTimeZoneInformation @ 0x1404D955C
+ * XREFs of ExLogTimeZoneInformation @ 0x1404D29AC
  * Callers:
- *     Phase1InitializationIoReady @ 0x140C5FB78 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140C61CC8 (Phase1InitializationIoReady.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int ExLogTimeZoneInformation()
@@ -65,7 +65,7 @@ int ExLogTimeZoneInformation()
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   Blink = CurrentServerSiloGlobals[76].Blink;
-  if ( (unsigned int)dword_140E09310 > 5 )
+  if ( (unsigned int)dword_140E09380 > 5 )
   {
     v2 = (int)Blink[62].Blink;
     v20 = 0;
@@ -113,8 +113,8 @@ int ExLogTimeZoneInformation()
     v41 = v5;
     v44 = v5;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
-                                          (__int64)&dword_140E09310,
-                                          (unsigned __int8 *)&word_140053E06,
+                                          (__int64)&dword_140E09380,
+                                          (unsigned __int8 *)byte_140054B73,
                                           0LL,
                                           0LL,
                                           0xEu,

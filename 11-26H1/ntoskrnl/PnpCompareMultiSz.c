@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCompareMultiSz @ 0x140A7ADF8
+ * XREFs of PnpCompareMultiSz @ 0x140A8BF3C
  * Callers:
- *     PipMatchPersistentMemory @ 0x14079DC84 (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x14079DD64 (PipMatchPersistentMemoryV1.c)
- *     PiSwDoesCreateChangesRequireReEnum @ 0x140B3C214 (PiSwDoesCreateChangesRequireReEnum.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140B48EE0 (PiCreateDriverSwDeviceCallback.c)
+ *     PipMatchPersistentMemory @ 0x1407A07C4 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x1407A08A4 (PipMatchPersistentMemoryV1.c)
+ *     PiSwDoesCreateChangesRequireReEnum @ 0x140B3E494 (PiSwDoesCreateChangesRequireReEnum.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140B4AC70 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     PnpGetMultiSzLength @ 0x140A7C854 (PnpGetMultiSzLength.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     PnpGetMultiSzLength @ 0x140A8D984 (PnpGetMultiSzLength.c)
  */
 
 bool __fastcall PnpCompareMultiSz(PCWCH String1, PCWCH String2, BOOLEAN CaseInSensitive)

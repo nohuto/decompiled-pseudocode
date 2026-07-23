@@ -1,16 +1,16 @@
 /*
- * XREFs of HvRecoverFlushProtocolStateFromFiles @ 0x140A1D658
+ * XREFs of HvRecoverFlushProtocolStateFromFiles @ 0x140A1D908
  * Callers:
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1CE84 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1D134 (CmpRecoverFlushProtocolStateFromFiles.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvpGetHiveHeader @ 0x14074EC0C (HvpGetHiveHeader.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407511A0 (HvpLogTypeToLogArrayIndex.c)
- *     HvAnalyzeLogFiles @ 0x1407FDB08 (HvAnalyzeLogFiles.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvpGetHiveHeader @ 0x14074EDFC (HvpGetHiveHeader.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140751390 (HvpLogTypeToLogArrayIndex.c)
+ *     HvAnalyzeLogFiles @ 0x1407FDDD8 (HvAnalyzeLogFiles.c)
  *     HvpHeaderCheckSum @ 0x140AF5640 (HvpHeaderCheckSum.c)
  */
 

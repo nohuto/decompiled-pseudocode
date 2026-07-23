@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAddHeapToUnprotectedList @ 0x18002D5AC
+ * XREFs of RtlpAddHeapToUnprotectedList @ 0x18002D59C
  * Callers:
- *     RtlpMoveHeapBetweenLists @ 0x18002D954 (RtlpMoveHeapBetweenLists.c)
+ *     RtlpMoveHeapBetweenLists @ 0x18002D944 (RtlpMoveHeapBetweenLists.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -28,7 +28,7 @@ void __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
     {
       v6 = 2 * MaximumNumberOfHeaps;
       v1->MaximumNumberOfHeaps = v6;
-      Heap = (void **)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * v6);
+      Heap = (void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * v6);
       v8 = Heap;
       if ( !Heap )
       {
@@ -38,7 +38,7 @@ void __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
       memmove(Heap, v1->ProcessHeaps, 8LL * v1->NumberOfHeaps);
       ProcessHeaps = v1->ProcessHeaps;
       if ( ProcessHeaps != (void **)&RtlpProcessHeapsListBuffer )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, ProcessHeaps);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ProcessHeaps);
       v1->ProcessHeaps = v8;
     }
     v1->ProcessHeaps[v1->NumberOfHeaps++] = (void *)a1;

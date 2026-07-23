@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenSymbolicLinkObject @ 0x140464044
+ * XREFs of NtOpenSymbolicLinkObject @ 0x140462F14
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x1405700B8 (AdtpInitializeDriveLetters.c)
+ *     AdtpInitializeDriveLetters @ 0x1405705F8 (AdtpInitializeDriveLetters.c)
  *     IopReassignSystemRoot @ 0x1407B980C (IopReassignSystemRoot.c)
  * Callees:
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall NtOpenSymbolicLinkObject(

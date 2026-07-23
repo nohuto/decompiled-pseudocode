@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteEmptyPageTableCommit @ 0x140467190
+ * XREFs of MiDeleteEmptyPageTableCommit @ 0x1404608E0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiCaptureDeleteHierarchy @ 0x140303880 (MiCaptureDeleteHierarchy.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiCopyVadContents @ 0x1404673AC (MiCopyVadContents.c)
- *     MiGetPreviousVad @ 0x1404674B8 (MiGetPreviousVad.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiReturnPageTablePageCommitment @ 0x140B23EB8 (MiReturnPageTablePageCommitment.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiCaptureDeleteHierarchy @ 0x1402E5900 (MiCaptureDeleteHierarchy.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiCopyVadContents @ 0x140460AFC (MiCopyVadContents.c)
+ *     MiGetPreviousVad @ 0x140460C08 (MiGetPreviousVad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiReturnPageTablePageCommitment @ 0x140B262B8 (MiReturnPageTablePageCommitment.c)
  */
 
 __int64 __fastcall MiDeleteEmptyPageTableCommit(__int64 *a1, __int64 a2)

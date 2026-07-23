@@ -1,19 +1,29 @@
 /*
- * XREFs of RtlValidProcessProtection @ 0x1406C3630
+ * XREFs of RtlValidProcessProtection @ 0x140622210
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x1406986F4 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlValidProcessProtection(unsigned __int8 a1)
+BOOLEAN __cdecl RtlValidProcessProtection(PS_PROTECTION ProcessProtection)
 {
-  if ( a1 <= 0x41u )
+  if ( ProcessProtection.Level <= 0x41u )
   {
-    if ( a1 == 65 || !a1 || a1 == 49 || a1 == 8 || a1 == 18 || a1 == 33 )
+    if ( ProcessProtection.Level == 65
+      || !ProcessProtection.Level
+      || ProcessProtection.Level == 49
+      || ProcessProtection.Level == 8
+      || ProcessProtection.Level == 18
+      || ProcessProtection.Level == 33 )
+    {
       return 1;
+    }
   }
-  else if ( a1 >= 0x51u && (a1 <= 0x52u || a1 > 0x60u && (a1 <= 0x62u || a1 == 114 || a1 == 0x81)) )
+  else if ( ProcessProtection.Level >= 0x51u
+         && (ProcessProtection.Level <= 0x52u
+          || ProcessProtection.Level > 0x60u
+          && (ProcessProtection.Level <= 0x62u || ProcessProtection.Level == 114 || ProcessProtection.Level == 0x81)) )
   {
     return 1;
   }

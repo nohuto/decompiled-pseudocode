@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 NtThawTransactions()
+NTSTATUS NtThawTransactions(void)
 {
   return __imp_NtThawTransactions();
 }

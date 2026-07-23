@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMRegisterDeviceInterface @ 0x140A6E630
+ * XREFs of PiCMRegisterDeviceInterface @ 0x140A79094
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     _CmValidateDeviceName @ 0x1408B8070 (_CmValidateDeviceName.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     PiCMCaptureRegisterInterfaceInputData @ 0x140A6E830 (PiCMCaptureRegisterInterfaceInputData.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     _CmValidateDeviceName @ 0x1408B59E0 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     PiCMCaptureRegisterInterfaceInputData @ 0x140A79294 (PiCMCaptureRegisterInterfaceInputData.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMRegisterDeviceInterface(

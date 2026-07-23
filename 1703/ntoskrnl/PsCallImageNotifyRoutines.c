@@ -20,7 +20,7 @@ __int64 __fastcall PsCallImageNotifyRoutines(unsigned __int16 *a1, __int64 a2, _
   int v9; // eax
   int *v10; // r14
   __int64 v11; // rdi
-  union _RTL_RUN_ONCE *v12; // rbx
+  _RTL_RUN_ONCE *v12; // rbx
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rsi
   void (__fastcall *v16)(unsigned __int16 *, __int64, int *); // rax

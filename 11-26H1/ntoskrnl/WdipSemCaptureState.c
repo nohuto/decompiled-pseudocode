@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemCaptureState @ 0x1404E2FEC
+ * XREFs of WdipSemCaptureState @ 0x1404DC660
  * Callers:
- *     WdipSemDisableContextProvider @ 0x140AD9788 (WdipSemDisableContextProvider.c)
+ *     WdipSemDisableContextProvider @ 0x140AD6238 (WdipSemDisableContextProvider.c)
  * Callees:
- *     WdipSemEnableDisableTrace @ 0x140AD9B30 (WdipSemEnableDisableTrace.c)
+ *     WdipSemEnableDisableTrace @ 0x140AD65E0 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 __fastcall WdipSemCaptureState(__int64 a1, char a2)
@@ -25,9 +25,7 @@ __int64 __fastcall WdipSemCaptureState(__int64 a1, char a2)
   {
     if ( !a1 )
       return (unsigned int)-1073741811;
-    v5 = _InterlockedExchange(
-           (volatile __int32 *)&stru_140F066E8.SListFaultAddress,
-           (__int32)stru_140F066E8.SListFaultAddress);
+    v5 = _InterlockedExchange((_DWORD *)&stru_140F06A28.QuantumTarget + 1, SHIDWORD(stru_140F06A28.QuantumTarget));
     v6 = *(_DWORD *)(a1 + 32);
     if ( v6 )
     {

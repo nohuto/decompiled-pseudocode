@@ -1,43 +1,42 @@
 /*
- * XREFs of RtlpMuiRegGetLanguageSpec @ 0x180001F90
+ * XREFs of RtlpMuiRegGetLanguageSpec @ 0x18004D6C0
  * Callers:
- *     _RtlpMuiRegAddBaseLanguage @ 0x18014DCB4 (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x18014DB64 (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
- *     RtlpMuiRegGetOrAddString @ 0x180002080 (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
+ *     RtlpMuiRegGetOrAddString @ 0x18004D7B0 (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
  */
 
-__int64 __fastcall RtlpMuiRegGetLanguageSpec(__int64 a1, const wchar_t *a2, char *a3, __int64 a4, _WORD *a5)
+__int64 __fastcall RtlpMuiRegGetLanguageSpec(__int64 a1, wchar_t *a2, char *a3, __int64 a4, _WORD *a5)
 {
   __int16 v5; // bx
   char v9; // di
   size_t v10; // rax
   __int64 v11; // r8
   __int64 result; // rax
-  __int64 v13; // [rsp+20h] [rbp-38h] BYREF
-  const wchar_t *v14; // [rsp+28h] [rbp-30h]
-  int v15; // [rsp+68h] [rbp+10h] BYREF
-  __int16 v16; // [rsp+78h] [rbp+20h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+68h] [rbp+10h] BYREF
+  __int16 v15; // [rsp+78h] [rbp+20h] BYREF
 
-  v14 = a2;
-  v15 = 0;
+  String.Buffer = a2;
+  Lcid = 0;
   v5 = 0;
-  v16 = 0;
-  v13 = 0LL;
+  v15 = 0;
+  *(_QWORD *)&String.Length = 0LL;
   v9 = 0;
   if ( a2 )
   {
     v10 = 2 * wcslen(a2);
     if ( v10 >= 0xFFFE )
       LOWORD(v10) = -4;
-    LOWORD(v13) = v10;
-    WORD1(v13) = v10 + 2;
+    String.Length = v10;
+    String.MaximumLength = v10 + 2;
   }
-  if ( (unsigned __int8)RtlCultureNameToLCID(&v13, &v15) )
+  if ( RtlCultureNameToLCID(&String, &Lcid) )
   {
-    v5 = v15;
-    if ( ((v15 - 4096) & 0xFFFFFBFF) != 0 )
+    v5 = Lcid;
+    if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
     {
       v9 = 1;
 LABEL_8:
@@ -45,10 +44,10 @@ LABEL_8:
       goto LABEL_9;
     }
     LOBYTE(v11) = 1;
-    result = RtlpMuiRegGetOrAddString(a1, a2, v11, &v16, v13, v14);
+    result = RtlpMuiRegGetOrAddString(a1, a2, v11, &v15, *(_QWORD *)&String.Length, String.Buffer);
     if ( (int)result >= 0 )
     {
-      v5 = v16;
+      v5 = v15;
       v9 = 3;
       goto LABEL_8;
     }

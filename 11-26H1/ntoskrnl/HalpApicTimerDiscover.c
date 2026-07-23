@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpApicTimerDiscover @ 0x140598E58
+ * XREFs of HalpApicTimerDiscover @ 0x14059B5D8
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140582E04 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140585324 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalSocRequestApi @ 0x1404EF27C (HalSocRequestApi.c)
- *     HalSocGetAcpiTable @ 0x140598054 (HalSocGetAcpiTable.c)
- *     HalpTimerRegister @ 0x14059816C (HalpTimerRegister.c)
- *     HalpApicTimerIsInvariant @ 0x14059905C (HalpApicTimerIsInvariant.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalSocRequestApi @ 0x1404E885C (HalSocRequestApi.c)
+ *     HalSocGetAcpiTable @ 0x14059A7D4 (HalSocGetAcpiTable.c)
+ *     HalpTimerRegister @ 0x14059A8EC (HalpTimerRegister.c)
+ *     HalpApicTimerIsInvariant @ 0x14059B7DC (HalpApicTimerIsInvariant.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 HalpApicTimerDiscover()

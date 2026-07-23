@@ -1,48 +1,45 @@
 /*
- * XREFs of PopPdcCsCheckSystemVolumeDevice @ 0x140C328E4
+ * XREFs of PopPdcCsCheckSystemVolumeDevice @ 0x140C34A24
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     PopPdcCsDeviceNotification @ 0x140A89968 (PopPdcCsDeviceNotification.c)
- *     PopNetIsDisconnectStandbyActive @ 0x140A9AD40 (PopNetIsDisconnectStandbyActive.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     PopPdcCsDeviceNotification @ 0x140A85D68 (PopPdcCsDeviceNotification.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x140A962B0 (PopNetIsDisconnectStandbyActive.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 void PopPdcCsCheckSystemVolumeDevice()
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
-  HANDLE v2; // rcx
-  int v3; // [rsp+50h] [rbp-39h] BYREF
+  int v0; // [rsp+50h] [rbp-39h] BYREF
   HANDLE FileHandle; // [rsp+58h] [rbp-31h] BYREF
   wchar_t *Buffer; // [rsp+60h] [rbp-29h] BYREF
-  int v6; // [rsp+68h] [rbp-21h]
-  int v7; // [rsp+6Ch] [rbp-1Dh]
+  int v3; // [rsp+68h] [rbp-21h]
+  int v4; // [rsp+6Ch] [rbp-1Dh]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-9h] BYREF
   _QWORD InputBuffer[2]; // [rsp+B0h] [rbp+27h] BYREF
   __int64 OutputBuffer; // [rsp+C0h] [rbp+37h] BYREF
-  int v12; // [rsp+C8h] [rbp+3Fh]
+  int v9; // [rsp+C8h] [rbp+3Fh]
 
   memset(InputBuffer, 0, 12);
   OutputBuffer = 0LL;
-  v12 = 0;
+  v9 = 0;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v3 = 0;
+  v0 = 0;
   IoStatusBlock = 0LL;
   if ( PopPlatformAoAcCapabilityInitialized && PopPlatformAoAc )
   {
     Buffer = IoArcBootDeviceName.Buffer;
     ObjectAttributes.ObjectName = &IoArcBootDeviceName;
     FileHandle = 0LL;
-    v7 = 1;
-    v6 = 0;
+    v4 = 1;
+    v3 = 0;
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
@@ -64,19 +61,18 @@ void PopPdcCsCheckSystemVolumeDevice()
              &OutputBuffer,
              0xCu) >= 0 )
       {
-        if ( (_BYTE)v12 )
+        if ( (_BYTE)v9 )
           PopBsdSkipLogging = 1;
         else
-          BYTE1(v7) = 1;
+          BYTE1(v4) = 1;
       }
     }
     PopPdcCsDeviceNotification((__int64)&Buffer);
-    v2 = FileHandle;
     if ( FileHandle )
       ZwClose(FileHandle);
-    PopAcquirePolicyLock((__int64)v2, v0, v1);
-    PopNetIsDisconnectStandbyActive(&v3);
-    byte_140F0BB57 = (unsigned int)(v3 - 3) > 1;
+    PopAcquirePolicyLock();
+    PopNetIsDisconnectStandbyActive(&v0);
+    byte_140F0B677 = (unsigned int)(v0 - 3) > 1;
     PopReleasePolicyLock();
   }
 }

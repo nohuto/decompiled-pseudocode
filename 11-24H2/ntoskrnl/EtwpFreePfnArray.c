@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpFreePfnArray @ 0x1407A7DC8
+ * XREFs of EtwpFreePfnArray @ 0x1407A7F08
  * Callers:
- *     EtwpAllocateTraceBufferPool @ 0x140830488 (EtwpAllocateTraceBufferPool.c)
- *     EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140830658 (EtwpAllocatePhysicalMemoryForTraceBuffers.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1409CF86C (EtwpAllocateTraceBufferPool.c)
+ *     EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x1409CFA3C (EtwpAllocatePhysicalMemoryForTraceBuffers.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1403A37F0 (MmFreePagesFromMdl.c)
- *     EtwpMdlInit @ 0x1407A8DA0 (EtwpMdlInit.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmFreePagesFromMdl @ 0x14048E2C0 (MmFreePagesFromMdl.c)
+ *     EtwpMdlInit @ 0x1407A8EE0 (EtwpMdlInit.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreePfnArray(__int64 a1)

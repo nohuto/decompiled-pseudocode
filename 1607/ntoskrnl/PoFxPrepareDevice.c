@@ -1,20 +1,20 @@
 /*
- * XREFs of PoFxPrepareDevice @ 0x1400AED24
+ * XREFs of PoFxPrepareDevice @ 0x1400AD28C
  * Callers:
- *     PnpStartDevice @ 0x1400AEC7C (PnpStartDevice.c)
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
- *     PiProcessAddBootDevices @ 0x1405748F0 (PiProcessAddBootDevices.c)
+ *     PnpStartDevice @ 0x1400AD1E4 (PnpStartDevice.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
+ *     PiProcessAddBootDevices @ 0x140574E30 (PiProcessAddBootDevices.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     IoAcquireRemoveLockEx @ 0x1400C1730 (IoAcquireRemoveLockEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
- *     PopDiagTraceFxDevicePreparation @ 0x1404C7B14 (PopDiagTraceFxDevicePreparation.c)
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x1404E2614 (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     IoAcquireRemoveLockEx @ 0x1400BF5C0 (IoAcquireRemoveLockEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x140483F5C (PopDiagTraceFxDevicePreparation.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x1404C5578 (PopFxFindDeviceAndAllocateUniqueId.c)
  */
 
 void __fastcall PoFxPrepareDevice(__int64 a1, char a2)

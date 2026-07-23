@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAddCpuToSystemCpuPartition @ 0x140BF54BC
+ * XREFs of KiAddCpuToSystemCpuPartition @ 0x140BFB4BC
  * Callers:
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiWriteAcquireCpuStateTickLock @ 0x14046AC0C (KiWriteAcquireCpuStateTickLock.c)
- *     RtlWriteReleaseTickLock @ 0x140485188 (RtlWriteReleaseTickLock.c)
- *     KiAcquireCpuPartitionLockAtDpcLevel @ 0x140507E54 (KiAcquireCpuPartitionLockAtDpcLevel.c)
- *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405E5B9C (KiNotifyAvailableCpusChangeCpuPartition.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiWriteAcquireCpuStateTickLock @ 0x14046438C (KiWriteAcquireCpuStateTickLock.c)
+ *     RtlWriteReleaseTickLock @ 0x14047EAF8 (RtlWriteReleaseTickLock.c)
+ *     KiAcquireCpuPartitionLockAtDpcLevel @ 0x140501828 (KiAcquireCpuPartitionLockAtDpcLevel.c)
+ *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405E850C (KiNotifyAvailableCpusChangeCpuPartition.c)
  */
 
 void __fastcall KiAddCpuToSystemCpuPartition(__int64 a1)
@@ -28,9 +28,11 @@ void __fastcall KiAddCpuToSystemCpuPartition(__int64 a1)
   }
   *(_QWORD *)(a1 + 14320) = KiSystemCpuPartition;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 48), 0LL);
-  KiWriteAcquireCpuStateTickLock((__int64)&KiSupervisorXStateFeaturesLock.CycleTime);
-  KeAddProcessorAffinityEx((unsigned __int16 *)&KiSupervisorXStateFeaturesLock.CurrentRunTime, *(_DWORD *)(a1 + 36));
-  RtlWriteReleaseTickLock((__int64 *)&KiSupervisorXStateFeaturesLock.CycleTime);
+  KiWriteAcquireCpuStateTickLock((__int64)&KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Blink);
+  KeAddProcessorAffinityEx(
+    (unsigned __int16 *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[64],
+    *(_DWORD *)(a1 + 36));
+  RtlWriteReleaseTickLock((__int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Blink);
   if ( KiBootProcessorsStarted )
     KiNotifyAvailableCpusChangeCpuPartition(KiSystemCpuPartition);
 }

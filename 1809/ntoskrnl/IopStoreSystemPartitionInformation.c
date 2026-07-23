@@ -1,16 +1,16 @@
 /*
- * XREFs of IopStoreSystemPartitionInformation @ 0x1409D62F4
+ * XREFs of IopStoreSystemPartitionInformation @ 0x1409D72F4
  * Callers:
- *     IopMarkBootPartition @ 0x1409D6100 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x1409D7100 (IopMarkBootPartition.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwOpenSymbolicLinkObject @ 0x1401BA670 (ZwOpenSymbolicLinkObject.c)
- *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     NtQuerySymbolicLinkObject @ 0x140625E20 (NtQuerySymbolicLinkObject.c)
- *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
- *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1401BA7D0 (ZwOpenSymbolicLinkObject.c)
+ *     NtSetValueKey @ 0x1405CD8E0 (NtSetValueKey.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     NtQuerySymbolicLinkObject @ 0x140626E40 (NtQuerySymbolicLinkObject.c)
+ *     IopCreateRegistryKeyEx @ 0x14070A964 (IopCreateRegistryKeyEx.c)
+ *     IopOpenRegistryKeyEx @ 0x14073D664 (IopOpenRegistryKeyEx.c)
  */
 
 int __fastcall IopStoreSystemPartitionInformation(__int64 a1, unsigned __int16 *a2)

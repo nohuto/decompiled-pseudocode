@@ -1,13 +1,13 @@
 /*
  * XREFs of RtlRealSuccessor @ 0x14021D710
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x14021D9D4 (FsRtlPrivateInsertExclusiveLock.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14021DC48 (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlPrivateInsertSharedLock @ 0x14021E6C4 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14021E818 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlSplitLocks @ 0x14021F514 (FsRtlSplitLocks.c)
+ *     sub_14021D404 @ 0x14021D404 (sub_14021D404.c)
+ *     sub_14021D9D4 @ 0x14021D9D4 (sub_14021D9D4.c)
+ *     sub_14021DC48 @ 0x14021DC48 (sub_14021DC48.c)
+ *     sub_14021DEB4 @ 0x14021DEB4 (sub_14021DEB4.c)
+ *     sub_14021E6C4 @ 0x14021E6C4 (sub_14021E6C4.c)
+ *     sub_14021E818 @ 0x14021E818 (sub_14021E818.c)
+ *     sub_14021F514 @ 0x14021F514 (sub_14021F514.c)
  *     RtlEnumerateGenericTableWithoutSplaying @ 0x140252FC0 (RtlEnumerateGenericTableWithoutSplaying.c)
  *     RtlEnumerateGenericTable @ 0x1403B6980 (RtlEnumerateGenericTable.c)
  *     FsRtlGetNextFileLock @ 0x140541AD0 (FsRtlGetNextFileLock.c)
@@ -20,7 +20,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax
-  RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *v2; // rdx
   _RTL_SPLAY_LINKS *v3; // r8
   _RTL_SPLAY_LINKS *i; // rcx
 

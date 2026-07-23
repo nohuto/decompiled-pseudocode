@@ -17,15 +17,15 @@ __int64 __fastcall PopFxResidentTimeoutRoutine(__int64 a1, __int64 a2, __int64 a
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rbx
   __int64 v6; // r9
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   ULONG_PTR v8; // rbx
-  __int64 v9; // rsi
+  LARGE_INTEGER v9; // rsi
   unsigned int i; // edi
   __int64 v11; // rdx
   __int64 v12; // rcx
   struct _KTHREAD *v13; // rdx
   __int16 v14; // ax
-  LARGE_INTEGER v16; // [rsp+70h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -36,7 +36,7 @@ __int64 __fastcall PopFxResidentTimeoutRoutine(__int64 a1, __int64 a2, __int64 a
     *(_BYTE *)(v5 + 26) |= 1u;
   if ( (ULONG_PTR *)PopFxDeviceList != &PopFxDeviceList )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v16);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v8 = PopFxDeviceList;
     v9 = InterruptTimePrecise;
     while ( (ULONG_PTR *)v8 != &PopFxDeviceList )
@@ -45,7 +45,7 @@ __int64 __fastcall PopFxResidentTimeoutRoutine(__int64 a1, __int64 a2, __int64 a
       {
         v11 = *(_QWORD *)(*(_QWORD *)(v8 + 624) + 8LL * i);
         if ( *(int *)(v11 + 96) > 0
-          && v9 - *(_QWORD *)(v11 + 144) >= (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
+          && v9.QuadPart - *(_QWORD *)(v11 + 144) >= (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
         {
           _InterlockedAdd((volatile signed __int32 *)(v11 + 96), 0xFFFFFFFF);
           _InterlockedAdd(&PopFxResidentComponentCount, 0xFFFFFFFF);

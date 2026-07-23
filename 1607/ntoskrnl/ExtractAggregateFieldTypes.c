@@ -1,7 +1,7 @@
 /*
- * XREFs of ExtractAggregateFieldTypes @ 0x14009F26C
+ * XREFs of ExtractAggregateFieldTypes @ 0x140085560
  * Callers:
- *     _TlgWriteAgg @ 0x14009EE88 (_TlgWriteAgg.c)
+ *     _TlgWriteAgg @ 0x14008517C (_TlgWriteAgg.c)
  * Callees:
  *     <none>
  */

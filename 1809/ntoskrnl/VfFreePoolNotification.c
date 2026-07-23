@@ -1,13 +1,13 @@
 /*
- * XREFs of VfFreePoolNotification @ 0x140937E9C
+ * XREFs of VfFreePoolNotification @ 0x140938E9C
  * Callers:
- *     ExpFreePoolChecks @ 0x14009D77C (ExpFreePoolChecks.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VerifierExFreePoolWithTag @ 0x1409257D0 (VerifierExFreePoolWithTag.c)
+ *     ExpFreePoolChecks @ 0x14009D6BC (ExpFreePoolChecks.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VerifierExFreePoolWithTag @ 0x1409267D0 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     VfRemLockDeleteMemoryRange @ 0x140934768 (VfRemLockDeleteMemoryRange.c)
- *     ViPoolLogStackTrace @ 0x140938198 (ViPoolLogStackTrace.c)
- *     VfDeadlockDeleteMemoryRange @ 0x14093BD60 (VfDeadlockDeleteMemoryRange.c)
+ *     VfRemLockDeleteMemoryRange @ 0x140935768 (VfRemLockDeleteMemoryRange.c)
+ *     ViPoolLogStackTrace @ 0x140939198 (ViPoolLogStackTrace.c)
+ *     VfDeadlockDeleteMemoryRange @ 0x14093CD60 (VfDeadlockDeleteMemoryRange.c)
  */
 
 char __fastcall VfFreePoolNotification(unsigned __int64 a1, __int64 a2)

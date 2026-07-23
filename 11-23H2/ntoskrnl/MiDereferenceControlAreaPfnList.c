@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDereferenceControlAreaPfnList @ 0x140339B70
+ * XREFs of MiDereferenceControlAreaPfnList @ 0x140339E00
  * Callers:
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
- *     MiDeleteTransitionPte @ 0x1402DCE80 (MiDeleteTransitionPte.c)
- *     MiReleaseInPageRefs @ 0x14033034C (MiReleaseInPageRefs.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
- *     MiPurgeImageSection @ 0x14036A438 (MiPurgeImageSection.c)
- *     MiPurgeSubsection @ 0x1406256D4 (MiPurgeSubsection.c)
- *     MiSplitDirectMapPage @ 0x14063F264 (MiSplitDirectMapPage.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
+ *     MiDeleteTransitionPte @ 0x1402DD110 (MiDeleteTransitionPte.c)
+ *     MiReleaseInPageRefs @ 0x1403305DC (MiReleaseInPageRefs.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
+ *     MiPurgeImageSection @ 0x14036A5D8 (MiPurgeImageSection.c)
+ *     MiPurgeSubsection @ 0x140625C24 (MiPurgeSubsection.c)
+ *     MiSplitDirectMapPage @ 0x14063F7B4 (MiSplitDirectMapPage.c)
  * Callees:
  *     MiRemoveUnusedSubsection @ 0x14021B974 (MiRemoveUnusedSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertUnusedSubsection @ 0x14028BD00 (MiInsertUnusedSubsection.c)
- *     MiCheckForControlAreaDeletion @ 0x140339C78 (MiCheckForControlAreaDeletion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertUnusedSubsection @ 0x14028BF90 (MiInsertUnusedSubsection.c)
+ *     MiCheckForControlAreaDeletion @ 0x140339F08 (MiCheckForControlAreaDeletion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 void __fastcall MiDereferenceControlAreaPfnList(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -86,10 +86,10 @@ LABEL_5:
   else
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v10);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

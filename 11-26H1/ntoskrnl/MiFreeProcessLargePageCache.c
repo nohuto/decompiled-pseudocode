@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeProcessLargePageCache @ 0x140711EB0
+ * XREFs of MiFreeProcessLargePageCache @ 0x140716BA8
  * Callers:
- *     MiPruneProcessLargePageCaches @ 0x1402A8FB4 (MiPruneProcessLargePageCaches.c)
- *     MiDeleteProcessLargePageCache @ 0x1404D05EC (MiDeleteProcessLargePageCache.c)
+ *     MiPruneProcessLargePageCaches @ 0x1402A83C4 (MiPruneProcessLargePageCaches.c)
+ *     MiDeleteProcessLargePageCache @ 0x1404CA01C (MiDeleteProcessLargePageCache.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiEmptyCacheSlice @ 0x140711A5C (MiEmptyCacheSlice.c)
- *     MiFreeCacheSlice @ 0x140711B48 (MiFreeCacheSlice.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiEmptyCacheSlice @ 0x14071675C (MiEmptyCacheSlice.c)
+ *     MiFreeCacheSlice @ 0x140716848 (MiFreeCacheSlice.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFreeProcessLargePageCache(__int64 a1, __int64 a2)

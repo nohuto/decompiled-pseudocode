@@ -8,13 +8,18 @@
  *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r12
   __int64 v9; // rdx
   __int64 v10; // rcx
-  _DWORD *v11; // rbx
-  NTSTATUS v13; // esi
+  PULONG v11; // rbx
+  int v13; // esi
   int v14; // r14d
   int v15; // r15d
   PVOID Object; // [rsp+38h] [rbp-20h] BYREF
@@ -22,32 +27,32 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)SemaphoreInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v9 = 0x7FFFFFFF0000LL;
     v10 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v10 = a3;
+    if ( (unsigned __int64)SemaphoreInformation < 0x7FFFFFFF0000LL )
+      v10 = (__int64)SemaphoreInformation;
     *(_BYTE *)v10 = *(_BYTE *)v10;
     *(_BYTE *)(v10 + 7) = *(_BYTE *)(v10 + 7);
-    v11 = (_DWORD *)a5;
-    if ( a5 )
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v9 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)ReturnLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   else
   {
-    v11 = (_DWORD *)a5;
+    v11 = ReturnLength;
   }
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 8 )
-    return 3221225476LL;
+  if ( SemaphoreInformationClass )
+    return -1073741821;
+  if ( SemaphoreInformationLength != 8 )
+    return -1073741820;
   Object = 0LL;
-  v13 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
+  v13 = ObReferenceObjectByHandle(SemaphoreHandle, 1u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
   if ( v13 >= 0 )
   {
     v14 = *((_DWORD *)Object + 1);
@@ -55,18 +60,18 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, 
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( PreviousMode )
     {
-      *(_DWORD *)a3 = v14;
-      *(_DWORD *)(a3 + 4) = v15;
+      *(_DWORD *)SemaphoreInformation = v14;
+      *((_DWORD *)SemaphoreInformation + 1) = v15;
       if ( v11 )
         *v11 = 8;
     }
     else
     {
-      *(_DWORD *)a3 = v14;
-      *(_DWORD *)(a3 + 4) = v15;
+      *(_DWORD *)SemaphoreInformation = v14;
+      *((_DWORD *)SemaphoreInformation + 1) = v15;
       if ( v11 )
         *v11 = 8;
     }
   }
-  return (unsigned int)v13;
+  return v13;
 }

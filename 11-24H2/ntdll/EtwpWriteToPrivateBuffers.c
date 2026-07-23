@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpWriteToPrivateBuffers @ 0x18003B480
+ * XREFs of EtwpWriteToPrivateBuffers @ 0x18001B700
  * Callers:
- *     EtwEventWrite @ 0x18003AA80 (EtwEventWrite.c)
- *     EtwEventWriteTransfer @ 0x18003AD80 (EtwEventWriteTransfer.c)
- *     EtwpEventWriteFull @ 0x18003B0D0 (EtwpEventWriteFull.c)
- *     EtwEventWriteString @ 0x1800E9540 (EtwEventWriteString.c)
+ *     EtwEventWrite @ 0x18001AD00 (EtwEventWrite.c)
+ *     EtwEventWriteTransfer @ 0x18001B000 (EtwEventWriteTransfer.c)
+ *     EtwpEventWriteFull @ 0x18001B350 (EtwpEventWriteFull.c)
+ *     EtwEventWriteString @ 0x1800E4C30 (EtwEventWriteString.c)
  * Callees:
- *     RtlQueryPerformanceCounter @ 0x18003A620 (RtlQueryPerformanceCounter.c)
- *     EtwpCheckForEnoughStackSpace @ 0x18003C4A8 (EtwpCheckForEnoughStackSpace.c)
- *     RtlWalkFrameChain @ 0x18003C7A0 (RtlWalkFrameChain.c)
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
- *     EtwpSwitchBuffer @ 0x18003D730 (EtwpSwitchBuffer.c)
- *     RtlGetSystemTimePrecise @ 0x18003D900 (RtlGetSystemTimePrecise.c)
- *     RtlResetStackOverflow @ 0x18013491C (RtlResetStackOverflow.c)
- *     NtQueryInformationToken @ 0x1801620B0 (NtQueryInformationToken.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlQueryPerformanceCounter @ 0x18001A8A0 (RtlQueryPerformanceCounter.c)
+ *     EtwpCheckForEnoughStackSpace @ 0x18001C728 (EtwpCheckForEnoughStackSpace.c)
+ *     RtlWalkFrameChain @ 0x18001CA20 (RtlWalkFrameChain.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpSwitchBuffer @ 0x18001D9B0 (EtwpSwitchBuffer.c)
+ *     RtlGetSystemTimePrecise @ 0x18001DB80 (RtlGetSystemTimePrecise.c)
+ *     RtlResetStackOverflow @ 0x180132B4C (RtlResetStackOverflow.c)
+ *     NtQueryInformationToken @ 0x180160470 (NtQueryInformationToken.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall EtwpWriteToPrivateBuffers(
@@ -56,16 +56,16 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   unsigned int v32; // ecx
   __int64 v33; // r14
   __int64 v34; // rcx
-  __int64 v35; // rdx
+  unsigned __int32 v35; // edx
   __int64 v36; // rdi
   __int64 v37; // r14
   struct _TEB *v38; // rcx
   void *v40; // rsp
   __int16 v41; // di
-  int v42; // eax
-  unsigned int v43; // eax
+  NTSTATUS v42; // eax
+  ULONG v43; // eax
   char v44; // al
-  __int64 SystemTimePrecise; // rbx
+  unsigned __int64 QuadPart; // rbx
   _GUID ActivityId; // xmm0
   _WORD *v47; // r14
   unsigned int v48; // r15d
@@ -92,22 +92,22 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   int v69; // [rsp+2h] [rbp-80Eh]
   __int16 v70; // [rsp+6h] [rbp-80Ah]
   __int64 v71; // [rsp+8h] [rbp-808h]
-  __int64 v72; // [rsp+10h] [rbp-800h] BYREF
+  PVOID v72; // [rsp+10h] [rbp-800h] BYREF
   char v73; // [rsp+810h] [rbp+0h]
   unsigned __int16 v74; // [rsp+814h] [rbp+4h]
   int v75; // [rsp+818h] [rbp+8h]
   char v76; // [rsp+81Ch] [rbp+Ch]
   unsigned __int16 v77; // [rsp+820h] [rbp+10h]
-  unsigned int Size; // [rsp+824h] [rbp+14h] BYREF
-  int Size_4; // [rsp+828h] [rbp+18h]
+  ULONG ReturnLength; // [rsp+824h] [rbp+14h] BYREF
+  int v79; // [rsp+828h] [rbp+18h]
   unsigned int v80; // [rsp+82Ch] [rbp+1Ch]
   __int64 v81; // [rsp+830h] [rbp+20h]
   _OWORD *v82; // [rsp+838h] [rbp+28h]
   unsigned int v83; // [rsp+840h] [rbp+30h] BYREF
-  __int64 v84; // [rsp+848h] [rbp+38h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+848h] [rbp+38h] BYREF
   __int64 v85; // [rsp+850h] [rbp+40h]
   void *v86; // [rsp+858h] [rbp+48h]
-  unsigned int v87; // [rsp+860h] [rbp+50h]
+  ULONG v87; // [rsp+860h] [rbp+50h]
   int v88; // [rsp+864h] [rbp+54h]
   void *v89; // [rsp+868h] [rbp+58h]
   __int64 v90; // [rsp+870h] [rbp+60h]
@@ -118,7 +118,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   _OWORD *v95; // [rsp+890h] [rbp+80h]
   __int64 v96; // [rsp+8A0h] [rbp+90h]
   _DWORD *v97; // [rsp+8B0h] [rbp+A0h]
-  _BYTE v98[16]; // [rsp+8D0h] [rbp+C0h] BYREF
+  _BYTE TokenInformation[16]; // [rsp+8D0h] [rbp+C0h] BYREF
   _BYTE v99[80]; // [rsp+8E0h] [rbp+D0h] BYREF
 
   v10 = a2;
@@ -143,7 +143,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
     {
       v40 = alloca(2064LL);
       v89 = &v68;
-      v41 = 8 * RtlWalkFrameChain(&v72, 256LL, 0LL);
+      v41 = 8 * RtlWalkFrameChain(&v72, 0x100u, 0);
       if ( v41 )
       {
         v90 = (unsigned __int16)(v41 + 23) & 0xFFF8;
@@ -171,11 +171,11 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
       v73 = 0;
       v76 = 0;
       LOWORD(v87) = 0;
-      v84 = 0LL;
-      Size = 0;
-      memset_thunk_772440563353939046(v98, 0, 0x58uLL);
+      PerformanceCounter.QuadPart = 0LL;
+      ReturnLength = 0;
+      memset_thunk_772440563353939046(TokenInformation, 0, 0x58uLL);
       v74 = 0;
-      Size_4 = 0;
+      v79 = 0;
       v86 = 0LL;
       v14 = v11 + 24 * (i + 5LL);
       v15 = a4;
@@ -228,12 +228,12 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
       v22 = v21;
       if ( (*(_BYTE *)(v14 + 16) & 1) != 0 )
       {
-        v42 = NtQueryInformationToken(-6LL, 1LL, v98, 88LL, &Size);
+        v42 = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, TokenInformation, 0x58u, &ReturnLength);
         v20 = v81;
         if ( v42 >= 0 )
         {
-          v43 = Size - 16;
-          Size = v43;
+          v43 = ReturnLength - 16;
+          ReturnLength = v43;
           LOWORD(v43) = (v43 + 15) & 0xFFF8;
           v87 = v43;
           v73 = 1;
@@ -265,7 +265,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
           {
             v26 += *(_WORD *)(v85 + 16LL * v25 + 8);
             v74 = v26;
-            ++Size_4;
+            ++v79;
           }
           else if ( v28 == 2 )
           {
@@ -286,7 +286,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
         }
         ++v25;
       }
-      if ( Size_4 )
+      if ( v79 )
         v22 += (v26 + 15) & 0xFFFFFFF8;
       if ( v12 )
       {
@@ -307,7 +307,7 @@ LABEL_70:
         v36 = 0LL;
         v37 = 0LL;
 LABEL_73:
-        SystemTimePrecise = v84;
+        QuadPart = PerformanceCounter.QuadPart;
         goto LABEL_74;
       }
       v30 = (v22 + 7) & 0xFFFFFFF8;
@@ -331,27 +331,27 @@ LABEL_69:
         if ( v44 != 1 )
           goto LABEL_70;
       }
-      v35 = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v34 + 8), v30);
-      if ( (unsigned int)v35 + v30 > v31 )
+      v35 = _InterlockedExchangeAdd((volatile signed __int32 *)(v34 + 8), v30);
+      if ( v35 + v30 > v31 )
         break;
-      v36 = v34 + (unsigned int)v35;
+      v36 = v34 + v35;
       v37 = v34;
       if ( *(_DWORD *)(v20 + 16) == 2 )
       {
-        SystemTimePrecise = RtlGetSystemTimePrecise();
-        v84 = SystemTimePrecise;
+        QuadPart = RtlGetSystemTimePrecise().QuadPart;
+        PerformanceCounter.QuadPart = QuadPart;
         v20 = v81;
       }
       else
       {
         if ( *(_DWORD *)(v20 + 16) != 3 )
         {
-          RtlQueryPerformanceCounter(&v84, v35);
+          RtlQueryPerformanceCounter(&PerformanceCounter);
           v20 = v81;
           goto LABEL_73;
         }
-        SystemTimePrecise = __rdtsc();
-        v84 = SystemTimePrecise;
+        QuadPart = __rdtsc();
+        PerformanceCounter.QuadPart = QuadPart;
       }
 LABEL_74:
       if ( !v36 )
@@ -386,7 +386,7 @@ LABEL_74:
       else
       {
         ActivityId = NtCurrentTeb()->ActivityId;
-        SystemTimePrecise = v84;
+        QuadPart = PerformanceCounter.QuadPart;
       }
       *(_GUID *)(v36 + 64) = ActivityId;
       if ( a7 )
@@ -411,9 +411,9 @@ LABEL_74:
         v65 = v87;
         *v64 = v87;
         v64[1] = 2;
-        v64[3] = Size;
+        v64[3] = ReturnLength;
         v64[2] = 0;
-        memmove(v64 + 4, v99, Size);
+        memmove(v64 + 4, v99, ReturnLength);
         *(_WORD *)(v36 + 4) |= 1u;
         v48 = v65 + v75;
         v75 = v48;
@@ -435,7 +435,7 @@ LABEL_74:
           v47[2] |= 1u;
         v47 = v66;
         v82 = v66;
-        SystemTimePrecise = v84;
+        QuadPart = PerformanceCounter.QuadPart;
       }
       if ( v76 == 1 )
       {
@@ -469,7 +469,7 @@ LABEL_74:
         v47 = v56;
         v11 = v91;
       }
-      if ( Size_4 )
+      if ( v79 )
       {
         v60 = (unsigned __int16 *)(v36 + v48);
         v61 = v74;
@@ -506,7 +506,7 @@ LABEL_74:
             }
             else if ( v54 == 3 && v53 == 8 )
             {
-              SystemTimePrecise = **(_QWORD **)(v50 - 12);
+              QuadPart = **(_QWORD **)(v50 - 12);
             }
           }
           else
@@ -520,9 +520,9 @@ LABEL_74:
         }
         while ( v51 );
       }
-      *(_QWORD *)(v36 + 16) = SystemTimePrecise;
+      *(_QWORD *)(v36 + 16) = QuadPart;
       if ( *(_DWORD *)(v81 + 16) == 3 )
-        *(_QWORD *)(v36 + 56) = SystemTimePrecise;
+        *(_QWORD *)(v36 + 56) = QuadPart;
       else
         *(_QWORD *)(v36 + 56) = __rdtsc();
       v38 = NtCurrentTeb();
@@ -532,7 +532,7 @@ LABEL_74:
       i = v80;
       v10 = a2;
     }
-    if ( (unsigned int)v35 <= v31 )
+    if ( v35 <= v31 )
       *(_DWORD *)(v34 + 4) = v35;
     goto LABEL_69;
   }

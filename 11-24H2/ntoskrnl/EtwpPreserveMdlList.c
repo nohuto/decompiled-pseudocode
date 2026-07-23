@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPreserveMdlList @ 0x1407AFC6C
+ * XREFs of EtwpPreserveMdlList @ 0x1407B00BC
  * Callers:
- *     EtwpPreserveLogger @ 0x1407AFA4C (EtwpPreserveLogger.c)
+ *     EtwpPreserveLogger @ 0x1407AFE9C (EtwpPreserveLogger.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpPreserveMdlList(_QWORD *a1, __int64 a2, int a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall EtwpPreserveMdlList(_QWORD *a1, __int64 a2, int a3, __int64 a
     v9 = (_QWORD *)*v9;
   }
   while ( v9 );
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 8LL * v5, 0x4B777445u);
   v11 = (void *)Pool2;
   if ( Pool2 )
   {

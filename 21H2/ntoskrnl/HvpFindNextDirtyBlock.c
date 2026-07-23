@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpFindNextDirtyBlock @ 0x14064611C
+ * XREFs of HvpFindNextDirtyBlock @ 0x14063AF08
  * Callers:
- *     HvpGenerateLogEntryDirtyData @ 0x140268570 (HvpGenerateLogEntryDirtyData.c)
- *     HvStoreModifiedData @ 0x140721060 (HvStoreModifiedData.c)
- *     HvWriteHivePrimaryFile @ 0x140725240 (HvWriteHivePrimaryFile.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140256510 (HvpGenerateLogEntryDirtyData.c)
+ *     HvWriteHivePrimaryFile @ 0x140613AFC (HvWriteHivePrimaryFile.c)
+ *     HvStoreModifiedData @ 0x1406F88B8 (HvStoreModifiedData.c)
  * Callees:
- *     HvpFindNextDirtyRun @ 0x1402670E8 (HvpFindNextDirtyRun.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HvpFindNextDirtyRun @ 0x140255088 (HvpFindNextDirtyRun.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvpMapEntryGetFreeBin @ 0x14071F4EC (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall HvpFindNextDirtyBlock(

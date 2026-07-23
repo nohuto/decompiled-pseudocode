@@ -1,31 +1,31 @@
 /*
- * XREFs of PopCheckpointSystemSleep @ 0x140C06470
+ * XREFs of PopCheckpointSystemSleep @ 0x140C0C680
  * Callers:
- *     PopPrepareSleep @ 0x1404FF018 (PopPrepareSleep.c)
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
- *     PopSuspendApps @ 0x140A39920 (PopSuspendApps.c)
- *     PopResumeApps @ 0x140A39974 (PopResumeApps.c)
- *     PopSuspendServices @ 0x140A39A2C (PopSuspendServices.c)
- *     PopResumeServices @ 0x140A39A90 (PopResumeServices.c)
- *     PopDispatchSuperfetchNotification @ 0x140B4EF08 (PopDispatchSuperfetchNotification.c)
- *     PopNotifyCallbacksPreSleep @ 0x140B5BB0C (PopNotifyCallbacksPreSleep.c)
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
- *     PopDecompressHiberBlocks @ 0x140BFA2A4 (PopDecompressHiberBlocks.c)
- *     PopHiberCheckResume @ 0x140BFA8A0 (PopHiberCheckResume.c)
- *     PopHiberChecksumHiberFileData @ 0x140BFAB3C (PopHiberChecksumHiberFileData.c)
- *     PopRequestRead @ 0x140BFB3E8 (PopRequestRead.c)
- *     PopRequestWrite @ 0x140BFB804 (PopRequestWrite.c)
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
- *     PopWriteHiberPages @ 0x140BFCC1C (PopWriteHiberPages.c)
- *     PopRestoreHiberContext @ 0x140C03138 (PopRestoreHiberContext.c)
- *     PopInvokeSystemStateHandler @ 0x140C04104 (PopInvokeSystemStateHandler.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopPrepareSleep @ 0x1404F8808 (PopPrepareSleep.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
+ *     PopSuspendApps @ 0x1409F5528 (PopSuspendApps.c)
+ *     PopResumeApps @ 0x1409F557C (PopResumeApps.c)
+ *     PopSuspendServices @ 0x1409F5634 (PopSuspendServices.c)
+ *     PopResumeServices @ 0x1409F5698 (PopResumeServices.c)
+ *     PopDispatchSuperfetchNotification @ 0x140B51798 (PopDispatchSuperfetchNotification.c)
+ *     PopNotifyCallbacksPreSleep @ 0x140B5EE28 (PopNotifyCallbacksPreSleep.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
+ *     PopDecompressHiberBlocks @ 0x140C002A4 (PopDecompressHiberBlocks.c)
+ *     PopHiberCheckResume @ 0x140C008A0 (PopHiberCheckResume.c)
+ *     PopHiberChecksumHiberFileData @ 0x140C00B3C (PopHiberChecksumHiberFileData.c)
+ *     PopRequestRead @ 0x140C013E8 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140C01804 (PopRequestWrite.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
+ *     PopWriteHiberPages @ 0x140C02C1C (PopWriteHiberPages.c)
+ *     PopRestoreHiberContext @ 0x140C09348 (PopRestoreHiberContext.c)
+ *     PopInvokeSystemStateHandler @ 0x140C0A314 (PopInvokeSystemStateHandler.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopRecordSleepCheckpoint @ 0x140B2E82C (PopRecordSleepCheckpoint.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140BFE178 (PopCheckpointSystemSleepUnsafe.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopRecordSleepCheckpoint @ 0x140B3077C (PopRecordSleepCheckpoint.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140C041C8 (PopCheckpointSystemSleepUnsafe.c)
  */
 
 unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -41,16 +41,17 @@ unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1, __int64 a2, __int64
   v4 = a1;
   v5 = __rdtsc();
   v6 = (unsigned __int64)HIDWORD(v5) << 32;
-  unk_140F10F1C = a1;
+  PopSleepCheckpoint = a1;
   v7 = v5;
   if ( PopBootStatCheckpointAvailable )
     PopRecordSleepCheckpoint(a1, v6, a3, a4);
-  if ( unk_140F10F18 )
+  if ( PopCheckpointSystemSleepEnabled )
   {
-    v10 = dword_140F10F14;
-    if ( (dword_140F10F14 & 1) == 0 || (v10 = HIBYTE(dword_140F10F14), (unsigned int)v4 <= (unsigned int)v10) )
+    v10 = (unsigned int)PopCheckpointSystemSleepSimulateFlags;
+    if ( (PopCheckpointSystemSleepSimulateFlags & 1) == 0
+      || (v10 = HIBYTE(PopCheckpointSystemSleepSimulateFlags), (unsigned int)v4 <= (unsigned int)v10) )
     {
-      if ( LOBYTE(stru_140F10828.WriteOperationCount) )
+      if ( PoAllProcIntrDisabled )
       {
         if ( KeGetCurrentPrcb()->Number )
           KeBugCheckEx(0xA0u, 0x10FuLL, v4, 1uLL, 0LL);
@@ -66,7 +67,6 @@ unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1, __int64 a2, __int64
   }
   v8 = __rdtsc();
   result = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - v7;
-  stru_140F10070.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)((char *)stru_140F10070.WaitBlock[0].WaitListEntry.Flink
-                                                                         + result);
+  qword_140F10A50 += result;
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCoverageEnsureUserModeView @ 0x140906720
+ * XREFs of EtwpCoverageEnsureUserModeView @ 0x1408DCCEC
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1409047E8 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1408DCC48 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MmMapViewOfSection @ 0x1409071A0 (MmMapViewOfSection.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x1408DE270 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
@@ -17,8 +17,8 @@ __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
   _KPROCESS *Process; // rsi
   struct _LIST_ENTRY *Blink; // r14
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v4; // rax
-  _QWORD *v5; // r15
+  char *v4; // rax
+  char *v5; // r15
   __int64 v6; // rcx
   __int64 *ReadyTime; // rax
   int v9; // [rsp+50h] [rbp-38h]
@@ -54,12 +54,12 @@ __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v4 = KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
+      v4 = (char *)KeAbPreAcquire((__int64)&EtwpCoverageLock, 0LL);
       v5 = v4;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&EtwpCoverageLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, (__int64)v4, (__int64)&EtwpCoverageLock);
+        ExfAcquirePushLockExclusiveEx(&EtwpCoverageLock, v4, (__int64)&EtwpCoverageLock);
       if ( v5 )
-        *((_BYTE *)v5 + 10) = 1;
+        v5[10] = 1;
       EtwpCoverageLockOwner = (__int64)KeGetCurrentThread();
       if ( !Blink[122].Flink )
       {

@@ -1,42 +1,40 @@
 /*
- * XREFs of AlpcpDeleteBlob @ 0x140893140
+ * XREFs of AlpcpDeleteBlob @ 0x14089CCE0
  * Callers:
- *     AlpcpFlushResourcesPort @ 0x14088BD0C (AlpcpFlushResourcesPort.c)
- *     AlpcpCaptureSecurityAttribute @ 0x14088DE30 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpDeleteView @ 0x14089310C (AlpcpDeleteView.c)
- *     NtAlpcDeleteSecurityContext @ 0x1408937D0 (NtAlpcDeleteSecurityContext.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1408949C0 (AlpcpCaptureSecurityAttributeInternal.c)
- *     NtAlpcCreateSecurityContext @ 0x140894C50 (NtAlpcCreateSecurityContext.c)
- *     AlpcpMapLegacyPortView @ 0x14093C1C0 (AlpcpMapLegacyPortView.c)
- *     NtAlpcCreatePortSection @ 0x14093EB80 (NtAlpcCreatePortSection.c)
- *     NtAlpcDeleteResourceReserve @ 0x140A14C20 (NtAlpcDeleteResourceReserve.c)
- *     NtAlpcDeletePortSection @ 0x140A15600 (NtAlpcDeletePortSection.c)
+ *     AlpcpFlushResourcesPort @ 0x14088ECFC (AlpcpFlushResourcesPort.c)
+ *     NtAlpcCreatePortSection @ 0x1408931C0 (NtAlpcCreatePortSection.c)
+ *     NtAlpcDeleteResourceReserve @ 0x140895430 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcDeleteSecurityContext @ 0x140896480 (NtAlpcDeleteSecurityContext.c)
+ *     AlpcpDeleteView @ 0x14089CE2C (AlpcpDeleteView.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x14089CE60 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcCreateSecurityContext @ 0x14089D0F0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x1409C12C0 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpMapLegacyPortView @ 0x1409E98D0 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcDeletePortSection @ 0x140A0E420 (NtAlpcDeletePortSection.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     AlpcSectionDeleteProcedure @ 0x140893220 (AlpcSectionDeleteProcedure.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     AlpcSectionDeleteProcedure @ 0x14089CDC0 (AlpcSectionDeleteProcedure.c)
  */
 
 char __fastcall AlpcpDeleteBlob(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int64 *v1; // rbx
-  _QWORD *v3; // rax
-  _QWORD *v4; // rsi
+  char *v3; // rax
+  char *v4; // rsi
   char v5; // al
   __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
 
   v1 = (unsigned __int64 *)(BugCheckParameter2 - 16);
-  v3 = KeAbPreAcquire(BugCheckParameter2 - 16, 0LL);
+  v3 = (char *)KeAbPreAcquire(BugCheckParameter2 - 16, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v1, (__int64)v3, (__int64)v1);
+    ExfAcquirePushLockExclusiveEx(v1, v3, (__int64)v1);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   v5 = *(_BYTE *)(BugCheckParameter2 - 32);
   if ( (v5 & 8) != 0 )
   {
@@ -54,7 +52,7 @@ char __fastcall AlpcpDeleteBlob(ULONG_PTR BugCheckParameter2)
     if ( *(__int64 (__fastcall **)(ULONG_PTR))(AlpcpRegisteredTypes[*(unsigned __int8 *)(BugCheckParameter2 - 31)] + 32) == AlpcSectionDeleteProcedure )
       AlpcSectionDeleteProcedure(BugCheckParameter2);
     else
-      guard_dispatch_icall_no_overrides(BugCheckParameter2, v6, v7, v8);
+      guard_dispatch_icall_no_overrides(BugCheckParameter2, v6);
     return 1;
   }
 }

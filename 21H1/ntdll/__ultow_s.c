@@ -8,5 +8,5 @@
 
 errno_t __cdecl _ultow_s(unsigned int Value, wchar_t *Buffer, size_t BufferCount, int Radix)
 {
-  return xtow_s(Value, Buffer, BufferCount, Radix, 0);
+  return xtow_s(Value, Buffer, BufferCount, HIDWORD(BufferCount), 0);
 }

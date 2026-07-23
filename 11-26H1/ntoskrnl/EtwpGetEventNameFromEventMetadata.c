@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetEventNameFromEventMetadata @ 0x14041C880
+ * XREFs of EtwpGetEventNameFromEventMetadata @ 0x1404140D0
  * Callers:
- *     EtwpTraceLostEvent @ 0x140257138 (EtwpTraceLostEvent.c)
- *     EtwpApplyEventNameFilter @ 0x14041C3C8 (EtwpApplyEventNameFilter.c)
+ *     EtwpTraceLostEvent @ 0x140258AC8 (EtwpTraceLostEvent.c)
+ *     EtwpApplyEventNameFilter @ 0x140413C18 (EtwpApplyEventNameFilter.c)
  * Callees:
- *     strnlen @ 0x140537AA0 (strnlen.c)
+ *     strnlen @ 0x140539F20 (strnlen.c)
  */
 
 const char *__fastcall EtwpGetEventNameFromEventMetadata(__int64 a1, unsigned int a2, _WORD *a3)

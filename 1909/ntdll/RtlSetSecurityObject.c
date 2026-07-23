@@ -6,7 +6,22 @@
  *     RtlpSetSecurityObject @ 0x18007BBE0 (RtlpSetSecurityObject.c)
  */
 
-__int64 __fastcall RtlSetSecurityObject(int a1, int a2, int a3)
+NTSTATUS __cdecl RtlSetSecurityObject(
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR ModificationDescriptor,
+        PSECURITY_DESCRIPTOR *ObjectsSecurityDescriptor,
+        PGENERIC_MAPPING GenericMapping,
+        HANDLE TokenHandle)
 {
-  return RtlpSetSecurityObject(a1, a1, a2, a3, 0);
+  int v6; // [rsp+28h] [rbp-20h]
+
+  return RtlpSetSecurityObject(
+           SecurityInformation,
+           SecurityInformation,
+           (int)ModificationDescriptor,
+           (int)ObjectsSecurityDescriptor,
+           0,
+           v6,
+           (__int64)GenericMapping,
+           TokenHandle);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceCachedStack @ 0x14022B104
+ * XREFs of EtwpTraceCachedStack @ 0x14022AF30
  * Callers:
- *     EtwpDereferenceStackEntry @ 0x14022AFC4 (EtwpDereferenceStackEntry.c)
- *     EtwpStackRundown @ 0x14022B020 (EtwpStackRundown.c)
+ *     EtwpDereferenceStackEntry @ 0x14022ADF0 (EtwpDereferenceStackEntry.c)
+ *     EtwpStackRundown @ 0x14022AE4C (EtwpStackRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpTraceCachedStack(unsigned int a1, unsigned __int16 a2, __int64 a3)

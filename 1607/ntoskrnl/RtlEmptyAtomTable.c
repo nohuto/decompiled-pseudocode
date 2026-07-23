@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlEmptyAtomTable @ 0x1406881D0
+ * XREFs of RtlEmptyAtomTable @ 0x1406882B4
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLockAtomTable @ 0x140421FD0 (RtlpLockAtomTable.c)
- *     RtlpUnlockAtomTable @ 0x14042B3F0 (RtlpUnlockAtomTable.c)
- *     RtlpFreeHandleForAtom @ 0x1404A3624 (RtlpFreeHandleForAtom.c)
- *     RtlpFreeAtom @ 0x1404A3DD8 (RtlpFreeAtom.c)
+ *     RtlpLockAtomTable @ 0x140420E90 (RtlpLockAtomTable.c)
+ *     RtlpUnlockAtomTable @ 0x14042A2C0 (RtlpUnlockAtomTable.c)
+ *     RtlpFreeHandleForAtom @ 0x14051BA24 (RtlpFreeHandleForAtom.c)
+ *     RtlpFreeAtom @ 0x14051C1D8 (RtlpFreeAtom.c)
  */
 
 NTSTATUS __stdcall RtlEmptyAtomTable(PRTL_ATOM_TABLE AtomTable, BOOLEAN DeletePinned)

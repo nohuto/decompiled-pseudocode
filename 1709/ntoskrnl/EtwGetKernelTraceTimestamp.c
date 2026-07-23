@@ -74,7 +74,7 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(__int64 *a1, unsigned int a2)
   }
   if ( (v5 & 4) != 0 )
   {
-    result = RtlGetSystemTimePrecise(a1);
+    result = RtlGetSystemTimePrecise().QuadPart;
     v3[1] = result;
   }
   else

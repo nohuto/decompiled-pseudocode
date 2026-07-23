@@ -1,19 +1,19 @@
 /*
- * XREFs of EmpParseCallbacks @ 0x140C1640C
+ * XREFs of EmpParseCallbacks @ 0x140C1840C
  * Callers:
- *     EmpParseInfDatabase @ 0x140C167C4 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140C187C4 (EmpParseInfDatabase.c)
  * Callees:
- *     strtoul @ 0x1404FD6E8 (strtoul.c)
- *     EmpSearchCallbackDatabase @ 0x14057F500 (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x14057F538 (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpInfParseGetGuidFromName @ 0x140C16244 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140C162F0 (EmpInfParseGetSectionLineCount.c)
- *     CmpGetKeyName @ 0x140C1821C (CmpGetKeyName.c)
- *     CmpGetSectionLineIndex @ 0x140C18254 (CmpGetSectionLineIndex.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140C182CC (CmpGetSectionLineIndexValueCount.c)
+ *     strtoul @ 0x1404FAFA8 (strtoul.c)
+ *     EmpSearchCallbackDatabase @ 0x14057C990 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x14057C9C8 (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140C18244 (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140C182F0 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetKeyName @ 0x140C1A21C (CmpGetKeyName.c)
+ *     CmpGetSectionLineIndex @ 0x140C1A254 (CmpGetSectionLineIndex.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140C1A2CC (CmpGetSectionLineIndexValueCount.c)
  */
 
 __int64 __fastcall EmpParseCallbacks(__int64 a1)

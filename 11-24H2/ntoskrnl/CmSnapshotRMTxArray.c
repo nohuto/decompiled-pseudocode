@@ -1,15 +1,15 @@
 /*
- * XREFs of CmSnapshotRMTxArray @ 0x14097ABF4
+ * XREFs of CmSnapshotRMTxArray @ 0x140963404
  * Callers:
- *     CmpTryToRundownHive @ 0x1402C6840 (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x14097B52C (CmpPerformUnloadKey.c)
+ *     CmpTryToRundownHive @ 0x1402BB3C0 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x140963D3C (CmpPerformUnloadKey.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     CmpReserveRollbackPacketSpace @ 0x1406FA4CC (CmpReserveRollbackPacketSpace.c)
- *     CmpAddEnlistmentToRollbackPacket @ 0x1407E0018 (CmpAddEnlistmentToRollbackPacket.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     CmpReserveRollbackPacketSpace @ 0x1406F810C (CmpReserveRollbackPacketSpace.c)
+ *     CmpAddEnlistmentToRollbackPacket @ 0x1407E0568 (CmpAddEnlistmentToRollbackPacket.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmSnapshotRMTxArray(__int64 a1, unsigned int *a2)

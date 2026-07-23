@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpComputeCrcInternal @ 0x1800EC7D0
+ * XREFs of RtlpComputeCrcInternal @ 0x1800EBBC0
  * Callers:
- *     RtlCrc64 @ 0x1800EC7B0 (RtlCrc64.c)
+ *     RtlCrc64 @ 0x1800EBBA0 (RtlCrc64.c)
  * Callees:
  *     <none>
  */

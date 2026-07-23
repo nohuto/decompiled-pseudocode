@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDetachFromOwningSession @ 0x1400B55DC
+ * XREFs of MiDetachFromOwningSession @ 0x1400B3404
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
  */
 
 LONG_PTR __fastcall MiDetachFromOwningSession(void *a1, __int64 a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of WdipAccessCheck @ 0x140513C6C
+ * XREFs of WdipAccessCheck @ 0x14050D6DC
  * Callers:
- *     WdiUpdateSem @ 0x140532B84 (WdiUpdateSem.c)
+ *     WdiUpdateSem @ 0x140535024 (WdiUpdateSem.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     RtlInitializeSid @ 0x140A6AF80 (RtlInitializeSid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x140A77920 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 WdipAccessCheck()
@@ -27,7 +27,7 @@ __int64 WdipAccessCheck()
   ACL *v6; // rax
   ACL *v7; // rsi
   NTSTATUS AccessStatus; // [rsp+58h] [rbp-9h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+5Ch] [rbp-5h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+5Ch] [rbp-5h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+64h] [rbp+3h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp+7h] BYREF
   GENERIC_MAPPING GenericMapping; // [rsp+88h] [rbp+27h] BYREF
@@ -49,7 +49,7 @@ __int64 WdipAccessCheck()
   AccessStatus = RtlInitializeSid(Pool2, &IdentifierAuthority, 6u);
   if ( AccessStatus >= 0 )
   {
-    v4 = *(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags;
+    v4 = *(__int64 *)((char *)&RtlpBootStatHandleLock.116 + 4);
     v2[2] = 80;
     v2[3] = -1324354722;
     v2[4] = 78537857;
@@ -72,7 +72,7 @@ __int64 WdipAccessCheck()
           AccessStatus = RtlAddAccessAllowedAce(v7, 2u, 1u, SeAliasAdminsSid);
           if ( AccessStatus >= 0 )
           {
-            AccessStatus = RtlAddAccessAllowedAce(v7, 2u, 1u, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags);
+            AccessStatus = RtlAddAccessAllowedAce(v7, 2u, 1u, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4));
             if ( AccessStatus >= 0 )
             {
               AccessStatus = RtlAddAccessAllowedAce(v7, 2u, 1u, v2);

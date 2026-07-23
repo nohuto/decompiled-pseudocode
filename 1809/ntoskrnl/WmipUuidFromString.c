@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipUuidFromString @ 0x14061257C
+ * XREFs of WmipUuidFromString @ 0x14061357C
  * Callers:
- *     WmipOpenGuidObject @ 0x140611B2C (WmipOpenGuidObject.c)
+ *     WmipOpenGuidObject @ 0x140612B2C (WmipOpenGuidObject.c)
  * Callees:
- *     WmipHexStringToDword @ 0x140612704 (WmipHexStringToDword.c)
+ *     WmipHexStringToDword @ 0x140613704 (WmipHexStringToDword.c)
  */
 
 __int64 __fastcall WmipUuidFromString(__int64 a1, __int64 a2)

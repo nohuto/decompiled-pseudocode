@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorVerifyNewIrp @ 0x1409D7E84
+ * XREFs of VfMajorVerifyNewIrp @ 0x1409D8E84
  * Callers:
- *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409D0C4C (IovpCallDriver1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorVerifyNewIrp(

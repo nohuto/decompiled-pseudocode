@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogHeapFailure @ 0x18010E1BC
+ * XREFs of RtlpLogHeapFailure @ 0x18010E17C
  * Callers:
  *     RtlGetUserInfoHeap @ 0x180001BC0 (RtlGetUserInfoHeap.c)
  *     RtlpProbeUserBufferSafe @ 0x180001E7C (RtlpProbeUserBufferSafe.c)
@@ -45,14 +45,14 @@
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
  *     RtlpHeapListCompare @ 0x18006EB28 (RtlpHeapListCompare.c)
  *     RtlpHpVsContextGrowInPlace @ 0x180071F18 (RtlpHpVsContextGrowInPlace.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
- *     RtlpCoalesceHeap @ 0x1800F369C (RtlpCoalesceHeap.c)
- *     RtlZeroHeap @ 0x1800F6500 (RtlZeroHeap.c)
- *     RtlpValidateHeapSegment @ 0x1800FADB0 (RtlpValidateHeapSegment.c)
- *     RtlpAnalyzeHeapFailure @ 0x180107EA4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHpVsContextFreeInternal @ 0x18010FC48 (RtlpHpVsContextFreeInternal.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
+ *     RtlpCoalesceHeap @ 0x1800F365C (RtlpCoalesceHeap.c)
+ *     RtlZeroHeap @ 0x1800F64C0 (RtlZeroHeap.c)
+ *     RtlpValidateHeapSegment @ 0x1800FAD70 (RtlpValidateHeapSegment.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180107E64 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18010FC08 (RtlpHpVsContextFreeInternal.c)
  * Callees:
- *     RtlpHpHeapHandleError @ 0x180108500 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x1801084C0 (RtlpHpHeapHandleError.c)
  */
 
 __int64 __fastcall RtlpLogHeapFailure(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

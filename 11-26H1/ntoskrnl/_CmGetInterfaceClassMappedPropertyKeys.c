@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyKeys @ 0x14089BF50
+ * XREFs of _CmGetInterfaceClassMappedPropertyKeys @ 0x1408A2350
  * Callers:
- *     _CmDeleteInterfaceClassWorker @ 0x140896F8C (_CmDeleteInterfaceClassWorker.c)
- *     _PnpDispatchInterfaceClass @ 0x140917770 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x14089D38C (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x1409721D0 (_PnpDispatchInterfaceClass.c)
  * Callees:
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140917AA0 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x140B6EA80 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140972500 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x140B71FC0 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedPropertyKeys(
@@ -44,7 +44,7 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyKeys(
                                                          a1,
                                                          a2,
                                                          a3,
-                                                         (_DWORD)off_140BD8C90,
+                                                         (_DWORD)off_140BDFB20,
                                                          (__int64)v21,
                                                          0LL,
                                                          0,
@@ -84,7 +84,7 @@ LABEL_8:
                                                         a1,
                                                         a2,
                                                         a3,
-                                                        (_DWORD)off_140BD8D20,
+                                                        (_DWORD)off_140BDFBB0,
                                                         (__int64)v21,
                                                         0LL,
                                                         0,

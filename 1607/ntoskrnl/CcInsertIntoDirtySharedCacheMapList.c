@@ -1,11 +1,11 @@
 /*
- * XREFs of CcInsertIntoDirtySharedCacheMapList @ 0x1400709A0
+ * XREFs of CcInsertIntoDirtySharedCacheMapList @ 0x140070520
  * Callers:
- *     CcSetDirtyPinnedData @ 0x14006F270 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x14006F660 (CcSetDirtyInMask.c)
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
+ *     CcSetDirtyPinnedData @ 0x14006EDF0 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x14006F1E0 (CcSetDirtyInMask.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
  * Callees:
  *     <none>
  */
@@ -30,13 +30,13 @@ _QWORD *__fastcall CcInsertIntoDirtySharedCacheMapList(__int64 a1)
       __fastfail(3u);
     *v3 = v2;
     *(_QWORD *)(v2 + 8) = v3;
-    v4 = (_QWORD *)qword_140322FB8;
-    if ( *(__int64 **)qword_140322FB8 != &CcDirtySharedCacheMapWithLogHandleList )
+    v4 = (_QWORD *)qword_140322FD8;
+    if ( *(__int64 **)qword_140322FD8 != &CcDirtySharedCacheMapWithLogHandleList )
       __fastfail(3u);
     *v1 = &CcDirtySharedCacheMapWithLogHandleList;
     *(_QWORD *)(a1 + 128) = v4;
     *v4 = v1;
-    qword_140322FB8 = a1 + 120;
+    qword_140322FD8 = a1 + 120;
   }
   result = (_QWORD *)(a1 + 136);
   v6 = *(_QWORD *)(a1 + 136);
@@ -45,12 +45,12 @@ _QWORD *__fastcall CcInsertIntoDirtySharedCacheMapList(__int64 a1)
     __fastfail(3u);
   *v7 = v6;
   *(_QWORD *)(v6 + 8) = v7;
-  v8 = (_QWORD *)qword_140322FE8;
-  if ( *(__int64 **)qword_140322FE8 != &CcLazyWriterCursor )
+  v8 = (_QWORD *)qword_140323008;
+  if ( *(__int64 **)qword_140323008 != &CcLazyWriterCursor )
     __fastfail(3u);
   *result = &CcLazyWriterCursor;
   result[1] = v8;
   *v8 = result;
-  qword_140322FE8 = (__int64)result;
+  qword_140323008 = (__int64)result;
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of wcscmp @ 0x180095A70
+ * XREFs of wcscmp @ 0x180095A80
  * Callers:
  *     <none>
  * Callees:

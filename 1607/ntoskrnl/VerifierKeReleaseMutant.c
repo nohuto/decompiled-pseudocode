@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
  *     VfDeadlockReleaseResource @ 0x14071425C (VfDeadlockReleaseResource.c)
  */
 

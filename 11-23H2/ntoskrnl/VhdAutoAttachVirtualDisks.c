@@ -3,16 +3,16 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     VhdiAutoAttachOneVhd @ 0x140681468 (VhdiAutoAttachOneVhd.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7A60 (RtlQueryRegistryValuesEx.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x140811070 (IopOpenRegistryKeyEx.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7A90 (RtlQueryRegistryValuesEx.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x140811340 (IopOpenRegistryKeyEx.c)
  */
 
 int VhdAutoAttachVirtualDisks()
@@ -30,7 +30,7 @@ int VhdAutoAttachVirtualDisks()
   UNICODE_STRING DestinationString_8; // [rsp+70h] [rbp-98h] BYREF
   GUID Guid_8; // [rsp+80h] [rbp-88h] BYREF
   _DWORD KeyInformation[28]; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v13[22]; // [rsp+108h] [rbp+0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[3]; // [rsp+108h] [rbp+0h] BYREF
 
   KeyHandle = 0LL;
   qword_140CF8268 = (__int64)&qword_140CF8260;
@@ -65,18 +65,18 @@ int VhdAutoAttachVirtualDisks()
           if ( RtlGUIDFromString(&GuidString_8, &Guid_8) >= 0
             && IopOpenRegistryKeyEx((HANDLE *)&GuidString, KeyHandle, &GuidString_8, 1u) >= 0 )
           {
-            memset(v13, 0, 0xA8uLL);
+            memset(QueryTable, 0, sizeof(QueryTable));
             ResultLength[1] = 0;
-            v13[2] = L"Path";
-            LODWORD(v13[1]) = 292;
-            v13[3] = &UnicodeString_8;
-            LODWORD(v13[4]) = 0x1000000;
-            v13[9] = L"Flags";
-            v13[10] = &ResultLength[1];
+            QueryTable[0].Name = L"Path";
+            QueryTable[0].Flags = 292;
+            QueryTable[0].EntryContext = &UnicodeString_8;
+            QueryTable[0].DefaultType = 0x1000000;
+            QueryTable[1].Name = L"Flags";
+            QueryTable[1].EntryContext = &ResultLength[1];
             UnicodeString_8 = 0LL;
-            LODWORD(v13[8]) = 288;
-            LODWORD(v13[11]) = 0x4000000;
-            if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, GuidString, v13, 0LL) >= 0 )
+            QueryTable[1].Flags = 288;
+            QueryTable[1].DefaultType = 0x4000000;
+            if ( RtlQueryRegistryValuesEx(0x40000000u, GuidString, QueryTable, 0LL, 0LL) >= 0 )
               VhdiAutoAttachOneVhd(UnicodeString_8.Buffer, &Guid_8, ResultLength[1]);
             RtlFreeUnicodeString(&UnicodeString_8);
             ZwClose(GuidString);

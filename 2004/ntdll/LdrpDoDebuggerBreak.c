@@ -7,13 +7,13 @@
  *     ZwQueryInformationThread @ 0x18009D2B0 (ZwQueryInformationThread.c)
  */
 
-__int64 LdrpDoDebuggerBreak()
+NTSTATUS LdrpDoDebuggerBreak()
 {
-  __int64 result; // rax
-  char v1; // [rsp+40h] [rbp+8h]
+  NTSTATUS result; // eax
+  char ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  result = ZwQueryInformationThread();
-  if ( (int)result >= 0 && !v1 )
+  result = ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadHideFromDebugger, &ThreadInformation, 1u, 0LL);
+  if ( result >= 0 && !ThreadInformation )
     __debugbreak();
   return result;
 }

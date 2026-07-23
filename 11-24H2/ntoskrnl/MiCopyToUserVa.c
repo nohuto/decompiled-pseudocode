@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCopyToUserVa @ 0x1403E2DBC
+ * XREFs of MiCopyToUserVa @ 0x1403C9340
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1408FA0F0 (MiCopyToCfgBitMap.c)
+ *     MiCopyToCfgBitMap @ 0x14091C9CC (MiCopyToCfgBitMap.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x1402176A0 (MiMakeSystemAddressValid.c)
- *     MiLockPageAndSetDirty @ 0x14021D080 (MiLockPageAndSetDirty.c)
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiLocateCloneAddress @ 0x1403E3608 (MiLocateCloneAddress.c)
- *     MiCopyOnWriteCheckConditions @ 0x140406AD8 (MiCopyOnWriteCheckConditions.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1409DE7C8 (MiReturnFullProcessCommitment.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x140244700 (MiMakeSystemAddressValid.c)
+ *     MiLockPageAndSetDirty @ 0x140249DD0 (MiLockPageAndSetDirty.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403C927C (MiCopyOnWriteCheckConditions.c)
+ *     MiLocateCloneAddress @ 0x1403C9CE8 (MiLocateCloneAddress.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1409D8398 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCopyToUserVa(ULONG_PTR a1, __int64 a2, const void *a3, size_t a4)
@@ -24,31 +24,34 @@ __int64 __fastcall MiCopyToUserVa(ULONG_PTR a1, __int64 a2, const void *a3, size
   int v6; // esi
   int v7; // ebx
   unsigned __int8 v8; // r14
-  __int64 v9; // r8
-  __int64 v10; // rcx
-  __int64 v11; // r14
-  unsigned __int64 v12; // rbx
-  __int64 v13; // r8
+  __int64 v9; // rcx
+  __int64 v10; // r14
+  unsigned __int64 v11; // rbx
+  __int64 v12; // r8
+  __int64 v13; // r9
   int v14; // r14d
   __int64 CloneAddress; // rax
-  unsigned __int8 v17; // [rsp+30h] [rbp-68h]
-  int v18; // [rsp+38h] [rbp-60h]
-  int v19; // [rsp+3Ch] [rbp-5Ch]
-  __int64 v20; // [rsp+40h] [rbp-58h]
-  __int128 v21; // [rsp+48h] [rbp-50h] BYREF
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  unsigned __int8 v20; // [rsp+30h] [rbp-68h]
+  int v21; // [rsp+38h] [rbp-60h]
+  int v22; // [rsp+3Ch] [rbp-5Ch]
+  __int64 v23; // [rsp+40h] [rbp-58h]
+  __int64 v24[10]; // [rsp+48h] [rbp-50h] BYREF
 
-  *(_QWORD *)&v21 = 0LL;
+  v24[0] = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  *((_QWORD *)&v21 + 1) = Process;
+  v24[1] = (__int64)Process;
   v5 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v6 = 0;
   v7 = (*(_DWORD *)(a2 + 48) >> 12) & 0x7F;
 LABEL_2:
-  v17 = MiLockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink);
-  v8 = v17;
+  v20 = MiLockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, a2, (__int64)a3, a4);
+  v8 = v20;
   while ( 1 )
   {
-    v18 = v6;
+    v21 = v6;
     MiMakeSystemAddressValid(v5, v7, v8, 0);
     if ( (*(_QWORD *)v5 & 1) == 0 )
     {
@@ -58,30 +61,30 @@ LABEL_2:
       MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v8);
       goto LABEL_2;
     }
-    v10 = (*(_QWORD *)v5 >> 12) & 0xFFFFFFFFFFLL;
-    v11 = 48 * v10 - 0x220000000000LL;
-    if ( *(__int64 *)(v11 + 40) >= 0 )
+    v9 = (*(_QWORD *)v5 >> 12) & 0xFFFFFFFFFFLL;
+    v10 = 48 * v9 - 0x220000000000LL;
+    if ( *(__int64 *)(v10 + 40) >= 0 )
       break;
-    v20 = 0LL;
-    if ( (*(_QWORD *)(v11 + 40) & 0x10000000000LL) != 0 || *(__int64 *)(v11 + 8) <= 0 )
+    v23 = 0LL;
+    if ( (*(_QWORD *)(v10 + 40) & 0x10000000000LL) != 0 || *(__int64 *)(v10 + 8) <= 0 )
     {
       if ( Process[1].IdealProcessorAssignmentBlock )
       {
-        CloneAddress = MiLocateCloneAddress(Process, *(_QWORD *)(v11 + 8) | 0x8000000000000000uLL, v9);
-        v20 = CloneAddress;
+        CloneAddress = MiLocateCloneAddress(Process, *(_QWORD *)(v10 + 8) | 0x8000000000000000uLL);
+        v23 = CloneAddress;
         if ( CloneAddress )
         {
           if ( Process[2].ActiveProcessors[4].Bitmap[0] <= *(_QWORD *)(CloneAddress + 96) )
           {
-            v20 = 0LL;
+            v23 = 0LL;
           }
           else if ( !v6 )
           {
             MiUnlockPageTableInternal(
               (__int64)&Process[2].ReadyListHead.Blink,
               ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-            MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v17);
-            v14 = MiChargeFullProcessCommitment(Process, 1LL);
+            MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v20);
+            v14 = MiChargeFullProcessCommitment(Process);
             if ( v14 < 0 )
               goto LABEL_8;
             v6 = 1;
@@ -90,33 +93,33 @@ LABEL_2:
         }
       }
     }
-    v19 = MiCopyOnWrite(a1, (volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL, 0, &v21);
-    if ( v19 >= 0 )
+    v22 = MiCopyOnWrite(a1, (volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL, 0, v24);
+    if ( v22 >= 0 )
     {
-      v10 = (*(_QWORD *)v5 >> 12) & 0xFFFFFFFFFFLL;
-      v11 = 48 * v10 - 0x220000000000LL;
+      v9 = (*(_QWORD *)v5 >> 12) & 0xFFFFFFFFFFLL;
+      v10 = 48 * v9 - 0x220000000000LL;
       v6 = 0;
-      if ( !v20 )
-        v6 = v18;
+      if ( !v23 )
+        v6 = v21;
       break;
     }
     MiUnlockPageTableInternal((__int64)&Process[2].ReadyListHead.Blink, ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    v8 = v17;
-    MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v17);
-    MiCopyOnWriteCheckConditions(&Process[2].ReadyListHead.Blink, (unsigned int)v19, v21);
-    MiLockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink);
+    v8 = v20;
+    MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v20);
+    MiCopyOnWriteCheckConditions((__int64)&Process[2].ReadyListHead.Blink, v22, v24[0]);
+    MiLockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v17, v18, v19);
   }
-  v12 = MiMapPageInHyperSpaceWorker(v10, 0LL, 0x80000000LL);
-  memmove((void *)(v12 + (a1 & 0xFFF)), a3, a4);
+  v11 = MiMapPageInHyperSpaceWorker(v9, 0LL, 0x80000000);
+  memmove((void *)(v11 + (a1 & 0xFFF)), a3, a4);
   *(_QWORD *)KeGetCurrentPrcb()->MmInternal = 0LL;
-  *(_QWORD *)(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
-  MiLockPageAndSetDirty(v11, 1LL, v13);
+  *(_QWORD *)(((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
+  MiLockPageAndSetDirty(v10, 1LL, v12, v13);
   if ( ((v5 >> 9) & 0x7FFFFFFFF8LL) != 0x98000000000LL )
     MiUnlockPageTableInternal((__int64)&Process[2].ReadyListHead.Blink, ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v17);
+  MiUnlockWorkingSetShared((__int64)&Process[2].ReadyListHead.Blink, v20);
   v14 = 0;
 LABEL_8:
   if ( v6 )
-    MiReturnFullProcessCommitment(Process, 1LL);
+    MiReturnFullProcessCommitment(Process);
   return (unsigned int)v14;
 }

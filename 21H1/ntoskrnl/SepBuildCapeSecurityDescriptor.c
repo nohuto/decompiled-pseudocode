@@ -11,16 +11,12 @@
  *     RtlSetSaclSecurityDescriptor @ 0x140703E80 (RtlSetSaclSecurityDescriptor.c)
  */
 
-NTSTATUS __fastcall SepBuildCapeSecurityDescriptor(
-        PSECURITY_DESCRIPTOR SecurityDescriptor,
-        unsigned __int8 *a2,
-        __int64 a3)
+int __fastcall SepBuildCapeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, unsigned __int8 *a2, ACL *a3)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   __int16 v7; // ax
   ACL *v8; // r8
   __int64 v9; // rax
-  __int64 v10; // rdx
 
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, *a2);
   if ( result >= 0 )
@@ -51,10 +47,7 @@ LABEL_8:
                v8,
                (*((_WORD *)a2 + 1) & 8) != 0);
     if ( result >= 0 )
-    {
-      LOBYTE(v10) = 1;
-      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, v10, a3, 0LL);
-    }
+      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, a3, 0);
   }
   return result;
 }

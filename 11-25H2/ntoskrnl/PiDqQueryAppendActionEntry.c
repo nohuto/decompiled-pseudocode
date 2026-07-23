@@ -19,7 +19,7 @@ void __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
   __int64 **v4; // rcx
   unsigned int v5; // eax
   unsigned int PnpObjectType; // eax
-  RTL_AVL_TABLE *ObjectManagerForObjectType; // rdi
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // rdi
   ULONG v8; // ebx
 
   v2 = a1 + 192;
@@ -35,7 +35,7 @@ void __fastcall PiDqQueryAppendActionEntry(__int64 a1, __int64 *a2)
   if ( v5 > 0x3E8 )
   {
     PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(a1 + 24) + 16LL));
-    ObjectManagerForObjectType = (RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(PnpObjectType);
+    ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(PnpObjectType);
     PiDmObjectManagerAcquireSharedLock(ObjectManagerForObjectType);
     v8 = RtlNumberGenericTableElementsAvl(ObjectManagerForObjectType + 1);
     PiDmObjectManagerReleaseLock(ObjectManagerForObjectType);

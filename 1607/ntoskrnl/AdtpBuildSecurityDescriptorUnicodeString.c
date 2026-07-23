@@ -1,14 +1,14 @@
 /*
- * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x1406D0D60
+ * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x1406D0E98
  * Callers:
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
- *     AdtpBuildSecurityDescriptorChangeString @ 0x1406D0C9C (AdtpBuildSecurityDescriptorChangeString.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
+ *     AdtpBuildSecurityDescriptorChangeString @ 0x1406D0DD4 (AdtpBuildSecurityDescriptorChangeString.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     StringCchPrintfW @ 0x1400AE208 (StringCchPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140235A58 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     StringCchPrintfW @ 0x1400AC770 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140235884 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmParkApplyForcedMask @ 0x140ACAD80
+ * XREFs of PpmParkApplyForcedMask @ 0x140AC893C
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmCheckApplyParkConstraints @ 0x1404B38A4 (PpmCheckApplyParkConstraints.c)
- *     PpmParkApplyPolicy @ 0x1404ED2F4 (PpmParkApplyPolicy.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PpmParkParkingAvailable @ 0x140A723C0 (PpmParkParkingAvailable.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     PpmCheckApplyParkConstraints @ 0x14044BDC4 (PpmCheckApplyParkConstraints.c)
+ *     PpmParkApplyPolicy @ 0x1404E4B18 (PpmParkApplyPolicy.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PpmParkParkingAvailable @ 0x140A6B7A0 (PpmParkParkingAvailable.c)
  */
 
 __int64 __fastcall PpmParkApplyForcedMask(__int64 a1, __int64 *a2)
@@ -69,7 +69,7 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 a1, __int64 *a2)
     goto LABEL_7;
   do
   {
-    v12 = PpmParkNodes + 1288LL * v11;
+    v12 = PpmParkNodes + 1296LL * v11;
     if ( !(unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline() )
     {
       if ( *(_WORD *)(v12 + 4) != (_WORD)v6 )

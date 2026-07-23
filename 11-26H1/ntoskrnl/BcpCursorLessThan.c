@@ -1,12 +1,12 @@
 /*
- * XREFs of BcpCursorLessThan @ 0x14071670C
+ * XREFs of BcpCursorLessThan @ 0x14071B3FC
  * Callers:
- *     BcpDisplayProgress @ 0x140717534 (BcpDisplayProgress.c)
+ *     BcpDisplayProgress @ 0x14071C224 (BcpDisplayProgress.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall BcpCursorLessThan(struct _LIST_ENTRY **a1)
+bool __fastcall BcpCursorLessThan(_QWORD *a1)
 {
-  return *a1 < gLoadedDiffHivesLock.WaitListEntry.Blink;
+  return *a1 < *(_QWORD *)&gLoadedDiffHivesLock.Timer.Header.Lock;
 }

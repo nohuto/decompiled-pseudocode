@@ -6,7 +6,16 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtAlpcAcceptConnectPort(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+NTSTATUS __cdecl NtAlpcAcceptConnectPort(
+        PHANDLE PortHandle,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
   return Wow64SystemServiceCall();
 }

@@ -11,7 +11,7 @@ __int64 KiSetClockIntervalToMinimumRequested()
 {
   int v0; // ecx
 
-  v0 = *(_DWORD *)((qword_1403A0CF0 & 0xFFFFFFFFFFFFFFFEuLL) + 28);
+  v0 = *(_DWORD *)(((unsigned __int64)KiClockIntervalRequests.Min & 0xFFFFFFFFFFFFFFFEuLL) + 28);
   if ( v0 == KiLastRequestedTimeIncrement || v0 == KeTimeIncrement )
     return (unsigned int)KeTimeIncrement;
   else

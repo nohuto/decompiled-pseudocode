@@ -1,15 +1,15 @@
 /*
- * XREFs of CcPostWorkQueueCachemapUninit @ 0x1403831F0
+ * XREFs of CcPostWorkQueueCachemapUninit @ 0x140384FA0
  * Callers:
- *     CcPostWorkQueue @ 0x1403863F0 (CcPostWorkQueue.c)
+ *     CcPostWorkQueue @ 0x1403881A0 (CcPostWorkQueue.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     CcReferencePrivateVolumeCacheMap @ 0x140383620 (CcReferencePrivateVolumeCacheMap.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140389AC8 (CcPerfLogWorkItemEnqueue.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     CcReferencePrivateVolumeCacheMap @ 0x1403853D0 (CcReferencePrivateVolumeCacheMap.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14038B878 (CcPerfLogWorkItemEnqueue.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall CcPostWorkQueueCachemapUninit(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -33,7 +33,7 @@ void __fastcall CcPostWorkQueueCachemapUninit(_QWORD *a1, __int64 a2, __int64 a3
   v7 = a1[18];
   memset(&LockHandle, 0, sizeof(LockHandle));
   v9 = a1;
-  if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+  if ( (xmmword_140FC0C10 & 0x20000) != 0 )
   {
     LOBYTE(a4) = 1;
     CcPerfLogWorkItemEnqueue(
@@ -56,7 +56,7 @@ void __fastcall CcPostWorkQueueCachemapUninit(_QWORD *a1, __int64 a2, __int64 a3
     KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v11 = _InterlockedExchange64((volatile __int64 *)(v4 + 832), (__int64)&LockHandle);
     if ( v11 )

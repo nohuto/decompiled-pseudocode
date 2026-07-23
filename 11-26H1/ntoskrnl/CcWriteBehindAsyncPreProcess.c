@@ -1,13 +1,13 @@
 /*
- * XREFs of CcWriteBehindAsyncPreProcess @ 0x1405B3B34
+ * XREFs of CcWriteBehindAsyncPreProcess @ 0x1405B6344
  * Callers:
- *     CcAsyncLazywriteWorkerMulti @ 0x1404BB630 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404B4E10 (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     CcWriteBehindPreProcess @ 0x1403848C4 (CcWriteBehindPreProcess.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CcWriteBehindPreProcess @ 0x140386674 (CcWriteBehindPreProcess.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcWriteBehindAsyncPreProcess(__int64 a1, __int64 a2, __int64 a3)
@@ -53,7 +53,7 @@ __int64 __fastcall CcWriteBehindAsyncPreProcess(__int64 a1, __int64 a2, __int64 
   if ( !v10 )
   {
     *(_DWORD *)(v3 + 104) = 1;
-    *(_QWORD *)(v3 + 96) = &EmpParseLock.ForegroundLossTime;
+    *(_QWORD *)(v3 + 96) = &EmpParseLock.GlobalForegroundListEntry.Blink;
     *(_QWORD *)(v3 + 72) = a3;
     return 0LL;
   }

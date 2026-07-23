@@ -1,13 +1,13 @@
 /*
- * XREFs of ViMiscExCheckAPCsDisabled @ 0x140AE15A4
+ * XREFs of ViMiscExCheckAPCsDisabled @ 0x140AE1594
  * Callers:
- *     VfMiscExAcquireFastMutexUnsafe_Entry @ 0x140ADFAA0 (VfMiscExAcquireFastMutexUnsafe_Entry.c)
- *     VfMiscExReleaseFastMutexUnsafe_Entry @ 0x140ADFC40 (VfMiscExReleaseFastMutexUnsafe_Entry.c)
- *     VfMiscExReleaseFastMutex_Entry @ 0x140ADFC60 (VfMiscExReleaseFastMutex_Entry.c)
- *     VfMiscExfAcquirePushLockExclusive_Entry @ 0x140ADFCA0 (VfMiscExfAcquirePushLockExclusive_Entry.c)
- *     VfMiscExfReleasePushLockShared_Entry @ 0x140ADFCC0 (VfMiscExfReleasePushLockShared_Entry.c)
+ *     VfMiscExAcquireFastMutexUnsafe_Entry @ 0x140ADFA90 (VfMiscExAcquireFastMutexUnsafe_Entry.c)
+ *     VfMiscExReleaseFastMutexUnsafe_Entry @ 0x140ADFC30 (VfMiscExReleaseFastMutexUnsafe_Entry.c)
+ *     VfMiscExReleaseFastMutex_Entry @ 0x140ADFC50 (VfMiscExReleaseFastMutex_Entry.c)
+ *     VfMiscExfAcquirePushLockExclusive_Entry @ 0x140ADFC90 (VfMiscExfAcquirePushLockExclusive_Entry.c)
+ *     VfMiscExfReleasePushLockShared_Entry @ 0x140ADFCB0 (VfMiscExfReleasePushLockShared_Entry.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 unsigned __int8 __fastcall ViMiscExCheckAPCsDisabled(ULONG_PTR BugCheckParameter1, __int64 a2)

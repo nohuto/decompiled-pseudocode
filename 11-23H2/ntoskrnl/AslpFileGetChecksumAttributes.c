@@ -1,14 +1,14 @@
 /*
- * XREFs of AslpFileGetChecksumAttributes @ 0x140A57DDC
+ * XREFs of AslpFileGetChecksumAttributes @ 0x140A5808C
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x140758DE8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x140758FD8 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1402F7C50 (RtlFileMapFree.c)
- *     RtlFileMapMapView @ 0x1403B1320 (RtlFileMapMapView.c)
+ *     RtlFileMapFree @ 0x1402F7EE0 (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1403B1500 (RtlFileMapMapView.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A546AC (AslFileMappingEnsureMappedAs.c)
- *     AslpFileGetChecksum @ 0x140A57CF0 (AslpFileGetChecksum.c)
- *     AslpFileGetCrcChecksum @ 0x140A582E8 (AslpFileGetCrcChecksum.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A5495C (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileGetChecksum @ 0x140A57FA0 (AslpFileGetChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x140A58598 (AslpFileGetCrcChecksum.c)
  */
 
 __int64 __fastcall AslpFileGetChecksumAttributes(__int64 a1, __int64 a2)

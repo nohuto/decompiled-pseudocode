@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfInSupCallback @ 0x14075A270
+ * XREFs of PopWnfInSupCallback @ 0x140758960
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     PopEvaluatePowerButtonSuppressionState @ 0x14075A15C (PopEvaluatePowerButtonSuppressionState.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     PopEvaluatePowerButtonSuppressionState @ 0x140758844 (PopEvaluatePowerButtonSuppressionState.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 PopWnfInSupCallback()
@@ -29,8 +29,8 @@ __int64 PopWnfInSupCallback()
       {
         if ( v4 == 4 )
         {
-          PopAcquireRwLockExclusive(&PopPowerButtonSuppressionLock);
-          dword_140F08458 = v5[0];
+          PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerButtonSuppressionLock);
+          dword_140F08738 = v5[0];
           return (unsigned int)PopEvaluatePowerButtonSuppressionState();
         }
         else

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeBugCheckProgress @ 0x1401C60F0
+ * XREFs of IoInitializeBugCheckProgress @ 0x1401C5F90
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140159290 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
- *     KeFrozenProcessorCount @ 0x1401D7C08 (KeFrozenProcessorCount.c)
+ *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140159800 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
+ *     KeFrozenProcessorCount @ 0x1401D7A34 (KeFrozenProcessorCount.c)
  */
 
 void __fastcall IoInitializeBugCheckProgress(int a1, __int64 a2)

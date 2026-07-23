@@ -10,42 +10,55 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall RtlQueryRegistryValueWithFallback(int a1, int a2, int a3, int a4, _DWORD *a5, void *a6, _DWORD *a7)
+NTSTATUS __cdecl RtlQueryRegistryValueWithFallback(
+        HANDLE PrimaryHandle,
+        HANDLE FallbackHandle,
+        PUNICODE_STRING ValueName,
+        ULONG ValueLength,
+        PULONG ValueType,
+        PVOID ValueData,
+        PULONG ResultLength)
 {
-  int ValueKey; // esi
-  _DWORD *Heap; // edi
-  _BYTE v10[4]; // [esp+4h] [ebp-8h] BYREF
-  int v11; // [esp+8h] [ebp-4h] BYREF
+  unsigned int v7; // edi
+  NTSTATUS v9; // esi
+  ULONG *Heap; // edi
+  size_t v11; // [esp-Ch] [ebp-18h]
+  ULONG v12; // [esp+4h] [ebp-8h] BYREF
+  SIZE_T Size; // [esp+8h] [ebp-4h] BYREF
 
-  if ( !a1 && !a2 )
+  if ( !PrimaryHandle && !FallbackHandle )
     return -1073741811;
-  v11 = 16;
-  ValueKey = RtlULongPtrAdd(0x10u, a4, &v11);
-  if ( ValueKey >= 0 )
+  LODWORD(Size) = 16;
+  v9 = RtlULongPtrAdd(0x10u, ValueLength, (int *)&Size);
+  if ( v9 >= 0 )
   {
-    Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v11);
+    Heap = (ULONG *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, __PAIR64__(v7, Size));
     if ( !Heap )
       return -1073741801;
-    ValueKey = -1073741772;
-    if ( !a1 || (ValueKey = ZwQueryValueKey(a1, a3, 2, (int)Heap, v11, (int)v10), ValueKey == -1073741772) )
+    v9 = -1073741772;
+    if ( !PrimaryHandle
+      || (v9 = ZwQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, Heap, Size, &v12), v9 == -1073741772) )
     {
-      if ( !a2 )
+      if ( !FallbackHandle )
       {
 LABEL_17:
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-        return ValueKey;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+        return v9;
       }
-      ValueKey = ZwQueryValueKey(a2, a3, 2, (int)Heap, v11, (int)v10);
+      v9 = ZwQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, Heap, Size, &v12);
     }
-    if ( ValueKey >= 0 || ValueKey == -2147483643 )
+    if ( v9 >= 0 || v9 == -2147483643 )
     {
-      *a7 = Heap[2];
-      if ( a5 )
-        *a5 = Heap[1];
-      if ( ValueKey >= 0 )
-        memcpy(a6, Heap + 3, Heap[2]);
+      *ResultLength = Heap[2];
+      if ( ValueType )
+        *ValueType = Heap[1];
+      if ( v9 >= 0 )
+      {
+        LODWORD(v11) = Heap[2];
+        memcpy(ValueData, Heap + 3, v11);
+      }
     }
     goto LABEL_17;
   }
-  return ValueKey;
+  return v9;
 }

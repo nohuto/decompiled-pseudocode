@@ -1,10 +1,10 @@
 /*
- * XREFs of ExSvmUpdateThreadPasidMsrApc @ 0x1407C0AC0
+ * XREFs of ExSvmUpdateThreadPasidMsrApc @ 0x1407C0F10
  * Callers:
- *     PsUpdateSvmProcessPasidAllThreads @ 0x1407741A4 (PsUpdateSvmProcessPasidAllThreads.c)
+ *     PsUpdateSvmProcessPasidAllThreads @ 0x1407743C4 (PsUpdateSvmProcessPasidAllThreads.c)
  * Callees:
- *     ExBuildPasidMsrForThread @ 0x140407A4C (ExBuildPasidMsrForThread.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExBuildPasidMsrForThread @ 0x1403FFF2C (ExBuildPasidMsrForThread.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExSvmUpdateThreadPasidMsrApc(__int64 a1)

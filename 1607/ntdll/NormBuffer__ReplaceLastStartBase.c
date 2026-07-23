@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__ReplaceLastStartBase @ 0x1800F1564
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180058890 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180058880 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     NormBuffer__AppendAndSortDecomposed @ 0x1800F1038 (NormBuffer__AppendAndSortDecomposed.c)
  *     Normalization__GetSecondAndThirdDecomposedCharPlane0 @ 0x1800F1C50 (Normalization__GetSecondAndThirdDecomposedCharPlane0.c)

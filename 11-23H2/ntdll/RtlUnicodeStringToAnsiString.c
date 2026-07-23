@@ -22,16 +22,16 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   __int64 v9; // rcx
   ULONG v10; // edi
   ULONG MaximumLength; // eax
-  int v12; // edx
-  int v13; // r8d
-  __int64 v14; // r9
-  int v15; // r10d
-  __int16 *v16; // rcx
+  ULONG BytesInUnicodeString; // edx
+  ULONG v13; // r8d
+  WCHAR *UnicodeString; // r9
+  CHAR *v15; // r10
+  _CPTABLEINFO *v16; // rcx
   unsigned __int16 v17; // dx
   char *StringRoutine; // rax
   signed __int32 v20[8]; // [rsp+0h] [rbp-78h] BYREF
   int v21; // [rsp+30h] [rbp-48h]
-  ULONG v22; // [rsp+88h] [rbp+10h] BYREF
+  ULONG BytesInCustomCPString; // [rsp+88h] [rbp+10h] BYREF
   BOOLEAN v23; // [rsp+90h] [rbp+18h]
   ULONG v24; // [rsp+98h] [rbp+20h] BYREF
 
@@ -40,7 +40,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   v7 = 0;
   RtlUnicodeToMultiByteSize(&v24, SourceString->Buffer, SourceString->Length);
   v10 = v24 + 1;
-  v22 = v24 + 1;
+  BytesInCustomCPString = v24 + 1;
   if ( v24 + 1 > 0xFFFF )
     return -1073741584;
   if ( AllocateDestinationString )
@@ -63,23 +63,19 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
     }
   }
   v21 = 0;
-  if ( (unsigned __int8)RtlpIsUtf8Process(
-                          v9,
-                          SourceString->Length,
-                          (unsigned int)(unsigned __int16)MaximumLength - 1,
-                          SourceString->Buffer) )
+  if ( (unsigned __int8)RtlpIsUtf8Process(v9, SourceString->Length, (unsigned int)(unsigned __int16)MaximumLength - 1) )
   {
-    v16 = (__int16 *)&Utf8TableInfo;
+    v16 = &Utf8TableInfo;
   }
   else
   {
     _InterlockedOr(v20, 0);
     v16 = &GlobalRtlNlsState;
   }
-  RtlUnicodeToCustomCPN((_DWORD)v16, v15, v13, (unsigned int)&v22, v14, v12);
+  RtlUnicodeToCustomCPN(v16, v15, v13, &BytesInCustomCPString, UnicodeString, BytesInUnicodeString);
   v21 = 0;
-  v17 = v22;
-  DestinationString->Buffer[v22] = 0;
+  v17 = BytesInCustomCPString;
+  DestinationString->Buffer[BytesInCustomCPString] = 0;
   DestinationString->Length = v17;
   if ( v7 )
     return -2147483643;

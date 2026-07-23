@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwAlpcDeletePortSection @ 0x1406A7450
+ * XREFs of ZwAlpcDeletePortSection @ 0x1406A83F0
  * Callers:
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x1404C183C (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     CmFcpCreateAlpcSectionView @ 0x140AC0FAC (CmFcpCreateAlpcSectionView.c)
+ *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x1404BCE2C (CmFcpSendFeatureUsageReportAlpcMessage.c)
+ *     CmFcpCreateAlpcSectionView @ 0x140ABC10C (CmFcpCreateAlpcSectionView.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeletePortSection(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcDeletePortSection(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE SectionHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

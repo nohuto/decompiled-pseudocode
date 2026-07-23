@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDoStackCopy @ 0x1401E6304
+ * XREFs of MiDoStackCopy @ 0x1401E6130
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400F0FE0 (KeExpandKernelStackAndCalloutInternal.c)
- *     MiJumpStackTarget @ 0x1401E63E8 (MiJumpStackTarget.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400EEE30 (KeExpandKernelStackAndCalloutInternal.c)
+ *     MiJumpStackTarget @ 0x1401E6214 (MiJumpStackTarget.c)
  */
 
 __int64 __fastcall MiDoStackCopy(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

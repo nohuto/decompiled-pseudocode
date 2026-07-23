@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlInsertPerFileObjectContext @ 0x1403C5500
+ * XREFs of FsRtlInsertPerFileObjectContext @ 0x1403B40C0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403C58E4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     IoGetFileObjectFilterContext @ 0x1403C5A00 (IoGetFileObjectFilterContext.c)
- *     IopAllocateFileObjectExtension @ 0x1403C5A80 (IopAllocateFileObjectExtension.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403B44A4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     IoGetFileObjectFilterContext @ 0x1403B45C0 (IoGetFileObjectFilterContext.c)
+ *     IopAllocateFileObjectExtension @ 0x1403B4640 (IopAllocateFileObjectExtension.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSRTL_PER_FILEOBJECT_CONTEXT Ptr)
@@ -36,7 +36,7 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
       v5 = 0LL;
     if ( v5 )
       goto LABEL_11;
-    Pool2 = (_QWORD *)ExAllocatePool2(0x42uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x42uLL, 0x20uLL, 0x58434F46u);
     P = Pool2;
     v7 = Pool2;
     if ( !Pool2 )
@@ -47,7 +47,7 @@ NTSTATUS __stdcall FsRtlInsertPerFileObjectContext(PFILE_OBJECT FileObject, PFSR
     v8[1] = v8;
     *v8 = v8;
     v9 = (__int64 *)FileObject->FileObjectExtension;
-    if ( v9 && v9 != qword_140014770 )
+    if ( v9 && v9 != &qword_1400145A0 )
     {
       if ( !_InterlockedCompareExchange64(v9 + 4, (signed __int64)v7, 0LL) )
       {

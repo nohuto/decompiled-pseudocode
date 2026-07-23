@@ -1,15 +1,15 @@
 /*
- * XREFs of KiTpWriteMemory @ 0x1405FC774
+ * XREFs of KiTpWriteMemory @ 0x1405FF1C4
  * Callers:
- *     KiTpWriteBreakpoint @ 0x1405FC6F8 (KiTpWriteBreakpoint.c)
+ *     KiTpWriteBreakpoint @ 0x1405FF148 (KiTpWriteBreakpoint.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     KiTpWriteUmMemory @ 0x1405FC898 (KiTpWriteUmMemory.c)
- *     MmDbgCopyMemory @ 0x1406FEF24 (MmDbgCopyMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KdExitDebugger @ 0x140C12008 (KdExitDebugger.c)
- *     KdEnterDebugger @ 0x140C17858 (KdEnterDebugger.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     KiTpWriteUmMemory @ 0x1405FF2E8 (KiTpWriteUmMemory.c)
+ *     MmDbgCopyMemory @ 0x140703BF4 (MmDbgCopyMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KdExitDebugger @ 0x140C18008 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140C1D858 (KdEnterDebugger.c)
  */
 
 __int64 __fastcall KiTpWriteMemory(_KPROCESS *a1, char a2, __int64 a3, __int64 a4)

@@ -16,11 +16,8 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
   char v8; // di
   __int64 v9; // rbx
   __int64 result; // rax
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // r9
-  __int64 v14; // rsi
-  __int64 v15; // rdi
+  __int64 v11; // rsi
+  void *v12; // rdi
 
   if ( a3 || a4 )
   {
@@ -30,7 +27,7 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
   else
   {
     v8 = 1;
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpCachedPathLock, (unsigned __int64)a2, 0LL, 0LL);
+    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
     v9 = *a1;
     if ( *a1
       && *(_QWORD *)(v9 + 96) == LdrpAppPackagesPathVersion
@@ -43,29 +40,29 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   }
   result = a2(a3, a4);
-  v14 = result;
+  v11 = result;
   if ( result )
   {
     *(_QWORD *)(result + 80) = 1LL;
     if ( v8 )
     {
-      v15 = 0LL;
-      RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpCachedPathLock, v11, v12, v13);
+      v12 = 0LL;
+      RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
       if ( *a1 == v9 )
       {
-        *a1 = v14;
-        ++*(_QWORD *)(v14 + 80);
+        *a1 = v11;
+        ++*(_QWORD *)(v11 + 80);
         if ( v9 )
         {
           if ( (*(_QWORD *)(v9 + 80))-- == 1LL )
-            v15 = v9;
+            v12 = (void *)v9;
         }
       }
       RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-      if ( v15 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v15);
+      if ( v12 )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     }
-    return v14;
+    return v11;
   }
   return result;
 }

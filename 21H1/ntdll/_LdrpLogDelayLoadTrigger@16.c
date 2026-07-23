@@ -22,23 +22,25 @@ struct _PEB *__fastcall LdrpLogDelayLoadTrigger(int a1, int a2, int a3, int a4)
   int v7; // esi
   struct _PEB *result; // eax
   char *v9; // eax
-  const char *v10; // eax
+  const CHAR *v10; // eax
   struct _PEB *v11; // ebx
   int v12; // edx
-  STRING v13; // [esp+Ch] [ebp-3Ch] BYREF
-  STRING DestinationString; // [esp+14h] [ebp-34h] BYREF
-  int v15; // [esp+1Ch] [ebp-2Ch]
-  int v16; // [esp+20h] [ebp-28h] BYREF
-  int v17; // [esp+24h] [ebp-24h]
+  size_t v13; // [esp-Ch] [ebp-54h]
+  SIZE_T v14; // [esp-4h] [ebp-4Ch]
+  _STRING v15; // [esp+Ch] [ebp-3Ch] BYREF
+  _STRING DestinationString; // [esp+14h] [ebp-34h] BYREF
+  int v17; // [esp+1Ch] [ebp-2Ch]
+  char *Format; // [esp+20h] [ebp-28h] BYREF
+  int v19; // [esp+24h] [ebp-24h]
   PCSZ SourceString; // [esp+28h] [ebp-20h] BYREF
-  int v19; // [esp+2Ch] [ebp-1Ch]
-  int v20; // [esp+30h] [ebp-18h]
-  int v21; // [esp+34h] [ebp-14h] BYREF
+  int v21; // [esp+2Ch] [ebp-1Ch]
+  int v22; // [esp+30h] [ebp-18h]
+  int v23; // [esp+34h] [ebp-14h] BYREF
   char Buffer[12]; // [esp+38h] [ebp-10h] BYREF
 
-  v17 = a3;
-  v20 = a2;
-  v19 = a4;
+  v19 = a3;
+  v22 = a2;
+  v21 = a4;
   v5 = 2147353476;
   if ( RtlGetCurrentServiceSessionId() )
     v6 = (int)NtCurrentPeb()->SharedData + 554;
@@ -68,38 +70,41 @@ struct _PEB *__fastcall LdrpLogDelayLoadTrigger(int a1, int a2, int a3, int a4)
       if ( (*(_BYTE *)v7 & 0x20) != 0 )
       {
 LABEL_19:
-        SourceString = (PCSZ)(*(_DWORD *)(v20 + 4) + *(_DWORD *)(a1 + 24));
+        SourceString = (PCSZ)(*(_DWORD *)(v22 + 4) + *(_DWORD *)(a1 + 24));
         RtlInitString(&DestinationString, SourceString);
-        LdrpGetDelayloadAPIInfo(v19, &SourceString, &v16);
+        LdrpGetDelayloadAPIInfo(v21, &SourceString, &Format);
         v10 = SourceString;
         if ( !SourceString )
         {
-          sprintf_s(Buffer, 0xCu, "#%u", v16);
+          HIDWORD(v13) = "#%u";
+          LODWORD(v13) = 12;
+          sprintf_s(Buffer, v13, Format);
           v10 = Buffer;
         }
-        RtlInitString(&v13, v10);
-        v19 = a1 + 36;
-        v20 = *(unsigned __int16 *)(a1 + 36)
-            + *(unsigned __int16 *)(v17 + 36)
+        RtlInitString(&v15, v10);
+        v21 = a1 + 36;
+        v22 = *(unsigned __int16 *)(a1 + 36)
+            + *(unsigned __int16 *)(v19 + 36)
             + 8
-            + 2 * (DestinationString.Length + v13.Length);
-        v15 = v20 + 36;
-        result = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v20 + 36);
+            + 2 * (DestinationString.Length + v15.Length);
+        LODWORD(v14) = v22 + 36;
+        v17 = v22 + 36;
+        result = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v14);
         v11 = result;
         if ( result )
         {
-          v12 = v20;
+          v12 = v22;
           HIWORD(result->Mutant) = 5334;
           result->AtlThunkSListPtr = (_SLIST_HEADER *volatile)3;
-          LdrpEventAddUnicodeString(v12, &v21);
-          v20 -= v21;
-          LdrpEventAddUnicodeString(v20, &v21);
-          v20 -= v21;
-          LdrpEventAddAnsiString(v20, &v21);
-          LdrpEventAddAnsiString(v20 - v21, &v21);
+          LdrpEventAddUnicodeString(v12, &v23);
+          v22 -= v23;
+          LdrpEventAddUnicodeString(v22, &v23);
+          v22 -= v23;
+          LdrpEventAddAnsiString(v22, &v23);
+          LdrpEventAddAnsiString(v22 - v23, &v23);
           if ( RtlGetCurrentServiceSessionId() )
             v5 = (int)NtCurrentPeb()->SharedData + 554;
-          NtTraceEvent(*(unsigned __int8 *)v5, 1026, v15 - 32, v11);
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v5, 0x402u, v17 - 32, v11);
           return (struct _PEB *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
         }
       }

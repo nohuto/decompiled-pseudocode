@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x1400E5DA4
+ * XREFs of MiMapContiguousMemory @ 0x1400E5E24
  * Callers:
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x1400E659C (MiAllocateContiguousMemory.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
+ *     MiMappingHasIoReferences @ 0x1400E647C (MiMappingHasIoReferences.c)
+ *     MiMapContiguousMemoryLarge @ 0x140183324 (MiMapContiguousMemoryLarge.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiInsertPteTracker @ 0x1402CDCB0 (MiInsertPteTracker.c)
  */
 
 __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3, char a4)
@@ -88,7 +88,7 @@ __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, unsigned __int64 a
       return 0LL;
     v13 = 1;
   }
-  v16 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)v14);
+  v16 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)v14);
   if ( !v16 )
     return 0LL;
   v17 = v13 | 2;
@@ -96,7 +96,7 @@ __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, unsigned __int64 a
     v17 = v13;
   if ( (int)MiFillSystemPtes(v16, v12, v24, v5, v17, &v23) < 0 )
   {
-    MiReleasePtes((__int64)&qword_14043AFA0, v16, v14);
+    MiReleasePtes((__int64)&qword_14043C060, v16, v14);
     return 0LL;
   }
   v6 = v25;
@@ -105,7 +105,7 @@ LABEL_18:
   v19 = v23 & 1;
   if ( (v23 & 1) != 0 )
     MiMappingHasIoReferences(v18);
-  if ( (dword_14054017C & 1) != 0 )
+  if ( (dword_14054117C & 1) != 0 )
   {
     v28 = v18;
     v31 = a1 >> 12;

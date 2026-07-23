@@ -26,7 +26,7 @@ BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int
   v2 = 0;
   if ( *(_DWORD *)(a2 + 120) != *(_DWORD *)(Token + 120)
     || (*(_DWORD *)(*(_QWORD *)(a2 + 216) + 32LL) & 0x10) != 0
-    || (unsigned __int8)RtlIsMultiSessionSku() )
+    || RtlIsMultiSessionSku() )
   {
     return 0;
   }

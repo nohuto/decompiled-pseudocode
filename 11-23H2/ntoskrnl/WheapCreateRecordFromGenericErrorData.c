@@ -1,16 +1,16 @@
 /*
- * XREFs of WheapCreateRecordFromGenericErrorData @ 0x140612858
+ * XREFs of WheapCreateRecordFromGenericErrorData @ 0x140612DA8
  * Callers:
- *     WheapDeviceDriverCreateRecord @ 0x140611740 (WheapDeviceDriverCreateRecord.c)
- *     WheapDefaultErrSrcCreateRecord @ 0x140612BC0 (WheapDefaultErrSrcCreateRecord.c)
+ *     WheapDeviceDriverCreateRecord @ 0x140611C90 (WheapDeviceDriverCreateRecord.c)
+ *     WheapDefaultErrSrcCreateRecord @ 0x140613110 (WheapDefaultErrSrcCreateRecord.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     RtlStringCchCopyA @ 0x1403C342C (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WheaInitializeRecordHeader @ 0x1406124F0 (WheaInitializeRecordHeader.c)
- *     WheapAddRecoveryPacketToErrorRecord @ 0x140612560 (WheapAddRecoveryPacketToErrorRecord.c)
- *     WheapAddSectionFromGenericErrorData @ 0x14061267C (WheapAddSectionFromGenericErrorData.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     RtlStringCchCopyA @ 0x1403C360C (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheaInitializeRecordHeader @ 0x140612A40 (WheaInitializeRecordHeader.c)
+ *     WheapAddRecoveryPacketToErrorRecord @ 0x140612AB0 (WheapAddRecoveryPacketToErrorRecord.c)
+ *     WheapAddSectionFromGenericErrorData @ 0x140612BCC (WheapAddSectionFromGenericErrorData.c)
  */
 
 __int64 __fastcall WheapCreateRecordFromGenericErrorData(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

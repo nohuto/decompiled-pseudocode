@@ -1,20 +1,20 @@
 /*
- * XREFs of CcFlushCachePostProcess @ 0x1403998E0
+ * XREFs of CcFlushCachePostProcess @ 0x14039B640
  * Callers:
- *     CcWriteBehindInternal @ 0x140384680 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x140385C44 (CcWriteBehindAsync.c)
- *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x1405B3A28 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcWriteBehindInternal @ 0x140386430 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x1403879F4 (CcWriteBehindAsync.c)
+ *     CcFlushCachePriv @ 0x14039A060 (CcFlushCachePriv.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x1405B6238 (CcQueueAsyncLazywriteCompletion.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x14039D068 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14039EDC8 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall CcFlushCachePostProcess(__int64 *a1, __int64 a2, __int64 a3)
@@ -64,7 +64,7 @@ __int64 __fastcall CcFlushCachePostProcess(__int64 *a1, __int64 a2, __int64 a3)
     v12 = *((unsigned int *)a1 + 62);
     v13 = 0LL;
     a3 = 32LL;
-    v14 = 1000000 * (v9 - a1[29]) / (__int64)EmpParseLock.WaitListEntry.Blink;
+    v14 = 1000000 * (v9 - a1[29]) / (__int64)EmpParseLock.Queue;
     if ( !v14 )
       v14 = 1LL;
     v15 = (unsigned int)(1000000 * v12) / v14;
@@ -112,7 +112,7 @@ __int64 __fastcall CcFlushCachePostProcess(__int64 *a1, __int64 a2, __int64 a3)
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
     LockHandle.OldIrql = CurrentIrql;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v20 = _InterlockedExchange64((volatile __int64 *)(v8 + 768), (__int64)&LockHandle);
       if ( v20 )

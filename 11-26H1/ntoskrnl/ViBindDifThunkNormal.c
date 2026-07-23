@@ -1,7 +1,7 @@
 /*
- * XREFs of ViBindDifThunkNormal @ 0x140C2842C
+ * XREFs of ViBindDifThunkNormal @ 0x140C2E438
  * Callers:
- *     VfBindDifDDIWrappers @ 0x140C280AC (VfBindDifDDIWrappers.c)
+ *     VfBindDifDDIWrappers @ 0x140C2E0BC (VfBindDifDDIWrappers.c)
  * Callees:
  *     <none>
  */

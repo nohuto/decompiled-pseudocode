@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDecommitLargePoolVa @ 0x14015B2E0
+ * XREFs of MiDecommitLargePoolVa @ 0x14015B3E0
  * Callers:
- *     MiDeleteNonPagedPoolPte @ 0x1401115B0 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteNonPagedPoolPte @ 0x140111620 (MiDeleteNonPagedPoolPte.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     MiReplicatePteChange @ 0x140175014 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
  */
 
 void __fastcall MiDecommitLargePoolVa(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -98,7 +98,7 @@ LABEL_9:
     *(_QWORD *)a2 = v15;
     goto LABEL_10;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v15 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v15 & 1) != 0 )
     v15 |= 0x8000000000000000uLL;
   *(_QWORD *)a2 = v15;
   MiWritePteShadow(a2, v15);

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLogPageOfflineAttemptEvent @ 0x140231158
+ * XREFs of WheapLogPageOfflineAttemptEvent @ 0x140230F84
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x1406BA850 (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1406BA988 (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3, char a4, char a5)

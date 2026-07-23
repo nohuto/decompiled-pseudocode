@@ -1,20 +1,20 @@
 /*
- * XREFs of MiProcessCrcList @ 0x1406B02D0
+ * XREFs of MiProcessCrcList @ 0x1406B0300
  * Callers:
- *     MiCombineWorkingSet @ 0x140653418 (MiCombineWorkingSet.c)
- *     MiCombineWorkingSetTail @ 0x140653620 (MiCombineWorkingSetTail.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineWorkingSet @ 0x140653968 (MiCombineWorkingSet.c)
+ *     MiCombineWorkingSetTail @ 0x140653B70 (MiCombineWorkingSetTail.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     MiValidCombineProtection @ 0x140215AEC (MiValidCombineProtection.c)
  *     MiLocateCombineBlock @ 0x140215B20 (MiLocateCombineBlock.c)
  *     MiCompareActiveCrcEntries @ 0x140215CA4 (MiCompareActiveCrcEntries.c)
  *     MiCapturePfnVm @ 0x140215CDC (MiCapturePfnVm.c)
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     qsort @ 0x1403DA430 (qsort.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

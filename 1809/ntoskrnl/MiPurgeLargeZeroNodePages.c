@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPurgeLargeZeroNodePages @ 0x140151AF8
+ * XREFs of MiPurgeLargeZeroNodePages @ 0x140151BF8
  * Callers:
- *     MiPurgeZeroList @ 0x1401519BC (MiPurgeZeroList.c)
+ *     MiPurgeZeroList @ 0x140151ABC (MiPurgeZeroList.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiMoveLargeZeroToFree @ 0x140151CC8 (MiMoveLargeZeroToFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiMoveLargeZeroToFree @ 0x140151DC8 (MiMoveLargeZeroToFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1, __int64 a2, __int64 a3)
@@ -55,9 +55,9 @@ __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1, __int64 a2, __int64 a3)
       KxAcquireQueuedSpinLock((__int64)&v22, v5, a3);
       v7 = 0;
       v20 = (_QWORD *)v3;
-      v8 = dword_14043A100;
+      v8 = dword_14043B1C0;
       v25 = 0;
-      v19 = dword_14043A100;
+      v19 = dword_14043B1C0;
       v9 = (_QWORD *)v3;
       do
       {

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCloseRegistrationObject @ 0x140A82660
+ * XREFs of EtwpCloseRegistrationObject @ 0x140A884D0
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpCloseRegistrationObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -18,7 +18,9 @@ void __fastcall EtwpCloseRegistrationObject(__int64 a1, __int64 a2, __int64 a3, 
   {
     if ( (*(_BYTE *)(a2 + 98) & 2) != 0 )
     {
-      v5 = EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_UNREGISTERS);
+      v5 = EtwEventEnabled(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+             &ETW_EVENT_PROVIDER_UNREGISTERS);
       v6 = 0;
       if ( v5 )
       {
@@ -28,7 +30,12 @@ void __fastcall EtwpCloseRegistrationObject(__int64 a1, __int64 a2, __int64 a3, 
           v6 = 1;
           *(_QWORD *)&UserData.Size = 16LL;
         }
-        EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_UNREGISTERS, 0LL, v6, &UserData);
+        EtwWrite(
+          (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+          &ETW_EVENT_PROVIDER_UNREGISTERS,
+          0LL,
+          v6,
+          &UserData);
       }
     }
     _InterlockedOr16((volatile signed __int16 *)(a2 + 98), 0x20u);

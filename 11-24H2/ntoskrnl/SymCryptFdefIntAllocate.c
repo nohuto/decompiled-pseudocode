@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefIntAllocate @ 0x14053709C
+ * XREFs of SymCryptFdefIntAllocate @ 0x14053153C
  * Callers:
- *     SymCryptIntAllocate @ 0x14052379C (SymCryptIntAllocate.c)
+ *     SymCryptIntAllocate @ 0x1405210B4 (SymCryptIntAllocate.c)
  * Callees:
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptCallbackAlloc @ 0x1406A5810 (SymCryptCallbackAlloc.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptCallbackAlloc @ 0x1406A6810 (SymCryptCallbackAlloc.c)
  */
 
 __int64 __fastcall SymCryptFdefIntAllocate(int a1)

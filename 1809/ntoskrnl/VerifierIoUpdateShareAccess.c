@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoUpdateShareAccess @ 0x1409321D0
+ * XREFs of VerifierIoUpdateShareAccess @ 0x1409331D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoUpdateShareAccess()

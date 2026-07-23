@@ -1,7 +1,7 @@
 /*
- * XREFs of IopInitializeRemovePagesArray @ 0x140396630
+ * XREFs of IopInitializeRemovePagesArray @ 0x140396810
  * Callers:
- *     IopInitializeCrashDump @ 0x140832C88 (IopInitializeCrashDump.c)
+ *     IopInitializeCrashDump @ 0x140832F88 (IopInitializeCrashDump.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpExposeTokenAttribute @ 0x140898930
+ * XREFs of AlpcpExposeTokenAttribute @ 0x1408A0FD0
  * Callers:
- *     AlpcpExposeAttributes @ 0x1408980D0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1408A0770 (AlpcpExposeAttributes.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1403597C0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     SepCreateClientSecurityEx @ 0x140897AC0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x140ABC0A8 (SepUpdateSiloInClientSecurity.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403E3A30 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     SepCreateClientSecurityEx @ 0x1408A0160 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140AB70C8 (SepUpdateSiloInClientSecurity.c)
  */
 
 char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -31,7 +31,7 @@ char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _D
   struct _KTHREAD *CurrentThread; // rax
   PEPROCESS *v13; // r13
   PEPROCESS Process; // rcx
-  __int64 *v15; // rax
+  PSID *v15; // rax
   PVOID v16; // rdi
   char v17; // di
   struct _KTHREAD *v18; // rax
@@ -146,7 +146,7 @@ LABEL_17:
     }
     KeAbPostRelease((ULONG_PTR)v20);
     KeLeaveCriticalRegionThread();
-    v15 = (__int64 *)v26;
+    v15 = (PSID *)v26;
     if ( v26 )
     {
       v28[0] = 2;
@@ -155,7 +155,7 @@ LABEL_17:
     }
     Process = v29;
   }
-  v15 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+  v15 = (PSID *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
   v26 = v15;
   v28[0] = 1;
   v40 = BYTE2(v29[3].ActiveGroupsMask.Masks[1]);

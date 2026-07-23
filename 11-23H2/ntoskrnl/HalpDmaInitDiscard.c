@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpDmaInitDiscard @ 0x140B60550
  * Callers:
- *     HalpDmaInitSystem @ 0x140A90960 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x140A907E0 (HalpDmaInitSystem.c)
  * Callees:
  *     HalpDmaInitMemory @ 0x140B48764 (HalpDmaInitMemory.c)
  */

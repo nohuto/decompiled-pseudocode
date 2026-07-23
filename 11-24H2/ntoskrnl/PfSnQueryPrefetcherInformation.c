@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnQueryPrefetcherInformation @ 0x140A43C78
+ * XREFs of PfSnQueryPrefetcherInformation @ 0x140A39508
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     PfSnGetCompletedTrace @ 0x140A43D60 (PfSnGetCompletedTrace.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     PfSnGetCompletedTrace @ 0x140A395F0 (PfSnGetCompletedTrace.c)
  */
 
 __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4, _DWORD *a5)
@@ -43,9 +43,9 @@ __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int 
     return (unsigned int)-1073741821;
   if ( DWORD2(v18) != 408 )
     return (unsigned int)-1073741811;
-  PfLockSharedAcquire((volatile signed __int64 *)qword_140E66E58);
+  PfLockSharedAcquire((volatile signed __int64 *)qword_140E66FA8);
   v10 = v19;
-  v11 = dword_140E66CC0;
+  v11 = dword_140E66E10;
   v12 = 3LL;
   v13 = 3LL;
   do
@@ -65,7 +65,7 @@ __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int 
   while ( v13 );
   *v10 = *(_OWORD *)v11;
   *((_QWORD *)v10 + 2) = *((_QWORD *)v11 + 2);
-  PfLockSharedRelease((signed __int64 *)qword_140E66E58);
+  PfLockSharedRelease((signed __int64 *)qword_140E66FA8);
   if ( a4 )
   {
     v14 = v18;

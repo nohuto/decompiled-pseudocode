@@ -1,29 +1,29 @@
 /*
- * XREFs of CcLazyWriteScanVolume @ 0x14029A600
+ * XREFs of CcLazyWriteScanVolume @ 0x14029A890
  * Callers:
- *     CcWorkerThread @ 0x140298940 (CcWorkerThread.c)
- *     CcQuickLazyWriteScanForVolume @ 0x140538B20 (CcQuickLazyWriteScanForVolume.c)
+ *     CcWorkerThread @ 0x140298BD0 (CcWorkerThread.c)
+ *     CcQuickLazyWriteScanForVolume @ 0x140539070 (CcQuickLazyWriteScanForVolume.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScanLogHandleList @ 0x140299BAC (CcScanLogHandleList.c)
- *     CcShouldLazyWriteCacheMap @ 0x14029AE50 (CcShouldLazyWriteCacheMap.c)
- *     CcPostWorkQueue @ 0x14029AFB4 (CcPostWorkQueue.c)
- *     CcGetNodeForLazyWrite @ 0x14029AFE0 (CcGetNodeForLazyWrite.c)
- *     CcAllocateWorkQueueEntry @ 0x14029B670 (CcAllocateWorkQueueEntry.c)
- *     CcCalculatePagesToWriteForVolume @ 0x140356094 (CcCalculatePagesToWriteForVolume.c)
- *     CcAdjustThrottleForVolume @ 0x140356F58 (CcAdjustThrottleForVolume.c)
- *     CcRescheduleLazyWriteScanOnVolume @ 0x140357668 (CcRescheduleLazyWriteScanOnVolume.c)
- *     CcUpdateTimeOnLogHandles @ 0x1403589D0 (CcUpdateTimeOnLogHandles.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14035B930 (CcSetLazyWriteScanQueuedInternal.c)
- *     CcIsDirtyCachemapListEmptyForVolume @ 0x140362C5C (CcIsDirtyCachemapListEmptyForVolume.c)
- *     CcPerfLogLoggedStreamsStats @ 0x14039B5F4 (CcPerfLogLoggedStreamsStats.c)
- *     CcPerfLogLazyWriteScan @ 0x14039EB5C (CcPerfLogLazyWriteScan.c)
- *     CcComputeNextScanTime @ 0x1403A9528 (CcComputeNextScanTime.c)
- *     CcPostDeferredWrites @ 0x1403C1E48 (CcPostDeferredWrites.c)
- *     CcIncrementWriteBehindPriority @ 0x140535DD4 (CcIncrementWriteBehindPriority.c)
- *     CcPostWorkQueueAsyncLazywrite @ 0x14053A134 (CcPostWorkQueueAsyncLazywrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScanLogHandleList @ 0x140299E3C (CcScanLogHandleList.c)
+ *     CcShouldLazyWriteCacheMap @ 0x14029B0E0 (CcShouldLazyWriteCacheMap.c)
+ *     CcPostWorkQueue @ 0x14029B244 (CcPostWorkQueue.c)
+ *     CcGetNodeForLazyWrite @ 0x14029B270 (CcGetNodeForLazyWrite.c)
+ *     CcAllocateWorkQueueEntry @ 0x14029B900 (CcAllocateWorkQueueEntry.c)
+ *     CcCalculatePagesToWriteForVolume @ 0x140356234 (CcCalculatePagesToWriteForVolume.c)
+ *     CcAdjustThrottleForVolume @ 0x1403570F8 (CcAdjustThrottleForVolume.c)
+ *     CcRescheduleLazyWriteScanOnVolume @ 0x140357808 (CcRescheduleLazyWriteScanOnVolume.c)
+ *     CcUpdateTimeOnLogHandles @ 0x140358B70 (CcUpdateTimeOnLogHandles.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x14035BAD0 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcIsDirtyCachemapListEmptyForVolume @ 0x140362DFC (CcIsDirtyCachemapListEmptyForVolume.c)
+ *     CcPerfLogLoggedStreamsStats @ 0x14039B7D4 (CcPerfLogLoggedStreamsStats.c)
+ *     CcPerfLogLazyWriteScan @ 0x14039ED3C (CcPerfLogLazyWriteScan.c)
+ *     CcComputeNextScanTime @ 0x1403A9708 (CcComputeNextScanTime.c)
+ *     CcPostDeferredWrites @ 0x1403C2028 (CcPostDeferredWrites.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcIncrementWriteBehindPriority @ 0x140536324 (CcIncrementWriteBehindPriority.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x14053A684 (CcPostWorkQueueAsyncLazywrite.c)
  */
 
 __int64 __fastcall CcLazyWriteScanVolume(__int64 a1, __int64 a2, int a3, unsigned int a4)
@@ -167,10 +167,13 @@ __int64 __fastcall CcLazyWriteScanVolume(__int64 a1, __int64 a2, int a3, unsigne
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       result = (unsigned int)KiIrqlFlags;
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -187,10 +190,10 @@ __int64 __fastcall CcLazyWriteScanVolume(__int64 a1, __int64 a2, int a3, unsigne
     CcRescheduleLazyWriteScanOnVolume(v51, 0LL);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v66 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v67 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v67 <= 0xFu && LockHandle.OldIrql <= 0xFu && v67 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v67 <= 0xFu && LockHandle.OldIrql <= 0xFu && v67 >= 2u )
       {
         v68 = KeGetCurrentPrcb();
         v69 = v68->SchedulerAssist;
@@ -345,10 +348,10 @@ LABEL_96:
           ++*(_DWORD *)(v28 + 112);
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           v40 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v72 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v72 <= 0xFu && LockHandle.OldIrql <= 0xFu && v72 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v72 <= 0xFu && LockHandle.OldIrql <= 0xFu && v72 >= 2u )
             {
               v73 = KeGetCurrentPrcb();
               v74 = v73->SchedulerAssist;
@@ -420,10 +423,10 @@ LABEL_44:
             *(_DWORD *)(v28 + 152) = v31 | 0x20;
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
             v46 = LockHandle.OldIrql;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v76 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v76 <= 0xFu && LockHandle.OldIrql <= 0xFu && v76 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v76 <= 0xFu && LockHandle.OldIrql <= 0xFu && v76 >= 2u )
               {
                 v77 = KeGetCurrentPrcb();
                 v78 = v77->SchedulerAssist;
@@ -505,10 +508,10 @@ LABEL_21:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v35 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v80 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v80 <= 0xFu && LockHandle.OldIrql <= 0xFu && v80 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v80 <= 0xFu && LockHandle.OldIrql <= 0xFu && v80 >= 2u )
     {
       v81 = KeGetCurrentPrcb();
       v82 = v81->SchedulerAssist;

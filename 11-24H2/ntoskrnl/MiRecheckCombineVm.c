@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRecheckCombineVm @ 0x1403140D4
+ * XREFs of MiRecheckCombineVm @ 0x1403F1420
  * Callers:
- *     MiCombineWithStandbyExisting @ 0x140313D4C (MiCombineWithStandbyExisting.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x1403F1098 (MiCombineWithStandbyExisting.c)
  * Callees:
- *     MiCombineCandidate @ 0x14020C0F0 (MiCombineCandidate.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140227FA0 (MiGetPageTablePfnBuddyRaw.c)
- *     MiGetTopLevelPfn @ 0x140228010 (MiGetTopLevelPfn.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1402FB220 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetTopLevelPfn @ 0x1402FB290 (MiGetTopLevelPfn.c)
+ *     MiCombineCandidate @ 0x140344930 (MiCombineCandidate.c)
  */
 
-__int64 __fastcall MiRecheckCombineVm(_QWORD *a1, unsigned int a2, _QWORD *a3, struct _LIST_ENTRY **a4)
+__int64 __fastcall MiRecheckCombineVm(_QWORD *a1, char a2, _QWORD *a3, struct _LIST_ENTRY **a4)
 {
   int v6; // eax
   unsigned int v7; // ebx
@@ -22,7 +22,7 @@ __int64 __fastcall MiRecheckCombineVm(_QWORD *a1, unsigned int a2, _QWORD *a3, s
   if ( !v6 )
     return 0LL;
   if ( v6 == 2 )
-    return a4 == (struct _LIST_ENTRY **)&unk_140E37FC0;
+    return a4 == (struct _LIST_ENTRY **)&unk_140E38100;
   TopLevelPfn = MiGetTopLevelPfn((ULONG_PTR)a3);
   PageTablePfnBuddyRaw = MiGetPageTablePfnBuddyRaw(TopLevelPfn);
   if ( (_QWORD *)v10 != a3 )

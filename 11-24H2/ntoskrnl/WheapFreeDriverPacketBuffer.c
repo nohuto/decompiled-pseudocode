@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapFreeDriverPacketBuffer @ 0x14065C718
+ * XREFs of WheapFreeDriverPacketBuffer @ 0x14065AE38
  * Callers:
- *     WheaHwErrorReportAbandonDeviceDriver @ 0x14065C110 (WheaHwErrorReportAbandonDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x14065C2B0 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x14065A830 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x14065A9D0 (WheaHwErrorReportSubmitDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x14065C6E4 (WheapErrDescIsDeviceDriver.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14065AE04 (WheapErrDescIsDeviceDriver.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WheapFreeDriverPacketBuffer(_DWORD *P)

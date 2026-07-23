@@ -1,14 +1,14 @@
 /*
- * XREFs of HsaUpdateRemappingTableEntry @ 0x140504080
+ * XREFs of HsaUpdateRemappingTableEntry @ 0x1404FD950
  * Callers:
  *     <none>
  * Callees:
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     HsaGetDeviceAperture @ 0x14052DBAC (HsaGetDeviceAperture.c)
- *     ExtEnvCriticalFailure @ 0x14052DC00 (ExtEnvCriticalFailure.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HsaUpdateInterruptDestination @ 0x1405AAD04 (HsaUpdateInterruptDestination.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     HsaGetDeviceAperture @ 0x1405300CC (HsaGetDeviceAperture.c)
+ *     ExtEnvCriticalFailure @ 0x140530120 (ExtEnvCriticalFailure.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HsaUpdateInterruptDestination @ 0x1405AD514 (HsaUpdateInterruptDestination.c)
  */
 
 char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, ULONG a3, _DWORD *a4)
@@ -17,7 +17,7 @@ char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, ULONG a3, _DWO
   __int64 v5; // rdi
   __int64 DeviceAperture; // rax
   int v8; // ecx
-  $AA7B8230874764A53E1F7A8CE5E032EC *v9; // r14
+  __int128 *v9; // r14
   ULONG_PTR v10; // rdi
   char v11; // dl
   __int64 v13; // rcx
@@ -39,17 +39,17 @@ char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, ULONG a3, _DWO
   {
     DeviceAperture = HsaGetDeviceAperture(a3);
     v5 &= 0x1FFu;
-    v9 = ($AA7B8230874764A53E1F7A8CE5E032EC *)(DeviceAperture + 8);
+    v9 = (__int128 *)(DeviceAperture + 8);
     if ( !*(_QWORD *)(DeviceAperture + 16) )
       ExtEnvCriticalFailure(v8, 0, 0, 0, 0LL);
     RtlSetBits((PRTL_BITMAP)(DeviceAperture + 32), v5, 1u);
   }
   else
   {
-    v9 = &EmpParseLock.1144;
-    RtlClearBits((PRTL_BITMAP)&EmpParseLock.SchedulerAssistLastYieldBoostTime, a3, 1u);
+    v9 = &xmmword_140F87720;
+    RtlClearBits((PRTL_BITMAP)(&xmmword_140F87730 + 1), a3, 1u);
   }
-  v10 = (ULONG_PTR)v9[1].Spare32 + 16 * v5;
+  v10 = *((_QWORD *)v9 + 1) + 16 * v5;
   if ( (*(_BYTE *)v10 & 1) == 0 && (a4[3] & 0x10) == 0 )
     return 0;
   v11 = a4[3];

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiOutSwapProcesses @ 0x14042D320
+ * XREFs of KiOutSwapProcesses @ 0x1402DDD00
  * Callers:
- *     KeSwapProcessOrStack @ 0x1405C4890 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1405C1EB0 (KeSwapProcessOrStack.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiReadyOutSwappedThreads @ 0x140336F68 (KiReadyOutSwappedThreads.c)
- *     MmOutSwapProcess @ 0x14042D50C (MmOutSwapProcess.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     MmOutSwapProcess @ 0x1402DDEEC (MmOutSwapProcess.c)
+ *     KiReadyOutSwappedThreads @ 0x1402DF08C (KiReadyOutSwappedThreads.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KiOutSwapProcesses(signed __int64 *a1, __int64 a2)
@@ -106,7 +106,8 @@ void __fastcall KiOutSwapProcesses(signed __int64 *a1, __int64 a2)
       *v8 = v8;
       _InterlockedXor(v4 + 66, 3u);
       _InterlockedAnd(v4, 0xFFFFFF7F);
-      KiReadyOutSwappedThreads(v9, CurrentIrql);
+      LOBYTE(v11) = CurrentIrql;
+      KiReadyOutSwappedThreads(v9, v11);
     }
   }
   while ( v2 );

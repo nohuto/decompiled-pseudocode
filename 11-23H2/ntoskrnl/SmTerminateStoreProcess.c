@@ -1,14 +1,14 @@
 /*
- * XREFs of SmTerminateStoreProcess @ 0x1405C9BE8
+ * XREFs of SmTerminateStoreProcess @ 0x1405CA158
  * Callers:
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
- *     SmPartitionCleanup @ 0x1409D6BB8 (SmPartitionCleanup.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
+ *     SmPartitionCleanup @ 0x1409D6DB8 (SmPartitionCleanup.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PsTerminateMinimalProcess @ 0x1409B3850 (PsTerminateMinimalProcess.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PsTerminateMinimalProcess @ 0x1409B3A50 (PsTerminateMinimalProcess.c)
  */
 
 LONG __fastcall SmTerminateStoreProcess(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAllocateMiniCompletionPacket @ 0x1409D54A0
+ * XREFs of IopAllocateMiniCompletionPacket @ 0x1409C52D0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A3010 (NtWaitForWorkViaWorkerFactory.c)
- *     AlpcpSignal @ 0x14031BB60 (AlpcpSignal.c)
- *     IoSetIoCompletionEx @ 0x14031C620 (IoSetIoCompletionEx.c)
- *     AlpcpSignalAndWait @ 0x140324E10 (AlpcpSignalAndWait.c)
- *     AlpcpQueueIoCompletionPort @ 0x1403BCF10 (AlpcpQueueIoCompletionPort.c)
- *     AlpcpQueueIoCompletion @ 0x1403BD9A0 (AlpcpQueueIoCompletion.c)
- *     IoSetIoCompletionEx3 @ 0x1403BDE10 (IoSetIoCompletionEx3.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1403BE580 (NtReleaseWorkerFactoryWorker.c)
+ *     AlpcpSignal @ 0x1402C46F0 (AlpcpSignal.c)
+ *     IoSetIoCompletionEx @ 0x1402C51B0 (IoSetIoCompletionEx.c)
+ *     AlpcpSignalAndWait @ 0x1402CD9A0 (AlpcpSignalAndWait.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402D2740 (NtWaitForWorkViaWorkerFactory.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1403ABBA0 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpQueueIoCompletion @ 0x1403AC630 (AlpcpQueueIoCompletion.c)
+ *     IoSetIoCompletionEx3 @ 0x1403ACAA0 (IoSetIoCompletionEx3.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1403AD210 (NtReleaseWorkerFactoryWorker.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 PSLIST_ENTRY __fastcall IopAllocateMiniCompletionPacket(char a1, char a2)
@@ -47,7 +47,7 @@ LABEL_5:
   else
   {
     v3 = 3;
-    result = (PSLIST_ENTRY)ExAllocatePool2(0x41uLL);
+    result = (PSLIST_ENTRY)ExAllocatePool2(0x41uLL, 0x38uLL, 0x20706349u);
   }
   if ( result )
 LABEL_4:

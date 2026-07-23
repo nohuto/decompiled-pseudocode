@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlInitializeEofLock @ 0x14011A0B0
+ * XREFs of FsRtlInitializeEofLock @ 0x14011A120
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 _QWORD *__fastcall FsRtlInitializeEofLock(_QWORD *a1, __int64 a2)

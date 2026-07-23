@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Cleanup@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAXPEAU1@@Z @ 0x18004EE50
+ * XREFs of ?Cleanup@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAXPEAU1@@Z @ 0x180064A30
  * Callers:
- *     RtlpFlsDataCleanup @ 0x18004EC20 (RtlpFlsDataCleanup.c)
+ *     RtlpFlsDataCleanup @ 0x180064800 (RtlpFlsDataCleanup.c)
  * Callees:
- *     RtlpFlsHeapFree @ 0x18004EEDC (RtlpFlsHeapFree.c)
+ *     RtlpFlsHeapFree @ 0x180064ABC (RtlpFlsHeapFree.c)
  */
 
 __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::Cleanup(__int64 *a1)

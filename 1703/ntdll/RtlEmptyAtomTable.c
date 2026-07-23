@@ -9,39 +9,39 @@
  *     sub_1800729B0 @ 0x1800729B0 (sub_1800729B0.c)
  */
 
-__int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
+NTSTATUS __cdecl RtlEmptyAtomTable(PVOID AtomTableHandle, BOOLEAN IncludePinnedAtoms)
 {
   unsigned int v5; // ebp
-  unsigned __int64 *i; // r14
-  unsigned __int64 *v7; // rsi
+  __int64 *i; // r14
+  __int64 *v7; // rsi
   __int64 v8; // rdx
-  unsigned __int64 v9; // rbx
+  _BYTE *v9; // rbx
 
-  if ( !sub_1800729B0(a1) )
-    return 3221225485LL;
+  if ( !sub_1800729B0((__int64)AtomTableHandle) )
+    return -1073741811;
   v5 = 0;
-  for ( i = (unsigned __int64 *)(a1 + 72); v5 < *(_DWORD *)(a1 + 64); ++v5 )
+  for ( i = (__int64 *)((char *)AtomTableHandle + 72); v5 < *((_DWORD *)AtomTableHandle + 16); ++v5 )
   {
     v7 = i++;
     while ( 1 )
     {
-      v9 = *v7;
+      v9 = (_BYTE *)*v7;
       if ( !*v7 )
         break;
-      if ( a2 || (*(_BYTE *)(v9 + 14) & 1) == 0 )
+      if ( IncludePinnedAtoms || (v9[14] & 1) == 0 )
       {
         v8 = *v7;
         *v7 = *(_QWORD *)v9;
         *(_QWORD *)v9 = 0LL;
-        sub_18007210C(a1, v8);
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+        sub_18007210C((__int64)AtomTableHandle, v8);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
       }
       else
       {
-        v7 = (unsigned __int64 *)*v7;
+        v7 = (__int64 *)*v7;
       }
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-  return 0LL;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
+  return 0;
 }

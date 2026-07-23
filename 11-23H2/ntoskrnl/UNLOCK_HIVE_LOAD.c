@@ -1,23 +1,23 @@
 /*
- * XREFs of UNLOCK_HIVE_LOAD @ 0x140751E30
+ * XREFs of UNLOCK_HIVE_LOAD @ 0x140752020
  * Callers:
  *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmShutdownSystem1 @ 0x140615BC4 (CmShutdownSystem1.c)
- *     CmShutdownSystem2 @ 0x140615E1C (CmShutdownSystem2.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
+ *     CmShutdownSystem1 @ 0x140616114 (CmShutdownSystem1.c)
+ *     CmShutdownSystem2 @ 0x14061636C (CmShutdownSystem2.c)
  *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
  *     CmReleaseLoadKeyContext @ 0x140692BE4 (CmReleaseLoadKeyContext.c)
  *     CmpLateUnloadHiveWorker @ 0x140693350 (CmpLateUnloadHiveWorker.c)
  *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpDoFlushNextHive @ 0x140751F20 (CmpDoFlushNextHive.c)
- *     CmLoadAppKey @ 0x140769640 (CmLoadAppKey.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16A18 (CmpResolveHiveLoadConflict.c)
- *     CmpLazyCommitWorker @ 0x140A1C0C0 (CmpLazyCommitWorker.c)
+ *     CmpDoFlushNextHive @ 0x140752110 (CmpDoFlushNextHive.c)
+ *     CmLoadAppKey @ 0x140769830 (CmLoadAppKey.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A16CC8 (CmpResolveHiveLoadConflict.c)
+ *     CmpLazyCommitWorker @ 0x140A1C370 (CmpLazyCommitWorker.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
  */
 
 _QWORD *UNLOCK_HIVE_LOAD()

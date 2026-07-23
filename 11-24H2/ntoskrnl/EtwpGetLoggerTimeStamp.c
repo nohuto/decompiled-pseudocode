@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetLoggerTimeStamp @ 0x14034F8C0
+ * XREFs of EtwpGetLoggerTimeStamp @ 0x14036DDA0
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x14024D154 (EtwpPrepareDirtyBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x140327DF0 (EtwpReserveTraceBuffer.c)
- *     EtwpLogContextSwapEvent @ 0x140421EE0 (EtwpLogContextSwapEvent.c)
- *     EtwSendTraceBuffer @ 0x14064F090 (EtwSendTraceBuffer.c)
- *     EtwpRelinquishCompressionTarget @ 0x14065164C (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x14065169C (EtwpRotateCompressionTarget.c)
- *     EtwpInitializeTimeStamp @ 0x1408307CC (EtwpInitializeTimeStamp.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14027D764 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0980 (EtwpReserveTraceBuffer.c)
+ *     EtwpLogContextSwapEvent @ 0x140415D90 (EtwpLogContextSwapEvent.c)
+ *     EtwSendTraceBuffer @ 0x14064D790 (EtwSendTraceBuffer.c)
+ *     EtwpRelinquishCompressionTarget @ 0x14064FD4C (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x14064FD9C (EtwpRotateCompressionTarget.c)
+ *     EtwpInitializeTimeStamp @ 0x1409CFBB0 (EtwpInitializeTimeStamp.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     EtwpGetHostPerfCounter @ 0x1403FF27C (EtwpGetHostPerfCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1403F98CC (EtwpGetHostPerfCounter.c)
  */
 
 LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1)

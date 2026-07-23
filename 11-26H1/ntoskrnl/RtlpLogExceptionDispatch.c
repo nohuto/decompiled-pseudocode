@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpLogExceptionDispatch @ 0x140525EC4
+ * XREFs of RtlpLogExceptionDispatch @ 0x140528534
  * Callers:
- *     RtlDispatchException @ 0x1403D5F30 (RtlDispatchException.c)
+ *     RtlDispatchException @ 0x1403D8F00 (RtlDispatchException.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall RtlpLogExceptionDispatch(__int64 a1, _OWORD *a2)
 {
-  volatile unsigned int UserIdealProcessor; // r11d
+  unsigned __int32 WaitBlockList_high; // r11d
   bool i; // zf
   signed __int32 v6; // eax
-  volatile unsigned int v7; // ett
+  int v7; // ett
   signed __int32 v8; // ebx
   __int64 v9; // rdx
   __int64 v10; // rdx
@@ -21,24 +21,21 @@ void __fastcall RtlpLogExceptionDispatch(__int64 a1, _OWORD *a2)
 
   if ( RtlpExceptionLog2 )
   {
-    UserIdealProcessor = NormalizationListLock.UserIdealProcessor;
-    v7 = NormalizationListLock.UserIdealProcessor;
+    WaitBlockList_high = HIDWORD(NormalizationListLock.WaitBlockList);
+    v7 = HIDWORD(NormalizationListLock.WaitBlockList);
     v6 = _InterlockedCompareExchange(
-           (volatile signed __int32 *)&NormalizationListLock.UserIdealProcessor,
-           (NormalizationListLock.UserIdealProcessor + 1) % 0x32,
-           NormalizationListLock.UserIdealProcessor);
+           (_DWORD *)&NormalizationListLock.WaitBlockList + 1,
+           (HIDWORD(NormalizationListLock.WaitBlockList) + 1) % 0x32u,
+           SHIDWORD(NormalizationListLock.WaitBlockList));
     for ( i = v7 == v6; ; i = v6 == v8 )
     {
       v8 = v6;
       if ( i )
         break;
-      UserIdealProcessor = v6;
-      v6 = _InterlockedCompareExchange(
-             (volatile signed __int32 *)&NormalizationListLock.UserIdealProcessor,
-             (v6 + 1) % 0x32u,
-             v6);
+      WaitBlockList_high = v6;
+      v6 = _InterlockedCompareExchange((_DWORD *)&NormalizationListLock.WaitBlockList + 1, (v6 + 1) % 0x32u, v6);
     }
-    v9 = 1424LL * UserIdealProcessor;
+    v9 = 1424LL * WaitBlockList_high;
     i = RtlpExceptionLog2 + v9 == 0;
     v10 = RtlpExceptionLog2 + v9;
     *(_QWORD *)(v10 + 1400) = KeGetCurrentThread();

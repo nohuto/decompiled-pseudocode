@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x1408B1840
+ * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x1408B19A0
  * Callers:
- *     IopDeviceRemovalForResetComplete @ 0x1408A0710 (IopDeviceRemovalForResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0870 (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PnpTraceDeviceRemovalForResetComplete()
@@ -51,9 +51,9 @@ void PnpTraceDeviceRemovalForResetComplete()
   __int64 v38; // [rsp+110h] [rbp+10h]
   _DWORD v39[2]; // [rsp+118h] [rbp+18h] BYREF
 
-  if ( dword_140C02E00 && tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) && v1 > 5 )
+  if ( dword_140C02D90 && tlgKeywordOn((__int64)&dword_140C02D90, 0x400000000000LL) && v1 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C02E00, v0) )
+    if ( tlgKeywordOn((__int64)&dword_140C02D90, v0) )
     {
       v12 = 0;
       v14[1] = 0;
@@ -94,8 +94,8 @@ void PnpTraceDeviceRemovalForResetComplete()
       v36 = 2;
       v30 = 8;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C02E00,
-        (unsigned __int8 *)byte_14002536D,
+        (__int64)&dword_140C02D90,
+        (unsigned __int8 *)byte_1400254F5,
         0LL,
         0LL,
         0xDu,

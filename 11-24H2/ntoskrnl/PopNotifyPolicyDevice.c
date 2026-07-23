@@ -1,18 +1,18 @@
 /*
- * XREFs of PopNotifyPolicyDevice @ 0x14075A6B0
+ * XREFs of PopNotifyPolicyDevice @ 0x140758DA0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline @ 0x1404F96CC (Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline.c)
- *     PopConnectToPolicyDevice @ 0x14075A3DC (PopConnectToPolicyDevice.c)
- *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x14075A774 (PopPolicyDeviceHandleWakeAlarmNotification.c)
- *     PopAcquireTransitionLock @ 0x140A928AC (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x140AA56F0 (PopReleaseTransitionLock.c)
- *     PopEnableHiberFile @ 0x140AB3950 (PopEnableHiberFile.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline @ 0x1404F6FAC (Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopConnectToPolicyDevice @ 0x140758ACC (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x140758E64 (PopPolicyDeviceHandleWakeAlarmNotification.c)
+ *     PopAcquireTransitionLock @ 0x140A8F05C (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x140AA0760 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x140AAE8C0 (PopEnableHiberFile.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopNotifyPolicyDevice(char *NotificationStructure, PVOID Context)
@@ -57,9 +57,9 @@ __int64 __fastcall PopNotifyPolicyDevice(char *NotificationStructure, PVOID Cont
     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline();
     if ( !v5 )
     {
-      PopAcquireRwLockExclusive(&PopPolicyDeviceLock);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopPolicyDeviceLock);
       PopConnectToPolicyDevice(v2, *((const UNICODE_STRING **)NotificationStructure + 5));
-      PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+      PopReleaseRwLock(&PopPolicyDeviceLock);
     }
   }
   return 0LL;

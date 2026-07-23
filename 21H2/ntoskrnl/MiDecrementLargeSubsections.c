@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDecrementLargeSubsections @ 0x140540410
+ * XREFs of MiDecrementLargeSubsections @ 0x140540650
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiReferenceDataSubsections @ 0x1402FD12C (MiReferenceDataSubsections.c)
- *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
- *     MiIncrementLargeSubsections @ 0x140541480 (MiIncrementLargeSubsections.c)
- *     MiDereferenceDataSubsections @ 0x140554E28 (MiDereferenceDataSubsections.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiCloneLargeFileOnlyVad @ 0x1408CFCB0 (MiCloneLargeFileOnlyVad.c)
- *     MiDeletePartialCloneVads @ 0x1408D9528 (MiDeletePartialCloneVads.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiReferenceDataSubsections @ 0x140307E7C (MiReferenceDataSubsections.c)
+ *     MiRemoveMappedPtes @ 0x140313250 (MiRemoveMappedPtes.c)
+ *     MiIncrementLargeSubsections @ 0x1405416C0 (MiIncrementLargeSubsections.c)
+ *     MiDereferenceDataSubsections @ 0x140555068 (MiDereferenceDataSubsections.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiCloneLargeFileOnlyVad @ 0x1408CFE10 (MiCloneLargeFileOnlyVad.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9688 (MiDeletePartialCloneVads.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
- *     MiLockLeafPage @ 0x140269CD0 (MiLockLeafPage.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
- *     MiBuildWakeList @ 0x140357480 (MiBuildWakeList.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiLockLeafPage @ 0x140257C70 (MiLockLeafPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementShareCount @ 0x1402E4A10 (MiDecrementShareCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseControlAreaWaiters @ 0x140361FD4 (MiReleaseControlAreaWaiters.c)
+ *     MiBuildWakeList @ 0x1403621D0 (MiBuildWakeList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiChargeLargeProtoSubsection @ 0x1408CFC70 (MiChargeLargeProtoSubsection.c)
+ *     MiChargeLargeProtoSubsection @ 0x1408CFDD0 (MiChargeLargeProtoSubsection.c)
  */
 
 __int64 __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
@@ -27,39 +27,36 @@ __int64 __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
   volatile LONG *v3; // r12
   unsigned __int64 v4; // rsi
   __int64 *v5; // rax
-  __int64 v6; // r8
-  _DWORD *v7; // r9
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
-  bool v10; // zf
-  unsigned int v11; // r15d
-  unsigned int v12; // ebp
-  __int64 *v13; // r13
-  __int64 v14; // rbx
+  bool v8; // zf
+  unsigned int v9; // r15d
+  unsigned int v10; // ebp
+  unsigned __int64 *v11; // r13
+  __int64 v12; // rbx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v16; // r10
-  int v17; // edx
-  unsigned __int8 v18; // cl
+  struct _KPRCB *v14; // r10
+  _DWORD *v15; // r9
+  int v16; // edx
+  unsigned __int8 v17; // cl
+  _DWORD *v18; // r9
   __int64 *v19; // rax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  _DWORD *v22; // r9
   __int64 result; // rax
-  struct _KPRCB *v24; // r9
-  _DWORD *v25; // r8
-  __int64 v26; // [rsp+20h] [rbp-58h]
-  __int64 *v27; // [rsp+80h] [rbp+8h]
-  char v29; // [rsp+90h] [rbp+18h]
-  volatile LONG *v30; // [rsp+98h] [rbp+20h]
+  struct _KPRCB *v21; // r9
+  _DWORD *v22; // r8
+  __int64 v23; // [rsp+20h] [rbp-58h]
+  __int64 *v24; // [rsp+80h] [rbp+8h]
+  char v26; // [rsp+90h] [rbp+18h]
+  volatile LONG *v27; // [rsp+98h] [rbp+20h]
 
-  v27 = a1;
+  v24 = a1;
   v2 = a1;
-  v26 = *a1;
+  v23 = *a1;
   v3 = (volatile LONG *)(*a1 + 72);
-  v30 = v3;
+  v27 = v3;
   v4 = ExAcquireSpinLockExclusive(v3);
   v5 = a2;
-  v29 = v4 + 1;
+  v26 = v4 + 1;
   while ( 1 )
   {
     if ( --*((_DWORD *)v2 + 27) == 1 )
@@ -71,24 +68,24 @@ __int64 __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v10 = (SchedulerAssist[5] & 0xFFFF0007) == 0;
+          v8 = (SchedulerAssist[5] & 0xFFFF0007) == 0;
           SchedulerAssist[5] &= 0xFFFF0007;
-          if ( v10 )
+          if ( v8 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(2uLL);
-      v11 = *((_DWORD *)v2 + 11);
-      v12 = 0;
-      v13 = (__int64 *)v2[1];
-      if ( v11 )
+      v9 = *((_DWORD *)v2 + 11);
+      v10 = 0;
+      v11 = (unsigned __int64 *)v2[1];
+      if ( v9 )
       {
         do
         {
-          v14 = MiLockLeafPage(v13, 0, v6, (__int64)v7);
-          MiDecrementShareCount(v14);
-          _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( (++v12 & 0xF) == 0 && v12 != v11 && KeShouldYieldProcessor() )
+          v12 = MiLockLeafPage(v11, 0LL);
+          MiDecrementShareCount(v12);
+          _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          if ( (++v10 & 0xF) == 0 && v10 != v9 && KeShouldYieldProcessor() )
           {
             if ( KiIrqlFlags )
             {
@@ -97,44 +94,42 @@ __int64 __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
                 CurrentIrql = KeGetCurrentIrql();
                 if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
                 {
-                  v16 = KeGetCurrentPrcb();
-                  v7 = v16->SchedulerAssist;
-                  v17 = ~(unsigned __int16)(-1LL << v29);
-                  v10 = (v17 & v7[5]) == 0;
-                  v6 = (unsigned int)v17 & v7[5];
-                  v7[5] = v6;
-                  if ( v10 )
-                    KiRemoveSystemWorkPriorityKick((__int64)v16);
+                  v14 = KeGetCurrentPrcb();
+                  v15 = v14->SchedulerAssist;
+                  v16 = ~(unsigned __int16)(-1LL << v26);
+                  v8 = (v16 & v15[5]) == 0;
+                  v15[5] &= v16;
+                  if ( v8 )
+                    KiRemoveSystemWorkPriorityKick((__int64)v14);
                 }
               }
             }
             __writecr8(v4);
-            v18 = KeGetCurrentIrql();
+            v17 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
+            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
             {
-              v7 = KeGetCurrentPrcb()->SchedulerAssist;
-              v6 = (-1 << (v18 + 1)) & 4u | v7[5];
-              v7[5] = v6;
+              v18 = KeGetCurrentPrcb()->SchedulerAssist;
+              v18[5] |= (-1 << (v17 + 1)) & 4;
             }
           }
-          ++v13;
+          ++v11;
         }
-        while ( v12 < v11 );
-        v2 = v27;
-        v3 = v30;
+        while ( v10 < v9 );
+        v2 = v24;
+        v3 = v27;
       }
       MiChargeLargeProtoSubsection(v2, 0LL);
       ExAcquireSpinLockExclusive(v3);
       --*((_DWORD *)v2 + 27);
-      v19 = MiBuildWakeList(v26, 512);
-      MiReleaseControlAreaWaiters(v19, v20, v21, v22);
+      v19 = MiBuildWakeList(v23, 512);
+      MiReleaseControlAreaWaiters(v19);
       v5 = a2;
     }
     if ( v2 == v5 )
       break;
     v2 = (__int64 *)v2[2];
-    v27 = v2;
+    v24 = v2;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
   result = (unsigned int)KiIrqlFlags;
@@ -145,13 +140,13 @@ __int64 __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
       result = KeGetCurrentIrql();
       if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v4 <= 0xFu && (unsigned __int8)result >= 2u )
       {
-        v24 = KeGetCurrentPrcb();
-        v25 = v24->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << v29);
-        v10 = ((unsigned int)result & v25[5]) == 0;
-        v25[5] &= result;
-        if ( v10 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)v24);
+        v21 = KeGetCurrentPrcb();
+        v22 = v21->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << v26);
+        v8 = ((unsigned int)result & v22[5]) == 0;
+        v22[5] &= result;
+        if ( v8 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)v21);
       }
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpLogDbgPrint @ 0x1800CDC88
+ * XREFs of LdrpLogDbgPrint @ 0x1800CDC48
  * Callers:
  *     LdrResolveDelayLoadedAPI @ 0x180010380 (LdrResolveDelayLoadedAPI.c)
  *     LdrpCompleteMapModule @ 0x1800148B4 (LdrpCompleteMapModule.c)
@@ -48,22 +48,22 @@
  *     LdrpProtectAndRelocateImage @ 0x1800835DC (LdrpProtectAndRelocateImage.c)
  *     LdrpLoadWow64 @ 0x180083824 (LdrpLoadWow64.c)
  *     LdrGetKnownDllSectionHandle @ 0x1800847F0 (LdrGetKnownDllSectionHandle.c)
- *     LdrInitShimEngineDynamic @ 0x1800D05B0 (LdrInitShimEngineDynamic.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1800D0920 (LdrpGetProcApphelpCheckModule.c)
- *     LdrpInitializationFailure @ 0x1800D0B38 (LdrpInitializationFailure.c)
- *     LdrpInitializeApplicationVerifierPackage @ 0x1800D0BE0 (LdrpInitializeApplicationVerifierPackage.c)
- *     LdrpInitializeExecutionOptions @ 0x1800D108C (LdrpInitializeExecutionOptions.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     LdrpInitializeProcessHeap @ 0x1800D400C (LdrpInitializeProcessHeap.c)
- *     LdrpInitializeProcessWrapperFilter @ 0x1800D421C (LdrpInitializeProcessWrapperFilter.c)
- *     LdrpIsSubstringFound @ 0x1800D42C4 (LdrpIsSubstringFound.c)
- *     LdrpIsVerifierActivationFilterMatched @ 0x1800D4390 (LdrpIsVerifierActivationFilterMatched.c)
- *     LdrpCheckRedirection @ 0x1800D5080 (LdrpCheckRedirection.c)
- *     LdrpGenericExceptionFilter @ 0x1800D558C (LdrpGenericExceptionFilter.c)
+ *     LdrInitShimEngineDynamic @ 0x1800D0570 (LdrInitShimEngineDynamic.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800D08E0 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpInitializationFailure @ 0x1800D0AF8 (LdrpInitializationFailure.c)
+ *     LdrpInitializeApplicationVerifierPackage @ 0x1800D0BA0 (LdrpInitializeApplicationVerifierPackage.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800D104C (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcessHeap @ 0x1800D3FCC (LdrpInitializeProcessHeap.c)
+ *     LdrpInitializeProcessWrapperFilter @ 0x1800D41DC (LdrpInitializeProcessWrapperFilter.c)
+ *     LdrpIsSubstringFound @ 0x1800D4284 (LdrpIsSubstringFound.c)
+ *     LdrpIsVerifierActivationFilterMatched @ 0x1800D4350 (LdrpIsVerifierActivationFilterMatched.c)
+ *     LdrpCheckRedirection @ 0x1800D5040 (LdrpCheckRedirection.c)
+ *     LdrpGenericExceptionFilter @ 0x1800D554C (LdrpGenericExceptionFilter.c)
  * Callees:
  *     vDbgPrintExWithPrefixInternal @ 0x180051B08 (vDbgPrintExWithPrefixInternal.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     StringCbPrintfA @ 0x1800CDF50 (StringCbPrintfA.c)
+ *     StringCbPrintfA @ 0x1800CDF10 (StringCbPrintfA.c)
  */
 
 struct _TEB *LdrpLogDbgPrint(_DWORD a1, _DWORD a2, const char *a3, int a4, char *a5, ...)

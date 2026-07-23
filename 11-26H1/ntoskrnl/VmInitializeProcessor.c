@@ -1,12 +1,12 @@
 /*
- * XREFs of VmInitializeProcessor @ 0x140C0D99C
+ * XREFs of VmInitializeProcessor @ 0x140C13BAC
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     VmInitSystem @ 0x140C80258 (VmInitSystem.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     VmInitSystem @ 0x140C86258 (VmInitSystem.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeGetProcessorNodeNumber @ 0x14046B620 (KeGetProcessorNodeNumber.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     KeGetProcessorNodeNumber @ 0x140464DA0 (KeGetProcessorNodeNumber.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall VmInitializeProcessor(__int64 a1)

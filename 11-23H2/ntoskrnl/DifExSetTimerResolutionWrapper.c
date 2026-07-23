@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExSetTimerResolutionWrapper @ 0x1405D9E00
+ * XREFs of DifExSetTimerResolutionWrapper @ 0x1405DA370
  * Callers:
  *     <none>
  * Callees:
- *     ExSetTimerResolution @ 0x1403B4D60 (ExSetTimerResolution.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExSetTimerResolution @ 0x1403B4F40 (ExSetTimerResolution.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 ULONG __fastcall DifExSetTimerResolutionWrapper(ULONG DesiredTime, BOOLEAN a2)

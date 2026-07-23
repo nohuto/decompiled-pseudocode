@@ -15,9 +15,9 @@
 __int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   _QWORD *v6; // r14
-  const char *v7; // rsi
-  int ForwardedDll; // esi
-  STRING DestinationString; // [rsp+30h] [rbp-B8h] BYREF
+  const CHAR *v7; // rsi
+  int v8; // esi
+  _STRING DestinationString; // [rsp+30h] [rbp-B8h] BYREF
   _BYTE v11[128]; // [rsp+40h] [rbp-A8h] BYREF
 
   *(_QWORD *)a3 = 0LL;
@@ -28,15 +28,15 @@ __int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 a3,
   }
   else
   {
-    v7 = (const char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
+    v7 = (const CHAR *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
     if ( !a4 )
       a4 = *(_DWORD *)(a1 + 272);
     LdrpInitializeDllPath(*(_QWORD *)(a1 + 80), a4 | 1LL, v11);
     RtlInitAnsiString(&DestinationString, v7);
-    ForwardedDll = LdrpLoadForwardedDll((unsigned int)&DestinationString, (unsigned int)v11, a1, a1, 3, a3);
-    if ( ForwardedDll >= 0 && (*(_DWORD *)(a1 + 104) & 0x8000) == 0 )
+    v8 = LdrpLoadForwardedDll(&DestinationString, v11, a1, a1, 3, a3);
+    if ( v8 >= 0 && (*(_DWORD *)(a1 + 104) & 0x8000) == 0 )
       *v6 = *(_QWORD *)(*(_QWORD *)a3 + 48LL);
     LdrpReleaseDllPath(v11);
   }
-  return (unsigned int)ForwardedDll;
+  return (unsigned int)v8;
 }

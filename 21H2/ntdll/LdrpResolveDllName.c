@@ -11,11 +11,11 @@
  *     LdrpAllocateUnicodeString @ 0x18006092C (LdrpAllocateUnicodeString.c)
  *     LdrpGetFullPath @ 0x18006099C (LdrpGetFullPath.c)
  *     LdrpFreeUnicodeString @ 0x180060DD0 (LdrpFreeUnicodeString.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpResolveDllName(__m128i *a1, __m128i *a2, __int64 a3, _OWORD *a4, __int16 a5)
+__int64 __fastcall LdrpResolveDllName(__m128i *a1, __m128i *a2, _UNICODE_STRING *a3, _OWORD *a4, __int16 a5)
 {
   int FullPath; // eax
   __m128i v10; // xmm0
@@ -27,7 +27,7 @@ __int64 __fastcall LdrpResolveDllName(__m128i *a1, __m128i *a2, __int64 a3, _OWO
   __m128i v16; // xmm0
   unsigned __int16 v17; // ax
   unsigned __int64 v18; // xmm0_8
-  _WORD *i; // rdx
+  const WCHAR *i; // rdx
   unsigned __int64 v21; // rax
   __int64 v22; // rcx
   __m128i Src; // [rsp+30h] [rbp-28h] BYREF
@@ -93,7 +93,7 @@ __int64 __fastcall LdrpResolveDllName(__m128i *a1, __m128i *a2, __int64 a3, _OWO
         v17 = _mm_cvtsi128_si32(Src);
         *a4 = Src;
         v18 = _mm_srli_si128(v16, 8).m128i_u64[0];
-        for ( i = (_WORD *)(v17 + v18 - 2); (unsigned __int64)i >= v18; --i )
+        for ( i = (const WCHAR *)(v17 + v18 - 2); (unsigned __int64)i >= v18; --i )
         {
           if ( *i == 92 || *i == 47 )
           {
@@ -101,7 +101,7 @@ __int64 __fastcall LdrpResolveDllName(__m128i *a1, __m128i *a2, __int64 a3, _OWO
             break;
           }
         }
-        RtlInitUnicodeStringEx(a3, (__int64)i);
+        RtlInitUnicodeStringEx(a3, i);
       }
     }
   }

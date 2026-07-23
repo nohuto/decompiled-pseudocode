@@ -1,15 +1,15 @@
 /*
- * XREFs of ntoskrnl_21 @ 0x140A7E380
+ * XREFs of ntoskrnl_21 @ 0x140A841F0
  * Callers:
- *     ExpGetLicenseTamperState @ 0x1406CD17C (ExpGetLicenseTamperState.c)
- *     sub_140838310 @ 0x140838310 (sub_140838310.c)
+ *     ExpGetLicenseTamperState @ 0x1406D11AC (ExpGetLicenseTamperState.c)
+ *     sub_14083E550 @ 0x14083E550 (sub_14083E550.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     sub_140A7E498 @ 0x140A7E498 (sub_140A7E498.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     sub_140A84308 @ 0x140A84308 (sub_140A84308.c)
  */
 
 __int64 __fastcall ntoskrnl_21(__int64 a1, _OWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -41,7 +41,7 @@ __int64 __fastcall ntoskrnl_21(__int64 a1, _OWORD *a2, __int64 a3, struct _KLOCK
     {
       v14 = (_OWORD *)*v9;
       v13 = v14;
-      sub_140A7E498(&v13);
+      sub_140A84308(&v13);
       v10 = v13;
       v14 = v13;
       v11 = 0;

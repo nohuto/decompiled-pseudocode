@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlFindDynamicEnforcedAddressInRanges @ 0x140942B44
+ * XREFs of RtlFindDynamicEnforcedAddressInRanges @ 0x140A35C54
  * Callers:
- *     KiCheckUserAddressCetCompat @ 0x140942AB8 (KiCheckUserAddressCetCompat.c)
+ *     KiCheckUserAddressCetCompat @ 0x140A35BC8 (KiCheckUserAddressCetCompat.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x140809840 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x14080F2D0 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
  */
 
 bool __fastcall RtlFindDynamicEnforcedAddressInRanges(_QWORD **a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

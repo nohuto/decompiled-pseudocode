@@ -8,25 +8,32 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-char EtwpUserInAdminOrLogUsersGroup()
+bool EtwpUserInAdminOrLogUsersGroup()
 {
-  __int64 v0; // rdx
-  int v2; // [rsp+48h] [rbp+20h] BYREF
-  __int16 v3; // [rsp+4Ch] [rbp+24h]
-  PVOID P; // [rsp+50h] [rbp+28h] BYREF
-  int v5; // [rsp+58h] [rbp+30h] BYREF
-  int v6; // [rsp+5Ch] [rbp+34h]
+  UCHAR v0; // dl
+  NTSTATUS v1; // ebx
+  bool result; // al
+  BOOLEAN IsMember; // [rsp+40h] [rbp+18h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp+20h] BYREF
+  PSID Sid; // [rsp+50h] [rbp+28h] BYREF
+  ULONG SubAuthorities; // [rsp+58h] [rbp+30h] BYREF
+  int v7; // [rsp+5Ch] [rbp+34h]
 
-  v2 = 0;
-  P = 0LL;
-  v3 = 1280;
-  RtlCheckTokenMembership(0LL, SeAliasAdminsSid);
-  v5 = 32;
-  v6 = 558;
-  if ( (int)RtlAllocateAndInitializeSidEx((__int64)&v2, v0, (char *)&v5, &P) >= 0 )
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  Sid = 0LL;
+  IsMember = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  result = 1;
+  if ( RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) < 0 || !IsMember )
   {
-    RtlCheckTokenMembership(0LL, P);
-    ExFreePoolWithTag(P, 0);
+    SubAuthorities = 32;
+    v7 = 558;
+    if ( RtlAllocateAndInitializeSidEx(&IdentifierAuthority, v0, &SubAuthorities, &Sid) < 0 )
+      return 0;
+    v1 = RtlCheckTokenMembership(0LL, Sid, &IsMember);
+    ExFreePoolWithTag(Sid, 0);
+    if ( v1 < 0 || !IsMember )
+      return 0;
   }
-  return 0;
+  return result;
 }

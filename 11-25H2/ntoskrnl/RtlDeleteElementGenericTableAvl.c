@@ -43,7 +43,7 @@
 BOOLEAN __stdcall RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
   _RTL_BALANCED_LINKS *RightChild; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS (__fastcall *CompareRoutine)(_RTL_AVL_TABLE *, void *, void *); // rax
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *CompareRoutine)(_RTL_AVL_TABLE *, PVOID, PVOID); // rax
   _RTL_BALANCED_LINKS *v6; // r8
   RTL_GENERIC_COMPARE_RESULTS v7; // eax
   _RTL_BALANCED_LINKS **p_LeftChild; // rdx
@@ -72,9 +72,9 @@ BOOLEAN __stdcall RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Bu
   RightChild = Table->BalancedRoot.RightChild;
   while ( 1 )
   {
-    CompareRoutine = Table->CompareRoutine;
+    CompareRoutine = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))Table->CompareRoutine;
     v6 = RightChild + 1;
-    if ( (char *)CompareRoutine == (char *)PiDmCompareObjects )
+    if ( CompareRoutine == PiDmCompareObjects )
     {
       v7 = PiDmCompareObjects(Table, Buffer, v6);
     }
@@ -84,7 +84,7 @@ BOOLEAN __stdcall RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Bu
     }
     else
     {
-      v7 = (char *)CompareRoutine == (char *)PiPnpRtlObjectEventCompareObjects
+      v7 = CompareRoutine == PiPnpRtlObjectEventCompareObjects
          ? PiPnpRtlObjectEventCompareObjects(Table, Buffer, v6)
          : (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer);
     }

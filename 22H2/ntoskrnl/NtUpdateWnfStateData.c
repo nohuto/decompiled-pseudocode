@@ -6,7 +6,22 @@
  *     ExpNtUpdateWnfStateData @ 0x14060EA3C (ExpNtUpdateWnfStateData.c)
  */
 
-__int64 __fastcall NtUpdateWnfStateData(int a1, int a2, int a3, int a4, __int64 a5, int a6, int a7)
+NTSTATUS __cdecl NtUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
-  return ExpNtUpdateWnfStateData(a1, a2, a3, a4, a5, a6, a7, 1);
+  return ExpNtUpdateWnfStateData(
+           (_DWORD)StateName,
+           (_DWORD)Buffer,
+           Length,
+           (_DWORD)TypeId,
+           (__int64)ExplicitScope,
+           MatchingChangeStamp,
+           CheckStamp,
+           1);
 }

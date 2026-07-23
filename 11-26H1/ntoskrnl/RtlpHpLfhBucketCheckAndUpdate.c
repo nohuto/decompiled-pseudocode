@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhBucketCheckAndUpdate @ 0x1404CD4C4
+ * XREFs of RtlpHpLfhBucketCheckAndUpdate @ 0x1404C6EF8
  * Callers:
- *     RtlpHpAllocateHeap @ 0x140397A80 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeap @ 0x140399800 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpLfhBucketUpdateStats @ 0x1404CD4FC (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x1404C6F30 (RtlpHpLfhBucketUpdateStats.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketCheckAndUpdate(__int64 a1, unsigned int a2)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnlockCodePage @ 0x14009C770
+ * XREFs of MiUnlockCodePage @ 0x14009C6B0
  * Callers:
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiUnlockImageSection @ 0x140097F18 (MiUnlockImageSection.c)
- *     MiHandleDriverNonPagedSections @ 0x14065578C (MiHandleDriverNonPagedSections.c)
- *     MmUnlockPreChargedPagedPool @ 0x1406E01C0 (MmUnlockPreChargedPagedPool.c)
- *     MiUnlockDriverCode @ 0x14070DB60 (MiUnlockDriverCode.c)
- *     MiUnlockHotPatchPages @ 0x14085839C (MiUnlockHotPatchPages.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MiUnlockImageSection @ 0x140097E58 (MiUnlockImageSection.c)
+ *     MiHandleDriverNonPagedSections @ 0x14065694C (MiHandleDriverNonPagedSections.c)
+ *     MmUnlockPreChargedPagedPool @ 0x1406E1460 (MmUnlockPreChargedPagedPool.c)
+ *     MiUnlockDriverCode @ 0x14070EE00 (MiUnlockDriverCode.c)
+ *     MiUnlockHotPatchPages @ 0x1408595FC (MiUnlockHotPatchPages.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiIsPfnCommitNotCharged @ 0x140030DB0 (MiIsPfnCommitNotCharged.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUnlockCodePage(unsigned __int64 a1, unsigned __int64 a2)
@@ -161,7 +161,7 @@ void __fastcall MiUnlockCodePage(unsigned __int64 a1, unsigned __int64 a2)
         {
           v20 = 1;
         }
-        v21 = *(_QWORD *)(qword_14043A748 + 8 * ((v19 >> 40) & 0x3FF));
+        v21 = *(_QWORD *)(qword_14043B808 + 8 * ((v19 >> 40) & 0x3FF));
         if ( v20 == 1 )
           MiReturnCommit(v21, 1uLL);
         if ( (ULONG_PTR *)v21 == &MiSystemPartition )

@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpAccessFaultBatch @ 0x1406C09D0
+ * XREFs of VmpAccessFaultBatch @ 0x1406C45B0
  * Callers:
- *     VmpAccessFault @ 0x14081C2B4 (VmpAccessFault.c)
+ *     VmpAccessFault @ 0x1408224C4 (VmpAccessFault.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     VmpFaultEntryInsert @ 0x1406C0E28 (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x1406C0F34 (VmpFaultEntryRemove.c)
- *     VmpProcessUpdateSlat @ 0x1406C1888 (VmpProcessUpdateSlat.c)
- *     VmpAccessFaultBatchResolve @ 0x14081C788 (VmpAccessFaultBatchResolve.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     VmpFaultEntryInsert @ 0x1406C4A08 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x1406C4B14 (VmpFaultEntryRemove.c)
+ *     VmpProcessUpdateSlat @ 0x1406C5468 (VmpProcessUpdateSlat.c)
+ *     VmpAccessFaultBatchResolve @ 0x140822998 (VmpAccessFaultBatchResolve.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatch(
@@ -21,12 +21,12 @@ __int64 __fastcall VmpAccessFaultBatch(
         int a7,
         __int64 a8)
 {
-  int v8; // edi
+  int v8; // ebx
   const signed __int64 *v9; // r14
   __int64 v10; // rsi
-  unsigned __int64 v11; // rbx
+  unsigned __int64 v11; // rdi
   PEX_SPIN_LOCK v12; // rbp
-  int updated; // edi
+  int updated; // ebx
   KIRQL v14; // r12
   int v15; // r15d
   __int64 v16; // rcx

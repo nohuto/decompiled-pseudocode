@@ -8,10 +8,10 @@
  *     PopBlockSessionSwitch @ 0x1406FF560 (PopBlockSessionSwitch.c)
  */
 
-__int64 __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, int a3)
+ULONG __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, int a3)
 {
   _QWORD v6[6]; // [rsp+20h] [rbp-30h] BYREF
-  int v7; // [rsp+70h] [rbp+20h] BYREF
+  ULONG v7; // [rsp+70h] [rbp+20h] BYREF
   int v8; // [rsp+80h] [rbp+30h] BYREF
   int v9; // [rsp+88h] [rbp+38h] BYREF
   int v10; // [rsp+8Ch] [rbp+3Ch]

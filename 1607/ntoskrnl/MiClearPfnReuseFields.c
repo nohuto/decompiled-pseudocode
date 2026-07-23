@@ -1,8 +1,8 @@
 /*
- * XREFs of MiClearPfnReuseFields @ 0x140022220
+ * XREFs of MiClearPfnReuseFields @ 0x140021DA0
  * Callers:
- *     MiSwapStackPageNoDpc @ 0x14010BB54 (MiSwapStackPageNoDpc.c)
- *     MiSwapStackPage @ 0x14010BCFC (MiSwapStackPage.c)
+ *     MiSwapStackPageNoDpc @ 0x1401098D4 (MiSwapStackPageNoDpc.c)
+ *     MiSwapStackPage @ 0x140109A7C (MiSwapStackPage.c)
  * Callees:
  *     <none>
  */

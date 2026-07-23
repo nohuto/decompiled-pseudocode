@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpEnlistFreeCell @ 0x1405FAF0C
+ * XREFs of HvpEnlistFreeCell @ 0x1405FBF0C
  * Callers:
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     HvpEnlistFreeCells @ 0x1405F9800 (HvpEnlistFreeCells.c)
- *     HvpDoAllocateCell @ 0x1405FB690 (HvpDoAllocateCell.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     HvpEnlistFreeCells @ 0x1405FA800 (HvpEnlistFreeCells.c)
+ *     HvpDoAllocateCell @ 0x1405FC690 (HvpDoAllocateCell.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvpAddFreeCellHint @ 0x1405F9D2C (HvpAddFreeCellHint.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvpAddFreeCellHint @ 0x1405FAD2C (HvpAddFreeCellHint.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 __int64 *__fastcall HvpEnlistFreeCell(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3, int a4)

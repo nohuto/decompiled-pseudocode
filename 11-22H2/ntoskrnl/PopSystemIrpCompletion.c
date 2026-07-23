@@ -72,10 +72,13 @@ __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
           _InterlockedOr((volatile signed __int32 *)(v9 + 32), 0x400u);
           PopDiagTraceIrpPended((__int64)a2);
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v5 - 18);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v10 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -92,10 +95,10 @@ __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
       }
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v5 - 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDevicePanel @ 0x14081C9CC
+ * XREFs of _CmDeleteDevicePanel @ 0x14081D10C
  * Callers:
- *     _CmAddPanelDeviceWorker @ 0x14081C610 (_CmAddPanelDeviceWorker.c)
+ *     _CmAddPanelDeviceWorker @ 0x14081CD50 (_CmAddPanelDeviceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmDeleteDevicePanelWorker @ 0x14081CECC (_CmDeleteDevicePanelWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmDeleteDevicePanelWorker @ 0x14081D60C (_CmDeleteDevicePanelWorker.c)
  */
 
 __int64 __fastcall CmDeleteDevicePanel(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall CmDeleteDevicePanel(__int64 a1, __int64 a2)
   v4 = *(_QWORD *)(a1 + 504);
   if ( v4 )
   {
-    v5 = guard_dispatch_icall_no_overrides(a1, a2, 6LL, 3LL);
+    v5 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v5 == -1073741822 )
     {
       v4 = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall CmDeleteDevicePanel(__int64 a1, __int64 a2)
   if ( !v4 )
     return v7;
   v12[0] = v6;
-  v8 = guard_dispatch_icall_no_overrides(a1, a2, 6LL, 3LL);
+  v8 = guard_dispatch_icall_no_overrides(a1, a2);
   v9 = v8;
   if ( v8 == -1073741822 )
     return v7;

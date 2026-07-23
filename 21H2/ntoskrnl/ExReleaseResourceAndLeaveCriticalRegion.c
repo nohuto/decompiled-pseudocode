@@ -1,15 +1,15 @@
 /*
- * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x14034D070
+ * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x140357DC0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x14034D1A0 (ExpResourceEnforcesOwnershipTransfer.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     ExpFastResourceLegacyRelease @ 0x14038E4BC (ExpFastResourceLegacyRelease.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x140356310 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x140357EF0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x140357F10 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x14038E60C (ExpFastResourceLegacyRelease.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
@@ -18,9 +18,8 @@ void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
   ULONG_PTR v3; // rdi
   ULONG_PTR v4; // rcx
   ULONG_PTR v5; // r8
-  unsigned __int64 v6; // r9
-  struct _KTHREAD *v7; // rcx
-  bool v8; // zf
+  struct _KTHREAD *v6; // rcx
+  bool v7; // zf
   unsigned __int8 CurrentIrql; // cl
   struct _KTHREAD *CurrentThread; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
@@ -49,16 +48,16 @@ void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
     if ( (unsigned __int8)ExpResourceEnforcesOwnershipTransfer(Resource) && (v3 & 3) != 3 && v3 != v5 )
       KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, v5, v3, 0LL);
     if ( (Resource->ReservedLowFlags & 0x80u) == 0 )
-      ExpReleaseResourceSharedForThreadLite(v4, v3, (__int64)&LockHandle, v6);
+      ExpReleaseResourceSharedForThreadLite(v4, v3, &LockHandle);
     else
       ExpReleaseResourceExclusiveForThreadLite(v4, v3);
   }
-  v7 = KeGetCurrentThread();
-  v8 = v7->KernelApcDisable++ == -1;
-  if ( v8
-    && ($C459BD0D405E8E46662177FB3D0A143F *)v7->ApcState.ApcListHead[0].Flink != &v7->152
-    && !v7->SpecialApcDisable )
+  v6 = KeGetCurrentThread();
+  v7 = v6->KernelApcDisable++ == -1;
+  if ( v7
+    && ($C459BD0D405E8E46662177FB3D0A143F *)v6->ApcState.ApcListHead[0].Flink != &v6->152
+    && !v6->SpecialApcDisable )
   {
-    KiCheckForKernelApcDelivery((__int64)v7);
+    KiCheckForKernelApcDelivery();
   }
 }

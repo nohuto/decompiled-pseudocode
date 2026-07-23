@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpNormalizeAcl @ 0x1408E0CF0
+ * XREFs of RtlpNormalizeAcl @ 0x1408E72B0
  * Callers:
- *     RtlNormalizeSecurityDescriptor @ 0x1404EE240 (RtlNormalizeSecurityDescriptor.c)
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x1409229F0 (RtlpSetSecurityObject.c)
+ *     RtlNormalizeSecurityDescriptor @ 0x1404E7820 (RtlNormalizeSecurityDescriptor.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1408FE500 (RtlpSetSecurityObject.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall RtlpNormalizeAcl(__int64 a1, __int64 a2, _DWORD *a3)

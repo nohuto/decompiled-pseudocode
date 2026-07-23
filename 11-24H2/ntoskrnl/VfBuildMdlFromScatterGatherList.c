@@ -1,17 +1,17 @@
 /*
- * XREFs of VfBuildMdlFromScatterGatherList @ 0x140B85950
+ * XREFs of VfBuildMdlFromScatterGatherList @ 0x140B87950
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     VF_MARK_SCATTER_GATHER_LIST @ 0x140B85150 (VF_MARK_SCATTER_GATHER_LIST.c)
- *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x140B85170 (VF_UNMARK_SCATTER_GATHER_LIST.c)
- *     ViGetAdapterInformationInternal @ 0x140B88E98 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140B890EC (ViGetRealDmaAdapter.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     VF_MARK_SCATTER_GATHER_LIST @ 0x140B87150 (VF_MARK_SCATTER_GATHER_LIST.c)
+ *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x140B87170 (VF_UNMARK_SCATTER_GATHER_LIST.c)
+ *     ViGetAdapterInformationInternal @ 0x140B8AE98 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140B8B0EC (ViGetRealDmaAdapter.c)
  */
 
 __int64 __fastcall VfBuildMdlFromScatterGatherList(int a1, __int64 a2, struct _MDL *a3, PMDL *a4)
@@ -57,7 +57,7 @@ __int64 __fastcall VfBuildMdlFromScatterGatherList(int a1, __int64 a2, struct _M
     }
   }
   VF_UNMARK_SCATTER_GATHER_LIST(a2, v8);
-  v16 = guard_dispatch_icall_no_overrides(RealDmaAdapter, a2, a3, a4);
+  v16 = guard_dispatch_icall_no_overrides(RealDmaAdapter, a2);
   VF_MARK_SCATTER_GATHER_LIST(a2, v8);
   if ( v16 >= 0 && *a4 == a3 && v8 )
   {

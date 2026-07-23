@@ -8,13 +8,13 @@
 
 __int64 __fastcall PopFxRequestWorker(__int64 a1)
 {
-  struct _LIST_ENTRY *v1; // rdx
+  _LIST_ENTRY *v1; // rdx
   unsigned int v2; // r8d
   struct _KQUEUE *v3; // r10
   unsigned int v4; // ebx
-  struct _LIST_ENTRY *v5; // r9
+  _LIST_ENTRY *v5; // r9
   int Flink; // r11d
-  struct _LIST_ENTRY *v8; // rax
+  _LIST_ENTRY *v8; // rax
 
   if ( a1 )
   {
@@ -22,7 +22,7 @@ __int64 __fastcall PopFxRequestWorker(__int64 a1)
       v2 = *(_DWORD *)(a1 + 120);
     else
       v2 = 1;
-    v1 = (struct _LIST_ENTRY *)(a1 + 128);
+    v1 = (_LIST_ENTRY *)(a1 + 128);
     v3 = (struct _KQUEUE *)(a1 + 32);
   }
   else
@@ -43,7 +43,7 @@ __int64 __fastcall PopFxRequestWorker(__int64 a1)
       v8 = v5;
       if ( Flink >= SLODWORD(v1[2].Flink) )
         v8 = v1;
-      v5 = (struct _LIST_ENTRY *)((char *)v5 + 56);
+      v5 = (_LIST_ENTRY *)((char *)v5 + 56);
       ++v4;
       v1 = v8;
       if ( v4 >= v2 )

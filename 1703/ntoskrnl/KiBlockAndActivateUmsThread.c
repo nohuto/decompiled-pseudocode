@@ -8,7 +8,7 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x1400F0C00 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-char __fastcall KiBlockAndActivateUmsThread(__int64 a1, struct _KQUEUE *a2, struct _LIST_ENTRY *a3, struct _KEVENT *a4)
+char __fastcall KiBlockAndActivateUmsThread(__int64 a1, struct _KQUEUE *a2, _LIST_ENTRY *a3, struct _KEVENT *a4)
 {
   PLIST_ENTRY EntryArray; // [rsp+50h] [rbp+18h] BYREF
 

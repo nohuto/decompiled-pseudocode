@@ -29,7 +29,7 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   _DWORD *v9; // r8
   __int64 v10; // rcx
   int v11; // edx
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v13; // r15d
   __int64 v14; // rdx
   __int64 v15; // rcx
@@ -37,8 +37,8 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   char *v17; // rcx
   unsigned __int64 v18; // rax
   int *result; // rax
-  STRING SourceString; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+88h] [rbp+10h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+10h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
   v2 = (_QWORD *)a1;
@@ -75,7 +75,7 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   v2 = (_QWORD *)a1;
   if ( !v4 )
     goto LABEL_32;
-  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8u, 8LL * v7);
+  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8LL * v7);
   *(_QWORD *)(a1 + 88) = Heap;
   if ( !Heap )
   {
@@ -86,7 +86,7 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   *(_DWORD *)(a1 + 100) = v4 + 1;
   v13 = 0;
   *(_QWORD *)(a1 + 128) = v6;
-  v22 = 0LL;
+  BaseAddress = 0LL;
   if ( !*v8 )
     goto LABEL_29;
   while ( v8[1] )
@@ -117,7 +117,10 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
 LABEL_24:
     if ( DllActivationContext < 0 )
       break;
-    DllActivationContext = LdrpLoadDependentModule(&SourceString, *(_QWORD *)(a1 + 88) + 8LL * v13, (__int64)&v22);
+    DllActivationContext = LdrpLoadDependentModule(
+                             &SourceString,
+                             *(_QWORD *)(a1 + 88) + 8LL * v13,
+                             (__int64)&BaseAddress);
     if ( DllActivationContext < 0 )
       break;
 LABEL_26:
@@ -126,8 +129,8 @@ LABEL_26:
     if ( !*v8 )
       break;
   }
-  if ( v22 )
-    RtlFreeHeap(LdrpHeap, 0LL, v22);
+  if ( BaseAddress )
+    RtlFreeHeap(LdrpHeap, 0, BaseAddress);
 LABEL_29:
   if ( DllActivationContext >= 0 )
   {

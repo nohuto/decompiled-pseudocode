@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnAsyncContextCleanup @ 0x1406C6650
+ * XREFs of PfSnAsyncContextCleanup @ 0x140674F40
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1406C62F0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140674BE0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnAsyncContextCleanup(_QWORD *a1)
@@ -16,7 +16,7 @@ void __fastcall PfSnAsyncContextCleanup(_QWORD *a1)
 
   v2 = (struct _EX_RUNDOWN_REF *)a1[28];
   if ( v2 )
-    ExReleaseRundownProtection_0(v2 + 45);
+    ExReleaseRundownProtection(v2 + 45);
   v3 = (void *)a1[26];
   if ( v3 )
     ExFreePoolWithTag(v3, 0);

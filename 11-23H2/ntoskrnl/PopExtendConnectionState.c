@@ -1,10 +1,10 @@
 /*
- * XREFs of PopExtendConnectionState @ 0x1408015AC
+ * XREFs of PopExtendConnectionState @ 0x14080187C
  * Callers:
- *     PopSetSessionUserStatus @ 0x1407A5DBC (PopSetSessionUserStatus.c)
+ *     PopSetSessionUserStatus @ 0x1407A5FAC (PopSetSessionUserStatus.c)
  *     PopInitializeAdpm @ 0x140B35EB4 (PopInitializeAdpm.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

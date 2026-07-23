@@ -1,5 +1,5 @@
 /*
- * XREFs of NtEnumerateTransactionObject @ 0x1403D07E0
+ * XREFs of NtEnumerateTransactionObject @ 0x1403D0950
  * Callers:
  *     <none>
  * Callees:

@@ -122,7 +122,7 @@ void __fastcall EtwpCoverageRecord(int **a1, __int64 a2)
             v17 = (__int64)(*a1 + 60);
             v35[0] = 0LL;
             v35[1] = -1LL;
-            KeSetTimer2(v17, v16, 0LL, (__int64)v35);
+            KeSetTimer2(v17, (LARGE_INTEGER)v16, 0LL, (__int64)v35);
           }
           goto LABEL_8;
         }

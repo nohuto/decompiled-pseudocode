@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReleasePageListLock @ 0x1402DDAD0
+ * XREFs of MiReleasePageListLock @ 0x1402DDD60
  * Callers:
- *     MiAcquirePageListLock @ 0x1402673A0 (MiAcquirePageListLock.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DF10 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     MiUpdatePageAttributeStamp @ 0x140334C78 (MiUpdatePageAttributeStamp.c)
- *     MiDecayPfnFullyInitialized @ 0x14033EDB4 (MiDecayPfnFullyInitialized.c)
- *     MiUnlinkStandbyPage @ 0x14046D3FA (MiUnlinkStandbyPage.c)
- *     MiUnlinkPageFromBadList @ 0x14064DFC4 (MiUnlinkPageFromBadList.c)
- *     MiLockPageListAndFirstPage @ 0x140650BD4 (MiLockPageListAndFirstPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140651854 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiRepointPteAtExtendedStandby @ 0x140651BCC (MiRepointPteAtExtendedStandby.c)
- *     MiGetSlabStandbyPage @ 0x140656E5C (MiGetSlabStandbyPage.c)
+ *     MiAcquirePageListLock @ 0x140267630 (MiAcquirePageListLock.c)
+ *     MiSynchronizeFastPageInsert @ 0x14026E1A0 (MiSynchronizeFastPageInsert.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     MiUpdatePageAttributeStamp @ 0x140334F08 (MiUpdatePageAttributeStamp.c)
+ *     MiDecayPfnFullyInitialized @ 0x14033F044 (MiDecayPfnFullyInitialized.c)
+ *     MiUnlinkStandbyPage @ 0x14046D7FA (MiUnlinkStandbyPage.c)
+ *     MiUnlinkPageFromBadList @ 0x14064E514 (MiUnlinkPageFromBadList.c)
+ *     MiLockPageListAndFirstPage @ 0x140651124 (MiLockPageListAndFirstPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140651DA4 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRepointPteAtExtendedStandby @ 0x14065211C (MiRepointPteAtExtendedStandby.c)
+ *     MiGetSlabStandbyPage @ 0x1406573AC (MiGetSlabStandbyPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 void __fastcall MiReleasePageListLock(__int64 a1, __int64 a2)

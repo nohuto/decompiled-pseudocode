@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProcessingPageExtendComplete @ 0x1402A2BB8
+ * XREFs of MiProcessingPageExtendComplete @ 0x1402A2DA8
  * Callers:
- *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x140154150 (MiProcessDereferenceList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 KIRQL __fastcall MiProcessingPageExtendComplete(__int64 a1, struct _KEVENT *a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkUnexpectedInterruptCommon @ 0x140BDD600
+ * XREFs of HalpBlkUnexpectedInterruptCommon @ 0x140BDF600
  * Callers:
- *     HalpBlkUnexpectedInterrupt @ 0x140BDCE00 (HalpBlkUnexpectedInterrupt.c)
+ *     HalpBlkUnexpectedInterrupt @ 0x140BDEE00 (HalpBlkUnexpectedInterrupt.c)
  * Callees:
- *     HalpBlkApicEndOfInterrupt @ 0x140BDB1D0 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkApicEndOfInterrupt @ 0x140BDD1D0 (HalpBlkApicEndOfInterrupt.c)
  */
 
 void HalpBlkUnexpectedInterruptCommon()

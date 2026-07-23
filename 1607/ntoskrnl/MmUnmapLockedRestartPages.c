@@ -1,10 +1,10 @@
 /*
- * XREFs of MmUnmapLockedRestartPages @ 0x140657488
+ * XREFs of MmUnmapLockedRestartPages @ 0x14065756C
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiUnmapMdlCommon @ 0x1401E3CF0 (MiUnmapMdlCommon.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiUnmapMdlCommon @ 0x1401E3B1C (MiUnmapMdlCommon.c)
  */
 
 void __fastcall MmUnmapLockedRestartPages(__int64 a1)

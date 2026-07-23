@@ -1,12 +1,12 @@
 /*
- * XREFs of SeDeleteClientSecurity @ 0x14088D080
+ * XREFs of SeDeleteClientSecurity @ 0x140890300
  * Callers:
- *     AlpcpQueryTokenModifiedIdMessage @ 0x1407417E0 (AlpcpQueryTokenModifiedIdMessage.c)
- *     EtwpUpdateTrace @ 0x14083311C (EtwpUpdateTrace.c)
- *     AlpcpDeletePort @ 0x14088B9B0 (AlpcpDeletePort.c)
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x14073F710 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpDeletePort @ 0x14088E9A0 (AlpcpDeletePort.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
+ *     EtwpUpdateTrace @ 0x140ADA038 (EtwpUpdateTrace.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall SeDeleteClientSecurity(__int64 a1)

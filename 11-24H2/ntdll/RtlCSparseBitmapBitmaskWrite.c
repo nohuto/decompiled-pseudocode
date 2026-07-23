@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x180091350
+ * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x18009BEDC
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x1800910C4 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x18009BC50 (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlCSparseBitmapBitsClear @ 0x180055554 (RtlCSparseBitmapBitsClear.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1800914D8 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlCSparseBitmapBitsClear @ 0x18006B134 (RtlCSparseBitmapBitsClear.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x18009C064 (RtlpCSparseBitmapPageCommit.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -20,7 +20,7 @@ __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2,
   signed __int64 v13; // rdx
   __int64 v14; // rcx
   signed __int64 i; // rax
-  volatile signed __int64 *v16; // rcx
+  _RTL_SRWLOCK *v16; // rcx
   __int64 v18; // [rsp+20h] [rbp-28h] BYREF
   char v19; // [rsp+28h] [rbp-20h]
   __int128 v20; // [rsp+30h] [rbp-18h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2,
         v13 = i;
       }
       v7 = 0;
-      v16 = (volatile signed __int64 *)(*((_QWORD *)&v20 + 1) + 24LL);
+      v16 = (_RTL_SRWLOCK *)(*((_QWORD *)&v20 + 1) + 24LL);
       if ( (_DWORD)v20 == 1 )
         RtlReleaseSRWLockExclusive(v16);
       else

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAcpiEmCheckOperator @ 0x1404B86A0
+ * XREFs of HalAcpiEmCheckOperator @ 0x1404B88E0
  * Callers:
- *     HalMatchAcpiCreatorRevision @ 0x1404B88F0 (HalMatchAcpiCreatorRevision.c)
- *     HalMatchAcpiOemRevision @ 0x1404B8970 (HalMatchAcpiOemRevision.c)
- *     HalMatchAcpiRevision @ 0x1404B89F0 (HalMatchAcpiRevision.c)
+ *     HalMatchAcpiCreatorRevision @ 0x1404B8B30 (HalMatchAcpiCreatorRevision.c)
+ *     HalMatchAcpiOemRevision @ 0x1404B8BB0 (HalMatchAcpiOemRevision.c)
+ *     HalMatchAcpiRevision @ 0x1404B8C30 (HalMatchAcpiRevision.c)
  * Callees:
  *     <none>
  */

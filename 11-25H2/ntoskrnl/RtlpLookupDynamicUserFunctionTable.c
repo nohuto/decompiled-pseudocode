@@ -23,15 +23,15 @@ __int64 __fastcall RtlpLookupDynamicUserFunctionTable(unsigned __int64 a1, __int
   int v10; // r10d
   int v11; // r15d
   int v12; // r9d
-  unsigned __int64 v13; // r11
-  unsigned __int64 v14; // rcx
+  char *v13; // r11
+  char *v14; // rcx
   __int64 v15; // rdx
   __int64 v16; // r8
   __int64 v17; // r9
   bool v18; // zf
   __int64 v19; // rcx
   unsigned int v20; // edx
-  __int64 v22; // rt1
+  char *v22; // rt1
   __int64 v23; // rdx
   __int64 v24; // r8
   __int64 v25; // r9
@@ -61,9 +61,9 @@ __int64 __fastcall RtlpLookupDynamicUserFunctionTable(unsigned __int64 a1, __int
           if ( v11 < v10 )
             goto LABEL_34;
           v12 = (v10 + v11) >> 1;
-          v13 = *((_QWORD *)&Blink[1].Blink + 3 * v12);
-          v14 = v13 + *((unsigned int *)&Blink[2].Flink + 6 * v12);
-          if ( a1 >= v13 )
+          v13 = (char *)*((_QWORD *)&Blink[1].Blink + 3 * v12);
+          v14 = &v13[*((unsigned int *)&Blink[2].Flink + 6 * v12)];
+          if ( a1 >= (unsigned __int64)v13 )
             break;
           if ( !v12 )
             goto LABEL_34;
@@ -71,12 +71,12 @@ __int64 __fastcall RtlpLookupDynamicUserFunctionTable(unsigned __int64 a1, __int
         }
         if ( RtlKernelScpFunctionTableSize && a1 > 0x7FFFFFFEFFFFLL )
         {
-          if ( a1 < v14 )
+          if ( a1 < (unsigned __int64)v14 )
           {
 LABEL_16:
             v26 = *(__int128 *)((char *)&Blink[1] + 24 * v12);
             v9 = *((_QWORD *)&Blink[2].Flink + 3 * v12);
-            v14 = *((_QWORD *)&Blink[1].Blink + 3 * v12);
+            v14 = (char *)*((_QWORD *)&Blink[1].Blink + 3 * v12);
 LABEL_17:
             *(_QWORD *)(a2 + 8) = v14;
             *(_DWORD *)(a2 + 16) = v9;
@@ -102,9 +102,9 @@ LABEL_17:
             }
             return v19;
           }
-          if ( a1 < v14 + v9 && v13 != PsHalImageBase )
+          if ( a1 < (unsigned __int64)&v14[v9] && v13 != PsHalImageBase )
           {
-            v22 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+            v22 = *(char **)&KeNumberProcessorsGroup0[9];
             if ( v13 != v22 )
             {
               *(_QWORD *)&v26 = &RtlKernelScpFunctionTable;
@@ -112,7 +112,7 @@ LABEL_17:
             }
           }
         }
-        if ( a1 < v14 )
+        if ( a1 < (unsigned __int64)v14 )
           goto LABEL_16;
         v10 = v12 + 1;
       }

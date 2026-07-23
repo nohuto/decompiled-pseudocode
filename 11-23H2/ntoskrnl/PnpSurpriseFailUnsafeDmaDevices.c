@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpSurpriseFailUnsafeDmaDevices @ 0x14096B9B0
+ * XREFs of PnpSurpriseFailUnsafeDmaDevices @ 0x14096BBB0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x1408753CC (PnpSynchronizeDeviceEventQueue.c)
- *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140957AAC (PnpPowerStateTransitionWatchdogPushRecord.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x14096B274 (PipDmgEnforceEnumerationPolicy.c)
- *     PiCslIsConsoleLocked @ 0x14096C56C (PiCslIsConsoleLocked.c)
- *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14096EF24 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140AA616C (PoDelistPowerStateTransitionBlocker.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x14087560C (PnpSynchronizeDeviceEventQueue.c)
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140957CAC (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14096B474 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiCslIsConsoleLocked @ 0x14096C76C (PiCslIsConsoleLocked.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14096F124 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA5FDC (PoDelistPowerStateTransitionBlocker.c)
  */
 
 void PnpSurpriseFailUnsafeDmaDevices()

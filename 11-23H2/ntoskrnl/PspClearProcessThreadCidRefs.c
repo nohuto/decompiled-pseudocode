@@ -1,13 +1,13 @@
 /*
- * XREFs of PspClearProcessThreadCidRefs @ 0x14076E2D8
+ * XREFs of PspClearProcessThreadCidRefs @ 0x14076E4C8
  * Callers:
  *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     ObDereferenceObjectEx @ 0x1402A2558 (ObDereferenceObjectEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x14073FC10 (ExMapHandleToPointer.c)
+ *     ObDereferenceObjectEx @ 0x1402A27E8 (ObDereferenceObjectEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ExMapHandleToPointer @ 0x14073FE00 (ExMapHandleToPointer.c)
  */
 
 void __fastcall PspClearProcessThreadCidRefs(__int64 a1, __int64 a2, ULONG_PTR a3)

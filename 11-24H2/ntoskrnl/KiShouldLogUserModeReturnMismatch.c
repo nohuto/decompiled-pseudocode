@@ -1,13 +1,13 @@
 /*
- * XREFs of KiShouldLogUserModeReturnMismatch @ 0x140A39AD0
+ * XREFs of KiShouldLogUserModeReturnMismatch @ 0x140A2EB90
  * Callers:
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x14043E9F0 (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x140434610 (KiLogControlProtectionUserModeReturnMismatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 char __fastcall KiShouldLogUserModeReturnMismatch(__int64 a1, int a2, __int64 a3)
@@ -21,8 +21,8 @@ char __fastcall KiShouldLogUserModeReturnMismatch(__int64 a1, int a2, __int64 a3
   int v10; // r12d
   unsigned int i; // edx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v14; // rax
-  _QWORD *v15; // r14
+  char *v14; // rax
+  char *v15; // r14
   __int64 v16; // rdx
   unsigned __int64 v17; // r8
   unsigned int j; // ecx
@@ -60,12 +60,12 @@ char __fastcall KiShouldLogUserModeReturnMismatch(__int64 a1, int a2, __int64 a3
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v14 = KeAbPreAcquire((__int64)v3, 0LL);
+    v14 = (char *)KeAbPreAcquire((__int64)v3, 0LL);
     v15 = v14;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v3, (__int64)v14, (__int64)v3);
+      ExfAcquirePushLockExclusiveEx(v3, v14, (__int64)v3);
     if ( v15 )
-      *((_BYTE *)v15 + 10) = 1;
+      v15[10] = 1;
     v16 = LODWORD(v3[v8 + 1]);
     if ( (_DWORD)v16 != v10 )
     {

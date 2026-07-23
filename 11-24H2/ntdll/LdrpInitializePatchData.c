@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpInitializePatchData @ 0x1800FB56C
+ * XREFs of LdrpInitializePatchData @ 0x1800F649C
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  */
 
 __int64 LdrpInitializePatchData()
 {
   _QWORD *Heap; // rax
 
-  Heap = (_QWORD *)RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8u, 0x18uLL);
+  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 0x18uLL);
   if ( !Heap )
     return 3221225495LL;
   *(_DWORD *)Heap = 1;

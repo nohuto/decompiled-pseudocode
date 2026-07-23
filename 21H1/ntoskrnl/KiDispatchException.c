@@ -36,15 +36,20 @@
  *     KdIsThisAKdTrap @ 0x1409B2008 (KdIsThisAKdTrap.c)
  */
 
-int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3, unsigned __int8 a4, char a5)
+int __fastcall KiDispatchException(
+        PEXCEPTION_RECORD ExceptionRecord,
+        unsigned __int64 a2,
+        __int64 a3,
+        unsigned __int8 a4,
+        char a5)
 {
   char v5; // r12
   _KPROCESS *Process; // rcx
-  __int64 v9; // r15
+  ULONG64 v9; // r15
   unsigned __int64 v10; // rax
   void *v11; // rsp
-  __int64 v12; // r9
-  unsigned int v13; // r15d
+  ULONG64 v12; // r9
+  ULONG v13; // r15d
   __int64 v14; // r8
   __int64 v15; // r9
   __int64 v16; // rdx
@@ -62,19 +67,19 @@ int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3
   __int64 v28; // rdx
   __int64 v29; // r8
   __int64 v30; // r9
-  NTSTATUS v31; // r15d
+  int ExceptionCode; // r15d
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-10h]
   int v35; // [rsp+30h] [rbp+0h] BYREF
-  unsigned int v36; // [rsp+34h] [rbp+4h]
+  ULONG ContextFlags; // [rsp+34h] [rbp+4h]
   int v37; // [rsp+38h] [rbp+8h]
   unsigned __int64 v38; // [rsp+40h] [rbp+10h]
-  unsigned int v39; // [rsp+48h] [rbp+18h] BYREF
+  ULONG ContextLength; // [rsp+48h] [rbp+18h] BYREF
   _KPROCESS *v40; // [rsp+50h] [rbp+20h]
-  __int64 v41; // [rsp+58h] [rbp+28h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+58h] [rbp+28h] BYREF
   unsigned __int64 v42; // [rsp+60h] [rbp+30h]
   struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp+38h]
   unsigned __int64 v44; // [rsp+70h] [rbp+40h]
-  NTSTATUS *v45; // [rsp+78h] [rbp+48h]
+  PEXCEPTION_RECORD v45; // [rsp+78h] [rbp+48h]
   _QWORD *v46; // [rsp+80h] [rbp+50h]
   unsigned __int64 v47; // [rsp+88h] [rbp+58h]
   _OWORD *v48; // [rsp+90h] [rbp+60h]
@@ -89,10 +94,10 @@ int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3
   v5 = a4;
   LOWORD(v35) = a4;
   v38 = a2;
-  v45 = a1;
+  v45 = ExceptionRecord;
   v51 = a3;
-  v41 = 0LL;
-  v39 = 0;
+  ContextEx = 0LL;
+  ContextLength = 0;
   memset(v53, 0, sizeof(v53));
   v54 = 0LL;
   v55 = 0LL;
@@ -102,25 +107,27 @@ int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3
   __incgsdword(0x8030u);
   if ( a5 && *(_QWORD *)&Process[2].Affinity.Count )
   {
-    v31 = *a1;
-    switch ( *a1 )
+    ExceptionCode = ExceptionRecord->ExceptionCode;
+    switch ( ExceptionRecord->ExceptionCode )
     {
-      case 268435458:
-        *a1 = -1073741795;
+      case 0x10000002:
+        ExceptionRecord->ExceptionCode = -1073741795;
         break;
-      case 268435459:
-        *a1 = -1073741676;
+      case 0x10000003:
+        ExceptionRecord->ExceptionCode = -1073741676;
         break;
-      case 268435460:
-        *a1 = -1073741819;
+      case 0x10000004:
+        ExceptionRecord->ExceptionCode = -1073741819;
         break;
     }
     if ( ObGetCurrentIrql() < 2u
-      && (v5 || (*a1 == -2147483647 || (unsigned int)(*a1 + 1073741819) <= 1)
-             && *((_QWORD *)a1 + 5) <= 0x7FFFFFFF0000uLL) )
+      && (v5
+       || (ExceptionRecord->ExceptionCode == -2147483647
+        || (unsigned int)(ExceptionRecord->ExceptionCode + 1073741819) <= 1)
+       && ExceptionRecord->ExceptionInformation[1] <= 0x7FFFFFFF0000LL) )
     {
-      LODWORD(v17) = ((__int64 (__fastcall *)(NTSTATUS *, unsigned __int64, __int64, _QWORD, char))xmmword_140C1DFE0)(
-                       a1,
+      LODWORD(v17) = ((__int64 (__fastcall *)(PEXCEPTION_RECORD, unsigned __int64, __int64, _QWORD, char))xmmword_140C1DFE0)(
+                       ExceptionRecord,
                        v38,
                        a3,
                        0LL,
@@ -128,16 +135,16 @@ int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3
       if ( (_BYTE)v17 )
         return (int)v17;
     }
-    *a1 = v31;
+    ExceptionRecord->ExceptionCode = ExceptionCode;
     Process = v40;
   }
-  v36 = 1048607;
+  ContextFlags = 1048607;
   v9 = 0LL;
   if ( v5 )
   {
     if ( (KeFeatureBits & 0x800000) != 0 )
     {
-      v36 = 1048671;
+      ContextFlags = 1048671;
       if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
       {
         v9 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
@@ -149,40 +156,45 @@ int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3
       }
     }
   }
-  RtlGetExtendedContextLength2(v36, &v39, v9);
-  v10 = v39 + 15LL;
-  if ( v10 <= v39 )
+  RtlGetExtendedContextLength2(ContextFlags, &ContextLength, v9);
+  v10 = ContextLength + 15LL;
+  if ( v10 <= ContextLength )
     v10 = 0xFFFFFFFFFFFFFF0LL;
   v11 = alloca(v10 & 0xFFFFFFFFFFFFFFF0uLL);
   v50 = &v35;
   if ( v5 )
-    memset(&v35, 0, v39);
+    memset(&v35, 0, ContextLength);
   v12 = v9;
-  v13 = v36;
-  RtlInitializeExtendedContext2(&v35, v36, &v41, v12);
+  v13 = ContextFlags;
+  RtlInitializeExtendedContext2((PCONTEXT)&v35, ContextFlags, &ContextEx, v12);
   KeContextFromKframes(a3, v38, &v35);
-  if ( *a1 == -2147483645 )
+  if ( ExceptionRecord->ExceptionCode == -2147483645 )
   {
     --*(_QWORD *)&v53[25];
     if ( (KiDynamicTraceMask & 2) != 0 )
     {
       LOBYTE(v15) = a5;
       LOBYTE(v14) = v5;
-      if ( (unsigned __int8)KiTpHandleTrap(a1, &v35, v14, v15) )
+      if ( (unsigned __int8)KiTpHandleTrap(ExceptionRecord, &v35, v14, v15) )
         goto LABEL_14;
     }
   }
   LOBYTE(v14) = v5;
-  if ( (unsigned __int8)KiPreprocessFault((int)a1, (int)&v35, v14) )
+  if ( (unsigned __int8)KiPreprocessFault((int)ExceptionRecord, (int)&v35, v14) )
     goto LABEL_14;
   if ( !v5 )
   {
     if ( (!a5
-       || !(unsigned __int8)KdTrap(a3, v38, (_DWORD)a1, (unsigned int)&v35, 0, 0)
-       && !(unsigned __int8)RtlDispatchException(a1, &v35))
-      && !(unsigned __int8)KdTrap(a3, v38, (_DWORD)a1, (unsigned int)&v35, 0, 1) )
+       || !(unsigned __int8)KdTrap(a3, v38, (_DWORD)ExceptionRecord, (unsigned int)&v35, 0, 0)
+       && !RtlDispatchException(ExceptionRecord, (PCONTEXT)&v35))
+      && !(unsigned __int8)KdTrap(a3, v38, (_DWORD)ExceptionRecord, (unsigned int)&v35, 0, 1) )
     {
-      KeBugCheckEx(0x1Eu, *a1, *((_QWORD *)a1 + 2), *((_QWORD *)a1 + 4), *((_QWORD *)a1 + 5));
+      KeBugCheckEx(
+        0x1Eu,
+        ExceptionRecord->ExceptionCode,
+        (ULONG_PTR)ExceptionRecord->ExceptionAddress,
+        ExceptionRecord->ExceptionInformation[0],
+        ExceptionRecord->ExceptionInformation[1]);
     }
     goto LABEL_14;
   }
@@ -191,7 +203,9 @@ int __fastcall KiDispatchException(NTSTATUS *a1, unsigned __int64 a2, __int64 a3
   if ( (HIDWORD(v40[2].Header.WaitListHead.Flink) & 1) == 0 )
   {
     v17 = KeGetCurrentThread();
-    if ( v17->ApcState.Process[1].AffinityPadding[10] && *a1 == -2147483646 && (*(_DWORD *)(a3 + 376) & 0x40000) != 0 )
+    if ( v17->ApcState.Process[1].AffinityPadding[10]
+      && ExceptionRecord->ExceptionCode == -2147483646
+      && (*(_DWORD *)(a3 + 376) & 0x40000) != 0 )
     {
       _disable();
       *(_DWORD *)(a3 + 376) &= ~0x40000u;
@@ -201,13 +215,13 @@ LABEL_75:
     }
     if ( ((unsigned __int16)CurrentThread & 0xFFF8) == 0x20 )
     {
-      if ( *a1 == -2147483645 )
+      if ( ExceptionRecord->ExceptionCode == -2147483645 )
       {
-        *a1 = 1073741855;
+        ExceptionRecord->ExceptionCode = 1073741855;
       }
-      else if ( *a1 == -2147483644 )
+      else if ( ExceptionRecord->ExceptionCode == -2147483644 )
       {
-        *a1 = 1073741854;
+        ExceptionRecord->ExceptionCode = 1073741854;
       }
       v18 = (unsigned int)v18 & 0xFFFFFFF0;
       v44 = v18;
@@ -215,13 +229,13 @@ LABEL_75:
   }
   if ( a5 )
   {
-    LODWORD(v40) = *a1;
-    IsThisAKdTrap = KdIsThisAKdTrap(a1);
+    LODWORD(v40) = ExceptionRecord->ExceptionCode;
+    IsThisAKdTrap = KdIsThisAKdTrap(ExceptionRecord);
     BYTE1(v35) = IsThisAKdTrap;
     v21 = KeGetCurrentThread()->ApcState.Process;
     if ( !v21[1].AffinityPadding[9] && !KdIgnoreUmExceptions && v20 != -2147483597 || IsThisAKdTrap )
     {
-      if ( (unsigned __int8)KdTrap(a3, v38, (_DWORD)a1, (unsigned int)&v35, v35, 0) )
+      if ( (unsigned __int8)KdTrap(a3, v38, (_DWORD)ExceptionRecord, (unsigned int)&v35, v35, 0) )
       {
         v5 = v35;
 LABEL_14:
@@ -235,7 +249,7 @@ LABEL_14:
       }
       v20 = (int)v40;
     }
-    if ( v20 == -2147483597 || (LOBYTE(v21) = 1, LODWORD(v17) = DbgkForwardException(a1, v21), !(_BYTE)v17) )
+    if ( v20 == -2147483597 || (LOBYTE(v21) = 1, LODWORD(v17) = DbgkForwardException(ExceptionRecord, v21), !(_BYTE)v17) )
     {
       _disable();
       *(_DWORD *)(a3 + 376) &= ~0x100u;
@@ -246,7 +260,7 @@ LABEL_14:
       v42 = v18;
       if ( (v13 & 0x100040) == 0x100040 )
       {
-        v22 = (v18 - *(unsigned int *)(v41 + 20)) & 0xFFFFFFFFFFFFFFC0uLL;
+        v22 = (v18 - ContextEx->XState.Length) & 0xFFFFFFFFFFFFFFC0uLL;
         v42 = v22;
       }
       v38 = (v22 - 40) & 0xFFFFFFFFFFFFFFF0uLL;
@@ -277,10 +291,10 @@ LABEL_14:
       }
       v25[3] = v18;
       *v25 = *(_QWORD *)&v53[25];
-      KeCopyExceptionRecord(v48, (__int64)a1);
+      KeCopyExceptionRecord(v48, (__int64)ExceptionRecord);
       v26 = v49;
       LOBYTE(v27) = 1;
-      RtlpCopyExtendedContext(v27, v49, (unsigned int)&v54, v36, v41, 0LL);
+      RtlpCopyExtendedContext(v27, v49, (unsigned int)&v54, ContextFlags, (__int64)ContextEx, 0LL);
       *(_OWORD *)v26 = v54;
       *(_QWORD *)(v26 + 16) = v55;
       --CurrentThread->SpecialApcDisable;
@@ -297,12 +311,12 @@ LABEL_14:
   else
   {
     LOBYTE(v16) = 1;
-    LODWORD(v17) = DbgkForwardException(a1, v16);
+    LODWORD(v17) = DbgkForwardException(ExceptionRecord, v16);
     if ( !(_BYTE)v17 )
     {
-      LODWORD(v17) = DbgkForwardException(a1, 0LL);
+      LODWORD(v17) = DbgkForwardException(ExceptionRecord, 0LL);
       if ( !(_BYTE)v17 )
-        LODWORD(v17) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, *a1);
+        LODWORD(v17) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionRecord->ExceptionCode);
     }
   }
   return (int)v17;

@@ -15,7 +15,10 @@
  *     LdrControlFlowGuardEnforced @ 0x180033520 (LdrControlFlowGuardEnforced.c)
  */
 
-_BOOL8 __fastcall LdrControlFlowGuardEnforcedWithExportSuppression(__int64 a1)
+_BOOL8 LdrControlFlowGuardEnforcedWithExportSuppression()
 {
-  return (unsigned int)LdrControlFlowGuardEnforced(a1) && (BYTE5(xmmword_18017F390) & 3) == 3;
+  int v0; // eax
+
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  return v0 && (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
 }

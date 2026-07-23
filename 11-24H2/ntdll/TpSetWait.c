@@ -1,12 +1,12 @@
 /*
- * XREFs of TpSetWait @ 0x1800F2DD0
+ * XREFs of TpSetWait @ 0x1800ED6C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall TpSetWait(_PEB_LDR_DATA *a1, _LIST_ENTRY *a2, _LIST_ENTRY **a3)
+void __cdecl TpSetWait(PTP_WAIT Wait, HANDLE Handle, PLARGE_INTEGER Timeout)
 {
-  return TpSetWaitEx(a1, a2, a3, 0LL);
+  TpSetWaitEx(Wait, Handle, Timeout, 0LL);
 }

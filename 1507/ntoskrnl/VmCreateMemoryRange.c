@@ -17,9 +17,9 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
   _QWORD *v10; // rbx
   _QWORD *PoolWithTag; // rax
   __int64 v12; // rax
-  _QWORD *v13; // rax
-  _QWORD *v14; // rdi
-  unsigned __int64 v15; // r14
+  _RTL_BALANCED_NODE *v13; // rax
+  _RTL_BALANCED_NODE *v14; // rdi
+  _RTL_BALANCED_NODE *v15; // r14
   unsigned __int64 v16; // rbp
 
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -52,18 +52,18 @@ __int64 __fastcall VmCreateMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
   v12 = v10[6];
   if ( v12 != -1 && v12 != a4 )
     return (unsigned int)-1073740007;
-  v13 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x724D6D56u);
+  v13 = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x724D6D56u);
   v14 = v13;
   if ( !v13 )
     return (unsigned int)-1073741670;
   memset(v13, 0, 0x50uLL);
-  v15 = a1 >> 12;
+  v15 = (_RTL_BALANCED_NODE *)(a1 >> 12);
   v16 = a2 >> 12;
-  v14[7] = v15 + a3 - 1;
-  v14[6] = v15;
-  v14[8] = v16;
-  v14[9] = v16 + a3 - 1;
-  inserted = VmpInsertMemoryRange((__int64)v10, (unsigned __int64)v14, a4);
+  v14[2].Children[1] = (_RTL_BALANCED_NODE *)((char *)v15 + a3 - 1);
+  v14[2].Children[0] = v15;
+  v14[2].ParentValue = v16;
+  v14[3].Children[0] = (_RTL_BALANCED_NODE *)(v16 + a3 - 1);
+  inserted = VmpInsertMemoryRange((__int64)v10, v14, a4);
   if ( inserted >= 0 )
   {
     v14 = 0LL;

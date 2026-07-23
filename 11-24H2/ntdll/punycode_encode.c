@@ -1,14 +1,14 @@
 /*
- * XREFs of punycode_encode @ 0x1800BDBA8
+ * XREFs of punycode_encode @ 0x1800B5968
  * Callers:
- *     RtlpNameprepAsciiRealWorker @ 0x1800BB090 (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1800B2E50 (RtlpNameprepAsciiRealWorker.c)
  * Callees:
- *     adapt @ 0x1800BCD48 (adapt.c)
- *     ValidateStd3Range @ 0x1800BD040 (ValidateStd3Range.c)
- *     GetUTF32 @ 0x1800BE11C (GetUTF32.c)
- *     FindLabelEnd @ 0x1800BE1F0 (FindLabelEnd.c)
- *     RtlStringCchCopyNExW @ 0x1800BE22C (RtlStringCchCopyNExW.c)
- *     _wcsnicmp @ 0x180122DB0 (_wcsnicmp.c)
+ *     adapt @ 0x1800B4B08 (adapt.c)
+ *     ValidateStd3Range @ 0x1800B4E00 (ValidateStd3Range.c)
+ *     GetUTF32 @ 0x1800B5EDC (GetUTF32.c)
+ *     FindLabelEnd @ 0x1800B5FB0 (FindLabelEnd.c)
+ *     RtlStringCchCopyNExW @ 0x1800B5FEC (RtlStringCchCopyNExW.c)
+ *     _wcsnicmp @ 0x180120FE0 (_wcsnicmp.c)
  */
 
 __int64 punycode_encode(wchar_t *String1, int a2, ...)

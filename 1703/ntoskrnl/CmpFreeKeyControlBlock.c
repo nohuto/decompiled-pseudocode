@@ -30,18 +30,17 @@ void __fastcall CmpFreeKeyControlBlock(unsigned __int64 P)
   _QWORD *v1; // rdi
   void *v3; // rcx
   unsigned __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // r8
-  __int64 v7; // rsi
+  PRTL_BALANCED_NODE v5; // rax
+  PRTL_BALANCED_NODE v6; // rsi
   unsigned __int8 CurrentIrql; // bp
-  _QWORD *v9; // rax
-  _DWORD *v10; // rbx
-  unsigned __int8 v11; // bl
-  signed __int32 v12; // eax
+  _QWORD *v8; // rax
+  _DWORD *v9; // rbx
+  unsigned __int8 v10; // bl
+  signed __int32 v11; // eax
   unsigned __int16 i; // dx
-  _QWORD *v14; // rax
-  __int64 v15; // r8
-  _QWORD *v16; // rcx
+  _QWORD *v13; // rax
+  __int64 v14; // r8
+  _QWORD *v15; // rcx
 
   _InterlockedDecrement64(&CmPerfCounters);
   v1 = (_QWORD *)(P + 112);
@@ -59,47 +58,47 @@ void __fastcall CmpFreeKeyControlBlock(unsigned __int64 P)
   {
     _InterlockedDecrement64(qword_1407AD0E0);
     _InterlockedIncrement64(&qword_1407AD0D8);
-    v5 = KeAbPreAcquire((ULONG_PTR)&CmpAllocBucketLock, 0LL, 0LL);
-    v7 = v5;
+    v5 = KeAbPreAcquire((ULONG_PTR)&CmpAllocBucketLock, 0LL, 0);
+    v6 = v5;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(1uLL);
     if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpAllocBucketLock, 0) )
-      ExpAcquireFastMutexContended((ULONG_PTR)&CmpAllocBucketLock, v5, v6);
-    if ( v7 )
-      *(_BYTE *)(v7 + 26) |= 1u;
+      ExpAcquireFastMutexContended((ULONG_PTR)&CmpAllocBucketLock, (__int64)v5);
+    if ( v6 )
+      BYTE2(v6[1].Left) |= 1u;
     *(&CmpAllocBucketLock + 1) = (ULONG_PTR)KeGetCurrentThread();
     *((_DWORD *)&CmpAllocBucketLock + 12) = CurrentIrql;
     *(_QWORD *)(P + 24) = 0LL;
-    v9 = (_QWORD *)qword_14036B208;
+    v8 = (_QWORD *)qword_14036B208;
     if ( *(__int64 **)qword_14036B208 != &CmpFreeKCBListHead )
       __fastfail(3u);
     *v1 = &CmpFreeKCBListHead;
-    v10 = (_DWORD *)(P & 0xFFFFFFFFFFFFF000uLL);
-    v1[1] = v9;
-    *v9 = v1;
+    v9 = (_DWORD *)(P & 0xFFFFFFFFFFFFF000uLL);
+    v1[1] = v8;
+    *v8 = v1;
     qword_14036B208 = (__int64)v1;
-    if ( ++*v10 == 13 )
+    if ( ++*v9 == 13 )
     {
       for ( i = 0; i < 0xDu; ++i )
       {
-        v14 = &v10[74 * i + 30];
-        v15 = *v14;
-        v16 = (_QWORD *)v14[1];
-        if ( *(_QWORD **)(*v14 + 8LL) != v14 || (_QWORD *)*v16 != v14 )
+        v13 = &v9[74 * i + 30];
+        v14 = *v13;
+        v15 = (_QWORD *)v13[1];
+        if ( *(_QWORD **)(*v13 + 8LL) != v13 || (_QWORD *)*v15 != v13 )
           __fastfail(3u);
-        *v16 = v15;
-        *(_QWORD *)(v15 + 8) = v16;
+        *v15 = v14;
+        *(_QWORD *)(v14 + 8) = v15;
         _InterlockedDecrement64(&qword_1407AD0D8);
       }
-      CmpFreeTransientPoolWithTag(v10, 0x6C414D43u);
+      CmpFreeTransientPoolWithTag(v9, 0x6C414D43u);
       _InterlockedDecrement64(&qword_1407AD0D0);
     }
-    v11 = *((_BYTE *)&CmpAllocBucketLock + 48);
+    v10 = *((_BYTE *)&CmpAllocBucketLock + 48);
     *(&CmpAllocBucketLock + 1) = 0LL;
-    v12 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpAllocBucketLock, 1, 0);
-    if ( v12 )
-      ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpAllocBucketLock, v12);
-    __writecr8(v11);
+    v11 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpAllocBucketLock, 1, 0);
+    if ( v11 )
+      ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpAllocBucketLock, v11);
+    __writecr8(v10);
     KeAbPostRelease((ULONG_PTR)&CmpAllocBucketLock);
   }
   else

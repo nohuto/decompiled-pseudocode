@@ -22,22 +22,22 @@
 
 __int64 CmpInitializeRegistryProcess()
 {
-  void *v0; // rdi
+  HANDLE v0; // rdi
   int v1; // ebx
   __int64 v2; // rcx
   __int64 v3; // rdx
   PVOID Object; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v6; // [rsp+60h] [rbp-1h] BYREF
+  HANDLE ProcessHandle; // [rsp+60h] [rbp-1h] BYREF
   HANDLE v7; // [rsp+68h] [rbp+7h] BYREF
-  HANDLE Handle[2]; // [rsp+70h] [rbp+Fh] BYREF
+  HANDLE ProcessInformation[2]; // [rsp+70h] [rbp+Fh] BYREF
   _OWORD v9[3]; // [rsp+80h] [rbp+1Fh] BYREF
 
   memset(v9, 0, sizeof(v9));
   Object = 0LL;
   v0 = 0LL;
-  v6 = 0LL;
+  ProcessHandle = 0LL;
   v7 = 0LL;
-  *(_OWORD *)Handle = 0LL;
+  *(_OWORD *)ProcessInformation = 0LL;
   CmSiProcessTupleInitialize();
   v1 = CmpCreateRegistryProcessToken(&Object);
   if ( v1 >= 0 )
@@ -52,16 +52,17 @@ __int64 CmpInitializeRegistryProcess()
            0,
            0LL,
            0LL,
-           &v6);
+           &ProcessHandle);
     if ( v1 < 0
-      || (v1 = ObOpenObjectByPointer(Object, 0x200u, 0LL, 1u, (POBJECT_TYPE)SeTokenObjectType, 0, Handle), v1 < 0) )
+      || (v1 = ObOpenObjectByPointer(Object, 0x200u, 0LL, 1u, (POBJECT_TYPE)SeTokenObjectType, 0, ProcessInformation),
+          v1 < 0) )
     {
-      v0 = (void *)v6;
+      v0 = ProcessHandle;
     }
     else
     {
-      v0 = (void *)v6;
-      v1 = ZwSetInformationProcess(v6, 9LL);
+      v0 = ProcessHandle;
+      v1 = ZwSetInformationProcess(ProcessHandle, ProcessAccessToken, ProcessInformation, 0x10u);
       if ( v1 >= 0 )
       {
         v1 = CmSiProcessTupleStartFromHandle(v2, v0);
@@ -93,8 +94,8 @@ __int64 CmpInitializeRegistryProcess()
   }
   if ( Object )
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
-  if ( Handle[0] )
-    ZwClose(Handle[0]);
+  if ( ProcessInformation[0] )
+    ZwClose(ProcessInformation[0]);
   if ( v7 )
     ZwClose(v7);
   if ( v0 )

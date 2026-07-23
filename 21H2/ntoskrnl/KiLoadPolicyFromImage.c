@@ -1,9 +1,9 @@
 /*
- * XREFs of KiLoadPolicyFromImage @ 0x1409A0D20
+ * XREFs of KiLoadPolicyFromImage @ 0x1409A1C50
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x1409A0B30 (KiIntersectFeaturesWithPolicy.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x1409A1A60 (KiIntersectFeaturesWithPolicy.c)
  * Callees:
- *     KeHwPolicyLocateResource @ 0x140A65230 (KeHwPolicyLocateResource.c)
+ *     KeHwPolicyLocateResource @ 0x140A66230 (KeHwPolicyLocateResource.c)
  */
 
 __int64 __fastcall KiLoadPolicyFromImage(int a1, _QWORD *a2, _QWORD *a3)

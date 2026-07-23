@@ -1,9 +1,9 @@
 /*
- * XREFs of CmQueryValueKeyCallout @ 0x1406F5010
+ * XREFs of CmQueryValueKeyCallout @ 0x1406F3010
  * Callers:
  *     <none>
  * Callees:
- *     CmQueryValueKey @ 0x140874900 (CmQueryValueKey.c)
+ *     CmQueryValueKey @ 0x140878C30 (CmQueryValueKey.c)
  */
 
 void __fastcall CmQueryValueKeyCallout(_OWORD *Parameter)

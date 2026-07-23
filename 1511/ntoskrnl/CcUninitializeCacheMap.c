@@ -25,7 +25,7 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
         PCACHE_UNINITIALIZE_EVENT UninitializeEvent)
 {
   BOOLEAN v3; // r15
-  struct _SLIST_ENTRY *v4; // r13
+  _SLIST_ENTRY *v4; // r13
   bool v5; // r12
   _QWORD *ArbitraryUserPointer; // rcx
   LONGLONG QuadPart; // rcx
@@ -61,7 +61,7 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
       if ( v17 )
       {
         v18 = *v17;
-        v4 = (struct _SLIST_ENTRY *)*((_QWORD *)PrivateCacheMap + 14);
+        v4 = (_SLIST_ENTRY *)*((_QWORD *)PrivateCacheMap + 14);
         ++CcDbgNumberOfNoopedReadAheads;
         v19 = (__int64 **)v17[1];
         if ( *(__int64 **)(v18 + 8) != v17 || *v19 != v17 )
@@ -203,7 +203,7 @@ LABEL_21:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v4);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v4);
       ObfDereferenceObjectWithTag(FileObject, 0x746C6644u);
     }
   }

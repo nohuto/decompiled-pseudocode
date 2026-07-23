@@ -6,45 +6,52 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFullAvl(__int64 a1, __int64 a2, _QWORD *a3, int *a4)
+PVOID __cdecl RtlLookupElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  int v4; // ebx
-  __int64 i; // rdi
+  TABLE_SEARCH_RESULT v4; // ebx
+  _RTL_BALANCED_LINKS *i; // rdi
   int v10; // eax
-  __int64 v12; // rax
+  _RTL_BALANCED_LINKS *RightChild; // rax
 
-  v4 = 0;
-  if ( !*(_DWORD *)(a1 + 44) )
+  v4 = TableEmptyTree;
+  if ( !Table->NumberGenericTableElements )
     goto LABEL_7;
-  for ( i = *(_QWORD *)(a1 + 16); ; i = v12 )
+  for ( i = Table->BalancedRoot.RightChild; ; i = RightChild )
   {
-    v10 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, i + 32);
+    v10 = ((__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID, _RTL_BALANCED_LINKS *))Table->CompareRoutine)(
+            Table,
+            Buffer,
+            &i[1]);
     if ( !v10 )
       break;
     if ( v10 != 1 )
     {
-      v4 = 1;
+      v4 = TableFoundNode;
       goto LABEL_6;
     }
-    v12 = *(_QWORD *)(i + 16);
-    if ( !v12 )
+    RightChild = i->RightChild;
+    if ( !RightChild )
     {
-      v4 = 3;
+      v4 = TableInsertAsRight;
       goto LABEL_6;
     }
 LABEL_10:
     ;
   }
-  v12 = *(_QWORD *)(i + 8);
-  if ( v12 )
+  RightChild = i->LeftChild;
+  if ( RightChild )
     goto LABEL_10;
-  v4 = 2;
+  v4 = TableInsertAsLeft;
 LABEL_6:
-  *a3 = i;
+  *NodeOrParent = i;
 LABEL_7:
-  *a4 = v4;
-  if ( v4 == 1 )
-    return *a3 + 32LL;
+  *SearchResult = v4;
+  if ( v4 == TableFoundNode )
+    return (char *)*NodeOrParent + 32;
   else
     return 0LL;
 }

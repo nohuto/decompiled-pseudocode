@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmIdleUpdateProcessorLatencyLimit @ 0x14028FA08
+ * XREFs of PpmIdleUpdateProcessorLatencyLimit @ 0x14028EF68
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x14025336C (PpmParkReportUnparkedCore.c)
- *     PpmParkReportParkedCore @ 0x140253514 (PpmParkReportParkedCore.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x14028FBF0 (PpmIdleUpdateSystemLatencyLimit.c)
- *     PpmParkReportSoftParkChange @ 0x14042BF38 (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x140254CCC (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x140254E74 (PpmParkReportParkedCore.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x14028F150 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     PpmParkReportSoftParkChange @ 0x140420608 (PpmParkReportSoftParkChange.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14025234C (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     PpmEventTraceProcessorLatencyLimitChange @ 0x140255FA8 (PpmEventTraceProcessorLatencyLimitChange.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140253CAC (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     PpmEventTraceProcessorLatencyLimitChange @ 0x140257938 (PpmEventTraceProcessorLatencyLimitChange.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PpmIdleUpdateProcessorLatencyLimit(struct _KPRCB *a1, struct _KAFFINITY_EX *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall PpmIdleUpdateProcessorLatencyLimit(struct _KPRCB *a1, struct 
   int v13; // ecx
   int v14; // eax
   __int64 result; // rax
-  unsigned int SchedulerSharedOffset; // ecx
+  unsigned int v16; // ecx
   unsigned int j; // ebp
   __int64 v18; // rsi
   __int64 v19; // r14
@@ -60,11 +60,11 @@ __int64 __fastcall PpmIdleUpdateProcessorLatencyLimit(struct _KPRCB *a1, struct 
   v5 = PpmIdleUnparkedLatencyLimit;
   if ( v3->PowerState.Parked )
   {
-    SchedulerSharedOffset = stru_140E66FF0.SchedulerSharedOffset;
+    v16 = HIDWORD(stru_140E67200.Padding[1]);
     if ( v3->PowerState.SoftParked )
-      SchedulerSharedOffset = (unsigned int)stru_140E66FF0.SchedulerSharedSwappablePage;
-    if ( SchedulerSharedOffset > PpmIdleUnparkedLatencyLimit )
-      v5 = SchedulerSharedOffset;
+      v16 = stru_140E67200.Padding[2];
+    if ( v16 > PpmIdleUnparkedLatencyLimit )
+      v5 = v16;
   }
   IdleWakeLatencyLimit = v3->PowerState.IdleWakeLatencyLimit;
   v28 = IdleWakeLatencyLimit;

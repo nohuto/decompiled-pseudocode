@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWorkerFactoryFinishDeferredWork @ 0x14037D4AC
+ * XREFs of ExpWorkerFactoryFinishDeferredWork @ 0x14037F25C
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14037CC40 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14037E9F0 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     AlpciDestroyDeferredMessageContext @ 0x140A64890 (AlpciDestroyDeferredMessageContext.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     AlpciDestroyDeferredMessageContext @ 0x140A71860 (AlpciDestroyDeferredMessageContext.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryFinishDeferredWork(__int64 a1)

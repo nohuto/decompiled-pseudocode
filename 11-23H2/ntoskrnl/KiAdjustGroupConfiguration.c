@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAdjustGroupConfiguration @ 0x1403B6158
+ * XREFs of KiAdjustGroupConfiguration @ 0x1403B6338
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1403772B8 (KiAllocateProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x140377458 (KiAllocateProcessorNumber.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,31 +1,31 @@
 /*
- * XREFs of AnFwDisplayFade @ 0x140BB36EC
+ * XREFs of AnFwDisplayFade @ 0x140BB56EC
  * Callers:
- *     BgDisplayFade @ 0x140BB36A4 (BgDisplayFade.c)
+ *     BgDisplayFade @ 0x140BB56A4 (BgDisplayFade.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     BgpFwFreeMemory @ 0x14037DE10 (BgpFwFreeMemory.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     BgpGxConvertRectangleEx @ 0x1404604FC (BgpGxConvertRectangleEx.c)
- *     BgpFwAllocateMemory @ 0x140467320 (BgpFwAllocateMemory.c)
- *     BgpGetBitsPerPixel @ 0x1404822C8 (BgpGetBitsPerPixel.c)
- *     BgpFwQueryPerformanceCounter @ 0x1404B67D4 (BgpFwQueryPerformanceCounter.c)
- *     BgpGxRectangleSize @ 0x1404B7350 (BgpGxRectangleSize.c)
- *     GxpBitsToBytes @ 0x1404BC490 (GxpBitsToBytes.c)
- *     BgpClearScreen @ 0x140697E28 (BgpClearScreen.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140BB008C (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxParseBitmap @ 0x140BB00B8 (BgpGxParseBitmap.c)
- *     AnFwpDisableProgressTimer @ 0x140BB3CB4 (AnFwpDisableProgressTimer.c)
- *     BgpGxReadRectangle @ 0x140BB3D18 (BgpGxReadRectangle.c)
- *     BgpTxtGetRegionContext @ 0x140BB3D94 (BgpTxtGetRegionContext.c)
- *     BgpGxRectangleCreate @ 0x140BB3E78 (BgpGxRectangleCreate.c)
- *     BgpGxRectangleDestroy @ 0x140BB3F04 (BgpGxRectangleDestroy.c)
- *     BgpGxFindSubRectangle @ 0x140BB4168 (BgpGxFindSubRectangle.c)
- *     LogFwStat @ 0x140BB4790 (LogFwStat.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     BgpGxConvertRectangleEx @ 0x1404553DC (BgpGxConvertRectangleEx.c)
+ *     BgpFwFreeMemory @ 0x14045EC7C (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14045ED38 (BgpFwAllocateMemory.c)
+ *     BgpGetBitsPerPixel @ 0x14047D508 (BgpGetBitsPerPixel.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404B0FB4 (BgpFwQueryPerformanceCounter.c)
+ *     BgpGxRectangleSize @ 0x1404B1B30 (BgpGxRectangleSize.c)
+ *     GxpBitsToBytes @ 0x1404B73A0 (GxpBitsToBytes.c)
+ *     BgpClearScreen @ 0x140698EA8 (BgpClearScreen.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140BB208C (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxParseBitmap @ 0x140BB20B8 (BgpGxParseBitmap.c)
+ *     AnFwpDisableProgressTimer @ 0x140BB5CB4 (AnFwpDisableProgressTimer.c)
+ *     BgpGxReadRectangle @ 0x140BB5D18 (BgpGxReadRectangle.c)
+ *     BgpTxtGetRegionContext @ 0x140BB5D94 (BgpTxtGetRegionContext.c)
+ *     BgpGxRectangleCreate @ 0x140BB5E78 (BgpGxRectangleCreate.c)
+ *     BgpGxRectangleDestroy @ 0x140BB5F04 (BgpGxRectangleDestroy.c)
+ *     BgpGxFindSubRectangle @ 0x140BB6168 (BgpGxFindSubRectangle.c)
+ *     LogFwStat @ 0x140BB6790 (LogFwStat.c)
  */
 
 __int64 AnFwDisplayFade()
@@ -108,12 +108,12 @@ __int64 AnFwDisplayFade()
   v55 = 0LL;
   v50 = 0LL;
   memset(v57, 0, sizeof(v57));
-  if ( (dword_140EF0050 & 0x2000) != 0 )
+  if ( (dword_140EF0270 & 0x2000) != 0 )
     return (unsigned int)SubRectangle;
-  if ( (dword_140EF0050 & 0x200000) == 0 )
+  if ( (dword_140EF0270 & 0x200000) == 0 )
   {
-    RegionContext = BgpTxtGetRegionContext(qword_140EF0110);
-    v7 = BgpTxtGetRegionContext(qword_140EF0118);
+    RegionContext = BgpTxtGetRegionContext(qword_140EF0330);
+    v7 = BgpTxtGetRegionContext(qword_140EF0338);
     v8 = v7;
     if ( !RegionContext || !v7 )
     {
@@ -121,12 +121,12 @@ LABEL_57:
       v3 = v50;
       goto LABEL_58;
     }
-    xmmword_140E0EE50 = *(_OWORD *)RegionContext;
-    xmmword_140E0EE60 = *(_OWORD *)(RegionContext + 16);
-    dword_140E0EE70 = *(_DWORD *)(RegionContext + 32);
-    xmmword_140E0EE90 = *(_OWORD *)v7;
-    xmmword_140E0EEA0 = *(_OWORD *)(v7 + 16);
-    dword_140E0EEB0 = *(_DWORD *)(v7 + 32);
+    xmmword_140E0EF10 = *(_OWORD *)RegionContext;
+    xmmword_140E0EF20 = *(_OWORD *)(RegionContext + 16);
+    dword_140E0EF30 = *(_DWORD *)(RegionContext + 32);
+    xmmword_140E0EF50 = *(_OWORD *)v7;
+    xmmword_140E0EF60 = *(_OWORD *)(v7 + 16);
+    dword_140E0EF70 = *(_DWORD *)(v7 + 32);
     BgpFwFreeMemory(RegionContext);
     BgpFwFreeMemory(v8);
     AnFwpDisableProgressTimer();
@@ -135,17 +135,17 @@ LABEL_57:
     v41 = 0;
     BitsPerPixel = BgpGetBitsPerPixel();
     v9 = BitsPerPixel;
-    qword_140EEFB40 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    qword_140E65008 = qword_140EEFB40;
-    if ( !qword_140EF0098 )
+    qword_140EEFDD8 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
+    qword_140E65188 = qword_140EEFDD8;
+    if ( !qword_140EF02B8 )
     {
       v42 = 1;
 LABEL_61:
       LODWORD(v43) = v5;
       v35 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))BgpGxReadRectangle)(
               &v54,
-              &xmmword_140E0EE50,
-              (char *)&xmmword_140E0EE50 + 8,
+              &xmmword_140E0EF10,
+              (char *)&xmmword_140E0EF10 + 8,
               (LARGE_INTEGER)v10.QuadPart);
       v0 = (__int64)v54;
       SubRectangle = v35;
@@ -162,8 +162,8 @@ LABEL_13:
       {
         v19 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))BgpGxReadRectangle)(
                 &v55,
-                &xmmword_140E0EE90,
-                (char *)&xmmword_140E0EE90 + 8,
+                &xmmword_140E0EF50,
+                (char *)&xmmword_140E0EF50 + 8,
                 (LARGE_INTEGER)v10.QuadPart);
         v2 = v55;
         SubRectangle = v19;
@@ -172,14 +172,14 @@ LABEL_13:
         v20 = BgpGxRectangleSize(*v55, v55[1], v9);
         v5 = (_DWORD)v43 + 2 * (((v20 + 15) & 0xFFFFFFF0) + 32) + ((v20 + 15) & 0xFFFFFFF0) + 32;
       }
-      v21 = qword_140EF00AC;
-      v22 = HIDWORD(qword_140EF01D0);
-      v43 = (int *)qword_140EF00AC;
+      v21 = qword_140EF02CC;
+      v22 = HIDWORD(qword_140EF03F0);
+      v43 = (int *)qword_140EF02CC;
       if ( !v42 )
       {
         SubRectangle = BgpGxFindSubRectangle(
                          (_DWORD)v1,
-                         HIDWORD(qword_140EF01D0),
+                         HIDWORD(qword_140EF03F0),
                          (unsigned int)&v49,
                          (unsigned int)&v46,
                          (__int64)&v39);
@@ -218,8 +218,8 @@ LABEL_13:
           else
           {
             v47 = v49;
-            LODWORD(xmmword_140E0EE50) = v46 + xmmword_140E0EE50;
-            DWORD1(xmmword_140E0EE50) += HIDWORD(v46);
+            LODWORD(xmmword_140E0EF10) = v46 + xmmword_140E0EF10;
+            DWORD1(xmmword_140E0EF10) += HIDWORD(v46);
           }
         }
       }
@@ -238,8 +238,8 @@ LABEL_13:
           }
           else
           {
-            LODWORD(xmmword_140E0EE90) = v46 + xmmword_140E0EE90;
-            DWORD1(xmmword_140E0EE90) += HIDWORD(v46);
+            LODWORD(xmmword_140E0EF50) = v46 + xmmword_140E0EF50;
+            DWORD1(xmmword_140E0EF50) += HIDWORD(v46);
             v2 = v49;
           }
         }
@@ -290,26 +290,26 @@ LABEL_13:
         memset_0(*(void **)(v50 + 24), 0, *(unsigned int *)(v50 + 12));
       }
       LogFwStat(0LL, 5LL);
-      dword_140E0EE34 = 0;
-      byte_140E0EE40 = v40;
-      byte_140E0EE41 = v41;
-      byte_140E0EE42 = v42;
-      qword_140E0EE78 = v53;
-      qword_140E0EE88 = v56;
-      qword_140E0EEC0 = v50;
-      dword_140E0EE30 = 100;
-      qword_140E0EE38 = v21;
-      qword_140E0EE48 = v0;
-      qword_140E0EE80 = (__int64)v1;
-      qword_140E0EEB8 = (__int64)v2;
-      KeResetEvent(&stru_140E64FC0);
-      KeInitializeTimer(&stru_140E64F40);
-      KeInitializeDpc(&stru_140E64E80, (PKDEFERRED_ROUTINE)AnFwpFadeAnimationTimer, 0LL);
-      byte_140EEFAD8 = 1;
+      dword_140E0EEF4 = 0;
+      byte_140E0EF00 = v40;
+      byte_140E0EF01 = v41;
+      byte_140E0EF02 = v42;
+      qword_140E0EF38 = v53;
+      qword_140E0EF48 = v56;
+      qword_140E0EF80 = v50;
+      dword_140E0EEF0 = 100;
+      qword_140E0EEF8 = v21;
+      qword_140E0EF08 = v0;
+      qword_140E0EF40 = (__int64)v1;
+      qword_140E0EF78 = (__int64)v2;
+      KeResetEvent(&stru_140E65140);
+      KeInitializeTimer(&stru_140E650C0);
+      KeInitializeDpc(&stru_140E65000, (PKDEFERRED_ROUTINE)AnFwpFadeAnimationTimer, 0LL);
+      byte_140EEFD20 = 1;
       LogFwStat(1LL, 7LL);
-      KeSetCoalescableTimer(&stru_140E64F40, 0LL, 0x1Eu, 0, &stru_140E64E80);
-      dword_140EF0050 |= 0x2000u;
-      dword_140EF006C = v5;
+      KeSetCoalescableTimer(&stru_140E650C0, 0LL, 0x1Eu, 0, &stru_140E65000);
+      dword_140EF0270 |= 0x2000u;
+      dword_140EF028C = v5;
 LABEL_26:
       if ( v44 )
       {
@@ -328,7 +328,7 @@ LABEL_29:
       goto LABEL_57;
     }
     v42 = 0;
-    v11 = BgpGxParseBitmap((__int64)qword_140EF0098, &v43);
+    v11 = BgpGxParseBitmap((__int64)qword_140EF02B8, &v43);
     v1 = v43;
     SubRectangle = v11;
     if ( v11 < 0 )
@@ -347,34 +347,34 @@ LABEL_29:
       v44 = 1;
     }
     v14 = BgpGxRectangleSize(*v1, v1[1], v9);
-    v15 = qword_140EF00AC + dword_140EF00B4;
-    v10.QuadPart = (unsigned int)(HIDWORD(qword_140EF00AC) + dword_140EF00B8);
-    v16 = xmmword_140E0EE50 + DWORD2(xmmword_140E0EE50);
-    v45 = qword_140EF00AC;
+    v15 = qword_140EF02CC + dword_140EF02D4;
+    v10.QuadPart = (unsigned int)(HIDWORD(qword_140EF02CC) + dword_140EF02D8);
+    v16 = xmmword_140E0EF10 + DWORD2(xmmword_140E0EF10);
+    v45 = qword_140EF02CC;
     v5 += ((v14 + 15) & 0xFFFFFFF0) + 32 + 2 * (((v14 + 15) & 0xFFFFFFF0) + 32);
-    v17 = DWORD1(xmmword_140E0EE50) + HIDWORD(xmmword_140E0EE50);
-    if ( (unsigned int)xmmword_140E0EE50 >= (unsigned int)qword_140EF00AC
-      && (unsigned int)xmmword_140E0EE50 <= v15
-      && DWORD1(xmmword_140E0EE50) >= HIDWORD(qword_140EF00AC)
-      && DWORD1(xmmword_140E0EE50) <= v10.LowPart )
+    v17 = DWORD1(xmmword_140E0EF10) + HIDWORD(xmmword_140E0EF10);
+    if ( (unsigned int)xmmword_140E0EF10 >= (unsigned int)qword_140EF02CC
+      && (unsigned int)xmmword_140E0EF10 <= v15
+      && DWORD1(xmmword_140E0EF10) >= HIDWORD(qword_140EF02CC)
+      && DWORD1(xmmword_140E0EF10) <= v10.LowPart )
     {
-      if ( v16 < (unsigned int)qword_140EF00AC || v16 > v15 || v17 < HIDWORD(qword_140EF00AC) || v17 > v10.LowPart )
+      if ( v16 < (unsigned int)qword_140EF02CC || v16 > v15 || v17 < HIDWORD(qword_140EF02CC) || v17 > v10.LowPart )
         goto LABEL_60;
       v40 = 1;
     }
-    LODWORD(v43) = xmmword_140E0EE90 + DWORD2(xmmword_140E0EE90);
-    v18 = DWORD1(xmmword_140E0EE90) + HIDWORD(xmmword_140E0EE90);
-    if ( (unsigned int)xmmword_140E0EE90 < v45
-      || (unsigned int)xmmword_140E0EE90 > v15
-      || DWORD1(xmmword_140E0EE90) < HIDWORD(qword_140EF00AC)
-      || DWORD1(xmmword_140E0EE90) > v10.LowPart )
+    LODWORD(v43) = xmmword_140E0EF50 + DWORD2(xmmword_140E0EF50);
+    v18 = DWORD1(xmmword_140E0EF50) + HIDWORD(xmmword_140E0EF50);
+    if ( (unsigned int)xmmword_140E0EF50 < v45
+      || (unsigned int)xmmword_140E0EF50 > v15
+      || DWORD1(xmmword_140E0EF50) < HIDWORD(qword_140EF02CC)
+      || DWORD1(xmmword_140E0EF50) > v10.LowPart )
     {
 LABEL_12:
       if ( v40 )
         goto LABEL_13;
       goto LABEL_61;
     }
-    if ( (unsigned int)v43 >= v45 && (unsigned int)v43 <= v15 && v18 >= HIDWORD(qword_140EF00AC) && v18 <= v10.LowPart )
+    if ( (unsigned int)v43 >= v45 && (unsigned int)v43 <= v15 && v18 >= HIDWORD(qword_140EF02CC) && v18 <= v10.LowPart )
     {
       v41 = 1;
       goto LABEL_12;

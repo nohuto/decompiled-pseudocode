@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPfCompletePrefetchIos @ 0x14039FC90
+ * XREFs of MiPfCompletePrefetchIos @ 0x1403A19F0
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     MiPrefetchControlArea @ 0x140A4F258 (MiPrefetchControlArea.c)
- *     MmPrefetchPagesEx @ 0x140A51A98 (MmPrefetchPagesEx.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchControlArea @ 0x140A58548 (MiPrefetchControlArea.c)
+ *     MmPrefetchPagesEx @ 0x140A5AD88 (MmPrefetchPagesEx.c)
  * Callees:
- *     MiIssueHardFaultIo @ 0x14038EA50 (MiIssueHardFaultIo.c)
- *     MiPfCompleteInPageSupport @ 0x14039FB18 (MiPfCompleteInPageSupport.c)
- *     MiPfIssueCoalesceCandidates @ 0x14039FF60 (MiPfIssueCoalesceCandidates.c)
- *     MiPfCompleteCoalescedIo @ 0x1404B9DEC (MiPfCompleteCoalescedIo.c)
+ *     MiIssueHardFaultIo @ 0x140390800 (MiIssueHardFaultIo.c)
+ *     MiPfCompleteInPageSupport @ 0x1403A1878 (MiPfCompleteInPageSupport.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1403A1CC0 (MiPfIssueCoalesceCandidates.c)
+ *     MiPfCompleteCoalescedIo @ 0x1404B367C (MiPfCompleteCoalescedIo.c)
  */
 
 __int64 __fastcall MiPfCompletePrefetchIos(ULONG_PTR *a1, __int64 *a2, void *a3)

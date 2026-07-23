@@ -1,20 +1,20 @@
 /*
- * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x1408568E0
+ * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x140856B20
  * Callers:
- *     IoRegisterFsRegistrationChange @ 0x140947400 (IoRegisterFsRegistrationChange.c)
+ *     IoRegisterFsRegistrationChange @ 0x140947600 (IoRegisterFsRegistrationChange.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     IoGetActivityIdThread @ 0x14031E650 (IoGetActivityIdThread.c)
- *     IopGetFsRegistrationInProgress @ 0x1405576A8 (IopGetFsRegistrationInProgress.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x1405579D4 (IopIsKnownGoodLegacyFsFilter.c)
- *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140557CA4 (McTemplateK0hzr0_EtwWriteTransfer.c)
- *     IopNotifyAlreadyRegisteredFileSystems @ 0x140856A7C (IopNotifyAlreadyRegisteredFileSystems.c)
- *     FsRtlSetDriverBacking @ 0x140871A70 (FsRtlSetDriverBacking.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     IoGetActivityIdThread @ 0x14031E8E0 (IoGetActivityIdThread.c)
+ *     IopGetFsRegistrationInProgress @ 0x140557D68 (IopGetFsRegistrationInProgress.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x140558094 (IopIsKnownGoodLegacyFsFilter.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140558364 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     IopNotifyAlreadyRegisteredFileSystems @ 0x140856CBC (IopNotifyAlreadyRegisteredFileSystems.c)
+ *     FsRtlSetDriverBacking @ 0x140871CB0 (FsRtlSetDriverBacking.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiUnlockWorkingSetOptimal @ 0x14024231C
+ * XREFs of MiUnlockWorkingSetOptimal @ 0x14020A46C
  * Callers:
- *     MmSetAddressRangeModifiedEx @ 0x140240600 (MmSetAddressRangeModifiedEx.c)
- *     MiDirtyPte @ 0x140241184 (MiDirtyPte.c)
- *     MiObtainSystemCacheView @ 0x140241D90 (MiObtainSystemCacheView.c)
- *     MiAddMappedPtes @ 0x140243C60 (MiAddMappedPtes.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402D24DC (MiReturnSystemCacheRegionsToKva.c)
- *     MmMapViewInSystemCache @ 0x1402D5CA4 (MmMapViewInSystemCache.c)
- *     MmUnmapViewInSystemCache @ 0x1402F1760 (MmUnmapViewInSystemCache.c)
- *     MiExpandSystemCache @ 0x1403A7378 (MiExpandSystemCache.c)
- *     MiMakeSystemCachePteValid @ 0x14046F7A8 (MiMakeSystemCachePteValid.c)
- *     MiBuildForkPageTable @ 0x1404A304C (MiBuildForkPageTable.c)
- *     MiFinishLastForkPageTable @ 0x1404A903C (MiFinishLastForkPageTable.c)
- *     MiAddMappedPtesPadding @ 0x1404D0B44 (MiAddMappedPtesPadding.c)
- *     MiInitializeDynamicBitmap @ 0x1406794B8 (MiInitializeDynamicBitmap.c)
- *     MiMarkBootGuardPage @ 0x14067FECC (MiMarkBootGuardPage.c)
- *     MiMapDummyPages @ 0x140C4FC6C (MiMapDummyPages.c)
- *     MiProtectSharedUserPage @ 0x140C50154 (MiProtectSharedUserPage.c)
- *     MiInitializeBootShadowStackPage @ 0x140C5712C (MiInitializeBootShadowStackPage.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140208750 (MmSetAddressRangeModifiedEx.c)
+ *     MiDirtyPte @ 0x1402092D4 (MiDirtyPte.c)
+ *     MiObtainSystemCacheView @ 0x140209EE0 (MiObtainSystemCacheView.c)
+ *     MiMakeSystemCachePteValid @ 0x14021C440 (MiMakeSystemCachePteValid.c)
+ *     MmUnmapViewInSystemCache @ 0x1402572A0 (MmUnmapViewInSystemCache.c)
+ *     MiExpandSystemCache @ 0x14026B918 (MiExpandSystemCache.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x140353754 (MiReturnSystemCacheRegionsToKva.c)
+ *     MmMapViewInSystemCache @ 0x140356F24 (MmMapViewInSystemCache.c)
+ *     MiAddMappedPtes @ 0x140391F90 (MiAddMappedPtes.c)
+ *     MiBuildForkPageTable @ 0x14049DFAC (MiBuildForkPageTable.c)
+ *     MiFinishLastForkPageTable @ 0x1404A345C (MiFinishLastForkPageTable.c)
+ *     MiAddMappedPtesPadding @ 0x1404C9B84 (MiAddMappedPtesPadding.c)
+ *     MiInitializeDynamicBitmap @ 0x14067A698 (MiInitializeDynamicBitmap.c)
+ *     MiMarkBootGuardPage @ 0x1406810CC (MiMarkBootGuardPage.c)
+ *     MiMapDummyPages @ 0x140C51DFC (MiMapDummyPages.c)
+ *     MiProtectSharedUserPage @ 0x140C522E4 (MiProtectSharedUserPage.c)
+ *     MiInitializeBootShadowStackPage @ 0x140C592BC (MiInitializeBootShadowStackPage.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E2460 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x14020BE60 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiUnlockWorkingSetOptimal(__int64 a1, unsigned __int64 a2, char a3)
@@ -59,7 +59,7 @@ __int64 __fastcall MiUnlockWorkingSetOptimal(__int64 a1, unsigned __int64 a2, ch
       v10 = 2 * ((__int64)(a2 + 0x90482413000LL) >> 3);
       a2 = (unsigned int)~(2 << ((2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F));
       LODWORD(a2) = a2 & ~(1 << (v10 & 0x1F));
-      _InterlockedAnd(&dword_140E2F0AC[(unsigned __int64)v10 >> 5], a2);
+      _InterlockedAnd(&dword_140E2F1EC[(unsigned __int64)v10 >> 5], a2);
     }
     else
     {

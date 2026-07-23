@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerMeasureProcessorsWorker @ 0x14050CAF0
+ * XREFs of HalpTimerMeasureProcessorsWorker @ 0x14050D040
  * Callers:
  *     <none>
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A1D0 (HalpTimerReadTimerPairWithLatencyLimit.c)
- *     HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A7D8 (HalpTimerDetermineValidTimerPairReadLatency.c)
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A370 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A978 (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
  */
 
 ULONG_PTR __fastcall HalpTimerMeasureProcessorsWorker(ULONG_PTR Argument)

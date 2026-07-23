@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpNlsGetLcidIndex @ 0x180006490
+ * XREFs of RtlpNlsGetLcidIndex @ 0x180051BC0
  * Callers:
- *     RtlpConsoleFallbackNameFromLocaleName @ 0x180001794 (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlLCIDToCultureName @ 0x180005BA0 (RtlLCIDToCultureName.c)
- *     RtlpGetProcessCodepagesForLocale @ 0x180121708 (RtlpGetProcessCodepagesForLocale.c)
+ *     RtlpConsoleFallbackNameFromLocaleName @ 0x18004CECC (RtlpConsoleFallbackNameFromLocaleName.c)
+ *     RtlLCIDToCultureName @ 0x1800512D0 (RtlLCIDToCultureName.c)
+ *     RtlpGetProcessCodepagesForLocale @ 0x1801214A4 (RtlpGetProcessCodepagesForLocale.c)
  * Callees:
  *     <none>
  */

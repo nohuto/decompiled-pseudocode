@@ -64,44 +64,45 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
   __int64 v34; // rcx
   __int64 v35; // rdi
   __int64 v36; // rax
-  void *v38; // rcx
-  __int64 Heap; // rax
-  __int64 v40; // rbx
+  PVOID v38; // rcx
+  ULONG v39; // edx
+  unsigned __int16 *Heap; // rax
+  unsigned __int16 *v41; // rbx
   __int64 ModuleEntry; // rax
-  _DWORD *v42; // rcx
-  __int64 v43; // rcx
-  __int64 v44; // r8
-  _QWORD *v45; // rdx
-  char *v46; // rcx
-  char v47; // r9
-  size_t v48; // rax
-  _QWORD *v49; // rsi
-  _QWORD *v50; // rbp
-  __int64 v51; // rdx
-  volatile signed __int32 *v52; // rcx
-  int v53; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v54; // [rsp+48h] [rbp-50h] BYREF
+  _DWORD *v43; // rcx
+  __int64 v44; // rcx
+  __int64 v45; // r8
+  _QWORD *v46; // rdx
+  char *v47; // rcx
+  char v48; // r9
+  size_t v49; // rax
+  _QWORD *v50; // rsi
+  _QWORD *v51; // rbp
+  __int64 v52; // rdx
+  _ACTIVATION_CONTEXT *v53; // rcx
+  int v54; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v55; // [rsp+48h] [rbp-50h] BYREF
 
   v7 = a6;
   v8 = 0;
-  v53 = 0;
+  v54 = 0;
   v9 = a4;
   v10 = a3;
   v11 = a2;
   v12 = a1;
   *a6 = 0LL;
-  v54 = 0LL;
+  v55 = 0LL;
   if ( a4 == 9 )
   {
-    DWORD1(v54) = 0;
-    *((_QWORD *)&v54 + 1) = ModuleNamePlaceholderBuffer;
-    v48 = 2 * wcslen(ModuleNamePlaceholderBuffer);
-    v12 = (unsigned __int16 *)&v54;
+    DWORD1(v55) = 0;
+    *((_QWORD *)&v55 + 1) = ModuleNamePlaceholderBuffer;
+    v49 = 2 * wcslen(ModuleNamePlaceholderBuffer);
+    v12 = (unsigned __int16 *)&v55;
     v13 = 2147353476LL;
-    if ( v48 >= 0xFFFE )
-      LOWORD(v48) = -4;
-    LOWORD(v54) = v48;
-    WORD1(v54) = v48 + 2;
+    if ( v49 >= 0xFFFE )
+      LOWORD(v49) = -4;
+    LOWORD(v55) = v49;
+    WORD1(v55) = v49 + 2;
     v14 = 2147353477LL;
     goto LABEL_59;
   }
@@ -109,7 +110,7 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
   v14 = 2147353477LL;
   if ( (a3 & 0x20) != 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName((_DWORD)a1, 0, a3, (_DWORD)a6, (__int64)&v53);
+    LoadedDllByName = LdrpFindLoadedDllByName((_DWORD)a1, 0, a3, (_DWORD)a6, (__int64)&v54);
   }
   else
   {
@@ -250,7 +251,7 @@ LABEL_58:
     v10 = a3;
     *v7 = (__int64)v24;
     LoadedDllByName = 0;
-    v53 = *(_DWORD *)(v24[19] + 56LL);
+    v54 = *(_DWORD *)(v24[19] + 56LL);
 LABEL_43:
     RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
     SharedData = NtCurrentPeb()->SharedData;
@@ -266,15 +267,13 @@ LABEL_43:
     }
     if ( *(_BYTE *)v34 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v46 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
-      if ( (*v46 & 0x20) != 0 )
+      v47 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+      if ( (*v47 & 0x20) != 0 )
       {
-        v47 = 0;
+        v48 = 0;
         if ( LoadedDllByName < 0 )
-          v47 = 3;
-        LdrpLogEtwEvent(5280, 0LL, 0, v47, v12, 0LL);
+          v48 = 3;
+        LdrpLogEtwEvent(5280, 0LL, 0, v48, v12, 0LL);
       }
     }
     v9 = a4;
@@ -283,19 +282,20 @@ LABEL_43:
   }
   if ( LoadedDllByName != -1073741515 )
   {
-    if ( v53 >= 0 )
+    if ( v54 >= 0 )
     {
       LdrpIncrementModuleLoadCount(*v7);
     }
     else
     {
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrmap.c",
-        3400,
-        (int)"LdrpFindOrPrepareLoadingModule",
-        0,
+        "minkernel\\ldr\\ldrmap.c",
+        3400LL,
+        "LdrpFindOrPrepareLoadingModule",
+        0LL,
         "Found circular dependent DLL: \"%wZ\" that failed to load previously, ModuleState: %d\n",
-        *v7 + 72);
+        *v7 + 72,
+        v54);
       v35 = *v7;
       LoadedDllByName = -1073741595;
       v36 = *(_QWORD *)(*v7 + 152);
@@ -303,72 +303,73 @@ LABEL_43:
         && (*(_BYTE *)(*(_QWORD *)v36 - 56LL) & 0x20) == 0
         && _InterlockedExchangeAdd((volatile signed __int32 *)(v35 + 276), 0xFFFFFFFF) == 1 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
-        v44 = *(_QWORD *)(v35 + 160);
-        if ( *(_QWORD *)(v44 + 8) != v35 + 160 || (v45 = *(_QWORD **)(v35 + 168), *v45 != v35 + 160) )
+        RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+        v45 = *(_QWORD *)(v35 + 160);
+        if ( *(_QWORD *)(v45 + 8) != v35 + 160 || (v46 = *(_QWORD **)(v35 + 168), *v46 != v35 + 160) )
           __fastfail(3u);
-        *v45 = v44;
-        *(_QWORD *)(v44 + 8) = v45;
-        v49 = *(_QWORD **)(v35 + 152);
-        v50 = (_QWORD *)*v49;
+        *v46 = v45;
+        *(_QWORD *)(v45 + 8) = v46;
+        v50 = *(_QWORD **)(v35 + 152);
+        v51 = (_QWORD *)*v50;
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
         if ( *(_WORD *)(v35 + 110) )
           LdrpReleaseTlsEntry(v35, 0LL);
-        LdrpUnmapModule(v35, v51);
-        v52 = *(volatile signed __int32 **)(v35 + 136);
-        if ( (unsigned __int64)v52 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext(v52);
+        LdrpUnmapModule(v35, v52);
+        v53 = *(_ACTIVATION_CONTEXT **)(v35 + 136);
+        if ( (unsigned __int64)&v53[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v53);
         if ( *(_QWORD *)(v35 + 80) )
           LdrpFreeUnicodeString(v35 + 72);
-        RtlFreeHeap(LdrpHeap, 0LL, v35);
-        if ( v50 == v49 )
-          LdrpDestroyNode((__int64)v49);
+        RtlFreeHeap(LdrpHeap, 0, (PVOID)v35);
+        if ( v51 == v50 )
+          LdrpDestroyNode(v50);
       }
       *v7 = 0LL;
     }
     return (unsigned int)LoadedDllByName;
   }
 LABEL_59:
-  v38 = (void *)LdrpHeap;
+  v38 = LdrpHeap;
+  v39 = NtdllBaseTag + 0x40000;
   *v7 = 0LL;
-  Heap = RtlAllocateHeap(v38);
-  v40 = Heap;
+  Heap = (unsigned __int16 *)RtlAllocateHeap(v38, v39 | 8, *v12 + 210LL);
+  v41 = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 40) = a7;
-    *(_QWORD *)(Heap + 48) = a5;
-    *(_DWORD *)(Heap + 32) = v10 | 0x8000;
-    *(_QWORD *)(Heap + 16) = v11;
-    *(_QWORD *)(Heap + 184) = -1LL;
-    *(_QWORD *)(Heap + 8) = Heap + 208;
-    *(_WORD *)Heap = *v12;
-    *(_WORD *)(Heap + 2) = *v12 + 2;
-    memmove((void *)(Heap + 208), *((const void **)v12 + 1), *v12);
-    *(_WORD *)(*(_QWORD *)(v40 + 8) + 2 * ((unsigned __int64)*v12 >> 1)) = 0;
-    ModuleEntry = LdrpAllocateModuleEntry(v40);
+    *((_QWORD *)Heap + 5) = a7;
+    *((_QWORD *)Heap + 6) = a5;
+    *((_DWORD *)Heap + 8) = v10 | 0x8000;
+    *((_QWORD *)Heap + 2) = v11;
+    *((_QWORD *)Heap + 23) = -1LL;
+    *((_QWORD *)Heap + 1) = Heap + 104;
+    *Heap = *v12;
+    Heap[1] = *v12 + 2;
+    memmove(Heap + 104, *((const void **)v12 + 1), *v12);
+    *(_WORD *)(*((_QWORD *)v41 + 1) + 2 * ((unsigned __int64)*v12 >> 1)) = 0;
+    ModuleEntry = LdrpAllocateModuleEntry(v41);
     *v7 = ModuleEntry;
     if ( ModuleEntry )
     {
       *(_DWORD *)(ModuleEntry + 268) = v9;
       if ( v9 == 9 )
         *(_DWORD *)(*v7 + 304) = 1;
-      v42 = NtCurrentPeb()->SharedData;
-      if ( v42 && *v42 )
+      v43 = NtCurrentPeb()->SharedData;
+      if ( v43 && *v43 )
         v13 = (__int64)NtCurrentPeb()->SharedData + 554;
       if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v14 = (__int64)NtCurrentPeb()->SharedData + 555;
         if ( (*(_BYTE *)v14 & 0x20) != 0 )
-          LdrpLogEtwEvent(5292, 0LL, 0, 0, (unsigned __int16 *)v40, 0LL);
+          LdrpLogEtwEvent(5292, 0LL, 0, 0, v41, 0LL);
       }
     }
     else
     {
-      RtlFreeHeap(LdrpHeap, 0LL, v40);
+      RtlFreeHeap(LdrpHeap, 0, v41);
     }
   }
-  v43 = *v7;
+  v44 = *v7;
   LoadedDllByName = 0;
   if ( !*v7 )
     LoadedDllByName = -1073741801;
@@ -376,9 +377,9 @@ LABEL_59:
   {
     return (unsigned int)-1073741515;
   }
-  else if ( v43 )
+  else if ( v44 )
   {
-    return (unsigned int)LdrpLoadKnownDll(*(_QWORD *)(v43 + 176));
+    return (unsigned int)LdrpLoadKnownDll(*(_QWORD *)(v44 + 176));
   }
   return (unsigned int)LoadedDllByName;
 }

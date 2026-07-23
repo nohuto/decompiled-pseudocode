@@ -6,12 +6,12 @@
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepPoolAllocatePaged @ 0x140209EA8 (KsepPoolAllocatePaged.c)
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  *     KsepStringDuplicate @ 0x1406942D4 (KsepStringDuplicate.c)
  *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
  *     KsepRegistryQueryDriverShims @ 0x14069499C (KsepRegistryQueryDriverShims.c)
- *     KsepDbGetShimInfo @ 0x140855540 (KsepDbGetShimInfo.c)
- *     KsepStringSplitMultiString @ 0x14085A6DC (KsepStringSplitMultiString.c)
+ *     KsepDbGetShimInfo @ 0x140855840 (KsepDbGetShimInfo.c)
+ *     KsepStringSplitMultiString @ 0x14085A91C (KsepStringSplitMultiString.c)
  */
 
 __int64 __fastcall KsepEngineGetShimsFromRegistry(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)

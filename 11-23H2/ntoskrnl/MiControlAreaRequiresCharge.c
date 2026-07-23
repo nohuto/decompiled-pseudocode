@@ -4,12 +4,12 @@
  *     MiSessionInsertImage @ 0x14020AE64 (MiSessionInsertImage.c)
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     MiReferenceControlArea @ 0x1402882B8 (MiReferenceControlArea.c)
- *     MiUpControlAreaRefs @ 0x140625EFC (MiUpControlAreaRefs.c)
+ *     MiReferenceControlArea @ 0x140288548 (MiReferenceControlArea.c)
+ *     MiUpControlAreaRefs @ 0x14062644C (MiUpControlAreaRefs.c)
  *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140214D6C (MiControlAreaExemptFromCrossPartitionCharges.c)
  */

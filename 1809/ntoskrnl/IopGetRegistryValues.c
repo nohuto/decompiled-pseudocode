@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetRegistryValues @ 0x1407198F0
+ * XREFs of IopGetRegistryValues @ 0x14071AB90
  * Callers:
- *     pIoQueryDeviceDescription @ 0x140719010 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x140719594 (pIoQueryBusDescription.c)
+ *     pIoQueryDeviceDescription @ 0x14071A2B0 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14071A834 (pIoQueryBusDescription.c)
  * Callees:
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
  */
 
 NTSTATUS __fastcall IopGetRegistryValues(HANDLE KeyHandle, _QWORD *a2)

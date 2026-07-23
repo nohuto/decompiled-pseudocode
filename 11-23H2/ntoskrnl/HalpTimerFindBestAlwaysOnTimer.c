@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerFindBestAlwaysOnTimer @ 0x14037AD70
+ * XREFs of HalpTimerFindBestAlwaysOnTimer @ 0x14037AF10
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A2AC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x14037A44C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
  */
 
 __int64 __fastcall HalpTimerFindBestAlwaysOnTimer(char a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x1405BD3D0
+ * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x1405BD600
  * Callers:
  *     <none>
  * Callees:
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD510 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD740 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 __int64 __fastcall WheaHighIrqlLogSelEventHandlerUnregister(__int64 a1)

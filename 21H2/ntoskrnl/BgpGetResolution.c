@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpGetResolution @ 0x1402D3BC0
+ * XREFs of BgpGetResolution @ 0x140251E30
  * Callers:
- *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
- *     GxpReadFrameBufferPixels @ 0x1409F1A40 (GxpReadFrameBufferPixels.c)
- *     BgpTxtCreateRegion @ 0x1409F30D4 (BgpTxtCreateRegion.c)
- *     BgpConsoleInitialize @ 0x1409F4820 (BgpConsoleInitialize.c)
+ *     LogFwReport @ 0x1409F2524 (LogFwReport.c)
+ *     GxpReadFrameBufferPixels @ 0x1409F2A40 (GxpReadFrameBufferPixels.c)
+ *     BgpTxtCreateRegion @ 0x1409F40D4 (BgpTxtCreateRegion.c)
+ *     BgpConsoleInitialize @ 0x1409F5820 (BgpConsoleInitialize.c)
  * Callees:
  *     <none>
  */

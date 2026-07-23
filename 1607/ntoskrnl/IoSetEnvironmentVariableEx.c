@@ -1,19 +1,19 @@
 /*
- * XREFs of IoSetEnvironmentVariableEx @ 0x140628264
+ * XREFs of IoSetEnvironmentVariableEx @ 0x140628318
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x14013D3BC (IopInitializeOfflineCrashDump.c)
- *     IopInitializeInMemoryDumpData @ 0x1401C75E4 (IopInitializeInMemoryDumpData.c)
- *     ExpSetBootEntry @ 0x1406B16BC (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1406B1E74 (ExpSetDriverEntry.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1406B2440 (ExpSetFirmwareEnvironmentVariable.c)
- *     NtDeleteBootEntry @ 0x1406B348C (NtDeleteBootEntry.c)
- *     NtDeleteDriverEntry @ 0x1406B360C (NtDeleteDriverEntry.c)
- *     NtSetBootEntryOrder @ 0x1406B5050 (NtSetBootEntryOrder.c)
- *     NtSetBootOptions @ 0x1406B5250 (NtSetBootOptions.c)
- *     NtSetDriverEntryOrder @ 0x1406B5444 (NtSetDriverEntryOrder.c)
+ *     IopInitializeOfflineCrashDump @ 0x14013D92C (IopInitializeOfflineCrashDump.c)
+ *     IopInitializeInMemoryDumpData @ 0x1401C7484 (IopInitializeInMemoryDumpData.c)
+ *     ExpSetBootEntry @ 0x1406B17F4 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1406B1FAC (ExpSetDriverEntry.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x1406B2578 (ExpSetFirmwareEnvironmentVariable.c)
+ *     NtDeleteBootEntry @ 0x1406B35C4 (NtDeleteBootEntry.c)
+ *     NtDeleteDriverEntry @ 0x1406B3744 (NtDeleteDriverEntry.c)
+ *     NtSetBootEntryOrder @ 0x1406B5188 (NtSetBootEntryOrder.c)
+ *     NtSetBootOptions @ 0x1406B5388 (NtSetBootOptions.c)
+ *     NtSetDriverEntryOrder @ 0x1406B557C (NtSetDriverEntryOrder.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopOpenSystemVariableDevice @ 0x140628DBC (IopOpenSystemVariableDevice.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopOpenSystemVariableDevice @ 0x140628E70 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoSetEnvironmentVariableEx(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)

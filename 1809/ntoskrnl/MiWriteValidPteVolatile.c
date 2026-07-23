@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWriteValidPteVolatile @ 0x140085FA0
+ * XREFs of MiWriteValidPteVolatile @ 0x140085F90
  * Callers:
  *     MiCheckProtoPtePageState @ 0x140030780 (MiCheckProtoPtePageState.c)
  *     MiLockOwnedProtoPage @ 0x140030EC0 (MiLockOwnedProtoPage.c)
  *     MiMakePageAvoidRead @ 0x1400348E0 (MiMakePageAvoidRead.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
- *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14011B880 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiLockPagedAddress @ 0x140140910 (MiLockPagedAddress.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140085AF0 (MiSetReadOnlyOnSectionView.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     MiWriteWsle @ 0x1400DB218 (MiWriteWsle.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14011B8F0 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiLockPagedAddress @ 0x140140A10 (MiLockPagedAddress.c)
  * Callees:
  *     <none>
  */

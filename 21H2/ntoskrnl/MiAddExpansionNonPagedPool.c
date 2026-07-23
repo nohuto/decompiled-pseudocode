@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAddExpansionNonPagedPool @ 0x1403B6234
+ * XREFs of MiAddExpansionNonPagedPool @ 0x1403B63A4
  * Callers:
- *     MiFreeLargeInitializationCodePages @ 0x1403BD280 (MiFreeLargeInitializationCodePages.c)
- *     MiInitializeNonPagedPool @ 0x140A4E39C (MiInitializeNonPagedPool.c)
+ *     MiFreeLargeInitializationCodePages @ 0x1403BD3F0 (MiFreeLargeInitializationCodePages.c)
+ *     MiInitializeNonPagedPool @ 0x140A4F39C (MiInitializeNonPagedPool.c)
  * Callees:
- *     MiReturnPhysicalPoolPages @ 0x140296934 (MiReturnPhysicalPoolPages.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiReturnPhysicalPoolPages @ 0x14021B214 (MiReturnPhysicalPoolPages.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x140A9BB7C
+ * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x140A9B9EC
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BDA4 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BC14 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 a1)

@@ -1,18 +1,18 @@
 /*
  * XREFs of MiDeleteSubsectionLargePages @ 0x1403F6534
  * Callers:
- *     MiDeleteSubsectionPages @ 0x140239170 (MiDeleteSubsectionPages.c)
+ *     MiDeleteSubsectionPages @ 0x1402DD9C0 (MiDeleteSubsectionPages.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     MiUnlockPage @ 0x1402AF34C (MiUnlockPage.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
+ *     MiUnlockPage @ 0x14022D6AC (MiUnlockPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MiGetLeafPfnBuddy @ 0x14038059C (MiGetLeafPfnBuddy.c)
  *     MiConvertSmallPageRangeToLarge @ 0x1403F6180 (MiConvertSmallPageRangeToLarge.c)
- *     MiFreeLargePages @ 0x14055E498 (MiFreeLargePages.c)
- *     MmUnlockPreChargedPagedPool @ 0x1407771E0 (MmUnlockPreChargedPagedPool.c)
- *     MmReturnChargesToLockPagedPool @ 0x1408C84E0 (MmReturnChargesToLockPagedPool.c)
+ *     MiFreeLargePages @ 0x14055E6D8 (MiFreeLargePages.c)
+ *     MmUnlockPreChargedPagedPool @ 0x1407773A0 (MmUnlockPreChargedPagedPool.c)
+ *     MmReturnChargesToLockPagedPool @ 0x1408C8640 (MmReturnChargesToLockPagedPool.c)
  */
 
 __int64 __fastcall MiDeleteSubsectionLargePages(__int64 a1, _QWORD *a2, __int64 a3)
@@ -52,7 +52,7 @@ __int64 __fastcall MiDeleteSubsectionLargePages(__int64 a1, _QWORD *a2, __int64 
       if ( a3 )
       {
         MiUpdateLargePageBitMap(
-          *(_QWORD *)(qword_140C4E648 + 8 * ((v5[5] >> 39) & 0x3FFLL)),
+          *(_QWORD *)(qword_140C4E688 + 8 * ((v5[5] >> 39) & 0x3FFLL)),
           (__int64)(v5 + 0xB000000000LL) / 48,
           0x200uLL,
           0,

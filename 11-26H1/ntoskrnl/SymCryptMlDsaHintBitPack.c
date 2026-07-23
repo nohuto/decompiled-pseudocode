@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMlDsaHintBitPack @ 0x140572A6C
+ * XREFs of SymCryptMlDsaHintBitPack @ 0x140571C78
  * Callers:
- *     SymCryptMlDsaSigEncode @ 0x140573A68 (SymCryptMlDsaSigEncode.c)
+ *     SymCryptMlDsaSigEncode @ 0x140572CC0 (SymCryptMlDsaSigEncode.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
  */
 
 __int64 __fastcall SymCryptMlDsaHintBitPack(__int64 a1, _BYTE *a2, __int64 a3)

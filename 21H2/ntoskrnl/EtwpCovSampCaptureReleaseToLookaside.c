@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF160
+ * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF390
  * Callers:
- *     EtwpCovSampCaptureApc @ 0x1405AE420 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureApcRelease @ 0x1405AE54C (EtwpCovSampCaptureApcRelease.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x1405AE7A8 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x1405AE7C4 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1405AEE40 (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampLookasidePop @ 0x1405AF50C (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x140942AC0 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureApc @ 0x1405AE650 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1405AE77C (EtwpCovSampCaptureApcRelease.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE9D8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x1405AE9F4 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1405AF070 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampLookasidePop @ 0x1405AF73C (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942C90 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
-char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)
+char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, _SLIST_ENTRY *a3)
 {
   __int64 v4; // rbx
   unsigned __int32 v6; // eax

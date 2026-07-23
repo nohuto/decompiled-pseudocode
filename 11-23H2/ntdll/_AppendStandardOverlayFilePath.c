@@ -1,7 +1,7 @@
 /*
- * XREFs of _AppendStandardOverlayFilePath @ 0x18012EF30
+ * XREFs of _AppendStandardOverlayFilePath @ 0x18012EF5C
  * Callers:
- *     _BuildStandardOverlayFilePath @ 0x18012F0E4 (_BuildStandardOverlayFilePath.c)
+ *     _BuildStandardOverlayFilePath @ 0x18012F110 (_BuildStandardOverlayFilePath.c)
  * Callees:
  *     wcscat_s @ 0x18009B080 (wcscat_s.c)
  */

@@ -1,12 +1,13 @@
 /*
- * XREFs of swscanf_s @ 0x1405046E0
+ * XREFs of swscanf_s @ 0x140501FA0
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgSplitDriverConfigurationId @ 0x14072C228 (PiDevCfgSplitDriverConfigurationId.c)
- *     ExProcessorCounterSetCallback @ 0x1409DD2F0 (ExProcessorCounterSetCallback.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgParseVersionString @ 0x1407285BC (PiDevCfgParseVersionString.c)
+ *     PiDevCfgSplitDriverConfigurationId @ 0x14072A218 (PiDevCfgSplitDriverConfigurationId.c)
+ *     ExProcessorCounterSetCallback @ 0x1409D6EC0 (ExProcessorCounterSetCallback.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     _swinput_s @ 0x1405070D4 (_swinput_s.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     _swinput_s @ 0x140504994 (_swinput_s.c)
  */
 
 int swscanf_s(const wchar_t *Src, const wchar_t *Format, ...)

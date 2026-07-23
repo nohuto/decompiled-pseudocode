@@ -1,20 +1,20 @@
 /*
- * XREFs of PopNotifyConsoleUserPresent @ 0x140773100
+ * XREFs of PopNotifyConsoleUserPresent @ 0x1407732C0
  * Callers:
- *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
- *     PopReleaseAdaptiveLock @ 0x14067DFA4 (PopReleaseAdaptiveLock.c)
- *     PopDispatchFullWake @ 0x14077A190 (PopDispatchFullWake.c)
- *     PopUserPresentSetWorker @ 0x14078EB40 (PopUserPresentSetWorker.c)
- *     PopSetSystemAwayMode @ 0x1408E77D0 (PopSetSystemAwayMode.c)
+ *     NtSetThreadExecutionState @ 0x1406713E0 (NtSetThreadExecutionState.c)
+ *     PopReleaseAdaptiveLock @ 0x140671D94 (PopReleaseAdaptiveLock.c)
+ *     PopDispatchFullWake @ 0x14077A350 (PopDispatchFullWake.c)
+ *     PopUserPresentSetWorker @ 0x14078ED00 (PopUserPresentSetWorker.c)
+ *     PopSetSystemAwayMode @ 0x1408E7930 (PopSetSystemAwayMode.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x140281DB0 (RtlGetActiveConsoleId.c)
- *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
- *     TtmNotifyConsoleUserPresent @ 0x1408FE8E4 (TtmNotifyConsoleUserPresent.c)
+ *     RtlGetActiveConsoleId @ 0x14026FFF0 (RtlGetActiveConsoleId.c)
+ *     PopInvokeWin32Callout @ 0x14066EF08 (PopInvokeWin32Callout.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1408FEA44 (TtmNotifyConsoleUserPresent.c)
  */
 
 void __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigned int a3)
 {
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
   __int16 v8; // [rsp+25h] [rbp-2Bh]
@@ -25,7 +25,7 @@ void __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigne
   int v13; // [rsp+38h] [rbp-18h]
   int v14; // [rsp+3Ch] [rbp-14h]
   __int64 v15; // [rsp+40h] [rbp-10h]
-  unsigned int v16; // [rsp+78h] [rbp+28h] BYREF
+  ULONG v16; // [rsp+78h] [rbp+28h] BYREF
   __int64 v17; // [rsp+88h] [rbp+38h] BYREF
 
   LOBYTE(v16) = a2;
@@ -54,7 +54,7 @@ void __fastcall PopNotifyConsoleUserPresent(unsigned __int8 a1, char a2, unsigne
         v10 = 8;
         v13 = 0;
         v15 = 0LL;
-        PopInvokeWin32Callout(5, (__int64)&v6, 1, (int *)&v16);
+        PopInvokeWin32Callout(5u, (__int64)&v6, 1u, (int *)&v16);
       }
     }
   }

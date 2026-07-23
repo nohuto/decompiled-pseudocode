@@ -171,7 +171,7 @@ LABEL_23:
   if ( !*v5 )
     goto LABEL_24;
   v16 = qword_140F21748;
-  v17 = v8 + (unsigned int)KeMaximumIncrement;
+  v17 = v8 + KeMaximumIncrement;
   if ( qword_140F21760 < (unsigned __int64)qword_140F21748 )
     v16 = qword_140F21760;
   if ( v16 > v8 )

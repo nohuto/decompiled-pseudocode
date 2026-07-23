@@ -6,26 +6,26 @@
  *     memmove @ 0x140411040 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendAsciizToString(unsigned __int16 *a1, _BYTE *a2)
+NTSTATUS __cdecl RtlAppendAsciizToString(PSTRING Destination, PCSTR Source)
 {
   size_t v3; // rbx
-  __int64 v4; // r8
+  __int64 Length; // r8
 
-  if ( !a2 )
-    return 0LL;
+  if ( !Source )
+    return 0;
   v3 = -1LL;
   do
     ++v3;
-  while ( a2[v3] );
+  while ( Source[v3] );
   if ( v3 <= 0xFFFF )
   {
-    v4 = *a1;
-    if ( v4 + v3 <= a1[1] )
+    Length = Destination->Length;
+    if ( Length + v3 <= Destination->MaximumLength )
     {
-      memmove((void *)(v4 + *((_QWORD *)a1 + 1)), a2, v3);
-      *a1 += v3;
-      return 0LL;
+      memmove(&Destination->Buffer[Length], Source, v3);
+      Destination->Length += v3;
+      return 0;
     }
   }
-  return 3221225507LL;
+  return -1073741789;
 }

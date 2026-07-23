@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwExitProcess @ 0x140461084
+ * XREFs of EtwExitProcess @ 0x14045FF54
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

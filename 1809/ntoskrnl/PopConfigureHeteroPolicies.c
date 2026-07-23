@@ -1,16 +1,16 @@
 /*
- * XREFs of PopConfigureHeteroPolicies @ 0x14074F744
+ * XREFs of PopConfigureHeteroPolicies @ 0x140750934
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14074F434 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140750624 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeConfigureHeteroPolicy @ 0x14074FC08 (KeConfigureHeteroPolicy.c)
- *     PpmHeteroComputeBias @ 0x140876498 (PpmHeteroComputeBias.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeConfigureHeteroPolicy @ 0x140750DF8 (KeConfigureHeteroPolicy.c)
+ *     PpmHeteroComputeBias @ 0x1408776F8 (PpmHeteroComputeBias.c)
  */
 
 char __fastcall PopConfigureHeteroPolicies(int a1, char a2)
@@ -141,14 +141,14 @@ LABEL_5:
       if ( i == 2 )
       {
         if ( PpmBackgroundProfile )
-          v53 = *(_QWORD *)(2728LL * dword_1404180CC + PpmBackgroundProfile + 40);
+          v53 = *(_QWORD *)(2728LL * dword_14041918C + PpmBackgroundProfile + 40);
         else
           v53 = 0LL;
       }
       else if ( i != 3 )
       {
         LODWORD(v10) = HIDWORD(v53);
-        v11 = &PpmCurrentProfile[341 * dword_1404180CC + 5];
+        v11 = &PpmCurrentProfile[341 * dword_14041918C + 5];
 LABEL_14:
         LODWORD(v10) = v10 | 0x1800;
         HIDWORD(v53) = v10;
@@ -157,12 +157,12 @@ LABEL_14:
       v12 = PpmMultimediaQosProfile;
       if ( !PpmMultimediaQosProfile )
       {
-        v11 = &PpmCurrentProfile[341 * dword_1404180CC + 5];
+        v11 = &PpmCurrentProfile[341 * dword_14041918C + 5];
         v10 = HIDWORD(v53);
         goto LABEL_14;
       }
     }
-    v11 = (__int64 *)(2728LL * dword_1404180CC + v12 + 40);
+    v11 = (__int64 *)(2728LL * dword_14041918C + v12 + 40);
     v53 = *v11;
     v10 = HIDWORD(*v11);
 LABEL_15:
@@ -178,13 +178,13 @@ LABEL_15:
   }
   if ( a2 )
   {
-    dword_14041042C = -1;
+    dword_1404114EC = -1;
     PopHeteroLegacyOverride = 5;
-    qword_140410404 = 0x500000005LL;
-    qword_14041040C = 0x500000005LL;
-    qword_140410414 = 0x500000005LL;
-    qword_14041041C = 0x500000005LL;
-    qword_140410424 = 0LL;
+    qword_1404114C4 = 0x500000005LL;
+    qword_1404114CC = 0x500000005LL;
+    qword_1404114D4 = 0x500000005LL;
+    qword_1404114DC = 0x500000005LL;
+    qword_1404114E4 = 0LL;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
     ObjectAttributes.Length = 48;
     ObjectAttributes.ObjectName = &DestinationString;
@@ -193,7 +193,7 @@ LABEL_15:
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenKey(&KeyHandle, 8u, &ObjectAttributes) >= 0 )
     {
-      v40 = &off_14090A9E8;
+      v40 = &off_14090BCA8;
       ObjectAttributes.RootDirectory = KeyHandle;
       do
       {
@@ -228,7 +228,7 @@ LABEL_15:
     v15 = 2LL;
     do
     {
-      v16 = *(_DWORD *)((char *)&qword_140410404 + v14 * 4);
+      v16 = *(_DWORD *)((char *)&qword_1404114C4 + v14 * 4);
       if ( v16 != 5 )
         v61[v14 + 1] = v16;
       ++v14;
@@ -243,16 +243,16 @@ LABEL_15:
     v17 = (unsigned int)PopHeteroLegacyOverride;
   v18 = v61[9];
   v19 = v61[11];
-  if ( (_DWORD)qword_140410424 )
-    v18 = qword_140410424;
+  if ( (_DWORD)qword_1404114E4 )
+    v18 = qword_1404114E4;
   v61[9] = v18;
   v20 = v61[10];
-  if ( HIDWORD(qword_140410424) )
-    v20 = HIDWORD(qword_140410424);
+  if ( HIDWORD(qword_1404114E4) )
+    v20 = HIDWORD(qword_1404114E4);
   v61[0] = v17;
   v61[10] = v20;
-  if ( dword_14041042C != -1 )
-    v19 = dword_14041042C;
+  if ( dword_1404114EC != -1 )
+    v19 = dword_1404114EC;
   v61[11] = v19;
   if ( PpmPerfBootHeteroPolicyOverrideEnabled )
   {

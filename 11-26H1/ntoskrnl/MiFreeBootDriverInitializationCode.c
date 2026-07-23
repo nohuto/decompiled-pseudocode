@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeBootDriverInitializationCode @ 0x140864340
+ * XREFs of MiFreeBootDriverInitializationCode @ 0x14086A720
  * Callers:
  *     <none>
  * Callees:
- *     MiFreeDriverInitialization @ 0x140AC90AC (MiFreeDriverInitialization.c)
+ *     MiFreeDriverInitialization @ 0x140ACB1C4 (MiFreeDriverInitialization.c)
  */
 
 __int64 __fastcall MiFreeBootDriverInitializationCode(__int64 a1)

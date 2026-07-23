@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateAweInfoBitMap @ 0x140878888
+ * XREFs of MiCreateAweInfoBitMap @ 0x14087EC68
  * Callers:
- *     MiAllocateAweInfo @ 0x140877584 (MiAllocateAweInfo.c)
- *     MiResizeAweBitMap @ 0x1408791F8 (MiResizeAweBitMap.c)
+ *     MiAllocateAweInfo @ 0x14087D964 (MiAllocateAweInfo.c)
+ *     MiResizeAweBitMap @ 0x14087F5D8 (MiResizeAweBitMap.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetAweInfoPartition @ 0x1403BC1DC (MiGetAweInfoPartition.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40 (PsChargeProcessNonPagedPoolQuota.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiReadHighestPhysicalPage @ 0x1404D6A6C (MiReadHighestPhysicalPage.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetAweInfoPartition @ 0x1403C604C (MiGetAweInfoPartition.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiReadHighestPhysicalPage @ 0x1404D023C (MiReadHighestPhysicalPage.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1)

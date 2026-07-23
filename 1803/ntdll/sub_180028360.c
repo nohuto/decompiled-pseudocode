@@ -11,14 +11,14 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-struct _PEB *__fastcall sub_180028360(__int64 a1, __int64 a2)
+int __fastcall sub_180028360(_TP_CALLBACK_INSTANCE *Instance, __int64 a2)
 {
   __int64 *v2; // rbx
   __int64 v5; // rdi
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v7; // rcx
-  struct _PEB *result; // rax
-  _DWORD *v9; // rcx
+  struct _PEB *v8; // rax
+  PSILO_USER_SHARED_DATA v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // r8
   __int64 v12; // r10
@@ -28,25 +28,25 @@ struct _PEB *__fastcall sub_180028360(__int64 a1, __int64 a2)
   unsigned int v16; // eax
   __int64 v17; // r9
   __int64 *v18; // rsi
-  void (__fastcall *v19)(__int64, __int64, __int64 *); // rax
-  __int64 v20; // rdx
-  _DWORD *v21; // rcx
+  void (__cdecl *v19)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK); // rax
+  void *v20; // rdx
+  _DWORD *p_ServiceSessionId; // rcx
 
   v2 = (__int64 *)(a2 - 200);
   v5 = 2147353478LL;
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
     v7 = 2147353478LL;
   if ( *(_BYTE *)v7 )
     sub_1800023A8(v2[18], a2, v2[10], v2[11], v2[13]);
-  result = (struct _PEB *)sub_180025ACC(a1, (__int64)v2, 0);
-  if ( (_DWORD)result )
+  LODWORD(v8) = sub_180025ACC(Instance, (__int64)v2, 0);
+  if ( (_DWORD)v8 )
   {
-    v9 = NtCurrentPeb()->HotpatchInformation;
-    if ( v9 && *v9 )
-      v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    v9 = NtCurrentPeb()->SharedData;
+    if ( v9 && v9->ServiceSessionId )
+      v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v10 = 2147353478LL;
     if ( *(_BYTE *)v10 )
@@ -73,32 +73,32 @@ struct _PEB *__fastcall sub_180028360(__int64 a1, __int64 a2)
     {
       v18 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = v13;
-    *(_QWORD *)(a1 + 96) = v2[11];
-    v19 = (void (__fastcall *)(__int64, __int64, __int64 *))v2[10];
-    v20 = v2[11];
-    if ( (char *)v19 == (char *)sub_180042660 )
-      sub_180042660(a1, v20, v2);
+    *((_QWORD *)Instance + 11) = v13;
+    *((_QWORD *)Instance + 12) = v2[11];
+    v19 = (void (__cdecl *)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK))v2[10];
+    v20 = (void *)v2[11];
+    if ( v19 == sub_180042660 )
+      sub_180042660(Instance, v20, (PTP_WORK)v2);
     else
-      v19(a1, v20, v2);
-    result = NtCurrentPeb();
-    v21 = result->HotpatchInformation;
-    if ( v21 && *v21 )
+      ((void (__fastcall *)(_TP_CALLBACK_INSTANCE *, void *, __int64 *))v19)(Instance, v20, v2);
+    v8 = NtCurrentPeb();
+    p_ServiceSessionId = &v8->SharedData->ServiceSessionId;
+    if ( p_ServiceSessionId && *p_ServiceSessionId )
     {
-      result = NtCurrentPeb();
-      v5 = (__int64)result->HotpatchInformation + 556;
+      v8 = NtCurrentPeb();
+      v5 = (__int64)&v8->SharedData->UserModeGlobalLogger[3];
     }
     if ( *(_BYTE *)v5 )
-      result = (struct _PEB *)sub_180002050(v2[18], a2, v2[10], v2[11], v2[13]);
+      LODWORD(v8) = sub_180002050(v2[18], a2, v2[10], v2[11], v2[13]);
     if ( v18 )
     {
-      result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+      v8 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
       if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v18[3] )
       {
-        result = (struct _PEB *)((char *)result - v18[3]);
-        v18[3] = (__int64)result;
+        v8 = (struct _PEB *)((char *)v8 - v18[3]);
+        v18[3] = (__int64)v8;
       }
     }
   }
-  return result;
+  return (int)v8;
 }

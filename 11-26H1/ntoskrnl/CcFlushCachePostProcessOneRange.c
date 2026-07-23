@@ -1,19 +1,19 @@
 /*
- * XREFs of CcFlushCachePostProcessOneRange @ 0x140399E5C
+ * XREFs of CcFlushCachePostProcessOneRange @ 0x14039BBBC
  * Callers:
- *     CcWriteBehindInternal @ 0x140384680 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x140385C44 (CcWriteBehindAsync.c)
- *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x1404BB630 (CcAsyncLazywriteWorkerMulti.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x1405B3AB4 (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcWriteBehindInternal @ 0x140386430 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x1403879F4 (CcWriteBehindAsync.c)
+ *     CcFlushCachePriv @ 0x14039A060 (CcFlushCachePriv.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404B4E10 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x1405B62C4 (CcWriteBehindAsyncFlushOneRange.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     CcReleaseByteRangeFromWrite @ 0x14046D170 (CcReleaseByteRangeFromWrite.c)
- *     CcIsFatalWriteError @ 0x14046DAB0 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x1404AA1C8 (CcPerfLogFlushSection.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1404668F0 (CcReleaseByteRangeFromWrite.c)
+ *     CcIsFatalWriteError @ 0x140467230 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushSection @ 0x1404A3858 (CcPerfLogFlushSection.c)
  */
 
 bool __fastcall CcFlushCachePostProcessOneRange(__int64 *a1)
@@ -79,7 +79,7 @@ bool __fastcall CcFlushCachePostProcessOneRange(__int64 *a1)
     v17 = v30;
     while ( 1 )
     {
-      if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+      if ( (xmmword_140FC0C10 & 0x20000) != 0 )
         CcPerfLogFlushSection(a1[22], v7, (unsigned int)&v24, 4096, *((_DWORD *)a1 + 14));
       v18 = v26;
       *v9 = v8 != 0 ? 0x80000016 : 0;
@@ -152,8 +152,8 @@ LABEL_8:
   if ( v8 && !v3 )
   {
     v13 = *(_QWORD *)a1[23] == a1[23]
-        ? LODWORD(EmpParseLock.KernelShadowStackInitial) / 0xA
-        : LODWORD(EmpParseLock.KernelShadowStackInitial);
+        ? LODWORD(EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Flink) / 0xA
+        : LODWORD(EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Flink);
     a1[20] = a1[19] + v13;
     if ( MEMORY[0xFFFFF78000000320] > a1[20] )
     {

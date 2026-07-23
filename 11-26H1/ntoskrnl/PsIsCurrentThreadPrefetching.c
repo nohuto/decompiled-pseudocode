@@ -1,8 +1,8 @@
 /*
- * XREFs of PsIsCurrentThreadPrefetching @ 0x14049B190
+ * XREFs of PsIsCurrentThreadPrefetching @ 0x140494CE0
  * Callers:
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
- *     MiShareExistingControlArea @ 0x140A56A00 (MiShareExistingControlArea.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
+ *     MiShareExistingControlArea @ 0x140A63F80 (MiShareExistingControlArea.c)
  * Callees:
  *     <none>
  */

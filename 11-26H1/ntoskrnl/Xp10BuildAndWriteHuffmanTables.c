@@ -1,11 +1,11 @@
 /*
- * XREFs of Xp10BuildAndWriteHuffmanTables @ 0x14080AD24
+ * XREFs of Xp10BuildAndWriteHuffmanTables @ 0x1408107B4
  * Callers:
- *     Xp10BuildAndWriteHuffmanEncodings @ 0x14080A948 (Xp10BuildAndWriteHuffmanEncodings.c)
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x1408103D8 (Xp10BuildAndWriteHuffmanEncodings.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     Xp10BuildHuffmanEncodings @ 0x14080BA1C (Xp10BuildHuffmanEncodings.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     Xp10BuildHuffmanEncodings @ 0x1408114AC (Xp10BuildHuffmanEncodings.c)
  */
 
 __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -249,7 +249,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
         v32 = v31;
         if ( v23 < v31 )
           v32 = v23;
-        v33 = byte_140035A10[4 * v32];
+        v33 = byte_140035FA0[4 * v32];
         v34 = v31;
         *v21 |= (v33 & 1) << v20;
         if ( v23 < v31 )
@@ -271,7 +271,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           while ( v38 );
         }
         if ( (_DWORD)v36 )
-          *v37 |= (unsigned __int8)v35 & byte_140035A10[4 * v36];
+          *v37 |= (unsigned __int8)v35 & byte_140035FA0[4 * v36];
         v18 = v31 + *(_DWORD *)(a4 + 8);
         *(_DWORD *)(a4 + 8) = v18;
       }
@@ -288,7 +288,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           v53 = v44;
           if ( v43 < v44 )
             v53 = v43;
-          v54 = byte_140035A10[4 * v53];
+          v54 = byte_140035FA0[4 * v53];
           v55 = v44;
           *v42 |= ((unsigned __int8)v24 & (unsigned __int8)v54) << v41;
           if ( v43 < v44 )
@@ -320,7 +320,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           v46 = v44;
           if ( v43 < v44 )
             v46 = v43;
-          v47 = byte_140035A10[4 * v46];
+          v47 = byte_140035FA0[4 * v46];
           v48 = v44;
           *v42 |= ((unsigned __int8)v45 & (unsigned __int8)v47) << v41;
           if ( v43 < v44 )
@@ -343,7 +343,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           }
 LABEL_57:
           if ( (_DWORD)v50 )
-            *v51 |= (unsigned __int8)v49 & byte_140035A10[4 * v50];
+            *v51 |= (unsigned __int8)v49 & byte_140035FA0[4 * v50];
           *(_DWORD *)(a4 + 8) += v44;
         }
       }
@@ -373,7 +373,7 @@ LABEL_57:
         while ( v30 );
       }
       if ( (_DWORD)v27 )
-        *v28 |= (unsigned __int8)v29 & byte_140035A10[4 * v27];
+        *v28 |= (unsigned __int8)v29 & byte_140035FA0[4 * v27];
       *(_DWORD *)(a4 + 8) += v25;
     }
 LABEL_71:
@@ -425,7 +425,7 @@ LABEL_71:
         v71 = v69;
         if ( v68 < v69 )
           v71 = v68;
-        v72 = byte_140035A10[4 * v71];
+        v72 = byte_140035FA0[4 * v71];
         v73 = v69;
         *v67 |= ((unsigned __int8)v70 & (unsigned __int8)v72) << v66;
         if ( v68 < v69 )
@@ -447,7 +447,7 @@ LABEL_71:
           while ( v77 );
         }
         if ( (_DWORD)v75 )
-          *v76 |= (unsigned __int8)v74 & byte_140035A10[4 * v75];
+          *v76 |= (unsigned __int8)v74 & byte_140035FA0[4 * v75];
         *(_DWORD *)(a4 + 8) += v69;
       }
       ++v59;
@@ -474,7 +474,7 @@ LABEL_71:
             v87 = v86;
             if ( v85 < v86 )
               v87 = v85;
-            v88 = byte_140035A10[4 * v87];
+            v88 = byte_140035FA0[4 * v87];
             v89 = v86;
             *v83 |= ((unsigned __int8)v80 & (unsigned __int8)v88) << v84;
             if ( v85 < v86 )
@@ -496,7 +496,7 @@ LABEL_71:
               while ( v93 );
             }
             if ( (_DWORD)v92 )
-              *v90 |= (unsigned __int8)v91 & byte_140035A10[4 * v92];
+              *v90 |= (unsigned __int8)v91 & byte_140035FA0[4 * v92];
             *(_DWORD *)(a4 + 8) += v86;
           }
           v78 = (v78 & 0xFFF0) + 16;
@@ -522,7 +522,7 @@ LABEL_71:
           v117 = v111;
           if ( v115 < v111 )
             v117 = v115;
-          v118 = byte_140035A10[4 * v117];
+          v118 = byte_140035FA0[4 * v117];
           v119 = v111;
           *v114 |= ((unsigned __int8)v116 & (unsigned __int8)v118) << v113;
           if ( v115 < v111 )
@@ -544,7 +544,7 @@ LABEL_71:
             while ( v123 );
           }
           if ( (_DWORD)v121 )
-            *v122 |= (unsigned __int8)v120 & byte_140035A10[4 * v121];
+            *v122 |= (unsigned __int8)v120 & byte_140035FA0[4 * v121];
           v110 = v111 + *(_DWORD *)(a4 + 8);
           *(_DWORD *)(a4 + 8) = v110;
         }
@@ -562,7 +562,7 @@ LABEL_71:
             v138 = v130;
             if ( v128 < v130 )
               v138 = v128;
-            v139 = byte_140035A10[4 * v138];
+            v139 = byte_140035FA0[4 * v138];
             v140 = v130;
             *v127 |= (v139 & 3) << v126;
             if ( v128 < v130 )
@@ -584,7 +584,7 @@ LABEL_71:
               while ( v144 );
             }
             if ( (_DWORD)v142 )
-              *v143 |= (unsigned __int8)v141 & byte_140035A10[4 * v142];
+              *v143 |= (unsigned __int8)v141 & byte_140035FA0[4 * v142];
             v110 = v130 + *(_DWORD *)(a4 + 8);
             *(_DWORD *)(a4 + 8) = v110;
           }
@@ -604,7 +604,7 @@ LABEL_71:
                 v152 = v148;
                 if ( v151 < v148 )
                   v152 = v151;
-                v153 = byte_140035A10[4 * v152];
+                v153 = byte_140035FA0[4 * v152];
                 v154 = v148;
                 *v149 |= (v153 & 7) << v150;
                 if ( v151 < v148 )
@@ -626,7 +626,7 @@ LABEL_71:
                   while ( v158 );
                 }
                 if ( (_DWORD)v156 )
-                  *v157 |= (unsigned __int8)v155 & byte_140035A10[4 * v156];
+                  *v157 |= (unsigned __int8)v155 & byte_140035FA0[4 * v156];
                 *(_DWORD *)(a4 + 8) += v148;
                 v110 = *(_DWORD *)(a4 + 8);
               }
@@ -652,7 +652,7 @@ LABEL_71:
           v164 = v130;
           if ( v163 < v130 )
             v164 = v163;
-          v165 = byte_140035A10[4 * v164];
+          v165 = byte_140035FA0[4 * v164];
           v166 = v130;
           *v161 |= ((unsigned __int8)v145 & (unsigned __int8)v165) << v162;
           if ( v163 < v130 )
@@ -680,7 +680,7 @@ LABEL_71:
           v131 = v130;
           if ( v128 < v130 )
             v131 = v128;
-          v132 = byte_140035A10[4 * v131];
+          v132 = byte_140035FA0[4 * v131];
           v133 = v130;
           *v127 |= ((unsigned __int8)v129 & (unsigned __int8)v132) << v126;
           if ( v128 < v130 )
@@ -703,7 +703,7 @@ LABEL_71:
           }
 LABEL_154:
           if ( (_DWORD)v135 )
-            *v136 |= (unsigned __int8)v134 & byte_140035A10[4 * v135];
+            *v136 |= (unsigned __int8)v134 & byte_140035FA0[4 * v135];
           *(_DWORD *)(a4 + 8) += v130;
         }
       }
@@ -724,7 +724,7 @@ LABEL_154:
             v103 = v102;
             if ( v101 < v102 )
               v103 = v101;
-            v104 = byte_140035A10[4 * v103];
+            v104 = byte_140035FA0[4 * v103];
             v105 = v102;
             *v99 |= ((unsigned __int8)v96 & (unsigned __int8)v104) << v100;
             if ( v101 < v102 )
@@ -746,7 +746,7 @@ LABEL_154:
               while ( v109 );
             }
             if ( (_DWORD)v108 )
-              *v106 |= (unsigned __int8)v107 & byte_140035A10[4 * v108];
+              *v106 |= (unsigned __int8)v107 & byte_140035FA0[4 * v108];
             *(_DWORD *)(a4 + 8) += v102;
           }
           --v94;

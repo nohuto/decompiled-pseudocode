@@ -1,17 +1,17 @@
 /*
- * XREFs of PoHandleIrp @ 0x14028D77C
+ * XREFs of PoHandleIrp @ 0x14028DA0C
  * Callers:
- *     IopPoHandleIrp @ 0x14028D72C (IopPoHandleIrp.c)
+ *     IopPoHandleIrp @ 0x14028D9BC (IopPoHandleIrp.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PoDeviceReleaseIrp @ 0x14028D91C (PoDeviceReleaseIrp.c)
- *     PoDeviceAcquireIrp @ 0x14028D9B8 (PoDeviceAcquireIrp.c)
- *     PopDispatchQuerySetIrp @ 0x14028DA74 (PopDispatchQuerySetIrp.c)
- *     PopEnableIrpWatchdog @ 0x14028ECB8 (PopEnableIrpWatchdog.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceDIrpAfterSx @ 0x1405924F8 (PopDiagTraceDIrpAfterSx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PoDeviceReleaseIrp @ 0x14028DBAC (PoDeviceReleaseIrp.c)
+ *     PoDeviceAcquireIrp @ 0x14028DC48 (PoDeviceAcquireIrp.c)
+ *     PopDispatchQuerySetIrp @ 0x14028DD04 (PopDispatchQuerySetIrp.c)
+ *     PopEnableIrpWatchdog @ 0x14028EF48 (PopEnableIrpWatchdog.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceDIrpAfterSx @ 0x1405929E8 (PopDiagTraceDIrpAfterSx.c)
  */
 
 char __fastcall PoHandleIrp(PIRP Irp, __int64 a2)
@@ -63,10 +63,13 @@ char __fastcall PoHandleIrp(PIRP Irp, __int64 a2)
       PopIrpLockThread = 0LL;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -120,10 +123,10 @@ LABEL_17:
   PopIrpLockThread = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v13 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of WerReportSQMEvent @ 0x1800D9540
+ * XREFs of WerReportSQMEvent @ 0x1800D9600
  * Callers:
- *     ShipAssert @ 0x1800D8F10 (ShipAssert.c)
+ *     ShipAssert @ 0x1800D8FD0 (ShipAssert.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     WerEscalationLazyInit @ 0x1800D91C8 (WerEscalationLazyInit.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     WerEscalationLazyInit @ 0x1800D9288 (WerEscalationLazyInit.c)
  */
 
 __int64 __fastcall WerReportSQMEvent(int a1, __int64 a2, unsigned int a3)

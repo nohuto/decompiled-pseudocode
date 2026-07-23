@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReformatCheck @ 0x180095F80
+ * XREFs of RtlpHpLfhSubsegmentReformatCheck @ 0x180063920
  * Callers:
- *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x180094DC0 (RtlpHpLfhSubsegmentReformatAsSingle.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x180094FF0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x180062764 (RtlpHpLfhSubsegmentReformatAsSingle.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x180062990 (RtlpHpLfhSubsegmentReformatAsMulti.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpLfhSubsegmentConstructCommitState @ 0x1800957B0 (RtlpHpLfhSubsegmentConstructCommitState.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpLfhSubsegmentConstructCommitState @ 0x180063150 (RtlpHpLfhSubsegmentConstructCommitState.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64 a2, _DWORD *a3, _DWORD *a4)
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64
     LODWORD(v16) = 0;
     v17 = (__int16 *)(a2 + 8LL * *(unsigned __int8 *)(a2 + 24));
     v18 = &v17[*(unsigned __int8 *)(a2 + 39)];
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 56));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 56));
     if ( v17 < v18 )
     {
       v19 = v23;
@@ -79,7 +79,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64
       }
       while ( v17 < v18 );
     }
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a2 + 56));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 56));
     if ( v17 < v18 )
     {
       return 0LL;

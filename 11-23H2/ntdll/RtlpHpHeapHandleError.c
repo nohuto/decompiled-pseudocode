@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpHeapHandleError @ 0x1801169C0
+ * XREFs of RtlpHpHeapHandleError @ 0x180116990
  * Callers:
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  * Callees:
  *     RtlCaptureStackBackTrace @ 0x18007A3C0 (RtlCaptureStackBackTrace.c)
- *     HeapCommitFailAvoidTriageRules @ 0x1801163C0 (HeapCommitFailAvoidTriageRules.c)
- *     RtlpHeapHandleError @ 0x180116748 (RtlpHeapHandleError.c)
- *     RtlpHpRaiseFatalLimitError @ 0x180116C6C (RtlpHpRaiseFatalLimitError.c)
- *     RtlpLocateRelatedBlocks @ 0x180117FE8 (RtlpLocateRelatedBlocks.c)
- *     RtlpHeapExceptionFilter @ 0x1801228D8 (RtlpHeapExceptionFilter.c)
+ *     HeapCommitFailAvoidTriageRules @ 0x180116390 (HeapCommitFailAvoidTriageRules.c)
+ *     RtlpHeapHandleError @ 0x180116718 (RtlpHeapHandleError.c)
+ *     RtlpHpRaiseFatalLimitError @ 0x180116C3C (RtlpHpRaiseFatalLimitError.c)
+ *     RtlpLocateRelatedBlocks @ 0x180117FB8 (RtlpLocateRelatedBlocks.c)
+ *     RtlpHeapExceptionFilter @ 0x1801228A8 (RtlpHeapExceptionFilter.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

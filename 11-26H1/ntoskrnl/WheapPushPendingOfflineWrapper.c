@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapPushPendingOfflineWrapper @ 0x14084A4E8
+ * XREFs of WheapPushPendingOfflineWrapper @ 0x1408507F8
  * Callers:
- *     WheapProcessOfflineList @ 0x1406D8C30 (WheapProcessOfflineList.c)
- *     WheapTrackPendingPage @ 0x14084A518 (WheapTrackPendingPage.c)
+ *     WheapProcessOfflineList @ 0x1406DCDC0 (WheapProcessOfflineList.c)
+ *     WheapTrackPendingPage @ 0x140850828 (WheapTrackPendingPage.c)
  * Callees:
- *     ExInterlockedPushEntryList @ 0x1406D09F0 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x1406D4A20 (ExInterlockedPushEntryList.c)
  */
 
 PSINGLE_LIST_ENTRY __fastcall WheapPushPendingOfflineWrapper(PSINGLE_LIST_ENTRY ListEntry)
@@ -12,9 +12,9 @@ PSINGLE_LIST_ENTRY __fastcall WheapPushPendingOfflineWrapper(PSINGLE_LIST_ENTRY 
   PSINGLE_LIST_ENTRY result; // rax
 
   result = ExInterlockedPushEntryList(
-             (PSINGLE_LIST_ENTRY)&CmpCallbackListLock.WaitBlockFill11[40],
+             (PSINGLE_LIST_ENTRY)&CmpContextListLock.WaitBlockFill11[32],
              ListEntry,
-             (PKSPIN_LOCK)&CmpCallbackListLock.WaitBlock[1]);
-  _InterlockedIncrement((volatile signed __int32 *)&CmpCallbackListLock.WaitBlockFill11[56]);
+             (PKSPIN_LOCK)&CmpContextListLock.WaitBlock[0].SparePtr);
+  _InterlockedIncrement((volatile signed __int32 *)&CmpContextListLock.WaitBlockFill11[48]);
   return result;
 }

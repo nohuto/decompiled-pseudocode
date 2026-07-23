@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRemoveUserPhysicalPagesView @ 0x1407028D4
+ * XREFs of MiRemoveUserPhysicalPagesView @ 0x1407075A4
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiLockAweVadsExclusive @ 0x1404FEF8C (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1405251E0 (MiUnlockAweVadsExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiLockAweVadsExclusive @ 0x1404F877C (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x140527850 (MiUnlockAweVadsExclusive.c)
  */
 
 _QWORD *__fastcall MiRemoveUserPhysicalPagesView(__int64 a1)

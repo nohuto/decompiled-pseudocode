@@ -1,18 +1,18 @@
 /*
- * XREFs of KiAbThreadInsertList @ 0x140128DD8
+ * XREFs of KiAbThreadInsertList @ 0x140128EA8
  * Callers:
  *     KiAbSetMinimumThreadPriority @ 0x1400245F0 (KiAbSetMinimumThreadPriority.c)
  *     ExpAcquireResourceExclusiveLite @ 0x140050D60 (ExpAcquireResourceExclusiveLite.c)
- *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
- *     ExpApplyPriorityBoost @ 0x1400CEA20 (ExpApplyPriorityBoost.c)
- *     KeAbProcessEffectiveIoPriorityChange @ 0x1400D13BC (KeAbProcessEffectiveIoPriorityChange.c)
- *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1400DF010 (KeAbProcessBaseIoPriorityChangeInternal.c)
- *     ExpBoostIoAfterAcquire @ 0x140108270 (ExpBoostIoAfterAcquire.c)
- *     KiAbThreadBoostIoPriority @ 0x14010ED14 (KiAbThreadBoostIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x1400BBED0 (PsBoostThreadIoEx.c)
+ *     ExpApplyPriorityBoost @ 0x1400CEAA0 (ExpApplyPriorityBoost.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x1400D143C (KeAbProcessEffectiveIoPriorityChange.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1400DF090 (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     ExpBoostIoAfterAcquire @ 0x1401082F0 (ExpBoostIoAfterAcquire.c)
+ *     KiAbThreadBoostIoPriority @ 0x14010ED94 (KiAbThreadBoostIoPriority.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiAbThreadInsertList(__int64 a1, _QWORD *a2, _QWORD *a3)

@@ -1,31 +1,31 @@
 /*
- * XREFs of MiUpdateLargePageBitMap @ 0x140300090
+ * XREFs of MiUpdateLargePageBitMap @ 0x14030ADE0
  * Callers:
- *     MiFreeLargeZeroPages @ 0x1402FD354 (MiFreeLargeZeroPages.c)
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
- *     MiFreeMdlPageRun @ 0x1402FFCF8 (MiFreeMdlPageRun.c)
- *     MiFreeSmallPageFromMdl @ 0x1402FFEA4 (MiFreeSmallPageFromMdl.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiLinkPoolCommitChain @ 0x14030B540 (MiLinkPoolCommitChain.c)
- *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
+ *     MiFreeLargeZeroPages @ 0x1403080A4 (MiFreeLargeZeroPages.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
+ *     MiFreeMdlPageRun @ 0x14030AA48 (MiFreeMdlPageRun.c)
+ *     MiFreeSmallPageFromMdl @ 0x14030ABF4 (MiFreeSmallPageFromMdl.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiLinkPoolCommitChain @ 0x140316290 (MiLinkPoolCommitChain.c)
+ *     MiFindLargeNodePage @ 0x140395020 (MiFindLargeNodePage.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA398 (MiDemoteValidLargePageOneLevel.c)
  *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
  *     MiGetFastLargePages @ 0x1403F7B20 (MiGetFastLargePages.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
- *     MiAssembleLargePagePfnList @ 0x14055DE20 (MiAssembleLargePagePfnList.c)
- *     MiDemotePfnListChain @ 0x14055E218 (MiDemotePfnListChain.c)
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiMarkLargePageRanges @ 0x140A42D88 (MiMarkLargePageRanges.c)
- *     MiCreateBootSlabEntries @ 0x140A4F8C0 (MiCreateBootSlabEntries.c)
- *     MiCreateEnclaveRegions @ 0x140A54ED8 (MiCreateEnclaveRegions.c)
- *     MiMarkLargePagePte @ 0x140A669D0 (MiMarkLargePagePte.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MiRebuildLargePage @ 0x140552918 (MiRebuildLargePage.c)
+ *     MiAssembleLargePagePfnList @ 0x14055E060 (MiAssembleLargePagePfnList.c)
+ *     MiDemotePfnListChain @ 0x14055E458 (MiDemotePfnListChain.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiMarkLargePageRanges @ 0x140A43D88 (MiMarkLargePageRanges.c)
+ *     MiCreateBootSlabEntries @ 0x140A508C0 (MiCreateBootSlabEntries.c)
+ *     MiCreateEnclaveRegions @ 0x140A55ED8 (MiCreateEnclaveRegions.c)
+ *     MiMarkLargePagePte @ 0x140A679D0 (MiMarkLargePagePte.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -176,7 +176,7 @@ LABEL_11:
     if ( !v11 )
     {
       v11 = 1;
-      KeAcquireInStackQueuedSpinLock(&qword_140C4E040, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140C4E080, &LockHandle);
     }
     if ( a4 == 1 )
       RtlSetBitsEx(v12, v13, v16);

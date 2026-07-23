@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpGenerateLogEntryHeader @ 0x140362310
+ * XREFs of HvpGenerateLogEntryHeader @ 0x1402F7170
  * Callers:
- *     HvpGenerateLogEntry @ 0x140721960 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x1406F91B8 (HvpGenerateLogEntry.c)
  * Callees:
- *     HvpCopyDataToOffsetArray @ 0x14026A190 (HvpCopyDataToOffsetArray.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
+ *     HvpCopyDataToOffsetArray @ 0x140258130 (HvpCopyDataToOffsetArray.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryHeader(

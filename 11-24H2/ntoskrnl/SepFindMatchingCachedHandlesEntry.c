@@ -1,12 +1,12 @@
 /*
- * XREFs of SepFindMatchingCachedHandlesEntry @ 0x1408F2C4C
+ * XREFs of SepFindMatchingCachedHandlesEntry @ 0x140914298
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x1408F26B8 (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x140913D04 (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x1403F6910 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x140440860 (RtlGetNextEntryHashTable.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x1403ECB10 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x140436530 (RtlGetNextEntryHashTable.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall SepFindMatchingCachedHandlesEntry(
@@ -19,7 +19,7 @@ __int64 __fastcall SepFindMatchingCachedHandlesEntry(
   char v6; // bl
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   int v10; // edx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&Context, 0, sizeof(Context));
   v5 = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecrementAweMapCount @ 0x14048007C
+ * XREFs of MiDecrementAweMapCount @ 0x1404799BC
  * Callers:
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
- *     MiBuildPhysicalPageFreeChain @ 0x140700C48 (MiBuildPhysicalPageFreeChain.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140702580 (MiReferenceIncomingPhysicalPages.c)
- *     MiUnmapLegacyAwePage @ 0x140702C2C (MiUnmapLegacyAwePage.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140705918 (MiBuildPhysicalPageFreeChain.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140707250 (MiReferenceIncomingPhysicalPages.c)
+ *     MiUnmapLegacyAwePage @ 0x1407078FC (MiUnmapLegacyAwePage.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiValidateAndLockAweMapCountPage @ 0x14048033C (MiValidateAndLockAweMapCountPage.c)
- *     MiSetPteTimeStamp @ 0x14048051C (MiSetPteTimeStamp.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x140479C7C (MiValidateAndLockAweMapCountPage.c)
+ *     MiSetPteTimeStamp @ 0x140479E5C (MiSetPteTimeStamp.c)
  */
 
 __int64 __fastcall MiDecrementAweMapCount(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned __int64 **a4)
@@ -54,10 +54,10 @@ LABEL_24:
     if ( v11 && (v16 & 0x8000) != 0 )
     {
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                   + 4
-                                  * (((((__int64)v12 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((__int64)v12 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                  * (((((__int64)v12 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << (((__int64)v12 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
       return -1LL;
     }
     v19 = ((v16 & 0xFFFFFFFFFFFE0000uLL) - 0x20000) ^ (v16 ^ ((v16 & 0xFFFFFFFFFFFE0000uLL) - 0x20000)) & 0xFFFFFF800001FFFFuLL;
@@ -74,8 +74,8 @@ LABEL_6:
         if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
         {
           v17 = *(_QWORD *)(v8 + 16);
-          if ( qword_140E2D740 && (v17 & 0x10) == 0 )
-            v17 &= qword_140E2D748;
+          if ( qword_140E2D8C0 && (v17 & 0x10) == 0 )
+            v17 &= qword_140E2D8C8;
           v20 = v17 >> 31;
           if ( (_DWORD)v20 )
           {
@@ -130,7 +130,7 @@ LABEL_34:
       {
         if ( *a4 )
         {
-          v18 = ((__int64)*a4 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3;
+          v18 = ((__int64)*a4 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3;
         }
         else
         {
@@ -154,10 +154,10 @@ LABEL_16:
       if ( !v8 )
       {
         _InterlockedAnd(
-          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                     + 4
-                                    * (((((__int64)v12 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-          ~(1 << (((__int64)v12 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                    * (((((__int64)v12 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+          ~(1 << (((__int64)v12 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
         return v13;
       }
 LABEL_17:

@@ -1,31 +1,31 @@
 /*
- * XREFs of MiCompletePrivateZeroFault @ 0x14003B6F0
+ * XREFs of MiCompletePrivateZeroFault @ 0x14003B270
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x14003B240 (MiResolvePrivateZeroFault.c)
+ *     MiResolvePrivateZeroFault @ 0x14003ADC0 (MiResolvePrivateZeroFault.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiUpdatePageTableUseCount @ 0x140037450 (MiUpdatePageTableUseCount.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiFreePageChain @ 0x140122350 (MiFreePageChain.c)
- *     MiCapturePageFileInfo @ 0x1401593D0 (MiCapturePageFileInfo.c)
- *     MiLockPageAtDpc @ 0x1401593E0 (MiLockPageAtDpc.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiUpdatePageTableUseCount @ 0x140036FD0 (MiUpdatePageTableUseCount.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiFreePageChain @ 0x1401228C0 (MiFreePageChain.c)
+ *     MiCapturePageFileInfo @ 0x140159940 (MiCapturePageFileInfo.c)
+ *     MiLockPageAtDpc @ 0x140159950 (MiLockPageAtDpc.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
  */
 
 __int64 __fastcall MiCompletePrivateZeroFault(int *a1, __int64 a2, unsigned __int64 a3)
@@ -376,7 +376,7 @@ LABEL_58:
         else
         {
           v64 = v79;
-          ValidKernelPte = MmProtectToPteMask[a1[8]] & 0xFFFFFFFFFFFFFF7FuLL | (((16 * (v76 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AA8) & 1) << 8) | 0x25;
+          ValidKernelPte = MmProtectToPteMask[a1[8]] & 0xFFFFFFFFFFFFFF7FuLL | (((16 * (v76 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AE8) & 1) << 8) | 0x25;
         }
         if ( (ValidKernelPte & 0x800) != 0 )
           ValidKernelPte |= 0x42uLL;

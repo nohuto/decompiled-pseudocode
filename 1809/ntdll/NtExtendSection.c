@@ -1,16 +1,16 @@
 /*
- * XREFs of NtExtendSection @ 0x1800A1E50
+ * XREFs of NtExtendSection @ 0x1800A1E70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtExtendSection()
+NTSTATUS __cdecl NtExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewSectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 220LL;
+  result = 220;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

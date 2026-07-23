@@ -34,7 +34,7 @@ NTSTATUS __stdcall IoCreateFile(
            FileHandle,
            DesiredAccess,
            (_SLIST_ENTRY *)ObjectAttributes,
-           (NTSTATUS *)&IoStatusBlock->0,
+           (int *)&IoStatusBlock->0,
            (HANDLE *)AllocationSize,
            FileAttributes,
            ShareAccess,

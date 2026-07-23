@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1402236DC (ViErrorReport10.c)
- *     PpvUtilIsPdo @ 0x140701864 (PpvUtilIsPdo.c)
- *     IovUtilGetBottomDeviceObject @ 0x14070DFBC (IovUtilGetBottomDeviceObject.c)
- *     IovUtilGetLowerDeviceObject @ 0x14070E014 (IovUtilGetLowerDeviceObject.c)
- *     IovUtilIsDeviceObjectMarked @ 0x14070E0AC (IovUtilIsDeviceObjectMarked.c)
- *     IovUtilIsWdmStack @ 0x14070E220 (IovUtilIsWdmStack.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x140223508 (ViErrorReport10.c)
+ *     PpvUtilIsPdo @ 0x140701894 (PpvUtilIsPdo.c)
+ *     IovUtilGetBottomDeviceObject @ 0x14070DFEC (IovUtilGetBottomDeviceObject.c)
+ *     IovUtilGetLowerDeviceObject @ 0x14070E044 (IovUtilGetLowerDeviceObject.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x14070E0DC (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsWdmStack @ 0x14070E250 (IovUtilIsWdmStack.c)
  *     ViPnpVerifyMinorWasProcessedProperly @ 0x140718D44 (ViPnpVerifyMinorWasProcessedProperly.c)
  */
 

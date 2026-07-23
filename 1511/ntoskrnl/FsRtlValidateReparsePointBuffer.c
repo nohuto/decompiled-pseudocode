@@ -38,7 +38,7 @@ LABEL_8:
 LABEL_9:
   if ( ReparseBuffer->ReparseDataLength + 24 == BufferLength
     && (ReparseTag >= 0
-     && !*(_DWORD *)&ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameOffset
+     && !ReparseBuffer->AppExecLinkReparseBuffer.StringCount
      && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameOffset
      && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameLength
      && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 8)

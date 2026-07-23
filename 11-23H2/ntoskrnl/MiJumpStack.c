@@ -1,9 +1,9 @@
 /*
- * XREFs of MiJumpStack @ 0x14062CF60
+ * XREFs of MiJumpStack @ 0x14062D4B0
  * Callers:
  *     <none>
  * Callees:
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
  */
 
 char __fastcall MiJumpStack(__int64 a1)

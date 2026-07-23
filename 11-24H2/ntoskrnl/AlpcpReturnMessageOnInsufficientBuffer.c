@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x140A2413C
+ * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x140A1850C
  * Callers:
- *     AlpcpReceiveMessage @ 0x140899160 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x140A304CC (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1408A1800 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140A24FBC (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x140892D70 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpExposeContextAttribute @ 0x1409B76E0 (AlpcpExposeContextAttribute.c)
- *     AlpcpInsertMessageLargeMessageQueue @ 0x140A24230 (AlpcpInsertMessageLargeMessageQueue.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x140A562D4 (AlpcpInsertMessageCanceledQueue.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x14088E614 (AlpcpInsertMessageCanceledQueue.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x14089C3A0 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpExposeContextAttribute @ 0x1409AEA70 (AlpcpExposeContextAttribute.c)
+ *     AlpcpInsertMessageLargeMessageQueue @ 0x140A18600 (AlpcpInsertMessageLargeMessageQueue.c)
  */
 
 __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(__int64 a1, _QWORD *a2, _OWORD *a3)
 {
   signed __int64 *v3; // rdi
-  _QWORD *v7; // rbp
+  char *v7; // rbp
   int v8; // eax
 
   v3 = (signed __int64 *)(a1 + 352);
   *a3 = 0LL;
   a3[1] = 0LL;
-  v7 = KeAbPreAcquire(a1 + 352, 0LL);
+  v7 = (char *)KeAbPreAcquire(a1 + 352, 0LL);
   if ( _InterlockedCompareExchange64(v3, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3, 0, v7, (__int64)v3);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   v8 = *(_DWORD *)(a1 + 416) & 0x40;
   if ( a2[8] == a1 )
   {
@@ -39,7 +39,7 @@ __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(__int64 a1, _QWORD *a2
     else
     {
       ++*((_WORD *)a2 - 15);
-      AlpcpInsertMessageCanceledQueue(a1, a2);
+      AlpcpInsertMessageCanceledQueue(a1, (__int64)a2);
     }
 LABEL_10:
     if ( _InterlockedCompareExchange64(v3, 0LL, 17LL) != 17 )

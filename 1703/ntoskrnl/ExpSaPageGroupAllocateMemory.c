@@ -19,14 +19,14 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v3; // rsi
   ULONG_PTR v4; // rbp
-  _BYTE *v5; // rax
-  _BYTE *v6; // rbx
+  PRTL_BALANCED_NODE v5; // rax
+  PRTL_BALANCED_NODE v6; // rbx
   unsigned __int64 ClearBitsAndSet; // rax
   __int64 v8; // rdi
   struct _KTHREAD *CurrentThread; // rsi
   __int64 SessionId; // rdx
   unsigned __int8 v11; // r15
-  __int64 v12; // r8
+  unsigned int v12; // r8d
   __int64 v14; // rcx
   int v15; // eax
   __int64 v16; // rcx
@@ -41,12 +41,12 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
   if ( *(_DWORD *)(a1 + 36) < a2 )
     return -1LL;
   v4 = a1 + 24;
-  v5 = (_BYTE *)KeAbPreAcquire(a1 + 24, 0LL, 0LL);
+  v5 = KeAbPreAcquire(a1 + 24, 0LL, 0);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v4, v5, v4);
   if ( v6 )
-    v6[26] |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   if ( *(_DWORD *)(a1 + 36) < (unsigned int)v3
     || (ClearBitsAndSet = RtlFindClearBitsAndSetEx((unsigned __int64 *)(a1 + 48), v3, *(unsigned int *)(a1 + 44)),
         ClearBitsAndSet == -1LL) )
@@ -70,13 +70,13 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
     SessionId = 0xFFFFFFFFLL;
   --CurrentThread->SpecialApcDisable;
   v11 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v12) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v12 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( _BitScanReverse((unsigned int *)&v14, v12) )
   {
     v15 = 1 << v14;
     v16 = v14;
     v17 = &CurrentThread->LockEntries[v16];
-    v12 = ~v15 & (unsigned int)v12;
+    v12 &= ~v15;
     if ( (v17->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v17->LockState.0 & 1) == 0
       && (*(_QWORD *)&v17->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v4 & 0x7FFFFFFFFFFFFFFCLL)
@@ -89,7 +89,7 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
         {
           v17->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v17->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v16], SessionId, v12);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v16].TreeNode, SessionId);
           v22 = 0;
           v22 = v17->BoostBitmap.AllFields & 0x1FFFF;
           v17->BoostBitmap.AllFields &= 0xFFFE0000;

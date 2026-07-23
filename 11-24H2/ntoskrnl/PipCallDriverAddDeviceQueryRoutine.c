@@ -1,29 +1,29 @@
 /*
- * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x1409C5C74
+ * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x140982F18
  * Callers:
- *     PnpCallDriverQueryServiceHelper @ 0x1409C5A04 (PnpCallDriverQueryServiceHelper.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x140982CA8 (PnpCallDriverQueryServiceHelper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x14043B5F8 (PnpDiagnosticTraceDeviceOperation.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpCheckPossibleBootStartDriver @ 0x1407243B4 (PnpCheckPossibleBootStartDriver.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     PnpIsLegacyDriver @ 0x1409C6164 (PnpIsLegacyDriver.c)
- *     PnpGetServiceStartType @ 0x1409C6184 (PnpGetServiceStartType.c)
- *     IopReferenceDriverObjectByName @ 0x1409C711C (IopReferenceDriverObjectByName.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     IopGetDriverNameFromKeyNode @ 0x1409CA314 (IopGetDriverNameFromKeyNode.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
- *     IopCallDriverReinitializationRoutines @ 0x140A765D4 (IopCallDriverReinitializationRoutines.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     PpInitGetGroupOrderIndex @ 0x140C67744 (PpInitGetGroupOrderIndex.c)
- *     PnpLoadBootFilterDriver @ 0x140C67B48 (PnpLoadBootFilterDriver.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x1402F0878 (PnpDiagnosticTraceDeviceOperation.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpCheckPossibleBootStartDriver @ 0x140721F44 (PnpCheckPossibleBootStartDriver.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     PnpIsLegacyDriver @ 0x140983408 (PnpIsLegacyDriver.c)
+ *     PnpGetServiceStartType @ 0x140983428 (PnpGetServiceStartType.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1409B6410 (IopGetDriverNameFromKeyNode.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     IopReferenceDriverObjectByName @ 0x1409BA838 (IopReferenceDriverObjectByName.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140A706F4 (IopCallDriverReinitializationRoutines.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     PpInitGetGroupOrderIndex @ 0x140C698C0 (PpInitGetGroupOrderIndex.c)
+ *     PnpLoadBootFilterDriver @ 0x140C69CC4 (PnpLoadBootFilterDriver.c)
  */
 
 __int64 __fastcall PipCallDriverAddDeviceQueryRoutine(int a1, const WCHAR *a2, unsigned int a3, __int64 *a4, int a5)
@@ -37,7 +37,7 @@ __int64 __fastcall PipCallDriverAddDeviceQueryRoutine(int a1, const WCHAR *a2, u
   HANDLE v12; // r14
   int i; // ecx
   char v14; // r15
-  __int64 v15; // rdx
+  ULONG_PTR v15; // rdx
   _QWORD *v16; // rdi
   _QWORD *Pool2; // rax
   int v18; // eax
@@ -89,7 +89,7 @@ __int64 __fastcall PipCallDriverAddDeviceQueryRoutine(int a1, const WCHAR *a2, u
     if ( !*(_WORD *)(*a4 + 56) )
     {
       *(UNICODE_STRING *)(*a4 + 56) = DestinationString;
-      *(_QWORD *)(*a4 + 64) = ExAllocatePool2(0x100uLL);
+      *(_QWORD *)(*a4 + 64) = ExAllocatePool2(0x100uLL, DestinationString.MaximumLength, 0x48706E50u);
       v25 = *(void **)(*a4 + 64);
       if ( !v25 )
       {
@@ -219,7 +219,7 @@ LABEL_9:
             {
               DriverNameFromKeyNode = 0;
               v16 = (__int64 *)((char *)&a4[a5] + v15);
-              Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+              Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, v15, 0x6E657050u);
               if ( Pool2 )
               {
                 *Pool2 = v8;

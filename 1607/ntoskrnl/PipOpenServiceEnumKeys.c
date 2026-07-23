@@ -1,21 +1,21 @@
 /*
- * XREFs of PipOpenServiceEnumKeys @ 0x140538DE4
+ * XREFs of PipOpenServiceEnumKeys @ 0x140539324
  * Callers:
- *     PipServiceInstanceToDeviceInstance @ 0x1405383B0 (PipServiceInstanceToDeviceInstance.c)
- *     PnpIsAnyDeviceInstanceEnabled @ 0x1405385F8 (PnpIsAnyDeviceInstanceEnabled.c)
- *     PiProcessDriverInstance @ 0x1405387C4 (PiProcessDriverInstance.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140538A14 (PipCallDriverAddDeviceQueryRoutine.c)
- *     PipApplyFunctionToServiceInstances @ 0x14057471C (PipApplyFunctionToServiceInstances.c)
- *     PnpDriverLoadingFailed @ 0x14057F858 (PnpDriverLoadingFailed.c)
- *     PipHardwareConfigActivateService @ 0x1406296E4 (PipHardwareConfigActivateService.c)
- *     PiDevCfgMakeServiceBootStart @ 0x14063A648 (PiDevCfgMakeServiceBootStart.c)
- *     PiDevCfgVerifyService @ 0x14064115C (PiDevCfgVerifyService.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1405388F0 (PipServiceInstanceToDeviceInstance.c)
+ *     PnpIsAnyDeviceInstanceEnabled @ 0x140538B38 (PnpIsAnyDeviceInstanceEnabled.c)
+ *     PiProcessDriverInstance @ 0x140538D04 (PiProcessDriverInstance.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140538F54 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PipApplyFunctionToServiceInstances @ 0x140574C5C (PipApplyFunctionToServiceInstances.c)
+ *     PnpDriverLoadingFailed @ 0x14057FD04 (PnpDriverLoadingFailed.c)
+ *     PipHardwareConfigActivateService @ 0x140629798 (PipHardwareConfigActivateService.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x14063A6FC (PiDevCfgMakeServiceBootStart.c)
+ *     PiDevCfgVerifyService @ 0x140641240 (PiDevCfgVerifyService.c)
  *     PpDevCfgInit @ 0x1407B8124 (PpDevCfgInit.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x1405391F8 (IopCreateRegistryKeyEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x140539738 (IopCreateRegistryKeyEx.c)
  */
 
 int __fastcall PipOpenServiceEnumKeys(UNICODE_STRING *a1, ACCESS_MASK a2, HANDLE *a3, HANDLE *a4, char a5)

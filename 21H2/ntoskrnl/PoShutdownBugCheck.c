@@ -1,16 +1,16 @@
 /*
- * XREFs of PoShutdownBugCheck @ 0x1408E75C0
+ * XREFs of PoShutdownBugCheck @ 0x1408E7720
  * Callers:
- *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
- *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
+ *     PoInitHiberServices @ 0x140792228 (PoInitHiberServices.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3F30 (ExpSystemErrorHandler2.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     PsGetCurrentThreadId @ 0x1402AA4D0 (PsGetCurrentThreadId.c)
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
- *     IoConfigureCrashDump @ 0x1403BFE04 (IoConfigureCrashDump.c)
- *     ZwInitiatePowerAction @ 0x1403FC3E0 (ZwInitiatePowerAction.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140564F44 (PopInternalAddToDumpFile.c)
+ *     PsGetCurrentThreadId @ 0x140228610 (PsGetCurrentThreadId.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
+ *     IoConfigureCrashDump @ 0x1403C0230 (IoConfigureCrashDump.c)
+ *     ZwInitiatePowerAction @ 0x1403FC5C0 (ZwInitiatePowerAction.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x140565184 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall __noreturn PoShutdownBugCheck(
@@ -21,22 +21,24 @@ void __fastcall __noreturn PoShutdownBugCheck(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a6)
 {
+  __int64 v10; // r8
+  __int64 v11; // r9
   unsigned __int64 CurrentThreadProcessId; // rax
-  ULONG_PTR v11; // rdi
+  ULONG_PTR v13; // rdi
   ULONG_PTR BugCheckParameter4; // rbx
   struct _KTHREAD *CurrentThread; // [rsp+30h] [rbp-50h] BYREF
   _KPROCESS *Process; // [rsp+38h] [rbp-48h]
   HANDLE CurrentThreadId; // [rsp+40h] [rbp-40h]
-  unsigned __int64 v16; // [rsp+48h] [rbp-38h]
-  ULONG v17; // [rsp+50h] [rbp-30h]
-  int v18; // [rsp+54h] [rbp-2Ch]
-  ULONG_PTR v19; // [rsp+58h] [rbp-28h]
-  ULONG_PTR v20; // [rsp+60h] [rbp-20h]
-  ULONG_PTR v21; // [rsp+68h] [rbp-18h]
-  ULONG_PTR v22; // [rsp+70h] [rbp-10h]
+  unsigned __int64 v18; // [rsp+48h] [rbp-38h]
+  ULONG v19; // [rsp+50h] [rbp-30h]
+  int v20; // [rsp+54h] [rbp-2Ch]
+  ULONG_PTR v21; // [rsp+58h] [rbp-28h]
+  ULONG_PTR v22; // [rsp+60h] [rbp-20h]
+  ULONG_PTR v23; // [rsp+68h] [rbp-18h]
+  ULONG_PTR v24; // [rsp+70h] [rbp-10h]
   LARGE_INTEGER Interval; // [rsp+B0h] [rbp+30h] BYREF
 
-  v18 = 0;
+  v20 = 0;
   if ( PopCriticalShutdownInProgress )
   {
     Interval.QuadPart = -300000000LL;
@@ -47,20 +49,20 @@ void __fastcall __noreturn PoShutdownBugCheck(
   if ( !a1 )
   {
     Process = 0LL;
-    IoConfigureCrashDump(0LL, 0);
+    IoConfigureCrashDump(0LL, 0LL, v10, v11);
   }
   CurrentThread = KeGetCurrentThread();
   CurrentThreadId = PsGetCurrentThreadId();
   CurrentThreadProcessId = PsGetCurrentThreadProcessId();
-  v11 = BugCheckParameter3;
+  v13 = BugCheckParameter3;
   BugCheckParameter4 = a6;
-  v16 = CurrentThreadProcessId;
-  v17 = a2;
-  v19 = a3;
-  v20 = a4;
-  v21 = BugCheckParameter3;
-  v22 = a6;
-  *(_QWORD *)&qword_140C23470 = &CurrentThread;
-  ZwInitiatePowerAction(5LL, 4LL);
-  KeBugCheckEx(a2, a3, a4, v11, BugCheckParameter4);
+  v18 = CurrentThreadProcessId;
+  v19 = a2;
+  v21 = a3;
+  v22 = a4;
+  v23 = BugCheckParameter3;
+  v24 = a6;
+  *(_QWORD *)&qword_140C23A90 = &CurrentThread;
+  ZwInitiatePowerAction(PowerActionShutdownReset, PowerSystemSleeping3, 0xC0000004, 0);
+  KeBugCheckEx(a2, a3, a4, v13, BugCheckParameter4);
 }

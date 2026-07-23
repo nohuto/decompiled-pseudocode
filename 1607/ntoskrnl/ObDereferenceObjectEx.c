@@ -1,12 +1,12 @@
 /*
- * XREFs of ObDereferenceObjectEx @ 0x140074E7C
+ * XREFs of ObDereferenceObjectEx @ 0x140074EFC
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     PspClearProcessThreadCidRefs @ 0x14045ED5C (PspClearProcessThreadCidRefs.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     PspClearProcessThreadCidRefs @ 0x14045DC2C (PspClearProcessThreadCidRefs.c)
  * Callees:
- *     ObpDeferObjectDeletion @ 0x1400A7FB4 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1400A652C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall ObDereferenceObjectEx(ULONG_PTR BugCheckParameter2, int a2)

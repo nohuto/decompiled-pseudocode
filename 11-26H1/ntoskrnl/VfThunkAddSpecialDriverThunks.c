@@ -1,14 +1,14 @@
 /*
- * XREFs of VfThunkAddSpecialDriverThunks @ 0x140C3510C
+ * XREFs of VfThunkAddSpecialDriverThunks @ 0x140C3B11C
  * Callers:
- *     ViAddVerifierSpecialThunks @ 0x14064081C (ViAddVerifierSpecialThunks.c)
+ *     ViAddVerifierSpecialThunks @ 0x1406443FC (ViAddVerifierSpecialThunks.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ViThunkCreateThunkTable @ 0x140C356AC (ViThunkCreateThunkTable.c)
- *     ViThunkFindNextSpecialTable @ 0x140C3597C (ViThunkFindNextSpecialTable.c)
- *     ViThunkRecoverPristines @ 0x140C35BDC (ViThunkRecoverPristines.c)
- *     VfDriverLock @ 0x140C46804 (VfDriverLock.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ViThunkCreateThunkTable @ 0x140C3B6BC (ViThunkCreateThunkTable.c)
+ *     ViThunkFindNextSpecialTable @ 0x140C3B98C (ViThunkFindNextSpecialTable.c)
+ *     ViThunkRecoverPristines @ 0x140C3BBEC (ViThunkRecoverPristines.c)
+ *     VfDriverLock @ 0x140C4C814 (VfDriverLock.c)
  */
 
 __int64 __fastcall VfThunkAddSpecialDriverThunks(__int64 a1, void *a2, __int64 a3, __int64 a4)

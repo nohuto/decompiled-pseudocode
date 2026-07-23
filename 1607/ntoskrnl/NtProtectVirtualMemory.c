@@ -1,16 +1,16 @@
 /*
- * XREFs of NtProtectVirtualMemory @ 0x140433B80
+ * XREFs of NtProtectVirtualMemory @ 0x140432A50
  * Callers:
  *     <none>
  * Callees:
- *     MiMakeProtectionMask @ 0x14002BD00 (MiMakeProtectionMask.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     EtwTiLogProtectExecVm @ 0x1406A59AC (EtwTiLogProtectExecVm.c)
+ *     MiMakeProtectionMask @ 0x14002B880 (MiMakeProtectionMask.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     EtwTiLogProtectExecVm @ 0x1406A5AE4 (EtwTiLogProtectExecVm.c)
  */
 
 NTSTATUS __stdcall NtProtectVirtualMemory(

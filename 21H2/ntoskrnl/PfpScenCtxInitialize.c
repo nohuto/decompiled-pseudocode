@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpScenCtxInitialize @ 0x1407C0040
+ * XREFs of PfpScenCtxInitialize @ 0x1407C055C
  * Callers:
- *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140A6B76C (PfInitializeSuperfetch.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall PfpScenCtxInitialize(__int64 a1)

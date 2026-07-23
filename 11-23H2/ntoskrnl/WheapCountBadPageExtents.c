@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapCountBadPageExtents @ 0x140A085BC
+ * XREFs of WheapCountBadPageExtents @ 0x140A0886C
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x140611D90 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToBcd @ 0x1406122E0 (WheaPersistBadPageToBcd.c)
  * Callees:
  *     <none>
  */

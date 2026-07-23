@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLockIXLockIntent @ 0x140A2E5B4
+ * XREFs of CmpLockIXLockIntent @ 0x140A22FF4
  * Callers:
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpUndoDeleteKeyForTrans @ 0x140A2E074 (CmpUndoDeleteKeyForTrans.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
+ *     CmpUndoDeleteKeyForTrans @ 0x140A22AB4 (CmpUndoDeleteKeyForTrans.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmEqualTrans @ 0x140879280 (CmEqualTrans.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmEqualTrans @ 0x14087D5B0 (CmEqualTrans.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall CmpLockIXLockIntent(unsigned int *a1, __int64 a2)
@@ -39,7 +39,7 @@ bool __fastcall CmpLockIXLockIntent(unsigned int *a1, __int64 a2)
       v6 = *((_QWORD *)a1 + 1);
       if ( CmEqualTrans(*(_QWORD *)(v6 + 56), *(_QWORD *)(a2 + 56)) )
         return 1;
-      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x78494D43u);
       if ( !Pool2 )
         return 0;
       *((_QWORD *)a1 + 1) = Pool2;
@@ -53,7 +53,7 @@ bool __fastcall CmpLockIXLockIntent(unsigned int *a1, __int64 a2)
         if ( CmEqualTrans(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 1) + 8 * i) + 56LL), *(_QWORD *)(a2 + 56)) )
           return 1;
       }
-      v9 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      v9 = (_QWORD *)ExAllocatePool2(0x100uLL, 8LL * (*a1 + 1), 0x78494D43u);
       v10 = v9;
       if ( !v9 )
         return 0;

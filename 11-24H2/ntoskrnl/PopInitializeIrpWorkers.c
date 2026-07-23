@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInitializeIrpWorkers @ 0x140C30844
+ * XREFs of PopInitializeIrpWorkers @ 0x140C32964
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     PopCreatePowerThread @ 0x140496E48 (PopCreatePowerThread.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     PopCreatePowerThread @ 0x1404917D8 (PopCreatePowerThread.c)
  */
 
 NTSTATUS PopInitializeIrpWorkers()
@@ -13,9 +13,9 @@ NTSTATUS PopInitializeIrpWorkers()
   unsigned int i; // ebx
 
   PopCreateIrpWorkerAllowed = 1;
-  qword_140F08398 = (__int64)&PopIrpThreadList;
+  qword_140F086F8 = (__int64)&PopIrpThreadList;
   PopIrpThreadList = (__int64)&PopIrpThreadList;
-  qword_140F0BE28 = (__int64)&PopIrpWorkerList;
+  qword_140F0B948 = (__int64)&PopIrpWorkerList;
   PopIrpWorkerList = (__int64)&PopIrpWorkerList;
   PopIrpWorkerSemaphore.Header.WaitListHead.Blink = &PopIrpWorkerSemaphore.Header.WaitListHead;
   PopIrpWorkerSemaphore.Header.WaitListHead.Flink = &PopIrpWorkerSemaphore.Header.WaitListHead;

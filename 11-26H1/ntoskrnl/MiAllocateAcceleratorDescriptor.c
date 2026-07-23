@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateAcceleratorDescriptor @ 0x1405319C8
+ * XREFs of MiAllocateAcceleratorDescriptor @ 0x140533E70
  * Callers:
- *     MiAllocateEngineDescriptor @ 0x140514C38 (MiAllocateEngineDescriptor.c)
- *     MiLaunchZeroCalibrationProcessor @ 0x1407109E4 (MiLaunchZeroCalibrationProcessor.c)
+ *     MiAllocateEngineDescriptor @ 0x14050E6A8 (MiAllocateEngineDescriptor.c)
+ *     MiLaunchZeroCalibrationProcessor @ 0x1407156E0 (MiLaunchZeroCalibrationProcessor.c)
  * Callees:
- *     MiReferenceAccelerator @ 0x140507D64 (MiReferenceAccelerator.c)
- *     MiCreateAcceleratorDescriptor @ 0x14070F408 (MiCreateAcceleratorDescriptor.c)
- *     MiDereferenceAccelerator @ 0x14070F68C (MiDereferenceAccelerator.c)
+ *     MiReferenceAccelerator @ 0x140501738 (MiReferenceAccelerator.c)
+ *     MiCreateAcceleratorDescriptor @ 0x140714104 (MiCreateAcceleratorDescriptor.c)
+ *     MiDereferenceAccelerator @ 0x140714388 (MiDereferenceAccelerator.c)
  */
 
 _QWORD *__fastcall MiAllocateAcceleratorDescriptor(unsigned int a1)

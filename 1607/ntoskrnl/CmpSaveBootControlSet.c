@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpSaveBootControlSet @ 0x1405F9094
+ * XREFs of CmpSaveBootControlSet @ 0x1405F9148
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpRebuildKcbCache @ 0x1403FDA60 (CmpRebuildKcbCache.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     NtCreateKey @ 0x1404640C8 (NtCreateKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     NtQuerySecurityObject @ 0x1405212B0 (NtQuerySecurityObject.c)
- *     CmpCopySyncTree @ 0x1406081A4 (CmpCopySyncTree.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x1403FC920 (CmpRebuildKcbCache.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     NtCreateKey @ 0x140462F98 (NtCreateKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     NtQuerySecurityObject @ 0x140504310 (NtQuerySecurityObject.c)
+ *     CmpCopySyncTree @ 0x140608258 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)

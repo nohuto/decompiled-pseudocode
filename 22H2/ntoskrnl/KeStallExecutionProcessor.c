@@ -65,8 +65,8 @@ void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
   signed __int64 v26; // rcx
   unsigned int v27; // edx
   signed __int32 v28[8]; // [rsp+0h] [rbp-78h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
   int v31; // [rsp+70h] [rbp-8h]
 
   if ( HalpTimerProcessorsFrozen )

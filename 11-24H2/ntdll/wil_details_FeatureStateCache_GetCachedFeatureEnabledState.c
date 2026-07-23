@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x18010AB94
+ * XREFs of wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x180105704
  * Callers:
- *     wil_details_AreDependenciesEnabled @ 0x1801367E0 (wil_details_AreDependenciesEnabled.c)
+ *     wil_details_AreDependenciesEnabled @ 0x180134A10 (wil_details_AreDependenciesEnabled.c)
  * Callees:
  *     <none>
  */

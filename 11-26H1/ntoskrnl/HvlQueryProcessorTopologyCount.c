@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlQueryProcessorTopologyCount @ 0x140532990
+ * XREFs of HvlQueryProcessorTopologyCount @ 0x140534E30
  * Callers:
- *     HalpMcStagingHypervisor @ 0x140593A60 (HalpMcStagingHypervisor.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     HalpMcStagingHypervisor @ 0x1405961E0 (HalpMcStagingHypervisor.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

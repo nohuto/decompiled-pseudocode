@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAssignProcessorNumberToPrcb @ 0x1405BB160
+ * XREFs of KiAssignProcessorNumberToPrcb @ 0x1405B8790
  * Callers:
- *     KiConfigureInitialNodes @ 0x1405BB388 (KiConfigureInitialNodes.c)
- *     KiInitializeProcessorState @ 0x14073CAB0 (KiInitializeProcessorState.c)
+ *     KiConfigureInitialNodes @ 0x1405B89B8 (KiConfigureInitialNodes.c)
+ *     KiInitializeProcessorState @ 0x14073A9E0 (KiInitializeProcessorState.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KiFindSubNodeForProcessorNumber @ 0x1405BB608 (KiFindSubNodeForProcessorNumber.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     KiFindSubNodeForProcessorNumber @ 0x1405B8C38 (KiFindSubNodeForProcessorNumber.c)
  */
 
 unsigned __int64 __fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, int a3)
@@ -51,8 +51,8 @@ unsigned __int64 __fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, 
   v11 = *(unsigned __int8 *)(a1 + 209) + (*(unsigned __int8 *)(a1 + 208) << 6);
   v12 = 0;
   *((_DWORD *)KiGlobalState + v10) = v11;
-  result = (unsigned __int64)qword_140F21E78;
-  *((_DWORD *)qword_140F21E78 + v11) = v10;
+  result = (unsigned __int64)qword_140F22998;
+  *((_DWORD *)qword_140F22998 + v11) = v10;
   v14 = *(unsigned __int8 *)(v6 + 185);
   do
   {

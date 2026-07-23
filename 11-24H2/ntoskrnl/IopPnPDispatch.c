@@ -1,19 +1,19 @@
 /*
- * XREFs of IopPnPDispatch @ 0x140A5D2E0
+ * XREFs of IopPnPDispatch @ 0x140A55010
  * Callers:
  *     <none>
  * Callees:
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IopPnPCompleteRequest @ 0x1403DC8B4 (IopPnPCompleteRequest.c)
- *     IoDeleteDevice @ 0x1403F1B00 (IoDeleteDevice.c)
- *     IoInvalidateDeviceRelations @ 0x1404931D0 (IoInvalidateDeviceRelations.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     PiGetDeviceRegProperty @ 0x1408BD05C (PiGetDeviceRegProperty.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x14098E280 (PnpGetDeviceResourcesFromRegistry.c)
- *     IopGetRootDevices @ 0x140A624B8 (IopGetRootDevices.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IopPnPCompleteRequest @ 0x1403CB8F4 (IopPnPCompleteRequest.c)
+ *     IoDeleteDevice @ 0x1403E5820 (IoDeleteDevice.c)
+ *     IoInvalidateDeviceRelations @ 0x14048DB00 (IoInvalidateDeviceRelations.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     PiGetDeviceRegProperty @ 0x1408BA9AC (PiGetDeviceRegProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1409792B8 (PnpGetDeviceResourcesFromRegistry.c)
+ *     IopGetRootDevices @ 0x140A5ADB8 (IopGetRootDevices.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopPnPDispatch(struct _DEVICE_OBJECT *a1, IRP *a2)
@@ -52,7 +52,7 @@ __int64 __fastcall IopPnPDispatch(struct _DEVICE_OBJECT *a1, IRP *a2)
   __int64 v36; // rdx
   char *v37; // rdi
   char *v38; // rcx
-  int v39; // r9d
+  ULONG v39; // r9d
   char *v40; // r8
   __int16 v41; // dx
   _WORD *v42; // rax
@@ -69,7 +69,7 @@ __int64 __fastcall IopPnPDispatch(struct _DEVICE_OBJECT *a1, IRP *a2)
   LARGE_INTEGER v53; // rdx
   void *v54; // rax
   void *v55[2]; // [rsp+40h] [rbp-10h] BYREF
-  int v56; // [rsp+98h] [rbp+48h] BYREF
+  ULONG v56; // [rsp+98h] [rbp+48h] BYREF
   int v57; // [rsp+A0h] [rbp+50h] BYREF
   int v58; // [rsp+A8h] [rbp+58h] BYREF
 
@@ -94,7 +94,7 @@ LABEL_66:
       }
       if ( CurrentStackLocation->Parameters.Read.Length != 4 )
         goto LABEL_5;
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x10uLL, 0x64647050u);
       v30 = (void *)Pool2;
       if ( Pool2 )
       {
@@ -295,7 +295,7 @@ LABEL_5:
                         &v56);
         if ( RootDevices == -1073741789 )
         {
-          v37 = (char *)ExAllocatePool2(0x100uLL);
+          v37 = (char *)ExAllocatePool2(0x100uLL, v56, 0x64647050u);
           if ( !v37 )
             goto LABEL_23;
           RootDevices = PiGetDeviceRegProperty(
@@ -350,7 +350,7 @@ LABEL_5:
           Information = (void *)a2->IoStatus.Information;
           goto LABEL_6;
         }
-        v20 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v20 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x4EuLL, 0x64647050u);
         if ( v20 )
         {
           Information = v20;
@@ -361,7 +361,7 @@ LABEL_5:
         goto LABEL_23;
       }
     }
-    v42 = (_WORD *)ExAllocatePool2(0x100uLL);
+    v42 = (_WORD *)ExAllocatePool2(0x100uLL, *((unsigned __int16 *)v3 + 20), 0x64647050u);
     if ( !v42 )
       goto LABEL_23;
     v43 = 0;
@@ -413,7 +413,7 @@ LABEL_5:
     PiGetDeviceRegProperty(v31[6], 7LL, 1, 14, 0LL, &v56);
     if ( !v56 )
       goto LABEL_60;
-    Information = (void *)ExAllocatePool2(0x100uLL);
+    Information = (void *)ExAllocatePool2(0x100uLL, v56, 0x64647050u);
     if ( !Information )
       goto LABEL_23;
     RootDevices = PiGetDeviceRegProperty(v31[6], v49, 1, 14, Information, &v56);

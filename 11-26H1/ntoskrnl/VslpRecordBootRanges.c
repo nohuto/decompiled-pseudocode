@@ -1,10 +1,10 @@
 /*
- * XREFs of VslpRecordBootRanges @ 0x140D09CF8
+ * XREFs of VslpRecordBootRanges @ 0x140D0FFC8
  * Callers:
- *     VslConnectSwInterrupt @ 0x140D06C2C (VslConnectSwInterrupt.c)
+ *     VslConnectSwInterrupt @ 0x140D0CEFC (VslConnectSwInterrupt.c)
  * Callees:
- *     RtlPcToFileHeader @ 0x14047F990 (RtlPcToFileHeader.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlPcToFileHeader @ 0x140479300 (RtlPcToFileHeader.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
@@ -15,10 +15,10 @@ __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v8; // rsi
   __int64 v9; // rdi
   _QWORD *v10; // r15
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = 0LL;
-  if ( *(_QWORD *)&VslpReservedTransferLock.CurrentRunTime )
+  if ( VslpHiberBootRanges )
     return 3221225865LL;
   Pool2 = 0LL;
   for ( i = 0LL; i < 2; ++i )
@@ -35,7 +35,7 @@ __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
         if ( (*(_WORD *)(v9 + 16) == 4097 || *(_WORD *)(v9 + 16) == 4105)
           && *(_QWORD *)(v9 + 8)
           && (*(_BYTE *)(v9 + 18) & 1) == 0
-          && !RtlPcToFileHeader(*(_QWORD *)v9, &v11) )
+          && !RtlPcToFileHeader(*(PVOID *)v9, &BaseOfImage) )
         {
           if ( i == 1 )
           {
@@ -58,7 +58,7 @@ __int64 __fastcall VslpRecordBootRanges(__int64 a1, unsigned __int64 a2)
         return 3221225626LL;
     }
   }
-  *(_QWORD *)&VslpReservedTransferLock.CurrentRunTime = Pool2;
-  VslpReservedTransferLock.KernelStack = v2;
+  VslpHiberBootRanges = Pool2;
+  VslpReservedTransferLock.FirstArgument = v2;
   return 0LL;
 }

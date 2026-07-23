@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwUnloadDriver @ 0x1801657A0
+ * XREFs of ZwUnloadDriver @ 0x180163B60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwUnloadDriver()
+NTSTATUS __cdecl ZwUnloadDriver(PUNICODE_STRING DriverServiceName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 473LL;
+  result = 473;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

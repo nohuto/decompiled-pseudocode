@@ -31,7 +31,7 @@ NTSTATUS PopCheckCachedPowerSourceStateUpdates()
     word_140F0AD05 = xmmword_140F0ACC0;
     dword_140F0AD20 = DWORD2(xmmword_140F0ACF0);
     byte_140F0AD04 = 0;
-    result = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_SOURCE_STATE_CHANGE, (__int64)&byte_140F0AD04);
+    result = ZwUpdateWnfStateData(&WNF_PO_POWER_SOURCE_STATE_CHANGE, &byte_140F0AD04, 0x20u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140E07680 > 5 )
     {
       v5 = 0;

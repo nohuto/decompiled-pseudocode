@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpReleaseMessageAttributesOnCancel @ 0x1407797C0
+ * XREFs of AlpcpReleaseMessageAttributesOnCancel @ 0x1407799B0
  * Callers:
- *     AlpcpCancelMessagesByRequestor @ 0x1407191F4 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1407193F4 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpReleaseViewAttribute @ 0x1407DBAF8 (AlpcpReleaseViewAttribute.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x1407DBDC8 (AlpcpReleaseViewAttribute.c)
  */
 
 __int64 __fastcall AlpcpReleaseMessageAttributesOnCancel(__int64 a1)

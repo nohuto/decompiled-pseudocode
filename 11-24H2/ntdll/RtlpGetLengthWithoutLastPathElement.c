@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetLengthWithoutLastPathElement @ 0x18008B5C8
+ * XREFs of RtlpGetLengthWithoutLastPathElement @ 0x1800A7088
  * Callers:
- *     RtlGetLengthWithoutLastFullDosOrNtPathElement @ 0x18010B0D0 (RtlGetLengthWithoutLastFullDosOrNtPathElement.c)
+ *     RtlGetLengthWithoutLastFullDosOrNtPathElement @ 0x180105E70 (RtlGetLengthWithoutLastFullDosOrNtPathElement.c)
  * Callees:
- *     RtlpDetermineDosPathNameType4 @ 0x18008B6D4 (RtlpDetermineDosPathNameType4.c)
+ *     RtlpDetermineDosPathNameType4 @ 0x1800A7194 (RtlpDetermineDosPathNameType4.c)
  */
 
 __int64 __fastcall RtlpGetLengthWithoutLastPathElement(__int64 a1, __int64 a2, unsigned __int16 *a3, int *a4)

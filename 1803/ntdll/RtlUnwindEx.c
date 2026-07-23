@@ -75,7 +75,7 @@ void __stdcall RtlUnwindEx(
   int v42; // eax
   unsigned __int64 v43; // rcx
   int v44; // ebx
-  int v45; // edx
+  DWORD v45; // edx
   DWORD64 v46; // rax
   PEXCEPTION_RECORD v47; // rcx
   int v48; // eax
@@ -94,112 +94,115 @@ void __stdcall RtlUnwindEx(
   PEXCEPTION_RECORD v61; // r14
   DWORD64 *p_Rip; // rcx
   int v63; // eax
-  __int64 v64; // rbx
-  __int64 v65; // rax
-  unsigned __int64 v66; // rbx
+  int v64; // eax
+  __int64 v65; // rbx
+  __int64 v66; // rax
+  unsigned __int64 v67; // rbx
   unsigned __int64 BeginAddress; // rcx
-  char v68; // cl
-  int v69; // eax
-  DWORD64 v70; // rcx
-  unsigned __int8 v71; // r8
-  __int16 v72; // dx
-  int v73; // r10d
-  unsigned int v74; // r9d
-  int v75; // edx
-  unsigned int v76; // r11d
-  __int16 v77; // dx
-  int v78; // ecx
-  __int64 v79; // rdx
-  M128A *v80; // rcx
-  unsigned int v81; // eax
-  ULONG_PTR v82; // rbx
+  char v69; // cl
+  int v70; // eax
+  DWORD64 v71; // rcx
+  unsigned __int8 v72; // r8
+  __int16 v73; // dx
+  int v74; // r10d
+  unsigned int v75; // r9d
+  int v76; // edx
+  unsigned int v77; // r11d
+  __int16 v78; // dx
+  int v79; // ecx
+  __int64 v80; // rdx
+  M128A *v81; // rcx
+  unsigned int v82; // eax
   ULONG_PTR v83; // rbx
-  __int64 v84; // r9
-  __int64 v85; // rax
-  struct _CONTEXT *v86; // r9
-  PRUNTIME_FUNCTION v87; // r8
-  PEXCEPTION_ROUTINE v88; // rax
-  DWORD64 *v89; // rax
-  DWORD64 *v90; // rcx
+  int v84; // eax
+  ULONG_PTR v85; // rbx
+  int v86; // eax
+  __int64 v87; // r9
+  __int64 v88; // rax
+  struct _CONTEXT *v89; // r9
+  PRUNTIME_FUNCTION v90; // r8
+  PEXCEPTION_ROUTINE v91; // rax
+  DWORD64 *v92; // rax
+  DWORD64 *v93; // rcx
   DWORD64 Rip; // rax
-  _DWORD *v92; // rax
-  char v93; // r10
+  _DWORD *v95; // rax
+  char v96; // r10
   __int64 i; // r15
-  unsigned __int16 v95; // cx
-  char v96; // al
-  DWORD64 v97; // rcx
-  ULONGLONG *v98; // r8
-  M128A *v99; // rcx
+  unsigned __int16 v98; // cx
+  char v99; // al
+  DWORD64 v100; // rcx
+  ULONGLONG *v101; // r8
+  M128A *v102; // rcx
   DWORD64 *Rsp; // rcx
-  char v101; // [rsp+40h] [rbp-C0h]
-  unsigned int v102; // [rsp+44h] [rbp-BCh]
-  ULONG64 v103; // [rsp+48h] [rbp-B8h]
-  PRUNTIME_FUNCTION v104; // [rsp+50h] [rbp-B0h]
-  unsigned __int64 v105; // [rsp+58h] [rbp-A8h]
-  PCONTEXT v106; // [rsp+60h] [rbp-A0h]
-  unsigned int v107; // [rsp+68h] [rbp-98h]
+  char v104; // [rsp+40h] [rbp-C0h]
+  unsigned int v105; // [rsp+44h] [rbp-BCh]
+  ULONG64 v106; // [rsp+48h] [rbp-B8h]
+  PRUNTIME_FUNCTION v107; // [rsp+50h] [rbp-B0h]
+  unsigned __int64 v108; // [rsp+58h] [rbp-A8h]
+  PCONTEXT v109; // [rsp+60h] [rbp-A0h]
+  unsigned int v110; // [rsp+68h] [rbp-98h]
   unsigned __int64 ImageBase; // [rsp+70h] [rbp-90h] BYREF
   PVOID HandlerData; // [rsp+78h] [rbp-88h] BYREF
-  PEXCEPTION_RECORD v110; // [rsp+80h] [rbp-80h]
+  PEXCEPTION_RECORD ExceptionRecorda; // [rsp+80h] [rbp-80h]
   unsigned __int64 EstablisherFrame; // [rsp+88h] [rbp-78h] BYREF
-  PUNWIND_HISTORY_TABLE v112; // [rsp+90h] [rbp-70h]
-  unsigned __int64 v113; // [rsp+98h] [rbp-68h] BYREF
-  unsigned __int64 v114; // [rsp+A0h] [rbp-60h] BYREF
-  PVOID v115; // [rsp+A8h] [rbp-58h]
-  PVOID v116; // [rsp+B0h] [rbp-50h]
+  PUNWIND_HISTORY_TABLE v115; // [rsp+90h] [rbp-70h]
+  unsigned __int64 v116; // [rsp+98h] [rbp-68h] BYREF
+  unsigned __int64 v117; // [rsp+A0h] [rbp-60h] BYREF
+  PVOID v118; // [rsp+A8h] [rbp-58h]
+  PVOID v119; // [rsp+B0h] [rbp-50h]
   ULONG64 ControlPc; // [rsp+C0h] [rbp-40h] BYREF
-  ULONG64 v118; // [rsp+C8h] [rbp-38h]
-  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v119; // [rsp+D0h] [rbp-30h]
-  unsigned __int64 v120; // [rsp+D8h] [rbp-28h]
-  PVOID v121; // [rsp+E0h] [rbp-20h]
-  PCONTEXT v122; // [rsp+E8h] [rbp-18h]
-  EXCEPTION_ROUTINE *v123; // [rsp+F0h] [rbp-10h]
-  PVOID v124; // [rsp+F8h] [rbp-8h]
-  struct _UNWIND_HISTORY_TABLE *v125; // [rsp+100h] [rbp+0h]
-  int v126; // [rsp+108h] [rbp+8h]
-  PVOID v127; // [rsp+110h] [rbp+10h]
-  PCONTEXT v128; // [rsp+118h] [rbp+18h]
-  int v129; // [rsp+120h] [rbp+20h] BYREF
-  __int64 v130; // [rsp+128h] [rbp+28h]
-  DWORD64 v131; // [rsp+130h] [rbp+30h]
-  int v132; // [rsp+138h] [rbp+38h]
-  struct _CONTEXT v133; // [rsp+1C0h] [rbp+C0h] BYREF
+  ULONG64 v121; // [rsp+C8h] [rbp-38h]
+  struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v122; // [rsp+D0h] [rbp-30h]
+  unsigned __int64 v123; // [rsp+D8h] [rbp-28h]
+  PVOID v124; // [rsp+E0h] [rbp-20h]
+  PCONTEXT v125; // [rsp+E8h] [rbp-18h]
+  EXCEPTION_DISPOSITION (__cdecl *v126)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+F0h] [rbp-10h]
+  PVOID v127; // [rsp+F8h] [rbp-8h]
+  struct _UNWIND_HISTORY_TABLE *v128; // [rsp+100h] [rbp+0h]
+  int v129; // [rsp+108h] [rbp+8h]
+  PVOID v130; // [rsp+110h] [rbp+10h]
+  PCONTEXT v131; // [rsp+118h] [rbp+18h]
+  int v132; // [rsp+120h] [rbp+20h] BYREF
+  __int64 v133; // [rsp+128h] [rbp+28h]
+  DWORD64 v134; // [rsp+130h] [rbp+30h]
+  int v135; // [rsp+138h] [rbp+38h]
+  struct _CONTEXT v136; // [rsp+1C0h] [rbp+C0h] BYREF
 
   v6 = TargetFrame;
   v7 = HistoryTable;
-  v116 = TargetIp;
-  v127 = TargetFrame;
-  v128 = ContextRecord;
-  v112 = HistoryTable;
-  v115 = ReturnValue;
-  v110 = ExceptionRecord;
-  if ( !(unsigned __int8)sub_18000F2CC(&v113, &v114) )
-    RtlRaiseStatus(3221225512LL);
-  v106 = ContextRecord;
+  v119 = TargetIp;
+  v130 = TargetFrame;
+  v131 = ContextRecord;
+  v115 = HistoryTable;
+  v118 = ReturnValue;
+  ExceptionRecorda = ExceptionRecord;
+  if ( !(unsigned __int8)sub_18000F2CC(&v116, &v117) )
+    RtlRaiseStatus(-1073741784);
+  v109 = ContextRecord;
   v9 = ContextRecord;
-  v10 = &v133;
+  v10 = &v136;
   RtlCaptureContext(ContextRecord);
   if ( HistoryTable )
     HistoryTable->Search = 1;
   if ( !ExceptionRecord )
   {
     Rip = ContextRecord->Rip;
-    v110 = (PEXCEPTION_RECORD)&v129;
-    v131 = Rip;
-    v129 = -1073741785;
-    v130 = 0LL;
-    v132 = 0;
+    ExceptionRecorda = (PEXCEPTION_RECORD)&v132;
+    v134 = Rip;
+    v132 = -1073741785;
+    v133 = 0LL;
+    v135 = 0;
   }
-  v102 = 2;
+  v105 = 2;
   if ( !v6 )
-    v102 = 6;
+    v105 = 6;
   v11 = 0LL;
   while ( 2 )
   {
     v12 = v9->Rip;
-    v103 = v12;
-    v104 = RtlLookupFunctionEntry(v12, &ImageBase, v7);
-    if ( !v104 )
+    v106 = v12;
+    v107 = RtlLookupFunctionEntry(v12, &ImageBase, v7);
+    if ( !v107 )
     {
       Rsp = (DWORD64 *)v9->Rsp;
       v9->Rip = *Rsp;
@@ -209,24 +212,24 @@ void __stdcall RtlUnwindEx(
     sub_18000E9E4(v10, v9);
     v13 = ImageBase;
     v14 = 0;
-    v15 = ImageBase + v104->UnwindInfoAddress;
-    v105 = 0LL;
+    v15 = ImageBase + v107->UnwindInfoAddress;
+    v108 = 0LL;
     v16 = *(_BYTE *)v15 & 7;
     if ( v16 < 2 )
     {
       v17 = 0;
       v18 = (unsigned __int8 *)(v15 + 2);
-      v19 = (_BYTE *)(ImageBase + v104->UnwindInfoAddress);
+      v19 = (_BYTE *)(ImageBase + v107->UnwindInfoAddress);
       if ( !*(_BYTE *)(v15 + 2) )
       {
         while ( (*v19 & 0x20) != 0 )
         {
-          v84 = *v18;
-          if ( (v84 & 1) != 0 )
-            v84 = (unsigned int)(v84 + 1);
+          v87 = *v18;
+          if ( (v87 & 1) != 0 )
+            v87 = (unsigned int)(v87 + 1);
           if ( (unsigned int)++v17 > 0x20 )
-            RtlRaiseStatus(3221225727LL);
-          v19 = (_BYTE *)(ImageBase + *(unsigned int *)&v19[2 * v84 + 12]);
+            RtlRaiseStatus(-1073741569);
+          v19 = (_BYTE *)(ImageBase + *(unsigned int *)&v19[2 * v87 + 12]);
           v18 = v19 + 2;
           if ( v19[2] )
             goto LABEL_12;
@@ -236,21 +239,21 @@ void __stdcall RtlUnwindEx(
     }
 LABEL_12:
     v20 = *(_BYTE *)(v15 + 3);
-    v21 = v103 - ImageBase - v104->BeginAddress;
+    v21 = v106 - ImageBase - v107->BeginAddress;
     if ( (v20 & 0xF) == 0 )
       goto LABEL_13;
     if ( v21 >= *(unsigned __int8 *)(v15 + 1) || (*(_BYTE *)v15 & 0x20) != 0 )
     {
-      v68 = *(_BYTE *)(v15 + 3);
-      v69 = v20;
+      v69 = *(_BYTE *)(v15 + 3);
+      v70 = v20;
     }
     else
     {
-      for ( i = 0LL; (unsigned int)i < *(unsigned __int8 *)(v15 + 2); i = (unsigned int)sub_180003F70(v95)
+      for ( i = 0LL; (unsigned int)i < *(unsigned __int8 *)(v15 + 2); i = (unsigned int)sub_180003F70(v98)
                                                                         + (unsigned int)i )
       {
-        v95 = *(_WORD *)(v15 + 2 * i + 4);
-        if ( (HIBYTE(v95) & 0xF) == 3 )
+        v98 = *(_WORD *)(v15 + 2 * i + 4);
+        if ( (HIBYTE(v98) & 0xF) == 3 )
           break;
       }
       if ( v21 < *(unsigned __int8 *)(v15 + 2 * i + 4) )
@@ -259,82 +262,82 @@ LABEL_13:
         v11 = v10->Rsp;
         goto LABEL_14;
       }
-      v69 = *(unsigned __int8 *)(v15 + 3);
-      v68 = *(_BYTE *)(v15 + 3);
+      v70 = *(unsigned __int8 *)(v15 + 3);
+      v69 = *(_BYTE *)(v15 + 3);
     }
-    v11 = *(&v10->Rax + (v68 & 0xF)) - (v69 & 0xFFFFFFF0);
+    v11 = *(&v10->Rax + (v69 & 0xF)) - (v70 & 0xFFFFFFF0);
 LABEL_14:
     EstablisherFrame = v11;
     if ( v14 )
       goto LABEL_27;
     if ( v16 >= 2 )
     {
-      v71 = *(_BYTE *)(v15 + 2);
-      if ( !v71 )
+      v72 = *(_BYTE *)(v15 + 2);
+      if ( !v72 )
         goto LABEL_27;
-      v72 = *(_WORD *)(v15 + 4);
-      if ( (HIBYTE(v72) & 0xF) != 6 )
+      v73 = *(_WORD *)(v15 + 4);
+      if ( (HIBYTE(v73) & 0xF) != 6 )
         goto LABEL_27;
-      v12 = v103;
-      v73 = v103 - v13;
-      v74 = (unsigned __int8)v72;
-      if ( (v72 & 0x1000) == 0 || (v75 = v104->EndAddress - (unsigned __int8)v72, v73 - v75 >= v74) )
+      v12 = v106;
+      v74 = v106 - v13;
+      v75 = (unsigned __int8)v73;
+      if ( (v73 & 0x1000) == 0 || (v76 = v107->EndAddress - (unsigned __int8)v73, v74 - v76 >= v75) )
       {
-        v76 = 1;
-        if ( v71 <= 1u )
+        v77 = 1;
+        if ( v72 <= 1u )
           goto LABEL_27;
         while ( 1 )
         {
-          v77 = *(_WORD *)(v15 + 2LL * v76 + 4);
-          if ( (HIBYTE(v77) & 0xF) != 6 )
+          v78 = *(_WORD *)(v15 + 2LL * v77 + 4);
+          if ( (HIBYTE(v78) & 0xF) != 6 )
             goto LABEL_27;
-          v78 = (unsigned __int8)v77 + (HIBYTE(v77) >> 4 << 8);
-          if ( !v78 )
+          v79 = (unsigned __int8)v78 + (HIBYTE(v78) >> 4 << 8);
+          if ( !v79 )
             goto LABEL_27;
-          v75 = v104->EndAddress - v78;
-          if ( v73 - v75 < v74 )
+          v76 = v107->EndAddress - v79;
+          if ( v74 - v76 < v75 )
             break;
-          if ( ++v76 >= v71 )
+          if ( ++v77 >= v72 )
             goto LABEL_27;
         }
       }
-      sub_18009A360(v13, v75, v73 - v75, (_DWORD)v104, (__int64)v10, 0LL, 0LL, 0LL);
+      sub_18009A360(v13, v76, v74 - v76, (_DWORD)v107, (__int64)v10, 0LL, 0LL, 0LL);
       goto LABEL_80;
     }
-    v12 = v103;
+    v12 = v106;
     v22 = 0LL;
-    v23 = (char *)v103;
-    v24 = *(_BYTE *)v103;
-    if ( *(_BYTE *)v103 == 72 )
+    v23 = (char *)v106;
+    v24 = *(_BYTE *)v106;
+    if ( *(_BYTE *)v106 == 72 )
     {
-      v60 = *(_BYTE *)(v103 + 1);
-      if ( v60 == -125 && *(_BYTE *)(v103 + 2) == 0xC4 )
+      v60 = *(_BYTE *)(v106 + 1);
+      if ( v60 == -125 && *(_BYTE *)(v106 + 2) == 0xC4 )
       {
-        v23 = (char *)(v103 + 4);
+        v23 = (char *)(v106 + 4);
         goto LABEL_18;
       }
-      if ( v60 == -127 && *(_BYTE *)(v103 + 2) == 0xC4 )
+      if ( v60 == -127 && *(_BYTE *)(v106 + 2) == 0xC4 )
       {
-        v23 = (char *)(v103 + 7);
+        v23 = (char *)(v106 + 7);
         goto LABEL_18;
       }
     }
-    if ( (v24 & 0xFE) == 0x48 && *(_BYTE *)(v103 + 1) == 0x8D )
+    if ( (v24 & 0xFE) == 0x48 && *(_BYTE *)(v106 + 1) == 0x8D )
     {
-      v58 = *(_BYTE *)(v103 + 2) & 7;
+      v58 = *(_BYTE *)(v106 + 2) & 7;
       v22 = v58 | (8 * (v24 & 1u));
       if ( v58 | (8 * (v24 & 1)) )
       {
         if ( (_DWORD)v22 == (*(_BYTE *)(v15 + 3) & 0xF) )
         {
-          v59 = *(_BYTE *)(v103 + 2) & 0xF8;
+          v59 = *(_BYTE *)(v106 + 2) & 0xF8;
           if ( v59 == 96 )
           {
-            v23 = (char *)(v103 + 4);
+            v23 = (char *)(v106 + 4);
           }
           else if ( v59 == -96 )
           {
-            v23 = (char *)(v103 + 7);
+            v23 = (char *)(v106 + 7);
           }
         }
       }
@@ -363,30 +366,30 @@ LABEL_144:
     if ( (unsigned __int8)(v25 + 62) <= 1u || v25 == -13 && (v25 = -13, v23[1] == -61) )
     {
 LABEL_74:
-      v54 = (char *)v103;
-      if ( (*(_BYTE *)v103 & 0xF8) != 0x48 )
+      v54 = (char *)v106;
+      if ( (*(_BYTE *)v106 & 0xF8) != 0x48 )
         goto LABEL_77;
-      v55 = *(_BYTE *)(v103 + 1);
+      v55 = *(_BYTE *)(v106 + 1);
       switch ( v55 )
       {
         case -125:
-          v10->Rsp += *(char *)(v103 + 3);
-          v54 = (char *)(v103 + 4);
+          v10->Rsp += *(char *)(v106 + 3);
+          v54 = (char *)(v106 + 4);
           goto LABEL_77;
         case -127:
-          v10->Rsp += *(unsigned __int8 *)(v103 + 3) | (unsigned __int64)((*(unsigned __int8 *)(v103 + 4) | (*(unsigned __int16 *)(v103 + 5) << 8)) << 8);
+          v10->Rsp += *(unsigned __int8 *)(v106 + 3) | (unsigned __int64)((*(unsigned __int8 *)(v106 + 4) | (*(unsigned __int16 *)(v106 + 5) << 8)) << 8);
           break;
         case -115:
-          v96 = *(_BYTE *)(v103 + 2) & 0xF8;
-          if ( v96 == 96 )
+          v99 = *(_BYTE *)(v106 + 2) & 0xF8;
+          if ( v99 == 96 )
           {
-            v97 = *(&v10->Rax + v22);
-            v10->Rsp = v97;
-            v10->Rsp = v97 + *(char *)(v103 + 3);
-            v54 = (char *)(v103 + 4);
+            v100 = *(&v10->Rax + v22);
+            v10->Rsp = v100;
+            v10->Rsp = v100 + *(char *)(v106 + 3);
+            v54 = (char *)(v106 + 4);
             goto LABEL_77;
           }
-          if ( v96 != -96 )
+          if ( v99 != -96 )
           {
             while ( 1 )
             {
@@ -396,30 +399,30 @@ LABEL_77:
               if ( (*v54 & 0xF8) == 0x58 )
               {
                 *(&v10->Rax + (v56 & 7)) = *(_QWORD *)v10->Rsp;
-                v85 = 1LL;
+                v88 = 1LL;
               }
               else
               {
-                if ( (v56 & 0xF0) != 0x40 || (v93 = v54[1], (v93 & 0xF8) != 0x58) )
+                if ( (v56 & 0xF0) != 0x40 || (v96 = v54[1], (v96 & 0xF8) != 0x58) )
                 {
                   v10->Rip = *v57;
                   v10->Rsp = (DWORD64)(v57 + 1);
                   goto LABEL_80;
                 }
-                *(&v10->Rax + (v93 & 7 | (unsigned __int64)(8 * (v56 & 1u)))) = *(_QWORD *)v10->Rsp;
-                v85 = 2LL;
+                *(&v10->Rax + (v96 & 7 | (unsigned __int64)(8 * (v56 & 1u)))) = *(_QWORD *)v10->Rsp;
+                v88 = 2LL;
               }
               v10->Rsp += 8LL;
-              v54 += v85;
+              v54 += v88;
             }
           }
           v10->Rsp = *(&v10->Rax + v22)
-                   + (*(unsigned __int8 *)(v103 + 3) | ((*(unsigned __int8 *)(v103 + 4) | (*(unsigned __int16 *)(v103 + 5) << 8)) << 8));
+                   + (*(unsigned __int8 *)(v106 + 3) | ((*(unsigned __int8 *)(v106 + 4) | (*(unsigned __int16 *)(v106 + 5) << 8)) << 8));
           break;
         default:
           goto LABEL_77;
       }
-      v54 = (char *)(v103 + 7);
+      v54 = (char *)(v106 + 7);
       goto LABEL_77;
     }
     if ( ((v25 + 23) & 0xFD) != 0 )
@@ -436,38 +439,38 @@ LABEL_77:
     else
     {
       if ( v25 == -21 )
-        v63 = v23[1] + 2;
+        v64 = v23[1] + 2;
       else
-        v63 = *(_DWORD *)(v23 + 1) + 5;
-      v64 = v63;
-      v65 = (__int64)v104;
-      v66 = (unsigned __int64)&v23[v64 - v13];
-      BeginAddress = v104->BeginAddress;
-      if ( v66 >= BeginAddress )
+        v64 = *(_DWORD *)(v23 + 1) + 5;
+      v65 = v64;
+      v66 = (__int64)v107;
+      v67 = (unsigned __int64)&v23[v65 - v13];
+      BeginAddress = v107->BeginAddress;
+      if ( v67 >= BeginAddress )
       {
-        if ( v66 < v104->EndAddress )
+        if ( v67 < v107->EndAddress )
         {
-          if ( v66 == BeginAddress && (*(_BYTE *)v15 & 0x20) == 0 )
+          if ( v67 == BeginAddress && (*(_BYTE *)v15 & 0x20) == 0 )
             goto LABEL_74;
           goto LABEL_27;
         }
-        v65 = (__int64)v104;
+        v66 = (__int64)v107;
       }
-      v92 = (_DWORD *)sub_18000B108(v65, v13, v66 + v13);
-      if ( !v92 || v66 == *v92 )
+      v95 = (_DWORD *)sub_18000B108(v66, v13, (void *)(v67 + v13));
+      if ( !v95 || v67 == *v95 )
         goto LABEL_74;
     }
 LABEL_27:
     v27 = 0;
     v28 = ImageBase;
-    p_BeginAddress = &v104->BeginAddress;
-    v30 = v103 - ImageBase;
-    v107 = 0;
+    p_BeginAddress = &v107->BeginAddress;
+    v30 = v106 - ImageBase;
+    v110 = 0;
     while ( 1 )
     {
       v31 = 0;
       v32 = (_BYTE *)(v28 + (unsigned int)p_BeginAddress[2]);
-      v101 = 0;
+      v104 = 0;
       v33 = 0LL;
       v34 = v30 - *p_BeginAddress;
       v35 = v32[2];
@@ -512,9 +515,9 @@ LABEL_27:
                     v10->Rsp += (unsigned int)(8 * v37 + 8);
                     break;
                   case 3:
-                    v70 = *(&v10->Rax + (v32[3] & 0xF));
-                    v10->Rsp = v70;
-                    v10->Rsp = v70 - (v32[3] & 0xF0);
+                    v71 = *(&v10->Rax + (v32[3] & 0xF));
+                    v10->Rsp = v71;
+                    v10->Rsp = v71 - (v32[3] & 0xF0);
                     break;
                   case 5:
                     v33 = (unsigned int)(v33 + 2);
@@ -530,34 +533,34 @@ LABEL_27:
                     break;
                   case 8:
                     v33 = (unsigned int)(v33 + 1);
-                    v79 = 16 * (unsigned int)*(unsigned __int16 *)&v32[2 * v33 + 4];
-                    v80 = &v10->FltSave.XmmRegisters[(unsigned int)v37];
-                    v80->Low = *(_QWORD *)(v79 + v11);
-                    v80->High = *(_QWORD *)(v79 + v11 + 8);
+                    v80 = 16 * (unsigned int)*(unsigned __int16 *)&v32[2 * v33 + 4];
+                    v81 = &v10->FltSave.XmmRegisters[(unsigned int)v37];
+                    v81->Low = *(_QWORD *)(v80 + v11);
+                    v81->High = *(_QWORD *)(v80 + v11 + 8);
                     break;
                   case 9:
                     v33 = (unsigned int)(v33 + 2);
-                    v98 = (ULONGLONG *)(v11
-                                      + *(unsigned __int16 *)&v32[2 * (unsigned int)(v33 - 1) + 4]
-                                      + (*(unsigned __int16 *)&v32[2 * v33 + 4] << 16));
-                    v99 = &v10->FltSave.XmmRegisters[(unsigned int)v37];
-                    v99->Low = *v98;
-                    v99->High = v98[1];
+                    v101 = (ULONGLONG *)(v11
+                                       + *(unsigned __int16 *)&v32[2 * (unsigned int)(v33 - 1) + 4]
+                                       + (*(unsigned __int16 *)&v32[2 * v33 + 4] << 16));
+                    v102 = &v10->FltSave.XmmRegisters[(unsigned int)v37];
+                    v102->Low = *v101;
+                    v102->High = v101[1];
                     break;
                   case 0xA:
-                    v89 = (DWORD64 *)v10->Rsp;
-                    v101 = 1;
-                    v90 = v89 + 3;
+                    v92 = (DWORD64 *)v10->Rsp;
+                    v104 = 1;
+                    v93 = v92 + 3;
                     if ( (_DWORD)v37 )
                     {
-                      ++v89;
-                      ++v90;
+                      ++v92;
+                      ++v93;
                     }
-                    v10->Rip = *v89;
-                    v10->Rsp = *v90;
+                    v10->Rip = *v92;
+                    v10->Rsp = *v93;
                     break;
                   default:
-                    RtlRaiseStatus(3221225727LL);
+                    RtlRaiseStatus(-1073741569);
                 }
               }
             }
@@ -571,18 +574,18 @@ LABEL_27:
           v35 = v32[2];
         }
         while ( (unsigned int)v33 < v35 );
-        v31 = v101;
-        v27 = v107;
+        v31 = v104;
+        v27 = v110;
       }
       if ( (*v32 & 0x20) == 0 )
         break;
-      v81 = v35;
+      v82 = v35;
       if ( (v35 & 1) != 0 )
-        v81 = v35 + 1;
-      v107 = ++v27;
-      p_BeginAddress = &v32[2 * v81 + 4];
+        v82 = v35 + 1;
+      v110 = ++v27;
+      p_BeginAddress = &v32[2 * v82 + 4];
       if ( v27 > 0x20 )
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
       v28 = ImageBase;
     }
     if ( !v31 )
@@ -593,8 +596,8 @@ LABEL_27:
     }
     v13 = ImageBase;
     v39 = (_BYTE *)(ImageBase + (unsigned int)p_BeginAddress[2]);
-    v40 = v103 - ImageBase - *p_BeginAddress;
-    v12 = v103;
+    v40 = v106 - ImageBase - *p_BeginAddress;
+    v12 = v106;
     if ( v40 < (unsigned __int8)v39[1] || (*v39 & 0x10) == 0 )
     {
 LABEL_80:
@@ -607,122 +610,123 @@ LABEL_80:
       v42 = (unsigned __int8)v39[2];
     v43 = ImageBase + *(unsigned int *)&v39[2 * v42 + 4];
     HandlerData = &v39[2 * (v42 + 2) + 4];
-    v105 = v43;
+    v108 = v43;
 LABEL_43:
-    if ( (v11 & 7) != 0 || v11 < v113 || v11 >= v114 || (v6 = v127) != 0LL && (unsigned __int64)v127 < v11 )
-      RtlRaiseStatus(3221225512LL);
+    if ( (v11 & 7) != 0 || v11 < v116 || v11 >= v117 || (v6 = v130) != 0LL && (unsigned __int64)v130 < v11 )
+      RtlRaiseStatus(-1073741784);
     if ( v43 )
     {
       v44 = 0;
-      v45 = v102;
-      v121 = v116;
+      v45 = v105;
+      v124 = v119;
       do
       {
         if ( v6 == (PVOID)v11 )
           v45 |= 0x20u;
-        v9 = v106;
-        v46 = (DWORD64)v115;
-        v123 = (EXCEPTION_ROUTINE *)v43;
-        v47 = v110;
-        v110->ExceptionFlags = v45;
-        v106->Rax = v46;
-        v119 = v104;
-        v124 = HandlerData;
-        v102 = v45 & 0xFFFFFF9F;
-        v125 = v112;
+        v9 = v109;
+        v46 = (DWORD64)v118;
+        v126 = (EXCEPTION_DISPOSITION (__cdecl *)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID))v43;
+        v47 = ExceptionRecorda;
+        ExceptionRecorda->ExceptionFlags = v45;
+        v109->Rax = v46;
+        v122 = v107;
+        v127 = HandlerData;
+        v105 = v45 & 0xFFFFFF9F;
+        v128 = v115;
         ControlPc = v12;
-        v118 = v13;
-        v120 = v11;
-        v122 = v106;
-        v126 = v44;
-        v48 = sub_18009F9A0(v47, v11, v106, &ControlPc) - 1;
+        v121 = v13;
+        v123 = v11;
+        v125 = v109;
+        v129 = v44;
+        v48 = sub_18009F9A0(v47, v11, v109, &ControlPc) - 1;
         if ( v48 )
         {
           if ( v48 != 2 )
-            RtlRaiseStatus(3221225510LL);
-          v13 = v118;
+            RtlRaiseStatus(-1073741786);
+          v13 = v121;
           v12 = ControlPc;
-          ImageBase = v118;
-          v104 = v119;
-          sub_18000E9E4(v128, v122);
-          v106 = v86;
-          v9 = v86;
-          v10 = &v133;
-          sub_18000E9E4(&v133, v86);
-          v88 = RtlVirtualUnwind(2u, v13, v12, v87, &v133, &HandlerData, &EstablisherFrame, 0LL);
-          v105 = (unsigned __int64)v88;
-          if ( ((*((_QWORD *)&xmmword_18016F370 + 1) >> 12) & 3) == 1 )
+          ImageBase = v121;
+          v107 = v122;
+          sub_18000E9E4(v131, v125);
+          v109 = v89;
+          v9 = v89;
+          v10 = &v136;
+          sub_18000E9E4(&v136, v89);
+          v91 = RtlVirtualUnwind(2u, v13, v12, v90, &v136, &HandlerData, &EstablisherFrame, 0LL);
+          v108 = (unsigned __int64)v91;
+          if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
           {
-            if ( v88 != v123 || (v11 = EstablisherFrame, EstablisherFrame != v120) || HandlerData != v124 )
+            if ( v91 != v126 || (v11 = EstablisherFrame, EstablisherFrame != v123) || HandlerData != v127 )
               __fastfail(0x27u);
           }
           else
           {
-            v11 = v120;
-            v105 = (unsigned __int64)v123;
-            HandlerData = v124;
-            EstablisherFrame = v120;
+            v11 = v123;
+            v108 = (unsigned __int64)v126;
+            HandlerData = v127;
+            EstablisherFrame = v123;
           }
-          v45 = v102 | 0x40;
-          v44 = v126;
-          v102 |= 0x40u;
-          v112 = v125;
+          v45 = v105 | 0x40;
+          v44 = v129;
+          v105 |= 0x40u;
+          v115 = v128;
         }
         else
         {
-          v45 = v102;
+          v45 = v105;
           if ( (PVOID)v11 != v6 )
           {
-            v49 = v106;
-            v106 = v10;
+            v49 = v109;
+            v109 = v10;
             v9 = v10;
             v10 = v49;
           }
         }
-        v43 = v105;
+        v43 = v108;
       }
       while ( (v45 & 0x40) != 0 );
     }
-    else if ( (PVOID)v11 == v127 )
+    else if ( (PVOID)v11 == v130 )
     {
-      v9 = v106;
+      v9 = v109;
     }
     else
     {
-      v52 = v106;
+      v52 = v109;
       v9 = v10;
-      v106 = v10;
+      v109 = v10;
       v10 = v52;
     }
 LABEL_56:
-    if ( (v11 & 7) != 0 || v11 < v113 || v11 >= v114 )
+    if ( (v11 & 7) != 0 || v11 < v116 || v11 >= v117 )
     {
       if ( (PVOID)v11 == v6 )
         goto LABEL_91;
       if ( v12 == v9->Rip )
-        RtlRaiseStatus(3221225727LL);
-      ZwRaiseException(v110, v9, 0LL);
+        RtlRaiseStatus(-1073741569);
+      ZwRaiseException(ExceptionRecorda, v9, 0);
     }
     else
     {
       if ( (PVOID)v11 != v6 )
       {
-        v7 = v112;
+        v7 = v115;
         continue;
       }
 LABEL_91:
-      v61 = v110;
+      v61 = ExceptionRecorda;
       p_Rip = &v9->Rip;
-      v9->Rax = (DWORD64)v115;
+      v9->Rax = (DWORD64)v118;
       if ( v61->ExceptionCode != -2147483607 )
-        *p_Rip = (DWORD64)v116;
+        *p_Rip = (DWORD64)v119;
       nullsub_2(p_Rip);
       if ( v61->ExceptionCode == -2147483610 )
       {
-        v82 = v61->ExceptionInformation[0];
-        if ( (unsigned int)LdrControlFlowGuardEnforced() && !sub_18000B304(*(PVOID *)(v82 + 16)) )
+        v83 = v61->ExceptionInformation[0];
+        LOBYTE(v84) = LdrControlFlowGuardEnforced();
+        if ( v84 && !sub_18000B304(*(PVOID *)(v83 + 16)) )
           __fastfail(0xDu);
-        RtlGuardCheckLongJumpTarget(*(_QWORD *)(v82 + 80), 0, 0LL);
+        RtlGuardCheckLongJumpTarget(*(PVOID *)(v83 + 80), 0, 0LL);
       }
       else
       {
@@ -730,17 +734,19 @@ LABEL_91:
         {
           if ( v61->NumberParameters )
           {
-            v83 = v61->ExceptionInformation[0];
-            if ( (unsigned int)LdrControlFlowGuardEnforced() )
+            v85 = v61->ExceptionInformation[0];
+            LOBYTE(v86) = LdrControlFlowGuardEnforced();
+            if ( v86 )
             {
               if ( (unsigned int)sub_18001F704() )
-                sub_18008B460(v83);
+                sub_18008B460(v85);
               else
-                sub_18008B410(v83);
+                sub_18008B410(v85);
             }
           }
         }
-        if ( (unsigned int)LdrControlFlowGuardEnforced() )
+        LOBYTE(v63) = LdrControlFlowGuardEnforced();
+        if ( v63 )
         {
           if ( !sub_18000B304((PVOID)v9->Rsp) )
             __fastfail(0xDu);

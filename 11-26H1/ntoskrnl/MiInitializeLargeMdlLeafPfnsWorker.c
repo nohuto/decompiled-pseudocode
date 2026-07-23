@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeLargeMdlLeafPfnsWorker @ 0x1406EE460
+ * XREFs of MiInitializeLargeMdlLeafPfnsWorker @ 0x1406F3100
  * Callers:
  *     <none>
  * Callees:
- *     MiInitializeLargeMdlLeafPfns @ 0x1406EE360 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x1406F3000 (MiInitializeLargeMdlLeafPfns.c)
  */
 
 unsigned __int64 __fastcall MiInitializeLargeMdlLeafPfnsWorker(__int64 a1)

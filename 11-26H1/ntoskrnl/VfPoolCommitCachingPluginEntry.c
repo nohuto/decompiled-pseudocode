@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPoolCommitCachingPluginEntry @ 0x140C43EC0
+ * XREFs of VfPoolCommitCachingPluginEntry @ 0x140C49ED0
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     ExConfigurePoolCommitCaching @ 0x1406D2710 (ExConfigurePoolCommitCaching.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     ExConfigurePoolCommitCaching @ 0x1406D6740 (ExConfigurePoolCommitCaching.c)
  */
 
 __int64 VfPoolCommitCachingPluginEntry()

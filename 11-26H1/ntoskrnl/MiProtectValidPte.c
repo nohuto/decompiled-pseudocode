@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProtectValidPte @ 0x140311A38
+ * XREFs of MiProtectValidPte @ 0x140313A6C
  * Callers:
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiRevertValidPte @ 0x140304974 (MiRevertValidPte.c)
- *     MiMakeVaRangeNoAccess @ 0x140310CE0 (MiMakeVaRangeNoAccess.c)
- *     MiProtectFlushPayload @ 0x140311488 (MiProtectFlushPayload.c)
- *     MiMakeProtoPrivate @ 0x1403114CC (MiMakeProtoPrivate.c)
- *     MiUpdatePfnProtection @ 0x140311B80 (MiUpdatePfnProtection.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiRevertValidPte @ 0x1402E69F4 (MiRevertValidPte.c)
+ *     MiMakeVaRangeNoAccess @ 0x140312D14 (MiMakeVaRangeNoAccess.c)
+ *     MiProtectFlushPayload @ 0x1403134BC (MiProtectFlushPayload.c)
+ *     MiMakeProtoPrivate @ 0x140313500 (MiMakeProtoPrivate.c)
+ *     MiUpdatePfnProtection @ 0x140313BB0 (MiUpdatePfnProtection.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
  */
 
 __int64 __fastcall MiProtectValidPte(_QWORD *a1, __int64 *a2, unsigned __int64 a3, __int64 a4)

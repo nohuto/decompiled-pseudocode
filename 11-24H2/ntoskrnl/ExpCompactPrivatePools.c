@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCompactPrivatePools @ 0x140A4AE8C
+ * XREFs of ExpCompactPrivatePools @ 0x140A41B0C
  * Callers:
- *     ExpHpCompactionRoutine @ 0x1404859E0 (ExpHpCompactionRoutine.c)
+ *     ExpHpCompactionRoutine @ 0x140480FD0 (ExpHpCompactionRoutine.c)
  * Callees:
- *     RtlpHpHeapCompact @ 0x1402B39E4 (RtlpHpHeapCompact.c)
- *     ExpPrivatePoolGetNext @ 0x140A4AEE4 (ExpPrivatePoolGetNext.c)
+ *     RtlpHpHeapCompact @ 0x14035CB34 (RtlpHpHeapCompact.c)
+ *     ExpPrivatePoolGetNext @ 0x140A41B64 (ExpPrivatePoolGetNext.c)
  */
 
 __int64 __fastcall ExpCompactPrivatePools(__int64 a1)

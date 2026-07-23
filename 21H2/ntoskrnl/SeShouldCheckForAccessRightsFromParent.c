@@ -1,23 +1,23 @@
 /*
- * XREFs of SeShouldCheckForAccessRightsFromParent @ 0x14065C780
+ * XREFs of SeShouldCheckForAccessRightsFromParent @ 0x1406515A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
- *     SeGetTrustLabelAce @ 0x14027E380 (SeGetTrustLabelAce.c)
- *     SepLocateTokenTrustLevel @ 0x1402AAB88 (SepLocateTokenTrustLevel.c)
- *     SepFilterCheck @ 0x14034ECD0 (SepFilterCheck.c)
+ *     SepLocateTokenTrustLevel @ 0x140228CC8 (SepLocateTokenTrustLevel.c)
+ *     RtlSidDominatesForTrust @ 0x14026BD80 (RtlSidDominatesForTrust.c)
+ *     SeGetTrustLabelAce @ 0x14026C320 (SeGetTrustLabelAce.c)
+ *     SepFilterCheck @ 0x140359A20 (SepFilterCheck.c)
  */
 
 bool __fastcall SeShouldCheckForAccessRightsFromParent(__int64 a1, __int64 a2, __int64 a3)
 {
-  char v5; // si
+  BOOLEAN v5; // si
   char v6; // di
   __int64 TrustLabelAce; // rax
   __int64 v8; // r8
-  __int64 v10; // r14
-  __int64 TokenTrustLevel; // rax
-  char v12; // [rsp+60h] [rbp+18h] BYREF
+  void *v10; // r14
+  void *TokenTrustLevel; // rax
+  BOOLEAN DominatesTrust; // [rsp+60h] [rbp+18h] BYREF
   __int64 v13; // [rsp+68h] [rbp+20h] BYREF
 
   v5 = 1;
@@ -26,13 +26,13 @@ bool __fastcall SeShouldCheckForAccessRightsFromParent(__int64 a1, __int64 a2, _
   TrustLabelAce = SeGetTrustLabelAce(a2);
   if ( TrustLabelAce )
   {
-    v10 = TrustLabelAce + 8;
+    v10 = (void *)(TrustLabelAce + 8);
     if ( TrustLabelAce != -8 )
     {
-      v12 = 0;
-      TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)(a3 + 32));
-      RtlSidDominatesForTrust(TokenTrustLevel, v10, &v12);
-      v5 = v12;
+      DominatesTrust = 0;
+      TokenTrustLevel = (void *)SepLocateTokenTrustLevel((__int64 *)(a3 + 32));
+      RtlSidDominatesForTrust(TokenTrustLevel, v10, &DominatesTrust);
+      v5 = DominatesTrust;
     }
   }
   v8 = *(_QWORD *)(a3 + 32);

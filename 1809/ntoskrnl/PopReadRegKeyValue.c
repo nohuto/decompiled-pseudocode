@@ -1,17 +1,17 @@
 /*
- * XREFs of PopReadRegKeyValue @ 0x140190CA8
+ * XREFs of PopReadRegKeyValue @ 0x140190DE8
  * Callers:
- *     PopReadUlongPowerKey @ 0x140190C68 (PopReadUlongPowerKey.c)
- *     PopDiagTracePerfTrackData @ 0x1406DD4F0 (PopDiagTracePerfTrackData.c)
- *     PopDiagTraceDirtyTransition @ 0x1409F7FC8 (PopDiagTraceDirtyTransition.c)
+ *     PopReadUlongPowerKey @ 0x140190DA8 (PopReadUlongPowerKey.c)
+ *     PopDiagTracePerfTrackData @ 0x1406DE790 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceDirtyTransition @ 0x1409F8FC8 (PopDiagTraceDirtyTransition.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadRegKeyValue(PCWSTR SourceString, PCWSTR a2, size_t Size, int a4, void *a5)

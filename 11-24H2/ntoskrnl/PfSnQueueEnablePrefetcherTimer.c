@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnQueueEnablePrefetcherTimer @ 0x1407471C0
+ * XREFs of PfSnQueueEnablePrefetcherTimer @ 0x1407454B0
  * Callers:
- *     PfSnBeginBootPhase @ 0x140B5B684 (PfSnBeginBootPhase.c)
+ *     PfSnBeginBootPhase @ 0x140B5D6F4 (PfSnBeginBootPhase.c)
  * Callees:
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     PfSnAllocateEnablePrefetcherTimer @ 0x140B6E118 (PfSnAllocateEnablePrefetcherTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     PfSnAllocateEnablePrefetcherTimer @ 0x140B6FBB8 (PfSnAllocateEnablePrefetcherTimer.c)
  */
 
 __int64 __fastcall PfSnQueueEnablePrefetcherTimer(__int64 *a1)

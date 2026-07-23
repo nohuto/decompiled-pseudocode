@@ -1,12 +1,12 @@
 /*
- * XREFs of CcMapAndRead @ 0x140280CF0
+ * XREFs of CcMapAndRead @ 0x140236280
  * Callers:
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
- *     CcPrepareMdlWrite @ 0x1402CC1E0 (CcPrepareMdlWrite.c)
- *     CcMapData @ 0x140978410 (CcMapData.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x14040B2B0 (CcPrepareMdlWrite.c)
+ *     CcMapData @ 0x140960C20 (CcMapData.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
  */
 
 __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
   int v7; // edx
   int v8; // r11d
   int v9; // eax
-  int v10; // r10d
+  NTSTATUS v10; // r10d
   unsigned __int64 v11; // rbx
   unsigned __int64 v12; // r14
   unsigned int v13; // edi

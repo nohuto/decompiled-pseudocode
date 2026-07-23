@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x1403B25A0
+ * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x1403A0DB0
  * Callers:
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     KiComputeThreadAffinity @ 0x14029AC34 (KiComputeThreadAffinity.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiSetAffinityThread @ 0x1403B1A08 (KiSetAffinityThread.c)
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     KiInitializeForegroundBoostThread @ 0x1403B3D80 (KiInitializeForegroundBoostThread.c)
- *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x1403B4344 (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
- *     KiUpdateThreadSchedulingProperties @ 0x14047C4A8 (KiUpdateThreadSchedulingProperties.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     KiComputeThreadAffinity @ 0x1402A9724 (KiComputeThreadAffinity.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x1402D6DAC (KiUpdateThreadSchedulingProperties.c)
+ *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140370B7C (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
+ *     KiSetAffinityThread @ 0x1403A0218 (KiSetAffinityThread.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     KiInitializeForegroundBoostThread @ 0x1403A2590 (KiInitializeForegroundBoostThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
  * Callees:
  *     <none>
  */

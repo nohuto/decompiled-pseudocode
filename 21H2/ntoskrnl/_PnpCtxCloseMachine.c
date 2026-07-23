@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxCloseMachine @ 0x140974534
+ * XREFs of _PnpCtxCloseMachine @ 0x140974714
  * Callers:
- *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6A98 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6BF8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140A52084 (PipMigratePnpState.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     _PnpCtxDestroyNode @ 0x1409745F8 (_PnpCtxDestroyNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     _PnpCtxDestroyNode @ 0x1409747D8 (_PnpCtxDestroyNode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
@@ -19,7 +19,10 @@ __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
   _QWORD *v4; // rcx
   __int64 v5; // rax
   _QWORD *v6; // rdx
-  struct _ERESOURCE *v7; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  struct _ERESOURCE *v10; // rbx
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
@@ -44,12 +47,12 @@ __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
   }
   while ( v2 >= 0 );
   ExReleaseResourceLite(P[30]);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
   if ( v2 >= 0 )
   {
-    v7 = P[30];
-    ExDeleteResourceLite(v7);
-    ExFreePoolWithTag(v7, 0);
+    v10 = P[30];
+    ExDeleteResourceLite(v10);
+    ExFreePoolWithTag(v10, 0);
     ExFreePoolWithTag(P, 0);
   }
   return (unsigned int)v2;

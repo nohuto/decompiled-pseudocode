@@ -1,5 +1,5 @@
 /*
- * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x140128BF8
+ * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x140128CC8
  * Callers:
  *     MiUnlockFaultPageTable @ 0x14001BC3C (MiUnlockFaultPageTable.c)
  *     MiResolveTransitionFault @ 0x14003AC00 (MiResolveTransitionFault.c)
@@ -8,7 +8,7 @@
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
  * Callees:
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
  */

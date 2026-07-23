@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpTryAcquireIXLockIntent @ 0x140403084
+ * XREFs of CmpTryAcquireIXLockIntent @ 0x140401F44
  * Callers:
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
  * Callees:
  *     <none>
  */

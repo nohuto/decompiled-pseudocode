@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpPsProvTraceThread @ 0x140623B44
+ * XREFs of EtwpPsProvTraceThread @ 0x140624B70
  * Callers:
- *     EtwTraceThread @ 0x1406237EC (EtwTraceThread.c)
+ *     EtwTraceThread @ 0x1406247EC (EtwTraceThread.c)
  * Callees:
- *     PsQueryThreadStartAddress @ 0x1400A3970 (PsQueryThreadStartAddress.c)
- *     PsGetCurrentThreadTeb @ 0x1400A39C0 (PsGetCurrentThreadTeb.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsQueryThreadStartAddress @ 0x1400A38B0 (PsQueryThreadStartAddress.c)
+ *     PsGetCurrentThreadTeb @ 0x1400A3900 (PsGetCurrentThreadTeb.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceThread(__int64 a1, __int64 a2, char a3)

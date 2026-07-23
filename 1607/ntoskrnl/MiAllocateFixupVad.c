@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateFixupVad @ 0x1404808A4
+ * XREFs of MiAllocateFixupVad @ 0x14047F5F8
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInitializePrivateFixupBitmap @ 0x1404809D0 (MiInitializePrivateFixupBitmap.c)
+ *     MiInitializePrivateFixupBitmap @ 0x14047F724 (MiInitializePrivateFixupBitmap.c)
  */
 
 _OWORD *__fastcall MiAllocateFixupVad(__int64 a1)

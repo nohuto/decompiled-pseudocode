@@ -1,26 +1,26 @@
 /*
- * XREFs of CcPostDeferredWrites @ 0x1403C1E48
+ * XREFs of CcPostDeferredWrites @ 0x1403C2028
  * Callers:
  *     CcCanIWrite @ 0x14020F180 (CcCanIWrite.c)
- *     CcLazyWriteScanVolume @ 0x14029A600 (CcLazyWriteScanVolume.c)
- *     CcFlushCachePostProcess @ 0x14029DD3C (CcFlushCachePostProcess.c)
- *     CcFlushCachePostProcessOneRange @ 0x14029E9F0 (CcFlushCachePostProcessOneRange.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402F4158 (CcNotifyOfMappedWriteComplete.c)
- *     CcUnpinRepinnedBcb @ 0x140394190 (CcUnpinRepinnedBcb.c)
- *     CcReapPrivateVolumeCachemap @ 0x1403C1CB4 (CcReapPrivateVolumeCachemap.c)
- *     CcDeductDirtyPagesFromExternalCache @ 0x1403CF9F0 (CcDeductDirtyPagesFromExternalCache.c)
- *     CcLazyWriteScan @ 0x140535F6C (CcLazyWriteScan.c)
- *     CcDeferWrite @ 0x140537480 (CcDeferWrite.c)
- *     CcPostDeferredWritesOnVolumeHelper @ 0x140538B00 (CcPostDeferredWritesOnVolumeHelper.c)
- *     CcExitPartition @ 0x1405393E8 (CcExitPartition.c)
+ *     CcLazyWriteScanVolume @ 0x14029A890 (CcLazyWriteScanVolume.c)
+ *     CcFlushCachePostProcess @ 0x14029DFCC (CcFlushCachePostProcess.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14029EC80 (CcFlushCachePostProcessOneRange.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402F43E8 (CcNotifyOfMappedWriteComplete.c)
+ *     CcUnpinRepinnedBcb @ 0x140394370 (CcUnpinRepinnedBcb.c)
+ *     CcReapPrivateVolumeCachemap @ 0x1403C1E94 (CcReapPrivateVolumeCachemap.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x1403CFBD0 (CcDeductDirtyPagesFromExternalCache.c)
+ *     CcLazyWriteScan @ 0x1405364BC (CcLazyWriteScan.c)
+ *     CcDeferWrite @ 0x1405379D0 (CcDeferWrite.c)
+ *     CcPostDeferredWritesOnVolumeHelper @ 0x140539050 (CcPostDeferredWritesOnVolumeHelper.c)
+ *     CcExitPartition @ 0x140539938 (CcExitPartition.c)
  * Callees:
  *     CcCanIWriteStreamEx @ 0x14020FC80 (CcCanIWriteStreamEx.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -71,7 +71,7 @@ __int64 __fastcall CcPostDeferredWrites(__int64 a1, __int64 a2)
       if ( CcCanIWriteStreamEx(a1, a2, v7[1], v11, v19, 2, 0LL)
         && (!*((_BYTE *)v7 + 88)
          || MEMORY[0xFFFFF78000000320] >= (__int64)((unsigned int)(10000 * CcSoftThrottleDelay)
-                                                  / (unsigned __int64)(unsigned int)KeMaximumIncrement
+                                                  / (unsigned __int64)KeMaximumIncrement
                                                   + v7[12])) )
       {
         v12 = *v9;
@@ -89,10 +89,10 @@ LABEL_13:
       v2 = v19;
     }
     result = KxReleaseSpinLock((volatile signed __int64 *)v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v10 <= 0xFu
         && (unsigned __int8)result >= 2u )

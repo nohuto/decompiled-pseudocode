@@ -1,8 +1,8 @@
 /*
- * XREFs of _matherr @ 0x18012C4D0
+ * XREFs of _matherr @ 0x18012A700
  * Callers:
- *     _call_matherr @ 0x180129F20 (_call_matherr.c)
- *     _umatherr @ 0x18012B040 (_umatherr.c)
+ *     _call_matherr @ 0x180128150 (_call_matherr.c)
+ *     _umatherr @ 0x180129270 (_umatherr.c)
  * Callees:
  *     <none>
  */

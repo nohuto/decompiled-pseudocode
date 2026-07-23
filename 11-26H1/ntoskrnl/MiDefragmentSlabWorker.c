@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDefragmentSlabWorker @ 0x1407063E4
+ * XREFs of MiDefragmentSlabWorker @ 0x14070B0B4
  * Callers:
- *     MiDefragmentAllSlabsHelper @ 0x140706200 (MiDefragmentAllSlabsHelper.c)
- *     MiDefragmentSlabAllocator @ 0x140706354 (MiDefragmentSlabAllocator.c)
+ *     MiDefragmentAllSlabsHelper @ 0x14070AED0 (MiDefragmentAllSlabsHelper.c)
+ *     MiDefragmentSlabAllocator @ 0x14070B024 (MiDefragmentSlabAllocator.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiClaimPhysicalRun @ 0x140291700 (MiClaimPhysicalRun.c)
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiGetPageFromSlabEntry @ 0x140357C1C (MiGetPageFromSlabEntry.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140369290 (MiUpdateSlabPagePlaceholderState.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
- *     MiGetSourcePageForDefrag @ 0x1407070C4 (MiGetSourcePageForDefrag.c)
- *     MiLockUnlockSlabContextsForDefrag @ 0x1407077BC (MiLockUnlockSlabContextsForDefrag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiClaimPhysicalRun @ 0x140290C60 (MiClaimPhysicalRun.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiGetPageFromSlabEntry @ 0x1403599BC (MiGetPageFromSlabEntry.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14036B030 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
+ *     MiGetSourcePageForDefrag @ 0x14070BD94 (MiGetSourcePageForDefrag.c)
+ *     MiLockUnlockSlabContextsForDefrag @ 0x14070C48C (MiLockUnlockSlabContextsForDefrag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDefragmentSlabWorker(_DWORD *a1)
@@ -144,7 +144,7 @@ __int64 __fastcall MiDefragmentSlabWorker(_DWORD *a1)
       }
       v16 = *(_QWORD *)a1;
       v19[0] = (*((_QWORD *)a1 + 7) + 0x220000000000LL) / 48;
-      if ( MiClaimPhysicalRun(v16, SourcePageForDefrag, 1LL, qword_140E2D7A0, (__int64)v20, 4259840, 0, 0LL, v19, &v18) )
+      if ( MiClaimPhysicalRun(v16, SourcePageForDefrag, 1LL, qword_140E2D920, (__int64)v20, 4259840, 0, 0LL, v19, &v18) )
       {
 LABEL_42:
         a1[16] = v6;

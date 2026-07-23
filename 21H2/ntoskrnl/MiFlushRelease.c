@@ -1,38 +1,37 @@
 /*
- * XREFs of MiFlushRelease @ 0x140315010
+ * XREFs of MiFlushRelease @ 0x14031FD60
  * Callers:
- *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
- *     MmTrimSection @ 0x1402EF648 (MmTrimSection.c)
- *     MiFreeOverlappedFlushEntry @ 0x14053D274 (MiFreeOverlappedFlushEntry.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x14026269C (MmFlushSection.c)
+ *     MmTrimSection @ 0x1402FA398 (MmTrimSection.c)
+ *     MiFreeOverlappedFlushEntry @ 0x14053D4B4 (MiFreeOverlappedFlushEntry.c)
+ *     MmFlushVirtualMemory @ 0x1405E85C4 (MmFlushVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
- *     MiDecrementSubsections @ 0x1403150C0 (MiDecrementSubsections.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x14031F800 (MiCheckControlArea.c)
+ *     MiDecrementSubsections @ 0x14031FE10 (MiDecrementSubsections.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiFlushRelease(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
 {
   __int64 v6; // rdi
   __int64 v7; // rbp
-  __int64 v8; // r8
-  struct _KPRCB *v9; // r9
-  KIRQL v10; // r14
-  __int64 v11; // rdi
+  _DWORD *v8; // r8
+  KIRQL v9; // r14
+  __int64 v10; // rdi
   __int64 result; // rax
 
   v6 = 0LL;
-  v7 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
-  v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
+  v7 = *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+  v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
   if ( a2 )
   {
-    v11 = MiDecrementSubsections(a2);
-    v6 = MiDecrementSubsections(a3) + v11;
+    v10 = MiDecrementSubsections(a2);
+    v6 = MiDecrementSubsections(a3) + v10;
   }
   --*(_QWORD *)(a1 + 40);
-  result = MiCheckControlArea(a1, v10, v8, v9);
+  result = MiCheckControlArea(a1, v9, v8);
   if ( v6 )
     return MiReturnCrossPartitionSectionCharges(v7, 1LL, v6);
   return result;

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiChargePartitionResidentAvailable @ 0x1402F60D0
+ * XREFs of MiChargePartitionResidentAvailable @ 0x1402D8150
  * Callers:
- *     MiDoubleLockMdlPage @ 0x1402E5914 (MiDoubleLockMdlPage.c)
- *     MiObtainProtoReference @ 0x1402E5B70 (MiObtainProtoReference.c)
- *     MiProbeLockFrame @ 0x1402EE600 (MiProbeLockFrame.c)
- *     MiCreateUltraThreadContextHelper @ 0x1402F2710 (MiCreateUltraThreadContextHelper.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     SmAcquireReleaseResAvailForRead @ 0x1402F48C0 (SmAcquireReleaseResAvailForRead.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiReferencePageForModifiedWrite @ 0x1402F4B50 (MiReferencePageForModifiedWrite.c)
- *     MiLockProtoPoolPage @ 0x1402F50D0 (MiLockProtoPoolPage.c)
- *     MiAddPageToFlushMdl @ 0x1402F5760 (MiAddPageToFlushMdl.c)
- *     MiChargeForWriteInProgressPage @ 0x1402F5BD0 (MiChargeForWriteInProgressPage.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiChargeForLockedPage @ 0x1402F5F60 (MiChargeForLockedPage.c)
- *     MiObtainFaultCharges @ 0x1402F6350 (MiObtainFaultCharges.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiLockPageTablePage @ 0x14031A8E0 (MiLockPageTablePage.c)
- *     MiObtainPoolCharges @ 0x140366384 (MiObtainPoolCharges.c)
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x14038EF10 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
- *     MiLockProtoPoolPageForce @ 0x1403A10E0 (MiLockProtoPoolPageForce.c)
- *     MiAcquireCachedPageLocks @ 0x1403A17C0 (MiAcquireCachedPageLocks.c)
- *     MmStoreChargeResidentAvailableForRead @ 0x140481F1C (MmStoreChargeResidentAvailableForRead.c)
+ *     MiDoubleLockMdlPage @ 0x1402C7954 (MiDoubleLockMdlPage.c)
+ *     MiObtainProtoReference @ 0x1402C7BB0 (MiObtainProtoReference.c)
+ *     MiProbeLockFrame @ 0x1402D0680 (MiProbeLockFrame.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402D4790 (MiCreateUltraThreadContextHelper.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x1402D6940 (SmAcquireReleaseResAvailForRead.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402D6BD0 (MiReferencePageForModifiedWrite.c)
+ *     MiLockProtoPoolPage @ 0x1402D7150 (MiLockProtoPoolPage.c)
+ *     MiAddPageToFlushMdl @ 0x1402D77E0 (MiAddPageToFlushMdl.c)
+ *     MiChargeForWriteInProgressPage @ 0x1402D7C50 (MiChargeForWriteInProgressPage.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiChargeForLockedPage @ 0x1402D7FE0 (MiChargeForLockedPage.c)
+ *     MiObtainFaultCharges @ 0x1402D83D0 (MiObtainFaultCharges.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiLockPageTablePage @ 0x14031C910 (MiLockPageTablePage.c)
+ *     MiObtainPoolCharges @ 0x140368124 (MiObtainPoolCharges.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140390CC0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
+ *     MiLockProtoPoolPageForce @ 0x1403A2E40 (MiLockProtoPoolPageForce.c)
+ *     MiAcquireCachedPageLocks @ 0x1403A3520 (MiAcquireCachedPageLocks.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x14047B88C (MmStoreChargeResidentAvailableForRead.c)
  * Callees:
  *     <none>
  */
@@ -47,7 +47,7 @@ __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int
 
   if ( a2 + a3 < a2 && a3 != 0xFFFFFFFFLL )
   {
-    ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[68];
+    ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[68];
     return 0LL;
   }
   v5 = *(_QWORD *)(a1 + 22528);
@@ -151,7 +151,7 @@ LABEL_10:
     if ( a3 != 0xFFFFFFFFLL )
     {
 LABEL_41:
-      ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[72];
+      ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[72];
       if ( v6 )
         _InterlockedAdd64((volatile signed __int64 *)(a1 + 22528), v6);
       return 0LL;

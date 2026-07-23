@@ -1,42 +1,42 @@
 /*
- * XREFs of KeDeregisterBoundCallback @ 0x1405B0720
+ * XREFs of KeDeregisterBoundCallback @ 0x1405AD690
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
- *     ExWaitForCallBacks @ 0x140AB7938 (ExWaitForCallBacks.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
+ *     ExWaitForCallBacks @ 0x140AB1CEC (ExWaitForCallBacks.c)
  */
 
-__int64 __fastcall KeDeregisterBoundCallback(__int64 a1)
+__int64 __fastcall KeDeregisterBoundCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v3; // edi
-  struct _EX_RUNDOWN_REF *v4; // rax
-  struct _EX_RUNDOWN_REF *v5; // rbx
-  char v6; // si
+  unsigned int v6; // edi
+  struct _EX_RUNDOWN_REF *v7; // rax
+  struct _EX_RUNDOWN_REF *v8; // rbx
+  char v9; // si
 
   CurrentThread = KeGetCurrentThread();
-  v3 = -1073741816;
+  v6 = -1073741816;
   --CurrentThread->KernelApcDisable;
-  v4 = ExReferenceCallBackBlock(&KiBoundsCallback);
-  v5 = v4;
-  if ( v4 )
+  v7 = ExReferenceCallBackBlock(&KiBoundsCallback, a2, a3, a4);
+  v8 = v7;
+  if ( v7 )
   {
-    v6 = 0;
-    if ( v4[1].Count == a1 )
-      v6 = ExCompareExchangeCallBack(&KiBoundsCallback, 0LL, (__int64)v4);
-    ExDereferenceCallBackBlock(&KiBoundsCallback, v5);
-    if ( v6 )
+    v9 = 0;
+    if ( v7[1].Count == a1 )
+      v9 = ExCompareExchangeCallBack(&KiBoundsCallback, 0LL, (__int64)v7);
+    ExDereferenceCallBackBlock(&KiBoundsCallback, v8);
+    if ( v9 )
     {
-      ExWaitForCallBacks(v5);
-      PspUserApcKernelRoutine(v5);
-      v3 = 0;
+      ExWaitForCallBacks(v8);
+      PspUserApcKernelRoutine(v8);
+      v6 = 0;
     }
   }
   KeLeaveCriticalRegion();
-  return v3;
+  return v6;
 }

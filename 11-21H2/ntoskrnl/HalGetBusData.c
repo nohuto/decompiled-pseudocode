@@ -1,7 +1,7 @@
 /*
  * XREFs of HalGetBusData @ 0x1403D9110
  * Callers:
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
+ *     sub_140A53294 @ 0x140A53294 (sub_140A53294.c)
  * Callees:
  *     HalGetBusDataByOffset @ 0x1403ADE20 (HalGetBusDataByOffset.c)
  */

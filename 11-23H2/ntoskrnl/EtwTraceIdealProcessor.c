@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwTraceIdealProcessor @ 0x1405FCD90
+ * XREFs of EtwTraceIdealProcessor @ 0x1405FD300
  * Callers:
  *     KiSetAffinityThread @ 0x14020327C (KiSetAffinityThread.c)
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeStartThread @ 0x1402BE0D8 (KeStartThread.c)
- *     KiSetSystemAffinityThread @ 0x14030715C (KiSetSystemAffinityThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x14039DEEC (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiUpdateThreadCpuSets @ 0x14039EA40 (KiUpdateThreadCpuSets.c)
- *     KeSetIdealProcessorThreadEx @ 0x1403CEE58 (KeSetIdealProcessorThreadEx.c)
- *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x14057681C (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
- *     KiSetHeteroPolicyThread @ 0x140577A0C (KiSetHeteroPolicyThread.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeStartThread @ 0x1402BE368 (KeStartThread.c)
+ *     KiSetSystemAffinityThread @ 0x1403073EC (KiSetSystemAffinityThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x14039E0CC (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiUpdateThreadCpuSets @ 0x14039EC20 (KiUpdateThreadCpuSets.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1403CF038 (KeSetIdealProcessorThreadEx.c)
+ *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140576D0C (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
+ *     KiSetHeteroPolicyThread @ 0x140577EFC (KiSetHeteroPolicyThread.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceIdealProcessor(__int64 a1, __int16 a2, int a3, int a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptModInv @ 0x14055C7F0
+ * XREFs of SymCryptModInv @ 0x14055ECD8
  * Callers:
- *     SymCryptEcDsaSignEx @ 0x14055C9F0 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointTransform @ 0x1405647A4 (SymCryptEcpointTransform.c)
+ *     SymCryptEcDsaSignEx @ 0x14055EED8 (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointTransform @ 0x140566B94 (SymCryptEcpointTransform.c)
  * Callees:
  *     <none>
  */

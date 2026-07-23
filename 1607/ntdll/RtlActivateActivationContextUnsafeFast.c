@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlActivateActivationContextUnsafeFast @ 0x180016370
+ * XREFs of RtlActivateActivationContextUnsafeFast @ 0x180016360
  * Callers:
- *     LdrShutdownProcess @ 0x180006F30 (LdrShutdownProcess.c)
- *     LdrpProcessDetachNode @ 0x18000BC04 (LdrpProcessDetachNode.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x180012AB0 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpLoadForwardedDll @ 0x180013300 (LdrpLoadForwardedDll.c)
- *     LdrShutdownThread @ 0x180015E50 (LdrShutdownThread.c)
- *     LdrpInitializeThread @ 0x180016110 (LdrpInitializeThread.c)
- *     TppAlpcpExecuteCallback @ 0x18001D460 (TppAlpcpExecuteCallback.c)
- *     TppWorkpExecuteCallback @ 0x180020650 (TppWorkpExecuteCallback.c)
- *     RtlpTpWorkCallback @ 0x18003A1C0 (RtlpTpWorkCallback.c)
- *     TppCleanupGroupMemberCallbackProlog @ 0x18003B404 (TppCleanupGroupMemberCallbackProlog.c)
- *     LdrpInitializeNode @ 0x180072384 (LdrpInitializeNode.c)
- *     LdrpQuerySxSMUIFile @ 0x18007C1FC (LdrpQuerySxSMUIFile.c)
- *     RtlDispatchAPC @ 0x180086140 (RtlDispatchAPC.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrShutdownProcess @ 0x180006F20 (LdrShutdownProcess.c)
+ *     LdrpProcessDetachNode @ 0x18000BBF4 (LdrpProcessDetachNode.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180012AA0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpLoadForwardedDll @ 0x1800132F0 (LdrpLoadForwardedDll.c)
+ *     LdrShutdownThread @ 0x180015E40 (LdrShutdownThread.c)
+ *     LdrpInitializeThread @ 0x180016100 (LdrpInitializeThread.c)
+ *     TppAlpcpExecuteCallback @ 0x18001D450 (TppAlpcpExecuteCallback.c)
+ *     TppWorkpExecuteCallback @ 0x180020640 (TppWorkpExecuteCallback.c)
+ *     RtlpTpWorkCallback @ 0x18003A1B0 (RtlpTpWorkCallback.c)
+ *     TppCleanupGroupMemberCallbackProlog @ 0x18003B3F4 (TppCleanupGroupMemberCallbackProlog.c)
+ *     LdrpInitializeNode @ 0x180072374 (LdrpInitializeNode.c)
+ *     LdrpQuerySxSMUIFile @ 0x18007C1EC (LdrpQuerySxSMUIFile.c)
+ *     RtlDispatchAPC @ 0x180086130 (RtlDispatchAPC.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 void __fastcall RtlActivateActivationContextUnsafeFast(__int64 a1, __int64 a2)

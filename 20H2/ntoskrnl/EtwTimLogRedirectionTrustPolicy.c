@@ -286,7 +286,7 @@ LABEL_49:
   p_Length = &v8[1].Length;
   do
   {
-    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v22, (MEMORY_INFORMATION_CLASS)2, v21, 0x218uLL, 0LL) < 0
+    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v22, MemoryMappedFilenameInformation, v21, 0x218uLL, 0LL) < 0
       || *(_WORD *)v21 <= 1u )
     {
       goto LABEL_39;

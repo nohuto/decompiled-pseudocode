@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCleanVad @ 0x140617088
+ * XREFs of MiCleanVad @ 0x140618088
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x1405F1BC8 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x1405F2BC8 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
- *     MiUnmapVad @ 0x140617488 (MiUnmapVad.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiWaitForVadDeletion @ 0x1402CB340 (MiWaitForVadDeletion.c)
+ *     MiUnmapVad @ 0x140618488 (MiUnmapVad.c)
  */
 
 __int64 __fastcall MiCleanVad(char *P)

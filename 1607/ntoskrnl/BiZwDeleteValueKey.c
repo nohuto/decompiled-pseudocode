@@ -1,7 +1,7 @@
 /*
- * XREFs of BiZwDeleteValueKey @ 0x14012E0C8
+ * XREFs of BiZwDeleteValueKey @ 0x14012E638
  * Callers:
- *     BiDeleteRegistryValue @ 0x14053C69C (BiDeleteRegistryValue.c)
+ *     BiDeleteRegistryValue @ 0x14053CBDC (BiDeleteRegistryValue.c)
  * Callees:
  *     <none>
  */

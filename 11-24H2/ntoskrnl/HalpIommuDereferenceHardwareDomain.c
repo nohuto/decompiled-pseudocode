@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpIommuDereferenceHardwareDomain @ 0x140553A18
+ * XREFs of HalpIommuDereferenceHardwareDomain @ 0x140551358
  * Callers:
- *     HalpIommuLeaveDmaDomain @ 0x1404B4B04 (HalpIommuLeaveDmaDomain.c)
- *     IommupDomainAttachPasidDevice @ 0x14054E124 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x14054E420 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuJoinDmaDomain @ 0x1405540A8 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404AF300 (HalpIommuLeaveDmaDomain.c)
+ *     IommupDomainAttachPasidDevice @ 0x14054B9D4 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14054BD54 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuJoinDmaDomain @ 0x1405519E8 (HalpIommuJoinDmaDomain.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpIommuFlushDomainTB @ 0x140488C74 (HalpIommuFlushDomainTB.c)
- *     HalpIommuFreeDomainId @ 0x140552218 (HalpIommuFreeDomainId.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpIommuFlushDomainTB @ 0x140483D64 (HalpIommuFlushDomainTB.c)
+ *     HalpIommuFreeDomainId @ 0x14054FB58 (HalpIommuFreeDomainId.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, __int64 a2)
@@ -22,7 +22,6 @@ void __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, __int64 a2)
   __int64 *v7; // rax
   bool v8; // zf
   __int64 v9; // rsi
-  __int64 v10; // r9
 
   v2 = (KSPIN_LOCK *)(a1 + 32);
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 32));
@@ -39,9 +38,9 @@ void __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, __int64 a2)
     v9 = *(_QWORD *)(a2 + 24);
     if ( v8 )
     {
-      HalpIommuFlushDomainTB(*(_QWORD *)(a2 + 24), a2 + 32, 0);
+      HalpIommuFlushDomainTB(*(_QWORD *)(a2 + 24), a2 + 32);
       if ( *(_QWORD *)(v9 + 80) )
-        guard_dispatch_icall_no_overrides(*(_QWORD *)(v9 + 16), a2 + 32, 0LL, v10);
+        guard_dispatch_icall_no_overrides(*(_QWORD *)(v9 + 16), a2 + 32);
       if ( *(_DWORD *)(a2 + 32) != 3 || (*(_BYTE *)(a2 + 48) & 4) == 0 )
         HalpIommuFreeDomainId(v9, *(_DWORD *)(a2 + 80));
     }

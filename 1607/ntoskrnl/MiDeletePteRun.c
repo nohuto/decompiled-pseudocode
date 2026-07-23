@@ -1,29 +1,29 @@
 /*
- * XREFs of MiDeletePteRun @ 0x140065140
+ * XREFs of MiDeletePteRun @ 0x140064CC0
  * Callers:
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiDeletePagablePteRange @ 0x1400751A0 (MiDeletePagablePteRange.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiDeletePagablePteRange @ 0x140075220 (MiDeletePagablePteRange.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiReleasePageFileSpace @ 0x140022238 (MiReleasePageFileSpace.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiDeleteBatch @ 0x140064B10 (MiDeleteBatch.c)
- *     MiPfnShareCountIsZero @ 0x1400666E0 (MiPfnShareCountIsZero.c)
- *     MiDeleteClusterPage @ 0x1400922A0 (MiDeleteClusterPage.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     MiDereferenceIoPages @ 0x14009BF70 (MiDereferenceIoPages.c)
- *     MiDecrementCloneBlockReference @ 0x1400B8CA0 (MiDecrementCloneBlockReference.c)
- *     MiTryDeleteTransitionPte @ 0x1400B8F70 (MiTryDeleteTransitionPte.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiDecrementCombinedPte @ 0x1401F972C (MiDecrementCombinedPte.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileSpace @ 0x140021DB8 (MiReleasePageFileSpace.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiDeleteBatch @ 0x140064690 (MiDeleteBatch.c)
+ *     MiPfnShareCountIsZero @ 0x140066260 (MiPfnShareCountIsZero.c)
+ *     MiDeleteClusterPage @ 0x140091A00 (MiDeleteClusterPage.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     MiDereferenceIoPages @ 0x14009B770 (MiDereferenceIoPages.c)
+ *     MiDecrementCloneBlockReference @ 0x1400B6B30 (MiDecrementCloneBlockReference.c)
+ *     MiTryDeleteTransitionPte @ 0x1400B6E00 (MiTryDeleteTransitionPte.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiDecrementCombinedPte @ 0x1401F9558 (MiDecrementCombinedPte.c)
  */
 
 __int64 __fastcall MiDeletePteRun(_QWORD *BugCheckParameter2, ULONG_PTR a2, __int64 a3, __int64 a4, __int64 a5)
@@ -93,7 +93,7 @@ __int64 __fastcall MiDeletePteRun(_QWORD *BugCheckParameter2, ULONG_PTR a2, __in
   if ( v5 == 1023 )
     v9 = (struct _KEVENT *)MiSystemPartition;
   else
-    v9 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v5);
+    v9 = *(struct _KEVENT **)(qword_140327038 + 8LL * v5);
   v54 = v9;
   if ( (unsigned __int64)BugCheckParameter2 <= a2 )
   {
@@ -133,7 +133,7 @@ __int64 __fastcall MiDeletePteRun(_QWORD *BugCheckParameter2, ULONG_PTR a2, __in
       v53 = 0LL;
       v12 = MI_GET_PAGE_FRAME_FROM_PTE(&BugCheckParameter3);
       v16 = v12;
-      if ( v12 > qword_140326A90
+      if ( v12 > qword_140326AD0
         || MmPhysicalMemoryBlock && (*(_QWORD *)(48 * v12 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 )
       {
         MiDeleteBatch(v56);
@@ -184,7 +184,7 @@ LABEL_57:
       if ( v28 == 1023 )
         v29 = (struct _KEVENT *)MiSystemPartition;
       else
-        v29 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v28);
+        v29 = *(struct _KEVENT **)(qword_140327038 + 8LL * v28);
       v46 = v29;
       if ( (BugCheckParameter3 & 0x42) != 0 )
       {
@@ -278,7 +278,7 @@ LABEL_22:
       goto LABEL_31;
     if ( v20 != v57
       || ((v21 = (HIDWORD(*(_QWORD *)(v18 + 40)) >> 8) & 0x3FF, v21 != 1023)
-        ? (v22 = *(int **)(qword_140326FF8 + 8LL * v21))
+        ? (v22 = *(int **)(qword_140327038 + 8LL * v21))
         : (v22 = MiSystemPartition),
           v22 != (int *)v8 || _interlockedbittestandset64((volatile signed __int32 *)(v18 + 24), 0x3FuLL)) )
     {
@@ -312,7 +312,7 @@ LABEL_31:
         if ( v25 == 1023 )
           v46 = (struct _KEVENT *)MiSystemPartition;
         else
-          v46 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v25);
+          v46 = *(struct _KEVENT **)(qword_140327038 + 8LL * v25);
       }
       *v6 = 0LL;
       if ( (unsigned int)MiPteInShadowRange(v6, v24) )

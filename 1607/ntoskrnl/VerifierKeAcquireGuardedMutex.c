@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeAcquireGuardedMutex @ 0x14070C944
+ * XREFs of VerifierKeAcquireGuardedMutex @ 0x14070C974
  * Callers:
  *     <none>
  * Callees:

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAbortCombineScan @ 0x14001D810
+ * XREFs of MiAbortCombineScan @ 0x14001D390
  * Callers:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiChangePageAttributeBatch @ 0x14001D640 (MiChangePageAttributeBatch.c)
- *     MiDeleteClusterSection @ 0x140021D60 (MiDeleteClusterSection.c)
- *     MiDeleteClusterPage @ 0x1400922A0 (MiDeleteClusterPage.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiInitializeMdlPfn @ 0x140106F20 (MiInitializeMdlPfn.c)
- *     MiInitializeDynamicPfns @ 0x1401E1CF0 (MiInitializeDynamicPfns.c)
- *     MiCompleteSecureProcessFault @ 0x1401EF744 (MiCompleteSecureProcessFault.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiChangePageAttributeBatch @ 0x14001D1C0 (MiChangePageAttributeBatch.c)
+ *     MiDeleteClusterSection @ 0x1400218E0 (MiDeleteClusterSection.c)
+ *     MiDeleteClusterPage @ 0x140091A00 (MiDeleteClusterPage.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiInitializeMdlPfn @ 0x140104CA0 (MiInitializeMdlPfn.c)
+ *     MiInitializeDynamicPfns @ 0x1401E1B1C (MiInitializeDynamicPfns.c)
+ *     MiCompleteSecureProcessFault @ 0x1401EF570 (MiCompleteSecureProcessFault.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 void __fastcall MiAbortCombineScan(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -29,10 +29,10 @@ void __fastcall MiAbortCombineScan(__int64 a1, __int64 a2, __int64 a3, __int64 a
   __int64 v11; // rcx
   __int64 v12; // r9
 
-  if ( dword_140326E04 )
+  if ( dword_140326E44 )
   {
     v5 = MiPartitionIdToPointer(((unsigned int)HIDWORD(*(_QWORD *)(a1 + 40)) >> 8) & 0x3FF, a2, a3, a4);
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140326E00);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140326E40);
     v7 = (_QWORD *)(v5 + 5864);
     for ( i = (_QWORD *)*v7; i != v7; i = (_QWORD *)*i )
     {
@@ -49,6 +49,6 @@ void __fastcall MiAbortCombineScan(__int64 a1, __int64 a2, __int64 a3, __int64 a
         }
       }
     }
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140326E00);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140326E40);
   }
 }

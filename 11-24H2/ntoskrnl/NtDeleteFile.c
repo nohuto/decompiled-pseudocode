@@ -1,24 +1,24 @@
 /*
- * XREFs of NtDeleteFile @ 0x140A81020
+ * XREFs of NtDeleteFile @ 0x140A7BA80
  * Callers:
- *     DifNtDeleteFileWrapper @ 0x140635610 (DifNtDeleteFileWrapper.c)
+ *     DifNtDeleteFileWrapper @ 0x140633BD0 (DifNtDeleteFileWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     IopCleanupExtraCreateParameters @ 0x1408A2540 (IopCleanupExtraCreateParameters.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     IopCleanupExtraCreateParameters @ 0x1408AABE0 (IopCleanupExtraCreateParameters.c)
  */
 
-__int64 __fastcall NtDeleteFile(__int64 a1)
+NTSTATUS __cdecl NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // bl
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v4; // ebx
-  __int64 result; // rax
+  NTSTATUS v4; // ebx
+  NTSTATUS result; // eax
   __int64 v6; // [rsp+48h] [rbp-C0h] BYREF
   _DWORD v7[12]; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v8; // [rsp+88h] [rbp-80h]
+  POBJECT_ATTRIBUTES v8; // [rsp+88h] [rbp-80h]
   int v9; // [rsp+98h] [rbp-70h]
   __int16 v10; // [rsp+9Eh] [rbp-6Ah]
   int v11; // [rsp+B0h] [rbp-58h]
@@ -42,7 +42,7 @@ __int64 __fastcall NtDeleteFile(__int64 a1)
   LOWORD(v15) = 40;
   v11 = 1;
   v12 = 1;
-  v8 = a1;
+  v8 = ObjectAttributes;
   v14 = 32;
   v16 = 0LL;
   CurrentSilo = PsGetCurrentSilo();
@@ -50,7 +50,7 @@ __int64 __fastcall NtDeleteFile(__int64 a1)
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
   v4 = ObOpenObjectByNameEx(
-         a1,
+         (__int64)ObjectAttributes,
          (__int64)IoFileObjectType,
          PreviousMode,
          0LL,

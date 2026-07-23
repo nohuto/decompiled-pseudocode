@@ -25,20 +25,20 @@ __int64 SshpQueryRegistryValues()
   wchar_t *v9; // rax
   __int64 result; // rax
   unsigned int v11; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v12; // [rsp+4Ch] [rbp-BCh] BYREF
+  ULONG BufferLengthOut[3]; // [rsp+4Ch] [rbp-BCh] BYREF
   _QWORD v13[14]; // [rsp+58h] [rbp-B0h] BYREF
   wchar_t pszDest[264]; // [rsp+C8h] [rbp-40h] BYREF
-  wchar_t pszSrc[264]; // [rsp+2D8h] [rbp+1D0h] BYREF
+  WCHAR pszSrc[264]; // [rsp+2D8h] [rbp+1D0h] BYREF
 
   v11 = 0;
-  if ( (int)RtlGetPersistedStateLocation(
-              L"SleepStudySettings",
-              0LL,
-              L"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
-              0,
-              pszSrc,
-              0x208u,
-              (unsigned int *)&v12) < 0 )
+  if ( RtlGetPersistedStateLocation(
+         L"SleepStudySettings",
+         0LL,
+         L"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+         LocationTypeRegistry,
+         pszSrc,
+         0x208u,
+         BufferLengthOut) < 0 )
     goto LABEL_11;
   v0 = pszDest;
   v1 = 260LL;
@@ -73,14 +73,14 @@ LABEL_11:
   }
   SshpActiveThresholdPercent = v5;
   v11 = 0;
-  if ( (int)RtlGetPersistedStateLocation(
-              L"SleepStudySettings",
-              0LL,
-              L"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
-              0,
-              pszSrc,
-              0x208u,
-              (unsigned int *)&v12) < 0 )
+  if ( RtlGetPersistedStateLocation(
+         L"SleepStudySettings",
+         0LL,
+         L"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+         LocationTypeRegistry,
+         pszSrc,
+         0x208u,
+         BufferLengthOut) < 0 )
     goto LABEL_22;
   v6 = 260LL;
   v7 = pszDest;

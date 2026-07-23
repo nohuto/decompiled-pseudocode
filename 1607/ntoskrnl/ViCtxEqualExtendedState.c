@@ -3,7 +3,7 @@
  * Callers:
  *     ViCtxCheckAndReleaseIsrState @ 0x140719DC8 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
- *     memcmp @ 0x14014DE90 (memcmp.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
  */
 
 char __fastcall ViCtxEqualExtendedState(__int64 a1, __int64 a2, char a3)

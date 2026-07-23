@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAdjustCachedStacks @ 0x1400A7728
+ * XREFs of MiAdjustCachedStacks @ 0x1400A7668
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
  * Callees:
- *     MiDeleteCachedKernelStack @ 0x1400A5E70 (MiDeleteCachedKernelStack.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x1400A5DB0 (MiDeleteCachedKernelStack.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 MiAdjustCachedStacks()
@@ -16,7 +16,7 @@ __int64 MiAdjustCachedStacks()
   unsigned __int16 v3; // si
   __int64 v4; // rbp
   __int64 v5; // r14
-  union _SLIST_HEADER *v6; // rdi
+  _SLIST_HEADER *v6; // rdi
   __int64 result; // rax
   int Alignment; // ecx
   unsigned int v9; // eax
@@ -50,9 +50,9 @@ __int64 MiAdjustCachedStacks()
     v5 = 25LL * v3;
     do
     {
-      v6 = &qword_14043A058[v5];
-      result = (unsigned int)(*((_DWORD *)&qword_14043A058[v5 + 8].HeaderX64 + 1)
-                            - *((_DWORD *)&qword_14043A058[v5 + 8].HeaderX64 + 2));
+      v6 = &qword_14043B118[v5];
+      result = (unsigned int)(*((_DWORD *)&qword_14043B118[v5 + 8].HeaderX64 + 1)
+                            - *((_DWORD *)&qword_14043B118[v5 + 8].HeaderX64 + 2));
       if ( (_DWORD)result )
       {
         Alignment = v6[8].Alignment;
@@ -70,7 +70,7 @@ __int64 MiAdjustCachedStacks()
           {
             result = (unsigned int)(Alignment / 16);
 LABEL_13:
-            *((_DWORD *)&v6[8].HeaderX64 + 2) = *((_DWORD *)&qword_14043A058[v5 + 8].HeaderX64 + 1);
+            *((_DWORD *)&v6[8].HeaderX64 + 2) = *((_DWORD *)&qword_14043B118[v5 + 8].HeaderX64 + 1);
             if ( !(_DWORD)result )
               result = 1LL;
             v11 = result + Alignment;

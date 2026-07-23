@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpGetParameter @ 0x1405722AC
+ * XREFs of PfpGetParameter @ 0x1405727EC
  * Callers:
- *     PfpSetBaseTime @ 0x140571BF0 (PfpSetBaseTime.c)
- *     PfpParametersRead @ 0x140571CDC (PfpParametersRead.c)
- *     PfSnParametersRead @ 0x140571EAC (PfSnParametersRead.c)
+ *     PfpSetBaseTime @ 0x140572130 (PfpSetBaseTime.c)
+ *     PfpParametersRead @ 0x14057221C (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x1405723EC (PfSnParametersRead.c)
  *     PfpParametersInitialize @ 0x1407B3C34 (PfpParametersInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 NTSTATUS __fastcall PfpGetParameter(HANDLE KeyHandle, const WCHAR *a2, int a3, void *a4, unsigned int *a5)

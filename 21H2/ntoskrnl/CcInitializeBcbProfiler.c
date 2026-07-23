@@ -1,40 +1,40 @@
 /*
- * XREFs of CcInitializeBcbProfiler @ 0x140A1B354
+ * XREFs of CcInitializeBcbProfiler @ 0x140A1C354
  * Callers:
- *     CcInitializeCacheManager @ 0x140A3D1B8 (CcInitializeCacheManager.c)
+ *     CcInitializeCacheManager @ 0x140A3E1B8 (CcInitializeCacheManager.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     RtlpConvertFunctionEntry @ 0x140276440 (RtlpConvertFunctionEntry.c)
- *     KeInitializeTimer @ 0x14027A960 (KeInitializeTimer.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1402A8F10 (RtlSectionTableFromVirtualAddress.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     RtlLookupFunctionTable @ 0x1403C5D58 (RtlLookupFunctionTable.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x1403CF920 (RtlpLookupPrimaryFunctionEntry.c)
- *     strstr @ 0x1403D1880 (strstr.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     KiAreCodePatchesAllowed @ 0x140A73EA0 (KiAreCodePatchesAllowed.c)
- *     KiGetLoadOptions @ 0x140A7434C (KiGetLoadOptions.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x140227050 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlpConvertFunctionEntry @ 0x1402643E0 (RtlpConvertFunctionEntry.c)
+ *     KeInitializeTimer @ 0x140268900 (KeInitializeTimer.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     RtlLookupFunctionTable @ 0x1403C5EFC (RtlLookupFunctionTable.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1403CFA90 (RtlpLookupPrimaryFunctionEntry.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     KiAreCodePatchesAllowed @ 0x140A74EA0 (KiAreCodePatchesAllowed.c)
+ *     KiGetLoadOptions @ 0x140A7534C (KiGetLoadOptions.c)
  */
 
 char CcInitializeBcbProfiler()
 {
   struct _KTIMER *PoolWithTag; // rax
   const char *LoadOptions; // rax
-  unsigned __int64 v2; // r9
+  _IMAGE_NT_HEADERS64 *v2; // r9
   unsigned __int64 v3; // rax
   void (__fastcall *v4)(__int64, __int64, __int64); // r8
   unsigned __int128 v5; // rax
   __int64 v6; // rsi
   unsigned __int64 v7; // rsi
   int v8; // eax
-  _DWORD *v9; // rbx
+  PIMAGE_SECTION_HEADER v9; // rbx
   unsigned int *v10; // r8
   unsigned int *v11; // rdi
   int v12; // r14d
-  unsigned int v13; // edx
+  unsigned int VirtualAddress; // edx
   unsigned int *v14; // r11
-  unsigned int v15; // ecx
+  unsigned int SizeOfRawData; // ecx
   unsigned int v16; // ecx
   unsigned int v17; // eax
   unsigned int *v18; // r9
@@ -144,7 +144,7 @@ char CcInitializeBcbProfiler()
     PoolWithTag = (struct _KTIMER *)strstr(LoadOptions, SubStr);
     if ( !PoolWithTag )
     {
-      v2 = RtlImageNtHeader(0x140000000LL);
+      v2 = RtlImageNtHeader((PVOID)0x140000000LL);
       v3 = __rdtsc();
       v4 = CcBcbProfiler;
       v5 = (__ROR8__(v3, 3) ^ v3) * (unsigned __int128)0x7010008004002001uLL;
@@ -158,7 +158,7 @@ char CcInitializeBcbProfiler()
         LODWORD(v4) = (unsigned int)sub_1405CC010;
       LOBYTE(v8) = v7 >= 0x32;
       v90 = v8;
-      v9 = (_DWORD *)RtlSectionTableFromVirtualAddress(v2, 0x140000000LL, (unsigned int)v4 - 0x40000000);
+      v9 = RtlSectionTableFromVirtualAddress(v2, (PVOID)0x140000000LL, (unsigned int)v4 - 0x40000000);
       v10 = (unsigned int *)RtlLookupFunctionTable((unsigned __int64)v9, v94, &v95);
       if ( !v10 || v95 < 0xC )
       {
@@ -169,17 +169,17 @@ LABEL_64:
       }
       v11 = 0LL;
       v12 = 0;
-      v13 = v9[3];
+      VirtualAddress = v9->VirtualAddress;
       v14 = &v10[3 * (v95 / 0xC)];
-      v15 = v9[4];
-      if ( v15 <= v9[2] )
-        v15 = v9[2];
-      v16 = v13 + v15;
+      SizeOfRawData = v9->SizeOfRawData;
+      if ( SizeOfRawData <= v9->Misc.PhysicalAddress )
+        SizeOfRawData = v9->Misc.PhysicalAddress;
+      v16 = VirtualAddress + SizeOfRawData;
       do
       {
         v17 = *v10;
         v18 = v11;
-        if ( *v10 >= v13 )
+        if ( *v10 >= VirtualAddress )
         {
           if ( v17 >= v16 )
             break;

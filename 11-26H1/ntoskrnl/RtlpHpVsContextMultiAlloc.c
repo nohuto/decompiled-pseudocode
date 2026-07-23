@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsContextMultiAlloc @ 0x140467958
+ * XREFs of RtlpHpVsContextMultiAlloc @ 0x1404610A8
  * Callers:
- *     ExHeapLookasideReplenish @ 0x1404678B0 (ExHeapLookasideReplenish.c)
+ *     ExHeapLookasideReplenish @ 0x140461000 (ExHeapLookasideReplenish.c)
  * Callees:
- *     RtlpHpVsSlotAllocate @ 0x14024A580 (RtlpHpVsSlotAllocate.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14027D330 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14027E960 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpVsSlotAllocate @ 0x14024BEE0 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14027C8A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x14027DED0 (RtlpHpAcquireQueuedLockExclusive.c)
  */
 
 __int64 __fastcall RtlpHpVsContextMultiAlloc(

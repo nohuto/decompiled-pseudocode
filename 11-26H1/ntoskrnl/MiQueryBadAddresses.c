@@ -1,19 +1,19 @@
 /*
- * XREFs of MiQueryBadAddresses @ 0x140869F40
+ * XREFs of MiQueryBadAddresses @ 0x140870320
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiGetListOfPendingBadPages @ 0x14052AB58 (MiGetListOfPendingBadPages.c)
- *     MiUpdateBadPfnIdentity @ 0x1406F2184 (MiUpdateBadPfnIdentity.c)
- *     MiLocateSharedPageViews @ 0x1406F8320 (MiLocateSharedPageViews.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiDeleteTrimViewInfoList @ 0x140A841F8 (MiDeleteTrimViewInfoList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiGetListOfPendingBadPages @ 0x14052D078 (MiGetListOfPendingBadPages.c)
+ *     MiUpdateBadPfnIdentity @ 0x1406F6DF4 (MiUpdateBadPfnIdentity.c)
+ *     MiLocateSharedPageViews @ 0x1406FCFF0 (MiLocateSharedPageViews.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiDeleteTrimViewInfoList @ 0x140A8954C (MiDeleteTrimViewInfoList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiQueryBadAddresses(__int64 a1, int a2, char *a3, unsigned __int64 a4, char a5, __int64 *a6)
@@ -73,7 +73,7 @@ __int64 __fastcall MiQueryBadAddresses(__int64 a1, int a2, char *a3, unsigned __
   v10 = a4 >> 4;
   v51 = a4 >> 4;
   v45 = a4 >> 4;
-  if ( !qword_140E2EB08 )
+  if ( !qword_140E2EC88 )
   {
 LABEL_4:
     if ( ListOfPendingBadPages < 0 )

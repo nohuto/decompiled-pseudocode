@@ -1,12 +1,13 @@
 /*
- * XREFs of KiInitializePrcbContext @ 0x140B56930
+ * XREFs of KiInitializePrcbContext @ 0x140B58980
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x1405B65C0 (KiCompleteBootProcessorContextInitialization.c)
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405B3888 (KiCompleteBootProcessorContextInitialization.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmAllocateIndependentPages @ 0x140A88F50 (MmAllocateIndependentPages.c)
+ *     Feature_Servicing_KiSaveProcessorState_ExtendedState_Fix__private_IsEnabledNoReportingNoInline @ 0x1405B5D3C (Feature_Servicing_KiSaveProcessorState_ExtendedState_Fix__private_IsEnabledNoReportingNoInline.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmAllocateIndependentPages @ 0x140A85350 (MmAllocateIndependentPages.c)
  */
 
 __int64 __fastcall KiInitializePrcbContext(__int64 a1, __int64 a2)
@@ -67,6 +68,11 @@ __int64 __fastcall KiInitializePrcbContext(__int64 a1, __int64 a2)
     *(_DWORD *)(a1 + 36808) = 1048651;
     if ( (_BYTE)KiKernelCetEnabled )
       *(_DWORD *)(a1 + 36808) = 1048779;
+    if ( (unsigned int)Feature_Servicing_KiSaveProcessorState_ExtendedState_Fix__private_IsEnabledNoReportingNoInline() )
+    {
+      if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
+        *(_QWORD *)(a1 + 34576) = (KeEnabledSupervisorXStateFeatures | MEMORY[0xFFFFF780000003D8]) & 0xFFFFFFFFFFFFFFFCuLL;
+    }
   }
   return 0LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeBootProcess @ 0x1409DD13C
+ * XREFs of MiInitializeBootProcess @ 0x1409DE13C
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013DAA8 (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmInitializeProcessAddressSpace @ 0x14067AA78 (MmInitializeProcessAddressSpace.c)
  */
 
 __int64 MiInitializeBootProcess()
@@ -22,14 +22,14 @@ __int64 MiInitializeBootProcess()
   unsigned int v8; // [rsp+60h] [rbp+8h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( !qword_1405401B8 )
-    qword_1405401B8 = 0x100000LL;
-  if ( !qword_1405401B0 )
-    qword_1405401B0 = 0x2000LL;
-  if ( !qword_1405401A8 )
-    qword_1405401A8 = 0x10000LL;
-  if ( !qword_1405401A0 )
-    qword_1405401A0 = 4096LL;
+  if ( !qword_1405411B8 )
+    qword_1405411B8 = 0x100000LL;
+  if ( !qword_1405411B0 )
+    qword_1405411B0 = 0x2000LL;
+  if ( !qword_1405411A8 )
+    qword_1405411A8 = 0x10000LL;
+  if ( !qword_1405411A0 )
+    qword_1405411A0 = 4096LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   *(_QWORD *)&Process[1].Spare2[23] = 50LL;
   *(_QWORD *)&Process[1].Spare2[63] = 450LL;
@@ -38,15 +38,15 @@ __int64 MiInitializeBootProcess()
   MiSetPageTablePfnBuddy((__int64)v1, (__int64)Process, 0);
   _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x40000u);
   _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x800u);
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
-  v2 = (unsigned __int64 **)qword_140439FF0;
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
+  v2 = (unsigned __int64 **)qword_14043B0B0;
   v3 = &Process[2].Affinity.Bitmap[1];
-  if ( *(__int64 **)qword_140439FF0 != &qword_140439FE8 )
+  if ( *(__int64 **)qword_14043B0B0 != &qword_14043B0A8 )
     __fastfail(3u);
-  Process[2].Affinity.Bitmap[2] = qword_140439FF0;
-  *v3 = (unsigned __int64)&qword_140439FE8;
+  Process[2].Affinity.Bitmap[2] = qword_14043B0B0;
+  *v3 = (unsigned __int64)&qword_14043B0A8;
   *v2 = v3;
-  qword_140439FF0 = (__int64)&Process[2].Affinity.Bitmap[1];
+  qword_14043B0B0 = (__int64)&Process[2].Affinity.Bitmap[1];
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreateNtFileName @ 0x1409DB87C
+ * XREFs of EtwpCreateNtFileName @ 0x1409D638C
  * Callers:
- *     EtwpDelayCreate @ 0x1409DB6A0 (EtwpDelayCreate.c)
+ *     EtwpDelayCreate @ 0x1409D61B0 (EtwpDelayCreate.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall EtwpCreateNtFileName(_WORD *a1, wchar_t **a2, _BYTE *a3)
@@ -17,7 +17,7 @@ NTSTATUS __fastcall EtwpCreateNtFileName(_WORD *a1, wchar_t **a2, _BYTE *a3)
   unsigned int v8; // eax
   const wchar_t *v9; // rsi
   int v10; // ecx
-  size_t v11; // rbp
+  ULONG_PTR v11; // rbp
   wchar_t *Pool2; // rax
   wchar_t *v13; // rdi
 
@@ -54,7 +54,7 @@ LABEL_7:
   v10 = 12;
 LABEL_8:
   v11 = v10 + v8;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v11, 0x50777445u);
   v13 = Pool2;
   if ( !Pool2 )
   {

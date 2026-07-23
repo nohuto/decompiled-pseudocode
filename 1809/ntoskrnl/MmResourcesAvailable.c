@@ -1,7 +1,7 @@
 /*
- * XREFs of MmResourcesAvailable @ 0x1400FD900
+ * XREFs of MmResourcesAvailable @ 0x1400FD980
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,14 +10,14 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KePulseEvent @ 0x1400F0BC0 (KePulseEvent.c)
- *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiIssuePageExtendRequest @ 0x1402B836C (MiIssuePageExtendRequest.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KePulseEvent @ 0x1400F0C40 (KePulseEvent.c)
+ *     MiFreeExcessSegments @ 0x1401644D4 (MiFreeExcessSegments.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiIssuePageExtendRequest @ 0x1402B855C (MiIssuePageExtendRequest.c)
  */
 
 __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
@@ -67,12 +67,12 @@ __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
   v9 = a1 & 1;
   if ( (a1 & 1) == 0 )
   {
-    v10 = MiState[0] - qword_140438A58;
+    v10 = MiState[0] - qword_140439B18;
     goto LABEL_4;
   }
   if ( (a1 & 0x20) == 0 )
   {
-    v10 = qword_14043AF98 - qword_14043AF88;
+    v10 = qword_14043C058 - qword_14043C048;
 LABEL_4:
     v11 = v10 << 12;
     goto LABEL_5;
@@ -85,7 +85,7 @@ LABEL_4:
   if ( v18 <= v19 )
     v21 = 0LL;
   v11 = v20 + v21;
-  v3 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v8 + 3182));
+  v3 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v8 + 3182));
 LABEL_5:
   v12 = 0;
   if ( a3 == 16 )
@@ -117,19 +117,19 @@ LABEL_30:
   {
     if ( v9 )
     {
-      ++dword_140438AE0;
+      ++dword_140439BA0;
       CurrentThread = KeGetCurrentThread();
       v44 = CurrentThread;
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043AF58, 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043C018, 0LL);
       v28 = (struct _KEVENT *)v3[30];
       if ( !v28->Header.SignalState )
         KePulseEvent(v28, 0, 0);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043AF58, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043AF58);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043C018, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043C018);
       v43 = 0;
       v29 = KeGetCurrentThread();
-      if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14043AF58) == 1 )
+      if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14043C018) == 1 )
         SessionId = (unsigned int)MmGetSessionIdEx((__int64)v29->ApcState.Process);
       else
         SessionId = 0xFFFFFFFFLL;
@@ -142,7 +142,7 @@ LABEL_30:
       {
 LABEL_62:
         if ( (*((_DWORD *)&v29->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v29, (ULONG_PTR)&qword_14043AF58, (unsigned int)SessionId, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)v29, (ULONG_PTR)&qword_14043C018, (unsigned int)SessionId, 0LL);
       }
       else
       {
@@ -154,7 +154,7 @@ LABEL_62:
           v31 &= ~v34;
           if ( (v36->AcquiredByte & 1) != 0
             && (*(_DWORD *)&v36->LockState.0 & 1) == 0
-            && (*(_QWORD *)&v36->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14043AF58 & 0x7FFFFFFFFFFFFFFCLL)
+            && (*(_QWORD *)&v36->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14043C018 & 0x7FFFFFFFFFFFFFFCLL)
             && v36->LockState.SessionId == (_DWORD)SessionId )
           {
             v36->AcquiredByte &= ~1u;
@@ -173,7 +173,7 @@ LABEL_61:
         }
         v36->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v36->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v29->LockEntries[v35], SessionId);
+          KiAbEntryRemoveFromTree(&v29->LockEntries[v35].TreeNode, SessionId);
         v43 = 0;
         v43 = v36->BoostBitmap.AllFields & 0x1FFFF;
         v36->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -188,7 +188,7 @@ LABEL_61:
           _InterlockedOr8((volatile signed __int8 *)&v29->AbOrphanedEntrySummary, 1 << v38);
       }
       --v29->AbAllocationRegionCount;
-      KiAbThreadRemoveBoosts((ULONG_PTR)v29, (__int64)&qword_14043AF58, (__int64)&v43);
+      KiAbThreadRemoveBoosts((ULONG_PTR)v29, (__int64)&qword_14043C018, (__int64)&v43);
       v32 = v29->SpecialApcDisable++ == -1;
       if ( v32 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v29->ApcState.ApcListHead[0].Flink != &v29->152 )
         KiCheckForKernelApcDelivery(v39);
@@ -196,7 +196,7 @@ LABEL_61:
     }
     else
     {
-      ++dword_140438ADC;
+      ++dword_140439B9C;
       KeAcquireInStackQueuedSpinLock(v3 + 608, &LockHandle);
       v23 = (struct _KEVENT *)v3[32];
       if ( !v23->Header.SignalState )
@@ -236,7 +236,7 @@ LABEL_61:
         v40 = 8LL;
       ++*(_DWORD *)((char *)&MiState[6] + v40);
     }
-    ++dword_140438A98;
+    ++dword_140439B58;
   }
   return v12;
 }

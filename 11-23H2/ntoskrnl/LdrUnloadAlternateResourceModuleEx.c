@@ -2,102 +2,102 @@
  * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x14020B640
  * Callers:
  *     LdrUnloadAlternateResourceModule @ 0x14020B5FC (LdrUnloadAlternateResourceModule.c)
- *     LdrpGetFromMUIMemCache @ 0x1402F7A78 (LdrpGetFromMUIMemCache.c)
+ *     LdrpGetFromMUIMemCache @ 0x1402F7D08 (LdrpGetFromMUIMemCache.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1402AFA30 (KeReleaseMutant.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlRunOnceExecuteOnce @ 0x140757D90 (RtlRunOnceExecuteOnce.c)
- *     MmUnmapViewInSystemSpace @ 0x1407E0410 (MmUnmapViewInSystemSpace.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutant @ 0x1402AFF20 (KeReleaseMutant.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlRunOnceExecuteOnce @ 0x140757F80 (RtlRunOnceExecuteOnce.c)
+ *     MmUnmapViewInSystemSpace @ 0x1407E06E0 (MmUnmapViewInSystemSpace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v2; // bl
-  int v3; // edi
-  int v4; // r15d
-  _QWORD *v5; // rsi
-  char *v6; // rcx
-  void *v7; // rcx
-  int v8; // ebx
-  int v9; // eax
+  BOOLEAN v3; // bl
+  int v4; // edi
+  int v5; // r15d
+  PVOID *v6; // rsi
+  char *v7; // rcx
+  PVOID v8; // rcx
+  int v9; // ebx
+  int v10; // eax
   void *Pool2; // rax
-  void *v11; // rdi
-  struct _KMUTANT *v13; // [rsp+60h] [rbp+8h] BYREF
+  void *v12; // rdi
+  struct _KMUTANT *v14; // [rsp+60h] [rbp+8h] BYREF
 
-  v2 = 0;
-  if ( !a1 )
+  v3 = 0;
+  if ( !DllHandle )
     return 0;
-  v13 = &MuiMutex;
-  RtlRunOnceExecuteOnce(&LdrpInitOnceMuiLock, NtdllRunOnceInitMuiCrits, &v13, 0LL);
+  v14 = &MuiMutex;
+  RtlRunOnceExecuteOnce(&LdrpInitOnceMuiLock, NtdllRunOnceInitMuiCrits, &v14, 0LL);
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
-  v3 = AlternateResourceModuleCount;
+  v4 = AlternateResourceModuleCount;
   if ( AlternateResourceModuleCount )
   {
     while ( 1 )
     {
-      if ( v3 <= 0 )
+      if ( v4 <= 0 )
         goto LABEL_21;
-      v4 = v3 - 1;
-      v5 = (char *)AlternateResourceModules + 64 * (__int64)(v3 - 1);
-      if ( v5[1] == a1 )
+      v5 = v4 - 1;
+      v6 = (PVOID *)((char *)AlternateResourceModules + 64 * (__int64)(v4 - 1));
+      if ( v6[1] == DllHandle )
         break;
 LABEL_5:
-      v3 = v4;
+      v4 = v5;
     }
-    v6 = (char *)v5[4];
-    if ( (unsigned __int64)(v6 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v7 = (char *)v6[4];
+    if ( (unsigned __int64)(v7 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      MmUnmapViewInSystemSpace(v6);
-      v7 = (void *)v5[5];
-      if ( v7 )
+      MmUnmapViewInSystemSpace(v7);
+      v8 = v6[5];
+      if ( v8 )
       {
-        ZwClose(v7);
-        v5[5] = 0LL;
+        ZwClose(v8);
+        v6[5] = 0LL;
       }
-      v5[4] = 0LL;
+      v6[4] = 0LL;
     }
-    v8 = AlternateResourceModuleCount;
-    if ( v3 != AlternateResourceModuleCount )
-      memmove(v5, v5 + 8, (unsigned __int64)(unsigned int)(AlternateResourceModuleCount - v3) << 6);
-    AlternateResourceModuleCount = v8 - 1;
-    if ( v8 == 1 )
+    v9 = AlternateResourceModuleCount;
+    if ( v4 != AlternateResourceModuleCount )
+      memmove(v6, v6 + 8, (unsigned __int64)(unsigned int)(AlternateResourceModuleCount - v4) << 6);
+    AlternateResourceModuleCount = v9 - 1;
+    if ( v9 == 1 )
     {
       ExFreePoolWithTag(AlternateResourceModules, 0);
       AlternateResourceModules = 0LL;
-      v9 = 0;
+      v10 = 0;
     }
     else
     {
-      if ( v8 - 1 >= (unsigned int)(AltResMemBlockCount - 32) )
+      if ( v9 - 1 >= (unsigned int)(AltResMemBlockCount - 32) )
       {
 LABEL_20:
-        v2 = 1;
+        v3 = 1;
         goto LABEL_5;
       }
       Pool2 = (void *)ExAllocatePool2(
                         256LL,
                         (unsigned __int64)(unsigned int)(AltResMemBlockCount - 32) << 6,
                         1766880370LL);
-      v11 = Pool2;
+      v12 = Pool2;
       if ( !Pool2 )
       {
-        v2 = 0;
+        v3 = 0;
         goto LABEL_21;
       }
       memmove(Pool2, AlternateResourceModules, (unsigned __int64)(unsigned int)(AltResMemBlockCount - 32) << 6);
       ExFreePoolWithTag(AlternateResourceModules, 0);
-      AlternateResourceModules = v11;
-      v9 = AltResMemBlockCount - 32;
+      AlternateResourceModules = v12;
+      v10 = AltResMemBlockCount - 32;
     }
-    AltResMemBlockCount = v9;
+    AltResMemBlockCount = v10;
     goto LABEL_20;
   }
-  v2 = 1;
+  v3 = 1;
 LABEL_21:
   KeReleaseMutant(&MuiMutex, 1, 0, 0);
-  return v2;
+  return v3;
 }

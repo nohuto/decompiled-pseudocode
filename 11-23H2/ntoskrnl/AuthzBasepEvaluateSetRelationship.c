@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepEvaluateSetRelationship @ 0x14030BDB8
+ * XREFs of AuthzBasepEvaluateSetRelationship @ 0x14030C048
  * Callers:
- *     AuthzBasepEvaluateExpression @ 0x14030BEA4 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepEvaluateExpression @ 0x14030C134 (AuthzBasepEvaluateExpression.c)
  * Callees:
- *     AuthzBasepRestartOperandValueEnumeration @ 0x14030BD74 (AuthzBasepRestartOperandValueEnumeration.c)
- *     AuthzBasepValueInSet @ 0x14030BF48 (AuthzBasepValueInSet.c)
- *     AuthzBasepGetNextValue @ 0x14030C074 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x14030C004 (AuthzBasepRestartOperandValueEnumeration.c)
+ *     AuthzBasepValueInSet @ 0x14030C1D8 (AuthzBasepValueInSet.c)
+ *     AuthzBasepGetNextValue @ 0x14030C304 (AuthzBasepGetNextValue.c)
  */
 
 __int64 __fastcall AuthzBasepEvaluateSetRelationship(int a1, __int64 a2, _DWORD *a3)

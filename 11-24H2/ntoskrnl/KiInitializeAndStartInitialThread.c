@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeAndStartInitialThread @ 0x1405C2E04
+ * XREFs of KiInitializeAndStartInitialThread @ 0x1405C03D4
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     PsInitializeThreadRngState @ 0x14047F35C (PsInitializeThreadRngState.c)
- *     KiStartIdleThread @ 0x1405C3210 (KiStartIdleThread.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
+ *     PsInitializeThreadRngState @ 0x14047A17C (PsInitializeThreadRngState.c)
+ *     KiStartIdleThread @ 0x1405C07E0 (KiStartIdleThread.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
  */
 
 __int64 __fastcall KiInitializeAndStartInitialThread(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -33,9 +33,9 @@ __int64 __fastcall KiInitializeAndStartInitialThread(unsigned __int64 a1, __int6
   }
   *(_QWORD *)(a1 + 576) = &KiBootProcessorIdleThreadAffinity;
   *(_QWORD *)(a1 + 552) = &KiBootProcessorIdleThreadUserAffinity;
-  dword_140FCC004 = 0;
+  dword_140FCD194 = 0;
   KiBootProcessorIdleThreadAffinity = 2097153;
-  memset_0(&unk_140FCC008, 0, 0x100uLL);
+  memset_0(&unk_140FCD198, 0, 0x100uLL);
   v10 = *(_DWORD **)(a1 + 552);
   v10[1] = 0;
   *v10 = 2097153;
@@ -45,7 +45,7 @@ __int64 __fastcall KiInitializeAndStartInitialThread(unsigned __int64 a1, __int6
   v12[3] = 0LL;
   v14 = &KiInitialProcess;
   KiInitialLockEntriesBuffer = a1;
-  byte_140E1564C = 6;
+  byte_140E1578C = 6;
   *(_QWORD *)(a1 + 1136) = &KiInitialLockEntriesBuffer;
   v13 = 0LL;
   v15 = 1;

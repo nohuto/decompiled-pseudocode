@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPdcUpdateDeviceCompliance @ 0x14086F38C
+ * XREFs of PopPdcUpdateDeviceCompliance @ 0x1408705EC
  * Callers:
- *     PopPdcCsDeviceNotification @ 0x14086F010 (PopPdcCsDeviceNotification.c)
+ *     PopPdcCsDeviceNotification @ 0x140870270 (PopPdcCsDeviceNotification.c)
  * Callees:
- *     PopDiagTraceDeviceComplianceUpdate @ 0x1402E00CC (PopDiagTraceDeviceComplianceUpdate.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PopDiagTraceDeviceComplianceUpdate @ 0x1402E02BC (PopDiagTraceDeviceComplianceUpdate.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 PopPdcUpdateDeviceCompliance()

@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpCompareServiceChecksum @ 0x1800E539C
+ * XREFs of LdrpCompareServiceChecksum @ 0x1800E324C
  * Callers:
- *     LdrLoadAlternateResourceModule @ 0x1800E4F90 (LdrLoadAlternateResourceModule.c)
+ *     LdrLoadAlternateResourceModule @ 0x1800E2E40 (LdrLoadAlternateResourceModule.c)
  * Callees:
- *     LdrpGetRcConfig @ 0x18002DE20 (LdrpGetRcConfig.c)
+ *     LdrpGetRcConfig @ 0x180018F20 (LdrpGetRcConfig.c)
  */
 
-bool __fastcall LdrpCompareServiceChecksum(__int64 a1, __int64 a2)
+bool __fastcall LdrpCompareServiceChecksum(void *a1, void *a2)
 {
   __int64 v3; // rdx
   _DWORD *RcConfig; // rbx
   _DWORD *v5; // rax
   __int64 v6; // rcx
 
-  RcConfig = LdrpGetRcConfig(a1, a2, 0, 1);
+  RcConfig = LdrpGetRcConfig(a1, (__int64)a2, 0, 1);
   if ( !RcConfig )
     return 0;
   v5 = LdrpGetRcConfig(a2, v3, 0, 0);

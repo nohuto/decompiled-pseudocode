@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwRegisterTraceGuidsA @ 0x18005AD40
+ * XREFs of EtwRegisterTraceGuidsA @ 0x1800452C0
  * Callers:
  *     <none>
  * Callees:
- *     EtwRegisterTraceGuidsW @ 0x180058E60 (EtwRegisterTraceGuidsW.c)
+ *     EtwRegisterTraceGuidsW @ 0x1800433E0 (EtwRegisterTraceGuidsW.c)
  */
 
 __int64 __fastcall EtwRegisterTraceGuidsA(
-        _SLIST_ENTRY *a1,
+        ULONG (__cdecl *a1)(PETW_NOTIFICATION_HEADER, PVOID),
         int a2,
-        struct _SLIST_ENTRY *a3,
+        GUID *a3,
         unsigned int a4,
         __int64 a5,
         int a6,
         int a7,
-        _QWORD *a8)
+        ULONGLONG *a8)
 {
   return EtwRegisterTraceGuidsW(a1, a2, a3, a4, a5, 0, 0, a8);
 }

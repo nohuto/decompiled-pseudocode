@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpHeatRegisterVolume @ 0x14088D0C8
+ * XREFs of FsRtlpHeatRegisterVolume @ 0x14088D228
  * Callers:
- *     FsRtlHeatInit @ 0x14088CE30 (FsRtlHeatInit.c)
+ *     FsRtlHeatInit @ 0x14088CF90 (FsRtlHeatInit.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     McGenEventRegister_EtwRegister @ 0x1403B7368 (McGenEventRegister_EtwRegister.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     McTemplateK0jq_EtwWriteTransfer @ 0x1404F1210 (McTemplateK0jq_EtwWriteTransfer.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     McGenEventRegister_EtwRegister @ 0x1403B74D8 (McGenEventRegister_EtwRegister.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x1404F1190 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, _DWORD *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, _DWORD *
   __int64 **v13; // rcx
   __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 v17; // [rsp+20h] [rbp-28h]
+  void *ExplicitScope; // [rsp+20h] [rbp-28h]
 
   ExAcquireResourceExclusiveLite(&Resource, 1u);
   for ( i = FsRtlTieringHeatData; (__int64 *)i != &FsRtlTieringHeatData; i = *(_QWORD *)i )
@@ -88,10 +88,10 @@ LABEL_21:
   {
     if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 1) != 0 )
     {
-      LODWORD(v17) = *a3;
-      McTemplateK0jq_EtwWriteTransfer(v15, v14, a2, a1, v17);
+      LODWORD(ExplicitScope) = *a3;
+      McTemplateK0jq_EtwWriteTransfer(v15, v14, a2, a1, (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

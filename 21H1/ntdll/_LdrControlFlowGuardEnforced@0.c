@@ -21,7 +21,7 @@
  *     <none>
  */
 
-BOOL __stdcall LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
   return qword_4B3A9300 && (byte_4B3A92E4 & 1) == 0;
 }

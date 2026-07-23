@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIncreaseNonPagedPoolUsage @ 0x140163E48
+ * XREFs of MiIncreaseNonPagedPoolUsage @ 0x140163F48
  * Callers:
- *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
- *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1401627E8 (MiExpandNonPagedPool.c)
+ *     MiScanLeafNonPagedPool @ 0x1401638F0 (MiScanLeafNonPagedPool.c)
  * Callees:
- *     MiCountSystemPool @ 0x1401B4E20 (MiCountSystemPool.c)
+ *     MiCountSystemPool @ 0x1401B4F60 (MiCountSystemPool.c)
  */
 
 __int64 __fastcall MiIncreaseNonPagedPoolUsage(__int64 a1, int a2, __int64 a3, __int64 a4)

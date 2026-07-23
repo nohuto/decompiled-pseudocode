@@ -11,15 +11,15 @@
  *     sub_1800DCF94 @ 0x1800DCF94 (sub_1800DCF94.c)
  */
 
-__int64 __fastcall sub_180004B28(__int64 a1, int a2, _QWORD *a3)
+__int64 __fastcall sub_180004B28(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   wchar_t *v4; // r8
   wchar_t *v5; // rdx
   __int64 result; // rax
   wchar_t Buffer[1024]; // [rsp+30h] [rbp-818h] BYREF
 
-  *a3 = 0LL;
-  a3[1] = 0LL;
+  *(_QWORD *)&a3->Length = 0LL;
+  a3->Buffer = 0LL;
   v4 = *(wchar_t **)(a1 + 136);
   *(_DWORD *)(a1 + 100) = NtCurrentTeb()->ClientId.UniqueProcess;
   if ( a2 == 1 )
@@ -36,7 +36,7 @@ __int64 __fastcall sub_180004B28(__int64 a1, int a2, _QWORD *a3)
       return (unsigned __int16)result;
     v5 = Buffer;
   }
-  if ( (unsigned __int8)RtlCreateUnicodeString(a3, v5) )
+  if ( RtlCreateUnicodeString(a3, v5) )
     return 0LL;
   else
     return 8LL;

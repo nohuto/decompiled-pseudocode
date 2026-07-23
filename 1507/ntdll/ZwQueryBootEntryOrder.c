@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwQueryBootEntryOrder()
+NTSTATUS __cdecl ZwQueryBootEntryOrder(PULONG Ids, PULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 296LL;
+  result = 296;
   __asm { syscall; Low latency system call }
   return result;
 }

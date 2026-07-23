@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCreateDriverProxyExtension @ 0x1405AF440
+ * XREFs of IoCreateDriverProxyExtension @ 0x1405AC3B0
  * Callers:
  *     <none>
  * Callees:

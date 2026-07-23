@@ -1,28 +1,28 @@
 /*
- * XREFs of MiInsertPageFileInList @ 0x14086BC8C
+ * XREFs of MiInsertPageFileInList @ 0x14087206C
  * Callers:
- *     MiCreatePagingFile @ 0x14086B464 (MiCreatePagingFile.c)
- *     MmStoreRegister @ 0x14087D67C (MmStoreRegister.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x14087E48C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MiCreatePagingFile @ 0x140871844 (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x140883A7C (MmStoreRegister.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x14088488C (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
- *     MiNumberWsSwapPagefiles @ 0x140207478 (MiNumberWsSwapPagefiles.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MiUpdateReserveClusterInfo @ 0x1404A4D38 (MiUpdateReserveClusterInfo.c)
- *     MiMakePartitionActive @ 0x1404A9C80 (MiMakePartitionActive.c)
- *     MiUpdatePageFileList @ 0x1406F8F84 (MiUpdatePageFileList.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
+ *     MiNumberWsSwapPagefiles @ 0x140207558 (MiNumberWsSwapPagefiles.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MiUpdateReserveClusterInfo @ 0x14049E3C8 (MiUpdateReserveClusterInfo.c)
+ *     MiMakePartitionActive @ 0x1404A3310 (MiMakePartitionActive.c)
+ *     MiUpdatePageFileList @ 0x1406FDC54 (MiUpdatePageFileList.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInsertPageFileInList(unsigned int *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -102,13 +102,13 @@ __int64 __fastcall MiInsertPageFileInList(unsigned int *a1, __int64 a2, __int64 
     else
       *((_BYTE *)v12 + 10) = 1;
   }
-  if ( HIDWORD(stru_140E2EB88.RelativeTimerBias) )
+  if ( HIDWORD(stru_140E2ED08.RelativeTimerBias) )
   {
     if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 1184));
     KeAbPostRelease(v7 + 1184);
     v15 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v15 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v15 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v14, v13);
     return 3221225738LL;
   }
@@ -120,7 +120,7 @@ __int64 __fastcall MiInsertPageFileInList(unsigned int *a1, __int64 a2, __int64 
       ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 1184));
     KeAbPostRelease(v7 + 1184);
     v15 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v15 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v15 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v18, v17);
     if ( !PartitionActive )
       return 3221225773LL;
@@ -171,7 +171,7 @@ LABEL_56:
       ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 1184));
     KeAbPostRelease(v7 + 1184);
     v15 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v15 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v15 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v35, v34);
     return 3221225623LL;
   }
@@ -216,7 +216,7 @@ LABEL_63:
       KeAbPostRelease(v7 + 1184);
       v15 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v15
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v37, v36);
       }
@@ -235,7 +235,7 @@ LABEL_63:
     ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 1184));
   KeAbPostRelease(v7 + 1184);
   v15 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v15 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v15 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v33, v32);
   return 3221225659LL;
 }

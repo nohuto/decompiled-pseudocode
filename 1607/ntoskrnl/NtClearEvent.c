@@ -1,11 +1,11 @@
 /*
- * XREFs of NtClearEvent @ 0x1404BB5B0
+ * XREFs of NtClearEvent @ 0x1404A72E0
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtClearEvent(HANDLE EventHandle)

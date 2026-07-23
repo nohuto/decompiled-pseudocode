@@ -1,10 +1,10 @@
 /*
- * XREFs of KeMarkDynamicTracingHiberPhase @ 0x1405FC318
+ * XREFs of KeMarkDynamicTracingHiberPhase @ 0x1405FED68
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     KiTpCompletionContextSize @ 0x1407BC558 (KiTpCompletionContextSize.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     KiTpCompletionContextSize @ 0x1407BF5B8 (KiTpCompletionContextSize.c)
  */
 
 void KeMarkDynamicTracingHiberPhase()
@@ -19,20 +19,16 @@ void KeMarkDynamicTracingHiberPhase()
   __int64 v7; // rax
   unsigned __int64 v8; // rcx
 
-  if ( KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink )
+  if ( KsepShimDbLock.WaitBlock[1].SparePtr )
   {
-    PoSetHiberRange(0LL, 0x10000u, KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink, 0x20000uLL, 0x70727446u);
+    PoSetHiberRange(0LL, 0x10000u, KsepShimDbLock.WaitBlock[1].SparePtr, 0x20000uLL, 0x70727446u);
     v0 = 0LL;
     v1 = 0x4000LL;
     v2 = KiTpCompletionContextSize() + 52;
     do
     {
-      for ( i = *(struct _LIST_ENTRY **)((char *)&KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink->Flink + v0);
-            i;
-            i = (_QWORD *)*i )
-      {
+      for ( i = *(_QWORD **)((char *)KsepShimDbLock.WaitBlock[1].SparePtr + v0); i; i = (_QWORD *)*i )
         PoSetHiberRange(0LL, 0x10000u, i, v2, 0x70727446u);
-      }
       v0 += 8LL;
       --v1;
     }

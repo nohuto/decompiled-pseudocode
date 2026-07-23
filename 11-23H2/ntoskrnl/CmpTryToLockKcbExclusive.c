@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTryToLockKcbExclusive @ 0x1407DFB28
+ * XREFs of CmpTryToLockKcbExclusive @ 0x1407DFDF8
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
  *     CmpCreateRegistryRoot @ 0x140B36088 (CmpCreateRegistryRoot.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
  */
 
 char __fastcall CmpTryToLockKcbExclusive(__int64 a1)

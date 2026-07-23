@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpInitFunctionOverrideCapabilities @ 0x14078D6B8
+ * XREFs of RtlpInitFunctionOverrideCapabilities @ 0x14078D5E8
  * Callers:
- *     RtlInitFunctionOverrideCapabilities @ 0x140787DC4 (RtlInitFunctionOverrideCapabilities.c)
+ *     RtlInitFunctionOverrideCapabilities @ 0x140787CF4 (RtlInitFunctionOverrideCapabilities.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     HviGetEnlightenmentInformation @ 0x140663A68 (HviGetEnlightenmentInformation.c)
- *     HviGetHypervisorFeatures @ 0x140663AB0 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpSetFunctionOverrideCapability @ 0x140787E08 (RtlpSetFunctionOverrideCapability.c)
- *     RtlpSetUserKernelFunctionOverrideCapability @ 0x140787E48 (RtlpSetUserKernelFunctionOverrideCapability.c)
- *     RtlGetProcessorSignature @ 0x140B60A90 (RtlGetProcessorSignature.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     HviGetEnlightenmentInformation @ 0x14066234C (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x1406623A0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpSetFunctionOverrideCapability @ 0x140787D38 (RtlpSetFunctionOverrideCapability.c)
+ *     RtlpSetUserKernelFunctionOverrideCapability @ 0x140787D78 (RtlpSetUserKernelFunctionOverrideCapability.c)
+ *     RtlGetProcessorSignature @ 0x140B62B5C (RtlGetProcessorSignature.c)
  */
 
 char __fastcall RtlpInitFunctionOverrideCapabilities(__int64 a1)

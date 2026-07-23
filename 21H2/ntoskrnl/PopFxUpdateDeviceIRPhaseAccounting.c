@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxUpdateDeviceIRPhaseAccounting @ 0x14056D598
+ * XREFs of PopFxUpdateDeviceIRPhaseAccounting @ 0x14056D7D8
  * Callers:
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x14056CBCC (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x14056CE0C (PopFxSetDripsBlockedByDeviceActivity.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x1405692E8 (PopFxAccumulateDeviceIRPhaseAccounting.c)
+ *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x140569528 (PopFxAccumulateDeviceIRPhaseAccounting.c)
  */
 
 __int64 __fastcall PopFxUpdateDeviceIRPhaseAccounting(char a1)
@@ -20,11 +20,11 @@ __int64 __fastcall PopFxUpdateDeviceIRPhaseAccounting(char a1)
   bool v7; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  if ( byte_140C23158 )
+  if ( byte_140C23758 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     if ( a1 )
-      qword_140C23150 = PerformanceCounter.QuadPart;
+      qword_140C23750 = PerformanceCounter.QuadPart;
     else
       PopFxAccumulateDeviceIRPhaseAccounting(PerformanceCounter.QuadPart);
   }

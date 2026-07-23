@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTracePowerReconfig @ 0x1404C69C0
+ * XREFs of PopTracePowerReconfig @ 0x1404BFE20
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopTracePowerReconfig()
@@ -37,20 +37,20 @@ void PopTracePowerReconfig()
 
   v8[0] = MEMORY[0xFFFFF78000000014];
   v8[1] = MEMORY[0xFFFFF78000000018];
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v4 = v1;
     v10 = v8;
-    v2 = dword_140F0AE54;
+    v2 = dword_140F0BC94;
     v5 = v0;
     v12 = &v2;
-    v3 = xmmword_140F0AEB8;
+    v3 = xmmword_140F0BCF8;
     v14 = &v3;
     v16 = &v4;
     v18 = &v5;
-    v6 = (unsigned __int8)byte_140F0B020;
+    v6 = (unsigned __int8)byte_140F0BE60;
     v20 = &v6;
-    v7 = qword_140F0B034;
+    v7 = qword_140F0BE74;
     v22 = &v7;
     v11 = 8LL;
     v13 = 4LL;
@@ -59,6 +59,6 @@ void PopTracePowerReconfig()
     v19 = 4LL;
     v21 = 4LL;
     v23 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&word_140049A7E, 0LL, 0LL, 9u, &v9);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)word_14004A4FA, 0LL, 0LL, 9u, &v9);
   }
 }

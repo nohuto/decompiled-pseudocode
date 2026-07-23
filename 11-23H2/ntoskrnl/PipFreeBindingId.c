@@ -1,10 +1,10 @@
 /*
- * XREFs of PipFreeBindingId @ 0x1409546A0
+ * XREFs of PipFreeBindingId @ 0x1409548A0
  * Callers:
- *     PipDeleteBindingId @ 0x140954504 (PipDeleteBindingId.c)
- *     PipDeleteBindingIds @ 0x140954594 (PipDeleteBindingIds.c)
+ *     PipDeleteBindingId @ 0x140954704 (PipDeleteBindingId.c)
+ *     PipDeleteBindingIds @ 0x140954794 (PipDeleteBindingIds.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -13,28 +13,28 @@
  *     RtlConvertLCIDToString @ 0x1800FB510 (RtlConvertLCIDToString.c)
  */
 
-__int64 __fastcall RtlpConvertCultureNamesToLCIDs(wchar_t *SourceString, __int64 *a2)
+__int64 __fastcall RtlpConvertCultureNamesToLCIDs(wchar_t *SourceString, _QWORD *a2)
 {
   unsigned int v2; // ebx
   const wchar_t *v4; // rsi
-  __int64 v5; // r14
+  void *v5; // r14
   unsigned int v6; // edi
   int v7; // ebp
   int v8; // eax
   unsigned int v9; // ecx
   unsigned int v10; // r15d
   unsigned int v11; // ecx
-  int *v12; // rax
+  DWORD *v12; // rax
   unsigned int v13; // r12d
-  __int64 Heap; // rax
-  _WORD *v15; // rsi
+  PVOID Heap; // rax
+  WCHAR *v15; // rsi
   unsigned int v16; // ebp
-  unsigned int *v17; // r15
+  LCID *v17; // r15
   __int64 v18; // rcx
   __int64 v19; // rax
   int v21; // [rsp+30h] [rbp-68h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-60h] BYREF
-  int v23[4]; // [rsp+48h] [rbp-50h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-60h] BYREF
+  DWORD v23[4]; // [rsp+48h] [rbp-50h] BYREF
 
   v2 = 0;
   v4 = SourceString;
@@ -51,7 +51,7 @@ __int64 __fastcall RtlpConvertCultureNamesToLCIDs(wchar_t *SourceString, __int64
       goto LABEL_17;
     v10 = 2 * wcsnlen(v4, (unsigned __int64)v9 >> 1);
     RtlInitUnicodeString(&DestinationString, v4);
-    if ( !RtlCultureNameToLCID(&DestinationString.Length, &v23[v6]) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &v23[v6]) )
       goto LABEL_17;
     v11 = 0;
     if ( v6 )
@@ -80,14 +80,14 @@ LABEL_14:
       break;
   }
   v13 = (unsigned __int16)(((_WORD)v6 << 6) + 4);
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int16)(((_WORD)v6 << 6) + 4));
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned __int16)(((_WORD)v6 << 6) + 4));
   v5 = Heap;
   if ( !Heap )
   {
     v2 = -1073741801;
     goto LABEL_27;
   }
-  v15 = (_WORD *)Heap;
+  v15 = (WCHAR *)Heap;
   v16 = 0;
   if ( !v6 )
   {
@@ -95,7 +95,7 @@ LABEL_26:
     *(_DWORD *)v15 = 0;
     goto LABEL_27;
   }
-  v17 = (unsigned int *)v23;
+  v17 = v23;
   while ( 1 )
   {
     RtlConvertLCIDToString(*v17, 0x10u, 4u, v15, 0x20u);
@@ -117,6 +117,6 @@ LABEL_26:
       goto LABEL_26;
   }
   v2 = -1073741595;
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   return v2;
 }

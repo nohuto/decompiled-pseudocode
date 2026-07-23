@@ -1,27 +1,27 @@
 /*
- * XREFs of KeDisableTimer2 @ 0x1403AA104
+ * XREFs of KeDisableTimer2 @ 0x1403B3D14
  * Callers:
- *     ExDeleteTimer @ 0x1403AABC0 (ExDeleteTimer.c)
- *     MiStoreEvictThread @ 0x1404B0390 (MiStoreEvictThread.c)
- *     PopPowerButtonWorkCallback @ 0x14060CD70 (PopPowerButtonWorkCallback.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14063C534 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     PopThermalZoneRemove @ 0x1407D1F60 (PopThermalZoneRemove.c)
- *     ExpDeleteTimer2 @ 0x140AD4610 (ExpDeleteTimer2.c)
+ *     ExDeleteTimer @ 0x1403B48D0 (ExDeleteTimer.c)
+ *     MiStoreEvictThread @ 0x1404A9A20 (MiStoreEvictThread.c)
+ *     PopPowerButtonWorkCallback @ 0x14060FE80 (PopPowerButtonWorkCallback.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140640114 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     PopThermalZoneRemove @ 0x1407D5000 (PopThermalZoneRemove.c)
+ *     ExpDeleteTimer2 @ 0x140AD1A70 (ExpDeleteTimer2.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     KiRemoveTimer2 @ 0x140378EB0 (KiRemoveTimer2.c)
- *     KeGenericProcessorCallback @ 0x140379F74 (KeGenericProcessorCallback.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x14037A9B0 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x14037AA30 (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiTraceCancelTimer2 @ 0x1403A9BE0 (KiTraceCancelTimer2.c)
- *     KiUpdateTimer2Flags @ 0x1403AA610 (KiUpdateTimer2Flags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     KiRemoveTimer2 @ 0x14037AC60 (KiRemoveTimer2.c)
+ *     KeGenericProcessorCallback @ 0x14037BD24 (KeGenericProcessorCallback.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x14037C760 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x14037C7E0 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiTraceCancelTimer2 @ 0x1403B37F0 (KiTraceCancelTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x1403B4220 (KiUpdateTimer2Flags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
@@ -87,15 +87,15 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
       v29 = v12;
       v30 = 0x7E35C6C7F3DD7277LL
           * (KiWaitNever ^ __ROR8__(
-                             a1 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ v13),
+                             a1 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ v13),
                              KiWaitNever));
     }
     v9 = KiWaitNever;
     v8 = KiWaitNever ^ __ROR8__(
-                         a1 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ v12),
+                         a1 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ v12),
                          KiWaitNever);
     v10 = KiWaitNever ^ __ROR8__(
-                          a1 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ v13),
+                          a1 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ v13),
                           KiWaitNever);
     v6 = 0LL;
   }
@@ -162,13 +162,13 @@ LABEL_17:
 LABEL_24:
   if ( v11 && !v26 )
   {
-    v21 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(a1 ^ __ROL8__(KiWaitNever ^ v7, KiWaitNever));
+    v21 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(a1 ^ __ROL8__(KiWaitNever ^ v7, KiWaitNever));
     if ( v23 )
       KiTraceCancelTimer2(a1, v21);
     v22 = v31;
     v28 = 0x7E35C6C7F3DD7277LL
         * (KiWaitNever ^ __ROR8__(
-                           v21 ^ _byteswap_uint64((__int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ a1),
+                           v21 ^ _byteswap_uint64((__int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ a1),
                            KiWaitNever));
     if ( v16 )
     {

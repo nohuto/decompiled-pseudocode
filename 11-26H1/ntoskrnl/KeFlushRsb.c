@@ -1,13 +1,13 @@
 /*
- * XREFs of KeFlushRsb @ 0x1405F18C8
+ * XREFs of KeFlushRsb @ 0x1405F4288
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiIpiStallOnPacketTargets @ 0x14025220C (KiIpiStallOnPacketTargets.c)
- *     KiIpiSendPacket @ 0x140497DF4 (KiIpiSendPacket.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiFlushCurrentRsb @ 0x14073D180 (KiFlushCurrentRsb.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiIpiStallOnPacketTargets @ 0x140253B6C (KiIpiStallOnPacketTargets.c)
+ *     KiIpiSendPacket @ 0x140491944 (KiIpiSendPacket.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiFlushCurrentRsb @ 0x140741D80 (KiFlushCurrentRsb.c)
  */
 
 __int64 KeFlushRsb()

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeUnstackDetachProcess @ 0x14034ED80
+ * XREFs of KeUnstackDetachProcess @ 0x14034EF20
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
  */
 
 void __stdcall KeUnstackDetachProcess(PRKAPC_STATE ApcState)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeInitializeDeviceQueue @ 0x14070C9EC
+ * XREFs of VerifierKeInitializeDeviceQueue @ 0x14070CA1C
  * Callers:
  *     <none>
  * Callees:

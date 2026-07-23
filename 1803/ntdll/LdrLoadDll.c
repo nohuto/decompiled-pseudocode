@@ -15,19 +15,27 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-__int64 __fastcall LdrLoadDll(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl LdrLoadDll(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  int v8; // ebx
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v11; // [rsp+30h] [rbp-C8h] BYREF
-  __int64 v12[15]; // [rsp+40h] [rbp-B8h] BYREF
+  NTSTATUS v8; // ebx
+  char *v9; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp-C8h] BYREF
+  PWSTR Path[15]; // [rsp+40h] [rbp-B8h] BYREF
   char v13; // [rsp+BCh] [rbp-3Ch]
 
   if ( (dword_180156A70 & 9) != 0 )
-    sub_1800CA554((unsigned int)"minkernel\\ntdll\\ldrapi.c", 145, (unsigned int)"LdrLoadDll", 3, "DLL name: %wZ\n", a3);
-  if ( (dword_1801596D4 & 4) == 0 && (a1 & 0x401) == 0x401 )
-    return 3221225485LL;
-  if ( a2 && (LODWORD(a2) = *a2, ((unsigned __int8)a2 & 4) != 0) && (dword_1801596D4 & 8) == 0 )
+    sub_1800CA554(
+      (unsigned int)"minkernel\\ntdll\\ldrapi.c",
+      145,
+      (unsigned int)"LdrLoadDll",
+      3,
+      "DLL name: %wZ\n",
+      DllName);
+  if ( (dword_1801596D4 & 4) == 0 && ((unsigned __int16)DllPath & 0x401) == 0x401LL )
+    return -1073741811;
+  if ( DllCharacteristics
+    && (LODWORD(DllCharacteristics) = *DllCharacteristics, ((unsigned __int8)DllCharacteristics & 4) != 0)
+    && (dword_1801596D4 & 8) == 0 )
   {
     if ( (dword_180156A70 & 3) != 0 )
       sub_1800CA554(
@@ -46,14 +54,14 @@ __int64 __fastcall LdrLoadDll(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4)
   }
   else
   {
-    sub_180042054(*(_QWORD *)(a3 + 8), a1, v12);
-    v8 = sub_18003B7AC(a3, (int)v12, (int)a2, 1, (__int64 *)&v11);
+    sub_180042054(DllName->Buffer, DllPath, Path);
+    v8 = sub_18003B7AC((__int64)DllName, (__int64)Path, (int)DllCharacteristics, 1, &BaseAddress);
     if ( v13 )
-      RtlReleasePath(v12[0]);
+      RtlReleasePath(Path[0]);
     if ( v8 >= 0 )
     {
-      v9 = v11;
-      *a4 = *(_QWORD *)(v11 + 48);
+      v9 = (char *)BaseAddress;
+      *DllHandle = (PVOID)*((_QWORD *)BaseAddress + 6);
       sub_18001F5FC(v9);
     }
   }
@@ -65,5 +73,5 @@ __int64 __fastcall LdrLoadDll(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4)
       4,
       "Status: 0x%08lx\n",
       v8);
-  return (unsigned int)v8;
+  return v8;
 }

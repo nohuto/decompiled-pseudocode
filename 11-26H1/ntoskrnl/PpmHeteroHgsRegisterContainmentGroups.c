@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmHeteroHgsRegisterContainmentGroups @ 0x14060B540
+ * XREFs of PpmHeteroHgsRegisterContainmentGroups @ 0x14060E258
  * Callers:
- *     PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x14060B3A0 (PpmHeteroHgsEvalAndRegisterContainmentGroups.c)
- *     PpmParkInitParkNode @ 0x14060F9F4 (PpmParkInitParkNode.c)
+ *     PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x14060E08C (PpmHeteroHgsEvalAndRegisterContainmentGroups.c)
+ *     PpmParkInitParkNode @ 0x140612C58 (PpmParkInitParkNode.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     PpmEventHgsContainmentGroupInfo @ 0x14060DFDC (PpmEventHgsContainmentGroupInfo.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     PpmEventHgsContainmentGroupInfo @ 0x1406110DC (PpmEventHgsContainmentGroupInfo.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PpmHeteroHgsRegisterContainmentGroups(__int64 a1, __int64 a2)

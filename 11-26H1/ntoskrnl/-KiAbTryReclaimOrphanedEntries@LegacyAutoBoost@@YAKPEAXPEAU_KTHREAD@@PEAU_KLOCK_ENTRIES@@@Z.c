@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KiAbTryReclaimOrphanedEntries@LegacyAutoBoost@@YAKPEAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRIES@@@Z @ 0x140434228
+ * XREFs of ?KiAbTryReclaimOrphanedEntries@LegacyAutoBoost@@YAKPEAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRIES@@@Z @ 0x1404292F8
  * Callers:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  * Callees:
- *     EtwTraceAutoBoostEntryExhaustion @ 0x1402703AC (EtwTraceAutoBoostEntryExhaustion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14026F91C (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall LegacyAutoBoost::KiAbTryReclaimOrphanedEntries(
@@ -48,7 +48,7 @@ __int64 __fastcall LegacyAutoBoost::KiAbTryReclaimOrphanedEntries(
         KiRemoveSystemWorkPriorityKick(CurrentPrcb, v11, SchedulerAssist, 0LL);
     }
     _enable();
-    if ( (WORD2(xmmword_140FBFC10) & 0x1000) != 0 )
+    if ( (WORD2(xmmword_140FC0C10) & 0x1000) != 0 )
       EtwTraceAutoBoostEntryExhaustion((__int64)a2, (__int64)this);
     return 0LL;
   }

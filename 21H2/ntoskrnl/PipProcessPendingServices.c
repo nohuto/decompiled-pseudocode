@@ -1,12 +1,12 @@
 /*
- * XREFs of PipProcessPendingServices @ 0x140A53414
+ * XREFs of PipProcessPendingServices @ 0x140A54414
  * Callers:
- *     PipProcessPendingOperations @ 0x140A53368 (PipProcessPendingOperations.c)
+ *     PipProcessPendingOperations @ 0x140A54368 (PipProcessPendingOperations.c)
  * Callees:
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     PipProcessPendingObjects @ 0x140A910E0 (PipProcessPendingObjects.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     PipProcessPendingObjects @ 0x140A920E0 (PipProcessPendingObjects.c)
  */
 
 __int64 PipProcessPendingServices()

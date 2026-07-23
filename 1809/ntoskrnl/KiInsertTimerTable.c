@@ -5,13 +5,13 @@
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiTimerWaitTest @ 0x1400C7B70 (KiTimerWaitTest.c)
- *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
- *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
+ *     KiTimerWaitTest @ 0x1400C7AB0 (KiTimerWaitTest.c)
+ *     KiResumeThread @ 0x1400F1CE0 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FCEC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveEntryTimer @ 0x1401318CC (KiRemoveEntryTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveEntryTimer @ 0x14013199C (KiRemoveEntryTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)
@@ -206,7 +206,7 @@ LABEL_11:
         v22 = v5 << 6;
       }
       _interlockedbittestandset64(
-        (volatile signed __int32 *)(qword_1405424C8[2 * *(unsigned __int8 *)(v41 - 13744)] + v22),
+        (volatile signed __int32 *)(qword_1405434C8[2 * *(unsigned __int8 *)(v41 - 13744)] + v22),
         v21);
     }
     if ( v9 <= MEMORY[0xFFFFF78000000008] )

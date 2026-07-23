@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwFreezeTransactions(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFreezeTransactions(PLARGE_INTEGER FreezeTimeout, PLARGE_INTEGER ThawTimeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FreezeTimeout);
 }

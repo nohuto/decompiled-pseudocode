@@ -1,9 +1,9 @@
 /*
- * XREFs of BcpConvertProgressToString @ 0x1406988EC
+ * XREFs of BcpConvertProgressToString @ 0x14069996C
  * Callers:
- *     BcpDisplayProgress @ 0x1406997F4 (BcpDisplayProgress.c)
- *     BcpDisplayProgressModernized @ 0x140699A04 (BcpDisplayProgressModernized.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069A194 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BcpDisplayProgress @ 0x14069A874 (BcpDisplayProgress.c)
+ *     BcpDisplayProgressModernized @ 0x14069AA84 (BcpDisplayProgressModernized.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069B214 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
  *     <none>
  */

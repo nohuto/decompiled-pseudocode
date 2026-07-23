@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAllocateProcessorProfileStructures @ 0x1403AA170
+ * XREFs of KeAllocateProcessorProfileStructures @ 0x1403AA350
  * Callers:
- *     EmonCompleteInitializeProfiling @ 0x140A91210 (EmonCompleteInitializeProfiling.c)
+ *     EmonCompleteInitializeProfiling @ 0x140A91090 (EmonCompleteInitializeProfiling.c)
  * Callees:
- *     KiIsIntelPebsSupported @ 0x1403AA330 (KiIsIntelPebsSupported.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmCreateShadowMapping @ 0x14081DBB0 (MmCreateShadowMapping.c)
- *     MmAllocateIndependentPages @ 0x14086C220 (MmAllocateIndependentPages.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
- *     MmDeleteShadowMapping @ 0x140A3C7D0 (MmDeleteShadowMapping.c)
+ *     KiIsIntelPebsSupported @ 0x1403AA510 (KiIsIntelPebsSupported.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmCreateShadowMapping @ 0x14081DE80 (MmCreateShadowMapping.c)
+ *     MmAllocateIndependentPages @ 0x14086C460 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
+ *     MmDeleteShadowMapping @ 0x140A3CA80 (MmDeleteShadowMapping.c)
  */
 
 __int64 __fastcall KeAllocateProcessorProfileStructures(
@@ -49,7 +49,7 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
   if ( !a4 )
   {
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v18) = 4;
@@ -60,10 +60,10 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
     CurrentPrcb = KeGetCurrentPrcb();
     CurrentPrcb->ProcessorProfileControlArea = *a3;
     CurrentPrcb->ProfileEventIndexAddress = &(*a3)->PebsDsSaveArea.As64Bit.PebsIndex;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         v20 = KeGetCurrentPrcb();
         v21 = v20->SchedulerAssist;
@@ -96,7 +96,7 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
 LABEL_14:
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         v24 = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v25) = 4;
@@ -145,10 +145,10 @@ LABEL_14:
     v16 = -1073741801;
   }
 LABEL_21:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x1407A2228
+ * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x1407A2338
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x1407A1B08 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x1407A1C18 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WdipSemFastAllocate @ 0x140A48E64 (WdipSemFastAllocate.c)
- *     WdipSemWriteEvent @ 0x140A833D4 (WdipSemWriteEvent.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WdipSemFastAllocate @ 0x140A3FB7C (WdipSemFastAllocate.c)
+ *     WdipSemWriteEvent @ 0x140A7DEF4 (WdipSemWriteEvent.c)
  */
 
 __int64 __fastcall WdipSemUpdateProviderTableWithEvent(_QWORD *a1)
@@ -24,7 +24,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(_QWORD *a1)
   v1 = 0;
   if ( a1 )
   {
-    for ( i = 0; i < dword_140F01F00; ++i )
+    for ( i = 0; i < dword_140F021A0; ++i )
     {
       v4 = (_QWORD *)WdipSemProviderTable[i];
       v5 = *a1 - *v4;
@@ -40,7 +40,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(_QWORD *a1)
         break;
       }
     }
-    if ( (unsigned int)dword_140F01F00 < 0x400 )
+    if ( (unsigned int)dword_140F021A0 < 0x400 )
     {
       v7 = (_OWORD *)WdipSemFastAllocate(2LL, 80LL);
       v8 = v7;
@@ -48,7 +48,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(_QWORD *a1)
       {
         memset_0(v7, 0, 0x50uLL);
         *v8 = *(_OWORD *)a1;
-        WdipSemProviderTable[dword_140F01F00++] = v8;
+        WdipSemProviderTable[dword_140F021A0++] = v8;
         a1[5] = v8;
       }
       else

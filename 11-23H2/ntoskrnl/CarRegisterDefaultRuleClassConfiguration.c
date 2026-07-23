@@ -1,9 +1,9 @@
 /*
- * XREFs of CarRegisterDefaultRuleClassConfiguration @ 0x1405D4040
+ * XREFs of CarRegisterDefaultRuleClassConfiguration @ 0x1405D45B0
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     CarRegisterRuleClassConfiguration @ 0x1405D40A0 (CarRegisterRuleClassConfiguration.c)
+ *     CarRegisterRuleClassConfiguration @ 0x1405D4610 (CarRegisterRuleClassConfiguration.c)
  */
 
 __int64 __fastcall CarRegisterDefaultRuleClassConfiguration(int a1, int a2)

@@ -1,9 +1,9 @@
 /*
  * XREFs of PnpQueryWatchdogTimeout @ 0x140005D00
  * Callers:
- *     PnpProcessWatchdogWorkItem @ 0x140289B8C (PnpProcessWatchdogWorkItem.c)
+ *     PnpProcessWatchdogWorkItem @ 0x140289D7C (PnpProcessWatchdogWorkItem.c)
  * Callees:
- *     PnpQueryWatchdogBugcheckEnabled @ 0x140289C54 (PnpQueryWatchdogBugcheckEnabled.c)
+ *     PnpQueryWatchdogBugcheckEnabled @ 0x140289E44 (PnpQueryWatchdogBugcheckEnabled.c)
  */
 
 __int64 __fastcall PnpQueryWatchdogTimeout(char a1)

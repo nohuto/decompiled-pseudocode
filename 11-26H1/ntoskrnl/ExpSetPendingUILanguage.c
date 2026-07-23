@@ -1,40 +1,40 @@
 /*
- * XREFs of ExpSetPendingUILanguage @ 0x140B1E260
+ * XREFs of ExpSetPendingUILanguage @ 0x140B202E0
  * Callers:
- *     NtSetDefaultUILanguage @ 0x140B1E240 (NtSetDefaultUILanguage.c)
+ *     NtSetDefaultUILanguage @ 0x140B202C0 (NtSetDefaultUILanguage.c)
  * Callees:
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x1404EF488 (DownLevelLangIDToLanguageName.c)
- *     OpenGlobalizationUserSettingsKey @ 0x1404F6FC4 (OpenGlobalizationUserSettingsKey.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x140724F70 (ZwDeleteKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     NtQueryInstallUILanguage @ 0x140B27B70 (NtQueryInstallUILanguage.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404E8A68 (DownLevelLangIDToLanguageName.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1404F05D4 (OpenGlobalizationUserSettingsKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x140729B40 (ZwDeleteKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     NtQueryInstallUILanguage @ 0x140B29800 (NtQueryInstallUILanguage.c)
  */
 
-__int64 ExpSetPendingUILanguage()
+NTSTATUS ExpSetPendingUILanguage()
 {
   char v0; // r12
   char v1; // r13
   __int64 v2; // rdx
   int v3; // ecx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   NTSTATUS v5; // ebx
   ULONG v6; // r15d
   ULONG v7; // esi
   ULONG v8; // edx
-  int v9; // ebx
+  NTSTATUS InstallUILanguage; // ebx
   ULONG v10; // eax
   ULONG v11; // ebx
   struct _KTHREAD *CurrentThread; // rcx
@@ -42,7 +42,7 @@ __int64 ExpSetPendingUILanguage()
   NTSTATUS v14; // esi
   unsigned int v15; // r14d
   HANDLE v16; // rcx
-  NTSTATUS v17; // [rsp+40h] [rbp-488h] BYREF
+  LANGID InstallUILanguageId[2]; // [rsp+40h] [rbp-488h] BYREF
   ULONG ResultLength; // [rsp+44h] [rbp-484h] BYREF
   HANDLE v19; // [rsp+48h] [rbp-480h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-478h] BYREF
@@ -81,7 +81,7 @@ __int64 ExpSetPendingUILanguage()
   v0 = 1;
   v1 = 0;
   result = OpenGlobalizationUserSettingsKey(v3, v2, &v25);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop");
   ObjectAttributes.Length = 48;
@@ -90,7 +90,7 @@ __int64 ExpSetPendingUILanguage()
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v5 = ZwOpenKey(&KeyHandle, 0x40000000u, &ObjectAttributes);
-  v17 = v5;
+  *(_DWORD *)InstallUILanguageId = v5;
   if ( v5 < 0 )
     goto LABEL_10;
   RtlInitUnicodeString(&ValueName, L"PreferredUILanguagesPending");
@@ -197,7 +197,7 @@ LABEL_7:
         memset_0(v34, 0, 0x210uLL);
         v8 = v6++;
         v5 = ZwEnumerateValueKey(Handle, v8, KeyValueFullInformation, v34, 0x20Eu, &ResultLength);
-        v17 = v5;
+        *(_DWORD *)InstallUILanguageId = v5;
         if ( v5 >= 0 )
         {
           v15 = Size;
@@ -216,19 +216,19 @@ LABEL_7:
               ObjectAttributes.ObjectName = &DestinationString;
               *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
               v5 = ZwCreateKey(&v21, 0x40000000u, &ObjectAttributes, 0, 0LL, 1u, 0LL);
-              v17 = v5;
+              *(_DWORD *)InstallUILanguageId = v5;
               if ( v5 < 0 )
                 goto LABEL_10;
               v0 = 0;
               v16 = v21;
             }
             v5 = ZwSetValueKey(v16, &ValueName, 0, 7u, &v34[v36[0]], v36[1]);
-            v17 = v5;
+            *(_DWORD *)InstallUILanguageId = v5;
             if ( v5 < 0 )
             {
               DbgPrint("*** MUI: Can't copy language name for LanguageConfig item %S\n", SourceString);
               v5 = 0;
-              v17 = 0;
+              *(_DWORD *)InstallUILanguageId = 0;
             }
           }
           else
@@ -243,7 +243,7 @@ LABEL_7:
     else
     {
       v5 = 0;
-      v17 = 0;
+      *(_DWORD *)InstallUILanguageId = 0;
     }
     goto LABEL_10;
   }
@@ -252,24 +252,24 @@ LABEL_7:
     || DataSize < 4
     || v30 != 7 )
   {
-    LOWORD(v17) = 0;
+    InstallUILanguageId[0] = 0;
     DataSize = 0;
-    v9 = NtQueryInstallUILanguage(&v17);
-    if ( v9 >= 0 )
+    InstallUILanguage = NtQueryInstallUILanguage(InstallUILanguageId);
+    if ( InstallUILanguage >= 0 )
     {
-      v10 = DownLevelLangIDToLanguageName(v17, Data, 128, 0);
+      v10 = DownLevelLangIDToLanguageName(InstallUILanguageId[0], Data, 128, 0);
       DataSize = v10;
       if ( !v10 )
       {
-        v9 = -1073741823;
+        InstallUILanguage = -1073741823;
         goto LABEL_58;
       }
       DataSize = 2 * v10;
     }
-    if ( v9 >= 0 )
+    if ( InstallUILanguage >= 0 )
       goto LABEL_28;
 LABEL_58:
-    DbgPrintEx(0xFFFFFFFF, 0, "sysinfo: Can't set MachinePreferredUILanguages due to error %d\n", v9);
+    DbgPrintEx(0xFFFFFFFF, 0, "sysinfo: Can't set MachinePreferredUILanguages due to error %d\n", InstallUILanguage);
     if ( v19 )
       ZwDeleteValueKey(v19, &ValueName);
     goto LABEL_31;
@@ -284,7 +284,7 @@ LABEL_28:
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v5 = ZwCreateKey(&v19, 0x40000000u, &ObjectAttributes, 0, 0LL, 1u, 0LL);
-  v17 = v5;
+  *(_DWORD *)InstallUILanguageId = v5;
   if ( v5 >= 0 )
   {
 LABEL_29:
@@ -329,5 +329,5 @@ LABEL_10:
     if ( Teb )
       RtlWriteULongToUser(Teb + 1530, 0);
   }
-  return (unsigned int)v5;
+  return v5;
 }

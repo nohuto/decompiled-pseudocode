@@ -22,11 +22,11 @@ char RtlpHeapTrkDumpStacks()
   if ( !TrkContext )
     return 0;
   v1 = 0LL;
-  for ( *(_DWORD *)(TrkContext + 64) = dword_1801855D8;
+  for ( *((_DWORD *)TrkContext + 16) = dword_1801855D8;
         (unsigned int)v1 < dword_180185960;
-        *(_QWORD *)(TrkContext + 80) += *(_QWORD *)(v2 + 24) )
+        *((_QWORD *)TrkContext + 10) += *(_QWORD *)(v2 + 24) )
   {
-    *(_QWORD *)(TrkContext + 72) += *(_QWORD *)(*(_QWORD *)(qword_180185280 + 8 * v1) + 16LL);
+    *((_QWORD *)TrkContext + 9) += *(_QWORD *)(*(_QWORD *)(qword_180185280 + 8 * v1) + 16LL);
     v2 = *(_QWORD *)(qword_180185280 + 8 * v1);
     v1 = (unsigned int)(v1 + 1);
   }
@@ -44,12 +44,12 @@ char RtlpHeapTrkDumpStacks()
       *((_DWORD *)v6 + 5) = ++v0;
       if ( !(unsigned __int8)RtlpHeapTrkReportResult((unsigned int)(8 * v7 + 24), v6 + 3, 8 * v7) )
       {
-        RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180185968 + 8 * v5));
+        RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180185968 + 8 * v5));
         return 0;
       }
       v6 = (__int64 *)*v6;
     }
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180185968 + 8 * v5));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180185968 + 8 * v5));
     ++v3;
     v4 += 16LL;
     if ( v3 < 0x1EEF )

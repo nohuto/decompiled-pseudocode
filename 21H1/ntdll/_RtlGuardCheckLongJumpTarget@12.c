@@ -11,76 +11,79 @@
  *     @RtlFailFast2@8 @ 0x4B308720 (@RtlFailFast2@8.c)
  */
 
-int __stdcall RtlGuardCheckLongJumpTarget(char *a1, char a2, char *a3)
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
-  char v3; // bl
-  _BYTE *v4; // esi
+  void *v3; // ebx
+  ULONG_PTR *v4; // edi
+  int (__cdecl *v5)(void *, const void *, const void *); // esi
+  int v6; // eax
+  char v7; // bl
+  _BYTE *v8; // esi
   _DWORD *Config; // eax
-  _DWORD *v7; // ecx
-  rsize_t v8; // eax
-  int v9; // [esp+0h] [ebp-18h] BYREF
-  _BYTE *v10; // [esp+4h] [ebp-14h]
-  int v11; // [esp+8h] [ebp-10h]
-  int v12; // [esp+Ch] [ebp-Ch]
-  int Key; // [esp+10h] [ebp-8h] BYREF
-  int v14; // [esp+14h] [ebp-4h] BYREF
-  int savedregs; // [esp+18h] [ebp+0h] BYREF
+  _DWORD *v11; // ecx
+  int v12; // eax
+  rsize_t v13; // [esp-18h] [ebp-30h]
+  int (__cdecl *v14)(void *, const void *, const void *); // [esp-8h] [ebp-20h]
+  void *v15; // [esp-4h] [ebp-1Ch]
+  int v16; // [esp+0h] [ebp-18h] BYREF
+  PVOID BaseOfImage; // [esp+4h] [ebp-14h]
+  int v18; // [esp+8h] [ebp-10h]
+  int v19; // [esp+Ch] [ebp-Ch]
+  char *Key; // [esp+10h] [ebp-8h] BYREF
+  unsigned __int64 PolicyValue; // [esp+14h] [ebp-4h] BYREF
 
-  if ( !LdrControlFlowGuardEnforced() )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( !v6 )
   {
-    if ( a3 )
-      *a3 = 1;
+    if ( IsLongJumpTarget )
+      *(_BYTE *)IsLongJumpTarget = 1;
     return 0;
   }
-  v3 = 0;
-  if ( (unsigned int)a1 < dword_4B3A9374[0] || (unsigned int)a1 >= dword_4B3A9374[0] + dword_4B3A9378[0] )
+  v15 = v3;
+  v7 = 0;
+  v14 = v5;
+  if ( (unsigned int)PcValue < dword_4B3A9374[0] || (unsigned int)PcValue >= dword_4B3A9374[0] + dword_4B3A9378[0] )
   {
-    RtlpxLookupFunctionTable(&v9, a1, (int)&savedregs);
+    RtlpxLookupFunctionTable(PcValue, (int)&v16, (int)&PolicyValue + 4, v4);
   }
   else
   {
-    v9 = dword_4B3A9370[0];
-    v10 = (_BYTE *)dword_4B3A9370[1];
-    v11 = dword_4B3A9370[2];
-    v12 = dword_4B3A9370[3];
+    v16 = dword_4B3A9370[0];
+    BaseOfImage = (PVOID)dword_4B3A9370[1];
+    v18 = dword_4B3A9370[2];
+    v19 = dword_4B3A9370[3];
   }
-  v4 = v10;
-  if ( v10 )
+  v8 = BaseOfImage;
+  if ( BaseOfImage )
   {
-    Config = LdrImageDirectoryEntryToLoadConfig(v10);
-    v7 = Config;
+    Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
+    v11 = Config;
     if ( !Config )
       goto LABEL_11;
     if ( *Config < 0x78u )
       goto LABEL_11;
     if ( (Config[22] & 0x10000) == 0 )
       goto LABEL_11;
-    Key = a1 - v4;
-    v8 = (Config[22] >> 28) + 4;
-    if ( v7[29] )
+    Key = (char *)((_BYTE *)PcValue - v8);
+    v12 = (Config[22] >> 28) + 4;
+    if ( v11[29] )
     {
-      if ( bsearch_s(
-             &Key,
-             (const void *)v7[28],
-             v7[29],
-             v8,
-             (_CoreCrtSecureSearchSortCompareFunction)RtlpTargetCompare,
-             0) )
-      {
+      HIDWORD(v13) = v12;
+      LODWORD(v13) = v11[29];
+      if ( bsearch_s(&Key, (const void *)v11[28], v13, (unsigned int)RtlpTargetCompare, v14, v15) )
         goto LABEL_11;
-      }
     }
 LABEL_20:
-    if ( !a2 )
+    if ( !IsFastFail )
       RtlFailFast2((void *)0x26);
     goto LABEL_12;
   }
-  if ( RtlQueryProtectedPolicy(dword_4B2A3A68, &v14) < 0 || !v14 )
+  if ( RtlQueryProtectedPolicy((PGUID)&stru_4B2A3A68, &PolicyValue) < 0 || !(_DWORD)PolicyValue )
     goto LABEL_20;
 LABEL_11:
-  v3 = 1;
+  v7 = 1;
 LABEL_12:
-  if ( a3 )
-    *a3 = v3;
+  if ( IsLongJumpTarget )
+    *(_BYTE *)IsLongJumpTarget = v7;
   return 0;
 }

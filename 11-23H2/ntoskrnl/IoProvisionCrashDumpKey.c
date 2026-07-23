@@ -1,11 +1,11 @@
 /*
- * XREFs of IoProvisionCrashDumpKey @ 0x140550904
+ * XREFs of IoProvisionCrashDumpKey @ 0x140550FC4
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     SecureDump_GetSecureDumpSettings @ 0x140395B44 (SecureDump_GetSecureDumpSettings.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SecureDump_ReInitialize @ 0x14055E4B8 (SecureDump_ReInitialize.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140395D24 (SecureDump_GetSecureDumpSettings.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SecureDump_ReInitialize @ 0x14055EB78 (SecureDump_ReInitialize.c)
  */
 
 __int64 IoProvisionCrashDumpKey()

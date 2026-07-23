@@ -8,21 +8,21 @@
  *     ZwAlertThreadByThreadId @ 0x1800A0E90 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall RtlpTpTimerQueueRundown(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall RtlpTpTimerQueueRundown(_QWORD *a1)
 {
-  __int64 v5; // rcx
-  __int64 v6; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
 
-  v5 = *(_QWORD *)(a1 + 40);
-  if ( v5 )
+  v2 = (void *)a1[5];
+  if ( v2 )
   {
-    ZwAlertThreadByThreadId(v5);
+    ZwAlertThreadByThreadId(v2);
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 16);
-    if ( v6 )
-      ZwSetEvent(v6, 0LL, a3, a4);
+    v3 = (void *)a1[2];
+    if ( v3 )
+      ZwSetEvent(v3, 0LL);
   }
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

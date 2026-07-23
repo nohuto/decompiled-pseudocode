@@ -1,7 +1,7 @@
 /*
- * XREFs of KiDoesHeteroSoftParkElectionHaveWinner @ 0x140201AB0
+ * XREFs of KiDoesHeteroSoftParkElectionHaveWinner @ 0x14032A1A0
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x1402017A8 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x140329E98 (KiPerformHeteroSoftParkElection.c)
  * Callees:
  *     <none>
  */

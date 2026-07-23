@@ -1,19 +1,19 @@
 /*
- * XREFs of PopSmartSuspendMakePredictions @ 0x140ABFAB8
+ * XREFs of PopSmartSuspendMakePredictions @ 0x140ABAB98
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1405D87A0 (PdcPoCurrentPdcPhase.c)
- *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1406F5398 (PopPowerAggregatorNotifyAcDcStateChange.c)
- *     PopPowerAggregatorDozeTimerWorker @ 0x140759220 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PdcPoCurrentPdcPhase @ 0x1405D5CC0 (PdcPoCurrentPdcPhase.c)
+ *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1406F3398 (PopPowerAggregatorNotifyAcDcStateChange.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x140757680 (PopPowerAggregatorDozeTimerWorker.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopDiagTraceSmartSuspendPrediction @ 0x140757CE8 (PopDiagTraceSmartSuspendPrediction.c)
- *     PopUmpoQuerySmartSuspendPrediction @ 0x14075CF9C (PopUmpoQuerySmartSuspendPrediction.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     PopIsDozeSupported @ 0x140A8BDD8 (PopIsDozeSupported.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopDiagTraceSmartSuspendPrediction @ 0x140756168 (PopDiagTraceSmartSuspendPrediction.c)
+ *     PopUmpoQuerySmartSuspendPrediction @ 0x14075BF3C (PopUmpoQuerySmartSuspendPrediction.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     PopIsDozeSupported @ 0x140A882C8 (PopIsDozeSupported.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 char __fastcall PopSmartSuspendMakePredictions(int a1)
@@ -56,7 +56,7 @@ char __fastcall PopSmartSuspendMakePredictions(int a1)
   v29 = -1LL;
   v31 = -1LL;
   result = SSHSupportIsPlatformAoAc();
-  if ( result && dword_140F0BA4C == 1 )
+  if ( result && dword_140F0B38C == 1 )
   {
     v4 = ((_BYTE)PopSmartSuspendQueueHead + 1) & 0xF;
     PopSmartSuspendQueueHead = ((_BYTE)PopSmartSuspendQueueHead + 1) & 0xF;

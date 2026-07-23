@@ -10,16 +10,19 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpSetPoolMaxThreads(__int64 a1, int a2)
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  __int64 result; // rax
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = a2;
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return TppRaiseInvalidParameter();
-  result = NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v4);
-  if ( MEMORY[0x7FFE0386] )
-    return TppETWPoolThreadMax(a1, v4);
-  return result;
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool || (MaxThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  {
+    TppRaiseInvalidParameter();
+  }
+  else
+  {
+    NtSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( MEMORY[0x7FFE0386] )
+      TppETWPoolThreadMax((__int64)Pool, WorkerFactoryInformation);
+  }
 }

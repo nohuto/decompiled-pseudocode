@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipStartEndScenario @ 0x140AD9258
+ * XREFs of WdipStartEndScenario @ 0x140AD5D08
  * Callers:
- *     WdiDispatchControl @ 0x140AD91E8 (WdiDispatchControl.c)
- *     EtwWriteStartScenario @ 0x140B456A0 (EtwWriteStartScenario.c)
+ *     WdiDispatchControl @ 0x140AD5C98 (WdiDispatchControl.c)
+ *     EtwWriteStartScenario @ 0x140B476D0 (EtwWriteStartScenario.c)
  * Callees:
- *     WdipSemEnableScenario @ 0x140AD9304 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140AD9550 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x140AD5DB4 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140AD6000 (WdipSemDisableScenario.c)
  */
 
 __int64 __fastcall WdipStartEndScenario(__int64 a1, __int64 a2, unsigned __int16 *a3, int a4)
@@ -29,11 +29,11 @@ __int64 __fastcall WdipStartEndScenario(__int64 a1, __int64 a2, unsigned __int16
   }
   if ( a4 == 10 )
   {
-    if ( LOBYTE(stru_140F066E8.Header.WaitListHead.Flink) )
+    if ( LOBYTE(stru_140F042A0.Timer.DueTime.LowPart) )
       return WdipSemEnableScenario(a1, *a3, a2);
     return 3221225473LL;
   }
-  if ( !LOBYTE(stru_140F066E8.Header.WaitListHead.Flink) )
+  if ( !LOBYTE(stru_140F042A0.Timer.DueTime.LowPart) )
     return 3221225473LL;
   return WdipSemDisableScenario(a1, *a3, a2);
 }

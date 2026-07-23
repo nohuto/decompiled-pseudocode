@@ -6,43 +6,45 @@
  *     _RtlpGetChainHead@8 @ 0x4B35B57F (_RtlpGetChainHead@8.c)
  */
 
-_DWORD *__stdcall RtlStronglyEnumerateEntryHashTable(int a1, int a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlStronglyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
   unsigned int i; // esi
-  _DWORD *v3; // ecx
-  int ChainHead; // edx
-  _DWORD *v5; // ecx
-  _DWORD *result; // eax
+  _LIST_ENTRY *Flink; // ecx
+  _LIST_ENTRY *ChainHead; // edx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v5; // ecx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // eax
 
-  for ( i = *(_DWORD *)(a2 + 16); ; ++i )
+  for ( i = Enumerator->BucketIndex; ; ++i )
   {
-    if ( i >= *(_DWORD *)(a1 + 8) )
+    if ( i >= HashTable->TableSize )
       return 0;
-    if ( i == *(_DWORD *)(a2 + 16) )
+    if ( i == Enumerator->BucketIndex )
     {
-      v3 = *(_DWORD **)a2;
-      ChainHead = *(_DWORD *)(a2 + 12);
+      Flink = Enumerator->HashEntry.Linkage.Flink;
+      ChainHead = Enumerator->ChainHead;
     }
     else
     {
-      ChainHead = RtlpGetChainHead(a1, i);
-      v3 = (_DWORD *)ChainHead;
+      ChainHead = (_LIST_ENTRY *)RtlpGetChainHead(HashTable, i);
+      Flink = ChainHead;
     }
-    v5 = (_DWORD *)*v3;
-    if ( v5 != (_DWORD *)ChainHead )
+    v5 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Flink;
+    if ( v5 != (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       break;
 LABEL_8:
     ;
   }
-  while ( !v5[2] )
+  while ( !v5->Signature )
   {
-    v5 = (_DWORD *)*v5;
-    if ( v5 == (_DWORD *)ChainHead )
+    v5 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v5->Linkage.Flink;
+    if ( v5 == (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       goto LABEL_8;
   }
-  *(_DWORD *)(a2 + 16) = i;
+  Enumerator->BucketIndex = i;
   result = v5;
-  *(_DWORD *)(a2 + 12) = ChainHead;
-  *(_DWORD *)a2 = v5;
+  Enumerator->ChainHead = ChainHead;
+  Enumerator->HashEntry.Linkage.Flink = &v5->Linkage;
   return result;
 }

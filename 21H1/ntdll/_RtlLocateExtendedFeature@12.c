@@ -6,7 +6,7 @@
  *     _RtlLocateExtendedFeature2@16 @ 0x4B35BA70 (_RtlLocateExtendedFeature2@16.c)
  */
 
-int __stdcall RtlLocateExtendedFeature(int a1, unsigned int a2, _DWORD *a3)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
-  return RtlLocateExtendedFeature2(a1, a2, 2147353560, a3);
+  return (PVOID)RtlLocateExtendedFeature2((int)ContextEx, FeatureId, 2147353560, Length);
 }

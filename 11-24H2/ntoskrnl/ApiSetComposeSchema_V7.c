@@ -1,25 +1,25 @@
 /*
- * XREFs of ApiSetComposeSchema_V7 @ 0x14066169C
+ * XREFs of ApiSetComposeSchema_V7 @ 0x14065FE98
  * Callers:
- *     ApiSetComposeSchema @ 0x1406602AC (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x14065EA7C (ApiSetComposeSchema.c)
  * Callees:
- *     ApiSetValidateSchemaFormat @ 0x14065FEB0 (ApiSetValidateSchemaFormat.c)
- *     ApiSetIsSchemaSealed @ 0x140660970 (ApiSetIsSchemaSealed.c)
- *     ApiSetValidateSchemaElements_V7 @ 0x140660F58 (ApiSetValidateSchemaElements_V7.c)
- *     ApiSetValidateSchemaFormat_V7 @ 0x140661150 (ApiSetValidateSchemaFormat_V7.c)
- *     ApiSetValidateSchemaHeader_V7 @ 0x14066119C (ApiSetValidateSchemaHeader_V7.c)
- *     ApiSetCompose_ProcessV7Extension_Phase0 @ 0x1406618B4 (ApiSetCompose_ProcessV7Extension_Phase0.c)
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140661B20 (ApiSetCompose_ProcessV7Extension_Phase1.c)
- *     ApiSetSchemaExpander_ExpandSchema @ 0x14066296C (ApiSetSchemaExpander_ExpandSchema.c)
- *     ApiSetSchemaExpander_GetNewSchemaSize @ 0x140662A88 (ApiSetSchemaExpander_GetNewSchemaSize.c)
- *     ApiSetSchemaExpander_Initialize @ 0x140662BA8 (ApiSetSchemaExpander_Initialize.c)
- *     ApiSetSchemaExpander_MigrateSchemaData @ 0x140662F6C (ApiSetSchemaExpander_MigrateSchemaData.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x1406630EC (ApiSetCompose_V7_ProcessV6Extension_Phase0.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406632E0 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ApiSetValidateSchemaFormat @ 0x14065E680 (ApiSetValidateSchemaFormat.c)
+ *     ApiSetIsSchemaSealed @ 0x14065F140 (ApiSetIsSchemaSealed.c)
+ *     ApiSetValidateSchemaElements_V7 @ 0x14065F738 (ApiSetValidateSchemaElements_V7.c)
+ *     ApiSetValidateSchemaFormat_V7 @ 0x14065F930 (ApiSetValidateSchemaFormat_V7.c)
+ *     ApiSetValidateSchemaHeader_V7 @ 0x14065F97C (ApiSetValidateSchemaHeader_V7.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase0 @ 0x1406600B0 (ApiSetCompose_ProcessV7Extension_Phase0.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x14066031C (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetSchemaExpander_ExpandSchema @ 0x140661250 (ApiSetSchemaExpander_ExpandSchema.c)
+ *     ApiSetSchemaExpander_GetNewSchemaSize @ 0x14066136C (ApiSetSchemaExpander_GetNewSchemaSize.c)
+ *     ApiSetSchemaExpander_Initialize @ 0x14066148C (ApiSetSchemaExpander_Initialize.c)
+ *     ApiSetSchemaExpander_MigrateSchemaData @ 0x140661850 (ApiSetSchemaExpander_MigrateSchemaData.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase0 @ 0x1406619D0 (ApiSetCompose_V7_ProcessV6Extension_Phase0.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x140661BC4 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ApiSetComposeSchema_V7(__int64 *a1, _DWORD *a2, _DWORD *a3, unsigned int a4)
@@ -28,7 +28,7 @@ __int64 __fastcall ApiSetComposeSchema_V7(__int64 *a1, _DWORD *a2, _DWORD *a3, u
   __int64 result; // rax
   int v10; // eax
   int v11; // ebx
-  size_t NewSchemaSize; // r15
+  ULONG_PTR NewSchemaSize; // r15
   _DWORD *Pool2; // rax
   _DWORD *v14; // rdi
   __int64 v15; // r14
@@ -61,7 +61,7 @@ __int64 __fastcall ApiSetComposeSchema_V7(__int64 *a1, _DWORD *a2, _DWORD *a3, u
     if ( v10 >= 0 )
     {
       NewSchemaSize = (unsigned int)ApiSetSchemaExpander_GetNewSchemaSize(v17);
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, NewSchemaSize, 0x68635341u);
       v14 = Pool2;
       if ( Pool2 )
       {

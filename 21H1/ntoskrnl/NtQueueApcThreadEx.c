@@ -11,9 +11,15 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl NtQueueApcThreadEx(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  void *v7; // rbx
+  HANDLE v7; // rbx
   char v10; // r14
   KPROCESSOR_MODE PreviousMode; // si
   NTSTATUS result; // eax
@@ -24,17 +30,23 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
   char *PoolWithQuotaTag; // rbx
   __int64 (__fastcall *v18)(int, int, int, int, __int64); // r9
   void (__fastcall *v19)(char *); // rsi
-  NTSTATUS v20; // ebx
+  int v20; // ebx
   PVOID Object; // [rsp+40h] [rbp-38h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp+10h] BYREF
 
   v7 = 0LL;
   v10 = 1;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != (void *)1 )
-    v7 = a2;
+  if ( ReserveHandle != (HANDLE)1 )
+    v7 = ReserveHandle;
   DmaAdapter = 0LL;
-  result = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  result = ObReferenceObjectByHandle(
+             ThreadHandle,
+             0x10u,
+             (POBJECT_TYPE)PsThreadType,
+             PreviousMode,
+             (PVOID *)&DmaAdapter,
+             0LL);
   if ( result >= 0 )
   {
     v13 = DmaAdapter;
@@ -42,7 +54,7 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
       || (v13 = DmaAdapter, (v14 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]) != 0)
       && ((v15 = *(_WORD *)(v14 + 8), v15 == 332) || v15 == 452)
       && ((v16 = *(_QWORD *)(*(_QWORD *)&DmaAdapter[34].Version + 1408LL)) == 0 || *(_WORD *)(v16 + 8) == 0x8664)
-      && (unsigned __int64)-(a3 >> 2) <= 0xFFFFFFFF )
+      && (unsigned __int64)-((__int64)ApcRoutine >> 2) <= 0xFFFFFFFF )
     {
       v20 = -1073741816;
     }
@@ -59,8 +71,16 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
           v19 = (void (__fastcall *)(char *))PspUserApcReserveKernelRoutine;
           PoolWithQuotaTag = (char *)Object + 8;
 LABEL_15:
-          KeInitializeApc((__int64)PoolWithQuotaTag, (__int64)v13, 0, (__int64)v18, (__int64)v19, a3, v10, a4);
-          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, a5, a6, 0) )
+          KeInitializeApc(
+            (__int64)PoolWithQuotaTag,
+            (__int64)v13,
+            0,
+            (__int64)v18,
+            (__int64)v19,
+            (__int64)ApcRoutine,
+            v10,
+            (__int64)ApcArgument1);
+          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, (__int64)ApcArgument2, (__int64)ApcArgument3, 0) )
           {
             v20 = 0;
           }
@@ -83,8 +103,8 @@ LABEL_15:
       {
         v18 = KeSpecialUserApcKernelRoutine;
         v19 = (void (__fastcall *)(char *))ExFreePoolWithTag;
-        v10 = a2 != (void *)1;
-        if ( a2 != (void *)1 )
+        v10 = ReserveHandle != (HANDLE)1;
+        if ( ReserveHandle != (HANDLE)1 )
           v18 = (__int64 (__fastcall *)(int, int, int, int, __int64))SC_ENV::Free;
         goto LABEL_15;
       }

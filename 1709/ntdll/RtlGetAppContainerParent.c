@@ -10,44 +10,45 @@
  *     RtlGetAppContainerSidType @ 0x18007D2B0 (RtlGetAppContainerSidType.c)
  */
 
-__int64 __fastcall RtlGetAppContainerParent(__int64 a1, __int64 *a2)
+NTSTATUS __cdecl RtlGetAppContainerParent(PSID AppContainerSid, PSID *AppContainerSidParent)
 {
-  __int64 Heap; // rax
-  __int64 v5; // r8
-  __int64 v6; // rbx
-  __int64 v7; // rbp
-  int v8; // edi
-  _DWORD *v9; // rcx
-  __int64 v10; // rsi
-  int v12; // [rsp+48h] [rbp+10h] BYREF
+  _DWORD *Heap; // rax
+  _DWORD *v5; // rbx
+  __int64 v6; // rbp
+  int v7; // edi
+  _DWORD *v8; // rcx
+  char *v9; // rsi
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+48h] [rbp+10h] BYREF
 
-  *a2 = 0LL;
-  if ( (int)RtlGetAppContainerSidType(a1, &v12) < 0 || v12 != 1 )
-    return 3221225485LL;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(NtdllBaseTag + 1310720), 40LL);
-  v6 = Heap;
-  if ( !Heap )
-    return 3221225626LL;
-  v7 = 8LL;
-  LOBYTE(v5) = 8;
-  v8 = RtlInitializeSid(Heap, &RtlpAppPackageAuthority, v5);
-  if ( v8 < 0 )
+  *AppContainerSidParent = 0LL;
+  if ( RtlGetAppContainerSidType(AppContainerSid, &AppContainerSidType) < 0
+    || AppContainerSidType != ChildAppContainerSidType )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v6);
+    return -1073741811;
+  }
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, 0x28uLL);
+  v5 = Heap;
+  if ( !Heap )
+    return -1073741670;
+  v6 = 8LL;
+  v7 = RtlInitializeSid(Heap, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 8u);
+  if ( v7 < 0 )
+  {
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
   else
   {
-    v9 = (_DWORD *)(v6 + 8);
-    v10 = a1 - v6;
+    v8 = v5 + 2;
+    v9 = (char *)((_BYTE *)AppContainerSid - (_BYTE *)v5);
     do
     {
-      *v9 = *(_DWORD *)((char *)v9 + v10);
-      ++v9;
-      --v7;
+      *v8 = *(_DWORD *)((char *)v8 + (_QWORD)v9);
+      ++v8;
+      --v6;
     }
-    while ( v7 );
-    *a2 = v6;
+    while ( v6 );
+    *AppContainerSidParent = v5;
     return 0;
   }
-  return (unsigned int)v8;
+  return v7;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceCompoundFiltersWorker @ 0x140A80898
+ * XREFs of _CmGetDeviceCompoundFiltersWorker @ 0x140A7B2F8
  * Callers:
- *     _CmGetDeviceCompoundFilters @ 0x1409B62B0 (_CmGetDeviceCompoundFilters.c)
+ *     _CmGetDeviceCompoundFilters @ 0x1409AD640 (_CmGetDeviceCompoundFilters.c)
  * Callees:
- *     _CmGetDeclarativeFilterList @ 0x14081E55C (_CmGetDeclarativeFilterList.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _RegRtlQueryInfoKey @ 0x140993F98 (_RegRtlQueryInfoKey.c)
- *     _CmMergeFilterLists @ 0x1409B3A24 (_CmMergeFilterLists.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409B5B50 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _CmGetDeclarativeFilterList @ 0x14081EC9C (_CmGetDeclarativeFilterList.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _RegRtlQueryInfoKey @ 0x14097EFD8 (_RegRtlQueryInfoKey.c)
+ *     _CmMergeFilterLists @ 0x1409AADB4 (_CmMergeFilterLists.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409ACEE0 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceCompoundFiltersWorker(
@@ -89,7 +89,7 @@ LABEL_8:
   if ( (unsigned int)PnpGetObjectProperty(a1, a2, 1u, a3, 0LL, (__int64)v16, &v31, 0LL, 0, (__int64)&v36, 0) == -1073741789
     && v31 == 8210 )
   {
-    Pool2 = (const wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (const wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v36, 0x52504E50u);
     v14 = (wchar_t *)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741801;
@@ -117,7 +117,7 @@ LABEL_53:
       return (unsigned int)ObjectProperty;
     return (unsigned int)-1073741275;
   }
-  v13 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  v13 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v36, 0x52504E50u);
   if ( !v13 )
     return (unsigned int)-1073741801;
   v30 = (__int64)v18;
@@ -131,7 +131,7 @@ LABEL_53:
     ObjectProperty = -1073741275;
     goto LABEL_45;
   }
-  v27 = (void *)ExAllocatePool2(0x100uLL);
+  v27 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v36, 0x52504E50u);
   v33 = v27;
   if ( !v27 )
   {
@@ -175,7 +175,7 @@ LABEL_44:
         goto LABEL_47;
       goto LABEL_45;
     }
-    v14 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    v14 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v36, 0x52504E50u);
     if ( !v14 )
       goto LABEL_33;
     ObjectProperty = CmGetDeclarativeFilterList(
@@ -190,7 +190,7 @@ LABEL_44:
     if ( ObjectProperty < 0 )
       goto LABEL_44;
     v22 = (__int64)v38;
-    PnpSetObjectProperty((__int64)a1, (__int64)v37, 1u, (__int64)v38, 0LL, (__int64)v34, 8210, (__int64)v14, v36, 0);
+    PnpSetObjectProperty((__int64)a1, (__int64)v37, 1, (__int64)v38, 0LL, (__int64)v34, 8210, (__int64)v14, v36, 0);
 LABEL_15:
     DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyFromRegProp(
                                         (__int64)a1,
@@ -216,7 +216,7 @@ LABEL_41:
       goto LABEL_44;
     if ( !(_DWORD)v36 || !a9 )
       goto LABEL_41;
-    P = (PVOID)ExAllocatePool2(0x100uLL);
+    P = (PVOID)ExAllocatePool2(0x100uLL, (unsigned int)v36, 0x52504E50u);
     if ( P )
     {
       ObjectProperty = CmGetDeviceMappedPropertyFromRegProp(

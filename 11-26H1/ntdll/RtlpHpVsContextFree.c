@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsContextFree @ 0x18008E6F0
+ * XREFs of RtlpHpVsContextFree @ 0x1800E0118
  * Callers:
- *     RtlpHpSegFreeInternal @ 0x18001AD38 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpSegFreeInternal @ 0x180005E18 (RtlpHpSegFreeInternal.c)
  * Callees:
- *     RtlpHpVsSlotFreeList @ 0x18008E93C (RtlpHpVsSlotFreeList.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     RtlpInterlockedPushEntrySList @ 0x180162D10 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x180162D50 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpVsSlotFreeList @ 0x1800E0364 (RtlpHpVsSlotFreeList.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180162C10 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x180162C50 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFree(__int64 a1, _WORD *a2, __int64 a3, unsigned int *a4)

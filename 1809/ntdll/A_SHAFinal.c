@@ -6,7 +6,7 @@
  * Callees:
  *     DWORDToBigEndian @ 0x180048B74 (DWORDToBigEndian.c)
  *     A_SHAUpdate @ 0x1800497A0 (A_SHAUpdate.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

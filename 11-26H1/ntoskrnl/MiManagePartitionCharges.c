@@ -1,11 +1,11 @@
 /*
- * XREFs of MiManagePartitionCharges @ 0x1406F08C8
+ * XREFs of MiManagePartitionCharges @ 0x1406F5538
  * Callers:
- *     MmManagePartitionCharges @ 0x14087CE38 (MmManagePartitionCharges.c)
+ *     MmManagePartitionCharges @ 0x140883238 (MmManagePartitionCharges.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiManagePartitionCharges(__int64 a1, char a2, unsigned int a3, _DWORD *a4)

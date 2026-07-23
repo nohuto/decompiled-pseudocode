@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPolicySettingsMaskMerge @ 0x1404A8828
+ * XREFs of PpmPolicySettingsMaskMerge @ 0x1404A2D98
  * Callers:
- *     PpmInitPolicyConfiguration @ 0x140C302E8 (PpmInitPolicyConfiguration.c)
+ *     PpmInitPolicyConfiguration @ 0x140C32408 (PpmInitPolicyConfiguration.c)
  * Callees:
  *     <none>
  */

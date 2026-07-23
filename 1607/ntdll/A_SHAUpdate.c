@@ -1,11 +1,11 @@
 /*
- * XREFs of A_SHAUpdate @ 0x18000A4D0
+ * XREFs of A_SHAUpdate @ 0x18000A4C0
  * Callers:
- *     RtlCreateVirtualAccountSid @ 0x180008FE0 (RtlCreateVirtualAccountSid.c)
- *     A_SHAFinal @ 0x18000A350 (A_SHAFinal.c)
- *     RtlCreateServiceSid @ 0x18000B8E0 (RtlCreateServiceSid.c)
+ *     RtlCreateVirtualAccountSid @ 0x180008FD0 (RtlCreateVirtualAccountSid.c)
+ *     A_SHAFinal @ 0x18000A340 (A_SHAFinal.c)
+ *     RtlCreateServiceSid @ 0x18000B8D0 (RtlCreateServiceSid.c)
  * Callees:
- *     SHATransform @ 0x18000A5A0 (SHATransform.c)
+ *     SHATransform @ 0x18000A590 (SHATransform.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

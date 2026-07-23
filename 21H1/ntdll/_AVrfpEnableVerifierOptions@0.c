@@ -12,7 +12,7 @@ int __stdcall AVrfpEnableVerifierOptions()
 {
   int v0; // ebx
   int v1; // esi
-  int v2; // eax
+  NTSTATUS v2; // eax
 
   v0 = AVrfpVerifierFlags;
   v1 = 0;

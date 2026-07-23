@@ -1,19 +1,19 @@
 /*
  * XREFs of CmpDoAccessCheckOnSubtree @ 0x140AF5B2C
  * Callers:
- *     CmDumpKeyToFile @ 0x140A0AAA4 (CmDumpKeyToFile.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
+ *     CmDumpKeyToFile @ 0x140A0AD54 (CmDumpKeyToFile.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
  *     CmpDumpKeyToBuffer @ 0x140AF58F4 (CmpDumpKeyToBuffer.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     CmpFindSubKeyByNumber @ 0x1406DAF00 (CmpFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpCheckKeyAccess @ 0x140A1B030 (CmpCheckKeyAccess.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     CmpFindSubKeyByNumber @ 0x1406DAF30 (CmpFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpCheckKeyAccess @ 0x140A1B2E0 (CmpCheckKeyAccess.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnSubtree(ULONG_PTR BugCheckParameter3, int a2, char a3, __int64 a4, int a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxPerfRequestComplete @ 0x1404F96C4
+ * XREFs of PopDiagTraceFxPerfRequestComplete @ 0x1404F2CD4
  * Callers:
- *     PopFxCompleteComponentPerfState @ 0x1404F95B8 (PopFxCompleteComponentPerfState.c)
+ *     PopFxCompleteComponentPerfState @ 0x1404F2BC8 (PopFxCompleteComponentPerfState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxPerfRequestComplete(__int64 *a1, unsigned __int8 a2)
@@ -21,11 +21,9 @@ void __fastcall PopDiagTraceFxPerfRequestComplete(__int64 *a1, unsigned __int8 a
   __int64 v11; // [rsp+70h] [rbp-10h]
 
   v3 = a2;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_COMPLETED) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_COMPLETED) )
     {
       v4 = *a1;
       v5 = *(_QWORD *)(*a1 + 80);
@@ -36,15 +34,7 @@ void __fastcall PopDiagTraceFxPerfRequestComplete(__int64 *a1, unsigned __int8 a
       v9 = 4LL;
       v6 = v3;
       v11 = 4LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_COMPLETED,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        3u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_COMPLETED, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

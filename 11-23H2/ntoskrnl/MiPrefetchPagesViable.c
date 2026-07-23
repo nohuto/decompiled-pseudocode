@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchPagesViable @ 0x14033E5E4
+ * XREFs of MiPrefetchPagesViable @ 0x14033E874
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
  * Callees:
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiPrefetchNormally @ 0x14033E640 (MiPrefetchNormally.c)
- *     MiReturnFaultCharges @ 0x14035FEC0 (MiReturnFaultCharges.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiPrefetchNormally @ 0x14033E8D0 (MiPrefetchNormally.c)
+ *     MiReturnFaultCharges @ 0x140360060 (MiReturnFaultCharges.c)
  */
 
 __int64 __fastcall MiPrefetchPagesViable(void *a1, unsigned __int64 *a2, __int64 a3, unsigned __int64 a4, int a5)

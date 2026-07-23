@@ -1,10 +1,10 @@
 /*
- * XREFs of WdInstrExecuteAction @ 0x1404FCF34
+ * XREFs of WdInstrExecuteAction @ 0x1404F6474
  * Callers:
- *     HalpWdatArmTimer @ 0x1404FCE30 (HalpWdatArmTimer.c)
- *     HalpWdatStop @ 0x140597B70 (HalpWdatStop.c)
+ *     HalpWdatArmTimer @ 0x1404F6370 (HalpWdatArmTimer.c)
+ *     HalpWdatStop @ 0x14059A2F0 (HalpWdatStop.c)
  * Callees:
- *     WdInstrExecuteInstruction @ 0x1405135A0 (WdInstrExecuteInstruction.c)
+ *     WdInstrExecuteInstruction @ 0x14050D010 (WdInstrExecuteInstruction.c)
  */
 
 __int64 __fastcall WdInstrExecuteAction(__int64 a1, unsigned int a2, int a3, unsigned int a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDowncaseUnicodeChar @ 0x180098B40
+ * XREFs of RtlDowncaseUnicodeChar @ 0x180097C70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlDowncaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlDowncaseUnicodeChar(WCHAR SourceCharacter)
 {
-  return NLS_DOWNCASE(qword_1801C6040, a1);
+  return NLS_DOWNCASE(qword_1801C5040, SourceCharacter);
 }

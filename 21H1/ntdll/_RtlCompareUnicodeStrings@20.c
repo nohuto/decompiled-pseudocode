@@ -13,35 +13,40 @@
  *     <none>
  */
 
-int __stdcall RtlCompareUnicodeStrings(unsigned __int16 *a1, unsigned int a2, int a3, unsigned int a4, char a5)
+LONG __cdecl RtlCompareUnicodeStrings(
+        PCWCH String1,
+        SIZE_T String1Length,
+        PCWCH String2,
+        SIZE_T String2Length,
+        BOOLEAN CaseInSensitive)
 {
-  unsigned int v5; // edx
-  unsigned __int16 *v6; // eax
-  unsigned int v7; // ebx
-  unsigned int v8; // esi
+  int v5; // edx
+  PCWCH v6; // eax
+  int v7; // ebx
+  const WCHAR *v8; // esi
   int i; // edx
   unsigned __int16 v10; // bx
   unsigned __int16 v11; // cx
   unsigned __int16 v12; // di
   unsigned __int16 v13; // dx
   unsigned __int16 v15; // cx
-  unsigned int v16; // [esp+10h] [ebp-Ch]
-  unsigned __int16 v17; // [esp+1Ah] [ebp-2h]
+  const WCHAR *v16; // [esp+10h] [ebp-Ch]
+  WCHAR v17; // [esp+1Ah] [ebp-2h]
 
-  v5 = a4;
-  v6 = a1;
-  v7 = a2;
-  if ( a2 <= a4 )
-    v5 = a2;
-  v8 = (unsigned int)&a1[v5];
+  v5 = (int)String2;
+  v6 = String1;
+  v7 = String1Length;
+  if ( (unsigned int)String1Length <= (unsigned int)String2 )
+    v5 = String1Length;
+  v8 = &String1[v5];
   v16 = v8;
-  if ( (unsigned int)a1 >= v8 )
-    return v7 - a4;
-  if ( a5 )
+  if ( String1 >= v8 )
+    return v7 - (_DWORD)String2;
+  if ( (_BYTE)String2Length )
   {
-    for ( i = a3 - (_DWORD)a1; ; i = a3 - (_DWORD)a1 )
+    for ( i = HIDWORD(String1Length) - (_DWORD)String1; ; i = HIDWORD(String1Length) - (_DWORD)String1 )
     {
-      v10 = *(unsigned __int16 *)((char *)v6 + i);
+      v10 = *(PCWCH)((char *)v6 + i);
       v11 = *v6;
       v12 = v10;
       v13 = *v6;
@@ -101,20 +106,20 @@ LABEL_12:
       if ( v13 != v12 )
         return v13 - v12;
 LABEL_7:
-      if ( (unsigned int)++v6 >= v8 )
+      if ( ++v6 >= v8 )
       {
-        v7 = a2;
-        return v7 - a4;
+        v7 = String1Length;
+        return v7 - (_DWORD)String2;
       }
     }
   }
   while ( 1 )
   {
-    v15 = *(unsigned __int16 *)((char *)v6 + a3 - (_DWORD)a1);
+    v15 = *(PCWCH)((char *)v6 + HIDWORD(String1Length) - (_DWORD)String1);
     if ( *v6 != v15 )
       break;
-    if ( (unsigned int)++v6 >= v8 )
-      return a2 - a4;
+    if ( ++v6 >= v8 )
+      return String1Length - (_DWORD)String2;
   }
-  return *v6 - v15;
+  return *(unsigned __int16 *)v6 - v15;
 }

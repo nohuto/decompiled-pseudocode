@@ -109,7 +109,7 @@ LABEL_17:
   }
   if ( v11 >= 0 )
     v8 = 1;
-  v12 = HalpSetVirtualRtc((__int64 *)&LocalTime);
+  v12 = HalpSetVirtualRtc(&LocalTime);
   v13 = v8;
   if ( v12 )
     return 1;

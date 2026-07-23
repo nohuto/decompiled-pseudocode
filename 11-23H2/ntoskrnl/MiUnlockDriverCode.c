@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockDriverCode @ 0x140851310
+ * XREFs of MiUnlockDriverCode @ 0x140851610
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiUnlockCodePage @ 0x140367988 (MiUnlockCodePage.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x140367B28 (MiUnlockCodePage.c)
  */
 
 __int64 __fastcall MiUnlockDriverCode(__int64 a1)
 {
-  unsigned __int64 v1; // rdi
+  void *v1; // rdi
   __int64 result; // rax
   __int64 v4; // rsi
   unsigned int v5; // ebx
@@ -22,14 +22,14 @@ __int64 __fastcall MiUnlockDriverCode(__int64 a1)
   unsigned __int64 PteAddress; // rax
   unsigned __int64 v10; // rdx
 
-  v1 = *(_QWORD *)(a1 + 48);
-  result = MI_IS_PHYSICAL_ADDRESS(v1);
+  v1 = *(void **)(a1 + 48);
+  result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v1);
   if ( !(_DWORD)result )
   {
-    result = MiGetSystemRegionType(v1);
+    result = MiGetSystemRegionType((unsigned __int64)v1);
     if ( (_DWORD)result != 1 )
     {
-      result = RtlImageNtHeader(v1);
+      result = (__int64)RtlImageNtHeader(v1);
       v4 = result;
       v5 = 0;
       if ( *(_WORD *)(result + 6) )
@@ -42,7 +42,7 @@ __int64 __fastcall MiUnlockDriverCode(__int64 a1)
             v7 = v6[2];
             if ( v7 < *v6 )
               v7 = *v6;
-            MiGetPteAddress((v1 + v6[1] + v7 + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
+            MiGetPteAddress(((unsigned __int64)v1 + v6[1] + v7 + 4095) & 0xFFFFFFFFFFFFF000uLL);
             PteAddress = MiGetPteAddress(v8);
             MiUnlockCodePage(PteAddress, v10, 0);
           }

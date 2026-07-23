@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenThread @ 0x140611DC0
+ * XREFs of NtOpenThread @ 0x140612DC0
  * Callers:
  *     <none>
  * Callees:
- *     PsOpenThread @ 0x140611DF0 (PsOpenThread.c)
+ *     PsOpenThread @ 0x140612DF0 (PsOpenThread.c)
  */
 
 NTSTATUS __stdcall NtOpenThread(

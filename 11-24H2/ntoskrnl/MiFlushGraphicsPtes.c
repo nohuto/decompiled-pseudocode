@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushGraphicsPtes @ 0x1404D6AE4
+ * XREFs of MiFlushGraphicsPtes @ 0x1404CFF34
  * Callers:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
- *     MiDecommitPagesTail @ 0x1402DBE74 (MiDecommitPagesTail.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
- *     MiFinishPteChangesInPageTable @ 0x1404738AC (MiFinishPteChangesInPageTable.c)
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
+ *     MiDecommitPagesTail @ 0x14023D754 (MiDecommitPagesTail.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
+ *     MiFinishPteChangesInPageTable @ 0x14046D518 (MiFinishPteChangesInPageTable.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x1403AEA10 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x14039D220 (KeInvalidateRangeAllCachesNoIpi.c)
  */
 
 char __fastcall MiFlushGraphicsPtes(__int64 a1, unsigned __int64 a2)

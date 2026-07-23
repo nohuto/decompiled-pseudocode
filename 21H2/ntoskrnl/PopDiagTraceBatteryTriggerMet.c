@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerMet @ 0x1408E86AC
+ * XREFs of PopDiagTraceBatteryTriggerMet @ 0x1408E880C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
@@ -109,20 +109,20 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
     v7 = *(_DWORD *)(a2 + 4);
     v8 = *(_DWORD *)(a2 + 16);
     v9 = *(_DWORD *)(a2 + 20);
-    v10 = dword_140C23634;
-    v11 = unk_140C23660 & 1;
-    v26 = dword_140C237AC;
-    v12 = byte_140C23740 != 0;
-    v27 = dword_140C23634;
+    v10 = dword_140C23C54;
+    v11 = unk_140C23C80 & 1;
+    v26 = dword_140C23DCC;
+    v12 = byte_140C23D60 != 0;
+    v27 = dword_140C23C54;
     v22 = v5;
     v13 = *(_BYTE *)a2 == 0;
     v28 = v5;
     v14 = !v13;
     v29 = v4;
-    LOBYTE(v3) = -45 * (dword_140C237AC - 12);
+    LOBYTE(v3) = -45 * (dword_140C23DCC - 12);
     v30 = v11;
     v31 = v12;
-    v15 = (dword_140C237AC + 500) / 0x3E8u;
+    v15 = (dword_140C23DCC + 500) / 0x3E8u;
     v32 = v14;
     v23 = v6;
     v33 = v6;
@@ -218,7 +218,7 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
         v89 = 4LL;
         LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                        (__int64)&dword_140C02228,
-                       (unsigned __int8 *)&word_140027296,
+                       (unsigned __int8 *)&dword_14002760C,
                        0LL,
                        0LL,
                        0xEu,

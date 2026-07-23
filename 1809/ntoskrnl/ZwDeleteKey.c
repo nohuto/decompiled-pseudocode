@@ -1,30 +1,27 @@
 /*
- * XREFs of ZwDeleteKey @ 0x1401B9B50
+ * XREFs of ZwDeleteKey @ 0x1401B9CB0
  * Callers:
- *     BiZwDeleteKey @ 0x1401594D4 (BiZwDeleteKey.c)
- *     NtEnableLastKnownGood @ 0x140705C40 (NtEnableLastKnownGood.c)
- *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
- *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
- *     IopCopyBootLogRegistryToFile @ 0x140745708 (IopCopyBootLogRegistryToFile.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
- *     CmDeleteKeyRecursive @ 0x1407FB204 (CmDeleteKeyRecursive.c)
- *     CmpMoveBiosAliasTable @ 0x1407FC000 (CmpMoveBiosAliasTable.c)
- *     CmpDoReDoRecord @ 0x140807334 (CmpDoReDoRecord.c)
- *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BBB1C (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     PiLastGoodCopyKeyContents @ 0x1409DABA4 (PiLastGoodCopyKeyContents.c)
- *     MfgInitSystem @ 0x1409DF10C (MfgInitSystem.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x1409F584C (PiLastGoodRevertLastKnownDirectory.c)
+ *     BiZwDeleteKey @ 0x1401595D4 (BiZwDeleteKey.c)
+ *     NtEnableLastKnownGood @ 0x140706EE0 (NtEnableLastKnownGood.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071BB94 (ExpSetCurrentUserUILanguage.c)
+ *     IoReportDetectedDevice @ 0x14072E410 (IoReportDetectedDevice.c)
+ *     IopCopyBootLogRegistryToFile @ 0x1407468F8 (IopCopyBootLogRegistryToFile.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140763330 (_RegRtlDeleteKeyTransacted.c)
+ *     CmDeleteKeyRecursive @ 0x1407FC404 (CmDeleteKeyRecursive.c)
+ *     CmpMoveBiosAliasTable @ 0x1407FD200 (CmpMoveBiosAliasTable.c)
+ *     CmpDoReDoRecord @ 0x140808534 (CmpDoReDoRecord.c)
+ *     VrpDestroyNamespaceNode @ 0x14080B39C (VrpDestroyNamespaceNode.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BCDDC (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     PiLastGoodCopyKeyContents @ 0x1409DBBA4 (PiLastGoodCopyKeyContents.c)
+ *     MfgInitSystem @ 0x1409E010C (MfgInitSystem.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x1409F684C (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwDeleteKey(HANDLE KeyHandle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, v1, v2);
+  return KiServiceInternal(KeyHandle);
 }

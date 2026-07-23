@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGetGroupSecurityDescriptor @ 0x140B13920
+ * XREFs of RtlGetGroupSecurityDescriptor @ 0x140B153E0
  * Callers:
- *     RtlReplaceSidInSd @ 0x140804260 (RtlReplaceSidInSd.c)
- *     CmpCopySaclToVirtualKey @ 0x14085AD20 (CmpCopySaclToVirtualKey.c)
+ *     RtlReplaceSidInSd @ 0x140809D00 (RtlReplaceSidInSd.c)
+ *     CmpCopySaclToVirtualKey @ 0x140861014 (CmpCopySaclToVirtualKey.c)
  * Callees:
  *     <none>
  */

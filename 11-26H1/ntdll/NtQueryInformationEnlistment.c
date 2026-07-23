@@ -1,16 +1,21 @@
 /*
- * XREFs of NtQueryInformationEnlistment @ 0x1801619F0
+ * XREFs of NtQueryInformationEnlistment @ 0x1801618F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryInformationEnlistment()
+NTSTATUS __cdecl NtQueryInformationEnlistment(
+        HANDLE EnlistmentHandle,
+        ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,
+        PVOID EnlistmentInformation,
+        ULONG EnlistmentInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 342LL;
+  result = 342;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

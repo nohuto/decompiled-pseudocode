@@ -6,7 +6,7 @@
  *     _RtlCreateAtomTableEx@12 @ 0x4B2E0014 (_RtlCreateAtomTableEx@12.c)
  */
 
-int __stdcall RtlCreateAtomTable(int a1, int a2)
+NTSTATUS __cdecl RtlCreateAtomTable(ULONG NumberOfBuckets, PVOID *AtomTableHandle)
 {
-  return RtlCreateAtomTableEx(a2);
+  return RtlCreateAtomTableEx(AtomTableHandle);
 }

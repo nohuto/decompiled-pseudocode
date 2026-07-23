@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateTransactionManager @ 0x14015B400
+ * XREFs of ZwCreateTransactionManager @ 0x14015B970
  * Callers:
- *     CmpInitCmRM @ 0x14049EB58 (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140516F64 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateTransactionManager(
         PHANDLE TmHandle,
         ACCESS_MASK DesiredAccess,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwCreateTransactionManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TmHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(TmHandle);
 }

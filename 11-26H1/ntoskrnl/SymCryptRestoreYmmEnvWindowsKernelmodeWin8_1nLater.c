@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1405533A8
+ * XREFs of SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater @ 0x140555838
  * Callers:
- *     SymCryptRestoreYmm @ 0x1405E55AC (SymCryptRestoreYmm.c)
+ *     SymCryptRestoreYmm @ 0x1405E7F1C (SymCryptRestoreYmm.c)
  * Callees:
- *     KeRestoreExtendedProcessorState @ 0x1403D30F0 (KeRestoreExtendedProcessorState.c)
+ *     KeRestoreExtendedProcessorState @ 0x1403D60C0 (KeRestoreExtendedProcessorState.c)
  */
 
 void __fastcall SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater(struct _XSTATE_SAVE *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpValidateEnableNotification @ 0x1408381B0
+ * XREFs of EtwpValidateEnableNotification @ 0x1408361F8
  * Callers:
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpCheckNotificationAccess @ 0x140838344 (EtwpCheckNotificationAccess.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpValidateFilterDescriptors @ 0x1409F327C (EtwpValidateFilterDescriptors.c)
+ *     EtwpCheckNotificationAccess @ 0x14083638C (EtwpCheckNotificationAccess.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpValidateFilterDescriptors @ 0x1409E75DC (EtwpValidateFilterDescriptors.c)
  */
 
 __int64 __fastcall EtwpValidateEnableNotification(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 *a5, __int64 a6)
@@ -31,9 +31,9 @@ __int64 __fastcall EtwpValidateEnableNotification(__int64 a1, __int64 a2, char a
   {
     if ( (_DWORD)v12 == 3 )
       return 3221225506LL;
-    v13 = PrivateLoggerNotificationGuid - *(_QWORD *)(a2 + 40);
-    if ( (_QWORD)PrivateLoggerNotificationGuid == *(_QWORD *)(a2 + 40) )
-      v13 = *((_QWORD *)&PrivateLoggerNotificationGuid + 1) - *(_QWORD *)(a2 + 48);
+    v13 = *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 - *(_QWORD *)(a2 + 40);
+    if ( *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 == *(_QWORD *)(a2 + 40) )
+      v13 = *(_QWORD *)PrivateLoggerNotificationGuid.Data4 - *(_QWORD *)(a2 + 48);
     if ( v13 )
     {
       v14 = EtwpAcquireLoggerContextByLoggerId(a1, v12, 0LL);

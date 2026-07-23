@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreatePerfKeys @ 0x14085D310
+ * XREFs of CmpCreatePerfKeys @ 0x14085D550
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14080AF10 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x14080B1E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     CmpCreatePredefined @ 0x14085D3D8 (CmpCreatePredefined.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     CmpCreatePredefined @ 0x14085D618 (CmpCreatePredefined.c)
  */
 
 int CmpCreatePerfKeys()

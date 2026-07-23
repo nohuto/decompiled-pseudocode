@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWakeMappedPageWriter @ 0x1402A7E8C
+ * XREFs of MiWakeMappedPageWriter @ 0x1402A729C
  * Callers:
- *     MiModifiedWriterPeriodicTick @ 0x1402A7E04 (MiModifiedWriterPeriodicTick.c)
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
+ *     MiModifiedWriterPeriodicTick @ 0x1402A7214 (MiModifiedWriterPeriodicTick.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 int __fastcall MiWakeMappedPageWriter(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ViAllocateMapRegistersFromFile @ 0x1407089D8
+ * XREFs of ViAllocateMapRegistersFromFile @ 0x140708A08
  * Callers:
- *     ViMapDoubleBuffer @ 0x140709E7C (ViMapDoubleBuffer.c)
+ *     ViMapDoubleBuffer @ 0x140709EAC (ViMapDoubleBuffer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
- *     ViTagBuffer @ 0x14070A6F4 (ViTagBuffer.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
+ *     ViTagBuffer @ 0x14070A724 (ViTagBuffer.c)
  */
 
 __int64 __fastcall ViAllocateMapRegistersFromFile(

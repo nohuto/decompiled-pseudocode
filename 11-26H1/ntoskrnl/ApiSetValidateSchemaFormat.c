@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetValidateSchemaFormat @ 0x1406D91E0
+ * XREFs of ApiSetValidateSchemaFormat @ 0x1406DD370
  * Callers:
- *     ApiSetComposeSchema @ 0x1406D95D8 (ApiSetComposeSchema.c)
- *     ApiSetComposeSchema_V7 @ 0x1406DA620 (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema @ 0x1406DD768 (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema_V7 @ 0x1406DE7C0 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x1404EEA08 (ApiSetpSearchForApiSet.c)
- *     ApiSetValidateSchemaExtensionFormat_V7 @ 0x1406DA310 (ApiSetValidateSchemaExtensionFormat_V7.c)
- *     ApiSetValidateSchemaFormat_V7 @ 0x1406DA448 (ApiSetValidateSchemaFormat_V7.c)
+ *     ApiSetpSearchForApiSet @ 0x1404E7FE8 (ApiSetpSearchForApiSet.c)
+ *     ApiSetValidateSchemaExtensionFormat_V7 @ 0x1406DE4B0 (ApiSetValidateSchemaExtensionFormat_V7.c)
+ *     ApiSetValidateSchemaFormat_V7 @ 0x1406DE5E8 (ApiSetValidateSchemaFormat_V7.c)
  */
 
 __int64 __fastcall ApiSetValidateSchemaFormat(__int64 a1, unsigned int a2)

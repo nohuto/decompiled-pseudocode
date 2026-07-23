@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertCachedPte @ 0x1400525F0
+ * XREFs of MiInsertCachedPte @ 0x140052170
  * Callers:
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
  * Callees:
- *     MiEmptyPteBins @ 0x140017B18 (MiEmptyPteBins.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiReplenishBitMap @ 0x140089320 (MiReplenishBitMap.c)
- *     MiReleaseLargePteMappings @ 0x140125F84 (MiReleaseLargePteMappings.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakePageFilePte @ 0x1401F274C (MiMakePageFilePte.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiEmptyPteBins @ 0x140017698 (MiEmptyPteBins.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiReplenishBitMap @ 0x140088A20 (MiReplenishBitMap.c)
+ *     MiReleaseLargePteMappings @ 0x1401264F4 (MiReleaseLargePteMappings.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakePageFilePte @ 0x1401F2578 (MiMakePageFilePte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiInsertCachedPte(__int64 a1, _QWORD *a2, unsigned int a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpVolumePrefetchMetadata @ 0x14065D004
+ * XREFs of PfpVolumePrefetchMetadata @ 0x14065E1C4
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x14065B99C (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x14065CB5C (PfpPrefetchRequestPerform.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
- *     PfpCheckPrefetchAbort @ 0x1400DE6A0 (PfpCheckPrefetchAbort.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
- *     PfpPrefetchDirectoryStream @ 0x14065D3CC (PfpPrefetchDirectoryStream.c)
- *     PfpFileSetupObjectAttributes @ 0x14065F228 (PfpFileSetupObjectAttributes.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1406622FC (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x140662400 (PfpGetPageListCount.c)
+ *     MmQueryMemoryListInformation @ 0x1400A8910 (MmQueryMemoryListInformation.c)
+ *     PfpCheckPrefetchAbort @ 0x1400DE720 (PfpCheckPrefetchAbort.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     IopXxxControlFile @ 0x1405E9BD0 (IopXxxControlFile.c)
+ *     PfpPrefetchDirectoryStream @ 0x14065E58C (PfpPrefetchDirectoryStream.c)
+ *     PfpFileSetupObjectAttributes @ 0x1406603E8 (PfpFileSetupObjectAttributes.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x1406634BC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x1406635C0 (PfpGetPageListCount.c)
  */
 
 __int64 __fastcall PfpVolumePrefetchMetadata(_QWORD *a1, unsigned int a2)

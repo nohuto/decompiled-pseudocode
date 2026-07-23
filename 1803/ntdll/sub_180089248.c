@@ -11,23 +11,23 @@
 
 __int64 __fastcall sub_180089248(const void **a1, unsigned int a2, bool *a3)
 {
-  void *ProcessHeap; // r15
-  void *Heap; // rax
+  PVOID ProcessHeap; // r15
+  WCHAR *Heap; // rax
   unsigned int v8; // ebx
-  unsigned __int64 v9; // rdi
+  WCHAR *v9; // rdi
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, *(unsigned __int16 *)a1);
+  Heap = (WCHAR *)RtlAllocateHeap(ProcessHeap, 0, *(unsigned __int16 *)a1);
   v8 = 0;
-  v9 = (unsigned __int64)Heap;
+  v9 = Heap;
   if ( Heap )
   {
     *a3 = 1;
     memmove(Heap, a1[1], *(unsigned __int16 *)a1);
-    *(_WORD *)(v9 + 2 * ((unsigned __int64)a2 >> 1)) = 46;
-    *(_WORD *)(v9 + 2LL * ((a2 >> 1) + 1)) = 0;
+    v9[(unsigned __int64)a2 >> 1] = 46;
+    v9[(a2 >> 1) + 1] = 0;
     *a3 = !sub_18004F794(v9, 1);
-    RtlFreeHeap((__int64)ProcessHeap, 0, v9);
+    RtlFreeHeap(ProcessHeap, 0, v9);
   }
   else
   {

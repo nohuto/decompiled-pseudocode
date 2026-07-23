@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSelectCfgBitMap @ 0x1406AEA54
+ * XREFs of MiSelectCfgBitMap @ 0x1406AEA84
  * Callers:
- *     MiCommitVadCfgBits @ 0x1406AE938 (MiCommitVadCfgBits.c)
- *     MiCfgMarkValidEntries @ 0x1407A474C (MiCfgMarkValidEntries.c)
- *     MiProcessPatchImageCfg @ 0x140A3B018 (MiProcessPatchImageCfg.c)
+ *     MiCommitVadCfgBits @ 0x1406AE968 (MiCommitVadCfgBits.c)
+ *     MiCfgMarkValidEntries @ 0x1407A493C (MiCfgMarkValidEntries.c)
+ *     MiProcessPatchImageCfg @ 0x140A3B2C8 (MiProcessPatchImageCfg.c)
  * Callees:
  *     <none>
  */

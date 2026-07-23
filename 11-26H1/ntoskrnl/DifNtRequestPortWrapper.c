@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtRequestPortWrapper @ 0x140689900
+ * XREFs of DifNtRequestPortWrapper @ 0x14068D4E0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtRequestPort @ 0x140B292B0 (NtRequestPort.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtRequestPort @ 0x140B2B7F0 (NtRequestPort.c)
  */
 
-__int64 __fastcall DifNtRequestPortWrapper(HANDLE Handle, __int64 a2)
+__int64 __fastcall DifNtRequestPortWrapper(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,8 +43,8 @@ __int64 __fastcall DifNtRequestPortWrapper(HANDLE Handle, __int64 a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    *(_QWORD *)&v16 = Handle;
-    *((_QWORD *)&v15 + 1) = a2;
+    *(_QWORD *)&v16 = PortHandle;
+    *((_QWORD *)&v15 + 1) = RequestMessage;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -57,7 +57,7 @@ __int64 __fastcall DifNtRequestPortWrapper(HANDLE Handle, __int64 a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v16) = NtRequestPort(Handle);
+  DWORD2(v16) = NtRequestPort(PortHandle, RequestMessage);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

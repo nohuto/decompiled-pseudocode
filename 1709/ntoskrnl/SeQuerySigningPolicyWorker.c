@@ -11,7 +11,7 @@
  */
 
 __int64 __fastcall SeQuerySigningPolicyWorker(
-        PACCESS_TOKEN Token,
+        HANDLE TokenHandle,
         unsigned __int16 *a2,
         char a3,
         unsigned __int8 a4,
@@ -32,11 +32,11 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   PVOID TokenInformation; // [rsp+48h] [rbp-8h] BYREF
 
   TokenInformation = 0LL;
-  PsQueryProcessAttributesByToken((__int64)Token, 0LL, v21);
+  PsQueryProcessAttributesByToken((__int64)TokenHandle, 0LL, v21);
   v12 = v21[0];
   if ( v21[0] )
   {
-    LODWORD(v15) = RtlQueryPackageClaims((int)Token, 0LL, 0LL, 0LL, 0LL, 0LL, (int)&TokenInformation, 0LL);
+    LODWORD(v15) = RtlQueryPackageClaims(TokenHandle, 0LL, 0LL, 0LL, 0LL, 0LL, (PPS_PKG_CLAIM)&TokenInformation, 0LL);
     if ( (int)v15 < 0 )
       return (unsigned int)v15;
     v18 = v12;
@@ -110,7 +110,7 @@ LABEL_6:
     goto LABEL_7;
   }
   LODWORD(TokenInformation) = 0;
-  v17 = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
+  v17 = SeQueryInformationToken(TokenHandle, TokenIsAppContainer, &TokenInformation);
   v15 = (unsigned int)v17;
   if ( v17 < 0 )
     return (unsigned int)v15;

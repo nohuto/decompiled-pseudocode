@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExAcquireResourceSharedLiteNoReboot @ 0x14093F680
+ * XREFs of VerifierExAcquireResourceSharedLiteNoReboot @ 0x140940680
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViResourceAcquireSanityChecks @ 0x140940008 (ViResourceAcquireSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViResourceAcquireSanityChecks @ 0x140941008 (ViResourceAcquireSanityChecks.c)
  */
 
 __int64 __fastcall VerifierExAcquireResourceSharedLiteNoReboot(ULONG_PTR a1, char a2)

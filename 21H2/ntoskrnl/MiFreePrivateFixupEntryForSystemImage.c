@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreePrivateFixupEntryForSystemImage @ 0x14039EF48
+ * XREFs of MiFreePrivateFixupEntryForSystemImage @ 0x14039F098
  * Callers:
- *     MiCountSystemImageCommitment @ 0x14039EC94 (MiCountSystemImageCommitment.c)
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
- *     MiGetSystemAddressForImage @ 0x14075E8AC (MiGetSystemAddressForImage.c)
+ *     MiCountSystemImageCommitment @ 0x14039EDE4 (MiCountSystemImageCommitment.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x14075EA6C (MiGetSystemAddressForImage.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 *__fastcall MiFreePrivateFixupEntryForSystemImage(ULONG_PTR BugCheckParameter2, int a2)
@@ -31,12 +31,12 @@ __int64 *__fastcall MiFreePrivateFixupEntryForSystemImage(ULONG_PTR BugCheckPara
   int v19; // eax
 
   v3 = 0LL;
-  v5 = ExAcquireSpinLockExclusive(&dword_140C4CCE4);
-  v6 = (__int64 *)qword_140C4CCC0;
+  v5 = ExAcquireSpinLockExclusive(&dword_140C4CD24);
+  v6 = (__int64 *)qword_140C4CD00;
   v7 = v5;
   while ( 1 )
   {
-    if ( v6 == &qword_140C4CCC0 )
+    if ( v6 == &qword_140C4CD00 )
       goto LABEL_9;
     v3 = (PVOID *)v6;
     if ( BugCheckParameter2 == v6[2] )
@@ -52,7 +52,7 @@ __int64 *__fastcall MiFreePrivateFixupEntryForSystemImage(ULONG_PTR BugCheckPara
     *v9 = v8;
     *(_QWORD *)(v8 + 8) = v9;
 LABEL_9:
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CCE4);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CD24);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -73,14 +73,14 @@ LABEL_9:
     __writecr8(v7);
     if ( a2 )
     {
-      if ( v6 == &qword_140C4CCC0 )
+      if ( v6 == &qword_140C4CD00 )
         KeBugCheckEx(0x1Au, 0x1011uLL, BugCheckParameter2, 0LL, 0LL);
       ExFreePoolWithTag(v3[5], 0);
       ExFreePoolWithTag(v3, 0);
     }
     return 0LL;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CCE4);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CD24);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

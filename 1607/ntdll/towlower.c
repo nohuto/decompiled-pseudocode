@@ -1,8 +1,8 @@
 /*
- * XREFs of towlower @ 0x18009C440
+ * XREFs of towlower @ 0x18009C430
  * Callers:
- *     RtlCanonicalizeDomainName @ 0x180055610 (RtlCanonicalizeDomainName.c)
- *     _CopyLowerCaseAndSubstitute @ 0x1801055B0 (_CopyLowerCaseAndSubstitute.c)
+ *     RtlCanonicalizeDomainName @ 0x180055600 (RtlCanonicalizeDomainName.c)
+ *     _CopyLowerCaseAndSubstitute @ 0x1801054F0 (_CopyLowerCaseAndSubstitute.c)
  * Callees:
  *     iswctype @ 0x18009A240 (iswctype.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAttachProcess @ 0x1400CD4F0
+ * XREFs of KiAttachProcess @ 0x1400CB390
  * Callers:
- *     KeAttachProcess @ 0x1400ADF38 (KeAttachProcess.c)
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
+ *     KeAttachProcess @ 0x1400AC4A0 (KeAttachProcess.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiLoadDirectoryTableBase @ 0x1400981E0 (KiLoadDirectoryTableBase.c)
- *     KiMoveApcState @ 0x1400CEAA0 (KiMoveApcState.c)
- *     KiInSwapSingleProcess @ 0x1400CEC04 (KiInSwapSingleProcess.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiLoadDirectoryTableBase @ 0x1400979E0 (KiLoadDirectoryTableBase.c)
+ *     KiMoveApcState @ 0x1400CC940 (KiMoveApcState.c)
+ *     KiInSwapSingleProcess @ 0x1400CCAA4 (KiInSwapSingleProcess.c)
  */
 
 __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __int8 a3, __int64 a4, __int64 a5)

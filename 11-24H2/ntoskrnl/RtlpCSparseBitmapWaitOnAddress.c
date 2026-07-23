@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCSparseBitmapWaitOnAddress @ 0x14045D1A8
+ * XREFs of RtlpCSparseBitmapWaitOnAddress @ 0x140452274
  * Callers:
- *     RtlpCSparseBitmapPageCommit @ 0x1402477C4 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x14045CD70 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402197E0 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140451E3C (RtlpCSparseBitmapPageDecommit.c)
  * Callees:
- *     ExTimedWaitForUnblockPushLock @ 0x1402C6D50 (ExTimedWaitForUnblockPushLock.c)
- *     ExpUnblockPushLock @ 0x1402C793C (ExpUnblockPushLock.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x1402BB8D0 (ExTimedWaitForUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402BC2BC (ExpUnblockPushLock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4)

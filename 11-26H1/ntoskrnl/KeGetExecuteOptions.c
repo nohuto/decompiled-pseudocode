@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetExecuteOptions @ 0x140A8BEEC
+ * XREFs of KeGetExecuteOptions @ 0x140A911BC
  * Callers:
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

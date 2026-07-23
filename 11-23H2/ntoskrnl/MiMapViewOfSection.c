@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapViewOfSection @ 0x140721660
+ * XREFs of MiMapViewOfSection @ 0x140721860
  * Callers:
- *     MmMapSecureViewOfSection @ 0x14071C198 (MmMapSecureViewOfSection.c)
- *     NtMapViewOfSection @ 0x140720E50 (NtMapViewOfSection.c)
- *     MmMapViewOfSection @ 0x1407A2340 (MmMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1407A34F0 (MiMapViewOfSectionExCommon.c)
+ *     MmMapSecureViewOfSection @ 0x14071C398 (MmMapSecureViewOfSection.c)
+ *     NtMapViewOfSection @ 0x140721050 (NtMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x1407A2530 (MmMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407A36E0 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MiMakeProtectionMask @ 0x140276980 (MiMakeProtectionMask.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x14071EFC0 (MiUnmapViewOfSection.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MiValidateVadMetadataFlags @ 0x140721F64 (MiValidateVadMetadataFlags.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     MiArbitraryCodeBlocked @ 0x14076BD74 (MiArbitraryCodeBlocked.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30CE0 (MiMapViewOfPhysicalSection.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MiMakeProtectionMask @ 0x140276C10 (MiMakeProtectionMask.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiUnmapViewOfSection @ 0x14071F1C0 (MiUnmapViewOfSection.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MiValidateVadMetadataFlags @ 0x140722164 (MiValidateVadMetadataFlags.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     MiArbitraryCodeBlocked @ 0x14076BF64 (MiArbitraryCodeBlocked.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A30F90 (MiMapViewOfPhysicalSection.c)
  */
 
 __int64 __fastcall MiMapViewOfSection(

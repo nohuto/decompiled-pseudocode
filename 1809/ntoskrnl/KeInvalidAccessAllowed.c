@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInvalidAccessAllowed @ 0x140117D0C
+ * XREFs of KeInvalidAccessAllowed @ 0x140117D7C
  * Callers:
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x1400E9320 (MiCheckSystemPageTables.c)
- *     MiAllowGuardFault @ 0x140117CB8 (MiAllowGuardFault.c)
- *     MiRaisedIrqlFault @ 0x140129128 (MiRaisedIrqlFault.c)
- *     MiComputeMaximumFaultCluster @ 0x140168C38 (MiComputeMaximumFaultCluster.c)
+ *     MiValidFault @ 0x1400B6D30 (MiValidFault.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x1400E93A0 (MiCheckSystemPageTables.c)
+ *     MiAllowGuardFault @ 0x140117D28 (MiAllowGuardFault.c)
+ *     MiRaisedIrqlFault @ 0x1401291F8 (MiRaisedIrqlFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x140168D38 (MiComputeMaximumFaultCluster.c)
  * Callees:
  *     <none>
  */

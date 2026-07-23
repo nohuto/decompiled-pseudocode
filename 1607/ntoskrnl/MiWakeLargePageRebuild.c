@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakeLargePageRebuild @ 0x1401FDF24
+ * XREFs of MiWakeLargePageRebuild @ 0x1401FDD50
  * Callers:
- *     MiUnlinkNodeLargePageHelper @ 0x14008AA80 (MiUnlinkNodeLargePageHelper.c)
- *     MiSignalLargePageRebuild @ 0x1400BE73C (MiSignalLargePageRebuild.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14008A180 (MiUnlinkNodeLargePageHelper.c)
+ *     MiSignalLargePageRebuild @ 0x1400BC5CC (MiSignalLargePageRebuild.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall MiWakeLargePageRebuild(unsigned __int64 a1, unsigned int a2, char a3)

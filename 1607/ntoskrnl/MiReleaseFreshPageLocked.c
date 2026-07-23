@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseFreshPageLocked @ 0x1400221A4
+ * XREFs of MiReleaseFreshPageLocked @ 0x140021D24
  * Callers:
- *     MiRemoveAnyPage @ 0x140064740 (MiRemoveAnyPage.c)
- *     MiZeroSinglePage @ 0x140066B90 (MiZeroSinglePage.c)
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRemoveAnyPage @ 0x1400642C0 (MiRemoveAnyPage.c)
+ *     MiZeroSinglePage @ 0x140066710 (MiZeroSinglePage.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
  *     <none>
  */

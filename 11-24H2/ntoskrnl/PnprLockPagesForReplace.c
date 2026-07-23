@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprLockPagesForReplace @ 0x14072FE20
+ * XREFs of PnprLockPagesForReplace @ 0x14072DE30
  * Callers:
- *     PnprQuiesce @ 0x1405A7C88 (PnprQuiesce.c)
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
- *     PnprQuiesceWorker @ 0x140B550A0 (PnprQuiesceWorker.c)
+ *     PnprQuiesce @ 0x1405A4C78 (PnprQuiesce.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x140B570F0 (PnprQuiesceWorker.c)
  * Callees:
- *     ExNotifyCallback @ 0x14024D520 (ExNotifyCallback.c)
- *     MmLockPagableSectionByHandle @ 0x140A3FE90 (MmLockPagableSectionByHandle.c)
+ *     ExNotifyCallback @ 0x14027DB30 (ExNotifyCallback.c)
+ *     MmLockPagableSectionByHandle @ 0x140A35770 (MmLockPagableSectionByHandle.c)
  */
 
 void PnprLockPagesForReplace()

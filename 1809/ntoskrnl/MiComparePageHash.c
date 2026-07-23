@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComparePageHash @ 0x1402CC260
+ * XREFs of MiComparePageHash @ 0x1402CC450
  * Callers:
- *     MiValidatePagefilePageHash @ 0x1402CC514 (MiValidatePagefilePageHash.c)
+ *     MiValidatePagefilePageHash @ 0x1402CC704 (MiValidatePagefilePageHash.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComparePageHash(__int64 a1, unsigned int a2, int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall MiComparePageHash(__int64 a1, unsigned int a2, int a3)
                    - 0x58000000000LL
                    + 34) & 0x10) != 0 )
     {
-      if ( !byte_14043A940 )
+      if ( !byte_14043BA00 )
         v6 = -1073741761;
     }
     else

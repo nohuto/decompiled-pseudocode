@@ -52,7 +52,7 @@ void __fastcall MiStoreEvictThread(_DWORD *P)
     KiInitializeTimer2((__int64)v22, 0LL, 0LL, 8);
     v19[0] &= v4;
     v19[1] = -1LL;
-    KeSetTimer2((__int64)v22, -600000000LL, 600000000LL, v19);
+    KeSetTimer2((__int64)v22, -600000000LL, 600000000LL, (__int64)v19);
     Object[1] = v22;
     Object[0] = (PVOID)(v3 + 1200);
     while ( 1 )

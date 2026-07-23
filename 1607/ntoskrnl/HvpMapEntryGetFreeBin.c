@@ -1,22 +1,22 @@
 /*
- * XREFs of HvpMapEntryGetFreeBin @ 0x1400F0100
+ * XREFs of HvpMapEntryGetFreeBin @ 0x1400EDF80
  * Callers:
- *     HvSynchronizeAndDropTemporaryBins @ 0x1400B4C7C (HvSynchronizeAndDropTemporaryBins.c)
- *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5964 (HvpFindNextDirtyBlockAndCreateTemporary.c)
- *     HvpFindFreeBin @ 0x14047E5F0 (HvpFindFreeBin.c)
- *     CmpReorganizeHive @ 0x14047FA2C (CmpReorganizeHive.c)
- *     HvpFindNextDirtyBlock @ 0x1404815C8 (HvpFindNextDirtyBlock.c)
- *     HvpTruncateBins @ 0x140481A44 (HvpTruncateBins.c)
- *     HvFreeHivePartial @ 0x140481AF0 (HvFreeHivePartial.c)
- *     HvCheckHive @ 0x140513594 (HvCheckHive.c)
- *     HvpSetRangeProtection @ 0x1405139A4 (HvpSetRangeProtection.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     HvpDropPagedBins @ 0x14054DD48 (HvpDropPagedBins.c)
- *     HvpFreeAllocatedBins @ 0x140603A64 (HvpFreeAllocatedBins.c)
- *     CmpSnapshotHiveToOffsetArray @ 0x140604834 (CmpSnapshotHiveToOffsetArray.c)
- *     HvWriteExternal @ 0x1406064F4 (HvWriteExternal.c)
+ *     HvSynchronizeAndDropTemporaryBins @ 0x1400B2AB4 (HvSynchronizeAndDropTemporaryBins.c)
+ *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5848 (HvpFindNextDirtyBlockAndCreateTemporary.c)
+ *     HvpFindFreeBin @ 0x14047D344 (HvpFindFreeBin.c)
+ *     CmpReorganizeHive @ 0x14047E780 (CmpReorganizeHive.c)
+ *     HvpFindNextDirtyBlock @ 0x14048031C (HvpFindNextDirtyBlock.c)
+ *     HvpTruncateBins @ 0x140480798 (HvpTruncateBins.c)
+ *     HvFreeHivePartial @ 0x140480844 (HvFreeHivePartial.c)
+ *     HvCheckHive @ 0x1404F6984 (HvCheckHive.c)
+ *     HvpSetRangeProtection @ 0x1404F6D94 (HvpSetRangeProtection.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     HvpDropPagedBins @ 0x14054E0E8 (HvpDropPagedBins.c)
+ *     HvpFreeAllocatedBins @ 0x140603B18 (HvpFreeAllocatedBins.c)
+ *     CmpSnapshotHiveToOffsetArray @ 0x1406048E8 (CmpSnapshotHiveToOffsetArray.c)
+ *     HvWriteExternal @ 0x1406065A8 (HvWriteExternal.c)
  * Callees:
- *     HvpMapEntryIsDiscardable @ 0x14002D6D0 (HvpMapEntryIsDiscardable.c)
+ *     HvpMapEntryIsDiscardable @ 0x14002D250 (HvpMapEntryIsDiscardable.c)
  */
 
 __int64 __fastcall HvpMapEntryGetFreeBin(__int64 a1)

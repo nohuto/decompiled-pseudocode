@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x1405D04D8
+ * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x1405D2CE8
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x1405D0778 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1405D2F88 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403F3B30 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     IopLiveDumpTraceEventGeneric @ 0x1405D7A30 (IopLiveDumpTraceEventGeneric.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403ED4E0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405DA220 (IopLiveDumpTraceEventGeneric.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 a1)
@@ -46,7 +46,7 @@ __int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 a1)
         v3 = v6;
         if ( v6 < 0 )
         {
-          v7[0] = 3127LL;
+          v7[0] = 3126LL;
           v8[0] = L"LineNum";
           v7[1] = v6;
           v8[1] = L"NTStatus";

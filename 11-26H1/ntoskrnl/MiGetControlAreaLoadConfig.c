@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetControlAreaLoadConfig @ 0x140495994
+ * XREFs of MiGetControlAreaLoadConfig @ 0x14048F4E4
  * Callers:
- *     MiRelocateImageAgain @ 0x14087B470 (MiRelocateImageAgain.c)
- *     MmGetSectionInformation @ 0x1408E5780 (MmGetSectionInformation.c)
- *     MiDoesImageContainFunctionOverrideFixups @ 0x140962FC0 (MiDoesImageContainFunctionOverrideFixups.c)
- *     MiMarkSharedImageCfgBits @ 0x1409C8128 (MiMarkSharedImageCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x1409CA274 (MiMarkPrivateImageCfgBits.c)
- *     MiSwitchBaseAddress @ 0x140AC82D0 (MiSwitchBaseAddress.c)
- *     MiAllowImageMap @ 0x140B1FE0C (MiAllowImageMap.c)
+ *     MiRelocateImageAgain @ 0x140881870 (MiRelocateImageAgain.c)
+ *     MmGetSectionInformation @ 0x1408EBD40 (MmGetSectionInformation.c)
+ *     MiMarkSharedImageCfgBits @ 0x140999108 (MiMarkSharedImageCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x14099B254 (MiMarkPrivateImageCfgBits.c)
+ *     MiDoesImageContainFunctionOverrideFixups @ 0x140A08E48 (MiDoesImageContainFunctionOverrideFixups.c)
+ *     MiSwitchBaseAddress @ 0x140AC9EC0 (MiSwitchBaseAddress.c)
+ *     MiAllowImageMap @ 0x140B2222C (MiAllowImageMap.c)
  * Callees:
  *     <none>
  */

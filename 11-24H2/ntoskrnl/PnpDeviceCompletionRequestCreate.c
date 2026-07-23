@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDeviceCompletionRequestCreate @ 0x1408BB1DC
+ * XREFs of PnpDeviceCompletionRequestCreate @ 0x1408B8B8C
  * Callers:
- *     PipEnumerateDevice @ 0x1408BAFAC (PipEnumerateDevice.c)
- *     PnpStartDeviceNode @ 0x140A10740 (PnpStartDeviceNode.c)
- *     PiProcessNewDeviceNodeAsync @ 0x140A7C4EC (PiProcessNewDeviceNodeAsync.c)
+ *     PipEnumerateDevice @ 0x1408B895C (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1409BEB50 (PnpStartDeviceNode.c)
+ *     PiProcessNewDeviceNodeAsync @ 0x140A767EC (PiProcessNewDeviceNodeAsync.c)
  * Callees:
- *     PnpEnableWatchdog @ 0x1409C74F8 (PnpEnableWatchdog.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PnpEnableWatchdog @ 0x1409B9804 (PnpEnableWatchdog.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionRequestCreate(__int64 a1, int a2, __int64 a3)
@@ -14,7 +14,7 @@ __int64 __fastcall PnpDeviceCompletionRequestCreate(__int64 a1, int a2, __int64 
   __int64 Pool2; // rax
   __int64 v7; // rbx
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x31706E50u);
   v7 = Pool2;
   if ( Pool2 )
   {

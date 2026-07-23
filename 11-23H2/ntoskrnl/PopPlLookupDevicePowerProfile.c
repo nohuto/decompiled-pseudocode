@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPlLookupDevicePowerProfile @ 0x1405A1344
+ * XREFs of PopPlLookupDevicePowerProfile @ 0x1405A1834
  * Callers:
- *     PopPlRegisterDevice @ 0x1403974F4 (PopPlRegisterDevice.c)
- *     PopPlActivateDeviceIterator @ 0x1405A1160 (PopPlActivateDeviceIterator.c)
- *     PopPlIdleDeviceIterator @ 0x1405A12B0 (PopPlIdleDeviceIterator.c)
+ *     PopPlRegisterDevice @ 0x1403976D4 (PopPlRegisterDevice.c)
+ *     PopPlActivateDeviceIterator @ 0x1405A1650 (PopPlActivateDeviceIterator.c)
+ *     PopPlIdleDeviceIterator @ 0x1405A17A0 (PopPlIdleDeviceIterator.c)
  * Callees:
  *     <none>
  */

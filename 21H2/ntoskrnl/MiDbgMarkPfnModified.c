@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDbgMarkPfnModified @ 0x140545CEC
+ * XREFs of MiDbgMarkPfnModified @ 0x140545F2C
  * Callers:
- *     MiDbgWriteCheck @ 0x1405466BC (MiDbgWriteCheck.c)
+ *     MiDbgWriteCheck @ 0x1405468FC (MiDbgWriteCheck.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiGetPagingFileOffset @ 0x14025F240 (MiGetPagingFileOffset.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -166,8 +166,8 @@ LABEL_62:
   }
   if ( !MiIsPfnFileOnly(v9) )
   {
-    if ( qword_140C4DF40 && (v20 & 0x10) == 0 )
-      v20 &= ~qword_140C4DF40;
+    if ( qword_140C4DF80 && (v20 & 0x10) == 0 )
+      v20 &= ~qword_140C4DF80;
     v22 = v20 >> 16;
     v23 = *(_QWORD *)v22;
     v24 = *(_DWORD *)(*(_QWORD *)v22 + 56LL);
@@ -190,9 +190,9 @@ LABEL_62:
         SystemRegionType = MiGetSystemRegionType(a1);
         v5 = 1;
         if ( SystemRegionType == 1 )
-          byte_140C4CD88 = 1;
+          byte_140C4CDC8 = 1;
       }
-      byte_140C4E881 = v5;
+      byte_140C4E8C1 = v5;
     }
     v26 = v19 | 0x10;
 LABEL_60:

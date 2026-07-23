@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpUnlockDirectory @ 0x140109F18
+ * XREFs of ObpUnlockDirectory @ 0x140109F98
  * Callers:
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     ObpLookupDirectoryEntryEx @ 0x140624DC0 (ObpLookupDirectoryEntryEx.c)
- *     ObpLookupDirectoryUsingHash @ 0x140624F14 (ObpLookupDirectoryUsingHash.c)
- *     NtSetInformationObject @ 0x14068D6B0 (NtSetInformationObject.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x14068DAD8 (ObpMarkDirectoryObjectsTemporary.c)
- *     NtQueryDirectoryObject @ 0x14068DCD0 (NtQueryDirectoryObject.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140625DE0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryUsingHash @ 0x140625F34 (ObpLookupDirectoryUsingHash.c)
+ *     NtSetInformationObject @ 0x14068E870 (NtSetInformationObject.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x14068EC98 (ObpMarkDirectoryObjectsTemporary.c)
+ *     NtQueryDirectoryObject @ 0x14068EE90 (NtQueryDirectoryObject.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

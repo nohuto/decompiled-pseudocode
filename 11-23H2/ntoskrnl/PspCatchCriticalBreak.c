@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCatchCriticalBreak @ 0x1409B3A20
+ * XREFs of PspCatchCriticalBreak @ 0x1409B3C20
  * Callers:
- *     PspTerminateAllThreads @ 0x14076D010 (PspTerminateAllThreads.c)
- *     PspTerminateThreadByPointer @ 0x14076D980 (PspTerminateThreadByPointer.c)
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspTerminateAllThreads @ 0x14076D200 (PspTerminateAllThreads.c)
+ *     PspTerminateThreadByPointer @ 0x14076DB70 (PspTerminateThreadByPointer.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     PsGetServerSiloState @ 0x140309724 (PsGetServerSiloState.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     DbgPrompt @ 0x1405A7770 (DbgPrompt.c)
- *     PsTerminateServerSilo @ 0x1409AC8A0 (PsTerminateServerSilo.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     PsGetServerSiloState @ 0x1403099B4 (PsGetServerSiloState.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     DbgPrompt @ 0x1405A7CE0 (DbgPrompt.c)
+ *     PsTerminateServerSilo @ 0x1409ACAA0 (PsTerminateServerSilo.c)
  */
 
 void PspCatchCriticalBreak(const char *a1, ULONG_PTR a2, __int64 a3, __int64 a4, ...)

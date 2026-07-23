@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCheckForTimer @ 0x140515AFC
+ * XREFs of KeCheckForTimer @ 0x140515D3C
  * Callers:
- *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     VerifierKeInitializeTimerEx @ 0x1409DAD10 (VerifierKeInitializeTimerEx.c)
+ *     ExpFreePoolChecks @ 0x14021898C (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     VerifierKeInitializeTimerEx @ 0x1409DBD10 (VerifierKeInitializeTimerEx.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 int __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)

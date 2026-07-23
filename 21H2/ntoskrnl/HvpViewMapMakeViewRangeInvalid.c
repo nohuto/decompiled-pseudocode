@@ -1,39 +1,39 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeInvalid @ 0x140733D34
+ * XREFs of HvpViewMapMakeViewRangeInvalid @ 0x140733EF4
  * Callers:
- *     HvpViewMapPromoteRangeToMapping @ 0x140724B50 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapShrinkStorage @ 0x140873628 (HvpViewMapShrinkStorage.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406FCB88 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapShrinkStorage @ 0x140873788 (HvpViewMapShrinkStorage.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14036286C (CmSiProtectViewOfSection.c)
- *     CmSiUnlockViewOfSection @ 0x1403628F0 (CmSiUnlockViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x1402F7A5C (CmSiProtectViewOfSection.c)
+ *     CmSiUnlockViewOfSection @ 0x1402F7AE0 (CmSiUnlockViewOfSection.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeInvalid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapMakeViewRangeInvalid(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
-  __int64 v7; // r15
+  ULONG_PTR v7; // r15
   __int64 i; // rbp
   __int64 j; // rcx
   __int64 v10; // rax
   __int64 result; // rax
-  unsigned __int64 v12; // r14
-  int v13; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR v12; // r14
+  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
 
-  v13 = 0;
+  LODWORD(v13) = 0;
   v7 = a1;
   for ( i = a3; i < a4; i += 4096LL )
   {
     if ( !a2[8] )
       break;
     a1 = a2[3];
-    v12 = (unsigned __int64)(i - a1) >> 12;
+    v12 = (i - a1) >> 12;
     if ( (*((_BYTE *)a2 + v12 + 72) & 0x10) != 0 )
     {
-      CmSiUnlockViewOfSection(a1, *(__int64 **)(v7 + 24), i + a2[7] - a1, 4096LL);
+      CmSiUnlockViewOfSection(a1, *(void ***)(v7 + 24), (void *)(i + a2[7] - a1), 0x1000uLL);
       *((_BYTE *)a2 + v12 + 72) &= ~0x10u;
       --a2[8];
     }
   }
-  CmSiProtectViewOfSection(a1, *(__int64 **)(v7 + 24), a3 + a2[7] - a2[3], a4 - a3, 0x80000001, (__int64)&v13);
+  CmSiProtectViewOfSection(a1, *(void ***)(v7 + 24), (void *)(a3 + a2[7] - a2[3]), a4 - a3, 0x80000001, (ULONG *)&v13);
   for ( j = a3; j < a4; *((_BYTE *)a2 + ((unsigned __int64)(v10 - a2[3]) >> 12) + 72) = 0 )
   {
     v10 = j;

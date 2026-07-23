@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetTunnelParameterValue @ 0x14070A8A8
+ * XREFs of FsRtlGetTunnelParameterValue @ 0x140708468
  * Callers:
- *     FsRtlInitializeTunnels @ 0x140C1906C (FsRtlInitializeTunnels.c)
+ *     FsRtlInitializeTunnels @ 0x140C1B060 (FsRtlInitializeTunnels.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWORD *a2)
@@ -47,7 +47,7 @@ NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWO
       if ( Pool2 != (unsigned int *)KeyValueInformation )
         ExFreePoolWithTag(Pool2, 0);
       Length += 256;
-      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, Length, 0x4B6E7554u);
       if ( !Pool2 )
         return -1073741801;
     }

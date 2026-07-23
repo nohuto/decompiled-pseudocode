@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReleasePageFileSectionInfo @ 0x140157C9C
+ * XREFs of MiReleasePageFileSectionInfo @ 0x140157D9C
  * Callers:
- *     MiReservePageFileSpace @ 0x140081320 (MiReservePageFileSpace.c)
- *     MiBuildReservationCluster @ 0x1401500BC (MiBuildReservationCluster.c)
- *     MiGetPageFileSectionForReservation @ 0x1401576DC (MiGetPageFileSectionForReservation.c)
+ *     MiReservePageFileSpace @ 0x140081310 (MiReservePageFileSpace.c)
+ *     MiBuildReservationCluster @ 0x1401501BC (MiBuildReservationCluster.c)
+ *     MiGetPageFileSectionForReservation @ 0x1401577DC (MiGetPageFileSectionForReservation.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspJobCycleTimeNotificationDpcRoutine @ 0x140139990
+ * XREFs of PspJobCycleTimeNotificationDpcRoutine @ 0x140139A90
  * Callers:
  *     <none>
  * Callees:
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PspRequestDeferredJobNotification @ 0x14008F5EC (PspRequestDeferredJobNotification.c)
+ *     PspRequestDeferredJobNotification @ 0x14008F50C (PspRequestDeferredJobNotification.c)
  */
 
 void __fastcall PspJobCycleTimeNotificationDpcRoutine(

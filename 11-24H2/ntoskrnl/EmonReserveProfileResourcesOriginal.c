@@ -1,10 +1,10 @@
 /*
- * XREFs of EmonReserveProfileResourcesOriginal @ 0x14055DF00
+ * XREFs of EmonReserveProfileResourcesOriginal @ 0x14055BB30
  * Callers:
  *     <none>
  * Callees:
- *     HalpPmuGetNumberOfReservedCounters @ 0x140545E40 (HalpPmuGetNumberOfReservedCounters.c)
- *     EmonAllocateResources @ 0x14055AD8C (EmonAllocateResources.c)
+ *     HalpPmuGetNumberOfReservedCounters @ 0x140543700 (HalpPmuGetNumberOfReservedCounters.c)
+ *     EmonAllocateResources @ 0x1405589BC (EmonAllocateResources.c)
  */
 
 __int64 __fastcall EmonReserveProfileResourcesOriginal(__int64 a1, _DWORD *a2, __int64 *a3, _DWORD *a4)

@@ -16,65 +16,77 @@
  *     RtlpHeapLogRangeReserve @ 0x1800F0F4C (RtlpHeapLogRangeReserve.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3, unsigned int a4)
+PVOID __fastcall RtlpHpLargeAlloc(_DWORD *BaseAddress, __int16 a2, ULONG_PTR a3, unsigned int a4)
 {
-  unsigned __int64 v4; // rsi
-  void *v9; // rax
-  unsigned __int64 v10; // rdi
-  int HeapProtection; // eax
-  int v12; // eax
-  bool v13; // r8
-  _QWORD *v14; // rdx
-  _QWORD *v15; // rax
-  unsigned __int64 v17; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int64 v18; // [rsp+48h] [rbp-8h] BYREF
+  PVOID v4; // rsi
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // rdi
+  ULONG Protect; // eax
+  ULONG HeapProtection; // eax
+  BOOLEAN v13; // r8
+  _RTL_BALANCED_NODE *v14; // rdx
+  _RTL_BALANCED_NODE *v15; // rax
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddressa; // [rsp+48h] [rbp-8h] BYREF
 
   v4 = 0LL;
-  v18 = 0LL;
-  v9 = (void *)RtlpHpMetadataAlloc(40LL);
-  v10 = (unsigned __int64)v9;
+  BaseAddressa = 0LL;
+  v9 = (_RTL_BALANCED_NODE *)RtlpHpMetadataAlloc(0x28uLL);
+  v10 = v9;
   if ( !v9 )
   {
 LABEL_19:
-    if ( v18 )
+    if ( BaseAddressa )
     {
-      RtlpSparseBitmapCtxUpdateBitRanges((__int64)&RtlpHpLargeAllocationBitmap, v18 >> 16, 1uLL, 0LL, 0LL, 0);
-      v17 = 0LL;
-      ZwFreeVirtualMemory(-1LL, &v18, &v17, 0x8000LL);
+      RtlpSparseBitmapCtxUpdateBitRanges(
+        (__int64)&RtlpHpLargeAllocationBitmap,
+        (unsigned __int64)BaseAddressa >> 16,
+        1uLL,
+        0LL,
+        0LL,
+        0);
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, 0x8000u);
     }
     return v4;
   }
   memset(v9, 0, 0x28uLL);
-  v17 = a3 + 4096;
+  RegionSize = a3 + 4096;
   if ( a3 + 4096 < a3 )
     goto LABEL_17;
-  HeapProtection = RtlpGetHeapProtection((_DWORD *)a1, 1);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v18, 0LL, &v17, 0x2000, HeapProtection) < 0 )
+  Protect = RtlpGetHeapProtection(BaseAddress, 1);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x2000u, Protect) < 0 )
   {
-    v18 = 0LL;
+    BaseAddressa = 0LL;
     goto LABEL_17;
   }
-  v17 = a3;
-  v12 = RtlpGetHeapProtection((_DWORD *)a1, 1);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v18, 0LL, &v17, 4096, v12) < 0
-    || (*(_QWORD *)(v10 + 24) = v18,
-        *(_QWORD *)(v10 + 32) = v17 ^ ((unsigned __int16)v17 ^ (unsigned __int16)*(_QWORD *)(v10 + 32)) & 0xFFF,
-        *(_WORD *)(v10 + 24) = v17 - a2,
-        (int)RtlpSparseBitmapCtxUpdateBitRanges((__int64)&RtlpHpLargeAllocationBitmap, v18 >> 16, 1uLL, 0LL, 0LL, 1) < 0) )
+  RegionSize = a3;
+  HeapProtection = RtlpGetHeapProtection(BaseAddress, 1);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, HeapProtection) < 0
+    || (v10[1].Children[0] = (_RTL_BALANCED_NODE *)BaseAddressa,
+        v10[1].Children[1] = (_RTL_BALANCED_NODE *)(RegionSize ^ ((unsigned __int16)RegionSize ^ (unsigned __int16)v10[1].Children[1]) & 0xFFF),
+        LOWORD(v10[1].Children[0]) = RegionSize - a2,
+        (int)RtlpSparseBitmapCtxUpdateBitRanges(
+               (__int64)&RtlpHpLargeAllocationBitmap,
+               (unsigned __int64)BaseAddressa >> 16,
+               1uLL,
+               0LL,
+               0LL,
+               1) < 0) )
   {
 LABEL_17:
     if ( v10 )
-      RtlpHpMetadataFree(v10);
+      RtlpHpMetadataFree((unsigned __int64)v10);
     goto LABEL_19;
   }
-  RtlpHpLargeLockAcquire(a1, a4);
+  RtlpHpLargeLockAcquire(BaseAddress, a4);
   v13 = 0;
-  v14 = *(_QWORD **)(a1 + 56);
+  v14 = (_RTL_BALANCED_NODE *)*((_QWORD *)BaseAddress + 7);
   if ( !v14 )
     goto LABEL_11;
-  while ( v18 >= (v14[3] & 0xFFFFFFFFFFFF0000uLL) )
+  while ( (unsigned __int64)BaseAddressa >= ((unsigned __int64)v14[1].Children[0] & 0xFFFFFFFFFFFF0000uLL) )
   {
-    v15 = (_QWORD *)v14[1];
+    v15 = v14->Children[1];
     if ( !v15 )
     {
       v13 = 1;
@@ -83,21 +95,21 @@ LABEL_17:
 LABEL_9:
     v14 = v15;
   }
-  v15 = (_QWORD *)*v14;
-  if ( *v14 )
+  v15 = v14->Children[0];
+  if ( v14->Children[0] )
     goto LABEL_9;
   v13 = 0;
 LABEL_11:
-  RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 56), (unsigned __int64)v14, v13, v10);
-  RtlpHpLargeLockRelease(a1, a4);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), (v17 >> 12) + 1);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), v17 >> 12);
-  v4 = v18;
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(BaseAddress + 14), v14, v13, v10);
+  RtlpHpLargeLockRelease((_RTL_SRWLOCK *)BaseAddress, a4);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)BaseAddress + 9, (RegionSize >> 12) + 1);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)BaseAddress + 10, RegionSize >> 12);
+  v4 = BaseAddressa;
   v10 = 0LL;
-  v18 = 0LL;
+  BaseAddressa = 0LL;
   if ( MEMORY[0x7FFE0388] )
   {
-    RtlpHeapLogRangeReserve(a1, v4, v17 + 4096);
+    RtlpHeapLogRangeReserve(BaseAddress, v4, RegionSize + 4096);
     goto LABEL_17;
   }
   return v4;

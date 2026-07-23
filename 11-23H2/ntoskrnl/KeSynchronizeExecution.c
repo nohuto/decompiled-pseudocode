@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSynchronizeExecution @ 0x140420220
+ * XREFs of KeSynchronizeExecution @ 0x1404205B0
  * Callers:
- *     DifKeSynchronizeExecutionWrapper @ 0x1405E5D30 (DifKeSynchronizeExecutionWrapper.c)
+ *     DifKeSynchronizeExecutionWrapper @ 0x1405E62A0 (DifKeSynchronizeExecutionWrapper.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032FB40 (KeReleaseSpinLockFromDpcLevel.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiSynchronizePassiveInterruptExecution @ 0x14057A1A0 (KiSynchronizePassiveInterruptExecution.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0 (KeReleaseSpinLockFromDpcLevel.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiSynchronizePassiveInterruptExecution @ 0x14057A690 (KiSynchronizePassiveInterruptExecution.c)
  */
 
 BOOLEAN __stdcall KeSynchronizeExecution(

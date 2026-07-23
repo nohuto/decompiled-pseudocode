@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMergeCopyExtents @ 0x1406FA964
+ * XREFs of MiMergeCopyExtents @ 0x1406FF634
  * Callers:
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiFormCopyExtents @ 0x1406FA11C (MiFormCopyExtents.c)
- *     MiInsertExtentList @ 0x1406FA658 (MiInsertExtentList.c)
- *     MiLockFileExtentsExclusive @ 0x140770630 (MiLockFileExtentsExclusive.c)
- *     MiUnlockFileExtentsExclusive @ 0x1407706A8 (MiUnlockFileExtentsExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiFormCopyExtents @ 0x1406FEDEC (MiFormCopyExtents.c)
+ *     MiInsertExtentList @ 0x1406FF328 (MiInsertExtentList.c)
+ *     MiLockFileExtentsExclusive @ 0x140773630 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x1407736A8 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMergeCopyExtents(_QWORD *a1, __int64 a2, __int64 a3, unsigned int **a4)
@@ -104,7 +104,7 @@ __int64 __fastcall MiMergeCopyExtents(_QWORD *a1, __int64 a2, __int64 a3, unsign
     {
       v23 = (__int64)&v9[12 * i + 2];
       if ( *(_QWORD *)(v23 + 32) != 0x8000000000000000uLL )
-        RtlAvlRemoveNode((unsigned __int64 *)&stru_140E2D150.WaitBlock[3].Thread, v23);
+        RtlAvlRemoveNode((unsigned __int64 *)&stru_140E2D2D0.WaitBlock[3].Thread, v23);
     }
   }
   MiInsertExtentList(v7);

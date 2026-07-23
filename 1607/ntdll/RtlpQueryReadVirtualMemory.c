@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpQueryReadVirtualMemory @ 0x18006DE60
+ * XREFs of RtlpQueryReadVirtualMemory @ 0x18006DE50
  * Callers:
- *     LdrpReadMemory @ 0x18006DC04 (LdrpReadMemory.c)
+ *     LdrpReadMemory @ 0x18006DBF4 (LdrpReadMemory.c)
  * Callees:
  *     ZwReadVirtualMemory @ 0x1800A6C00 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpQueryReadVirtualMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+NTSTATUS __fastcall RtlpQueryReadVirtualMemory(void *a1, void *a2, void *a3, SIZE_T a4, PSIZE_T NumberOfBytesRead)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = ZwReadVirtualMemory(a1, a2, a3, a4, a5);
-  if ( (int)result >= 0 )
-    return a4 != *a5 ? 0x8000000D : 0;
-  *a5 = 0LL;
+  result = ZwReadVirtualMemory(a1, a2, a3, a4, NumberOfBytesRead);
+  if ( result >= 0 )
+    return a4 != *NumberOfBytesRead ? 0x8000000D : 0;
+  *NumberOfBytesRead = 0LL;
   return result;
 }

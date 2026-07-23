@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateFreePfns @ 0x140C5120C
+ * XREFs of MiCreateFreePfns @ 0x140C5339C
  * Callers:
- *     MiSwitchToPfns @ 0x140C51F10 (MiSwitchToPfns.c)
+ *     MiSwitchToPfns @ 0x140C540A0 (MiSwitchToPfns.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MxCreateFreePfns @ 0x140C5254C (MxCreateFreePfns.c)
- *     MxReleaseFreeDescriptor @ 0x140C53354 (MxReleaseFreeDescriptor.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MxCreateFreePfns @ 0x140C546DC (MxCreateFreePfns.c)
+ *     MxReleaseFreeDescriptor @ 0x140C554E4 (MxReleaseFreeDescriptor.c)
  */
 
 __int64 __fastcall MiCreateFreePfns(_OWORD *a1)

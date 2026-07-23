@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteTebRange @ 0x1404CD4BC
+ * XREFs of MiDeleteTebRange @ 0x1404B2EE8
  * Callers:
- *     MmDeleteTeb @ 0x1404CD424 (MmDeleteTeb.c)
- *     MiCreatePebOrTeb @ 0x14050B230 (MiCreatePebOrTeb.c)
+ *     MmDeleteTeb @ 0x1404B2E50 (MmDeleteTeb.c)
+ *     MiCreatePebOrTeb @ 0x1404EE1C0 (MiCreatePebOrTeb.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     MiLocateVadEvent @ 0x140015564 (MiLocateVadEvent.c)
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiDecommitRegion @ 0x140430190 (MiDecommitRegion.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     MiLocateVadEvent @ 0x1400150E4 (MiLocateVadEvent.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiDecommitRegion @ 0x14042F060 (MiDecommitRegion.c)
  */
 
 void __fastcall MiDeleteTebRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int16 a4)
@@ -82,7 +82,7 @@ void __fastcall MiDeleteTebRange(__int64 a1, unsigned __int64 a2, unsigned __int
   if ( v17 == 1 )
   {
     v21 = (_QWORD *)(v13 + 16);
-    v22 = qword_140327F90 + 16 * (*(unsigned __int16 *)(v13 + 40) + 17302536LL);
+    v22 = qword_140327FD0 + 16 * (*(unsigned __int16 *)(v13 + 40) + 17302536LL);
     v23 = *(_QWORD *)v22;
     if ( *(_QWORD *)(*(_QWORD *)v22 + 8LL) != v22 )
       __fastfail(3u);

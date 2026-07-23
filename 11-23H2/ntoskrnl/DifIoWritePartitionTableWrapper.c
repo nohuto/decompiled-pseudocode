@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoWritePartitionTableWrapper @ 0x1405E1D80
+ * XREFs of DifIoWritePartitionTableWrapper @ 0x1405E22F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoWritePartitionTable @ 0x140940C40 (IoWritePartitionTable.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoWritePartitionTable @ 0x140940E40 (IoWritePartitionTable.c)
  */
 
 NTSTATUS __fastcall DifIoWritePartitionTableWrapper(

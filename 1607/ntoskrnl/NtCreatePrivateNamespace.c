@@ -1,41 +1,45 @@
 /*
- * XREFs of NtCreatePrivateNamespace @ 0x1404776D4
+ * XREFs of NtCreatePrivateNamespace @ 0x1404765A4
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140477960 (ObpVerifyCreatorAccessCheck.c)
- *     ObpRegisterPrivateNamespace @ 0x140477AC8 (ObpRegisterPrivateNamespace.c)
- *     ObpCaptureBoundaryDescriptor @ 0x140478794 (ObpCaptureBoundaryDescriptor.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140476830 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpRegisterPrivateNamespace @ 0x140476998 (ObpRegisterPrivateNamespace.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140477664 (ObpCaptureBoundaryDescriptor.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  _QWORD *v5; // r12
+  PHANDLE v5; // r12
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v8; // rdi
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned __int64 v10; // rbx
   int v11; // eax
   _QWORD *v12; // r13
   unsigned __int64 v13; // rbx
   size_t v14; // r8
   __int64 v15; // rcx
-  int v16; // edi
-  NTSTATUS inserted; // esi
+  NTSTATUS v16; // edi
+  int inserted; // esi
   char *CurrentServerSiloGlobals; // r15
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v20; // rdi
@@ -54,16 +58,16 @@ __int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2,
   PVOID P; // [rsp+60h] [rbp-38h]
   HANDLE Handle; // [rsp+68h] [rbp-30h] BYREF
 
-  v5 = (_QWORD *)a1;
+  v5 = NamespaceHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)NamespaceHandle >= 0x7FFFFFFF0000LL )
+      NamespaceHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *NamespaceHandle = *NamespaceHandle;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v8 = P;
     v9 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -79,7 +83,7 @@ __int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2,
         v11 = ObCreateObject(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                (__int64)ObjectAttributes,
                 PreviousMode,
                 0,
                 *((_DWORD *)P + 6) + 400,
@@ -116,7 +120,7 @@ __int64 __fastcall NtCreatePrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2,
             if ( v16 >= 0 )
             {
               ObfReferenceObject(v12);
-              inserted = ObInsertObject(v12, 0LL, a2, 0, 0LL, &Handle);
+              inserted = ObInsertObject(v12, 0LL, DesiredAccess, 0, 0LL, &Handle);
               CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -157,7 +161,7 @@ LABEL_20:
                   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v27, v28, v29);
                   if ( inserted >= 0 )
                     *v5 = Handle;
-                  return (unsigned int)inserted;
+                  return inserted;
                 }
                 v30 = *(_QWORD *)v13;
                 v31 = *(_QWORD **)(v13 + 8);
@@ -172,13 +176,13 @@ LABEL_20:
             }
           }
           ObfDereferenceObject(v12);
-          return (unsigned int)v16;
+          return v16;
         }
         v9 = v11;
       }
     }
     ExFreePoolWithTag(v8, 0x534E624Fu);
-    return (unsigned int)v9;
+    return v9;
   }
   return result;
 }

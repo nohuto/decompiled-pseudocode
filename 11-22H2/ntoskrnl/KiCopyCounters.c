@@ -79,10 +79,10 @@ struct _KPRCB *__fastcall KiCopyCounters(__int64 a1)
     _disable();
   }
   while ( !v9 && v4 != *(_QWORD *)(a1 + 72) );
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       v12 = v11->SchedulerAssist;

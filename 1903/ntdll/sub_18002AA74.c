@@ -11,21 +11,23 @@
  *     sub_1800CE318 @ 0x1800CE318 (sub_1800CE318.c)
  */
 
-__int64 __fastcall sub_18002AA74(unsigned __int16 *a1, int a2, int a3, int a4, __int64 a5, __int64 *a6, __int64 a7)
+__int64 __fastcall sub_18002AA74(PUNICODE_STRING a1, int a2, __int64 a3, int a4, __int64 a5, char **a6, __int64 a7)
 {
-  __int64 *v7; // rbx
+  char **v7; // rbx
   int v8; // r10d
+  int v10; // esi
   int v12; // ebp
-  unsigned __int16 *v13; // rdx
+  _UNICODE_STRING *v13; // rdx
   int v14; // eax
   int v15; // edi
   char v17; // al
   __int128 v18; // [rsp+40h] [rbp-28h] BYREF
-  int v19; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v19; // [rsp+80h] [rbp+18h] BYREF
 
   v7 = a6;
   v8 = 0;
-  v19 = 0;
+  LODWORD(v19) = 0;
+  v10 = a3;
   v12 = (int)a1;
   *a6 = 0LL;
   if ( (a3 & 0x20) != 0 )
@@ -47,9 +49,9 @@ LABEL_4:
 LABEL_5:
   if ( v15 == -1073741515 )
   {
-    v15 = sub_18002AB70(v12, a2, a3, a4, a5, (__int64)v7, a7);
+    v15 = sub_18002AB70(v12, a2, v10, a4, a5, (__int64)v7, a7);
     if ( v15 >= 0 )
-      return (unsigned int)sub_180029560(*(_BYTE **)(*v7 + 176));
+      return (unsigned int)sub_180029560(*((_BYTE **)*v7 + 22));
   }
   else if ( v8 < 0 )
   {
@@ -75,7 +77,7 @@ LABEL_5:
   }
   else
   {
-    sub_18002228C(*v7);
+    sub_18002228C((__int64)*v7);
   }
   return (unsigned int)v15;
 }

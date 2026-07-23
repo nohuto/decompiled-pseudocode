@@ -59,8 +59,8 @@ __int64 __fastcall HalpAllocatePmcCounterSetEx(
   __int64 v45; // [rsp+40h] [rbp-98h]
   __int64 v46; // [rsp+50h] [rbp-88h]
   __int64 v48; // [rsp+68h] [rbp-70h]
-  struct _GROUP_AFFINITY v49; // [rsp+70h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-58h] BYREF
+  _GROUP_AFFINITY v49; // [rsp+70h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-58h] BYREF
 
   v6 = a5;
   v8 = a1;
@@ -88,7 +88,7 @@ __int64 __fastcall HalpAllocatePmcCounterSetEx(
     v43 = HalpCounterStatus + 8LL * (unsigned int)(HalpNumberOfCounters * v8);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -203,10 +203,13 @@ LABEL_33:
   *(_QWORD *)(v34 + 8) = v12;
   *(_QWORD *)v33 = v12;
 LABEL_40:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v20 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)v20 <= 0xFu
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v20 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v20 = (unsigned int)CurrentIrql + 1;

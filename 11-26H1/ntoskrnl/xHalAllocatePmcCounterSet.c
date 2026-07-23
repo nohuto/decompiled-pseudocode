@@ -1,8 +1,8 @@
 /*
- * XREFs of xHalAllocatePmcCounterSet @ 0x140B11900
+ * XREFs of xHalAllocatePmcCounterSet @ 0x140B13680
  * Callers:
- *     DifNtCreateJobSetWrapper @ 0x1406714D0 (DifNtCreateJobSetWrapper.c)
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     DifNtCreateJobSetWrapper @ 0x1406750B0 (DifNtCreateJobSetWrapper.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of KiFreezeTargetExecution @ 0x1400828E0
+ * XREFs of KiFreezeTargetExecution @ 0x140083560
  * Callers:
- *     KiCheckForFreezeExecution @ 0x1400827F4 (KiCheckForFreezeExecution.c)
+ *     KiCheckForFreezeExecution @ 0x140083470 (KiCheckForFreezeExecution.c)
  * Callees:
- *     KiEndDebugAccumulation @ 0x140082A84 (KiEndDebugAccumulation.c)
- *     KiRestoreProcessorState @ 0x140082B28 (KiRestoreProcessorState.c)
- *     KiSaveProcessorState @ 0x140082BD8 (KiSaveProcessorState.c)
- *     KiStartDebugAccumulation @ 0x140082C68 (KiStartDebugAccumulation.c)
- *     KiSetDebuggerOwner @ 0x1400832A0 (KiSetDebuggerOwner.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiRestoreProcessorControlState @ 0x14015D780 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x14015D840 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140166F20 (RtlCaptureContext.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeFlushCurrentTbImmediately @ 0x1401D60A0 (KeFlushCurrentTbImmediately.c)
+ *     KiEndDebugAccumulation @ 0x140083704 (KiEndDebugAccumulation.c)
+ *     KiRestoreProcessorState @ 0x1400837A8 (KiRestoreProcessorState.c)
+ *     KiSaveProcessorState @ 0x140083858 (KiSaveProcessorState.c)
+ *     KiStartDebugAccumulation @ 0x1400838E8 (KiStartDebugAccumulation.c)
+ *     KiSetDebuggerOwner @ 0x140083F20 (KiSetDebuggerOwner.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiRestoreProcessorControlState @ 0x14015DCF0 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x14015DDB0 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140167490 (RtlCaptureContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeFlushCurrentTbImmediately @ 0x1401D5ECC (KeFlushCurrentTbImmediately.c)
  *     KdpReportExceptionStateChange @ 0x1406F4050 (KdpReportExceptionStateChange.c)
- *     VfStartBranchTracing @ 0x14070EE84 (VfStartBranchTracing.c)
- *     VfStopBranchTracing @ 0x14070EF08 (VfStopBranchTracing.c)
+ *     VfStartBranchTracing @ 0x14070EEB4 (VfStartBranchTracing.c)
+ *     VfStopBranchTracing @ 0x14070EF38 (VfStopBranchTracing.c)
  */
 
 __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)

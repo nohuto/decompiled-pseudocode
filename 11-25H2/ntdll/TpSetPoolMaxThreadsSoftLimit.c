@@ -10,11 +10,11 @@
 
 void __fastcall TpSetPoolMaxThreadsSoftLimit(__int64 a1, int a2)
 {
-  int v2; // [rsp+38h] [rbp+10h] BYREF
+  int WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = a2;
+  WorkerFactoryInformation = a2;
   if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
   else
-    NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 14LL, &v2);
+    NtSetInformationWorkerFactory(*(HANDLE *)(a1 + 56), WorkerFactoryThreadSoftMaximum, &WorkerFactoryInformation, 4u);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopPerfCompleteRequest @ 0x14045F95E
+ * XREFs of IopPerfCompleteRequest @ 0x14045FD5E
  * Callers:
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     IovCompleteRequest @ 0x140AC148C (IovCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     IovCompleteRequest @ 0x140AC147C (IovCompleteRequest.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     IopFreeIrpExtension @ 0x14028FE18 (IopFreeIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
- *     IopfCompleteRequest @ 0x1402C99B0 (IopfCompleteRequest.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopProcessIoTracking @ 0x14045FB88 (IopProcessIoTracking.c)
+ *     IopFreeIrpExtension @ 0x1402900A8 (IopFreeIrpExtension.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
+ *     IopfCompleteRequest @ 0x1402C9C40 (IopfCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopProcessIoTracking @ 0x14045FF88 (IopProcessIoTracking.c)
  */
 
 void __fastcall IopPerfCompleteRequest(__int64 BugCheckParameter1, unsigned __int8 a2)

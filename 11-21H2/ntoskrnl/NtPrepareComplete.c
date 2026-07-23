@@ -9,5 +9,5 @@
 // attributes: thunk
 NTSTATUS __stdcall NtPrepareComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  return __imp_NtPrepareComplete(EnlistmentHandle, TmVirtualClock);
+  return NtPrepareComplete_0(EnlistmentHandle, TmVirtualClock);
 }

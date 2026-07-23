@@ -1,5 +1,5 @@
 /*
- * XREFs of SymCryptFdefModPreGetGeneric @ 0x140536760
+ * XREFs of SymCryptFdefModPreGetGeneric @ 0x140530C00
  * Callers:
  *     <none>
  * Callees:

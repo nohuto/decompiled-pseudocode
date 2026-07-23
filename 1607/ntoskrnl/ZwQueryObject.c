@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwQueryObject @ 0x140159E80
+ * XREFs of ZwQueryObject @ 0x14015A3F0
  * Callers:
- *     CmpNameFromAttributes @ 0x14049C2AC (CmpNameFromAttributes.c)
- *     CmpAddToHiveFileList @ 0x14049CE58 (CmpAddToHiveFileList.c)
- *     CmpCmdRenameHive @ 0x140603554 (CmpCmdRenameHive.c)
- *     EtwpObjectTypeRundown @ 0x1406A7410 (EtwpObjectTypeRundown.c)
+ *     CmpNameFromAttributes @ 0x1404A4444 (CmpNameFromAttributes.c)
+ *     CmpAddToHiveFileList @ 0x1404CD0D8 (CmpAddToHiveFileList.c)
+ *     CmpCmdRenameHive @ 0x140603608 (CmpCmdRenameHive.c)
+ *     EtwpObjectTypeRundown @ 0x1406A7548 (EtwpObjectTypeRundown.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryObject(
         HANDLE Handle,
         OBJECT_INFORMATION_CLASS ObjectInformationClass,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwQueryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, *(_QWORD *)&ObjectInformationClass, ObjectInformation);
+  return KiServiceInternal(Handle);
 }

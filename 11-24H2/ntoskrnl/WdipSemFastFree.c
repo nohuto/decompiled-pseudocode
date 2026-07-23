@@ -1,18 +1,18 @@
 /*
- * XREFs of WdipSemFastFree @ 0x1406F99A0
+ * XREFs of WdipSemFastFree @ 0x1406F75E0
  * Callers:
- *     WdipSemLoadNextScenario @ 0x1407A1610 (WdipSemLoadNextScenario.c)
- *     WdipSemRollBackProviderTable @ 0x1407A2118 (WdipSemRollBackProviderTable.c)
- *     WdipSemLogInflightLimitExceededInformation @ 0x1407A2368 (WdipSemLogInflightLimitExceededInformation.c)
- *     WdipSemFreeScenario @ 0x1407A2890 (WdipSemFreeScenario.c)
- *     WdipSemFreeFrequentScenarioTable @ 0x140A47A90 (WdipSemFreeFrequentScenarioTable.c)
- *     WdipSemDeleteTransitionalInstance @ 0x140A47D18 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemWriteSemActionsEvent @ 0x140AA4368 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemLoadNextScenario @ 0x1407A1720 (WdipSemLoadNextScenario.c)
+ *     WdipSemRollBackProviderTable @ 0x1407A2228 (WdipSemRollBackProviderTable.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x1407A2478 (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemFreeScenario @ 0x1407A29A0 (WdipSemFreeScenario.c)
+ *     WdipSemFreeFrequentScenarioTable @ 0x140A3D8B0 (WdipSemFreeFrequentScenarioTable.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140A3DB38 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140A9F6F8 (WdipSemWriteSemActionsEvent.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall WdipSemFastFree(int a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall WdipSemFastFree(int a1, _SLIST_ENTRY *a2)
 {
   PSLIST_ENTRY result; // rax
 

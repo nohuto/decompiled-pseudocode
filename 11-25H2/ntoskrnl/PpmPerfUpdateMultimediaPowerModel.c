@@ -8,18 +8,18 @@
  *     ZwUpdateWnfStateData @ 0x14069ED60 (ZwUpdateWnfStateData.c)
  */
 
-__int64 PpmPerfUpdateMultimediaPowerModel()
+NTSTATUS PpmPerfUpdateMultimediaPowerModel()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( PpmPerfMultimediaQosSupported )
-    result = 2LL;
+    result = 2;
   else
     result = PpmLowPowerProfile != 0;
-  if ( (_DWORD)result != PpmPerfMultimediaPowerModel )
+  if ( result != PpmPerfMultimediaPowerModel )
   {
     PpmPerfMultimediaPowerModel = result;
-    return ZwUpdateWnfStateData(&WNF_PO_MULTIMEDIA_POWER_MODEL, &PpmPerfMultimediaPowerModel, 4LL, 0LL, 0LL, 0, 0);
+    return ZwUpdateWnfStateData(&WNF_PO_MULTIMEDIA_POWER_MODEL, &PpmPerfMultimediaPowerModel, 4u, 0LL, 0LL, 0, 0);
   }
   return result;
 }

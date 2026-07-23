@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInitializeNls @ 0x140AC1714
+ * XREFs of ExInitializeNls @ 0x140ABC9FC
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
- *     Phase1InitializationIoReady @ 0x140C5FB78 (Phase1InitializationIoReady.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
+ *     Phase1InitializationIoReady @ 0x140C61CC8 (Phase1InitializationIoReady.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x1406A7990 (ZwCreateDirectoryObject.c)
- *     RtlpInitCodePageTables @ 0x14077EA64 (RtlpInitCodePageTables.c)
- *     RtlpInitUppercaseTables @ 0x14077EC0C (RtlpInitUppercaseTables.c)
- *     RtlpQueryNlsSystemCodePages @ 0x14077ECAC (RtlpQueryNlsSystemCodePages.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x1406A8930 (ZwCreateDirectoryObject.c)
+ *     RtlpInitCodePageTables @ 0x14077E994 (RtlpInitCodePageTables.c)
+ *     RtlpInitUppercaseTables @ 0x14077EB3C (RtlpInitUppercaseTables.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x14077EBDC (RtlpQueryNlsSystemCodePages.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS ExInitializeNls()
@@ -33,7 +33,7 @@ NTSTATUS ExInitializeNls()
   if ( result >= 0 )
   {
     ZwClose(Handle);
-    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x58736C4Eu);
     if ( Pool2 )
     {
       *Pool2 = 0LL;

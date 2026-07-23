@@ -1,10 +1,10 @@
 /*
- * XREFs of PrExtApplyPatch @ 0x1404D1CF4
+ * XREFs of PrExtApplyPatch @ 0x1404CAD34
  * Callers:
- *     HalpMcUpdateMicrocode @ 0x1404D1C2C (HalpMcUpdateMicrocode.c)
+ *     HalpMcUpdateMicrocode @ 0x1404CAC6C (HalpMcUpdateMicrocode.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     MicrocodeUpdate @ 0x140664918 (MicrocodeUpdate.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     MicrocodeUpdate @ 0x140663208 (MicrocodeUpdate.c)
  */
 
 __int64 PrExtApplyPatch()

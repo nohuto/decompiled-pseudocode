@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x14069BBE0
+ * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x14069BCC4
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x14069BA2C (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x14069BB10 (WdipSemLogInflightLimitExceededInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     WdipSemFastAllocate @ 0x1404E4438 (WdipSemFastAllocate.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     WdipSemFastAllocate @ 0x1404C70F0 (WdipSemFastAllocate.c)
  */
 
-__int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
+__int64 __fastcall WdipSemUpdateFrequentScenarioTable(_SLIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 v2; // rbx
@@ -29,23 +29,23 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
   v2 = 0LL;
   v4 = 0;
   --CurrentThread->KernelApcDisable;
-  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140300348, 0LL, 0);
-  v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140300348, 0LL);
+  v5 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140300328, 0LL, 0);
+  v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140300328, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(&qword_140300348, v5, (ULONG_PTR)&qword_140300348);
+    ExfAcquirePushLockExclusiveEx(&qword_140300328, v5, (ULONG_PTR)&qword_140300328);
   if ( v7 )
     v7[26] |= 1u;
   if ( a1 )
   {
-    if ( (unsigned int)dword_140300340 < 0x80 )
+    if ( (unsigned int)dword_140300320 < 0x80 )
     {
       v8 = WdipSemFastAllocate(5, 0x18u);
       if ( v8 )
       {
         *v8 = *a1;
         v8[1].Next = a1[1].Next;
-        WdipSemFrequentScenarioTable[dword_140300340++] = v8;
+        WdipSemFrequentScenarioTable[dword_140300320++] = v8;
       }
       else
       {
@@ -61,16 +61,16 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
   {
     v4 = -1073741811;
   }
-  _m_prefetchw(&qword_140300348);
-  if ( (qword_140300348 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
-    v2 = qword_140300348 - 16;
-  if ( (qword_140300348 & 2) != 0
-    || (v9 = qword_140300348,
-        v9 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140300348, v2, qword_140300348)) )
+  _m_prefetchw(&qword_140300328);
+  if ( (qword_140300328 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
+    v2 = qword_140300328 - 16;
+  if ( (qword_140300328 & 2) != 0
+    || (v9 = qword_140300328,
+        v9 != _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140300328, v2, qword_140300328)) )
   {
-    ExfReleasePushLock(&qword_140300348);
+    ExfReleasePushLock(&qword_140300328);
   }
-  KeAbPostRelease((ULONG_PTR)&qword_140300348);
+  KeAbPostRelease((ULONG_PTR)&qword_140300328);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v10, v11, v12);
   return v4;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpPinRangesContextStart @ 0x14081D870
+ * XREFs of VmpPinRangesContextStart @ 0x140823A80
  * Callers:
- *     VmPinMemoryRanges @ 0x14081D290 (VmPinMemoryRanges.c)
- *     VmpUnpinMemoryRanges @ 0x14081DBA8 (VmpUnpinMemoryRanges.c)
- *     VmpUnpinRangeSinglePages @ 0x14081DD5C (VmpUnpinRangeSinglePages.c)
+ *     VmPinMemoryRanges @ 0x1408234A0 (VmPinMemoryRanges.c)
+ *     VmpUnpinMemoryRanges @ 0x140823DB8 (VmpUnpinMemoryRanges.c)
+ *     VmpUnpinRangeSinglePages @ 0x140823F6C (VmpUnpinRangeSinglePages.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VmpPinRangesContextStart(

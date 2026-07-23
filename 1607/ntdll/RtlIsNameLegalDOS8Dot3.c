@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800E3460 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800E3520 (RtlUpcaseUnicodeStringToCountedOemString.c)
  */
 
 BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemName, PBOOLEAN NameContainsSpaces)
@@ -33,7 +33,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
     v15 = &v16;
     v4 = (POEM_STRING)&v14;
   }
-  if ( (int)RtlUpcaseUnicodeStringToCountedOemString(&v4->Length, (PWCH *)Name, 0) < 0 )
+  if ( RtlUpcaseUnicodeStringToCountedOemString(v4, Name, 0) < 0 )
     return 0;
   if ( v4->Length != 1 || *v4->Buffer != 46 )
   {

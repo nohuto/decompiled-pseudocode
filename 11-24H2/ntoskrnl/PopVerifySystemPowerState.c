@@ -1,14 +1,14 @@
 /*
- * XREFs of PopVerifySystemPowerState @ 0x140A7DC9C
+ * XREFs of PopVerifySystemPowerState @ 0x140A77F9C
  * Callers:
- *     PopActionRetrieveInitialState @ 0x1404AE7B8 (PopActionRetrieveInitialState.c)
- *     PopExecutePowerAction @ 0x140753574 (PopExecutePowerAction.c)
- *     PdcPoVerifyPowerState @ 0x14075D310 (PdcPoVerifyPowerState.c)
- *     PopVerifySystemPowerPolicy @ 0x1409B88AC (PopVerifySystemPowerPolicy.c)
- *     PopAdvanceSystemPowerState @ 0x140AB9AF8 (PopAdvanceSystemPowerState.c)
+ *     PopActionRetrieveInitialState @ 0x1404A90C8 (PopActionRetrieveInitialState.c)
+ *     PopExecutePowerAction @ 0x140751894 (PopExecutePowerAction.c)
+ *     PdcPoVerifyPowerState @ 0x14075C2B0 (PdcPoVerifyPowerState.c)
+ *     PopVerifySystemPowerPolicy @ 0x14099EEFC (PopVerifySystemPowerPolicy.c)
+ *     PopAdvanceSystemPowerState @ 0x140AB4BB8 (PopAdvanceSystemPowerState.c)
  * Callees:
- *     PopIsHiberbootSupported @ 0x1406F98F0 (PopIsHiberbootSupported.c)
- *     PopIsHibernateSupported @ 0x140A8BE18 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x1406F7530 (PopIsHiberbootSupported.c)
+ *     PopIsHibernateSupported @ 0x140A88308 (PopIsHibernateSupported.c)
  */
 
 void __fastcall PopVerifySystemPowerState(int *a1, unsigned int a2)
@@ -50,18 +50,18 @@ LABEL_34:
               goto LABEL_7;
             }
 LABEL_33:
-            if ( HIBYTE(word_140F0BB44) )
+            if ( HIBYTE(word_140F0B664) )
               goto LABEL_7;
             goto LABEL_34;
           }
 LABEL_31:
-          if ( (_BYTE)word_140F0BB44 )
+          if ( (_BYTE)word_140F0B664 )
             goto LABEL_7;
           v4 = 4;
           goto LABEL_33;
         }
 LABEL_29:
-        if ( byte_140F0BB43 )
+        if ( byte_140F0B663 )
           goto LABEL_7;
         v4 = 3;
         goto LABEL_31;
@@ -84,11 +84,11 @@ LABEL_29:
           goto LABEL_26;
         }
 LABEL_24:
-        if ( (_BYTE)word_140F0BB44 )
+        if ( (_BYTE)word_140F0B664 )
           goto LABEL_7;
         v4 = 2;
 LABEL_26:
-        if ( byte_140F0BB43 )
+        if ( byte_140F0B663 )
           goto LABEL_7;
         v4 = 1;
         if ( v2 != 1 )
@@ -97,7 +97,7 @@ LABEL_26:
         v4 = 2;
         goto LABEL_29;
       }
-      if ( HIBYTE(word_140F0BB44) )
+      if ( HIBYTE(word_140F0B664) )
       {
 LABEL_7:
         *v3 = v4;

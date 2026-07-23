@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x140782D40
+ * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x140782C70
  * Callers:
- *     PopCheckShutdownMarker @ 0x140C2D6B4 (PopCheckShutdownMarker.c)
+ *     PopCheckShutdownMarker @ 0x140C2F7D4 (PopCheckShutdownMarker.c)
  * Callees:
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
  */
 
 NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)

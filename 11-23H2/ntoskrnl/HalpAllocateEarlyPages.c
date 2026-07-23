@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocateEarlyPages @ 0x140505550
+ * XREFs of HalpAllocateEarlyPages @ 0x140505AA0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMap @ 0x14037E228 (HalpMap.c)
+ *     HalpMap @ 0x14037E3C8 (HalpMap.c)
  *     HalpAllocPhysicalMemory @ 0x140B4893C (HalpAllocPhysicalMemory.c)
  */
 

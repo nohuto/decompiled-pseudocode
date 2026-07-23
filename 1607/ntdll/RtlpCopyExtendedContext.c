@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCopyExtendedContext @ 0x1800EB5BC
+ * XREFs of RtlpCopyExtendedContext @ 0x1800EB67C
  * Callers:
- *     RtlCopyExtendedContext @ 0x1800EB4A0 (RtlCopyExtendedContext.c)
+ *     RtlCopyExtendedContext @ 0x1800EB560 (RtlCopyExtendedContext.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x180076620 (RtlpValidateContextFlags.c)
- *     RtlpCopyXStateChunk @ 0x18008BB44 (RtlpCopyXStateChunk.c)
- *     RtlpCopyLegacyContext @ 0x18008BC18 (RtlpCopyLegacyContext.c)
+ *     RtlpValidateContextFlags @ 0x180076610 (RtlpValidateContextFlags.c)
+ *     RtlpCopyXStateChunk @ 0x18008BB34 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyLegacyContext @ 0x18008BC08 (RtlpCopyLegacyContext.c)
  */
 
 __int64 __fastcall RtlpCopyExtendedContext(char a1, __int64 a2, __int64 a3, int a4, __int64 a5)

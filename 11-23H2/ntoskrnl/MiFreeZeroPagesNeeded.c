@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeZeroPagesNeeded @ 0x14046CDB8
+ * XREFs of MiFreeZeroPagesNeeded @ 0x14046D1B8
  * Callers:
- *     MiPruneStandbyPages @ 0x14046CFB0 (MiPruneStandbyPages.c)
- *     MiRebalanceZeroFreeLists @ 0x140651730 (MiRebalanceZeroFreeLists.c)
+ *     MiPruneStandbyPages @ 0x14046D3B0 (MiPruneStandbyPages.c)
+ *     MiRebalanceZeroFreeLists @ 0x140651C80 (MiRebalanceZeroFreeLists.c)
  * Callees:
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     MiGetNodeStandbyPageCount @ 0x14046CE2A (MiGetNodeStandbyPageCount.c)
+ *     MiNodeFreeZeroPages @ 0x1402E87B4 (MiNodeFreeZeroPages.c)
+ *     MiGetNodeStandbyPageCount @ 0x14046D22A (MiGetNodeStandbyPageCount.c)
  */
 
 __int64 __fastcall MiFreeZeroPagesNeeded(__int64 a1, unsigned int a2, unsigned int a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PsUpdateActiveProcessAffinity @ 0x1408888C0
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x140889B20
  * Callers:
- *     KeStartDynamicProcessor @ 0x140843BB0 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x140844E10 (KeStartDynamicProcessor.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     PspUpdateSingleProcessAffinity @ 0x14088924C (PspUpdateSingleProcessAffinity.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAndAffinityEx @ 0x1400DC780 (KeAndAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x14018A430 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x14088A4AC (PspUpdateSingleProcessAffinity.c)
  */
 
 _QWORD *PsUpdateActiveProcessAffinity()

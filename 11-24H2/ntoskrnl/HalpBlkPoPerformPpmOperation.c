@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkPoPerformPpmOperation @ 0x140BDB008
+ * XREFs of HalpBlkPoPerformPpmOperation @ 0x140BDD008
  * Callers:
- *     HalpBlkHandleIpi @ 0x140BDB3E0 (HalpBlkHandleIpi.c)
+ *     HalpBlkHandleIpi @ 0x140BDD3E0 (HalpBlkHandleIpi.c)
  * Callees:
- *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140BDB0EC (HalpBlkPoPerformPpmOperationForIoPort.c)
+ *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140BDD0EC (HalpBlkPoPerformPpmOperationForIoPort.c)
  */
 
 char HalpBlkPoPerformPpmOperation()

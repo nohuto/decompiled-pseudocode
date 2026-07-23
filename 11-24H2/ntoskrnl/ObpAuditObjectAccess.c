@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpAuditObjectAccess @ 0x140989024
+ * XREFs of ObpAuditObjectAccess @ 0x140863834
  * Callers:
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     NtWriteFile @ 0x1408C1170 (NtWriteFile.c)
- *     ObReferenceFileObjectForWrite @ 0x140988C30 (ObReferenceFileObjectForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObReferenceFileObjectForWrite @ 0x140863440 (ObReferenceFileObjectForWrite.c)
+ *     NtWriteFile @ 0x1408BEB30 (NtWriteFile.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExLockHandleTableEntry @ 0x140409050 (ExLockHandleTableEntry.c)
- *     OBJECT_HEADER_TO_AUDIT_INFO @ 0x14041B1C0 (OBJECT_HEADER_TO_AUDIT_INFO.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     ExpGetHandleExtraInfo @ 0x14084D528 (ExpGetHandleExtraInfo.c)
- *     SeOperationAuditAlarm @ 0x1408F0A50 (SeOperationAuditAlarm.c)
- *     ExUnlockHandleTableEntry @ 0x14093D890 (ExUnlockHandleTableEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExLockHandleTableEntry @ 0x140401530 (ExLockHandleTableEntry.c)
+ *     OBJECT_HEADER_TO_AUDIT_INFO @ 0x14040ED00 (OBJECT_HEADER_TO_AUDIT_INFO.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     ExpGetHandleExtraInfo @ 0x1408497E8 (ExpGetHandleExtraInfo.c)
+ *     SeOperationAuditAlarm @ 0x140862250 (SeOperationAuditAlarm.c)
+ *     ExUnlockHandleTableEntry @ 0x140891F80 (ExUnlockHandleTableEntry.c)
  */
 
 char __fastcall ObpAuditObjectAccess(unsigned int *a1, unsigned __int64 a2, __int64 *a3, __int64 a4, int a5)
@@ -55,7 +55,7 @@ char __fastcall ObpAuditObjectAccess(unsigned int *a1, unsigned __int64 a2, __in
       }
       LOBYTE(P) = 1;
     }
-    ExUnlockHandleTableEntry((__int64)a1, a3);
+    ExUnlockHandleTableEntry(a1, a3);
   }
   KeLeaveCriticalRegionThread();
   return (char)P;

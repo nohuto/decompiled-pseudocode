@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillPageFileReadMdl @ 0x140372310
+ * XREFs of MiFillPageFileReadMdl @ 0x1403740C0
  * Callers:
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiAdvanceFaultList @ 0x14036F4A0 (MiAdvanceFaultList.c)
- *     MiReduceMdl @ 0x140472980 (MiReduceMdl.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiAdvanceFaultList @ 0x140371250 (MiAdvanceFaultList.c)
+ *     MiReduceMdl @ 0x14046C100 (MiReduceMdl.c)
  */
 
 char __fastcall MiFillPageFileReadMdl(__int64 *a1)
@@ -112,17 +112,17 @@ char __fastcall MiFillPageFileReadMdl(__int64 *a1)
       goto LABEL_15;
     if ( (v12 & 0xC01) == 0 )
     {
-      v13 = qword_140E2D740;
+      v13 = qword_140E2D8C0;
       v14 = v12;
-      if ( qword_140E2D740 && (v12 & 0x10) == 0 )
-        v14 = qword_140E2D748 & v12;
+      if ( qword_140E2D8C0 && (v12 & 0x10) == 0 )
+        v14 = qword_140E2D8C8 & v12;
       v15 = HIDWORD(v14);
       v16 = HIDWORD(v8);
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        v13 = v8 & qword_140E2D748;
+        v13 = v8 & qword_140E2D8C8;
         if ( (v8 & 0x10) == 0 )
-          v16 = HIDWORD(v8) & HIDWORD(qword_140E2D748);
+          v16 = HIDWORD(v8) & HIDWORD(qword_140E2D8C8);
       }
       if ( (_DWORD)v15 == v16 )
       {
@@ -176,8 +176,8 @@ LABEL_15:
               _InterlockedAnd64((volatile signed __int64 *)v17 + 3, 0x7FFFFFFFFFFFFFFFuLL);
               if ( (v4[6] & 0x10) != 0 )
               {
-                if ( qword_140E2D740 && (v12 & 0x10) == 0 )
-                  v12 &= qword_140E2D748;
+                if ( qword_140E2D8C0 && (v12 & 0x10) == 0 )
+                  v12 &= qword_140E2D8C8;
                 v4[19] = 48 * ((v12 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
               }
               v10 = v45;
@@ -193,7 +193,7 @@ LABEL_15:
     }
     if ( (v4[6] & 8) != 0 )
       break;
-    *v11 = qword_140E35FF8;
+    *v11 = qword_140E36178;
     *((_DWORD *)v4 + 12) |= 2u;
 LABEL_30:
     v43 = v11 + 1;
@@ -205,26 +205,26 @@ LABEL_30:
     }
     v7 += 8LL;
     v21 = v8;
-    if ( qword_140E2D740 && (v8 & 0x10) == 0 )
-      v21 = v8 & qword_140E2D748;
+    if ( qword_140E2D8C0 && (v8 & 0x10) == 0 )
+      v21 = v8 & qword_140E2D8C8;
     v22 = HIDWORD(v21);
     v23 = v8;
     if ( v8 )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v23 = v8 & 0xFFFFFFEF;
         if ( (v8 & 0x10) == 0 )
-          v23 = v8 & qword_140E2D748;
+          v23 = v8 & qword_140E2D8C8;
       }
     }
     v8 = v23 | ((unsigned __int64)(unsigned int)(v22 + 1) << 32);
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
-      if ( (qword_140E2D740 & v8) != 0 )
+      if ( (qword_140E2D8C0 & v8) != 0 )
         v8 |= 0x10uLL;
       else
-        v8 |= qword_140E2D740;
+        v8 |= qword_140E2D8C0;
     }
     v11 = v43;
     v50 = ++v2;
@@ -240,7 +240,7 @@ LABEL_42:
     {
       do
       {
-        if ( *v37 != qword_140E35FF8 )
+        if ( *v37 != qword_140E36178 )
         {
           MiReleaseFreshPageAtDpc(48LL * *v37 - 0x220000000000LL, v13, (__int64)v11);
           --v9;

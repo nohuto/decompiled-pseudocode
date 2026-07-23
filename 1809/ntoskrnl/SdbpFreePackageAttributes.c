@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpFreePackageAttributes @ 0x1408E72C8
+ * XREFs of SdbpFreePackageAttributes @ 0x1408E8588
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x14067E9C4 (SdbpReleaseSearchDBContext.c)
+ *     SdbpReleaseSearchDBContext @ 0x14067FB84 (SdbpReleaseSearchDBContext.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ULongLongMult @ 0x14026D9D8 (ULongLongMult.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbpFreePackageAttributes(_QWORD *a1)

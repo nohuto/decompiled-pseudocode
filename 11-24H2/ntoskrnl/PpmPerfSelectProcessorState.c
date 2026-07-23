@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfSelectProcessorState @ 0x14042A5A8
+ * XREFs of PpmPerfSelectProcessorState @ 0x1403A2AD8
  * Callers:
- *     PpmPerfSelectProcessorStates @ 0x14042A520 (PpmPerfSelectProcessorStates.c)
+ *     PpmPerfSelectProcessorStates @ 0x1403A2A50 (PpmPerfSelectProcessorStates.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x14042AA7C (PpmGetPerfPolicyClass.c)
- *     PpmEventPerfSelectProcessorState @ 0x14042AAD0 (PpmEventPerfSelectProcessorState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmGetPerfPolicyClass @ 0x1403A2FAC (PpmGetPerfPolicyClass.c)
+ *     PpmEventPerfSelectProcessorState @ 0x1403A3000 (PpmEventPerfSelectProcessorState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmPerfSelectProcessorState(__int64 *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   unsigned int v16; // eax
   unsigned int v17; // edx
   __int64 v18; // rax
-  __int64 v19; // r9
+  unsigned int v19; // r9d
   unsigned int v20; // ebx
   int v21; // eax
   unsigned __int8 v23; // r10
@@ -62,12 +62,12 @@ __int64 __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   v5 = PpmMfBufferingThreshold;
   if ( (unsigned int)PpmMfBufferingThreshold > 0x64 )
     v5 = 100;
-  v6 = 61LL * dword_140F0BA4C;
+  v6 = 61LL * dword_140F0B38C;
   v7 = &PpmCurrentProfile[0][v6 + 5];
-  if ( v4 && PpmCurrentProfile[0] == (__int64 *)PpmLowPowerProfile && byte_140F0BA8C && *(_BYTE *)(v4 + 233) < v5 )
+  if ( v4 && PpmCurrentProfile[0] == (__int64 *)PpmLowPowerProfile && byte_140F0B3CC && *(_BYTE *)(v4 + 233) < v5 )
   {
     v1 = 0;
-    v7 = (__int64 *)((char *)&unk_140F069A8 + v6 * 8);
+    v7 = (__int64 *)((char *)&unk_140F06CC8 + v6 * 8);
   }
   PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass(a1);
   v11 = *((unsigned __int8 *)v7 + PerfPolicyClass + 56);
@@ -121,19 +121,19 @@ __int64 __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   {
     if ( PpmPerfBoostAtGuaranteed || (unsigned int)(v9 - 5) <= 1 )
     {
-      v19 = *(unsigned int *)(v2 + 24);
+      v19 = *(_DWORD *)(v2 + 24);
       v18 = v40;
     }
     else
     {
       v18 = v40;
-      v19 = 100LL;
+      v19 = 100;
     }
   }
   else
   {
     v18 = v40;
-    v19 = *(unsigned int *)(v40 + 452);
+    v19 = *(_DWORD *)(v40 + 452);
   }
   if ( !*(_BYTE *)(v18 + 522) )
   {
@@ -179,7 +179,7 @@ LABEL_21:
   }
   v30 = *(_DWORD *)(v2 + 1184) + 1;
   *(_DWORD *)(v2 + 1184) = v30;
-  if ( v20 >= (unsigned int)v19 || v30 < v38 )
+  if ( v20 >= v19 || v30 < v38 )
     goto LABEL_21;
   *(_DWORD *)(v2 + 1184) = 0;
   switch ( v13 )
@@ -216,7 +216,7 @@ LABEL_36:
   v20 = v36;
   v1 = 0x80;
 LABEL_37:
-  if ( v20 >= (unsigned int)v19 )
+  if ( v20 >= v19 )
     v20 = v19;
 LABEL_22:
   if ( v26 >= v27 )
@@ -267,7 +267,7 @@ LABEL_24:
     }
   }
 LABEL_12:
-  v21 = guard_dispatch_icall_no_overrides(v41, v20, *(unsigned int *)(v40 + 460), v19);
+  v21 = guard_dispatch_icall_no_overrides(v41, v20);
   *(_DWORD *)(v2 + 56) = v21;
   return PpmEventPerfSelectProcessorState((_DWORD)a1, v44, v20, v21, v1);
 }

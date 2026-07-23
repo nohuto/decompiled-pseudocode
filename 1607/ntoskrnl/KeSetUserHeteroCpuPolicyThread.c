@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetUserHeteroCpuPolicyThread @ 0x1401D2F5C
+ * XREFs of KeSetUserHeteroCpuPolicyThread @ 0x1401D2D88
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     KeQueryHeteroCpuPolicyThread @ 0x1401D2CF4 (KeQueryHeteroCpuPolicyThread.c)
- *     KiSetHeteroPolicyThread @ 0x1401D8354 (KiSetHeteroPolicyThread.c)
+ *     KeQueryHeteroCpuPolicyThread @ 0x1401D2B20 (KeQueryHeteroCpuPolicyThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1401D8180 (KiSetHeteroPolicyThread.c)
  */
 
 __int64 __fastcall KeSetUserHeteroCpuPolicyThread(__int64 a1, unsigned int a2)

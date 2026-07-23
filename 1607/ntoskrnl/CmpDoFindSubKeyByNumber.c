@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDoFindSubKeyByNumber @ 0x140438510
+ * XREFs of CmpDoFindSubKeyByNumber @ 0x1404373E0
  * Callers:
- *     CmpFindSubKeyByNumber @ 0x1404386C0 (CmpFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumberEx @ 0x140438CE0 (CmpFindSubKeyByNumberEx.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x14060A36C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryStart @ 0x14060A544 (CmpKeyEnumStackEntryStart.c)
+ *     CmpFindSubKeyByNumber @ 0x140437590 (CmpFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumberEx @ 0x140437BB0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14060A420 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryStart @ 0x14060A5F8 (CmpKeyEnumStackEntryStart.c)
  * Callees:
  *     <none>
  */

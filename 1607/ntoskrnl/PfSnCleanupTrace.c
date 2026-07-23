@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnCleanupTrace @ 0x1403E91BC
+ * XREFs of PfSnCleanupTrace @ 0x1403EA7EC
  * Callers:
- *     PfSnEndTrace @ 0x1403E8F64 (PfSnEndTrace.c)
- *     PfSnBeginTrace @ 0x1403E9698 (PfSnBeginTrace.c)
+ *     PfSnEndTrace @ 0x1403EA594 (PfSnEndTrace.c)
+ *     PfSnBeginTrace @ 0x1403EACC8 (PfSnBeginTrace.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

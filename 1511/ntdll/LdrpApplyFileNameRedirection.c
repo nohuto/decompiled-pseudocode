@@ -17,7 +17,7 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
 {
   _BYTE *v5; // r12
   struct _PEB *v6; // r13
-  __int64 v8; // rdi
+  _UNICODE_STRING *v8; // rdi
   int v9; // ebx
   char v10; // bp
   void *ApiSetMap; // r14
@@ -26,18 +26,18 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   int appended; // ebx
   char v15; // r15
   __int64 v16; // r8
-  __int64 v17; // rdx
-  int v18; // edi
+  _UNICODE_STRING *v17; // rdx
+  NTSTATUS v18; // edi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   unsigned __int16 v21[8]; // [rsp+50h] [rbp-58h] BYREF
-  _BYTE v22[16]; // [rsp+60h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-38h] BYREF
+  _UNICODE_STRING DynamicString; // [rsp+60h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-38h] BYREF
   __int64 v24; // [rsp+C0h] [rbp+18h] BYREF
 
   v24 = a3;
   v5 = a5;
   v6 = NtCurrentPeb();
-  v8 = a2;
+  v8 = (_UNICODE_STRING *)a2;
   v9 = 0;
   v10 = 1;
   *a5 = 0;
@@ -46,7 +46,7 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   ApiSetMap = v6->ApiSetMap;
   if ( MEMORY[0x7FFE0384] && (NtCurrentPeb()->TracingFlags & 4) != 0 && (MEMORY[0x7FFE0385] & 0x20) != 0 )
     LdrpLogEtwEvent(5328, 0, 0, 0, a2);
-  v12 = ApiSetResolveToHost((_DWORD)ApiSetMap, v8, v9, (unsigned int)&v24, (__int64)v21);
+  v12 = ApiSetResolveToHost((_DWORD)ApiSetMap, (_DWORD)v8, v9, (unsigned int)&v24, (__int64)v21);
   v13 = v21[0];
   appended = v12;
   v15 = v24;
@@ -72,23 +72,23 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   appended = LdrpAppendUnicodeStringToFilenameBuffer(a4, &DestinationString.Length);
   if ( appended >= 0 )
   {
-    appended = LdrpAppendUnicodeStringToFilenameBuffer(a4, SlashSystem32SlashString);
+    appended = LdrpAppendUnicodeStringToFilenameBuffer(a4, &SlashSystem32SlashString.Length);
     if ( appended >= 0 )
     {
       appended = LdrpAppendUnicodeStringToFilenameBuffer(a4, v21);
       ProcessParameters = v6->ProcessParameters;
       if ( !ProcessParameters || (v10 = 1, (ProcessParameters->Flags & 0x1000) == 0) )
         v10 = 0;
-      LODWORD(v8) = (_DWORD)a4;
+      v8 = (_UNICODE_STRING *)a4;
 LABEL_8:
       if ( appended >= 0 && v10 && !LdrpIsSecureProcess )
       {
         v18 = RtlDosApplyFileIsolationRedirection_Ustr(
-                1,
+                1u,
                 v8,
-                (unsigned int)L"\b\n",
-                0,
-                (__int64)v22,
+                (PUNICODE_STRING)&LdrpDefaultExtension,
+                0LL,
+                &DynamicString,
                 0LL,
                 0LL,
                 0LL,
@@ -96,8 +96,8 @@ LABEL_8:
         if ( v18 >= 0 )
         {
           *v5 = 1;
-          LdrpGetFullPath((__int64)v22, (__int64)a4);
-          LdrpFreeUnicodeString((__int64)v22);
+          LdrpGetFullPath((__int64)&DynamicString, (__int64)a4);
+          LdrpFreeUnicodeString((__int64)&DynamicString);
         }
         if ( v18 != -1072365560 )
           return (unsigned int)v18;

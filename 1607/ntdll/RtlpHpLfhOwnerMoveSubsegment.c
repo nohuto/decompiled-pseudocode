@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x18004BB90
+ * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x18004BB80
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpHpLfhSlotAllocate @ 0x1800419C4 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpFreeHeap @ 0x180047A70 (RtlpHpFreeHeap.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004BCB4 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x180089210 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1800419B4 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpFreeHeap @ 0x180047A60 (RtlpHpFreeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x18004BCA4 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x180089200 (RtlpHpLfhSubsegmentFreeBlock.c)
  * Callees:
  *     <none>
  */

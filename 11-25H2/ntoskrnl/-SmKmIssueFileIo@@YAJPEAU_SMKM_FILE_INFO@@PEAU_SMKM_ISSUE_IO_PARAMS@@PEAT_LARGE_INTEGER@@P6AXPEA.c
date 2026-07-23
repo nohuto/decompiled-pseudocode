@@ -9,7 +9,7 @@
  */
 
 __int64 __fastcall SmKmIssueFileIo(
-        void **a1,
+        struct _SMKM_FILE_INFO *a1,
         struct _SMKM_ISSUE_IO_PARAMS *a2,
         union _LARGE_INTEGER *a3,
         void (*a4)(void *, struct _IO_STATUS_BLOCK *, unsigned int),
@@ -17,18 +17,18 @@ __int64 __fastcall SmKmIssueFileIo(
 {
   struct _IO_STATUS_BLOCK *v5; // rbx
   void *v6; // r10
-  void *v7; // rcx
+  HANDLE FileHandle; // rcx
   NTSTATUS File; // eax
   ULONG v10; // [rsp+30h] [rbp-28h]
 
   v5 = *(struct _IO_STATUS_BLOCK **)a2;
   v6 = (void *)*((_QWORD *)a2 + 1);
-  v7 = *a1;
+  FileHandle = a1->FileHandle;
   v10 = *((_DWORD *)a2 + 4);
   if ( (*((_DWORD *)a2 + 8) & 1) != 0 )
-    File = NtReadFile(v7, 0LL, a4, ApcContext, v5, v6, v10, a3, 0LL);
+    File = NtReadFile(FileHandle, 0LL, a4, ApcContext, v5, v6, v10, a3, 0LL);
   else
-    File = NtWriteFile(v7, 0LL, a4, ApcContext, v5, v6, v10, a3, 0LL);
+    File = NtWriteFile(FileHandle, 0LL, a4, ApcContext, v5, v6, v10, a3, 0LL);
   if ( (File & 0xC0000000) == 0xC0000000 )
   {
     v5->Status = File;

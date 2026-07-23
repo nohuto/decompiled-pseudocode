@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetSubsectionContents @ 0x1404CBDF4
+ * XREFs of MiGetSubsectionContents @ 0x1404C5824
  * Callers:
- *     MiExtendSection @ 0x140A5838C (MiExtendSection.c)
+ *     MiExtendSection @ 0x140A6590C (MiExtendSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiGetSubsectionContents(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IoDetachDevice @ 0x140437B10
+ * XREFs of IoDetachDevice @ 0x140426A30
  * Callers:
- *     DifIoDetachDeviceWrapper @ 0x14065B8F0 (DifIoDetachDeviceWrapper.c)
- *     ViFilterDispatchPnp @ 0x140C3C0A0 (ViFilterDispatchPnp.c)
+ *     DifIoDetachDeviceWrapper @ 0x14065F4D0 (DifIoDetachDeviceWrapper.c)
+ *     ViFilterDispatchPnp @ 0x140C420B0 (ViFilterDispatchPnp.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     IopCompleteUnloadOrDelete @ 0x140437F84 (IopCompleteUnloadOrDelete.c)
- *     IovDetachDevice @ 0x140C20E4C (IovDetachDevice.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     IopCompleteUnloadOrDelete @ 0x140426EA4 (IopCompleteUnloadOrDelete.c)
+ *     IovDetachDevice @ 0x140C26E5C (IovDetachDevice.c)
  */
 
 void __stdcall IoDetachDevice(PDEVICE_OBJECT TargetDevice)

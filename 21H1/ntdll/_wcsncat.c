@@ -11,7 +11,7 @@ wchar_t *__cdecl wcsncat(wchar_t *Destination, const wchar_t *Source, size_t Cou
   wchar_t *v3; // ecx
   wchar_t v4; // ax
   wchar_t *v5; // edx
-  size_t v6; // ecx
+  int v6; // ecx
   wchar_t v8; // ax
 
   v3 = Destination;
@@ -22,7 +22,7 @@ wchar_t *__cdecl wcsncat(wchar_t *Destination, const wchar_t *Source, size_t Cou
   }
   while ( v4 );
   v6 = Count;
-  if ( Count )
+  if ( (_DWORD)Count )
   {
     while ( 1 )
     {

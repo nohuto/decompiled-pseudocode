@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReInsertPlaceholderVad @ 0x14055533C
+ * XREFs of MiReInsertPlaceholderVad @ 0x14055557C
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
  * Callees:
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
  */
 
 void __fastcall MiReInsertPlaceholderVad(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

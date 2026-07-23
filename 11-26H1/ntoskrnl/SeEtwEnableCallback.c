@@ -1,12 +1,12 @@
 /*
- * XREFs of SeEtwEnableCallback @ 0x14063B63C
+ * XREFs of SeEtwEnableCallback @ 0x14063E758
  * Callers:
- *     EtwpKernelProvEnableCallback @ 0x140826460 (EtwpKernelProvEnableCallback.c)
+ *     EtwpKernelProvEnableCallback @ 0x14082C6A0 (EtwpKernelProvEnableCallback.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall SeEtwEnableCallback(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  RtlpBootStatHandleLock.WaitBlockFill7[129] = (a4 & 0x40) != 0;
+  BYTE3(RtlpBootStatHandleLock.Queue) = (a4 & 0x40) != 0;
 }

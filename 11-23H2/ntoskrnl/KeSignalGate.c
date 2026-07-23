@@ -1,38 +1,38 @@
 /*
- * XREFs of KeSignalGate @ 0x14035D33C
+ * XREFs of KeSignalGate @ 0x14035D4DC
  * Callers:
  *     MiAttachThreadDone @ 0x140217924 (MiAttachThreadDone.c)
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
  *     MiReturnWsToExpansionList @ 0x14022245C (MiReturnWsToExpansionList.c)
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
- *     MiComputeDataFlushRange @ 0x140288E80 (MiComputeDataFlushRange.c)
- *     MiFinishVadDeletion @ 0x140289D10 (MiFinishVadDeletion.c)
- *     MiUnlockControlAreaSectionExtend @ 0x140293070 (MiUnlockControlAreaSectionExtend.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MiDereferencePageRunsEx @ 0x140357BE4 (MiDereferencePageRunsEx.c)
- *     KiGenericCallDpcInitiatorDpc @ 0x1403C7670 (KiGenericCallDpcInitiatorDpc.c)
- *     PsWatchWorkingSet @ 0x1404638C0 (PsWatchWorkingSet.c)
- *     KiEpfComplete @ 0x140578E80 (KiEpfComplete.c)
- *     MiZeroHugeRangeWorker @ 0x140622DD0 (MiZeroHugeRangeWorker.c)
- *     MiSubsectionProtosCreated @ 0x14063F71C (MiSubsectionProtosCreated.c)
- *     MiWakeExtentDeletionWaiters @ 0x140640394 (MiWakeExtentDeletionWaiters.c)
- *     MiWakeWaitersForAweCacheAttributeChange @ 0x14064C3E8 (MiWakeWaitersForAweCacheAttributeChange.c)
- *     MiWakeLargePageWaiters @ 0x140650004 (MiWakeLargePageWaiters.c)
- *     MiScrubMemoryWorker @ 0x140A46600 (MiScrubMemoryWorker.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
+ *     MiComputeDataFlushRange @ 0x140289110 (MiComputeDataFlushRange.c)
+ *     MiFinishVadDeletion @ 0x140289FA0 (MiFinishVadDeletion.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x140293300 (MiUnlockControlAreaSectionExtend.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiZeroInParallelWorker @ 0x1402D1590 (MiZeroInParallelWorker.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MiDereferencePageRunsEx @ 0x140357D84 (MiDereferencePageRunsEx.c)
+ *     KiGenericCallDpcInitiatorDpc @ 0x1403C7850 (KiGenericCallDpcInitiatorDpc.c)
+ *     PsWatchWorkingSet @ 0x140463CC0 (PsWatchWorkingSet.c)
+ *     KiEpfComplete @ 0x140579370 (KiEpfComplete.c)
+ *     MiZeroHugeRangeWorker @ 0x140623320 (MiZeroHugeRangeWorker.c)
+ *     MiSubsectionProtosCreated @ 0x14063FC6C (MiSubsectionProtosCreated.c)
+ *     MiWakeExtentDeletionWaiters @ 0x1406408E4 (MiWakeExtentDeletionWaiters.c)
+ *     MiWakeWaitersForAweCacheAttributeChange @ 0x14064C938 (MiWakeWaitersForAweCacheAttributeChange.c)
+ *     MiWakeLargePageWaiters @ 0x140650554 (MiWakeLargePageWaiters.c)
+ *     MiScrubMemoryWorker @ 0x140A468B0 (MiScrubMemoryWorker.c)
  *     sub_140B19300 @ 0x140B19300 (sub_140B19300.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeSignalGate(__int64 a1, unsigned int a2)
@@ -62,7 +62,7 @@ __int64 __fastcall KeSignalGate(__int64 a1, unsigned int a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -108,7 +108,7 @@ LABEL_6:
           v16 = (_QWORD *)(v15 + 8);
           v17 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
           {
             v18 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v17 == 2 )
@@ -166,5 +166,5 @@ LABEL_6:
   }
 LABEL_15:
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  return KiExitDispatcher(v25, 0, (struct _PROCESSOR_NUMBER)1, a2, CurrentIrql);
+  return KiExitDispatcher(v25, 0, (_PROCESSOR_NUMBER)1, a2, CurrentIrql);
 }

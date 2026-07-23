@@ -32,7 +32,7 @@ void *PnpGetPropertiesSecurityDescriptor()
   ULONG v5; // esi
   PVOID v6; // rax
   void *v7; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
   _WORD SecurityDescriptor[20]; // [rsp+38h] [rbp-48h] BYREF
   unsigned __int8 Sid[16]; // [rsp+60h] [rbp-20h] BYREF
 

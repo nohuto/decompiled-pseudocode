@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrEnumerateSatcDevices @ 0x1405795E0
+ * XREFs of DmrEnumerateSatcDevices @ 0x140576A70
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x1405780FC (HalpIvtProcessDmarTable.c)
+ *     HalpIvtProcessDmarTable @ 0x14057558C (HalpIvtProcessDmarTable.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14055FA30 (ExtEnvAllocateMemory.c)
- *     DmrGetNextDeviceScope @ 0x140579740 (DmrGetNextDeviceScope.c)
- *     DmrGetNextRemappingStructure @ 0x140579788 (DmrGetNextRemappingStructure.c)
+ *     ExtEnvAllocateMemory @ 0x14055D660 (ExtEnvAllocateMemory.c)
+ *     DmrGetNextDeviceScope @ 0x140576BD0 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextRemappingStructure @ 0x140576C18 (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall DmrEnumerateSatcDevices(__int64 a1, __int64 a2)
@@ -61,13 +61,13 @@ __int64 __fastcall DmrEnumerateSatcDevices(__int64 a1, __int64 a2)
               *(_WORD *)(v12 + 28) = v11;
               *(_WORD *)(v12 + 24) = v5[3];
               *(_DWORD *)(v12 + 40) = *((unsigned __int8 *)v5 + 4);
-              v13 = (__int64 *)qword_140FC0B48;
-              if ( *(__int64 **)qword_140FC0B48 != &HalpIommuAtsDeviceList )
+              v13 = (__int64 *)qword_140FC0DA8;
+              if ( *(__int64 **)qword_140FC0DA8 != &HalpIommuAtsDeviceList )
                 __fastfail(3u);
               *(_QWORD *)v12 = &HalpIommuAtsDeviceList;
               *(_QWORD *)(v12 + 8) = v13;
               *v13 = v12;
-              qword_140FC0B48 = v12;
+              qword_140FC0DA8 = v12;
 LABEL_16:
               v7 = v9;
               continue;

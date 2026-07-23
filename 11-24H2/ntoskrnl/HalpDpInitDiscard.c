@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDpInitDiscard @ 0x140C0F0F0
+ * XREFs of HalpDpInitDiscard @ 0x140C110F0
  * Callers:
- *     HalpDpInitSystem @ 0x140B4CF60 (HalpDpInitSystem.c)
+ *     HalpDpInitSystem @ 0x140B4EFA0 (HalpDpInitSystem.c)
  * Callees:
- *     HalpGetHotPlugMemoryInfo @ 0x140C0E710 (HalpGetHotPlugMemoryInfo.c)
+ *     HalpGetHotPlugMemoryInfo @ 0x140C10710 (HalpGetHotPlugMemoryInfo.c)
  */
 
 __int64 __fastcall HalpDpInitDiscard(__int64 a1)

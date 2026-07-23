@@ -1,12 +1,12 @@
 /*
- * XREFs of VfIrpDatabaseEntryInsertAndLock @ 0x140AE1848
+ * XREFs of VfIrpDatabaseEntryInsertAndLock @ 0x140AE1838
  * Callers:
- *     VfPacketCreateAndLock @ 0x140ADD03C (VfPacketCreateAndLock.c)
+ *     VfPacketCreateAndLock @ 0x140ADD02C (VfPacketCreateAndLock.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2554 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D259C (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeAdd @ 0x140AC23C4 (VfUtilAddressRangeAdd.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1798 (VfIrpDatabaseEntryFindAndLock.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2AC4 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D2B0C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeAdd @ 0x140AC23B4 (VfUtilAddressRangeAdd.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1788 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 __int64 __fastcall VfIrpDatabaseEntryInsertAndLock(unsigned __int64 a1, __int64 a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComputeDueTime @ 0x1403AE0C0
+ * XREFs of KiComputeDueTime @ 0x1403B7DD0
  * Callers:
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1402C60D8 (KiResumeThread.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x140310D78 (KiResumeThread.c)
  * Callees:
- *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403AE1FC (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403B7F0C (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
  */
 
 __int64 __fastcall KiComputeDueTime(int *a1, __int64 a2, __int64 a3, _DWORD *a4)

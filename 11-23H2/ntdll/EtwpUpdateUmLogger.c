@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpUpdateUmLogger @ 0x180125F74
+ * XREFs of EtwpUpdateUmLogger @ 0x180125F44
  * Callers:
  *     EtwProcessPrivateLoggerRequest @ 0x18005BA20 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
@@ -21,9 +21,9 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
   int v13; // edx
   int v14; // ecx
   int v15; // edx
-  UNICODE_STRING v16; // xmm6
+  _UNICODE_STRING v16; // xmm6
   NTSTATUS v17; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
   __int64 v19; // [rsp+78h] [rbp+10h] BYREF
 
   v19 = 0LL;
@@ -73,13 +73,13 @@ LABEL_28:
     if ( *(_WORD *)(a4 + 128) )
     {
       v15 = *(_DWORD *)(v10 + 60);
-      v16 = *(UNICODE_STRING *)(v10 + 152);
+      v16 = *(_UNICODE_STRING *)(v10 + 152);
       UnicodeString = v16;
-      v9 = EtwpAddInstanceIdToLogFileName(a4, v15, (_QWORD *)(v10 + 152));
+      v9 = EtwpAddInstanceIdToLogFileName(a4, v15, (_UNICODE_STRING *)(v10 + 152));
       if ( v9 )
       {
 LABEL_23:
-        *(UNICODE_STRING *)(v10 + 152) = v16;
+        *(_UNICODE_STRING *)(v10 + 152) = v16;
         goto LABEL_28;
       }
       EtwpSynchronizeWithLogger(v10, 2);

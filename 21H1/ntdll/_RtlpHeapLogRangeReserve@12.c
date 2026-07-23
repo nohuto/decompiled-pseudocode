@@ -12,19 +12,25 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall RtlpHeapLogRangeReserve(int a1, int a2, int a3)
+NTSTATUS __fastcall RtlpHeapLogRangeReserve(int a1, int a2, int a3)
 {
   int v5; // eax
-  _DWORD v7[13]; // [esp+8h] [ebp-3Ch] BYREF
+  size_t v7; // [esp-4h] [ebp-48h]
+  _BYTE Fields[6]; // [esp+8h] [ebp-3Ch] BYREF
+  __int16 v9; // [esp+Eh] [ebp-36h]
+  int v10; // [esp+28h] [ebp-1Ch]
+  int v11; // [esp+2Ch] [ebp-18h]
+  int v12; // [esp+30h] [ebp-14h]
 
-  memset(v7, 0, 0x30u);
-  v7[10] = a3;
-  v7[8] = a1;
-  v7[9] = a2;
-  HIWORD(v7[1]) = 614;
+  LODWORD(v7) = 48;
+  memset(Fields, 0, v7);
+  v12 = a3;
+  v10 = a1;
+  v11 = a2;
+  v9 = 614;
   if ( RtlGetCurrentServiceSessionId() )
     v5 = (int)NtCurrentPeb()->SharedData + 558;
   else
     v5 = 2147353480;
-  return NtTraceEvent(*(unsigned __int8 *)v5, 132098, 16, (int)v7);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v5, 0x20402u, 0x10u, Fields);
 }

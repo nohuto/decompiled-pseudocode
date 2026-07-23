@@ -1,14 +1,15 @@
 /*
- * XREFs of PoTraceForceIdleReset @ 0x1405D4358
+ * XREFs of PoTraceForceIdleReset @ 0x1405D1B18
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x14033B0A0 (KiCallInterruptServiceRoutine.c)
- *     KiResetForceIdle @ 0x14040C2A4 (KiResetForceIdle.c)
+ *     KiCallInterruptServiceRoutine @ 0x14031A580 (KiCallInterruptServiceRoutine.c)
+ *     KiResetForceIdle @ 0x1404048A4 (KiResetForceIdle.c)
+ *     KiForceIdleInterruptNotify @ 0x140404948 (KiForceIdleInterruptNotify.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceForceIdleReset(int a1)
@@ -27,7 +28,7 @@ void __fastcall PoTraceForceIdleReset(int a1)
   int v12; // [rsp+C0h] [rbp+67h] BYREF
 
   v12 = a1;
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v8 = 0;
     v11 = 0;
@@ -38,8 +39,8 @@ void __fastcall PoTraceForceIdleReset(int a1)
     v3 = 0x1000000LL;
     v10 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)byte_140049901,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)byte_140049EC5,
       0LL,
       0LL,
       4u,

@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpGetMappedTagData @ 0x14067CE08
+ * XREFs of SdbpGetMappedTagData @ 0x14067DFC8
  * Callers:
- *     SdbpGetIndex @ 0x14067CADC (SdbpGetIndex.c)
- *     SdbpGetFirstIndexedRecord @ 0x14067CCB0 (SdbpGetFirstIndexedRecord.c)
- *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
- *     SdbpGetMappedStringFromTable @ 0x14072178C (SdbpGetMappedStringFromTable.c)
- *     SdbpGetNextIndexedRecord @ 0x140721918 (SdbpGetNextIndexedRecord.c)
- *     SdbQueryDataExTagID @ 0x140722984 (SdbQueryDataExTagID.c)
- *     KsepDbReadKData @ 0x140847C08 (KsepDbReadKData.c)
- *     SdbGetBinaryTagData @ 0x1408E7B58 (SdbGetBinaryTagData.c)
+ *     SdbpGetIndex @ 0x14067DC9C (SdbpGetIndex.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14067DE70 (SdbpGetFirstIndexedRecord.c)
+ *     SdbGetStringTagPtr @ 0x1407229B0 (SdbGetStringTagPtr.c)
+ *     SdbpGetMappedStringFromTable @ 0x140722A2C (SdbpGetMappedStringFromTable.c)
+ *     SdbpGetNextIndexedRecord @ 0x140722BB8 (SdbpGetNextIndexedRecord.c)
+ *     SdbQueryDataExTagID @ 0x140723C24 (SdbQueryDataExTagID.c)
+ *     KsepDbReadKData @ 0x140848E68 (KsepDbReadKData.c)
+ *     SdbGetBinaryTagData @ 0x1408E8E18 (SdbGetBinaryTagData.c)
  * Callees:
- *     SdbpGetTagHeadSize @ 0x14067D3A0 (SdbpGetTagHeadSize.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbpGetTagHeadSize @ 0x14067E560 (SdbpGetTagHeadSize.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetMappedTagData(__int64 a1, int a2)

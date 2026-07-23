@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepSdbUnmapFromMemory @ 0x14075643C
+ * XREFs of KsepSdbUnmapFromMemory @ 0x1407565FC
  * Callers:
- *     KseShimDatabaseClose @ 0x140758D88 (KseShimDatabaseClose.c)
- *     KseShimDatabaseOpen @ 0x14075B0E0 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseClose @ 0x140758F48 (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x14075B2A0 (KseShimDatabaseOpen.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     SdbReleaseDatabase @ 0x140755FC8 (SdbReleaseDatabase.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     SdbReleaseDatabase @ 0x140756188 (SdbReleaseDatabase.c)
  */
 
 void __fastcall KsepSdbUnmapFromMemory(__int64 *a1)

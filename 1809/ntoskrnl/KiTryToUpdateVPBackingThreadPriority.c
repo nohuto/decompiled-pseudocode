@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTryToUpdateVPBackingThreadPriority @ 0x140129C80
+ * XREFs of KiTryToUpdateVPBackingThreadPriority @ 0x140129D50
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
  * Callees:
- *     KiUpdateVPBackingThreadPriority @ 0x1400D0E40 (KiUpdateVPBackingThreadPriority.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiTryToAcquireThreadLock @ 0x140115180 (KiTryToAcquireThreadLock.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1400D0EC0 (KiUpdateVPBackingThreadPriority.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiTryToAcquireThreadLock @ 0x1401151F0 (KiTryToAcquireThreadLock.c)
  */
 
 void __fastcall KiTryToUpdateVPBackingThreadPriority(__int64 a1, __int64 a2)

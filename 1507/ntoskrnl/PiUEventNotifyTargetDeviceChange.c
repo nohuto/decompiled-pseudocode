@@ -40,7 +40,7 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1, __int64 a2, __in
   signed __int32 v23; // eax
   __int64 v25; // rdx
   _DWORD *PoolWithTag; // rax
-  __int64 v27; // r8
+  ULONG v27; // r8d
   char v28; // [rsp+80h] [rbp+8h]
   char v29; // [rsp+88h] [rbp+10h]
 
@@ -150,14 +150,14 @@ LABEL_16:
       {
         memset(v7, 0, 0x1000uLL);
         *v7 = -1;
-        v27 = 4LL;
+        v27 = 4;
       }
       else
       {
-        v27 = 4096LL;
+        v27 = 4096;
         *v7 = v8 - 1;
       }
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)v7, v27);
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, v7, v27, 0LL, 0LL, 0, 0);
     }
     v22 = dword_14034AB90;
     qword_14034AB68 = 0LL;

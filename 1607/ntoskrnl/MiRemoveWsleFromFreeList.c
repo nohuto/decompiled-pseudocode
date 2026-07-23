@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveWsleFromFreeList @ 0x1400B083C
+ * XREFs of MiRemoveWsleFromFreeList @ 0x1400AE8AC
  * Callers:
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPopFreeWsle @ 0x1400FEE10 (MiPopFreeWsle.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPopFreeWsle @ 0x1400FCB90 (MiPopFreeWsle.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveWsleFromFreeList(__int64 a1)

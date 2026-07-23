@@ -11,26 +11,26 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpSysVolCreateSecurityDescriptor(__int64 *a1, char **a2)
+__int64 __fastcall RtlpSysVolCreateSecurityDescriptor(__int16 **a1, ACL **a2)
 {
   __int64 v4; // rax
-  __int64 v5; // rdi
-  __int64 v6; // rax
-  char *v7; // rsi
+  __int16 *v5; // rdi
+  ACL *v6; // rax
+  ACL *v7; // rsi
   int Acl; // ebx
   __int64 result; // rax
-  __int64 v10; // rcx
+  ACL *v10; // rcx
   __int16 v11; // ax
-  __int16 Src; // [rsp+30h] [rbp-48h] BYREF
+  __int16 Sid; // [rsp+30h] [rbp-48h] BYREF
   int v13; // [rsp+32h] [rbp-46h]
   __int16 v14; // [rsp+36h] [rbp-42h]
   int v15; // [rsp+38h] [rbp-40h]
 
   v4 = RtlpSysVolAllocate(40LL);
-  v5 = v4;
+  v5 = (__int16 *)v4;
   if ( v4 )
   {
-    Src = 257;
+    Sid = 257;
     v15 = 18;
     *(_OWORD *)v4 = 0LL;
     *(_OWORD *)(v4 + 16) = 0LL;
@@ -38,8 +38,8 @@ __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(__int64 *a1, char **a2)
     v13 = 0;
     v14 = 1280;
     *(_BYTE *)v4 = 1;
-    v6 = RtlpSysVolAllocate(28LL);
-    v7 = (char *)v6;
+    v6 = (ACL *)RtlpSysVolAllocate(28LL);
+    v7 = v6;
     if ( !v6 )
     {
       Acl = -1073741670;
@@ -47,25 +47,25 @@ LABEL_4:
       RtlpSysVolFree(v5);
       return (unsigned int)Acl;
     }
-    Acl = RtlCreateAcl(v6, 0x1Cu, 2);
-    v10 = (__int64)v7;
+    Acl = RtlCreateAcl(v6, 0x1Cu, 2u);
+    v10 = v7;
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce(v7, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Src, 0);
+      Acl = RtlpAddKnownAce(v7, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
       if ( Acl >= 0 )
       {
         if ( *(_BYTE *)v5 == 1 )
         {
-          v11 = *(_WORD *)(v5 + 2);
+          v11 = v5[1];
           if ( v11 < 0 )
           {
             Acl = -1073741703;
           }
           else
           {
-            *(_QWORD *)(v5 + 32) = v7;
-            *(_WORD *)(v5 + 2) = v11 & 0xFFF3 | 4;
-            Acl = RtlSetControlSecurityDescriptor(v5, 4096LL, 4096LL);
+            *((_QWORD *)v5 + 4) = v7;
+            v5[1] = v11 & 0xFFF3 | 4;
+            Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u);
             if ( Acl >= 0 )
             {
               *a1 = v5;
@@ -80,7 +80,7 @@ LABEL_4:
           Acl = -1073741736;
         }
       }
-      v10 = (__int64)v7;
+      v10 = v7;
     }
     RtlpSysVolFree(v10);
     goto LABEL_4;

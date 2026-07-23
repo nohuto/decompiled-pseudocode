@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonAllocateCounter @ 0x140594CB8
+ * XREFs of EmonAllocateCounter @ 0x140597438
  * Callers:
- *     EmonEnableMonitoring @ 0x140595350 (EmonEnableMonitoring.c)
+ *     EmonEnableMonitoring @ 0x140597AD0 (EmonEnableMonitoring.c)
  * Callees:
- *     HalpAllocateHalCounters @ 0x14057A660 (HalpAllocateHalCounters.c)
- *     EmonAllocateCounterInternal @ 0x140594D9C (EmonAllocateCounterInternal.c)
- *     EmonFindCounterToAllocate @ 0x1405954A4 (EmonFindCounterToAllocate.c)
+ *     HalpAllocateHalCounters @ 0x14057CB90 (HalpAllocateHalCounters.c)
+ *     EmonAllocateCounterInternal @ 0x14059751C (EmonAllocateCounterInternal.c)
+ *     EmonFindCounterToAllocate @ 0x140597C24 (EmonFindCounterToAllocate.c)
  */
 
 __int64 __fastcall EmonAllocateCounter(int a1, int a2, int a3, _DWORD *a4, _DWORD *a5)

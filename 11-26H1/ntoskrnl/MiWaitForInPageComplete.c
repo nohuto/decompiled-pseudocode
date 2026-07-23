@@ -1,39 +1,39 @@
 /*
- * XREFs of MiWaitForInPageComplete @ 0x14038E1F0
+ * XREFs of MiWaitForInPageComplete @ 0x14038FFA0
  * Callers:
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiPfCompleteInPageSupport @ 0x14039FB18 (MiPfCompleteInPageSupport.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiPfCompleteInPageSupport @ 0x1403A1878 (MiPfCompleteInPageSupport.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     MiValidateInPage @ 0x14038C154 (MiValidateInPage.c)
- *     MiValidatePagefilePageHash @ 0x14038CF80 (MiValidatePagefilePageHash.c)
- *     PfHardFaultLog @ 0x14038E8C4 (PfHardFaultLog.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     MiDeleteControlArea @ 0x1404881E0 (MiDeleteControlArea.c)
- *     MiPrefetchRestOfCluster @ 0x1404CC6B0 (MiPrefetchRestOfCluster.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiFlushAllFilesystemPages @ 0x140531F5C (MiFlushAllFilesystemPages.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiExceptionForMappedVa @ 0x1406F6EFC (MiExceptionForMappedVa.c)
- *     MiStoreLogReadFailure @ 0x14070AB24 (MiStoreLogReadFailure.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     MiValidateInPage @ 0x14038DF04 (MiValidateInPage.c)
+ *     MiValidatePagefilePageHash @ 0x14038ED2C (MiValidatePagefilePageHash.c)
+ *     PfHardFaultLog @ 0x140390674 (PfHardFaultLog.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     MiDeleteControlArea @ 0x140481D20 (MiDeleteControlArea.c)
+ *     MiPrefetchRestOfCluster @ 0x1404C5E4C (MiPrefetchRestOfCluster.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFlushAllFilesystemPages @ 0x1405343FC (MiFlushAllFilesystemPages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiExceptionForMappedVa @ 0x1406FBB6C (MiExceptionForMappedVa.c)
+ *     MiStoreLogReadFailure @ 0x14070F7D8 (MiStoreLogReadFailure.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned int *a3)
@@ -132,7 +132,7 @@ void __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned int *
     v67 = ((unsigned __int64)((unsigned __int128)((__int64)(v39 - v10) * (__int128)v40) >> 64) >> 63)
         + ((__int64)((unsigned __int128)((__int64)(v39 - v10) * (__int128)v40) >> 64) >> 3);
     v51 = v50 & 0x20000 | 0x40000000;
-    v69 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v49);
+    v69 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v49);
     if ( KeGetCurrentThread() == *(struct _KTHREAD **)&KeSwapProcessOrStackThread )
       v51 |= 8u;
     v52 = MiPageToNode(
@@ -141,7 +141,7 @@ void __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned int *
     MiFindContiguousPagesEx(
       v69,
       v67 + 1,
-      qword_140E2D7A0,
+      qword_140E2D920,
       0LL,
       0,
       1LL,
@@ -163,7 +163,7 @@ void __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned int *
     KeBugCheckEx(0x1Au, 0x61947uLL, a2, v14, 0LL);
   if ( v5 && (HIBYTE(*(_DWORD *)(v5 + 184)) & 0x30) == 0x30 )
   {
-    v48 = &unk_140E37820;
+    v48 = &unk_140E379A0;
     if ( (*(_DWORD *)(v5 + 184) & 0xF) != 1 )
       v48 = (_QWORD *)(v5 + 224);
     if ( !*v48 )
@@ -246,11 +246,11 @@ LABEL_15:
           }
           if ( *(_DWORD *)(a2 + 80) != -1073741801 )
           {
-            _InterlockedIncrement(&dword_140E35FE0);
-            if ( stru_140E36558.FirstArgument )
+            _InterlockedIncrement(&dword_140E36160);
+            if ( stru_140E366D8.FirstArgument )
             {
-              if ( *(_DWORD *)stru_140E36558.FirstArgument
-                && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000002LL) )
+              if ( *(_DWORD *)stru_140E366D8.FirstArgument
+                && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000002LL) )
               {
                 MiStoreLogReadFailure(v53, a2);
               }
@@ -376,8 +376,8 @@ LABEL_110:
     if ( v20 == -2147483626 )
       goto LABEL_33;
     IsRetryIoStatus = MiIsRetryIoStatus((unsigned int)v20, *(unsigned int *)(v11 + 40));
-    if ( IsRetryIoStatus && !dword_140E35F58 && ((v7 & 1) == 0 || v7 >= 2) )
-      dword_140E35F58 = 32;
+    if ( IsRetryIoStatus && !dword_140E360D8 && ((v7 & 1) == 0 || v7 >= 2) )
+      dword_140E360D8 = 32;
     if ( (v29 & 0x20) != 0 )
     {
       v20 = -1073741801;

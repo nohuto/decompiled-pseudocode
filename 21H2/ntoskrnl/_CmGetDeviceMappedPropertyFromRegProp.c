@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x14063EDF8
+ * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x140633C08
  * Callers:
- *     _CmGetDeviceMappedProperty @ 0x14063C5AC (_CmGetDeviceMappedProperty.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14072D9CC (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmGetDeviceCompoundFilters @ 0x140735698 (_CmGetDeviceCompoundFilters.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140979FDC (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmGetDeviceMappedProperty @ 0x1406313BC (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14072DE7C (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140735858 (_CmGetDeviceCompoundFilters.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x14097A1BC (_CmGetDeviceCompoundFiltersWorker.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
- *     _PnpParseIndirectResourceString @ 0x140684510 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1406B109C (_PnpParseIndirectInfString.c)
- *     _PnpMultiSzGetLen @ 0x1406B2BFC (_PnpMultiSzGetLen.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpParseIndirectResourceString @ 0x1405DE350 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x14061004C (_PnpParseIndirectInfString.c)
+ *     _PnpMultiSzGetLen @ 0x140611CBC (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
@@ -25,12 +25,12 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
         __int64 a3,
         __int64 a4,
         int *a5,
-        GUID *a6,
+        wchar_t *a6,
         unsigned int a7,
         unsigned int *a8,
         int a9)
 {
-  GUID *v9; // r13
+  wchar_t *v9; // r13
   unsigned int v11; // r12d
   int v12; // r11d
   DEVPROPKEY **v13; // rdx
@@ -48,8 +48,8 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
   int v25; // esi
   int v27; // eax
   SIZE_T v28; // rax
-  GUID *PoolWithTag; // r12
-  GUID *v30; // rsi
+  PVOID PoolWithTag; // r12
+  const wchar_t *v30; // rsi
   int v31; // eax
   unsigned int Len; // r9d
   int v33; // r9d
@@ -87,7 +87,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
   if ( a6 )
   {
     v11 = a7;
-    v9 = (GUID *)(-(__int64)(a7 != 0) & (unsigned __int64)a6);
+    v9 = (wchar_t *)(-(__int64)(a7 != 0) & (unsigned __int64)a6);
   }
   else
   {
@@ -131,7 +131,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
       *a5 = *((_DWORD *)v16 + 2);
       if ( v11 >= *a8 )
       {
-        LOBYTE(v9->Data1) = -(v39 != 0);
+        *(_BYTE *)v9 = -(v39 != 0);
         goto LABEL_20;
       }
       return (unsigned int)-1073741789;
@@ -155,7 +155,7 @@ LABEL_40:
         {
           DeviceRegProp = RtlGUIDFromString(&DestinationString, &Guid);
           if ( DeviceRegProp >= 0 )
-            *v9 = Guid;
+            *(GUID *)v9 = Guid;
         }
         goto LABEL_20;
       }
@@ -181,7 +181,7 @@ LABEL_40:
   {
     if ( DeviceRegProp != -1073741789 )
       goto LABEL_18;
-    PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, v28, 0x52504E50u);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v28, 0x52504E50u);
     if ( !PoolWithTag )
       return (unsigned int)-1073741801;
     v34 = v18;
@@ -196,16 +196,16 @@ LABEL_40:
     }
     if ( v36 < 2 )
       goto LABEL_31;
-    v30 = PoolWithTag;
+    v30 = (const wchar_t *)PoolWithTag;
   }
   else
   {
     if ( v11 < 2 )
       goto LABEL_33;
-    PoolWithTag = (GUID *)P;
+    PoolWithTag = P;
     v30 = v9;
   }
-  if ( v30 && ((unsigned __int8)PnpParseIndirectInfString(v30) || (unsigned __int8)PnpParseIndirectResourceString(v30)) )
+  if ( v30 && (PnpParseIndirectInfString(v30) || PnpParseIndirectResourceString((__int64)v30)) )
     *a5 = 25;
 LABEL_31:
   if ( PoolWithTag )

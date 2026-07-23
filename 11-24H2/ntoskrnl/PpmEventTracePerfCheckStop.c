@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTracePerfCheckStop @ 0x14029FD0C
+ * XREFs of PpmEventTracePerfCheckStop @ 0x1402AE07C
  * Callers:
- *     PpmCheckRun @ 0x14029FA80 (PpmCheckRun.c)
+ *     PpmCheckRun @ 0x1402ADDF0 (PpmCheckRun.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTracePerfCheckStop(__int64 a1, __int64 a2)

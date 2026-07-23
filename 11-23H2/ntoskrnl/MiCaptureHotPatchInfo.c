@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCaptureHotPatchInfo @ 0x140A361B8
+ * XREFs of MiCaptureHotPatchInfo @ 0x140A36468
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlFindHotPatchBase @ 0x140A7649C (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140A764CC (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x140A766E4 (RtlValidateHotPatchBase.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlFindHotPatchBase @ 0x140A7674C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7677C (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x140A76994 (RtlValidateHotPatchBase.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -30,7 +30,7 @@ LABEL_2:
     v12 = -1073741701;
     goto LABEL_12;
   }
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)a1);
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)a1);
   v14 = (const void *)HotPatchInformation;
   if ( HotPatchInformation )
   {

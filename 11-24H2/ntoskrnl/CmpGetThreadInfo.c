@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpGetThreadInfo @ 0x1404F0110
+ * XREFs of CmpGetThreadInfo @ 0x1404EDBB0
  * Callers:
- *     CmpGetSharedLockHandle @ 0x140667F60 (CmpGetSharedLockHandle.c)
- *     CmpIsRegistryLockAcquiredRecursively @ 0x140667F7C (CmpIsRegistryLockAcquiredRecursively.c)
- *     CmpRecordRegistryLockExclusiveAcquire @ 0x140667F98 (CmpRecordRegistryLockExclusiveAcquire.c)
- *     CmpRecordRegistryLockSharedAcquire @ 0x140667FC0 (CmpRecordRegistryLockSharedAcquire.c)
- *     CmpTestRegistryLockExclusive @ 0x1406680E4 (CmpTestRegistryLockExclusive.c)
+ *     CmpGetSharedLockHandle @ 0x14066684C (CmpGetSharedLockHandle.c)
+ *     CmpIsRegistryLockAcquiredRecursively @ 0x140666868 (CmpIsRegistryLockAcquiredRecursively.c)
+ *     CmpRecordRegistryLockExclusiveAcquire @ 0x140666884 (CmpRecordRegistryLockExclusiveAcquire.c)
+ *     CmpRecordRegistryLockSharedAcquire @ 0x1406668AC (CmpRecordRegistryLockSharedAcquire.c)
+ *     CmpTestRegistryLockExclusive @ 0x1406669D4 (CmpTestRegistryLockExclusive.c)
  * Callees:
- *     CmpThreadInfoLogStack @ 0x1404BECC0 (CmpThreadInfoLogStack.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     CmpThreadInfoLogStack @ 0x1404B9E80 (CmpThreadInfoLogStack.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 _KAFFINITY_EX *CmpGetThreadInfo()
@@ -18,7 +18,7 @@ _KAFFINITY_EX *CmpGetThreadInfo()
 
   CurrentThread = KeGetCurrentThread();
   result = CurrentThread[1].UserAffinity;
-  if ( dword_140EF6D28 )
+  if ( dword_140EF6F68 )
   {
     if ( !result )
     {

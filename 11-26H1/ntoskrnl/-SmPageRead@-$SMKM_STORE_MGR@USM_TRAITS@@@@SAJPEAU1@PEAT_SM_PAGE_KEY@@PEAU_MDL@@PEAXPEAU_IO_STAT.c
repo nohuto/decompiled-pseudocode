@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x14038EF10
+ * XREFs of ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140390CC0
  * Callers:
- *     MiIssueHardFaultIo @ 0x14038EA50 (MiIssueHardFaultIo.c)
- *     SmPageRead @ 0x14038EEDC (SmPageRead.c)
+ *     MiIssueHardFaultIo @ 0x140390800 (MiIssueHardFaultIo.c)
+ *     SmPageRead @ 0x140390C8C (SmPageRead.c)
  * Callees:
- *     SmKmStoreDereference @ 0x140265B10 (SmKmStoreDereference.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x140281140 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x1402817D0 (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
- *     SmAcquireReleaseResAvailForRead @ 0x1402F48C0 (SmAcquireReleaseResAvailForRead.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     ?SmReadPickStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU?$SMKM_STORE@USM_TRAITS@@@@2@Z @ 0x14038F290 (-SmReadPickStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU-$SMKM_STO.c)
- *     SmpFpWaitForResource @ 0x14063F9AC (SmpFpWaitForResource.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     SmKmStoreDereference @ 0x140265080 (SmKmStoreDereference.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1402806B0 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x140280D40 (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x1402D6940 (SmAcquireReleaseResAvailForRead.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     ?SmReadPickStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU?$SMKM_STORE@USM_TRAITS@@@@2@Z @ 0x140391040 (-SmReadPickStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU-$SMKM_STO.c)
+ *     SmpFpWaitForResource @ 0x14064358C (SmpFpWaitForResource.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmPageRead(
@@ -113,7 +113,7 @@ LABEL_10:
   {
     Pool3 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 1088));
     if ( Pool3
-      || (Pool3 = (PSLIST_ENTRY)ExAllocatePool3(64LL, 88LL, 1633119603LL, &stru_140E27B08.Header.WaitListHead.Blink, 1)) != 0LL )
+      || (Pool3 = (PSLIST_ENTRY)ExAllocatePool3(64LL, 88LL, 1633119603LL, &stru_140E27C48.Header.WaitListHead.Blink, 1)) != 0LL )
     {
 LABEL_14:
       v23 = (v28 & 1) == 0;
@@ -144,7 +144,7 @@ LABEL_14:
   v20 = *(unsigned __int16 *)(a1 + 1922);
   v27 = 827485555;
   v21 = v19 & 1;
-  Pool3 = (PSLIST_ENTRY)ExAllocatePool3(64LL, v20, 827485555LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+  Pool3 = (PSLIST_ENTRY)ExAllocatePool3(64LL, v20, 827485555LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
   if ( !Pool3 && v21 )
     Pool3 = (PSLIST_ENTRY)SmpFpWaitForResource((PEX_SPIN_LOCK)(a1 + 1824));
   if ( Pool3 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of ViSpecialFreeCommonBuffer @ 0x1409CF8A8
+ * XREFs of ViSpecialFreeCommonBuffer @ 0x1409D08A8
  * Callers:
- *     VfFreeCommonBuffer @ 0x1409CBB90 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x1409CCB90 (VfFreeCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     DECREMENT_COMMON_BUFFERS @ 0x1409C9D6C (DECREMENT_COMMON_BUFFERS.c)
- *     VF_FIND_BUFFER @ 0x1409CA1E8 (VF_FIND_BUFFER.c)
- *     ViCheckPadding @ 0x1409CDCA0 (ViCheckPadding.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     DECREMENT_COMMON_BUFFERS @ 0x1409CAD6C (DECREMENT_COMMON_BUFFERS.c)
+ *     VF_FIND_BUFFER @ 0x1409CB1E8 (VF_FIND_BUFFER.c)
+ *     ViCheckPadding @ 0x1409CECA0 (ViCheckPadding.c)
  */
 
 unsigned __int16 *__fastcall ViSpecialFreeCommonBuffer(

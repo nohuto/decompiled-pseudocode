@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpQueryProcessCommandLine @ 0x140754BE8
+ * XREFs of EtwpQueryProcessCommandLine @ 0x140754DD8
  * Callers:
- *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405B9258 (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
- *     EtwTraceAppStateChange @ 0x1407519F8 (EtwTraceAppStateChange.c)
- *     EtwpBuildProcessEvent @ 0x140754528 (EtwpBuildProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140754850 (EtwQueryProcessTelemetryInfo.c)
- *     EtwTimLogBlockNonCetBinaries @ 0x1409E8E0C (EtwTimLogBlockNonCetBinaries.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E91F0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9A08 (EtwTimLogProhibitChildProcessCreation.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1409E9F94 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA2A4 (EtwTimLogProhibitNonMicrosoftBinaries.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA688 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB1E8 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     EtwpTimLogMitigationForProcess @ 0x1409EB76C (EtwpTimLogMitigationForProcess.c)
+ *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405B97C8 (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
+ *     EtwTraceAppStateChange @ 0x140751BE8 (EtwTraceAppStateChange.c)
+ *     EtwpBuildProcessEvent @ 0x140754718 (EtwpBuildProcessEvent.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140754A40 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwTimLogBlockNonCetBinaries @ 0x1409E909C (EtwTimLogBlockNonCetBinaries.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E9480 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9C98 (EtwTimLogProhibitChildProcessCreation.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1409EA224 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA534 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA918 (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB478 (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1409EB9FC (EtwpTimLogMitigationForProcess.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -15,7 +15,7 @@
  *     SepIsSiblingTokenByPointer @ 0x140545758 (SepIsSiblingTokenByPointer.c)
  */
 
-__int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
+NTSTATUS __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
 {
   char v2; // bl
   PERESOURCE *v5; // rdi
@@ -27,22 +27,22 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   int v11; // edi
   struct _KTHREAD *v12; // rcx
   __int16 v13; // ax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v15; // di
-  char *Buf2; // [rsp+20h] [rbp-20h]
-  char *Buf1; // [rsp+30h] [rbp-10h]
+  PSID Sid2; // [rsp+20h] [rbp-20h]
+  PSID Sid1; // [rsp+30h] [rbp-10h]
   char v18; // [rsp+78h] [rbp+38h] BYREF
-  bool v19; // [rsp+80h] [rbp+40h] BYREF
+  BOOLEAN Dominates; // [rsp+80h] [rbp+40h] BYREF
   char v20; // [rsp+88h] [rbp+48h] BYREF
 
   v2 = 0;
   *a2 = 0;
   v18 = 0;
   v20 = 0;
-  v19 = 0;
+  Dominates = 0;
   v5 = (PERESOURCE *)PsReferencePrimaryToken(KeGetCurrentThread()->ApcState.Process);
   if ( !v5 )
-    return 3221225473LL;
+    return -1073741823;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(v5[6], 1u);
@@ -77,17 +77,17 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
     KiCheckForKernelApcDelivery();
   }
   if ( v10 == 2 && v11 < 2 )
-    return 3221225637LL;
-  result = RtlSidDominates(Buf1, Buf2, &v19);
-  if ( (int)result >= 0 )
+    return -1073741659;
+  result = RtlSidDominates(Sid1, Sid2, &Dominates);
+  if ( result >= 0 )
   {
-    if ( v19 )
+    if ( Dominates )
     {
       result = SepIsChildTokenByPointer(a1, &v18);
       v15 = v18;
       if ( !v18 )
       {
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
         result = SepIsSiblingTokenByPointer(a1, &v20);
       }
@@ -96,7 +96,7 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
     {
       v15 = v18;
     }
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       if ( v15 || v20 )
         v2 = 1;

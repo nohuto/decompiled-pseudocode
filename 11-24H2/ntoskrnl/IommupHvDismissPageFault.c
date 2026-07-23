@@ -1,20 +1,14 @@
 /*
- * XREFs of IommupHvDismissPageFault @ 0x140565C58
+ * XREFs of IommupHvDismissPageFault @ 0x14056395C
  * Callers:
- *     IommuProcessPageRequestQueue @ 0x140564570 (IommuProcessPageRequestQueue.c)
+ *     IommuProcessPageRequestQueue @ 0x1405621A0 (IommuProcessPageRequestQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall IommupHvDismissPageFault(
-        unsigned int a1,
-        __int64 a2,
-        __int16 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6)
+__int64 __fastcall IommupHvDismissPageFault(unsigned int a1, __int64 a2, __int16 a3, int a4, __int64 a5, __int64 a6)
 {
   unsigned __int64 v6; // rdx
   __int64 result; // rax
@@ -30,7 +24,7 @@ __int64 __fastcall IommupHvDismissPageFault(
   if ( a1 != -1 )
     v6 = ((unsigned __int64)a1 << 11) ^ (((unsigned __int64)a1 << 11) ^ v6) & 0xFFFFFFFF800007FFuLL | 0x400;
   BugCheckParameter3 = v6 | 0x8000000000000000uLL;
-  if ( (int)a4 >= 0 )
+  if ( a4 >= 0 )
   {
     if ( a6 && !IommupHvGpaAlwaysValid )
     {
@@ -42,7 +36,7 @@ __int64 __fastcall IommupHvDismissPageFault(
   {
     BugCheckParameter3 = v6 | 0xA000000000000000uLL;
   }
-  result = guard_dispatch_icall_no_overrides(1LL, &v8, 0LL, a4);
+  result = guard_dispatch_icall_no_overrides(1LL, &v8);
   if ( (int)result < 0 )
     KeBugCheckEx(0x159u, 0x3102uLL, (int)result, BugCheckParameter3, BugCheckParameter4);
   return result;

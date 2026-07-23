@@ -12,12 +12,12 @@
 
 __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 a2)
 {
-  unsigned int v2; // ebp
-  unsigned int v3; // r15d
+  ULONG v2; // ebp
+  ULONG v3; // r15d
   char *CurrentServerSiloGlobals; // rax
-  struct _CPTABLEINFO *v5; // rdi
+  _CPTABLEINFO *v5; // rdi
   PUSHORT *v6; // r14
-  PUSHORT *v7; // rbx
+  PVOID *v7; // rbx
   char *v8; // rsi
   __int64 CurrentServerSilo; // rbx
   void *v10; // rcx
@@ -26,13 +26,13 @@ __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 
   v2 = a2;
   v3 = a1;
   CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
-  v5 = (struct _CPTABLEINFO *)(CurrentServerSiloGlobals + 1064);
+  v5 = (_CPTABLEINFO *)(CurrentServerSiloGlobals + 1064);
   v6 = (PUSHORT *)(CurrentServerSiloGlobals + 1192);
-  v7 = (PUSHORT *)(CurrentServerSiloGlobals + 1200);
+  v7 = (PVOID *)(CurrentServerSiloGlobals + 1200);
   v8 = CurrentServerSiloGlobals + 1128;
   if ( (_WORD)v3 != 0xFDE9 && (_WORD)v2 != 0xFDE9 )
   {
-    if ( NtGetNlsSectionPtr(0xBu, v3, 0LL, (_QWORD *)CurrentServerSiloGlobals + 149, 0LL) >= 0 )
+    if ( NtGetNlsSectionPtr(0xBu, v3, 0LL, (PVOID *)CurrentServerSiloGlobals + 149, 0LL) >= 0 )
     {
       if ( (_WORD)v2 == (_WORD)v3 )
       {
@@ -47,7 +47,7 @@ __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 
   }
 LABEL_6:
   RtlInitCodePageTable(*v6, v5);
-  RtlInitCodePageTable(*v7, (PCPTABLEINFO)v8);
+  RtlInitCodePageTable((PUSHORT)*v7, (PCPTABLEINFO)v8);
   CurrentServerSilo = PsGetCurrentServerSilo();
   if ( CurrentServerSilo == PdcCreateWatchdogAroundClientCall() )
   {

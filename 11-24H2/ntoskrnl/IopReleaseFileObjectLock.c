@@ -1,45 +1,45 @@
 /*
- * XREFs of IopReleaseFileObjectLock @ 0x14031D520
+ * XREFs of IopReleaseFileObjectLock @ 0x1402C60B0
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     IopValidateAndGetWriteParameters @ 0x140400A70 (IopValidateAndGetWriteParameters.c)
- *     IopAllocateAndPopulateWriteIrp @ 0x140401030 (IopAllocateAndPopulateWriteIrp.c)
- *     IoSetInformation @ 0x140714820 (IoSetInformation.c)
- *     IopCloseFile @ 0x140842070 (IopCloseFile.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     IopReadFile @ 0x1408C0610 (IopReadFile.c)
- *     IopWriteFile @ 0x1408C1630 (IopWriteFile.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopQueryXxxInformation @ 0x14096A530 (IopQueryXxxInformation.c)
- *     IopFlushBuffersFile @ 0x14096E4A4 (IopFlushBuffersFile.c)
- *     NtQueryEaFile @ 0x14096E890 (NtQueryEaFile.c)
- *     NtQueryVolumeInformationFile @ 0x14096EFA0 (NtQueryVolumeInformationFile.c)
- *     NtQueryInformationFile @ 0x14096F610 (NtQueryInformationFile.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     NtUnlockFile @ 0x140972480 (NtUnlockFile.c)
- *     NtLockFile @ 0x1409D2BE0 (NtLockFile.c)
- *     IopAllocateIrpCleanup @ 0x140A0C064 (IopAllocateIrpCleanup.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     IopValidateAndGetWriteParameters @ 0x1403FB3F0 (IopValidateAndGetWriteParameters.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403FB9B0 (IopAllocateAndPopulateWriteIrp.c)
+ *     IoSetInformation @ 0x1407123B0 (IoSetInformation.c)
+ *     IopCloseFile @ 0x14083E330 (IopCloseFile.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     IopReadFile @ 0x1408BDFD0 (IopReadFile.c)
+ *     IopWriteFile @ 0x1408BEFF0 (IopWriteFile.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopQueryXxxInformation @ 0x140952FC0 (IopQueryXxxInformation.c)
+ *     NtQueryEaFile @ 0x140956950 (NtQueryEaFile.c)
+ *     NtQueryVolumeInformationFile @ 0x140957060 (NtQueryVolumeInformationFile.c)
+ *     IopFlushBuffersFile @ 0x140957794 (IopFlushBuffersFile.c)
+ *     NtQueryInformationFile @ 0x140957E20 (NtQueryInformationFile.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     NtUnlockFile @ 0x14095AC90 (NtUnlockFile.c)
+ *     NtLockFile @ 0x1409C2A10 (NtLockFile.c)
+ *     IopAllocateIrpCleanup @ 0x140A0B2A4 (IopAllocateIrpCleanup.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     ObGetCurrentIrql @ 0x140257DF0 (ObGetCurrentIrql.c)
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeAbPreWakeupThread @ 0x1403D8DF0 (KeAbPreWakeupThread.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     ObGetCurrentIrql @ 0x140288400 (ObGetCurrentIrql.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAbPreWakeupThread @ 0x1402DFF50 (KeAbPreWakeupThread.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
  */
 
 __int64 __fastcall IopReleaseFileObjectLock(ULONG_PTR BugCheckParameter2)
@@ -55,18 +55,18 @@ __int64 __fastcall IopReleaseFileObjectLock(ULONG_PTR BugCheckParameter2)
   _QWORD *v10; // rcx
   struct _KTHREAD *CurrentThread; // r10
   _KLOCK_ENTRIES *KernelAbEntries; // r8
-  unsigned int i; // edx
+  __int64 i; // rdx
   __int64 v15; // rcx
   char v16; // cl
   struct _SINGLE_LIST_ENTRY *Next; // rcx
   struct _KPRCB *v18; // rcx
-  signed __int32 *SchedulerAssist; // r8
+  unsigned __int32 *SchedulerAssist; // r8
   signed __int64 v20; // rbx
   signed __int64 v21; // rax
   bool v22; // cc
   signed __int64 BugCheckParameter4; // rax
-  signed __int32 v25; // eax
-  signed __int32 v26; // ett
+  unsigned __int32 v25; // eax
+  unsigned __int32 v26; // ett
   signed __int64 v27; // rcx
   signed __int64 j; // rax
   __int64 v29; // [rsp+80h] [rbp+18h] BYREF
@@ -153,30 +153,32 @@ LABEL_10:
   CurrentThread = KeGetCurrentThread();
   _disable();
   KernelAbEntries = CurrentThread->KernelAbEntries;
-  for ( i = 0; i < KernelAbEntries->EntryCount; ++i )
+  for ( i = 0LL; (unsigned int)i < KernelAbEntries->EntryCount; i = (unsigned int)(i + 1) )
   {
-    v15 = (__int64)&KernelAbEntries->Entries[i];
+    v15 = (__int64)&KernelAbEntries->Entries[(unsigned int)i];
     if ( (*(_QWORD *)v15 & 0x7FFFFFFFFFFFFFFCLL) == (v1 & 0x7FFFFFFFFFFFFFFCLL)
       && *(_BYTE *)(v15 + 10)
       && (*(_QWORD *)v15 & 1) == 0 )
     {
       *(_BYTE *)(v15 + 10) = 0;
-      KiAbEntryFreeAndEnableInterrupts(v15, (ULONG_PTR)CurrentThread, v1, 1, 0LL);
+      KiAbEntryFreeAndEnableInterrupts(v15, (ULONG_PTR)CurrentThread, v1, 1LL, 0LL);
       goto LABEL_36;
     }
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
     KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v1, 0LL, 0LL);
   v18 = KeGetCurrentPrcb();
-  SchedulerAssist = (signed __int32 *)v18->SchedulerAssist;
+  SchedulerAssist = (unsigned __int32 *)v18->SchedulerAssist;
   if ( SchedulerAssist )
   {
     _m_prefetchw(SchedulerAssist);
     v25 = *SchedulerAssist;
     do
     {
+      i = v25;
+      LODWORD(i) = v25 & 0xFFDFFFFF;
       v26 = v25;
-      v25 = _InterlockedCompareExchange(SchedulerAssist, v25 & 0xFFDFFFFF, v25);
+      v25 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v25 & 0xFFDFFFFF, v25);
     }
     while ( v26 != v25 );
     if ( (v25 & 0x200000) != 0 )
@@ -215,7 +217,7 @@ LABEL_36:
       }
       if ( !v27 )
       {
-        if ( ObGetCurrentIrql() > 2u )
+        if ( ObGetCurrentIrql(0LL, i) > 2u )
           KeInsertQueueDpc(&ObpRemoveObjectDpc, 0LL, 0LL);
         else
           ExQueueWorkItem(&ObpRemoveObjectWorkItem, CriticalWorkQueue);

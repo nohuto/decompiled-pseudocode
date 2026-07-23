@@ -1,18 +1,18 @@
 /*
- * XREFs of ObQueryNameString @ 0x140718930
+ * XREFs of ObQueryNameString @ 0x1406C6F80
  * Callers:
- *     SeSetLearningModeObjectInformation @ 0x14027C980 (SeSetLearningModeObjectInformation.c)
- *     IopAttachDeviceToDeviceStackSafe @ 0x1402832F4 (IopAttachDeviceToDeviceStackSafe.c)
- *     IopGetFileVolumeNameInformation @ 0x140360418 (IopGetFileVolumeNameInformation.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     SmKmEtwAppendObjectName @ 0x14059DC48 (SmKmEtwAppendObjectName.c)
- *     PiControlGetDeviceStack @ 0x14072FB64 (PiControlGetDeviceStack.c)
- *     EtwpObjectHandleEnumCallback @ 0x14093DEF0 (EtwpObjectHandleEnumCallback.c)
- *     IopCaptureObjectName @ 0x140997948 (IopCaptureObjectName.c)
- *     PopFlushVolumeWorker @ 0x140997FA0 (PopFlushVolumeWorker.c)
- *     VfIrpLogRetrieveWmiData @ 0x1409E3AE8 (VfIrpLogRetrieveWmiData.c)
+ *     SeSetLearningModeObjectInformation @ 0x14026A920 (SeSetLearningModeObjectInformation.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140271504 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopGetFileVolumeNameInformation @ 0x1402A5348 (IopGetFileVolumeNameInformation.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     SmKmEtwAppendObjectName @ 0x14059DE78 (SmKmEtwAppendObjectName.c)
+ *     PiControlGetDeviceStack @ 0x14072FD30 (PiControlGetDeviceStack.c)
+ *     EtwpObjectHandleEnumCallback @ 0x14093E0C0 (EtwpObjectHandleEnumCallback.c)
+ *     IopCaptureObjectName @ 0x140998948 (IopCaptureObjectName.c)
+ *     PopFlushVolumeWorker @ 0x140998FA0 (PopFlushVolumeWorker.c)
+ *     VfIrpLogRetrieveWmiData @ 0x1409E4AE8 (VfIrpLogRetrieveWmiData.c)
  * Callees:
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
  */
 
 NTSTATUS __stdcall ObQueryNameString(

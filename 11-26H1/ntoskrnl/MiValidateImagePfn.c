@@ -1,22 +1,22 @@
 /*
- * XREFs of MiValidateImagePfn @ 0x140B04B5C
+ * XREFs of MiValidateImagePfn @ 0x140B0676C
  * Callers:
- *     MiValidateInPageEntries @ 0x14038C410 (MiValidateInPageEntries.c)
- *     MiValidateImagePage @ 0x140B04B00 (MiValidateImagePage.c)
+ *     MiValidateInPageEntries @ 0x14038E1C0 (MiValidateInPageEntries.c)
+ *     MiValidateImagePage @ 0x140B06710 (MiValidateImagePage.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MiControlAreaHasHostRelocationsApplied @ 0x1404D5104 (MiControlAreaHasHostRelocationsApplied.c)
- *     MiReleaseFaultPte @ 0x140525E2C (MiReleaseFaultPte.c)
- *     MiReserveFaultPte @ 0x1406F77D0 (MiReserveFaultPte.c)
- *     KeCopyPageNoOverride @ 0x140730860 (KeCopyPageNoOverride.c)
- *     MiRevertRelocatedImagePfn @ 0x1409CF644 (MiRevertRelocatedImagePfn.c)
- *     SeValidateImageData @ 0x140ABDC98 (SeValidateImageData.c)
- *     MiGetSectionStrongImageReference @ 0x140B4D7C0 (MiGetSectionStrongImageReference.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MiControlAreaHasHostRelocationsApplied @ 0x1404CE974 (MiControlAreaHasHostRelocationsApplied.c)
+ *     MiReleaseFaultPte @ 0x14052849C (MiReleaseFaultPte.c)
+ *     MiReserveFaultPte @ 0x1406FC440 (MiReserveFaultPte.c)
+ *     KeCopyPageNoOverride @ 0x140735430 (KeCopyPageNoOverride.c)
+ *     MiRevertRelocatedImagePfn @ 0x1409A0624 (MiRevertRelocatedImagePfn.c)
+ *     SeValidateImageData @ 0x140AC0288 (SeValidateImageData.c)
+ *     MiGetSectionStrongImageReference @ 0x140B4F550 (MiGetSectionStrongImageReference.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiValidateImagePfn(
@@ -64,7 +64,7 @@ __int64 __fastcall MiValidateImagePfn(
     if ( (int)result < 0 )
       return result;
   }
-  v14 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, a3, a4);
+  v14 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, a3, a4);
   if ( v14 )
   {
     v32 = 0;
@@ -135,7 +135,7 @@ LABEL_26:
     }
     else
     {
-      _InterlockedIncrement((volatile signed __int32 *)&stru_140E2D150.WaitBlockFill11[148]);
+      _InterlockedIncrement((volatile signed __int32 *)&stru_140E2D2D0.WaitBlockFill11[148]);
       if ( v16 && v26 )
         KeCopyPageNoOverride(v22, (__int64)v16);
     }
@@ -160,7 +160,7 @@ LABEL_40:
   if ( v32 )
     MiReleaseFaultPte((_QWORD *)v14);
   else
-    MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v14, 1u);
+    MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v14, 1u);
   if ( v16 )
     ExFreePoolWithTag(v16, 0);
   return (unsigned int)v27;

@@ -10,27 +10,27 @@
  *     RtlpGetNtProductTypeFromRegistry @ 0x1800B47FC (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-bool __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
   _DWORD *SharedData; // rax
-  bool result; // al
+  BOOLEAN result; // al
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
   {
-    *a1 = *((_DWORD *)NtCurrentPeb()->SharedData + 4);
+    *NtProductType = *((PNT_PRODUCT_TYPE)NtCurrentPeb()->SharedData + 4);
     return 1;
   }
   else if ( MEMORY[0x7FFE0268] )
   {
-    *a1 = MEMORY[0x7FFE0264];
+    *NtProductType = MEMORY[0x7FFE0264];
     return 1;
   }
   else
   {
     result = (int)RtlpGetNtProductTypeFromRegistry() >= 0;
     if ( !result )
-      *a1 = 1;
+      *NtProductType = NtProductWinNt;
   }
   return result;
 }

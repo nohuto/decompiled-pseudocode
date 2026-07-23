@@ -1,24 +1,24 @@
 /*
- * XREFs of KiHandleMcheck @ 0x1405B7610
+ * XREFs of KiHandleMcheck @ 0x1405B4BE0
  * Callers:
- *     KxMcheckAbort @ 0x1406BB100 (KxMcheckAbort.c)
+ *     KxMcheckAbort @ 0x1406BC000 (KxMcheckAbort.c)
  * Callees:
- *     HalHandleMcheck @ 0x140543080 (HalHandleMcheck.c)
- *     KiFlushCurrentRsb @ 0x1406BF940 (KiFlushCurrentRsb.c)
+ *     HalHandleMcheck @ 0x1405409D0 (HalHandleMcheck.c)
+ *     KiFlushCurrentRsb @ 0x1406C0840 (KiFlushCurrentRsb.c)
  */
 
-__int64 __fastcall KiHandleMcheck(__int64 a1, __int64 a2, int *a3, __int64 a4)
+__int64 __fastcall KiHandleMcheck(__int64 a1, __int64 a2, int *a3)
 {
-  int v4; // edx
-  int v5; // ecx
-  int v6; // r8d
-  int v7; // r9d
+  int v3; // edx
+  int v4; // ecx
+  int v5; // r8d
+  int v6; // r9d
   __int64 result; // rax
 
-  HalHandleMcheck(a1, a2, a3, a4);
+  HalHandleMcheck(a1, a2, a3);
   result = KiSpeculationFeatures;
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
-    result = KiFlushCurrentRsb(v5, v4, v6, v7);
+    result = KiFlushCurrentRsb(v4, v3, v5, v6);
   _mm_lfence();
   return result;
 }

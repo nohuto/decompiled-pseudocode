@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefDecideModulusType @ 0x140403D90
+ * XREFs of SymCryptFdefDecideModulusType @ 0x140403F70
  * Callers:
- *     SymCryptFdefIntToModulus @ 0x140403EEC (SymCryptFdefIntToModulus.c)
+ *     SymCryptFdefIntToModulus @ 0x1404040CC (SymCryptFdefIntToModulus.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x14036868C (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptDigitsFromBits @ 0x1403F9240 (SymCryptDigitsFromBits.c)
- *     SymCryptIntBitsizeOfValue @ 0x1403F92D0 (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntGetValueLsbits32 @ 0x1403F9404 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x14036882C (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptDigitsFromBits @ 0x1403F9420 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F94B0 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F95E4 (SymCryptIntGetValueLsbits32.c)
  */
 
 __int64 __fastcall SymCryptFdefDecideModulusType(__int64 a1, unsigned int a2, unsigned int a3, char a4)

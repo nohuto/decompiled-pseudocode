@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpConstructScatterGatherListDmarThin @ 0x140513F14
+ * XREFs of HalpConstructScatterGatherListDmarThin @ 0x140514464
  * Callers:
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14050087C (HalpDmaReturnEmergencyLogicalAddressResources.c)
- *     HalpBuildScatterGatherListDmarThin @ 0x140513D70 (HalpBuildScatterGatherListDmarThin.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140513F14 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x140500DCC (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpBuildScatterGatherListDmarThin @ 0x1405142C0 (HalpBuildScatterGatherListDmarThin.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140514464 (HalpConstructScatterGatherListDmarThin.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaUseEmergencyLogicalAddressResources @ 0x140500ABC (HalpDmaUseEmergencyLogicalAddressResources.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140513F14 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpPutScatterGatherListDmarThin @ 0x1405141C0 (HalpPutScatterGatherListDmarThin.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaUseEmergencyLogicalAddressResources @ 0x14050100C (HalpDmaUseEmergencyLogicalAddressResources.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140514464 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpPutScatterGatherListDmarThin @ 0x140514710 (HalpPutScatterGatherListDmarThin.c)
  */
 
 __int64 __fastcall HalpConstructScatterGatherListDmarThin(__int64 a1)

@@ -20,30 +20,29 @@ __int64 __fastcall MiDeleteEmptyPageTableTail(__int64 *a1, _KPROCESS *a2)
   unsigned __int64 v6; // r13
   unsigned __int64 v7; // r13
   unsigned int i; // ebp
-  unsigned __int64 v9; // rsi
-  unsigned __int64 SetBits; // rax
+  ULONG64 v9; // rsi
+  ULONG64 SetBits; // rax
   __int64 v11; // rdx
   __int64 v12; // r8
-  unsigned __int64 v13; // r12
-  unsigned __int64 v14; // r14
+  unsigned __int64 SizeOfBitMap; // r12
+  ULONG64 v14; // r14
   __int64 NextForwardRunClear; // rax
   unsigned __int64 v16; // rsi
   unsigned __int64 v17; // rsi
   unsigned __int64 v18; // rax
-  void *v19; // rcx
-  unsigned __int64 v21; // [rsp+20h] [rbp-48h] BYREF
-  void *v22; // [rsp+28h] [rbp-40h]
-  unsigned __int64 v23; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v24; // [rsp+78h] [rbp+10h]
+  unsigned __int64 *Buffer; // rcx
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 v22; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v23; // [rsp+78h] [rbp+10h]
 
   v3 = 0LL;
   v4 = a1[2];
-  v23 = 0LL;
+  v22 = 0LL;
   MiFlushTbList(v4, a2);
   v5 = (unsigned __int64 *)a1[21];
-  v21 = 512LL;
+  BitMapHeader.SizeOfBitMap = 512LL;
   v6 = *v5;
-  v22 = v5 + 3;
+  BitMapHeader.Buffer = v5 + 3;
   if ( v6 )
   {
     v7 = v6 & 0xFFFFFFFFFFFFF000uLL;
@@ -52,16 +51,16 @@ __int64 __fastcall MiDeleteEmptyPageTableTail(__int64 *a1, _KPROCESS *a2)
       v9 = 0LL;
       do
       {
-        SetBits = RtlFindSetBitsEx(&v21, 1uLL, v9);
-        v13 = v21;
+        SetBits = RtlFindSetBitsEx(&BitMapHeader, 1uLL, v9);
+        SizeOfBitMap = BitMapHeader.SizeOfBitMap;
         v14 = SetBits;
         if ( SetBits < v9 || SetBits == -1LL )
           break;
-        NextForwardRunClear = RtlFindNextForwardRunClearEx(&v21, SetBits, &v23);
-        v16 = v23;
-        v24 = NextForwardRunClear;
+        NextForwardRunClear = RtlFindNextForwardRunClearEx(&BitMapHeader, SetBits, &v22);
+        v16 = v22;
+        v23 = NextForwardRunClear;
         if ( !NextForwardRunClear )
-          v16 = v13;
+          v16 = SizeOfBitMap;
         v17 = v16 - v14;
         v18 = v7 + 8 * v14;
         *v5 = v18;
@@ -70,9 +69,9 @@ __int64 __fastcall MiDeleteEmptyPageTableTail(__int64 *a1, _KPROCESS *a2)
           MiDeleteEmptyPageTableCommit(a1);
         else
           MiDeletePteRun(a1[3], (__int64)v5);
-        v9 = v24 + v14 + v17;
+        v9 = v23 + v14 + v17;
       }
-      while ( v9 < v13 );
+      while ( v9 < SizeOfBitMap );
       if ( !i )
       {
         if ( !v5[12] )
@@ -80,11 +79,11 @@ __int64 __fastcall MiDeleteEmptyPageTableTail(__int64 *a1, _KPROCESS *a2)
         MiReleaseWalkLocks((__int64)a1, v11, v12);
       }
     }
-    v19 = v22;
+    Buffer = BitMapHeader.Buffer;
     *v5 = 0LL;
     v5[1] = 0LL;
-    LOBYTE(v3) = (v13 & 0x1F) != 0;
-    memset(v19, 0, 4 * ((v13 >> 5) + v3));
+    LOBYTE(v3) = (SizeOfBitMap & 0x1F) != 0;
+    memset(Buffer, 0, 4 * ((SizeOfBitMap >> 5) + v3));
   }
   return 0LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSendReliableJobNotification @ 0x140958424
+ * XREFs of PspSendReliableJobNotification @ 0x140AEB3B4
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1407F7D20 (PspEnforceLimitsJobPostCallback.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x140959B30 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspJobNotificationWorker @ 0x140AD5440 (PspJobNotificationWorker.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1407FD820 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x1409FF3F0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspJobNotificationWorker @ 0x140AD23F0 (PspJobNotificationWorker.c)
  * Callees:
- *     IoSetIoCompletionEx @ 0x1402678E0 (IoSetIoCompletionEx.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     EtwTraceJobSendNotification @ 0x140B1D308 (EtwTraceJobSendNotification.c)
+ *     IoSetIoCompletionEx @ 0x140266E50 (IoSetIoCompletionEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     EtwTraceJobSendNotification @ 0x140AEB484 (EtwTraceJobSendNotification.c)
  */
 
 __int64 __fastcall PspSendReliableJobNotification(PVOID Object, unsigned int a2)
@@ -47,7 +47,7 @@ __int64 __fastcall PspSendReliableJobNotification(PVOID Object, unsigned int a2)
   if ( !v8 )
   {
     ObfReferenceObjectWithTag(Object, 0x624A7350u);
-    if ( (PerfGlobalGroupMask & 0x80000) != 0 )
+    if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
       EtwTraceJobSendNotification(Object, (unsigned int)v2);
     result = IoSetIoCompletionEx(
                *((_QWORD *)Object + 69),

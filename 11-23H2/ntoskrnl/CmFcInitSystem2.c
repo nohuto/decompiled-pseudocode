@@ -4,9 +4,9 @@
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
  *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x14020BC20 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SeAssignSecurity @ 0x1407C1C80 (SeAssignSecurity.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SeAssignSecurity @ 0x1407C1F50 (SeAssignSecurity.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  */

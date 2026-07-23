@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventTraceParkNodeRundownEx @ 0x14076603C
+ * XREFs of PpmEventTraceParkNodeRundownEx @ 0x140765A0C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     KeIsSingleGroupAffinityEx @ 0x14046F090 (KeIsSingleGroupAffinityEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     KeIsSingleGroupAffinityEx @ 0x1404697A0 (KeIsSingleGroupAffinityEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall PpmEventTraceParkNodeRundownEx(__int16 a1, __int64 a2)
@@ -61,7 +61,7 @@ void __fastcall PpmEventTraceParkNodeRundownEx(__int16 a1, __int64 a2)
               i < *(unsigned __int8 *)(a2 + 12);
               KiOrAffinityEx(
                 &v14,
-                (struct _KAFFINITY_EX *)(640LL * i++ + *(_QWORD *)(a2 + 1280) + 304LL),
+                (struct _KAFFINITY_EX *)(640LL * i++ + *(_QWORD *)(a2 + 1288) + 304LL),
                 &v14,
                 v14.Size) )
         {

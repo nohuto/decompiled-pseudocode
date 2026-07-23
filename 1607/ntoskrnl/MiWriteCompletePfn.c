@@ -1,22 +1,22 @@
 /*
- * XREFs of MiWriteCompletePfn @ 0x14004E5A0
+ * XREFs of MiWriteCompletePfn @ 0x14004E120
  * Callers:
- *     MiBuildMappedCluster @ 0x14001F5C0 (MiBuildMappedCluster.c)
- *     MiUnlockMdlWritePages @ 0x14004D4B0 (MiUnlockMdlWritePages.c)
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
- *     MiUnlockStoreLockedPages @ 0x140122A1C (MiUnlockStoreLockedPages.c)
+ *     MiBuildMappedCluster @ 0x14001F140 (MiBuildMappedCluster.c)
+ *     MiUnlockMdlWritePages @ 0x14004D030 (MiUnlockMdlWritePages.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
+ *     MiUnlockStoreLockedPages @ 0x140122F8C (MiUnlockStoreLockedPages.c)
  * Callees:
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiReleasePageFileSpace @ 0x140022238 (MiReleasePageFileSpace.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiIsPfnCommitNotCharged @ 0x14004F140 (MiIsPfnCommitNotCharged.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009E3AC (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiReleasePageFileSpace @ 0x140021DB8 (MiReleasePageFileSpace.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiIsPfnCommitNotCharged @ 0x14004ECC0 (MiIsPfnCommitNotCharged.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009DBAC (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiWriteCompletePfn(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -61,10 +61,10 @@ __int64 __fastcall MiWriteCompletePfn(__int64 a1, __int64 a2, __int64 a3, __int6
     a3 = 0x200000000000000LL;
     v12 = (__int64)(*(_QWORD *)(a1 + 8) << 25) >> 16;
     if ( (*(_QWORD *)(a1 + 40) & 0x200000000000000LL) != 0
-      || (v12 < qword_140327F30 || (a3 = 0xF8000000000LL, v12 >= qword_140327F30 + 0xF8000000000LL))
-      && ((a3 = qword_140326C30) == 0
-       || v12 < qword_140326C30
-       || v12 >= qword_140326C30 + (qword_140326C10 << 21)
+      || (v12 < qword_140327F70 || (a3 = 0xF8000000000LL, v12 >= qword_140327F70 + 0xF8000000000LL))
+      && ((a3 = qword_140326C70) == 0
+       || v12 < qword_140326C70
+       || v12 >= qword_140326C70 + (qword_140326C50 << 21)
        || (*(_BYTE *)(48 * ((*(_QWORD *)(((v12 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                     - 0x57FFFFFFFDALL) & 0xF0) != 0x70) )
     {

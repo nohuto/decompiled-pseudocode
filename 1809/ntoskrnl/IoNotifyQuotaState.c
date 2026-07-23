@@ -7,8 +7,8 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IopAcquireReferencesFromIoAttributionHandle @ 0x140105634 (IopAcquireReferencesFromIoAttributionHandle.c)
- *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x1401056B4 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     IoDiskIoAttributionDereference @ 0x1401058D4 (IoDiskIoAttributionDereference.c)
  */
 
 __int64 __fastcall IoNotifyQuotaState(__int64 a1, int a2, int a3, int a4, int a5)

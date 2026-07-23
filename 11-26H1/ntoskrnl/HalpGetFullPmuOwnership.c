@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetFullPmuOwnership @ 0x14057A690
+ * XREFs of HalpGetFullPmuOwnership @ 0x14057CBC0
  * Callers:
- *     HalAllocateHardwareCounters @ 0x140780E50 (HalAllocateHardwareCounters.c)
+ *     HalAllocateHardwareCounters @ 0x140783950 (HalAllocateHardwareCounters.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
  */
 
 __int64 __fastcall HalpGetFullPmuOwnership(__int64 *a1)

@@ -11,52 +11,58 @@
  *     GetLCIDFromLangListNode @ 0x180070844 (GetLCIDFromLangListNode.c)
  */
 
-__int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2)
+__int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *DefaultUILanguageId, char a2)
 {
-  __int64 v3; // rbx
-  __int64 v5; // rdi
+  PVOID v3; // rbx
+  DWORD *v5; // rdi
   int v6; // eax
   __int64 v7; // rdx
   int v8; // eax
-  int LCIDFromLangListNode; // esi
-  __int64 v11; // [rsp+60h] [rbp+30h] BYREF
-  __int64 v12; // [rsp+70h] [rbp+40h] BYREF
+  NTSTATUS LCIDFromLangListNode; // esi
+  PVOID BaseAddress; // [rsp+60h] [rbp+30h] BYREF
+  DWORD *v12; // [rsp+70h] [rbp+40h] BYREF
 
   v12 = 0LL;
   v3 = 0LL;
-  v11 = 0LL;
+  BaseAddress = 0LL;
   v5 = 0LL;
-  if ( a1 )
+  if ( DefaultUILanguageId )
   {
-    *a1 = 0;
+    *DefaultUILanguageId = 0;
     v6 = RtlpCreateProcessRegistryInfo(&v12);
     v5 = v12;
-    if ( v6 >= 0 && (int)InitializeTEBUserLangList(a2, v12) >= 0 )
+    if ( v6 >= 0 && (int)InitializeTEBUserLangList(a2, (__int64)v12) >= 0 )
     {
-      if ( NtCurrentTeb()->UserPrefLanguages && (v7 = *(_QWORD *)NtCurrentTeb()->UserPrefLanguages, (v11 = v7) != 0) )
+      if ( NtCurrentTeb()->UserPrefLanguages
+        && (v7 = *(_QWORD *)NtCurrentTeb()->UserPrefLanguages, (BaseAddress = (PVOID)v7) != 0LL) )
       {
         v5 = v12;
         if ( *(_WORD *)(v7 + 4) )
         {
-          LCIDFromLangListNode = GetLCIDFromLangListNode(v12, *(_QWORD *)(v7 + 24), a1);
+          LCIDFromLangListNode = GetLCIDFromLangListNode(v12, *(_QWORD *)(v7 + 24), DefaultUILanguageId);
           if ( LCIDFromLangListNode >= 0 )
             goto LABEL_12;
         }
-        v11 = 0LL;
+        BaseAddress = 0LL;
       }
       else
       {
         v5 = v12;
       }
-      v8 = InitializeUserOrMachineLangList(v5, 0, (unsigned int)&v11, 3 - (unsigned int)(a2 != 0), a2 == 0);
-      v3 = v11;
+      v8 = InitializeUserOrMachineLangList(
+             (_DWORD)v5,
+             0,
+             (unsigned int)&BaseAddress,
+             3 - (unsigned int)(a2 != 0),
+             a2 == 0);
+      v3 = BaseAddress;
       if ( v8 >= 0 )
       {
-        if ( v11 )
+        if ( BaseAddress )
         {
-          if ( *(_WORD *)(v11 + 4) )
+          if ( *((_WORD *)BaseAddress + 2) )
           {
-            LCIDFromLangListNode = GetLCIDFromLangListNode(v5, *(_QWORD *)(v11 + 24), a1);
+            LCIDFromLangListNode = GetLCIDFromLangListNode(v5, *((_QWORD *)BaseAddress + 3), DefaultUILanguageId);
             if ( LCIDFromLangListNode >= 0 )
               goto LABEL_12;
           }
@@ -64,9 +70,9 @@ __int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2)
       }
     }
   }
-  LCIDFromLangListNode = RtlpGetSystemDefaultUILanguage(a1, v5);
+  LCIDFromLangListNode = RtlpGetSystemDefaultUILanguage((LANGID)DefaultUILanguageId, v5);
   if ( LCIDFromLangListNode < 0 )
-    *a1 = 0;
+    *DefaultUILanguageId = 0;
 LABEL_12:
   if ( v3 )
     RtlpMuiRegFreeLanguageList(v3);

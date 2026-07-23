@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmParkApplyPolicy @ 0x1403C1C84
+ * XREFs of PpmParkApplyPolicy @ 0x1403C20B4
  * Callers:
- *     PpmParkRegisterParking @ 0x1403C1460 (PpmParkRegisterParking.c)
- *     PpmParkSetLpiCap @ 0x14057DA14 (PpmParkSetLpiCap.c)
- *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
- *     PpmParkApplyForcedMask @ 0x1408F92A4 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x1408F93A4 (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x1403C1890 (PpmParkRegisterParking.c)
+ *     PpmParkSetLpiCap @ 0x14057DC54 (PpmParkSetLpiCap.c)
+ *     PpmRegisterPerfStates @ 0x1407BA470 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAE90 (PpmReapplyPerfPolicy.c)
+ *     PpmParkApplyForcedMask @ 0x1408F9404 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1408F9504 (PpmParkClearForcedMask.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
- *     PpmEventParkNodeCapChange @ 0x140579BDC (PpmEventParkNodeCapChange.c)
- *     PpmEventParkNodeParkHintChanged @ 0x140579DE8 (PpmEventParkNodeParkHintChanged.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     PpmEventParkNodeCapChange @ 0x140579E1C (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x14057A028 (PpmEventParkNodeParkHintChanged.c)
  */
 
 ULONGLONG PpmParkApplyPolicy()
@@ -101,7 +101,7 @@ ULONGLONG PpmParkApplyPolicy()
   v61 = 0;
   if ( PpmParkNodes )
   {
-    v2 = &PpmCurrentProfile[342 * dword_140C23E8C];
+    v2 = &PpmCurrentProfile[342 * dword_140C2332C];
     v69 = v2;
     v75 = *((_WORD *)v2 + 90);
     v74 = *((_WORD *)v2 + 91);

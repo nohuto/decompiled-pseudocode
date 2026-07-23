@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x14060D910
+ * XREFs of RtlRunOnceExecuteOnce @ 0x14060E910
  * Callers:
  *     RtlpHpMetadataHeapStart @ 0x140009ACC (RtlpHpMetadataHeapStart.c)
- *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406542F4 (ExCheckFullProcessInformationAccess.c)
- *     SdbGetIndex @ 0x14067D704 (SdbGetIndex.c)
- *     ExpCheckTestsigningEnabled @ 0x140706FD4 (ExpCheckTestsigningEnabled.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x1407217DC (SdbpGetStringTableItemFromStringRef.c)
- *     ExQueryBootEntropyInformation @ 0x140736914 (ExQueryBootEntropyInformation.c)
- *     RtlpLogCapabilityCheckLatency @ 0x14089A378 (RtlpLogCapabilityCheckLatency.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
+ *     SeQuerySigningPolicy @ 0x14060E5D0 (SeQuerySigningPolicy.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406554B4 (ExCheckFullProcessInformationAccess.c)
+ *     SdbGetIndex @ 0x14067E8C4 (SdbGetIndex.c)
+ *     ExpCheckTestsigningEnabled @ 0x140708274 (ExpCheckTestsigningEnabled.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x140722A7C (SdbpGetStringTableItemFromStringRef.c)
+ *     ExQueryBootEntropyInformation @ 0x140737B04 (ExQueryBootEntropyInformation.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x14089B5D8 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D1CD0 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlRunOnceBeginInitialize @ 0x14060D9F0 (RtlRunOnceBeginInitialize.c)
- *     RtlRunOnceComplete @ 0x1406C7A80 (RtlRunOnceComplete.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlRunOnceBeginInitialize @ 0x14060E9F0 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceComplete @ 0x1406C8D20 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(

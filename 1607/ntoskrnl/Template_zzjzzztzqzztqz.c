@@ -1,10 +1,10 @@
 /*
- * XREFs of Template_zzjzzztzqzztqz @ 0x1401CFC44
+ * XREFs of Template_zzjzzztzqzztqz @ 0x1401CFA70
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140639900 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406399B4 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_zzjzzztzqzztqz(

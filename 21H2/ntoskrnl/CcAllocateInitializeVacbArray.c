@@ -1,13 +1,13 @@
 /*
- * XREFs of CcAllocateInitializeVacbArray @ 0x14037AE3C
+ * XREFs of CcAllocateInitializeVacbArray @ 0x14037A98C
  * Callers:
- *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
- *     CcInitializePartitionVacbs @ 0x1403C3328 (CcInitializePartitionVacbs.c)
+ *     CcGetVirtualAddress @ 0x14032BC60 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x1403C3758 (CcInitializePartitionVacbs.c)
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *CcAllocateInitializeVacbArray()

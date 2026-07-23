@@ -1,7 +1,7 @@
 /*
- * XREFs of _PnpCtxRegCloseKey @ 0x1406D7018
+ * XREFs of _PnpCtxRegCloseKey @ 0x1406D7150
  * Callers:
- *     DrvDbGetConfigurationSubKeyCallback @ 0x14023B340 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x14023B224 (DrvDbGetConfigurationSubKeyCallback.c)
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  *     PipProcessPendingOsExtensionResources @ 0x1407BB858 (PipProcessPendingOsExtensionResources.c)
  *     PipProcessPendingServices @ 0x1407BB8DC (PipProcessPendingServices.c)

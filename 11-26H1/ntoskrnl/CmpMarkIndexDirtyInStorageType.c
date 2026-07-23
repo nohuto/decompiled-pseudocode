@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpMarkIndexDirtyInStorageType @ 0x1408BD924
+ * XREFs of CmpMarkIndexDirtyInStorageType @ 0x1408C3EF4
  * Callers:
- *     CmpMarkIndexDirty @ 0x1408BD760 (CmpMarkIndexDirty.c)
+ *     CmpMarkIndexDirty @ 0x1408C3D30 (CmpMarkIndexDirty.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpFindSubKeyInRoot @ 0x1408D1B40 (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408D2EE0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvpGetCellContextMove @ 0x1408DBAE4 (HvpGetCellContextMove.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyInRoot @ 0x1408D8100 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408D94A0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvpGetCellContextMove @ 0x1408E20A4 (HvpGetCellContextMove.c)
  */
 
 __int64 __fastcall CmpMarkIndexDirtyInStorageType(

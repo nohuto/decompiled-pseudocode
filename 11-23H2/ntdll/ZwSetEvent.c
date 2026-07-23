@@ -42,17 +42,17 @@
  *     RtlDebugSetUserFlagsHeap @ 0x1801071D8 (RtlDebugSetUserFlagsHeap.c)
  *     RtlDebugSetUserValueHeap @ 0x180107524 (RtlDebugSetUserValueHeap.c)
  *     RtlDebugZeroHeap @ 0x180107B78 (RtlDebugZeroHeap.c)
- *     RtlpHeapTrkSyncWithDiagnoser @ 0x18010CB64 (RtlpHeapTrkSyncWithDiagnoser.c)
- *     RtlpRtlpCtSelfSubscribeCallback @ 0x180110670 (RtlpRtlpCtSelfSubscribeCallback.c)
+ *     RtlpHeapTrkSyncWithDiagnoser @ 0x18010CB34 (RtlpHeapTrkSyncWithDiagnoser.c)
+ *     RtlpRtlpCtSelfSubscribeCallback @ 0x180110640 (RtlpRtlpCtSelfSubscribeCallback.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetEvent()
+NTSTATUS __cdecl ZwSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 14LL;
+  result = 14;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

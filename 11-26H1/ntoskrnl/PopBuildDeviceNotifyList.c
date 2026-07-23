@@ -1,18 +1,18 @@
 /*
- * XREFs of PopBuildDeviceNotifyList @ 0x140C04CC8
+ * XREFs of PopBuildDeviceNotifyList @ 0x140C0AED8
  * Callers:
- *     PoInitializeBroadcast @ 0x140AC58BC (PoInitializeBroadcast.c)
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PoInitializeBroadcast @ 0x140AC752C (PoInitializeBroadcast.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     PopDiagTraceEventNoPayload @ 0x1404C6954 (PopDiagTraceEventNoPayload.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoBuildPoDeviceNotifyList @ 0x140C04DF0 (IoBuildPoDeviceNotifyList.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404C0304 (PopDiagTraceEventNoPayload.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoBuildPoDeviceNotifyList @ 0x140C0B000 (IoBuildPoDeviceNotifyList.c)
  */
 
 void __fastcall PopBuildDeviceNotifyList(void *a1, char a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDereferenceAtomTable @ 0x140619670
+ * XREFs of RtlDereferenceAtomTable @ 0x14061C6CC
  * Callers:
- *     SepDereferenceLowBoxNumberEntry @ 0x140A2C9E4 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x140A9F480 (SepDereferenceLowBoxNumberEntry.c)
  * Callees:
- *     RtlDestroyAtomTable @ 0x1409E0A60 (RtlDestroyAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x1409B8CD0 (RtlDestroyAtomTable.c)
  */
 
-__int64 RtlDereferenceAtomTable()
+NTSTATUS __fastcall RtlDereferenceAtomTable(void *a1)
 {
-  return RtlDestroyAtomTable();
+  return RtlDestroyAtomTable(a1);
 }

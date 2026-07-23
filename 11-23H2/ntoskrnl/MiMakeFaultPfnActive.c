@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMakeFaultPfnActive @ 0x140334EE0
+ * XREFs of MiMakeFaultPfnActive @ 0x140335170
  * Callers:
- *     MiHardFaultPageRelease @ 0x140334DA8 (MiHardFaultPageRelease.c)
+ *     MiHardFaultPageRelease @ 0x140335038 (MiHardFaultPageRelease.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiAreChargesNeededToLockPage @ 0x1402CDF90 (MiAreChargesNeededToLockPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiChargeForLockedPage @ 0x1402DC320 (MiChargeForLockedPage.c)
- *     MiMakeTransitionPteValid @ 0x140334FD0 (MiMakeTransitionPteValid.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiMakeProtoReadOnly @ 0x140633F2C (MiMakeProtoReadOnly.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402CE220 (MiAreChargesNeededToLockPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiChargeForLockedPage @ 0x1402DC5B0 (MiChargeForLockedPage.c)
+ *     MiMakeTransitionPteValid @ 0x140335260 (MiMakeTransitionPteValid.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiMakeProtoReadOnly @ 0x14063447C (MiMakeProtoReadOnly.c)
  */
 
 void __fastcall MiMakeFaultPfnActive(__int64 *a1, __int64 a2)

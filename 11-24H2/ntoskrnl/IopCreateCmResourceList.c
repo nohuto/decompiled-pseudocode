@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCreateCmResourceList @ 0x1407255D8
+ * XREFs of IopCreateCmResourceList @ 0x140723168
  * Callers:
- *     IopAllocateLegacyBootResources @ 0x140C23F28 (IopAllocateLegacyBootResources.c)
+ *     IopAllocateLegacyBootResources @ 0x140C25F58 (IopAllocateLegacyBootResources.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall IopCreateCmResourceList(__int64 a1, int a2, int a3, _QWORD *a4)
@@ -22,17 +22,18 @@ char *__fastcall IopCreateCmResourceList(__int64 a1, int a2, int a3, _QWORD *a4)
   __int64 v15; // rdx
   __int64 v16; // r9
   __int64 v17; // rax
+  ULONG_PTR v18; // rdi
   char *Pool2; // rbx
-  _DWORD *v20; // rax
-  _DWORD *v21; // rbp
-  char *v22; // r13
-  unsigned int v23; // r14d
+  _DWORD *v21; // rax
+  _DWORD *v22; // rbp
+  char *v23; // r13
+  unsigned int v24; // r14d
   char *i; // r12
-  unsigned int v25; // eax
-  _DWORD *v26; // rcx
-  size_t v27; // rdi
-  __int64 v28; // rdx
-  __int64 v29; // rax
+  unsigned int v26; // eax
+  _DWORD *v27; // rcx
+  size_t v28; // rdi
+  __int64 v29; // rdx
+  __int64 v30; // rax
 
   v4 = (unsigned int *)IopInitHalResources;
   v7 = a3;
@@ -76,61 +77,62 @@ LABEL_32:
     *a4 = IopInitHalResources;
     return 0LL;
   }
-  if ( v9 + 4 == v8 )
+  v18 = v9 + 4;
+  if ( v18 == v8 )
   {
     *a4 = 0LL;
     return (char *)v4;
   }
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, v18, 0x20207050u);
   if ( !Pool2 )
   {
     *a4 = 0LL;
     return 0LL;
   }
-  v20 = (_DWORD *)ExAllocatePool2(0x100uLL);
-  *a4 = v20;
-  v21 = v20;
-  if ( !v20 )
+  v21 = (_DWORD *)ExAllocatePool2(0x100uLL, v8 - v18 + 4, 0x20207050u);
+  *a4 = v21;
+  v22 = v21;
+  if ( !v21 )
   {
     ExFreePoolWithTag(Pool2, 0);
     return 0LL;
   }
   *(_DWORD *)Pool2 = 0;
-  v22 = (char *)(v20 + 1);
-  *v20 = 0;
-  v23 = 0;
-  for ( i = Pool2 + 4; v23 < *v4; ++v23 )
+  v23 = (char *)(v21 + 1);
+  *v21 = 0;
+  v24 = 0;
+  for ( i = Pool2 + 4; v24 < *v4; ++v24 )
   {
-    v25 = v10[3];
-    v26 = v10 + 4;
-    v27 = 16LL;
-    if ( v25 )
+    v26 = v10[3];
+    v27 = v10 + 4;
+    v28 = 16LL;
+    if ( v26 )
     {
-      v28 = v25;
+      v29 = v26;
       do
       {
-        v29 = 20LL;
-        if ( *(_BYTE *)v26 == 5 )
-          v29 = (unsigned int)v26[1] + 20LL;
-        v27 += v29;
-        v26 = (_DWORD *)((char *)v26 + v29);
-        --v28;
+        v30 = 20LL;
+        if ( *(_BYTE *)v27 == 5 )
+          v30 = (unsigned int)v27[1] + 20LL;
+        v28 += v30;
+        v27 = (_DWORD *)((char *)v27 + v30);
+        --v29;
       }
-      while ( v28 );
+      while ( v29 );
     }
     if ( *v10 == a2 && v10[1] == a3 )
     {
       ++*(_DWORD *)Pool2;
-      memmove(i, v10, v27);
-      i += v27;
+      memmove(i, v10, v28);
+      i += v28;
     }
     else
     {
-      ++*v21;
-      memmove(v22, v10, v27);
-      v22 += v27;
+      ++*v22;
+      memmove(v23, v10, v28);
+      v23 += v28;
     }
-    v10 = (_DWORD *)((char *)v10 + v27);
+    v10 = (_DWORD *)((char *)v10 + v28);
   }
   return Pool2;
 }

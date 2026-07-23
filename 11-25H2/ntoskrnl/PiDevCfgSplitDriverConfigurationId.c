@@ -34,7 +34,7 @@ __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
   _WORD *v19; // r14
   wchar_t *v20; // rsi
   unsigned __int64 v21; // rbp
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-58h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-58h] BYREF
   wchar_t Srca[12]; // [rsp+40h] [rbp-48h] BYREF
 
   v7 = 0;

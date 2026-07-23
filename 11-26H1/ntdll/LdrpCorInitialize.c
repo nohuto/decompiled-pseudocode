@@ -1,33 +1,33 @@
 /*
- * XREFs of LdrpCorInitialize @ 0x1800BE60C
+ * XREFs of LdrpCorInitialize @ 0x1800BC06C
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     LdrpGetProcedureAddress @ 0x180046820 (LdrpGetProcedureAddress.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     LdrpReleaseDllPath @ 0x180051400 (LdrpReleaseDllPath.c)
- *     LdrpLoadDll @ 0x180051A00 (LdrpLoadDll.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x180055460 (LdrpDecrementModuleLoadCountEx.c)
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
- *     LdrpBuildSystem32FileName @ 0x1800BE800 (LdrpBuildSystem32FileName.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     LdrpGetProcedureAddress @ 0x180030D90 (LdrpGetProcedureAddress.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     LdrpReleaseDllPath @ 0x18003B980 (LdrpReleaseDllPath.c)
+ *     LdrpLoadDll @ 0x18003BF80 (LdrpLoadDll.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x18003F9E0 (LdrpDecrementModuleLoadCountEx.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
+ *     LdrpBuildSystem32FileName @ 0x1800BC260 (LdrpBuildSystem32FileName.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpCorInitialize(__int64 *a1)
+__int64 __fastcall LdrpCorInitialize(char **a1)
 {
   bool v2; // bl
   int Dll; // ebx
-  unsigned __int16 *v4; // rcx
-  __int64 v6; // rdi
-  unsigned __int64 v7; // [rsp+30h] [rbp-1C8h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-1C0h] BYREF
+  _UNICODE_STRING *v4; // rcx
+  char *v6; // rdi
+  ULONG_PTR ReturnLength; // [rsp+30h] [rbp-1C8h] BYREF
+  PVOID v8; // [rsp+38h] [rbp-1C0h] BYREF
   unsigned __int64 v9; // [rsp+40h] [rbp-1B8h] BYREF
-  char ArgList[4]; // [rsp+50h] [rbp-1A8h] BYREF
-  _WORD *v11; // [rsp+58h] [rbp-1A0h]
+  int v10; // [rsp+50h] [rbp-1A8h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-1A0h]
   _WORD v12[128]; // [rsp+60h] [rbp-198h] BYREF
   _BYTE v13[128]; // [rsp+160h] [rbp-98h] BYREF
 
@@ -35,23 +35,23 @@ __int64 __fastcall LdrpCorInitialize(__int64 *a1)
   memset_thunk_772440563353939046(v13, 0, 0x80uLL);
   v2 = 1;
   v8 = 0LL;
-  memset_thunk_772440563353939046(ArgList, 0, 0x110uLL);
-  v7 = 0LL;
-  RtlEnterCriticalSection((__int64)&FastPebLock);
-  if ( (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 0x13uLL, 0LL, 0LL, &v7) == -1073741789 )
-    v2 = (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 0xFuLL, 0LL, 0LL, &v7) != -1073741789;
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
-  v11 = v12;
-  *(_DWORD *)ArgList = 0x1000000;
+  memset_thunk_772440563353939046(&v10, 0, 0x110uLL);
+  ReturnLength = 0LL;
+  RtlEnterCriticalSection(&FastPebLock);
+  if ( RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 0x13uLL, 0LL, 0LL, &ReturnLength) == -1073741789 )
+    v2 = RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 0xFuLL, 0LL, 0LL, &ReturnLength) != -1073741789;
+  RtlLeaveCriticalSection(&FastPebLock);
+  BaseAddress = v12;
+  v10 = 0x1000000;
   v12[0] = 0;
   if ( v2 )
   {
-    Dll = LdrpBuildSystem32FileName(ArgList, &LdrpMscoreeDllName);
-    v4 = (unsigned __int16 *)ArgList;
+    Dll = LdrpBuildSystem32FileName(&v10, &LdrpMscoreeDllName);
+    v4 = (_UNICODE_STRING *)&v10;
   }
   else
   {
-    v4 = (unsigned __int16 *)&LdrpMscoreeDllName;
+    v4 = (_UNICODE_STRING *)&LdrpMscoreeDllName;
     Dll = 0;
   }
   if ( Dll >= 0 )
@@ -60,11 +60,11 @@ __int64 __fastcall LdrpCorInitialize(__int64 *a1)
     LdrpReleaseDllPath((__int64)v13);
     if ( Dll >= 0 )
     {
-      v6 = v8;
-      Dll = LdrpGetProcedureAddress(*(_QWORD *)(v8 + 48), "_CorExeMain", 0, &v9);
+      v6 = (char *)v8;
+      Dll = LdrpGetProcedureAddress(*((_QWORD *)v8 + 6), "_CorExeMain", 0, (char **)&v9);
       if ( Dll < 0 )
       {
-        LdrpDecrementModuleLoadCountEx(v6, 0LL);
+        LdrpDecrementModuleLoadCountEx((__int64)v6, 0LL);
       }
       else
       {
@@ -74,7 +74,7 @@ __int64 __fastcall LdrpCorInitialize(__int64 *a1)
       LdrpDereferenceModule(v6);
     }
   }
-  if ( v12 != v11 )
-    RtlpSysVolFree((__int64)v11);
+  if ( v12 != BaseAddress )
+    RtlpSysVolFree(BaseAddress);
   return (unsigned int)Dll;
 }

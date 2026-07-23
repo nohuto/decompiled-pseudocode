@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlInitializeOplockPerf @ 0x140C192F4
+ * XREFs of FsRtlInitializeOplockPerf @ 0x140C1B2E8
  * Callers:
- *     FsRtlInitSystem @ 0x140C18D7C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140C1AD7C (FsRtlInitSystem.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     FsRtlpOplockGetAckTimeoutOverride @ 0x14070B880 (FsRtlpOplockGetAckTimeoutOverride.c)
- *     FsRtlpOplockPerfInitializeLatencyInfo @ 0x14070BC34 (FsRtlpOplockPerfInitializeLatencyInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     FsRtlpOplockGetAckTimeoutOverride @ 0x140709414 (FsRtlpOplockGetAckTimeoutOverride.c)
+ *     FsRtlpOplockPerfInitializeLatencyInfo @ 0x1407097C8 (FsRtlpOplockPerfInitializeLatencyInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 FsRtlInitializeOplockPerf()
 {
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   __int64 UnbiasedInterruptTime; // rax
   char v2; // cl
   int AckTimeoutOverride; // ebx
@@ -32,11 +32,11 @@ __int64 FsRtlInitializeOplockPerf()
     && *(_QWORD *)(*(_QWORD *)g_OplockPerfData + 8LL) )
   {
     FsRtlpOplockPerfInitializeLatencyInfo();
-    qword_140E65B40 = 36000000000LL;
+    qword_140E65DA0 = 36000000000LL;
     *(_QWORD *)(g_OplockPerfData + 24) = 10LL;
     UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-    byte_140E65B21 = v2;
-    qword_140E65B48 = UnbiasedInterruptTime;
+    byte_140E65D81 = v2;
+    qword_140E65DA8 = UnbiasedInterruptTime;
     ExInitializeNPagedLookasideListInternal((__int64)&g_OplockAckTimeoutLookaside, 0LL, 0LL, 528, 184, 1869763398, 0, 0);
     AckTimeoutOverride = FsRtlpOplockGetAckTimeoutOverride();
     if ( AckTimeoutOverride >= 0 )

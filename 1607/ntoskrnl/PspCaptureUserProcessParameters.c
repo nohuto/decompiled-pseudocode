@@ -1,17 +1,17 @@
 /*
- * XREFs of PspCaptureUserProcessParameters @ 0x1404B1504
+ * XREFs of PspCaptureUserProcessParameters @ 0x14049B8E4
  * Callers:
- *     PsCaptureUserProcessParameters @ 0x1404B14A4 (PsCaptureUserProcessParameters.c)
- *     PspCaptureProcessParameters @ 0x1404B14B0 (PspCaptureProcessParameters.c)
+ *     PsCaptureUserProcessParameters @ 0x14049B884 (PsCaptureUserProcessParameters.c)
+ *     PspCaptureProcessParameters @ 0x14049B890 (PspCaptureProcessParameters.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PspCopyUnicodeString @ 0x1404B1A30 (PspCopyUnicodeString.c)
- *     PspCaptureAndValidateUnicodeString @ 0x1404B1A9C (PspCaptureAndValidateUnicodeString.c)
- *     PspValidateEnvironmentBlock @ 0x1404B1B10 (PspValidateEnvironmentBlock.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     PspCopyUnicodeString @ 0x14049BE10 (PspCopyUnicodeString.c)
+ *     PspCaptureAndValidateUnicodeString @ 0x14049BE7C (PspCaptureAndValidateUnicodeString.c)
+ *     PspValidateEnvironmentBlock @ 0x14049BEF0 (PspValidateEnvironmentBlock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspCaptureUserProcessParameters(_QWORD *a1, __int64 a2, char a3)

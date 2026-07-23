@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlNumberOfSetBits @ 0x1400767D0
+ * XREFs of RtlNumberOfSetBits @ 0x140076850
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140004FE4 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     RtlNumberOfClearBits @ 0x140076A5C (RtlNumberOfClearBits.c)
- *     PspQueryRateControlHistory @ 0x14046917C (PspQueryRateControlHistory.c)
- *     SepAddLuidToIndexEntry @ 0x14046E2DC (SepAddLuidToIndexEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x140476BFC (SepGetLowBoxNumberEntry.c)
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     HvpGenerateLogEntry @ 0x1404812F0 (HvpGenerateLogEntry.c)
- *     HvFreeHivePartial @ 0x140481AF0 (HvFreeHivePartial.c)
- *     HvWriteHivePrimaryFile @ 0x140483AA4 (HvWriteHivePrimaryFile.c)
- *     HvUpdateUnreconciledVector @ 0x1404BEA20 (HvUpdateUnreconciledVector.c)
- *     PopEvaluateGlobalUserStatus @ 0x14052E744 (PopEvaluateGlobalUserStatus.c)
- *     MiReleaseDriverPtes @ 0x140544938 (MiReleaseDriverPtes.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
- *     HvFoldBackUnreconciledData @ 0x140605EFC (HvFoldBackUnreconciledData.c)
- *     HvpRecoverData @ 0x1406112B8 (HvpRecoverData.c)
- *     HvApplyLegacyLogFile @ 0x140611F4C (HvApplyLegacyLogFile.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1406A3258 (EtwQueryPerformanceTraceInformation.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140005158 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     RtlNumberOfClearBits @ 0x140076ADC (RtlNumberOfClearBits.c)
+ *     PspQueryRateControlHistory @ 0x14046804C (PspQueryRateControlHistory.c)
+ *     SepAddLuidToIndexEntry @ 0x14046D1AC (SepAddLuidToIndexEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x140475ACC (SepGetLowBoxNumberEntry.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     HvpGenerateLogEntry @ 0x140480044 (HvpGenerateLogEntry.c)
+ *     HvFreeHivePartial @ 0x140480844 (HvFreeHivePartial.c)
+ *     HvWriteHivePrimaryFile @ 0x1404827F8 (HvWriteHivePrimaryFile.c)
+ *     HvUpdateUnreconciledVector @ 0x1404AA750 (HvUpdateUnreconciledVector.c)
+ *     PopEvaluateGlobalUserStatus @ 0x14052EC84 (PopEvaluateGlobalUserStatus.c)
+ *     MiReleaseDriverPtes @ 0x140544E78 (MiReleaseDriverPtes.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
+ *     HvFoldBackUnreconciledData @ 0x140605FB0 (HvFoldBackUnreconciledData.c)
+ *     HvpRecoverData @ 0x14061136C (HvpRecoverData.c)
+ *     HvApplyLegacyLogFile @ 0x140612000 (HvApplyLegacyLogFile.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1406A3390 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */
@@ -68,7 +68,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v12 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v5 - 1 && v3 )
-      v12 &= byte_14026F698[SizeOfBitMap & 7];
+      v12 &= byte_14026F6B8[SizeOfBitMap & 7];
     ++i;
     v1 += RtlpBitsClearTotal[(unsigned __int8)~v12];
   }
@@ -95,7 +95,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v17 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v5 - 1 && v3 )
-      v17 &= byte_14026F698[SizeOfBitMap & 7];
+      v17 &= byte_14026F6B8[SizeOfBitMap & 7];
     ++i;
     v1 += RtlpBitsClearTotal[(unsigned __int8)~v17];
   }

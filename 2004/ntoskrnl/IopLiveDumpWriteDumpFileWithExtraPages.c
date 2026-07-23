@@ -27,7 +27,7 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
   __int64 v2; // rsi
   _OWORD *v4; // r12
   int SecureDumpHeader; // edi
-  __int64 *v6; // rdi
+  __int64 v6; // rdi
   LARGE_INTEGER v7; // rax
   void *v8; // r13
   __int64 v9; // rax
@@ -44,10 +44,10 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
   __int64 v20; // r14
   char v21; // al
   int v22; // edi
-  __int64 *v23; // r15
+  __int64 v23; // r15
   bool v24; // zf
   char *v25; // rax
-  __int64 *v26; // rdi
+  __int64 v26; // rdi
   __int64 v27; // rdi
   __int64 v28; // rdi
   struct _MDL *v29; // rcx
@@ -81,7 +81,7 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
   __int64 v58; // [rsp+80h] [rbp-51h]
   PVOID Buffer; // [rsp+88h] [rbp-49h]
   __int64 v60; // [rsp+98h] [rbp-39h] BYREF
-  __int64 *v61; // [rsp+A0h] [rbp-31h]
+  __int64 v61; // [rsp+A0h] [rbp-31h]
   __int64 v62; // [rsp+A8h] [rbp-29h]
   struct _KTHREAD *CurrentThread; // [rsp+B0h] [rbp-21h]
   void *v64; // [rsp+B8h] [rbp-19h]
@@ -104,7 +104,7 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
   memset(Src, 0, sizeof(Src));
   if ( !v1 )
     goto LABEL_2;
-  v6 = *(__int64 **)(a1 + 1032);
+  v6 = *(_QWORD *)(a1 + 1032);
   v61 = v6;
   if ( !v6 )
     goto LABEL_2;
@@ -121,15 +121,15 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
   v47 = 0;
   if ( *(_QWORD *)(a1 + 552) != v9 )
   {
-    RtlClearAllBitsEx(a1 + 616);
+    RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 616));
     v9 = *(_QWORD *)(a1 + 624);
   }
   if ( v9 != *(_QWORD *)(a1 + 640) )
-    RtlClearAllBitsEx(a1 + 632);
+    RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 632));
   *(_QWORD *)(a1 + 728) = 0LL;
   *(_QWORD *)(a1 + 736) = 0LL;
-  IopLiveDumpGetNtMergePages(a1, (int)v6, &v52, &v51, &v55);
-  v56 = v6;
+  IopLiveDumpGetNtMergePages((_RTL_BITMAP_EX *)a1, v6, &v52, &v51, &v55);
+  v56 = (__int64 *)v6;
   ExtraMergePages = IopLiveDumpGetExtraMergePages((_QWORD *)a1, v1, &v53, (_DWORD *)&v51 + 1, &v57);
   v11 = v51;
   v12 = (__int64 *)v1;
@@ -171,8 +171,8 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
       v19 = v22 << 12;
       v58 = v55;
       v47 = 1;
-      IopLiveDumpGetNtMergePages(a1, (int)v61, &v52, &v51, &v55);
-      v56 = v23;
+      IopLiveDumpGetNtMergePages((_RTL_BITMAP_EX *)a1, v61, &v52, &v51, &v55);
+      v56 = (__int64 *)v23;
       v11 = v51;
       goto LABEL_38;
     }
@@ -197,12 +197,12 @@ LABEL_30:
         v26 = v61;
         v47 = 1;
         v58 = v55;
-        IopLiveDumpGetNtMergePages(a1, (int)v61, &v52, &v51, &v55);
+        IopLiveDumpGetNtMergePages((_RTL_BITMAP_EX *)a1, v61, &v52, &v51, &v55);
         v15 = v54;
         v18 = 4096LL;
         v17 = v48;
         v11 = v51;
-        v56 = v26;
+        v56 = (__int64 *)v26;
       }
       else
       {

@@ -13,18 +13,18 @@
  *     RtlCreateUnicodeString @ 0x180082430 (RtlCreateUnicodeString.c)
  */
 
-char __fastcall LdrpLogDllStateEx2(__int64 a1, const wchar_t *a2, const wchar_t *a3, __int16 a4)
+char __fastcall LdrpLogDllStateEx2(__int64 a1, const WCHAR *a2, const WCHAR *a3, __int16 a4)
 {
   struct _PEB *v7; // rax
   __int64 v8; // rcx
   __int64 v9; // rcx
-  char UnicodeString; // bl
-  __int128 v12; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v13; // [rsp+40h] [rbp-18h] BYREF
+  BOOLEAN v10; // bl
+  _UNICODE_STRING v12; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
-  v13 = 0LL;
+  DestinationString = 0LL;
   v12 = 0LL;
-  LODWORD(v7) = (unsigned int)RtlGetCurrentServiceSessionId();
+  LODWORD(v7) = RtlGetCurrentServiceSessionId();
   if ( (_DWORD)v7 )
   {
     v7 = NtCurrentPeb();
@@ -39,7 +39,7 @@ char __fastcall LdrpLogDllStateEx2(__int64 a1, const wchar_t *a2, const wchar_t 
     v7 = NtCurrentPeb();
     if ( (v7->TracingFlags & 4) != 0 )
     {
-      LODWORD(v7) = (unsigned int)RtlGetCurrentServiceSessionId();
+      LODWORD(v7) = RtlGetCurrentServiceSessionId();
       if ( (_DWORD)v7 )
       {
         v7 = NtCurrentPeb();
@@ -52,25 +52,19 @@ char __fastcall LdrpLogDllStateEx2(__int64 a1, const wchar_t *a2, const wchar_t 
       if ( (*(_BYTE *)v9 & 0x20) != 0 )
       {
         if ( !a2 )
-          a2 = (const wchar_t *)&unk_18017D3FC;
-        UnicodeString = RtlCreateUnicodeString((__int64)&v13, a2);
-        LOBYTE(v7) = RtlCreateUnicodeString((__int64)&v12, a3);
-        if ( UnicodeString )
+          a2 = &word_18017D3FC;
+        v10 = RtlCreateUnicodeString(&DestinationString, a2);
+        LOBYTE(v7) = RtlCreateUnicodeString(&v12, a3);
+        if ( v10 )
         {
           if ( (_BYTE)v7 )
           {
-            LOBYTE(v7) = (unsigned __int8)LdrpLogEtwEvent(
-                                            a4,
-                                            0LL,
-                                            0,
-                                            0,
-                                            (unsigned __int16 *)&v12,
-                                            (unsigned __int16 *)&v13);
-            if ( *((_QWORD *)&v12 + 1) )
-              LOBYTE(v7) = RtlpSysVolFree(*((__int64 *)&v12 + 1));
+            LOBYTE(v7) = LdrpLogEtwEvent(a4, 0LL, 0, 0, &v12.Length, &DestinationString.Length);
+            if ( v12.Buffer )
+              LOBYTE(v7) = RtlpSysVolFree(v12.Buffer);
           }
-          if ( *((_QWORD *)&v13 + 1) )
-            LOBYTE(v7) = RtlpSysVolFree(*((__int64 *)&v13 + 1));
+          if ( DestinationString.Buffer )
+            LOBYTE(v7) = RtlpSysVolFree(DestinationString.Buffer);
         }
       }
     }

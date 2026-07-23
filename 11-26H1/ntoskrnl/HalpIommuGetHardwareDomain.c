@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpIommuGetHardwareDomain @ 0x140513EE4
+ * XREFs of HalpIommuGetHardwareDomain @ 0x14050D954
  * Callers:
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x140588288 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuInitializeDmar @ 0x14058DC28 (HalpIommuInitializeDmar.c)
- *     HalpIommuJoinDmaDomain @ 0x14058DCF4 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x14058DE4C (HalpIommuLeaveDmaDomain.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14058A958 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuInitializeDmar @ 0x1405903A8 (HalpIommuInitializeDmar.c)
+ *     HalpIommuJoinDmaDomain @ 0x140590474 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1405905CC (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpIommuAcquireNewDomain @ 0x14058BAE0 (HalpIommuAcquireNewDomain.c)
- *     HalpIommuDomainGetSupportedPageTableDepths @ 0x14058D818 (HalpIommuDomainGetSupportedPageTableDepths.c)
- *     HalpIommuGetDmarptRootAddress @ 0x1405A0B0C (HalpIommuGetDmarptRootAddress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpIommuAcquireNewDomain @ 0x14058E260 (HalpIommuAcquireNewDomain.c)
+ *     HalpIommuDomainGetSupportedPageTableDepths @ 0x14058FF98 (HalpIommuDomainGetSupportedPageTableDepths.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1405A331C (HalpIommuGetDmarptRootAddress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpIommuGetHardwareDomain(__int64 a1, __int64 a2, char a3, char a4, char a5, __int64 *a6)

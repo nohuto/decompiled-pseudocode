@@ -1,33 +1,33 @@
 /*
- * XREFs of NtQueryVolumeInformationFile @ 0x14096EFA0
+ * XREFs of NtQueryVolumeInformationFile @ 0x140957060
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x140950C88 (PfpVolumeOpenAndVerify.c)
- *     PfSnIsVolumeMounted @ 0x14096C58C (PfSnIsVolumeMounted.c)
- *     PfSnQueryVolumeInfo @ 0x14096E298 (PfSnQueryVolumeInfo.c)
+ *     PfpVolumeOpenAndVerify @ 0x140934634 (PfpVolumeOpenAndVerify.c)
+ *     PfSnIsVolumeMounted @ 0x140954FEC (PfSnIsVolumeMounted.c)
+ *     PfSnQueryVolumeInfo @ 0x140957B7C (PfSnQueryVolumeInfo.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IopFileObjectRevoked @ 0x14040DC30 (IopFileObjectRevoked.c)
- *     IopGetMountFlag @ 0x14046ED70 (IopGetMountFlag.c)
- *     IopGetDriverPathInformation @ 0x140596398 (IopGetDriverPathInformation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14096F574 (IopSynchronousApiServiceTail.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IopFileObjectRevoked @ 0x140405E80 (IopFileObjectRevoked.c)
+ *     IopGetMountFlag @ 0x140469480 (IopGetMountFlag.c)
+ *     IopGetDriverPathInformation @ 0x1405933C8 (IopGetDriverPathInformation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x140957634 (IopSynchronousApiServiceTail.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtQueryVolumeInformationFile(
@@ -65,7 +65,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   struct _KEVENT *v32; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rdi
   __int64 v34; // rax
-  unsigned __int8 v35; // di
+  char v35; // di
   unsigned __int8 v36; // r14
   int MountFlag; // ecx
   __int64 v38; // rbx
@@ -74,12 +74,12 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   int v41; // eax
   struct _KEVENT *Pool2; // rax
   _BYTE *v43; // rsi
-  int DriverPathInformation; // eax
-  unsigned __int8 v45; // [rsp+40h] [rbp-78h] BYREF
+  NTSTATUS DriverPathInformation; // eax
+  char v45; // [rsp+40h] [rbp-78h] BYREF
   unsigned __int8 v46; // [rsp+41h] [rbp-77h]
   bool v47; // [rsp+42h] [rbp-76h]
   PVOID Object; // [rsp+48h] [rbp-70h] BYREF
-  int v49; // [rsp+50h] [rbp-68h]
+  NTSTATUS v49; // [rsp+50h] [rbp-68h]
   ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-60h]
   PVOID P; // [rsp+60h] [rbp-58h]
   _BYTE *v52; // [rsp+68h] [rbp-50h]
@@ -212,7 +212,7 @@ LABEL_70:
       RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)v20);
       if ( (*v22 & 2) == 0 )
       {
-        Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+        Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x76456F49u);
         P = Pool2;
         if ( !Pool2 )
           goto LABEL_63;
@@ -246,7 +246,7 @@ LABEL_70:
         v30->UserBuffer = FsInformation;
         v30->AssociatedIrp.MasterIrp = 0LL;
         v30->MdlAddress = 0LL;
-        v34 = ExAllocatePool2(0x41uLL);
+        v34 = ExAllocatePool2(0x41uLL, Length, 0x42536F49u);
         v30->AssociatedIrp.MasterIrp = (struct _IRP *)v34;
         if ( v34 )
         {
@@ -275,7 +275,7 @@ LABEL_63:
       return -1073741670;
     }
     v52 = 0LL;
-    v43 = (_BYTE *)ExAllocatePool2(0x61uLL);
+    v43 = (_BYTE *)ExAllocatePool2(0x61uLL, Length, 0x42536F49u);
     v52 = v43;
     memmove(v43, FsInformation, Length);
     DriverPathInformation = IopGetDriverPathInformation((__int64)v20, (__int64)v43, Length);

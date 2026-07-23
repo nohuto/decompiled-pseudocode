@@ -1,28 +1,28 @@
 /*
  * XREFs of RtlLookupElementGenericTableAvl @ 0x1402DF3F0
  * Callers:
- *     PiUpdateDriverDBCache @ 0x14075E74C (PiUpdateDriverDBCache.c)
- *     PiLookupInDDBCache @ 0x14075EB84 (PiLookupInDDBCache.c)
- *     PiSwFindSwDevice @ 0x140767130 (PiSwFindSwDevice.c)
- *     PiDcHandleDeviceEvent @ 0x14076D824 (PiDcHandleDeviceEvent.c)
- *     PiSwFindBusRelations @ 0x14076E854 (PiSwFindBusRelations.c)
- *     PiDqQueryApplyObjectEvent @ 0x140775D50 (PiDqQueryApplyObjectEvent.c)
- *     PiPnpRtlObjectEventWorker @ 0x140778830 (PiPnpRtlObjectEventWorker.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiDmLookupObject @ 0x14077B12C (PiDmLookupObject.c)
- *     PopPowerRequestTableLookupEntry @ 0x1407EFF80 (PopPowerRequestTableLookupEntry.c)
- *     PopPowerRequestStatsCreate @ 0x1407F0070 (PopPowerRequestStatsCreate.c)
- *     IopCleanupFileObjectIosbRange @ 0x140933FE8 (IopCleanupFileObjectIosbRange.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x14099F0A0 (PopDirectedDripsUmMarkTestDevices.c)
+ *     sub_14075E74C @ 0x14075E74C (sub_14075E74C.c)
+ *     sub_14075EB84 @ 0x14075EB84 (sub_14075EB84.c)
+ *     sub_140767130 @ 0x140767130 (sub_140767130.c)
+ *     sub_14076D824 @ 0x14076D824 (sub_14076D824.c)
+ *     sub_14076E854 @ 0x14076E854 (sub_14076E854.c)
+ *     sub_140775D50 @ 0x140775D50 (sub_140775D50.c)
+ *     sub_140778830 @ 0x140778830 (sub_140778830.c)
+ *     sub_140779C10 @ 0x140779C10 (sub_140779C10.c)
+ *     sub_14077B12C @ 0x14077B12C (sub_14077B12C.c)
+ *     sub_1407EFF80 @ 0x1407EFF80 (sub_1407EFF80.c)
+ *     sub_1407F0070 @ 0x1407F0070 (sub_1407F0070.c)
+ *     sub_140933FE8 @ 0x140933FE8 (sub_140933FE8.c)
+ *     sub_14099F0A0 @ 0x14099F0A0 (sub_14099F0A0.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
   void *v2; // rsi
   _RTL_BALANCED_LINKS *i; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS v6; // eax
+  int v6; // eax
   int v7; // eax
   _RTL_BALANCED_LINKS *v8; // rbx
 
@@ -34,10 +34,10 @@ PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buff
     {
       while ( 1 )
       {
-        v6 = Table->CompareRoutine(Table, Buffer, &i[1]);
-        if ( v6 == GenericLessThan )
+        v6 = sub_14042A5E0(Table, Buffer);
+        if ( !v6 )
           break;
-        if ( v6 != GenericGreaterThan )
+        if ( v6 != 1 )
         {
           v7 = 1;
           goto LABEL_10;

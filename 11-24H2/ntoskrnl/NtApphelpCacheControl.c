@@ -1,16 +1,16 @@
 /*
- * XREFs of NtApphelpCacheControl @ 0x140967860
+ * XREFs of NtApphelpCacheControl @ 0x1409502F0
  * Callers:
  *     <none>
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     ExGetPreviousMode @ 0x140445830 (ExGetPreviousMode.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     AhcCacheQueryHwId @ 0x140828F30 (AhcCacheQueryHwId.c)
- *     IoGetDeviceObjectPointer @ 0x140967A30 (IoGetDeviceObjectPointer.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     ExGetPreviousMode @ 0x14043D9E0 (ExGetPreviousMode.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     AhcCacheQueryHwId @ 0x14082976C (AhcCacheQueryHwId.c)
+ *     IoGetDeviceObjectPointer @ 0x1409504C0 (IoGetDeviceObjectPointer.c)
  */
 
 __int64 __fastcall NtApphelpCacheControl(int a1, char *a2)

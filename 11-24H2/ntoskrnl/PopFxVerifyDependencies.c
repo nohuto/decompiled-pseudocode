@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxVerifyDependencies @ 0x14074F5B4
+ * XREFs of PopFxVerifyDependencies @ 0x14074D8E4
  * Callers:
- *     PopFxRegisterDeviceWorker @ 0x14074EBF0 (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x14074CF20 (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxVerifyDependencies(__int64 a1, __int64 a2, unsigned int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall PopFxVerifyDependencies(__int64 a1, __int64 a2, unsigned int 
   __int64 v23; // rax
 
   v6 = 0;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 4LL * a3, 0x4D584650u);
   if ( Pool2 )
   {
     v8 = 0;

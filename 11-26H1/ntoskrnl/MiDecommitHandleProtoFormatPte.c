@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecommitHandleProtoFormatPte @ 0x140360F60
+ * XREFs of MiDecommitHandleProtoFormatPte @ 0x140362D00
  * Callers:
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
  * Callees:
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiGetSharedProtosAtDpc @ 0x14046A430 (MiGetSharedProtosAtDpc.c)
- *     MiDecrementCloneBlockReference @ 0x1404AFB30 (MiDecrementCloneBlockReference.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiGetSharedProtosAtDpc @ 0x140463BB0 (MiGetSharedProtosAtDpc.c)
+ *     MiDecrementCloneBlockReference @ 0x1404A91C0 (MiDecrementCloneBlockReference.c)
  */
 
 void __fastcall MiDecommitHandleProtoFormatPte(__int64 a1, unsigned __int64 a2)
@@ -73,11 +73,11 @@ void __fastcall MiDecommitHandleProtoFormatPte(__int64 a1, unsigned __int64 a2)
           }
           else if ( (*(_DWORD *)(v15 + 56) & 0x20) != 0 )
           {
-            if ( qword_140E2D740 && (a2 & 0x10) == 0 )
-              v3 = a2 & qword_140E2D748;
-            v16 = qword_140E37B90;
+            if ( qword_140E2D8C0 && (a2 & 0x10) == 0 )
+              v3 = a2 & qword_140E2D8C8;
+            v16 = qword_140E37D10;
             if ( (v3 & 0x800000000000000LL) == 0 )
-              v16 = qword_140E37BA0;
+              v16 = qword_140E37D20;
             v17 = v16 + ((v3 >> 9) & 0x1FFFFFFFFFF8LL);
             v18 = KeGetCurrentThread()->ApcState.Process;
             CycleTime = v18[1].CycleTime;

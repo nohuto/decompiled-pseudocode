@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAllocatePoolForNode @ 0x1406B5F40
+ * XREFs of ExpAllocatePoolForNode @ 0x1406B6078
  * Callers:
- *     ExpWorkerThreadBalanceManager @ 0x140566108 (ExpWorkerThreadBalanceManager.c)
+ *     ExpWorkerThreadBalanceManager @ 0x140566648 (ExpWorkerThreadBalanceManager.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeInitializePriQueue @ 0x140147C34 (KeInitializePriQueue.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeInitializePriQueue @ 0x1401481A4 (KeInitializePriQueue.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

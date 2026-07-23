@@ -1,12 +1,12 @@
 /*
- * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x140702F40
+ * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x140700B80
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403BA150 (HalpIsInterruptTypeSecondary.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpIsInterruptTypeSecondary @ 0x140372B20 (HalpIsInterruptTypeSecondary.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
@@ -46,7 +46,8 @@ __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
   __int64 v35; // rsi
   __int64 v36; // rcx
   __int64 v37; // rax
-  __int16 v38; // [rsp+78h] [rbp+10h]
+  ULONG_PTR v38; // [rsp+20h] [rbp-48h]
+  __int16 v39; // [rsp+78h] [rbp+10h]
 
   v5 = *(_DWORD *)(a2 + 8);
   v6 = 0;
@@ -60,7 +61,7 @@ __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
   if ( HalpIsInterruptTypeSecondary(0, v5) && HalpIsInterruptTypeSecondary(0, v14) )
   {
 LABEL_2:
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x696C6148u);
     *a5 = Pool2;
     if ( Pool2 )
     {
@@ -72,7 +73,8 @@ LABEL_2:
     }
     return 3221225626LL;
   }
-  v15 = (char *)ExAllocatePool2(0x100uLL);
+  v38 = 32 * (v14 - v5 + 3);
+  v15 = (char *)ExAllocatePool2(0x100uLL, v38, 0x696C6148u);
   if ( !v15 )
     return 3221225626LL;
   v16 = *(_DWORD *)(a2 + 8);
@@ -109,9 +111,9 @@ LABEL_2:
       *(_DWORD *)&v15[v18 + 12] = 9;
     }
   }
-  v19 = word_140FC0D0E;
+  v19 = word_140FC0FAE;
   v20 = 0;
-  v38 = word_140FC0D0E;
+  v39 = word_140FC0FAE;
   for ( i = 0; i < v9; ++i )
   {
     v22 = &v15[32 * i];
@@ -143,11 +145,11 @@ LABEL_2:
         *(_DWORD *)&v15[v27 + 12] = *((_DWORD *)v22 + 3);
       }
       memmove(&v15[32 * i], v22 + 32, 32LL * (v9 - i));
-      v19 = v38;
+      v19 = v39;
       --v9;
     }
   }
-  v28 = (_BYTE *)ExAllocatePool2(0x100uLL);
+  v28 = (_BYTE *)ExAllocatePool2(0x100uLL, v38, 0x696C6148u);
   if ( v28 )
   {
     if ( v9 )

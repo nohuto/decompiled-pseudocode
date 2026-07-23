@@ -16,7 +16,7 @@ char HalpTimerWatchdogPreResetInterrupt()
   __int64 v1; // rdx
   ULONG_PTR v2; // rdi
   ULONG_PTR BugCheckParameter4; // rbx
-  ULONG_PTR v4; // rax
+  LARGE_INTEGER v4; // rax
   LARGE_INTEGER v6; // [rsp+50h] [rbp+18h] BYREF
 
   InternalData = HalpTimerGetInternalData(HalpWatchdogTimer);
@@ -28,7 +28,7 @@ char HalpTimerWatchdogPreResetInterrupt()
     {
       BugCheckParameter4 = (unsigned int)KiClockTimerOwner;
       v4 = KeQueryInterruptTimePrecise(&v6);
-      KeBugCheckEx(0x101u, v2, (unsigned __int64)HalpTimerWatchdogResetCount >> 1, v4, BugCheckParameter4);
+      KeBugCheckEx(0x101u, v2, (unsigned __int64)HalpTimerWatchdogResetCount >> 1, v4.QuadPart, BugCheckParameter4);
     }
     HalpTimerWatchdogResetCountdown();
   }

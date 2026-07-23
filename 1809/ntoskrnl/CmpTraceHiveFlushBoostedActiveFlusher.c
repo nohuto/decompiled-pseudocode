@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveFlushBoostedActiveFlusher @ 0x1407EBF2C
+ * XREFs of CmpTraceHiveFlushBoostedActiveFlusher @ 0x1407ED12C
  * Callers:
- *     CmpBoostActiveHiveWriter @ 0x1406CF1B8 (CmpBoostActiveHiveWriter.c)
+ *     CmpBoostActiveHiveWriter @ 0x1406D0458 (CmpBoostActiveHiveWriter.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN CmpTraceHiveFlushBoostedActiveFlusher()

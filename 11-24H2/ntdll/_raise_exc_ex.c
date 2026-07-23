@@ -1,13 +1,13 @@
 /*
- * XREFs of _raise_exc_ex @ 0x18012AD00
+ * XREFs of _raise_exc_ex @ 0x180128F30
  * Callers:
- *     _except1 @ 0x18012A820 (_except1.c)
- *     _raise_exc @ 0x18012ACD0 (_raise_exc.c)
+ *     _except1 @ 0x180128A50 (_except1.c)
+ *     _raise_exc @ 0x180128F00 (_raise_exc.c)
  * Callees:
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     _clrfp @ 0x18012B360 (_clrfp.c)
- *     _statfp @ 0x18012B450 (_statfp.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     _clrfp @ 0x180129590 (_clrfp.c)
+ *     _statfp @ 0x180129680 (_statfp.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall raise_exc_ex(unsigned __int64 a1, _QWORD *a2, char a3, int a4, _DWORD *a5, _DWORD *a6, int a7)

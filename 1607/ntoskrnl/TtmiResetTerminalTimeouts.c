@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiResetTerminalTimeouts @ 0x140677AE8
+ * XREFs of TtmiResetTerminalTimeouts @ 0x140677BCC
  * Callers:
- *     TtmpDisplayBurstPowerSettingCallback @ 0x1405811F4 (TtmpDisplayBurstPowerSettingCallback.c)
- *     TtmNotifyDeviceInput @ 0x140676DD4 (TtmNotifyDeviceInput.c)
- *     TtmNotifyConsoleUserPresent @ 0x1406788B4 (TtmNotifyConsoleUserPresent.c)
- *     TtmNotifySessionDisplayBurst @ 0x1406789B4 (TtmNotifySessionDisplayBurst.c)
- *     TtmNotifySessionTerminalInput @ 0x140678BC4 (TtmNotifySessionTerminalInput.c)
+ *     TtmpDisplayBurstPowerSettingCallback @ 0x1405816A0 (TtmpDisplayBurstPowerSettingCallback.c)
+ *     TtmNotifyDeviceInput @ 0x140676EB8 (TtmNotifyDeviceInput.c)
+ *     TtmNotifyConsoleUserPresent @ 0x140678998 (TtmNotifyConsoleUserPresent.c)
+ *     TtmNotifySessionDisplayBurst @ 0x140678A98 (TtmNotifySessionDisplayBurst.c)
+ *     TtmNotifySessionTerminalInput @ 0x140678CA8 (TtmNotifySessionTerminalInput.c)
  * Callees:
- *     TtmiSetPendingOnOffRequest @ 0x140677D18 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x140677DFC (TtmiSetPendingOnOffRequest.c)
  */
 
 char __fastcall TtmiResetTerminalTimeouts(int a1, __int64 a2, int a3, int a4, char a5)

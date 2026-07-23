@@ -10,41 +10,41 @@
  *     RtlQueryRegistryValuesEx @ 0x140709DA0 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, __int64 a2, __int16 a3)
+__int64 __fastcall RtlpFindRegTziForCurrentYear(_OWORD *a1, const WCHAR *a2, __int16 a3)
 {
   int v3; // esi
-  int RegistryValues; // ebx
+  NTSTATUS RegistryValues; // ebx
   __int16 v7; // ax
   int v9; // [rsp+30h] [rbp-D0h] BYREF
   int v10; // [rsp+34h] [rbp-CCh] BYREF
-  _QWORD v11[28]; // [rsp+40h] [rbp-C0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+40h] [rbp-C0h] BYREF
   wchar_t DstBuf[8]; // [rsp+120h] [rbp+20h] BYREF
 
   v3 = a3;
-  *(_OWORD *)a1 = 0LL;
-  *(_OWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 32) = 0LL;
-  *(_DWORD *)(a1 + 40) = 0;
+  *a1 = 0LL;
+  a1[1] = 0LL;
+  *((_QWORD *)a1 + 4) = 0LL;
+  *((_DWORD *)a1 + 10) = 0;
   RegistryValues = -1073741811;
   if ( !itow_s(a3, DstBuf, 5uLL, 10) )
   {
-    memset(v11, 0, sizeof(v11));
-    v11[2] = L"FirstEntry";
-    LODWORD(v11[1]) = 292;
-    LODWORD(v11[4]) = 0x4000000;
-    v11[3] = &v9;
-    LODWORD(v11[11]) = 0x4000000;
-    v11[9] = L"LastEntry";
+    memset(QueryTable, 0, sizeof(QueryTable));
+    QueryTable[0].Name = L"FirstEntry";
+    QueryTable[0].Flags = 292;
+    QueryTable[0].DefaultType = 0x4000000;
+    QueryTable[0].EntryContext = &v9;
+    QueryTable[1].DefaultType = 0x4000000;
+    QueryTable[1].Name = L"LastEntry";
     v9 = -4;
-    v11[10] = &v10;
-    LODWORD(v11[8]) = 292;
-    v11[16] = DstBuf;
+    QueryTable[1].EntryContext = &v10;
+    QueryTable[1].Flags = 292;
+    QueryTable[2].Name = DstBuf;
     v10 = -4;
-    LODWORD(v11[15]) = 288;
-    v11[17] = a1;
-    LODWORD(v11[18]) = 50331648;
+    QueryTable[2].Flags = 288;
+    QueryTable[2].EntryContext = a1;
+    QueryTable[2].DefaultType = 50331648;
     *(_DWORD *)a1 = -44;
-    RegistryValues = RtlQueryRegistryValuesEx(0x40000000LL, a2, v11, 0LL, 0LL);
+    RegistryValues = RtlQueryRegistryValuesEx(0x40000000u, a2, QueryTable, 0LL, 0LL);
     if ( RegistryValues >= 0 )
     {
       v7 = v9;
@@ -60,10 +60,10 @@ __int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, __int64 a2, __int16 
         }
         else
         {
-          LODWORD(v11[15]) = 292;
-          LODWORD(v11[18]) = 50331648;
+          QueryTable[2].Flags = 292;
+          QueryTable[2].DefaultType = 50331648;
           *(_DWORD *)a1 = -44;
-          return (unsigned int)RtlQueryRegistryValuesEx(0x40000000LL, a2, &v11[14], 0LL, 0LL);
+          return (unsigned int)RtlQueryRegistryValuesEx(0x40000000u, a2, &QueryTable[2], 0LL, 0LL);
         }
       }
     }

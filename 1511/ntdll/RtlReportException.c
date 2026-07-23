@@ -18,44 +18,44 @@
  *     RtlReportExceptionEx @ 0x1800D0990 (RtlReportExceptionEx.c)
  */
 
-__int64 __fastcall RtlReportException(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlReportException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, ULONG Flags)
 {
-  int v7; // esi
-  __int64 *v8; // r9
-  unsigned int v9; // edi
+  ULONG v7; // esi
+  LARGE_INTEGER *v8; // r9
+  NTSTATUS v9; // edi
   _BYTE ProcessInformation[32]; // [rsp+30h] [rbp-58h] BYREF
   int v11; // [rsp+50h] [rbp-38h]
   __int64 v12; // [rsp+A8h] [rbp+20h] BYREF
 
-  if ( (a3 & 0xFFFFFFF0) != 0 )
-    return 3221225485LL;
-  v7 = a3 & 4;
-  if ( (a3 & 4) == 0 && (unsigned int)IsDebugPortPresent() )
+  if ( (Flags & 0xFFFFFFF0) != 0 )
+    return -1073741811;
+  v7 = Flags & 4;
+  if ( (Flags & 4) == 0 && (unsigned int)IsDebugPortPresent() )
   {
     do
-      ZwRaiseException();
+      ZwRaiseException(ExceptionRecord, ContextRecord, 0);
     while ( (unsigned int)IsDebugPortPresent() );
-    ZwTerminateProcess();
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionRecord->ExceptionCode);
   }
   if ( LdrpIsSecureProcess )
-    return 0LL;
-  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)37, ProcessInformation, 0x40u, 0LL) >= 0
+    return 0;
+  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, ProcessInformation, 0x40u, 0LL) >= 0
     && v11 == 1 )
   {
-    v8 = &v12;
+    v8 = (LARGE_INTEGER *)&v12;
   }
   else
   {
     v8 = 0LL;
   }
   v12 = -300000000LL;
-  v9 = RtlReportExceptionEx(a1, a2, a3, v8);
+  v9 = RtlReportExceptionEx(ExceptionRecord, ContextRecord, Flags, v8);
   if ( !v7 && (unsigned int)IsDebugPortPresent() )
   {
     do
-      ZwRaiseException();
+      ZwRaiseException(ExceptionRecord, ContextRecord, 0);
     while ( (unsigned int)IsDebugPortPresent() );
-    ZwTerminateProcess();
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionRecord->ExceptionCode);
   }
   return v9;
 }

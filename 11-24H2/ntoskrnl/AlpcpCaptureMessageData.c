@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCaptureMessageData @ 0x14093FCA0
+ * XREFs of AlpcpCaptureMessageData @ 0x1408942E0
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x14088D3F8 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCreateReserve @ 0x14093F62C (AlpcpCreateReserve.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1409EC9B0 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14089055C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpCreateReserve @ 0x140893C6C (AlpcpCreateReserve.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1409E5CE0 (AlpcpReplyLegacySynchronousRequest.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1404066F0 (PsReturnProcessPagedPoolQuota.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14088DADC (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpChargePagedPoolQuota @ 0x14088DD64 (AlpcpChargePagedPoolQuota.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C8EA0 (PsReturnProcessPagedPoolQuota.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpChargePagedPoolQuota @ 0x140892384 (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408923C8 (AlpcpReleasePagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, size_t a2, char *a3)
@@ -67,7 +67,7 @@ __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, size_t a2, char *a3)
     *(_QWORD *)(a1 + 232) = 0LL;
   }
   v12 = a2 - v7;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, a2 - v7, 0x42456C41u);
   v14 = *(_QWORD *)(a1 + 48);
   *(_QWORD *)(a1 + 224) = Pool2;
   if ( Pool2 )

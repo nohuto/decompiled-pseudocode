@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x140772CFC
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x140775CFC
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     MiProcessKernelUmaImageLoadConfig @ 0x140B059BC (MiProcessKernelUmaImageLoadConfig.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x140B05B58 (MiProcessKernelCfgImageLoadConfig.c)
- *     MiSetImportTableProtection @ 0x140B53544 (MiSetImportTableProtection.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     MiProcessKernelUmaImageLoadConfig @ 0x140B07A50 (MiProcessKernelUmaImageLoadConfig.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x140B07BEC (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiSetImportTableProtection @ 0x140B55DE4 (MiSetImportTableProtection.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
@@ -46,10 +46,10 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
   __int64 *v28; // [rsp+C0h] [rbp-38h]
   __int64 v29; // [rsp+C8h] [rbp-30h]
 
-  if ( stru_140E36558.FirstArgument )
+  if ( stru_140E366D8.FirstArgument )
   {
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 2u
-      && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000004000LL) )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 2u
+      && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000004000LL) )
     {
       tlgCreate1Sz_char((__int64)v19, Src);
       v21 = 2LL;
@@ -66,7 +66,7 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
       v23[1] = 0;
       v25 = 4LL;
       v27 = 4LL;
-      tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&unk_140057958, v4, 1u, v13, v14, 8u, &v18);
+      tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&byte_14005894B, v4, 1u, v13, v14, 8u, &v18);
     }
   }
   else
@@ -91,13 +91,13 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
       *(_DWORD *)(v9 + 40) = *(_DWORD *)(a2 + 120);
       *(_DWORD *)(v9 + 44) = *(_DWORD *)(a2 + 156);
       Lock = MmAcquireLoadLock();
-      Blink = stru_140E2D150.SchedulerApc.ApcListEntry.Blink;
-      if ( stru_140E2D150.SchedulerApc.ApcListEntry.Blink->Flink != (struct _LIST_ENTRY *)&stru_140E2D150.SchedulerApcFill5[16] )
+      Blink = stru_140E2D2D0.SchedulerApc.ApcListEntry.Blink;
+      if ( stru_140E2D2D0.SchedulerApc.ApcListEntry.Blink->Flink != (struct _LIST_ENTRY *)&stru_140E2D2D0.SchedulerApcFill5[16] )
         __fastfail(3u);
-      *(_QWORD *)(v9 + 8) = stru_140E2D150.SchedulerApc.ApcListEntry.Blink;
-      *(_QWORD *)v9 = &stru_140E2D150.SchedulerApc.ApcListEntry;
+      *(_QWORD *)(v9 + 8) = stru_140E2D2D0.SchedulerApc.ApcListEntry.Blink;
+      *(_QWORD *)v9 = &stru_140E2D2D0.SchedulerApc.ApcListEntry;
       Blink->Flink = (struct _LIST_ENTRY *)v9;
-      stru_140E2D150.SchedulerApc.ApcListEntry.Blink = (struct _LIST_ENTRY *)v9;
+      stru_140E2D2D0.SchedulerApc.ApcListEntry.Blink = (struct _LIST_ENTRY *)v9;
       MmReleaseLoadLock(Lock);
     }
   }

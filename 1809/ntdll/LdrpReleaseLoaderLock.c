@@ -6,10 +6,10 @@
  *     LdrpPrepareModuleForExecution @ 0x1800294E4 (LdrpPrepareModuleForExecution.c)
  *     LdrpDecrementModuleLoadCountEx @ 0x180042678 (LdrpDecrementModuleLoadCountEx.c)
  *     RtlExitUserProcess @ 0x18006CF90 (RtlExitUserProcess.c)
- *     LdrEnumerateLoadedModules @ 0x180079E20 (LdrEnumerateLoadedModules.c)
- *     LdrUnlockLoaderLock @ 0x180081CA0 (LdrUnlockLoaderLock.c)
- *     LdrpInitializeImportRedirection @ 0x180084E3C (LdrpInitializeImportRedirection.c)
- *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x180089370 (LdrQueryModuleInfoLocalLoaderUnlock.c)
+ *     LdrEnumerateLoadedModules @ 0x180079E30 (LdrEnumerateLoadedModules.c)
+ *     LdrUnlockLoaderLock @ 0x180081CB0 (LdrUnlockLoaderLock.c)
+ *     LdrpInitializeImportRedirection @ 0x180084E4C (LdrpInitializeImportRedirection.c)
+ *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x180089380 (LdrQueryModuleInfoLocalLoaderUnlock.c)
  *     LdrInitShimEngineDynamic @ 0x1800D2560 (LdrInitShimEngineDynamic.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     LdrpCompleteProcessCloning @ 0x1800D7168 (LdrpCompleteProcessCloning.c)
@@ -22,25 +22,25 @@
 
 __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   __int64 v6; // r8
   __int64 v7; // rcx
   int v9; // r9d
   __int64 v10; // rcx
 
-  v5 = RtlLeaveCriticalSection((__int64)&LdrpLoaderLock);
+  v5 = RtlLeaveCriticalSection(&LdrpLoaderLock);
   if ( a3 < 0 )
   {
     LOBYTE(v6) = a2;
     LdrpLogError((unsigned int)a3, 5282LL, v6, 0LL);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v7 = 2147353476LL;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v10 = 2147353477LL;

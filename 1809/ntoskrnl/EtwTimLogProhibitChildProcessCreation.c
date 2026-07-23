@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTimLogProhibitChildProcessCreation @ 0x1406D5BBC
+ * XREFs of EtwTimLogProhibitChildProcessCreation @ 0x1406D6E5C
  * Callers:
- *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x14064FC0C (SeSubProcessToken.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x140131FB4 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiFillProcessIdentity @ 0x140131FEC (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x140132084 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x1401320BC (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066DA18 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICODE_STRING *a3, UNICODE_STRING *a4)
@@ -131,7 +131,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     a4 = &v48;
   }
   Buffer = DestinationString.Buffer;
-  if ( (_DWORD)v42 == 2 && stru_140400308.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400308, 0x200000000001uLL) )
+  if ( (_DWORD)v42 == 2 && stru_1404012D0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1404012D0, 0x200000000001uLL) )
   {
     v80 = v33;
     v79 = v82;
@@ -153,7 +153,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v90[1] = v32;
     v92 = v33;
     v94[1] = v32;
-    TlgWrite(&stru_140400308, &unk_140373B4D, 0LL, 0LL, 0xAu, &v78);
+    TlgWrite(&stru_1404012D0, &unk_140374A1E, 0LL, 0LL, 0xAu, &v78);
   }
   if ( v5 && *v5 )
   {
@@ -244,7 +244,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v30 = &MITIGATION_ENFORCE_PROHIBIT_CHILD_PROCESS_CREATION;
   EtwWrite(EtwSecurityMitigationsRegHandle, v30, 0LL, v29, &UserData);
   v31 = DestinationString.Buffer;
-  if ( stru_1404002D0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1404002D0, 0x400000000000uLL) )
+  if ( stru_140401308.LevelPlus1 > 5 && TlgKeywordOn(&stru_140401308, 0x400000000000uLL) )
   {
     LODWORD(v44) = v42;
     v46 = v45;
@@ -272,7 +272,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v73[1] = 0;
     v75 = 2LL;
     v77[1] = 0;
-    TlgWrite(&stru_1404002D0, &unk_140373C98, 0LL, 0LL, 0xCu, &pData);
+    TlgWrite(&stru_140401308, &unk_140374986, 0LL, 0LL, 0xCu, &pData);
   }
   if ( v8 )
     ExFreePoolWithTag(v31, 0);

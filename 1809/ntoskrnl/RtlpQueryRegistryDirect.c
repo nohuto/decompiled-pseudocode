@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x1406B52AC
+ * XREFs of RtlpQueryRegistryDirect @ 0x1406B654C
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x1405C5D48 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1405C6D48 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)

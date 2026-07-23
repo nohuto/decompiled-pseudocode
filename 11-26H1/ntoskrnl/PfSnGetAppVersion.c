@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnGetAppVersion @ 0x1404D67A4
+ * XREFs of PfSnGetAppVersion @ 0x1404CFF74
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1409E9DD0 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1409D1320 (PfSnBeginAppLaunch.c)
  * Callees:
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     LdrResSearchResource @ 0x140A9AF20 (LdrResSearchResource.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     LdrResSearchResource @ 0x1409E5F50 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall PfSnGetAppVersion(__int64 a1, __int64 a2)

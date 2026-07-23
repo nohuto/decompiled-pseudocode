@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockControlAreaFileObjectShared @ 0x14008FA18
+ * XREFs of MiUnlockControlAreaFileObjectShared @ 0x14008F178
  * Callers:
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall MiUnlockControlAreaFileObjectShared(__int64 a1)

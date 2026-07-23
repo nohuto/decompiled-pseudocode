@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfCheckCallerAccess @ 0x140462F14
+ * XREFs of ExpWnfCheckCallerAccess @ 0x140461DE4
  * Callers:
- *     ExpWnfSubscribeWnfStateChange @ 0x140461950 (ExpWnfSubscribeWnfStateChange.c)
- *     ExpWnfValidatePubSubPreconditions @ 0x140462EB8 (ExpWnfValidatePubSubPreconditions.c)
- *     NtQueryWnfStateNameInformation @ 0x1404DCB58 (NtQueryWnfStateNameInformation.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140460820 (ExpWnfSubscribeWnfStateChange.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x140461D88 (ExpWnfValidatePubSubPreconditions.c)
+ *     NtQueryWnfStateNameInformation @ 0x1404C015C (NtQueryWnfStateNameInformation.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall ExpWnfCheckCallerAccess(PSECURITY_DESCRIPTOR SecurityDescriptor, ACCESS_MASK DesiredAccess)

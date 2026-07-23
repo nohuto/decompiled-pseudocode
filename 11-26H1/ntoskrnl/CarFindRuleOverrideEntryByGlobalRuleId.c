@@ -1,8 +1,8 @@
 /*
- * XREFs of CarFindRuleOverrideEntryByGlobalRuleId @ 0x140649A94
+ * XREFs of CarFindRuleOverrideEntryByGlobalRuleId @ 0x14064D674
  * Callers:
- *     CarQueryReportActionForTriage @ 0x140649EE0 (CarQueryReportActionForTriage.c)
- *     CarRegisterRuleOverride @ 0x14064A110 (CarRegisterRuleOverride.c)
+ *     CarQueryReportActionForTriage @ 0x14064DAC0 (CarQueryReportActionForTriage.c)
+ *     CarRegisterRuleOverride @ 0x14064DCF0 (CarRegisterRuleOverride.c)
  * Callees:
  *     <none>
  */

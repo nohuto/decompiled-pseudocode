@@ -1,26 +1,26 @@
 /*
- * XREFs of MiLockVadRange @ 0x140604B60
+ * XREFs of MiLockVadRange @ 0x140605B60
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
- *     NtUnlockVirtualMemory @ 0x1400B3D90 (NtUnlockVirtualMemory.c)
- *     MmAssignProcessToJob @ 0x140604944 (MmAssignProcessToJob.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408519F8 (MiCoalescePlaceholderAllocations.c)
- *     MiCloneProcessAddressSpace @ 0x14085E024 (MiCloneProcessAddressSpace.c)
+ *     NtUnlockVirtualMemory @ 0x1400B3CD0 (NtUnlockVirtualMemory.c)
+ *     MmAssignProcessToJob @ 0x140605944 (MmAssignProcessToJob.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140852C58 (MiCoalescePlaceholderAllocations.c)
+ *     MiCloneProcessAddressSpace @ 0x14085F284 (MiCloneProcessAddressSpace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CD8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x1402C519C (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
- *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
- *     MiVadIsCfgBitmap @ 0x140604D30 (MiVadIsCfgBitmap.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075450 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x140075590 (MiReferenceVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1400767A8 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x140076994 (MiLockVad.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CC8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x1402C538C (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
+ *     MiWaitForVadDeletion @ 0x1402CB340 (MiWaitForVadDeletion.c)
+ *     MiVadIsCfgBitmap @ 0x140605D30 (MiVadIsCfgBitmap.c)
  */
 
 __int64 __fastcall MiLockVadRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)

@@ -6,27 +6,34 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall RtlZombifyActivationContext(_DWORD *a1)
+NTSTATUS __cdecl RtlZombifyActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  int v1; // eax
-  int v2; // ebx
-  void (__thiscall *v3)(_DWORD, int, _DWORD *, _DWORD, _DWORD, _DWORD, char *); // edi
+  ULONG Flags; // eax
+  NTSTATUS v2; // ebx
+  void (__thiscall *v3)(_DWORD, int, PACTIVATION_CONTEXT, PVOID, ULONG, _DWORD, char *); // edi
   char v5; // [esp+Bh] [ebp-1h] BYREF
 
-  if ( !a1 || (((unsigned int)a1 - 1) | 7) == 0xFFFFFFFF )
+  if ( !ActivationContext || (((unsigned int)&ActivationContext[-1].InlineStorageMapEntries[31] + 3) | 7) == 0xFFFFFFFF )
     return -1073741811;
-  v1 = a1[1];
+  Flags = ActivationContext->Flags;
   v2 = 0;
-  if ( (v1 & 1) == 0 )
+  if ( (Flags & 1) == 0 )
   {
-    v3 = (void (__thiscall *)(_DWORD, int, _DWORD *, _DWORD, _DWORD, _DWORD, char *))a1[5];
+    v3 = (void (__thiscall *)(_DWORD, int, PACTIVATION_CONTEXT, PVOID, ULONG, _DWORD, char *))ActivationContext->SentNotifications[0];
     if ( v3 )
     {
       v5 = 0;
-      v3(v3, 2, a1, a1[4], a1[6], 0, &v5);
-      v1 = a1[1];
+      v3(
+        v3,
+        2,
+        ActivationContext,
+        ActivationContext->NotificationContext,
+        ActivationContext->SentNotifications[1],
+        0,
+        &v5);
+      Flags = ActivationContext->Flags;
     }
-    a1[1] = v1 | 1;
+    ActivationContext->Flags = Flags | 1;
   }
   return v2;
 }

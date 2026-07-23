@@ -1,23 +1,23 @@
 /*
- * XREFs of SmProcessCreateRequest @ 0x1403E3B50
+ * XREFs of SmProcessCreateRequest @ 0x1403E517C
  * Callers:
- *     SmSetStoreInformation @ 0x1403E3100 (SmSetStoreInformation.c)
- *     SmpDirtyStoreCreate @ 0x1403E3610 (SmpDirtyStoreCreate.c)
+ *     SmSetStoreInformation @ 0x1403E472C (SmSetStoreInformation.c)
+ *     SmpDirtyStoreCreate @ 0x1403E4C3C (SmpDirtyStoreCreate.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14000216C (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmKmStoreDereference @ 0x140002F88 (SmKmStoreDereference.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400039C4 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400049B4 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmKmStoreCreatePrepare @ 0x1403E3714 (SmKmStoreCreatePrepare.c)
- *     SmFirstTimeInit @ 0x1403E3814 (SmFirstTimeInit.c)
- *     SmKmStoreAdd @ 0x1403E3E78 (SmKmStoreAdd.c)
- *     SmKmStoreDelete @ 0x1403E4174 (SmKmStoreDelete.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400022E0 (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmKmStoreDereference @ 0x1400030FC (SmKmStoreDereference.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140003B38 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140004B28 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmKmStoreCreatePrepare @ 0x1403E4D40 (SmKmStoreCreatePrepare.c)
+ *     SmFirstTimeInit @ 0x1403E4E40 (SmFirstTimeInit.c)
+ *     SmKmStoreAdd @ 0x1403E54A4 (SmKmStoreAdd.c)
+ *     SmKmStoreDelete @ 0x1403E57A0 (SmKmStoreDelete.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)

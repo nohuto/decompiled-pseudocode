@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfLogImageLoad @ 0x1405F5ADC
+ * XREFs of PerfLogImageLoad @ 0x1405F6AD4
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x1405F50F0 (PsCallImageNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x1405F60F0 (PsCallImageNotifyRoutines.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x1405F6154 (EtwpPsProvTraceImage.c)
+ *     EtwTraceSiloKernelEvent @ 0x1400891D0 (EtwTraceSiloKernelEvent.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x1405F7154 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)

@@ -1,30 +1,30 @@
 /*
- * XREFs of KiSetNextClockTickDueTime @ 0x1403796D0
+ * XREFs of KiSetNextClockTickDueTime @ 0x14037B480
  * Callers:
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     KeUpdatePendingQosRequest @ 0x140330628 (KeUpdatePendingQosRequest.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x1403790A0 (ExpUpdateTimerConfigurationWorker.c)
- *     KiSetClockInterval @ 0x140418834 (KiSetClockInterval.c)
- *     KiRestoreClockTickRate @ 0x140418994 (KiRestoreClockTickRate.c)
- *     KiSetClockIntervalOneShot @ 0x140418C6C (KiSetClockIntervalOneShot.c)
- *     KiSetClockTimer @ 0x140418F10 (KiSetClockTimer.c)
- *     KiCancelClockTimer @ 0x140419334 (KiCancelClockTimer.c)
- *     KePrepareClockTimerForIdle @ 0x1405ED338 (KePrepareClockTimerForIdle.c)
- *     KiResetClockInterval @ 0x1405EE66C (KiResetClockInterval.c)
- *     KeInitializeClock @ 0x140D0B7A4 (KeInitializeClock.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     KeUpdatePendingQosRequest @ 0x140332658 (KeUpdatePendingQosRequest.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x14037AE50 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiSetClockInterval @ 0x14040CD6C (KiSetClockInterval.c)
+ *     KiRestoreClockTickRate @ 0x14040CECC (KiRestoreClockTickRate.c)
+ *     KiSetClockIntervalOneShot @ 0x14040D19C (KiSetClockIntervalOneShot.c)
+ *     KiSetClockTimer @ 0x14040D440 (KiSetClockTimer.c)
+ *     KiCancelClockTimer @ 0x14040D864 (KiCancelClockTimer.c)
+ *     KePrepareClockTimerForIdle @ 0x1405EFCA8 (KePrepareClockTimerForIdle.c)
+ *     KiResetClockInterval @ 0x1405F0FDC (KiResetClockInterval.c)
+ *     KeInitializeClock @ 0x140D117AC (KeInitializeClock.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiSetClockTickRate @ 0x14021DD30 (KiSetClockTickRate.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiSetClockTickRate @ 0x14021F6C0 (KiSetClockTickRate.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
+__int64 __fastcall KiSetNextClockTickDueTime(LARGE_INTEGER a1, char a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  __int64 InterruptTimePrecise; // r11
+  LARGE_INTEGER InterruptTimePrecise; // r11
   unsigned __int8 TypeFlags; // cl
   int v6; // edi
   unsigned __int64 v7; // rdx
@@ -40,7 +40,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
   bool v17; // cf
   unsigned __int64 v18; // r12
   unsigned __int64 v19; // rcx
-  unsigned __int64 v20; // rax
+  unsigned __int64 Min; // rax
   __int64 v21; // r9
   char v22; // cl
   unsigned __int64 v23; // r10
@@ -58,23 +58,23 @@ __int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
   char v36; // [rsp+32h] [rbp-CEh] BYREF
   char v37; // [rsp+33h] [rbp-CDh] BYREF
   bool v38; // [rsp+34h] [rbp-CCh]
-  __int64 v39; // [rsp+38h] [rbp-C8h] BYREF
+  LARGE_INTEGER v39; // [rsp+38h] [rbp-C8h] BYREF
   unsigned int v40; // [rsp+40h] [rbp-C0h] BYREF
   unsigned __int64 v41; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v42; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int64 v43; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v44; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER v44; // [rsp+60h] [rbp-A0h] BYREF
   unsigned __int64 v45; // [rsp+68h] [rbp-98h] BYREF
   unsigned __int64 v46; // [rsp+70h] [rbp-90h] BYREF
   unsigned __int64 v47; // [rsp+78h] [rbp-88h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v48; // [rsp+80h] [rbp-80h] BYREF
-  __int64 *v49; // [rsp+A0h] [rbp-60h]
+  LARGE_INTEGER *v49; // [rsp+A0h] [rbp-60h]
   __int64 v50; // [rsp+A8h] [rbp-58h]
   unsigned __int8 *p_ClockOwner; // [rsp+B0h] [rbp-50h]
   __int64 v52; // [rsp+B8h] [rbp-48h]
   unsigned int *v53; // [rsp+C0h] [rbp-40h]
   __int64 v54; // [rsp+C8h] [rbp-38h]
-  unsigned __int64 *v55; // [rsp+D0h] [rbp-30h]
+  LONGLONG *v55; // [rsp+D0h] [rbp-30h]
   __int64 v56; // [rsp+D8h] [rbp-28h]
   char *v57; // [rsp+E0h] [rbp-20h]
   __int64 v58; // [rsp+E8h] [rbp-18h]
@@ -82,7 +82,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
   __int64 v60; // [rsp+F8h] [rbp-8h]
   __int64 *v61; // [rsp+100h] [rbp+0h]
   __int64 v62; // [rsp+108h] [rbp+8h]
-  __int64 *v63; // [rsp+110h] [rbp+10h]
+  LARGE_INTEGER *v63; // [rsp+110h] [rbp+10h]
   __int64 v64; // [rsp+118h] [rbp+18h]
   unsigned __int64 *v65; // [rsp+120h] [rbp+20h]
   __int64 v66; // [rsp+128h] [rbp+28h]
@@ -90,7 +90,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
   __int64 v68; // [rsp+138h] [rbp+38h]
   unsigned __int64 *v69; // [rsp+140h] [rbp+40h]
   __int64 v70; // [rsp+148h] [rbp+48h]
-  unsigned __int64 *v71; // [rsp+150h] [rbp+50h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+150h] [rbp+50h]
   __int64 v72; // [rsp+158h] [rbp+58h]
   char *v73; // [rsp+160h] [rbp+60h]
   __int64 v74; // [rsp+168h] [rbp+68h]
@@ -100,7 +100,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
   v38 = KeDisableInterrupts();
   if ( !KiClockTimerReducePreciseTimeQueries )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v43);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v39 = InterruptTimePrecise;
   }
   TypeFlags = CurrentPrcb->ClockTimerState.ClockTimerEntries[0].TypeFlags;
@@ -181,29 +181,27 @@ __int64 __fastcall KiSetNextClockTickDueTime(__int64 a1, char a2)
   v19 = DueTime + TolerableDelay;
   if ( !v17 )
     v19 -= (unsigned int)KeMinimumIncrement;
-  if ( v19 > InterruptTimePrecise + (unsigned __int64)(unsigned int)KeMinimumIncrement )
-    v14 = ((int)v19 - (int)InterruptTimePrecise + KeMinimumIncrement - 1)
-        / (unsigned int)KeMinimumIncrement
-        * KeMinimumIncrement;
-  if ( (qword_140E66748 & 1) != 0 )
+  if ( v19 > InterruptTimePrecise.QuadPart + (unsigned __int64)(unsigned int)KeMinimumIncrement )
+    v14 = ((int)v19 - InterruptTimePrecise.LowPart + KeMinimumIncrement - 1) / KeMinimumIncrement * KeMinimumIncrement;
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( qword_140E66748 == 1 )
-      v20 = 0LL;
+    if ( KiClockIntervalRequests.Min == (_RTL_BALANCED_NODE *)1 )
+      Min = 0LL;
     else
-      v20 = qword_140E66748 ^ ((unsigned __int64)&KiClockIntervalRequests + 1);
+      Min = (unsigned __int64)KiClockIntervalRequests.Min ^ ((unsigned __int64)&KiClockIntervalRequests.Root + 1);
   }
   else
   {
-    v20 = qword_140E66748;
+    Min = (unsigned __int64)KiClockIntervalRequests.Min;
   }
-  v21 = *(unsigned int *)(v20 + 28);
+  v21 = *(unsigned int *)(Min + 28);
   v22 = 1;
   v42 = v21;
   v34 = 1;
-  v23 = v21 + InterruptTimePrecise;
-  v41 = v21 + InterruptTimePrecise;
-  v24 = InterruptTimePrecise + (unsigned int)KeQuantumEndTimerIncrement;
-  if ( DueTime <= v21 + InterruptTimePrecise && v23 <= v18 )
+  v23 = v21 + InterruptTimePrecise.QuadPart;
+  v41 = v21 + InterruptTimePrecise.QuadPart;
+  v24 = InterruptTimePrecise.QuadPart + (unsigned int)KeQuantumEndTimerIncrement;
+  if ( DueTime <= v21 + InterruptTimePrecise.QuadPart && v23 <= v18 )
   {
     v14 = v21;
     goto LABEL_21;
@@ -232,18 +230,18 @@ LABEL_21:
     InterruptTimePrecise = v39;
   }
   CurrentPrcb->ClockTimerState.ExpectedWakeReason = v6;
-  CurrentPrcb->ClockTimerState.NextTickDueTime = InterruptTimePrecise + TimeIncrement;
-  if ( (unsigned int)dword_140E06F58 > 5 )
+  CurrentPrcb->ClockTimerState.NextTickDueTime = InterruptTimePrecise.QuadPart + TimeIncrement;
+  if ( (unsigned int)dword_140E06F90 > 5 )
   {
     v45 = v18;
     v49 = &v44;
     ClockOwner = CurrentPrcb->ClockOwner;
     v36 = v25;
     p_ClockOwner = &ClockOwner;
-    LODWORD(v39) = v21;
+    v39.LowPart = v21;
     v53 = &v40;
     v44 = InterruptTimePrecise;
-    v55 = &v41;
+    v55 = (LONGLONG *)&v41;
     v57 = &v34;
     v59 = &v36;
     v61 = &v42;
@@ -251,7 +249,7 @@ LABEL_21:
     v65 = &v45;
     v67 = (__int64 *)&v46;
     v69 = &v47;
-    v71 = &v43;
+    p_PerformanceCounter = &PerformanceCounter;
     v73 = &v37;
     v50 = 8LL;
     v52 = 1LL;
@@ -269,13 +267,13 @@ LABEL_21:
     v68 = 8LL;
     v47 = v24;
     v70 = 8LL;
-    v43 = v18 - InterruptTimePrecise;
+    PerformanceCounter.QuadPart = v18 - InterruptTimePrecise.QuadPart;
     v72 = 8LL;
     v37 = a2;
     v74 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E06F58,
-      (unsigned __int8 *)&byte_140048A87,
+      (__int64)&dword_140E06F90,
+      (unsigned __int8 *)byte_14004915B,
       0LL,
       0LL,
       0xFu,

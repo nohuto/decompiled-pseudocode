@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDbgWriteCheck @ 0x14038CA24
+ * XREFs of MiDbgWriteCheck @ 0x14038CC04
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402E60E8 (MiDbgCopyMemory.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiRealVaToFlushType @ 0x14038CBC8 (MiRealVaToFlushType.c)
- *     KeFlushSingleCurrentTb @ 0x14038CC20 (KeFlushSingleCurrentTb.c)
- *     KeSetPagePrivilege @ 0x1403D4D14 (KeSetPagePrivilege.c)
- *     MiDbgMarkPfnModified @ 0x140643BD0 (MiDbgMarkPfnModified.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiRealVaToFlushType @ 0x14038CDA8 (MiRealVaToFlushType.c)
+ *     KeFlushSingleCurrentTb @ 0x14038CE00 (KeFlushSingleCurrentTb.c)
+ *     KeSetPagePrivilege @ 0x1403D4EF4 (KeSetPagePrivilege.c)
+ *     MiDbgMarkPfnModified @ 0x140644120 (MiDbgMarkPfnModified.c)
  */
 
 unsigned __int64 __fastcall MiDbgWriteCheck(unsigned __int64 a1, __int64 *a2)
@@ -50,8 +50,8 @@ unsigned __int64 __fastcall MiDbgWriteCheck(unsigned __int64 a1, __int64 *a2)
     if ( v4 != 1
       || PsNtosImageBase
       && PsHalImageBase
-      && (a1 < PsNtosImageBase || a1 >= PsNtosImageEnd)
-      && (a1 < PsHalImageBase || a1 >= PsHalImageEnd) )
+      && (a1 < (unsigned __int64)PsNtosImageBase || a1 >= PsNtosImageEnd)
+      && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd) )
     {
       return a1;
     }

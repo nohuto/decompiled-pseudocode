@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMSetObjectProperty @ 0x14074E260
+ * XREFs of PiCMSetObjectProperty @ 0x14074F450
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14016A208 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PiCMCapturePropertyInputData @ 0x1405979C0 (PiCMCapturePropertyInputData.c)
- *     PiCMReleasePropertyInputData @ 0x140597C80 (PiCMReleasePropertyInputData.c)
- *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     PiPnpRtlSetObjectProperty @ 0x1406E5250 (PiPnpRtlSetObjectProperty.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14016A308 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PiCMCapturePropertyInputData @ 0x1405989C0 (PiCMCapturePropertyInputData.c)
+ *     PiCMReleasePropertyInputData @ 0x140598C80 (PiCMReleasePropertyInputData.c)
+ *     PiCMReturnBasicResultData @ 0x1405A060C (PiCMReturnBasicResultData.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1406E64F0 (PiPnpRtlSetObjectProperty.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
  */
 
 __int64 __fastcall PiCMSetObjectProperty(

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14071C2E8
+ * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140720F78
  * Callers:
- *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x14071B1A0 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x14071FE30 (-Initialize@SC_DISK@@UEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140790B20 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140793650 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
  */
 
 __int64 __fastcall SC_DEVICE::GetStorageProperty(

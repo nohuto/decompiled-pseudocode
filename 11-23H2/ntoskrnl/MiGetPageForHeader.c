@@ -2,16 +2,16 @@
  * XREFs of MiGetPageForHeader @ 0x14021A4D4
  * Callers:
  *     MiInitializeImageProtos @ 0x14021A200 (MiInitializeImageProtos.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
  *     MiCreateMdl @ 0x1406A8F3C (MiCreateMdl.c)
  * Callees:
  *     MiGetSystemPage @ 0x14021A5F8 (MiGetSystemPage.c)
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiReturnFaultCharges @ 0x14035FEC0 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiReturnFaultCharges @ 0x140360060 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiGetPageForHeader(__int64 a1, unsigned int a2)
@@ -51,10 +51,13 @@ unsigned __int64 __fastcall MiGetPageForHeader(__int64 a1, unsigned int a2)
   v11 = v10;
   *(_WORD *)(SystemPage + 32) = 1;
   _InterlockedAnd64((volatile signed __int64 *)(SystemPage + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of XmMoveRegImmediate @ 0x1403B8C30
+ * XREFs of XmMoveRegImmediate @ 0x1403B8E10
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmGetRegisterAddress @ 0x1403B9444 (XmGetRegisterAddress.c)
- *     XmGetImmediateSourceValue @ 0x1403B9514 (XmGetImmediateSourceValue.c)
+ *     XmGetRegisterAddress @ 0x1403B9624 (XmGetRegisterAddress.c)
+ *     XmGetImmediateSourceValue @ 0x1403B96F4 (XmGetImmediateSourceValue.c)
  */
 
 __int64 __fastcall XmMoveRegImmediate(__int64 a1)

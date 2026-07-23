@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSparseBitmapCtxPrepareBits @ 0x1801008B0
+ * XREFs of RtlSparseBitmapCtxPrepareBits @ 0x1801007F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA10 (RtlpSparseBitmapCtxPrepareRanges.c)
- *     RtlpSparseBitmapCtxUnlockShared @ 0x18004FE14 (RtlpSparseBitmapCtxUnlockShared.c)
+ *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA00 (RtlpSparseBitmapCtxPrepareRanges.c)
+ *     RtlpSparseBitmapCtxUnlockShared @ 0x18004FE04 (RtlpSparseBitmapCtxUnlockShared.c)
  */
 
 __int64 __fastcall RtlSparseBitmapCtxPrepareBits(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4)
@@ -21,6 +21,6 @@ __int64 __fastcall RtlSparseBitmapCtxPrepareBits(__int64 a1, unsigned __int64 a2
          a4);
   if ( v5 >= 0 )
     v5 = 0;
-  RtlpSparseBitmapCtxUnlockShared(a1, (volatile signed __int64 *)a1);
+  RtlpSparseBitmapCtxUnlockShared(a1, (_RTL_SRWLOCK *)a1);
   return (unsigned int)v5;
 }

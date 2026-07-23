@@ -1,54 +1,51 @@
 /*
- * XREFs of RtlReplaceSystemDirectoryInPath @ 0x18006E020
+ * XREFs of RtlReplaceSystemDirectoryInPath @ 0x18006E010
  * Callers:
- *     LdrpGetModuleName @ 0x18006D714 (LdrpGetModuleName.c)
+ *     LdrpGetModuleName @ 0x18006D704 (LdrpGetModuleName.c)
  * Callees:
- *     RtlpWow64SelectSystem32PathInternal @ 0x18006E0D4 (RtlpWow64SelectSystem32PathInternal.c)
- *     RtlFindUnicodeSubstring @ 0x18006E130 (RtlFindUnicodeSubstring.c)
+ *     RtlpWow64SelectSystem32PathInternal @ 0x18006E0C4 (RtlpWow64SelectSystem32PathInternal.c)
+ *     RtlFindUnicodeSubstring @ 0x18006E120 (RtlFindUnicodeSubstring.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall RtlReplaceSystemDirectoryInPath(__int64 a1, __int64 a2, unsigned __int16 a3, char a4)
+ULONG __cdecl RtlReplaceSystemDirectoryInPath(
+        PUNICODE_STRING Destination,
+        USHORT Machine,
+        USHORT TargetMachine,
+        BOOLEAN IncludePathSeperator)
 {
-  unsigned __int16 v5; // di
-  __int64 result; // rax
+  USHORT v5; // di
+  ULONG result; // eax
   __int64 v9; // rdx
-  unsigned int v10; // ebx
-  __int64 v11; // r8
-  unsigned __int16 v12; // di
-  void *UnicodeSubstring; // rax
-  _WORD v14[8]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned __int16 v15; // [rsp+30h] [rbp-18h] BYREF
+  ULONG v10; // ebx
+  unsigned __int16 v11; // di
+  PWCHAR UnicodeSubstring; // rax
+  _UNICODE_STRING SearchString; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int16 v14; // [rsp+30h] [rbp-18h] BYREF
   void *Src; // [rsp+38h] [rbp-10h]
 
-  v5 = a2;
-  LOBYTE(a2) = a4;
-  result = RtlpWow64SelectSystem32PathInternal(a3, a2, &v15);
+  v5 = Machine;
+  LOBYTE(Machine) = IncludePathSeperator;
+  result = RtlpWow64SelectSystem32PathInternal(TargetMachine, Machine, &v14);
   v10 = 0;
-  if ( (int)result >= 0 )
+  if ( (result & 0x80000000) == 0 )
   {
-    LOBYTE(v9) = a4;
-    result = RtlpWow64SelectSystem32PathInternal(v5, v9, v14);
-    if ( (int)result >= 0 )
+    LOBYTE(v9) = IncludePathSeperator;
+    result = RtlpWow64SelectSystem32PathInternal(v5, v9, &SearchString);
+    if ( (result & 0x80000000) == 0 )
     {
-      if ( v5 == a3 )
+      if ( v5 == TargetMachine )
       {
-        return 0LL;
+        return 0;
       }
       else
       {
-        v12 = v15;
-        if ( v14[0] == v15 )
-        {
-          LOBYTE(v11) = 1;
-          UnicodeSubstring = (void *)RtlFindUnicodeSubstring(a1, v14, v11);
-          if ( UnicodeSubstring )
-            memmove(UnicodeSubstring, Src, v12);
-        }
-        else
-        {
-          return (unsigned int)-1073741811;
-        }
+        v11 = v14;
+        if ( SearchString.Length != v14 )
+          return -1073741811;
+        UnicodeSubstring = RtlFindUnicodeSubstring(Destination, &SearchString, 1u);
+        if ( UnicodeSubstring )
+          memmove(UnicodeSubstring, Src, v11);
         return v10;
       }
     }

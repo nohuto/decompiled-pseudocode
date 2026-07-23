@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDoesImageContainFunctionOverrideFixups @ 0x140962FC0
+ * XREFs of MiDoesImageContainFunctionOverrideFixups @ 0x140A08E48
  * Callers:
- *     PspLocateSystemDll @ 0x1407EE38C (PspLocateSystemDll.c)
- *     MiMapAllImageScpPages @ 0x140962E18 (MiMapAllImageScpPages.c)
- *     MiInitializeImageMapParameters @ 0x1409CD514 (MiInitializeImageMapParameters.c)
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
+ *     PspLocateSystemDll @ 0x1407F3EEC (PspLocateSystemDll.c)
+ *     MiInitializeImageMapParameters @ 0x14099E4F4 (MiInitializeImageMapParameters.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MiMapAllImageScpPages @ 0x140A08CA0 (MiMapAllImageScpPages.c)
  * Callees:
- *     MiGetControlAreaLoadConfig @ 0x140495994 (MiGetControlAreaLoadConfig.c)
+ *     MiGetControlAreaLoadConfig @ 0x14048F4E4 (MiGetControlAreaLoadConfig.c)
  */
 
 bool __fastcall MiDoesImageContainFunctionOverrideFixups(__int64 a1)

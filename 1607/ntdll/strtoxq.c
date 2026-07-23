@@ -1,11 +1,11 @@
 /*
- * XREFs of strtoxq @ 0x18009CE80
+ * XREFs of strtoxq @ 0x18009CE70
  * Callers:
- *     _strtoi64 @ 0x18009D0B4 (_strtoi64.c)
+ *     _strtoi64 @ 0x18009D0A4 (_strtoi64.c)
  * Callees:
- *     _errno @ 0x1800883D0 (_errno.c)
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __pctype_func @ 0x18009CE70 (__pctype_func.c)
+ *     _errno @ 0x1800883C0 (_errno.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __pctype_func @ 0x18009CE60 (__pctype_func.c)
  */
 
 unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, int a4, int a5)

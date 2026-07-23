@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsMultiUsersInSessionSku @ 0x140913920
+ * XREFs of RtlIsMultiUsersInSessionSku @ 0x140913A80
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403A484C (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A499C (OpenGlobalizationUserSettingsKey.c)
  * Callees:
  *     <none>
  */
 
-bool RtlIsMultiUsersInSessionSku()
+BOOLEAN RtlIsMultiUsersInSessionSku(void)
 {
   return (MEMORY[0xFFFFF780000002F0] & 0x200) != 0;
 }

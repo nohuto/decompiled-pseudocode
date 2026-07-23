@@ -1,9 +1,9 @@
 /*
- * XREFs of PoUnregisterSystemState @ 0x14056F040
+ * XREFs of PoUnregisterSystemState @ 0x14056F280
  * Callers:
  *     <none>
  * Callees:
- *     PoDeletePowerRequest @ 0x14067D5C0 (PoDeletePowerRequest.c)
+ *     PoDeletePowerRequest @ 0x140671380 (PoDeletePowerRequest.c)
  */
 
 void __stdcall PoUnregisterSystemState(PVOID StateHandle)

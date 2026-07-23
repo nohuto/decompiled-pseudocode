@@ -1,17 +1,17 @@
 /*
- * XREFs of IommupGetSystemContext @ 0x1403CC014
+ * XREFs of IommupGetSystemContext @ 0x1403CC184
  * Callers:
- *     IommuGetLibraryContext @ 0x1404D8DD0 (IommuGetLibraryContext.c)
- *     IommuGetConfiguration @ 0x140A6FE20 (IommuGetConfiguration.c)
- *     IommuHvGetConfiguration @ 0x140A8D710 (IommuHvGetConfiguration.c)
+ *     IommuGetLibraryContext @ 0x1404D9010 (IommuGetLibraryContext.c)
+ *     IommuGetConfiguration @ 0x140A70E20 (IommuGetConfiguration.c)
+ *     IommuHvGetConfiguration @ 0x140A8E710 (IommuHvGetConfiguration.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 PVOID *__fastcall IommupGetSystemContext(unsigned int a1)
@@ -105,7 +105,7 @@ PVOID *__fastcall IommupGetSystemContext(unsigned int a1)
 LABEL_9:
       if ( HalpHvIommu
         && (!IommupHvSvmEnabled
-         || (int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4A268)(a1, (unsigned int)IommupHvMaximumAsids) < 0) )
+         || (int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4A2A8)(a1, (unsigned int)IommupHvMaximumAsids) < 0) )
       {
         KxReleaseSpinLock(&IommupSystemContextListLock);
         if ( KiIrqlFlags )

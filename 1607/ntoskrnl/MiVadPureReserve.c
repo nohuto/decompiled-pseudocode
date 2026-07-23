@@ -1,17 +1,17 @@
 /*
- * XREFs of MiVadPureReserve @ 0x14002BA90
+ * XREFs of MiVadPureReserve @ 0x14002B610
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x14000CE40 (MiSetReadOnlyOnSectionView.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiSplitPrivatePage @ 0x1400988C0 (MiSplitPrivatePage.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiReturnVadQuota @ 0x14042FA80 (MiReturnVadQuota.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiCommitPageTablesForVad @ 0x140430A30 (MiCommitPageTablesForVad.c)
- *     MiReturnPageTablePageCommitment @ 0x140434210 (MiReturnPageTablePageCommitment.c)
- *     MiCommitPagefileBackedSection @ 0x1404BA2E0 (MiCommitPagefileBackedSection.c)
- *     MiAllocateChildVads @ 0x140527B80 (MiAllocateChildVads.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14000C9C0 (MiSetReadOnlyOnSectionView.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiSplitPrivatePage @ 0x1400980C0 (MiSplitPrivatePage.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiReturnVadQuota @ 0x14042E950 (MiReturnVadQuota.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiCommitPageTablesForVad @ 0x14042F900 (MiCommitPageTablesForVad.c)
+ *     MiReturnPageTablePageCommitment @ 0x1404330E0 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitPagefileBackedSection @ 0x1404A6010 (MiCommitPagefileBackedSection.c)
+ *     MiAllocateChildVads @ 0x14050ABE0 (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpMapApicBackingPage @ 0x1405BFC2C
+ * XREFs of HvlpMapApicBackingPage @ 0x1405C249C
  * Callers:
- *     HvlEnlightenProcessor @ 0x140530860 (HvlEnlightenProcessor.c)
- *     HvlPhase1Initialize @ 0x1405B89CC (HvlPhase1Initialize.c)
+ *     HvlEnlightenProcessor @ 0x140532D60 (HvlEnlightenProcessor.c)
+ *     HvlPhase1Initialize @ 0x1405BB23C (HvlPhase1Initialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     HvlpAllocateOverlayPages @ 0x1405BFA48 (HvlpAllocateOverlayPages.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     HvlpAllocateOverlayPages @ 0x1405C22B8 (HvlpAllocateOverlayPages.c)
  */
 
 struct _KPRCB *HvlpMapApicBackingPage()

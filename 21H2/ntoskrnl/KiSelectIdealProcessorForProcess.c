@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSelectIdealProcessorForProcess @ 0x1402E9794
+ * XREFs of KiSelectIdealProcessorForProcess @ 0x14029AAE4
  * Callers:
- *     KiSetIdealNodeProcessByGroup @ 0x1402E9704 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14029AA54 (KiSetIdealNodeProcessByGroup.c)
  * Callees:
  *     <none>
  */

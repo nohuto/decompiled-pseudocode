@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeCommitment @ 0x140087100
+ * XREFs of MiInitializeCommitment @ 0x1400019CC
  * Callers:
- *     MiInitializePartition @ 0x14054ECF0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14054F230 (MiInitializePartition.c)
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiIncreaseCommitLimits @ 0x1401429F8 (MiIncreaseCommitLimits.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiIncreaseCommitLimits @ 0x140142F68 (MiIncreaseCommitLimits.c)
  */
 
 __int64 __fastcall MiInitializeCommitment(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MiInitializeCommitment(__int64 a1)
   __int64 result; // rax
   __int64 v11; // rdx
 
-  if ( (int *)a1 == MiSystemPartition )
+  if ( (int *)a1 == &MiSystemPartition )
     *(_QWORD *)(a1 + 5680) = (-(__int64)(*(_QWORD *)(a1 + 6288) < 0x4000uLL) & 0xFFFFFFFFFFFFFC00uLL) + 1280;
   else
     *(_QWORD *)(a1 + 5680) = 0LL;
@@ -40,10 +40,10 @@ __int64 __fastcall MiInitializeCommitment(__int64 a1)
   *(_QWORD *)(a1 + 416) = a1 + 408;
   *(_QWORD *)(a1 + 408) = a1 + 408;
   v3 = *(_QWORD *)(a1 + 6464);
-  if ( dword_1403269FC )
+  if ( dword_140326A3C )
   {
     v4 = 0LL;
-    v5 = (unsigned int)dword_1403269FC;
+    v5 = (unsigned int)dword_140326A3C;
     do
     {
       v6 = (__int64 *)(a1 + 1744);
@@ -65,12 +65,12 @@ __int64 __fastcall MiInitializeCommitment(__int64 a1)
   result = MiIncreaseCommitLimits(a1, v9, v9, 0, 0LL);
   v11 = *(_QWORD *)(a1 + 6288);
   if ( v11 != v3 )
-    result = MiChargeCommit(a1, v11 - v3, 2);
-  if ( (int *)a1 == MiSystemPartition )
+    result = MiChargeCommit(a1, v11 - v3, 2LL);
+  if ( (int *)a1 == &MiSystemPartition )
   {
-    qword_1403278E0 = *(_QWORD *)(a1 + 7208);
-    result = qword_1403278E8;
-    qword_1403278E0 -= qword_1403278E8;
+    qword_140327920 = *(_QWORD *)(a1 + 7208);
+    result = qword_140327928;
+    qword_140327920 -= qword_140327928;
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIntegerToChar @ 0x1403F5D28
+ * XREFs of RtlIntegerToChar @ 0x1403F4BEC
  * Callers:
- *     CmLogMcUpdateStatus @ 0x1401B53F8 (CmLogMcUpdateStatus.c)
- *     RtlIntegerToUnicodeString @ 0x1403F5E20 (RtlIntegerToUnicodeString.c)
- *     CmpInitializeRegistryNode @ 0x14055CDF0 (CmpInitializeRegistryNode.c)
+ *     CmLogMcUpdateStatus @ 0x1401B52DC (CmLogMcUpdateStatus.c)
+ *     RtlIntegerToUnicodeString @ 0x1403F4CE4 (RtlIntegerToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x14055D330 (CmpInitializeRegistryNode.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __stdcall RtlIntegerToChar(ULONG Value, ULONG Base, ULONG Length, PCHAR String)

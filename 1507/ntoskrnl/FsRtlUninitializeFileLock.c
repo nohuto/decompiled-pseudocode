@@ -23,7 +23,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
   _QWORD *v5; // r15
   PRTL_SPLAY_LINKS *v6; // r14
   PRTL_SPLAY_LINKS v7; // rbp
-  struct _RTL_SPLAY_LINKS *v8; // r14
+  _RTL_SPLAY_LINKS *v8; // r14
   _RTL_SPLAY_LINKS *Parent; // rdx
   _QWORD *v10; // r14
   __int64 v11; // rbp
@@ -58,7 +58,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
     v5 = LockInformation + 32;
     while ( *v5 )
     {
-      v8 = (struct _RTL_SPLAY_LINKS *)(*v5 - 24LL);
+      v8 = (_RTL_SPLAY_LINKS *)(*v5 - 24LL);
       while ( v8->Parent )
       {
         Parent = v8->Parent;

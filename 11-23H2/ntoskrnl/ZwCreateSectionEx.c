@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwCreateSectionEx @ 0x14041C5E0
+ * XREFs of ZwCreateSectionEx @ 0x14041C970
  * Callers:
- *     PsCheckProcessFileSigningLevel @ 0x1409B0810 (PsCheckProcessFileSigningLevel.c)
+ *     PsCheckProcessFileSigningLevel @ 0x1409B0A10 (PsCheckProcessFileSigningLevel.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateSectionEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateSectionEx(
+        PHANDLE SectionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PLARGE_INTEGER MaximumSize,
+        ULONG SectionPageProtection,
+        ULONG AllocationAttributes,
+        HANDLE FileHandle,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SectionHandle);
 }

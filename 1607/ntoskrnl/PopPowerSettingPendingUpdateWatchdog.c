@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerSettingPendingUpdateWatchdog @ 0x140205788
+ * XREFs of PopPowerSettingPendingUpdateWatchdog @ 0x1402055B4
  * Callers:
- *     PopDeepSleepWatchdogTakeAction @ 0x14067513C (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x140675220 (PopDeepSleepWatchdogTakeAction.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 bool __fastcall PopPowerSettingPendingUpdateWatchdog(unsigned __int64 a1)

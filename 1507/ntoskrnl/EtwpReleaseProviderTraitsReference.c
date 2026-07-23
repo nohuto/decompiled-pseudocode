@@ -16,7 +16,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1, __int64 a2, __
 {
   __int64 v4; // rdi
   ULONG_PTR *v6; // rbx
-  __int128 *v7; // rbp
+  _RTL_RB_TREE *v7; // rbp
   __int64 v8; // rax
   __int64 v9; // rsi
   unsigned __int8 CurrentIrql; // r14
@@ -29,7 +29,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1, __int64 a2, __
     if ( (*(_BYTE *)(a1 + 98) & 1) != 0 )
     {
       v6 = (ULONG_PTR *)&EtwpProviderTraitsKmMutex;
-      v7 = &EtwpProviderTraitsKmTree;
+      v7 = (_RTL_RB_TREE *)&EtwpProviderTraitsKmTree;
     }
     else
     {
@@ -47,7 +47,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1, __int64 a2, __
     v6[1] = (ULONG_PTR)KeGetCurrentThread();
     *((_DWORD *)v6 + 12) = CurrentIrql;
     if ( (*(_DWORD *)(v4 + 24))-- == 1 )
-      RtlRbRemoveNode((unsigned __int64 *)v7, (unsigned __int64 *)v4);
+      RtlRbRemoveNode(v7, (PRTL_BALANCED_NODE)v4);
     else
       v4 = 0LL;
     v6[1] = 0LL;

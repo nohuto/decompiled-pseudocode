@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIrpWorkerControl @ 0x14060C250
+ * XREFs of PopIrpWorkerControl @ 0x14060F3B0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PopCreateDynamicIrpWorker @ 0x1403B64AC (PopCreateDynamicIrpWorker.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PopCreateDynamicIrpWorker @ 0x1403C03AC (PopCreateDynamicIrpWorker.c)
  */
 
 void __noreturn PopIrpWorkerControl()
@@ -16,15 +16,15 @@ void __noreturn PopIrpWorkerControl()
   while ( 1 )
   {
     v0 = 0;
-    KeWaitForSingleObject(&PopWeakChargerLock.WaitBlockFill11[48], Executive, 0, 0, 0LL);
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
-    PopWeakChargerLock.WaitBlockFill6[73] = 0;
-    if ( PopWeakChargerLock.WaitBlockFill6[72] )
+    KeWaitForSingleObject(&PopIrpWorkerControlEvent, Executive, 0, 0, 0LL);
+    ExAcquireFastMutex(&PopIrpWorkerMutex);
+    PopIrpWorkerRequested = 0;
+    if ( PopCreateIrpWorkerAllowed )
     {
-      ++*(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[84];
+      ++PopIrpWorkerPendingCount;
       v0 = 1;
     }
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
+    KeReleaseGuardedMutex(&PopIrpWorkerMutex);
     if ( v0 )
       PopCreateDynamicIrpWorker(0LL);
   }

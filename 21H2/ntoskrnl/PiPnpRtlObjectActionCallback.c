@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpRtlObjectActionCallback @ 0x140636410
+ * XREFs of PiPnpRtlObjectActionCallback @ 0x14062B220
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x140636754 (PiDmObjectGetAggregatedBooleanPropertyData.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1406368E0 (PiDmObjectGetCachedObjectProperty.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14063704C (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x14063726C (PiPnpRtlCacheObjectBaseKey.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     PiDmGetObjectList @ 0x1406C0378 (PiDmGetObjectList.c)
- *     PiDrvDbMountNode @ 0x1408B6074 (PiDrvDbMountNode.c)
- *     PiDrvDbUnmountNode @ 0x1408B8278 (PiDrvDbUnmountNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     PiDmGetObjectList @ 0x14061F288 (PiDmGetObjectList.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x14062B564 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x14062B6F0 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14062BE5C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x14062C07C (PiPnpRtlCacheObjectBaseKey.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     PiDrvDbMountNode @ 0x1408B61D4 (PiDrvDbMountNode.c)
+ *     PiDrvDbUnmountNode @ 0x1408B83D8 (PiDrvDbUnmountNode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlObjectActionCallback(__int64 a1, const WCHAR *a2, int a3, int a4, int a5, __int64 a6)
@@ -31,9 +31,9 @@ __int64 __fastcall PiPnpRtlObjectActionCallback(__int64 a1, const WCHAR *a2, int
   unsigned int v20; // eax
   int ObjectProperty; // edi
   int v22; // eax
-  int v23; // edx
-  __int64 v24; // r9
-  __int64 v25; // [rsp+28h] [rbp-70h]
+  unsigned int v23; // edx
+  _WORD *v24; // r9
+  _DWORD *v25; // [rsp+28h] [rbp-70h]
   void *v26; // [rsp+30h] [rbp-68h]
   int v27; // [rsp+38h] [rbp-60h]
   size_t Size; // [rsp+60h] [rbp-38h] BYREF
@@ -94,13 +94,13 @@ LABEL_21:
     if ( a5 != 1 || (*(_DWORD *)(a6 + 56) & 0x10000) != 0 )
       return v10;
     v23 = *(_DWORD *)(a6 + 40);
-    v24 = *(_QWORD *)(a6 + 32);
+    v24 = *(_WORD **)(a6 + 32);
     if ( a3 >= 7 )
       return 0;
-    v25 = *(_QWORD *)(a6 + 48);
+    v25 = *(_DWORD **)(a6 + 48);
     v29[0] = *(_QWORD *)(a6 + 16);
     v29[1] = *(_QWORD *)(a6 + 24);
-    ObjectList = PiDmGetObjectList(a3, (unsigned int)PiDmPnpObjectMatchCallback, (unsigned int)v29, v24, v23, v25);
+    ObjectList = PiDmGetObjectList((unsigned int)a3, (__int64)PiDmPnpObjectMatchCallback, (__int64)v29, v24, v23, v25);
     if ( ObjectList == -1073741802 )
       return 0;
     goto LABEL_21;

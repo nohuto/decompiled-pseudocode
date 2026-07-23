@@ -1,12 +1,12 @@
 /*
- * XREFs of PcCreatePartitionTable @ 0x14023B660
+ * XREFs of PcCreatePartitionTable @ 0x14023B544
  * Callers:
- *     IoCreateDisk @ 0x14061FF1C (IoCreateDisk.c)
+ *     IoCreateDisk @ 0x14061FFD0 (IoCreateDisk.c)
  * Callees:
- *     ??1PC_DISK@@QEAA@XZ @ 0x1401475A4 (--1PC_DISK@@QEAA@XZ.c)
- *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x1401475BC (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B5F0 (-PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z.c)
+ *     ??1PC_DISK@@QEAA@XZ @ 0x140147B14 (--1PC_DISK@@QEAA@XZ.c)
+ *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x140147B2C (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B4D4 (-PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z.c)
  */
 
 __int64 __fastcall PcCreatePartitionTable(

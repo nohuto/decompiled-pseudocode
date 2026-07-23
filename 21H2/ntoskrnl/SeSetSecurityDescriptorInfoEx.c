@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetSecurityDescriptorInfoEx @ 0x1406B2C40
+ * XREFs of SeSetSecurityDescriptorInfoEx @ 0x140611D00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406531E0 (RtlpSetSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeSetSecurityDescriptorInfoEx(
@@ -17,10 +17,10 @@ NTSTATUS __stdcall SeSetSecurityDescriptorInfoEx(
 {
   if ( *ObjectsSecurityDescriptor )
     return RtlpSetSecurityObject(
-             (__int64)Object,
+             (_DWORD)Object,
              *SecurityInformation,
-             (__int64)ModificationDescriptor,
-             ObjectsSecurityDescriptor,
+             (_DWORD)ModificationDescriptor,
+             (_DWORD)ObjectsSecurityDescriptor,
              AutoInheritFlags,
              PoolType,
              (__int64)GenericMapping,

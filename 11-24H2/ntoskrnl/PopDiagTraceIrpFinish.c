@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceIrpFinish @ 0x140377E10
+ * XREFs of PopDiagTraceIrpFinish @ 0x1402E64EC
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x140375DBC (PopDequeueQuerySetIrp.c)
- *     PopRequestCompletion @ 0x140376130 (PopRequestCompletion.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BA5A0 (PopDequeueQuerySetIrp.c)
+ *     PopRequestCompletion @ 0x1403A6460 (PopRequestCompletion.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PopDiagTraceIrpFinishTelemetry @ 0x140377FD4 (PopDiagTraceIrpFinishTelemetry.c)
- *     PopFxAddLogEntry @ 0x1403782D8 (PopFxAddLogEntry.c)
- *     RtlStringCbCopyNW @ 0x1403D9E84 (RtlStringCbCopyNW.c)
- *     IoFindDeviceThatFailedIrp @ 0x14043B4CC (IoFindDeviceThatFailedIrp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x1402E66B0 (PopDiagTraceIrpFinishTelemetry.c)
+ *     PopFxAddLogEntry @ 0x1402E69B4 (PopFxAddLogEntry.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1402F074C (IoFindDeviceThatFailedIrp.c)
+ *     RtlStringCbCopyNW @ 0x1403CC204 (RtlStringCbCopyNW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceIrpFinish(__int64 a1)

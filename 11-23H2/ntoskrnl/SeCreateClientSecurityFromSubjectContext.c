@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1407E5E30
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1407E6100
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     RtlSidDominatesForTrust @ 0x1402B33F0 (RtlSidDominatesForTrust.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     SepCreateClientSecurityEx @ 0x14071D8F0 (SepCreateClientSecurityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     RtlSidDominatesForTrust @ 0x1402B3680 (RtlSidDominatesForTrust.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     SepCreateClientSecurityEx @ 0x14071DAF0 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
@@ -21,12 +21,12 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
   int v11; // ebp
   NTSTATUS ClientSecurity; // edi
   __int64 v14; // r11
-  char v15; // [rsp+90h] [rbp+8h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+90h] [rbp+8h] BYREF
 
   ClientToken = SubjectContext->ClientToken;
   v5 = 0LL;
   v6 = 0;
-  v15 = 0;
+  DominatesTrust = 0;
   if ( !ClientToken )
     ClientToken = SubjectContext->PrimaryToken;
   ObfReferenceObjectWithTag(ClientToken, 0x63436553u);
@@ -34,10 +34,10 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
   {
     v11 = 2;
     RtlSidDominatesForTrust(
-      *((_QWORD *)SubjectContext->PrimaryToken + 138),
-      *((_QWORD *)SubjectContext->ClientToken + 138),
-      &v15);
-    if ( !v15 )
+      *((PSID *)SubjectContext->PrimaryToken + 138),
+      *((PSID *)SubjectContext->ClientToken + 138),
+      &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v6 = 1;
       v5 = v14;

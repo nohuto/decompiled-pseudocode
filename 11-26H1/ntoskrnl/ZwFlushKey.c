@@ -1,22 +1,20 @@
 /*
- * XREFs of ZwFlushKey @ 0x140725230
+ * XREFs of ZwFlushKey @ 0x140729E00
  * Callers:
- *     VfClearVerifierSettings @ 0x140640270 (VfClearVerifierSettings.c)
- *     DifZwFlushKeyWrapper @ 0x1406A6830 (DifZwFlushKeyWrapper.c)
- *     ExpRecordShutdownTime @ 0x1406CB23C (ExpRecordShutdownTime.c)
- *     CmpInterlockedFunction @ 0x14084B290 (CmpInterlockedFunction.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     BcdFlushStore @ 0x140B543DC (BcdFlushStore.c)
- *     PopFlushVolumes @ 0x140C06720 (PopFlushVolumes.c)
+ *     VfClearVerifierSettings @ 0x140643E50 (VfClearVerifierSettings.c)
+ *     DifZwFlushKeyWrapper @ 0x1406AA410 (DifZwFlushKeyWrapper.c)
+ *     ExpRecordShutdownTime @ 0x1406CF26C (ExpRecordShutdownTime.c)
+ *     CmpInterlockedFunction @ 0x1408515A0 (CmpInterlockedFunction.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     BcdFlushStore @ 0x140B56C7C (BcdFlushStore.c)
+ *     PopFlushVolumes @ 0x140C0C930 (PopFlushVolumes.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwFlushKey(HANDLE KeyHandle)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, v1);
+  return KiServiceInternal(KeyHandle);
 }

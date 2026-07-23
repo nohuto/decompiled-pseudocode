@@ -1,12 +1,12 @@
 /*
- * XREFs of IopInitializeActiveConnectBlock @ 0x140710C4C
+ * XREFs of IopInitializeActiveConnectBlock @ 0x140711EEC
  * Callers:
- *     IoDisconnectInterrupt @ 0x140710350 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x1407115F0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407119EC (IopConnectInterrupt.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x140755DF4 (IopAcquireReleaseConnectLockInternal.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x140756FE4 (IopAcquireReleaseConnectLockInternal.c)
  */
 
 void *__fastcall IopInitializeActiveConnectBlock(__int64 a1, __int64 *a2)
@@ -77,13 +77,13 @@ LABEL_21:
       if ( (__int64 *)v9 != &ActiveConnectList )
         return (void *)IopAcquireReleaseConnectLockInternal(0LL, 0LL, 2LL);
     }
-    v10 = (__int64 **)qword_1404355E8;
-    if ( *(__int64 **)qword_1404355E8 == &ActiveConnectList )
+    v10 = (__int64 **)qword_140436688;
+    if ( *(__int64 **)qword_140436688 == &ActiveConnectList )
     {
       *a2 = (__int64)&ActiveConnectList;
       a2[1] = (__int64)v10;
       *v10 = a2;
-      qword_1404355E8 = (__int64)a2;
+      qword_140436688 = (__int64)a2;
       return (void *)IopAcquireReleaseConnectLockInternal(0LL, 0LL, 2LL);
     }
 LABEL_23:

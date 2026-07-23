@@ -1,13 +1,13 @@
 /*
- * XREFs of ExInitializeTimeRefresh @ 0x1409C4288
+ * XREFs of ExInitializeTimeRefresh @ 0x1409C5288
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KiInitializeTimer2 @ 0x1400FD4EC (KiInitializeTimer2.c)
- *     ZwLockProductActivationKeys @ 0x1401BA230 (ZwLockProductActivationKeys.c)
- *     ExGetExpirationDate @ 0x1407353FC (ExGetExpirationDate.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KiInitializeTimer2 @ 0x1400FD56C (KiInitializeTimer2.c)
+ *     ZwLockProductActivationKeys @ 0x1401BA390 (ZwLockProductActivationKeys.c)
+ *     ExGetExpirationDate @ 0x1407365EC (ExGetExpirationDate.c)
  */
 
 __int64 *ExInitializeTimeRefresh()
@@ -25,14 +25,14 @@ __int64 *ExInitializeTimeRefresh()
     ExpShuttingDown = 0;
   }
   LODWORD(ExpTimeRefreshDpc) = 275;
-  qword_140409B98 = (__int64)ExpTimeRefreshDpcRoutine;
-  qword_140409BB8 = 0LL;
-  qword_140409BA0 = (__int64)&ExpOkToTimeRefresh;
-  qword_140409B90 = 0LL;
+  qword_14040AB58 = (__int64)ExpTimeRefreshDpcRoutine;
+  qword_14040AB78 = 0LL;
+  qword_14040AB60 = (__int64)&ExpOkToTimeRefresh;
+  qword_14040AB50 = 0LL;
   ExpTimeRefreshWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ExpTimeRefreshWork;
   ExpTimeRefreshWorkItem.Parameter = 0LL;
   ExpTimeRefreshWorkItem.List.Flink = 0LL;
-  word_140409BC2 = 0;
+  word_14040AB82 = 0;
   KiInitializeTimer2((__int64)&ExpTimeRefreshTimer, (__int64)ExpTimeRefreshCallback, 0LL, 8);
   v2[1] = -1LL;
   ExpTimeRefreshInterval = -36000000000LL;
@@ -40,7 +40,7 @@ __int64 *ExInitializeTimeRefresh()
   KeSetTimer2((__int64)&ExpTimeRefreshTimer, -36000000000LL, v0, (__int64)v2);
   ExInitializeResourceLite(&ExpTimeRefreshLock);
   result = &ExpTimerResolutionListHead;
-  qword_140409C98 = (__int64)&ExpTimerResolutionListHead;
+  qword_14040AD08 = (__int64)&ExpTimerResolutionListHead;
   ExpTimerResolutionListHead = (__int64)&ExpTimerResolutionListHead;
   return result;
 }

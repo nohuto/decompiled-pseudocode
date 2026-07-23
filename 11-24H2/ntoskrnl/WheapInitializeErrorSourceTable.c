@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapInitializeErrorSourceTable @ 0x140C447F8
+ * XREFs of WheapInitializeErrorSourceTable @ 0x140C46948
  * Callers:
- *     WheaInitialize @ 0x140C440FC (WheaInitialize.c)
+ *     WheaInitialize @ 0x140C4624C (WheaInitialize.c)
  * Callees:
- *     WheapAddErrorSource @ 0x14065BC38 (WheapAddErrorSource.c)
- *     WheapInitializeErrorSource @ 0x1407C6890 (WheapInitializeErrorSource.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WheapAddErrorSource @ 0x14065A358 (WheapAddErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x1407C6CF0 (WheapInitializeErrorSource.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int *a2)
 {
   unsigned int i; // esi
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   __int64 v6; // rbx
-  ULONG_PTR v7; // rcx
+  __int64 v7; // rcx
   unsigned int *v8; // rdx
   __int64 v9; // rax
   __int128 v10; // xmm0
@@ -54,8 +54,8 @@ __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int
       *(_OWORD *)(v7 + 48) = *((_OWORD *)v8 + 3);
       *(_QWORD *)(v7 + 64) = *((_QWORD *)v8 + 8);
       *(_DWORD *)(v7 + 72) = v8[18];
-      v11 = &unk_140EEED88;
-      if ( *((_BYTE *)&unk_140EEED88 + 64 * (__int64)(int)a2[2]) )
+      v11 = &unk_140EEEF88;
+      if ( *((_BYTE *)&unk_140EEEF88 + 64 * (__int64)(int)a2[2]) )
       {
         v12 = WheapInitializeErrorSource(v6);
         if ( v12 < 0 )

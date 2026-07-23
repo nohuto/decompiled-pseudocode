@@ -1,23 +1,23 @@
 /*
- * XREFs of PsInitializeBootCpuPartitions @ 0x140CD7AC4
+ * XREFs of PsInitializeBootCpuPartitions @ 0x140CDDE44
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsCpuPartitionMoveCpus @ 0x1407F2640 (PsCpuPartitionMoveCpus.c)
- *     PsCreateCpuPartition @ 0x1407F2660 (PsCreateCpuPartition.c)
- *     RtlUnicodeStringToInteger @ 0x14091AAE0 (RtlUnicodeStringToInteger.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140CD7EF8 (PspCopyNodeRelativeMaskToAffinityEx.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsCpuPartitionMoveCpus @ 0x1407F81A0 (PsCpuPartitionMoveCpus.c)
+ *     PsCreateCpuPartition @ 0x1407F81C0 (PsCreateCpuPartition.c)
+ *     RtlUnicodeStringToInteger @ 0x140975540 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140CDE278 (PspCopyNodeRelativeMaskToAffinityEx.c)
  */
 
 __int64 PsInitializeBootCpuPartitions()
@@ -142,7 +142,7 @@ LABEL_8:
           {
             if ( *(_QWORD *)&v4[4 * j + 4] )
             {
-              ObjectAttributes.RootDirectory = (HANDLE)stru_140FC01F0.AffinityVersion;
+              ObjectAttributes.RootDirectory = *(HANDLE *)&stru_140FC11F0.UserAffinityPrimaryGroup;
               ObjectAttributes.ObjectName = &DestinationString;
               ObjectAttributes.SecurityDescriptor = (PVOID)PsCpuPartitionDefaultSd;
               ObjectAttributes.Length = 48;

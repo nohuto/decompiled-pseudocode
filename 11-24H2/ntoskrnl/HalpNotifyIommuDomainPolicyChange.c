@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpNotifyIommuDomainPolicyChange @ 0x14054DFB0
+ * XREFs of HalpNotifyIommuDomainPolicyChange @ 0x14054B860
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x1404D9CC4 (HalpIommuInvokeInterfaceStateChangeCallbacks.c)
+ *     HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x1404D3740 (HalpIommuInvokeInterfaceStateChangeCallbacks.c)
  */
 
 __int64 __fastcall HalpNotifyIommuDomainPolicyChange(__int64 a1)

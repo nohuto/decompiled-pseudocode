@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRevertToUserMultipleGroupAffinityThread @ 0x140507754
+ * XREFs of KeRevertToUserMultipleGroupAffinityThread @ 0x140501124
  * Callers:
- *     PsRevertToUserMultipleGroupAffinityThread @ 0x1406156D0 (PsRevertToUserMultipleGroupAffinityThread.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     PsRevertToUserMultipleGroupAffinityThread @ 0x1406186F0 (PsRevertToUserMultipleGroupAffinityThread.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeRevertToUserMultipleGroupAffinityThread(__int64 a1, __int64 a2)
@@ -64,7 +64,7 @@ __int64 __fastcall KeRevertToUserMultipleGroupAffinityThread(__int64 a1, __int64
   }
   Next = CurrentThread->SystemAffinityTokenListHead.Next;
   UserIdealProcessor = 2048;
-  v9 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+  v9 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   if ( Next )
     CurrentThread->SystemAffinityTokenListHead = (_SINGLE_LIST_ENTRY)Next->Next;
   v10 = *(unsigned __int16 **)(v2 + 24);

@@ -26,7 +26,7 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
   int v8; // r15d
   int v9; // eax
   __int64 v11; // [rsp+30h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
   unsigned __int16 *v13[2]; // [rsp+48h] [rbp-18h] BYREF
   __int16 v14; // [rsp+58h] [rbp-8h]
   int v15; // [rsp+5Ah] [rbp-6h]
@@ -65,7 +65,7 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
     MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;

@@ -6,8 +6,8 @@
  *     RtlInterlockedPushEntrySList_0 @ 0x1800A01F0 (RtlInterlockedPushEntrySList_0.c)
  */
 
-__int64 __fastcall RtlFreeMemoryBlockLookaside(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlFreeMemoryBlockLookaside(PVOID MemoryBlockLookaside, PVOID Block)
 {
-  RtlInterlockedPushEntrySList_0(*(PSLIST_HEADER *)(a2 - 48 + 32), (PSLIST_ENTRY)(a2 - 48));
-  return 0LL;
+  RtlInterlockedPushEntrySList_0(*((PSLIST_HEADER *)Block - 2), (PSLIST_ENTRY)Block - 3);
+  return 0;
 }

@@ -1,20 +1,25 @@
 /*
- * XREFs of NtQuerySemaphore @ 0x140A5A9A0
+ * XREFs of NtQuerySemaphore @ 0x140A52260
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r12
   __int64 v9; // rdx
   __int64 v10; // rcx
-  _DWORD *v11; // rbx
-  NTSTATUS v12; // esi
+  PULONG v11; // rbx
+  int v12; // esi
   int v13; // r14d
   int v14; // r15d
   PVOID Object; // [rsp+38h] [rbp-20h] BYREF
@@ -22,32 +27,32 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)SemaphoreInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v9 = 0x7FFFFFFF0000LL;
     v10 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v10 = a3;
+    if ( (unsigned __int64)SemaphoreInformation < 0x7FFFFFFF0000LL )
+      v10 = (__int64)SemaphoreInformation;
     *(_BYTE *)v10 = *(_BYTE *)v10;
     *(_BYTE *)(v10 + 7) = *(_BYTE *)(v10 + 7);
-    v11 = (_DWORD *)a5;
-    if ( a5 )
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v9 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)ReturnLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   else
   {
-    v11 = (_DWORD *)a5;
+    v11 = ReturnLength;
   }
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 8 )
-    return 3221225476LL;
+  if ( SemaphoreInformationClass )
+    return -1073741821;
+  if ( SemaphoreInformationLength != 8 )
+    return -1073741820;
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(SemaphoreHandle, 1u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
     v13 = *((_DWORD *)Object + 1);
@@ -55,18 +60,18 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, 
     ObfDereferenceObject(Object);
     if ( PreviousMode )
     {
-      *(_DWORD *)a3 = v13;
-      *(_DWORD *)(a3 + 4) = v14;
+      *(_DWORD *)SemaphoreInformation = v13;
+      *((_DWORD *)SemaphoreInformation + 1) = v14;
       if ( v11 )
         *v11 = 8;
     }
     else
     {
-      *(_DWORD *)a3 = v13;
-      *(_DWORD *)(a3 + 4) = v14;
+      *(_DWORD *)SemaphoreInformation = v13;
+      *((_DWORD *)SemaphoreInformation + 1) = v14;
       if ( v11 )
         *v11 = 8;
     }
   }
-  return (unsigned int)v12;
+  return v12;
 }

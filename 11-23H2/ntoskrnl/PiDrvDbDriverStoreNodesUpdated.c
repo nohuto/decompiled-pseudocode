@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDrvDbDriverStoreNodesUpdated @ 0x14081191C
+ * XREFs of PiDrvDbDriverStoreNodesUpdated @ 0x140811BEC
  * Callers:
- *     PiDrvDbRegisterNode @ 0x14081173C (PiDrvDbRegisterNode.c)
- *     PiDrvDbUnregisterNode @ 0x140971474 (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140811A0C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbUnregisterNode @ 0x140971674 (PiDrvDbUnregisterNode.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 PiDrvDbDriverStoreNodesUpdated()
+NTSTATUS PiDrvDbDriverStoreNodesUpdated()
 {
-  int v1; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
-  v1 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  return ZwUpdateWnfStateData((__int64)&WNF_PNPD_DRIVER_STORE_NODES_UDPATED, (__int64)&v1);
+  Buffer = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  return ZwUpdateWnfStateData(&WNF_PNPD_DRIVER_STORE_NODES_UDPATED, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

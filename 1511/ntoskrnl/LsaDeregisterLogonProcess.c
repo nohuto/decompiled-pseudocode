@@ -7,16 +7,16 @@
  *     ExGetExtensionTable @ 0x1400E8ED8 (ExGetExtensionTable.c)
  */
 
-__int64 __fastcall LsaDeregisterLogonProcess(__int64 a1)
+NTSTATUS __cdecl LsaDeregisterLogonProcess(HANDLE LsaHandle)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
   unsigned __int64 ExtensionTable; // rax
 
   v2 = -1073741822;
   ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   if ( ExtensionTable )
   {
-    v2 = (*(__int64 (__fastcall **)(__int64))(ExtensionTable + 8))(a1);
+    v2 = (*(__int64 (__fastcall **)(HANDLE))(ExtensionTable + 8))(LsaHandle);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
   return v2;

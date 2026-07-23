@@ -33,7 +33,7 @@ __int64 MiInitializeMirroring()
   unsigned int v10; // r8d
   bool v11; // zf
   __int64 v12; // rcx
-  unsigned __int64 v13; // rdi
+  __int64 v13; // rdi
   __int64 v14; // rdx
   $C774EFD68449142D8271B1EC1EB7FB26 *v15; // rdx
   __int64 v16; // rcx
@@ -91,7 +91,7 @@ __int64 MiInitializeMirroring()
             v11 = !_BitScanReverse((unsigned int *)&v12, v10);
             if ( v11 )
               goto LABEL_16;
-            v13 = (unsigned __int64)&v7->LockEntries[v12];
+            v13 = (__int64)&v7->LockEntries[v12];
             v10 &= ~(1 << v12);
             if ( (*(_BYTE *)(v13 + 26) & 1) != 0
               && (*(_DWORD *)(v13 + 32) & 1) == 0
@@ -112,12 +112,12 @@ LABEL_16:
           }
           *(_BYTE *)(v13 + 32) |= 2u;
           if ( *(__int64 *)(v13 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v13);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
           v20 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
           *(_DWORD *)(v13 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v13 + 25) &= ~1u;
           *(_QWORD *)(v13 + 32) = 0LL;
-          v14 = (__int64)(v13 - (unsigned __int64)v7->LockEntries) / 96;
+          v14 = (signed __int64)(v13 - (unsigned __int64)v7->LockEntries) / 96;
           if ( v9 == 1 )
             v7->AbEntrySummary |= 1 << v14;
           else

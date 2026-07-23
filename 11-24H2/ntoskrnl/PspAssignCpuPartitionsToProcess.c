@@ -1,14 +1,14 @@
 /*
- * XREFs of PspAssignCpuPartitionsToProcess @ 0x140776964
+ * XREFs of PspAssignCpuPartitionsToProcess @ 0x140776B84
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeAssignCpuPartitionsToProcess @ 0x1405BF410 (KeAssignCpuPartitionsToProcess.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x1405BFCA8 (KeRecomputeCpuSetAffinityProcess.c)
- *     PspReferenceCpuPartitionByHandle @ 0x140776EF0 (PspReferenceCpuPartitionByHandle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405BCA40 (KeAssignCpuPartitionsToProcess.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x1405BD2D8 (KeRecomputeCpuSetAffinityProcess.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x140777110 (PspReferenceCpuPartitionByHandle.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspAssignCpuPartitionsToProcess(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
@@ -23,8 +23,8 @@ __int64 __fastcall PspAssignCpuPartitionsToProcess(__int64 a1, __int64 a2, __int
   v6 = 0LL;
   if ( a4 - 1 > 0x7FF )
     return (unsigned int)-1073741811;
-  Pool2 = (PVOID *)ExAllocatePool2(0x100uLL);
-  v9 = ExAllocatePool2(0x40uLL);
+  Pool2 = (PVOID *)ExAllocatePool2(0x100uLL, 8LL * a4, 0x50707350u);
+  v9 = ExAllocatePool2(0x40uLL, 8LL * a4, 0x50707350u);
   v10 = (_QWORD *)v9;
   if ( Pool2 && v9 )
   {

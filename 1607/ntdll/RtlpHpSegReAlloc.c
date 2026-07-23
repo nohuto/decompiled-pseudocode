@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegReAlloc @ 0x180043284
+ * XREFs of RtlpHpSegReAlloc @ 0x180043274
  * Callers:
- *     RtlpHpReAllocateHeap @ 0x18004377C (RtlpHpReAllocateHeap.c)
+ *     RtlpHpReAllocateHeap @ 0x18004376C (RtlpHpReAllocateHeap.c)
  * Callees:
- *     RtlpHpSegPageRangeShrink @ 0x18003E92C (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpReallocMove @ 0x1800430B0 (RtlpHpReallocMove.c)
- *     RtlpHpSegDescriptorValidate @ 0x180043604 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpExtrasMove @ 0x180051B88 (RtlpHpExtrasMove.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18003E91C (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpReallocMove @ 0x1800430A0 (RtlpHpReallocMove.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1800435F4 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpExtrasMove @ 0x180051B78 (RtlpHpExtrasMove.c)
  */
 
-__int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, unsigned __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpSegReAlloc(void *a1, unsigned int a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v8; // rax
   unsigned __int64 v9; // r10
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, unsigned __int6
       if ( *(_DWORD *)(a4 + 16) )
         RtlpHpExtrasMove(a3, *(_QWORD *)a4, a3, *(_QWORD *)(a4 + 24), a2);
       if ( (unsigned int)v12 < *(unsigned __int8 *)(v10 + 27) )
-        RtlpHpSegPageRangeShrink(a1, v10, (unsigned int)v12, a2);
+        RtlpHpSegPageRangeShrink((__int64)a1, v10, v12, a2);
       v9 = a3;
       *(_WORD *)(v10 + 6) = ((_WORD)v12 << 12) - *(_WORD *)(a4 + 24);
     }

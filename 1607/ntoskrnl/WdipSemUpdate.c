@@ -1,16 +1,16 @@
 /*
- * XREFs of WdipSemUpdate @ 0x14069B850
+ * XREFs of WdipSemUpdate @ 0x14069B934
  * Callers:
- *     WdiUpdateSem @ 0x1402246C8 (WdiUpdateSem.c)
+ *     WdiUpdateSem @ 0x1402244F4 (WdiUpdateSem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     WdipSemCleanStart @ 0x140564790 (WdipSemCleanStart.c)
- *     WdipSemInitializeGlobalState @ 0x14056600C (WdipSemInitializeGlobalState.c)
- *     WdipSemShutdown @ 0x14069B990 (WdipSemShutdown.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     WdipSemCleanStart @ 0x140564CD0 (WdipSemCleanStart.c)
+ *     WdipSemInitializeGlobalState @ 0x14056654C (WdipSemInitializeGlobalState.c)
+ *     WdipSemShutdown @ 0x14069BA74 (WdipSemShutdown.c)
  */
 
 __int64 WdipSemUpdate()

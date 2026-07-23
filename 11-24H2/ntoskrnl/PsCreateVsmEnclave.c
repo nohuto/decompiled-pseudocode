@@ -1,19 +1,19 @@
 /*
- * XREFs of PsCreateVsmEnclave @ 0x140A84BF4
+ * XREFs of PsCreateVsmEnclave @ 0x140A7F734
  * Callers:
- *     MiCreateVsmEnclave @ 0x1407F752C (MiCreateVsmEnclave.c)
+ *     MiCreateVsmEnclave @ 0x1407F7CA0 (MiCreateVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PspVsmEnclaveHashAllocator @ 0x14077B95C (PspVsmEnclaveHashAllocator.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
- *     VslCreateEnclave @ 0x140A850B4 (VslCreateEnclave.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PspVsmEnclaveHashAllocator @ 0x14077B80C (PspVsmEnclaveHashAllocator.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
+ *     VslCreateEnclave @ 0x140A7FBF4 (VslCreateEnclave.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsCreateVsmEnclave(
@@ -29,8 +29,8 @@ __int64 __fastcall PsCreateVsmEnclave(
   int v10; // edi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v13; // rsi
-  _QWORD *v14; // rax
-  _QWORD *v15; // rdi
+  char *v14; // rax
+  char *v15; // rdi
   char *Pool2; // rdi
   __int64 v17; // rax
   unsigned __int64 v18; // rax
@@ -39,8 +39,8 @@ __int64 __fastcall PsCreateVsmEnclave(
   int Enclave; // edi
   signed __int64 v23; // rax
   struct _KTHREAD *v24; // rax
-  _QWORD *v25; // rax
-  _QWORD *v26; // rdi
+  char *v25; // rax
+  char *v26; // rdi
   __int64 v27; // r15
   int v28; // esi
   __int64 v29; // rsi
@@ -67,18 +67,18 @@ __int64 __fastcall PsCreateVsmEnclave(
     CurrentThread = KeGetCurrentThread();
     v13 = (unsigned __int64 *)(a1 + 1624);
     --CurrentThread->KernelApcDisable;
-    v14 = KeAbPreAcquire(a1 + 1624, 0LL);
+    v14 = (char *)KeAbPreAcquire(a1 + 1624, 0LL);
     v15 = v14;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v13, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v13, (__int64)v14, (__int64)v13);
+      ExfAcquirePushLockExclusiveEx(v13, v14, (__int64)v13);
     if ( v15 )
-      *((_BYTE *)v15 + 10) = 1;
+      v15[10] = 1;
     if ( !*(_QWORD *)(a1 + 1608) )
     {
-      Pool2 = (char *)ExAllocatePool2(0x101uLL);
+      Pool2 = (char *)ExAllocatePool2(0x101uLL, 0x20uLL, 0x48457350u);
       if ( Pool2 )
       {
-        v17 = ExAllocatePool2(0x101uLL);
+        v17 = ExAllocatePool2(0x101uLL, 0x10uLL, 0x48457350u);
         *(_QWORD *)(a1 + 1608) = v17;
         if ( v17 )
         {
@@ -103,7 +103,7 @@ __int64 __fastcall PsCreateVsmEnclave(
       return 3221225626LL;
     v10 = a2;
   }
-  v19 = ExAllocatePool2(0x41uLL);
+  v19 = ExAllocatePool2(0x41uLL, 0x88uLL, 0x65567350u);
   v20 = (char *)v19;
   if ( !v19 )
     return 3221225626LL;
@@ -130,12 +130,12 @@ __int64 __fastcall PsCreateVsmEnclave(
       }
       v24 = KeGetCurrentThread();
       --v24->KernelApcDisable;
-      v25 = KeAbPreAcquire(a1 + 1624, 0LL);
+      v25 = (char *)KeAbPreAcquire(a1 + 1624, 0LL);
       v26 = v25;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 1624), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 1624), (__int64)v25, a1 + 1624);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 1624), v25, a1 + 1624);
       if ( v26 )
-        *((_BYTE *)v26 + 10) = 1;
+        v26[10] = 1;
       v27 = *(_QWORD *)(a1 + 1608);
       v28 = *(_DWORD *)(v27 + 4) >> 5;
       if ( *(_DWORD *)v27 >= (unsigned int)(4 * v28) )
@@ -143,7 +143,7 @@ __int64 __fastcall PsCreateVsmEnclave(
         v29 = (unsigned int)(2 * v28);
         if ( (unsigned int)v29 < 4 )
           v29 = 4LL;
-        v30 = (char *)PspVsmEnclaveHashAllocator();
+        v30 = (char *)PspVsmEnclaveHashAllocator(8LL * (unsigned int)v29);
         if ( v30 )
         {
           if ( (((_DWORD)v29 - 1) & (unsigned int)v29) != 0 )

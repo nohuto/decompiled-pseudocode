@@ -11,9 +11,12 @@
  *     sub_18007C438 @ 0x18007C438 (sub_18007C438.c)
  */
 
-__int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 a3)
+NTSTATUS __cdecl RtlGetExtendedContextLength2(
+        ULONG ContextFlags,
+        PULONG ContextLength,
+        ULONG64 EnabledExtendedFeatures)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v6; // r10d
   int v7; // r9d
   int v8; // r11d
@@ -22,9 +25,9 @@ __int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 
   int v11; // eax
   char v12; // [rsp+48h] [rbp+20h] BYREF
 
-  result = sub_18001ED88(a1, &v12);
+  result = sub_18001ED88(ContextFlags, &v12);
   v7 = 0;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v8 = 0;
   if ( (v6 & 0x10000) != 0 )
@@ -58,10 +61,10 @@ LABEL_6:
   {
     v10 = -v8 & (v9 + v8 - 1);
     if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
-      a3 &= MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL;
-    v11 = sub_18007C438(a3);
+      EnabledExtendedFeatures &= MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL;
+    v11 = sub_18007C438(EnabledExtendedFeatures);
     v9 = v11 + v10 - v8 - 448;
   }
-  *a2 = v9 + v8 - 1;
-  return 0LL;
+  *ContextLength = v9 + v8 - 1;
+  return 0;
 }

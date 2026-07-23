@@ -8,15 +8,15 @@
  *     _stricmp @ 0x180091FF0 (_stricmp.c)
  */
 
-unsigned __int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
+__int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
 {
-  int v4; // eax
-  unsigned __int64 v5; // rbp
+  NTSTATUS v4; // eax
+  __int64 v5; // rbp
   __int64 v6; // rdi
   unsigned int v7; // ebx
   unsigned int v8; // esi
   unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
-  unsigned __int64 v11; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v11; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xDu, &v10, &v11);
   v5 = v11;

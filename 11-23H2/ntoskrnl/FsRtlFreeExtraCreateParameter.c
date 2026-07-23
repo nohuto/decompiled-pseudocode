@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlFreeExtraCreateParameter @ 0x14073E120
+ * XREFs of FsRtlFreeExtraCreateParameter @ 0x14073E310
  * Callers:
- *     IopDeleteFileObjectExtension @ 0x1402BB810 (IopDeleteFileObjectExtension.c)
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpAttachOplockKey @ 0x14030287C (FsRtlpAttachOplockKey.c)
- *     PspCreateUserProcessEcp @ 0x1406B9360 (PspCreateUserProcessEcp.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopCreateFile @ 0x14073C690 (IopCreateFile.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x14073E0A0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlpCleanupEcps @ 0x14073E1D0 (FsRtlpCleanupEcps.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1407CD8CC (IopSymlinkAllocateAndAddECP.c)
- *     IopGraftName @ 0x14087F518 (IopGraftName.c)
- *     IopSymlinkUpdateECP @ 0x14088075C (IopSymlinkUpdateECP.c)
+ *     IopDeleteFileObjectExtension @ 0x1402BBAA0 (IopDeleteFileObjectExtension.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x140302B0C (FsRtlpAttachOplockKey.c)
+ *     PspCreateUserProcessEcp @ 0x1406B9390 (PspCreateUserProcessEcp.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopCreateFile @ 0x14073C880 (IopCreateFile.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14073E290 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlpCleanupEcps @ 0x14073E3C0 (FsRtlpCleanupEcps.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1407CDB9C (IopSymlinkAllocateAndAddECP.c)
+ *     IopGraftName @ 0x14087F758 (IopGraftName.c)
+ *     IopSymlinkUpdateECP @ 0x14088099C (IopSymlinkUpdateECP.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

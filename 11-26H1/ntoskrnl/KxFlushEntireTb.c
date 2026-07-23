@@ -1,22 +1,22 @@
 /*
- * XREFs of KxFlushEntireTb @ 0x14025128C
+ * XREFs of KxFlushEntireTb @ 0x140252BEC
  * Callers:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
- *     MiManageUltraSpacePageTable @ 0x14049504C (MiManageUltraSpacePageTable.c)
- *     KeFlushEntireTb @ 0x1405F0BC0 (KeFlushEntireTb.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
+ *     MiManageUltraSpacePageTable @ 0x14048EB9C (MiManageUltraSpacePageTable.c)
+ *     KeFlushEntireTb @ 0x1405F3530 (KeFlushEntireTb.c)
  * Callees:
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14022F660 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxSetTimeStampBusy @ 0x140251194 (KxSetTimeStampBusy.c)
- *     KiIpiWaitForRequestBarrier @ 0x1402515A0 (KiIpiWaitForRequestBarrier.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSetUserTbFlushPending @ 0x1407284C0 (KiSetUserTbFlushPending.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x140230FF0 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxSetTimeStampBusy @ 0x140252AF4 (KxSetTimeStampBusy.c)
+ *     KiIpiWaitForRequestBarrier @ 0x140252F00 (KiIpiWaitForRequestBarrier.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSetUserTbFlushPending @ 0x14072D090 (KiSetUserTbFlushPending.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KxFlushEntireTb(__int64 a1, __int64 a2, __int64 a3)

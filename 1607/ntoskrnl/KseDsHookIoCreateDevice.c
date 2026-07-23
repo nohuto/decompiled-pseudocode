@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsHookIoCreateDevice @ 0x1401DD440
+ * XREFs of KseDsHookIoCreateDevice @ 0x1401DD26C
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventIoCreateDevice @ 0x1401DDB28 (KsepDsEventIoCreateDevice.c)
+ *     KsepDsEventIoCreateDevice @ 0x1401DD954 (KsepDsEventIoCreateDevice.c)
  */
 
 __int64 __fastcall KseDsHookIoCreateDevice(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, char a6, __int64 *a7)

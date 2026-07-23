@@ -11,12 +11,20 @@
 char sub_1800F3E58()
 {
   char result; // al
+  HANDLE Handles; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v2; // [rsp+38h] [rbp-10h]
+  LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
   result = 0;
+  Handles = 0LL;
+  v2 = 0LL;
   if ( qword_18015D7F0 )
   {
-    ZwSetEvent();
-    if ( (unsigned int)ZwWaitForMultipleObjects() == 1 )
+    Handles = (HANDLE)*((_QWORD *)qword_18015D7F0 + 1);
+    v2 = *((_QWORD *)qword_18015D7F0 + 3);
+    Timeout.QuadPart = -100000000LL;
+    ZwSetEvent(*((HANDLE *)qword_18015D7F0 + 2), 0LL);
+    if ( ZwWaitForMultipleObjects(2u, &Handles, WaitAny, 0, &Timeout) == 1 )
     {
       return 1;
     }

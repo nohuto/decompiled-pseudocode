@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpDisplayBurstPowerSettingCallback @ 0x140761620
+ * XREFs of TtmpDisplayBurstPowerSettingCallback @ 0x140762810
  * Callers:
  *     <none>
  * Callees:
  *     RtlGetActiveConsoleId @ 0x140010890 (RtlGetActiveConsoleId.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     TtmpAcquireSessionById @ 0x140761674 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmiResetTerminalTimeouts @ 0x14087EBA4 (TtmiResetTerminalTimeouts.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     TtmpAcquireSessionById @ 0x140762864 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmiResetTerminalTimeouts @ 0x14087FE04 (TtmiResetTerminalTimeouts.c)
  */
 
 __int64 __fastcall TtmpDisplayBurstPowerSettingCallback(
@@ -19,7 +19,7 @@ __int64 __fastcall TtmpDisplayBurstPowerSettingCallback(
         PVOID Context)
 {
   int v4; // ebx
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v8; // eax
   _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
 

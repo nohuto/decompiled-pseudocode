@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetTickCount_syscall_thunk @ 0x180162C70
+ * XREFs of NtGetTickCount_syscall_thunk @ 0x180162B70
  * Callers:
  *     <none>
  * Callees:

@@ -3,8 +3,8 @@
  * Callers:
  *     sprintf_s @ 0x1403E7020 (sprintf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _soutput_s @ 0x1403E8394 (_soutput_s.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_1403E8394 @ 0x1403E8394 (sub_1403E8394.c)
  */
 
 int __cdecl vsprintf_s(char *DstBuf, size_t SizeInBytes, const char *Format, va_list ArgList)
@@ -13,12 +13,12 @@ int __cdecl vsprintf_s(char *DstBuf, size_t SizeInBytes, const char *Format, va_
 
   if ( !DstBuf || !SizeInBytes || !Format )
     goto LABEL_6;
-  result = soutput_s(DstBuf, SizeInBytes, Format, ArgList);
+  result = sub_1403E8394(DstBuf, SizeInBytes, Format, ArgList);
   if ( result >= 0 )
     return result;
   *DstBuf = 0;
   if ( result == -2 )
 LABEL_6:
-    xHalTimerWatchdogStop();
+    _misaligned_access();
   return -1;
 }

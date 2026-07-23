@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpSetOwnerProcessPort @ 0x1408633F8
+ * XREFs of AlpcpSetOwnerProcessPort @ 0x140867A08
  * Callers:
- *     AlpcpCreateConnectionPort @ 0x14086210C (AlpcpCreateConnectionPort.c)
- *     AlpcpCreateClientPort @ 0x1408649C0 (AlpcpCreateClientPort.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateConnectionPort @ 0x14086671C (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateClientPort @ 0x140868FD0 (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x140A1ED20 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall AlpcpSetOwnerProcessPort(__int64 a1, _DWORD *a2)

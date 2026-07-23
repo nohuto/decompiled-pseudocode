@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaAddressTranslateAndAddToDefectList @ 0x140847F4C
+ * XREFs of WheaAddressTranslateAndAddToDefectList @ 0x14084E21C
  * Callers:
- *     WheaAttemptRowOffline @ 0x1406D5AE0 (WheaAttemptRowOffline.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
+ *     WheaAttemptRowOffline @ 0x1406D9BC0 (WheaAttemptRowOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WheaAddressTranslateAndAddToDefectList(__int64 a1, __int128 *a2)

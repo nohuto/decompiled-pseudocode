@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxNotifyPendingSIrpReady @ 0x1405D17C8
+ * XREFs of PopFxNotifyPendingSIrpReady @ 0x1405CEEE8
  * Callers:
- *     PopHandleDevicePowerIrpCompletion @ 0x140376270 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x14049CF90 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403A65A0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x140497CE0 (PopFxHandleReportDevicePoweredOn.c)
  * Callees:
- *     PopSystemIrpCompletion @ 0x140B6F8E0 (PopSystemIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140B71950 (PopSystemIrpCompletion.c)
  */
 
 __int64 __fastcall PopFxNotifyPendingSIrpReady(__int64 a1)

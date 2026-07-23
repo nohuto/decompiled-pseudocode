@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpFillSlat @ 0x1405A348C
+ * XREFs of VmpFillSlat @ 0x1405A36BC
  * Callers:
- *     VmpProcessUpdateSlat @ 0x1405A4A4C (VmpProcessUpdateSlat.c)
+ *     VmpProcessUpdateSlat @ 0x1405A4C7C (VmpProcessUpdateSlat.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     VmpLogLargeSlatFill @ 0x1405A4040 (VmpLogLargeSlatFill.c)
- *     VmpLogSparseSlatFill @ 0x1405A4138 (VmpLogSparseSlatFill.c)
- *     HvlMapGpaPages @ 0x1405C9A54 (HvlMapGpaPages.c)
- *     HvlMapSparseGpaPages @ 0x1405C9BA8 (HvlMapSparseGpaPages.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     VmpLogLargeSlatFill @ 0x1405A4270 (VmpLogLargeSlatFill.c)
+ *     VmpLogSparseSlatFill @ 0x1405A4368 (VmpLogSparseSlatFill.c)
+ *     HvlMapGpaPages @ 0x1405C9C84 (HvlMapGpaPages.c)
+ *     HvlMapSparseGpaPages @ 0x1405C9DD8 (HvlMapSparseGpaPages.c)
  */
 
 __int64 __fastcall VmpFillSlat(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4, _QWORD *a5)

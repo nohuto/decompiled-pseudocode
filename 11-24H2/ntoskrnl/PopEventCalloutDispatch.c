@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEventCalloutDispatch @ 0x1404AAEB8
+ * XREFs of PopEventCalloutDispatch @ 0x1404A50B8
  * Callers:
- *     PopDispatchShutdownEvent @ 0x14075A380 (PopDispatchShutdownEvent.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPolicyTimeChange @ 0x140A13A00 (PopPolicyTimeChange.c)
- *     PopDispatchCallout @ 0x140AA1C20 (PopDispatchCallout.c)
+ *     PopDispatchShutdownEvent @ 0x140758A70 (PopDispatchShutdownEvent.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPolicyTimeChange @ 0x140A0C160 (PopPolicyTimeChange.c)
+ *     PopDispatchCallout @ 0x140A9CFB0 (PopDispatchCallout.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
  */
 
 struct _KTHREAD *__fastcall PopEventCalloutDispatch(int a1, __int64 a2)

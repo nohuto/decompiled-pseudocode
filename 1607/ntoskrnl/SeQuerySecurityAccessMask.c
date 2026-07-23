@@ -1,8 +1,8 @@
 /*
- * XREFs of SeQuerySecurityAccessMask @ 0x14052141C
+ * XREFs of SeQuerySecurityAccessMask @ 0x14050447C
  * Callers:
- *     NtQuerySecurityObject @ 0x1405212B0 (NtQuerySecurityObject.c)
- *     IoCheckFunctionAccess @ 0x14054A810 (IoCheckFunctionAccess.c)
+ *     NtQuerySecurityObject @ 0x140504310 (NtQuerySecurityObject.c)
+ *     IoCheckFunctionAccess @ 0x14054AD50 (IoCheckFunctionAccess.c)
  * Callees:
  *     <none>
  */

@@ -1,28 +1,31 @@
 /*
- * XREFs of MmDeleteTeb @ 0x1408DB490
+ * XREFs of MmDeleteTeb @ 0x1408D96BC
  * Callers:
- *     PspAllocateThread @ 0x1408A49BC (PspAllocateThread.c)
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PspAllocateThread @ 0x1408FAFD4 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiFreeToSubAllocatedRegion @ 0x1408DB54C (MiFreeToSubAllocatedRegion.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiFreeToSubAllocatedRegion @ 0x1408D9778 (MiFreeToSubAllocatedRegion.c)
  */
 
 __int64 __fastcall MmDeleteTeb(struct _KPROCESS *a1, unsigned __int64 a2)
 {
-  void *v3; // rax
-  int v5; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v3; // r9
+  void *v4; // rax
+  __int64 v5; // r8
+  __int64 v6; // r9
+  int v8; // [rsp+20h] [rbp-48h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-40h] BYREF
 
-  v5 = 0;
+  v8 = 0;
   memset(&ApcState, 0, sizeof(ApcState));
   KeStackAttachProcess(a1, &ApcState);
-  v3 = (void *)MiObtainReferencedVadEx(a2, 0LL, &v5);
-  if ( v3 )
-    MiFreeToSubAllocatedRegion(v3);
-  return KiUnstackDetachProcess((__int64)&ApcState, 0);
+  v4 = (void *)MiObtainReferencedVadEx(a2, 0LL, &v8, v3);
+  if ( v4 )
+    MiFreeToSubAllocatedRegion(v4);
+  return KiUnstackDetachProcess((__int64)&ApcState, 0, v5, v6);
 }

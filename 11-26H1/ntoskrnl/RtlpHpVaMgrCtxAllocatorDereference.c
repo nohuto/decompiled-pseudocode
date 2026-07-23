@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorDereference @ 0x140638C30
+ * XREFs of RtlpHpVaMgrCtxAllocatorDereference @ 0x14063BC40
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x1406389D0 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpRegisterEnvironment @ 0x14063B9E0 (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
  */
 
 void __fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

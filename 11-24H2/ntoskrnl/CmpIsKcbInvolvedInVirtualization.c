@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsKcbInvolvedInVirtualization @ 0x14086E550
+ * XREFs of CmpIsKcbInvolvedInVirtualization @ 0x140872880
  * Callers:
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
  */
 
 bool __fastcall CmpIsKcbInvolvedInVirtualization(__int64 a1)
@@ -29,7 +29,8 @@ bool __fastcall CmpIsKcbInvolvedInVirtualization(__int64 a1)
   v11 = 0LL;
   WORD1(v11) = -1;
   *(_OWORD *)Privileges = 0LL;
-  if ( v2 < 2 || (Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL)) != 0LL )
+  if ( v2 < 2
+    || (Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 8LL * (unsigned int)(v2 - 1), 0x35364D43u)) != 0LL )
   {
     v4 = *(__int16 *)(a1 + 66);
     Privileges[1] = Pool;

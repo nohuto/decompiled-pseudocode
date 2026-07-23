@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPnpInitSystem @ 0x1409A1700
+ * XREFs of HalpPnpInitSystem @ 0x1409A2630
  * Callers:
  *     <none>
  * Callees:

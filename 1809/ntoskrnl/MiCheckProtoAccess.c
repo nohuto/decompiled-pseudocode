@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckProtoAccess @ 0x140098C10
+ * XREFs of MiCheckProtoAccess @ 0x140098B50
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
+ *     MiCheckVirtualAddress @ 0x140098C30 (MiCheckVirtualAddress.c)
  */
 
 __int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, int *a2)
@@ -45,8 +45,8 @@ __int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, int *a2)
   if ( (v3 & 0x400) == 0 )
     goto LABEL_8;
   v6 = v3;
-  if ( qword_14043A0C0 && (v3 & 0x10) == 0 )
-    v6 = v3 & ~qword_14043A0C0;
+  if ( qword_14043B180 && (v3 & 0x10) == 0 )
+    v6 = v3 & ~qword_14043B180;
   if ( HIDWORD(v6) == 0xFFFFFFFF )
   {
     result = MiCheckVirtualAddress((__int64)(v4 << 25) >> 16, &v13, &v14);
@@ -56,8 +56,8 @@ __int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, int *a2)
   {
 LABEL_8:
     v8 = v3;
-    if ( qword_14043A0C0 && (v3 & 0x10) == 0 )
-      v8 = v3 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v3 & 0x10) == 0 )
+      v8 = v3 & ~qword_14043B180;
     result = v8 >> 16;
     v9 = 256;
     if ( (v3 & 8) != 0 )

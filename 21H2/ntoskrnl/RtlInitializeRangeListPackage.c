@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitializeRangeListPackage @ 0x140A936EC
+ * XREFs of RtlInitializeRangeListPackage @ 0x140A946EC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializePagedLookasideList @ 0x1407113C0 (ExInitializePagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x1406BFA10 (ExInitializePagedLookasideList.c)
  */
 
 void RtlInitializeRangeListPackage()

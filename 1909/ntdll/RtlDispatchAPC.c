@@ -10,7 +10,7 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, volatile signed __int32 *a3)
+void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, _ACTIVATION_CONTEXT *a3)
 {
   __int64 v6; // [rsp+20h] [rbp-58h] BYREF
   int v7; // [rsp+28h] [rbp-50h]
@@ -19,7 +19,7 @@ void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, volat
   v6 = 72LL;
   v7 = 1;
   memset(v8, 0, sizeof(v8));
-  if ( a3 == (volatile signed __int32 *)-1LL )
+  if ( a3 == (_ACTIVATION_CONTEXT *)-1LL )
   {
     a1(a2);
   }

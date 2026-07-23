@@ -1,13 +1,13 @@
 /*
- * XREFs of CcUpdateExternalCacheInfoEx @ 0x140505060
+ * XREFs of CcUpdateExternalCacheInfoEx @ 0x1404FE9A0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     CcDeductDirtyPagesInternal @ 0x140495838 (CcDeductDirtyPagesInternal.c)
- *     CcChargeDirtyPagesInternal @ 0x1404B9C0C (CcChargeDirtyPagesInternal.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     CcDeductDirtyPagesInternal @ 0x14048F388 (CcDeductDirtyPagesInternal.c)
+ *     CcChargeDirtyPagesInternal @ 0x1404B349C (CcChargeDirtyPagesInternal.c)
  */
 
 __int64 __fastcall CcUpdateExternalCacheInfoEx(_QWORD *a1, _QWORD *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PsLeavePriorityRegion @ 0x14024CA40
+ * XREFs of PsLeavePriorityRegion @ 0x14027D050
  * Callers:
  *     <none>
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PsLeavePriorityRegion()
@@ -21,7 +21,7 @@ void PsLeavePriorityRegion()
   struct _LIST_ENTRY *Blink; // rcx
   _KDPC **p_Dpc; // rsi
   _KDPC *v7; // rcx
-  $170BED6759C51D14495B6D160899A925 *v8; // rsi
+  $0C9BAADE586F3878B709A13404AA1ECE *v8; // rsi
   struct _LIST_ENTRY *Flink; // rcx
   struct _LIST_ENTRY *v10; // rax
   _KDPC *v11; // rax
@@ -34,7 +34,7 @@ void PsLeavePriorityRegion()
   if ( PspAlwaysTrackIoBoosting )
   {
     v1 = 1;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x736F6F42u);
     v3 = (struct _LIST_ENTRY *)Pool2;
     if ( Pool2 )
     {
@@ -54,7 +54,7 @@ void PsLeavePriorityRegion()
       if ( v3 )
       {
         Blink = CurrentThread[1].WaitBlock[0].WaitListEntry.Blink;
-        if ( ($170BED6759C51D14495B6D160899A925 *)Blink->Flink != &CurrentThread[1].320 )
+        if ( ($0C9BAADE586F3878B709A13404AA1ECE *)Blink->Flink != &CurrentThread[1].320 )
 LABEL_19:
           __fastfail(3u);
         v3->Flink = (struct _LIST_ENTRY *)&CurrentThread[1].320;
@@ -84,10 +84,10 @@ LABEL_19:
       while ( 1 )
       {
         Flink = v8->WaitBlock[0].WaitListEntry.Flink;
-        if ( ($170BED6759C51D14495B6D160899A925 *)v8->WaitBlock[0].WaitListEntry.Flink == v8 )
+        if ( ($0C9BAADE586F3878B709A13404AA1ECE *)v8->WaitBlock[0].WaitListEntry.Flink == v8 )
           break;
         v10 = Flink->Flink;
-        if ( ($170BED6759C51D14495B6D160899A925 *)Flink->Blink != v8 || v10->Blink != Flink )
+        if ( ($0C9BAADE586F3878B709A13404AA1ECE *)Flink->Blink != v8 || v10->Blink != Flink )
           goto LABEL_19;
         v8->WaitBlock[0].WaitListEntry.Flink = v10;
         v10->Blink = (struct _LIST_ENTRY *)v8;

@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8
+ * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14079EDD8
  * Callers:
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
- *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
- *     CmpSaveKeyByFileCopy @ 0x14087D8A0 (CmpSaveKeyByFileCopy.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmReplaceKey @ 0x14086DB28 (CmReplaceKey.c)
+ *     CmpRefreshHive @ 0x14087D558 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x14087DA00 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     PoIsInitializedStopWatch @ 0x140263FA8 (PoIsInitializedStopWatch.c)
- *     CmpAcquireWriteQueue @ 0x1402C9670 (CmpAcquireWriteQueue.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpWaitOnHiveWriteQueue @ 0x14087263C (CmpWaitOnHiveWriteQueue.c)
+ *     CmpAcquireWriteQueue @ 0x140247F50 (CmpAcquireWriteQueue.c)
+ *     PoIsInitializedStopWatch @ 0x1402713C8 (PoIsInitializedStopWatch.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x14087279C (CmpWaitOnHiveWriteQueue.c)
  */
 
 __int64 __fastcall CmpBecomeActiveFlusherAndReconciler(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeUpdatePendingQosRequest @ 0x14051EE60
+ * XREFs of KeUpdatePendingQosRequest @ 0x14051F0A0
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     KiUpdateRunTime @ 0x1402275D0 (KiUpdateRunTime.c)
- *     KeCheckAndApplyBamQos @ 0x14051E4A0 (KeCheckAndApplyBamQos.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     KiUpdateRunTime @ 0x1402CBED0 (KiUpdateRunTime.c)
+ *     KeCheckAndApplyBamQos @ 0x14051E6E0 (KeCheckAndApplyBamQos.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140520994 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x140520BD4 (KiSetVirtualHeteroClockIntervalRequest.c)
  */
 
 __int64 __fastcall KeUpdatePendingQosRequest(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall KeUpdatePendingQosRequest(__int64 a1)
       return KiSetVirtualHeteroClockIntervalRequest(a1);
     }
   }
-  if ( !qword_140C32058 )
-    word_140C32022 = KiClockTimerOwner + 1280;
+  if ( !qword_140C31F78 )
+    word_140C31F42 = KiClockTimerOwner + 1280;
   return KiInsertQueueDpc((ULONG_PTR)&KiSetVirtualHeteroClockIntervalRequestDpc, 0LL, 0LL, 0LL, 0);
 }

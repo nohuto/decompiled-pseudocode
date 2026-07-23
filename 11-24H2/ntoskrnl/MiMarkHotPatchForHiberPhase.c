@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkHotPatchForHiberPhase @ 0x140B633F0
+ * XREFs of MiMarkHotPatchForHiberPhase @ 0x140B654C0
  * Callers:
- *     MiMarkHotPatchesForHiberPhase @ 0x140B63450 (MiMarkHotPatchesForHiberPhase.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140B65520 (MiMarkHotPatchesForHiberPhase.c)
  * Callees:
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403EA010 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x140B6282C (MiMarkNonPagedHiberPhasePages.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403D7CB0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140B648FC (MiMarkNonPagedHiberPhasePages.c)
  */
 
 __int64 __fastcall MiMarkHotPatchForHiberPhase(__int64 a1)

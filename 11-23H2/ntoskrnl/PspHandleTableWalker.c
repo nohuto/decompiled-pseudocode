@@ -1,5 +1,5 @@
 /*
- * XREFs of PspHandleTableWalker @ 0x1405A3F40
+ * XREFs of PspHandleTableWalker @ 0x1405A44B0
  * Callers:
  *     <none>
  * Callees:

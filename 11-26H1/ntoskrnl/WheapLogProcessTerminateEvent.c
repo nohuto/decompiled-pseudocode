@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLogProcessTerminateEvent @ 0x1406D73FC
+ * XREFs of WheapLogProcessTerminateEvent @ 0x1406DB58C
  * Callers:
- *     WheaTerminateProcess @ 0x140848620 (WheaTerminateProcess.c)
+ *     WheaTerminateProcess @ 0x14084E8F0 (WheaTerminateProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapLogProcessTerminateEvent(int a1, __int64 a2, int a3)
@@ -26,7 +26,7 @@ NTSTATUS __fastcall WheapLogProcessTerminateEvent(int a1, __int64 a2, int a3)
   *(_QWORD *)&UserData.Size = 4LL;
   v10 = 2LL;
   return EtwWriteEx(
-           *(REGHANDLE *)&CmpCallbackListLock.PriorityFloorCounts[8],
+           *(REGHANDLE *)&CmpContextListLock.SchedulerApcFill5[80],
            &EVENT_WHEA_PROCESS_TERMINATE,
            0LL,
            0,

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpxLookupFunctionTable @ 0x14027DCB0
+ * XREFs of RtlpxLookupFunctionTable @ 0x140233240
  * Callers:
- *     RtlGuardCheckExceptionHandler @ 0x14027BD18 (RtlGuardCheckExceptionHandler.c)
- *     RtlLookupFunctionTable @ 0x14027C600 (RtlLookupFunctionTable.c)
- *     RtlLookupFunctionTableEx @ 0x14027C7F0 (RtlLookupFunctionTableEx.c)
- *     RtlLookupFunctionEntry @ 0x14027D3A0 (RtlLookupFunctionEntry.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x14027EDF0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlPcToFileHeader @ 0x140452CF0 (RtlPcToFileHeader.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x14073DCD0 (KiTpBuildExcludedKernelTracepointBitmap.c)
- *     KiVerifyPdata @ 0x140C2A350 (KiVerifyPdata.c)
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     RtlGuardCheckExceptionHandler @ 0x1402312A8 (RtlGuardCheckExceptionHandler.c)
+ *     RtlLookupFunctionTable @ 0x140231B90 (RtlLookupFunctionTable.c)
+ *     RtlLookupFunctionTableEx @ 0x140231D80 (RtlLookupFunctionTableEx.c)
+ *     RtlLookupFunctionEntry @ 0x140232930 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140234380 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlPcToFileHeader @ 0x140447DA0 (RtlPcToFileHeader.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x14073BC00 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     KiVerifyPdata @ 0x140C2C470 (KiVerifyPdata.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MmLockLoadedModuleListShared @ 0x14027C0CC (MmLockLoadedModuleListShared.c)
- *     MmUnlockLoadedModuleListShared @ 0x14027C120 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14023165C (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402316B0 (MmUnlockLoadedModuleListShared.c)
  */
 
 PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
@@ -24,18 +24,18 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned int v8; // ebp
   int v9; // r11d
   int v10; // eax
-  unsigned __int64 v11; // r9
+  char *v11; // r9
   int *v12; // r8
-  unsigned __int64 v13; // rdx
+  char *v13; // rdx
   int v14; // r10d
   PVOID result; // rax
   unsigned __int8 v16; // r13
   unsigned int v17; // ebp
   int v18; // r10d
   int v19; // edx
-  unsigned __int64 v20; // r9
+  char *v20; // r9
   int *v21; // r8
-  unsigned __int64 v22; // rcx
+  char *v22; // rcx
   int v23; // r11d
   PVOID v24; // rbx
   PVOID *v25; // rsi
@@ -48,7 +48,7 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v32; // r10
   __int64 v33; // rax
   __int64 v34; // rcx
-  unsigned __int64 v35; // rcx
+  char *v35; // rcx
   int v36; // edx
   _KPROCESS *Process; // r8
   unsigned __int64 KernelWaitTime; // rdx
@@ -84,16 +84,16 @@ LABEL_44:
       if ( *((_BYTE *)RtlpInvertedFunctionTable + 12) )
       {
         v25 = (PVOID *)PsLoadedModuleList;
-        v26 = dword_140E2D73C << 12;
+        v26 = dword_140E2D87C << 12;
         if ( PsLoadedModuleList )
         {
           while ( v25 != &PsLoadedModuleList )
           {
             v27 = (unsigned __int64)v25[6];
-            if ( v27 == PsNtosImageBase || v27 == PsHalImageBase )
-              v28 = dword_140E374AC;
+            if ( (PVOID)v27 == PsNtosImageBase || (PVOID)v27 == PsHalImageBase )
+              v28 = dword_140E375EC;
             else
-              v28 = dword_140E374B0 + dword_140E374AC;
+              v28 = dword_140E375F0 + dword_140E375EC;
             if ( !v28 )
               goto LABEL_78;
             v29 = 4LL;
@@ -142,25 +142,25 @@ LABEL_44:
             }
             while ( v29 != 1 );
             if ( v30 )
-              v35 = v30 + v28;
+              v35 = (char *)(v30 + v28);
             else
 LABEL_78:
-              v35 = v27 + *((unsigned int *)v25 + 16);
-            if ( a1 < v35 && a1 >= v27 )
+              v35 = (char *)(v27 + *((unsigned int *)v25 + 16));
+            if ( a1 < (unsigned __int64)v35 && a1 >= v27 )
             {
               v24 = v25[2];
               *(_QWORD *)a2 = v24;
-              *(_DWORD *)(a2 + 16) = v35 - v27;
+              *(_DWORD *)(a2 + 16) = (_DWORD)v35 - v27;
               *(_QWORD *)(a2 + 8) = v27;
               *(_DWORD *)(a2 + 20) = *((_DWORD *)v25 + 6);
               goto LABEL_36;
             }
             v36 = RtlKernelScpFunctionTableSize;
             if ( RtlKernelScpFunctionTableSize
-              && a1 >= v35
-              && a1 < v35 + v26
-              && v27 != PsNtosImageBase
-              && v27 != PsHalImageBase )
+              && a1 >= (unsigned __int64)v35
+              && a1 < (unsigned __int64)&v35[v26]
+              && (PVOID)v27 != PsNtosImageBase
+              && (PVOID)v27 != PsHalImageBase )
             {
               *(_QWORD *)(a2 + 8) = v35;
               v24 = &RtlKernelScpFunctionTable;
@@ -179,7 +179,7 @@ LABEL_36:
         MmUnlockLoadedModuleListShared(v16);
       return v24;
     }
-    v17 = dword_140E2D73C << 12;
+    v17 = dword_140E2D87C << 12;
     v18 = *RtlpInvertedFunctionTable - 1;
     while ( 1 )
     {
@@ -188,10 +188,10 @@ LABEL_36:
         if ( v18 < v5 )
           goto LABEL_44;
         v19 = (v5 + v18) >> 1;
-        v20 = *(_QWORD *)&RtlpInvertedFunctionTable[6 * v19 + 6];
+        v20 = *(char **)&RtlpInvertedFunctionTable[6 * v19 + 6];
         v21 = &RtlpInvertedFunctionTable[6 * v19];
-        v22 = v20 + (unsigned int)v21[8];
-        if ( a1 >= v20 )
+        v22 = &v20[v21[8]];
+        if ( a1 >= (unsigned __int64)v20 )
           break;
         if ( !v19 )
           goto LABEL_44;
@@ -202,7 +202,7 @@ LABEL_36:
       v23 = RtlKernelScpFunctionTableSize;
       if ( !RtlKernelScpFunctionTableSize )
         goto LABEL_30;
-      if ( a1 < v22 )
+      if ( a1 < (unsigned __int64)v22 )
       {
 LABEL_34:
         *(_OWORD *)a2 = *((_OWORD *)v21 + 1);
@@ -211,7 +211,7 @@ LABEL_35:
         v24 = *(PVOID *)a2;
         goto LABEL_36;
       }
-      if ( a1 < v22 + v17 && v20 != PsNtosImageBase )
+      if ( a1 < (unsigned __int64)&v22[v17] && v20 != PsNtosImageBase )
         break;
 LABEL_31:
       v5 = v19 + 1;
@@ -225,7 +225,7 @@ LABEL_31:
       goto LABEL_35;
     }
 LABEL_30:
-    if ( a1 < v22 )
+    if ( a1 < (unsigned __int64)v22 )
       goto LABEL_34;
     goto LABEL_31;
   }
@@ -240,7 +240,7 @@ LABEL_21:
     goto LABEL_22;
   }
   v7 = 1;
-  v8 = dword_140E2D73C << 12;
+  v8 = dword_140E2D87C << 12;
   v9 = *RtlpInvertedFunctionTable - 1;
   while ( 1 )
   {
@@ -249,10 +249,10 @@ LABEL_21:
       if ( v9 < v7 )
         goto LABEL_21;
       v10 = (v7 + v9) >> 1;
-      v11 = *(_QWORD *)&RtlpInvertedFunctionTable[6 * v10 + 6];
+      v11 = *(char **)&RtlpInvertedFunctionTable[6 * v10 + 6];
       v12 = &RtlpInvertedFunctionTable[6 * v10];
-      v13 = v11 + (unsigned int)v12[8];
-      if ( a1 >= v11 )
+      v13 = &v11[v12[8]];
+      if ( a1 >= (unsigned __int64)v11 )
         break;
       if ( !v10 )
         goto LABEL_21;
@@ -263,14 +263,14 @@ LABEL_21:
     v14 = RtlKernelScpFunctionTableSize;
     if ( !RtlKernelScpFunctionTableSize )
       goto LABEL_8;
-    if ( a1 < v13 )
+    if ( a1 < (unsigned __int64)v13 )
     {
 LABEL_12:
       *(_OWORD *)a2 = *((_OWORD *)v12 + 1);
       *(_QWORD *)(a2 + 16) = *((_QWORD *)v12 + 4);
       goto LABEL_13;
     }
-    if ( a1 < v13 + v8 && v11 != PsNtosImageBase )
+    if ( a1 < (unsigned __int64)&v13[v8] && v11 != PsNtosImageBase )
       break;
 LABEL_9:
     v7 = v10 + 1;
@@ -278,7 +278,7 @@ LABEL_9:
   if ( v11 == PsHalImageBase )
   {
 LABEL_8:
-    if ( a1 < v13 )
+    if ( a1 < (unsigned __int64)v13 )
       goto LABEL_12;
     goto LABEL_9;
   }

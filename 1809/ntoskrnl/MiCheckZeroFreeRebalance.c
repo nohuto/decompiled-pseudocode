@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckZeroFreeRebalance @ 0x14010C540
+ * XREFs of MiCheckZeroFreeRebalance @ 0x14010C5C0
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C03B0 (MiGetNodeStandbyPageCount.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402C05A0 (MiGetNodeStandbyPageCount.c)
  */
 
 unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2)
@@ -32,10 +32,10 @@ unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2
 
   v3 = 0;
   v4 = 0;
-  v5 = a2 >> byte_14043A049;
-  v6 = *(_QWORD *)(a1 + 16) + 1984LL * (a2 >> byte_14043A049);
+  v5 = a2 >> byte_14043B109;
+  v6 = *(_QWORD *)(a1 + 16) + 1984LL * (a2 >> byte_14043B109);
   if ( (unsigned int)MmNumberOfChannels > 1 )
-    v4 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_14043A04A);
+    v4 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_14043B10A);
   v7 = 0LL;
   v8 = 0LL;
   v9 = v4;
@@ -83,7 +83,7 @@ unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2
       result = *(unsigned int *)(a1 + 4);
       if ( (result & 1) == 0 )
       {
-        KeAcquireInStackQueuedSpinLock(&qword_14043A700, &LockHandle);
+        KeAcquireInStackQueuedSpinLock(&qword_14043B7C0, &LockHandle);
         if ( !*(_QWORD *)(a1 + 6576)
           && (*(_DWORD *)(a1 + 4) & 1) == 0
           && PsReferencePartitionSafe(*(_QWORD *)(a1 + 168)) )

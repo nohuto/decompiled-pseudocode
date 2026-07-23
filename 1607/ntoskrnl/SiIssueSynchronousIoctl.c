@@ -1,13 +1,13 @@
 /*
- * XREFs of SiIssueSynchronousIoctl @ 0x1406D62E8
+ * XREFs of SiIssueSynchronousIoctl @ 0x1406D6420
  * Callers:
- *     SiGetEfiSystemDevice @ 0x1406D646C (SiGetEfiSystemDevice.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x1406D6D00 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetEfiSystemDevice @ 0x1406D65A4 (SiGetEfiSystemDevice.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x1406D6E38 (SiIsWinPeHardDiskZeroUfdBoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x140159D60 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x14015A2D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
  */
 
 __int64 __fastcall SiIssueSynchronousIoctl(

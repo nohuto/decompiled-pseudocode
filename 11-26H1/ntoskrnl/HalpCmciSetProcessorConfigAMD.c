@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCmciSetProcessorConfigAMD @ 0x140454888
+ * XREFs of HalpCmciSetProcessorConfigAMD @ 0x14044C9B8
  * Callers:
- *     HalpCmciSetProcessorConfig @ 0x140453A20 (HalpCmciSetProcessorConfig.c)
- *     HalpCmciPollProcessor @ 0x140453AE4 (HalpCmciPollProcessor.c)
- *     HalpCmciResetStateAMD @ 0x14045480C (HalpCmciResetStateAMD.c)
+ *     HalpCmciSetProcessorConfig @ 0x14044BB50 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciPollProcessor @ 0x14044BC14 (HalpCmciPollProcessor.c)
+ *     HalpCmciResetStateAMD @ 0x14044C93C (HalpCmciResetStateAMD.c)
  * Callees:
- *     HalpWheaReadMsrMisc @ 0x1404530AC (HalpWheaReadMsrMisc.c)
- *     HalpCmciSetProcessorMiscConfigAMD @ 0x140500018 (HalpCmciSetProcessorMiscConfigAMD.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpWheaReadMsrMisc @ 0x14044B1DC (HalpWheaReadMsrMisc.c)
+ *     HalpCmciSetProcessorMiscConfigAMD @ 0x1404F9808 (HalpCmciSetProcessorMiscConfigAMD.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)

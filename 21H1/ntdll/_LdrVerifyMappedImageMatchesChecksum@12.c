@@ -7,31 +7,37 @@
  *     _ChkSum@12 @ 0x4B35A6BB (_ChkSum@12.c)
  */
 
-bool __fastcall LdrVerifyMappedImageMatchesChecksum(unsigned __int16 *a1, unsigned int a2, int a3)
+BOOLEAN __cdecl LdrVerifyMappedImageMatchesChecksum(PVOID BaseAddress, SIZE_T NumberOfBytes, ULONG FileLength)
 {
-  unsigned __int16 v3; // si
-  int v5; // edi
-  unsigned int v7; // esi
-  unsigned __int16 v8; // ax
-  unsigned __int16 v9; // ax
-  int v11; // [esp+10h] [ebp-4h] BYREF
+  unsigned int v3; // edx
+  unsigned __int16 *v4; // ecx
+  unsigned __int16 v5; // si
+  unsigned int v6; // ebx
+  char *CheckSum; // edi
+  unsigned int v9; // esi
+  unsigned __int16 v10; // ax
+  unsigned __int16 v11; // ax
+  unsigned __int16 *v12; // [esp+Ch] [ebp-8h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+10h] [ebp-4h] BYREF
 
-  v3 = 0;
-  if ( RtlImageNtHeaderEx(0, (unsigned int)a1, a2, 0, &v11) < 0 )
+  v5 = 0;
+  v12 = v4;
+  v6 = v3;
+  if ( RtlImageNtHeaderEx(0, v4, v3, &OutHeaders) < 0 )
   {
-    v5 = a3;
+    CheckSum = (char *)BaseAddress;
   }
   else
   {
-    v5 = *(_DWORD *)(v11 + 88);
-    if ( !v5 )
+    CheckSum = (char *)OutHeaders->OptionalHeader.CheckSum;
+    if ( !CheckSum )
       return 1;
-    v7 = v11 - (_DWORD)a1 + 88;
-    v8 = ChkSum(0, a1, v7 >> 1);
-    v9 = ChkSum(v8, (unsigned __int16 *)(v11 + 92), (a2 - v7 - 4) >> 1);
-    v3 = v9;
-    if ( (a2 & 1) != 0 )
-      v3 = v9 + *((unsigned __int8 *)a1 + a2 - 1) + ((v9 + (unsigned int)*((unsigned __int8 *)a1 + a2 - 1)) >> 16);
+    v9 = (char *)OutHeaders - (char *)v12 + 88;
+    v10 = ChkSum(0, v12, v9 >> 1);
+    v11 = ChkSum(v10, &OutHeaders->OptionalHeader.Subsystem, (v6 - v9 - 4) >> 1);
+    v5 = v11;
+    if ( (v6 & 1) != 0 )
+      v5 = v11 + *((unsigned __int8 *)v12 + v6 - 1) + ((v11 + (unsigned int)*((unsigned __int8 *)v12 + v6 - 1)) >> 16);
   }
-  return a3 + v3 == v5;
+  return (char *)BaseAddress + v5 == CheckSum;
 }

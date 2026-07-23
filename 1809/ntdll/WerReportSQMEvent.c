@@ -3,7 +3,7 @@
  * Callers:
  *     ShipAssert @ 0x1800DF1C0 (ShipAssert.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     WerEscalationLazyInit @ 0x1800DF484 (WerEscalationLazyInit.c)
  */
 

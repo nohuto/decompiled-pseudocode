@@ -11,13 +11,20 @@
  *     CmOpenKey @ 0x1404F5560 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
+  int v7; // esi
+  int v9; // r14d
   unsigned __int64 v10; // rtt
-  NTSTATUS v11; // ebx
+  int v11; // ebx
   PVOID v12; // rbx
-  unsigned int v13; // edi
+  NTSTATUS v13; // edi
   unsigned __int64 v14; // rtt
   struct _KTHREAD *v15; // rcx
   __int16 v16; // ax
@@ -29,6 +36,8 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v7 = (int)ObjectAttributes;
+  v9 = (int)KeyHandle;
   --CurrentThread->KernelApcDisable;
   _m_prefetchw(&CmpShutdownRundown);
   v10 = CmpShutdownRundown.Count & 0xFFFFFFFFFFFFFFFEuLL;
@@ -39,7 +48,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
     || ExfAcquireRundownProtection(&CmpShutdownRundown) )
   {
     v11 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -63,12 +72,12 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
       {
         KiCheckForKernelApcDelivery();
       }
-      return (unsigned int)v11;
+      return v11;
     }
     else
     {
       v12 = Object;
-      v13 = CmOpenKey(a1, a2, a3, a4, (__int64)Object);
+      v13 = CmOpenKey(v9, DesiredAccess, v7, OpenOptions, (__int64)Object);
       ObfDereferenceObject(v12);
       _m_prefetchw(&CmpShutdownRundown);
       v14 = CmpShutdownRundown.Count & 0xFFFFFFFFFFFFFFFEuLL;
@@ -100,6 +109,6 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
     {
       KiCheckForKernelApcDelivery();
     }
-    return 3221225865LL;
+    return -1073741431;
   }
 }

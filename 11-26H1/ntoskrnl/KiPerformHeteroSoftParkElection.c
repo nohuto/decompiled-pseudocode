@@ -1,11 +1,11 @@
 /*
- * XREFs of KiPerformHeteroSoftParkElection @ 0x140228D10
+ * XREFs of KiPerformHeteroSoftParkElection @ 0x14022A6A0
  * Callers:
- *     KiPerformSoftParkElection @ 0x14022A694 (KiPerformSoftParkElection.c)
+ *     KiPerformSoftParkElection @ 0x14022C024 (KiPerformSoftParkElection.c)
  * Callees:
- *     KiReduceAffinityToRankListMaximums @ 0x140444690 (KiReduceAffinityToRankListMaximums.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiReduceAffinityToRankListMaximums @ 0x14043D1A0 (KiReduceAffinityToRankListMaximums.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiPerformHeteroSoftParkElection(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -111,8 +111,7 @@ __int64 __fastcall KiPerformHeteroSoftParkElection(__int64 a1, __int64 a2, __int
     if ( _bittest64(&a5, i) )
     {
       v12 = v99;
-      v13 = v5 & *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                              + 64 * v6
+      v13 = v5 & *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v6].Flink
                                               + (unsigned int)i)]
                            + 36512);
       for ( j = 0; j < 0x40u; ++j )

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocatePageChainHeader @ 0x140517510
+ * XREFs of MiAllocatePageChainHeader @ 0x140510F80
  * Callers:
- *     MiCreatePageChainsForNode @ 0x14071166C (MiCreatePageChainsForNode.c)
+ *     MiCreatePageChainsForNode @ 0x14071636C (MiCreatePageChainsForNode.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiInitializeAffinityWalker @ 0x1407116EC (MiInitializeAffinityWalker.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiInitializeAffinityWalker @ 0x1407163EC (MiInitializeAffinityWalker.c)
  */
 
 __int64 __fastcall MiAllocatePageChainHeader(__int64 a1, __int64 a2)

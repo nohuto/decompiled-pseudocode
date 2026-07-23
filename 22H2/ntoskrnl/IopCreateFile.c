@@ -69,7 +69,7 @@ __int64 __fastcall IopCreateFile(
   _GENERAL_LOOKASIDE *v39; // rcx
   unsigned __int64 v40; // rax
   PVOID PoolWithQuotaTag; // rax
-  NTSTATUS v42; // eax
+  int v42; // eax
   int v43; // ecx
   NTSTATUS *v44; // r14
   unsigned __int64 v45; // rcx
@@ -572,7 +572,7 @@ LABEL_194:
     v31 = *a5;
     Handle = v31;
     if ( (__int64)v31 < 0 )
-      RtlRaiseStatus(0xC000000D);
+      RtlRaiseStatus(-1073741811);
   }
   else
   {

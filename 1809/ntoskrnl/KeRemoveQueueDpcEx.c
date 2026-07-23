@@ -1,23 +1,23 @@
 /*
- * XREFs of KeRemoveQueueDpcEx @ 0x140132A00
+ * XREFs of KeRemoveQueueDpcEx @ 0x140132AD0
  * Callers:
  *     ExpCancelTimer @ 0x14001D270 (ExpCancelTimer.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
- *     KiCheckAndRearmForceIdle @ 0x1400F9958 (KiCheckAndRearmForceIdle.c)
- *     EtwpFreeCompression @ 0x140132938 (EtwpFreeCompression.c)
- *     EtwpCancelPendingStackwalkApcs @ 0x140132990 (EtwpCancelPendingStackwalkApcs.c)
- *     KeRemoveQueueDpc @ 0x1401329E0 (KeRemoveQueueDpc.c)
- *     KeMaskInterrupt @ 0x14016D548 (KeMaskInterrupt.c)
- *     KeClearForceIdle @ 0x14029AD3C (KeClearForceIdle.c)
- *     VfWdCheckForSettingsChange @ 0x14093E5FC (VfWdCheckForSettingsChange.c)
+ *     KiCheckAndRearmForceIdle @ 0x1400F99D8 (KiCheckAndRearmForceIdle.c)
+ *     EtwpFreeCompression @ 0x140132A08 (EtwpFreeCompression.c)
+ *     EtwpCancelPendingStackwalkApcs @ 0x140132A60 (EtwpCancelPendingStackwalkApcs.c)
+ *     KeRemoveQueueDpc @ 0x140132AB0 (KeRemoveQueueDpc.c)
+ *     KeMaskInterrupt @ 0x14016D648 (KeMaskInterrupt.c)
+ *     KeClearForceIdle @ 0x14029AF2C (KeClearForceIdle.c)
+ *     VfWdCheckForSettingsChange @ 0x14093F5FC (VfWdCheckForSettingsChange.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
- *     KiGetDeepIdleProcessors @ 0x1400DBF1C (KiGetDeepIdleProcessors.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGenericProcessorCallback @ 0x1400D8710 (KeGenericProcessorCallback.c)
+ *     KiGetDeepIdleProcessors @ 0x1400DBF9C (KiGetDeepIdleProcessors.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall KeRemoveQueueDpcEx(int *a1, char a2)

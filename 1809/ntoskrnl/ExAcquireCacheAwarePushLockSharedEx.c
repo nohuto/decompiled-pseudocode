@@ -7,9 +7,9 @@
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 unsigned __int64 *__fastcall ExAcquireCacheAwarePushLockSharedEx(
@@ -60,7 +60,7 @@ unsigned __int64 *__fastcall ExAcquireCacheAwarePushLockSharedEx(
     if ( v2 )
     {
       if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
-        && byte_14043B950[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+        && byte_14043CA10[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
       {
         SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
       }
@@ -90,7 +90,7 @@ LABEL_11:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v10, 17LL, 0LL)
     && !(unsigned __int8)ExfTryAcquirePushLockShared(v10) )
   {
-    ExfAcquirePushLockSharedEx(v10, v2, BugCheckParameter2);
+    ExfAcquirePushLockSharedEx(v10, (_RTL_BALANCED_NODE *)v2, BugCheckParameter2);
   }
   if ( v2 )
     *(_BYTE *)(v2 + 26) |= 1u;

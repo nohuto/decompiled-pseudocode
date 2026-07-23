@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmGetIdleConstrainedMask @ 0x1401FFA04
+ * XREFs of PpmGetIdleConstrainedMask @ 0x1401FF830
  * Callers:
- *     PpmIdlePrepare @ 0x1400DBCB0 (PpmIdlePrepare.c)
- *     PoExecutePerfCheck @ 0x1400DD360 (PoExecutePerfCheck.c)
- *     PpmEstimateIdleDuration @ 0x14013BA50 (PpmEstimateIdleDuration.c)
- *     PpmIdleDurationExpiration @ 0x140200578 (PpmIdleDurationExpiration.c)
+ *     PpmIdlePrepare @ 0x1400D9B50 (PpmIdlePrepare.c)
+ *     PoExecutePerfCheck @ 0x1400DB200 (PoExecutePerfCheck.c)
+ *     PpmEstimateIdleDuration @ 0x14013BFC0 (PpmEstimateIdleDuration.c)
+ *     PpmIdleDurationExpiration @ 0x1402003A4 (PpmIdleDurationExpiration.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 char __fastcall PpmGetIdleConstrainedMask(_DWORD *a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpGetProcessStartKey @ 0x1404EDE94
+ * XREFs of EtwpGetProcessStartKey @ 0x1404CFF60
  * Callers:
- *     EtwpEventWriteFull @ 0x140073CE0 (EtwpEventWriteFull.c)
- *     EtwpTiFillProcessIdentity @ 0x14017196C (EtwpTiFillProcessIdentity.c)
+ *     EtwpEventWriteFull @ 0x140073860 (EtwpEventWriteFull.c)
+ *     EtwpTiFillProcessIdentity @ 0x140171E6C (EtwpTiFillProcessIdentity.c)
  * Callees:
  *     <none>
  */

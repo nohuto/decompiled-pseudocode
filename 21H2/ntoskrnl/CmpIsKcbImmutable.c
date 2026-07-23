@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsKcbImmutable @ 0x140665DD0
+ * XREFs of CmpIsKcbImmutable @ 0x14065ABF0
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpSetKeySecurity @ 0x140662D2C (CmpSetKeySecurity.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
  * Callees:
  *     <none>
  */

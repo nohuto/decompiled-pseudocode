@@ -56,7 +56,8 @@ void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
   v3 = 0;
   v4 = 0;
   v5 = 0;
-  if ( (a1 < PsNtosImageBase || a1 >= PsNtosImageEnd) && (a1 < PsHalImageBase || a1 >= PsHalImageEnd) )
+  if ( (a1 < (unsigned __int64)PsNtosImageBase || a1 >= PsNtosImageEnd)
+    && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd) )
   {
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
     for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )

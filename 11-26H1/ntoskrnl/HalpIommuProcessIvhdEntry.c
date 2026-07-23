@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuProcessIvhdEntry @ 0x1405A835C
+ * XREFs of HalpIommuProcessIvhdEntry @ 0x1405AAB6C
  * Callers:
- *     HalpIommuHsaDiscover @ 0x140CB5574 (HalpIommuHsaDiscover.c)
+ *     HalpIommuHsaDiscover @ 0x140CBB5B4 (HalpIommuHsaDiscover.c)
  * Callees:
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     HalRegisterPermanentAddressUsage @ 0x140597FD0 (HalRegisterPermanentAddressUsage.c)
- *     HalpIommuProcessDeviceEntries @ 0x1405A8074 (HalpIommuProcessDeviceEntries.c)
- *     HsaProcessIvmd @ 0x1405AA5DC (HsaProcessIvmd.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExtEnvRegisterIommu @ 0x140CB0DF0 (ExtEnvRegisterIommu.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14059A750 (HalRegisterPermanentAddressUsage.c)
+ *     HalpIommuProcessDeviceEntries @ 0x1405AA884 (HalpIommuProcessDeviceEntries.c)
+ *     HsaProcessIvmd @ 0x1405ACDEC (HsaProcessIvmd.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExtEnvRegisterIommu @ 0x140CB6E30 (ExtEnvRegisterIommu.c)
  */
 
 int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
@@ -79,7 +79,7 @@ int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
   v53 = 0;
   if ( v7 || *(_BYTE *)a2 != 17 && *(_BYTE *)a2 != 64 )
     return -1073741811;
-  for ( i = (__int64 *)qword_140F87370; i != &qword_140F87370; i = (__int64 *)*i )
+  for ( i = (__int64 *)qword_140F87860; i != &qword_140F87860; i = (__int64 *)*i )
   {
     if ( i[2] == *(_QWORD *)(a2 + 8) )
       return 0;
@@ -260,13 +260,13 @@ int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
                 {
                   v33 = v38;
                   v38[2] = *(_QWORD *)(a2 + 8);
-                  v34 = (_QWORD *)qword_140F87378;
-                  if ( *(__int64 **)qword_140F87378 != &qword_140F87370 )
+                  v34 = (_QWORD *)qword_140F87868;
+                  if ( *(__int64 **)qword_140F87868 != &qword_140F87860 )
                     __fastfail(3u);
-                  *v33 = &qword_140F87370;
+                  *v33 = &qword_140F87860;
                   v33[1] = v34;
                   *v34 = v33;
-                  qword_140F87378 = (__int64)v33;
+                  qword_140F87868 = (__int64)v33;
                   if ( v53 || v55 )
                     v6 = 1;
                   *v54 = v6;

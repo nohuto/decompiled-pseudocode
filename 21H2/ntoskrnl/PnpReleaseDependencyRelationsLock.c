@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpReleaseDependencyRelationsLock @ 0x14074B6A0
+ * XREFs of PnpReleaseDependencyRelationsLock @ 0x14074B860
  * Callers:
- *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14074B494 (PnpNewDeviceNodeDependencyCheck.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
- *     PiDeviceDependencyInit @ 0x140A53ADC (PiDeviceDependencyInit.c)
+ *     IoResolveDependency @ 0x1403BF8D0 (IoResolveDependency.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14074B654 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B72C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PiDeviceDependencyInit @ 0x140A54ADC (PiDeviceDependencyInit.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
  */
 
 void PnpReleaseDependencyRelationsLock()

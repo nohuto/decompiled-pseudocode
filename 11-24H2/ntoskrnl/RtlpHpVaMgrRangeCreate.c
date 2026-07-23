@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCreate @ 0x140421B54
+ * XREFs of RtlpHpVaMgrRangeCreate @ 0x14021BBE4
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x140421420 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x140421A48 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x14021BAD8 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAlloc @ 0x1404596F4 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlCSparseBitmapBitsClear @ 0x1402BC9D8 (RtlCSparseBitmapBitsClear.c)
- *     RtlSparseArrayElementAllocate @ 0x140421C44 (RtlSparseArrayElementAllocate.c)
+ *     RtlSparseArrayElementAllocate @ 0x14021A324 (RtlSparseArrayElementAllocate.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140364118 (RtlCSparseBitmapBitsClear.c)
  */
 
 _BYTE *__fastcall RtlpHpVaMgrRangeCreate(__int64 a1, __int64 a2, __int64 a3)
@@ -21,9 +21,10 @@ _BYTE *__fastcall RtlpHpVaMgrRangeCreate(__int64 a1, __int64 a2, __int64 a3)
     v6 = *(_QWORD *)(a3 + 24);
   else
     v6 = *(unsigned __int16 *)(a3 + 24);
-  v7 = (_BYTE *)RtlSparseArrayElementAllocate(
-                  *(_QWORD *)(a1 + 24) + 16LL,
-                  (unsigned __int64)(a2 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)) >> 20);
+  v7 = RtlSparseArrayElementAllocate(
+         *(_QWORD *)(a1 + 24) + 16LL,
+         (unsigned __int64)(a2 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)) >> 20,
+         (const void *)a3);
   v8 = v7;
   if ( v7 )
   {
@@ -39,7 +40,8 @@ _BYTE *__fastcall RtlpHpVaMgrRangeCreate(__int64 a1, __int64 a2, __int64 a3)
       {
         if ( !RtlSparseArrayElementAllocate(
                 *(_QWORD *)(a1 + 24) + 16LL,
-                (unsigned __int64)(v10 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)) >> 20) )
+                (unsigned __int64)(v10 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)) >> 20,
+                (const void *)a3) )
           goto LABEL_11;
         ++v11;
         v10 += 0x100000LL;

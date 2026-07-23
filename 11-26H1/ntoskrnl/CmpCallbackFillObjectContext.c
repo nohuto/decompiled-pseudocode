@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCallbackFillObjectContext @ 0x1408CA800
+ * XREFs of CmpCallbackFillObjectContext @ 0x1408D0DB0
  * Callers:
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     CmpGetCallbackObjectContext @ 0x1409E28E0 (CmpGetCallbackObjectContext.c)
- *     CmpLockContextListShared @ 0x140A1EC40 (CmpLockContextListShared.c)
- *     CmpUnlockContextList @ 0x140A23680 (CmpUnlockContextList.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     CmpGetCallbackObjectContext @ 0x1409DF8F0 (CmpGetCallbackObjectContext.c)
+ *     CmpLockContextListShared @ 0x140A28260 (CmpLockContextListShared.c)
+ *     CmpUnlockContextList @ 0x140A36190 (CmpUnlockContextList.c)
  */
 
 void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)
@@ -23,36 +23,30 @@ void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, _QWORD *a3, str
   void *v10; // rdx
   LegacyAutoBoost *v11; // rbp
   _QWORD *i; // rax
-  char *v13; // rdx
-  void *SListFaultAddress; // rtt
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  _DWORD *v17; // rax
-  __int64 v18; // rsi
-  _QWORD *v19; // r15
-  struct _KTHREAD *v20; // rax
-  void *v21; // rdx
-  LegacyAutoBoost *v22; // rbp
+  signed __int64 v13; // rdx
+  __int64 v14; // rtt
+  _DWORD *v15; // rax
+  __int64 v16; // rsi
+  _QWORD *v17; // r15
+  struct _KTHREAD *v18; // rax
+  void *v19; // rdx
+  LegacyAutoBoost *v20; // rbp
   _QWORD *j; // rax
-  char *v24; // rdx
-  void *v25; // rtt
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  _DWORD *v28; // rsi
-  __int64 v29; // r15
-  _QWORD *v30; // rsi
-  struct _KTHREAD *v31; // rax
-  void *v32; // rdx
-  LegacyAutoBoost *v33; // rbp
-  _QWORD *v34; // rax
-  char *v35; // rdx
-  void *v36; // rtt
-  __int64 v37; // rdx
-  __int64 v38; // r8
-  _DWORD *v39; // rax
-  __int64 v40; // rdi
-  _QWORD *v41; // rsi
-  _QWORD *v42; // rax
+  signed __int64 v22; // rdx
+  __int64 v23; // rtt
+  _DWORD *v24; // rsi
+  __int64 v25; // r15
+  _QWORD *v26; // rsi
+  struct _KTHREAD *v27; // rax
+  void *v28; // rdx
+  LegacyAutoBoost *v29; // rbp
+  _QWORD *v30; // rax
+  signed __int64 v31; // rdx
+  __int64 v32; // rtt
+  _DWORD *v33; // rax
+  __int64 v34; // rdi
+  _QWORD *v35; // rsi
+  _QWORD *v36; // rax
 
   if ( a1 == 30 )
   {
@@ -68,18 +62,9 @@ LABEL_2:
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
-          v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpCallbackListLock.SListFaultAddress, 0LL, 0LL, a4);
-          if ( _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-                 17LL,
-                 0LL) )
-          {
-            ExfAcquirePushLockSharedEx(
-              (signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-              0,
-              v11,
-              (struct _KTHREAD *)&CmpCallbackListLock.SListFaultAddress);
-          }
+          v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL, 0LL, a4);
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
+            ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock.Header.Lock, 0, v11, &CmpContextListLock);
           if ( v11 )
           {
             if ( (KiAbpGlobalState & 1) != 0 )
@@ -97,21 +82,21 @@ LABEL_2:
             if ( i[4] < *a3 )
               break;
           }
-          _m_prefetchw(&CmpCallbackListLock.SListFaultAddress);
-          v13 = (char *)CmpCallbackListLock.SListFaultAddress - 16;
-          if ( ((unsigned __int64)CmpCallbackListLock.SListFaultAddress & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+          _m_prefetchw(&CmpContextListLock);
+          v13 = *(_QWORD *)&CmpContextListLock.Header.Lock - 16LL;
+          if ( (*(_QWORD *)&CmpContextListLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
             v13 = 0LL;
-          if ( ((__int64)CmpCallbackListLock.SListFaultAddress & 2) != 0
-            || (SListFaultAddress = CmpCallbackListLock.SListFaultAddress,
-                SListFaultAddress != (void *)_InterlockedCompareExchange64(
-                                               (volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-                                               (signed __int64)v13,
-                                               (signed __int64)CmpCallbackListLock.SListFaultAddress)) )
+          if ( (CmpContextListLock.Header.Type & 2) != 0
+            || (v14 = *(_QWORD *)&CmpContextListLock.Header.Lock,
+                v14 != _InterlockedCompareExchange64(
+                         (volatile signed __int64 *)&CmpContextListLock,
+                         v13,
+                         *(signed __int64 *)&CmpContextListLock.Header.Lock)) )
           {
-            ExfReleasePushLock(&CmpCallbackListLock.SListFaultAddress);
+            ExfReleasePushLock(&CmpContextListLock);
           }
-          KeAbPostRelease((unsigned __int64)&CmpCallbackListLock.SListFaultAddress);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16);
+          KeAbPostRelease((unsigned __int64)&CmpContextListLock);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         }
       }
     }
@@ -120,65 +105,56 @@ LABEL_2:
   else if ( a1 == 28 )
   {
 LABEL_24:
-    v17 = (_DWORD *)a2[1];
-    v18 = 0LL;
-    if ( v17 )
+    v15 = (_DWORD *)a2[1];
+    v16 = 0LL;
+    if ( v15 )
     {
-      if ( *v17 == 1803104306 )
+      if ( *v15 == 1803104306 )
       {
-        v19 = v17 + 18;
-        if ( (_QWORD *)*v19 != v19 )
+        v17 = v15 + 18;
+        if ( (_QWORD *)*v17 != v17 )
         {
-          v20 = KeGetCurrentThread();
-          --v20->KernelApcDisable;
-          v22 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpCallbackListLock.SListFaultAddress, 0LL, 0LL, a4);
-          if ( _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-                 17LL,
-                 0LL) )
-          {
-            ExfAcquirePushLockSharedEx(
-              (signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-              0,
-              v22,
-              (struct _KTHREAD *)&CmpCallbackListLock.SListFaultAddress);
-          }
-          if ( v22 )
+          v18 = KeGetCurrentThread();
+          --v18->KernelApcDisable;
+          v20 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL, 0LL, a4);
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
+            ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock.Header.Lock, 0, v20, &CmpContextListLock);
+          if ( v20 )
           {
             if ( (KiAbpGlobalState & 1) != 0 )
-              AutoBoost::KiAbpPostAcquire(v22, v21);
+              AutoBoost::KiAbpPostAcquire(v20, v19);
             else
-              *((_BYTE *)v22 + 10) = 1;
+              *((_BYTE *)v20 + 10) = 1;
           }
-          for ( j = (_QWORD *)*v19; j != v19; j = (_QWORD *)*j )
+          for ( j = (_QWORD *)*v17; j != v17; j = (_QWORD *)*j )
           {
             if ( j[4] == *a3 )
             {
-              v18 = j[7];
+              v16 = j[7];
               break;
             }
             if ( j[4] < *a3 )
               break;
           }
-          _m_prefetchw(&CmpCallbackListLock.SListFaultAddress);
-          v24 = (char *)CmpCallbackListLock.SListFaultAddress - 16;
-          if ( ((unsigned __int64)CmpCallbackListLock.SListFaultAddress & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-            v24 = 0LL;
-          if ( ((__int64)CmpCallbackListLock.SListFaultAddress & 2) != 0
-            || (v25 = CmpCallbackListLock.SListFaultAddress,
-                v25 != (void *)_InterlockedCompareExchange64(
-                                 (volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-                                 (signed __int64)v24,
-                                 (signed __int64)CmpCallbackListLock.SListFaultAddress)) )
+          _m_prefetchw(&CmpContextListLock);
+          v22 = *(_QWORD *)&CmpContextListLock.Header.Lock - 16LL;
+          if ( (*(_QWORD *)&CmpContextListLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+            v22 = 0LL;
+          if ( (CmpContextListLock.Header.Type & 2) != 0
+            || (v23 = *(_QWORD *)&CmpContextListLock.Header.Lock,
+                v23 != _InterlockedCompareExchange64(
+                         (volatile signed __int64 *)&CmpContextListLock,
+                         v22,
+                         *(signed __int64 *)&CmpContextListLock.Header.Lock)) )
           {
-            ExfReleasePushLock(&CmpCallbackListLock.SListFaultAddress);
+            ExfReleasePushLock(&CmpContextListLock);
           }
-          KeAbPostRelease((unsigned __int64)&CmpCallbackListLock.SListFaultAddress);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v26, v27);
+          KeAbPostRelease((unsigned __int64)&CmpContextListLock);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         }
       }
     }
-    a2[11] = v18;
+    a2[11] = v16;
   }
   else
   {
@@ -198,65 +174,61 @@ LABEL_24:
         a2[3] = CmpGetCallbackObjectContext(*a2, a3);
         return;
       case 3:
-        v28 = (_DWORD *)*a2;
-        v29 = 0LL;
+        v24 = (_DWORD *)*a2;
+        v25 = 0LL;
         if ( !*a2 )
           goto LABEL_68;
-        if ( *v28 != 1803104306 )
+        if ( *v24 != 1803104306 )
           goto LABEL_68;
-        v30 = v28 + 18;
-        if ( (_QWORD *)*v30 == v30 )
+        v26 = v24 + 18;
+        if ( (_QWORD *)*v26 == v26 )
           goto LABEL_68;
-        v31 = KeGetCurrentThread();
-        --v31->KernelApcDisable;
-        v33 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpCallbackListLock.SListFaultAddress, 0LL, 0LL, a4);
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx(
-            (signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-            0,
-            v33,
-            (struct _KTHREAD *)&CmpCallbackListLock.SListFaultAddress);
-        if ( v33 )
+        v27 = KeGetCurrentThread();
+        --v27->KernelApcDisable;
+        v29 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CmpContextListLock, 0LL, 0LL, a4);
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CmpContextListLock, 17LL, 0LL) )
+          ExfAcquirePushLockSharedEx((signed __int64 *)&CmpContextListLock.Header.Lock, 0, v29, &CmpContextListLock);
+        if ( v29 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
-            AutoBoost::KiAbpPostAcquire(v33, v32);
+            AutoBoost::KiAbpPostAcquire(v29, v28);
           else
-            *((_BYTE *)v33 + 10) = 1;
+            *((_BYTE *)v29 + 10) = 1;
         }
-        v34 = (_QWORD *)*v30;
+        v30 = (_QWORD *)*v26;
         while ( 2 )
         {
-          if ( v34 != v30 )
+          if ( v30 != v26 )
           {
-            if ( v34[4] == *a3 )
+            if ( v30[4] == *a3 )
             {
-              v29 = v34[7];
+              v25 = v30[7];
             }
-            else if ( v34[4] >= *a3 )
+            else if ( v30[4] >= *a3 )
             {
-              v34 = (_QWORD *)*v34;
+              v30 = (_QWORD *)*v30;
               continue;
             }
           }
           break;
         }
-        _m_prefetchw(&CmpCallbackListLock.SListFaultAddress);
-        v35 = (char *)CmpCallbackListLock.SListFaultAddress - 16;
-        if ( ((unsigned __int64)CmpCallbackListLock.SListFaultAddress & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-          v35 = 0LL;
-        if ( ((__int64)CmpCallbackListLock.SListFaultAddress & 2) != 0
-          || (v36 = CmpCallbackListLock.SListFaultAddress,
-              v36 != (void *)_InterlockedCompareExchange64(
-                               (volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-                               (signed __int64)v35,
-                               (signed __int64)CmpCallbackListLock.SListFaultAddress)) )
+        _m_prefetchw(&CmpContextListLock);
+        v31 = *(_QWORD *)&CmpContextListLock.Header.Lock - 16LL;
+        if ( (*(_QWORD *)&CmpContextListLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+          v31 = 0LL;
+        if ( (CmpContextListLock.Header.Type & 2) != 0
+          || (v32 = *(_QWORD *)&CmpContextListLock.Header.Lock,
+              v32 != _InterlockedCompareExchange64(
+                       (volatile signed __int64 *)&CmpContextListLock,
+                       v31,
+                       *(signed __int64 *)&CmpContextListLock.Header.Lock)) )
         {
-          ExfReleasePushLock(&CmpCallbackListLock.SListFaultAddress);
+          ExfReleasePushLock(&CmpContextListLock);
         }
-        KeAbPostRelease((unsigned __int64)&CmpCallbackListLock.SListFaultAddress);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v37, v38);
+        KeAbPostRelease((unsigned __int64)&CmpContextListLock);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 LABEL_68:
-        a2[5] = v29;
+        a2[5] = v25;
         return;
       case 8:
       case 9:
@@ -298,17 +270,17 @@ LABEL_68:
       case 26:
         goto LABEL_24;
       case 32:
-        v39 = (_DWORD *)*a2;
-        v40 = 0LL;
+        v33 = (_DWORD *)*a2;
+        v34 = 0LL;
         if ( !*a2 )
           goto LABEL_80;
-        if ( *v39 != 1803104306 )
+        if ( *v33 != 1803104306 )
           goto LABEL_80;
-        v41 = v39 + 18;
-        if ( (_QWORD *)*v41 == v41 )
+        v35 = v33 + 18;
+        if ( (_QWORD *)*v35 == v35 )
           goto LABEL_80;
         CmpLockContextListShared();
-        v42 = (_QWORD *)*v41;
+        v36 = (_QWORD *)*v35;
         break;
       case 38:
       case 41:
@@ -319,19 +291,19 @@ LABEL_68:
       default:
         return;
     }
-    while ( v42 != v41 )
+    while ( v36 != v35 )
     {
-      if ( v42[4] == *a3 )
+      if ( v36[4] == *a3 )
       {
-        v40 = v42[7];
+        v34 = v36[7];
         break;
       }
-      if ( v42[4] < *a3 )
+      if ( v36[4] < *a3 )
         break;
-      v42 = (_QWORD *)*v42;
+      v36 = (_QWORD *)*v36;
     }
     CmpUnlockContextList();
 LABEL_80:
-    a2[9] = v40;
+    a2[9] = v34;
   }
 }

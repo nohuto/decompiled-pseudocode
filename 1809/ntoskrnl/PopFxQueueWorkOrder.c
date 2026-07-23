@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxQueueWorkOrder @ 0x1401004B0
+ * XREFs of PopFxQueueWorkOrder @ 0x140100530
  * Callers:
- *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
- *     PopFxRequestWorker @ 0x140100440 (PopFxRequestWorker.c)
- *     PoFxCompleteDevicePowerNotRequired @ 0x1401783E0 (PoFxCompleteDevicePowerNotRequired.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x1402D8628 (PopFxIssueComponentPerfStateChanges.c)
- *     PopFxIssueDirectedPowerTransition @ 0x1402D886C (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxIdleComponent @ 0x1400FED8C (PopFxIdleComponent.c)
+ *     PopFxRequestWorker @ 0x1401004C0 (PopFxRequestWorker.c)
+ *     PoFxCompleteDevicePowerNotRequired @ 0x1401784E0 (PoFxCompleteDevicePowerNotRequired.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x1402D8818 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x1402D8A5C (PopFxIssueDirectedPowerTransition.c)
  * Callees:
- *     ExTryQueueWorkItem @ 0x1400D1700 (ExTryQueueWorkItem.c)
- *     KeInsertQueue @ 0x1400DD000 (KeInsertQueue.c)
- *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
+ *     ExTryQueueWorkItem @ 0x1400D1780 (ExTryQueueWorkItem.c)
+ *     KeInsertQueue @ 0x1400DD080 (KeInsertQueue.c)
+ *     PopFxAddRefDevice @ 0x1400FE348 (PopFxAddRefDevice.c)
  */
 
 signed __int32 __fastcall PopFxQueueWorkOrder(

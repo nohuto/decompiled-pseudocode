@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRotateFastOwnerEntrySublistHead @ 0x14038EB48
+ * XREFs of ExpRotateFastOwnerEntrySublistHead @ 0x14038EC98
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x14038E5EC (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseFastResourceShared @ 0x14038E980 (ExpReleaseFastResourceShared.c)
- *     ExDisownFastResource @ 0x14038F720 (ExDisownFastResource.c)
- *     ExpReleaseFastResourceExclusive @ 0x14038FBC0 (ExpReleaseFastResourceExclusive.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B4A90 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14038E73C (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseFastResourceShared @ 0x14038EAD0 (ExpReleaseFastResourceShared.c)
+ *     ExDisownFastResource @ 0x14038F870 (ExDisownFastResource.c)
+ *     ExpReleaseFastResourceExclusive @ 0x14038FD10 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B4CC0 (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
- *     ExpReplaceListEntry @ 0x14038EBF4 (ExpReplaceListEntry.c)
+ *     ExpReplaceListEntry @ 0x14038ED44 (ExpReplaceListEntry.c)
  */
 
 __int64 __fastcall ExpRotateFastOwnerEntrySublistHead(__int64 a1, __int64 a2, char a3)

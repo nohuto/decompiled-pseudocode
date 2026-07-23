@@ -1,13 +1,13 @@
 /*
- * XREFs of ViDifCheckCallbackInterception @ 0x14037DF98
+ * XREFs of ViDifCheckCallbackInterception @ 0x14037DAE8
  * Callers:
- *     VfDifCaptureIoCallbacks @ 0x14037DF40 (VfDifCaptureIoCallbacks.c)
- *     VfDifCaptureDriverEntry @ 0x14037DF64 (VfDifCaptureDriverEntry.c)
- *     IovAttachDeviceToDeviceStack @ 0x1409C4A4C (IovAttachDeviceToDeviceStack.c)
+ *     VfDifCaptureIoCallbacks @ 0x14037DA90 (VfDifCaptureIoCallbacks.c)
+ *     VfDifCaptureDriverEntry @ 0x14037DAB4 (VfDifCaptureDriverEntry.c)
+ *     IovAttachDeviceToDeviceStack @ 0x1409C5A4C (IovAttachDeviceToDeviceStack.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14037DFD0 (MmIsDriverVerifying.c)
- *     VfIsRuleClassEnabled @ 0x1409C6020 (VfIsRuleClassEnabled.c)
- *     VfUtilEqualUnicodeString @ 0x1409C6614 (VfUtilEqualUnicodeString.c)
+ *     MmIsDriverVerifying @ 0x14037DB20 (MmIsDriverVerifying.c)
+ *     VfIsRuleClassEnabled @ 0x1409C7020 (VfIsRuleClassEnabled.c)
+ *     VfUtilEqualUnicodeString @ 0x1409C7614 (VfUtilEqualUnicodeString.c)
  */
 
 bool __fastcall ViDifCheckCallbackInterception(struct _DRIVER_OBJECT *a1)

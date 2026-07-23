@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpPopulateKcbStack @ 0x140A330B0
+ * XREFs of CmpPopulateKcbStack @ 0x140A4E010
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1408607FC (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x1408B0E74 (CmpPromoteKey.c)
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140981D5C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x140866AEC (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x1408B7364 (CmpPromoteKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140943D6C (CmpSubtreeEnumeratorAdvance.c)
  * Callees:
  *     <none>
  */

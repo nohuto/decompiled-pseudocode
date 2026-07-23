@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x14093A9D0
+ * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x14093B9D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfUtilCheckKernelAddress @ 0x1409270A4 (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x14093607C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x14093C048 (ViKeRaiseIrqlSanityChecks.c)
  */
 
 KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(PKSPIN_LOCK SpinLock, KIRQL *a2, __int64 a3)
@@ -15,7 +15,7 @@ KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(PKSPIN_LOCK SpinLock, KIRQL 
   __int64 v6; // rbx
   KIRQL result; // al
 
-  ++dword_14041A988;
+  ++dword_14041BA68;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a3, 148LL);
   VfUtilCheckKernelAddress((ULONG_PTR)SpinLock, 8uLL);

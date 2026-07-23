@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpIncrementCachedSecurityRefcount @ 0x14088711C
+ * XREFs of CmpIncrementCachedSecurityRefcount @ 0x14088AFCC
  * Callers:
- *     CmpCheckKey @ 0x14088506C (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x140888F1C (CmpCheckKey.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14041FBC0 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140415340 (CmpFindSecurityCellCacheIndex.c)
  */
 
 __int64 __fastcall CmpIncrementCachedSecurityRefcount(__int64 a1, int a2)

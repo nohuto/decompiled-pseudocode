@@ -1,14 +1,14 @@
 /*
- * XREFs of PspCreatePicoProcess @ 0x1407FC8C0
+ * XREFs of PspCreatePicoProcess @ 0x1408022F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PspCreatePicoProcess(__int64 a1, __int64 a2, _QWORD *a3)

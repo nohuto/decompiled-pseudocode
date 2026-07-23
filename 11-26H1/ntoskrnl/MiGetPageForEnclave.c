@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForEnclave @ 0x1403418D0
+ * XREFs of MiGetPageForEnclave @ 0x140343950
  * Callers:
- *     MiAddPagesToEnclave @ 0x1403414DC (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x14034355C (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiAllocateEnclavePages @ 0x1403378DC (MiAllocateEnclavePages.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
+ *     MiAllocateEnclavePages @ 0x14033995C (MiAllocateEnclavePages.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
  */
 
 __int64 __fastcall MiGetPageForEnclave(__int64 a1)

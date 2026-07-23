@@ -1,25 +1,25 @@
 /*
- * XREFs of DifZwQueueApcThreadEx2Wrapper @ 0x1406B5350
+ * XREFs of DifZwQueueApcThreadEx2Wrapper @ 0x1406B8F30
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwQueueApcThreadEx2 @ 0x140726270 (ZwQueueApcThreadEx2.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwQueueApcThreadEx2 @ 0x14072AE40 (ZwQueueApcThreadEx2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwQueueApcThreadEx2Wrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+        void *a1,
+        void *a2,
+        ULONG a3,
+        void (__cdecl *a4)(PVOID, PVOID, PVOID),
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v11; // rdx
@@ -32,9 +32,9 @@ __int64 __fastcall DifZwQueueApcThreadEx2Wrapper(
   BOOLEAN v18; // di
   __int128 *j; // rbx
   _QWORD v21[5]; // [rsp+48h] [rbp-31h] BYREF
-  unsigned int v22; // [rsp+70h] [rbp-9h]
-  __int64 v23; // [rsp+78h] [rbp-1h]
-  __int64 v24; // [rsp+80h] [rbp+7h]
+  ULONG v22; // [rsp+70h] [rbp-9h]
+  void *v23; // [rsp+78h] [rbp-1h]
+  void *v24; // [rsp+80h] [rbp+7h]
   unsigned int v25; // [rsp+88h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+47h]
 
@@ -58,9 +58,9 @@ __int64 __fastcall DifZwQueueApcThreadEx2Wrapper(
 LABEL_7:
   v15 = 0;
   v24 = a1;
-  v21[3] = a5;
-  v21[2] = a6;
-  v21[1] = a7;
+  v21[3] = ApcArgument1;
+  v21[2] = ApcArgument2;
+  v21[1] = ApcArgument3;
   v23 = a2;
   v22 = a3;
   v21[4] = a4;
@@ -76,7 +76,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v25 = ZwQueueApcThreadEx2(a1, a2, a3, a4, a5, a6, a7);
+  v25 = ZwQueueApcThreadEx2(a1, a2, a3, a4, ApcArgument1, ApcArgument2, ApcArgument3);
   if ( v12 )
   {
     if ( (v18 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

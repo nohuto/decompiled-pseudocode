@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestOverrideInitialize @ 0x140862EA4
+ * XREFs of PopPowerRequestOverrideInitialize @ 0x1408630E4
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A6C54 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407A6E44 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x14032CE88 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PopAcquirePowerRequestPushLock @ 0x1407A6ED4 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x14032D118 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1407A70C4 (PopAcquirePowerRequestPushLock.c)
  */
 
 void PopPowerRequestOverrideInitialize()

@@ -20,10 +20,14 @@
  *     RtlpAnalyzeHeapFailure @ 0x1800F09E4 (RtlpAnalyzeHeapFailure.c)
  */
 
-__int64 __fastcall RtlDebugFreeHeap(_DWORD *Src, unsigned int a2, unsigned __int64 a3)
+__int64 __fastcall RtlDebugFreeHeap(
+        PRTL_CRITICAL_SECTION *BaseAddress,
+        _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *a2,
+        char *a3)
 {
-  unsigned int v6; // r14d
-  unsigned __int8 (__fastcall *v7)(_DWORD *, _QWORD, unsigned __int64); // rbx
+  unsigned int v4; // esi
+  LOGICAL v6; // r14d
+  PRTL_DYNAMIC_HASH_TABLE v7; // rbx
   int v9; // esi
   unsigned __int64 v10; // rdx
   struct _PEB *v11; // rax
@@ -32,37 +36,40 @@ __int64 __fastcall RtlDebugFreeHeap(_DWORD *Src, unsigned int a2, unsigned __int
   __int64 TagName; // rax
   char v15; // [rsp+20h] [rbp-38h]
   __int64 v16; // [rsp+28h] [rbp-30h]
-  unsigned int v17; // [rsp+68h] [rbp+10h]
+  int Flags; // [rsp+68h] [rbp+10h]
   unsigned __int16 v18; // [rsp+78h] [rbp+20h]
 
+  v4 = (unsigned int)a2;
   v6 = 0;
   v15 = 0;
-  if ( (Src[29] & 0x1000000) != 0 )
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
   {
-    v7 = (unsigned __int8 (__fastcall *)(_DWORD *, _QWORD, unsigned __int64))qword_1801420D0;
-    _guard_check_icall_fptr();
-    return v7(Src, a2, a3);
+    v7 = qword_1801420D0;
+    ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+      qword_1801420D0,
+      a2);
+    return ((unsigned __int8 (__fastcall *)(PRTL_CRITICAL_SECTION *, _QWORD, char *))v7)(BaseAddress, v4, a3);
   }
-  if ( RtlpCheckHeapSignature(Src, "RtlFreeHeap") )
+  if ( RtlpCheckHeapSignature(BaseAddress, "RtlFreeHeap") )
   {
-    v9 = Src[29] | 0x10000000 | a2;
-    v17 = v9;
+    v9 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | v4;
+    Flags = v9;
     if ( (v9 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(BaseAddress[44]);
       v15 = 1;
-      v17 = v9 | 1;
+      Flags = v9 | 1;
     }
-    RtlpValidateHeap(Src, 0LL);
-    v10 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    RtlpValidateHeap(BaseAddress);
+    v10 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v10 -= 16LL * *(unsigned __int8 *)(v10 + 14);
     v16 = v10;
-    if ( !RtlpValidateHeapEntry((unsigned __int64)Src, v10, "RtlFreeHeap") )
+    if ( !RtlpValidateHeapEntry((unsigned __int64)BaseAddress, v10, "RtlFreeHeap") )
       goto LABEL_34;
     v11 = NtCurrentPeb();
-    if ( a3 == qword_180143640 )
+    if ( a3 == (char *)qword_180143640 )
     {
       if ( v11->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -77,12 +84,12 @@ __int64 __fastcall RtlDebugFreeHeap(_DWORD *Src, unsigned int a2, unsigned __int
       v12 = unk_180143648;
       if ( !unk_180143648 )
         goto LABEL_33;
-      if ( Src[31] )
+      if ( *((_DWORD *)BaseAddress + 31) )
       {
-        *(_DWORD *)(v16 + 8) ^= Src[34];
+        *(_DWORD *)(v16 + 8) ^= *((_DWORD *)BaseAddress + 34);
         if ( *(_BYTE *)(v16 + 11) != (*(_BYTE *)(v16 + 8) ^ (unsigned __int8)(*(_BYTE *)(v16 + 9) ^ *(_BYTE *)(v16 + 10))) )
         {
-          RtlpAnalyzeHeapFailure(Src, v16);
+          RtlpAnalyzeHeapFailure(BaseAddress, v16);
           v12 = unk_180143648;
         }
       }
@@ -91,30 +98,30 @@ __int64 __fastcall RtlDebugFreeHeap(_DWORD *Src, unsigned int a2, unsigned __int
       else
         v13 = *(unsigned __int8 *)(v16 + 11);
       v18 = v13;
-      if ( Src[31] )
+      if ( *((_DWORD *)BaseAddress + 31) )
       {
         *(_BYTE *)(v16 + 11) = *(_BYTE *)(v16 + 8) ^ *(_BYTE *)(v16 + 9) ^ *(_BYTE *)(v16 + 10);
-        *(_DWORD *)(v16 + 8) ^= Src[34];
+        *(_DWORD *)(v16 + 8) ^= *((_DWORD *)BaseAddress + 34);
       }
-      if ( !v13 || v13 != v12 || *((_WORD *)Src + 104) != word_18014364A )
+      if ( !v13 || v13 != v12 || *((_WORD *)BaseAddress + 104) != word_18014364A )
         goto LABEL_33;
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      TagName = RtlpGetTagName(Src, v18);
+      TagName = RtlpGetTagName(BaseAddress, v18);
       DbgPrint("About to free block at %p with tag %ws\n", a3, TagName);
     }
     RtlpBreakPointHeap(0LL);
 LABEL_33:
-    v6 = RtlFreeHeap((__int64)Src, v17, a3);
-    RtlpValidateHeapHeaders((void **)Src, 1);
-    RtlpValidateHeap(Src, 0LL);
+    v6 = RtlFreeHeap(BaseAddress, Flags, a3);
+    RtlpValidateHeapHeaders((PVOID *)BaseAddress, 1);
+    RtlpValidateHeap(BaseAddress);
     goto LABEL_34;
   }
   v6 = 0;
 LABEL_34:
   if ( v15 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return v6;
 }

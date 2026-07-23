@@ -62,7 +62,7 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   NTSTATUS result; // eax
   struct _KTHREAD *v28; // rax
   volatile __int32 *v29; // rbx
-  __int64 v30; // rax
+  PRTL_BALANCED_NODE v30; // rax
   char v31; // r13
   IRP *v32; // rax
   __int64 v33; // rcx
@@ -205,7 +205,7 @@ LABEL_36:
     else
     {
       if ( v30 )
-        *(_BYTE *)(v30 + 26) |= 1u;
+        BYTE2(v30[1].Left) |= 1u;
       v21 = (char *)Object;
       ObfReferenceObject(Object);
       v20 = 0;

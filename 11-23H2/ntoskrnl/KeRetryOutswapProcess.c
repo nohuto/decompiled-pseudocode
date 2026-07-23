@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRetryOutswapProcess @ 0x14056F5C0
+ * XREFs of KeRetryOutswapProcess @ 0x14056FB00
  * Callers:
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
- *     MmReleaseCommitForMemResetPages @ 0x140619848 (MmReleaseCommitForMemResetPages.c)
+ *     MmReleaseCommitForMemResetPages @ 0x140619D98 (MmReleaseCommitForMemResetPages.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1)
@@ -26,7 +26,7 @@ int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v4 = 4;
@@ -39,10 +39,10 @@ int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1)
   if ( v5 == 1 )
     _InterlockedXor(a1 + 210, 7u);
   _InterlockedAnd(a1, 0xFFFFFF7F);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

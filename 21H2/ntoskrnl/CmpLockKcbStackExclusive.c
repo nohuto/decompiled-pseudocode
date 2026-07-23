@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLockKcbStackExclusive @ 0x14066C138
+ * XREFs of CmpLockKcbStackExclusive @ 0x140660F58
  * Callers:
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
- *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
- *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406225AC (CmpStartSiloRegistryNamespace.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
+ *     CmpAssignKeySecurity @ 0x1407D05C0 (CmpAssignKeySecurity.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406DECB0 (CmpGetKcbAtLayerHeight.c)
  */
 
 void __fastcall CmpLockKcbStackExclusive(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall CmpLockKcbStackExclusive(__int64 a1)
 
   for ( i = 0; i <= *(__int16 *)(a1 + 2); ++i )
   {
-    KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1, i);
+    KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1);
     CmpLockKcbExclusive(KcbAtLayerHeight);
   }
 }

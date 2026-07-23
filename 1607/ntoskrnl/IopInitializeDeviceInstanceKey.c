@@ -1,35 +1,35 @@
 /*
- * XREFs of IopInitializeDeviceInstanceKey @ 0x14049DE94
+ * XREFs of IopInitializeDeviceInstanceKey @ 0x1405162A0
  * Callers:
- *     IopGetRootDevices @ 0x14049DC40 (IopGetRootDevices.c)
+ *     IopGetRootDevices @ 0x14051604C (IopGetRootDevices.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     PpDevNodeInsertIntoTree @ 0x1400B3BEC (PpDevNodeInsertIntoTree.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     PpDevNodeInsertIntoTree @ 0x1400B1A6C (PpDevNodeInsertIntoTree.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     PnpDeviceObjectFromDeviceInstance @ 0x1403F4A34 (PnpDeviceObjectFromDeviceInstance.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x140486C30 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     PipSetDevNodeProblem @ 0x1404C5BDC (PipSetDevNodeProblem.c)
- *     PipClearDevNodeProblem @ 0x1404C5E0C (PipClearDevNodeProblem.c)
- *     PpDeviceRegistration @ 0x1404C7C74 (PpDeviceRegistration.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x1404C8D70 (PnpGetDeviceResourcesFromRegistry.c)
- *     PnpIsDeviceInstanceEnabled @ 0x1404E7734 (PnpIsDeviceInstanceEnabled.c)
- *     PpDevCfgProcessDeviceOperations @ 0x1404E9064 (PpDevCfgProcessDeviceOperations.c)
- *     PipAllocateDeviceNode @ 0x1404E9548 (PipAllocateDeviceNode.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1404EDDBC (PnpMapDeviceObjectToDeviceInstance.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     PnpAllocateDeviceInstancePath @ 0x14057B480 (PnpAllocateDeviceInstancePath.c)
- *     PiDevCfgGetFailedInstallProblemStatus @ 0x1406390C4 (PiDevCfgGetFailedInstallProblemStatus.c)
- *     PpDevCfgProcessDevice @ 0x14064134C (PpDevCfgProcessDevice.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     PnpDeviceObjectFromDeviceInstance @ 0x1403F38F8 (PnpDeviceObjectFromDeviceInstance.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     PipSetDevNodeProblem @ 0x140484270 (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x1404844A0 (PipClearDevNodeProblem.c)
+ *     PipAllocateDeviceNode @ 0x1404CB638 (PipAllocateDeviceNode.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x14050D7D8 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x14050E6F8 (PpDevCfgProcessDeviceOperations.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x14050EA28 (PnpIsDeviceInstanceEnabled.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x14050F164 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PpDeviceRegistration @ 0x14050F4A8 (PpDeviceRegistration.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14050FD98 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PnpAllocateDeviceInstancePath @ 0x14057B92C (PnpAllocateDeviceInstancePath.c)
+ *     PiDevCfgGetFailedInstallProblemStatus @ 0x140639178 (PiDevCfgGetFailedInstallProblemStatus.c)
+ *     PpDevCfgProcessDevice @ 0x140641430 (PpDevCfgProcessDevice.c)
  */
 
 __int64 __fastcall IopInitializeDeviceInstanceKey(HANDLE KeyHandle, PCUNICODE_STRING SourceString, __int64 a3)
@@ -47,11 +47,11 @@ __int64 __fastcall IopInitializeDeviceInstanceKey(HANDLE KeyHandle, PCUNICODE_ST
   struct _DEVICE_OBJECT *v16; // r15
   PDEVICE_OBJECT v17; // rcx
   char *v18; // rbx
-  char *v19; // r14
+  unsigned __int16 *v19; // r14
   int DeviceRegProp; // eax
   __int16 v21; // ax
-  __int64 FailedInstallProblemStatus; // r8
-  __int64 v23; // rdx
+  int FailedInstallProblemStatus; // r8d
+  int v23; // edx
   PVOID v24; // r14
   __int64 v25; // rdx
   char v26; // cl
@@ -114,7 +114,7 @@ LABEL_19:
     v17 = DeviceObject;
     DeviceObject->Flags |= 0x1000u;
     v17->DeviceObjectExtension->ExtensionFlags |= 0x10u;
-    if ( (unsigned int)PipAllocateDeviceNode(v17, &v33) == -1073740946 || (v18 = (char *)v33) == 0LL )
+    if ( (unsigned int)PipAllocateDeviceNode((__int64)v17, &v33) == -1073740946 || (v18 = (char *)v33) == 0LL )
     {
       IoDeleteDevice(v16);
       DeviceInstancePath = -1073741670;
@@ -124,7 +124,7 @@ LABEL_19:
       DeviceInstancePath = PnpAllocateDeviceInstancePath(v33, (unsigned int)SourceString->Length + 2);
       if ( DeviceInstancePath >= 0 )
       {
-        v19 = v18 + 40;
+        v19 = (unsigned __int16 *)(v18 + 40);
         RtlCopyUnicodeString((PUNICODE_STRING)(v18 + 40), SourceString);
         PipSetDevNodeFlags((__int64)v18, 17);
         PipSetDevNodeState((__int64)v18, 770);
@@ -132,9 +132,9 @@ LABEL_19:
         v29 = 4;
         v35 = 0;
         DeviceRegProp = CmGetDeviceRegProp(
-                          PiPnpRtlCtx,
+                          *(__int64 *)&PiPnpRtlCtx,
                           *((_QWORD *)v18 + 6),
-                          (_DWORD)KeyHandle,
+                          (__int64)KeyHandle,
                           11,
                           (__int64)&v34,
                           (__int64)&v35,
@@ -142,10 +142,10 @@ LABEL_19:
                           0);
         if ( DeviceRegProp < 0 )
         {
-          FailedInstallProblemStatus = 3221226021LL;
+          FailedInstallProblemStatus = -1073741275;
           if ( DeviceRegProp == -1073741275 )
           {
-            v23 = 1LL;
+            v23 = 1;
             goto LABEL_37;
           }
         }
@@ -162,24 +162,22 @@ LABEL_19:
           }
           if ( (v21 & 0x20) != 0 )
           {
-            FailedInstallProblemStatus = 0LL;
-            v23 = 18LL;
+            FailedInstallProblemStatus = 0;
+            v23 = 18;
 LABEL_37:
-            PipSetDevNodeProblem(v18, v23, FailedInstallProblemStatus);
+            PipSetDevNodeProblem((__int64)v18, v23, FailedInstallProblemStatus);
             goto LABEL_38;
           }
           if ( (v21 & 0x2000) != 0 )
           {
-            FailedInstallProblemStatus = 0LL;
-            v23 = 16LL;
+            FailedInstallProblemStatus = 0;
+            v23 = 16;
             goto LABEL_37;
           }
           if ( (v21 & 0x40) != 0 )
           {
-            FailedInstallProblemStatus = (unsigned int)PiDevCfgGetFailedInstallProblemStatus(
-                                                         *((_QWORD *)v18 + 6),
-                                                         KeyHandle);
-            v23 = 28LL;
+            FailedInstallProblemStatus = PiDevCfgGetFailedInstallProblemStatus(*((_QWORD *)v18 + 6), KeyHandle);
+            v23 = 28;
             goto LABEL_37;
           }
         }
@@ -190,14 +188,14 @@ LABEL_38:
           if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) >= 4u && *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) )
             PipSetDevNodeFlags((__int64)v18, 256);
           ExFreePoolWithTag(v24, 0);
-          v19 = v18 + 40;
+          v19 = (unsigned __int16 *)(v18 + 40);
         }
         PnpQueryAndSaveDeviceNodeCapabilities((__int64)v18);
         if ( (*((_DWORD *)v18 + 140) & 0x4000) != 0
           && ((*((_DWORD *)v18 + 99) & 0x2000) == 0 || *((_DWORD *)v18 + 101) != 1) )
         {
-          PipClearDevNodeProblem(v18);
-          PipSetDevNodeProblem(v18, 29LL, 0LL);
+          PipClearDevNodeProblem((__int64)v18);
+          PipSetDevNodeProblem((__int64)v18, 29, 0);
         }
         if ( (*((_DWORD *)v18 + 99) & 0x6000) != 0 )
         {
@@ -206,10 +204,10 @@ LABEL_38:
         else
         {
           ObjectProperty = PnpGetObjectProperty(
-                             PiPnpRtlCtx,
+                             *(__int64 *)&PiPnpRtlCtx,
                              *((_QWORD *)v18 + 6),
-                             1,
-                             (_DWORD)KeyHandle,
+                             1u,
+                             (__int64)KeyHandle,
                              0LL,
                              (__int64)&DEVPKEY_Device_FirmwareDependencies,
                              (__int64)&v34,
@@ -228,21 +226,21 @@ LABEL_38:
           if ( v26 )
             PpDevCfgProcessDevice(v18, KeyHandle, 0LL);
           else
-            PpDevCfgProcessDeviceOperations(v18, KeyHandle);
+            PpDevCfgProcessDeviceOperations((__int64)v18, KeyHandle);
         }
         if ( ((*((_DWORD *)v18 + 99) & 0x2000) == 0 || *((_DWORD *)v18 + 101) != 22)
           && ((*((_DWORD *)v18 + 99) & 0x2000) == 0 || *((_DWORD *)v18 + 101) != 29)
-          && !(unsigned int)PnpIsDeviceInstanceEnabled(KeyHandle, v19, 1LL) )
+          && !(unsigned int)PnpIsDeviceInstanceEnabled(KeyHandle, v19, 1) )
         {
-          PipClearDevNodeProblem(v18);
-          PipSetDevNodeProblem(v18, 22LL, 0LL);
+          PipClearDevNodeProblem((__int64)v18);
+          PipSetDevNodeProblem((__int64)v18, 22, 0);
         }
         LOBYTE(v25) = 1;
-        PpDeviceRegistration(v19, v25, v18 + 56, 0LL);
-        PnpMapDeviceObjectToDeviceInstance(*((_QWORD *)v18 + 4), v19);
+        PpDeviceRegistration((__int64)v19, v25, (__int64)(v18 + 56), 0);
+        PnpMapDeviceObjectToDeviceInstance(*((_QWORD *)v18 + 4), (__int64)v19);
         ObfReferenceObject(v16);
         v33 = 0LL;
-        if ( (int)PnpGetDeviceResourcesFromRegistry((int)v16, 0, 4, (int)&v33, &Handle) >= 0 )
+        if ( (int)PnpGetDeviceResourcesFromRegistry((__int64)v16, 0, 4, &v33, &Handle) >= 0 )
         {
           v28 = v33;
           if ( v33 )

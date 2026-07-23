@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindKcbInHashEntryByName @ 0x1405EFB44
+ * XREFs of CmpFindKcbInHashEntryByName @ 0x1406DF2A4
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x14072998C (CmpSubtreeEnumeratorAdvance.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
+ *     CmpCreateKeyControlBlock @ 0x1406DEDB0 (CmpCreateKeyControlBlock.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140729E3C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880220 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
- *     CmpCompareUnicodeString @ 0x140672920 (CmpCompareUnicodeString.c)
+ *     CmpCompareUnicodeString @ 0x140667B50 (CmpCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1406DDE80 (CmpCompareCompressedName.c)
  */
 
 __int64 __fastcall CmpFindKcbInHashEntryByName(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpFindKcbInHashEntryByName(__int64 a1, unsigned int a2, __in
         *((_QWORD *)&v13 + 1) = v9 + 26;
         LOWORD(v13) = v10;
         WORD1(v13) = v10;
-        v11 = CmpCompareUnicodeString(a4, &v13, 2LL);
+        v11 = CmpCompareUnicodeString(a4, (__int64)&v13, 2);
       }
       if ( !v11 )
         return i - 16;

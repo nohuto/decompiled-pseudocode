@@ -1,25 +1,25 @@
 /*
- * XREFs of MiSufficientAvailablePages @ 0x140275470
+ * XREFs of MiSufficientAvailablePages @ 0x140263410
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
- *     MiScanPagefiles @ 0x1402732EC (MiScanPagefiles.c)
- *     MiComputeZeroClusterMaximum @ 0x14027449C (MiComputeZeroClusterMaximum.c)
- *     MmEnoughMemoryForWrite @ 0x140274618 (MmEnoughMemoryForWrite.c)
- *     MiGetPoolPages @ 0x140274A0C (MiGetPoolPages.c)
- *     MiRetryNonPagedAllocation @ 0x140274C3C (MiRetryNonPagedAllocation.c)
- *     MiAllocateAccessLog @ 0x140274CE0 (MiAllocateAccessLog.c)
- *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiFillNoReservationCluster @ 0x1402BF8A0 (MiFillNoReservationCluster.c)
- *     MiStoreSetEvictPageFile @ 0x1402C51BC (MiStoreSetEvictPageFile.c)
- *     MiGetPageTablePages @ 0x1402E59A0 (MiGetPageTablePages.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
- *     MiPickClusterForMappedFileFault @ 0x140319C70 (MiPickClusterForMappedFileFault.c)
- *     MiNoPagesLastChance @ 0x1405507C8 (MiNoPagesLastChance.c)
- *     MiWaitForFreePage @ 0x14055C1FC (MiWaitForFreePage.c)
- *     MiFindLargePageMemory @ 0x1408DA0E4 (MiFindLargePageMemory.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiFillNoReservationCluster @ 0x14023DCF0 (MiFillNoReservationCluster.c)
+ *     MiStoreSetEvictPageFile @ 0x14024373C (MiStoreSetEvictPageFile.c)
+ *     MiStoreWriteModifiedPages @ 0x1402548F0 (MiStoreWriteModifiedPages.c)
+ *     MiScanPagefiles @ 0x14026128C (MiScanPagefiles.c)
+ *     MiComputeZeroClusterMaximum @ 0x14026243C (MiComputeZeroClusterMaximum.c)
+ *     MmEnoughMemoryForWrite @ 0x1402625B8 (MmEnoughMemoryForWrite.c)
+ *     MiGetPoolPages @ 0x1402629AC (MiGetPoolPages.c)
+ *     MiRetryNonPagedAllocation @ 0x140262BDC (MiRetryNonPagedAllocation.c)
+ *     MiAllocateAccessLog @ 0x140262C80 (MiAllocateAccessLog.c)
+ *     MiPrefetchVirtualMemory @ 0x140262E40 (MiPrefetchVirtualMemory.c)
+ *     MiGetPageTablePages @ 0x140296CF0 (MiGetPageTablePages.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
+ *     MiPickClusterForMappedFileFault @ 0x1403249C0 (MiPickClusterForMappedFileFault.c)
+ *     MiNoPagesLastChance @ 0x140550A08 (MiNoPagesLastChance.c)
+ *     MiWaitForFreePage @ 0x14055C43C (MiWaitForFreePage.c)
+ *     MiFindLargePageMemory @ 0x1408DA244 (MiFindLargePageMemory.c)
  * Callees:
  *     <none>
  */
@@ -40,7 +40,7 @@ __int64 __fastcall MiSufficientAvailablePages(__int64 a1, unsigned __int64 a2)
     {
       v7 = *i;
       v8 = 0;
-      if ( dword_140C4DEFC )
+      if ( dword_140C4DF3C )
         break;
 LABEL_7:
       if ( ++v5 > 1 )
@@ -53,7 +53,7 @@ LABEL_7:
         break;
       ++v8;
       v7 += 8;
-      if ( v8 >= dword_140C4DEFC )
+      if ( v8 >= dword_140C4DF3C )
         goto LABEL_7;
     }
   }

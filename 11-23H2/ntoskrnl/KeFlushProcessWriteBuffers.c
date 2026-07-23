@@ -1,29 +1,29 @@
 /*
- * XREFs of KeFlushProcessWriteBuffers @ 0x1402C003C
+ * XREFs of KeFlushProcessWriteBuffers @ 0x1402C02CC
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     NtFlushProcessWriteBuffers @ 0x1402C0020 (NtFlushProcessWriteBuffers.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeQueryTotalCycleTimeThread @ 0x140329DB0 (KeQueryTotalCycleTimeThread.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C330 (PoFxSendSystemLatencyUpdate.c)
- *     KeSetPriorityAndQuantumProcess @ 0x140350190 (KeSetPriorityAndQuantumProcess.c)
- *     KeFlushMultipleRangeTb @ 0x1403903B4 (KeFlushMultipleRangeTb.c)
- *     PpmClearExitLatencySamplingPercentage @ 0x140584004 (PpmClearExitLatencySamplingPercentage.c)
- *     PpmSetExitLatencySamplingPercentage @ 0x140585B8C (PpmSetExitLatencySamplingPercentage.c)
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     ExpGetProcessInformation @ 0x140742DC0 (ExpGetProcessInformation.c)
- *     PspTerminateAllThreads @ 0x14076D010 (PspTerminateAllThreads.c)
- *     PsQueryTotalCycleTimeProcess @ 0x14079F610 (PsQueryTotalCycleTimeProcess.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x1409AE908 (PspEnableProcessOptionalXStateFeatures.c)
- *     ExProcessCounterSetCallback @ 0x1409F5DD0 (ExProcessCounterSetCallback.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     NtFlushProcessWriteBuffers @ 0x1402C02B0 (NtFlushProcessWriteBuffers.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14032A040 (KeQueryTotalCycleTimeThread.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14032C5C0 (PoFxSendSystemLatencyUpdate.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x140350330 (KeSetPriorityAndQuantumProcess.c)
+ *     KeFlushMultipleRangeTb @ 0x140390594 (KeFlushMultipleRangeTb.c)
+ *     PpmClearExitLatencySamplingPercentage @ 0x1405844F4 (PpmClearExitLatencySamplingPercentage.c)
+ *     PpmSetExitLatencySamplingPercentage @ 0x14058607C (PpmSetExitLatencySamplingPercentage.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     ExpGetProcessInformation @ 0x140742FB0 (ExpGetProcessInformation.c)
+ *     PspTerminateAllThreads @ 0x14076D200 (PspTerminateAllThreads.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x14079F800 (PsQueryTotalCycleTimeProcess.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AEB08 (PspEnableProcessOptionalXStateFeatures.c)
+ *     ExProcessCounterSetCallback @ 0x1409F6060 (ExProcessCounterSetCallback.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C02F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendPacket @ 0x1402C0330 (KiIpiSendPacket.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C0580 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402C05C0 (KiIpiSendPacket.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeFlushProcessWriteBuffers(char a1)
@@ -46,7 +46,7 @@ __int64 __fastcall KeFlushProcessWriteBuffers(char a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -85,10 +85,10 @@ __int64 __fastcall KeFlushProcessWriteBuffers(char a1)
     KiIpiSendPacket(v3, (_DWORD)p_StaticAffinity, (unsigned int)xHalTimerWatchdogStop, 0, 0LL, 0LL);
     KiIpiStallOnPacketTargetsPrcb(v7, CurrentPrcb);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       v12 = KeGetCurrentPrcb();
       v13 = v12->SchedulerAssist;

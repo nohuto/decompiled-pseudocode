@@ -1,53 +1,48 @@
 /*
- * XREFs of SdbpOpenDatabaseInMemory @ 0x140495374
+ * XREFs of SdbpOpenDatabaseInMemory @ 0x140495E04
  * Callers:
- *     SdbInitDatabaseInMemory @ 0x1404951FC (SdbInitDatabaseInMemory.c)
+ *     SdbInitDatabaseInMemory @ 0x140495C8C (SdbInitDatabaseInMemory.c)
  * Callees:
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslAlloc @ 0x14048554C (AslAlloc.c)
- *     SdbGetDatabaseID @ 0x140495418 (SdbGetDatabaseID.c)
- *     SdbpReadMappedData @ 0x140500A7C (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     SdbGetDatabaseID @ 0x140495EA8 (SdbGetDatabaseID.c)
+ *     SdbpReadMappedData @ 0x1404E3A0C (SdbpReadMappedData.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslAlloc @ 0x1405148D4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
-char *__fastcall SdbpOpenDatabaseInMemory(__int64 a1, int a2)
+__int64 __fastcall SdbpOpenDatabaseInMemory(__int64 a1, int a2)
 {
-  char *v4; // rax
-  char *v5; // rbx
+  __int64 v4; // rax
+  __int64 v5; // rbx
   __int64 v7; // rcx
-  int v8; // [rsp+40h] [rbp-18h] BYREF
-  int v9; // [rsp+48h] [rbp-10h]
+  _DWORD v8[6]; // [rsp+40h] [rbp-18h] BYREF
 
-  v4 = (char *)AslAlloc(a1, 0x570uLL);
+  v4 = AslAlloc(a1, 1392LL);
   v5 = v4;
   if ( !v4 )
   {
     AslLogCallPrintf(1, (unsigned int)"SdbpOpenDatabaseInMemory", 712, (unsigned int)"Failed to allocate DB structure");
     return 0LL;
   }
-  *((_DWORD *)v4 + 4) = 0;
+  *(_DWORD *)(v4 + 16) = 0;
   *(_QWORD *)v4 = 0LL;
-  *((_DWORD *)v4 + 5) = a2;
-  *((_QWORD *)v4 + 1) = a1;
-  *((_DWORD *)v4 + 6) |= 1u;
-  if ( !(unsigned int)SdbpReadMappedData(v4, 0LL, &v8, 12LL) )
+  *(_DWORD *)(v4 + 20) = a2;
+  *(_QWORD *)(v4 + 8) = a1;
+  *(_DWORD *)(v4 + 24) |= 1u;
+  if ( !(unsigned int)SdbpReadMappedData(v4, 0LL, v8, 12LL) )
   {
     AslLogCallPrintf(1, (unsigned int)"SdbpOpenDatabaseInMemory", 723, (unsigned int)"Can't read database header");
 LABEL_11:
     AslFree(v7, v5);
     return 0LL;
   }
-  if ( v9 != 1717724275 || v8 != 3 )
+  if ( v8[2] != 1717724275 || v8[0] != 3 )
   {
     AslLogCallPrintf(
       1,
       (unsigned int)"SdbpOpenDatabaseInMemory",
       733,
-      (unsigned int)"Magic or MajorVersion doesn't match.Magic: %08X, Expected: %08X; MajorVersion: %08X, Expected: %08X.",
-      v9,
-      1717724275,
-      v8,
-      3);
+      (unsigned int)"Magic or MajorVersion doesn't match.Magic: %08X, Expected: %08X; MajorVersion: %08X, Expected: %08X.");
     goto LABEL_11;
   }
   if ( !(unsigned int)SdbGetDatabaseID(v5, v5 + 28) )

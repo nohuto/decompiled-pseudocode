@@ -34,7 +34,7 @@ __int64 __fastcall IvtSetDevicePasidTable(__int64 a1, int a2, __int64 a3)
     LODWORD(v5) = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -48,10 +48,10 @@ __int64 __fastcall IvtSetDevicePasidTable(__int64 a1, int a2, __int64 a3)
   v16 = a2;
   IvtUpdateScalableModeContextEntry(v4, (unsigned int)&v16, v5, 0, 1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

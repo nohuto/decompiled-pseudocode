@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementDecode @ 0x14057310C
+ * XREFs of SymCryptMlDsaPolyElementDecode @ 0x140572318
  * Callers:
- *     SymCryptMlDsaExpandMask @ 0x140572830 (SymCryptMlDsaExpandMask.c)
- *     SymCryptMlDsaPkDecode @ 0x140572D9C (SymCryptMlDsaPkDecode.c)
- *     SymCryptMlDsaVectorDecode @ 0x1405742F8 (SymCryptMlDsaVectorDecode.c)
+ *     SymCryptMlDsaExpandMask @ 0x140571A18 (SymCryptMlDsaExpandMask.c)
+ *     SymCryptMlDsaPkDecode @ 0x140571FA8 (SymCryptMlDsaPkDecode.c)
+ *     SymCryptMlDsaVectorDecode @ 0x14057355C (SymCryptMlDsaVectorDecode.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildMessageString @ 0x140A08B04
+ * XREFs of AdtpBuildMessageString @ 0x140A05034
  * Callers:
- *     AdtpPackageParameters @ 0x1404534B8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140448568 (AdtpPackageParameters.c)
  * Callees:
- *     StringCchPrintfW @ 0x14046FE5C (StringCchPrintfW.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     StringCchPrintfW @ 0x14046A284 (StringCchPrintfW.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, char *a6)
@@ -21,7 +21,7 @@ __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a
   v8 = (unsigned int)*a5;
   if ( (unsigned int)(v8 + 13) >= 0x400 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x1AuLL, 0x6B416553u);
     if ( !Pool2 )
       return 3221225495LL;
     v10 = 1;

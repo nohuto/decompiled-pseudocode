@@ -1,14 +1,14 @@
 /*
- * XREFs of PiProfileUpdateDeviceTreeCallback @ 0x1407ACF70
+ * XREFs of PiProfileUpdateDeviceTreeCallback @ 0x1407AFFD0
  * Callers:
  *     <none>
  * Callees:
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PnpIsDeviceInstanceEnabled @ 0x140AF6F40 (PnpIsDeviceInstanceEnabled.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x140AF95E0 (PnpIsDeviceInstanceEnabled.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  */
 
 __int64 __fastcall PiProfileUpdateDeviceTreeCallback(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CLFS_Signing__private_IsEnabledFallback @ 0x1405315B0
+ * XREFs of Feature_CLFS_Signing__private_IsEnabledFallback @ 0x140533AB0
  * Callers:
- *     Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x1404FA69C (Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x1404F3CAC (Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_CLFS_Signing__private_IsEnabledFallback(__int64 a1, unsigned int a2)

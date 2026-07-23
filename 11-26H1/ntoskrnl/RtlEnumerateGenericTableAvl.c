@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlEnumerateGenericTableAvl @ 0x1403B8060
+ * XREFs of RtlEnumerateGenericTableAvl @ 0x1403C1F60
  * Callers:
- *     DifEnumeratePluginData @ 0x140640A60 (DifEnumeratePluginData.c)
- *     IovCleanupAiDb @ 0x14064238C (IovCleanupAiDb.c)
- *     DifTerminateObjectTracking @ 0x14064B400 (DifTerminateObjectTracking.c)
- *     CarDeleteDriverRuleViolations @ 0x14064C3B0 (CarDeleteDriverRuleViolations.c)
- *     CarDeletePluginRuleViolations @ 0x14064C460 (CarDeletePluginRuleViolations.c)
- *     CarDeleteRuleViolationDB @ 0x14064C4F0 (CarDeleteRuleViolationDB.c)
- *     CarWriteEarlyRuleViolationEvents @ 0x14064C650 (CarWriteEarlyRuleViolationEvents.c)
- *     PiDmObjectManagerPopulate @ 0x1407A77A8 (PiDmObjectManagerPopulate.c)
- *     EtwpFreeKeyNameList @ 0x14082DCAC (EtwpFreeKeyNameList.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140C21FA0 (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140C22018 (VfAvlEnumerateNodes.c)
- *     VfPtGenerateTraceInformation @ 0x140C29C5C (VfPtGenerateTraceInformation.c)
- *     ViPtDeleteAvlTrees @ 0x140C2A430 (ViPtDeleteAvlTrees.c)
+ *     DifEnumeratePluginData @ 0x140644640 (DifEnumeratePluginData.c)
+ *     IovCleanupAiDb @ 0x140645F6C (IovCleanupAiDb.c)
+ *     DifTerminateObjectTracking @ 0x14064EFE0 (DifTerminateObjectTracking.c)
+ *     CarDeleteDriverRuleViolations @ 0x14064FF90 (CarDeleteDriverRuleViolations.c)
+ *     CarDeletePluginRuleViolations @ 0x140650040 (CarDeletePluginRuleViolations.c)
+ *     CarDeleteRuleViolationDB @ 0x1406500D0 (CarDeleteRuleViolationDB.c)
+ *     CarWriteEarlyRuleViolationEvents @ 0x140650230 (CarWriteEarlyRuleViolationEvents.c)
+ *     PiDmObjectManagerPopulate @ 0x1407AA358 (PiDmObjectManagerPopulate.c)
+ *     EtwpFreeKeyNameList @ 0x140833EEC (EtwpFreeKeyNameList.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140C27FB0 (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlEnumerateNodes @ 0x140C28028 (VfAvlEnumerateNodes.c)
+ *     VfPtGenerateTraceInformation @ 0x140C2FC6C (VfPtGenerateTraceInformation.c)
+ *     ViPtDeleteAvlTrees @ 0x140C30440 (ViPtDeleteAvlTrees.c)
  * Callees:
- *     RealSuccessor @ 0x1403B8200 (RealSuccessor.c)
+ *     RealSuccessor @ 0x1403C2100 (RealSuccessor.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)

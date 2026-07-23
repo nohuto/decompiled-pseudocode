@@ -59,7 +59,7 @@ LABEL_10:
           FsRtlSetKernelEaFile((PFILE_OBJECT)Object);
           goto LABEL_11;
         }
-        if ( (unsigned __int8)RtlIsCloudFilesPlaceholder((unsigned int)FileInformation, HIDWORD(FileInformation)) )
+        if ( RtlIsCloudFilesPlaceholder(FileInformation, HIDWORD(FileInformation)) )
         {
           v4 = -1073741436;
           goto LABEL_10;

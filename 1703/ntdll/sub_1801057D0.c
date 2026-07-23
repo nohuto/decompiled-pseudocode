@@ -7,13 +7,13 @@
  *     RtlDecodePointer @ 0x1800508D0 (RtlDecodePointer.c)
  */
 
-__int64 __fastcall sub_1801057D0(const void **a1)
+LONG __fastcall sub_1801057D0(_EXCEPTION_POINTERS *a1)
 {
-  __int64 (__fastcall *v2)(const void **); // rax
+  __int64 (__fastcall *v2)(_EXCEPTION_POINTERS *); // rax
 
-  v2 = (__int64 (__fastcall *)(const void **))RtlDecodePointer(qword_18015B2C0);
+  v2 = (__int64 (__fastcall *)(_EXCEPTION_POINTERS *))RtlDecodePointer(Ptr);
   if ( v2 )
     return v2(a1);
   else
-    return RtlUnhandledExceptionFilter2(a1);
+    return RtlUnhandledExceptionFilter2(a1, (ULONG)&dword_1801150C2);
 }

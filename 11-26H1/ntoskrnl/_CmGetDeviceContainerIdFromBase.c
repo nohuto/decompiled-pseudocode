@@ -1,30 +1,30 @@
 /*
- * XREFs of _CmGetDeviceContainerIdFromBase @ 0x140909B98
+ * XREFs of _CmGetDeviceContainerIdFromBase @ 0x1409AC150
  * Callers:
- *     PiDcUpdateDeviceContainerMembership @ 0x140909994 (PiDcUpdateDeviceContainerMembership.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x140992EEC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409DD768 (PiDcHandleCustomDeviceEvent.c)
- *     _CmDeleteDeviceWorker @ 0x140A8A2C4 (_CmDeleteDeviceWorker.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14095394C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x1409ABF4C (PiDcUpdateDeviceContainerMembership.c)
+ *     _CmDeleteDeviceWorker @ 0x1409B70E4 (_CmDeleteDeviceWorker.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x140A1AA20 (PiDcHandleCustomDeviceEvent.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     wcscmp @ 0x140537FF0 (wcscmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _CmIsDeviceInContainer @ 0x140909D5C (_CmIsDeviceInContainer.c)
- *     _RegRtlEnumKey @ 0x14091A1C0 (_RegRtlEnumKey.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     PnpIsValidGuidString @ 0x1409A25C0 (PnpIsValidGuidString.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     wcscmp @ 0x14053A470 (wcscmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     PnpIsValidGuidString @ 0x140963020 (PnpIsValidGuidString.c)
+ *     _RegRtlEnumKey @ 0x140974C20 (_RegRtlEnumKey.c)
+ *     _CmIsDeviceInContainer @ 0x1409AC314 (_CmIsDeviceInContainer.c)
  */
 
 __int64 __fastcall CmGetDeviceContainerIdFromBase(_QWORD *a1, __int64 a2, const wchar_t *a3, wchar_t *a4)
 {
-  int v4; // esi
-  NTSTATUS CachedNodeBaseKey; // ebx
+  ULONG v4; // esi
+  int CachedNodeBaseKey; // ebx
   _QWORD *v10; // rdx
   int v12; // eax
   _QWORD *v13; // rdx
   char v14; // [rsp+40h] [rbp-51h] BYREF
   _BYTE v15[3]; // [rsp+41h] [rbp-50h] BYREF
-  int v16; // [rsp+44h] [rbp-4Dh]
+  unsigned int v16; // [rsp+44h] [rbp-4Dh] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-49h] BYREF
   wchar_t Str2[40]; // [rsp+50h] [rbp-41h] BYREF
 
@@ -45,7 +45,7 @@ __int64 __fastcall CmGetDeviceContainerIdFromBase(_QWORD *a1, __int64 a2, const 
         v10 = v13 - 2;
       a1[22] = v10;
     }
-    CachedNodeBaseKey = PnpCtxGetCachedNodeBaseKey(a1, v10, 10LL, &KeyHandle);
+    CachedNodeBaseKey = PnpCtxGetCachedNodeBaseKey((__int64)a1, v10, 10, &KeyHandle);
     if ( CachedNodeBaseKey >= 0 )
     {
       CachedNodeBaseKey = CmIsDeviceInContainer(
@@ -61,7 +61,7 @@ __int64 __fastcall CmGetDeviceContainerIdFromBase(_QWORD *a1, __int64 a2, const 
         while ( 1 )
         {
           v16 = 39;
-          v12 = RegRtlEnumKey(KeyHandle);
+          v12 = RegRtlEnumKey(KeyHandle, v4, (char *)Str2, &v16);
           CachedNodeBaseKey = v12;
           if ( v12 != -1073741789 )
           {
@@ -69,7 +69,7 @@ __int64 __fastcall CmGetDeviceContainerIdFromBase(_QWORD *a1, __int64 a2, const 
               return 0;
             if ( v12 < 0 )
               return (unsigned int)CachedNodeBaseKey;
-            if ( (unsigned __int8)PnpIsValidGuidString(Str2) && wcscmp(L"{00000000-0000-0000-0000-000000000000}", Str2) )
+            if ( PnpIsValidGuidString(Str2) && wcscmp(L"{00000000-0000-0000-0000-000000000000}", Str2) )
             {
               CachedNodeBaseKey = CmIsDeviceInContainer(
                                     (_DWORD)a1,

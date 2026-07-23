@@ -13,7 +13,7 @@ NTSTATUS __stdcall IoGetDiskDeviceObject(PDEVICE_OBJECT FileSystemDeviceObject, 
   NTSTATUS v2; // ebx
   PVPB Vpb; // rcx
   struct _DEVICE_OBJECT *RealDevice; // rcx
-  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   if ( FileSystemDeviceObject->Vpb )

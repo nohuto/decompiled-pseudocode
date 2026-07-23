@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTimeRefreshDpcRoutine @ 0x1400B3F20
+ * XREFs of ExpTimeRefreshDpcRoutine @ 0x1400B1DA0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     _local_unwind @ 0x14014D1B0 (_local_unwind.c)
- *     KiCustomAccessRoutine7 @ 0x140168C30 (KiCustomAccessRoutine7.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     _local_unwind @ 0x14014D720 (_local_unwind.c)
+ *     KiCustomAccessRoutine7 @ 0x1401691A0 (KiCustomAccessRoutine7.c)
  */
 
 void __fastcall ExpTimeRefreshDpcRoutine(__int64 a1, volatile signed __int32 *a2, __int64 a3, unsigned __int64 a4)

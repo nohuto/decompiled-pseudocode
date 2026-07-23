@@ -1,7 +1,7 @@
 /*
- * XREFs of KiTestNodeAffinity @ 0x1403393D4
+ * XREFs of KiTestNodeAffinity @ 0x1403188B4
  * Callers:
- *     KiUpdateNodeAffinitizedFlag @ 0x14033939C (KiUpdateNodeAffinitizedFlag.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x14031887C (KiUpdateNodeAffinitizedFlag.c)
  * Callees:
  *     <none>
  */
@@ -49,7 +49,7 @@ LABEL_11:
       for ( k = a1->Bitmap[j]; k; k &= ~v8 )
       {
         _BitScanReverse64(&v7, k);
-        v8 = *(_QWORD *)(*(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78 + 64 * j + (unsigned int)v7)]
+        v8 = *(_QWORD *)(*(_QWORD *)(KiProcessorBlock[*((unsigned int *)qword_140F22998 + 64 * j + (unsigned int)v7)]
                                    + 192)
                        + 128LL);
         if ( (k & v8) != v8 )

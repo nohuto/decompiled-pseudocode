@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetCheckOpportunisticDs @ 0x140876BD4
+ * XREFs of PopNetCheckOpportunisticDs @ 0x140877E34
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
- *     PopEvaluateAggressiveStandbyActions @ 0x140868BC8 (PopEvaluateAggressiveStandbyActions.c)
- *     PopPowerAggregatorWorker @ 0x140875F10 (PopPowerAggregatorWorker.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
+ *     PopEvaluateAggressiveStandbyActions @ 0x140869E28 (PopEvaluateAggressiveStandbyActions.c)
+ *     PopPowerAggregatorWorker @ 0x140877170 (PopPowerAggregatorWorker.c)
  * Callees:
  *     <none>
  */
@@ -14,6 +14,6 @@ bool PopNetCheckOpportunisticDs()
 
   result = 0;
   if ( !PopNetBIRequestActive && !PopLidOpened )
-    return dword_140418118 == 2;
+    return dword_1404191D8 == 2;
   return result;
 }

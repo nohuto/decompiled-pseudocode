@@ -1,16 +1,16 @@
 /*
- * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x140863ECC
+ * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x1408684DC
  * Callers:
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1404747D0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1404705E0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
  * Callees:
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     LocalpConvertStringSidToSid @ 0x140862418 (LocalpConvertStringSidToSid.c)
- *     RtlMakeSelfRelativeSD @ 0x140862B74 (RtlMakeSelfRelativeSD.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
- *     LocalGetAclForString @ 0x140865750 (LocalGetAclForString.c)
- *     LookupSidInTable @ 0x140866BD0 (LookupSidInTable.c)
- *     RtlNtStatusToDosError @ 0x140867430 (RtlNtStatusToDosError.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     LocalpConvertStringSidToSid @ 0x140866A28 (LocalpConvertStringSidToSid.c)
+ *     RtlMakeSelfRelativeSD @ 0x140867184 (RtlMakeSelfRelativeSD.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
+ *     LocalGetAclForString @ 0x140869D60 (LocalGetAclForString.c)
+ *     LookupSidInTable @ 0x14086B1E0 (LookupSidInTable.c)
+ *     RtlNtStatusToDosError @ 0x14086B8C0 (RtlNtStatusToDosError.c)
  */
 
 __int64 __fastcall LocalConvertStringSDToSD_Rev1(
@@ -18,8 +18,8 @@ __int64 __fastcall LocalConvertStringSDToSD_Rev1(
         __int64 a2,
         __int64 a3,
         wchar_t *a4,
-        char **a5,
-        _DWORD *a6)
+        PSECURITY_DESCRIPTOR *a5,
+        ULONG *a6)
 {
   wchar_t *v6; // rbx
   void *v7; // r12
@@ -48,39 +48,41 @@ __int64 __fastcall LocalConvertStringSDToSD_Rev1(
   void *v31; // rcx
   __int16 v32; // bx
   void *v33; // rcx
-  char *v34; // rax
-  NTSTATUS SelfRelativeSD; // eax
+  PVOID v34; // rax
+  int SelfRelativeSD; // eax
   int v36; // [rsp+28h] [rbp-79h]
   wchar_t *v37; // [rsp+48h] [rbp-59h] BYREF
   int v38; // [rsp+50h] [rbp-51h]
-  unsigned int Size[3]; // [rsp+54h] [rbp-4Dh] BYREF
-  void *v40; // [rsp+60h] [rbp-41h] BYREF
-  __int64 v41; // [rsp+68h] [rbp-39h] BYREF
-  void *v42; // [rsp+70h] [rbp-31h]
-  void *v43; // [rsp+78h] [rbp-29h]
-  __int128 v44; // [rsp+80h] [rbp-21h] BYREF
-  __int128 v45; // [rsp+90h] [rbp-11h]
-  void *v46; // [rsp+A0h] [rbp-1h]
-  char v47; // [rsp+F8h] [rbp+57h]
-  char v48; // [rsp+100h] [rbp+5Fh]
-  char v49; // [rsp+108h] [rbp+67h]
-  int v50; // [rsp+110h] [rbp+6Fh]
+  ULONG BufferLength; // [rsp+54h] [rbp-4Dh] BYREF
+  void *v40; // [rsp+58h] [rbp-49h] BYREF
+  void *v41; // [rsp+60h] [rbp-41h] BYREF
+  __int64 v42; // [rsp+68h] [rbp-39h] BYREF
+  void *v43; // [rsp+70h] [rbp-31h]
+  void *v44; // [rsp+78h] [rbp-29h]
+  __int128 AbsoluteSecurityDescriptor; // [rsp+80h] [rbp-21h] BYREF
+  __int128 v46; // [rsp+90h] [rbp-11h]
+  void *v47; // [rsp+A0h] [rbp-1h]
+  char v48; // [rsp+F8h] [rbp+57h]
+  char v49; // [rsp+100h] [rbp+5Fh]
+  char v50; // [rsp+108h] [rbp+67h]
+  int v51; // [rsp+110h] [rbp+6Fh]
 
   v6 = a4;
   v40 = 0LL;
+  v41 = 0LL;
   v7 = 0LL;
-  v42 = 0LL;
-  v8 = 0LL;
   v43 = 0LL;
+  v8 = 0LL;
+  v44 = 0LL;
   v9 = 0;
   v37 = 0LL;
   v10 = 0;
+  v50 = 0;
+  BufferLength = 0;
   v49 = 0;
-  memset(Size, 0, sizeof(Size));
   v48 = 0;
-  v47 = 0;
   LOWORD(v38) = 0;
-  LOWORD(v50) = 0;
+  LOWORD(v51) = 0;
   if ( !a4 || !a5 )
     return 87LL;
   if ( a6 )
@@ -96,7 +98,7 @@ __int64 __fastcall LocalConvertStringSDToSD_Rev1(
           if ( v6[1] != 58 )
             goto LABEL_81;
           v12 = v6 + 2;
-          if ( v42 )
+          if ( v43 )
             goto LABEL_81;
           if ( *v12 != 40 )
           {
@@ -134,7 +136,7 @@ LABEL_13:
             goto LABEL_48;
           v6 = v37;
           v10 = 1;
-          v48 = 1;
+          v49 = 1;
           break;
         case 'G':
           AclForString = 87;
@@ -143,7 +145,7 @@ LABEL_13:
           v24 = v6 + 2;
           if ( v8 )
             goto LABEL_48;
-          v41 = 0LL;
+          v42 = 0LL;
           AclForString = 0;
           if ( !v24 )
           {
@@ -158,30 +160,30 @@ LABEL_81:
             goto LABEL_48;
           }
           v37 = v24 + 2;
-          v25 = LookupSidInTable(v24, 0LL, v36, 0, (__int64)&v41);
+          v25 = LookupSidInTable(v24, 0LL, v36, 0, (__int64)&v42);
           if ( v25 )
           {
             v8 = *(void **)(v25 + 16);
 LABEL_69:
-            v40 = v8;
+            v41 = v8;
             goto LABEL_70;
           }
-          v8 = (void *)v41;
-          if ( v41 )
+          v8 = (void *)v42;
+          if ( v42 )
           {
             v9 = 1;
             goto LABEL_69;
           }
           v37 -= 2;
-          v27 = LocalpConvertStringSidToSid(v24, (__int64 *)&v40, &v37);
+          v27 = LocalpConvertStringSidToSid(v24, (__int64 *)&v41, &v37);
           if ( v27 < 0 && (AclForString = RtlNtStatusToDosError(v27)) != 0 )
           {
-            v8 = v40;
+            v8 = v41;
           }
           else
           {
-            v8 = v40;
-            if ( v40 )
+            v8 = v41;
+            if ( v41 )
               v9 = 1;
           }
 LABEL_70:
@@ -196,44 +198,44 @@ LABEL_70:
           v21 = v6 + 2;
           if ( v7 )
             goto LABEL_48;
-          v41 = 0LL;
+          v42 = 0LL;
           AclForString = 0;
           if ( !v21 )
             goto LABEL_81;
-          v49 = 0;
+          v50 = 0;
           if ( !*v21 || !v21[1] )
           {
             AclForString = 1332;
             goto LABEL_50;
           }
           v37 = v21 + 2;
-          v22 = LookupSidInTable(v21, 0LL, v36, 0, (__int64)&v41);
+          v22 = LookupSidInTable(v21, 0LL, v36, 0, (__int64)&v42);
           if ( v22 )
           {
             v7 = *(void **)(v22 + 16);
             v23 = 0;
-            *(_QWORD *)&Size[1] = v7;
+            v40 = v7;
             goto LABEL_60;
           }
-          v7 = (void *)v41;
-          if ( v41 )
+          v7 = (void *)v42;
+          if ( v42 )
           {
-            *(_QWORD *)&Size[1] = v41;
+            v40 = (void *)v42;
 LABEL_76:
             v23 = 1;
-            v49 = 1;
+            v50 = 1;
             goto LABEL_60;
           }
           v37 -= 2;
-          v26 = LocalpConvertStringSidToSid(v21, (__int64 *)&Size[1], &v37);
+          v26 = LocalpConvertStringSidToSid(v21, (__int64 *)&v40, &v37);
           if ( v26 < 0 && (AclForString = RtlNtStatusToDosError(v26)) != 0 )
           {
-            v7 = *(void **)&Size[1];
+            v7 = v40;
           }
           else
           {
-            v7 = *(void **)&Size[1];
-            if ( *(_QWORD *)&Size[1] )
+            v7 = v40;
+            if ( v40 )
               goto LABEL_76;
           }
           v23 = 0;
@@ -241,7 +243,7 @@ LABEL_60:
           if ( AclForString )
             goto LABEL_48;
           v6 = v37;
-          v49 = v23;
+          v50 = v23;
           break;
         case ' ':
           ++v6;
@@ -250,11 +252,11 @@ LABEL_60:
           if ( v6[1] != 58 )
             goto LABEL_81;
           v16 = v6 + 2;
-          if ( v43 )
+          if ( v44 )
             goto LABEL_81;
           if ( *v16 != 40 )
           {
-            v50 = 0;
+            v51 = 0;
             do
             {
               if ( *v16 != 32 )
@@ -268,9 +270,9 @@ LABEL_31:
               if ( ((__int64)(&ControlLookup)[3 * j + 1] & 2) != 0
                 && !wcsnicmp(v16, (&ControlLookup)[3 * j], *((unsigned int *)&ControlLookup + 6 * j + 2)) )
               {
-                HIWORD(v18) = HIWORD(v50);
-                LOWORD(v18) = *((_WORD *)&ControlLookup + 12 * j + 6) | v50;
-                v50 = v18;
+                HIWORD(v18) = HIWORD(v51);
+                LOWORD(v18) = *((_WORD *)&ControlLookup + 12 * j + 6) | v51;
+                v51 = v18;
                 for ( v16 += *((unsigned int *)&ControlLookup + 6 * j + 2); v16; ++v16 )
                 {
                   if ( *v16 != 32 )
@@ -279,7 +281,7 @@ LABEL_31:
                 goto LABEL_31;
               }
             }
-            v10 = v48;
+            v10 = v49;
             v37 = v16;
           }
           v36 = 0;
@@ -287,7 +289,7 @@ LABEL_31:
           if ( AclForString )
             goto LABEL_48;
           v6 = v37;
-          v47 = 1;
+          v48 = 1;
           break;
         default:
           goto LABEL_81;
@@ -298,13 +300,13 @@ LABEL_31:
       v6 = 0LL;
     }
   }
-  v44 = 0LL;
+  AbsoluteSecurityDescriptor = 0LL;
+  v47 = 0LL;
+  v28 = v38 | v51;
+  LOBYTE(AbsoluteSecurityDescriptor) = 1;
+  v29 = v38 | v51;
+  WORD1(AbsoluteSecurityDescriptor) = v38 | v51;
   v46 = 0LL;
-  v28 = v38 | v50;
-  LOBYTE(v44) = 1;
-  v29 = v38 | v50;
-  WORD1(v44) = v38 | v50;
-  v45 = 0LL;
   if ( v7 )
   {
     if ( v28 < 0 )
@@ -316,9 +318,9 @@ LABEL_31:
     }
     else
     {
-      *((_QWORD *)&v44 + 1) = v7;
+      *((_QWORD *)&AbsoluteSecurityDescriptor + 1) = v7;
       v28 &= ~1u;
-      WORD1(v44) = v28;
+      WORD1(AbsoluteSecurityDescriptor) = v28;
       v29 = v28;
     }
   }
@@ -332,9 +334,9 @@ LABEL_31:
     }
     else
     {
-      *(_QWORD *)&v45 = v8;
+      *(_QWORD *)&v46 = v8;
       v28 &= ~2u;
-      WORD1(v44) = v28;
+      WORD1(AbsoluteSecurityDescriptor) = v28;
     }
   }
   if ( v10 )
@@ -349,14 +351,14 @@ LABEL_31:
     {
       v30 = v28 | 4;
       v31 = 0LL;
-      if ( v42 )
-        v31 = v42;
+      if ( v43 )
+        v31 = v43;
       v28 = v30 & 0xFFF7;
-      v46 = v31;
-      WORD1(v44) = v28;
+      v47 = v31;
+      WORD1(AbsoluteSecurityDescriptor) = v28;
     }
   }
-  if ( v47 )
+  if ( v48 )
   {
     if ( v28 < 0 )
     {
@@ -368,32 +370,32 @@ LABEL_31:
     {
       v32 = v28 | 0x10;
       v33 = 0LL;
-      if ( v43 )
-        v33 = v43;
+      if ( v44 )
+        v33 = v44;
       v28 = v32 & 0xFFDF;
-      *((_QWORD *)&v45 + 1) = v33;
-      WORD1(v44) = v28;
+      *((_QWORD *)&v46 + 1) = v33;
+      WORD1(AbsoluteSecurityDescriptor) = v28;
     }
   }
-  if ( v28 < 0 || (unsigned int)RtlMakeSelfRelativeSD((__int64)&v44, *a5, Size) != -1073741789 )
+  if ( v28 < 0 || RtlMakeSelfRelativeSD(&AbsoluteSecurityDescriptor, *a5, &BufferLength) != -1073741789 )
   {
     AclForString = 122;
     goto LABEL_48;
   }
   AclForString = 0;
-  v34 = (char *)SddlpAlloc(Size[0]);
+  v34 = SddlpAlloc(BufferLength);
   *a5 = v34;
   if ( !v34 )
   {
     AclForString = 8;
     goto LABEL_48;
   }
-  if ( (WORD1(v44) & 0x8000) != 0 )
+  if ( (WORD1(AbsoluteSecurityDescriptor) & 0x8000) != 0 )
   {
     SelfRelativeSD = -1073741593;
     goto LABEL_104;
   }
-  SelfRelativeSD = RtlMakeSelfRelativeSD((__int64)&v44, v34, Size);
+  SelfRelativeSD = RtlMakeSelfRelativeSD(&AbsoluteSecurityDescriptor, v34, &BufferLength);
   if ( SelfRelativeSD < 0 )
   {
 LABEL_104:
@@ -404,14 +406,14 @@ LABEL_104:
       goto LABEL_48;
   }
   if ( a6 )
-    *a6 = Size[0];
+    *a6 = BufferLength;
 LABEL_48:
-  if ( v49 == 1 )
+  if ( v50 == 1 )
     SddlpFree(v7);
 LABEL_50:
   if ( v9 == 1 )
     SddlpFree(v8);
-  SddlpFree(v42);
   SddlpFree(v43);
+  SddlpFree(v44);
   return AclForString;
 }

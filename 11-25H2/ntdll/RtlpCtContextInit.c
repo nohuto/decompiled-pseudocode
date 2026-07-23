@@ -10,24 +10,22 @@
  *     ZwCreateEvent @ 0x180163B20 (ZwCreateEvent.c)
  */
 
-__int64 __fastcall RtlpCtContextInit(__int64 **a1, int a2)
+__int64 __fastcall RtlpCtContextInit(_QWORD *a1, int a2)
 {
-  __int64 *Atom; // rbx
+  PVOID Atom; // rbx
   int Event; // edi
-  __int64 v6; // rdx
-  __int64 v7; // r8
 
   *a1 = 0LL;
-  Atom = (__int64 *)RtlpAllocateAtom();
+  Atom = RtlpAllocateAtom(0x18uLL);
   if ( Atom )
   {
     *(_OWORD *)Atom = 0LL;
-    Atom[2] = 0LL;
-    Event = ZwCreateEvent(Atom + 2, 2031619LL, 0LL, 0LL, 0);
+    *((_QWORD *)Atom + 2) = 0LL;
+    Event = ZwCreateEvent((PHANDLE)Atom + 2, 0x1F0003u, 0LL, NotificationEvent, 0);
     if ( Event < 0
-      || (Event = TpAllocWork(Atom, (__int64)RtlpRtlpCtWaitForWnfQuiescentWorker, (int)Atom, 0LL), Event < 0)
+      || (Event = TpAllocWork((PTP_WORK *)Atom, RtlpRtlpCtWaitForWnfQuiescentWorker, Atom, 0LL), Event < 0)
       || (Event = RtlpSubscribeWnfStateChangeNotificationInternal(
-                    Atom + 1,
+                    (PVOID *)Atom + 1,
                     WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED,
                     a2,
                     (int)RtlpRtlpCtSelfSubscribeCallback,
@@ -38,7 +36,7 @@ __int64 __fastcall RtlpCtContextInit(__int64 **a1, int a2)
                     17),
           Event < 0) )
     {
-      RtlpCtContextFree(Atom, v6, v7);
+      RtlpCtContextFree((__int64)Atom);
     }
     else
     {

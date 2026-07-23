@@ -16,7 +16,7 @@ int __fastcall RtlpGetCachedPath(int *a1, int (__thiscall *a2)(_DWORD, int, int)
   int v6; // esi
   int result; // eax
   int v8; // ebx
-  int v9; // edi
+  void *v9; // edi
   char v10; // [esp+13h] [ebp-5h]
 
   if ( a3 || a4 )
@@ -53,7 +53,7 @@ int __fastcall RtlpGetCachedPath(int *a1, int (__thiscall *a2)(_DWORD, int, int)
         *a1 = v8;
         ++*(_DWORD *)(v8 + 52);
         if ( v6 )
-          v9 = --*(_DWORD *)(v6 + 52) == 0 ? v6 : 0;
+          v9 = --*(_DWORD *)(v6 + 52) == 0 ? (void *)v6 : 0;
       }
       RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
       if ( v9 )

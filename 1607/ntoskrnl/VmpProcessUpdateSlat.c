@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpProcessUpdateSlat @ 0x140224544
+ * XREFs of VmpProcessUpdateSlat @ 0x140224370
  * Callers:
- *     VmAccessFault @ 0x140223D14 (VmAccessFault.c)
+ *     VmAccessFault @ 0x140223B40 (VmAccessFault.c)
  * Callees:
- *     HvlMapGpaPages @ 0x14023CF70 (HvlMapGpaPages.c)
+ *     HvlMapGpaPages @ 0x14023CE54 (HvlMapGpaPages.c)
  */
 
 __int64 __fastcall VmpProcessUpdateSlat(__int64 a1, int a2, __int64 a3, char a4)

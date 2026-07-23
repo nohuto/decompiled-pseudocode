@@ -1,18 +1,18 @@
 /*
- * XREFs of RamdiskCreateSymbolicLink @ 0x140C5E4D8
+ * XREFs of RamdiskCreateSymbolicLink @ 0x140C60628
  * Callers:
- *     RamdiskInitialize @ 0x140C5E628 (RamdiskInitialize.c)
+ *     RamdiskInitialize @ 0x140C60778 (RamdiskInitialize.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlStringCbPrintfA @ 0x14053A038 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
- *     RtlStringFromGUID @ 0x1409BC5B0 (RtlStringFromGUID.c)
- *     IoCreateSymbolicLink @ 0x140A298B0 (IoCreateSymbolicLink.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlStringCbPrintfA @ 0x140537878 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlStringFromGUID @ 0x1409A2C00 (RtlStringFromGUID.c)
+ *     IoCreateSymbolicLink @ 0x140A1E270 (IoCreateSymbolicLink.c)
  */
 
 __int64 __fastcall RamdiskCreateSymbolicLink(__int64 a1, __int64 a2)

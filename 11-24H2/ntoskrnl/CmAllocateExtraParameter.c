@@ -1,17 +1,17 @@
 /*
- * XREFs of CmAllocateExtraParameter @ 0x140A23404
+ * XREFs of CmAllocateExtraParameter @ 0x140A17814
  * Callers:
- *     VrpPreOpenOrCreate @ 0x1409271B4 (VrpPreOpenOrCreate.c)
- *     VrpPostOpenOrCreate @ 0x140AE85D0 (VrpPostOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1409292F4 (VrpPreOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x140AEB874 (VrpPostOpenOrCreate.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
  */
 
 __int64 CmAllocateExtraParameter()
 {
   __int64 result; // rax
 
-  result = CmpAllocatePool(0x100uLL);
+  result = CmpAllocatePool(0x100uLL, 0x50uLL, 0x50454D43u);
   if ( result )
   {
     *(_QWORD *)(result + 40) = 32LL;

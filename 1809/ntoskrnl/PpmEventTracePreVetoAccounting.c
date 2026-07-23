@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmEventTracePreVetoAccounting @ 0x1402E6A00
+ * XREFs of PpmEventTracePreVetoAccounting @ 0x1402E6BF0
  * Callers:
- *     PpmEventPlatformVetoRundown @ 0x1402E5E14 (PpmEventPlatformVetoRundown.c)
- *     PpmEventProcessorVetoRundown @ 0x1402E6114 (PpmEventProcessorVetoRundown.c)
+ *     PpmEventPlatformVetoRundown @ 0x1402E6004 (PpmEventPlatformVetoRundown.c)
+ *     PpmEventProcessorVetoRundown @ 0x1402E6304 (PpmEventProcessorVetoRundown.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventTracePreVetoAccounting(
@@ -23,7 +23,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   unsigned int v6; // ebx
   _DWORD *PoolWithTag; // rdi
   KIRQL v8; // r15
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v10; // rcx
   __int64 v11; // r8
   __int64 v12; // r9
@@ -33,7 +33,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   struct _KPRCB *CurrentPrcb; // rcx
   struct _EVENT_DATA_DESCRIPTOR v17; // xmm0
   int v18; // [rsp+40h] [rbp-19h] BYREF
-  LARGE_INTEGER v19; // [rsp+48h] [rbp-11h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-11h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
   int *v21; // [rsp+60h] [rbp+7h]
   int v22; // [rsp+68h] [rbp+Fh]
@@ -55,7 +55,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
           if ( PoolWithTag )
           {
             v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-            InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
+            InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
             v10 = 0LL;
             v18 = 0;
             v11 = 0LL;
@@ -71,7 +71,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
                 *(_QWORD *)&PoolWithTag[5 * v18 + 3] = *(_QWORD *)(v11 + v13 + 40);
                 v15 = *(_QWORD *)(v11 + v13 + 32);
                 if ( v15 )
-                  *(_QWORD *)&PoolWithTag[5 * v18 + 3] += InterruptTimePrecise - v15;
+                  *(_QWORD *)&PoolWithTag[5 * v18 + 3] += InterruptTimePrecise.QuadPart - v15;
                 v10 = (unsigned int)++v18;
               }
               v11 += 64LL;

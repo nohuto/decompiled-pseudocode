@@ -1,15 +1,15 @@
 /*
- * XREFs of IopQueueIrpToFileObject @ 0x1400B79F0
+ * XREFs of IopQueueIrpToFileObject @ 0x1400B7930
  * Callers:
- *     IopSynchronousServiceTail @ 0x14063B620 (IopSynchronousServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x14063C640 (IopSynchronousServiceTail.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14008CF10 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140291018 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
  */
 
 char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, __int64 a3)

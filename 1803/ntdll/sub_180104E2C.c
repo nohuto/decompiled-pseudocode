@@ -7,33 +7,29 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_180104E2C(__int64 a1, _QWORD *a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall sub_180104E2C(__int64 a1, _RTL_SRWLOCK **a2, char a3)
 {
-  _QWORD *v4; // rbx
-  char v5; // bp
-  int v7; // edi
-  signed __int64 result; // rax
+  _RTL_SRWLOCK *v3; // rbx
+  int v6; // edi
 
-  v4 = (_QWORD *)*a2;
-  v5 = (char)a3;
-  if ( (_QWORD *)*a2 != a2 )
+  v3 = *a2;
+  if ( *a2 != (_RTL_SRWLOCK *)a2 )
   {
-    v7 = (unsigned __int8)a3 & 1;
+    v6 = a3 & 1;
     do
     {
-      if ( v7 )
+      if ( v6 )
       {
-        if ( (v5 & 2) != 0 )
-          v4[3] = 1LL;
-        result = RtlReleaseSRWLockExclusive(v4 + 3);
+        if ( (a3 & 2) != 0 )
+          v3[3].Ptr = (PVOID)1;
+        RtlReleaseSRWLockExclusive(v3 + 3);
       }
       else
       {
-        result = RtlAcquireSRWLockExclusive((unsigned __int64)(v4 + 3), (unsigned __int64)a2, a3, a4);
+        RtlAcquireSRWLockExclusive(v3 + 3);
       }
-      v4 = (_QWORD *)*v4;
+      v3 = (_RTL_SRWLOCK *)v3->Ptr;
     }
-    while ( v4 != a2 );
+    while ( v3 != (_RTL_SRWLOCK *)a2 );
   }
-  return result;
 }

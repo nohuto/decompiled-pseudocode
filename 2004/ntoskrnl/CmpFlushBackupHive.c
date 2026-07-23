@@ -38,14 +38,14 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
   void *v7; // r14
   int inited; // edi
   int v9; // ecx
-  __int64 v10; // rcx
+  void *v10; // rcx
   volatile signed __int32 *v11; // rbx
-  __int64 v12; // rcx
+  void *v12; // rcx
   char FileInformation; // [rsp+58h] [rbp-B0h] BYREF
   char FileInformation_1; // [rsp+59h] [rbp-AFh] BYREF
-  __int16 v16; // [rsp+5Ch] [rbp-ACh]
-  int v17; // [rsp+60h] [rbp-A8h]
-  int v18; // [rsp+64h] [rbp-A4h]
+  __int16 ObjectInformation; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v17; // [rsp+60h] [rbp-A8h] BYREF
+  int v18; // [rsp+64h] [rbp-A4h] BYREF
   int v19[2]; // [rsp+68h] [rbp-A0h] BYREF
   STRING Destination; // [rsp+70h] [rbp-98h] BYREF
   int v21[2]; // [rsp+80h] [rbp-88h] BYREF
@@ -113,9 +113,9 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
       inited = CmpWriteOffsetArrayToFile(v9, v2, v3, v4, *((HANDLE *)v6 + 195));
       CmpFreeOffsetArray(v2, v3);
       if ( inited < 0
-        || (v10 = *((_QWORD *)v6 + 195),
-            v16 = 0,
-            ZwSetInformationObject(v10, 4LL),
+        || (v10 = (void *)*((_QWORD *)v6 + 195),
+            ObjectInformation = 0,
+            ZwSetInformationObject(v10, ObjectHandleFlagInformation, &ObjectInformation, 2u),
             ZwClose(*((HANDLE *)v6 + 195)),
             *((_QWORD *)v6 + 195) = 0LL,
             FileInformation = 0,
@@ -132,11 +132,11 @@ __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
             inited < 0) )
       {
 LABEL_14:
-        v12 = *((_QWORD *)v6 + 195);
+        v12 = (void *)*((_QWORD *)v6 + 195);
         if ( v12 )
         {
           LOWORD(v18) = 0;
-          ZwSetInformationObject(v12, 4LL);
+          ZwSetInformationObject(v12, ObjectHandleFlagInformation, &v18, 2u);
           ZwClose(*((HANDLE *)v6 + 195));
           *((_QWORD *)v6 + 195) = 0LL;
         }
@@ -153,7 +153,7 @@ LABEL_14:
         KiUnstackDetachProcess((__int64)v25, 0LL);
         ZwSetInformationFile(v7, &IoStatusBlock, &FileInformation_1, 1u, FileDispositionInformation);
         LOWORD(v17) = 0;
-        ZwSetInformationObject((__int64)v7, 4LL);
+        ZwSetInformationObject(v7, ObjectHandleFlagInformation, &v17, 2u);
         ZwClose(v7);
       }
     }

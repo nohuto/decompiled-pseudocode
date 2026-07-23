@@ -9,26 +9,26 @@
  *     ZwSetEvent @ 0x18009AC80 (ZwSetEvent.c)
  */
 
-__int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
+int __fastcall RtlpUnWaitCriticalSection(__int64 a1)
 {
-  __int64 v1; // rax
-  __int64 result; // rax
+  void *v1; // rax
+  int result; // eax
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 24);
+  v1 = *(void **)(a1 + 24);
   if ( !v1 )
-    v1 = sub_18004AE34(a1);
-  if ( v1 == -1 )
+    v1 = (void *)sub_18004AE34(a1);
+  if ( v1 == (void *)-1LL )
   {
     _InterlockedOr(v4, 0);
     sub_18004A8A8(a1 + 8, 0LL);
-    result = 0LL;
+    result = 0;
   }
   else
   {
     result = ZwSetEvent(v1, 0LL);
   }
-  if ( (int)result < 0 )
-    RtlRaiseStatus((unsigned int)result);
+  if ( result < 0 )
+    RtlRaiseStatus(result);
   return result;
 }

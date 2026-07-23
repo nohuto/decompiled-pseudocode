@@ -1,20 +1,20 @@
 /*
- * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0A80
+ * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A1CE0
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarm @ 0x1408A0A20 (SeOpenObjectForDeleteAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarm @ 0x1408A1C80 (SeOpenObjectForDeleteAuditAlarm.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1405BB7A8 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x14089EF8C (SepAdtOpenObjectForDeleteAuditAlarm.c)
- *     SepQueryTypeString @ 0x14089F978 (SepQueryTypeString.c)
- *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A38EC (SeExamineGlobalSacl.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1405BC7A8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BC990 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepQueryNameString @ 0x14065ED54 (SepQueryNameString.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089F93C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x1408A01EC (SepAdtOpenObjectForDeleteAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1408A0BD8 (SepQueryTypeString.c)
+ *     SeExamineSacl @ 0x1408A18F0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A4B4C (SeExamineGlobalSacl.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
  */
 
 void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(

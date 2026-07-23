@@ -12,37 +12,38 @@
  *     _RtlpGetBootStatusPath@8 @ 0x4B350D73 (_RtlpGetBootStatusPath@8.c)
  */
 
-NTSTATUS __stdcall RtlCreateBootStatusDataFile(PCWSTR SourceString)
+NTSTATUS RtlCreateBootStatusDataFile(void)
 {
-  PCWSTR v1; // esi
-  char v2; // bl
-  NTSTATUS v3; // edi
-  bool v4; // cf
-  char v6; // [esp+Eh] [ebp-3Ah] BYREF
-  char v7; // [esp+Fh] [ebp-39h] BYREF
+  WCHAR *v0; // esi
+  char v1; // bl
+  int v2; // edi
+  bool v3; // cf
+  char v5; // [esp+Eh] [ebp-3Ah] BYREF
+  char Buffer; // [esp+Fh] [ebp-39h] BYREF
   HANDLE FileHandle; // [esp+10h] [ebp-38h] BYREF
-  PCWSTR v9; // [esp+14h] [ebp-34h] BYREF
+  PCWSTR v8; // [esp+14h] [ebp-34h] BYREF
   LARGE_INTEGER AllocationSize; // [esp+18h] [ebp-30h] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-28h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+28h] [ebp-20h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+30h] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+28h] [ebp-20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+30h] [ebp-18h] BYREF
+  const WCHAR *SourceString; // [esp+50h] [ebp+8h]
 
   FileHandle = 0;
+  v0 = 0;
+  Buffer = 1;
   v1 = 0;
-  v7 = 1;
-  v2 = 0;
-  v9 = 0;
-  v6 = 0;
+  v8 = 0;
+  v5 = 0;
   if ( SourceString )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
   }
   else
   {
-    RtlpGetBootStatusPath(&v9, &v6);
-    v1 = v9;
-    RtlInitUnicodeString(&DestinationString, v9);
-    v2 = v6;
+    RtlpGetBootStatusPath(&v8, &v5);
+    v0 = (WCHAR *)v8;
+    RtlInitUnicodeString(&DestinationString, v8);
+    v1 = v5;
   }
   ObjectAttributes.Length = 24;
   ObjectAttributes.RootDirectory = 0;
@@ -51,7 +52,7 @@ NTSTATUS __stdcall RtlCreateBootStatusDataFile(PCWSTR SourceString)
   ObjectAttributes.SecurityDescriptor = 0;
   ObjectAttributes.SecurityQualityOfService = 0;
   AllocationSize.QuadPart = 67584LL;
-  v3 = NtCreateFile(
+  v2 = NtCreateFile(
          &FileHandle,
          0x12019Fu,
          &ObjectAttributes,
@@ -63,17 +64,17 @@ NTSTATUS __stdcall RtlCreateBootStatusDataFile(PCWSTR SourceString)
          0x8020u,
          0,
          0);
-  if ( v3 >= 0 )
+  if ( v2 >= 0 )
   {
-    v4 = AllocationSize.LowPart-- != 0;
-    AllocationSize.HighPart = v4 + AllocationSize.HighPart - 1;
-    v3 = NtWriteFile((int)FileHandle, 0, 0, 0, (int)&IoStatusBlock, (int)&v7, 1, (int)&AllocationSize, 0);
-    if ( v3 >= 0 )
-      v3 = RtlRestoreBootStatusDefaults(FileHandle);
+    v3 = AllocationSize.LowPart-- != 0;
+    AllocationSize.HighPart = v3 + AllocationSize.HighPart - 1;
+    v2 = NtWriteFile(FileHandle, 0, 0, 0, &IoStatusBlock, &Buffer, 1u, &AllocationSize, 0);
+    if ( v2 >= 0 )
+      v2 = RtlRestoreBootStatusDefaults(FileHandle);
   }
   if ( FileHandle )
     NtClose(FileHandle);
-  if ( v2 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v1);
-  return v3;
+  if ( v1 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v0);
+  return v2;
 }

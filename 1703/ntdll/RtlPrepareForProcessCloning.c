@@ -21,13 +21,9 @@
 __int64 RtlPrepareForProcessCloning()
 {
   __int64 result; // rax
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  volatile signed __int64 *v5; // rbx
-  __int64 v6; // rdi
-  int v7; // ebx
+  _RTL_SRWLOCK *v1; // rbx
+  __int64 v2; // rdi
+  int v3; // ebx
 
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
@@ -36,45 +32,45 @@ __int64 RtlPrepareForProcessCloning()
   else
   {
     sub_18001AE14(0);
-    sub_180019FC0(v2, v1, v3, v4);
-    RtlEnterCriticalSection((__int64)&unk_18015B220);
+    sub_180019FC0();
+    RtlEnterCriticalSection(&stru_18015B220);
     result = 0LL;
   }
   if ( (int)result >= 0 )
   {
-    RtlAcquireSRWLockExclusive(&qword_18015C200);
+    RtlAcquireSRWLockExclusive(&stru_18015C200);
     sub_1800D8EC0();
-    RtlEnterCriticalSection((__int64)&unk_18015AE60);
-    RtlAcquireSRWLockShared(&qword_18015C0D8);
-    v5 = (volatile signed __int64 *)&unk_18015C0E8;
-    v6 = 16LL;
+    RtlEnterCriticalSection(&stru_18015AE60);
+    RtlAcquireSRWLockShared(&stru_18015C0D8);
+    v1 = &stru_18015C0E8;
+    v2 = 16LL;
     do
     {
-      RtlAcquireSRWLockExclusive(v5);
-      v5 += 2;
-      --v6;
+      RtlAcquireSRWLockExclusive(v1);
+      v1 += 2;
+      --v2;
     }
-    while ( v6 );
-    RtlAcquireSRWLockExclusive(&qword_18015C290);
+    while ( v2 );
+    RtlAcquireSRWLockExclusive(&stru_18015C290);
     sub_1800D7D28(0);
-    v7 = sub_1800EF328();
-    if ( v7 >= 0 )
+    v3 = sub_1800EF328();
+    if ( v3 >= 0 )
     {
-      RtlAcquireSRWLockExclusive(&qword_18015C1F8);
-      RtlAcquireSRWLockExclusive(&qword_18015C1E8);
+      RtlAcquireSRWLockExclusive(&stru_18015C1F8);
+      RtlAcquireSRWLockExclusive(&stru_18015C1E8);
       result = 0LL;
       byte_18015AE99 = 1;
     }
     else
     {
       sub_1800D7D28(2);
-      RtlReleaseSRWLockExclusive(&qword_18015C290);
+      RtlReleaseSRWLockExclusive(&stru_18015C290);
       sub_1800D7BCC(0);
-      RtlLeaveCriticalSection((__int64)&unk_18015AE60);
+      RtlLeaveCriticalSection(&stru_18015AE60);
       sub_1800D8F18(0LL);
-      RtlReleaseSRWLockExclusive(&qword_18015C200);
+      RtlReleaseSRWLockExclusive(&stru_18015C200);
       sub_1800D7B28(0);
-      return (unsigned int)v7;
+      return (unsigned int)v3;
     }
   }
   return result;

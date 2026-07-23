@@ -6,15 +6,15 @@
  *     RtlEqualUnicodeString @ 0x1800B49D0 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall LdrpFindLoadedEnclaveModule(__int64 a1, unsigned __int16 *a2, _QWORD *a3)
+__int64 __fastcall LdrpFindLoadedEnclaveModule(__int64 a1, _UNICODE_STRING *a2, __int64 **a3)
 {
-  _QWORD *v3; // rdi
-  _QWORD *i; // rbx
+  __int64 *v3; // rdi
+  __int64 *i; // rbx
 
-  v3 = (_QWORD *)(a1 + 96);
-  for ( i = *(_QWORD **)(a1 + 96); i != v3; i = (_QWORD *)*i )
+  v3 = (__int64 *)(a1 + 96);
+  for ( i = *(__int64 **)(a1 + 96); i != v3; i = (__int64 *)*i )
   {
-    if ( RtlEqualUnicodeString(a2, i[22], 1) )
+    if ( RtlEqualUnicodeString(a2, (PUNICODE_STRING)i[22], 1u) )
     {
       *a3 = i;
       return 0LL;

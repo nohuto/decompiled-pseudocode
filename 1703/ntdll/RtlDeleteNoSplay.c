@@ -7,55 +7,55 @@
  *     RtlSubtreePredecessor @ 0x1800661D0 (RtlSubtreePredecessor.c)
  */
 
-void __fastcall RtlDeleteNoSplay(_QWORD *a1, __int64 *a2)
+void __cdecl RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
 {
-  _QWORD *v4; // rcx
-  _QWORD *v5; // rax
-  _QWORD *v6; // rcx
-  __int64 v7; // rax
-  _QWORD *v8; // rdx
-  _QWORD *v9; // rax
+  _RTL_SPLAY_LINKS *LeftChild; // rcx
+  _RTL_SPLAY_LINKS *Parent; // rax
+  _RTL_SPLAY_LINKS *v6; // rcx
+  _RTL_SPLAY_LINKS *v7; // rax
+  _RTL_SPLAY_LINKS **p_LeftChild; // rdx
+  _RTL_SPLAY_LINKS **p_RightChild; // rax
 
-  if ( a1[1] && a1[2] )
+  if ( Links->LeftChild && Links->RightChild )
   {
-    v7 = RtlSubtreePredecessor();
-    if ( (_QWORD *)*a1 == a1 )
-      *a2 = v7;
-    sub_1800660A8(v7, a1);
+    v7 = RtlSubtreePredecessor(Links);
+    if ( Links->Parent == Links )
+      *Root = v7;
+    sub_1800660A8(v7, Links);
   }
-  v4 = (_QWORD *)a1[1];
-  if ( v4 )
+  LeftChild = Links->LeftChild;
+  if ( LeftChild )
     goto LABEL_4;
-  if ( a1[2] )
+  if ( Links->RightChild )
   {
-    v4 = (_QWORD *)a1[2];
+    LeftChild = Links->RightChild;
 LABEL_4:
-    v5 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 == a1 )
+    Parent = Links->Parent;
+    if ( Links->Parent == Links )
     {
-      *v4 = v4;
-      *a2 = (__int64)v4;
+      LeftChild->Parent = LeftChild;
+      *Root = LeftChild;
     }
     else
     {
-      v8 = v5 + 1;
-      if ( (_QWORD *)v5[1] != a1 )
-        v8 = v5 + 2;
-      *v8 = v4;
-      *v4 = *a1;
+      p_LeftChild = &Parent->LeftChild;
+      if ( Parent->LeftChild != Links )
+        p_LeftChild = &Parent->RightChild;
+      *p_LeftChild = LeftChild;
+      LeftChild->Parent = Links->Parent;
     }
     return;
   }
-  v6 = (_QWORD *)*a1;
-  if ( (_QWORD *)*a1 == a1 )
+  v6 = Links->Parent;
+  if ( Links->Parent == Links )
   {
-    *a2 = 0LL;
+    *Root = 0LL;
   }
   else
   {
-    v9 = v6 + 1;
-    if ( (_QWORD *)v6[1] != a1 )
-      v9 = v6 + 2;
-    *v9 = 0LL;
+    p_RightChild = &v6->LeftChild;
+    if ( v6->LeftChild != Links )
+      p_RightChild = &v6->RightChild;
+    *p_RightChild = 0LL;
   }
 }

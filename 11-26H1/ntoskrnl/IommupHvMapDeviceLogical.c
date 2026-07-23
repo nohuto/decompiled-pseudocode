@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvMapDeviceLogical @ 0x14047B750
+ * XREFs of IommupHvMapDeviceLogical @ 0x1404750C0
  * Callers:
- *     IommuMapLogicalRangeEx @ 0x14047B4F0 (IommuMapLogicalRangeEx.c)
- *     HalpIommuDomainMapLogical @ 0x14047B6F8 (HalpIommuDomainMapLogical.c)
+ *     IommuMapLogicalRangeEx @ 0x140474E60 (IommuMapLogicalRangeEx.c)
+ *     HalpIommuDomainMapLogical @ 0x140475068 (HalpIommuDomainMapLogical.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvMapDeviceLogical(

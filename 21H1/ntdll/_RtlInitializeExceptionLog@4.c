@@ -7,13 +7,19 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-void *RtlInitializeExceptionLog()
+PVOID RtlInitializeExceptionLog()
 {
-  void *result; // eax
+  PVOID result; // eax
+  SIZE_T v1; // [esp-4h] [ebp-8h]
+  size_t v2; // [esp-4h] [ebp-8h]
 
-  result = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 40800);
+  LODWORD(v1) = 40800;
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   RtlpExceptionLog2 = (int)result;
   if ( result )
-    return memset(result, 0, 0x9F60u);
+  {
+    LODWORD(v2) = 40800;
+    return memset(result, 0, v2);
+  }
   return result;
 }

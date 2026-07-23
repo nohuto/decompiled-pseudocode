@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSetProcessTimerResolutionPolicy @ 0x1407DFC00
+ * XREFs of PspSetProcessTimerResolutionPolicy @ 0x1407DFED0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExpUpdateTimerResolution @ 0x140364EEC (ExpUpdateTimerResolution.c)
- *     PoTraceSystemTimerResolutionIgnore @ 0x140591268 (PoTraceSystemTimerResolutionIgnore.c)
- *     ExAcquireTimeRefreshLock @ 0x14075F954 (ExAcquireTimeRefreshLock.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExpUpdateTimerResolution @ 0x14036508C (ExpUpdateTimerResolution.c)
+ *     PoTraceSystemTimerResolutionIgnore @ 0x140591758 (PoTraceSystemTimerResolutionIgnore.c)
+ *     ExAcquireTimeRefreshLock @ 0x14075FB44 (ExAcquireTimeRefreshLock.c)
  */
 
 void __fastcall PspSetProcessTimerResolutionPolicy(__int64 a1, int a2)

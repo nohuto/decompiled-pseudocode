@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetImageBitMapInfo @ 0x1400D9530
+ * XREFs of MiGetImageBitMapInfo @ 0x1400D95B0
  * Callers:
- *     MiReturnImageBase @ 0x1405F0514 (MiReturnImageBase.c)
- *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
+ *     MiReturnImageBase @ 0x1405F1514 (MiReturnImageBase.c)
+ *     MiSelectImageBase @ 0x1406509BC (MiSelectImageBase.c)
  * Callees:
  *     <none>
  */
@@ -22,27 +22,27 @@ unsigned __int64 __fastcall MiGetImageBitMapInfo(int a1, _QWORD *a2, _QWORD *a3,
     {
       if ( v5 == 1 )
       {
-        *a2 = &dword_140438DA0;
-        result = (unsigned __int64)&dword_140438D88;
-        a2[1] = &dword_140438D88;
+        *a2 = &dword_140439E60;
+        result = (unsigned __int64)&dword_140439E48;
+        a2[1] = &dword_140439E48;
       }
       else
       {
-        result = (unsigned __int64)&dword_140438D88;
-        *a2 = &dword_140438D88;
+        result = (unsigned __int64)&dword_140439E48;
+        *a2 = &dword_140439E48;
       }
       if ( a3 )
         *a3 = 2013265920LL;
       if ( a4 )
       {
-        result = (unsigned int)dword_140438D7C;
+        result = (unsigned int)dword_140439E3C;
         goto LABEL_7;
       }
     }
     else
     {
-      result = (unsigned __int64)&dword_140438DB0;
-      *a2 = &dword_140438DB0;
+      result = (unsigned __int64)&dword_140439E70;
+      *a2 = &dword_140439E70;
       if ( a3 )
       {
         result = 0x7FFFFFFF0000LL;
@@ -50,7 +50,7 @@ unsigned __int64 __fastcall MiGetImageBitMapInfo(int a1, _QWORD *a2, _QWORD *a3,
       }
       if ( a4 )
       {
-        result = (unsigned int)dword_140438D9C;
+        result = (unsigned int)dword_140439E5C;
 LABEL_7:
         *a4 = result;
       }
@@ -58,13 +58,13 @@ LABEL_7:
   }
   else
   {
-    result = (unsigned __int64)&dword_140438DA0;
-    *a2 = &dword_140438DA0;
+    result = (unsigned __int64)&dword_140439E60;
+    *a2 = &dword_140439E60;
     if ( a3 )
       *a3 = 2013265920LL;
     if ( a4 )
     {
-      result = (unsigned int)dword_140438D98;
+      result = (unsigned int)dword_140439E58;
       goto LABEL_7;
     }
   }

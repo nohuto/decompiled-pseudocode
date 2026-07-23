@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxChildDeviceActive @ 0x140202518
+ * XREFs of PopFxChildDeviceActive @ 0x140202344
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x140675208 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1406752EC (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     IoControlPnpDeviceActionQueue @ 0x1401106E8 (IoControlPnpDeviceActionQueue.c)
- *     PnpUnlockDeviceActionQueue @ 0x1401106F8 (PnpUnlockDeviceActionQueue.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IoGetDevicePropertyData @ 0x1404F757C (IoGetDevicePropertyData.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     IoControlPnpDeviceActionQueue @ 0x140110C4C (IoControlPnpDeviceActionQueue.c)
+ *     PnpUnlockDeviceActionQueue @ 0x140110C5C (PnpUnlockDeviceActionQueue.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IoGetDevicePropertyData @ 0x1404DA508 (IoGetDevicePropertyData.c)
  */
 
 int __fastcall PopFxChildDeviceActive(__int64 a1, _QWORD *a2)

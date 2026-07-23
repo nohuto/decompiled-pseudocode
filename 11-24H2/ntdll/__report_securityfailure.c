@@ -1,10 +1,10 @@
 /*
- * XREFs of __report_securityfailure @ 0x180120A48
+ * XREFs of __report_securityfailure @ 0x18011EC78
  * Callers:
- *     __report_rangecheckfailure @ 0x180120A2C (__report_rangecheckfailure.c)
+ *     __report_rangecheckfailure @ 0x18011EC5C (__report_rangecheckfailure.c)
  * Callees:
- *     __raise_securityfailure @ 0x180120888 (__raise_securityfailure.c)
- *     RtlCaptureContext @ 0x180120C00 (RtlCaptureContext.c)
+ *     __raise_securityfailure @ 0x18011EAB8 (__raise_securityfailure.c)
+ *     RtlCaptureContext @ 0x18011EE30 (RtlCaptureContext.c)
  */
 
 void __fastcall __noreturn _report_securityfailure(unsigned int a1)
@@ -16,10 +16,10 @@ void __fastcall __noreturn _report_securityfailure(unsigned int a1)
   RtlCaptureContext(&ContextRecord);
   ContextRecord.Rip = retaddr;
   ContextRecord.Rsp = (DWORD64)&v2;
-  qword_1801CD860 = retaddr;
-  dword_1801CD850 = -1073740791;
-  dword_1801CD854 = 1;
-  dword_1801CD868 = 1;
-  unk_1801CD870 = v2;
-  _raise_securityfailure();
+  qword_1801CC860 = retaddr;
+  dword_1801CC850 = -1073740791;
+  dword_1801CC854 = 1;
+  dword_1801CC868 = 1;
+  unk_1801CC870 = v2;
+  _raise_securityfailure((_EXCEPTION_POINTERS *)&ExceptionPointers);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of KeDisableTimer2 @ 0x1400FB154
+ * XREFs of KeDisableTimer2 @ 0x1400FB1D4
  * Callers:
- *     ExDeleteTimer @ 0x1400F9890 (ExDeleteTimer.c)
- *     PopPowerButtonWorkCallback @ 0x1402E47A0 (PopPowerButtonWorkCallback.c)
- *     ExpDeleteTimer2 @ 0x140685820 (ExpDeleteTimer2.c)
- *     PopThermalZoneRemove @ 0x14086C640 (PopThermalZoneRemove.c)
+ *     ExDeleteTimer @ 0x1400F9910 (ExDeleteTimer.c)
+ *     PopPowerButtonWorkCallback @ 0x1402E4990 (PopPowerButtonWorkCallback.c)
+ *     ExpDeleteTimer2 @ 0x1406869E0 (ExpDeleteTimer2.c)
+ *     PopThermalZoneRemove @ 0x14086D8A0 (PopThermalZoneRemove.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeGenericProcessorCallback @ 0x1400D8690 (KeGenericProcessorCallback.c)
- *     KiUpdateTimer2Flags @ 0x1400FB32C (KiUpdateTimer2Flags.c)
- *     KiRemoveTimer2 @ 0x1400FB730 (KiRemoveTimer2.c)
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x1400FC43C (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x1400FC488 (KiAcquireTimer2LockUnlessDisabled.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x14011BC6C (EtwTraceTimedEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiTraceCancelTimer2 @ 0x14029B8D0 (KiTraceCancelTimer2.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeGenericProcessorCallback @ 0x1400D8710 (KeGenericProcessorCallback.c)
+ *     KiUpdateTimer2Flags @ 0x1400FB3AC (KiUpdateTimer2Flags.c)
+ *     KiRemoveTimer2 @ 0x1400FB7B0 (KiRemoveTimer2.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x1400FC4BC (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x1400FC508 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14011BCDC (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiTraceCancelTimer2 @ 0x14029BAC0 (KiTraceCancelTimer2.c)
  */
 
 char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)

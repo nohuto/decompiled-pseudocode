@@ -3,9 +3,9 @@
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140B69430 (KiPerformGroupConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     KiAssignAdjustableSubNodes @ 0x140B95954 (KiAssignAdjustableSubNodes.c)

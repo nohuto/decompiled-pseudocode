@@ -1,8 +1,8 @@
 /*
- * XREFs of XdvIoAllocateWorkItem @ 0x140223420
+ * XREFs of XdvIoAllocateWorkItem @ 0x14022324C
  * Callers:
- *     VerifierIoAllocateWorkItem @ 0x140705568 (VerifierIoAllocateWorkItem.c)
- *     VerifierPortIoAllocateWorkItem @ 0x1407058B8 (VerifierPortIoAllocateWorkItem.c)
+ *     VerifierIoAllocateWorkItem @ 0x140705598 (VerifierIoAllocateWorkItem.c)
+ *     VerifierPortIoAllocateWorkItem @ 0x1407058E8 (VerifierPortIoAllocateWorkItem.c)
  * Callees:
  *     <none>
  */

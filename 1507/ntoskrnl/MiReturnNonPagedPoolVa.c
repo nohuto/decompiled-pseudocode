@@ -37,7 +37,7 @@ __int64 __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rdx
-  union _SLIST_HEADER *v13; // r14
+  _SLIST_HEADER *v13; // r14
   int v14; // edi
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rcx
@@ -74,7 +74,7 @@ __int64 __fastcall MiReturnNonPagedPoolVa(ULONG_PTR a1, unsigned __int64 a2)
   volatile signed __int32 *v47; // r8
   int v48; // eax
   unsigned __int64 v49; // rdx
-  union _SLIST_HEADER *v50; // [rsp+20h] [rbp-E0h]
+  _SLIST_HEADER *v50; // [rsp+20h] [rbp-E0h]
   unsigned __int64 v51; // [rsp+28h] [rbp-D8h]
   unsigned __int64 v52; // [rsp+30h] [rbp-D0h]
   __int64 v53; // [rsp+38h] [rbp-C8h]

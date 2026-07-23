@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpAllocateLbrData @ 0x1409F041C
+ * XREFs of EtwpAllocateLbrData @ 0x1409F06AC
  * Callers:
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x1409F04DC (EtwpUpdateLastBranchTracingConfiguration.c)
- *     EtwpUpdateLastBranchTracingEvents @ 0x1409F05A0 (EtwpUpdateLastBranchTracingEvents.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x1409F076C (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingEvents @ 0x1409F0830 (EtwpUpdateLastBranchTracingEvents.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

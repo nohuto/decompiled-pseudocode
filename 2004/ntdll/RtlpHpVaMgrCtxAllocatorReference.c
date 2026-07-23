@@ -11,7 +11,7 @@
 
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v3; // rbp
+  _RTL_SRWLOCK *v3; // rbp
   unsigned int v7; // edi
   __int64 v8; // rax
   __int64 v9; // rbx
@@ -21,8 +21,8 @@ __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2, unsi
   char v14; // dl
   __int64 v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = a1 + 2144;
-  RtlAcquireSRWLockExclusive(a1 + 2144);
+  v3 = (_RTL_SRWLOCK *)(a1 + 2144);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 2144));
   v7 = a3 >> 20;
   v8 = RtlpHpVaMgrCtxAllocatorFind(a1, a2, v7, &v15);
   v9 = v8;

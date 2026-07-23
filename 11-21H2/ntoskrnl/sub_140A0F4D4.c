@@ -6,7 +6,7 @@
  *     ZwFlushInstructionCache @ 0x14041D520 (ZwFlushInstructionCache.c)
  *     sub_1406497E0 @ 0x1406497E0 (sub_1406497E0.c)
  *     sub_1406E9DE4 @ 0x1406E9DE4 (sub_1406E9DE4.c)
- *     WbVerifyVirtualAddressSignature @ 0x1407E4008 (WbVerifyVirtualAddressSignature.c)
+ *     sub_1407E4008 @ 0x1407E4008 (sub_1407E4008.c)
  *     sub_1407E4280 @ 0x1407E4280 (sub_1407E4280.c)
  *     sub_140A0EE10 @ 0x140A0EE10 (sub_140A0EE10.c)
  */
@@ -31,7 +31,7 @@ __int64 __fastcall sub_140A0F4D4(__int64 *a1, int a2, _DWORD *a3)
   else
   {
     v7 = (_BYTE *)(a1[4] + (a3[1] & 0xFFFFFFF));
-    v6 = WbVerifyVirtualAddressSignature(v7, a3[2] & 0xFFFFFFF, (*a3 & 2) == 0);
+    v6 = sub_1407E4008(v7, a3[2] & 0xFFFFFFF, (*a3 & 2) == 0);
     if ( v6 >= 0 )
     {
       v6 = sub_140A0EE10(v7, a3[2] & 0xFFFFFFF, (*a3 & 2) == 0, &Mdl, &v13);
@@ -72,7 +72,7 @@ __int64 __fastcall sub_140A0F4D4(__int64 *a1, int a2, _DWORD *a3)
                          a3[2] & 0xFFFFFFF),
                   v6 >= 0) )
             {
-              v6 = ZwFlushInstructionCache(-1LL, (__int64)v7);
+              v6 = ZwFlushInstructionCache((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7, a3[2] & 0xFFFFFFF);
             }
           }
         }

@@ -18,7 +18,7 @@ _QWORD *__fastcall RtlpDupTebLanguageList(_QWORD *a1)
 
   if ( !a1 )
     return 0LL;
-  Heap = (_QWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
   if ( !Heap )
     return 0LL;
   if ( *a1 && (v3 = RtlpMuiRegDupLanguageList(*a1), (*Heap = v3) == 0LL)

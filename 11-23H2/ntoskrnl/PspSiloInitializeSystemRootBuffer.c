@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSiloInitializeSystemRootBuffer @ 0x1409AD718
+ * XREFs of PspSiloInitializeSystemRootBuffer @ 0x1409AD918
  * Callers:
- *     PspSiloInitializeUserSharedData @ 0x1409AD8B8 (PspSiloInitializeUserSharedData.c)
+ *     PspSiloInitializeUserSharedData @ 0x1409ADAB8 (PspSiloInitializeUserSharedData.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     PsDereferenceSiloContext @ 0x14036A270 (PsDereferenceSiloContext.c)
- *     PsRemoveSiloContext @ 0x1409AC6D0 (PsRemoveSiloContext.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     PsDereferenceSiloContext @ 0x14036A410 (PsDereferenceSiloContext.c)
+ *     PsRemoveSiloContext @ 0x1409AC8D0 (PsRemoveSiloContext.c)
  */
 
 __int64 __fastcall PspSiloInitializeSystemRootBuffer(__int64 a1)

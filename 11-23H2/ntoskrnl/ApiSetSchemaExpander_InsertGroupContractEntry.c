@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetSchemaExpander_InsertGroupContractEntry @ 0x1404189F4
+ * XREFs of ApiSetSchemaExpander_InsertGroupContractEntry @ 0x140418D84
  * Callers:
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140417A9C (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140417E2C (ApiSetCompose_ProcessV7Extension_Phase1.c)
  * Callees:
- *     ApiSetSchemaExpander_AllocateString @ 0x1404183BC (ApiSetSchemaExpander_AllocateString.c)
- *     ApiSetpInsertHashEntry_V7 @ 0x14041946C (ApiSetpInsertHashEntry_V7.c)
- *     ApiSetpPopulateHashes_V7 @ 0x140419610 (ApiSetpPopulateHashes_V7.c)
+ *     ApiSetSchemaExpander_AllocateString @ 0x14041874C (ApiSetSchemaExpander_AllocateString.c)
+ *     ApiSetpInsertHashEntry_V7 @ 0x1404197FC (ApiSetpInsertHashEntry_V7.c)
+ *     ApiSetpPopulateHashes_V7 @ 0x1404199A0 (ApiSetpPopulateHashes_V7.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_InsertGroupContractEntry(

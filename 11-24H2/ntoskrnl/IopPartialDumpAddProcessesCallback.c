@@ -1,9 +1,9 @@
 /*
- * XREFs of IopPartialDumpAddProcessesCallback @ 0x1405A1460
+ * XREFs of IopPartialDumpAddProcessesCallback @ 0x14059E3A0
  * Callers:
  *     <none>
  * Callees:
- *     IoAddProcessThreadsToDump @ 0x1405A00C0 (IoAddProcessThreadsToDump.c)
+ *     IoAddProcessThreadsToDump @ 0x14059CFE4 (IoAddProcessThreadsToDump.c)
  */
 
 __int64 __fastcall IopPartialDumpAddProcessesCallback(__int64 a1, __int64 a2)

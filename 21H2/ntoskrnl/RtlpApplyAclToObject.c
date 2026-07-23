@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpApplyAclToObject @ 0x14065EE40
+ * XREFs of RtlpApplyAclToObject @ 0x140653C60
  * Callers:
- *     ExpWnfSpecializeSecurityDescriptor @ 0x140610CD8 (ExpWnfSpecializeSecurityDescriptor.c)
- *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406531E0 (RtlpSetSecurityObject.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x1406A0788 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     RtlpNewSecurityObject @ 0x1407169D0 (RtlpNewSecurityObject.c)
  * Callees:
  *     <none>
  */

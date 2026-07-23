@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDecommitEnclavePages @ 0x14085A054
+ * XREFs of MiDecommitEnclavePages @ 0x14085B2B4
  * Callers:
- *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1405F04F0 (MmFreeVirtualMemory.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiDecommitHardwareEnclavePages @ 0x1402BD1D4 (MiDecommitHardwareEnclavePages.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiDecommitHardwareEnclavePages @ 0x1402BD3C4 (MiDecommitHardwareEnclavePages.c)
  */
 
 __int64 __fastcall MiDecommitEnclavePages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5)

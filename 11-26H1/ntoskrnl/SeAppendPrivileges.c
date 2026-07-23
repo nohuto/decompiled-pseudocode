@@ -1,19 +1,19 @@
 /*
- * XREFs of SeAppendPrivileges @ 0x140903960
+ * XREFs of SeAppendPrivileges @ 0x1409338F0
  * Callers:
- *     IopCreateSecurityCheck @ 0x1404A387C (IopCreateSecurityCheck.c)
- *     CMFCheckAccess @ 0x140842C28 (CMFCheckAccess.c)
- *     ObCheckCreateObjectAccess @ 0x1408EE440 (ObCheckCreateObjectAccess.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140930170 (ObpGrantAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x140931B40 (ObpAdjustCreatorAccessState.c)
- *     ObpCheckTraverseAccess @ 0x14093C7C8 (ObpCheckTraverseAccess.c)
+ *     IopCreateSecurityCheck @ 0x14049D38C (IopCreateSecurityCheck.c)
+ *     CMFCheckAccess @ 0x1408480B8 (CMFCheckAccess.c)
+ *     ObCheckCreateObjectAccess @ 0x1408F4A00 (ObCheckCreateObjectAccess.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14090BCA0 (ObpGrantAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x14090D710 (ObpAdjustCreatorAccessState.c)
+ *     ObpCheckTraverseAccess @ 0x140918368 (ObpCheckTraverseAccess.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     SepConcatenatePrivileges @ 0x140904FC0 (SepConcatenatePrivileges.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SepConcatenatePrivileges @ 0x140934F50 (SepConcatenatePrivileges.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeAppendPrivileges(PACCESS_STATE AccessState, PPRIVILEGE_SET Privileges)

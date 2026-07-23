@@ -46,10 +46,13 @@ void __fastcall IopCloseWaitCompletionPacket(__int64 a1, __int64 a2, __int64 a3,
     if ( v7 )
       ObfReferenceObjectWithTag(*(PVOID *)(a2 + 88), 0x746C6644u);
     KxReleaseSpinLock(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +71,10 @@ void __fastcall IopCloseWaitCompletionPacket(__int64 a1, __int64 a2, __int64 a3,
       if ( !*(_BYTE *)(a2 + 104) || !(unsigned __int8)IopCancelWaitCompletionPacket((PVOID)a2) )
       {
         KxReleaseSpinLock(v4);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v16 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v16 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v16 >= 2u )
           {
             v17 = KeGetCurrentPrcb();
             v18 = v17->SchedulerAssist;
@@ -86,10 +89,10 @@ void __fastcall IopCloseWaitCompletionPacket(__int64 a1, __int64 a2, __int64 a3,
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;

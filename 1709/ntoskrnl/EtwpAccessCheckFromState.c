@@ -8,7 +8,7 @@
  *     EtwpFreeSecurityDescriptor @ 0x140492ADC (EtwpFreeSecurityDescriptor.c)
  */
 
-__int64 __fastcall EtwpAccessCheckFromState(unsigned int *a1, NTSTATUS a2, struct _TOKEN_ACCESS_INFORMATION *a3)
+__int64 __fastcall EtwpAccessCheckFromState(unsigned int *a1, NTSTATUS a2, _TOKEN_ACCESS_INFORMATION *a3)
 {
   PSECURITY_DESCRIPTOR SecurityDescriptor[3]; // [rsp+50h] [rbp-18h] BYREF
   NTSTATUS AccessStatus; // [rsp+78h] [rbp+10h] BYREF

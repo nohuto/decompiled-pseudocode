@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtAllocate @ 0x1409044A0
+ * XREFs of PopEtAllocate @ 0x14099D3A0
  * Callers:
- *     PopEtAggregateGet @ 0x140905DBC (PopEtAggregateGet.c)
- *     PopEtProcessSnapshotCreate @ 0x140906398 (PopEtProcessSnapshotCreate.c)
- *     PopEtInit @ 0x140C32B60 (PopEtInit.c)
+ *     PopEtAggregateGet @ 0x14099CA3C (PopEtAggregateGet.c)
+ *     PopEtProcessSnapshotCreate @ 0x14099D018 (PopEtProcessSnapshotCreate.c)
+ *     PopEtInit @ 0x140C34CA0 (PopEtInit.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 PopEtAllocate()
+__int64 __fastcall PopEtAllocate(ULONG_PTR a1)
 {
-  return ExAllocatePool2(0x100uLL);
+  return ExAllocatePool2(0x100uLL, a1, 0x54456F50u);
 }

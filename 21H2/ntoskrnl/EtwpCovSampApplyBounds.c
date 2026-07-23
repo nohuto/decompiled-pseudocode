@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampApplyBounds @ 0x140941EE4
+ * XREFs of EtwpCovSampApplyBounds @ 0x1409420B4
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x140947B0C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
  *     <none>
  */

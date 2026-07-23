@@ -40,7 +40,7 @@ LABEL_12:
         return (unsigned int)GuidList;
       }
       if ( v8 <= a3 )
-        *(_OWORD *)(a2 + 16LL * (v8 - 1)) = *(_OWORD *)&(*(&EtwpUmglProviders)[2 * i])[0];
+        *(GUID *)(a2 + 16LL * (v8 - 1)) = *(&EtwpUmglProviders)[2 * i];
     }
     if ( a3 >= v8 )
       EtwpCopyMetaProviderGuids((_OWORD *)(a2 + 16LL * v8), a3 - v8);

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpAddForwarderPath @ 0x1800DA178
+ * XREFs of RtlpAddForwarderPath @ 0x1800DA238
  * Callers:
- *     RtlpComputePath @ 0x18000CD84 (RtlpComputePath.c)
+ *     RtlpComputePath @ 0x18000CD74 (RtlpComputePath.c)
  * Callees:
  *     memmove @ 0x1800AC980 (memmove.c)
  */

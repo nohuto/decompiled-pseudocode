@@ -39,7 +39,7 @@ __int64 __fastcall PfpPrivSourceEnum(struct _KTHREAD *a1, KPROCESSOR_MODE a2, _D
   _BYTE *v13; // rcx
   char v14; // al
   _BYTE *v15; // rax
-  int SystemInformation; // ebx
+  int SystemMemoryInformation; // ebx
   unsigned __int64 v17; // rax
   __int64 v18; // rax
   char v19; // di
@@ -78,13 +78,13 @@ __int64 __fastcall PfpPrivSourceEnum(struct _KTHREAD *a1, KPROCESSOR_MODE a2, _D
   unsigned int v53; // [rsp+CCh] [rbp-11Ch]
   PVOID Object; // [rsp+D0h] [rbp-118h]
   _OWORD v55[2]; // [rsp+D8h] [rbp-110h] BYREF
-  _QWORD v56[8]; // [rsp+100h] [rbp-E8h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+100h] [rbp-E8h] BYREF
   struct _LIST_ENTRY v57; // [rsp+140h] [rbp-A8h]
 
   v35 = a3;
   CurrentThread = a1;
   v40 = a3;
-  memset_0(v56, 0, sizeof(v56));
+  memset_0(SystemInformation, 0, sizeof(SystemInformation));
   memset(v55, 0, sizeof(v55));
   v34[0] = 0;
   v39 = 0LL;
@@ -97,7 +97,7 @@ __int64 __fastcall PfpPrivSourceEnum(struct _KTHREAD *a1, KPROCESSOR_MODE a2, _D
   SListFaultAddress = (unsigned int)a1->SListFaultAddress;
   if ( SListFaultAddress < 0x10 )
   {
-    SystemInformation = -1073741789;
+    SystemMemoryInformation = -1073741789;
     goto LABEL_62;
   }
   if ( a2 )
@@ -106,7 +106,7 @@ __int64 __fastcall PfpPrivSourceEnum(struct _KTHREAD *a1, KPROCESSOR_MODE a2, _D
   LODWORD(Blink->Blink) = 0;
   if ( LODWORD(v57.Flink) != 8 || (HIDWORD(v57.Flink) & 0xFFFFFFF8) != 0 || (BYTE4(v57.Flink) & 3) == 3 )
   {
-    SystemInformation = -1073741811;
+    SystemMemoryInformation = -1073741811;
     goto LABEL_62;
   }
   if ( SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a2) )
@@ -117,7 +117,7 @@ LABEL_8:
     goto LABEL_10;
   }
   IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL, v34);
-  SystemInformation = IsAppContainerOrIdentifyLevelContext;
+  SystemMemoryInformation = IsAppContainerOrIdentifyLevelContext;
   if ( IsAppContainerOrIdentifyLevelContext != -1073741659 )
   {
     if ( IsAppContainerOrIdentifyLevelContext < 0 )
@@ -144,7 +144,7 @@ LABEL_11:
   }
   if ( *((_QWORD *)&v36 + 1) > 0xFFFFFFFFuLL || (v10 = 96LL * *((_QWORD *)&v36 + 1) + 16, v10 > 0xFFFFFFFF) )
   {
-    SystemInformation = -1073741670;
+    SystemMemoryInformation = -1073741670;
   }
   else
   {
@@ -152,7 +152,7 @@ LABEL_11:
     v11 = (unsigned int)CurrentThread->SListFaultAddress;
     if ( (unsigned int)v10 > v11 )
     {
-      SystemInformation = -1073741789;
+      SystemMemoryInformation = -1073741789;
     }
     else
     {
@@ -180,19 +180,19 @@ LABEL_11:
       if ( v12 )
         v15 = v13;
       *v15 = 0;
-      SystemInformation = ZwQuerySystemInformation(119LL, (__int64)v56);
-      if ( SystemInformation >= 0 )
+      SystemMemoryInformation = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
+      if ( SystemMemoryInformation >= 0 )
       {
-        SystemInformation = MmQuerySystemMemoryInformation(v55);
-        if ( SystemInformation >= 0 )
+        SystemMemoryInformation = MmQuerySystemMemoryInformation(v55);
+        if ( SystemMemoryInformation >= 0 )
         {
-          v46 = v56[0] >> 12;
+          v46 = SystemInformation[0] >> 12;
           v17 = *(_QWORD *)&v55[0];
-          if ( *(_QWORD *)&v55[0] <= v56[0] >> 12 )
-            v17 = v56[0] >> 12;
+          if ( *(_QWORD *)&v55[0] <= SystemInformation[0] >> 12 )
+            v17 = SystemInformation[0] >> 12;
           v47 = v17;
-          SystemInformation = PfpPrivSourceAdd(&v36, &v41);
-          if ( SystemInformation >= 0 )
+          SystemMemoryInformation = PfpPrivSourceAdd(&v36, &v41);
+          if ( SystemMemoryInformation >= 0 )
           {
 LABEL_31:
             v18 = ExGetNextProcess(0LL);
@@ -268,14 +268,14 @@ LABEL_31:
                 {
                   v50 = v39 >> 12;
                 }
-                SystemInformation = PfpPrivSourceAdd(&v36, &v41);
-                if ( SystemInformation < 0 )
+                SystemMemoryInformation = PfpPrivSourceAdd(&v36, &v41);
+                if ( SystemMemoryInformation < 0 )
                   goto LABEL_62;
               }
               v18 = ExGetNextProcess((PVOID)NextProcess);
             }
             LODWORD(v6) = 96 * v37 + 16;
-            SystemInformation = 0;
+            SystemMemoryInformation = 0;
           }
         }
       }
@@ -285,7 +285,7 @@ LABEL_62:
   v30 = v35;
   if ( NextProcess )
     ObfDereferenceObjectWithTag((PVOID)NextProcess, 0x6E457350u);
-  if ( SystemInformation == -1073741789 )
+  if ( SystemMemoryInformation == -1073741789 )
   {
     v32 = *((_QWORD *)&v36 + 1);
     if ( (unsigned __int64)(unsigned int)(v37 + 1) > *((_QWORD *)&v36 + 1) )
@@ -294,9 +294,9 @@ LABEL_62:
     if ( v6 > 0xFFFFFFFF )
     {
       LODWORD(v6) = 0;
-      SystemInformation = -1073741670;
+      SystemMemoryInformation = -1073741670;
     }
   }
   *v30 = v6;
-  return (unsigned int)SystemInformation;
+  return (unsigned int)SystemMemoryInformation;
 }

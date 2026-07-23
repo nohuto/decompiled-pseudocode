@@ -15,20 +15,25 @@
  *     RtlIsValidLocaleName @ 0x1800E5C40 (RtlIsValidLocaleName.c)
  */
 
-__int64 __fastcall RtlGetUserPreferredUILanguages(int a1, const WCHAR *a2, __int64 a3, _WORD *a4, unsigned int *a5)
+NTSTATUS __cdecl RtlGetUserPreferredUILanguages(
+        ULONG Flags,
+        PCWSTR LocaleName,
+        PULONG NumberOfLanguages,
+        PZZWSTR Languages,
+        PULONG ReturnLength)
 {
-  unsigned int *v5; // r15
-  int v6; // edi
-  unsigned int v7; // ebx
-  _WORD *v8; // r12
+  PULONG v5; // r15
+  ULONG v6; // edi
+  ULONG v7; // ebx
+  WCHAR *v8; // r12
   int v10; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v12; // rsi
   _QWORD *v13; // r14
   __int64 v14; // rax
-  int v15; // eax
-  int SystemPreferredUILanguages; // ebx
-  __int64 v17; // rsi
+  int LangFallbackList; // eax
+  NTSTATUS SystemPreferredUILanguages; // ebx
+  _WORD *v17; // rsi
   int v18; // eax
   int v19; // eax
   _BYTE *v20; // rdx
@@ -40,46 +45,46 @@ __int64 __fastcall RtlGetUserPreferredUILanguages(int a1, const WCHAR *a2, __int
   __int64 v26; // r10
   _BYTE *v27; // rdx
   __int64 v28; // r9
-  int v29; // eax
+  NTSTATUS v29; // eax
   char v30; // [rsp+28h] [rbp-51h]
   char v31; // [rsp+58h] [rbp-21h]
-  int v32; // [rsp+5Ch] [rbp-1Dh] BYREF
-  unsigned int v33; // [rsp+60h] [rbp-19h]
+  ULONG NumberOfLanguagesa; // [rsp+5Ch] [rbp-1Dh] BYREF
+  ULONG v33; // [rsp+60h] [rbp-19h]
   int v34; // [rsp+64h] [rbp-15h]
-  __int64 v35; // [rsp+68h] [rbp-11h] BYREF
-  __int64 v36; // [rsp+70h] [rbp-9h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-11h] BYREF
+  PVOID v36; // [rsp+70h] [rbp-9h] BYREF
   _QWORD *v37; // [rsp+78h] [rbp-1h] BYREF
   __int64 v38; // [rsp+80h] [rbp+7h]
   char v39; // [rsp+D8h] [rbp+5Fh]
   __int16 v40; // [rsp+E0h] [rbp+67h] BYREF
-  _DWORD *v41; // [rsp+E8h] [rbp+6Fh]
-  _WORD *v42; // [rsp+F0h] [rbp+77h]
+  PULONG v41; // [rsp+E8h] [rbp+6Fh]
+  PZZWSTR v42; // [rsp+F0h] [rbp+77h]
 
-  v42 = a4;
-  v41 = (_DWORD *)a3;
-  v39 = a1;
-  v5 = a5;
-  v35 = 0LL;
+  v42 = Languages;
+  v41 = NumberOfLanguages;
+  v39 = Flags;
+  v5 = ReturnLength;
+  BaseAddress = 0LL;
   v40 = -1;
-  v6 = a1;
+  v6 = Flags;
   v36 = 0LL;
   v7 = 0;
-  v32 = 0;
-  v8 = a4;
+  NumberOfLanguagesa = 0;
+  v8 = Languages;
   v33 = 0;
   v37 = 0LL;
   v34 = -256;
-  if ( a5 )
+  if ( ReturnLength )
   {
-    v7 = *a5;
-    v33 = *a5;
+    v7 = *ReturnLength;
+    v33 = *ReturnLength;
   }
-  if ( a2 )
+  if ( LocaleName )
   {
     v6 = 4104;
     v39 = 8;
-    v34 = (a1 & 0x80u) != 0;
-    if ( !(unsigned __int8)RtlIsValidLocaleName(a2) )
+    v34 = (Flags & 0x80u) != 0;
+    if ( !RtlIsValidLocaleName(LocaleName, 2u) )
     {
       SystemPreferredUILanguages = -1073741772;
       if ( !v5 )
@@ -90,14 +95,14 @@ LABEL_43:
     }
   }
   if ( (v6 & 0xFFFF6771) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (v6 & 0x9880) == 0 )
   {
     v6 |= 0x80u;
     v39 = v6;
   }
   if ( (v6 & 0xC) == 0xC )
-    return 3221225485LL;
+    return -1073741811;
   if ( (v6 & 0xC) == 0 )
   {
     v6 |= 8u;
@@ -112,11 +117,11 @@ LABEL_43:
     v39 = v6;
   }
   if ( v10 != 128 && v10 != 2048 && v10 != 4096 && v10 != 0x8000 || !v5 || *v5 && !v8 )
-    return 3221225485LL;
-  result = RtlpCreateProcessRegistryInfo((__int64 *)&v37, 39040LL, a3);
-  if ( (int)result >= 0 )
+    return -1073741811;
+  result = RtlpCreateProcessRegistryInfo(&v37, 39040LL, (__int64)NumberOfLanguages);
+  if ( result >= 0 )
   {
-    if ( a2 && (int)RtlpMuiRegGetInstalledLanguageIndexByName((__int64)v37, a2, 1, &v40) < 0 )
+    if ( LocaleName && (int)RtlpMuiRegGetInstalledLanguageIndexByName((__int64)v37, LocaleName, 1, &v40) < 0 )
     {
       SystemPreferredUILanguages = -1073741772;
       goto LABEL_43;
@@ -133,7 +138,7 @@ LABEL_43:
     {
       if ( !v12
         || ((*v5 = v7,
-             v19 = LdrpConvertLangFallbackListToMultiSz(v12, (__int64)v13, v8, v5, v6, v31, &v32),
+             v19 = LdrpConvertLangFallbackListToMultiSz(v12, (__int64)v13, v8, v5, v6, v31, (int *)&NumberOfLanguagesa),
              SystemPreferredUILanguages = v19,
              v19 < 0)
          || !*(_WORD *)(v12 + 4))
@@ -141,17 +146,17 @@ LABEL_43:
       {
         *v5 = v33;
         SystemPreferredUILanguages = RtlGetSystemPreferredUILanguages(
-                                       ((v6 & 8) != 0 ? 8 : 4) | 0x800u,
-                                       a2,
-                                       &v32,
+                                       ((v6 & 8) != 0 ? 8 : 4) | 0x800,
+                                       LocaleName,
+                                       &NumberOfLanguagesa,
                                        v8,
                                        v5);
       }
 LABEL_31:
       if ( SystemPreferredUILanguages >= 0 )
       {
-        *v41 = v32;
-        return (unsigned int)SystemPreferredUILanguages;
+        *v41 = NumberOfLanguagesa;
+        return SystemPreferredUILanguages;
       }
 LABEL_39:
       if ( v8 && v33 )
@@ -161,45 +166,75 @@ LABEL_39:
         else
           *(_DWORD *)v8 = 0;
       }
-      return (unsigned int)SystemPreferredUILanguages;
+      return SystemPreferredUILanguages;
     }
-    v15 = LdrpCreateLangFallbackList(&v35, (__int64)v37, 25, 0);
-    SystemPreferredUILanguages = v15;
+    LangFallbackList = LdrpCreateLangFallbackList((__int64 *)&BaseAddress, (__int64)v37, 25, 0);
+    SystemPreferredUILanguages = LangFallbackList;
     if ( (v6 & 0x8080) != 0 )
     {
-      if ( v15 >= 0 )
+      if ( LangFallbackList >= 0 )
       {
-        if ( !v35 )
+        if ( !BaseAddress )
           goto LABEL_31;
-        SystemPreferredUILanguages = LdrpMergeLangFallbackLists(v6 | 0x30u, v13, &v35, 0LL, 0LL, v12, v13[7], v38, 1);
+        SystemPreferredUILanguages = LdrpMergeLangFallbackLists(
+                                       v6 | 0x30,
+                                       (__int64)v13,
+                                       &BaseAddress,
+                                       0LL,
+                                       0LL,
+                                       v12,
+                                       v13[7],
+                                       v38,
+                                       1);
         if ( SystemPreferredUILanguages >= 0 )
         {
-          v17 = v35;
+          v17 = BaseAddress;
           *v5 = v33;
-          v18 = LdrpConvertLangFallbackListToMultiSz(v17, (__int64)v13, v8, v5, v6, v31, &v32);
+          v18 = LdrpConvertLangFallbackListToMultiSz(
+                  (__int64)v17,
+                  (__int64)v13,
+                  v8,
+                  v5,
+                  v6,
+                  v31,
+                  (int *)&NumberOfLanguagesa);
           SystemPreferredUILanguages = v18;
-          if ( v18 >= 0 && *(_WORD *)(v17 + 4) || v18 == -1073741789 )
+          if ( v18 >= 0 && v17[2] || v18 == -1073741789 )
             goto LABEL_27;
           *v5 = v33;
-          v29 = RtlGetSystemPreferredUILanguages(((v6 & 8) != 0 ? 8 : 4) | 0x8000u, a2, &v32, v8, v5);
+          v29 = RtlGetSystemPreferredUILanguages(
+                  ((v6 & 8) != 0 ? 8 : 4) | 0x8000,
+                  LocaleName,
+                  &NumberOfLanguagesa,
+                  v8,
+                  v5);
           goto LABEL_92;
         }
       }
 LABEL_93:
-      v17 = v35;
+      v17 = BaseAddress;
       goto LABEL_27;
     }
-    if ( v15 < 0 )
+    if ( LangFallbackList < 0 )
       goto LABEL_93;
-    if ( !v35 )
+    if ( !BaseAddress )
       goto LABEL_31;
-    SystemPreferredUILanguages = LdrpMergeLangFallbackLists(v6 | 0x20u, v13, &v35, 0LL, 0LL, v12, 0LL, v38, 0);
+    SystemPreferredUILanguages = LdrpMergeLangFallbackLists(
+                                   v6 | 0x20,
+                                   (__int64)v13,
+                                   &BaseAddress,
+                                   0LL,
+                                   0LL,
+                                   v12,
+                                   0LL,
+                                   v38,
+                                   0);
     if ( SystemPreferredUILanguages < 0 )
       goto LABEL_93;
-    SystemPreferredUILanguages = LdrpCreateLangFallbackList(&v36, (__int64)v13, 25, 0);
+    SystemPreferredUILanguages = LdrpCreateLangFallbackList((__int64 *)&v36, (__int64)v13, 25, 0);
     if ( SystemPreferredUILanguages < 0 )
       goto LABEL_93;
-    v17 = v35;
+    v17 = BaseAddress;
     if ( !v36 )
     {
 LABEL_27:
@@ -209,7 +244,7 @@ LABEL_27:
         RtlpMuiRegFreeLanguageList(v36);
       goto LABEL_31;
     }
-    if ( a2 )
+    if ( LocaleName )
     {
       if ( v40 != -1 )
       {
@@ -220,7 +255,7 @@ LABEL_27:
             v21 = 0;
           else
             v21 = v31;
-          if ( *(_BYTE *)(v36 + 8) )
+          if ( *((_BYTE *)v36 + 8) )
             v22 = v13[5];
           else
             LODWORD(v22) = v38;
@@ -232,13 +267,13 @@ LABEL_27:
     else
     {
       v23 = 0;
-      if ( *(_WORD *)(v35 + 4) )
+      if ( *((_WORD *)BaseAddress + 2) )
       {
         v24 = v38;
         v25 = v31;
         do
         {
-          v26 = *(_QWORD *)(v17 + 24);
+          v26 = *((_QWORD *)v17 + 3);
           if ( *(_WORD *)(v26 + 6LL * v23) == 2 )
           {
             if ( (*(_BYTE *)(28LL * *(__int16 *)(v26 + 6LL * v23 + 4) + *(_QWORD *)(v13[3] + 16LL)) & 2) != 0 )
@@ -246,7 +281,7 @@ LABEL_27:
             v27 = (_BYTE *)(*(_QWORD *)(v13[3] + 16LL) + 28LL * *(__int16 *)(v26 + 6LL * v23 + 4));
             if ( (*v27 & 6) != 0 )
             {
-              if ( *(_BYTE *)(v36 + 8) )
+              if ( *((_BYTE *)v36 + 8) )
                 v28 = v13[5];
               else
                 LODWORD(v28) = v24;
@@ -262,19 +297,19 @@ LABEL_27:
           }
           ++v23;
         }
-        while ( v23 < *(unsigned __int16 *)(v17 + 4) );
+        while ( v23 < (unsigned __int16)v17[2] );
         LOBYTE(v6) = v39;
-        v5 = a5;
+        v5 = ReturnLength;
         v31 = v25;
         v8 = v42;
       }
-      if ( !*(_WORD *)(*(_QWORD *)(v17 + 24) + 6LL * v23) || SystemPreferredUILanguages < 0 )
+      if ( !*(_WORD *)(*((_QWORD *)v17 + 3) + 6LL * v23) || SystemPreferredUILanguages < 0 )
       {
         *v5 = v33;
         SystemPreferredUILanguages = RtlGetSystemPreferredUILanguages(
-                                       ((v6 & 8) != 0 ? 8 : 4) | 0x1000u,
+                                       ((v6 & 8) != 0 ? 8 : 4) | 0x1000,
                                        0LL,
-                                       &v32,
+                                       &NumberOfLanguagesa,
                                        v8,
                                        v5);
         if ( SystemPreferredUILanguages >= 0 )
@@ -283,7 +318,7 @@ LABEL_27:
     }
     v21 = v31;
 LABEL_89:
-    v29 = LdrpConvertLangFallbackListToMultiSz(v36, (__int64)v13, v8, v5, v6, v21, &v32);
+    v29 = LdrpConvertLangFallbackListToMultiSz((__int64)v36, (__int64)v13, v8, v5, v6, v21, (int *)&NumberOfLanguagesa);
 LABEL_92:
     SystemPreferredUILanguages = v29;
     goto LABEL_27;

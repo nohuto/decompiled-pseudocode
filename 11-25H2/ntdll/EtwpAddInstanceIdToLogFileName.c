@@ -10,7 +10,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3)
+wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   void *UniqueProcess; // rax
   wchar_t *v5; // r8
@@ -23,15 +23,15 @@ wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a
   int v12; // [rsp+20h] [rbp-828h]
   wchar_t pszDest[1024]; // [rsp+30h] [rbp-818h] BYREF
 
-  *a3 = 0LL;
-  a3[1] = 0LL;
+  *(_QWORD *)&a3->Length = 0LL;
+  a3->Buffer = 0LL;
   UniqueProcess = NtCurrentTeb()->ClientId.UniqueProcess;
   v5 = *(wchar_t **)(a1 + 136);
   *(_DWORD *)(a1 + 100) = (_DWORD)UniqueProcess;
   if ( a2 == 1 )
   {
     v7 = v5;
-    return RtlCreateUnicodeString((__int64)a3, v7) == 0 ? (wchar_t *)8 : 0LL;
+    return RtlCreateUnicodeString(a3, v7) == 0 ? (wchar_t *)8 : 0LL;
   }
   if ( *(_WORD *)(a1 + 130) > 0x800u )
   {
@@ -63,7 +63,7 @@ wchar_t *__fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a
   if ( (int)result >= 0 )
   {
     v7 = pszDest;
-    return RtlCreateUnicodeString((__int64)a3, v7) == 0 ? (wchar_t *)8 : 0LL;
+    return RtlCreateUnicodeString(a3, v7) == 0 ? (wchar_t *)8 : 0LL;
   }
   return (wchar_t *)(unsigned __int16)result;
 }

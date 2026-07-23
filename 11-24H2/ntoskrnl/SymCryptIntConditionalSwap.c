@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptIntConditionalSwap @ 0x1405237FC
+ * XREFs of SymCryptIntConditionalSwap @ 0x140521114
  * Callers:
- *     SymCryptIntExtendedGcd @ 0x140529024 (SymCryptIntExtendedGcd.c)
+ *     SymCryptIntExtendedGcd @ 0x140526944 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefIntConditionalSwap @ 0x1405371B4 (SymCryptFdefIntConditionalSwap.c)
+ *     SymCryptFdefIntConditionalSwap @ 0x140531654 (SymCryptFdefIntConditionalSwap.c)
  */
 
 __int64 SymCryptIntConditionalSwap()

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxActivateComponentDependents @ 0x14031475C
+ * XREFs of PopFxActivateComponentDependents @ 0x1403149EC
  * Callers:
- *     PopFxCompleteComponentActivation @ 0x140312EFC (PopFxCompleteComponentActivation.c)
+ *     PopFxCompleteComponentActivation @ 0x14031318C (PopFxCompleteComponentActivation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopQueueQuerySetIrp @ 0x14028E9CC (PopQueueQuerySetIrp.c)
- *     PopPluginComponentActive @ 0x14031378C (PopPluginComponentActive.c)
- *     PopFxNextComponentChildRelationSafe @ 0x140314824 (PopFxNextComponentChildRelationSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopQueueQuerySetIrp @ 0x14028EC5C (PopQueueQuerySetIrp.c)
+ *     PopPluginComponentActive @ 0x140313A1C (PopPluginComponentActive.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x140314AB4 (PopFxNextComponentChildRelationSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall PopFxActivateComponentDependents(__int64 a1)
@@ -103,10 +103,13 @@ NTSTATUS __fastcall PopFxActivateComponentDependents(__int64 a1)
       v14 = v16;
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v11 + 128));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v15 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -177,10 +180,10 @@ NTSTATUS __fastcall PopFxActivateComponentDependents(__int64 a1)
     if ( v29 )
     {
       KxReleaseSpinLock(SpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v5 <= 0xFu && v33 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v5 <= 0xFu && v33 >= 2u )
         {
           v34 = KeGetCurrentPrcb();
           v35 = v34->SchedulerAssist;
@@ -206,10 +209,10 @@ NTSTATUS __fastcall PopFxActivateComponentDependents(__int64 a1)
           *(_QWORD *)(v30 + 1256) = 0LL;
         }
         KxReleaseSpinLock((volatile signed __int64 *)(v30 + 1240));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v41 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v41 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v41 >= 2u )
           {
             v42 = KeGetCurrentPrcb();
             v43 = v42->SchedulerAssist;
@@ -234,10 +237,10 @@ NTSTATUS __fastcall PopFxActivateComponentDependents(__int64 a1)
         v47 = v45;
         *(_DWORD *)v32 = v46;
         KxReleaseSpinLock((volatile signed __int64 *)v31);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v49 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v49 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v49 >= 2u )
           {
             v50 = KeGetCurrentPrcb();
             v51 = v50->SchedulerAssist;
@@ -289,10 +292,10 @@ LABEL_68:
     v7[1] = v55;
   }
   KxReleaseSpinLock(v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v56 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && v5 <= 0xFu && v56 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && v5 <= 0xFu && v56 >= 2u )
     {
       v57 = KeGetCurrentPrcb();
       v58 = v57->SchedulerAssist;

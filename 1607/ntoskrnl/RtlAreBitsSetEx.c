@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAreBitsSetEx @ 0x1400B5BD4
+ * XREFs of RtlAreBitsSetEx @ 0x1400B39FC
  * Callers:
  *     <none>
  * Callees:

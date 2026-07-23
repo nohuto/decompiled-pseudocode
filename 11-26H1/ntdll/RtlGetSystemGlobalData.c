@@ -1,43 +1,43 @@
 /*
- * XREFs of RtlGetSystemGlobalData @ 0x1800BCB20
+ * XREFs of RtlGetSystemGlobalData @ 0x1800BA050
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall RtlGetSystemGlobalData(int a1, _QWORD *a2, int a3)
+DWORD __cdecl RtlGetSystemGlobalData(RTL_SYSTEM_GLOBAL_DATA_ID DataId, PVOID Buffer, DWORD Size)
 {
-  __int64 result; // rax
+  DWORD result; // eax
   __int64 v5; // rdx
   __int64 i; // [rsp+48h] [rbp+20h]
 
-  if ( a1 == 1 )
+  if ( DataId == GlobalDataIdRngSeedVersion )
   {
-    if ( a3 == 8 )
+    if ( Size == 8 )
     {
-      *a2 = MEMORY[0x7FFE0250];
-      return 0LL;
+      *(_QWORD *)Buffer = MEMORY[0x7FFE0250];
+      return 0;
     }
     else
     {
-      return 3221225990LL;
+      return -1073741306;
     }
   }
   else
   {
-    switch ( a1 )
+    switch ( DataId )
     {
-      case 2:
-        if ( a3 != 8 )
-          return 3221225990LL;
+      case GlobalDataIdInterruptTime:
+        if ( Size != 8 )
+          return -1073741306;
         for ( i = MEMORY[0x7FFE0008]; MEMORY[0x7FFE000C] != MEMORY[0x7FFE0010]; i = MEMORY[0x7FFE0008] )
           _mm_pause();
         goto LABEL_19;
-      case 3:
-        if ( a3 != 8 )
-          return 3221225990LL;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      case GlobalDataIdTimeZoneBias:
+        if ( Size != 8 )
+          return -1073741306;
+        if ( RtlGetCurrentServiceSessionId() )
           v5 = (__int64)NtCurrentPeb()->SharedData + 592;
         else
           v5 = 2147352608LL;
@@ -45,107 +45,107 @@ __int64 __fastcall RtlGetSystemGlobalData(int a1, _QWORD *a2, int a3)
         if ( HIDWORD(*(_QWORD *)v5) == *(_DWORD *)(v5 + 8) )
         {
 LABEL_19:
-          *a2 = i;
-          result = 0LL;
+          *(_QWORD *)Buffer = i;
+          result = 0;
         }
         else
         {
           do
             _mm_pause();
           while ( HIDWORD(*(_QWORD *)v5) != *(_DWORD *)(v5 + 8) );
-          *a2 = *(_QWORD *)v5;
-          result = 0LL;
+          *(_QWORD *)Buffer = *(_QWORD *)v5;
+          result = 0;
         }
         break;
-      case 4:
-        if ( a3 != 2 )
-          return 3221225990LL;
-        *(_WORD *)a2 = MEMORY[0x7FFE002C];
-        result = 0LL;
+      case GlobalDataIdImageNumberLow:
+        if ( Size != 2 )
+          return -1073741306;
+        *(_WORD *)Buffer = MEMORY[0x7FFE002C];
+        result = 0;
         break;
-      case 5:
-        if ( a3 != 2 )
-          return 3221225990LL;
-        *(_WORD *)a2 = MEMORY[0x7FFE002E];
-        result = 0LL;
+      case GlobalDataIdImageNumberHigh:
+        if ( Size != 2 )
+          return -1073741306;
+        *(_WORD *)Buffer = MEMORY[0x7FFE002E];
+        result = 0;
         break;
-      case 6:
-        if ( a3 != 4 )
-          return 3221225990LL;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          *(_DWORD *)a2 = *((_DWORD *)NtCurrentPeb()->SharedData + 146);
+      case GlobalDataIdTimeZoneId:
+        if ( Size != 4 )
+          return -1073741306;
+        if ( RtlGetCurrentServiceSessionId() )
+          *(_DWORD *)Buffer = *((_DWORD *)NtCurrentPeb()->SharedData + 146);
         else
-          *(_DWORD *)a2 = MEMORY[0x7FFE0240];
-        result = 0LL;
+          *(_DWORD *)Buffer = MEMORY[0x7FFE0240];
+        result = 0;
         break;
-      case 7:
-        if ( a3 != 4 )
-          return 3221225990LL;
-        *(_DWORD *)a2 = MEMORY[0x7FFE026C];
-        result = 0LL;
+      case GlobalDataIdNtMajorVersion:
+        if ( Size != 4 )
+          return -1073741306;
+        *(_DWORD *)Buffer = MEMORY[0x7FFE026C];
+        result = 0;
         break;
-      case 8:
-        if ( a3 != 4 )
-          return 3221225990LL;
-        *(_DWORD *)a2 = MEMORY[0x7FFE0270];
-        result = 0LL;
+      case GlobalDataIdNtMinorVersion:
+        if ( Size != 4 )
+          return -1073741306;
+        *(_DWORD *)Buffer = MEMORY[0x7FFE0270];
+        result = 0;
         break;
-      case 9:
-        if ( a3 != 8 )
-          return 3221225990LL;
-        *a2 = MEMORY[0x7FFE02C8];
-        result = 0LL;
+      case GlobalDataIdSystemExpirationDate:
+        if ( Size != 8 )
+          return -1073741306;
+        *(_QWORD *)Buffer = MEMORY[0x7FFE02C8];
+        result = 0;
         break;
-      case 10:
-        if ( a3 != 1 )
-          return 3221225990LL;
-        *(_BYTE *)a2 = MEMORY[0x7FFE02D4];
-        result = 0LL;
+      case GlobalDataIdKdDebuggerEnabled:
+        if ( Size != 1 )
+          return -1073741306;
+        *(_BYTE *)Buffer = MEMORY[0x7FFE02D4];
+        result = 0;
         break;
-      case 11:
-        if ( a3 != 2 )
-          return 3221225990LL;
-        *(_WORD *)a2 = MEMORY[0x7FFE02D6];
-        result = 0LL;
+      case GlobalDataIdCyclesPerYield:
+        if ( Size != 2 )
+          return -1073741306;
+        *(_WORD *)Buffer = MEMORY[0x7FFE02D6];
+        result = 0;
         break;
-      case 12:
-        if ( a3 != 1 )
-          return 3221225990LL;
-        *(_BYTE *)a2 = MEMORY[0x7FFE02EC];
-        result = 0LL;
+      case GlobalDataIdSafeBootMode:
+        if ( Size != 1 )
+          return -1073741306;
+        *(_BYTE *)Buffer = MEMORY[0x7FFE02EC];
+        result = 0;
         break;
-      case 13:
-        if ( a3 != 4 )
-          return 3221225990LL;
-        *(_DWORD *)a2 = MEMORY[0x7FFE02E4];
-        result = 0LL;
+      case GlobalDataIdLastSystemRITEventTickCount:
+        if ( Size != 4 )
+          return -1073741306;
+        *(_DWORD *)Buffer = MEMORY[0x7FFE02E4];
+        result = 0;
         break;
-      case 14:
-        if ( a3 != 4 )
-          return 3221225990LL;
-        *(_DWORD *)a2 = MEMORY[0x7FFE02F0];
-        result = 0LL;
+      case GlobalDataIdConsoleSharedDataFlags:
+        if ( Size != 4 )
+          return -1073741306;
+        *(_DWORD *)Buffer = MEMORY[0x7FFE02F0];
+        result = 0;
         break;
-      case 16:
-        if ( a3 != 1 )
-          return 3221225990LL;
-        *(_BYTE *)a2 = MEMORY[0x7FFE03C6];
-        result = 0LL;
+      case GlobalDataIdQpcShift:
+        if ( Size != 1 )
+          return -1073741306;
+        *(_BYTE *)Buffer = MEMORY[0x7FFE03C6];
+        result = 0;
         break;
-      case 17:
-        if ( a3 != 2 )
-          return 3221225990LL;
-        *(_WORD *)a2 = MEMORY[0x7FFE03C6];
-        result = 0LL;
+      case GlobalDataIdQpcBypassEnabled:
+        if ( Size != 2 )
+          return -1073741306;
+        *(_WORD *)Buffer = MEMORY[0x7FFE03C6];
+        result = 0;
         break;
-      case 18:
-        if ( a3 != 8 )
-          return 3221225990LL;
-        *a2 = MEMORY[0x7FFE03B8];
-        result = 0LL;
+      case GlobalDataIdQpcData:
+        if ( Size != 8 )
+          return -1073741306;
+        *(_QWORD *)Buffer = MEMORY[0x7FFE03B8];
+        result = 0;
         break;
       default:
-        result = 3221225485LL;
+        result = -1073741811;
         break;
     }
   }

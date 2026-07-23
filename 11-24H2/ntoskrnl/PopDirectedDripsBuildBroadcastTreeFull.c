@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x140764B50
+ * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x140764520
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x140764D70 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x140764740 (PopDirectedDripsBuildBroadcastTreePartial.c)
  * Callees:
- *     PopFxIsDirectedPowerTransitionSupported @ 0x1405D1638 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDirectedDripsVisitDevice @ 0x1406F99CC (PopDirectedDripsVisitDevice.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x14074C66C (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x14076453C (PopDirectedDripsDiagTraceProblemDevice.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x140764E70 (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsFlushDeviceQueue @ 0x140764FE4 (PopDirectedDripsFlushDeviceQueue.c)
- *     PopDirectedDripsInsertQueueDevice @ 0x140765008 (PopDirectedDripsInsertQueueDevice.c)
- *     PopDirectedDripsIsLikelySpecialDevice @ 0x140765048 (PopDirectedDripsIsLikelySpecialDevice.c)
- *     PopDirectedDripsRemoveQueueDevice @ 0x140765090 (PopDirectedDripsRemoveQueueDevice.c)
- *     PopDirectedDripsMarkDfxDevice @ 0x140A94C14 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x1405CED58 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDirectedDripsVisitDevice @ 0x1406F760C (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x14074A99C (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x140763F0C (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x140764840 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsFlushDeviceQueue @ 0x1407649B4 (PopDirectedDripsFlushDeviceQueue.c)
+ *     PopDirectedDripsInsertQueueDevice @ 0x1407649D8 (PopDirectedDripsInsertQueueDevice.c)
+ *     PopDirectedDripsIsLikelySpecialDevice @ 0x140764A18 (PopDirectedDripsIsLikelySpecialDevice.c)
+ *     PopDirectedDripsRemoveQueueDevice @ 0x140764A60 (PopDirectedDripsRemoveQueueDevice.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x140A913C4 (PopDirectedDripsMarkDfxDevice.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreeFull(__int64 a1, __int64 a2, char a3, _DWORD *a4)

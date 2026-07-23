@@ -1,16 +1,16 @@
 /*
- * XREFs of SepRmGlobalSaclSetWrkr @ 0x14056B668
+ * XREFs of SepRmGlobalSaclSetWrkr @ 0x14056BBA8
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepRmFetchGlobalSacl @ 0x14056B6F0 (SepRmFetchGlobalSacl.c)
- *     SepRmGlobalSaclFind @ 0x140695604 (SepRmGlobalSaclFind.c)
+ *     SepRmFetchGlobalSacl @ 0x14056BC30 (SepRmFetchGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x1406956E8 (SepRmGlobalSaclFind.c)
  */
 
 void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)

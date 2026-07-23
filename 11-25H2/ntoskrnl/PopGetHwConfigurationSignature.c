@@ -21,19 +21,21 @@ __int64 PopGetHwConfigurationSignature()
   _DWORD *v4; // rdi
   unsigned __int64 v5; // rbx
   _DWORD *v6; // rax
-  int v8; // [rsp+24h] [rbp-2Ch] BYREF
-  _DWORD v9[6]; // [rsp+28h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+20h] [rbp-30h] BYREF
+  int v9; // [rsp+24h] [rbp-2Ch] BYREF
+  _DWORD SystemInformation[6]; // [rsp+28h] [rbp-28h] BYREF
 
-  v8 = 0;
-  v9[4] = 0;
+  v9 = 0;
+  SystemInformation[4] = 0;
   v0 = 0LL;
-  v9[0] = 1094930505;
-  v9[3] = 0;
+  SystemInformation[0] = 1094930505;
+  SystemInformation[3] = 0;
   v1 = 0;
-  v9[1] = 1;
-  v9[2] = 1346584902;
+  ReturnLength = 0;
+  SystemInformation[1] = 1;
+  SystemInformation[2] = 1346584902;
   v2 = 4;
-  if ( (unsigned int)ZwQuerySystemInformation(76LL, (__int64)v9) == -1073741789 )
+  if ( ZwQuerySystemInformation(SystemFirmwareTableInformation, SystemInformation, 0x14u, &ReturnLength) == -1073741789 )
   {
     Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
     v4 = Pool2;
@@ -42,15 +44,16 @@ __int64 PopGetHwConfigurationSignature()
       *Pool2 = 1094930505;
       Pool2[1] = 1;
       Pool2[2] = 1346584902;
-      Pool2[3] = -16;
-      if ( (int)ZwQuerySystemInformation(76LL, (__int64)Pool2) >= 0 && *((_BYTE *)v4 + 24) >= 5u )
+      Pool2[3] = ReturnLength - 16;
+      if ( ZwQuerySystemInformation(SystemFirmwareTableInformation, Pool2, ReturnLength, &ReturnLength) >= 0
+        && *((_BYTE *)v4 + 24) >= 5u )
       {
         v5 = (unsigned int)v4[13];
-        HalGetMemoryCachingRequirements(v5, 64LL, &v8);
-        if ( v8 != 1 )
+        HalGetMemoryCachingRequirements(v5, 64LL, &v9);
+        if ( v9 != 1 )
         {
           v2 = 516;
-          if ( v8 == 2 )
+          if ( v9 == 2 )
             v2 = 1028;
         }
         v6 = (_DWORD *)MmMapIoSpaceEx(v5, 64LL, v2);

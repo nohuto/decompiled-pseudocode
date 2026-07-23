@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationAtom @ 0x14015C320
+ * XREFs of ZwQueryInformationAtom @ 0x14015C890
  * Callers:
  *     <none>
  * Callees:
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwQueryInformationAtom(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Atom, *(_QWORD *)&AtomInformationClass, AtomInformation);
+  return KiServiceInternal(Atom);
 }

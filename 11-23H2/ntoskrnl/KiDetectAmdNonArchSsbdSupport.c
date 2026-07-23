@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDetectAmdNonArchSsbdSupport @ 0x140573C18
+ * XREFs of KiDetectAmdNonArchSsbdSupport @ 0x140574158
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x140381840 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1403819E0 (KiOptimizeSpecCtrlSettingsWorker.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382850 (HviIsAnyHypervisorPresent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403829F0 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall KiDetectAmdNonArchSsbdSupport(__int64 a1, __int64 *a2)

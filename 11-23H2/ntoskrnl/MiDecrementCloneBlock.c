@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecrementCloneBlock @ 0x1402F3C28
+ * XREFs of MiDecrementCloneBlock @ 0x1402F3EB8
  * Callers:
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiDecrementCombinedPteEx @ 0x1402F3B18 (MiDecrementCombinedPteEx.c)
- *     MiDecrementCloneBlockReference @ 0x140663D4C (MiDecrementCloneBlockReference.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x1402F3DA8 (MiDecrementCombinedPteEx.c)
+ *     MiDecrementCloneBlockReference @ 0x14066429C (MiDecrementCloneBlockReference.c)
  * Callees:
  *     MiLockCloneBlockAtDpc @ 0x140217888 (MiLockCloneBlockAtDpc.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402F3DC0 (MiReturnCrossPartitionCloneCharges.c)
- *     MiDeleteMergedPte @ 0x1402F408C (MiDeleteMergedPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402F4050 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiDeleteMergedPte @ 0x1402F431C (MiDeleteMergedPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiDecrementCloneBlock(__int64 a1, __int64 a2, unsigned __int64 a3, char a4, _DWORD *a5)

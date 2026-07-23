@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTscFallbackToPlatformSource @ 0x1405495E4
+ * XREFs of HalpTscFallbackToPlatformSource @ 0x140546EA4
  * Callers:
- *     HalpTimerReportIdleStateUsage @ 0x1404B4EA0 (HalpTimerReportIdleStateUsage.c)
- *     HalpTimerInitSystem @ 0x14053AFA0 (HalpTimerInitSystem.c)
+ *     HalpTimerReportIdleStateUsage @ 0x1404AF6A0 (HalpTimerReportIdleStateUsage.c)
+ *     HalpTimerInitSystem @ 0x1405387E0 (HalpTimerInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     HalpTimerSchedulePeriodicQueries @ 0x14053B720 (HalpTimerSchedulePeriodicQueries.c)
- *     HalpTscTraceStatus @ 0x140549C38 (HalpTscTraceStatus.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     HalpTimerSchedulePeriodicQueries @ 0x140539000 (HalpTimerSchedulePeriodicQueries.c)
+ *     HalpTscTraceStatus @ 0x1405474F8 (HalpTscTraceStatus.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpTscFallbackToPlatformSource(PCEVENT_DESCRIPTOR EventDescriptor)

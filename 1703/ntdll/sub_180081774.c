@@ -7,33 +7,33 @@
  *     ZwQuerySystemInformation @ 0x1800A59C0 (ZwQuerySystemInformation.c)
  */
 
-__int64 sub_180081774()
+NTSTATUS sub_180081774()
 {
-  int TagHeap; // eax
-  __int64 result; // rax
+  ULONG TagHeap; // eax
+  NTSTATUS result; // eax
   struct _PEB *v2; // rax
-  _DWORD v3[262]; // [rsp+20h] [rbp-418h] BYREF
-  unsigned int v4; // [rsp+440h] [rbp+8h] BYREF
+  _DWORD SystemInformation[262]; // [rsp+20h] [rbp-418h] BYREF
+  ULONG ReturnLength; // [rsp+440h] [rbp+8h] BYREF
 
-  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap);
-  v4 = 0;
+  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
+  ReturnLength = 0;
   dword_18015C000 = TagHeap;
-  result = ZwQuerySystemInformation(55LL, v3, 1032LL, &v4);
-  if ( (int)result >= 0 )
+  result = ZwQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);
+  if ( result >= 0 )
   {
-    if ( v4 < 4 )
+    if ( ReturnLength < 4 )
     {
-      return 3221225701LL;
+      return -1073741595;
     }
     else
     {
-      dword_18015BFF0 = v3[0] + 1;
+      dword_18015BFF0 = SystemInformation[0] + 1;
       v2 = NtCurrentPeb();
-      v2[1].Mutant = 0LL;
+      v2->TppWorkerpListLock = 0LL;
       v2 = (struct _PEB *)((char *)v2 + 912);
       v2->Mutant = v2;
       *(_QWORD *)&v2->InheritedAddressSpace = v2;
-      return 0LL;
+      return 0;
     }
   }
   return result;

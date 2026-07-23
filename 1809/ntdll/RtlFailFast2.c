@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFailFast2 @ 0x1800A52D0
+ * XREFs of RtlFailFast2 @ 0x1800A52F0
  * Callers:
  *     RtlGuardCheckLongJumpTarget @ 0x180002F20 (RtlGuardCheckLongJumpTarget.c)
  *     RtlpHandleInvalidUserCallTarget @ 0x1800F98D0 (RtlpHandleInvalidUserCallTarget.c)

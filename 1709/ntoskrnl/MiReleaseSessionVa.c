@@ -75,7 +75,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
         {
           v15->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v15->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v14]);
+            KiAbEntryRemoveFromTree(&v7->LockEntries[v14].TreeNode);
           v18 = 0;
           v18 = v15->BoostBitmap.AllFields & 0x1FFFF;
           v15->BoostBitmap.AllFields &= 0xFFFE0000;

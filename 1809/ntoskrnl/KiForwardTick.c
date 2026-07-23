@@ -3,11 +3,11 @@
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
  * Callees:
- *     KeOrAffinityEx @ 0x1400DC8F0 (KeOrAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeOrAffinityEx @ 0x1400DC970 (KeOrAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED9C0 (KeCountSetBitsAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, char *a5)
@@ -143,7 +143,7 @@ __int64 __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, c
     do
     {
       LOBYTE(v25) = v23 - 1;
-      v26 = qword_1405424C8[2 * v24];
+      v26 = qword_1405434C8[2 * v24];
       do
       {
         v25 = (unsigned __int8)(v25 + 1);

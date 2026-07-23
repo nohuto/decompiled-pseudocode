@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockKeyBodyIntoMemory @ 0x140A174D8
+ * XREFs of CmpLockKeyBodyIntoMemory @ 0x140A17788
  * Callers:
- *     CmOpenKeyForBugCheckRecovery @ 0x140A0D0A0 (CmOpenKeyForBugCheckRecovery.c)
+ *     CmOpenKeyForBugCheckRecovery @ 0x140A0D350 (CmOpenKeyForBugCheckRecovery.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
  */
 
 __int64 __fastcall CmpLockKeyBodyIntoMemory(__int64 a1)

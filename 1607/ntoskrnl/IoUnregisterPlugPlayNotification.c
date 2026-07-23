@@ -1,5 +1,5 @@
 /*
- * XREFs of IoUnregisterPlugPlayNotification @ 0x14052D7E4
+ * XREFs of IoUnregisterPlugPlayNotification @ 0x14052DD24
  * Callers:
  *     SbpWaitForVmbus @ 0x1407D3C00 (SbpWaitForVmbus.c)
  * Callees:

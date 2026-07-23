@@ -1,10 +1,10 @@
 /*
- * XREFs of x86BiosInitializeBiosShadowed @ 0x140580D3C
+ * XREFs of x86BiosInitializeBiosShadowed @ 0x14058325C
  * Callers:
- *     x86BiosInitializeBiosEx @ 0x140580CB8 (x86BiosInitializeBiosEx.c)
+ *     x86BiosInitializeBiosEx @ 0x1405831D8 (x86BiosInitializeBiosEx.c)
  * Callees:
- *     XmInitializeEmulator @ 0x140596C08 (XmInitializeEmulator.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     XmInitializeEmulator @ 0x140599388 (XmInitializeEmulator.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall x86BiosInitializeBiosShadowed(__int64 a1, __int64 a2, __int64 a3)

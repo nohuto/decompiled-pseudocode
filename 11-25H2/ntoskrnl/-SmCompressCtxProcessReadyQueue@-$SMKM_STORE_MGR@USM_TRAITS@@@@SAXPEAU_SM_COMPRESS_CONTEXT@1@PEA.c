@@ -27,7 +27,7 @@ KIRQL __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__int
   __int16 v15; // dx
   __int64 v16; // rax
   __int64 v17; // rcx
-  struct _SLIST_ENTRY *v18; // r10
+  _SLIST_ENTRY *v18; // r10
   __int128 v19; // [rsp+20h] [rbp-E0h] BYREF
   unsigned int v20[4]; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v21[32]; // [rsp+40h] [rbp-C0h] BYREF

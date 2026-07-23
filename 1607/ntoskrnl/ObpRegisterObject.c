@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpRegisterObject @ 0x1406681FC
+ * XREFs of ObpRegisterObject @ 0x1406682E0
  * Callers:
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
- *     IopAllocRealFileObject @ 0x140442AB0 (IopAllocRealFileObject.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
+ *     IopAllocRealFileObject @ 0x140441980 (IopAllocRealFileObject.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     RtlStringCbCopyA @ 0x1400C980C (RtlStringCbCopyA.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     RtlStringCbCopyA @ 0x1400C76AC (RtlStringCbCopyA.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObpGetObjectRefInfo @ 0x140667A88 (ObpGetObjectRefInfo.c)
- *     ObpIsObjectPoolTagTraced @ 0x140667F10 (ObpIsObjectPoolTagTraced.c)
- *     EtwTraceObject @ 0x1406A1D5C (EtwTraceObject.c)
+ *     ObpGetObjectRefInfo @ 0x140667B6C (ObpGetObjectRefInfo.c)
+ *     ObpIsObjectPoolTagTraced @ 0x140667FF4 (ObpIsObjectPoolTagTraced.c)
+ *     EtwTraceObject @ 0x1406A1E94 (EtwTraceObject.c)
  */
 
 __int64 __fastcall ObpRegisterObject(__int64 a1)

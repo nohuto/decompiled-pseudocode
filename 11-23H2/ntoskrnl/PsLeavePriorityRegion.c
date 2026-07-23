@@ -1,9 +1,9 @@
 /*
- * XREFs of PsLeavePriorityRegion @ 0x140339AD0
+ * XREFs of PsLeavePriorityRegion @ 0x140339D60
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
  */
 
 void PsLeavePriorityRegion()

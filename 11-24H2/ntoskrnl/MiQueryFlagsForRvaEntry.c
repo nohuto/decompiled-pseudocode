@@ -1,8 +1,8 @@
 /*
- * XREFs of MiQueryFlagsForRvaEntry @ 0x1408F3F70
+ * XREFs of MiQueryFlagsForRvaEntry @ 0x14093F100
  * Callers:
- *     RtlpCompressRvaList @ 0x1408F3900 (RtlpCompressRvaList.c)
- *     MiImageRvaRawEnumNext @ 0x1408F3D20 (MiImageRvaRawEnumNext.c)
+ *     RtlpCompressRvaList @ 0x14093EA90 (RtlpCompressRvaList.c)
+ *     MiImageRvaRawEnumNext @ 0x14093EEB0 (MiImageRvaRawEnumNext.c)
  * Callees:
  *     <none>
  */

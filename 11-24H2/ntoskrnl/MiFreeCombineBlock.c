@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeCombineBlock @ 0x1402FA048
+ * XREFs of MiFreeCombineBlock @ 0x1403427B8
  * Callers:
- *     MiDecommitSharedPageTail @ 0x14023E140 (MiDecommitSharedPageTail.c)
- *     MiDecrementCombinedPteEx @ 0x1402F9014 (MiDecrementCombinedPteEx.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
+ *     MiDecommitSharedPageTail @ 0x140206290 (MiDecommitSharedPageTail.c)
+ *     MiDecrementCombinedPteEx @ 0x140294CC8 (MiDecrementCombinedPteEx.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiFreeCombineBlock(__int64 a1, int a2)

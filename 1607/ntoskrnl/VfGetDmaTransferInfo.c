@@ -1,9 +1,9 @@
 /*
- * XREFs of VfGetDmaTransferInfo @ 0x1407075A8
+ * XREFs of VfGetDmaTransferInfo @ 0x1407075D8
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaTransferInfo(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

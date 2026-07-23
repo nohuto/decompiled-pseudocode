@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCleanupPathInfo @ 0x1408CE5B0
+ * XREFs of CmpCleanupPathInfo @ 0x1408D4B60
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1408BA354 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1408C0924 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rdx
+  _SLIST_ENTRY *v1; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   PSLIST_ENTRY result; // rax
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 160);
+  v1 = *(_SLIST_ENTRY **)(a1 + 160);
   if ( v1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();

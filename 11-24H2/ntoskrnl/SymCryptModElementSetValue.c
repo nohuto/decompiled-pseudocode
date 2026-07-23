@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptModElementSetValue @ 0x140523C6C
+ * XREFs of SymCryptModElementSetValue @ 0x140521584
  * Callers:
- *     SymCryptEcurveInitialize @ 0x140522450 (SymCryptEcurveInitialize.c)
- *     SymCryptEcDsaSignEx @ 0x140524044 (SymCryptEcDsaSignEx.c)
- *     SymCryptRsaCoreEnc @ 0x1405251DC (SymCryptRsaCoreEnc.c)
- *     SymCryptEcpointSetValue @ 0x14052ABC0 (SymCryptEcpointSetValue.c)
+ *     SymCryptEcurveInitialize @ 0x14051FD94 (SymCryptEcurveInitialize.c)
+ *     SymCryptEcDsaSignEx @ 0x14052195C (SymCryptEcDsaSignEx.c)
+ *     SymCryptRsaCoreEnc @ 0x140522AF4 (SymCryptRsaCoreEnc.c)
+ *     SymCryptEcpointSetValue @ 0x1405283D0 (SymCryptEcpointSetValue.c)
  * Callees:
- *     SymCryptFdefModElementSetValueGeneric @ 0x140535D88 (SymCryptFdefModElementSetValueGeneric.c)
+ *     SymCryptFdefModElementSetValueGeneric @ 0x140530228 (SymCryptFdefModElementSetValueGeneric.c)
  */
 
 __int64 __fastcall SymCryptModElementSetValue(int a1, int a2, int a3, _DWORD *a4, void *a5, __int64 a6, __int64 a7)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertVmAccessedEntry @ 0x14053B400
+ * XREFs of MiInsertVmAccessedEntry @ 0x14053B640
  * Callers:
- *     MiTrimPte @ 0x140308900 (MiTrimPte.c)
- *     MiAgePte @ 0x140339440 (MiAgePte.c)
- *     MiResetAccessBitPte @ 0x14039B7F0 (MiResetAccessBitPte.c)
- *     MiSimpleAgePte @ 0x14053BCC0 (MiSimpleAgePte.c)
- *     MiUpdateOldPte @ 0x14053C5B0 (MiUpdateOldPte.c)
+ *     MiTrimPte @ 0x140313650 (MiTrimPte.c)
+ *     MiAgePte @ 0x140344190 (MiAgePte.c)
+ *     MiResetAccessBitPte @ 0x14039B940 (MiResetAccessBitPte.c)
+ *     MiSimpleAgePte @ 0x14053BF00 (MiSimpleAgePte.c)
+ *     MiUpdateOldPte @ 0x14053C7F0 (MiUpdateOldPte.c)
  * Callees:
  *     <none>
  */

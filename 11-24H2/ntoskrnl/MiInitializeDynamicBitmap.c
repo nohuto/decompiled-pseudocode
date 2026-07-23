@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializeDynamicBitmap @ 0x1406794B8
+ * XREFs of MiInitializeDynamicBitmap @ 0x14067A698
  * Callers:
- *     MiBuildDynamicRegion @ 0x14067936C (MiBuildDynamicRegion.c)
- *     MiCreatePfnBitMaps @ 0x1407FA7CC (MiCreatePfnBitMaps.c)
- *     MiInitializeMirroring @ 0x140C539B0 (MiInitializeMirroring.c)
- *     MiCreateRetpolineBitmap @ 0x140C557C0 (MiCreateRetpolineBitmap.c)
- *     MiInitializePteInfo @ 0x140C59DC0 (MiInitializePteInfo.c)
+ *     MiBuildDynamicRegion @ 0x14067A54C (MiBuildDynamicRegion.c)
+ *     MiCreatePfnBitMaps @ 0x1407FAF3C (MiCreatePfnBitMaps.c)
+ *     MiInitializeMirroring @ 0x140C55B40 (MiInitializeMirroring.c)
+ *     MiCreateRetpolineBitmap @ 0x140C57950 (MiCreateRetpolineBitmap.c)
+ *     MiInitializePteInfo @ 0x140C5BF50 (MiInitializePteInfo.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetOptimal @ 0x14024231C (MiUnlockWorkingSetOptimal.c)
- *     MiLockWorkingSetOptimal @ 0x1402424F0 (MiLockWorkingSetOptimal.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiTransformValidPteInPlace @ 0x14039404C (MiTransformValidPteInPlace.c)
- *     MiInsertPageChainHead @ 0x14039EC34 (MiInsertPageChainHead.c)
- *     MiMakeZeroedPageTables @ 0x1403A582C (MiMakeZeroedPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiReturnSystemCharges @ 0x14045A7E8 (MiReturnSystemCharges.c)
- *     MiReturnPfnList @ 0x140679AA0 (MiReturnPfnList.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiUnlockWorkingSetOptimal @ 0x14020A46C (MiUnlockWorkingSetOptimal.c)
+ *     MiLockWorkingSetOptimal @ 0x14020A640 (MiLockWorkingSetOptimal.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiInsertPageChainHead @ 0x14021CD10 (MiInsertPageChainHead.c)
+ *     MiMakeZeroedPageTables @ 0x14026CB1C (MiMakeZeroedPageTables.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiTransformValidPteInPlace @ 0x14038D668 (MiTransformValidPteInPlace.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiReturnSystemCharges @ 0x14044FC38 (MiReturnSystemCharges.c)
+ *     MiReturnPfnList @ 0x14067AC80 (MiReturnPfnList.c)
  */
 
 __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -36,11 +36,11 @@ __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __
   unsigned __int64 v16; // rbp
   char *v17; // r9
   __int64 v18; // r14
-  unsigned __int64 v19; // rax
+  ULONG_PTR v19; // rax
   unsigned __int64 v20; // rbx
   unsigned __int64 v21; // rbp
   __int64 v22; // rdx
-  unsigned __int64 v23; // rax
+  ULONG_PTR v23; // rax
   unsigned __int64 v24; // rbx
   ULONG_PTR *v25; // r13
   bool v26; // zf
@@ -70,13 +70,13 @@ __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __
   v35 = 0LL;
   if ( (a4 & 2) != 0 )
   {
-    v8 = qword_140E37340[0];
-    v9 = qword_140E37370;
+    v8 = qword_140E37480[0];
+    v9 = qword_140E374B0;
   }
   else
   {
-    v8 = (PVOID)qword_140E37378;
-    v9 = qword_140E373A8;
+    v8 = (PVOID)qword_140E374B8;
+    v9 = qword_140E374E8;
   }
   v10 = 0;
   ValidPte = MiMakeValidPte(v5, (__int64)v8, 536870913);
@@ -98,7 +98,7 @@ __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __
         goto LABEL_18;
       if ( v10 )
       {
-        MiIncreaseUsedPtes((__int64)v13, v16, v10, 6);
+        MiIncreaseUsedPtes((__int64)v13, v16, v10, 6LL);
         v15 = v29;
         v10 = 0;
         v17 = AnyMultiplexedVm;
@@ -109,22 +109,22 @@ __int64 __fastcall MiInitializeDynamicBitmap(__int64 a1, unsigned __int64 a2, __
     if ( (v5 & 0xFFF) == 0 && (a4 & 4) != 0 && v6 - v12 >= 0x200 )
     {
       v18 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      v19 = MiLockWorkingSetOptimal((__int64)v17, v18, (unsigned __int8 *)&v28);
+      v19 = MiLockWorkingSetOptimal((__int64)v17, v18, (unsigned __int8 *)&v28, (__int64)v17);
       v20 = *(_QWORD *)v18;
       v21 = v19;
       MiTransformValidPteInPlace(v18, v18, v9, 0x60u, 1);
       MiUnlockWorkingSetOptimal((__int64)AnyMultiplexedVm, v21, v28);
       v16 = 0LL;
       MiInsertPageChainHead((__int64 *)&v35, (__int64 *)(48 * ((v20 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL));
-      v13 = (char *)qword_140E2FF88;
-      v33 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v22 + 40) >> 43) & 0x3FFLL));
+      v13 = (char *)qword_140E300C8;
+      v33 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v22 + 40) >> 43) & 0x3FFLL));
       v15 = v28;
       v29 = v28;
       v5 = ((v18 << 25) + 0x10000000) >> 16;
       v12 += 512LL;
       goto LABEL_29;
     }
-    v23 = MiLockWorkingSetOptimal((__int64)v17, v5, (unsigned __int8 *)&v28);
+    v23 = MiLockWorkingSetOptimal((__int64)v17, v5, (unsigned __int8 *)&v28, (__int64)v17);
     LOBYTE(v14) = v28;
     v16 = v23;
     v29 = v28;
@@ -142,7 +142,7 @@ LABEL_18:
       {
         if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && (unsigned __int64)v25 >= 0xFFFFF6C000000000uLL )
         {
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v25, ValidPte, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v25, ValidPte, 128LL);
           v13 = v32;
         }
         *v25++ = ValidPte;
@@ -165,7 +165,7 @@ LABEL_29:
   if ( v16 )
   {
     if ( v10 )
-      MiIncreaseUsedPtes((__int64)v13, v16, v10, 6);
+      MiIncreaseUsedPtes((__int64)v13, v16, v10, 6LL);
     MiUnlockWorkingSetOptimal((__int64)AnyMultiplexedVm, v16, v29);
   }
 LABEL_34:

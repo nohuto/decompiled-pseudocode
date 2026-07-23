@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14060CEF0
+ * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14060DEF0
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     FsRtlpCleanupEcps @ 0x14060B7E4 (FsRtlpCleanupEcps.c)
- *     NtQueryAttributesFile @ 0x14060CC30 (NtQueryAttributesFile.c)
- *     PspCreateUserProcessEcp @ 0x14060D368 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1406AC144 (IopSymlinkAllocateAndAddECP.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     FsRtlpCleanupEcps @ 0x14060C7E4 (FsRtlpCleanupEcps.c)
+ *     NtQueryAttributesFile @ 0x14060DC30 (NtQueryAttributesFile.c)
+ *     PspCreateUserProcessEcp @ 0x14060E368 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1406AD3E4 (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060DFB0 (FsRtlFreeExtraCreateParameter.c)
  */
 
 void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
@@ -35,11 +35,11 @@ void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
   }
   if ( (EcpList->Flags & 4) != 0 )
   {
-    ++dword_1404C661C;
-    if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= (unsigned __int16)word_1404C6610 )
+    ++dword_1404C76DC;
+    if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= (unsigned __int16)word_1404C76D0 )
     {
-      ++dword_1404C6620;
-      ((void (__fastcall *)(PECP_LIST))qword_1404C6638)(EcpList);
+      ++dword_1404C76E0;
+      ((void (__fastcall *)(PECP_LIST))qword_1404C76F8)(EcpList);
     }
     else
     {

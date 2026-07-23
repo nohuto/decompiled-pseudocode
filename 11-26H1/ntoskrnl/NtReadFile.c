@@ -1,13 +1,13 @@
 /*
- * XREFs of NtReadFile @ 0x1408F9410
+ * XREFs of NtReadFile @ 0x1409293A0
  * Callers:
- *     DifNtReadFileWrapper @ 0x140687950 (DifNtReadFileWrapper.c)
- *     PfSnGetPrefetchInstructions @ 0x1409B5FA0 (PfSnGetPrefetchInstructions.c)
+ *     DifNtReadFileWrapper @ 0x14068B530 (DifNtReadFileWrapper.c)
+ *     PfSnGetPrefetchInstructions @ 0x140987060 (PfSnGetPrefetchInstructions.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IopReadFile @ 0x1408F856C (IopReadFile.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     PsIsProcessAppContainer @ 0x1409D6220 (PsIsProcessAppContainer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IopReadFile @ 0x1409284FC (IopReadFile.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     PsIsProcessAppContainer @ 0x1409A7110 (PsIsProcessAppContainer.c)
  */
 
 NTSTATUS __stdcall NtReadFile(

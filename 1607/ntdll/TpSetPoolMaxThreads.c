@@ -1,8 +1,8 @@
 /*
- * XREFs of TpSetPoolMaxThreads @ 0x180072D60
+ * XREFs of TpSetPoolMaxThreads @ 0x180072D50
  * Callers:
- *     TppPoolpReferenceGlobalPool @ 0x18003EF9C (TppPoolpReferenceGlobalPool.c)
- *     LdrpEnableParallelLoading @ 0x180072C64 (LdrpEnableParallelLoading.c)
+ *     TppPoolpReferenceGlobalPool @ 0x18003EF8C (TppPoolpReferenceGlobalPool.c)
+ *     LdrpEnableParallelLoading @ 0x180072C54 (LdrpEnableParallelLoading.c)
  *     TpSetDefaultPoolMaxThreads @ 0x1800FE070 (TpSetDefaultPoolMaxThreads.c)
  * Callees:
  *     TppETWPoolThreadMax @ 0x18000310C (TppETWPoolThreadMax.c)
@@ -10,21 +10,19 @@
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpSetPoolMaxThreads(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  __int64 result; // rax
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = (int)Ldr;
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  if ( (int)Ldr < 0 )
-    return TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  result = NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v6);
-  if ( MEMORY[0x7FFE0386] )
-    return TppETWPoolThreadMax(a1, v6);
-  return result;
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool || (MaxThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  {
+    TppRaiseInvalidParameter(Pool);
+  }
+  else
+  {
+    NtSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( MEMORY[0x7FFE0386] )
+      TppETWPoolThreadMax((__int64)Pool, WorkerFactoryInformation);
+  }
 }

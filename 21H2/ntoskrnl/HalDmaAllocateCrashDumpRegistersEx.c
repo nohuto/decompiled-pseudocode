@@ -1,16 +1,16 @@
 /*
- * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380
+ * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x1403A64D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
- *     HalpDomainLaAllocate @ 0x1404C4D14 (HalpDomainLaAllocate.c)
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6CEC (HalpDmaAllocateMapRegistersAtHighLevel.c)
- *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
- *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIsHvPresent @ 0x1403A2128 (HalpIsHvPresent.c)
+ *     HalpDomainLaAllocate @ 0x1404C4F54 (HalpDomainLaAllocate.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C6B3C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x1404C6F2C (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7CF8 (HalpDmaFreeMapRegisters.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9514 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
 __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
@@ -212,14 +212,14 @@ LABEL_9:
   }
   if ( v5 != (__int64 *)a1 )
   {
-    v13 = (_QWORD *)qword_140C4BF18;
+    v13 = (_QWORD *)qword_140C4BF58;
     v14 = (_QWORD *)(a1 + 280);
-    if ( *(__int64 **)qword_140C4BF18 != &HalpDmaHibernateAdapters )
+    if ( *(__int64 **)qword_140C4BF58 != &HalpDmaHibernateAdapters )
       __fastfail(3u);
     *v14 = &HalpDmaHibernateAdapters;
     v14[1] = v13;
     *v13 = v14;
-    qword_140C4BF18 = (__int64)v14;
+    qword_140C4BF58 = (__int64)v14;
   }
   return 0LL;
 }

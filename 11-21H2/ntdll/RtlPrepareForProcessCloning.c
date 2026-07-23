@@ -20,34 +20,25 @@
 
 __int64 RtlPrepareForProcessCloning()
 {
-  unsigned __int64 v0; // rdx
-  unsigned __int64 v1; // r8
-  unsigned __int64 v2; // r9
-  unsigned __int64 v3; // rdx
-  int v4; // ebx
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // r9
-  __int64 v7; // rcx
+  int v0; // ebx
+  __int64 v1; // rcx
   __int64 result; // rax
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r9
 
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   RtlpFlsClonePrepare();
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   LdrpLockTlsDelayedReclaimTable();
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpProtectedPoliciesSRWLock, v0, v1, v2);
+  RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   LdrForkMrdata(0LL);
-  v4 = RtlLockHeapManagerForCloning();
-  if ( v4 >= 0 )
+  v0 = RtlLockHeapManagerForCloning();
+  if ( v0 >= 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlCriticalSectionLock, v3, v5, v6);
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpForkActiveLock, v9, v10, v11);
+    RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+    RtlAcquireSRWLockExclusive(&LdrpForkActiveLock);
     result = 0LL;
     LdrpForkInProgress = 1;
   }
@@ -56,10 +47,10 @@ __int64 RtlPrepareForProcessCloning()
     LdrForkMrdata(2LL);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlpFlsCloneComplete(v7, 0LL);
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlpFlsCloneComplete(v1, 0LL);
     LdrpCompleteProcessCloning(0LL);
-    return (unsigned int)v4;
+    return (unsigned int)v0;
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalAdd @ 0x140215EE0
+ * XREFs of RtlpTraceDatabaseInternalAdd @ 0x140215D0C
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x140215B2C (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseAdd @ 0x140215958 (RtlTraceDatabaseAdd.c)
  * Callees:
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlpTraceDatabaseAllocate @ 0x140215EC8 (RtlpTraceDatabaseAllocate.c)
- *     RtlpTraceDatabaseInternalFind @ 0x140216090 (RtlpTraceDatabaseInternalFind.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlpTraceDatabaseAllocate @ 0x140215CF4 (RtlpTraceDatabaseAllocate.c)
+ *     RtlpTraceDatabaseInternalFind @ 0x140215EBC (RtlpTraceDatabaseInternalFind.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const void *a3, _QWORD *a4)

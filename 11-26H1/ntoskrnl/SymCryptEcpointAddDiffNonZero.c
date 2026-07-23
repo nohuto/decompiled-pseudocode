@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptEcpointAddDiffNonZero @ 0x140567F3C
+ * XREFs of SymCryptEcpointAddDiffNonZero @ 0x1405670F0
  * Callers:
- *     SymCryptEcpointScalarMulFixedWindow @ 0x140563C20 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptPrecomputation @ 0x14056426C (SymCryptPrecomputation.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140566010 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptPrecomputation @ 0x14056665C (SymCryptPrecomputation.c)
  * Callees:
  *     <none>
  */

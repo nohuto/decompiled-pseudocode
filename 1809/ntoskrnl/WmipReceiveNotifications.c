@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipReceiveNotifications @ 0x140124A08
+ * XREFs of WmipReceiveNotifications @ 0x140124AD8
  * Callers:
- *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406AB080 (WmipIoControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     WmipCompleteGuidIrpWithError @ 0x14010BCB8 (WmipCompleteGuidIrpWithError.c)
- *     WmipClearIrpObjectList @ 0x14010C26C (WmipClearIrpObjectList.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     WmipCopyFromEventQueues @ 0x1406AA53C (WmipCopyFromEventQueues.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     WmipCompleteGuidIrpWithError @ 0x14010BD38 (WmipCompleteGuidIrpWithError.c)
+ *     WmipClearIrpObjectList @ 0x14010C2EC (WmipClearIrpObjectList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     WmipCopyFromEventQueues @ 0x1406AB7DC (WmipCopyFromEventQueues.c)
  */
 
 __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, int *a2, __int64 a3)

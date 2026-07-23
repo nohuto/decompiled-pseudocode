@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpEfiStartRuntimeCode @ 0x140472300
+ * XREFs of HalpEfiStartRuntimeCode @ 0x14046BA80
  * Callers:
- *     HalQueryEnvironmentVariableInfoEx @ 0x140471990 (HalQueryEnvironmentVariableInfoEx.c)
- *     HalEfiSetEnvironmentVariable @ 0x140471C74 (HalEfiSetEnvironmentVariable.c)
- *     HalGetEnvironmentVariableEx @ 0x140471D30 (HalGetEnvironmentVariableEx.c)
- *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x140471F00 (HalpEnumerateEnvironmentVariablesWithFilter.c)
- *     HalEfiGetTime @ 0x140533554 (HalEfiGetTime.c)
- *     HalEfiResetSystem @ 0x140586B0C (HalEfiResetSystem.c)
- *     HalEfiSetTime @ 0x140586BA8 (HalEfiSetTime.c)
- *     HalEfiUpdateCapsule @ 0x140586DE8 (HalEfiUpdateCapsule.c)
- *     HalpQueryCapsuleCapabilities @ 0x14059A7C0 (HalpQueryCapsuleCapabilities.c)
+ *     HalQueryEnvironmentVariableInfoEx @ 0x14046B110 (HalQueryEnvironmentVariableInfoEx.c)
+ *     HalEfiSetEnvironmentVariable @ 0x14046B3F4 (HalEfiSetEnvironmentVariable.c)
+ *     HalGetEnvironmentVariableEx @ 0x14046B4B0 (HalGetEnvironmentVariableEx.c)
+ *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x14046B680 (HalpEnumerateEnvironmentVariablesWithFilter.c)
+ *     HalEfiGetTime @ 0x1405359D4 (HalEfiGetTime.c)
+ *     HalEfiResetSystem @ 0x14058902C (HalEfiResetSystem.c)
+ *     HalEfiSetTime @ 0x1405890C8 (HalEfiSetTime.c)
+ *     HalEfiUpdateCapsule @ 0x140589308 (HalEfiUpdateCapsule.c)
+ *     HalpQueryCapsuleCapabilities @ 0x14059CF40 (HalpQueryCapsuleCapabilities.c)
  * Callees:
  *     <none>
  */

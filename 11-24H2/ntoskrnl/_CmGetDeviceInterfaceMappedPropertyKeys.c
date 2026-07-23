@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408B640C
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408B3D7C
  * Callers:
- *     _CmDeleteDeviceInterfaceWorker @ 0x140818798 (_CmDeleteDeviceInterfaceWorker.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x140818ED8 (_CmDeleteDeviceInterfaceWorker.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1408B6638 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B6960 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1408B3FA8 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B42D0 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyKeys(
@@ -41,7 +41,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyKeys(
   *v7 = 0;
   for ( i = 0; i < 3; ++i )
   {
-    v13 = (__int64)*(&off_140B3B400 + 2 * i);
+    v13 = (__int64)*(&off_140B3D1B0 + 2 * i);
     if ( v13 )
     {
       if ( a4
@@ -49,7 +49,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyKeys(
                                                           a1,
                                                           a2,
                                                           a3,
-                                                          (unsigned int)*(&off_140B3B400 + 2 * i),
+                                                          (unsigned int)*(&off_140B3D1B0 + 2 * i),
                                                           (__int64)&a7,
                                                           0LL,
                                                           0,
@@ -92,13 +92,13 @@ LABEL_13:
   {
     for ( j = 0; j < 4; ++j )
     {
-      v20 = (__int64)*(&off_140B3BC30 + 2 * j);
+      v20 = (__int64)*(&off_140B3DA10 + 2 * j);
       if ( a4
         || (DeviceInterfaceMappedPropertyFromComposite = CmGetDeviceInterfaceMappedPropertyFromComposite(
                                                            a1,
                                                            a2,
                                                            a3,
-                                                           (unsigned int)*(&off_140B3BC30 + 2 * j),
+                                                           (unsigned int)*(&off_140B3DA10 + 2 * j),
                                                            (__int64)&a7,
                                                            0LL,
                                                            0,

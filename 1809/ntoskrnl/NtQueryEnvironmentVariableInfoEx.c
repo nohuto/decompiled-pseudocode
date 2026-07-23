@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryEnvironmentVariableInfoEx @ 0x1408D4ED0
+ * XREFs of NtQueryEnvironmentVariableInfoEx @ 0x1408D6190
  * Callers:
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IoQueryEnvironmentVariableInfoEx @ 0x140821474 (IoQueryEnvironmentVariableInfoEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IoQueryEnvironmentVariableInfoEx @ 0x140822674 (IoQueryEnvironmentVariableInfoEx.c)
  */
 
 __int64 __fastcall NtQueryEnvironmentVariableInfoEx(
@@ -18,7 +18,7 @@ __int64 __fastcall NtQueryEnvironmentVariableInfoEx(
   struct _KTHREAD *CurrentThread; // rax
   unsigned int EnvironmentVariableInfo; // ebx
 
-  if ( dword_140409D90 != 2 )
+  if ( dword_14040ADF0 != 2 )
     return 3221225474LL;
   if ( KeGetCurrentThread()->PreviousMode )
     return 3221225569LL;

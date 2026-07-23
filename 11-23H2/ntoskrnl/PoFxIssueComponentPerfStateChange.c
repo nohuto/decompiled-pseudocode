@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxIssueComponentPerfStateChange @ 0x140587ED0
+ * XREFs of PoFxIssueComponentPerfStateChange @ 0x1405883C0
  * Callers:
  *     <none>
  * Callees:
- *     PoFxIssueComponentPerfStateChangeMultiple @ 0x140587F00 (PoFxIssueComponentPerfStateChangeMultiple.c)
+ *     PoFxIssueComponentPerfStateChangeMultiple @ 0x1405883F0 (PoFxIssueComponentPerfStateChangeMultiple.c)
  */
 
 __int64 __fastcall PoFxIssueComponentPerfStateChange(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

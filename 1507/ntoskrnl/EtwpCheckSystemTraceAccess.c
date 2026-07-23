@@ -13,5 +13,5 @@ __int64 __fastcall EtwpCheckSystemTraceAccess(__int64 a1, ACCESS_MASK a2)
   if ( (*(_DWORD *)(a1 + 832) & 0x20) != 0 )
     return EtwpCheckLoggerControlAccess(a2, a1);
   else
-    return EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, a2, 0LL);
+    return EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, a2, 0LL);
 }

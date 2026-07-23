@@ -15,7 +15,7 @@ __int64 __fastcall ExpQueryModuleInformationImage(__int64 a1, __int64 a2)
   NTSTATUS v7; // eax
   char *v8; // rax
   __int64 result; // rax
-  STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
 
   DestinationString = 0LL;
   v3 = *(_QWORD *)(a2 + 8);

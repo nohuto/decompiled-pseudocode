@@ -1,22 +1,22 @@
 /*
- * XREFs of CcGetDirtyPagesHelper @ 0x1402AA740
+ * XREFs of CcGetDirtyPagesHelper @ 0x140274DD0
  * Callers:
- *     CcGetDirtyPages @ 0x140471FC0 (CcGetDirtyPages.c)
+ *     CcGetDirtyPages @ 0x14021ABB0 (CcGetDirtyPages.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14024109C (CcReferenceSharedCacheMapFileObject.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcIncrementOpenCount @ 0x1402AAADC (CcIncrementOpenCount.c)
- *     CcDecrementOpenCountDeferDelete @ 0x1402AAAF8 (CcDecrementOpenCountDeferDelete.c)
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402091EC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcIncrementOpenCount @ 0x14027516C (CcIncrementOpenCount.c)
+ *     CcDecrementOpenCountDeferDelete @ 0x140275188 (CcDecrementOpenCountDeferDelete.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall CcGetDirtyPagesHelper(__int64 a1, __int64 a2, __int64 *a3)
@@ -138,7 +138,7 @@ char __fastcall CcGetDirtyPagesHelper(__int64 a1, __int64 a2, __int64 *a3)
       {
         v19 = _InterlockedExchange64(v17, (__int64)&LockHandle);
         if ( v19 )
-          KxWaitForLockOwnerShip(&LockHandle);
+          KxWaitForLockOwnerShip(&LockHandle, v19);
       }
       else
       {

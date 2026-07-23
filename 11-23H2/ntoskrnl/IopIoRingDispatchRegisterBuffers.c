@@ -1,16 +1,16 @@
 /*
- * XREFs of IopIoRingDispatchRegisterBuffers @ 0x140949590
+ * XREFs of IopIoRingDispatchRegisterBuffers @ 0x140949790
  * Callers:
- *     IopProcessIoRingEntry @ 0x140949F78 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x14094A178 (IopProcessIoRingEntry.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IopExceptionFilter @ 0x1405554E8 (IopExceptionFilter.c)
- *     IopCompleteIoRingEntry @ 0x14055935C (IopCompleteIoRingEntry.c)
- *     IopMcCreateBufferEntry @ 0x14055ED38 (IopMcCreateBufferEntry.c)
- *     IopMcWaitAndCleanupBufferEntry @ 0x14055F468 (IopMcWaitAndCleanupBufferEntry.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     IopIoRingCleanupRegBufferArray @ 0x140949224 (IopIoRingCleanupRegBufferArray.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopExceptionFilter @ 0x140555BA8 (IopExceptionFilter.c)
+ *     IopCompleteIoRingEntry @ 0x140559A1C (IopCompleteIoRingEntry.c)
+ *     IopMcCreateBufferEntry @ 0x14055F3F8 (IopMcCreateBufferEntry.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x14055FB28 (IopMcWaitAndCleanupBufferEntry.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x140949424 (IopIoRingCleanupRegBufferArray.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

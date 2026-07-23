@@ -1,9 +1,9 @@
 /*
- * XREFs of SepFreePrimaryGroup @ 0x1409C98F8
+ * XREFs of SepFreePrimaryGroup @ 0x1409C9AF8
  * Callers:
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall SepFreePrimaryGroup(__int64 a1)

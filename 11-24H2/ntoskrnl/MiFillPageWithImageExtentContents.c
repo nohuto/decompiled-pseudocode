@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFillPageWithImageExtentContents @ 0x14067ACF4
+ * XREFs of MiFillPageWithImageExtentContents @ 0x14067BED4
  * Callers:
- *     MiCopyImageExtentContents @ 0x1404CC4F4 (MiCopyImageExtentContents.c)
- *     MiCopyFromDirectMapExtent @ 0x1407F0094 (MiCopyFromDirectMapExtent.c)
+ *     MiCopyImageExtentContents @ 0x1404C5964 (MiCopyImageExtentContents.c)
+ *     MiCopyFromDirectMapExtent @ 0x1407F0664 (MiCopyFromDirectMapExtent.c)
  * Callees:
- *     MiGetPteMappingSet @ 0x14020CA90 (MiGetPteMappingSet.c)
- *     MiReturnPteMappingSet @ 0x140225EF0 (MiReturnPteMappingSet.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiReturnPteMappingSet @ 0x1402532A0 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x140335DF0 (MiGetPteMappingSet.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 struct _KPRCB *__fastcall MiFillPageWithImageExtentContents(
@@ -56,7 +56,7 @@ struct _KPRCB *__fastcall MiFillPageWithImageExtentContents(
   ValidPte = MiMakeValidPte(v31, a2, -1610612732);
   v11 = ValidPte;
   if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && (unsigned __int64)v9 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v9, ValidPte, 128);
+    MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v9, ValidPte, 128LL);
   *v9 = v11;
   v12 = 0;
   v13 = a3 >> 12;
@@ -85,7 +85,7 @@ struct _KPRCB *__fastcall MiFillPageWithImageExtentContents(
   v19 = MiMakeValidPte(v18, v28, 536870913);
   v20 = v19;
   if ( (MiFlags & 0x1000000000LL) != 0 && (v19 & 0x20) == 0 && v18 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit(v18, v19, 128);
+    MiCheckLinearProtectedPteAccessedBit(v18, v19, 128LL);
   *(_QWORD *)v18 = v20;
   v21 = (const void *)((v27 & 0xFFF) + ((__int64)(v18 << 25) >> 16));
   v22 = (ULONG_PTR *)(v18 + 8);
@@ -103,12 +103,12 @@ struct _KPRCB *__fastcall MiFillPageWithImageExtentContents(
     }
     v24 = v23 ^ (v20 ^ v23) & 0xFFF0000000000FFFuLL;
     if ( (MiFlags & 0x1000000000LL) != 0 && (v20 & 0x20) == 0 && (unsigned __int64)v22 >= 0xFFFFF6C000000000uLL )
-      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v22, v24, 128);
+      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v22, v24, 128LL);
     *v22 = v24;
   }
   memmove((void *)v29, v21, BugCheckParameter4);
   if ( (_DWORD)BugCheckParameter4 != 4096 )
-    memmove((void *)(BugCheckParameter4 + v29), qword_140E37360, (unsigned int)(4096 - BugCheckParameter4));
+    memmove((void *)(BugCheckParameter4 + v29), qword_140E374A0, (unsigned int)(4096 - BugCheckParameter4));
   v25 = (v33 > 0x1000) + 2LL;
   do
   {

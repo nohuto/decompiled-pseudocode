@@ -1,11 +1,11 @@
 /*
- * XREFs of IoVerifierInit @ 0x1409237D8
+ * XREFs of IoVerifierInit @ 0x1409247D8
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
- *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409275A0 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitBootDriversLoaded @ 0x1409B8610 (VfInitBootDriversLoaded.c)
  * Callees:
- *     IopUpdateFunctionPointers @ 0x14027F484 (IopUpdateFunctionPointers.c)
- *     IoVerifierCheckForSettingsChange @ 0x140923740 (IoVerifierCheckForSettingsChange.c)
+ *     IopUpdateFunctionPointers @ 0x14027F674 (IopUpdateFunctionPointers.c)
+ *     IoVerifierCheckForSettingsChange @ 0x140924740 (IoVerifierCheckForSettingsChange.c)
  */
 
 __int64 __fastcall IoVerifierInit(char a1)

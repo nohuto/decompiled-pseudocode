@@ -1,19 +1,19 @@
 /*
- * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x140223020
+ * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x1402249B0
  * Callers:
- *     KeTerminateThread @ 0x140203388 (KeTerminateThread.c)
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
- *     KiPriQueueThreadPriorityChanged @ 0x140237B90 (KiPriQueueThreadPriorityChanged.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
+ *     KeTerminateThread @ 0x140203468 (KeTerminateThread.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1402394F0 (KiPriQueueThreadPriorityChanged.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiWakePriQueueWaiter @ 0x140380910 (KiWakePriQueueWaiter.c)
- *     KiAttemptFastRemovePriQueue @ 0x1403F68C0 (KiAttemptFastRemovePriQueue.c)
- *     KiActivateWaiterKQueue @ 0x1403F69C0 (KiActivateWaiterKQueue.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiWakePriQueueWaiter @ 0x1403826C0 (KiWakePriQueueWaiter.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1403F0270 (KiAttemptFastRemovePriQueue.c)
+ *     KiActivateWaiterKQueue @ 0x1403F0370 (KiActivateWaiterKQueue.c)
  */
 
 __int64 __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3)
@@ -32,7 +32,7 @@ __int64 __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64
   unsigned int v16; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = (_DWORD *)((char *)&KiObjectRundownLocks + 64 * ((a2 >> 4) & 0x3F));
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v5);
     LODWORD(result) = *v5 & 0x7FFFFFFF;
@@ -66,8 +66,7 @@ __int64 __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64
       v8 = 0LL;
     }
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-    || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
   {
     _InterlockedAnd(v5, 0xBFFFFFFF);
     _InterlockedDecrement(v5);

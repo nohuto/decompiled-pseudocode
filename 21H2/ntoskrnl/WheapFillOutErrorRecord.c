@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapFillOutErrorRecord @ 0x1405BBA2C
+ * XREFs of WheapFillOutErrorRecord @ 0x1405BBC5C
  * Callers:
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x1403BAF90 (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BB100 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapFillOutErrorRecord(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)

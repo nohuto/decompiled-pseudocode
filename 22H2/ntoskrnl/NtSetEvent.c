@@ -9,12 +9,12 @@
  *     ExpSetCrossVmEvent @ 0x14095CA84 (ExpSetCrossVmEvent.c)
  */
 
-__int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
+NTSTATUS __cdecl NtSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v5; // rcx
   NTSTATUS v6; // eax
-  NTSTATUS v7; // ebx
+  int v7; // ebx
   struct _KEVENT *v8; // rdi
   LONG v9; // eax
   PVOID v11; // [rsp+30h] [rbp-38h] BYREF
@@ -24,15 +24,15 @@ __int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
 
   v13 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( PreviousState && PreviousMode )
   {
-    v5 = (__int64)a2;
-    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+    v5 = (__int64)PreviousState;
+    if ( (unsigned __int64)PreviousState >= 0x7FFFFFFF0000LL )
       v5 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+  v6 = ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
   v7 = v6;
   v8 = (struct _KEVENT *)Object;
   v12 = Object;
@@ -44,7 +44,7 @@ __int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
       if ( ExCrossVmEventObjectType )
       {
         v11 = 0LL;
-        v7 = ObReferenceObjectByHandle(Handle, 2u, ExCrossVmEventObjectType, PreviousMode, &v11, 0LL);
+        v7 = ObReferenceObjectByHandle(EventHandle, 2u, ExCrossVmEventObjectType, PreviousMode, &v11, 0LL);
         v8 = (struct _KEVENT *)v11;
         v12 = v11;
         LODWORD(Object) = v7;
@@ -62,9 +62,9 @@ __int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
     v9 = KeSetEvent(v8, 1, 0);
     v13 = v9;
   }
-  if ( v7 >= 0 && a2 )
-    *a2 = v9;
+  if ( v7 >= 0 && PreviousState )
+    *PreviousState = v9;
   if ( v8 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v8);
-  return (unsigned int)v7;
+  return v7;
 }

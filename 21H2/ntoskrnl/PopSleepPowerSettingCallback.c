@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepPowerSettingCallback @ 0x140792200
+ * XREFs of PopSleepPowerSettingCallback @ 0x1407937B0
  * Callers:
  *     <none>
  * Callees:
- *     PopInitSIdle @ 0x14078CAA8 (PopInitSIdle.c)
- *     PopApplyPolicy @ 0x1407929CC (PopApplyPolicy.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopInitSIdle @ 0x14078CC68 (PopInitSIdle.c)
+ *     PopApplyPolicy @ 0x140793F7C (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
@@ -118,7 +118,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
     v23 = *(_QWORD *)GUID_HIBERNATE_FASTS4_POLICY.Data4 - a1[1];
   if ( !v23 && a3 == 4 && a2 )
   {
-    byte_140C23E9C = *a2 == 0;
+    byte_140C2333C = *a2 == 0;
     v6 = 0;
   }
   v24 = *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 - *a1;
@@ -126,7 +126,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
     v24 = *(_QWORD *)GUID_ALLOW_STANDBY_STATES.Data4 - a1[1];
   if ( !v24 && a3 == 4 && a2 )
   {
-    byte_140C23E9D = *a2 == 0;
+    byte_140C2333D = *a2 == 0;
     v6 = 0;
   }
   v25 = *(_QWORD *)&GUID_UNATTEND_SLEEP_TIMEOUT.Data1 - *a1;
@@ -134,7 +134,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
     v25 = *(_QWORD *)GUID_UNATTEND_SLEEP_TIMEOUT.Data4 - a1[1];
   if ( !v25 && a3 == 4 && a2 )
   {
-    dword_140C23EA0 = *a2;
+    dword_140C23340 = *a2;
     PopInitSIdle(3u);
     v6 = 0;
   }

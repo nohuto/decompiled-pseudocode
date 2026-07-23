@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlSplay @ 0x1402496A0
+ * XREFs of RtlSplay @ 0x1402E38E0
  * Callers:
- *     FsRtlCheckNoExclusiveConflict @ 0x1402479FC (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x140247B34 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     RtlEnumerateGenericTable @ 0x1402483A0 (RtlEnumerateGenericTable.c)
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140248CD8 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140248EE0 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     RtlInsertElementGenericTable @ 0x1402492A0 (RtlInsertElementGenericTable.c)
- *     RtlInsertElementGenericTableFull @ 0x140249420 (RtlInsertElementGenericTableFull.c)
- *     RtlLookupElementGenericTableFull @ 0x140249550 (RtlLookupElementGenericTableFull.c)
- *     RtlLookupElementGenericTable @ 0x140249620 (RtlLookupElementGenericTable.c)
- *     RtlDelete @ 0x14024A8A0 (RtlDelete.c)
- *     FsRtlCheckNoSharedConflict @ 0x14024B1C0 (FsRtlCheckNoSharedConflict.c)
- *     PfxFindPrefix @ 0x14077F610 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x14077F710 (PfxInsertPrefix.c)
- *     RtlInsertUnicodePrefix @ 0x14098B7D0 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x14098B950 (RtlFindUnicodePrefix.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14027B7D0 (FsRtlCheckNoSharedConflict.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x1402E1DD0 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1402E1F08 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     RtlEnumerateGenericTable @ 0x1402E25E0 (RtlEnumerateGenericTable.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402E2F18 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402E3120 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     RtlInsertElementGenericTable @ 0x1402E34E0 (RtlInsertElementGenericTable.c)
+ *     RtlInsertElementGenericTableFull @ 0x1402E3660 (RtlInsertElementGenericTableFull.c)
+ *     RtlLookupElementGenericTableFull @ 0x1402E3790 (RtlLookupElementGenericTableFull.c)
+ *     RtlLookupElementGenericTable @ 0x1402E3860 (RtlLookupElementGenericTable.c)
+ *     RtlDelete @ 0x1402E4AE0 (RtlDelete.c)
+ *     PfxFindPrefix @ 0x14077F540 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x14077F640 (PfxInsertPrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x140975DE0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x140975F60 (RtlFindUnicodePrefix.c)
  * Callees:
  *     <none>
  */
@@ -24,7 +24,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlSplay(PRTL_SPLAY_LINKS Links)
 {
   _RTL_SPLAY_LINKS *i; // rax
-  RTL_SPLAY_LINKS *LeftChild; // r8
+  _RTL_SPLAY_LINKS *LeftChild; // r8
   _RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *v5; // r8
   _RTL_SPLAY_LINKS *v6; // r8

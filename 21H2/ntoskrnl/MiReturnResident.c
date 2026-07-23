@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReturnResident @ 0x140296E9C
+ * XREFs of MiReturnResident @ 0x140273F7C
  * Callers:
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
- *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
- *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiRemoveVadCharges @ 0x1406ED1F0 (MiRemoveVadCharges.c)
- *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
- *     MiFreeInitializationCode @ 0x14075EC6C (MiFreeInitializationCode.c)
- *     MiReturnSystemImageCommitment @ 0x140773240 (MiReturnSystemImageCommitment.c)
- *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
- *     MiMarkBootGuardPage @ 0x14079F9BC (MiMarkBootGuardPage.c)
- *     MmReturnChargesToLockPagedPool @ 0x1408C84E0 (MmReturnChargesToLockPagedPool.c)
- *     MiChargeLargeProtoSubsection @ 0x1408CFC70 (MiChargeLargeProtoSubsection.c)
- *     MiFreePartitionPhysicalPages @ 0x1408DB0F0 (MiFreePartitionPhysicalPages.c)
+ *     MmDeleteProcessAddressSpace @ 0x14067C848 (MmDeleteProcessAddressSpace.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     MmCreateProcessAddressSpace @ 0x1406A77C4 (MmCreateProcessAddressSpace.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
+ *     MmCleanProcessAddressSpace @ 0x14070262C (MmCleanProcessAddressSpace.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiRemoveVadCharges @ 0x1407045D0 (MiRemoveVadCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x140704770 (MiReleaseVadEventBlocks.c)
+ *     MiFreeInitializationCode @ 0x14075EE2C (MiFreeInitializationCode.c)
+ *     MiReturnSystemImageCommitment @ 0x140773400 (MiReturnSystemImageCommitment.c)
+ *     MiDereferenceSessionFinal @ 0x1407784E0 (MiDereferenceSessionFinal.c)
+ *     MiMarkBootGuardPage @ 0x14079FBBC (MiMarkBootGuardPage.c)
+ *     MmReturnChargesToLockPagedPool @ 0x1408C8640 (MmReturnChargesToLockPagedPool.c)
+ *     MiChargeLargeProtoSubsection @ 0x1408CFDD0 (MiChargeLargeProtoSubsection.c)
+ *     MiFreePartitionPhysicalPages @ 0x1408DB250 (MiFreePartitionPhysicalPages.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerInitializeVpptClockTimer @ 0x1403869FC
+ * XREFs of HalpTimerInitializeVpptClockTimer @ 0x140386B4C
  * Callers:
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpVpptInitializePhysicalTimer @ 0x1404C0AA4 (HalpVpptInitializePhysicalTimer.c)
+ *     HalpVpptInitializePhysicalTimer @ 0x1404C0CE4 (HalpVpptInitializePhysicalTimer.c)
  */
 
 __int64 HalpTimerInitializeVpptClockTimer()

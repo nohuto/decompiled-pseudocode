@@ -18,96 +18,107 @@
  *     RtlFreeAnsiString @ 0x140445624 (RtlFreeAnsiString.c)
  */
 
-__int64 __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, void *a2, unsigned int a3, void *a4)
+NTSTATUS __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, void *a2, unsigned int a3, void *a4)
 {
-  unsigned int v5; // r13d
-  struct _KPROCESS *v6; // r15
-  PVOID v7; // r14
-  __int64 result; // rax
-  unsigned int v9; // ebx
-  NTSTATUS v10; // eax
-  char *v11; // rdi
-  struct _OBJECT_TYPE *v12; // rax
+  HANDLE *v5; // rsi
+  unsigned int v6; // r13d
+  struct _KPROCESS *v7; // r15
+  PVOID v8; // r14
+  NTSTATUS result; // eax
+  NTSTATUS v10; // ebx
+  char v11; // r12
+  NTSTATUS v12; // eax
+  char *v13; // rdi
+  struct _OBJECT_TYPE *v14; // rax
   int NameString; // eax
-  char *v14; // rdi
-  unsigned int v15; // edi
-  PULONG v16; // rsi
-  PULONG v17; // rdi
-  PULONG v18; // rbx
-  PULONG v19; // rax
-  HANDLE *v20; // rsi
-  ULONG Object; // [rsp+20h] [rbp-E0h]
-  ULONG HandleInformation; // [rsp+28h] [rbp-D8h]
-  ULONG v23; // [rsp+30h] [rbp-D0h]
+  char *v16; // rdi
+  unsigned int v17; // edi
+  PULONG v18; // rsi
+  PULONG v19; // rdi
+  PULONG v20; // rbx
+  PULONG v21; // rax
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+44h] [rbp-BCh] BYREF
+  unsigned int v23; // [rsp+48h] [rbp-B8h]
   PVOID P; // [rsp+50h] [rbp-B0h] BYREF
-  PVOID v26; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v27; // [rsp+60h] [rbp-A0h]
+  PVOID Object; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v26; // [rsp+60h] [rbp-A0h]
   UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING String2; // [rsp+88h] [rbp-78h] BYREF
   wchar_t SourceString[256]; // [rsp+A0h] [rbp-60h] BYREF
   wchar_t pszDest[256]; // [rsp+2A0h] [rbp+1A0h] BYREF
 
-  v27 = a1;
-  v26 = a4;
+  v26 = a1;
+  Object = a4;
+  v23 = a3;
+  AppContainerSidType = NotAppContainerSidType;
   P = 0LL;
+  v5 = (HANDLE *)a4;
   DestinationString.Length = 0;
-  v5 = 0;
+  v6 = 0;
   *(_QWORD *)&DestinationString.MaximumLength = 0LL;
-  v6 = 0LL;
-  *(_DWORD *)((char *)&DestinationString.Buffer + 2) = 0;
   v7 = 0LL;
+  *(_DWORD *)((char *)&DestinationString.Buffer + 2) = 0;
+  v8 = 0LL;
   HIWORD(DestinationString.Buffer) = 0;
   UnicodeString.Length = 0;
   *(_QWORD *)&UnicodeString.MaximumLength = 0LL;
   *(_DWORD *)((char *)&UnicodeString.Buffer + 2) = 0;
   HIWORD(UnicodeString.Buffer) = 0;
-  result = RtlGetAppContainerSidType(a2);
-  if ( (int)result < 0 )
+  result = RtlGetAppContainerSidType(a2, &AppContainerSidType);
+  if ( result < 0 )
     return result;
-  v16 = RtlSubAuthoritySid(a2, 0xBu);
-  v17 = RtlSubAuthoritySid(a2, 0xAu);
-  v18 = RtlSubAuthoritySid(a2, 9u);
-  v19 = RtlSubAuthoritySid(a2, 8u);
-  v23 = *v16;
-  HandleInformation = *v17;
-  Object = *v18;
-  RtlStringCchPrintfW(SourceString, 0x100uLL, L"%u-%u-%u-%u", *v19, Object, HandleInformation, v23);
-  RtlInitUnicodeString(&UnicodeString, SourceString);
-  v20 = (HANDLE *)v26;
-  v9 = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v27);
-  if ( (v9 & 0x80000000) != 0 )
-    return v9;
+  if ( AppContainerSidType == ParentAppContainerSidType )
+  {
+    v10 = RtlConvertSidToUnicodeString(&UnicodeString, a2, 1u);
+    if ( v10 < 0 )
+      return v10;
+    v11 = 1;
+  }
+  else
+  {
+    v18 = RtlSubAuthoritySid(a2, 0xBu);
+    v19 = RtlSubAuthoritySid(a2, 0xAu);
+    v20 = RtlSubAuthoritySid(a2, 9u);
+    v21 = RtlSubAuthoritySid(a2, 8u);
+    RtlStringCchPrintfW(SourceString, 0x100uLL, L"%u-%u-%u-%u", *v21, *v20, *v19, *v18);
+    RtlInitUnicodeString(&UnicodeString, SourceString);
+    v5 = (HANDLE *)Object;
+    v11 = 0;
+  }
+  v10 = RtlStringCchPrintfW(pszDest, 0x100uLL, L"\\Sessions\\%d", v26);
+  if ( v10 < 0 )
+    goto LABEL_31;
   RtlInitUnicodeString(&DestinationString, pszDest);
-  if ( !a3 )
-    return v9;
+  if ( !v23 )
+    goto LABEL_31;
   while ( 1 )
   {
-    if ( v6 )
-      ObfDereferenceObject(v6);
-    v10 = ObReferenceObjectByHandle(*v20, 0, 0LL, 0, &v26, 0LL);
-    v6 = (struct _KPROCESS *)v26;
-    v9 = v10;
-    if ( v10 < 0 )
-      goto LABEL_23;
-    v11 = (char *)v26 - 48;
-    v12 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)v26 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v26 - 48) >> 8)];
-    if ( v12 != ObpSymbolicLinkObjectType
-      && v12 != ObpDirectoryObjectType
-      && (v12 != (struct _OBJECT_TYPE *)IoFileObjectType || *(_DWORD *)(*((_QWORD *)v26 + 1) + 72LL) != 17) )
+    if ( v7 )
+      ObfDereferenceObject(v7);
+    v12 = ObReferenceObjectByHandle(*v5, 0, 0LL, 0, &Object, 0LL);
+    v7 = (struct _KPROCESS *)Object;
+    v10 = v12;
+    if ( v12 < 0 )
+      goto LABEL_26;
+    v13 = (char *)Object - 48;
+    v14 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
+    if ( v14 != ObpSymbolicLinkObjectType
+      && v14 != ObpDirectoryObjectType
+      && (v14 != (struct _OBJECT_TYPE *)IoFileObjectType || *(_DWORD *)(*((_QWORD *)Object + 1) + 72LL) != 17) )
     {
       break;
     }
-    if ( v7 )
+    if ( v8 )
     {
-      ExFreePoolWithTag(v7, 0);
+      ExFreePoolWithTag(v8, 0);
       P = 0LL;
     }
-    NameString = SepQueryNameString(v6, (PUNICODE_STRING *)&P);
-    v7 = P;
-    v9 = NameString;
+    NameString = SepQueryNameString(v7, (PUNICODE_STRING *)&P);
+    v8 = P;
+    v10 = NameString;
     if ( NameString < 0 )
-      goto LABEL_24;
+      goto LABEL_27;
     if ( !P || !*((_WORD *)P + 1) )
       break;
     String2 = *(UNICODE_STRING *)P;
@@ -115,32 +126,35 @@ __int64 __fastcall SepValidateReferencedLowBoxHandles(unsigned int a1, void *a2,
     {
       if ( !RtlPrefixUnicodeString(&DestinationString, &String2, 1u) )
         break;
-      v14 = (v11[26] & 2) != 0 ? &v11[-ObpInfoMaskToOffset[v11[26] & 3]] : 0LL;
-      if ( !v14 || !*((_WORD *)v14 + 5) )
+      v16 = (v13[26] & 2) != 0 ? &v13[-ObpInfoMaskToOffset[v13[26] & 3]] : 0LL;
+      if ( !v16 || !*((_WORD *)v16 + 5) )
         break;
-      String2 = *(UNICODE_STRING *)(v14 + 8);
-      v15 = 0;
+      String2 = *(UNICODE_STRING *)(v16 + 8);
+      v17 = 0;
       if ( RtlCompareUnicodeString(&String2, &UnicodeString, 1u) )
       {
-        while ( RtlCompareUnicodeString(&String2, (PCUNICODE_STRING)&AppContainerObjectNames + v15, 1u) )
+        while ( RtlCompareUnicodeString(&String2, (PCUNICODE_STRING)&AppContainerObjectNames + v17, 1u) )
         {
-          if ( ++v15 >= 4 )
-            goto LABEL_35;
+          if ( ++v17 >= 4 )
+            goto LABEL_41;
         }
       }
     }
-LABEL_23:
+LABEL_26:
+    ++v6;
     ++v5;
-    ++v20;
-    if ( v5 >= a3 )
-      goto LABEL_24;
+    if ( v6 >= v23 )
+      goto LABEL_27;
   }
-LABEL_35:
-  v9 = -1073741811;
-LABEL_24:
+LABEL_41:
+  v10 = -1073741811;
+LABEL_27:
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
   if ( v7 )
-    ExFreePoolWithTag(v7, 0);
-  if ( v6 )
-    ObfDereferenceObject(v6);
-  return v9;
+    ObfDereferenceObject(v7);
+LABEL_31:
+  if ( v11 )
+    RtlFreeAnsiString(&UnicodeString);
+  return v10;
 }

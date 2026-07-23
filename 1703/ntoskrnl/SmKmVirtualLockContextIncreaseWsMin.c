@@ -28,7 +28,7 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParamet
   struct _KTHREAD *v13; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v15; // r12
-  __int64 v16; // r8
+  unsigned int v16; // r8d
   int v17; // eax
   __int64 v18; // rcx
   _KLOCK_ENTRY *v19; // rdi
@@ -96,7 +96,7 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParamet
     SessionId = 0xFFFFFFFFLL;
   --v13->SpecialApcDisable;
   v15 = ++v13->AbAllocationRegionCount;
-  LODWORD(v16) = ((char)v13->AbEntrySummary | (char)v13->AbOrphanedEntrySummary) ^ 0x3F;
+  v16 = ((char)v13->AbEntrySummary | (char)v13->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v20 = !_BitScanReverse((unsigned int *)&v21, v16);
@@ -106,7 +106,7 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParamet
     v17 = 1 << v21;
     v18 = v21;
     v19 = &v13->LockEntries[v18];
-    v16 = ~v17 & (unsigned int)v16;
+    v16 &= ~v17;
     if ( (v19->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v19->LockState.0 & 1) == 0
       && (*(_QWORD *)&v19->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
@@ -126,7 +126,7 @@ LABEL_26:
   }
   v19->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v19->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v13->LockEntries[v18], SessionId, v16);
+    KiAbEntryRemoveFromTree(&v13->LockEntries[v18].TreeNode, SessionId);
   v33 = 0;
   v33 = v19->BoostBitmap.AllFields & 0x1FFFF;
   v19->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpStopLoggerInstance @ 0x1406C0144
+ * XREFs of EtwpStopLoggerInstance @ 0x14061F054
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
- *     EtwpStopTrace @ 0x1406DDFBC (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
+ *     EtwpStopTrace @ 0x1406B529C (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
- *     ExCancelTimer @ 0x14027F890 (ExCancelTimer.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     EtwpStackRundown @ 0x1405ADB28 (EtwpStackRundown.c)
- *     EtwpDisableTraceProviders @ 0x1406E0F28 (EtwpDisableTraceProviders.c)
- *     EtwpSendSessionNotification @ 0x1406E14E8 (EtwpSendSessionNotification.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x14079705C (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpLogPmcCounterRundown @ 0x14093DCB8 (EtwpLogPmcCounterRundown.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     ExCancelTimer @ 0x14026DAD0 (ExCancelTimer.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     EtwpStackRundown @ 0x1405ADD58 (EtwpStackRundown.c)
+ *     EtwpDisableTraceProviders @ 0x1406B8208 (EtwpDisableTraceProviders.c)
+ *     EtwpSendSessionNotification @ 0x1406B87C8 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14079725C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpLogPmcCounterRundown @ 0x14093DE88 (EtwpLogPmcCounterRundown.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(unsigned __int64 a1)
@@ -26,9 +26,12 @@ __int64 __fastcall EtwpStopLoggerInstance(unsigned __int64 a1)
   unsigned int v4; // ebp
   struct _KTHREAD *CurrentThread; // rax
   __int64 v6; // rax
-  unsigned int v7; // eax
-  __int64 v9; // rax
-  ULONG_PTR v10; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  unsigned int v10; // eax
+  __int64 v12; // rax
+  ULONG_PTR v13; // rcx
 
   v1 = *(_QWORD *)(a1 + 1080);
   _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x40u);
@@ -58,28 +61,28 @@ __int64 __fastcall EtwpStopLoggerInstance(unsigned __int64 a1)
     *(_WORD *)(v1 + 2LL * v4 + 4048) = 0;
     *(_QWORD *)(v1 + 440) = 0LL;
     ExReleasePushLockEx(v1 + 432, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
   }
 LABEL_11:
   if ( (*(_DWORD *)(a1 + 12) & 0x400) == 0 )
   {
-    v7 = *(_DWORD *)(a1 + 832);
-    if ( (v7 & 0x800) != 0 )
+    v10 = *(_DWORD *)(a1 + 832);
+    if ( (v10 & 0x800) != 0 )
     {
       EtwpLogPmcCounterRundown(a1, *(unsigned int *)a1);
-      v7 = *(_DWORD *)(a1 + 832);
+      v10 = *(_DWORD *)(a1 + 832);
     }
-    if ( (v7 & 0x1000000) != 0 )
+    if ( (v10 & 0x1000000) != 0 )
       EtwpStackRundown(*(_QWORD *)(a1 + 992), v1, *(_DWORD *)a1);
   }
   if ( !_InterlockedExchange((volatile __int32 *)(a1 + 336), 0) )
     return 2147483685LL;
-  v9 = *(_QWORD *)(a1 + 1064);
-  if ( v9 )
+  v12 = *(_QWORD *)(a1 + 1064);
+  if ( v12 )
   {
-    v10 = *(_QWORD *)(v9 + 8);
-    if ( v10 )
-      ExCancelTimer(v10, 0LL);
+    v13 = *(_QWORD *)(v12 + 8);
+    if ( v13 )
+      ExCancelTimer(v13, 0LL);
   }
   *(_QWORD *)(*(_QWORD *)(v1 + 456) + 8LL * *(unsigned int *)a1) = a1 | 1;
   if ( ObGetCurrentIrql() > 2u )

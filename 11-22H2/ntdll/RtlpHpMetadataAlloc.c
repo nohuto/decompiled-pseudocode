@@ -24,7 +24,7 @@ __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2,
   __int64 v8; // rax
   char v9; // r8
   __int64 v10; // rbx
-  _QWORD *v11; // r14
+  PVOID *v11; // r14
   __int128 v14; // [rsp+30h] [rbp-18h] BYREF
 
   v14 = *a4;
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2,
   *(_QWORD *)&v14 = v4;
   v9 = BYTE1(v4);
   v10 = 0LL;
-  v11 = (_QWORD *)v8;
+  v11 = (PVOID *)v8;
   BYTE3(v14) = 0;
   *((_QWORD *)&v14 + 1) = 0LL;
   if ( BYTE1(v4) >= 3u )
@@ -43,13 +43,13 @@ __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2,
   {
     if ( a3 )
       return RtlpHpSegAlloc(
-               *v11 + 320LL + (*(unsigned int *)(*v11 + 336LL) < a1 ? 0xC0 : 0),
+               (__int64)*v11 + (*((unsigned int *)*v11 + 84) < a1 ? 0xC0 : 0) + 320,
                a1,
                a1,
                a2,
                a2 < a1 ? 83886080 : 0x1000000);
     else
-      return RtlpHpAllocateHeap(*v11, a1, 0x1000000LL, 0LL);
+      return RtlpHpAllocateHeap(*v11);
   }
   return v10;
 }

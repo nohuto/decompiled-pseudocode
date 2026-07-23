@@ -1,24 +1,20 @@
 /*
- * XREFs of CcPerfLogLoggedStreamsStats @ 0x1404A88EC
+ * XREFs of CcPerfLogLoggedStreamsStats @ 0x14040B154
  * Callers:
- *     CcLazyWriteScan @ 0x14043BAE8 (CcLazyWriteScan.c)
- *     CcLazyWriteScanVolume @ 0x1404B5560 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1402654C8 (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x1404AFE00 (CcLazyWriteScanVolume.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402CE230 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x1402CE360 (KeRcuReadLock.c)
- *     CcPerfLogVolumeLogHandleInfo @ 0x1404A8980 (CcPerfLogVolumeLogHandleInfo.c)
+ *     CcPerfLogVolumeLogHandleInfo @ 0x14040B1E8 (CcPerfLogVolumeLogHandleInfo.c)
+ *     KeRcuReadUnlock @ 0x14040C230 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x14040C360 (KeRcuReadLock.c)
  */
 
-void __fastcall CcPerfLogLoggedStreamsStats(__int64 a1, int a2)
+__int64 __fastcall CcPerfLogLoggedStreamsStats(int a1, int a2)
 {
-  int v3; // esi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
   __int64 *i; // rbx
+  __int64 v5; // rcx
 
-  v3 = a1;
-  KeRcuReadLock(a1);
+  KeRcuReadLock();
   for ( i = (__int64 *)CcVolumeCacheMapList; i != &CcVolumeCacheMapList; i = (__int64 *)*i )
   {
     if ( i[3] )
@@ -26,10 +22,10 @@ void __fastcall CcPerfLogLoggedStreamsStats(__int64 a1, int a2)
       v5 = i[19];
       if ( v5 )
       {
-        CcPerfLogVolumeLogHandleInfo(v5, v3, a2, i[17], i[6], i[9]);
+        CcPerfLogVolumeLogHandleInfo(v5, a1, a2, i[17], i[6], i[9]);
         i[19] = 0LL;
       }
     }
   }
-  KeRcuReadUnlock(v5, v4, v6);
+  return KeRcuReadUnlock();
 }

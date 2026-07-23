@@ -1,16 +1,16 @@
 /*
- * XREFs of CcWaitForUninitializeCacheMap @ 0x14034DFB4
+ * XREFs of CcWaitForUninitializeCacheMap @ 0x14034E154
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcWriteBehind @ 0x14029B558 (CcWriteBehind.c)
- *     CcFreeWorkQueueEntry @ 0x14029C390 (CcFreeWorkQueueEntry.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcWriteBehind @ 0x14029B7E8 (CcWriteBehind.c)
+ *     CcFreeWorkQueueEntry @ 0x14029C620 (CcFreeWorkQueueEntry.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CcWaitForUninitializeCacheMap(__int64 a1)
@@ -128,10 +128,13 @@ void __fastcall CcWaitForUninitializeCacheMap(__int64 a1)
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v36);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -179,10 +182,10 @@ LABEL_38:
           *(_DWORD *)(v17 + 152) &= ~0x10000u;
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v36);
           v20 = v36.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v21 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v36.OldIrql <= 0xFu && v21 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v36.OldIrql <= 0xFu && v21 >= 2u )
             {
               v22 = KeGetCurrentPrcb();
               v23 = v22->SchedulerAssist;
@@ -199,10 +202,10 @@ LABEL_38:
         {
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v36);
           v25 = v36.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v26 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v36.OldIrql <= 0xFu && v26 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v36.OldIrql <= 0xFu && v26 >= 2u )
             {
               v27 = KeGetCurrentPrcb();
               v28 = v27->SchedulerAssist;

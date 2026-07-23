@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwSetDriverEntryOrder @ 0x1409EBD70
+ * XREFs of VfZwSetDriverEntryOrder @ 0x1409ECD70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwSetDriverEntryOrder(ULONG_PTR BugCheckParameter3, unsigned int a2)

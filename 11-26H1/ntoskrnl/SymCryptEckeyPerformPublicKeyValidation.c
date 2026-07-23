@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptEckeyPerformPublicKeyValidation @ 0x14055B7B4
+ * XREFs of SymCryptEckeyPerformPublicKeyValidation @ 0x14055DC98
  * Callers:
- *     SymCryptEckeySetValue @ 0x14055B8D0 (SymCryptEckeySetValue.c)
+ *     SymCryptEckeySetValue @ 0x14055DDB4 (SymCryptEckeySetValue.c)
  * Callees:
- *     SymCryptIntFromModulus @ 0x14055C28C (SymCryptIntFromModulus.c)
- *     SymCryptIntIsEqualUint32 @ 0x14055C334 (SymCryptIntIsEqualUint32.c)
- *     SymCryptEcpointCreate @ 0x14056434C (SymCryptEcpointCreate.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x140564C8C (SymCryptSizeofEcpointFromCurve.c)
- *     SymCryptEcpointIsZero @ 0x140567FFC (SymCryptEcpointIsZero.c)
- *     SymCryptEcpointOnCurve @ 0x1405680C4 (SymCryptEcpointOnCurve.c)
- *     SymCryptEcpointScalarMul @ 0x1405680F0 (SymCryptEcpointScalarMul.c)
+ *     SymCryptIntFromModulus @ 0x14055E774 (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsEqualUint32 @ 0x14055E81C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptEcpointCreate @ 0x14056673C (SymCryptEcpointCreate.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x14056707C (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointIsZero @ 0x1405671B0 (SymCryptEcpointIsZero.c)
+ *     SymCryptEcpointOnCurve @ 0x140567278 (SymCryptEcpointOnCurve.c)
+ *     SymCryptEcpointScalarMul @ 0x1405672A4 (SymCryptEcpointScalarMul.c)
  */
 
 __int64 __fastcall SymCryptEckeyPerformPublicKeyValidation(__int64 a1, char a2, __int64 a3, __int64 a4)

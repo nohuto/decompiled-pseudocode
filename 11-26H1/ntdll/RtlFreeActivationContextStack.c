@@ -1,50 +1,52 @@
 /*
- * XREFs of RtlFreeActivationContextStack @ 0x180088C30
+ * XREFs of RtlFreeActivationContextStack @ 0x180080030
  * Callers:
- *     RtlFreeThreadActivationContextStack @ 0x180088B90 (RtlFreeThreadActivationContextStack.c)
+ *     RtlFreeThreadActivationContextStack @ 0x18007FF90 (RtlFreeThreadActivationContextStack.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlReleaseActivationContext @ 0x18004DE10 (RtlReleaseActivationContext.c)
- *     RtlpFreeActivationContextStackFrame @ 0x180088F70 (RtlpFreeActivationContextStackFrame.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlReleaseActivationContext @ 0x180038390 (RtlReleaseActivationContext.c)
+ *     RtlpFreeActivationContextStackFrame @ 0x180080370 (RtlpFreeActivationContextStackFrame.c)
  */
 
-void __fastcall RtlFreeActivationContextStack(__int64 ***a1)
+void __fastcall RtlFreeActivationContextStack(__int64 **BaseAddress)
 {
-  __int64 **v1; // rdi
+  __int64 *v1; // rdi
   __int64 **v3; // rdi
   __int64 *v4; // rax
-  __int64 ***v5; // rcx
-  __int64 *v6; // rsi
+  __int64 **v5; // r8
+  __int64 ***v6; // rcx
+  __int64 *v7; // rsi
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    v1 = *a1;
-    if ( *a1 )
+    v1 = *BaseAddress;
+    if ( *BaseAddress )
     {
       do
       {
-        v6 = *v1;
-        if ( ((_BYTE)v1[2] & 1) != 0 )
-          RtlReleaseActivationContext((volatile signed __int32 *)v1[1]);
-        if ( ((_BYTE)v1[2] & 8) != 0 )
-          RtlpFreeActivationContextStackFrame(a1, v1);
-        v1 = (__int64 **)v6;
+        v7 = (__int64 *)*v1;
+        if ( (v1[2] & 1) != 0 )
+          RtlReleaseActivationContext((PACTIVATION_CONTEXT)v1[1]);
+        if ( (v1[2] & 8) != 0 )
+          RtlpFreeActivationContextStackFrame(BaseAddress, v1);
+        v1 = v7;
       }
-      while ( v6 );
+      while ( v7 );
     }
-    *a1 = 0LL;
-    v3 = a1[1];
-    while ( v3 != (__int64 **)(a1 + 1) )
+    *BaseAddress = 0LL;
+    v3 = (__int64 **)BaseAddress[1];
+    while ( v3 != BaseAddress + 1 )
     {
       v4 = *v3;
-      if ( (__int64 **)(*v3)[1] != v3 || (v5 = (__int64 ***)v3[1], *v5 != v3) )
+      v5 = v3 - 1;
+      if ( (__int64 **)(*v3)[1] != v3 || (v6 = (__int64 ***)v3[1], *v6 != v3) )
         __fastfail(3u);
-      *v5 = (__int64 **)v4;
-      v4[1] = (__int64)v5;
+      *v6 = (__int64 **)v4;
+      v4[1] = (__int64)v6;
       v3 = (__int64 **)v4;
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v5);
     }
-    if ( ((_BYTE)a1[3] & 2) == 0 )
-      RtlFreeHeap_0();
+    if ( ((_BYTE)BaseAddress[3] & 2) == 0 )
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
 }

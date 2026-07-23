@@ -1,23 +1,23 @@
 /*
- * XREFs of HalRequestIpi @ 0x1403EC520
+ * XREFs of HalRequestIpi @ 0x1402F9560
  * Callers:
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1402759D0 (ExpAcquireFastResourceExclusiveSlow.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x14028FBF0 (PpmIdleUpdateSystemLatencyLimit.c)
- *     IopDecrementDeviceObjectRef @ 0x1402B2B50 (IopDecrementDeviceObjectRef.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KiWakeAddressAll @ 0x1402BA5A8 (KiWakeAddressAll.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     PpmWakeClockOwnerIfNeeded @ 0x1403EACD0 (PpmWakeClockOwnerIfNeeded.c)
- *     IopDecrementVpbRefCount @ 0x1403EB430 (IopDecrementVpbRefCount.c)
- *     PpmUnlockProcessors @ 0x1403EC22C (PpmUnlockProcessors.c)
- *     PoExecuteIdleCheck @ 0x1404F04E4 (PoExecuteIdleCheck.c)
- *     PoInitiateProcessorWake @ 0x1406014A0 (PoInitiateProcessorWake.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x140274F40 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x14028F150 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     PpmWakeClockOwnerIfNeeded @ 0x1402F7BB0 (PpmWakeClockOwnerIfNeeded.c)
+ *     PpmUnlockProcessors @ 0x1402F9270 (PpmUnlockProcessors.c)
+ *     IopDecrementVpbRefCount @ 0x1402FB760 (IopDecrementVpbRefCount.c)
+ *     IopDecrementDeviceObjectRef @ 0x1402FD820 (IopDecrementDeviceObjectRef.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KiWakeAddressAll @ 0x140305268 (KiWakeAddressAll.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     PoExecuteIdleCheck @ 0x1404E9AC4 (PoExecuteIdleCheck.c)
+ *     PoInitiateProcessorWake @ 0x140603F50 (PoInitiateProcessorWake.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x1403EC570 (HalRequestIpiSpecifyVector.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalRequestIpiSpecifyVector @ 0x1402F95B0 (HalRequestIpiSpecifyVector.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalRequestIpi(unsigned int a1, __int64 a2)

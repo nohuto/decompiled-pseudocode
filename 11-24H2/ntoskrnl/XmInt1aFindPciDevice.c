@@ -1,9 +1,9 @@
 /*
- * XREFs of XmInt1aFindPciDevice @ 0x1405790E4
+ * XREFs of XmInt1aFindPciDevice @ 0x140576574
  * Callers:
- *     XmExecuteInt1a @ 0x140578F24 (XmExecuteInt1a.c)
+ *     XmExecuteInt1a @ 0x1405763B4 (XmExecuteInt1a.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall XmInt1aFindPciDevice(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall XmInt1aFindPciDevice(__int64 a1)
   unsigned int v6; // esi
   unsigned int j; // ebp
   int v8; // ecx
-  int v9; // [rsp+50h] [rbp+8h] BYREF
+  int v9; // [rsp+50h] [rbp+8h]
 
   v1 = 0;
   v9 = 0;
@@ -49,7 +49,7 @@ LABEL_6:
         goto LABEL_6;
       }
       v4 = v6 & 0x1F | v4 & 0xFFFFFF00 | (32 * (j & 7));
-      result = guard_dispatch_icall_no_overrides(i, v4, &v9, 0LL);
+      result = guard_dispatch_icall_no_overrides(i, v4);
       if ( (_DWORD)result == 4 )
       {
         v8 = v9;

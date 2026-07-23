@@ -1,37 +1,45 @@
 /*
- * XREFs of NtOpenSection @ 0x140AABC00
+ * XREFs of NtOpenSection @ 0x140AA91B0
  * Callers:
- *     DifNtOpenSectionWrapper @ 0x14067ECA0 (DifNtOpenSectionWrapper.c)
+ *     DifNtOpenSectionWrapper @ 0x140682880 (DifNtOpenSectionWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenSection(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenSection(PHANDLE SectionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // si
   POBJECT_TYPE v7; // rbx
   struct _LIST_ENTRY *CurrentSilo; // rax
-  unsigned int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 ULong64FromUser; // rax
-  __int64 v12[4]; // [rsp+48h] [rbp-20h] BYREF
+  void *v12; // [rsp+48h] [rbp-20h] BYREF
 
-  v12[0] = 0LL;
+  v12 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(SectionHandle);
+    RtlWriteULong64ToUser(SectionHandle, ULong64FromUser);
   }
   v7 = MmSectionObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  v9 = ObOpenObjectByNameEx(a3, (__int64)v7, PreviousMode, 0LL, a2, 0LL, (__int64)CurrentSilo, v12);
+  v9 = ObOpenObjectByNameEx(
+         (__int64)ObjectAttributes,
+         (__int64)v7,
+         PreviousMode,
+         0LL,
+         DesiredAccess,
+         0LL,
+         (__int64)CurrentSilo,
+         &v12);
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a1, v12[0]);
+    RtlWriteULong64ToUser(SectionHandle, (__int64)v12);
   else
-    *a1 = v12[0];
+    *SectionHandle = v12;
   return v9;
 }

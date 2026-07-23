@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckVerifierFunctionsCfgState @ 0x14087BAA8
+ * XREFs of MiCheckVerifierFunctionsCfgState @ 0x140881EA8
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406FB178 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406FFE48 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     MiImageContainsVa @ 0x1404BD1D8 (MiImageContainsVa.c)
- *     CfgAddressToBitState @ 0x1404F0B80 (CfgAddressToBitState.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     MiImageContainsVa @ 0x1404B69B8 (MiImageContainsVa.c)
+ *     CfgAddressToBitState @ 0x1404EA160 (CfgAddressToBitState.c)
  */
 
 __int64 __fastcall MiCheckVerifierFunctionsCfgState(__int64 a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MiCheckVerifierFunctionsCfgState(__int64 a1, unsigned int a2)
         return (unsigned int)-1073741811;
     }
     if ( ((__int64)DataTableEntryByAddress[6].Blink & 0x2000) != 0
-      && (CfgAddressToBitState(v8 + 0x800000000000LL, (const signed __int64 *)stru_140E2D150.WaitBlock[0].SparePtr) & 0xFFFFFFFD) == 0 )
+      && (CfgAddressToBitState(v8 + 0x800000000000LL, (const signed __int64 *)stru_140E2D2D0.WaitBlock[0].SparePtr) & 0xFFFFFFFD) == 0 )
     {
       return (unsigned int)-1073741436;
     }

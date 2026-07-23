@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpHeapDestroy @ 0x1406050DC
+ * XREFs of RtlpHpHeapDestroy @ 0x14060271C
  * Callers:
- *     RtlpHpHeapCreate @ 0x140604D0C (RtlpHpHeapCreate.c)
- *     ExpPrivatePoolDestroy @ 0x1407C616C (ExpPrivatePoolDestroy.c)
+ *     RtlpHpHeapCreate @ 0x14060234C (RtlpHpHeapCreate.c)
+ *     ExpPrivatePoolDestroy @ 0x1407C65CC (ExpPrivatePoolDestroy.c)
  * Callees:
- *     RtlpHpMetadataFree @ 0x140420E2C (RtlpHpMetadataFree.c)
- *     RtlpHpFreeVA @ 0x140420FB8 (RtlpHpFreeVA.c)
- *     ExSaFree @ 0x14043A42C (ExSaFree.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x14049CB38 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpRegisterEnvironment @ 0x1406053F0 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpSegContextCleanup @ 0x140605EEC (RtlpHpSegContextCleanup.c)
- *     RtlpHpLfhBucketCleanup @ 0x1406063FC (RtlpHpLfhBucketCleanup.c)
- *     RtlpHpLargeAllocationDestroy @ 0x140607214 (RtlpHpLargeAllocationDestroy.c)
- *     RtlpHpVsContextCleanup @ 0x140607380 (RtlpHpVsContextCleanup.c)
+ *     ExSaFree @ 0x1402B9C7C (ExSaFree.c)
+ *     RtlpHpMetadataFree @ 0x140459100 (RtlpHpMetadataFree.c)
+ *     RtlpHpFreeVA @ 0x14045928C (RtlpHpFreeVA.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x1404977E0 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpRegisterEnvironment @ 0x140602A30 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpSegContextCleanup @ 0x14060352C (RtlpHpSegContextCleanup.c)
+ *     RtlpHpLfhBucketCleanup @ 0x140603A3C (RtlpHpLfhBucketCleanup.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140604814 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpVsContextCleanup @ 0x140604980 (RtlpHpVsContextCleanup.c)
  */
 
 __int64 __fastcall RtlpHpHeapDestroy(ULONG_PTR a1)
@@ -84,7 +84,7 @@ LABEL_17:
   RtlpHpVsContextCleanup(a1 + 704);
   v10 = *(_DWORD *)(a1 + 908);
   if ( v10 )
-    ExSaFree(v10, 8u);
+    ExSaFree(v10);
   RtlpHpLfhContextSlotStandbyProcess(a1 + 832, 1);
   v11 = (__int64 *)(a1 + 1280);
   v12 = 128LL;

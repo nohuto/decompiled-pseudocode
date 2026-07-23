@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIoInitializeTimer_Entry @ 0x1406428D0
+ * XREFs of ViIoInitializeTimer_Entry @ 0x1406464B0
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall ViIoInitializeTimer_Entry(__int64 *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkReportParkedCore @ 0x14057D7B4
+ * XREFs of PpmParkReportParkedCore @ 0x14057D9F4
  * Callers:
- *     PpmPerfAction @ 0x140220770 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x1402C5070 (PpmPerfAction.c)
  * Callees:
- *     KeTransitionProcessorParkState @ 0x1405254AC (KeTransitionProcessorParkState.c)
- *     PpmEventCoreParkingStateChangeEx @ 0x14057960C (PpmEventCoreParkingStateChangeEx.c)
+ *     KeTransitionProcessorParkState @ 0x1405256EC (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingStateChangeEx @ 0x14057984C (PpmEventCoreParkingStateChangeEx.c)
  */
 
 char __fastcall PpmParkReportParkedCore(__int64 a1)
@@ -15,12 +15,12 @@ char __fastcall PpmParkReportParkedCore(__int64 a1)
   __int16 v6; // [rsp+20h] [rbp-8h]
 
   v2 = (unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)];
-  v3 = ((unsigned __int64)qword_140C12A58[v2 >> 6] >> (v2 & 0x3F)) & 1;
+  v3 = ((unsigned __int64)qword_140C12A38[v2 >> 6] >> (v2 & 0x3F)) & 1;
   KeTransitionProcessorParkState(a1, v3 + 1);
   v4 = *(unsigned int *)(a1 + 36);
   *(_BYTE *)(a1 + 33212) = 1;
   _InterlockedOr64(
-    &qword_140C11498[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v4] >> 6],
+    &qword_140C11478[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v4] >> 6],
     1LL << (KiProcessorIndexToNumberMappingTable[v4] & 0x3F));
   _disable();
   LODWORD(v4) = *(_DWORD *)(a1 + 32384);
@@ -31,7 +31,7 @@ char __fastcall PpmParkReportParkedCore(__int64 a1)
   if ( (_BYTE)v3 )
   {
     _InterlockedOr64(
-      &qword_140C12B08[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] >> 6],
+      &qword_140C12988[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] >> 6],
       1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] & 0x3F));
     *(_BYTE *)(a1 + 32819) = 1;
   }

@@ -4,9 +4,9 @@
  *     ViSettingsIoCheckForChanges @ 0x140716890 (ViSettingsIoCheckForChanges.c)
  *     VfWdSetCancelTimeout @ 0x140716E34 (VfWdSetCancelTimeout.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeRemoveQueueDpcEx @ 0x140085D28 (KeRemoveQueueDpcEx.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140087618 (KeRemoveQueueDpcEx.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
  */
 
 __int64 __fastcall VfWdCheckForSettingsChange(char a1)

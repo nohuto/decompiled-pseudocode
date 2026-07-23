@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxEnableWorkOrderWatchdog @ 0x1403AB570
+ * XREFs of PopFxEnableWorkOrderWatchdog @ 0x1403B5280
  * Callers:
- *     PopFxHandleDirectedPowerTransition @ 0x1403B782C (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x1403C172C (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403AE1FC (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
- *     KiEncodeTolerableDelayValue @ 0x1403AE234 (KiEncodeTolerableDelayValue.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403B7F0C (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
+ *     KiEncodeTolerableDelayValue @ 0x1403B7F44 (KiEncodeTolerableDelayValue.c)
  */
 
-struct _LIST_ENTRY *__fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+_QWORD *__fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  struct _LIST_ENTRY *v4; // rdi
+  _QWORD *v4; // rdi
   __int64 v5; // rbx
   __int64 v6; // rdx
   unsigned __int64 v7; // rsi
@@ -21,13 +21,13 @@ struct _LIST_ENTRY *__fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned
   unsigned __int64 v9; // rsi
   int v10; // eax
   unsigned __int64 v11; // rbx
-  struct _LIST_ENTRY *Flink; // rax
+  _QWORD *v12; // rax
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = *(struct _LIST_ENTRY **)(a1 + 48);
+  v4 = *(_QWORD **)(a1 + 48);
   if ( v4 )
   {
-    v4[10].Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+    v4[21] = KeGetCurrentThread();
     if ( a2 )
     {
       LOBYTE(a4) = 0;
@@ -59,21 +59,23 @@ struct _LIST_ENTRY *__fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned
         }
         LOBYTE(a4) = 4 * KiEncodeTolerableDelayValue((unsigned int)v7);
       }
-      KiSetTimerEx((_DWORD)v4 + 16, v5, 0, a4, (__int64)&v4[5]);
-      v4[10].Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
-      v4[9].Blink = 0LL;
-      v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12420.PriorityFloorCounts[24]);
-      Flink = stru_140F12420.QueueListEntry.Flink;
-      if ( stru_140F12420.QueueListEntry.Flink->Flink != (struct _LIST_ENTRY *)&stru_140F12420.512 )
+      KiSetTimerEx((_DWORD)v4 + 16, v5, 0, a4, (__int64)(v4 + 10));
+      v4[20] = MEMORY[0xFFFFF78000000008];
+      v4[19] = 0LL;
+      v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1);
+      v12 = *(_QWORD **)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock;
+      if ( **(struct _KTHREAD ***)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80] )
         __fastfail(3u);
-      v4->Flink = (struct _LIST_ENTRY *)&stru_140F12420.512;
-      v4->Blink = Flink;
-      Flink->Flink = v4;
-      stru_140F12420.QueueListEntry.Flink = v4;
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        _InterlockedAnd64((volatile signed __int64 *)&stru_140F12420.PriorityFloorCounts[24], 0LL);
+      *v4 = &PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
+      v4[1] = v12;
+      *v12 = v4;
+      *(_QWORD *)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock = v4;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        _InterlockedAnd64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1, 0LL);
       else
-        KiReleaseSpinLockInstrumented((volatile signed __int64 *)&stru_140F12420.PriorityFloorCounts[24], retaddr);
+        KiReleaseSpinLockInstrumented(
+          (volatile signed __int64 *)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1,
+          retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
       __writecr8(v11);

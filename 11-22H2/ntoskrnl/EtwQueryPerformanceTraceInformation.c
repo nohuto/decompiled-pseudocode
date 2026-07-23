@@ -55,9 +55,9 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   unsigned int v28; // edx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int *v30; // rax
-  RTL_BITMAP *v31; // rsi
+  _RTL_BITMAP *v31; // rsi
   unsigned int v32; // eax
-  ULONG v33; // ebx
+  DWORD v33; // ebx
   ULONG v34; // r14d
   _DWORD *i; // r12
   unsigned int v36; // r14d
@@ -72,11 +72,11 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   __int64 *NextProcess; // rax
   struct _KPROCESS *v47; // rdi
   unsigned int ProcessId; // eax
-  ULONG SecurityInformation; // [rsp+30h] [rbp-58h] BYREF
+  DWORD SecurityInformation; // [rsp+30h] [rbp-58h] BYREF
   __int64 v50; // [rsp+38h] [rbp-50h] BYREF
   int v51; // [rsp+40h] [rbp-48h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor[2]; // [rsp+48h] [rbp-40h] BYREF
-  RTL_BITMAP *v53; // [rsp+58h] [rbp-30h]
+  _RTL_BITMAP *v53; // [rsp+58h] [rbp-30h]
   ULONG Length; // [rsp+98h] [rbp+10h] BYREF
 
   SetBits = 0;
@@ -104,14 +104,14 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
         ObjectsSecurityDescriptor[0] = (PSECURITY_DESCRIPTOR)(a1 + 16);
         if ( a2 >= 0x10 )
         {
-          v53 = *(RTL_BITMAP **)(a1 + 8);
+          v53 = *(_RTL_BITMAP **)(a1 + 8);
           v28 = (unsigned __int16)v53;
           if ( (unsigned __int16)v53 == 0xFFFF )
             v28 = *(unsigned __int8 *)(v13 + 4232);
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
           v30 = EtwpAcquireLoggerContextByLoggerId(v13, v28, 1);
-          v31 = (RTL_BITMAP *)v30;
+          v31 = (_RTL_BITMAP *)v30;
           ObjectsSecurityDescriptor[1] = v30;
           if ( v30 )
           {
@@ -162,7 +162,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
         *v12 = 48;
         if ( a2 == 48 )
         {
-          v53 = *(RTL_BITMAP **)(a1 + 8);
+          v53 = *(_RTL_BITMAP **)(a1 + 8);
           v14 = (unsigned __int16)v53;
           if ( (unsigned __int16)v53 == 0xFFFF )
             v14 = *(unsigned __int8 *)(v13 + 4232);
@@ -218,7 +218,7 @@ LABEL_48:
         *v12 = 24;
         if ( a2 >= 0x18 )
         {
-          v53 = *(RTL_BITMAP **)(a1 + 8);
+          v53 = *(_RTL_BITMAP **)(a1 + 8);
           SecurityInformation = *(_DWORD *)(a1 + 4);
           v22 = (unsigned __int16)v53;
           if ( (unsigned __int16)v53 == 0xFFFF )
@@ -306,7 +306,7 @@ LABEL_48:
         return 3221225476LL;
       if ( !PsIsCurrentThreadInServerSilo() )
       {
-        v53 = *(RTL_BITMAP **)(a1 + 8);
+        v53 = *(_RTL_BITMAP **)(a1 + 8);
         v38 = (unsigned __int16)v53;
         if ( (unsigned __int16)v53 == 0xFFFF )
           v38 = *(unsigned __int8 *)(v13 + 4232);
@@ -314,7 +314,7 @@ LABEL_48:
         --v39->KernelApcDisable;
         v40 = EtwpAcquireLoggerContextByLoggerId(v13, v38, 1);
         v17 = v40;
-        v53 = (RTL_BITMAP *)v40;
+        v53 = (_RTL_BITMAP *)v40;
         if ( v40 )
         {
           if ( (v40[3] & 0x2000000) == 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepBlockAccessForLogonSession @ 0x140815420
+ * XREFs of SepBlockAccessForLogonSession @ 0x14081B5D0
  * Callers:
- *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x1408159F0 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x14081BBA0 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
@@ -23,7 +23,7 @@ __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
   v3 = (__int64 **)(SepLogonSessions + 8 * v2);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v2 & 3));
+  v5 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v2 & 3));
   ExAcquireResourceExclusiveLite(v5, 1u);
   v6 = *v3;
   v7 = 0;

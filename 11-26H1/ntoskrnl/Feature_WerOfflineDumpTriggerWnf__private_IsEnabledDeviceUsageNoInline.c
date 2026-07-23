@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_WerOfflineDumpTriggerWnf__private_IsEnabledDeviceUsageNoInline @ 0x140607F34
+ * XREFs of Feature_WerOfflineDumpTriggerWnf__private_IsEnabledDeviceUsageNoInline @ 0x14060AAE4
  * Callers:
- *     PopDiagTraceAbnormalReset @ 0x140608034 (PopDiagTraceAbnormalReset.c)
+ *     PopDiagTraceAbnormalReset @ 0x14060ABE4 (PopDiagTraceAbnormalReset.c)
  * Callees:
- *     Feature_WerOfflineDumpTriggerWnf__private_IsEnabledFallback @ 0x140607F70 (Feature_WerOfflineDumpTriggerWnf__private_IsEnabledFallback.c)
+ *     Feature_WerOfflineDumpTriggerWnf__private_IsEnabledFallback @ 0x14060AB20 (Feature_WerOfflineDumpTriggerWnf__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_WerOfflineDumpTriggerWnf__private_IsEnabledDeviceUsageNoInline()

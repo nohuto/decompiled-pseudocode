@@ -1,29 +1,29 @@
 /*
- * XREFs of WheapProcessOfflineList @ 0x140614470
+ * XREFs of WheapProcessOfflineList @ 0x1406149C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmGetPageBadStatus @ 0x14062B490 (MmGetPageBadStatus.c)
- *     WheapPushPendingOfflineWrapper @ 0x140A09BD8 (WheapPushPendingOfflineWrapper.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetPageBadStatus @ 0x14062B9E0 (MmGetPageBadStatus.c)
+ *     WheapPushPendingOfflineWrapper @ 0x140A09E88 (WheapPushPendingOfflineWrapper.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 WheapProcessOfflineList()
 {
   KIRQL v0; // al
-  struct _SINGLE_LIST_ENTRY *v1; // rbx
+  _SINGLE_LIST_ENTRY *v1; // rbx
   unsigned __int64 v2; // rdi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v6; // eax
   bool v7; // zf
-  struct _SINGLE_LIST_ENTRY *v8; // rsi
+  _SINGLE_LIST_ENTRY *v8; // rsi
   struct _SINGLE_LIST_ENTRY *Next; // rdi
   int PageBadStatus; // eax
   struct _SINGLE_LIST_ENTRY *v12; // [rsp+20h] [rbp-40h] BYREF
@@ -34,16 +34,19 @@ __int64 WheapProcessOfflineList()
   Src = 0LL;
   v15 = 0LL;
   v14 = 0LL;
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C2A948);
-  v1 = (struct _SINGLE_LIST_ENTRY *)WheapOfflineChecker;
+  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C2A8E8);
+  v1 = (_SINGLE_LIST_ENTRY *)WheapOfflineChecker;
   WheapOfflineChecker = 0LL;
-  dword_140C2A950 = 0;
+  dword_140C2A8F0 = 0;
   v2 = v0;
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C2A948);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C2A8E8);
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -80,7 +83,7 @@ __int64 WheapProcessOfflineList()
     {
 LABEL_11:
       ExFreePoolWithTag(v8, 0x61656857u);
-      _InterlockedDecrement(&dword_140C2A960);
+      _InterlockedDecrement(&dword_140C2A900);
     }
   }
   return 0LL;

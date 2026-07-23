@@ -10,19 +10,26 @@
  *     LdrpLogRelativePathWithAlteredSearchError @ 0x18007D824 (LdrpLogRelativePathWithAlteredSearchError.c)
  */
 
-__int64 __fastcall LdrpGetDllPath(__int64 a1, int a2, _QWORD *a3, _QWORD *a4, _DWORD *a5, _OWORD *a6, _QWORD *a7)
+__int64 __fastcall LdrpGetDllPath(
+        PCWSTR DosFileName,
+        int a2,
+        _QWORD *a3,
+        _QWORD *a4,
+        _DWORD *a5,
+        _OWORD *a6,
+        _QWORD *a7)
 {
   bool v9; // r12
   bool v10; // di
   unsigned int v11; // ebx
   char v12; // r14
-  __int64 v13; // r13
-  int v14; // eax
+  PCWSTR v13; // r13
+  RTL_PATH_TYPE v14; // eax
   __int64 result; // rax
   __int64 (__fastcall *v16)(); // rdx
-  __int64 v17; // r8
+  PCWSTR v17; // r8
   void *v18; // rcx
-  __int64 v19; // r9
+  PCWSTR v19; // r9
   __int64 CachedPath; // rax
   __int64 v21; // rcx
   __int64 v22; // rax
@@ -52,15 +59,17 @@ LABEL_11:
   v13 = 0LL;
   if ( (v11 & 0x100) == 0 && !v12 )
     goto LABEL_25;
-  v14 = RtlDetermineDosPathNameType_U(a1);
+  v14 = RtlDetermineDosPathNameType_U(DosFileName);
   if ( (unsigned int)(v14 - 1) > 1 )
-    v10 = v14 != 6 || *(_WORD *)(a1 + 4) != 63 || (unsigned int)RtlDetermineDosPathNameType_U(a1 + 8) != 2;
-  v13 = a1;
+    v10 = v14 != RtlPathTypeLocalDevice
+       || DosFileName[2] != 63
+       || RtlDetermineDosPathNameType_U(DosFileName + 4) != RtlPathTypeDriveAbsolute;
+  v13 = DosFileName;
   if ( !v10 )
     goto LABEL_25;
   if ( v12 )
   {
-    LdrpLogRelativePathWithAlteredSearchError(a1);
+    LdrpLogRelativePathWithAlteredSearchError(DosFileName);
     if ( (LdrpPolicyBits & 0x40) != 0 )
     {
       v12 = 0;
@@ -83,13 +92,13 @@ LABEL_25:
         if ( (LdrpPolicyBits & 4) != 0 )
           v11 |= 0x400u;
       }
-      v17 = v11;
+      v17 = (PCWSTR)v11;
       v16 = RtlpComputeDllPathWithOptions;
       LODWORD(v17) = v11 | 0x100;
       v18 = &RtlpDllSearchPathWithOptions;
       v19 = v13;
       if ( !v12 )
-        v17 = v11;
+        v17 = (PCWSTR)v11;
       goto LABEL_33;
     }
   }
@@ -122,7 +131,7 @@ LABEL_33:
     }
     if ( a5 )
       *a5 = *(_DWORD *)(v21 + 112);
-    LdrpLogDllStateEx2(v21, a1, *a3, 5313LL);
+    LdrpLogDllStateEx2(v21, DosFileName, *a3, 5313LL);
     return 0LL;
   }
   else

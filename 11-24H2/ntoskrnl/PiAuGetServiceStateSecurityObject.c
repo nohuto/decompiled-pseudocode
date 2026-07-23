@@ -1,21 +1,21 @@
 /*
- * XREFs of PiAuGetServiceStateSecurityObject @ 0x140728090
+ * XREFs of PiAuGetServiceStateSecurityObject @ 0x140725C20
  * Callers:
- *     PiCreateServiceKeyUnderPath @ 0x14071F96C (PiCreateServiceKeyUnderPath.c)
- *     PiCreateServiceStateKey @ 0x1409CB050 (PiCreateServiceStateKey.c)
+ *     PiCreateServiceKeyUnderPath @ 0x14071D4FC (PiCreateServiceKeyUnderPath.c)
+ *     PiCreateServiceStateKey @ 0x1409B569C (PiCreateServiceStateKey.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     RtlLengthSecurityDescriptor @ 0x14085A2E0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140862B50 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlValidSecurityDescriptor @ 0x140867870 (RtlValidSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140A23FB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408565C0 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140867160 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlValidSecurityDescriptor @ 0x14086BB60 (RtlValidSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140A18380 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
@@ -28,18 +28,19 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
   ACL *v9; // rsi
   NTSTATUS Acl; // ebx
   PSID v11; // r14
-  void *v12; // rax
+  ULONG v12; // eax
+  void *v13; // rax
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-10h]
+  __int64 v16; // [rsp+50h] [rbp-10h]
   ULONG BufferLength; // [rsp+A0h] [rbp+40h] BYREF
 
-  v15 = 0LL;
+  v16 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v4 = 0LL;
   v5 = RtlLengthSid(SeExports->SeUserModeDriversSid);
   v6 = RtlLengthSid(SeAliasAdminsSid) + v5;
   v7 = RtlLengthSid(SeLocalSystemSid) + 32 + v6;
-  Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+  Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v7, 0x20207050u);
   v9 = Pool2;
   if ( Pool2 )
   {
@@ -69,13 +70,13 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
                   if ( Acl >= 0 )
                   {
                     if ( RtlValidSecurityDescriptor(SecurityDescriptor)
-                      && (BufferLength = RtlLengthSecurityDescriptor(SecurityDescriptor), BufferLength >= 0x28) )
+                      && (v12 = RtlLengthSecurityDescriptor(SecurityDescriptor), BufferLength = v12, v12 >= 0x28) )
                     {
-                      v12 = (void *)ExAllocatePool2(0x100uLL);
-                      v4 = v12;
-                      if ( v12 )
+                      v13 = (void *)ExAllocatePool2(0x100uLL, v12, 0x20207050u);
+                      v4 = v13;
+                      if ( v13 )
                       {
-                        Acl = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v12, &BufferLength);
+                        Acl = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v13, &BufferLength);
                         if ( Acl >= 0 )
                         {
                           *a2 = v4;

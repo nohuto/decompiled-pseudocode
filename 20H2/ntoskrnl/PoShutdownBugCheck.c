@@ -61,6 +61,6 @@ void __fastcall __noreturn PoShutdownBugCheck(
   v21 = BugCheckParameter3;
   v22 = a6;
   *(_QWORD *)&qword_140C23330 = &CurrentThread;
-  ZwInitiatePowerAction(5LL, 4LL);
+  ZwInitiatePowerAction(PowerActionShutdownReset, PowerSystemSleeping3, 0xC0000004, 0);
   KeBugCheckEx(a2, a3, a4, v11, BugCheckParameter4);
 }

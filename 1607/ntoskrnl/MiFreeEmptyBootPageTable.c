@@ -3,9 +3,9 @@
  * Callers:
  *     MxCreateFreePfns @ 0x140796AA8 (MxCreateFreePfns.c)
  * Callees:
- *     MiLockAndInsertPageInFreeList @ 0x140144DA4 (MiLockAndInsertPageInFreeList.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140145314 (MiLockAndInsertPageInFreeList.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)

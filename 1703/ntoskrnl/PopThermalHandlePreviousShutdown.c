@@ -24,7 +24,7 @@ void PopThermalHandlePreviousShutdown()
   WCHAR *v1; // rbx
   const WCHAR *v2; // rsi
   WCHAR *PoolWithTag; // rax
-  ULONG ResultLength; // [rsp+48h] [rbp-29h] BYREF
+  ULONG MatchingChangeStamp; // [rsp+48h] [rbp-29h] BYREF
   HANDLE KeyHandle; // [rsp+50h] [rbp-21h] BYREF
   UNICODE_STRING ValueName; // [rsp+58h] [rbp-19h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-9h] BYREF
@@ -46,19 +46,25 @@ void PopThermalHandlePreviousShutdown()
            KeyValuePartialInformation,
            &KeyValueInformation,
            0x14u,
-           &ResultLength) >= 0
+           &MatchingChangeStamp) >= 0
       && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
     {
       v1 = 0LL;
       v2 = L"Unknown";
-      if ( ZwQueryValueKey(v0, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength) == -1073741789 )
+      if ( ZwQueryValueKey(v0, &ValueName, KeyValuePartialInformation, 0LL, 0, &MatchingChangeStamp) == -1073741789 )
       {
-        PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, ResultLength + 2LL, 0x6D726854u);
+        PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, MatchingChangeStamp + 2LL, 0x6D726854u);
         v1 = PoolWithTag;
         if ( PoolWithTag )
         {
-          memset(PoolWithTag, 0, ResultLength + 2LL);
-          if ( ZwQueryValueKey(v0, &ValueName, KeyValuePartialInformation, v1, ResultLength, &ResultLength) >= 0
+          memset(PoolWithTag, 0, MatchingChangeStamp + 2LL);
+          if ( ZwQueryValueKey(
+                 v0,
+                 &ValueName,
+                 KeyValuePartialInformation,
+                 v1,
+                 MatchingChangeStamp,
+                 &MatchingChangeStamp) >= 0
             && *((_DWORD *)v1 + 1) == 1 )
           {
             v2 = v1 + 6;
@@ -67,7 +73,7 @@ void PopThermalHandlePreviousShutdown()
       }
       if ( ZwDeleteValueKey(v0, &DestinationString) >= 0 )
       {
-        ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0LL);
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
         if ( hProvider.LevelPlus1 > 5 && TlgKeywordOn(&hProvider, 0x400000000000uLL) )
         {
           TlgCreateWsz(&pDesc, v2);

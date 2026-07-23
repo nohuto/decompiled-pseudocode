@@ -1,10 +1,10 @@
 /*
- * XREFs of MiZeroThreadContextSetExiting @ 0x140209DA4
+ * XREFs of MiZeroThreadContextSetExiting @ 0x140331384
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiBackgroundZeroNodePages @ 0x1403C6F60 (MiBackgroundZeroNodePages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroNodePages @ 0x140412BA0 (MiBackgroundZeroNodePages.c)
  * Callees:
- *     MiSetZeroPageThreadPriority @ 0x14020A388 (MiSetZeroPageThreadPriority.c)
+ *     MiSetZeroPageThreadPriority @ 0x140331968 (MiSetZeroPageThreadPriority.c)
  */
 
 __int64 __fastcall MiZeroThreadContextSetExiting(__int64 a1)

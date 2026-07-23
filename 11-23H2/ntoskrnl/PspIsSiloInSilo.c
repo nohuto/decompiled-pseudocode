@@ -1,11 +1,11 @@
 /*
- * XREFs of PspIsSiloInSilo @ 0x1407E5410
+ * XREFs of PspIsSiloInSilo @ 0x1407E56E0
  * Callers:
- *     PsIsProcessInSilo @ 0x140289FEC (PsIsProcessInSilo.c)
- *     PsIsThreadInSilo @ 0x14031C898 (PsIsThreadInSilo.c)
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
- *     PsRootSiloInformation @ 0x1409AC790 (PsRootSiloInformation.c)
+ *     PsIsProcessInSilo @ 0x14028A27C (PsIsProcessInSilo.c)
+ *     PsIsThreadInSilo @ 0x14031CB28 (PsIsThreadInSilo.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
+ *     PsRootSiloInformation @ 0x1409AC990 (PsRootSiloInformation.c)
  * Callees:
  *     <none>
  */

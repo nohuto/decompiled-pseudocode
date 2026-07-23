@@ -8,14 +8,14 @@
  *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
  *     RtlpLoadNlsData @ 0x18007FE28 (RtlpLoadNlsData.c)
  *     _wcsicmp @ 0x180090EB0 (_wcsicmp.c)
- *     RtlpGetAlternateCodePage @ 0x18010AD5C (RtlpGetAlternateCodePage.c)
+ *     RtlpGetAlternateCodePage @ 0x18010AD2C (RtlpGetAlternateCodePage.c)
  */
 
 __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {

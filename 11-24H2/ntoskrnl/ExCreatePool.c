@@ -1,18 +1,18 @@
 /*
- * XREFs of ExCreatePool @ 0x140653E80
+ * XREFs of ExCreatePool @ 0x1406525E0
  * Callers:
  *     <none>
  * Callees:
- *     ExpSecurePoolCreate @ 0x140658620 (ExpSecurePoolCreate.c)
- *     ExpPrivatePoolCreate @ 0x1407C5F40 (ExpPrivatePoolCreate.c)
+ *     ExpSecurePoolCreate @ 0x140656D00 (ExpSecurePoolCreate.c)
+ *     ExpPrivatePoolCreate @ 0x1407C63A0 (ExpPrivatePoolCreate.c)
  */
 
-__int64 __fastcall ExCreatePool(int a1, __int64 a2, __int64 a3, __int64 *a4)
+__int64 __fastcall ExCreatePool(int a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  int v5; // r10d
-  __int64 v6; // r9
-  unsigned int v9; // esi
-  __int64 v10; // r11
+  int v4; // r10d
+  __int64 v8; // r9
+  unsigned int v9; // ebp
+  unsigned int i; // r11d
   __int64 v11; // r8
   __int64 v12; // rdx
   __int64 result; // rax
@@ -21,61 +21,56 @@ __int64 __fastcall ExCreatePool(int a1, __int64 a2, __int64 a3, __int64 *a4)
   int v16; // r10d
   __int64 v17; // rdx
   __int64 v18; // rcx
-  __int64 v19; // [rsp+60h] [rbp+18h] BYREF
 
-  v5 = a1 & 0xD;
-  v6 = 0LL;
+  v4 = a1 & 0xD;
+  v8 = 0LL;
   if ( a3 )
   {
     v9 = *(_DWORD *)(a3 + 4);
-    v10 = 0LL;
-    while ( (unsigned int)v10 < v9 )
+    for ( i = 0; i < v9; ++i )
     {
       v11 = *(_QWORD *)(a3 + 8);
-      v12 = 3 * v10;
-      if ( *(_DWORD *)(v11 + 24 * v10) != 1 || v6 )
+      v12 = 3LL * i;
+      if ( *(_DWORD *)(v11 + 24LL * i) != 1 || v8 )
         return 3221225713LL;
-      v10 = (unsigned int)(v10 + 1);
-      v6 = v11 + 8 + 8 * v12;
+      v8 = v11 + 8 + 8 * v12;
     }
   }
-  v14 = a1 & (unsigned int)~v5;
-  v15 = v5 - 1;
-  if ( v15 )
+  v14 = a1 & (unsigned int)~v4;
+  v15 = v4 - 1;
+  if ( !v15 )
   {
-    v16 = v15 - 3;
-    if ( v16 )
+    if ( !v8 )
     {
-      if ( v16 != 4 )
-        return 3221225711LL;
-      v19 = 0LL;
-      if ( v6 )
-      {
-        v17 = (unsigned int)v14;
-        v18 = 1LL;
-LABEL_14:
-        result = ExpPrivatePoolCreate(v18, v17, a2);
-        goto LABEL_19;
-      }
-    }
-    else
-    {
-      v19 = 0LL;
-      if ( v6 )
-      {
-        v17 = (unsigned int)v14;
-        v18 = 0LL;
-        goto LABEL_14;
-      }
+      result = ExpSecurePoolCreate(v14, a2);
+      if ( (int)result < 0 )
+        return result;
+      goto LABEL_20;
     }
     return 3221225713LL;
   }
-  v19 = 0LL;
-  if ( v6 )
+  v16 = v15 - 3;
+  if ( v16 )
+  {
+    if ( v16 != 4 )
+      return 3221225711LL;
+    if ( v8 )
+    {
+      v17 = (unsigned int)v14;
+      v18 = 1LL;
+      goto LABEL_16;
+    }
     return 3221225713LL;
-  result = ExpSecurePoolCreate(v14, a2, &v19);
-LABEL_19:
-  if ( (int)result >= 0 )
-    *a4 = qword_140E6BC08 ^ v19;
+  }
+  if ( !v8 )
+    return 3221225713LL;
+  v17 = (unsigned int)v14;
+  v18 = 0LL;
+LABEL_16:
+  result = ExpPrivatePoolCreate(v18, v17, a2);
+  if ( (int)result < 0 )
+    return result;
+LABEL_20:
+  *a4 = qword_140E6BE08;
   return result;
 }

@@ -11,33 +11,41 @@
 
 char RtlpScanProcessVirtualMemory()
 {
-  unsigned __int64 v0; // rbx
-  int VirtualMemory; // esi
+  char *v0; // rbx
+  NTSTATUS VirtualMemory; // esi
   unsigned __int64 *v2; // r14
+  unsigned __int64 v3; // r15
   unsigned __int64 i; // rdi
   __int64 HeapBlock; // rax
-  __int64 v5; // rdx
-  _QWORD *v6; // rcx
-  __int64 **v7; // rcx
-  char v9; // [rsp+50h] [rbp-48h]
-  unsigned __int64 v10; // [rsp+58h] [rbp-40h]
-  __int16 v11; // [rsp+60h] [rbp-38h]
-  __int16 v12; // [rsp+64h] [rbp-34h]
+  __int64 v6; // rdx
+  _QWORD *v7; // rcx
+  __int64 **v8; // rcx
+  _BYTE MemoryInformation[24]; // [rsp+40h] [rbp-58h] BYREF
+  unsigned __int64 v11; // [rsp+58h] [rbp-40h]
+  int v12; // [rsp+60h] [rbp-38h]
+  int v13; // [rsp+64h] [rbp-34h]
 
   v0 = 0LL;
   VirtualMemory = 0;
   while ( VirtualMemory >= 0 )
   {
-    VirtualMemory = ZwQueryVirtualMemory();
+    VirtualMemory = ZwQueryVirtualMemory(
+                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                      v0,
+                      MemoryBasicInformation,
+                      MemoryInformation,
+                      0x30uLL,
+                      0LL);
     if ( VirtualMemory >= 0 )
     {
-      if ( (v9 & 0xCC) != 0
-        && (v11 & 0x1000) != 0
-        && (v12 & 0x100) == 0
-        && !RtlpGetMemoryFlag((_QWORD *)RtlpProcessMemoryMap, v0) )
+      if ( (MemoryInformation[16] & 0xCC) != 0
+        && (v12 & 0x1000) != 0
+        && (v13 & 0x100) == 0
+        && !RtlpGetMemoryFlag((_QWORD *)RtlpProcessMemoryMap, (unsigned __int64)v0) )
       {
         v2 = (unsigned __int64 *)v0;
-        for ( i = 0LL; i < v10 >> 3; ++i )
+        v3 = v11 >> 3;
+        for ( i = 0LL; i < v3; ++i )
         {
           HeapBlock = RtlpGetHeapBlock(*v2);
           if ( HeapBlock )
@@ -46,18 +54,18 @@ char RtlpScanProcessVirtualMemory()
               __debugbreak();
             if ( !*(_DWORD *)(HeapBlock + 32) )
             {
-              v5 = *(_QWORD *)HeapBlock;
-              v6 = *(_QWORD **)(HeapBlock + 8);
-              if ( *(_QWORD *)(*(_QWORD *)HeapBlock + 8LL) != HeapBlock || *v6 != HeapBlock )
+              v6 = *(_QWORD *)HeapBlock;
+              v7 = *(_QWORD **)(HeapBlock + 8);
+              if ( *(_QWORD *)(*(_QWORD *)HeapBlock + 8LL) != HeapBlock || *v7 != HeapBlock )
                 __fastfail(3u);
-              *v6 = v5;
-              *(_QWORD *)(v5 + 8) = v6;
-              v7 = (__int64 **)qword_1801439E8;
+              *v7 = v6;
+              *(_QWORD *)(v6 + 8) = v7;
+              v8 = (__int64 **)qword_1801439E8;
               *(_QWORD *)HeapBlock = &RtlpBusyList;
-              *(_QWORD *)(HeapBlock + 8) = v7;
-              if ( *v7 != &RtlpBusyList )
+              *(_QWORD *)(HeapBlock + 8) = v8;
+              if ( *v8 != &RtlpBusyList )
                 __fastfail(3u);
-              *v7 = (__int64 *)HeapBlock;
+              *v8 = (__int64 *)HeapBlock;
               qword_1801439E8 = HeapBlock;
             }
             ++*(_DWORD *)(HeapBlock + 32);
@@ -65,7 +73,7 @@ char RtlpScanProcessVirtualMemory()
           ++v2;
         }
       }
-      v0 += v10;
+      v0 += v11;
     }
   }
   RtlpScanHeapAllocBlocks();

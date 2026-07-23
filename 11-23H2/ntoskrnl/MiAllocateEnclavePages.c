@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllocateEnclavePages @ 0x140646D98
+ * XREFs of MiAllocateEnclavePages @ 0x1406472E8
  * Callers:
- *     MiAllocateEnclavePagesForMdl @ 0x14062305C (MiAllocateEnclavePagesForMdl.c)
- *     MiGetPageForEnclave @ 0x140648038 (MiGetPageForEnclave.c)
- *     MiReserveEnclavePages @ 0x140648940 (MiReserveEnclavePages.c)
- *     MiCreateHardwareEnclave @ 0x140A3D788 (MiCreateHardwareEnclave.c)
+ *     MiAllocateEnclavePagesForMdl @ 0x1406235AC (MiAllocateEnclavePagesForMdl.c)
+ *     MiGetPageForEnclave @ 0x140648588 (MiGetPageForEnclave.c)
+ *     MiReserveEnclavePages @ 0x140648E90 (MiReserveEnclavePages.c)
+ *     MiCreateHardwareEnclave @ 0x140A3DA38 (MiCreateHardwareEnclave.c)
  *     MiInitializeEnclaveMetadataPage @ 0x140B99C44 (MiInitializeEnclaveMetadataPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnEnclavePage @ 0x140648A0C (MiReturnEnclavePage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnEnclavePage @ 0x140648F5C (MiReturnEnclavePage.c)
  */
 
 __int64 __fastcall MiAllocateEnclavePages(__int64 a1, int a2, int a3, __int64 a4)
@@ -60,7 +60,7 @@ __int64 __fastcall MiAllocateEnclavePages(__int64 a1, int a2, int a3, __int64 a4
   v26 = 0x3FFFFFFFFFLL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -130,10 +130,10 @@ LABEL_30:
     ++v5;
   }
   while ( v5 != v28 );
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v20 = CurrentPrcb->SchedulerAssist;

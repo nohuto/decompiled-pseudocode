@@ -55,10 +55,10 @@ char BgpFwReleaseLock()
     LOBYTE(v0) = KxReleaseSpinLock((volatile signed __int64 *)&qword_140D0C470);
     if ( (unsigned __int8)v1 <= 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         LOBYTE(v0) = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
         {
           LOBYTE(v0) = v0 - 2;
           if ( (unsigned __int8)v0 <= 0xDu )

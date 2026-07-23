@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStopPageAccessor @ 0x1403688EC
+ * XREFs of MiStopPageAccessor @ 0x140368A8C
  * Callers:
- *     MiPageListCollision @ 0x1403688AC (MiPageListCollision.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403C5AE8 (MiInitializeNewUltraHugeContext.c)
- *     MiDecrementHugeContext @ 0x1403D6658 (MiDecrementHugeContext.c)
+ *     MiPageListCollision @ 0x140368A4C (MiPageListCollision.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403C5CC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiDecrementHugeContext @ 0x1403D6838 (MiDecrementHugeContext.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiLocatePageCollisionNodeByPfn @ 0x14064F384 (MiLocatePageCollisionNodeByPfn.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiLocatePageCollisionNodeByPfn @ 0x14064F8D4 (MiLocatePageCollisionNodeByPfn.c)
  */
 
 __int64 __fastcall MiStopPageAccessor(ULONG_PTR a1, int a2)

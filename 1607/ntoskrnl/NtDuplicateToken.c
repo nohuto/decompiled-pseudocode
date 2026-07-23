@@ -1,22 +1,22 @@
 /*
- * XREFs of NtDuplicateToken @ 0x1404126D0
+ * XREFs of NtDuplicateToken @ 0x140411590
  * Callers:
  *     <none>
  * Callees:
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x14000EB94 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140406AA0 (SepAppendAceToTokenObjectAcl.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     RtlIsSandboxedToken @ 0x140412A10 (RtlIsSandboxedToken.c)
- *     SeCaptureSecurityQos @ 0x140412AE8 (SeCaptureSecurityQos.c)
- *     SepDuplicateToken @ 0x140412BD0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x14047600C (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x14000E714 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140405960 (SepAppendAceToTokenObjectAcl.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     RtlIsSandboxedToken @ 0x1404118D0 (RtlIsSandboxedToken.c)
+ *     SeCaptureSecurityQos @ 0x1404119A8 (SeCaptureSecurityQos.c)
+ *     SepDuplicateToken @ 0x140411A90 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x140474EDC (SepNewTokenAsRestrictedAsProcessToken.c)
  */
 
 NTSTATUS __stdcall NtDuplicateToken(

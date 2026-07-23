@@ -4,11 +4,11 @@
  *     PpLastGoodDoBootProcessing @ 0x140B6DF94 (PpLastGoodDoBootProcessing.c)
  *     PiLastGoodRevertCopyCallback @ 0x140B94860 (PiLastGoodRevertCopyCallback.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IopFileUtilClearAttributes @ 0x14096EE00 (IopFileUtilClearAttributes.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopFileUtilClearAttributes @ 0x14096F000 (IopFileUtilClearAttributes.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

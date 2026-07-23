@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionDelete @ 0x140AEB060
+ * XREFs of PspSchedulerSharedDataRegionDelete @ 0x140AEDE30
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
  */
 
 void __fastcall PspSchedulerSharedDataRegionDelete(_QWORD *a1)
@@ -19,7 +19,7 @@ void __fastcall PspSchedulerSharedDataRegionDelete(_QWORD *a1)
   v2 = (struct _KPROCESS **)(a1 + 20);
   if ( v1 )
   {
-    MiUnmapViewOfSection(*v2, v1, 0, 0);
+    MiUnmapViewOfSection(*v2, v1, 0LL, 0);
     a1[23] = 0LL;
   }
   v4 = a1[22];

@@ -39,7 +39,7 @@ void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3, __
   int v22; // eax
   bool v23; // zf
   BOOLEAN IsNtstatusExpected; // al
-  unsigned int v25; // ecx
+  NTSTATUS v25; // ecx
   __int128 v26; // [rsp+30h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-20h] BYREF
   __int64 v28; // [rsp+A8h] [rbp+48h] BYREF

@@ -8,18 +8,20 @@
  *     ZwUpdateWnfStateData @ 0x14069ED60 (ZwUpdateWnfStateData.c)
  */
 
-LONG_PTR __fastcall PiUEventBroadcastHardwareProfilesChangedEvent(unsigned int a1, __int64 a2)
+NTSTATUS __fastcall PiUEventBroadcastHardwareProfilesChangedEvent(unsigned int a1, const void *a2)
 {
-  LONG_PTR result; // rax
+  NTSTATUS result; // eax
   void *SessionById; // rdi
+  unsigned int ExplicitScope; // [rsp+50h] [rbp+8h] BYREF
 
+  ExplicitScope = a1;
   if ( a1 == -1 )
-    return ZwUpdateWnfStateData((__int64)&WNF_PNPA_HARDWAREPROFILES_CHANGED, a2);
+    return ZwUpdateWnfStateData(&WNF_PNPA_HARDWAREPROFILES_CHANGED, a2, 0x10u, 0LL, 0LL, 0, 0);
   SessionById = (void *)PsGetSessionById(a1);
-  result = 0LL;
+  result = 0;
   if ( SessionById )
   {
-    ZwUpdateWnfStateData((__int64)&WNF_PNPA_HARDWAREPROFILES_CHANGED_SESSION, a2);
+    ZwUpdateWnfStateData(&WNF_PNPA_HARDWAREPROFILES_CHANGED_SESSION, a2, 0x10u, 0LL, &ExplicitScope, 0, 0);
     return ObfDereferenceObjectWithTag(SessionById, 0x79517350u);
   }
   return result;

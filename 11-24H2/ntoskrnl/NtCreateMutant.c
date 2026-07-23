@@ -1,25 +1,30 @@
 /*
- * XREFs of NtCreateMutant @ 0x14083E8C0
+ * XREFs of NtCreateMutant @ 0x14083AEC0
  * Callers:
  *     <none>
  * Callees:
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeInitializeMutantEx @ 0x140445AB8 (KeInitializeMutantEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpFreeObjectNameBuffer @ 0x14083E740 (ObpFreeObjectNameBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObpAllocateObject @ 0x14089B290 (ObpAllocateObject.c)
- *     ObpCaptureObjectCreateInformation @ 0x14089CCA0 (ObpCaptureObjectCreateInformation.c)
- *     ObpRegisterObject @ 0x140AB735C (ObpRegisterObject.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeInitializeMutantEx @ 0x14043DE68 (KeInitializeMutantEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpFreeObjectNameBuffer @ 0x14083AD40 (ObpFreeObjectNameBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObpAllocateObject @ 0x1408A3930 (ObpAllocateObject.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1408A5340 (ObpCaptureObjectCreateInformation.c)
+ *     ObpRegisterObject @ 0x140AB162C (ObpRegisterObject.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateMutant(__int64 *a1, __int64 a2, int a3, char a4)
+NTSTATUS __cdecl NtCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
+  int v4; // r13d
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v7; // rcx
   POBJECT_TYPE v8; // r14
@@ -29,32 +34,31 @@ __int64 __fastcall NtCreateMutant(__int64 *a1, __int64 a2, int a3, char a4)
   int v12; // ecx
   __int64 v13; // rbx
   _GENERAL_LOOKASIDE *L; // rdi
-  __int64 v15; // r9
-  int Information; // edi
-  __int64 v17; // r8
-  __int64 v18; // r9
+  int v15; // edx
+  NTSTATUS Information; // edi
   unsigned int DefaultNonPagedPoolCharge; // ecx
-  void *v20; // rcx
-  struct _KPRCB *v21; // rdx
-  _GENERAL_LOOKASIDE *v22; // rcx
-  void *v23; // rbx
+  void *v18; // rcx
+  struct _KPRCB *v19; // rdx
+  _GENERAL_LOOKASIDE *v20; // rcx
+  void *v21; // rbx
   void (__stdcall *FreeEx)(PVOID); // rdx
-  __int64 v26; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v27; // [rsp+50h] [rbp-48h] BYREF
-  __int128 v28; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v24; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v25; // [rsp+50h] [rbp-48h] BYREF
+  __int128 v26; // [rsp+58h] [rbp-40h] BYREF
 
-  v27 = 0LL;
+  v4 = (int)ObjectAttributes;
+  v25 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)MutantHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)MutantHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
   v8 = ExMutantObjectType;
-  v28 = 0LL;
   v26 = 0LL;
+  v24 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   P = CurrentPrcb->PPLookasideList[4].P;
   ++P->TotalAllocates;
@@ -68,19 +72,19 @@ __int64 __fastcall NtCreateMutant(__int64 *a1, __int64 a2, int a3, char a4)
     if ( !v13 )
     {
       ++L->AllocateMisses;
-      v13 = guard_dispatch_icall_no_overrides((unsigned int)L->Type, L->Size, L->Tag, v15);
+      v13 = guard_dispatch_icall_no_overrides((unsigned int)L->Type, L->Size);
     }
   }
   if ( !v13 )
   {
     Information = -1073741670;
-    v23 = 0LL;
+    v21 = 0LL;
     goto LABEL_22;
   }
   *(_DWORD *)v13 = CurrentPrcb->Number;
   LOBYTE(v11) = PreviousMode;
   LOBYTE(v12) = PreviousMode;
-  Information = ObpCaptureObjectCreateInformation(v12, v11, a3, (unsigned int)&v28, v13, 0);
+  Information = ObpCaptureObjectCreateInformation(v12, v11, v4, (unsigned int)&v26, v13, 0);
   if ( Information < 0 )
     goto LABEL_19;
   if ( (*(_DWORD *)v13 & v8->TypeInfo.InvalidAttributes) != 0 )
@@ -96,59 +100,59 @@ __int64 __fastcall NtCreateMutant(__int64 *a1, __int64 a2, int a3, char a4)
   DefaultNonPagedPoolCharge = v8->TypeInfo.DefaultNonPagedPoolCharge;
   *(_DWORD *)(v13 + 20) = v8->TypeInfo.DefaultPagedPoolCharge;
   *(_DWORD *)(v13 + 24) = DefaultNonPagedPoolCharge;
-  LOBYTE(v11) = PreviousMode;
-  Information = ObpAllocateObject(v13, v11, (_DWORD)v8, (unsigned int)&v28, 56, (__int64)&v26, 0LL);
+  LOBYTE(v15) = PreviousMode;
+  Information = ObpAllocateObject(v13, v15, (_DWORD)v8, (unsigned int)&v26, 56, (__int64)&v24, 0LL);
   if ( Information < 0 )
   {
 LABEL_13:
-    if ( *((_QWORD *)&v28 + 1) )
-      ObpFreeObjectNameBuffer((__int64)&v28, v11, v17, v18);
-    v20 = *(void **)(v13 + 32);
-    if ( v20 )
+    if ( *((_QWORD *)&v26 + 1) )
+      ObpFreeObjectNameBuffer((__int64)&v26);
+    v18 = *(void **)(v13 + 32);
+    if ( v18 )
     {
       if ( *(_BYTE *)(v13 + 16) <= 1u )
-        ExFreePoolWithTag(v20, 0);
+        ExFreePoolWithTag(v18, 0);
       *(_QWORD *)(v13 + 32) = 0LL;
     }
 LABEL_19:
-    v21 = KeGetCurrentPrcb();
-    v22 = v21->PPLookasideList[4].P;
-    ++v22->TotalFrees;
-    if ( LOWORD(v22->ListHead.Alignment) < v22->Depth
-      || (++v22->FreeMisses,
-          v22 = v21->PPLookasideList[4].L,
-          ++v22->TotalFrees,
-          LOWORD(v22->ListHead.Alignment) < v22->Depth) )
+    v19 = KeGetCurrentPrcb();
+    v20 = v19->PPLookasideList[4].P;
+    ++v20->TotalFrees;
+    if ( LOWORD(v20->ListHead.Alignment) < v20->Depth
+      || (++v20->FreeMisses,
+          v20 = v19->PPLookasideList[4].L,
+          ++v20->TotalFrees,
+          LOWORD(v20->ListHead.Alignment) < v20->Depth) )
     {
-      RtlpInterlockedPushEntrySList(&v22->ListHead, (PSLIST_ENTRY)v13);
+      RtlpInterlockedPushEntrySList(&v20->ListHead, (PSLIST_ENTRY)v13);
     }
     else
     {
-      ++v22->FreeMisses;
-      FreeEx = (void (__stdcall *)(PVOID))v22->FreeEx;
+      ++v20->FreeMisses;
+      FreeEx = (void (__stdcall *)(PVOID))v20->FreeEx;
       if ( FreeEx == ExFreePool )
         ExFreePool((PVOID)v13);
       else
-        guard_dispatch_icall_no_overrides(v13, FreeEx, v17, v18);
+        guard_dispatch_icall_no_overrides(v13, FreeEx);
     }
-    v23 = 0LL;
+    v21 = 0LL;
     goto LABEL_22;
   }
   if ( ObpTraceFlags )
   {
-    ObpRegisterObject(v26);
-    ObpPushStackInfo(v26, 1, 1u, 0x746C6644u);
+    ObpRegisterObject(v24);
+    ObpPushStackInfo(v24, 1, 1u, 0x746C6644u);
   }
-  v23 = (void *)(v26 + 48);
+  v21 = (void *)(v24 + 48);
 LABEL_22:
   if ( Information >= 0 )
   {
-    LOBYTE(v11) = a4;
-    KeInitializeMutantEx((__int64)v23, v11, ExpForceEnableMutantAutoboost != 0);
-    Information = ObInsertObjectEx(v23, 0, 0LL, (__int64)&v27);
-    LODWORD(v26) = Information;
+    LOBYTE(v11) = InitialOwner;
+    KeInitializeMutantEx((__int64)v21, v11, ExpForceEnableMutantAutoboost != 0);
+    Information = ObInsertObjectEx(v21, 0, 0LL, (__int64)&v25);
+    LODWORD(v24) = Information;
     if ( Information >= 0 )
-      *a1 = v27;
+      *MutantHandle = (HANDLE)v25;
   }
-  return (unsigned int)Information;
+  return Information;
 }

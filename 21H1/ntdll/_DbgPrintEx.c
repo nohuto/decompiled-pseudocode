@@ -46,10 +46,7 @@
  *     _vDbgPrintExWithPrefixInternal@24 @ 0x4B2AB8F1 (_vDbgPrintExWithPrefixInternal@24.c)
  */
 
-int DbgPrintEx(int a1, int a2, char *a3, ...)
+int __cdecl DbgPrintEx(ULONG a1, ULONG Level, int a3, int a4)
 {
-  va_list va; // [esp+14h] [ebp+14h] BYREF
-
-  va_start(va, a3);
-  return vDbgPrintExWithPrefixInternal(&dword_4B2850A4, a1, a2, a3, va, 1);
+  return vDbgPrintExWithPrefixInternal(&dword_4B2850A4, a1, Level, a3, (char *)&a4, 1);
 }

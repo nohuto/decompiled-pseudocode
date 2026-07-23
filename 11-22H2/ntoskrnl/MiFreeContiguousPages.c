@@ -66,10 +66,10 @@ __int64 __fastcall MiFreeContiguousPages(__int64 a1, unsigned __int64 a2)
       MiDecrementShareCount(v7);
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v10 <= 0xFu
           && (unsigned __int8)result >= 2u )

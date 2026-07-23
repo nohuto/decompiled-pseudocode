@@ -10,15 +10,15 @@
 
 char __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 v5; // rax
-  __int64 v6; // r10
+  void *v5; // rax
+  void *v6; // r10
   _QWORD *v7; // r9
   __int64 v8; // r11
   __int64 v9; // r10
 
   *a3 = 0;
   *a4 = 0LL;
-  v5 = SepSidFromProcessProtection(a2, a2, a3, a4);
+  v5 = (void *)SepSidFromProcessProtection(a2, a2, a3, a4);
   if ( v5 )
   {
     LOBYTE(v5) = RtlIsValidProcessTrustLabelSid(v5);
@@ -26,14 +26,14 @@ char __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2
       goto LABEL_12;
   }
   if ( !v6 )
-    return v5;
+    return (char)v5;
   LOBYTE(v5) = RtlIsValidProcessTrustLabelSid(v6);
   if ( !(_BYTE)v5 )
     goto LABEL_12;
   if ( !v8 )
   {
     if ( !*(_DWORD *)(v9 + 8) )
-      return v5;
+      return (char)v5;
     goto LABEL_12;
   }
   LODWORD(v5) = *(_DWORD *)(v9 + 8);
@@ -44,5 +44,5 @@ LABEL_12:
     *a3 = 1;
     *v7 = v8;
   }
-  return v5;
+  return (char)v5;
 }

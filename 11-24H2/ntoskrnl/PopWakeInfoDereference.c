@@ -1,15 +1,15 @@
 /*
- * XREFs of PopWakeInfoDereference @ 0x1404BC44C
+ * XREFs of PopWakeInfoDereference @ 0x1404B735C
  * Callers:
- *     PopDereferenceWakeInfos @ 0x1405D32CC (PopDereferenceWakeInfos.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x1407514F0 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1407597F0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopPotsLogPowerTransitionReliability @ 0x140A9604C (PopPotsLogPowerTransitionReliability.c)
- *     PopQueryMostRecentWakeSourceAttributes @ 0x140A9D7CC (PopQueryMostRecentWakeSourceAttributes.c)
- *     PopNewWakeInfo @ 0x140B67F44 (PopNewWakeInfo.c)
- *     PopIsMostRecentWakeAttended @ 0x140B6DB08 (PopIsMostRecentWakeAttended.c)
+ *     PopDereferenceWakeInfos @ 0x1405D09EC (PopDereferenceWakeInfos.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x14074F810 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x140757C90 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopPotsLogPowerTransitionReliability @ 0x140A9287C (PopPotsLogPowerTransitionReliability.c)
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x140A98D3C (PopQueryMostRecentWakeSourceAttributes.c)
+ *     PopNewWakeInfo @ 0x140B6A084 (PopNewWakeInfo.c)
+ *     PopIsMostRecentWakeAttended @ 0x140B6F3A8 (PopIsMostRecentWakeAttended.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopWakeInfoDereference(__int64 a1)

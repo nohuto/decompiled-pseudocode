@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRequestWaitReplyPort()
+NTSTATUS __cdecl ZwRequestWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage, PPORT_MESSAGE ReplyMessage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 34LL;
+  result = 34;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExfAcquireCacheAwarePushLockSharedEx @ 0x1402777C0
+ * XREFs of ExfAcquireCacheAwarePushLockSharedEx @ 0x140276D30
  * Callers:
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
  */
 
 volatile signed __int64 *__fastcall ExfAcquireCacheAwarePushLockSharedEx(

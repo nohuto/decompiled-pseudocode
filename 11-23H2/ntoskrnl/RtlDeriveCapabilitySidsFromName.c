@@ -1,23 +1,26 @@
 /*
- * XREFs of RtlDeriveCapabilitySidsFromName @ 0x14031D070
+ * XREFs of RtlDeriveCapabilitySidsFromName @ 0x14031D300
  * Callers:
- *     PiUEventInitClientRegistrationContext @ 0x140781CD4 (PiUEventInitClientRegistrationContext.c)
- *     PopCreateNotificationName @ 0x1407E3210 (PopCreateNotificationName.c)
- *     RtlCapabilityCheck @ 0x1407ECD50 (RtlCapabilityCheck.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14080C110 (CmpHiveRootSecurityDescriptor.c)
- *     DbgkpCreateNotificationEvent @ 0x14085B3BC (DbgkpCreateNotificationEvent.c)
+ *     PiUEventInitClientRegistrationContext @ 0x140781EC4 (PiUEventInitClientRegistrationContext.c)
+ *     PopCreateNotificationName @ 0x1407E34E0 (PopCreateNotificationName.c)
+ *     RtlCapabilityCheck @ 0x1407ED020 (RtlCapabilityCheck.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x14080C3E0 (CmpHiveRootSecurityDescriptor.c)
+ *     DbgkpCreateNotificationEvent @ 0x14085B5FC (DbgkpCreateNotificationEvent.c)
  *     SepVariableInitialization @ 0x140B62268 (SepVariableInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptSha256 @ 0x1403F347C (SymCryptSha256.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptSha256 @ 0x1403F365C (SymCryptSha256.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
  */
 
-NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING String2, _OWORD *Sid, _OWORD *a3)
+NTSTATUS __cdecl RtlDeriveCapabilitySidsFromName(
+        PUNICODE_STRING UnicodeString,
+        PSID CapabilityGroupSid,
+        PSID CapabilitySid)
 {
   NTSTATUS result; // eax
   __int128 v7; // xmm0
@@ -30,25 +33,25 @@ NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING String2, _O
   __int128 v14; // [rsp+40h] [rbp-38h]
 
   DestinationString = 0LL;
-  if ( !String2 || !Sid || !a3 )
+  if ( !UnicodeString || !CapabilityGroupSid || !CapabilitySid )
     __fastfail(5u);
-  *a3 = 0LL;
-  a3[1] = 0LL;
-  a3[2] = 0LL;
-  *Sid = 0LL;
-  Sid[1] = 0LL;
-  *((_QWORD *)Sid + 4) = 0LL;
-  *((_DWORD *)Sid + 10) = 0;
-  result = RtlUpcaseUnicodeString(&DestinationString, String2, 1u);
+  *(_OWORD *)CapabilitySid = 0LL;
+  *((_OWORD *)CapabilitySid + 1) = 0LL;
+  *((_OWORD *)CapabilitySid + 2) = 0LL;
+  *(_OWORD *)CapabilityGroupSid = 0LL;
+  *((_OWORD *)CapabilityGroupSid + 1) = 0LL;
+  *((_QWORD *)CapabilityGroupSid + 4) = 0LL;
+  *((_DWORD *)CapabilityGroupSid + 10) = 0;
+  result = RtlUpcaseUnicodeString(&DestinationString, UnicodeString, 1u);
   if ( result >= 0 )
   {
     SymCryptSha256(DestinationString.Buffer, DestinationString.Length, &v13);
-    RtlInitializeSid(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 9u);
+    RtlInitializeSid(CapabilityGroupSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 9u);
     v7 = v13;
-    *((_DWORD *)Sid + 2) = 32;
+    *((_DWORD *)CapabilityGroupSid + 2) = 32;
     v8 = v14;
-    *(_OWORD *)((char *)Sid + 12) = v7;
-    *(_OWORD *)((char *)Sid + 28) = v8;
+    *(_OWORD *)((char *)CapabilityGroupSid + 12) = v7;
+    *(_OWORD *)((char *)CapabilityGroupSid + 28) = v8;
     v9 = 0;
     while ( 1 )
     {
@@ -59,19 +62,19 @@ NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING String2, _O
       if ( v10 >= 0xC )
         goto LABEL_8;
     }
-    RtlInitializeSid(a3, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
-    *((_DWORD *)a3 + 2) = 3;
-    *((_DWORD *)a3 + 3) = v10;
+    RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
+    *((_DWORD *)CapabilitySid + 2) = 3;
+    *((_DWORD *)CapabilitySid + 3) = v10;
 LABEL_8:
     RtlFreeUnicodeString(&DestinationString);
     if ( v9 == 12 )
     {
-      RtlInitializeSid(a3, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 0xAu);
-      *((_DWORD *)a3 + 2) = 3;
-      *((_DWORD *)a3 + 3) = RtlPrefixUnicodeString(&String1, String2, 1u) != 0 ? 0x10000 : 1024;
+      RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 0xAu);
+      *((_DWORD *)CapabilitySid + 2) = 3;
+      *((_DWORD *)CapabilitySid + 3) = RtlPrefixUnicodeString(&String1, UnicodeString, 1u) != 0 ? 0x10000 : 1024;
       v11 = v14;
-      a3[1] = v13;
-      a3[2] = v11;
+      *((_OWORD *)CapabilitySid + 1) = v13;
+      *((_OWORD *)CapabilitySid + 2) = v11;
     }
     return 0;
   }

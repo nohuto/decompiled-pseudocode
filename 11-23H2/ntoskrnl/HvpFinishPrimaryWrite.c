@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpFinishPrimaryWrite @ 0x1407D9714
+ * XREFs of HvpFinishPrimaryWrite @ 0x1407D99E4
  * Callers:
- *     HvWriteHivePrimaryFile @ 0x1407D9500 (HvWriteHivePrimaryFile.c)
+ *     HvWriteHivePrimaryFile @ 0x1407D97D0 (HvWriteHivePrimaryFile.c)
  * Callees:
- *     CmpLogEvent @ 0x140A0FBD4 (CmpLogEvent.c)
+ *     CmpLogEvent @ 0x140A0FE84 (CmpLogEvent.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  *     HvLockHiveFlusherExclusive @ 0x140AF5670 (HvLockHiveFlusherExclusive.c)

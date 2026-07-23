@@ -3,8 +3,8 @@
  * Callers:
  *     MiCreateSparsePfnDatabase @ 0x140797038 (MiCreateSparsePfnDatabase.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x14013B608 (MiRestrictRangeToNode.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x14013BB78 (MiRestrictRangeToNode.c)
  *     MxMapVa @ 0x14079747C (MxMapVa.c)
  */
 

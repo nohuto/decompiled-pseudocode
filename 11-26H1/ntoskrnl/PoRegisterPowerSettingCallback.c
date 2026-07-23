@@ -1,32 +1,32 @@
 /*
- * XREFs of PoRegisterPowerSettingCallback @ 0x140B05F90
+ * XREFs of PoRegisterPowerSettingCallback @ 0x140B080C0
  * Callers:
- *     HvlPhase2Initialize @ 0x1405B8B08 (HvlPhase2Initialize.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x1407DA2F0 (PopIdleInitAoAcDozeS4Timer.c)
- *     PopAdaptiveStandbyInitialize @ 0x1407DFAF8 (PopAdaptiveStandbyInitialize.c)
- *     SSHSupportRegisterPowerSettingCallback @ 0x1407E4508 (SSHSupportRegisterPowerSettingCallback.c)
- *     CmpInitializeLazyWriters @ 0x14085CCE4 (CmpInitializeLazyWriters.c)
- *     TtmInitCurrentSession @ 0x140A3A0D4 (TtmInitCurrentSession.c)
- *     PopSetPowerSettingValue @ 0x140A3E538 (PopSetPowerSettingValue.c)
- *     VslRegisterIumPowerCallbacks @ 0x140CB99FC (VslRegisterIumPowerCallbacks.c)
- *     PopInitializePowerSettingCallbacks @ 0x140CD0CDC (PopInitializePowerSettingCallbacks.c)
- *     PpmInfoRegisterCallbacks @ 0x140CD2CF4 (PpmInfoRegisterCallbacks.c)
- *     PopNetInitialize @ 0x140CD4E38 (PopNetInitialize.c)
- *     PopEsInit @ 0x140CD59F4 (PopEsInit.c)
- *     PopModernStandbyNotificationInit @ 0x140CD6534 (PopModernStandbyNotificationInit.c)
- *     PopPowerAggregatorInitialize @ 0x140D0B4DC (PopPowerAggregatorInitialize.c)
+ *     HvlPhase2Initialize @ 0x1405BB378 (HvlPhase2Initialize.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x1407DE22C (PopIdleInitAoAcDozeS4Timer.c)
+ *     PopAdaptiveStandbyInitialize @ 0x1407E44EC (PopAdaptiveStandbyInitialize.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x1407EA078 (SSHSupportRegisterPowerSettingCallback.c)
+ *     CmpInitializeLazyWriters @ 0x140862FD4 (CmpInitializeLazyWriters.c)
+ *     TtmInitCurrentSession @ 0x1409F5CD4 (TtmInitCurrentSession.c)
+ *     PopSetPowerSettingValue @ 0x1409F9F58 (PopSetPowerSettingValue.c)
+ *     VslRegisterIumPowerCallbacks @ 0x140CBFA3C (VslRegisterIumPowerCallbacks.c)
+ *     PopInitializePowerSettingCallbacks @ 0x140CD6E84 (PopInitializePowerSettingCallbacks.c)
+ *     PpmInfoRegisterCallbacks @ 0x140CD8E94 (PpmInfoRegisterCallbacks.c)
+ *     PopNetInitialize @ 0x140CDB1D8 (PopNetInitialize.c)
+ *     PopEsInit @ 0x140CDBD48 (PopEsInit.c)
+ *     PopModernStandbyNotificationInit @ 0x140CDC888 (PopModernStandbyNotificationInit.c)
+ *     PopPowerAggregatorInitialize @ 0x140D11CE4 (PopPowerAggregatorInitialize.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     RtlPcToFileName @ 0x140419600 (RtlPcToFileName.c)
- *     PopSetNotificationWork @ 0x1404385A0 (PopSetNotificationWork.c)
- *     PopEnsureErratumSubscribed @ 0x140606D90 (PopEnsureErratumSubscribed.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopStateIsSessionSpecific @ 0x140A3E980 (PopStateIsSessionSpecific.c)
- *     PopFindPowerSettingConfiguration @ 0x140A3E9D0 (PopFindPowerSettingConfiguration.c)
- *     EmClientRuleEvaluate @ 0x140C03A80 (EmClientRuleEvaluate.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     RtlPcToFileName @ 0x14040DB30 (RtlPcToFileName.c)
+ *     PopSetNotificationWork @ 0x1404274C0 (PopSetNotificationWork.c)
+ *     PopEnsureErratumSubscribed @ 0x140609890 (PopEnsureErratumSubscribed.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopStateIsSessionSpecific @ 0x1409FA3A0 (PopStateIsSessionSpecific.c)
+ *     PopFindPowerSettingConfiguration @ 0x1409FA3F0 (PopFindPowerSettingConfiguration.c)
+ *     EmClientRuleEvaluate @ 0x140C09C90 (EmClientRuleEvaluate.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall PoRegisterPowerSettingCallback(
@@ -41,17 +41,17 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
   unsigned __int64 *v9; // rsi
   __int64 v10; // rcx
   __int64 Pool2; // rax
-  unsigned __int64 v12; // rbx
+  char *v12; // rbx
   GUID v13; // xmm0
-  volatile unsigned int *PowerSettingConfiguration; // rdx
+  PVOID *PowerSettingConfiguration; // rdx
   __int64 v15; // rcx
   __int64 v16; // rax
-  volatile unsigned int **v17; // rcx
+  PVOID **v17; // rcx
   NTSTATUS v18; // edi
-  _KSCB *QueuedScb; // rax
-  struct _LIST_ENTRY **p_Blink; // rax
+  _QWORD *v20; // rax
+  __int64 *v21; // rax
   int v22; // [rsp+20h] [rbp-E0h] BYREF
-  int v23; // [rsp+24h] [rbp-DCh]
+  int Next_high; // [rsp+24h] [rbp-DCh]
   __int128 *v24; // [rsp+28h] [rbp-D8h] BYREF
   UNICODE_STRING v25; // [rsp+30h] [rbp-D0h] BYREF
   PDEVICE_OBJECT v26; // [rsp+40h] [rbp-C0h]
@@ -65,7 +65,7 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
   v25 = 0LL;
   v24 = 0LL;
   v8 = 0;
-  v23 = dword_140F106CC;
+  Next_high = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   if ( PopStateIsSessionSpecific(SettingGuid) )
     return -1073741811;
   v9 = 0LL;
@@ -86,17 +86,17 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
         v24 = &v27;
         if ( (int)EmClientRuleEvaluate(&GUID_EM_PO_CONSOLE_STATE_CHANGE_REMAP_RULE, &v24, 1LL, &v22) >= 0 )
         {
-          p_Blink = &stru_140F11D08.WaitBlock[3].WaitListEntry.Blink;
+          v21 = &PopPrimaryDisplayVisibleStateErratum;
           if ( v22 != 2 )
-            p_Blink = 0LL;
-          v9 = (unsigned __int64 *)p_Blink;
+            v21 = 0LL;
+          v9 = (unsigned __int64 *)v21;
         }
       }
     }
   }
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  ExAcquireFastMutex(&PopSettingLock);
   Pool2 = ExAllocatePool2(0x100uLL);
-  v12 = Pool2;
+  v12 = (char *)Pool2;
   if ( Pool2 )
   {
     *(_DWORD *)(Pool2 + 16) = 1952797520;
@@ -124,36 +124,36 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
         v16 = *(_QWORD *)v7->Data4 - *(_QWORD *)GUID_BACKGROUND_TASK_NOTIFICATION.Data4;
       if ( !v16 )
 LABEL_33:
-        *(_QWORD *)(v12 + 72) = *(_QWORD *)&PowerSettingConfiguration[2 * v23 + 16];
-      v17 = (volatile unsigned int **)*((_QWORD *)PowerSettingConfiguration + 3);
-      if ( *v17 != PowerSettingConfiguration + 4 )
+        *((_QWORD *)v12 + 9) = PowerSettingConfiguration[Next_high + 8];
+      v17 = (PVOID **)PowerSettingConfiguration[3];
+      if ( *v17 != PowerSettingConfiguration + 2 )
 LABEL_17:
         __fastfail(3u);
-      *(_QWORD *)v12 = PowerSettingConfiguration + 4;
-      *(_QWORD *)(v12 + 8) = v17;
-      *v17 = (volatile unsigned int *)v12;
-      *((_QWORD *)PowerSettingConfiguration + 3) = v12;
+      *(_QWORD *)v12 = PowerSettingConfiguration + 2;
+      *((_QWORD *)v12 + 1) = v17;
+      *v17 = (PVOID *)v12;
+      PowerSettingConfiguration[3] = v12;
     }
     else
     {
-      QueuedScb = stru_140F10828.QueuedScb;
-      if ( (__int64 *)stru_140F10828.QueuedScb->GenerationCycles != &stru_140F10828.OtherTransferCount )
+      v20 = (_QWORD *)qword_140F0FFC8;
+      if ( *(__int64 **)qword_140F0FFC8 != &PopRegisteredPowerSettingCallbacks )
         goto LABEL_17;
-      *(_QWORD *)v12 = &stru_140F10828.OtherTransferCount;
-      *(_QWORD *)(v12 + 8) = QueuedScb;
-      QueuedScb->GenerationCycles = v12;
-      stru_140F10828.QueuedScb = (_KSCB *)v12;
+      *(_QWORD *)v12 = &PopRegisteredPowerSettingCallbacks;
+      *((_QWORD *)v12 + 1) = v20;
+      *v20 = v12;
+      qword_140F0FFC8 = (__int64)v12;
     }
     v18 = 0;
-    v8 = HIDWORD(stru_140F10070.Spare35[0]) >= 3;
+    v8 = (unsigned int)PopOsInitPhase >= 3;
     if ( Handle )
-      *Handle = (PVOID)v12;
+      *Handle = v12;
   }
   else
   {
     v18 = -1073741670;
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  KeReleaseGuardedMutex(&PopSettingLock);
   if ( v8 )
     PopSetNotificationWork(0x20u);
   return v18;

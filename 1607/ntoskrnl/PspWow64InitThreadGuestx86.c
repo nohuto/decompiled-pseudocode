@@ -1,10 +1,10 @@
 /*
- * XREFs of PspWow64InitThreadGuestx86 @ 0x14051AB90
+ * XREFs of PspWow64InitThreadGuestx86 @ 0x1404FDF80
  * Callers:
- *     PspWow64InitThread @ 0x14051AA18 (PspWow64InitThread.c)
+ *     PspWow64InitThread @ 0x1404FDE08 (PspWow64InitThread.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PspWow64InitThreadGuestx86(__int64 a1, _DWORD *a2, int a3, int a4, int a5, int a6)

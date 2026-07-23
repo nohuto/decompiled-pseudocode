@@ -1,19 +1,19 @@
 /*
- * XREFs of SepReadAndInsertCaps @ 0x1409259CC
+ * XREFs of SepReadAndInsertCaps @ 0x140925B2C
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1403CBB6C (SepBuildCapPolicyTable.c)
+ *     SepBuildCapPolicyTable @ 0x1403CBCDC (SepBuildCapPolicyTable.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x1402515F0 (RtlInsertEntryHashTable.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
- *     SepRmCapPoolExpand @ 0x140597E20 (SepRmCapPoolExpand.c)
- *     SepRegOpenKey @ 0x140717184 (SepRegOpenKey.c)
- *     SepReadSingleCap @ 0x140925D28 (SepReadSingleCap.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     RtlInsertEntryHashTable @ 0x1402F5E00 (RtlInsertEntryHashTable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403FA840 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1403FABC0 (ZwEnumerateKey.c)
+ *     SepRmCapPoolExpand @ 0x140598050 (SepRmCapPoolExpand.c)
+ *     SepRegOpenKey @ 0x1406C57D4 (SepRegOpenKey.c)
+ *     SepReadSingleCap @ 0x140925E88 (SepReadSingleCap.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
   NTSTATUS v11; // eax
   NTSTATUS v12; // eax
   int SingleCap; // eax
-  struct _RTL_DYNAMIC_HASH_TABLE *v14; // r10
+  _RTL_DYNAMIC_HASH_TABLE *v14; // r10
   __int64 v15; // rdx
   ULONG_PTR v16; // r8
   ULONG Length; // [rsp+30h] [rbp-D0h] BYREF

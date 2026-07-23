@@ -1,9 +1,9 @@
 /*
- * XREFs of PopReadErrataDisablePrimaryDeviceFastResume @ 0x1409AB034
+ * XREFs of PopReadErrataDisablePrimaryDeviceFastResume @ 0x1409AC034
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     EmClientQueryRuleState @ 0x1405653B0 (EmClientQueryRuleState.c)
+ *     EmClientQueryRuleState @ 0x1405663B0 (EmClientQueryRuleState.c)
  */
 
 __int64 PopReadErrataDisablePrimaryDeviceFastResume()

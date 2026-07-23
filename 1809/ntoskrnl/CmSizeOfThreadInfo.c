@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSizeOfThreadInfo @ 0x1401B2F70
+ * XREFs of CmSizeOfThreadInfo @ 0x1401B30B0
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
+ *     ExpWatchProductTypeWork @ 0x1406C0BB0 (ExpWatchProductTypeWork.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmSetInstallerClassMappedProperty @ 0x140B3E1DC
+ * XREFs of _CmSetInstallerClassMappedProperty @ 0x140B40214
  * Callers:
- *     _CmDeleteInstallerClassWorker @ 0x14077EB80 (_CmDeleteInstallerClassWorker.c)
- *     _PnpDispatchInstallerClass @ 0x140918340 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x140781680 (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x140972DA0 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x14089B478 (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x14089B4DC (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x14089C21C (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x14089C2A0 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x14090D610 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140B44E74 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x1408A1878 (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408A18DC (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x1408A261C (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1408A26A0 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1409AF740 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140B47184 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedProperty(
@@ -64,7 +64,7 @@ LABEL_12:
       {
         if ( i >= 0xD )
           goto LABEL_24;
-        v16 = (__int64)*(&off_140BDB120 + 4 * i);
+        v16 = (__int64)*(&off_140BE1FD0 + 4 * i);
         if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v16 + 16) )
         {
           v17 = *(_QWORD *)a5 - *(_QWORD *)v16;
@@ -108,7 +108,7 @@ LABEL_24:
 LABEL_34:
         for ( j = 0; j < 4; ++j )
         {
-          v22 = (__int64)*(&off_140BD9820 + 2 * j);
+          v22 = (__int64)*(&off_140BE06D0 + 2 * j);
           if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v22 + 16) )
           {
             v23 = *(_QWORD *)a5 - *(_QWORD *)v22;

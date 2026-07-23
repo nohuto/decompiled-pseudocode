@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcChangeBackingFileObject @ 0x140201AC4 (CcChangeBackingFileObject.c)
- *     MmChangeSectionBackingFile @ 0x1402483DC (MmChangeSectionBackingFile.c)
+ *     sub_140201AC4 @ 0x140201AC4 (sub_140201AC4.c)
+ *     sub_1402483DC @ 0x1402483DC (sub_1402483DC.c)
  */
 
 NTSTATUS __stdcall FsRtlChangeBackingFileObject(
@@ -21,16 +21,16 @@ NTSTATUS __stdcall FsRtlChangeBackingFileObject(
   if ( ChangeBackingType == ChangeDataControlArea )
   {
     v4 = 1LL;
-    return MmChangeSectionBackingFile(CurrentFileObject, NewFileObject, v4);
+    return sub_1402483DC(CurrentFileObject, NewFileObject, v4);
   }
   v6 = ChangeBackingType - 1;
   if ( !v6 )
   {
     v4 = 2LL;
-    return MmChangeSectionBackingFile(CurrentFileObject, NewFileObject, v4);
+    return sub_1402483DC(CurrentFileObject, NewFileObject, v4);
   }
   if ( v6 == 1 )
-    return CcChangeBackingFileObject(CurrentFileObject, NewFileObject);
+    return sub_140201AC4(CurrentFileObject, NewFileObject);
   else
     return -1073741583;
 }

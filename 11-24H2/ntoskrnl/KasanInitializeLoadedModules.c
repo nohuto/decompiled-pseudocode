@@ -1,10 +1,10 @@
 /*
- * XREFs of KasanInitializeLoadedModules @ 0x140C26B00
+ * XREFs of KasanInitializeLoadedModules @ 0x140C28B50
  * Callers:
- *     KasanInitSystem @ 0x140C26690 (KasanInitSystem.c)
+ *     KasanInitSystem @ 0x140C286E0 (KasanInitSystem.c)
  * Callees:
- *     KasanDriverLoadImageInternal @ 0x1404B7B70 (KasanDriverLoadImageInternal.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KasanDriverLoadImageInternal @ 0x1404B24C0 (KasanDriverLoadImageInternal.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall KasanInitializeLoadedModules(__int64 a1)

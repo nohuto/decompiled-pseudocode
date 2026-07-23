@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateSessionProtosInSubsection @ 0x140136EBC
+ * XREFs of MiLocateSessionProtosInSubsection @ 0x140136FBC
  * Callers:
- *     MiGetSharedProtosAtDpcLevel @ 0x1401771DC (MiGetSharedProtosAtDpcLevel.c)
- *     MiDereferenceSubsectionProtos @ 0x1406C9060 (MiDereferenceSubsectionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406C90C8 (MiCreatePerSessionProtos.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1401772DC (MiGetSharedProtosAtDpcLevel.c)
+ *     MiDereferenceSubsectionProtos @ 0x1406CA300 (MiDereferenceSubsectionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406CA368 (MiCreatePerSessionProtos.c)
  * Callees:
  *     <none>
  */

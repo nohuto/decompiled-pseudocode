@@ -55,7 +55,7 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1, __int64 a2, __i
   signed __int64 v33; // rcx
   __int64 v34; // rbx
   int (__fastcall *v35)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v36; // r8
+  _SLIST_HEADER *v36; // r8
   void *v37; // rcx
   char v38; // cl
   int v39; // eax
@@ -63,7 +63,7 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1, __int64 a2, __i
   signed __int64 v41; // rcx
   __int64 v42; // rbx
   int (__fastcall *v43)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v44; // r8
+  _SLIST_HEADER *v44; // r8
   void *v45; // rcx
   __int64 v46; // [rsp+30h] [rbp-68h]
   struct _KTHREAD *v47; // [rsp+40h] [rbp-58h]

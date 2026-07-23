@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRegisterForWnfMetaNotification @ 0x18010D000
+ * XREFs of RtlRegisterForWnfMetaNotification @ 0x180107FC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x1800991AC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18002DFFC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
  */
 
-__int64 __fastcall RtlRegisterForWnfMetaNotification(_QWORD *a1, __int64 a2, int a3, int a4, __int64 a5)
+__int64 __fastcall RtlRegisterForWnfMetaNotification(PVOID *a1, __int64 a2, int a3, int a4, __int64 a5)
 {
   *a1 = 0LL;
   if ( !a3 || (a3 & 0x11) != 0 )

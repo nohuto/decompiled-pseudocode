@@ -1,23 +1,23 @@
 /*
- * XREFs of MiOffsetToProtos @ 0x140340254
+ * XREFs of MiOffsetToProtos @ 0x1403422D4
  * Callers:
- *     MiProtoFaultApplyPrivateFixups @ 0x1402DA280 (MiProtoFaultApplyPrivateFixups.c)
- *     MiReferenceDataSubsections @ 0x14033F1DC (MiReferenceDataSubsections.c)
- *     MiRemoveMappedPtes @ 0x14033FBF8 (MiRemoveMappedPtes.c)
- *     MiAddMappedPtes @ 0x14033FE10 (MiAddMappedPtes.c)
- *     MiSetSystemCodeProtection @ 0x14038B984 (MiSetSystemCodeProtection.c)
- *     MiSystemImageHasPrivateFixups @ 0x140499228 (MiSystemImageHasPrivateFixups.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiDereferenceDataSubsections @ 0x14070A1D8 (MiDereferenceDataSubsections.c)
- *     MiScanRelocationPage @ 0x14087B644 (MiScanRelocationPage.c)
- *     MiRelocateValidateFixups @ 0x1409CB26C (MiRelocateValidateFixups.c)
- *     MiLogRelocationRva @ 0x1409CC718 (MiLogRelocationRva.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiProtoFaultApplyPrivateFixups @ 0x1402BC040 (MiProtoFaultApplyPrivateFixups.c)
+ *     MiReferenceDataSubsections @ 0x14034125C (MiReferenceDataSubsections.c)
+ *     MiRemoveMappedPtes @ 0x140341C78 (MiRemoveMappedPtes.c)
+ *     MiAddMappedPtes @ 0x140341E90 (MiAddMappedPtes.c)
+ *     MiSetSystemCodeProtection @ 0x14038D734 (MiSetSystemCodeProtection.c)
+ *     MiSystemImageHasPrivateFixups @ 0x140492D78 (MiSystemImageHasPrivateFixups.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiDereferenceDataSubsections @ 0x14070EE8C (MiDereferenceDataSubsections.c)
+ *     MiScanRelocationPage @ 0x140881A44 (MiScanRelocationPage.c)
+ *     MiRelocateValidateFixups @ 0x14099C24C (MiRelocateValidateFixups.c)
+ *     MiLogRelocationRva @ 0x14099D6F8 (MiLogRelocationRva.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
- *     MiGetControlAreaPtes @ 0x1402E3790 (MiGetControlAreaPtes.c)
- *     MiLocateSubsectionNode @ 0x1402E48B0 (MiLocateSubsectionNode.c)
- *     MiLocatePagefileSubsection @ 0x140340310 (MiLocatePagefileSubsection.c)
+ *     MiGetControlAreaPtes @ 0x1402C57D0 (MiGetControlAreaPtes.c)
+ *     MiLocateSubsectionNode @ 0x1402C68F0 (MiLocateSubsectionNode.c)
+ *     MiLocatePagefileSubsection @ 0x140342390 (MiLocatePagefileSubsection.c)
  */
 
 __int64 __fastcall MiOffsetToProtos(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)

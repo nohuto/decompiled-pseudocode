@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpSecConvKey @ 0x14070DAF0
+ * XREFs of CmpSecConvKey @ 0x14070DD00
  * Callers:
- *     CmpAddSecurityCellToCache @ 0x14070D6D8 (CmpAddSecurityCellToCache.c)
- *     CmpFindMatchingDescriptorCell @ 0x14070D8EC (CmpFindMatchingDescriptorCell.c)
+ *     CmpAddSecurityCellToCache @ 0x14070D8E8 (CmpAddSecurityCellToCache.c)
+ *     CmpFindMatchingDescriptorCell @ 0x14070DAFC (CmpFindMatchingDescriptorCell.c)
  * Callees:
  *     <none>
  */

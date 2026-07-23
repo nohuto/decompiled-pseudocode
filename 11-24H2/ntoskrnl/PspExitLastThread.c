@@ -1,32 +1,32 @@
 /*
- * XREFs of PspExitLastThread @ 0x1409374F0
+ * XREFs of PspExitLastThread @ 0x1408F27B8
  * Callers:
- *     PsTerminateMinimalProcess @ 0x140778C58 (PsTerminateMinimalProcess.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PsTerminateMinimalProcess @ 0x140778D58 (PsTerminateMinimalProcess.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeQuerySystemTimePrecise @ 0x14034EC60 (KeQuerySystemTimePrecise.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     PsSessionGetWin32Callouts @ 0x14046B2A0 (PsSessionGetWin32Callouts.c)
- *     KeQuerySystemTimeUnsafe @ 0x140477918 (KeQuerySystemTimeUnsafe.c)
- *     KeForceResumeProcess @ 0x1404A7414 (KeForceResumeProcess.c)
- *     PspUpdateCalloutParameters @ 0x1404EEDCC (PspUpdateCalloutParameters.c)
- *     PspCatchCriticalBreak @ 0x140778EB8 (PspCatchCriticalBreak.c)
- *     SeAuditProcessExit @ 0x140790D58 (SeAuditProcessExit.c)
- *     PspRundownSingleProcess @ 0x1408A8B38 (PspRundownSingleProcess.c)
- *     LpcExitProcess @ 0x1408A9738 (LpcExitProcess.c)
- *     ExpWnfDeleteProcessContext @ 0x1408AA090 (ExpWnfDeleteProcessContext.c)
- *     ExCallCallBack @ 0x1409358AC (ExCallCallBack.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140938740 (SeAuditingWithTokenForSubcategory.c)
- *     PspExitProcess @ 0x1409387A0 (PspExitProcess.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     KeQuerySystemTimePrecise @ 0x14036D140 (KeQuerySystemTimePrecise.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     PsSessionGetWin32Callouts @ 0x140463D20 (PsSessionGetWin32Callouts.c)
+ *     KeQuerySystemTimeUnsafe @ 0x140473F10 (KeQuerySystemTimeUnsafe.c)
+ *     KeForceResumeProcess @ 0x1404A1E44 (KeForceResumeProcess.c)
+ *     PspUpdateCalloutParameters @ 0x1404E64C0 (PspUpdateCalloutParameters.c)
+ *     PspCatchCriticalBreak @ 0x140778FB8 (PspCatchCriticalBreak.c)
+ *     SeAuditProcessExit @ 0x140790D28 (SeAuditProcessExit.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1408F2E10 (SeAuditingWithTokenForSubcategory.c)
+ *     PspExitProcess @ 0x1408F2E70 (PspExitProcess.c)
+ *     ExCallCallBack @ 0x1408F47CC (ExCallCallBack.c)
+ *     PspRundownSingleProcess @ 0x1408FED98 (PspRundownSingleProcess.c)
+ *     LpcExitProcess @ 0x1408FF998 (LpcExitProcess.c)
+ *     ExpWnfDeleteProcessContext @ 0x1409002F0 (ExpWnfDeleteProcessContext.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspExitLastThread(__int64 a1, char a2, ULONG_PTR a3, _QWORD *a4, int a5)
@@ -36,13 +36,13 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, ULONG_PTR a3, _QWORD *a4,
   __int64 v8; // rax
   ULONG_PTR v9; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v11; // rcx
+  void *v11; // rcx
   void *v12; // rcx
   struct _KTHREAD *v13; // r12
   _QWORD *v14; // rdi
   _QWORD *v15; // rax
   __int64 ProcessServerSilo; // rax
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   int v18; // eax
   __int64 v19; // [rsp+30h] [rbp-30h] BYREF
   int v20; // [rsp+38h] [rbp-28h]
@@ -80,7 +80,7 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, ULONG_PTR a3, _QWORD *a4,
           if ( (unsigned int)PspUpdateCalloutParameters(0, (__int64)v21, 0, 0LL) )
           {
             Win32Callouts = PsSessionGetWin32Callouts();
-            ExCallCallBack((signed __int64 *)Win32Callouts, 0LL, (__int64)v21);
+            ExCallCallBack(Win32Callouts, 0LL, v21);
           }
         }
         break;
@@ -107,11 +107,11 @@ void __fastcall PspExitLastThread(__int64 a1, char a2, ULONG_PTR a3, _QWORD *a4,
         ObFastDereferenceObject((__int64 *)(a3 + 584), v9, 0x65547350u);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v11 = *(unsigned __int64 **)(a3 + 1512);
+        v11 = *(void **)(a3 + 1512);
         if ( v11 )
-          ExpWnfDeleteProcessContext(v11, 0);
+          ExpWnfDeleteProcessContext(v11);
         KeLeaveCriticalRegion();
-        PspRundownSingleProcess((char *)a3, 1);
+        PspRundownSingleProcess((PVOID)a3);
         LpcExitProcess(a3);
         v12 = *(void **)(a3 + 1480);
         if ( v12 )

@@ -5,7 +5,7 @@
  * Callees:
  *     RtlLookupFunctionEntry @ 0x180020780 (RtlLookupFunctionEntry.c)
  *     RtlVirtualUnwind @ 0x180020C40 (RtlVirtualUnwind.c)
- *     RtlUnhandledExceptionFilter @ 0x1800A0330 (RtlUnhandledExceptionFilter.c)
+ *     RtlUnhandledExceptionFilter @ 0x1800A02F0 (RtlUnhandledExceptionFilter.c)
  *     ZwTerminateProcess @ 0x1800A1430 (ZwTerminateProcess.c)
  *     RtlCaptureContext @ 0x1800A51D0 (RtlCaptureContext.c)
  */
@@ -40,6 +40,6 @@ void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
   dword_180184F98 = 1;
   unk_180184FA0 = 2LL;
   HandlerData[2] = (PVOID)_security_cookie_complement;
-  RtlUnhandledExceptionFilter(&off_180133B98);
-  ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter((PEXCEPTION_POINTERS)&ExceptionPointers);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

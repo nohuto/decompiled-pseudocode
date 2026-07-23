@@ -1,9 +1,9 @@
 /*
- * XREFs of IoStopTimer @ 0x1405574C0
+ * XREFs of IoStopTimer @ 0x140557B80
  * Callers:
  *     <none>
  * Callees:
- *     IopDisableTimer @ 0x140555034 (IopDisableTimer.c)
+ *     IopDisableTimer @ 0x1405556F4 (IopDisableTimer.c)
  */
 
 void __stdcall IoStopTimer(PDEVICE_OBJECT DeviceObject)

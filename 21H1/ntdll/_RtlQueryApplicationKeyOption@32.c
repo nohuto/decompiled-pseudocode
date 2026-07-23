@@ -8,16 +8,28 @@
  *     _RtlQueryImageFileKeyOption@24 @ 0x4B2A6C80 (_RtlQueryImageFileKeyOption@24.c)
  */
 
-int __fastcall RtlQueryApplicationKeyOption(int a1, int a2, int a3, int a4, void *a5, int a6, int a7, int *a8)
+int __fastcall RtlQueryApplicationKeyOption(
+        HANDLE KeyHandle,
+        HANDLE a2,
+        PCWSTR SourceString,
+        int a4,
+        PULONG Value,
+        int a6,
+        int a7,
+        _DWORD *a8)
 {
   int result; // eax
 
-  if ( a1 && ((result = RtlQueryImageFileKeyOption(a1, a3, a4, a5, a6, 0), result >= 0) || result == -2147483643) )
+  if ( KeyHandle
+    && ((result = RtlQueryImageFileKeyOption(KeyHandle, SourceString, a4, Value, a6, 0), result >= 0)
+     || result == -2147483643) )
   {
     if ( a8 )
-      *a8 = a1;
+      *a8 = KeyHandle;
   }
-  else if ( a2 && ((result = RtlQueryImageFileKeyOption(a2, a3, a4, a5, a6, 0), result >= 0) || result == -2147483643) )
+  else if ( a2
+         && ((result = RtlQueryImageFileKeyOption(a2, SourceString, a4, Value, a6, 0), result >= 0)
+          || result == -2147483643) )
   {
     if ( a8 )
       *a8 = a2;

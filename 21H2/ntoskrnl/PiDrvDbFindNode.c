@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDrvDbFindNode @ 0x14051017C
+ * XREFs of PiDrvDbFindNode @ 0x1405103BC
  * Callers:
- *     PiDrvDbMountNode @ 0x1408B6074 (PiDrvDbMountNode.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6D68 (PiDrvDbQuerySystemPathWin32.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x1408B7824 (PiDrvDbResolveKeyFilePaths.c)
- *     PiDrvDbUnmountNode @ 0x1408B8278 (PiDrvDbUnmountNode.c)
+ *     PiDrvDbMountNode @ 0x1408B61D4 (PiDrvDbMountNode.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6EC8 (PiDrvDbQuerySystemPathWin32.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x1408B7984 (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDrvDbUnmountNode @ 0x1408B83D8 (PiDrvDbUnmountNode.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PiDrvDbFindNode(PCUNICODE_STRING String2, __int64 *a2)

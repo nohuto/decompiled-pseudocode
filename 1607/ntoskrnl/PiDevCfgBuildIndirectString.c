@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgBuildIndirectString @ 0x14063287C
+ * XREFs of PiDevCfgBuildIndirectString @ 0x140632930
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140633214 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1406332C8 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x14013BF80 (RtlUnicodeStringPrintf.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PnpDuplicateUnicodeString @ 0x1401CF450 (PnpDuplicateUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1401CF660 (PnpValidateRegistryString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1401CF714 (RtlUnicodeStringPrintfEx.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14013C4F0 (RtlUnicodeStringPrintf.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PnpDuplicateUnicodeString @ 0x1401CF1E4 (PnpDuplicateUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x1401CF3F4 (PnpValidateRegistryString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1401CF540 (RtlUnicodeStringPrintfEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExpAllocateStringRoutine @ 0x1403F80BC (ExpAllocateStringRoutine.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1405391C4 (PnpRegSzToString.c)
+ *     ExpAllocateStringRoutine @ 0x1403F6F7C (ExpAllocateStringRoutine.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x140539704 (PnpRegSzToString.c)
  */
 
 __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2, __int64 a3, UNICODE_STRING *a4)

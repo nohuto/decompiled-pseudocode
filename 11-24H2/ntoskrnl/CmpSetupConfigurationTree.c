@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpSetupConfigurationTree @ 0x140C4AB34
+ * XREFs of CmpSetupConfigurationTree @ 0x140C4CCD0
  * Callers:
- *     CmpInitializeHardwareConfiguration @ 0x140C4A9E0 (CmpInitializeHardwareConfiguration.c)
- *     CmpSetupConfigurationTree @ 0x140C4AB34 (CmpSetupConfigurationTree.c)
+ *     CmpInitializeHardwareConfiguration @ 0x140C4CB7C (CmpInitializeHardwareConfiguration.c)
+ *     CmpSetupConfigurationTree @ 0x140C4CCD0 (CmpSetupConfigurationTree.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     _stricmp @ 0x1404FE0B0 (_stricmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     CmpInitializeRegistryNode @ 0x1407DEA4C (CmpInitializeRegistryNode.c)
- *     CmpSetupConfigurationTree @ 0x140C4AB34 (CmpSetupConfigurationTree.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     _stricmp @ 0x1404FB970 (_stricmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     CmpInitializeRegistryNode @ 0x1407DEF9C (CmpInitializeRegistryNode.c)
+ *     CmpSetupConfigurationTree @ 0x140C4CCD0 (CmpSetupConfigurationTree.c)
  */
 
 NTSTATUS __fastcall CmpSetupConfigurationTree(__int64 a1, void *a2, BOOL a3, unsigned int a4)

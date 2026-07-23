@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpLockUnlockBufferList @ 0x140449AC0
+ * XREFs of EtwpLockUnlockBufferList @ 0x140441BF0
  * Callers:
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
- *     EtwpFlushActiveBuffers @ 0x140A141E8 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x140A133D8 (EtwpFlushActiveBuffers.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeTestSpinLock @ 0x140449B50 (KeTestSpinLock.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeTestSpinLock @ 0x140441C80 (KeTestSpinLock.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall EtwpLockUnlockBufferList(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileLargestBitmapsRun @ 0x140294C94
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x140294F24
  * Callers:
- *     MiFindFreePageFileSpace @ 0x1402946D4 (MiFindFreePageFileSpace.c)
- *     MiGetKernelStackSwapSupport @ 0x140341E0C (MiGetKernelStackSwapSupport.c)
- *     MiFindBestOutswapPagefile @ 0x140341F20 (MiFindBestOutswapPagefile.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14063B6F0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiFindFreePageFileSpace @ 0x140294964 (MiFindFreePageFileSpace.c)
+ *     MiGetKernelStackSwapSupport @ 0x14034209C (MiGetKernelStackSwapSupport.c)
+ *     MiFindBestOutswapPagefile @ 0x1403421B0 (MiFindBestOutswapPagefile.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x14063BC40 (MiTrimUnusedPageFileRegionsWorker.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)
@@ -78,10 +78,13 @@ LABEL_11:
   if ( v3 > v10 )
     v10 = v3;
   ExReleaseSpinLockSharedFromDpcLevel(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

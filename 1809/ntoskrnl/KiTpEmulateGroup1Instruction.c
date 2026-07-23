@@ -1,16 +1,16 @@
 /*
- * XREFs of KiTpEmulateGroup1Instruction @ 0x14029E71C
+ * XREFs of KiTpEmulateGroup1Instruction @ 0x14029E90C
  * Callers:
- *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x14029EAEC (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpAccessMemory @ 0x14029E0A0 (KiTpAccessMemory.c)
- *     KiTpDecodeModRm @ 0x14029E1C4 (KiTpDecodeModRm.c)
- *     KiTpDecodeModRmOperand @ 0x14029E2AC (KiTpDecodeModRmOperand.c)
- *     KiTpFetchImmediateOperand @ 0x14029F1A8 (KiTpFetchImmediateOperand.c)
- *     KiTpReadOperandValue @ 0x14029F3BC (KiTpReadOperandValue.c)
- *     KiTpSetFlagsAdd @ 0x14029F41C (KiTpSetFlagsAdd.c)
- *     KiTpSetFlagsSub @ 0x14029F508 (KiTpSetFlagsSub.c)
- *     KiTpSetFlagsZeroSignParity @ 0x14029F608 (KiTpSetFlagsZeroSignParity.c)
+ *     KiTpAccessMemory @ 0x14029E290 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x14029E3B4 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x14029E49C (KiTpDecodeModRmOperand.c)
+ *     KiTpFetchImmediateOperand @ 0x14029F398 (KiTpFetchImmediateOperand.c)
+ *     KiTpReadOperandValue @ 0x14029F5AC (KiTpReadOperandValue.c)
+ *     KiTpSetFlagsAdd @ 0x14029F60C (KiTpSetFlagsAdd.c)
+ *     KiTpSetFlagsSub @ 0x14029F6F8 (KiTpSetFlagsSub.c)
+ *     KiTpSetFlagsZeroSignParity @ 0x14029F7F8 (KiTpSetFlagsZeroSignParity.c)
  */
 
 __int64 __fastcall KiTpEmulateGroup1Instruction(__int64 a1, __int64 a2, int *a3)

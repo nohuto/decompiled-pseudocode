@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpLoadPatchedNtdll @ 0x180066450
+ * XREFs of LdrpLoadPatchedNtdll @ 0x1800AE630
  * Callers:
- *     LdrpInitializeInternal @ 0x180066800 (LdrpInitializeInternal.c)
+ *     LdrpInitializeInternal @ 0x1800AE9E0 (LdrpInitializeInternal.c)
  * Callees:
- *     LdrpQueryCurrentPatch @ 0x1800665B8 (LdrpQueryCurrentPatch.c)
- *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015EF48 (LdrpLoadCustomNtdllWithSectionHandle.c)
- *     NpClose @ 0x180161810 (NpClose.c)
- *     NpUnmapViewOfSection @ 0x180161870 (NpUnmapViewOfSection.c)
- *     ZwManageHotPatch @ 0x180163FC0 (ZwManageHotPatch.c)
+ *     LdrpQueryCurrentPatch @ 0x1800AE798 (LdrpQueryCurrentPatch.c)
+ *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015D308 (LdrpLoadCustomNtdllWithSectionHandle.c)
+ *     NpClose @ 0x18015FBD0 (NpClose.c)
+ *     NpUnmapViewOfSection @ 0x18015FC30 (NpUnmapViewOfSection.c)
+ *     ZwManageHotPatch @ 0x180162380 (ZwManageHotPatch.c)
  */
 
 __int64 __fastcall LdrpLoadPatchedNtdll(__int64 a1, __int64 *a2)

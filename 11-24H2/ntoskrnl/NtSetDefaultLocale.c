@@ -1,29 +1,29 @@
 /*
- * XREFs of NtSetDefaultLocale @ 0x140A968F0
+ * XREFs of NtSetDefaultLocale @ 0x140A93120
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     OpenGlobalizationUserSettingsKey @ 0x1404CB300 (OpenGlobalizationUserSettingsKey.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     RtlIsMultiSessionSku @ 0x1409113D0 (RtlIsMultiSessionSku.c)
- *     ExCheckFullProcessInformationAccess @ 0x14095F62C (ExCheckFullProcessInformationAccess.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1404C4820 (OpenGlobalizationUserSettingsKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     RtlIsMultiSessionSku @ 0x1408E8B20 (RtlIsMultiSessionSku.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409470EC (ExCheckFullProcessInformationAccess.c)
  */
 
-int __fastcall NtSetDefaultLocale(__int16 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetDefaultLocale(BOOLEAN UserProfile, LCID DefaultLocaleId)
 {
   int v2; // edi
-  char v3; // si
-  int result; // eax
+  NTSTATUS result; // eax
   ULONG v5; // ebx
   const WCHAR *v6; // r15
   const WCHAR *v7; // rdx
-  NTSTATUS v8; // ebx
+  int v8; // ebx
   int *v9; // rdx
   unsigned int i; // r9d
   int v11; // ecx
@@ -49,16 +49,15 @@ int __fastcall NtSetDefaultLocale(__int16 a1, __int64 a2)
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v2 = a2;
+  v2 = DefaultLocaleId;
   DestinationString = 0LL;
-  v3 = a1;
   KeyHandle = 0LL;
   ResultLength[0] = 0;
   v25 = 0LL;
   DestinationString_8 = 0LL;
-  if ( (_BYTE)a1 )
+  if ( UserProfile )
   {
-    result = OpenGlobalizationUserSettingsKey(a1, a2, &DestinationString);
+    result = OpenGlobalizationUserSettingsKey(UserProfile, *(__int64 *)&DefaultLocaleId, &DestinationString);
     if ( result < 0 )
       return result;
     v5 = 1600;
@@ -83,13 +82,13 @@ int __fastcall NtSetDefaultLocale(__int16 a1, __int64 a2)
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( v2 )
   {
-    if ( !v3 || RtlIsMultiSessionSku() )
+    if ( !UserProfile || RtlIsMultiSessionSku() )
     {
       v8 = ZwOpenKey(&KeyHandle, 0x40000000u, &ObjectAttributes);
       if ( v8 < 0 )
         goto LABEL_35;
       v13 = v2;
-      v14 = (_WORD *)((char *)KeyValueInformation + (v3 != 0 ? 16LL : 8LL));
+      v14 = (_WORD *)((char *)KeyValueInformation + (UserProfile != 0 ? 16LL : 8LL));
       *v14 = 0;
       v15 = v14 - 1;
       if ( v15 >= KeyValueInformation )
@@ -106,7 +105,7 @@ int __fastcall NtSetDefaultLocale(__int16 a1, __int64 a2)
         }
         while ( v16 >= KeyValueInformation );
       }
-      v8 = ZwSetValueKey(KeyHandle, &DestinationString_8, 0, 1u, KeyValueInformation, v3 != 0 ? 18 : 10);
+      v8 = ZwSetValueKey(KeyHandle, &DestinationString_8, 0, 1u, KeyValueInformation, UserProfile != 0 ? 18 : 10);
     }
     else
     {
@@ -176,7 +175,7 @@ LABEL_35:
     ZwClose(DestinationString);
   if ( v8 >= 0 )
   {
-    if ( v3 )
+    if ( UserProfile )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
       CycleTime = Process[1].CycleTime;

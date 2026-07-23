@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLogBlockedDriverEvent @ 0x140891B2C
+ * XREFs of IopLogBlockedDriverEvent @ 0x140891C8C
  * Callers:
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x140371570 (RtlStringCchCopyNW.c)
- *     IoWriteErrorLogEntry @ 0x140380A80 (IoWriteErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x140505888 (IoAllocateGenericErrorLogEntry.c)
+ *     RtlStringCchCopyNW @ 0x1403710C0 (RtlStringCchCopyNW.c)
+ *     IoWriteErrorLogEntry @ 0x1403805D0 (IoWriteErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140505808 (IoAllocateGenericErrorLogEntry.c)
  */
 
 void __fastcall IopLogBlockedDriverEvent(__int64 a1, __int64 a2, int a3)

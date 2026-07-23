@@ -31,7 +31,7 @@ __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(
   _BYTE v19[32]; // [rsp+30h] [rbp-68h] BYREF
 
   memset(v19, 0, sizeof(v19));
-  v9 = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+  v9 = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
   if ( v9 < 0 )
     return (unsigned int)v9;
   v11 = *((_DWORD *)a5 + 3);

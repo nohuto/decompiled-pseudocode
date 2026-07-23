@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEpfCompletionDpcRoutine @ 0x140578F70
+ * XREFs of KiEpfCompletionDpcRoutine @ 0x140579460
  * Callers:
  *     <none>
  * Callees:
- *     KiEpfDrainCompletionQueue @ 0x140578F8C (KiEpfDrainCompletionQueue.c)
+ *     KiEpfDrainCompletionQueue @ 0x14057947C (KiEpfDrainCompletionQueue.c)
  */
 
 __int64 KiEpfCompletionDpcRoutine()

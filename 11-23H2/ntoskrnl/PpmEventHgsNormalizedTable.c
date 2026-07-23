@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHgsNormalizedTable @ 0x14059A4E4
+ * XREFs of PpmEventHgsNormalizedTable @ 0x14059A9D4
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864C90 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140864ED0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

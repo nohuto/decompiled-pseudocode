@@ -1,38 +1,40 @@
 /*
- * XREFs of LdrpLogNewDllLoadInternal @ 0x1800D18F0
+ * XREFs of LdrpLogNewDllLoadInternal @ 0x1800D19B0
  * Callers:
- *     LdrLogNewDataDllLoad @ 0x18002D38C (LdrLogNewDataDllLoad.c)
- *     LdrpMapDllWithSectionHandle @ 0x18002F26C (LdrpMapDllWithSectionHandle.c)
+ *     LdrLogNewDataDllLoad @ 0x18002D37C (LdrLogNewDataDllLoad.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18002F25C (LdrpMapDllWithSectionHandle.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall LdrpLogNewDllLoadInternal(__int64 a1, __int64 a2, int a3, unsigned int a4, void *Src)
+int __fastcall LdrpLogNewDllLoadInternal(__int64 a1, __int64 a2, int a3, unsigned int a4, void *Src)
 {
   size_t v6; // rsi
-  __int64 result; // rax
-  unsigned __int64 v10; // rdi
-  __int16 v11; // ax
+  unsigned int v9; // ebp
+  _DWORD *Heap; // rax
+  _DWORD *v11; // rdi
+  __int16 v12; // ax
 
   v6 = a4;
-  result = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, a4 + 54);
-  v10 = result;
-  if ( result )
+  v9 = a4 + 54;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, a4 + 54);
+  v11 = Heap;
+  if ( Heap )
   {
-    v11 = 5296;
+    v12 = 5296;
     if ( (unsigned int)(a3 - 5) <= 1 )
-      v11 = 5297;
-    *(_DWORD *)(v10 + 48) = a3;
-    *(_WORD *)(v10 + 6) = v11;
-    *(_QWORD *)(v10 + 32) = a1;
-    *(_QWORD *)(v10 + 40) = a2;
-    memmove((void *)(v10 + 52), Src, v6);
-    *(_WORD *)(v10 + 2 * (v6 >> 1) + 52) = 0;
-    NtTraceEvent();
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+      v12 = 5297;
+    v11[12] = a3;
+    *((_WORD *)v11 + 3) = v12;
+    *((_QWORD *)v11 + 4) = a1;
+    *((_QWORD *)v11 + 5) = a2;
+    memmove(v11 + 13, Src, v6);
+    *((_WORD *)v11 + (v6 >> 1) + 26) = 0;
+    NtTraceEvent((HANDLE)MEMORY[0x7FFE0384], 0x403u, v9 - 32, v11);
+    LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
   }
-  return result;
+  return (int)Heap;
 }

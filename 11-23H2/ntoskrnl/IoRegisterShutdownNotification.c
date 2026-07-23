@@ -1,13 +1,13 @@
 /*
- * XREFs of IoRegisterShutdownNotification @ 0x14080EB30
+ * XREFs of IoRegisterShutdownNotification @ 0x14080EE00
  * Callers:
- *     DifIoRegisterShutdownNotificationWrapper @ 0x1405E0C60 (DifIoRegisterShutdownNotificationWrapper.c)
+ *     DifIoRegisterShutdownNotificationWrapper @ 0x1405E11D0 (DifIoRegisterShutdownNotificationWrapper.c)
  *     RawInitialize @ 0x140B38BE0 (RawInitialize.c)
  *     WmipDriverEntry @ 0x140B38E50 (WmipDriverEntry.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     IopInterlockedInsertHeadList @ 0x14037487C (IopInterlockedInsertHeadList.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x14080EBA4 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     IopInterlockedInsertHeadList @ 0x140374A1C (IopInterlockedInsertHeadList.c)
+ *     IopLogAuditIoRegisterNotificationEvent @ 0x14080EE74 (IopLogAuditIoRegisterNotificationEvent.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

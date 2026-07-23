@@ -3,7 +3,7 @@
  * Callers:
  *     PopDecompressHiberBlocks @ 0x1403CDE5C (PopDecompressHiberBlocks.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x1401140F8 (KdCheckForDebugBreak.c)
+ *     KdCheckForDebugBreak @ 0x140114668 (KdCheckForDebugBreak.c)
  *     PopHiberPeekRangeTable @ 0x1403CDE1C (PopHiberPeekRangeTable.c)
  *     PopHiberCheckForDebugBreak @ 0x1403CEA18 (PopHiberCheckForDebugBreak.c)
  */

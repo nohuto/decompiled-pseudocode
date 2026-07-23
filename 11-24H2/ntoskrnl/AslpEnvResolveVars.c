@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpEnvResolveVars @ 0x14080C178
+ * XREFs of AslpEnvResolveVars @ 0x14080C8B8
  * Callers:
- *     AslEnvExpandStrings2 @ 0x14080BA3C (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x14080C17C (AslEnvExpandStrings2.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1404BC4A0 (RtlStringCchCatW.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1404B73B0 (RtlStringCchCatW.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpEnvResolveVars(
@@ -42,13 +42,13 @@ __int64 __fastcall AslpEnvResolveVars(
   {
     if ( v7 )
       goto LABEL_38;
-    v15 = dword_140E0A120[6 * v12];
+    v15 = dword_140E0A190[6 * v12];
     if ( a2 > v15 )
     {
-      if ( !wcsnicmp(v14, off_140E0A110[3 * v12], v15) )
+      if ( !wcsnicmp(v14, off_140E0A180[3 * v12], v15) )
       {
         v16 = 3 * v12;
-        v10 = a2 + dword_140E0A124[6 * v12] - dword_140E0A120[6 * v12];
+        v10 = a2 + dword_140E0A194[6 * v12] - dword_140E0A190[6 * v12];
         if ( v10 > (unsigned int)v8 )
         {
           v18 = -1073741789;
@@ -63,7 +63,7 @@ __int64 __fastcall AslpEnvResolveVars(
         {
           for ( i = 0LL; i < 16; i += 2LL )
           {
-            if ( *(_WORD *)((char *)&unk_140E0A170 + i * 8) == a5 && *(_WORD *)((char *)&unk_140E0A172 + i * 8) == a6 )
+            if ( *(_WORD *)((char *)&unk_140E0A1E0 + i * 8) == a5 && *(_WORD *)((char *)&unk_140E0A1E2 + i * 8) == a6 )
             {
               v18 = RtlStringCchCopyW(a3, v8, L"%systemroot%");
               if ( v18 < 0 )
@@ -71,14 +71,14 @@ __int64 __fastcall AslpEnvResolveVars(
                 v21 = 940;
                 goto LABEL_28;
               }
-              v18 = RtlStringCchCatW(a3, v8, (&off_140E0A178)[i]);
+              v18 = RtlStringCchCatW(a3, v8, (&off_140E0A1E8)[i]);
               if ( v18 < 0 )
               {
                 v20 = "RtlStringCchCatW failed [%x]";
                 v21 = 946;
                 goto LABEL_29;
               }
-              v18 = RtlStringCchCatW(a3, v8, &pszSrc[dword_140E0A120[0]]);
+              v18 = RtlStringCchCatW(a3, v8, &pszSrc[dword_140E0A190[0]]);
               if ( v18 < 0 )
               {
                 v20 = "RtlStringCchCatW failed [%x]";
@@ -98,7 +98,7 @@ __int64 __fastcall AslpEnvResolveVars(
                           " %x4 Current: %x4");
           v16 = 0LL;
 LABEL_20:
-          v18 = RtlStringCchCopyW(a3, v8, (&off_140E0A118)[v16]);
+          v18 = RtlStringCchCopyW(a3, v8, (&off_140E0A188)[v16]);
           if ( v18 < 0 )
           {
             v21 = 980;
@@ -108,7 +108,7 @@ LABEL_29:
             AslLogCallPrintf(1, (unsigned int)"AslpEnvResolveVars", v21, (_DWORD)v20);
             return (unsigned int)v18;
           }
-          v18 = RtlStringCchCatW(a3, v8, &pszSrc[dword_140E0A120[2 * v19]]);
+          v18 = RtlStringCchCatW(a3, v8, &pszSrc[dword_140E0A190[2 * v19]]);
           if ( v18 < 0 )
           {
             v20 = "RtlStringCchCatW failed [%x]";

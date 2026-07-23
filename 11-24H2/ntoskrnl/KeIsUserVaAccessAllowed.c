@@ -1,10 +1,10 @@
 /*
- * XREFs of KeIsUserVaAccessAllowed @ 0x14042FDA0
+ * XREFs of KeIsUserVaAccessAllowed @ 0x140421850
  * Callers:
- *     KiDispatchInterrupt @ 0x1402936B0 (KiDispatchInterrupt.c)
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
+ *     KiDispatchInterrupt @ 0x1402A32B0 (KiDispatchInterrupt.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
  * Callees:
  *     <none>
  */

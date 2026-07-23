@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlOsDeploymentState @ 0x1409C1D80
+ * XREFs of RtlOsDeploymentState @ 0x1409C1F80
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  */
 
-__int64 RtlOsDeploymentState()
+OS_DEPLOYEMENT_STATE_VALUES __cdecl RtlOsDeploymentState(DWORD Flags)
 {
-  unsigned int v0; // ebx
+  OS_DEPLOYEMENT_STATE_VALUES v1; // ebx
   HANDLE KeyHandle; // [rsp+30h] [rbp-88h] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-80h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-78h] BYREF
-  UNICODE_STRING v5; // [rsp+70h] [rbp-48h] BYREF
+  UNICODE_STRING v6; // [rsp+70h] [rbp-48h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-38h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-28h] BYREF
-  int v8; // [rsp+94h] [rbp-24h]
-  int v9; // [rsp+98h] [rbp-20h]
-  int v10; // [rsp+9Ch] [rbp-1Ch]
+  int v9; // [rsp+94h] [rbp-24h]
+  int v10; // [rsp+98h] [rbp-20h]
+  int v11; // [rsp+9Ch] [rbp-1Ch]
 
   KeyHandle = 0LL;
-  v0 = 1;
+  v1 = OS_DEPLOYMENT_STANDARD;
   ResultLength = 0;
   memset(&ObjectAttributes.Length + 1, 0, 44);
-  v5 = 0LL;
+  v6 = 0LL;
   DestinationString = 0LL;
-  RtlInitUnicodeString(&v5, L"\\Registry\\Machine\\System\\Setup");
+  RtlInitUnicodeString(&v6, L"\\Registry\\Machine\\System\\Setup");
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
-  ObjectAttributes.ObjectName = &v5;
+  ObjectAttributes.ObjectName = &v6;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"Compact");
@@ -43,14 +43,14 @@ __int64 RtlOsDeploymentState()
            KeyValueInformation,
            0x14u,
            &ResultLength) >= 0
-      && v8 == 4
       && v9 == 4
-      && v10 )
+      && v10 == 4
+      && v11 )
     {
-      v0 = 2;
+      v1 = OS_DEPLOYMENT_COMPACT;
     }
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  return v0;
+  return v1;
 }

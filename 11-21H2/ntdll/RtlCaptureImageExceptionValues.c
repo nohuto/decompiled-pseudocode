@@ -7,26 +7,18 @@
  *     RtlpImageDirectoryEntryToDataEx @ 0x18003C720 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
-__int64 __fastcall RtlCaptureImageExceptionValues(int a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall RtlCaptureImageExceptionValues(void *a1, _QWORD *a2, _DWORD *a3)
 {
-  _DWORD *v3; // rdi
-  _QWORD *v4; // rbx
-  int v5; // r9d
-  int v6; // eax
-  __int64 v7; // rcx
-  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  int v5; // eax
+  __int64 v6; // rcx
+  __int64 OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = a3;
-  v4 = a2;
-  v5 = (int)a3;
-  LOBYTE(a2) = 1;
-  LOWORD(a3) = 3;
-  v6 = RtlpImageDirectoryEntryToDataEx(a1, (_DWORD)a2, (_DWORD)a3, v5, (__int64)&v9);
-  v7 = v9;
-  if ( v6 < 0 )
-    v7 = 0LL;
-  *v4 = v7;
-  if ( !v7 )
-    *v3 = 0;
+  v5 = RtlpImageDirectoryEntryToDataEx(a1, (PIMAGE_NT_HEADERS)&OutHeaders);
+  v6 = OutHeaders;
+  if ( v5 < 0 )
+    v6 = 0LL;
+  *a2 = v6;
+  if ( !v6 )
+    *a3 = 0;
   return 0LL;
 }

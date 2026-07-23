@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetTraceGuidList @ 0x140AE0888
+ * XREFs of EtwpGetTraceGuidList @ 0x140ADDEB4
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     EtwpCopyMetaProviderGuids @ 0x1404CAB98 (EtwpCopyMetaProviderGuids.c)
- *     EtwpMetaProviderCount @ 0x1404F2140 (EtwpMetaProviderCount.c)
- *     EtwpGetGuidList @ 0x1409368A0 (EtwpGetGuidList.c)
+ *     EtwpCopyMetaProviderGuids @ 0x1404C45C8 (EtwpCopyMetaProviderGuids.c)
+ *     EtwpMetaProviderCount @ 0x1404EB720 (EtwpMetaProviderCount.c)
+ *     EtwpGetGuidList @ 0x140912440 (EtwpGetGuidList.c)
  */
 
 __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)
@@ -40,7 +40,7 @@ LABEL_12:
         return (unsigned int)GuidList;
       }
       if ( v8 <= a3 )
-        *(_OWORD *)(a2 + 16LL * (v8 - 1)) = *(_OWORD *)&(*(&EtwpUmglProviders)[2 * i])[0];
+        *(GUID *)(a2 + 16LL * (v8 - 1)) = *(&EtwpUmglProviders)[2 * i];
     }
     if ( a3 >= v8 )
       EtwpCopyMetaProviderGuids((_OWORD *)(a2 + 16LL * v8), a3 - v8);

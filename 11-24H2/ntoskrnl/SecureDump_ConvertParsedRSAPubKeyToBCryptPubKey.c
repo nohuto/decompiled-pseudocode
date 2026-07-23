@@ -1,10 +1,10 @@
 /*
- * XREFs of SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey @ 0x1405A15E8
+ * XREFs of SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey @ 0x14059E528
  * Callers:
- *     SecureDump_ConvertToRsaBlob @ 0x1405A16E0 (SecureDump_ConvertToRsaBlob.c)
+ *     SecureDump_ConvertToRsaBlob @ 0x14059E620 (SecureDump_ConvertToRsaBlob.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey(__int64 a1, _DWORD *a2)

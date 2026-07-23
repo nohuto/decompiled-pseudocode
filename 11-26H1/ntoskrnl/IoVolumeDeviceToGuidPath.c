@@ -1,16 +1,16 @@
 /*
- * XREFs of IoVolumeDeviceToGuidPath @ 0x140907BC0
+ * XREFs of IoVolumeDeviceToGuidPath @ 0x140A2FD20
  * Callers:
- *     CmpVolumeContextStart @ 0x140906340 (CmpVolumeContextStart.c)
- *     IoVolumeDeviceToGuid @ 0x140907B30 (IoVolumeDeviceToGuid.c)
- *     IopValidateJunctionTarget @ 0x140B5F2B0 (IopValidateJunctionTarget.c)
+ *     CmpVolumeContextStart @ 0x140A2E678 (CmpVolumeContextStart.c)
+ *     IoVolumeDeviceToGuid @ 0x140A2FC90 (IoVolumeDeviceToGuid.c)
+ *     IopValidateJunctionTarget @ 0x140B62430 (IopValidateJunctionTarget.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoVolumeDeviceNameToGuidPath @ 0x140907FA0 (IoVolumeDeviceNameToGuidPath.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x140A30100 (IoVolumeDeviceNameToGuidPath.c)
  */
 
 __int64 __fastcall IoVolumeDeviceToGuidPath(PDEVICE_OBJECT DeviceObject, __int64 a2)

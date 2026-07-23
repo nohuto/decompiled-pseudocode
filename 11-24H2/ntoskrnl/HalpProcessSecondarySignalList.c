@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpProcessSecondarySignalList @ 0x140555D20
+ * XREFs of HalpProcessSecondarySignalList @ 0x140553660
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
  */
 
 __int64 HalpProcessSecondarySignalList()

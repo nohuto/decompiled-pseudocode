@@ -1,12 +1,12 @@
 /*
- * XREFs of BgkDisplayStringEx @ 0x1401C3D58
+ * XREFs of BgkDisplayStringEx @ 0x1401C3C3C
  * Callers:
- *     BgkDisplayString @ 0x1401C3CAC (BgkDisplayString.c)
- *     NtDisplayString @ 0x1406ACE5C (NtDisplayString.c)
+ *     BgkDisplayString @ 0x1401C3B90 (BgkDisplayString.c)
+ *     NtDisplayString @ 0x1406ACF94 (NtDisplayString.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     HeadlessDispatch @ 0x14013C5A0 (HeadlessDispatch.c)
- *     BgkpAcquireConsole @ 0x1401C3F00 (BgkpAcquireConsole.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     HeadlessDispatch @ 0x14013CB10 (HeadlessDispatch.c)
+ *     BgkpAcquireConsole @ 0x1401C3DE4 (BgkpAcquireConsole.c)
  *     BgDisplayFade @ 0x140725814 (BgDisplayFade.c)
  */
 
@@ -26,13 +26,13 @@ char __fastcall BgkDisplayStringEx(_WORD *a1)
     ++v3;
   while ( a1[v3] );
   HeadlessDispatch(0x17u, (__int64)a1, 2 * v3 + 2, 0LL, 0LL);
-  if ( byte_140328CD2 || byte_140328CD0 )
+  if ( byte_140328D12 || byte_140328D10 )
   {
-    byte_140328CD2 = 0;
-    byte_140328CD0 = 0;
+    byte_140328D12 = 0;
+    byte_140328D10 = 0;
     BgDisplayFade();
   }
-  v4 = (*(int (__fastcall **)(_WORD *))(qword_140328CC8 + 24))(a1) >= 0;
+  v4 = (*(int (__fastcall **)(_WORD *))(qword_140328D08 + 24))(a1) >= 0;
   ExReleaseRundownProtection(&stru_1402F6F98);
   return v4;
 }

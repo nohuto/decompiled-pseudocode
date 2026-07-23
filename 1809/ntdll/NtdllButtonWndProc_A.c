@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllButtonWndProc_A @ 0x1800A0010
+ * XREFs of NtdllButtonWndProc_A @ 0x1800A0030
  * Callers:
  *     <none>
  * Callees:

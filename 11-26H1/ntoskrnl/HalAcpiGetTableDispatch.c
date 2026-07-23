@@ -1,11 +1,11 @@
 /*
- * XREFs of HalAcpiGetTableDispatch @ 0x140342A90
+ * XREFs of HalAcpiGetTableDispatch @ 0x140344B10
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
  */
 
 __int64 __fastcall HalAcpiGetTableDispatch(int a1, int a2, int a3)

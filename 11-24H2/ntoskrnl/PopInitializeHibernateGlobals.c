@@ -1,44 +1,44 @@
 /*
- * XREFs of PopInitializeHibernateGlobals @ 0x14075291C
+ * XREFs of PopInitializeHibernateGlobals @ 0x140750C3C
  * Callers:
- *     PoInitHiberServices @ 0x140748B24 (PoInitHiberServices.c)
+ *     PoInitHiberServices @ 0x140746E14 (PoInitHiberServices.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     PoDisableSleepStates @ 0x14074CC70 (PoDisableSleepStates.c)
- *     PopInitHiberPersistedRegValues @ 0x14075282C (PopInitHiberPersistedRegValues.c)
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
- *     PoShutdownBugCheck @ 0x140753440 (PoShutdownBugCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     PoDisableSleepStates @ 0x14074AFA0 (PoDisableSleepStates.c)
+ *     PopInitHiberPersistedRegValues @ 0x140750B4C (PopInitHiberPersistedRegValues.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
+ *     PoShutdownBugCheck @ 0x140751760 (PoShutdownBugCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PopInitializeHibernateGlobals()
 {
   _DWORD *v0; // rbx
-  __int64 Pool2; // rax
+  _DWORD *Pool2; // rax
   unsigned int v2; // esi
   __int64 v3; // rdi
   __int64 v4; // rcx
   char v5; // [rsp+60h] [rbp+30h] BYREF
-  unsigned int v6; // [rsp+68h] [rbp+38h]
+  ULONG ReturnLength; // [rsp+68h] [rbp+38h] BYREF
   __int64 v7; // [rsp+70h] [rbp+40h] BYREF
 
-  v6 = 0;
+  ReturnLength = 0;
   v0 = 0LL;
   v5 = 0;
   PopInitHiberPersistedRegValues();
-  if ( (unsigned int)ZwQuerySystemInformation(112LL, 0LL) == -1073741789 )
+  if ( ZwQuerySystemInformation(SystemVhdBootInformation, 0LL, 0, &ReturnLength) == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
-    v0 = (_DWORD *)Pool2;
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, ReturnLength, 0x72626968u);
+    v0 = Pool2;
     if ( Pool2 )
     {
-      if ( (int)ZwQuerySystemInformation(112LL, Pool2) >= 0 )
+      if ( ZwQuerySystemInformation(SystemVhdBootInformation, Pool2, ReturnLength, &ReturnLength) >= 0 )
       {
-        v6 -= 2;
+        ReturnLength -= 2;
         if ( *(_BYTE *)v0 )
         {
-          if ( v0[1] <= v6 )
+          if ( v0[1] <= ReturnLength )
           {
             PopBootFromVHD = 1;
             PoDisableSleepStates(2, 8, &v7);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpGetNextHandleTableEntry @ 0x14093BC20
+ * XREFs of ExpGetNextHandleTableEntry @ 0x1409C6940
  * Callers:
- *     ExQueryProcessHandleInformation @ 0x14093BA20 (ExQueryProcessHandleInformation.c)
+ *     ExQueryProcessHandleInformation @ 0x1409C6748 (ExQueryProcessHandleInformation.c)
  * Callees:
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpGetNextHandleTableEntry(unsigned int *a1, __int64 a2, __int64 *a3)

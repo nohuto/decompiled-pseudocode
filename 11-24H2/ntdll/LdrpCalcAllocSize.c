@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpCalcAllocSize @ 0x18007EF4C
+ * XREFs of LdrpCalcAllocSize @ 0x18000228C
  * Callers:
- *     RtlGetFileMUIPath @ 0x18007E370 (RtlGetFileMUIPath.c)
- *     RtlpIsQualifiedLanguage @ 0x1800806B0 (RtlpIsQualifiedLanguage.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x18013F11C (RtlpAddLanguagesToMultiSZ.c)
+ *     RtlpIsQualifiedLanguage @ 0x180001530 (RtlpIsQualifiedLanguage.c)
+ *     RtlGetFileMUIPath @ 0x1800016B0 (RtlGetFileMUIPath.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x18013D30C (RtlpAddLanguagesToMultiSZ.c)
  * Callees:
  *     <none>
  */

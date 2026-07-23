@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExfReleasePushLockSharedEx @ 0x14021C64C (ExfReleasePushLockSharedEx.c)
- *     ExpAcquireFannedOutPushLockShared @ 0x14023642C (ExpAcquireFannedOutPushLockShared.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x140259E60 (ExpTryExpandAutoExpandPushLock.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
+ *     sub_14021C64C @ 0x14021C64C (sub_14021C64C.c)
+ *     sub_14023642C @ 0x14023642C (sub_14023642C.c)
+ *     sub_140259E60 @ 0x140259E60 (sub_140259E60.c)
+ *     sub_140287F30 @ 0x140287F30 (sub_140287F30.c)
  *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14029F6A8 (KiAbTryReclaimOrphanedEntries.c)
+ *     sub_14029F350 @ 0x14029F350 (sub_14029F350.c)
+ *     sub_14029F6A8 @ 0x14029F6A8 (sub_14029F6A8.c)
  *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
  *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
  *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
  */
 
@@ -25,17 +25,17 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
         PVOID InstanceId)
 {
   unsigned __int8 v4; // al
-  __int64 AePushLock; // rdi
+  __int64 Resource; // rdi
   struct _KTHREAD *v8; // rax
   struct _KTHREAD *v9; // r14
   __int64 v10; // rsi
-  unsigned int AbEntrySummary; // eax
+  unsigned int v11; // eax
   __int64 v12; // rdx
-  int SessionId; // eax
+  int v13; // eax
   int v14; // eax
   __int64 v15; // rdi
   struct _LIST_ENTRY *Flink; // rax
-  _LIST_ENTRY *p_FilterContexts; // rcx
+  LIST_ENTRY *p_FilterContexts; // rcx
   struct _FSRTL_PER_STREAM_CONTEXT *v18; // rsi
   unsigned __int8 v19; // al
   unsigned __int64 v20; // rbx
@@ -48,7 +48,7 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
   unsigned __int64 v28; // rax
   unsigned __int64 v29; // [rsp+88h] [rbp+20h] BYREF
 
-  v4 = *((_BYTE *)StreamContext + 7) >> 4;
+  v4 = *((_BYTE *)&StreamContext->0 + 7) >> 4;
   if ( v4 < 3u )
   {
     if ( !v4 )
@@ -58,44 +58,44 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
     }
 LABEL_31:
     CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
+    --*((_WORD *)CurrentThread + 242);
     ExAcquirePushLockSharedEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
 LABEL_32:
     v15 = 0LL;
     goto LABEL_13;
   }
-  AePushLock = (__int64)StreamContext->AePushLock;
-  if ( !AePushLock )
+  Resource = (__int64)StreamContext[1].Resource;
+  if ( !Resource )
     goto LABEL_31;
   v8 = KeGetCurrentThread();
-  --v8->KernelApcDisable;
+  --*((_WORD *)v8 + 242);
   v9 = KeGetCurrentThread();
   v10 = 0LL;
   _disable();
-  AbEntrySummary = v9->AbEntrySummary;
-  if ( v9->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(AePushLock, (__int64)v9)) != 0 )
+  v11 = *((unsigned __int8 *)v9 + 792);
+  if ( *((_BYTE *)v9 + 792) || (v11 = sub_14029F6A8(Resource, (__int64)v9)) != 0 )
   {
-    _BitScanForward((unsigned int *)&v12, AbEntrySummary);
-    v9->AbEntrySummary = AbEntrySummary & ~(1 << v12);
+    _BitScanForward((unsigned int *)&v12, v11);
+    *((_BYTE *)v9 + 792) = v11 & ~(1 << v12);
     _enable();
-    v10 = (__int64)(&v9[1].Process + 12 * v12);
-    if ( (unsigned __int64)(AePushLock - qword_140C50630) < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx((__int64)v9->ApcState.Process);
+    v10 = (__int64)v9 + 96 * v12 + 1696;
+    if ( (unsigned __int64)(Resource - qword_140C50630) < 0x8000000000LL )
+      v13 = sub_140287F30(*((_QWORD *)v9 + 23));
     else
-      SessionId = -1;
-    *(_DWORD *)(v10 + 8) = SessionId;
-    *(_QWORD *)v10 = AePushLock & 0x7FFFFFFFFFFFFFFCLL;
+      v13 = -1;
+    *(_DWORD *)(v10 + 8) = v13;
+    *(_QWORD *)v10 = Resource & 0x7FFFFFFFFFFFFFFCLL;
   }
-  v14 = *(_DWORD *)(AePushLock + 8);
+  v14 = *(_DWORD *)(Resource + 8);
   if ( (v14 & 1) != 0 )
   {
-    v15 = (__int64)ExpAcquireFannedOutPushLockShared(v14 & 0xFFFFFFF8, 0, v10, AePushLock);
+    v15 = (__int64)sub_14023642C(v14 & 0xFFFFFFF8, 0, v10, Resource);
   }
   else
   {
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)AePushLock, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)AePushLock, 0, v10, AePushLock);
-    v15 = AePushLock | 1;
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)Resource, 17LL, 0LL) )
+      sub_14029F350((signed __int64 *)Resource, 0, v10, Resource);
+    v15 = Resource | 1;
   }
   if ( v10 )
     *(_BYTE *)(v10 + 18) = 1;
@@ -135,7 +135,7 @@ LABEL_17:
       v18 = (struct _FSRTL_PER_STREAM_CONTEXT *)StreamContext->FilterContexts.Flink;
   }
 LABEL_18:
-  v19 = *((_BYTE *)StreamContext + 7) >> 4;
+  v19 = *((_BYTE *)&StreamContext->0 + 7) >> 4;
   if ( v19 < 3u )
   {
     if ( !v19 )
@@ -144,7 +144,7 @@ LABEL_18:
       return v18;
     }
   }
-  else if ( StreamContext->AePushLock )
+  else if ( StreamContext[1].Resource )
   {
     v29 = 0LL;
     v20 = v15 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -154,7 +154,7 @@ LABEL_18:
       v21 = *(_DWORD *)(v20 + 12);
       if ( v21 >= 0x80000000 && (*(_DWORD *)(v20 + 8) & 3) == 0 )
       {
-        if ( (unsigned __int16)v21 < (unsigned int)ExpAeCycleCountThreshold
+        if ( (unsigned __int16)v21 < (unsigned int)dword_140D05104
           || (v21 & 0xF0000) >= 0xF0000
           || KeGetCurrentIrql() >= 2u )
         {
@@ -163,7 +163,7 @@ LABEL_18:
         }
         else
         {
-          ExpTryExpandAutoExpandPushLock(v20);
+          sub_140259E60(v20);
         }
       }
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)v20, 0LL, 17LL) == 17 )
@@ -173,21 +173,21 @@ LABEL_23:
           *(_DWORD *)(v20 + 12) = v21 + 0x100000;
         goto LABEL_25;
       }
-      if ( (v21 & ExpAeSamplingPeriodMask) == 0 )
+      if ( (v21 & dword_140D0519C) == 0 )
       {
-        ExfReleasePushLockSharedEx((signed __int64 *)v20, &v29);
+        sub_14021C64C((signed __int64 *)v20, &v29);
         if ( !v29 )
           goto LABEL_25;
         v27 = *(_DWORD *)(v20 + 12);
         if ( v27 >= 0x80000000 )
           goto LABEL_25;
-        v28 = v29 >> ExpAeCycleCountScaler;
-        if ( v29 >> ExpAeCycleCountScaler > 0x1FF )
+        v28 = v29 >> byte_140D05017;
+        if ( v29 >> byte_140D05017 > 0x1FF )
           LODWORD(v28) = 511;
         v21 = v28 + v27;
         goto LABEL_23;
       }
-      ExfReleasePushLockSharedEx((signed __int64 *)v20, 0LL);
+      sub_14021C64C((signed __int64 *)v20, 0LL);
       v26 = *(_DWORD *)(v20 + 12);
       if ( v26 < 0x80000000 )
         *(_DWORD *)(v20 + 12) = v26 + 0x100000;
@@ -199,12 +199,10 @@ LABEL_23:
       v20 = *(_QWORD *)(v20 + 8);
     }
 LABEL_25:
-    KeAbPostRelease(v20);
+    sub_1402AFC00(v20);
     v22 = KeGetCurrentThread();
-    v23 = v22->KernelApcDisable++ == -1;
-    if ( v23
-      && ($CEA84C04E3712D858E5667A507841A2A *)v22->ApcState.ApcListHead[0].Flink != &v22->152
-      && !v22->SpecialApcDisable )
+    v23 = (*((_WORD *)v22 + 242))++ == 0xFFFF;
+    if ( v23 && *((struct _KTHREAD **)v22 + 19) != (struct _KTHREAD *)((char *)v22 + 152) && !*((_WORD *)v22 + 243) )
     {
       KiCheckForKernelApcDelivery();
       return v18;
@@ -212,6 +210,6 @@ LABEL_25:
     return v18;
   }
   ExReleasePushLockEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
-  KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+  sub_1402F9540(KeGetCurrentThread());
   return v18;
 }

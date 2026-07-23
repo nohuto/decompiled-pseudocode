@@ -1,20 +1,20 @@
 /*
- * XREFs of HviGetHypervisorFeatures @ 0x140382D40
+ * XREFs of HviGetHypervisorFeatures @ 0x140382EE0
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403822FC (KiDetectHardwareSpecControlFeatures.c)
- *     HvlpTryConfigureInterface @ 0x1403836B0 (HvlpTryConfigureInterface.c)
- *     HvlGetSystemPasidCapabilities @ 0x140544450 (HvlGetSystemPasidCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x140548F64 (HvlpDetermineEnlightenments.c)
- *     KiIsHyperVCr3RspErrataPresent @ 0x140579288 (KiIsHyperVCr3RspErrataPresent.c)
- *     HvipApertureDetectParameters @ 0x1405B5D10 (HvipApertureDetectParameters.c)
- *     HviGetIptFeatures @ 0x1406154EC (HviGetIptFeatures.c)
- *     HvlQueryDetailInfo @ 0x140940E58 (HvlQueryDetailInfo.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x14038249C (KiDetectHardwareSpecControlFeatures.c)
+ *     HvlpTryConfigureInterface @ 0x140383890 (HvlpTryConfigureInterface.c)
+ *     HvlGetSystemPasidCapabilities @ 0x140544B10 (HvlGetSystemPasidCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x140549624 (HvlpDetermineEnlightenments.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x140579778 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvipApertureDetectParameters @ 0x1405B6280 (HvipApertureDetectParameters.c)
+ *     HviGetIptFeatures @ 0x140615A3C (HviGetIptFeatures.c)
+ *     HvlQueryDetailInfo @ 0x140941058 (HvlQueryDetailInfo.c)
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
- *     HalpLbrInitialize @ 0x140A9150C (HalpLbrInitialize.c)
+ *     HalpLbrInitialize @ 0x140A9138C (HalpLbrInitialize.c)
  *     EtwpTraceSystemInitialization @ 0x140B4C830 (EtwpTraceSystemInitialization.c)
  *     KiComputeDispatchInterruptCost @ 0x140B4CBF4 (KiComputeDispatchInterruptCost.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403827CC (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14038296C (HviIsHypervisorMicrosoftCompatible.c)
  */
 
 char __fastcall HviGetHypervisorFeatures(_DWORD *a1)

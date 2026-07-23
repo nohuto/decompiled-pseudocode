@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpAcpiPrmCacheInit @ 0x140B654C0
  * Callers:
- *     HalpAcpiInitSystem @ 0x140A90C00 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140A90A80 (HalpAcpiInitSystem.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

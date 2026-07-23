@@ -1,13 +1,13 @@
 /*
- * XREFs of CmGetKCBCacheSecurity @ 0x140440230
+ * XREFs of CmGetKCBCacheSecurity @ 0x14043F100
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140440140 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x14043F010 (CmpGetSecurityCacheEntryForKcbStack.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmpFindSecurityCellCacheIndex @ 0x1403FDF60 (CmpFindSecurityCellCacheIndex.c)
- *     CmListGetPrevElement @ 0x1404BBAA0 (CmListGetPrevElement.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1403FCE20 (CmpFindSecurityCellCacheIndex.c)
+ *     CmListGetPrevElement @ 0x1404A77D0 (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmGetKCBCacheSecurity(ULONG_PTR BugCheckParameter3, __int64 a2)

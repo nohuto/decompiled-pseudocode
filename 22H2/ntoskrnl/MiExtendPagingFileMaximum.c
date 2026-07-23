@@ -20,7 +20,7 @@
 
 void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
-  RTL_BITMAP *v3; // r13
+  _RTL_BITMAP *v3; // r13
   KIRQL v7; // al
   __int64 v8; // rsi
   unsigned __int64 v9; // r12
@@ -73,7 +73,7 @@ void __fastcall MiExtendPagingFileMaximum(__int64 a1, __int64 a2, unsigned __int
   _QWORD *v56; // [rsp+C8h] [rbp+60h]
 
   v55 = a3;
-  v3 = (RTL_BITMAP *)(a2 + 8);
+  v3 = (_RTL_BITMAP *)(a2 + 8);
   RtlSetAllBits((PRTL_BITMAP)(a2 + 8));
   RtlSetAllBits((PRTL_BITMAP)(a2 + 24));
   SpinLock = (volatile LONG *)(a1 + 232);

@@ -14,7 +14,7 @@
  *     CmpCommitLightWeightTransaction @ 0x140656638 (CmpCommitLightWeightTransaction.c)
  */
 
-__int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtCommitRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rdx
@@ -25,7 +25,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   __int64 v10; // r8
   _DWORD *v11; // r9
   struct _DMA_ADAPTER *v12; // rdi
-  int v13; // ebx
+  NTSTATUS v13; // ebx
   __int64 v14; // r8
   _DWORD *v15; // r9
   __int64 v16; // rdx
@@ -39,7 +39,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   --CurrentThread->KernelApcDisable;
   if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v13 = -1073741811;
     }
@@ -47,7 +47,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
     {
       Object = 0LL;
       v8 = ObReferenceObjectByHandle(
-             Handle,
+             RegistryTransactionHandle,
              8u,
              CmRegistryTransactionType,
              KeGetCurrentThread()->PreviousMode,
@@ -72,7 +72,7 @@ __int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
   else
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
-  return (unsigned int)v13;
+  return v13;
 }

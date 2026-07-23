@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeDebuggerSupport @ 0x1406FEDCC
+ * XREFs of MiInitializeDebuggerSupport @ 0x140703A9C
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
  */
 
 __int64 __fastcall MiInitializeDebuggerSupport(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -24,21 +24,21 @@ __int64 __fastcall MiInitializeDebuggerSupport(__int64 a1, __int64 a2, __int64 a
   __m128i v16; // xmm3
   __m128i v17; // xmm3
 
-  v4 = (struct _LIST_ENTRY *)MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 2u, a3, a4);
+  v4 = (struct _LIST_ENTRY *)MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 2u, a3, a4);
   v5 = 0;
-  stru_140E2EB88.SuspendEvent.Header.WaitListHead.Flink = v4;
+  stru_140E2ED08.SuspendEvent.Header.WaitListHead.Flink = v4;
   if ( !v4 )
     MxInstallMoreMemory(3);
-  p_WaitListHead = &stru_140E2EB88.SuspendEvent.Header.WaitListHead;
+  p_WaitListHead = &stru_140E2ED08.SuspendEvent.Header.WaitListHead;
   for ( i = 0; i < 2; ++i )
   {
     if ( i )
-      p_WaitListHead->Flink = (struct _LIST_ENTRY *)(*((_QWORD *)&stru_140E2EB88.SuspendEvent.Header.Lock + i) + 8LL);
+      p_WaitListHead->Flink = (struct _LIST_ENTRY *)(*((_QWORD *)&stru_140E2ED08.SuspendEvent.Header.Lock + i) + 8LL);
     Flink = p_WaitListHead->Flink;
     p_WaitListHead = (LIST_ENTRY *)((char *)p_WaitListHead + 8);
     Flink->Flink = *(struct _LIST_ENTRY **)&CLFS_LSN_NULL_EXT;
   }
-  v9 = (unsigned int *)&unk_140E307D0;
+  v9 = (unsigned int *)&unk_140E30950;
   do
   {
     v10 = _mm_cvtsi32_si128(v5);

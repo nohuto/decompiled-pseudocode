@@ -146,7 +146,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   }
   else
   {
-    v82 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC30, 2 * ((a3 - qword_18016DC28) >> 20));
+    v82 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a3 - qword_18016DC28) >> 20));
     if ( !v82 || (v13 = v82 - 1, v13 == 2) )
     {
       v40 = RtlpHpLargeAllocSize(a1, a3, v7, &v95);
@@ -314,7 +314,7 @@ LABEL_28:
   if ( a6 )
   {
     if ( v92
-      || (v50 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC30, 2 * ((a3 - qword_18016DC28) >> 20))) != 0
+      || (v50 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a3 - qword_18016DC28) >> 20))) != 0
       && (LODWORD(v50) = v50 - 1, (_DWORD)v50 != 2) )
     {
       v99 = a1 + 192LL * (int)v50 + 256;
@@ -476,10 +476,10 @@ LABEL_82:
   }
   v74 = v7 & 0x12000001 | 0x1000000;
   if ( v92
-    || (v83 = RtlCSparseBitmapBitmaskRead((__int64)&unk_18016DC30, 2 * ((a3 - qword_18016DC28) >> 20))) != 0
+    || (v83 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a3 - qword_18016DC28) >> 20))) != 0
     && (v12 = v83 - 1, (_DWORD)v83 != 3) )
   {
-    v75 = RtlpHpSegReAlloc(a1 + 192LL * v12 + 256, v74, a3, &v93);
+    v75 = RtlpHpSegReAlloc((int)a1 + 192 * v12 + 256, v74, (void *)a3);
   }
   else
   {

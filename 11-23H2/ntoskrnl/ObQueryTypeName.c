@@ -1,11 +1,11 @@
 /*
- * XREFs of ObQueryTypeName @ 0x14097C37C
+ * XREFs of ObQueryTypeName @ 0x14097C57C
  * Callers:
- *     ObGetObjectInformation @ 0x14097B914 (ObGetObjectInformation.c)
- *     SepQueryTypeString @ 0x1409CD3F0 (SepQueryTypeString.c)
- *     VfCheckUserHandle @ 0x140AD3D14 (VfCheckUserHandle.c)
+ *     ObGetObjectInformation @ 0x14097BB14 (ObGetObjectInformation.c)
+ *     SepQueryTypeString @ 0x1409CD5F0 (SepQueryTypeString.c)
+ *     VfCheckUserHandle @ 0x140AD3D04 (VfCheckUserHandle.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall ObQueryTypeName(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)

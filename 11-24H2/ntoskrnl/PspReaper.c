@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReaper @ 0x140269DB0
+ * XREFs of PspReaper @ 0x14021F340
  * Callers:
  *     <none>
  * Callees:
- *     KeDeleteThread @ 0x140269E64 (KeDeleteThread.c)
- *     KeEnumerateKernelStackSegments @ 0x140269F48 (KeEnumerateKernelStackSegments.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeDeleteThread @ 0x14021F3F4 (KeDeleteThread.c)
+ *     KeEnumerateKernelStackSegments @ 0x14021F4D8 (KeEnumerateKernelStackSegments.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 signed __int64 PspReaper()

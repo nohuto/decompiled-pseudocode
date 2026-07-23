@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhBucketInitialize @ 0x1800A51A8
+ * XREFs of RtlpHpLfhBucketInitialize @ 0x1800D6B18
  * Callers:
- *     RtlpHpLfhBucketActivate @ 0x1800A4F80 (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhBucketActivate @ 0x1800D68F0 (RtlpHpLfhBucketActivate.c)
  * Callees:
  *     <none>
  */

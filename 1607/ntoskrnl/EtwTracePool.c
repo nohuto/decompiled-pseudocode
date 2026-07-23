@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTracePool @ 0x1401596BC
+ * XREFs of EtwTracePool @ 0x140159C2C
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140012AF0 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     ExpResizeBigPageTable @ 0x14009D79C (ExpResizeBigPageTable.c)
- *     ExpInsertPoolTracker @ 0x140122B70 (ExpInsertPoolTracker.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140012670 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     ExpResizeBigPageTable @ 0x14009CF9C (ExpResizeBigPageTable.c)
+ *     ExpInsertPoolTracker @ 0x1401230E0 (ExpInsertPoolTracker.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     InitializePagedPool @ 0x1407B47A0 (InitializePagedPool.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     MmIsNonPagedPoolNx @ 0x140133BB0 (MmIsNonPagedPoolNx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x14015988C (ExCheckSingleFilter.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     MmIsNonPagedPoolNx @ 0x140134120 (MmIsNonPagedPoolNx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x140159DFC (ExCheckSingleFilter.c)
  */
 
 void __fastcall EtwTracePool(
@@ -90,7 +90,7 @@ void __fastcall EtwTracePool(
     v15 = (char *)&EtwpGroupMasks + 32 * (unsigned int)v13;
     if ( v15 && (*((_DWORD *)v15 + 1) & 0x40) != 0 && (v16 = 0LL, EtwpPoolTagFilter[10 * v13]) )
     {
-      v17 = (unsigned int *)(0x140000000LL + 20 * v13 + 3133956);
+      v17 = (unsigned int *)(0x140000000LL + 20 * v13 + 3133924);
       while ( !(unsigned int)ExCheckSingleFilter(a3, *v17, v15, v16) )
       {
         v16 = (unsigned int)(v18 + 1);

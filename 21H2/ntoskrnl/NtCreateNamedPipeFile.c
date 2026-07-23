@@ -1,73 +1,73 @@
 /*
- * XREFs of NtCreateNamedPipeFile @ 0x1406AFC70
+ * XREFs of NtCreateNamedPipeFile @ 0x14060E510
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IoCreateFile @ 0x14060B1D0 (IoCreateFile.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IoCreateFile @ 0x14069AC80 (IoCreateFile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtCreateNamedPipeFile(
+NTSTATUS __cdecl NtCreateNamedPipeFile(
         PHANDLE FileHandle,
-        ACCESS_MASK DesiredAccess,
-        OBJECT_ATTRIBUTES *a3,
-        struct _IO_STATUS_BLOCK *a4,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
         ULONG ShareAccess,
-        ULONG Disposition,
+        ULONG CreateDisposition,
         ULONG CreateOptions,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
-        int a12,
-        int a13,
-        __int64 a14)
+        ULONG NamedPipeType,
+        ULONG ReadMode,
+        ULONG CompletionMode,
+        ULONG MaximumInstances,
+        ULONG InboundQuota,
+        ULONG OutboundQuota,
+        PLARGE_INTEGER DefaultTimeout)
 {
   _DWORD InternalParameters[6]; // [rsp+70h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+88h] [rbp-20h]
+  LONGLONG QuadPart; // [rsp+88h] [rbp-20h]
   char v17; // [rsp+90h] [rbp-18h]
   int v18; // [rsp+91h] [rbp-17h]
   __int16 v19; // [rsp+95h] [rbp-13h]
   char v20; // [rsp+97h] [rbp-11h]
 
-  v16 = 0LL;
+  QuadPart = 0LL;
   v18 = 0;
   v19 = 0;
   v20 = 0;
-  if ( a14 )
+  if ( DefaultTimeout )
   {
     v17 = 1;
     if ( KeGetCurrentThread()->PreviousMode )
     {
-      if ( (a14 & 3) != 0 )
+      if ( ((unsigned __int8)DefaultTimeout & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v16 = *(_QWORD *)a14;
+      QuadPart = DefaultTimeout->QuadPart;
     }
     else
     {
-      v16 = *(_QWORD *)a14;
+      QuadPart = DefaultTimeout->QuadPart;
     }
   }
   else
   {
     v17 = 0;
   }
-  InternalParameters[0] = a8;
-  InternalParameters[1] = a9;
-  InternalParameters[2] = a10;
-  InternalParameters[3] = a11;
-  InternalParameters[4] = a12;
-  InternalParameters[5] = a13;
+  InternalParameters[0] = NamedPipeType;
+  InternalParameters[1] = ReadMode;
+  InternalParameters[2] = CompletionMode;
+  InternalParameters[3] = MaximumInstances;
+  InternalParameters[4] = InboundQuota;
+  InternalParameters[5] = OutboundQuota;
   return IoCreateFile(
            FileHandle,
            DesiredAccess,
-           a3,
-           a4,
+           ObjectAttributes,
+           IoStatusBlock,
            0LL,
            0,
            ShareAccess,
-           Disposition,
+           CreateDisposition,
            CreateOptions,
            0LL,
            0,

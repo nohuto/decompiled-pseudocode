@@ -1,36 +1,36 @@
 /*
- * XREFs of CmUnloadKey @ 0x14049F858
+ * XREFs of CmUnloadKey @ 0x140517C64
  * Callers:
- *     CmUnloadKeyEx @ 0x14049D9AC (CmUnloadKeyEx.c)
- *     CmpLateUnloadHiveWorker @ 0x14049F6F4 (CmpLateUnloadHiveWorker.c)
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
+ *     CmUnloadKeyEx @ 0x140515DB8 (CmUnloadKeyEx.c)
+ *     CmpLateUnloadHiveWorker @ 0x140517B00 (CmpLateUnloadHiveWorker.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
  * Callees:
- *     CmpDiscardKcb @ 0x14000ADEC (CmpDiscardKcb.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpDecrementAppHiveUnloadCount @ 0x140087508 (CmpDecrementAppHiveUnloadCount.c)
- *     CmpRemoveHiveFromNamespace @ 0x1400878C4 (CmpRemoveHiveFromNamespace.c)
- *     CmpArmLazyWriter @ 0x1400F0130 (CmpArmLazyWriter.c)
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
- *     ZwDeleteValueKey @ 0x14015B5E0 (ZwDeleteValueKey.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B47B0 (CmpUnJoinClassOfTrust.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x1403FB7E4 (UNLOCK_HIVE_LOAD.c)
- *     CmpCleanUpSubKeyInfo @ 0x1403FDC28 (CmpCleanUpSubKeyInfo.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     CmpTraceHiveUnloadStart @ 0x14049F674 (CmpTraceHiveUnloadStart.c)
- *     CmpTraceHiveUnloadStop @ 0x14049FBD4 (CmpTraceHiveUnloadStop.c)
- *     CmpSignalUnloadEventArrayForHive @ 0x14049FC28 (CmpSignalUnloadEventArrayForHive.c)
- *     CmpCmdHiveClose @ 0x14049FCA0 (CmpCmdHiveClose.c)
- *     CmpDestroySecurityCache @ 0x14049FDD4 (CmpDestroySecurityCache.c)
- *     CmpMarkKeyUnbacked @ 0x14049FE7C (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14049FEF8 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpUnlockHiveList @ 0x14049FFBC (CmpUnlockHiveList.c)
- *     CmpLockHiveListExclusive @ 0x1404A0FBC (CmpLockHiveListExclusive.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     HvMarkBaseBlockDirty @ 0x140564650 (HvMarkBaseBlockDirty.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x140601C64 (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpDiscardKcb @ 0x14000A96C (CmpDiscardKcb.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpArmLazyWriter @ 0x1400EDFB0 (CmpArmLazyWriter.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x14010B700 (CmpDecrementAppHiveUnloadCount.c)
+ *     CmpRemoveHiveFromNamespace @ 0x14010BABC (CmpRemoveHiveFromNamespace.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
+ *     ZwDeleteValueKey @ 0x14015BB50 (ZwDeleteValueKey.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B4694 (CmpUnJoinClassOfTrust.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1403FA6A4 (UNLOCK_HIVE_LOAD.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1403FCAE8 (CmpCleanUpSubKeyInfo.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     CmpTraceHiveUnloadStart @ 0x140517A80 (CmpTraceHiveUnloadStart.c)
+ *     CmpTraceHiveUnloadStop @ 0x140517FE0 (CmpTraceHiveUnloadStop.c)
+ *     CmpSignalUnloadEventArrayForHive @ 0x140518034 (CmpSignalUnloadEventArrayForHive.c)
+ *     CmpCmdHiveClose @ 0x1405180AC (CmpCmdHiveClose.c)
+ *     CmpDestroySecurityCache @ 0x1405181E0 (CmpDestroySecurityCache.c)
+ *     CmpMarkKeyUnbacked @ 0x140518288 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140518304 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpUnlockHiveList @ 0x1405183C8 (CmpUnlockHiveList.c)
+ *     CmpLockHiveListExclusive @ 0x1405193C8 (CmpLockHiveListExclusive.c)
+ *     HvMarkBaseBlockDirty @ 0x140564B90 (HvMarkBaseBlockDirty.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x140601D18 (CmpVERemoveHiveFromSIDMappingTable.c)
  */
 
 __int64 __fastcall CmUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
@@ -47,12 +47,11 @@ __int64 __fastcall CmUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
   __int64 v14; // r9
   __int64 v15; // rdx
   _QWORD *v16; // rcx
-  __int64 v17; // rdx
-  int v18; // esi
-  _QWORD *v19; // rcx
-  _QWORD *v20; // rax
-  unsigned int v21; // ebp
-  signed __int32 v23[18]; // [rsp+0h] [rbp-48h] BYREF
+  int v17; // esi
+  _QWORD *v18; // rcx
+  _QWORD *v19; // rax
+  unsigned int v20; // ebp
+  signed __int32 v22[18]; // [rsp+0h] [rbp-48h] BYREF
 
   v3 = *(_QWORD *)(a1 + 24);
   v6 = (*(_BYTE *)(v3 + 5360) & 0x20) != 0;
@@ -116,21 +115,21 @@ __int64 __fastcall CmUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
         *(_QWORD *)(v15 + 8) = v16;
       }
       CmpVERemoveHiveFromSIDMappingTable(v3);
-      v18 = CmpFlushHive(v3, 0x2Cu);
-      if ( v18 == -1073741811 )
-        v18 = 0;
-      if ( v18 < 0 && (*(_BYTE *)(v3 + 124) & 4) != 0 )
+      v17 = CmpFlushHive(v3, 0x2Cu);
+      if ( v17 == -1073741811 )
+        v17 = 0;
+      if ( v17 < 0 && (*(_BYTE *)(v3 + 124) & 4) != 0 )
       {
         CmpReferenceKeyControlBlockUnsafe((volatile signed __int32 *)a1);
         *(_QWORD *)(v3 + 4104) = a1;
         CmpLockHiveListExclusive();
-        v19 = (_QWORD *)qword_140748178;
-        v20 = (_QWORD *)(v3 + 2760);
+        v18 = (_QWORD *)qword_140748178;
+        v19 = (_QWORD *)(v3 + 2760);
         if ( *(__int64 **)qword_140748178 != &CmpFailedUnloadListHead )
           __fastfail(3u);
-        *v20 = &CmpFailedUnloadListHead;
-        *(_QWORD *)(v3 + 2768) = v19;
-        *v19 = v20;
+        *v19 = &CmpFailedUnloadListHead;
+        *(_QWORD *)(v3 + 2768) = v18;
+        *v18 = v19;
         qword_140748178 = v3 + 2760;
         CmpUnlockHiveList();
         CmpArmLazyWriter(1LL, 0LL, 0);
@@ -138,23 +137,22 @@ __int64 __fastcall CmUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
         if ( v6 )
         {
           *(_DWORD *)(v3 + 6032) = 0;
-          _InterlockedOr(v23, 0);
+          _InterlockedOr(v22, 0);
           if ( *(_QWORD *)(v3 + 6040) )
             ExfUnblockPushLock((volatile __int64 *)(v3 + 6040), 0LL);
         }
       }
       else
       {
-        LOBYTE(v17) = 1;
-        v21 = *(_DWORD *)(v3 + 1400) + 4096;
-        HvFreeHive(v3, v17);
-        if ( v18 >= 0 && (*(_DWORD *)(v3 + 144) & 0x8000) == 0 && (__int64)(*(_QWORD *)(v3 + 2968) - v21) > 0x100000 )
-          CmpDoFileSetSizeEx(v3, 0, v21, 0);
+        v20 = *(_DWORD *)(v3 + 1400) + 4096;
+        HvFreeHive(v3, 1);
+        if ( v17 >= 0 && (*(_DWORD *)(v3 + 144) & 0x8000) == 0 && (__int64)(*(_QWORD *)(v3 + 2968) - v20) > 0x100000 )
+          CmpDoFileSetSizeEx(v3, 0, v20, 0);
         CmpCmdHiveClose(v3);
         if ( v6 )
         {
           *(_DWORD *)(v3 + 6032) = 0;
-          _InterlockedOr(v23, 0);
+          _InterlockedOr(v22, 0);
           if ( *(_QWORD *)(v3 + 6040) )
             ExfUnblockPushLock((volatile __int64 *)(v3 + 6040), 0LL);
         }

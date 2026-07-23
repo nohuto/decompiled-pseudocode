@@ -35,7 +35,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   __int64 v20; // rsi
   char v22; // [rsp+20h] [rbp-61h]
   int v24; // [rsp+28h] [rbp-59h]
-  struct _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-49h] BYREF
+  _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-49h] BYREF
   PKSPIN_LOCK SpinLock; // [rsp+40h] [rbp-41h]
   char *v28; // [rsp+48h] [rbp-39h]
   __int64 CurrentIrql; // [rsp+50h] [rbp-31h]

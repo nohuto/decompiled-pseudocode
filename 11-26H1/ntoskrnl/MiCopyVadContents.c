@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCopyVadContents @ 0x1404673AC
+ * XREFs of MiCopyVadContents @ 0x140460AFC
  * Callers:
- *     MiDeleteEmptyPageTableCommit @ 0x140467190 (MiDeleteEmptyPageTableCommit.c)
- *     MiAllocateChildVads @ 0x140961AD0 (MiAllocateChildVads.c)
- *     MiInitializePartialVad @ 0x140AC0654 (MiInitializePartialVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x1404608E0 (MiDeleteEmptyPageTableCommit.c)
+ *     MiAllocateChildVads @ 0x140A077C4 (MiAllocateChildVads.c)
+ *     MiInitializePartialVad @ 0x140AC26F4 (MiInitializePartialVad.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 void *__fastcall MiCopyVadContents(__int64 a1, _DWORD *a2)

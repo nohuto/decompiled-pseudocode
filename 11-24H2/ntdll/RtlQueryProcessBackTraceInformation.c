@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlQueryProcessBackTraceInformation @ 0x180046D20
+ * XREFs of RtlQueryProcessBackTraceInformation @ 0x18002AD20
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x180044CD0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x180028C60 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlQueryProcessBackTraceInformation(_QWORD *a1)
 {
-  __int64 v2; // rdi
+  PRTL_SRWLOCK v2; // rdi
   unsigned __int64 v3; // rsi
   unsigned __int64 v4; // rcx
   __int64 *v5; // rcx
   __int64 v6; // r15
   char *v7; // r15
-  int v8; // eax
+  int Ptr_high; // eax
   int v9; // r12d
   unsigned __int64 v10; // rsi
   unsigned __int64 v11; // rdx
   bool v12; // zf
   char *v13; // r14
   int v14; // esi
-  _QWORD *v15; // r13
+  _QWORD *Value; // r13
   _WORD *v17; // rdx
   __int64 v18; // rdx
-  char *v20; // [rsp+40h] [rbp-58h] BYREF
+  PVOID v20; // [rsp+40h] [rbp-58h] BYREF
   _QWORD *v21; // [rsp+48h] [rbp-50h]
-  __int64 v22; // [rsp+50h] [rbp-48h]
-  __int64 v23; // [rsp+A8h] [rbp+10h] BYREF
-  __int64 v24; // [rsp+B0h] [rbp+18h] BYREF
-  char *v25; // [rsp+B8h] [rbp+20h] BYREF
+  PRTL_SRWLOCK v22; // [rsp+50h] [rbp-48h]
+  ULONG_PTR RegionSize; // [rsp+A8h] [rbp+10h] BYREF
+  ULONG_PTR v24; // [rsp+B0h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+B8h] [rbp+20h] BYREF
 
   v2 = RtlpStackTraceDatabase;
   v22 = RtlpStackTraceDatabase;
@@ -44,7 +44,7 @@ __int64 __fastcall RtlQueryProcessBackTraceInformation(_QWORD *a1)
       return 3221225495LL;
     v20 = (char *)a1 + v4;
     v24 = v3 - v4;
-    if ( (int)ZwAllocateVirtualMemory(-1LL, &v20, 0LL, &v24, 4096, 4) < 0 )
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v20, 0LL, &v24, 0x1000u, 4u) < 0 )
       return 3221225495LL;
     a1[10] += v24;
   }
@@ -54,24 +54,24 @@ __int64 __fastcall RtlQueryProcessBackTraceInformation(_QWORD *a1)
   v7 = (char *)a1 + v6;
   if ( !v7 )
     return 3221225495LL;
-  *(_BYTE *)(v2 + 129) = 1;
-  *(_QWORD *)v7 = *(_QWORD *)(v2 + 152) - *(_QWORD *)(v2 + 136);
-  *((_QWORD *)v7 + 1) = *(_QWORD *)(v2 + 184) - *(_QWORD *)(v2 + 136);
-  *((_DWORD *)v7 + 4) = *(_DWORD *)(v2 + 176);
-  v8 = *(_DWORD *)(v2 + 180);
-  *((_DWORD *)v7 + 5) = v8;
+  *((_BYTE *)&v2[16].0 + 1) = 1;
+  *(_QWORD *)v7 = v2[19].Value - v2[17].Value;
+  *((_QWORD *)v7 + 1) = v2[23].Value - v2[17].Value;
+  *((_DWORD *)v7 + 4) = v2[22].0;
+  Ptr_high = HIDWORD(v2[22].Ptr);
+  *((_DWORD *)v7 + 5) = Ptr_high;
   v9 = 0;
-  v25 = 0LL;
-  v23 = 0LL;
-  v10 = a1[9] + ((272 * v8 + 7) & 0xFFFFFFF8);
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
+  v10 = a1[9] + ((272 * Ptr_high + 7) & 0xFFFFFFF8);
   v11 = a1[10];
   if ( v10 > v11 )
   {
     if ( v10 > a1[11] )
       goto LABEL_13;
-    v25 = (char *)a1 + v11;
-    v23 = v10 - v11;
-    if ( (int)ZwAllocateVirtualMemory(-1LL, &v25, 0LL, &v23, 4096, 4) < 0 )
+    BaseAddress = (char *)a1 + v11;
+    RegionSize = v10 - v11;
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
     {
       v5 = a1 + 9;
 LABEL_13:
@@ -81,7 +81,7 @@ LABEL_13:
         *v5 = v18;
       goto LABEL_15;
     }
-    a1[10] += v23;
+    a1[10] += RegionSize;
     v5 = a1 + 9;
   }
   v12 = (_QWORD *)((char *)a1 + *v5) == 0LL;
@@ -89,13 +89,13 @@ LABEL_13:
   *v5 = v10;
   if ( v12 )
     goto LABEL_13;
-  v14 = *(_DWORD *)(v2 + 180);
-  v15 = *(_QWORD **)(v2 + 184);
-  v21 = v15;
+  v14 = HIDWORD(v2[22].Ptr);
+  Value = (_QWORD *)v2[23].Value;
+  v21 = Value;
   while ( v14-- )
   {
-    v21 = --v15;
-    v17 = (_WORD *)*v15;
+    v21 = --Value;
+    v17 = (_WORD *)*Value;
     *(_QWORD *)v13 = 0LL;
     *((_DWORD *)v13 + 2) = v17[4] & 0x7FF;
     *((_WORD *)v13 + 6) = v17[6];
@@ -104,7 +104,7 @@ LABEL_13:
     v13 += 272;
   }
 LABEL_15:
-  *(_BYTE *)(v2 + 129) = 0;
+  *((_BYTE *)&v2[16].0 + 1) = 0;
   if ( v9 >= 0 )
     a1[13] = v7;
   return (unsigned int)v9;

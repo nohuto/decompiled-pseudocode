@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlpHpLargeAllocReport @ 0x1800FBE44
  * Callers:
- *     RtlpWalkHeapInternal @ 0x18004D364 (RtlpWalkHeapInternal.c)
+ *     RtlpWalkHeapInternal @ 0x18004D354 (RtlpWalkHeapInternal.c)
  * Callees:
- *     RtlpHpExtrasReportBusyBlock @ 0x18004E23C (RtlpHpExtrasReportBusyBlock.c)
- *     RtlpHpLargeAllocSizeInternal @ 0x18004F608 (RtlpHpLargeAllocSizeInternal.c)
+ *     RtlpHpExtrasReportBusyBlock @ 0x18004E22C (RtlpHpExtrasReportBusyBlock.c)
+ *     RtlpHpLargeAllocSizeInternal @ 0x18004F5F8 (RtlpHpLargeAllocSizeInternal.c)
  */
 
 __int64 __fastcall RtlpHpLargeAllocReport(__int64 a1, __int64 a2, unsigned __int64 *a3)

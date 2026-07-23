@@ -28,7 +28,7 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   {
     if ( byte_14042B4D8 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, (unsigned __int64)&KiVirtualHeteroClockRequest);
+      RtlRbRemoveNode(&KiClockIntervalRequests, &KiVirtualHeteroClockRequest);
       v3 = (unsigned int)dword_14042B4E0;
       byte_14042B4D8 = 0;
       if ( dword_14042B4E0 )
@@ -38,7 +38,7 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   }
   else if ( !byte_14042B4D8 && KiQosHysteresisTimerPeriod )
   {
-    KiSetClockInterval(KiQosHysteresisTimerPeriod, 0, (unsigned __int64)&KiVirtualHeteroClockRequest);
+    KiSetClockInterval(KiQosHysteresisTimerPeriod, 0, (__int64)&KiVirtualHeteroClockRequest);
     KiSendClockInterruptToClockOwner();
   }
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )

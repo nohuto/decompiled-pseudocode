@@ -13,50 +13,50 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_180050AC0(__int64 a1, __int64 a2, void *a3)
+__int64 __fastcall sub_180050AC0(__int64 a1, void *a2, void *a3)
 {
-  int v4; // edi
+  NTSTATUS v4; // edi
   unsigned __int64 v5; // rcx
-  int v6; // edi
-  unsigned __int64 Heap; // rbx
-  unsigned int v9; // [rsp+38h] [rbp-9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-1h] BYREF
-  UNICODE_STRING v11; // [rsp+50h] [rbp+Fh] BYREF
-  _OWORD v12[3]; // [rsp+60h] [rbp+1Fh] BYREF
-  __int64 v13; // [rsp+B0h] [rbp+6Fh] BYREF
+  ULONG Length; // edi
+  unsigned int *Heap; // rbx
+  ULONG ResultLength; // [rsp+38h] [rbp-9h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-1h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+50h] [rbp+Fh] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+1Fh] BYREF
+  HANDLE KeyHandle; // [rsp+B0h] [rbp+6Fh] BYREF
 
-  v13 = a2;
-  v9 = 260;
+  KeyHandle = a2;
+  ResultLength = 260;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion");
-  memset(v12, 0, sizeof(v12));
-  *((_QWORD *)&v12[0] + 1) = 0LL;
-  *(_QWORD *)&v12[1] = &DestinationString;
-  LODWORD(v12[0]) = 48;
-  DWORD2(v12[1]) = 64;
-  v12[2] = 0LL;
-  v4 = ZwOpenKey(&v13, 131097LL, v12);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v4 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v4 < 0 )
     return (unsigned int)v4;
-  v5 = 2LL * v9;
+  v5 = 2LL * ResultLength;
   if ( v5 <= 0xFFFFFFFF && (int)v5 + 12 >= (unsigned int)v5 )
   {
-    v6 = v5 + 12;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v5 + 12));
+    Length = v5 + 12;
+    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v5 + 12));
     if ( Heap )
     {
-      RtlInitUnicodeString(&v11, L"BuildLabEx");
-      v4 = ZwQueryValueKey(v13, &v11, 2LL, Heap, v6, &v9);
+      RtlInitUnicodeString(&ValueName, L"BuildLabEx");
+      v4 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
       if ( v4 >= 0 )
-        memmove(a3, (const void *)(Heap + 12), *(unsigned int *)(Heap + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        memmove(a3, Heap + 3, Heap[2]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     }
     else
     {
       v4 = -1073741801;
     }
-    ZwClose(v13);
+    ZwClose(KeyHandle);
     return (unsigned int)v4;
   }
-  ZwClose(v13);
+  ZwClose(KeyHandle);
   return 3221225621LL;
 }

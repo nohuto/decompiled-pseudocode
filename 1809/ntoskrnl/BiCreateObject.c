@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCreateObject @ 0x1408F0BA0
+ * XREFs of BiCreateObject @ 0x1408F1E60
  * Callers:
- *     BcdCreateObject @ 0x1408F07E8 (BcdCreateObject.c)
- *     BiBindEfiEntryToBcdObject @ 0x1408F22D8 (BiBindEfiEntryToBcdObject.c)
+ *     BcdCreateObject @ 0x1408F1AA8 (BcdCreateObject.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1408F3598 (BiBindEfiEntryToBcdObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
- *     ExUuidCreate @ 0x1406062C0 (ExUuidCreate.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     BiCreateKey @ 0x140712FE4 (BiCreateKey.c)
- *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
- *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
- *     BiIsObjectAliased @ 0x1407142A4 (BiIsObjectAliased.c)
- *     BiIsValidObject @ 0x1408F0EC8 (BiIsValidObject.c)
- *     BiSetObjectDescription @ 0x1408F0F5C (BiSetObjectDescription.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x14058C238 (RtlStringFromGUIDEx.c)
+ *     ExUuidCreate @ 0x1406072C0 (ExUuidCreate.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     BiCreateKey @ 0x140714284 (BiCreateKey.c)
+ *     BiOpenKey @ 0x140714A20 (BiOpenKey.c)
+ *     BiCloseKey @ 0x140714B90 (BiCloseKey.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
+ *     BiIsObjectAliased @ 0x140715544 (BiIsObjectAliased.c)
+ *     BiIsValidObject @ 0x1408F2188 (BiIsValidObject.c)
+ *     BiSetObjectDescription @ 0x1408F221C (BiSetObjectDescription.c)
  */
 
 NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4, _QWORD *a5)
@@ -26,7 +26,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   __int64 v11; // r11
   _QWORD *v12; // r11
   int v13; // ebx
-  UUID *p_Uuid; // r11
+  GUID *p_Uuid; // r11
   NTSTATUS result; // eax
   int v16; // ecx
   int v17; // eax
@@ -35,7 +35,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   void *v20; // [rsp+38h] [rbp-48h] BYREF
   void *v21; // [rsp+40h] [rbp-40h] BYREF
   void *v22; // [rsp+48h] [rbp-38h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-30h] BYREF
+  UNICODE_STRING GuidString; // [rsp+50h] [rbp-30h] BYREF
   int v24; // [rsp+60h] [rbp-20h] BYREF
   UUID Uuid; // [rsp+68h] [rbp-18h] BYREF
 
@@ -44,7 +44,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   v22 = 0LL;
   *a5 = 0LL;
   v6 = a3[1];
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   v8 = 0LL;
   v9 = 0LL;
   BiLogMessage(2LL, L"Creating object. Version: %d. Type: 0x%08x", *a3, v6);
@@ -63,16 +63,16 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
       return result;
     p_Uuid = &Uuid;
   }
-  v13 = RtlStringFromGUIDEx(&p_Uuid->Data1, (__int64)&UnicodeString, 1);
+  v13 = RtlStringFromGUIDEx(p_Uuid, &GuidString, 1u);
   if ( v13 >= 0 )
   {
-    BiLogMessage(2LL, L"Object GUID: %s", UnicodeString.Buffer);
+    BiLogMessage(2LL, L"Object GUID: %s", GuidString.Buffer);
     v17 = BiOpenKey(a1, L"Objects", v16 + 2, &v21);
     v8 = v21;
     v13 = v17;
     if ( v17 >= 0 )
     {
-      v18 = BiCreateKey((__int64)v21, UnicodeString.Buffer, 0xF003Fu, 0, &v20, &v19);
+      v18 = BiCreateKey((__int64)v21, GuidString.Buffer, 0xF003Fu, 0, &v20, &v19);
       v9 = v20;
       v13 = v18;
       if ( v18 >= 0 )
@@ -92,8 +92,8 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
       }
     }
   }
-  if ( UnicodeString.Buffer )
-    RtlFreeAnsiString(&UnicodeString);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   if ( v13 < 0 && v9 )
     BiCloseKey(v9);
   if ( v8 )

@@ -55,7 +55,7 @@ __int64 __fastcall MiCheckVadSequential(__int64 a1)
   v5 = v1 & 0xFFFFFFFFFFFFF000uLL | 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -206,10 +206,10 @@ LABEL_15:
 LABEL_16:
   *(_QWORD *)(v4 + 120) = v5;
   _InterlockedAnd((volatile signed __int32 *)(v4 + 48), 0xFFFFFFFC);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v35 = CurrentPrcb->SchedulerAssist;

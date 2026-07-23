@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAddRunTimeTriageDataBlocks @ 0x1401C6F5C
+ * XREFs of IopAddRunTimeTriageDataBlocks @ 0x1401C6DFC
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1401C5868 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x1401C5708 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     IopAddTriageDumpDataBlock @ 0x14014B400 (IopAddTriageDumpDataBlock.c)
- *     IopGetMaxValidMemorySize @ 0x1401C74E4 (IopGetMaxValidMemorySize.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     IopAddTriageDumpDataBlock @ 0x14014B970 (IopAddTriageDumpDataBlock.c)
+ *     IopGetMaxValidMemorySize @ 0x1401C7384 (IopGetMaxValidMemorySize.c)
  */
 
 __int64 __fastcall IopAddRunTimeTriageDataBlocks(

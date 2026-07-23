@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRebuildLargeZeroPage @ 0x140332BA0
+ * XREFs of MiRebuildLargeZeroPage @ 0x140332E30
  * Callers:
- *     MiRebuildLargePagesThread @ 0x1403967A0 (MiRebuildLargePagesThread.c)
+ *     MiRebuildLargePagesThread @ 0x140396980 (MiRebuildLargePagesThread.c)
  * Callees:
- *     MiCoalesceFreeLargePages @ 0x140332DC0 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceFreeLargePages @ 0x140333050 (MiCoalesceFreeLargePages.c)
  */
 
 __int64 __fastcall MiRebuildLargeZeroPage(__int64 a1)

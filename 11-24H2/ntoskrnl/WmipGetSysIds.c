@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipGetSysIds @ 0x1407A45E0
+ * XREFs of WmipGetSysIds @ 0x1407A46F0
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x140A41D60 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x140A37640 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipFindSMBiosStructure @ 0x1407A4174 (WmipFindSMBiosStructure.c)
- *     WmipFindSysIdTable @ 0x1407A4290 (WmipFindSysIdTable.c)
- *     WmipParseSysIdTable @ 0x1407A4898 (WmipParseSysIdTable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipFindSMBiosStructure @ 0x1407A4284 (WmipFindSMBiosStructure.c)
+ *     WmipFindSysIdTable @ 0x1407A43A0 (WmipFindSysIdTable.c)
+ *     WmipParseSysIdTable @ 0x1407A49A8 (WmipParseSysIdTable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
@@ -20,47 +20,48 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
   _QWORD *v7; // rdi
   int SMBiosStructure; // edi
   __int64 v9; // r14
-  __int64 v10; // rax
-  void *v11; // rsi
+  unsigned int v10; // eax
+  __int64 v11; // rax
+  void *v12; // rsi
   __int64 result; // rax
-  __int64 v13; // r14
-  __int64 v14; // rsi
+  __int64 v14; // r14
+  __int64 v15; // rsi
   _OWORD *Pool2; // rax
-  _BYTE v16[4]; // [rsp+30h] [rbp-58h] BYREF
-  int v17; // [rsp+34h] [rbp-54h] BYREF
+  _BYTE v17[4]; // [rsp+30h] [rbp-58h] BYREF
+  int v18; // [rsp+34h] [rbp-54h] BYREF
   PVOID BaseAddress; // [rsp+38h] [rbp-50h] BYREF
   unsigned int NumberOfBytes; // [rsp+40h] [rbp-48h] BYREF
   int NumberOfBytes_4; // [rsp+44h] [rbp-44h]
-  _QWORD v21[8]; // [rsp+48h] [rbp-40h] BYREF
+  _QWORD v22[8]; // [rsp+48h] [rbp-40h] BYREF
 
   v7 = a1;
-  v21[0] = 0LL;
+  v22[0] = 0LL;
   NumberOfBytes = 0;
   KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   if ( !WmipSysIdRead )
   {
-    if ( (int)WmipFindSysIdTable(v21, v16, &NumberOfBytes) < 0 )
+    if ( (int)WmipFindSysIdTable(v22, v17, &NumberOfBytes) < 0 )
     {
       BaseAddress = 0LL;
-      v21[0] = 0LL;
+      v22[0] = 0LL;
       NumberOfBytes = 0;
-      SMBiosStructure = WmipFindSMBiosStructure(1, v21, &BaseAddress, &NumberOfBytes);
+      SMBiosStructure = WmipFindSMBiosStructure(1, v22, &BaseAddress, &NumberOfBytes);
       if ( SMBiosStructure >= 0 )
       {
         WmipSysId1394 = 0LL;
         WmipSysId1394Count = 0;
-        v14 = v21[0];
-        if ( *(_BYTE *)(v21[0] + 1LL) <= 8u )
+        v15 = v22[0];
+        if ( *(_BYTE *)(v22[0] + 1LL) <= 8u )
         {
           WmipSysIdUuid = 0LL;
           WmipSysIdUuidCount = 0;
         }
         else
         {
-          Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL);
+          Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x73696D57u);
           if ( Pool2 )
           {
-            *Pool2 = *(_OWORD *)(v14 + 8);
+            *Pool2 = *(_OWORD *)(v15 + 8);
             WmipSysIdUuidCount = 1;
             WmipSysIdUuid = (__int64)Pool2;
             SMBiosStructure = 0;
@@ -81,38 +82,39 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
     }
     else
     {
-      v17 = 0;
+      v18 = 0;
       LODWORD(BaseAddress) = 0;
-      SMBiosStructure = WmipParseSysIdTable(v21[0], NumberOfBytes, 0, (unsigned int)&v17, 0LL, (__int64)&BaseAddress);
+      SMBiosStructure = WmipParseSysIdTable(v22[0], NumberOfBytes, 0, (unsigned int)&v18, 0LL, (__int64)&BaseAddress);
       if ( SMBiosStructure >= 0 )
       {
-        v9 = (unsigned int)(16 * v17);
-        if ( (_DWORD)v9 + 8 * (_DWORD)BaseAddress )
+        v9 = (unsigned int)(16 * v18);
+        v10 = v9 + 8 * (_DWORD)BaseAddress;
+        if ( v10 )
         {
-          v10 = ExAllocatePool2(0x100uLL);
-          v11 = (void *)v10;
-          if ( !v10 )
+          v11 = ExAllocatePool2(0x100uLL, v10, 0x73696D57u);
+          v12 = (void *)v11;
+          if ( !v11 )
           {
             KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
             return 3221225626LL;
           }
-          v13 = v10 + v9;
+          v14 = v11 + v9;
           SMBiosStructure = WmipParseSysIdTable(
-                              v21[0],
+                              v22[0],
                               NumberOfBytes,
-                              v10,
-                              (unsigned int)&v17,
-                              v13,
+                              v11,
+                              (unsigned int)&v18,
+                              v14,
                               (__int64)&BaseAddress);
           if ( SMBiosStructure < 0 )
           {
-            ExFreePoolWithTag(v11, 0);
+            ExFreePoolWithTag(v12, 0);
           }
           else
           {
-            WmipSysIdUuid = (__int64)v11;
-            WmipSysIdUuidCount = v17;
-            WmipSysId1394 = v13;
+            WmipSysIdUuid = (__int64)v12;
+            WmipSysIdUuidCount = v18;
+            WmipSysId1394 = v14;
             WmipSysId1394Count = (int)BaseAddress;
           }
         }

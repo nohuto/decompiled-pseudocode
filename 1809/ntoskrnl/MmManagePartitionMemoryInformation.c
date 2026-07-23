@@ -1,12 +1,12 @@
 /*
- * XREFs of MmManagePartitionMemoryInformation @ 0x140608464
+ * XREFs of MmManagePartitionMemoryInformation @ 0x140609464
  * Callers:
- *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140609170 (NtManagePartition.c)
  * Callees:
- *     MiQueryMemoryListInformation @ 0x140091074 (MiQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGetChannelInformation @ 0x1406086FC (MiGetChannelInformation.c)
+ *     MiQueryMemoryListInformation @ 0x140090FB4 (MiQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGetChannelInformation @ 0x1406096FC (MiGetChannelInformation.c)
  */
 
 __int64 __fastcall MmManagePartitionMemoryInformation(ULONG_PTR **a1, __int64 a2)
@@ -68,7 +68,7 @@ __int64 __fastcall MmManagePartitionMemoryInformation(ULONG_PTR **a1, __int64 a2
       *(_QWORD *)(a2 + 32) = v2[973];
       *(_QWORD *)(a2 + 40) = v2[800];
       if ( v2 == &MiSystemPartition )
-        v5 = qword_14043A750;
+        v5 = qword_14043B810;
       *(_QWORD *)(a2 + 224) = v5;
       MiQueryMemoryListInformation(v2, v30);
       v6 = v32;

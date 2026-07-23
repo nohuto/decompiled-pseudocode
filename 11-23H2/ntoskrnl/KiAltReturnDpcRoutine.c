@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAltReturnDpcRoutine @ 0x1405802A0
+ * XREFs of KiAltReturnDpcRoutine @ 0x140580790
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void KiAltReturnDpcRoutine()
 {
-  ExQueueWorkItem(&stru_140C40D58, CriticalWorkQueue);
+  ExQueueWorkItem(&stru_140C40CD8, CriticalWorkQueue);
 }

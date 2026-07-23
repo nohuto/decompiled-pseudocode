@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeNonVolatileFlush @ 0x1800FB4D4
+ * XREFs of RtlpInitializeNonVolatileFlush @ 0x1800F6404
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     NtQuerySystemInformation @ 0x180162350 (NtQuerySystemInformation.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x180160710 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 NTSTATUS RtlpInitializeNonVolatileFlush()

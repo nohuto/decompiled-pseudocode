@@ -5,14 +5,14 @@
  * Callees:
  *     MmAllocatePagesForMdlEx @ 0x1402630A0 (MmAllocatePagesForMdlEx.c)
  *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
- *     PipGetDeviceObjectLocation @ 0x140941244 (PipGetDeviceObjectLocation.c)
- *     PipGetDriverKsrGuid @ 0x140941490 (PipGetDriverKsrGuid.c)
- *     PipGetPersistentMemory @ 0x140941654 (PipGetPersistentMemory.c)
+ *     sub_140941244 @ 0x140941244 (sub_140941244.c)
+ *     sub_140941490 @ 0x140941490 (sub_140941490.c)
+ *     sub_140941654 @ 0x140941654 (sub_140941654.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -40,10 +40,10 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
   _QWORD *v19; // r14
   unsigned int v20; // r15d
   void *v21; // r13
-  int DriverKsrGuid; // edi
+  int v22; // edi
   unsigned int v23; // eax
   int v24; // r13d
-  int PersistentMemory; // eax
+  int v25; // eax
   struct _MDL *PagesForMdl; // rax
   PVOID v28; // rax
   __int64 Pool2; // rax
@@ -82,16 +82,16 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
     v9 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
     if ( !v9 || (*(_DWORD *)(v9 + 396) & 0x20000) != 0 )
     {
-      IoAddTriageDumpDataBlock(a2, (PVOID)*(unsigned __int16 *)(a2 + 2));
+      sub_1403D99B4(a2, (PVOID)*(unsigned __int16 *)(a2 + 2));
       v10 = *(_QWORD *)(a2 + 8);
       if ( v10 )
       {
-        IoAddTriageDumpDataBlock(v10, (PVOID)(unsigned int)*(__int16 *)(v10 + 2));
+        sub_1403D99B4(v10, (PVOID)(unsigned int)*(__int16 *)(v10 + 2));
         v11 = (_WORD *)(*(_QWORD *)(a2 + 8) + 56LL);
         if ( *v11 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)2);
-          IoAddTriageDumpDataBlock(
+          sub_1403D99B4((ULONG)v11, (PVOID)2);
+          sub_1403D99B4(
             *(_QWORD *)(*(_QWORD *)(a2 + 8) + 64LL),
             (PVOID)*(unsigned __int16 *)(*(_QWORD *)(a2 + 8) + 56LL));
         }
@@ -100,18 +100,18 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
       if ( v12 )
       {
         v13 = (unsigned __int16 *)(v12 + 40);
-        IoAddTriageDumpDataBlock(v12, (PVOID)0x310);
+        sub_1403D99B4(v12, (PVOID)0x310);
         if ( *v13 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
-          IoAddTriageDumpDataBlock(*((_QWORD *)v13 + 1), (PVOID)*v13);
+          sub_1403D99B4((ULONG)v13, (PVOID)2);
+          sub_1403D99B4(*((_QWORD *)v13 + 1), (PVOID)*v13);
         }
         v14 = *(_QWORD *)(a2 + 312);
         v15 = *(_QWORD *)(v14 + 40);
         if ( *(_WORD *)(v15 + 56) )
         {
-          IoAddTriageDumpDataBlock(v15 + 56, (PVOID)2);
-          IoAddTriageDumpDataBlock(
+          sub_1403D99B4(v15 + 56, (PVOID)2);
+          sub_1403D99B4(
             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 64LL),
             (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 56LL));
           v14 = *(_QWORD *)(a2 + 312);
@@ -122,9 +122,9 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
           v17 = (_WORD *)(v16 + 56);
           if ( *v17 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
+            sub_1403D99B4((ULONG)v17, (PVOID)2);
             v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 16LL);
-            IoAddTriageDumpDataBlock(*(_QWORD *)(v18 + 64), (PVOID)*(unsigned __int16 *)(v18 + 56));
+            sub_1403D99B4(*(_QWORD *)(v18 + 64), (PVOID)*(unsigned __int16 *)(v18 + 56));
           }
         }
       }
@@ -139,24 +139,24 @@ __int64 __fastcall IoReserveKsrPersistentMemoryEx(
   P = 0LL;
   v21 = 0LL;
   v38 = 0;
-  if ( !PnpKsrEnabled )
+  if ( !byte_140C44618 )
     return (unsigned int)-1073741637;
   if ( a7 )
     return (unsigned int)-1073741582;
-  DriverKsrGuid = PipGetDriverKsrGuid(a1, &v48);
-  if ( DriverKsrGuid < 0 )
-    return (unsigned int)DriverKsrGuid;
+  v22 = sub_140941490(a1, &v48);
+  if ( v22 < 0 )
+    return (unsigned int)v22;
   if ( !a2 )
   {
 LABEL_33:
     v24 = 1;
-    PersistentMemory = PipGetPersistentMemory(v41, a2, Size, v44, 0LL, &v46, 0LL, 1);
-    DriverKsrGuid = PersistentMemory;
-    if ( PersistentMemory == -1073741772 )
+    v25 = sub_140941654(v41, a2, Size, v44, 0LL, &v46, 0LL, 1);
+    v22 = v25;
+    if ( v25 == -1073741772 )
     {
-      DriverKsrGuid = 0;
+      v22 = 0;
     }
-    else if ( PersistentMemory < 0 )
+    else if ( v25 < 0 )
     {
       goto LABEL_38;
     }
@@ -204,11 +204,11 @@ LABEL_33:
           v21 = (void *)v36;
           if ( v36 )
           {
-            DriverKsrGuid = KsrMdlToMemoryRuns(v34, v36, v37, &v37);
-            if ( DriverKsrGuid >= 0 )
+            v22 = KsrMdlToMemoryRuns(v34, v36, v37, &v37);
+            if ( v22 >= 0 )
             {
-              DriverKsrGuid = KsrPersistMemoryWithMetadata(&v48, v21, v37, v30, v38, &v45);
-              if ( DriverKsrGuid >= 0 )
+              v22 = KsrPersistMemoryWithMetadata(&v48, v21, v37, v30, v38, &v45);
+              if ( v22 >= 0 )
               {
                 v19[4] = v45;
                 *v47 = v19;
@@ -218,13 +218,13 @@ LABEL_33:
           }
           else
           {
-            DriverKsrGuid = -1073741670;
+            v22 = -1073741670;
           }
           goto LABEL_39;
         }
       }
     }
-    DriverKsrGuid = -1073741670;
+    v22 = -1073741670;
 LABEL_38:
     v21 = 0LL;
     goto LABEL_39;
@@ -240,8 +240,8 @@ LABEL_38:
     v20 = v23 >> 1;
     goto LABEL_32;
   }
-  DriverKsrGuid = PipGetDeviceObjectLocation(a2);
-  if ( DriverKsrGuid >= 0 )
+  v22 = sub_140941244(a2);
+  if ( v22 >= 0 )
   {
     v20 = v38;
     Src = P;
@@ -254,5 +254,5 @@ LABEL_39:
     ExFreePoolWithTag(v19, 0x61706E50u);
   if ( v21 )
     ExFreePoolWithTag(v21, 0x61706E50u);
-  return (unsigned int)DriverKsrGuid;
+  return (unsigned int)v22;
 }

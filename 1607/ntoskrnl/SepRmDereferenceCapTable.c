@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRmDereferenceCapTable @ 0x140219C7C
+ * XREFs of SepRmDereferenceCapTable @ 0x140219AA8
  * Callers:
- *     SepRmDereferenceCap @ 0x140219C64 (SepRmDereferenceCap.c)
- *     SepRmReferenceFindCap @ 0x14021B670 (SepRmReferenceFindCap.c)
- *     SepRmCapUpdateWrkr @ 0x14056B7B4 (SepRmCapUpdateWrkr.c)
+ *     SepRmDereferenceCap @ 0x140219A90 (SepRmDereferenceCap.c)
+ *     SepRmReferenceFindCap @ 0x14021B49C (SepRmReferenceFindCap.c)
+ *     SepRmCapUpdateWrkr @ 0x14056BCF4 (SepRmCapUpdateWrkr.c)
  * Callees:
- *     SepRmDestroyCapTable @ 0x140696798 (SepRmDestroyCapTable.c)
+ *     SepRmDestroyCapTable @ 0x14069687C (SepRmDestroyCapTable.c)
  */
 
 __int64 __fastcall SepRmDereferenceCapTable(volatile signed __int64 *a1)

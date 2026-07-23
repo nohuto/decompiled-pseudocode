@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteIssueFailure @ 0x1405547E4
+ * XREFs of MiStoreLogWriteIssueFailure @ 0x140554A24
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x1402548F0 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 a4, int a5, int a6)
@@ -46,9 +46,9 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 
   int v41; // [rsp+F8h] [rbp-20h]
   int v42; // [rsp+FCh] [rbp-1Ch]
 
-  if ( *(_QWORD *)&qword_140C4EEE0 && **(_DWORD **)&qword_140C4EEE0 > 5u )
+  if ( *(_QWORD *)&qword_140C4EF20 && **(_DWORD **)&qword_140C4EF20 > 5u )
   {
-    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 2LL) )
+    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 2LL) )
     {
       v24 = 0;
       v27 = 0;
@@ -78,7 +78,7 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 
       v41 = 4;
       v14 = a1;
       v15 = a3;
-      tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&word_140026C5E, v8, 1u, v12, v13, 9u, &v21);
+      tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&word_140026C56, v8, 1u, v12, v13, 9u, &v21);
     }
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025B1B0
+ * XREFs of ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025C98C
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x140259CF0 (PpmHeteroDistributeUtility.c)
- *     PpmParkReportParkedCores @ 0x14025A2F0 (PpmParkReportParkedCores.c)
- *     PpmParkComputeDiff @ 0x14025A848 (PpmParkComputeDiff.c)
- *     PpmParkDistributeUtility @ 0x14025AB54 (PpmParkDistributeUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x14025B4D0 (PpmHeteroDistributeUtility.c)
+ *     PpmParkReportParkedCores @ 0x14025BAD0 (PpmParkReportParkedCores.c)
+ *     PpmParkComputeDiff @ 0x14025C028 (PpmParkComputeDiff.c)
+ *     PpmParkDistributeUtility @ 0x14025C334 (PpmParkDistributeUtility.c)
  * Callees:
  *     <none>
  */

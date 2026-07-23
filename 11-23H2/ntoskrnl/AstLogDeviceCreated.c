@@ -1,14 +1,14 @@
 /*
- * XREFs of AstLogDeviceCreated @ 0x14076B8D0
+ * XREFs of AstLogDeviceCreated @ 0x14076BAC0
  * Callers:
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     AstIsRecording @ 0x14076BA14 (AstIsRecording.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     AstIsRecording @ 0x14076BC04 (AstIsRecording.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  */
@@ -87,7 +87,7 @@ LABEL_8:
     v13 = a3;
     v28 = 4LL;
     *(_QWORD *)&DestinationString.Length = a1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C038E0, (unsigned __int8 *)byte_14002C759, 0LL, 0LL, 8u, &v18);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C038E0, (unsigned __int8 *)byte_14002C841, 0LL, 0LL, 8u, &v18);
   }
   if ( v9 )
     ExFreePoolWithTag(v9, 0);

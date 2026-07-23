@@ -35,7 +35,7 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
   ULONG v16; // r15d
   PVOID v17; // rax
   void *v18; // rsi
-  int v19; // r14d
+  NTSTATUS v19; // r14d
   PVOID v20; // rax
   ULONG Length; // [rsp+38h] [rbp-29h] BYREF
   BOOLEAN DaclPresent; // [rsp+3Ch] [rbp-25h] BYREF
@@ -114,7 +114,7 @@ LABEL_24:
     }
   }
   v15 = Length;
-  if ( (unsigned int)RtlSelfRelativeToAbsoluteSD2(PoolWithTag, &Length) != -1073741789 )
+  if ( RtlSelfRelativeToAbsoluteSD2(PoolWithTag, &Length) != -1073741789 )
     goto LABEL_30;
   v16 = Length;
   v17 = ExAllocatePoolWithTag(PagedPool, Length, 0x536C6F56u);

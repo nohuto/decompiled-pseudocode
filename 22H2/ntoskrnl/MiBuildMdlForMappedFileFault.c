@@ -89,7 +89,7 @@ __int64 __fastcall MiBuildMdlForMappedFileFault(
   __int64 v66; // [rsp+98h] [rbp-68h]
   __int64 *v67; // [rsp+A0h] [rbp-60h]
   unsigned __int64 v68; // [rsp+A8h] [rbp-58h]
-  RTL_BITMAP BitMapHeader; // [rsp+B0h] [rbp-50h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+B0h] [rbp-50h] BYREF
   _OWORD v70[4]; // [rsp+C0h] [rbp-40h] BYREF
 
   v10 = *(_QWORD *)(a1 + 168);

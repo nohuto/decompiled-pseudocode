@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpComputeMergedAcl2 @ 0x18005B3C8
+ * XREFs of RtlpComputeMergedAcl2 @ 0x180045948
  * Callers:
- *     RtlpComputeMergedAcl @ 0x18005BE2C (RtlpComputeMergedAcl.c)
+ *     RtlpComputeMergedAcl @ 0x1800463AC (RtlpComputeMergedAcl.c)
  * Callees:
- *     RtlCreateAcl @ 0x18005D4F0 (RtlCreateAcl.c)
- *     RtlpCopyAces @ 0x180061840 (RtlpCopyAces.c)
+ *     RtlCreateAcl @ 0x180047A70 (RtlCreateAcl.c)
+ *     RtlpCopyAces @ 0x18004BDC0 (RtlpCopyAces.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl2(
@@ -16,12 +16,12 @@ __int64 __fastcall RtlpComputeMergedAcl2(
         __int64 a6,
         __int64 a7,
         int a8,
-        unsigned int *a9,
-        __int64 a10,
+        ULONG *a9,
+        PACL Acl,
         _DWORD *a11)
 {
-  unsigned int *v11; // r12
-  __int64 v13; // r15
+  ULONG *v11; // r12
+  PACL v13; // r15
   bool v16; // bp
   char v17; // si
   unsigned int v18; // edi
@@ -34,24 +34,24 @@ __int64 __fastcall RtlpComputeMergedAcl2(
   __int64 result; // rax
   unsigned int v26; // ecx
   unsigned int v27; // ecx
-  unsigned int v28; // ecx
+  ULONG v28; // ecx
   int v29; // [rsp+20h] [rbp-98h]
   int v30; // [rsp+48h] [rbp-70h]
   int v31; // [rsp+50h] [rbp-68h]
   char v32; // [rsp+50h] [rbp-68h]
   int v33; // [rsp+58h] [rbp-60h]
-  __int64 v34; // [rsp+68h] [rbp-50h]
+  PACL v34; // [rsp+68h] [rbp-50h]
   _DWORD v35[18]; // [rsp+70h] [rbp-48h] BYREF
   int v37; // [rsp+D8h] [rbp+20h] BYREF
 
   v11 = a9;
-  v13 = a10;
+  v13 = Acl;
   v37 = 0;
   v35[0] = 0;
   v16 = 0;
   v17 = 1;
   v18 = 2;
-  RtlCreateAcl(a10, *a9, 2LL);
+  RtlCreateAcl(Acl, *a9, 2u);
   v20 = a11;
   *a11 = 1024;
   if ( (a4 & 0x1000) != 0 )
@@ -140,8 +140,8 @@ LABEL_23:
     *v11 = v28;
     if ( v16 )
       return 3221225507LL;
-    *(_WORD *)(v13 + 2) = v28;
-    *(_BYTE *)v13 = v18;
+    v13->AclSize = v28;
+    v13->AclRevision = v18;
   }
   else
   {

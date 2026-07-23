@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbOpenDatabaseEx @ 0x140800F84
+ * XREFs of SdbOpenDatabaseEx @ 0x1408016C4
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x14080627C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1408069BC (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SdbGetMergeRedirectPath @ 0x140800E0C (SdbGetMergeRedirectPath.c)
- *     SdbpOpenCompressedDatabase @ 0x140807094 (SdbpOpenCompressedDatabase.c)
- *     AslFileMappingEnsureMappedAs @ 0x14080922C (AslFileMappingEnsureMappedAs.c)
- *     AslFileMappingGetViewBase @ 0x1408096F4 (AslFileMappingGetViewBase.c)
- *     AslPathGetFileNamePart @ 0x140809DE4 (AslPathGetFileNamePart.c)
- *     AslFileMappingCreate @ 0x140959A94 (AslFileMappingCreate.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslFileMappingDelete @ 0x14095CDD8 (AslFileMappingDelete.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     SdbpReadMappedData @ 0x140960150 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbpValidateAndApplyCompatFlags @ 0x140AADE90 (SdbpValidateAndApplyCompatFlags.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SdbGetMergeRedirectPath @ 0x14080154C (SdbGetMergeRedirectPath.c)
+ *     SdbpOpenCompressedDatabase @ 0x1408077D4 (SdbpOpenCompressedDatabase.c)
+ *     AslFileMappingEnsureMappedAs @ 0x14080996C (AslFileMappingEnsureMappedAs.c)
+ *     AslFileMappingGetViewBase @ 0x140809E34 (AslFileMappingGetViewBase.c)
+ *     AslPathGetFileNamePart @ 0x14080A524 (AslPathGetFileNamePart.c)
+ *     AslFileMappingCreate @ 0x140941554 (AslFileMappingCreate.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslFileMappingDelete @ 0x140944898 (AslFileMappingDelete.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     SdbpReadMappedData @ 0x140947C10 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x140AA8F10 (SdbpValidateAndApplyCompatFlags.c)
  */
 
 _QWORD *SdbOpenDatabaseEx(__int64 a1, __int64 a2, __int64 a3, ...)

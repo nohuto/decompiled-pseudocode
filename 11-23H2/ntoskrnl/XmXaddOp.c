@@ -1,10 +1,10 @@
 /*
- * XREFs of XmXaddOp @ 0x140533380
+ * XREFs of XmXaddOp @ 0x1405338D0
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmAddOperands @ 0x1403B8C88 (XmAddOperands.c)
- *     XmStoreResult @ 0x1403B9608 (XmStoreResult.c)
+ *     XmAddOperands @ 0x1403B8E68 (XmAddOperands.c)
+ *     XmStoreResult @ 0x1403B97E8 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmXaddOp(__int64 a1)

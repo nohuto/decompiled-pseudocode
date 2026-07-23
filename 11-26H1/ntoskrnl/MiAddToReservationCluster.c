@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddToReservationCluster @ 0x140472460
+ * XREFs of MiAddToReservationCluster @ 0x14046BBE0
  * Callers:
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiReferencePageForModifiedWrite @ 0x1402F4B50 (MiReferencePageForModifiedWrite.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x140472790 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402D6BD0 (MiReferencePageForModifiedWrite.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14046BF10 (MI_IS_PTE_IN_WS_SWAP_SET.c)
  */
 
 __int64 __fastcall MiAddToReservationCluster(
@@ -52,7 +52,7 @@ __int64 __fastcall MiAddToReservationCluster(
       break;
     v13 = 48 * v12 - 0x220000000000LL;
     v14 = 0;
-    v15 = MiSafeLockPage(*(_QWORD *)(v8 + v11 + 4608), a2);
+    v15 = MiSafeLockPage(*(_QWORD *)(v8 + v11 + 4608), a2, v11);
     v11 = v29;
     v9 = a3;
     v16 = v15;
@@ -61,8 +61,8 @@ __int64 __fastcall MiAddToReservationCluster(
       if ( v12 == *(_QWORD *)(v8 + v29 + 4608) )
       {
         v17 = *(_QWORD *)(v13 + 16);
-        if ( qword_140E2D740 && (v17 & 0x10) == 0 )
-          v17 &= qword_140E2D748;
+        if ( qword_140E2D8C0 && (v17 & 0x10) == 0 )
+          v17 &= qword_140E2D8C8;
         v18 = HIDWORD(v17);
         if ( (_DWORD)v18 != a4 )
         {
@@ -138,7 +138,7 @@ LABEL_45:
           *a6 += v14;
           do
           {
-            *a5++ = qword_140E36038;
+            *a5++ = qword_140E361B8;
             --v14;
           }
           while ( v14 );

@@ -23,11 +23,8 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   __int64 v3; // rsi
   int KnownDll; // edi
   char v5; // al
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  _BYTE v10[40]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+60h] [rbp+8h] BYREF
+  _BYTE v7[40]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+60h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = *((_DWORD *)a1 + 8);
@@ -36,8 +33,8 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   KnownDll = -1073741515;
   if ( (v1 & 0x200) != 0 )
   {
-    v5 = LdrpCheckKnownDllFullPath(a1, v10);
-    a1 = v10;
+    v5 = LdrpCheckKnownDllFullPath(a1, v7);
+    a1 = v7;
   }
   else
   {
@@ -45,28 +42,28 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   }
   if ( v5 )
   {
-    KnownDll = LdrpFindKnownDll((const void **)a1, v3 + 88, (unsigned __int16 *)(v3 + 72), &Handle);
+    KnownDll = LdrpFindKnownDll((UNICODE_STRING *)a1, (PUNICODE_STRING)(v3 + 88), (PUNICODE_STRING)(v3 + 72), &Handle);
     if ( KnownDll >= 0 )
     {
       LdrpLogDllState(*(_QWORD *)(v3 + 48), v3 + 72, 0x14A5u);
-      v11 = 0LL;
+      v8 = 0LL;
       *(_DWORD *)(v3 + 264) = LdrpHashUnicodeString(v3 + 88);
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v6, v7, v8);
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
       KnownDll = LdrpFindLoadedDllByNameLockHeld(
                    (unsigned __int16 *)(v3 + 88),
-                   v3 + 72,
-                   *(unsigned int *)(v2 + 32),
-                   &v11,
+                   (_UNICODE_STRING *)(v3 + 72),
+                   *(_DWORD *)(v2 + 32),
+                   &v8,
                    *(_DWORD *)(v3 + 264));
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-      if ( v11 )
+      if ( v8 )
       {
-        LdrpLoadContextReplaceModule(v2, v11);
+        LdrpLoadContextReplaceModule(v2, v8);
       }
       else
       {
         LdrpLogDllState(0, v3 + 72, 0x14AAu);
-        KnownDll = LdrpMapDllWithSectionHandle(v2, (__int64)Handle);
+        KnownDll = LdrpMapDllWithSectionHandle(v2, Handle);
       }
       NtClose(Handle);
     }

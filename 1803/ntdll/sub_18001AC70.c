@@ -27,11 +27,16 @@
  *     sub_180104F5C @ 0x180104F5C (sub_180104F5C.c)
  */
 
-__int64 __fastcall sub_18001AC70(__int64 UniqueThread, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall sub_18001AC70(
+        unsigned __int64 UniqueThread,
+        _RTL_SRWLOCK *a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned int a5)
 {
   __int64 v5; // rdi
   unsigned int v7; // ebp
-  __int64 v8; // r13
+  _RTL_SRWLOCK *v8; // r13
   int i; // r15d
   __int64 v10; // r8
   unsigned __int64 v11; // rdx
@@ -52,7 +57,7 @@ __int64 __fastcall sub_18001AC70(__int64 UniqueThread, __int64 a2, __int64 a3, _
   unsigned int v26; // r15d
   __int64 v27; // rcx
   unsigned int v28; // ebx
-  unsigned __int16 HeapVirtualAffinity_high; // ax
+  unsigned __int16 HeapData_high; // ax
   __int64 v30; // rcx
   unsigned __int16 v31; // bp
   __int16 v32; // ax
@@ -101,9 +106,9 @@ __int64 __fastcall sub_18001AC70(__int64 UniqueThread, __int64 a2, __int64 a3, _
   signed __int64 v76; // r8
   signed __int64 v77; // rdx
   signed __int64 v78; // rtt
-  volatile signed __int64 *v79; // rcx
-  __int64 v80; // rax
-  _QWORD *v81; // rbx
+  _RTL_SRWLOCK *v79; // rcx
+  _RTL_SRWLOCK *v80; // rax
+  _RTL_SRWLOCK *v81; // rbx
   int v82; // ecx
   _QWORD *v83; // rdx
   __int64 *v84; // rax
@@ -159,10 +164,10 @@ __int64 __fastcall sub_18001AC70(__int64 UniqueThread, __int64 a2, __int64 a3, _
   unsigned __int64 v135; // [rsp+80h] [rbp-68h] BYREF
   unsigned __int64 *v136; // [rsp+88h] [rbp-60h]
   __int64 v137; // [rsp+90h] [rbp-58h]
-  __int64 v138; // [rsp+98h] [rbp-50h]
+  unsigned __int64 v138; // [rsp+98h] [rbp-50h]
   int v139; // [rsp+A0h] [rbp-48h]
   signed __int32 v140[17]; // [rsp+A4h] [rbp-44h] BYREF
-  __int64 v141; // [rsp+F0h] [rbp+8h]
+  unsigned __int64 v141; // [rsp+F0h] [rbp+8h]
   unsigned int v143; // [rsp+108h] [rbp+20h]
 
   v143 = a4;
@@ -170,7 +175,7 @@ __int64 __fastcall sub_18001AC70(__int64 UniqueThread, __int64 a2, __int64 a3, _
   v5 = 0LL;
   v7 = ((unsigned int)dword_18015A43C >> 2) & 1;
   v123 = 0;
-  v8 = UniqueThread;
+  v8 = (_RTL_SRWLOCK *)UniqueThread;
   v126 = 0LL;
   for ( i = 0; ; i = 2 )
   {
@@ -204,13 +209,13 @@ LABEL_208:
           if ( i == 2 )
             goto LABEL_5;
           i = 2;
-          RtlAcquireSRWLockExclusive(a3 + 16);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
         }
         v5 = sub_180104F5C(v8, a3, v118, v143);
         if ( !v5 )
           sub_180018770(v8, v118, 0LL, a5);
         if ( i )
-          RtlReleaseSRWLockExclusive(a3 + 16);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
         goto LABEL_59;
       }
       if ( !i )
@@ -226,8 +231,8 @@ LABEL_208:
             if ( (v12 & 1) != 0 && (v102 || (v12 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
             {
               if ( (unsigned __int8)sub_1800286DC(UniqueThread, v11, v10, a4, v121) )
-                ZwTerminateProcess(-1LL, 3221225547LL);
-              UniqueThread = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
+                ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+              UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
               v138 = UniqueThread;
               LOBYTE(UniqueThread) = 0;
               v140[0] = 2;
@@ -273,7 +278,7 @@ LABEL_208:
               if ( _interlockedbittestandreset(v140, 1u) )
               {
                 do
-                  ZwWaitForAlertByThreadId(a3 + 16, 0LL);
+                  ZwWaitForAlertByThreadId((PVOID)(a3 + 16), 0LL);
                 while ( (v140[0] & 4) == 0 );
               }
             }
@@ -285,7 +290,7 @@ LABEL_208:
               v134 = _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 16), v103, v12);
               if ( v12 == v134 )
               {
-                v8 = v141;
+                v8 = (_RTL_SRWLOCK *)v141;
                 break;
               }
 LABEL_178:
@@ -300,21 +305,21 @@ LABEL_5:
       v13 = (_QWORD *)(a3 + 8);
       if ( *(_QWORD *)(a3 + 8) )
         break;
-      v79 = (volatile signed __int64 *)(a3 + 16);
+      v79 = (_RTL_SRWLOCK *)(a3 + 16);
       if ( i == 2 )
         RtlReleaseSRWLockExclusive(v79);
       else
         RtlReleaseSRWLockShared(v79);
       v80 = a2;
-      v81 = (_QWORD *)(a2 + 24);
-      if ( (_QWORD *)*v81 == v81 )
+      v81 = a2 + 3;
+      if ( v81->Ptr == v81 )
         goto LABEL_98;
-      RtlAcquireSRWLockExclusive(a2 + 16);
-      if ( (_QWORD *)*v81 == v81 )
+      RtlAcquireSRWLockExclusive(a2 + 2);
+      if ( v81->Ptr == v81 )
         v64 = 0LL;
       else
-        v64 = sub_180073AFC(a2, *v81, 2LL);
-      RtlReleaseSRWLockExclusive(a2 + 16);
+        v64 = sub_180073AFC(a2, v81->Ptr, 2LL);
+      RtlReleaseSRWLockExclusive(a2 + 2);
       if ( !v64 )
       {
         v80 = a2;
@@ -324,7 +329,7 @@ LABEL_98:
           goto LABEL_60;
       }
       i = 2;
-      RtlAcquireSRWLockExclusive(a3 + 16);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
       UniqueThread = *(unsigned __int16 *)(v64 + 34);
       if ( *(_WORD *)(v64 + 32) == (_WORD)UniqueThread )
       {
@@ -533,7 +538,7 @@ LABEL_17:
     if ( v21 == 17 )
       goto LABEL_19;
     if ( (v21 & 1) == 0 )
-      RtlRaiseStatus(3221226084LL);
+      RtlRaiseStatus(-1073741212);
     if ( (v21 & 2) != 0 )
     {
 LABEL_161:
@@ -583,7 +588,7 @@ LABEL_86:
 LABEL_19:
     if ( v14 )
       break;
-    RtlAcquireSRWLockExclusive(a3 + 16);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
   }
   v22 = v14 + 48;
   v23 = 2 * (unsigned int)*(unsigned __int16 *)(v14 + 34);
@@ -596,21 +601,21 @@ LABEL_19:
   v125 = HIWORD(v28);
   if ( v143 >= (unsigned __int16)(qword_18015A448 ^ *(_WORD *)(v14 + 40) ^ ((unsigned int)v14 >> 12)) )
     v27 = 1LL;
-  HeapVirtualAffinity_high = HIWORD(v25->HeapVirtualAffinity);
+  HeapData_high = HIWORD(v25->HeapData);
   v129 = v27;
-  v30 = HeapVirtualAffinity_high;
-  v31 = (unsigned __int8)HeapVirtualAffinity_high;
-  if ( (unsigned __int8)HeapVirtualAffinity_high == HIBYTE(HeapVirtualAffinity_high) )
+  v30 = HeapData_high;
+  v31 = (unsigned __int8)HeapData_high;
+  if ( (unsigned __int8)HeapData_high == HIBYTE(HeapData_high) )
   {
-    LOWORD(v30) = HIBYTE(HeapVirtualAffinity_high);
+    LOWORD(v30) = HIBYTE(HeapData_high);
     v101 = sub_18001EBF0(v30, 255LL);
     v32 = (v101 << 8) | (unsigned __int8)(v101 + 1);
   }
   else
   {
-    v32 = (unsigned __int8)(HeapVirtualAffinity_high ^ (HeapVirtualAffinity_high + 1)) ^ HeapVirtualAffinity_high;
+    v32 = (unsigned __int8)(HeapData_high ^ (HeapData_high + 1)) ^ HeapData_high;
   }
-  HIWORD(v25->HeapVirtualAffinity) = v32;
+  HIWORD(v25->HeapData) = v32;
   v33 = v31;
   v34 = v129;
   v35 = byte_18015A460[v33];
@@ -708,7 +713,7 @@ LABEL_25:
         }
         if ( v48 )
           break;
-        RtlAcquireSRWLockExclusive(v14 + 24);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v14 + 24));
         v48 = 1;
       }
       if ( v55 == -1 )
@@ -811,7 +816,7 @@ LABEL_38:
   if ( v60 )
     sub_180060A50(v14, v46, v131, 2, 0LL);
   if ( v124 )
-    RtlReleaseSRWLockExclusive(v14 + 24);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v14 + 24));
   if ( v59 < 0 )
   {
     if ( (_DWORD)v45 != -1 )
@@ -835,9 +840,9 @@ LABEL_54:
         *(_WORD *)(v62 + v5 - 2) = v63 ^ (v61 ^ v63) & 0x3FFF;
     }
   }
-  v8 = v141;
+  v8 = (_RTL_SRWLOCK *)v141;
   if ( !v5 )
-    sub_180018770(v141, v14, 0LL, a5);
+    sub_180018770((_RTL_SRWLOCK *)v141, v14, 0LL, a5);
 LABEL_59:
   v64 = v126;
 LABEL_60:

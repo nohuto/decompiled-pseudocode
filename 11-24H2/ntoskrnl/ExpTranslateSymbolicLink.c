@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpTranslateSymbolicLink @ 0x140A63CA4
+ * XREFs of ExpTranslateSymbolicLink @ 0x140A5C5A4
  * Callers:
- *     ExpConvertArcName @ 0x1407BB504 (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x1407BB6C8 (ExpConvertSignatureName.c)
- *     ExpFindArcName @ 0x1407BBBCC (ExpFindArcName.c)
- *     ExpTranslateNtPath @ 0x1407BD4F4 (ExpTranslateNtPath.c)
- *     ExpTranslateEfiPath @ 0x140A6389C (ExpTranslateEfiPath.c)
+ *     ExpConvertArcName @ 0x1407BB954 (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x1407BBB18 (ExpConvertSignatureName.c)
+ *     ExpFindArcName @ 0x1407BC01C (ExpFindArcName.c)
+ *     ExpTranslateNtPath @ 0x1407BD944 (ExpTranslateNtPath.c)
+ *     ExpTranslateEfiPath @ 0x140A5C19C (ExpTranslateEfiPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x1406A8B10 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x1406A9170 (ZwQuerySymbolicLinkObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1406A9AB0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1406AA110 (ZwQuerySymbolicLinkObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING *a2)
@@ -57,7 +57,7 @@ NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING
         if ( Pool2 )
           ExFreePoolWithTag(Pool2, 0);
         v3 = ReturnedLength + 2;
-        Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, ReturnedLength + 2, 0x72766E45u);
         if ( !Pool2 )
         {
           ZwClose(LinkHandle);

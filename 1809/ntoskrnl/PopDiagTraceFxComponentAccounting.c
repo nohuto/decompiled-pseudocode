@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceFxComponentAccounting @ 0x1408725E4
+ * XREFs of PopDiagTraceFxComponentAccounting @ 0x140873844
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x1402D9D5C (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1402D9F4C (PopFxStopDeviceAccounting.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopDiagQueryDevicePropertyString @ 0x1408704A8 (PopDiagQueryDevicePropertyString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopDiagQueryDevicePropertyString @ 0x140871708 (PopDiagQueryDevicePropertyString.c)
  */
 
 void __fastcall PopDiagTraceFxComponentAccounting(__int64 a1, int a2, __int64 a3, unsigned __int16 *a4, char a5)
@@ -70,8 +70,8 @@ void __fastcall PopDiagTraceFxComponentAccounting(__int64 a1, int a2, __int64 a3
 
   v58 = a2;
   v17 = a1;
-  RtlInitUnicodeString(&DestinationString, &word_140766550);
-  RtlInitUnicodeString(&v21, &word_140766550);
+  RtlInitUnicodeString(&DestinationString, &word_140767740);
+  RtlInitUnicodeString(&v21, &word_140767740);
   if ( PopDiagHandleRegistered )
   {
     v7 = PopDiagHandle;
@@ -133,7 +133,7 @@ void __fastcall PopDiagTraceFxComponentAccounting(__int64 a1, int a2, __int64 a3
           v53[1] = 0;
           v55 = 2LL;
           v57[1] = 0;
-          TlgWrite(&pCallbackContext, &unk_140370CB3, 0LL, 0LL, 0x10u, &pData);
+          TlgWrite(&pCallbackContext, &unk_140371826, 0LL, 0LL, 0x10u, &pData);
         }
         if ( v9 )
           ExFreePoolWithTag(Buffer, 0x67696450u);

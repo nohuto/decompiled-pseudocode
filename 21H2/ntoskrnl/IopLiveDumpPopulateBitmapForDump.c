@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x1409AD1C8
+ * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x1409AE0F8
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ACE10 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x140509DDC (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
- *     RtlFindNextForwardRunClearEx @ 0x1405874F0 (RtlFindNextForwardRunClearEx.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AD4A4 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     RtlFindSetBitsEx @ 0x1402CD210 (RtlFindSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140508C08 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14050A018 (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140587720 (RtlFindNextForwardRunClearEx.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AE3D4 (IopLiveDumpRemoveSystemCacheFromDump.c)
  */
 
 char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
@@ -16,8 +16,8 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
   int v3; // eax
   __int64 v4; // r15
   unsigned __int64 v5; // r14
-  unsigned __int64 *v6; // rsi
-  unsigned __int64 SetBits; // rdi
+  _RTL_BITMAP_EX *v6; // rsi
+  ULONG64 SetBits; // rdi
   unsigned __int64 v8; // r14
   __int64 v9; // rax
   unsigned __int64 v10; // r15
@@ -28,9 +28,9 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
   unsigned __int64 v15; // rax
   __int64 v16; // rax
   unsigned __int64 NextForwardRunClear; // [rsp+20h] [rbp-28h]
-  unsigned __int64 v19; // [rsp+28h] [rbp-20h]
+  ULONG64 v19; // [rsp+28h] [rbp-20h]
   __int128 v20; // [rsp+30h] [rbp-18h] BYREF
-  unsigned __int64 v21; // [rsp+90h] [rbp+48h] BYREF
+  ULONG64 v21; // [rsp+90h] [rbp+48h] BYREF
   unsigned __int64 v22; // [rsp+98h] [rbp+50h] BYREF
   __int64 MillisecondCounter; // [rsp+A0h] [rbp+58h]
   __int64 v24; // [rsp+A8h] [rbp+60h] BYREF
@@ -46,7 +46,7 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
   v5 = *(_QWORD *)(a1 + 544);
   v19 = v5;
   IopLiveDumpRemoveSystemCacheFromDump(a1, a2, &v24);
-  v6 = (unsigned __int64 *)(a1 + 600);
+  v6 = (_RTL_BITMAP_EX *)(a1 + 600);
   if ( a1 != -600 )
   {
     do
@@ -103,8 +103,8 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
         }
         while ( SetBits < v19 );
       }
-      if ( v6 == (unsigned __int64 *)(a1 + 600) && (*(_DWORD *)(a1 + 40) & 4) != 0 )
-        v6 = (unsigned __int64 *)(a1 + 656);
+      if ( v6 == (_RTL_BITMAP_EX *)(a1 + 600) && (*(_DWORD *)(a1 + 40) & 4) != 0 )
+        v6 = (_RTL_BITMAP_EX *)(a1 + 656);
       else
         v6 = 0LL;
     }

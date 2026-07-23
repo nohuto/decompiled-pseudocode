@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapViewOfSection @ 0x1409C31E8
+ * XREFs of MiMapViewOfSection @ 0x1409941C8
  * Callers:
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
- *     AlpcpCreateView @ 0x1409C2150 (AlpcpCreateView.c)
- *     NtMapViewOfSection @ 0x1409C28A0 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1409F1570 (MiMapViewOfSectionExCommon.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
+ *     AlpcpCreateView @ 0x140993130 (AlpcpCreateView.c)
+ *     NtMapViewOfSection @ 0x140993880 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1409EDD40 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiFinalizeLagePageImageMapping @ 0x140774C90 (MiFinalizeLagePageImageMapping.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     MiMapViewOfPhysicalSection @ 0x14095C9CC (MiMapViewOfPhysicalSection.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
- *     MiValidateVadMetadataFlags @ 0x1409F3CF0 (MiValidateVadMetadataFlags.c)
- *     MiArbitraryCodeBlocked @ 0x140ABC228 (MiArbitraryCodeBlocked.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiFinalizeLagePageImageMapping @ 0x140777C90 (MiFinalizeLagePageImageMapping.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
+ *     MiValidateVadMetadataFlags @ 0x1409F04C0 (MiValidateVadMetadataFlags.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0228C (MiMapViewOfPhysicalSection.c)
+ *     MiArbitraryCodeBlocked @ 0x140ABDF28 (MiArbitraryCodeBlocked.c)
  */
 
 __int64 __fastcall MiMapViewOfSection(
@@ -26,7 +26,7 @@ __int64 __fastcall MiMapViewOfSection(
         __int64 a2,
         unsigned __int64 *a3,
         void *a4,
-        unsigned __int64 *a5,
+        _WORD *a5,
         int a6,
         int a7)
 {
@@ -94,7 +94,7 @@ __int64 __fastcall MiMapViewOfSection(
       return 3221225485LL;
     if ( !_bittest((const signed __int32 *)(v11 + 56), 0xAu)
       && *(_QWORD *)(a2 + 16) >= 0x10000uLL
-      && (*v12 != (_WORD)v13 || *(_WORD *)a5 != (_WORD)v13) )
+      && (*v12 != (_WORD)v13 || *a5 != (_WORD)v13) )
     {
       return 3221226016LL;
     }
@@ -128,7 +128,7 @@ __int64 __fastcall MiMapViewOfSection(
       return 3221225485LL;
     if ( (v21 & 0x20000000) != 0 )
     {
-      if ( *a5 != v13
+      if ( *(_QWORD *)a5 != v13
         || (MiFlags & 0x80000) != 0
         || (*(_DWORD *)(v14 + 56) & 0x20000) != 0
         || (v22 = SeSinglePrivilegeCheck(SeLockMemoryPrivilege, *(_BYTE *)(a2 + 53)), v13 = 0LL, !v22) )
@@ -150,14 +150,14 @@ __int64 __fastcall MiMapViewOfSection(
   }
 LABEL_37:
   v23 = *(_QWORD *)(a2 + 24);
-  v24 = v23 + *a5;
-  if ( v24 < *a5 )
+  v24 = v23 + *(_QWORD *)a5;
+  if ( v24 < *(_QWORD *)a5 )
     return 3221225503LL;
   v25 = *(_QWORD *)(a1 + 48);
   if ( v24 > v25 && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
     return 3221225503LL;
   if ( !v23 )
-    *(_QWORD *)(a2 + 24) = v25 - *a5;
+    *(_QWORD *)(a2 + 24) = v25 - *(_QWORD *)a5;
   if ( (*(_DWORD *)(v14 + 56) & 0x400) != 0 )
   {
     if ( (*(_DWORD *)a5 & 0xFFF) == 0 )

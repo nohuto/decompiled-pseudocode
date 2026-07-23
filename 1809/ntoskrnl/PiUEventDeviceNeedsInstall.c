@@ -1,9 +1,9 @@
 /*
- * XREFs of PiUEventDeviceNeedsInstall @ 0x1406FEC5C
+ * XREFs of PiUEventDeviceNeedsInstall @ 0x1406FFEFC
  * Callers:
- *     PiUEventNotifyUserMode @ 0x14058EF60 (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x14058FF60 (PiUEventNotifyUserMode.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiUEventDeviceNeedsInstall(__int64 a1, _BYTE *a2)

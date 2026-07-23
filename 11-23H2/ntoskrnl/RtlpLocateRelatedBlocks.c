@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLocateRelatedBlocks @ 0x1405B5104
+ * XREFs of RtlpLocateRelatedBlocks @ 0x1405B5674
  * Callers:
- *     RtlpHpHeapHandleError @ 0x1405B5074 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x1405B55E4 (RtlpHpHeapHandleError.c)
  * Callees:
  *     <none>
  */

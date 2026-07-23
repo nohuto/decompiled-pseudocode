@@ -23,7 +23,7 @@ int __fastcall RtlpHpSegPageRangeCommit(int a1, int a2, unsigned int a3, int a4,
   int v8; // edx
   unsigned int v9; // ebx
   int i; // ecx
-  size_t v11; // edi
+  unsigned int v11; // edi
   int v12; // eax
   int v13; // edx
   int v14; // ecx
@@ -33,10 +33,10 @@ int __fastcall RtlpHpSegPageRangeCommit(int a1, int a2, unsigned int a3, int a4,
   int v18; // edx
   int v19; // ecx
   int v20; // [esp+Ch] [ebp-2Ch]
-  size_t Size; // [esp+14h] [ebp-24h] BYREF
+  unsigned int v22; // [esp+14h] [ebp-24h] BYREF
   int v23; // [esp+18h] [ebp-20h]
   int v24; // [esp+1Ch] [ebp-1Ch]
-  int v25; // [esp+20h] [ebp-18h]
+  unsigned int v25; // [esp+20h] [ebp-18h]
   int v26; // [esp+24h] [ebp-14h]
   int v27; // [esp+28h] [ebp-10h]
   int v28; // [esp+2Ch] [ebp-Ch]
@@ -69,8 +69,8 @@ int __fastcall RtlpHpSegPageRangeCommit(int a1, int a2, unsigned int a3, int a4,
     if ( v11 >= v9 - v6 )
       v11 = v9 - v6;
     a3 = v6;
-    Size = v11;
-    v12 = RtlpHpSegPageRangeHandleCommit(&a3, &Size, v24);
+    v22 = v11;
+    v12 = RtlpHpSegPageRangeHandleCommit(&a3, &v22, v24);
     v20 = v12;
     if ( v12 )
     {
@@ -87,13 +87,13 @@ int __fastcall RtlpHpSegPageRangeCommit(int a1, int a2, unsigned int a3, int a4,
       {
         v14 = 0x4000;
       }
-      result = RtlpHpSegMgrCommit(a1, v13, v25, Size, v12, v14, v30);
+      result = RtlpHpSegMgrCommit(a1, v13, v25, v22, v12, v14, v30);
       if ( result < 0 )
         return result;
       v16 = v20;
       if ( v20 > 0 )
       {
-        RtlpHpSegPageRangeHandleCommit(&a3, &Size, 1);
+        RtlpHpSegPageRangeHandleCommit(&a3, &v22, 1);
         v16 = v20;
       }
       RtlpHpSegUpdateCommit(v16);
@@ -106,9 +106,9 @@ int __fastcall RtlpHpSegPageRangeCommit(int a1, int a2, unsigned int a3, int a4,
         v18 = v26 + (v25 << 12);
         v19 = *(_DWORD *)(a1 + 36);
         if ( v20 <= 0 )
-          RtlpLogHeapDecommit(v19, v18, Size << 12, 13);
+          RtlpLogHeapDecommit(v19, v18, v22 << 12, 13);
         else
-          RtlpLogHeapCommit(v19, v18, Size << 12, 10);
+          RtlpLogHeapCommit(v19, v18, v22 << 12, 10);
       }
       v12 = v20;
     }

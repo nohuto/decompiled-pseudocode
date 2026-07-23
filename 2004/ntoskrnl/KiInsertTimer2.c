@@ -10,7 +10,7 @@
  *     KiInsertTimer2WithCollectionLockHeld @ 0x14027F1E0 (KiInsertTimer2WithCollectionLockHeld.c)
  */
 
-char __fastcall KiInsertTimer2(__int64 a1, char a2, unsigned __int64 a3)
+char __fastcall KiInsertTimer2(__int64 a1, char a2, _BYTE *a3)
 {
   char inserted; // bl
   struct _KPRCB *CurrentPrcb; // r8

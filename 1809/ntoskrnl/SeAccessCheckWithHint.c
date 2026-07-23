@@ -2,12 +2,12 @@
  * XREFs of SeAccessCheckWithHint @ 0x1400157C0
  * Callers:
  *     SeAccessCheckFromStateEx @ 0x140015700 (SeAccessCheckFromStateEx.c)
- *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1401269E8 (ExCpuSetResourceManagerAccessCheck.c)
- *     RtlpAllowsLowBoxAccess @ 0x1401330C0 (RtlpAllowsLowBoxAccess.c)
- *     RtlCheckTokenCapability @ 0x1402EDAB0 (RtlCheckTokenCapability.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x140654050 (ObpVerifyAccessToBoundaryEntry.c)
- *     ExpCheckWakeTimerAccess @ 0x14071EAAC (ExpCheckWakeTimerAccess.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCBB0 (RtlCheckTokenMembershipEx.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x140126AB8 (ExCpuSetResourceManagerAccessCheck.c)
+ *     RtlpAllowsLowBoxAccess @ 0x140133190 (RtlpAllowsLowBoxAccess.c)
+ *     RtlCheckTokenCapability @ 0x1402EDCA0 (RtlCheckTokenCapability.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140655210 (ObpVerifyAccessToBoundaryEntry.c)
+ *     ExpCheckWakeTimerAccess @ 0x14071FD4C (ExpCheckWakeTimerAccess.c)
  * Callees:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
  */

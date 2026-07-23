@@ -48,7 +48,7 @@ __int64 __fastcall KiConfigureSchedulingInformation(__int64 a1, char a2)
   bool v34; // zf
   unsigned int v36; // [rsp+24h] [rbp-44h]
   unsigned int v37; // [rsp+28h] [rbp-40h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
   unsigned __int16 *v39; // [rsp+48h] [rbp-20h] BYREF
   unsigned __int64 Mask; // [rsp+50h] [rbp-18h]
   unsigned __int16 Group; // [rsp+58h] [rbp-10h]

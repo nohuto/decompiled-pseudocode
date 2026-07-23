@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCadTriggerDriverLoad @ 0x1407E1590
+ * XREFs of PopCadTriggerDriverLoad @ 0x1407E6620
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwLoadDriver @ 0x1407255B0 (ZwLoadDriver.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwLoadDriver @ 0x14072A180 (ZwLoadDriver.c)
  */
 
 NTSTATUS PopCadTriggerDriverLoad()

@@ -4,12 +4,12 @@
  *     TpAllocPoolInternal @ 0x180030848 (TpAllocPoolInternal.c)
  * Callees:
  *     TppInitializeTimerSubQueue @ 0x1800300B8 (TppInitializeTimerSubQueue.c)
- *     TppDestroyTimerSubQueue @ 0x180082B9C (TppDestroyTimerSubQueue.c)
+ *     TppDestroyTimerSubQueue @ 0x180082BAC (TppDestroyTimerSubQueue.c)
  */
 
 __int64 __fastcall TppInitializeTimerQueue(__int64 a1, __int64 a2)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
 
   *(_QWORD *)a1 = 0LL;
   *(_DWORD *)(a1 + 248) = 0;

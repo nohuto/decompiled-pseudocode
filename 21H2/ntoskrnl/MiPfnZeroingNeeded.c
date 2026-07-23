@@ -1,18 +1,18 @@
 /*
- * XREFs of MiPfnZeroingNeeded @ 0x140238B60
+ * XREFs of MiPfnZeroingNeeded @ 0x1402DD3B0
  * Callers:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiCoalesceFreePages @ 0x140235CA0 (MiCoalesceFreePages.c)
- *     MiChangePageAttributeContiguous @ 0x1402CF8B8 (MiChangePageAttributeContiguous.c)
- *     MiConvertContiguousPages @ 0x1402E3BC4 (MiConvertContiguousPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     MiAddMdlPageToTradeBlock @ 0x1402FF488 (MiAddMdlPageToTradeBlock.c)
- *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MiAllocateMdlPagesByLists @ 0x140374714 (MiAllocateMdlPagesByLists.c)
- *     MiUpdateLargePagePfns @ 0x14055EBFC (MiUpdateLargePagePfns.c)
+ *     MiChangePageAttributeContiguous @ 0x14024DC38 (MiChangePageAttributeContiguous.c)
+ *     MiConvertContiguousPages @ 0x140294F14 (MiConvertContiguousPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140295074 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiCoalesceFreePages @ 0x1402DA4F0 (MiCoalesceFreePages.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     MiAddMdlPageToTradeBlock @ 0x14030A1D8 (MiAddMdlPageToTradeBlock.c)
+ *     MiTradePage @ 0x14030B930 (MiTradePage.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MiAllocateMdlPagesByLists @ 0x140374264 (MiAllocateMdlPagesByLists.c)
+ *     MiUpdateLargePagePfns @ 0x14055EE3C (MiUpdateLargePagePfns.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ _BOOL8 __fastcall MiPfnZeroingNeeded(__int64 a1, int a2)
   if ( (*(_DWORD *)(a1 + 16) & 0x3E0LL) == 0 )
   {
     v2 = *(unsigned __int8 *)(a1 + 34) >> 6;
-    if ( v2 == a2 || ((unsigned __int8)((1 << v2) | (1 << a2)) & (unsigned __int8)byte_140C4DFD8) == 0 )
+    if ( v2 == a2 || ((unsigned __int8)((1 << v2) | (1 << a2)) & (unsigned __int8)byte_140C4E018) == 0 )
       return 0;
   }
   return result;

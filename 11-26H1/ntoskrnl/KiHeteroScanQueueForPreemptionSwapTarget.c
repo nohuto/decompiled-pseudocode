@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHeteroScanQueueForPreemptionSwapTarget @ 0x140235418
+ * XREFs of KiHeteroScanQueueForPreemptionSwapTarget @ 0x140236D78
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x1402351F0 (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x140236B50 (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  * Callees:
  *     KiFindBiasedProcessorIndex @ 0x140201890 (KiFindBiasedProcessorIndex.c)
- *     KiHeteroComputeThreadImportance @ 0x140415600 (KiHeteroComputeThreadImportance.c)
- *     KiHeteroIsSwapBeneficialForPerformance @ 0x14041564C (KiHeteroIsSwapBeneficialForPerformance.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     KiHeteroComputeThreadImportance @ 0x140409C30 (KiHeteroComputeThreadImportance.c)
+ *     KiHeteroIsSwapBeneficialForPerformance @ 0x140409C7C (KiHeteroIsSwapBeneficialForPerformance.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall KiHeteroScanQueueForPreemptionSwapTarget(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -125,8 +125,7 @@ __int64 __fastcall KiHeteroScanQueueForPreemptionSwapTarget(__int64 a1, __int64 
             if ( (_BYTE)v9 != *(_BYTE *)(v21 + 16) )
             {
               v26 = (unsigned int)KiHeteroIsSwapBeneficialForPerformance(
-                                    KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                                     + 64 * *(unsigned __int16 *)(v40 + 710)
+                                    KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int16 *)(v40 + 710)].Flink
                                                      + v19)],
                                     v9,
                                     v17) == 0;

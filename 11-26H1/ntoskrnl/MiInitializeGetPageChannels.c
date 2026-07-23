@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeGetPageChannels @ 0x14043BBE0
+ * XREFs of MiInitializeGetPageChannels @ 0x14042E490
  * Callers:
- *     MiGetHugeRange @ 0x1406EB880 (MiGetHugeRange.c)
+ *     MiGetHugeRange @ 0x1406F0520 (MiGetHugeRange.c)
  * Callees:
  *     <none>
  */
@@ -48,8 +48,8 @@ void __fastcall MiInitializeGetPageChannels(char *a1, __int64 a2, __int16 a3, __
   {
     *(_DWORD *)a1 = 0;
     *((_WORD *)a1 + 2) = 0;
-    v6 = byte_140E2D718;
-    *v4 = byte_140E2D718;
+    v6 = byte_140E2D898;
+    *v4 = byte_140E2D898;
     if ( (unsigned __int8)v6 <= 1u )
       *v4 = 1;
     a1[4] = HIBYTE(a3) & 1;

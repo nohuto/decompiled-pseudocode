@@ -19,8 +19,8 @@ __int64 __fastcall IopCreateArcNames(__int64 a1)
   __int64 v3; // rbx
   PVOID Pool_0; // rax
   __int64 result; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-59h] BYREF
-  STRING v7; // [rsp+30h] [rbp-49h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-59h] BYREF
+  _STRING v7; // [rsp+30h] [rbp-49h] BYREF
   char pszDest[128]; // [rsp+40h] [rbp-39h] BYREF
 
   v1 = *(const char **)(a1 + 192);

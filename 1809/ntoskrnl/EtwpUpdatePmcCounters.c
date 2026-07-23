@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUpdatePmcCounters @ 0x1408BBE40
+ * XREFs of EtwpUpdatePmcCounters @ 0x1408BD100
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     EtwpAllocatePmcData @ 0x1408BAA08 (EtwpAllocatePmcData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     EtwpAllocatePmcData @ 0x1408BBCC8 (EtwpAllocatePmcData.c)
  */
 
 __int64 __fastcall EtwpUpdatePmcCounters(__int64 a1, __int64 a2, unsigned int a3)
@@ -40,7 +40,7 @@ __int64 __fastcall EtwpUpdatePmcCounters(__int64 a1, __int64 a2, unsigned int a3
       v10 = 0;
       for ( j = 0; j < v6; ++j )
       {
-        v10 = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, __int64))off_1403FE510[0])(
+        v10 = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, __int64))off_1403FF510[0])(
                 j,
                 v8,
                 a3,
@@ -52,7 +52,7 @@ __int64 __fastcall EtwpUpdatePmcCounters(__int64 a1, __int64 a2, unsigned int a3
       {
         for ( k = 0LL; (unsigned int)k < j; k = (unsigned int)(k + 1) )
         {
-          ((void (__fastcall *)(_QWORD))off_1403FE520[0])(*(_QWORD *)(v8 + 8 * k + 48));
+          ((void (__fastcall *)(_QWORD))off_1403FF520[0])(*(_QWORD *)(v8 + 8 * k + 48));
           *(_QWORD *)(v8 + 8 * k + 48) = 0LL;
         }
       }

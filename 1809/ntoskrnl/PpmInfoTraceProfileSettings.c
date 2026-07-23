@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInfoTraceProfileSettings @ 0x1408758A4
+ * XREFs of PpmInfoTraceProfileSettings @ 0x140876B04
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140764270 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140765460 (PpmEventTraceControlCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PpmEventTraceProfileSetting @ 0x140756798 (PpmEventTraceProfileSetting.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PpmEventTraceProfileSetting @ 0x140757988 (PpmEventTraceProfileSetting.c)
  */
 
 char PpmInfoTraceProfileSettings()
@@ -27,7 +27,7 @@ char PpmInfoTraceProfileSettings()
   while ( 1 )
   {
     v10 = v0;
-    v2 = (char *)&unk_140540A48;
+    v2 = (char *)&unk_140541A48;
     v3 = v1 + 346;
     v11 = 52LL;
     do

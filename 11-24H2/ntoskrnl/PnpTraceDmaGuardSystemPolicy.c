@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDmaGuardSystemPolicy @ 0x140732690
+ * XREFs of PnpTraceDmaGuardSystemPolicy @ 0x1407306A0
  * Callers:
- *     PipDmgInitPhaseTwo @ 0x140731D4C (PipDmgInitPhaseTwo.c)
+ *     PipDmgInitPhaseTwo @ 0x14072FD5C (PipDmgInitPhaseTwo.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PnpTraceDmaGuardSystemPolicy()
@@ -30,6 +30,6 @@ void PnpTraceDmaGuardSystemPolicy()
     v6 = &v0;
     v1 = 2048LL;
     v4 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06FA8, (unsigned __int8 *)byte_140046B99, 0LL, 0LL, 4u, &v2);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06FA8, (unsigned __int8 *)&byte_1400470AF, 0LL, 0LL, 4u, &v2);
   }
 }

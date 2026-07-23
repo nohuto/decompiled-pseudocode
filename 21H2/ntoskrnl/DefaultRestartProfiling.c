@@ -1,9 +1,9 @@
 /*
- * XREFs of DefaultRestartProfiling @ 0x1409A70B0
+ * XREFs of DefaultRestartProfiling @ 0x1409A7FE0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerRestartProfileInterrupt @ 0x1404C18B8 (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x1404C1AF8 (HalpTimerRestartProfileInterrupt.c)
  */
 
 void DefaultRestartProfiling()

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFindFirstSetLeftAffinityEx @ 0x14042D560
+ * XREFs of KeFindFirstSetLeftAffinityEx @ 0x140421C30
  * Callers:
- *     PpmUpdatePlatformIdleVeto @ 0x14042CC80 (PpmUpdatePlatformIdleVeto.c)
- *     PpmParkDetectTopologyLevelInfo @ 0x14060F5A8 (PpmParkDetectTopologyLevelInfo.c)
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x140421350 (PpmUpdatePlatformIdleVeto.c)
+ *     PpmParkDetectTopologyLevelInfo @ 0x14061280C (PpmParkDetectTopologyLevelInfo.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall KeFindFirstSetLeftAffinityEx(__int16 *a1)
     if ( v2 )
     {
       _BitScanReverse64(&v3, v2);
-      return *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      return *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
              + (unsigned int)((v1 << 6) + v3));
     }
   }

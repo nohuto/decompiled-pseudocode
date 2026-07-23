@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetImageSubsectionBounds @ 0x140AB8908
+ * XREFs of MiGetImageSubsectionBounds @ 0x140AB9F48
  * Callers:
- *     MiWalkEntireImage @ 0x140AC8434 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x140ACA024 (MiWalkEntireImage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiGetImageSubsectionBounds(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -29,7 +29,7 @@ __int64 __fastcall MiGetImageSubsectionBounds(__int64 a1, __int64 a2, __int64 a3
   __int64 v17; // rcx
   bool v18; // zf
   __int64 v19; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v20; // rcx
+  $241382875694CED3D471BC5892DE3337 *v20; // rcx
 
   v5 = *(_DWORD *)(*(_QWORD *)a1 + 24LL);
   *(_QWORD *)(a1 + 40) = 0LL;
@@ -78,7 +78,7 @@ LABEL_22:
       ExfReleasePushLockShared(v11);
     KeAbPostRelease((unsigned __int64)v11);
     v18 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v18 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v18 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v17, v16);
     return 0LL;
   }
@@ -90,7 +90,7 @@ LABEL_22:
   if ( v18 )
   {
     v20 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v20->ApcState.ApcListHead[0].Flink != v20 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v20->ApcState.ApcListHead[0].Flink != v20 )
       KiCheckForKernelApcDelivery((__int64)v20, v19);
   }
   result = 1LL;

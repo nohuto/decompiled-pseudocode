@@ -1,15 +1,15 @@
 /*
- * XREFs of MiEnableImageDirectMap @ 0x1406F9834
+ * XREFs of MiEnableImageDirectMap @ 0x1406FE504
  * Callers:
- *     MiCreateImageMapFinish @ 0x140A54F3C (MiCreateImageMapFinish.c)
+ *     MiCreateImageMapFinish @ 0x140A624DC (MiCreateImageMapFinish.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObFastReplaceObject @ 0x1404819D8 (ObFastReplaceObject.c)
- *     MiDeleteFileExtentList @ 0x1407705B4 (MiDeleteFileExtentList.c)
- *     MiAllocateEntireImageFileExtents @ 0x14086CD18 (MiAllocateEntireImageFileExtents.c)
- *     MiInitializeImageExtents @ 0x14086D3A0 (MiInitializeImageExtents.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObFastReplaceObject @ 0x14047B348 (ObFastReplaceObject.c)
+ *     MiDeleteFileExtentList @ 0x1407735B4 (MiDeleteFileExtentList.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408730F8 (MiAllocateEntireImageFileExtents.c)
+ *     MiInitializeImageExtents @ 0x140873770 (MiInitializeImageExtents.c)
  */
 
 __int64 __fastcall MiEnableImageDirectMap(__int64 a1, __int64 *a2, __int64 a3, void *a4, int a5, int a6, int a7)
@@ -25,20 +25,20 @@ __int64 __fastcall MiEnableImageDirectMap(__int64 a1, __int64 *a2, __int64 a3, v
   void *v18; // [rsp+58h] [rbp+10h] BYREF
 
   v8 = a2[12] & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( !a7 && !BYTE2(stru_140E2D150.ThreadLock) )
+  if ( !a7 && !BYTE2(stru_140E2D2D0.ThreadLock) )
   {
     if ( a5 )
     {
       if ( (*(_DWORD *)(a3 + 8) & 0xFFF) == 0 )
       {
-        v11 = ExAcquireSpinLockExclusive(&dword_140E2C7C0);
+        v11 = ExAcquireSpinLockExclusive(&dword_140E2C940);
         v12 = **(_QWORD **)(a1 + 40);
         if ( !v12 || (*(_DWORD *)(v12 + 56) & 3) == 0 && (*(_DWORD *)(v12 + 56) & 0x30000000) != 0x10000000 )
           *((_DWORD *)a2 + 14) = a2[7] & 0xCFFFFFFF | 0x10000000;
         if ( v11 == 17 )
-          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2C7C0);
+          ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2C940);
         else
-          ExReleaseSpinLockExclusive(&dword_140E2C7C0, v11);
+          ExReleaseSpinLockExclusive(&dword_140E2C940, v11);
       }
     }
     else

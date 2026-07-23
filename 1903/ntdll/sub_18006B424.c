@@ -14,80 +14,74 @@
  *     _guard_dispatch_icall_nop @ 0x1800A0100 (_guard_dispatch_icall_nop.c)
  */
 
-_UNKNOWN **__fastcall sub_18006B424(__int64 a1, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall sub_18006B424(__int64 a1, _QWORD *a2, char a3)
 {
-  _UNKNOWN **result; // rax
-  char v5; // bp
-  unsigned int v7; // esi
-  __int64 v8; // r15
-  unsigned int v9; // ecx
-  unsigned int v10; // edx
-  __int64 v11; // rcx
-  _QWORD *v12; // r14
-  unsigned int v13; // ecx
-  unsigned __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // rdi
-  void (*v17)(void); // rax
-  __int64 v18; // rdx
-  _QWORD *v19; // rax
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  unsigned int v5; // esi
+  __int64 v6; // r15
+  unsigned int v7; // ecx
+  unsigned int v8; // edx
+  __int64 v9; // rcx
+  _QWORD *v10; // r14
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  __int64 v13; // rcx
+  _RTL_SRWLOCK *v14; // rdi
+  void (*Ptr)(void); // rax
+  __int64 v16; // rdx
+  _QWORD *v17; // rax
 
-  result = &retaddr;
-  v5 = a3;
   if ( (a3 & 1) != 0 )
   {
     if ( (_DWORD)qword_180166178 )
     {
-      v7 = 17;
-      v8 = (unsigned int)qword_180166178;
+      v5 = 17;
+      v6 = (unsigned int)qword_180166178;
       do
       {
-        _BitScanReverse(&v9, v7);
-        v10 = v7 ^ (1 << v9);
-        v11 = a2[v9 - 2];
-        if ( v11 )
+        _BitScanReverse(&v7, v5);
+        v8 = v5 ^ (1 << v7);
+        v9 = a2[v7 - 2];
+        if ( v9 )
         {
-          v12 = (_QWORD *)(v11 + 8 * (v10 + 1LL));
-          if ( v12 )
+          v10 = (_QWORD *)(v9 + 8 * (v8 + 1LL));
+          if ( v10 )
           {
-            if ( *v12 )
+            if ( *v10 )
             {
-              _BitScanReverse(&v13, v7);
-              v14 = v7 ^ (1 << v13);
-              v15 = qword_180166120[v13 - 3];
-              if ( v15 )
-                v16 = 16LL * (unsigned int)v14 + v15 + 8;
+              _BitScanReverse(&v11, v5);
+              v12 = v5 ^ (1 << v11);
+              v13 = *((_QWORD *)&stru_180166120 + v11 - 3);
+              if ( v13 )
+                v14 = (_RTL_SRWLOCK *)(16LL * v12 + v13 + 8);
               else
-                v16 = 0LL;
-              RtlAcquireSRWLockShared((volatile signed __int64 *)v16, v14, a3, a4);
-              v17 = *(void (**)(void))(v16 + 8);
-              if ( (unsigned __int64)v17 - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v12 )
+                v14 = 0LL;
+              RtlAcquireSRWLockShared(v14);
+              Ptr = (void (*)(void))v14[1].Ptr;
+              if ( (unsigned __int64)Ptr - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v10 )
               {
-                v17();
-                *v12 = 0LL;
+                Ptr();
+                *v10 = 0LL;
               }
-              RtlReleaseSRWLockShared((volatile signed __int64 *)v16);
+              RtlReleaseSRWLockShared(v14);
             }
           }
         }
-        ++v7;
-        --v8;
+        ++v5;
+        --v6;
       }
-      while ( v8 );
+      while ( v6 );
     }
-    RtlAcquireSRWLockExclusive(qword_180166120);
-    v18 = *a2;
-    if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v19 = (_QWORD *)a2[1], (_QWORD *)*v19 != a2) )
+    RtlAcquireSRWLockExclusive(&stru_180166120);
+    v16 = *a2;
+    if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v17 = (_QWORD *)a2[1], (_QWORD *)*v17 != a2) )
       __fastfail(3u);
-    *v19 = v18;
-    *(_QWORD *)(v18 + 8) = v19;
-    result = (_UNKNOWN **)RtlReleaseSRWLockExclusive(qword_180166120);
+    *v17 = v16;
+    *(_QWORD *)(v16 + 8) = v17;
+    RtlReleaseSRWLockExclusive(&stru_180166120);
   }
-  if ( (v5 & 2) != 0 )
+  if ( (a3 & 2) != 0 )
   {
     sub_18009BBC8(a2 + 2);
-    return (_UNKNOWN **)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)a2);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a2);
   }
-  return result;
 }

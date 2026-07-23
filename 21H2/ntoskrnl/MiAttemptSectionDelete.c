@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAttemptSectionDelete @ 0x1402B9294
+ * XREFs of MiAttemptSectionDelete @ 0x1402374A4
  * Callers:
- *     MmFlushImageSection @ 0x1402B9080 (MmFlushImageSection.c)
- *     MiForceSectionClosed @ 0x1402B91F0 (MiForceSectionClosed.c)
+ *     MmFlushImageSection @ 0x140237290 (MmFlushImageSection.c)
+ *     MiForceSectionClosed @ 0x140237400 (MiForceSectionClosed.c)
  * Callees:
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
- *     MiCleanSection @ 0x14037F28C (MiCleanSection.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1403620F8 (MiRemoveUnusedSegment.c)
+ *     MiCleanSection @ 0x14037EDDC (MiCleanSection.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -93,12 +93,12 @@ char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
       }
     }
     __writecr8(v6);
-    KeWaitForGate((__int64)&v22, 19);
+    KeWaitForGate((__int64)&v22, 0x13u);
     return 1;
   }
   else
   {
-    MiRemoveUnusedSegment(a1);
+    MiRemoveUnusedSegment();
     LOBYTE(v9) = v6;
     *(_QWORD *)(a1 + 40) = 1LL;
     LOBYTE(v10) = (a3 & 4) != 0;

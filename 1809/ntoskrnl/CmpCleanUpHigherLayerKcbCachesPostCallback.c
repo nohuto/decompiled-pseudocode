@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x1407F9900
+ * XREFs of CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x1407FAB00
  * Callers:
  *     <none>
  * Callees:
- *     CmpCleanUpKCBCacheTable @ 0x140692B1C (CmpCleanUpKCBCacheTable.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140693CDC (CmpCleanUpKCBCacheTable.c)
  */
 
 __int64 __fastcall CmpCleanUpHigherLayerKcbCachesPostCallback(__int64 a1)

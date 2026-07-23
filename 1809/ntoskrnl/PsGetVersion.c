@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetVersion @ 0x14013AE70
+ * XREFs of PsGetVersion @ 0x14013AF70
  * Callers:
- *     Win7PsGetVersion @ 0x1408495B0 (Win7PsGetVersion.c)
- *     Win81PsGetVersion @ 0x140849690 (Win81PsGetVersion.c)
- *     Win8PsGetVersion @ 0x140849770 (Win8PsGetVersion.c)
+ *     Win7PsGetVersion @ 0x14084A810 (Win7PsGetVersion.c)
+ *     Win81PsGetVersion @ 0x14084A8F0 (Win81PsGetVersion.c)
+ *     Win8PsGetVersion @ 0x14084A9D0 (Win8PsGetVersion.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopBootStatAccessCheck @ 0x140AA80F4
+ * XREFs of PopBootStatAccessCheck @ 0x140AA31F4
  * Callers:
- *     PopBootStatGet @ 0x140A3F048 (PopBootStatGet.c)
- *     PopBootStatSet @ 0x140A3F42C (PopBootStatSet.c)
- *     PopBootStatRestoreDefaults @ 0x140AABC04 (PopBootStatRestoreDefaults.c)
- *     PopBootStatCheckIntegrity @ 0x140AB5DF8 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatGet @ 0x140A348F8 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x140A34CDC (PopBootStatSet.c)
+ *     PopBootStatRestoreDefaults @ 0x140AA6BD8 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatCheckIntegrity @ 0x140AB00C0 (PopBootStatCheckIntegrity.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x140853850 (ObpGetObjectSecurity.c)
- *     ObReleaseObjectSecurityEx @ 0x140867FD0 (ObReleaseObjectSecurityEx.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     ObpGetObjectSecurity @ 0x14084FB10 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurityEx @ 0x14086C2C0 (ObReleaseObjectSecurityEx.c)
  */
 
 __int64 __fastcall PopBootStatAccessCheck(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3)

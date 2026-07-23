@@ -1,26 +1,26 @@
 /*
- * XREFs of DbgkpPostFakeThreadMessages @ 0x14080EDB8
+ * XREFs of DbgkpPostFakeThreadMessages @ 0x14080FFB8
  * Callers:
- *     DbgkpPostFakeProcessCreateMessages @ 0x14080ED08 (DbgkpPostFakeProcessCreateMessages.c)
- *     DbgkpSetProcessDebugObject @ 0x14080F6EC (DbgkpSetProcessDebugObject.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x14080FF08 (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkpSetProcessDebugObject @ 0x1408108EC (DbgkpSetProcessDebugObject.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsGetNextProcessThread @ 0x1406758E0 (PsGetNextProcessThread.c)
- *     PsResumeThread @ 0x1406767E0 (PsResumeThread.c)
- *     PsSuspendThread @ 0x1406C2180 (PsSuspendThread.c)
- *     DbgkSendSystemDllMessages @ 0x14080E48C (DbgkSendSystemDllMessages.c)
- *     DbgkpQueueMessage @ 0x14080F404 (DbgkpQueueMessage.c)
- *     DbgkpSectionToFileHandle @ 0x1408115A8 (DbgkpSectionToFileHandle.c)
- *     PsSynchronizeWithThreadInsertion @ 0x140888618 (PsSynchronizeWithThreadInsertion.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsGetNextProcessThread @ 0x140676AA0 (PsGetNextProcessThread.c)
+ *     PsResumeThread @ 0x1406779A0 (PsResumeThread.c)
+ *     PsSuspendThread @ 0x1406C3420 (PsSuspendThread.c)
+ *     DbgkSendSystemDllMessages @ 0x14080F68C (DbgkSendSystemDllMessages.c)
+ *     DbgkpQueueMessage @ 0x140810604 (DbgkpQueueMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x1408127A8 (DbgkpSectionToFileHandle.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x140889878 (PsSynchronizeWithThreadInsertion.c)
  */
 
 __int64 __fastcall DbgkpPostFakeThreadMessages(

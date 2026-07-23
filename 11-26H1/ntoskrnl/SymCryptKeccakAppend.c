@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptKeccakAppend @ 0x1405757DC
+ * XREFs of SymCryptKeccakAppend @ 0x140577C8C
  * Callers:
- *     SymCryptShake128Append @ 0x14057495C (SymCryptShake128Append.c)
- *     SymCryptShake256 @ 0x1405749AC (SymCryptShake256.c)
+ *     SymCryptShake128Append @ 0x140573BC0 (SymCryptShake128Append.c)
+ *     SymCryptShake256 @ 0x140573C10 (SymCryptShake256.c)
  * Callees:
- *     SymCryptKeccakAppendLanes @ 0x1405758E0 (SymCryptKeccakAppendLanes.c)
- *     SymCryptKeccakPermute @ 0x140575BC0 (SymCryptKeccakPermute.c)
- *     SymCryptKeccakReset @ 0x1405761F8 (SymCryptKeccakReset.c)
+ *     SymCryptKeccakAppendLanes @ 0x140577D90 (SymCryptKeccakAppendLanes.c)
+ *     SymCryptKeccakPermute @ 0x140578070 (SymCryptKeccakPermute.c)
+ *     SymCryptKeccakReset @ 0x1405786A8 (SymCryptKeccakReset.c)
  */
 
 __int64 __fastcall SymCryptKeccakAppend(__int64 a1, unsigned __int8 *a2, unsigned __int64 a3)

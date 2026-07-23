@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAddToDelayedClose @ 0x14073E5C8
+ * XREFs of CmpAddToDelayedClose @ 0x14073E7B8
  * Callers:
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     CmpArmDelayedCloseTimer @ 0x1402B956C (CmpArmDelayedCloseTimer.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     CmpArmDelayedCloseTimer @ 0x1402B97FC (CmpArmDelayedCloseTimer.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall CmpAddToDelayedClose(ULONG_PTR BugCheckParameter2)

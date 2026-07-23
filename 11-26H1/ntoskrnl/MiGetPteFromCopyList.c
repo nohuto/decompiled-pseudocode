@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPteFromCopyList @ 0x140285490
+ * XREFs of MiGetPteFromCopyList @ 0x1402849F0
  * Callers:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiCopyFilePage @ 0x1406F93E0 (MiCopyFilePage.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiCopyFilePage @ 0x1406FE0B0 (MiCopyFilePage.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiCompressTbFlushList @ 0x1404DAB9C (MiCompressTbFlushList.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiCompressTbFlushList @ 0x1404D427C (MiCompressTbFlushList.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, __int64 a3)
@@ -86,8 +86,8 @@ unsigned __int64 __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, _
     }
     if ( i >= 0xFFFF800000000000uLL )
     {
-      if ( i > qword_140E2DE50 || i < qword_140E2DE40 )
-        v11 = (unsigned __int8)byte_140E37A70[((i >> 39) & 0x1FF) - 256];
+      if ( i > qword_140E2DFD0 || i < qword_140E2DFC0 )
+        v11 = (unsigned __int8)byte_140E37BF0[((i >> 39) & 0x1FF) - 256];
       else
         v11 = 1LL;
     }
@@ -98,7 +98,7 @@ unsigned __int64 __fastcall MiGetPteFromCopyList(unsigned int *a1, __int64 a2, _
     v12 = MiSystemVaTypeToVm(v11, 0LL);
     v48 = 20;
     v49 = 8;
-    v16 = (struct _LIST_ENTRY **)&unk_140E371C0;
+    v16 = (struct _LIST_ENTRY **)&unk_140E37340;
     if ( v12 )
       v16 = (struct _LIST_ENTRY **)v12;
     v50 = v13;
@@ -242,7 +242,7 @@ LABEL_37:
       v34 = v40;
     }
   }
-  *(_QWORD *)v31 = (BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) & 0x100 ^ (v34 & 0xFAFFFFFFFFFFFEBDuLL | 0x42) | 0xA00000000000000LL;
+  *(_QWORD *)v31 = (BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) & 0x100 ^ (v34 & 0xFAFFFFFFFFFFFEBDuLL | 0x42) | 0xA00000000000000LL;
   if ( a3 != -1 )
   {
     v35 = 48 * a3 - 0x220000000000LL;
@@ -273,7 +273,7 @@ LABEL_37:
         v37 = v42;
       }
     }
-    *(_QWORD *)(v31 + 8) = v37 & 0xFAFFFFFFFFFFFEFFuLL ^ (BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) & 0x100 | 0xA00000000000000LL;
+    *(_QWORD *)(v31 + 8) = v37 & 0xFAFFFFFFFFFFFEFFuLL ^ (BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) & 0x100 | 0xA00000000000000LL;
   }
   return v31;
 }

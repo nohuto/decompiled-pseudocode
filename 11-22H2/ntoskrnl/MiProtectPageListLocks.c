@@ -17,10 +17,10 @@ char __fastcall MiProtectPageListLocks(__int64 a1)
 
   v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 17632));
   LOBYTE(v3) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 2848));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v3) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)v3 >= 2u )

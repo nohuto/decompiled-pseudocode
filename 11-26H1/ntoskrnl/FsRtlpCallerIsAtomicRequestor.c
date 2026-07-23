@@ -1,8 +1,9 @@
 /*
- * XREFs of FsRtlpCallerIsAtomicRequestor @ 0x1404A2DCC
+ * XREFs of FsRtlpCallerIsAtomicRequestor @ 0x14049C7EC
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1403FB980 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140AA2BF0 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403F8170 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpRequestShareableOplock @ 0x140514FAC (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140AA46C0 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     <none>
  */

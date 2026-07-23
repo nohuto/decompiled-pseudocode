@@ -1,9 +1,9 @@
 /*
- * XREFs of PspPropagateHandle @ 0x14045C7EC
+ * XREFs of PspPropagateHandle @ 0x14045B6BC
  * Callers:
- *     PspUpdateCreateInfo @ 0x14045C5C8 (PspUpdateCreateInfo.c)
+ *     PspUpdateCreateInfo @ 0x14045B498 (PspUpdateCreateInfo.c)
  * Callees:
- *     ObDuplicateObject @ 0x14050CBB0 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1404EFB40 (ObDuplicateObject.c)
  */
 
 __int64 __fastcall PspPropagateHandle(char a1, _QWORD *a2, _QWORD *a3)

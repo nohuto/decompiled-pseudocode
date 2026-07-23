@@ -1,15 +1,16 @@
 /*
- * XREFs of ZwQueryDefaultLocale @ 0x14041B000
+ * XREFs of ZwQueryDefaultLocale @ 0x14041B390
  * Callers:
- *     DifZwQueryDefaultLocaleWrapper @ 0x1405F38F0 (DifZwQueryDefaultLocaleWrapper.c)
- *     NtInitializeNlsFiles @ 0x1407A1120 (NtInitializeNlsFiles.c)
+ *     DifZwQueryDefaultLocaleWrapper @ 0x1405F3E60 (DifZwQueryDefaultLocaleWrapper.c)
+ *     NtInitializeNlsFiles @ 0x1407A1310 (NtInitializeNlsFiles.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDefaultLocale(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQueryDefaultLocale(BOOLEAN UserProfile, PLCID DefaultLocaleId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(UserProfile);
 }

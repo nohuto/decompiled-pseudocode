@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlStdDeleteStackDatabase @ 0x180120690
+ * XREFs of RtlStdDeleteStackDatabase @ 0x180120440
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x1800757E8 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x1800963D8 (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x18015F300 (ZwFreeVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x18015F200 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall RtlStdDeleteStackDatabase(__int64 a1)
+NTSTATUS __fastcall RtlStdDeleteStackDatabase(_QWORD *a1)
 {
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  PVOID v2; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v3; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = a1;
-  v3 = *(_QWORD *)(a1 + 184) - a1;
-  return ZwFreeVirtualMemory(-1LL, &v2, &v3, 0x8000LL);
+  v3 = a1[23] - (_QWORD)a1;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v2, &v3, 0x8000u);
 }

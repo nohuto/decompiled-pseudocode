@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCreateTypeArray @ 0x140666C3C
+ * XREFs of ObpCreateTypeArray @ 0x140666D20
  * Callers:
- *     ObEnumerateObjectsByType @ 0x140666508 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x1406665CC (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x1406665EC (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x1406666B0 (ObGetObjectInformation.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -3,8 +3,8 @@
  * Callers:
  *     SshInitialize @ 0x140B51B2C (SshInitialize.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
- *     SSHSupportRegisterPowerSettingCallback @ 0x140824F70 (SSHSupportRegisterPowerSettingCallback.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x140825270 (SSHSupportRegisterPowerSettingCallback.c)
  */
 
 int SshpSubscribeCallbacks()

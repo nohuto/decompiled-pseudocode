@@ -1,20 +1,20 @@
 /*
- * XREFs of MmAllocateVirtualMemory @ 0x1409F22A0
+ * XREFs of MmAllocateVirtualMemory @ 0x1409EEA70
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     sub_1409F1144 @ 0x1409F1144 (sub_1409F1144.c)
- *     NtAllocateVirtualMemoryEx @ 0x1409F2240 (NtAllocateVirtualMemoryEx.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     sub_1409ED914 @ 0x1409ED914 (sub_1409ED914.c)
+ *     NtAllocateVirtualMemoryEx @ 0x1409EEA10 (NtAllocateVirtualMemoryEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiCaptureAllocateMapExtendedParameters @ 0x1409F2644 (MiCaptureAllocateMapExtendedParameters.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1409F2C94 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1409EEE14 (MiCaptureAllocateMapExtendedParameters.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409EF464 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MmAllocateVirtualMemory(
@@ -115,9 +115,9 @@ __int64 __fastcall MmAllocateVirtualMemory(
       MapExtendedParameters = -1073741811;
 LABEL_30:
       if ( v28[0] )
-        ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[60];
+        ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[60];
       else
-        ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[56];
+        ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[56];
       goto LABEL_16;
     }
     if ( a9 < 0 )

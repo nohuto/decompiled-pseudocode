@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmUpdatePlatformIdleVeto @ 0x1403CA530
+ * XREFs of PpmUpdatePlatformIdleVeto @ 0x1403A5100
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     PpmUpdateIdleVeto @ 0x1403CA680 (PpmUpdateIdleVeto.c)
- *     PpmEventPlatformVetoRequest @ 0x1403CA864 (PpmEventPlatformVetoRequest.c)
- *     PopDeepSleepSetDisengageReason @ 0x1403CB2E4 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403CB4D8 (PopDeepSleepClearDisengageReason.c)
- *     KeFindFirstSetLeftAffinityEx @ 0x14044C2E0 (KeFindFirstSetLeftAffinityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402B9DFC (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402B9FF0 (PopDeepSleepClearDisengageReason.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     PpmUpdateIdleVeto @ 0x1403A5250 (PpmUpdateIdleVeto.c)
+ *     PpmEventPlatformVetoRequest @ 0x1403A5434 (PpmEventPlatformVetoRequest.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x1404431E0 (KeFindFirstSetLeftAffinityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)
@@ -54,9 +54,9 @@ __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)
     if ( v13[0] )
     {
       if ( *(_BYTE *)(a1 + 12) )
-        PopDeepSleepSetDisengageReason(9LL);
+        PopDeepSleepSetDisengageReason(9u);
       else
-        PopDeepSleepClearDisengageReason(9LL);
+        PopDeepSleepClearDisengageReason(9u);
 LABEL_5:
       if ( v13[0]
         && !(unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)(v3 + 128), KeGetCurrentPrcb()->Number) )

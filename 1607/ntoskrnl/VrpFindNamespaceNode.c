@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpFindNamespaceNode @ 0x140614CB8
+ * XREFs of VrpFindNamespaceNode @ 0x140614D6C
  * Callers:
- *     VrpFindBestMatchNamespaceNode @ 0x140614C80 (VrpFindBestMatchNamespaceNode.c)
- *     VrpFindExactNamespaceNode @ 0x140614C9C (VrpFindExactNamespaceNode.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x140614D34 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpFindExactNamespaceNode @ 0x140614D50 (VrpFindExactNamespaceNode.c)
  * Callees:
- *     ULongLongMult @ 0x1401B7584 (ULongLongMult.c)
- *     VrpComparePath @ 0x140617BD8 (VrpComparePath.c)
+ *     ULongLongMult @ 0x1401B7468 (ULongLongMult.c)
+ *     VrpComparePath @ 0x140617C8C (VrpComparePath.c)
  */
 
 __int64 __fastcall VrpFindNamespaceNode(ULONGLONG *a1, __int64 a2, int a3, ULONGLONG *a4, unsigned __int64 *a5)

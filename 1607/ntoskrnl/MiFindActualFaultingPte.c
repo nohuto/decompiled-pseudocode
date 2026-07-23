@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFindActualFaultingPte @ 0x140025E70
+ * XREFs of MiFindActualFaultingPte @ 0x1400259F0
  * Callers:
- *     MiIsFaultPteIntact @ 0x140025C60 (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x140025E70 (MiFindActualFaultingPte.c)
+ *     MiIsFaultPteIntact @ 0x1400257E0 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x1400259F0 (MiFindActualFaultingPte.c)
  * Callees:
- *     MiCheckVirtualAddress @ 0x14001EDF8 (MiCheckVirtualAddress.c)
- *     MiFindActualFaultingPte @ 0x140025E70 (MiFindActualFaultingPte.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
+ *     MiCheckVirtualAddress @ 0x14001E978 (MiCheckVirtualAddress.c)
+ *     MiFindActualFaultingPte @ 0x1400259F0 (MiFindActualFaultingPte.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1)

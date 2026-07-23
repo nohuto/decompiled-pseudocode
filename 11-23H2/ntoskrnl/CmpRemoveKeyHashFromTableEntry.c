@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveKeyHashFromTableEntry @ 0x1406D92F8
+ * XREFs of CmpRemoveKeyHashFromTableEntry @ 0x1406D9328
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpRemoveKeyHash @ 0x14076ACB0 (CmpRemoveKeyHash.c)
- *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14076AF6C (CmpRemoveKeyHashFromDeletedKcbTable.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpRemoveKeyHash @ 0x14076AEA0 (CmpRemoveKeyHash.c)
+ *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14076B15C (CmpRemoveKeyHashFromDeletedKcbTable.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpSetMessageCommunicationInfo @ 0x1408E831C
+ * XREFs of AlpcpSetMessageCommunicationInfo @ 0x1408EE8DC
  * Callers:
- *     AlpcpDispatchConnectionRequest @ 0x1408E8048 (AlpcpDispatchConnectionRequest.c)
- *     AlpcpDispatchCloseMessage @ 0x1408E8CF0 (AlpcpDispatchCloseMessage.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x140A4992C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpDispatchConnectionRequest @ 0x1408EE608 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpDispatchCloseMessage @ 0x1408EF2B0 (AlpcpDispatchCloseMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140A52C1C (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     AlpcpDestroyBlob @ 0x1408E83C0 (AlpcpDestroyBlob.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     AlpcpDestroyBlob @ 0x1408EE980 (AlpcpDestroyBlob.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpSetMessageCommunicationInfo(__int64 a1, ULONG_PTR a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpDestroyVirtualStack @ 0x140600A64
+ * XREFs of CmpDestroyVirtualStack @ 0x140600B18
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x140601798 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x14060184C (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpDestroyVirtualStack(__int64 a1, unsigned int a2)

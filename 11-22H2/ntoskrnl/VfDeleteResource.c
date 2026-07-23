@@ -14,7 +14,7 @@
 
 void __fastcall VfDeleteResource(ULONG_PTR BugCheckParameter2)
 {
-  struct _SLIST_ENTRY *v2; // rbx
+  _SLIST_ENTRY *v2; // rbx
   __int128 v3; // [rsp+30h] [rbp-18h] BYREF
 
   v3 = 0LL;
@@ -24,7 +24,7 @@ void __fastcall VfDeleteResource(ULONG_PTR BugCheckParameter2)
     VfAvlInitializeLockContext((__int64)&v3, 0);
     if ( VfAvlLookupTreeNode(&ViResourceAvl, (__int64)&v3, BugCheckParameter2, 0LL) )
     {
-      v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)&v3, BugCheckParameter2, 0LL);
+      v2 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)&v3, BugCheckParameter2, 0LL);
     }
     else if ( !ViResourceNotTracked && !ViResourcesAlreadyLoadedDrivers )
     {

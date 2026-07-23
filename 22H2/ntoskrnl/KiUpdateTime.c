@@ -279,7 +279,7 @@ LABEL_9:
   if ( v20 <= 0 )
   {
     v21 = 1LL;
-    v20 += (unsigned int)KeMaximumIncrement;
+    v20 += KeMaximumIncrement;
     if ( v20 <= 0 )
     {
       v46 = KeNumberProcessorsGroup0[2];

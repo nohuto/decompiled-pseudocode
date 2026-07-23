@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFree @ 0x18004F304
+ * XREFs of RtlpHpLfhSubsegmentFree @ 0x180064EE4
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004E6E0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerCompact @ 0x1800506A0 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhOwnerCleanup @ 0x18008F49C (RtlpHpLfhOwnerCleanup.c)
+ *     RtlpHpLfhOwnerCleanup @ 0x180026E6C (RtlpHpLfhOwnerCleanup.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x1800642C0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180066280 (RtlpHpLfhOwnerCompact.c)
  * Callees:
- *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x18004F3B0 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
- *     RtlpHpSegLfhVsFree @ 0x18004F470 (RtlpHpSegLfhVsFree.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x180056220 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x180064F90 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
+ *     RtlpHpSegLfhVsFree @ 0x180065050 (RtlpHpSegLfhVsFree.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x18006BE00 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentFree(unsigned __int64 a1, __int64 a2, __int64 a3)

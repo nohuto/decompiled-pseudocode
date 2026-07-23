@@ -16,7 +16,7 @@
  */
 
 char *__fastcall RtlpHpVsContextAllocateInternal(
-        __int64 a1,
+        PRTL_SRWLOCK SRWLock,
         unsigned int a2,
         int a3,
         unsigned int a4,
@@ -27,8 +27,8 @@ char *__fastcall RtlpHpVsContextAllocateInternal(
   int v9; // r11d
   _DWORD *v10; // r13
   unsigned int v11; // esi
-  unsigned __int64 *v12; // r15
-  __int64 v13; // rax
+  unsigned __int64 v12; // r15
+  unsigned __int64 Value; // rax
   unsigned __int64 v14; // rbx
   _QWORD *v15; // r8
   int v16; // edx
@@ -36,8 +36,8 @@ char *__fastcall RtlpHpVsContextAllocateInternal(
   unsigned __int64 v18; // rax
   __int64 v19; // rdx
   __int64 v20; // rbx
-  __int64 v21; // rdx
-  __int64 v22; // rcx
+  unsigned __int64 v21; // rdx
+  unsigned __int64 v22; // rcx
   __int64 v23; // rax
   __int64 v24; // r9
   __int64 v25; // rcx
@@ -45,22 +45,19 @@ char *__fastcall RtlpHpVsContextAllocateInternal(
   int v27; // r9d
   unsigned __int64 v28; // rcx
   char *v29; // rsi
-  int v30; // r11d
-  __int64 v31; // rcx
-  int v32; // eax
-  __int64 v33; // r8
-  int v34; // r9d
-  __int16 v35; // ax
-  __int16 v36; // cx
-  int v38; // [rsp+70h] [rbp+8h]
-  int v40; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v30; // rcx
+  int v31; // eax
+  __int64 v32; // r8
+  int v33; // r9d
+  __int16 v34; // ax
+  __int16 v35; // cx
+  int v38; // [rsp+80h] [rbp+18h] BYREF
 
-  v40 = a3;
+  v38 = a3;
   v6 = a5;
-  v9 = RtlpHpVsCalculateChunkRequiredSize(a2, &v40);
-  v38 = v9;
-  if ( (*(_BYTE *)(a1 + 176) & 1) != 0 )
-    v38 = ++v9;
+  v9 = RtlpHpVsCalculateChunkRequiredSize(a2, &v38);
+  if ( (*(_BYTE *)&SRWLock[22].0 & 1) != 0 )
+    ++v9;
   v10 = a6;
   v11 = v9 << 16;
   if ( !*a6 )
@@ -70,25 +67,25 @@ char *__fastcall RtlpHpVsContextAllocateInternal(
     {
       *(_QWORD *)v6 = 0LL;
       *(_QWORD *)(v6 + 16) = 0LL;
-      *(_QWORD *)(v6 + 8) = a1;
-      RtlAcquireSRWLockExclusive(a1);
+      *(_QWORD *)(v6 + 8) = SRWLock;
+      RtlAcquireSRWLockExclusive(SRWLock);
     }
   }
-  v12 = (unsigned __int64 *)(a1 + 16);
-  LODWORD(a6) = v40;
+  v12 = (unsigned __int64)&SRWLock[2];
+  LODWORD(a6) = v38;
   while ( 1 )
   {
-    v13 = *(_QWORD *)(a1 + 24);
-    v14 = *v12;
-    if ( (v13 & 1) != 0 )
+    Value = SRWLock[3].Value;
+    v14 = *(_QWORD *)v12;
+    if ( (Value & 1) != 0 )
     {
       if ( v14 )
-        v14 ^= (unsigned __int64)v12;
+        v14 ^= v12;
       else
         v14 = 0LL;
     }
     v15 = 0LL;
-    v16 = v13 & 1;
+    v16 = Value & 1;
     while ( v14 )
     {
       v17 = RtlpHpHeapGlobals ^ (v14 - 8) ^ *(_DWORD *)(v14 - 8);
@@ -114,12 +111,12 @@ LABEL_22:
       break;
     if ( (a4 & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(v6 + 8));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v6 + 8));
       *(_QWORD *)(v6 + 8) = 0LL;
     }
     v19 = (unsigned int)a6;
     *v10 = 0;
-    v20 = RtlpHpVsSubsegmentCreate(a1, v19, a4);
+    v20 = RtlpHpVsSubsegmentCreate(SRWLock, v19, a4);
     if ( !v20 )
       return 0LL;
     *v10 = 1;
@@ -127,24 +124,24 @@ LABEL_22:
     {
       *(_QWORD *)v6 = 0LL;
       *(_QWORD *)(v6 + 16) = 0LL;
-      *(_QWORD *)(v6 + 8) = a1;
-      RtlAcquireSRWLockExclusive(a1);
+      *(_QWORD *)(v6 + 8) = SRWLock;
+      RtlAcquireSRWLockExclusive(SRWLock);
     }
-    v21 = (a1 + 32) ^ *(_QWORD *)(a1 + 40);
-    if ( (v21 ^ *(_QWORD *)v21) != a1 + 32 )
+    v21 = (unsigned __int64)&SRWLock[4] ^ SRWLock[5].Value;
+    if ( (PRTL_SRWLOCK)(v21 ^ *(_QWORD *)v21) != &SRWLock[4] )
       __fastfail(3u);
-    v22 = v20 ^ (a1 + 32);
+    v22 = v20 ^ (unsigned __int64)&SRWLock[4];
     *(_QWORD *)v20 = v22;
     *(_QWORD *)(v20 + 8) = v20 ^ v21;
     *(_QWORD *)v21 = v20 ^ v21;
-    *(_QWORD *)(a1 + 40) = v22;
-    if ( (*(_BYTE *)(a1 + 176) & 1) != 0 && ((v20 + 80) & 0xFFF) != 0 )
+    SRWLock[5].Value = v22;
+    if ( (*(_BYTE *)&SRWLock[22].0 & 1) != 0 && ((v20 + 80) & 0xFFF) != 0 )
     {
       v23 = RtlpHpVsChunkAlignSplit(v22, v20, v20 + 48);
       if ( v23 )
-        RtlpHpVsFreeChunkInsert(a1, v20, v23);
+        RtlpHpVsFreeChunkInsert(SRWLock, v20, v23);
     }
-    RtlpHpVsFreeChunkInsert(a1, v20, v20 + 48);
+    RtlpHpVsFreeChunkInsert(SRWLock, v20, v20 + 48);
   }
   v24 = *(_QWORD *)(v14 - 8);
   v25 = v14 - 8;
@@ -176,43 +173,40 @@ LABEL_43:
   v28 = (v25 - (unsigned int)(v26 << 12)) & 0xFFFFFFFFFFFFF000uLL;
   if ( (((unsigned __int16)(*(_WORD *)(v28 + 32) ^ *(_WORD *)(v28 + 34)) ^ 0x2BED) & 0x7FFF) != 0 )
   {
-    RtlpLogHeapFailure(18, a1 ^ *(_QWORD *)(a1 + 128), v28, v14 - 8, 0LL, 0LL);
+    RtlpLogHeapFailure(18, (unsigned int)SRWLock ^ SRWLock[16].Value, v28, v14 - 8, 0LL, 0LL);
     return 0LL;
   }
-  v30 = v38;
-  if ( (*(_BYTE *)(a1 + 176) & 1) != 0 && ((v14 + 24) & 0xFFF) != 0 )
-    v30 = v38 - 1;
-  if ( !(unsigned int)RtlpHpVsChunkSplit(a1, v28, (int)v14 - 8, v30, a4, v6) )
+  if ( !(unsigned int)RtlpHpVsChunkSplit(SRWLock, a4, v6) )
     return 0LL;
   v29 = (char *)(v14 + 8);
-  v31 = 16 * (WORD1(RtlpHpHeapGlobals) ^ ((unsigned int)(v14 - 8) >> 16) ^ *(unsigned __int16 *)(v14 - 6)) - 16;
-  if ( (*(_BYTE *)(a1 + 176) & 1) != 0 && ((v14 + 24) & 0xFFF) == 0 )
+  v30 = 16 * (WORD1(RtlpHpHeapGlobals) ^ ((unsigned int)(v14 - 8) >> 16) ^ *(unsigned __int16 *)(v14 - 6)) - 16;
+  if ( (*(_BYTE *)&SRWLock[22].0 & 1) != 0 && ((v14 + 24) & 0xFFF) == 0 )
   {
     v29 = (char *)(v14 + 24);
-    v31 = 16 * (WORD1(RtlpHpHeapGlobals) ^ ((unsigned int)(v14 - 8) >> 16) ^ *(unsigned __int16 *)(v14 - 6)) - 32;
+    v30 = 16 * (WORD1(RtlpHpHeapGlobals) ^ ((unsigned int)(v14 - 8) >> 16) ^ *(unsigned __int16 *)(v14 - 6)) - 32;
   }
-  v32 = *(_DWORD *)v14;
-  if ( a2 >= (unsigned int)v31 )
+  v31 = *(_DWORD *)v14;
+  if ( a2 >= (unsigned int)v30 )
   {
-    *(_DWORD *)v14 = v32 & 0xFFFFFEFF;
+    *(_DWORD *)v14 = v31 & 0xFFFFFEFF;
   }
   else
   {
-    v33 = (unsigned int)v31;
-    v34 = v31 - a2;
-    *(_DWORD *)v14 = v32 | 0x100;
-    v29[v31 - 1] = 0;
-    v35 = *(_WORD *)&v29[v31 - 2];
-    v36 = v35 ^ ((v31 - a2) ^ v35) & 0x1FFF;
-    if ( v34 == 1 )
-      v36 = v35 | 0x8000;
-    *(_WORD *)&v29[v33 - 2] = v36;
+    v32 = (unsigned int)v30;
+    v33 = v30 - a2;
+    *(_DWORD *)v14 = v31 | 0x100;
+    v29[v30 - 1] = 0;
+    v34 = *(_WORD *)&v29[v30 - 2];
+    v35 = v34 ^ ((v30 - a2) ^ v34) & 0x1FFF;
+    if ( v33 == 1 )
+      v35 = v34 | 0x8000;
+    *(_WORD *)&v29[v32 - 2] = v35;
   }
   if ( (a4 & 2) != 0 )
   {
     if ( (a4 & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(v6 + 8));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(v6 + 8));
       *(_QWORD *)(v6 + 8) = 0LL;
     }
     *v10 = 0;

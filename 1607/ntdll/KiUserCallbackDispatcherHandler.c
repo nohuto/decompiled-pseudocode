@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnwindEx @ 0x180035340 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x180035330 (RtlUnwindEx.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     ZwCallbackReturn @ 0x1800A64C0 (ZwCallbackReturn.c)
- *     LdrpLogFatalUserCallbackException @ 0x1800D17A0 (LdrpLogFatalUserCallbackException.c)
+ *     LdrpLogFatalUserCallbackException @ 0x1800D1860 (LdrpLogFatalUserCallbackException.c)
  */
 
 __int64 __fastcall KiUserCallbackDispatcherHandler(
@@ -14,14 +14,14 @@ __int64 __fastcall KiUserCallbackDispatcherHandler(
         PVOID TargetFrame,
         PCONTEXT ContextRecord)
 {
-  int ExceptionCode; // [rsp+30h] [rbp-8h]
-  int v5; // [rsp+30h] [rbp-8h]
+  int Status; // [rsp+30h] [rbp-8h]
+  NTSTATUS Statusa; // [rsp+30h] [rbp-8h]
 
   if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x80000) != 0 )
   {
     if ( (ExceptionRecord->ExceptionFlags & 0x66) == 0 )
     {
-      ExceptionCode = ExceptionRecord->ExceptionCode;
+      Status = ExceptionRecord->ExceptionCode;
       RtlUnwindEx(
         TargetFrame,
         &KiUserCallbackDispatcherContinue,
@@ -29,12 +29,12 @@ __int64 __fastcall KiUserCallbackDispatcherHandler(
         (PVOID)(unsigned int)ExceptionRecord->ExceptionCode,
         ContextRecord,
         0LL);
-      RtlRaiseStatus(ExceptionCode);
+      RtlRaiseStatus(Status);
     }
     if ( (ExceptionRecord->ExceptionFlags & 0x20) == 0 )
     {
-      v5 = ZwCallbackReturn();
-      RtlRaiseStatus(v5);
+      Statusa = ZwCallbackReturn(0LL, 0, ExceptionRecord->ExceptionCode);
+      RtlRaiseStatus(Statusa);
     }
     return 1LL;
   }

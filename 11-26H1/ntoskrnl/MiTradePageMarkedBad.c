@@ -1,17 +1,17 @@
 /*
- * XREFs of MiTradePageMarkedBad @ 0x14028E820
+ * XREFs of MiTradePageMarkedBad @ 0x14028DD80
  * Callers:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
- *     MiSnapPageMoveInProgress @ 0x1403C85E0 (MiSnapPageMoveInProgress.c)
- *     MiWaitForPageMoveComplete @ 0x1403C8610 (MiWaitForPageMoveComplete.c)
- *     MiColorHasSlists @ 0x14042FDD0 (MiColorHasSlists.c)
- *     MiDrainZeroLookasides @ 0x14045E180 (MiDrainZeroLookasides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
+ *     MiSnapPageMoveInProgress @ 0x1403D24D0 (MiSnapPageMoveInProgress.c)
+ *     MiWaitForPageMoveComplete @ 0x1403D2500 (MiWaitForPageMoveComplete.c)
+ *     MiColorHasSlists @ 0x14041CE00 (MiColorHasSlists.c)
+ *     MiDrainZeroLookasides @ 0x140457D20 (MiDrainZeroLookasides.c)
  */
 
 __int64 __fastcall MiTradePageMarkedBad(__int64 a1, _QWORD *a2)
@@ -51,13 +51,13 @@ __int64 __fastcall MiTradePageMarkedBad(__int64 a1, _QWORD *a2)
   v12 = 0;
   if ( (_DWORD)result )
   {
-    _InterlockedIncrement(&dword_140EF8DA8);
+    _InterlockedIncrement(&dword_140EF9108);
     return result;
   }
   result = *(_QWORD *)(v7 + 8);
   if ( result == -8 )
   {
-    _InterlockedIncrement(&dword_140EF8DAC);
+    _InterlockedIncrement(&dword_140EF910C);
     return result;
   }
   if ( *(_DWORD *)(a1 + 20) == 3 )
@@ -72,13 +72,13 @@ __int64 __fastcall MiTradePageMarkedBad(__int64 a1, _QWORD *a2)
     if ( !(_DWORD)result )
       goto LABEL_25;
     v16 = v15;
-    if ( qword_140E2D740 && (v15 & 0x10) == 0 )
-      v16 = v15 & qword_140E2D748;
+    if ( qword_140E2D8C0 && (v15 & 0x10) == 0 )
+      v16 = v15 & qword_140E2D8C8;
     result = HIDWORD(v16);
     if ( (_DWORD)result != -2 )
     {
 LABEL_25:
-      _InterlockedIncrement(&dword_140EF8DB0);
+      _InterlockedIncrement(&dword_140EF9110);
       return result;
     }
     if ( *(_QWORD *)(a1 + 24) == v7 )
@@ -86,10 +86,10 @@ LABEL_25:
       result = (unsigned __int16)v15 >> 12;
       if ( *(_DWORD *)(a1 + 16) == (_DWORD)result )
       {
-        _InterlockedIncrement(&dword_140EF8DB4);
+        _InterlockedIncrement(&dword_140EF9114);
         return result;
       }
-      _InterlockedIncrement(&dword_140EF8D78);
+      _InterlockedIncrement(&dword_140EF90D8);
     }
     v17 = *(unsigned __int8 *)(a1 + 8);
     *(_QWORD *)(a1 + 24) = v7;
@@ -102,7 +102,7 @@ LABEL_25:
       __writecr8(v17);
     }
     *(_BYTE *)(a1 + 8) = 17;
-    _InterlockedIncrement(&dword_140EF8D74);
+    _InterlockedIncrement(&dword_140EF90D4);
     result = MiDrainZeroLookasides(*a2, v7, a2[2], v4);
     goto LABEL_17;
   }
@@ -147,7 +147,7 @@ LABEL_25:
             break;
           result = MiPageSizes[*(unsigned int *)(a1 + 20)];
           a2[5] = result;
-          _InterlockedIncrement(&dword_140EF8DA0);
+          _InterlockedIncrement(&dword_140EF9100);
           return result;
         }
       }

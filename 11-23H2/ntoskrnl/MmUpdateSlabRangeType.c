@@ -1,16 +1,16 @@
 /*
  * XREFs of MmUpdateSlabRangeType @ 0x140B9A53C
  * Callers:
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
  * Callees:
  *     MiEnumerateSlabAllocators @ 0x14021EF7C (MiEnumerateSlabAllocators.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertSlabEntry @ 0x1402E7080 (MiInsertSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x1403C248C (MiRemoveSlabEntry.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertSlabEntry @ 0x1402E7310 (MiInsertSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1403C266C (MiRemoveSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
@@ -20,7 +20,7 @@ __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR
   int v5; // r15d
   ULONG_PTR BugCheckParameter4; // r12
   __int64 v8; // rbx
-  unsigned __int64 v9; // r14
+  __int64 v9; // r14
   ULONG_PTR v10; // r9
   __int64 v11; // rbp
   unsigned int v12; // eax
@@ -32,7 +32,7 @@ __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR
   int v18; // eax
   bool v19; // zf
   ULONG_PTR v20; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v21; // [rsp+38h] [rbp-30h]
+  __int64 v21; // [rsp+38h] [rbp-30h]
 
   result = (unsigned int)dword_140C6B444;
   v4 = BugCheckParameter3;
@@ -66,12 +66,15 @@ __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR
       if ( v13 != v11 )
       {
         v14 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v11 + 16));
-        MiRemoveSlabEntry((__int64)MiSystemPartition, (unsigned __int64 *)v11, v9);
+        MiRemoveSlabEntry((__int64)MiSystemPartition, (_RTL_RB_TREE *)v11, v9);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v11 + 16));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v14 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

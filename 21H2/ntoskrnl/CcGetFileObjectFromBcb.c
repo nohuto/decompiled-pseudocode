@@ -1,5 +1,5 @@
 /*
- * XREFs of CcGetFileObjectFromBcb @ 0x1404E9940
+ * XREFs of CcGetFileObjectFromBcb @ 0x1404E9B80
  * Callers:
  *     <none>
  * Callees:

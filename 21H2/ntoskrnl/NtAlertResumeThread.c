@@ -1,35 +1,32 @@
 /*
- * XREFs of NtAlertResumeThread @ 0x14090C580
+ * XREFs of NtAlertResumeThread @ 0x14090C6E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAlertResumeThread @ 0x140512F60 (KeAlertResumeThread.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAlertResumeThread @ 0x1405131A0 (KeAlertResumeThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
  */
 
-NTSTATUS __fastcall NtAlertResumeThread(HANDLE Handle, _DWORD *a2)
+NTSTATUS __cdecl NtAlertResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v5; // rcx
   NTSTATUS result; // eax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  _DWORD *v9; // r9
-  int v10; // esi
+  ULONG v7; // esi
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a2 )
+  if ( PreviousMode && PreviousSuspendCount )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)PreviousSuspendCount < 0x7FFFFFFF0000LL )
+      v5 = (__int64)PreviousSuspendCount;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
   result = ObReferenceObjectByHandleWithTag(
-             Handle,
+             ThreadHandle,
              2u,
              (POBJECT_TYPE)PsThreadType,
              PreviousMode,
@@ -45,10 +42,10 @@ NTSTATUS __fastcall NtAlertResumeThread(HANDLE Handle, _DWORD *a2)
     }
     else
     {
-      v10 = KeAlertResumeThread((__int64)Object, v7, v8, v9);
+      v7 = KeAlertResumeThread((__int64)Object);
       ObfDereferenceObjectWithTag(Object, 0x75537350u);
-      if ( a2 )
-        *a2 = v10;
+      if ( PreviousSuspendCount )
+        *PreviousSuspendCount = v7;
       return 0;
     }
   }

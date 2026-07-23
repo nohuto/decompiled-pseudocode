@@ -1,22 +1,23 @@
 /*
- * XREFs of SepSetTokenLowboxNumber @ 0x140A4BC18
+ * XREFs of SepSetTokenLowboxNumber @ 0x140A42978
  * Callers:
- *     SepGetAnonymousToken @ 0x14035F4BC (SepGetAnonymousToken.c)
- *     SeExchangePrimaryToken @ 0x140792C9C (SeExchangePrimaryToken.c)
- *     SeSubProcessToken @ 0x140A30C24 (SeSubProcessToken.c)
- *     SeSetSessionIdToken @ 0x140A50448 (SeSetSessionIdToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepGetAnonymousToken @ 0x1403B977C (SepGetAnonymousToken.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     SeExchangePrimaryToken @ 0x140792C70 (SeExchangePrimaryToken.c)
+ *     SeSetSessionIdToken @ 0x140A471F8 (SeSetSessionIdToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
+ *     SeSubProcessToken @ 0x140AD660C (SeSubProcessToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     SepGetTokenSessionMapEntry @ 0x14047F254 (SepGetTokenSessionMapEntry.c)
- *     SepInitializeLowBoxNumberTable @ 0x140794CB4 (SepInitializeLowBoxNumberTable.c)
- *     SepGetLowBoxNumberEntry @ 0x140A4BEEC (SepGetLowBoxNumberEntry.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SepGetTokenSessionMapEntry @ 0x14047A074 (SepGetTokenSessionMapEntry.c)
+ *     SepInitializeLowBoxNumberTable @ 0x140794D3C (SepInitializeLowBoxNumberTable.c)
+ *     SepGetLowBoxNumberEntry @ 0x140A42C4C (SepGetLowBoxNumberEntry.c)
  */
 
 __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
@@ -30,22 +31,22 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
   struct _KTHREAD *v8; // rax
   volatile signed __int32 *v9; // rdi
   ULONG_PTR v10; // rcx
-  _QWORD *v11; // rax
+  char *v11; // rax
   signed __int8 v12; // cf
   volatile signed __int64 *v13; // rdi
-  _QWORD *v14; // rsi
+  char *v14; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v17; // rdi
+  char *v17; // rdi
   int TokenSessionMapEntry; // eax
   struct _KTHREAD *v19; // rax
-  _QWORD *v20; // rax
-  _QWORD *v21; // rdi
+  char *v20; // rax
+  char *v21; // rdi
   struct _KTHREAD *v22; // rax
   volatile signed __int32 *v23; // rdi
   ULONG_PTR v24; // rcx
-  _QWORD *v25; // rax
+  char *v25; // rax
   volatile signed __int64 *v26; // rdi
-  _QWORD *v27; // r15
+  char *v27; // r15
   _QWORD v28[3]; // [rsp+20h] [rbp-18h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+60h] BYREF
 
@@ -60,11 +61,11 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v17 = KeAbPreAcquire((__int64)&LowboxSessionMapLock, 0LL);
+    v17 = (char *)KeAbPreAcquire((__int64)&LowboxSessionMapLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&LowboxSessionMapLock, 0, v17, (__int64)&LowboxSessionMapLock);
     if ( v17 )
-      *((_BYTE *)v17 + 10) = 1;
+      v17[10] = 1;
     v4 = 1;
     TokenSessionMapEntry = SepGetTokenSessionMapEntry(v2, 0, (__int64 *)&BugCheckParameter2);
     LowBoxNumberEntry = TokenSessionMapEntry;
@@ -78,13 +79,13 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
       KeLeaveCriticalRegion();
       v19 = KeGetCurrentThread();
       --v19->KernelApcDisable;
-      v20 = KeAbPreAcquire((__int64)&LowboxSessionMapLock, 0LL);
+      v20 = (char *)KeAbPreAcquire((__int64)&LowboxSessionMapLock, 0LL);
       v12 = _interlockedbittestandset64((volatile signed __int32 *)&LowboxSessionMapLock, 0LL);
       v21 = v20;
       if ( v12 )
-        ExfAcquirePushLockExclusiveEx(&LowboxSessionMapLock, (__int64)v20, (__int64)&LowboxSessionMapLock);
+        ExfAcquirePushLockExclusiveEx(&LowboxSessionMapLock, v20, (__int64)&LowboxSessionMapLock);
       if ( v21 )
-        *((_BYTE *)v21 + 10) = 1;
+        v21[10] = 1;
       LowBoxNumberEntry = SepGetTokenSessionMapEntry(v2, 1, (__int64 *)&BugCheckParameter2);
       v4 = 0;
       v5 = 1;
@@ -104,14 +105,14 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
     v23 = (volatile signed __int32 *)BugCheckParameter2;
     v24 = BugCheckParameter2;
     --v22->KernelApcDisable;
-    v25 = KeAbPreAcquire(v24, 0LL);
+    v25 = (char *)KeAbPreAcquire(v24, 0LL);
     v12 = _interlockedbittestandset64(v23, 0LL);
     v26 = (volatile signed __int64 *)BugCheckParameter2;
     v27 = v25;
     if ( v12 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v25, BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v25, BugCheckParameter2);
     if ( v27 )
-      *((_BYTE *)v27 + 10) = 1;
+      v27[10] = 1;
     if ( !v7[32] )
       LowBoxNumberEntry = SepInitializeLowBoxNumberTable((__int64)v26);
     if ( (_InterlockedExchangeAdd64(v26, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -126,14 +127,14 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
     v9 = (volatile signed __int32 *)BugCheckParameter2;
     v10 = BugCheckParameter2;
     --v8->KernelApcDisable;
-    v11 = KeAbPreAcquire(v10, 0LL);
+    v11 = (char *)KeAbPreAcquire(v10, 0LL);
     v12 = _interlockedbittestandset64(v9, 0LL);
     v13 = (volatile signed __int64 *)BugCheckParameter2;
     v14 = v11;
     if ( v12 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v11, BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v11, BugCheckParameter2);
     if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+      v14[10] = 1;
     LowBoxNumberEntry = SepGetLowBoxNumberEntry(v13, a2, v28);
     if ( !LowBoxNumberEntry )
       *(_QWORD *)(v3 + 1080) = v28[0];

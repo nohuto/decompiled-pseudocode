@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxReleaseAcpiRefDevice @ 0x140203878
+ * XREFs of PopFxReleaseAcpiRefDevice @ 0x1402036A4
  * Callers:
- *     PoFxAbandonDevice @ 0x1404C61AC (PoFxAbandonDevice.c)
- *     PopFxRegisterDeviceWorker @ 0x140566D28 (PopFxRegisterDeviceWorker.c)
+ *     PoFxAbandonDevice @ 0x1404849B4 (PoFxAbandonDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x140567268 (PopFxRegisterDeviceWorker.c)
  * Callees:
  *     <none>
  */

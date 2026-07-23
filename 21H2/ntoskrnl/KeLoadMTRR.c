@@ -1,15 +1,15 @@
 /*
- * XREFs of KeLoadMTRR @ 0x140999760
+ * XREFs of KeLoadMTRR @ 0x14099A760
  * Callers:
- *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
- *     KiLoadMTRRTarget @ 0x1409A1A50 (KiLoadMTRRTarget.c)
+ *     HalpPostSleepMP @ 0x140996864 (HalpPostSleepMP.c)
+ *     KiLoadMTRRTarget @ 0x1409A2980 (KiLoadMTRRTarget.c)
  * Callees:
- *     KeFlushCurrentTbImmediately @ 0x1403A0A80 (KeFlushCurrentTbImmediately.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiLockStepExecution @ 0x140999944 (KiLockStepExecution.c)
- *     KiWriteFixedMtrr @ 0x14099998C (KiWriteFixedMtrr.c)
- *     KiReadFixedMtrr @ 0x140999A98 (KiReadFixedMtrr.c)
- *     KiCompareVarMtrr @ 0x140999BA4 (KiCompareVarMtrr.c)
+ *     KeFlushCurrentTbImmediately @ 0x1403A0BD0 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiLockStepExecution @ 0x14099A944 (KiLockStepExecution.c)
+ *     KiWriteFixedMtrr @ 0x14099A98C (KiWriteFixedMtrr.c)
+ *     KiReadFixedMtrr @ 0x14099AA98 (KiReadFixedMtrr.c)
+ *     KiCompareVarMtrr @ 0x14099ABA4 (KiCompareVarMtrr.c)
  */
 
 __int64 __fastcall KeLoadMTRR(__int64 a1)

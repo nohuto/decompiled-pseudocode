@@ -75,7 +75,7 @@ __int64 __fastcall ObCreateObjectTypeEx(
   __int128 v45; // xmm0
   __int128 v46; // xmm1
   __int128 v47; // xmm0
-  STRING Size; // [rsp+48h] [rbp-C0h] BYREF
+  _STRING Size; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v49; // [rsp+58h] [rbp-B0h]
   __int16 *DestinationString; // [rsp+60h] [rbp-A8h]
   UNICODE_STRING DestinationString_8; // [rsp+68h] [rbp-A0h] BYREF

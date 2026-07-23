@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxActivateDeviceForSystemTransition @ 0x14014347C
+ * XREFs of PoFxActivateDeviceForSystemTransition @ 0x14014357C
  * Callers:
- *     PopNotifyDevice @ 0x140568C68 (PopNotifyDevice.c)
+ *     PopNotifyDevice @ 0x140569C68 (PopNotifyDevice.c)
  * Callees:
- *     PopFxActivateDevice @ 0x14015A0A8 (PopFxActivateDevice.c)
+ *     PopFxActivateDevice @ 0x14015A1A8 (PopFxActivateDevice.c)
  */
 
 __int64 __fastcall PoFxActivateDeviceForSystemTransition(__int64 a1, __int64 a2, __int64 a3)

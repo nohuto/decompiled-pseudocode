@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAcceptBoot @ 0x1407CF594
+ * XREFs of CmpAcceptBoot @ 0x1407CFA84
  * Callers:
- *     NtInitializeRegistry @ 0x1407CFCB0 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1407D01A0 (NtInitializeRegistry.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     KeCommitSmtState @ 0x1405BD3A8 (KeCommitSmtState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpSaveBootControlSet @ 0x1407CC764 (CmpSaveBootControlSet.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x1407DA8F4 (CmpUpdateReorganizeRegistryValues.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     CmpTrimHive @ 0x140A422BC (CmpTrimHive.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     KeCommitSmtState @ 0x1405BA9D8 (KeCommitSmtState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpSaveBootControlSet @ 0x1407CCC54 (CmpSaveBootControlSet.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407DAE44 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     CmpTrimHive @ 0x140A37AF4 (CmpTrimHive.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
  */
 
 __int64 __fastcall CmpAcceptBoot(__int16 a1)
@@ -20,11 +20,9 @@ __int64 __fastcall CmpAcceptBoot(__int16 a1)
   unsigned __int16 v3; // bx
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
   __int64 i; // rcx
   __int64 NextActiveHive; // rax
-  __int64 v10; // rdi
+  __int64 v8; // rdi
 
   if ( PsIsCurrentThreadInServerSilo() )
   {
@@ -40,16 +38,16 @@ __int64 __fastcall CmpAcceptBoot(__int16 a1)
         v2 = CmpSaveBootControlSet(v3);
       else
         v2 = 0;
-      guard_dispatch_icall_no_overrides(v5, v4, v6, v7);
+      guard_dispatch_icall_no_overrides(v5, v4);
       if ( CmpAccessBitForPhase != 2 )
       {
         CmpAccessBitForPhase = 2;
         if ( (unsigned __int8)CmpAcquireShutdownRundown() )
         {
-          for ( i = 0LL; ; i = v10 )
+          for ( i = 0LL; ; i = v8 )
           {
             NextActiveHive = CmpGetNextActiveHive(i);
-            v10 = NextActiveHive;
+            v8 = NextActiveHive;
             if ( !NextActiveHive )
               break;
             if ( (*(_DWORD *)(NextActiveHive + 160) & 0x10) == 0 )

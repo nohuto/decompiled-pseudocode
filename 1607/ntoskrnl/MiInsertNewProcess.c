@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertNewProcess @ 0x140101794
+ * XREFs of MiInsertNewProcess @ 0x1400FF514
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess @ 0x14057D0BC (MmInitializeHandBuiltProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x14057D568 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiInsertNewProcess(_QWORD *a1, __int64 a2)
@@ -16,15 +16,15 @@ void __fastcall MiInsertNewProcess(_QWORD *a1, __int64 a2)
   _QWORD *v7; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
-  v4 = (_QWORD *)qword_140326980;
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
+  v4 = (_QWORD *)qword_1403269C0;
   v5 = a1 + 194;
-  if ( *(__int64 **)qword_140326980 != &qword_140326978 )
+  if ( *(__int64 **)qword_1403269C0 != &qword_1403269B8 )
     __fastfail(3u);
-  *v5 = &qword_140326978;
+  *v5 = &qword_1403269B8;
   a1[195] = v4;
   *v4 = v5;
-  qword_140326980 = (__int64)(a1 + 194);
+  qword_1403269C0 = (__int64)(a1 + 194);
   if ( a2 )
   {
     v6 = *(_QWORD **)(a2 + 24);

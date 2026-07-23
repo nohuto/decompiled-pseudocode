@@ -1,19 +1,19 @@
 /*
- * XREFs of IommuDomainAttachDevice @ 0x140566390
+ * XREFs of IommuDomainAttachDevice @ 0x140564090
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpIommuCreateDevice @ 0x14054D63C (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x14054DC10 (HalpIommuDeleteDevice.c)
- *     HalpIommuGetDeviceId @ 0x140552280 (HalpIommuGetDeviceId.c)
- *     HalpIommuJoinDmaDomain @ 0x1405540A8 (HalpIommuJoinDmaDomain.c)
- *     IommupFindAndPopCachedDevice @ 0x140567580 (IommupFindAndPopCachedDevice.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpIommuCreateDevice @ 0x14054AEFC (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x14054B4BC (HalpIommuDeleteDevice.c)
+ *     HalpIommuGetDeviceId @ 0x14054FBC0 (HalpIommuGetDeviceId.c)
+ *     HalpIommuJoinDmaDomain @ 0x1405519E8 (HalpIommuJoinDmaDomain.c)
+ *     IommupFindAndPopCachedDevice @ 0x14056500C (IommupFindAndPopCachedDevice.c)
  */
 
 __int64 __fastcall IommuDomainAttachDevice(__int64 a1, void *a2, int a3, int a4)
@@ -38,7 +38,7 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, void *a2, int a3, int a4)
   v7 = 0LL;
   v20 = 0LL;
   v22 = 0LL;
-  DeviceId = HalpIommuGetDeviceId((__int64)a2, (__int64 *)&v21);
+  DeviceId = HalpIommuGetDeviceId((__int64)a2, &v21);
   v12 = (__int64)v21;
   v13 = DeviceId;
   if ( DeviceId < 0 )
@@ -100,13 +100,13 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, void *a2, int a3, int a4)
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 12);
     KxAcquireSpinLock(&HalpIommuParaVirtDeviceCacheLock);
-    v18 = (__int64 *)qword_140F8ECE8;
-    if ( *(__int64 **)qword_140F8ECE8 != &HalpIommuParaVirtDeviceCache )
+    v18 = (__int64 *)qword_140F8EED8;
+    if ( *(__int64 **)qword_140F8EED8 != &HalpIommuParaVirtDeviceCache )
       __fastfail(3u);
     *(_QWORD *)v7 = &HalpIommuParaVirtDeviceCache;
     *(_QWORD *)(v7 + 8) = v18;
     *v18 = v7;
-    qword_140F8ECE8 = v7;
+    qword_140F8EED8 = v7;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuParaVirtDeviceCacheLock);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

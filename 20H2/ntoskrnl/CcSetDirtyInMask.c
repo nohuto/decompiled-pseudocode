@@ -86,7 +86,7 @@ char __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a3, struc
   struct _KTHREAD *v47; // r9
   unsigned __int64 DeepFreezeStartTime; // rdx
   PSLIST_ENTRY v49; // rbx
-  struct _SLIST_ENTRY *v50; // rax
+  _SLIST_ENTRY *v50; // rax
   __int64 **v51; // rdx
   __int64 *v52; // rcx
   __int64 v53; // rax
@@ -194,15 +194,12 @@ LABEL_58:
     {
       if ( *(_QWORD *)(v5 + 32) > 0x300000uLL )
       {
-        ++CcBitmapLookasideList.L.TotalAllocates;
-        InitializeMbcb = (__int64)RtlpInterlockedPopEntrySList(&CcBitmapLookasideList.L.ListHead);
+        ++unk_140CDB554;
+        InitializeMbcb = (__int64)RtlpInterlockedPopEntrySList(&CcBitmapLookasideList);
         if ( !InitializeMbcb )
         {
-          ++CcBitmapLookasideList.L.AllocateMisses;
-          InitializeMbcb = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))CcBitmapLookasideList.L.AllocateEx)(
-                             (unsigned int)CcBitmapLookasideList.L.Type,
-                             CcBitmapLookasideList.L.Size,
-                             CcBitmapLookasideList.L.Tag);
+          ++unk_140CDB558;
+          InitializeMbcb = unk_140CDB570(unk_140CDB564, unk_140CDB56C, unk_140CDB568);
           if ( !InitializeMbcb )
           {
             ++CcDbgNumberOfFailedBitmapAllocations;
@@ -279,7 +276,7 @@ LABEL_17:
       memset(ListEntry, 0, 0x400uLL);
       if ( *(_DWORD *)(v24 + 80) )
       {
-        v50 = *(struct _SLIST_ENTRY **)(v24 + 88);
+        v50 = *(_SLIST_ENTRY **)(v24 + 88);
         *v49 = *v50;
         v49[1] = v50[1];
         v49[2] = v50[2];
@@ -544,17 +541,15 @@ LABEL_60:
   }
   if ( ListEntry )
   {
-    ++CcBitmapLookasideList.L.TotalFrees;
-    if ( LOWORD(CcBitmapLookasideList.L.ListHead.Alignment) >= CcBitmapLookasideList.L.Depth )
+    ++unk_140CDB55C;
+    if ( LOWORD(CcBitmapLookasideList.Alignment) >= unk_140CDB550 )
     {
-      ++CcBitmapLookasideList.L.FreeMisses;
-      LOBYTE(InitializeMbcb) = ((__int64 (*)(void))CcBitmapLookasideList.L.FreeEx)();
+      ++unk_140CDB560;
+      LOBYTE(InitializeMbcb) = unk_140CDB578();
     }
     else
     {
-      LOBYTE(InitializeMbcb) = (unsigned __int8)RtlpInterlockedPushEntrySList(
-                                                  &CcBitmapLookasideList.L.ListHead,
-                                                  ListEntry);
+      LOBYTE(InitializeMbcb) = (unsigned __int8)RtlpInterlockedPushEntrySList(&CcBitmapLookasideList, ListEntry);
     }
   }
   return InitializeMbcb;

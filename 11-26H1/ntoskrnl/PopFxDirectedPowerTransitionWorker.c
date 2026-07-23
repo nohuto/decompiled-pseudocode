@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxDirectedPowerTransitionWorker @ 0x1403B77F0
+ * XREFs of PopFxDirectedPowerTransitionWorker @ 0x1403C16F0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PopFxHandleDirectedPowerTransition @ 0x1403B782C (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x1403C172C (PopFxHandleDirectedPowerTransition.c)
  */
 
 LONG __fastcall PopFxDirectedPowerTransitionWorker(ULONG_PTR a1)

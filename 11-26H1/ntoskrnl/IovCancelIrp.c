@@ -1,12 +1,12 @@
 /*
- * XREFs of IovCancelIrp @ 0x140C20DF0
+ * XREFs of IovCancelIrp @ 0x140C26E00
  * Callers:
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
  * Callees:
- *     VfIrpDatabaseEntryReleaseLock @ 0x140C39D70 (VfIrpDatabaseEntryReleaseLock.c)
- *     ViWdBeforeCancelIrp @ 0x140C3A130 (ViWdBeforeCancelIrp.c)
- *     IovpLogStackTrace @ 0x140C45DF4 (IovpLogStackTrace.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140C45F84 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140C3FD80 (VfIrpDatabaseEntryReleaseLock.c)
+ *     ViWdBeforeCancelIrp @ 0x140C40140 (ViWdBeforeCancelIrp.c)
+ *     IovpLogStackTrace @ 0x140C4BE04 (IovpLogStackTrace.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140C4BF94 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 __int64 __fastcall IovCancelIrp(__int64 a1)

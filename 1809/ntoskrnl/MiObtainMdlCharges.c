@@ -5,9 +5,9 @@
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiObtainMdlCharges(
@@ -46,7 +46,7 @@ _DWORD *__fastcall MiObtainMdlCharges(
   v10 = (unsigned __int64)(v9 + 4095) >> 12;
   if ( (a7 & 0x40) != 0 )
   {
-    if ( a2 > a4 || a3 < qword_14043E508 )
+    if ( a2 > a4 || a3 < qword_14043F5C8 )
       return 0LL;
     v19 = 0;
     v20 = MiLargePageSizes;
@@ -151,7 +151,7 @@ _DWORD *__fastcall MiObtainMdlCharges(
   if ( v10 != v17 )
     MiReturnCommit(a1, v17 - v10);
   if ( (ULONG_PTR *)a1 == &MiSystemPartition )
-    _InterlockedExchangeAdd64(&qword_14043B018, v10);
+    _InterlockedExchangeAdd64(&qword_14043C0D8, v10);
   result = v16;
   v16[10] = (_DWORD)v10 << 12;
   return result;

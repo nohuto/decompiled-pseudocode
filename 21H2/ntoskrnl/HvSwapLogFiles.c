@@ -1,12 +1,12 @@
 /*
- * XREFs of HvSwapLogFiles @ 0x140725538
+ * XREFs of HvSwapLogFiles @ 0x140617C10
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvpLogTypeToLogArrayIndex @ 0x14072465C (HvpLogTypeToLogArrayIndex.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1406FC61C (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1406FC688 (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvSwapLogFiles(__int64 a1)
@@ -52,8 +52,8 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
   int v40; // [rsp+100h] [rbp-8h]
   int v41; // [rsp+104h] [rbp-4h]
 
-  HvGetEffectiveLogSizeCapForHive((unsigned int *)a1);
-  v2 = HvpLogTypeToLogArrayIndex(*(_DWORD *)(a1 + 164));
+  HvGetEffectiveLogSizeCapForHive();
+  v2 = HvpLogTypeToLogArrayIndex(*(unsigned int *)(a1 + 164));
   v5 = *(_DWORD *)(a1 + 168) - *(_DWORD *)(a1 + 172);
   v6 = MEMORY[0xFFFFF78000000014];
   if ( (unsigned int)dword_140C02130 > 5 )
@@ -93,7 +93,7 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
     v40 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02130,
-      (unsigned __int8 *)&dword_140023B07 + 3,
+      (unsigned __int8 *)word_140023BCA,
       0LL,
       0LL,
       0xAu,

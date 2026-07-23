@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueryBusResourceUpdateInterface @ 0x14096CED8
+ * XREFs of IopQueryBusResourceUpdateInterface @ 0x14096D0D8
  * Callers:
- *     PiUpdateDeviceResourceLists @ 0x14096F20C (PiUpdateDeviceResourceLists.c)
+ *     PiUpdateDeviceResourceLists @ 0x14096F40C (PiUpdateDeviceResourceLists.c)
  * Callees:
- *     PnpQueryInterface @ 0x1407FD240 (PnpQueryInterface.c)
+ *     PnpQueryInterface @ 0x1407FD510 (PnpQueryInterface.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

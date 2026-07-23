@@ -1,26 +1,29 @@
 /*
- * XREFs of CmpDoReconcileNextHive @ 0x140725080
+ * XREFs of CmpDoReconcileNextHive @ 0x140664660
  * Callers:
  *     <none>
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
- *     CmpIsHiveEligibleForLazyReconcile @ 0x140725194 (CmpIsHiveEligibleForLazyReconcile.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x140725A44 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x140619E1C (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x1406645B0 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1406FC61C (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
 {
   char v2; // bp
   unsigned __int64 v3; // rsi
-  struct _EX_RUNDOWN_REF *v6; // rcx
-  __int64 *NextActiveHive; // rbx
+  __int64 v6; // rcx
+  __int64 NextActiveHive; // rbx
   unsigned __int64 v8; // rdi
   unsigned __int64 UnbiasedInterruptTime; // r14
-  unsigned __int64 v10; // rcx
-  unsigned int EffectiveLogSizeCapForHive; // eax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  unsigned __int64 v14; // rcx
 
   v2 = 0;
   v3 = 10000000LL * (unsigned int)dword_140C004C4;
@@ -34,28 +37,26 @@ char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
         break;
       v8 = -1LL;
       UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-      if ( (unsigned __int8)CmpIsHiveEligibleForLazyReconcile(NextActiveHive) )
+      if ( CmpIsHiveEligibleForLazyReconcile(NextActiveHive, v10, v11) )
       {
-        EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive((unsigned int *)NextActiveHive);
-        if ( (int)CmpFlushHive(
-                    (ULONG_PTR)NextActiveHive,
-                    *((_DWORD *)NextActiveHive + 44) < EffectiveLogSizeCapForHive ? 22 : 6) < 0 )
+        HvGetEffectiveLogSizeCapForHive(NextActiveHive, v12, v13);
+        if ( (int)CmpFlushHive(NextActiveHive) < 0 )
         {
           *a1 = 1;
           v8 = UnbiasedInterruptTime + 10000000LL * (unsigned int)dword_140C004CC;
         }
       }
-      else if ( *((_DWORD *)NextActiveHive + 32) )
+      else if ( *(_DWORD *)(NextActiveHive + 128) )
       {
-        if ( (NextActiveHive[20] & 0x8001) == 0 )
+        if ( (*(_DWORD *)(NextActiveHive + 160) & 0x8001) == 0 )
         {
           v2 = 1;
-          v10 = NextActiveHive[523] + 10000000LL * (unsigned int)dword_140C004C0;
-          if ( UnbiasedInterruptTime < v10 )
-            v8 = v10 - UnbiasedInterruptTime;
+          v14 = *(_QWORD *)(NextActiveHive + 4184) + 10000000LL * (unsigned int)dword_140C004C0;
+          if ( UnbiasedInterruptTime < v14 )
+            v8 = v14 - UnbiasedInterruptTime;
         }
       }
-      v6 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
+      v6 = NextActiveHive;
       if ( v8 >= v3 )
         v8 = v3;
       v3 = v8;

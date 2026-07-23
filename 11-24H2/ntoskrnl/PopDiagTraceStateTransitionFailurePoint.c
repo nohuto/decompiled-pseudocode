@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceStateTransitionFailurePoint @ 0x14075802C
+ * XREFs of PopDiagTraceStateTransitionFailurePoint @ 0x1407564AC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
@@ -67,9 +67,9 @@ char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
       LOBYTE(CurrentThread) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_STATE_TRANSITION_FAILURE, 0LL, 3u, &UserData);
     }
   }
-  if ( dword_140E076F0 )
+  if ( dword_140E07680 )
   {
-    LOBYTE(CurrentThread) = tlgKeywordOn((__int64)&dword_140E076F0, 0x800000000000LL);
+    LOBYTE(CurrentThread) = tlgKeywordOn((__int64)&dword_140E07680, 0x800000000000LL);
     if ( (_BYTE)CurrentThread )
     {
       if ( v5 > 5 )
@@ -95,7 +95,7 @@ char __fastcall PopDiagTraceStateTransitionFailurePoint(int a1, int a2)
           v33 = 8;
           LOBYTE(CurrentThread) = tlgWriteTransfer_EtwWriteTransfer(
                                     v7,
-                                    (unsigned __int8 *)byte_140049793,
+                                    (unsigned __int8 *)byte_140048FF0,
                                     0LL,
                                     0LL,
                                     6u,

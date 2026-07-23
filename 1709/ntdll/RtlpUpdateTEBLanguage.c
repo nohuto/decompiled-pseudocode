@@ -10,22 +10,22 @@
  *     RtlAllocateHeap @ 0x180040DF0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall RtlpUpdateTEBLanguage(_DWORD *a1, void *a2, int a3)
 {
   unsigned int v3; // ebx
-  _QWORD *Heap; // rax
-  _QWORD *UserPrefLanguages; // rdi
+  PVOID *Heap; // rax
+  PVOID *UserPrefLanguages; // rdi
   int v9; // esi
-  __int64 v11; // rcx
+  PVOID v11; // rcx
 
   v3 = 0;
   if ( NtCurrentTeb()->UserPrefLanguages )
   {
-    UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages;
+    UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   }
   else
   {
-    Heap = (_QWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 16LL);
+    Heap = (PVOID *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
     UserPrefLanguages = Heap;
     if ( !Heap )
       return (unsigned int)-1073741801;
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
     {
       if ( *UserPrefLanguages )
       {
-        *(_DWORD *)(a1 + 40) = *(_DWORD *)(*UserPrefLanguages + 40LL);
+        a1[10] = *((_DWORD *)*UserPrefLanguages + 10);
         RtlpMuiRegFreeLanguageList(*UserPrefLanguages);
       }
       *UserPrefLanguages = a1;

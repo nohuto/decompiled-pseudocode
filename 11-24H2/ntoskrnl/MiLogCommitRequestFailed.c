@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogCommitRequestFailed @ 0x140AAC430
+ * XREFs of MiLogCommitRequestFailed @ 0x140AA7460
  * Callers:
- *     MiCommitRequestFailed @ 0x140AAC3D0 (MiCommitRequestFailed.c)
+ *     MiCommitRequestFailed @ 0x140AA7400 (MiCommitRequestFailed.c)
  * Callees:
- *     PsGetSessionId @ 0x1403D5E10 (PsGetSessionId.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PsGetSessionId @ 0x1403C1560 (PsGetSessionId.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
@@ -73,7 +73,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
   _UNKNOWN *retaddr; // [rsp+1E0h] [rbp+D8h] BYREF
 
   ProcessPartition = (__int64)&retaddr;
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     _m_prefetchw((const void *)(a1 + 1532));
     LODWORD(ProcessPartition) = *(_DWORD *)(a1 + 1532);
@@ -105,9 +105,9 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
       ProcessPartition = MiGetProcessPartition(a1);
       v13 = *(_QWORD *)(ProcessPartition + 19608);
       v14 = *(_QWORD *)(ProcessPartition + 19264);
-      if ( **(_DWORD **)&qword_140E37518 > 2u )
+      if ( **(_DWORD **)&qword_140E37658 > 2u )
       {
-        LOBYTE(ProcessPartition) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000001000LL);
+        LOBYTE(ProcessPartition) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000001000LL);
         if ( (_BYTE)ProcessPartition )
         {
           v31 = v16;
@@ -148,7 +148,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
           v64 = 8LL;
           LOBYTE(ProcessPartition) = tlgWriteEx_EtwWriteEx(
                                        v15,
-                                       (unsigned __int8 *)&word_1400579EE,
+                                       (unsigned __int8 *)&byte_140058593,
                                        v15,
                                        1u,
                                        v20,

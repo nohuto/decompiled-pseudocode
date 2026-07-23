@@ -1,17 +1,17 @@
 /*
- * XREFs of SmcGetCacheStats @ 0x14069A3EC
+ * XREFs of SmcGetCacheStats @ 0x14069A4D0
  * Callers:
- *     SmcProcessStatsRequest @ 0x1406977E0 (SmcProcessStatsRequest.c)
+ *     SmcProcessStatsRequest @ 0x1406978C4 (SmcProcessStatsRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmKmFileInfoGetPath @ 0x140697FF8 (SmKmFileInfoGetPath.c)
- *     SmcCacheDereference @ 0x140699F04 (SmcCacheDereference.c)
- *     SmcCacheReference @ 0x14069A108 (SmcCacheReference.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmKmFileInfoGetPath @ 0x1406980DC (SmKmFileInfoGetPath.c)
+ *     SmcCacheDereference @ 0x140699FE8 (SmcCacheDereference.c)
+ *     SmcCacheReference @ 0x14069A1EC (SmcCacheReference.c)
  */
 
 __int64 __fastcall SmcGetCacheStats(__int64 a1, _DWORD *a2)

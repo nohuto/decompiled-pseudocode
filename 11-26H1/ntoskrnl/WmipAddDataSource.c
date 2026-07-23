@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipAddDataSource @ 0x140A0BC24
+ * XREFs of WmipAddDataSource @ 0x140A0ABF4
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x140A0B8AC (WmipProcessWmiRegInfo.c)
- *     WmipInitializeDataStructs @ 0x140CE03F8 (WmipInitializeDataStructs.c)
+ *     WmipProcessWmiRegInfo @ 0x140A0AADC (WmipProcessWmiRegInfo.c)
+ *     WmipInitializeDataStructs @ 0x140CE6798 (WmipInitializeDataStructs.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipGenerateBinaryMofNotification @ 0x140823E24 (WmipGenerateBinaryMofNotification.c)
- *     WmipAllocEntry @ 0x140A0BF54 (WmipAllocEntry.c)
- *     WmipBuildInstanceSet @ 0x140A0BFA8 (WmipBuildInstanceSet.c)
- *     WmipLinkDataSourceToList @ 0x140A0CC1C (WmipLinkDataSourceToList.c)
- *     WmipGenerateRegistrationNotification @ 0x140A0CD54 (WmipGenerateRegistrationNotification.c)
- *     WmipCountedToSz @ 0x140A0D7C0 (WmipCountedToSz.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipAddMofResource @ 0x140B19FC8 (WmipAddMofResource.c)
- *     WmipGenerateMofResourceNotification @ 0x140B52928 (WmipGenerateMofResourceNotification.c)
- *     WmipProcessSynchronousEtw @ 0x140B52BBC (WmipProcessSynchronousEtw.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14082A070 (WmipGenerateBinaryMofNotification.c)
+ *     WmipAllocEntry @ 0x140A0AF24 (WmipAllocEntry.c)
+ *     WmipBuildInstanceSet @ 0x140A0AF78 (WmipBuildInstanceSet.c)
+ *     WmipLinkDataSourceToList @ 0x140A0C4DC (WmipLinkDataSourceToList.c)
+ *     WmipGenerateRegistrationNotification @ 0x140A0C7AC (WmipGenerateRegistrationNotification.c)
+ *     WmipCountedToSz @ 0x140A0D210 (WmipCountedToSz.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipAddMofResource @ 0x140B1C418 (WmipAddMofResource.c)
+ *     WmipGenerateMofResourceNotification @ 0x140B551C8 (WmipGenerateMofResourceNotification.c)
+ *     WmipProcessSynchronousEtw @ 0x140B5545C (WmipProcessSynchronousEtw.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipAddDataSource(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)
@@ -126,11 +126,11 @@ LABEL_33:
     *(_QWORD *)&v31[0] = v31;
   }
   v21 = (unsigned __int64)&v30 & -(__int64)(v20 != 0);
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v22 = v32;
   LOBYTE(v23) = v32;
   v14 = WmipLinkDataSourceToList(v5, v23, v21);
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   if ( v21 )
     WmipProcessSynchronousEtw(v21);
   if ( v14 < 0 )

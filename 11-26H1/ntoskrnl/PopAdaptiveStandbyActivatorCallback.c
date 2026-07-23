@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAdaptiveStandbyActivatorCallback @ 0x140610CE0
+ * XREFs of PopAdaptiveStandbyActivatorCallback @ 0x140613F50
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 GUID *__fastcall PopAdaptiveStandbyActivatorCallback(__int64 a1, int a2)
@@ -48,7 +48,7 @@ GUID *__fastcall PopAdaptiveStandbyActivatorCallback(__int64 a1, int a2)
   Flink = (GUID *)CurrentThread[1].WaitBlock[1].WaitListEntry.Flink;
   CurrentThread[1].WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&ActivityId;
   v19 = Flink;
-  if ( (unsigned int)dword_140E08090 > 5 )
+  if ( (unsigned int)dword_140E08138 > 5 )
   {
     v12 = a1;
     v21 = &v12;
@@ -57,35 +57,35 @@ GUID *__fastcall PopAdaptiveStandbyActivatorCallback(__int64 a1, int a2)
     v10 = a2;
     v24 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08090,
-      (unsigned __int8 *)byte_14004F201,
+      (__int64)&dword_140E08138,
+      (unsigned __int8 *)byte_1400504D3,
       &ActivityId,
       Flink,
       4u,
       v20);
   }
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopAdaptiveStandbyLock, v4, v5, (struct _KLOCK_ENTRIES *)Flink);
-  if ( a1 == qword_140F0B7E0 )
+  if ( a1 == qword_140F0BB60 )
   {
-    if ( byte_140F0B7D8 )
+    if ( byte_140F0BB58 )
     {
       *(_QWORD *)&v14 = 0x12C00000001LL;
       *(_QWORD *)&v15 = L"Reserve Configuration Update";
       v8 = Pdcv2ActivationClientRenewActivation(a1, &v14, &v11);
-      if ( (unsigned int)dword_140E08090 > 5 )
+      if ( (unsigned int)dword_140E08138 > 5 )
       {
         v10 = v8;
         v22 = 4LL;
         v21 = (__int64 *)&v10;
         LODWORD(v12) = v11;
         v23 = &v12;
-        v13 = qword_140F0B7E0;
+        v13 = qword_140F0BB60;
         v25 = &v13;
         v24 = 4LL;
         v26 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08090,
-          (unsigned __int8 *)byte_14004F249,
+          (__int64)&dword_140E08138,
+          (unsigned __int8 *)byte_140050128,
           (const GUID *)KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink,
           0LL,
           5u,
@@ -93,11 +93,11 @@ GUID *__fastcall PopAdaptiveStandbyActivatorCallback(__int64 a1, int a2)
       }
     }
   }
-  PopReleaseRwLock(&PopAdaptiveStandbyLock);
-  if ( (unsigned int)dword_140E08090 > 5 )
+  PopReleaseRwLock((struct _KTHREAD *)&PopAdaptiveStandbyLock);
+  if ( (unsigned int)dword_140E08138 > 5 )
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08090,
-      (unsigned __int8 *)&word_14004F2BE,
+      (__int64)&dword_140E08138,
+      (unsigned __int8 *)byte_14005019D,
       &ActivityId,
       v19,
       2u,

@@ -1,14 +1,15 @@
 /*
- * XREFs of PopPowerAdapterQueryStatus @ 0x140B71E04
+ * XREFs of PopPowerAdapterQueryStatus @ 0x140B76DFC
  * Callers:
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
- *     PopPowerAdapterAdd @ 0x1407D94D0 (PopPowerAdapterAdd.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
+ *     PopPowerAdapterAdd @ 0x1407DCEF0 (PopPowerAdapterAdd.c)
+ *     PopPowerAdapterReinitialize @ 0x1407DD830 (PopPowerAdapterReinitialize.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     IoSynchronousCallDriver @ 0x1404B2910 (IoSynchronousCallDriver.c)
- *     Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline @ 0x14060C6E4 (Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline.c)
- *     PopPrepareIoctl @ 0x140AFBC84 (PopPrepareIoctl.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     IoSynchronousCallDriver @ 0x1404ABE20 (IoSynchronousCallDriver.c)
+ *     Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline @ 0x14060F844 (Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopPrepareIoctl @ 0x140AFD904 (PopPrepareIoctl.c)
  */
 
 NTSTATUS __fastcall PopPowerAdapterQueryStatus(__int64 a1, char a2)

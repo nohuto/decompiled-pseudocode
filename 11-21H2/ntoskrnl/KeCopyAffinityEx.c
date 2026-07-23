@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
+ *     sub_140300030 @ 0x140300030 (sub_140300030.c)
  */
 
 unsigned __int16 __fastcall KeCopyAffinityEx(__int64 a1, unsigned __int16 *a2)
 {
-  return KiCopyAffinityEx(a1, 0x14u, a2);
+  return sub_140300030(a1, 0x14u, a2);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteDeleteOnCloseSubsections @ 0x1406E74F0
+ * XREFs of MiDeleteDeleteOnCloseSubsections @ 0x1406EC1A0
  * Callers:
- *     MiProcessDeleteOnClose @ 0x1406E7900 (MiProcessDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1406EC5B0 (MiProcessDeleteOnClose.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlinkUnusedSubsection @ 0x14030C21C (MiUnlinkUnusedSubsection.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertListSentinel @ 0x14044D320 (MiInsertListSentinel.c)
- *     MiDeleteCachedSubsections @ 0x1404A6F5C (MiDeleteCachedSubsections.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlinkUnusedSubsection @ 0x1402EE29C (MiUnlinkUnusedSubsection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertListSentinel @ 0x140445440 (MiInsertListSentinel.c)
+ *     MiDeleteCachedSubsections @ 0x1404A05EC (MiDeleteCachedSubsections.c)
  */
 
 void __fastcall MiDeleteDeleteOnCloseSubsections(__int64 a1, __int64 a2)

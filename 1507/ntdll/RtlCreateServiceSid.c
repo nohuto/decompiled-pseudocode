@@ -12,58 +12,56 @@
  *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateServiceSid(__int64 a1, _DWORD *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
-  unsigned int v6; // eax
-  __int64 v7; // r8
-  bool v8; // cf
-  __int64 result; // rax
-  int v10; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-49h] BYREF
-  _BYTE v12[64]; // [rsp+30h] [rbp-39h] BYREF
-  int v13; // [rsp+70h] [rbp+7h]
-  int v14; // [rsp+74h] [rbp+Bh]
-  int v15; // [rsp+78h] [rbp+Fh]
-  int v16; // [rsp+7Ch] [rbp+13h]
-  int v17; // [rsp+80h] [rbp+17h]
-  int v18; // [rsp+84h] [rbp+1Bh]
-  int v19; // [rsp+88h] [rbp+1Fh]
-  int v20; // [rsp+90h] [rbp+27h]
-  int v21; // [rsp+94h] [rbp+2Bh]
-  int v22; // [rsp+98h] [rbp+2Fh]
-  int v23; // [rsp+9Ch] [rbp+33h]
-  int v24; // [rsp+A0h] [rbp+37h]
+  ULONG v6; // eax
+  bool v7; // cf
+  NTSTATUS result; // eax
+  int v9; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-49h] BYREF
+  _BYTE v11[64]; // [rsp+30h] [rbp-39h] BYREF
+  int v12; // [rsp+70h] [rbp+7h]
+  int v13; // [rsp+74h] [rbp+Bh]
+  int v14; // [rsp+78h] [rbp+Fh]
+  int v15; // [rsp+7Ch] [rbp+13h]
+  int v16; // [rsp+80h] [rbp+17h]
+  int v17; // [rsp+84h] [rbp+1Bh]
+  int v18; // [rsp+88h] [rbp+1Fh]
+  int v19; // [rsp+90h] [rbp+27h]
+  int v20; // [rsp+94h] [rbp+2Bh]
+  int v21; // [rsp+98h] [rbp+2Fh]
+  int v22; // [rsp+9Ch] [rbp+33h]
+  int v23; // [rsp+A0h] [rbp+37h]
 
-  if ( !a1 || !a3 )
-    return 3221225485LL;
-  v6 = RtlLengthRequiredSid(6LL);
-  v8 = *a3 < v6;
-  *a3 = v6;
-  if ( v8 )
-    return 3221225507LL;
-  LOBYTE(v7) = 1;
-  result = RtlUpcaseUnicodeString(&UnicodeString, a1, v7);
-  if ( (int)result >= 0 )
+  if ( !ServiceName || !ServiceSidLength )
+    return -1073741811;
+  v6 = RtlLengthRequiredSid(6u);
+  v7 = *ServiceSidLength < v6;
+  *ServiceSidLength = v6;
+  if ( v7 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
+  if ( result >= 0 )
   {
+    v17 = 0;
     v18 = 0;
-    v19 = 0;
-    v13 = 1732584193;
-    v14 = -271733879;
-    v15 = -1732584194;
-    v16 = 271733878;
-    v17 = -1009589776;
-    A_SHAUpdate(v12, UnicodeString.Buffer, UnicodeString.Length);
-    A_SHAFinal(v12);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid((__int64)a2, (__int64)&RtlpNtAuthority, 6u);
-    v10 = v20;
-    a2[2] = 80;
-    a2[3] = v10;
-    a2[4] = v21;
-    a2[5] = v22;
-    a2[6] = v23;
-    a2[7] = v24;
-    return 0LL;
+    v12 = 1732584193;
+    v13 = -271733879;
+    v14 = -1732584194;
+    v15 = 271733878;
+    v16 = -1009589776;
+    A_SHAUpdate(v11, DestinationString.Buffer, DestinationString.Length);
+    A_SHAFinal(v11);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(ServiceSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
+    v9 = v19;
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v9;
+    *((_DWORD *)ServiceSid + 4) = v20;
+    *((_DWORD *)ServiceSid + 5) = v21;
+    *((_DWORD *)ServiceSid + 6) = v22;
+    *((_DWORD *)ServiceSid + 7) = v23;
+    return 0;
   }
   return result;
 }

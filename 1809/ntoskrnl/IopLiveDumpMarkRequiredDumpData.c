@@ -1,15 +1,15 @@
 /*
- * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x140579088
+ * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x14057A088
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140579890 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
- *     IopLiveDumpMarkDeviceNode @ 0x140578D68 (IopLiveDumpMarkDeviceNode.c)
- *     IopLiveDumpMarkLoadedModuleList @ 0x140578EB4 (IopLiveDumpMarkLoadedModuleList.c)
- *     IopLiveDumpMarkProcessorData @ 0x140578F74 (IopLiveDumpMarkProcessorData.c)
- *     MmAddPrivateDataToCrashDump @ 0x14057C5F8 (MmAddPrivateDataToCrashDump.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE400 (MmAddRangeToCrashDump.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x140579D68 (IopLiveDumpMarkDeviceNode.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x140579EB4 (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopLiveDumpMarkProcessorData @ 0x140579F74 (IopLiveDumpMarkProcessorData.c)
+ *     MmAddPrivateDataToCrashDump @ 0x14057D5F8 (MmAddPrivateDataToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkRequiredDumpData(
@@ -39,7 +39,7 @@ __int64 __fastcall IopLiveDumpMarkRequiredDumpData(
       result = IopLiveDumpMarkLoadedModuleList(v9);
       if ( (int)result >= 0 )
       {
-        v7[1] = (unsigned __int16 *)qword_1405416A8[0];
+        v7[1] = (unsigned __int16 *)qword_1405426A8[0];
         v7[0] = (unsigned __int16 *)KeActiveProcessors;
         v8 = 0;
         while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v7) )

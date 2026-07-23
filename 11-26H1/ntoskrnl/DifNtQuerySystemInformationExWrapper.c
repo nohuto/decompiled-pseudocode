@@ -1,23 +1,23 @@
 /*
- * XREFs of DifNtQuerySystemInformationExWrapper @ 0x140685ED0
+ * XREFs of DifNtQuerySystemInformationExWrapper @ 0x140689AB0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtQuerySystemInformationEx @ 0x140833690 (NtQuerySystemInformationEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtQuerySystemInformationEx @ 0x1408398D0 (NtQuerySystemInformationEx.c)
  */
 
 __int64 __fastcall DifNtQuerySystemInformationExWrapper(
-        int a1,
-        __int64 a2,
-        int a3,
-        volatile void *a4,
-        int a5,
-        __int64 a6)
+        SYSTEM_INFORMATION_CLASS a1,
+        void *a2,
+        ULONG a3,
+        void *a4,
+        ULONG SystemInformationLength,
+        ULONG *ReturnLength)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -58,8 +58,8 @@ __int64 __fastcall DifNtQuerySystemInformationExWrapper(
 LABEL_7:
   v14 = 0;
   LODWORD(v23) = a1;
-  LODWORD(v21) = a5;
-  *((_QWORD *)&v20 + 1) = a6;
+  LODWORD(v21) = SystemInformationLength;
+  *((_QWORD *)&v20 + 1) = ReturnLength;
   *((_QWORD *)&v22 + 1) = a2;
   LODWORD(v22) = a3;
   *((_QWORD *)&v21 + 1) = a4;
@@ -75,7 +75,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  HIDWORD(v23) = NtQuerySystemInformationEx(a1, a2, a3, a4, a5, a6);
+  HIDWORD(v23) = NtQuerySystemInformationEx(a1, a2, a3, a4, SystemInformationLength, ReturnLength);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipGetGuidPropertiesFromGuidEntry @ 0x1408B36A8
+ * XREFs of WmipGetGuidPropertiesFromGuidEntry @ 0x1408B4908
  * Callers:
- *     WmipEnumerateGuids @ 0x1408B35A0 (WmipEnumerateGuids.c)
+ *     WmipEnumerateGuids @ 0x1408B4800 (WmipEnumerateGuids.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopLiveDumpFreeDumpBuffers @ 0x14049B264
+ * XREFs of IopLiveDumpFreeDumpBuffers @ 0x140495C54
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14049A8E4 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpReleaseResources @ 0x14059CE5C (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059E850 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404952D4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpReleaseResources @ 0x140599DDC (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059B7D0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     VslAbortLiveDump @ 0x14058CB68 (VslAbortLiveDump.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14059AE24 (IopLiveDumpFreeIoSpaceRanges.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     VslAbortLiveDump @ 0x140589E60 (VslAbortLiveDump.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x140597DA4 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpFreeDumpBuffers(__int64 a1)
@@ -92,7 +92,7 @@ void __fastcall IopLiveDumpFreeDumpBuffers(__int64 a1)
               *(_QWORD *)(v1 + 168) = 0LL;
               continue;
             }
-            MmFreeIndependentPages(v3, BufferChunkSizeInBytes);
+            MmFreeIndependentPages(v3, BufferChunkSizeInBytes, v3);
           }
           *(_QWORD *)(*(_QWORD *)(v1 + 72) + 8 * v2) = 0LL;
         }

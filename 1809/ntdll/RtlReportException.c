@@ -15,33 +15,33 @@
  *     TppWorkerpInnerExceptionFilter @ 0x1801112D0 (TppWorkerpInnerExceptionFilter.c)
  *     TppWorkerpOuterExceptionFilter @ 0x180111354 (TppWorkerpOuterExceptionFilter.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
  *     RtlReportExceptionHelper @ 0x1800DE2B0 (RtlReportExceptionHelper.c)
  *     WerpBreakIntoDebuggerIfPresent @ 0x1800DEC28 (WerpBreakIntoDebuggerIfPresent.c)
  */
 
-__int64 __fastcall RtlReportException(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlReportException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, ULONG Flags)
 {
   int v7; // ebx
-  unsigned int v8; // ebx
+  NTSTATUS v8; // ebx
   _BYTE ProcessInformation[32]; // [rsp+30h] [rbp-48h] BYREF
   int v10; // [rsp+50h] [rbp-28h]
   __int64 v11; // [rsp+98h] [rbp+20h] BYREF
 
   v11 = 0LL;
-  if ( (a3 & 0xFFFFFFE0) != 0 )
-    return 3221225485LL;
-  ((void (*)(void))WerpBreakIntoDebuggerIfPresent)();
+  if ( (Flags & 0xFFFFFFE0) != 0 )
+    return -1073741811;
+  WerpBreakIntoDebuggerIfPresent(ExceptionRecord, ContextRecord);
   v7 = 0;
   if ( LdrpIsSecureProcess )
-    return 0LL;
-  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)37, ProcessInformation, 0x40u, 0LL) >= 0
+    return 0;
+  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, ProcessInformation, 0x40u, 0LL) >= 0
     && v10 == 1 )
   {
     v7 = 1;
     v11 = -300000000LL;
   }
-  v8 = RtlReportExceptionHelper(a1, a2, a3, (unsigned __int64)&v11 & -(__int64)(v7 != 0));
-  WerpBreakIntoDebuggerIfPresent(a1, a2, a3);
+  v8 = RtlReportExceptionHelper(ExceptionRecord, ContextRecord, Flags, (unsigned __int64)&v11 & -(__int64)(v7 != 0));
+  WerpBreakIntoDebuggerIfPresent(ExceptionRecord, ContextRecord);
   return v8;
 }

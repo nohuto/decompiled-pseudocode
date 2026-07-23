@@ -1,30 +1,31 @@
 /*
- * XREFs of KiUserApcDispatcher @ 0x1800A3F10
+ * XREFs of KiUserApcDispatcher @ 0x1800A3F30
  * Callers:
- *     KiUserApcDispatcher @ 0x1800A3F10 (KiUserApcDispatcher.c)
+ *     KiUserApcDispatcher @ 0x1800A3F30 (KiUserApcDispatcher.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwContinue @ 0x1800A0B40 (ZwContinue.c)
- *     KiUserCallForwarder @ 0x1800A3EC0 (KiUserCallForwarder.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwContinue @ 0x1800A0B60 (ZwContinue.c)
+ *     KiUserCallForwarder @ 0x1800A3EE0 (KiUserCallForwarder.c)
  */
 
 void __noreturn KiUserApcDispatcher()
 {
   unsigned __int64 v0; // rcx
-  int v1; // eax
-  int v2; // esi
+  NTSTATUS v1; // eax
+  NTSTATUS v2; // esi
   unsigned __int64 v3; // rcx
-  _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
-  __int64 v5; // [rsp+8h] [rbp+8h]
+  __int64 retaddr; // [rsp+0h] [rbp+0h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *v5; // [rsp+8h] [rbp+8h]
   __int64 v6; // [rsp+10h] [rbp+10h]
   __int64 v7; // [rsp+18h] [rbp+18h]
+  char v8; // [rsp+20h] [rbp+20h]
 
   while ( 1 )
   {
     v0 = __ROL8__(-(v7 >> 2), 32);
     if ( (_DWORD)v0 )
     {
-      KiUserCallForwarder();
+      KiUserCallForwarder(retaddr, v5);
     }
     else
     {
@@ -36,7 +37,7 @@ void __noreturn KiUserApcDispatcher()
         goto LABEL_7;
       }
     }
-    v1 = ZwContinue();
+    v1 = ZwContinue((PCONTEXT)&retaddr, v8 & 1);
     if ( v1 )
     {
       if ( v1 == -1073740278 )

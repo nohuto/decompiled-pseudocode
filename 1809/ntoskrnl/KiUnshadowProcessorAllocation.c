@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUnshadowProcessorAllocation @ 0x14057BA9C
+ * XREFs of KiUnshadowProcessorAllocation @ 0x14057CA9C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
- *     MmDeleteShadowMapping @ 0x140858ECC (MmDeleteShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x14085A12C (MmDeleteShadowMapping.c)
  */
 
 __int64 __fastcall KiUnshadowProcessorAllocation(__int64 a1, __int64 a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCheckStart @ 0x14008B8E0
+ * XREFs of PpmCheckStart @ 0x14008B8D0
  * Callers:
- *     PpmCheckPeriodicStart @ 0x14008B6C0 (PpmCheckPeriodicStart.c)
- *     PpmCheckCustomRun @ 0x140141B74 (PpmCheckCustomRun.c)
+ *     PpmCheckPeriodicStart @ 0x14008B6B0 (PpmCheckPeriodicStart.c)
+ *     PpmCheckCustomRun @ 0x140141C74 (PpmCheckCustomRun.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x140141ED4 (PpmPerfSetAllDomainsToUpdate.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x140141FD4 (PpmPerfSetAllDomainsToUpdate.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __fastcall PpmCheckStart(int a1)
@@ -26,7 +26,7 @@ BOOLEAN __fastcall PpmCheckStart(int a1)
   int v9; // edx
   int v10; // [rsp+40h] [rbp-68h] BYREF
   __int64 v11; // [rsp+48h] [rbp-60h] BYREF
-  _BYTE v12[8]; // [rsp+50h] [rbp-58h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-58h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v13; // [rsp+58h] [rbp-50h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-40h] BYREF
   __int64 *v15; // [rsp+78h] [rbp-30h]
@@ -36,7 +36,7 @@ BOOLEAN __fastcall PpmCheckStart(int a1)
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(v12);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   v11 = PpmCheckLastExecutionTime;
   v10 = v1;
   if ( PpmEtwRegistered )
@@ -58,9 +58,9 @@ BOOLEAN __fastcall PpmCheckStart(int a1)
     PpmCheckPipeline = *(_QWORD *)PpmCheckPipelines;
   PpmCheckPipelineIndex = 0;
   v3 = (unsigned __int64)PpmPerfDeadlineBoostExpiration >= MEMORY[0xFFFFF78000000008];
-  if ( __PAIR64__(PpmCheckDeadlineBoostActive, PpmCheckLatencyBoostActive) != __PAIR64__(
-                                                                                v3,
-                                                                                (unsigned __int64)PpmPerfLatencyBoostExpiration >= MEMORY[0xFFFFF78000000008]) )
+  if ( __PAIR64__(PpmCheckLatencyBoostActive, PpmCheckDeadlineBoostActive) != __PAIR64__(
+                                                                                (unsigned __int64)PpmPerfLatencyBoostExpiration >= MEMORY[0xFFFFF78000000008],
+                                                                                v3) )
   {
     PpmPerfSetAllDomainsToUpdate(PpmPerfDeadlineBoostExpiration, v3);
     PpmCheckLatencyBoostActive = v8;

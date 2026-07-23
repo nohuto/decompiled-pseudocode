@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdtOpenRegAndSetupNotification @ 0x14056FABC
+ * XREFs of SepAdtOpenRegAndSetupNotification @ 0x14056FFFC
  * Callers:
  *     SepAdtInitializeAuditingOptions @ 0x1407B2FB4 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     NtNotifyChangeKey @ 0x14040095C (NtNotifyChangeKey.c)
- *     SepRegOpenKey @ 0x140476484 (SepRegOpenKey.c)
+ *     NtNotifyChangeKey @ 0x1403FF81C (NtNotifyChangeKey.c)
+ *     SepRegOpenKey @ 0x140475354 (SepRegOpenKey.c)
  */
 
 int SepAdtOpenRegAndSetupNotification()
@@ -17,8 +17,8 @@ int SepAdtOpenRegAndSetupNotification()
              &SepAdtRegNotifyHandle);
   if ( result >= 0 )
   {
-    qword_140341580 = (__int64)SepAdtRegNotificationCallback;
-    qword_140341588 = 0LL;
+    qword_1403415C0 = (__int64)SepAdtRegNotificationCallback;
+    qword_1403415C8 = 0LL;
     *(_QWORD *)SepAdtLsaRegWatchWorkItem = 0LL;
     return NtNotifyChangeKey(
              SepAdtRegNotifyHandle,

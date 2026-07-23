@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpIcSignExtendOperandValue @ 0x140BB8928
+ * XREFs of RtlpIcSignExtendOperandValue @ 0x140BBA928
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140BB74F8 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
- *     RtlpIcReadOperandValue @ 0x140BB8634 (RtlpIcReadOperandValue.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140BB94F8 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcReadOperandValue @ 0x140BBA634 (RtlpIcReadOperandValue.c)
  * Callees:
  *     <none>
  */

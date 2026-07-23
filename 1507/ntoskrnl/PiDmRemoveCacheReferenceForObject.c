@@ -20,7 +20,7 @@
 __int64 __fastcall PiDmRemoveCacheReferenceForObject(int a1, __int64 a2, unsigned int *a3)
 {
   unsigned int v4; // esi
-  struct _RTL_AVL_TABLE *ObjectManagerForObjectType; // rdi
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // rdi
   unsigned int *v6; // rax
   struct _KTHREAD *CurrentThread; // rdx
   __int16 v8; // ax
@@ -28,7 +28,7 @@ __int64 __fastcall PiDmRemoveCacheReferenceForObject(int a1, __int64 a2, unsigne
 
   Buffer = a3;
   v4 = 0;
-  ObjectManagerForObjectType = (struct _RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   PiDmObjectManagerAcquireExclusiveLock(ObjectManagerForObjectType);
   v6 = (unsigned int *)PiDmLookupObject(ObjectManagerForObjectType, a2);
   Buffer = v6;

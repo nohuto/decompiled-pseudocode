@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcRecordProcessorInfo @ 0x1403A65B4
+ * XREFs of HalpMcRecordProcessorInfo @ 0x1403A6704
  * Callers:
- *     HalpMcUpdateMicrocode @ 0x1403A6514 (HalpMcUpdateMicrocode.c)
- *     HalpMcInitializeMicrocodeInfo @ 0x140A395C8 (HalpMcInitializeMicrocodeInfo.c)
+ *     HalpMcUpdateMicrocode @ 0x1403A6664 (HalpMcUpdateMicrocode.c)
+ *     HalpMcInitializeMicrocodeInfo @ 0x140A3A5C8 (HalpMcInitializeMicrocodeInfo.c)
  * Callees:
- *     HalpMcSetUpdateInfoInvalid @ 0x1403A83D4 (HalpMcSetUpdateInfoInvalid.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalpMcSetUpdateInfoInvalid @ 0x1403A9164 (HalpMcSetUpdateInfoInvalid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpMcRecordProcessorInfo(__int64 a1)

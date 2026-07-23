@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIrpWorkerControl @ 0x1401919D0
+ * XREFs of PopIrpWorkerControl @ 0x140191B10
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PopCreateDynamicIrpWorker @ 0x1401763C0 (PopCreateDynamicIrpWorker.c)
+ *     PopCreateDynamicIrpWorker @ 0x1401764C0 (PopCreateDynamicIrpWorker.c)
  */
 
 void __noreturn PopIrpWorkerControl()

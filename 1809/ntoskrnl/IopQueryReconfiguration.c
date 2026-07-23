@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQueryReconfiguration @ 0x14083B15C
+ * XREFs of IopQueryReconfiguration @ 0x14083C3BC
  * Callers:
- *     PnpCancelStopDeviceNode @ 0x14083F3D8 (PnpCancelStopDeviceNode.c)
- *     PnpQueryStopDeviceNode @ 0x14083F804 (PnpQueryStopDeviceNode.c)
- *     PnpStopDeviceSubtree @ 0x14083FBE4 (PnpStopDeviceSubtree.c)
+ *     PnpCancelStopDeviceNode @ 0x140840638 (PnpCancelStopDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x140840A64 (PnpQueryStopDeviceNode.c)
+ *     PnpStopDeviceSubtree @ 0x140840E44 (PnpStopDeviceSubtree.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopSynchronousCall @ 0x1405A3CE0 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall IopQueryReconfiguration(char a1, struct _DEVICE_OBJECT *a2)

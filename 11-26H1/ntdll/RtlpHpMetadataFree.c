@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x180087EE8
+ * XREFs of RtlpHpMetadataFree @ 0x18007F268
  * Callers:
- *     RtlpFreeHeapMetadata @ 0x180087C20 (RtlpFreeHeapMetadata.c)
- *     RtlpFlsHeapFree @ 0x180087E9C (RtlpFlsHeapFree.c)
- *     RtlpHpLargeFree @ 0x18008918C (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x18008D4B8 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpHeapDestroy @ 0x18008E4B4 (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x18008ED18 (RtlpHpLargeAllocationDestroy.c)
- *     RtlpHpTagContextAllocateTag @ 0x1800A1BC4 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpStackTraceAddStack @ 0x1800C0100 (RtlpHpStackTraceAddStack.c)
- *     RtlpHpTagRunOnceInit @ 0x1801023C0 (RtlpHpTagRunOnceInit.c)
- *     RtlpHpStackTraceAllocAdd @ 0x180115EC4 (RtlpHpStackTraceAllocAdd.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x18014F3D4 (RtlpHpPerHeapStackTraceCleanup.c)
- *     RtlpHpStackDbFreeRoutine @ 0x18014F620 (RtlpHpStackDbFreeRoutine.c)
- *     RtlpHpStackTraceAllocRemove @ 0x18014F848 (RtlpHpStackTraceAllocRemove.c)
- *     RtlpHpStackTraceEtwCallback @ 0x18014F9F0 (RtlpHpStackTraceEtwCallback.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180157F90 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     RtlpFreeHeapMetadata @ 0x18007EFA0 (RtlpFreeHeapMetadata.c)
+ *     RtlpFlsHeapFree @ 0x18007F21C (RtlpFlsHeapFree.c)
+ *     RtlpHpLargeFree @ 0x18008058C (RtlpHpLargeFree.c)
+ *     RtlpHpTagContextAllocateTag @ 0x1800A0CF4 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpHpStackTraceAddStack @ 0x1800BD890 (RtlpHpStackTraceAddStack.c)
+ *     RtlpHpHeapDestroy @ 0x1800DFE7C (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1800E0740 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1800E387C (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpTagRunOnceInit @ 0x180101B10 (RtlpHpTagRunOnceInit.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x1801156A4 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x18014F284 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlpHpStackDbFreeRoutine @ 0x18014F4D0 (RtlpHpStackDbFreeRoutine.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x18014F6F8 (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpHpStackTraceEtwCallback @ 0x18014F8A0 (RtlpHpStackTraceEtwCallback.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180157E60 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
  * Callees:
- *     RtlpLogHeapFreeEvent @ 0x180017DFC (RtlpLogHeapFreeEvent.c)
- *     RtlpHpLfhContextFree @ 0x180019DA0 (RtlpHpLfhContextFree.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegFreeInternal @ 0x18001AD38 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLargeFree @ 0x18008918C (RtlpHpLargeFree.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFreeEvent @ 0x180002EDC (RtlpLogHeapFreeEvent.c)
+ *     RtlpHpLfhContextFree @ 0x180004E80 (RtlpHpLfhContextFree.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegFreeInternal @ 0x180005E18 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLargeFree @ 0x18008058C (RtlpHpLargeFree.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
+NTSTATUS __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
 {
-  unsigned int v2; // ebx
+  int v2; // ebx
   __int64 v3; // rdx
   __int64 v5; // rsi
   int v6; // ecx
@@ -40,21 +40,20 @@ __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
   unsigned __int64 v12; // r11
   __int64 v13; // r11
   unsigned __int64 v14; // rdx
-  __int64 result; // rax
-  __int64 v16; // r9
-  unsigned int v17; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  int v16; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0;
   v3 = (unsigned __int8)BYTE1(*a2);
-  v17 = 0;
-  v5 = qword_1801CB148[2 * (unsigned int)dword_18017C068[v3]];
+  v16 = 0;
+  v5 = qword_1801CA198[2 * (unsigned int)dword_18017B028[v3]];
   if ( (_WORD)a1 )
   {
     v6 = 0;
   }
   else
   {
-    v7 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((unsigned __int64)(a1 - qword_1801C78B8) >> 20));
+    v7 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(a1 - qword_1801C6908) >> 20));
     if ( !v7 || (v6 = v7 - 1, (_DWORD)v7 == 3) )
     {
       result = RtlpHpLargeFree(v5, a1);
@@ -80,8 +79,8 @@ __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
     }
     else
     {
-      result = RtlpHpSegFreeInternal(v9, a1, v13, &v17);
-      v2 = v17;
+      result = RtlpHpSegFreeInternal(v9, a1, v13, &v16);
+      v2 = v16;
     }
   }
   else
@@ -90,6 +89,6 @@ __int64 __fastcall RtlpHpMetadataFree(__int64 a1, _QWORD *a2)
   }
 LABEL_10:
   if ( *(char *)(v5 + 20) < 0 )
-    return RtlpLogHeapFreeEvent(v5, a1, v2, v16);
+    return RtlpLogHeapFreeEvent(v5, a1, v2);
   return result;
 }

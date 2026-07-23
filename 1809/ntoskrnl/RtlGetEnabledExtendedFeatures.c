@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGetEnabledExtendedFeatures @ 0x140177FC0
+ * XREFs of RtlGetEnabledExtendedFeatures @ 0x1401780C0
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
  *     <none>
  */

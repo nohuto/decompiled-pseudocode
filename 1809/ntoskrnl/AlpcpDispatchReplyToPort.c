@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpDispatchReplyToPort @ 0x140615EDC
+ * XREFs of AlpcpDispatchReplyToPort @ 0x140616EDC
  * Callers:
- *     AlpcpDispatchMessage @ 0x14061A7E4 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14061B7E4 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x140635910 (AlpcpSendMessage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x1406161D4 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpClearOwnerPortMessage @ 0x140616260 (AlpcpClearOwnerPortMessage.c)
- *     AlpcpReferenceReplyTargetPorts @ 0x140616294 (AlpcpReferenceReplyTargetPorts.c)
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     AlpcpCancelMessage @ 0x14061690C (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x1406171D4 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpClearOwnerPortMessage @ 0x140617260 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpReferenceReplyTargetPorts @ 0x140617294 (AlpcpReferenceReplyTargetPorts.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406371B0 (AlpcpSetOwnerPortMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToPort(__int64 a1)

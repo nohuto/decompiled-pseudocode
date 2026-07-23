@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkIdleMonitorMWait @ 0x140C7C8F0
+ * XREFs of HalpBlkIdleMonitorMWait @ 0x140C828F0
  * Callers:
- *     HalpBlkIdleLoop @ 0x140C7C7E0 (HalpBlkIdleLoop.c)
+ *     HalpBlkIdleLoop @ 0x140C827E0 (HalpBlkIdleLoop.c)
  * Callees:
  *     <none>
  */

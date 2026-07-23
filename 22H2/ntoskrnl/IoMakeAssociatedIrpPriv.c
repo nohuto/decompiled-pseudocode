@@ -15,7 +15,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
+_SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
 {
   char IsActivityTracingEnabled; // al
   __int64 v6; // r8
@@ -40,7 +40,7 @@ struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, 
   __int64 v25; // r9
   __int64 v26; // r8
   __int64 v27; // r9
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   char v29; // [rsp+80h] [rbp+18h]
   char v30; // [rsp+88h] [rbp+20h]
 
@@ -106,7 +106,7 @@ struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, 
     ++L->TotalFrees;
     ExFreePoolWithTag(v18, 0);
 LABEL_29:
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x20707249u);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x20707249u);
     v18 = result;
     if ( !result )
       return result;

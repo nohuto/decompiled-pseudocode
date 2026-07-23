@@ -1,24 +1,24 @@
 /*
- * XREFs of KeSetPagePrivilege @ 0x1404B0F70
+ * XREFs of KeSetPagePrivilege @ 0x1404AA600
  * Callers:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     MiReferencePageForModifiedWrite @ 0x1402F4B50 (MiReferencePageForModifiedWrite.c)
- *     MiAddPageToFlushMdl @ 0x1402F5760 (MiAddPageToFlushMdl.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
- *     MiUpdateSecurePte @ 0x1404B0E7C (MiUpdateSecurePte.c)
- *     MiAdjustSecureDriverStateForIatCapture @ 0x1404DDD28 (MiAdjustSecureDriverStateForIatCapture.c)
- *     MiLockDriverPageRange @ 0x1406E57E8 (MiLockDriverPageRange.c)
- *     MiProtectDriverSectionPte @ 0x1406E5D50 (MiProtectDriverSectionPte.c)
- *     ExpRevokeBootLoaderPagePrivileges @ 0x140CAA540 (ExpRevokeBootLoaderPagePrivileges.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402D6BD0 (MiReferencePageForModifiedWrite.c)
+ *     MiAddPageToFlushMdl @ 0x1402D77E0 (MiAddPageToFlushMdl.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
+ *     MiUpdateSecurePte @ 0x1404AA50C (MiUpdateSecurePte.c)
+ *     MiAdjustSecureDriverStateForIatCapture @ 0x1404D7408 (MiAdjustSecureDriverStateForIatCapture.c)
+ *     MiLockDriverPageRange @ 0x1406EA498 (MiLockDriverPageRange.c)
+ *     MiProtectDriverSectionPte @ 0x1406EAA00 (MiProtectDriverSectionPte.c)
+ *     ExpRevokeBootLoaderPagePrivileges @ 0x140CB0540 (ExpRevokeBootLoaderPagePrivileges.c)
  * Callees:
- *     VslRemoveProtectedPage @ 0x1404B0FD0 (VslRemoveProtectedPage.c)
- *     VslRegisterProtectedPage @ 0x1404B1050 (VslRegisterProtectedPage.c)
- *     VslSetPrivilegedPte @ 0x1404B10CC (VslSetPrivilegedPte.c)
- *     VslMakeProtectedPageExecutable @ 0x1404B1154 (VslMakeProtectedPageExecutable.c)
+ *     VslRemoveProtectedPage @ 0x1404AA660 (VslRemoveProtectedPage.c)
+ *     VslRegisterProtectedPage @ 0x1404AA6E0 (VslRegisterProtectedPage.c)
+ *     VslSetPrivilegedPte @ 0x1404AA75C (VslSetPrivilegedPte.c)
+ *     VslMakeProtectedPageExecutable @ 0x1404AA7E4 (VslMakeProtectedPageExecutable.c)
  */
 
 __int64 __fastcall KeSetPagePrivilege(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

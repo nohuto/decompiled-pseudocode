@@ -32,10 +32,10 @@
  *     ViHalPreprocessOptions @ 0x1406BDA64 (ViHalPreprocessOptions.c)
  */
 
-ULONG_PTR __fastcall ViGetAdapterInformationInternal(__int64 a1, char a2)
+struct _LIST_ENTRY *__fastcall ViGetAdapterInformationInternal(struct _LIST_ENTRY *a1, char a2)
 {
   KIRQL v4; // al
-  ULONG_PTR i; // rbx
+  struct _LIST_ENTRY *i; // rbx
 
   if ( !a1 )
     return 0LL;
@@ -48,24 +48,24 @@ ULONG_PTR __fastcall ViGetAdapterInformationInternal(__int64 a1, char a2)
   if ( !ViVerifyDma && ViEnableAfterHibernate == 1 )
     return 0LL;
   v4 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  for ( i = ViAdapterList; ; i = *(_QWORD *)i )
+  for ( i = ViAdapterList.Flink; ; i = i->Flink )
   {
-    if ( &ViAdapterList == (ULONG_PTR *)i )
+    if ( &ViAdapterList == i )
     {
       KeReleaseSpinLock(&Lock, v4);
       return 0LL;
     }
-    if ( a1 == *(_QWORD *)(i + 16) )
+    if ( a1 == i[1].Flink )
       break;
   }
   KeReleaseSpinLock(&Lock, v4);
-  if ( a2 && *(int *)(i + 36) <= 0 )
+  if ( a2 && SHIDWORD(i[2].Flink) <= 0 )
   {
     ViHalPreprocessOptions(
       byte_1402D404C,
       "Driver has attempted to access an adapter (%p) that has already been released",
       (const void *)0x18);
-    VfReportIssueWithOptions(230, 24, a1, i, 0LL, byte_1402D404C);
+    VfReportIssueWithOptions(230, 24, (int)a1, (int)i, 0LL, byte_1402D404C);
   }
   return i;
 }

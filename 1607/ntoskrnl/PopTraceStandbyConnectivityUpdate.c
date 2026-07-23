@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14057C44C
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14057C8F8
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x14057C2FC (PopNetEvaluationWorkerCallback.c)
+ *     PopNetEvaluationWorkerCallback @ 0x14057C7A8 (PopNetEvaluationWorkerCallback.c)
  *     PopNetInitialize @ 0x140795FD0 (PopNetInitialize.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
@@ -37,9 +37,9 @@ char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
   v2 = &retaddr;
   v22 = a2;
   v21 = a1;
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    LOBYTE(v2) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+    LOBYTE(v2) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
     if ( (_BYTE)v2 )
     {
       v16 = 0;
@@ -50,7 +50,7 @@ char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
       v8 = v3;
       v15 = 4;
       v18 = 4;
-      LOBYTE(v2) = TlgWrite(&pCallbackContext, &unk_14027CCAB, 0LL, 0LL, 4u, &pData);
+      LOBYTE(v2) = TlgWrite(&hProvider, &unk_14027CDAB, 0LL, 0LL, 4u, &pData);
     }
   }
   if ( PopDiagHandleRegistered )

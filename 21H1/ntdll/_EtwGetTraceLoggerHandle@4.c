@@ -13,19 +13,19 @@ int __stdcall EtwGetTraceLoggerHandle(_DWORD *a1)
 
   if ( !a1 )
   {
-    RtlSetLastWin32Error((struct _TEB *)0x57);
+    RtlSetLastWin32Error(87);
     return -1;
   }
   if ( *a1 < 0x30u )
   {
-    RtlSetLastWin32Error((struct _TEB *)0x18);
+    RtlSetLastWin32Error(24);
     return -1;
   }
   v1 = a1[2];
   if ( (unsigned int)(unsigned __int16)v1 >= EtwpGetMaxLogger() && (_WORD)v1 != 0xFFFF )
   {
     v1 = -1;
-    RtlSetLastWin32Error((struct _TEB *)6);
+    RtlSetLastWin32Error(6);
   }
   return v1;
 }

@@ -10,18 +10,20 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUpcaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlUpcaseUnicodeChar(WCHAR SourceCharacter)
 {
-  if ( a1 < 0x61u )
-    return a1;
-  if ( a1 > 0x7Au )
-    return (unsigned __int16)(a1
-                            + *(_WORD *)(qword_180159D68
-                                       + 2LL
-                                       * ((a1 & 0xF)
-                                        + (unsigned int)*(unsigned __int16 *)(qword_180159D68
-                                                                            + 2LL
-                                                                            * (((a1 >> 4) & 0xF)
-                                                                             + (unsigned int)*(unsigned __int16 *)(qword_180159D68 + 2 * ((unsigned __int64)a1 >> 8)))))));
-  return (unsigned int)a1 - 32;
+  if ( SourceCharacter < 0x61u )
+    return SourceCharacter;
+  if ( SourceCharacter > 0x7Au )
+    return SourceCharacter
+         + *(_WORD *)(qword_180159D68
+                    + 2LL
+                    * ((SourceCharacter & 0xF)
+                     + (unsigned int)*(unsigned __int16 *)(qword_180159D68
+                                                         + 2LL
+                                                         * (((SourceCharacter >> 4) & 0xF)
+                                                          + (unsigned int)*(unsigned __int16 *)(qword_180159D68
+                                                                                              + 2
+                                                                                              * ((unsigned __int64)SourceCharacter >> 8))))));
+  return SourceCharacter - 32;
 }

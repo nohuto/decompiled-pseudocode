@@ -19,57 +19,62 @@ __int64 LdrpCorInitialize()
 {
   bool v0; // bl
   __int64 v1; // rdx
-  int appended; // ebx
-  int *v3; // r8
-  __int64 v5; // [rsp+30h] [rbp-148h] BYREF
-  _QWORD v6[3]; // [rsp+38h] [rbp-140h] BYREF
-  int v7; // [rsp+50h] [rbp-128h] BYREF
-  _WORD *v8; // [rsp+58h] [rbp-120h]
-  _WORD v9[128]; // [rsp+60h] [rbp-118h] BYREF
+  NTSTATUS appended; // ebx
+  _UNICODE_STRING *p_DllName; // r8
+  ULONG_PTR ReturnLength; // [rsp+30h] [rbp-148h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-140h] BYREF
+  _UNICODE_STRING DllName; // [rsp+50h] [rbp-128h] BYREF
+  _WORD v8[128]; // [rsp+60h] [rbp-118h] BYREF
 
   v0 = 1;
   RtlEnterCriticalSection(&FastPebLock);
-  if ( (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 19LL, 0LL, 0LL, &v5) == -1073741789 )
-    v0 = (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 15LL, 0LL, 0LL, &v5) != -1073741789;
+  if ( RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 0x13uLL, 0LL, 0LL, &ReturnLength) == -1073741789 )
+    v0 = RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 0xFuLL, 0LL, 0LL, &ReturnLength) != -1073741789;
   RtlLeaveCriticalSection(&FastPebLock);
-  v8 = v9;
-  v7 = 0x1000000;
-  v9[0] = 0;
+  DllName.Buffer = v8;
+  *(_DWORD *)&DllName.Length = 0x1000000;
+  v8[0] = 0;
   if ( v0 )
   {
-    RtlInitUnicodeStringEx(v6, 2147352624LL);
-    appended = LdrpAppendUnicodeStringToFilenameBuffer(&v7, v6);
+    RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)0x7FFE0030);
+    appended = LdrpAppendUnicodeStringToFilenameBuffer(&DllName, &DestinationString);
     if ( appended >= 0 )
     {
-      appended = LdrpAppendUnicodeStringToFilenameBuffer(&v7, &SlashSystem32SlashString);
+      appended = LdrpAppendUnicodeStringToFilenameBuffer(&DllName, &SlashSystem32SlashString);
       if ( appended >= 0 )
-        appended = LdrpAppendUnicodeStringToFilenameBuffer(&v7, &LdrpMscoreeDllName);
+        appended = LdrpAppendUnicodeStringToFilenameBuffer(&DllName, &LdrpMscoreeDllName);
     }
-    v3 = &v7;
+    p_DllName = &DllName;
   }
   else
   {
-    v3 = (int *)&LdrpMscoreeDllName;
+    p_DllName = (_UNICODE_STRING *)&LdrpMscoreeDllName;
     appended = 0;
   }
   if ( appended >= 0 )
   {
-    appended = LdrLoadDll(0LL, 0LL, v3, &v5);
+    appended = LdrLoadDll(0LL, 0LL, p_DllName, (PVOID *)&ReturnLength);
     if ( appended >= 0 )
     {
-      appended = LdrGetProcedureAddress(v5, &LdrpCorExeMainName, 0LL, v6);
+      appended = LdrGetProcedureAddress(
+                   (PVOID)ReturnLength,
+                   (PANSI_STRING)&LdrpCorExeMainName,
+                   0,
+                   (PVOID *)&DestinationString);
       if ( appended < 0 )
       {
-        LdrUnloadDll(v5);
+        LdrUnloadDll((PVOID)ReturnLength);
       }
       else
       {
-        v1 = __ROR8__(v6[0] ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
+        v1 = __ROR8__(
+               *(_QWORD *)&DestinationString.Length ^ (unsigned int)MEMORY[0x7FFE0330],
+               (unsigned __int8)MEMORY[0x7FFE0330] & 0x3F);
         LdrpCorExeMainRoutine = v1;
       }
     }
   }
-  if ( v9 != v8 )
-    NtdllpFreeStringRoutine(v8, v1, v3);
+  if ( v8 != DllName.Buffer )
+    NtdllpFreeStringRoutine(DllName.Buffer, v1, p_DllName);
   return (unsigned int)appended;
 }

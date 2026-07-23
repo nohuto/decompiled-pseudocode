@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptIntGetValue @ 0x14055C2D4
+ * XREFs of SymCryptIntGetValue @ 0x14055E7BC
  * Callers:
- *     SymCryptRsaCoreDecCrt @ 0x14055E3DC (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptRsaCoreDecCrt @ 0x140560900 (SymCryptRsaCoreDecCrt.c)
  * Callees:
- *     SymCryptFdefIntGetValue @ 0x140570BA0 (SymCryptFdefIntGetValue.c)
+ *     SymCryptFdefIntGetValue @ 0x14056FD80 (SymCryptFdefIntGetValue.c)
  */
 
 __int64 SymCryptIntGetValue()

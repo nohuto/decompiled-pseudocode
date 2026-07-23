@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpInitializeSearchDBContext @ 0x140753808
+ * XREFs of SdbpInitializeSearchDBContext @ 0x1407539C8
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x1407544C0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingDir @ 0x140964370 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140754680 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140964550 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964E74 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965260 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     SdbpCreateSearchPathPartsFromPath @ 0x1407538F4 (SdbpCreateSearchPathPartsFromPath.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     SdbpGetProcessHistory @ 0x1409662BC (SdbpGetProcessHistory.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SdbpCreateSearchPathPartsFromPath @ 0x140753AB4 (SdbpCreateSearchPathPartsFromPath.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     SdbpGetProcessHistory @ 0x14096649C (SdbpGetProcessHistory.c)
  */
 
 __int64 __fastcall SdbpInitializeSearchDBContext(__int64 a1)

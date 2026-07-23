@@ -122,7 +122,7 @@
  *     sub_1800845DC @ 0x1800845DC (sub_1800845DC.c)
  *     ntdll_8 @ 0x180085520 (ntdll_8.c)
  *     sub_180085EDC @ 0x180085EDC (sub_180085EDC.c)
- *     sub_1800872D0 @ 0x1800872D0 (sub_1800872D0.c)
+ *     EnableCallback @ 0x1800872D0 (EnableCallback.c)
  *     sub_180087358 @ 0x180087358 (sub_180087358.c)
  *     RtlQueryWnfStateDataWithExplicitScope @ 0x180087AE0 (RtlQueryWnfStateDataWithExplicitScope.c)
  *     sub_180088AF8 @ 0x180088AF8 (sub_180088AF8.c)

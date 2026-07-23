@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpPsProvTraceProcess @ 0x14054B508
+ * XREFs of EtwpPsProvTraceProcess @ 0x14054BA48
  * Callers:
- *     EtwpWriteProcessEvent @ 0x14045D6F0 (EtwpWriteProcessEvent.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1406A7D94 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpWriteProcessEvent @ 0x14045C5C0 (EtwpWriteProcessEvent.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1406A7ECC (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
- *     PsQueryStatisticsProcess @ 0x14044EBC0 (PsQueryStatisticsProcess.c)
- *     ObGetProcessHandleCount @ 0x1404A2C34 (ObGetProcessHandleCount.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
+ *     PsQueryStatisticsProcess @ 0x14044DA90 (PsQueryStatisticsProcess.c)
+ *     ObGetProcessHandleCount @ 0x14051B034 (ObGetProcessHandleCount.c)
  */
 
 int __fastcall EtwpPsProvTraceProcess(PEPROCESS Process, __int64 a2, unsigned int *a3, __int64 a4, __int16 a5)

@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpHpIsSpecialPoolHeap @ 0x140485148
+ * XREFs of ExpHpIsSpecialPoolHeap @ 0x14047EAB8
  * Callers:
- *     ExIsSpecialPoolAddress @ 0x140485074 (ExIsSpecialPoolAddress.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExIsSpecialPoolAddress @ 0x14047E9E4 (ExIsSpecialPoolAddress.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall ExpHpIsSpecialPoolHeap(__int64 a1)
   __int64 *i; // rax
 
   v1 = 0;
-  for ( i = &qword_140EEED00; (__int64)i < (__int64)qword_140EEED20; ++i )
+  for ( i = &qword_140EEF000; (__int64)i < (__int64)qword_140EEF020; ++i )
   {
     if ( a1 == *i )
       return 1;

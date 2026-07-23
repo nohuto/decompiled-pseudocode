@@ -1,11 +1,11 @@
 /*
- * XREFs of PopQueryPowerButtonBugcheckConfiguration @ 0x14017E020
+ * XREFs of PopQueryPowerButtonBugcheckConfiguration @ 0x14017E160
  * Callers:
- *     PopPowerButtonBugcheckConfigure @ 0x140729900 (PopPowerButtonBugcheckConfigure.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x14072AAF0 (PopPowerButtonBugcheckConfigure.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _DWORD *a2)
@@ -34,11 +34,11 @@ NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _
     if ( v11 )
     {
       *a2 = 1;
-      dword_1404101B0 = 2;
+      dword_140411250 = 2;
     }
     else
     {
-      dword_1404101B0 = 1;
+      dword_140411250 = 1;
     }
   }
   else
@@ -55,11 +55,11 @@ NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _
       if ( v11 )
       {
         *a2 = 1;
-        dword_1404101B4 = 2;
+        dword_140411254 = 2;
       }
       else
       {
-        dword_1404101B4 = 1;
+        dword_140411254 = 1;
       }
     }
     else

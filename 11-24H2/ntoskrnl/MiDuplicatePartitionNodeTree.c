@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDuplicatePartitionNodeTree @ 0x14068A284
+ * XREFs of MiDuplicatePartitionNodeTree @ 0x14068B3B4
  * Callers:
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
  * Callees:
- *     MiAddRangeToPartitionTree @ 0x14068993C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x14068A020 (MiDeletePartitionPageNodes.c)
+ *     MiAddRangeToPartitionTree @ 0x14068AA6C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNodes @ 0x14068B150 (MiDeletePartitionPageNodes.c)
  */
 
 __int64 __fastcall MiDuplicatePartitionNodeTree(unsigned __int64 *a1, _QWORD **a2)

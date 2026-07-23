@@ -3,10 +3,10 @@
  * Callers:
  *     HalpDmaInit @ 0x140B605F8 (HalpDmaInit.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     MmAllocateMappingAddress @ 0x14086C460 (MmAllocateMappingAddress.c)
- *     MmFreeMappingAddress @ 0x14086D770 (MmFreeMappingAddress.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     MmAllocateMappingAddress @ 0x14086C6A0 (MmAllocateMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x14086D9B0 (MmFreeMappingAddress.c)
  */
 
 __int64 __fastcall HalpDmaAllocateEmergencyResources(__int64 a1)

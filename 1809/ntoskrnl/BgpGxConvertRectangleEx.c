@@ -1,14 +1,14 @@
 /*
- * XREFs of BgpGxConvertRectangleEx @ 0x14016F3C8
+ * XREFs of BgpGxConvertRectangleEx @ 0x14016F4C8
  * Callers:
- *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x14016EEB8 (GxpWriteFrameBufferPixels.c)
- *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
- *     BgpGxConvertRectangle @ 0x140192C98 (BgpGxConvertRectangle.c)
- *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
+ *     BgpGxDrawRectangle @ 0x14016EF30 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14016EFB8 (GxpWriteFrameBufferPixels.c)
+ *     BgpTxtDisplayCharacter @ 0x14017A014 (BgpTxtDisplayCharacter.c)
+ *     BgpGxConvertRectangle @ 0x140192DD8 (BgpGxConvertRectangle.c)
+ *     AnFwDisplayFade @ 0x14094FBA8 (AnFwDisplayFade.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     BgpGxRectangleCreate @ 0x14095021C (BgpGxRectangleCreate.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     BgpGxRectangleCreate @ 0x14095121C (BgpGxRectangleCreate.c)
  */
 
 __int64 __fastcall BgpGxConvertRectangleEx(__int64 a1, __int64 a2, _QWORD *a3, char a4)

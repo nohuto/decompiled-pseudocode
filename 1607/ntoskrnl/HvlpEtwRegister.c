@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpEtwRegister @ 0x1401C0BF0
+ * XREFs of HvlpEtwRegister @ 0x1401C0AD4
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
  * Callees:
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  */
 
 NTSTATUS HvlpEtwRegister()

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x14038FB6C
+ * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x14038FCBC
  * Callers:
- *     SeSecurityAttributePresent @ 0x14024EAC0 (SeSecurityAttributePresent.c)
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x140292930 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x14034DBA0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
- *     SepMandatoryIntegrityCheck @ 0x14034E820 (SepMandatoryIntegrityCheck.c)
- *     ExpFastResourceLegacyAcquireExclusive @ 0x14038E464 (ExpFastResourceLegacyAcquireExclusive.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1405B491C (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402108A0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     SeSecurityAttributePresent @ 0x1402F3310 (SeSecurityAttributePresent.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x1403588F0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     SepMandatoryIntegrityCheck @ 0x140359570 (SepMandatoryIntegrityCheck.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x14038E5B4 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1405B4B4C (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _BYTE *ExpAllocateOwnerEntryForLegacyShim()

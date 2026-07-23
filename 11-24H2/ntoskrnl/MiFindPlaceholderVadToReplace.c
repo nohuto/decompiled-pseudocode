@@ -1,48 +1,54 @@
 /*
- * XREFs of MiFindPlaceholderVadToReplace @ 0x140497E8C
+ * XREFs of MiFindPlaceholderVadToReplace @ 0x1403C6CE0
  * Callers:
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
  */
 
-__int64 __fastcall MiFindPlaceholderVadToReplace(unsigned __int64 a1, __int64 a2, char a3, int *a4)
+struct _LIST_ENTRY *__fastcall MiFindPlaceholderVadToReplace(unsigned __int64 a1, __int64 a2, char a3, int *a4)
 {
   struct _KTHREAD *CurrentThread; // rsi
   struct _LIST_ENTRY *Address; // rax
-  __int64 v10; // rbx
-  __int64 v12; // rcx
-  __int64 v13; // r9
+  struct _LIST_ENTRY *v10; // rbx
+  __int64 Blink_low; // rcx
+  __int64 Blink_high; // r9
   int v14; // eax
 
   CurrentThread = KeGetCurrentThread();
   Address = MiLocateAddress(a1);
-  v10 = (__int64)Address;
+  v10 = Address;
   if ( !Address )
     goto LABEL_5;
   MiLockVad((__int64)CurrentThread, (__int64)Address);
-  if ( (*(_DWORD *)(v10 + 48) & 4) != 0
-    || (*(unsigned int *)(v10 + 52) | ((unsigned __int64)*(unsigned __int8 *)(v10 + 34) << 32)) != 0x7FFFFFFFDLL
-    || (v12 = *(unsigned int *)(v10 + 24), (v12 | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32)) << 12 != a1)
-    || (v13 = *(unsigned int *)(v10 + 28),
-        (((v13 | ((unsigned __int64)*(unsigned __int8 *)(v10 + 33) << 32)) << 12) | 0xFFF) != a2) )
+  if ( ((__int64)v10[3].Flink & 4) != 0
+    || (HIDWORD(v10[3].Flink) | ((unsigned __int64)BYTE2(v10[2].Flink) << 32)) != 0x7FFFFFFFDLL
+    || (Blink_low = LODWORD(v10[1].Blink), (Blink_low | ((unsigned __int64)LOBYTE(v10[2].Flink) << 32)) << 12 != a1)
+    || (Blink_high = HIDWORD(v10[1].Blink),
+        (((Blink_high | ((unsigned __int64)BYTE1(v10[2].Flink) << 32)) << 12) | 0xFFF) != a2) )
   {
-    MiUnlockVad((__int64)CurrentThread, v10);
+    MiUnlockVad(CurrentThread, v10);
 LABEL_5:
     *a4 = -1073741800;
     return 0LL;
   }
-  if ( (*(_DWORD *)(v10 + 48) & 8) != 0 )
+  if ( ((__int64)v10[3].Flink & 8) != 0 )
   {
-    v14 = MiCheckSecuredVad(v10, (_DWORD)v12 << 12, ((int)v13 - (int)v12 + 1) << 12, 85, a3, 0LL);
+    v14 = MiCheckSecuredVad(
+            (_DWORD)v10,
+            (_DWORD)Blink_low << 12,
+            ((int)Blink_high - (int)Blink_low + 1) << 12,
+            85,
+            a3,
+            0LL);
     *a4 = v14;
     if ( v14 < 0 )
     {
-      MiUnlockVad((__int64)CurrentThread, v10);
+      MiUnlockVad(CurrentThread, v10);
       return 0LL;
     }
   }

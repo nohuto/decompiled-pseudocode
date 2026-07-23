@@ -1,9 +1,9 @@
 /*
- * XREFs of log @ 0x180093890
+ * XREFs of log @ 0x1800938A0
  * Callers:
  *     <none>
  * Callees:
- *     _handle_error @ 0x180097E14 (_handle_error.c)
+ *     _handle_error @ 0x180097E24 (_handle_error.c)
  */
 
 double __cdecl log(double X)

@@ -1,22 +1,22 @@
 /*
- * XREFs of PsUnregisterSiloMonitor @ 0x1409B4010
+ * XREFs of PsUnregisterSiloMonitor @ 0x1409B4210
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PspGetHostSiloStorage @ 0x1405A3914 (PspGetHostSiloStorage.c)
- *     PspGetServerSiloStatePointer @ 0x1405A3924 (PspGetServerSiloStatePointer.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PspGetHostSiloStorage @ 0x1405A3E04 (PspGetHostSiloStorage.c)
+ *     PspGetServerSiloStatePointer @ 0x1405A3E14 (PspGetServerSiloStatePointer.c)
  *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     PspStorageFreeSlot @ 0x1409B7E44 (PspStorageFreeSlot.c)
- *     PspStorageRemoveObject @ 0x1409B7F14 (PspStorageRemoveObject.c)
+ *     PspStorageFreeSlot @ 0x1409B8044 (PspStorageFreeSlot.c)
+ *     PspStorageRemoveObject @ 0x1409B8114 (PspStorageRemoveObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -8,11 +8,10 @@
  *     RtlTestProtectedAccess @ 0x1409BC0CC (RtlTestProtectedAccess.c)
  */
 
-__int64 __fastcall EtwCheckSecurityLoggerAccess(__int64 a1, __int64 a2)
+__int64 __fastcall EtwCheckSecurityLoggerAccess(PS_PROTECTION *a1, char a2)
 {
-  if ( !(_BYTE)a2 )
+  if ( a2 )
+    return RtlTestProtectedAccess(a1[1530], (PS_PROTECTION)49) == 0 ? 0xC0000022 : 0;
+  else
     return 0LL;
-  LOBYTE(a1) = *(_BYTE *)(a1 + 1530);
-  LOBYTE(a2) = 49;
-  return (unsigned __int8)RtlTestProtectedAccess(a1, a2) == 0 ? 0xC0000022 : 0;
 }

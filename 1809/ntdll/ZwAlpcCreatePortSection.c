@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwAlpcCreatePortSection @ 0x1800A1210
+ * XREFs of ZwAlpcCreatePortSection @ 0x1800A1230
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcCreatePortSection()
+NTSTATUS __cdecl ZwAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 122LL;
+  result = 122;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

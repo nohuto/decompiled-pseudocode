@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpWaitOnAddressWakeEntireList @ 0x1800EDA00
+ * XREFs of RtlpWaitOnAddressWakeEntireList @ 0x180031484
  * Callers:
- *     RtlpWakeByAddress @ 0x180014E60 (RtlpWakeByAddress.c)
- *     RtlpOptimizeWaitOnAddressWaitList @ 0x18009BA30 (RtlpOptimizeWaitOnAddressWaitList.c)
- *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18009BA90 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     RtlpOptimizeWaitOnAddressWaitList @ 0x180030880 (RtlpOptimizeWaitOnAddressWaitList.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x1800308E0 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     RtlpWakeByAddress @ 0x180041860 (RtlpWakeByAddress.c)
  * Callees:
- *     ZwAlertThreadByThreadId @ 0x180162AA0 (ZwAlertThreadByThreadId.c)
+ *     ZwAlertThreadByThreadId @ 0x180160E60 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall RtlpWaitOnAddressWakeEntireList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlpWaitOnAddressWakeEntireList(__int64 a1)
 {
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // rbx
-  __int64 result; // rax
+  unsigned __int64 v1; // rcx
+  unsigned __int64 v2; // rbx
+  NTSTATUS result; // eax
 
-  v4 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( v4 )
+  v1 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+  if ( v1 )
   {
     do
     {
-      v5 = *(_QWORD *)(v4 + 16);
-      result = (unsigned int)_InterlockedExchange((volatile __int32 *)(v4 + 40), 2);
-      if ( !(_DWORD)result )
-        result = ZwAlertThreadByThreadId(*(_QWORD *)(v4 + 8), a2, a3, a4);
-      v4 = v5;
+      v2 = *(_QWORD *)(v1 + 16);
+      result = _InterlockedExchange((volatile __int32 *)(v1 + 40), 2);
+      if ( !result )
+        result = ZwAlertThreadByThreadId(*(HANDLE *)(v1 + 8));
+      v1 = v2;
     }
-    while ( v5 );
+    while ( v2 );
   }
   return result;
 }

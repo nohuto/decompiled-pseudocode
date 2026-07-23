@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlCancellableWaitForSingleObject @ 0x1404986BC
+ * XREFs of FsRtlCancellableWaitForSingleObject @ 0x14049914C
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x1400B42DC (FsRtlpWaitOnIrp.c)
- *     FsRtlQueryKernelEaFile @ 0x1404CE198 (FsRtlQueryKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x1404D1560 (FsRtlKernelFsControlFile.c)
- *     FsRtlSetKernelEaFile @ 0x1404E8D6C (FsRtlSetKernelEaFile.c)
- *     FsRtlQueryInformationFile @ 0x14061EA48 (FsRtlQueryInformationFile.c)
+ *     FsRtlpWaitOnIrp @ 0x1400B215C (FsRtlpWaitOnIrp.c)
+ *     FsRtlQueryKernelEaFile @ 0x1404B33F8 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x1404B5000 (FsRtlKernelFsControlFile.c)
+ *     FsRtlSetKernelEaFile @ 0x1404CB0F8 (FsRtlSetKernelEaFile.c)
+ *     FsRtlQueryInformationFile @ 0x14061EAFC (FsRtlQueryInformationFile.c)
  * Callees:
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1404986E8 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x140499178 (FsRtlCancellableWaitForMultipleObjects.c)
  */
 
 NTSTATUS __stdcall FsRtlCancellableWaitForSingleObject(PVOID Object, PLARGE_INTEGER Timeout, PIRP Irp)

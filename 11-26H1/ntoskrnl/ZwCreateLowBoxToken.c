@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwCreateLowBoxToken @ 0x140724AF0
+ * XREFs of ZwCreateLowBoxToken @ 0x1407296C0
  * Callers:
- *     DifZwCreateLowBoxTokenWrapper @ 0x14069FF70 (DifZwCreateLowBoxTokenWrapper.c)
+ *     DifZwCreateLowBoxTokenWrapper @ 0x1406A3B50 (DifZwCreateLowBoxTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateLowBoxToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateLowBoxToken(
+        PHANDLE TokenHandle,
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PSID PackageSid,
+        ULONG CapabilityCount,
+        PSID_AND_ATTRIBUTES Capabilities,
+        ULONG HandleCount,
+        HANDLE *Handles)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TokenHandle);
 }

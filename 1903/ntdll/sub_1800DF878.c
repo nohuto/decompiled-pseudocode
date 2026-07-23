@@ -11,7 +11,7 @@ __int64 __fastcall sub_1800DF878(_DWORD *a1, unsigned __int16 *a2, char *a3, boo
   unsigned int v4; // ebx
   char v8; // si
   bool v9; // bp
-  unsigned __int16 *v10; // r11
+  const WCHAR *v10; // r11
   unsigned __int64 v11; // rax
   __int64 v12; // rax
   unsigned int v13; // edx
@@ -35,13 +35,13 @@ __int64 __fastcall sub_1800DF878(_DWORD *a1, unsigned __int16 *a2, char *a3, boo
   v9 = 0;
   if ( *a2 < 8u )
     return (unsigned int)-1073741811;
-  v10 = (unsigned __int16 *)*((_QWORD *)a2 + 1);
+  v10 = (const WCHAR *)*((_QWORD *)a2 + 1);
   v11 = *(_QWORD *)v10 & 0xFFFFFFDFFFDFFFDFuLL;
   if ( v11 != 0x2D004900500041LL && v11 != 0x2D005400580045LL )
     return (unsigned int)-1073741811;
   v12 = *a2;
   v13 = *a2;
-  v14 = (unsigned __int16 *)((char *)v10 + v12);
+  v14 = (_WORD *)((char *)v10 + v12);
   if ( (unsigned int)v12 > 1 )
   {
     do
@@ -57,9 +57,9 @@ __int64 __fastcall sub_1800DF878(_DWORD *a1, unsigned __int16 *a2, char *a3, boo
   v16 = ((unsigned int)v12 - (unsigned __int16)v13) >> 1;
   if ( !v16 )
     return (unsigned int)-1073741811;
-  if ( *(unsigned __int16 *)((char *)v10 + (unsigned __int16)v13) != 45 )
+  if ( *(const WCHAR *)((char *)v10 + (unsigned __int16)v13) != 45 )
     return (unsigned int)-1073741811;
-  v17 = (unsigned __int16 *)((char *)v10 + (unsigned __int16)v13 + 2);
+  v17 = (_WORD *)((char *)v10 + (unsigned __int16)v13 + 2);
   v18 = v16 - 1;
   if ( v16 == 1 )
     return (unsigned int)-1073741811;

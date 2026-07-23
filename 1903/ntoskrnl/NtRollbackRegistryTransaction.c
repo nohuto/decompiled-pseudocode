@@ -15,12 +15,12 @@
  *     CmpRollbackLightWeightTransaction @ 0x1406E1E40 (CmpRollbackLightWeightTransaction.c)
  */
 
-__int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtRollbackRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   NTSTATUS v5; // eax
   PVOID v6; // rdi
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   PVOID Object; // [rsp+30h] [rbp-48h] BYREF
   _BYTE v10[48]; // [rsp+38h] [rbp-40h] BYREF
 
@@ -29,14 +29,14 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   --CurrentThread->KernelApcDisable;
   if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
-    if ( a2 )
+    if ( Flags )
     {
       v7 = -1073741811;
     }
     else
     {
       v5 = ObReferenceObjectByHandle(
-             Handle,
+             RegistryTransactionHandle,
              0x10u,
              CmRegistryTransactionType,
              KeGetCurrentThread()->PreviousMode,
@@ -61,7 +61,7 @@ __int64 __fastcall NtRollbackRegistryTransaction(HANDLE Handle, int a2)
   else
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
-  return (unsigned int)v7;
+  return v7;
 }

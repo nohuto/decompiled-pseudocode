@@ -1,7 +1,7 @@
 /*
  * XREFs of KiRestoreXSaveSupport @ 0x1403CEB9C
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x1401141D4 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140114744 (KeRestoreProcessorSpecificFeatures.c)
  * Callees:
  *     <none>
  */

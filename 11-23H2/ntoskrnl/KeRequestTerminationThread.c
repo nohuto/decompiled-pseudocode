@@ -1,19 +1,19 @@
 /*
- * XREFs of KeRequestTerminationThread @ 0x1403099FC
+ * XREFs of KeRequestTerminationThread @ 0x140309C8C
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PspTerminateThreadByPointer @ 0x14076D980 (PspTerminateThreadByPointer.c)
- *     KeRequestTerminationProcess @ 0x1409742B4 (KeRequestTerminationProcess.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PspTerminateThreadByPointer @ 0x14076DB70 (PspTerminateThreadByPointer.c)
+ *     KeRequestTerminationProcess @ 0x1409744B4 (KeRequestTerminationProcess.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeAlertThread @ 0x140309850 (KeAlertThread.c)
- *     KiInsertQueueApc @ 0x14030A16C (KiInsertQueueApc.c)
- *     KeForceResumeThread @ 0x14030ABDC (KeForceResumeThread.c)
- *     KiSignalThreadForApc @ 0x14030B308 (KiSignalThreadForApc.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeAlertThread @ 0x140309AE0 (KeAlertThread.c)
+ *     KiInsertQueueApc @ 0x14030A3FC (KiInsertQueueApc.c)
+ *     KeForceResumeThread @ 0x14030AE6C (KeForceResumeThread.c)
+ *     KiSignalThreadForApc @ 0x14030B598 (KiSignalThreadForApc.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeRequestTerminationThread(__int64 a1, __int64 a2, __int64 a3)
@@ -43,7 +43,7 @@ __int64 __fastcall KeRequestTerminationThread(__int64 a1, __int64 a2, __int64 a3
     v5 = 0;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v10 = 4;
@@ -75,7 +75,7 @@ __int64 __fastcall KeRequestTerminationThread(__int64 a1, __int64 a2, __int64 a3
       }
     }
     *(_QWORD *)(a1 + 64) = 0LL;
-    result = KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    result = KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
     if ( v5 )
     {
       KeAlertThread(a1, 0);

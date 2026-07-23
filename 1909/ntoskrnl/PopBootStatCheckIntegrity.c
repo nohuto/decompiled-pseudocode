@@ -35,7 +35,7 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   __int64 v15; // [rsp+40h] [rbp-38h]
   volatile void **v16; // [rsp+48h] [rbp-30h]
   char v17; // [rsp+90h] [rbp+18h]
-  char v18; // [rsp+98h] [rbp+20h]
+  BOOLEAN Verified; // [rsp+98h] [rbp+20h] BYREF
 
   PoolWithTag = 0LL;
   FileHandle = 0LL;
@@ -95,11 +95,11 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   {
     if ( !PreviousMode || (v6 = PopBootStatAccessCheck(FileHandle, PreviousMode, 1u), v6 >= 0) )
     {
-      v6 = RtlCheckBootStatusIntegrity(FileHandle);
+      v6 = RtlCheckBootStatusIntegrity(FileHandle, &Verified);
       if ( v6 >= 0 )
       {
         if ( *((_DWORD *)PoolWithTag + 4) )
-          **((_BYTE **)PoolWithTag + 1) = v18;
+          **((_BYTE **)PoolWithTag + 1) = Verified;
         else
           v6 = -1073741811;
       }

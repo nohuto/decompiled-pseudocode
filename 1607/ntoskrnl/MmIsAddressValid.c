@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsAddressValid @ 0x1401E6948
+ * XREFs of MmIsAddressValid @ 0x1401E6774
  * Callers:
- *     KiMarkBugCheckRegions @ 0x140156FC4 (KiMarkBugCheckRegions.c)
+ *     KiMarkBugCheckRegions @ 0x140157534 (KiMarkBugCheckRegions.c)
  *     IopLiveDumpCallRemovePagesCallbacks @ 0x1403DA4D0 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140626F48 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x140626FFC (IopLiveDumpDiscardVirtualAddressRange.c)
  * Callees:
  *     <none>
  */

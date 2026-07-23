@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlInitializeDedupChange @ 0x14070CB70
+ * XREFs of FsRtlInitializeDedupChange @ 0x14070A710
  * Callers:
- *     FsRtlInitSystem @ 0x140C18D7C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140C1AD7C (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
  */
 
 NTSTATUS FsRtlInitializeDedupChange()
 {
-  qword_140F8E208 = (__int64)&FsRtlDedupChangeData;
+  qword_140F8E3E8 = (__int64)&FsRtlDedupChangeData;
   FsRtlDedupChangeData = &FsRtlDedupChangeData;
   return ExInitializeResourceLite(&Resource);
 }

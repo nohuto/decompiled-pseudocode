@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x1404C3474
+ * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x1404837DC
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x1404C58C8 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140485CFC (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PipRestoreDevNodeState @ 0x14009E68C (PipRestoreDevNodeState.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1401C4A44 (IopDecrementDeviceObjectHandleCount.c)
- *     PnpMarkDeviceForRemove @ 0x1401CDDC0 (PnpMarkDeviceForRemove.c)
- *     PnpUnlockMountableDevice @ 0x1401CDE9C (PnpUnlockMountableDevice.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x1403F22F0 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x1403F41C4 (PnpReleaseDependencyRelationsLock.c)
- *     PnpDisableDeviceInterfaces @ 0x1404C3314 (PnpDisableDeviceInterfaces.c)
- *     PipSetDevNodeProblem @ 0x1404C5BDC (PipSetDevNodeProblem.c)
- *     IopReleaseDeviceResources @ 0x1404C5E64 (IopReleaseDeviceResources.c)
- *     IopRemoveDevice @ 0x1404C6038 (IopRemoveDevice.c)
- *     PipConvertResolutionsToReservations @ 0x14062AFD4 (PipConvertResolutionsToReservations.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PipRestoreDevNodeState @ 0x140084EBC (PipRestoreDevNodeState.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1401C4928 (IopDecrementDeviceObjectHandleCount.c)
+ *     PnpMarkDeviceForRemove @ 0x1401CDC0C (PnpMarkDeviceForRemove.c)
+ *     PnpUnlockMountableDevice @ 0x1401CDCE8 (PnpUnlockMountableDevice.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1403F11B4 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1403F3088 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpDisableDeviceInterfaces @ 0x14048367C (PnpDisableDeviceInterfaces.c)
+ *     PipSetDevNodeProblem @ 0x140484270 (PipSetDevNodeProblem.c)
+ *     IopReleaseDeviceResources @ 0x1404844F8 (IopReleaseDeviceResources.c)
+ *     IopRemoveDevice @ 0x140484840 (IopRemoveDevice.c)
+ *     PipConvertResolutionsToReservations @ 0x14062B088 (PipConvertResolutionsToReservations.c)
  */
 
 void __fastcall PnpSurpriseRemoveLockedDeviceNode(__int64 a1, unsigned int a2, unsigned int a3)

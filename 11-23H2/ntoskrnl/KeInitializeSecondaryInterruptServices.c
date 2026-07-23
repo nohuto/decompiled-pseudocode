@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitializeSecondaryInterruptServices @ 0x140843BB0
+ * XREFs of KeInitializeSecondaryInterruptServices @ 0x140843EB0
  * Callers:
- *     HalpAllocateGsivForSecondaryInterrupt @ 0x1403A1050 (HalpAllocateGsivForSecondaryInterrupt.c)
+ *     HalpAllocateGsivForSecondaryInterrupt @ 0x1403A1230 (HalpAllocateGsivForSecondaryInterrupt.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

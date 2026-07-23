@@ -13,22 +13,22 @@ __int64 HvlNotifyHpetEnabled()
 {
   char v0; // r15
   char v1; // r14
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _DWORD *HypercallCachedPages; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY *v6; // rbp
+  _SLIST_ENTRY *v6; // rbp
   __int16 v7; // bx
   __int64 v8; // rax
   struct _KPRCB *v9; // rcx
-  union _SLIST_HEADER *v11; // [rsp+28h] [rbp-A0h]
-  struct _SLIST_ENTRY *v12; // [rsp+30h] [rbp-98h]
+  _SLIST_HEADER *v11; // [rsp+28h] [rbp-A0h]
+  _SLIST_ENTRY *v12; // [rsp+30h] [rbp-98h]
   _BYTE v13[7]; // [rsp+40h] [rbp-88h] BYREF
   _BYTE v14[97]; // [rsp+67h] [rbp-61h] BYREF
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v5 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     HypercallCachedPages = v5;
     if ( v5 )

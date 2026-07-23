@@ -1,37 +1,37 @@
 /*
- * XREFs of NtReadFileScatter @ 0x140B0D2F0
+ * XREFs of NtReadFileScatter @ 0x140B0EA40
  * Callers:
- *     DifNtReadFileScatterWrapper @ 0x140687760 (DifNtReadFileScatterWrapper.c)
+ *     DifNtReadFileScatterWrapper @ 0x14068B340 (DifNtReadFileScatterWrapper.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     IopReadFileScatter @ 0x140B0D3D8 (IopReadFileScatter.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     IopReadFileScatter @ 0x140B0EB28 (IopReadFileScatter.c)
  */
 
-__int64 __fastcall NtReadFileScatter(
-        void *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
+NTSTATUS __cdecl NtReadFileScatter(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
         PFILE_SEGMENT_ELEMENT SegmentArray,
         ULONG Length,
-        __int64 a8,
-        __int64 a9)
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   ULONG_PTR BugCheckParameter2[2]; // [rsp+60h] [rbp-18h] BYREF
 
   BugCheckParameter2[0] = 0LL;
-  result = IopReferenceFileObject(a1, 1u, KeGetCurrentThread()->PreviousMode, BugCheckParameter2, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 1u, KeGetCurrentThread()->PreviousMode, BugCheckParameter2, 0LL);
+  if ( result >= 0 )
     return IopReadFileScatter(
              BugCheckParameter2[0],
-             a5,
+             (__int64)IoStatusBlock,
              (Length >> 12) + ((Length & 0xFFF) != 0),
              SegmentArray,
              Length,
-             a8,
-             a9,
+             (__int64)ByteOffset,
+             (__int64)Key,
              0LL,
              0LL);
   return result;

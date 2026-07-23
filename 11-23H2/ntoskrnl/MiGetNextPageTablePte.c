@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetNextPageTablePte @ 0x14025D0A0
+ * XREFs of MiGetNextPageTablePte @ 0x14025D330
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14025C170 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14025C400 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiReleaseWalkLocks @ 0x14033D29C (MiReleaseWalkLocks.c)
- *     MiIsPdeOrAboveAccessible @ 0x14034F550 (MiIsPdeOrAboveAccessible.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MiFlushAllFilesystemPages @ 0x140629294 (MiFlushAllFilesystemPages.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiReleaseWalkLocks @ 0x14033D52C (MiReleaseWalkLocks.c)
+ *     MiIsPdeOrAboveAccessible @ 0x14034F6F0 (MiIsPdeOrAboveAccessible.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MiFlushAllFilesystemPages @ 0x1406297E4 (MiFlushAllFilesystemPages.c)
  */
 
 __int64 __fastcall MiGetNextPageTablePte(int *a1, __int64 *a2, int a3, __int64 a4)

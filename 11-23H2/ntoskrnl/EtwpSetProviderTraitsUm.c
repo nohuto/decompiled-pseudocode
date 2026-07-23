@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpSetProviderTraitsUm @ 0x1406BE3A0
+ * XREFs of EtwpSetProviderTraitsUm @ 0x1406BE3D0
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     EtwpEventWriteRegistrationStatus @ 0x1409E393C (EtwpEventWriteRegistrationStatus.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BE574 (EtwpSetProviderTraitsCommon.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x1409E3BCC (EtwpEventWriteRegistrationStatus.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -22,7 +22,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   __int64 v10; // rax
   unsigned __int64 v11; // rcx
   __int64 Pool2; // rax
-  void *v13; // rbx
+  _RTL_BALANCED_NODE *Node; // rbx
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r8
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
           MEMORY[0x7FFFFFFF0000] = 0;
       }
       Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)(a1 + 16) + 28LL, 1417114693LL);
-      v13 = (void *)Pool2;
+      Node = (_RTL_BALANCED_NODE *)Pool2;
       if ( Pool2 )
       {
         memmove((void *)(Pool2 + 28), *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
@@ -65,10 +65,10 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
                a2,
                a3,
                (int)v6,
-               v13,
+               Node,
                *(unsigned __int16 *)(a1 + 16),
                &EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {

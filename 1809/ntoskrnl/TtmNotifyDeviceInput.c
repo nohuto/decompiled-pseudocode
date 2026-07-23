@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmNotifyDeviceInput @ 0x14087D380
+ * XREFs of TtmNotifyDeviceInput @ 0x14087E5E0
  * Callers:
  *     <none>
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpFindDeviceByToken @ 0x14087E050 (TtmpFindDeviceByToken.c)
- *     TtmiGetTerminalById @ 0x14087EAA0 (TtmiGetTerminalById.c)
- *     TtmiResetTerminalTimeouts @ 0x14087EBA4 (TtmiResetTerminalTimeouts.c)
- *     TtmiAcquireCurrentSession @ 0x1408801C4 (TtmiAcquireCurrentSession.c)
- *     TtmiLogDeviceInputNotified @ 0x1408837B8 (TtmiLogDeviceInputNotified.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpFindDeviceByToken @ 0x14087F2B0 (TtmpFindDeviceByToken.c)
+ *     TtmiGetTerminalById @ 0x14087FD00 (TtmiGetTerminalById.c)
+ *     TtmiResetTerminalTimeouts @ 0x14087FE04 (TtmiResetTerminalTimeouts.c)
+ *     TtmiAcquireCurrentSession @ 0x140881424 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogDeviceInputNotified @ 0x140884A18 (TtmiLogDeviceInputNotified.c)
  */
 
 void __fastcall TtmNotifyDeviceInput(unsigned int a1, __int64 a2, int a3)

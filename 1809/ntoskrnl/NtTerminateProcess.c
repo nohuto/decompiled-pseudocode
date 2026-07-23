@@ -1,5 +1,5 @@
 /*
- * XREFs of NtTerminateProcess @ 0x14067A810
+ * XREFs of NtTerminateProcess @ 0x14067B9D0
  * Callers:
  *     <none>
  * Callees:
@@ -7,16 +7,16 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeForceResumeThread @ 0x1400F1B9C (KeForceResumeThread.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
- *     PspTerminateThreadByPointer @ 0x140676590 (PspTerminateThreadByPointer.c)
- *     PspTerminateProcess @ 0x14067787C (PspTerminateProcess.c)
- *     PspLogAuditTerminateRemoteProcessEvent @ 0x1406CE234 (PspLogAuditTerminateRemoteProcessEvent.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeForceResumeThread @ 0x1400F1C1C (KeForceResumeThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
+ *     PspTerminateAllThreads @ 0x1406773A4 (PspTerminateAllThreads.c)
+ *     PspTerminateThreadByPointer @ 0x140677750 (PspTerminateThreadByPointer.c)
+ *     PspTerminateProcess @ 0x140678A3C (PspTerminateProcess.c)
+ *     PspLogAuditTerminateRemoteProcessEvent @ 0x1406CF4D4 (PspLogAuditTerminateRemoteProcessEvent.c)
  */
 
 NTSTATUS __stdcall NtTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)

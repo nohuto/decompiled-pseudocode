@@ -1,21 +1,21 @@
 /*
- * XREFs of IopErrorLogThread @ 0x140755770
+ * XREFs of IopErrorLogThread @ 0x140755930
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopErrorLogGetEntry @ 0x140371338 (IopErrorLogGetEntry.c)
- *     RtlStringCchCopyNW @ 0x140371570 (RtlStringCchCopyNW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     IopErrorLogRequeueEntry @ 0x14050A3AC (IopErrorLogRequeueEntry.c)
- *     IopVerifierExAllocatePool_4 @ 0x14050A474 (IopVerifierExAllocatePool_4.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     EtwWriteErrorLogEntry @ 0x1407552D8 (EtwWriteErrorLogEntry.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x14078981C (EtwQueryTraceHandleByLoggerName.c)
- *     IopErrorLogQueueRequest @ 0x140899874 (IopErrorLogQueueRequest.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IopErrorLogGetEntry @ 0x140370E88 (IopErrorLogGetEntry.c)
+ *     RtlStringCchCopyNW @ 0x1403710C0 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     IopErrorLogRequeueEntry @ 0x14050A5EC (IopErrorLogRequeueEntry.c)
+ *     IopVerifierExAllocatePool_4 @ 0x14050A6B4 (IopVerifierExAllocatePool_4.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     EtwWriteErrorLogEntry @ 0x140755498 (EtwWriteErrorLogEntry.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x1407899DC (EtwQueryTraceHandleByLoggerName.c)
+ *     IopErrorLogQueueRequest @ 0x1408999D4 (IopErrorLogQueueRequest.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 IopErrorLogThread()
@@ -101,7 +101,7 @@ LABEL_12:
           v17 = v23;
           goto LABEL_41;
         }
-        v13 = &word_1407D7BA0;
+        v13 = &word_1407D7CE0;
       }
       else
       {
@@ -141,7 +141,7 @@ LABEL_14:
       else
       {
 LABEL_15:
-        RtlInitUnicodeString(&v20, &word_1407D7BA0);
+        RtlInitUnicodeString(&v20, &word_1407D7CE0);
         v8 = 0LL;
       }
       pszDest[0] = 0;

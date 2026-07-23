@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionRequestDestroy @ 0x14043B1B4
+ * XREFs of PnpDeviceCompletionRequestDestroy @ 0x1402F0434
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x14043B090 (PnpDeviceCompletionRoutine.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x140A115D8 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDeviceCompletionRoutine @ 0x1402F0310 (PnpDeviceCompletionRoutine.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1409BF9E8 (PnpDeviceCompletionProcessCompletedRequest.c)
  * Callees:
- *     IoAllocateWorkItem @ 0x14043B2D0 (IoAllocateWorkItem.c)
- *     IoQueueWorkItemEx @ 0x14043B330 (IoQueueWorkItemEx.c)
+ *     IoAllocateWorkItem @ 0x1402F0550 (IoAllocateWorkItem.c)
+ *     IoQueueWorkItemEx @ 0x1402F05B0 (IoQueueWorkItemEx.c)
  */
 
 void __fastcall PnpDeviceCompletionRequestDestroy(PVOID Context)

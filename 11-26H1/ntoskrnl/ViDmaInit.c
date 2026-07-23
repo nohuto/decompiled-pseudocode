@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDmaInit @ 0x140C397DC
+ * XREFs of ViDmaInit @ 0x140C3F7EC
  * Callers:
- *     VfDmaPluginEntry @ 0x1406476A0 (VfDmaPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x14064B280 (VfDmaPluginEntry.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 char ViDmaInit()
@@ -13,7 +13,7 @@ char ViDmaInit()
   if ( !ViAdapterListInitialized )
   {
     v0 = (__int64 (__fastcall *)(int, unsigned int, unsigned int, __int64 *))&ViAdapterList;
-    qword_140F08290 = 0LL;
+    qword_140F085F0 = 0LL;
     ViAdapterList.Blink = &ViAdapterList;
     ViAdapterList.Flink = &ViAdapterList;
     ViAdapterListInitialized = 1;
@@ -21,15 +21,15 @@ char ViDmaInit()
   if ( !ViDomainCommonBufferListInitialized )
   {
     v0 = (__int64 (__fastcall *)(int, unsigned int, unsigned int, __int64 *))&ViDomainCommonBufferList;
-    qword_140F082B0 = 0LL;
-    qword_140F082A8 = (__int64)&ViDomainCommonBufferList;
+    qword_140F08610 = 0LL;
+    qword_140F08608 = (__int64)&ViDomainCommonBufferList;
     ViDomainCommonBufferList = (__int64)&ViDomainCommonBufferList;
     ViDomainCommonBufferListInitialized = 1;
   }
   if ( !ViHalWaitBlockLookasideInitialized )
   {
     LOBYTE(v0) = ExInitializeNPagedLookasideListInternal(
-                   (__int64)&stru_140E27B08.AffinityVersion,
+                   (__int64)&stru_140E27C48.AffinityVersion,
                    0LL,
                    (void (__stdcall *)(PVOID))VfUtilFreePoolCheckIRQL,
                    512,

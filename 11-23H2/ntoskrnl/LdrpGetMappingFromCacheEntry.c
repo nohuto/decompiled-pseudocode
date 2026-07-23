@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x1402F6CC0
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x1402F6F50
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402F6DF0 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402F7080 (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
  */
@@ -10,11 +10,11 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
 {
   unsigned __int64 v7; // rcx
   __int64 v8; // rdi
-  __int64 v9; // rdx
+  __int64 SizeOfImage; // rdx
   unsigned __int64 v10; // rbx
   char result; // al
-  __int64 v12; // rax
-  __int16 v13; // cx
+  PIMAGE_NT_HEADERS v12; // rax
+  unsigned __int16 Magic; // cx
 
   if ( !a2 )
     return 0;
@@ -25,26 +25,26 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
   _mm_lfence();
   v7 = (unsigned __int64)a1 << 6;
   v8 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 32);
-  v9 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 48);
+  SizeOfImage = *(_QWORD *)((char *)AlternateResourceModules + v7 + 48);
   if ( (unsigned __int64)(v8 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
     return 0;
   v10 = v8 & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( !v9 )
+  if ( !SizeOfImage )
   {
-    v12 = RtlImageNtHeader(v8 & 0xFFFFFFFFFFFFFFFCuLL);
+    v12 = RtlImageNtHeader((PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( !v12 )
       return 0;
-    v13 = *(_WORD *)(v12 + 24);
-    if ( v13 != 267 && v13 != 523 )
+    Magic = v12->OptionalHeader.Magic;
+    if ( Magic != 267 && Magic != 523 )
       return 0;
-    v9 = *(unsigned int *)(v12 + 80);
-    if ( !*(_DWORD *)(v12 + 80) )
+    SizeOfImage = v12->OptionalHeader.SizeOfImage;
+    if ( !v12->OptionalHeader.SizeOfImage )
       return 0;
   }
-  if ( a2 < v10 || a2 >= v10 + v9 )
+  if ( a2 < v10 || a2 >= v10 + SizeOfImage )
     return 0;
   *a3 = v8;
   result = 1;
-  *a4 = v9;
+  *a4 = SizeOfImage;
   return result;
 }

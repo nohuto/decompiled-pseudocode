@@ -1,16 +1,16 @@
 /*
- * XREFs of IvtAllocateContextTable @ 0x1404DF350
+ * XREFs of IvtAllocateContextTable @ 0x1404DF590
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
- *     IvtProcessDeviceExceptions @ 0x1409AA188 (IvtProcessDeviceExceptions.c)
- *     HalpIvtpInitializeReservedDomain @ 0x1409AACA8 (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF808 (IvtAttachDeviceDomainInternal.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AB0B8 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409ABBD8 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x1404D5140 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x1404D53FC (ExtEnvFreePhysicalMemory.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5380 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x1404D563C (ExtEnvFreePhysicalMemory.c)
  */
 
 __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)

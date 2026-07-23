@@ -15,7 +15,7 @@
  *     MiSelfTrim @ 0x1406502CC (MiSelfTrim.c)
  */
 
-__int64 __fastcall MiHandleForceTrimWorkingSets(__int64 a1)
+void __fastcall MiHandleForceTrimWorkingSets(__int64 a1)
 {
   __int64 v1; // rsi
   _QWORD *v2; // rdi
@@ -30,7 +30,7 @@ __int64 __fastcall MiHandleForceTrimWorkingSets(__int64 a1)
   __int64 v11; // r13
   int v12; // eax
   unsigned __int64 v13; // rbx
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v17; // eax
@@ -39,13 +39,15 @@ __int64 __fastcall MiHandleForceTrimWorkingSets(__int64 a1)
   unsigned __int8 v20; // bl
   _QWORD *v21; // rax
   __int64 v22; // rax
-  __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
-  struct _KPRCB *v25; // r9
-  _DWORD *v26; // r8
+  unsigned __int8 v24; // al
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *v26; // r9
+  _DWORD *v27; // r8
+  int v28; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
-  int v28; // [rsp+70h] [rbp+30h]
-  int v29; // [rsp+70h] [rbp+30h]
+  int v30; // [rsp+70h] [rbp+30h]
+  int v31; // [rsp+70h] [rbp+30h]
 
   v1 = *(_QWORD *)(a1 + 16920);
   v2 = (_QWORD *)(a1 + 16928);
@@ -83,18 +85,13 @@ __int64 __fastcall MiHandleForceTrimWorkingSets(__int64 a1)
   if ( !v3 )
   {
 LABEL_37:
-    result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_44;
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0
-      || (unsigned __int8)result > 0xFu
-      || LockHandle.OldIrql > 0xFu
-      || (unsigned __int8)result < 2u )
-    {
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || LockHandle.OldIrql > 0xFu || CurrentIrql < 2u )
       goto LABEL_44;
-    }
     goto LABEL_42;
   }
   v8 = ++*(_WORD *)(v1 + 2344);
@@ -117,15 +114,15 @@ LABEL_37:
     *(_WORD *)(v11 + 172) = v8;
     if ( (v12 & 3) != 0 && (v12 & 4) != 0 && *(_QWORD *)(v11 + 144) > 1uLL )
     {
-      v28 = *(_DWORD *)(v11 + 184);
-      BYTE1(v28) = BYTE1(v28) & 0xF9 | 2;
-      *(_WORD *)(v11 + 184) = v28;
+      v30 = *(_DWORD *)(v11 + 184);
+      BYTE1(v30) = BYTE1(v30) & 0xF9 | 2;
+      *(_WORD *)(v11 + 184) = v30;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v13 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        v14 = KeGetCurrentIrql();
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && LockHandle.OldIrql <= 0xFu && v14 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -144,9 +141,9 @@ LABEL_37:
       MiUnlockWorkingSetShared(v11, v20);
       MiDetachAndUnlockWorkingSet(v11);
       KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &LockHandle);
-      v29 = *(_DWORD *)(v11 + 184);
-      BYTE1(v29) &= 0xF9u;
-      *(_WORD *)(v11 + 184) = v29;
+      v31 = *(_DWORD *)(v11 + 184);
+      BYTE1(v31) &= 0xF9u;
+      *(_WORD *)(v11 + 184) = v31;
       MiReturnWsToExpansionList(v11, 0);
     }
     else
@@ -172,27 +169,23 @@ LABEL_28:
   *(_WORD *)(v1 + 52) = 0;
   if ( !*(_DWORD *)(v1 + 40) )
     KeSetEvent((PRKEVENT)v1, 0, 0);
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    v24 = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && LockHandle.OldIrql <= 0xFu && v24 >= 2u )
     {
 LABEL_42:
-      v25 = KeGetCurrentPrcb();
-      v26 = v25->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v18 = ((unsigned int)result & v26[5]) == 0;
-      v26[5] &= result;
+      v26 = KeGetCurrentPrcb();
+      v27 = v26->SchedulerAssist;
+      v28 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+      v18 = (v28 & v27[5]) == 0;
+      v27[5] &= v28;
       if ( v18 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v25);
+        KiRemoveSystemWorkPriorityKick((__int64)v26);
     }
   }
 LABEL_44:
   __writecr8(OldIrql);
-  return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of BiResolveLocateFileCallback @ 0x140893270
+ * XREFs of BiResolveLocateFileCallback @ 0x140899670
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     BiEnumerateDiskPartitions @ 0x1408920E0 (BiEnumerateDiskPartitions.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiGetPartitionVhdFilePath @ 0x140B1C230 (BiGetPartitionVhdFilePath.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     BiEnumerateDiskPartitions @ 0x1408984DC (BiEnumerateDiskPartitions.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiGetPartitionVhdFilePath @ 0x140B1E440 (BiGetPartitionVhdFilePath.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall BiResolveLocateFileCallback(const WCHAR *a1, unsigned int a2, __int64 a3)

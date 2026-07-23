@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpResReportResourceAccessInternal @ 0x18007DFE4
+ * XREFs of LdrpResReportResourceAccessInternal @ 0x18007DFF4
  * Callers:
  *     LdrpResSearchResourceMappedFile @ 0x180037AB4 (LdrpResSearchResourceMappedFile.c)
  *     LdrpSearchResourceSection_U @ 0x18003D2E8 (LdrpSearchResourceSection_U.c)
@@ -9,11 +9,11 @@
  *     LdrpGetRcConfig @ 0x18003E0D0 (LdrpGetRcConfig.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     _TlgCreateWsz @ 0x1800D2490 (_TlgCreateWsz.c)
  */
 
-char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64 a2, __int64 *a3, int a4)
+char __fastcall LdrpResReportResourceAccessInternal(PVOID BaseOfImage, __int64 a2, __int64 *a3, int a4)
 {
   _DWORD *RcConfig; // rax
   __int64 v9; // rdx
@@ -54,13 +54,9 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
   unsigned __int8 *v45; // [rsp+E0h] [rbp-20h]
   __int64 v46; // [rsp+E8h] [rbp-18h]
   EVENT_DATA_DESCRIPTOR v47; // [rsp+F0h] [rbp-10h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+110h] [rbp+10h] BYREF
+  _EVENT_DATA_DESCRIPTOR pDesc; // [rsp+110h] [rbp+10h] BYREF
 
-  LODWORD(RcConfig) = RtlRunOnceExecuteOnce(
-                        &qword_180166100,
-                        (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
-                        0LL,
-                        0LL);
+  LODWORD(RcConfig) = RtlRunOnceExecuteOnce(&stru_180166100, LdrpResReportResourceAccessInternalInitOnce, 0LL, 0LL);
   if ( (int)RcConfig >= 0 )
   {
     v10 = (unsigned __int16)dword_180166010;
@@ -70,7 +66,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
       v27 = 0LL;
       if ( a2 )
       {
-        LODWORD(RcConfig) = LdrResGetRCConfig(a1, a2, &v27, 4096, 0);
+        LODWORD(RcConfig) = LdrResGetRCConfig(BaseOfImage, a2, &v27, 4096, 0);
         if ( (int)RcConfig < 0 )
           v11 = 0LL;
         else
@@ -78,7 +74,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
       }
       else
       {
-        RcConfig = LdrpGetRcConfig(a1, v9, 0, 1);
+        RcConfig = LdrpGetRcConfig(BaseOfImage, v9, 0, 1);
         v11 = RcConfig;
       }
       if ( v11 )
@@ -91,7 +87,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
             if ( (_BYTE)RcConfig )
             {
               TlgCreateWsz(&pDesc, L"ResIdCount less than 2.");
-              LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C021, v17, v18, 3u, &v47);
+              LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C0B1, v17, v18, 3u, &v47);
             }
           }
         }
@@ -116,7 +112,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
               v37 = (__int64 *)&v27;
               v40 = v21;
               v42 = 16LL;
-              LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C5E5, v19, v20, 7u, &pData);
+              LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C675, v19, v20, 7u, &pData);
             }
           }
         }
@@ -144,7 +140,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
               v39 = (__int16 *)&v27;
               v42 = v14;
               v44 = 16LL;
-              LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C3DC, v12, v13, 8u, &pData);
+              LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C46C, v12, v13, 8u, &pData);
             }
           }
         }
@@ -173,7 +169,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
             v41 = (__int16 *)&v27;
             v44 = v24;
             v46 = 16LL;
-            LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C124, v22, v23, 9u, &pData);
+            LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C1B4, v22, v23, 9u, &pData);
           }
         }
       }
@@ -183,7 +179,7 @@ char __fastcall LdrpResReportResourceAccessInternal(unsigned __int64 a1, __int64
         if ( (_BYTE)RcConfig )
         {
           TlgCreateWsz(&pDesc, L"Failed to retrieve service checksum.");
-          LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C259, v15, v16, 3u, &v47);
+          LOBYTE(RcConfig) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C2E9, v15, v16, 3u, &v47);
         }
       }
     }

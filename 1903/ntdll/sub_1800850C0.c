@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall sub_1800850C0(__int64 a1)
+__int64 sub_1800850C0()
 {
-  return sub_18002D7BC(a1);
+  return sub_18002D7BC();
 }

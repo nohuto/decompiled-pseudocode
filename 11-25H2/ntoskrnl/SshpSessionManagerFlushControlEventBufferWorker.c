@@ -81,7 +81,7 @@ char SshpSessionManagerFlushControlEventBufferWorker()
   v2 = _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, v1, (__int64)&SshpSessionManagerLock);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v1, (__int64)&SshpSessionManagerLock);
   if ( v3 )
     *((_BYTE *)v3 + 10) = 1;
   v4 = 0;
@@ -173,7 +173,10 @@ LABEL_14:
           v2 = _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL);
           v17 = v16;
           if ( v2 )
-            ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, v16, (__int64)&SshpSessionManagerLock);
+            ExfAcquirePushLockExclusiveEx(
+              (unsigned __int64 *)&SshpSessionManagerLock,
+              v16,
+              (__int64)&SshpSessionManagerLock);
           if ( v17 )
             *((_BYTE *)v17 + 10) = 1;
         }

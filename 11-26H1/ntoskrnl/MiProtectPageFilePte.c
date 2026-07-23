@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProtectPageFilePte @ 0x140487168
+ * XREFs of MiProtectPageFilePte @ 0x140480B38
  * Callers:
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiProtectPageFilePte(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

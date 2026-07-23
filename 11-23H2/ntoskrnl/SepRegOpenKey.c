@@ -1,15 +1,15 @@
 /*
- * XREFs of SepRegOpenKey @ 0x1407F5308
+ * XREFs of SepRegOpenKey @ 0x1407F55D8
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1403AE56C (SepBuildCapPolicyTable.c)
- *     SepRegQueryDwordValue @ 0x1407F528C (SepRegQueryDwordValue.c)
- *     SepAdtOpenRegAndSetupNotification @ 0x140841CF4 (SepAdtOpenRegAndSetupNotification.c)
- *     SepRmFetchGlobalSacl @ 0x14084D8EC (SepRmFetchGlobalSacl.c)
- *     SepReadAndPopulateCapes @ 0x14085D01C (SepReadAndPopulateCapes.c)
- *     SepReadAndInsertCaps @ 0x1409D1D0C (SepReadAndInsertCaps.c)
+ *     SepBuildCapPolicyTable @ 0x1403AE74C (SepBuildCapPolicyTable.c)
+ *     SepRegQueryDwordValue @ 0x1407F555C (SepRegQueryDwordValue.c)
+ *     SepAdtOpenRegAndSetupNotification @ 0x140841FF4 (SepAdtOpenRegAndSetupNotification.c)
+ *     SepRmFetchGlobalSacl @ 0x14084DBEC (SepRmFetchGlobalSacl.c)
+ *     SepReadAndPopulateCapes @ 0x14085D25C (SepReadAndPopulateCapes.c)
+ *     SepReadAndInsertCaps @ 0x1409D1F0C (SepReadAndInsertCaps.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall SepRegOpenKey(PCWSTR SourceString, ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)

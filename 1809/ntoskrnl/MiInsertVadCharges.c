@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInsertVadCharges @ 0x1405F1E60
+ * XREFs of MiInsertVadCharges @ 0x1405F2E60
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiInsertProcessVads @ 0x140679B64 (MiInsertProcessVads.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
- *     MiInsertChildVads @ 0x14085E6F0 (MiInsertChildVads.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiInsertProcessVads @ 0x14067AD24 (MiInsertProcessVads.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x14085A3B8 (MiAllocateEnclaveVad.c)
+ *     MiInsertChildVads @ 0x14085F950 (MiInsertChildVads.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     PspChargeQuota @ 0x14004D3A0 (PspChargeQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400769D4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x140076BE8 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     PsReturnProcessPagedPoolQuota @ 0x140090290 (PsReturnProcessPagedPoolQuota.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     MiResidentPagesForSpan @ 0x1406C3330 (MiResidentPagesForSpan.c)
- *     MiComputeAweCharges @ 0x14084F850 (MiComputeAweCharges.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140068560 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400769C4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x140076BD8 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140076C00 (PsChargeProcessNonPagedPoolQuota.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400901D0 (PsReturnProcessPagedPoolQuota.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0230 (MiReturnPartitionResidentAvailable.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
+ *     MiResidentPagesForSpan @ 0x1406C45D0 (MiResidentPagesForSpan.c)
+ *     MiComputeAweCharges @ 0x140850AB0 (MiComputeAweCharges.c)
  */
 
 __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
@@ -137,7 +137,7 @@ LABEL_10:
     v21 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].IdealGlobalNode + 48LL;
     for ( i = 0; i < 3; ++i )
     {
-      v23 = 8 * (*(_DWORD *)(v21 + 8) - qword_14043A528);
+      v23 = 8 * (*(_DWORD *)(v21 + 8) - qword_14043B5E8);
       if ( v20 >= v23 )
       {
         v24 = v23 + *(_DWORD *)v21;
@@ -147,7 +147,7 @@ LABEL_10:
           v26 = v19;
           if ( v19 < v23 )
           {
-            v26 = 8 * (*(_DWORD *)(v21 + 8) - qword_14043A528);
+            v26 = 8 * (*(_DWORD *)(v21 + 8) - qword_14043B5E8);
             v25 = 1;
           }
           if ( v20 >= v24 )

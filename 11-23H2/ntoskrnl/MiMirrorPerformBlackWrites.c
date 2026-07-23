@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorPerformBlackWrites @ 0x1406273F4
+ * XREFs of MiMirrorPerformBlackWrites @ 0x140627944
  * Callers:
- *     MiMirrorBlackPhase @ 0x140626BE4 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140627134 (MiMirrorBlackPhase.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorPerformBlackWrites(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpOrphanNotification @ 0x1406EE220
+ * XREFs of PnpOrphanNotification @ 0x1406EF4C0
  * Callers:
- *     PpDevNodeRemoveFromTree @ 0x14015AEA4 (PpDevNodeRemoveFromTree.c)
+ *     PpDevNodeRemoveFromTree @ 0x14015AFA4 (PpDevNodeRemoveFromTree.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)

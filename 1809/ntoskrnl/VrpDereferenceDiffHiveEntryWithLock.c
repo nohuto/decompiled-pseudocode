@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x14080D428
+ * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x14080E628
  * Callers:
- *     VrpDereferenceDiffHiveEntry @ 0x14080D3A4 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14080E5A4 (VrpDereferenceDiffHiveEntry.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpDereferenceDiffHiveEntryWithLock(volatile signed __int64 *P)
@@ -17,8 +17,8 @@ void __fastcall VrpDereferenceDiffHiveEntryWithLock(volatile signed __int64 *P)
   {
     if ( v1 )
       __fastfail(0xEu);
-    v2 = P[1] & (-1LL << (dword_1404378E4 & 0x1F));
-    for ( i = (volatile signed __int64 *)(qword_1404378E8
+    v2 = P[1] & (-1LL << (dword_1404389A4 & 0x1F));
+    for ( i = (volatile signed __int64 *)(qword_1404389A8
                                         + 8
                                         * ((HIBYTE(v2)
                                           + 37
@@ -30,7 +30,7 @@ void __fastcall VrpDereferenceDiffHiveEntryWithLock(volatile signed __int64 *P)
                                              + 37
                                              * (BYTE3(v2)
                                               + 37
-                                              * (BYTE2(v2) + 37 * (BYTE1(v2) + 37 * ((unsigned __int8)v2 + 11623883)))))))) & (((unsigned int)dword_1404378E4 >> 5) - 1)));
+                                              * (BYTE2(v2) + 37 * (BYTE1(v2) + 37 * ((unsigned __int8)v2 + 11623883)))))))) & (((unsigned int)dword_1404389A4 >> 5) - 1)));
           (*i & 1) == 0;
           i = (volatile signed __int64 *)*i )
     {

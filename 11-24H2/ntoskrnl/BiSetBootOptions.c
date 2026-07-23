@@ -1,25 +1,25 @@
 /*
- * XREFs of BiSetBootOptions @ 0x1408156BC
+ * XREFs of BiSetBootOptions @ 0x140815DFC
  * Callers:
- *     BiExportEfiBootManager @ 0x140AB305C (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140AADFCC (BiExportEfiBootManager.c)
  * Callees:
- *     ZwSetBootOptions @ 0x1406A96F0 (ZwSetBootOptions.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x1409C0C38 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1409C0C90 (BiAcquirePrivilege.c)
+ *     ZwSetBootOptions @ 0x1406AA690 (ZwSetBootOptions.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x1409A7288 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1409A72E0 (BiAcquirePrivilege.c)
  */
 
-__int64 __fastcall BiSetBootOptions(__int64 a1, unsigned int a2)
+__int64 __fastcall BiSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
   int v4; // ebx
-  int v5; // eax
+  NTSTATUS v5; // eax
   __int64 v7; // [rsp+40h] [rbp+18h] BYREF
 
   v7 = 0LL;
   v4 = BiAcquirePrivilege(22LL, &v7);
   if ( v4 >= 0 )
   {
-    v5 = ZwSetBootOptions(a1, a2);
+    v5 = ZwSetBootOptions(BootOptions, FieldsToChange);
     v4 = v5;
     if ( v5 < 0 )
       BiLogMessage(4LL, L"Failed to set boot options. Status: %x", (unsigned int)v5);

@@ -1,5 +1,5 @@
 /*
- * XREFs of vsprintf @ 0x180128C10
+ * XREFs of vsprintf @ 0x180128980
  * Callers:
  *     <none>
  * Callees:

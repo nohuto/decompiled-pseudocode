@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x1401BAD2C
+ * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x1401BAC10
  * Callers:
  *     <none>
  * Callees:

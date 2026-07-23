@@ -1,12 +1,12 @@
 /*
- * XREFs of PopNetSetConnectivityConstraint @ 0x1408648F8
+ * XREFs of PopNetSetConnectivityConstraint @ 0x140864B38
  * Callers:
- *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1409936A8 (PopPowerAggregatorEngageAggressiveStandbyActions.c)
- *     PopNetCompliantNicUpdate @ 0x1409966D4 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140996894 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1409938A8 (PopPowerAggregatorEngageAggressiveStandbyActions.c)
+ *     PopNetCompliantNicUpdate @ 0x1409968D4 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140996A94 (PopNetNonCompliantDeviceUpdate.c)
  *     PopNetInitialize @ 0x140B51D9C (PopNetInitialize.c)
  * Callees:
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
  */
 
 char __fastcall PopNetSetConnectivityConstraint(int a1)
@@ -20,6 +20,6 @@ char __fastcall PopNetSetConnectivityConstraint(int a1)
     v1 = a1 != 7;
   v2 = _InterlockedExchangeAdd(&PopNetGracePeriodState, 0);
   if ( v2 == 2 || v1 )
-    LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_140C3A288, DelayedWorkQueue);
+    LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_140C3A308, DelayedWorkQueue);
   return v2;
 }

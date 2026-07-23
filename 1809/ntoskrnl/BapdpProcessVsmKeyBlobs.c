@@ -1,24 +1,24 @@
 /*
- * XREFs of BapdpProcessVsmKeyBlobs @ 0x1409D12A0
+ * XREFs of BapdpProcessVsmKeyBlobs @ 0x1409D22A0
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x1409D2004 (BootApplicationPersistentDataProcess.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlStringCchCatW @ 0x1400F4FB8 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BapdGetISRegistryKey @ 0x14056EEC8 (BapdGetISRegistryKey.c)
- *     RtlIsStateSeparationEnabled @ 0x1406C31F0 (RtlIsStateSeparationEnabled.c)
- *     BapdpQueryData @ 0x1409D160C (BapdpQueryData.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlStringCchCatW @ 0x1400F5038 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BapdGetISRegistryKey @ 0x14056FEC8 (BapdGetISRegistryKey.c)
+ *     RtlIsStateSeparationEnabled @ 0x1406C4490 (RtlIsStateSeparationEnabled.c)
+ *     BapdpQueryData @ 0x1409D260C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessVsmKeyBlobs(int a1)
@@ -31,7 +31,7 @@ void __fastcall BapdpProcessVsmKeyBlobs(int a1)
   PCWSTR *v7; // rdi
   NTSTATUS v8; // eax
   int Data; // eax
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   __int64 v11; // rdx
   WCHAR *v12; // rcx
   WCHAR v13; // ax

@@ -29,7 +29,7 @@
  *     RtlGetSuiteMask @ 0x18002DCA0 (RtlGetSuiteMask.c)
  *     RtlGetNtProductType @ 0x18002DCD0 (RtlGetNtProductType.c)
  *     sub_18002DE68 @ 0x18002DE68 (sub_18002DE68.c)
- *     sub_18002EA00 @ 0x18002EA00 (sub_18002EA00.c)
+ *     Callback @ 0x18002EA00 (Callback.c)
  *     sub_18002F180 @ 0x18002F180 (sub_18002F180.c)
  *     sub_18002F4F0 @ 0x18002F4F0 (sub_18002F4F0.c)
  *     RtlQueueWorkItem @ 0x18002F7D0 (RtlQueueWorkItem.c)
@@ -176,12 +176,12 @@
  *     <none>
  */
 
-unsigned int *RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  unsigned int *result; // rax
+  PSILO_USER_SHARED_DATA SharedData; // rax
 
-  result = (unsigned int *)NtCurrentPeb()->HotpatchInformation;
-  if ( result )
-    return (unsigned int *)*result;
-  return result;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData )
+    LODWORD(SharedData) = SharedData->ServiceSessionId;
+  return (unsigned int)SharedData;
 }

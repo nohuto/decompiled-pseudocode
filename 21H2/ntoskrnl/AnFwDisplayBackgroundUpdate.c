@@ -1,18 +1,18 @@
 /*
- * XREFs of AnFwDisplayBackgroundUpdate @ 0x1409F4784
+ * XREFs of AnFwDisplayBackgroundUpdate @ 0x1409F5784
  * Callers:
- *     BgDisplayBackgroundUpdate @ 0x1409F4748 (BgDisplayBackgroundUpdate.c)
+ *     BgDisplayBackgroundUpdate @ 0x1409F5748 (BgDisplayBackgroundUpdate.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     BgpClearScreen @ 0x1405C4274 (BgpClearScreen.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxDrawBitmapImage @ 0x1409F7704 (BgpGxDrawBitmapImage.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     BgpClearScreen @ 0x1405C44A4 (BgpClearScreen.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x1409F44CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x1409F8704 (BgpGxDrawBitmapImage.c)
  */
 
 NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
@@ -33,7 +33,7 @@ NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
     AnFwDisableBackgroundUpdateTimer();
     return 0;
   }
-  if ( byte_140CF5340 )
+  if ( byte_140CF53A0 )
     return -1073741823;
   v2 = ((__int64 (__fastcall *)(unsigned __int64 *))off_140C007F0)(&v6);
   result = RtlULongLongMult(v2, 0x3E8uLL, &pullResult);
@@ -48,15 +48,15 @@ NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
     if ( (unsigned __int64)qword_140C13590 >= 0x64 )
     {
       qword_140C13590 = v4;
-      KeInitializeTimerEx(&stru_140CF9A20, NotificationTimer);
-      KeInitializeDpc(&stru_140CF9A60, AnFwpBackgroundUpdateTimer, 0LL);
-      if ( KeSetCoalescableTimer(&stru_140CF9A20, 0LL, 0x64u, 0, &stru_140CF9A60) )
+      KeInitializeTimerEx(&stru_140CF9A60, NotificationTimer);
+      KeInitializeDpc(&stru_140CF9AA0, AnFwpBackgroundUpdateTimer, 0LL);
+      if ( KeSetCoalescableTimer(&stru_140CF9A60, 0LL, 0x64u, 0, &stru_140CF9AA0) )
       {
-        KeCancelTimer(&stru_140CF9A20);
-        byte_140CF5340 = 0;
+        KeCancelTimer(&stru_140CF9A60);
+        byte_140CF53A0 = 0;
         return BgpClearScreen(HIDWORD(qword_140C13670));
       }
-      byte_140CF5340 = 1;
+      byte_140CF53A0 = 1;
       result = 0;
     }
     else

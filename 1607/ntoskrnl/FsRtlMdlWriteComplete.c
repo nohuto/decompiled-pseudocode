@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMdlWriteComplete @ 0x14061DFB4
+ * XREFs of FsRtlMdlWriteComplete @ 0x14061E068
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
  */
 
 char __fastcall FsRtlMdlWriteComplete(struct _FILE_OBJECT *a1, __int64 a2, __int64 a3)

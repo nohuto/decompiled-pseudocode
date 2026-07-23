@@ -1,12 +1,12 @@
 /*
- * XREFs of KiScheduleThreadToRescheduleContext @ 0x14022E2A0
+ * XREFs of KiScheduleThreadToRescheduleContext @ 0x14022FC30
  * Callers:
- *     KiEnterLongDpcProcessing @ 0x14022EA74 (KiEnterLongDpcProcessing.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiEnterLongDpcProcessing @ 0x140230404 (KiEnterLongDpcProcessing.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     KiEnterDeferredReadyState @ 0x14022E6D0 (KiEnterDeferredReadyState.c)
- *     KiIsPrcbThread @ 0x1402BCC10 (KiIsPrcbThread.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
+ *     KiEnterDeferredReadyState @ 0x140230060 (KiEnterDeferredReadyState.c)
+ *     KiIsPrcbThread @ 0x1403078D0 (KiIsPrcbThread.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
  */
 
 __int64 __fastcall KiScheduleThreadToRescheduleContext(
@@ -135,7 +135,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
     {
       v20 = *(_QWORD *)(v9 + 24);
       v21 = *(_QWORD *)v9;
-      if ( v20 && v20 <= 0xFFFFFFFFFFFFFFFDuLL && *(_UNKNOWN **)(v20 + 544) != &unk_140FC8F40 )
+      if ( v20 && v20 <= 0xFFFFFFFFFFFFFFFDuLL && *(_UNKNOWN **)(v20 + 544) != &unk_140FC9F40 )
       {
         if ( (*(_BYTE *)(v9 + 33) & 1) != 0 )
           *(_DWORD *)(v20 + 116) |= 2u;
@@ -153,7 +153,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
       v25 = *(_BYTE *)(v9 + 33);
       *(_BYTE *)(v9 + 32) = v24 & 0xC3 | 4;
       *(_BYTE *)(v9 + 33) = v25 ^ (a4 ^ v25) & 1;
-      if ( *(_UNKNOWN **)(v12 + 544) != &unk_140FC8F40 )
+      if ( *(_UNKNOWN **)(v12 + 544) != &unk_140FC9F40 )
         *(_DWORD *)(v12 + 536) = *(_DWORD *)(v21 + 36);
     }
   }
@@ -201,7 +201,7 @@ __int64 __fastcall KiScheduleThreadToRescheduleContext(
           v16[48] = (v19 & 0xFD ^ (2 * ((*(_DWORD *)(v18 + 120) & 2) != 0))) & 0xC3 | 4;
           v16[49] &= ~1u;
           *((_QWORD *)v16 + 5) = v18;
-          if ( !v18 || *(_UNKNOWN **)(v18 + 544) != &unk_140FC8F40 )
+          if ( !v18 || *(_UNKNOWN **)(v18 + 544) != &unk_140FC9F40 )
             *(_DWORD *)(v18 + 536) = *(_DWORD *)(v15 + 36);
         }
         ++v7;

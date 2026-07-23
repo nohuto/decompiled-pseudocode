@@ -6,10 +6,10 @@
  *     <none>
  */
 
-signed __int64 __fastcall RtlWakeAddressSingle(unsigned __int64 a1)
+void __cdecl RtlWakeAddressSingle(PVOID Address)
 {
-  signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v1[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedOr(v2, 0);
-  return sub_18000A978(a1, 0);
+  _InterlockedOr(v1, 0);
+  sub_18000A978((unsigned __int64)Address, 0);
 }

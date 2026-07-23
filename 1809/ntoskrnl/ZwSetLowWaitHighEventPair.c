@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetLowWaitHighEventPair @ 0x1401BB550
+ * XREFs of ZwSetLowWaitHighEventPair @ 0x1401BB6B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwSetLowWaitHighEventPair(HANDLE EventPair)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EventPair, v1, v2);
+  return KiServiceInternal(EventPair);
 }

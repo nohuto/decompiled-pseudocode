@@ -1,8 +1,8 @@
 /*
- * XREFs of IommupGetTranslationTypeFromPolicy @ 0x14058C078
+ * XREFs of IommupGetTranslationTypeFromPolicy @ 0x14058E7F8
  * Callers:
- *     IvtBuildDefaultDomain @ 0x1405A5C80 (IvtBuildDefaultDomain.c)
- *     HsaBuildDefaultDomain @ 0x1405A911C (HsaBuildDefaultDomain.c)
+ *     IvtBuildDefaultDomain @ 0x1405A8490 (IvtBuildDefaultDomain.c)
+ *     HsaBuildDefaultDomain @ 0x1405AB92C (HsaBuildDefaultDomain.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetPageBadStatus @ 0x1401E22AC
+ * XREFs of MmGetPageBadStatus @ 0x1401E20D8
  * Callers:
- *     WheapPfaMemoryCheck @ 0x1406BB4C4 (WheapPfaMemoryCheck.c)
+ *     WheapPfaMemoryCheck @ 0x1406BB5FC (WheapPfaMemoryCheck.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
  */
 
 __int64 __fastcall MmGetPageBadStatus(_QWORD *a1)

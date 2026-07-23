@@ -1,12 +1,12 @@
 /*
- * XREFs of __C_specific_handler @ 0x180127880
+ * XREFs of __C_specific_handler @ 0x1801275F0
  * Callers:
- *     __GSHandlerCheck_SEH @ 0x18015EA30 (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck_SEH @ 0x18015E930 (__GSHandlerCheck_SEH.c)
  * Callees:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     _NLG_Notify @ 0x18012E6D0 (_NLG_Notify.c)
- *     __NLG_Return2 @ 0x18012E700 (__NLG_Return2.c)
- *     __except_validate_context_record @ 0x18012E708 (__except_validate_context_record.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     _NLG_Notify @ 0x18012E440 (_NLG_Notify.c)
+ *     __NLG_Return2 @ 0x18012E470 (__NLG_Return2.c)
+ *     __except_validate_context_record @ 0x18012E478 (__except_validate_context_record.c)
  */
 
 EXCEPTION_DISPOSITION __cdecl _C_specific_handler(

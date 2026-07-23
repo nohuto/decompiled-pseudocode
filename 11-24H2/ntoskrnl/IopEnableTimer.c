@@ -1,12 +1,12 @@
 /*
- * XREFs of IopEnableTimer @ 0x140596230
+ * XREFs of IopEnableTimer @ 0x140593260
  * Callers:
- *     IoStartTimer @ 0x140596C40 (IoStartTimer.c)
+ *     IoStartTimer @ 0x140593C20 (IoStartTimer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     EtwTraceIoTimerEvent @ 0x14064D9C4 (EtwTraceIoTimerEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     EtwTraceIoTimerEvent @ 0x14064BFD4 (EtwTraceIoTimerEvent.c)
  */
 
 void __fastcall IopEnableTimer(__int64 a1)

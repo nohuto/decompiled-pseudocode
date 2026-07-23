@@ -1,11 +1,11 @@
 /*
  * XREFs of IoVolumeDeviceToGuid @ 0x14068B980
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x14068B750 (CmpVolumeManagerGetContextForFile.c)
- *     IopMountVolume @ 0x14068E624 (IopMountVolume.c)
- *     CcGetDeviceGuid @ 0x1407460A4 (CcGetDeviceGuid.c)
+ *     sub_14068B750 @ 0x14068B750 (sub_14068B750.c)
+ *     sub_14068E624 @ 0x14068E624 (sub_14068E624.c)
+ *     sub_1407460A4 @ 0x1407460A4 (sub_1407460A4.c)
  *     FsRtlVolumeDeviceToCorrelationId @ 0x1407F9FB0 (FsRtlVolumeDeviceToCorrelationId.c)
- *     CmpVolumeContextStart @ 0x140857634 (CmpVolumeContextStart.c)
+ *     sub_140857634 @ 0x140857634 (sub_140857634.c)
  * Callees:
  *     IoVolumeDeviceToGuidPath @ 0x14068BA10 (IoVolumeDeviceToGuidPath.c)
  *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)

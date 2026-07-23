@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreeDriverList @ 0x140A5F5F4
+ * XREFs of CmpFreeDriverList @ 0x140A605F4
  * Callers:
- *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140A60174 (CmGetSystemDriverList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpFreeDriverList(__int64 a1, _QWORD *a2)

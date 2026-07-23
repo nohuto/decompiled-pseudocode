@@ -27,7 +27,7 @@ __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)
   int v7; // ebx
   wchar_t *Buffer; // r14
   int FileNameForAddress; // eax
-  int v11; // eax
+  NTSTATUS v11; // eax
   _BYTE *v12; // r14
   __int64 v13; // rdx
   __int64 v14; // rcx

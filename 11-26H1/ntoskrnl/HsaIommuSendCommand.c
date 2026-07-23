@@ -1,19 +1,19 @@
 /*
- * XREFs of HsaIommuSendCommand @ 0x14047E698
+ * XREFs of HsaIommuSendCommand @ 0x140478008
  * Callers:
- *     HsaInvalidateRemappingTableEntries @ 0x14047E348 (HsaInvalidateRemappingTableEntries.c)
- *     HsaFlushTbInternal @ 0x14047E3E0 (HsaFlushTbInternal.c)
- *     HsaIommuWaitCommand @ 0x14047E660 (HsaIommuWaitCommand.c)
- *     HsaDismissPageFault @ 0x1405A94E0 (HsaDismissPageFault.c)
- *     HsaFlushDeviceTbOnly @ 0x1405A9790 (HsaFlushDeviceTbOnly.c)
- *     HsaUpdateDeviceTableEntry @ 0x1405AAA50 (HsaUpdateDeviceTableEntry.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x140477CB8 (HsaInvalidateRemappingTableEntries.c)
+ *     HsaFlushTbInternal @ 0x140477D50 (HsaFlushTbInternal.c)
+ *     HsaIommuWaitCommand @ 0x140477FD0 (HsaIommuWaitCommand.c)
+ *     HsaDismissPageFault @ 0x1405ABCF0 (HsaDismissPageFault.c)
+ *     HsaFlushDeviceTbOnly @ 0x1405ABFA0 (HsaFlushDeviceTbOnly.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1405AD260 (HsaUpdateDeviceTableEntry.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall HsaIommuSendCommand(unsigned __int64 *a1, unsigned __int64 *a2, __int64 a3)
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall HsaIommuSendCommand(unsigned __int64 *a1, unsigned _
     }
     LockHandle.LockQueue.Next = 0LL;
     LockHandle.LockQueue.Lock = v5 + 19;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v7 = _InterlockedExchange64((volatile __int64 *)v5 + 19, (__int64)&LockHandle);
       if ( v7 )
@@ -90,7 +90,7 @@ unsigned __int64 __fastcall HsaIommuSendCommand(unsigned __int64 *a1, unsigned _
   {
     do
     {
-      if ( (++v13 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+      if ( (++v13 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
       {
         _mm_pause();
       }
@@ -117,7 +117,7 @@ unsigned __int64 __fastcall HsaIommuSendCommand(unsigned __int64 *a1, unsigned _
       result = v5[15];
       if ( !result )
         break;
-      if ( (++v18 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+      if ( (++v18 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
         _mm_pause();
       else
         guard_dispatch_icall_no_overrides(v18, v10);

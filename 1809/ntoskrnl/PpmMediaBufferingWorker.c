@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmMediaBufferingWorker @ 0x14013EFA0
+ * XREFs of PpmMediaBufferingWorker @ 0x14013F0A0
  * Callers:
  *     <none>
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmPdcNotifyMediaBufferingUpdate @ 0x14087A788 (PpmPdcNotifyMediaBufferingUpdate.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x14087B9E8 (PpmPdcNotifyMediaBufferingUpdate.c)
  */
 
 __int64 PpmMediaBufferingWorker()
@@ -32,11 +32,11 @@ __int64 PpmMediaBufferingWorker()
   {
     v0 = 1;
     v1 = KeAcquireSpinLockRaiseToDpc(&PpmMediaBufferingWork);
-    v2 = byte_140418829;
+    v2 = byte_1404198A9;
     v3 = v1;
-    if ( byte_140418829 == byte_14041810C )
+    if ( byte_1404198A9 == byte_1404191CC )
       break;
-    byte_14041810C = byte_140418829;
+    byte_1404191CC = byte_1404198A9;
     KxReleaseSpinLock(&PpmMediaBufferingWork);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
     {
@@ -73,7 +73,7 @@ __int64 PpmMediaBufferingWorker()
       PpmPdcNotifyMediaBufferingUpdate(v5);
     }
   }
-  byte_140418828 = 0;
+  byte_1404198A8 = 0;
   KxReleaseSpinLock(&PpmMediaBufferingWork);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
   {

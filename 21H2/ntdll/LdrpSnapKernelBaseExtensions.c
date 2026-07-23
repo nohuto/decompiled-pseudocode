@@ -1,7 +1,7 @@
 /*
  * XREFs of LdrpSnapKernelBaseExtensions @ 0x180016EE4
  * Callers:
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     LdrpResolveDelayLoadDescriptor @ 0x1800101B0 (LdrpResolveDelayLoadDescriptor.c)
  *     RtlInitAnsiString @ 0x1800152F0 (RtlInitAnsiString.c)
@@ -19,96 +19,92 @@
 
 __int64 LdrpSnapKernelBaseExtensions()
 {
-  int v0; // r8d
-  int v1; // edx
-  int v2; // eax
-  __int64 v3; // rcx
+  int v0; // eax
+  __int64 v1; // rcx
   int Descriptor; // ebx
-  unsigned int v5; // esi
-  unsigned int v6; // edi
+  unsigned int v3; // esi
+  unsigned int v4; // edi
   void *ApiSetMap; // r13
-  __int64 v8; // r12
-  __int64 v9; // r15
-  const char *v10; // r14
-  unsigned int v11; // eax
-  __int64 v12; // rbx
-  int v13; // eax
-  char v14; // r14
-  unsigned __int16 v15; // ax
+  __int64 v6; // r12
+  __int64 v7; // r15
+  const char *v8; // r14
+  unsigned int v9; // eax
+  __int64 v10; // rbx
+  int v11; // eax
+  char v12; // r14
+  unsigned __int16 v13; // ax
   wchar_t *Buffer; // rax
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-38h] BYREF
-  STRING DestinationString; // [rsp+40h] [rbp-28h] BYREF
-  unsigned __int16 v20[12]; // [rsp+50h] [rbp-18h] BYREF
-  char v21; // [rsp+B0h] [rbp+48h] BYREF
-  unsigned int v22; // [rsp+B8h] [rbp+50h] BYREF
-  __int64 v23; // [rsp+C0h] [rbp+58h] BYREF
-  __int64 v24; // [rsp+C8h] [rbp+60h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-38h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-28h] BYREF
+  _UNICODE_STRING String2; // [rsp+50h] [rbp-18h] BYREF
+  char v19; // [rsp+B0h] [rbp+48h] BYREF
+  unsigned int v20; // [rsp+B8h] [rbp+50h]
+  PVOID DllHandle; // [rsp+C0h] [rbp+58h] BYREF
+  __int64 v22; // [rsp+C8h] [rbp+60h] BYREF
 
-  v23 = 0LL;
-  LdrGetDllHandleByName(&LdrpKernelbaseDllName, 0LL, &v23);
-  LOWORD(v0) = 13;
-  LOBYTE(v1) = 1;
-  v2 = RtlpImageDirectoryEntryToDataEx(v23, v1, v0, (unsigned int)&v22, (__int64)&v24);
-  v3 = v24;
-  if ( v2 < 0 )
-    v3 = 0LL;
-  v24 = v3;
-  if ( !v3 )
+  DllHandle = 0LL;
+  LdrGetDllHandleByName((PUNICODE_STRING)&LdrpKernelbaseDllName, 0LL, &DllHandle);
+  v0 = RtlpImageDirectoryEntryToDataEx(DllHandle, (__int64)&v22);
+  v1 = v22;
+  if ( v0 < 0 )
+    v1 = 0LL;
+  v22 = v1;
+  if ( !v1 )
     return 0LL;
   Descriptor = 0;
-  v5 = v22 >> 5;
-  v6 = 0;
+  v3 = v20 >> 5;
+  v4 = 0;
   UnicodeString = 0LL;
   ApiSetMap = NtCurrentPeb()->ApiSetMap;
-  if ( !(v22 >> 5) )
+  if ( !(v20 >> 5) )
     return (unsigned int)Descriptor;
-  v8 = v24;
+  v6 = v22;
   while ( 1 )
   {
-    v9 = v8 + 32LL * v6;
-    if ( !*(_DWORD *)(v9 + 4) )
+    v7 = v6 + 32LL * v4;
+    if ( !*(_DWORD *)(v7 + 4) )
       goto LABEL_17;
-    v10 = (const char *)(v23 + *(unsigned int *)(v9 + 4));
-    if ( !strnicmp(v10, "EXT-", 4uLL) )
+    v8 = (char *)DllHandle + *(unsigned int *)(v7 + 4);
+    if ( !strnicmp(v8, "EXT-", 4uLL) )
       break;
 LABEL_16:
-    if ( ++v6 >= v5 )
+    if ( ++v4 >= v3 )
       goto LABEL_17;
   }
-  RtlInitAnsiString(&DestinationString, v10);
-  v11 = RtlxOemStringToUnicodeSize(&DestinationString.Length);
-  v12 = v11;
-  if ( v11 <= UnicodeString.MaximumLength )
+  RtlInitAnsiString(&DestinationString, v8);
+  v9 = RtlxOemStringToUnicodeSize((PCSTR *)&DestinationString);
+  v10 = v9;
+  if ( v9 <= UnicodeString.MaximumLength )
   {
     UnicodeString.Length = 0;
 LABEL_10:
     RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 0);
     LdrpLogDllState(0LL, &UnicodeString, 5328LL);
-    v13 = ApiSetResolveToHost((_DWORD)ApiSetMap, (unsigned int)&UnicodeString, 0, (unsigned int)&v21, (__int64)v20);
-    v14 = v21;
-    Descriptor = v13;
-    if ( v13 >= 0 && v21 )
+    v11 = ApiSetResolveToHost((_DWORD)ApiSetMap, (unsigned int)&UnicodeString, 0, (unsigned int)&v19, (__int64)&String2);
+    v12 = v19;
+    Descriptor = v11;
+    if ( v11 >= 0 && v19 )
     {
-      if ( v20[0] )
-        v15 = 5329;
+      if ( String2.Length )
+        v13 = 5329;
       else
-        v15 = 5330;
+        v13 = 5330;
     }
     else
     {
-      v15 = 5331;
+      v13 = 5331;
     }
-    LdrpLogDllState(0LL, &UnicodeString, v15);
-    if ( v14 && !(unsigned int)RtlCompareUnicodeString(LdrpKernel32DllName, v20, 1) )
+    LdrpLogDllState(0LL, &UnicodeString, v13);
+    if ( v12 && !RtlCompareUnicodeString((PUNICODE_STRING)&LdrpKernel32DllName, &String2, 1u) )
     {
-      Descriptor = LdrpResolveDelayLoadDescriptor(v23, v8 + 32LL * v6);
+      Descriptor = LdrpResolveDelayLoadDescriptor((char *)DllHandle, (PCIMAGE_DELAYLOAD_DESCRIPTOR)(v6 + 32LL * v4));
       if ( Descriptor < 0 )
         goto LABEL_17;
       Descriptor = 0;
     }
     goto LABEL_16;
   }
-  if ( v11 >= 0xFFFE )
+  if ( v9 >= 0xFFFE )
   {
     Descriptor = -1073741675;
 LABEL_17:
@@ -117,11 +113,11 @@ LABEL_17:
   }
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  Buffer = (wchar_t *)NtdllpAllocateStringRoutine(v12);
+  Buffer = (wchar_t *)NtdllpAllocateStringRoutine(v10);
   UnicodeString.Buffer = Buffer;
   if ( Buffer )
   {
-    UnicodeString.MaximumLength = v12;
+    UnicodeString.MaximumLength = v10;
     goto LABEL_10;
   }
   Descriptor = -1073741670;

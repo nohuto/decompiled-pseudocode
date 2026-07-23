@@ -21,7 +21,7 @@ char __fastcall PopReadSimulateProcessorClass(unsigned __int16 a1, void *a2, ULO
   int v15; // r9d
   ULONG ProcessorIndexFromNumber; // eax
   __int64 v17; // rbx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-39h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-39h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-35h] BYREF
   UNICODE_STRING ValueName; // [rsp+38h] [rbp-31h] BYREF
   __int128 KeyValueInformation; // [rsp+48h] [rbp-21h] BYREF

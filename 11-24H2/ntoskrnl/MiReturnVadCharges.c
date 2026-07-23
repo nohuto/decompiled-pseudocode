@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnVadCharges @ 0x1408E2F98
+ * XREFs of MiReturnVadCharges @ 0x140919B48
  * Callers:
- *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF044 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInsertVadCharges @ 0x1408E2418 (MiInsertVadCharges.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF7B4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertVadCharges @ 0x140918FC8 (MiInsertVadCharges.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1404066F0 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C8EA0 (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
  */
 
 struct _KTHREAD *__fastcall MiReturnVadCharges(_QWORD *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapImageScpCfgPages @ 0x14036A450
+ * XREFs of MiMapImageScpCfgPages @ 0x14036C1F0
  * Callers:
- *     MiMapAllImageScpPages @ 0x140962E18 (MiMapAllImageScpPages.c)
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MiMapAllImageScpPages @ 0x140A08CA0 (MiMapAllImageScpPages.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiIncrementCombinedPte @ 0x14036A6D8 (MiIncrementCombinedPte.c)
- *     MiGetImageExtensionBaseAddress @ 0x140A883F4 (MiGetImageExtensionBaseAddress.c)
- *     PsGetScpCfgPageTypeForProcess @ 0x140A9B7C8 (PsGetScpCfgPageTypeForProcess.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiIncrementCombinedPte @ 0x14036C478 (MiIncrementCombinedPte.c)
+ *     PsGetScpCfgPageTypeForProcess @ 0x1409E530C (PsGetScpCfgPageTypeForProcess.c)
+ *     MiGetImageExtensionBaseAddress @ 0x140A8F524 (MiGetImageExtensionBaseAddress.c)
  */
 
 void __fastcall MiMapImageScpCfgPages(__int64 a1, __int64 a2, __int64 a3)
@@ -37,7 +37,7 @@ void __fastcall MiMapImageScpCfgPages(__int64 a1, __int64 a2, __int64 a3)
     ScpCfgPageTypeForProcess = PsGetScpCfgPageTypeForProcess(a1, v6 + 72, a3);
     if ( ScpCfgPageTypeForProcess != 4 )
     {
-      v8 = *((_QWORD *)&stru_140E2D150.QueueListEntry.Blink + ScpCfgPageTypeForProcess);
+      v8 = *((_QWORD *)&stru_140E2D2D0.QueueListEntry.Blink + ScpCfgPageTypeForProcess);
       MiIncrementCombinedPte(a1 + 1024, v8 + 32, 0LL);
       CurrentThread = KeGetCurrentThread();
       MiLockVad((__int64)CurrentThread, a2, v10, v11);

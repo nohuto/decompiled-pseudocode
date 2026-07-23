@@ -1,11 +1,11 @@
 /*
- * XREFs of PopReleaseWakeSourceSpinLock @ 0x14038BD14
+ * XREFs of PopReleaseWakeSourceSpinLock @ 0x14038BE64
  * Callers:
- *     PopUpdateWakeSourceWorker @ 0x14056F1E0 (PopUpdateWakeSourceWorker.c)
- *     PopHandleWakeSources @ 0x140998410 (PopHandleWakeSources.c)
- *     PopNewWakeInfo @ 0x14099852C (PopNewWakeInfo.c)
+ *     PopUpdateWakeSourceWorker @ 0x14056F420 (PopUpdateWakeSourceWorker.c)
+ *     PopHandleWakeSources @ 0x140999410 (PopHandleWakeSources.c)
+ *     PopNewWakeInfo @ 0x14099952C (PopNewWakeInfo.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

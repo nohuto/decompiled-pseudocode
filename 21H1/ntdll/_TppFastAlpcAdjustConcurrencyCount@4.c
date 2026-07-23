@@ -8,7 +8,7 @@
  *     _NtAlpcSetInformation@16 @ 0x4B2F3250 (_NtAlpcSetInformation@16.c)
  */
 
-int __thiscall TppFastAlpcAdjustConcurrencyCount(volatile signed __int32 *this)
+int __thiscall TppFastAlpcAdjustConcurrencyCount(int this)
 {
   int result; // eax
   volatile signed __int32 *v3; // ebx
@@ -17,19 +17,19 @@ int __thiscall TppFastAlpcAdjustConcurrencyCount(volatile signed __int32 *this)
   int v6; // ecx
   signed __int32 v7; // eax
   signed __int32 v8; // edi
-  signed __int32 v9; // [esp+4h] [ebp-4h] BYREF
+  signed __int32 PortInformation; // [esp+4h] [ebp-4h] BYREF
 
-  result = this[45] & 3;
+  result = *(_DWORD *)(this + 180) & 3;
   if ( (_BYTE)result == 3 )
   {
-    v3 = this + 44;
+    v3 = (volatile signed __int32 *)(this + 176);
     while ( 1 )
     {
-      v4 = *((_DWORD *)this + 35);
+      v4 = *(_DWORD *)(this + 140);
       v5 = *v3;
       if ( !v4 || (v6 = *(_DWORD *)(v4 + 272)) == 0 )
         v6 = MEMORY[0x7FFE03C0];
-      v7 = v6 + *(_DWORD *)(*((_DWORD *)this + 35) + 252);
+      v7 = v6 + *(_DWORD *)(*(_DWORD *)(this + 140) + 252);
       v8 = v6 + v7;
       if ( v5 >= v7 )
       {
@@ -39,8 +39,12 @@ int __thiscall TppFastAlpcAdjustConcurrencyCount(volatile signed __int32 *this)
       }
       if ( _InterlockedCompareExchange(v3, v8, v5) == v5 )
       {
-        v9 = v8;
-        NtAlpcSetInformation(*((_DWORD *)this + 42), 8, &v9, 4);
+        PortInformation = v8;
+        NtAlpcSetInformation(
+          *(HANDLE *)(this + 168),
+          AlpcAdjustCompletionListConcurrencyCountInformation,
+          &PortInformation,
+          4u);
       }
     }
   }

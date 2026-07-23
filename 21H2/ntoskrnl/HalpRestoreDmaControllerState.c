@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpRestoreDmaControllerState @ 0x140995CF0
+ * XREFs of HalpRestoreDmaControllerState @ 0x140996CF0
  * Callers:
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpMiscIsLegacyPcType @ 0x140386A24 (HalpMiscIsLegacyPcType.c)
- *     HalpIoDelay @ 0x1403F9CD0 (HalpIoDelay.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpMiscIsLegacyPcType @ 0x140386B74 (HalpMiscIsLegacyPcType.c)
+ *     HalpIoDelay @ 0x1403F9EB0 (HalpIoDelay.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void HalpRestoreDmaControllerState()
@@ -36,7 +36,7 @@ void HalpRestoreDmaControllerState()
     __outbyte(0xD0u, 0);
     HalpIoDelay();
     v1 = 0;
-    v2 = (unsigned __int8 *)&unk_140CECE93;
+    v2 = (unsigned __int8 *)&unk_140CECED3;
     do
     {
       if ( v2[1] )

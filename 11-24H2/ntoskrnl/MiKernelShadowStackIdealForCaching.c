@@ -1,12 +1,12 @@
 /*
- * XREFs of MiKernelShadowStackIdealForCaching @ 0x140477930
+ * XREFs of MiKernelShadowStackIdealForCaching @ 0x140473F28
  * Callers:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     MiRemoveNonIdealCachedStacks @ 0x1406800B0 (MiRemoveNonIdealCachedStacks.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x1406812B0 (MiRemoveNonIdealCachedStacks.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiValidateKernelShadowStackPage @ 0x14026C2A8 (MiValidateKernelShadowStackPage.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiValidateKernelShadowStackPage @ 0x140221838 (MiValidateKernelShadowStackPage.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
  */
 
 __int64 __fastcall MiKernelShadowStackIdealForCaching(
@@ -32,7 +32,7 @@ __int64 __fastcall MiKernelShadowStackIdealForCaching(
     {
       v10 = (*v8 >> 12) & 0xFFFFFFFFFFLL;
       if ( !v9 )
-        *a3 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(48 * v10 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+        *a3 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(48 * v10 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
       MiValidateKernelShadowStackPage((ULONG_PTR)v8, 48 * v10 - 0x220000000000LL);
       if ( *a4 == -1 )
       {

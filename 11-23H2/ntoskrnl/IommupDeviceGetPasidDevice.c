@@ -1,14 +1,14 @@
 /*
- * XREFs of IommupDeviceGetPasidDevice @ 0x14050E0CC
+ * XREFs of IommupDeviceGetPasidDevice @ 0x14050E61C
  * Callers:
- *     IommuDomainAttachDeviceEx @ 0x140525910 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainDetachDeviceEx @ 0x140525D50 (IommuDomainDetachDeviceEx.c)
- *     IommupDeviceDisableSvm @ 0x140933C1C (IommupDeviceDisableSvm.c)
- *     IommuDeviceDelete @ 0x140935490 (IommuDeviceDelete.c)
+ *     IommuDomainAttachDeviceEx @ 0x140525E60 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405262A0 (IommuDomainDetachDeviceEx.c)
+ *     IommupDeviceDisableSvm @ 0x140933E1C (IommupDeviceDisableSvm.c)
+ *     IommuDeviceDelete @ 0x140935690 (IommuDeviceDelete.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 char __fastcall IommupDeviceGetPasidDevice(__int64 a1, __int64 a2, char a3, _QWORD *a4)

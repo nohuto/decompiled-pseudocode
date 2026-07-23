@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x1404FEFE8
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x1404FF538
  * Callers:
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045B35A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045B75A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     HalpDmaLinkContiguousTranslations @ 0x14045C718 (HalpDmaLinkContiguousTranslations.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaLinkContiguousTranslations @ 0x14045CB18 (HalpDmaLinkContiguousTranslations.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolV3(
@@ -52,10 +52,10 @@ __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolV3(
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v29);
       OldIrql = v29.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v29.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v29.OldIrql <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -63,7 +63,7 @@ __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolV3(
           v17 = (v16 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v16;
           if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(OldIrql);
@@ -97,10 +97,10 @@ LABEL_11:
 LABEL_21:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v29);
   v21 = v29.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v29.OldIrql <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v29.OldIrql <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;
@@ -108,7 +108,7 @@ LABEL_21:
       v17 = (v25 & v24[5]) == 0;
       v24[5] &= v25;
       if ( v17 )
-        KiRemoveSystemWorkPriorityKick(v23);
+        KiRemoveSystemWorkPriorityKick((__int64)v23);
     }
   }
   __writecr8(v21);

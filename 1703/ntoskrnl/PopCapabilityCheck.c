@@ -6,35 +6,46 @@
  *     RtlCapabilityCheck @ 0x1406E9770 (RtlCapabilityCheck.c)
  */
 
-char PopCapabilityCheck()
+char __fastcall PopCapabilityCheck(__int64 a1)
 {
-  __int64 v0; // rcx
-  const wchar_t *v1; // rax
-  __int16 v2; // r8
-  UNICODE_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  char v1; // bl
+  __int64 v2; // rcx
+  const wchar_t *v3; // rax
+  __int16 v4; // r8
+  NTSTATUS v5; // eax
+  char v6; // cl
+  UNICODE_STRING CapabilityName; // [rsp+20h] [rbp-18h] BYREF
+  __int64 HasCapability; // [rsp+40h] [rbp+8h] BYREF
 
-  *(_DWORD *)&SourceString.Length = 0;
-  v0 = 0x7FFFLL;
-  SourceString.Buffer = 0LL;
-  v1 = L"ID_CAP_SCREENOFF";
+  HasCapability = a1;
+  v1 = 0;
+  LOBYTE(HasCapability) = 0;
+  *(_DWORD *)&CapabilityName.Length = 0;
+  v2 = 0x7FFFLL;
+  CapabilityName.Buffer = 0LL;
+  v3 = L"ID_CAP_SCREENOFF";
   do
   {
-    if ( !*v1 )
+    if ( !*v3 )
       break;
-    ++v1;
-    --v0;
+    ++v3;
+    --v2;
   }
-  while ( v0 );
-  if ( v0 )
-    v2 = 0x7FFF - v0;
+  while ( v2 );
+  if ( v2 )
+    v4 = 0x7FFF - v2;
   else
-    v2 = 0;
-  if ( v0 )
+    v4 = 0;
+  if ( v2 )
   {
-    SourceString.Buffer = L"ID_CAP_SCREENOFF";
-    SourceString.Length = 2 * v2;
-    SourceString.MaximumLength = 2 * v2 + 2;
-    RtlCapabilityCheck(0LL, &SourceString);
+    CapabilityName.Buffer = L"ID_CAP_SCREENOFF";
+    CapabilityName.Length = 2 * v4;
+    CapabilityName.MaximumLength = 2 * v4 + 2;
+    v5 = RtlCapabilityCheck(0LL, &CapabilityName, (PBOOLEAN)&HasCapability);
+    v6 = HasCapability;
+    if ( v5 < 0 )
+      return 0;
+    return v6;
   }
-  return 0;
+  return v1;
 }

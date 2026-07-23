@@ -9,99 +9,99 @@
  *     _RtlGetFullPathName_Ustr@24 @ 0x4B2C8CA0 (_RtlGetFullPathName_Ustr@24.c)
  */
 
-int __stdcall RtlGetFullPathName_UstrEx(
-        unsigned __int16 *a1,
-        int a2,
-        int a3,
-        _DWORD *a4,
-        int *a5,
-        _BYTE *a6,
-        int *a7,
-        unsigned int *a8)
+NTSTATUS __cdecl RtlGetFullPathName_UstrEx(
+        PUNICODE_STRING FileName,
+        PUNICODE_STRING StaticString,
+        PUNICODE_STRING DynamicString,
+        PUNICODE_STRING *StringUsed,
+        SIZE_T *FilePartPrefixCch,
+        PBOOLEAN NameInvalid,
+        RTL_PATH_TYPE *InputPathType,
+        SIZE_T *BytesRequired)
 {
-  _DWORD *v8; // esi
-  _WORD *v9; // eax
+  PUNICODE_STRING *v8; // esi
+  wchar_t *Buffer; // eax
   unsigned int FullPathName_Ustr; // ecx
-  int v11; // esi
-  _WORD *StringRoutine; // edi
-  int v14; // eax
+  NTSTATUS v11; // esi
+  wchar_t *StringRoutine; // edi
+  wchar_t *v14; // eax
   unsigned int v15; // eax
   unsigned int v16; // ecx
-  __int16 v17; // cx
-  int v18; // eax
+  unsigned __int16 v17; // cx
+  signed int v18; // eax
   int v19; // ecx
   int v20; // eax
-  unsigned __int16 v21; // [esp+Ch] [ebp-1Ch]
+  unsigned __int16 MaximumLength; // [esp+Ch] [ebp-1Ch]
   int v22; // [esp+Ch] [ebp-1Ch]
-  size_t v23; // [esp+Ch] [ebp-1Ch]
+  unsigned int v23; // [esp+Ch] [ebp-1Ch]
   int v24; // [esp+10h] [ebp-18h] BYREF
-  _WORD *v25; // [esp+14h] [ebp-14h]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [esp+14h] [ebp-14h]
   unsigned int v26; // [esp+18h] [ebp-10h]
   int v27; // [esp+1Ch] [ebp-Ch]
   int v28[2]; // [esp+20h] [ebp-8h] BYREF
 
-  v8 = a4;
+  v8 = StringUsed;
   v24 = 0;
-  v25 = 0;
-  if ( a4 )
-    *a4 = 0;
-  if ( a8 )
-    *a8 = 0;
-  if ( a5 )
-    *a5 = 0;
-  v28[0] = *a7;
-  if ( a2 )
+  BoundaryDescriptor = 0;
+  if ( StringUsed )
+    *StringUsed = 0;
+  if ( BytesRequired )
+    *(_DWORD *)BytesRequired = 0;
+  if ( FilePartPrefixCch )
+    *(_DWORD *)FilePartPrefixCch = 0;
+  v28[0] = *InputPathType;
+  if ( StaticString )
   {
-    if ( a3 && !a4 )
+    if ( DynamicString && !StringUsed )
     {
       v11 = -1073741811;
 LABEL_23:
-      *a7 = v28[0];
+      *InputPathType = (RTL_PATH_TYPE)v28[0];
       return v11;
     }
-    v21 = *(_WORD *)(a2 + 2);
-    v9 = *(_WORD **)(a2 + 4);
+    MaximumLength = StaticString->MaximumLength;
+    Buffer = StaticString->Buffer;
 LABEL_11:
-    FullPathName_Ustr = RtlGetFullPathName_Ustr(a1, v21, v9, &v24, a6, v28);
+    FullPathName_Ustr = RtlGetFullPathName_Ustr(&FileName->Length, MaximumLength, Buffer, &v24, NameInvalid, v28);
     if ( FullPathName_Ustr )
     {
-      if ( a2 && FullPathName_Ustr < v21 )
+      if ( StaticString && FullPathName_Ustr < MaximumLength )
       {
-        *(_WORD *)a2 = FullPathName_Ustr;
-        if ( a5 )
+        StaticString->Length = FullPathName_Ustr;
+        if ( FilePartPrefixCch )
         {
           if ( v24 )
-            v18 = (v24 - *(_DWORD *)(a2 + 4)) >> 1;
+            v18 = (signed int)(v24 - (unsigned int)StaticString->Buffer) >> 1;
           else
             v18 = 0;
-          *a5 = v18;
+          *(_DWORD *)FilePartPrefixCch = v18;
         }
-        if ( a4 )
-          *a4 = a2;
+        if ( StringUsed )
+          *StringUsed = StaticString;
         v11 = 0;
       }
-      else if ( a3 )
+      else if ( DynamicString )
       {
-        v14 = (int)v25;
-        if ( v25 )
+        v14 = (wchar_t *)BoundaryDescriptor;
+        if ( BoundaryDescriptor )
         {
-          v8 = a4;
-          if ( FullPathName_Ustr < v21 )
+          v8 = StringUsed;
+          if ( FullPathName_Ustr < MaximumLength )
           {
-            *(_WORD *)a3 = FullPathName_Ustr;
-            *(_WORD *)(a3 + 2) = v21;
-            *(_WORD *)(v14 + 2 * (FullPathName_Ustr >> 1)) = 0;
-            if ( a5 )
+            DynamicString->Length = FullPathName_Ustr;
+            DynamicString->MaximumLength = MaximumLength;
+            v14[FullPathName_Ustr >> 1] = 0;
+            if ( FilePartPrefixCch )
             {
               if ( v24 )
-                v19 = (v24 - v14) >> 1;
+                v19 = (v24 - (int)v14) >> 1;
               else
                 v19 = 0;
-              *a5 = v19;
+              *(_DWORD *)FilePartPrefixCch = v19;
             }
-            if ( a4 )
-              *a4 = a3;
-            *(_DWORD *)(a3 + 4) = v14;
+            if ( StringUsed )
+              *StringUsed = DynamicString;
+            DynamicString->Buffer = v14;
             v11 = 0;
             goto LABEL_23;
           }
@@ -112,14 +112,14 @@ LABEL_11:
           {
             v27 = (unsigned __int16)(FullPathName_Ustr + 2);
             v22 = v27;
-            StringRoutine = (_WORD *)NtdllpAllocateStringRoutine(v27);
+            StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v27);
             if ( !StringRoutine )
             {
               v11 = -1073741801;
               goto LABEL_19;
             }
             v23 = v22 - 2;
-            v15 = RtlGetFullPathName_Ustr(a1, v23, StringRoutine, &v24, a6, v28);
+            v15 = RtlGetFullPathName_Ustr(&FileName->Length, v23, StringRoutine, &v24, NameInvalid, v28);
             v16 = v15;
             v26 = v15;
             if ( !v15 )
@@ -129,26 +129,26 @@ LABEL_11:
             }
             if ( v15 <= v23 )
               break;
-            RtlDeleteBoundaryDescriptor((int)StringRoutine);
+            RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)StringRoutine);
             LOWORD(FullPathName_Ustr) = v26;
             if ( v26 + 2 > 0xFFFE )
               goto LABEL_55;
           }
-          if ( a5 )
+          if ( FilePartPrefixCch )
           {
             if ( v24 )
               v20 = (v24 - (int)StringRoutine) >> 1;
             else
               v20 = 0;
-            *a5 = v20;
+            *(_DWORD *)FilePartPrefixCch = v20;
           }
           StringRoutine[v16 >> 1] = 0;
-          *(_WORD *)a3 = v16;
+          DynamicString->Length = v16;
           v17 = v27;
-          *(_DWORD *)(a3 + 4) = StringRoutine;
-          *(_WORD *)(a3 + 2) = v17;
+          DynamicString->Buffer = StringRoutine;
+          DynamicString->MaximumLength = v17;
           if ( v8 )
-            *v8 = a3;
+            *v8 = DynamicString;
           StringRoutine = 0;
           v11 = 0;
           goto LABEL_19;
@@ -158,8 +158,8 @@ LABEL_55:
       }
       else
       {
-        if ( a8 )
-          *a8 = FullPathName_Ustr;
+        if ( BytesRequired )
+          *(_DWORD *)BytesRequired = FullPathName_Ustr;
         v11 = -1073741789;
       }
     }
@@ -169,16 +169,16 @@ LABEL_55:
     }
     StringRoutine = 0;
 LABEL_19:
-    if ( v25 )
-      RtlDeleteBoundaryDescriptor((int)v25);
+    if ( BoundaryDescriptor )
+      RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
     if ( StringRoutine )
-      RtlDeleteBoundaryDescriptor((int)StringRoutine);
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)StringRoutine);
     goto LABEL_23;
   }
-  v21 = 520;
-  v9 = (_WORD *)NtdllpAllocateStringRoutine(520);
-  v25 = v9;
-  if ( v9 )
+  MaximumLength = 520;
+  Buffer = (wchar_t *)NtdllpAllocateStringRoutine(520);
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)Buffer;
+  if ( Buffer )
     goto LABEL_11;
   return -1073741801;
 }

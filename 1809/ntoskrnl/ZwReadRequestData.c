@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwReadRequestData @ 0x1401B8C10
+ * XREFs of ZwReadRequestData @ 0x1401B8D70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwReadRequestData(
         HANDLE PortHandle,
         PPORT_MESSAGE Message,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwReadRequestData(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, Message, *(_QWORD *)&Index);
+  return KiServiceInternal(PortHandle);
 }

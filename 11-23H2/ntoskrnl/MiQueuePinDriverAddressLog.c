@@ -1,12 +1,12 @@
 /*
- * XREFs of MiQueuePinDriverAddressLog @ 0x1402959BC
+ * XREFs of MiQueuePinDriverAddressLog @ 0x140295C4C
  * Callers:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     MiGetPhysicalAddress @ 0x14028BF20 (MiGetPhysicalAddress.c)
+ *     MiGetPhysicalAddress @ 0x14028C1B0 (MiGetPhysicalAddress.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     RtlInterlockedSetClearRun @ 0x140295D70 (RtlInterlockedSetClearRun.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlInterlockedSetClearRun @ 0x140296000 (RtlInterlockedSetClearRun.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int a3)
@@ -16,9 +16,9 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
   unsigned int v6; // edi
   unsigned int v7; // esi
   unsigned int v8; // r8d
-  int v9; // edx
+  unsigned int v9; // edx
   int v10; // r9d
-  __int64 v11; // r10
+  char *v11; // r10
   unsigned int v12; // r11d
   unsigned int v13; // ecx
   __int64 *v14; // rdi
@@ -33,7 +33,7 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
   unsigned __int8 v23; // cl
   _DWORD *SchedulerAssist; // r9
   __int64 v25; // rdx
-  int v26; // edx
+  unsigned int SizeOfBitMap; // edx
   char *v27; // rdx
   unsigned __int8 v28; // al
   struct _KPRCB *CurrentPrcb; // r9
@@ -53,9 +53,9 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
     {
       v23 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v23 == 2 )
@@ -72,10 +72,10 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
       while ( 1 )
       {
         v7 = v6 + 1;
-        v8 = v7 < dword_140C12EA0 ? v7 : 0;
-        v9 = dword_140C12EA0 - 1;
-        v10 = (qword_140C12EA8 & 4) != 0 ? 0x20 : 0;
-        v11 = qword_140C12EA8 - ((qword_140C12EA8 & 4) != 0 ? 4 : 0);
+        v8 = v7 < stru_140C12EA0.SizeOfBitMap ? v7 : 0;
+        v9 = stru_140C12EA0.SizeOfBitMap - 1;
+        v10 = ((__int64)stru_140C12EA0.Buffer & 4) != 0LL ? 0x20 : 0;
+        v11 = (char *)stru_140C12EA0.Buffer - (((__int64)stru_140C12EA0.Buffer & 4) != 0LL ? 4 : 0);
         while ( 1 )
         {
           v35 = 0;
@@ -87,20 +87,20 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
 LABEL_58:
           if ( !v8 )
             goto LABEL_15;
-          v26 = v7 + 1;
-          if ( v7 + 1 > dword_140C12EA0 )
-            v26 = dword_140C12EA0;
-          v9 = v26 - 1;
+          SizeOfBitMap = v7 + 1;
+          if ( v7 + 1 > stru_140C12EA0.SizeOfBitMap )
+            SizeOfBitMap = stru_140C12EA0.SizeOfBitMap;
+          v9 = SizeOfBitMap - 1;
           v8 = 0;
         }
-        v14 = (__int64 *)(v11 + 8 * ((unsigned __int64)v13 >> 6));
+        v14 = (__int64 *)&v11[8 * ((unsigned __int64)v13 >> 6)];
         for ( i = ((1LL << (v13 & 0x3F)) - 1) | *v14; i == -1; i = *v14 )
         {
-          if ( (unsigned __int64)++v14 > v11 + 8 * ((unsigned __int64)v12 >> 6) )
+          if ( ++v14 > (__int64 *)&v11[8 * ((unsigned __int64)v12 >> 6)] )
             goto LABEL_40;
         }
         _BitScanForward64((unsigned __int64 *)&i, ~i);
-        v6 = i + ((unsigned int)(((__int64)v14 - v11) >> 3) << 6);
+        v6 = i + ((unsigned int)(((char *)v14 - v11) >> 3) << 6);
         v35 = i;
         if ( v6 > v12 )
         {
@@ -114,7 +114,7 @@ LABEL_40:
 LABEL_15:
         if ( v6 == -1 )
           break;
-        if ( (unsigned int)RtlInterlockedSetClearRun(&dword_140C12EA0, v6, 1LL) )
+        if ( (unsigned int)RtlInterlockedSetClearRun(&stru_140C12EA0, v6, 1LL) )
         {
           if ( v6 >= 0x800 )
             break;
@@ -187,10 +187,10 @@ LABEL_15:
 LABEL_38:
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v28 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v28 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v28 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v30 = CurrentPrcb->SchedulerAssist;

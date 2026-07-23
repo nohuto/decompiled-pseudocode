@@ -2,9 +2,9 @@
  * XREFs of PfTAccessTracingInitialize @ 0x1403C838C
  * Callers:
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
- *     PfTInitialize @ 0x140571904 (PfTInitialize.c)
+ *     PfTInitialize @ 0x140571E44 (PfTInitialize.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
  */
 
 void __fastcall PfTAccessTracingInitialize(__int64 a1, __int64 a2, int a3)

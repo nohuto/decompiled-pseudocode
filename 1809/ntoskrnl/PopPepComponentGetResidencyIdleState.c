@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepComponentGetResidencyIdleState @ 0x140100070
+ * XREFs of PopPepComponentGetResidencyIdleState @ 0x1401000F0
  * Callers:
- *     PopPepCompleteComponentActiveActivity @ 0x1400FFEB0 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepComponentSetResidency @ 0x1402DCAA8 (PopPepComponentSetResidency.c)
- *     PopPepIdleTimeoutRoutine @ 0x1402DD090 (PopPepIdleTimeoutRoutine.c)
- *     PopPepRegisterDevice @ 0x140724630 (PopPepRegisterDevice.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x1400FFF30 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepComponentSetResidency @ 0x1402DCC98 (PopPepComponentSetResidency.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1402DD280 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepRegisterDevice @ 0x1407258D0 (PopPepRegisterDevice.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateImageHeader @ 0x1409CBC24
+ * XREFs of MiValidateImageHeader @ 0x14099CC04
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
- *     MiWriteControlAreaFlags2 @ 0x1404B65F0 (MiWriteControlAreaFlags2.c)
- *     MiStrongCodeImage @ 0x14050554C (MiStrongCodeImage.c)
- *     SeValidateImageHeader @ 0x1409CD10C (SeValidateImageHeader.c)
+ *     MiWriteControlAreaFlags2 @ 0x1404AFA40 (MiWriteControlAreaFlags2.c)
+ *     MiStrongCodeImage @ 0x140521118 (MiStrongCodeImage.c)
+ *     SeValidateImageHeader @ 0x14099E0EC (SeValidateImageHeader.c)
  */
 
 __int64 __fastcall MiValidateImageHeader(__int64 a1, int a2)

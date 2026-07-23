@@ -4,17 +4,17 @@
  *     EtwDeliverDataBlock @ 0x1800506D0 (EtwDeliverDataBlock.c)
  * Callees:
  *     RtlNtStatusToDosError @ 0x18004EDE0 (RtlNtStatusToDosError.c)
- *     NtTraceControl @ 0x1800A3A50 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1800A3A70 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwReplyNotification(__int64 a1)
+ULONG __cdecl EtwReplyNotification(PETW_NOTIFICATION_HEADER Notification)
 {
   ULONG v1; // ebx
   NTSTATUS v2; // eax
-  char v4; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
-  v2 = NtTraceControl(18LL, a1, *(unsigned int *)(a1 + 4), 0LL, 0, &v4);
+  v2 = NtTraceControl(EtwSendReplyDataBlock, Notification, Notification->NotificationSize, 0LL, 0, &ReturnLength);
   if ( v2 )
     v1 = RtlNtStatusToDosError(v2);
   EtwpReplySend = 1;

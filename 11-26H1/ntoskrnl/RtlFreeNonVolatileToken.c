@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFreeNonVolatileToken @ 0x14061E190
+ * XREFs of RtlFreeNonVolatileToken @ 0x1406211E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlFreeNonVolatileToken(char a1)
+DWORD __cdecl RtlFreeNonVolatileToken(PVOID NvToken)
 {
-  return (a1 & 1) == 0 ? 0xC000000D : 0;
+  return ((unsigned __int8)NvToken & 1) == 0 ? 0xC000000D : 0;
 }

@@ -1,80 +1,79 @@
 /*
- * XREFs of KeInitializeClock @ 0x140D0B7A4
+ * XREFs of KeInitializeClock @ 0x140D117AC
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     KiSetNextClockTickDueTime @ 0x1403796D0 (KiSetNextClockTickDueTime.c)
- *     KiSetClockTimerKTimerDeadlines @ 0x140379C60 (KiSetClockTimerKTimerDeadlines.c)
- *     KiSetClockTimer @ 0x140418F10 (KiSetClockTimer.c)
- *     KiSetPendingTick @ 0x14047CCA4 (KiSetPendingTick.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     KiInitializeProcessorCycleAccumulation @ 0x1405E51A4 (KiInitializeProcessorCycleAccumulation.c)
- *     KiSetupTimeIncrement @ 0x1405E53C8 (KiSetupTimeIncrement.c)
- *     Feature_Servicing_Kernel_TimeUpdateLockContentionFix__private_IsEnabledDeviceUsageNoInline @ 0x1405ED128 (Feature_Servicing_Kernel_TimeUpdateLockContentionFix__private_IsEnabledDeviceUsageNoInline.c)
- *     PoTraceDynamicTickDisabled @ 0x140607F90 (PoTraceDynamicTickDisabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EmClientQueryRuleState @ 0x140C03950 (EmClientQueryRuleState.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     KiSetNextClockTickDueTime @ 0x14037B480 (KiSetNextClockTickDueTime.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x14037BA10 (KiSetClockTimerKTimerDeadlines.c)
+ *     KiSetClockTimer @ 0x14040D440 (KiSetClockTimer.c)
+ *     KiSetPendingTick @ 0x140476614 (KiSetPendingTick.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     KiInitializeProcessorCycleAccumulation @ 0x1405E7B14 (KiInitializeProcessorCycleAccumulation.c)
+ *     KiSetupTimeIncrement @ 0x1405E7D38 (KiSetupTimeIncrement.c)
+ *     Feature_Servicing_Kernel_TimeUpdateLockContentionFix__private_IsEnabledDeviceUsageNoInline @ 0x1405EFA98 (Feature_Servicing_Kernel_TimeUpdateLockContentionFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     PoTraceDynamicTickDisabled @ 0x14060AB40 (PoTraceDynamicTickDisabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     EmClientQueryRuleState @ 0x140C09B60 (EmClientQueryRuleState.c)
  */
 
-char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
+void __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // r12
-  char result; // al
-  int v4; // eax
-  __int64 v5; // r14
-  struct _KPRCB *v6; // r15
-  __int64 *v7; // rcx
+  int v3; // eax
+  LARGE_INTEGER v4; // r14
+  struct _KPRCB *v5; // r15
+  __int64 *v6; // rcx
   unsigned __int8 CurrentIrql; // si
+  __int64 v8; // rdx
   __int64 v9; // rdx
-  __int64 v10; // rdx
+  __int64 v10; // rcx
   __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // rdx
-  bool v15; // r8
-  __int64 v16; // rax
-  int v17; // eax
-  const char *v18; // rcx
-  signed __int32 v19[8]; // [rsp+0h] [rbp-80h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v12; // rdx
+  unsigned __int64 Root; // rdx
+  BOOLEAN v14; // r8
+  unsigned __int64 v15; // rax
+  int v16; // eax
+  const char *v17; // rcx
+  signed __int32 v18[8]; // [rsp+0h] [rbp-80h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-40h] BYREF
   __int64 ClockTickDueTime; // [rsp+48h] [rbp-38h]
   LARGE_INTEGER PerformanceFrequency; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v23; // [rsp+58h] [rbp-28h] BYREF
-  unsigned __int64 v24; // [rsp+68h] [rbp-18h]
-  unsigned int v25; // [rsp+70h] [rbp-10h]
-  char v26; // [rsp+74h] [rbp-Ch]
+  __int128 v22; // [rsp+58h] [rbp-28h] BYREF
+  unsigned __int64 v23; // [rsp+68h] [rbp-18h]
+  unsigned int v24; // [rsp+70h] [rbp-10h]
+  char v25; // [rsp+74h] [rbp-Ch]
 
-  v24 = 0LL;
+  v23 = 0LL;
+  v24 = 0;
   v25 = 0;
-  v26 = 0;
   ClockTickDueTime = 0LL;
   PerformanceFrequency.QuadPart = 0LL;
-  v23 = 0LL;
+  v22 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   if ( (_DWORD)BugCheckParameter2 )
   {
     if ( (_DWORD)BugCheckParameter2 == 1 )
     {
-      v20 = (unsigned int)Feature_TickAccumulationFromAccountingPeriods__private_featureState;
+      v19 = (unsigned int)Feature_TickAccumulationFromAccountingPeriods__private_featureState;
       if ( (Feature_TickAccumulationFromAccountingPeriods__private_featureState & 0x10) == 0 )
       {
-        LODWORD(v20) = Feature_TickAccumulationFromAccountingPeriods__private_featureState | 1;
+        LODWORD(v19) = Feature_TickAccumulationFromAccountingPeriods__private_featureState | 1;
         wil_details_FeatureReporting_ReportUsageToService(
           (__int64)&Feature_TickAccumulationFromAccountingPeriods__private_descriptor,
           Feature_TickAccumulationFromAccountingPeriods__private_featureState | 1,
           3);
         wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
-          v20,
+          v19,
           3,
           (__int64)&Feature_TickAccumulationFromAccountingPeriods__private_descriptor);
       }
@@ -83,16 +82,16 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
       {
         if ( !KiSerializeTimerExpiration )
         {
-          v20 = (unsigned int)Feature_PerProcessorClockTickServer__private_featureState;
+          v19 = (unsigned int)Feature_PerProcessorClockTickServer__private_featureState;
           if ( (Feature_PerProcessorClockTickServer__private_featureState & 0x10) == 0 )
           {
-            LODWORD(v20) = Feature_PerProcessorClockTickServer__private_featureState | 1;
+            LODWORD(v19) = Feature_PerProcessorClockTickServer__private_featureState | 1;
             wil_details_FeatureReporting_ReportUsageToService(
               (__int64)&Feature_PerProcessorClockTickServer__private_descriptor,
               Feature_PerProcessorClockTickServer__private_featureState | 1,
               3);
             wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
-              v20,
+              v19,
               3,
               (__int64)&Feature_PerProcessorClockTickServer__private_descriptor);
           }
@@ -103,125 +102,120 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
         KiTickAccumulationFromAccountingPeriods = KiEnableTickAccumulationFromAccountingPeriods == 1;
       if ( KiEnableClockTimerPerCpuTickScheduling && KiClockTimerPerCpu )
         KiClockTimerPerCpuTickScheduling = KiEnableClockTimerPerCpuTickScheduling == 1;
-      v4 = KeMaximumIncrement;
+      v3 = KeMaximumIncrement;
       if ( (KiVelocityFlags & 0x40000) != 0 )
-        v4 = 17400;
-      stru_140FC01F0.SavedApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)500;
-      KeQuantumEndTimerIncrement = v4;
+        v3 = 17400;
+      stru_140FC11F0.NpxState = 500LL;
+      KeQuantumEndTimerIncrement = v3;
       if ( (unsigned int)Feature_Servicing_Kernel_TimeUpdateLockContentionFix__private_IsEnabledDeviceUsageNoInline() )
       {
         KiTimeUpdateTryAcquireTickLock = 1;
         KiClockTimerReducePreciseTimeQueries = 1;
       }
-      v5 = MEMORY[0xFFFFF78000000008];
-      v6 = KeGetCurrentPrcb();
+      v4.QuadPart = MEMORY[0xFFFFF78000000008];
+      v5 = KeGetCurrentPrcb();
       KeQueryPerformanceCounter(&PerformanceFrequency);
       KiClockStateUpdateTimeout = 5 * PerformanceFrequency.QuadPart;
-      v7 = KiProcessorBlock;
+      v6 = KiProcessorBlock;
       *(_BYTE *)(KiProcessorBlock[(unsigned int)KiClockTimerOwner] + 33) = 1;
       CurrentIrql = KeGetCurrentIrql();
-      v9 = 15LL;
+      v8 = 15LL;
       if ( CurrentIrql != 15 )
         __writecr8(0xFuLL);
       if ( KiIrqlFlags )
         KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
-      *(_WORD *)&v6->ClockTimerState.ClockActive = 1;
+      *(_WORD *)&v5->ClockTimerState.ClockActive = 1;
       KiClockState = 0;
-      guard_dispatch_icall_no_overrides((__int64)v7, v9);
+      guard_dispatch_icall_no_overrides((__int64)v6, v8);
       KiSetPendingTick(0);
-      guard_dispatch_icall_no_overrides(v11, v10);
-      LOBYTE(v12) = 1;
-      guard_dispatch_icall_no_overrides(v12, v13);
+      guard_dispatch_icall_no_overrides(v10, v9);
+      LOBYTE(v11) = 1;
+      guard_dispatch_icall_no_overrides(v11, v12);
       KeNonHrTimeIncrement = KeMaximumIncrement;
       KePseudoHrTimeIncrement = KeMaximumIncrement;
-      KiLastPseudoHrTimerExpiration = v5;
-      KiLastNonHrTimerExpiration = v5;
-      dword_140F262DC = KeMaximumIncrement;
-      if ( (qword_140E66748 & 1) != 0 )
+      KiLastPseudoHrTimerExpiration = v4.QuadPart;
+      KiLastNonHrTimerExpiration = v4.QuadPart;
+      dword_140F265FC = KeMaximumIncrement;
+      if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
       {
-        if ( KiClockIntervalRequests )
-          v14 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
+        if ( KiClockIntervalRequests.Root )
+          Root = (unsigned __int64)KiClockIntervalRequests.Root ^ (unsigned __int64)&KiClockIntervalRequests;
         else
-          v14 = 0LL;
+          Root = 0LL;
       }
       else
       {
-        v14 = KiClockIntervalRequests;
+        Root = (unsigned __int64)KiClockIntervalRequests.Root;
       }
-      v15 = 0;
-      if ( v14 )
+      v14 = 0;
+      if ( Root )
       {
         while ( 1 )
         {
-          if ( (unsigned int)KeMaximumIncrement < *(_DWORD *)(v14 + 28) )
+          if ( KeMaximumIncrement < *(_DWORD *)(Root + 28) )
           {
-            v16 = *(_QWORD *)v14;
-            if ( (qword_140E66748 & 1) != 0 )
+            v15 = *(_QWORD *)Root;
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
-              if ( !v16 )
+              if ( !v15 )
                 break;
-              v16 ^= v14;
+              v15 ^= Root;
             }
-            if ( !v16 )
+            if ( !v15 )
               break;
           }
           else
           {
-            v16 = *(_QWORD *)(v14 + 8);
-            if ( (qword_140E66748 & 1) != 0 )
+            v15 = *(_QWORD *)(Root + 8);
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
-              if ( !v16 )
+              if ( !v15 )
                 goto LABEL_44;
-              v16 ^= v14;
+              v15 ^= Root;
             }
-            if ( !v16 )
+            if ( !v15 )
             {
 LABEL_44:
-              v15 = 1;
+              v14 = 1;
               break;
             }
           }
-          v14 = v16;
+          Root = v15;
         }
       }
-      RtlRbInsertNodeEx(
-        (unsigned __int64)&KiClockIntervalRequests,
-        v14,
-        v15,
-        (unsigned __int64)&KiDefaultClockIntervalRequest);
-      byte_140F262D8 = 1;
+      RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v14, &KiDefaultClockIntervalRequest);
+      byte_140F265F8 = 1;
       if ( KiClockTimerPerCpuTickScheduling )
       {
         KiSetClockTimer(
           (__int64)CurrentPrcb,
-          v5,
+          v4,
           -(__int64)(unsigned int)KeQuantumEndTimerIncrement,
           KeMinimumIncrement,
           3,
           1,
           0);
-        KiSetClockTimerKTimerDeadlines((__int64)CurrentPrcb, v5, 0);
-        ClockTickDueTime = (unsigned int)KiSetNextClockTickDueTime(v5, 1);
+        KiSetClockTimerKTimerDeadlines((__int64)CurrentPrcb, v4, 0);
+        ClockTickDueTime = (unsigned int)KiSetNextClockTickDueTime(v4, 1);
       }
       else
       {
-        guard_dispatch_icall_no_overrides(0LL, (unsigned int)KeMaximumIncrement);
+        guard_dispatch_icall_no_overrides(0LL, KeMaximumIncrement);
         KiSetPendingTick(1);
-        v17 = KeMaximumIncrement;
+        v16 = KeMaximumIncrement;
         KeTimeIncrement = ClockTickDueTime;
-        v6->ClockTimerState.TimeIncrement = ClockTickDueTime;
-        v6->ClockTimerState.LastRequestedTimeIncrement = v17;
-        KiLastRequestedTimeIncrement = v17;
-        v6->ClockTimerState.NextTickDueTime = v5 + ClockTickDueTime;
+        v5->ClockTimerState.TimeIncrement = ClockTickDueTime;
+        v5->ClockTimerState.LastRequestedTimeIncrement = v16;
+        KiLastRequestedTimeIncrement = v16;
+        v5->ClockTimerState.NextTickDueTime = v4.QuadPart + ClockTickDueTime;
       }
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
-      dword_140F25C90 = KeTimeIncrement;
-      dword_140F25C94 = KeTimeIncrement;
-      result = KiLastRequestedTimeIncrement;
-      dword_140F25C98 = KiLastRequestedTimeIncrement;
-      dword_140F25C9C = KiLastRequestedTimeIncrement;
+      dword_140F25FB0 = KeTimeIncrement;
+      dword_140F25FB4 = KeTimeIncrement;
+      dword_140F25FB8 = KiLastRequestedTimeIncrement;
+      dword_140F25FBC = KiLastRequestedTimeIncrement;
     }
     else
     {
@@ -229,41 +223,40 @@ LABEL_44:
         KeBugCheckEx(0x33u, 1uLL, (unsigned int)BugCheckParameter2, 0LL, 0LL);
       if ( (_BYTE)KiDynamicTickDisableReason )
         goto LABEL_11;
-      if ( !HvlHypervisorConnected || (result = HvlpFlags, (HvlpFlags & 2) != 0) )
+      if ( !HvlHypervisorConnected || (HvlpFlags & 2) != 0 )
       {
-        LODWORD(v20) = 1;
-        result = EmClientQueryRuleState(&GUID_EM_CPU_TYPE_INTEL_DTT_DISABLE, &v20);
-        if ( (_DWORD)v20 == 2 )
+        LODWORD(v19) = 1;
+        EmClientQueryRuleState(&GUID_EM_CPU_TYPE_INTEL_DTT_DISABLE, &v19);
+        if ( (_DWORD)v19 == 2 )
           KiDynamicTickDisableReason = 3;
       }
       if ( (_BYTE)KiDynamicTickDisableReason )
       {
 LABEL_11:
-        result = PoTraceDynamicTickDisabled();
+        PoTraceDynamicTickDisabled();
         KiForceIdleDisabled = 1;
       }
-      _InterlockedOr(v19, 0);
+      _InterlockedOr(v18, 0);
       KiDynamicTickInitialized = 1;
     }
   }
   else
   {
-    v18 = *(const char **)(a2 + 216);
-    qword_140F25C88 = -1LL;
-    qword_140F25CA8 = -1LL;
-    if ( v18 && strstr(v18, "DISABLEDYNAMICTICK") )
+    v17 = *(const char **)(a2 + 216);
+    qword_140F25FA8 = -1LL;
+    qword_140F25FC8 = -1LL;
+    if ( v17 && strstr(v17, "DISABLEDYNAMICTICK") )
       KiDynamicTickDisableReason = 1;
-    guard_dispatch_icall_no_overrides((__int64)&v23, a2);
-    if ( (v23 & 4) != 0 )
+    guard_dispatch_icall_no_overrides((__int64)&v22, a2);
+    if ( (v22 & 4) != 0 )
       KiClockTimerPerCpu = 1;
-    if ( (v23 & 2) != 0 )
+    if ( (v22 & 2) != 0 )
       KiClockTimerHighLatency = 1;
-    if ( (v23 & 1) != 0 )
+    if ( (v22 & 1) != 0 )
       KiClockTimerAlwaysOnPresent = 1;
-    if ( !(_BYTE)KiDynamicTickDisableReason && (v23 & 8) == 0 )
+    if ( !(_BYTE)KiDynamicTickDisableReason && (v22 & 8) == 0 )
       KiDynamicTickDisableReason = 2;
-    KiSetupTimeIncrement(v24, v25);
-    return KiInitializeProcessorCycleAccumulation((__int64)CurrentPrcb);
+    KiSetupTimeIncrement(v23, v24);
+    KiInitializeProcessorCycleAccumulation((__int64)CurrentPrcb);
   }
-  return result;
 }

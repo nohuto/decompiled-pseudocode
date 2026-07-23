@@ -1,22 +1,22 @@
 /*
- * XREFs of MmGetSessionId @ 0x1400897B0
+ * XREFs of MmGetSessionId @ 0x1400897A0
  * Callers:
- *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
- *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
- *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
- *     PsGetThreadSessionId @ 0x1405F6300 (PsGetThreadSessionId.c)
- *     PspBindProcessSessionToJob @ 0x140605480 (PspBindProcessSessionToJob.c)
- *     PspInitializeProcessSecurity @ 0x14064E814 (PspInitializeProcessSecurity.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
- *     MmCreatePeb @ 0x140678530 (MmCreatePeb.c)
- *     ExCallSessionCallBack @ 0x14069E824 (ExCallSessionCallBack.c)
- *     MmGetSessionMappedViewInformation @ 0x14084C4A0 (MmGetSessionMappedViewInformation.c)
- *     PopInputDisabled @ 0x140878E78 (PopInputDisabled.c)
- *     EtwpPoolRunDown @ 0x1408BF034 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x1408CB33C (ExGetSessionBigPoolInformation.c)
+ *     PopInvokeWin32Callout @ 0x1405B1C84 (PopInvokeWin32Callout.c)
+ *     ExpGetProcessInformation @ 0x1405E7B60 (ExpGetProcessInformation.c)
+ *     PsInvokeWin32Callout @ 0x1405F5E90 (PsInvokeWin32Callout.c)
+ *     PsGetThreadSessionId @ 0x1405F7300 (PsGetThreadSessionId.c)
+ *     PspBindProcessSessionToJob @ 0x140606480 (PspBindProcessSessionToJob.c)
+ *     PspInitializeProcessSecurity @ 0x14064F9D4 (PspInitializeProcessSecurity.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     EtwpPsProvTraceProcess @ 0x14066D210 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
+ *     MmCreatePeb @ 0x1406796F0 (MmCreatePeb.c)
+ *     ExCallSessionCallBack @ 0x14069FAE4 (ExCallSessionCallBack.c)
+ *     MmGetSessionMappedViewInformation @ 0x14084D700 (MmGetSessionMappedViewInformation.c)
+ *     PopInputDisabled @ 0x14087A0D8 (PopInputDisabled.c)
+ *     EtwpPoolRunDown @ 0x1408C02F4 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x1408CC5FC (ExGetSessionBigPoolInformation.c)
  * Callees:
  *     <none>
  */

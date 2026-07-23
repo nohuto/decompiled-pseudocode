@@ -11,16 +11,16 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCreateSecurityDescriptor(__int64 a1, int a2)
+NTSTATUS __cdecl RtlCreateSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ULONG Revision)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a2 != 1 )
-    return 3221225560LL;
-  result = 0LL;
-  *(_OWORD *)a1 = 0LL;
-  *(_OWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 32) = 0LL;
-  *(_BYTE *)a1 = 1;
+  if ( Revision != 1 )
+    return -1073741736;
+  result = 0;
+  *(_OWORD *)SecurityDescriptor = 0LL;
+  *((_OWORD *)SecurityDescriptor + 1) = 0LL;
+  *((_QWORD *)SecurityDescriptor + 4) = 0LL;
+  *(_BYTE *)SecurityDescriptor = 1;
   return result;
 }

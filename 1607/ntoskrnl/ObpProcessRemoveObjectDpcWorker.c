@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpProcessRemoveObjectDpcWorker @ 0x1401FEA4C
+ * XREFs of ObpProcessRemoveObjectDpcWorker @ 0x1401FE878
  * Callers:
  *     <none>
  * Callees:

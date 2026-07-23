@@ -1,5 +1,5 @@
 /*
- * XREFs of ExShareAddressSpaceWithDevice @ 0x14031D360
+ * XREFs of ExShareAddressSpaceWithDevice @ 0x14031D550
  * Callers:
  *     <none>
  * Callees:
@@ -9,19 +9,19 @@
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MmEnableProcessSvm @ 0x1402A5500 (MmEnableProcessSvm.c)
- *     ExpAllocateAsid @ 0x14031DB78 (ExpAllocateAsid.c)
- *     ExpPrepareNewSvmDevice @ 0x14031DEF0 (ExpPrepareNewSvmDevice.c)
- *     ExpSvmDereferenceDevice @ 0x14031E1F0 (ExpSvmDereferenceDevice.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoQueryInterface @ 0x140755AA0 (IoQueryInterface.c)
- *     ExpAssignPasid @ 0x1408D70EC (ExpAssignPasid.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MmEnableProcessSvm @ 0x1402A56F0 (MmEnableProcessSvm.c)
+ *     ExpAllocateAsid @ 0x14031DD68 (ExpAllocateAsid.c)
+ *     ExpPrepareNewSvmDevice @ 0x14031E0E0 (ExpPrepareNewSvmDevice.c)
+ *     ExpSvmDereferenceDevice @ 0x14031E3E0 (ExpSvmDereferenceDevice.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoQueryInterface @ 0x140756C90 (IoQueryInterface.c)
+ *     ExpAssignPasid @ 0x1408D83AC (ExpAssignPasid.c)
  */
 
 __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
@@ -31,15 +31,15 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
   struct _KTHREAD *CurrentThread; // rdi
   _KPROCESS *Process; // r13
   int v8; // esi
-  __int64 v9; // rax
-  __int64 v10; // rdi
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // rdi
   unsigned int Asid; // edi
   __int64 v12; // r8
   unsigned __int8 CurrentIrql; // di
   struct _KPRCB *CurrentPrcb; // rcx
-  __int64 v15; // rax
+  _RTL_BALANCED_NODE *v15; // rax
   signed __int8 v16; // cf
-  __int64 v17; // rdi
+  _RTL_BALANCED_NODE *v17; // rdi
   __int64 *v18; // rax
   __int64 *v19; // rdx
   __int64 *v20; // rcx
@@ -93,7 +93,7 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
       v9,
       (ULONG_PTR)&Process[2].ActiveProcessors.Bitmap[3]);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   Asid = Process[2].ActiveProcessors.Bitmap[1];
   if ( !Asid )
   {
@@ -151,7 +151,7 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
   if ( v16 )
     ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v15, (ULONG_PTR)&ExpSvmDeviceListLock);
   if ( v17 )
-    *(_BYTE *)(v17 + 26) |= 1u;
+    BYTE2(v17[1].Left) |= 1u;
   v18 = (__int64 *)ExpSvmDevices;
   if ( (__int64 *)ExpSvmDevices == &ExpSvmDevices )
     goto LABEL_45;

@@ -28,14 +28,14 @@ __int64 PopUmpoInitializeChannel()
   ACL *PoolWithTag; // rax
   ACL *v3; // rdi
   NTSTATUS Acl; // eax
-  int Port; // ebx
+  NTSTATUS v5; // ebx
   PCALLBACK_OBJECT v6; // rsi
   PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-89h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-81h] BYREF
-  _QWORD v10[2]; // [rsp+60h] [rbp-51h] BYREF
+  _QWORD PortInformation[2]; // [rsp+60h] [rbp-51h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-41h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+80h] [rbp-31h] BYREF
-  _QWORD v13[10]; // [rsp+A8h] [rbp-9h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+A8h] [rbp-9h] BYREF
 
   LODWORD(PopBrightnessNotifyMutex) = 1;
   PopAlpcServerPort = 0LL;
@@ -63,7 +63,7 @@ __int64 PopUmpoInitializeChannel()
   if ( PoolWithTag )
   {
     Acl = RtlCreateAcl(PoolWithTag, v1, 2u);
-    Port = Acl;
+    v5 = Acl;
     if ( Acl < 0 )
     {
       if ( (PoDebug & 1) != 0 )
@@ -71,48 +71,45 @@ __int64 PopUmpoInitializeChannel()
     }
     else
     {
-      Port = RtlAddAccessAllowedAce(v3, 2u, 0x10000000u, SeLocalSystemSid);
-      if ( Port < 0 )
+      v5 = RtlAddAccessAllowedAce(v3, 2u, 0x10000000u, SeLocalSystemSid);
+      if ( v5 < 0 )
       {
         if ( (PoDebug & 1) != 0 )
-          DbgPrint("%s: RtlAddAccessAllowedAce failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)Port);
+          DbgPrint("%s: RtlAddAccessAllowedAce failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)v5);
       }
       else
       {
-        Port = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-        if ( Port < 0 )
+        v5 = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+        if ( v5 < 0 )
         {
           if ( (PoDebug & 1) != 0 )
-            DbgPrint("%s: RtlCreateSecurityDescriptor failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)Port);
+            DbgPrint("%s: RtlCreateSecurityDescriptor failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)v5);
         }
         else
         {
-          Port = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v3, 0);
-          if ( Port < 0 )
+          v5 = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v3, 0);
+          if ( v5 < 0 )
           {
             if ( (PoDebug & 1) != 0 )
-              DbgPrint(
-                "%s: RtlSetDaclSecurityDescriptor failed: 0x%x\n",
-                "PopUmpoInitializeChannel",
-                (unsigned int)Port);
+              DbgPrint("%s: RtlSetDaclSecurityDescriptor failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)v5);
           }
           else
           {
             RtlInitUnicodeString(&DestinationString, L"\\PowerPort");
-            memset(v13, 0, 0x48uLL);
-            v13[2] = 512LL;
+            memset(&PortAttributes, 0, sizeof(PortAttributes));
+            PortAttributes.MaxMessageLength = 512LL;
             ObjectAttributes.ObjectName = &DestinationString;
-            LODWORD(v13[0]) = 0x100000;
+            PortAttributes.Flags = 0x100000;
             ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
             ObjectAttributes.Length = 48;
             ObjectAttributes.RootDirectory = 0LL;
             ObjectAttributes.Attributes = 512;
             ObjectAttributes.SecurityQualityOfService = 0LL;
-            Port = ZwAlpcCreatePort((__int64)&PopAlpcServerPort, (__int64)&ObjectAttributes, (__int64)v13);
-            if ( Port < 0 )
+            v5 = ZwAlpcCreatePort(&PopAlpcServerPort, &ObjectAttributes, &PortAttributes);
+            if ( v5 < 0 )
             {
               if ( (PoDebug & 1) != 0 )
-                DbgPrint("%s: ZwAlpcCreatePort failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)Port);
+                DbgPrint("%s: ZwAlpcCreatePort failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)v5);
             }
             else
             {
@@ -121,40 +118,37 @@ __int64 PopUmpoInitializeChannel()
               ObjectAttributes.Attributes = 512;
               ObjectAttributes.ObjectName = 0LL;
               *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-              Port = ExCreateCallback(&CallbackObject, &ObjectAttributes, 1u, 0);
-              if ( Port < 0 )
+              v5 = ExCreateCallback(&CallbackObject, &ObjectAttributes, 1u, 0);
+              if ( v5 < 0 )
               {
                 if ( (PoDebug & 1) != 0 )
-                  DbgPrint("%s: ExCreateCallback failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)Port);
+                  DbgPrint("%s: ExCreateCallback failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)v5);
               }
               else
               {
                 v6 = CallbackObject;
                 if ( ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopUmpoMessageCallback, 0LL) )
                 {
-                  v10[0] = v6;
-                  v10[1] = 0LL;
-                  Port = ZwAlpcSetInformation(PopAlpcServerPort, 9LL, (__int64)v10);
+                  PortInformation[0] = v6;
+                  PortInformation[1] = 0LL;
+                  v5 = ZwAlpcSetInformation(PopAlpcServerPort, AlpcRegisterCallbackInformation, PortInformation, 0x10u);
                   ObfDereferenceObjectWithTag(v6, 0x746C6644u);
-                  if ( Port < 0 )
+                  if ( v5 < 0 )
                   {
                     if ( (PoDebug & 1) != 0 )
-                      DbgPrint(
-                        "%s: ZwAlpcSetInformation failed: 0x%x\n",
-                        "PopUmpoInitializeChannel",
-                        (unsigned int)Port);
+                      DbgPrint("%s: ZwAlpcSetInformation failed: 0x%x\n", "PopUmpoInitializeChannel", (unsigned int)v5);
                   }
                   else
                   {
                     PopUmpoProcessMessages();
-                    Port = 0;
+                    v5 = 0;
                   }
                 }
                 else
                 {
                   if ( (PoDebug & 1) != 0 )
                     DbgPrint("%s: ExRegisterCallback failed\n", "PopUmpoInitializeChannel");
-                  Port = -1073741670;
+                  v5 = -1073741670;
                 }
               }
             }
@@ -168,5 +162,5 @@ __int64 PopUmpoInitializeChannel()
   {
     return (unsigned int)-1073741670;
   }
-  return (unsigned int)Port;
+  return (unsigned int)v5;
 }

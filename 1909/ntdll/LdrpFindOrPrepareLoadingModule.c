@@ -12,27 +12,29 @@
  */
 
 __int64 __fastcall LdrpFindOrPrepareLoadingModule(
-        unsigned __int16 *a1,
+        PUNICODE_STRING a1,
         int a2,
-        int a3,
+        __int64 a3,
         int a4,
         __int64 a5,
-        __int64 *a6,
+        char **a6,
         __int64 a7)
 {
-  __int64 *v7; // rbx
+  char **v7; // rbx
   int v8; // r10d
+  int v10; // esi
   int v12; // ebp
-  unsigned __int16 *v13; // rdx
+  _UNICODE_STRING *v13; // rdx
   int LoadedDllByName; // eax
   int PlaceHolder; // edi
   char v17; // al
   __int128 v18; // [rsp+40h] [rbp-28h] BYREF
-  int v19; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v19; // [rsp+80h] [rbp+18h] BYREF
 
   v7 = a6;
   v8 = 0;
-  v19 = 0;
+  LODWORD(v19) = 0;
+  v10 = a3;
   v12 = (int)a1;
   *a6 = 0LL;
   if ( (a3 & 0x20) != 0 )
@@ -54,9 +56,9 @@ LABEL_4:
 LABEL_5:
   if ( PlaceHolder == -1073741515 )
   {
-    PlaceHolder = LdrpAllocatePlaceHolder(v12, a2, a3, a4, a5, (__int64)v7, a7);
+    PlaceHolder = LdrpAllocatePlaceHolder(v12, a2, v10, a4, a5, (__int64)v7, a7);
     if ( PlaceHolder >= 0 )
-      return (unsigned int)LdrpLoadKnownDll(*(_BYTE **)(*v7 + 176));
+      return (unsigned int)LdrpLoadKnownDll(*((_BYTE **)*v7 + 22));
   }
   else if ( v8 < 0 )
   {
@@ -82,7 +84,7 @@ LABEL_5:
   }
   else
   {
-    LdrpIncrementModuleLoadCount(*v7);
+    LdrpIncrementModuleLoadCount((__int64)*v7);
   }
   return (unsigned int)PlaceHolder;
 }

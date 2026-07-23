@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlDeleteNoSplay @ 0x1400C4A90
+ * XREFs of RtlDeleteNoSplay @ 0x1400C2930
  * Callers:
- *     FsRtlUninitializeFileLock @ 0x1400B414C (FsRtlUninitializeFileLock.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x1400C46CC (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlPrivateInsertSharedLock @ 0x1400C4F94 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlUninitializeFileLock @ 0x1400B1FCC (FsRtlUninitializeFileLock.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x1400C256C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1400C2E34 (FsRtlPrivateInsertSharedLock.c)
  * Callees:
- *     SwapSplayLinks @ 0x1400C5C1C (SwapSplayLinks.c)
- *     RtlSubtreePredecessor @ 0x1400C5D3C (RtlSubtreePredecessor.c)
+ *     SwapSplayLinks @ 0x1400C3ABC (SwapSplayLinks.c)
+ *     RtlSubtreePredecessor @ 0x1400C3BDC (RtlSubtreePredecessor.c)
  */
 
 void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
 {
-  struct _RTL_SPLAY_LINKS *LeftChild; // rcx
+  _RTL_SPLAY_LINKS *LeftChild; // rcx
   _RTL_SPLAY_LINKS *Parent; // rcx
   _RTL_SPLAY_LINKS **p_LeftChild; // rax
   _RTL_SPLAY_LINKS *v7; // rax
   _RTL_SPLAY_LINKS **p_RightChild; // rdx
-  struct _RTL_SPLAY_LINKS *v9; // rax
+  _RTL_SPLAY_LINKS *v9; // rax
 
   if ( Links->LeftChild && Links->RightChild )
   {

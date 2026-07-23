@@ -8,7 +8,7 @@
 
 bool __fastcall LdrpIsILOnlyImage(unsigned __int64 a1)
 {
-  int v1; // eax
+  NTSTATUS v1; // eax
   __int64 v2; // rcx
   unsigned int v4; // [rsp+48h] [rbp+10h] BYREF
   __int64 v5; // [rsp+50h] [rbp+18h] BYREF

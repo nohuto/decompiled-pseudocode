@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPureAweVad @ 0x140465930
+ * XREFs of MiPureAweVad @ 0x14045E8F0
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402D28A0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x1402B4660 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     <none>
  */

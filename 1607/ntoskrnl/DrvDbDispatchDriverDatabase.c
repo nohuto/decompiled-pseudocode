@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbDispatchDriverDatabase @ 0x1405028D0
+ * XREFs of DrvDbDispatchDriverDatabase @ 0x1404E5860
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbFindDatabaseNode @ 0x1404D429C (DrvDbFindDatabaseNode.c)
- *     _PnpCtxGetObjectContext @ 0x140502AF4 (_PnpCtxGetObjectContext.c)
- *     DrvDbGetDriverDatabaseList @ 0x140502B1C (DrvDbGetDriverDatabaseList.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1405762D0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14057EB50 (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1406E11A0 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1406E24D4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbValidateDriverDatabaseName @ 0x1406E3518 (DrvDbValidateDriverDatabaseName.c)
- *     DrvDbDestroyDatabaseNode @ 0x1406E35CC (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x1404B7D3C (DrvDbFindDatabaseNode.c)
+ *     _PnpCtxGetObjectContext @ 0x1404E5A84 (_PnpCtxGetObjectContext.c)
+ *     DrvDbGetDriverDatabaseList @ 0x1404E5AAC (DrvDbGetDriverDatabaseList.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140576810 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x14057EFFC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1406E12D8 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1406E260C (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbValidateDriverDatabaseName @ 0x1406E3650 (DrvDbValidateDriverDatabaseName.c)
+ *     DrvDbDestroyDatabaseNode @ 0x1406E3704 (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int *a5)

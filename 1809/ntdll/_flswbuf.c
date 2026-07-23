@@ -1,7 +1,7 @@
 /*
- * XREFs of _flswbuf @ 0x180099F38
+ * XREFs of _flswbuf @ 0x180099F48
  * Callers:
- *     _fputwc_nolock @ 0x180099DB8 (_fputwc_nolock.c)
+ *     _fputwc_nolock @ 0x180099DC8 (_fputwc_nolock.c)
  * Callees:
  *     <none>
  */

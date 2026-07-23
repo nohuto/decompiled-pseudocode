@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdEnumApcOrDpcDataCallback @ 0x14057E5D0
+ * XREFs of DbgkpLkmdEnumApcOrDpcDataCallback @ 0x14057BA60
  * Callers:
  *     <none>
  * Callees:
- *     DbgkpLkmdSnapDataEx @ 0x14057E624 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14057BAB4 (DbgkpLkmdSnapDataEx.c)
  */
 
 __int64 __fastcall DbgkpLkmdEnumApcOrDpcDataCallback(int a1, int a2, int a3)

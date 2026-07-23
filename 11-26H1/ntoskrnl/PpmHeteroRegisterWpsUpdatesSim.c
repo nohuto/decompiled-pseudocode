@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmHeteroRegisterWpsUpdatesSim @ 0x1407E37A0
+ * XREFs of PpmHeteroRegisterWpsUpdatesSim @ 0x1407E8830
  * Callers:
  *     <none>
  * Callees:
@@ -13,10 +13,10 @@ __int64 PpmHeteroRegisterWpsUpdatesSim()
   result = 0LL;
   if ( !PpmHeteroHgsEnabled || PpmHeteroHgsVendor != 15 )
     return 3221225485LL;
-  if ( PopSleepstudySessionLock.StackLimit || PopSleepstudySessionLock.StateSaveArea )
+  if ( PpmHeteroCheckWpsTableUpdated || PpmHeteroAcknowledgeWpsUpdate )
     return 3221225680LL;
-  PopSleepstudySessionLock.StackBase = 0LL;
-  PopSleepstudySessionLock.StackLimit = PpmHeteroCheckWpsTableUpdatedSim;
-  PopSleepstudySessionLock.StateSaveArea = (_XSAVE_FORMAT *)tlgDefineProvider_annotation__TlgMiTraceHandleProv;
+  PpmHeteroWpsUpdateInterfaceHandle = 0LL;
+  PpmHeteroCheckWpsTableUpdated = (__int64)PpmHeteroCheckWpsTableUpdatedSim;
+  PpmHeteroAcknowledgeWpsUpdate = (__int64)tlgDefineProvider_annotation__TlgMiTraceHandleProv;
   return result;
 }

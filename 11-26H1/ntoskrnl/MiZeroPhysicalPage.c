@@ -1,31 +1,31 @@
 /*
- * XREFs of MiZeroPhysicalPage @ 0x1402D8B20
+ * XREFs of MiZeroPhysicalPage @ 0x1402BA8E0
  * Callers:
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPageChainSmallPageProcess @ 0x140287AA0 (MiGetPageChainSmallPageProcess.c)
- *     MiZeroChainWorker @ 0x1402A0D50 (MiZeroChainWorker.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiResolveCachedPageHardFault @ 0x140339B7C (MiResolveCachedPageHardFault.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiFreePageToSlabAllocator @ 0x140369964 (MiFreePageToSlabAllocator.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiWaitForInPageComplete @ 0x14038E1F0 (MiWaitForInPageComplete.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiPerformFinalZeroing @ 0x140513B9C (MiPerformFinalZeroing.c)
- *     MiDiscardPteTransitionPage @ 0x1405287F0 (MiDiscardPteTransitionPage.c)
- *     MiInitializeCacheFlushing @ 0x140CFF38C (MiInitializeCacheFlushing.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140287000 (MiGetPageChainSmallPageProcess.c)
+ *     MiZeroChainWorker @ 0x1402A02A0 (MiZeroChainWorker.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiResolveCachedPageHardFault @ 0x14033BBFC (MiResolveCachedPageHardFault.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiFreePageToSlabAllocator @ 0x14036B704 (MiFreePageToSlabAllocator.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiWaitForInPageComplete @ 0x14038FFA0 (MiWaitForInPageComplete.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiPerformFinalZeroing @ 0x14050D60C (MiPerformFinalZeroing.c)
+ *     MiDiscardPteTransitionPage @ 0x14052AE60 (MiDiscardPteTransitionPage.c)
+ *     MiInitializeCacheFlushing @ 0x140D0572C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 char __fastcall MiZeroPhysicalPage(__int64 a1, __int64 a2, char a3, int a4)
@@ -58,11 +58,11 @@ char __fastcall MiZeroPhysicalPage(__int64 a1, __int64 a2, char a3, int a4)
   if ( (a3 & 1) == 0 )
   {
     v10 = (unsigned __int128)(48 * a2 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
-    v11 = dword_140E2D684;
+    v11 = dword_140E2D804;
     v12 = ((unsigned __int64)v10 >> 63) + (v10 >> 3);
-    if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-      || (v13 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v12 < *(_QWORD *)v13)
-      || dword_140E2D680 != dword_140E2D684 && v12 >= *((_QWORD *)v13 + 2) )
+    if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+      || (v13 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v12 < *(_QWORD *)v13)
+      || dword_140E2D800 != dword_140E2D804 && v12 >= *((_QWORD *)v13 + 2) )
     {
       for ( i = 0; ; i = v20 + 1 )
       {
@@ -71,19 +71,19 @@ char __fastcall MiZeroPhysicalPage(__int64 a1, __int64 a2, char a3, int a4)
           if ( v11 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, v12, 0LL, 0LL);
           v20 = (i + v11) >> 1;
-          v13 = (char *)qword_140E2D6E0 + 16 * v20;
+          v13 = (char *)qword_140E2D860 + 16 * v20;
           if ( v12 >= *(_QWORD *)v13 )
             break;
           if ( !v20 )
             KeBugCheckEx(0x1Au, 0x5180uLL, v12, (ULONG_PTR)v13, 0LL);
           v11 = v20 - 1;
         }
-        if ( v20 == dword_140E2D684 || v12 < *((_QWORD *)v13 + 2) )
+        if ( v20 == dword_140E2D804 || v12 < *((_QWORD *)v13 + 2) )
           break;
       }
-      dword_140E2D680 = (i + v11) >> 1;
+      dword_140E2D800 = (i + v11) >> 1;
     }
-    v9 = *(_DWORD *)(qword_140E2D6B8
+    v9 = *(_DWORD *)(qword_140E2D838
                    + 384LL * *((unsigned int *)v13 + 2)
                    + 4 * (v4 + 4LL * ((*(_DWORD *)(v7 + 32) >> 22) & 3))
                    + 120);
@@ -108,7 +108,7 @@ char __fastcall MiZeroPhysicalPage(__int64 a1, __int64 a2, char a3, int a4)
     goto LABEL_10;
   if ( (int)AccelFillMemory(a1, Phase0Mapping, 4096, 0, 3LL) < 0 )
   {
-    _InterlockedIncrement(&dword_140EF4A84);
+    _InterlockedIncrement(&dword_140EF4DEC);
 LABEL_10:
     KeZeroPages(Phase0Mapping, 4096LL);
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpFastFlushListTbEx @ 0x1402799F8
+ * XREFs of HvlpFastFlushListTbEx @ 0x140279BE8
  * Callers:
- *     HvlpFlushRangeListTbEx @ 0x140279BCC (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTbEx @ 0x140279DBC (HvlpFlushRangeListTbEx.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
- *     HvlpAffinityToHvProcessorSet @ 0x140279390 (HvlpAffinityToHvProcessorSet.c)
- *     HvlpCopyFlushVaList @ 0x1402796F8 (HvlpCopyFlushVaList.c)
- *     VslFastFlushSecureRangeList @ 0x14027AE38 (VslFastFlushSecureRangeList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x140279580 (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpCopyFlushVaList @ 0x1402798E8 (HvlpCopyFlushVaList.c)
+ *     VslFastFlushSecureRangeList @ 0x14027B028 (VslFastFlushSecureRangeList.c)
  */
 
 _UNKNOWN **__fastcall HvlpFastFlushListTbEx(

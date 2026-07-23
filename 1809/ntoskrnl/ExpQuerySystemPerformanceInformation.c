@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x14066CFDC
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x14066E19C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiFreePoolPagesLeft @ 0x1400EF564 (MiFreePoolPagesLeft.c)
- *     MiMaximumCommitmentAvailable @ 0x1400EF594 (MiMaximumCommitmentAvailable.c)
- *     MmGetProcessPartitionId @ 0x1400F0CCC (MmGetProcessPartitionId.c)
- *     MmGetAvailablePages @ 0x1400F0CDC (MmGetAvailablePages.c)
- *     MmGetTotalCommittedPages @ 0x1400F0CF8 (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x1400F0D14 (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x1400F0D30 (MmGetPeakCommitment.c)
- *     MmGetNumberOfFreeSystemPtes @ 0x1400F0D4C (MmGetNumberOfFreeSystemPtes.c)
- *     MmGetSystemPageCounts @ 0x1400F0DA4 (MmGetSystemPageCounts.c)
- *     MmGetWorkingSetLeafSize @ 0x1400F0DB8 (MmGetWorkingSetLeafSize.c)
- *     MmGetSharedCommit @ 0x1400F0DF8 (MmGetSharedCommit.c)
- *     MmGetResidentAvailablePages @ 0x1400F0E08 (MmGetResidentAvailablePages.c)
- *     ExQueryPoolUsage @ 0x1400F0E24 (ExQueryPoolUsage.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PsQueryRuntimeProcess @ 0x14066DAA0 (PsQueryRuntimeProcess.c)
+ *     MiFreePoolPagesLeft @ 0x1400EF5E4 (MiFreePoolPagesLeft.c)
+ *     MiMaximumCommitmentAvailable @ 0x1400EF614 (MiMaximumCommitmentAvailable.c)
+ *     MmGetProcessPartitionId @ 0x1400F0D4C (MmGetProcessPartitionId.c)
+ *     MmGetAvailablePages @ 0x1400F0D5C (MmGetAvailablePages.c)
+ *     MmGetTotalCommittedPages @ 0x1400F0D78 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1400F0D94 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1400F0DB0 (MmGetPeakCommitment.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1400F0DCC (MmGetNumberOfFreeSystemPtes.c)
+ *     MmGetSystemPageCounts @ 0x1400F0E24 (MmGetSystemPageCounts.c)
+ *     MmGetWorkingSetLeafSize @ 0x1400F0E38 (MmGetWorkingSetLeafSize.c)
+ *     MmGetSharedCommit @ 0x1400F0E78 (MmGetSharedCommit.c)
+ *     MmGetResidentAvailablePages @ 0x1400F0E88 (MmGetResidentAvailablePages.c)
+ *     ExQueryPoolUsage @ 0x1400F0EA4 (ExQueryPoolUsage.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PsQueryRuntimeProcess @ 0x14066EC60 (PsQueryRuntimeProcess.c)
  */
 
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)

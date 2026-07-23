@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTryLocateWsle @ 0x140046B90
+ * XREFs of MiTryLocateWsle @ 0x140046710
  * Callers:
- *     MiIsNextVaTrimCandidate @ 0x140016BC0 (MiIsNextVaTrimCandidate.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiConvertAndFlushWsleVas @ 0x1400907F8 (MiConvertAndFlushWsleVas.c)
+ *     MiIsNextVaTrimCandidate @ 0x140016740 (MiIsNextVaTrimCandidate.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiConvertAndFlushWsleVas @ 0x14008FF58 (MiConvertAndFlushWsleVas.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     MiLocateIndirectHash @ 0x14004BB10 (MiLocateIndirectHash.c)
- *     MiGetWsleHashVa @ 0x1400FF1D4 (MiGetWsleHashVa.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     MiLocateIndirectHash @ 0x14004B690 (MiLocateIndirectHash.c)
+ *     MiGetWsleHashVa @ 0x1400FCF54 (MiGetWsleHashVa.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 unsigned __int64 __fastcall MiTryLocateWsle(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)

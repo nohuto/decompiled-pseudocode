@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetTopologyIdForProcessor @ 0x140570788
+ * XREFs of KeGetTopologyIdForProcessor @ 0x140570CC8
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRemoveHiveFromNamespace @ 0x1400878C4
+ * XREFs of CmpRemoveHiveFromNamespace @ 0x14010BABC
  * Callers:
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmpLinkHiveToMaster @ 0x1404A10B4 (CmpLinkHiveToMaster.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmpLinkHiveToMaster @ 0x1405194C0 (CmpLinkHiveToMaster.c)
  * Callees:
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140087D10 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpLockHiveFlusherShared @ 0x1403FD564 (CmpLockHiveFlusherShared.c)
- *     CmpUnlockHiveFlusher @ 0x1403FD608 (CmpUnlockHiveFlusher.c)
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14049FEF8 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpLogHiveDestroyEvent @ 0x1405FB9B0 (CmpLogHiveDestroyEvent.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14010BF00 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpLockHiveFlusherShared @ 0x1403FC424 (CmpLockHiveFlusherShared.c)
+ *     CmpUnlockHiveFlusher @ 0x1403FC4C8 (CmpUnlockHiveFlusher.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140518304 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpLogHiveDestroyEvent @ 0x1405FBA64 (CmpLogHiveDestroyEvent.c)
  */
 
 __int64 __fastcall CmpRemoveHiveFromNamespace(__int64 a1, __int64 a2)

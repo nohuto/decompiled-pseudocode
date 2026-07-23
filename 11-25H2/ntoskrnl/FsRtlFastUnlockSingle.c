@@ -29,7 +29,7 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
   _QWORD *LockInformation; // rsi
   unsigned __int64 QuadPart; // rbx
   KIRQL v13; // al
-  RTL_SPLAY_LINKS *v14; // rdx
+  _RTL_SPLAY_LINKS *v14; // rdx
   NTSTATUS v15; // r12d
   unsigned __int64 v16; // rbp
   unsigned __int64 v17; // rbx
@@ -37,15 +37,15 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
   KIRQL v19; // al
   __int64 v20; // rdx
   unsigned __int64 v21; // rbp
-  RTL_SPLAY_LINKS *v22; // r8
+  _RTL_SPLAY_LINKS *v22; // r8
   unsigned __int64 v23; // rax
-  RTL_SPLAY_LINKS *v24; // rcx
+  _RTL_SPLAY_LINKS *v24; // rcx
   _QWORD *v25; // r10
   unsigned __int64 v26; // r9
-  RTL_SPLAY_LINKS *v27; // rcx
+  _RTL_SPLAY_LINKS *v27; // rcx
   LONGLONG v28; // rdx
-  RTL_SPLAY_LINKS *v29; // r15
-  RTL_SPLAY_LINKS *v30; // r14
+  _RTL_SPLAY_LINKS *v29; // r15
+  _RTL_SPLAY_LINKS *v30; // r14
   _RTL_SPLAY_LINKS *v31; // rdi
   _RTL_SPLAY_LINKS *v32; // r13
   _QWORD *v33; // rdx
@@ -53,30 +53,30 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
   _RTL_SPLAY_LINKS *v35; // rbp
   _RTL_SPLAY_LINKS *v36; // rsi
   _RTL_SPLAY_LINKS *v37; // rcx
-  RTL_SPLAY_LINKS *v38; // rdi
+  _RTL_SPLAY_LINKS *v38; // rdi
   _RTL_SPLAY_LINKS *LeftChild; // rax
   _RTL_SPLAY_LINKS *v40; // rax
   _QWORD *v41; // rbx
   PRTL_SPLAY_LINKS v43; // rcx
   unsigned __int64 v44; // rax
   unsigned __int64 RightChild; // r8
-  RTL_SPLAY_LINKS *v46; // r11
+  _RTL_SPLAY_LINKS *v46; // r11
   unsigned __int64 Parent; // r10
   LONGLONG v48; // r8
   void *v49; // rbx
   PRTL_SPLAY_LINKS v50; // rax
   _RTL_SPLAY_LINKS *v51; // rax
-  RTL_SPLAY_LINKS *v52; // rcx
+  _RTL_SPLAY_LINKS *v52; // rcx
   int v53; // eax
   _RTL_SPLAY_LINKS *v54; // rdi
   PRTL_SPLAY_LINKS v55; // rax
   _RTL_SPLAY_LINKS *v56; // rax
   int v57; // [rsp+20h] [rbp-68h]
   _QWORD *v58; // [rsp+28h] [rbp-60h]
-  RTL_SPLAY_LINKS *v59; // [rsp+30h] [rbp-58h]
+  _RTL_SPLAY_LINKS *v59; // [rsp+30h] [rbp-58h]
   _RTL_SPLAY_LINKS *v60; // [rsp+38h] [rbp-50h]
   LONGLONG v61; // [rsp+38h] [rbp-50h]
-  RTL_SPLAY_LINKS *v62; // [rsp+40h] [rbp-48h]
+  _RTL_SPLAY_LINKS *v62; // [rsp+40h] [rbp-48h]
   KIRQL Entry; // [rsp+90h] [rbp+8h]
   char *Entrya; // [rsp+90h] [rbp+8h]
 
@@ -87,7 +87,7 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
   if ( (unsigned __int64)(Length->QuadPart + FileOffset->QuadPart - 1) < FileOffset->QuadPart && Length->QuadPart )
     return -1073741407;
   v13 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
-  v14 = (RTL_SPLAY_LINKS *)LockInformation[5];
+  v14 = (_RTL_SPLAY_LINKS *)LockInformation[5];
   v15 = 0;
   v16 = v13;
   if ( v14 )
@@ -187,7 +187,7 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
   v23 = v17 + Length->QuadPart - 1;
   while ( 1 )
   {
-    v24 = (RTL_SPLAY_LINKS *)(v20 - 24);
+    v24 = (_RTL_SPLAY_LINKS *)(v20 - 24);
     v25 = *(_QWORD **)(v20 - 24);
     if ( *(_QWORD *)(v20 - 24 + 16) < v17 )
       break;
@@ -201,7 +201,7 @@ LABEL_86:
       {
         if ( v26 <= v17 )
           goto LABEL_13;
-        v22 = (RTL_SPLAY_LINKS *)(v20 - 24);
+        v22 = (_RTL_SPLAY_LINKS *)(v20 - 24);
       }
       goto LABEL_11;
     }
@@ -270,7 +270,7 @@ LABEL_89:
     if ( !v29->Parent )
     {
       v58[4] = RtlDelete(v27);
-      ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, v29);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList, v29);
       v29 = 0LL;
     }
     v33 = v58;
@@ -315,7 +315,7 @@ LABEL_34:
       LeftChild = v38->LeftChild;
       if ( LeftChild <= v34 || !v38->RightChild && LeftChild == v35 )
         goto LABEL_43;
-      v51 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList(&FsRtlLockTreeNodeLookasideList);
+      v51 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList);
       v62 = v51;
       v52 = v51;
       if ( v51 )
@@ -400,7 +400,7 @@ LABEL_49:
   {
     v41 = v58;
   }
-  ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v32);
+  ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, v32);
   if ( v18[3] )
     FsRtlPrivateCheckWaitingLocks(v41, v18, (unsigned __int8)v21);
   KxReleaseSpinLock((volatile signed __int64 *)v18);

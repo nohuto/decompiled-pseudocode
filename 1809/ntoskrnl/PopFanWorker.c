@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFanWorker @ 0x140751380
+ * XREFs of PopFanWorker @ 0x140752570
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PopPrepareIoctl @ 0x140751480 (PopPrepareIoctl.c)
- *     PopFanUpdateRunningState @ 0x1407514F0 (PopFanUpdateRunningState.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PopPrepareIoctl @ 0x140752670 (PopPrepareIoctl.c)
+ *     PopFanUpdateRunningState @ 0x1407526E0 (PopFanUpdateRunningState.c)
  */
 
 void __fastcall PopFanWorker(__int64 a1)

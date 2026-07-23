@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwCloseDevice @ 0x140A7B100
+ * XREFs of PiSwCloseDevice @ 0x140A8C244
  * Callers:
- *     PiSwStopDestroy @ 0x14090FEE8 (PiSwStopDestroy.c)
- *     PiSwIrpCleanup @ 0x140A7AF04 (PiSwIrpCleanup.c)
- *     PiSwCloseDescendants @ 0x140A7CAE0 (PiSwCloseDescendants.c)
+ *     PiSwStopDestroy @ 0x1409B2018 (PiSwStopDestroy.c)
+ *     PiSwIrpCleanup @ 0x140A8C048 (PiSwIrpCleanup.c)
+ *     PiSwCloseDescendants @ 0x140A8DCF8 (PiSwCloseDescendants.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140525230 (McTemplateK0zz_EtwWriteTransfer.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwQueuedCreateInfoFree @ 0x140A7AE8C (PiSwQueuedCreateInfoFree.c)
- *     PiSwBusRelationRemove @ 0x140A7B204 (PiSwBusRelationRemove.c)
- *     PiSwDeviceDereference @ 0x140A7B3F4 (PiSwDeviceDereference.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405278A0 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140A8BFD0 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwBusRelationRemove @ 0x140A8C348 (PiSwBusRelationRemove.c)
+ *     PiSwDeviceDereference @ 0x140A8C538 (PiSwDeviceDereference.c)
  */
 
 struct _DEVICE_OBJECT *__fastcall PiSwCloseDevice(__int64 a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ struct _DEVICE_OBJECT *__fastcall PiSwCloseDevice(__int64 a1, __int64 a2, __int6
   _QWORD *Buffer; // [rsp+40h] [rbp+8h] BYREF
 
   Buffer = (_QWORD *)a1;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
   {
     McTemplateK0zz_EtwWriteTransfer(
       a1,
@@ -56,7 +56,7 @@ struct _DEVICE_OBJECT *__fastcall PiSwCloseDevice(__int64 a1, __int64 a2, __int6
       PiSwBusRelationRemove((PVOID)a1);
       a1 = (__int64)Buffer;
     }
-    if ( (byte_140EF3DCC & 0x40) != 0 )
+    if ( (byte_140EF412C & 0x40) != 0 )
       McTemplateK0zz_EtwWriteTransfer(
         a1,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_InstanceTable_Remove,

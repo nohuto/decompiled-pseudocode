@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpConvertFunctionEntry @ 0x1404BD800
+ * XREFs of RtlpConvertFunctionEntry @ 0x1404B6FE0
  * Callers:
- *     KiLockExtendedServiceTable @ 0x1405405C8 (KiLockExtendedServiceTable.c)
- *     RtlIsMachineFrameUnwind @ 0x1406229E0 (RtlIsMachineFrameUnwind.c)
- *     KiLockServiceTable @ 0x1407134A4 (KiLockServiceTable.c)
- *     RtlMarkExceptionHandlingPages @ 0x140AA96C8 (RtlMarkExceptionHandlingPages.c)
- *     CcInitializeBcbProfiler @ 0x140C80424 (CcInitializeBcbProfiler.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     KiLockExtendedServiceTable @ 0x140542A48 (KiLockExtendedServiceTable.c)
+ *     RtlIsMachineFrameUnwind @ 0x140625A30 (RtlIsMachineFrameUnwind.c)
+ *     KiLockServiceTable @ 0x140718194 (KiLockServiceTable.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140AA5AD0 (RtlMarkExceptionHandlingPages.c)
+ *     CcInitializeBcbProfiler @ 0x140C86424 (CcInitializeBcbProfiler.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 unsigned __int64 __fastcall RtlpConvertFunctionEntry(unsigned __int64 a1, unsigned __int64 a2)

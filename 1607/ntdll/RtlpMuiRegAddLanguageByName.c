@@ -3,9 +3,9 @@
  * Callers:
  *     _RtlpMuiRegLoadInstalled @ 0x1800F6178 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     RtlpIsALicensedLIPLanguage @ 0x18001147C (RtlpIsALicensedLIPLanguage.c)
- *     RtlpIsALicensedRegularLanguage @ 0x180011620 (RtlpIsALicensedRegularLanguage.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpIsALicensedLIPLanguage @ 0x18001146C (RtlpIsALicensedLIPLanguage.c)
+ *     RtlpIsALicensedRegularLanguage @ 0x180011610 (RtlpIsALicensedRegularLanguage.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     RtlpMuiRegAddAlternateCodePage @ 0x1800F3F2C (RtlpMuiRegAddAlternateCodePage.c)
  *     RtlpMuiRegGetOrAddLangInfo @ 0x1800F4DF4 (RtlpMuiRegGetOrAddLangInfo.c)
  *     _RtlpMuiRegInitAnyLanguage @ 0x1800F5E08 (_RtlpMuiRegInitAnyLanguage.c)
@@ -13,7 +13,7 @@
  *     _RtlpMuiRegInitPartialLanguage @ 0x1800F6120 (_RtlpMuiRegInitPartialLanguage.c)
  */
 
-__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, __int64 a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
+__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, void *a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 result; // rax
   char v10; // cl

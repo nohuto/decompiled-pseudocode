@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIpv4StringToAddressW @ 0x1800563F0
+ * XREFs of RtlIpv4StringToAddressW @ 0x1800563E0
  * Callers:
- *     RtlIpv4StringToAddressExW @ 0x1800562A0 (RtlIpv4StringToAddressExW.c)
+ *     RtlIpv4StringToAddressExW @ 0x180056290 (RtlIpv4StringToAddressExW.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     iswctype @ 0x18009A240 (iswctype.c)
  */
 
@@ -141,6 +141,6 @@ LABEL_31:
     v19 = v23;
   }
   *Terminator = S;
-  Addr->S_un.S_addr = _byteswap_ulong(v19);
+  *(_DWORD *)Addr = _byteswap_ulong(v19);
   return 0;
 }

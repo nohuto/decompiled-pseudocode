@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x1405D1C0C
+ * XREFs of IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x1405D43FC
  * Callers:
- *     IopLiveDumpGenerateIptSecondaryData @ 0x1405CF6F8 (IopLiveDumpGenerateIptSecondaryData.c)
+ *     IopLiveDumpGenerateIptSecondaryData @ 0x1405D1F08 (IopLiveDumpGenerateIptSecondaryData.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14052F2C8 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTrace @ 0x1405D78B4 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1405317E8 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTrace @ 0x1405DA0A4 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration(__int64 a1, __int64 a2)
@@ -52,7 +52,7 @@ char __fastcall IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration(__int64 
             v13 = 8LL;
             LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                            (__int64)&dword_140E06D90,
-                           (unsigned __int8 *)word_140047652,
+                           (unsigned __int8 *)&byte_14004783F,
                            (const GUID *)(a1 + 968),
                            (const GUID *)(a1 + 952),
                            4u,

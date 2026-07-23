@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpGetKernelDataProtection @ 0x14049779C
+ * XREFs of ExpGetKernelDataProtection @ 0x14049822C
  * Callers:
  *     ExpTimeRefreshWork @ 0x1403C9110 (ExpTimeRefreshWork.c)
- *     ExUpdateLicenseDataInternal @ 0x140496474 (ExUpdateLicenseDataInternal.c)
- *     ExpGenuinePolicyCacheProvider @ 0x140497450 (ExpGenuinePolicyCacheProvider.c)
- *     ExGetLicenseTamperState @ 0x1406ADC34 (ExGetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1406AE220 (ExSetLicenseTamperState.c)
- *     sub_1406AF850 @ 0x1406AF850 (sub_1406AF850.c)
- *     sub_1406AF9A8 @ 0x1406AF9A8 (sub_1406AF9A8.c)
+ *     ExUpdateLicenseDataInternal @ 0x140496F04 (ExUpdateLicenseDataInternal.c)
+ *     ExpGenuinePolicyCacheProvider @ 0x140497EE0 (ExpGenuinePolicyCacheProvider.c)
+ *     ExGetLicenseTamperState @ 0x1406ADD6C (ExGetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x1406AE358 (ExSetLicenseTamperState.c)
+ *     sub_1406AF988 @ 0x1406AF988 (sub_1406AF988.c)
+ *     sub_1406AFAE0 @ 0x1406AFAE0 (sub_1406AFAE0.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     sub_140497880 @ 0x140497880 (sub_140497880.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     sub_140498310 @ 0x140498310 (sub_140498310.c)
  */
 
 __int64 __fastcall ExpGetKernelDataProtection(_OWORD *a1)
@@ -33,7 +33,7 @@ __int64 __fastcall ExpGetKernelDataProtection(_OWORD *a1)
   if ( qword_140747C68 )
   {
     v6 = *(_OWORD **)qword_140747C68;
-    v5 = sub_140497880(&v6);
+    v5 = sub_140498310(&v6);
     if ( v5 >= 0 )
     {
       v3 = v6;

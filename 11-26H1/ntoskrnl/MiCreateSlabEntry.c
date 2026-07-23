@@ -1,32 +1,32 @@
 /*
- * XREFs of MiCreateSlabEntry @ 0x140206284
+ * XREFs of MiCreateSlabEntry @ 0x140206364
  * Callers:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x140206AD0 (MiInitializeDemandCoalesceContext.c)
- *     MiConvertActiveLargePageToSmall @ 0x140206BB8 (MiConvertActiveLargePageToSmall.c)
- *     MiAllocateSlabEntry @ 0x140206EC0 (MiAllocateSlabEntry.c)
- *     MiSetSlabTypeIdentifiers @ 0x140206F68 (MiSetSlabTypeIdentifiers.c)
- *     MiLogSlabEntryAllocateFailure @ 0x140206FC8 (MiLogSlabEntryAllocateFailure.c)
- *     MiGetSlabCurrentTime @ 0x1402073A0 (MiGetSlabCurrentTime.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140369290 (MiUpdateSlabPagePlaceholderState.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiDemotePfnListChain @ 0x1407117C4 (MiDemotePfnListChain.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiInitializeDemandCoalesceContext @ 0x140206BB0 (MiInitializeDemandCoalesceContext.c)
+ *     MiConvertActiveLargePageToSmall @ 0x140206C98 (MiConvertActiveLargePageToSmall.c)
+ *     MiAllocateSlabEntry @ 0x140206FA0 (MiAllocateSlabEntry.c)
+ *     MiSetSlabTypeIdentifiers @ 0x140207048 (MiSetSlabTypeIdentifiers.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x1402070A8 (MiLogSlabEntryAllocateFailure.c)
+ *     MiGetSlabCurrentTime @ 0x140207480 (MiGetSlabCurrentTime.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14036B030 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiDemotePfnListChain @ 0x1407164C4 (MiDemotePfnListChain.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiCreateSlabEntry(__int64 a1, __int64 a2, unsigned int a3, unsigned __int8 a4)
@@ -197,7 +197,7 @@ LABEL_74:
   if ( (v17 & 4) == 0 && (ULONG *)a2 != &MiSystemPartition )
   {
     Blink_high = HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink);
-    if ( *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) != a2 )
+    if ( *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) != a2 )
     {
       v8 = *(_QWORD *)(a2 + 256);
       if ( !(unsigned __int8)PsReferencePartitionSafe(v8, Blink_high, v16) )

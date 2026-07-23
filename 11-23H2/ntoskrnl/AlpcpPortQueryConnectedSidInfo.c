@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpPortQueryConnectedSidInfo @ 0x1407AB04C
+ * XREFs of AlpcpPortQueryConnectedSidInfo @ 0x1407AB23C
  * Callers:
- *     NtAlpcQueryInformation @ 0x1407AACE0 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x1407AAED0 (NtAlpcQueryInformation.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeReleaseSid @ 0x1406BB2A4 (SeReleaseSid.c)
- *     SeCaptureSid @ 0x1406BB2CC (SeCaptureSid.c)
- *     SeQueryUserSidToken @ 0x140714E00 (SeQueryUserSidToken.c)
- *     AlpcpReferenceConnectedPort @ 0x14071D0C8 (AlpcpReferenceConnectedPort.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeReleaseSid @ 0x1406BB2D4 (SeReleaseSid.c)
+ *     SeCaptureSid @ 0x1406BB2FC (SeCaptureSid.c)
+ *     SeQueryUserSidToken @ 0x140715010 (SeQueryUserSidToken.c)
+ *     AlpcpReferenceConnectedPort @ 0x14071D2C8 (AlpcpReferenceConnectedPort.c)
  */
 
 __int64 __fastcall AlpcpPortQueryConnectedSidInfo(__int64 a1, PSID a2, __int64 a3, _DWORD *a4, char a5)

@@ -3,22 +3,22 @@
  * Callers:
  *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
  *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
  *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
  *     VrpStripTrailingCharacters @ 0x1405D53E4 (VrpStripTrailingCharacters.c)
  *     VrpBuildKeyPath @ 0x1405D5420 (VrpBuildKeyPath.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpTranslatePath(
@@ -59,52 +59,58 @@ __int64 __fastcall VrpTranslatePath(
   unsigned __int64 i; // rcx
   __int64 v34; // r14
   __int16 v35; // di
-  unsigned __int64 v37; // [rsp+38h] [rbp-B1h] BYREF
-  int v38; // [rsp+40h] [rbp-A9h]
-  UNICODE_STRING v39; // [rsp+48h] [rbp-A1h] BYREF
+  __int64 v36; // rdx
+  __int64 v37; // r8
+  __int64 v38; // r9
+  __int64 v40; // rdx
+  __int64 v41; // r8
+  __int64 v42; // r9
+  unsigned __int64 v43; // [rsp+38h] [rbp-B1h] BYREF
+  int v44; // [rsp+40h] [rbp-A9h]
+  UNICODE_STRING v45; // [rsp+48h] [rbp-A1h] BYREF
   HANDLE KeyHandle[3]; // [rsp+58h] [rbp-91h] BYREF
-  unsigned __int64 v41; // [rsp+70h] [rbp-79h] BYREF
-  PVOID v42; // [rsp+78h] [rbp-71h] BYREF
+  unsigned __int64 v47; // [rsp+70h] [rbp-79h] BYREF
+  PVOID v48; // [rsp+78h] [rbp-71h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-51h] BYREF
-  int v47; // [rsp+148h] [rbp+5Fh]
+  int v53; // [rsp+148h] [rbp+5Fh]
 
-  v41 = 0LL;
+  v47 = 0LL;
   v9 = *(unsigned __int16 *)(a3 + 32);
   v10 = Object;
   v11 = Object;
   v12 = 0;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(KeyHandle, 0, sizeof(KeyHandle));
-  v47 = v9;
-  LOBYTE(v38) = 0;
+  v53 = v9;
+  LOBYTE(v44) = 0;
   v13 = *a4;
   DestinationString = 0LL;
-  v39 = v13;
+  v45 = v13;
   while ( 1 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)v11 + 16, 0LL);
-    NamespaceNode = VrpFindNamespaceNode((unsigned __int64 *)v11, (__int64)&v39, 1, 0LL, &v41);
+    NamespaceNode = VrpFindNamespaceNode((unsigned __int64 *)v11, (__int64)&v45, 1, 0LL, &v47);
     if ( !NamespaceNode )
       break;
-    v16 = v41;
+    v16 = v47;
     v17 = 0LL;
-    v37 = 0LL;
-    if ( v41 )
+    v43 = 0LL;
+    if ( v47 )
     {
       do
       {
-        VrpGetNextToken(&v39, &v37, &KeyHandle[1]);
+        VrpGetNextToken(&v45, &v43, &KeyHandle[1]);
         --v16;
       }
       while ( v16 );
-      v17 = v37;
+      v17 = v43;
     }
-    Buffer = v39.Buffer;
-    v19 = v39.Length - 2 * v17;
-    KeyHandle[2] = &v39.Buffer[v17];
+    Buffer = v45.Buffer;
+    v19 = v45.Length - 2 * v17;
+    KeyHandle[2] = &v45.Buffer[v17];
     LOWORD(KeyHandle[1]) = v19;
     WORD1(KeyHandle[1]) = v19;
     v20 = VrpBuildKeyPath((PCUNICODE_STRING)(NamespaceNode + 24), (PCUNICODE_STRING)&KeyHandle[1], &DestinationString);
@@ -114,7 +120,7 @@ __int64 __fastcall VrpTranslatePath(
     if ( Buffer != a4->Buffer )
       ExFreePoolWithTag(Buffer, 0);
     v21 = DestinationString;
-    v39 = DestinationString;
+    v45 = DestinationString;
     RtlInitUnicodeString(&DestinationString, 0LL);
     v22 = *(_DWORD *)(NamespaceNode + 56);
     v23 = v22 & 4 | v12;
@@ -125,13 +131,13 @@ __int64 __fastcall VrpTranslatePath(
     v26 = *(void **)(NamespaceNode + 16);
     if ( v19 )
       v25 = v23;
-    v27 = (unsigned __int8)v38;
+    v27 = (unsigned __int8)v44;
     v12 = v25;
-    if ( v47 < v24 )
+    if ( v53 < v24 )
       v27 = 1;
-    v28 = *(unsigned __int16 *)(NamespaceNode + 66) - v24 + v47;
-    v38 = v27;
-    v47 = v28;
+    v28 = *(unsigned __int16 *)(NamespaceNode + 66) - v24 + v53;
+    v44 = v27;
+    v53 = v28;
     if ( !v26 )
     {
       if ( a6 )
@@ -149,9 +155,9 @@ __int64 __fastcall VrpTranslatePath(
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
         v20 = ZwOpenKey(KeyHandle, 0x80000000, &ObjectAttributes);
         if ( v20 < 0
-          || (v42 = 0LL,
-              v20 = ObReferenceObjectByHandle(KeyHandle[0], 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v42, 0LL),
-              v29 = v42,
+          || (v48 = 0LL,
+              v20 = ObReferenceObjectByHandle(KeyHandle[0], 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v48, 0LL),
+              v29 = v48,
               v20 < 0) )
         {
 LABEL_29:
@@ -159,39 +165,39 @@ LABEL_29:
           goto LABEL_30;
         }
 LABEL_19:
-        v28 = v47;
+        v28 = v53;
         *a6 = v29;
       }
       v30 = a7;
       if ( a7 )
       {
-        v31 = v39.Buffer;
-        Length = v39.Length;
+        v31 = v45.Buffer;
+        Length = v45.Length;
         if ( (_BYTE)v27 )
         {
           for ( i = (unsigned __int64)*(unsigned __int16 *)(NamespaceNode + 24) >> 1; ; ++i )
           {
-            v37 = i;
-            if ( 2 * i >= v39.Length || v39.Buffer[i] != 92 )
+            v43 = i;
+            if ( 2 * i >= v45.Length || v45.Buffer[i] != 92 )
               break;
           }
         }
         else
         {
-          v37 = 0LL;
+          v43 = 0LL;
           i = 0LL;
           v34 = 0LL;
           if ( v28 > 0 )
           {
             do
             {
-              VrpGetNextToken(&v39, &v37, &KeyHandle[1]);
+              VrpGetNextToken(&v45, &v43, &KeyHandle[1]);
               ++v34;
             }
-            while ( (int)v34 < v47 );
-            i = v37;
+            while ( (int)v34 < v53 );
+            i = v43;
             v30 = a7;
-            v31 = v39.Buffer;
+            v31 = v45.Buffer;
           }
         }
         v35 = Length - 2 * i;
@@ -203,7 +209,7 @@ LABEL_19:
         *a8 = v12;
       *a9 = *(_DWORD *)(NamespaceNode + 60);
       *a5 = v21;
-      RtlInitUnicodeString(&v39, 0LL);
+      RtlInitUnicodeString(&v45, 0LL);
       v20 = 0;
       goto LABEL_29;
     }
@@ -211,7 +217,7 @@ LABEL_19:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)v11 + 2, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)v11 + 2);
     KeAbPostRelease((ULONG_PTR)v11 + 16);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v40, v41, v42);
     v10 = Object;
     if ( v11 != Object )
       ObfDereferenceObjectWithTag(v11, 0x67655256u);
@@ -222,11 +228,11 @@ LABEL_30:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v11 + 2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)v11 + 2);
   KeAbPostRelease((ULONG_PTR)v11 + 16);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v36, v37, v38);
   if ( v11 && v11 != v10 )
     ObfDereferenceObjectWithTag(v11, 0x67655256u);
-  if ( v39.Buffer && v39.Buffer != a4->Buffer )
-    ExFreePoolWithTag(v39.Buffer, 0);
+  if ( v45.Buffer && v45.Buffer != a4->Buffer )
+    ExFreePoolWithTag(v45.Buffer, 0);
   if ( KeyHandle[0] )
     ZwClose(KeyHandle[0]);
   return (unsigned int)v20;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeNuma @ 0x1406E3230
+ * XREFs of MiInitializeNuma @ 0x1406E7EDC
  * Callers:
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     MiInitializeSlabAllocator @ 0x140707248 (MiInitializeSlabAllocator.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiInitializeHugeIoRanges @ 0x140867CE0 (MiInitializeHugeIoRanges.c)
- *     MiInitializeChannelOrdering @ 0x140875F48 (MiInitializeChannelOrdering.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     MiInitializeSlabAllocator @ 0x14070BF18 (MiInitializeSlabAllocator.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiInitializeHugeIoRanges @ 0x14086E0C0 (MiInitializeHugeIoRanges.c)
+ *     MiInitializeChannelOrdering @ 0x14087C32C (MiInitializeChannelOrdering.c)
  */
 
 void __fastcall MiInitializeNuma(__int64 a1)
@@ -63,7 +63,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
       MiInitializeHugeIoRanges(v5);
       v6 = v3 - 14007;
       v7 = 4LL;
-      v8 = dword_140E2D780;
+      v8 = dword_140E2D900;
       do
       {
         v9 = (unsigned int)*v8;
@@ -96,7 +96,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
         --v7;
       }
       while ( v7 );
-      v15 = (unsigned int)dword_140E2D78C;
+      v15 = (unsigned int)dword_140E2D90C;
       v16 = v3 - 10591;
       v17 = v3 - 10597;
       v18 = 2LL;
@@ -162,12 +162,12 @@ void __fastcall MiInitializeNuma(__int64 a1)
       v3[1] = 0;
       if ( (ULONG *)a1 == &MiSystemPartition )
       {
-        if ( v31 == dword_140FBE274 )
+        if ( v31 == dword_140FBF274 )
           *(v3 - 10515) |= 2u;
       }
       else
       {
-        *(v3 - 10515) ^= (*(_DWORD *)(56320LL * v31 + qword_140E37CD0 + 14096) ^ *(v3 - 10515)) & 2;
+        *(v3 - 10515) ^= (*(_DWORD *)(56320LL * v31 + qword_140E37E50 + 14096) ^ *(v3 - 10515)) & 2;
       }
       v1 = v31 + 1;
       v32 += 56320LL;

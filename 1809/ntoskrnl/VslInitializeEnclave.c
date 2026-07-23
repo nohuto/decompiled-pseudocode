@@ -1,10 +1,10 @@
 /*
- * XREFs of VslInitializeEnclave @ 0x14081897C
+ * XREFs of VslInitializeEnclave @ 0x140819B7C
  * Callers:
- *     PsInitializeVsmEnclave @ 0x14088E1DC (PsInitializeVsmEnclave.c)
+ *     PsInitializeVsmEnclave @ 0x14088F43C (PsInitializeVsmEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslInitializeEnclave(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)

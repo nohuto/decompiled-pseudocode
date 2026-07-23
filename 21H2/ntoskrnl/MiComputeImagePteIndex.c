@@ -1,54 +1,54 @@
 /*
- * XREFs of MiComputeImagePteIndex @ 0x1402FCD40
+ * XREFs of MiComputeImagePteIndex @ 0x140307A90
  * Callers:
- *     MiReferenceInPageFile @ 0x14031CC98 (MiReferenceInPageFile.c)
+ *     MiReferenceInPageFile @ 0x1403279E8 (MiReferenceInPageFile.c)
  * Callees:
- *     MiGetSubsectionDriverProtos @ 0x1402FCDE0 (MiGetSubsectionDriverProtos.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x140307B30 (MiGetSubsectionDriverProtos.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
  */
 
-__int64 __fastcall MiComputeImagePteIndex(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiComputeImagePteIndex(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdi
-  unsigned __int64 v5; // rbx
-  __int64 v6; // rsi
-  __int64 v7; // rdi
-  __int64 v8; // rbp
+  __int64 v2; // rdi
+  unsigned __int64 v3; // rbx
+  __int64 v4; // rsi
+  __int64 v5; // rdi
+  __int64 v6; // rbp
   __int64 SubsectionDriverProtos; // rax
   __int64 SharedProtos; // rdx
-  __int64 v11; // rax
-  unsigned __int64 v13; // rcx
+  __int64 v9; // rax
+  unsigned __int64 v11; // rcx
 
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
-  LODWORD(v6) = 0;
-  if ( qword_140C4DF40 && (v4 & 0x10) == 0 )
-    v4 &= ~qword_140C4DF40;
-  v7 = v4 >> 16;
-  v8 = *(_QWORD *)v7;
-  if ( (*(_BYTE *)(v7 + 34) & 2) != 0 && (*(_DWORD *)(v8 + 56) & 0x4000000) != 0 )
+  v2 = *(_QWORD *)(a1 + 16);
+  v3 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
+  LODWORD(v4) = 0;
+  if ( qword_140C4DF80 && (v2 & 0x10) == 0 )
+    v2 &= ~qword_140C4DF80;
+  v5 = v2 >> 16;
+  v6 = *(_QWORD *)v5;
+  if ( (*(_BYTE *)(v5 + 34) & 2) != 0 && (*(_DWORD *)(v6 + 56) & 0x4000000) != 0 )
   {
-    SharedProtos = MiGetSharedProtos(*(_QWORD *)v7, a2, v7);
+    SharedProtos = MiGetSharedProtos(*(_QWORD *)v5, a2, v5);
   }
   else
   {
-    SubsectionDriverProtos = MiGetSubsectionDriverProtos(v7, a2, a3, a4);
+    SubsectionDriverProtos = MiGetSubsectionDriverProtos(v5);
     SharedProtos = SubsectionDriverProtos;
     if ( SubsectionDriverProtos )
     {
-      v13 = *(_QWORD *)(SubsectionDriverProtos + 72);
-      if ( v5 < v13 || v5 >= v13 + 8LL * *(unsigned int *)(v7 + 44) )
+      v11 = *(_QWORD *)(SubsectionDriverProtos + 72);
+      if ( v3 < v11 || v3 >= v11 + 8LL * *(unsigned int *)(v5 + 44) )
         SharedProtos = 0LL;
     }
   }
   if ( SharedProtos )
   {
-    v11 = *(_QWORD *)(SharedProtos + 72);
-    v6 = (__int64)(*(_QWORD *)(v7 + 8) - *(_QWORD *)(v8 + 136)) >> 3;
+    v9 = *(_QWORD *)(SharedProtos + 72);
+    v4 = (__int64)(*(_QWORD *)(v5 + 8) - *(_QWORD *)(v6 + 136)) >> 3;
   }
   else
   {
-    v11 = *(_QWORD *)(v8 + 136);
+    v9 = *(_QWORD *)(v6 + 136);
   }
-  return (unsigned int)v6 + (unsigned int)((__int64)(v5 - v11) >> 3);
+  return (unsigned int)v4 + (unsigned int)((__int64)(v3 - v9) >> 3);
 }

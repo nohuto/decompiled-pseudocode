@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInitializeGhesRecovery @ 0x1405553CC
+ * XREFs of HalpInitializeGhesRecovery @ 0x140552D0C
  * Callers:
- *     HalpInitializeMce @ 0x140B4BBE4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140B4DC24 (HalpInitializeMce.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 (__fastcall *HalpInitializeGhesRecovery())()
   __int64 v1; // rcx
   __int64 (__fastcall *result)(); // rax
 
-  v0 = &unk_140F8FC80;
+  v0 = &unk_140F8FEE0;
   v1 = 32LL;
   do
   {

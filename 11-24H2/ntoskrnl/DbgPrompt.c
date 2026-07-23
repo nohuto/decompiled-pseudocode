@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgPrompt @ 0x1405E7670
+ * XREFs of DbgPrompt @ 0x1405E4C60
  * Callers:
- *     RtlAssert @ 0x1405E9340 (RtlAssert.c)
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     PspCatchCriticalBreak @ 0x140778EB8 (PspCatchCriticalBreak.c)
- *     ViErrorFinishReport @ 0x140B9367C (ViErrorFinishReport.c)
+ *     RtlAssert @ 0x1405E6890 (RtlAssert.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     PspCatchCriticalBreak @ 0x140778FB8 (PspCatchCriticalBreak.c)
+ *     ViErrorFinishReport @ 0x140B9567C (ViErrorFinishReport.c)
  * Callees:
- *     DebugPrompt @ 0x1404FC840 (DebugPrompt.c)
+ *     DebugPrompt @ 0x1404FA100 (DebugPrompt.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

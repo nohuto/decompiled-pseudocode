@@ -1,10 +1,10 @@
 /*
  * XREFs of _wcslwr @ 0x1403E14F0
  * Callers:
- *     SiGetBootDeviceNameFromRegistry @ 0x1406BB218 (SiGetBootDeviceNameFromRegistry.c)
- *     EtwpCovSampSplitSegments @ 0x1409F21D0 (EtwpCovSampSplitSegments.c)
+ *     sub_1406BB218 @ 0x1406BB218 (sub_1406BB218.c)
+ *     sub_1409F21D0 @ 0x1409F21D0 (sub_1409F21D0.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 wchar_t *__cdecl wcslwr(wchar_t *String)
@@ -26,7 +26,7 @@ wchar_t *__cdecl wcslwr(wchar_t *String)
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 0LL;
   }
 }

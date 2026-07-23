@@ -6,16 +6,16 @@
  *     LdrpValidPathComponentsMask @ 0x1800D1CE8 (LdrpValidPathComponentsMask.c)
  */
 
-__int64 __fastcall LdrSetDefaultDllDirectories(__int64 a1)
+NTSTATUS __cdecl LdrSetDefaultDllDirectories(ULONG DirectoryFlags)
 {
   int valid; // eax
   int v2; // edx
 
-  if ( !(_DWORD)a1 )
-    return 3221225485LL;
-  valid = LdrpValidPathComponentsMask(a1, (unsigned int)a1);
+  if ( !DirectoryFlags )
+    return -1073741811;
+  valid = LdrpValidPathComponentsMask(DirectoryFlags, DirectoryFlags);
   if ( ((~valid | 0x100) & v2) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   LdrpDefaultDllDirectories = v2;
-  return 0LL;
+  return 0;
 }

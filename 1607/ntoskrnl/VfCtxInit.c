@@ -1,11 +1,11 @@
 /*
  * XREFs of VfCtxInit @ 0x140719BEC
  * Callers:
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
  * Callees:
- *     KeFreeXStateContext @ 0x140082DF4 (KeFreeXStateContext.c)
- *     KeAllocateXStateContext @ 0x1400830D0 (KeAllocateXStateContext.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeFreeXStateContext @ 0x140083A74 (KeFreeXStateContext.c)
+ *     KeAllocateXStateContext @ 0x140083D50 (KeAllocateXStateContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall VfCtxInit(__int64 a1, __int64 a2)

@@ -11,10 +11,10 @@
 
 char *__fastcall LdrpResolveDelayloadAddress(
         __int64 a1,
-        __int64 a2,
+        _QWORD *a2,
         __int64 a3,
         __int64 a4,
-        void (__fastcall *a5)(__int64 *, __int64, char *, __int64, _QWORD),
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
         int *a6)
 {
   __int64 v6; // rax
@@ -47,13 +47,13 @@ char *__fastcall LdrpResolveDelayloadAddress(
   if ( v13 < 0 )
     return v17;
   if ( AvrfpAPILookupCallbacksEnabled )
-    AVrfCallAPILookupCallback(*(_QWORD *)(a1 + 48), *(_QWORD *)(a2 + 48), (_DWORD)v17, 1, (__int64)&v17);
-  if ( !a5 )
+    AVrfCallAPILookupCallback(*(_QWORD *)(a1 + 48), a2[6], (_DWORD)v17, 1, (__int64)&v17);
+  if ( !HashTable )
     return v17;
   v18 = 0LL;
   v16 = *(_QWORD *)(a1 + 48);
   v14 = v17;
-  a5(&v18, a2, v17, v16, 0LL);
+  ((void (__fastcall *)(__int64 *, _QWORD *, char *, __int64, _QWORD))HashTable)(&v18, a2, v17, v16, 0LL);
   if ( v18 )
     return (char *)v18;
   return v14;

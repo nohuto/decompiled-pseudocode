@@ -15,22 +15,22 @@
  *     NtRaiseHardError @ 0x1800A6E60 (NtRaiseHardError.c)
  */
 
-void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int a3)
+void __fastcall LdrpReportError(_UNICODE_STRING *a1, const CHAR *a2, NTSTATUS a3)
 {
-  UNICODE_STRING *p_DestinationString; // rdi
+  _UNICODE_STRING *p_DestinationString; // rdi
   unsigned __int8 v6; // si
-  unsigned int v7; // r14d
+  ULONG v7; // r14d
   int v8; // edx
   const char *v9; // rax
-  unsigned int v10; // r15d
-  UNICODE_STRING *v11; // [rsp+28h] [rbp-D8h]
-  UNICODE_STRING *v12; // [rsp+30h] [rbp-D0h]
+  ULONG v10; // r15d
+  _UNICODE_STRING *Response; // [rsp+28h] [rbp-D8h]
+  _UNICODE_STRING *v12; // [rsp+30h] [rbp-D0h]
   int v13; // [rsp+38h] [rbp-C8h]
-  UNICODE_STRING v14; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v15[8]; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v18[2]; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING v14; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG v15; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  _STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
+  unsigned __int64 Parameters[2]; // [rsp+78h] [rbp-88h] BYREF
   __int64 v19; // [rsp+88h] [rbp-78h]
   wchar_t pszDest[8]; // [rsp+90h] [rbp-70h] BYREF
   char v21; // [rsp+A0h] [rbp-60h] BYREF
@@ -49,12 +49,12 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
   v7 = 3;
   switch ( a3 )
   {
-    case 0xC0000135:
+    case -1073741515:
       v10 = 1;
-      v18[0] = p_DestinationString;
+      Parameters[0] = (unsigned __int64)p_DestinationString;
       v7 = 1;
       break;
-    case 0xC0000138:
+    case -1073741512:
       StringCbPrintfW(pszDest, 0xEuLL, L"#%d", (unsigned __int16)a2);
       RtlInitUnicodeString(&v14, pszDest);
       v13 = -1073741512;
@@ -63,32 +63,32 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
       v8 = 857;
       v19 = -1073741512LL;
       v10 = 2;
-      LODWORD(v11) = (_DWORD)a2;
-      v18[0] = a2;
+      LODWORD(Response) = (_DWORD)a2;
+      Parameters[0] = (unsigned __int64)a2;
 LABEL_9:
-      v18[1] = p_DestinationString;
+      Parameters[1] = (unsigned __int64)p_DestinationString;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrutil.c",
         v8,
         (__int64)"LdrpReportError",
         v6 ^ 1,
         v9,
-        v11,
+        Response,
         v12,
         v13,
         *(_QWORD *)&v14.Length);
       goto LABEL_10;
-    case 0xC0000139:
+    case -1073741511:
       RtlInitAnsiString(&SourceString, a2);
       v14.Buffer = (wchar_t *)&v21;
       v14.MaximumLength = 256;
       if ( RtlAnsiStringToUnicodeString(&v14, &SourceString, 0) < 0 )
         v14.Length = 0;
       v13 = -1073741511;
-      v18[0] = &v14;
+      Parameters[0] = (unsigned __int64)&v14;
       v8 = 883;
       v12 = p_DestinationString;
-      v11 = &v14;
+      Response = &v14;
       v9 = "Locating export \"%wZ\" for DLL \"%wZ\" failed with status: 0x%08lx.\n";
       v19 = -1073741511LL;
       v10 = 3;
@@ -102,12 +102,9 @@ LABEL_9:
 LABEL_10:
   if ( v6 )
   {
-    if ( (int)NtRaiseHardError(a3, v7, v10, v18, 1, v15) >= 0 && LdrInitState != 3 )
+    if ( NtRaiseHardError(a3, v7, v10, Parameters, 1u, &v15) >= 0 && LdrInitState != 3 )
       ++LdrpFatalHardErrorCount;
-    if ( a3 + 1073741512 <= 1 )
-    {
+    if ( (unsigned int)(a3 + 1073741512) <= 1 )
       RtlRaiseStatus(a3);
-      __debugbreak();
-    }
   }
 }

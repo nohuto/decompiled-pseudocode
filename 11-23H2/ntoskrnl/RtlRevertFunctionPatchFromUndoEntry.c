@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlRevertFunctionPatchFromUndoEntry @ 0x14067AED8
+ * XREFs of RtlRevertFunctionPatchFromUndoEntry @ 0x14067B428
  * Callers:
- *     RtlApplyHotPatch @ 0x140AAD770 (RtlApplyHotPatch.c)
+ *     RtlApplyHotPatch @ 0x140AAD5E0 (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

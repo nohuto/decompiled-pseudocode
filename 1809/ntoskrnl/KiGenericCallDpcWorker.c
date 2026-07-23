@@ -1,14 +1,14 @@
 /*
- * XREFs of KiGenericCallDpcWorker @ 0x140112080
+ * XREFs of KiGenericCallDpcWorker @ 0x1401120F0
  * Callers:
  *     <none>
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiGenericCallDpcWorker(__int64 a1, _QWORD *a2)
@@ -40,7 +40,7 @@ __int64 __fastcall KiGenericCallDpcWorker(__int64 a1, _QWORD *a2)
   if ( ActiveProcessorCount > 1 )
   {
     v7 = ActiveProcessorCount - 1;
-    v8 = &qword_140542D48;
+    v8 = &qword_140543D48;
     do
     {
       v9 = *v8 + 22688;

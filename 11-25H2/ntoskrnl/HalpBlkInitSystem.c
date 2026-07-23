@@ -39,7 +39,7 @@ void __fastcall HalpBlkInitSystem(int a1)
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      KeSetTimer2((__int64)&HalpBlkWdTimer, -30000000LL, 30000000LL, (__int64)v2);
+      KeSetTimer2((__int64)&HalpBlkWdTimer, (LARGE_INTEGER)-30000000LL, 30000000LL, (__int64)v2);
     }
   }
 }

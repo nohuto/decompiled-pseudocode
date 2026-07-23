@@ -36,13 +36,13 @@ __int64 IopCopyBootLogRegistryToFile()
   ULONG v7; // [rsp+28h] [rbp-E0h]
   HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-90h] BYREF
   PVOID P; // [rsp+88h] [rbp-80h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+90h] [rbp-78h] BYREF
   UNICODE_STRING v14; // [rsp+98h] [rbp-70h] BYREF
   UNICODE_STRING v15; // [rsp+A8h] [rbp-60h] BYREF
-  STRING DestinationString; // [rsp+B8h] [rbp-50h] BYREF
+  _STRING DestinationString; // [rsp+B8h] [rbp-50h] BYREF
   char pszDest[256]; // [rsp+C8h] [rbp-40h] BYREF
   wchar_t SourceString[256]; // [rsp+1C8h] [rbp+C0h] BYREF
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateSavedSupervisorState @ 0x1409AF780
+ * XREFs of KiUpdateSavedSupervisorState @ 0x1409B06B0
  * Callers:
- *     KiStartSavingSupervisorState @ 0x1409AF700 (KiStartSavingSupervisorState.c)
+ *     KiStartSavingSupervisorState @ 0x1409B0630 (KiStartSavingSupervisorState.c)
  * Callees:
- *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeIpiGenericCall @ 0x1403A4C70 (KeIpiGenericCall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 KiUpdateSavedSupervisorState()

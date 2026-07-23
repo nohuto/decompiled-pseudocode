@@ -1,14 +1,14 @@
 /*
- * XREFs of WbAddHeapExecutedBlockToLRU @ 0x140761C3C
+ * XREFs of WbAddHeapExecutedBlockToLRU @ 0x140761E2C
  * Callers:
- *     WbAddHeapExecutedBlockToCache @ 0x140761B10 (WbAddHeapExecutedBlockToCache.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x140761D00 (WbAddHeapExecutedBlockToCache.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_140763028 @ 0x140763028 (sub_140763028.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_140763218 @ 0x140763218 (sub_140763218.c)
  */
 
 __int64 __fastcall WbAddHeapExecutedBlockToLRU(__int64 a1, __int64 a2)
@@ -47,5 +47,5 @@ __int64 __fastcall WbAddHeapExecutedBlockToLRU(__int64 a1, __int64 a2)
   v11 = v10->SpecialApcDisable++ == -1;
   if ( v11 && ($C71981A45BEB2B45F82C232A7085991E *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
     KiCheckForKernelApcDelivery();
-  return sub_140763028(a2);
+  return sub_140763218(a2);
 }

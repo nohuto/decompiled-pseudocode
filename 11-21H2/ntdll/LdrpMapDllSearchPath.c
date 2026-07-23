@@ -25,61 +25,60 @@ __int64 __fastcall LdrpMapDllSearchPath(__int64 a1)
   __int64 v2; // rsi
   int v4; // r14d
   __int64 v5; // r8
-  __int64 *v6; // r15
+  PWSTR *v6; // r15
   int v7; // eax
   int ExistingModule; // ebx
-  __int64 v9; // rdx
-  unsigned int v10; // eax
-  __int128 v11; // xmm1
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // r9
-  bool v16; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v17; // [rsp+54h] [rbp-ACh] BYREF
-  __int128 v18; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v20; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v21; // [rsp+80h] [rbp-80h] BYREF
-  UNICODE_STRING v22; // [rsp+90h] [rbp-70h] BYREF
-  _WORD v23[128]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v24[15]; // [rsp+1A0h] [rbp+A0h] BYREF
-  char v25; // [rsp+21Ch] [rbp+11Ch]
+  int v9; // eax
+  _UNICODE_STRING v10; // xmm1
+  bool v12; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v13; // [rsp+54h] [rbp-ACh] BYREF
+  _UNICODE_STRING v14; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v15; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING v16; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v17; // [rsp+80h] [rbp-80h] BYREF
+  _UNICODE_STRING v18; // [rsp+90h] [rbp-70h] BYREF
+  _WORD v19[128]; // [rsp+A0h] [rbp-60h] BYREF
+  PWSTR Path[15]; // [rsp+1A0h] [rbp+A0h] BYREF
+  char v21; // [rsp+21Ch] [rbp+11Ch]
 
   v1 = *(_QWORD *)(a1 + 48);
   v2 = *(_QWORD *)(a1 + 56);
-  v19 = 0LL;
-  v16 = 0;
-  v22.Buffer = v23;
+  v15 = 0LL;
+  v12 = 0;
+  v18.Buffer = v19;
   v4 = 0;
-  *(_DWORD *)&v22.Length = 0x1000000;
-  v23[0] = 0;
-  v17 = 0;
-  v21 = 0LL;
-  v18 = 0LL;
+  *(_DWORD *)&v18.Length = 0x1000000;
+  v19[0] = 0;
+  v13 = 0;
+  v17 = 0LL;
+  v14 = 0LL;
   if ( v1 && (v5 = *(unsigned int *)(v1 + 280), (((LdrpPolicyBits & 4) != 0 ? 32512 : 31488) & (unsigned int)v5) != 0) )
   {
-    LdrpInitializeDllPath(*(void **)(v1 + 80), v5 & ((-(__int64)((LdrpPolicyBits & 4) != 0) & 0x400) + 31488) | 1, v24);
-    v6 = v24;
+    LdrpInitializeDllPath(
+      *(const WCHAR **)(v1 + 80),
+      (const WCHAR *)(v5 & ((-(__int64)((LdrpPolicyBits & 4) != 0) & 0x400) + 31488) | 1),
+      (const WCHAR **)Path);
+    v6 = Path;
   }
   else
   {
-    LdrpInitializeDllPath(0LL, 0LL, v24);
-    v6 = *(__int64 **)(a1 + 16);
+    LdrpInitializeDllPath(0LL, 0LL, (const WCHAR **)Path);
+    v6 = *(PWSTR **)(a1 + 16);
   }
   while ( 1 )
   {
     v7 = LdrpSearchPath(
-           (const void **)a1,
+           (const UNICODE_STRING *)a1,
            (__int64)v6,
            (*(_DWORD *)(a1 + 32) & 8) != 0,
-           (__int16 **)&v21,
-           &v22,
-           (__int64)&v20,
-           (unsigned __int16 *)&v18,
-           &v16,
-           (__int64)&v17);
+           (__int16 **)&v17,
+           &v18,
+           (__int64)&v16,
+           &v14,
+           &v12,
+           (__int64)&v13);
     ExistingModule = v7;
-    if ( v16 )
+    if ( v12 )
       *(_DWORD *)(v2 + 104) |= 1u;
     if ( v7 == -1073741515 )
       break;
@@ -89,55 +88,50 @@ LABEL_8:
     v4 = 1;
     if ( !*(_QWORD *)(a1 + 176) )
     {
-      ExistingModule = LdrpAppCompatRedirect(a1, &v18, (__int64)&v20, (__int64)&v22, v7);
+      ExistingModule = LdrpAppCompatRedirect(a1, &v14, (__int64)&v16, (__int64)&v18, v7);
       if ( ExistingModule < 0 )
         goto LABEL_14;
       if ( (*(_DWORD *)(a1 + 32) & 0x10000) != 0 )
-        v17 |= 1u;
-      v10 = LdrpHashUnicodeString((__int64)&v20, v9);
-      *(_DWORD *)(v2 + 264) = v10;
-      ExistingModule = LdrpFindExistingModule(
-                         (unsigned __int16 *)&v20,
-                         (unsigned __int64)&v18,
-                         *(unsigned int *)(a1 + 32),
-                         v10,
-                         &v19);
+        v13 |= 1u;
+      v9 = LdrpHashUnicodeString(&v16);
+      *(_DWORD *)(v2 + 264) = v9;
+      ExistingModule = LdrpFindExistingModule(&v16.Length, &v14, *(_DWORD *)(a1 + 32), v9, &v15);
       if ( ExistingModule != -1073741515 )
         goto LABEL_14;
     }
     LdrpFreeUnicodeString(v2 + 72);
-    v11 = v20;
-    *(_OWORD *)(v2 + 72) = v18;
-    *(_OWORD *)(v2 + 88) = v11;
-    v18 = 0LL;
-    ExistingModule = LdrpMapDllNtFileName(a1, &v22);
+    v10 = v16;
+    *(_UNICODE_STRING *)(v2 + 72) = v14;
+    *(_UNICODE_STRING *)(v2 + 88) = v10;
+    v14 = 0LL;
+    ExistingModule = LdrpMapDllNtFileName(a1, &v18);
     if ( ExistingModule != 1073741838 )
       goto LABEL_14;
-    if ( v23 != v22.Buffer )
-      NtdllpFreeStringRoutine((__int64)v22.Buffer);
-    *(_DWORD *)&v22.Length = 0x1000000;
-    v22.Buffer = v23;
-    v23[0] = 0;
+    if ( v19 != v18.Buffer )
+      NtdllpFreeStringRoutine(v18.Buffer);
+    *(_DWORD *)&v18.Length = 0x1000000;
+    v18.Buffer = v19;
+    v19[0] = 0;
   }
   if ( !v4 )
     goto LABEL_8;
   ExistingModule = -1073741701;
 LABEL_14:
-  if ( v19 )
+  if ( v15 )
   {
-    LdrpLoadContextReplaceModule(a1, v19);
+    LdrpLoadContextReplaceModule(a1, v15);
   }
   else if ( (unsigned __int8)LdrpIsSecurityEtwLoggingEnabled() )
   {
-    LdrpLogEtwDllSearchResults(v17, a1);
+    LdrpLogEtwDllSearchResults(v13, a1);
   }
-  if ( v23 != v22.Buffer )
-    NtdllpFreeStringRoutine((__int64)v22.Buffer);
-  *(_DWORD *)&v22.Length = 0x1000000;
-  v22.Buffer = v23;
-  v23[0] = 0;
-  LdrpFreeUnicodeString(&v18);
-  if ( v25 )
-    RtlReleasePath(v24[0], v12, v13, v14);
+  if ( v19 != v18.Buffer )
+    NtdllpFreeStringRoutine(v18.Buffer);
+  *(_DWORD *)&v18.Length = 0x1000000;
+  v18.Buffer = v19;
+  v19[0] = 0;
+  LdrpFreeUnicodeString(&v14);
+  if ( v21 )
+    RtlReleasePath(Path[0]);
   return (unsigned int)ExistingModule;
 }

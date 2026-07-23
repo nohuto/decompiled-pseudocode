@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGenericRandomPatternWorker @ 0x140414460
+ * XREFs of RtlpGenericRandomPatternWorker @ 0x140408A90
  * Callers:
- *     RtlScrubMemory @ 0x140413C54 (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x140408284 (RtlScrubMemory.c)
  * Callees:
- *     RtlpSeedGlfsr @ 0x1404147D0 (RtlpSeedGlfsr.c)
+ *     RtlpSeedGlfsr @ 0x140408E00 (RtlpSeedGlfsr.c)
  */
 
 char __fastcall RtlpGenericRandomPatternWorker(unsigned __int64 *a1)

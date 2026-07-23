@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceInvalidBootStat @ 0x140CD2924
+ * XREFs of PopDiagTraceInvalidBootStat @ 0x140CD8ACC
  * Callers:
- *     PopCheckShutdownMarker @ 0x140CD0064 (PopCheckShutdownMarker.c)
+ *     PopCheckShutdownMarker @ 0x140CD620C (PopCheckShutdownMarker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceInvalidBootStat(int a1)
@@ -32,10 +32,10 @@ void __fastcall PopDiagTraceInvalidBootStat(int a1)
   __int64 *v21; // [rsp+B0h] [rbp+37h]
   __int64 v22; // [rsp+B8h] [rbp+3Fh]
 
-  if ( dword_140E07598
-    && tlgKeywordOn((__int64)&dword_140E07598, 0x800000000000LL)
+  if ( dword_140E07560
+    && tlgKeywordOn((__int64)&dword_140E07560, 0x800000000000LL)
     && v3 > 5
-    && tlgKeywordOn((__int64)&dword_140E07598, v2) )
+    && tlgKeywordOn((__int64)&dword_140E07560, v2) )
   {
     v10 = v4;
     v13 = &v8;
@@ -52,6 +52,6 @@ void __fastcall PopDiagTraceInvalidBootStat(int a1)
     v20 = 1LL;
     v11 = 0x1000000LL;
     v22 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)byte_14004CC30, 0LL, 0LL, 7u, &v12);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004C79D, 0LL, 0LL, 7u, &v12);
   }
 }

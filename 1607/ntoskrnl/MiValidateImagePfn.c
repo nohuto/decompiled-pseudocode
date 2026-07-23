@@ -1,20 +1,20 @@
 /*
- * XREFs of MiValidateImagePfn @ 0x14052685C
+ * XREFs of MiValidateImagePfn @ 0x1405098BC
  * Callers:
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiRevertRelocatedImagePfn @ 0x140526A98 (MiRevertRelocatedImagePfn.c)
- *     SeGetStrongImageReference @ 0x14068C978 (SeGetStrongImageReference.c)
+ *     MiRevertRelocatedImagePfn @ 0x140509AF8 (MiRevertRelocatedImagePfn.c)
+ *     SeGetStrongImageReference @ 0x14068CA5C (SeGetStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateImagePfn(
@@ -54,7 +54,7 @@ __int64 __fastcall MiValidateImagePfn(
       return result;
     v9[2] = a7;
   }
-  v13 = MiReservePtes((__int64)&qword_140327870, 1uLL, a3);
+  v13 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, a3);
   v14 = (_QWORD *)v13;
   if ( !v13 )
     return 3221225626LL;
@@ -84,7 +84,7 @@ __int64 __fastcall MiValidateImagePfn(
     {
       if ( !v22 )
       {
-        MiReleasePtes((__int64)&qword_140327870, (__int64)v14, 1u);
+        MiReleasePtes((__int64)&qword_1403278B0, (__int64)v14, 1u);
         return 3221225626LL;
       }
       v15 = v22;
@@ -106,9 +106,9 @@ __int64 __fastcall MiValidateImagePfn(
   {
     v21 = -1073740760;
   }
-  _InterlockedIncrement(&dword_1403267AC);
+  _InterlockedIncrement(&dword_1403267EC);
 LABEL_31:
-  MiReleasePtes((__int64)&qword_140327870, (__int64)v14, 1u);
+  MiReleasePtes((__int64)&qword_1403278B0, (__int64)v14, 1u);
   if ( v19 )
     ExFreePoolWithTag(v19, 0);
   return (unsigned int)v21;

@@ -1,14 +1,14 @@
 /*
- * XREFs of CcAsyncReadWorkerThread @ 0x14057DDB0
+ * XREFs of CcAsyncReadWorkerThread @ 0x14057B240
  * Callers:
  *     <none>
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD54C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CcAsyncReadWorker @ 0x1404DF280 (CcAsyncReadWorker.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402E624C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CcAsyncReadWorker @ 0x1404D8CA0 (CcAsyncReadWorker.c)
  */
 
 char __fastcall CcAsyncReadWorkerThread(__int64 *StartContext)
@@ -20,8 +20,8 @@ char __fastcall CcAsyncReadWorkerThread(__int64 *StartContext)
   unsigned __int64 *v6; // rbx
   __int64 v7; // r14
   __int64 v8; // rsi
-  _QWORD *v9; // rax
-  _QWORD *v10; // rbp
+  char *v9; // rax
+  char *v10; // rbp
   __int64 **v11; // rax
   signed __int64 v12; // rax
   signed __int64 v13; // r8
@@ -43,12 +43,12 @@ char __fastcall CcAsyncReadWorkerThread(__int64 *StartContext)
     *(_DWORD *)(v7 + 4LL * *((unsigned int *)StartContext + 10)) = 0;
     CcAsyncReadWorker(StartContext);
     *(_DWORD *)(v7 + 4LL * *((unsigned int *)StartContext + 10)) = -1;
-    v9 = KeAbPreAcquire((__int64)v6, 0LL);
+    v9 = (char *)KeAbPreAcquire((__int64)v6, 0LL);
     v10 = v9;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v6, (__int64)v9, (__int64)v6);
+      ExfAcquirePushLockExclusiveEx(v6, v9, (__int64)v6);
     if ( v10 )
-      *((_BYTE *)v10 + 10) = 1;
+      v10[10] = 1;
     v11 = *(__int64 ***)(v8 + 8);
     if ( *v11 != (__int64 *)v8 )
       __fastfail(3u);

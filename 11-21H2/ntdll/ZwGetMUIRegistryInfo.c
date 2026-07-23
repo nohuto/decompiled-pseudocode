@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 ZwGetMUIRegistryInfo()
+NTSTATUS __cdecl ZwGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 252LL;
+  result = 252;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiGetNumberOfActiveSubNodes @ 0x1404397E8
+ * XREFs of KiGetNumberOfActiveSubNodes @ 0x14042C3A8
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
- *     KeUpdateProcessorRestrictions @ 0x1405B5194 (KeUpdateProcessorRestrictions.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
+ *     KeUpdateProcessorRestrictions @ 0x1405B245C (KeUpdateProcessorRestrictions.c)
  * Callees:
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140208D20 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     KiInitializeSystemSubNodeEnumerationContext @ 0x140439854 (KiInitializeSystemSubNodeEnumerationContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140330300 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiInitializeSystemSubNodeEnumerationContext @ 0x14042C414 (KiInitializeSystemSubNodeEnumerationContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 KiGetNumberOfActiveSubNodes()

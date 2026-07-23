@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsPrimaryPresent @ 0x1401DC17C
+ * XREFs of KiIsPrimaryPresent @ 0x1401DBFA8
  * Callers:
- *     KiParkUmsThread @ 0x1401DC264 (KiParkUmsThread.c)
- *     NtUmsThreadYield @ 0x140650D48 (NtUmsThreadYield.c)
+ *     KiParkUmsThread @ 0x1401DC090 (KiParkUmsThread.c)
+ *     NtUmsThreadYield @ 0x140650E2C (NtUmsThreadYield.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 char __fastcall KiIsPrimaryPresent(__int64 a1, __int64 a2)

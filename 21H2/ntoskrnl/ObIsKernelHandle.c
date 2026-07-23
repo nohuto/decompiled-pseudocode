@@ -1,12 +1,12 @@
 /*
- * XREFs of ObIsKernelHandle @ 0x14035B910
+ * XREFs of ObIsKernelHandle @ 0x1402A06B0
  * Callers:
- *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
+ *     MmPrefetchVirtualMemory @ 0x1406BEF48 (MmPrefetchVirtualMemory.c)
  * Callees:
- *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     ObpIsKernelHandle @ 0x140353610 (ObpIsKernelHandle.c)
  */
 
 BOOLEAN __stdcall ObIsKernelHandle(HANDLE Handle)
 {
-  return ObpIsKernelHandle((unsigned __int64)Handle, 0);
+  return ObpIsKernelHandle(Handle, 0LL);
 }

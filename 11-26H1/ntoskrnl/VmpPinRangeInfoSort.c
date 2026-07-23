@@ -1,5 +1,5 @@
 /*
- * XREFs of VmpPinRangeInfoSort @ 0x14081D850
+ * XREFs of VmpPinRangeInfoSort @ 0x140823A60
  * Callers:
  *     <none>
  * Callees:

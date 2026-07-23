@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetInPageSupportBlock @ 0x1402E12E4
+ * XREFs of MiGetInPageSupportBlock @ 0x1402E1574
  * Callers:
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiAllocateInPageSupport @ 0x1402E0CE4 (MiAllocateInPageSupport.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiPfAllocateMdls @ 0x1407460A0 (MiPfAllocateMdls.c)
- *     MiCreateRotateView @ 0x140A31210 (MiCreateRotateView.c)
- *     MiGetReadyInPageBlock @ 0x140A31330 (MiGetReadyInPageBlock.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiAllocateInPageSupport @ 0x1402E0F74 (MiAllocateInPageSupport.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiPfAllocateMdls @ 0x140746290 (MiPfAllocateMdls.c)
+ *     MiCreateRotateView @ 0x140A314C0 (MiCreateRotateView.c)
+ *     MiGetReadyInPageBlock @ 0x140A315E0 (MiGetReadyInPageBlock.c)
  * Callees:
- *     MiInitializeInPageSupport @ 0x1402E13A0 (MiInitializeInPageSupport.c)
- *     MiAllocateInPageSupportBlock @ 0x140362E34 (MiAllocateInPageSupportBlock.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
+ *     MiInitializeInPageSupport @ 0x1402E1630 (MiInitializeInPageSupport.c)
+ *     MiAllocateInPageSupportBlock @ 0x140362FD4 (MiAllocateInPageSupportBlock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiGetInPageSupportBlock(unsigned int a1, __int64 a2)

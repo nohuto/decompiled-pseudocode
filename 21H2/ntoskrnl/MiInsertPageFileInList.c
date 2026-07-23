@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertPageFileInList @ 0x1407B6FD0
+ * XREFs of MiInsertPageFileInList @ 0x1407B74F0
  * Callers:
- *     MmStoreRegister @ 0x1407B637C (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x1407B6890 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
  * Callees:
- *     MiNumberWsSwapPagefiles @ 0x140273228 (MiNumberWsSwapPagefiles.c)
- *     MiMakePartitionActive @ 0x1402E5DA8 (MiMakePartitionActive.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiIncreaseCommitLimits @ 0x1403BF7AC (MiIncreaseCommitLimits.c)
- *     MiUpdateReserveClusterInfo @ 0x1403BFA7C (MiUpdateReserveClusterInfo.c)
- *     MiUpdatePageFileList @ 0x1403BFAAC (MiUpdatePageFileList.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     MiNumberWsSwapPagefiles @ 0x1402611C8 (MiNumberWsSwapPagefiles.c)
+ *     MiMakePartitionActive @ 0x1402970F8 (MiMakePartitionActive.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiIncreaseCommitLimits @ 0x1403BFBD8 (MiIncreaseCommitLimits.c)
+ *     MiUpdateReserveClusterInfo @ 0x1403BFEA8 (MiUpdateReserveClusterInfo.c)
+ *     MiUpdatePageFileList @ 0x1403BFED8 (MiUpdatePageFileList.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInsertPageFileInList(__int64 a1)
@@ -65,7 +65,7 @@ __int64 __fastcall MiInsertPageFileInList(__int64 a1)
   --CurrentThread->SpecialApcDisable;
   v8 = (volatile signed __int64 *)(v5 + 1040);
   ExAcquirePushLockExclusiveEx(v5 + 1040, 0LL);
-  if ( dword_140C4E6C4 )
+  if ( dword_140C4E704 )
   {
     if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v5 + 1040);

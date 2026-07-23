@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmObjectIsEnumerable @ 0x1408D21B8
+ * XREFs of PiDmObjectIsEnumerable @ 0x1408CFBA8
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B4A8C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B237C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     PiDmObjectAcquireSharedLock @ 0x1408D0A7C (PiDmObjectAcquireSharedLock.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1408CE46C (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
  */
 
 char __fastcall PiDmObjectIsEnumerable(ULONG_PTR BugCheckParameter2)

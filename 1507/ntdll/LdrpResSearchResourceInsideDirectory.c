@@ -92,7 +92,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v73; // r10
   __int64 v74; // r10
   unsigned __int64 v75; // r12
-  __int64 Heap; // rbx
+  unsigned int *Heap; // rbx
   __int64 v77; // [rsp+40h] [rbp-188h]
   _BYTE *v78; // [rsp+48h] [rbp-180h] BYREF
   int v79; // [rsp+50h] [rbp-178h]
@@ -108,7 +108,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   unsigned __int64 v89; // [rsp+98h] [rbp-130h]
   int v90; // [rsp+A0h] [rbp-128h] BYREF
   unsigned __int64 v91; // [rsp+A8h] [rbp-120h]
-  __int64 v92; // [rsp+B0h] [rbp-118h]
+  PVOID BaseAddress; // [rsp+B0h] [rbp-118h]
   __int64 v93; // [rsp+B8h] [rbp-110h]
   int *v94; // [rsp+C0h] [rbp-108h]
   int *v95; // [rsp+C8h] [rbp-100h]
@@ -155,7 +155,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   v115 = 0;
   v84 = 0;
   LOWORD(v19) = 0;
-  v92 = 0LL;
+  BaseAddress = 0LL;
   v86 = 0;
   v81 = 0;
   LODWORD(v109[0]) = 5636180;
@@ -478,14 +478,14 @@ LABEL_33:
     }
     if ( v33 )
     {
-      if ( v92 )
+      if ( BaseAddress )
       {
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v92);
-        v92 = 0LL;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+        BaseAddress = 0LL;
         v31 = v80;
       }
-      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 8LL * v31);
-      v92 = Heap;
+      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * v31);
+      BaseAddress = Heap;
       if ( !Heap )
       {
         v43 = -1073741801;
@@ -720,10 +720,10 @@ LABEL_52:
 LABEL_185:
   v43 = -1073741701;
 LABEL_62:
-  if ( v92 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v92);
-    v92 = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    BaseAddress = 0LL;
   }
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(&v111, MEMORY[0x7FFE0384]);

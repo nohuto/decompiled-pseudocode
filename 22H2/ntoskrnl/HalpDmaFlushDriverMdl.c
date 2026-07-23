@@ -17,8 +17,7 @@ char __fastcall HalpDmaFlushDriverMdl(_QWORD *BugCheckParameter4, char a2, __int
     v5 = BugCheckParameter4;
     do
     {
-      LOBYTE(a3) = 1;
-      result = KeFlushIoBuffers((ULONG_PTR)v5, a2, a3, a4);
+      result = KeFlushIoBuffers((ULONG_PTR)v5, a2, 1, a4);
       v5 = (_QWORD *)*v5;
     }
     while ( v5 );

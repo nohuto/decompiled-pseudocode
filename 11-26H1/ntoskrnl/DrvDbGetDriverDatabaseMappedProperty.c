@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x140B234C4
+ * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x140B258C4
  * Callers:
- *     DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x14089DEB4 (DrvDbGetDriverDatabaseCompositeMappedPropertyKeys.c)
- *     DrvDbLoadDatabaseNode @ 0x14091DE9C (DrvDbLoadDatabaseNode.c)
- *     DrvDbDispatchDriverDatabase @ 0x140A82250 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x1408A42B4 (DrvDbGetDriverDatabaseCompositeMappedPropertyKeys.c)
+ *     DrvDbLoadDatabaseNode @ 0x1409788FC (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140A880C0 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14091B9E0 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     DrvDbFindDatabaseNode @ 0x14091ECB8 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140B29ACC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x140976440 (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbFindDatabaseNode @ 0x140979718 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140B2BB4C (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
         __int64 a1,
-        wchar_t *a2,
+        const wchar_t *a2,
         void *a3,
         __int64 a4,
         _DWORD *a5,
@@ -46,7 +46,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
   int *v31; // rcx
   unsigned int v32; // eax
   size_t v33; // r8
-  wchar_t *v34; // rdx
+  const wchar_t *v34; // rdx
   int *v35; // rdx
   bool v36; // cf
   __int64 v37; // rax
@@ -233,7 +233,7 @@ LABEL_88:
           goto LABEL_46;
         v33 = v45;
         v31 = a6;
-        v34 = *(wchar_t **)(*(_QWORD *)&v44[2].Length + 24LL);
+        v34 = *(const wchar_t **)(*(_QWORD *)&v44[2].Length + 24LL);
 LABEL_45:
         memmove(v31, v34, v33);
         goto LABEL_22;
@@ -244,7 +244,7 @@ LABEL_45:
   for ( j = 0; j < 0xC; ++j )
   {
     v14 = 5LL * j;
-    v20 = &off_14000F550 + 5 * j;
+    v20 = &off_14000F860 + 5 * j;
     v21 = (__int64 *)*v20;
     if ( LODWORD((**v20)[2]) == v15 )
     {
@@ -253,7 +253,7 @@ LABEL_45:
         v14 = v21[1] - *(_QWORD *)(a4 + 8);
       if ( !v14 )
       {
-        v18 = &off_14000F550 + 5 * j;
+        v18 = &off_14000F860 + 5 * j;
         break;
       }
     }
@@ -266,7 +266,7 @@ LABEL_45:
   v18 = 0LL;
   for ( k = 0; k < 4; ++k )
   {
-    v46 = &off_14000FDC0 + 5 * k;
+    v46 = &off_14000FA40 + 5 * k;
     v47 = (__int64 *)*v46;
     if ( LODWORD((**v46)[2]) == v15 )
     {
@@ -275,7 +275,7 @@ LABEL_45:
         v48 = v47[1] - *(_QWORD *)(a4 + 8);
       if ( !v48 )
       {
-        v18 = &off_14000FDC0 + 5 * k;
+        v18 = &off_14000FA40 + 5 * k;
         break;
       }
     }
@@ -295,13 +295,13 @@ LABEL_17:
       || (!v12 || (*(_DWORD *)&v12[4].Length & 0x10) == 0
         ? (v29 = DrvDbOpenDriverDatabaseRegKey(v22, a2, 1LL, 0LL))
         : (v29 = DrvDbOpenObjectRegKey(
-                   (_QWORD *)v22,
+                   (__int64 *)v22,
                    *(__int64 **)(v22 + 40),
                    1u,
-                   a2,
+                   (__int64)a2,
                    1u,
                    0,
-                   (__int64)&Handle,
+                   &Handle,
                    0LL,
                    0LL)),
           DatabaseNode = v29,

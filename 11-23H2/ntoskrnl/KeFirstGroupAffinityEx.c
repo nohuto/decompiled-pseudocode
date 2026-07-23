@@ -1,15 +1,15 @@
 /*
- * XREFs of KeFirstGroupAffinityEx @ 0x1403090E0
+ * XREFs of KeFirstGroupAffinityEx @ 0x140309370
  * Callers:
  *     KiSetAffinityThread @ 0x14020327C (KiSetAffinityThread.c)
- *     KiComputeThreadAffinity @ 0x1402BF834 (KiComputeThreadAffinity.c)
- *     KeQueryLogicalProcessorRelationship @ 0x140305FB0 (KeQueryLogicalProcessorRelationship.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14036CB74 (KeSetSystemMultipleGroupAffinityThread.c)
- *     PpmIdleInstallNewVetoList @ 0x140585078 (PpmIdleInstallNewVetoList.c)
+ *     KiComputeThreadAffinity @ 0x1402BFAC4 (KiComputeThreadAffinity.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x140306240 (KeQueryLogicalProcessorRelationship.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x14036CD14 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     PpmIdleInstallNewVetoList @ 0x140585568 (PpmIdleInstallNewVetoList.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PpmIdleInitializeConcurrency @ 0x14082BE04 (PpmIdleInitializeConcurrency.c)
- *     PpmRegisterPerfStates @ 0x14082E54C (PpmRegisterPerfStates.c)
+ *     PpmIdleInitializeConcurrency @ 0x14082C104 (PpmIdleInitializeConcurrency.c)
+ *     PpmRegisterPerfStates @ 0x14082E84C (PpmRegisterPerfStates.c)
  * Callees:
  *     <none>
  */

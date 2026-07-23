@@ -1,21 +1,22 @@
 /*
- * XREFs of SmProcessStoreMemoryPriorityRequest @ 0x140A5FA44
+ * XREFs of SmProcessStoreMemoryPriorityRequest @ 0x140A57F94
  * Callers:
- *     SmSetStoreInformation @ 0x140A5F8F0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140A57E40 (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreGet @ 0x140245714 (SmKmStoreGet.c)
- *     SmpKeyedStoreEntryGet @ 0x1402457A0 (SmpKeyedStoreEntryGet.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     SmKmStoreGet @ 0x14020DEF4 (SmKmStoreGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x14020DF80 (SmpKeyedStoreEntryGet.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
+__int64 __fastcall SmProcessStoreMemoryPriorityRequest(_OWORD *a1, unsigned int a2, __int64 a3)
 {
+  _OWORD *v3; // r9
   _KPROCESS *v4; // rdi
   int v5; // esi
   __int64 v6; // rcx
@@ -29,6 +30,7 @@ __int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, unsi
   PVOID v15; // [rsp+50h] [rbp-48h]
   _OWORD v16[3]; // [rsp+58h] [rbp-40h] BYREF
 
+  v3 = a1;
   memset(v16, 0, sizeof(v16));
   v13 = 0LL;
   v4 = 0LL;
@@ -41,17 +43,17 @@ __int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, unsi
   }
   else
   {
-    if ( a3 )
+    if ( (_BYTE)a3 )
     {
-      if ( (a1 & 7) != 0 )
+      if ( ((unsigned __int8)a1 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
       v6 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v6 = a1;
+      if ( (unsigned __int64)v3 < 0x7FFFFFFF0000LL )
+        v6 = (__int64)v3;
       *(_BYTE *)v6 = *(_BYTE *)v6;
       *(_BYTE *)(v6 + 15) = *(_BYTE *)(v6 + 15);
     }
-    *(_OWORD *)Handle = *(_OWORD *)a1;
+    *(_OWORD *)Handle = *v3;
     if ( LOBYTE(Handle[0]) == 1 )
     {
       if ( a2 == 16 )
@@ -105,7 +107,7 @@ __int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, unsi
     }
   }
   if ( v5 )
-    KiUnstackDetachProcess((__int64)v16, 0);
+    KiUnstackDetachProcess((__int64)v16, 0, a3, (__int64)v3);
   if ( v4 )
     ObfDereferenceObject(v4);
   return (unsigned int)v7;

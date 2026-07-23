@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpIcDecodeModRmOperand @ 0x140C5637C
+ * XREFs of RtlpIcDecodeModRmOperand @ 0x140C5C37C
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140C564D4 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateGroup11Instruction @ 0x140C56734 (RtlpIcEmulateGroup11Instruction.c)
- *     RtlpIcEmulateGroup1Instruction @ 0x140C56800 (RtlpIcEmulateGroup1Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140C569F8 (RtlpIcEmulateInstruction.c)
- *     RtlpIcEmulateMovzx @ 0x140C571FC (RtlpIcEmulateMovzx.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140C5C4D4 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateGroup11Instruction @ 0x140C5C734 (RtlpIcEmulateGroup11Instruction.c)
+ *     RtlpIcEmulateGroup1Instruction @ 0x140C5C800 (RtlpIcEmulateGroup1Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140C5C9F8 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateMovzx @ 0x140C5D1FC (RtlpIcEmulateMovzx.c)
  * Callees:
- *     RtlpIcGetRegisterAddressByIndex @ 0x140C574A0 (RtlpIcGetRegisterAddressByIndex.c)
+ *     RtlpIcGetRegisterAddressByIndex @ 0x140C5D4A0 (RtlpIcGetRegisterAddressByIndex.c)
  */
 
 __int64 __fastcall RtlpIcDecodeModRmOperand(__int64 a1, __int64 a2, __int64 *a3, _BYTE *a4, _BYTE *a5)

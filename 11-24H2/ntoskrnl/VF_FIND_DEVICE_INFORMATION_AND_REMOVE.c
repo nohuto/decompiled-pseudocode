@@ -1,10 +1,10 @@
 /*
- * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140B8503C
+ * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140B8703C
  * Callers:
- *     VfHalDeleteDevice @ 0x140B871A0 (VfHalDeleteDevice.c)
+ *     VfHalDeleteDevice @ 0x140B891A0 (VfHalDeleteDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
@@ -16,7 +16,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
   struct _LIST_ENTRY *Blink; // rdx
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140F03A90);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140F03D70);
   for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
     Flink = i->Flink;
@@ -30,6 +30,6 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
       break;
     }
   }
-  KeReleaseSpinLock(&qword_140F03A90, v3);
+  KeReleaseSpinLock(&qword_140F03D70, v3);
   return v2;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBroadcastSessionInfo @ 0x140824F14
+ * XREFs of PopBroadcastSessionInfo @ 0x140825214
  * Callers:
- *     PopPowerSourceChangeCallback @ 0x1403846F0 (PopPowerSourceChangeCallback.c)
- *     PopWin32kPowerSettingCallback @ 0x14038A0C0 (PopWin32kPowerSettingCallback.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     PopLidSwitchReliabilityUpdateCallback @ 0x1408234E0 (PopLidSwitchReliabilityUpdateCallback.c)
- *     PopAdaptivePowerSettingCallback @ 0x140824C50 (PopAdaptivePowerSettingCallback.c)
- *     PopLidSwitchChangeCallback @ 0x140984400 (PopLidSwitchChangeCallback.c)
- *     PopSetAwayModeStatus @ 0x14098A80C (PopSetAwayModeStatus.c)
- *     PopEvaluateInputSuppressionAction @ 0x1409942C4 (PopEvaluateInputSuppressionAction.c)
+ *     PopPowerSourceChangeCallback @ 0x1403848D0 (PopPowerSourceChangeCallback.c)
+ *     PopWin32kPowerSettingCallback @ 0x14038A2A0 (PopWin32kPowerSettingCallback.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     PopLidSwitchReliabilityUpdateCallback @ 0x1408237E0 (PopLidSwitchReliabilityUpdateCallback.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140824F50 (PopAdaptivePowerSettingCallback.c)
+ *     PopLidSwitchChangeCallback @ 0x140984600 (PopLidSwitchChangeCallback.c)
+ *     PopSetAwayModeStatus @ 0x14098AA0C (PopSetAwayModeStatus.c)
+ *     PopEvaluateInputSuppressionAction @ 0x1409944C4 (PopEvaluateInputSuppressionAction.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1407D38BC (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x1407D3B8C (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopBroadcastSessionInfo(int a1, int a2, __int64 a3)

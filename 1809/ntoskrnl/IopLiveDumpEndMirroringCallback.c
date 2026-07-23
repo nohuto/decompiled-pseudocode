@@ -1,25 +1,25 @@
 /*
- * XREFs of IopLiveDumpEndMirroringCallback @ 0x140578890
+ * XREFs of IopLiveDumpEndMirroringCallback @ 0x140579890
  * Callers:
  *     <none>
  * Callees:
- *     KdEncodeDataBlock @ 0x140181490 (KdEncodeDataBlock.c)
- *     KiSaveProcessorControlState @ 0x1401BBF10 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlCollectLivedump @ 0x14027783C (HvlCollectLivedump.c)
- *     IoFillDumpHeader @ 0x14027F5D4 (IoFillDumpHeader.c)
- *     IopLiveDumpTrace @ 0x140285BD0 (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceMirroringPhase0End @ 0x140286004 (IopLiveDumpTraceMirroringPhase0End.c)
- *     IopLiveDumpTraceMirroringPhase1End @ 0x14028605C (IopLiveDumpTraceMirroringPhase1End.c)
- *     KdDecodeDataBlock @ 0x14028BB74 (KdDecodeDataBlock.c)
- *     RtlNumberOfSetBitsEx @ 0x1402EF170 (RtlNumberOfSetBitsEx.c)
- *     IopLiveDumpCorralProcessors @ 0x140578704 (IopLiveDumpCorralProcessors.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140578D24 (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpMarkImportantDumpData @ 0x140578DC8 (IopLiveDumpMarkImportantDumpData.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x140579088 (IopLiveDumpMarkRequiredDumpData.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x1405793C4 (IopLiveDumpPopulateBitmapForDump.c)
- *     IopLiveDumpUncorralProcessors @ 0x140579628 (IopLiveDumpUncorralProcessors.c)
+ *     KdEncodeDataBlock @ 0x1401815D0 (KdEncodeDataBlock.c)
+ *     KiSaveProcessorControlState @ 0x1401BC070 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x1401C5650 (RtlCaptureContext.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlCollectLivedump @ 0x140277A2C (HvlCollectLivedump.c)
+ *     IoFillDumpHeader @ 0x14027F7C4 (IoFillDumpHeader.c)
+ *     IopLiveDumpTrace @ 0x140285DC0 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceMirroringPhase0End @ 0x1402861F4 (IopLiveDumpTraceMirroringPhase0End.c)
+ *     IopLiveDumpTraceMirroringPhase1End @ 0x14028624C (IopLiveDumpTraceMirroringPhase1End.c)
+ *     KdDecodeDataBlock @ 0x14028BD64 (KdDecodeDataBlock.c)
+ *     RtlNumberOfSetBitsEx @ 0x1402EF360 (RtlNumberOfSetBitsEx.c)
+ *     IopLiveDumpCorralProcessors @ 0x140579704 (IopLiveDumpCorralProcessors.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140579D24 (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x140579DC8 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x14057A088 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x14057A3C4 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpUncorralProcessors @ 0x14057A628 (IopLiveDumpUncorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpEndMirroringCallback(int a1)
@@ -103,7 +103,7 @@ __int64 __fastcall IopLiveDumpEndMirroringCallback(int a1)
           else
           {
             IoFillDumpHeader(
-              *(enum _NT_PRODUCT_TYPE **)(v1 + 384),
+              *(_NT_PRODUCT_TYPE **)(v1 + 384),
               6,
               *(_DWORD *)v1,
               *(_QWORD *)(v1 + 8),

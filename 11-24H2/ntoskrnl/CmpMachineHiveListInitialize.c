@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpMachineHiveListInitialize @ 0x140ABBE30
+ * XREFs of CmpMachineHiveListInitialize @ 0x140AB6E50
  * Callers:
- *     CmInitSystem2 @ 0x140C5F4F8 (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140C61648 (CmInitSystem2.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpBuildMachineHiveMountPoint @ 0x1407C9F20 (CmpBuildMachineHiveMountPoint.c)
- *     CmpQueryHiveRedirectionFileList @ 0x14092B6FC (CmpQueryHiveRedirectionFileList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpBuildMachineHiveMountPoint @ 0x1407CA410 (CmpBuildMachineHiveMountPoint.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x14092D83C (CmpQueryHiveRedirectionFileList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void CmpMachineHiveListInitialize()
@@ -30,7 +30,7 @@ void CmpMachineHiveListInitialize()
     *(_QWORD *)&ValueName.Length = 0x800000LL;
     ValueName.Buffer = (wchar_t *)&v6;
     CmpBuildMachineHiveMountPoint(i, &ValueName);
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x80uLL, 0x32364D43u);
     v3 = (wchar_t *)Pool2;
     if ( !Pool2 )
       KeBugCheckEx(0x74u, 2uLL, 5uLL, i, 0LL);

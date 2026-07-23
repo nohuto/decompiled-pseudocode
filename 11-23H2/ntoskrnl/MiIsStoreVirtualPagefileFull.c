@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsStoreVirtualPagefileFull @ 0x14065BFCC
+ * XREFs of MiIsStoreVirtualPagefileFull @ 0x14065C51C
  * Callers:
- *     MiFillNoReservationCluster @ 0x140639468 (MiFillNoReservationCluster.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiFillNoReservationCluster @ 0x1406399B8 (MiFillNoReservationCluster.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
  *     <none>
  */

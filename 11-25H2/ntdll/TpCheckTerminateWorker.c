@@ -11,22 +11,22 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-void __fastcall TpCheckTerminateWorker(const void *a1)
+void __cdecl TpCheckTerminateWorker(HANDLE Thread)
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
-  if ( (unsigned __int8)TppIsWorkerThread() )
+  if ( (unsigned __int8)TppIsWorkerThread(Thread) )
   {
     DbgPrintEx(
-      84LL,
-      0LL,
+      0x54u,
+      0,
       "ThreadPool: attempt to terminate a worker thread via handle %p\n"
       "Contact the owner of the function calling Terminate/Exit thread.\n",
-      a1);
+      Thread);
     memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
     ExceptionRecord.ExceptionCode = -1073740004;
     ExceptionRecord.NumberParameters = 1;
-    ExceptionRecord.ExceptionInformation[0] = (unsigned __int64)a1;
+    ExceptionRecord.ExceptionInformation[0] = (unsigned __int64)Thread;
     RtlRaiseException(&ExceptionRecord);
   }
 }

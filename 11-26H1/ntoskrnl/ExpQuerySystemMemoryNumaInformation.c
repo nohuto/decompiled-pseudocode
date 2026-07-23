@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQuerySystemMemoryNumaInformation @ 0x14077AF58
+ * XREFs of ExpQuerySystemMemoryNumaInformation @ 0x14077DDAC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpQuerySystemMemoryNumaInformation(

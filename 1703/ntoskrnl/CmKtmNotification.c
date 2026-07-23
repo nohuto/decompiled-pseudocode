@@ -120,7 +120,7 @@ NTSTATUS __fastcall CmKtmNotification(
       v19 = *((_QWORD *)RMContext + 10);
     if ( CmpTraceTxrRoutine && (int)CmpQueryNameString(*(_QWORD *)(v19 + 2664), &UnicodeString) >= 0 )
     {
-      EtwGetKernelTraceTimestamp(v37, (char *)0x20000);
+      EtwGetKernelTraceTimestamp(v37, 0x20000u);
       v38 = *(_OWORD *)((char *)Key + 88);
     }
     if ( (struct _KTHREAD *)CmpLoadHiveLockOwner == KeGetCurrentThread() )

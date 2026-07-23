@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetConnectedStandbyMarker @ 0x14066A6C4
+ * XREFs of PopSetConnectedStandbyMarker @ 0x14066A7A8
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14010FFAC (RtlComputeCrc32.c)
- *     RtlGetSetBootStatusData @ 0x140543314 (RtlGetSetBootStatusData.c)
- *     RtlLockBootStatusData @ 0x1405478FC (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x140547DAC (RtlUnlockBootStatusData.c)
+ *     RtlComputeCrc32 @ 0x140110510 (RtlComputeCrc32.c)
+ *     RtlGetSetBootStatusData @ 0x140543854 (RtlGetSetBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140547E3C (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x1405482EC (RtlUnlockBootStatusData.c)
  */
 
 int PopSetConnectedStandbyMarker()

@@ -3,12 +3,12 @@
  * Callers:
  *     KdpCommandString @ 0x1406F3C28 (KdpCommandString.c)
  * Callees:
- *     KdpSetCommonState @ 0x140083548 (KdpSetCommonState.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
- *     KdpCopyMemoryChunks @ 0x1406F2F08 (KdpCopyMemoryChunks.c)
- *     KdpSetContextState @ 0x1406F2FDC (KdpSetContextState.c)
+ *     KdpSetCommonState @ 0x1400841C8 (KdpSetCommonState.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
+ *     KdpCopyMemoryChunks @ 0x1406F2BA0 (KdpCopyMemoryChunks.c)
+ *     KdpSetContextState @ 0x1406F2C74 (KdpSetContextState.c)
  */
 
 __int64 __fastcall KdpReportCommandStringStateChange(__int16 *a1, char **a2, __int64 a3)

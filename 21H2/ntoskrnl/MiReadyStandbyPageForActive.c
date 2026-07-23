@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReadyStandbyPageForActive @ 0x140302DE0
+ * XREFs of MiReadyStandbyPageForActive @ 0x14030DB30
  * Callers:
- *     MiUnlinkStandbyBatch @ 0x140302BE0 (MiUnlinkStandbyBatch.c)
+ *     MiUnlinkStandbyBatch @ 0x14030D930 (MiUnlinkStandbyBatch.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 unsigned __int64 __fastcall MiReadyStandbyPageForActive(__int64 a1, __int64 a2)
@@ -19,12 +19,10 @@ unsigned __int64 __fastcall MiReadyStandbyPageForActive(__int64 a1, __int64 a2)
   int v8; // ecx
   int v9; // eax
   __int64 ValidPte; // rbx
-  __int64 v11; // rdx
   unsigned __int64 result; // rax
   struct _LIST_ENTRY *Flink; // rax
-  __int64 v14; // rax
-  char v15; // r8
-  __int64 v16; // r8
+  __int64 v13; // rax
+  char v14; // r8
 
   v2 = a1 + 16;
   v3 = *(_QWORD *)(a1 + 8);
@@ -43,13 +41,13 @@ unsigned __int64 __fastcall MiReadyStandbyPageForActive(__int64 a1, __int64 a2)
     Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
     if ( Flink )
     {
-      v14 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
-      v15 = v6 | 0x20;
-      if ( (v14 & 0x20) == 0 )
-        v15 = v6;
-      LOBYTE(v6) = v15;
-      if ( (v14 & 0x42) != 0 )
-        LOBYTE(v6) = v15 | 0x42;
+      v13 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
+      v14 = v6 | 0x20;
+      if ( (v13 & 0x20) == 0 )
+        v14 = v6;
+      LOBYTE(v6) = v14;
+      if ( (v13 & 0x42) != 0 )
+        LOBYTE(v6) = v14 | 0x42;
     }
   }
   v8 = (unsigned __int8)v6 >> 5;
@@ -67,7 +65,7 @@ unsigned __int64 __fastcall MiReadyStandbyPageForActive(__int64 a1, __int64 a2)
     }
   }
   ValidPte = MiMakeValidPte(a2, (a1 + 0x58000000000LL) / 48, v8 | 0x20000000u);
-  if ( !(unsigned int)MiPteInShadowRange(v7, v11) )
+  if ( !(unsigned int)MiPteInShadowRange(v7) )
     goto LABEL_4;
   if ( !(unsigned int)MiPteHasShadow() )
   {
@@ -80,10 +78,10 @@ LABEL_4:
     *v7 = ValidPte;
     goto LABEL_5;
   }
-  if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
+  if ( !HIBYTE(word_140C4E048) && (ValidPte & 1) != 0 )
     ValidPte |= 0x8000000000000000uLL;
   *v7 = ValidPte;
-  MiWritePteShadow((__int64)v7, ValidPte, v16);
+  MiWritePteShadow((__int64)v7, ValidPte);
 LABEL_5:
   result = *(_QWORD *)(a1 + 24) & 0xC000000000000000uLL | 1;
   *(_QWORD *)(a1 + 24) = result;

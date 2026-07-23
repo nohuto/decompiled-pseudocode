@@ -1,18 +1,18 @@
 /*
- * XREFs of RamdiskStart @ 0x140D03E44
+ * XREFs of RamdiskStart @ 0x140D0A114
  * Callers:
- *     RamdiskInitialize @ 0x140D03DE4 (RamdiskInitialize.c)
+ *     RamdiskInitialize @ 0x140D0A0B4 (RamdiskInitialize.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _strupr @ 0x140535360 (_strupr.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     _atoi64 @ 0x140535D30 (_atoi64.c)
- *     atol @ 0x140535D80 (atol.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _strupr @ 0x1405377E0 (_strupr.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     _atoi64 @ 0x1405381B0 (_atoi64.c)
+ *     atol @ 0x140538200 (atol.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RamdiskStart(__int64 a1, __int64 a2)

@@ -3,12 +3,12 @@
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1400822C8 (VfIsVerifierEnabled.c)
- *     RtlMarkHiberPhase @ 0x140112D5C (RtlMarkHiberPhase.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     HvlMarkHiberPhase @ 0x140126C5C (HvlMarkHiberPhase.c)
- *     FirstEntrySList @ 0x140166DF0 (FirstEntrySList.c)
- *     VfIsVerifierExtensionEnabled @ 0x140171964 (VfIsVerifierExtensionEnabled.c)
+ *     VfIsVerifierEnabled @ 0x140082F44 (VfIsVerifierEnabled.c)
+ *     RtlMarkHiberPhase @ 0x1401132CC (RtlMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     HvlMarkHiberPhase @ 0x1401271CC (HvlMarkHiberPhase.c)
+ *     FirstEntrySList @ 0x140167360 (FirstEntrySList.c)
+ *     VfIsVerifierExtensionEnabled @ 0x140171E64 (VfIsVerifierExtensionEnabled.c)
  *     MmUpdateHiberMappings @ 0x1403C9630 (MmUpdateHiberMappings.c)
  *     BgkResumePrepare @ 0x1403CA94C (BgkResumePrepare.c)
  *     KdMarkHiberPhase @ 0x1403CABD4 (KdMarkHiberPhase.c)
@@ -25,7 +25,7 @@ void __fastcall PopMarkComponentsBootPhase(unsigned int *Address)
   unsigned int k; // ebx
   _QWORD *v5; // rbx
 
-  if ( !byte_1403035C1 )
+  if ( !byte_140303501 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);

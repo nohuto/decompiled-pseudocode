@@ -1,16 +1,16 @@
 /*
- * XREFs of PspSetEffectiveJobLimits @ 0x1408E6C38
+ * XREFs of PspSetEffectiveJobLimits @ 0x140A2C888
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1408E62CC (PspEstablishJobHierarchy.c)
- *     PspSetJobLimitsJobPreCallback @ 0x1408E6BC0 (PspSetJobLimitsJobPreCallback.c)
+ *     PspEstablishJobHierarchy @ 0x14091B360 (PspEstablishJobHierarchy.c)
+ *     PspSetJobLimitsJobPreCallback @ 0x140A2C810 (PspSetJobLimitsJobPreCallback.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1403C8980 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspSetEffectiveLimit @ 0x1408E6F50 (PspSetEffectiveLimit.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeIsEqualAffinityEx @ 0x1403A3520 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspSetEffectiveLimit @ 0x140A2CBA0 (PspSetEffectiveLimit.c)
  */
 
 __int64 __fastcall PspSetEffectiveJobLimits(__int64 a1, __int64 a2)

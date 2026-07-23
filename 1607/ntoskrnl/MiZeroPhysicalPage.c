@@ -1,29 +1,29 @@
 /*
- * XREFs of MiZeroPhysicalPage @ 0x14010A488
+ * XREFs of MiZeroPhysicalPage @ 0x140108208
  * Callers:
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiGetPageChain @ 0x14003D480 (MiGetPageChain.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
- *     MiZeroInParallelWorker @ 0x140109B40 (MiZeroInParallelWorker.c)
- *     MiPerformFinalZeroing @ 0x1401F2E40 (MiPerformFinalZeroing.c)
- *     MiZeroAndConvertLargePage @ 0x1401FC4CC (MiZeroAndConvertLargePage.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiGetPageChain @ 0x14003D000 (MiGetPageChain.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
+ *     MiZeroInParallelWorker @ 0x1401078C0 (MiZeroInParallelWorker.c)
+ *     MiPerformFinalZeroing @ 0x1401F2C6C (MiPerformFinalZeroing.c)
+ *     MiZeroAndConvertLargePage @ 0x1401FC2F8 (MiZeroAndConvertLargePage.c)
  *     MiComputeOptimalZeroPath @ 0x1407A6288 (MiComputeOptimalZeroPath.c)
  *     MiInitializeCacheFlushing @ 0x1407A64D8 (MiInitializeCacheFlushing.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  *     MxFillPhysicalPage @ 0x140798170 (MxFillPhysicalPage.c)
  */
 
@@ -49,12 +49,12 @@ char __fastcall MiZeroPhysicalPage(ULONG_PTR BugCheckParameter2, char a2, unsign
   v8 = *(unsigned __int8 *)(v6 + 34) >> 6;
   if ( (a2 & 2) == 0 )
   {
-    v8 = *((_DWORD *)&unk_140326A20 + 4 * v7 + (int)a3);
+    v8 = *((_DWORD *)&unk_140326A60 + 4 * v7 + (int)a3);
     if ( v8 != (_DWORD)v7 )
       MiChangePageAttribute(48 * BugCheckParameter2 - 0x58000000000LL, v8, 0);
   }
   v9 = 0LL;
-  if ( (a2 & 1) != 0 && (v9 = MiReservePtes((__int64)&qword_140327870, 1uLL, a3)) != 0 )
+  if ( (a2 & 1) != 0 && (v9 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, a3)) != 0 )
   {
     ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4LL, v6);
     ValidKernelPte = MiMakeValidKernelPte(BugCheckParameter2, ProtectionPfnCompatible, v9);
@@ -62,7 +62,7 @@ char __fastcall MiZeroPhysicalPage(ULONG_PTR BugCheckParameter2, char a2, unsign
     if ( (unsigned int)MiPteInShadowRange(v9, ValidKernelPte | 0x42) )
       MiWritePteShadow(v13, v12);
     KeZeroPages((__int64)(v9 << 25) >> 16, 4096LL);
-    result = MiReleasePtes((__int64)&qword_140327870, v9, 1u);
+    result = MiReleasePtes((__int64)&qword_1403278B0, v9, 1u);
   }
   else if ( KeGetCurrentPrcb()->HyperPte )
   {

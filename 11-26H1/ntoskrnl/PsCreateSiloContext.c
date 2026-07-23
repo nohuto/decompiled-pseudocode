@@ -1,18 +1,18 @@
 /*
- * XREFs of PsCreateSiloContext @ 0x140A30D20
+ * XREFs of PsCreateSiloContext @ 0x140A4BC80
  * Callers:
- *     PspAssignSiloSystemRootPath @ 0x1407EE930 (PspAssignSiloSystemRootPath.c)
- *     ObCreateSiloRootDirectory @ 0x1408A6F94 (ObCreateSiloRootDirectory.c)
- *     CmpAllocateSiloContext @ 0x140A30CB4 (CmpAllocateSiloContext.c)
+ *     PspAssignSiloSystemRootPath @ 0x1407F4490 (PspAssignSiloSystemRootPath.c)
+ *     ObCreateSiloRootDirectory @ 0x1408AD404 (ObCreateSiloRootDirectory.c)
+ *     CmpAllocateSiloContext @ 0x140A4BC14 (CmpAllocateSiloContext.c)
  * Callees:
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
 __int64 __fastcall PsCreateSiloContext(__int64 a1, int a2, int a3, __int64 a4, _QWORD *a5)
 {
   _QWORD *v5; // rbx
   _DWORD *Flink; // rdx
-  int Object; // r9d
+  int v10; // r9d
   __int64 v11; // r8
   _QWORD *v12; // rax
   __int64 v14; // [rsp+20h] [rbp-48h]
@@ -32,8 +32,8 @@ __int64 __fastcall PsCreateSiloContext(__int64 a1, int a2, int a3, __int64 a4, _
     Flink = PspSiloMonitorLock.IoSelfBoostsEntry.Next;
   }
   v16 = 256;
-  Object = ObCreateObjectEx(0, Flink, 0LL, 0, v14, a2, 0, 0, v15, (__int64)&v16);
-  if ( Object >= 0 )
+  v10 = ObCreateObjectEx(0, Flink, 0LL, 0, v14, a2, 0, 0, v15, &v16);
+  if ( v10 >= 0 )
   {
     v11 = v15[0];
     if ( (*(_BYTE *)(v15[0] - 48LL + 26) & 0x40) != 0 )
@@ -43,5 +43,5 @@ __int64 __fastcall PsCreateSiloContext(__int64 a1, int a2, int a3, __int64 a4, _
     v5[1] = a4;
     *v12 = v11;
   }
-  return (unsigned int)Object;
+  return (unsigned int)v10;
 }

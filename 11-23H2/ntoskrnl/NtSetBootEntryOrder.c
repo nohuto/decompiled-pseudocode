@@ -1,62 +1,62 @@
 /*
- * XREFs of NtSetBootEntryOrder @ 0x1409FF940
+ * XREFs of NtSetBootEntryOrder @ 0x1409FFBD0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x140950474 (IoSetEnvironmentVariableEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     IoSetEnvironmentVariableEx @ 0x140950674 (IoSetEnvironmentVariableEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtSetBootEntryOrder(unsigned __int64 a1, unsigned int a2)
+NTSTATUS __cdecl NtSetBootEntryOrder(PULONG Ids, ULONG Count)
 {
   __int64 v2; // rsi
   void *Pool2; // rbx
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   unsigned int v8; // r15d
-  unsigned __int64 v9; // rcx
+  char *v9; // rcx
   unsigned int i; // ecx
   struct _KTHREAD *v11; // rax
-  unsigned int v12; // edi
+  NTSTATUS v12; // edi
 
-  v2 = a2;
+  v2 = Count;
   Pool2 = 0LL;
-  if ( dword_140C31B10 != 2 )
-    return 3221225474LL;
-  if ( a2 > 0x3FFFFFFF )
-    return 3221225485LL;
+  if ( dword_140C31AB0 != 2 )
+    return -1073741822;
+  if ( Count > 0x3FFFFFFF )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, CurrentThread->PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   if ( (_DWORD)v2 )
   {
-    v8 = 4 * v2;
+    v8 = v2;
     Pool2 = (void *)ExAllocatePool2(64LL, 2 * v2, 1920364101LL);
     if ( !Pool2 )
-      return 3221225626LL;
-    if ( PreviousMode && v8 )
+      return -1073741670;
+    if ( PreviousMode && v8 * 4 )
     {
-      if ( (a1 & 3) != 0 )
+      if ( ((unsigned __int8)Ids & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v9 = a1 + v8;
-      if ( v9 > 0x7FFFFFFF0000LL || v9 < a1 )
+      v9 = (char *)&Ids[v8];
+      if ( (unsigned __int64)v9 > 0x7FFFFFFF0000LL || v9 < (char *)Ids )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     for ( i = 0; i < (unsigned int)v2; ++i )
     {
-      if ( *(_DWORD *)(a1 + 4LL * i) > 0xFFFFu )
+      if ( Ids[i] > 0xFFFF )
       {
         ExFreePoolWithTag(Pool2, 0);
-        return 3221225485LL;
+        return -1073741811;
       }
-      *((_WORD *)Pool2 + i) = *(_WORD *)(a1 + 4LL * i);
+      *((_WORD *)Pool2 + i) = Ids[i];
     }
   }
   v11 = KeGetCurrentThread();

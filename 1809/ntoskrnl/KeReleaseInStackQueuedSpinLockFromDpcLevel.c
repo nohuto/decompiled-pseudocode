@@ -3,12 +3,12 @@
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
- *     CcSerializeWithLazyWriter @ 0x1401B2DA4 (CcSerializeWithLazyWriter.c)
- *     PnprMirrorMarkedPages @ 0x140579FFC (PnprMirrorMarkedPages.c)
+ *     CcSerializeWithLazyWriter @ 0x1401B2EE4 (CcSerializeWithLazyWriter.c)
+ *     PnprMirrorMarkedPages @ 0x14057AFFC (PnprMirrorMarkedPages.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockFromDpcLevel(PKLOCK_QUEUE_HANDLE LockHandle)

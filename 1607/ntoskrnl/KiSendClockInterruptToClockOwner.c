@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSendClockInterruptToClockOwner @ 0x14009DE7C
+ * XREFs of KiSendClockInterruptToClockOwner @ 0x14009D67C
  * Callers:
- *     KiTimer2Expiration @ 0x14005A0A0 (KiTimer2Expiration.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x14009DDD0 (ExpUpdateTimerConfigurationWorker.c)
- *     KeResumeClockTimerFromIdle @ 0x1400DCA70 (KeResumeClockTimerFromIdle.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14012A824 (KiAdjustTimer2DueTimes.c)
+ *     KiTimer2Expiration @ 0x140059C20 (KiTimer2Expiration.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x14009D5D0 (ExpUpdateTimerConfigurationWorker.c)
+ *     KeResumeClockTimerFromIdle @ 0x1400DA910 (KeResumeClockTimerFromIdle.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14012AD94 (KiAdjustTimer2DueTimes.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 KiSendClockInterruptToClockOwner()

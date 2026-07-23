@@ -1,31 +1,31 @@
 /*
- * XREFs of KeStartThread @ 0x1402BE0D8
+ * XREFs of KeStartThread @ 0x1402BE368
  * Callers:
- *     KiStartPrcbThread @ 0x140382A20 (KiStartPrcbThread.c)
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
+ *     KiStartPrcbThread @ 0x140382BC0 (KiStartPrcbThread.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
  * Callees:
  *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
  *     KeSelectInitialIdealProcessorForThread @ 0x14020380C (KeSelectInitialIdealProcessorForThread.c)
  *     KiComputeGroupMask @ 0x140223B08 (KiComputeGroupMask.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KiInitializeForegroundBoostThread @ 0x1402BDE58 (KiInitializeForegroundBoostThread.c)
- *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BDFB4 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE06C (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1402BFDC0 (KiUpdateNodeAffinitizedFlag.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     KiFreezeSingleThread @ 0x14036F95C (KiFreezeSingleThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiFindBiasedSetMember @ 0x14045FE0C (KiFindBiasedSetMember.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiExtendProcessAffinity @ 0x14057E964 (KiExtendProcessAffinity.c)
- *     EtwTraceIdealProcessor @ 0x1405FCD90 (EtwTraceIdealProcessor.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiInitializeForegroundBoostThread @ 0x1402BE0E8 (KiInitializeForegroundBoostThread.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BE244 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE2FC (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1402C0050 (KiUpdateNodeAffinitizedFlag.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     KiFreezeSingleThread @ 0x14036FAFC (KiFreezeSingleThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiFindBiasedSetMember @ 0x14046020C (KiFindBiasedSetMember.c)
+ *     KiExtendProcessAffinity @ 0x14057EE54 (KiExtendProcessAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x1405FD300 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeStartThread(__int64 a1, unsigned __int16 *a2, unsigned int *a3)
@@ -70,7 +70,7 @@ __int64 __fastcall KeStartThread(__int64 a1, unsigned __int16 *a2, unsigned int 
   *(_DWORD *)(a1 + 120) ^= (*(_DWORD *)(a1 + 120) ^ (4 * *(_DWORD *)(v7 + 632))) & 8;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v22) = 4;
@@ -183,10 +183,10 @@ LABEL_51:
       *(_BYTE *)(a1 + 516) = dword_140D1D394;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v29 = CurrentPrcb->SchedulerAssist;

@@ -1,8 +1,8 @@
 /*
- * XREFs of XpressBuildHuffmanDecodingTable @ 0x140284C00
+ * XREFs of XpressBuildHuffmanDecodingTable @ 0x140201DA0
  * Callers:
- *     RtlDecompressBufferXpressHuff @ 0x1402846E0 (RtlDecompressBufferXpressHuff.c)
- *     RtlDecompressBufferXpressHuffProgress @ 0x140591F80 (RtlDecompressBufferXpressHuffProgress.c)
+ *     RtlDecompressBufferXpressHuff @ 0x140201880 (RtlDecompressBufferXpressHuff.c)
+ *     RtlDecompressBufferXpressHuffProgress @ 0x1405921B0 (RtlDecompressBufferXpressHuffProgress.c)
  * Callees:
  *     <none>
  */

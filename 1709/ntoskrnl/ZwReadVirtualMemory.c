@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwReadVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, Buffer);
+  return KiServiceInternal(ProcessHandle);
 }

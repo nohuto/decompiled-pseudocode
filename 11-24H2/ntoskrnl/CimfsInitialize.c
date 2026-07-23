@@ -1,20 +1,20 @@
 /*
- * XREFs of CimfsInitialize @ 0x140C5DD6C
+ * XREFs of CimfsInitialize @ 0x140C5FEBC
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     PnpBootDeviceWait @ 0x1405A3D68 (PnpBootDeviceWait.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x1409BC5B0 (RtlStringFromGUID.c)
- *     IoCreateSymbolicLink @ 0x140A298B0 (IoCreateSymbolicLink.c)
- *     CimfsGetDiskParameters @ 0x140C5DC94 (CimfsGetDiskParameters.c)
- *     CompositefsBootIsEnabled @ 0x140C5E974 (CompositefsBootIsEnabled.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     PnpBootDeviceWait @ 0x1405A0CA8 (PnpBootDeviceWait.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1409A2C00 (RtlStringFromGUID.c)
+ *     IoCreateSymbolicLink @ 0x140A1E270 (IoCreateSymbolicLink.c)
+ *     CimfsGetDiskParameters @ 0x140C5FDE4 (CimfsGetDiskParameters.c)
+ *     CompositefsBootIsEnabled @ 0x140C60AC4 (CompositefsBootIsEnabled.c)
  */
 
 __int64 __fastcall CimfsInitialize(__int64 a1, char a2)

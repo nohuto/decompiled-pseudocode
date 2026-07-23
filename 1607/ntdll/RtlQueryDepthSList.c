@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryDepthSList @ 0x180051CE0
+ * XREFs of RtlQueryDepthSList @ 0x180051CD0
  * Callers:
  *     <none>
  * Callees:

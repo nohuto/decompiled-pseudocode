@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockWorkingSetCoreShared @ 0x1402EDEA0
+ * XREFs of MiLockWorkingSetCoreShared @ 0x1402CFF20
  * Callers:
- *     MiCountWslesInPageTableRange @ 0x14029E490 (MiCountWslesInPageTableRange.c)
- *     MiRemoveWsle @ 0x140325384 (MiRemoveWsle.c)
- *     MiCopyOnWriteInitializeTargetPage @ 0x14036B648 (MiCopyOnWriteInitializeTargetPage.c)
+ *     MiCountWslesInPageTableRange @ 0x14029D9E0 (MiCountWslesInPageTableRange.c)
+ *     MiRemoveWsle @ 0x1403273B4 (MiRemoveWsle.c)
+ *     MiCopyOnWriteInitializeTargetPage @ 0x14036D3E8 (MiCopyOnWriteInitializeTargetPage.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiLockWorkingSetCoreShared(__int64 a1, __int64 a2, __int64 a3)
@@ -17,10 +17,10 @@ __int64 __fastcall MiLockWorkingSetCoreShared(__int64 a1, __int64 a2, __int64 a3
   int v6; // ett
 
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-    v3 = &unk_140E37840;
+    v3 = &unk_140E379C0;
   else
     v3 = (_DWORD *)(a1 + 256);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v3);
     LODWORD(result) = *v3 & 0x7FFFFFFF;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCanBatchHardFaultPages @ 0x1402CDC60
+ * XREFs of MiCanBatchHardFaultPages @ 0x1402CDEF0
  * Callers:
- *     MiAddPageToInsertList @ 0x1402D99D0 (MiAddPageToInsertList.c)
- *     MiUnlockMdlWritePages @ 0x1402D9B30 (MiUnlockMdlWritePages.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
+ *     MiAddPageToInsertList @ 0x1402D9C60 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x1402D9DC0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiAreChargesNeededToLockPage @ 0x1402CDF90 (MiAreChargesNeededToLockPage.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiIsPfnCommitNotCharged @ 0x1402DC180 (MiIsPfnCommitNotCharged.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiIsPageEligibleForProtectedStandby @ 0x1403350F0 (MiIsPageEligibleForProtectedStandby.c)
- *     MiSyncCommitSignals @ 0x1403961E0 (MiSyncCommitSignals.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRestockOverCommit @ 0x140656638 (MiRestockOverCommit.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402CE220 (MiAreChargesNeededToLockPage.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiIsPfnCommitNotCharged @ 0x1402DC410 (MiIsPfnCommitNotCharged.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiIsPageEligibleForProtectedStandby @ 0x140335380 (MiIsPageEligibleForProtectedStandby.c)
+ *     MiSyncCommitSignals @ 0x1403963C0 (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRestockOverCommit @ 0x140656B88 (MiRestockOverCommit.c)
  */
 
 __int64 __fastcall MiCanBatchHardFaultPages(_QWORD *a1, __int64 a2)
@@ -105,10 +105,13 @@ __int64 __fastcall MiCanBatchHardFaultPages(_QWORD *a1, __int64 a2)
         v14 = MiRestockOverCommit(v13, 1LL);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

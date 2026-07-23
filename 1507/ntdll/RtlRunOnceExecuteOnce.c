@@ -16,19 +16,19 @@
  *     RtlReportCriticalFailure @ 0x1800EA560 (RtlReportCriticalFailure.c)
  */
 
-__int64 __fastcall RtlRunOnceExecuteOnce(
-        volatile signed __int64 *a1,
-        unsigned int (__fastcall *a2)(volatile signed __int64 *, __int64, unsigned __int64 *),
-        __int64 a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  int v8; // eax
-  unsigned int v9; // ebx
-  unsigned __int64 v11; // r8
-  int v12; // eax
+  NTSTATUS v8; // eax
+  int v9; // ebx
+  PVOID v11; // r8
+  NTSTATUS v12; // eax
   char v13[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v8 = RtlRunOnceBeginInitialize(a1, 0, a4);
+  v8 = RtlRunOnceBeginInitialize(RunOnce, 0, Context);
   v9 = v8;
   if ( v8 < 0 )
   {
@@ -37,28 +37,28 @@ __int64 __fastcall RtlRunOnceExecuteOnce(
   }
   if ( v8 == 259 )
   {
-    if ( a2(a1, a3, a4) )
+    if ( ((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
     {
-      if ( a4 )
-        v11 = *a4;
+      if ( Context )
+        v11 = *Context;
       else
         v11 = 0LL;
-      v9 = RtlRunOnceComplete(a1, 0LL, v11);
-      if ( (v9 & 0x80000000) == 0 )
+      v9 = RtlRunOnceComplete(RunOnce, 0, v11);
+      if ( v9 >= 0 )
         return 0;
       v13[0] = 1;
     }
     else
     {
       v9 = -1073741823;
-      v12 = RtlRunOnceComplete(a1, 4LL, 0LL);
+      v12 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
       if ( v12 >= 0 )
         return v9;
       v9 = v12;
       v13[0] = 2;
     }
 LABEL_14:
-    RtlReportCriticalFailure(v9, v13);
+    RtlReportCriticalFailure((unsigned int)v9, v13);
   }
   return v9;
 }

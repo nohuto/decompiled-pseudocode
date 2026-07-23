@@ -1,23 +1,24 @@
 /*
- * XREFs of SeCaptureSidAndAttributesArray @ 0x140936600
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x140985730
  * Callers:
- *     NtFilterToken @ 0x140935F90 (NtFilterToken.c)
- *     SepSetTokenCapabilities @ 0x140936380 (SepSetTokenCapabilities.c)
- *     SepLengthSidAndAttributesArray @ 0x140936544 (SepLengthSidAndAttributesArray.c)
- *     NtCreateTokenEx @ 0x140936AB0 (NtCreateTokenEx.c)
- *     NtAdjustGroupsToken @ 0x140A36530 (NtAdjustGroupsToken.c)
- *     SepCreateClaimAttributes @ 0x140A56BE0 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x140A5E1D0 (SepDuplicateClaimAttributes.c)
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     PspBuildCreateProcessContext @ 0x1408F9210 (PspBuildCreateProcessContext.c)
+ *     NtFilterToken @ 0x140983A70 (NtFilterToken.c)
+ *     NtCreateTokenEx @ 0x140983E20 (NtCreateTokenEx.c)
+ *     SepSetTokenCapabilities @ 0x1409854B8 (SepSetTokenCapabilities.c)
+ *     SepLengthSidAndAttributesArray @ 0x14098567C (SepLengthSidAndAttributesArray.c)
+ *     NtAdjustGroupsToken @ 0x140986940 (NtAdjustGroupsToken.c)
+ *     SepCreateClaimAttributes @ 0x140A4EA70 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x140A565F0 (SepDuplicateClaimAttributes.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSidAndAttributesArray(

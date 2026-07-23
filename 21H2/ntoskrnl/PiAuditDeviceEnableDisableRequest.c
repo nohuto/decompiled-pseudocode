@@ -1,10 +1,10 @@
 /*
- * XREFs of PiAuditDeviceEnableDisableRequest @ 0x1408B5604
+ * XREFs of PiAuditDeviceEnableDisableRequest @ 0x1408B5764
  * Callers:
- *     PiPnpRtlSetDeviceRegProperty @ 0x140739C9C (PiPnpRtlSetDeviceRegProperty.c)
- *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x140739E5C (PiPnpRtlSetDeviceRegProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074594C (PiPnpRtlSetObjectProperty.c)
  * Callees:
- *     PiAuditDeviceOperation @ 0x1408B5648 (PiAuditDeviceOperation.c)
+ *     PiAuditDeviceOperation @ 0x1408B57A8 (PiAuditDeviceOperation.c)
  */
 
 unsigned __int8 __fastcall PiAuditDeviceEnableDisableRequest(__int64 a1, char a2, __int64 a3, char a4)

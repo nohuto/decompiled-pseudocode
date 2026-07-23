@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpUnlockCallbackList @ 0x14054CEC8
+ * XREFs of CmpUnlockCallbackList @ 0x14054D408
  * Callers:
- *     CmpEnumerateCallback @ 0x14054C468 (CmpEnumerateCallback.c)
- *     CmpInsertCallbackInListByAltitude @ 0x1405511DC (CmpInsertCallbackInListByAltitude.c)
- *     CmSetCallbackObjectContext @ 0x1405FAFAC (CmSetCallbackObjectContext.c)
- *     CmUnRegisterCallback @ 0x1405FB13C (CmUnRegisterCallback.c)
+ *     CmpEnumerateCallback @ 0x14054C9A8 (CmpEnumerateCallback.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14055171C (CmpInsertCallbackInListByAltitude.c)
+ *     CmSetCallbackObjectContext @ 0x1405FB060 (CmSetCallbackObjectContext.c)
+ *     CmUnRegisterCallback @ 0x1405FB1F0 (CmUnRegisterCallback.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 CmpUnlockCallbackList()

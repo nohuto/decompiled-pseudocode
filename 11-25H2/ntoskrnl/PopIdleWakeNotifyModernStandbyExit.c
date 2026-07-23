@@ -15,22 +15,22 @@ void PopIdleWakeNotifyModernStandbyExit()
   __int64 v0; // rsi
   KIRQL v1; // al
   char *v2; // rdi
-  unsigned __int64 v3; // rbx
-  unsigned __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v3; // rbx
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = PopWnfCsEnterScenarioId;
-  v4 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v2 = (char *)PopIdleWakeContext;
   PopIdleWakeContext = 0LL;
   KeReleaseSpinLock(&PopIdleWakeContextLock, v1);
   if ( v2 )
   {
-    RtlGetInterruptTimePrecise(&v4);
-    v3 = v4;
+    RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v3 = PerformanceCounter;
     PopIdleWakeStopActiveIntervalAccounting(v2);
     *((_QWORD *)v2 + 4758) = v0;
-    *((_QWORD *)v2 + 4759) = v3;
+    *((LARGE_INTEGER *)v2 + 4759) = v3;
     ExQueueWorkItem((PWORK_QUEUE_ITEM)(v2 + 38032), DelayedWorkQueue);
   }
 }

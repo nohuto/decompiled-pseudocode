@@ -8,7 +8,7 @@
  *     _RtlpHpVsChunkComputeCost@16 @ 0x4B37E9EC (_RtlpHpVsChunkComputeCost@16.c)
  */
 
-char __fastcall RtlpHpVsFreeChunkInsert(int a1, int a2, _WORD *a3)
+BOOLEAN __fastcall RtlpHpVsFreeChunkInsert(int a1, int a2, unsigned __int16 *a3)
 {
   char v4; // si
   char v5; // al
@@ -20,12 +20,12 @@ char __fastcall RtlpHpVsFreeChunkInsert(int a1, int a2, _WORD *a3)
   int v12; // [esp+Ch] [ebp-14h] BYREF
   int v13; // [esp+10h] [ebp-10h]
   unsigned int v14; // [esp+14h] [ebp-Ch] BYREF
-  unsigned int v15; // [esp+18h] [ebp-8h]
+  BOOLEAN Right[7]; // [esp+18h] [ebp-8h]
   char v16; // [esp+1Fh] [ebp-1h]
 
   v4 = RtlpHpVsChunkComputeCost(a3, a2, &v14, &v12);
   v5 = RtlpBitsClearTotal[(unsigned __int8)~(_BYTE)v12];
-  v15 = (unsigned int)~v12 >> 16;
+  *(_DWORD *)Right = (unsigned int)~v12 >> 16;
   v16 = RtlpBitsClearTotal[(unsigned __int16)~(_WORD)v12 >> 8] + v5;
   *(_DWORD *)(a1 + 28) += (unsigned __int8)(v16
                                           + RtlpBitsClearTotal[(unsigned __int8)((unsigned int)~v12 >> 16)]
@@ -38,7 +38,7 @@ char __fastcall RtlpHpVsFreeChunkInsert(int a1, int a2, _WORD *a3)
   *(_DWORD *)a3 ^= ((unsigned __int8)a3 ^ (unsigned __int8)(v4 ^ RtlpHpHeapGlobals ^ *(_DWORD *)a3)) & 1;
   v7 = (*(_BYTE *)(v6 + 4) & 1) == 0;
   v8 = *(_DWORD *)v6;
-  v14 = (unsigned __int16)RtlpHpHeapGlobals ^ (unsigned __int16)a3 ^ (unsigned __int16)*a3;
+  v14 = (unsigned __int16)RtlpHpHeapGlobals ^ (unsigned __int16)a3 ^ *a3;
   if ( !v7 )
   {
     if ( v8 )
@@ -47,7 +47,7 @@ char __fastcall RtlpHpVsFreeChunkInsert(int a1, int a2, _WORD *a3)
       v8 = 0;
   }
   v9 = *(_BYTE *)(v6 + 4) & 1;
-  LOBYTE(v15) = 0;
+  Right[0] = 0;
   if ( v8 )
   {
     while ( 1 )
@@ -64,8 +64,8 @@ char __fastcall RtlpHpVsFreeChunkInsert(int a1, int a2, _WORD *a3)
         if ( !v10 )
         {
 LABEL_17:
-          LOBYTE(v15) = 0;
-          return RtlRbInsertNodeEx((int *)v6, v8, v15, (int)(a3 + 2));
+          Right[0] = 0;
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)v6, (PRTL_BALANCED_NODE)v8, Right[0], (PRTL_BALANCED_NODE)(a3 + 2));
         }
       }
       else
@@ -80,12 +80,12 @@ LABEL_17:
         if ( !v10 )
         {
 LABEL_11:
-          LOBYTE(v15) = 1;
-          return RtlRbInsertNodeEx((int *)v6, v8, v15, (int)(a3 + 2));
+          Right[0] = 1;
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)v6, (PRTL_BALANCED_NODE)v8, Right[0], (PRTL_BALANCED_NODE)(a3 + 2));
         }
       }
       v8 = v10;
     }
   }
-  return RtlRbInsertNodeEx((int *)v6, v8, v15, (int)(a3 + 2));
+  return RtlRbInsertNodeEx((PRTL_RB_TREE)v6, (PRTL_BALANCED_NODE)v8, Right[0], (PRTL_BALANCED_NODE)(a3 + 2));
 }

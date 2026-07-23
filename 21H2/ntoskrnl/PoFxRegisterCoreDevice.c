@@ -1,16 +1,16 @@
 /*
- * XREFs of PoFxRegisterCoreDevice @ 0x1407B5410
+ * XREFs of PoFxRegisterCoreDevice @ 0x1407B4B60
  * Callers:
- *     HalpDmaInitPowerManagement @ 0x1403BB0E0 (HalpDmaInitPowerManagement.c)
- *     HalpInterruptInitPowerManagement @ 0x1403BE5E4 (HalpInterruptInitPowerManagement.c)
- *     HalpTimerInitPowerManagement @ 0x1403BE700 (HalpTimerInitPowerManagement.c)
- *     PoFxRegisterDebugger @ 0x140A73A68 (PoFxRegisterDebugger.c)
+ *     HalpDmaInitPowerManagement @ 0x1403BB250 (HalpDmaInitPowerManagement.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403BDF40 (HalpInterruptInitPowerManagement.c)
+ *     HalpTimerInitPowerManagement @ 0x1403BE05C (HalpTimerInitPowerManagement.c)
+ *     PoFxRegisterDebugger @ 0x140A74A68 (PoFxRegisterDebugger.c)
  * Callees:
- *     PopFxInsertDevice @ 0x1403BEA64 (PopFxInsertDevice.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopFxRegisterDeviceWorker @ 0x1407B592C (PopFxRegisterDeviceWorker.c)
- *     PopFxConvertV1Components @ 0x1407B61E0 (PopFxConvertV1Components.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PopFxInsertDevice @ 0x1403BE3C4 (PopFxInsertDevice.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B507C (PopFxRegisterDeviceWorker.c)
+ *     PopFxConvertV1Components @ 0x1407B5C9C (PopFxConvertV1Components.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxRegisterCoreDevice(__int64 a1, __int64 a2, _QWORD *a3)

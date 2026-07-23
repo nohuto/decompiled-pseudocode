@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDeviceAcquireIrp @ 0x1403D9CF8
+ * XREFs of PoDeviceAcquireIrp @ 0x1403CC078
  * Callers:
- *     PoHandleIrp @ 0x1403D99EC (PoHandleIrp.c)
- *     PopIrpWorker @ 0x1404EBF10 (PopIrpWorker.c)
+ *     PoHandleIrp @ 0x1403CBD64 (PoHandleIrp.c)
+ *     PopIrpWorker @ 0x1404E3650 (PopIrpWorker.c)
  * Callees:
- *     PopDiagTraceDeviceAcquireIrp @ 0x1403D9D34 (PopDiagTraceDeviceAcquireIrp.c)
+ *     PopDiagTraceDeviceAcquireIrp @ 0x1403CC0B4 (PopDiagTraceDeviceAcquireIrp.c)
  */
 
 __int64 __fastcall PoDeviceAcquireIrp(__int64 a1, char a2, __int64 a3)

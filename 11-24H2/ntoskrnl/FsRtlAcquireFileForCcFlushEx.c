@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlAcquireFileForCcFlushEx @ 0x1409D1DE0
+ * XREFs of FsRtlAcquireFileForCcFlushEx @ 0x1409C1C10
  * Callers:
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     MiPrepareToFlushSubsection @ 0x14036F8DC (MiPrepareToFlushSubsection.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     MiPrepareToFlushSubsection @ 0x14043F1F4 (MiPrepareToFlushSubsection.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExIsResourceAcquiredSharedLite @ 0x140274B00 (ExIsResourceAcquiredSharedLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1402D4AC0 (IoGetDeviceAttachmentBaseRef.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x140372F00 (IoGetBaseFileSystemDeviceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     FsFilterPerformCallbacks @ 0x140374780 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x140374B44 (FsFilterCtrlFree.c)
- *     FsFilterPerformCompletionCallbacks @ 0x140374BC0 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterCtrlInit @ 0x14042F400 (FsFilterCtrlInit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14022A090 (ExIsResourceAcquiredSharedLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14025B7C0 (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     FsFilterPerformCallbacks @ 0x14025D040 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x14025D404 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x14025D480 (FsFilterPerformCompletionCallbacks.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x140355D40 (IoGetDeviceAttachmentBaseRef.c)
+ *     FsFilterCtrlInit @ 0x1404215D0 (FsFilterCtrlInit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileForCcFlushEx(PFILE_OBJECT FileObject)
@@ -75,7 +75,7 @@ LABEL_13:
       && (*(_DWORD *)AddDevice < 0x38u || !*((_QWORD *)AddDevice + 6)) )
     {
       if ( FastIoDispatch && FastIoDispatch->SizeOfFastIoDispatch >= 0xD8 && FastIoDispatch->AcquireForCcFlush )
-        v2 = guard_dispatch_icall_no_overrides(FileObject, BaseFileSystemDeviceObject, v7, v8);
+        v2 = guard_dispatch_icall_no_overrides(FileObject, BaseFileSystemDeviceObject);
       else
         v2 = -1073741808;
       v23[0] |= 1u;

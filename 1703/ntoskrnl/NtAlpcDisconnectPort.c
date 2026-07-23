@@ -9,27 +9,27 @@
  *     ObReferenceObjectByHandle @ 0x1405317C0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDisconnectPort(void *a1, unsigned int a2)
+NTSTATUS __cdecl NtAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v4; // ebx
+  int v4; // ebx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
     v4 = -1073741811;
   }
   else
   {
-    v4 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v4 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v4 >= 0 )
     {
-      v4 = AlpcpDisconnectPort(Object, a2);
+      v4 = AlpcpDisconnectPort(Object, Flags);
       ObfDereferenceObject(Object);
     }
   }
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v4;
+  return v4;
 }

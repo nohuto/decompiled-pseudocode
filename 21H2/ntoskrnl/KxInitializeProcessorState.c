@@ -1,14 +1,14 @@
 /*
- * XREFs of KxInitializeProcessorState @ 0x14079FD80
+ * XREFs of KxInitializeProcessorState @ 0x14079FF80
  * Callers:
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4E568 (KeStartAllProcessors.c)
  * Callees:
- *     KiAddProcessorToGroupDatabase @ 0x1403B5AD8 (KiAddProcessorToGroupDatabase.c)
- *     KiCommitNodeAssignment @ 0x1403B5EDC (KiCommitNodeAssignment.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiEnableKvaShadowing @ 0x14099F860 (KiEnableKvaShadowing.c)
+ *     KiAddProcessorToGroupDatabase @ 0x1403B5C48 (KiAddProcessorToGroupDatabase.c)
+ *     KiCommitNodeAssignment @ 0x1403B604C (KiCommitNodeAssignment.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiEnableKvaShadowing @ 0x1409A0790 (KiEnableKvaShadowing.c)
  */
 
 __int64 __fastcall KxInitializeProcessorState(

@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPepTriggerActivity @ 0x140319270
+ * XREFs of PopPepTriggerActivity @ 0x1402C1E00
  * Callers:
- *     PopPepSurprisePowerOn @ 0x1403112AC (PopPepSurprisePowerOn.c)
- *     PopPepComponentSetLatency @ 0x1403169B8 (PopPepComponentSetLatency.c)
- *     PopPepUpdateIdleState @ 0x140316D20 (PopPepUpdateIdleState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140316EF0 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
- *     PopPepCompleteComponentActiveActivity @ 0x140319AB0 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepTriggerComponentActivatingActivity @ 0x140319C50 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepTriggerComponentIdleStateChangeActivity @ 0x14045AA60 (PopPepTriggerComponentIdleStateChangeActivity.c)
+ *     PopPepComponentSetLatency @ 0x1402BF568 (PopPepComponentSetLatency.c)
+ *     PopPepUpdateIdleState @ 0x1402BF8D0 (PopPepUpdateIdleState.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1402BFAA0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x1402C2640 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x1402C27E0 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepSurprisePowerOn @ 0x1403A60EC (PopPepSurprisePowerOn.c)
+ *     PopPepTriggerComponentIdleStateChangeActivity @ 0x14044FEB0 (PopPepTriggerComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopPepTriggerComponentActivatingActivity @ 0x140319C50 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepTriggerComponentActiveActivity @ 0x140319D20 (PopPepTriggerComponentActiveActivity.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopPepTriggerComponentIdleStateChangeActivity @ 0x14045AA60 (PopPepTriggerComponentIdleStateChangeActivity.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x1402C27E0 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepTriggerComponentActiveActivity @ 0x1402C28B0 (PopPepTriggerComponentActiveActivity.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopPepTriggerComponentIdleStateChangeActivity @ 0x14044FEB0 (PopPepTriggerComponentIdleStateChangeActivity.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   __int64 v4; // rbx
   ULONG_PTR v7; // r11
@@ -186,10 +186,10 @@ LABEL_31:
   v17[1] = a4;
   v18 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))ActivityAttributes[17 * v7 + 14];
   if ( v18 == PopPepTriggerComponentActivatingActivity )
-    return PopPepTriggerComponentActivatingActivity(a1, a2, (unsigned int)a4);
+    return PopPepTriggerComponentActivatingActivity(a1, a2, a4);
   if ( v18 == PopPepTriggerComponentActiveActivity )
-    return PopPepTriggerComponentActiveActivity(a1, a2, (unsigned int)a4);
+    return PopPepTriggerComponentActiveActivity(a1, a2, a4);
   if ( v18 == PopPepTriggerComponentIdleStateChangeActivity )
-    return PopPepTriggerComponentIdleStateChangeActivity(a1, a2, (unsigned int)a4);
-  return guard_dispatch_icall_no_overrides(a1, a2, (unsigned int)a4, a4);
+    return PopPepTriggerComponentIdleStateChangeActivity(a1, a2, a4);
+  return guard_dispatch_icall_no_overrides(a1, a2);
 }

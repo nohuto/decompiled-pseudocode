@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPerformTimedMemoryZeroing @ 0x14051ED50
+ * XREFs of MiPerformTimedMemoryZeroing @ 0x1405213F4
  * Callers:
- *     MiTryZeroMemory @ 0x14045D534 (MiTryZeroMemory.c)
- *     MiZeroPageCalibrateDpc @ 0x140711360 (MiZeroPageCalibrateDpc.c)
+ *     MiTryZeroMemory @ 0x140456F34 (MiTryZeroMemory.c)
+ *     MiZeroPageCalibrateDpc @ 0x140716060 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     MiGetZeroExceptionInfo @ 0x14070E53C (MiGetZeroExceptionInfo.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     MiGetZeroExceptionInfo @ 0x14071323C (MiGetZeroExceptionInfo.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiPerformTimedMemoryZeroing(
@@ -67,7 +67,7 @@ __int64 __fastcall MiPerformTimedMemoryZeroing(
     v20 = v15;
     if ( (int)AccelFillMemory(v13, (int)a4, v10, 0, v15) < 0 )
     {
-      _InterlockedIncrement(&dword_140EF4A84);
+      _InterlockedIncrement(&dword_140EF4DEC);
 LABEL_14:
       if ( a6 == 1 )
         KeZeroPages(a4, v10);

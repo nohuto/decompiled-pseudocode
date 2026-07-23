@@ -32,17 +32,17 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
   _KPROCESS *Process; // r14
   struct _EX_RUNDOWN_REF *p_Blink; // r15
   int Interface; // r12d
-  _BYTE *v10; // rax
-  _BYTE *v11; // rsi
+  PRTL_BALANCED_NODE v10; // rax
+  PRTL_BALANCED_NODE v11; // rsi
   unsigned int Asid; // r15d
   _QWORD *v13; // rsi
   unsigned __int8 v14; // si
   unsigned __int64 v15; // rcx
   unsigned __int64 **v16; // rax
   unsigned __int8 CurrentIrql; // si
-  _BYTE *v18; // rax
+  PRTL_BALANCED_NODE v18; // rax
   signed __int8 v19; // cf
-  _BYTE *v20; // rsi
+  PRTL_BALANCED_NODE v20; // rsi
   char v21; // r13
   __int64 *v22; // rcx
   __int64 *v23; // rax
@@ -78,7 +78,7 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
   if ( Interface >= 0 )
   {
     --CurrentThread->SpecialApcDisable;
-    v10 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&Process[2].ActiveProcessors.Bitmap[3], 0LL, 0LL);
+    v10 = KeAbPreAcquire((ULONG_PTR)&Process[2].ActiveProcessors.Bitmap[3], 0LL, 0);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&Process[2].ActiveProcessors.Bitmap[3], 0LL) )
       ExfAcquirePushLockExclusiveEx(
@@ -86,7 +86,7 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
         v10,
         (ULONG_PTR)&Process[2].ActiveProcessors.Bitmap[3]);
     if ( v11 )
-      v11[26] |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     Asid = Process[2].ActiveProcessors.Bitmap[1];
     if ( !Asid )
     {
@@ -125,14 +125,14 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
       if ( v4 )
         ((void (__fastcall *)(unsigned __int64))HalIommuDispatch[8])(v4);
     }
-    v18 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpSvmDeviceListLock, 0LL, 0LL);
+    v18 = KeAbPreAcquire((ULONG_PTR)&ExpSvmDeviceListLock, 0LL, 0);
     v19 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSvmDeviceListLock, 0LL);
     v20 = v18;
     if ( v19 )
       ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v18, (ULONG_PTR)&ExpSvmDeviceListLock);
     v21 = 0;
     if ( v20 )
-      v20[26] |= 1u;
+      BYTE2(v20[1].Left) |= 1u;
     v22 = (__int64 *)ExpSvmDevices;
     if ( (__int64 *)ExpSvmDevices == &ExpSvmDevices )
       goto LABEL_43;

@@ -17,46 +17,46 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-struct _PEB *__fastcall sub_180007200(__int64 a1, int a2)
+int __fastcall sub_180007200(__int64 a1, int a2)
 {
   struct _TEB *v2; // r13
   unsigned int v4; // r12d
-  __int64 *v5; // rdi
+  LARGE_INTEGER *v5; // rdi
   __int64 v6; // rax
   int v7; // r15d
-  __int64 v8; // r14
+  void *v8; // r14
   __int64 v9; // rcx
-  struct _PEB *result; // rax
-  _DWORD *v11; // rcx
+  struct _PEB *v10; // rax
+  _DWORD *p_ServiceSessionId; // rcx
   struct _TEB *v12; // rcx
-  __int64 SpareUlong0; // rax
+  __int64 WowTebOffset; // rax
   __int64 v14; // rcx
   int v15; // eax
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v17; // rcx
   struct _TEB *v18; // rsi
   unsigned __int64 v19; // rdx
   int v20; // eax
   int v21; // eax
   int v22; // esi
-  char v23; // [rsp+40h] [rbp-98h]
-  int v24; // [rsp+48h] [rbp-90h] BYREF
-  struct _TEB *v25; // [rsp+50h] [rbp-88h]
-  _BYTE v26[6]; // [rsp+58h] [rbp-80h] BYREF
-  __int16 v27; // [rsp+5Eh] [rbp-7Ah]
-  int v28; // [rsp+78h] [rbp-60h]
-  int v29; // [rsp+7Ch] [rbp-5Ch]
-  __int64 v30; // [rsp+80h] [rbp-58h]
-  __int64 v31; // [rsp+88h] [rbp-50h]
+  char v24; // [rsp+40h] [rbp-98h]
+  int v25; // [rsp+48h] [rbp-90h] BYREF
+  struct _TEB *v26; // [rsp+50h] [rbp-88h]
+  _BYTE Fields[6]; // [rsp+58h] [rbp-80h] BYREF
+  __int16 v28; // [rsp+5Eh] [rbp-7Ah]
+  int v29; // [rsp+78h] [rbp-60h]
+  int v30; // [rsp+7Ch] [rbp-5Ch]
+  __int64 v31; // [rsp+80h] [rbp-58h]
+  __int64 v32; // [rsp+88h] [rbp-50h]
 
   v2 = NtCurrentTeb();
-  v24 = a2;
-  v23 = 0;
-  v25 = v2;
+  v25 = a2;
+  v24 = 0;
+  v26 = v2;
   v4 = 0;
-  if ( (_UNKNOWN **)a1 == &off_18015F4F8 )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &stru_18015F4F8 )
   {
-    v23 = 1;
+    v24 = 1;
     v2->WaitingOnLoaderLock = 1;
   }
   if ( byte_180165408 )
@@ -64,11 +64,11 @@ struct _PEB *__fastcall sub_180007200(__int64 a1, int a2)
   if ( dword_180165428 )
   {
     v12 = NtCurrentTeb();
-    SpareUlong0 = (int)v12->SpareUlong0;
-    if ( (_DWORD)SpareUlong0 )
+    WowTebOffset = v12->WowTebOffset;
+    if ( (_DWORD)WowTebOffset )
     {
-      if ( (int)SpareUlong0 >= 0 )
-        v12 = (struct _TEB *)((char *)v12 + SpareUlong0);
+      if ( (int)WowTebOffset >= 0 )
+        v12 = (struct _TEB *)((char *)v12 + WowTebOffset);
     }
     else
     {
@@ -79,10 +79,10 @@ struct _PEB *__fastcall sub_180007200(__int64 a1, int a2)
     {
       if ( *(_BYTE *)(v14 + 40) )
 LABEL_32:
-        ZwTerminateProcess(-1LL, 3221225547LL);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
     }
   }
-  v5 = &qword_180164F00;
+  v5 = (LARGE_INTEGER *)&qword_180164F00;
   if ( byte_180164EF8 )
     v5 = 0LL;
   if ( !*(_QWORD *)(a1 + 24) )
@@ -100,55 +100,55 @@ LABEL_32:
   v7 = 0;
   if ( v6 != -1 )
     ++*(_DWORD *)(v6 + 36);
-  v8 = *(_QWORD *)(a1 + 24);
+  v8 = *(void **)(a1 + 24);
   while ( 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
+    if ( RtlGetCurrentServiceSessionId() )
+      v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
     else
       v9 = 2147353474LL;
     if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
     {
       v15 = *(_DWORD *)(a1 + 32) & 0xFFFFFF;
-      v27 = 5922;
-      v29 = v15;
-      v28 = *(_DWORD *)(a1 + 8);
-      v30 = *(_QWORD *)(a1 + 16);
-      v31 = a1;
-      HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-      if ( HotpatchInformation && *HotpatchInformation )
-        v17 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
+      v28 = 5922;
+      v30 = v15;
+      v29 = *(_DWORD *)(a1 + 8);
+      v31 = *(_QWORD *)(a1 + 16);
+      v32 = a1;
+      SharedData = NtCurrentPeb()->SharedData;
+      if ( SharedData && SharedData->ServiceSessionId )
+        v17 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
       else
         v17 = 2147353474LL;
-      ZwTraceEvent(*(unsigned __int8 *)v17, 132098LL, 24LL, v26);
+      ZwTraceEvent((HANDLE)*(unsigned __int8 *)v17, 0x20402u, 0x18u, Fields);
     }
-    if ( v8 == -1 )
+    if ( v8 == (void *)-1LL )
     {
       while ( 1 )
       {
-        result = (struct _PEB *)sub_180007424((int)a1 + 8, (unsigned int)&v24, 4, (_DWORD)v5, 0);
-        if ( (_DWORD)result == 258 )
+        LODWORD(v10) = sub_180007424((int)a1 + 8, (unsigned int)&v25, 4, (_DWORD)v5, 0);
+        if ( (_DWORD)v10 == 258 )
           goto LABEL_42;
-        v24 = *(_DWORD *)(a1 + 8);
-        if ( (v24 & 2) == 0 )
+        v25 = *(_DWORD *)(a1 + 8);
+        if ( (v25 & 2) == 0 )
           goto LABEL_19;
       }
     }
-    result = (struct _PEB *)ZwWaitForSingleObject(v8, 0LL, v5);
+    LODWORD(v10) = ZwWaitForSingleObject(v8, 0, v5);
 LABEL_19:
-    if ( (_DWORD)result != 258 )
+    if ( (_DWORD)v10 != 258 )
       break;
 LABEL_42:
     v18 = NtCurrentTeb();
-    v19 = (__int64)(((unsigned __int128)(*v5 * (__int128)0x29406B2A1A85BD43LL) >> 64) - *v5) >> 23;
-    DbgPrintEx(101LL, 1LL, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v19 + (v19 >> 63), v4);
+    v19 = (__int64)(((unsigned __int128)(v5->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v5->QuadPart) >> 23;
+    DbgPrintEx(0x65u, 1u, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v19 + (v19 >> 63), v4);
     if ( *(_QWORD *)a1 == -1LL )
       v20 = 0;
     else
       v20 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
     DbgPrintEx(
-      101LL,
-      0LL,
+      0x65u,
+      0,
       "RTL: Pid.Tid %p.%p, owner tid %p Critical Section %p - ContentionCount == %u\n",
       v18->ClientId.UniqueProcess,
       v18->ClientId.UniqueThread,
@@ -158,23 +158,23 @@ LABEL_42:
     ++v4;
     v21 = sub_1800E6A94(a1);
     v22 = v21;
-    if ( v4 > 2 && (_UNKNOWN **)a1 != &off_18015F4F8 && v21 == v7 )
+    if ( v4 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &stru_18015F4F8 && v21 == v7 )
       sub_1800E6C88();
     v7 = v22;
-    DbgPrintEx(101LL, 0LL, "RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
-  if ( (int)result < 0 )
-    RtlRaiseStatus((unsigned int)result);
-  if ( v23 )
+  if ( (int)v10 < 0 )
+    RtlRaiseStatus((NTSTATUS)v10);
+  if ( v24 )
   {
-    v25->WaitingOnLoaderLock = 0;
-    result = NtCurrentPeb();
-    v11 = result->HotpatchInformation;
-    if ( v11 )
+    v26->WaitingOnLoaderLock = 0;
+    v10 = NtCurrentPeb();
+    p_ServiceSessionId = &v10->SharedData->ServiceSessionId;
+    if ( p_ServiceSessionId )
     {
-      if ( *v11 )
-        return NtCurrentPeb();
+      if ( *p_ServiceSessionId )
+        LODWORD(v10) = (unsigned int)NtCurrentPeb();
     }
   }
-  return result;
+  return (int)v10;
 }

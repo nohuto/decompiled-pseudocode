@@ -1,20 +1,20 @@
 /*
- * XREFs of WheaPersistBadPageToRegistry @ 0x14065D04C
+ * XREFs of WheaPersistBadPageToRegistry @ 0x14065B76C
  * Callers:
- *     WheapProcessEfiBadMemoryPage @ 0x14065B988 (WheapProcessEfiBadMemoryPage.c)
- *     WheaAttemptRowOffline @ 0x14065CB10 (WheaAttemptRowOffline.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1407C791C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapProcessEfiBadMemoryPage @ 0x14065A0A8 (WheapProcessEfiBadMemoryPage.c)
+ *     WheaAttemptRowOffline @ 0x14065B230 (WheaAttemptRowOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1407C7DBC (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     WheapInsertPageToList @ 0x14065D358 (WheapInsertPageToList.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     WheapInsertPageToList @ 0x14065BA78 (WheapInsertPageToList.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheaPersistBadPageToRegistry(__int64 a1)
@@ -25,9 +25,9 @@ __int64 __fastcall WheaPersistBadPageToRegistry(__int64 a1)
   char *v5; // rbx
   unsigned int v6; // ecx
   ULONG v7; // ebx
-  __int64 v8; // rsi
+  ULONG_PTR v8; // rsi
   unsigned int v9; // eax
-  __int64 v10; // rbx
+  ULONG_PTR v10; // rbx
   unsigned int v12; // [rsp+40h] [rbp-59h] BYREF
   ULONG ResultLength; // [rsp+44h] [rbp-55h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-51h] BYREF
@@ -65,7 +65,7 @@ LABEL_21:
         ZwClose(KeyHandle);
         return (unsigned int)v2;
       }
-      Pool2 = (char *)ExAllocatePool2(0x40uLL);
+      Pool2 = (char *)ExAllocatePool2(0x40uLL, 8uLL, 0x61656857u);
       v12 = 0;
       v5 = Pool2;
       v6 = 0;
@@ -73,7 +73,7 @@ LABEL_21:
     }
     v7 = ResultLength + 8;
     v8 = ResultLength + 8;
-    Pool2 = (char *)ExAllocatePool2(0x40uLL);
+    Pool2 = (char *)ExAllocatePool2(0x40uLL, v8, 0x61656857u);
     v2 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, Pool2, v7, &ResultLength);
     if ( v2 >= 0 )
     {
@@ -87,7 +87,7 @@ LABEL_21:
           v10 = *((unsigned int *)Pool2 + 2);
         v5 = &Pool2[v10];
 LABEL_12:
-        if ( v6 + 1 <= *(_DWORD *)off_140E096F8 )
+        if ( v6 + 1 <= *(_DWORD *)off_140E09768 )
         {
           if ( (unsigned __int8)WheapInsertPageToList(v5, a1, &v12) )
             v2 = ZwSetValueKey(KeyHandle, &ValueName, 0, 3u, v5, 8 * v12);

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpDisassociateConsumer @ 0x1406C2700
+ * XREFs of EtwpDisassociateConsumer @ 0x1406213C0
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x140645D0C (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x14063AAF8 (EtwpRealtimeDeliverBuffer.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 void __fastcall EtwpDisassociateConsumer(__int64 a1, __int64 *a2)

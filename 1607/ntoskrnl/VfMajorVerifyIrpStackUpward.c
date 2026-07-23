@@ -1,7 +1,7 @@
 /*
- * XREFs of VfMajorVerifyIrpStackUpward @ 0x14070E814
+ * XREFs of VfMajorVerifyIrpStackUpward @ 0x14070E844
  * Callers:
- *     IovpCompleteRequest2 @ 0x14070B1D8 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x14070B208 (IovpCompleteRequest2.c)
  * Callees:
  *     <none>
  */

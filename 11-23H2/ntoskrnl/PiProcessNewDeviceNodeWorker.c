@@ -1,10 +1,10 @@
 /*
- * XREFs of PiProcessNewDeviceNodeWorker @ 0x140959490
+ * XREFs of PiProcessNewDeviceNodeWorker @ 0x140959690
  * Callers:
  *     <none>
  * Callees:
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140322AB4 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140322D44 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

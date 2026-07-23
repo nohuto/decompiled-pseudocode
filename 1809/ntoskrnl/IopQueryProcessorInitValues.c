@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueryProcessorInitValues @ 0x140762D94
+ * XREFs of IopQueryProcessorInitValues @ 0x140763F84
  * Callers:
- *     IoInitializeProcessor @ 0x1407293E0 (IoInitializeProcessor.c)
- *     IoEnableIrpCredits @ 0x1408192E0 (IoEnableIrpCredits.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitializeProcessor @ 0x14072A5D0 (IoInitializeProcessor.c)
+ *     IoEnableIrpCredits @ 0x14081A4E0 (IoEnableIrpCredits.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     MmIsThisAnNtAsSystem @ 0x14000EC80 (MmIsThisAnNtAsSystem.c)
  */

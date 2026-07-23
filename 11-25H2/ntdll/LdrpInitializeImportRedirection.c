@@ -37,14 +37,14 @@ __int64 LdrpInitializeImportRedirection()
   if ( p_RedirectionDllName->Length )
   {
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrredirect.c",
+      "minkernel\\ldr\\ldrredirect.c",
       557,
       (__int64)"LdrpInitializeImportRedirection",
       2,
       "Loading import redirection DLL: '%wZ'\n",
-      (char)p_RedirectionDllName);
+      p_RedirectionDllName);
     LdrpInitializeDllPath(0LL, 0LL, (__int64)v9);
-    Dll = LdrpLoadDll(&p_RedirectionDllName->Length, (__int64)v9, 16777217, (__int64)&v8);
+    Dll = LdrpLoadDll(&p_RedirectionDllName->Length, (int)v9, 16777217, (__int64)&v8);
     LdrpReleaseDllPath(v9);
     if ( Dll >= 0 )
     {
@@ -71,7 +71,7 @@ __int64 LdrpInitializeImportRedirection()
       else
       {
         LdrpLogInternal(
-          (__int64)"minkernel\\ldr\\ldrredirect.c",
+          "minkernel\\ldr\\ldrredirect.c",
           584,
           (__int64)"LdrpInitializeImportRedirection",
           0,

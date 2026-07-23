@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQuerySchedulingGroupHistory @ 0x1404A134C
+ * XREFs of KeQuerySchedulingGroupHistory @ 0x14049AE7C
  * Callers:
- *     PspQueryRateControlHistory @ 0x140A7F83C (PspQueryRateControlHistory.c)
+ *     PspQueryRateControlHistory @ 0x140A856AC (PspQueryRateControlHistory.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 void __fastcall KeQuerySchedulingGroupHistory(__int64 a1, __int64 *a2, _DWORD *a3, _DWORD *a4)

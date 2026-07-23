@@ -217,7 +217,7 @@ LABEL_52:
                   Pool2 = (_OWORD *)ExAllocatePool2(64LL, 8LL * ((v28 >> 1) + 1), 1852986182LL);
                   P = Pool2;
                   if ( !Pool2 )
-                    RtlRaiseStatus(3221225495LL);
+                    RtlRaiseStatus(-1073741801);
                   v56 = *(_OWORD **)&Name.Length;
                   v16 = (__int16 *)Pool2;
                   v20 = v66;

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopIoRingGetBuffer @ 0x140949E0C
+ * XREFs of IopIoRingGetBuffer @ 0x14094A00C
  * Callers:
- *     IopIoRingDispatchRead @ 0x14094941C (IopIoRingDispatchRead.c)
- *     IopIoRingDispatchWrite @ 0x140949C64 (IopIoRingDispatchWrite.c)
+ *     IopIoRingDispatchRead @ 0x14094961C (IopIoRingDispatchRead.c)
+ *     IopIoRingDispatchWrite @ 0x140949E64 (IopIoRingDispatchWrite.c)
  * Callees:
- *     IopExceptionFilter @ 0x1405554E8 (IopExceptionFilter.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     IopMcGetBuffer @ 0x140951780 (IopMcGetBuffer.c)
+ *     IopExceptionFilter @ 0x140555BA8 (IopExceptionFilter.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     IopMcGetBuffer @ 0x140951980 (IopMcGetBuffer.c)
  */
 
 __int64 __fastcall IopIoRingGetBuffer(

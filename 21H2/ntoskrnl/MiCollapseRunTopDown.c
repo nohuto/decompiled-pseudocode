@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCollapseRunTopDown @ 0x14030209C
+ * XREFs of MiCollapseRunTopDown @ 0x14030CDEC
  * Callers:
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiFindRebuildCandidate @ 0x140551E0C (MiFindRebuildCandidate.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiFindRebuildCandidate @ 0x14055204C (MiFindRebuildCandidate.c)
  * Callees:
  *     <none>
  */

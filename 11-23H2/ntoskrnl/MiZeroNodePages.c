@@ -1,18 +1,18 @@
 /*
- * XREFs of MiZeroNodePages @ 0x140393AF0
+ * XREFs of MiZeroNodePages @ 0x140393CD0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiSelectBestZeroingProcessor @ 0x1402D06B0 (MiSelectBestZeroingProcessor.c)
- *     MiSignalZeroingPassComplete @ 0x14034E324 (MiSignalZeroingPassComplete.c)
- *     MiDereferencePageRunsEx @ 0x140357BE4 (MiDereferencePageRunsEx.c)
- *     MiDecrementZeroEngineThread @ 0x14035D518 (MiDecrementZeroEngineThread.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x14035E6EC (MiDereferenceAnyActiveHugeContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     MiZeroLocalPages @ 0x1402CF7D0 (MiZeroLocalPages.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402D0940 (MiSelectBestZeroingProcessor.c)
+ *     MiSignalZeroingPassComplete @ 0x14034E4C4 (MiSignalZeroingPassComplete.c)
+ *     MiDereferencePageRunsEx @ 0x140357D84 (MiDereferencePageRunsEx.c)
+ *     MiDecrementZeroEngineThread @ 0x14035D6B8 (MiDecrementZeroEngineThread.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x14035E88C (MiDereferenceAnyActiveHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiZeroNodePages(ULONG_PTR a1)
@@ -61,10 +61,13 @@ void __fastcall MiZeroNodePages(ULONG_PTR a1)
   ++*(_DWORD *)(v2 + 12);
   v9 = v7;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 23160));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -81,10 +84,10 @@ void __fastcall MiZeroNodePages(ULONG_PTR a1)
   v16 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v6 + 23160));
   *(_DWORD *)(a1 + 136) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 23160));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;
@@ -143,10 +146,10 @@ void __fastcall MiZeroNodePages(ULONG_PTR a1)
       v24 = 0;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v15);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;

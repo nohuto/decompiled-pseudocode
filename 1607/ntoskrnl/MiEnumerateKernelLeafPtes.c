@@ -4,7 +4,7 @@
  *     MmUpdateHiberMappings @ 0x1403C9630 (MmUpdateHiberMappings.c)
  *     MmMarkHiberPhase @ 0x1403CAD7C (MmMarkHiberPhase.c)
  * Callees:
- *     MiEnumerateLeafPtes @ 0x1400B9C10 (MiEnumerateLeafPtes.c)
+ *     MiEnumerateLeafPtes @ 0x1400B7AA0 (MiEnumerateLeafPtes.c)
  */
 
 unsigned __int64 __fastcall MiEnumerateKernelLeafPtes(

@@ -1,24 +1,24 @@
 /*
- * XREFs of KeRemoveQueueDpcEx @ 0x1402C8000
+ * XREFs of KeRemoveQueueDpcEx @ 0x140246860
  * Callers:
- *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
- *     ExpCancelTimer @ 0x14024A190 (ExpCancelTimer.c)
- *     EtwpFreeCompression @ 0x1402C7F24 (EtwpFreeCompression.c)
- *     EtwpCancelPendingStackwalkApcs @ 0x1402C7F88 (EtwpCancelPendingStackwalkApcs.c)
- *     KeRemoveQueueDpc @ 0x1402C7FE0 (KeRemoveQueueDpc.c)
- *     KiCheckAndRearmForceIdle @ 0x1402CF6BC (KiCheckAndRearmForceIdle.c)
- *     KeMaskInterrupt @ 0x140376F40 (KeMaskInterrupt.c)
- *     KeClearForceIdle @ 0x140522E78 (KeClearForceIdle.c)
- *     VfWdCheckForSettingsChange @ 0x1409E0BA4 (VfWdCheckForSettingsChange.c)
+ *     EtwpFreeCompression @ 0x140246784 (EtwpFreeCompression.c)
+ *     EtwpCancelPendingStackwalkApcs @ 0x1402467E8 (EtwpCancelPendingStackwalkApcs.c)
+ *     KeRemoveQueueDpc @ 0x140246840 (KeRemoveQueueDpc.c)
+ *     KiCheckAndRearmForceIdle @ 0x14024DA3C (KiCheckAndRearmForceIdle.c)
+ *     ExpSetTimerObject @ 0x1402EDC70 (ExpSetTimerObject.c)
+ *     ExpCancelTimer @ 0x1402EE9E0 (ExpCancelTimer.c)
+ *     KeMaskInterrupt @ 0x140376A90 (KeMaskInterrupt.c)
+ *     KeClearForceIdle @ 0x1405230B8 (KeClearForceIdle.c)
+ *     VfWdCheckForSettingsChange @ 0x1409E1BA4 (VfWdCheckForSettingsChange.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeGenericProcessorCallback @ 0x1402EB178 (KeGenericProcessorCallback.c)
- *     KiGetDeepIdleProcessors @ 0x1402EC7D0 (KiGetDeepIdleProcessors.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeGenericProcessorCallback @ 0x14029C4C8 (KeGenericProcessorCallback.c)
+ *     KiGetDeepIdleProcessors @ 0x14029DB20 (KiGetDeepIdleProcessors.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
@@ -47,7 +47,7 @@ char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
   signed __int32 v26[8]; // [rsp+0h] [rbp-228h] BYREF
   char v27; // [rsp+20h] [rbp-208h]
   int v28; // [rsp+24h] [rbp-204h] BYREF
-  unsigned __int16 *v29[2]; // [rsp+28h] [rbp-200h] BYREF
+  _QWORD v29[2]; // [rsp+28h] [rbp-200h] BYREF
   __int16 v30; // [rsp+38h] [rbp-1F0h]
   int v31; // [rsp+3Ah] [rbp-1EEh]
   __int16 v32; // [rsp+3Eh] [rbp-1EAh]
@@ -118,8 +118,8 @@ char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
     Group = CurrentPrcb->Group;
     if ( LOWORD(v34[0]) > (unsigned __int16)Group )
       v34[Group + 1] &= ~CurrentPrcb->GroupSetMember;
-    v29[1] = (unsigned __int16 *)v34[1];
-    v29[0] = (unsigned __int16 *)v34;
+    v29[1] = v34[1];
+    v29[0] = v34;
     v30 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v28, v29) )
     {

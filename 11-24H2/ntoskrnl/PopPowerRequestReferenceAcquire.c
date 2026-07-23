@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPowerRequestReferenceAcquire @ 0x14046BE70
+ * XREFs of PopPowerRequestReferenceAcquire @ 0x140464AF0
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x14046BB18 (PopApplyLegacyPowerRequestFlags.c)
- *     PpmBeginHighPerfRequest @ 0x14046BCB0 (PpmBeginHighPerfRequest.c)
- *     PoSetPowerRequest @ 0x14046BCE0 (PoSetPowerRequest.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140902758 (PopPowerAggregatorEnterScreenOff.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x140A14DA0 (PopPowerRequestActionInfo.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x140464798 (PopApplyLegacyPowerRequestFlags.c)
+ *     PpmBeginHighPerfRequest @ 0x140464930 (PpmBeginHighPerfRequest.c)
+ *     PoSetPowerRequest @ 0x140464960 (PoSetPowerRequest.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140A0DBB8 (PopPowerRequestActionInfo.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140A6E038 (PopPowerAggregatorEnterScreenOff.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopPowerRequestCallbackWorker @ 0x14046C280 (PopPowerRequestCallbackWorker.c)
- *     PopDiagTracePowerRequestChange @ 0x14046C44C (PopDiagTracePowerRequestChange.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopPowerRequestCallbackWorker @ 0x140464F00 (PopPowerRequestCallbackWorker.c)
+ *     PopDiagTracePowerRequestChange @ 0x1404650CC (PopDiagTracePowerRequestChange.c)
  */
 
 __int64 __fastcall PopPowerRequestReferenceAcquire(_DWORD *Object, unsigned int a2)
@@ -60,7 +60,7 @@ __int64 __fastcall PopPowerRequestReferenceAcquire(_DWORD *Object, unsigned int 
         if ( (_QWORD *)*v5 != v5 )
           PopPowerRequestCallbackWorker(v5);
       }
-      else if ( _InterlockedIncrement(&dword_140F0DFA0) == 1 )
+      else if ( _InterlockedIncrement(&dword_140F0E3E0) == 1 )
       {
         ExQueueWorkItem(&PopPowerRequestUpdateWorkItem, CriticalWorkQueue);
       }

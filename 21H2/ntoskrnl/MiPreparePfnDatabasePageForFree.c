@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPreparePfnDatabasePageForFree @ 0x1403BA024
+ * XREFs of MiPreparePfnDatabasePageForFree @ 0x1403BA194
  * Callers:
- *     MiPfnRangeIsZero @ 0x1403B9BE8 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1403B9D58 (MiPfnRangeIsZero.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiPreparePfnDatabasePageForFree(unsigned __int64 a1, int a2, int a3)

@@ -23,7 +23,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParamet
   BOOL v8; // r14d
   __int64 v9; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
+  unsigned int v11; // r8d
   __int64 v12; // rdi
   int v13; // eax
   unsigned int v14; // ecx
@@ -53,7 +53,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParamet
     {
       *(_BYTE *)(v9 + 32) |= 2u;
       if ( *(__int64 *)(v9 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v9, v10, v11);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9, v10);
       v13 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
       v14 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
       *(_BYTE *)(v12 + 25) &= ~1u;
@@ -68,7 +68,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParamet
     }
     else if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x8000) == 0 )
     {
-      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v5, (unsigned int)v11, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v5, v11, 0LL);
     }
     --CurrentThread->AbAllocationRegionCount;
     KiAbThreadRemoveBoosts(CurrentThread, v5, &v16);

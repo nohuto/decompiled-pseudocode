@@ -1,7 +1,7 @@
 /*
- * XREFs of SeTokenSetRedirectionTrustPolicy @ 0x1401B70C8
+ * XREFs of SeTokenSetRedirectionTrustPolicy @ 0x1401B7230
  * Callers:
- *     PspSetRedirectionTrustPolicy @ 0x140582834 (PspSetRedirectionTrustPolicy.c)
+ *     PspSetRedirectionTrustPolicy @ 0x140583834 (PspSetRedirectionTrustPolicy.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

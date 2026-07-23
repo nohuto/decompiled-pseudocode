@@ -1,10 +1,10 @@
 /*
- * XREFs of PspDeleteSilo @ 0x140772C34
+ * XREFs of PspDeleteSilo @ 0x140772E54
  * Callers:
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
+ *     PspJobDelete @ 0x1404E6110 (PspJobDelete.c)
  * Callees:
- *     PsIsServerSilo @ 0x140349B68 (PsIsServerSilo.c)
- *     PspDeleteServerSiloGlobals @ 0x1407729F4 (PspDeleteServerSiloGlobals.c)
+ *     PsIsServerSilo @ 0x1403C35A8 (PsIsServerSilo.c)
+ *     PspDeleteServerSiloGlobals @ 0x140772C14 (PspDeleteServerSiloGlobals.c)
  */
 
 void __fastcall PspDeleteSilo(__int64 a1)

@@ -4,9 +4,9 @@
  *     IoUpdateThreadIoRateThrottle @ 0x140200B50 (IoUpdateThreadIoRateThrottle.c)
  *     KeAbProcessBaseIoPriorityChange @ 0x1402078A4 (KeAbProcessBaseIoPriorityChange.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x140307D48 (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x140360020 (KiAbThreadInsertList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140307FD8 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x1403601C0 (KiAbThreadInsertList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeAbProcessBaseIoPriorityChangeInternal(__int64 a1, int a2)
@@ -26,7 +26,7 @@ __int64 __fastcall KeAbProcessBaseIoPriorityChangeInternal(__int64 a1, int a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v6) = 4;
@@ -50,10 +50,10 @@ __int64 __fastcall KeAbProcessBaseIoPriorityChangeInternal(__int64 a1, int a2)
   if ( (unsigned int)KiAbThreadInsertList(a1, p_AbPropagateBoostsList, v7) )
     KiAbQueueAutoBoostDpc(CurrentPrcb);
 LABEL_4:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

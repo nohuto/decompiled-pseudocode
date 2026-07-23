@@ -92,8 +92,8 @@ __int64 __fastcall PsQueryStatisticsProcess(_QWORD *a1, _QWORD *a2)
     ExfReleasePushLockShared(v2);
   KeAbPostRelease((ULONG_PTR)v2);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  v13 = (unsigned int)KeMaximumIncrement;
-  *a2 = v6 * (unsigned int)KeMaximumIncrement;
+  v13 = KeMaximumIncrement;
+  *a2 = v6 * KeMaximumIncrement;
   a2[1] = v7 * (unsigned int)v13;
   a2[2] = v8 * (unsigned int)v13;
   result = v9 * (unsigned int)v13;

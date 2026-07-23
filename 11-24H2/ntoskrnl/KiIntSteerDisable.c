@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIntSteerDisable @ 0x1403BA9C0
+ * XREFs of KiIntSteerDisable @ 0x14037432C
  * Callers:
- *     KeDisconnectInterrupt @ 0x1403B8A3C (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140373B88 (KeDisconnectInterrupt.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KiIntSteerLogState @ 0x1403552B4 (KiIntSteerLogState.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KiIntSteerLogState @ 0x1402B2FE4 (KiIntSteerLogState.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiIntSteerDisable(__int64 *a1, unsigned int a2)
@@ -76,7 +76,7 @@ LABEL_15:
         {
           _BitScanForward64(&v17, v15);
           v15 &= ~(1LL << v17);
-          Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v14 + (unsigned __int8)v17));
+          Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v14 + (unsigned __int8)v17));
           if ( (*(_DWORD *)(Prcb + 11672))-- == 1 )
             _interlockedbittestandset64(
               (volatile signed __int32 *)(*(_QWORD *)(Prcb + 192) + 112LL),

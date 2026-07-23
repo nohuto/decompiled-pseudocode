@@ -5,7 +5,7 @@
  *     KiFilterFiberContext @ 0x140777A80 (KiFilterFiberContext.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x1400AA1D0 (HvlQueryVsmConnection.c)
+ *     HvlQueryVsmConnection @ 0x1400A8750 (HvlQueryVsmConnection.c)
  */
 
 __int64 KiSwInterruptPresent()

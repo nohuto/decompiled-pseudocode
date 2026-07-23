@@ -1,9 +1,9 @@
 /*
- * XREFs of _itow_s @ 0x140503210
+ * XREFs of _itow_s @ 0x140500AD0
  * Callers:
- *     RtlpFindRegTziForCurrentYear @ 0x1405E94B4 (RtlpFindRegTziForCurrentYear.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1405E6A04 (RtlpFindRegTziForCurrentYear.c)
  * Callees:
- *     xtow_s @ 0x1405033C0 (xtow_s.c)
+ *     xtow_s @ 0x140500C80 (xtow_s.c)
  */
 
 errno_t __cdecl itow_s(int Val, wchar_t *DstBuf, size_t SizeInWords, int Radix)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiBugCheckConvertProgressValueToUnicodeString @ 0x1405B2CA0
+ * XREFs of KiBugCheckConvertProgressValueToUnicodeString @ 0x1405AFC14
  * Callers:
- *     KiBugCheckProgress @ 0x1405B2E40 (KiBugCheckProgress.c)
+ *     KiBugCheckProgress @ 0x1405AFDB0 (KiBugCheckProgress.c)
  * Callees:
  *     <none>
  */

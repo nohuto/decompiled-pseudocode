@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpInitializePoolTrackerTable @ 0x1406548C0
+ * XREFs of ExpInitializePoolTrackerTable @ 0x140652FC0
  * Callers:
- *     ExInitializePoolTracker @ 0x140C4246C (ExInitializePoolTracker.c)
+ *     ExInitializePoolTracker @ 0x140C445BC (ExInitializePoolTracker.c)
  * Callees:
- *     ExAllocateHeapPages @ 0x140440774 (ExAllocateHeapPages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExAllocateHeapPages @ 0x1403E9344 (ExAllocateHeapPages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 ExpInitializePoolTrackerTable()
@@ -26,7 +26,7 @@ __int64 ExpInitializePoolTrackerTable()
   {
     v0 = 4096LL;
     PoolTrackTableSize = 4096LL;
-    if ( *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18512LL) > 0x10000uLL )
+    if ( *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18512LL) > 0x10000uLL )
       goto LABEL_7;
     v0 = 512LL;
   }

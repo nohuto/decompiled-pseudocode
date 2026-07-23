@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpBlockOnLockedHandleEntry @ 0x14049B4BC
+ * XREFs of ExpBlockOnLockedHandleEntry @ 0x1404AF024
  * Callers:
- *     ExLockHandleTableEntry @ 0x1400D1730 (ExLockHandleTableEntry.c)
- *     PspReferenceCidTableEntry @ 0x1404208A0 (PspReferenceCidTableEntry.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
- *     ObpReferenceObjectByHandle @ 0x140447040 (ObpReferenceObjectByHandle.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     ObWaitForMultipleObjects @ 0x14044EDD0 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     ExEnumHandleTable @ 0x14045E4D0 (ExEnumHandleTable.c)
- *     ExSweepHandleTable @ 0x14045F330 (ExSweepHandleTable.c)
- *     NtSetInformationObject @ 0x1404B0170 (NtSetInformationObject.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
+ *     ExLockHandleTableEntry @ 0x1400CF5D0 (ExLockHandleTableEntry.c)
+ *     PspReferenceCidTableEntry @ 0x14041F760 (PspReferenceCidTableEntry.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
+ *     ObpReferenceObjectByHandle @ 0x140445F10 (ObpReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     ObWaitForMultipleObjects @ 0x14044DCA0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExEnumHandleTable @ 0x14045D3A0 (ExEnumHandleTable.c)
+ *     ExSweepHandleTable @ 0x14045E200 (ExSweepHandleTable.c)
+ *     NtSetInformationObject @ 0x14049A550 (NtSetInformationObject.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
  * Callees:
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
  */
 
 __int64 __fastcall ExpBlockOnLockedHandleEntry(__int64 a1, _QWORD *a2, __int64 a3)

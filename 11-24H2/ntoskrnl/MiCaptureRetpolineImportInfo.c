@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCaptureRetpolineImportInfo @ 0x140A877D0
+ * XREFs of MiCaptureRetpolineImportInfo @ 0x140A83CC0
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A8760C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A83AFC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlCaptureRetpolineImportRvas @ 0x14042C560 (RtlCaptureRetpolineImportRvas.c)
- *     MiIsRetpolineEnabled @ 0x140446FE0 (MiIsRetpolineEnabled.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14045B1E0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140460630 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x1402F0074 (RtlCaptureRetpolineImportRvas.c)
+ *     MiIsRetpolineEnabled @ 0x14043F7B4 (MiIsRetpolineEnabled.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404505E0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140455510 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
  */
 
 __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)

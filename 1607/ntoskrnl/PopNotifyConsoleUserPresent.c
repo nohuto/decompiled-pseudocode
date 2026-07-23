@@ -1,27 +1,27 @@
 /*
- * XREFs of PopNotifyConsoleUserPresent @ 0x1404F04D8
+ * XREFs of PopNotifyConsoleUserPresent @ 0x1404D25CC
  * Callers:
- *     PopReleaseAdaptiveLock @ 0x1404EFF44 (PopReleaseAdaptiveLock.c)
- *     PopUserPresentSetWorker @ 0x1404F0484 (PopUserPresentSetWorker.c)
- *     NtSetThreadExecutionState @ 0x14052CD00 (NtSetThreadExecutionState.c)
- *     PopDispatchFullWake @ 0x140534800 (PopDispatchFullWake.c)
- *     PopSetSystemAwayMode @ 0x14066EAA8 (PopSetSystemAwayMode.c)
+ *     PopReleaseAdaptiveLock @ 0x1404D2038 (PopReleaseAdaptiveLock.c)
+ *     PopUserPresentSetWorker @ 0x1404D2578 (PopUserPresentSetWorker.c)
+ *     NtSetThreadExecutionState @ 0x14052D240 (NtSetThreadExecutionState.c)
+ *     PopDispatchFullWake @ 0x140534D40 (PopDispatchFullWake.c)
+ *     PopSetSystemAwayMode @ 0x14066EB8C (PopSetSystemAwayMode.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x140008ADC (RtlGetActiveConsoleId.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     TtmNotifyConsoleUserPresent @ 0x1406788B4 (TtmNotifyConsoleUserPresent.c)
+ *     RtlGetActiveConsoleId @ 0x140008650 (RtlGetActiveConsoleId.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     TtmNotifyConsoleUserPresent @ 0x140678998 (TtmNotifyConsoleUserPresent.c)
  */
 
 void __fastcall PopNotifyConsoleUserPresent(char a1, char a2, unsigned int a3)
 {
-  unsigned int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
   int v8; // [rsp+28h] [rbp-28h]
   char *v9; // [rsp+30h] [rbp-20h]
   int v10; // [rsp+38h] [rbp-18h]
   __int64 v11; // [rsp+40h] [rbp-10h]
-  unsigned int v12; // [rsp+68h] [rbp+18h] BYREF
+  ULONG v12; // [rsp+68h] [rbp+18h] BYREF
   char v13; // [rsp+78h] [rbp+28h] BYREF
   char v14; // [rsp+79h] [rbp+29h]
   unsigned int v15; // [rsp+7Ch] [rbp+2Ch]

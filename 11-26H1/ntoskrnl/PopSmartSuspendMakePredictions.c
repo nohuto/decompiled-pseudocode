@@ -1,20 +1,20 @@
 /*
- * XREFs of PopSmartSuspendMakePredictions @ 0x140B6B6EC
+ * XREFs of PopSmartSuspendMakePredictions @ 0x140B6E7E8
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x14060D4E0 (PdcPoCurrentPdcPhase.c)
- *     PopPowerAggregatorDozeTimerWorker @ 0x1407D66B0 (PopPowerAggregatorDozeTimerWorker.c)
- *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1407D6BE0 (PopPowerAggregatorNotifyAcDcStateChange.c)
+ *     PdcPoCurrentPdcPhase @ 0x1406105F0 (PdcPoCurrentPdcPhase.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x1407D9840 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1407D9D50 (PopPowerAggregatorNotifyAcDcStateChange.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline @ 0x14060CA4C (Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDiagTraceSmartSuspendPrediction @ 0x1407D4D24 (PopDiagTraceSmartSuspendPrediction.c)
- *     PopUmpoQuerySmartSuspendPrediction @ 0x1407DB538 (PopUmpoQuerySmartSuspendPrediction.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     PopIsDozeSupported @ 0x140B2E7C8 (PopIsDozeSupported.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline @ 0x14060FBAC (Feature_SmartSuspend_Action__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDiagTraceSmartSuspendPrediction @ 0x1407D7EDC (PopDiagTraceSmartSuspendPrediction.c)
+ *     PopUmpoQuerySmartSuspendPrediction @ 0x1407DF544 (PopUmpoQuerySmartSuspendPrediction.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     PopIsDozeSupported @ 0x140B30718 (PopIsDozeSupported.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 unsigned __int8 __fastcall PopSmartSuspendMakePredictions(int a1)
@@ -26,7 +26,7 @@ unsigned __int8 __fastcall PopSmartSuspendMakePredictions(int a1)
   int SmartSuspendPrediction; // r12d
   unsigned __int8 result; // al
   __int64 v7; // rdi
-  unsigned __int8 *v8; // rdi
+  _BYTE *v8; // rdi
   int v9; // eax
   char IsDozeSupported; // bl
   __int64 v11; // rdx
@@ -35,15 +35,15 @@ unsigned __int8 __fastcall PopSmartSuspendMakePredictions(int a1)
   __int64 v14; // r9
   __int64 v15; // rdx
   __int64 v16; // rcx
-  unsigned __int8 v17; // bl
+  char v17; // bl
   int IsEnabledDeviceUsageNoInline; // eax
-  unsigned __int8 v19; // cl
+  char v19; // cl
   __int64 v20; // [rsp+28h] [rbp-A9h]
   int v21; // [rsp+28h] [rbp-A9h]
   int v22; // [rsp+2Ch] [rbp-A5h]
   _BYTE v23[80]; // [rsp+38h] [rbp-99h] BYREF
   _BYTE v24[2]; // [rsp+88h] [rbp-49h] BYREF
-  unsigned __int8 v25; // [rsp+8Ah] [rbp-47h]
+  char v25; // [rsp+8Ah] [rbp-47h]
   int v26; // [rsp+90h] [rbp-41h]
   int v27; // [rsp+94h] [rbp-3Dh]
   __int64 v28; // [rsp+A8h] [rbp-29h]
@@ -63,24 +63,24 @@ unsigned __int8 __fastcall PopSmartSuspendMakePredictions(int a1)
   v31 = -1LL;
   SmartSuspendPrediction = -1073741637;
   result = SSHSupportIsPlatformAoAc();
-  if ( result && dword_140F106CC == 1 )
+  if ( result && HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) == 1 )
   {
-    v7 = 104LL * ((stru_140F0C428.WaitBlockFill7[136] + 1) & 0xF);
-    *(_DWORD *)&stru_140F0C428.WaitBlockFill11[136] = (stru_140F0C428.WaitBlockFill7[136] + 1) & 0xF;
-    v8 = &stru_140F0C428.WaitBlockFill7[v7 + 152];
-    stru_140F0C428.WaitBlock[2].Object = v8;
+    v7 = 104LL * (((_BYTE)dword_140F0CA48 + 1) & 0xF);
+    dword_140F0CA48 = ((_BYTE)dword_140F0CA48 + 1) & 0xF;
+    v8 = (char *)&unk_140F0CA60 + v7;
+    *(_QWORD *)&PopPdcDeviceListLock.Spare36 = v8;
     memset_0(v8, 0, 0x68uLL);
     v9 = PopSmartSuspendPredictionId + 1;
     *((_QWORD *)v8 + 5) = -1LL;
     LODWORD(v20) = v9;
     PopSmartSuspendPredictionId = v9;
     *((_QWORD *)v8 + 7) = -1LL;
-    PopFilterCapabilities((__int64)&stru_140F10828.WaitBlock[0].Thread, (__int64)v23);
+    PopFilterCapabilities((__int64)&PpmIdlePolicyLock.Padding[1], (__int64)v23);
     IsDozeSupported = PopIsDozeSupported((__int64)v23);
     PopReleasePolicyLock(v12, v11, v13, v14, v20);
     if ( IsDozeSupported )
     {
-      SmartSuspendPrediction = PopUmpoQuerySmartSuspendPrediction((__int64)v24);
+      SmartSuspendPrediction = PopUmpoQuerySmartSuspendPrediction();
       if ( SmartSuspendPrediction < 0 )
       {
         v1 = 2;

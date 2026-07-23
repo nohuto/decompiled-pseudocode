@@ -1,19 +1,19 @@
 /*
- * XREFs of ViMapDoubleBuffer @ 0x14092E13C
+ * XREFs of ViMapDoubleBuffer @ 0x14092F13C
  * Callers:
- *     VfBuildScatterGatherList @ 0x14092A430 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x14092B360 (VfGetScatterGatherList.c)
- *     VfMapTransfer @ 0x14092BAB0 (VfMapTransfer.c)
+ *     VfBuildScatterGatherList @ 0x14092B430 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x14092C360 (VfGetScatterGatherList.c)
+ *     VfMapTransfer @ 0x14092CAB0 (VfMapTransfer.c)
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeFlushIoBuffers @ 0x14011CB40 (KeFlushIoBuffers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     ViAllocateMapRegistersFromFile @ 0x14092C9A0 (ViAllocateMapRegistersFromFile.c)
- *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeFlushIoBuffers @ 0x14011CBB0 (KeFlushIoBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     ViAllocateMapRegistersFromFile @ 0x14092D9A0 (ViAllocateMapRegistersFromFile.c)
+ *     ViHalPreprocessOptions @ 0x14092ED28 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULONG_PTR a3, unsigned int a4, char a5)
@@ -58,8 +58,8 @@ __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULON
   v5 = a4;
   if ( !a4 )
   {
-    ViHalPreprocessOptions(byte_1404054BC, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
-    Priority = byte_1404054BC;
+    ViHalPreprocessOptions(byte_1404064D0, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
+    Priority = byte_1404064D0;
     v9 = 0LL;
     BugCheckOnFailure = 0LL;
     v10 = a1;
@@ -75,13 +75,13 @@ LABEL_3:
   if ( a3 < (unsigned __int64)StartVa + ByteOffset )
   {
     ViHalPreprocessOptions(
-      &dword_1404054B4,
+      &dword_1404064D4,
       "Virtual address %p is before the first MDL %p.",
       268435487LL,
       1LL,
       a3,
       (__int64)MemoryDescriptorList);
-    Priority = (CHAR *)&dword_1404054B4;
+    Priority = (CHAR *)&dword_1404064D4;
     v9 = (PMDL)a3;
     BugCheckOnFailure = MemoryDescriptorList;
     v10 = 1LL;
@@ -92,13 +92,13 @@ LABEL_10:
   if ( (unsigned int)(a3 - ByteOffset - (_DWORD)StartVa) >= MemoryDescriptorList->ByteCount )
   {
     ViHalPreprocessOptions(
-      &dword_1404054B8,
+      &dword_1404064C8,
       "Virtual address %p is after the first MDL %p.",
       268435487LL,
       2LL,
       a3,
       (__int64)MemoryDescriptorList);
-    VfReportIssueWithOptions(0xE6u, 0x1FuLL, 2uLL, a3, (ULONG_PTR)MemoryDescriptorList, &dword_1404054B8);
+    VfReportIssueWithOptions(0xE6u, 0x1FuLL, 2uLL, a3, (ULONG_PTR)MemoryDescriptorList, &dword_1404064C8);
     return 0LL;
   }
   v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 80));
@@ -148,7 +148,7 @@ LABEL_10:
           if ( (((v5 - 1) ^ (v43 + v5 - (unsigned __int64)v24)) & 0xFFFFFFFFFFFFF000uLL) != 0 )
           {
             v27 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x.";
-            v28 = (CHAR *)&unk_1404054AC;
+            v28 = (CHAR *)&unk_1404064CC;
 LABEL_31:
             ViHalPreprocessOptions(v28, v27, 268435487LL, 3LL, (__int64)MemoryDescriptorList, v26);
             Priority = v28;
@@ -175,7 +175,7 @@ LABEL_36:
             {
               v26 = v5;
               v27 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x";
-              v28 = (CHAR *)&unk_1404054B0;
+              v28 = (CHAR *)&unk_1404064C4;
               goto LABEL_31;
             }
             goto LABEL_36;

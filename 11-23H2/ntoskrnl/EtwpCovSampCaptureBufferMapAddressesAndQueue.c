@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A84BC
+ * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A870C
  * Callers:
- *     EtwpCovSampCaptureUserAddresses @ 0x1408A874C (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A899C (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x140412028 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureBufferIsEmpty @ 0x140469F72 (EtwpCovSampCaptureBufferIsEmpty.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x140469FEC (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408A846C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampProcessMapAddresses @ 0x1408A9A52 (EtwpCovSampProcessMapAddresses.c)
- *     EtwpCovSampStackHashCheck @ 0x1408A9D5C (EtwpCovSampStackHashCheck.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140412370 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureBufferIsEmpty @ 0x14046A372 (EtwpCovSampCaptureBufferIsEmpty.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x14046A3EC (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408A86BC (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x1408A9CA2 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x1408A9FAC (EtwpCovSampStackHashCheck.c)
  */
 
 void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64 a2)
@@ -60,7 +60,7 @@ void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64
 LABEL_11:
   if ( v3 )
   {
-    ExReleaseRundownProtection_0(&stru_140C31CC0);
+    ExReleaseRundownProtection_0(&stru_140C31C60);
     KeLeaveCriticalRegion();
   }
 }

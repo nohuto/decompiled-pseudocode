@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipAllocateSingleInstanceWnode @ 0x140A868E8
+ * XREFs of WmipAllocateSingleInstanceWnode @ 0x140A81428
  * Callers:
- *     IoWMISetSingleInstance @ 0x1407A3AF0 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x1407A3C20 (IoWMISetSingleItem.c)
+ *     IoWMISetSingleInstance @ 0x1407A3C00 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1407A3D30 (IoWMISetSingleItem.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WmipAllocateSingleInstanceWnode(
@@ -42,7 +42,7 @@ __int64 __fastcall WmipAllocateSingleInstanceWnode(
         if ( a3 <= ~v13 )
         {
           v15 = a3 + v13;
-          Pool2 = ExAllocatePool2(0x40uLL);
+          Pool2 = ExAllocatePool2(0x40uLL, v15, 0x70696D57u);
           if ( Pool2 )
           {
             v8 = 0;

@@ -1,41 +1,35 @@
 /*
- * XREFs of RtlpHeapTrkDereferenceStack @ 0x1800FE00C
+ * XREFs of RtlpHeapTrkDereferenceStack @ 0x1800FDFCC
  * Callers:
- *     RtlpHeapTrkTrackRemove @ 0x1800FEB28 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FEC14 (RtlpHeapTrkTrackRemoveHeap.c)
+ *     RtlpHeapTrkTrackRemove @ 0x1800FEAE8 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FEBD4 (RtlpHeapTrkTrackRemoveHeap.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHeapTrkDereferenceStack(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall RtlpHeapTrkDereferenceStack(PVOID **BaseAddress)
 {
-  __int64 v5; // rdi
-  char v6; // si
-  __int64 v8; // rax
-  _QWORD *v9; // rcx
-  signed __int64 result; // rax
+  __int64 v2; // rdi
+  char v3; // si
+  PVOID *v5; // rax
+  PVOID *v6; // rcx
 
-  v5 = *(_WORD *)(a1 + 18) & 0xF;
-  v6 = 0;
-  RtlAcquireSRWLockExclusive(*(_QWORD *)(qword_18016DC08 + 8 * v5), a2, a3, a4);
-  if ( (*(_DWORD *)(a1 + 20))-- == 1 )
+  v2 = *((_WORD *)BaseAddress + 9) & 0xF;
+  v3 = 0;
+  RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_18016DBF8 + 8 * v2));
+  if ( (*((_DWORD *)BaseAddress + 5))-- == 1 )
   {
-    v8 = *(_QWORD *)a1;
-    if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) != a1 || (v9 = *(_QWORD **)(a1 + 8), *v9 != a1) )
+    v5 = *BaseAddress;
+    if ( (*BaseAddress)[1] != BaseAddress || (v6 = BaseAddress[1], *v6 != BaseAddress) )
       __fastfail(3u);
-    *v9 = v8;
-    v6 = 1;
-    *(_QWORD *)(v8 + 8) = v9;
-    _InterlockedDecrement(&dword_18016DA88);
+    *v6 = v5;
+    v3 = 1;
+    v5[1] = v6;
+    _InterlockedDecrement(&dword_18016DA78);
   }
-  result = RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_18016DC08 + 8 * v5));
-  if ( v6 )
-    return RtlFreeHeap(qword_18016DC10, 0, a1);
-  return result;
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_18016DBF8 + 8 * v2));
+  if ( v3 )
+    RtlFreeHeap(HeapHandle, 0, BaseAddress);
 }

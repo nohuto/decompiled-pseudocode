@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpUsbLegacyStopUhciInterrupt @ 0x14052119C
+ * XREFs of HalpUsbLegacyStopUhciInterrupt @ 0x1405216EC
  * Callers:
- *     HalpPiix4Detect @ 0x140A8F324 (HalpPiix4Detect.c)
- *     HalpStopLegacyUsbInterruptsInternal @ 0x140A982FC (HalpStopLegacyUsbInterruptsInternal.c)
+ *     HalpPiix4Detect @ 0x140A8F1A4 (HalpPiix4Detect.c)
+ *     HalpStopLegacyUsbInterruptsInternal @ 0x140A9816C (HalpStopLegacyUsbInterruptsInternal.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int16 __fastcall HalpUsbLegacyStopUhciInterrupt(__int64 a1, unsigned int a2, unsigned int a3, char a4)

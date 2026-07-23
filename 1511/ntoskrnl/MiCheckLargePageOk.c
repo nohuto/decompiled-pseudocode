@@ -11,7 +11,7 @@ __int64 __fastcall MiCheckLargePageOk(__int64 a1)
 {
   __int64 v1; // rdi
   __int64 v3; // r12
-  ULONG_PTR v4; // rbx
+  unsigned __int64 v4; // rbx
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // rsi
   __int64 v7; // r15
@@ -19,7 +19,7 @@ __int64 __fastcall MiCheckLargePageOk(__int64 a1)
   __int64 v9; // rdi
   unsigned __int64 v10; // rbp
   __int64 v11; // rsi
-  ULONG_PTR v12; // rbx
+  unsigned __int64 v12; // rbx
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // r13
   unsigned __int64 v15; // r9
@@ -46,7 +46,7 @@ __int64 __fastcall MiCheckLargePageOk(__int64 a1)
   v4 = *(_QWORD *)(v1 + 48);
   v5 = MI_READ_PTE_LOCK_FREE((__int64 *)(((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL));
   v6 = *(unsigned int *)(v1 + 64);
-  PsNtosImageBase = v4;
+  PsNtosImageBase = (PVOID)v4;
   v7 = (v5 >> 12) & 0xFFFFFFFFFLL;
   v8 = *(unsigned int *)(v1 + 64);
   v9 = *(_QWORD *)v1;
@@ -58,7 +58,7 @@ __int64 __fastcall MiCheckLargePageOk(__int64 a1)
   v13 = MI_GET_PAGE_FRAME_FROM_PTE(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v14 = *(unsigned int *)(v9 + 64);
   v15 = v13;
-  PsHalImageBase = v12;
+  PsHalImageBase = (PVOID)v12;
   v16 = v14 >> 12;
   PsHalImageEnd = v12 + *(unsigned int *)(v9 + 64);
   if ( MxUseLargePagesForKernelAndHal )

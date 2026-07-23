@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeWaitForSingleObjectNoReboot @ 0x14093A890
+ * XREFs of VerifierKeWaitForSingleObjectNoReboot @ 0x14093B890
  * Callers:
  *     <none>
  * Callees:
- *     ViKeWaitForSingleObjectCommon @ 0x14093B318 (ViKeWaitForSingleObjectCommon.c)
+ *     ViKeWaitForSingleObjectCommon @ 0x14093C318 (ViKeWaitForSingleObjectCommon.c)
  */
 
 __int64 __fastcall VerifierKeWaitForSingleObjectNoReboot(int a1, int a2, int a3, int a4, __int64 a5)

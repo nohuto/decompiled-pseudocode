@@ -1,20 +1,19 @@
 /*
- * XREFs of RtlTimeToSecondsSince1980 @ 0x1800DB830
+ * XREFs of RtlTimeToSecondsSince1980 @ 0x1800D5D90
  * Callers:
  *     <none>
  * Callees:
- *     RtlExtendedMagicDivide @ 0x1800DB870 (RtlExtendedMagicDivide.c)
+ *     RtlExtendedMagicDivide @ 0x1800D5DD0 (RtlExtendedMagicDivide.c)
  */
 
-char __fastcall RtlTimeToSecondsSince1980(_QWORD *a1, __int64 a2, __int64 a3)
+BOOLEAN __cdecl RtlTimeToSecondsSince1980(PLARGE_INTEGER Time, PULONG ElapsedSeconds)
 {
-  __int64 v3; // rax
-  _DWORD *v4; // r10
+  __int64 v2; // rax
+  _DWORD *v3; // r10
 
-  LOBYTE(a3) = 23;
-  v3 = RtlExtendedMagicDivide(*a1, Magic10000000, a3) - SecondsToStartOf1980;
-  if ( HIDWORD(v3) )
+  v2 = RtlExtendedMagicDivide(Time->QuadPart, Magic10000000, 23) - SecondsToStartOf1980;
+  if ( HIDWORD(v2) )
     return 0;
-  *v4 = v3;
+  *v3 = v2;
   return 1;
 }

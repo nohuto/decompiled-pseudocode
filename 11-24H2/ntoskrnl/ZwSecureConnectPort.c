@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwSecureConnectPort @ 0x1406A9690
+ * XREFs of ZwSecureConnectPort @ 0x1406AA630
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSecureConnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSecureConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PSID RequiredServerSid,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

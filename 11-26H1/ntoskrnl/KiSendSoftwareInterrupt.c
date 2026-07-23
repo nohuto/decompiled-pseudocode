@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSendSoftwareInterrupt @ 0x140446190
+ * XREFs of KiSendSoftwareInterrupt @ 0x14043EC90
  * Callers:
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404C4E10 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404BE7C0 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
  */
 
 __int64 __fastcall KiSendSoftwareInterrupt(int a1, char a2)

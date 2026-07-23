@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcInitializeHandleTable @ 0x1405E0D44
+ * XREFs of AlpcInitializeHandleTable @ 0x1406D04A4
  * Callers:
- *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
- *     AlpcpCreateConnectionPort @ 0x1406AA7A8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateConnectionPort @ 0x140608E98 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateClientPort @ 0x1406CFCAC (AlpcpCreateClientPort.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140213400 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall AlpcInitializeHandleTable(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall AlpcInitializeHandleTable(__int64 a1)
 
   *(_DWORD *)(a1 + 24) = 0;
   *(_QWORD *)(a1 + 8) = 0LL;
-  v2 = ExAllocateFromNPagedLookasideList(&stru_140CEC000);
+  v2 = ExAllocateFromNPagedLookasideList(&stru_140CEC040);
   *(_QWORD *)a1 = v2;
   if ( !v2 )
     return 3221225626LL;

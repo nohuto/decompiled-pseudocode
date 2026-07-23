@@ -1,24 +1,24 @@
 /*
- * XREFs of KiUpdateGlobalCpuSetConfiguration @ 0x14039DEEC
+ * XREFs of KiUpdateGlobalCpuSetConfiguration @ 0x14039E0CC
  * Callers:
- *     KeCpuSetReportParkedProcessors @ 0x14039D6B4 (KeCpuSetReportParkedProcessors.c)
+ *     KeCpuSetReportParkedProcessors @ 0x14039D894 (KeCpuSetReportParkedProcessors.c)
  * Callees:
  *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
- *     KiStartRescheduleContext @ 0x140238F20 (KiStartRescheduleContext.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiCheckThreadAffinity @ 0x140243590 (KiCheckThreadAffinity.c)
- *     KiFindRescheduleContextEntryForPrcb @ 0x140243B70 (KiFindRescheduleContextEntryForPrcb.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KiComputeThreadAffinity @ 0x1402BF834 (KiComputeThreadAffinity.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x140307F0C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
- *     KiCommitRescheduleContext @ 0x140308574 (KiCommitRescheduleContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwTraceIdealProcessor @ 0x1405FCD90 (EtwTraceIdealProcessor.c)
+ *     KiStartRescheduleContext @ 0x140238FF0 (KiStartRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiCheckThreadAffinity @ 0x140243660 (KiCheckThreadAffinity.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x140243C40 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KiComputeThreadAffinity @ 0x1402BFAC4 (KiComputeThreadAffinity.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x14030819C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiCommitRescheduleContext @ 0x140308804 (KiCommitRescheduleContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwTraceIdealProcessor @ 0x1405FD300 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KiUpdateGlobalCpuSetConfiguration(_QWORD *a1)

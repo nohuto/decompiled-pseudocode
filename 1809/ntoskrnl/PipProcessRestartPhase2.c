@@ -1,14 +1,14 @@
 /*
- * XREFs of PipProcessRestartPhase2 @ 0x140841820
+ * XREFs of PipProcessRestartPhase2 @ 0x140842A80
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
- *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
- *     IoRequestDeviceEject @ 0x140287CF0 (IoRequestDeviceEject.c)
- *     McTemplateK0dz @ 0x14028ACE4 (McTemplateK0dz.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x1406EB5B8 (PnpStartedDeviceNodeDependencyCheck.c)
- *     PnpRequestDeviceRemoval @ 0x1406EF20C (PnpRequestDeviceRemoval.c)
+ *     PipSetDevNodeState @ 0x140159ED8 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14015A028 (PoFxIdleDevice.c)
+ *     IoRequestDeviceEject @ 0x140287EE0 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz @ 0x14028AED4 (McTemplateK0dz.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1406EC858 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PnpRequestDeviceRemoval @ 0x1406F04AC (PnpRequestDeviceRemoval.c)
  */
 
 __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
@@ -17,7 +17,7 @@ __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
   int v5; // r8d
   __int64 v6; // r8
 
-  if ( (byte_140405847 & 0x10) != 0 )
+  if ( (byte_140406847 & 0x10) != 0 )
     McTemplateK0dz(a1, &KMPnPEvt_ProcessDeviceRestart_Start, a3, 2, *(const wchar_t **)(a1 + 48));
   v4 = *(_DWORD *)(a1 + 392);
   if ( v4 >= 0 )
@@ -39,7 +39,7 @@ __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
     if ( *(_DWORD *)(a1 + 568) )
       IoRequestDeviceEject(*(PDEVICE_OBJECT *)(a1 + 32));
   }
-  if ( (byte_140405847 & 0x10) != 0 )
+  if ( (byte_140406847 & 0x10) != 0 )
     McTemplateK0dz(*(_QWORD *)(a1 + 48), &KMPnPEvt_ProcessDeviceRestart_Stop, v6, 2, *(const wchar_t **)(a1 + 48));
   return (unsigned int)v4;
 }

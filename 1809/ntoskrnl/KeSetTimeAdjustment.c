@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetTimeAdjustment @ 0x14016821C
+ * XREFs of KeSetTimeAdjustment @ 0x14016831C
  * Callers:
- *     ExpUpdateTimerConfigurationWorker @ 0x14012EA10 (ExpUpdateTimerConfigurationWorker.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x14012EAE0 (ExpUpdateTimerConfigurationWorker.c)
  * Callees:
- *     KiUpdateSystemTime @ 0x14016AD28 (KiUpdateSystemTime.c)
- *     RtlGenerateQpcToIncrementConstants @ 0x14016AE54 (RtlGenerateQpcToIncrementConstants.c)
+ *     KiUpdateSystemTime @ 0x14016AE28 (KiUpdateSystemTime.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x14016AF54 (RtlGenerateQpcToIncrementConstants.c)
  */
 
 __int64 __fastcall KeSetTimeAdjustment(__int64 a1)

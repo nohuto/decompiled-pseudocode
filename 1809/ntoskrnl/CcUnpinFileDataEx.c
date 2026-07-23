@@ -4,13 +4,13 @@
  *     CcAcquireByteRangeForWrite @ 0x14001F590 (CcAcquireByteRangeForWrite.c)
  *     CcGetDirtyPagesHelper @ 0x140020430 (CcGetDirtyPagesHelper.c)
  *     CcReleaseByteRangeFromWrite @ 0x1400207F4 (CcReleaseByteRangeFromWrite.c)
- *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
- *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
- *     CcMapDataForOverwrite @ 0x14011A764 (CcMapDataForOverwrite.c)
- *     CcUnpinRepinnedBcb @ 0x140269DD0 (CcUnpinRepinnedBcb.c)
- *     CcUnpinData @ 0x1405DEDF0 (CcUnpinData.c)
- *     CcMapData @ 0x140638A10 (CcMapData.c)
- *     CcUnpinDataForThread @ 0x1407E8860 (CcUnpinDataForThread.c)
+ *     CcPinFileData @ 0x1400AE210 (CcPinFileData.c)
+ *     CcZeroDataInCache @ 0x1400E0844 (CcZeroDataInCache.c)
+ *     CcMapDataForOverwrite @ 0x14011A7D4 (CcMapDataForOverwrite.c)
+ *     CcUnpinRepinnedBcb @ 0x140269FC0 (CcUnpinRepinnedBcb.c)
+ *     CcUnpinData @ 0x1405DFDF0 (CcUnpinData.c)
+ *     CcMapData @ 0x140639A30 (CcMapData.c)
+ *     CcUnpinDataForThread @ 0x1407E9A60 (CcUnpinDataForThread.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -26,16 +26,16 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x14011B9FC (CcInsertIntoCleanSharedCacheMapList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x14011BA6C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 int __fastcall CcUnpinFileDataEx(char *P, __int64 a2, int a3)
@@ -120,7 +120,7 @@ int __fastcall CcUnpinFileDataEx(char *P, __int64 a2, int a3)
       _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140438BC0, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140439C80, CurrentIrql);
     }
     else
     {
@@ -137,7 +137,7 @@ int __fastcall CcUnpinFileDataEx(char *P, __int64 a2, int a3)
             KiRemoveSystemWorkPriorityKick(CurrentPrcb, a2);
         }
       }
-      if ( _interlockedbittestandset(&dword_140438BC0, 0x1Fu) )
+      if ( _interlockedbittestandset(&dword_140439C80, 0x1Fu) )
       {
         v41 = CurrentPrcb->SchedulerAssist;
         if ( v41 )
@@ -150,31 +150,31 @@ int __fastcall CcUnpinFileDataEx(char *P, __int64 a2, int a3)
               KiRemoveSystemWorkPriorityKick(CurrentPrcb, a2);
           }
         }
-        v57 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140438BC0, CurrentIrql);
+        v57 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140439C80, CurrentIrql);
       }
-      v14 = dword_140438BC0;
+      v14 = dword_140439C80;
       while ( (v14 & 0xBFFFFFFF) != 0x80000000 )
       {
         if ( (v14 & 0x40000000) == 0 )
         {
-          v46 = _InterlockedCompareExchange(&dword_140438BC0, v14 | 0x40000000, v14);
+          v46 = _InterlockedCompareExchange(&dword_140439C80, v14 | 0x40000000, v14);
           v26 = v14 == v46;
           v14 = v46;
           if ( !v26 )
             continue;
         }
         KeYieldProcessorEx(&v57);
-        v14 = dword_140438BC0;
+        v14 = dword_140439C80;
       }
     }
     if ( *(_QWORD *)v10 )
-      v15 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v10 + 60LL) & 0x3FF));
+      v15 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v10 + 60LL) & 0x3FF));
     else
       v15 = &MiSystemPartition;
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140438BC0, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140439C80, retaddr);
     else
-      dword_140438BC0 = 0;
+      dword_140439C80 = 0;
     v16 = KeGetCurrentPrcb();
     v17 = v16->SchedulerAssist;
     if ( v17 )
@@ -249,7 +249,7 @@ LABEL_28:
   v27 = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset(v18, 0) )
-    ExpAcquireFastMutexContended(v8 + 280, v22);
+    ExpAcquireFastMutexContended(v8 + 280, (PRTL_BALANCED_NODE)v22);
   if ( v22 )
     *(_BYTE *)(v22 + 26) |= 1u;
   *(_QWORD *)(v8 + 288) = KeGetCurrentThread();

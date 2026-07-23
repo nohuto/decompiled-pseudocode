@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSchedulingGroupWeights @ 0x140310E70
+ * XREFs of KeSetSchedulingGroupWeights @ 0x14045C2E8
  * Callers:
- *     PsSetCpuQuotaInformation @ 0x1405E4F54 (PsSetCpuQuotaInformation.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PsSetCpuQuotaInformation @ 0x1405E247C (PsSetCpuQuotaInformation.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x140310890 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
- *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x140310BD8 (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
- *     EtwTraceSchedulingGroup @ 0x14064DF08 (EtwTraceSchedulingGroup.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x14045C524 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14045C86C (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
+ *     EtwTraceSchedulingGroup @ 0x14064C518 (EtwTraceSchedulingGroup.c)
  */
 
 void __fastcall KeSetSchedulingGroupWeights(unsigned int a1, _QWORD *a2, __int64 a3)
@@ -100,7 +100,7 @@ void __fastcall KeSetSchedulingGroupWeights(unsigned int a1, _QWORD *a2, __int64
         {
           KiGroupSchedulingMinimumRate = 0;
         }
-        KiAssignSchedulingGroupWeights(1, 0, *(_QWORD *)(*v7 + 96LL));
+        KiAssignSchedulingGroupWeights(1LL, 0LL, *(_QWORD *)(*v7 + 96LL));
       }
 LABEL_22:
       v18 = (_QWORD *)*v7;
@@ -184,7 +184,7 @@ LABEL_22:
   while ( v29 != v6 );
 LABEL_45:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( (WORD2(xmmword_140FC5B10) & 0x4000) != 0 && (_DWORD)v3 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x4000) != 0 && (_DWORD)v3 )
   {
     v31 = v3;
     do

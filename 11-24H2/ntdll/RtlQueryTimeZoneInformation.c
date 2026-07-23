@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryTimeZoneInformation @ 0x18010EC90
+ * XREFs of RtlQueryTimeZoneInformation @ 0x180109C70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlQueryTimeZoneInformation(char *a1)
+NTSTATUS __cdecl RtlQueryTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return RtlpQueryTimeZoneInformationWorker(a1, 0xACuLL);
+  return RtlpQueryTimeZoneInformationWorker((char *)TimeZoneInformation, 0xACuLL);
 }

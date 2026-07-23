@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBuildScatterGatherListThin @ 0x1404CB62C
+ * XREFs of HalpBuildScatterGatherListThin @ 0x1404CB86C
  * Callers:
- *     HalBuildScatterGatherListThin @ 0x1404CABB0 (HalBuildScatterGatherListThin.c)
- *     HalBuildScatterGatherListThinEx @ 0x1404CAC30 (HalBuildScatterGatherListThinEx.c)
- *     HalGetScatterGatherListThin @ 0x1404CB180 (HalGetScatterGatherListThin.c)
- *     HalGetScatterGatherListThinEx @ 0x1404CB1F0 (HalGetScatterGatherListThinEx.c)
+ *     HalBuildScatterGatherListThin @ 0x1404CADF0 (HalBuildScatterGatherListThin.c)
+ *     HalBuildScatterGatherListThinEx @ 0x1404CAE70 (HalBuildScatterGatherListThinEx.c)
+ *     HalGetScatterGatherListThin @ 0x1404CB3C0 (HalGetScatterGatherListThin.c)
+ *     HalGetScatterGatherListThinEx @ 0x1404CB430 (HalGetScatterGatherListThinEx.c)
  * Callees:
- *     HalpConstructScatterGatherListThin @ 0x1404CB818 (HalpConstructScatterGatherListThin.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CBA58 (HalpConstructScatterGatherListThin.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpBuildScatterGatherListThin(

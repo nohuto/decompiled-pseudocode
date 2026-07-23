@@ -16,37 +16,37 @@
  *     sub_1800DDDE8 @ 0x1800DDDE8 (sub_1800DDDE8.c)
  */
 
-__int64 __fastcall sub_18006BB94(_DWORD *a1, unsigned int a2, wchar_t *a3, char a4)
+_WORD *__fastcall sub_18006BB94(_DWORD *a1, unsigned int a2, wchar_t *a3, char a4)
 {
-  unsigned __int64 v4; // rdi
+  ULONG_PTR v4; // rdi
   size_t v5; // r14
-  __int64 v6; // rbx
-  __int64 v7; // rsi
+  SIZE_T v6; // rbx
+  _WORD *v7; // rsi
   int v8; // r12d
   __int128 *v9; // r15
   unsigned int v10; // r13d
   _DWORD *v11; // r15
   void *v12; // rax
-  _WORD *Heap; // rax
-  int v14; // eax
+  PVOID Heap; // rax
+  NTSTATUS v14; // eax
   _WORD *v15; // rdi
   unsigned int v16; // r14d
   unsigned int v17; // ebx
   unsigned int v18; // r15d
   size_t v19; // r13
-  unsigned __int64 v20; // r12
+  ULONG_PTR v20; // r12
   __int128 *v21; // rax
   _DWORD *v22; // rdx
   size_t v23; // rax
-  __int64 v25; // rax
+  __int64 Length; // rax
   int v26; // eax
   void **v27; // rbx
-  int EnvironmentVariable; // [rsp+30h] [rbp-48h]
-  unsigned __int64 v29; // [rsp+38h] [rbp-40h] BYREF
+  NTSTATUS v28; // [rsp+30h] [rbp-48h]
+  ULONG_PTR ReturnLength; // [rsp+38h] [rbp-40h] BYREF
   size_t Size; // [rsp+40h] [rbp-38h]
   __int128 *v31; // [rsp+48h] [rbp-30h]
   size_t v32; // [rsp+50h] [rbp-28h]
-  void *v33; // [rsp+58h] [rbp-20h]
+  PVOID BaseAddress; // [rsp+58h] [rbp-20h]
   void *Src; // [rsp+60h] [rbp-18h]
   void *v35; // [rsp+68h] [rbp-10h]
   _DWORD *v36; // [rsp+C0h] [rbp+48h]
@@ -56,7 +56,7 @@ __int64 __fastcall sub_18006BB94(_DWORD *a1, unsigned int a2, wchar_t *a3, char 
   v39 = a4;
   v38 = a3;
   v36 = a1;
-  v4 = ((unsigned __int64)xmmword_18017A370 >> 60) & 3;
+  v4 = (LdrSystemDllInitBlock.MitigationOptionsMap.Map[0] >> 60) & 3;
   v35 = 0LL;
   v32 = 0LL;
   v5 = 0LL;
@@ -64,11 +64,11 @@ __int64 __fastcall sub_18006BB94(_DWORD *a1, unsigned int a2, wchar_t *a3, char 
   v6 = 112LL;
   Size = 0LL;
   v7 = 0LL;
-  v33 = 0LL;
+  BaseAddress = 0LL;
   v8 = 0;
-  v29 = 0LL;
+  ReturnLength = 0LL;
   v9 = 0LL;
-  EnvironmentVariable = 0;
+  v28 = 0;
   v10 = 0;
   v31 = 0LL;
   if ( a2 )
@@ -83,40 +83,40 @@ __int64 __fastcall sub_18006BB94(_DWORD *a1, unsigned int a2, wchar_t *a3, char 
           case 1:
             goto LABEL_67;
           case 2:
-            v6 += (unsigned __int16)xmmword_180166318;
+            v6 += stru_180166318.Length;
             if ( (_BYTE)v4 == 1 )
-              v31 = &xmmword_180166318;
+              v31 = (__int128 *)&stru_180166318;
             break;
           case 3:
-            RtlEnterCriticalSection((__int64)&unk_180164FE0);
-            EnvironmentVariable = RtlQueryEnvironmentVariable(0LL, L"PATH", 4uLL, 0LL, 0LL, (__int64)&v29);
-            v8 = EnvironmentVariable;
-            if ( EnvironmentVariable == -1073741789 )
+            RtlEnterCriticalSection(&stru_180164FE0);
+            v28 = RtlQueryEnvironmentVariable(0LL, L"PATH", 4uLL, 0LL, 0LL, &ReturnLength);
+            v8 = v28;
+            if ( v28 == -1073741789 )
             {
-              Heap = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18016542C + 1572864, 2 * v29);
-              v33 = Heap;
+              Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, Flags + 1572864, 2 * ReturnLength);
+              BaseAddress = Heap;
               if ( !Heap )
               {
-                RtlLeaveCriticalSection((__int64)&unk_180164FE0);
+                RtlLeaveCriticalSection(&stru_180164FE0);
                 return v7;
               }
-              v14 = RtlQueryEnvironmentVariable(0LL, L"PATH", 4uLL, Heap, v29, (__int64)&v29);
+              v14 = RtlQueryEnvironmentVariable(0LL, L"PATH", 4uLL, (PWSTR)Heap, ReturnLength, &ReturnLength);
               v5 = Size;
               v8 = v14;
-              EnvironmentVariable = v14;
+              v28 = v14;
             }
-            RtlLeaveCriticalSection((__int64)&unk_180164FE0);
+            RtlLeaveCriticalSection(&stru_180164FE0);
             if ( v8 == -1073741568 )
             {
-              v29 = 0LL;
+              ReturnLength = 0LL;
               v8 = 0;
-              EnvironmentVariable = 0;
+              v28 = 0;
             }
             else
             {
               if ( v8 < 0 )
                 goto LABEL_43;
-              v6 += 2 * v29 + 2;
+              v6 += 2 * ReturnLength + 2;
             }
             break;
           case 4:
@@ -139,7 +139,7 @@ LABEL_67:
             v6 += v32 + 2;
             break;
           case 6:
-            v25 = (unsigned __int16)word_18015F3E8;
+            Length = (unsigned __int16)word_18015F3E8;
             goto LABEL_71;
           case 7:
             v6 += (unsigned __int16)xmmword_180166308;
@@ -149,17 +149,17 @@ LABEL_67:
               v31 = &xmmword_180166308;
             break;
           default:
-            v25 = (unsigned __int16)xmmword_180164390;
+            Length = (unsigned __int16)xmmword_180164390;
 LABEL_70:
             v6 += 2LL;
 LABEL_71:
-            v6 += v25;
+            v6 += Length;
             break;
         }
       }
-      else if ( (_WORD)xmmword_180166020 )
+      else if ( stru_180166020.Length )
       {
-        v25 = (unsigned __int16)xmmword_180166020;
+        Length = stru_180166020.Length;
         goto LABEL_70;
       }
       ++v10;
@@ -173,28 +173,28 @@ LABEL_71:
       a4 = v39;
     }
   }
-  if ( (unsigned __int64)(v6 - 112) > 0xFFFE )
+  if ( v6 - 112 > 0xFFFE )
   {
     v8 = -1073741562;
   }
   else
   {
-    v7 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+    v7 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
     if ( v7 )
     {
-      v15 = (_WORD *)(v7 + 112);
-      *(_WORD *)(v7 + 72) = a2;
+      v15 = v7 + 56;
+      v7[36] = a2;
       v16 = 0;
-      *(_DWORD *)(v7 + 96) = v6;
-      *(_QWORD *)(v7 + 104) = 0LL;
+      *((_DWORD *)v7 + 24) = v6;
+      *((_QWORD *)v7 + 13) = 0LL;
       if ( v9 )
       {
-        *(_QWORD *)(v7 + 24) = v15;
+        *((_QWORD *)v7 + 3) = v15;
         v26 = 7;
         if ( &xmmword_180166308 != v9 )
           v26 = 2;
         *(_DWORD *)v7 = v26;
-        memmove((void *)(v7 + 112), *((const void **)v9 + 1), *(unsigned __int16 *)v9);
+        memmove(v7 + 56, *((const void **)v9 + 1), *(unsigned __int16 *)v9);
         v16 = 1;
         v15 += (unsigned __int64)*(unsigned __int16 *)v9 >> 1;
         if ( v39 )
@@ -205,30 +205,30 @@ LABEL_71:
       if ( a2 )
       {
         v19 = Size;
-        v20 = v29;
+        v20 = ReturnLength;
         v21 = v31;
         v22 = v36;
         while ( 1 )
         {
           if ( v21 && (*v22 == 2 || *v22 == 7) )
             goto LABEL_40;
-          *(_DWORD *)(v7 + 4LL * v16) = *v22;
-          *(_QWORD *)(v7 + 8LL * v16 + 24) = v15;
+          *(_DWORD *)&v7[2 * v16] = *v22;
+          *(_QWORD *)&v7[4 * v16 + 12] = v15;
           if ( !*v22 )
             break;
           if ( *v22 == 1 )
             goto LABEL_68;
           if ( *v22 == 2 )
           {
-            memmove(v15, *((const void **)&xmmword_180166318 + 1), (unsigned __int16)xmmword_180166318);
-            v15 += (unsigned __int64)(unsigned __int16)xmmword_180166318 >> 1;
+            memmove(v15, stru_180166318.Buffer, stru_180166318.Length);
+            v15 += (unsigned __int64)stru_180166318.Length >> 1;
             goto LABEL_38;
           }
           if ( *v22 != 3 )
           {
             if ( *v22 == 4 )
             {
-              *(_QWORD *)(v7 + 104) = v15;
+              *((_QWORD *)v7 + 13) = v15;
               *v15 = 46;
               v15 += 2;
               *(v15 - 1) = 59;
@@ -250,7 +250,7 @@ LABEL_71:
                   }
                   while ( v27 != (void **)&off_18015F3D8 );
                   v19 = Size;
-                  v20 = v29;
+                  v20 = ReturnLength;
 LABEL_51:
                   v22 = v36;
                 }
@@ -268,7 +268,7 @@ LABEL_51:
               {
                 *(v15 - 1) = 0;
                 memmove(v15, *((const void **)&xmmword_180164390 + 1), (unsigned __int16)xmmword_180164390);
-                *(_QWORD *)(v7 + 88) = v15;
+                *((_QWORD *)v7 + 11) = v15;
                 v15 += ((unsigned __int64)(unsigned __int16)xmmword_180164390 >> 1) + 1;
               }
               goto LABEL_38;
@@ -288,7 +288,7 @@ LABEL_68:
           }
           if ( v20 )
           {
-            memmove(v15, v33, 2 * v20);
+            memmove(v15, BaseAddress, 2 * v20);
             v15 += v20 + 1;
             *(v15 - 1) = 59;
             goto LABEL_51;
@@ -302,14 +302,14 @@ LABEL_40:
           v36 = v22;
           if ( v18 >= v17 )
           {
-            v8 = EnvironmentVariable;
+            v8 = v28;
             goto LABEL_42;
           }
         }
-        if ( !(_WORD)xmmword_180166020 )
+        if ( !stru_180166020.Length )
           goto LABEL_39;
-        memmove(v15, *((const void **)&xmmword_180166020 + 1), (unsigned __int16)xmmword_180166020);
-        v23 = (unsigned __int16)xmmword_180166020;
+        memmove(v15, stru_180166020.Buffer, stru_180166020.Length);
+        v23 = stru_180166020.Length;
 LABEL_36:
         v15 += (v23 >> 1) + 1;
         *(v15 - 1) = 59;
@@ -326,11 +326,11 @@ LABEL_42:
     }
   }
 LABEL_43:
-  if ( v33 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v33);
+  if ( BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   if ( v7 && v8 < 0 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     return 0LL;
   }
   return v7;

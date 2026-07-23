@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkCalculateCoreParkingMask @ 0x1401222B0
+ * XREFs of PpmParkCalculateCoreParkingMask @ 0x140122380
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KeCpuSetQueryUnparkRecommendation @ 0x140296520 (KeCpuSetQueryUnparkRecommendation.c)
- *     PpmEventLPICoreParking @ 0x1402E586C (PpmEventLPICoreParking.c)
- *     PpmEventTraceCoreParkingSelection @ 0x1402E64B0 (PpmEventTraceCoreParkingSelection.c)
- *     PpmParkChooseCoresToUnpark @ 0x1402E7790 (PpmParkChooseCoresToUnpark.c)
- *     PpmParkComputeDiff @ 0x1402E7E6C (PpmParkComputeDiff.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KeCpuSetQueryUnparkRecommendation @ 0x140296710 (KeCpuSetQueryUnparkRecommendation.c)
+ *     PpmEventLPICoreParking @ 0x1402E5A5C (PpmEventLPICoreParking.c)
+ *     PpmEventTraceCoreParkingSelection @ 0x1402E66A0 (PpmEventTraceCoreParkingSelection.c)
+ *     PpmParkChooseCoresToUnpark @ 0x1402E7980 (PpmParkChooseCoresToUnpark.c)
+ *     PpmParkComputeDiff @ 0x1402E805C (PpmParkComputeDiff.c)
  */
 
 char PpmParkCalculateCoreParkingMask()
@@ -78,7 +78,7 @@ char PpmParkCalculateCoreParkingMask()
     return 1;
   v1 = 0;
   v59 = 0;
-  v51 = &PpmCurrentProfile[341 * dword_1404180CC];
+  v51 = &PpmCurrentProfile[341 * dword_14041918C];
   v2 = 100 * *((unsigned __int8 *)v51 + 164);
   v47 = v2;
   if ( !PpmParkNumNodes )

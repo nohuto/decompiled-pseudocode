@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAllocateUserPhysicalPages @ 0x140877868
+ * XREFs of MiAllocateUserPhysicalPages @ 0x14087DC48
  * Callers:
- *     NtAllocateUserPhysicalPages @ 0x1408793A0 (NtAllocateUserPhysicalPages.c)
- *     NtAllocateUserPhysicalPagesEx @ 0x1408793C0 (NtAllocateUserPhysicalPagesEx.c)
+ *     NtAllocateUserPhysicalPages @ 0x14087F780 (NtAllocateUserPhysicalPages.c)
+ *     NtAllocateUserPhysicalPagesEx @ 0x14087F7A0 (NtAllocateUserPhysicalPagesEx.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAllocateUserPhysicalPagesAddMdl @ 0x140877984 (MiAllocateUserPhysicalPagesAddMdl.c)
- *     MiAllocateUserPhysicalPagesCleanup @ 0x140877BB0 (MiAllocateUserPhysicalPagesCleanup.c)
- *     MiAllocateUserPhysicalPagesMdl @ 0x140877C6C (MiAllocateUserPhysicalPagesMdl.c)
- *     MiAllocateUserPhysicalPagesPrepare @ 0x140877FB8 (MiAllocateUserPhysicalPagesPrepare.c)
- *     MiAllocateUserPhysicalPagesReturnResults @ 0x14087844C (MiAllocateUserPhysicalPagesReturnResults.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAllocateUserPhysicalPagesAddMdl @ 0x14087DD64 (MiAllocateUserPhysicalPagesAddMdl.c)
+ *     MiAllocateUserPhysicalPagesCleanup @ 0x14087DF90 (MiAllocateUserPhysicalPagesCleanup.c)
+ *     MiAllocateUserPhysicalPagesMdl @ 0x14087E04C (MiAllocateUserPhysicalPagesMdl.c)
+ *     MiAllocateUserPhysicalPagesPrepare @ 0x14087E398 (MiAllocateUserPhysicalPagesPrepare.c)
+ *     MiAllocateUserPhysicalPagesReturnResults @ 0x14087E82C (MiAllocateUserPhysicalPagesReturnResults.c)
  */
 
 __int64 __fastcall MiAllocateUserPhysicalPages(HANDLE Handle, __int64 a2, __int64 a3, __int64 a4, int a5)

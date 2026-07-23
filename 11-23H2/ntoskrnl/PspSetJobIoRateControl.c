@@ -1,25 +1,25 @@
 /*
- * XREFs of PspSetJobIoRateControl @ 0x1407D809C
+ * XREFs of PspSetJobIoRateControl @ 0x1407D836C
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PspIoRateControlInfoIsAnySet @ 0x140362644 (PspIoRateControlInfoIsAnySet.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PspIoRateControlInfoIsAnySet @ 0x1403627E4 (PspIoRateControlInfoIsAnySet.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PspJobIoRateControlDisable @ 0x140687E3C (PspJobIoRateControlDisable.c)
  *     PspLockRootJobExclusive @ 0x14069F000 (PspLockRootJobExclusive.c)
  *     PspUnlockJobConditionally @ 0x1406A30A0 (PspUnlockJobConditionally.c)
  *     PspLockJobConditionally @ 0x1406A30D0 (PspLockJobConditionally.c)
  *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
- *     PspSetJobIoAttribution @ 0x1407D82E4 (PspSetJobIoAttribution.c)
- *     PspIoRateEntryActivate @ 0x1407D866C (PspIoRateEntryActivate.c)
- *     PspIoRateEntryDeactivate @ 0x1407D8778 (PspIoRateEntryDeactivate.c)
- *     PspSetJobIoRateControlForVolume @ 0x1409B2AB4 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoAttribution @ 0x1407D85B4 (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x1407D893C (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryDeactivate @ 0x1407D8A48 (PspIoRateEntryDeactivate.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1409B2CB4 (PspSetJobIoRateControlForVolume.c)
  */
 
 __int64 __fastcall PspSetJobIoRateControl(volatile signed __int64 *Object, __int64 a2)

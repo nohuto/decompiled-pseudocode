@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPopGeneral @ 0x1404E5800
+ * XREFs of XmPopGeneral @ 0x1404E5A40
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
- *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDestinationValue @ 0x1403970E8 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397164 (XmEvaluateAddressSpecifier.c)
  */
 
 __int64 __fastcall XmPopGeneral(__int64 a1)

@@ -12,7 +12,7 @@ __int64 LdrpGenRandom()
 {
   unsigned int i; // ecx
 
-  if ( (unsigned __int8)RtlIsProcessorFeaturePresent(28LL) )
+  if ( RtlIsProcessorFeaturePresent(0x1Cu) )
   {
     for ( i = 0; i < 0xA; ++i )
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpFlushAndWait @ 0x1403FA0F0
+ * XREFs of HalpFlushAndWait @ 0x1403FA2D0
  * Callers:
- *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140386080 (HaliAcpiSleep.c)
  * Callees:
- *     KeSweepLocalCaches @ 0x1403821F0 (KeSweepLocalCaches.c)
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
+ *     KeSweepLocalCaches @ 0x140381D40 (KeSweepLocalCaches.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
  */
 
 unsigned __int64 __fastcall HalpFlushAndWait(volatile signed __int32 *a1)

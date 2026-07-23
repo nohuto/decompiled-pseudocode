@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUnmapViewOfSection @ 0x1404D8178
+ * XREFs of NtUnmapViewOfSection @ 0x1404BB77C
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 NTSTATUS __stdcall NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  return NtUnmapViewOfSectionEx((ULONG_PTR)ProcessHandle, (unsigned __int64)BaseAddress, 0);
+  return NtUnmapViewOfSectionEx(ProcessHandle, BaseAddress, 0);
 }

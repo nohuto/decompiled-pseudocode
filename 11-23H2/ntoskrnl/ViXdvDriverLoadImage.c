@@ -1,24 +1,24 @@
 /*
- * XREFs of ViXdvDriverLoadImage @ 0x140ACAA4C
+ * XREFs of ViXdvDriverLoadImage @ 0x140ACAA3C
  * Callers:
- *     VfDriverLoadSucceeded @ 0x140ABCEB0 (VfDriverLoadSucceeded.c)
+ *     VfDriverLoadSucceeded @ 0x140ABCEA0 (VfDriverLoadSucceeded.c)
  *     ViLogAndLoadXdv @ 0x140B96CF4 (ViLogAndLoadXdv.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
- *     strcmp @ 0x1403DB0F0 (strcmp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405CE2D4 (VfUtilDbgPrint.c)
- *     ViXdvSetXdvKernelUtilities @ 0x1405CF1D0 (ViXdvSetXdvKernelUtilities.c)
- *     ViXdvGetFuncAddress @ 0x140ACAC30 (ViXdvGetFuncAddress.c)
+ *     strcmp @ 0x1403DB2D0 (strcmp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405CE844 (VfUtilDbgPrint.c)
+ *     ViXdvSetXdvKernelUtilities @ 0x1405CF740 (ViXdvSetXdvKernelUtilities.c)
+ *     ViXdvGetFuncAddress @ 0x140ACAC20 (ViXdvGetFuncAddress.c)
  */
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)
 {
-  __int64 v1; // r14
-  __int64 v2; // rax
-  __int64 v3; // rdi
+  char *v1; // r14
+  _DWORD *v2; // rax
+  _DWORD *v3; // rdi
   __int64 v4; // rsi
-  __int64 v5; // r15
+  char *v5; // r15
   char v6; // bl
   const char *v7; // rbp
   void (__fastcall *FuncAddress)(__int64 (__fastcall **)(PCONTEXT), __int64 *, __int64); // rax
@@ -27,19 +27,19 @@ char __fastcall ViXdvDriverLoadImage(__int64 a1)
   void *v11; // rax
   __int64 (__fastcall *v12)(_QWORD); // rax
   void (*v13)(void); // rax
-  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
-  v2 = RtlImageDirectoryEntryToData(v1, 1, 0, (int)&v15);
+  v1 = *(char **)(a1 + 48);
+  v2 = RtlImageDirectoryEntryToData(v1, 1u, 0, &v15);
   v3 = v2;
-  if ( v2 && *(_DWORD *)(v2 + 24) )
+  if ( v2 && v2[6] )
   {
     v4 = 0LL;
-    v5 = v1 + *(unsigned int *)(v2 + 32);
+    v5 = &v1[v2[8]];
     v6 = 1;
     while ( 1 )
     {
-      v7 = (const char *)(v1 + *(unsigned int *)(v5 + 4 * v4));
+      v7 = &v1[*(unsigned int *)&v5[4 * v4]];
       if ( !strcmp("SetXdvKernelUtilities", v7) )
       {
         FuncAddress = (void (__fastcall *)(__int64 (__fastcall **)(PCONTEXT), __int64 *, __int64))ViXdvGetFuncAddress(
@@ -107,7 +107,7 @@ LABEL_24:
       }
 LABEL_25:
       v4 = (unsigned int)(v4 + 1);
-      if ( (unsigned int)v4 >= *(_DWORD *)(v3 + 24) )
+      if ( (unsigned int)v4 >= v3[6] )
         return v6;
     }
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of KeRegisterObjectNotification @ 0x1402509B0
+ * XREFs of KeRegisterObjectNotification @ 0x140250A70
  * Callers:
- *     NtAssociateWaitCompletionPacket @ 0x140250530 (NtAssociateWaitCompletionPacket.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140304C0C (ExpTryEnterWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryManagerThread @ 0x14038EA40 (ExpWorkerFactoryManagerThread.c)
- *     NtCreateWorkerFactory @ 0x140785B90 (NtCreateWorkerFactory.c)
+ *     NtAssociateWaitCompletionPacket @ 0x140250600 (NtAssociateWaitCompletionPacket.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140304E9C (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14038EC20 (ExpWorkerFactoryManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x140785D80 (NtCreateWorkerFactory.c)
  *     ExpWorkerFactoryInitialization @ 0x140B72530 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KiWaitSatisfyOther @ 0x14034B3B4 (KiWaitSatisfyOther.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KiWaitSatisfyOther @ 0x14034B554 (KiWaitSatisfyOther.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
@@ -48,7 +48,7 @@ char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v7) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -72,7 +72,7 @@ char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
     *(_QWORD *)a3 = v13;
     v14 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
     {
       v19 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v14 != 2 )
@@ -111,7 +111,7 @@ LABEL_29:
     }
     _InterlockedAnd((volatile signed __int32 *)a2, 0xFFFFFF7F);
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
     return 1;
   }
   v8 = *(_QWORD **)(a1 + 16);
@@ -122,10 +122,10 @@ LABEL_29:
   *v8 = a3;
   *(_QWORD *)(a1 + 16) = a3;
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

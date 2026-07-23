@@ -65,7 +65,7 @@ __int64 CmFcManagerStartRuntimePhase()
   __int64 v23; // r14
   __int64 v24; // rcx
   __int128 v25; // xmm1
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   const WCHAR *v27; // rdx
   __int64 v28; // rbx
   void *v29; // rax
@@ -77,7 +77,7 @@ __int64 CmFcManagerStartRuntimePhase()
   __int64 *v35; // rdi
   __int64 v36; // r14
   __int64 *v37; // rdi
-  __int64 v39; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 Buffer; // [rsp+48h] [rbp-C0h] BYREF
   __int64 DestinationString[3]; // [rsp+50h] [rbp-B8h] BYREF
   _QWORD v41[12]; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD v42[3]; // [rsp+C8h] [rbp-40h] BYREF
@@ -85,7 +85,7 @@ __int64 CmFcManagerStartRuntimePhase()
   __int64 v44[3]; // [rsp+F8h] [rbp-10h] BYREF
   __int64 v45[3]; // [rsp+110h] [rbp+8h] BYREF
 
-  v39 = 0LL;
+  Buffer = 0LL;
   v0 = v42;
   v1 = 4LL;
   *(_OWORD *)&DestinationString[1] = 0LL;
@@ -115,9 +115,9 @@ __int64 CmFcManagerStartRuntimePhase()
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    CmpVolumeManagerLockContextListExclusive(&stru_140EF6B70);
-    RtlpFcBufferManagerReferenceBuffers((__int64)qword_140EF6BE8, (__int64)&v39, DestinationString);
-    v7 = v39;
+    CmpVolumeManagerLockContextListExclusive((unsigned __int64 *)&stru_140EF6B70);
+    RtlpFcBufferManagerReferenceBuffers((__int64)qword_140EF6BE8, (__int64)&Buffer, DestinationString);
+    v7 = Buffer;
     v8 = v42;
     v9 = 4LL;
     do
@@ -140,7 +140,7 @@ __int64 CmFcManagerStartRuntimePhase()
       if ( SectionFromBuffer < 0 )
         goto LABEL_47;
       CmFcpCopySectionState((__int64)v43, (__int64)v42);
-      v7 = v39;
+      v7 = Buffer;
     }
     v12 = (void *)v10[7];
     if ( v12 )
@@ -148,7 +148,7 @@ __int64 CmFcManagerStartRuntimePhase()
       SectionFromBuffer = CmFcpManagerCreateSectionFromBuffer(v12, v10[8], v7, CmFcSystemManager[0], (__int64)v44);
       if ( SectionFromBuffer < 0 )
         goto LABEL_47;
-      v7 = v39;
+      v7 = Buffer;
     }
     v13 = (void *)v10[10];
     if ( !v13
@@ -167,7 +167,7 @@ __int64 CmFcManagerStartRuntimePhase()
         v14 = (unsigned int)(v14 + 1);
       }
       while ( (unsigned int)v14 < 4 );
-      CmpVolumeManagerLockContextListExclusive(&stru_140EF6B68);
+      CmpVolumeManagerLockContextListExclusive((unsigned __int64 *)&stru_140EF6B68);
       v16 = 0LL;
       do
       {
@@ -175,11 +175,18 @@ __int64 CmFcManagerStartRuntimePhase()
         v16 = v17 + 24;
       }
       while ( v18 != 1 );
-      RtlpFcBufferManagerUpdateBuffers(qword_140EF6BE8, v39, (__int64)v41);
+      RtlpFcBufferManagerUpdateBuffers(qword_140EF6BE8, Buffer, (__int64)v41);
       memset_0(v41, 0, sizeof(v41));
-      RtlpFcWriteHighLowHigh(MmWriteableSharedUserData + 1824, v39);
+      RtlpFcWriteHighLowHigh(MmWriteableSharedUserData + 1824, Buffer);
       CmSiRWLockReleaseExclusive((volatile signed __int64 *)&stru_140EF6B68);
-      SectionFromBuffer = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v39);
+      SectionFromBuffer = ZwUpdateWnfStateData(
+                            &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+                            &Buffer,
+                            8u,
+                            &CmFcpWnfTypeId,
+                            0LL,
+                            0,
+                            0);
       if ( SectionFromBuffer < 0 )
         goto LABEL_52;
       for ( i = 0; i < 2; ++i )
@@ -245,7 +252,7 @@ __int64 CmFcManagerStartRuntimePhase()
                               8u);
           if ( qword_140EF7168 )
           {
-            CmpVolumeManagerLockContextListExclusive(&stru_140EF70D8);
+            CmpVolumeManagerLockContextListExclusive((unsigned __int64 *)&stru_140EF70D8);
             v2 = 1;
             v28 = ((unsigned __int8)RtlGetSwapReferenceIndex(qword_140EF6F10) - 1) & 1;
             v29 = (void *)ExAllocatePool2(0x40uLL, 0x1000uLL, 0x63466D43uLL);

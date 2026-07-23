@@ -7,13 +7,13 @@
  *     PopDispatchStateCallout @ 0x140A2C7C0 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PdcPoBlockSessionSwitchEx(char a1, int *a2, _QWORD *a3)
+__int64 __fastcall PdcPoBlockSessionSwitchEx(char a1, ULONG *a2, _QWORD *a3)
 {
   unsigned int v3; // ebx
   __int128 v5; // [rsp+20h] [rbp-38h] BYREF
   __int128 v6; // [rsp+30h] [rbp-28h]
   __int64 v7; // [rsp+40h] [rbp-18h]
-  int v8; // [rsp+60h] [rbp+8h] BYREF
+  ULONG v8; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = 0;
   v7 = 0LL;

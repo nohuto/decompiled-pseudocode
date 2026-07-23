@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFreeVadRange @ 0x140309BA0
+ * XREFs of MiFreeVadRange @ 0x140309E30
  * Callers:
- *     MmFreeVirtualMemory @ 0x1407450C0 (MmFreeVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x140A45B60 (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x140A45D24 (MmStoreFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1407452B0 (MmFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A45E10 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140A45FD4 (MmStoreFreeVirtualMemory.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289B40 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B330 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiDeletePartialVad @ 0x140309CD4 (MiDeletePartialVad.c)
- *     MiLocateLockedVadEvent @ 0x14030B424 (MiLocateLockedVadEvent.c)
- *     MiCanDeleteEnclave @ 0x140647148 (MiCanDeleteEnclave.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiPrepareVadDelete @ 0x14076D4F4 (MiPrepareVadDelete.c)
- *     MiAllocateVad @ 0x1407CFBD8 (MiAllocateVad.c)
- *     PerfInfoLogVirtualFree @ 0x1409E70C4 (PerfInfoLogVirtualFree.c)
- *     MiLockNestedVad @ 0x140A47BA8 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x140A47BF8 (MiUnlockNestedVad.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140289DD0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14028B5C0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiDeletePartialVad @ 0x140309F64 (MiDeletePartialVad.c)
+ *     MiLocateLockedVadEvent @ 0x14030B6B4 (MiLocateLockedVadEvent.c)
+ *     MiCanDeleteEnclave @ 0x140647698 (MiCanDeleteEnclave.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiPrepareVadDelete @ 0x14076D6E4 (MiPrepareVadDelete.c)
+ *     MiAllocateVad @ 0x1407CFEA8 (MiAllocateVad.c)
+ *     PerfInfoLogVirtualFree @ 0x1409E7354 (PerfInfoLogVirtualFree.c)
+ *     MiLockNestedVad @ 0x140A47E58 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A47EA8 (MiUnlockNestedVad.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

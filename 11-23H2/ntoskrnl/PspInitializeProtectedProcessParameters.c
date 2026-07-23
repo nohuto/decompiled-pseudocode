@@ -1,10 +1,10 @@
 /*
- * XREFs of PspInitializeProtectedProcessParameters @ 0x14084CFE4
+ * XREFs of PspInitializeProtectedProcessParameters @ 0x14084D2E4
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  *     PspInitPhase2 @ 0x140B67208 (PspInitPhase2.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

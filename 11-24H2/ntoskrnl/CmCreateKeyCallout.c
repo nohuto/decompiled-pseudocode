@@ -1,9 +1,9 @@
 /*
- * XREFs of CmCreateKeyCallout @ 0x1406F5150
+ * XREFs of CmCreateKeyCallout @ 0x1406F3150
  * Callers:
  *     <none>
  * Callees:
- *     CmCreateKey @ 0x140A26874 (CmCreateKey.c)
+ *     CmCreateKey @ 0x140A1B2F4 (CmCreateKey.c)
  */
 
 void __fastcall CmCreateKeyCallout(_QWORD *Parameter)

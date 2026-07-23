@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMoveBadPagePartition @ 0x14068B054
+ * XREFs of MiMoveBadPagePartition @ 0x14068C184
  * Callers:
- *     MiTransferPartitionPageRun @ 0x14068B4FC (MiTransferPartitionPageRun.c)
+ *     MiTransferPartitionPageRun @ 0x14068C62C (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiUnlinkPageFromBadList @ 0x14039398C (MiUnlinkPageFromBadList.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14068B904 (MiUpdatePartitionChildPageCounts.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiUnlinkPageFromBadList @ 0x1403F6AAC (MiUnlinkPageFromBadList.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14068CA34 (MiUpdatePartitionChildPageCounts.c)
  */
 
 __int64 __fastcall MiMoveBadPagePartition(__int64 a1, ULONG *a2, ULONG_PTR a3)
 {
   MiUnlinkPageFromBadList(a3, 0);
-  MiAcquireNonPagedResources(a2, 1uLL, 0LL, 1u);
+  MiAcquireNonPagedResources(a2, 1uLL, 0LL, 1LL);
   MiReleaseNonPagedResources(a1, 1uLL);
   *(_QWORD *)(a3 + 40) = ((unsigned __int64)*(unsigned __int16 *)a2 << 43) ^ (*(_QWORD *)(a3 + 40) ^ ((unsigned __int64)*(unsigned __int16 *)a2 << 43)) & 0xFFE007FFFFFFFFFFuLL;
   *(_QWORD *)(a3 + 16) &= 0xFFFFFFFFF7FFF3FFuLL;

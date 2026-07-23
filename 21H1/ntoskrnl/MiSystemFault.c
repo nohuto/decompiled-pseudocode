@@ -214,7 +214,7 @@ LABEL_20:
   }
   v9 = (__int64)&ExpInterlockedPopEntrySListFault;
   v18 = *(_QWORD *)(v13 + 360);
-  v17 = KiDynamicTraceEnabled && v18 >= qword_140CFCBA8 && v18 < qword_140CFCBB0 && KeGetCurrentIrql() == 15;
+  v17 = KiDynamicTraceEnabled && v18 >= ControlPc && v18 < qword_140CFCBB0 && KeGetCurrentIrql() == 15;
 LABEL_18:
   if ( v18 != v9 && !v17 )
     goto LABEL_20;

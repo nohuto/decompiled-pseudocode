@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIvtProcessDmarTable @ 0x1405AEA34
+ * XREFs of HalpIvtProcessDmarTable @ 0x1405B1244
  * Callers:
- *     HalpIommuRegisterBuiltinPlugins @ 0x14059FF48 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1405A2738 (HalpIommuRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpIvtProcessDrhdEntry @ 0x1405AEAE8 (HalpIvtProcessDrhdEntry.c)
- *     DmrEnumerateSatcDevices @ 0x1405AFF24 (DmrEnumerateSatcDevices.c)
- *     DmrGetNextRemappingStructure @ 0x1405B00CC (DmrGetNextRemappingStructure.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1405B12F8 (HalpIvtProcessDrhdEntry.c)
+ *     DmrEnumerateSatcDevices @ 0x1405B2734 (DmrEnumerateSatcDevices.c)
+ *     DmrGetNextRemappingStructure @ 0x1405B28DC (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
     if ( *(_DWORD *)(a1 + 4) >= 0x40u )
     {
       v5 = (*(_BYTE *)(a1 + 37) & 4) == 0;
-      qword_140E65950 = a1;
+      qword_140E65B50 = a1;
       if ( !v5 )
       {
         v6 = 0LL;

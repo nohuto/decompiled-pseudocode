@@ -1,8 +1,8 @@
 /*
- * XREFs of AstGetHashedBitNumbers @ 0x1407AE1E0
+ * XREFs of AstGetHashedBitNumbers @ 0x1407AE3D0
  * Callers:
- *     AstAddBloomFilter @ 0x1407AE0C4 (AstAddBloomFilter.c)
- *     AstTestBloomFilter @ 0x1407AE150 (AstTestBloomFilter.c)
+ *     AstAddBloomFilter @ 0x1407AE2B4 (AstAddBloomFilter.c)
+ *     AstTestBloomFilter @ 0x1407AE340 (AstTestBloomFilter.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTimLogProhibitFsctlSystemCalls @ 0x140B1C598
+ * XREFs of EtwTimLogProhibitFsctlSystemCalls @ 0x140B1E7A8
  * Callers:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
  * Callees:
- *     EtwpTimLogMitigationForProcess @ 0x140B1C5EC (EtwpTimLogMitigationForProcess.c)
+ *     EtwpTimLogMitigationForProcess @ 0x140B1E7FC (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall EtwTimLogProhibitFsctlSystemCalls(int a1, __int64 a2)

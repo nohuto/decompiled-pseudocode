@@ -1,16 +1,12 @@
 /*
- * XREFs of PiCMMandatoryFilterCallback @ 0x1406B7E10
+ * XREFs of PiCMMandatoryFilterCallback @ 0x140617320
  * Callers:
  *     <none>
  * Callees:
- *     PiPnpRtlApplyMandatoryFilters @ 0x1406342F8 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14068FB00 (PiPnpRtlApplyMandatoryFilters.c)
  */
 
-char __fastcall PiCMMandatoryFilterCallback(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        struct _SECURITY_SUBJECT_CONTEXT *SessionId)
+char __fastcall PiCMMandatoryFilterCallback(int a1, int a2, int a3, __int64 SessionId)
 {
   char v4; // bl
   int v5; // eax
@@ -21,7 +17,7 @@ char __fastcall PiCMMandatoryFilterCallback(
   LOBYTE(v8) = 0;
   if ( SessionId && a3 == 1 )
   {
-    v5 = PiPnpRtlApplyMandatoryFilters(a1, a2, 1, 0LL, SessionId, &v8);
+    v5 = PiPnpRtlApplyMandatoryFilters(a1, a2, 1, 0, SessionId, (__int64)&v8);
     v6 = v8;
     if ( v5 < 0 )
       return 0;

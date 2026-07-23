@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapLogPageOfflineAttemptEvent @ 0x140A08820
+ * XREFs of WheapLogPageOfflineAttemptEvent @ 0x140A08AD0
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x140A0819C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0844C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WheapTrackPendingPage @ 0x140A09C08 (WheapTrackPendingPage.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WheapTrackPendingPage @ 0x140A09EB8 (WheapTrackPendingPage.c)
  */
 
 NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3, char a4, char a5)
@@ -42,5 +42,5 @@ NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3
   v18 = &v11;
   v20 = &v12;
   v12 = a4 != 0;
-  return EtwWrite((REGHANDLE)WheapDispatchPtr.Queue.ListEntry.Flink, &EVENT_WHEA_MEMORY_OFFLINE, 0LL, 5u, &UserData);
+  return EtwWrite((REGHANDLE)WheapDispatchPtr.Queue.Wcb.DeviceRoutine, &EVENT_WHEA_MEMORY_OFFLINE, 0LL, 5u, &UserData);
 }

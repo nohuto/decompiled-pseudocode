@@ -1,25 +1,25 @@
 /*
- * XREFs of SbSelectProcedure @ 0x1800631F0
+ * XREFs of SbSelectProcedure @ 0x180083640
  * Callers:
- *     SwitchedRtlGetVersion @ 0x180062FA0 (SwitchedRtlGetVersion.c)
- *     RtlInitializeHeapManager @ 0x1800D3DD4 (RtlInitializeHeapManager.c)
- *     SbExecuteProcedure @ 0x1801595B0 (SbExecuteProcedure.c)
+ *     SwitchedRtlGetVersion @ 0x1800833F0 (SwitchedRtlGetVersion.c)
+ *     RtlInitializeHeapManager @ 0x1800CFAEC (RtlInitializeHeapManager.c)
+ *     SbExecuteProcedure @ 0x180159480 (SbExecuteProcedure.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x18000F380 (EtwpEventWriteFull.c)
- *     RtlSetLastWin32Error @ 0x180056610 (RtlSetLastWin32Error.c)
- *     EtwNotificationRegister @ 0x1800571C0 (EtwNotificationRegister.c)
- *     SbpTraceContextUpdate @ 0x1800621C0 (SbpTraceContextUpdate.c)
- *     RtlGetVersion @ 0x1800638F0 (RtlGetVersion.c)
- *     SbpUpdateCache @ 0x180063EC0 (SbpUpdateCache.c)
- *     SbpResolveBasedOnName @ 0x180064918 (SbpResolveBasedOnName.c)
- *     EtwNotificationUnregister @ 0x18006D0E0 (EtwNotificationUnregister.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlSetLastWin32Error @ 0x180040B90 (RtlSetLastWin32Error.c)
+ *     EtwNotificationRegister @ 0x180041740 (EtwNotificationRegister.c)
+ *     EtwpEventWriteFull @ 0x18005AAB0 (EtwpEventWriteFull.c)
+ *     SbpTraceContextUpdate @ 0x180082610 (SbpTraceContextUpdate.c)
+ *     RtlGetVersion @ 0x180083D40 (RtlGetVersion.c)
+ *     SbpUpdateCache @ 0x180084310 (SbpUpdateCache.c)
+ *     SbpResolveBasedOnName @ 0x180084D68 (SbpResolveBasedOnName.c)
+ *     EtwNotificationUnregister @ 0x18008D530 (EtwNotificationUnregister.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, signed __int64 a3, unsigned int a4)
+__int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, ULONGLONG a3, unsigned int a4)
 {
-  signed __int64 v4; // rsi
+  ULONGLONG v4; // rsi
   __int64 v5; // r13
   __int64 v6; // r15
   unsigned int v7; // r14d
@@ -51,12 +51,12 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, signed __int64
   __int64 *v33; // rdi
   _QWORD *v35; // rbx
   __int64 v36; // rsi
-  unsigned int v37; // eax
+  LONG v37; // eax
   unsigned int j; // edi
   __int64 v39; // rsi
   __int64 v40; // rsi
-  unsigned int v41; // eax
-  __int64 v42; // rcx
+  LONG v41; // eax
+  ULONGLONG v42; // rcx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // r9
   __int64 v44; // rcx
   __int64 v45; // rax
@@ -64,7 +64,7 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, signed __int64
   int v47; // eax
   __int64 v48; // rax
   int v49; // eax
-  __int64 v50; // rcx
+  ULONGLONG v50; // rcx
   _RTL_USER_PROCESS_PARAMETERS *v51; // r9
   __int64 v52; // rcx
   __int64 v53; // rax
@@ -72,30 +72,28 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, signed __int64
   int v55; // eax
   _WORD v56[2]; // [rsp+50h] [rbp-B0h] BYREF
   unsigned int v57; // [rsp+54h] [rbp-ACh] BYREF
-  signed __int64 v58; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE v59[4]; // [rsp+60h] [rbp-A0h] BYREF
-  int v60; // [rsp+64h] [rbp-9Ch]
-  int v61; // [rsp+68h] [rbp-98h]
-  __int64 *v62; // [rsp+180h] [rbp+80h] BYREF
-  __int64 v63; // [rsp+188h] [rbp+88h]
-  unsigned int *v64; // [rsp+190h] [rbp+90h]
-  __int64 v65; // [rsp+198h] [rbp+98h]
-  __int64 v66; // [rsp+1A0h] [rbp+A0h]
-  int v67; // [rsp+1A8h] [rbp+A8h]
-  int v68; // [rsp+1ACh] [rbp+ACh]
-  unsigned int *v69; // [rsp+1B0h] [rbp+B0h]
-  __int64 v70; // [rsp+1B8h] [rbp+B8h]
-  __int64 v71; // [rsp+1C0h] [rbp+C0h]
-  int v72; // [rsp+1C8h] [rbp+C8h]
-  int v73; // [rsp+1CCh] [rbp+CCh]
-  __int128 v74; // [rsp+1D0h] [rbp+D0h]
-  __int128 v75; // [rsp+1E0h] [rbp+E0h]
-  __int128 v76; // [rsp+1F0h] [rbp+F0h]
+  ULONGLONG RegHandle; // [rsp+58h] [rbp-A8h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 *v60; // [rsp+180h] [rbp+80h] BYREF
+  __int64 v61; // [rsp+188h] [rbp+88h]
+  unsigned int *v62; // [rsp+190h] [rbp+90h]
+  __int64 v63; // [rsp+198h] [rbp+98h]
+  __int64 v64; // [rsp+1A0h] [rbp+A0h]
+  int v65; // [rsp+1A8h] [rbp+A8h]
+  int v66; // [rsp+1ACh] [rbp+ACh]
+  unsigned int *v67; // [rsp+1B0h] [rbp+B0h]
+  __int64 v68; // [rsp+1B8h] [rbp+B8h]
+  __int64 v69; // [rsp+1C0h] [rbp+C0h]
+  int v70; // [rsp+1C8h] [rbp+C8h]
+  int v71; // [rsp+1CCh] [rbp+CCh]
+  __int128 v72; // [rsp+1D0h] [rbp+D0h]
+  __int128 v73; // [rsp+1E0h] [rbp+E0h]
+  __int128 v74; // [rsp+1F0h] [rbp+F0h]
 
   v4 = a3;
   v5 = *(_QWORD *)(a3 + 8);
   v6 = 0LL;
-  v58 = a3;
+  RegHandle = a3;
   v7 = a4;
   v57 = a4;
   v8 = -1LL;
@@ -118,22 +116,22 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, signed __int64
       }
     }
   }
-  memset_thunk_772440563353939046(v59, 0, 0x11CuLL);
-  if ( (int)RtlGetVersion(v59) < 0 )
+  memset_thunk_772440563353939046(&VersionInformation, 0, 0x11CuLL);
+  if ( RtlGetVersion(&VersionInformation) < 0 )
     goto LABEL_41;
-  v11 = &unk_180171896;
+  v11 = &unk_180170946;
   v12 = -1LL;
   v13 = 0LL;
   while ( 1 )
   {
     v14 = *(v11 - 1);
-    v15 = (unsigned __int16)v60 < v14;
-    v16 = (_WORD)v60 == v14;
-    if ( (unsigned __int16)v60 <= v14 )
+    v15 = LOWORD(VersionInformation.dwMajorVersion) < v14;
+    v16 = LOWORD(VersionInformation.dwMajorVersion) == v14;
+    if ( LOWORD(VersionInformation.dwMajorVersion) <= v14 )
     {
-      if ( (_WORD)v60 != v14 )
+      if ( LOWORD(VersionInformation.dwMajorVersion) != v14 )
         goto LABEL_24;
-      if ( (unsigned __int16)v61 < *v11 )
+      if ( LOWORD(VersionInformation.dwMinorVersion) < *v11 )
         break;
     }
     v12 = v13;
@@ -143,16 +141,16 @@ LABEL_8:
     if ( v13 >= 5 )
       goto LABEL_9;
   }
-  v15 = (unsigned __int16)v60 < v14;
-  v16 = (_WORD)v60 == v14;
+  v15 = LOWORD(VersionInformation.dwMajorVersion) < v14;
+  v16 = LOWORD(VersionInformation.dwMajorVersion) == v14;
 LABEL_24:
-  if ( !v15 && (!v16 || (unsigned __int16)v61 >= *v11) )
+  if ( !v15 && (!v16 || LOWORD(VersionInformation.dwMinorVersion) >= *v11) )
     goto LABEL_8;
 LABEL_9:
   if ( v12 == -1 )
-    v17 = &unk_180171884;
+    v17 = &unk_180170934;
   else
-    v17 = (_QWORD *)((char *)&unk_180171884 + 32 * v12);
+    v17 = (_QWORD *)((char *)&unk_180170934 + 32 * v12);
   v18 = *(unsigned int **)(v4 + 24);
   v19 = 0;
   if ( *v18 )
@@ -183,7 +181,7 @@ LABEL_14:
           if ( !*(_QWORD *)(v24 + 80) && *(_DWORD *)(v24 + 88) == 2 )
             *(_QWORD *)(v24 + 80) = SbpResolveBasedOnName(*(_QWORD *)(v24 + 72));
           v25 = v24 + 72;
-          v4 = v58;
+          v4 = RegHandle;
           *(_QWORD *)(v5 + 8LL * v19 + 16) = v25;
         }
         v26 = *(_DWORD *)(v20 + 68);
@@ -200,7 +198,7 @@ LABEL_14:
               break;
             }
           }
-          v4 = v58;
+          v4 = RegHandle;
           if ( j >= *(_DWORD *)(v20 + 68) )
             break;
         }
@@ -217,13 +215,13 @@ LABEL_41:
   {
     _mm_lfence();
     v30 = *(_QWORD *)(v4 + 24);
+    v72 = 0LL;
+    v73 = 0LL;
     v74 = 0LL;
-    v75 = 0LL;
-    v76 = 0LL;
     v31 = *(__int64 **)(v30 + 8LL * v7 + 8);
     if ( *((_DWORD *)v31 + 11) )
     {
-      v58 = 0LL;
+      RegHandle = 0LL;
       v32 = NtCurrentPeb()->pShimData;
       if ( v32 )
       {
@@ -232,14 +230,14 @@ LABEL_41:
           v40 = v32[254];
           if ( !v40 )
           {
-            v41 = EtwNotificationRegister(&MS_Windows_AeSwitchBack_Provider, 3, 0LL, 0LL, (unsigned __int64 *)&v58);
+            v41 = EtwNotificationRegister(&MS_Windows_AeSwitchBack_Provider, 3u, 0LL, 0LL, &RegHandle);
             if ( v41 )
             {
               RtlSetLastWin32Error(v41);
               goto LABEL_46;
             }
-            v42 = v58;
-            v40 = _InterlockedCompareExchange64(v32 + 254, v58, 0LL);
+            v42 = RegHandle;
+            v40 = _InterlockedCompareExchange64(v32 + 254, RegHandle, 0LL);
             if ( v40 )
             {
               EtwNotificationUnregister(v42, 0LL);
@@ -259,43 +257,43 @@ LABEL_41:
             }
           }
           v44 = *v31;
-          v62 = (__int64 *)((char *)v31 + 52);
+          v60 = (__int64 *)((char *)v31 + 52);
           v45 = -1LL;
-          v63 = 16LL;
+          v61 = 16LL;
           do
             ++v45;
           while ( *(_WORD *)(v44 + 2 * v45) );
-          v66 = v44;
+          v64 = v44;
           v46 = v31[1];
-          v64 = (unsigned int *)v56;
+          v62 = (unsigned int *)v56;
           v47 = (unsigned __int16)(2 * (v45 + 1));
           v56[0] = v47;
-          v67 = v47;
+          v65 = v47;
           v48 = -1LL;
-          v65 = 2LL;
-          v68 = 0;
+          v63 = 2LL;
+          v66 = 0;
           do
             ++v48;
           while ( *(_WORD *)(v46 + 2 * v48) );
-          v71 = v46;
-          v70 = 2LL;
+          v69 = v46;
+          v68 = 2LL;
           v49 = (unsigned __int16)(2 * (v48 + 1));
           LOWORD(v57) = v49;
-          v72 = v49;
-          v69 = &v57;
-          v73 = 0;
-          EtwpEventWriteFull(v40, &AeSbCallEvent, 0LL, 0, 0, 0LL, 0LL, 5, (__int64)&v62);
+          v70 = v49;
+          v67 = &v57;
+          v71 = 0;
+          EtwpEventWriteFull(v40, &AeSbCallEvent, 0LL, 0, 0, 0LL, 0LL, 5, (__int64)&v60);
         }
       }
     }
 LABEL_46:
+    v72 = 0LL;
+    v73 = 0LL;
     v74 = 0LL;
-    v75 = 0LL;
-    v76 = 0LL;
     v33 = *(__int64 **)(v5 + 8LL * v7 + 16);
     if ( *((_DWORD *)v33 + 10) )
     {
-      v58 = 0LL;
+      RegHandle = 0LL;
       v35 = NtCurrentPeb()->pShimData;
       if ( v35 )
       {
@@ -304,14 +302,14 @@ LABEL_46:
           v36 = v35[254];
           if ( v36 )
             goto LABEL_85;
-          v37 = EtwNotificationRegister(&MS_Windows_AeSwitchBack_Provider, 3, 0LL, 0LL, (unsigned __int64 *)&v58);
+          v37 = EtwNotificationRegister(&MS_Windows_AeSwitchBack_Provider, 3u, 0LL, 0LL, &RegHandle);
           if ( v37 )
           {
             RtlSetLastWin32Error(v37);
             return v33[1];
           }
-          v50 = v58;
-          v36 = _InterlockedCompareExchange64(v35 + 254, v58, 0LL);
+          v50 = RegHandle;
+          v36 = _InterlockedCompareExchange64(v35 + 254, RegHandle, 0LL);
           if ( v36 )
           {
             EtwNotificationUnregister(v50, 0LL);
@@ -329,30 +327,30 @@ LABEL_46:
           {
 LABEL_85:
             v52 = *v33;
-            v62 = v33 + 14;
+            v60 = v33 + 14;
             v53 = -1LL;
-            v63 = 16LL;
+            v61 = 16LL;
             do
               ++v53;
             while ( *(_WORD *)(v52 + 2 * v53) );
-            v66 = v52;
+            v64 = v52;
             v54 = v33[3];
-            v64 = &v57;
+            v62 = &v57;
             v55 = (unsigned __int16)(2 * (v53 + 1));
             LOWORD(v57) = v55;
-            v67 = v55;
-            v65 = 2LL;
-            v68 = 0;
+            v65 = v55;
+            v63 = 2LL;
+            v66 = 0;
             do
               ++v8;
             while ( *(_WORD *)(v54 + 2 * v8) );
-            v71 = v54;
-            v70 = 2LL;
+            v69 = v54;
+            v68 = 2LL;
             v56[0] = 2 * (v8 + 1);
-            v72 = v56[0];
-            v69 = (unsigned int *)v56;
-            v73 = 0;
-            EtwpEventWriteFull(v36, &AeSbImplEvent, 0LL, 0, 0, 0LL, 0LL, 5, (__int64)&v62);
+            v70 = v56[0];
+            v67 = (unsigned int *)v56;
+            v71 = 0;
+            EtwpEventWriteFull(v36, &AeSbImplEvent, 0LL, 0, 0, 0LL, 0LL, 5, (__int64)&v60);
           }
         }
       }

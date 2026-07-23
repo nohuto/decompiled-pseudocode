@@ -1,10 +1,10 @@
 /*
- * XREFs of AslHashFree @ 0x1408E9E78
+ * XREFs of AslHashFree @ 0x1408EB138
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x14067E9C4 (SdbpReleaseSearchDBContext.c)
- *     SdbCloseDatabaseRead @ 0x140680A94 (SdbCloseDatabaseRead.c)
+ *     SdbpReleaseSearchDBContext @ 0x14067FB84 (SdbpReleaseSearchDBContext.c)
+ *     SdbCloseDatabaseRead @ 0x140681C54 (SdbCloseDatabaseRead.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AslHashFree(_QWORD *P)

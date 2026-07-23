@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetEnclavePage @ 0x1401F040C
+ * XREFs of MiGetEnclavePage @ 0x1401F0238
  * Callers:
- *     MiReserveEnclavePages @ 0x1401F0638 (MiReserveEnclavePages.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
- *     MiGetPageForEnclave @ 0x14065F514 (MiGetPageForEnclave.c)
+ *     MiReserveEnclavePages @ 0x1401F0464 (MiReserveEnclavePages.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
+ *     MiGetPageForEnclave @ 0x14065F5F8 (MiGetPageForEnclave.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
  */
 
 __int64 __fastcall MiGetEnclavePage(_QWORD *a1, int a2)

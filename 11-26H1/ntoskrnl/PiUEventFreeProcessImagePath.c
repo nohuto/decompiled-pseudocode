@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUEventFreeProcessImagePath @ 0x140B3F2BC
+ * XREFs of PiUEventFreeProcessImagePath @ 0x140B412EC
  * Callers:
- *     PiUEventMovePendingEventToSynchronousQueue @ 0x140772AE8 (PiUEventMovePendingEventToSynchronousQueue.c)
- *     PiUEventNotifyClient @ 0x14099A7E8 (PiUEventNotifyClient.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1409D675C (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventHandleGetEvent @ 0x1409D6A10 (PiUEventHandleGetEvent.c)
+ *     PiUEventMovePendingEventToSynchronousQueue @ 0x140775AE8 (PiUEventMovePendingEventToSynchronousQueue.c)
+ *     PiUEventNotifyClient @ 0x14095B248 (PiUEventNotifyClient.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x1409A764C (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventHandleGetEvent @ 0x1409A7900 (PiUEventHandleGetEvent.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventFreeProcessImagePath(void **a1)

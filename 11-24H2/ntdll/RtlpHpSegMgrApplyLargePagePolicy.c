@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x180158170
+ * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x180156530
  * Callers:
- *     RtlpHpSegMgrCommitInitiate @ 0x1801162E4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x180111468 (RtlpHpSegMgrCommitInitiate.c)
  * Callees:
  *     <none>
  */
@@ -32,11 +32,11 @@ _BOOL8 __fastcall RtlpHpSegMgrApplyLargePagePolicy(__int64 a1)
   {
     if ( v1 != 3 )
     {
-      v2 = qword_1801CDF00;
+      v2 = qword_1801CCF00;
       do
       {
         v3 = ((((v2 ^ (v2 >> 12)) << 25) ^ v2 ^ (v2 >> 12)) >> 27) ^ ((v2 ^ (v2 >> 12)) << 25) ^ v2 ^ (v2 >> 12);
-        v5 = _InterlockedCompareExchange64(&qword_1801CDF00, v3, v2);
+        v5 = _InterlockedCompareExchange64(&qword_1801CCF00, v3, v2);
         v4 = v2 == v5;
         v2 = v5;
       }

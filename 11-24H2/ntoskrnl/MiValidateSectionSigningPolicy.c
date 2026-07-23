@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateSectionSigningPolicy @ 0x1409579F8
+ * XREFs of MiValidateSectionSigningPolicy @ 0x14093C388
  * Callers:
- *     MiCreateNewSection @ 0x1409433C0 (MiCreateNewSection.c)
- *     MiValidateExistingImage @ 0x140943A54 (MiValidateExistingImage.c)
+ *     MiCreateNewSection @ 0x14098D630 (MiCreateNewSection.c)
+ *     MiValidateExistingImage @ 0x14098DCCC (MiValidateExistingImage.c)
  * Callees:
- *     SeCompareSigningLevels @ 0x1409354F0 (SeCompareSigningLevels.c)
- *     MiValidateSectionCreate @ 0x140957B50 (MiValidateSectionCreate.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x140AD9A3C (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     MiValidateSectionCreate @ 0x14093C5D8 (MiValidateSectionCreate.c)
+ *     SeCompareSigningLevels @ 0x1409FA8D0 (SeCompareSigningLevels.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x140ADB280 (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -26,8 +26,8 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
   __int64 v16; // rdx
   __int64 v17; // rcx
   int v18; // edi
-  __int64 v19; // r8
-  __int64 v20; // r9
+  int v19; // r8d
+  int v20; // r9d
   char v21; // bl
   char v22; // bl
   int v23; // ecx
@@ -47,7 +47,7 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
     if ( v18 < 0 )
     {
       v17 = (unsigned int)(a1 != 1) + 1;
-      dword_140E2D6F8 = (a1 != 1) + 1;
+      dword_140E2D838 = (a1 != 1) + 1;
     }
     v21 = *(_BYTE *)(*(_QWORD *)a3 + 15LL);
     if ( (a7 & 2) != 0 && v18 < 0 )
@@ -67,7 +67,7 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
       v22 = v21 & 0xF;
       LOBYTE(v16) = a9;
       LOBYTE(v17) = v22;
-      if ( (unsigned int)SeCompareSigningLevels(v17, v16, v19, v20) )
+      if ( (unsigned int)SeCompareSigningLevels(v17, v16) )
         return (unsigned int)v18;
       LOBYTE(v19) = a9;
       v23 = 1;

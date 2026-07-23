@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x1407D6F78
+ * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x1407DA0A8
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1404EF560 (PopIdlePhaseWatchdogCallback.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1404E8B40 (PopIdlePhaseWatchdogCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSnapDiagnosticContext(
@@ -24,8 +24,8 @@ __int64 __fastcall PopPowerAggregatorSnapDiagnosticContext(
   v6 = Pool2;
   if ( Pool2 )
   {
-    memmove(Pool2, &PopPowerAggregatorLock.Header.WaitListHead.Blink, 0x15F8uLL);
+    memmove(Pool2, PopPowerAggregatorContext, 0x15F8uLL);
     *a1 = v6;
   }
-  return PopReleaseRwLock(&PopPowerAggregatorLock);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
 }

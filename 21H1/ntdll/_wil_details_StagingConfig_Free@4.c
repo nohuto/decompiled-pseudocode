@@ -6,15 +6,15 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __thiscall wil_details_StagingConfig_Free(_DWORD *this)
+LOGICAL __thiscall wil_details_StagingConfig_Free(int this)
 {
-  int result; // eax
+  LOGICAL result; // eax
 
-  if ( this[12] )
+  if ( *(_DWORD *)(this + 48) )
   {
-    result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this[9]);
-    this[9] = 0;
-    this[5] = 0;
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(this + 36));
+    *(_DWORD *)(this + 36) = 0;
+    *(_DWORD *)(this + 20) = 0;
   }
   return result;
 }

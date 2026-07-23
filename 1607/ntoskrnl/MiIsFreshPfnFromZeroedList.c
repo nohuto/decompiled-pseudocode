@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsFreshPfnFromZeroedList @ 0x1401F2C78
+ * XREFs of MiIsFreshPfnFromZeroedList @ 0x1401F2AA4
  * Callers:
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
  * Callees:
  *     <none>
  */

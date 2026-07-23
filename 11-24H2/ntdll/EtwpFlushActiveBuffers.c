@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x18008E264
+ * XREFs of EtwpFlushActiveBuffers @ 0x1800A9D24
  * Callers:
- *     EtwpLogger @ 0x18008DC40 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1800A9700 (EtwpLogger.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     EtwpSendSessionNotification @ 0x18008C158 (EtwpSendSessionNotification.c)
- *     EtwpWaitForBufferReferenceCount @ 0x18008E43C (EtwpWaitForBufferReferenceCount.c)
- *     RtlWakeAllConditionVariable @ 0x18008E480 (RtlWakeAllConditionVariable.c)
- *     EtwpFlushBuffer @ 0x18008E500 (EtwpFlushBuffer.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     EtwpSendSessionNotification @ 0x1800A7C18 (EtwpSendSessionNotification.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1800A9EFC (EtwpWaitForBufferReferenceCount.c)
+ *     RtlWakeAllConditionVariable @ 0x1800A9F40 (RtlWakeAllConditionVariable.c)
+ *     EtwpFlushBuffer @ 0x1800A9FC0 (EtwpFlushBuffer.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(__int64 a1, int a2)
 {
   unsigned int v2; // r14d
-  __int64 v3; // rbp
+  _RTL_CRITICAL_SECTION *v3; // rbp
   __int64 v4; // rdi
   unsigned int v7; // esi
   __int16 v8; // r13
@@ -31,11 +31,11 @@ __int64 __fastcall EtwpFlushActiveBuffers(__int64 a1, int a2)
   unsigned __int16 v20; // [rsp+58h] [rbp+10h]
 
   v2 = *(_DWORD *)(a1 + 192);
-  v3 = a1 + 72;
+  v3 = (_RTL_CRITICAL_SECTION *)(a1 + 72);
   v4 = *(unsigned int *)(a1 + 188);
   v7 = 0;
   v8 = 0;
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   if ( a2 == 1 && (_DWORD)v4 )
   {
     v15 = (__int64 *)(a1 + 560);
@@ -94,7 +94,7 @@ __int64 __fastcall EtwpFlushActiveBuffers(__int64 a1, int a2)
       *(_QWORD *)(a1 + 240) = v13;
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 212));
       RtlLeaveCriticalSection(v3);
-      RtlWakeAllConditionVariable(a1 + 64);
+      RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 64));
       v8 = v20;
       *(_DWORD *)(a1 + 40) = v7;
     }

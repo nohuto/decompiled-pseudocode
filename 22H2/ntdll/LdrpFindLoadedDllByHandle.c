@@ -16,10 +16,10 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDllByHandle(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
+__int64 __fastcall LdrpFindLoadedDllByHandle(unsigned __int64 a1, volatile signed __int32 **a2, _DWORD *a3)
 {
-  __int64 v3; // rbx
-  unsigned __int64 v7; // rax
+  volatile signed __int32 *v3; // rbx
+  unsigned __int64 Root; // rax
   unsigned __int64 v8; // rcx
   __int64 v10; // rax
 
@@ -28,44 +28,44 @@ __int64 __fastcall LdrpFindLoadedDllByHandle(unsigned __int64 a1, __int64 *a2, _
   {
     if ( a1 == LdrpSystemDllBase )
     {
-      v3 = LdrpNtDllDataTableEntry;
+      v3 = (volatile signed __int32 *)LdrpNtDllDataTableEntry;
       if ( a3 )
-        *a3 = *(_DWORD *)(*(_QWORD *)(LdrpNtDllDataTableEntry + 152) + 56LL);
+        *a3 = *(_DWORD *)(*((_QWORD *)LdrpNtDllDataTableEntry + 19) + 56LL);
     }
     else
     {
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-      v7 = LdrpModuleBaseAddressIndex;
-      if ( (qword_18016D4B0 & 1) != 0 && LdrpModuleBaseAddressIndex )
-        v7 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
-      while ( v7 )
+      Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && LdrpModuleBaseAddressIndex.Root )
+        Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+      while ( Root )
       {
-        if ( a1 >= *(_QWORD *)(v7 - 152) )
+        if ( a1 >= *(_QWORD *)(Root - 152) )
         {
-          if ( a1 <= *(_QWORD *)(v7 - 152) )
+          if ( a1 <= *(_QWORD *)(Root - 152) )
           {
-            v3 = v7 - 200;
-            v10 = *(_QWORD *)(v7 - 200 + 152);
+            v3 = (volatile signed __int32 *)(Root - 200);
+            v10 = *(_QWORD *)(Root - 200 + 152);
             if ( *(_DWORD *)(v10 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v10 - 56LL) & 0x20) == 0 )
-              _InterlockedIncrement((volatile signed __int32 *)(v3 + 276));
+              _InterlockedIncrement(v3 + 69);
             if ( a3 )
-              *a3 = *(_DWORD *)(*(_QWORD *)(v3 + 152) + 56LL);
+              *a3 = *(_DWORD *)(*((_QWORD *)v3 + 19) + 56LL);
             break;
           }
-          v8 = *(_QWORD *)(v7 + 8);
+          v8 = *(_QWORD *)(Root + 8);
         }
         else
         {
-          v8 = *(_QWORD *)v7;
+          v8 = *(_QWORD *)Root;
         }
-        if ( (qword_18016D4B0 & 1) != 0 && v8 )
-          v7 ^= v8;
+        if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v8 )
+          Root ^= v8;
         else
-          v7 = v8;
+          Root = v8;
       }
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     }
   }
   *a2 = v3;
-  return v3 == 0 ? 0xC0000135 : 0;
+  return v3 == 0LL ? 0xC0000135 : 0;
 }

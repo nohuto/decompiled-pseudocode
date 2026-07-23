@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmUpdateDevicePanelInterface @ 0x14098EC58
+ * XREFs of _CmUpdateDevicePanelInterface @ 0x140979C90
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmQueryDevicePanelPldProperty @ 0x14098F8FC (_CmQueryDevicePanelPldProperty.c)
- *     _CmGetDevicePanelGroup @ 0x140AA25E0 (_CmGetDevicePanelGroup.c)
- *     _CmBuildDevicePanelId @ 0x140AAC200 (_CmBuildDevicePanelId.c)
- *     _CmGetParentDeviceContainerId @ 0x140AB65B0 (_CmGetParentDeviceContainerId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x14097A934 (_CmQueryDevicePanelPldProperty.c)
+ *     _CmBuildDevicePanelId @ 0x140981E58 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x140A9D970 (_CmGetDevicePanelGroup.c)
+ *     _CmGetParentDeviceContainerId @ 0x140AB0634 (_CmGetParentDeviceContainerId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
@@ -67,7 +67,7 @@ __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
     v10 = v22;
     if ( v22 )
     {
-      Pool2 = (const wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (const wchar_t *)ExAllocatePool2(0x100uLL, 0x190uLL, 0x52504E50u);
       v12 = (wchar_t *)Pool2;
       if ( Pool2 )
       {
@@ -93,9 +93,9 @@ __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
               DevicePanelGroup = CmGetDevicePanelGroup(v10);
               v13 = 0;
               if ( ((*(_DWORD *)(v10 + 8) >> 3) & 7) != 7 )
-                v13 = dword_140041908[(*(_DWORD *)(v10 + 8) >> 3) & 7];
+                v13 = dword_140041D08[(*(_DWORD *)(v10 + 8) >> 3) & 7];
               v17 = v13;
-              v14 = ExAllocatePool2(0x100uLL);
+              v14 = ExAllocatePool2(0x100uLL, 0x72uLL, 0x52504E50u);
               v6 = (_WORD *)v14;
               if ( v14 )
               {
@@ -109,7 +109,7 @@ __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
                   ObjectProperty = PnpSetObjectProperty(
                                      (__int64)a1,
                                      (__int64)a2,
-                                     3u,
+                                     3,
                                      (__int64)a3,
                                      0LL,
                                      (__int64)&DEVPKEY_Device_PanelId,
@@ -122,7 +122,7 @@ __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
                     ObjectProperty = PnpSetObjectProperty(
                                        (__int64)a1,
                                        (__int64)a2,
-                                       3u,
+                                       3,
                                        (__int64)a3,
                                        0LL,
                                        (__int64)DEVPKEY_Device_PanelGroup,
@@ -134,7 +134,7 @@ __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
                       ObjectProperty = PnpSetObjectProperty(
                                          (__int64)a1,
                                          (__int64)a2,
-                                         3u,
+                                         3,
                                          (__int64)a3,
                                          0LL,
                                          (__int64)DEVPKEY_Device_PanelSide,
@@ -180,9 +180,9 @@ __int64 __fastcall CmUpdateDevicePanelInterface(_QWORD *a1, WCHAR *a2, void *a3)
                        (__int64)&v18,
                        0) == -1073741789 )
   {
-    PnpSetObjectProperty((__int64)a1, (__int64)a2, 3u, 0LL, 0LL, (__int64)&DEVPKEY_Device_PanelId, 0, 0LL, 0, 0);
-    PnpSetObjectProperty((__int64)a1, (__int64)a2, 3u, 0LL, 0LL, (__int64)DEVPKEY_Device_PanelGroup, 0, 0LL, 0, 0);
-    PnpSetObjectProperty((__int64)a1, (__int64)a2, 3u, 0LL, 0LL, (__int64)DEVPKEY_Device_PanelSide, 0, 0LL, 0, 0);
+    PnpSetObjectProperty((__int64)a1, (__int64)a2, 3, 0LL, 0LL, (__int64)&DEVPKEY_Device_PanelId, 0, 0LL, 0, 0);
+    PnpSetObjectProperty((__int64)a1, (__int64)a2, 3, 0LL, 0LL, (__int64)DEVPKEY_Device_PanelGroup, 0, 0LL, 0, 0);
+    PnpSetObjectProperty((__int64)a1, (__int64)a2, 3, 0LL, 0LL, (__int64)DEVPKEY_Device_PanelSide, 0, 0LL, 0, 0);
   }
 LABEL_3:
   if ( P )

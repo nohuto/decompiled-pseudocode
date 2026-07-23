@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSetDeviceDmaEnabled @ 0x140588200
+ * XREFs of HvlSetDeviceDmaEnabled @ 0x1405854E0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpHvToNtStatus @ 0x1403AE3F8 (HvlpHvToNtStatus.c)
- *     HvcallFastExtended @ 0x1403AF3C0 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x14039CC08 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x14039DBD0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlSetDeviceDmaEnabled(_WORD *a1, char a2)

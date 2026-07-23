@@ -16,11 +16,15 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
   KPROCESSOR_MODE AccessMode; // r12
   __int64 v7; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char *CurrentServerSiloGlobals; // rbx
   struct _KTHREAD *CurrentThread; // rcx
   ULONG_PTR v11; // rsi
@@ -32,32 +36,32 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
   __int64 v17; // rdx
   __int64 v18; // r8
   __int64 v19; // r9
-  int v20; // [rsp+40h] [rbp-38h]
-  unsigned int P; // [rsp+48h] [rbp-30h]
+  ULONG Attributes; // [rsp+40h] [rbp-38h]
+  NTSTATUS P; // [rsp+48h] [rbp-30h]
   HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
 
   Handle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v20 = 0;
+  Attributes = 0;
   if ( AccessMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)NamespaceHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)NamespaceHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
-    if ( a3 )
+    if ( ObjectAttributes )
     {
-      if ( (a3 & 7) != 0 )
+      if ( ((unsigned __int8)ObjectAttributes & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v20 = *(_DWORD *)(a3 + 24);
+      Attributes = ObjectAttributes->Attributes;
     }
   }
-  else if ( a3 )
+  else if ( ObjectAttributes )
   {
-    v20 = *(_DWORD *)(a3 + 24);
+    Attributes = ObjectAttributes->Attributes;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
     CurrentThread = KeGetCurrentThread();
@@ -73,21 +77,21 @@ __int64 __fastcall NtOpenPrivateNamespace(HANDLE *a1, ACCESS_MASK a2, __int64 a3
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
       P = ObOpenObjectByPointer(
             v13,
-            v20 & (AccessMode != 0 ? 7666 : 73714),
+            Attributes & (AccessMode != 0 ? 7666 : 73714),
             0LL,
-            a2,
+            DesiredAccess,
             ObpDirectoryObjectType,
             AccessMode,
             &Handle);
       HalPutDmaAdapter(v13);
-      *a1 = Handle;
+      *NamespaceHandle = Handle;
       return P;
     }
     else
     {
       ExReleasePushLockEx(v11, 0LL);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
-      return 3221225530LL;
+      return -1073741766;
     }
   }
   return result;

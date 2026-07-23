@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializePageZeroing @ 0x14013AE70
+ * XREFs of MiInitializePageZeroing @ 0x14013B3E0
  * Callers:
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     MiCreateZeroThreadContext @ 0x14013AB00 (MiCreateZeroThreadContext.c)
- *     RtlSetAllBitsEx @ 0x14013B1F4 (RtlSetAllBitsEx.c)
- *     MiDeleteZeroThreadContext @ 0x14013F1EC (MiDeleteZeroThreadContext.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     MiCreateZeroThreadContext @ 0x14013B070 (MiCreateZeroThreadContext.c)
+ *     RtlSetAllBitsEx @ 0x14013B764 (RtlSetAllBitsEx.c)
+ *     MiDeleteZeroThreadContext @ 0x14013F75C (MiDeleteZeroThreadContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThreadEx @ 0x1403E4750 (PsCreateSystemThreadEx.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1403E5D7C (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 char *MiInitializePageZeroing()
@@ -51,7 +51,7 @@ char *MiInitializePageZeroing()
   USHORT Count; // [rsp+B0h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+B8h] [rbp+10h] BYREF
 
-  v0 = ((((qword_140324DD0 << 12) + 0x3FFFFFFF) >> 30) / (unsigned __int16)KeNumberNodes) & 0xFFFFFFFFFFFFFFC0uLL;
+  v0 = ((((qword_140324E10 << 12) + 0x3FFFFFFF) >> 30) / (unsigned __int16)KeNumberNodes) & 0xFFFFFFFFFFFFFFC0uLL;
   if ( v0 < 0x40 )
     v0 = 64LL;
   v1 = v0 * (unsigned __int16)KeNumberNodes;
@@ -83,7 +83,7 @@ char *MiInitializePageZeroing()
   v7[1] = v7 + 2;
   RtlSetAllBitsEx(v6);
   memset(v8[1], 0, 4 * ((((unsigned __int8)*v8 & 0x1F) != 0) + ((unsigned __int64)*v8 >> 5)));
-  v9 = qword_140327F60;
+  v9 = qword_140327FA0;
   v10 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 136LL * (unsigned __int16)KeNumberNodes, 0x20206D4Du);
   v11 = v10;
   if ( !v10 )
@@ -106,7 +106,7 @@ LABEL_31:
     do
     {
       v18 = v15;
-      *((_DWORD *)v16 + 8) = v13++ << byte_1403269C9;
+      *((_DWORD *)v16 + 8) = v13++ << byte_140326A09;
       *((_QWORD *)v16 + 1) = v16;
       v15 += v3;
       *(_QWORD *)v16 = v16;
@@ -135,13 +135,13 @@ LABEL_31:
     v26 = (void **)v11;
     goto LABEL_31;
   }
-  word_140324C08 = 263;
-  qword_140324C18 = (__int64)&qword_140324C10;
-  qword_140324C10 = (__int64)&qword_140324C10;
+  word_140324C48 = 263;
+  qword_140324C58 = (__int64)&qword_140324C50;
+  qword_140324C50 = (__int64)&qword_140324C50;
   v21 = (unsigned __int64)v11;
-  byte_140324C0A = 6;
-  dword_140324C0C = 0;
-  dword_140324C00 = (unsigned __int16)KeNumberNodes;
+  byte_140324C4A = 6;
+  dword_140324C4C = 0;
+  dword_140324C40 = (unsigned __int16)KeNumberNodes;
   v22 = MiReferencePageRuns((__int64)MiSystemPartition, 0);
   v23 = 0;
   if ( !KeNumberNodes )
@@ -151,9 +151,9 @@ LABEL_31:
     KeQueryNodeActiveAffinity(v23, &Affinity, &Count);
     if ( !Count )
     {
-      if ( _InterlockedExchangeAdd(&dword_140324C00, 0xFFFFFFFF) == 1 )
+      if ( _InterlockedExchangeAdd(&dword_140324C40, 0xFFFFFFFF) == 1 )
       {
-        KeSignalGate((__int64)&word_140324C08, 1u);
+        KeSignalGate((__int64)&word_140324C48, 1u);
         goto LABEL_20;
       }
       goto LABEL_17;
@@ -182,15 +182,15 @@ LABEL_17:
   MiDeleteZeroThreadContext(ZeroThreadContext);
   ExFreePoolWithTag(ZeroThreadContext, 0);
 LABEL_28:
-  if ( _InterlockedExchangeAdd(&dword_140324C00, v23 - (unsigned __int16)KeNumberNodes) == (unsigned __int16)KeNumberNodes
+  if ( _InterlockedExchangeAdd(&dword_140324C40, v23 - (unsigned __int16)KeNumberNodes) == (unsigned __int16)KeNumberNodes
                                                                                          - v23 )
   {
-    KeSignalGate((__int64)&word_140324C08, 1u);
+    KeSignalGate((__int64)&word_140324C48, 1u);
     v23 = 0;
   }
 LABEL_18:
   if ( v23 )
-    KeWaitForGate((__int64)&word_140324C08, 0);
+    KeWaitForGate((__int64)&word_140324C48, 0);
 LABEL_20:
   MiDereferencePageRuns(v22);
   return v11;

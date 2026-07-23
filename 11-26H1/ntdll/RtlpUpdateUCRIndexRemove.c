@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpUpdateUCRIndexRemove @ 0x1800D9E54
+ * XREFs of RtlpUpdateUCRIndexRemove @ 0x1800D6E14
  * Callers:
- *     RtlpFindAndCommitPages @ 0x180027970 (RtlpFindAndCommitPages.c)
- *     RtlpRemoveUCRBlock @ 0x1800D9DA4 (RtlpRemoveUCRBlock.c)
+ *     RtlpFindAndCommitPages @ 0x180012A40 (RtlpFindAndCommitPages.c)
+ *     RtlpRemoveUCRBlock @ 0x1800D6D64 (RtlpRemoveUCRBlock.c)
  * Callees:
  *     <none>
  */

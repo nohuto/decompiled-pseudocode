@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWheaNativeCpuid @ 0x140365050
+ * XREFs of HalpWheaNativeCpuid @ 0x140365200
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpWheaNativeCpuid(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEnterKernelModeEvent @ 0x140C5D100
+ * XREFs of KiEnterKernelModeEvent @ 0x140C63100
  * Callers:
  *     <none>
  * Callees:
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
  */
 
 __int64 __fastcall KiEnterKernelModeEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

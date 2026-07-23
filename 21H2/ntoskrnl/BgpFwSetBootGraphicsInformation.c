@@ -1,7 +1,7 @@
 /*
- * XREFs of BgpFwSetBootGraphicsInformation @ 0x1405C4490
+ * XREFs of BgpFwSetBootGraphicsInformation @ 0x1405C46C0
  * Callers:
- *     BgSetBootGraphicsInformation @ 0x1409F6684 (BgSetBootGraphicsInformation.c)
+ *     BgSetBootGraphicsInformation @ 0x1409F7684 (BgSetBootGraphicsInformation.c)
  * Callees:
  *     <none>
  */

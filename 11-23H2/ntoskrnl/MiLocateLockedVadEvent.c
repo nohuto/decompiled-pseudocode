@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLocateLockedVadEvent @ 0x14030B424
+ * XREFs of MiLocateLockedVadEvent @ 0x14030B6B4
  * Callers:
  *     MiCaptureWriteWatchDirtyBit @ 0x1402170B0 (MiCaptureWriteWatchDirtyBit.c)
- *     MiZeroFault @ 0x140232320 (MiZeroFault.c)
- *     MiCheckUserVirtualAddress @ 0x14025ADB0 (MiCheckUserVirtualAddress.c)
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiMoveDirtyBitsToPfns @ 0x140285A10 (MiMoveDirtyBitsToPfns.c)
- *     MiInsertVad @ 0x140287C90 (MiInsertVad.c)
- *     MiComputeVadCharges @ 0x140289A38 (MiComputeVadCharges.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
- *     MiFreeVadRange @ 0x140309BA0 (MiFreeVadRange.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     MiMarkMdlComplete @ 0x140632788 (MiMarkMdlComplete.c)
- *     MiGetAweVadPartition @ 0x14064A960 (MiGetAweVadPartition.c)
- *     MiCloneVads @ 0x140663278 (MiCloneVads.c)
- *     MiCopyLargeVad @ 0x140A4934C (MiCopyLargeVad.c)
+ *     MiZeroFault @ 0x1402323F0 (MiZeroFault.c)
+ *     MiCheckUserVirtualAddress @ 0x14025B040 (MiCheckUserVirtualAddress.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140285CA0 (MiMoveDirtyBitsToPfns.c)
+ *     MiInsertVad @ 0x140287F20 (MiInsertVad.c)
+ *     MiComputeVadCharges @ 0x140289CC8 (MiComputeVadCharges.c)
+ *     NtGetWriteWatch @ 0x1402EA4F0 (NtGetWriteWatch.c)
+ *     MiFreeVadRange @ 0x140309E30 (MiFreeVadRange.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     MiMarkMdlComplete @ 0x140632CD8 (MiMarkMdlComplete.c)
+ *     MiGetAweVadPartition @ 0x14064AEB0 (MiGetAweVadPartition.c)
+ *     MiCloneVads @ 0x1406637C8 (MiCloneVads.c)
+ *     MiCopyLargeVad @ 0x140A495FC (MiCopyLargeVad.c)
  * Callees:
  *     <none>
  */

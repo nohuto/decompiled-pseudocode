@@ -3,13 +3,13 @@
  * Callers:
  *     MiDeleteSegmentPages @ 0x140219670 (MiDeleteSegmentPages.c)
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     MiReferenceActiveSubsection @ 0x140288DA0 (MiReferenceActiveSubsection.c)
- *     MiSetPagesModified @ 0x1406288FC (MiSetPagesModified.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14066B0C8 (MiComputeCrossPartitionSectionCharges.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MiInsertSharedCommitNode @ 0x140722020 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x1407223A0 (MiRemoveSharedCommitNode.c)
- *     MiInitializeImageExtents @ 0x140A33E8C (MiInitializeImageExtents.c)
+ *     MiReferenceActiveSubsection @ 0x140289030 (MiReferenceActiveSubsection.c)
+ *     MiSetPagesModified @ 0x140628E4C (MiSetPagesModified.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x14066B618 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MiInsertSharedCommitNode @ 0x140722220 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x1407225A0 (MiRemoveSharedCommitNode.c)
+ *     MiInitializeImageExtents @ 0x140A3413C (MiInitializeImageExtents.c)
  * Callees:
  *     <none>
  */

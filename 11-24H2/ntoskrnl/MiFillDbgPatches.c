@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFillDbgPatches @ 0x14067F9CC
+ * XREFs of MiFillDbgPatches @ 0x140680BCC
  * Callers:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
  * Callees:
  *     <none>
  */

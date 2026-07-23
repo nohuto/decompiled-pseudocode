@@ -1,5 +1,5 @@
 /*
- * XREFs of ShipAssertGetBufferInfo @ 0x1800DE070
+ * XREFs of ShipAssertGetBufferInfo @ 0x1800DE030
  * Callers:
  *     <none>
  * Callees:
@@ -12,8 +12,8 @@ __int64 *__fastcall ShipAssertGetBufferInfo(_QWORD *a1, _QWORD *a2)
 
   if ( a1 )
   {
-    result = &qword_18016DA48;
-    *a1 = &qword_18016DA48;
+    result = &qword_18016DA38;
+    *a1 = &qword_18016DA38;
   }
   if ( a2 )
   {

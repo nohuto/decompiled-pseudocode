@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpFindGuidEntry @ 0x18001DBB0
+ * XREFs of EtwpFindGuidEntry @ 0x18004A5B0
  * Callers:
- *     EtwpCheckForPrivatePreEnable @ 0x18001D9C0 (EtwpCheckForPrivatePreEnable.c)
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x18004A3C0 (EtwpCheckForPrivatePreEnable.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     EtwpReferenceUmGuidEntry @ 0x18010D65C (EtwpReferenceUmGuidEntry.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     EtwpReferenceUmGuidEntry @ 0x18010853C (EtwpReferenceUmGuidEntry.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
 _QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 Root; // rbx
   _QWORD *i; // r14
   int v4; // esi
   int v5; // eax
@@ -24,49 +24,49 @@ _QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
   _QWORD *v11; // rcx
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v2 = EtwpGuidEntryTable;
-  if ( (qword_1801D2278 & 1) != 0 )
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( !EtwpGuidEntryTable )
+    if ( !EtwpGuidEntryTable.Root )
     {
 LABEL_10:
       RtlReleaseSRWLockExclusive(&EtwpProvLock);
       return 0LL;
     }
-    v2 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
   }
   i = 0LL;
-  v4 = qword_1801D2278 & 1;
-  if ( v2 )
+  v4 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      v5 = memcmp(Buf1, (const void *)(v2 + 24), 0x10uLL);
+      v5 = memcmp(Buf1, (const void *)(Root + 24), 0x10uLL);
       if ( v5 < 0 )
         break;
       if ( v5 > 0 )
       {
-        v6 = *(_QWORD *)(v2 + 8);
+        v6 = *(_QWORD *)(Root + 8);
 LABEL_6:
         if ( v4 && v6 )
           goto LABEL_13;
         goto LABEL_7;
       }
-      v6 = *(_QWORD *)v2;
-      i = (_QWORD *)v2;
+      v6 = *(_QWORD *)Root;
+      i = (_QWORD *)Root;
       if ( v4 && v6 )
       {
 LABEL_13:
-        v2 ^= v6;
+        Root ^= v6;
         goto LABEL_8;
       }
 LABEL_7:
-      v2 = v6;
+      Root = v6;
 LABEL_8:
-      if ( !v2 )
+      if ( !Root )
         goto LABEL_9;
     }
-    v6 = *(_QWORD *)v2;
+    v6 = *(_QWORD *)Root;
     goto LABEL_6;
   }
 LABEL_9:

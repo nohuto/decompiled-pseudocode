@@ -1,16 +1,16 @@
 /*
- * XREFs of PsCaptureUserProcessParameters @ 0x1406C2AD0
+ * XREFs of PsCaptureUserProcessParameters @ 0x1406217D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     PspCaptureUserProcessParameters @ 0x1406068CC (PspCaptureUserProcessParameters.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     PspCaptureUserProcessParameters @ 0x14069635C (PspCaptureUserProcessParameters.c)
  */
 
-__int64 __fastcall PsCaptureUserProcessParameters(_QWORD *a1, __int64 a2)
+__int64 __fastcall PsCaptureUserProcessParameters(int a1, int a2)
 {
   __int64 CurrentServerSilo; // rax
 
-  CurrentServerSilo = PsGetCurrentServerSilo((__int64)a1, a2);
-  return PspCaptureUserProcessParameters(a1, a2, 0LL, 3, CurrentServerSilo);
+  CurrentServerSilo = PsGetCurrentServerSilo();
+  return PspCaptureUserProcessParameters(a1, a2, 0, 3, CurrentServerSilo);
 }

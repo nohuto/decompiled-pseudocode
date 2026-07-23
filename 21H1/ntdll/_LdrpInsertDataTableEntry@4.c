@@ -7,76 +7,76 @@
  *     _LdrpHashUnicodeString@4 @ 0x4B2CE090 (_LdrpHashUnicodeString@4.c)
  */
 
-void __thiscall LdrpInsertDataTableEntry(_DWORD *this)
+void __thiscall LdrpInsertDataTableEntry(int this)
 {
   int v2; // eax
   int **v3; // ecx
   int *v4; // eax
   int **v5; // edx
-  _DWORD *v6; // ecx
+  int *v6; // ecx
   _DWORD *v7; // eax
   _DWORD *v8; // edx
-  int v9; // ecx
+  PLDR_DATA_TABLE_ENTRY v9; // ecx
   _DWORD *v10; // eax
   int v11; // edx
 
-  if ( (this[13] & 0x40) == 0 )
+  if ( (*(_BYTE *)(this + 52) & 0x40) == 0 )
   {
-    v2 = this[36];
+    v2 = *(_DWORD *)(this + 144);
     if ( !v2 )
     {
-      v2 = LdrpHashUnicodeString(this + 11);
-      this[36] = v2;
+      v2 = LdrpHashUnicodeString((_DWORD *)(this + 44));
+      *(_DWORD *)(this + 144) = v2;
     }
-    v3 = (int **)(this + 15);
+    v3 = (int **)(this + 60);
     v4 = &LdrpHashTable[2 * (v2 & 0x1F)];
     v5 = (int **)v4[1];
     if ( *v5 == v4 )
     {
       *v3 = v4;
-      this[16] = v5;
+      *(_DWORD *)(this + 64) = v5;
       *v5 = (int *)v3;
       v4[1] = (int)v3;
-      if ( this == (_DWORD *)LdrpImageEntry )
+      if ( this == LdrpImageEntry )
       {
         v9 = dword_4B3A5D8C;
-        if ( *(int **)(dword_4B3A5D8C + 4) == &dword_4B3A5D8C )
+        if ( (PLDR_DATA_TABLE_ENTRY *)dword_4B3A5D8C->InLoadOrderLinks.Blink == &dword_4B3A5D8C )
         {
-          *this = dword_4B3A5D8C;
-          this[1] = &dword_4B3A5D8C;
-          v10 = this + 2;
-          *(_DWORD *)(v9 + 4) = this;
+          *(_DWORD *)this = dword_4B3A5D8C;
+          *(_DWORD *)(this + 4) = &dword_4B3A5D8C;
+          v10 = (_DWORD *)(this + 8);
+          v9->InLoadOrderLinks.Blink = (_LIST_ENTRY *)this;
           v11 = dword_4B3A5D94;
-          dword_4B3A5D8C = (int)this;
+          dword_4B3A5D8C = (PLDR_DATA_TABLE_ENTRY)this;
           if ( *(int **)(dword_4B3A5D94 + 4) == &dword_4B3A5D94 )
           {
             *v10 = dword_4B3A5D94;
-            this[3] = &dword_4B3A5D94;
+            *(_DWORD *)(this + 12) = &dword_4B3A5D94;
             *(_DWORD *)(v11 + 4) = v10;
-            dword_4B3A5D94 = (int)(this + 2);
+            dword_4B3A5D94 = this + 8;
             goto LABEL_9;
           }
         }
       }
       else
       {
-        v6 = (_DWORD *)dword_4B3A5D90;
-        if ( *(int **)dword_4B3A5D90 == &dword_4B3A5D8C )
+        v6 = (int *)dword_4B3A5D90;
+        if ( *(PLDR_DATA_TABLE_ENTRY **)dword_4B3A5D90 == &dword_4B3A5D8C )
         {
-          *this = &dword_4B3A5D8C;
-          v7 = this + 2;
-          this[1] = v6;
+          *(_DWORD *)this = &dword_4B3A5D8C;
+          v7 = (_DWORD *)(this + 8);
+          *(_DWORD *)(this + 4) = v6;
           *v6 = this;
           v8 = (_DWORD *)dword_4B3A5D98;
-          dword_4B3A5D90 = (int)this;
+          dword_4B3A5D90 = this;
           if ( *(int **)dword_4B3A5D98 == &dword_4B3A5D94 )
           {
             *v7 = &dword_4B3A5D94;
-            this[3] = v8;
+            *(_DWORD *)(this + 12) = v8;
             *v8 = v7;
-            dword_4B3A5D98 = (int)(this + 2);
+            dword_4B3A5D98 = this + 8;
 LABEL_9:
-            this[13] |= 0x40u;
+            *(_DWORD *)(this + 52) |= 0x40u;
             return;
           }
         }

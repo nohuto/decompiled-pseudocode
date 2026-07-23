@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceBootError @ 0x1402097EC
+ * XREFs of PopTraceBootError @ 0x140209618
  * Callers:
  *     PopCheckAndClearBootError @ 0x1407BA920 (PopCheckAndClearBootError.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PopTraceBootError()
@@ -28,9 +28,9 @@ void PopTraceBootError()
   __int64 *v15; // [rsp+B0h] [rbp+37h]
   __int64 v16; // [rsp+B8h] [rbp+3Fh]
 
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&pCallbackContext, 0x800000000000uLL) )
+    if ( TlgKeywordOn(&hProvider, 0x800000000000uLL) )
     {
       v1 = *v0;
       v2 = v0[1];
@@ -47,7 +47,7 @@ void PopTraceBootError()
       v12 = 4LL;
       v14 = 4LL;
       v16 = 8LL;
-      TlgWrite(&pCallbackContext, &unk_14027CC13, 0LL, 0LL, 7u, &pData);
+      TlgWrite(&hProvider, &unk_14027CD13, 0LL, 0LL, 7u, &pData);
     }
   }
 }

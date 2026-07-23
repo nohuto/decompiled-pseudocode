@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlExpandHashTable @ 0x1402BE970
+ * XREFs of RtlExpandHashTable @ 0x1402F6CD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x14025171C (RtlpGetChainHead.c)
- *     RtlpAllocateSecondLevelDir @ 0x1402BEB30 (RtlpAllocateSecondLevelDir.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlpAllocateSecondLevelDir @ 0x140250FEC (RtlpAllocateSecondLevelDir.c)
+ *     RtlpGetChainHead @ 0x1402F5F2C (RtlpGetChainHead.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
@@ -29,7 +29,7 @@ BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
   _QWORD *v16; // rcx
   _QWORD *v17; // rax
   unsigned int DivisorMask; // edx
-  __int64 SecondLevelDir; // rax
+  PVOID SecondLevelDir; // rax
   void *Directory; // rbp
   _QWORD *PoolWithTag; // rax
   _QWORD *v23; // rdi
@@ -54,10 +54,10 @@ BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
   v6 = (void **)HashTable->Directory;
   if ( !v6[v5] )
   {
-    SecondLevelDir = RtlpAllocateSecondLevelDir((unsigned int)v5);
+    SecondLevelDir = RtlpAllocateSecondLevelDir(v5);
     if ( SecondLevelDir )
     {
-      v6[v5] = (void *)SecondLevelDir;
+      v6[v5] = SecondLevelDir;
       goto LABEL_5;
     }
     if ( HashTable->TableSize == 128 )

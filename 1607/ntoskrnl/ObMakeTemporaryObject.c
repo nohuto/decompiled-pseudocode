@@ -1,21 +1,21 @@
 /*
- * XREFs of ObMakeTemporaryObject @ 0x1404EB310
+ * XREFs of ObMakeTemporaryObject @ 0x1404CD494
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x14007F1AC (IopCompleteUnloadOrDelete.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
- *     IopUnloadDriver @ 0x140544E28 (IopUnloadDriver.c)
- *     NtMakeTemporaryObject @ 0x14054A4E0 (NtMakeTemporaryObject.c)
- *     IoCreateDriver @ 0x140551384 (IoCreateDriver.c)
- *     ObShutdownSystem @ 0x1406655DC (ObShutdownSystem.c)
- *     IovpUnloadDriver @ 0x14070172C (IovpUnloadDriver.c)
+ *     IopCompleteUnloadOrDelete @ 0x14007F22C (IopCompleteUnloadOrDelete.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
+ *     IopUnloadDriver @ 0x140545368 (IopUnloadDriver.c)
+ *     NtMakeTemporaryObject @ 0x14054AA20 (NtMakeTemporaryObject.c)
+ *     IoCreateDriver @ 0x1405518C4 (IoCreateDriver.c)
+ *     ObShutdownSystem @ 0x1406656C0 (ObShutdownSystem.c)
+ *     IovpUnloadDriver @ 0x14070175C (IovpUnloadDriver.c)
  *     IopInitializeBuiltinDriver @ 0x14079BB9C (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 void __stdcall ObMakeTemporaryObject(PVOID Object)

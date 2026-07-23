@@ -1,9 +1,9 @@
 /*
- * XREFs of KIsDeveloperModeEnabled @ 0x140A59C94
+ * XREFs of KIsDeveloperModeEnabled @ 0x140A51554
  * Callers:
- *     ExQueryFastCacheDevLicense @ 0x140A59C60 (ExQueryFastCacheDevLicense.c)
+ *     ExQueryFastCacheDevLicense @ 0x140A51520 (ExQueryFastCacheDevLicense.c)
  * Callees:
- *     KIsUnlockSettingEnabled @ 0x140A59CE4 (KIsUnlockSettingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x140A515A4 (KIsUnlockSettingEnabled.c)
  */
 
 __int64 __fastcall KIsDeveloperModeEnabled(bool *a1)

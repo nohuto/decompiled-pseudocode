@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpQuerySessionDemuxObject @ 0x1408C0024
+ * XREFs of EtwpQuerySessionDemuxObject @ 0x1408C12E4
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall EtwpQuerySessionDemuxObject(void *a1, _WORD *a2)

@@ -37,9 +37,9 @@ __int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, _DWORD *a2, unsigned 
     v10 = MEMORY[0x7FFE03C0];
   if ( *(_DWORD *)(a1 + 424) != v10 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    RtlReleaseSRWLockExclusive(a1 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     v7 = TppNumberNodes;
   }
   v11 = 0;

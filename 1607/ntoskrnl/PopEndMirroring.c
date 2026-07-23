@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KeInsertQueueDpc @ 0x1400D82A0 (KeInsertQueueDpc.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KeInsertQueueDpc @ 0x1400D6140 (KeInsertQueueDpc.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     PopBuildMemoryImageHeader @ 0x1403CAA04 (PopBuildMemoryImageHeader.c)
  *     PopInvokeSystemStateHandler @ 0x1403CC110 (PopInvokeSystemStateHandler.c)
- *     EtwKernelMemoryRundown @ 0x1406A06D8 (EtwKernelMemoryRundown.c)
+ *     EtwKernelMemoryRundown @ 0x1406A0810 (EtwKernelMemoryRundown.c)
  */
 
 __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
@@ -40,10 +40,10 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
       v2 = -1073741823;
       goto LABEL_4;
     }
-    v2 = *(_DWORD *)(qword_1403034A0 + 188);
+    v2 = *(_DWORD *)(qword_1403033E0 + 188);
     if ( v2 >= 0 )
     {
-      v2 = PopInvokeSystemStateHandler((unsigned int)PopHibernatePowerStateHandlerType, qword_1403034A0);
+      v2 = PopInvokeSystemStateHandler((unsigned int)PopHibernatePowerStateHandlerType, qword_1403033E0);
       if ( v2 >= 0 )
       {
         if ( PoResumeFromHibernate )
@@ -53,17 +53,17 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
     }
 LABEL_4:
     IoAddTriageDumpDataBlock((int)&PopAction, 272);
-    if ( qword_140303498 )
-      IoAddTriageDumpDataBlock(qword_140303498, 464);
-    if ( qword_1403034A0 )
+    if ( qword_1403033D8 )
+      IoAddTriageDumpDataBlock(qword_1403033D8, 464);
+    if ( qword_1403033E0 )
     {
-      IoAddTriageDumpDataBlock(qword_1403034A0, 464);
-      v3 = qword_1403034A0;
-      v4 = *(_QWORD *)(qword_1403034A0 + 168);
+      IoAddTriageDumpDataBlock(qword_1403033E0, 464);
+      v3 = qword_1403033E0;
+      v4 = *(_QWORD *)(qword_1403033E0 + 168);
       if ( v4 )
       {
         IoAddTriageDumpDataBlock(v4, 376);
-        v3 = qword_1403034A0;
+        v3 = qword_1403033E0;
       }
       v5 = *(_QWORD *)(v3 + 200);
       if ( v5 )
@@ -75,7 +75,7 @@ LABEL_4:
     EtwKernelMemoryRundown();
   KeSetEvent(PopSleeperHandoff, 0, 1u);
   KeWaitForSingleObject(&PopSleeperHandoff[1], Executive, 0, 0, 0LL);
-  v2 = PopBuildMemoryImageHeader((PVOID)qword_1403034A0);
+  v2 = PopBuildMemoryImageHeader((PVOID)qword_1403033E0);
   if ( v2 < 0 )
     goto LABEL_4;
   Affinity.Reserved[1] = 0;
@@ -85,9 +85,9 @@ LABEL_4:
   KeSetSystemGroupAffinityThread(&Affinity, 0LL);
   __writecr8(2uLL);
   memset(&PopHibernateSystemContext, 0, 0x50uLL);
-  dword_140328A80 = KeNumberProcessors_0;
-  dword_140328A8C = KeNumberProcessors_0;
-  dword_140328A88 = 1;
+  dword_140328AC0 = KeNumberProcessors_0;
+  dword_140328ACC = KeNumberProcessors_0;
+  dword_140328AC8 = 1;
   InitializeSListHead(&SListHead);
   KeInitializeDpc(&Dpc, PopInvokeStateHandlerTargetProcessor, &PopHibernateSystemContext);
   v9[1] = (unsigned __int16 *)qword_1403AA618[0];
@@ -98,11 +98,11 @@ LABEL_4:
   {
     if ( v12 )
     {
-      v6 = dword_140328A84;
+      v6 = dword_140328AC4;
       if ( !Dpc.DpcData )
         Dpc.Number = v12 + 640;
       KeInsertQueueDpc(&Dpc, 0LL, 0LL);
-      while ( v6 == dword_140328A84 )
+      while ( v6 == dword_140328AC4 )
         ;
     }
   }

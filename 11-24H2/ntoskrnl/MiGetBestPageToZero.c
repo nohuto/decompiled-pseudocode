@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetBestPageToZero @ 0x14041E190
+ * XREFs of MiGetBestPageToZero @ 0x140413ED0
  * Callers:
- *     MiGetSinglePageToZero @ 0x14020B4C0 (MiGetSinglePageToZero.c)
+ *     MiGetSinglePageToZero @ 0x1403332A0 (MiGetSinglePageToZero.c)
  * Callees:
- *     MiSetPageZeroInProgress @ 0x14041E500 (MiSetPageZeroInProgress.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiSetPageZeroInProgress @ 0x140414240 (MiSetPageZeroInProgress.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MiGetBestPageToZero(__int64 a1, __int64 a2, unsigned int a3)

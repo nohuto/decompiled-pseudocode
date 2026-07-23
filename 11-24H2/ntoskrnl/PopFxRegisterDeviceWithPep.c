@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxRegisterDeviceWithPep @ 0x1404C36C0
+ * XREFs of PopFxRegisterDeviceWithPep @ 0x1404BEBF8
  * Callers:
- *     PopFxRegisterDeviceWorker @ 0x14074EBF0 (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x14074CF20 (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopPluginRegisterDevice @ 0x1404C3828 (PopPluginRegisterDevice.c)
- *     PopPepRegisterDevice @ 0x140A96C70 (PopPepRegisterDevice.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopPluginRegisterDevice @ 0x1404BED60 (PopPluginRegisterDevice.c)
+ *     PopPepRegisterDevice @ 0x140A934A0 (PopPepRegisterDevice.c)
  */
 
 __int64 __fastcall PopFxRegisterDeviceWithPep(ULONG_PTR a1, int a2, __int64 a3, int a4)
@@ -17,7 +17,7 @@ __int64 __fastcall PopFxRegisterDeviceWithPep(ULONG_PTR a1, int a2, __int64 a3, 
   ULONG_PTR v7; // rbp
   int v8; // esi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v10; // rdi
+  char *v10; // rdi
   ULONG_PTR *i; // rdi
   int v13; // [rsp+20h] [rbp-48h]
   __int64 v14; // [rsp+70h] [rbp+8h] BYREF
@@ -33,11 +33,11 @@ __int64 __fastcall PopFxRegisterDeviceWithPep(ULONG_PTR a1, int a2, __int64 a3, 
     CurrentThread = KeGetCurrentThread();
     v8 = 0;
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&PopFxPluginLock, 0, v10, (__int64)&PopFxPluginLock);
     if ( v10 )
-      *((_BYTE *)v10 + 10) = 1;
+      v10[10] = 1;
     for ( i = (ULONG_PTR *)PopFxPluginList; i != &PopFxPluginList; i = (ULONG_PTR *)*i )
     {
       v7 = (ULONG_PTR)i;

@@ -89,7 +89,7 @@ unsigned int __fastcall KiSchedulerApc(ULONG_PTR a1)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -109,10 +109,10 @@ unsigned int __fastcall KiSchedulerApc(ULONG_PTR a1)
       *(_BYTE *)(a1 + 194) = v24 & 0xFD;
       v20 = (v24 & 2) != 0;
       *(_QWORD *)(a1 + 64) = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v27 = CurrentPrcb->SchedulerAssist;
@@ -132,7 +132,7 @@ unsigned int __fastcall KiSchedulerApc(ULONG_PTR a1)
     {
       v29 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v29 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu )
       {
         v30 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v29 == 2 )
@@ -151,10 +151,10 @@ unsigned int __fastcall KiSchedulerApc(ULONG_PTR a1)
       if ( *(_QWORD *)(a1 + 168) != a1 + 168 )
         *(_BYTE *)(a1 + 194) |= 2u;
       *(_QWORD *)(a1 + 64) = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v32 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && v29 <= 0xFu && v32 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && v29 <= 0xFu && v32 >= 2u )
         {
           v33 = KeGetCurrentPrcb();
           v34 = v33->SchedulerAssist;
@@ -185,7 +185,7 @@ unsigned int __fastcall KiSchedulerApc(ULONG_PTR a1)
     v11 = a1 + 648;
     v12 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
     {
       v16 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v12 != 2 )
@@ -213,7 +213,7 @@ unsigned int __fastcall KiSchedulerApc(ULONG_PTR a1)
       KiSignalThreadForApc(v13, a1 + 648, v15);
     }
     *(_QWORD *)(a1 + 64) = 0LL;
-    return KiExitDispatcher((__int64)v13, 0, (struct _PROCESSOR_NUMBER)1, 0, v12);
+    return KiExitDispatcher((__int64)v13, 0, (_PROCESSOR_NUMBER)1, 0, v12);
   }
   return result;
 }

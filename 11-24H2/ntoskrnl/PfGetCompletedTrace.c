@@ -1,23 +1,23 @@
 /*
- * XREFs of PfGetCompletedTrace @ 0x140933980
+ * XREFs of PfGetCompletedTrace @ 0x1408F64A0
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140933148 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1408F5C60 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PfpPartitionDereferenceParent @ 0x140274CCC (PfpPartitionDereferenceParent.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PfpPartitionRundownProtectionRelease @ 0x14046FF1C (PfpPartitionRundownProtectionRelease.c)
- *     PfFbBufferListFlushStandby @ 0x1404775E4 (PfFbBufferListFlushStandby.c)
- *     PfTFreeTraceDump @ 0x1404A9C78 (PfTFreeTraceDump.c)
- *     PfpTraceLogPfPartitionId @ 0x1405CCB4C (PfpTraceLogPfPartitionId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     PfpPartitionFindByHandle @ 0x140933E78 (PfpPartitionFindByHandle.c)
- *     PfTAccessTracingStart @ 0x140B5B5B0 (PfTAccessTracingStart.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PfpPartitionDereferenceParent @ 0x14022A25C (PfpPartitionDereferenceParent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PfpPartitionRundownProtectionRelease @ 0x14046A344 (PfpPartitionRundownProtectionRelease.c)
+ *     PfFbBufferListFlushStandby @ 0x140473B84 (PfFbBufferListFlushStandby.c)
+ *     PfTFreeTraceDump @ 0x1404A3F48 (PfTFreeTraceDump.c)
+ *     PfpTraceLogPfPartitionId @ 0x1405CA2BC (PfpTraceLogPfPartitionId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     PfpPartitionFindByHandle @ 0x1408F6998 (PfpPartitionFindByHandle.c)
+ *     PfTAccessTracingStart @ 0x140B5D620 (PfTAccessTracingStart.c)
  */
 
 __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, unsigned int *a4)
@@ -92,7 +92,7 @@ __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, uns
     }
     if ( v7 )
     {
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_1400480D9, 0LL, 0LL, 2u, v35);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_1400484D9, 0LL, 0LL, 2u, v35);
       a1 = Address;
       a4 = v26;
       a3 = v21;
@@ -192,9 +192,9 @@ __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, uns
           *(_OWORD *)Address = 0LL;
           v18[2] = 0LL;
           *(_DWORD *)v18 = 1572866;
-          v30 = (_QWORD *)qword_140E66F88;
-          v18[1] = ((MEMORY[0xFFFFF78000000004] * HIDWORD(qword_140E66F88)) << 8)
-                 + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)qword_140E66F88) >> 24);
+          v30 = (_QWORD *)qword_140E670D8;
+          v18[1] = ((MEMORY[0xFFFFF78000000004] * HIDWORD(qword_140E670D8)) << 8)
+                 + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)qword_140E670D8) >> 24);
           v18[2] = v34;
           memmove(v18 + 3, v6 + 4, (unsigned int)v6[6]);
           *v26 = HIDWORD(Length);
@@ -230,7 +230,7 @@ LABEL_29:
       v39 = &v26;
       v40 = 4;
       v41 = 0;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_14004803B, 0LL, 0LL, 4u, v35);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_1400483ED, 0LL, 0LL, 4u, v35);
     }
   }
   if ( v5 )

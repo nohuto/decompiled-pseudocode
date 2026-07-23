@@ -1,24 +1,24 @@
 /*
- * XREFs of FsRtlpWaitOnIrp @ 0x140270170
+ * XREFs of FsRtlpWaitOnIrp @ 0x140270360
  * Callers:
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockBreakNotify @ 0x140815438 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakToII @ 0x140130800 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AC0C (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOplockBreakNotify @ 0x140816638 (FsRtlpOplockBreakNotify.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     FsRtlpCancelWaitingIrp @ 0x14026FC68 (FsRtlpCancelWaitingIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     FsRtlCancellableWaitForSingleObject @ 0x1405A17E0 (FsRtlCancellableWaitForSingleObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     IoCancelIrp @ 0x140121F00 (IoCancelIrp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     FsRtlpCancelWaitingIrp @ 0x14026FE58 (FsRtlpCancelWaitingIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402702C0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     FsRtlCancellableWaitForSingleObject @ 0x1405A27E0 (FsRtlCancellableWaitForSingleObject.c)
  */
 
 __int64 __fastcall FsRtlpWaitOnIrp(

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLookupDynamicUserFunctionTable @ 0x1405B2388
+ * XREFs of RtlpLookupDynamicUserFunctionTable @ 0x1405B28F8
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x1403A289C (RtlpLookupUserFunctionTable.c)
+ *     RtlpLookupUserFunctionTable @ 0x1403A2A7C (RtlpLookupUserFunctionTable.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned __int64 __fastcall RtlpLookupDynamicUserFunctionTable(unsigned __int64 a1, __int64 a2)
@@ -20,8 +20,8 @@ unsigned __int64 __fastcall RtlpLookupDynamicUserFunctionTable(unsigned __int64 
   int v9; // r11d
   int v10; // r8d
   int v11; // r10d
-  unsigned __int64 v12; // r12
-  unsigned __int64 v13; // rdx
+  char *v12; // r12
+  char *v13; // rdx
   bool v14; // zf
   unsigned __int64 v16; // rcx
   __int64 v17; // rdx
@@ -55,9 +55,9 @@ LABEL_20:
   while ( 1 )
   {
     v11 = (v9 + v10) >> 1;
-    v12 = *(_QWORD *)&v7[6 * v11 + 6];
-    v13 = v12 + (unsigned int)v7[6 * v11 + 8];
-    if ( a1 < v12 )
+    v12 = *(char **)&v7[6 * v11 + 6];
+    v13 = &v12[v7[6 * v11 + 8]];
+    if ( a1 < (unsigned __int64)v12 )
     {
       if ( !v11 )
         goto LABEL_20;
@@ -66,15 +66,15 @@ LABEL_20:
     }
     if ( a1 > 0x7FFFFFFEFFFFLL && v8 )
     {
-      if ( a1 < v13 )
+      if ( a1 < (unsigned __int64)v13 )
         break;
-      if ( a1 < v13 + v8 && v12 != PsNtosImageBase && v12 != PsHalImageBase )
+      if ( a1 < (unsigned __int64)&v13[v8] && v12 != PsNtosImageBase && v12 != PsHalImageBase )
       {
         *(_QWORD *)&v19 = &RtlRetpolineStubsFunctionTable;
         goto LABEL_28;
       }
     }
-    if ( a1 < v13 )
+    if ( a1 < (unsigned __int64)v13 )
       break;
     v9 = v11 + 1;
 LABEL_19:
@@ -83,7 +83,7 @@ LABEL_19:
   }
   v19 = *(_OWORD *)&v7[6 * v11 + 4];
   v8 = *(_QWORD *)&v7[6 * v11 + 8];
-  v13 = *(_QWORD *)&v7[6 * v11 + 6];
+  v13 = *(char **)&v7[6 * v11 + 6];
 LABEL_28:
   *(_QWORD *)(a2 + 8) = v13;
   *(_DWORD *)(a2 + 16) = v8;

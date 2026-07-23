@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreatePlaceholderStorage @ 0x1409C684C
+ * XREFs of MiCreatePlaceholderStorage @ 0x14099782C
  * Callers:
- *     MiReserveUserMemoryPrepare @ 0x14095B7EC (MiReserveUserMemoryPrepare.c)
- *     MiCloneAncillaryVadInfo @ 0x140961D0C (MiCloneAncillaryVadInfo.c)
- *     MiAllocateDataVad @ 0x1409C49A0 (MiAllocateDataVad.c)
- *     MiInitializePartialVad @ 0x140AC0654 (MiInitializePartialVad.c)
+ *     MiAllocateDataVad @ 0x140995980 (MiAllocateDataVad.c)
+ *     MiReserveUserMemoryPrepare @ 0x140A010AC (MiReserveUserMemoryPrepare.c)
+ *     MiCloneAncillaryVadInfo @ 0x140A07A00 (MiCloneAncillaryVadInfo.c)
+ *     MiInitializePartialVad @ 0x140AC26F4 (MiInitializePartialVad.c)
  * Callees:
- *     MiConfirmQuotaAmount @ 0x1403BCDC0 (MiConfirmQuotaAmount.c)
- *     MiConfirmQuotaProcess @ 0x1403BCE04 (MiConfirmQuotaProcess.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiAllocateVad @ 0x14095D5C0 (MiAllocateVad.c)
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiConfirmQuotaAmount @ 0x1403C6C30 (MiConfirmQuotaAmount.c)
+ *     MiConfirmQuotaProcess @ 0x1403C6C74 (MiConfirmQuotaProcess.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
+ *     MiAllocateVad @ 0x140A02E80 (MiAllocateVad.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePlaceholderStorage(ULONG_PTR BugCheckParameter1)
@@ -27,7 +27,7 @@ __int64 __fastcall MiCreatePlaceholderStorage(ULONG_PTR BugCheckParameter1)
 
   v8 = 0LL;
   P = 0LL;
-  result = MiAllocateVad((__int64 *)&P, BugCheckParameter1, 0LL, 0LL, 2);
+  result = MiAllocateVad((unsigned int)&P, BugCheckParameter1, 0, 0, 2);
   if ( (int)result >= 0 )
   {
     v3 = P;

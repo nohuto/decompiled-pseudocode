@@ -1,17 +1,17 @@
 /*
- * XREFs of SepVerifyDesktopAppxPackageName @ 0x1405B8144
+ * XREFs of SepVerifyDesktopAppxPackageName @ 0x1405B86B4
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x1405B7F70 (SepVerifyDesktopAppxImage.c)
+ *     SepVerifyDesktopAppxImage @ 0x1405B84E0 (SepVerifyDesktopAppxImage.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF40 (AuthzBasepEvaluateAceCondition.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     SeSecurityAttributePresent @ 0x140297BE0 (SeSecurityAttributePresent.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8D40 (AuthzBasepFreeSecurityAttributesList.c)
- *     RtlFindAceByType @ 0x1402AD1F0 (RtlFindAceByType.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x14036AF8C (AuthzBasepAllocateSecurityAttributesList.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SeQuerySecurityAttributesToken @ 0x1406B7A00 (SeQuerySecurityAttributesToken.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14022C050 (AuthzBasepEvaluateAceCondition.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     SeSecurityAttributePresent @ 0x140297E70 (SeSecurityAttributePresent.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8FD0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     RtlFindAceByType @ 0x1402AD480 (RtlFindAceByType.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x14036B12C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SeQuerySecurityAttributesToken @ 0x1406B7A30 (SeQuerySecurityAttributesToken.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -29,19 +29,19 @@ __int64 __fastcall SepVerifyDesktopAppxPackageName(_DWORD *a1, __int64 a2, _BYTE
   __int64 v14; // r8
   __int64 v15; // r9
   __int16 v16; // ax
-  __int64 v17; // rcx
+  ACL *v17; // rcx
   __int64 v18; // rax
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v20; // r14
+  _DWORD *AceByType; // rax
+  _DWORD *v20; // r14
   unsigned int v22; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v23; // [rsp+64h] [rbp-9Ch] BYREF
+  ULONG Index; // [rsp+64h] [rbp-9Ch] BYREF
   int v24; // [rsp+68h] [rbp-98h] BYREF
   int v25; // [rsp+6Ch] [rbp-94h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
   _BYTE P[512]; // [rsp+80h] [rbp-80h] BYREF
 
   v25 = 2;
-  v23 = 0;
+  Index = 0;
   v24 = 0;
   v22 = 0;
   *a3 = 0;
@@ -101,17 +101,17 @@ LABEL_13:
     }
     if ( v16 >= 0 )
     {
-      v17 = *(_QWORD *)(a2 + 32);
+      v17 = *(ACL **)(a2 + 32);
     }
     else
     {
       v18 = *(unsigned int *)(a2 + 16);
       if ( !(_DWORD)v18 )
         goto LABEL_13;
-      v17 = a2 + v18;
+      v17 = (ACL *)(a2 + v18);
     }
 LABEL_18:
-    AceByType = RtlFindAceByType(v17, 9, &v23);
+    AceByType = RtlFindAceByType(v17, 9u, &Index);
     v15 = 0LL;
     v20 = AceByType;
     if ( AceByType )
@@ -124,8 +124,11 @@ LABEL_18:
                                   0LL,
                                   0LL,
                                   0LL,
-                                  &AceByType[4 * AceByType[9] + 16],
-                                  *((unsigned __int16 *)AceByType + 1) - (4 * (unsigned int)AceByType[9] + 8) - 8,
+                                  &AceByType[*((unsigned __int8 *)AceByType + 9) + 4],
+                                  *((unsigned __int16 *)AceByType + 1)
+                                - (4 * (unsigned int)*((unsigned __int8 *)AceByType + 9)
+                                 + 8)
+                                - 8,
                                   0,
                                   0,
                                   &v24);
@@ -134,7 +137,7 @@ LABEL_18:
       if ( v24 == 1 )
         goto LABEL_23;
     }
-    ++v23;
+    ++Index;
   }
   while ( v20 );
   if ( v24 != 1 )

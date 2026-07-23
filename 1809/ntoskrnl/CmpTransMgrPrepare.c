@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpTransMgrPrepare @ 0x1406FCDDC
+ * XREFs of CmpTransMgrPrepare @ 0x1406FE07C
  * Callers:
- *     CmKtmNotification @ 0x1406942B0 (CmKtmNotification.c)
- *     CmpRmUnDoPhase @ 0x1407F93A0 (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x140695470 (CmKtmNotification.c)
+ *     CmpRmUnDoPhase @ 0x1407FA5A0 (CmpRmUnDoPhase.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
@@ -11,18 +11,18 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
- *     CmpTransMgrSyncHive @ 0x1406FD114 (CmpTransMgrSyncHive.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpGetNextActiveHive @ 0x1405B2474 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     HvpMarkDirty @ 0x1405FBD2C (HvpMarkDirty.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmListGetNextElement @ 0x140695A80 (CmListGetNextElement.c)
+ *     CmpTransMgrSyncHive @ 0x1406FE3B4 (CmpTransMgrSyncHive.c)
  */
 
 __int64 __fastcall CmpTransMgrPrepare(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
@@ -116,11 +116,11 @@ LABEL_26:
 LABEL_10:
     ;
   }
-  v17 = qword_1403FEFF0;
-  if ( (*(_DWORD *)(*(_QWORD *)(qword_1403FEFF0 + 64) + 144LL) & 1) != 0 )
+  v17 = qword_1403FFFF0;
+  if ( (*(_DWORD *)(*(_QWORD *)(qword_1403FFFF0 + 64) + 144LL) & 1) != 0 )
     goto LABEL_20;
-  v21 = (volatile signed __int64 *)(qword_1403FEFF0 + 72);
-  ExAcquirePushLockExclusiveEx(qword_1403FEFF0 + 72, 0LL);
+  v21 = (volatile signed __int64 *)(qword_1403FFFF0 + 72);
+  ExAcquirePushLockExclusiveEx(qword_1403FFFF0 + 72, 0LL);
   ExAcquirePushLockExclusiveEx(v17 + 80, 0LL);
   v22 = HvpMarkDirty(v17, 0, 32, 0);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v17 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

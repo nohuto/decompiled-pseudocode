@@ -26,7 +26,7 @@ char __fastcall SSHSupportReleasePushLockExclusive(ULONG_PTR BugCheckParameter2)
   unsigned int v6; // r8d
   bool v7; // zf
   __int64 v8; // rcx
-  unsigned __int64 v9; // rdi
+  __int64 v9; // rdi
   int v10; // eax
   unsigned int v11; // ecx
   __int64 v12; // rdx
@@ -51,7 +51,7 @@ char __fastcall SSHSupportReleasePushLockExclusive(ULONG_PTR BugCheckParameter2)
     v7 = !_BitScanReverse((unsigned int *)&v8, v6);
     if ( v7 )
       break;
-    v9 = (unsigned __int64)&CurrentThread->LockEntries[v8];
+    v9 = (__int64)&CurrentThread->LockEntries[v8];
     v6 &= ~(1 << v8);
     if ( (*(_BYTE *)(v9 + 26) & 1) != 0
       && (*(_DWORD *)(v9 + 32) & 1) == 0
@@ -65,14 +65,14 @@ char __fastcall SSHSupportReleasePushLockExclusive(ULONG_PTR BugCheckParameter2)
         {
           *(_BYTE *)(v9 + 32) |= 2u;
           if ( *(__int64 *)(v9 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v9);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9);
           v10 = *(_DWORD *)(v9 + 88) & 0x1FFFF;
           v11 = *(_DWORD *)(v9 + 88) & 0xFFFE0000;
           *(_BYTE *)(v9 + 25) &= ~1u;
           v16 = v10;
           *(_DWORD *)(v9 + 88) = v11;
           *(_QWORD *)(v9 + 32) = 0LL;
-          v12 = (__int64)(v9 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          v12 = (signed __int64)(v9 - (unsigned __int64)CurrentThread->LockEntries) / 96;
           if ( v5 == 1 )
             CurrentThread->AbEntrySummary |= 1 << v12;
           else

@@ -1,15 +1,15 @@
 /*
- * XREFs of VfDifCaptureDriverEntry @ 0x1403B7900
+ * XREFs of VfDifCaptureDriverEntry @ 0x1403C1800
  * Callers:
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140D0F138 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1403B79E0 (MmIsDriverVerifying.c)
- *     VfTargetDriversGetNode @ 0x1403B7A04 (VfTargetDriversGetNode.c)
- *     VfUtilDbgPrint @ 0x14052FE80 (VfUtilDbgPrint.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ViDifCheckCallbackInterception @ 0x140C2027C (ViDifCheckCallbackInterception.c)
- *     ViDifCaptureDriverEntry @ 0x140C2848C (ViDifCaptureDriverEntry.c)
+ *     MmIsDriverVerifying @ 0x1403C18E0 (MmIsDriverVerifying.c)
+ *     VfTargetDriversGetNode @ 0x1403C1904 (VfTargetDriversGetNode.c)
+ *     VfUtilDbgPrint @ 0x140532380 (VfUtilDbgPrint.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ViDifCheckCallbackInterception @ 0x140C26288 (ViDifCheckCallbackInterception.c)
+ *     ViDifCaptureDriverEntry @ 0x140C2E494 (ViDifCaptureDriverEntry.c)
  */
 
 char __fastcall VfDifCaptureDriverEntry(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of IommupMapDeviceInternal @ 0x140523B68
+ * XREFs of IommupMapDeviceInternal @ 0x1405240B8
  * Callers:
- *     IommuMapDevice @ 0x140523030 (IommuMapDevice.c)
- *     IommupDeviceEnableSvm @ 0x140933D34 (IommupDeviceEnableSvm.c)
+ *     IommuMapDevice @ 0x140523580 (IommuMapDevice.c)
+ *     IommupDeviceEnableSvm @ 0x140933F34 (IommupDeviceEnableSvm.c)
  * Callees:
  *     ExRundownCompleted @ 0x140208880 (ExRundownCompleted.c)
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IommupHvGetDeviceSvmCapabilities @ 0x140524D48 (IommupHvGetDeviceSvmCapabilities.c)
- *     IommupHvMapDevice @ 0x1405250E8 (IommupHvMapDevice.c)
- *     IommupHvUnmapDevice @ 0x140525468 (IommupHvUnmapDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IommupHvGetDeviceSvmCapabilities @ 0x140525298 (IommupHvGetDeviceSvmCapabilities.c)
+ *     IommupHvMapDevice @ 0x140525638 (IommupHvMapDevice.c)
+ *     IommupHvUnmapDevice @ 0x1405259B8 (IommupHvUnmapDevice.c)
  */
 
 __int64 __fastcall IommupMapDeviceInternal(KSPIN_LOCK *a1, __int64 *a2, int *a3)
@@ -137,7 +137,7 @@ __int64 __fastcall IommupMapDeviceInternal(KSPIN_LOCK *a1, __int64 *a2, int *a3)
         *v23 = v23;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(0xFuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 15 )
@@ -194,10 +194,10 @@ LABEL_37:
             v3 = 0LL;
             KxReleaseSpinLock((volatile signed __int64 *)a1 + 3);
             v22 = (unsigned int)KiIrqlFlags;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v36 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v22 = (unsigned int)CurrentIrql + 1;
@@ -206,7 +206,7 @@ LABEL_37:
                 v17 = (v39 & v38[5]) == 0;
                 v38[5] &= v39;
                 if ( v17 )
-                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
               }
             }
             __writecr8(CurrentIrql);

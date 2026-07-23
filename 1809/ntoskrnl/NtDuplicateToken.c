@@ -1,23 +1,23 @@
 /*
- * XREFs of NtDuplicateToken @ 0x14064A010
+ * XREFs of NtDuplicateToken @ 0x14064B1D0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1400CCED4 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x1405BBD54 (SepNewTokenAsRestrictedAsProcessToken.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
- *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
- *     SeCaptureSecurityQos @ 0x14064A45C (SeCaptureSecurityQos.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1400CCF54 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SepFinalizeTokenAcls @ 0x140583ABC (SepFinalizeTokenAcls.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x1405BCD54 (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     SepDuplicateToken @ 0x14064A640 (SepDuplicateToken.c)
+ *     RtlIsSandboxedToken @ 0x14064B4F0 (RtlIsSandboxedToken.c)
+ *     SeCaptureSecurityQos @ 0x14064B61C (SeCaptureSecurityQos.c)
  */
 
 NTSTATUS __stdcall NtDuplicateToken(

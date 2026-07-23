@@ -30,7 +30,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV2(
   bool v17; // zf
   __int64 result; // rax
   ULONG v19; // eax
-  RTL_BITMAP *v20; // rbx
+  _RTL_BITMAP *v20; // rbx
   __int64 v21; // r15
   __int64 v22; // r13
   ULONG v23; // ebx
@@ -85,7 +85,7 @@ LABEL_11:
   }
   if ( a4 )
   {
-    v20 = *(RTL_BITMAP **)(a2 + 16);
+    v20 = *(_RTL_BITMAP **)(a2 + 16);
     if ( v20->SizeOfBitMap - RtlNumberOfSetBits(v20) < a3 )
       goto LABEL_3;
   }

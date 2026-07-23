@@ -7,22 +7,22 @@
  *     NtSetInformationProcess @ 0x18009F170 (NtSetInformationProcess.c)
  */
 
-NTSTATUS __fastcall RtlSetProcessIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
+NTSTATUS __cdecl RtlSetProcessIsCritical(BOOLEAN NewValue, PBOOLEAN OldValue, BOOLEAN CheckFlag)
 {
   int v3; // edi
   NTSTATUS result; // eax
   int ProcessInformation; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = a1;
-  if ( a2 )
-    *a2 = 0;
-  if ( a3 && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
+  v3 = NewValue;
+  if ( OldValue )
+    *OldValue = 0;
+  if ( CheckFlag && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
     return -1073741823;
-  if ( !a2 )
+  if ( !OldValue )
   {
 LABEL_8:
     ProcessInformation = v3;
-    return NtSetInformationProcess(-1LL, 29LL, &ProcessInformation, 4LL);
+    return NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
   }
   result = NtQueryInformationProcess(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
@@ -32,7 +32,7 @@ LABEL_8:
              0LL);
   if ( result >= 0 )
   {
-    *a2 = ProcessInformation;
+    *OldValue = ProcessInformation;
     goto LABEL_8;
   }
   return result;

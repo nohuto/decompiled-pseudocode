@@ -1,11 +1,11 @@
 /*
- * XREFs of IopProbeAndLockPages @ 0x140371DD4
+ * XREFs of IopProbeAndLockPages @ 0x140371F74
  * Callers:
- *     IopBuildDeviceIoControlRequest @ 0x140251210 (IopBuildDeviceIoControlRequest.c)
- *     IopBuildAsynchronousFsdRequest @ 0x140371BF0 (IopBuildAsynchronousFsdRequest.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402512D0 (IopBuildDeviceIoControlRequest.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x140371D90 (IopBuildAsynchronousFsdRequest.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmUpdateMdlTracker @ 0x14061D2B4 (MmUpdateMdlTracker.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTracker @ 0x14061D804 (MmUpdateMdlTracker.c)
  */
 
 __int64 __fastcall IopProbeAndLockPages(__int64 a1, __int64 a2, signed __int32 a3, __int64 a4, unsigned int a5)

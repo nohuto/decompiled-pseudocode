@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpParseCommonBufferExtendedConfigurations @ 0x140588BA8
+ * XREFs of HalpParseCommonBufferExtendedConfigurations @ 0x14058B278
  * Callers:
- *     HalpCreateCommonBufferFromMdlVerifyParams @ 0x140588AAC (HalpCreateCommonBufferFromMdlVerifyParams.c)
+ *     HalpCreateCommonBufferFromMdlVerifyParams @ 0x14058B17C (HalpCreateCommonBufferFromMdlVerifyParams.c)
  * Callees:
  *     <none>
  */

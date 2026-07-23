@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWin32DeleteProcedure @ 0x1406B4030
+ * XREFs of ExpWin32DeleteProcedure @ 0x140613200
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
  */
 
 POBJECT_TYPE *__fastcall ExpWin32DeleteProcedure(_DWORD *a1)
 {
   unsigned __int64 v1; // r8
   POBJECT_TYPE *result; // rax
-  int v3; // ecx
+  __int64 v3; // rcx
   int v4; // [rsp+30h] [rbp+10h] BYREF
   _DWORD *v5; // [rsp+38h] [rbp+18h] BYREF
 
@@ -20,33 +20,33 @@ POBJECT_TYPE *__fastcall ExpWin32DeleteProcedure(_DWORD *a1)
   result = (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v1];
   if ( result == (POBJECT_TYPE *)ExActivationObjectType )
   {
-    v3 = 40;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, (__int64)&v5, 1, (__int64)&v4);
+    v3 = 40LL;
+    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, &v5, 1LL, &v4);
   }
   if ( result == (POBJECT_TYPE *)ExCoreMessagingObjectType )
   {
-    v3 = 36;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, (__int64)&v5, 1, (__int64)&v4);
+    v3 = 36LL;
+    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, &v5, 1LL, &v4);
   }
   if ( result == (POBJECT_TYPE *)ExRawInputManagerObjectType )
   {
-    v3 = 30;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, (__int64)&v5, 1, (__int64)&v4);
+    v3 = 30LL;
+    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, &v5, 1LL, &v4);
   }
   if ( result == (POBJECT_TYPE *)ExCompositionObjectType )
   {
-    v3 = 21;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, (__int64)&v5, 1, (__int64)&v4);
+    v3 = 21LL;
+    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, &v5, 1LL, &v4);
   }
   if ( result == ExDesktopObjectType )
   {
-    v3 = 11;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, (__int64)&v5, 1, (__int64)&v4);
+    v3 = 11LL;
+    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, &v5, 1LL, &v4);
   }
   if ( result == (POBJECT_TYPE *)ExWindowStationObjectType )
   {
-    v3 = 14;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, (__int64)&v5, 1, (__int64)&v4);
+    v3 = 14LL;
+    return (POBJECT_TYPE *)PsInvokeWin32Callout(v3, &v5, 1LL, &v4);
   }
   return result;
 }

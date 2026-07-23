@@ -33,8 +33,8 @@ void __stdcall CcDeferWrite(
   int v16; // eax
   bool v17; // zf
   KSPIN_LOCK *v18; // r8
-  struct _LIST_ENTRY *v19; // rdx
-  struct _LIST_ENTRY *v20; // rcx
+  _LIST_ENTRY *v19; // rdx
+  _LIST_ENTRY *v20; // rcx
   unsigned __int64 v21; // rdi
   unsigned __int8 v22; // al
   struct _KPRCB *v23; // r9
@@ -76,8 +76,8 @@ void __stdcall CcDeferWrite(
       __fastfail(0xEu);
     v18 = (KSPIN_LOCK *)(PartitionFromFileObject + 832);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
-    v19 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
-    v20 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 784);
+    v19 = (_LIST_ENTRY *)(PoolWithTag + 24);
+    v20 = (_LIST_ENTRY *)(PartitionFromFileObject + 784);
     *((_QWORD *)PoolWithTag + 1) = FileObject;
     *((_DWORD *)PoolWithTag + 4) = BytesToWrite;
     *((_QWORD *)PoolWithTag + 9) = PartitionFromFileObject;

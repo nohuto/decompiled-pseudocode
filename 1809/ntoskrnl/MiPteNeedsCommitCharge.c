@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPteNeedsCommitCharge @ 0x14010B0E4
+ * XREFs of MiPteNeedsCommitCharge @ 0x14010B164
  * Callers:
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiCountSharedPages @ 0x14010AC70 (MiCountSharedPages.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiCountSharedPages @ 0x14010ACF0 (MiCountSharedPages.c)
  * Callees:
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFindActualFaultingPte @ 0x14031C6A4
+ * XREFs of MiFindActualFaultingPte @ 0x14031E6D4
  * Callers:
- *     MiIsFaultPteIntact @ 0x14031C508 (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x14031C6A4 (MiFindActualFaultingPte.c)
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
+ *     MiIsFaultPteIntact @ 0x14031E538 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x14031E6D4 (MiFindActualFaultingPte.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiFindActualFaultingPte @ 0x14031C6A4 (MiFindActualFaultingPte.c)
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
- *     MiCheckVirtualAddress @ 0x1403A55E0 (MiCheckVirtualAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiFindActualFaultingPte @ 0x14031E6D4 (MiFindActualFaultingPte.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
+ *     MiCheckVirtualAddress @ 0x1403A7340 (MiCheckVirtualAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1, unsigned __int64 a2)

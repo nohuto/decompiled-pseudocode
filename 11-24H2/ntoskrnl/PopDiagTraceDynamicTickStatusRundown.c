@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDynamicTickStatusRundown @ 0x140A389D0
+ * XREFs of PopDiagTraceDynamicTickStatusRundown @ 0x140A2DA90
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     KeGetDynamicTickDisableReason @ 0x1404F9794 (KeGetDynamicTickDisableReason.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     KeGetDynamicTickDisableReason @ 0x1404F7074 (KeGetDynamicTickDisableReason.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopDiagTraceDynamicTickStatusRundown()

@@ -3,12 +3,12 @@
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     xKdEnumerateDebuggingDevices @ 0x14014CA24 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     xKdEnumerateDebuggingDevices @ 0x14014CF94 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmLockPagableDataSection @ 0x1404830A8 (MmLockPagableDataSection.c)
+ *     MmLockPagableDataSection @ 0x140481DFC (MmLockPagableDataSection.c)
  *     HdlspEnableTerminal @ 0x14072338C (HdlspEnableTerminal.c)
  */
 

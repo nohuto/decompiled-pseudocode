@@ -1,9 +1,9 @@
 /*
- * XREFs of strcpy_s @ 0x18009B340
+ * XREFs of strcpy_s @ 0x18009B350
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x180087DF0 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x180087E00 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl strcpy_s(char *Destination, rsize_t SizeInBytes, const char *Source)

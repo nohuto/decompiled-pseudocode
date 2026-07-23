@@ -4,35 +4,39 @@
  *     TppPoolpReferenceGlobalPool @ 0x1800137E4 (TppPoolpReferenceGlobalPool.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
- *     NtSetInformationWorkerFactory @ 0x1800A0A50 (NtSetInformationWorkerFactory.c)
- *     TppRaiseInvalidParameter @ 0x1801124DC (TppRaiseInvalidParameter.c)
- *     TppETWPoolThreadMin @ 0x180112A24 (TppETWPoolThreadMin.c)
+ *     NtSetInformationWorkerFactory @ 0x1800A0A10 (NtSetInformationWorkerFactory.c)
+ *     TppRaiseInvalidParameter @ 0x18011249C (TppRaiseInvalidParameter.c)
+ *     TppETWPoolThreadMin @ 0x1801129E4 (TppETWPoolThreadMin.c)
  */
 
-__int64 __fastcall TpSetPoolMinThreads(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl TpSetPoolMinThreads(PTP_POOL Pool, ULONG MinThreads)
 {
-  int v5; // edi
-  __int64 v6; // rdx
-  unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  int v4; // edi
+  __int64 v5; // rdx
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = (unsigned int)Ldr;
-  if ( !a1 || (int)Ldr < 0 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  WorkerFactoryInformation = MinThreads;
+  if ( !Pool
+    || (MinThreads & 0x80000000) != 0
+    || (*(_QWORD *)&MinThreads = NtCurrentPeb()->Ldr, *(_BYTE *)(*(_QWORD *)&MinThreads + 72LL)) )
   {
-    TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(Pool, *(_QWORD *)&MinThreads, v2);
+    return -1073741811;
   }
   else
   {
-    v5 = NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 4LL, &v8);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v6 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v4 = NtSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMinimum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
+      v5 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v6 = 2147353478LL;
-    if ( *(_BYTE *)v6 )
+      v5 = 2147353478LL;
+    if ( *(_BYTE *)v5 )
     {
-      if ( v5 >= 0 )
-        TppETWPoolThreadMin(a1, v8);
+      if ( v4 >= 0 )
+        TppETWPoolThreadMin(Pool, WorkerFactoryInformation);
     }
-    return (unsigned int)v5;
+    return v4;
   }
 }

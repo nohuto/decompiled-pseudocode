@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntDivPow2 @ 0x1404032FC
+ * XREFs of SymCryptFdefIntDivPow2 @ 0x1404034DC
  * Callers:
- *     SymCryptIntDivPow2 @ 0x1403F938C (SymCryptIntDivPow2.c)
+ *     SymCryptIntDivPow2 @ 0x1403F956C (SymCryptIntDivPow2.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
  */
 
 unsigned __int64 __fastcall SymCryptFdefIntDivPow2(__int64 a1, unsigned __int64 a2, __int64 a3)

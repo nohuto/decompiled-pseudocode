@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpPlaceActivationContextOnLiveList @ 0x18011D4A4
+ * XREFs of RtlpPlaceActivationContextOnLiveList @ 0x18011D254
  * Callers:
- *     RtlCreateActivationContext @ 0x1800A1F40 (RtlCreateActivationContext.c)
+ *     RtlCreateActivationContext @ 0x1800A1070 (RtlCreateActivationContext.c)
  * Callees:
- *     RtlAcquirePebLock @ 0x1800A1E90 (RtlAcquirePebLock.c)
- *     RtlpEnsureLiveDeadListsInitialized @ 0x18011D500 (RtlpEnsureLiveDeadListsInitialized.c)
+ *     RtlAcquirePebLock @ 0x1800A0FC0 (RtlAcquirePebLock.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x18011D2B0 (RtlpEnsureLiveDeadListsInitialized.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
+NTSTATUS __fastcall RtlpPlaceActivationContextOnLiveList(__int64 a1)
 {
   _QWORD *v2; // rax
   __int64 v3; // rcx

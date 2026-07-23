@@ -1,23 +1,23 @@
 /*
- * XREFs of PpDevCfgProcessDeviceReset @ 0x140A84170
+ * XREFs of PpDevCfgProcessDeviceReset @ 0x140A7EC90
  * Callers:
- *     PiConfigureDevice @ 0x140723EEC (PiConfigureDevice.c)
+ *     PiConfigureDevice @ 0x140721A7C (PiConfigureDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     PiDevCfgInitDeviceContext @ 0x140997624 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgFreeDeviceContext @ 0x140997788 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgMigrateDevice @ 0x14099A6AC (PiDevCfgMigrateDevice.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14099B580 (PiDevCfgSetDeviceRegProp.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x140A847DC (PiDevCfgResetDeviceDriverSettings.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     PiDevCfgInitDeviceContext @ 0x1409C9D7C (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgFreeDeviceContext @ 0x1409C9EF4 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgMigrateDevice @ 0x1409CCE1C (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1409CDCF0 (PiDevCfgSetDeviceRegProp.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140A7F31C (PiDevCfgResetDeviceDriverSettings.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
@@ -32,28 +32,28 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
   __int64 v9; // rdx
   __int64 v10; // rcx
   int v11; // eax
-  int v13; // [rsp+48h] [rbp-79h] BYREF
-  int v14; // [rsp+4Ch] [rbp-75h] BYREF
-  int v15; // [rsp+50h] [rbp-71h] BYREF
-  int v16; // [rsp+54h] [rbp-6Dh] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-69h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-59h] BYREF
-  _QWORD v19[3]; // [rsp+70h] [rbp-51h] BYREF
-  int v20; // [rsp+88h] [rbp-39h]
-  __int64 v21; // [rsp+8Ch] [rbp-35h]
-  int v22; // [rsp+94h] [rbp-2Dh]
-  _QWORD v23[2]; // [rsp+98h] [rbp-29h] BYREF
-  void *v24; // [rsp+A8h] [rbp-19h]
-  __int128 v25; // [rsp+E8h] [rbp+27h] BYREF
+  int v13; // [rsp+48h] [rbp-C0h] BYREF
+  int v14; // [rsp+4Ch] [rbp-BCh] BYREF
+  int GuidString; // [rsp+50h] [rbp-B8h] BYREF
+  int GuidString_4; // [rsp+54h] [rbp-B4h] BYREF
+  UNICODE_STRING GuidString_8; // [rsp+58h] [rbp-B0h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD v19[3]; // [rsp+70h] [rbp-98h] BYREF
+  int v20; // [rsp+88h] [rbp-80h]
+  __int64 v21; // [rsp+8Ch] [rbp-7Ch]
+  int v22; // [rsp+94h] [rbp-74h]
+  int v23[4]; // [rsp+98h] [rbp-70h] BYREF
+  void *v24; // [rsp+A8h] [rbp-60h]
+  GUID Guid; // [rsp+F8h] [rbp-10h] BYREF
 
-  memset_0(v23, 0, 0x48uLL);
+  memset_0(v23, 0, 0x58uLL);
   Handle = 0LL;
-  v25 = 0LL;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  v16 = 1;
-  UnicodeString.Buffer = 0LL;
+  Guid = 0LL;
+  *(_QWORD *)&GuidString_8.Length = 0LL;
+  GuidString_4 = 1;
+  GuidString_8.Buffer = 0LL;
   v13 = 0;
-  v15 = 0;
+  GuidString = 0;
   v14 = 0;
   if ( !PiDevCfgMode )
   {
@@ -72,7 +72,7 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
     v5 = (__int64)v24;
     v6 = *(WCHAR **)(a1 + 48);
     v19[0] = &DEVPKEY_Device_ClassGuid;
-    v19[2] = &v25;
+    v19[2] = &Guid;
     v19[1] = 13LL;
     v21 = 0LL;
     v22 = 0;
@@ -82,27 +82,27 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
     {
       if ( v21 < 0 )
         goto LABEL_11;
-      inited = RtlStringFromGUIDEx((unsigned int *)&v25, (__int64)&UnicodeString, 1);
+      inited = RtlStringFromGUIDEx(&Guid, &GuidString_8, 1u);
       if ( inited >= 0 )
       {
-        if ( (int)PnpOpenObjectRegKey(*(_QWORD **)&PiPnpRtlCtx, UnicodeString.Buffer, 2, 131097, 0, (__int64)&Handle) >= 0 )
+        if ( (int)PnpOpenObjectRegKey(*(_QWORD **)&PiPnpRtlCtx, GuidString_8.Buffer, 2, 131097, 0, (__int64)&Handle) >= 0 )
         {
 LABEL_12:
           v7 = PiDevCfgMigrateDevice(
                  a1,
                  (__int64)v23,
-                 (unsigned __int16 *)((unsigned __int64)&UnicodeString & -(__int64)(UnicodeString.Buffer != 0LL)),
+                 (unsigned __int16 *)((unsigned __int64)&GuidString_8 & -(__int64)(GuidString_8.Buffer != 0LL)),
                  0LL,
-                 &v15,
+                 &GuidString,
                  0LL);
-          v8 = v15;
+          v8 = GuidString;
           if ( v7 < 0 )
             v8 = 0;
           PiDevCfgResetDeviceDriverSettings(
             a1,
-            (unsigned int)v23,
-            (unsigned __int64)&v25 & -(__int64)(UnicodeString.Buffer != 0LL),
-            (_DWORD)Handle,
+            (int)v23,
+            (unsigned __int64)&Guid & -(__int64)(GuidString_8.Buffer != 0LL),
+            (int)Handle,
             0LL);
           PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v5, L"Devices");
           PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v5, L"Filters");
@@ -115,11 +115,11 @@ LABEL_12:
                         v9,
                         v5,
                         0xBu,
-                        (__int64)&v16,
+                        (__int64)&GuidString_4,
                         (__int64)&v13,
                         (__int64)&v14,
                         0) < 0
-              || v16 != 4
+              || GuidString_4 != 4
               || (v11 = v13, v14 != 4) )
             {
               v11 = 0;
@@ -129,18 +129,18 @@ LABEL_12:
           }
           goto LABEL_20;
         }
-        RtlFreeAnsiString(&UnicodeString);
+        RtlFreeAnsiString(&GuidString_8);
 LABEL_11:
-        v25 = 0LL;
+        Guid = 0LL;
         goto LABEL_12;
       }
     }
   }
 LABEL_20:
-  if ( UnicodeString.Buffer )
+  if ( GuidString_8.Buffer )
   {
-    ExFreePool(UnicodeString.Buffer);
-    UnicodeString = 0LL;
+    ExFreePool(GuidString_8.Buffer);
+    GuidString_8 = 0LL;
   }
   if ( Handle )
     ZwClose(Handle);

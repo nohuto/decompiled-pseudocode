@@ -12,35 +12,32 @@
  *     sub_18003015C @ 0x18003015C (sub_18003015C.c)
  */
 
-__int64 __fastcall sub_18001E19C(int a1, int a2, __int64 a3, __int64 *a4)
+__int64 __fastcall sub_18001E19C(PUNICODE_STRING a1, __int16 a2, __int64 a3, __int64 *a4)
 {
   int v6; // ebx
-  int v7; // r8d
-  int v8; // edx
-  __int16 v10; // si
-  int v11; // [rsp+48h] [rbp+10h] BYREF
+  _UNICODE_STRING *v7; // rdx
+  __int16 v9; // si
+  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
-  v11 = 0;
+  LODWORD(v10) = 0;
   v6 = -1073741275;
   if ( (a2 & 0x20) != 0 )
   {
-    v7 = a2;
-    v8 = 0;
+    v7 = 0LL;
   }
   else
   {
     if ( (a2 & 0x200) == 0 )
       goto LABEL_5;
-    v7 = a2;
-    v8 = a1;
-    a1 = 0;
+    v7 = a1;
+    a1 = 0LL;
   }
-  v6 = sub_180021AE0(a1, v8, v7, (_DWORD)a4, (__int64)&v11);
+  v6 = sub_180021AE0(a1, v7, (__int64)&v10);
 LABEL_5:
   if ( v6 >= 0 )
   {
     v6 = -1073741275;
-    if ( v11 == 9 )
+    if ( (_DWORD)v10 == 9 )
     {
       v6 = sub_18001BDBC(*a4);
       if ( v6 >= 0 )
@@ -48,18 +45,18 @@ LABEL_5:
         v6 = sub_18001BE0C(a3, *a4);
         if ( v6 < 0 )
         {
-          v10 = NtCurrentTeb()->SameTebFlags & 0x1000;
-          if ( !v10 )
+          v9 = NtCurrentTeb()->SameTebFlags & 0x1000;
+          if ( !v9 )
             sub_18001AE14(0);
           sub_180011D94(*a4, 0);
-          if ( !v10 )
+          if ( !v9 )
             sub_18001A338();
         }
       }
     }
     if ( v6 < 0 )
     {
-      sub_18003015C(*a4);
+      sub_18003015C((PVOID)*a4);
       *a4 = 0LL;
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReduceZeroingThreads @ 0x1403C7FBC
+ * XREFs of MiReduceZeroingThreads @ 0x140413BFC
  * Callers:
- *     MiScheduleZeroPageThreads @ 0x1402D36A0 (MiScheduleZeroPageThreads.c)
- *     MiReassessZeroThreads @ 0x1403C698C (MiReassessZeroThreads.c)
+ *     MiScheduleZeroPageThreads @ 0x140354918 (MiScheduleZeroPageThreads.c)
+ *     MiReassessZeroThreads @ 0x1404125C0 (MiReassessZeroThreads.c)
  * Callees:
- *     MiDecrementZeroEngineThread @ 0x1403C7E68 (MiDecrementZeroEngineThread.c)
- *     MiFindReductionContendingThread @ 0x140471410 (MiFindReductionContendingThread.c)
- *     MiMoveZeroThreadsToOtherCores @ 0x140471550 (MiMoveZeroThreadsToOtherCores.c)
+ *     MiDecrementZeroEngineThread @ 0x140413AA8 (MiDecrementZeroEngineThread.c)
+ *     MiFindReductionContendingThread @ 0x14046BFE0 (MiFindReductionContendingThread.c)
+ *     MiMoveZeroThreadsToOtherCores @ 0x14046C120 (MiMoveZeroThreadsToOtherCores.c)
  */
 
 __int64 __fastcall MiReduceZeroingThreads(unsigned int *a1, int a2, __int64 a3)
@@ -53,7 +53,7 @@ __int64 __fastcall MiReduceZeroingThreads(unsigned int *a1, int a2, __int64 a3)
   if ( *((_BYTE *)a1 + 36) )
     v10 = &Src;
   else
-    v10 = *(void ***)(384LL * *(unsigned int *)(v8 + 56) + qword_140E2DAF8 + 376);
+    v10 = *(void ***)(384LL * *(unsigned int *)(v8 + 56) + qword_140E2DC38 + 376);
   v11 = *((_DWORD *)v10 + 2);
   v12 = 0;
   if ( (_DWORD)v5 )
@@ -139,21 +139,21 @@ LABEL_37:
   *v29 = *v6;
   if ( ReductionContendingThread )
   {
-    ++dword_140EF4C30;
+    ++dword_140EF4E50;
   }
   else
   {
     ReductionContendingThread = MiFindReductionContendingThread(v6, 1LL, a3, v5);
     if ( ReductionContendingThread )
     {
-      ++dword_140EF4C34;
+      ++dword_140EF4E54;
     }
     else
     {
       ReductionContendingThread = MiFindReductionContendingThread(v6, 0LL, v26, v27);
       if ( !ReductionContendingThread )
         return 8LL;
-      ++dword_140EF4C38;
+      ++dword_140EF4E58;
     }
   }
   MiDecrementZeroEngineThread(ReductionContendingThread);

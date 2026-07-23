@@ -1,22 +1,22 @@
 /*
- * XREFs of MmAllocateMappingAddress @ 0x1406F92E0
+ * XREFs of MmAllocateMappingAddress @ 0x1406FA580
  * Callers:
- *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
- *     HvlpInitializeHvCrashdump @ 0x140277E5C (HvlpInitializeHvCrashdump.c)
- *     PnprInitializeMappingReserve @ 0x140834FD0 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1408CA4DC (EtwpSavePersistedLogger.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
+ *     SmFpPreAllocate @ 0x14018E748 (SmFpPreAllocate.c)
+ *     HvlpInitializeHvCrashdump @ 0x14027804C (HvlpInitializeHvCrashdump.c)
+ *     PnprInitializeMappingReserve @ 0x140836230 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1408CB79C (EtwpSavePersistedLogger.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertMappingNode @ 0x14015ED68 (MiInsertMappingNode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertMappingNode @ 0x14015EE68 (MiInsertMappingNode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiInsertPteTracker @ 0x1402CDCB0 (MiInsertPteTracker.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall MmAllocateMappingAddress(SIZE_T NumberOfBytes, ULONG PoolTag)
@@ -51,7 +51,7 @@ PVOID __stdcall MmAllocateMappingAddress(SIZE_T NumberOfBytes, ULONG PoolTag)
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6D72694Du);
   if ( !PoolWithTag )
     return 0LL;
-  v5 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v3);
+  v5 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v3);
   v6 = v5;
   if ( !v5 )
   {
@@ -70,7 +70,7 @@ PVOID __stdcall MmAllocateMappingAddress(SIZE_T NumberOfBytes, ULONG PoolTag)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v10 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_8;
       v13 = (v9 & 1) == 0;
     }
@@ -90,7 +90,7 @@ LABEL_8:
     v6 = (unsigned __int64)(v11 + 1);
   }
   while ( v7 < v3 );
-  if ( (dword_14054017C & 1) != 0 )
+  if ( (dword_14054117C & 1) != 0 )
   {
     v18 = 0;
     v19 = 0LL;

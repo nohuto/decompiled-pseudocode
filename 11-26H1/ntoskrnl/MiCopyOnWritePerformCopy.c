@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCopyOnWritePerformCopy @ 0x14036B248
+ * XREFs of MiCopyOnWritePerformCopy @ 0x14036CFE8
  * Callers:
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
  * Callees:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
  */
 
 __int64 __fastcall MiCopyOnWritePerformCopy(__int64 a1, ULONG_PTR a2)

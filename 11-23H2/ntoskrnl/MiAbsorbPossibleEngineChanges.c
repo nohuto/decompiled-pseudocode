@@ -1,22 +1,22 @@
 /*
  * XREFs of MiAbsorbPossibleEngineChanges @ 0x140221054
  * Callers:
- *     MiInitializeZeroEngines @ 0x1406B27F4 (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x1406B2824 (MiInitializeZeroEngines.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
  *     MiInitializeDpcGroupAffinity @ 0x140221C20 (MiInitializeDpcGroupAffinity.c)
  *     MiAllocateAcceleratorDescriptor @ 0x1402220E0 (MiAllocateAcceleratorDescriptor.c)
  *     MiDrainEngineDescriptors @ 0x140222194 (MiDrainEngineDescriptors.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403B38AC (MiAllocateZeroPageDecisionTraceBuffer.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInitializeZeroingDomains @ 0x1406B297C (MiInitializeZeroingDomains.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403B3A8C (MiAllocateZeroPageDecisionTraceBuffer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiInitializeZeroingDomains @ 0x1406B29AC (MiInitializeZeroingDomains.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -115,10 +115,13 @@ void __fastcall MiAbsorbPossibleEngineChanges(int *a1, _BYTE *a2)
     v11 = *(unsigned __int16 *)(v7 + 2 * v5 + 16);
   v72 = v11;
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C69820);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -168,10 +171,10 @@ void __fastcall MiAbsorbPossibleEngineChanges(int *a1, _BYTE *a2)
       v72 = *(unsigned __int16 *)(v7 + 2 * v5 + 16);
     }
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C69820);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v45 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v45 >= 2u )
       {
         v46 = KeGetCurrentPrcb();
         v47 = v46->SchedulerAssist;
@@ -255,10 +258,10 @@ LABEL_76:
     }
     while ( v51 );
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*((_QWORD *)a1 + 25) + 23160LL));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v54 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v54 <= 0xFu && (unsigned __int8)v49 <= 0xFu && v54 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu && (unsigned __int8)v49 <= 0xFu && v54 >= 2u )
       {
         v55 = KeGetCurrentPrcb();
         v56 = v55->SchedulerAssist;
@@ -321,10 +324,10 @@ LABEL_76:
   a1[5] = *((_DWORD *)a2 + 1);
   a1[41] = v21;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v38 + 23160));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v66 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v37 <= 0xFu && v66 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v37 <= 0xFu && v66 >= 2u )
     {
       v67 = KeGetCurrentPrcb();
       v68 = v67->SchedulerAssist;

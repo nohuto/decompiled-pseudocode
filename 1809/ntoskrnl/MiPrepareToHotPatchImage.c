@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPrepareToHotPatchImage @ 0x140857348
+ * XREFs of MiPrepareToHotPatchImage @ 0x1408585A8
  * Callers:
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiCommitHotPatchTable @ 0x1402B93A0 (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1402B9994 (MiPrepareImagePagesForHotPatch.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlpCheckFunctionPatchApplied @ 0x14057E480 (RtlpCheckFunctionPatchApplied.c)
- *     MiProcessHotPatchUndoTable @ 0x1405822E8 (MiProcessHotPatchUndoTable.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140856768 (MiMapHotPatchImageInSystemSpace.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140899A1C (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlEnumerateHotPatchPatches @ 0x140899C08 (RtlEnumerateHotPatchPatches.c)
- *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
- *     RtlHotPatchSynchronizationRequired @ 0x140899DEC (RtlHotPatchSynchronizationRequired.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiCommitHotPatchTable @ 0x1402B9590 (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1402B9B84 (MiPrepareImagePagesForHotPatch.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x14057F480 (RtlpCheckFunctionPatchApplied.c)
+ *     MiProcessHotPatchUndoTable @ 0x1405832E8 (MiProcessHotPatchUndoTable.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1408579C8 (MiMapHotPatchImageInSystemSpace.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x14089AC7C (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x14089AE68 (RtlEnumerateHotPatchPatches.c)
+ *     RtlFindHotPatchBase @ 0x14089AEF0 (RtlFindHotPatchBase.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x14089B04C (RtlHotPatchSynchronizationRequired.c)
  */
 
 __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
@@ -26,11 +26,11 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   _BYTE *v3; // rsi
   __int64 v4; // rdi
   unsigned __int8 v6; // r15
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v8; // rdx
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v8; // rdx
   int v9; // edi
   unsigned int *v10; // r12
-  struct _RTL_BITMAP *v11; // rdx
+  _RTL_BITMAP *v11; // rdx
   int v12; // r9d
   __int64 v13; // r13
   int v14; // r9d
@@ -41,8 +41,8 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   _BYTE *v19; // rax
   const void *v20; // rdx
   void *v21; // rdi
-  struct _RTL_BITMAP *v22; // rax
-  struct _RTL_BITMAP *v23; // rcx
+  _RTL_BITMAP *v22; // rax
+  _RTL_BITMAP *v23; // rcx
   __int64 v24; // r8
   unsigned int v25; // r10d
   __int64 v26; // r11
@@ -74,20 +74,20 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
     v6 = 1;
   }
   v40 = v6;
-  PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                        PagedPool,
-                                        8
-                                      * ((unsigned int)((*(_DWORD *)(a1 + 32) & 0x3F000) != 0)
-                                       + 2
-                                       + (*(_DWORD *)(a1 + 32) >> 18)),
-                                        0x20206D4Du);
+  PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                 PagedPool,
+                                 8
+                               * ((unsigned int)((*(_DWORD *)(a1 + 32) & 0x3F000) != 0)
+                                + 2
+                                + (*(_DWORD *)(a1 + 32) >> 18)),
+                                 0x20206D4Du);
   v8 = PoolWithTag;
   *(_QWORD *)(a1 + 48) = PoolWithTag;
   if ( PoolWithTag )
   {
     PoolWithTag->SizeOfBitMap = *(_DWORD *)(a1 + 32) >> 12;
     PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap;
-    v8 = *(struct _RTL_BITMAP **)(a1 + 48);
+    v8 = *(_RTL_BITMAP **)(a1 + 48);
   }
   if ( !v8 )
     return (unsigned int)-1073741670;
@@ -97,16 +97,16 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   *(_DWORD *)(a1 + 36) = 8 * *((_DWORD *)v3 + 8);
   if ( !v4 )
   {
-    v11 = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                  NonPagedPoolNx,
-                                  8 * (((*v10 & 0x3F) != 0) + 2 + (*v10 >> 6)),
-                                  0x20206D4Du);
+    v11 = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                           NonPagedPoolNx,
+                           8 * (((*v10 & 0x3F) != 0) + 2 + (*v10 >> 6)),
+                           0x20206D4Du);
     *(_QWORD *)(a1 + 40) = v11;
     if ( v11 )
     {
       v11->SizeOfBitMap = *v10;
       v11->Buffer = &v11[1].SizeOfBitMap;
-      v11 = *(struct _RTL_BITMAP **)(a1 + 40);
+      v11 = *(_RTL_BITMAP **)(a1 + 40);
     }
     if ( !v11 )
       return (unsigned int)-1073741670;
@@ -230,17 +230,14 @@ LABEL_34:
       }
       *((_QWORD *)v3 + 5) = v21;
     }
-    v22 = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                  NonPagedPoolNx,
-                                  8 * ((v17 >> 6) + ((v17 & 0x3F) != 0) + 2),
-                                  0x20206D4Du);
+    v22 = (_RTL_BITMAP *)ExAllocatePoolWithTag(NonPagedPoolNx, 8 * ((v17 >> 6) + ((v17 & 0x3F) != 0) + 2), 0x20206D4Du);
     v23 = v22;
     *(_QWORD *)(a1 + 40) = v22;
     if ( v22 )
     {
       v22->SizeOfBitMap = v17;
       v22->Buffer = &v22[1].SizeOfBitMap;
-      v23 = *(struct _RTL_BITMAP **)(a1 + 40);
+      v23 = *(_RTL_BITMAP **)(a1 + 40);
     }
     if ( !v23 )
       return (unsigned int)-1073741670;

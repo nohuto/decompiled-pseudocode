@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpWritePhysicalMemory @ 0x140B78B00
+ * XREFs of KdpWritePhysicalMemory @ 0x140B7AB00
  * Callers:
- *     KdpSendWaitContinue @ 0x140B7A32C (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140B7C32C (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x140B7AACC (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x140B7CACC (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpWritePhysicalMemory(__int64 a1)

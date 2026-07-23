@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpBuildNotificationPacket @ 0x140491E2C
+ * XREFs of EtwpBuildNotificationPacket @ 0x1404928BC
  * Callers:
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpCalculateUpdateNotification @ 0x140491000 (EtwpCalculateUpdateNotification.c)
- *     EtwpDisallowedGuidAddition @ 0x140572A54 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x14069FB14 (EtwpDisallowedGuidRemoval.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpCalculateUpdateNotification @ 0x140491A90 (EtwpCalculateUpdateNotification.c)
+ *     EtwpDisallowedGuidAddition @ 0x140572F94 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x14069FC4C (EtwpDisallowedGuidRemoval.c)
  * Callees:
- *     EtwpGetSchematizedFilterSize @ 0x14040E9B0 (EtwpGetSchematizedFilterSize.c)
- *     EtwpAllocDataBlock @ 0x140491EC8 (EtwpAllocDataBlock.c)
- *     EtwpCopySchematizedFilters @ 0x1406A8D30 (EtwpCopySchematizedFilters.c)
+ *     EtwpGetSchematizedFilterSize @ 0x14040D870 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpAllocDataBlock @ 0x140492958 (EtwpAllocDataBlock.c)
+ *     EtwpCopySchematizedFilters @ 0x1406A8E68 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, unsigned __int8 a3, _QWORD *a4)

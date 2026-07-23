@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpTimeZoneInitSiloState @ 0x1407B6A30
+ * XREFs of ExpTimeZoneInitSiloState @ 0x1407B6E80
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsAttachSiloToCurrentThread @ 0x14043CF50 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140444750 (PsDetachSiloFromCurrentThread.c)
- *     ZwSetSystemTime @ 0x1406A9BD0 (ZwSetSystemTime.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpReadTimeZoneInformation @ 0x1407B67D8 (ExpReadTimeZoneInformation.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x1409B1FC0 (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x1409B2024 (ExReleaseTimeRefreshLockExclusive.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x14042FBB0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14043A1F0 (PsDetachSiloFromCurrentThread.c)
+ *     ZwSetSystemTime @ 0x1406AAB70 (ZwSetSystemTime.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpReadTimeZoneInformation @ 0x1407B6C28 (ExpReadTimeZoneInformation.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x1409A9310 (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x1409A9374 (ExReleaseTimeRefreshLockExclusive.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
   v1 = 0;
   ServerSiloGlobals = PsGetServerSiloGlobals(a1);
   v4 = PsAttachSiloToCurrentThread(v3);
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x3F0uLL, 0x5A547845u);
   ServerSiloGlobals[153] = Pool2;
   if ( Pool2 )
   {

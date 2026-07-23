@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCleanupExtraCreateParameters @ 0x1407BF180
+ * XREFs of IopCleanupExtraCreateParameters @ 0x1407BF450
  * Callers:
- *     IoQueryInformationByName @ 0x1407BEE90 (IoQueryInformationByName.c)
- *     NtDeleteFile @ 0x140874330 (NtDeleteFile.c)
+ *     IoQueryInformationByName @ 0x1407BF160 (IoQueryInformationByName.c)
+ *     NtDeleteFile @ 0x140874570 (NtDeleteFile.c)
  * Callees:
- *     FsRtlpCleanupEcps @ 0x14073E1D0 (FsRtlpCleanupEcps.c)
+ *     FsRtlpCleanupEcps @ 0x14073E3C0 (FsRtlpCleanupEcps.c)
  */
 
 void __fastcall IopCleanupExtraCreateParameters(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDiagNextCsSleepStudySession @ 0x140670804
+ * XREFs of PopDiagNextCsSleepStudySession @ 0x1406708E8
  * Callers:
- *     PopForceCompleteCsSleepStudySession @ 0x140126C08 (PopForceCompleteCsSleepStudySession.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopForceCompleteCsSleepStudySession @ 0x140127178 (PopForceCompleteCsSleepStudySession.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     PopDiagTraceSleepStudyStart @ 0x140671B60 (PopDiagTraceSleepStudyStart.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceSleepStudyStart @ 0x140671C44 (PopDiagTraceSleepStudyStart.c)
  */
 
 void __fastcall PopDiagNextCsSleepStudySession(GUID *a1, __int64 a2)
 {
   GUID *v4; // rax
   __int128 v5; // xmm0
-  __int128 v6; // [rsp+40h] [rbp-28h] BYREF
+  __int128 Buffer; // [rsp+40h] [rbp-28h] BYREF
   char v7; // [rsp+50h] [rbp-18h]
 
   if ( !PopSleepStudyDisabled )
@@ -63,8 +63,8 @@ void __fastcall PopDiagNextCsSleepStudySession(GUID *a1, __int64 a2)
       KeReleaseMutex(&PopWdiTimerMutex, 0);
       v5 = *(_OWORD *)PopWdiCurrentScenario;
       v7 = PopWdiCurrentScenarioInstanceId;
-      v6 = v5;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_SCENARIO_CHANGE, (__int64)&v6, 20LL);
+      Buffer = v5;
+      ZwUpdateWnfStateData(&WNF_PO_SCENARIO_CHANGE, &Buffer, 0x14u, 0LL, 0LL, 0, 0);
     }
   }
 }

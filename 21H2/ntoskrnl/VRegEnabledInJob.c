@@ -4,12 +4,12 @@
  *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
  *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  *     VrpShouldOperateOnCall @ 0x1405D4160 (VrpShouldOperateOnCall.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14088289C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408829FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
- *     PsGetPermanentSiloContext @ 0x14035FF90 (PsGetPermanentSiloContext.c)
- *     PsGetParentSilo @ 0x140905AF0 (PsGetParentSilo.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     PsGetCurrentSilo @ 0x14026A8D0 (PsGetCurrentSilo.c)
+ *     PsGetPermanentSiloContext @ 0x1402A4EC0 (PsGetPermanentSiloContext.c)
+ *     PsGetParentSilo @ 0x140905C50 (PsGetParentSilo.c)
  */
 
 __int64 __fastcall VRegEnabledInJob(unsigned __int64 *a1)

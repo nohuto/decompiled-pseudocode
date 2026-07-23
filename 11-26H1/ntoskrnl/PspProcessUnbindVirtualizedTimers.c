@@ -1,12 +1,12 @@
 /*
- * XREFs of PspProcessUnbindVirtualizedTimers @ 0x140530204
+ * XREFs of PspProcessUnbindVirtualizedTimers @ 0x140532704
  * Callers:
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExRemoveVirtualizedTimer @ 0x1404C034C (ExRemoveVirtualizedTimer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExRemoveVirtualizedTimer @ 0x1404B9B9C (ExRemoveVirtualizedTimer.c)
  */
 
 void __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)

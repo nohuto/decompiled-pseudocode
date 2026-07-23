@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorNotifyLpiCoordinatedStatesNotification @ 0x14058CC70
+ * XREFs of PopProcessorNotifyLpiCoordinatedStatesNotification @ 0x14058D160
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopProcessorNotifyLpiCoordinatedStatesNotification(__int64 a1, _DWORD *a2)

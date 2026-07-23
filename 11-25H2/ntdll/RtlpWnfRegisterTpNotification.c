@@ -13,33 +13,29 @@
 
 __int64 RtlpWnfRegisterTpNotification()
 {
-  int v0; // ebx
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  char v4; // [rsp+20h] [rbp-18h]
-  HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS v0; // ebx
+  PVOID Context; // [rsp+40h] [rbp+8h] BYREF
+  PTP_WAIT WaitReturn; // [rsp+48h] [rbp+10h] BYREF
 
-  v6 = 0LL;
-  Handle = 0LL;
-  v4 = 0;
-  v0 = ZwCreateEvent(&Handle, 2031619LL, 0LL, 1LL, v4);
+  WaitReturn = 0LL;
+  Context = 0LL;
+  v0 = ZwCreateEvent(&Context, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   if ( v0 >= 0 )
   {
-    v0 = TpAllocWait((_PEB_LDR_DATA *)&v6, (__int64)RtlpWnfNotificationThread, (__int64)Handle, 0LL);
+    v0 = TpAllocWait(&WaitReturn, (PTP_WAIT_CALLBACK)RtlpWnfNotificationThread, Context, 0LL);
     if ( v0 >= 0 )
     {
-      v0 = NtSetWnfProcessNotificationEvent(Handle);
+      v0 = NtSetWnfProcessNotificationEvent(Context);
       if ( v0 >= 0 )
       {
-        TpSetWaitEx(v6, (__int64)Handle, 0LL, 0LL);
+        TpSetWaitEx(WaitReturn, Context, 0LL, 0LL);
         return (unsigned int)v0;
       }
     }
-    if ( v6 )
-      TpReleaseWait(v6, v1, v2);
+    if ( WaitReturn )
+      TpReleaseWait(WaitReturn);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( Context )
+    NtClose(Context);
   return (unsigned int)v0;
 }

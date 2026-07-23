@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpGetDeviceLocationStrings @ 0x1407FCC08
+ * XREFs of PnpGetDeviceLocationStrings @ 0x1407FCED8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
- *     PiQueryRemovableDeviceOverride @ 0x1407C1190 (PiQueryRemovableDeviceOverride.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
+ *     PiQueryRemovableDeviceOverride @ 0x1407C1460 (PiQueryRemovableDeviceOverride.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpQueryInterface @ 0x1407FD240 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpQueryInterface @ 0x1407FD510 (PnpQueryInterface.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

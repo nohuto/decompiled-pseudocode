@@ -1,22 +1,22 @@
 /*
- * XREFs of sprintf_s @ 0x1403D7BF0
+ * XREFs of sprintf_s @ 0x1403D7D60
  * Callers:
- *     RtlIpv6AddressToStringA @ 0x14036C9A0 (RtlIpv6AddressToStringA.c)
- *     RtlIpv4AddressToStringA @ 0x140390DF0 (RtlIpv4AddressToStringA.c)
- *     RtlEthernetAddressToStringA @ 0x14058BE10 (RtlEthernetAddressToStringA.c)
- *     RtlIpv4AddressToStringExA @ 0x14058BE80 (RtlIpv4AddressToStringExA.c)
- *     RtlIpv6AddressToStringExA @ 0x14058BF40 (RtlIpv6AddressToStringExA.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpAddProcessorConfigurationEntry @ 0x1407A68A0 (CmpAddProcessorConfigurationEntry.c)
- *     CmpSetVersionData @ 0x1407A7E2C (CmpSetVersionData.c)
- *     CmpFindControlSet @ 0x1407ACB40 (CmpFindControlSet.c)
- *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
- *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
- *     HdlspProcessDumpCommand @ 0x1409EFC18 (HdlspProcessDumpCommand.c)
- *     HdlspSendBlueScreenInfo @ 0x1409F02AC (HdlspSendBlueScreenInfo.c)
- *     CmpGetAcpiBiosVersion @ 0x140A59B9C (CmpGetAcpiBiosVersion.c)
+ *     RtlIpv6AddressToStringA @ 0x14036CB50 (RtlIpv6AddressToStringA.c)
+ *     RtlIpv4AddressToStringA @ 0x140390F40 (RtlIpv4AddressToStringA.c)
+ *     RtlEthernetAddressToStringA @ 0x14058C040 (RtlEthernetAddressToStringA.c)
+ *     RtlIpv4AddressToStringExA @ 0x14058C0B0 (RtlIpv4AddressToStringExA.c)
+ *     RtlIpv6AddressToStringExA @ 0x14058C170 (RtlIpv6AddressToStringExA.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077CB9C (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x1407A6AA0 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpSetVersionData @ 0x1407A802C (CmpSetVersionData.c)
+ *     CmpFindControlSet @ 0x1407ACD40 (CmpFindControlSet.c)
+ *     HdlspDispatch @ 0x1409EFE80 (HdlspDispatch.c)
+ *     HdlspGetLine @ 0x1409F05F8 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x1409F0C18 (HdlspProcessDumpCommand.c)
+ *     HdlspSendBlueScreenInfo @ 0x1409F12AC (HdlspSendBlueScreenInfo.c)
+ *     CmpGetAcpiBiosVersion @ 0x140A5AB9C (CmpGetAcpiBiosVersion.c)
  * Callees:
- *     vsprintf_s @ 0x1403D7C20 (vsprintf_s.c)
+ *     vsprintf_s @ 0x1403D7D90 (vsprintf_s.c)
  */
 
 int sprintf_s(char *DstBuf, size_t SizeInBytes, const char *Format, ...)

@@ -11,11 +11,16 @@
  *     LdrpFreeUnicodeString @ 0x1800713F4 (LdrpFreeUnicodeString.c)
  */
 
-__int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int128 *a2, __int64 a3, __int128 *a4, _BYTE *a5)
+__int64 __fastcall LdrpApplyFileNameRedirection(
+        __int64 a1,
+        _UNICODE_STRING *a2,
+        __int64 a3,
+        _UNICODE_STRING *a4,
+        _BYTE *a5)
 {
   struct _PEB *v5; // r13
   _BYTE *v7; // r12
-  __int128 *v9; // rbp
+  _UNICODE_STRING *v9; // rbp
   void *ApiSetMap; // rdi
   char v11; // si
   int v12; // eax
@@ -23,10 +28,10 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int128 *a2, __int6
   int v14; // ebx
   char v15; // r15
   unsigned __int16 v16; // ax
-  int v17; // edi
+  NTSTATUS v17; // edi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   _WORD v20[8]; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v21[16]; // [rsp+60h] [rbp-38h] BYREF
+  _UNICODE_STRING DynamicString; // [rsp+60h] [rbp-38h] BYREF
   __int64 v22; // [rsp+B0h] [rbp+18h] BYREF
 
   v22 = a3;
@@ -73,12 +78,21 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int128 *a2, __int6
   }
   if ( v14 >= 0 && v11 && !LdrpIsSecureProcess )
   {
-    v17 = RtlDosApplyFileIsolationRedirection_Ustr(1, v9, L"\b\n", 0LL, (__int64)v21, 0LL, 0LL, 0LL, 0LL);
+    v17 = RtlDosApplyFileIsolationRedirection_Ustr(
+            1u,
+            v9,
+            (PUNICODE_STRING)&LdrpDefaultExtension,
+            0LL,
+            &DynamicString,
+            0LL,
+            0LL,
+            0LL,
+            0LL);
     if ( v17 >= 0 )
     {
       *v7 = 1;
-      LdrpGetFullPath(v21, a4);
-      LdrpFreeUnicodeString(v21);
+      LdrpGetFullPath(&DynamicString, a4);
+      LdrpFreeUnicodeString(&DynamicString);
     }
     if ( v17 != -1072365560 )
       return (unsigned int)v17;

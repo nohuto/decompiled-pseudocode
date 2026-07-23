@@ -11,29 +11,30 @@
  *     _LdrpGenericExceptionFilter@8 @ 0x4B334947 (_LdrpGenericExceptionFilter@8.c)
  */
 
-int __stdcall LdrUnlockLoaderLock(int a1, unsigned int a2)
+NTSTATUS __cdecl LdrUnlockLoaderLock(ULONG Flags, PVOID Cookie)
 {
-  int v2; // esi
+  NTSTATUS v2; // esi
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    if ( (a1 & 1) != 0 )
+    if ( (Flags & 1) != 0 )
       RtlRaiseStatus(-1073741585);
     return -1073741585;
   }
-  else if ( a2 )
+  else if ( Cookie )
   {
-    if ( a2 >= 0x10000000 || (((int)NtCurrentTeb()->ClientId.UniqueThread ^ HIWORD(a2)) & 0xFFF) != 0 )
+    if ( (unsigned int)Cookie >= 0x10000000
+      || (((int)NtCurrentTeb()->ClientId.UniqueThread ^ ((unsigned int)Cookie >> 16)) & 0xFFF) != 0 )
     {
-      if ( (a1 & 1) != 0 )
+      if ( (Flags & 1) != 0 )
         RtlRaiseStatus(-1073741584);
       return -1073741584;
     }
     else
     {
       v2 = 0;
-      if ( (a1 & 1) != 0 )
-        LdrpReleaseLoaderLock(a1 & 1, 13, 0, a1 & 1);
+      if ( (Flags & 1) != 0 )
+        LdrpReleaseLoaderLock(Flags & 1, 13, 0, Flags & 1);
       else
         LdrpReleaseLoaderLock(0, 14, 0, 0);
     }

@@ -40,7 +40,7 @@ __int64 __fastcall EtwProcessPrivateLoggerRequest(__int64 a1)
     goto LABEL_6;
   v5 = *(_DWORD *)(a1 + 76);
   v6 = *(_DWORD *)(a1 + 72);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&EtwpPrivSessionLock);
+  RtlAcquireSRWLockExclusive(&EtwpPrivSessionLock);
   switch ( v5 )
   {
     case 1:

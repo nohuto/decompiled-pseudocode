@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPrivatePageCount @ 0x1404EE528
+ * XREFs of MiGetPrivatePageCount @ 0x1404E7B08
  * Callers:
- *     MiAllocateCrcList @ 0x140B55EB8 (MiAllocateCrcList.c)
+ *     MiAllocateCrcList @ 0x140B58BB8 (MiAllocateCrcList.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)

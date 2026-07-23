@@ -1,14 +1,14 @@
 /*
- * XREFs of MmFreeSecurePoolMemory @ 0x1406FBDE8
+ * XREFs of MmFreeSecurePoolMemory @ 0x140700AB8
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     MmAllocateSecurePoolMemory @ 0x1406FBC98 (MmAllocateSecurePoolMemory.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     MmAllocateSecurePoolMemory @ 0x140700968 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiIsSystemVaAllocated @ 0x1406F5494 (MiIsSystemVaAllocated.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiIsSystemVaAllocated @ 0x1406FA104 (MiIsSystemVaAllocated.c)
  */
 
 unsigned __int64 __fastcall MmFreeSecurePoolMemory(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall MmFreeSecurePoolMemory(ULONG_PTR BugCheckParameter2,
   if ( result )
   {
     result = -(__int64)result;
-    _InterlockedAdd64(&qword_140E2C590, result);
+    _InterlockedAdd64(&qword_140E2C710, result);
   }
   if ( (v7 & 0x8000) != 0 )
     return MiReturnSystemVa(BugCheckParameter2, BugCheckParameter2 + BugCheckParameter3);

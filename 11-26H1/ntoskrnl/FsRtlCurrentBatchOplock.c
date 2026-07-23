@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlCurrentBatchOplock @ 0x140AF5E70
+ * XREFs of FsRtlCurrentBatchOplock @ 0x140AF8510
  * Callers:
  *     <none>
  * Callees:

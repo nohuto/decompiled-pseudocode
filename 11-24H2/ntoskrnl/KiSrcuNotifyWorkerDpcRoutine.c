@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuNotifyWorkerDpcRoutine @ 0x1405C14C0
+ * XREFs of KiSrcuNotifyWorkerDpcRoutine @ 0x1405BEA90
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiSrcuNotifyGracePeriodStartedOnCpu @ 0x1405C1378 (KiSrcuNotifyGracePeriodStartedOnCpu.c)
- *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405C15C4 (KiSrcuNotifyWorkerSelectAndQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiSrcuNotifyGracePeriodStartedOnCpu @ 0x1405BE948 (KiSrcuNotifyGracePeriodStartedOnCpu.c)
+ *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405BEB94 (KiSrcuNotifyWorkerSelectAndQueue.c)
  */
 
 __int64 __fastcall KiSrcuNotifyWorkerDpcRoutine(__int64 a1, __int64 a2, __int64 a3, void *a4)

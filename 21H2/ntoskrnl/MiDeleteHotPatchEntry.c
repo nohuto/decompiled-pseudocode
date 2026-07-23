@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteHotPatchEntry @ 0x1408C9968
+ * XREFs of MiDeleteHotPatchEntry @ 0x1408C9AC8
  * Callers:
- *     MiDeleteImageHotPatchState @ 0x1408C9B1C (MiDeleteImageHotPatchState.c)
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     MiDeleteImageHotPatchState @ 0x1408C9C7C (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
  * Callees:
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     MiUnmapViewOfSection @ 0x140687D60 (MiUnmapViewOfSection.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteHotPatchEntry(UNICODE_STRING *P)
@@ -24,7 +24,7 @@ void __fastcall MiDeleteHotPatchEntry(UNICODE_STRING *P)
       break;
     P[3].Buffer = *(wchar_t **)Buffer;
     MmUnsecureVirtualMemory(*((HANDLE *)Buffer + 2));
-    MiUnmapViewOfSection(Process, *((_QWORD *)Buffer + 1), 0, 0LL);
+    MiUnmapViewOfSection(Process, *((_QWORD *)Buffer + 1), 0, 0);
     ExFreePoolWithTag(Buffer, 0);
   }
   RtlFreeAnsiString(P + 4);

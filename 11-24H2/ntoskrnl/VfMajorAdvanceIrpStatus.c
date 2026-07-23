@@ -1,29 +1,27 @@
 /*
- * XREFs of VfMajorAdvanceIrpStatus @ 0x140B92DC8
+ * XREFs of VfMajorAdvanceIrpStatus @ 0x140B94DC8
  * Callers:
- *     IovpCompleteRequest2 @ 0x140BA6DE4 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x140BA8DE4 (IovpCompleteRequest2.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall VfMajorAdvanceIrpStatus(unsigned __int8 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall VfMajorAdvanceIrpStatus(_BYTE *a1, __int64 a2)
 {
-  unsigned int v4; // esi
-  __int64 v6; // r9
-  __int64 v7; // rax
+  unsigned int v2; // esi
+  __int64 v4; // rax
 
-  v4 = a2;
+  v2 = a2;
   if ( VfVerifyMode <= 2 || (MmVerifierData & 0x1000) == 0 )
     return 0LL;
-  v6 = *a1;
-  if ( (unsigned __int8)v6 > 0x1Bu )
-    v7 = ((_BYTE)v6 != 0xFF) + 28LL;
+  if ( *a1 > 0x1Bu )
+    v4 = (*a1 != 0xFF) + 28LL;
   else
-    v7 = *a1;
-  if ( *((_QWORD *)&unk_140FFEC38 + 12 * v7) && (unsigned int)guard_dispatch_icall_no_overrides(a1, a2, a3, v6) )
+    v4 = (unsigned __int8)*a1;
+  if ( *((_QWORD *)&unk_140FFFC38 + 12 * v4) && (unsigned int)guard_dispatch_icall_no_overrides(a1, a2) )
     return 1LL;
-  if ( qword_140FFF6B8 )
-    return guard_dispatch_icall_no_overrides(a1, v4, a3, v6);
+  if ( qword_1410006B8 )
+    return guard_dispatch_icall_no_overrides(a1, v2);
   else
     return 0LL;
 }

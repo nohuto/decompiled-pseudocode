@@ -1,15 +1,15 @@
 /*
- * XREFs of KiLockServiceTable @ 0x14012DA94
+ * XREFs of KiLockServiceTable @ 0x14012E004
  * Callers:
- *     KeCompactServiceTable @ 0x14012DA2C (KeCompactServiceTable.c)
+ *     KeCompactServiceTable @ 0x14012DF9C (KeCompactServiceTable.c)
  * Callees:
- *     RtlpSearchFunctionTable @ 0x1400849E0 (RtlpSearchFunctionTable.c)
- *     RtlCaptureImageExceptionValues @ 0x140084CD8 (RtlCaptureImageExceptionValues.c)
- *     RtlLookupExceptionHandler @ 0x14014B0C4 (RtlLookupExceptionHandler.c)
- *     KiLockExtendedServiceTable @ 0x140156918 (KiLockExtendedServiceTable.c)
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpSearchFunctionTable @ 0x140082B40 (RtlpSearchFunctionTable.c)
+ *     RtlCaptureImageExceptionValues @ 0x140082E38 (RtlCaptureImageExceptionValues.c)
+ *     RtlLookupExceptionHandler @ 0x14014B634 (RtlLookupExceptionHandler.c)
+ *     KiLockExtendedServiceTable @ 0x140156E88 (KiLockExtendedServiceTable.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  *     KiFastGetCallersAddress @ 0x14078FC60 (KiFastGetCallersAddress.c)
  *     KiFatalExceptionFilter @ 0x1407BA49C (KiFatalExceptionFilter.c)
  */

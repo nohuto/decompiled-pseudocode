@@ -1,22 +1,20 @@
 /*
- * XREFs of DbgkOpenProcessDebugPort @ 0x140617DA0
+ * XREFs of DbgkOpenProcessDebugPort @ 0x140617E54
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     PspCheckForInvalidAccessByProtection @ 0x1404BB248 (PspCheckForInvalidAccessByProtection.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     PspCheckForInvalidAccessByProtection @ 0x1404A6F78 (PspCheckForInvalidAccessByProtection.c)
  */
 
-__int64 __fastcall DbgkOpenProcessDebugPort(__int64 a1, KPROCESSOR_MODE a2, HANDLE *a3)
+__int64 __fastcall DbgkOpenProcessDebugPort(__int64 a1, char a2, HANDLE *a3)
 {
   NTSTATUS v6; // edi
   void *v7; // rbx
-  __int64 v8; // rdx
-  _KPROCESS *Process; // rcx
 
   v6 = -1073740973;
   if ( *(_QWORD *)(a1 + 1056) )
@@ -28,10 +26,10 @@ __int64 __fastcall DbgkOpenProcessDebugPort(__int64 a1, KPROCESSOR_MODE a2, HAND
     KeReleaseGuardedMutex(&DbgkpProcessDebugPortMutex);
     if ( v7 )
     {
-      Process = KeGetCurrentThread()->ApcState.Process;
-      LOBYTE(v8) = BYTE2(Process[2].ActiveProcessors.Bitmap[0]);
-      LOBYTE(Process) = a2;
-      if ( PspCheckForInvalidAccessByProtection((__int64)Process, v8, *(_BYTE *)(a1 + 1738)) )
+      if ( PspCheckForInvalidAccessByProtection(
+             a2,
+             (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0]),
+             *(PS_PROTECTION *)(a1 + 1738)) )
       {
         v6 = -1073740014;
 LABEL_8:

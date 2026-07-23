@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetSinglePageToZero @ 0x140365884
+ * XREFs of MiGetSinglePageToZero @ 0x140365A34
  * Callers:
- *     MiGetPagesToZero @ 0x14054FD4C (MiGetPagesToZero.c)
+ *     MiGetPagesToZero @ 0x14054FF8C (MiGetPagesToZero.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiBeginPageAccessor @ 0x140314E48 (MiBeginPageAccessor.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiBeginPageAccessor @ 0x14031FB98 (MiBeginPageAccessor.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetSinglePageToZero(__int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -87,7 +87,7 @@ LABEL_6:
         __writecr8(v7);
         v10 = 0LL;
 LABEL_21:
-        v15 = *(_DWORD *)(a2 + 260) & ~dword_140C4DE80 | dword_140C4DE80 & (*(_DWORD *)(a2 + 260) + 1);
+        v15 = *(_DWORD *)(a2 + 260) & ~dword_140C4DEC0 | dword_140C4DEC0 & (*(_DWORD *)(a2 + 260) + 1);
         *(_DWORD *)(a2 + 260) = v15;
         goto LABEL_22;
       }

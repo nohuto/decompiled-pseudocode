@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationResourceManager()
+NTSTATUS __cdecl ZwSetInformationResourceManager(
+        HANDLE ResourceManagerHandle,
+        RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,
+        PVOID ResourceManagerInformation,
+        ULONG ResourceManagerInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 403LL;
+  result = 403;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

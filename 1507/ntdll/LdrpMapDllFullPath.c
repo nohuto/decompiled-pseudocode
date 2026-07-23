@@ -20,7 +20,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   unsigned int v6; // ebx
   int v7; // eax
   _QWORD v9[2]; // [rsp+38h] [rbp-D0h] BYREF
-  UNICODE_STRING v10; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING v10; // [rsp+48h] [rbp-C0h] BYREF
   _WORD v11[128]; // [rsp+58h] [rbp-B0h] BYREF
 
   *(_DWORD *)&v10.Length = 0x1000000;
@@ -31,9 +31,9 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   v3 = v1 + 72;
   v4 = v1 + 88;
   v5 = LdrpResolveDllName(
-         (__int128 *)a1,
-         (__int128 *)&v10,
-         v1 + 88,
+         (_UNICODE_STRING *)a1,
+         &v10,
+         (_UNICODE_STRING *)(v1 + 88),
          (_OWORD *)(v1 + 72),
          (__int64)v9,
          *(_DWORD *)(a1 + 24));
@@ -49,6 +49,6 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
       v6 = -1073741701;
   }
   if ( v11 != v10.Buffer )
-    NtdllpFreeStringRoutine((__int64)v10.Buffer);
+    NtdllpFreeStringRoutine(v10.Buffer);
   return v6;
 }

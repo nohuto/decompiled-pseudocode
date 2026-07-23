@@ -1,21 +1,21 @@
 /*
- * XREFs of CcNotifyOfMappedWriteComplete @ 0x1402D0220
+ * XREFs of CcNotifyOfMappedWriteComplete @ 0x14024E5A0
  * Callers:
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcIsFatalWriteError @ 0x1402C1E0C (CcIsFatalWriteError.c)
- *     CcReleaseByteRangeFromWrite @ 0x1402F40EC (CcReleaseByteRangeFromWrite.c)
- *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
- *     MmGetControlAreaPartition @ 0x140332B10 (MmGetControlAreaPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcIsFatalWriteError @ 0x1402402AC (CcIsFatalWriteError.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1402FEE3C (CcReleaseByteRangeFromWrite.c)
+ *     CcDecrementOpenCount @ 0x14031DE8C (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
+ *     MmGetControlAreaPartition @ 0x14033D860 (MmGetControlAreaPartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1404EA2F0 (CcPostDeferredWrites.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x1404EA530 (CcPostDeferredWrites.c)
  */
 
-__int64 __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, unsigned int a3, NTSTATUS a4)
+__int64 __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 v4; // rbp
   __int64 v6; // rsi
@@ -35,7 +35,7 @@ __int64 __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, unsigne
   v6 = a3;
   v9 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  Partition = CcGetPartition(v4);
+  Partition = CcGetPartition(v4, a2, a3);
   if ( Partition != *(_QWORD *)(MmGetControlAreaPartition(a1) + 8) )
     KeBugCheckEx(0x34u, 0x12F9uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( a4 < 0 )

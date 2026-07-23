@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtSetInformationDebugObject()
+NTSTATUS __cdecl NtSetInformationDebugObject(
+        HANDLE DebugObjectHandle,
+        DEBUGOBJECTINFOCLASS DebugObjectInformationClass,
+        PVOID DebugInformation,
+        ULONG DebugInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 377LL;
+  result = 377;
   __asm { syscall; Low latency system call }
   return result;
 }

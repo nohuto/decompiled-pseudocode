@@ -1,18 +1,18 @@
 /*
- * XREFs of MiModwriterIssueWrite @ 0x140408928
+ * XREFs of MiModwriterIssueWrite @ 0x140401A18
  * Callers:
- *     MiGatherPagefilePages @ 0x140406D08 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1403FFDF8 (MiGatherPagefilePages.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     IoAsynchronousPageWrite @ 0x14026E454 (IoAsynchronousPageWrite.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MI_PAGEFILE_WRITE @ 0x140408C3C (MI_PAGEFILE_WRITE.c)
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiMapPageFileHash @ 0x1404A0244 (MiMapPageFileHash.c)
- *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     IoAsynchronousPageWrite @ 0x14026D9C4 (IoAsynchronousPageWrite.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MI_PAGEFILE_WRITE @ 0x140401D2C (MI_PAGEFILE_WRITE.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiMapPageFileHash @ 0x140499D94 (MiMapPageFileHash.c)
+ *     MiTransferMemoryPagefileData @ 0x1404FC9E8 (MiTransferMemoryPagefileData.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiModwriterIssueWrite(__int64 a1, __int64 a2)
@@ -76,7 +76,7 @@ LABEL_4:
     --CurrentThread->SpecialApcDisable;
     ++*(_DWORD *)(v7 + 820);
     if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
       KiCheckForKernelApcDelivery((__int64)CurrentThread, a2);
     }

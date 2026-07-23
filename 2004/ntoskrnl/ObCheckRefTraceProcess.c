@@ -17,7 +17,7 @@
 NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
 {
   NTSTATUS result; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   struct _KTHREAD *CurrentThread; // rax
   STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING String1; // [rsp+30h] [rbp-18h] BYREF
@@ -26,7 +26,7 @@ NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
   String1 = 0LL;
   if ( (ObpTraceFlags & 0x20) == 0 )
     return 0;
-  ProcessImageFileName = (const char *)PsGetProcessImageFileName(a1);
+  ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName(a1);
   RtlInitAnsiString(&DestinationString, ProcessImageFileName);
   if ( !DestinationString.Length )
     return 0;

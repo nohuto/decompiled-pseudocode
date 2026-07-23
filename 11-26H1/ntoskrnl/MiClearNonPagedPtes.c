@@ -1,21 +1,21 @@
 /*
- * XREFs of MiClearNonPagedPtes @ 0x1403633B8
+ * XREFs of MiClearNonPagedPtes @ 0x140365158
  * Callers:
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
- *     MmFreeSecurePoolMemory @ 0x1406FBDE8 (MmFreeSecurePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x140700AB8 (MmFreeSecurePoolMemory.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiDeleteNonPagedPoolTail @ 0x140362D10 (MiDeleteNonPagedPoolTail.c)
- *     MiFinishDeleteNonPagedPtes @ 0x14036332C (MiFinishDeleteNonPagedPtes.c)
- *     MiDeleteNonPagedPoolPte @ 0x140363600 (MiDeleteNonPagedPoolPte.c)
- *     MiClearNonPagedPtesSlow @ 0x140363BD0 (MiClearNonPagedPtesSlow.c)
- *     MiBeginDeleteNonPagedPtes @ 0x140363C8C (MiBeginDeleteNonPagedPtes.c)
- *     MiGetPteBounds @ 0x1404A4350 (MiGetPteBounds.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiDeleteNonPagedPoolTail @ 0x140364AB0 (MiDeleteNonPagedPoolTail.c)
+ *     MiFinishDeleteNonPagedPtes @ 0x1403650CC (MiFinishDeleteNonPagedPtes.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1403653A0 (MiDeleteNonPagedPoolPte.c)
+ *     MiClearNonPagedPtesSlow @ 0x140365970 (MiClearNonPagedPtesSlow.c)
+ *     MiBeginDeleteNonPagedPtes @ 0x140365A2C (MiBeginDeleteNonPagedPtes.c)
+ *     MiGetPteBounds @ 0x14049D9E0 (MiGetPteBounds.c)
  */
 
 __int64 __fastcall MiClearNonPagedPtes(__int64 *a1)
@@ -52,7 +52,7 @@ __int64 __fastcall MiClearNonPagedPtes(__int64 *a1)
   while ( 1 )
   {
     if ( !v3 )
-      v3 = MiBeginDeleteNonPagedPtes(0, (_DWORD)a1, (unsigned int)&unk_140E37440, v7, LeafVa, v8);
+      v3 = MiBeginDeleteNonPagedPtes(0, (_DWORD)a1, (unsigned int)&unk_140E375C0, v7, LeafVa, v8);
     DWORD2(v19) = MiFastLockLeafPageTable(*(_QWORD *)(v3 + 32), LeafVa, 0);
     if ( !DWORD2(v19) )
       break;
@@ -98,7 +98,7 @@ __int64 __fastcall MiClearNonPagedPtes(__int64 *a1)
   if ( LeafVa <= v8 || v4 )
   {
     LOBYTE(v16) = v7;
-    v15 += MiClearNonPagedPtesSlow((_DWORD)a1, (unsigned int)&unk_140E37440, v16, *a1, v8);
+    v15 += MiClearNonPagedPtesSlow((_DWORD)a1, (unsigned int)&unk_140E375C0, v16, *a1, v8);
   }
   return v15;
 }

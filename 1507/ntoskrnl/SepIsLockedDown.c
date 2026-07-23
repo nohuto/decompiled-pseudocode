@@ -12,12 +12,13 @@ __int64 __fastcall SepIsLockedDown(_BYTE *a1)
 {
   unsigned int v1; // ebx
   bool v2; // cf
-  int LicenseValue; // eax
+  NTSTATUS v4; // eax
   int v6; // [rsp+30h] [rbp-10h] BYREF
   const wchar_t *v7; // [rsp+38h] [rbp-8h]
   bool v8; // [rsp+60h] [rbp+20h] BYREF
-  BOOL v9; // [rsp+68h] [rbp+28h] BYREF
-  char v10; // [rsp+78h] [rbp+38h] BYREF
+  BOOL Data; // [rsp+68h] [rbp+28h] BYREF
+  ULONG ResultDataSize; // [rsp+70h] [rbp+30h] BYREF
+  ULONG Type; // [rsp+78h] [rbp+38h] BYREF
 
   v1 = 0;
   v8 = 0;
@@ -33,22 +34,22 @@ __int64 __fastcall SepIsLockedDown(_BYTE *a1)
   v1 = KIsUnlockSettingEnabled((__int64)&v6, &v8);
   if ( (v1 & 0x80000000) != 0 )
     return v1;
-  v9 = v8;
+  Data = v8;
   if ( v8 )
     goto LABEL_9;
-  LicenseValue = ZwQueryLicenseValue((__int64)aTv_0, (__int64)&v10, (__int64)&v9);
-  v1 = LicenseValue;
-  if ( LicenseValue != -1073741772 )
+  v4 = ZwQueryLicenseValue(&stru_140322ED0, &Type, &Data, 4u, &ResultDataSize);
+  v1 = v4;
+  if ( v4 != -1073741772 )
   {
-    if ( LicenseValue < 0 )
+    if ( v4 < 0 )
       return v1;
-    if ( !v9 )
+    if ( !Data )
       goto LABEL_8;
 LABEL_9:
     *a1 = 0;
     return v1;
   }
-  v9 = 0;
+  Data = 0;
   v1 = 0;
 LABEL_8:
   if ( ExQueryFastCacheDevLicense() )

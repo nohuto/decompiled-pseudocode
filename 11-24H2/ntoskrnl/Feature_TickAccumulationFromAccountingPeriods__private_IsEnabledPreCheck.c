@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_TickAccumulationFromAccountingPeriods__private_IsEnabledPreCheck @ 0x1405B8F04
+ * XREFs of Feature_TickAccumulationFromAccountingPeriods__private_IsEnabledPreCheck @ 0x1405B6544
  * Callers:
- *     KeInitializeClock @ 0x140C60350 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x140C624A0 (KeInitializeClock.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_TickAccumulationFromAccountingPeriods__private_IsEnabledPreCheck()

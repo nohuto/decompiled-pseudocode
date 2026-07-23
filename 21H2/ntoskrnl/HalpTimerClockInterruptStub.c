@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerClockInterruptStub @ 0x1403C59E0
+ * XREFs of HalpTimerClockInterruptStub @ 0x1403C5E10
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char HalpTimerClockInterruptStub()

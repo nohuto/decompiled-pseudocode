@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCreateDriverRedirectedStateKey @ 0x1407C4A84
+ * XREFs of PiCreateDriverRedirectedStateKey @ 0x1407C4FA4
  * Callers:
- *     IoOpenDriverRegistryKey @ 0x1407C4790 (IoOpenDriverRegistryKey.c)
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IoOpenDriverRegistryKey @ 0x1407C4CB0 (IoOpenDriverRegistryKey.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x14036F060 (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
- *     PiGetStateRootPath @ 0x1407812FC (PiGetStateRootPath.c)
- *     PiCreateRegistryPath @ 0x14089F0F4 (PiCreateRegistryPath.c)
- *     PiAuGetServiceStateSecurityObject @ 0x1408A3D20 (PiAuGetServiceStateSecurityObject.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036F210 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     IopAllocateUnicodeString @ 0x14074986C (IopAllocateUnicodeString.c)
+ *     PiGetStateRootPath @ 0x1407814BC (PiGetStateRootPath.c)
+ *     PiCreateRegistryPath @ 0x14089F254 (PiCreateRegistryPath.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x1408A3E80 (PiAuGetServiceStateSecurityObject.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOptions, __int64 a2, _QWORD *a3)
@@ -50,7 +50,7 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOption
     StateRootPath = -1073741811;
     goto LABEL_6;
   }
-  StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0, &DestinationString);
+  StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
   if ( StateRootPath < 0 )
     goto LABEL_6;
   v9 = CreateOptions->Length + 2;

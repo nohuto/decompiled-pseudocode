@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x14032FC60
+ * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x140331C90
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x140252C88 (PpmPerfApplyProcessorState.c)
- *     PoSetProcessorQos @ 0x14032FA60 (PoSetProcessorQos.c)
- *     KeCheckAndApplyBamQos @ 0x140330350 (KeCheckAndApplyBamQos.c)
- *     KiCheckForPendingQosUpdate @ 0x140330CB0 (KiCheckForPendingQosUpdate.c)
- *     PpmPerfSetProcessorIdle @ 0x1403EAB34 (PpmPerfSetProcessorIdle.c)
+ *     PpmPerfApplyProcessorState @ 0x1402545E8 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfSetProcessorIdle @ 0x1402F7A14 (PpmPerfSetProcessorIdle.c)
+ *     PoSetProcessorQos @ 0x140331A90 (PoSetProcessorQos.c)
+ *     KeCheckAndApplyBamQos @ 0x140332380 (KeCheckAndApplyBamQos.c)
+ *     KiCheckForPendingQosUpdate @ 0x140332CE0 (KiCheckForPendingQosUpdate.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8 a2, char a3)
@@ -57,7 +57,7 @@ char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8
   bool v44; // zf
   const EVENT_DESCRIPTOR *v45; // rbx
   __int64 v47; // r8
-  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v48; // rdx
   unsigned __int64 Keyword; // r8
   unsigned __int8 v50; // al
   __int64 v51; // rcx
@@ -156,20 +156,14 @@ LABEL_49:
         v64 = 3LL;
       }
       v63 = &v52;
-      if ( PpmEtwRegistered && PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink )
+      if ( PpmEtwRegistered && PpmEtwHandle )
       {
-        if ( (Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Flink,
-              Keyword = v45->Keyword,
-              LODWORD(Flink[6].Flink))
-          && ((v50 = BYTE4(Flink[6].Flink), v45->Level <= v50) || !v50)
-          && (((__int64)Flink[6].Blink & 0x40) != 0 && !Keyword
-           || (Keyword & (unsigned __int64)Flink[7].Flink) != 0
-           && (struct _LIST_ENTRY *)((unsigned __int64)Flink[7].Blink & Keyword) == Flink[7].Blink)
-          || HIWORD(PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[6].Flink)
-          && EtwpLevelKeywordEnabled(
-               (__int64)&PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Blink[6],
-               v45->Level,
-               v45->Keyword) )
+        if ( (v48 = *(_QWORD *)(PpmEtwHandle + 32), Keyword = v45->Keyword, *(_DWORD *)(v48 + 96))
+          && ((v50 = *(_BYTE *)(v48 + 100), v45->Level <= v50) || !v50)
+          && ((*(_DWORD *)(v48 + 104) & 0x40) != 0 && !Keyword
+           || (Keyword & *(_QWORD *)(v48 + 112)) != 0 && (*(_QWORD *)(v48 + 120) & Keyword) == *(_QWORD *)(v48 + 120))
+          || *(_WORD *)(PpmEtwHandle + 102)
+          && EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, v45->Level, v45->Keyword) )
         {
           v51 = *(_QWORD *)(a1 + 35272);
           v53 = *(_DWORD *)(v51 + 64);
@@ -201,15 +195,7 @@ LABEL_49:
           v83 = v51 + 72;
           v84 = 8LL;
           v86 = 4LL;
-          EtwWriteEx(
-            (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-            v45,
-            0LL,
-            0,
-            ActivityId,
-            ActivityId,
-            0xEu,
-            &UserData);
+          EtwWriteEx(PpmEtwHandle, v45, 0LL, 0, ActivityId, ActivityId, 0xEu, &UserData);
         }
       }
       return 1;

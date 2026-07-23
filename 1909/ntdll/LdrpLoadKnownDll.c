@@ -24,7 +24,7 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   int KnownDll; // edi
   char v5; // al
   _BYTE v7[40]; // [rsp+30h] [rbp-28h] BYREF
-  volatile signed __int32 *v8; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+60h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = *((_DWORD *)a1 + 8);
@@ -42,18 +42,18 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   }
   if ( v5 )
   {
-    KnownDll = LdrpFindKnownDll((__int16 *)a1, v3 + 88, (unsigned __int16 *)(v3 + 72), &Handle);
+    KnownDll = LdrpFindKnownDll((UNICODE_STRING *)a1, (PUNICODE_STRING)(v3 + 88), (PUNICODE_STRING)(v3 + 72), &Handle);
     if ( KnownDll >= 0 )
     {
       *((_DWORD *)v2 + 8) |= 0x100000u;
       LdrpLogDllState(*(_QWORD *)(v3 + 48), v3 + 72, 0x14A5u);
       v8 = 0LL;
-      *(_DWORD *)(v3 + 264) = LdrpHashUnicodeString((unsigned __int16 *)(v3 + 88));
+      *(_DWORD *)(v3 + 264) = LdrpHashUnicodeString((_UNICODE_STRING *)(v3 + 88));
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
       KnownDll = LdrpFindLoadedDllByNameLockHeld(
-                   v3 + 88,
-                   v3 + 72,
-                   *((unsigned int *)v2 + 8),
+                   (PUNICODE_STRING)(v3 + 88),
+                   (PUNICODE_STRING)(v3 + 72),
+                   *((_DWORD *)v2 + 8),
                    &v8,
                    *(_DWORD *)(v3 + 264));
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);

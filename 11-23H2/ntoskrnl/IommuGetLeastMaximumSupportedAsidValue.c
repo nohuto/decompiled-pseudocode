@@ -1,7 +1,7 @@
 /*
- * XREFs of IommuGetLeastMaximumSupportedAsidValue @ 0x1403B08F4
+ * XREFs of IommuGetLeastMaximumSupportedAsidValue @ 0x1403B0AD4
  * Callers:
- *     IommupDeviceEnableSvm @ 0x140933D34 (IommupDeviceEnableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140933F34 (IommupDeviceEnableSvm.c)
  *     IommuGetConfiguration @ 0x140B71190 (IommuGetConfiguration.c)
  * Callees:
  *     <none>

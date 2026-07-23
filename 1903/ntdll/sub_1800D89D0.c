@@ -15,18 +15,18 @@ __int64 __fastcall sub_1800D89D0(unsigned __int64 a1, __int64 a2, __int64 a3, un
 {
   unsigned __int64 v9; // rbx
   __int64 v10; // rbx
-  unsigned __int64 v12[3]; // [rsp+30h] [rbp-18h] BYREF
+  PVOID BaseAddress[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v9 = 0LL;
-  if ( (int)sub_180054D90(a1, v12, 0LL) < 0 )
+  if ( (int)sub_180054D90(a1, (unsigned __int64 *)BaseAddress, 0LL) < 0 )
   {
     v9 = a1;
   }
   else
   {
-    if ( v12[0] != qword_1801653A0 && (*(_DWORD *)(v12[0] + 104) & 0x400) == 0 )
-      v9 = *(_QWORD *)(v12[0] + 48);
-    sub_18001B678(v12[0]);
+    if ( BaseAddress[0] != (PVOID)qword_1801653A0 && (*((_DWORD *)BaseAddress[0] + 26) & 0x400) == 0 )
+      v9 = *((_QWORD *)BaseAddress[0] + 6);
+    sub_18001B678((char *)BaseAddress[0]);
   }
   if ( v9 )
   {
@@ -38,7 +38,7 @@ __int64 __fastcall sub_1800D89D0(unsigned __int64 a1, __int64 a2, __int64 a3, un
             a3,
             a4);
     if ( v10 != a3 )
-      sub_18005521C(a3, 1u, v12);
+      sub_18005521C(a3, 1u, BaseAddress);
   }
   else
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of KseHookMmMapIoSpace @ 0x140582420
+ * XREFs of KseHookMmMapIoSpace @ 0x140582910
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KseHookMmMapIoSpace(__int64 a1)
@@ -13,5 +13,5 @@ __int64 __fastcall KseHookMmMapIoSpace(__int64 a1)
   v1 = __readcr3();
   if ( ((a1 ^ v1) & 0xFFFFFFFFFFFFF000uLL) == 0 && (a1 & 3) != 0 )
     a1 &= 0xFFFFFFFFFFFFFFFCuLL;
-  return ((__int64 (__fastcall *)(__int64))qword_140C07048)(a1);
+  return ((__int64 (__fastcall *)(__int64))qword_140C07038)(a1);
 }

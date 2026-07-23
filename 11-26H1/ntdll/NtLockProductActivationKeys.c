@@ -1,16 +1,16 @@
 /*
- * XREFs of NtLockProductActivationKeys @ 0x1801611D0
+ * XREFs of NtLockProductActivationKeys @ 0x1801610D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtLockProductActivationKeys()
+NTSTATUS __cdecl NtLockProductActivationKeys(ULONG *pPrivateVer, ULONG *pSafeMode)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 277LL;
+  result = 277;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

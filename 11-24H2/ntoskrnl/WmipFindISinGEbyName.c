@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipFindISinGEbyName @ 0x1409D0B10
+ * XREFs of WmipFindISinGEbyName @ 0x1409AFB60
  * Callers:
- *     WmipMangleInstanceName @ 0x1409D040C (WmipMangleInstanceName.c)
+ *     WmipMangleInstanceName @ 0x1409B0854 (WmipMangleInstanceName.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     _wtoi @ 0x1404FE710 (_wtoi.c)
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     WmipIsNumber @ 0x1409CF6FC (WmipIsNumber.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     _wtoi @ 0x1404FBFD0 (_wtoi.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     WmipIsNumber @ 0x1409B55C0 (WmipIsNumber.c)
  */
 
 ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigned int *a3)
@@ -23,10 +23,12 @@ ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigne
   int v13; // eax
   const wchar_t *v15; // rdx
   size_t v16; // rdi
-  wchar_t *v17; // rdi
+  const wchar_t *v17; // rdi
   unsigned int v18; // eax
-  unsigned int v19; // r9d
-  unsigned int v20; // r10d
+  unsigned int *v19; // rdx
+  unsigned int v20; // r9d
+  unsigned int v21; // r10d
+  __int64 v22; // r8
 
   v3 = -1LL;
   do
@@ -77,13 +79,17 @@ LABEL_15:
     goto LABEL_15;
   if ( wcsncmp(a2, v15, v16) )
     goto LABEL_15;
-  v17 = (wchar_t *)&a2[v16];
+  v17 = &a2[v16];
   v18 = wtoi(v17);
-  v19 = v18;
-  v20 = **(_DWORD **)(i + 88);
-  if ( v18 < v20 || v18 >= v20 + *(_DWORD *)(i + 72) || !v18 && !WmipIsNumber(v17) )
+  v19 = *(unsigned int **)(i + 88);
+  v20 = v18;
+  v21 = *v19;
+  if ( v18 < *v19 )
     goto LABEL_15;
-  *a3 = v19 - v20;
+  v22 = v21 + *(_DWORD *)(i + 72);
+  if ( v18 >= (unsigned int)v22 || !v18 && !(unsigned __int8)WmipIsNumber(v17, v19, v22, 0LL) )
+    goto LABEL_15;
+  *a3 = v20 - v21;
 LABEL_17:
   WmipReferenceEntry(i);
 LABEL_18:

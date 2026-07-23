@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwBusRelationAdd @ 0x140819CC8
+ * XREFs of PiSwBusRelationAdd @ 0x140819F98
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x14031EC30 (RtlInsertElementGenericTableAvl.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563C60 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563D88 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14031EEC0 (RtlInsertElementGenericTableAvl.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140564320 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140564448 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

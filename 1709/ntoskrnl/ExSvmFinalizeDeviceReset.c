@@ -14,9 +14,9 @@
 __int64 __fastcall ExSvmFinalizeDeviceReset(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  unsigned __int64 v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
   signed __int8 v4; // cf
-  unsigned __int64 v5; // rdi
+  PRTL_BALANCED_NODE v5; // rdi
   __int64 *v6; // rax
   __int64 *v7; // rcx
   unsigned int v8; // edi
@@ -27,9 +27,9 @@ __int64 __fastcall ExSvmFinalizeDeviceReset(__int64 a1)
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSvmDeviceListLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v3, (__int16 *)&ExpSvmDeviceListLock);
+    ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, (__int64)v3, (__int16 *)&ExpSvmDeviceListLock);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   v6 = (__int64 *)ExpSvmDevices;
   if ( (__int64 *)ExpSvmDevices == &ExpSvmDevices )
   {

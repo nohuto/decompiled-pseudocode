@@ -8,10 +8,10 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_18007D710(_QWORD *a1)
+LOGICAL __fastcall sub_18007D710(_QWORD *BaseAddress)
 {
-  sub_180031B40(a1[18], 0xFFFFFFFF);
-  a1[32] = 0LL;
-  sub_18003741C(a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_180166080 + 0x40000, (__int64)a1);
+  sub_180031B40(BaseAddress[18], 0xFFFFFFFF);
+  BaseAddress[32] = 0LL;
+  sub_18003741C(BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_180166080 + 0x40000, BaseAddress);
 }

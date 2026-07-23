@@ -1,15 +1,15 @@
 /*
- * XREFs of PopThermalStateTransitionWorker @ 0x1407D1CA0
+ * XREFs of PopThermalStateTransitionWorker @ 0x1407D4D40
  * Callers:
  *     <none>
  * Callees:
- *     PopThermalStandbyEndTracking @ 0x140434F64 (PopThermalStandbyEndTracking.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopThermalStandbyEndTracking @ 0x140423E3C (PopThermalStandbyEndTracking.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopThermalStateTransitionWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -38,36 +38,31 @@ __int64 __fastcall PopThermalStateTransitionWorker(__int64 a1, __int64 a2, __int
   v5 = 2;
   while ( 1 )
   {
-    PopAcquireRwLockExclusive(&stru_140F0F620.Spare35[1], a2, a3, a4);
-    if ( !BYTE1(stru_140F0F620.SystemAffinityTokenListHead.Next)
-      && (!BYTE3(stru_140F0F620.SystemAffinityTokenListHead.Next)
-       || BYTE4(stru_140F0F620.SystemAffinityTokenListHead.Next) == BYTE1(stru_140F0F620.SystemAffinityTokenListHead.Next)) )
-    {
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext, a2, a3, a4);
+    if ( !byte_140F0FCF1 && (!byte_140F0FCF3 || byte_140F0FCF4 == byte_140F0FCF1) )
       break;
-    }
-    if ( !LOBYTE(stru_140F0F620.SystemAffinityTokenListHead.Next) )
+    if ( !byte_140F0FCF0 )
       break;
-    if ( BYTE1(stru_140F0F620.SystemAffinityTokenListHead.Next) )
+    if ( byte_140F0FCF1 )
     {
-      if ( !BYTE2(stru_140F0F620.SystemAffinityTokenListHead.Next) )
+      if ( !byte_140F0FCF2 )
       {
         v4 = 3;
-        BYTE2(stru_140F0F620.SystemAffinityTokenListHead.Next) = 1;
+        byte_140F0FCF2 = 1;
         v5 = 2;
       }
-      BYTE1(stru_140F0F620.SystemAffinityTokenListHead.Next) = 0;
+      byte_140F0FCF1 = 0;
     }
-    if ( BYTE3(stru_140F0F620.SystemAffinityTokenListHead.Next)
-      && BYTE4(stru_140F0F620.SystemAffinityTokenListHead.Next) )
+    if ( byte_140F0FCF3 && byte_140F0FCF4 )
     {
       v4 = 6;
-      BYTE3(stru_140F0F620.SystemAffinityTokenListHead.Next) = 0;
+      byte_140F0FCF3 = 0;
       v5 = 3;
     }
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.Spare35[1]);
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F0F620.SchedulerAssistPriorityFloor, v6, v7, v8);
+    PopReleaseRwLock((struct _KTHREAD *)&PopThermalStateTransitionContext);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemThermalInfo, v6, v7, v8);
     PopThermalStandbyEndTracking(v5, v9, v10);
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.SchedulerAssistPriorityFloor);
+    PopReleaseRwLock((struct _KTHREAD *)&PopSystemThermalInfo);
     LODWORD(v21) = 0;
     memset((char *)v22 + 8, 0, 24);
     v20 = v4 | 0xC000000400000000uLL;
@@ -78,6 +73,6 @@ __int64 __fastcall PopThermalStateTransitionWorker(__int64 a1, __int64 a2, __int
     PopExecutePowerAction((unsigned int)v22, 0, (unsigned int)&v20, 5, 1);
     PopReleasePolicyLock(v14, v13, v15, v16, v18, v19, v20, v21, *(_QWORD *)&v22[0], *((_QWORD *)&v22[0] + 1));
   }
-  PopOkayToQueueNextWorkItem((__int64)&stru_140F0F620.SavedApcState.ApcListHead[0].Blink);
-  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.Spare35[1]);
+  PopOkayToQueueNextWorkItem((__int64)&PopThermalStateTransitionWorkItem);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopThermalStateTransitionContext);
 }

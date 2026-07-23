@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRegisterNmiSxCallback @ 0x14056CE3C
+ * XREFs of KiRegisterNmiSxCallback @ 0x14056D4FC
  * Callers:
- *     HvlpInitializeHvCrashdump @ 0x140547FF4 (HvlpInitializeHvCrashdump.c)
- *     KeRegisterNmiCallback @ 0x14056CA60 (KeRegisterNmiCallback.c)
- *     DifKeRegisterNmiCallbackWrapper @ 0x1405E4590 (DifKeRegisterNmiCallbackWrapper.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405486B4 (HvlpInitializeHvCrashdump.c)
+ *     KeRegisterNmiCallback @ 0x14056D120 (KeRegisterNmiCallback.c)
+ *     DifKeRegisterNmiCallbackWrapper @ 0x1405E4B00 (DifKeRegisterNmiCallbackWrapper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -35,10 +35,13 @@ _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)
     KiNmiCallbackListHead = v5;
     v7 = v6;
     KxReleaseSpinLock((volatile signed __int64 *)&KiNmiCallbackListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -46,7 +49,7 @@ _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)
         v12 = (v11 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v11;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v7);

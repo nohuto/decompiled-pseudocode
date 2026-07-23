@@ -1,13 +1,13 @@
 /*
- * XREFs of CcInsertPrivateVolumeCacheMap @ 0x1403E3C18
+ * XREFs of CcInsertPrivateVolumeCacheMap @ 0x1403E6E08
  * Callers:
- *     CcCreatePrivateVolumeCacheMap @ 0x1403E1FBC (CcCreatePrivateVolumeCacheMap.c)
- *     CcFindPrivateVolumeCacheMap @ 0x1403E211C (CcFindPrivateVolumeCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x1403E51AC (CcCreatePrivateVolumeCacheMap.c)
+ *     CcFindPrivateVolumeCacheMap @ 0x1403E530C (CcFindPrivateVolumeCacheMap.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
  */
 
 char __fastcall CcInsertPrivateVolumeCacheMap(__int64 a1, __int64 a2, _QWORD *a3, char a4, char a5, _BYTE *a6)

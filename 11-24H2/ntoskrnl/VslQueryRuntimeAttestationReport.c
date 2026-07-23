@@ -1,17 +1,17 @@
 /*
- * XREFs of VslQueryRuntimeAttestationReport @ 0x14070FE70
+ * XREFs of VslQueryRuntimeAttestationReport @ 0x14070DA00
  * Callers:
- *     ExpQueryRuntimeAttestationReport @ 0x1407B5580 (ExpQueryRuntimeAttestationReport.c)
+ *     ExpQueryRuntimeAttestationReport @ 0x1407B59D0 (ExpQueryRuntimeAttestationReport.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCopyToUser @ 0x1406FC3C8 (RtlCopyToUser.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCopyToUser @ 0x1406FA008 (RtlCopyToUser.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslQueryRuntimeAttestationReport(__int64 a1, void *a2, unsigned int *a3, char a4)
@@ -57,7 +57,7 @@ LABEL_14:
         v22 = v16[0];
         v23 = v16[7];
       }
-      v12 = VslpEnterIumSecureMode(2u, 278LL, 0, (__int64)v17);
+      v12 = VslpEnterIumSecureMode(2u, 0x116u, 0, (__int64)v17);
       v13 = (unsigned int)Size;
       *a3 = Size;
       if ( v12 >= 0 && a2 )
@@ -82,7 +82,7 @@ LABEL_23:
   }
   if ( !v10 )
     goto LABEL_23;
-  Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL, *a3, 0x54736D56u);
   v7 = Pool2;
   if ( !Pool2 )
   {

@@ -1,23 +1,23 @@
 /*
- * XREFs of IoStopDiskIoAttributionForContext @ 0x1404636E0
+ * XREFs of IoStopDiskIoAttributionForContext @ 0x14045C6A0
  * Callers:
- *     PspIoRateEntryActivate @ 0x140AFB4A4 (PspIoRateEntryActivate.c)
- *     PspRemoveIoAttribution @ 0x140AFC3A8 (PspRemoveIoAttribution.c)
- *     PspIoRateEntryDeactivate @ 0x140B3A694 (PspIoRateEntryDeactivate.c)
+ *     PspIoRateEntryActivate @ 0x140ABECE0 (PspIoRateEntryActivate.c)
+ *     PspRemoveIoAttribution @ 0x140ABF298 (PspRemoveIoAttribution.c)
+ *     PspIoRateEntryDeactivate @ 0x140B3CA34 (PspIoRateEntryDeactivate.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
  */
 
-void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
+void __fastcall IoStopDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // bl
 
-  v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&IopSessionNotificationLock.TrapFrame + 1);
-  RtlRbRemoveNode((__int64)&IopSessionNotificationLock.SchedulerApcFill5[80], (__int64)a1);
-  a1[2].Count = -1LL;
-  ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&IopSessionNotificationLock.TrapFrame + 1, v2);
-  ExWaitForRundownProtectionRelease(a1 + 21);
+  v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
+  RtlRbRemoveNode((PRTL_RB_TREE)&IopPerfIoTrackingLock.Header.WaitListHead.Blink, Node);
+  Node->ParentValue = -1LL;
+  ExReleaseSpinLockExclusive(&IopDiskIoAttributionLock, v2);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&Node[7]);
 }

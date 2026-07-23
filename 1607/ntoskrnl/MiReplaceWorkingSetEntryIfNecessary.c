@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9EA0
+ * XREFs of MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9CCC
  * Callers:
- *     MiDoReplacement @ 0x1401E282C (MiDoReplacement.c)
+ *     MiDoReplacement @ 0x1401E2658 (MiDoReplacement.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC (MiReplaceWorkingSetEntrySmall.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiReplaceWorkingSetEntrySmall @ 0x1401E9D18 (MiReplaceWorkingSetEntrySmall.c)
  */
 
 void __fastcall MiReplaceWorkingSetEntryIfNecessary(__int64 a1)

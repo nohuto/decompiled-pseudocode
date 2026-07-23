@@ -7,58 +7,60 @@
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall AlpcGetMessageFromCompletionList(__int64 a1, _QWORD *a2, unsigned __int64 *a3, __int64 a4)
+PPORT_MESSAGE __cdecl AlpcGetMessageFromCompletionList(
+        PVOID CompletionList,
+        PALPC_MESSAGE_ATTRIBUTES *MessageAttributes)
 {
-  volatile signed __int64 *v4; // rbp
-  unsigned __int64 v7; // rcx
-  unsigned __int64 v8; // r9
-  __int64 v9; // r10
-  unsigned __int64 v10; // rbx
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r8
-  __int64 v13; // r11
-  signed __int64 v14; // rdx
-  unsigned int v15; // ecx
-  __int64 v16; // rbx
+  _RTL_SRWLOCK *v2; // rbp
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // r9
+  char *v7; // r10
+  unsigned __int64 v8; // rbx
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // r8
+  __int64 v11; // r11
+  signed __int64 v12; // rdx
+  unsigned int v13; // ecx
+  _PORT_MESSAGE *v14; // rbx
 
-  v4 = (volatile signed __int64 *)(a1 + 320);
-  RtlAcquireSRWLockExclusive(a1 + 320, (unsigned __int64)a2, a3, a4);
-  v7 = *(_QWORD *)(a1 + 64);
-  v8 = (unsigned __int64)*(unsigned int *)(a1 + 16) >> 2;
-  v9 = a1 + *(unsigned int *)(a1 + 12);
+  v2 = (_RTL_SRWLOCK *)((char *)CompletionList + 320);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CompletionList + 40);
+  v5 = *((_QWORD *)CompletionList + 8);
+  v6 = (unsigned __int64)*((unsigned int *)CompletionList + 4) >> 2;
+  v7 = (char *)CompletionList + *((unsigned int *)CompletionList + 3);
   do
   {
-    v10 = v7;
-    v11 = v7 & 0xFFFFFF;
-    if ( (v7 & 0xFFFFFF) == 0xFFFFFF || v11 >= v8 || (v12 = (v7 >> 24) & 0xFFFFFF, v12 >= v8) )
+    v8 = v5;
+    v9 = v5 & 0xFFFFFF;
+    if ( (v5 & 0xFFFFFF) == 0xFFFFFF || v9 >= v6 || (v10 = (v5 >> 24) & 0xFFFFFF, v10 >= v6) )
     {
-      v16 = 0LL;
+      v14 = 0LL;
       goto LABEL_13;
     }
-    v13 = *(unsigned int *)(v9 + 4 * (v7 & 0xFFFFFF));
-    if ( v11 == v12 )
-      v14 = v7 | 0xFFFFFFFFFFFFLL;
+    v11 = *(unsigned int *)&v7[4 * (v5 & 0xFFFFFF)];
+    if ( v9 == v10 )
+      v12 = v5 | 0xFFFFFFFFFFFFLL;
     else
-      v14 = v7 ^ (v7 ^ ((v11 + 1) % v8)) & 0xFFFFFF;
-    v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), v14, v7);
+      v12 = v5 ^ (v5 ^ ((v9 + 1) % v6)) & 0xFFFFFF;
+    v5 = _InterlockedCompareExchange64((volatile signed __int64 *)CompletionList + 8, v12, v5);
   }
-  while ( v7 != v10 );
-  v15 = 0;
-  v16 = v13 + a1 + *(unsigned int *)(a1 + 28);
-  if ( a2 )
+  while ( v5 != v8 );
+  v13 = 0;
+  v14 = (_PORT_MESSAGE *)((char *)CompletionList + *((unsigned int *)CompletionList + 7) + v11);
+  if ( MessageAttributes )
   {
-    if ( *(_DWORD *)(a1 + 36) )
+    if ( *((_DWORD *)CompletionList + 9) )
     {
-      if ( (((_BYTE)v16 + (unsigned __int8)*(_WORD *)(v16 + 2)) & 7) != 0 )
-        v15 = 8 - (((_BYTE)v16 + (unsigned __int8)*(_WORD *)(v16 + 2)) & 7);
-      *a2 = v16 + *(unsigned __int16 *)(v16 + 2) + v15;
+      if ( (((_BYTE)v14 + (unsigned __int8)v14->u1.s1.TotalLength) & 7) != 0 )
+        v13 = 8 - (((_BYTE)v14 + (unsigned __int8)v14->u1.s1.TotalLength) & 7);
+      *MessageAttributes = (PALPC_MESSAGE_ATTRIBUTES)((char *)v14 + (unsigned __int16)v14->u1.s1.TotalLength + v13);
     }
     else
     {
-      *a2 = 0LL;
+      *MessageAttributes = 0LL;
     }
   }
 LABEL_13:
-  RtlReleaseSRWLockExclusive(v4);
-  return v16;
+  RtlReleaseSRWLockExclusive(v2);
+  return v14;
 }

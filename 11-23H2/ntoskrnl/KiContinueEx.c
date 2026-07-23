@@ -1,14 +1,14 @@
 /*
- * XREFs of KiContinueEx @ 0x14030CF10
+ * XREFs of KiContinueEx @ 0x14030D1A0
  * Callers:
- *     NtContinueEx @ 0x14041F190 (NtContinueEx.c)
+ *     NtContinueEx @ 0x14041F520 (NtContinueEx.c)
  * Callees:
- *     KeTestAlertThread @ 0x14030D0E0 (KeTestAlertThread.c)
- *     KiContinuePreviousModeUser @ 0x14030D1E4 (KiContinuePreviousModeUser.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     KeContextToKframes @ 0x14041EB80 (KeContextToKframes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     KeTestAlertThread @ 0x14030D370 (KeTestAlertThread.c)
+ *     KiContinuePreviousModeUser @ 0x14030D474 (KiContinuePreviousModeUser.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeContextToKframes @ 0x14041EF10 (KeContextToKframes.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -98,10 +98,10 @@ LABEL_11:
 LABEL_25:
   if ( !CurrentIrql )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

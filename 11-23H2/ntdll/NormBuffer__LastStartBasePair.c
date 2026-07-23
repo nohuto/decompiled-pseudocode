@@ -1,11 +1,11 @@
 /*
- * XREFs of NormBuffer__LastStartBasePair @ 0x18010DB68
+ * XREFs of NormBuffer__LastStartBasePair @ 0x18010DB38
  * Callers:
  *     Normalization__NormalizeCharacter @ 0x18008A014 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__LastStartBase @ 0x18010DB3C (NormBuffer__LastStartBase.c)
- *     Normalization__CanCombinableCharactersCombine @ 0x18010E094 (Normalization__CanCombinableCharactersCombine.c)
- *     Normalization__GetSecondDecomposedCharPlane0 @ 0x18010E4DC (Normalization__GetSecondDecomposedCharPlane0.c)
+ *     NormBuffer__LastStartBase @ 0x18010DB0C (NormBuffer__LastStartBase.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x18010E064 (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__GetSecondDecomposedCharPlane0 @ 0x18010E4AC (Normalization__GetSecondDecomposedCharPlane0.c)
  */
 
 __int64 __fastcall NormBuffer__LastStartBasePair(__int64 a1)

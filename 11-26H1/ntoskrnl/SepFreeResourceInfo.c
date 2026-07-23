@@ -1,52 +1,52 @@
 /*
- * XREFs of SepFreeResourceInfo @ 0x1402AE460
+ * XREFs of SepFreeResourceInfo @ 0x1403AE8A0
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1402ACAA0 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1403AF8F0 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepFreeResourceInfo(char *P)
 {
-  _DWORD **v2; // r15
-  _DWORD *v3; // rbx
-  __int64 v4; // rax
-  _QWORD *v5; // rcx
+  void **v2; // r15
+  void ***v3; // rbx
+  void **v4; // rax
+  void **v5; // rcx
   void **v6; // rdi
   _QWORD *v7; // rcx
   _QWORD *v8; // rdx
   void **v9; // rax
-  _DWORD *v10; // r14
+  char *v10; // r14
   _QWORD **v11; // rdx
   void **v12; // rax
   int v13; // eax
-  __int64 *v14; // r11
+  char *v14; // r11
   PVOID v15; // r11
 
   if ( P )
   {
-    v2 = (_DWORD **)(P + 8);
+    v2 = (void **)(P + 8);
     while ( 1 )
     {
-      v3 = *v2;
-      if ( *v2 == (_DWORD *)v2 )
+      v3 = (void ***)*v2;
+      if ( *v2 == v2 )
         break;
-      if ( (v3[14] & 1) != 0 )
+      if ( ((_DWORD)v3[7] & 1) != 0 )
       {
-        v4 = *(_QWORD *)v3;
-        if ( *(_DWORD **)(*(_QWORD *)v3 + 8LL) != v3 || (v5 = (_QWORD *)*((_QWORD *)v3 + 1), (_DWORD *)*v5 != v3) )
+        v4 = *v3;
+        if ( (*v3)[1] != v3 || (v5 = v3[1], *v5 != v3) )
 LABEL_24:
           __fastfail(3u);
         *v5 = v4;
-        *(_QWORD *)(v4 + 8) = v5;
-        v3[14] &= ~1u;
+        v4[1] = v5;
+        *((_DWORD *)v3 + 14) &= ~1u;
         --*(_DWORD *)P;
       }
-      v6 = (void **)(v3 + 18);
+      v6 = (void **)(v3 + 9);
       while ( 1 )
       {
         v7 = *v6;
@@ -63,7 +63,7 @@ LABEL_24:
           *v12 = v11;
           v11[1] = v12;
           *((_DWORD *)v7 + 8) &= ~2u;
-          --v3[22];
+          --*((_DWORD *)v3 + 22);
         }
         if ( (v7[4] & 1) != 0 )
         {
@@ -76,21 +76,21 @@ LABEL_24:
           *v9 = v8;
           v8[1] = v9;
           *((_DWORD *)v7 + 8) &= ~1u;
-          --v3[15];
+          --*((_DWORD *)v3 + 15);
           if ( (v7[4] & 4) != 0 )
-            --v3[16];
+            --*((_DWORD *)v3 + 16);
         }
         ExFreePoolWithTag(v7, 0);
       }
-      v10 = (_DWORD *)*((_QWORD *)v3 + 12);
-      while ( v10 != v3 + 24 )
+      v10 = (char *)v3[12];
+      while ( v10 != (char *)(v3 + 12) )
       {
-        v13 = v10[4];
-        v14 = (__int64 *)(v10 - 4);
-        v10 = *(_DWORD **)v10;
+        v13 = *((_DWORD *)v10 + 4);
+        v14 = v10 - 16;
+        v10 = *(char **)v10;
         if ( (v13 & 1) == 0 )
         {
-          AuthzBasepRemoveSecurityAttributeValueFromLists(v3, v14, 0);
+          AuthzBasepRemoveSecurityAttributeValueFromLists(v3, v14, 0LL);
           ExFreePoolWithTag(v15, 0);
         }
       }

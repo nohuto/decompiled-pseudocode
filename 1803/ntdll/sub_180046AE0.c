@@ -23,39 +23,39 @@
  *     sub_1800D3CE8 @ 0x1800D3CE8 (sub_1800D3CE8.c)
  */
 
-struct _PEB *__fastcall sub_180046AE0(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+int __fastcall sub_180046AE0(__int64 a1)
 {
-  struct _PEB *result; // rax
-  void (__fastcall *v5)(_QWORD *); // rbp
-  bool v6; // zf
+  struct _PEB *v1; // rax
+  void (__fastcall *v2)(_QWORD *); // rbp
+  bool v3; // zf
   _QWORD *i; // rsi
+  _QWORD *v6; // rbx
+  _DWORD *v7; // rdx
+  _QWORD **v8; // rcx
   _QWORD *v9; // rbx
-  unsigned __int64 *v10; // rdx
-  _QWORD **v11; // rcx
-  _QWORD *v12; // rbx
-  _QWORD *v13; // rsi
-  unsigned __int64 v14; // rbx
-  int v15; // eax
-  __int64 v16; // rcx
-  _QWORD *v17; // rdx
-  __int64 v18; // rcx
-  _QWORD *v19; // rax
-  __int64 v20; // rdx
-  _QWORD *v21; // rcx
-  _QWORD *v22; // rbx
-  __int64 v23; // rsi
-  _QWORD *v24; // rdx
-  _QWORD **v25; // rcx
-  _QWORD *v26; // r8
-  _QWORD **v27; // rax
-  int v28; // [rsp+50h] [rbp+8h] BYREF
-  struct _PEB *v29; // [rsp+58h] [rbp+10h]
+  _QWORD *v10; // rsi
+  char *v11; // rbx
+  int v12; // eax
+  __int64 v13; // rcx
+  char **v14; // rdx
+  __int64 v15; // rcx
+  char **v16; // rax
+  __int64 v17; // rdx
+  char **v18; // rcx
+  _QWORD *v19; // rbx
+  __int64 v20; // rsi
+  _QWORD *v21; // rdx
+  _QWORD **v22; // rcx
+  _QWORD *v23; // r8
+  _QWORD **v24; // rax
+  int v26; // [rsp+50h] [rbp+8h] BYREF
+  struct _PEB *v27; // [rsp+58h] [rbp+10h]
 
-  result = NtCurrentPeb();
-  v5 = 0LL;
-  v6 = *(_DWORD *)(a1 + 56) == -4;
-  v29 = result;
-  if ( v6 )
+  v1 = NtCurrentPeb();
+  v2 = 0LL;
+  v3 = *(_DWORD *)(a1 + 56) == -4;
+  v27 = v1;
+  if ( v3 )
   {
 LABEL_4:
     *(_DWORD *)(a1 + 56) = -1;
@@ -70,20 +70,20 @@ LABEL_4:
   }
 LABEL_5:
   if ( byte_18015CFB4 )
-    v5 = (void (__fastcall *)(_QWORD *))(MEMORY[0x7FFE0330] ^ __ROR8__(
+    v2 = (void (__fastcall *)(_QWORD *))(MEMORY[0x7FFE0330] ^ __ROR8__(
                                                                 qword_18016F250,
                                                                 64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
-  RtlEnterCriticalSection((__int64)&off_1801564C0);
+  RtlEnterCriticalSection(&stru_1801564C0);
   for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
-    v9 = i - 20;
+    v6 = i - 20;
     if ( (*(_BYTE *)(i - 7) & 8) != 0 )
     {
       sub_18002D32C((__int64)(i - 20), 2u);
-      if ( v5 )
-        v5(i - 20);
-      sub_18002D3B8((__int64)(i - 20), v10, 1);
-      if ( (v29->NtGlobalFlag & 0x100) != 0 )
+      if ( v2 )
+        v2(i - 20);
+      sub_18002D3B8((__int64)(i - 20), v7, 1);
+      if ( (v27->NtGlobalFlag & 0x100) != 0 )
         sub_1800D3CE8(i - 20);
     }
     if ( (dword_180156A70 & 5) != 0 )
@@ -93,100 +93,100 @@ LABEL_5:
         (unsigned int)"LdrpUnloadNode",
         2,
         "Unmapping DLL \"%wZ\"\n",
-        v9 + 9);
-    LdrUnloadAlternateResourceModuleEx(v9[6], 0LL);
+        v6 + 9);
+    LdrUnloadAlternateResourceModuleEx((PVOID)v6[6], 0);
   }
-  result = (struct _PEB *)RtlLeaveCriticalSection((__int64)&off_1801564C0);
+  LODWORD(v1) = RtlLeaveCriticalSection(&stru_1801564C0);
 LABEL_18:
   while ( 1 )
   {
-    v11 = *(_QWORD ***)(a1 + 40);
-    if ( !v11 )
+    v8 = *(_QWORD ***)(a1 + 40);
+    if ( !v8 )
       break;
-    v22 = *v11;
-    if ( *v11 == v11 )
+    v19 = *v8;
+    if ( *v8 == v8 )
     {
       *(_QWORD *)(a1 + 40) = 0LL;
     }
     else
     {
-      result = (struct _PEB *)*v22;
-      *v11 = (_QWORD *)*v22;
+      v1 = (struct _PEB *)*v19;
+      *v8 = (_QWORD *)*v19;
     }
-    if ( !v22 )
+    if ( !v19 )
       break;
-    RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D070, a2, a3, a4);
-    v23 = v22[1];
-    v24 = v22 + 2;
-    v25 = *(_QWORD ***)(v23 + 48);
-    v26 = *v25;
-    if ( *v25 != v22 + 2 )
+    RtlAcquireSRWLockExclusive(&stru_18015D070);
+    v20 = v19[1];
+    v21 = v19 + 2;
+    v22 = *(_QWORD ***)(v20 + 48);
+    v23 = *v22;
+    if ( *v22 != v19 + 2 )
     {
       do
       {
-        v25 = (_QWORD **)v26;
-        v26 = (_QWORD *)*v26;
+        v22 = (_QWORD **)v23;
+        v23 = (_QWORD *)*v23;
       }
-      while ( v26 != v24 );
+      while ( v23 != v21 );
     }
-    *v25 = (_QWORD *)*v24;
-    if ( *(_QWORD **)(v23 + 48) == v24 )
+    *v22 = (_QWORD *)*v21;
+    if ( *(_QWORD **)(v20 + 48) == v21 )
     {
-      v27 = 0LL;
-      if ( v25 != v24 )
-        v27 = v25;
-      *(_QWORD *)(v23 + 48) = v27;
+      v24 = 0LL;
+      if ( v22 != v21 )
+        v24 = v22;
+      *(_QWORD *)(v20 + 48) = v24;
     }
-    sub_180046EDC(v23, 0LL, &v28);
-    RtlReleaseSRWLockExclusive(&qword_18015D070);
-    if ( v28 )
-      sub_180046AE0(v23);
-    result = (struct _PEB *)RtlFreeHeap(qword_18015C288, 0, (unsigned __int64)v22);
+    sub_180046EDC(v20, 0LL, &v26);
+    RtlReleaseSRWLockExclusive(&stru_18015D070);
+    if ( v26 )
+      sub_180046AE0(v20);
+    LODWORD(v1) = RtlFreeHeap(HeapHandle, 0, v19);
   }
-  v12 = *(_QWORD **)a1;
+  v9 = *(_QWORD **)a1;
   *(_DWORD *)(a1 + 56) = -2;
-  if ( v12 != (_QWORD *)a1 )
+  if ( v9 != (_QWORD *)a1 )
   {
     do
     {
-      v13 = (_QWORD *)*v12;
-      *((_DWORD *)v12 - 14) |= 2u;
-      v14 = (unsigned __int64)(v12 - 20);
-      RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D070, a2, a3, a4);
-      v15 = *(_DWORD *)(v14 + 104);
-      if ( (v15 & 0x40) != 0 )
+      v10 = (_QWORD *)*v9;
+      *((_DWORD *)v9 - 14) |= 2u;
+      v11 = (char *)(v9 - 20);
+      RtlAcquireSRWLockExclusive(&stru_18015D070);
+      v12 = *((_DWORD *)v11 + 26);
+      if ( (v12 & 0x40) != 0 )
       {
-        v16 = *(_QWORD *)(v14 + 112);
-        if ( *(_QWORD *)(v16 + 8) != v14 + 112 || (v17 = *(_QWORD **)(v14 + 120), *v17 != v14 + 112) )
+        v13 = *((_QWORD *)v11 + 14);
+        if ( *(char **)(v13 + 8) != v11 + 112 || (v14 = (char **)*((_QWORD *)v11 + 15), *v14 != v11 + 112) )
           __fastfail(3u);
-        *v17 = v16;
-        *(_QWORD *)(v16 + 8) = v17;
-        v18 = *(_QWORD *)v14;
-        if ( *(_QWORD *)(*(_QWORD *)v14 + 8LL) != v14 || (v19 = *(_QWORD **)(v14 + 8), *v19 != v14) )
+        *v14 = (char *)v13;
+        *(_QWORD *)(v13 + 8) = v14;
+        v15 = *(_QWORD *)v11;
+        if ( *(char **)(*(_QWORD *)v11 + 8LL) != v11 || (v16 = (char **)*((_QWORD *)v11 + 1), *v16 != v11) )
           __fastfail(3u);
-        *v19 = v18;
-        *(_QWORD *)(v18 + 8) = v19;
-        v20 = *(_QWORD *)(v14 + 16);
-        if ( *(_QWORD *)(v20 + 8) != v14 + 16 || (v21 = *(_QWORD **)(v14 + 24), *v21 != v14 + 16) )
+        *v16 = (char *)v15;
+        *(_QWORD *)(v15 + 8) = v16;
+        v17 = *((_QWORD *)v11 + 2);
+        if ( *(char **)(v17 + 8) != v11 + 16 || (v18 = (char **)*((_QWORD *)v11 + 3), *v18 != v11 + 16) )
           __fastfail(3u);
-        *v21 = v20;
-        *(_QWORD *)(v20 + 8) = v21;
-        *(_DWORD *)(v14 + 104) &= ~0x40u;
-        v15 = *(_DWORD *)(v14 + 104);
+        *v18 = (char *)v17;
+        *(_QWORD *)(v17 + 8) = v18;
+        *((_DWORD *)v11 + 26) &= ~0x40u;
+        v12 = *((_DWORD *)v11 + 26);
       }
-      if ( (v15 & 0x80u) != 0 )
+      if ( (v12 & 0x80u) != 0 )
       {
-        RtlRbRemoveNode((__int64)&qword_18015D238, v14 + 224);
-        RtlRbRemoveNode((__int64)&qword_18015D228, v14 + 200);
-        *(_DWORD *)(v14 + 64) = 0;
+        RtlRbRemoveNode(&stru_18015D238, (PRTL_BALANCED_NODE)(v11 + 224));
+        RtlRbRemoveNode(&stru_18015D228, (PRTL_BALANCED_NODE)(v11 + 200));
+        *((_DWORD *)v11 + 16) = 0;
       }
-      RtlReleaseSRWLockExclusive(&qword_18015D070);
+      RtlReleaseSRWLockExclusive(&stru_18015D070);
       if ( byte_18015C298 )
-        sub_180074114(v14);
-      result = (struct _PEB *)sub_18001F5FC(v14);
-      v12 = v13;
+        sub_180074114(v11);
+      LODWORD(v1) = sub_18001F5FC(v11);
+      v9 = v10;
     }
-    while ( v13 != (_QWORD *)a1 );
+    while ( v10 != (_QWORD *)a1 );
   }
-  return result;
+  return (int)v1;
 }

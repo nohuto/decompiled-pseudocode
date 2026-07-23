@@ -33,7 +33,7 @@ __int64 __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULO
   ULONG_PTR v12; // r9
   unsigned __int8 v13; // r15
   _KUMS_CONTEXT_HEADER *volatile *SparePtr; // rcx
-  __int64 v15; // rax
+  PRTL_BALANCED_NODE v15; // rax
   unsigned __int8 v16; // bp
   _QWORD *v17; // rdx
   _QWORD *v18; // rax
@@ -118,7 +118,7 @@ LABEL_13:
   v15 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
   v6 = (_KLOCK_ENTRY *)v15;
   if ( v15 )
-    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (*(_BYTE *)(v15 + 24) - 50)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (LOBYTE(v15[1].Children[0]) - 50)) / 96)) | 1;
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
@@ -183,7 +183,7 @@ LABEL_56:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v30, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, (__int64)v6, 0);
+    KeAbPreAcquire(BugCheckParameter2, &v6->TreeNode, 0);
   v16 = 1;
 LABEL_21:
   if ( v6 )

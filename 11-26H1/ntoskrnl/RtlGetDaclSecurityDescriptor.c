@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlGetDaclSecurityDescriptor @ 0x140486620
+ * XREFs of RtlGetDaclSecurityDescriptor @ 0x14047FDF0
  * Callers:
- *     ObCleanupSecurityDescriptor @ 0x1407C2124 (ObCleanupSecurityDescriptor.c)
- *     ObpCreateDosDevicesDirectory @ 0x1407C2A4C (ObpCreateDosDevicesDirectory.c)
- *     RtlReplaceSidInSd @ 0x140804260 (RtlReplaceSidInSd.c)
- *     ExpInitFullProcessSecurityInfo @ 0x140832B80 (ExpInitFullProcessSecurityInfo.c)
- *     CmpCopySaclToVirtualKey @ 0x14085AD20 (CmpCopySaclToVirtualKey.c)
- *     MiInitializeMemoryEvents @ 0x14087F860 (MiInitializeMemoryEvents.c)
- *     ObpInsertOrLocateNamedObject @ 0x1408EEAF0 (ObpInsertOrLocateNamedObject.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x140914F6C (PipChangeDeviceObjectFromRegistryProperties.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14094E320 (ExpWnfSpecializeSecurityDescriptor.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x140A61D64 (LocalConvertSDToStringSD_Rev1.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140A74998 (PiDevCfgGetKeySecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A95EB0 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     IopGetSecurityDescriptorInformation @ 0x140AF85A4 (IopGetSecurityDescriptorInformation.c)
+ *     ObCleanupSecurityDescriptor @ 0x1407C5184 (ObCleanupSecurityDescriptor.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407C5AAC (ObpCreateDosDevicesDirectory.c)
+ *     RtlReplaceSidInSd @ 0x140809D00 (RtlReplaceSidInSd.c)
+ *     ExpInitFullProcessSecurityInfo @ 0x140838DC0 (ExpInitFullProcessSecurityInfo.c)
+ *     CmpCopySaclToVirtualKey @ 0x140861014 (CmpCopySaclToVirtualKey.c)
+ *     MiInitializeMemoryEvents @ 0x140885C60 (MiInitializeMemoryEvents.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1408F50B0 (ObpInsertOrLocateNamedObject.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14096F9D8 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x1409C9C60 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140A49800 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x140A6ED34 (LocalConvertSDToStringSD_Rev1.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A992E0 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     IopGetSecurityDescriptorInformation @ 0x140AFAC84 (IopGetSecurityDescriptorInformation.c)
  * Callees:
  *     <none>
  */

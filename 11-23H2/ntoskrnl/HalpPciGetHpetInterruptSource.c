@@ -1,9 +1,9 @@
 /*
  * XREFs of HalpPciGetHpetInterruptSource @ 0x140B92B50
  * Callers:
- *     HalpTimerRegister @ 0x140378AB4 (HalpTimerRegister.c)
+ *     HalpTimerRegister @ 0x140378C54 (HalpTimerRegister.c)
  * Callees:
- *     HalSocGetAcpiTable @ 0x1403A4BDC (HalSocGetAcpiTable.c)
+ *     HalSocGetAcpiTable @ 0x1403A4DBC (HalSocGetAcpiTable.c)
  *     HalpPciGetHpetInterruptSourceAmd @ 0x140B92C1C (HalpPciGetHpetInterruptSourceAmd.c)
  *     HalpPciGetHpetInterruptSourceIntel @ 0x140B92D08 (HalpPciGetHpetInterruptSourceIntel.c)
  */

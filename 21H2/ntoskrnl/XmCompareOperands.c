@@ -1,8 +1,8 @@
 /*
- * XREFs of XmCompareOperands @ 0x1404E66BC
+ * XREFs of XmCompareOperands @ 0x1404E68FC
  * Callers:
- *     XmCmpsOp @ 0x1404E6610 (XmCmpsOp.c)
- *     XmScasOp @ 0x1404E6940 (XmScasOp.c)
+ *     XmCmpsOp @ 0x1404E6850 (XmCmpsOp.c)
+ *     XmScasOp @ 0x1404E6B80 (XmScasOp.c)
  * Callees:
  *     <none>
  */

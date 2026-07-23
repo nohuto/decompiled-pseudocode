@@ -1,15 +1,15 @@
 /*
- * XREFs of IopAppendLegacyVeto @ 0x1407B21C4
+ * XREFs of IopAppendLegacyVeto @ 0x1407B5224
  * Callers:
- *     ExpQueryLegacyDriverInformation @ 0x14077038C (ExpQueryLegacyDriverInformation.c)
- *     IoGetLegacyVetoList @ 0x140944C40 (IoGetLegacyVetoList.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     IopGetLegacyVetoListDrivers @ 0x14094522C (IopGetLegacyVetoListDrivers.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409454B0 (IopGetLegacyVetoListDeviceNode.c)
+ *     ExpQueryLegacyDriverInformation @ 0x14077338C (ExpQueryLegacyDriverInformation.c)
+ *     IoGetLegacyVetoList @ 0x1409C05B0 (IoGetLegacyVetoList.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1409C0B9C (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1409C0E20 (IopGetLegacyVetoListDeviceNode.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopAppendLegacyVeto(const void ***a1, const void **a2)

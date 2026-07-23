@@ -18,53 +18,50 @@
 
 __int64 __fastcall RtlpVerifyAndCommitUILanguageSettings(char a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  int v4; // ebx
-  int v6; // [rsp+28h] [rbp-E0h] BYREF
-  unsigned __int16 v7; // [rsp+2Ch] [rbp-DCh] BYREF
-  __int64 v8; // [rsp+30h] [rbp-D8h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-D0h] BYREF
-  _DWORD v10[2]; // [rsp+40h] [rbp-C8h] BYREF
-  const wchar_t *v11; // [rsp+48h] [rbp-C0h]
-  _BYTE v12[688]; // [rsp+58h] [rbp-B0h] BYREF
+  NTSTATUS v2; // ebx
+  BOOLEAN WasEnabled[4]; // [rsp+28h] [rbp-E0h] BYREF
+  LANGID InstallUILanguageId; // [rsp+2Ch] [rbp-DCh] BYREF
+  __int64 v6; // [rsp+30h] [rbp-D8h] BYREF
+  __int64 v7; // [rsp+38h] [rbp-D0h] BYREF
+  _UNICODE_STRING String; // [rsp+40h] [rbp-C8h] BYREF
+  _BYTE v9[688]; // [rsp+58h] [rbp-B0h] BYREF
 
-  v9 = 0LL;
-  LODWORD(v8) = 0;
-  v7 = 0;
-  v10[1] = 0;
-  memset_thunk_772440563353939046(v12, 0, 0x2B0uLL);
-  v4 = NtQueryInstallUILanguage(&v7, v2, v3);
-  if ( v4 >= 0 )
+  v7 = 0LL;
+  LODWORD(v6) = 0;
+  InstallUILanguageId = 0;
+  *(_DWORD *)(&String.MaximumLength + 1) = 0;
+  memset_thunk_772440563353939046(v9, 0, 0x2B0uLL);
+  v2 = NtQueryInstallUILanguage(&InstallUILanguageId);
+  if ( v2 >= 0 )
   {
-    v11 = (const wchar_t *)v12;
-    v10[0] = 11141120;
-    if ( (unsigned __int8)RtlLCIDToCultureName(v7, (__int64)v10)
-      && (int)RtlpCreateProcessRegistryInfo(&v9) >= 0
-      && v9
-      && (int)RtlpGetInstalledLanguageType(v9, v11, (int *)&v8, 0LL) >= 0
-      && (_DWORD)v8 != 4 )
+    String.Buffer = (wchar_t *)v9;
+    *(_DWORD *)&String.Length = 11141120;
+    if ( RtlLCIDToCultureName(InstallUILanguageId, &String)
+      && (int)RtlpCreateProcessRegistryInfo(&v7) >= 0
+      && v7
+      && (int)RtlpGetInstalledLanguageType(v7, String.Buffer, (int *)&v6, 0LL) >= 0
+      && (_DWORD)v6 != 4 )
     {
-      v4 = NtFlushInstallUILanguage(v7, 1LL);
-      if ( v4 >= 0 )
+      v2 = NtFlushInstallUILanguage(InstallUILanguageId, 1u);
+      if ( v2 >= 0 )
       {
-        ZwGetMUIRegistryInfo(10LL, 0LL, 0LL);
+        ZwGetMUIRegistryInfo(0xAu, 0LL, 0LL);
         RtlUpdateProcessRegistryInfo();
       }
     }
     else
     {
-      v4 = -1073741811;
+      v2 = -1073741811;
     }
   }
-  if ( a1 && v4 )
+  if ( a1 && v2 )
   {
-    LOBYTE(v6) = 0;
-    if ( (unsigned int)RtlAdjustPrivilege(0x13u, 1, 1, (bool *)&v6) == -1073741700 )
-      RtlAdjustPrivilege(0x13u, 1, 0, (bool *)&v6);
-    v4 = ZwShutdownSystem(2LL);
-    if ( v4 < 0 )
+    WasEnabled[0] = 0;
+    if ( RtlAdjustPrivilege(0x13u, 1u, 1u, WasEnabled) == -1073741700 )
+      RtlAdjustPrivilege(0x13u, 1u, 0, WasEnabled);
+    v2 = ZwShutdownSystem(ShutdownPowerOff);
+    if ( v2 < 0 )
       return (unsigned int)-1073741616;
   }
-  return (unsigned int)v4;
+  return (unsigned int)v2;
 }

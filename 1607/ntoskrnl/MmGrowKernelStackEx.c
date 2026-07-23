@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x140136510
+ * XREFs of MmGrowKernelStackEx @ 0x140136A80
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400F10A0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KxSwitchKernelStackCallout @ 0x140161880 (KxSwitchKernelStackCallout.c)
- *     MmGrowKernelStack @ 0x1401E684C (MmGrowKernelStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400EEEF0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KxSwitchKernelStackCallout @ 0x140161DF0 (KxSwitchKernelStackCallout.c)
+ *     MmGrowKernelStack @ 0x1401E6678 (MmGrowKernelStack.c)
  * Callees:
- *     MiAllocateKernelStackPages @ 0x1400019C0 (MiAllocateKernelStackPages.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MI_GET_NODE_FROM_VALID_PTE @ 0x1401F2514 (MI_GET_NODE_FROM_VALID_PTE.c)
+ *     MiAllocateKernelStackPages @ 0x140001B34 (MiAllocateKernelStackPages.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MI_GET_NODE_FROM_VALID_PTE @ 0x1401F2340 (MI_GET_NODE_FROM_VALID_PTE.c)
  */
 
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
@@ -54,7 +54,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
     }
     else
     {
-      ++dword_140327560;
+      ++dword_1403275A0;
       v4 = -1073741571;
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsSoftwareEnclave @ 0x1404A00C8
+ * XREFs of MiIsSoftwareEnclave @ 0x140499C18
  * Callers:
- *     MiInitializeQueryVadInfo @ 0x14091FE40 (MiInitializeQueryVadInfo.c)
+ *     MiInitializeQueryVadInfo @ 0x1409249B0 (MiInitializeQueryVadInfo.c)
  * Callees:
  *     <none>
  */

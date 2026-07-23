@@ -17,7 +17,7 @@ __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
   int v8; // r11d
   int v9; // eax
   unsigned __int64 v10; // r14
-  int v11; // r10d
+  NTSTATUS v11; // r10d
   unsigned __int64 v12; // rbx
   unsigned int v13; // edi
   unsigned int v14; // r8d
@@ -94,7 +94,7 @@ LABEL_13:
     v17 = v21 == 0;
     BYTE4(CurrentThread[1].Queue) = v13 & 1;
     if ( !v17 && v11 < 0 )
-      RtlRaiseStatus((unsigned int)v11);
+      RtlRaiseStatus(v11);
   }
   return v5;
 }

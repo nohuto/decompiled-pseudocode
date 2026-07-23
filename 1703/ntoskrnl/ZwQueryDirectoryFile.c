@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwQueryDirectoryFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

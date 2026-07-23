@@ -1,17 +1,17 @@
 /*
- * XREFs of SepBuildCapPolicyTable @ 0x1401818D8
+ * XREFs of SepBuildCapPolicyTable @ 0x140181A18
  * Callers:
- *     SepRmCapUpdateWrkr @ 0x140736D50 (SepRmCapUpdateWrkr.c)
+ *     SepRmCapUpdateWrkr @ 0x140737F40 (SepRmCapUpdateWrkr.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x14016A570 (RtlpCreateHashTable.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepRegOpenKey @ 0x140736FF0 (SepRegOpenKey.c)
- *     SepReadAndPopulateCapes @ 0x140737078 (SepReadAndPopulateCapes.c)
- *     SepReadAndInsertCaps @ 0x1408A4844 (SepReadAndInsertCaps.c)
- *     SepRmDestroyCapTable @ 0x1408A4EAC (SepRmDestroyCapTable.c)
+ *     RtlpCreateHashTable @ 0x14016A670 (RtlpCreateHashTable.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepRegOpenKey @ 0x1407381E0 (SepRegOpenKey.c)
+ *     SepReadAndPopulateCapes @ 0x140738268 (SepReadAndPopulateCapes.c)
+ *     SepReadAndInsertCaps @ 0x1408A5AA4 (SepReadAndInsertCaps.c)
+ *     SepRmDestroyCapTable @ 0x1408A610C (SepRmDestroyCapTable.c)
  */
 
 __int64 __fastcall SepBuildCapPolicyTable(__int64 a1, _QWORD *a2)
@@ -73,7 +73,7 @@ LABEL_14:
   v8[12] = v4;
   *((_QWORD *)v8 + 7) = v9;
   v6 = 0LL;
-  HashTable = RtlpCreateHashTable((struct _RTL_DYNAMIC_HASH_TABLE **)&v14, 0x80u, 0, 0);
+  HashTable = RtlpCreateHashTable((_RTL_DYNAMIC_HASH_TABLE **)&v14, 0x80u, 0, 0);
   v11 = v14;
   if ( HashTable )
   {

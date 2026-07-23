@@ -1,111 +1,111 @@
 /*
- * XREFs of MiFlowThroughInsertNode @ 0x1402D006C
+ * XREFs of MiFlowThroughInsertNode @ 0x14024E3EC
  * Callers:
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiFinishMdlForMappedFileFault @ 0x14031A46C (MiFinishMdlForMappedFileFault.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FD78 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiCopyImageExtentContents @ 0x140540134 (MiCopyImageExtentContents.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403251BC (MiFinishMdlForMappedFileFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FFB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyImageExtentContents @ 0x140540374 (MiCopyImageExtentContents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetPagingFileOffset @ 0x14025F240 (MiGetPagingFileOffset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-_QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
+_QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2, __int64 a3)
 {
-  unsigned __int16 v2; // bx
+  unsigned __int16 v3; // bx
   _QWORD *result; // rax
-  __int64 v6; // rdx
-  _QWORD *v7; // r8
+  __int64 v7; // rdx
+  _QWORD *v8; // r8
   unsigned int PagingFileOffset; // eax
-  __int64 v9; // rbx
-  KIRQL v10; // al
-  _QWORD *v11; // rdx
-  unsigned __int64 v12; // r9
-  __int64 v13; // r8
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // rcx
-  _QWORD *v16; // rax
+  __int64 v10; // rbx
+  KIRQL v11; // al
+  _QWORD *v12; // rdx
+  unsigned __int64 v13; // r9
+  __int64 v14; // r8
+  unsigned __int64 v15; // rsi
+  unsigned __int64 v16; // rcx
+  _QWORD *v17; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v20; // eax
-  bool v21; // zf
-  __int64 v22; // [rsp+40h] [rbp+8h] BYREF
+  int v21; // eax
+  bool v22; // zf
+  __int64 v23; // [rsp+40h] [rbp+8h] BYREF
 
-  v22 = a2[2];
-  v2 = v22;
-  if ( (v22 & 0x400) != 0 )
+  v23 = a2[2];
+  v3 = v23;
+  if ( (v23 & 0x400) != 0 )
   {
     *(_QWORD *)(a1 + 336) = 0LL;
   }
   else
   {
-    PagingFileOffset = MiGetPagingFileOffset((__int64)&v22);
-    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((a2[5] >> 39) & 0x3FFLL)) + 8LL * (v2 >> 12) + 6944);
-    *(_QWORD *)(a1 + 336) = v9;
+    PagingFileOffset = MiGetPagingFileOffset(&v23, a2, a3);
+    v10 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * ((a2[5] >> 39) & 0x3FFLL)) + 8LL * (v3 >> 12) + 6944);
+    *(_QWORD *)(a1 + 336) = v10;
     *(_QWORD *)(a1 + 344) = PagingFileOffset;
-    v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v9 + 232));
-    v11 = *(_QWORD **)(v9 + 240);
-    v12 = a1 + 352;
-    LOBYTE(v13) = 0;
-    v14 = v10;
-    if ( v11 )
+    v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v10 + 232));
+    v12 = *(_QWORD **)(v10 + 240);
+    v13 = a1 + 352;
+    LOBYTE(v14) = 0;
+    v15 = v11;
+    if ( v12 )
     {
-      v15 = *(_QWORD *)(a1 + 344);
+      v16 = *(_QWORD *)(a1 + 344);
       while ( 1 )
       {
-        if ( v15 > *(v11 - 1) || v15 >= *(v11 - 1) && v12 > (unsigned __int64)v11 )
+        if ( v16 > *(v12 - 1) || v16 >= *(v12 - 1) && v13 > (unsigned __int64)v12 )
         {
-          v16 = (_QWORD *)v11[1];
-          if ( !v16 )
+          v17 = (_QWORD *)v12[1];
+          if ( !v17 )
           {
-            LOBYTE(v13) = 1;
+            LOBYTE(v14) = 1;
             break;
           }
         }
         else
         {
-          v16 = (_QWORD *)*v11;
-          if ( !*v11 )
+          v17 = (_QWORD *)*v12;
+          if ( !*v12 )
             break;
         }
-        v11 = v16;
+        v12 = v17;
       }
     }
-    RtlAvlInsertNodeEx(v9 + 240, v11, v13, v12);
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 232));
+    RtlAvlInsertNodeEx(v10 + 240, v12, v14, v13);
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 232));
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-          v21 = (v20 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v20;
-          if ( v21 )
+          v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+          v22 = (v21 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v21;
+          if ( v22 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v14);
+    __writecr8(v15);
   }
   *(_DWORD *)(a1 + 192) |= 0x10u;
   result = (_QWORD *)(a1 + 16);
-  v6 = *a2 - 32LL;
-  v7 = *(_QWORD **)(v6 + 24);
-  if ( *v7 != v6 + 16 )
+  v7 = *a2 - 32LL;
+  v8 = *(_QWORD **)(v7 + 24);
+  if ( *v8 != v7 + 16 )
     __fastfail(3u);
-  *result = v6 + 16;
-  *(_QWORD *)(a1 + 24) = v7;
-  *v7 = result;
-  *(_QWORD *)(v6 + 24) = result;
-  *(_QWORD *)(a1 + 328) = v6;
+  *result = v7 + 16;
+  *(_QWORD *)(a1 + 24) = v8;
+  *v8 = result;
+  *(_QWORD *)(v7 + 24) = result;
+  *(_QWORD *)(a1 + 328) = v7;
   return result;
 }

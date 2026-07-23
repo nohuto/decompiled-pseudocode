@@ -75,7 +75,7 @@ struct _KPRCB *__fastcall KeTerminateThread(ULONG_PTR BugCheckParameter1)
   *(_BYTE *)(BugCheckParameter1 + 643) = 22;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -135,7 +135,7 @@ LABEL_32:
       *(_QWORD *)v21 = 0LL;
       v27 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
       {
         v34 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v27 == 2 )
@@ -234,5 +234,5 @@ LABEL_20:
     }
     *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
   }
-  return KiSwapThread(BugCheckParameter1, (__int64)CurrentPrcb, 0LL, v11);
+  return KiSwapThread(BugCheckParameter1, (ULONG_PTR)CurrentPrcb, 0LL, v11);
 }

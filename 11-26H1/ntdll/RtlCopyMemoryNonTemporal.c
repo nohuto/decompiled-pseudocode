@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCopyMemoryNonTemporal @ 0x180163290
+ * XREFs of RtlCopyMemoryNonTemporal @ 0x180163190
  * Callers:
- *     RtlWriteNonVolatileMemory @ 0x180147440 (RtlWriteNonVolatileMemory.c)
+ *     RtlWriteNonVolatileMemory @ 0x1801472F0 (RtlWriteNonVolatileMemory.c)
  * Callees:
  *     <none>
  */

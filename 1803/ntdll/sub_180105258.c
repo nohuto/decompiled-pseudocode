@@ -13,14 +13,14 @@ __int64 __fastcall sub_180105258(__int64 a1, unsigned int a2, int a3, _DWORD *a4
   int v9; // ebp
   __int64 v10; // r11
   __int64 v11; // r14
-  _WORD *v12; // rdi
+  signed __int16 *v12; // rdi
   unsigned int v13; // esi
   __int64 v14; // rbx
   int v15; // r15d
-  _WORD *v16; // r12
-  unsigned __int64 v17; // rdx
+  signed __int16 *v16; // r12
+  signed __int16 v17; // dx
   bool v18; // zf
-  unsigned __int16 v19; // ax
+  signed __int16 v19; // ax
   unsigned int v20; // eax
   _DWORD *v22; // [rsp+68h] [rbp+20h]
 
@@ -29,7 +29,7 @@ __int64 __fastcall sub_180105258(__int64 a1, unsigned int a2, int a3, _DWORD *a4
   v9 = 0;
   v10 = a2 >> v8;
   v11 = 2 * v10;
-  v12 = (_WORD *)(2 * v10 + a1 + *(unsigned __int16 *)(a1 + 46));
+  v12 = (signed __int16 *)(2 * v10 + a1 + *(unsigned __int16 *)(a1 + 46));
   _m_prefetchw(v12);
   v13 = -1;
   LODWORD(v14) = 0;
@@ -41,11 +41,11 @@ __int64 __fastcall sub_180105258(__int64 a1, unsigned int a2, int a3, _DWORD *a4
     {
       while ( 1 )
       {
-        v17 = (unsigned __int16)*v12;
-        while ( (__int16)v17 > 0 )
+        v17 = *v12;
+        while ( v17 > 0 )
         {
           v19 = _InterlockedCompareExchange16(v12, v17 + 1, v17);
-          v18 = (_WORD)v17 == v19;
+          v18 = v17 == v19;
           v17 = v19;
           if ( v18 )
             goto LABEL_14;
@@ -53,9 +53,9 @@ __int64 __fastcall sub_180105258(__int64 a1, unsigned int a2, int a3, _DWORD *a4
         if ( v9 )
           break;
         v9 = 1;
-        RtlAcquireSRWLockExclusive(a1 + 24, v17, 0LL, (__int64)a4);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
       }
-      if ( (_WORD)v17 == 0xFFFF )
+      if ( v17 == -1 )
       {
         v14 = v11 >> 1;
         v20 = v11 >> 1;
@@ -84,6 +84,6 @@ LABEL_14:
     *a7 = -1;
   }
   if ( v9 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 24));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   return v13;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCreateWorkerThread @ 0x140A0346C
+ * XREFs of ExpCreateWorkerThread @ 0x140A78ABC
  * Callers:
- *     ExpWorkQueueInitializeWithMinimumThreads @ 0x140840240 (ExpWorkQueueInitializeWithMinimumThreads.c)
- *     ExpWorkQueueManagerThread @ 0x140A039A0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x140846480 (ExpWorkQueueInitializeWithMinimumThreads.c)
+ *     ExpWorkQueueManagerThread @ 0x140A77D60 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeBoostPriorityThread @ 0x14052C560 (KeBoostPriorityThread.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExpNodeCreateSystemThread @ 0x140A03568 (ExpNodeCreateSystemThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeBoostPriorityThread @ 0x14052EA80 (KeBoostPriorityThread.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExpNodeCreateSystemThread @ 0x140A78BB8 (ExpNodeCreateSystemThread.c)
  */
 
 __int64 __fastcall ExpCreateWorkerThread(__int64 a1, int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformance @ 0x1406744E0
+ * XREFs of PpmEventTraceProcessorPerformance @ 0x1406745C4
  * Callers:
- *     PpmEventTraceControlCallback @ 0x14058174C (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140581BF8 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PpmEventHiddenProcessorPerformance @ 0x140673994 (PpmEventHiddenProcessorPerformance.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PpmEventHiddenProcessorPerformance @ 0x140673A78 (PpmEventHiddenProcessorPerformance.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)

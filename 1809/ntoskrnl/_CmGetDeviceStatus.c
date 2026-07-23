@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceStatus @ 0x14059E508
+ * XREFs of _CmGetDeviceStatus @ 0x14059F508
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiCMGetDeviceStatus @ 0x14059E358 (PiCMGetDeviceStatus.c)
- *     PiCMValidateDeviceInstance @ 0x14059F414 (PiCMValidateDeviceInstance.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1406D99C4 (_CmIsDeviceSafeRemovalRequired.c)
- *     PpDevCfgProcessDevices @ 0x14073A48C (PpDevCfgProcessDevices.c)
- *     PiCMDeleteDevice @ 0x140837188 (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x140837978 (PiCMDeviceAction.c)
- *     PiCMGenerateDeviceInstance @ 0x140837E04 (PiCMGenerateDeviceInstance.c)
- *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
- *     PiCMSetProblem @ 0x140838DB8 (PiCMSetProblem.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059D504 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMGetDeviceStatus @ 0x14059F358 (PiCMGetDeviceStatus.c)
+ *     PiCMValidateDeviceInstance @ 0x1405A0414 (PiCMValidateDeviceInstance.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x1406DAC64 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PpDevCfgProcessDevices @ 0x14073B67C (PpDevCfgProcessDevices.c)
+ *     PiCMDeleteDevice @ 0x1408383E8 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x140838BD8 (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x140839064 (PiCMGenerateDeviceInstance.c)
+ *     PiCMQueryRemove @ 0x140839894 (PiCMQueryRemove.c)
+ *     PiCMSetProblem @ 0x14083A018 (PiCMSetProblem.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x14059E640 (_NtPlugPlayGetDeviceStatus.c)
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x14059F640 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceStatus(int a1, const WCHAR *a2, int a3, int *a4, _DWORD *a5, _DWORD *a6, unsigned int a7)

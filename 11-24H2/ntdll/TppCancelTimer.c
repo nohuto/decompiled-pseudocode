@@ -1,25 +1,24 @@
 /*
- * XREFs of TppCancelTimer @ 0x18006C3B0
+ * XREFs of TppCancelTimer @ 0x180088C90
  * Callers:
- *     TpSetWaitEx @ 0x1800200E0 (TpSetWaitEx.c)
- *     TppCancelWait @ 0x18006ADE0 (TppCancelWait.c)
- *     TpReleaseTimer @ 0x18006B880 (TpReleaseTimer.c)
- *     TpWaitForTimer @ 0x18006C110 (TpWaitForTimer.c)
- *     TpReleaseWait @ 0x18006E4C0 (TpReleaseWait.c)
- *     TppTimerpStopCallbackGeneration @ 0x18010B480 (TppTimerpStopCallbackGeneration.c)
+ *     TpSetWaitEx @ 0x18004CAE0 (TpSetWaitEx.c)
+ *     TppCancelWait @ 0x1800876C0 (TppCancelWait.c)
+ *     TpReleaseTimer @ 0x180088160 (TpReleaseTimer.c)
+ *     TpWaitForTimer @ 0x1800889F0 (TpWaitForTimer.c)
+ *     TpReleaseWait @ 0x18008ADA0 (TpReleaseWait.c)
+ *     TppTimerpStopCallbackGeneration @ 0x180106240 (TppTimerpStopCallbackGeneration.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppETWTimerCancelled @ 0x18006AA90 (TppETWTimerCancelled.c)
- *     TppPHExtractMin @ 0x18006C650 (TppPHExtractMin.c)
- *     TppUpdateSubQueueTimer @ 0x18006C700 (TppUpdateSubQueueTimer.c)
- *     NtWaitForAlertByThreadId @ 0x1801658E0 (NtWaitForAlertByThreadId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppETWTimerCancelled @ 0x180087180 (TppETWTimerCancelled.c)
+ *     TppPHExtractMin @ 0x180088F30 (TppPHExtractMin.c)
+ *     TppUpdateSubQueueTimer @ 0x180088FE0 (TppUpdateSubQueueTimer.c)
+ *     NtWaitForAlertByThreadId @ 0x180163CA0 (NtWaitForAlertByThreadId.c)
  */
 
-char __fastcall TppCancelTimer(__int64 a1, volatile signed __int32 *a2, unsigned __int64 a3)
+char __fastcall TppCancelTimer(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
   char v3; // al
-  char v4; // si
   bool v7; // di
   struct _PEB *v9; // rax
   __int64 v10; // r14
@@ -44,24 +43,21 @@ char __fastcall TppCancelTimer(__int64 a1, volatile signed __int32 *a2, unsigned
   _QWORD *v29; // r8
   signed __int64 v30; // rax
   signed __int64 v31; // rdx
-  volatile signed __int32 **v32; // rdx
-  unsigned __int64 v33; // r8
-  _QWORD v34[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v32[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = *(_BYTE *)(a1 + 354);
-  v4 = a3;
   v7 = (v3 & 2) != 0;
   if ( (v3 & 1) == 0 )
   {
     *(_QWORD *)(a1 + 328) = 0LL;
-    if ( !(_BYTE)a3 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+    if ( !a3 )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 0;
   }
   v9 = NtCurrentPeb();
-  v10 = 2LL;
+  v10 = 1LL;
   if ( !v7 )
-    v10 = 32LL;
+    v10 = 16LL;
   SharedData = v9->SharedData;
   v12 = (__int64)&a2[v10];
   if ( SharedData && *SharedData )
@@ -70,7 +66,7 @@ char __fastcall TppCancelTimer(__int64 a1, volatile signed __int32 *a2, unsigned
     v13 = 2147353478LL;
   if ( *(_BYTE *)v13 )
     TppETWTimerCancelled(v12, a1);
-  RtlAcquireSRWLockExclusive(a2, (volatile signed __int32 **)a2, a3);
+  RtlAcquireSRWLockExclusive(a2);
   if ( *(_BYTE *)(a1 + 352) )
   {
     v14 = *(_QWORD *)(v12 + 16);
@@ -135,32 +131,32 @@ LABEL_16:
     TppPHExtractMin(v23);
     TppUpdateSubQueueTimer(v12, v7);
     *(_BYTE *)(a1 + 352) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+    RtlReleaseSRWLockExclusive(a2);
     *(_DWORD *)(a1 + 348) = 0;
     *(_QWORD *)(a1 + 328) = 0LL;
     *(_BYTE *)(a1 + 354) = 0;
-    if ( !v4 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+    if ( !a3 )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 1;
   }
   else
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+    RtlReleaseSRWLockExclusive(a2);
     *(_BYTE *)(a1 + 354) |= 4u;
-    v34[1] = NtCurrentTeb()->ClientId.UniqueThread;
+    v32[1] = NtCurrentTeb()->ClientId.UniqueThread;
     _m_prefetchw((const void *)(a1 + 336));
     v30 = *(_QWORD *)(a1 + 336);
     do
     {
       v31 = v30;
-      v34[0] = v30;
-      v30 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 336), (signed __int64)v34, v30);
+      v32[0] = v30;
+      v30 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 336), (signed __int64)v32, v30);
     }
     while ( v30 != v31 );
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-    NtWaitForAlertByThreadId(a1 + 336, 0LL);
-    if ( v4 )
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240), v32, v33);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+    NtWaitForAlertByThreadId((PVOID)(a1 + 336), 0LL);
+    if ( a3 )
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 0;
   }
 }

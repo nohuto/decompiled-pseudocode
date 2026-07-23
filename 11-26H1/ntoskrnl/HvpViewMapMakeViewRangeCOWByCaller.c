@@ -1,19 +1,19 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeCOWByCaller @ 0x1408B93E8
+ * XREFs of HvpViewMapMakeViewRangeCOWByCaller @ 0x1408BF9B8
  * Callers:
- *     HvpViewMapMigrateCOWData @ 0x14085C9CC (HvpViewMapMigrateCOWData.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x1408B9378 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpViewMapMigrateCOWData @ 0x140862CBC (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x1408BF948 (HvpViewMapCOWAndUnsealRange.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x1404A2CD4 (CmSiProtectViewOfSection.c)
- *     HvcallpNoHypervisorPresent @ 0x1404E6190 (HvcallpNoHypervisorPresent.c)
- *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x1408B95E4 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
- *     HvpViewMapTouchPages @ 0x1408B98D0 (HvpViewMapTouchPages.c)
+ *     CmSiProtectViewOfSection @ 0x14049C6F4 (CmSiProtectViewOfSection.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404DF730 (HvcallpNoHypervisorPresent.c)
+ *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x1408BFBB4 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
+ *     HvpViewMapTouchPages @ 0x1408BFEA0 (HvpViewMapTouchPages.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi
-  int v8; // r14d
+  NTSTATUS v8; // r14d
   __int64 i; // rsi
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // r8
@@ -21,11 +21,11 @@ __int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __
   __int64 v14; // rax
   __int64 v15; // rcx
   __int64 v16; // r8
-  int v17; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v17; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = a3;
-  v17 = 0;
-  v8 = CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), a2[7] + a3 - a2[3], a4 - a3, 8u, (__int64)&v17);
+  LODWORD(v17) = 0;
+  v8 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), (void *)(a2[7] + a3 - a2[3]), a4 - a3, 8u, (ULONG *)&v17);
   if ( v8 >= 0 )
   {
     for ( i = v4; i < a4; i += 4096LL )
@@ -42,11 +42,11 @@ __int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __
             if ( (*((_BYTE *)a2 + ((unsigned __int64)(v4 - a2[3]) >> 12) + 72) & 6) == 0 )
               CmSiProtectViewOfSection(
                 v4 - a2[3],
-                *(__int64 **)(a1 + 24),
-                v4 - a2[3] + a2[7],
-                4096LL,
+                *(void ***)(a1 + 24),
+                (void *)(v4 - a2[3] + a2[7]),
+                0x1000uLL,
                 0x80000002,
-                (__int64)&v17);
+                (ULONG *)&v17);
             v4 += 4096LL;
           }
           return (unsigned int)v8;

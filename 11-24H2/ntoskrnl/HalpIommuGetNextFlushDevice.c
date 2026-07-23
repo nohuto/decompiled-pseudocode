@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuGetNextFlushDevice @ 0x1404FA164
+ * XREFs of HalpIommuGetNextFlushDevice @ 0x1404F7A44
  * Callers:
- *     IvtFlushTbInternal @ 0x1403BA188 (IvtFlushTbInternal.c)
- *     HsaFlushTbInternal @ 0x1404460A8 (HsaFlushTbInternal.c)
- *     IvtLegacyFlushTbInternal @ 0x140570168 (IvtLegacyFlushTbInternal.c)
+ *     IvtFlushTbInternal @ 0x140372B58 (IvtFlushTbInternal.c)
+ *     HsaFlushTbInternal @ 0x14043E458 (HsaFlushTbInternal.c)
+ *     IvtLegacyFlushTbInternal @ 0x14056D5F8 (IvtLegacyFlushTbInternal.c)
  * Callees:
  *     <none>
  */

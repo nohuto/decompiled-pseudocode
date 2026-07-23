@@ -1,12 +1,12 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryReference @ 0x140615D38
+ * XREFs of PspJobIoRateVolumeEntryReference @ 0x140618CCC
  * Callers:
- *     IoGetIoRateControl @ 0x140207570 (IoGetIoRateControl.c)
+ *     IoGetIoRateControl @ 0x140207650 (IoGetIoRateControl.c)
  * Callees:
- *     PspIoRateEntryIoControlReference @ 0x140207BB4 (PspIoRateEntryIoControlReference.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     PspIoRateEntryVolumeCompare @ 0x1404BCA3C (PspIoRateEntryVolumeCompare.c)
+ *     PspIoRateEntryIoControlReference @ 0x140207C94 (PspIoRateEntryIoControlReference.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     PspIoRateEntryVolumeCompare @ 0x1404B621C (PspIoRateEntryVolumeCompare.c)
  */
 
 signed __int64 __fastcall PspJobIoRateVolumeEntryReference(__int64 a1, unsigned __int64 a2)

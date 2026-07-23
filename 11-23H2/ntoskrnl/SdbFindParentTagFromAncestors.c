@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbFindParentTagFromAncestors @ 0x140A51AE0
+ * XREFs of SdbFindParentTagFromAncestors @ 0x140A51D90
  * Callers:
- *     SdbMergeIsEntryUpdated @ 0x140A536DC (SdbMergeIsEntryUpdated.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A5398C (SdbMergeIsEntryUpdated.c)
  * Callees:
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbFindParentTagFromAncestors(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmTestAndLockProcessor @ 0x1405CF234
+ * XREFs of PpmTestAndLockProcessor @ 0x1405CC954
  * Callers:
- *     PpmIdleCheckCoordinatedDependency @ 0x1405CE03C (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleCheckCoordinatedProcessorDependency @ 0x1405CE344 (PpmIdleCheckCoordinatedProcessorDependency.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405CB75C (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedProcessorDependency @ 0x1405CBA64 (PpmIdleCheckCoordinatedProcessorDependency.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x1403E9E20 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403E9E90 (KeInterlockedClearProcessorAffinityEx.c)
- *     PpmIdleTransitionStall @ 0x1405CECAC (PpmIdleTransitionStall.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1403D7AC0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1403D7B30 (KeInterlockedClearProcessorAffinityEx.c)
+ *     PpmIdleTransitionStall @ 0x1405CC3CC (PpmIdleTransitionStall.c)
  */
 
 __int64 __fastcall PpmTestAndLockProcessor(__int64 a1, unsigned __int16 *a2, unsigned int *a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAllocateIdleThread @ 0x140B5A72C
+ * XREFs of KiAllocateIdleThread @ 0x140B5C794
  * Callers:
- *     KiAllocateProcessorStateInitializationParameters @ 0x1405B5EB0 (KiAllocateProcessorStateInitializationParameters.c)
+ *     KiAllocateProcessorStateInitializationParameters @ 0x1405B3178 (KiAllocateProcessorStateInitializationParameters.c)
  * Callees:
- *     KiAllocatePrcbThread @ 0x1405B7CE0 (KiAllocatePrcbThread.c)
+ *     KiAllocatePrcbThread @ 0x1405B52C0 (KiAllocatePrcbThread.c)
  */
 
 __int64 __fastcall KiAllocateIdleThread(_QWORD *a1, int a2, __int64 a3, __int64 a4)

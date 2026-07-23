@@ -9,49 +9,49 @@
  *     RtlSubtreePredecessor @ 0x18006DBD0 (RtlSubtreePredecessor.c)
  */
 
-__int64 *__fastcall RtlDelete(__int64 *a1)
+PRTL_SPLAY_LINKS __cdecl RtlDelete(PRTL_SPLAY_LINKS Links)
 {
-  __int64 v2; // rax
-  __int64 *result; // rax
-  __int64 v4; // rcx
-  __int64 **v5; // rdx
-  __int64 v6; // rcx
-  _QWORD *v7; // rax
+  PRTL_SPLAY_LINKS v2; // rax
+  PRTL_SPLAY_LINKS result; // rax
+  _RTL_SPLAY_LINKS *Parent; // rcx
+  _RTL_SPLAY_LINKS **p_LeftChild; // rdx
+  _RTL_SPLAY_LINKS *v6; // rcx
+  _RTL_SPLAY_LINKS **p_RightChild; // rax
 
-  if ( a1[1] && a1[2] )
+  if ( Links->LeftChild && Links->RightChild )
   {
-    v2 = RtlSubtreePredecessor();
-    SwapSplayLinks(v2, a1);
+    v2 = RtlSubtreePredecessor(Links);
+    SwapSplayLinks(v2, Links);
   }
-  result = (__int64 *)a1[1];
+  result = Links->LeftChild;
   if ( result )
     goto LABEL_5;
-  if ( a1[2] )
+  if ( Links->RightChild )
   {
-    result = (__int64 *)a1[2];
+    result = Links->RightChild;
 LABEL_5:
-    v4 = *a1;
-    if ( (__int64 *)*a1 != a1 )
+    Parent = Links->Parent;
+    if ( Links->Parent != Links )
     {
-      v5 = (__int64 **)(v4 + 8);
-      if ( *(__int64 **)(v4 + 8) != a1 )
-        v5 = (__int64 **)(v4 + 16);
-      *v5 = result;
-      v6 = *a1;
-      *result = *a1;
-      return (__int64 *)RtlSplay(v6);
+      p_LeftChild = &Parent->LeftChild;
+      if ( Parent->LeftChild != Links )
+        p_LeftChild = &Parent->RightChild;
+      *p_LeftChild = result;
+      v6 = Links->Parent;
+      result->Parent = Links->Parent;
+      return RtlSplay(v6);
     }
-    *result = (__int64)result;
+    result->Parent = result;
     return result;
   }
-  v6 = *a1;
-  if ( (__int64 *)*a1 != a1 )
+  v6 = Links->Parent;
+  if ( Links->Parent != Links )
   {
-    v7 = (_QWORD *)(v6 + 8);
-    if ( *(__int64 **)(v6 + 8) != a1 )
-      v7 = (_QWORD *)(v6 + 16);
-    *v7 = 0LL;
-    return (__int64 *)RtlSplay(v6);
+    p_RightChild = &v6->LeftChild;
+    if ( v6->LeftChild != Links )
+      p_RightChild = &v6->RightChild;
+    *p_RightChild = 0LL;
+    return RtlSplay(v6);
   }
   return 0LL;
 }

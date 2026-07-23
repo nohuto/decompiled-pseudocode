@@ -153,7 +153,7 @@ __int64 __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, __int64 a2, char
     {
       *(_BYTE *)(a2 + 32) |= 2u;
       if ( *(__int64 *)(a2 + 32) < 0 )
-        KiAbEntryRemoveFromTree(a2);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a2);
       v11 = *(_DWORD *)(v3 + 88) & 0x1FFFF;
       v12 = *(_DWORD *)(v3 + 88) & 0xFFFE0000;
       *(_BYTE *)(v3 + 25) &= ~1u;

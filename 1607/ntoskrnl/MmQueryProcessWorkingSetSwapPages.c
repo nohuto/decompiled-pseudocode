@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1400C75D8
+ * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1400C5478
  * Callers:
- *     PfpPrivSourceEnum @ 0x140508A08 (PfpPrivSourceEnum.c)
- *     SmStoreCompressionStop @ 0x14054BCFC (SmStoreCompressionStop.c)
- *     SmStoreCompressionStart @ 0x14054BD68 (SmStoreCompressionStart.c)
+ *     PfpPrivSourceEnum @ 0x1404EB998 (PfpPrivSourceEnum.c)
+ *     SmStoreCompressionStop @ 0x14054C23C (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x14054C2A8 (SmStoreCompressionStart.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetWorkingSetSwapSupport @ 0x140075E5C (MiGetWorkingSetSwapSupport.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetWorkingSetSwapSupport @ 0x140075EDC (MiGetWorkingSetSwapSupport.c)
  */
 
 __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)

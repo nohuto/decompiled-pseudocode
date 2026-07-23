@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerInitializeProfiling @ 0x14037ACC0
+ * XREFs of HalpTimerInitializeProfiling @ 0x14037AE60
  * Callers:
- *     HalpTimerInitSystem @ 0x14037AA30 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x14037ABD0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerConfigureInterrupt @ 0x14037CF94 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D270 (HalpInterruptSetIdtEntry.c)
- *     HalpMmAllocatePerProcessorMemory @ 0x14037F854 (HalpMmAllocatePerProcessorMemory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerConfigureInterrupt @ 0x14037D134 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x14037D410 (HalpInterruptSetIdtEntry.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x14037F9F4 (HalpMmAllocatePerProcessorMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerInitializeProfiling()

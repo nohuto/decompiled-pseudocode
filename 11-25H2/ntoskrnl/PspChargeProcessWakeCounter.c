@@ -26,7 +26,7 @@
 unsigned __int64 __fastcall PspChargeProcessWakeCounter(
         __int64 Object,
         int a2,
-        signed int a3,
+        unsigned int a3,
         __int64 a4,
         int a5,
         char a6,
@@ -44,7 +44,7 @@ unsigned __int64 __fastcall PspChargeProcessWakeCounter(
   int v17; // edx
   bool v18; // bp
   int v19; // r13d
-  signed int v20; // ebp
+  unsigned int v20; // ebp
   int v21; // ebx
   int v23; // ecx
   int v24; // r10d
@@ -141,7 +141,7 @@ LABEL_38:
   }
   else
   {
-    v15 = (volatile signed __int32 *)(Object + 4 * (a3 + 458LL));
+    v15 = (volatile signed __int32 *)(Object + 4 * ((int)a3 + 458LL));
   }
   v16 = _InterlockedExchangeAdd(v15, a5) + a5;
   v32 = 1;
@@ -182,7 +182,7 @@ LABEL_15:
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v37 )
   {
-    ZwUpdateWnfStateData(Object + 1824, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)(Object + 1824), 0LL, 0, 0LL, 0LL, 0, 0);
     v19 = v33;
     if ( (xmmword_140FC5B10 & 0x400) != 0 && v33 == 1 )
       EtwTraceWakeEvent(Object, a3);

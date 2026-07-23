@@ -1,13 +1,13 @@
 /*
- * XREFs of KeGetProcessorNumberFromIndex @ 0x1400897F0
+ * XREFs of KeGetProcessorNumberFromIndex @ 0x1400897E0
  * Callers:
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
- *     KeMaskInterrupt @ 0x14016D548 (KeMaskInterrupt.c)
- *     IoGetAffinityInterrupt @ 0x140190B50 (IoGetAffinityInterrupt.c)
- *     PnprQuiesceProcessorDpc @ 0x14057A350 (PnprQuiesceProcessorDpc.c)
- *     PspWriteTebIdealProcessor @ 0x1405F72AC (PspWriteTebIdealProcessor.c)
- *     PnprAddProcessorResources @ 0x140834520 (PnprAddProcessorResources.c)
- *     EtwpProcessorRundown @ 0x1408BF5A0 (EtwpProcessorRundown.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CED0 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeMaskInterrupt @ 0x14016D648 (KeMaskInterrupt.c)
+ *     IoGetAffinityInterrupt @ 0x140190C90 (IoGetAffinityInterrupt.c)
+ *     PnprQuiesceProcessorDpc @ 0x14057B350 (PnprQuiesceProcessorDpc.c)
+ *     PspWriteTebIdealProcessor @ 0x1405F82AC (PspWriteTebIdealProcessor.c)
+ *     PnprAddProcessorResources @ 0x140835780 (PnprAddProcessorResources.c)
+ *     EtwpProcessorRundown @ 0x1408C0860 (EtwpProcessorRundown.c)
  * Callees:
  *     <none>
  */

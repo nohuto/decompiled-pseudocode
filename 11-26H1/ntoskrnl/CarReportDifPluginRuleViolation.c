@@ -1,21 +1,21 @@
 /*
- * XREFs of CarReportDifPluginRuleViolation @ 0x14064A330
+ * XREFs of CarReportDifPluginRuleViolation @ 0x14064DF10
  * Callers:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     CarHandleEtwEvent @ 0x140649078 (CarHandleEtwEvent.c)
- *     CarCopyRuleViolationDetails @ 0x140649670 (CarCopyRuleViolationDetails.c)
- *     CarCreateRuleViolationDetails @ 0x140649850 (CarCreateRuleViolationDetails.c)
- *     CarDeleteTelemetryData @ 0x1406498BC (CarDeleteTelemetryData.c)
- *     CarDeleteRuleViolationDetails @ 0x1406498F0 (CarDeleteRuleViolationDetails.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x140649A5C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
- *     CarInitializeTelemetryData @ 0x140649C90 (CarInitializeTelemetryData.c)
- *     CarQueryReportActionForTriage @ 0x140649EE0 (CarQueryReportActionForTriage.c)
- *     CarInitiateBugcheck @ 0x14064CADC (CarInitiateBugcheck.c)
- *     CarWriteLivedump @ 0x14064CD54 (CarWriteLivedump.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     VfUtilGetSigningLevel @ 0x140C218E0 (VfUtilGetSigningLevel.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     CarHandleEtwEvent @ 0x14064CC58 (CarHandleEtwEvent.c)
+ *     CarCopyRuleViolationDetails @ 0x14064D250 (CarCopyRuleViolationDetails.c)
+ *     CarCreateRuleViolationDetails @ 0x14064D430 (CarCreateRuleViolationDetails.c)
+ *     CarDeleteTelemetryData @ 0x14064D49C (CarDeleteTelemetryData.c)
+ *     CarDeleteRuleViolationDetails @ 0x14064D4D0 (CarDeleteRuleViolationDetails.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x14064D63C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarInitializeTelemetryData @ 0x14064D870 (CarInitializeTelemetryData.c)
+ *     CarQueryReportActionForTriage @ 0x14064DAC0 (CarQueryReportActionForTriage.c)
+ *     CarInitiateBugcheck @ 0x1406506BC (CarInitiateBugcheck.c)
+ *     CarWriteLivedump @ 0x140650934 (CarWriteLivedump.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     VfUtilGetSigningLevel @ 0x140C278F0 (VfUtilGetSigningLevel.c)
  */
 
 __int64 __fastcall CarReportDifPluginRuleViolation(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -109,13 +109,13 @@ __int64 __fastcall CarReportDifPluginRuleViolation(__int64 a1, unsigned int a2, 
                   {
                     if ( _InterlockedCompareExchange(&CarIsViolationSnapshotTaken, 1, 0) != 1 )
                     {
-                      *((_DWORD *)&stru_140F066E8.SwapListEntry + 2) = v7;
-                      *((_DWORD *)&stru_140F066E8.SwapListEntry + 3) = v8;
-                      stru_140F066E8.Queue = *(_DISPATCHER_HEADER *volatile *)v11;
-                      stru_140F066E8.Teb = *(void **)(v11 + 8);
-                      stru_140F066E8.RelativeTimerBias = *(_QWORD *)(v11 + 16);
+                      *((_DWORD *)&stru_140F06A28.SwapListEntry + 2) = v7;
+                      *((_DWORD *)&stru_140F06A28.SwapListEntry + 3) = v8;
+                      stru_140F06A28.Queue = *(_DISPATCHER_HEADER *volatile *)v11;
+                      stru_140F06A28.Teb = *(void **)(v11 + 8);
+                      stru_140F06A28.RelativeTimerBias = *(_QWORD *)(v11 + 16);
                       RtlStringCchCopyW(
-                        (NTSTRSAFE_PWSTR)&stru_140F066E8.Timer.Header.WaitListHead.Blink + 2,
+                        (NTSTRSAFE_PWSTR)&stru_140F06A28.Timer.Header.WaitListHead.Blink + 2,
                         0x20uLL,
                         v14 + 2);
                     }

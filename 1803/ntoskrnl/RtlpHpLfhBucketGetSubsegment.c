@@ -99,7 +99,7 @@ LABEL_19:
     }
     v18->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v18->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v17], SessionId);
+      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v17].TreeNode, SessionId);
     v23 = 0;
     v23 = v18->BoostBitmap.AllFields & 0x1FFFF;
     v18->BoostBitmap.AllFields &= 0xFFFE0000;

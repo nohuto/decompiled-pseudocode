@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetNextTagId @ 0x14067D264
+ * XREFs of SdbpGetNextTagId @ 0x14067E424
  * Callers:
- *     SdbGetNextChild @ 0x14067D1F4 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x14067D3E4 (SdbGetFirstChild.c)
- *     SdbpGetNextIndexedRecord @ 0x140721918 (SdbpGetNextIndexedRecord.c)
+ *     SdbGetNextChild @ 0x14067E3B4 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x14067E5A4 (SdbGetFirstChild.c)
+ *     SdbpGetNextIndexedRecord @ 0x140722BB8 (SdbpGetNextIndexedRecord.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbGetTagDataSize @ 0x14067D2EC (SdbGetTagDataSize.c)
- *     SdbpGetTagHeadSize @ 0x14067D3A0 (SdbpGetTagHeadSize.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1405C92BC (SdbGetTagFromTagID.c)
+ *     SdbGetTagDataSize @ 0x14067E4AC (SdbGetTagDataSize.c)
+ *     SdbpGetTagHeadSize @ 0x14067E560 (SdbpGetTagHeadSize.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetNextTagId(__int64 a1, __int64 a2)

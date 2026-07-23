@@ -1,9 +1,9 @@
 /*
- * XREFs of IopEnumerateEnvironmentVariablesHal @ 0x14089A0E0
+ * XREFs of IopEnumerateEnvironmentVariablesHal @ 0x14089A240
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopEnumerateEnvironmentVariablesHal(

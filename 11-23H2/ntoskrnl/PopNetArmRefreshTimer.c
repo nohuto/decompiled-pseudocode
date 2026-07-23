@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNetArmRefreshTimer @ 0x1409965C0
+ * XREFs of PopNetArmRefreshTimer @ 0x1409967C0
  * Callers:
- *     PopNetRefreshTimerWorkerCallback @ 0x1409968F0 (PopNetRefreshTimerWorkerCallback.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140996A30 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x140996AF0 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140996C30 (PopNetWnfLowPowerEpochCallback.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     PopTraceNetRefreshTimerArmed @ 0x140992A38 (PopTraceNetRefreshTimerArmed.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     PopTraceNetRefreshTimerArmed @ 0x140992C38 (PopTraceNetRefreshTimerArmed.c)
  */
 
 void __fastcall PopNetArmRefreshTimer(__int64 a1, char a2)

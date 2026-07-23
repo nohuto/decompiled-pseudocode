@@ -1,20 +1,20 @@
 /*
- * XREFs of SepAdtCloseObjectAuditAlarm @ 0x14089DD64
+ * XREFs of SepAdtCloseObjectAuditAlarm @ 0x14089EFC4
  * Callers:
- *     NtCloseObjectAuditAlarm @ 0x1406ADA80 (NtCloseObjectAuditAlarm.c)
- *     SeCloseObjectAuditAlarm @ 0x1408A0570 (SeCloseObjectAuditAlarm.c)
- *     SeCloseObjectAuditAlarmForNonObObject @ 0x1408A05D0 (SeCloseObjectAuditAlarmForNonObObject.c)
+ *     NtCloseObjectAuditAlarm @ 0x1406AED20 (NtCloseObjectAuditAlarm.c)
+ *     SeCloseObjectAuditAlarm @ 0x1408A17D0 (SeCloseObjectAuditAlarm.c)
+ *     SeCloseObjectAuditAlarmForNonObObject @ 0x1408A1830 (SeCloseObjectAuditAlarmForNonObObject.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1405BB7A8 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     ObpIsKernelHandle @ 0x140088EC8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140186F00 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1405BC7A8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1405BCA50 (SepAdtAuditThisEventWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140668384 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
  */
 
 void __fastcall SepAdtCloseObjectAuditAlarm(

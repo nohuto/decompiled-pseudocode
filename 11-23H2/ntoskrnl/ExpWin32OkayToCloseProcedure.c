@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32OkayToCloseProcedure @ 0x1407CCA10
+ * XREFs of ExpWin32OkayToCloseProcedure @ 0x1407CCCE0
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
  */
 
 bool __fastcall ExpWin32OkayToCloseProcedure(__int64 a1, int *a2, __int64 a3, char a4)

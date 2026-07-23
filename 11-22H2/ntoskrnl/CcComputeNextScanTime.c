@@ -22,7 +22,7 @@ char __fastcall CcComputeNextScanTime(__int64 a1, __int64 a2, __int64 *a3, _QWOR
   result = CcIsWriteBehindThreadpoolAtLowPriority(a1);
   if ( result )
   {
-    v9 = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
+    v9 = 0x9896800uLL / KeMaximumIncrement;
     if ( CcEnablePerVolumeLazyWriter )
       v10 = (_DWORD *)(v7 + 708);
     else

@@ -1,13 +1,13 @@
 /*
- * XREFs of PipAddDependencyEdgeBetweenNodes @ 0x1405D8D80
+ * XREFs of PipAddDependencyEdgeBetweenNodes @ 0x1405DB580
  * Callers:
- *     IoDuplicateDependency @ 0x14079F8B0 (IoDuplicateDependency.c)
- *     PipSetDependency @ 0x1407A0160 (PipSetDependency.c)
+ *     IoDuplicateDependency @ 0x1407A23F0 (IoDuplicateDependency.c)
+ *     PipSetDependency @ 0x1407A2CA0 (PipSetDependency.c)
  * Callees:
- *     PipCreateNewDependencyEdge @ 0x1405D8E1C (PipCreateNewDependencyEdge.c)
- *     PipAddRequestToEdge @ 0x14079FBC4 (PipAddRequestToEdge.c)
- *     PipCheckValidNewDependencyEdge @ 0x14079FDB8 (PipCheckValidNewDependencyEdge.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14091159C (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipCreateNewDependencyEdge @ 0x1405DB61C (PipCreateNewDependencyEdge.c)
+ *     PipAddRequestToEdge @ 0x1407A2704 (PipAddRequestToEdge.c)
+ *     PipCheckValidNewDependencyEdge @ 0x1407A28F8 (PipCheckValidNewDependencyEdge.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1409B367C (PipAddtoRebuildPowerRelationsQueue.c)
  */
 
 __int64 __fastcall PipAddDependencyEdgeBetweenNodes(__int64 a1, __int64 a2, __int64 a3)

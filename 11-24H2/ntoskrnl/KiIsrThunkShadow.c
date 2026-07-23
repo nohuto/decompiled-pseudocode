@@ -1,5 +1,5 @@
 /*
- * XREFs of KiIsrThunkShadow @ 0x140BBC2C0
+ * XREFs of KiIsrThunkShadow @ 0x140BBE2C0
  * Callers:
  *     <none>
  * Callees:

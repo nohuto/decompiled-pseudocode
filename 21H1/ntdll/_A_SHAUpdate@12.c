@@ -9,79 +9,86 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-char *__stdcall A_SHAUpdate(_DWORD *a1, char *Src, unsigned int a3)
+char *__userpurge A_SHAUpdate@<eax>(int a1@<esi>, _DWORD *a2, char *Src, unsigned int a4)
 {
-  size_t v3; // ebx
-  char *v4; // edi
-  unsigned int v5; // eax
-  int v6; // ecx
+  unsigned int v4; // ebx
+  char *v5; // edi
+  unsigned int v6; // eax
+  int v7; // ecx
   char *result; // eax
-  _DWORD *v8; // edx
-  size_t v9; // edi
-  bool v10; // zf
-  unsigned int v11; // [esp+Ch] [ebp-Ch]
-  size_t v12; // [esp+Ch] [ebp-Ch]
-  int v13; // [esp+10h] [ebp-8h]
-  char *v14; // [esp+14h] [ebp-4h]
+  _DWORD *v9; // edx
+  unsigned int v10; // edi
+  bool v11; // zf
+  size_t v12; // [esp-8h] [ebp-20h]
+  size_t v13; // [esp-4h] [ebp-1Ch]
+  unsigned int v14; // [esp+Ch] [ebp-Ch]
+  unsigned int v15; // [esp+Ch] [ebp-Ch]
+  int v16; // [esp+10h] [ebp-8h]
+  char *v17; // [esp+14h] [ebp-4h]
 
-  v3 = a3;
-  v4 = (char *)a1;
-  v5 = a3 + a1[22];
-  v6 = a1[22] & 0x3F;
-  v13 = v6;
-  a1[22] = v5;
-  if ( v5 < a3 )
-    ++a1[21];
-  if ( v6 && (v11 = v6 + a3, v6 + a3 >= 0x40) )
+  v4 = a4;
+  v5 = (char *)a2;
+  v6 = a4 + a2[22];
+  v7 = a2[22] & 0x3F;
+  v16 = v7;
+  a2[22] = v6;
+  if ( v6 < a4 )
+    ++a2[21];
+  HIDWORD(v12) = a1;
+  if ( v7 && (v14 = v7 + a4, v7 + a4 >= 0x40) )
   {
-    memcpy((char *)a1 + v6, Src, 64 - v6);
-    v3 = v11 - 64;
-    v14 = &Src[64 - v13];
-    SHATrnsfrm(SHATrnsfrm, a1 + 16, a1);
-    v13 = 0;
-    result = v14;
+    LODWORD(v12) = 64 - v7;
+    memcpy((char *)a2 + v7, Src, v12);
+    v4 = v14 - 64;
+    v17 = &Src[64 - v16];
+    SHATrnsfrm(SHATrnsfrm, a2 + 16, a2);
+    v16 = 0;
+    result = v17;
   }
   else
   {
     result = Src;
-    v14 = Src;
+    v17 = Src;
   }
-  if ( v3 >= 0x40 )
+  if ( v4 >= 0x40 )
   {
-    v8 = a1 + 16;
+    v9 = a2 + 16;
     if ( ((unsigned __int8)result & 3) != 0 )
     {
-      v12 = v3 >> 6;
+      v15 = v4 >> 6;
       do
       {
-        qmemcpy(v4, result, 0x40u);
-        v4 = (char *)a1;
-        SHATrnsfrm(SHATrnsfrm, v8, a1);
-        v8 = a1 + 16;
-        result = v14 + 64;
-        v3 -= 64;
-        v10 = v12-- == 1;
-        v14 += 64;
+        qmemcpy(v5, result, 0x40u);
+        v5 = (char *)a2;
+        SHATrnsfrm(SHATrnsfrm, v9, a2);
+        v9 = a2 + 16;
+        result = v17 + 64;
+        v4 -= 64;
+        v11 = v15-- == 1;
+        v17 += 64;
       }
-      while ( !v10 );
+      while ( !v11 );
     }
     else
     {
-      v9 = v3 >> 6;
+      v10 = v4 >> 6;
       do
       {
-        SHATrnsfrm(SHATrnsfrm, v8, result);
-        v3 -= 64;
-        v8 = a1 + 16;
-        result = v14 + 64;
-        v14 += 64;
-        --v9;
+        SHATrnsfrm(SHATrnsfrm, v9, result);
+        v4 -= 64;
+        v9 = a2 + 16;
+        result = v17 + 64;
+        v17 += 64;
+        --v10;
       }
-      while ( v9 );
-      v4 = (char *)a1;
+      while ( v10 );
+      v5 = (char *)a2;
     }
   }
-  if ( v3 )
-    return (char *)memcpy(&v4[v13], result, v3);
+  if ( v4 )
+  {
+    LODWORD(v13) = v4;
+    return (char *)memcpy(&v5[v16], result, v13);
+  }
   return result;
 }

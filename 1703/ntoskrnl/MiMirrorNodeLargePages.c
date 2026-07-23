@@ -88,7 +88,7 @@ unsigned __int64 *__fastcall MiMirrorNodeLargePages(__int64 a1, int a2, __int64 
               v15 = v8;
               v16 = (__int64)(v14 + 0xB000000000LL) / 48;
               v17 = v16 & 0x1F;
-              v18 = (volatile signed __int32 *)(qword_14036C978 + 4 * (v16 >> 5));
+              v18 = (volatile signed __int32 *)stru_14036C970.Buffer + (v16 >> 5);
               if ( (v16 & 0x1F) + v8 > 0x20 )
               {
                 if ( (v16 & 0x1F) != 0 )
@@ -130,11 +130,11 @@ LABEL_15:
               {
                 if ( !*(_QWORD *)(a3 + 24) )
                   goto LABEL_17;
-                RtlClearBitsEx((__int64)&qword_14036C960, (__int64)(v14 + 0xB000000000LL) / 48, v8);
+                RtlClearBitsEx((__int64)&stru_14036C960, (__int64)(v14 + 0xB000000000LL) / 48, v8);
               }
               else
               {
-                RtlSetBitsEx((__int64)&qword_14036C960, (__int64)(v14 + 0xB000000000LL) / 48, v8);
+                RtlSetBitsEx((__int64)&stru_14036C960, (__int64)(v14 + 0xB000000000LL) / 48, v8);
               }
               v4 = a2;
 LABEL_17:

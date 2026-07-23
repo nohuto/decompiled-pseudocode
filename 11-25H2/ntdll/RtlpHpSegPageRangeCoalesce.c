@@ -44,7 +44,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, _B
   __int64 v34; // [rsp+48h] [rbp-71h] BYREF
   __int64 v35; // [rsp+50h] [rbp-69h] BYREF
   __int64 v36; // [rsp+58h] [rbp-61h] BYREF
-  char v37[32]; // [rsp+60h] [rbp-59h] BYREF
+  _EVENT_DATA_DESCRIPTOR v37; // [rsp+60h] [rbp-59h] BYREF
   __int64 *v38; // [rsp+80h] [rbp-39h]
   __int64 v39; // [rsp+88h] [rbp-31h]
   __int64 *v40; // [rsp+90h] [rbp-29h]
@@ -87,7 +87,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, _B
     *(_BYTE *)(a2 + 24) |= 0x11u;
     if ( v8 )
     {
-      RtlRbRemoveNode(a1 + 96, (unsigned __int64 *)v8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v8);
       *(_OWORD *)v8 = 0LL;
       *(_QWORD *)(v8 + 16) = 0LL;
       v23 = ~(unsigned __int16)*(_DWORD *)(v8 + 28);
@@ -113,7 +113,13 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, _B
           v43 = 8LL;
           v45 = 8LL;
           v47 = 8LL;
-          tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CE670, byte_1801A43AB, v21, v22, 7, (__int64)v37);
+          tlgWriteTransfer_EtwEventWriteTransfer(
+            (__int64)&dword_1801CE670,
+            (unsigned __int8 *)dword_1801A43AB,
+            v21,
+            v22,
+            7u,
+            &v37);
         }
       }
       if ( *(_BYTE *)(a2 + 31) != 1 )
@@ -149,8 +155,8 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, _B
       }
     }
     v27 = (volatile signed __int32 *)(a1 + 64);
-    RtlReleaseSRWLockExclusive(a1 + 64);
-    RtlpHpSegPageRangeCommit(a1, a2, 0, -(*(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9)), 0, (__int64)&v31);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    RtlpHpSegPageRangeCommit(a1, 0, (__int64)&v31);
     SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
@@ -166,7 +172,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, _B
       }
     }
     if ( _interlockedbittestandset64(v27, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(a1 + 64);
+      RtlpAcquireSRWLockExclusiveContended((PVOID)(a1 + 64));
     *a4 = -1;
     *(_BYTE *)(a2 + 24) &= ~0x10u;
   }

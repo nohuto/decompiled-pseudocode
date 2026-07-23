@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlInvokeWheaErrorNotificationCallback @ 0x1401BCE94
+ * XREFs of HvlInvokeWheaErrorNotificationCallback @ 0x1401BCD78
  * Callers:
  *     <none>
  * Callees:

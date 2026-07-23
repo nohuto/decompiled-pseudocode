@@ -1,12 +1,17 @@
 /*
- * XREFs of RtlWaitOnAddress @ 0x180065A10
+ * XREFs of RtlWaitOnAddress @ 0x180065A00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpWaitOnAddress @ 0x1800668E4 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x1800668D4 (RtlpWaitOnAddress.c)
  */
 
-__int64 __fastcall RtlWaitOnAddress(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlWaitOnAddress(void *Address, PVOID CompareAddress, SIZE_T AddressSize, PLARGE_INTEGER Timeout)
 {
-  return RtlpWaitOnAddress(a1, a2, a3, a4, RtlpWaitOnAddressSpinCount);
+  return RtlpWaitOnAddress(
+           (_DWORD)Address,
+           (_DWORD)CompareAddress,
+           AddressSize,
+           (_DWORD)Timeout,
+           RtlpWaitOnAddressSpinCount);
 }

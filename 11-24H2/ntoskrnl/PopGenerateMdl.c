@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGenerateMdl @ 0x1404D4170
+ * XREFs of PopGenerateMdl @ 0x1404CD380
  * Callers:
- *     PopAllocatePages @ 0x140B6E34C (PopAllocatePages.c)
+ *     PopAllocatePages @ 0x140B6FDEC (PopAllocatePages.c)
  * Callees:
- *     MmAllocatePagesForMdlEx @ 0x140411F30 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePagesForMdlEx @ 0x140395340 (MmAllocatePagesForMdlEx.c)
  */
 
 PMDL __fastcall PopGenerateMdl(__int64 a1)
@@ -23,6 +23,6 @@ PMDL __fastcall PopGenerateMdl(__int64 a1)
     *(_QWORD *)(BugCheckParameter4 + 152) += a1;
   }
   v5 = __rdtsc();
-  qword_140F0B388 += (((unsigned __int64)HIDWORD(v5) << 32) | (unsigned int)v5) - v2;
+  qword_140F0BFC8 += (((unsigned __int64)HIDWORD(v5) << 32) | (unsigned int)v5) - v2;
   return v4;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPrepChildWake @ 0x140590894
+ * XREFs of PopPrepChildWake @ 0x140590D84
  * Callers:
- *     PopCompleteNotifyTransitionCommon @ 0x14059049C (PopCompleteNotifyTransitionCommon.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x14059098C (PopCompleteNotifyTransitionCommon.c)
  * Callees:
  *     <none>
  */

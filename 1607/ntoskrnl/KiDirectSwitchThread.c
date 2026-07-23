@@ -1,22 +1,22 @@
 /*
- * XREFs of KiDirectSwitchThread @ 0x140052C70
+ * XREFs of KiDirectSwitchThread @ 0x1400527F0
  * Callers:
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiAbQueueAutoBoostDpc @ 0x14006C668 (KiAbQueueAutoBoostDpc.c)
- *     KiScheduleNextForegroundBoost @ 0x1400A44D0 (KiScheduleNextForegroundBoost.c)
- *     KiGetComparisonRanks @ 0x1400ABF3C (KiGetComparisonRanks.c)
- *     KiIsThreadRankNonZero @ 0x1400D0190 (KiIsThreadRankNonZero.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D0220 (KiGetThreadEffectiveRankNonZero.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1400D02E8 (KiCheckForMaxOverQuotaScb.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
- *     EtwTraceReadyThread @ 0x1402260C8 (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14006C1E8 (KiAbQueueAutoBoostDpc.c)
+ *     KiScheduleNextForegroundBoost @ 0x1400A2DF8 (KiScheduleNextForegroundBoost.c)
+ *     KiGetComparisonRanks @ 0x1400AA4A4 (KiGetComparisonRanks.c)
+ *     KiIsThreadRankNonZero @ 0x1400CE030 (KiIsThreadRankNonZero.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400CE0C0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1400CE188 (KiCheckForMaxOverQuotaScb.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
+ *     EtwTraceReadyThread @ 0x140225EF4 (EtwTraceReadyThread.c)
  */
 
 bool __fastcall KiDirectSwitchThread(__int64 a1, unsigned __int8 a2, char a3)

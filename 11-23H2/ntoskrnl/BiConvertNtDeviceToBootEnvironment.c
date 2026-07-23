@@ -1,20 +1,20 @@
 /*
- * XREFs of BiConvertNtDeviceToBootEnvironment @ 0x140806608
+ * XREFs of BiConvertNtDeviceToBootEnvironment @ 0x1408068D8
  * Callers:
- *     BiConvertElementToRegistryData @ 0x1408062E0 (BiConvertElementToRegistryData.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140806608 (BiConvertNtDeviceToBootEnvironment.c)
- *     BiCreatePartitionDevice @ 0x1408066E0 (BiCreatePartitionDevice.c)
- *     BiConvertNtFilePathToBootEnvironment @ 0x140A5CD84 (BiConvertNtFilePathToBootEnvironment.c)
+ *     BiConvertElementToRegistryData @ 0x1408065B0 (BiConvertElementToRegistryData.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1408068D8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x1408069B0 (BiCreatePartitionDevice.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x140A5D034 (BiConvertNtFilePathToBootEnvironment.c)
  * Callees:
- *     strcpy_s @ 0x1403DF890 (strcpy_s.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140806608 (BiConvertNtDeviceToBootEnvironment.c)
- *     BiCreatePartitionDevice @ 0x1408066E0 (BiCreatePartitionDevice.c)
- *     BiGetPartitionVhdFilePath @ 0x1408069BC (BiGetPartitionVhdFilePath.c)
- *     BiIsVolumePartitionInformationRetained @ 0x140806DD0 (BiIsVolumePartitionInformationRetained.c)
- *     BiConvertNtFilePathToBootEnvironment @ 0x140A5CD84 (BiConvertNtFilePathToBootEnvironment.c)
+ *     strcpy_s @ 0x1403DFA70 (strcpy_s.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1408068D8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x1408069B0 (BiCreatePartitionDevice.c)
+ *     BiGetPartitionVhdFilePath @ 0x140806C8C (BiGetPartitionVhdFilePath.c)
+ *     BiIsVolumePartitionInformationRetained @ 0x1408070A0 (BiIsVolumePartitionInformationRetained.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x140A5D034 (BiConvertNtFilePathToBootEnvironment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExFastReferenceHandleTableEntry @ 0x1402F4F24
+ * XREFs of ExFastReferenceHandleTableEntry @ 0x1402F51B4
  * Callers:
- *     ObpReferenceObjectByHandle @ 0x140749F3C (ObpReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandle @ 0x14074A12C (ObpReferenceObjectByHandle.c)
  * Callees:
- *     ExpBlockOnLockedHandleEntry @ 0x1407BA690 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1407BA970 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ExFastReferenceHandleTableEntry(__int64 a1, _QWORD *a2, __int64 *a3)

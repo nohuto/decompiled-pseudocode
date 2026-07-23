@@ -1,24 +1,24 @@
 /*
- * XREFs of BiLoadSystemStore @ 0x1409CFE10
+ * XREFs of BiLoadSystemStore @ 0x1409A0DF0
  * Callers:
- *     BiOpenSystemStore @ 0x1409D43D4 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x1409A53B4 (BiOpenSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     BiMarkTreatAsSystemStore @ 0x1409CFFAC (BiMarkTreatAsSystemStore.c)
- *     BcdCloseStore @ 0x1409D0088 (BcdCloseStore.c)
- *     BiIsSystemStore @ 0x1409D0134 (BiIsSystemStore.c)
- *     BiAddStoreFromFile @ 0x1409D35AC (BiAddStoreFromFile.c)
- *     BcdGetSystemStorePath @ 0x1409D39D8 (BcdGetSystemStorePath.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     BiMarkTreatAsSystemStore @ 0x1409A0F8C (BiMarkTreatAsSystemStore.c)
+ *     BcdCloseStore @ 0x1409A1068 (BcdCloseStore.c)
+ *     BiIsSystemStore @ 0x1409A1114 (BiIsSystemStore.c)
+ *     BiAddStoreFromFile @ 0x1409A458C (BiAddStoreFromFile.c)
+ *     BcdGetSystemStorePath @ 0x1409A49B8 (BcdGetSystemStorePath.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi
-  int SystemStorePath; // eax
+  NTSTATUS SystemStorePath; // eax
   void *v4; // rbp
   unsigned int v5; // ebx
   __int64 v6; // rax
@@ -30,17 +30,17 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
   int v12; // eax
   __int64 v13; // rdx
   __int64 v14; // r8
-  __int64 v15; // rsi
+  HANDLE v15; // rsi
   int v16; // eax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   void *Src; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v20; // [rsp+70h] [rbp+18h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+70h] [rbp+18h] BYREF
 
-  v20 = 0LL;
+  BcdStoreHandle = 0LL;
   Src = 0LL;
   DestinationString = 0LL;
   v2 = 0LL;
-  SystemStorePath = BcdGetSystemStorePath(&Src);
+  SystemStorePath = BcdGetSystemStorePath((PWSTR *)&Src);
   v4 = Src;
   v5 = SystemStorePath;
   if ( SystemStorePath >= 0 )
@@ -60,13 +60,19 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
       Pool2[1] = v8;
       Pool2[2] = 3;
       memmove(Pool2 + 3, v4, 2LL * v7);
-      v12 = BiAddStoreFromFile(v2, 0LL, v11, &v20);
+      v12 = BiAddStoreFromFile(
+              v2,
+              0LL,
+              v11,
+              &BcdStoreHandle,
+              *(_QWORD *)&DestinationString.Length,
+              DestinationString.Buffer);
       v5 = v12;
       if ( v12 >= 0 )
       {
-        v15 = v20;
+        v15 = BcdStoreHandle;
         LOBYTE(v13) = 1;
-        v16 = BiMarkTreatAsSystemStore(v20, v13, v14);
+        v16 = BiMarkTreatAsSystemStore(BcdStoreHandle, v13, v14);
         v5 = v16;
         if ( v16 >= 0 )
         {

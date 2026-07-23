@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWaitForBootDevices @ 0x14022D3C4
+ * XREFs of ExpWaitForBootDevices @ 0x14022D1F0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeFreezeExecution @ 0x1400822D0 (KeFreezeExecution.c)
- *     KeThawExecution @ 0x1400825DC (KeThawExecution.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeFreezeExecution @ 0x140082F4C (KeFreezeExecution.c)
+ *     KeThawExecution @ 0x140083258 (KeThawExecution.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)

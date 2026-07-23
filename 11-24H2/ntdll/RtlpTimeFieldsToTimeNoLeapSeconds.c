@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1800D83F0
+ * XREFs of RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1800D3760
  * Callers:
- *     RtlpTimeFieldsToTime @ 0x1800B89B0 (RtlpTimeFieldsToTime.c)
+ *     RtlpTimeFieldsToTime @ 0x1800A2A70 (RtlpTimeFieldsToTime.c)
  * Callees:
  *     <none>
  */

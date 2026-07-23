@@ -1,12 +1,12 @@
 /*
- * XREFs of PpProfileIncludeInHardwareProfileTransition @ 0x140642534
+ * XREFs of PpProfileIncludeInHardwareProfileTransition @ 0x140642618
  * Callers:
- *     PipProcessStartPhase1 @ 0x1404C7974 (PipProcessStartPhase1.c)
+ *     PipProcessStartPhase1 @ 0x1404846CC (PipProcessStartPhase1.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpIrpQueryID @ 0x140488F88 (PnpIrpQueryID.c)
+ *     PnpIrpQueryID @ 0x1405116FC (PnpIrpQueryID.c)
  */
 
 void __fastcall PpProfileIncludeInHardwareProfileTransition(__int64 a1, int a2)
@@ -31,7 +31,7 @@ void __fastcall PpProfileIncludeInHardwareProfileTransition(__int64 a1, int a2)
       PiProfileDeviceListHead = (__int64)v4;
       KeReleaseGuardedMutex(&PiProfileDeviceListLock);
     }
-    if ( (int)PnpIrpQueryID(*(_QWORD *)(a1 + 32), 4, &P) >= 0 && P )
+    if ( (int)PnpIrpQueryID(*(struct _DEVICE_OBJECT **)(a1 + 32), 4, &P) >= 0 && P )
       ExFreePoolWithTag(P, 0);
   }
   _InterlockedIncrement(&PiProfileDevicesInTransition);

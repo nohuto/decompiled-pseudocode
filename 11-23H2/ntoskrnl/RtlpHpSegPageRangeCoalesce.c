@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpSegPageRangeCoalesce @ 0x14024EAD0
+ * XREFs of RtlpHpSegPageRangeCoalesce @ 0x14024EBA0
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x14024E6C0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegContextCompact @ 0x140337DA0 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024E790 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x140338030 (RtlpHpSegContextCompact.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlpHpSegPageRangeCommit @ 0x14024E2F0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegFreeRangeRemove @ 0x14024FA24 (RtlpHpSegFreeRangeRemove.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpScheduleCompaction @ 0x140316904 (RtlpHpScheduleCompaction.c)
- *     RtlpHpSegLockAcquire @ 0x140316C98 (RtlpHpSegLockAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14024E3C0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x14024FAF4 (RtlpHpSegFreeRangeRemove.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpScheduleCompaction @ 0x140316B94 (RtlpHpScheduleCompaction.c)
+ *     RtlpHpSegLockAcquire @ 0x140316F28 (RtlpHpSegLockAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, unsigned int a3, int a4, unsigned __int8 *a5)
@@ -103,10 +103,13 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, unsigned i
       if ( (*(_DWORD *)(a1 + 40) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v22 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v22 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

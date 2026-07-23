@@ -1,9 +1,9 @@
 /*
- * XREFs of PopBatteryAcquireExclusiveLock @ 0x1408ECDD4
+ * XREFs of PopBatteryAcquireExclusiveLock @ 0x1408ECF34
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
  */
 
 struct _KTHREAD *PopBatteryAcquireExclusiveLock()

@@ -20,9 +20,9 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, __int64 a2, __int
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v5; // ebp
   struct _KTHREAD *v6; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v8; // r14
-  __int64 v9; // r8
+  unsigned int v9; // r8d
   bool v10; // zf
   __int64 v11; // rcx
   int v12; // eax
@@ -45,12 +45,12 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, __int64 a2, __int
   LODWORD(v17) = 0;
   v6 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx(v6->ApcState.Process);
+    SessionId = MmGetSessionIdEx(v6->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --v6->SpecialApcDisable;
   v8 = ++v6->AbAllocationRegionCount;
-  LODWORD(v9) = ((char)v6->AbEntrySummary | (char)v6->AbOrphanedEntrySummary) ^ 0x3F;
+  v9 = ((char)v6->AbEntrySummary | (char)v6->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v10 = !_BitScanReverse((unsigned int *)&v11, v9);
@@ -59,11 +59,11 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, __int64 a2, __int
     v12 = 1 << v11;
     v13 = v11;
     v14 = &v6->LockEntries[v13];
-    v9 = ~v12 & (unsigned int)v9;
+    v9 &= ~v12;
     if ( (v14->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v14->LockState.0 & 1) == 0
       && (*(_QWORD *)&v14->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
-      && v14->LockState.SessionId == (_DWORD)SessionId )
+      && v14->LockState.SessionId == SessionId )
     {
       v14->AcquiredByte &= ~1u;
       if ( v14->LockState.0 )
@@ -72,7 +72,7 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, __int64 a2, __int
         {
           v14->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v14->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v6->LockEntries[v13], SessionId, v9);
+            KiAbEntryRemoveFromTree(&v6->LockEntries[v13].TreeNode);
           LODWORD(v17) = 0;
           LODWORD(v17) = v14->BoostBitmap.AllFields & 0x1FFFF;
           v14->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -90,7 +90,7 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, __int64 a2, __int
     }
   }
   if ( (*((_DWORD *)&v6->0 + 1) & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)v6, BugCheckParameter2, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)v6, BugCheckParameter2, SessionId, 0LL);
 LABEL_17:
   --v6->AbAllocationRegionCount;
   KiAbThreadRemoveBoosts(v6, BugCheckParameter2, (__int64 *)va);

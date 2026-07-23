@@ -2,14 +2,14 @@
  * XREFs of PopTransitionCheckpoint @ 0x1406825AC
  * Callers:
  *     PopSwitchUpdateUserShutdownScenarioState @ 0x1406822E8 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     PopGracefulShutdown @ 0x140AA0A60 (PopGracefulShutdown.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     PopGracefulShutdown @ 0x140AA08D0 (PopGracefulShutdown.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -34,13 +34,13 @@ void __fastcall PopTransitionCheckpoint(int a1, int a2)
         *(_DWORD *)(Pool2 + 20) = a1;
         *(_DWORD *)(Pool2 + 24) = a2;
         *(_QWORD *)(Pool2 + 32) = MEMORY[0xFFFFF78000000008];
-        v7 = (_QWORD *)qword_140C3F5E8;
-        if ( *(PVOID **)qword_140C3F5E8 != &PopTransitionCheckpoints )
+        v7 = (_QWORD *)qword_140C3F5F8;
+        if ( *(PVOID **)qword_140C3F5F8 != &PopTransitionCheckpoints )
           __fastfail(3u);
         *v6 = &PopTransitionCheckpoints;
         v6[1] = v7;
         *v7 = v6;
-        qword_140C3F5E8 = (__int64)v6;
+        qword_140C3F5F8 = (__int64)v6;
       }
       PopBsdTransitionLatestCheckpointSeqNumber = PopTransitionCheckpointsSequenceNumber++;
       PopBsdTransitionLatestCheckpointId = a1;

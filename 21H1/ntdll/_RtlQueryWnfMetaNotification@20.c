@@ -7,11 +7,16 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlQueryWnfMetaNotification(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __stdcall RtlQueryWnfMetaNotification(
+        PVOID InfoBuffer,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        int a3,
+        int a4,
+        void *ExplicitScope)
 {
-  _DWORD v6[2]; // [esp+0h] [ebp-Ch] BYREF
+  WNF_STATE_NAME StateName; // [esp+0h] [ebp-Ch] BYREF
 
-  v6[0] = a3;
-  v6[1] = a4;
-  return NtQueryWnfStateNameInformation((int)v6, a2, a5, a1, 4);
+  StateName.Data[0] = a3;
+  StateName.Data[1] = a4;
+  return NtQueryWnfStateNameInformation(&StateName, NameInfoClass, ExplicitScope, InfoBuffer, 4u);
 }

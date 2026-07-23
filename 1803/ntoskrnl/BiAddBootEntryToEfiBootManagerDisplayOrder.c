@@ -12,9 +12,9 @@
  *     BiGetElement @ 0x1407E20DC (BiGetElement.c)
  */
 
-__int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int64 a2)
+__int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(void *a1, __int64 a2)
 {
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   int Element; // eax
   unsigned int v5; // ebx
   _QWORD *v6; // r8
@@ -23,17 +23,17 @@ __int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int6
   _OWORD *PoolWithTag; // rax
   void *v10; // rbp
   void *v11; // rdx
-  __int64 v12; // r8
-  void *v14; // [rsp+30h] [rbp-28h] BYREF
+  BCD_FLAGS v12; // r8d
+  HANDLE BcdObjectHandle; // [rsp+30h] [rbp-28h] BYREF
   unsigned int v15; // [rsp+70h] [rbp+18h] BYREF
   void *Src; // [rsp+78h] [rbp+20h] BYREF
 
   Src = 0LL;
-  v14 = 0LL;
-  v3 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR.Data1, &v14);
+  BcdObjectHandle = 0LL;
+  v3 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR, &BcdObjectHandle);
   if ( v3 < 0 )
     goto LABEL_17;
-  Element = BiGetElement((__int64)v14, 0x24000001u, &Src, &v15);
+  Element = BiGetElement(BcdObjectHandle, 0x24000001u, &Src, &v15);
   v3 = Element;
   if ( Element == -1073741275 )
   {
@@ -71,7 +71,7 @@ LABEL_11:
         v11 = Src;
         *PoolWithTag = *(_OWORD *)(a2 + 16);
         memmove(PoolWithTag + 1, v11, v5);
-        v3 = BcdSetElementDataWithFlags(v14, 0x24000001u, v12, (__int64)v10, v5 + 16);
+        v3 = BcdSetElementDataWithFlags(BcdObjectHandle, 0x24000001u, v12, v10, v5 + 16);
         ExFreePoolWithTag(v10, 0x4B444342u);
       }
       else
@@ -83,7 +83,7 @@ LABEL_11:
   if ( Src )
     ExFreePoolWithTag(Src, 0x4B444342u);
 LABEL_17:
-  if ( v14 )
-    BcdCloseObject((__int64)v14);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   return (unsigned int)v3;
 }

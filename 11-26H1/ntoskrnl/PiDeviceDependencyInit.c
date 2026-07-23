@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDeviceDependencyInit @ 0x140CC3A38
+ * XREFs of PiDeviceDependencyInit @ 0x140CC9B0C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnpReleaseDependencyRelationsLock @ 0x14090ECA0 (PnpReleaseDependencyRelationsLock.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14090ECD0 (PnpAcquireDependencyRelationsLock.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409B0DD0 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409B0E00 (PnpAcquireDependencyRelationsLock.c)
  */
 
 __int64 PiDeviceDependencyInit()
 {
   ULONG_PTR v0; // rax
-  KSPIN_LOCK *p_Policy; // rdi
+  KSPIN_LOCK *v1; // rdi
   unsigned __int16 *v2; // rax
   __int64 *v3; // rsi
   int RecordedStackTraceIndex; // eax
@@ -39,15 +39,15 @@ __int64 PiDeviceDependencyInit()
   PiDependencyRelationsLock.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup
-      && (v2 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1),
+    v1 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
+      && (v2 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1),
           (v3 = (__int64 *)v2) != 0LL) )
     {
-      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v2);
+      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v1, v2);
       v5 = RecordedStackTraceIndex;
       if ( !RecordedStackTraceIndex )
-        RtlStdReleaseStackTrace((__int64)p_Policy, v3);
+        RtlStdReleaseStackTrace((__int64)v1, v3);
     }
     else
     {
@@ -57,17 +57,17 @@ __int64 PiDeviceDependencyInit()
   }
   PiDependencyRelationsLock.CreatorBackTraceIndex = v0;
   HIDWORD(PiDependencyRelationsLock.Reserved2) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&PiDependencyRelationsLock);
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&PiDependencyRelationsLock);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
     PerfLogExecutiveResourceInitialize(65544, (__int64)&PiDependencyRelationsLock, 0, 0);
   PiDependencyEdgeWriteLock = 0LL;
   PnpAcquireDependencyRelationsLock(1);
-  qword_140F84BA8 = (__int64)&PiDependencyNodeListHead;
+  qword_140F84F48 = (__int64)&PiDependencyNodeListHead;
   PiDependencyNodeListHead = (__int64)&PiDependencyNodeListHead;
-  qword_140F84B98 = (__int64)&PiDependencyNodeEmptyList;
+  qword_140F84F28 = (__int64)&PiDependencyNodeEmptyList;
   PiDependencyNodeEmptyList = (__int64)&PiDependencyNodeEmptyList;
-  qword_140F84BB8 = (__int64)&PiRebuildPowerRelationsQueue;
+  qword_140F84F38 = (__int64)&PiRebuildPowerRelationsQueue;
   PiRebuildPowerRelationsQueue = (__int64)&PiRebuildPowerRelationsQueue;
   PnpReleaseDependencyRelationsLock();
   return 0LL;

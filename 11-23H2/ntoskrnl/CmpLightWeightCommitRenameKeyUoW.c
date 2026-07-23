@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpLightWeightCommitRenameKeyUoW @ 0x140A284D8
+ * XREFs of CmpLightWeightCommitRenameKeyUoW @ 0x140A28788
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C8AC (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140A1CB5C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     CmpMarkKeyUnbacked @ 0x1407107FC (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14071087C (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDiscardKcb @ 0x14076AD08 (CmpDiscardKcb.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpSearchForOpenSubKeys @ 0x140875154 (CmpSearchForOpenSubKeys.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A17744 (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpUpdateParentForEachSon @ 0x140A24D34 (CmpUpdateParentForEachSon.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27F04 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightSwapParentSubKeyList @ 0x140A29EE8 (CmpLightWeightSwapParentSubKeyList.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     CmpMarkKeyUnbacked @ 0x140710A0C (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140710A8C (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDiscardKcb @ 0x14076AEF8 (CmpDiscardKcb.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpSearchForOpenSubKeys @ 0x140875394 (CmpSearchForOpenSubKeys.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A179F4 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpUpdateParentForEachSon @ 0x140A24FE4 (CmpUpdateParentForEachSon.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A281B4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightSwapParentSubKeyList @ 0x140A2A198 (CmpLightWeightSwapParentSubKeyList.c)
  */
 
 void __fastcall CmpLightWeightCommitRenameKeyUoW(__int64 *a1, _QWORD *a2, __int64 a3)

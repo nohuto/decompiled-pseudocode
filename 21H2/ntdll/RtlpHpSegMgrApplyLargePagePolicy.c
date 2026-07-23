@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x18010EFC0
+ * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x18010EF80
  * Callers:
- *     RtlpHpSegMgrCommitInitiate @ 0x18010F0F4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x18010F0B4 (RtlpHpSegMgrCommitInitiate.c)
  * Callees:
  *     RtlpHeapGenerateRandomValue32 @ 0x18000A448 (RtlpHeapGenerateRandomValue32.c)
  */

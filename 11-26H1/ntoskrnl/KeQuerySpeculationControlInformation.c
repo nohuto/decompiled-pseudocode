@@ -1,16 +1,16 @@
 /*
- * XREFs of KeQuerySpeculationControlInformation @ 0x1407BA658
+ * XREFs of KeQuerySpeculationControlInformation @ 0x1407BD6B8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     MiIsImportOptimizationEnabled @ 0x1404DC3CC (MiIsImportOptimizationEnabled.c)
- *     KeKvaShadowingActive @ 0x1404E6308 (KeKvaShadowingActive.c)
- *     HvlQueryL1tfMitigationInformation @ 0x1404EB074 (HvlQueryL1tfMitigationInformation.c)
- *     SpcIsFbClearSupported @ 0x14071E288 (SpcIsFbClearSupported.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
+ *     MiIsImportOptimizationEnabled @ 0x1404D5AAC (MiIsImportOptimizationEnabled.c)
+ *     KeKvaShadowingActive @ 0x1404DF8A8 (KeKvaShadowingActive.c)
+ *     HvlQueryL1tfMitigationInformation @ 0x1404E4654 (HvlQueryL1tfMitigationInformation.c)
+ *     SpcIsFbClearSupported @ 0x140722F18 (SpcIsFbClearSupported.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
  */
 
 __int64 __fastcall KeQuerySpeculationControlInformation(void *a1, size_t Size, int *a3)

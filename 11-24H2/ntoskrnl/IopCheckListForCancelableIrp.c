@@ -1,7 +1,7 @@
 /*
- * XREFs of IopCheckListForCancelableIrp @ 0x140418ECC
+ * XREFs of IopCheckListForCancelableIrp @ 0x140408C7C
  * Callers:
- *     IopCancelIrpsInFileObjectList @ 0x140418C10 (IopCancelIrpsInFileObjectList.c)
+ *     IopCancelIrpsInFileObjectList @ 0x1404089C0 (IopCancelIrpsInFileObjectList.c)
  * Callees:
  *     <none>
  */

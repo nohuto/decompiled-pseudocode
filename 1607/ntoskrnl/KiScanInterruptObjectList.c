@@ -1,14 +1,14 @@
 /*
- * XREFs of KiScanInterruptObjectList @ 0x14015ED60
+ * XREFs of KiScanInterruptObjectList @ 0x14015F2D0
  * Callers:
- *     KiChainedDispatch @ 0x14015E9B0 (KiChainedDispatch.c)
+ *     KiChainedDispatch @ 0x14015EF20 (KiChainedDispatch.c)
  * Callees:
- *     KiCallInterruptServiceRoutine @ 0x14000C2E0 (KiCallInterruptServiceRoutine.c)
- *     PerfInfoLogInterrupt @ 0x140090D90 (PerfInfoLogInterrupt.c)
- *     EtwGetInterruptTimeStamp @ 0x1400921C0 (EtwGetInterruptTimeStamp.c)
- *     KiEntropyQueueDpc @ 0x1400AA984 (KiEntropyQueueDpc.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
- *     KiDispatchPassiveInterrupts @ 0x1401D85DC (KiDispatchPassiveInterrupts.c)
+ *     KiCallInterruptServiceRoutine @ 0x14000BE60 (KiCallInterruptServiceRoutine.c)
+ *     PerfInfoLogInterrupt @ 0x1400904F0 (PerfInfoLogInterrupt.c)
+ *     EtwGetInterruptTimeStamp @ 0x140091920 (EtwGetInterruptTimeStamp.c)
+ *     KiEntropyQueueDpc @ 0x1400A8F04 (KiEntropyQueueDpc.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
+ *     KiDispatchPassiveInterrupts @ 0x1401D8408 (KiDispatchPassiveInterrupts.c)
  */
 
 void __fastcall KiScanInterruptObjectList()

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockMergeNodes @ 0x140C37B44
+ * XREFs of ViDeadlockMergeNodes @ 0x140C3DB54
  * Callers:
- *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140C372D4 (ViDeadlockCheckDuplicatesAmongChildren.c)
- *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140C37354 (ViDeadlockCheckDuplicatesAmongRoots.c)
+ *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140C3D2E4 (ViDeadlockCheckDuplicatesAmongChildren.c)
+ *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140C3D364 (ViDeadlockCheckDuplicatesAmongRoots.c)
  * Callees:
- *     ViDeadlockUpdateChildrenCount @ 0x140C384B0 (ViDeadlockUpdateChildrenCount.c)
+ *     ViDeadlockUpdateChildrenCount @ 0x140C3E4C0 (ViDeadlockUpdateChildrenCount.c)
  */
 
 __int64 __fastcall ViDeadlockMergeNodes(__int64 a1, __int64 a2, __int64 *a3)

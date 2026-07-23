@@ -1,19 +1,19 @@
 /*
- * XREFs of PiQueryAndAllocateBootResources @ 0x14098DD70
+ * XREFs of PiQueryAndAllocateBootResources @ 0x140978DA8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     IopQueryDeviceResources @ 0x14098DEA4 (IopQueryDeviceResources.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     IopQueryDeviceResources @ 0x140978EDC (IopQueryDeviceResources.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
@@ -21,7 +21,6 @@ __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
   PVOID v1; // rbx
   int v3; // esi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // r9
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-10h] BYREF
   ULONG DataSize; // [rsp+90h] [rbp+40h] BYREF
   HANDLE Handle; // [rsp+98h] [rbp+48h] BYREF
@@ -75,7 +74,7 @@ __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
       KeLeaveCriticalRegion();
       if ( !v1 )
         goto LABEL_11;
-      v3 = guard_dispatch_icall_no_overrides(4LL, *(_QWORD *)(a1 + 32), v1, v6);
+      v3 = guard_dispatch_icall_no_overrides(4LL, *(_QWORD *)(a1 + 32));
       if ( v3 >= 0 )
         PipSetDevNodeFlags(a1, 64LL);
     }

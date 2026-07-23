@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceCsExitReason @ 0x140AC1838
+ * XREFs of PopDiagTraceCsExitReason @ 0x140ABCB20
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
@@ -211,7 +211,7 @@ void __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
   }
   v17 = v4 != 0;
   v8 = 0;
-  Pool2 = (struct _EVENT_DATA_DESCRIPTOR *)ExAllocatePool2(0x100uLL);
+  Pool2 = (struct _EVENT_DATA_DESCRIPTOR *)ExAllocatePool2(0x100uLL, 0x340uLL, 0x50455654u);
   UserData = Pool2;
   if ( Pool2 )
   {
@@ -335,7 +335,7 @@ void __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
   {
     v8 = -1073741670;
   }
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v62 = PopWnfCsEnterScenarioId;
     v80 = &v62;
@@ -437,8 +437,8 @@ void __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
     v144 = &v45;
     v145 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)byte_14004A268,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)byte_14004A9A5,
       0LL,
       0LL,
       0x23u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxComponentIdleConstraints @ 0x140608920
+ * XREFs of PopDiagTraceFxComponentIdleConstraints @ 0x14060B4E0
  * Callers:
- *     PopPluginRequestComponentIdleConstraints @ 0x14052C864 (PopPluginRequestComponentIdleConstraints.c)
+ *     PopPluginRequestComponentIdleConstraints @ 0x14052ED84 (PopPluginRequestComponentIdleConstraints.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxComponentIdleConstraints(__int64 a1, int a2, __int64 a3, int a4)
@@ -28,11 +28,9 @@ char __fastcall PopDiagTraceFxComponentIdleConstraints(__int64 a1, int a2, __int
   v18 = a4;
   v17 = a2;
   v16 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_COMPONENT_IDLE_CONSTRAINTS);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_IDLE_CONSTRAINTS);
     if ( (_BYTE)v4 )
     {
       *(_QWORD *)&UserData.Size = 8LL;
@@ -44,15 +42,7 @@ char __fastcall PopDiagTraceFxComponentIdleConstraints(__int64 a1, int a2, __int
       v10 = &v18;
       v13 = 4 * v18;
       v14 = 0;
-      LOBYTE(v4) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_COMPONENT_IDLE_CONSTRAINTS,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     4u,
-                     &UserData);
+      LOBYTE(v4) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_IDLE_CONSTRAINTS, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     }
   }
   return (char)v4;

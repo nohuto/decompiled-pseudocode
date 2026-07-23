@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64FreeCounter @ 0x1404DDA5C
+ * XREFs of Amd64FreeCounter @ 0x1404DDC9C
  * Callers:
- *     Amd64InitializeProfiling @ 0x1409A9720 (Amd64InitializeProfiling.c)
+ *     Amd64InitializeProfiling @ 0x1409AA650 (Amd64InitializeProfiling.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of SLGetSubscriptionPfn @ 0x140839458
+ * XREFs of SLGetSubscriptionPfn @ 0x14083F698
  * Callers:
- *     SLQueryLicenseValueInternal @ 0x140A6A758 (SLQueryLicenseValueInternal.c)
+ *     SLQueryLicenseValueInternal @ 0x140A770F8 (SLQueryLicenseValueInternal.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExpQueryLicenseValueFromBlobHelper @ 0x1404F1718 (ExpQueryLicenseValueFromBlobHelper.c)
- *     _local_unwind @ 0x140536000 (_local_unwind.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExpQueryLicenseValueFromBlobHelper @ 0x1404EACF8 (ExpQueryLicenseValueFromBlobHelper.c)
+ *     _local_unwind @ 0x140538480 (_local_unwind.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, __int64 *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -68,7 +68,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, __int64 *a2, __int64 a3, str
       if ( !Pool2 )
       {
         v20 = -1073741595;
-        Pool2 = (_OWORD *)local_unwind((ULONG_PTR)v22, (__int64)&loc_14083959D);
+        local_unwind(v22, &loc_14083F7DD);
       }
       *Pool2 = *(_OWORD *)(a1 + 46858);
       Pool2[1] = *(_OWORD *)(a1 + 46874);
@@ -87,7 +87,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, __int64 *a2, __int64 a3, str
   {
     LicenseValueFromBlobHelper = ExpQueryLicenseValueFromBlobHelper(
                                    a1,
-                                   (__int64)&qword_140BD9350,
+                                   (__int64)&qword_140BE0200,
                                    0LL,
                                    0LL,
                                    0,
@@ -105,7 +105,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, __int64 *a2, __int64 a3, str
       }
       LicenseValueFromBlobHelper = ExpQueryLicenseValueFromBlobHelper(
                                      a1,
-                                     (__int64)&qword_140BD9350,
+                                     (__int64)&qword_140BE0200,
                                      0LL,
                                      (struct _KLOCK_ENTRIES *)v5,
                                      v6,

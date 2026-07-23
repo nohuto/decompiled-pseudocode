@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetAutoLoggerLevelKwFilter @ 0x1407CB108
+ * XREFs of EtwpGetAutoLoggerLevelKwFilter @ 0x1407956E0
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x140795014 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140794E6C (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3)
@@ -111,19 +111,19 @@ void __fastcall EtwpGetAutoLoggerLevelKwFilter(__int64 a1, __int64 a2, PVOID *a3
     v30[2] = L"MatchAnyKeyword";
     v24 = 11;
     v30[10] = &v24;
-    v30[0] = EtwpQueryRegistryCallback;
+    v30[0] = &EtwpQueryRegistryCallback;
     v30[9] = L"MatchAllKeyword";
-    v30[7] = EtwpQueryRegistryCallback;
+    v30[7] = &EtwpQueryRegistryCallback;
     v25 = v17 + 8;
     v30[17] = &v26;
     v30[16] = L"Level";
     v27 = v17 + 16;
     v30[24] = &v28;
     v30[23] = L"FilterIn";
-    v30[14] = EtwpQueryRegistryCallback;
+    v30[14] = &EtwpQueryRegistryCallback;
     LODWORD(v30[18]) = 4;
     v26 = 4;
-    v30[21] = EtwpQueryRegistryCallback;
+    v30[21] = &EtwpQueryRegistryCallback;
     LODWORD(v30[25]) = 4;
     v28 = 4;
     v29 = v17 + 17;

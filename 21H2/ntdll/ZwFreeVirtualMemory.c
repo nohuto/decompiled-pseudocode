@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwFreeVirtualMemory @ 0x18009DA00
+ * XREFs of ZwFreeVirtualMemory @ 0x18009D9C0
  * Callers:
  *     RtlExtendMemoryZone @ 0x180001A70 (RtlExtendMemoryZone.c)
  *     RtlpHpVaMgrRangeFree @ 0x1800047B4 (RtlpHpVaMgrRangeFree.c)
@@ -18,36 +18,36 @@
  *     RtlDestroyMemoryZone @ 0x180085580 (RtlDestroyMemoryZone.c)
  *     RtlDestroyHandleTable @ 0x180085AA0 (RtlDestroyHandleTable.c)
  *     EtwpShutdownCompression @ 0x180088370 (EtwpShutdownCompression.c)
- *     LdrCreateEnclave @ 0x1800CCC80 (LdrCreateEnclave.c)
- *     LdrDeleteEnclave @ 0x1800CCD90 (LdrDeleteEnclave.c)
- *     RtlCreateProcessReflection @ 0x1800D5BB0 (RtlCreateProcessReflection.c)
- *     RtlpProcessReflectionStartup @ 0x1800D6140 (RtlpProcessReflectionStartup.c)
- *     RtlCreateQueryDebugBuffer @ 0x1800D7430 (RtlCreateQueryDebugBuffer.c)
- *     WerReportExceptionWorker @ 0x1800DD830 (WerReportExceptionWorker.c)
- *     WerpFreeSid @ 0x1800DDBEC (WerpFreeSid.c)
- *     GetShipAssertBuffer @ 0x1800DDDD4 (GetShipAssertBuffer.c)
- *     WerEscalationLazyInit @ 0x1800DE1B8 (WerEscalationLazyInit.c)
- *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4174 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlStdDeleteStackDatabase @ 0x180101190 (RtlStdDeleteStackDatabase.c)
- *     RtlStdInitializeStackDatabase @ 0x1801011D0 (RtlStdInitializeStackDatabase.c)
- *     RtlpTraceDatabaseFree @ 0x180102CCC (RtlpTraceDatabaseFree.c)
- *     PssNtFreeRemoteSnapshot @ 0x180114240 (PssNtFreeRemoteSnapshot.c)
- *     PssNtFreeSnapshot @ 0x180114450 (PssNtFreeSnapshot.c)
- *     PsspCaptureAuxiliaryPages @ 0x18011508C (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation @ 0x18011541C (PsspCaptureVaSpaceInformation.c)
- *     PsspCaptureHandleInformation @ 0x180115BB4 (PsspCaptureHandleInformation.c)
- *     PsspFreeLinkedHandleList @ 0x180116B9C (PsspFreeLinkedHandleList.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x1801172B8 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011785C (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     LdrCreateEnclave @ 0x1800CCC40 (LdrCreateEnclave.c)
+ *     LdrDeleteEnclave @ 0x1800CCD50 (LdrDeleteEnclave.c)
+ *     RtlCreateProcessReflection @ 0x1800D5B70 (RtlCreateProcessReflection.c)
+ *     RtlpProcessReflectionStartup @ 0x1800D6100 (RtlpProcessReflectionStartup.c)
+ *     RtlCreateQueryDebugBuffer @ 0x1800D73F0 (RtlCreateQueryDebugBuffer.c)
+ *     WerReportExceptionWorker @ 0x1800DD7F0 (WerReportExceptionWorker.c)
+ *     WerpFreeSid @ 0x1800DDBAC (WerpFreeSid.c)
+ *     GetShipAssertBuffer @ 0x1800DDD94 (GetShipAssertBuffer.c)
+ *     WerEscalationLazyInit @ 0x1800DE178 (WerEscalationLazyInit.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4134 (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlStdDeleteStackDatabase @ 0x180101150 (RtlStdDeleteStackDatabase.c)
+ *     RtlStdInitializeStackDatabase @ 0x180101190 (RtlStdInitializeStackDatabase.c)
+ *     RtlpTraceDatabaseFree @ 0x180102C8C (RtlpTraceDatabaseFree.c)
+ *     PssNtFreeRemoteSnapshot @ 0x180114200 (PssNtFreeRemoteSnapshot.c)
+ *     PssNtFreeSnapshot @ 0x180114410 (PssNtFreeSnapshot.c)
+ *     PsspCaptureAuxiliaryPages @ 0x18011504C (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation @ 0x1801153DC (PsspCaptureVaSpaceInformation.c)
+ *     PsspCaptureHandleInformation @ 0x180115B74 (PsspCaptureHandleInformation.c)
+ *     PsspFreeLinkedHandleList @ 0x180116B5C (PsspFreeLinkedHandleList.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x180117278 (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x1801177E4 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwFreeVirtualMemory()
+NTSTATUS __cdecl ZwFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 30LL;
+  result = 30;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

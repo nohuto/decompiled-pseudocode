@@ -1,25 +1,25 @@
 /*
- * XREFs of NtAlpcDeleteSectionView @ 0x140A74EE0
+ * XREFs of NtAlpcDeleteSectionView @ 0x140A7DC00
  * Callers:
- *     DifNtAlpcDeleteSectionViewWrapper @ 0x14066CB20 (DifNtAlpcDeleteSectionViewWrapper.c)
+ *     DifNtAlpcDeleteSectionViewWrapper @ 0x140670700 (DifNtAlpcDeleteSectionViewWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteView @ 0x1409C1A54 (AlpcpDeleteView.c)
- *     AlpcpEnumerateResourcesPort @ 0x140A75050 (AlpcpEnumerateResourcesPort.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteView @ 0x140992A34 (AlpcpDeleteView.c)
+ *     AlpcpEnumerateResourcesPort @ 0x140A7DD70 (AlpcpEnumerateResourcesPort.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
+NTSTATUS __cdecl NtAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  signed int v5; // ebx
   struct _KLOCK_ENTRIES *v6; // r9
   PVOID v7; // rsi
   signed __int64 *v8; // rbx
@@ -34,18 +34,18 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
   *(_OWORD *)BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
       v7 = Object;
-      BugCheckParameter2[0] = a3;
+      BugCheckParameter2[0] = (ULONG_PTR)ViewBase;
       v8 = (signed __int64 *)((char *)Object + 352);
       do
       {
@@ -79,5 +79,5 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v5;
+  return v5;
 }

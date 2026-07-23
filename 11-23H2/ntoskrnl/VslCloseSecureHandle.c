@@ -1,12 +1,12 @@
 /*
- * XREFs of VslCloseSecureHandle @ 0x14054D8D0
+ * XREFs of VslCloseSecureHandle @ 0x14054DF90
  * Callers:
- *     PsDereferenceVsmEnclave @ 0x1408A5CC4 (PsDereferenceVsmEnclave.c)
- *     VslCreateEnclave @ 0x1409419F0 (VslCreateEnclave.c)
+ *     PsDereferenceVsmEnclave @ 0x1408A5F14 (PsDereferenceVsmEnclave.c)
+ *     VslCreateEnclave @ 0x140941BF0 (VslCreateEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslCloseSecureHandle(__int64 a1)

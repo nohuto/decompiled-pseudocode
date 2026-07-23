@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpIommuCreateDevice @ 0x1408649C4
+ * XREFs of HalpIommuCreateDevice @ 0x140864B24
  * Callers:
- *     HalpIommuUnblockDevice @ 0x1404C9E80 (HalpIommuUnblockDevice.c)
- *     IommuDomainAttachDevice @ 0x1404DA3E0 (IommuDomainAttachDevice.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpIommuUnblockDevice @ 0x1404CA0C0 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x1404DA620 (IommuDomainAttachDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C3BC8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpIommuCloneDeviceId @ 0x1403EFF58 (HalpIommuCloneDeviceId.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpIommuCreateDeviceInternal @ 0x1404C5484 (HalpIommuCreateDeviceInternal.c)
- *     HalpIommuCheckDpptException @ 0x1404C90F0 (HalpIommuCheckDpptException.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1404C9C64 (HalpIommuQueryAcpiDeviceMapping.c)
- *     IommupHvRegisterDeviceId @ 0x1404DA2E8 (IommupHvRegisterDeviceId.c)
- *     IidAreIdsStrictlyEqual @ 0x1405C638C (IidAreIdsStrictlyEqual.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuCloneDeviceId @ 0x1403F00C8 (HalpIommuCloneDeviceId.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpIommuCreateDeviceInternal @ 0x1404C56C4 (HalpIommuCreateDeviceInternal.c)
+ *     HalpIommuCheckDpptException @ 0x1404C9330 (HalpIommuCheckDpptException.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404C9EA4 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     IommupHvRegisterDeviceId @ 0x1404DA528 (IommupHvRegisterDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C65BC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuCreateDevice(_DWORD *Src, int a2, __int64 *a3, _BYTE *a4)
@@ -152,13 +152,13 @@ LABEL_21:
   v18 = &HalpIommuDeviceCreatedList;
   *v31 = v17;
   *(_DWORD *)(v13 + 32) = 1;
-  v20 = (__int64 *)qword_140C49E18;
-  if ( *(__int64 **)qword_140C49E18 != &HalpIommuDeviceCreatedList )
+  v20 = (__int64 *)qword_140C49E58;
+  if ( *(__int64 **)qword_140C49E58 != &HalpIommuDeviceCreatedList )
     __fastfail(3u);
   *(_QWORD *)v13 = &HalpIommuDeviceCreatedList;
   *(_QWORD *)(v13 + 8) = v20;
   *v20 = v13;
-  qword_140C49E18 = v13;
+  qword_140C49E58 = v13;
   if ( AcpiDeviceMapping < 0 )
     goto LABEL_29;
 LABEL_34:

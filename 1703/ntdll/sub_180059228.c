@@ -13,7 +13,7 @@ _DWORD *__fastcall sub_180059228(unsigned int a1)
   _DWORD *result; // rax
   _DWORD *v3; // rbx
 
-  result = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015B268 + 786432, 8LL * a1 + 16);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, dword_18015B268 + 786432, 8LL * a1 + 16);
   v3 = result;
   if ( result )
   {

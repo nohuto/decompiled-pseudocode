@@ -17,7 +17,7 @@
  *     RtlIsPatchMachineApplicable @ 0x14081F62C (RtlIsPatchMachineApplicable.c)
  */
 
-__int64 __fastcall MiHotPatchProcess(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall MiHotPatchProcess(__int64 a1, int a2, int a3, unsigned int a4)
 {
   struct _KTHREAD *CurrentThread; // r14
   unsigned __int16 v6; // r15
@@ -26,7 +26,7 @@ __int64 __fastcall MiHotPatchProcess(__int64 a1, unsigned int a2, unsigned int a
   unsigned __int64 v12; // rsi
   __int64 v13; // rax
   __int64 v14; // r8
-  unsigned __int64 v15; // rdi
+  void *v15; // rdi
   int v16; // r15d
   PVOID v17; // rcx
   bool v18; // zf
@@ -63,12 +63,12 @@ LABEL_4:
           && *(_DWORD *)(v13 + 72) == a3
           && (unsigned __int8)RtlIsPatchMachineApplicable(v6, a4) )
         {
-          v15 = (*(unsigned int *)(v12 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v12 + 32) << 32)) << 12;
+          v15 = (void *)((*(unsigned int *)(v12 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v12 + 32) << 32)) << 12);
           _InterlockedCompareExchange64((volatile signed __int64 *)(v14 + 24), -1LL, -1LL);
           MiReferenceVad(v12);
           MiUnlockVadShared((__int64)CurrentThread, v12);
           UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-          v10 = MiInjectThreadForHotPatch(v15, a2, a3);
+          v10 = MiInjectThreadForHotPatch(v15);
           LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
           MiLockVadShared((__int64)CurrentThread, v12);
           v16 = MiVadDeleted(v12);

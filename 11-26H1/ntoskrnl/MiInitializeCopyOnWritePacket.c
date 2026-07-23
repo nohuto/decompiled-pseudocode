@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeCopyOnWritePacket @ 0x14036AEA8
+ * XREFs of MiInitializeCopyOnWritePacket @ 0x14036CC48
  * Callers:
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiGetWsleProtection @ 0x14036C190 (MiGetWsleProtection.c)
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiGetWsleProtection @ 0x14036DF30 (MiGetWsleProtection.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeCopyOnWritePacket(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, int a4)
@@ -58,7 +58,7 @@ __int64 __fastcall MiInitializeCopyOnWritePacket(__int64 a1, unsigned __int64 a2
   if ( SystemRegionType == 11 )
   {
     v24 = *(_QWORD *)(a1 + 40);
-    *(_QWORD *)(a1 + 72) = &unk_140E36E00;
+    *(_QWORD *)(a1 + 72) = &unk_140E36F80;
     if ( *(__int64 *)(v24 + 8) > 0 && (*(_QWORD *)(v24 + 40) & 0x10000000000LL) == 0 )
       *(_DWORD *)a1 |= 2u;
   }
@@ -74,7 +74,7 @@ __int64 __fastcall MiInitializeCopyOnWritePacket(__int64 a1, unsigned __int64 a2
     {
       *(_DWORD *)a1 |= 2u;
       v23 = *(_QWORD *)(a1 + 40);
-      *(_QWORD *)(a1 + 72) = &unk_140E37080;
+      *(_QWORD *)(a1 + 72) = &unk_140E37200;
       if ( *(__int64 *)(v23 + 8) <= 0 || (*(_QWORD *)(v23 + 40) & 0x10000000000LL) != 0 )
         KeBugCheckEx(0x1Au, 0x3300uLL, a2, *(_QWORD *)(a1 + 24), 0x50000uLL);
     }
@@ -95,7 +95,7 @@ __int64 __fastcall MiInitializeCopyOnWritePacket(__int64 a1, unsigned __int64 a2
       *(_DWORD *)(a1 + 48) = MiComputeFaultNode(v27, 0LL, a1 + 104);
     }
   }
-  v14 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 72) + 174LL));
+  v14 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 72) + 174LL));
   v15 = *(_QWORD **)(a1 + 40);
   *(_QWORD *)(a1 + 96) = v14;
   if ( (*v15 & 1) != 0 )

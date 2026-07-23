@@ -1,27 +1,27 @@
 /*
- * XREFs of MmDoesFileHaveUserWritableReferences @ 0x14029F8B0
+ * XREFs of MmDoesFileHaveUserWritableReferences @ 0x14021CE30
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x1402057F0 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpRequestExclusiveOplock @ 0x140374AD0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402AA120 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x140374620 (FsRtlpRequestExclusiveOplock.c)
  * Callees:
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x14029F9C4 (MiDoesControlAreaHaveUserWritableReferences.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x14021CF44 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS SectionPointer)
 {
-  __int64 v1; // r8
-  _DWORD *SchedulerAssist; // r9
   unsigned __int8 CurrentIrql; // bl
-  volatile signed __int32 *DataSectionObject; // rdi
-  volatile LONG *v7; // r14
-  ULONG v8; // edi
-  unsigned __int8 v9; // al
-  struct _KPRCB *v10; // r10
+  char *DataSectionObject; // rdi
+  volatile LONG *v5; // r14
+  ULONG v6; // edi
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v8; // al
+  struct _KPRCB *v9; // r10
+  _DWORD *v10; // r9
   int v11; // eax
   bool v12; // zf
   unsigned __int8 v13; // al
@@ -40,17 +40,16 @@ ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS Se
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v1 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
-      SchedulerAssist[5] = v1;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C4C980, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C4C9C0, CurrentIrql);
     else
-      ExpAcquireSpinLockExclusive(&dword_140C4C980, CurrentIrql, v1, (__int64)SchedulerAssist);
-    DataSectionObject = (volatile signed __int32 *)SectionPointer->DataSectionObject;
+      ExpAcquireSpinLockExclusive(&dword_140C4C9C0, CurrentIrql);
+    DataSectionObject = (char *)SectionPointer->DataSectionObject;
     if ( !SectionPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -71,33 +70,32 @@ ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS Se
       __writecr8(CurrentIrql);
       return 0;
     }
-    v7 = DataSectionObject + 18;
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 18) )
+    v5 = (volatile LONG *)(DataSectionObject + 72);
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72) )
       break;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v9 = KeGetCurrentIrql();
-        if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+        v8 = KeGetCurrentIrql();
+        if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
         {
-          v10 = KeGetCurrentPrcb();
-          SchedulerAssist = v10->SchedulerAssist;
+          v9 = KeGetCurrentPrcb();
+          v10 = v9->SchedulerAssist;
           v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          v1 = (unsigned int)v11 & SchedulerAssist[5];
-          SchedulerAssist[5] = v1;
+          v12 = (v11 & v10[5]) == 0;
+          v10[5] &= v11;
           if ( v12 )
-            KiRemoveSystemWorkPriorityKick(v10);
+            KiRemoveSystemWorkPriorityKick(v9);
         }
       }
     }
     __writecr8(CurrentIrql);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
-  v8 = MiDoesControlAreaHaveUserWritableReferences(DataSectionObject) != 0;
-  ExReleaseSpinLockExclusiveFromDpcLevel(v7);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
+  v6 = MiDoesControlAreaHaveUserWritableReferences(DataSectionObject) != 0;
+  ExReleaseSpinLockExclusiveFromDpcLevel(v5);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -116,5 +114,5 @@ ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS Se
     }
   }
   __writecr8(CurrentIrql);
-  return v8;
+  return v6;
 }

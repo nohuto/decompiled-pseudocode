@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAllocatePoolWithQuotaTag @ 0x1404ECE10
+ * XREFs of CmpAllocatePoolWithQuotaTag @ 0x1404ED050
  * Callers:
- *     CmUpdateFeatureConfiguration @ 0x14086B330 (CmUpdateFeatureConfiguration.c)
- *     CmUpdateFeatureUsageSubscription @ 0x14086B4C8 (CmUpdateFeatureUsageSubscription.c)
+ *     CmUpdateFeatureConfiguration @ 0x14086B490 (CmUpdateFeatureConfiguration.c)
+ *     CmUpdateFeatureUsageSubscription @ 0x14086B628 (CmUpdateFeatureUsageSubscription.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
  */
 
 PVOID __fastcall CmpAllocatePoolWithQuotaTag(int a1, SIZE_T a2, ULONG a3)

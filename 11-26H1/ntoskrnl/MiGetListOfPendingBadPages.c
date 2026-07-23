@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetListOfPendingBadPages @ 0x14052AB58
+ * XREFs of MiGetListOfPendingBadPages @ 0x14052D078
  * Callers:
- *     MiQueryBadAddresses @ 0x140869F40 (MiQueryBadAddresses.c)
- *     MmEnumerateBadPages @ 0x140B5D81C (MmEnumerateBadPages.c)
+ *     MiQueryBadAddresses @ 0x140870320 (MiQueryBadAddresses.c)
+ *     MmEnumerateBadPages @ 0x140B6099C (MmEnumerateBadPages.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     MiEnumerateBadHugeRangePages @ 0x1406EB464 (MiEnumerateBadHugeRangePages.c)
- *     MiCheckLostBadPageNode @ 0x1406F0D10 (MiCheckLostBadPageNode.c)
- *     MiSortPageFramesRemoveDuplicates @ 0x1406F1F64 (MiSortPageFramesRemoveDuplicates.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     MiEnumerateBadHugeRangePages @ 0x1406F0104 (MiEnumerateBadHugeRangePages.c)
+ *     MiCheckLostBadPageNode @ 0x1406F5980 (MiCheckLostBadPageNode.c)
+ *     MiSortPageFramesRemoveDuplicates @ 0x1406F6BD4 (MiSortPageFramesRemoveDuplicates.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
@@ -45,10 +45,10 @@ __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
   __int64 v26; // [rsp+68h] [rbp+10h]
 
   v1 = a1;
-  if ( !qword_140E2EB08 )
+  if ( !qword_140E2EC88 )
     return 0LL;
-  v2 = qword_140E2EB08 + qword_140E2EB68;
-  if ( qword_140E2EB08 + qword_140E2EB68 >= (unsigned __int64)qword_140E2EB08 )
+  v2 = qword_140E2EC88 + qword_140E2ECE8;
+  if ( qword_140E2EC88 + qword_140E2ECE8 >= (unsigned __int64)qword_140E2EC88 )
   {
     while ( 1 )
     {
@@ -68,14 +68,14 @@ __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
       }
       v6 = PoolMm + 32;
       *(_QWORD *)(PoolMm + 24) = PoolMm + 32;
-      if ( qword_140E2EB18 )
+      if ( qword_140E2EC98 )
         break;
-      v7 = ExAcquireSpinLockShared(&dword_140E2EB10);
+      v7 = ExAcquireSpinLockShared(&dword_140E2EC90);
       v8 = v7;
-      if ( !qword_140E2EB18 && v2 >= qword_140E2EB68 + qword_140E2EB08 )
+      if ( !qword_140E2EC98 && v2 >= qword_140E2ECE8 + qword_140E2EC88 )
       {
         v5[2] += MiEnumerateBadHugeRangePages(v6, v2, 2LL);
-        v17 = (_QWORD *)qword_140E2EB00;
+        v17 = (_QWORD *)qword_140E2EC80;
         v18 = 0LL;
         while ( v17 )
         {
@@ -118,9 +118,9 @@ __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
           v1 = a1;
         }
         if ( v8 == 17 )
-          ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EB10);
+          ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EC90);
         else
-          ExReleaseSpinLockShared(&dword_140E2EB10, v8);
+          ExReleaseSpinLockShared(&dword_140E2EC90, v8);
 LABEL_57:
         v22 = v5[2];
         if ( v22 )
@@ -141,13 +141,13 @@ LABEL_57:
         return 0LL;
       }
       if ( v7 == 17 )
-        ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EB10);
+        ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EC90);
       else
-        ExReleaseSpinLockShared(&dword_140E2EB10, v7);
+        ExReleaseSpinLockShared(&dword_140E2EC90, v7);
       ExFreePoolWithTag(v5, 0);
 LABEL_36:
-      v2 = qword_140E2EB08 + qword_140E2EB68;
-      if ( qword_140E2EB08 + qword_140E2EB68 < (unsigned __int64)qword_140E2EB08 )
+      v2 = qword_140E2EC88 + qword_140E2ECE8;
+      if ( qword_140E2EC88 + qword_140E2ECE8 < (unsigned __int64)qword_140E2EC88 )
         return 3221225626LL;
     }
     v9 = (unsigned int *)MiReferencePageRuns((__int64)&MiSystemPartition, 0);
@@ -157,12 +157,12 @@ LABEL_36:
       ExFreePoolWithTag(v5, 0);
       return *(unsigned int *)(v1 + 16);
     }
-    v10 = ExAcquireSpinLockShared(&dword_140E2EB10);
+    v10 = ExAcquireSpinLockShared(&dword_140E2EC90);
     v11 = MiEnumerateBadHugeRangePages(v6, v2, 2LL);
     if ( v10 == 17 )
-      ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EB10);
+      ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EC90);
     else
-      ExReleaseSpinLockShared(&dword_140E2EB10, v10);
+      ExReleaseSpinLockShared(&dword_140E2EC90, v10);
     v12 = v11 + v5[2];
     v5[2] = v12;
     if ( v12 != v2 )

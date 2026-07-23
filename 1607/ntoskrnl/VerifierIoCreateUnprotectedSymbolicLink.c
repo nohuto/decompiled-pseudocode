@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoCreateUnprotectedSymbolicLink @ 0x14070C784
+ * XREFs of VerifierIoCreateUnprotectedSymbolicLink @ 0x14070C7B4
  * Callers:
  *     <none>
  * Callees:

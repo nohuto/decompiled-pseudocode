@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpEnumerateAutologgerPath @ 0x14083BD48
+ * XREFs of EtwpEnumerateAutologgerPath @ 0x14083C048
  * Callers:
- *     EtwpInitializeAutoLoggers @ 0x14083BACC (EtwpInitializeAutoLoggers.c)
+ *     EtwpInitializeAutoLoggers @ 0x14083BDCC (EtwpInitializeAutoLoggers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlInsertElementGenericTableAvl @ 0x14031EC30 (RtlInsertElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlNtStatusToDosError @ 0x1407AA380 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1407D42E0 (RtlWriteRegistryValue.c)
- *     EtwStartAutoLogger @ 0x14083BFA8 (EtwStartAutoLogger.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14031EEC0 (RtlInsertElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlNtStatusToDosError @ 0x1407AA570 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1407D45B0 (RtlWriteRegistryValue.c)
+ *     EtwStartAutoLogger @ 0x14083C2A8 (EtwStartAutoLogger.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AVL_TABLE *a3)
+void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, _RTL_AVL_TABLE *a3)
 {
   wchar_t *v5; // rdi
   __int64 v6; // rbx
@@ -27,7 +27,7 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   size_t v9; // r15
   wchar_t *Pool2; // rbx
   NTSTATUS v11; // esi
-  RTL_AVL_TABLE *v12; // rcx
+  _RTL_AVL_TABLE *v12; // rcx
   NTSTATUS v13; // ecx
   const WCHAR *v14; // rdx
   unsigned __int64 v15; // rdx

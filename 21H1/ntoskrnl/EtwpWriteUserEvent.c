@@ -538,7 +538,7 @@ LABEL_73:
       }
       goto LABEL_10;
     }
-    v56 = EtwpReserveTraceBuffer(v54, v45, (__int64)&v157, &v135, 0);
+    v56 = EtwpReserveTraceBuffer((unsigned int *)v54, v45, (__int64)&v157, &v135, 0);
     v57 = v56;
     v127 = v56;
     if ( !v56 )

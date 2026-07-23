@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckUserVirtualAddress @ 0x14025ADB0
+ * XREFs of MiCheckUserVirtualAddress @ 0x14025B040
  * Callers:
- *     MiCheckVirtualAddress @ 0x14025AB00 (MiCheckVirtualAddress.c)
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
- *     MiActOnPte @ 0x1402940D4 (MiActOnPte.c)
+ *     MiCheckVirtualAddress @ 0x14025AD90 (MiCheckVirtualAddress.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
+ *     MiActOnPte @ 0x140294364 (MiActOnPte.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiIsVadLargePrivate @ 0x140288070 (MiIsVadLargePrivate.c)
- *     MiLocateLockedVadEvent @ 0x14030B424 (MiLocateLockedVadEvent.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiIsVadLargePrivate @ 0x140288300 (MiIsVadLargePrivate.c)
+ *     MiLocateLockedVadEvent @ 0x14030B6B4 (MiLocateLockedVadEvent.c)
  */
 
 __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, __int64 a2, __int64 a3, int *a4)

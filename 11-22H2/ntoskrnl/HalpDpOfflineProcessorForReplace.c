@@ -38,10 +38,10 @@ __int64 __fastcall HalpDpOfflineProcessorForReplace(__int64 a1)
     HalpInterruptOfflineProcessor((volatile signed __int32 *)(a1 + 56));
   }
   HalpDpPostReplaceInitialization(a1, &v13);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefRawAdd @ 0x14052F32C
+ * XREFs of SymCryptFdefRawAdd @ 0x1405297D4
  * Callers:
- *     SymCryptFdefModAddGeneric @ 0x140535950 (SymCryptFdefModAddGeneric.c)
- *     SymCryptFdefModSubGeneric @ 0x140536BA0 (SymCryptFdefModSubGeneric.c)
+ *     SymCryptFdefModAddGeneric @ 0x14052FDF0 (SymCryptFdefModAddGeneric.c)
+ *     SymCryptFdefModSubGeneric @ 0x140531040 (SymCryptFdefModSubGeneric.c)
  * Callees:
- *     SymCryptFdefRawAddAsm @ 0x140537C60 (SymCryptFdefRawAddAsm.c)
+ *     SymCryptFdefRawAddAsm @ 0x140532100 (SymCryptFdefRawAddAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefRawAdd(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

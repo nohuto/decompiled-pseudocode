@@ -1,10 +1,10 @@
 /*
- * XREFs of PpIrpQueryBusInformation @ 0x140A73980
+ * XREFs of PpIrpQueryBusInformation @ 0x140A6CFA0
  * Callers:
- *     PnpQueryBusInformation @ 0x140A738F0 (PnpQueryBusInformation.c)
+ *     PnpQueryBusInformation @ 0x140A6CF10 (PnpQueryBusInformation.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopSynchronousCall @ 0x1408BBC08 (IopSynchronousCall.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopSynchronousCall @ 0x1408B9564 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall PpIrpQueryBusInformation(_QWORD *a1, _QWORD *a2)

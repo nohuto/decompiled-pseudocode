@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetGroupSecurityDescriptor @ 0x140A77C80
+ * XREFs of RtlGetGroupSecurityDescriptor @ 0x140A71F80
  * Callers:
- *     RtlReplaceSidInSd @ 0x140780E60 (RtlReplaceSidInSd.c)
- *     CmpCopySaclToVirtualKey @ 0x1407DCB7C (CmpCopySaclToVirtualKey.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14099C6D0 (PiDevCfgGetKeySecurityDescriptor.c)
- *     IopGetSecurityDescriptorInformation @ 0x1409A1904 (IopGetSecurityDescriptorInformation.c)
+ *     RtlReplaceSidInSd @ 0x140780D90 (RtlReplaceSidInSd.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407DD0CC (CmpCopySaclToVirtualKey.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1409CEE40 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     IopGetSecurityDescriptorInformation @ 0x140A6073C (IopGetSecurityDescriptorInformation.c)
  * Callees:
  *     <none>
  */

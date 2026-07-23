@@ -1,62 +1,58 @@
 /*
- * XREFs of DifKeLeaveGuardedRegionWrapper @ 0x14062E6B0
+ * XREFs of DifKeLeaveGuardedRegionWrapper @ 0x14062CC70
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void DifKeLeaveGuardedRegionWrapper()
 {
   __int64 *APIThunkContextById; // rax
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 *v4; // rdi
-  int v5; // eax
-  BOOLEAN v6; // si
+  __int64 *v2; // rdi
+  int v3; // eax
+  BOOLEAN v4; // si
   __int64 *i; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  BOOLEAN v11; // si
-  _QWORD **v12; // rdi
+  __int64 v6; // rdx
+  BOOLEAN v7; // si
+  _QWORD **v8; // rdi
   _QWORD *j; // rbx
   void *retaddr; // [rsp+28h] [rbp+0h]
   PVOID ReturnAddressForWrappers; // [rsp+30h] [rbp+8h] BYREF
 
   ReturnAddressForWrappers = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(273);
-  v4 = APIThunkContextById;
+  v2 = APIThunkContextById;
   if ( !APIThunkContextById )
     goto LABEL_16;
-  v5 = *((_DWORD *)APIThunkContextById + 3);
-  if ( (v5 & 0x18) != 0 )
+  v3 = *((_DWORD *)APIThunkContextById + 3);
+  if ( (v3 & 0x18) != 0 )
   {
     ReturnAddressForWrappers = retaddr;
   }
-  else if ( (v5 & 4) != 0 )
+  else if ( (v3 & 4) != 0 )
   {
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v6 = 0;
+  v4 = 0;
   if ( VfDifRunningWithoutReboot || (VfOptionFlags & 0x800) != 0 )
   {
-    v6 = ExAcquireRundownProtection(&DifRebootlessRundown);
-    if ( !v6 )
+    v4 = ExAcquireRundownProtection_0(&DifRebootlessRundown);
+    if ( !v4 )
       goto LABEL_16;
   }
-  for ( i = (__int64 *)v4[4]; i != v4 + 4; i = (__int64 *)*i )
+  for ( i = (__int64 *)v2[4]; i != v2 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
-      guard_dispatch_icall_no_overrides(&ReturnAddressForWrappers, v1, v2, v3);
+      guard_dispatch_icall_no_overrides(&ReturnAddressForWrappers, v1);
   }
-  if ( v6 )
+  if ( v4 )
   {
     ExReleaseRundownProtection_0(&DifRebootlessRundown);
     KeLeaveGuardedRegion();
@@ -65,20 +61,20 @@ void DifKeLeaveGuardedRegionWrapper()
   {
 LABEL_16:
     KeLeaveGuardedRegion();
-    if ( !v4 )
+    if ( !v2 )
       return;
   }
-  v11 = 0;
+  v7 = 0;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-    || (v11 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    || (v7 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
-    v12 = (_QWORD **)(v4 + 6);
-    for ( j = *v12; j != v12; j = (_QWORD *)*j )
+    v8 = (_QWORD **)(v2 + 6);
+    for ( j = *v8; j != v8; j = (_QWORD *)*j )
     {
       if ( j != (_QWORD *)16 )
-        guard_dispatch_icall_no_overrides(&ReturnAddressForWrappers, v8, v9, v10);
+        guard_dispatch_icall_no_overrides(&ReturnAddressForWrappers, v6);
     }
-    if ( v11 )
+    if ( v7 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 }

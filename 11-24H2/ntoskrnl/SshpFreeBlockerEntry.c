@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpFreeBlockerEntry @ 0x140A415DC
+ * XREFs of SshpFreeBlockerEntry @ 0x140A36EBC
  * Callers:
- *     SshpDereferenceBlocker @ 0x14047C6F0 (SshpDereferenceBlocker.c)
- *     SleepstudyHelperDestroyLibrary @ 0x140767660 (SleepstudyHelperDestroyLibrary.c)
- *     SshpPurgeBlockersWorker @ 0x140A41310 (SshpPurgeBlockersWorker.c)
+ *     SshpDereferenceBlocker @ 0x140477900 (SshpDereferenceBlocker.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x140767890 (SleepstudyHelperDestroyLibrary.c)
+ *     SshpPurgeBlockersWorker @ 0x140A36BF0 (SshpPurgeBlockersWorker.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     SshpTracingWriteBlockerStateRundown @ 0x14048614C (SshpTracingWriteBlockerStateRundown.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     SshpTracingWriteBlockerStateRundown @ 0x14048173C (SshpTracingWriteBlockerStateRundown.c)
  */
 
 void __fastcall SshpFreeBlockerEntry(PKSPIN_LOCK SpinLock)

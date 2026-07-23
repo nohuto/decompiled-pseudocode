@@ -1,17 +1,17 @@
 /*
- * XREFs of PopTraceThermalZonePassiveHistogram @ 0x1401425F0
+ * XREFs of PopTraceThermalZonePassiveHistogram @ 0x1401426F0
  * Callers:
- *     PopThermalSxEntry @ 0x140142534 (PopThermalSxEntry.c)
- *     PopThermalTelemetryWorker @ 0x1402DC450 (PopThermalTelemetryWorker.c)
- *     PopThermalZoneRemove @ 0x14086C640 (PopThermalZoneRemove.c)
+ *     PopThermalSxEntry @ 0x140142634 (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x1402DC640 (PopThermalTelemetryWorker.c)
+ *     PopThermalZoneRemove @ 0x14086D8A0 (PopThermalZoneRemove.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PopDiagSnapPassiveHistogram @ 0x14014276C (PopDiagSnapPassiveHistogram.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopDiagSnapPassiveHistogram @ 0x14014286C (PopDiagSnapPassiveHistogram.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceThermalZonePassiveHistogram(__int64 a1)
@@ -60,7 +60,7 @@ char __fastcall PopTraceThermalZonePassiveHistogram(__int64 a1)
         v13 = v19;
         v14 = 84;
         v17 = 21;
-        LOBYTE(DeviceAttachmentBaseRefWithTag) = TlgWrite(&pCallbackContext, &unk_1403704AA, 0LL, 0LL, 7u, &pData);
+        LOBYTE(DeviceAttachmentBaseRefWithTag) = TlgWrite(&pCallbackContext, &unk_140371359, 0LL, 0LL, 7u, &pData);
       }
     }
   }

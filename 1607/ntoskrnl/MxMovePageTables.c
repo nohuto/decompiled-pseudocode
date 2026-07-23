@@ -4,8 +4,8 @@
  *     MxRelocatePageTables @ 0x14078F670 (MxRelocatePageTables.c)
  *     MxMovePageTables @ 0x1407978A8 (MxMovePageTables.c)
  * Callees:
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     MxMovePageTables @ 0x1407978A8 (MxMovePageTables.c)
  *     MiIsRegularMemory @ 0x140797D00 (MiIsRegularMemory.c)
  *     MxSwapPages @ 0x140797EAC (MxSwapPages.c)

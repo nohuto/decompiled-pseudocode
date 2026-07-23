@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x140758F20
+ * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x1407573A0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmReapplyPerfPolicy @ 0x140AC77C4 (PpmReapplyPerfPolicy.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmReapplyPerfPolicy @ 0x140AC5250 (PpmReapplyPerfPolicy.c)
  */
 
 __int64 __fastcall PpmPerfProcCapFloorSettingCallback(

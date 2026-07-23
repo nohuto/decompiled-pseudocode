@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetProcessPebHotPatchState @ 0x14058235C
+ * XREFs of MiSetProcessPebHotPatchState @ 0x14058335C
  * Callers:
- *     MmNewProcessInitialized @ 0x140582398 (MmNewProcessInitialized.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MmNewProcessInitialized @ 0x140583398 (MmNewProcessInitialized.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
  *     <none>
  */

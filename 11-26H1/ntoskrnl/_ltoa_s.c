@@ -1,9 +1,9 @@
 /*
- * XREFs of _ltoa_s @ 0x14053B1E0
+ * XREFs of _ltoa_s @ 0x14053D660
  * Callers:
  *     <none>
  * Callees:
- *     xtoa_s @ 0x14053B38C (xtoa_s.c)
+ *     xtoa_s @ 0x14053D80C (xtoa_s.c)
  */
 
 errno_t __cdecl ltoa_s(int Val, char *DstBuf, size_t Size, int Radix)

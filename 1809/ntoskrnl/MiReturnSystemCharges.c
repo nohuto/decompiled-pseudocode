@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnSystemCharges @ 0x1401207D4
+ * XREFs of MiReturnSystemCharges @ 0x1401208A4
  * Callers:
  *     MiGetPageTablePages @ 0x140026E90 (MiGetPageTablePages.c)
  *     MiCleanupPageTablePages @ 0x1400288B8 (MiCleanupPageTablePages.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiDeleteSystemPageTableTail @ 0x140120730 (MiDeleteSystemPageTableTail.c)
- *     MiDeleteSessionPdes @ 0x140158D60 (MiDeleteSessionPdes.c)
- *     MiReturnSplitPageCharges @ 0x1401927D4 (MiReturnSplitPageCharges.c)
- *     MiGetLargePagesForSystemMapping @ 0x140851F70 (MiGetLargePagesForSystemMapping.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteSystemPageTableTail @ 0x140120800 (MiDeleteSystemPageTableTail.c)
+ *     MiDeleteSessionPdes @ 0x140158E60 (MiDeleteSessionPdes.c)
+ *     MiReturnSplitPageCharges @ 0x140192914 (MiReturnSplitPageCharges.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408531D0 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  */
@@ -36,10 +36,10 @@ void __fastcall MiReturnSystemCharges(__int64 a1, unsigned __int64 a2, int a3)
       v4 = -(__int64)a2;
       if ( a3 == 4 )
       {
-        _InterlockedExchangeAdd64(&qword_14043B040, v4);
+        _InterlockedExchangeAdd64(&qword_14043C100, v4);
         return;
       }
-      _InterlockedExchangeAdd64(&qword_14043B020, v4);
+      _InterlockedExchangeAdd64(&qword_14043C0E0, v4);
     }
     if ( (ULONG_PTR *)a1 == &MiSystemPartition )
     {

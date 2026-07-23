@@ -3,11 +3,11 @@
  * Callers:
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
- *     MiCaptureSecureImageBaseAddress @ 0x140A47F74 (MiCaptureSecureImageBaseAddress.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140A48224 (MiCaptureSecureImageBaseAddress.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall MI_UNLOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2)

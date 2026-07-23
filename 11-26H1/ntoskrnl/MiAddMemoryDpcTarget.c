@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAddMemoryDpcTarget @ 0x1406E7B40
+ * XREFs of MiAddMemoryDpcTarget @ 0x1406EC7F0
  * Callers:
  *     <none>
  * Callees:
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     MiClearPhysicalMemoryEverRemoved @ 0x1406E7DD8 (MiClearPhysicalMemoryEverRemoved.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     MiClearPhysicalMemoryEverRemoved @ 0x1406ECA88 (MiClearPhysicalMemoryEverRemoved.c)
  */
 
 __int64 __fastcall MiAddMemoryDpcTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, unsigned __int64 a4)

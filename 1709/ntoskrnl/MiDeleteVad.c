@@ -82,9 +82,9 @@ void __fastcall MiDeleteVad(__int64 a1, int a2)
   bool v20; // zf
   signed __int32 v21; // eax
   struct _KTHREAD *v22; // rsi
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v24; // r14
-  __int64 v25; // rdx
+  unsigned int v25; // edx
   __int64 v26; // r9
   __int64 v27; // rcx
   int v28; // eax
@@ -292,12 +292,12 @@ void __fastcall MiDeleteVad(__int64 a1, int a2)
   v103 = 0;
   v22 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v14) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx(v22->ApcState.Process);
+    SessionId = MmGetSessionIdEx(v22->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --v22->SpecialApcDisable;
   v24 = ++v22->AbAllocationRegionCount;
-  LODWORD(v25) = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
+  v25 = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
   v26 = v14 & 0x7FFFFFFFFFFFFFFCLL;
   v20 = !_BitScanReverse((unsigned int *)&v27, v25);
   v116 = v27;
@@ -305,7 +305,7 @@ void __fastcall MiDeleteVad(__int64 a1, int a2)
   {
 LABEL_41:
     if ( (*((_DWORD *)&v22->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v22, v14, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v22, v14, SessionId, 0LL);
   }
   else
   {
@@ -314,11 +314,11 @@ LABEL_41:
       v28 = 1 << v27;
       v29 = v27;
       v30 = &v22->LockEntries[v29];
-      v25 = ~v28 & (unsigned int)v25;
+      v25 &= ~v28;
       if ( (v30->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v30->LockState.0 & 1) == 0
         && (*(_QWORD *)&v30->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == v26
-        && v30->LockState.SessionId == (_DWORD)SessionId )
+        && v30->LockState.SessionId == SessionId )
       {
         v30->AcquiredByte &= ~1u;
         if ( v30->LockState.0 )
@@ -337,7 +337,7 @@ LABEL_40:
     }
     v30->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v30->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree(&v22->LockEntries[v29], v25, SessionId);
+      KiAbEntryRemoveFromTree(&v22->LockEntries[v29].TreeNode);
     v103 = 0;
     v103 = v30->BoostBitmap.AllFields & 0x1FFFF;
     v30->BoostBitmap.AllFields &= 0xFFFE0000;

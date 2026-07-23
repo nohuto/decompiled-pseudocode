@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRemoveDeviceActionRequests @ 0x1400B59B0
+ * XREFs of PnpRemoveDeviceActionRequests @ 0x1400B37D8
  * Callers:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

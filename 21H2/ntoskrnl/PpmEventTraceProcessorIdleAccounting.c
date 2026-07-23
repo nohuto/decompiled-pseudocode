@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventTraceProcessorIdleAccounting @ 0x14057ADA0
+ * XREFs of PpmEventTraceProcessorIdleAccounting @ 0x14057AFE0
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmTranslateIdleAccounting @ 0x140577280 (PpmTranslateIdleAccounting.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmTranslateIdleAccounting @ 0x1405774C0 (PpmTranslateIdleAccounting.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmEventTraceProcessorIdleAccounting(__int64 a1)

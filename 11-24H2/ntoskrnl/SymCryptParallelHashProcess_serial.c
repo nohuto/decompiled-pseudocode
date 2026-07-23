@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptParallelHashProcess_serial @ 0x1405201D4
+ * XREFs of SymCryptParallelHashProcess_serial @ 0x14051DAA8
  * Callers:
- *     SymCryptParallelSha256Process @ 0x14051D288 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x14051AB58 (SymCryptParallelSha256Process.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall SymCryptParallelHashProcess_serial(
@@ -83,18 +83,9 @@ __int64 __fastcall SymCryptParallelHashProcess_serial(
       for ( i = (_QWORD *)(a4 + 24); ; i += 5 )
       {
         v15 = *(i - 3);
-        if ( v15 >= a3 )
+        if ( v15 >= a3 || *((_DWORD *)i - 4) != 1 && (*((_DWORD *)i - 4) != 2 || *i != *(_DWORD *)(v7 + 44)) )
           break;
-        if ( *((_DWORD *)i - 4) == 1 )
-        {
-          guard_dispatch_icall_no_overrides(a2 + v15 * *(unsigned int *)(v7 + 40), *(i - 1), *i, a4);
-        }
-        else
-        {
-          if ( *((_DWORD *)i - 4) != 2 || *i != *(_DWORD *)(v7 + 44) )
-            return 32782;
-          guard_dispatch_icall_no_overrides(a2 + v15 * *(unsigned int *)(v7 + 40), *(i - 1), a3, a4);
-        }
+        guard_dispatch_icall_no_overrides(a2 + v15 * *(unsigned int *)(v7 + 40), *(i - 1));
         if ( ++v13 >= a5 )
           return v9;
       }

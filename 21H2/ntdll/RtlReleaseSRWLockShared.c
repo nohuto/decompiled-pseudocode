@@ -41,27 +41,27 @@
  *     RtlpWnfRetryTimerCallback @ 0x18008B4C0 (RtlpWnfRetryTimerCallback.c)
  *     RtlpWnfCalculateAndSetNextTimer @ 0x18008B64C (RtlpWnfCalculateAndSetNextTimer.c)
  *     RtlpHpTagContextUpdate @ 0x18009D040 (RtlpHpTagContextUpdate.c)
- *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D53D4 (LdrpUnlockTlsDelayedReclaimTable.c)
- *     RtlQueryProcessLockInformation @ 0x1800D8170 (RtlQueryProcessLockInformation.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1800E124C (LdrpGetAlternateResourceModuleHandleEx.c)
- *     RtlQueryCriticalSectionOwner @ 0x1800E8EF0 (RtlQueryCriticalSectionOwner.c)
- *     RtlPosixBarrier @ 0x1800ED9D8 (RtlPosixBarrier.c)
- *     RtlpFcWnfCallback @ 0x180102030 (RtlpFcWnfCallback.c)
- *     RtlpHpStackTraceAddStack @ 0x1801089C0 (RtlpHpStackTraceAddStack.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x180109400 (RtlpHpStackTraceHeapSerialize.c)
- *     RtlpHpStackTraceRemoveStack @ 0x1801095F8 (RtlpHpStackTraceRemoveStack.c)
- *     RtlpHpStackTraceSerialize @ 0x180109674 (RtlpHpStackTraceSerialize.c)
- *     EtwEnumerateProcessRegGuids @ 0x180110640 (EtwEnumerateProcessRegGuids.c)
- *     RtlStackDbStackAdd @ 0x180118AB0 (RtlStackDbStackAdd.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x1801194DC (RtlpStackDbSegmentFindOrCreate.c)
+ *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D5394 (LdrpUnlockTlsDelayedReclaimTable.c)
+ *     RtlQueryProcessLockInformation @ 0x1800D8130 (RtlQueryProcessLockInformation.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1800E120C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     RtlQueryCriticalSectionOwner @ 0x1800E8EB0 (RtlQueryCriticalSectionOwner.c)
+ *     RtlPosixBarrier @ 0x1800ED998 (RtlPosixBarrier.c)
+ *     RtlpFcWnfCallback @ 0x180101FF0 (RtlpFcWnfCallback.c)
+ *     RtlpHpStackTraceAddStack @ 0x180108980 (RtlpHpStackTraceAddStack.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x1801093C0 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x1801095B8 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpHpStackTraceSerialize @ 0x180109634 (RtlpHpStackTraceSerialize.c)
+ *     EtwEnumerateProcessRegGuids @ 0x180110600 (EtwEnumerateProcessRegGuids.c)
+ *     RtlStackDbStackAdd @ 0x180118A50 (RtlStackDbStackAdd.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18011947C (RtlpStackDbSegmentFindOrCreate.c)
  * Callees:
  *     RtlpWakeSRWLock @ 0x180015200 (RtlpWakeSRWLock.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   signed __int64 v2; // r9
   signed __int64 v3; // rtt
   __int64 v4; // r8
@@ -72,21 +72,21 @@ signed __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
   _QWORD *v9; // rdx
   __int64 i; // r9
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 17LL);
-  if ( result == 17 )
-    return result;
-  if ( (result & 1) == 0 )
-    RtlRaiseStatus(3221226084LL);
-  if ( (result & 2) != 0 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 17LL);
+  if ( v1 == 17 )
+    return;
+  if ( (v1 & 1) == 0 )
+    RtlRaiseStatus(-1073741212);
+  if ( (v1 & 2) != 0 )
   {
 LABEL_9:
-    if ( (result & 8) != 0 )
+    if ( (v1 & 8) != 0 )
     {
-      v9 = (_QWORD *)(result & 0xFFFFFFFFFFFFFFF0uLL);
-      for ( i = *(_QWORD *)((result & 0xFFFFFFFFFFFFFFF0uLL) + 8); !i; i = v9[1] )
+      v9 = (_QWORD *)(v1 & 0xFFFFFFFFFFFFFFF0uLL);
+      for ( i = *(_QWORD *)((v1 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !i; i = v9[1] )
         v9 = (_QWORD *)*v9;
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(i + 32), 0xFFFFFFFF) > 1 )
-        return result;
+        return;
       v4 = -9LL;
     }
     else
@@ -96,28 +96,28 @@ LABEL_9:
     do
     {
       v5 = v4 + 4;
-      v6 = result & 6;
+      v6 = v1 & 6;
       if ( v6 != 2 )
         v5 = v4;
-      v7 = result + v5;
-      v8 = result;
-      result = _InterlockedCompareExchange64(a1, v7, result);
+      v7 = v1 + v5;
+      v8 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v7, v1);
     }
-    while ( v8 != result );
+    while ( v8 != v1 );
     if ( v6 == 2 )
-      return RtlpWakeSRWLock(a1, v7, 0);
-    return result;
+      RtlpWakeSRWLock((volatile signed __int64 *)SRWLock, v7, 0);
+    return;
   }
   while ( 1 )
   {
     v2 = 0LL;
-    if ( (result & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
-      v2 = result - 16;
-    v3 = result;
-    result = _InterlockedCompareExchange64(a1, v2, result);
-    if ( v3 == result )
-      return result;
-    if ( (result & 2) != 0 )
+    if ( (v1 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
+      v2 = v1 - 16;
+    v3 = v1;
+    v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v2, v1);
+    if ( v3 == v1 )
+      break;
+    if ( (v1 & 2) != 0 )
       goto LABEL_9;
   }
 }

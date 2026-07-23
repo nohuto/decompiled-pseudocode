@@ -14,7 +14,7 @@
 
 __int64 __fastcall DifZwGetNotificationResourceManagerWrapper(
         void *a1,
-        struct _TRANSACTION_NOTIFICATION *a2,
+        _TRANSACTION_NOTIFICATION *a2,
         ULONG a3,
         LARGE_INTEGER *a4,
         ULONG *ReturnLength,
@@ -34,7 +34,7 @@ __int64 __fastcall DifZwGetNotificationResourceManagerWrapper(
   ULONG *v21; // [rsp+60h] [rbp-19h]
   LARGE_INTEGER *v22; // [rsp+68h] [rbp-11h]
   ULONG v23; // [rsp+70h] [rbp-9h]
-  struct _TRANSACTION_NOTIFICATION *v24; // [rsp+78h] [rbp-1h]
+  _TRANSACTION_NOTIFICATION *v24; // [rsp+78h] [rbp-1h]
   void *v25; // [rsp+80h] [rbp+7h]
   unsigned int NotificationResourceManager; // [rsp+88h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+47h]

@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmCleanupCurrentSession @ 0x1409A3E90
+ * XREFs of TtmCleanupCurrentSession @ 0x1409A4090
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PoUnregisterPowerSettingCallback @ 0x140987070 (PoUnregisterPowerSettingCallback.c)
- *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A50A0 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1409A526C (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogCleanupCurrentSessionStart @ 0x1409A70D0 (TtmiLogCleanupCurrentSessionStart.c)
- *     TtmiLogCleanupCurrentSessionStop @ 0x1409A7178 (TtmiLogCleanupCurrentSessionStop.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140987270 (PoUnregisterPowerSettingCallback.c)
+ *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A52A0 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1409A546C (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogCleanupCurrentSessionStart @ 0x1409A72D0 (TtmiLogCleanupCurrentSessionStart.c)
+ *     TtmiLogCleanupCurrentSessionStop @ 0x1409A7378 (TtmiLogCleanupCurrentSessionStop.c)
  */
 
 __int64 TtmCleanupCurrentSession()

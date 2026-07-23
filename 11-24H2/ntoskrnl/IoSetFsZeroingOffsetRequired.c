@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSetFsZeroingOffsetRequired @ 0x140597580
+ * XREFs of IoSetFsZeroingOffsetRequired @ 0x140594500
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExtension @ 0x140375A80 (IopAllocateIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x1403F51A0 (IopIrpHasExtensionType.c)
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x140480B68 (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopIrpHasExtensionType @ 0x1403E8190 (IopIrpHasExtensionType.c)
+ *     IopAllocateIrpExtension @ 0x140435420 (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14047B638 (IopIrpHasValidCombinationOfExtensionTypes.c)
  */
 
 __int64 __fastcall IoSetFsZeroingOffsetRequired(__int64 a1)

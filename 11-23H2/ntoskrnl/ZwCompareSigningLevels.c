@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwCompareSigningLevels @ 0x14041C120
+ * XREFs of ZwCompareSigningLevels @ 0x14041C4B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompareSigningLevels(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FirstSigningLevel);
 }

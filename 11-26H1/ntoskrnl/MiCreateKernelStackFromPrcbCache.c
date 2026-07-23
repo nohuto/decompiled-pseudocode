@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreateKernelStackFromPrcbCache @ 0x1403D10EC
+ * XREFs of MiCreateKernelStackFromPrcbCache @ 0x1403D40B8
  * Callers:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
  * Callees:
- *     MiUpdateKernelShadowStackOwnerData @ 0x140340B48 (MiUpdateKernelShadowStackOwnerData.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x140342BC8 (MiUpdateKernelShadowStackOwnerData.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCreateKernelStackFromPrcbCache(__int64 a1)
@@ -45,8 +45,8 @@ __int64 __fastcall MiCreateKernelStackFromPrcbCache(__int64 a1)
   {
     v4 = *(_QWORD *)(v3 - 16);
     v5 = v3 - 4080;
-    if ( v4 != (qword_140E34BA0 ^ v5) )
-      KeBugCheckEx(0x1Au, 0x3470uLL, v5, v4, qword_140E34BA0 ^ v5);
+    if ( v4 != (qword_140E34D20 ^ v5) )
+      KeBugCheckEx(0x1Au, 0x3470uLL, v5, v4, qword_140E34D20 ^ v5);
     return (__int64)(((v5 & 0xFFFFFFFFFFFFF000uLL) << 16) + 0x10000000) >> 16;
   }
   return v6;

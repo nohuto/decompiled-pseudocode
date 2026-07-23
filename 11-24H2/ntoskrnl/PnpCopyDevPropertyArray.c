@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpCopyDevPropertyArray @ 0x1409FA240
+ * XREFs of PnpCopyDevPropertyArray @ 0x1409F2BB0
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x140730E8C (PiSwQueuedCreateInfoCreate.c)
- *     PiSwInterfaceCreate @ 0x1409F82E4 (PiSwInterfaceCreate.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x14072EE9C (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwInterfaceCreate @ 0x1409F0C54 (PiSwInterfaceCreate.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpCopyDevProperty @ 0x1409FA314 (PnpCopyDevProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PnpCopyDevProperty @ 0x1409F2C84 (PnpCopyDevProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCopyDevPropertyArray(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4, PVOID *a5)
@@ -25,7 +25,7 @@ __int64 __fastcall PnpCopyDevPropertyArray(unsigned int a1, __int64 a2, __int64 
   {
     if ( !is_mul_ok(a1, 0x30uLL) )
       return (unsigned int)-1073741675;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 48LL * a1, 0x57706E50u);
     *a5 = (PVOID)Pool2;
     if ( Pool2 )
     {

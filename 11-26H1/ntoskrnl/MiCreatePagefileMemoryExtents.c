@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreatePagefileMemoryExtents @ 0x14087E204
+ * XREFs of MiCreatePagefileMemoryExtents @ 0x140884604
  * Callers:
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x14087E48C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x14088488C (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiFreeContiguousPages @ 0x1403C3858 (MiFreeContiguousPages.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetSpecialPurposeMemoryPartitionForCaching @ 0x14046CEE0 (MiGetSpecialPurposeMemoryPartitionForCaching.c)
- *     MiComparePageFileMemoryExtents @ 0x14070C884 (MiComparePageFileMemoryExtents.c)
- *     MiInsertPageFileMemoryExtents @ 0x14070CC38 (MiInsertPageFileMemoryExtents.c)
- *     MiDeletePageFileMemoryExtents @ 0x14087E544 (MiDeletePageFileMemoryExtents.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x14087EDA8 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiFreeContiguousPages @ 0x1403CD758 (MiFreeContiguousPages.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetSpecialPurposeMemoryPartitionForCaching @ 0x140466660 (MiGetSpecialPurposeMemoryPartitionForCaching.c)
+ *     MiComparePageFileMemoryExtents @ 0x140711534 (MiComparePageFileMemoryExtents.c)
+ *     MiInsertPageFileMemoryExtents @ 0x1407118E8 (MiInsertPageFileMemoryExtents.c)
+ *     MiDeletePageFileMemoryExtents @ 0x140884944 (MiDeletePageFileMemoryExtents.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1408851A8 (MiSpecialPurposeMemoryTypeDereference.c)
  */
 
 __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -26,10 +26,10 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, __int64
   unsigned int v11; // eax
   int CurrentProcessorColor; // eax
   __int64 PoolMm; // rax
-  unsigned __int64 v14; // r15
+  __int64 v14; // r15
   _DWORD *v15; // rax
-  unsigned __int64 v16; // rbx
-  bool v17; // r8
+  signed __int64 v16; // rbx
+  BOOLEAN v17; // r8
   int v18; // esi
   unsigned __int64 v19; // rax
   unsigned __int64 v20; // rcx
@@ -39,13 +39,13 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, __int64
   unsigned __int64 v24; // rbx
   int v26; // [rsp+20h] [rbp-49h]
   __int64 v27; // [rsp+70h] [rbp+7h] BYREF
-  _OWORD v28[4]; // [rsp+78h] [rbp+Fh] BYREF
+  PRTL_BALANCED_NODE Parent[2]; // [rsp+78h] [rbp+Fh] BYREF
   ULONG_PTR v29; // [rsp+D0h] [rbp+67h] BYREF
   __int64 SpecialPurposeMemoryPartitionForCaching; // [rsp+E8h] [rbp+7Fh]
 
   v5 = *(_QWORD *)(a1 + 224);
   v29 = 0LL;
-  v28[0] = 0LL;
+  *(_OWORD *)Parent = 0LL;
   v27 = 0LL;
   v6 = a3;
   SpecialPurposeMemoryPartitionForCaching = MiGetSpecialPurposeMemoryPartitionForCaching(v5, &v27, a3, a4);
@@ -63,7 +63,7 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, __int64
       if ( (int)MiFindContiguousPagesEx(
                   v7,
                   0LL,
-                  qword_140E2D7A0,
+                  qword_140E2D920,
                   0LL,
                   v26,
                   v11,
@@ -91,11 +91,11 @@ __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, __int64
         v9 += v10;
         *(_DWORD *)(v14 + 28) = v9 - 1;
         *(_QWORD *)(v14 + 32) = v29;
-        v16 = *(_QWORD *)&v28[0];
-        if ( (BYTE8(v28[0]) & 1) != 0 && *(_QWORD *)&v28[0] )
-          v16 = (unsigned __int64)v28 ^ *(_QWORD *)&v28[0];
+        v16 = (signed __int64)Parent[0];
+        if ( ((__int64)Parent[1] & 1) != 0 && Parent[0] )
+          v16 = (unsigned __int64)Parent ^ (unsigned __int64)Parent[0];
         v17 = 0;
-        v18 = BYTE8(v28[0]) & 1;
+        v18 = (__int64)Parent[1] & 1;
         if ( v16 )
         {
           while ( 1 )
@@ -136,7 +136,7 @@ LABEL_20:
             v15 = (_DWORD *)(v14 + 24);
           }
         }
-        RtlRbInsertNodeEx((unsigned __int64)v28, v16, v17, v14);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)Parent, (PRTL_BALANCED_NODE)v16, v17, (PRTL_BALANCED_NODE)v14);
         v7 = SpecialPurposeMemoryPartitionForCaching;
       }
       else
@@ -147,7 +147,7 @@ LABEL_20:
         LODWORD(v10) = (((unsigned int)v10 >> 1) + 511) & 0xFFFFFE00;
       }
     }
-    MiInsertPageFileMemoryExtents(a1, (__int64)v28);
+    MiInsertPageFileMemoryExtents(a1, (__int64)Parent);
     v8 = 0;
   }
   else
@@ -158,15 +158,15 @@ LABEL_2:
 LABEL_30:
   if ( v27 )
     MiSpecialPurposeMemoryTypeDereference(*(_QWORD *)(a1 + 224), v27);
-  v20 = *(_QWORD *)&v28[0];
-  if ( (BYTE8(v28[0]) & 1) != 0 )
+  v20 = (unsigned __int64)Parent[0];
+  if ( ((__int64)Parent[1] & 1) != 0 )
   {
-    if ( *(_QWORD *)&v28[0] )
-      v20 = (unsigned __int64)v28 ^ *(_QWORD *)&v28[0];
+    if ( Parent[0] )
+      v20 = (unsigned __int64)Parent ^ (unsigned __int64)Parent[0];
     else
       v20 = 0LL;
   }
-  v21 = BYTE8(v28[0]) & 1;
+  v21 = (__int64)Parent[1] & 1;
   if ( v20 )
   {
     while ( 1 )

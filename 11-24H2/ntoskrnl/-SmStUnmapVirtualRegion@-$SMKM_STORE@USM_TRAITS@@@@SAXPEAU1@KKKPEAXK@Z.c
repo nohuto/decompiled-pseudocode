@@ -1,25 +1,25 @@
 /*
- * XREFs of ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14039B2D0
+ * XREFs of ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1402F85D0
  * Callers:
- *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14037FE90 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     ?SmStCompareRegionDataCallback@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z @ 0x140399A30 (-SmStCompareRegionDataCallback@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z.c)
- *     ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x140399E40 (-StMapAndLockRegion@-$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z.c)
- *     ?StUnlockAndUnmapRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z @ 0x14039A028 (-StUnlockAndUnmapRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x14039A0C0 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     ?StDmFinishPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@J@Z @ 0x14039B140 (-StDmFinishPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@P.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x14044FA74 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x1402F41E0 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
+ *     ?SmStCompareRegionDataCallback@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z @ 0x1402F6D30 (-SmStCompareRegionDataCallback@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z.c)
+ *     ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x1402F7140 (-StMapAndLockRegion@-$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z.c)
+ *     ?StUnlockAndUnmapRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z @ 0x1402F7328 (-StUnlockAndUnmapRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z.c)
+ *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1402F73C0 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
+ *     ?StDmFinishPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@J@Z @ 0x1402F8440 (-StDmFinishPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_LOCATION@1@P.c)
+ *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403797D0 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     SmKmFreeMdlForLock @ 0x14037AD84 (SmKmFreeMdlForLock.c)
- *     ?SmStFindVirtualLockedRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@KPEAX@Z @ 0x140399DE4 (-SmStFindVirtualLockedRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@K.c)
- *     MmReleaseResourceCharge @ 0x14039BBFC (MmReleaseResourceCharge.c)
- *     SmKmUnlockMdl @ 0x14039C804 (SmKmUnlockMdl.c)
- *     SmpFpReleaseResource @ 0x1404F9720 (SmpFpReleaseResource.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     SmKmFreeMdlForLock @ 0x1402E7E04 (SmKmFreeMdlForLock.c)
+ *     ?SmStFindVirtualLockedRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@KPEAX@Z @ 0x1402F70E4 (-SmStFindVirtualLockedRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAU_SM_VIRTUAL_LOCKED_REGION@@PEAU1@K.c)
+ *     MmReleaseResourceCharge @ 0x1402F8EFC (MmReleaseResourceCharge.c)
+ *     SmKmUnlockMdl @ 0x1402F9B04 (SmKmUnlockMdl.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     SmpFpReleaseResource @ 0x1404F7000 (SmpFpReleaseResource.c)
  */
 
 void __fastcall SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(
@@ -35,13 +35,11 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(
   __int64 v9; // r12
   int v10; // r14d
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v12; // rsi
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  struct _KTHREAD *v15; // rax
+  __int64 v12; // rsi
+  struct _KTHREAD *v13; // rax
   PMDL *VirtualLockedRegion; // rdi
-  __int64 v18; // rsi
-  PMDL v19; // rbp
+  __int64 v16; // rsi
+  PMDL v17; // rbp
 
   v7 = *(unsigned int *)(a1 + 7016);
   v8 = (volatile signed __int16 *)(*(_QWORD *)(a1 + 7024) + 8LL * a2);
@@ -52,11 +50,11 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(
     CurrentThread = KeGetCurrentThread();
     v10 = 1;
     --CurrentThread->SpecialApcDisable;
-    v12 = KeAbPreAcquire(a1 + 6840, 0LL);
+    v12 = KeAbPreAcquire(a1 + 6840, 0LL, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 6840), 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 6840), 0, v12, a1 + 6840);
+      ExfAcquirePushLockSharedEx(a1 + 6840, 0LL, v12, a1 + 6840);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      *(_BYTE *)(v12 + 10) = 1;
   }
   if ( (a6 & 4) != 0 )
   {
@@ -64,19 +62,19 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(
     {
       VirtualLockedRegion = (PMDL *)SMKM_STORE<SM_TRAITS>::SmStFindVirtualLockedRegion(a1, (a6 >> 4) & 7, v9);
       SmKmUnlockMdl(*VirtualLockedRegion, *(PEX_SPIN_LOCK *)(a1 + 7312));
-      v18 = *(_QWORD *)(a1 + 7312);
-      v19 = *VirtualLockedRegion;
-      if ( *(_QWORD *)(v18 + 112) == a1 + 7184 && (unsigned int)SmpFpReleaseResource(*(PEX_SPIN_LOCK *)(a1 + 7312)) )
+      v16 = *(_QWORD *)(a1 + 7312);
+      v17 = *VirtualLockedRegion;
+      if ( *(_QWORD *)(v16 + 112) == a1 + 7184 && (unsigned int)SmpFpReleaseResource(*(PEX_SPIN_LOCK *)(a1 + 7312)) )
       {
-        if ( !*(_BYTE *)(v18 + 94) )
+        if ( !*(_BYTE *)(v16 + 94) )
         {
-          _InterlockedExchange64((volatile __int64 *)(v18 + 112), 0LL);
-          KeSetEvent((PRKEVENT)(v18 + 8), 0, 0);
+          _InterlockedExchange64((volatile __int64 *)(v16 + 112), 0LL);
+          KeSetEvent((PRKEVENT)(v16 + 8), 0, 0);
         }
       }
       else
       {
-        SmKmFreeMdlForLock(*(_QWORD *)(v18 + 32), (unsigned int *)v19);
+        SmKmFreeMdlForLock(*(_QWORD *)(v16 + 32), (unsigned int *)v17);
       }
       *VirtualLockedRegion = 0LL;
     }
@@ -102,11 +100,11 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 6840), 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(a1 + 6840));
     KeAbPostRelease(a1 + 6840);
-    v15 = KeGetCurrentThread();
-    if ( v15->SpecialApcDisable++ == -1
-      && ($81B80DCEA5A02D890AB7B2872B48AC01 *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
+    v13 = KeGetCurrentThread();
+    if ( v13->SpecialApcDisable++ == -1
+      && ($727077A9B6E167EAE1398C74674DC5A5 *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
     {
-      KiCheckForKernelApcDelivery(v14, v13);
+      KiCheckForKernelApcDelivery();
     }
   }
 }

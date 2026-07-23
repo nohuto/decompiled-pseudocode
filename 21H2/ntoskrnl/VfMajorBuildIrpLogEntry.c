@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorBuildIrpLogEntry @ 0x1409D79C0
+ * XREFs of VfMajorBuildIrpLogEntry @ 0x1409D89C0
  * Callers:
- *     VfIrpLogRecordEvent @ 0x1409E3898 (VfIrpLogRecordEvent.c)
+ *     VfIrpLogRecordEvent @ 0x1409E4898 (VfIrpLogRecordEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorBuildIrpLogEntry(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

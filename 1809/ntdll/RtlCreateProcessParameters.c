@@ -6,17 +6,29 @@
  *     RtlCreateProcessParametersInternal @ 0x180054DCC (RtlCreateProcessParametersInternal.c)
  */
 
-__int64 __fastcall RtlCreateProcessParameters(
-        _QWORD *a1,
-        unsigned __int16 *a2,
-        __int64 a3,
-        __int64 a4,
-        unsigned __int16 *a5,
-        void *a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl RtlCreateProcessParameters(
+        PRTL_USER_PROCESS_PARAMETERS *pProcessParameters,
+        PUNICODE_STRING ImagePathName,
+        PUNICODE_STRING DllPath,
+        PUNICODE_STRING CurrentDirectory,
+        PUNICODE_STRING CommandLine,
+        PVOID Environment,
+        PUNICODE_STRING WindowTitle,
+        PUNICODE_STRING DesktopInfo,
+        PUNICODE_STRING ShellInfo,
+        PUNICODE_STRING RuntimeData)
 {
-  return RtlCreateProcessParametersInternal(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, 0LL, 0);
+  return RtlCreateProcessParametersInternal(
+           pProcessParameters,
+           &ImagePathName->Length,
+           (__int64)DllPath,
+           (__int64)CurrentDirectory,
+           &CommandLine->Length,
+           Environment,
+           (__int64)WindowTitle,
+           (__int64)DesktopInfo,
+           (__int64)ShellInfo,
+           (__int64)RuntimeData,
+           0LL,
+           0);
 }

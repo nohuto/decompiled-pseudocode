@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFindGuidInSection @ 0x18001A0C4
+ * XREFs of RtlpFindGuidInSection @ 0x18001A0B4
  * Callers:
- *     RtlFindActivationContextSectionGuid @ 0x180019EF0 (RtlFindActivationContextSectionGuid.c)
+ *     RtlFindActivationContextSectionGuid @ 0x180019EE0 (RtlFindActivationContextSectionGuid.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     bsearch @ 0x180099410 (bsearch.c)
  *     RtlCompareMemory @ 0x1800AA6B0 (RtlCompareMemory.c)
  */

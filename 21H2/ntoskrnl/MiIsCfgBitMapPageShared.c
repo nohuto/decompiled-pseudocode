@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsCfgBitMapPageShared @ 0x14030D66C
+ * XREFs of MiIsCfgBitMapPageShared @ 0x1403183BC
  * Callers:
- *     MiMarkSharedImageCfgBits @ 0x1406E9604 (MiMarkSharedImageCfgBits.c)
+ *     MiMarkSharedImageCfgBits @ 0x1407009E4 (MiMarkSharedImageCfgBits.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
- *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetNextPageTable @ 0x140318570 (MiGetNextPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -65,12 +65,12 @@ __int64 __fastcall MiIsCfgBitMapPageShared(unsigned __int64 a1, __int64 a2, __in
   {
     if ( MiIsPrototypePteVadLookup(v12) )
       goto LABEL_17;
-    if ( qword_140C4DF40 )
+    if ( qword_140C4DF80 )
     {
       if ( (v12 & 0x10) != 0 )
         v12 &= ~0x10uLL;
       else
-        v12 &= ~qword_140C4DF40;
+        v12 &= ~qword_140C4DF80;
     }
     v17 = v14 == v12 >> 16;
 LABEL_15:

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCombineCmResourceList @ 0x140725524
+ * XREFs of IopCombineCmResourceList @ 0x1407230B4
  * Callers:
- *     IopAllocateLegacyBootResources @ 0x140C23F28 (IopAllocateLegacyBootResources.c)
+ *     IopAllocateLegacyBootResources @ 0x140C25F58 (IopAllocateLegacyBootResources.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _DWORD *__fastcall IopCombineCmResourceList(void *Src, _DWORD *a2)
@@ -26,7 +26,7 @@ _DWORD *__fastcall IopCombineCmResourceList(void *Src, _DWORD *a2)
   if ( (_DWORD)v6 && v7 )
   {
     v8 = v7 - 4;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(v7 - 4 + v6), 0x20207050u);
     v5 = Pool2;
     if ( Pool2 )
     {

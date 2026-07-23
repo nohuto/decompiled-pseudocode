@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     PsGetThreadServerSilo @ 0x14028C190 (PsGetThreadServerSilo.c)
- *     IoGetActivityIdIrp @ 0x1403269D0 (IoGetActivityIdIrp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpDiskProvTraceDisk @ 0x1405FDA48 (EtwpDiskProvTraceDisk.c)
+ *     PsGetThreadServerSilo @ 0x14028C420 (PsGetThreadServerSilo.c)
+ *     IoGetActivityIdIrp @ 0x140326C60 (IoGetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpDiskProvTraceDisk @ 0x1405FDFB8 (EtwpDiskProvTraceDisk.c)
  */
 
 _DWORD *__fastcall EtwpTraceIo(int a1, unsigned int a2, __int64 a3)

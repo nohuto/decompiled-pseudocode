@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwCallEnclave @ 0x1800A14B0
+ * XREFs of ZwCallEnclave @ 0x1800A14D0
  * Callers:
- *     RtlEnclaveCallDispatcher @ 0x1800A4140 (RtlEnclaveCallDispatcher.c)
- *     RtlCallEnclave @ 0x1800A41B0 (RtlCallEnclave.c)
+ *     RtlEnclaveCallDispatcher @ 0x1800A4160 (RtlEnclaveCallDispatcher.c)
+ *     RtlCallEnclave @ 0x1800A41D0 (RtlCallEnclave.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCallEnclave()
+NTSTATUS __cdecl ZwCallEnclave(PENCLAVE_ROUTINE Routine, PVOID Reserved, ULONG Flags, PVOID *RoutineParamReturn)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 143LL;
+  result = 143;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

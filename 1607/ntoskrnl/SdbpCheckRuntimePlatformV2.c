@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCheckRuntimePlatformV2 @ 0x1406C3114
+ * XREFs of SdbpCheckRuntimePlatformV2 @ 0x1406C324C
  * Callers:
  *     <none>
  * Callees:
- *     SdbReadDWORDTag @ 0x1404EA9AC (SdbReadDWORDTag.c)
+ *     SdbReadDWORDTag @ 0x1404CCBB0 (SdbReadDWORDTag.c)
  */
 
 __int64 __fastcall SdbpCheckRuntimePlatformV2(int *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

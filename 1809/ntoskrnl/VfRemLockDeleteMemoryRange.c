@@ -1,15 +1,15 @@
 /*
- * XREFs of VfRemLockDeleteMemoryRange @ 0x140934768
+ * XREFs of VfRemLockDeleteMemoryRange @ 0x140935768
  * Callers:
- *     VfDriverUnloadImage @ 0x1409213DC (VfDriverUnloadImage.c)
- *     VfFreeMemoryNotification @ 0x140925CB8 (VfFreeMemoryNotification.c)
- *     VfFreePoolNotification @ 0x140937E9C (VfFreePoolNotification.c)
+ *     VfDriverUnloadImage @ 0x1409223DC (VfDriverUnloadImage.c)
+ *     VfFreeMemoryNotification @ 0x140926CB8 (VfFreeMemoryNotification.c)
+ *     VfFreePoolNotification @ 0x140938E9C (VfFreePoolNotification.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
- *     VfPoolIsInternalFree @ 0x14030B188 (VfPoolIsInternalFree.c)
- *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x140934854 (ViRemLockDeleteFirstTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5708 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14016C530 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x14030B378 (VfPoolIsInternalFree.c)
+ *     VfAvlInitializeLockContext @ 0x14030B7A4 (VfAvlInitializeLockContext.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x140935854 (ViRemLockDeleteFirstTreeNode.c)
  */
 
 char __fastcall VfRemLockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)
@@ -21,8 +21,8 @@ char __fastcall VfRemLockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)
   LOBYTE(IsInternalFree) = ViRemLockInitialized;
   if ( ViRemLockInitialized )
   {
-    LOBYTE(IsInternalFree) = qword_140987020;
-    if ( qword_140987020 )
+    LOBYTE(IsInternalFree) = qword_140988020;
+    if ( qword_140988020 )
     {
       IsInternalFree = VfPoolIsInternalFree();
       if ( !IsInternalFree )

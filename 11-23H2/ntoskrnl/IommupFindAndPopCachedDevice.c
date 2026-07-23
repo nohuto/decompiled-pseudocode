@@ -1,13 +1,13 @@
 /*
- * XREFs of IommupFindAndPopCachedDevice @ 0x140526A74
+ * XREFs of IommupFindAndPopCachedDevice @ 0x140526FC4
  * Callers:
- *     IommuDomainAttachDevice @ 0x140525680 (IommuDomainAttachDevice.c)
- *     IommuDomainAttachDeviceEx @ 0x140525910 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainDetachDeviceEx @ 0x140525D50 (IommuDomainDetachDeviceEx.c)
+ *     IommuDomainAttachDevice @ 0x140525BD0 (IommuDomainAttachDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x140525E60 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405262A0 (IommuDomainDetachDeviceEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall IommupFindAndPopCachedDevice(__int64 a1, __int64 **a2)
@@ -30,7 +30,7 @@ char __fastcall IommupFindAndPopCachedDevice(__int64 a1, __int64 **a2)
   v4 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -56,10 +56,10 @@ char __fastcall IommupFindAndPopCachedDevice(__int64 a1, __int64 **a2)
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuParaVirtDeviceCacheLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;
@@ -67,7 +67,7 @@ char __fastcall IommupFindAndPopCachedDevice(__int64 a1, __int64 **a2)
       v14 = (v13 & v12[5]) == 0;
       v12[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLockRootJobShared @ 0x1408EB990
+ * XREFs of PspLockRootJobShared @ 0x14085D1C0
  * Callers:
- *     PspQueryJobHierarchyAccountingInformation @ 0x1408EB654 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x14085CE84 (PspQueryJobHierarchyAccountingInformation.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall PspLockRootJobShared(__int64 a1, __int64 a2, _QWORD *a3)

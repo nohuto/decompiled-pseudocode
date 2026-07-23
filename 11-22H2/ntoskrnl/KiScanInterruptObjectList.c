@@ -37,7 +37,7 @@ char __fastcall KiScanInterruptObjectList()
   _BYTE v21[64]; // [rsp+28h] [rbp-40h] BYREF
 
   v2 = *(unsigned __int8 *)(v1 + 92);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v3) = KzSetIrqlUnsafe(v2);
   }

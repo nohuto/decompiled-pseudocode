@@ -18,7 +18,7 @@
  *     RtlLeaveCriticalSection @ 0x18002EE00 (RtlLeaveCriticalSection.c)
  */
 
-__int64 LdrpDropLastInProgressCount()
+NTSTATUS LdrpDropLastInProgressCount()
 {
   struct _TEB *v0; // rax
 

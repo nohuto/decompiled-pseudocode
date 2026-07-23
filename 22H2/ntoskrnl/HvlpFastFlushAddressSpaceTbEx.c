@@ -21,5 +21,5 @@ __int64 __fastcall HvlpFastFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3
     v3 = a3 != 0 ? 0 : 4;
   v6[1] = v3;
   v4 = HvlpAffinityToHvProcessorSet(a2, v7, 0x50u);
-  return HvcallFastExtended(((v4 + 7) << 14) & 0x3FE0000 | 0x10013u, (__int64)v6, (unsigned int)(v4 + 32), 0LL, 0);
+  return HvcallFastExtended(((v4 + 7) << 14) & 0x3FE0000 | 0x10013u, (__int64)v6, v4 + 32, 0, 0);
 }

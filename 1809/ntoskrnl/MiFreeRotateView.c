@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeRotateView @ 0x14084F294
+ * XREFs of MiFreeRotateView @ 0x1408504F4
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
  * Callees:
- *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiGetVadWakeList @ 0x140068260 (MiGetVadWakeList.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140068560 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 *__fastcall MiFreeRotateView(__int64 a1, __int64 a2, __int64 a3)

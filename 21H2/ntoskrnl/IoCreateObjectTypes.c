@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCreateObjectTypes @ 0x140A3D6D8
+ * XREFs of IoCreateObjectTypes @ 0x140A3E6D8
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
  */
 
 bool IoCreateObjectTypes()

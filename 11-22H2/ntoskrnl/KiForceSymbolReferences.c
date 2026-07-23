@@ -82,7 +82,7 @@ __int64 __fastcall KiForceSymbolReferences(__int64 a1)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v12 = KeGetCurrentPrcb()->SchedulerAssist;
     v13 = 4;
@@ -91,10 +91,10 @@ __int64 __fastcall KiForceSymbolReferences(__int64 a1)
     v12[5] |= v13;
   }
   ExTryAcquireSpinLockExclusiveAtDpcLevel();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
     {
       v15 = KeGetCurrentPrcb();
       v16 = v15->SchedulerAssist;

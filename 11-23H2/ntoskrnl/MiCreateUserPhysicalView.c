@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateUserPhysicalView @ 0x140A41778
+ * XREFs of MiCreateUserPhysicalView @ 0x140A41A28
  * Callers:
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     MiCheckPurgeAndUpMapCount @ 0x1402871F0 (MiCheckPurgeAndUpMapCount.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MiGetAweInfoPartition @ 0x14064A858 (MiGetAweInfoPartition.c)
- *     MiGetAwePageSize @ 0x14064A918 (MiGetAwePageSize.c)
- *     MiReferenceAweHandle @ 0x14064BD18 (MiReferenceAweHandle.c)
- *     MiCreateProcessDefaultAweInfo @ 0x140A41690 (MiCreateProcessDefaultAweInfo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140287480 (MiCheckPurgeAndUpMapCount.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x1402E34FC (MiInsertVadEvent.c)
+ *     MiGetAweInfoPartition @ 0x14064ADA8 (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064AE68 (MiGetAwePageSize.c)
+ *     MiReferenceAweHandle @ 0x14064C268 (MiReferenceAweHandle.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x140A41940 (MiCreateProcessDefaultAweInfo.c)
  */
 
 int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a4)

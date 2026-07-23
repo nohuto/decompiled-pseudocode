@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpEnableKernelTrace @ 0x14095ACA0
+ * XREFs of EtwpEnableKernelTrace @ 0x140A00560
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x140959E60 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpFixBootLoggers @ 0x140CE1DAC (EtwpFixBootLoggers.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1409FF720 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpFixBootLoggers @ 0x140CE814C (EtwpFixBootLoggers.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     IoPerfInit @ 0x14050EB0C (IoPerfInit.c)
- *     DbgSetDebugPrintCallback @ 0x14052FD00 (DbgSetDebugPrintCallback.c)
- *     KeStartProfile @ 0x1405F32A8 (KeStartProfile.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     AlpcRegisterLogRoutine @ 0x140778674 (AlpcRegisterLogRoutine.c)
- *     ObEnableEtwReferenceTrace @ 0x1407C4198 (ObEnableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x140823BCC (WmiSetNetworkNotify.c)
- *     EtwpTimeProfileStart @ 0x1408280C8 (EtwpTimeProfileStart.c)
- *     EtwpDisableKernelTrace @ 0x14095A8C0 (EtwpDisableKernelTrace.c)
- *     EtwpUpdateFileInfoDriverState @ 0x140B11B94 (EtwpUpdateFileInfoDriverState.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     IoPerfInit @ 0x14050857C (IoPerfInit.c)
+ *     DbgSetDebugPrintCallback @ 0x140532200 (DbgSetDebugPrintCallback.c)
+ *     KeStartProfile @ 0x1405F5C68 (KeStartProfile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     AlpcRegisterLogRoutine @ 0x14077B514 (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x1407C71F8 (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x140829E18 (WmiSetNetworkNotify.c)
+ *     EtwpTimeProfileStart @ 0x14082E308 (EtwpTimeProfileStart.c)
+ *     EtwpDisableKernelTrace @ 0x140A00180 (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140B13914 (EtwpUpdateFileInfoDriverState.c)
  */
 
 __int64 __fastcall EtwpEnableKernelTrace(
@@ -49,10 +49,10 @@ __int64 __fastcall EtwpEnableKernelTrace(
   v8 = 8LL;
   v23 = 0LL;
   v24 = 0LL;
-  if ( !EtwpBootPhase )
+  if ( !LOBYTE(stru_140F03830.CycleTime) )
   {
     v18 = a2;
-    a2 = (__int64 (__fastcall *)(__int64, int, unsigned int, __int16, unsigned __int8))((char *)&stru_140FC01F0.Padding[4]
+    a2 = (__int64 (__fastcall *)(__int64, int, unsigned int, __int16, unsigned __int8))((char *)&stru_140FC11F0.Padding[4]
                                                                                       - (char *)a2);
     v19 = 8LL;
     do
@@ -91,7 +91,7 @@ __int64 __fastcall EtwpEnableKernelTrace(
       v5 = a4;
     }
   }
-  if ( (unsigned __int8)EtwpBootPhase > 3u )
+  if ( LOBYTE(stru_140F03830.CycleTime) > 3u )
   {
     updated = EtwpUpdateFileInfoDriverState((_DWORD)a1, (_DWORD)v7, 1, v6, v5);
     if ( updated )
@@ -110,38 +110,38 @@ LABEL_11:
     if ( (*(_DWORD *)v7 & 0x2000000) != 0 )
     {
       v12 = v23 | 0x2000000;
-      qword_140E02040 = (__int64)EtwpTraceFileIo;
+      qword_140E02070 = (__int64)EtwpTraceFileIo;
       LODWORD(v23) = v23 | 0x2000000;
     }
     if ( (*(_DWORD *)v7 & 0x4000000) != 0 )
     {
       v12 |= 0x4000000u;
-      qword_140E02038 = (__int64)EtwpTraceFileIo;
+      qword_140E02068 = (__int64)EtwpTraceFileIo;
       LODWORD(v23) = v12;
     }
     if ( (*(_DWORD *)v7 & 0x200) != 0 )
     {
       v12 |= 0x200u;
-      qword_140E02030 = (__int64)EtwpTraceFileName;
+      qword_140E02060 = (__int64)EtwpTraceFileName;
       LODWORD(v23) = v12;
     }
     if ( (*(_DWORD *)v7 & 0x100) != 0 )
     {
       v12 |= 0x100u;
       EtwpDiskIoNotifyRoutines = (__int64)EtwpTraceIo;
-      qword_140E02070 = (__int64)EtwpTraceRedirectedIo;
+      qword_140E02050 = (__int64)EtwpTraceRedirectedIo;
       LODWORD(v23) = v12;
     }
     if ( (*(_DWORD *)v7 & 0x400) != 0 )
     {
       v12 |= 0x400u;
-      qword_140E68268 = (__int64)EtwpTraceIoInit;
+      qword_140E68540 = (__int64)EtwpTraceIoInit;
       LODWORD(v23) = v12;
     }
     if ( (*((_DWORD *)v7 + 4) & 1) != 0 )
     {
       v14 = v24 | 1;
-      qword_140E68270 = (__int64)EtwpTraceOpticalIo;
+      qword_140E68548 = (__int64)EtwpTraceOpticalIo;
       LODWORD(v24) = v24 | 1;
     }
     else
@@ -151,7 +151,7 @@ LABEL_11:
     if ( (*((_DWORD *)v7 + 4) & 2) != 0 )
     {
       v14 |= 2u;
-      qword_140E68278 = (__int64)EtwpTraceOpticalIoInit;
+      qword_140E68550 = (__int64)EtwpTraceOpticalIoInit;
       LODWORD(v24) = v14;
     }
     v13 = 0x200000LL;
@@ -164,45 +164,45 @@ LABEL_11:
     if ( (*((_DWORD *)v7 + 4) & 0x400000) != 0 )
     {
       v14 |= 0x400000u;
-      qword_140E02050 = (__int64)EtwpTraceFltIo;
+      qword_140E02030 = (__int64)EtwpTraceFltIo;
       LODWORD(v24) = v14;
     }
     if ( (*((_DWORD *)v7 + 4) & 0x80000) != 0 )
     {
       v14 |= 0x80000u;
-      qword_140E02058 = (__int64)EtwpTraceFltIo;
+      qword_140E02038 = (__int64)EtwpTraceFltIo;
       LODWORD(v24) = v14;
     }
     if ( (*((_DWORD *)v7 + 4) & 0x100000) != 0 )
     {
       v14 |= 0x100000u;
-      qword_140E02060 = (__int64)EtwpTraceFltTimedIo;
+      qword_140E02040 = (__int64)EtwpTraceFltTimedIo;
       LODWORD(v24) = v14;
     }
     if ( (*((_DWORD *)v7 + 4) & 0x200000) != 0 )
     {
       v14 |= 0x200000u;
-      qword_140E02068 = (__int64)EtwpTraceFltTimedIo;
+      qword_140E02048 = (__int64)EtwpTraceFltTimedIo;
       LODWORD(v24) = v14;
     }
     a2 = EtwpTraceWdf;
     if ( (*((_DWORD *)v7 + 4) & 0x1000000) != 0 )
     {
       v14 |= 0x1000000u;
-      qword_140E0EC00 = (__int64)EtwpTraceWdf;
+      qword_140E0EC70 = (__int64)EtwpTraceWdf;
       LODWORD(v24) = v14;
     }
     if ( (*((_DWORD *)v7 + 4) & 0x2000000) != 0 )
     {
       v14 |= 0x2000000u;
-      qword_140E0EC08 = (__int64)EtwpTraceWdf;
+      qword_140E0EC78 = (__int64)EtwpTraceWdf;
       LODWORD(v24) = v14;
     }
     v11 = 0x8000000LL;
     if ( (*((_DWORD *)v7 + 2) & 0x8000000) != 0 )
     {
       DWORD2(v23) |= 0x8000000u;
-      qword_140E0EC10 = (__int64)EtwpSystemTraceWdf;
+      qword_140E0EC80 = (__int64)EtwpSystemTraceWdf;
     }
     if ( (*(_DWORD *)v7 & 0x20000) != 0 )
     {
@@ -257,7 +257,7 @@ LABEL_63:
     if ( (*((_DWORD *)v7 + 1) & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStartProfile((ULONG_PTR)qword_140F03988 + 616 * i);
+        KeStartProfile((ULONG_PTR)qword_140F03E98 + 616 * i);
       DWORD1(v23) = v10 | 0x400;
     }
     if ( (*((_DWORD *)v7 + 4) & 0x80u) != 0 )

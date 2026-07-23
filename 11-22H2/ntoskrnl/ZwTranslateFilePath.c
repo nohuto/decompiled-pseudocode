@@ -10,9 +10,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwTranslateFilePath(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwTranslateFilePath(
+        PFILE_PATH InputFilePath,
+        ULONG OutputType,
+        PFILE_PATH OutputFilePath,
+        PULONG OutputFilePathLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(InputFilePath);
 }

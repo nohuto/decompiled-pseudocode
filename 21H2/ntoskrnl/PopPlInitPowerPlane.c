@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlInitPowerPlane @ 0x1408F98F4
+ * XREFs of PopPlInitPowerPlane @ 0x1408F9A54
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x14057EA24 (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x14057EC64 (PopPlRegisterPowerPlane.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PopPlInitDevices @ 0x1408F9778 (PopPlInitDevices.c)
- *     PopPlInitWString @ 0x1408F99FC (PopPlInitWString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopPlInitDevices @ 0x1408F98D8 (PopPlInitDevices.c)
+ *     PopPlInitWString @ 0x1408F9B5C (PopPlInitWString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitPowerPlane(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 *a4)

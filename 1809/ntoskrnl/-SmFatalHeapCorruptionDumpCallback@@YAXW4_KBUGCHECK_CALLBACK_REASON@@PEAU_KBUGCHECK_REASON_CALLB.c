@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SmFatalHeapCorruptionDumpCallback@@YAXW4_KBUGCHECK_CALLBACK_REASON@@PEAU_KBUGCHECK_REASON_CALLBACK_RECORD@@PEAXK@Z @ 0x1403083D0
+ * XREFs of ?SmFatalHeapCorruptionDumpCallback@@YAXW4_KBUGCHECK_CALLBACK_REASON@@PEAU_KBUGCHECK_REASON_CALLBACK_RECORD@@PEAXK@Z @ 0x1403085C0
  * Callers:
  *     <none>
  * Callees:
@@ -20,7 +20,7 @@ void __fastcall SmFatalHeapCorruptionDumpCallback(
   if ( v5 <= *((unsigned int *)ReasonSpecificData + 3) )
   {
     ReasonSpecificData[4] = v4;
-    *((_OWORD *)ReasonSpecificData + 1) = xmmword_14037DF80;
+    *((_OWORD *)ReasonSpecificData + 1) = xmmword_14037EF10;
   }
   else
   {

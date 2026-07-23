@@ -1,13 +1,13 @@
 /*
- * XREFs of PspStorageGetObject @ 0x1402EC1E4
+ * XREFs of PspStorageGetObject @ 0x1402EC3D4
  * Callers:
- *     PsGetSiloContext @ 0x1402E95F0 (PsGetSiloContext.c)
- *     PsFreeSiloContextSlot @ 0x140886650 (PsFreeSiloContextSlot.c)
+ *     PsGetSiloContext @ 0x1402E97E0 (PsGetSiloContext.c)
+ *     PsFreeSiloContextSlot @ 0x1408878B0 (PsFreeSiloContextSlot.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PspStorageGetObject(__int64 a1, unsigned int a2, unsigned __int64 *a3)

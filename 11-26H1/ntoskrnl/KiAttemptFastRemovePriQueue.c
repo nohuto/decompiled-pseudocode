@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAttemptFastRemovePriQueue @ 0x1403F68C0
+ * XREFs of KiAttemptFastRemovePriQueue @ 0x1403F0270
  * Callers:
- *     KiActivateWaiterQueueWithNoLocks @ 0x140223020 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiActivateWaiterPriQueue @ 0x1403F55D0 (KiActivateWaiterPriQueue.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KiActivateWaiterQueueWithThreadLock @ 0x1403F65F0 (KiActivateWaiterQueueWithThreadLock.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402249B0 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterPriQueue @ 0x1403EEF80 (KiActivateWaiterPriQueue.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KiActivateWaiterQueueWithThreadLock @ 0x1403EFFA0 (KiActivateWaiterQueueWithThreadLock.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall KiAttemptFastRemovePriQueue(ULONG_PTR BugCheckParameter2, int *a2, int a3)
@@ -51,7 +51,7 @@ _QWORD *__fastcall KiAttemptFastRemovePriQueue(ULONG_PTR BugCheckParameter2, int
           0x96u,
           (ULONG_PTR)v7,
           BugCheckParameter2,
-          (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink,
+          *(ULONG_PTR *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[64],
           v7[2]);
       --*(_DWORD *)(BugCheckParameter2 + 4);
       v13 = *v7;

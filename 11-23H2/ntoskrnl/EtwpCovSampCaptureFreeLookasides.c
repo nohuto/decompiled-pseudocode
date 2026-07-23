@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x1409F0F90
+ * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x1409F1220
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x140603098 (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409F09FC (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1406035E8 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409F0C8C (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406038B8 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140603E08 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpCovSampCaptureFreeLookasides(union _SLIST_HEADER *a1)
+void __fastcall EtwpCovSampCaptureFreeLookasides(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rdi
-  union _SLIST_HEADER *i; // rbx
-  union _SLIST_HEADER *v4; // rdi
-  union _SLIST_HEADER *j; // rbx
+  _SLIST_HEADER *v1; // rdi
+  _SLIST_HEADER *i; // rbx
+  _SLIST_HEADER *v4; // rdi
+  _SLIST_HEADER *j; // rbx
   PSLIST_ENTRY v6; // rsi
   _QWORD *p_Next; // rcx
   __int64 v8; // r8
   _QWORD *v9; // rdx
 
   v1 = a1 + 59;
-  for ( i = (union _SLIST_HEADER *)a1[59].Alignment; i != v1; i = (union _SLIST_HEADER *)i->Alignment )
+  for ( i = (_SLIST_HEADER *)a1[59].Alignment; i != v1; i = (_SLIST_HEADER *)i->Alignment )
     EtwpCovSampLookasideFlushFreeListToCleanupList(i - 1);
   v4 = a1 + 60;
-  for ( j = (union _SLIST_HEADER *)a1[60].Alignment; j != v4; j = (union _SLIST_HEADER *)j->Alignment )
+  for ( j = (_SLIST_HEADER *)a1[60].Alignment; j != v4; j = (_SLIST_HEADER *)j->Alignment )
   {
     v6 = RtlpInterlockedFlushSList(j - 1);
     while ( v6 )

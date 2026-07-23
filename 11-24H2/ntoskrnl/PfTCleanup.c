@@ -1,27 +1,27 @@
 /*
- * XREFs of PfTCleanup @ 0x140746568
+ * XREFs of PfTCleanup @ 0x140744858
  * Callers:
- *     PfTStart @ 0x140746B0C (PfTStart.c)
- *     PfpPartitionCleanup @ 0x1407473B0 (PfpPartitionCleanup.c)
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x140744DFC (PfTStart.c)
+ *     PfpPartitionCleanup @ 0x1407456A0 (PfpPartitionCleanup.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PfFbBufferListInsertInFree @ 0x140477680 (PfFbBufferListInsertInFree.c)
- *     PfpTraceLogPfPartitionId @ 0x1405CCB4C (PfpTraceLogPfPartitionId.c)
- *     PfFbBufferListShutdown @ 0x1405CCC4C (PfFbBufferListShutdown.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
- *     PfTCleanupBuffers @ 0x140746824 (PfTCleanupBuffers.c)
- *     PfTTraceListTrim @ 0x140746F14 (PfTTraceListTrim.c)
- *     PfFbBufferListCleanup @ 0x1407489E0 (PfFbBufferListCleanup.c)
- *     PfTTraceListFree @ 0x140950884 (PfTTraceListFree.c)
- *     PfTAccessTracingCleanup @ 0x140B5B46C (PfTAccessTracingCleanup.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PfFbBufferListInsertInFree @ 0x140473C20 (PfFbBufferListInsertInFree.c)
+ *     PfpTraceLogPfPartitionId @ 0x1405CA2BC (PfpTraceLogPfPartitionId.c)
+ *     PfFbBufferListShutdown @ 0x1405CA3BC (PfFbBufferListShutdown.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
+ *     PfTCleanupBuffers @ 0x140744B14 (PfTCleanupBuffers.c)
+ *     PfTTraceListTrim @ 0x140745204 (PfTTraceListTrim.c)
+ *     PfFbBufferListCleanup @ 0x140746CD0 (PfFbBufferListCleanup.c)
+ *     PfTTraceListFree @ 0x140972BA4 (PfTTraceListFree.c)
+ *     PfTAccessTracingCleanup @ 0x140B5D4DC (PfTAccessTracingCleanup.c)
  */
 
 char __fastcall PfTCleanup(__int64 a1, unsigned int a2)
@@ -43,7 +43,7 @@ char __fastcall PfTCleanup(__int64 a1, unsigned int a2)
     v10 = PfpTraceLogPfPartitionId((__int64 *)a1);
     v14 = 4LL;
     v13 = &v10;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_140048076, 0LL, 0LL, 3u, v12);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_140048476, 0LL, 0LL, 3u, v12);
   }
   v11[1] = v11;
   v11[0] = v11;
@@ -101,7 +101,7 @@ char __fastcall PfTCleanup(__int64 a1, unsigned int a2)
       v13 = &v10;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E074B8,
-               (unsigned __int8 *)byte_140048013,
+               (unsigned __int8 *)&word_14004844E,
                0LL,
                0LL,
                3u,

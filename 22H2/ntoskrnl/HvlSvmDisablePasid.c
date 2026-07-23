@@ -17,6 +17,6 @@ __int64 __fastcall HvlSvmDisablePasid(unsigned int a1, int a2)
   v6 = 0;
   v4 = a1;
   v5 = a2;
-  v2 = HvcallFastExtended(65701LL, (__int64)&v4, 16LL, 0LL, 0);
+  v2 = HvcallFastExtended(65701LL, (__int64)&v4, 0x10u, 0, 0);
   return HvlpHvToNtStatus(v2);
 }

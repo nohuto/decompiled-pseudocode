@@ -1,12 +1,12 @@
 /*
- * XREFs of PerfLogImageLoad @ 0x1404296DC
+ * XREFs of PerfLogImageLoad @ 0x1404285AC
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x140429240 (PsCallImageNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x140428110 (PsCallImageNotifyRoutines.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x14054B09C (EtwpPsProvTraceImage.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x14054B5DC (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall PerfLogImageLoad(unsigned __int16 *a1, int a2, int *a3)
@@ -47,7 +47,7 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, int a2, int *a3)
       HIDWORD(v8) = v5->FileHeader.TimeDateStamp;
       ImageBase = v5->OptionalHeader.ImageBase;
     }
-    if ( (dword_1402FD540 & 4) != 0 )
+    if ( (dword_1402FD520 & 4) != 0 )
       EtwpPsProvTraceImage(a1, v6, 5121LL, 0LL);
     v14[0] = v6;
     v14[1] = 56LL;

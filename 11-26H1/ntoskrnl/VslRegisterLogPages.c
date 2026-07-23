@@ -1,36 +1,36 @@
 /*
- * XREFs of VslRegisterLogPages @ 0x140411B34
+ * XREFs of VslRegisterLogPages @ 0x14040E040
  * Callers:
- *     PsIumResumeAfterHibernate @ 0x140527718 (PsIumResumeAfterHibernate.c)
+ *     PsIumResumeAfterHibernate @ 0x140529D88 (PsIumResumeAfterHibernate.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x14040FF88 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140410B74 (VslpUnlockPagesForTransfer.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     VslpLockPagesForTransfer @ 0x14040F6A8 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x140410294 (VslpUnlockPagesForTransfer.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 VslRegisterLogPages()
 {
-  struct _MDL *v0; // rbx
+  int v0; // ebx
   __int64 result; // rax
   __int64 v2; // rdx
   __int64 v3; // rcx
   unsigned __int8 CurrentIrql; // bl
   unsigned int v5; // edi
-  __int64 *v6[10]; // [rsp+30h] [rbp-D8h] BYREF
+  _QWORD v6[10]; // [rsp+30h] [rbp-D8h] BYREF
   _BYTE v7[8]; // [rsp+80h] [rbp-88h] BYREF
-  __int64 *v8; // [rsp+88h] [rbp-80h]
-  __int64 *v9; // [rsp+90h] [rbp-78h]
+  __int64 v8; // [rsp+88h] [rbp-80h]
+  __int64 v9; // [rsp+90h] [rbp-78h]
 
-  v0 = (struct _MDL *)PspIumLogBuffer;
+  v0 = PspIumLogBuffer;
   memset_0(v7, 0, 0x68uLL);
   memset_0(v6, 0, 0x48uLL);
   if ( !*(_QWORD *)&HvlpVsmVtlCallVa )
     return 3221225629LL;
-  result = VslpLockPagesForTransfer((__int64)v6, v0, 0x2000u, 1, 2u);
+  result = VslpLockPagesForTransfer((unsigned int)v6, v0, 0x2000, 1, 2);
   if ( (int)result >= 0 )
   {
     CurrentIrql = KeGetCurrentIrql();

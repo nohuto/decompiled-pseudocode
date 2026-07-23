@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnTraceBufferAllocate @ 0x1402F5D0C
+ * XREFs of PfSnTraceBufferAllocate @ 0x1402F5F9C
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     PfSnTraceGetLogEntry @ 0x1403149DC (PfSnTraceGetLogEntry.c)
- *     PfSnBeginTrace @ 0x14074D9B8 (PfSnBeginTrace.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     PfSnTraceGetLogEntry @ 0x140314C6C (PfSnTraceGetLogEntry.c)
+ *     PfSnBeginTrace @ 0x14074DBA8 (PfSnBeginTrace.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

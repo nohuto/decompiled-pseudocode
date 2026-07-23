@@ -21,13 +21,13 @@ __int64 __fastcall sub_1800059EC(__int64 a1, __int64 a2, char a3)
 {
   struct _PEB *v4; // r14
   int v5; // esi
-  unsigned int i; // ebx
+  ULONG i; // ebx
   unsigned int j; // ebx
 
   v4 = NtCurrentPeb();
   v5 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection(&unk_180159A80);
+    RtlEnterCriticalSection(&stru_180159A80);
   for ( i = 0; i < v4->NumberOfHeaps; ++i )
   {
     v5 = _guard_dispatch_icall_fptr();
@@ -45,6 +45,6 @@ __int64 __fastcall sub_1800059EC(__int64 a1, __int64 a2, char a3)
   }
 LABEL_12:
   if ( (a3 & 1) == 0 )
-    RtlLeaveCriticalSection(&unk_180159A80);
+    RtlLeaveCriticalSection(&stru_180159A80);
   return (unsigned int)v5;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIsXboxNanovisorPresent @ 0x14037861C
+ * XREFs of HalpIsXboxNanovisorPresent @ 0x1403787BC
  * Callers:
- *     HalpHvVpStartEnabled @ 0x140377550 (HalpHvVpStartEnabled.c)
- *     HalpApicSetupRegisterAccess @ 0x140377C1C (HalpApicSetupRegisterAccess.c)
- *     HalpHvIsFrequencyAvailable @ 0x14037975C (HalpHvIsFrequencyAvailable.c)
- *     HalpIsHvUsedForReboot @ 0x14050B848 (HalpIsHvUsedForReboot.c)
- *     HalpHvStartVirtualProcessor @ 0x14050C140 (HalpHvStartVirtualProcessor.c)
- *     HalpHvStartProcessor @ 0x14051B368 (HalpHvStartProcessor.c)
- *     HaliAcpiMachineStateInit @ 0x14085E050 (HaliAcpiMachineStateInit.c)
+ *     HalpHvVpStartEnabled @ 0x1403776F0 (HalpHvVpStartEnabled.c)
+ *     HalpApicSetupRegisterAccess @ 0x140377DBC (HalpApicSetupRegisterAccess.c)
+ *     HalpHvIsFrequencyAvailable @ 0x1403798FC (HalpHvIsFrequencyAvailable.c)
+ *     HalpIsHvUsedForReboot @ 0x14050BD98 (HalpIsHvUsedForReboot.c)
+ *     HalpHvStartVirtualProcessor @ 0x14050C690 (HalpHvStartVirtualProcessor.c)
+ *     HalpHvStartProcessor @ 0x14051B8B8 (HalpHvStartProcessor.c)
+ *     HaliAcpiMachineStateInit @ 0x14085E290 (HaliAcpiMachineStateInit.c)
  *     HalpMiscGetParameters @ 0x140B6A208 (HalpMiscGetParameters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char HalpIsXboxNanovisorPresent()

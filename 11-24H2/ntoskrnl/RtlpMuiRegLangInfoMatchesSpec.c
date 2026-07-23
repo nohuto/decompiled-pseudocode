@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x14082CD70
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x14082D5A0
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x14082BBA8 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x14082C3D8 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     _MuiRegAllocArray @ 0x1406A26A4 (_MuiRegAllocArray.c)
- *     RtlCultureNameToLCID @ 0x140A95430 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x140ABA1E0 (RtlLCIDToCultureName.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     _MuiRegAllocArray @ 0x1406A36F4 (_MuiRegAllocArray.c)
+ *     RtlCultureNameToLCID @ 0x140A91BE0 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140AB5200 (RtlLCIDToCultureName.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
@@ -24,16 +24,16 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   __int64 v16; // r8
   const WCHAR *v17; // rdx
   wchar_t *v18; // rax
-  __int64 v19; // rcx
+  LCID v19; // ecx
   __int64 v20; // r8
   const wchar_t *v21; // rdx
   __int64 v22; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
-  int v24; // [rsp+70h] [rbp+40h] BYREF
+  DWORD Lcid; // [rsp+70h] [rbp+40h] BYREF
 
   v4 = a4;
   v5 = 1;
-  v24 = 0;
+  Lcid = 0;
   v8 = 0LL;
   DestinationString = 0LL;
   if ( a3 == 1 )
@@ -53,8 +53,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
           if ( v14 )
           {
             RtlInitUnicodeString(&DestinationString, v14);
-            if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-              return (_WORD)v24 == (unsigned __int16)v4;
+            if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+              return (_WORD)Lcid == (unsigned __int16)v4;
           }
         }
       }
@@ -75,7 +75,7 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
           v19 = *(unsigned __int16 *)(a2 + 4);
           DestinationString.Buffer = v18;
           *(_DWORD *)&DestinationString.Length = 11141120;
-          if ( (unsigned __int8)RtlLCIDToCultureName(v19, &DestinationString) )
+          if ( RtlLCIDToCultureName(v19, &DestinationString) )
           {
 LABEL_22:
             v20 = *(_QWORD *)(a1 + 32);

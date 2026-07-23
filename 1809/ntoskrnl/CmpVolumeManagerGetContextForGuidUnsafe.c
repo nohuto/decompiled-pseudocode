@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x1405A4450
+ * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x1405A5450
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x1405A4298 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x1405A5298 (CmpVolumeManagerGetContextForFile.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,9 @@ __int64 __fastcall CmpVolumeManagerGetContextForGuidUnsafe(__int64 a1, _QWORD *a
   __int64 v3; // r9
   __int64 v4; // rcx
 
-  v2 = qword_14096EE88;
+  v2 = qword_14096FE88;
   v3 = 0LL;
-  while ( (__int64 *)v2 != &qword_14096EE88 )
+  while ( (__int64 *)v2 != &qword_14096FE88 )
   {
     v4 = *(_QWORD *)(v2 + 32) - *a2;
     if ( !v4 )

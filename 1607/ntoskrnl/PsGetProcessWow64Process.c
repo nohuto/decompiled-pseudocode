@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessWow64Process @ 0x140098FD0
+ * XREFs of PsGetProcessWow64Process @ 0x1400987D0
  * Callers:
  *     <none>
  * Callees:

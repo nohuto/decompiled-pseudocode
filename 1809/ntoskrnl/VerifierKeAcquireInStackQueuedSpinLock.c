@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLock @ 0x140939390
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLock @ 0x14093A390
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x1409394FC (VerifierKeAcquireInStackQueuedSpinLockCommon.c)
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x14093A4FC (VerifierKeAcquireInStackQueuedSpinLockCommon.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLock(__int64 a1, __int64 a2)

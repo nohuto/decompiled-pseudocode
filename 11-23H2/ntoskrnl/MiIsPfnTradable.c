@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsPfnTradable @ 0x14064D8F4
+ * XREFs of MiIsPfnTradable @ 0x14064DE44
  * Callers:
- *     MiMarkNonPagedHiberPhasePte @ 0x140AAC540 (MiMarkNonPagedHiberPhasePte.c)
+ *     MiMarkNonPagedHiberPhasePte @ 0x140AAC3B0 (MiMarkNonPagedHiberPhasePte.c)
  * Callees:
  *     <none>
  */

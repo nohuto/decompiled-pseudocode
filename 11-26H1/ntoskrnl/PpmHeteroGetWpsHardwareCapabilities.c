@@ -1,78 +1,122 @@
 /*
- * XREFs of PpmHeteroGetWpsHardwareCapabilities @ 0x1404D8A58
+ * XREFs of PpmHeteroGetWpsHardwareCapabilities @ 0x140516E88
  * Callers:
- *     PpmHeteroHgsUpdateContainmentConfiguration @ 0x14025D3AC (PpmHeteroHgsUpdateContainmentConfiguration.c)
+ *     PpmHeteroHgsUpdateContainmentConfiguration @ 0x14051704C (PpmHeteroHgsUpdateContainmentConfiguration.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140517458 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroReadWpsConfigurationFromPlatform @ 0x14060E690 (PpmHeteroReadWpsConfigurationFromPlatform.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     Feature_ExtendedWpsTables__private_IsEnabledDeviceUsageNoInline @ 0x14060D2B8 (Feature_ExtendedWpsTables__private_IsEnabledDeviceUsageNoInline.c)
  */
 
-_BYTE *__fastcall PpmHeteroGetWpsHardwareCapabilities(
+_DWORD *__fastcall PpmHeteroGetWpsHardwareCapabilities(
         unsigned int a1,
         int a2,
         _BYTE *a3,
         _BYTE *a4,
         _DWORD *a5,
-        _BYTE *a6)
+        _BYTE *a6,
+        _DWORD *a7)
 {
   __int64 Prcb; // rax
-  int v11; // r10d
-  __int64 v12; // rcx
-  char v13; // r9
-  _BYTE *result; // rax
-  unsigned int v15; // eax
-  __int64 v16; // r8
-  unsigned __int64 v17; // rdx
-  __int64 v18; // rdx
-  char v19; // r8
+  int v12; // ebx
+  __int64 v13; // rbp
+  unsigned int v14; // eax
+  __int64 v15; // rax
+  _DWORD *result; // rax
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  unsigned __int64 v19; // rdx
   __int64 v20; // rcx
+  char v21; // dl
+  int v22; // r8d
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rdi
+  __int64 v26; // rsi
+  char v27; // al
 
   Prcb = KeGetPrcb(a1);
-  v11 = 0;
+  v12 = 0;
+  v13 = Prcb;
   if ( PpmHeteroCapabilitySimulation && (PpmHeteroSimulationStateConfig & 2) != 0 )
   {
-    v15 = *(_DWORD *)(PpmHeteroCapabilitySimulation
+    v14 = *(_DWORD *)(PpmHeteroCapabilitySimulation
                     + 4LL * (a2 + *(_DWORD *)(PpmHeteroCapabilitySimulation + 4) * a1)
-                    + 24);
-    *a3 = v15;
-    LODWORD(Prcb) = v15 >> 8;
+                    + 48);
+    *a3 = v14;
+    LODWORD(v15) = v14 >> 8;
+LABEL_4:
+    *a4 = v15;
+    goto LABEL_5;
   }
-  else
+  if ( PpmHeteroHgsVendor == 2 )
   {
-    switch ( PpmHeteroHgsVendor )
-    {
-      case 2:
-        v12 = PpmHeteroHgsTableEntry;
-        Prcb = PpmHeteroHgsCapabilityBits * a2 + (unsigned int)*(unsigned __int16 *)(Prcb + 35418);
-        *a3 = *(_BYTE *)(Prcb + PpmHeteroHgsTableEntry + 1);
-        LOBYTE(Prcb) = *(_BYTE *)((unsigned int)Prcb + v12);
-        break;
-      case 1:
-        v16 = PpmHeteroHgsTableEntry;
-        v17 = (unsigned int)(4 * PpmHeteroHgsCapabilityBits * a2)
-            + (unsigned __int64)*(unsigned __int16 *)(Prcb + 35418);
-        *a3 = *(_BYTE *)(PpmHeteroHgsTableEntry + v17);
-        LOBYTE(Prcb) = *(_BYTE *)(v16 + v17 + 4);
-        break;
-      case 3:
-        v18 = *(unsigned __int16 *)(Prcb + 35418);
-        v19 = *(_BYTE *)(PpmHeteroHgsTableEntry + v18 + 1);
-        v20 = *(unsigned __int16 *)(Prcb + 35450);
-        *a3 = *(_BYTE *)(PpmHeteroHgsTableEntry + v18);
-        v13 = *(_BYTE *)(PpmHeteroWpsParkingTableEntry + v20 + 8);
-        v11 = *(_DWORD *)(PpmHeteroWpsParkingTableEntry + v20);
-        LOBYTE(Prcb) = v19;
-        goto LABEL_5;
-      default:
-        *a3 = 1;
-        LOBYTE(Prcb) = 1;
-        break;
-    }
+    v17 = PpmHeteroHgsTableEntry;
+    v15 = PpmHeteroHgsCapabilityBits * a2 + (unsigned int)*(unsigned __int16 *)(Prcb + 35418);
+    *a3 = *(_BYTE *)(v15 + PpmHeteroHgsTableEntry + 1);
+    LOBYTE(v15) = *(_BYTE *)((unsigned int)v15 + v17);
+    goto LABEL_4;
   }
-  v13 = 0;
+  if ( PpmHeteroHgsVendor == 1 )
+  {
+    v18 = PpmHeteroHgsTableEntry;
+    v19 = (unsigned int)(4 * PpmHeteroHgsCapabilityBits * a2) + (unsigned __int64)*(unsigned __int16 *)(Prcb + 35418);
+    *a3 = *(_BYTE *)(PpmHeteroHgsTableEntry + v19);
+    *a4 = *(_BYTE *)(v18 + v19 + 4);
+    if ( !(unsigned int)Feature_ExtendedWpsTables__private_IsEnabledDeviceUsageNoInline() )
+    {
+      *a5 = 0;
+      result = a6;
+      *a6 = 0;
+      return result;
+    }
+    if ( PpmHeteroWpsParkingTableEntry )
+    {
+      v20 = *(unsigned __int16 *)(v13 + 35450);
+      v12 = *(unsigned __int16 *)(PpmHeteroWpsParkingTableEntry + v20 + 2);
+      v21 = *(_BYTE *)(PpmHeteroWpsParkingTableEntry + v20 + 1);
+      v22 = *(unsigned __int8 *)(PpmHeteroWpsParkingTableEntry + v20);
+    }
+    else
+    {
+      v21 = 0;
+      v22 = 0;
+    }
+    *a5 = v22;
+    *a6 = v21;
+LABEL_6:
+    result = a7;
+    *a7 = v12;
+    return result;
+  }
+  if ( PpmHeteroHgsVendor != 3 )
+  {
+    *a3 = 1;
+    *a4 = 1;
 LABEL_5:
-  *a4 = Prcb;
-  *a5 = v11;
-  result = a6;
-  *a6 = v13;
+    *a5 = 0;
+    *a6 = 0;
+    result = (_DWORD *)Feature_ExtendedWpsTables__private_IsEnabledDeviceUsageNoInline();
+    if ( !(_DWORD)result )
+      return result;
+    goto LABEL_6;
+  }
+  v23 = PpmHeteroHgsTableEntry;
+  v24 = *(unsigned __int16 *)(Prcb + 35418);
+  v25 = *(unsigned __int16 *)(Prcb + 35450);
+  v26 = PpmHeteroWpsParkingTableEntry;
+  *a3 = *(_BYTE *)(PpmHeteroHgsTableEntry + v24);
+  v27 = *(_BYTE *)(v23 + v24 + 1);
+  LODWORD(v23) = *(_DWORD *)(v26 + v25);
+  *a4 = v27;
+  *a5 = v23;
+  *a6 = *(_BYTE *)(v26 + v25 + 8);
+  result = (_DWORD *)Feature_ExtendedWpsTables__private_IsEnabledDeviceUsageNoInline();
+  if ( (_DWORD)result )
+  {
+    result = a7;
+    *a7 = *(_DWORD *)(v26 + v25 + 4);
+  }
   return result;
 }

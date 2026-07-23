@@ -1,25 +1,25 @@
 /*
- * XREFs of MiPartitionPeriodicTick @ 0x1402A703C
+ * XREFs of MiPartitionPeriodicTick @ 0x1402A6458
  * Callers:
- *     KeBalanceSetManager @ 0x1405F79E0 (KeBalanceSetManager.c)
- *     MiBalanceSetThread @ 0x1406F0500 (MiBalanceSetThread.c)
+ *     KeBalanceSetManager @ 0x1405FA400 (KeBalanceSetManager.c)
+ *     MiBalanceSetThread @ 0x1406F5170 (MiBalanceSetThread.c)
  * Callees:
- *     MiCheckTrimUnusedPageFileRegions @ 0x1402073C8 (MiCheckTrimUnusedPageFileRegions.c)
- *     MiEmptyDecayClusterTimers @ 0x1402994DC (MiEmptyDecayClusterTimers.c)
- *     MiLogPartitionState @ 0x1402A6280 (MiLogPartitionState.c)
- *     MiPeriodicZeroingNeeded @ 0x1402A64FC (MiPeriodicZeroingNeeded.c)
- *     MiReleaseSystemCacheView @ 0x1402A71F0 (MiReleaseSystemCacheView.c)
- *     MiSignalPartitionTrimThreads @ 0x1402A7450 (MiSignalPartitionTrimThreads.c)
- *     MiFreeUnusedSlabPages @ 0x1402A7510 (MiFreeUnusedSlabPages.c)
- *     MiModifiedWriterPeriodicTick @ 0x1402A7E04 (MiModifiedWriterPeriodicTick.c)
- *     MiScheduleZeroPageThreads @ 0x1402A8034 (MiScheduleZeroPageThreads.c)
- *     MiSignalLargePageRebuild @ 0x1402A8360 (MiSignalLargePageRebuild.c)
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
- *     MiLogPeriodicTelemetry @ 0x1402A8770 (MiLogPeriodicTelemetry.c)
- *     MiPruneProcessLargePageCaches @ 0x1402A8FB4 (MiPruneProcessLargePageCaches.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiResumeBackgroundZeroing @ 0x14051F69C (MiResumeBackgroundZeroing.c)
- *     MiEmptyProcessorCommitCache @ 0x1407057E8 (MiEmptyProcessorCommitCache.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x1402074A8 (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiEmptyDecayClusterTimers @ 0x140298A3C (MiEmptyDecayClusterTimers.c)
+ *     MiLogPartitionState @ 0x1402A5678 (MiLogPartitionState.c)
+ *     MiPeriodicZeroingNeeded @ 0x1402A58F4 (MiPeriodicZeroingNeeded.c)
+ *     MiReleaseSystemCacheView @ 0x1402A6600 (MiReleaseSystemCacheView.c)
+ *     MiSignalPartitionTrimThreads @ 0x1402A6860 (MiSignalPartitionTrimThreads.c)
+ *     MiFreeUnusedSlabPages @ 0x1402A6920 (MiFreeUnusedSlabPages.c)
+ *     MiModifiedWriterPeriodicTick @ 0x1402A7214 (MiModifiedWriterPeriodicTick.c)
+ *     MiScheduleZeroPageThreads @ 0x1402A7444 (MiScheduleZeroPageThreads.c)
+ *     MiSignalLargePageRebuild @ 0x1402A7770 (MiSignalLargePageRebuild.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
+ *     MiLogPeriodicTelemetry @ 0x1402A7B80 (MiLogPeriodicTelemetry.c)
+ *     MiPruneProcessLargePageCaches @ 0x1402A83C4 (MiPruneProcessLargePageCaches.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiResumeBackgroundZeroing @ 0x140521D40 (MiResumeBackgroundZeroing.c)
+ *     MiEmptyProcessorCommitCache @ 0x14070A4B8 (MiEmptyProcessorCommitCache.c)
  */
 
 __int64 __fastcall MiPartitionPeriodicTick(__int64 a1)
@@ -31,12 +31,12 @@ __int64 __fastcall MiPartitionPeriodicTick(__int64 a1)
   int v6; // eax
 
   v2 = 0;
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && (*((_DWORD *)stru_140E36558.FirstArgument + 4) & 0x800LL) != 0
-    && (*((_QWORD *)stru_140E36558.FirstArgument + 3) & 0x800LL) == *((_QWORD *)stru_140E36558.FirstArgument + 3) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && (*((_DWORD *)stru_140E366D8.FirstArgument + 4) & 0x800LL) != 0
+    && (*((_QWORD *)stru_140E366D8.FirstArgument + 3) & 0x800LL) == *((_QWORD *)stru_140E366D8.FirstArgument + 3) )
   {
-    MiLogPartitionState(*((_QWORD *)stru_140E36558.FirstArgument + 3), a1);
+    MiLogPartitionState(*((_QWORD *)stru_140E366D8.FirstArgument + 3), a1);
   }
   MiSignalPartitionTrimThreads(a1);
   v3 = *(_QWORD *)(a1 + 16);

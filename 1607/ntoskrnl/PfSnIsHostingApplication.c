@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnIsHostingApplication @ 0x1403E6324
+ * XREFs of PfSnIsHostingApplication @ 0x1403E7954
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1403E64A0 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1403E7AD0 (PfSnBeginAppLaunch.c)
  * Callees:
- *     PfLockSharedAcquire @ 0x1400064A4 (PfLockSharedAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     wcsstr @ 0x14014F14C (wcsstr.c)
+ *     PfLockSharedAcquire @ 0x140006614 (PfLockSharedAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     wcsstr @ 0x14014F70C (wcsstr.c)
  */
 
 char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
@@ -26,7 +26,7 @@ char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
     ++v3;
   while ( SubStr[v3] );
   v4 = 0;
-  PfLockSharedAcquire((volatile signed __int64 *)qword_140328538);
+  PfLockSharedAcquire((volatile signed __int64 *)qword_140328578);
   do
     ++v1;
   while ( Str[v1] );
@@ -48,9 +48,9 @@ char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
     }
     v5 = v7 + 1;
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140328538, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)qword_140328538);
-  KeAbPostRelease((ULONG_PTR)qword_140328538);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140328578, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)qword_140328578);
+  KeAbPostRelease((ULONG_PTR)qword_140328578);
   KeLeaveCriticalRegion();
   return v4;
 }

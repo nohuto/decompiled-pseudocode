@@ -144,5 +144,5 @@ NTSTATUS __stdcall ZwQueryValueKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, ValueName);
+  return KiServiceInternal(KeyHandle);
 }

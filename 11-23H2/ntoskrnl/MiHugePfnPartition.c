@@ -1,13 +1,13 @@
 /*
- * XREFs of MiHugePfnPartition @ 0x140620C50
+ * XREFs of MiHugePfnPartition @ 0x1406211A0
  * Callers:
- *     MiDereferenceIoHugeRange @ 0x14061F988 (MiDereferenceIoHugeRange.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiMakeEntireHugePfnGood @ 0x140621514 (MiMakeEntireHugePfnGood.c)
- *     MiMarkHugePfnBad @ 0x140621618 (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x140621DF4 (MiMarkHugePfnGood.c)
- *     MiReleaseMemoryRuns @ 0x1406222EC (MiReleaseMemoryRuns.c)
+ *     MiDereferenceIoHugeRange @ 0x14061FED8 (MiDereferenceIoHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiMakeEntireHugePfnGood @ 0x140621A64 (MiMakeEntireHugePfnGood.c)
+ *     MiMarkHugePfnBad @ 0x140621B68 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x140622344 (MiMarkHugePfnGood.c)
+ *     MiReleaseMemoryRuns @ 0x14062283C (MiReleaseMemoryRuns.c)
  * Callees:
  *     <none>
  */

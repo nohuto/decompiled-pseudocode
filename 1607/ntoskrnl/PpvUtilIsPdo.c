@@ -1,7 +1,7 @@
 /*
- * XREFs of PpvUtilIsPdo @ 0x140701864
+ * XREFs of PpvUtilIsPdo @ 0x140701894
  * Callers:
- *     IovUtilIsWdmStack @ 0x14070E220 (IovUtilIsWdmStack.c)
+ *     IovUtilIsWdmStack @ 0x14070E250 (IovUtilIsWdmStack.c)
  *     VfPnpVerifyIrpStackUpward @ 0x140718A78 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
  *     <none>

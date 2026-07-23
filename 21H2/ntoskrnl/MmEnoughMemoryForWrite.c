@@ -1,11 +1,11 @@
 /*
- * XREFs of MmEnoughMemoryForWrite @ 0x140274618
+ * XREFs of MmEnoughMemoryForWrite @ 0x1402625B8
  * Callers:
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1402628E4 (MiLockSectionControlArea.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -34,7 +34,7 @@ char __fastcall MmEnoughMemoryForWrite(__int64 a1)
     if ( !v4 )
       return 1;
     v3 = v12;
-    v5 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(v4 + 60) & 0x3FF));
+    v5 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * (*(_WORD *)(v4 + 60) & 0x3FF));
   }
   else
   {

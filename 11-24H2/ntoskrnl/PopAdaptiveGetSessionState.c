@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAdaptiveGetSessionState @ 0x1409BB2A4
+ * XREFs of PopAdaptiveGetSessionState @ 0x1409A18F4
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopAdaptiveGetSessionStateUnsafe @ 0x1409BB45C (PopAdaptiveGetSessionStateUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x1409A1AAC (PopAdaptiveGetSessionStateUnsafe.c)
  */
 
 void __fastcall PopAdaptiveGetSessionState(unsigned int a1, __int64 a2, __int64 a3)

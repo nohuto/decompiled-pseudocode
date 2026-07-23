@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUpdateDiskIdleTimeoutSetting @ 0x140A3C4FC
+ * XREFs of PopUpdateDiskIdleTimeoutSetting @ 0x1409F7F1C
  * Callers:
- *     PopCoalescingSetActiveState @ 0x1404C32B4 (PopCoalescingSetActiveState.c)
- *     PopCoalescingPowerSettingCallback @ 0x1407CF360 (PopCoalescingPowerSettingCallback.c)
- *     PopHardDiskPowerSettingCallback @ 0x140943EA0 (PopHardDiskPowerSettingCallback.c)
- *     PopCoalescingInitialize @ 0x140CD13D8 (PopCoalescingInitialize.c)
+ *     PopCoalescingSetActiveState @ 0x1404BCB04 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingPowerSettingCallback @ 0x1407D2400 (PopCoalescingPowerSettingCallback.c)
+ *     PopHardDiskPowerSettingCallback @ 0x1409BF810 (PopHardDiskPowerSettingCallback.c)
+ *     PopCoalescingInitialize @ 0x140CD7580 (PopCoalescingInitialize.c)
  * Callees:
- *     PopSetPowerSettingValueAcDc @ 0x140A3E450 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409F9E70 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 PopUpdateDiskIdleTimeoutSetting()
@@ -15,7 +15,7 @@ __int64 PopUpdateDiskIdleTimeoutSetting()
   __int64 result; // rax
 
   v0 = PopDiskIdleTimeout;
-  if ( (stru_140F11D08.AbWaitEntryCount & 1) != 0 )
+  if ( (PopCoalescingState & 1) != 0 )
     v0 = PopDiskCoalescingTimeout;
   if ( v0 != PopCurrentDiskIdleTimeout )
   {

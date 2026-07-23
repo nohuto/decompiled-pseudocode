@@ -1,8 +1,8 @@
 /*
- * XREFs of IoGetOplockKeyContextEx @ 0x1403DB0D0
+ * XREFs of IoGetOplockKeyContextEx @ 0x1403CDA50
  * Callers:
- *     FsRtlpOplockKeysEqual @ 0x1403DA0A0 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1403DA480 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpOplockKeysEqual @ 0x1403CE290 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1403CF540 (FsRtlpOplockStoreKeyForDeleteOperation.c)
  * Callees:
  *     <none>
  */

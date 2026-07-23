@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlDuplicateUnicodeString @ 0x1403F7F80
+ * XREFs of RtlDuplicateUnicodeString @ 0x1403F6E40
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
- *     DrvDbGetObjectDatabaseNode @ 0x1404FBB78 (DrvDbGetObjectDatabaseNode.c)
- *     PipAddBindingId @ 0x140567DB8 (PipAddBindingId.c)
- *     PipAddRequestToEdge @ 0x14062AD74 (PipAddRequestToEdge.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x1406B6B08 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovQueryInformation @ 0x1406B71B8 (ExpCovQueryInformation.c)
- *     ExpCovReadFriendlyName @ 0x1406B7834 (ExpCovReadFriendlyName.c)
- *     ExpCovReadRequestBuffer @ 0x1406B78B8 (ExpCovReadRequestBuffer.c)
- *     ExpCovResetInformation @ 0x1406B7A34 (ExpCovResetInformation.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x1404DEB08 (DrvDbGetObjectDatabaseNode.c)
+ *     PipAddBindingId @ 0x1405682F8 (PipAddBindingId.c)
+ *     PipAddRequestToEdge @ 0x14062AE28 (PipAddRequestToEdge.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1406B6C40 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovQueryInformation @ 0x1406B72F0 (ExpCovQueryInformation.c)
+ *     ExpCovReadFriendlyName @ 0x1406B796C (ExpCovReadFriendlyName.c)
+ *     ExpCovReadRequestBuffer @ 0x1406B79F0 (ExpCovReadRequestBuffer.c)
+ *     ExpCovResetInformation @ 0x1406B7B6C (ExpCovResetInformation.c)
  *     PnpEarlyLaunchImageNotificationPreProcess @ 0x1407B427C (PnpEarlyLaunchImageNotificationPreProcess.c)
  * Callees:
- *     RtlValidateUnicodeString @ 0x14000A068 (RtlValidateUnicodeString.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlValidateUnicodeString @ 0x140009BE8 (RtlValidateUnicodeString.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePool @ 0x140255B30 (ExFreePool.c)
- *     ExpAllocateStringRoutine @ 0x1403F80BC (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1403F6F7C (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlDuplicateUnicodeString(ULONG Flags, PCUNICODE_STRING StringIn, PUNICODE_STRING StringOut)

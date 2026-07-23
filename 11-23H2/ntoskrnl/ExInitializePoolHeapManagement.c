@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializePoolHeapManagement @ 0x14038873C
+ * XREFs of ExInitializePoolHeapManagement @ 0x14038891C
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     RtlHpHeapManagerStart @ 0x14038851C (RtlHpHeapManagerStart.c)
- *     RtlHpHeapManagerInitialize @ 0x140388600 (RtlHpHeapManagerInitialize.c)
- *     ExCreateHeap @ 0x140388C6C (ExCreateHeap.c)
- *     RtlHpGlobalsInitialize @ 0x140389C2C (RtlHpGlobalsInitialize.c)
- *     RtlpDynamicLookasideInitialize @ 0x140389C90 (RtlpDynamicLookasideInitialize.c)
- *     ExpDetermineLargePagePolicy @ 0x140389D08 (ExpDetermineLargePagePolicy.c)
+ *     RtlHpHeapManagerStart @ 0x1403886FC (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerInitialize @ 0x1403887E0 (RtlHpHeapManagerInitialize.c)
+ *     ExCreateHeap @ 0x140388E4C (ExCreateHeap.c)
+ *     RtlHpGlobalsInitialize @ 0x140389E0C (RtlHpGlobalsInitialize.c)
+ *     RtlpDynamicLookasideInitialize @ 0x140389E70 (RtlpDynamicLookasideInitialize.c)
+ *     ExpDetermineLargePagePolicy @ 0x140389EE8 (ExpDetermineLargePagePolicy.c)
  *     ExInitializePoolTracker @ 0x140B54C88 (ExInitializePoolTracker.c)
  */
 
@@ -34,7 +34,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
   __int128 v19; // [rsp+98h] [rbp-9h] BYREF
   __int64 v20; // [rsp+A8h] [rbp+7h]
   __int64 v21; // [rsp+110h] [rbp+6Fh] BYREF
-  union _RTL_RUN_ONCE v22; // [rsp+118h] [rbp+77h] BYREF
+  _RTL_RUN_ONCE v22; // [rsp+118h] [rbp+77h] BYREF
 
   v21 = 0LL;
   v20 = 0LL;

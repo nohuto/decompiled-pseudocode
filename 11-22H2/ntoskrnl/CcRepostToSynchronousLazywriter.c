@@ -51,10 +51,10 @@ __int64 __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
   CcPostWorkQueue(v7, v1 + v8, v5, v6);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v14);
   OldIrql = v14.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v14.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

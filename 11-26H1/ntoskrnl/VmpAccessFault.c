@@ -1,20 +1,20 @@
 /*
- * XREFs of VmpAccessFault @ 0x14081C2B4
+ * XREFs of VmpAccessFault @ 0x1408224C4
  * Callers:
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
- *     VmAccessFault1 @ 0x14081BD60 (VmAccessFault1.c)
- *     VmAccessFault2 @ 0x14081BDA0 (VmAccessFault2.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
+ *     VmAccessFault1 @ 0x140821F70 (VmAccessFault1.c)
+ *     VmAccessFault2 @ 0x140821FB0 (VmAccessFault2.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExFreeToLookasideListEx @ 0x14039E0D0 (ExFreeToLookasideListEx.c)
- *     ExAllocateFromLookasideListEx @ 0x1403E1EE0 (ExAllocateFromLookasideListEx.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     VmpAccessFaultBatch @ 0x1406C09D0 (VmpAccessFaultBatch.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VmpPrefetchForVirtualFault @ 0x14081CF2C (VmpPrefetchForVirtualFault.c)
- *     VmpLogAccessFault @ 0x14081DF48 (VmpLogAccessFault.c)
- *     VmpLogAccessFaultRange @ 0x14081E118 (VmpLogAccessFaultRange.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExFreeToLookasideListEx @ 0x14039FE30 (ExFreeToLookasideListEx.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403E50D0 (ExAllocateFromLookasideListEx.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     VmpAccessFaultBatch @ 0x1406C45B0 (VmpAccessFaultBatch.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VmpPrefetchForVirtualFault @ 0x14082313C (VmpPrefetchForVirtualFault.c)
+ *     VmpLogAccessFault @ 0x140824158 (VmpLogAccessFault.c)
+ *     VmpLogAccessFaultRange @ 0x140824328 (VmpLogAccessFaultRange.c)
  */
 
 __int64 __fastcall VmpAccessFault(
@@ -79,9 +79,9 @@ __int64 __fastcall VmpAccessFault(
   v47 = a2;
   v45 = 16;
   v12 = a2;
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && tlgKeywordOn(stru_140F066E8.QuantumTarget, 8LL) )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 8LL) )
   {
     v13 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
     v12 = v47;
@@ -104,7 +104,7 @@ __int64 __fastcall VmpAccessFault(
   v15 = &v58;
   if ( a4 > 0x10 || a1[1] > 0x10uLL )
   {
-    v16 = (char *)ExAllocateFromLookasideListEx(&VmpLargeFaultBatchLookasideList);
+    v16 = (char *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList);
     v9 = v16;
     if ( v16 )
     {
@@ -147,9 +147,9 @@ __int64 __fastcall VmpAccessFault(
     }
     v52 = v28;
     v53 = v27;
-    if ( stru_140F066E8.QuantumTarget && *(_DWORD *)stru_140F066E8.QuantumTarget )
+    if ( stru_140F06A28.InitialStack && *(_DWORD *)stru_140F06A28.InitialStack )
     {
-      if ( tlgKeywordOn(stru_140F066E8.QuantumTarget, 16LL) )
+      if ( tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 16LL) )
       {
         VmpLogAccessFaultRange(v29, v25, v23, v31, v30, v32, a5, a6, a7, v57, a8);
         v25 = v46;
@@ -194,7 +194,7 @@ LABEL_30:
   }
 LABEL_45:
   if ( v9 )
-    ExFreeToLookasideListEx(&VmpLargeFaultBatchLookasideList, v9);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList, v9);
   if ( v50 )
   {
     v36 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp) - v50;
@@ -214,9 +214,9 @@ LABEL_45:
       }
       while ( v40 );
     }
-    if ( stru_140F066E8.QuantumTarget
-      && *(_DWORD *)stru_140F066E8.QuantumTarget
-      && tlgKeywordOn(stru_140F066E8.QuantumTarget, 8LL) )
+    if ( stru_140F06A28.InitialStack
+      && *(_DWORD *)stru_140F06A28.InitialStack
+      && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 8LL) )
     {
       VmpLogAccessFault(v41, a5, a6, a7, v57, v42, v45, v43, v36, a8, v35);
     }

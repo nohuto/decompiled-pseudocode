@@ -10,7 +10,7 @@
  *     <none>
  */
 
-int __cdecl _isascii(int C)
+int __cdecl _isascii(int _C)
 {
-  return (unsigned int)C < 0x80;
+  return (unsigned int)_C < 0x80;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiExceptionDispatchOnExceptionStack @ 0x14041FC20
+ * XREFs of KiExceptionDispatchOnExceptionStack @ 0x14041FFB0
  * Callers:
- *     KiExceptionDispatch @ 0x140434940 (KiExceptionDispatch.c)
+ *     KiExceptionDispatch @ 0x140434D40 (KiExceptionDispatch.c)
  * Callees:
  *     <none>
  */

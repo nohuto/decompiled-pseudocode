@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetSetBootStatusData @ 0x1407187C0
+ * XREFs of RtlGetSetBootStatusData @ 0x140719A60
  * Callers:
- *     PopBootStatSet @ 0x1407184C4 (PopBootStatSet.c)
- *     PopBootStatGet @ 0x140753090 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x140719764 (PopBootStatSet.c)
+ *     PopBootStatGet @ 0x140754280 (PopBootStatGet.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpGetSetBootStatusData @ 0x140718914 (RtlpGetSetBootStatusData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpGetSetBootStatusData @ 0x140719BB4 (RtlpGetSetBootStatusData.c)
  */
 
 NTSTATUS __stdcall RtlGetSetBootStatusData(

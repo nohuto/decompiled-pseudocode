@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpReadTagData @ 0x14075749C
+ * XREFs of SdbpReadTagData @ 0x14075768C
  * Callers:
  *     SdbReadBinaryTag @ 0x140695430 (SdbReadBinaryTag.c)
- *     SdbReadDWORDTag @ 0x140755458 (SdbReadDWORDTag.c)
- *     SdbReadWORDTag @ 0x140755C6C (SdbReadWORDTag.c)
- *     SdbpReadStringRef @ 0x140757438 (SdbpReadStringRef.c)
- *     SdbReadQWORDTag @ 0x140808CB4 (SdbReadQWORDTag.c)
+ *     SdbReadDWORDTag @ 0x140755648 (SdbReadDWORDTag.c)
+ *     SdbReadWORDTag @ 0x140755E5C (SdbReadWORDTag.c)
+ *     SdbpReadStringRef @ 0x140757628 (SdbpReadStringRef.c)
+ *     SdbReadQWORDTag @ 0x140808F84 (SdbReadQWORDTag.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetTagHeadSize @ 0x140741F78 (SdbpGetTagHeadSize.c)
- *     SdbpReadMappedData @ 0x14074288C (SdbpReadMappedData.c)
- *     SdbGetTagDataSize @ 0x140757B90 (SdbGetTagDataSize.c)
+ *     SdbpGetTagHeadSize @ 0x140742168 (SdbpGetTagHeadSize.c)
+ *     SdbpReadMappedData @ 0x140742A7C (SdbpReadMappedData.c)
+ *     SdbGetTagDataSize @ 0x140757D80 (SdbGetTagDataSize.c)
  */
 
 __int64 __fastcall SdbpReadTagData(__int64 a1, __int64 a2, void *a3, unsigned int a4)

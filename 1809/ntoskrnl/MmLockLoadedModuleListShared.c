@@ -1,13 +1,13 @@
 /*
- * XREFs of MmLockLoadedModuleListShared @ 0x14009B82C
+ * XREFs of MmLockLoadedModuleListShared @ 0x14009B76C
  * Callers:
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
- *     MmIsSessionExecutionValid @ 0x14009DB10 (MmIsSessionExecutionValid.c)
- *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     RtlPcToFileName @ 0x14018E890 (RtlPcToFileName.c)
+ *     MmIsSessionExecutionValid @ 0x14009DA50 (MmIsSessionExecutionValid.c)
+ *     RtlpxLookupFunctionTable @ 0x1400A17F0 (RtlpxLookupFunctionTable.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     RtlPcToFileName @ 0x14018E9D0 (RtlPcToFileName.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D090 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 void __fastcall MmLockLoadedModuleListShared(unsigned __int8 *a1)

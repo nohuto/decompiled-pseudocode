@@ -1,20 +1,20 @@
 /*
- * XREFs of ExSweepHandleTable @ 0x140697A90
+ * XREFs of ExSweepHandleTable @ 0x140698C50
  * Callers:
- *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
- *     ObInitProcess @ 0x1406092E4 (ObInitProcess.c)
- *     ObKillProcess @ 0x14066C4BC (ObKillProcess.c)
+ *     PspRundownSingleProcess @ 0x140604A48 (PspRundownSingleProcess.c)
+ *     ObInitProcess @ 0x14060A2E4 (ObInitProcess.c)
+ *     ObKillProcess @ 0x14066D67C (ObKillProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObCloseHandleTableEntry @ 0x1405E7360 (ObCloseHandleTableEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1405E9990 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140698A24 (ExpBlockOnLockedHandleEntry.c)
  */
 
 _QWORD *__fastcall ExSweepHandleTable(_KPROCESS *a1, __int64 a2, unsigned __int8 a3)

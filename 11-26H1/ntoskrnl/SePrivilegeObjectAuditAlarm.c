@@ -1,9 +1,9 @@
 /*
- * XREFs of SePrivilegeObjectAuditAlarm @ 0x140A7AA20
+ * XREFs of SePrivilegeObjectAuditAlarm @ 0x140A82960
  * Callers:
- *     SeCheckPrivilegedObject @ 0x140A7A93C (SeCheckPrivilegedObject.c)
+ *     SeCheckPrivilegedObject @ 0x140A8287C (SeCheckPrivilegedObject.c)
  * Callees:
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
  */
 
 char __fastcall SePrivilegeObjectAuditAlarm(

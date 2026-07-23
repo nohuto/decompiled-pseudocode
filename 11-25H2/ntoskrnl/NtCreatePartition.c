@@ -6,7 +6,18 @@
  *     PsCreatePartition @ 0x14076AEE0 (PsCreatePartition.c)
  */
 
-__int64 __fastcall NtCreatePartition(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
-  return PsCreatePartition(a1, a2, a3, a4, KeGetCurrentThread()->PreviousMode, 0);
+  return PsCreatePartition(
+           (int)ParentPartitionHandle,
+           (int)PartitionHandle,
+           DesiredAccess,
+           (int)ObjectAttributes,
+           KeGetCurrentThread()->PreviousMode,
+           0);
 }

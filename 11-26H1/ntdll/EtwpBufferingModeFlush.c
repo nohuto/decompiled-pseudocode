@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpBufferingModeFlush @ 0x180158EDC
+ * XREFs of EtwpBufferingModeFlush @ 0x180158DAC
  * Callers:
- *     EtwpFlushUmLogger @ 0x18007654C (EtwpFlushUmLogger.c)
+ *     EtwpFlushUmLogger @ 0x180064D6C (EtwpFlushUmLogger.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     RtlNtStatusToDosError @ 0x180056660 (RtlNtStatusToDosError.c)
- *     EtwpWaitForBufferReferenceCount @ 0x180078498 (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x180078550 (EtwpFlushBuffer.c)
- *     EtwpFinalizeLogFileHeader @ 0x180078A04 (EtwpFinalizeLogFileHeader.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x18015905C (EtwpFindAndLockBufferForFlushing.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     RtlNtStatusToDosError @ 0x180040BE0 (RtlNtStatusToDosError.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x180066CB8 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x180066D70 (EtwpFlushBuffer.c)
+ *     EtwpFinalizeLogFileHeader @ 0x180067224 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x180158F2C (EtwpFindAndLockBufferForFlushing.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
 __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
@@ -38,7 +38,7 @@ __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
   {
     v4 = 0;
   }
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 188); i = (unsigned int)(i + 1) )
   {
     v6 = *(_QWORD *)(a1 + 8 * i + 560);
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 212));
     }
   }
-  RtlLeaveCriticalSection(a1 + 72);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   v8 = *(_QWORD *)(a1 + 400);
   for ( j = EtwpFindAndLockBufferForFlushing(a1, v8); j; j = EtwpFindAndLockBufferForFlushing(a1, --v8) )
   {

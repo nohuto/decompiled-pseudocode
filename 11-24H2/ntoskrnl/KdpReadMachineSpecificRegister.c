@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpReadMachineSpecificRegister @ 0x140B77764
+ * XREFs of KdpReadMachineSpecificRegister @ 0x140B79764
  * Callers:
- *     KdpSendWaitContinue @ 0x140B7A32C (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140B7C32C (KdpSendWaitContinue.c)
  * Callees:
- *     KdpSysReadMsr @ 0x1405B02B0 (KdpSysReadMsr.c)
+ *     KdpSysReadMsr @ 0x1405AD220 (KdpSysReadMsr.c)
  */
 
 __int64 __fastcall KdpReadMachineSpecificRegister(__int64 a1)

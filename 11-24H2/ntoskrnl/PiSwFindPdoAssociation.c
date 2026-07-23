@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwFindPdoAssociation @ 0x140A78594
+ * XREFs of PiSwFindPdoAssociation @ 0x140A72894
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwStopDestroy @ 0x140A102F4 (PiSwStopDestroy.c)
- *     PiSwGetChildPdo @ 0x140AC3B1C (PiSwGetChildPdo.c)
+ *     PiSwStopDestroy @ 0x1409BE704 (PiSwStopDestroy.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwGetChildPdo @ 0x140AC1360 (PiSwGetChildPdo.c)
  * Callees:
  *     <none>
  */

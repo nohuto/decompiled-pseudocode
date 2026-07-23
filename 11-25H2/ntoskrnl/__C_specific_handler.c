@@ -15,49 +15,49 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
         struct _CONTEXT *ContextRecord,
         struct _DISPATCHER_CONTEXT *DispatcherContext)
 {
-  __int64 v8; // r15
+  DWORD64 ImageBase; // r15
   unsigned __int64 v9; // rbp
-  unsigned int *v10; // rbx
-  unsigned int v11; // edi
+  DWORD *HandlerData; // rbx
+  DWORD ScopeIndex; // edi
   __int64 v12; // rax
   int v13; // eax
   unsigned __int64 v15; // rsi
-  unsigned int i; // ecx
+  DWORD i; // ecx
   __int64 v17; // rcx
-  unsigned int v18; // r8d
+  DWORD v18; // r8d
   _QWORD v19[2]; // [rsp+30h] [rbp-38h] BYREF
 
   KeCheckStackAndTargetAddress(ContextRecord->Rip, ContextRecord->Rsp);
-  v8 = *((_QWORD *)DispatcherContext + 1);
-  v9 = *(_QWORD *)DispatcherContext - v8;
-  v10 = (unsigned int *)*((_QWORD *)DispatcherContext + 7);
-  v11 = *((_DWORD *)DispatcherContext + 18);
+  ImageBase = DispatcherContext->ImageBase;
+  v9 = DispatcherContext->ControlPc - ImageBase;
+  HandlerData = (DWORD *)DispatcherContext->HandlerData;
+  ScopeIndex = DispatcherContext->ScopeIndex;
   if ( (ExceptionRecord->ExceptionFlags & 0x66) != 0 )
   {
-    v15 = *((_QWORD *)DispatcherContext + 4) - v8;
+    v15 = DispatcherContext->TargetIp - ImageBase;
     while ( 1 )
     {
-      v18 = *v10;
-      if ( v11 >= *v10 )
+      v18 = *HandlerData;
+      if ( ScopeIndex >= *HandlerData )
         break;
-      if ( v9 >= v10[4 * v11 + 1] && v9 < v10[4 * v11 + 2] )
+      if ( v9 >= HandlerData[4 * ScopeIndex + 1] && v9 < HandlerData[4 * ScopeIndex + 2] )
       {
         if ( (ExceptionRecord->ExceptionFlags & 0x20) != 0 )
         {
           for ( i = 0; i < v18; ++i )
           {
-            if ( v15 >= v10[4 * i + 1]
-              && v15 < v10[4 * i + 2]
-              && v10[4 * i + 4] == v10[4 * v11 + 4]
-              && v10[4 * i + 3] == v10[4 * v11 + 3] )
+            if ( v15 >= HandlerData[4 * i + 1]
+              && v15 < HandlerData[4 * i + 2]
+              && HandlerData[4 * i + 4] == HandlerData[4 * ScopeIndex + 4]
+              && HandlerData[4 * i + 3] == HandlerData[4 * ScopeIndex + 3] )
             {
               break;
             }
           }
-          if ( i != *v10 )
+          if ( i != *HandlerData )
             return 1;
         }
-        v17 = v10[4 * v11 + 4];
+        v17 = HandlerData[4 * ScopeIndex + 4];
         if ( (_DWORD)v17 )
         {
           if ( v15 == v17 )
@@ -65,43 +65,45 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
         }
         else
         {
-          *((_DWORD *)DispatcherContext + 18) = v11 + 1;
+          DispatcherContext->ScopeIndex = ScopeIndex + 1;
           LODWORD(v17) = 1;
-          ((void (__fastcall *)(__int64, void *))(v8 + v10[4 * v11 + 3]))(v17, EstablisherFrame);
+          ((void (__fastcall *)(__int64, void *))(ImageBase + HandlerData[4 * ScopeIndex + 3]))(v17, EstablisherFrame);
         }
       }
-      ++v11;
+      ++ScopeIndex;
     }
   }
   else
   {
     v19[0] = ExceptionRecord;
     v19[1] = ContextRecord;
-    while ( v11 < *v10 )
+    while ( ScopeIndex < *HandlerData )
     {
-      if ( v9 >= v10[4 * v11 + 1] && v9 < v10[4 * v11 + 2] && v10[4 * v11 + 4] )
+      if ( v9 >= HandlerData[4 * ScopeIndex + 1]
+        && v9 < HandlerData[4 * ScopeIndex + 2]
+        && HandlerData[4 * ScopeIndex + 4] )
       {
-        v12 = v10[4 * v11 + 3];
+        v12 = HandlerData[4 * ScopeIndex + 3];
         if ( (_DWORD)v12 == 1 )
           goto LABEL_9;
-        v13 = ((__int64 (__fastcall *)(_QWORD *, void *))(v8 + v12))(v19, EstablisherFrame);
+        v13 = ((__int64 (__fastcall *)(_QWORD *, void *))(ImageBase + v12))(v19, EstablisherFrame);
         if ( v13 < 0 )
           return 0;
         if ( v13 > 0 )
         {
 LABEL_9:
-          NLG_Notify(v8 + v10[4 * v11 + 4], EstablisherFrame, 1LL);
+          NLG_Notify(ImageBase + HandlerData[4 * ScopeIndex + 4], EstablisherFrame, 1LL);
           RtlUnwindEx(
-            (ULONG_PTR)EstablisherFrame,
-            v8 + v10[4 * v11 + 4],
-            &ExceptionRecord->ExceptionCode,
-            ExceptionRecord->ExceptionCode,
-            *((int **)DispatcherContext + 5),
-            *((_QWORD *)DispatcherContext + 8));
+            EstablisherFrame,
+            (PVOID)(ImageBase + HandlerData[4 * ScopeIndex + 4]),
+            ExceptionRecord,
+            (PVOID)ExceptionRecord->ExceptionCode,
+            DispatcherContext->ContextRecord,
+            DispatcherContext->HistoryTable);
           _NLG_Return2();
         }
       }
-      ++v11;
+      ++ScopeIndex;
     }
   }
   return 1;

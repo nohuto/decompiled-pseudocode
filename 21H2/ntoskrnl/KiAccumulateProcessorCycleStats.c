@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     PoGetFrequencyBucket @ 0x1402C3748 (PoGetFrequencyBucket.c)
+ *     PoGetFrequencyBucket @ 0x140241CC8 (PoGetFrequencyBucket.c)
  */
 
 __int64 __fastcall KiAccumulateProcessorCycleStats(__int64 a1)

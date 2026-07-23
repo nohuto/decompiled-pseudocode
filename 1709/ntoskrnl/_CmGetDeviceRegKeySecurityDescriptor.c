@@ -34,9 +34,9 @@ __int64 __fastcall CmGetDeviceRegKeySecurityDescriptor(_DWORD **a1, int a2, _QWO
   ACL *PoolWithTag; // rax
   ULONG v13; // eax
   PVOID v14; // rax
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v17; // [rsp+40h] [rbp-41h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v18; // [rsp+48h] [rbp-39h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v17; // [rsp+40h] [rbp-41h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v18; // [rsp+48h] [rbp-39h] BYREF
   _BYTE SecurityDescriptor[2]; // [rsp+50h] [rbp-31h] BYREF
   __int16 v20; // [rsp+52h] [rbp-2Fh]
   unsigned __int8 Owner[16]; // [rsp+78h] [rbp-9h] BYREF

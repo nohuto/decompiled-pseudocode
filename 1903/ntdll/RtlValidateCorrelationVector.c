@@ -9,7 +9,7 @@
  *     sub_1800F5DC0 @ 0x1800F5DC0 (sub_1800F5DC0.c)
  */
 
-__int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1)
+DWORD __cdecl RtlValidateCorrelationVector(PCORRELATION_VECTOR Vector)
 {
   int v2; // esi
   __int64 v3; // rdx
@@ -20,27 +20,27 @@ __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1)
   int v9; // ecx
   __int64 v10; // rdx
 
-  if ( !a1 || (int)sub_180072FCC(a1) < 0 )
-    return 3221225485LL;
+  if ( !Vector || (int)sub_180072FCC(Vector) < 0 )
+    return -1073741811;
   v2 = sub_1800F5DC0();
-  v4 = sub_1800725B4((__int64)a1, v3);
-  if ( *a1 == 1 )
+  v4 = sub_1800725B4((__int64)Vector, v3);
+  if ( Vector->Version == 1 )
   {
     if ( v2 != 15 )
-      return 3221225485LL;
+      return -1073741811;
   }
-  else if ( *a1 == 2 && v2 != 21 )
+  else if ( Vector->Version == 2 && v2 != 21 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
   v6 = v2 + 1;
   v7 = v6;
-  if ( a1[v6 + 1] != 46 )
-    return 3221225485LL;
+  if ( Vector->Vector[v6] != 46 )
+    return -1073741811;
   v8 = v4;
   while ( v7 < v8 )
   {
-    if ( a1[v7 + 1] == 46 )
+    if ( Vector->Vector[v7] == 46 )
     {
       ++v6;
       ++v7;
@@ -50,18 +50,18 @@ __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1)
       {
         do
         {
-          if ( (unsigned __int8)(a1[v7 + 1] - 48) > 9u )
+          if ( (unsigned __int8)(Vector->Vector[v7] - 48) > 9u )
             break;
           ++v6;
           ++v7;
           ++v9;
         }
         while ( v7 < v8 );
-        if ( v9 && v9 <= 10 && (v9 != 10 || strncmp(&a1[v10 + 1], "2147483647", 0xAuLL) <= 0) )
+        if ( v9 && v9 <= 10 && (v9 != 10 || strncmp(&Vector->Vector[v10], "2147483647", 0xAuLL) <= 0) )
           continue;
       }
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  return 0LL;
+  return 0;
 }

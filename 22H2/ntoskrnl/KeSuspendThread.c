@@ -58,7 +58,7 @@ __int64 __fastcall KeSuspendThread(__int64 a1, __int64 a2, __int64 a3, _DWORD *S
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(0xC000004A);
+    RtlRaiseStatus(-1073741750);
   }
   ++*(_BYTE *)(a1 + 644);
   if ( !(unsigned __int8)KiSuspendThread(a1, CurrentPrcb) )

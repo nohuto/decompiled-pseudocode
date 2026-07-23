@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEmptyKernelStackCache @ 0x1403D02A4
+ * XREFs of MiEmptyKernelStackCache @ 0x1403D0414
  * Callers:
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiScrubNode @ 0x14056404C (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x1408D1ADC (MmRelocatePfnList.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiScrubNode @ 0x14056428C (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x1408D1C3C (MmRelocatePfnList.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     MiDeleteCachedKernelStack @ 0x1402726DC (MiDeleteCachedKernelStack.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x14026067C (MiDeleteCachedKernelStack.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 MiEmptyKernelStackCache()
@@ -18,7 +18,7 @@ __int64 MiEmptyKernelStackCache()
   unsigned int j; // ebx
   __int64 v4; // rsi
   __int64 v5; // rdi
-  union _SLIST_HEADER *v6; // rbp
+  _SLIST_HEADER *v6; // rbp
   PSLIST_ENTRY v7; // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkBootImagesNonPaged @ 0x1409B7ABC
+ * XREFs of MiMarkBootImagesNonPaged @ 0x1409B8ABC
  * Callers:
- *     MiInitializeDriverImages @ 0x1409B6BDC (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x1409B7BDC (MiInitializeDriverImages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
  */
 
 void __fastcall MiMarkBootImagesNonPaged(__int64 a1)

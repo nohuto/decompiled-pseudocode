@@ -2,10 +2,10 @@
  * XREFs of MiGetControlAreaLoadConfig @ 0x140214E04
  * Callers:
  *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
- *     MiAllowImageMap @ 0x1406AF6A4 (MiAllowImageMap.c)
- *     MiMarkSharedImageCfgBits @ 0x140746D04 (MiMarkSharedImageCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x1407A3F60 (MiMarkPrivateImageCfgBits.c)
- *     MmGetSectionInformation @ 0x1407BA090 (MmGetSectionInformation.c)
+ *     MiAllowImageMap @ 0x1406AF6D4 (MiAllowImageMap.c)
+ *     MiMarkSharedImageCfgBits @ 0x140746EF4 (MiMarkSharedImageCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1407A4150 (MiMarkPrivateImageCfgBits.c)
+ *     MmGetSectionInformation @ 0x1407BA370 (MmGetSectionInformation.c)
  * Callees:
  *     <none>
  */

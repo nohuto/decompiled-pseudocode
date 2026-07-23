@@ -21,10 +21,10 @@
  *     MiFreeLargePageCharges @ 0x14055C9AC (MiFreeLargePageCharges.c)
  */
 
-void __fastcall MiFreeBootDriverPages(__int64 a1, unsigned __int64 a2, __int64 a3, char a4, unsigned int *a5)
+void __fastcall MiFreeBootDriverPages(void *a1, unsigned __int64 a2, __int64 a3, char a4, unsigned int *a5)
 {
   unsigned int *v5; // r14
-  __int64 v8; // r15
+  PVOID v8; // r15
   __int64 v9; // rsi
   char v10; // r13
   unsigned __int64 v11; // rbp
@@ -49,7 +49,7 @@ void __fastcall MiFreeBootDriverPages(__int64 a1, unsigned __int64 a2, __int64 a
   unsigned __int64 v31; // [rsp+38h] [rbp-130h]
   unsigned __int64 v32; // [rsp+40h] [rbp-128h]
   __int64 v33; // [rsp+48h] [rbp-120h]
-  __int64 v34; // [rsp+50h] [rbp-118h]
+  void *v34; // [rsp+50h] [rbp-118h]
   _QWORD v35[24]; // [rsp+60h] [rbp-108h] BYREF
 
   v5 = a5;

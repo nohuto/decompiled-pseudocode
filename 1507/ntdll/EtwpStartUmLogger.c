@@ -27,7 +27,7 @@ __int64 __fastcall EtwpStartUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
   int v12; // ecx
   int v13; // eax
   __int64 result; // rax
-  unsigned int NumberOfProcessors; // r8d
+  __int64 NumberOfProcessors; // r8
   __int64 v16; // rbp
   __int64 inited; // rax
   __int64 v18; // rdi
@@ -85,7 +85,7 @@ LABEL_4:
   {
     return 87LL;
   }
-  if ( (unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &v31, 49152LL) )
+  if ( (unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144), &v31) )
   {
     result = EtwpGetNextAvaliableLoggerId(a4, &v30);
     if ( !(_DWORD)result )
@@ -95,11 +95,11 @@ LABEL_4:
         v27 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
         v9 = *(_DWORD *)a4 - v27;
         v8 = a4 + v27;
-        NumberOfProcessors = -1;
+        NumberOfProcessors = 0xFFFFFFFFLL;
       }
       else if ( (*(_DWORD *)(a4 + 64) & 0x10000000) != 0 )
       {
-        NumberOfProcessors = 1;
+        NumberOfProcessors = 1LL;
       }
       else
       {
@@ -155,7 +155,7 @@ LABEL_4:
         }
         EtwpGetUmLoggerInfoFromContext(a4, v25);
         *(_QWORD *)(EtwpLoggerArray + 8 * v24) = v25;
-        EtwpSendSessionNotification(v25, 5u, 0);
+        EtwpSendSessionNotification(v25, 5, 0);
 LABEL_28:
         _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v24 + 8));
         if ( !TraceBufferPool )
@@ -173,7 +173,7 @@ LABEL_51:
           *(_QWORD *)(a4 + 88) = 0LL;
           *(_QWORD *)(v18 + 144) = 0LL;
         }
-        EtwpFreeLoggerContext(v18);
+        EtwpFreeLoggerContext((unsigned int *)v18);
         return TraceBufferPool;
       }
       _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16 * v16 + 8));

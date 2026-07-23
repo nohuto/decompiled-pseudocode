@@ -23,7 +23,7 @@
  *     DbgkpSectionToFileHandle @ 0x140A7F280 (DbgkpSectionToFileHandle.c)
  */
 
-__int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall DbgkpPostFakeThreadMessages(__int64 a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   void *v7; // r14
   void *v8; // rdi
@@ -33,16 +33,16 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
   int v12; // esi
   char v13; // r13
   _QWORD *NextProcessThread; // rax
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // rax
+  __int64 v16; // rcx
+  PIMAGE_NT_HEADERS v17; // rax
   char v18; // [rsp+30h] [rbp-1F8h]
   struct _KTHREAD *v21; // [rsp+50h] [rbp-1D8h]
   _BYTE v23[40]; // [rsp+A0h] [rbp-188h] BYREF
   int v24; // [rsp+C8h] [rbp-160h]
   HANDLE Handle; // [rsp+D8h] [rbp-150h]
-  unsigned __int64 v26; // [rsp+E0h] [rbp-148h]
-  int v27; // [rsp+E8h] [rbp-140h]
-  int v28; // [rsp+ECh] [rbp-13Ch]
+  __int64 v26; // [rsp+E0h] [rbp-148h]
+  unsigned int PointerToSymbolTable; // [rsp+E8h] [rbp-140h]
+  unsigned int NumberOfSymbols; // [rsp+ECh] [rbp-13Ch]
   __int64 v29; // [rsp+F8h] [rbp-130h]
   _BYTE v30[48]; // [rsp+1B0h] [rbp-78h] BYREF
 
@@ -55,7 +55,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
   v10 = -1073741823;
   if ( !a3 )
   {
-    NextProcessThread = PsGetNextProcessThread((__int64)a1, 0LL);
+    NextProcessThread = PsGetNextProcessThread(a1, 0LL);
     v11 = 1;
     v18 = 1;
     goto LABEL_17;
@@ -90,23 +90,23 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
         {
           v13 = 1;
           v24 = 2;
-          v16 = a1[1].Padding[4];
+          v16 = *(_QWORD *)(a1 + 680);
           if ( v16 )
             Handle = (HANDLE)DbgkpSectionToFileHandle(v16);
           else
             Handle = 0LL;
-          v26 = a1[1].Padding[5];
-          KiStackAttachProcess(a1, 0, (__int64)v30);
-          v17 = RtlImageNtHeader(a1[1].Padding[5]);
+          v26 = *(_QWORD *)(a1 + 688);
+          KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)v30);
+          v17 = RtlImageNtHeader(*(PVOID *)(a1 + 688));
           if ( v17 )
           {
             v29 = 0LL;
-            v27 = *(_DWORD *)(v17 + 12);
-            v28 = *(_DWORD *)(v17 + 16);
+            PointerToSymbolTable = v17->FileHeader.PointerToSymbolTable;
+            NumberOfSymbols = v17->FileHeader.NumberOfSymbols;
           }
           KiUnstackDetachProcess((__int64)v30, 0LL);
         }
-        v10 = DbgkpQueueMessage(a1, (char *)a3, (__int64)v23, v12, a2);
+        v10 = DbgkpQueueMessage((PVOID)a1, (char *)a3, (__int64)v23, v12, a2);
         if ( v10 < 0 )
         {
           if ( (v12 & 0x20) != 0 )
@@ -133,7 +133,7 @@ __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2
         CurrentThread = v21;
       }
     }
-    NextProcessThread = PsGetNextProcessThread((__int64)a1, (_QWORD *)a3);
+    NextProcessThread = PsGetNextProcessThread(a1, (_QWORD *)a3);
 LABEL_17:
     a3 = (__int64)NextProcessThread;
   }

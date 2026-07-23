@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VerifyPartitionTable@PC_GPT@@QEAAJE@Z @ 0x14023C60C
+ * XREFs of ?VerifyPartitionTable@PC_GPT@@QEAAJE@Z @ 0x14023C4F0
  * Callers:
- *     PcVerifyPartitionTable @ 0x14023B78C (PcVerifyPartitionTable.c)
+ *     PcVerifyPartitionTable @ 0x14023B670 (PcVerifyPartitionTable.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14010FFAC (RtlComputeCrc32.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     ?ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x14023C188 (-ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
- *     ?ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14023C208 (-ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CCBC (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
- *     PspQueueApcSpecialApc @ 0x1403E5244 (PspQueueApcSpecialApc.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     RtlComputeCrc32 @ 0x140110510 (RtlComputeCrc32.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     ?ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x14023C06C (-ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14023C0EC (-ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CBA0 (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     PspQueueApcSpecialApc @ 0x1403E6870 (PspQueueApcSpecialApc.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
  */
 
 __int64 __fastcall PC_GPT::VerifyPartitionTable(PC_DISK **this, char a2)

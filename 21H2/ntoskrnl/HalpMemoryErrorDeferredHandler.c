@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMemoryErrorDeferredHandler @ 0x1404CFEAC
+ * XREFs of HalpMemoryErrorDeferredHandler @ 0x1404D00EC
  * Callers:
- *     HalpErrorDeferredHandler @ 0x1404CFCC0 (HalpErrorDeferredHandler.c)
+ *     HalpErrorDeferredHandler @ 0x1404CFF00 (HalpErrorDeferredHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpHvSetMachineCheckRecoveryState @ 0x1404C2C20 (HalpHvSetMachineCheckRecoveryState.c)
- *     WheaAttemptClearPoison @ 0x14095D290 (WheaAttemptClearPoison.c)
- *     WheaAttemptPhysicalPageOffline @ 0x14095D350 (WheaAttemptPhysicalPageOffline.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x1404C2E60 (HalpHvSetMachineCheckRecoveryState.c)
+ *     WheaAttemptClearPoison @ 0x14095D470 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D530 (WheaAttemptPhysicalPageOffline.c)
  */
 
 __int64 (*__fastcall HalpMemoryErrorDeferredHandler(__int64 *a1, __int64 a2, __int64 a3))(void)
@@ -30,16 +30,16 @@ __int64 (*__fastcall HalpMemoryErrorDeferredHandler(__int64 *a1, __int64 a2, __i
   }
   if ( HalpHvWheaEnlightenedCpuManager )
   {
-    if ( (_DWORD)result && qword_140C4A218 )
+    if ( (_DWORD)result && qword_140C4A258 )
     {
       LOBYTE(v7) = 1;
-      qword_140C4A218(a1, 0LL, v7);
+      qword_140C4A258(a1, 0LL, v7);
     }
     if ( a1[2] )
     {
-      result = qword_140C4A208;
-      if ( qword_140C4A208 )
-        return (__int64 (*)(void))qword_140C4A208();
+      result = qword_140C4A248;
+      if ( qword_140C4A248 )
+        return (__int64 (*)(void))qword_140C4A248();
     }
     else
     {

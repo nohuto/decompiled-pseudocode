@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeProviderInfoBuffer @ 0x1409D772C
+ * XREFs of EtwpInitializeProviderInfoBuffer @ 0x1409D15D4
  * Callers:
- *     EtwpSendDbgId @ 0x1407ACCC0 (EtwpSendDbgId.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1409D871C (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpSendDbgId @ 0x1407AD190 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1409D3224 (EtwpRealtimeNotifyConsumers.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140458490 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x140479B7C (EtwpInitializeBufferHeader.c)
+ *     EtwpResetBufferHeader @ 0x14044D7A0 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x14047540C (EtwpInitializeBufferHeader.c)
  */
 
 __int64 __fastcall EtwpInitializeProviderInfoBuffer(__int64 a1, __int64 a2, int a3)

@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpLogVetoInformation @ 0x140B45874
+ * XREFs of PnpLogVetoInformation @ 0x140B478A4
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407B8904 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407BB964 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     PsGetProcessImageFileName @ 0x14047F3D0 (PsGetProcessImageFileName.c)
- *     PnpDiagnosticTraceAppVeto @ 0x1405DBAFC (PnpDiagnosticTraceAppVeto.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     IopAllocateUnicodeString @ 0x14090DDE8 (IopAllocateUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1409E9780 (PsGetAllocatedFullProcessImageName.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     PnpGetProcessCommandLine @ 0x140B3F148 (PnpGetProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     PsGetProcessImageFileName @ 0x140478D40 (PsGetProcessImageFileName.c)
+ *     PnpDiagnosticTraceAppVeto @ 0x1405DE3AC (PnpDiagnosticTraceAppVeto.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x1409AFF18 (IopAllocateUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1409D2BA0 (PsGetAllocatedFullProcessImageName.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     PnpGetProcessCommandLine @ 0x140B41178 (PnpGetProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
@@ -25,7 +25,7 @@ _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
   char v5; // r12
   PEPROCESS v6; // r14
   UNICODE_STRING *v7; // rbx
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   _QWORD *i; // rax
   __int64 v10; // rdx
   _QWORD *v11; // rsi
@@ -62,7 +62,7 @@ _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
           ExFreePoolWithTag(P, 0);
           v7 = &v17;
           P = &v17;
-          ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)v6);
+          ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)v6);
           RtlInitAnsiString(&SourceString, ProcessImageFileName);
           RtlAnsiStringToUnicodeString(&v17, &SourceString, 1u);
         }

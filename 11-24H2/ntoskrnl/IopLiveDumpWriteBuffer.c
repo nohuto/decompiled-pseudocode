@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpWriteBuffer @ 0x14049B10C
+ * XREFs of IopLiveDumpWriteBuffer @ 0x140495AFC
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059E850 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpWriteSecondaryData @ 0x14059F11C (IopLiveDumpWriteSecondaryData.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059B7D0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x14059C09C (IopLiveDumpWriteSecondaryData.c)
  * Callees:
- *     SecureDump_Encrypt_DmpData @ 0x1405A1A10 (SecureDump_Encrypt_DmpData.c)
- *     IopLiveDumpTraceWriteBuffer @ 0x1405A348C (IopLiveDumpTraceWriteBuffer.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
+ *     SecureDump_Encrypt_DmpData @ 0x14059E950 (SecureDump_Encrypt_DmpData.c)
+ *     IopLiveDumpTraceWriteBuffer @ 0x1405A03CC (IopLiveDumpTraceWriteBuffer.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteBuffer(

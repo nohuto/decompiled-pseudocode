@@ -1,20 +1,20 @@
 /*
- * XREFs of HvStoreModifiedData @ 0x140480EEC
+ * XREFs of HvStoreModifiedData @ 0x14047FC40
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
  * Callees:
- *     RtlMergeBitMaps @ 0x14009CD90 (RtlMergeBitMaps.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5964 (HvpFindNextDirtyBlockAndCreateTemporary.c)
+ *     RtlMergeBitMaps @ 0x14009C590 (RtlMergeBitMaps.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5848 (HvpFindNextDirtyBlockAndCreateTemporary.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvResetUnreconciledData @ 0x14047E8D0 (HvResetUnreconciledData.c)
- *     HvpGenerateLogEntry @ 0x1404812F0 (HvpGenerateLogEntry.c)
- *     HvpFindNextDirtyBlock @ 0x1404815C8 (HvpFindNextDirtyBlock.c)
- *     HvpCountSetRangesInVector @ 0x140481974 (HvpCountSetRangesInVector.c)
- *     HvpTruncateBins @ 0x140481A44 (HvpTruncateBins.c)
- *     HvResetDirtyData @ 0x140481C90 (HvResetDirtyData.c)
+ *     HvResetUnreconciledData @ 0x14047D624 (HvResetUnreconciledData.c)
+ *     HvpGenerateLogEntry @ 0x140480044 (HvpGenerateLogEntry.c)
+ *     HvpFindNextDirtyBlock @ 0x14048031C (HvpFindNextDirtyBlock.c)
+ *     HvpCountSetRangesInVector @ 0x1404806C8 (HvpCountSetRangesInVector.c)
+ *     HvpTruncateBins @ 0x140480798 (HvpTruncateBins.c)
+ *     HvResetDirtyData @ 0x1404809E4 (HvResetDirtyData.c)
  */
 
 __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, char a3)
@@ -56,7 +56,7 @@ __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, ch
   int v39; // [rsp+54h] [rbp-2Ch]
   int v40; // [rsp+58h] [rbp-28h] BYREF
   unsigned int SizeOfBitMap; // [rsp+5Ch] [rbp-24h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-20h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-20h] BYREF
   void *v43; // [rsp+70h] [rbp-10h] BYREF
   void *v44; // [rsp+78h] [rbp-8h]
   PVOID P; // [rsp+C0h] [rbp+40h] BYREF

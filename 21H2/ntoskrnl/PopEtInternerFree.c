@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtInternerFree @ 0x1406BF860
+ * XREFs of PopEtInternerFree @ 0x14061E6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopEtInternerFree(__int64 a1, void *a2)

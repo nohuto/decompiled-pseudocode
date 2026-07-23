@@ -34,38 +34,38 @@ void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
   int v12; // eax
   int v13; // edx
   __int64 v14; // r14
-  void *v15; // rcx
+  PVOID v15; // rcx
   int v16; // eax
   ULONG_PTR v17; // rcx
   __int64 v18; // rdx
-  void *v19; // rcx
+  PVOID v19; // rcx
   int v20; // edx
   int v21; // r12d
   int v22; // eax
-  void *VirtualMemory; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-10h] BYREF
   __int64 v24; // [rsp+38h] [rbp-8h]
   unsigned __int8 v25; // [rsp+88h] [rbp+48h]
   unsigned __int8 v26; // [rsp+88h] [rbp+48h]
   unsigned int PagePriorityThread; // [rsp+90h] [rbp+50h]
-  unsigned __int64 v28; // [rsp+98h] [rbp+58h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+58h] BYREF
 
-  VirtualMemory = 0LL;
-  v28 = 0LL;
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
   CurrentThread = KeGetCurrentThread();
   v6 = a2 - 2;
   if ( !v6 )
   {
     v18 = *(unsigned int *)(a3 + 24);
-    v28 = *(_QWORD *)(a3 + 8);
-    VirtualMemory = (void *)MmStoreAllocateVirtualMemory(v28, v18);
-    v19 = VirtualMemory;
-    if ( !VirtualMemory )
+    RegionSize = *(_QWORD *)(a3 + 8);
+    BaseAddress = (PVOID)MmStoreAllocateVirtualMemory(RegionSize, v18);
+    v19 = BaseAddress;
+    if ( !BaseAddress )
       goto LABEL_32;
     if ( *(_QWORD *)(a1 + 120) && (*(_DWORD *)(a3 + 40) & 1) == 0 )
     {
       v26 = CurrentThread[1].SavedApcStateFill[15];
       CurrentThread[1].SavedApcStateFill[15] = *(_BYTE *)(a1 + 136);
-      v21 = SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), v28, 1LL, 0LL);
+      v21 = SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), RegionSize, 1LL, 0LL);
       if ( !v21 )
       {
         v11 = -1073741670;
@@ -76,13 +76,13 @@ void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
       if ( v11 < 0 )
       {
 LABEL_46:
-        MmStoreFreeVirtualMemory(VirtualMemory);
+        MmStoreFreeVirtualMemory(BaseAddress);
         if ( v21 )
-          SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), v28, 1LL, 1LL);
+          SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), RegionSize, 1LL, 1LL);
         goto LABEL_19;
       }
-      SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), v28, 1LL, 1LL);
-      v19 = VirtualMemory;
+      SmAcquireReleaseCharges(*(_QWORD *)(a3 + 16), RegionSize, 1LL, 1LL);
+      v19 = BaseAddress;
     }
     *(_QWORD *)(a3 + 32) = v19;
     goto LABEL_16;
@@ -90,10 +90,10 @@ LABEL_46:
   v7 = v6 - 1;
   if ( !v7 )
   {
-    v15 = *(void **)a3;
-    v28 = *(_QWORD *)(a3 + 8);
+    v15 = *(PVOID *)a3;
+    RegionSize = *(_QWORD *)(a3 + 8);
     v16 = *(_DWORD *)(a3 + 16);
-    VirtualMemory = v15;
+    BaseAddress = v15;
     if ( (v16 & 1) == 0 )
     {
       MmStoreFreeVirtualMemory(v15);
@@ -117,13 +117,13 @@ LABEL_46:
       v11 = -1073741811;
       goto LABEL_19;
     }
-    VirtualMemory = *(void **)a3;
-    v28 = *(_QWORD *)(a3 + 8);
-    ZwUnlockVirtualMemory(-1LL, &VirtualMemory, &v28, 1LL);
+    BaseAddress = *(PVOID *)a3;
+    RegionSize = *(_QWORD *)(a3 + 8);
+    ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     goto LABEL_16;
   }
-  VirtualMemory = *(void **)a3;
-  v28 = *(_QWORD *)(a3 + 8);
+  BaseAddress = *(PVOID *)a3;
+  RegionSize = *(_QWORD *)(a3 + 8);
   v9 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
   if ( !v9 )
   {
@@ -138,11 +138,11 @@ LABEL_32:
     PagePriorityThread = PsSetPagePriorityThread(CurrentThread);
   v25 = CurrentThread[1].SavedApcStateFill[15];
   CurrentThread[1].SavedApcStateFill[15] = *(_BYTE *)(a1 + 136);
-  v11 = SmKmProbeAndLockAddress(VirtualMemory, v28, v9, 0);
+  v11 = SmKmProbeAndLockAddress(BaseAddress, RegionSize, v9, 0);
   if ( v11 == -1073741395 && (*(_DWORD *)(a3 + 20) & 1) != 0 )
   {
     v24 = SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), 1);
-    v22 = SmKmProbeAndLockAddress(VirtualMemory, v28, v9, 1u);
+    v22 = SmKmProbeAndLockAddress(BaseAddress, RegionSize, v9, 1u);
     v11 = v22;
     if ( v22 >= 0 )
       v9->Next = (struct _MDL *)v24;
@@ -158,8 +158,8 @@ LABEL_32:
   CurrentThread[1].SavedApcStateFill[15] = v25;
   if ( v11 >= 0 )
   {
-    VirtualMemory = (void *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
-    if ( VirtualMemory )
+    BaseAddress = (PVOID)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 128), *(_DWORD *)(a3 + 20) & 1);
+    if ( BaseAddress )
     {
       *(_QWORD *)(a3 + 32) = v9;
 LABEL_16:

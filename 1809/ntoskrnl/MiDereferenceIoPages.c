@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDereferenceIoPages @ 0x140123634
+ * XREFs of MiDereferenceIoPages @ 0x140123704
  * Callers:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     MiReplaceRotateWithDemandZero @ 0x1401229F0 (MiReplaceRotateWithDemandZero.c)
- *     MiZeroAndFlushPtes @ 0x14012337C (MiZeroAndFlushPtes.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140122AC0 (MiReplaceRotateWithDemandZero.c)
+ *     MiZeroAndFlushPtes @ 0x14012344C (MiZeroAndFlushPtes.c)
+ *     MiMapContiguousMemoryLarge @ 0x140183324 (MiMapContiguousMemoryLarge.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
@@ -70,13 +70,13 @@ void __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
   v45 = 0LL;
   BugCheckParameter4 = a2 & 0xFFFFFFFFFLL;
   v7 = a3;
-  i = (unsigned __int64 *)&qword_14043AD08[a1];
+  i = (unsigned __int64 *)&qword_14043BDC8[a1];
   v39 = i;
-  v9 = &qword_14043AD18;
+  v9 = &qword_14043BDD8;
   if ( a1 != 1 )
     v9 = 0LL;
   v40 = v9;
-  v10 = ExAcquireSpinLockExclusive(&dword_14043AD00);
+  v10 = ExAcquireSpinLockExclusive(&dword_14043BDC0);
   v41 = v10;
 LABEL_5:
   for ( i = (unsigned __int64 *)*i; i; i = (unsigned __int64 *)i[1] )
@@ -159,17 +159,17 @@ LABEL_19:
       _InterlockedOr(v38, 0);
       v30 = KiCacheFlushTimeStamp;
       *((_DWORD *)v16 + 14) = KiCacheFlushTimeStamp;
-      if ( (__int64 *)qword_14043AD20 == &qword_14043AD20 )
-        dword_14043AD30 = v30;
-      v31 = (_QWORD *)qword_14043AD28;
+      if ( (__int64 *)qword_14043BDE0 == &qword_14043BDE0 )
+        dword_14043BDF0 = v30;
+      v31 = (_QWORD *)qword_14043BDE8;
       v32 = v16 + 3;
-      if ( *(__int64 **)qword_14043AD28 != &qword_14043AD20 )
+      if ( *(__int64 **)qword_14043BDE8 != &qword_14043BDE0 )
         __fastfail(3u);
-      *v32 = &qword_14043AD20;
+      *v32 = &qword_14043BDE0;
       v33 = 0;
       v16[4] = (unsigned __int64)v31;
       *v31 = v32;
-      qword_14043AD28 = (__int64)(v16 + 3);
+      qword_14043BDE8 = (__int64)(v16 + 3);
       v34 = (_QWORD *)*v25;
       if ( *v25 )
       {
@@ -198,7 +198,7 @@ LABEL_19:
       }
       RtlAvlInsertNodeEx(v25, (unsigned __int64)v34, v33, i);
       v16 = 0LL;
-      ++qword_14043AD38;
+      ++qword_14043BDF8;
     }
 LABEL_41:
     if ( !v16 )
@@ -243,7 +243,7 @@ LABEL_23:
     }
   }
 LABEL_27:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AD00);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BDC0);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

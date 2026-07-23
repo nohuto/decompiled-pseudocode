@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateSecurePoolMemory @ 0x14067CB78
+ * XREFs of MmAllocateSecurePoolMemory @ 0x14067DD58
  * Callers:
- *     PspIumAllocateSecurePool @ 0x1405E64D8 (PspIumAllocateSecurePool.c)
+ *     PspIumAllocateSecurePool @ 0x1405E3AD8 (PspIumAllocateSecurePool.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14022AD20 (MiGetSystemRegionType.c)
- *     MiInitializePoolCommitPacket @ 0x1402EA864 (MiInitializePoolCommitPacket.c)
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
- *     MiReservePoolMemory @ 0x1403A5398 (MiReservePoolMemory.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiIsSystemVaAllocated @ 0x1406798B0 (MiIsSystemVaAllocated.c)
- *     MmFreeSecurePoolMemory @ 0x14067CCC0 (MmFreeSecurePoolMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReservePoolMemory @ 0x14026C688 (MiReservePoolMemory.c)
+ *     MiGetSystemRegionType @ 0x1402FDF90 (MiGetSystemRegionType.c)
+ *     MiInitializePoolCommitPacket @ 0x14034BEA4 (MiInitializePoolCommitPacket.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiIsSystemVaAllocated @ 0x14067AA90 (MiIsSystemVaAllocated.c)
+ *     MmFreeSecurePoolMemory @ 0x14067DEA0 (MmFreeSecurePoolMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmAllocateSecurePoolMemory(

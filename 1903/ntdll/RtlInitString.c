@@ -17,7 +17,7 @@ void __stdcall RtlInitString(PSTRING DestinationString, PCSZ SourceString)
   unsigned __int64 v2; // rax
 
   *(_QWORD *)&DestinationString->Length = 0LL;
-  DestinationString->Buffer = (char *)SourceString;
+  DestinationString->Buffer = (PCHAR)SourceString;
   if ( SourceString )
   {
     v2 = -1LL;

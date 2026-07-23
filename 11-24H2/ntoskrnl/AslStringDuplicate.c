@@ -1,19 +1,19 @@
 /*
- * XREFs of AslStringDuplicate @ 0x14095A750
+ * XREFs of AslStringDuplicate @ 0x140942210
  * Callers:
- *     SdbpGetManifestedMergeStubAlloc @ 0x140801460 (SdbpGetManifestedMergeStubAlloc.c)
- *     SdbpCheckMatchingRegistryValue @ 0x14080332C (SdbpCheckMatchingRegistryValue.c)
- *     AslRegistryGetString @ 0x140808BF4 (AslRegistryGetString.c)
- *     AslFileMappingCreateFromImageView @ 0x14080900C (AslFileMappingCreateFromImageView.c)
- *     AslPathToSystemPath @ 0x140809EE0 (AslPathToSystemPath.c)
- *     AslRegWildcardFindFirst @ 0x14080AE60 (AslRegWildcardFindFirst.c)
- *     AslFileMappingCreate @ 0x140959A94 (AslFileMappingCreate.c)
- *     AslpFileVerQueryBlock @ 0x14095B7DC (AslpFileVerQueryBlock.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140801BA0 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140803A6C (SdbpCheckMatchingRegistryValue.c)
+ *     AslRegistryGetString @ 0x140809334 (AslRegistryGetString.c)
+ *     AslFileMappingCreateFromImageView @ 0x14080974C (AslFileMappingCreateFromImageView.c)
+ *     AslPathToSystemPath @ 0x14080A620 (AslPathToSystemPath.c)
+ *     AslRegWildcardFindFirst @ 0x14080B5A0 (AslRegWildcardFindFirst.c)
+ *     AslFileMappingCreate @ 0x140941554 (AslFileMappingCreate.c)
+ *     AslpFileVerQueryBlock @ 0x14094329C (AslpFileVerQueryBlock.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslStringDuplicate(wchar_t **a1, const wchar_t *a2)

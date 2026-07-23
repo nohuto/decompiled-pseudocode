@@ -1,21 +1,21 @@
 /*
- * XREFs of DisplayBootBitmap @ 0x14057622C
+ * XREFs of DisplayBootBitmap @ 0x1405786DC
  * Callers:
- *     DisplayFilter @ 0x140576400 (DisplayFilter.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     DisplayFilter @ 0x1405788B0 (DisplayFilter.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     InbvIsBootDriverInstalled @ 0x14052FE50 (InbvIsBootDriverInstalled.c)
- *     InbvAcquireLock @ 0x1405C4A9C (InbvAcquireLock.c)
- *     InbvBitBlt @ 0x1405C4ACC (InbvBitBlt.c)
- *     InbvGetResourceAddress @ 0x1405C4CB0 (InbvGetResourceAddress.c)
- *     InbvReleaseLock @ 0x1405C4D2C (InbvReleaseLock.c)
- *     InbvReleaseResources @ 0x1405C4D5C (InbvReleaseResources.c)
- *     InbvSetScrollRegion @ 0x1405C4DC0 (InbvSetScrollRegion.c)
- *     InbvSetTextColor @ 0x1405C4DF0 (InbvSetTextColor.c)
- *     InbvSolidColorFill @ 0x1405C4E60 (InbvSolidColorFill.c)
- *     RotBarInit @ 0x1405C4FE0 (RotBarInit.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
+ *     InbvIsBootDriverInstalled @ 0x140532350 (InbvIsBootDriverInstalled.c)
+ *     InbvAcquireLock @ 0x1405C730C (InbvAcquireLock.c)
+ *     InbvBitBlt @ 0x1405C733C (InbvBitBlt.c)
+ *     InbvGetResourceAddress @ 0x1405C7520 (InbvGetResourceAddress.c)
+ *     InbvReleaseLock @ 0x1405C759C (InbvReleaseLock.c)
+ *     InbvReleaseResources @ 0x1405C75CC (InbvReleaseResources.c)
+ *     InbvSetScrollRegion @ 0x1405C7630 (InbvSetScrollRegion.c)
+ *     InbvSetTextColor @ 0x1405C7660 (InbvSetTextColor.c)
+ *     InbvSolidColorFill @ 0x1405C76D0 (InbvSolidColorFill.c)
+ *     RotBarInit @ 0x1405C7850 (RotBarInit.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
  */
 
 NTSTATUS __fastcall DisplayBootBitmap(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ NTSTATUS __fastcall DisplayBootBitmap(__int64 a1, __int64 a2)
 
   v2 = 0;
   v3 = a1;
-  if ( byte_140E0F530 )
+  if ( byte_140E0F5D8 )
   {
     InbvAcquireLock();
     RotBarSelection = 0;
@@ -57,7 +57,7 @@ NTSTATUS __fastcall DisplayBootBitmap(__int64 a1, __int64 a2)
   }
   if ( !InbvIsBootDriverInstalled(a1, a2) )
     return InbvReleaseResources();
-  qword_140E65CD8 = (__int64)DisplayFilter;
+  qword_140E65EF0 = (__int64)DisplayFilter;
   v8 = InbvGetResourceAddress(1LL);
   v10 = InbvGetResourceAddress(4LL);
   if ( v8 )
@@ -67,17 +67,17 @@ NTSTATUS __fastcall DisplayBootBitmap(__int64 a1, __int64 a2)
   }
   if ( v10 )
     InbvBitBlt(v10, v9, 0LL);
-  if ( !byte_140E0F530 )
+  if ( !byte_140E0F5D8 )
   {
     ThreadHandle = 0LL;
     result = PsCreateSystemThread(&ThreadHandle, 0, 0LL, 0LL, 0LL, InbvRotateGuiBootDisplay, 0LL);
     if ( result >= 0 )
     {
       result = ZwClose(ThreadHandle);
-      byte_140E0F530 = 1;
+      byte_140E0F5D8 = 1;
     }
 LABEL_17:
-    if ( !byte_140E0F530 )
+    if ( !byte_140E0F5D8 )
       return result;
   }
   InbvAcquireLock();

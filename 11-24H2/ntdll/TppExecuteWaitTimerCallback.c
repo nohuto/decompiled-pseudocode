@@ -1,23 +1,23 @@
 /*
- * XREFs of TppExecuteWaitTimerCallback @ 0x1800FADC0
+ * XREFs of TppExecuteWaitTimerCallback @ 0x1800F5B20
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     TppETWCallbackDequeue @ 0x180069454 (TppETWCallbackDequeue.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     TppETWCallbackDequeue @ 0x180084FE4 (TppETWCallbackDequeue.c)
  */
 
-struct _TEB *__fastcall TppExecuteWaitTimerCallback(__int64 a1, __int64 a2)
+int __fastcall TppExecuteWaitTimerCallback(PTP_CALLBACK_INSTANCE a1, __int64 a2)
 {
-  __int64 *v3; // rbx
+  __int64 v3; // rbx
   __int64 v5; // r8
 
-  v3 = (__int64 *)(a2 - 200);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  v3 = a2 - 200;
+  if ( RtlGetCurrentServiceSessionId() )
     v5 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v5 = 2147353478LL;
   if ( *(_BYTE *)v5 )
-    TppETWCallbackDequeue(v3[18], a2, v3[10], v3[11], v3[13]);
-  return TppExecuteWaitCallback(a1, (__int64)v3, 0x102u);
+    TppETWCallbackDequeue(*(_QWORD *)(v3 + 144), a2, *(_QWORD *)(v3 + 80), *(_QWORD *)(v3 + 88), *(_QWORD *)(v3 + 104));
+  return TppExecuteWaitCallback(a1, (PTP_WAIT)v3, 0x102u);
 }

@@ -33,7 +33,7 @@ char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, i
   v7 = PopCoalescingTimerInterval;
   v6 = PopCurrentCoalescingSpindownTimeout;
   result = PopPrintEx(
-             3LL,
+             3u,
              (__int64)"PopCoalescing: ON notification sent (spindown timeout:%u, timer interval: %u, flush delay interval"
                       ":%u, Enforced:%u)\n",
              PopCurrentCoalescingSpindownTimeout,

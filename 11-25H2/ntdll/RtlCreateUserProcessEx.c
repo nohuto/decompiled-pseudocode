@@ -7,38 +7,41 @@
  *     RtlpCreateUserProcess @ 0x1800FDA44 (RtlpCreateUserProcess.c)
  */
 
-__int64 __fastcall RtlCreateUserProcessEx(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlCreateUserProcessEx(
+        PUNICODE_STRING NtImagePathName,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        BOOLEAN InheritHandles,
+        PRTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  int v7; // edi
-  __int64 v9; // rax
+  PRTL_USER_PROCESS_PARAMETERS v9; // rax
   int v10; // edx
-  int v11; // r9d
+  unsigned int Flags; // r9d
   int v12; // ecx
-  int v13; // edx
-  int v14; // r8d
+  unsigned int v13; // edx
+  __int64 v14; // r8
 
-  v7 = a1;
-  if ( !a1 )
-    return 3221225485LL;
-  if ( !a2 )
-    return 3221225485LL;
-  v9 = RtlNormalizeProcessParams(a2);
+  if ( !NtImagePathName )
+    return -1073741811;
+  if ( !ProcessParameters )
+    return -1073741811;
+  v9 = RtlNormalizeProcessParams(ProcessParameters);
   if ( !v9 )
-    return 3221225485LL;
+    return -1073741811;
   v10 = 0;
-  if ( a3 )
+  if ( InheritHandles )
     v10 = 4;
   else
-    *(_QWORD *)(v9 + 72) = 0LL;
-  v11 = *(_DWORD *)(v9 + 8);
+    v9->CurrentDirectory.Handle = 0LL;
+  Flags = v9->Flags;
   v12 = v10 | 0x80;
-  if ( (v11 & 0x40000) == 0 )
+  if ( (Flags & 0x40000) == 0 )
     v12 = v10;
   v13 = v12 | 0x40;
-  if ( (v11 & 0x400000) == 0 )
+  if ( (Flags & 0x400000) == 0 )
     v13 = v12;
   v14 = v13 | 0x40000;
-  if ( (v11 & 0x800000) == 0 )
+  if ( (Flags & 0x800000) == 0 )
     v14 = v13;
-  return RtlpCreateUserProcess(v7, v9, v14, 1, a4, a5);
+  return RtlpCreateUserProcess(NtImagePathName, v9, v14, 1LL, ProcessExtendedParameters, ProcessInformation);
 }

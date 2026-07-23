@@ -7,29 +7,41 @@
  *     RtlDosPathNameToRelativeNtPathName @ 0x180025B80 (RtlDosPathNameToRelativeNtPathName.c)
  */
 
-__int64 __fastcall RtlDosPathNameToRelativeNtPathName_U_WithStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlDosPathNameToRelativeNtPathName_U_WithStatus(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
   unsigned __int64 v4; // rax
-  __int64 v6; // [rsp+20h] [rbp-38h]
+  PUNICODE_STRING v6; // [rsp+20h] [rbp-38h]
   int v7; // [rsp+40h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+48h] [rbp-10h]
+  PCWSTR v8; // [rsp+48h] [rbp-10h]
 
-  v8 = a1;
+  v8 = DosFileName;
   v7 = 0;
-  if ( !a1 )
+  if ( !DosFileName )
     goto LABEL_6;
   v4 = -1LL;
   do
     ++v4;
-  while ( *(_WORD *)(a1 + 2 * v4) );
+  while ( DosFileName[v4] );
   if ( v4 <= 0x7FFE )
   {
     LOWORD(v7) = 2 * v4;
     HIWORD(v7) = 2 * v4 + 2;
 LABEL_6:
-    v6 = a2;
-    LOBYTE(a2) = 1;
-    return RtlDosPathNameToRelativeNtPathName(0, a2, (unsigned int)&v7, 0, v6, 0LL, a3, a4);
+    v6 = NtFileName;
+    LOBYTE(NtFileName) = 1;
+    return RtlDosPathNameToRelativeNtPathName(
+             0,
+             (_DWORD)NtFileName,
+             (unsigned int)&v7,
+             0,
+             (__int64)v6,
+             0LL,
+             (__int64)FilePart,
+             (__int64)RelativeName);
   }
-  return 3221225734LL;
+  return -1073741562;
 }

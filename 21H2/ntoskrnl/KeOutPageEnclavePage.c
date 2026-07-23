@@ -1,12 +1,12 @@
 /*
- * XREFs of KeOutPageEnclavePage @ 0x140515330
+ * XREFs of KeOutPageEnclavePage @ 0x140515570
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x140549A28 (MiDecommitHardwareEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549C68 (MiDecommitHardwareEnclavePages.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiEncls @ 0x1403FF060 (KiEncls.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiEnclsStatus @ 0x140515478 (KiEnclsStatus.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiEncls @ 0x1403FF240 (KiEncls.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiEnclsStatus @ 0x1405156B8 (KiEnclsStatus.c)
  */
 
 __int64 __fastcall KeOutPageEnclavePage(__int64 a1, __int64 a2)

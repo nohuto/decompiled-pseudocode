@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckStart @ 0x14022A450
+ * XREFs of PpmCheckStart @ 0x1402CED00
  * Callers:
- *     PpmCheckPeriodicStart @ 0x14022B3C0 (PpmCheckPeriodicStart.c)
- *     PpmCheckCustomRun @ 0x14037D0D8 (PpmCheckCustomRun.c)
+ *     PpmCheckPeriodicStart @ 0x1402CFC70 (PpmCheckPeriodicStart.c)
+ *     PpmCheckCustomRun @ 0x14037CC28 (PpmCheckCustomRun.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     PpmCheckRun @ 0x14022AA50 (PpmCheckRun.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x140381028 (PpmPerfSetAllDomainsToUpdate.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     PpmCheckRun @ 0x1402CF300 (PpmCheckRun.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x140380B78 (PpmPerfSetAllDomainsToUpdate.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmCheckStart(int a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PpmCheckStart(int a1)
   int v5; // edx
   int v6; // [rsp+40h] [rbp-58h] BYREF
   __int64 v7; // [rsp+48h] [rbp-50h] BYREF
-  _BYTE v8[8]; // [rsp+50h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-40h] BYREF
   __int64 *v10; // [rsp+68h] [rbp-30h]
   __int64 v11; // [rsp+70h] [rbp-28h]
@@ -29,7 +29,7 @@ __int64 __fastcall PpmCheckStart(int a1)
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(v8);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   v2 = 0;
   v7 = PpmCheckLastExecutionTime;
   v6 = v1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerClearCpuSetAssignment @ 0x1405F7870
+ * XREFs of KiIntSteerClearCpuSetAssignment @ 0x1405FA290
  * Callers:
- *     KeIntSteerAssignCpuSet @ 0x1405F7528 (KeIntSteerAssignCpuSet.c)
- *     KeIntSteerAssignCpuSetForGsiv @ 0x1405F75C0 (KeIntSteerAssignCpuSetForGsiv.c)
- *     KiIntSteerAssignCpuSet @ 0x1405F7670 (KiIntSteerAssignCpuSet.c)
+ *     KeIntSteerAssignCpuSet @ 0x1405F9F44 (KeIntSteerAssignCpuSet.c)
+ *     KeIntSteerAssignCpuSetForGsiv @ 0x1405F9FDC (KeIntSteerAssignCpuSetForGsiv.c)
+ *     KiIntSteerAssignCpuSet @ 0x1405FA08C (KiIntSteerAssignCpuSet.c)
  * Callees:
  *     <none>
  */

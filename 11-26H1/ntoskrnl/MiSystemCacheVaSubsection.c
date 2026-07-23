@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSystemCacheVaSubsection @ 0x140466ED0
+ * XREFs of MiSystemCacheVaSubsection @ 0x140460620
  * Callers:
- *     MmHardFaultBytesRequired @ 0x140A67490 (MmHardFaultBytesRequired.c)
+ *     MmHardFaultBytesRequired @ 0x140A74460 (MmHardFaultBytesRequired.c)
  * Callees:
  *     <none>
  */

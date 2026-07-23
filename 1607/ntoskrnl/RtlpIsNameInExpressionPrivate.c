@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIsNameInExpressionPrivate @ 0x140081540
+ * XREFs of RtlpIsNameInExpressionPrivate @ 0x1400815C0
  * Callers:
- *     RtlIsNameInExpression @ 0x1400814C0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInExpression @ 0x140081540 (RtlIsNameInExpression.c)
  * Callees:
- *     RtlDoesNameContainWildCards @ 0x140081A90 (RtlDoesNameContainWildCards.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
+ *     RtlDoesNameContainWildCards @ 0x140081B10 (RtlDoesNameContainWildCards.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

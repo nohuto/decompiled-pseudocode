@@ -1,11 +1,11 @@
 /*
- * XREFs of ExStartRecordingIRTimerExpiries @ 0x140B3DD04
+ * XREFs of ExStartRecordingIRTimerExpiries @ 0x140B3FDE4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     ExpGetIRTimerDesc @ 0x1404ED6B0 (ExpGetIRTimerDesc.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpGetIRTimerDesc @ 0x1404E6C90 (ExpGetIRTimerDesc.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void ExStartRecordingIRTimerExpiries()
@@ -20,7 +20,9 @@ void ExStartRecordingIRTimerExpiries()
   Pool2 = ExAllocatePool2(0x40uLL);
   if ( Pool2 )
   {
-    v3 = (void *)_InterlockedExchange64((volatile __int64 *)ExSaPageGroupDescriptorArrayLock.TracingPrivate, Pool2);
+    v3 = (void *)_InterlockedExchange64(
+                   (volatile __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelShadowStackInitial,
+                   Pool2);
     if ( v3 )
       ExFreePoolWithTag(v3, 0x69547845u);
   }

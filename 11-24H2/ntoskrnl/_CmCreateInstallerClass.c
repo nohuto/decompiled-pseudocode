@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateInstallerClass @ 0x140817C74
+ * XREFs of _CmCreateInstallerClass @ 0x1408183B4
  * Callers:
- *     PiCMOpenClassKey @ 0x140963498 (PiCMOpenClassKey.c)
- *     _PnpDispatchInstallerClass @ 0x1409B6670 (_PnpDispatchInstallerClass.c)
+ *     PiCMOpenClassKey @ 0x14094AF58 (PiCMOpenClassKey.c)
+ *     _PnpDispatchInstallerClass @ 0x1409ADA00 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmCreateInstallerClassWorker @ 0x140817DE0 (_CmCreateInstallerClassWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmCreateInstallerClassWorker @ 0x140818520 (_CmCreateInstallerClassWorker.c)
  */
 
 __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
@@ -31,7 +31,7 @@ __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE
   v20 = a6;
   if ( v10 )
   {
-    v11 = guard_dispatch_icall_no_overrides(a1, a2, 2LL, 2LL);
+    v11 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v11 == -1073741822 )
     {
       v10 = 0LL;
@@ -49,7 +49,7 @@ __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE
   if ( v10 )
   {
     v16[0] = InstallerClassWorker;
-    v14 = guard_dispatch_icall_no_overrides(a1, a2, 2LL, 2LL);
+    v14 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v14 != -1073741822 )
     {
       if ( v14 != -1073741536 )

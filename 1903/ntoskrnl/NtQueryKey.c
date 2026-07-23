@@ -134,7 +134,7 @@ LABEL_56:
     v28 = v10;
     goto LABEL_57;
   }
-  if ( (unsigned int)KeyInformationClass > MaxKeyInfoClass )
+  if ( (unsigned int)KeyInformationClass > KeyTrustInformation )
   {
     if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7)
       && KeyHandle
@@ -333,7 +333,7 @@ LABEL_57:
       else
       {
         ++dword_1404F3060;
-        ((void (__fastcall *)(void *, union _SLIST_HEADER *))qword_1404F3078)(Src, &CmpBounceBufferLookaside);
+        ((void (__fastcall *)(void *, _SLIST_HEADER *))qword_1404F3078)(Src, &CmpBounceBufferLookaside);
       }
     }
     else

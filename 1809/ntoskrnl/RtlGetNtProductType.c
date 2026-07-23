@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlGetNtProductType @ 0x14012AC40
+ * XREFs of RtlGetNtProductType @ 0x14012AD10
  * Callers:
- *     IoFillDumpHeader @ 0x14027F5D4 (IoFillDumpHeader.c)
- *     KeCapturePersistentThreadState @ 0x1402826A0 (KeCapturePersistentThreadState.c)
- *     MmWriteTriageInformation @ 0x1402AE8D8 (MmWriteTriageInformation.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1406528E4 (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     RtlGetVersion @ 0x1406B4730 (RtlGetVersion.c)
- *     RtlRestoreBootStatusDefaults @ 0x140895D98 (RtlRestoreBootStatusDefaults.c)
+ *     IoFillDumpHeader @ 0x14027F7C4 (IoFillDumpHeader.c)
+ *     KeCapturePersistentThreadState @ 0x140282890 (KeCapturePersistentThreadState.c)
+ *     MmWriteTriageInformation @ 0x1402AEAC8 (MmWriteTriageInformation.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x140653AA4 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     RtlGetVersion @ 0x1406B59D0 (RtlGetVersion.c)
+ *     RtlRestoreBootStatusDefaults @ 0x140896FF8 (RtlRestoreBootStatusDefaults.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x140703DC4 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PsGetThreadServerSilo @ 0x14007E5D0 (PsGetThreadServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B442C (KeIsExecutingInArbitraryThreadContext.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x140705064 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
 BOOLEAN __stdcall RtlGetNtProductType(PNT_PRODUCT_TYPE ProductType)

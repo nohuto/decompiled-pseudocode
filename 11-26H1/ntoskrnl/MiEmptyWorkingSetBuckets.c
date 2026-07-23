@@ -1,9 +1,9 @@
 /*
- * XREFs of MiEmptyWorkingSetBuckets @ 0x1403BAEEC
+ * XREFs of MiEmptyWorkingSetBuckets @ 0x1403C4D5C
  * Callers:
- *     MiEmptyWorkingSetConverge @ 0x1403BAD38 (MiEmptyWorkingSetConverge.c)
+ *     MiEmptyWorkingSetConverge @ 0x1403C4BA8 (MiEmptyWorkingSetConverge.c)
  * Callees:
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetBuckets(__int64 a1, __int64 a2)

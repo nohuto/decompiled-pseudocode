@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchCopyExW @ 0x1800D1B1C
+ * XREFs of RtlStringCchCopyExW @ 0x1800D1BDC
  * Callers:
- *     LdrpEventAddUnicodeString @ 0x1800D1190 (LdrpEventAddUnicodeString.c)
- *     LdrpMakeUnicodeStringFromPathElement @ 0x1800D19DC (LdrpMakeUnicodeStringFromPathElement.c)
- *     RtlpGetCompleteLanguageFallback @ 0x1800E6E84 (RtlpGetCompleteLanguageFallback.c)
+ *     LdrpEventAddUnicodeString @ 0x1800D1250 (LdrpEventAddUnicodeString.c)
+ *     LdrpMakeUnicodeStringFromPathElement @ 0x1800D1A9C (LdrpMakeUnicodeStringFromPathElement.c)
+ *     RtlpGetCompleteLanguageFallback @ 0x1800E6F44 (RtlpGetCompleteLanguageFallback.c)
  * Callees:
- *     RtlStringCopyWorkerW_0 @ 0x1800D1BF0 (RtlStringCopyWorkerW_0.c)
+ *     RtlStringCopyWorkerW_0 @ 0x1800D1CB0 (RtlStringCopyWorkerW_0.c)
  */
 
 __int64 __fastcall RtlStringCchCopyExW(_WORD *a1, __int64 a2, _WORD *a3, _QWORD *a4, _QWORD *a5)

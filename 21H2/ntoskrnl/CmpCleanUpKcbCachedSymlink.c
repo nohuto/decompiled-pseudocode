@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCleanUpKcbCachedSymlink @ 0x1405EE830
+ * XREFs of CmpCleanUpKcbCachedSymlink @ 0x1406DDF90
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
- *     CmpRebuildKcbCacheFromNode @ 0x140669FA4 (CmpRebuildKcbCacheFromNode.c)
- *     CmpMarkKeyUnbacked @ 0x14066CB80 (CmpMarkKeyUnbacked.c)
- *     CmpLightWeightCommitSetValueKeyUoW @ 0x1406A40E8 (CmpLightWeightCommitSetValueKeyUoW.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x14073293C (CmpLightWeightCommitDeleteValueKeyUoW.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x1405E1BB8 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x14065B364 (CmDeleteValueKey.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14065EDC4 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpMarkKeyUnbacked @ 0x1406619A0 (CmpMarkKeyUnbacked.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406DDFD4 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140732AFC (CmpLightWeightCommitDeleteValueKeyUoW.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
  * Callees:
- *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1406DE0FC (CmpDelayDerefKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpCleanUpKcbCachedSymlink(__int64 a1)

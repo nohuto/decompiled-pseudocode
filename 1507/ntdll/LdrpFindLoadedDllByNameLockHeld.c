@@ -9,22 +9,22 @@
  */
 
 __int64 __fastcall LdrpFindLoadedDllByNameLockHeld(
-        unsigned __int16 *a1,
-        unsigned __int16 *a2,
+        PUNICODE_STRING String1,
+        PUNICODE_STRING a2,
         char a3,
         _QWORD *a4,
         int a5)
 {
   unsigned int v5; // edi
-  unsigned __int16 *v6; // rax
+  _UNICODE_STRING *v6; // rax
   _QWORD **v8; // r14
-  char v11; // r9
+  BOOLEAN v11; // r9
   _QWORD *v12; // rsi
   _QWORD *v14; // rbx
   __int64 v15; // rax
 
   v5 = 0;
-  v6 = a1;
+  v6 = String1;
   v8 = (_QWORD **)((char *)&LdrpHashTable + 16 * (a5 & 0x1F));
   v11 = 0;
   v12 = *v8;
@@ -37,17 +37,17 @@ __int64 __fastcall LdrpFindLoadedDllByNameLockHeld(
       goto LABEL_5;
     if ( !a2 )
       break;
-    v11 = RtlEqualUnicodeString(a2, (unsigned __int16 *)v14 + 36, 1);
+    v11 = RtlEqualUnicodeString(a2, (PUNICODE_STRING)(v14 + 9), 1u);
 LABEL_18:
     if ( v11 )
       goto LABEL_13;
-    v6 = a1;
+    v6 = String1;
 LABEL_5:
     v12 = (_QWORD *)*v12;
     if ( v12 == v8 )
       goto LABEL_6;
   }
-  if ( (v14[13] & 0x10000000) != 0 || !RtlEqualUnicodeString(v6, (unsigned __int16 *)v14 + 44, 1) )
+  if ( (v14[13] & 0x10000000) != 0 || !RtlEqualUnicodeString(v6, (PUNICODE_STRING)(v14 + 11), 1u) )
   {
     v11 = 0;
     goto LABEL_18;

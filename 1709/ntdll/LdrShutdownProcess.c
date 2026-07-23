@@ -15,7 +15,7 @@
  *     LdrpLogDbgPrint @ 0x1800D0E14 (LdrpLogDbgPrint.c)
  */
 
-void LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // rbx
   _PEB *ProcessEnvironmentBlock; // rdi

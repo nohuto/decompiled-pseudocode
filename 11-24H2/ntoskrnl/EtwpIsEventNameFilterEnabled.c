@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpIsEventNameFilterEnabled @ 0x14032A760
+ * XREFs of EtwpIsEventNameFilterEnabled @ 0x1404EDA40
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpApplyEventNameFilter @ 0x1404EFD50 (EtwpApplyEventNameFilter.c)
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpApplyEventNameFilter @ 0x1404ED680 (EtwpApplyEventNameFilter.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall EtwpIsEventNameFilterEnabled(

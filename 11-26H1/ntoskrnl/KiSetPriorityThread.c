@@ -1,56 +1,56 @@
 /*
- * XREFs of KiSetPriorityThread @ 0x14037F250
+ * XREFs of KiSetPriorityThread @ 0x140381000
  * Callers:
  *     KeSetPriorityAndQuantumProcess @ 0x140202264 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeAdjustPriorityFloor @ 0x140237DCC (KeAdjustPriorityFloor.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiExitThreadWait @ 0x140245780 (KiExitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x140245F80 (KiSatisfyThreadWait.c)
- *     ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x1403754D0 (-KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEA.c)
- *     PopFxActivateComponent @ 0x14037AB40 (PopFxActivateComponent.c)
- *     ?KiAbpThreadUnboostCpuPriority@AutoBoost@@YAXPEAU_KTHREAD@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14037B020 (-KiAbpThreadUnboostCpuPriority@AutoBoost@@YAXPEAU_KTHREAD@@KPEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037B2F0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     KeSetPriorityBoost @ 0x14037B5A0 (KeSetPriorityBoost.c)
- *     PspRevertContainerImpersonation @ 0x14037D900 (PspRevertContainerImpersonation.c)
- *     PspUpdateContainerImpersonation @ 0x14037E0F0 (PspUpdateContainerImpersonation.c)
- *     KiClearPriorityFloor @ 0x140380630 (KiClearPriorityFloor.c)
- *     KiSetPriorityFloor @ 0x140380800 (KiSetPriorityFloor.c)
- *     KiWakePriQueueWaiter @ 0x140380910 (KiWakePriQueueWaiter.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x140395420 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
- *     KiSetPriorityBoost @ 0x1403BFA08 (KiSetPriorityBoost.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KiPerformWaitDeferredWork @ 0x1403F6F20 (KiPerformWaitDeferredWork.c)
- *     KiSetDisableBoostThread @ 0x1404A3DC0 (KiSetDisableBoostThread.c)
- *     KeSetBasePriorityThread @ 0x140528B30 (KeSetBasePriorityThread.c)
- *     KeBoostPriorityThread @ 0x14052C560 (KeBoostPriorityThread.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeAdjustPriorityFloor @ 0x14023972C (KeAdjustPriorityFloor.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiExitThreadWait @ 0x1402470E0 (KiExitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x1402478E0 (KiSatisfyThreadWait.c)
+ *     ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x140377280 (-KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEA.c)
+ *     PopFxActivateComponent @ 0x14037C8F0 (PopFxActivateComponent.c)
+ *     ?KiAbpThreadUnboostCpuPriority@AutoBoost@@YAXPEAU_KTHREAD@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14037CDD0 (-KiAbpThreadUnboostCpuPriority@AutoBoost@@YAXPEAU_KTHREAD@@KPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037D0A0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     KeSetPriorityBoost @ 0x14037D350 (KeSetPriorityBoost.c)
+ *     PspRevertContainerImpersonation @ 0x14037F6B0 (PspRevertContainerImpersonation.c)
+ *     PspUpdateContainerImpersonation @ 0x14037FEA0 (PspUpdateContainerImpersonation.c)
+ *     KiClearPriorityFloor @ 0x1403823E0 (KiClearPriorityFloor.c)
+ *     KiSetPriorityFloor @ 0x1403825B0 (KiSetPriorityFloor.c)
+ *     KiWakePriQueueWaiter @ 0x1403826C0 (KiWakePriQueueWaiter.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403971A0 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     KiSetPriorityBoost @ 0x1403C9908 (KiSetPriorityBoost.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KiPerformWaitDeferredWork @ 0x1403F08D0 (KiPerformWaitDeferredWork.c)
+ *     KiSetDisableBoostThread @ 0x14049D8D0 (KiSetDisableBoostThread.c)
+ *     KeSetBasePriorityThread @ 0x14052B1A0 (KeSetBasePriorityThread.c)
+ *     KeBoostPriorityThread @ 0x14052EA80 (KeBoostPriorityThread.c)
  * Callees:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x14022E180 (KiPrepareReadyThreadForRescheduling.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiIsThreadStateControlledByProcessor @ 0x140237AEC (KiIsThreadStateControlledByProcessor.c)
- *     ?KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z @ 0x14023BA30 (-KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     EtwTraceScheduleThread @ 0x1402467D0 (EtwTraceScheduleThread.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiComputeThreadQos @ 0x1402BC220 (KiComputeThreadQos.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140336024 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiUpdateStandbyStealSummaryForStandbyChange @ 0x14037ED90 (KiUpdateStandbyStealSummaryForStandbyChange.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x14037EEC0 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiQueryEffectivePriorityThread @ 0x14037F0E0 (KiQueryEffectivePriorityThread.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1403C0220 (KiUpdateVPBackingThreadPriority.c)
- *     KeIsForceParkingEnabled @ 0x14043DBE0 (KeIsForceParkingEnabled.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x140527744 (EtwTraceXSchedulerPriorityKickSend.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14022FB10 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiIsThreadStateControlledByProcessor @ 0x14023944C (KiIsThreadStateControlledByProcessor.c)
+ *     ?KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z @ 0x14023D390 (-KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     EtwTraceScheduleThread @ 0x140248130 (EtwTraceScheduleThread.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiComputeThreadQos @ 0x140306EE0 (KiComputeThreadQos.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x140338054 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiUpdateStandbyStealSummaryForStandbyChange @ 0x140380B40 (KiUpdateStandbyStealSummaryForStandbyChange.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x140380C70 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiQueryEffectivePriorityThread @ 0x140380E90 (KiQueryEffectivePriorityThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1403CA120 (KiUpdateVPBackingThreadPriority.c)
+ *     KeIsForceParkingEnabled @ 0x1404366F0 (KeIsForceParkingEnabled.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x140529DB4 (EtwTraceXSchedulerPriorityKickSend.c)
  */
 
 char __fastcall KiSetPriorityThread(unsigned __int64 a1, struct _SINGLE_LIST_ENTRY *a2, unsigned __int64 *a3)
@@ -941,7 +941,7 @@ LABEL_115:
   KiSearchForNewThreadsForRescheduleContext(&StaticRescheduleContext->ProcessorCount, v94);
   v95 = 0;
   v96 = 0;
-  if ( (WORD2(xmmword_140FBFC10) & 0x400) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x400) != 0 )
     v96 = 2;
   for ( m = 0; m < StaticRescheduleContext->ProcessorCount; ++m )
     v95 |= KiCommitRescheduleContextEntry(
@@ -1028,7 +1028,7 @@ LABEL_141:
             if ( SingleTargetIndex == *(_DWORD *)(Prcb + 36) )
               goto LABEL_150;
             CurrentPrcb->DeferredDispatchInterrupts.TargetType = 2;
-            v108 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex);
+            v108 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + SingleTargetIndex);
             v81 = v108 & 0x3F;
             v109 = v108 >> 6;
             if ( CurrentPrcb->DeferredDispatchInterrupts.MultipleTargetAffinity.Count <= (unsigned int)v109 )
@@ -1070,7 +1070,7 @@ LABEL_149:
           if ( v114 == *(_DWORD *)(Prcb + 36) )
             goto LABEL_150;
           CurrentPrcb->DeferredDispatchInterrupts.TargetType = 2;
-          v115 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v114);
+          v115 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v114);
           v81 = v115 & 0x3F;
           v116 = v115 >> 6;
           if ( CurrentPrcb->DeferredDispatchInterrupts.MultipleTargetAffinity.Count > (unsigned int)v116 )
@@ -1113,10 +1113,10 @@ LABEL_150:
                   if ( v120 )
                   {
                     CurrentPrcb = v160;
-                    LODWORD(v122) = (unsigned __int8)byte_140FC61D1[2 * (unsigned int)v122] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v122] << 6);
+                    LODWORD(v122) = (unsigned __int8)byte_140FC71C1[2 * (unsigned int)v122] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v122] << 6);
                   }
                   v121[2] = v122;
-                  if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+                  if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
                     EtwTraceXSchedulerPriorityKickSend(*(unsigned int *)(Prcb + 36), 2LL, v81);
                   __writemsr(0x400000C2u, (unsigned int)v122);
                 }
@@ -1157,9 +1157,9 @@ LABEL_157:
             v142[3] = 2;
             v143 = *(unsigned int *)(v155 + 36);
             if ( v120 )
-              LODWORD(v143) = (unsigned __int8)byte_140FC61D1[2 * (unsigned int)v143] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v143] << 6);
+              LODWORD(v143) = (unsigned __int8)byte_140FC71C1[2 * (unsigned int)v143] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v143] << 6);
             v142[2] = v143;
-            if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+            if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
               EtwTraceXSchedulerPriorityKickSend(*(unsigned int *)(v155 + 36), 2LL, v155);
             __writemsr(0x400000C2u, (unsigned int)v143);
           }

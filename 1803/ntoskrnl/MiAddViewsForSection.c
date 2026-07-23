@@ -314,7 +314,7 @@ LABEL_137:
             }
             v59->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v59->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree(&v52->LockEntries[v58]);
+              KiAbEntryRemoveFromTree(&v52->LockEntries[v58].TreeNode);
             v68 = 0;
             v68 = v59->BoostBitmap.AllFields & 0x1FFFF;
             v59->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -400,7 +400,7 @@ LABEL_87:
           *(_BYTE *)(v42 + 32) |= 2u;
           if ( *(__int64 *)(v42 + 32) < 0 )
           {
-            KiAbEntryRemoveFromTree(v42);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v42);
             v42 = v85;
             v37 = BugCheckParameter1;
             v38 = BugCheckParameter2a;
@@ -534,7 +534,7 @@ LABEL_53:
     {
       v29->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v29->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&v21->LockEntries[v28]);
+        KiAbEntryRemoveFromTree(&v21->LockEntries[v28].TreeNode);
       v69 = 0;
       v69 = v29->BoostBitmap.AllFields & 0x1FFFF;
       v29->BoostBitmap.AllFields &= 0xFFFE0000;

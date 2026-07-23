@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeForceIdle @ 0x140729D08
+ * XREFs of KiInitializeForceIdle @ 0x14072AEF8
  * Callers:
- *     KeInitializeTimerTable @ 0x140729BC8 (KeInitializeTimerTable.c)
+ *     KeInitializeTimerTable @ 0x14072ADB8 (KeInitializeTimerTable.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
  */
 
 __int64 __fastcall KiInitializeForceIdle(__int64 a1)

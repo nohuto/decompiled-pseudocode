@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetSectionStrongImageReference @ 0x140662F9C
+ * XREFs of MmGetSectionStrongImageReference @ 0x140663080
  * Callers:
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  *     PspInitPhase3 @ 0x1407BD288 (PspInitPhase3.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeGetStrongImageReference @ 0x14068C978 (SeGetStrongImageReference.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeGetStrongImageReference @ 0x14068CA5C (SeGetStrongImageReference.c)
  */
 
 NTSTATUS __fastcall MmGetSectionStrongImageReference(void *a1, PVOID a2, _QWORD *a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1403CBEA0
+ * XREFs of KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1403BC6D0
  * Callers:
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x14030D724 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
- *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x14030D768 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
- *     KiFlushReadyLists @ 0x1403CBD00 (KiFlushReadyLists.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x1402D8EC4 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x1402D8F08 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
+ *     KiFlushReadyLists @ 0x1403BC52C (KiFlushReadyLists.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiUpdateSoftParkElectionStatisticsOnRemoval(__int64 a1, __int64 a2, char a3)

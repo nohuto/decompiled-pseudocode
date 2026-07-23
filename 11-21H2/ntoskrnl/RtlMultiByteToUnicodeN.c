@@ -5,7 +5,7 @@
  *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
  * Callees:
  *     RtlCustomCPToUnicodeN @ 0x14075A700 (RtlCustomCPToUnicodeN.c)
- *     RtlpGetCodePageData @ 0x14075A7E4 (RtlpGetCodePageData.c)
+ *     sub_14075A7E4 @ 0x14075A7E4 (sub_14075A7E4.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeN(
@@ -15,11 +15,11 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
         const CHAR *MultiByteString,
         ULONG BytesInMultiByteString)
 {
-  struct _CPTABLEINFO *CodePageData; // rax
+  _CPTABLEINFO *v9; // rax
 
-  CodePageData = (struct _CPTABLEINFO *)RtlpGetCodePageData();
+  v9 = (_CPTABLEINFO *)sub_14075A7E4();
   RtlCustomCPToUnicodeN(
-    CodePageData,
+    v9,
     UnicodeString,
     MaxBytesInUnicodeString,
     BytesInUnicodeString,

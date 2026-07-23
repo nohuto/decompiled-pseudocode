@@ -1,9 +1,9 @@
 /*
- * XREFs of VslpGetNestedPageProtectionFlags @ 0x140710A50
+ * XREFs of VslpGetNestedPageProtectionFlags @ 0x14070E5E0
  * Callers:
  *     <none>
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14027BE44 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402313D4 (VslGetNestedPageProtectionFlags.c)
  */
 
 void __noreturn VslpGetNestedPageProtectionFlags()

@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlQueryActivationContextApplicationSettings @ 0x1800D5700
+ * XREFs of RtlQueryActivationContextApplicationSettings @ 0x1800DD450
  * Callers:
- *     RtlpHpOptIntoSegmentHeap @ 0x1800D424C (RtlpHpOptIntoSegmentHeap.c)
- *     LdrpFusionManifestCodePages @ 0x1800D55E8 (LdrpFusionManifestCodePages.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x1800CFF64 (RtlpHpOptIntoSegmentHeap.c)
+ *     LdrpFusionManifestCodePages @ 0x1800DD338 (LdrpFusionManifestCodePages.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x180041090 (RtlpLocateActivationContextSection.c)
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlpFindUnicodeStringInSection @ 0x180042150 (RtlpFindUnicodeStringInSection.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpLocateActivationContextSection @ 0x18002B600 (RtlpLocateActivationContextSection.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlpFindUnicodeStringInSection @ 0x18002C6C0 (RtlpFindUnicodeStringInSection.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlQueryActivationContextApplicationSettings(
-        __int64 a1,
-        __int64 a2,
-        const wchar_t *a3,
-        const void *a4,
-        void *a5,
-        unsigned __int64 a6,
-        _QWORD *a7)
+NTSTATUS __cdecl RtlQueryActivationContextApplicationSettings(
+        ULONG Flags,
+        PACTIVATION_CONTEXT ActivationContext,
+        PWSTR SettingsNameSpace,
+        PWSTR SettingName,
+        PWSTR Buffer,
+        SIZE_T BufferLength,
+        PSIZE_T RequiredLength)
 {
-  const wchar_t *v7; // rsi
+  PWSTR v7; // rsi
   __int64 v9; // rcx
-  char *v10; // rax
+  char *NotificationContext; // rax
   char *v11; // rcx
-  int UnicodeStringInSection; // ebx
+  NTSTATUS UnicodeStringInSection; // ebx
   unsigned __int64 v13; // rdi
   const void *v14; // rbx
   size_t v15; // rax
@@ -45,31 +45,34 @@ __int64 __fastcall RtlQueryActivationContextApplicationSettings(
   v28 = 0;
   v7 = L"http://schemas.microsoft.com/SMI/2005/WindowsSettings";
   v24[0] = 0LL;
-  if ( a3 )
-    v7 = a3;
+  if ( SettingsNameSpace )
+    v7 = SettingsNameSpace;
   v23 = -1;
   v22 = 0;
-  if ( !a5 && a6 )
-    return 3221225485LL;
-  switch ( a2 )
+  if ( !Buffer && BufferLength )
+    return -1073741811;
+  if ( !ActivationContext )
   {
-    case 0LL:
-      v9 = 760LL;
+    v9 = 760LL;
 LABEL_6:
-      v10 = *(char **)(&NtCurrentPeb()->InheritedAddressSpace + v9);
-      goto LABEL_7;
-    case -3LL:
-      v11 = "Actx ";
-      goto LABEL_9;
-    case -4LL:
-      v9 = 776LL;
-      goto LABEL_6;
+    NotificationContext = *(char **)(&NtCurrentPeb()->InheritedAddressSpace + v9);
+    goto LABEL_7;
   }
-  v10 = *(char **)(a2 + 24);
+  if ( ActivationContext == (PACTIVATION_CONTEXT)-3LL )
+  {
+    v11 = "Actx ";
+    goto LABEL_9;
+  }
+  if ( ActivationContext == (PACTIVATION_CONTEXT)-4LL )
+  {
+    v9 = 776LL;
+    goto LABEL_6;
+  }
+  NotificationContext = (char *)ActivationContext->NotificationContext;
 LABEL_7:
   v11 = "Actx ";
-  if ( v10 )
-    v11 = v10;
+  if ( NotificationContext )
+    v11 = NotificationContext;
 LABEL_9:
   UnicodeStringInSection = RtlpLocateActivationContextSection(v11, 0LL, 0xAu, v24, &v28);
   if ( UnicodeStringInSection >= 0 )
@@ -79,18 +82,18 @@ LABEL_9:
     if ( v28 < 0x2C || *(_DWORD *)v24[0] != 1682469715 )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "RtlpLocateActivationContextSection() found section at %p (length %lu) which is not a string section\n",
         v24[0],
         v28);
-      return 3222601731LL;
+      return -1072365565;
     }
     v24[0] = 0LL;
-    v24[1] = a4;
-    if ( a4 )
+    v24[1] = SettingName;
+    if ( SettingName )
     {
-      v15 = 2 * wcslen((const wchar_t *)a4);
+      v15 = 2 * wcslen(SettingName);
       if ( v15 >= 0xFFFE )
         LOWORD(v15) = -4;
       LOWORD(v24[0]) = v15;
@@ -122,20 +125,20 @@ LABEL_9:
         }
         while ( v19 );
         if ( v20 )
-          return 3222601736LL;
-        if ( a6 < (unsigned __int64)v27[6] >> 1 )
+          return -1072365560;
+        if ( BufferLength < (unsigned __int64)v27[6] >> 1 )
           UnicodeStringInSection = -1073741789;
         else
-          memmove(a5, (char *)v27 + v27[7], v27[6] + 2LL);
-        if ( a7 )
-          *a7 = ((unsigned __int64)v16[6] >> 1) + 1;
+          memmove(Buffer, (char *)v27 + v27[7], v27[6] + 2LL);
+        if ( RequiredLength )
+          *RequiredLength = ((unsigned __int64)v16[6] >> 1) + 1;
         goto LABEL_27;
       }
-      return 3222601731LL;
+      return -1072365565;
     }
   }
 LABEL_27:
   if ( UnicodeStringInSection == -1072365567 )
-    return (unsigned int)-1072365560;
-  return (unsigned int)UnicodeStringInSection;
+    return -1072365560;
+  return UnicodeStringInSection;
 }

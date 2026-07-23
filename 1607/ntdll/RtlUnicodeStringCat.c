@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnicodeStringCat @ 0x18006C92C
+ * XREFs of RtlUnicodeStringCat @ 0x18006C91C
  * Callers:
- *     RtlDosSearchPath_Ustr @ 0x180042810 (RtlDosSearchPath_Ustr.c)
+ *     RtlDosSearchPath_Ustr @ 0x180042800 (RtlDosSearchPath_Ustr.c)
  * Callees:
- *     RtlWideCharArrayCopyWorker @ 0x18006CA44 (RtlWideCharArrayCopyWorker.c)
- *     RtlUnicodeStringValidateSrcWorker @ 0x18006CAA8 (RtlUnicodeStringValidateSrcWorker.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x18006CAE4 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlWideCharArrayCopyWorker @ 0x18006CA34 (RtlWideCharArrayCopyWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x18006CA98 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x18006CAD4 (RtlUnicodeStringValidateDestWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCat(_WORD *a1, __int64 a2)

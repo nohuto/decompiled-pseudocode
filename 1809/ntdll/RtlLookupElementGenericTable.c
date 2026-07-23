@@ -4,32 +4,35 @@
  *     <none>
  * Callees:
  *     RtlSplay @ 0x18006C590 (RtlSplay.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTable(__int64 *a1, __int64 a2)
+PVOID __cdecl RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  __int64 v2; // rbx
-  __int64 v5; // rdi
+  PRTL_SPLAY_LINKS TableRoot; // rbx
+  void *v5; // rdi
   int v6; // eax
 
-  v2 = *a1;
+  TableRoot = Table->TableRoot;
   v5 = 0LL;
-  while ( v2 )
+  while ( TableRoot )
   {
-    v6 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v2 + 40);
+    v6 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
+           Table,
+           Buffer,
+           &TableRoot[1].RightChild);
     if ( v6 )
     {
       if ( v6 != 1 )
       {
-        *a1 = RtlSplay(v2);
-        return v2 + 40;
+        Table->TableRoot = RtlSplay(TableRoot);
+        return &TableRoot[1].RightChild;
       }
-      v2 = *(_QWORD *)(v2 + 16);
+      TableRoot = TableRoot->RightChild;
     }
     else
     {
-      v2 = *(_QWORD *)(v2 + 8);
+      TableRoot = TableRoot->LeftChild;
     }
   }
   return v5;

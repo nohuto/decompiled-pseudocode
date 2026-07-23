@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetPmcProfileSource @ 0x1409E5FA0
+ * XREFs of EtwpGetPmcProfileSource @ 0x1409E6230
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x14085FEF4 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140860134 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
  */
 
 __int64 __fastcall EtwpGetPmcProfileSource(__int64 a1, unsigned int a2, unsigned int *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall EtwpGetPmcProfileSource(__int64 a1, unsigned int a2, unsigned
   else
   {
     for ( i = 0; i < v7; ++i )
-      *(_DWORD *)(a1 + 4LL * i + 16) = *((__int16 *)qword_140C32218 + 308 * i + 304);
+      *(_DWORD *)(a1 + 4LL * i + 16) = *((__int16 *)qword_140C32468 + 308 * i + 304);
   }
   KeReleaseMutex(&EtwpGroupMaskMutex, 0);
   return v6;

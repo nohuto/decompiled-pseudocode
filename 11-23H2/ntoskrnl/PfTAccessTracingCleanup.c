@@ -1,19 +1,19 @@
 /*
  * XREFs of PfTAccessTracingCleanup @ 0x140A874E0
  * Callers:
- *     PfTTraceListAdd @ 0x14075ECD8 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x14097F168 (PfTCleanup.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140AA00D4 (PfpPowerActionStartScenarioTracing.c)
+ *     PfTTraceListAdd @ 0x14075EEC8 (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x14097F368 (PfTCleanup.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140A9FF44 (PfpPowerActionStartScenarioTracing.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MmFreeAccessPfnBuffer @ 0x1402F55AC (MmFreeAccessPfnBuffer.c)
- *     MmGetDefaultPagePriority @ 0x1402F5F64 (MmGetDefaultPagePriority.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     MmSetAccessLogging @ 0x14036AE90 (MmSetAccessLogging.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MmFreeAccessPfnBuffer @ 0x1402F583C (MmFreeAccessPfnBuffer.c)
+ *     MmGetDefaultPagePriority @ 0x1402F61F4 (MmGetDefaultPagePriority.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     MmSetAccessLogging @ 0x14036B030 (MmSetAccessLogging.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
  *     MmEnablePeriodicAccessClearing @ 0x140A88A18 (MmEnablePeriodicAccessClearing.c)
  *     PfTAccessTracingInitialize @ 0x140A88A4C (PfTAccessTracingInitialize.c)
  */

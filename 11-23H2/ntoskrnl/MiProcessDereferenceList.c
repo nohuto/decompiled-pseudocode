@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProcessDereferenceList @ 0x1406250B4
+ * XREFs of MiProcessDereferenceList @ 0x140625604
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403A7C90 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x140625B24 (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x1403A7E70 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x140626074 (MiRemoveUnusedSegments.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiProcessingPageExtendComplete @ 0x140625660 (MiProcessingPageExtendComplete.c)
- *     MiRemoveUnusedSegments @ 0x140625B24 (MiRemoveUnusedSegments.c)
- *     MiAttemptPageFileReduction @ 0x140637BAC (MiAttemptPageFileReduction.c)
- *     MiFreeClonePool @ 0x14066471C (MiFreeClonePool.c)
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
- *     MiExtendPagingFiles @ 0x140A32A3C (MiExtendPagingFiles.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiProcessingPageExtendComplete @ 0x140625BB0 (MiProcessingPageExtendComplete.c)
+ *     MiRemoveUnusedSegments @ 0x140626074 (MiRemoveUnusedSegments.c)
+ *     MiAttemptPageFileReduction @ 0x1406380FC (MiAttemptPageFileReduction.c)
+ *     MiFreeClonePool @ 0x140664C6C (MiFreeClonePool.c)
+ *     MiSegmentDelete @ 0x1406B0984 (MiSegmentDelete.c)
+ *     MiExtendPagingFiles @ 0x140A32CEC (MiExtendPagingFiles.c)
  */
 
 __int64 __fastcall MiProcessDereferenceList(__int64 a1, int a2)
@@ -96,10 +96,10 @@ LABEL_84:
         *v6 = (__int64)v6;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v6 + 16);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -125,10 +125,10 @@ LABEL_84:
         v13[1] = (__int64)v6;
         *v5 = (__int64)v6;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v14 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v4 <= 0xFu && v14 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v4 <= 0xFu && v14 >= 2u )
           {
             v15 = KeGetCurrentPrcb();
             v16 = v15->SchedulerAssist;
@@ -160,10 +160,10 @@ LABEL_84:
         if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 992)) )
         {
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v22 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v4 <= 0xFu && v22 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v4 <= 0xFu && v22 >= 2u )
             {
               v23 = KeGetCurrentPrcb();
               v24 = v23->SchedulerAssist;
@@ -201,10 +201,10 @@ LABEL_84:
         v48[4] = v27;
         v21[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v48;
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v28 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v4 <= 0xFu && v28 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v4 <= 0xFu && v28 >= 2u )
           {
             v29 = KeGetCurrentPrcb();
             v30 = v29->SchedulerAssist;
@@ -256,10 +256,10 @@ LABEL_52:
         v48[4] = v38;
         v35[9] = v48;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v39 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && v4 <= 0xFu && v39 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && v4 <= 0xFu && v39 >= 2u )
           {
             v40 = KeGetCurrentPrcb();
             v41 = v40->SchedulerAssist;
@@ -290,10 +290,10 @@ LABEL_67:
   }
   while ( (__int64 *)*v5 != v5 || v33 && *v34 != v34 || v19 != (__int64 *)v18 );
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v43 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v4 <= 0xFu && v43 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v4 <= 0xFu && v43 >= 2u )
     {
       v44 = KeGetCurrentPrcb();
       v45 = v44->SchedulerAssist;

@@ -1,19 +1,19 @@
 /*
- * XREFs of PoFxRemoveComponentRelation @ 0x140588110
+ * XREFs of PoFxRemoveComponentRelation @ 0x140588600
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponent @ 0x140287300 (PopFxActivateComponent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PopFxNextComponentChildRelationSafe @ 0x140314824 (PopFxNextComponentChildRelationSafe.c)
- *     PopFxNextParentRelationSafe @ 0x140351AD8 (PopFxNextParentRelationSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x140287590 (PopFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x140314AB4 (PopFxNextComponentChildRelationSafe.c)
+ *     PopFxNextParentRelationSafe @ 0x140351C78 (PopFxNextParentRelationSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -79,10 +79,13 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   if ( !v9 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 88));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
   }
   PopFxAddRefDevice(*(_QWORD *)(v7 + 80));
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 88));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;
@@ -160,10 +163,10 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v44 + 128));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;
@@ -182,10 +185,10 @@ __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, uns
       for ( i = 0LL; PopFxNextComponentChildRelationSafe(v22, v37, &i); v37 = i )
         ;
       KxReleaseSpinLock((volatile signed __int64 *)(v22 + 128));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v38 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v38 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v38 >= 2u )
         {
           v39 = KeGetCurrentPrcb();
           v40 = v39->SchedulerAssist;

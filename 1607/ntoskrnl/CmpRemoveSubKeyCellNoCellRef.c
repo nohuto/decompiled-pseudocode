@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRemoveSubKeyCellNoCellRef @ 0x14060AA54
+ * XREFs of CmpRemoveSubKeyCellNoCellRef @ 0x14060AB08
  * Callers:
- *     CmpCheckRegistry2 @ 0x14043EF70 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x14043DE40 (CmpCheckRegistry2.c)
  * Callees:
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpFindCellInIndex @ 0x140609EE0 (CmpFindCellInIndex.c)
- *     CmpRemoveCellFromIndex @ 0x14060A9AC (CmpRemoveCellFromIndex.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpFindCellInIndex @ 0x140609F94 (CmpFindCellInIndex.c)
+ *     CmpRemoveCellFromIndex @ 0x14060AA60 (CmpRemoveCellFromIndex.c)
  */
 
 char __fastcall CmpRemoveSubKeyCellNoCellRef(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)

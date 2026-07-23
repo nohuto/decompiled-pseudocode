@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPageTablesNeeded @ 0x1403774E4
+ * XREFs of MiPageTablesNeeded @ 0x140377684
  * Callers:
- *     MmCreateShadowMapping @ 0x14081DBB0 (MmCreateShadowMapping.c)
+ *     MmCreateShadowMapping @ 0x14081DE80 (MmCreateShadowMapping.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of PspWow64InitThread @ 0x1406A7F5C
+ * XREFs of PspWow64InitThread @ 0x1406A91FC
  * Callers:
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlpGetLegacyContextLength @ 0x1400A1EDC (RtlpGetLegacyContextLength.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PspWow64GetSharedInformation @ 0x1406783DC (PspWow64GetSharedInformation.c)
- *     PsWow64GetProcessNtdllType @ 0x1406783F4 (PsWow64GetProcessNtdllType.c)
- *     PspWow64InitThreadGuestx86 @ 0x1406A8140 (PspWow64InitThreadGuestx86.c)
- *     RtlpArchContextFlagFromMachine @ 0x1406A915C (RtlpArchContextFlagFromMachine.c)
+ *     RtlpGetLegacyContextLength @ 0x1400A1E1C (RtlpGetLegacyContextLength.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PspWow64GetSharedInformation @ 0x14067959C (PspWow64GetSharedInformation.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406795B4 (PsWow64GetProcessNtdllType.c)
+ *     PspWow64InitThreadGuestx86 @ 0x1406A93E0 (PspWow64InitThreadGuestx86.c)
+ *     RtlpArchContextFlagFromMachine @ 0x1406AA3FC (RtlpArchContextFlagFromMachine.c)
  */
 
 __int64 __fastcall PspWow64InitThread(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3, __int64 a4)

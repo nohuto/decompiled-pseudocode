@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestHandleRequestUpdate @ 0x140A4EFCC
+ * XREFs of PopPowerRequestHandleRequestUpdate @ 0x140A45D7C
  * Callers:
- *     PopPowerRequestCallbackWorker @ 0x14046C280 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x140749BF0 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopPowerRequestCallbackWorker @ 0x140464F00 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x140747F20 (PopPowerRequestDebounceTimerWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopUmpoSendPowerRequestAction @ 0x14075D040 (PopUmpoSendPowerRequestAction.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopUmpoSendPowerRequestAction @ 0x14075BFE0 (PopUmpoSendPowerRequestAction.c)
  */
 
 char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, char a3)
@@ -23,11 +23,7 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
   int v13; // edi
   int v14; // r14d
   unsigned __int8 v15; // si
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // r8
-  __int64 v19; // r9
-  _QWORD v21[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v17[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = &PopPowerRequestAttributes + 6 * (int)a2;
   v7 = *((_DWORD *)v6 + 2);
@@ -64,10 +60,9 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
         LOBYTE(v9) = v14 != 0;
         if ( (_BYTE)v9 == v15 )
           break;
-        PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
-        LOBYTE(v16) = v15;
-        guard_dispatch_icall_no_overrides(0LL, a2, v16, v17);
-        PopAcquireRwLockExclusive(&PopPowerRequestLock);
+        PopReleaseRwLock(&PopPowerRequestLock);
+        guard_dispatch_icall_no_overrides(0LL, a2);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
         v12 = *((_DWORD *)v6 + 3) & 0xFFFFFFFD | (2 * v15);
         *((_DWORD *)v6 + 3) = v12;
         if ( v14 )
@@ -75,10 +70,14 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
           if ( (unsigned int)++v13 >= 3 )
           {
             ++*((_DWORD *)v6 + 2);
-            v21[0] = 0LL;
-            v21[1] = -1LL;
+            v17[0] = 0LL;
+            v17[1] = -1LL;
             *((_DWORD *)v6 + 3) = v12 | 8;
-            LOBYTE(v9) = KeSetTimer2((__int64)&PopPowerRequestDebounceTimer, -50000000LL, 0LL, (__int64)v21);
+            LOBYTE(v9) = KeSetTimer2(
+                           (__int64)&PopPowerRequestDebounceTimer,
+                           (LARGE_INTEGER)-50000000LL,
+                           0LL,
+                           (__int64)v17);
             break;
           }
         }
@@ -88,10 +87,9 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, 
   }
   else
   {
-    PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
-    LOBYTE(v18) = a3;
-    guard_dispatch_icall_no_overrides(a1, a2, v18, v19);
-    LOBYTE(v9) = (unsigned __int8)PopAcquireRwLockExclusive(&PopPowerRequestLock);
+    PopReleaseRwLock(&PopPowerRequestLock);
+    guard_dispatch_icall_no_overrides(a1, a2);
+    LOBYTE(v9) = (unsigned __int8)PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   }
   return v9;
 }

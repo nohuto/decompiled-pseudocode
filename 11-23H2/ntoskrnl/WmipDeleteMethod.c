@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipDeleteMethod @ 0x1406C6C40
+ * XREFs of WmipDeleteMethod @ 0x1406C6C70
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     WmipCompleteGuidIrpWithError @ 0x14036A118 (WmipCompleteGuidIrpWithError.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipDisableCollectOrEvent @ 0x1407D5D24 (WmipDisableCollectOrEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     WmipCompleteGuidIrpWithError @ 0x14036A2B8 (WmipCompleteGuidIrpWithError.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipDisableCollectOrEvent @ 0x1407D5FF4 (WmipDisableCollectOrEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

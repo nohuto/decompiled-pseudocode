@@ -1,33 +1,33 @@
 /*
- * XREFs of MmQueryVirtualMemory @ 0x140432230
+ * XREFs of MmQueryVirtualMemory @ 0x140431100
  * Callers:
- *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x14011E6E8 (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
- *     NtQueryVirtualMemory @ 0x1404321FC (NtQueryVirtualMemory.c)
- *     PfpVirtualQuery @ 0x140532640 (PfpVirtualQuery.c)
+ *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x14011EC58 (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
+ *     NtQueryVirtualMemory @ 0x1404310CC (NtQueryVirtualMemory.c)
+ *     PfpVirtualQuery @ 0x140532B80 (PfpVirtualQuery.c)
  * Callees:
- *     MiLocateVadEvent @ 0x140015564 (MiLocateVadEvent.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BED0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiVadDeleted @ 0x14002C370 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     MiVadMapsLargeImage @ 0x14002C410 (MiVadMapsLargeImage.c)
- *     MiQueryAddressSpan @ 0x140042CC0 (MiQueryAddressSpan.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     MiGetWorkingSetInfoList @ 0x1400B79E0 (MiGetWorkingSetInfoList.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiGetWorkingSetInfo @ 0x14010F340 (MiGetWorkingSetInfo.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiWaitForVadDeletion @ 0x1401F7718 (MiWaitForVadDeletion.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ObQueryNameStringMode @ 0x140434B90 (ObQueryNameStringMode.c)
- *     ExRaiseAccessViolation @ 0x1406B6048 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     MiLocateVadEvent @ 0x1400150E4 (MiLocateVadEvent.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BA50 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiVadDeleted @ 0x14002BEF0 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     MiVadMapsLargeImage @ 0x14002BF90 (MiVadMapsLargeImage.c)
+ *     MiQueryAddressSpan @ 0x140042840 (MiQueryAddressSpan.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     MiGetWorkingSetInfoList @ 0x1400B5870 (MiGetWorkingSetInfoList.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiGetWorkingSetInfo @ 0x14010F8A4 (MiGetWorkingSetInfo.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiWaitForVadDeletion @ 0x1401F7544 (MiWaitForVadDeletion.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObQueryNameStringMode @ 0x140433A60 (ObQueryNameStringMode.c)
+ *     ExRaiseAccessViolation @ 0x1406B6180 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall MmQueryVirtualMemory(
@@ -210,7 +210,7 @@ LABEL_13:
         v8 = a3;
       }
       if ( a2 > 0x7FFFFFFDFFFFLL
-        || ((a2 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 || (a2 & 0x7FFFFFFFF000LL) == qword_140326998 && qword_140326998)
+        || ((a2 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 || (a2 & 0x7FFFFFFFF000LL) == qword_1403269D8 && qword_1403269D8)
         && (Process[2].ActiveProcessors.Bitmap[0] & 0x100000000LL) == 0 )
       {
         WorkingSetInfo = -1073741503;
@@ -232,9 +232,9 @@ LABEL_13:
         }
         else
         {
-          if ( v62 != qword_140326998 || !v62 )
+          if ( v62 != qword_1403269D8 || !v62 )
             goto LABEL_197;
-          *(_QWORD *)(a4 + 8) = qword_140326998;
+          *(_QWORD *)(a4 + 8) = qword_1403269D8;
         }
         *(_DWORD *)(a4 + 36) = 2;
         *(_QWORD *)(a4 + 24) = 4096LL;

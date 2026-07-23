@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpTraceLogPfPartitionId @ 0x14060039C
+ * XREFs of PfpTraceLogPfPartitionId @ 0x140602E4C
  * Callers:
- *     PfTCleanup @ 0x1407C6254 (PfTCleanup.c)
- *     PfTStart @ 0x1407C67E4 (PfTStart.c)
- *     PfDeletePartition @ 0x1407C6F10 (PfDeletePartition.c)
- *     PfGetCompletedTrace @ 0x140A538E4 (PfGetCompletedTrace.c)
+ *     PfTCleanup @ 0x1407C92B4 (PfTCleanup.c)
+ *     PfTStart @ 0x1407C9844 (PfTStart.c)
+ *     PfDeletePartition @ 0x1407C9F70 (PfDeletePartition.c)
+ *     PfGetCompletedTrace @ 0x140A5CBD4 (PfGetCompletedTrace.c)
  * Callees:
- *     PfpTraceLogPartitionId @ 0x140600380 (PfpTraceLogPartitionId.c)
+ *     PfpTraceLogPartitionId @ 0x140602E30 (PfpTraceLogPartitionId.c)
  */
 
 __int64 __fastcall PfpTraceLogPfPartitionId(__int64 *a1)

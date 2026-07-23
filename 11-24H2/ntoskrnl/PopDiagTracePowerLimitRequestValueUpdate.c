@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTracePowerLimitRequestValueUpdate @ 0x140757718
+ * XREFs of PopDiagTracePowerLimitRequestValueUpdate @ 0x140755B98
  * Callers:
- *     PoSetPowerLimitValue @ 0x14074ADE0 (PoSetPowerLimitValue.c)
+ *     PoSetPowerLimitValue @ 0x140749110 (PoSetPowerLimitValue.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitRequestValueUpdate(__int64 a1, __int64 a2)
@@ -16,13 +16,13 @@ void __fastcall PopDiagTracePowerLimitRequestValueUpdate(__int64 a1, __int64 a2)
   unsigned __int64 *v4; // rbx
   char *v5; // r13
   unsigned int *v6; // r12
-  int v7; // edi
+  unsigned int v7; // edi
   void *Pool2; // rsi
   unsigned __int64 *v9; // rax
   unsigned int v10; // r8d
   __int64 v11; // rdx
   int v12; // [rsp+30h] [rbp-59h] BYREF
-  unsigned __int64 v13; // [rsp+38h] [rbp-51h] BYREF
+  ULONG_PTR v13; // [rsp+38h] [rbp-51h] BYREF
   __int64 i; // [rsp+40h] [rbp-49h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-39h] BYREF
   int *v16; // [rsp+60h] [rbp-29h]
@@ -33,7 +33,7 @@ void __fastcall PopDiagTracePowerLimitRequestValueUpdate(__int64 a1, __int64 a2)
   __int64 v21; // [rsp+80h] [rbp-9h]
   __int64 v22; // [rsp+88h] [rbp-1h]
   void *v23; // [rsp+90h] [rbp+7h]
-  int v24; // [rsp+98h] [rbp+Fh]
+  unsigned int v24; // [rsp+98h] [rbp+Fh]
   int v25; // [rsp+9Ch] [rbp+13h]
 
   v13 = 0LL;
@@ -49,13 +49,13 @@ void __fastcall PopDiagTracePowerLimitRequestValueUpdate(__int64 a1, __int64 a2)
       v7 = 16 * *(_DWORD *)(a1 + 32);
       if ( v7 )
       {
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, v7, 0x67696450u);
         if ( Pool2 )
         {
           if ( a2 )
           {
             PoStoreDiagnosticContext(a2, 0LL, &v13);
-            v9 = (unsigned __int64 *)ExAllocatePool2(0x100uLL);
+            v9 = (unsigned __int64 *)ExAllocatePool2(0x100uLL, v13, 0x50455654u);
             v4 = v9;
             if ( !v9 )
             {

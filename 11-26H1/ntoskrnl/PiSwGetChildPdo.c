@@ -1,25 +1,25 @@
 /*
- * XREFs of PiSwGetChildPdo @ 0x140A7AAD4
+ * XREFs of PiSwGetChildPdo @ 0x140A8BC18
  * Callers:
- *     PipEnumerateCompleted @ 0x14090D2B4 (PipEnumerateCompleted.c)
+ *     PipEnumerateCompleted @ 0x1409AF3E4 (PipEnumerateCompleted.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zzq_EtwWriteTransfer @ 0x1405DC15C (McTemplateK0zzq_EtwWriteTransfer.c)
- *     McTemplateK0zztt_EtwWriteTransfer @ 0x1405DC23C (McTemplateK0zztt_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DC438 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     ObSetSecurityObjectByPointer @ 0x1408EC3B0 (ObSetSecurityObjectByPointer.c)
- *     PiSwProcessRemove @ 0x14090B360 (PiSwProcessRemove.c)
- *     PnpConcatPWSTR @ 0x140992634 (PnpConcatPWSTR.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
- *     PiSwFindPdoAssociation @ 0x140A7B3A4 (PiSwFindPdoAssociation.c)
- *     PiSwAddPdoAssociation @ 0x140B27BC4 (PiSwAddPdoAssociation.c)
- *     PiSwMakePdoInactive @ 0x140B3E814 (PiSwMakePdoInactive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zzq_EtwWriteTransfer @ 0x1405DEA0C (McTemplateK0zzq_EtwWriteTransfer.c)
+ *     McTemplateK0zztt_EtwWriteTransfer @ 0x1405DEAEC (McTemplateK0zztt_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DECE8 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     ObSetSecurityObjectByPointer @ 0x1408F2970 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
+ *     PnpConcatPWSTR @ 0x140953094 (PnpConcatPWSTR.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwProcessRemove @ 0x1409AD484 (PiSwProcessRemove.c)
+ *     PiSwFindPdoAssociation @ 0x140A8C4E8 (PiSwFindPdoAssociation.c)
+ *     PiSwAddPdoAssociation @ 0x140B29854 (PiSwAddPdoAssociation.c)
+ *     PiSwMakePdoInactive @ 0x140B40844 (PiSwMakePdoInactive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PDEVICE_OBJECT __fastcall PiSwGetChildPdo(struct _DEVICE_OBJECT *a1, __int64 a2, __int64 a3)
@@ -57,7 +57,7 @@ PDEVICE_OBJECT __fastcall PiSwGetChildPdo(struct _DEVICE_OBJECT *a1, __int64 a2,
   SourceString = 0LL;
   v7 = a2 - 96;
   DestinationString = 0LL;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
   {
     McTemplateK0zzzd_EtwWriteTransfer(
       *(_QWORD *)(a2 + 16),
@@ -95,7 +95,7 @@ LABEL_12:
           v16 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)p_DestinationString, 0x746C6644u);
           if ( v16 )
           {
-            if ( (byte_140EF3DCC & 0x40) != 0 )
+            if ( (byte_140EF412C & 0x40) != 0 )
               McTemplateK0zzq_EtwWriteTransfer(
                 v15,
                 v14,
@@ -173,7 +173,7 @@ LABEL_31:
   if ( v4 )
     PsReferenceSiloContext(v4);
 LABEL_35:
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
   {
     if ( v7 )
     {
@@ -182,8 +182,8 @@ LABEL_35:
     }
     else
     {
-      v25 = &word_140B814F0;
-      v24 = &word_140B814F0;
+      v25 = &word_140B8A320;
+      v24 = &word_140B8A320;
     }
     McTemplateK0zztt_EtwWriteTransfer(
       (__int64)v24,

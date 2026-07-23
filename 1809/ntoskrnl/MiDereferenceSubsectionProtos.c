@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceSubsectionProtos @ 0x1406C9060
+ * XREFs of MiDereferenceSubsectionProtos @ 0x1406CA300
  * Callers:
- *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406C90C8 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x1406CA250 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406CA368 (MiCreatePerSessionProtos.c)
  * Callees:
- *     MiLocateSessionProtosInSubsection @ 0x140136EBC (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x140136EE8 (MiUpdatePerSessionProto.c)
+ *     MiLocateSessionProtosInSubsection @ 0x140136FBC (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x140136FE8 (MiUpdatePerSessionProto.c)
  */
 
 void __fastcall MiDereferenceSubsectionProtos(__int64 a1, unsigned int a2, __int64 **a3)

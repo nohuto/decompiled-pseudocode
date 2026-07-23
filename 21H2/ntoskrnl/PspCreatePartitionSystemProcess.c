@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCreatePartitionSystemProcess @ 0x14090CF58
+ * XREFs of PspCreatePartitionSystemProcess @ 0x14090D0B8
  * Callers:
- *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x1407CC424 (PspAllocatePartition.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)

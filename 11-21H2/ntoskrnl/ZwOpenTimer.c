@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwOpenTimer @ 0x14041DE20
  * Callers:
- *     DifZwOpenTimerWrapper @ 0x140622D90 (DifZwOpenTimerWrapper.c)
+ *     sub_140622D90 @ 0x140622D90 (sub_140622D90.c)
  * Callees:
  *     <none>
  */
@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwOpenTimer(PHANDLE TimerHandle, ACCESS_MASK DesiredAccess, P
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(TimerHandle, *(_QWORD *)&DesiredAccess);
 }

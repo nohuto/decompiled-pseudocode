@@ -1,9 +1,9 @@
 /*
- * XREFs of MmManagePartitionUpdateAttributes @ 0x140A45AEC
+ * XREFs of MmManagePartitionUpdateAttributes @ 0x140A45D9C
  * Callers:
- *     NtManagePartition @ 0x14075FD70 (NtManagePartition.c)
+ *     NtManagePartition @ 0x14075FF60 (NtManagePartition.c)
  * Callees:
- *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A47994 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A47C44 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
  */
 
 __int64 __fastcall MmManagePartitionUpdateAttributes(__int64 *a1, __int64 *a2, char a3, unsigned int a4)

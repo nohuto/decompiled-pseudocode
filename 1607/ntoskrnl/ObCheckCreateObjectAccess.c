@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCheckCreateObjectAccess @ 0x14040412C
+ * XREFs of ObCheckCreateObjectAccess @ 0x140402FEC
  * Callers:
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     ObpGetObjectSecurity @ 0x140406CE0 (ObpGetObjectSecurity.c)
- *     ObReleaseObjectSecurity @ 0x1404206A8 (ObReleaseObjectSecurity.c)
- *     SeLockSubjectContext @ 0x14044DBB0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x14044DC10 (SeUnlockSubjectContext.c)
- *     SeAppendPrivileges @ 0x1404C0F9C (SeAppendPrivileges.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     ObpGetObjectSecurity @ 0x140405BA0 (ObpGetObjectSecurity.c)
+ *     ObReleaseObjectSecurity @ 0x14041F568 (ObReleaseObjectSecurity.c)
+ *     SeLockSubjectContext @ 0x14044CA80 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14044CAE0 (SeUnlockSubjectContext.c)
+ *     SeAppendPrivileges @ 0x1404ACCCC (SeAppendPrivileges.c)
  */
 
 char __fastcall ObCheckCreateObjectAccess(

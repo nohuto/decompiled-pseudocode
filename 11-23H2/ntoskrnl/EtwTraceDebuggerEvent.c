@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceDebuggerEvent @ 0x1405FC9E0
+ * XREFs of EtwTraceDebuggerEvent @ 0x1405FCF50
  * Callers:
- *     NtDebugContinue @ 0x1409388E0 (NtDebugContinue.c)
- *     DbgkpSendApiMessage @ 0x14093A050 (DbgkpSendApiMessage.c)
+ *     NtDebugContinue @ 0x140938AE0 (NtDebugContinue.c)
+ *     DbgkpSendApiMessage @ 0x14093A250 (DbgkpSendApiMessage.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceDebuggerEvent(__int64 a1, __int64 a2, int a3)

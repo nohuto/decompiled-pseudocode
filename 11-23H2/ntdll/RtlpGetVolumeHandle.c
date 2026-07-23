@@ -2,7 +2,7 @@
  * XREFs of RtlpGetVolumeHandle @ 0x18005F798
  * Callers:
  *     RtlpDiskSpeedInitialize @ 0x18005F8B0 (RtlpDiskSpeedInitialize.c)
- *     RtlpQueryDiskWriteConstraintPolicy @ 0x18012D0BC (RtlpQueryDiskWriteConstraintPolicy.c)
+ *     RtlpQueryDiskWriteConstraintPolicy @ 0x18012D0E8 (RtlpQueryDiskWriteConstraintPolicy.c)
  * Callees:
  *     StringCbPrintfW @ 0x18005F584 (StringCbPrintfW.c)
  *     RtlStringLengthWorkerW @ 0x18007F4B0 (RtlStringLengthWorkerW.c)
@@ -10,23 +10,19 @@
  *     ZwCreateFile @ 0x1800A1950 (ZwCreateFile.c)
  */
 
-__int64 __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, _QWORD *a2)
+NTSTATUS __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, HANDLE *a2)
 {
   __int64 v2; // r9
-  __int64 result; // rax
-  __int64 v5; // [rsp+60h] [rbp-29h] BYREF
+  NTSTATUS result; // eax
+  HANDLE FileHandle; // [rsp+60h] [rbp-29h] BYREF
   __int128 v6; // [rsp+68h] [rbp-21h] BYREF
   __int16 v7; // [rsp+78h] [rbp-11h] BYREF
-  int v8; // [rsp+80h] [rbp-9h] BYREF
-  __int64 v9; // [rsp+88h] [rbp-1h]
-  __int128 *v10; // [rsp+90h] [rbp+7h]
-  int v11; // [rsp+98h] [rbp+Fh]
-  __int128 v12; // [rsp+A0h] [rbp+17h]
-  _BYTE v13[16]; // [rsp+B0h] [rbp+27h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-9h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp+27h] BYREF
   wchar_t pszDest[12]; // [rsp+C0h] [rbp+37h] BYREF
 
   v2 = *a1;
-  v5 = 0LL;
+  FileHandle = 0LL;
   StringCbPrintfW(pszDest, 0x14uLL, L"\\??\\%C:", v2);
   v6 = 0LL;
   if ( (int)RtlStringLengthWorkerW(pszDest, 0x7FFFLL, &v7) >= 0 )
@@ -35,16 +31,16 @@ __int64 __fastcall RtlpGetVolumeHandle(unsigned __int16 *a1, _QWORD *a2)
     WORD1(v6) = 2 * v7 + 2;
     *((_QWORD *)&v6 + 1) = pszDest;
   }
-  v9 = 0LL;
-  v8 = 48;
-  v11 = 64;
-  v10 = &v6;
-  v12 = 0LL;
-  result = ZwCreateFile(&v5, 1048704LL, &v8, v13, 0LL, 0, 7, 1, 32, 0LL, 0);
-  if ( (int)result >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v6;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwCreateFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
+  if ( result >= 0 )
   {
-    *a2 = v5;
-    return 0LL;
+    *a2 = FileHandle;
+    return 0;
   }
   return result;
 }

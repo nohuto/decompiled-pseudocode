@@ -13,48 +13,69 @@
  *     LdrpLoadPatchImage @ 0x1800DA320 (LdrpLoadPatchImage.c)
  */
 
-__int64 __fastcall LdrHotPatchNotify(void *a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+__int64 __fastcall LdrHotPatchNotify(PVOID Argument)
 {
   int WowTebOffset; // r14d
-  bool v6; // si
-  unsigned __int64 v7; // rdx
+  bool v3; // si
   int LoadedDllByHandle; // ebx
-  unsigned __int64 v9; // r8
-  unsigned __int64 v10; // r9
-  int v12; // [rsp+60h] [rbp+7h]
-  char *v13; // [rsp+C8h] [rbp+6Fh] BYREF
-  __int64 v14; // [rsp+D0h] [rbp+77h] BYREF
+  int ThreadInformation[20]; // [rsp+60h] [rbp+7h] BYREF
+  HANDLE ThreadHandle; // [rsp+C0h] [rbp+67h] BYREF
+  PUSER_THREAD_START_ROUTINE StartRoutine; // [rsp+C8h] [rbp+6Fh] BYREF
+  PVOID BaseAddress; // [rsp+D0h] [rbp+77h] BYREF
   LARGE_INTEGER Timeout; // [rsp+D8h] [rbp+7Fh] BYREF
 
-  v14 = 0LL;
+  ThreadHandle = 0LL;
+  BaseAddress = 0LL;
   WowTebOffset = NtCurrentTeb()->WowTebOffset;
-  v6 = a1 == NtCurrentPeb()->ImageBaseAddress && WowTebOffset > 0;
-  LoadedDllByHandle = LdrpFindLoadedDllByHandle((unsigned __int64)a1, &v14, 0LL, a4);
-  if ( LoadedDllByHandle < 0 || v6 )
+  v3 = Argument == NtCurrentPeb()->ImageBaseAddress && WowTebOffset > 0;
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle((unsigned __int64)Argument, (__int64 *)&BaseAddress, 0LL);
+  if ( LoadedDllByHandle < 0 || v3 )
   {
-    if ( WowTebOffset > 0 && (unsigned __int64)a1 <= 0xFFFFFFFF )
+    if ( WowTebOffset > 0 && (unsigned __int64)Argument <= 0xFFFFFFFF )
     {
-      v13 = 0LL;
-      LdrpGetProcedureAddress(qword_18018F338, "LdrHotPatchNotify", 0, &v13);
-      LoadedDllByHandle = NtCreateThreadEx();
+      StartRoutine = 0LL;
+      LdrpGetProcedureAddress(
+        LdrSystemDllInitBlock.Wow64SharedInformation[6],
+        "LdrHotPatchNotify",
+        0,
+        (char **)&StartRoutine);
+      LoadedDllByHandle = NtCreateThreadEx(
+                            &ThreadHandle,
+                            0x1FFFFFu,
+                            0LL,
+                            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                            StartRoutine,
+                            Argument,
+                            0,
+                            0LL,
+                            0LL,
+                            0LL,
+                            0LL);
       if ( LoadedDllByHandle >= 0 )
       {
         Timeout.QuadPart = -100000000LL;
-        LoadedDllByHandle = NtWaitForSingleObject(0LL, 0, &Timeout);
+        LoadedDllByHandle = NtWaitForSingleObject(ThreadHandle, 0, &Timeout);
         if ( LoadedDllByHandle >= 0 )
         {
-          LoadedDllByHandle = ZwQueryInformationThread();
+          LoadedDllByHandle = ZwQueryInformationThread(
+                                ThreadHandle,
+                                ThreadBasicInformation,
+                                ThreadInformation,
+                                0x30u,
+                                0LL);
           if ( LoadedDllByHandle >= 0 )
-            LoadedDllByHandle = v12;
+            LoadedDllByHandle = ThreadInformation[0];
         }
       }
     }
   }
   else
   {
-    LoadedDllByHandle = LdrpLoadPatchImage(a1);
+    LoadedDllByHandle = LdrpLoadPatchImage((__int64)Argument);
   }
-  if ( v14 )
-    LdrpDereferenceModule(v14, v7, v9, v10);
+  if ( BaseAddress )
+    LdrpDereferenceModule((char *)BaseAddress);
+  if ( ThreadHandle )
+    NtClose(ThreadHandle);
   return (unsigned int)LoadedDllByHandle;
 }

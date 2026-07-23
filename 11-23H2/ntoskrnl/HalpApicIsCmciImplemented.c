@@ -1,85 +1,85 @@
 /*
- * XREFs of HalpApicIsCmciImplemented @ 0x1403A4E70
+ * XREFs of HalpApicIsCmciImplemented @ 0x1403A5050
  * Callers:
- *     HalpApicInitializeLocalUnit @ 0x140377580 (HalpApicInitializeLocalUnit.c)
+ *     HalpApicInitializeLocalUnit @ 0x140377720 (HalpApicInitializeLocalUnit.c)
  * Callees:
- *     HalpApicGetCpuInfo @ 0x1403A4F10 (HalpApicGetCpuInfo.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpApicGetCpuInfo @ 0x1403A50F0 (HalpApicGetCpuInfo.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 /*
- * Hex-Rays decompilation failed for HalpApicIsCmciImplemented @ 0x1403A4E70
- * Reason: Hex-Rays returned no pseudocode for 0x1403A4E70
+ * Hex-Rays decompilation failed for HalpApicIsCmciImplemented @ 0x1403A5050
+ * Reason: Hex-Rays returned no pseudocode for 0x1403A5050
  * Fallback: raw IDA disassembly follows.
  *
- * 00000001403A4E70: mov     rax, rsp
- * 00000001403A4E73: mov     [rax+10h], rbx
- * 00000001403A4E77: mov     [rax+18h], rbp
- * 00000001403A4E7B: push    rsi
- * 00000001403A4E7C: push    rdi
- * 00000001403A4E7D: push    r14
- * 00000001403A4E7F: sub     rsp, 20h
- * 00000001403A4E83: mov     rsi, rdx
- * 00000001403A4E86: mov     byte ptr [rax+8], 0
- * 00000001403A4E8A: mov     r14, rcx
- * 00000001403A4E8D: lea     r9, [rax+8]
- * 00000001403A4E91: xor     edx, edx
- * 00000001403A4E93: xor     ecx, ecx
- * 00000001403A4E95: xor     r8d, r8d
- * 00000001403A4E98: call    HalpApicGetCpuInfo
- * 00000001403A4E9D: neg     al
- * 00000001403A4E9F: sbb     r8b, r8b
- * 00000001403A4EA2: xor     ebx, ebx
- * 00000001403A4EA4: and     r8b, [rsp+38h+arg_0]
- * 00000001403A4EA9: xor     ebp, ebp
- * 00000001403A4EAB: xor     dil, dil
- * 00000001403A4EAE: mov     [rsp+38h+arg_0], r8b
- * 00000001403A4EB3: cmp     r8b, 2
- * 00000001403A4EB7: jnz     loc_1404EAE5A
- * 00000001403A4EBD: mov     ecx, 179h
- * 00000001403A4EC2: rdmsr
- * 00000001403A4EC4: shl     rdx, 20h
- * 00000001403A4EC8: or      rax, rdx
- * 00000001403A4ECB: and     eax, 400h
- * 00000001403A4ED0: setnz   dil
- * 00000001403A4ED4: neg     rax
- * 00000001403A4ED7: sbb     ebx, ebx
- * 00000001403A4ED9: and     ebx, 2F0h
- * 00000001403A4EDF: test    r14, r14
- * 00000001403A4EE2: jz      short loc_1403A4EEC
- * 00000001403A4EE4: test    dil, dil
- * 00000001403A4EE7: jz      short loc_1403A4EEC
- * 00000001403A4EE9: mov     [r14], ebx
- * 00000001403A4EEC: test    rsi, rsi
- * 00000001403A4EEF: jz      short loc_1403A4EF3
- * 00000001403A4EF1: mov     [rsi], ebp
- * 00000001403A4EF3: mov     rbx, [rsp+38h+arg_8]
- * 00000001403A4EF8: mov     al, dil
- * 00000001403A4EFB: mov     rbp, [rsp+38h+arg_10]
- * 00000001403A4F00: add     rsp, 20h
- * 00000001403A4F04: pop     r14
- * 00000001403A4F06: pop     rdi
- * 00000001403A4F07: pop     rsi
- * 00000001403A4F08: retn
- * 00000001404EAE5A: cmp     r8b, 1
- * 00000001404EAE5E: jnz     loc_1403A4EDF
- * 00000001404EAE64: mov     rax, cs:HalpApicRead
- * 00000001404EAE6B: mov     ecx, 30h ; '0'
- * 00000001404EAE70: call    _guard_dispatch_icall
- * 00000001404EAE75: test    eax, eax
- * 00000001404EAE77: jns     loc_1403A4EDF
- * 00000001404EAE7D: mov     rax, cs:HalpApicRead
- * 00000001404EAE84: mov     ecx, 400h
- * 00000001404EAE89: call    _guard_dispatch_icall
- * 00000001404EAE8E: and     eax, 0FF0000h
- * 00000001404EAE93: mov     ecx, 10000h
- * 00000001404EAE98: cmp     ecx, eax
- * 00000001404EAE9A: sbb     ebx, ebx
- * 00000001404EAE9C: and     ebx, 510h
- * 00000001404EAEA2: cmp     eax, ecx
- * 00000001404EAEA4: setnbe  dil
- * 00000001404EAEA8: cmp     eax, 20000h
- * 00000001404EAEAD: jbe     loc_1403A4EDF
- * 00000001404EAEB3: mov     ebp, 520h
- * 00000001404EAEB8: jmp     loc_1403A4EDF
+ * 00000001403A5050: mov     rax, rsp
+ * 00000001403A5053: mov     [rax+10h], rbx
+ * 00000001403A5057: mov     [rax+18h], rbp
+ * 00000001403A505B: push    rsi
+ * 00000001403A505C: push    rdi
+ * 00000001403A505D: push    r14
+ * 00000001403A505F: sub     rsp, 20h
+ * 00000001403A5063: mov     rsi, rdx
+ * 00000001403A5066: mov     byte ptr [rax+8], 0
+ * 00000001403A506A: mov     r14, rcx
+ * 00000001403A506D: lea     r9, [rax+8]
+ * 00000001403A5071: xor     edx, edx
+ * 00000001403A5073: xor     ecx, ecx
+ * 00000001403A5075: xor     r8d, r8d
+ * 00000001403A5078: call    HalpApicGetCpuInfo
+ * 00000001403A507D: neg     al
+ * 00000001403A507F: sbb     r8b, r8b
+ * 00000001403A5082: xor     ebx, ebx
+ * 00000001403A5084: and     r8b, [rsp+38h+arg_0]
+ * 00000001403A5089: xor     ebp, ebp
+ * 00000001403A508B: xor     dil, dil
+ * 00000001403A508E: mov     [rsp+38h+arg_0], r8b
+ * 00000001403A5093: cmp     r8b, 2
+ * 00000001403A5097: jnz     loc_1404EB3B2
+ * 00000001403A509D: mov     ecx, 179h
+ * 00000001403A50A2: rdmsr
+ * 00000001403A50A4: shl     rdx, 20h
+ * 00000001403A50A8: or      rax, rdx
+ * 00000001403A50AB: and     eax, 400h
+ * 00000001403A50B0: setnz   dil
+ * 00000001403A50B4: neg     rax
+ * 00000001403A50B7: sbb     ebx, ebx
+ * 00000001403A50B9: and     ebx, 2F0h
+ * 00000001403A50BF: test    r14, r14
+ * 00000001403A50C2: jz      short loc_1403A50CC
+ * 00000001403A50C4: test    dil, dil
+ * 00000001403A50C7: jz      short loc_1403A50CC
+ * 00000001403A50C9: mov     [r14], ebx
+ * 00000001403A50CC: test    rsi, rsi
+ * 00000001403A50CF: jz      short loc_1403A50D3
+ * 00000001403A50D1: mov     [rsi], ebp
+ * 00000001403A50D3: mov     rbx, [rsp+38h+arg_8]
+ * 00000001403A50D8: mov     al, dil
+ * 00000001403A50DB: mov     rbp, [rsp+38h+arg_10]
+ * 00000001403A50E0: add     rsp, 20h
+ * 00000001403A50E4: pop     r14
+ * 00000001403A50E6: pop     rdi
+ * 00000001403A50E7: pop     rsi
+ * 00000001403A50E8: retn
+ * 00000001404EB3B2: cmp     r8b, 1
+ * 00000001404EB3B6: jnz     loc_1403A50BF
+ * 00000001404EB3BC: mov     rax, cs:HalpApicRead
+ * 00000001404EB3C3: mov     ecx, 30h ; '0'
+ * 00000001404EB3C8: call    _guard_dispatch_icall
+ * 00000001404EB3CD: test    eax, eax
+ * 00000001404EB3CF: jns     loc_1403A50BF
+ * 00000001404EB3D5: mov     rax, cs:HalpApicRead
+ * 00000001404EB3DC: mov     ecx, 400h
+ * 00000001404EB3E1: call    _guard_dispatch_icall
+ * 00000001404EB3E6: and     eax, 0FF0000h
+ * 00000001404EB3EB: mov     ecx, 10000h
+ * 00000001404EB3F0: cmp     ecx, eax
+ * 00000001404EB3F2: sbb     ebx, ebx
+ * 00000001404EB3F4: and     ebx, 510h
+ * 00000001404EB3FA: cmp     eax, ecx
+ * 00000001404EB3FC: setnbe  dil
+ * 00000001404EB400: cmp     eax, 20000h
+ * 00000001404EB405: jbe     loc_1403A50BF
+ * 00000001404EB40B: mov     ebp, 520h
+ * 00000001404EB410: jmp     loc_1403A50BF
  */

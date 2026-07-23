@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMceInit @ 0x140C0A118
+ * XREFs of HalpMceInit @ 0x140C10328
  * Callers:
- *     HalpInitializeMce @ 0x140BE9EA4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140BEFEA4 (HalpInitializeMce.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     HalpHvInitMcaPcrContext @ 0x14050944C (HalpHvInitMcaPcrContext.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x140584FB0 (HalpHvInitMcaStatusMsrCache.c)
- *     HalpHvSetMachineCheckHandlerState @ 0x140585DB8 (HalpHvSetMachineCheckHandlerState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HalpMceInitProcessor @ 0x140C0A268 (HalpMceInitProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpHvInitMcaPcrContext @ 0x140502EFC (HalpHvInitMcaPcrContext.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x1405874D0 (HalpHvInitMcaStatusMsrCache.c)
+ *     HalpHvSetMachineCheckHandlerState @ 0x1405882D8 (HalpHvSetMachineCheckHandlerState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HalpMceInitProcessor @ 0x140C10478 (HalpMceInitProcessor.c)
  */
 
 void __fastcall HalpMceInit(_BYTE *Src)
@@ -19,11 +19,11 @@ void __fastcall HalpMceInit(_BYTE *Src)
   ULONG ActiveProcessorCount; // ebp
   __int64 v4; // rsi
   unsigned int v5; // ecx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rbx
   __int64 v8; // rcx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -40,7 +40,7 @@ void __fastcall HalpMceInit(_BYTE *Src)
     {
       *(_DWORD *)Affinity.Reserved = 0;
       Affinity.Reserved[2] = 0;
-      v5 = *(_DWORD *)(v4 + *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]);
+      v5 = *(volatile LONG *)((char *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v4);
       *(_DWORD *)&Affinity.Group = (unsigned __int16)(v5 >> 6);
       Affinity.Mask = 1LL << v5;
       if ( v2 )

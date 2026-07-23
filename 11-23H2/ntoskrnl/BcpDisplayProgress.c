@@ -1,15 +1,15 @@
 /*
- * XREFs of BcpDisplayProgress @ 0x140672900
+ * XREFs of BcpDisplayProgress @ 0x140672E50
  * Callers:
- *     BcpGetComponentOffsets @ 0x140672B10 (BcpGetComponentOffsets.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F08 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1406730C4 (BgpFwDisplayBugCheckScreen.c)
+ *     BcpGetComponentOffsets @ 0x140673060 (BcpGetComponentOffsets.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140673458 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140673614 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     BgpDisplayCharacterEx @ 0x140671C34 (BgpDisplayCharacterEx.c)
- *     BcpConvertProgressToString @ 0x14067213C (BcpConvertProgressToString.c)
- *     BcpCursorLessThan @ 0x140672218 (BcpCursorLessThan.c)
- *     BcpDisplayCriticalString @ 0x14067230C (BcpDisplayCriticalString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     BgpDisplayCharacterEx @ 0x140672184 (BgpDisplayCharacterEx.c)
+ *     BcpConvertProgressToString @ 0x14067268C (BcpConvertProgressToString.c)
+ *     BcpCursorLessThan @ 0x140672768 (BcpCursorLessThan.c)
+ *     BcpDisplayCriticalString @ 0x14067285C (BcpDisplayCriticalString.c)
  */
 
 __int64 __fastcall BcpDisplayProgress(unsigned int a1, int a2, __int64 a3)

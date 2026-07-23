@@ -6,9 +6,23 @@
  *     RtlpSetSecurityObject @ 0x18005A120 (RtlpSetSecurityObject.c)
  */
 
-__int64 __fastcall RtlSetSecurityObject(__int64 a1, __int64 a2, unsigned __int64 *a3, _DWORD *a4, size_t a5)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlSetSecurityObject(
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR ModificationDescriptor,
+        PSECURITY_DESCRIPTOR *ObjectsSecurityDescriptor,
+        PGENERIC_MAPPING GenericMapping,
+        HANDLE TokenHandle)
 {
   int v6; // [rsp+28h] [rbp-20h]
 
-  return RtlpSetSecurityObject(a1, a1, a2, a3, 0, v6, a4, a5);
+  return RtlpSetSecurityObject(
+           *(__int64 *)&SecurityInformation,
+           SecurityInformation,
+           (__int64)ModificationDescriptor,
+           ObjectsSecurityDescriptor,
+           0,
+           v6,
+           GenericMapping,
+           TokenHandle);
 }

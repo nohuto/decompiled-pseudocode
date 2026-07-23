@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegFreeRangeRemove @ 0x140377C00
+ * XREFs of RtlpHpSegFreeRangeRemove @ 0x1403799B0
  * Callers:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
- *     RtlpHpSegPageRangeAllocate @ 0x14034B898 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x14051C3D4 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14034D918 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x140518FC4 (RtlpHpSegLargeRangeAllocate.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ __int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, __int64 a2)
   __int64 v5; // rdx
   __int64 result; // rax
 
-  RtlRbRemoveNode(a1 + 96, a2);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)a2);
   *(_OWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
   v4 = ~(unsigned __int16)*(_DWORD *)(a2 + 28);

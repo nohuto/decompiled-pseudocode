@@ -24,7 +24,7 @@ void __fastcall PopThermalUpdateTelemetryClientCount(char a1)
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      KeSetTimer2((__int64)&PopThermalTelemetryTimer, -864000000000LL, 0LL, v2);
+      KeSetTimer2((__int64)&PopThermalTelemetryTimer, -864000000000LL, 0LL, (__int64)v2);
     }
   }
   else if ( !--PopThermalTelemetryClientCount )

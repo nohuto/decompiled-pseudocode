@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFormDllRegistryPath @ 0x1407E7448
+ * XREFs of MiFormDllRegistryPath @ 0x1407E7A18
  * Callers:
- *     MiIssueDllInitializeCall @ 0x1407E7684 (MiIssueDllInitializeCall.c)
+ *     MiIssueDllInitializeCall @ 0x1407E7C54 (MiIssueDllInitializeCall.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFormDllRegistryPath(__int64 a1, UNICODE_STRING *a2)

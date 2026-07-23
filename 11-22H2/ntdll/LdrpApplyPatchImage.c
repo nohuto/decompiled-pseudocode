@@ -19,12 +19,12 @@ __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
   unsigned __int64 v3; // rcx
   bool v4; // al
   int v5; // r8d
-  __int64 v6; // r14
+  _QWORD *v6; // r14
   int ProcedureAddress; // edi
   int v8; // edx
   int v10; // eax
   int v11; // eax
-  __int64 v12; // [rsp+38h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-48h] BYREF
   char *v13; // [rsp+40h] [rbp-40h] BYREF
   __int64 v14; // [rsp+48h] [rbp-38h]
   __int64 v15; // [rsp+50h] [rbp-30h]
@@ -33,14 +33,14 @@ __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
   int v18; // [rsp+68h] [rbp-18h] BYREF
   __int64 v19; // [rsp+6Ch] [rbp-14h]
 
-  v12 = 0LL;
+  BaseAddress = 0LL;
   v2 = 0LL;
   v3 = *(_QWORD *)(a1 + 184);
   v13 = 0LL;
-  LdrpFindLoadedDllByHandle(v3, &v12, 0LL);
+  LdrpFindLoadedDllByHandle(v3, (__int64 *)&BaseAddress, 0LL);
   v4 = LdrInitState < 3 || *(_DWORD *)(a1 + 276) == 1;
   v5 = *(_DWORD *)(a1 + 304);
-  v6 = v12;
+  v6 = BaseAddress;
   if ( v5 != 2 && !v4 )
   {
     ProcedureAddress = LdrpGetProcedureAddress(*(_QWORD *)(a1 + 48), "__PatchMainCallout__", 0, &v13);
@@ -54,7 +54,7 @@ __int64 __fastcall LdrpApplyPatchImage(__int64 a1)
   v14 = 1LL;
   v15 = -1LL;
   v8 = 0;
-  v16 = *(_QWORD *)(v6 + 48);
+  v16 = v6[6];
   v17 = *(_QWORD *)(a1 + 48);
   if ( !v2 )
   {
@@ -94,12 +94,17 @@ LABEL_11:
     ProcedureAddress = v11;
     if ( v11 < 0 )
     {
-      LdrpLogEtwHotPatchStatus((unsigned __int16 *)(LdrpImageEntry + 88), v6, (unsigned __int16 *)(a1 + 72), v11, 6);
+      LdrpLogEtwHotPatchStatus(
+        (unsigned __int16 *)(LdrpImageEntry + 88),
+        (__int64)v6,
+        (unsigned __int16 *)(a1 + 72),
+        v11,
+        6);
       __fastfail(0x44u);
     }
 LABEL_13:
-    *(_DWORD *)(v6 + 304) = 3;
-    *(_QWORD *)(v6 + 296) = *(_QWORD *)(a1 + 48);
+    *((_DWORD *)v6 + 76) = 3;
+    v6[37] = *(_QWORD *)(a1 + 48);
     goto LABEL_14;
   }
   LODWORD(v19) = 2;
@@ -107,18 +112,23 @@ LABEL_13:
   ProcedureAddress = v10;
   if ( v10 < 0 )
   {
-    LdrpLogEtwHotPatchStatus((unsigned __int16 *)(LdrpImageEntry + 88), v6, (unsigned __int16 *)(a1 + 72), v10, 7);
+    LdrpLogEtwHotPatchStatus(
+      (unsigned __int16 *)(LdrpImageEntry + 88),
+      (__int64)v6,
+      (unsigned __int16 *)(a1 + 72),
+      v10,
+      7);
     __fastfail(0x44u);
   }
-  *(_DWORD *)(v6 + 304) = 4;
+  *((_DWORD *)v6 + 76) = 4;
 LABEL_14:
   LdrpLogEtwHotPatchStatus(
     (unsigned __int16 *)(LdrpImageEntry + 88),
-    v6,
+    (__int64)v6,
     (unsigned __int16 *)(a1 + 72),
     ProcedureAddress,
     4);
   if ( v6 )
-    LdrpDereferenceModule(v6);
+    LdrpDereferenceModule((char *)v6);
   return (unsigned int)ProcedureAddress;
 }

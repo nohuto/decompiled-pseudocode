@@ -6,14 +6,13 @@
  *     _RtlNotifyFeatureUsage@4 @ 0x4B3695D0 (_RtlNotifyFeatureUsage@4.c)
  */
 
-int __fastcall wil_RtlStagingConfig_RecordFeatureUsage(int a1, unsigned __int16 a2, int a3)
+NTSTATUS __fastcall wil_RtlStagingConfig_RecordFeatureUsage(int a1, unsigned __int16 a2, int a3)
 {
-  int v4; // [esp+0h] [ebp-Ch] BYREF
-  int v5; // [esp+4h] [ebp-8h]
+  _RTL_FEATURE_USAGE_REPORT FeatureUsageReport; // [esp+0h] [ebp-Ch] BYREF
 
-  v4 = 24394929;
-  v5 = a2;
+  FeatureUsageReport.FeatureId = 24394929;
+  *(_DWORD *)&FeatureUsageReport.ReportingKind = a2;
   if ( a3 )
-    HIWORD(v5) |= 1u;
-  return RtlNotifyFeatureUsage(&v4);
+    FeatureUsageReport.ReportingOptions |= 1u;
+  return RtlNotifyFeatureUsage(&FeatureUsageReport);
 }

@@ -18,7 +18,7 @@ _BOOL8 __fastcall EnableFlushTimer(ULONG_PTR a1, unsigned int a2)
   {
     v3[0] = 0LL;
     v3[1] = -1LL;
-    return ExSetTimer(a1, -10000LL * a2, 0LL, v3);
+    return ExSetTimer(a1, -10000LL * a2, 0LL, (__int64)v3);
   }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeRebootSystemForRecovery @ 0x14057A3AC
+ * XREFs of KeRebootSystemForRecovery @ 0x14057A89C
  * Callers:
- *     ExRebootSystemForRecovery @ 0x140606674 (ExRebootSystemForRecovery.c)
+ *     ExRebootSystemForRecovery @ 0x140606BC4 (ExRebootSystemForRecovery.c)
  * Callees:
  *     KiSendThawExecution @ 0x14020D210 (KiSendThawExecution.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x140569B58 (KiBugcheckUnloadDebugSymbols.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140AAD240 (MiDeleteAllHardwareEnclaves.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x14056A218 (KiBugcheckUnloadDebugSymbols.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140AAD0B0 (MiDeleteAllHardwareEnclaves.c)
  */
 
 void __noreturn KeRebootSystemForRecovery()

@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmEnumSubkeyCallback @ 0x14081B530
+ * XREFs of _CmEnumSubkeyCallback @ 0x14081BC70
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _CmValidateDeviceName @ 0x1408B8070 (_CmValidateDeviceName.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _CmIsDevicePresent @ 0x1409FDDCC (_CmIsDevicePresent.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _CmValidateDeviceName @ 0x1408B59E0 (_CmValidateDeviceName.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _CmIsDevicePresent @ 0x1409F703C (_CmIsDevicePresent.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmEnumSubkeyCallback(__int64 a1, int a2, const wchar_t *a3, __int64 a4)
@@ -39,7 +39,7 @@ __int64 __fastcall CmEnumSubkeyCallback(__int64 a1, int a2, const wchar_t *a3, _
   pcchRemaining = 0LL;
   v23 = 0;
   DestinationString = 0LL;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x190uLL, 0x52504E50u);
   v9 = Pool2;
   if ( Pool2 )
   {
@@ -68,8 +68,7 @@ LABEL_20:
         {
           v16 = DestinationString.MaximumLength >> 1;
           if ( (!*(_BYTE *)(a4 + 404) || (int)CmIsDevicePresent(a1, v9, &v23) >= 0 && v23)
-            && (!*(_QWORD *)(a4 + 408)
-             || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v9, 1LL, *(_QWORD *)(a4 + 416))) )
+            && (!*(_QWORD *)(a4 + 408) || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v9)) )
           {
             *(_DWORD *)(a4 + 436) += v16;
             v17 = *(_DWORD *)(a4 + 432);
@@ -84,7 +83,7 @@ LABEL_20:
       }
       else if ( (int)PnpCtxRegOpenKey(a1, a2, (_DWORD)a3, 8, 131097, (__int64)&Handle) >= 0 )
       {
-        v14 = ExAllocatePool2(0x100uLL);
+        v14 = ExAllocatePool2(0x100uLL, 0x1B8uLL, 0x52504E50u);
         v15 = v14;
         if ( v14 )
         {

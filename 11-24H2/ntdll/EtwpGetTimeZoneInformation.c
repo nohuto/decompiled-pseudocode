@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetTimeZoneInformation @ 0x1800B4EA4
+ * XREFs of EtwpGetTimeZoneInformation @ 0x180081744
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
  * Callees:
- *     RtlpQueryTimeZoneInformationWorker @ 0x1800B5874 (RtlpQueryTimeZoneInformationWorker.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x180082114 (RtlpQueryTimeZoneInformationWorker.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall EtwpGetTimeZoneInformation(char *a1)

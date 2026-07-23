@@ -1,39 +1,39 @@
 /*
- * XREFs of CmpDereferenceKeyControlBlock @ 0x1406FB610
+ * XREFs of CmpDereferenceKeyControlBlock @ 0x1407129F0
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmpCleanupParseContext @ 0x140655A80 (CmpCleanupParseContext.c)
- *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
- *     CmReleaseLoadKeyContext @ 0x140671FD0 (CmReleaseLoadKeyContext.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406FC410 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpLateUnloadHiveWorker @ 0x14071C570 (CmpLateUnloadHiveWorker.c)
- *     CmpDestroyVirtualStack @ 0x14086FDA4 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
- *     CmpFreeSiloKeyLockEntry @ 0x1408727B4 (CmpFreeSiloKeyLockEntry.c)
- *     CmpGlobalUnlockKeyForWrite @ 0x1408727F4 (CmpGlobalUnlockKeyForWrite.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x14087AB38 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpLateUnloadHiveWorker @ 0x1405DFF10 (CmpLateUnloadHiveWorker.c)
+ *     CmpCleanupParseContext @ 0x14064A8A0 (CmpCleanupParseContext.c)
+ *     CmpDeleteKeyObject @ 0x14065C3E0 (CmpDeleteKeyObject.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
+ *     CmReleaseLoadKeyContext @ 0x140667510 (CmReleaseLoadKeyContext.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmEnumerateKey @ 0x1406E3AB0 (CmEnumerateKey.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1407137F0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDestroyVirtualStack @ 0x14086FF04 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x1408700FC (CmpDoBuildVirtualStack.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x140872914 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x140872954 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x14087AC98 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
- *     CmpArmDelayedCloseTimer @ 0x1402AE508 (CmpArmDelayedCloseTimer.c)
- *     ExpReleaseFastMutexContended @ 0x1402F171C (ExpReleaseFastMutexContended.c)
- *     ExpAcquireFastMutexContended @ 0x1402F2BC0 (ExpAcquireFastMutexContended.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
+ *     CmpArmDelayedCloseTimer @ 0x14022C868 (CmpArmDelayedCloseTimer.c)
+ *     ExpReleaseFastMutexContended @ 0x1402FC46C (ExpReleaseFastMutexContended.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FD910 (ExpAcquireFastMutexContended.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1406725FC (CmpDoQueueLateUnloadWorker.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
+ *     CmpFreeKeyControlBlock @ 0x1405E0C60 (CmpFreeKeyControlBlock.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x14066782C (CmpDoQueueLateUnloadWorker.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406DDFD4 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
  */
 
 void __fastcall CmpDereferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)
@@ -57,8 +57,8 @@ void __fastcall CmpDereferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)
   struct _KTHREAD *CurrentThread; // rax
   bool v19; // dl
   int v20; // ecx
-  __int64 v21; // rax
-  __int64 v22; // rdi
+  _RTL_BALANCED_NODE *v21; // rax
+  _RTL_BALANCED_NODE *v22; // rdi
   unsigned __int8 CurrentIrql; // r13
   _QWORD *v24; // rax
   __int64 v25; // rcx
@@ -140,7 +140,7 @@ LABEL_69:
         if ( (*(_DWORD *)(v17 + 160) & 0x20) == 0
           && _InterlockedExchangeAdd((volatile signed __int32 *)(v17 + 4272), 0xFFFFFFFF) == 1 )
         {
-          CmpDeleteHive((PVOID)v17);
+          CmpDeleteHive((_QWORD *)v17);
         }
       }
       else
@@ -169,7 +169,7 @@ LABEL_69:
         if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
           ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v21);
         if ( v22 )
-          *(_BYTE *)(v22 + 26) |= 1u;
+          BYTE2(v22[1].Left) |= 1u;
         *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
         *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;
         v24 = (_QWORD *)(BugCheckParameter2 + 224);
@@ -232,7 +232,7 @@ LABEL_54:
     *(_QWORD *)(v35 + 8) = 0LL;
     ExReleasePushLockEx(v35, 0LL);
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 4272), 0xFFFFFFFF) == 1 )
-      CmpDeleteHive((PVOID)v6);
+      CmpDeleteHive((_QWORD *)v6);
     CmpDrainDelayDerefContext((_QWORD **)&v36);
     return;
   }

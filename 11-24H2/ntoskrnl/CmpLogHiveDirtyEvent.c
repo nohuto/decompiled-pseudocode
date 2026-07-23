@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogHiveDirtyEvent @ 0x14088343C
+ * XREFs of CmpLogHiveDirtyEvent @ 0x1408872EC
  * Callers:
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmpLogHiveDirtyEvent(__int64 a1, int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall CmpLogHiveDirtyEvent(__int64 a1, int a2)
   __int64 v14; // [rsp+A0h] [rbp+67h] BYREF
 
   v14 = a1;
-  if ( (DWORD2(PerfGlobalGroupMask) & 0x1000000) != 0 )
+  if ( (DWORD2(PerfGlobalGroupMask[0]) & 0x1000000) != 0 )
   {
     v9 = a2;
     v8 = 0;

@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlpInterlockedFlushSList @ 0x1404079B0
+ * XREFs of RtlpInterlockedFlushSList @ 0x140407B90
  * Callers:
- *     MiFreePageFileHashPfns @ 0x140273264 (MiFreePageFileHashPfns.c)
- *     MiDrainZeroLookasides @ 0x1402B93C0 (MiDrainZeroLookasides.c)
- *     ExpFlushGeneralLookaside @ 0x1402BE810 (ExpFlushGeneralLookaside.c)
- *     ExFlushLookasideListEx @ 0x1402BE8A0 (ExFlushLookasideListEx.c)
- *     RtlpHpHeapCompact @ 0x1402C3FF8 (RtlpHpHeapCompact.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x1402CBED4 (ExpWorkerFactoryDeferredThreadCreation.c)
- *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1402CEE50 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
- *     PfFbBufferListFlushStandby @ 0x1402D4738 (PfFbBufferListFlushStandby.c)
- *     ExpHpCompactionRoutine @ 0x1402FAA50 (ExpHpCompactionRoutine.c)
- *     RtlpHpVsContextFree @ 0x140341800 (RtlpHpVsContextFree.c)
- *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035B378 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x14055A0C0 (MiDeleteDeferredCloneDescriptors.c)
- *     MiInsertPteTracker @ 0x14055EDE0 (MiInsertPteTracker.c)
- *     EtwpCovSampCaptureQueueDpc @ 0x1405AF0D0 (EtwpCovSampCaptureQueueDpc.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF36C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
- *     PfpFlushEventBuffers @ 0x1406CA380 (PfpFlushEventBuffers.c)
- *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
- *     CmUnRegisterCallback @ 0x140869C10 (CmUnRegisterCallback.c)
- *     ObpInitStackAndObjectTables @ 0x1408DE970 (ObpInitStackAndObjectTables.c)
- *     ObpStopRuntimeStackTrace @ 0x1408DF3E4 (ObpStopRuntimeStackTrace.c)
- *     PfTCleanup @ 0x1408E03BC (PfTCleanup.c)
- *     EtwpFreeStackCache @ 0x140941DE8 (EtwpFreeStackCache.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x140942908 (EtwpCovSampCaptureFreeLookasides.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x140942AC0 (EtwpCovSampCaptureWorkerThread.c)
- *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
- *     ViPoolDelayFreeTrimThreadRoutine @ 0x1409E0340 (ViPoolDelayFreeTrimThreadRoutine.c)
+ *     MiDrainZeroLookasides @ 0x1402375D0 (MiDrainZeroLookasides.c)
+ *     ExpFlushGeneralLookaside @ 0x14023CE50 (ExpFlushGeneralLookaside.c)
+ *     ExFlushLookasideListEx @ 0x14023CEE0 (ExFlushLookasideListEx.c)
+ *     RtlpHpHeapCompact @ 0x140242578 (RtlpHpHeapCompact.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x14024A624 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x14024D350 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ *     MiFreePageFileHashPfns @ 0x140261204 (MiFreePageFileHashPfns.c)
+ *     PfFbBufferListFlushStandby @ 0x140273418 (PfFbBufferListFlushStandby.c)
+ *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402A0118 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ExpHpCompactionRoutine @ 0x1403057A0 (ExpHpCompactionRoutine.c)
+ *     RtlpHpVsContextFree @ 0x14034C550 (RtlpHpVsContextFree.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x14055A300 (MiDeleteDeferredCloneDescriptors.c)
+ *     MiInsertPteTracker @ 0x14055F020 (MiInsertPteTracker.c)
+ *     EtwpCovSampCaptureQueueDpc @ 0x1405AF300 (EtwpCovSampCaptureQueueDpc.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF59C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     PfpFlushEventBuffers @ 0x140678C70 (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x140678FB0 (PfpFlushBuffers.c)
+ *     CmUnRegisterCallback @ 0x140869D70 (CmUnRegisterCallback.c)
+ *     ObpInitStackAndObjectTables @ 0x1408DEAD0 (ObpInitStackAndObjectTables.c)
+ *     ObpStopRuntimeStackTrace @ 0x1408DF544 (ObpStopRuntimeStackTrace.c)
+ *     PfTCleanup @ 0x1408E051C (PfTCleanup.c)
+ *     EtwpFreeStackCache @ 0x140941FB8 (EtwpFreeStackCache.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140942AD8 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942C90 (EtwpCovSampCaptureWorkerThread.c)
+ *     PfTAccessTracingCleanup @ 0x14099B9FC (PfTAccessTracingCleanup.c)
+ *     ViPoolDelayFreeTrimThreadRoutine @ 0x1409E1340 (ViPoolDelayFreeTrimThreadRoutine.c)
  * Callees:
  *     <none>
  */
 
 PSLIST_ENTRY __stdcall RtlpInterlockedFlushSList(PSLIST_HEADER ListHead)
 {
-  union _SLIST_HEADER v1; // rax
+  _SLIST_HEADER v1; // rax
   signed __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
   unsigned __int8 v4; // tt
 
   _m_prefetchw(ListHead);

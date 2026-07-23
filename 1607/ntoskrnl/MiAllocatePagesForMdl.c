@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocatePagesForMdl @ 0x140104224
+ * XREFs of MiAllocatePagesForMdl @ 0x140101FA4
  * Callers:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1400AA4A4 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmAllocatePagesForMdl @ 0x1401499F0 (MmAllocatePagesForMdl.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
- *     MmAllocateNonCachedMemory @ 0x1406587C4 (MmAllocateNonCachedMemory.c)
- *     NtAllocateUserPhysicalPages @ 0x14065CA98 (NtAllocateUserPhysicalPages.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1400A8A24 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePagesForMdl @ 0x140149F60 (MmAllocatePagesForMdl.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
+ *     MmAllocateNonCachedMemory @ 0x1406588A8 (MmAllocateNonCachedMemory.c)
+ *     NtAllocateUserPhysicalPages @ 0x14065CB7C (NtAllocateUserPhysicalPages.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     MiObtainMdlCharges @ 0x140103DA8 (MiObtainMdlCharges.c)
- *     MiFindPagesForMdl @ 0x14010404C (MiFindPagesForMdl.c)
- *     MiInitializeMdlPages @ 0x140106A8C (MiInitializeMdlPages.c)
- *     MiRemoveMdlPages @ 0x1406589E8 (MiRemoveMdlPages.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     MiObtainMdlCharges @ 0x140101B28 (MiObtainMdlCharges.c)
+ *     MiFindPagesForMdl @ 0x140101DCC (MiFindPagesForMdl.c)
+ *     MiInitializeMdlPages @ 0x14010480C (MiInitializeMdlPages.c)
+ *     MiRemoveMdlPages @ 0x140658ACC (MiRemoveMdlPages.c)
  */
 
 void *__fastcall MiAllocatePagesForMdl(
@@ -49,14 +49,14 @@ void *__fastcall MiAllocatePagesForMdl(
   v10 = 0;
   v11 = a2 >> 12;
   v12 = a3 >> 12;
-  if ( a3 >> 12 < qword_140326A90 )
+  if ( a3 >> 12 < qword_140326AD0 )
   {
     if ( v12 < *(_QWORD *)(a1 + 6280) )
       goto LABEL_8;
   }
   else
   {
-    v12 = qword_140326A90;
+    v12 = qword_140326AD0;
   }
   if ( !v11 )
   {
@@ -116,7 +116,7 @@ LABEL_24:
     else
       _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 6528), v21);
     if ( (int *)a1 == v22 )
-      _InterlockedExchangeAdd64(&qword_1403278E8, -(__int64)v21);
+      _InterlockedExchangeAdd64(&qword_140327928, -(__int64)v21);
     MiReturnCommit(a1, v21);
     v19 = v23;
   }

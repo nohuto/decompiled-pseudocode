@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoAllocateWorkItem @ 0x140928A50
+ * XREFs of VerifierIoAllocateWorkItem @ 0x140929A50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierIoAllocateWorkItem(__int64 a1)

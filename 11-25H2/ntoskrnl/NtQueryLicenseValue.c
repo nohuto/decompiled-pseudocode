@@ -15,12 +15,17 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   __int64 v5; // r15
-  int v8; // edi
+  NTSTATUS v8; // edi
   char PreviousMode; // dl
-  _DWORD *v10; // r13
+  PULONG v10; // r13
   __int64 v11; // rsi
   __int64 v12; // rax
   int v13; // edx
@@ -38,24 +43,24 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
   _DWORD Size[3]; // [rsp+44h] [rbp-64h] BYREF
   PVOID P; // [rsp+50h] [rbp-58h]
   UNICODE_STRING v28; // [rsp+58h] [rbp-50h] BYREF
-  int v29; // [rsp+B0h] [rbp+8h] BYREF
-  _DWORD *v30; // [rsp+B8h] [rbp+10h]
-  void *v31; // [rsp+C0h] [rbp+18h]
-  unsigned int v32; // [rsp+C8h] [rbp+20h]
+  ULONG v29; // [rsp+B0h] [rbp+8h] BYREF
+  PULONG v30; // [rsp+B8h] [rbp+10h]
+  PVOID v31; // [rsp+C0h] [rbp+18h]
+  ULONG v32; // [rsp+C8h] [rbp+20h]
 
-  v32 = a4;
-  v31 = a3;
-  v30 = a2;
-  v5 = a4;
+  v32 = DataSize;
+  v31 = Data;
+  v30 = Type;
+  v5 = DataSize;
   v28 = 0LL;
   v8 = 0;
   P = 0LL;
   v29 = 0;
   memset(Size, 0, sizeof(Size));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a1 && (v10 = a5) != 0LL && (a3 || !a4) )
+  if ( ValueName && (v10 = ResultDataSize) != 0LL && (Data || !DataSize) )
   {
-    if ( a4 > 0x800000 )
+    if ( DataSize > 0x800000 )
     {
       v8 = -1073741801;
     }
@@ -63,8 +68,8 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
     {
       v11 = 0x7FFFFFFF0000LL;
       v12 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v12 = a1;
+      if ( (unsigned __int64)ValueName < 0x7FFFFFFF0000LL )
+        v12 = (__int64)ValueName;
       v13 = *(_DWORD *)v12;
       *(_DWORD *)&v28.Length = *(_DWORD *)v12;
       v14 = *(wchar_t **)(v12 + 8);
@@ -80,19 +85,19 @@ __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, void *a3
           v16 = (wchar_t *)Pool2;
           memmove(Pool2, v28.Buffer, v28.Length);
           v28.Buffer = v16;
-          if ( a2 )
+          if ( Type )
           {
             v17 = 0x7FFFFFFF0000LL;
-            if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-              v17 = (__int64)a2;
+            if ( (unsigned __int64)Type < 0x7FFFFFFF0000LL )
+              v17 = (__int64)Type;
             *(_DWORD *)v17 = *(_DWORD *)v17;
-            v29 = *a2;
+            v29 = *Type;
           }
-          if ( !a3 || !(_DWORD)v5 )
+          if ( !Data || !(_DWORD)v5 )
             goto LABEL_24;
-          v18 = (unsigned __int64)a3;
-          v19 = (unsigned __int64)a3 + v5 - 1;
-          if ( v19 >= 0x7FFFFFFF0000LL || (unsigned __int64)a3 > v19 )
+          v18 = (unsigned __int64)Data;
+          v19 = (unsigned __int64)Data + v5 - 1;
+          if ( v19 >= 0x7FFFFFFF0000LL || (unsigned __int64)Data > v19 )
             ExRaiseAccessViolation();
           v20 = (v19 & 0xFFFFFFFFFFFFF000uLL) + 4096;
           do
@@ -139,22 +144,22 @@ LABEL_24:
                   (__int64)Size);
         v23 = v22;
         v8 = v22;
-        if ( a2 )
-          *a2 = v29;
+        if ( Type )
+          *Type = v29;
         v24 = Size[0];
         *v10 = Size[0];
-        if ( v23 >= 0 && a3 )
+        if ( v23 >= 0 && Data )
         {
           if ( (unsigned int)v5 < v24 )
             v8 = -1073741789;
           else
-            memmove(a3, *(const void **)&Size[1], v24);
+            memmove(Data, *(const void **)&Size[1], v24);
         }
       }
     }
     else
     {
-      v8 = ntoskrnl_27(a1, (int)a2, (int)a3, a4, (__int64)a5);
+      v8 = ntoskrnl_27((int)ValueName, (int)Type, (int)Data, DataSize, (__int64)ResultDataSize);
     }
   }
   else
@@ -165,5 +170,5 @@ LABEL_24:
     ExFreePoolWithTag(P, 0);
   if ( *(_QWORD *)&Size[1] )
     ExFreePoolWithTag(*(PVOID *)&Size[1], 0);
-  return (unsigned int)v8;
+  return v8;
 }

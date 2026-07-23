@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxNotifySystemStateTransition @ 0x1404E8084
+ * XREFs of PopFxNotifySystemStateTransition @ 0x1404E1444
  * Callers:
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopFxNotifySystemStateTransition(__int64 a1, char a2)

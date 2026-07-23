@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessPriorityClass @ 0x1402E9AF0
+ * XREFs of PsGetProcessPriorityClass @ 0x1402E9CE0
  * Callers:
  *     <none>
  * Callees:

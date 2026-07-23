@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeInitializeMutexWrapper @ 0x1405E3580
+ * XREFs of DifKeInitializeMutexWrapper @ 0x1405E3AF0
  * Callers:
  *     <none>
  * Callees:
- *     KiInitializeMutant @ 0x14033ADEC (KiInitializeMutant.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     KiInitializeMutant @ 0x14033B07C (KiInitializeMutant.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 char __fastcall DifKeInitializeMutexWrapper(__int64 a1, int a2)

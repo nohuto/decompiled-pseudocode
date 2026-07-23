@@ -29,12 +29,12 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
   int v11; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v12; // [rsp+38h] [rbp-C8h] BYREF
   _OWORD v13[3]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v14[104]; // [rsp+70h] [rbp-90h] BYREF
+  unsigned int PackageSize[104]; // [rsp+70h] [rbp-90h] BYREF
 
   v12 = 0LL;
   v4 = 0;
   memset(v13, 0, sizeof(v13));
-  memset(v14, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   if ( !EtwpIsProcessZombie((__int64)Process) )
   {
     if ( a2[9] )
@@ -58,11 +58,11 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
       {
         v11 = 0;
         v9 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-        EtwpQueryTokenPackageInfo((__int64)v9, (__int64)v14, &v11);
+        EtwpQueryTokenPackageInfo(v9, (WCHAR *)PackageSize, &v11);
         if ( a2[8] )
           EtwpQueryProcessOtherInfo((__int64)Process, (__int64)&v12);
         ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v9);
-        EtwpPsProvTraceProcess(Process, v11, v14, (int *)&v12, 771);
+        EtwpPsProvTraceProcess(Process, v11, PackageSize, (int *)&v12, 771);
       }
       if ( v4 )
       {

@@ -148,7 +148,7 @@ LABEL_23:
       else
         v27 = v26 + 1;
       *(_QWORD *)(v19 + 72) = v27;
-      *(_DWORD *)(v19 + 16) = RtlComputeCrc32(0, (char *)v19, *(_DWORD *)(v19 + 12));
+      *(_DWORD *)(v19 + 16) = RtlComputeCrc32(0, (PVOID)v19, *(_DWORD *)(v19 + 12));
       if ( v22 )
       {
         v29 = *v17;

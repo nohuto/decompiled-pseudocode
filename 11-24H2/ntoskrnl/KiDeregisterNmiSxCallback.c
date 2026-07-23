@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDeregisterNmiSxCallback @ 0x1405B0CFC
+ * XREFs of KiDeregisterNmiSxCallback @ 0x1405ADC6C
  * Callers:
- *     KeDeregisterNmiCallback @ 0x1405B07D0 (KeDeregisterNmiCallback.c)
- *     DifKeDeregisterNmiCallbackWrapper @ 0x14062D270 (DifKeDeregisterNmiCallbackWrapper.c)
+ *     KeDeregisterNmiCallback @ 0x1405AD740 (KeDeregisterNmiCallback.c)
+ *     DifKeDeregisterNmiCallbackWrapper @ 0x14062B830 (DifKeDeregisterNmiCallbackWrapper.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1405C30E8 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1405C06B8 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
@@ -19,7 +19,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   PVOID *v4; // rbx
   PVOID *v5; // r8
   unsigned int v7; // edi
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
   PreviousAffinity = 0LL;

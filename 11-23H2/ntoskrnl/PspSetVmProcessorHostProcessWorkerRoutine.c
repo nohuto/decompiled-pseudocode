@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetVmProcessorHostProcessWorkerRoutine @ 0x1409B19F0
+ * XREFs of PspSetVmProcessorHostProcessWorkerRoutine @ 0x1409B1BF0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
  */
 
 LONG __fastcall PspSetVmProcessorHostProcessWorkerRoutine(PRKEVENT Event)

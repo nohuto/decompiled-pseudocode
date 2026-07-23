@@ -1,7 +1,7 @@
 /*
- * XREFs of PspReleaseReturnedQuota @ 0x14020F00C
+ * XREFs of PspReleaseReturnedQuota @ 0x14020EE38
  * Callers:
- *     PspExpandQuota @ 0x1400C68C4 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1400C4764 (PspExpandQuota.c)
  * Callees:
  *     <none>
  */

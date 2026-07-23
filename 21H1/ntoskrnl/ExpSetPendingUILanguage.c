@@ -22,16 +22,16 @@
  *     NtQueryInstallUILanguage @ 0x1406DF450 (NtQueryInstallUILanguage.c)
  */
 
-__int64 ExpSetPendingUILanguage()
+NTSTATUS ExpSetPendingUILanguage()
 {
   unsigned __int64 v0; // rbp
   char v1; // r12
   char v2; // si
   __int64 v3; // rdx
   int v4; // ecx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   NTSTATUS Key; // ebx
-  int InstallUILanguage; // ebx
+  NTSTATUS InstallUILanguage; // ebx
   int v8; // eax
   ULONG v9; // r12d
   ULONG v10; // esi
@@ -74,7 +74,7 @@ __int64 ExpSetPendingUILanguage()
   v2 = 0;
   *(_BYTE *)v0 = 0;
   result = OpenGlobalizationUserSettingsKey(v4, v3, (HANDLE *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 128));
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   RtlInitUnicodeString((PUNICODE_STRING)(v0 + 48), L"Control Panel\\Desktop");
   *(_DWORD *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 48;
@@ -206,7 +206,7 @@ __int64 ExpSetPendingUILanguage()
   {
     *(_WORD *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18) = 0;
     *(_DWORD *)(((unsigned __int64)&v29 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC8) = 0;
-    InstallUILanguage = NtQueryInstallUILanguage((_WORD *)(v0 + 24));
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(v0 + 24));
     if ( InstallUILanguage >= 0 )
     {
       v8 = DownLevelLangIDToLanguageName(
@@ -425,5 +425,5 @@ LABEL_23:
     if ( Teb )
       Teb[1530] = 0;
   }
-  return (unsigned int)Key;
+  return Key;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReleaseAwaymodeLock @ 0x140B6C224
+ * XREFs of PopReleaseAwaymodeLock @ 0x140B6DAC8
  * Callers:
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
- *     PopPowerRequestCallbackAwayModeRequired @ 0x140A94BD0 (PopPowerRequestCallbackAwayModeRequired.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
+ *     PopPowerRequestCallbackAwayModeRequired @ 0x140A91380 (PopPowerRequestCallbackAwayModeRequired.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void PopReleaseAwaymodeLock()

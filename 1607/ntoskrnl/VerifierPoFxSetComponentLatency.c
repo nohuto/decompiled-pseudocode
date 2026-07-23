@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxSetComponentLatency @ 0x14070CBE8
+ * XREFs of VerifierPoFxSetComponentLatency @ 0x14070CC18
  * Callers:
  *     <none>
  * Callees:

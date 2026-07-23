@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0
+ * XREFs of MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0
  * Callers:
- *     MiGetFastLargePages @ 0x1403C6B68 (MiGetFastLargePages.c)
- *     MiGetLargePageChain @ 0x1403C7E10 (MiGetLargePageChain.c)
- *     MiFindLargeNodePage @ 0x1403C99D4 (MiFindLargeNodePage.c)
+ *     MiGetFastLargePages @ 0x1403D0A5C (MiGetFastLargePages.c)
+ *     MiGetLargePageChain @ 0x1403D1D00 (MiGetLargePageChain.c)
+ *     MiFindLargeNodePage @ 0x1403D3884 (MiFindLargeNodePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiPageIndexToMoveInProgress @ 0x1403C8300 (MiPageIndexToMoveInProgress.c)
- *     MiWaitForPageMoveComplete @ 0x1403C8610 (MiWaitForPageMoveComplete.c)
- *     MiPerformOnDemandLargePageCoalesce @ 0x1403C8EC4 (MiPerformOnDemandLargePageCoalesce.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiPageIndexToMoveInProgress @ 0x1403D21F0 (MiPageIndexToMoveInProgress.c)
+ *     MiWaitForPageMoveComplete @ 0x1403D2500 (MiWaitForPageMoveComplete.c)
+ *     MiPerformOnDemandLargePageCoalesce @ 0x1403D2D74 (MiPerformOnDemandLargePageCoalesce.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiGetLargePageDemoteAsNeeded(

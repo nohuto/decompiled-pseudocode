@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C63A0
+ * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14048B954
  * Callers:
- *     KeUpdateThreadCpuSets @ 0x1403C6338 (KeUpdateThreadCpuSets.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1405C0290 (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x14048B8EC (KeUpdateThreadCpuSets.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1405BD8C0 (KiUpdateThreadCpuSetAffinitiesProcess.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiUpdateThreadCpuSets @ 0x1403C6418 (KiUpdateThreadCpuSets.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiUpdateThreadCpuSets @ 0x14048B9CC (KiUpdateThreadCpuSets.c)
  */
 
 __int64 __fastcall KiUpdateThreadCpuSetAffinitiesFromDpcLevel(__int64 a1, struct _SINGLE_LIST_ENTRY *a2)

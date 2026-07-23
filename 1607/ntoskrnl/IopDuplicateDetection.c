@@ -1,11 +1,11 @@
 /*
- * XREFs of IopDuplicateDetection @ 0x140555458
+ * XREFs of IopDuplicateDetection @ 0x140555998
  * Callers:
- *     IoReportDetectedDevice @ 0x140554CFC (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x14055523C (IoReportDetectedDevice.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopFindLegacyBusDeviceNode @ 0x14055741C (IopFindLegacyBusDeviceNode.c)
- *     IopQueryResourceHandlerInterface @ 0x14055753C (IopQueryResourceHandlerInterface.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14055795C (IopFindLegacyBusDeviceNode.c)
+ *     IopQueryResourceHandlerInterface @ 0x140557A7C (IopQueryResourceHandlerInterface.c)
  */
 
 __int64 __fastcall IopDuplicateDetection(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)

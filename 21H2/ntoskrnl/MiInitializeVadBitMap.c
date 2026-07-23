@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeVadBitMap @ 0x140711794
+ * XREFs of MiInitializeVadBitMap @ 0x1406BFDE4
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406BFB24 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiExpandVadBitMap @ 0x140711880 (MiExpandVadBitMap.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiExpandVadBitMap @ 0x1406BFED0 (MiExpandVadBitMap.c)
  */
 
 __int64 __fastcall MiInitializeVadBitMap(int a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiInitializeVadBitMap(int a1)
     {
       v8 = (unsigned __int64)i[6] >> 15 << 12;
       *i = i[6] & 0x7FFF;
-      *(i - 1) = qword_140C4E360 + 4 * (v8 >> 2);
+      *(i - 1) = qword_140C4E3A0 + 4 * (v8 >> 2);
       if ( a1 == 1 )
         *(i - 2) = 0LL;
       LOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);

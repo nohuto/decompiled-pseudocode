@@ -88,7 +88,7 @@ __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, __int64 a3, un
     }
     KeReleaseGuardedMutex(*(PKGUARDED_MUTEX *)(v5 + 16));
     if ( v9 == -1073741789 )
-      PiUEventNotifyClientPendingEvent(v5);
+      PiUEventNotifyClientPendingEvent((const WNF_STATE_NAME *)v5);
     v16 = a4 - v10;
     if ( v9 != -1073741789 )
       v6 = v9;

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWakeModifiedPageWriter @ 0x1401532D8
+ * XREFs of MiWakeModifiedPageWriter @ 0x1401533D8
  * Callers:
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     MiAdjustModifiedPageLoad @ 0x1400F065C (MiAdjustModifiedPageLoad.c)
- *     MiFlushAllPagesWorker @ 0x1401531B8 (MiFlushAllPagesWorker.c)
- *     MiObtainFreePages @ 0x1402B3294 (MiObtainFreePages.c)
- *     MiFlushAllHintedStorePages @ 0x1402B8034 (MiFlushAllHintedStorePages.c)
+ *     MiAdjustModifiedPageLoad @ 0x1400F06DC (MiAdjustModifiedPageLoad.c)
+ *     MiFlushAllPagesWorker @ 0x1401532B8 (MiFlushAllPagesWorker.c)
+ *     MiObtainFreePages @ 0x1402B3484 (MiObtainFreePages.c)
+ *     MiFlushAllHintedStorePages @ 0x1402B8224 (MiFlushAllHintedStorePages.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
  */
 
 LONG __fastcall MiWakeModifiedPageWriter(__int64 a1, __int64 a2)

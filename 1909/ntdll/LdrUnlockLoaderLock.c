@@ -10,36 +10,37 @@
  *     RtlRaiseStatus @ 0x1800FBE10 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall LdrUnlockLoaderLock(__int64 a1, unsigned __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl LdrUnlockLoaderLock(ULONG Flags, PVOID Cookie)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
 
-  if ( (a1 & 0xFFFFFFFE) == 0 )
+  if ( (Flags & 0xFFFFFFFE) == 0 )
   {
     v2 = 0;
-    if ( !a2 )
+    if ( !Cookie )
       return v2;
-    if ( a2 >= 0x1000000000000000LL )
+    if ( (unsigned __int64)Cookie >= 0x1000000000000000LL )
     {
-      if ( (a1 & 1) != 0 )
-        RtlRaiseStatus(3221225712LL);
+      if ( (Flags & 1) != 0 )
+        RtlRaiseStatus(-1073741584);
     }
     else
     {
-      if ( ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ HIWORD(a2)) & 0xFFF) == 0 )
+      if ( ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ ((unsigned __int64)Cookie >> 48)) & 0xFFF) == 0 )
       {
-        if ( (a1 & 1) != 0 )
-          LdrpReleaseLoaderLock(a1, 13, 0);
+        if ( (Flags & 1) != 0 )
+          LdrpReleaseLoaderLock(*(__int64 *)&Flags, 13, 0);
         else
-          LdrpReleaseLoaderLock(a1, 14, 0);
+          LdrpReleaseLoaderLock(*(__int64 *)&Flags, 14, 0);
         return v2;
       }
-      if ( (a1 & 1) != 0 )
-        RtlRaiseStatus(3221225712LL);
+      if ( (Flags & 1) != 0 )
+        RtlRaiseStatus(-1073741584);
     }
-    return (unsigned int)-1073741584;
+    return -1073741584;
   }
-  if ( (a1 & 1) != 0 )
-    RtlRaiseStatus(3221225711LL);
-  return (unsigned int)-1073741585;
+  if ( (Flags & 1) != 0 )
+    RtlRaiseStatus(-1073741585);
+  return -1073741585;
 }

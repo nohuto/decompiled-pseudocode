@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReduceUnusedSubsectionCount @ 0x140090524
+ * XREFs of MiReduceUnusedSubsectionCount @ 0x14008FC84
  * Callers:
- *     MiDeleteEmptySubsections @ 0x140090380 (MiDeleteEmptySubsections.c)
- *     MiRemoveUnusedSubsection @ 0x1400904A4 (MiRemoveUnusedSubsection.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
+ *     MiDeleteEmptySubsections @ 0x14008FAE0 (MiDeleteEmptySubsections.c)
+ *     MiRemoveUnusedSubsection @ 0x14008FC04 (MiRemoveUnusedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
  * Callees:
- *     MiGetControlAreaPartition @ 0x140026D5C (MiGetControlAreaPartition.c)
+ *     MiGetControlAreaPartition @ 0x1400268DC (MiGetControlAreaPartition.c)
  */
 
 signed __int64 __fastcall MiReduceUnusedSubsectionCount(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -39,7 +39,7 @@ LABEL_7:
   }
   v11 = (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL;
 LABEL_8:
-  result = _InterlockedExchangeAdd64(&qword_140326568, -(__int64)v11);
+  result = _InterlockedExchangeAdd64(&qword_1403265A8, -(__int64)v11);
   *(_QWORD *)(v7 + 1536) -= v11;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCopyRead @ 0x1407E8540
+ * XREFs of CcCopyRead @ 0x1407E8810
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyReadEx @ 0x140261D60 (CcCopyReadEx.c)
+ *     CcCopyReadEx @ 0x140261FF0 (CcCopyReadEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockNestedVad @ 0x140527FE0
+ * XREFs of MiLockNestedVad @ 0x14050B040
  * Callers:
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiMarkSharedImageCfgBits @ 0x1400E9AA0 (MiMarkSharedImageCfgBits.c)
- *     MiUpControlAreaRefs @ 0x14010C9E8 (MiUpControlAreaRefs.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiMarkSharedImageCfgBits @ 0x1400E7910 (MiMarkSharedImageCfgBits.c)
+ *     MiUpControlAreaRefs @ 0x14010A768 (MiUpControlAreaRefs.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall MiLockNestedVad(__int64 a1)

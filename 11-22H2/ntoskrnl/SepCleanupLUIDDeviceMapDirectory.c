@@ -34,31 +34,38 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   NTSTATUS v9; // edi
   __int64 v10; // rdx
   HANDLE *Pool2; // rsi
-  __int64 v12; // rdi
-  int DirectoryObject; // r14d
-  int v14; // eax
-  unsigned int v15; // r15d
+  BOOLEAN RestartScan; // r15
+  __int64 v13; // rdi
+  NTSTATUS v14; // r14d
+  int v15; // eax
   unsigned int v16; // r15d
-  HANDLE *v17; // r14
+  ULONG v17; // eax
+  unsigned int v18; // r15d
   HANDLE *v19; // r14
-  unsigned int v20; // [rsp+48h] [rbp-B8h]
+  HANDLE *v21; // r14
+  unsigned int v22; // r15d
+  ULONG Length; // [rsp+40h] [rbp-C0h]
+  ULONG ReturnLength; // [rsp+44h] [rbp-BCh] BYREF
+  unsigned int v25; // [rsp+48h] [rbp-B8h]
   HANDLE DirectoryHandle; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE LinkHandle; // [rsp+58h] [rbp-A8h] BYREF
-  int v23; // [rsp+60h] [rbp-A0h]
+  ULONG Context; // [rsp+60h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v26; // [rsp+A8h] [rbp-58h] BYREF
+  $115DCDF994C6370D29323EAB0E0C9502 v31; // [rsp+A8h] [rbp-58h] BYREF
   wchar_t Dst[64]; // [rsp+E0h] [rbp-20h] BYREF
 
-  v20 = 100;
+  v25 = 100;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   LinkHandle = 0LL;
-  v23 = 0;
+  Context = 0;
   v4 = 0LL;
+  ReturnLength = 0;
   DirectoryHandle = 0LL;
+  Length = 0;
   DestinationString = 0LL;
-  memset(&v26, 0, sizeof(v26));
+  memset(&v31, 0, sizeof(v31));
   if ( !a1 )
     return 3221225485LL;
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -66,7 +73,7 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   if ( v6 )
     ObfDereferenceObjectWithTag(Process, 0x4D526553u);
   else
-    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v26);
+    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v31);
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId((__int64)a2);
   swprintf_s(Dst, 0x40uLL, L"\\Sessions\\%d\\DosDevices\\%08x-%08x", ServerSiloServiceSessionId, a1[1], *a1);
   RtlInitUnicodeString(&DestinationString, Dst);
@@ -81,7 +88,7 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   {
     PsDetachSiloFromCurrentThread(v8);
     if ( !v6 )
-      KiUnstackDetachProcess(&v26);
+      KiUnstackDetachProcess(&v31);
     return (unsigned int)v9;
   }
   else
@@ -91,41 +98,47 @@ LABEL_6:
     Pool2 = (HANDLE *)ExAllocatePool2(256LL, v10, 1632134483LL);
     if ( Pool2 )
     {
-      v12 = 0LL;
+      RestartScan = 1;
+      v13 = 0LL;
       while ( 1 )
       {
-        DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v4);
-        if ( DirectoryObject != -1073741789 )
+        v14 = ZwQueryDirectoryObject(DirectoryHandle, v4, Length, 1u, RestartScan, &Context, &ReturnLength);
+        if ( v14 != -1073741789 )
           goto LABEL_9;
+        v17 = ReturnLength;
+        Length = ReturnLength;
         if ( v4 )
+        {
           ExFreePoolWithTag(v4, 0);
-        v4 = (UNICODE_STRING *)ExAllocatePool2(256LL, 0LL, 1648649555LL);
+          v17 = Length;
+        }
+        v4 = (UNICODE_STRING *)ExAllocatePool2(256LL, v17, 1648649555LL);
         if ( v4 )
         {
 LABEL_9:
-          v14 = DirectoryObject;
-          if ( DirectoryObject != -1073741789 )
+          v15 = v14;
+          if ( v14 != -1073741789 )
             goto LABEL_10;
         }
         else
         {
+          v15 = -1073741670;
           v14 = -1073741670;
-          DirectoryObject = -1073741670;
 LABEL_10:
-          if ( DirectoryObject < 0 )
+          if ( v14 < 0 )
           {
-            v16 = 0;
-            if ( DirectoryObject != -2147483622 )
-              v16 = v14;
-            if ( (_DWORD)v12 )
+            v18 = 0;
+            if ( v14 != -2147483622 )
+              v18 = v15;
+            if ( (_DWORD)v13 )
             {
-              v17 = Pool2;
+              v19 = Pool2;
               do
               {
-                ZwClose(*v17++);
-                --v12;
+                ZwClose(*v19++);
+                --v13;
               }
-              while ( v12 );
+              while ( v13 );
             }
             ExFreePoolWithTag(Pool2, 0);
             if ( v4 )
@@ -134,27 +147,28 @@ LABEL_10:
               ZwClose(DirectoryHandle);
             PsDetachSiloFromCurrentThread(v8);
             if ( !v6 )
-              KiUnstackDetachProcess(&v26);
-            return v16;
+              KiUnstackDetachProcess(&v31);
+            return v18;
           }
           if ( !wcscmp(v4[1].Buffer, L"SymbolicLink") )
           {
-            v15 = v20;
-            if ( (unsigned int)v12 >= v20 )
+            v16 = v25;
+            if ( (unsigned int)v13 >= v25 )
             {
-              if ( (_DWORD)v12 )
+              if ( (_DWORD)v13 )
               {
-                v19 = Pool2;
+                v21 = Pool2;
                 do
                 {
-                  ZwClose(*v19++);
-                  --v12;
+                  ZwClose(*v21++);
+                  --v13;
                 }
-                while ( v12 );
+                while ( v13 );
               }
-              v20 += 20;
+              v22 = v16 + 20;
+              v25 = v22;
               ExFreePoolWithTag(Pool2, 0);
-              v10 = 8LL * (v15 + 20);
+              v10 = 8LL * v22;
               goto LABEL_6;
             }
             ObjectAttributes.RootDirectory = DirectoryHandle;
@@ -170,11 +184,12 @@ LABEL_10:
               }
               else
               {
-                Pool2[v12] = LinkHandle;
-                v12 = (unsigned int)(v12 + 1);
+                Pool2[v13] = LinkHandle;
+                v13 = (unsigned int)(v13 + 1);
               }
             }
           }
+          RestartScan = 0;
         }
       }
     }
@@ -183,7 +198,7 @@ LABEL_10:
       ExFreePoolWithTag(v4, 0);
     PsDetachSiloFromCurrentThread(v8);
     if ( !v6 )
-      KiUnstackDetachProcess(&v26);
+      KiUnstackDetachProcess(&v31);
     return 3221225495LL;
   }
 }

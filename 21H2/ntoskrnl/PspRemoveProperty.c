@@ -1,16 +1,16 @@
 /*
- * XREFs of PspRemoveProperty @ 0x1402922F8
+ * XREFs of PspRemoveProperty @ 0x140210268
  * Callers:
- *     PsSetThreadProperty @ 0x1402923D0 (PsSetThreadProperty.c)
- *     PsSetJobProperty @ 0x1405814B0 (PsSetJobProperty.c)
- *     PspEmptyPropertySet @ 0x14064CB48 (PspEmptyPropertySet.c)
+ *     PsSetThreadProperty @ 0x140210340 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1405816F0 (PsSetJobProperty.c)
+ *     PspEmptyPropertySet @ 0x140641968 (PspEmptyPropertySet.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PspFindPropertySetEntry @ 0x140292908 (PspFindPropertySetEntry.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspFindPropertySetEntry @ 0x140210878 (PspFindPropertySetEntry.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspRemoveProperty(__int64 a1, __int64 a2, _QWORD *a3)

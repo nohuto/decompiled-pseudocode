@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFilters @ 0x140918A78
+ * XREFs of _CmGetInstallerClassCompoundFilters @ 0x1409734D8
  * Callers:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x140918784 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409731E4 (_CmGetInstallerClassMappedPropertyFromComposite.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14077CB10 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x140918C2C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _CmOpenCommonClassRegKey @ 0x14099F0C4 (_CmOpenCommonClassRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14077F604 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _CmOpenCommonClassRegKey @ 0x14095FB24 (_CmOpenCommonClassRegKey.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14097368C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFilters(
         __int64 a1,
-        int a2,
-        void *a3,
+        __int64 a2,
+        char *a3,
         __int64 a4,
         _DWORD *a5,
         __int64 a6,
@@ -21,9 +21,10 @@ __int64 __fastcall CmGetInstallerClassCompoundFilters(
         __int64 a8)
 {
   bool v8; // zf
+  int v11; // r15d
   const DEVPROPKEY *v13; // r14
   int v14; // ebx
-  HANDLE v15; // rcx
+  char *v15; // rcx
   __int64 v16; // rax
   __int64 v17; // rdx
   int v18; // eax
@@ -36,6 +37,7 @@ __int64 __fastcall CmGetInstallerClassCompoundFilters(
 
   v8 = *(_DWORD *)(a4 + 16) == 20;
   Handle = 0LL;
+  v11 = a2;
   v25 = 0LL;
   if ( !v8 )
     goto LABEL_2;
@@ -56,20 +58,20 @@ LABEL_2:
     v14 = CmOpenCommonClassRegKey(a1, a2, 32, 0, 33554433, 0, (__int64)&Handle, 0LL);
     if ( v14 < 0 )
       goto LABEL_12;
-    v15 = Handle;
+    v15 = (char *)Handle;
   }
   if ( a1 && (v16 = *(_QWORD *)(a1 + 224)) != 0 )
     v17 = *(_QWORD *)(v16 + 8);
   else
     v17 = 0LL;
-  v18 = RegRtlOpenKeyTransacted(v15, L"Filters", 0LL, 131103LL, &v25, v17);
+  v18 = RegRtlOpenKeyTransacted(v15, L"Filters", 0, 0x2001Fu, &v25, v17);
   v19 = a8;
   v14 = v18;
   v20 = a7;
   if ( v18 < 0
     || (InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassCompoundFiltersWorker(
                                                     a1,
-                                                    a2,
+                                                    v11,
                                                     (int)Handle,
                                                     (__int64)v25,
                                                     a4,
@@ -84,7 +86,7 @@ LABEL_2:
   {
     InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromRegProp(
                                                 a1,
-                                                a2,
+                                                v11,
                                                 (_DWORD)Handle,
                                                 (_DWORD)v13,
                                                 (__int64)a5,

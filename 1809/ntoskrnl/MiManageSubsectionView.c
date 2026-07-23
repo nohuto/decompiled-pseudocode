@@ -1,14 +1,14 @@
 /*
- * XREFs of MiManageSubsectionView @ 0x1400ADC80
+ * XREFs of MiManageSubsectionView @ 0x1400ADBC0
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
- *     MiSessionInsertImage @ 0x14017602C (MiSessionInsertImage.c)
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x1400AD870 (MmMapViewInSystemCache.c)
+ *     MiSessionInsertImage @ 0x14017612C (MiSessionInsertImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x140683630 (MiConstructLoaderEntry.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -16,8 +16,8 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
@@ -137,7 +137,7 @@ LABEL_26:
   {
     v25->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v25->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v17->LockEntries[v24], v20);
+      KiAbEntryRemoveFromTree(&v17->LockEntries[v24].TreeNode, v20);
     v29 = 0;
     v29 = v25->BoostBitmap.AllFields & 0x1FFFF;
     v25->BoostBitmap.AllFields &= 0xFFFE0000;

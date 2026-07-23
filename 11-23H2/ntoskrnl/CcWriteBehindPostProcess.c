@@ -1,30 +1,30 @@
 /*
- * XREFs of CcWriteBehindPostProcess @ 0x14029B038
+ * XREFs of CcWriteBehindPostProcess @ 0x14029B2C8
  * Callers:
- *     CcWriteBehindInternal @ 0x14029B780 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x14053A480 (CcWriteBehindAsync.c)
- *     CcCompleteAsyncWriteBehind @ 0x14053B468 (CcCompleteAsyncWriteBehind.c)
+ *     CcWriteBehindInternal @ 0x14029BA10 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x14053A9D0 (CcWriteBehindAsync.c)
+ *     CcCompleteAsyncWriteBehind @ 0x14053B9B8 (CcCompleteAsyncWriteBehind.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x1402998A4 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcScheduleLazyWriteScan @ 0x1402999F8 (CcScheduleLazyWriteScan.c)
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
- *     CcShouldIssueVDLUpdate @ 0x14029B3A0 (CcShouldIssueVDLUpdate.c)
- *     CcWriteBehindReleaseFile @ 0x14029B428 (CcWriteBehindReleaseFile.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A14D0 (CcReferenceSharedCacheMapFileObject.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     CcGetFlushedValidData @ 0x1402F0A50 (CcGetFlushedValidData.c)
- *     CcIsFatalWriteError @ 0x1402F42A8 (CcIsFatalWriteError.c)
- *     CcSetValidData @ 0x140354E24 (CcSetValidData.c)
- *     CcCancelMmWaitForUninitializeCacheMap @ 0x140535100 (CcCancelMmWaitForUninitializeCacheMap.c)
- *     CcMmLogLostDelayedWriteError @ 0x140537874 (CcMmLogLostDelayedWriteError.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlAcquireFileExclusive @ 0x1407238E0 (FsRtlAcquireFileExclusive.c)
- *     FsRtlReleaseFile @ 0x140723910 (FsRtlReleaseFile.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140299B34 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcScheduleLazyWriteScan @ 0x140299C88 (CcScheduleLazyWriteScan.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
+ *     CcShouldIssueVDLUpdate @ 0x14029B630 (CcShouldIssueVDLUpdate.c)
+ *     CcWriteBehindReleaseFile @ 0x14029B6B8 (CcWriteBehindReleaseFile.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402A1760 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcGetFlushedValidData @ 0x1402F0CE0 (CcGetFlushedValidData.c)
+ *     CcIsFatalWriteError @ 0x1402F4538 (CcIsFatalWriteError.c)
+ *     CcSetValidData @ 0x140354FC4 (CcSetValidData.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcCancelMmWaitForUninitializeCacheMap @ 0x140535650 (CcCancelMmWaitForUninitializeCacheMap.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140537DC4 (CcMmLogLostDelayedWriteError.c)
+ *     FsRtlAcquireFileExclusive @ 0x140723AE0 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x140723B10 (FsRtlReleaseFile.c)
  */
 
 char __fastcall CcWriteBehindPostProcess(__int64 a1, char a2)
@@ -159,10 +159,13 @@ char __fastcall CcWriteBehindPostProcess(__int64 a1, char a2)
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -205,10 +208,10 @@ LABEL_18:
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v15 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
         {
           v28 = KeGetCurrentPrcb();
           v29 = v28->SchedulerAssist;
@@ -222,10 +225,10 @@ LABEL_18:
       __writecr8(v15);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v49);
       v16 = v49.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v31 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v49.OldIrql <= 0xFu && v31 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v49.OldIrql <= 0xFu && v31 >= 2u )
         {
           v32 = KeGetCurrentPrcb();
           v33 = v32->SchedulerAssist;
@@ -271,10 +274,10 @@ LABEL_31:
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v19 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v42 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
       {
         v43 = KeGetCurrentPrcb();
         v44 = v43->SchedulerAssist;
@@ -290,10 +293,10 @@ LABEL_31:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v35 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v36 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && LockHandle.OldIrql <= 0xFu && v36 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && LockHandle.OldIrql <= 0xFu && v36 >= 2u )
     {
       v37 = KeGetCurrentPrcb();
       v38 = v37->SchedulerAssist;

@@ -9,23 +9,23 @@
  *     AlpcpDisconnectPort @ 0x1404A3D10 (AlpcpDisconnectPort.c)
  */
 
-__int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
+NTSTATUS __cdecl NtAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v3; // ebx
+  int v3; // ebx
   struct _KTHREAD *v4; // rdx
   __int16 v5; // cx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
     v3 = -1073741811;
   }
   else
   {
-    v3 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v3 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v3 >= 0 )
     {
       v3 = AlpcpDisconnectPort(Object);
@@ -41,5 +41,5 @@ __int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v3;
+  return v3;
 }

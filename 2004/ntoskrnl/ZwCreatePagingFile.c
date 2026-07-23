@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreatePagingFile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreatePagingFile(
+        PUNICODE_STRING PageFileName,
+        PLARGE_INTEGER MinimumSize,
+        PLARGE_INTEGER MaximumSize,
+        ULONG Priority)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PageFileName);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KdpPollBreakInWithPortLock @ 0x140081D38
+ * XREFs of KdpPollBreakInWithPortLock @ 0x140084C18
  * Callers:
- *     KdpPrintString @ 0x1406F2000 (KdpPrintString.c)
+ *     KdpPrintString @ 0x1406F2F8C (KdpPrintString.c)
  * Callees:
  *     <none>
  */

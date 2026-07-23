@@ -8,7 +8,7 @@
  *     EtwpCovSampPushListSList @ 0x1402B58A0 (EtwpCovSampPushListSList.c)
  */
 
-__int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(union _SLIST_HEADER *a1)
+__int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(_SLIST_HEADER *a1)
 {
   unsigned __int64 Alignment; // rdi
   unsigned int v2; // ebx

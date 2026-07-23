@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlKnownExceptionFilter(_DWORD **a1)
+LONG __cdecl RtlKnownExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  return (unsigned int)(**a1 != -1073741420) - 1;
+  return (ExceptionPointers->ExceptionRecord->ExceptionCode != -1073741420) - 1;
 }

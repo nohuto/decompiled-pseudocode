@@ -1,8 +1,8 @@
 /*
  * XREFs of LpcExitProcess @ 0x140688B4C
  * Callers:
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
  *     AlpcpCleanupProcessViews @ 0x140688B90 (AlpcpCleanupProcessViews.c)

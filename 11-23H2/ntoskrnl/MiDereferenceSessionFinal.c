@@ -1,23 +1,23 @@
 /*
  * XREFs of MiDereferenceSessionFinal @ 0x140681B80
  * Callers:
- *     MiDereferenceSession @ 0x1407E0BC0 (MiDereferenceSession.c)
+ *     MiDereferenceSession @ 0x1407E0E90 (MiDereferenceSession.c)
  * Callees:
  *     MiUnlinkSessionWorkingSet @ 0x140200794 (MiUnlinkSessionWorkingSet.c)
  *     MiMarkSessionDeletePending @ 0x1402007FC (MiMarkSessionDeletePending.c)
  *     MiSessionUnlinkProcess @ 0x14020086C (MiSessionUnlinkProcess.c)
  *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
  *     MiPartitionIdToPointer @ 0x14020B9C4 (MiPartitionIdToPointer.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiDetachProcessFromSession @ 0x14033F048 (MiDetachProcessFromSession.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiDetachProcessFromSession @ 0x14033F2D8 (MiDetachProcessFromSession.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     MiSessionUnloadAllImages @ 0x140681CD8 (MiSessionUnloadAllImages.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     ExpWnfDeleteScopeById @ 0x1407CC85C (ExpWnfDeleteScopeById.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     ExpWnfDeleteScopeById @ 0x1407CCB2C (ExpWnfDeleteScopeById.c)
  */
 
 unsigned __int64 MiDereferenceSessionFinal()

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUpdateVpBackingRequiresPriorityKickState @ 0x140520AF0
+ * XREFs of KiUpdateVpBackingRequiresPriorityKickState @ 0x140520D30
  * Callers:
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
  * Callees:
  *     <none>
  */

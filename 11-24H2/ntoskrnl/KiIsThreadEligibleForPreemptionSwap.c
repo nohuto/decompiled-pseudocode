@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsThreadEligibleForPreemptionSwap @ 0x14041FF10
+ * XREFs of KiIsThreadEligibleForPreemptionSwap @ 0x140415900
  * Callers:
- *     KiHeteroAttemptPreemptionSwap @ 0x14041FD78 (KiHeteroAttemptPreemptionSwap.c)
+ *     KiHeteroAttemptPreemptionSwap @ 0x14041576C (KiHeteroAttemptPreemptionSwap.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxNextParentRelationSafe @ 0x140471270
+ * XREFs of PopFxNextParentRelationSafe @ 0x14046A9F0
  * Callers:
- *     PopFxComponentRelationsCleanup @ 0x140470E54 (PopFxComponentRelationsCleanup.c)
- *     PopFxDeviceRelationsCleanup @ 0x140471064 (PopFxDeviceRelationsCleanup.c)
- *     PopFxNotifyPostDIrpCompletion @ 0x1404711B8 (PopFxNotifyPostDIrpCompletion.c)
- *     PopFxNotifyPreDIrpIssue @ 0x140518984 (PopFxNotifyPreDIrpIssue.c)
- *     PoFxRemoveComponentRelation @ 0x140604610 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140604860 (PoFxRemoveDeviceRelation.c)
+ *     PopFxComponentRelationsCleanup @ 0x14046A5D4 (PopFxComponentRelationsCleanup.c)
+ *     PopFxDeviceRelationsCleanup @ 0x14046A7E4 (PopFxDeviceRelationsCleanup.c)
+ *     PopFxNotifyPostDIrpCompletion @ 0x14046A938 (PopFxNotifyPostDIrpCompletion.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x1405123F4 (PopFxNotifyPreDIrpIssue.c)
+ *     PoFxRemoveComponentRelation @ 0x140607110 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x140607360 (PoFxRemoveDeviceRelation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopFxNextParentRelationSafe(_QWORD **a1, __int64 a2, _QWORD *a3)

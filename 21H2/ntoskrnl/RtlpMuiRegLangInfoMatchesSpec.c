@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x1409817B0
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x140981990
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x14098102C (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x14098120C (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x1403AD474 (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     RtlCultureNameToLCID @ 0x140793140 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1403A8AE8 (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     RtlCultureNameToLCID @ 0x14078EEE0 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140916180 (RtlLCIDToCultureName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
@@ -24,16 +24,16 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   __int64 v16; // r8
   const WCHAR *v17; // rdx
   wchar_t *v18; // rax
-  int v19; // ecx
+  LCID v19; // ecx
   __int64 v20; // r8
   const wchar_t *v21; // rdx
   __int64 v22; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
-  int v24; // [rsp+70h] [rbp+40h] BYREF
+  DWORD Lcid; // [rsp+70h] [rbp+40h] BYREF
 
   v4 = a4;
   v5 = 1;
-  v24 = 0;
+  Lcid = 0;
   v8 = 0LL;
   DestinationString = 0LL;
   if ( a3 == 1 )
@@ -52,8 +52,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
       if ( v14 )
       {
         RtlInitUnicodeString(&DestinationString, v14);
-        if ( RtlCultureNameToLCID(&DestinationString.Length, &v24) )
-          return (_WORD)v24 == (unsigned __int16)v4;
+        if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+          return (_WORD)Lcid == (unsigned __int16)v4;
       }
     }
     return 0;

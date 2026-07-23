@@ -28,7 +28,7 @@ __int64 __fastcall EtwpStartUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
   int v13; // ecx
   int v14; // eax
   unsigned int v15; // edx
-  unsigned int NumberOfProcessors; // r8d
+  __int64 NumberOfProcessors; // r8
   __int64 v17; // rbp
   __int64 inited; // rax
   __int64 v19; // r9
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpStartUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
   __int64 EtwThread; // rax
   void *v30; // rcx
   unsigned int v31; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v32; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v32; // [rsp+88h] [rbp+20h]
 
   v31 = a1;
   v5 = *(_DWORD *)a4 < 0xB0u;
@@ -87,7 +87,7 @@ __int64 __fastcall EtwpStartUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
   {
     return 87LL;
   }
-  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &v32) )
+  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144)) )
   {
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(v32 + 20) + 8));
     return 5010LL;
@@ -100,11 +100,11 @@ __int64 __fastcall EtwpStartUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
       v15 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
       v9 = *(_DWORD *)a4 - v15;
       v8 = a4 + v15;
-      NumberOfProcessors = -1;
+      NumberOfProcessors = 0xFFFFFFFFLL;
     }
     else if ( (*(_DWORD *)(a4 + 64) & 0x10000000) != 0 )
     {
-      NumberOfProcessors = 1;
+      NumberOfProcessors = 1LL;
     }
     else
     {
@@ -175,7 +175,7 @@ LABEL_48:
           *(_QWORD *)(a4 + 88) = 0LL;
           *(_QWORD *)(v20 + 144) = 0LL;
         }
-        EtwpFreeLoggerContext(v20);
+        EtwpFreeLoggerContext((PVOID)v20);
         return TraceBufferPool;
       }
       *(_QWORD *)(v28 + 32) = EtwThread;

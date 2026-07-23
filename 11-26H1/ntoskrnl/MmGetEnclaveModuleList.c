@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetEnclaveModuleList @ 0x140700318
+ * XREFs of MmGetEnclaveModuleList @ 0x140704FE8
  * Callers:
- *     PsGetProcessEnclaveModuleInfo @ 0x1404F3AFC (PsGetProcessEnclaveModuleInfo.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x1404ED0DC (PsGetProcessEnclaveModuleInfo.c)
  * Callees:
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
  */
 
 __int64 __fastcall MmGetEnclaveModuleList(unsigned __int64 a1, __int64 *a2, unsigned int *a3)

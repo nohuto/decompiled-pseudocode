@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFwInitializeLock @ 0x140C6FEBC
+ * XREFs of BgpFwInitializeLock @ 0x140C7201C
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140BB5400 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140BB7400 (BgpFwLibraryInitialize.c)
  * Callees:
  *     <none>
  */
 
 void BgpFwInitializeLock()
 {
-  qword_140E64E20 = 0LL;
+  qword_140E64FA8 = 0LL;
 }

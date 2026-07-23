@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpPowerActionDpcRoutine @ 0x14038D530
+ * XREFs of PfpPowerActionDpcRoutine @ 0x14038D680
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpPowerActionDpcRoutine(
@@ -21,11 +21,11 @@ void __fastcall PfpPowerActionDpcRoutine(
 
   v4 = DeferredContext[40];
   v5 = DeferredContext;
-  KxAcquireSpinLock(&qword_140C50348);
+  KxAcquireSpinLock(&qword_140C50388);
   v6 = *((_DWORD *)v5 + 41);
   if ( v4 )
   {
-    if ( qword_140C50338 && dword_140C50350 == v6 )
+    if ( qword_140C50378 && dword_140C50390 == v6 )
     {
       *((_QWORD *)v5 + 16) = 0LL;
       *((_QWORD *)v5 + 18) = PfpServiceMainThreadUnboost;
@@ -34,11 +34,11 @@ void __fastcall PfpPowerActionDpcRoutine(
       v5 = 0LL;
     }
   }
-  else if ( dword_140C50354 == v6 )
+  else if ( dword_140C50394 == v6 )
   {
-    _InterlockedAnd(&dword_140CEC354, 0xFFFFFFFE);
+    _InterlockedAnd(&dword_140CEC394, 0xFFFFFFFE);
   }
-  KxReleaseSpinLock(&qword_140C50348);
+  KxReleaseSpinLock(&qword_140C50388);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
 }

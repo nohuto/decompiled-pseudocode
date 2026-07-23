@@ -18,13 +18,12 @@ __int64 EtwpGetCurrentSiloMaxLoggers()
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-69h] BYREF
   int v3; // [rsp+70h] [rbp-39h] BYREF
   unsigned int *v4; // [rsp+78h] [rbp-31h]
-  _QWORD v5[4]; // [rsp+90h] [rbp-19h] BYREF
-  int v6; // [rsp+B0h] [rbp+7h]
-  unsigned int v7; // [rsp+110h] [rbp+67h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+90h] [rbp-19h] BYREF
+  unsigned int v6; // [rsp+110h] [rbp+67h] BYREF
   HANDLE KeyHandle; // [rsp+118h] [rbp+6Fh] BYREF
 
   KeyHandle = 0LL;
-  v7 = 80;
+  v6 = 80;
   *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
@@ -36,16 +35,16 @@ __int64 EtwpGetCurrentSiloMaxLoggers()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    memset_0(v5, 0, 0x70uLL);
-    v5[0] = &EtwpQueryRegistryCallback;
-    v5[3] = &v3;
-    v5[2] = L"EtwMaxLoggers";
-    v6 = 4;
+    memset_0(&QueryTable, 0, 0x70uLL);
+    QueryTable.QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
+    QueryTable.EntryContext = &v3;
+    QueryTable.Name = L"EtwMaxLoggers";
+    QueryTable.DefaultType = 4;
     v3 = 4;
-    v4 = &v7;
-    RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v5, 0LL, 0LL);
+    v4 = &v6;
+    RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, &QueryTable, 0LL, 0LL);
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  return v7;
+  return v6;
 }

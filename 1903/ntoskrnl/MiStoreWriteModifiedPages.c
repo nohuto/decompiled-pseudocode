@@ -113,7 +113,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   int v74; // [rsp+48h] [rbp-91h]
   ULONG v75; // [rsp+4Ch] [rbp-8Dh]
   __int64 v76; // [rsp+50h] [rbp-89h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+58h] [rbp-81h]
+  _SLIST_ENTRY *ListEntry; // [rsp+58h] [rbp-81h]
   _QWORD *v78; // [rsp+60h] [rbp-79h]
   __int64 v79; // [rsp+68h] [rbp-71h] BYREF
   __int64 v80; // [rsp+70h] [rbp-69h] BYREF
@@ -297,7 +297,7 @@ LABEL_36:
       ListEntry = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(v6 + 1216));
       if ( !ListEntry )
       {
-        ListEntry = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
+        ListEntry = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
         if ( !ListEntry )
         {
           v74 = 1;
@@ -519,7 +519,7 @@ LABEL_54:
 LABEL_69:
   KeLeaveCriticalRegionThread(v57);
   if ( ListEntry )
-    MiStoreFreeWriteSupport(ListEntry, (union _SLIST_HEADER *)v6);
+    MiStoreFreeWriteSupport(ListEntry, (_SLIST_HEADER *)v6);
   if ( v89 )
   {
     v59 = (void *)MiDerefPageFileSpaceBitmaps(v8, &v89, 0LL);

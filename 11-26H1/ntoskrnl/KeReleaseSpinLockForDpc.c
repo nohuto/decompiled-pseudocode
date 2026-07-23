@@ -1,10 +1,10 @@
 /*
- * XREFs of KeReleaseSpinLockForDpc @ 0x1405F0590
+ * XREFs of KeReleaseSpinLockForDpc @ 0x1405F2F00
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
  */
 
 void __stdcall KeReleaseSpinLockForDpc(PKSPIN_LOCK SpinLock, KIRQL OldIrql)

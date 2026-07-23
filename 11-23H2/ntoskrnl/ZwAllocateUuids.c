@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAllocateUuids @ 0x14041BC00
+ * XREFs of ZwAllocateUuids @ 0x14041BF90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateUuids(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Sequence, PCHAR Seed)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Time);
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x140457C50
+ * XREFs of RtlStringCbLengthW @ 0x14044CF68
  * Callers:
- *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1404AF040 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     PopFxValidateReturnedUnicodeString @ 0x14074F4D8 (PopFxValidateReturnedUnicodeString.c)
- *     PpmRegisterProfiles @ 0x140763BDC (PpmRegisterProfiles.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x14078040C (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1407814C0 (RtlpGetTokenNamedObjectPath.c)
- *     AslpFileVerStringBlockGetValue @ 0x14080FD10 (AslpFileVerStringBlockGetValue.c)
- *     RtlpPopulateLanguageConfigList @ 0x14082D0C0 (RtlpPopulateLanguageConfigList.c)
- *     _PnpValidatePropertyData @ 0x1408B8DD0 (_PnpValidatePropertyData.c)
- *     RtlpValidRelativeAttribute @ 0x14099EE18 (RtlpValidRelativeAttribute.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x140AA4F28 (PopIdleWakeGenerateDescriptionString.c)
- *     LocalGetStringForRelativeAttribute @ 0x140AAA0A0 (LocalGetStringForRelativeAttribute.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1404A9A3C (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x14074D808 (PopFxValidateReturnedUnicodeString.c)
+ *     PpmRegisterProfiles @ 0x1407635A0 (PpmRegisterProfiles.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x14078033C (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1407813F0 (RtlpGetTokenNamedObjectPath.c)
+ *     AslpFileVerStringBlockGetValue @ 0x140810450 (AslpFileVerStringBlockGetValue.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14082D8F0 (RtlpPopulateLanguageConfigList.c)
+ *     _PnpValidatePropertyData @ 0x1408B6740 (_PnpValidatePropertyData.c)
+ *     RtlpValidRelativeAttribute @ 0x140983640 (RtlpValidRelativeAttribute.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x140AA0228 (PopIdleWakeGenerateDescriptionString.c)
+ *     LocalGetStringForRelativeAttribute @ 0x140AA5150 (LocalGetStringForRelativeAttribute.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

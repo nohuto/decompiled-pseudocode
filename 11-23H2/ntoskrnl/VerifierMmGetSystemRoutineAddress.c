@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmGetSystemRoutineAddress @ 0x140AE2FE0
+ * XREFs of VerifierMmGetSystemRoutineAddress @ 0x140AE2FD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfThunkHookExportAddress @ 0x140ADB55C (VfThunkHookExportAddress.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfThunkHookExportAddress @ 0x140ADB54C (VfThunkHookExportAddress.c)
  */
 
 __int64 __fastcall VerifierMmGetSystemRoutineAddress(__int64 a1)

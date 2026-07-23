@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetWsleProtection @ 0x1400DB164
+ * XREFs of MiSetWsleProtection @ 0x1400DB1E4
  * Callers:
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
  * Callees:
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiWriteWsle @ 0x1400DB218 (MiWriteWsle.c)
  */
 
 __int64 __fastcall MiSetWsleProtection(__int64 a1, unsigned __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMDIActivateDlgProc_A @ 0x18009D550
+ * XREFs of NtdllMDIActivateDlgProc_A @ 0x18009D510
  * Callers:
  *     <none>
  * Callees:

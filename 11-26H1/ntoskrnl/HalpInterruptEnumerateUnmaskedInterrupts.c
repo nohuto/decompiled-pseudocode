@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x14057B7E0
+ * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x14057DD10
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14058F814 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x140591F94 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(__int64 a1, __int64 a2, _WORD *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(__int64 a1, __int64 
     memset_0(a3, 0, v3 - 4);
     v5 = 1;
     v6 = 0;
-    v7 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+    v7 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
     v8 = (ULONG_PTR *)HalpRegisteredInterruptControllers;
     v20 = v7;
     while ( v8 != &HalpRegisteredInterruptControllers )
@@ -72,7 +72,7 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(__int64 a1, __int64 
       }
     }
 LABEL_15:
-    HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v20);
+    HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v20);
     if ( v5 && SecondaryIcServicesEnabled )
       return (unsigned int)HalpInterruptEnumerateUnmaskedSecondaryInterrupts(a1, a2, a3);
   }

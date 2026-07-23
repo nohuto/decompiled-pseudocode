@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipAllocRegEntry @ 0x14016B5C8
+ * XREFs of WmipAllocRegEntry @ 0x14016B6C8
  * Callers:
- *     WmipRegisterDevice @ 0x14070B22C (WmipRegisterDevice.c)
- *     WmipInitializeDataStructs @ 0x1409D4420 (WmipInitializeDataStructs.c)
+ *     WmipRegisterDevice @ 0x14070C4CC (WmipRegisterDevice.c)
+ *     WmipInitializeDataStructs @ 0x1409D5420 (WmipInitializeDataStructs.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     WmipAllocProviderId @ 0x1406CFFEC (WmipAllocProviderId.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     WmipAllocProviderId @ 0x1406D128C (WmipAllocProviderId.c)
  */
 
 _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
@@ -35,13 +35,13 @@ _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
     v6 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
     ++WmipInUseRegEntryCount;
     v7 = v6;
-    v8 = off_1404002C8;
-    if ( *off_1404002C8 != (_UNKNOWN *)&WmipInUseRegEntryHead )
+    v8 = off_1404012C8;
+    if ( *off_1404012C8 != (_UNKNOWN *)&WmipInUseRegEntryHead )
       __fastfail(3u);
     *v5 = &WmipInUseRegEntryHead;
     v5[1] = v8;
     *v8 = v5;
-    off_1404002C8 = (_UNKNOWN **)v5;
+    off_1404012C8 = (_UNKNOWN **)v5;
     KxReleaseSpinLock(&WmipRegistrationSpinLock);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
     {

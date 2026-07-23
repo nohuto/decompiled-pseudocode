@@ -13,69 +13,54 @@
  *     RtlNtStatusToDosErrorNoTeb @ 0x180077920 (RtlNtStatusToDosErrorNoTeb.c)
  */
 
-__int64 __fastcall sub_180018DD8(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, int a5)
+void __fastcall sub_180018DD8(__int64 a1, _RTL_SRWLOCK *a2, __int64 *a3, int a4, int a5)
 {
-  __int64 v6; // rcx
-  _QWORD *v7; // r14
-  bool v8; // bp
-  __int64 v9; // r15
-  __int64 v10; // rsi
-  __int64 *v11; // rbx
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v15; // rax
-  unsigned int v16; // eax
+  bool v7; // bp
+  __int64 v9; // rsi
+  _QWORD *v10; // rbx
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  LONG v14; // eax
 
-  v6 = 1LL;
-  v7 = a3;
-  v8 = *a3 >= 0LL;
-  v9 = a2;
+  v7 = *a3 >= 0;
   *(_DWORD *)(a1 + 348) = a4;
   *(_DWORD *)(a1 + 344) = a5;
-  v10 = (-(__int64)v8 & 0xFFFFFFFFFFFFFF88uLL) + a2 + 128;
-  if ( v8 )
+  v9 = (__int64)&a2[16] + (-(__int64)v7 & 0xFFFFFFFFFFFFFF88uLL);
+  if ( v7 )
   {
     *(_BYTE *)(a1 + 354) |= 2u;
-    v15 = *a3;
+    v13 = *a3;
     if ( !*a3 )
-      v15 = 1LL;
-    *(_QWORD *)(a1 + 328) = v15;
+      v13 = 1LL;
+    *(_QWORD *)(a1 + 328) = v13;
   }
   else
   {
-    v11 = (__int64 *)(a1 + 328);
+    v10 = (_QWORD *)(a1 + 328);
     if ( a1 == -328 )
     {
-      v16 = RtlNtStatusToDosErrorNoTeb(3221225485LL);
-      RtlSetLastWin32Error(v16);
+      v14 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v14);
     }
     else
     {
-      a4 = 2147353520LL;
-      a2 = RtlpFreezeTimeBias;
-      a3 = (_QWORD *)MEMORY[0x7FFE03B0];
-      *v11 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
+      *v10 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
     }
-    v6 = *v11;
-    if ( *v11 - *v7 < *v11 )
-    {
-      *v11 = 0x7FFFFFFFFFFFFFFFLL;
-    }
+    if ( *v10 - *a3 < *v10 )
+      *v10 = 0x7FFFFFFFFFFFFFFFLL;
     else
-    {
-      v6 -= *v7;
-      *v11 = v6;
-    }
+      *v10 -= *a3;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v6, a2, a3, a4) )
-    v12 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
-    v12 = 2147353478LL;
-  if ( *(_BYTE *)v12 )
-    sub_180003AB8(v10, a1);
-  RtlAcquireSRWLockExclusive(v9);
-  sub_180019084(v10, a1);
-  LOBYTE(v13) = v8;
-  sub_180018F14(v10, v13);
-  return RtlReleaseSRWLockExclusive(v9);
+    v11 = 2147353478LL;
+  if ( *(_BYTE *)v11 )
+    sub_180003AB8(v9, a1);
+  RtlAcquireSRWLockExclusive(a2);
+  sub_180019084(v9, a1);
+  LOBYTE(v12) = v7;
+  sub_180018F14(v9, v12);
+  RtlReleaseSRWLockExclusive(a2);
 }

@@ -16,7 +16,7 @@
  *     SeReleaseSubjectContext @ 0x1404CA4C0 (SeReleaseSubjectContext.c)
  */
 
-void __fastcall PiUEventFreeClientRegistrationContext(char *a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall PiUEventFreeClientRegistrationContext(char *a1, char a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax
   __int64 v6; // r9
@@ -43,7 +43,7 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *a1, __int64 a2, __in
   char *v27; // rdx
   char *v28; // rdx
 
-  if ( (_BYTE)a2 )
+  if ( a2 )
   {
     v5 = KeAbPreAcquire((ULONG_PTR)&PiUEventClientRegistrationListLock, 0LL, 0LL, a4);
     v7 = v5;
@@ -135,7 +135,7 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *a1, __int64 a2, __in
     if ( v25 )
       PiDmObjectRelease(v25);
   }
-  ZwDeleteWnfStateName((__int64)(a1 + 88), a2, a3);
+  ZwDeleteWnfStateName((PCWNF_STATE_NAME)a1 + 11);
   SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(a1 + 56));
   ExFreePoolWithTag(*((PVOID *)a1 + 2), 0x59706E50u);
   memset(a1, 0, 0x90uLL);

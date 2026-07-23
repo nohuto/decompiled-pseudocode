@@ -1,21 +1,21 @@
 /*
- * XREFs of PipGetPersistentMemory @ 0x14089C958
+ * XREFs of PipGetPersistentMemory @ 0x14089CAB8
  * Callers:
- *     IoAcquireKsrPersistentMemory @ 0x14089BBC0 (IoAcquireKsrPersistentMemory.c)
- *     IoQueryKsrPersistentMemorySize @ 0x14089BE30 (IoQueryKsrPersistentMemorySize.c)
- *     IoReserveKsrPersistentMemory @ 0x14089C000 (IoReserveKsrPersistentMemory.c)
+ *     IoAcquireKsrPersistentMemory @ 0x14089BD20 (IoAcquireKsrPersistentMemory.c)
+ *     IoQueryKsrPersistentMemorySize @ 0x14089BF90 (IoQueryKsrPersistentMemorySize.c)
+ *     IoReserveKsrPersistentMemory @ 0x14089C160 (IoReserveKsrPersistentMemory.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PipGetDeviceObjectLocation @ 0x14089C544 (PipGetDeviceObjectLocation.c)
- *     PipGetDriverKsrGuid @ 0x14089C794 (PipGetDriverKsrGuid.c)
- *     PnpCompareMultiSz @ 0x1408B2284 (PnpCompareMultiSz.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PipGetDeviceObjectLocation @ 0x14089C6A4 (PipGetDeviceObjectLocation.c)
+ *     PipGetDriverKsrGuid @ 0x14089C8F4 (PipGetDriverKsrGuid.c)
+ *     PnpCompareMultiSz @ 0x1408B23E4 (PnpCompareMultiSz.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetPersistentMemory(__int64 a1, ULONG_PTR a2, size_t *a3, void *a4, int a5)

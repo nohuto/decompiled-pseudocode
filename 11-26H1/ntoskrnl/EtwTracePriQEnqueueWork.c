@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTracePriQEnqueueWork @ 0x1403816B8
+ * XREFs of EtwTracePriQEnqueueWork @ 0x140383468
  * Callers:
- *     KeInsertPriQueue @ 0x1403814C0 (KeInsertPriQueue.c)
+ *     KeInsertPriQueue @ 0x140383270 (KeInsertPriQueue.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTracePriQEnqueueWork(__int64 a1, __int64 a2, int a3, char a4)
@@ -15,8 +15,8 @@ __int64 __fastcall EtwTracePriQEnqueueWork(__int64 a1, __int64 a2, int a3, char 
   int v7; // [rsp+3Ch] [rbp-2Ch]
   _QWORD v8[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  result = HIDWORD(xmmword_140FBFC10);
-  if ( (BYTE12(xmmword_140FBFC10) & 8) == 0 )
+  result = HIDWORD(xmmword_140FC0C10);
+  if ( (BYTE12(xmmword_140FC0C10) & 8) == 0 )
   {
     v6 = *(_DWORD *)(a1 + 1296);
     v5 = a2;

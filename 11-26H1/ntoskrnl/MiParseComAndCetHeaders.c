@@ -1,14 +1,14 @@
 /*
- * XREFs of MiParseComAndCetHeaders @ 0x1409CC26C
+ * XREFs of MiParseComAndCetHeaders @ 0x14099D24C
  * Callers:
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiLogRelocationRva @ 0x1409CC718 (MiLogRelocationRva.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiLogRelocationRva @ 0x14099D6F8 (MiLogRelocationRva.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
  */
 
 __int64 __fastcall MiParseComAndCetHeaders(__int64 *a1, unsigned int *a2, _BYTE *a3)

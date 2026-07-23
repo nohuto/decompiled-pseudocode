@@ -1,15 +1,17 @@
 /*
- * XREFs of RtlEndStrongEnumerationHashTable @ 0x1800FAB80
+ * XREFs of RtlEndStrongEnumerationHashTable @ 0x1800F58E0
  * Callers:
- *     LdrQueryProcessModuleInformationEx2 @ 0x1800AFEE0 (LdrQueryProcessModuleInformationEx2.c)
- *     LdrQueryProcessModuleInformationEx @ 0x1800B0720 (LdrQueryProcessModuleInformationEx.c)
- *     _guard_check_icall @ 0x1801286A4 (_guard_check_icall.c)
- *     KiUserCallForwarder @ 0x180165B30 (KiUserCallForwarder.c)
+ *     LdrQueryProcessModuleInformationEx2 @ 0x18007C780 (LdrQueryProcessModuleInformationEx2.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18007CFC0 (LdrQueryProcessModuleInformationEx.c)
+ *     _guard_check_icall @ 0x1801268D4 (_guard_check_icall.c)
+ *     KiUserCallForwarder @ 0x180163EF0 (KiUserCallForwarder.c)
  * Callees:
  *     <none>
  */
 
-void RtlEndStrongEnumerationHashTable()
+void __cdecl RtlEndStrongEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
   ;
 }

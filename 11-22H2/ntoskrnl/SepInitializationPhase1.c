@@ -68,9 +68,9 @@ char SepInitializationPhase1()
   if ( !Pool2 )
     return 0;
   RtlCreateAcl(Pool2, 0x100u, 2u);
-  RtlpAddKnownAce((__int64)v2, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
-  RtlpAddKnownAce((__int64)v2, 2u, 0, 131075, (unsigned __int8 *)SeAliasAdminsSid, 0);
-  RtlpAddKnownAce((__int64)v2, 2u, 0, 2, (unsigned __int8 *)SeWorldSid, 0);
+  RtlpAddKnownAce(v2, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
+  RtlpAddKnownAce(v2, 2u, 0, 131075, (unsigned __int8 *)SeAliasAdminsSid, 0);
+  RtlpAddKnownAce(v2, 2u, 0, 2, (unsigned __int8 *)SeWorldSid, 0);
   RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v2, 0);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &UnicodeString;

@@ -23,14 +23,14 @@ LONG_PTR __fastcall PspEnforceLimits(char a1)
   struct _KTHREAD *CurrentThread; // rbx
   __int64 *v5; // rsi
   __int64 *v6; // r14
-  _DWORD v8[4]; // [rsp+40h] [rbp-88h] BYREF
+  _DWORD Buffer[4]; // [rsp+40h] [rbp-88h] BYREF
   __int64 v9[8]; // [rsp+50h] [rbp-78h] BYREF
 
   _InterlockedIncrement(&PspEnforcementSequenceNumber);
   if ( !a1 && PspNoWakeChargeReferencedProcess )
   {
-    v8[0] = 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)v8, 4LL);
+    Buffer[0] = 0;
+    ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, Buffer, 4u, 0LL, 0LL, 0, 0);
     ObfDereferenceObjectWithTag(PspNoWakeChargeReferencedProcess, 0x624A7350u);
     PspNoWakeChargeReferencedProcess = 0LL;
   }

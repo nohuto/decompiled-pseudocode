@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsChunkFree @ 0x140340140
+ * XREFs of RtlpHpVsChunkFree @ 0x14034AE90
  * Callers:
- *     RtlpHpVsContextFreeInternal @ 0x14033EAC0 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x140349810 (RtlpHpVsContextFreeInternal.c)
  * Callees:
- *     RtlpHpVsSubsegmentCleanup @ 0x1402BF508 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlpHpVsChunkAlignSplit @ 0x14033E930 (RtlpHpVsChunkAlignSplit.c)
- *     RtlpHpVsChunkDecommit @ 0x14033EBF0 (RtlpHpVsChunkDecommit.c)
- *     RtlpHpVsChunkCoalesce @ 0x14033FEF0 (RtlpHpVsChunkCoalesce.c)
- *     RtlpHpVsFreeChunkInsert @ 0x140340240 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x14023D958 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x140349680 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsChunkDecommit @ 0x140349940 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsChunkCoalesce @ 0x14034AC40 (RtlpHpVsChunkCoalesce.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14034AF90 (RtlpHpVsFreeChunkInsert.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsChunkFree(

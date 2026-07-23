@@ -1,18 +1,18 @@
 /*
- * XREFs of AslpPathWildcardAllocMatchNode @ 0x1408EB7F0
+ * XREFs of AslpPathWildcardAllocMatchNode @ 0x1408ECAB0
  * Callers:
- *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x1408EAAC4 (AslPathWildcardFindNext.c)
+ *     AslPathWildcardFindFirst @ 0x1408EB7A8 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408EBD84 (AslPathWildcardFindNext.c)
  * Callees:
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
- *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
- *     RtlUnicodeStringCatString @ 0x140179DA4 (RtlUnicodeStringCatString.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlUnicodeStringCbCatStringN @ 0x14032422C (RtlUnicodeStringCbCatStringN.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslpPathWildcardFreeMatchNode @ 0x1408EBAEC (AslpPathWildcardFreeMatchNode.c)
+ *     RtlUShortAdd @ 0x14011CE8C (RtlUShortAdd.c)
+ *     RtlUnicodeStringCatString @ 0x140179EA4 (RtlUnicodeStringCatString.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x14032441C (RtlUnicodeStringCbCatStringN.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x1408ECDAC (AslpPathWildcardFreeMatchNode.c)
  */
 
 __int64 __fastcall AslpPathWildcardAllocMatchNode(

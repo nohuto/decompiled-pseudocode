@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRaiseExceptionForReturnAddressHijack @ 0x1801662E0
+ * XREFs of RtlRaiseExceptionForReturnAddressHijack @ 0x1801646A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
  */
 
-void RtlRaiseExceptionForReturnAddressHijack()
+void RtlRaiseExceptionForReturnAddressHijack(void)
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+18h] [rbp-C0h] BYREF
 

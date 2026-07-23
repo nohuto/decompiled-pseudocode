@@ -1,11 +1,11 @@
 /*
- * XREFs of PspDetachProcessFromSyscallProvider @ 0x14077125C
+ * XREFs of PspDetachProcessFromSyscallProvider @ 0x14077147C
  * Callers:
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
  * Callees:
- *     PspDereferenceSyscallProvider @ 0x1405E4998 (PspDereferenceSyscallProvider.c)
- *     PspLockSyscallProviderExclusive @ 0x1405E49CC (PspLockSyscallProviderExclusive.c)
- *     PspUnlockSyscallProviderExclusive @ 0x1405E4B28 (PspUnlockSyscallProviderExclusive.c)
+ *     PspDereferenceSyscallProvider @ 0x1405E1EC0 (PspDereferenceSyscallProvider.c)
+ *     PspLockSyscallProviderExclusive @ 0x1405E1EF4 (PspLockSyscallProviderExclusive.c)
+ *     PspUnlockSyscallProviderExclusive @ 0x1405E2050 (PspUnlockSyscallProviderExclusive.c)
  */
 
 __int64 __fastcall PspDetachProcessFromSyscallProvider(__int64 *a1)

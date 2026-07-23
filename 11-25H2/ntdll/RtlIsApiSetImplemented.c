@@ -9,15 +9,15 @@
  *     strlen @ 0x180169260 (strlen.c)
  */
 
-__int64 __fastcall RtlIsApiSetImplemented(char *a1)
+NTSTATUS __cdecl RtlIsApiSetImplemented(PCSTR ApiSetName)
 {
   char v1; // si
   char v2; // di
   size_t v3; // rax
-  NTSTATUS v4; // ebx
-  NTSTATUS v5; // eax
-  STRING SourceString; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  int v4; // ebx
+  int v5; // eax
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   char v9; // [rsp+60h] [rbp+20h] BYREF
   char v10; // [rsp+68h] [rbp+28h] BYREF
 
@@ -26,10 +26,10 @@ __int64 __fastcall RtlIsApiSetImplemented(char *a1)
   v2 = 0;
   v9 = 0;
   v10 = 0;
-  SourceString.Buffer = a1;
-  if ( a1 )
+  SourceString.Buffer = (char *)ApiSetName;
+  if ( ApiSetName )
   {
-    v3 = strlen(a1);
+    v3 = strlen(ApiSetName);
     if ( v3 >= 0xFFFF )
       LOWORD(v3) = -2;
     SourceString.Length = v3;
@@ -51,8 +51,8 @@ __int64 __fastcall RtlIsApiSetImplemented(char *a1)
     v2 = v10;
   }
   if ( DestinationString.Buffer )
-    RtlpSysVolFree((__int64)DestinationString.Buffer);
+    RtlpSysVolFree(DestinationString.Buffer);
   if ( v4 >= 0 && (!v1 || !v2) )
-    return (unsigned int)-1073741275;
-  return (unsigned int)v4;
+    return -1073741275;
+  return v4;
 }

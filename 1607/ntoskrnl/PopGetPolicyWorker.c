@@ -1,18 +1,18 @@
 /*
- * XREFs of PopGetPolicyWorker @ 0x140008B0C
+ * XREFs of PopGetPolicyWorker @ 0x140008680
  * Callers:
- *     PopSetNotificationWork @ 0x140008A40 (PopSetNotificationWork.c)
- *     PopCheckForIdleness @ 0x140008B3C (PopCheckForIdleness.c)
- *     PoNotifySystemTimeSet @ 0x140131E00 (PoNotifySystemTimeSet.c)
- *     PopCoalescingCheck @ 0x1402054F4 (PopCoalescingCheck.c)
- *     PopCoalesingTimerDpcCallback @ 0x140205648 (PopCoalesingTimerDpcCallback.c)
+ *     PopSetNotificationWork @ 0x1400085B4 (PopSetNotificationWork.c)
+ *     PopCheckForIdleness @ 0x1400086B0 (PopCheckForIdleness.c)
+ *     PoNotifySystemTimeSet @ 0x140132370 (PoNotifySystemTimeSet.c)
+ *     PopCoalescingCheck @ 0x140205320 (PopCoalescingCheck.c)
+ *     PopCoalesingTimerDpcCallback @ 0x140205474 (PopCoalesingTimerDpcCallback.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopPolicyWorkerAction @ 0x140530608 (PopPolicyWorkerAction.c)
- *     PopExecutePowerAction @ 0x140530768 (PopExecutePowerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x140534858 (PopPolicyWorkerActionPromote.c)
- *     PopBatteryApplyCompositeState @ 0x140543EB0 (PopBatteryApplyCompositeState.c)
+ *     PopPolicyWorkerAction @ 0x140530B48 (PopPolicyWorkerAction.c)
+ *     PopExecutePowerAction @ 0x140530CA8 (PopExecutePowerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x140534D98 (PopPolicyWorkerActionPromote.c)
+ *     PopBatteryApplyCompositeState @ 0x1405443F0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopGetPolicyWorker(int a1)

@@ -4,7 +4,7 @@
  *     HeapCommitFailAvoidTriageRules @ 0x180103920 (HeapCommitFailAvoidTriageRules.c)
  *     RtlpHpHeapHandleError @ 0x180103FC0 (RtlpHpHeapHandleError.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlReportFatalFailure @ 0x1800FB4C0 (RtlReportFatalFailure.c)
  */

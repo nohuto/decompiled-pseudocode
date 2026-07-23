@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwRestoreKeyWrapper @ 0x1405F64C0
+ * XREFs of DifZwRestoreKeyWrapper @ 0x1405F6A30
  * Callers:
  *     <none>
  * Callees:
- *     ZwRestoreKey @ 0x14041DE40 (ZwRestoreKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwRestoreKey @ 0x14041E1D0 (ZwRestoreKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwRestoreKeyWrapper(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)

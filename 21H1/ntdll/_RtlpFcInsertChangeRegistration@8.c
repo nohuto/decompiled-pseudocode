@@ -7,11 +7,11 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __fastcall RtlpFcInsertChangeRegistration(int a1, _DWORD *a2)
+void __fastcall RtlpFcInsertChangeRegistration(int a1, _DWORD *a2)
 {
   _DWORD *v3; // eax
 
-  RtlAcquireSRWLockExclusive(&dword_4B3A4770);
+  RtlAcquireSRWLockExclusive(&SRWLock);
   v3 = (_DWORD *)dword_4B3A4778;
   if ( *(int **)dword_4B3A4778 != &dword_4B3A4774 )
     __fastfail(3u);
@@ -19,5 +19,5 @@ int __fastcall RtlpFcInsertChangeRegistration(int a1, _DWORD *a2)
   a2[1] = v3;
   *v3 = a2;
   dword_4B3A4778 = (int)a2;
-  return RtlReleaseSRWLockExclusive(&dword_4B3A4770);
+  RtlReleaseSRWLockExclusive(&SRWLock);
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of MmInitializeProcessAddressSpace @ 0x14046D378
+ * XREFs of MmInitializeProcessAddressSpace @ 0x14046C248
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  *     MiInitializeBootProcess @ 0x1407B7300 (MiInitializeBootProcess.c)
  * Callees:
- *     MiAllowWorkingSetExpansion @ 0x14007BE5C (MiAllowWorkingSetExpansion.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiMapProcessExecutable @ 0x14046CDE8 (MiMapProcessExecutable.c)
- *     MiInitializeProcessBottomUpEntropy @ 0x14046D1D4 (MiInitializeProcessBottomUpEntropy.c)
- *     MiInitializeProcessTopDownEntropy @ 0x14046D7BC (MiInitializeProcessTopDownEntropy.c)
- *     MiInsertProcessVads @ 0x14046D884 (MiInsertProcessVads.c)
- *     MiInitializeVadBitMap @ 0x14046D8CC (MiInitializeVadBitMap.c)
- *     MiComputeProcessUserVa @ 0x14046DC4C (MiComputeProcessUserVa.c)
- *     MiInitializeWorkingSetList @ 0x14046DDE8 (MiInitializeWorkingSetList.c)
- *     MiReferenceCfgVad @ 0x1404DE124 (MiReferenceCfgVad.c)
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
- *     MiInitializeLockedPagesTracking @ 0x140656EC8 (MiInitializeLockedPagesTracking.c)
- *     MiReturnProcessVads @ 0x140656F20 (MiReturnProcessVads.c)
+ *     MiAllowWorkingSetExpansion @ 0x14007BEDC (MiAllowWorkingSetExpansion.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiMapProcessExecutable @ 0x14046BCB8 (MiMapProcessExecutable.c)
+ *     MiInitializeProcessBottomUpEntropy @ 0x14046C0A4 (MiInitializeProcessBottomUpEntropy.c)
+ *     MiInitializeProcessTopDownEntropy @ 0x14046C68C (MiInitializeProcessTopDownEntropy.c)
+ *     MiInsertProcessVads @ 0x14046C754 (MiInsertProcessVads.c)
+ *     MiInitializeVadBitMap @ 0x14046C79C (MiInitializeVadBitMap.c)
+ *     MiComputeProcessUserVa @ 0x14046CB1C (MiComputeProcessUserVa.c)
+ *     MiInitializeWorkingSetList @ 0x14046CCB8 (MiInitializeWorkingSetList.c)
+ *     MiReferenceCfgVad @ 0x1404C1728 (MiReferenceCfgVad.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
+ *     MiInitializeLockedPagesTracking @ 0x140656FAC (MiInitializeLockedPagesTracking.c)
+ *     MiReturnProcessVads @ 0x140657004 (MiReturnProcessVads.c)
  */
 
 __int64 __fastcall MmInitializeProcessAddressSpace(
@@ -62,7 +62,7 @@ __int64 __fastcall MmInitializeProcessAddressSpace(
 
   Src[0] = 0;
   memset(&Src[2], 0, 0x48uLL);
-  v9 = qword_140327F90;
+  v9 = qword_140327FD0;
   v10 = 2LL;
   if ( a2 )
   {
@@ -100,20 +100,20 @@ __int64 __fastcall MmInitializeProcessAddressSpace(
   if ( (MmTrackLockedPages & 0x10000001) == 1 )
     MiInitializeLockedPagesTracking(BugCheckParameter1);
   v11 = BugCheckParameter1 + 1280;
-  MiInitializeWorkingSetList(BugCheckParameter1 + 1280, qword_140327F90 + 276840816, 0, 0, 0LL);
+  MiInitializeWorkingSetList(BugCheckParameter1 + 1280, qword_140327FD0 + 276840816, 0, 0, 0LL);
   *(_DWORD *)(v9 + 276840552) = 1;
   *(_QWORD *)(v9 + 276840752) = v9 + 276840712;
   v12 = v9 + 276840760;
   v13 = 256;
   *(_DWORD *)(v9 + 276840744) = 256;
-  v14 = qword_140327F90 + 0x10000000;
+  v14 = qword_140327FD0 + 0x10000000;
   do
   {
     *(_QWORD *)(v12 + 8) = v14;
     v13 <<= 9;
     *(_DWORD *)v12 = v13;
     v12 += 16LL;
-    v14 = qword_140327F90 + 268451840;
+    v14 = qword_140327FD0 + 268451840;
     --v10;
   }
   while ( v10 );

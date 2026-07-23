@@ -13,7 +13,7 @@ _BOOL8 __fastcall ExSecurePoolValidate(__int64 a1, unsigned int a2, __int64 a3, 
 
   result = 0LL;
   v5 = (_QWORD *)(a3 - 16);
-  if ( (unsigned __int64)v5 >= SecurePoolBase && (unsigned __int64)v5 < SecurePoolEnd )
+  if ( (unsigned __int64)v5 >= qword_140C11550 && (unsigned __int64)v5 < qword_140C11558 )
     return *v5 == (a4 ^ a1 ^ a2);
   return result;
 }

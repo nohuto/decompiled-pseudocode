@@ -1,18 +1,14 @@
 /*
- * XREFs of CmpWorkItemInitialize @ 0x1407D5B00
+ * XREFs of CmpWorkItemInitialize @ 0x1407D5FF0
  * Callers:
- *     CmFcManagerInitialize @ 0x140C4CE4C (CmFcManagerInitialize.c)
+ *     CmFcManagerInitialize @ 0x140C4EFE8 (CmFcManagerInitialize.c)
  * Callees:
  *     <none>
  */
 
-void (__fastcall *__fastcall CmpWorkItemInitialize(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4))(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void (__fastcall *__fastcall CmpWorkItemInitialize(__int64 a1, int a2, __int64 a3, __int64 a4))(__int64 a1)
 {
-  void (__fastcall *result)(__int64, __int64, __int64, __int64); // rax
+  void (__fastcall *result)(__int64); // rax
 
   result = CmpWorkItemWrapper;
   *(_QWORD *)(a1 + 8) = 0LL;

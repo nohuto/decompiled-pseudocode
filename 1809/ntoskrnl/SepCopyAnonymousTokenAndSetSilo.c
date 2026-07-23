@@ -1,20 +1,20 @@
 /*
- * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0
+ * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x1405838D0
  * Callers:
- *     NtImpersonateAnonymousToken @ 0x1405B9710 (NtImpersonateAnonymousToken.c)
+ *     NtImpersonateAnonymousToken @ 0x1405BA710 (NtImpersonateAnonymousToken.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     SeSetSessionIdToken @ 0x1405BC45C (SeSetSessionIdToken.c)
- *     SeDeleteAccessState @ 0x1405BD870 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x140612230 (SeCreateAccessState.c)
- *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     SepSetServerSiloToken @ 0x14089BFE0 (SepSetServerSiloToken.c)
+ *     SepGetAnonymousToken @ 0x1400DD58C (SepGetAnonymousToken.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SepFinalizeTokenAcls @ 0x140583ABC (SepFinalizeTokenAcls.c)
+ *     SeSetSessionIdToken @ 0x1405BD45C (SeSetSessionIdToken.c)
+ *     SeDeleteAccessState @ 0x1405BE870 (SeDeleteAccessState.c)
+ *     SeCreateAccessState @ 0x140613230 (SeCreateAccessState.c)
+ *     ObInsertObject @ 0x14061C280 (ObInsertObject.c)
+ *     SepSetServerSiloToken @ 0x14089D240 (SepSetServerSiloToken.c)
  */
 
 __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PVOID *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCaptureStackTraceCallout @ 0x140260E6C
+ * XREFs of MiCaptureStackTraceCallout @ 0x1402603D4
  * Callers:
- *     MiCaptureStackTraceEx @ 0x14050EB9C (MiCaptureStackTraceEx.c)
+ *     MiCaptureStackTraceEx @ 0x14050860C (MiCaptureStackTraceEx.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
  */
 
 __int64 __fastcall MiCaptureStackTraceCallout(__int64 a1)

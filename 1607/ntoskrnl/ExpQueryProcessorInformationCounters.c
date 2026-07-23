@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryProcessorInformationCounters @ 0x140407C0C
+ * XREFs of ExpQueryProcessorInformationCounters @ 0x140406ACC
  * Callers:
- *     ExProcessorCounterSetCallback @ 0x140407468 (ExProcessorCounterSetCallback.c)
+ *     ExProcessorCounterSetCallback @ 0x140406328 (ExProcessorCounterSetCallback.c)
  * Callees:
- *     PoGetIdleTimes @ 0x14000DBB4 (PoGetIdleTimes.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PoGetPerfStateAndParkingInfo @ 0x14020A2B8 (PoGetPerfStateAndParkingInfo.c)
+ *     PoGetIdleTimes @ 0x14000D734 (PoGetIdleTimes.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x14020A0E4 (PoGetPerfStateAndParkingInfo.c)
  */
 
 __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, char a3, char a4, __int64 a5)
@@ -19,7 +19,7 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
   unsigned __int64 v13; // r8
   __int64 v14; // r9
   __int64 result; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-51h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-51h] BYREF
   int v17[8]; // [rsp+28h] [rbp-49h] BYREF
   __int64 v18; // [rsp+48h] [rbp-29h] BYREF
   __int64 v19; // [rsp+50h] [rbp-21h]

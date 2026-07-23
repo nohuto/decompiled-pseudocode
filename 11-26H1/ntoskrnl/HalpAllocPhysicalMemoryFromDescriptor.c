@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAllocPhysicalMemoryFromDescriptor @ 0x140CAE204
+ * XREFs of HalpAllocPhysicalMemoryFromDescriptor @ 0x140CB4244
  * Callers:
- *     HalpAllocPhysicalMemoryInternal @ 0x140D08A70 (HalpAllocPhysicalMemoryInternal.c)
+ *     HalpAllocPhysicalMemoryInternal @ 0x140D0ED40 (HalpAllocPhysicalMemoryInternal.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1405BBEF0
+ * XREFs of WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1405BC120
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyA @ 0x1402C8734 (RtlStringCchCopyA.c)
+ *     RtlStringCchCopyA @ 0x140246F94 (RtlStringCchCopyA.c)
  */
 
 __int64 __fastcall WheaHwErrorReportSetSectionNameDeviceDriver(__int64 a1, unsigned int a2, const char *a3)

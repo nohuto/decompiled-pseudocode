@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeFlushRange @ 0x140274890
+ * XREFs of MiComputeFlushRange @ 0x140262830
  * Callers:
- *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
- *     MmTrimSection @ 0x1402EF648 (MmTrimSection.c)
+ *     MmFlushSection @ 0x14026269C (MmFlushSection.c)
+ *     MmTrimSection @ 0x1402FA398 (MmTrimSection.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x14029F9C4 (MiDoesControlAreaHaveUserWritableReferences.c)
- *     MiComputeDataFlushRange @ 0x1403152C0 (MiComputeDataFlushRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x14021CF44 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     MiLockSectionControlArea @ 0x1402628E4 (MiLockSectionControlArea.c)
+ *     MiComputeDataFlushRange @ 0x140320010 (MiComputeDataFlushRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

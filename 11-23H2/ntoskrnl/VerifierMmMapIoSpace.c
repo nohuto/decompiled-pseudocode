@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierMmMapIoSpace @ 0x140AE3020
+ * XREFs of VerifierMmMapIoSpace @ 0x140AE3010
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140ACB9C4 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
- *     MmCheckMapIoSpace @ 0x140AE839C (MmCheckMapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViTargetAddToCounter @ 0x140ACB9B4 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
+ *     MmCheckMapIoSpace @ 0x140AE838C (MmCheckMapIoSpace.c)
  */
 
 __int64 __fastcall VerifierMmMapIoSpace(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, unsigned int a3)

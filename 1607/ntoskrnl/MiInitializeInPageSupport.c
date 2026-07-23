@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeInPageSupport @ 0x1400E75D0
+ * XREFs of MiInitializeInPageSupport @ 0x1400E5470
  * Callers:
- *     MiGetInPageSupportBlock @ 0x1400E7520 (MiGetInPageSupportBlock.c)
- *     MiPfIssueCoalescedSupport @ 0x140125220 (MiPfIssueCoalescedSupport.c)
- *     MiMakeOutswappedPageResident @ 0x1401DFDE0 (MiMakeOutswappedPageResident.c)
- *     MiGetReadyInPageBlock @ 0x140659C6C (MiGetReadyInPageBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1400E53C0 (MiGetInPageSupportBlock.c)
+ *     MiPfIssueCoalescedSupport @ 0x140125790 (MiPfIssueCoalescedSupport.c)
+ *     MiMakeOutswappedPageResident @ 0x1401DFC0C (MiMakeOutswappedPageResident.c)
+ *     MiGetReadyInPageBlock @ 0x140659D50 (MiGetReadyInPageBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
  */
 
 char __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpPsProvTraceImage @ 0x140A798C4
+ * XREFs of EtwpPsProvTraceImage @ 0x140A8B330
  * Callers:
- *     EtwpTraceImageUnload @ 0x1404760E8 (EtwpTraceImageUnload.c)
- *     PerfLogImageLoad @ 0x140A79674 (PerfLogImageLoad.c)
+ *     EtwpTraceImageUnload @ 0x14046F868 (EtwpTraceImageUnload.c)
+ *     PerfLogImageLoad @ 0x140A8B0E0 (PerfLogImageLoad.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __int16 a3, int a4)
@@ -56,5 +56,5 @@ NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __i
   v17 = 8LL;
   v20 = 0;
   v22 = 2LL;
-  return EtwWriteEx(EtwpPsProvRegHandle, v5, 0LL, a4 != 0, 0LL, 0LL, 8u, &UserData);
+  return EtwWriteEx((REGHANDLE)stru_140F03830.Affinity, v5, 0LL, a4 != 0, 0LL, 0LL, 8u, &UserData);
 }

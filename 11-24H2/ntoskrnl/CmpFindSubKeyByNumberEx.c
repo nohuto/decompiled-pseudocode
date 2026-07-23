@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpFindSubKeyByNumberEx @ 0x14087D660
+ * XREFs of CmpFindSubKeyByNumberEx @ 0x140881510
  * Callers:
- *     CmpFindSubKeyByNumberFromMergedView @ 0x14087BB00 (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmEnumerateKey @ 0x14087C950 (CmEnumerateKey.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x14087F9B0 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmEnumerateKey @ 0x140880800 (CmEnumerateKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x140843700 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpReferenceKeyControlBlock @ 0x140845AD0 (CmpReferenceKeyControlBlock.c)
- *     CmpIsKeyDeleted @ 0x14086E210 (CmpIsKeyDeleted.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmEqualTrans @ 0x140879280 (CmEqualTrans.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14087E570 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDoQueueLateUnloadWorker @ 0x14087E638 (CmpDoQueueLateUnloadWorker.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpDoFindSubKeyByNumber @ 0x140917160 (CmpDoFindSubKeyByNumber.c)
- *     CmRmIsKCBVisible @ 0x1409A73F0 (CmRmIsKCBVisible.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x14083F9C0 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpReferenceKeyControlBlock @ 0x140841D90 (CmpReferenceKeyControlBlock.c)
+ *     CmpIsKeyDeleted @ 0x140872540 (CmpIsKeyDeleted.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmEqualTrans @ 0x14087D5B0 (CmEqualTrans.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x140882420 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408824E8 (CmpDoQueueLateUnloadWorker.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpDoFindSubKeyByNumber @ 0x14090ABD0 (CmpDoFindSubKeyByNumber.c)
+ *     CmRmIsKCBVisible @ 0x1409909A0 (CmRmIsKCBVisible.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberEx(

@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpResetEvaluationTimer @ 0x1408FDFC4
+ * XREFs of TtmpResetEvaluationTimer @ 0x1408FE124
  * Callers:
- *     TtmpSetTerminalPendingCleanup @ 0x1408FE0C0 (TtmpSetTerminalPendingCleanup.c)
- *     TtmpUpdateTerminalState @ 0x1408FE2DC (TtmpUpdateTerminalState.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1408FE220 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmpUpdateTerminalState @ 0x1408FE43C (TtmpUpdateTerminalState.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
  */
 
 void __fastcall TtmpResetEvaluationTimer(PADAPTER_OBJECT DmaAdapter, __int64 a2)

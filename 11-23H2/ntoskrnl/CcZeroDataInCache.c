@@ -1,17 +1,17 @@
 /*
- * XREFs of CcZeroDataInCache @ 0x1402FBF18
+ * XREFs of CcZeroDataInCache @ 0x1402FC1A8
  * Callers:
- *     CcZeroData @ 0x1402FB700 (CcZeroData.c)
+ *     CcZeroData @ 0x1402FB990 (CcZeroData.c)
  * Callees:
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     MmSetAddressRangeModifiedEx @ 0x14027F1D0 (MmSetAddressRangeModifiedEx.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     CcSetDirtyPinnedData @ 0x1402FC580 (CcSetDirtyPinnedData.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14027F460 (MmSetAddressRangeModifiedEx.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     IopAllocateMdl @ 0x1402FC37C (IopAllocateMdl.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     CcSetDirtyPinnedData @ 0x1402FC810 (CcSetDirtyPinnedData.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
  */
 
 char __fastcall CcZeroDataInCache(__int64 a1, __int64 *a2, unsigned int a3, unsigned __int8 a4)
@@ -42,7 +42,7 @@ char __fastcall CcZeroDataInCache(__int64 a1, __int64 *a2, unsigned int a3, unsi
     v12 = v15 - v16 + v7;
     MemoryDescriptorList = (struct _MDL *)IopAllocateMdl(v17, (int)v15 - (int)v16, 0, v8, 0LL, 0);
     if ( !MemoryDescriptorList )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     v9 = BYTE5(KeGetCurrentThread()[1].Queue);
     BYTE5(KeGetCurrentThread()[1].Queue) = 1;
     MiProbeAndLockPages(MemoryDescriptorList, 0LL, 0LL);

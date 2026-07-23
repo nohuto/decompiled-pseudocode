@@ -1,41 +1,41 @@
 /*
- * XREFs of CcInitializeCacheMapEx @ 0x1400AC050
+ * XREFs of CcInitializeCacheMapEx @ 0x1400ABF90
  * Callers:
- *     CcInitializeCacheMap @ 0x14013A700 (CcInitializeCacheMap.c)
+ *     CcInitializeCacheMap @ 0x14013A800 (CcInitializeCacheMap.c)
  * Callees:
  *     MmDisableModifiedWriteOfSection @ 0x140021D70 (MmDisableModifiedWriteOfSection.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
- *     CcInitializeVolumeCacheMap @ 0x14007CB2C (CcInitializeVolumeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
- *     IopGetFileObjectExtension @ 0x1400B7970 (IopGetFileObjectExtension.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x14011B9FC (CcInsertIntoCleanSharedCacheMapList.c)
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     CcCreatePartition @ 0x14018A55C (CcCreatePartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CcDeletePartition @ 0x14026B1A0 (CcDeletePartition.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObDeleteCapturedInsertInfo @ 0x1405B7BB0 (ObDeleteCapturedInsertInfo.c)
- *     MmCreateCacheManagerSection @ 0x1405DD6DC (MmCreateCacheManagerSection.c)
- *     CcCreateVacbArray @ 0x1406A2A38 (CcCreateVacbArray.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     CcDeleteSharedCacheMap @ 0x14007C260 (CcDeleteSharedCacheMap.c)
+ *     CcInitializeVolumeCacheMap @ 0x14007CB1C (CcInitializeVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     PsGetPagePriorityThread @ 0x1400B5B20 (PsGetPagePriorityThread.c)
+ *     IopGetFileObjectExtension @ 0x1400B78B0 (IopGetFileObjectExtension.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF8F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x14011BA6C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     CcCreatePartition @ 0x14018A69C (CcCreatePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CcDeletePartition @ 0x14026B390 (CcDeletePartition.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObDeleteCapturedInsertInfo @ 0x1405B8BB0 (ObDeleteCapturedInsertInfo.c)
+ *     MmCreateCacheManagerSection @ 0x1405DE6DC (MmCreateCacheManagerSection.c)
+ *     CcCreateVacbArray @ 0x1406A3CD8 (CcCreateVacbArray.c)
  */
 
 void __fastcall CcInitializeCacheMapEx(_BYTE *Object, __int128 *a2, char a3, __int64 a4, __int64 a5, unsigned int a6)
@@ -232,7 +232,7 @@ LABEL_281:
     }
     ObDeleteCapturedInsertInfo(Objecta);
     v20 = 0LL;
-    v21 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(**((_QWORD **)Object + 5) + 60LL) & 0x3FF));
+    v21 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(**((_QWORD **)Object + 5) + 60LL) & 0x3FF));
     v22 = *(_QWORD *)(v21 + 168);
     v9 = *(_QWORD *)(v22 + 8);
     if ( !v9 )

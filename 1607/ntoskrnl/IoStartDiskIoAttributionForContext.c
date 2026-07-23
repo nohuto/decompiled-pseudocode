@@ -1,50 +1,48 @@
 /*
- * XREFs of IoStartDiskIoAttributionForContext @ 0x1400B720C
+ * XREFs of IoStartDiskIoAttributionForContext @ 0x1400B5034
  * Callers:
- *     PspIoRateEntryActivate @ 0x1404F1AB0 (PspIoRateEntryActivate.c)
- *     PspSetJobIoAttribution @ 0x1404F206C (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x1404D4244 (PspIoRateEntryActivate.c)
+ *     PspSetJobIoAttribution @ 0x1404D4800 (PspSetJobIoAttribution.c)
  * Callees:
- *     IopDiskIoAttributionTreeCompare @ 0x14001F390 (IopDiskIoAttributionTreeCompare.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     RtlRbInsertNodeEx @ 0x1400ECEC0 (RtlRbInsertNodeEx.c)
+ *     IopDiskIoAttributionTreeCompare @ 0x14001EF10 (IopDiskIoAttributionTreeCompare.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbInsertNodeEx @ 0x1400EAD30 (RtlRbInsertNodeEx.c)
  */
 
-void __fastcall IoStartDiskIoAttributionForContext(__int64 a1)
+void __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // al
-  __int64 v3; // r8
-  _QWORD *v4; // rdi
-  char v5; // bl
-  KIRQL v6; // r14
-  _QWORD *v7; // rax
+  _RTL_BALANCED_NODE *Root; // rdi
+  BOOLEAN v4; // bl
+  KIRQL v5; // r14
+  _RTL_BALANCED_NODE *v6; // rax
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  v4 = (_QWORD *)IopDiskIoAttributionTree;
-  v5 = 0;
-  v6 = v2;
-  if ( (_QWORD)IopDiskIoAttributionTree )
+  Root = IopDiskIoAttributionTree.Root;
+  v4 = 0;
+  v5 = v2;
+  if ( IopDiskIoAttributionTree.Root )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)(a1 + 24), (__int64)v4) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)&Node[1], (__int64)Root) < 0 )
       {
-        v7 = (_QWORD *)*v4;
-        if ( !*v4 )
+        v6 = Root->Children[0];
+        if ( !Root->Children[0] )
           break;
       }
       else
       {
-        v7 = (_QWORD *)v4[1];
-        if ( !v7 )
+        v6 = Root->Children[1];
+        if ( !v6 )
         {
-          v5 = 1;
+          v4 = 1;
           break;
         }
       }
-      v4 = v7;
+      Root = v6;
     }
   }
-  LOBYTE(v3) = v5;
-  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, v4, v3, a1);
-  ExReleaseSpinLockExclusive(&IopDiskIoAttributionLock, v6);
+  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, Root, v4, Node);
+  ExReleaseSpinLockExclusive(&IopDiskIoAttributionLock, v5);
 }

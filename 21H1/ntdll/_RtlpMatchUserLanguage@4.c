@@ -12,18 +12,18 @@
 bool __thiscall RtlpMatchUserLanguage(PCWSTR SourceString)
 {
   bool result; // al
-  UNICODE_STRING DestinationString; // [esp+8h] [ebp-C8h] BYREF
-  UNICODE_STRING v4; // [esp+10h] [ebp-C0h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-C8h] BYREF
+  _UNICODE_STRING String2; // [esp+10h] [ebp-C0h] BYREF
   char v5; // [esp+18h] [ebp-B8h] BYREF
   int savedregs; // [esp+D0h] [ebp+0h] BYREF
 
-  v4.Buffer = (wchar_t *)&v5;
-  v4.MaximumLength = 170;
+  String2.Buffer = (wchar_t *)&v5;
+  String2.MaximumLength = 170;
   result = 0;
-  if ( RtlpGetUserLocaleName(&v4, (int)&savedregs) >= 0 )
+  if ( RtlpGetUserLocaleName(&String2, (int)&savedregs, (int)SourceString) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    if ( !RtlCompareUnicodeString(&DestinationString.Length, &v4.Length, 1) )
+    if ( !RtlCompareUnicodeString(&DestinationString, &String2, 1u) )
       return 1;
   }
   return result;

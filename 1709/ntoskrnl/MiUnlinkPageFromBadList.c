@@ -57,7 +57,7 @@ signed __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
   {
     v11 = v4 & 0x1F;
     LOBYTE(v12) = 1;
-    v13 = (volatile signed __int32 *)(qword_140388B70 + 4 * (v4 >> 5));
+    v13 = (volatile signed __int32 *)stru_140388B68.Buffer + (v4 >> 5);
     if ( v11 + 1 <= 0x20 )
     {
       v14 = 1 << v11;

@@ -10,29 +10,25 @@
  *     RtlUnicodeStringInitWorker @ 0x4B32C921 (RtlUnicodeStringInitWorker.c)
  */
 
-int __fastcall LdrpAppxGetRemediationRegistryKey(int a1, int a2, int a3)
+int __fastcall LdrpAppxGetRemediationRegistryKey(int a1, int a2, PHANDLE KeyHandle)
 {
   int result; // eax
   int v6; // ecx
   int v7; // ecx
-  int v8; // [esp-Ch] [ebp-258h]
-  int v9; // [esp+Ch] [ebp-240h] BYREF
+  ACCESS_MASK v8; // [esp-Ch] [ebp-258h]
+  ULONG BufferLengthOut; // [esp+Ch] [ebp-240h] BYREF
   _BYTE v10[8]; // [esp+10h] [ebp-23Ch] BYREF
-  _DWORD v11[2]; // [esp+18h] [ebp-234h] BYREF
-  _BYTE *v12; // [esp+20h] [ebp-22Ch]
-  int v13; // [esp+24h] [ebp-228h]
-  int v14; // [esp+28h] [ebp-224h]
-  int v15; // [esp+2Ch] [ebp-220h]
-  _WORD v16[266]; // [esp+30h] [ebp-21Ch] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+18h] [ebp-234h] BYREF
+  WCHAR TargetPath[266]; // [esp+30h] [ebp-21Ch] BYREF
 
   result = RtlGetPersistedStateLocation(
              L"AppxStateChange",
              L"TargetNtPath",
              L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateChange",
-             0,
-             v16,
+             LocationTypeRegistry,
+             TargetPath,
              0x20Au,
-             (size_t *)&v9);
+             &BufferLengthOut);
   if ( result >= 0 )
   {
     if ( a1 != -1073740702 )
@@ -40,28 +36,28 @@ int __fastcall LdrpAppxGetRemediationRegistryKey(int a1, int a2, int a3)
       result = RtlUnicodeStringInitWorker(v6, v6);
       if ( result < 0 )
         return result;
-      v12 = v10;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)v10;
       v8 = 131097;
       goto LABEL_9;
     }
-    result = RtlStringCbCatW(v16, 0x20Au, (int)L"\\PackageList\\");
+    result = RtlStringCbCatW(TargetPath, 0x20Au, (int)L"\\PackageList\\");
     if ( result >= 0 )
     {
-      result = RtlStringCbCatW(v16, 0x20Au, a2);
+      result = RtlStringCbCatW(TargetPath, 0x20Au, a2);
       if ( result >= 0 )
       {
         result = RtlUnicodeStringInitWorker(v7, v7);
         if ( result >= 0 )
         {
-          v12 = v10;
+          ObjectAttributes.ObjectName = (PUNICODE_STRING)v10;
           v8 = 131353;
 LABEL_9:
-          v11[0] = 24;
-          v11[1] = 0;
-          v13 = 64;
-          v14 = 0;
-          v15 = 0;
-          return ZwOpenKeyEx(a3, v8, (int)v11, 0);
+          ObjectAttributes.Length = 24;
+          ObjectAttributes.RootDirectory = 0;
+          ObjectAttributes.Attributes = 64;
+          ObjectAttributes.SecurityDescriptor = 0;
+          ObjectAttributes.SecurityQualityOfService = 0;
+          return ZwOpenKeyEx(KeyHandle, v8, &ObjectAttributes, 0);
         }
       }
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAdjustPteBins @ 0x1403FC540
+ * XREFs of MiAdjustPteBins @ 0x1403F5F00
  * Callers:
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
  * Callees:
- *     MiPteBinsNeedTrimming @ 0x1403FC65C (MiPteBinsNeedTrimming.c)
- *     MiEmptyPteBins @ 0x1403FCDF4 (MiEmptyPteBins.c)
- *     MiAttemptCoalesce @ 0x14046E710 (MiAttemptCoalesce.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiPteBinsNeedTrimming @ 0x1403F601C (MiPteBinsNeedTrimming.c)
+ *     MiEmptyPteBins @ 0x1403F67B4 (MiEmptyPteBins.c)
+ *     MiAttemptCoalesce @ 0x140468B98 (MiAttemptCoalesce.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char MiAdjustPteBins()
@@ -23,13 +23,13 @@ char MiAdjustPteBins()
   _QWORD v10[5]; // [rsp+20h] [rbp-38h] BYREF
 
   v0 = 5LL;
-  v10[0] = &qword_140E37568;
+  v10[0] = &qword_140E376A8;
   v1 = v10;
   v2 = 5LL;
-  v10[1] = &unk_140E35DE0;
-  v10[2] = &unk_140E35E40;
-  v10[3] = &unk_140E35D80;
-  v10[4] = &unk_140E35D20;
+  v10[1] = &unk_140E35F20;
+  v10[2] = &unk_140E35F80;
+  v10[3] = &unk_140E35EC0;
+  v10[4] = &unk_140E35E60;
   do
   {
     v3 = *v1;
@@ -40,8 +40,8 @@ char MiAdjustPteBins()
     --v2;
   }
   while ( v2 );
-  LOBYTE(v5) = byte_140E35EA6 + 1;
-  byte_140E35EA6 = v5;
+  LOBYTE(v5) = byte_140E35FE6 + 1;
+  byte_140E35FE6 = v5;
   if ( (v5 & 0xF) == 0 )
   {
     v6 = v10;

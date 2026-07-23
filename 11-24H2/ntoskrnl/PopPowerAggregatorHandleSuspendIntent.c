@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerAggregatorHandleSuspendIntent @ 0x1405D7A00
+ * XREFs of PopPowerAggregatorHandleSuspendIntent @ 0x1405D4F20
  * Callers:
  *     <none>
  * Callees:

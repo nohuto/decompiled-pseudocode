@@ -1,17 +1,17 @@
 /*
- * XREFs of VslStartSecureProcessor @ 0x1407103F8
+ * XREFs of VslStartSecureProcessor @ 0x14070DF88
  * Callers:
- *     HvlHalStartVirtualProcessor @ 0x1405873D0 (HvlHalStartVirtualProcessor.c)
+ *     HvlHalStartVirtualProcessor @ 0x140584750 (HvlHalStartVirtualProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     KeIsKernelCetEnabled @ 0x1404566A0 (KeIsKernelCetEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     KeIsKernelCetEnabled @ 0x14044B670 (KeIsKernelCetEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslStartSecureProcessor(int a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall VslStartSecureProcessor(int a1, __int64 a2)
   memset_0(v11, 0, 0x48uLL);
   memset_0(v12, 0, 0x68uLL);
   memset_0(v10, 0, 0x48uLL);
-  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0x118uLL, 0x54736D56u);
   v5 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -70,7 +70,7 @@ __int64 __fastcall VslStartSecureProcessor(int a1, __int64 a2)
     {
       v13 = v10[0];
       v14 = v10[7];
-      v9 = VslpEnterIumSecureMode(2u, 2LL, 0, (__int64)v12);
+      v9 = VslpEnterIumSecureMode(2u, 2u, 0, (__int64)v12);
       VslpUnlockPagesForTransfer(v10);
     }
     VslpUnlockPagesForTransfer(v11);

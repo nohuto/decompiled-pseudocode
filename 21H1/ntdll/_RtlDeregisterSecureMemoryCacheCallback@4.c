@@ -8,45 +8,47 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-char __stdcall RtlDeregisterSecureMemoryCacheCallback(void *a1)
+NTSTATUS __cdecl RtlDeregisterSecureMemoryCacheCallback(PRTL_SECURE_MEMORY_CACHE_CALLBACK Callback)
 {
-  _UNKNOWN **v1; // esi
+  PRTL_SECURE_MEMORY_CACHE_CALLBACK *v1; // esi
+  NTSTATUS result; // eax
   bool v3; // zf
-  _DWORD *v4; // eax
-  void **v5; // ecx
+  PRTL_SECURE_MEMORY_CACHE_CALLBACK v4; // eax
+  PVOID *v5; // ecx
 
   RtlAcquireSRWLockExclusive(&RtlpSecMemLock);
-  v1 = (_UNKNOWN **)RtlpSecMemListHead;
-  if ( RtlpSecMemListHead == (_UNKNOWN *)&RtlpSecMemListHead )
+  v1 = (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)RtlpSecMemListHead;
+  if ( RtlpSecMemListHead == &RtlpSecMemListHead )
   {
 LABEL_4:
     RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-    return 0;
+    LOBYTE(result) = 0;
   }
   else
   {
-    while ( v1[3] != a1 )
+    while ( v1[3] != Callback )
     {
-      v1 = (_UNKNOWN **)*v1;
-      if ( v1 == &RtlpSecMemListHead )
+      v1 = (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)*v1;
+      if ( v1 == (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)&RtlpSecMemListHead )
         goto LABEL_4;
     }
-    v3 = v1[2] == (_UNKNOWN *)1;
-    v1[2] = (_UNKNOWN *)((char *)v1[2] - 1);
+    v3 = v1[2] == (PRTL_SECURE_MEMORY_CACHE_CALLBACK)1;
+    v1[2] = (PRTL_SECURE_MEMORY_CACHE_CALLBACK)((char *)v1[2] - 1);
     if ( v3 )
     {
       v4 = *v1;
-      if ( *((_UNKNOWN ***)*v1 + 1) != v1 || (v5 = (void **)v1[1], *v5 != v1) )
+      if ( *((PRTL_SECURE_MEMORY_CACHE_CALLBACK **)*v1 + 1) != v1 || (v5 = (PVOID *)v1[1], *v5 != v1) )
         __fastfail(3u);
       *v5 = v4;
-      v4[1] = v5;
+      *((_DWORD *)v4 + 1) = v5;
       RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v1);
+      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
     }
     else
     {
       RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
     }
-    return 1;
+    LOBYTE(result) = 1;
   }
+  return result;
 }

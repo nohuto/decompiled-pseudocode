@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDqIrpPropertySet @ 0x1406D58DC
+ * XREFs of PiDqIrpPropertySet @ 0x1406D6B7C
  * Callers:
- *     PiDqDispatch @ 0x140590640 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x140591640 (PiDqDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDqGetPnpObjectType @ 0x140595A78 (PiDqGetPnpObjectType.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiDqOpenObjectRegKey @ 0x1406D9C04 (PiDqOpenObjectRegKey.c)
- *     PiPnpRtlSetObjectProperty @ 0x1406E5250 (PiPnpRtlSetObjectProperty.c)
- *     _PnpSetGenericStoreProperty @ 0x1406E5A2C (_PnpSetGenericStoreProperty.c)
- *     PiPnpRtlObjectEventWorker @ 0x1406F1F20 (PiPnpRtlObjectEventWorker.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDqGetPnpObjectType @ 0x140596A78 (PiDqGetPnpObjectType.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PiDqOpenObjectRegKey @ 0x1406DAEA4 (PiDqOpenObjectRegKey.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1406E64F0 (PiPnpRtlSetObjectProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x1406E6CCC (_PnpSetGenericStoreProperty.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406F31C0 (PiPnpRtlObjectEventWorker.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
  */
 
 __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
@@ -54,7 +54,7 @@ __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
   v6 = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v20);
   if ( v6 < 0 )
     goto LABEL_27;
-  NdrMesTypeDecode3(v20, "TP 3\a", &off_14034F000, &off_1403FF520, 2, &P);
+  NdrMesTypeDecode3(v20, "TP 3\a", &off_140350000, &off_140400520, 2, &P);
   if ( !P
     || !*((_QWORD *)P + 1)
     || !*((_QWORD *)P + 3)

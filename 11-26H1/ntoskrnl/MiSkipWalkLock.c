@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSkipWalkLock @ 0x14045A6C0
+ * XREFs of MiSkipWalkLock @ 0x140451F40
  * Callers:
- *     MiYieldPageTableWalk @ 0x140362E50 (MiYieldPageTableWalk.c)
+ *     MiYieldPageTableWalk @ 0x140364BF0 (MiYieldPageTableWalk.c)
  * Callees:
  *     <none>
  */

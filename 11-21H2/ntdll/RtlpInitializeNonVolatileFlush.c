@@ -12,7 +12,7 @@ NTSTATUS RtlpInitializeNonVolatileFlush()
   NTSTATUS result; // eax
   char v1; // al
   _BYTE SystemInformation[4]; // [rsp+20h] [rbp-38h] BYREF
-  unsigned int v3; // [rsp+24h] [rbp-34h]
+  unsigned __int32 v3; // [rsp+24h] [rbp-34h]
   char v4; // [rsp+28h] [rbp-30h]
 
   result = NtQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL);

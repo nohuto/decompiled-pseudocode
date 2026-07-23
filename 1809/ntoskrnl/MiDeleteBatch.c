@@ -2,17 +2,17 @@
  * XREFs of MiDeleteBatch @ 0x140039750
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiDeleteClusterPage @ 0x1402C622C (MiDeleteClusterPage.c)
+ *     MiDeleteClusterPage @ 0x1402C641C (MiDeleteClusterPage.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteBatch(unsigned __int8 *a1)
@@ -45,7 +45,7 @@ __int64 __fastcall MiDeleteBatch(unsigned __int8 *a1)
     return 0LL;
   v3 = 0LL;
   v24 = *((_QWORD *)a1 + 2);
-  v4 = *(struct _KEVENT **)(qword_14043A748
+  v4 = *(struct _KEVENT **)(qword_14043B808
                           + 8
                           * ((*(_QWORD *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v24) >> 12) & 0xFFFFFFFFFLL)
                                         - 0x57FFFFFFFD8LL) >> 40) & 0x3FFLL));

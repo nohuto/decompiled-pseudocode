@@ -53,8 +53,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v5 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v5,
@@ -70,8 +70,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(v24, 1LL, 16LL, v5) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v25,
         v27);
@@ -84,8 +84,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
                              v26) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of ac"
         "tivation context data (%lu bytes)\n",
         v29,
@@ -112,8 +112,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(*((unsigned int *)v35 + 4), 1LL, 16LL, v31) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
         v33,
         v36,
@@ -143,8 +143,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     || (int)v15 + (int)v14 > v5 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       v14,
       v13,
@@ -193,8 +193,8 @@ LABEL_16:
   if ( (unsigned int)v20 + v21 < v21 || (unsigned int)v20 >= v22 || (unsigned int)v20 + v21 > v22 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v20,
       v21,

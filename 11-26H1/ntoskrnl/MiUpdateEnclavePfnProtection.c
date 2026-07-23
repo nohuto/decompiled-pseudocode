@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateEnclavePfnProtection @ 0x1407002A0
+ * XREFs of MiUpdateEnclavePfnProtection @ 0x140704F70
  * Callers:
- *     MiProtectEnclavePages @ 0x140519CE0 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x140513750 (MiProtectEnclavePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiUpdateEnclavePfnProtection(__int64 a1, unsigned int a2)

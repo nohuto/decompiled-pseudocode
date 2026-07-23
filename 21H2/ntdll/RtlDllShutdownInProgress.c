@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool RtlDllShutdownInProgress()
+BOOLEAN RtlDllShutdownInProgress(void)
 {
   return byte_18016C508 != 0;
 }

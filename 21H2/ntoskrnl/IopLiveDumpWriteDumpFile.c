@@ -1,20 +1,20 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFile @ 0x140898B80
+ * XREFs of IopLiveDumpWriteDumpFile @ 0x140898CE0
  * Callers:
- *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x140896A20 (IoWriteDeferredLiveDumpData.c)
+ *     IoCaptureLiveDump @ 0x1408963F8 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896B80 (IoWriteDeferredLiveDumpData.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x14050A890 (SecureDump_Get_SecureDumpHeader.c)
- *     RtlNumberOfSetBitsEx @ 0x140587EB0 (RtlNumberOfSetBitsEx.c)
- *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
- *     IopLiveDumpCheckTermination @ 0x140897F5C (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140898020 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpWriteBuffer @ 0x140898ABC (IopLiveDumpWriteBuffer.c)
- *     IopLiveDumpWriteSecondaryData @ 0x140899748 (IopLiveDumpWriteSecondaryData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmFreePagesFromMdl @ 0x14024E380 (MmFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x14050AAD0 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405880E0 (RtlNumberOfSetBitsEx.c)
+ *     MmFreeIndependentPages @ 0x140764790 (MmFreeIndependentPages.c)
+ *     IopLiveDumpCheckTermination @ 0x1408980BC (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140898180 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpWriteBuffer @ 0x140898C1C (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x1408998A8 (IopLiveDumpWriteSecondaryData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteDumpFile(__int64 a1)

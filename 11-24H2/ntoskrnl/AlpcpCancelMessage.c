@@ -1,36 +1,36 @@
 /*
- * XREFs of AlpcpCancelMessage @ 0x140894410
+ * XREFs of AlpcpCancelMessage @ 0x14089C73C
  * Callers:
- *     AlpcpFlushMessagesByRequestor @ 0x14088A4C8 (AlpcpFlushMessagesByRequestor.c)
- *     AlpcpReceiveSynchronousReply @ 0x14088AA00 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpFlushMessagesPort @ 0x14088BE6C (AlpcpFlushMessagesPort.c)
- *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
- *     AlpcpDispatchReplyToPort @ 0x140892910 (AlpcpDispatchReplyToPort.c)
- *     AlpcpReceiveLegacyMessage @ 0x1408952E0 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpReceiveMessage @ 0x140899160 (AlpcpReceiveMessage.c)
- *     NtAlpcCancelMessage @ 0x14093CEA0 (NtAlpcCancelMessage.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1409EC9B0 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
- *     AlpcpProcessSynchronousRequest @ 0x140A304CC (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpFlushMessagesByRequestor @ 0x14088E378 (AlpcpFlushMessagesByRequestor.c)
+ *     AlpcpFlushMessagesPort @ 0x14088EE5C (AlpcpFlushMessagesPort.c)
+ *     NtAlpcCancelMessage @ 0x140891590 (NtAlpcCancelMessage.c)
+ *     AlpcpSendMessage @ 0x140898440 (AlpcpSendMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x14089BF40 (AlpcpDispatchReplyToPort.c)
+ *     AlpcpReceiveLegacyMessage @ 0x14089D780 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReceiveMessage @ 0x1408A1800 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveSynchronousReply @ 0x140993FB0 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1409E5CE0 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x140A1ED20 (AlpcpAcceptConnectPort.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140A24FBC (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     PsReleaseProcessWakeCounter @ 0x14088E750 (PsReleaseProcessWakeCounter.c)
- *     AlpcpClearOwnerPortMessage @ 0x140892D3C (AlpcpClearOwnerPortMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x140892D70 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcpRemoveMessagePort @ 0x1409E7F6C (AlpcpRemoveMessagePort.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x140A20580 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcpTransferQuotaMessage @ 0x140A2C884 (AlpcpTransferQuotaMessage.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x140A562D4 (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpSignalPortAndUnlock @ 0x140A5E8B4 (AlpcpSignalPortAndUnlock.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     AlpcpSignalPortAndUnlock @ 0x14088E594 (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x14088E614 (AlpcpInsertMessageCanceledQueue.c)
+ *     PsReleaseProcessWakeCounter @ 0x140898050 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpClearOwnerPortMessage @ 0x14089C36C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x14089C3A0 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcpRemoveMessagePort @ 0x1409E2F2C (AlpcpRemoveMessagePort.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140A15680 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpTransferQuotaMessage @ 0x140A212C4 (AlpcpTransferQuotaMessage.c)
  */
 
 __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
@@ -45,10 +45,10 @@ __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
   int v12; // ebp
   BOOL v13; // r14d
   signed __int64 *v14; // r15
-  _QWORD *v15; // r13
+  char *v15; // r13
   int v16; // ebp
   __int64 *v17; // r15
-  _QWORD *v18; // r13
+  char *v18; // r13
   int v19; // eax
   unsigned int v20; // r12d
   __int64 v21; // r9
@@ -58,14 +58,14 @@ __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
   int v25; // eax
   int v26; // eax
   volatile signed __int64 *v28; // rbp
-  _QWORD *v29; // rax
-  _QWORD *v30; // r14
-  _QWORD *v31; // r15
+  char *v29; // rax
+  char *v30; // r14
+  char *v31; // r15
   int v32; // eax
-  _QWORD *v33; // rax
-  _QWORD *v34; // r14
+  char *v33; // rax
+  char *v34; // r14
   __int64 *v35; // r12
-  _QWORD *v36; // r13
+  char *v36; // r13
   signed __int32 v37[8]; // [rsp+0h] [rbp-88h] BYREF
   int v38; // [rsp+90h] [rbp+8h]
   __int64 v39; // [rsp+98h] [rbp+10h]
@@ -91,11 +91,11 @@ __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
         goto LABEL_27;
       v41 = *(__int64 **)(a1 + 16);
       v14 = v41 - 2;
-      v15 = KeAbPreAcquire((__int64)(v41 - 2), 0LL);
+      v15 = (char *)KeAbPreAcquire((__int64)(v41 - 2), 0LL);
       if ( _InterlockedCompareExchange64(v41 - 2, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v14, 0, v15, (__int64)v14);
       if ( v15 )
-        *((_BYTE *)v15 + 10) = 1;
+        v15[10] = 1;
       if ( (*(_DWORD *)(a2 + 40) & 0x200) != 0 )
         goto LABEL_87;
       if ( v12 == 16 )
@@ -116,11 +116,11 @@ __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
         goto LABEL_27;
       v35 = *(__int64 **)(a1 + 16);
       v14 = v35 - 2;
-      v36 = KeAbPreAcquire((__int64)(v35 - 2), 0LL);
+      v36 = (char *)KeAbPreAcquire((__int64)(v35 - 2), 0LL);
       if ( _InterlockedCompareExchange64(v35 - 2, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v35 - 2, 0, v36, (__int64)(v35 - 2));
       if ( v36 )
-        *((_BYTE *)v36 + 10) = 1;
+        v36[10] = 1;
       if ( (*(_DWORD *)(a2 + 40) & 0x200) != 0 )
         goto LABEL_87;
       if ( v12 == 8 )
@@ -158,11 +158,11 @@ LABEL_110:
       v9 = *(_QWORD *)(a2 + 16);
       goto LABEL_27;
     }
-    v18 = KeAbPreAcquire((__int64)(v17 - 2), 0LL);
+    v18 = (char *)KeAbPreAcquire((__int64)(v17 - 2), 0LL);
     if ( _InterlockedCompareExchange64(v17 - 2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v17 - 2, 0, v18, (__int64)(v17 - 2));
     if ( v18 )
-      *((_BYTE *)v18 + 10) = 1;
+      v18[10] = 1;
     if ( (*(_DWORD *)(a2 + 40) & 0x200) == 0 )
     {
       if ( v16 == 8 )
@@ -244,11 +244,11 @@ LABEL_43:
           AlpcpRemoveMessageFromPendingQueue(a2);
         goto LABEL_44;
       }
-      v31 = KeAbPreAcquire(v10 + 352, 0LL);
+      v31 = (char *)KeAbPreAcquire(v10 + 352, 0LL);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 352), 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(v10 + 352), 0, v31, v10 + 352);
       if ( v31 )
-        *((_BYTE *)v31 + 10) = 1;
+        v31[10] = 1;
       if ( (*(_DWORD *)(v10 + 416) & 0x40) != 0 )
       {
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 352), 0LL, 17LL) != 17 )
@@ -279,12 +279,12 @@ LABEL_43:
         if ( v25 == 4 )
         {
           v28 = (volatile signed __int64 *)(v9 + 200);
-          v33 = KeAbPreAcquire(v9 + 200, 0LL);
+          v33 = (char *)KeAbPreAcquire(v9 + 200, 0LL);
           v34 = v33;
           if ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 200), 0LL) )
-            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v9 + 200), (__int64)v33, v9 + 200);
+            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v9 + 200), v33, v9 + 200);
           if ( v34 )
-            *((_BYTE *)v34 + 10) = 1;
+            v34[10] = 1;
           --*(_DWORD *)(v9 + 460);
           *(_DWORD *)(a2 + 40) &= 0xFFFFFFF8;
           *(_QWORD *)(a2 + 16) = 0LL;
@@ -294,12 +294,12 @@ LABEL_43:
         else
         {
           v28 = (volatile signed __int64 *)(v9 + 136);
-          v29 = KeAbPreAcquire(v9 + 136, 0LL);
+          v29 = (char *)KeAbPreAcquire(v9 + 136, 0LL);
           v30 = v29;
           if ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 136), 0LL) )
-            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v9 + 136), (__int64)v29, v9 + 136);
+            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v9 + 136), v29, v9 + 136);
           if ( v30 )
-            *((_BYTE *)v30 + 10) = 1;
+            v30[10] = 1;
           AlpcpRemoveMessagePort(v9, a2);
         }
         if ( (_InterlockedExchangeAdd64(v28, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

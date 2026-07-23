@@ -37,9 +37,9 @@ __int64 __fastcall sub_180031620(__int64 a1, _DWORD *a2, BYTE *a3)
     v10 = MEMORY[0x7FFE03C0];
   if ( *(_DWORD *)(a1 + 424) != v10 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     sub_18010EB1C(a1);
-    RtlReleaseSRWLockExclusive(a1 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     v7 = dword_180166074;
   }
   v11 = 0;

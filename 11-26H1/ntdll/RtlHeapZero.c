@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlHeapZero @ 0x1801642D0
+ * XREFs of RtlHeapZero @ 0x1801641D0
  * Callers:
- *     RtlpHpVsContextAllocateFinalize @ 0x180013700 (RtlpHpVsContextAllocateFinalize.c)
- *     RtlpHpAllocateHeap @ 0x180071440 (RtlpHpAllocateHeap.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
- *     RtlpHpAllocVA @ 0x18008BB10 (RtlpHpAllocVA.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpAllocateHeapInternal @ 0x1800DF844 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpSegAlloc @ 0x1800E0094 (RtlpHpSegAlloc.c)
- *     RtlpHpPgContextAllocate @ 0x18010CAD0 (RtlpHpPgContextAllocate.c)
+ *     RtlpHpVsContextAllocateFinalize @ 0x18005EE30 (RtlpHpVsContextAllocateFinalize.c)
+ *     RtlpHpAllocVA @ 0x18006EF50 (RtlpHpAllocVA.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeap @ 0x180091890 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800DC7B4 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpSegAlloc @ 0x1800DD93C (RtlpHpSegAlloc.c)
+ *     RtlpHpPgContextAllocate @ 0x18010C620 (RtlpHpPgContextAllocate.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall RtlHeapZero(_OWORD *a1, unsigned __int64 a2)
       *(_OWORD *)((char *)a1 + ((a2 & 0x20) >> 1)) = 0LL;
     }
   }
-  else if ( (qword_1801C6EE8 & 2) != 0 && a2 >= 0x320 )
+  else if ( (qword_1801C5EE8 & 2) != 0 && a2 >= 0x320 )
   {
     return RtlpHeapZeroFastString();
   }

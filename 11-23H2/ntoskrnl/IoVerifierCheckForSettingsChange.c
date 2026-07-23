@@ -1,10 +1,10 @@
 /*
- * XREFs of IoVerifierCheckForSettingsChange @ 0x140AC0BF0
+ * XREFs of IoVerifierCheckForSettingsChange @ 0x140AC0BE0
  * Callers:
- *     IoVerifierInit @ 0x140AC0CAC (IoVerifierInit.c)
- *     ViSettingsIoCheckForChanges @ 0x140ADAF48 (ViSettingsIoCheckForChanges.c)
+ *     IoVerifierInit @ 0x140AC0C9C (IoVerifierInit.c)
+ *     ViSettingsIoCheckForChanges @ 0x140ADAF38 (ViSettingsIoCheckForChanges.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  */
 

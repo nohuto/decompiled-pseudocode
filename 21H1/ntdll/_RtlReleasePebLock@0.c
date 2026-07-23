@@ -6,7 +6,7 @@
  *     _RtlLeaveCriticalSection@4 @ 0x4B2BE700 (_RtlLeaveCriticalSection@4.c)
  */
 
-int __stdcall RtlReleasePebLock()
+NTSTATUS RtlReleasePebLock(void)
 {
-  return RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpValueEnumStackEntryCleanup @ 0x1401B5C5C
+ * XREFs of CmpValueEnumStackEntryCleanup @ 0x1401B5B40
  * Callers:
- *     CmpValueEnumStackCleanup @ 0x14060B58C (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackCleanup @ 0x14060B640 (CmpValueEnumStackCleanup.c)
  * Callees:
  *     <none>
  */

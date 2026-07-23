@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePageAttributeStamp @ 0x140132C00
+ * XREFs of MiUpdatePageAttributeStamp @ 0x140132CD0
  * Callers:
- *     MiCopyHeaderIfResident @ 0x140092E70 (MiCopyHeaderIfResident.c)
+ *     MiCopyHeaderIfResident @ 0x140092DB0 (MiCopyHeaderIfResident.c)
  * Callees:
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
  */
 
 void __fastcall MiUpdatePageAttributeStamp(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall MiUpdatePageAttributeStamp(__int64 a1)
   if ( !*(_WORD *)(a1 + 32) )
   {
     v2 = *(_QWORD *)(a1 + 40);
-    v3 = *(_QWORD *)(qword_14043A748 + 8 * ((v2 >> 40) & 0x3FF));
+    v3 = *(_QWORD *)(qword_14043B808 + 8 * ((v2 >> 40) & 0x3FF));
     v4 = *(_QWORD *)(v3 + 8LL * (*(_BYTE *)(a1 + 34) & 7) + 4152);
     if ( (*(_BYTE *)(a1 + 34) & 7) == 2 )
     {

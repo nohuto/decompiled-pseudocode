@@ -21,7 +21,7 @@ __int64 __fastcall SmIssueIo(unsigned int *a1, unsigned int a2, int a3, int a4, 
   char *v16; // rax
   void (*v17)(void *, struct _IO_STATUS_BLOCK *, unsigned int); // r9
   int v18; // r11d
-  void **v19; // rcx
+  struct _SMKM_FILE_INFO *v19; // rcx
   __int64 v20; // r8
   int v21; // eax
   _QWORD v23[2]; // [rsp+30h] [rbp-30h] BYREF
@@ -81,7 +81,7 @@ __int64 __fastcall SmIssueIo(unsigned int *a1, unsigned int a2, int a3, int a4, 
     v17 = (void (*)(void *, struct _IO_STATUS_BLOCK *, unsigned int))SmpDeviceIoCompletion;
   }
   v18 = *a1;
-  v19 = (void **)(a1 + 1756);
+  v19 = (struct _SMKM_FILE_INFO *)(a1 + 1756);
   v20 = *((_QWORD *)a1 + 884);
   v23[0] = v16;
   while ( a2 >= *(_DWORD *)v20 )

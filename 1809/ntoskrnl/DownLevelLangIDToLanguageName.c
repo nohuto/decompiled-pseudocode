@@ -1,18 +1,18 @@
 /*
- * XREFs of DownLevelLangIDToLanguageName @ 0x140161030
+ * XREFs of DownLevelLangIDToLanguageName @ 0x140161130
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1400F406C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
- *     LdrpGetParentLangId @ 0x140160FC0 (LdrpGetParentLangId.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     LdrResSearchResource @ 0x14068AD30 (LdrResSearchResource.c)
- *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
- *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
- *     CmSelectQualifiedInstallLanguage @ 0x1409CD3F0 (CmSelectQualifiedInstallLanguage.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F40EC (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA8C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpGetParentLangId @ 0x1401610C0 (LdrpGetParentLangId.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1401829A0 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     LdrResSearchResource @ 0x14068BEF0 (LdrResSearchResource.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071BB94 (ExpSetCurrentUserUILanguage.c)
+ *     RtlLCIDToCultureName @ 0x140897850 (RtlLCIDToCultureName.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x1409CE3F0 (CmSelectQualifiedInstallLanguage.c)
  * Callees:
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x14017658C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140178564 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
- *     bsearch @ 0x140195CD0 (bsearch.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x14017668C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140178664 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
+ *     bsearch @ 0x140195E10 (bsearch.c)
  */
 
 __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a2, int a3, int a4)
@@ -33,7 +33,7 @@ __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a
     return 0LL;
   v7 = (const struct CultureDataType *)bsearch(
                                          &Key,
-                                         &off_140351950,
+                                         &off_140352950,
                                          0x1B3uLL,
                                          0x10uLL,
                                          (int (__cdecl *)(const void *, const void *))CompareLangIDs);

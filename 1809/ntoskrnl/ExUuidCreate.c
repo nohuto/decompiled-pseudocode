@@ -1,23 +1,23 @@
 /*
- * XREFs of ExUuidCreate @ 0x1406062C0
+ * XREFs of ExUuidCreate @ 0x1406072C0
  * Callers:
- *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     CmpUuidCreate @ 0x140680A6C (CmpUuidCreate.c)
- *     PipGenerateContainerID @ 0x140700960 (PipGenerateContainerID.c)
- *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140816C40 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
- *     IoGetDeviceDirectory @ 0x1408249F0 (IoGetDeviceDirectory.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x140830640 (PiDevCfgResolveVariableGenerateGuid.c)
- *     BiCreateObject @ 0x1408F0BA0 (BiCreateObject.c)
+ *     NtCreateJobObject @ 0x140606F80 (NtCreateJobObject.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     CmpUuidCreate @ 0x140681C2C (CmpUuidCreate.c)
+ *     PipGenerateContainerID @ 0x140701C00 (PipGenerateContainerID.c)
+ *     CmpCloneHwProfile @ 0x1407FC7DC (CmpCloneHwProfile.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140817E40 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     IoGetDeviceDirectory @ 0x140825BF0 (IoGetDeviceDirectory.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x1408318A0 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     BiCreateObject @ 0x1408F1E60 (BiCreateObject.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406C606C (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1406C6098 (ExpAllocateUuids.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406C730C (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x1406C7338 (ExpAllocateUuids.c)
  */
 
 NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
@@ -29,9 +29,9 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
   char v6; // cl
   int v7; // eax
   __int64 v8; // rdi
-  __int64 v10; // rax
+  _RTL_BALANCED_NODE *v10; // rax
   signed __int8 v11; // cf
-  __int64 v12; // rbp
+  _RTL_BALANCED_NODE *v12; // rbp
   int v13; // eax
   __int64 v14; // rcx
   char v15; // al
@@ -49,9 +49,9 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
     {
       v5 = ExpUuidCachedValues;
       v6 = ExpUuidCacheValid;
-      *(_DWORD *)Uuid->Data4 = dword_14096D27C;
-      *(_DWORD *)&Uuid->Data4[4] = dword_14096D280;
-      v7 = _InterlockedDecrement(&dword_14096D278);
+      *(_DWORD *)Uuid->Data4 = dword_14096E27C;
+      *(_DWORD *)&Uuid->Data4[4] = dword_14096E280;
+      v7 = _InterlockedDecrement(&dword_14096E278);
     }
     while ( v5 != ExpUuidCachedValues );
     if ( v7 >= 0 )
@@ -71,7 +71,7 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
     if ( v11 )
       ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v10, (ULONG_PTR)&ExpUuidLock);
     if ( v12 )
-      *(_BYTE *)(v12 + 26) |= 1u;
+      BYTE2(v12[1].Left) |= 1u;
     if ( v5 != ExpUuidCachedValues )
     {
       v16 = (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
@@ -82,13 +82,13 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
       goto LABEL_21;
     if ( v13 < 0 )
       break;
-    BYTE1(dword_14096D27C) = v17;
+    BYTE1(dword_14096E27C) = v17;
     v14 = v17 >> 8;
     v19 += 5748192000000000LL;
     LOBYTE(v14) = BYTE1(v17) & 0x3F | 0x80;
-    LOBYTE(dword_14096D27C) = v14;
+    LOBYTE(dword_14096E27C) = v14;
     ExpUuidCachedValues = v19 + (unsigned int)(v18 - 1);
-    ExpUuidSaveSequenceNumberIf(v14, ExpUuidCachedValues, (unsigned int)_InterlockedExchange(&dword_14096D278, v18));
+    ExpUuidSaveSequenceNumberIf(v14, ExpUuidCachedValues, (unsigned int)_InterlockedExchange(&dword_14096E278, v18));
     v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v15 & 2) == 0 )
       goto LABEL_15;

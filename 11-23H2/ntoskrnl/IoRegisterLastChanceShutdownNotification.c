@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterLastChanceShutdownNotification @ 0x14080EAB0
+ * XREFs of IoRegisterLastChanceShutdownNotification @ 0x14080ED80
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     IopInterlockedInsertHeadList @ 0x14037487C (IopInterlockedInsertHeadList.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x14080EBA4 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     IopInterlockedInsertHeadList @ 0x140374A1C (IopInterlockedInsertHeadList.c)
+ *     IopLogAuditIoRegisterNotificationEvent @ 0x14080EE74 (IopLogAuditIoRegisterNotificationEvent.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

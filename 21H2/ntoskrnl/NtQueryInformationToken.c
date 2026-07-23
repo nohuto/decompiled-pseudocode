@@ -1,42 +1,42 @@
 /*
- * XREFs of NtQueryInformationToken @ 0x140657DF0
+ * XREFs of NtQueryInformationToken @ 0x14064CC10
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x140586AB0 (RtlGetAppContainerNamedObjectPath.c)
- *     RtlpGetTokenNamedObjectPath @ 0x140914568 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x140586CE0 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409146C8 (RtlpGetTokenNamedObjectPath.c)
  * Callees:
- *     SepTokenPrivilegeCount @ 0x140202A20 (SepTokenPrivilegeCount.c)
- *     SeQueryMandatoryPolicyToken @ 0x140202A4C (SeQueryMandatoryPolicyToken.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x14024E800 (AuthzBasepQuerySecurityAttributesToken.c)
- *     SepConvertTokenPrivileges @ 0x1402527D4 (SepConvertTokenPrivileges.c)
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140252800 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
- *     SepCopyTokenIntegrity @ 0x14025299C (SepCopyTokenIntegrity.c)
- *     SeIsSModeAdminlessEnabled @ 0x140252ED0 (SeIsSModeAdminlessEnabled.c)
- *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
- *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     RtlIsSandboxedTokenHandle @ 0x1402D2E70 (RtlIsSandboxedTokenHandle.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
- *     Feature_PPLEnforcement__private_ReportDeviceUsage @ 0x1403F8B74 (Feature_PPLEnforcement__private_ReportDeviceUsage.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SepGetStackTraceHash @ 0x140596110 (SepGetStackTraceHash.c)
- *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
- *     RtlCopySidAndAttributesArray @ 0x1405DC280 (RtlCopySidAndAttributesArray.c)
- *     SepGetTokenAccessInformationBufferSize @ 0x1405DC348 (SepGetTokenAccessInformationBufferSize.c)
- *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     RtlIsElevatedRid @ 0x1406744C0 (RtlIsElevatedRid.c)
- *     SeQuerySessionIdToken @ 0x140692F80 (SeQuerySessionIdToken.c)
- *     AuthzBasepQueryClaimAttributesToken @ 0x1406A558C (AuthzBasepQueryClaimAttributesToken.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     EtwTraceAdminlessAccessFailure @ 0x14093FC38 (EtwTraceAdminlessAccessFailure.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140243B50 (SepDeReferenceLogonSessionDirect.c)
+ *     RtlIsSandboxedTokenHandle @ 0x140251410 (RtlIsSandboxedTokenHandle.c)
+ *     SepReferenceTokenByHandle @ 0x14026A9C0 (SepReferenceTokenByHandle.c)
+ *     SepConvertTokenPrivileges @ 0x14028568C (SepConvertTokenPrivileges.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1402856B0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SepCopyTokenIntegrity @ 0x14028584C (SepCopyTokenIntegrity.c)
+ *     SeIsSModeAdminlessEnabled @ 0x140285D40 (SeIsSModeAdminlessEnabled.c)
+ *     SepTokenPrivilegeCount @ 0x1402A73B0 (SepTokenPrivilegeCount.c)
+ *     SeQueryMandatoryPolicyToken @ 0x1402A73DC (SeQueryMandatoryPolicyToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1402F2FB0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1402F3050 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     KeEnterCriticalRegion @ 0x14035BF60 (KeEnterCriticalRegion.c)
+ *     Feature_PPLEnforcement__private_ReportDeviceUsage @ 0x1403F8BA4 (Feature_PPLEnforcement__private_ReportDeviceUsage.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SepGetStackTraceHash @ 0x140596340 (SepGetStackTraceHash.c)
+ *     SeQuerySessionIdToken @ 0x1405F2610 (SeQuerySessionIdToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x1406031BC (AuthzBasepQueryClaimAttributesToken.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     RtlIsElevatedRid @ 0x1406696F0 (RtlIsElevatedRid.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     SepCopyTokenAccessInformation @ 0x1406CB4E8 (SepCopyTokenAccessInformation.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406CBA00 (RtlCopySidAndAttributesArray.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x1406CBAC8 (SepGetTokenAccessInformationBufferSize.c)
+ *     SepReferenceLogonSessionSilo @ 0x1406CBF7C (SepReferenceLogonSessionSilo.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     EtwTraceAdminlessAccessFailure @ 0x14093FE08 (EtwTraceAdminlessAccessFailure.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationToken(
@@ -95,11 +95,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v55; // rdx
   __int64 v56; // r9
   ULONG v57; // ecx
-  char *v58; // r9
-  __int64 v59; // rdi
+  _SID_AND_ATTRIBUTES *v58; // r9
+  _SID_AND_ATTRIBUTES *v59; // rdi
   __int64 v60; // r14
   struct _KTHREAD *v61; // rax
-  unsigned __int8 *Src; // rdi
+  PSID v62; // rdi
   char v63; // r15
   ULONG TokenAccessInformationBufferSize; // eax
   struct _KTHREAD *v65; // rax
@@ -129,7 +129,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   _DMA_OPERATIONS *v89; // rdx
   __int64 v90; // r9
   struct _KTHREAD *v91; // rax
-  __int64 v92; // rdx
+  unsigned __int8 *Sid; // rdx
   ULONG v93; // eax
   struct _KTHREAD *v94; // rax
   unsigned int v95; // edx
@@ -146,7 +146,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   NTSTATUS v106; // ebx
   struct _KTHREAD *v107; // rax
   _DMA_OPERATIONS *v108; // rdx
-  unsigned int Size; // r11d
+  ULONG Size; // r11d
   ULONG v110; // r8d
   void (__fastcall *PutDmaAdapter)(_DMA_ADAPTER *); // rdx
   __int64 v112; // r9
@@ -155,7 +155,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   ULONG v115; // ebx
   ULONG v116; // ebx
   struct _KTHREAD *v117; // rax
-  char v118; // r9
+  unsigned __int8 v118; // r9
   PSID v119; // r8
   unsigned __int8 *v120; // rcx
   char *v121; // rdx
@@ -166,11 +166,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v126; // rax
   struct _KTHREAD *CurrentThread; // rax
   ULONG v128; // r8d
-  PVOID *NewObject; // [rsp+20h] [rbp-188h]
-  char v130[8]; // [rsp+80h] [rbp-128h] BYREF
+  PSID SidArea; // [rsp+20h] [rbp-188h]
+  unsigned __int8 v130[8]; // [rsp+80h] [rbp-128h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp-120h] BYREF
   PSID DestinationSid; // [rsp+90h] [rbp-118h] BYREF
-  __int64 v133; // [rsp+98h] [rbp-110h] BYREF
+  PSID RemainingSidArea; // [rsp+98h] [rbp-110h] BYREF
   int v134; // [rsp+A0h] [rbp-108h] BYREF
   ULONG v135; // [rsp+A4h] [rbp-104h] BYREF
   NTSTATUS v136; // [rsp+A8h] [rbp-100h]
@@ -192,8 +192,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int128 v152; // [rsp+F8h] [rbp-B0h] BYREF
   __int128 v153; // [rsp+108h] [rbp-A0h]
   __int128 v154; // [rsp+118h] [rbp-90h] BYREF
-  __int64 v155; // [rsp+128h] [rbp-80h]
-  __int128 v156; // [rsp+130h] [rbp-78h] BYREF
+  _SID_AND_ATTRIBUTES *v155; // [rsp+128h] [rbp-80h]
+  _SID_AND_ATTRIBUTES Src; // [rsp+130h] [rbp-78h] BYREF
   _DWORD v157[2]; // [rsp+140h] [rbp-68h] BYREF
   __int64 v158; // [rsp+148h] [rbp-60h]
   __int64 v159; // [rsp+150h] [rbp-58h]
@@ -209,8 +209,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   v145 = 0;
   v155 = 0LL;
   v148 = 0;
-  v156 = 0LL;
-  v133 = 0LL;
+  Src = 0LL;
+  RemainingSidArea = 0LL;
   SessionId = 0;
   v163 = 0LL;
   v152 = 0LL;
@@ -247,12 +247,12 @@ NTSTATUS __stdcall NtQueryInformationToken(
     {
       RtlCopySidAndAttributesArray(
         1u,
-        (__int64)v15[9].DmaOperations,
+        (PSID_AND_ATTRIBUTES)v15[9].DmaOperations,
         v128,
-        (__int64)TokenInformation,
+        (PSID_AND_ATTRIBUTES)TokenInformation,
         (char *)TokenInformation + 16,
-        &v133,
-        (unsigned int *)&v133);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
 LABEL_242:
       ExReleaseResourceLite(*(PERESOURCE *)&v15[3].Version);
       KeLeaveCriticalRegion();
@@ -299,12 +299,12 @@ LABEL_240:
           *(_DWORD *)TokenInformation = HIDWORD(v15[7].DmaOperations) - 1;
           RtlCopySidAndAttributesArray(
             HIDWORD(v15[7].DmaOperations) - 1,
-            (__int64)&v15[9].DmaOperations->AllocateCommonBuffer,
+            (PSID_AND_ATTRIBUTES)&v15[9].DmaOperations->AllocateCommonBuffer,
             v17,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + (unsigned int)(16 * HIDWORD(v15[7].DmaOperations) - 32) + 24,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenPrivileges:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -471,12 +471,12 @@ LABEL_240:
           *(_DWORD *)TokenInformation = *(_DWORD *)&v15[8].Version;
           RtlCopySidAndAttributesArray(
             *(_DWORD *)&v15[8].Version,
-            *(_QWORD *)&v15[10].Version,
+            *(PSID_AND_ATTRIBUTES *)&v15[10].Version,
             v22,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + (unsigned int)(16 * *(_DWORD *)&v15[8].Version) + 8,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenSessionId:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -501,7 +501,7 @@ LABEL_240:
           v135 = SepTokenPrivilegeCount((__int64)v15);
           v45 = 12 * v135;
           v46 = HIDWORD(v15[7].DmaOperations);
-          v47 = 16 * v46;
+          v47 = v46;
           v48 = 16 * v46;
           if ( v46 )
           {
@@ -516,7 +516,7 @@ LABEL_240:
             while ( v50 );
           }
           v51 = *(_DWORD *)&v15[8].Version;
-          v52 = 16 * v51;
+          v52 = v51;
           v53 = 16 * v51;
           v54 = 16 * v51;
           if ( v51 )
@@ -539,13 +539,13 @@ LABEL_240:
           *((_QWORD *)TokenInformation + 6) = v15[1].DmaOperations;
           *((_DWORD *)TokenInformation + 1) = v48;
           *(_DWORD *)TokenInformation = HIDWORD(v15[7].DmaOperations);
-          v58 = (char *)TokenInformation + 56;
+          v58 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
           *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
           *((_DWORD *)TokenInformation + 5) = v53;
           *((_DWORD *)TokenInformation + 4) = *(_DWORD *)&v15[8].Version;
           if ( *(_DWORD *)&v15[8].Version )
           {
-            v59 = (__int64)&v58[(v48 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL];
+            v59 = (_SID_AND_ATTRIBUTES *)((char *)v58 + ((v48 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
             *((_QWORD *)TokenInformation + 3) = v59;
           }
           else
@@ -555,25 +555,25 @@ LABEL_240:
           }
           *((_DWORD *)TokenInformation + 9) = v45;
           *((_DWORD *)TokenInformation + 8) = v135;
-          v60 = (__int64)&v58[v53 + v48];
+          v60 = (__int64)v58 + v53 + v48;
           *((_QWORD *)TokenInformation + 5) = v60;
           RtlCopySidAndAttributesArray(
             HIDWORD(v15[7].DmaOperations),
-            (__int64)v15[9].DmaOperations,
-            v48 - v47,
-            (__int64)v58,
+            (PSID_AND_ATTRIBUTES)v15[9].DmaOperations,
+            v48 - v47 * 16,
+            v58,
             &v58[v47],
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           if ( v59 )
             RtlCopySidAndAttributesArray(
               *(_DWORD *)&v15[8].Version,
-              *(_QWORD *)&v15[10].Version,
-              v53 - v52,
+              *(PSID_AND_ATTRIBUTES *)&v15[10].Version,
+              v53 - v52 * 16,
               v59,
-              (char *)(v59 + v52),
-              &v133,
-              (unsigned int *)&v133);
+              &v59[v52],
+              &RemainingSidArea,
+              (PULONG)&RemainingSidArea);
           SepConvertTokenPrivilegesToLuidAndAttributes(v15, v60);
           goto LABEL_242;
         case TokenSandBoxInert:
@@ -664,8 +664,8 @@ LABEL_240:
               v67 = DmaAdapter;
               v68 = SepReferenceLogonSessionSilo(
                       &DmaAdapter[13].DmaOperations->AllocateCommonBuffer,
-                      (__int64)DmaAdapter[13].DmaOperations->AllocateAdapterChannelEx,
-                      (__int64 *)&v150);
+                      DmaAdapter[13].DmaOperations->AllocateAdapterChannelEx,
+                      &v150);
               if ( v68 >= 0 )
               {
                 v157[0] = 48;
@@ -735,7 +735,7 @@ LABEL_110:
             {
               if ( IsElevatedRid )
                 break;
-              IsElevatedRid = RtlIsElevatedRid((char *)v67[9].DmaOperations + 16 * (unsigned int)v9);
+              IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)v67[9].DmaOperations + (unsigned int)v9);
               LODWORD(v9) = v9 + 1;
             }
             while ( (unsigned int)v9 < v77 );
@@ -769,28 +769,28 @@ LABEL_110:
           --v61->KernelApcDisable;
           v15 = DmaAdapter;
           ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
-          Src = (unsigned __int8 *)DestinationSid;
+          v62 = DestinationSid;
           v63 = v130[0];
           TokenAccessInformationBufferSize = SepGetTokenAccessInformationBufferSize(
-                                               (__int64)v15,
+                                               (_DWORD)v15,
                                                v130[0],
-                                               (__int64)DestinationSid,
-                                               &v148,
-                                               &v147,
-                                               &v146,
-                                               &v145,
-                                               &v144,
-                                               (unsigned int *)&v143,
-                                               &v142,
-                                               &v141,
-                                               (unsigned int *)&v140,
-                                               &v139);
+                                               (_DWORD)DestinationSid,
+                                               (unsigned int)&v148,
+                                               (__int64)&v147,
+                                               (__int64)&v146,
+                                               (__int64)&v145,
+                                               (__int64)&v144,
+                                               (__int64)&v143,
+                                               (__int64)&v142,
+                                               (__int64)&v141,
+                                               (__int64)&v140,
+                                               (__int64)&v139);
           *v12 = TokenAccessInformationBufferSize;
           if ( TokenInformationLength < TokenAccessInformationBufferSize )
             goto LABEL_240;
           SepCopyTokenAccessInformation(
-            (__int64)v15,
-            (__int64)TokenInformation,
+            (int)v15,
+            (int)TokenInformation,
             TokenInformationLength,
             v148,
             v147,
@@ -803,7 +803,7 @@ LABEL_110:
             v140,
             v139,
             v63,
-            Src);
+            v62);
           goto LABEL_242;
         case TokenVirtualizationAllowed:
         case TokenVirtualizationEnabled:
@@ -850,20 +850,20 @@ LABEL_136:
           --v91->KernelApcDisable;
           v15 = DmaAdapter;
           ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
-          SepCopyTokenIntegrity((__int64)v15);
-          v92 = v156;
-          v93 = 4 * *(unsigned __int8 *)(v156 + 1) + 24;
+          SepCopyTokenIntegrity();
+          Sid = (unsigned __int8 *)Src.Sid;
+          v93 = 4 * *((unsigned __int8 *)Src.Sid + 1) + 24;
           *v12 = v93;
           if ( TokenInformationLength < v93 )
             goto LABEL_240;
           RtlCopySidAndAttributesArray(
             1u,
-            (__int64)&v156,
-            4 * *(unsigned __int8 *)(v92 + 1) + 8,
-            (__int64)TokenInformation,
+            &Src,
+            4 * Sid[1] + 8,
+            (PSID_AND_ATTRIBUTES)TokenInformation,
             (char *)TokenInformation + 16,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenMandatoryPolicy:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -910,12 +910,12 @@ LABEL_173:
           *(_DWORD *)TokenInformation = 1;
           RtlCopySidAndAttributesArray(
             1u,
-            (__int64)v15[9].DmaOperations + v98,
+            (PSID_AND_ATTRIBUTES)((char *)v15[9].DmaOperations + v98),
             4 * *(unsigned __int8 *)(*(_QWORD *)((char *)&v15[9].DmaOperations->Size + v98) + 1LL) + 8,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + 24,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenIsAppContainer:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -956,12 +956,12 @@ LABEL_173:
           *(_DWORD *)TokenInformation = *(_DWORD *)&v15[50].Version;
           RtlCopySidAndAttributesArray(
             *(_DWORD *)&v15[50].Version,
-            (__int64)v15[49].DmaOperations,
+            (PSID_AND_ATTRIBUTES)v15[49].DmaOperations,
             v88,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + (unsigned int)(16 * *(_DWORD *)&v15[50].Version) + 8,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenAppContainerSid:
           v82 = 8;
@@ -1020,7 +1020,7 @@ LABEL_173:
           {
             if ( TokenInformationClass == TokenUserClaimAttributes )
               AllocateCommonBufferWithBounds = (void *(__fastcall *)(_DMA_ADAPTER *, _LARGE_INTEGER *, _LARGE_INTEGER *, unsigned int, unsigned int, _MEMORY_CACHING_TYPE *, unsigned int, _LARGE_INTEGER *))GetDmaDomain;
-            AuthzBasepQueryClaimAttributesToken(AllocateCommonBufferWithBounds, 0LL, 0LL, &v134);
+            AuthzBasepQueryClaimAttributesToken(AllocateCommonBufferWithBounds, 0LL, 0, &v134);
             v105 = v134;
           }
           else
@@ -1082,12 +1082,12 @@ LABEL_173:
           if ( Size )
             RtlCopySidAndAttributesArray(
               Size,
-              (__int64)v15[68].DmaOperations->PutDmaAdapter,
+              (PSID_AND_ATTRIBUTES)v15[68].DmaOperations->PutDmaAdapter,
               v110,
-              (__int64)TokenInformation + 8,
+              (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
               (char *)TokenInformation + 16 * Size + 8,
-              &v133,
-              (unsigned int *)&v133);
+              &RemainingSidArea,
+              (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenSecurityAttributes:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -1100,8 +1100,8 @@ LABEL_173:
           v114 = v101[48].DmaOperations;
           if ( v114 )
           {
-            LODWORD(NewObject) = 0;
-            AuthzBasepQuerySecurityAttributesToken(v114, 0LL, 0LL, 0LL, (size_t)NewObject, &v134);
+            LODWORD(SidArea) = 0;
+            AuthzBasepQuerySecurityAttributesToken(v114, 0LL, 0LL, 0LL, (size_t)SidArea, &v134);
             v115 = v134;
           }
           else
@@ -1111,13 +1111,13 @@ LABEL_173:
           *v12 = v115;
           if ( TokenInformationLength < v115 )
             goto LABEL_188;
-          LODWORD(NewObject) = TokenInformationLength;
+          LODWORD(SidArea) = TokenInformationLength;
           v106 = AuthzBasepQuerySecurityAttributesToken(
                    &v101[48].DmaOperations->Size,
                    0LL,
                    0LL,
                    TokenInformation,
-                   (size_t)NewObject,
+                   (size_t)SidArea,
                    &v134);
           v136 = v106;
 LABEL_190:
@@ -1226,13 +1226,13 @@ LABEL_188:
           KeLeaveCriticalRegion();
           HalPutDmaAdapter(v101);
           return 0;
-        case MaxTokenInfoClass:
+        case TokenIsSandboxed:
           *v12 = 4;
           if ( TokenInformationLength < 4 )
             return -1073741789;
           *(_DWORD *)TokenInformation = (unsigned __int8)RtlIsSandboxedTokenHandle(TokenHandle);
           return 0;
-        case TokenAppContainerNumber|TokenAuditPolicy:
+        case TokenIsAppSilo:
           Feature_PPLEnforcement__private_ReportDeviceUsage();
           return -1073741821;
         default:

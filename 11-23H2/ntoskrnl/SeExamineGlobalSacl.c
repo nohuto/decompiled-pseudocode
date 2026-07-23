@@ -1,18 +1,18 @@
 /*
- * XREFs of SeExamineGlobalSacl @ 0x1408A670A
+ * XREFs of SeExamineGlobalSacl @ 0x1408A695A
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeObjectReferenceAuditAlarm @ 0x1406C31D0 (SeObjectReferenceAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140862AA0 (SeOpenObjectAuditAlarmForNonObObject.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA014 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE160 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     CmpExamineSaclForAuditEvent @ 0x140A1B868 (CmpExamineSaclForAuditEvent.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406C3200 (SeObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140862CE0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA214 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE360 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140A1BB18 (CmpExamineSaclForAuditEvent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     SeExamineSacl @ 0x1408A6250 (SeExamineSacl.c)
- *     SepRmGlobalSaclFind @ 0x1408A65B2 (SepRmGlobalSaclFind.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     SeExamineSacl @ 0x1408A64A0 (SeExamineSacl.c)
+ *     SepRmGlobalSaclFind @ 0x1408A6802 (SepRmGlobalSaclFind.c)
  */
 
 void __stdcall SeExamineGlobalSacl(

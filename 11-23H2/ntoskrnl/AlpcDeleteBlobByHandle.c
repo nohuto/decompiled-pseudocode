@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcDeleteBlobByHandle @ 0x14071C284
+ * XREFs of AlpcDeleteBlobByHandle @ 0x14071C484
  * Callers:
- *     AlpcSecurityDestroyProcedure @ 0x14071C950 (AlpcSecurityDestroyProcedure.c)
- *     AlpcSectionDeleteProcedure @ 0x1407CFD10 (AlpcSectionDeleteProcedure.c)
- *     AlpcSectionDestroyProcedure @ 0x1407D4A40 (AlpcSectionDestroyProcedure.c)
- *     AlpcReserveDestroyProcedure @ 0x1407E2F70 (AlpcReserveDestroyProcedure.c)
+ *     AlpcSecurityDestroyProcedure @ 0x14071CB50 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcSectionDeleteProcedure @ 0x1407CFFE0 (AlpcSectionDeleteProcedure.c)
+ *     AlpcSectionDestroyProcedure @ 0x1407D4D10 (AlpcSectionDestroyProcedure.c)
+ *     AlpcReserveDestroyProcedure @ 0x1407E3240 (AlpcReserveDestroyProcedure.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 char __fastcall AlpcDeleteBlobByHandle(_QWORD *a1, int a2, __int64 a3)

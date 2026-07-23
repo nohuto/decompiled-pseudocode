@@ -1,9 +1,9 @@
 /*
- * XREFs of PipDeviceObjectListElementAt @ 0x140A56D84
+ * XREFs of PipDeviceObjectListElementAt @ 0x140A4EC14
  * Callers:
- *     IopRemoveCurrentRelationFromList @ 0x1407338DC (IopRemoveCurrentRelationFromList.c)
- *     PipGrowDeviceObjectList @ 0x140A0C3C8 (PipGrowDeviceObjectList.c)
- *     IopEnumerateRelations @ 0x140A56CE8 (IopEnumerateRelations.c)
+ *     IopRemoveCurrentRelationFromList @ 0x140731810 (IopRemoveCurrentRelationFromList.c)
+ *     IopEnumerateRelations @ 0x140A4EB78 (IopEnumerateRelations.c)
+ *     PipGrowDeviceObjectList @ 0x140A54CC8 (PipGrowDeviceObjectList.c)
  * Callees:
  *     <none>
  */

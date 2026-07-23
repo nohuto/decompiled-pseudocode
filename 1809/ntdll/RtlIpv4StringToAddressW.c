@@ -3,8 +3,8 @@
  * Callers:
  *     RtlIpv4StringToAddressExW @ 0x180046B50 (RtlIpv4StringToAddressExW.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     iswctype @ 0x180093860 (iswctype.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     iswctype @ 0x180093870 (iswctype.c)
  */
 
 LONG __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Terminator, struct in_addr *Addr)
@@ -144,6 +144,6 @@ LABEL_32:
   v19 = v17 | v18;
 LABEL_33:
   *Terminator = S;
-  Addr->S_un.S_addr = _byteswap_ulong(v19);
+  *(_DWORD *)Addr = _byteswap_ulong(v19);
   return 0;
 }

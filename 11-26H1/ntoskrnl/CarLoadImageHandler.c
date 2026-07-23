@@ -1,14 +1,14 @@
 /*
- * XREFs of CarLoadImageHandler @ 0x1406491EC
+ * XREFs of CarLoadImageHandler @ 0x14064CDCC
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     CarCopyDriverName @ 0x140648828 (CarCopyDriverName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     CarCopyDriverName @ 0x14064C408 (CarCopyDriverName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall CarLoadImageHandler(__int64 a1)
@@ -44,10 +44,10 @@ void __fastcall CarLoadImageHandler(__int64 a1)
     if ( CarLogInitialized )
     {
       if ( (VfRuleClasses & 0x400000) != 0
-        && (unsigned int)dword_140E08EA8 > 5
-        && tlgKeywordOn((__int64)&dword_140E08EA8, 0x800000000000LL) )
+        && (unsigned int)dword_140E08E50 > 5
+        && tlgKeywordOn((__int64)&dword_140E08E50, 0x800000000000LL) )
       {
-        v4 = *(_DWORD *)&stru_140F066E8.WaitBlockFill11[40];
+        v4 = CarTipTag;
         v10 = 4LL;
         v9 = &v4;
         tlgCreate1Sz_wchar_t((__int64)v11, (const WCHAR *)(v3 + 8));
@@ -61,8 +61,8 @@ void __fastcall CarLoadImageHandler(__int64 a1)
         v15 = 8LL;
         v17 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08EA8,
-          (unsigned __int8 *)word_140052CEA,
+          (__int64)&dword_140E08E50,
+          (unsigned __int8 *)byte_140053B81,
           0LL,
           0LL,
           7u,

@@ -1,19 +1,19 @@
 /*
- * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x1405D72C4
+ * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x1405D9AB4
  * Callers:
- *     SecureDump_Init @ 0x1405D67E8 (SecureDump_Init.c)
- *     SecureDump_ReInitialize @ 0x1405D6FD4 (SecureDump_ReInitialize.c)
+ *     SecureDump_Init @ 0x1405D8FD8 (SecureDump_Init.c)
+ *     SecureDump_ReInitialize @ 0x1405D97C4 (SecureDump_ReInitialize.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     SecureDump_LogErrorEvent @ 0x1405D6C8C (SecureDump_LogErrorEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     BCryptGenerateSymmetricKey @ 0x14081052C (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x140810640 (BCryptSetProperty.c)
- *     BCryptGetProperty @ 0x140AD5C78 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x140B37C90 (BCryptOpenAlgorithmProvider.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     SecureDump_LogErrorEvent @ 0x1405D947C (SecureDump_LogErrorEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     BCryptGenerateSymmetricKey @ 0x140815FBC (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x1408160D0 (BCryptSetProperty.c)
+ *     BCryptGetProperty @ 0x140AD2C28 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140B39EA0 (BCryptOpenAlgorithmProvider.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 SecureDump_SymmetricEncryptionSetup()
@@ -35,7 +35,7 @@ __int64 SecureDump_SymmetricEncryptionSetup()
 
   pcbResult = 0;
   pbOutput = 0;
-  dword_140E66128 = 1;
+  dword_140E662E8 = 1;
   SymmetricKey = BCryptOpenAlgorithmProvider(&hAlgorithm, L"XTS-AES", L"Microsoft Primitive Provider", 1u);
   if ( SymmetricKey < 0 )
     goto LABEL_12;
@@ -48,10 +48,10 @@ LABEL_12:
     return (unsigned int)SymmetricKey;
   }
   SymmetricKey = -1073741822;
-  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]) )
+  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime) )
   {
     SymmetricKey = guard_dispatch_icall_no_overrides(0LL, Pool2);
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)&SepRmCapTableLock.PriorityFloorCounts[16] + 88LL));
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)&SepRmCapTableLock.ForegroundLossTime + 88LL));
   }
   if ( SymmetricKey < 0 )
   {

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertSecondaryListStandbyPage @ 0x1402C9E90
+ * XREFs of MiInsertSecondaryListStandbyPage @ 0x1402ABC50
  * Callers:
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiReplaceSecondaryListStandbyPage @ 0x1402CA5B0 (MiReplaceSecondaryListStandbyPage.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiReplaceSecondaryListStandbyPage @ 0x1402AC370 (MiReplaceSecondaryListStandbyPage.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiSetPfnNodeFlinkHigh @ 0x1402CA550 (MiSetPfnNodeFlinkHigh.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiSetPfnNodeFlinkHigh @ 0x1402AC310 (MiSetPfnNodeFlinkHigh.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
  */
 
 signed __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2, _QWORD *a3)
@@ -60,7 +60,7 @@ signed __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2, _
   v6 = (a1 + 0x220000000000LL) / 48;
   v7 = 48 * v6;
   v8 = 48 * v6 - 0x220000000000LL;
-  v42 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+  v42 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
   v9 = MiPageToNode(v6);
   v10 = *(_DWORD *)(v8 + 32);
   v11 = v9;
@@ -73,7 +73,7 @@ LABEL_3:
     goto LABEL_4;
   }
   if ( v8 < 0xFFFFDE0000000000uLL
-    || v8 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+    || v8 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
     || (unsigned int)MiIsDecayPfn(v7 / 48) )
   {
 LABEL_36:
@@ -86,7 +86,7 @@ LABEL_36:
     v12 = 5;
   }
 LABEL_4:
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     v13 = *(_BYTE *)(MiSearchChannelTable(v6) + 12);
   else
     v13 = 0;
@@ -96,7 +96,7 @@ LABEL_4:
   {
     if ( (_DWORD)v3 == 8 )
     {
-      v17 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v7 / 48) >> 9) + 1) & 0x7F;
+      v17 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v7 / 48) >> 9) + 1) & 0x7F;
       v36 = v17;
     }
     else

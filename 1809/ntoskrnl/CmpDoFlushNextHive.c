@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDoFlushNextHive @ 0x1405B1330
+ * XREFs of CmpDoFlushNextHive @ 0x1405B2330
  * Callers:
  *     <none>
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1405B1550 (CmpDoQueueLateUnloadWorker.c)
- *     CmpLockRegistryFreezeAware @ 0x1405B1640 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     CmpGetNextActiveHive @ 0x1405B2474 (CmpGetNextActiveHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1405B2514 (UNLOCK_HIVE_LOAD.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1405B2550 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpLockRegistryFreezeAware @ 0x1405B2640 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1405B2690 (LOCK_HIVE_LOAD.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
  */
 
 char __fastcall CmpDoFlushNextHive(_BYTE *a1, unsigned __int64 *a2)
@@ -37,14 +37,14 @@ char __fastcall CmpDoFlushNextHive(_BYTE *a1, unsigned __int64 *a2)
         if ( *(_DWORD *)(NextActiveHive + 104) || *(_BYTE *)(NextActiveHive + 191) )
         {
           UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-          v10 = *(_QWORD *)(NextActiveHive + 4176) + 10000000LL * (unsigned int)dword_1403FE8F0;
+          v10 = *(_QWORD *)(NextActiveHive + 4176) + 10000000LL * (unsigned int)dword_1403FF8F0;
           if ( UnbiasedInterruptTime >= v10 )
           {
             if ( (int)CmpFlushHive(NextActiveHive) < 0 )
             {
               v3 = 1;
               *a1 = 1;
-              v7 = 10000000LL * (unsigned int)dword_1403FE8FC;
+              v7 = 10000000LL * (unsigned int)dword_1403FF8FC;
             }
           }
           else

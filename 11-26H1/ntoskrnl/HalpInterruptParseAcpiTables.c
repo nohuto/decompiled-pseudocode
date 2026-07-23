@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptParseAcpiTables @ 0x140590698
+ * XREFs of HalpInterruptParseAcpiTables @ 0x140592E18
  * Callers:
- *     HalpInitializeInterrupts @ 0x140CADD98 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140CB3DD8 (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpInterruptParseMadt @ 0x140590738 (HalpInterruptParseMadt.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptParseMadt @ 0x140592EB8 (HalpInterruptParseMadt.c)
  */
 
 __int64 __fastcall HalpInterruptParseAcpiTables(__int64 a1, unsigned int a2)

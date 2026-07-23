@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReturnProcessPhysicalPages @ 0x140A43C20
+ * XREFs of MiReturnProcessPhysicalPages @ 0x140A43ED0
  * Callers:
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiFreePhysicalPageChain @ 0x14064A170 (MiFreePhysicalPageChain.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiFreePhysicalPageChain @ 0x14064A6C0 (MiFreePhysicalPageChain.c)
  * Callees:
  *     <none>
  */

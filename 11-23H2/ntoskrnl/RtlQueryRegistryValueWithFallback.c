@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlQueryRegistryValueWithFallback @ 0x140741690
+ * XREFs of RtlQueryRegistryValueWithFallback @ 0x140741880
  * Callers:
- *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x1405EB890 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140741554 (EtwpGetGuidSecurityDescriptor.c)
+ *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x1405EBE00 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x140741744 (EtwpGetGuidSecurityDescriptor.c)
  * Callees:
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

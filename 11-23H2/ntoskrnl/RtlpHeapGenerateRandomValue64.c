@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHeapGenerateRandomValue64 @ 0x140317588
+ * XREFs of RtlpHeapGenerateRandomValue64 @ 0x140317818
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x140317350 (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhContextInitialize @ 0x140389704 (RtlpHpLfhContextInitialize.c)
- *     RtlHpGlobalsInitialize @ 0x140389C2C (RtlHpGlobalsInitialize.c)
- *     RtlCreateHeap @ 0x1407D9080 (RtlCreateHeap.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1403175E0 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhContextInitialize @ 0x1403898E4 (RtlpHpLfhContextInitialize.c)
+ *     RtlHpGlobalsInitialize @ 0x140389E0C (RtlHpGlobalsInitialize.c)
+ *     RtlCreateHeap @ 0x1407D9350 (RtlCreateHeap.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 unsigned __int64 RtlpHeapGenerateRandomValue64()

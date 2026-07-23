@@ -1,13 +1,13 @@
 /*
- * XREFs of PsCaptureExceptionPort @ 0x140A9F91C
+ * XREFs of PsCaptureExceptionPort @ 0x140A9FC4C
  * Callers:
- *     PspFreezeProcessWorker @ 0x1407FB270 (PspFreezeProcessWorker.c)
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
- *     ExpRaiseHardError @ 0x140B33F0C (ExpRaiseHardError.c)
+ *     PspFreezeProcessWorker @ 0x140800CA0 (PspFreezeProcessWorker.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
+ *     ExpRaiseHardError @ 0x140B3635C (ExpRaiseHardError.c)
  * Callees:
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
  */
 
 void *__fastcall PsCaptureExceptionPort(__int64 a1)

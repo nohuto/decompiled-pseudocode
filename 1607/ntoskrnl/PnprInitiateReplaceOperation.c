@@ -1,22 +1,22 @@
 /*
  * XREFs of PnprInitiateReplaceOperation @ 0x1403DBA90
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1406430D4 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1406431B8 (PnpReplacePartitionUnit.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PnprCompleteWake @ 0x1401D008C (PnprCompleteWake.c)
- *     PnprQuiesce @ 0x1401D05D4 (PnprQuiesce.c)
- *     PnprSwap @ 0x1401D0914 (PnprSwap.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnprCompleteWake @ 0x1401CFEB8 (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x1401D0400 (PnprQuiesce.c)
+ *     PnprSwap @ 0x1401D0740 (PnprSwap.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  *     xHalDpMaskLevelTriggeredInterrupts @ 0x1403D6AF0 (xHalDpMaskLevelTriggeredInterrupts.c)
  *     PnprWakeProcessors @ 0x1403DCEB4 (PnprWakeProcessors.c)
- *     CmpMarkLockTryAcquired @ 0x1405281C8 (CmpMarkLockTryAcquired.c)
- *     PnprReplaceStart @ 0x140645448 (PnprReplaceStart.c)
+ *     CmpMarkLockTryAcquired @ 0x140528708 (CmpMarkLockTryAcquired.c)
+ *     PnprReplaceStart @ 0x14064552C (PnprReplaceStart.c)
  */
 
 __int64 PnprInitiateReplaceOperation()

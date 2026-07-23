@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDereferenceIoHugeRange @ 0x14061F988
+ * XREFs of MiDereferenceIoHugeRange @ 0x14061FED8
  * Callers:
- *     MiDeleteStaleCacheMaps @ 0x14062D9D0 (MiDeleteStaleCacheMaps.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062DF20 (MiDeleteStaleCacheMaps.c)
  * Callees:
- *     MiIsPageInIoHugeRangeTransition @ 0x1403364D0 (MiIsPageInIoHugeRangeTransition.c)
- *     MiHugePfnPartition @ 0x140620C50 (MiHugePfnPartition.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x140336760 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiHugePfnPartition @ 0x1406211A0 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
  */
 
 __int64 __fastcall MiDereferenceIoHugeRange(unsigned __int64 a1, __int64 a2)

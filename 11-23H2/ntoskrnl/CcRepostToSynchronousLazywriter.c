@@ -1,13 +1,13 @@
 /*
- * XREFs of CcRepostToSynchronousLazywriter @ 0x14053A368
+ * XREFs of CcRepostToSynchronousLazywriter @ 0x14053A8B8
  * Callers:
- *     CcAsyncLazywriteWorker @ 0x14053983C (CcAsyncLazywriteWorker.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x14053AC14 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcAsyncLazywriteWorker @ 0x140539D8C (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x14053B164 (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x14029AFB4 (CcPostWorkQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x14029B244 (CcPostWorkQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
@@ -51,10 +51,10 @@ __int64 __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
   CcPostWorkQueue(v7, v1 + v8, v5, v6);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v14);
   OldIrql = v14.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v14.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -65,7 +65,7 @@ __int64 __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
       v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v13 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

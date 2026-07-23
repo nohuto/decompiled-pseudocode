@@ -1,11 +1,11 @@
 /*
- * XREFs of CcChargeDirtyPages @ 0x14006FBF4
+ * XREFs of CcChargeDirtyPages @ 0x14006F774
  * Callers:
- *     CcSetDirtyPinnedData @ 0x14006F270 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x14006F660 (CcSetDirtyInMask.c)
- *     CcAddDirtyPagesToExternalCache @ 0x14013426C (CcAddDirtyPagesToExternalCache.c)
+ *     CcSetDirtyPinnedData @ 0x14006EDF0 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x14006F1E0 (CcSetDirtyInMask.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1401347DC (CcAddDirtyPagesToExternalCache.c)
  * Callees:
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
  */
 
 __int64 __fastcall CcChargeDirtyPages(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

@@ -46,13 +46,13 @@ char EtwpTraceSystemInitialization()
   int v26; // [rsp+6Ch] [rbp-9Ch] BYREF
   __int64 v27; // [rsp+70h] [rbp-98h] BYREF
   LARGE_INTEGER v28; // [rsp+78h] [rbp-90h] BYREF
-  __int64 SystemTimePrecise; // [rsp+80h] [rbp-88h] BYREF
+  LARGE_INTEGER SystemTimePrecise; // [rsp+80h] [rbp-88h] BYREF
   __int128 v30; // [rsp+88h] [rbp-80h] BYREF
   __int128 v31; // [rsp+98h] [rbp-70h] BYREF
   int VersionInformation; // [rsp+A8h] [rbp-60h] BYREF
   _DWORD VersionInformation_4[71]; // [rsp+ACh] [rbp-5Ch] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1C8h] [rbp+C0h] BYREF
-  __int64 *p_SystemTimePrecise; // [rsp+1D8h] [rbp+D0h]
+  LARGE_INTEGER *p_SystemTimePrecise; // [rsp+1D8h] [rbp+D0h]
   __int64 v36; // [rsp+1E0h] [rbp+D8h]
   _DWORD *v37; // [rsp+1E8h] [rbp+E0h]
   __int64 v38; // [rsp+1F0h] [rbp+E8h]
@@ -172,7 +172,7 @@ char EtwpTraceSystemInitialization()
       *(_QWORD *)&UserData.Size = 4LL;
       UserData.Ptr = (ULONGLONG)VersionInformation_4;
       v36 = 4LL;
-      p_SystemTimePrecise = (__int64 *)&VersionInformation_4[1];
+      p_SystemTimePrecise = (LARGE_INTEGER *)&VersionInformation_4[1];
       v38 = 4LL;
       v37 = &VersionInformation_4[2];
       v40 = 4LL;
@@ -204,7 +204,7 @@ char EtwpTraceSystemInitialization()
           UserData.Ptr = v6 + 224;
           v14 = *(_QWORD *)(v5 + 240) + 3488LL;
           v36 = 64LL;
-          p_SystemTimePrecise = (__int64 *)v14;
+          p_SystemTimePrecise = (LARGE_INTEGER *)v14;
           LOBYTE(Version) = EtwWriteEx(v13, &VsmPerformanceData, 0LL, 0, 0LL, 0LL, 2u, &UserData);
         }
       }

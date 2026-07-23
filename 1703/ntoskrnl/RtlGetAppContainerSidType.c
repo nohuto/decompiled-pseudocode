@@ -11,31 +11,31 @@
  *     RtlCompareMemory @ 0x140189B00 (RtlCompareMemory.c)
  */
 
-__int64 __fastcall RtlGetAppContainerSidType(char *Sid, _DWORD *a2)
+NTSTATUS __cdecl RtlGetAppContainerSidType(PSID AppContainerSid, PAPPCONTAINER_SID_TYPE AppContainerSidType)
 {
   UCHAR v4; // cl
 
-  if ( (unsigned __int8)Sid[1] >= 2u
-    && *Sid == 1
-    && RtlCompareMemory(Sid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
-    && *((_DWORD *)Sid + 2) == 2 )
+  if ( *((_BYTE *)AppContainerSid + 1) >= 2u
+    && *(_BYTE *)AppContainerSid == 1
+    && RtlCompareMemory((char *)AppContainerSid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
+    && *((_DWORD *)AppContainerSid + 2) == 2 )
   {
-    v4 = *RtlSubAuthorityCountSid(Sid);
+    v4 = *RtlSubAuthorityCountSid(AppContainerSid);
     if ( v4 == 8 )
     {
-      *a2 = 2;
-      return 0LL;
+      *AppContainerSidType = ParentAppContainerSidType;
+      return 0;
     }
     if ( v4 == 12 )
     {
-      *a2 = 1;
-      return 0LL;
+      *AppContainerSidType = ChildAppContainerSidType;
+      return 0;
     }
-    *a2 = 3;
+    *AppContainerSidType = InvalidAppContainerSidType;
   }
   else
   {
-    *a2 = 0;
+    *AppContainerSidType = NotAppContainerSidType;
   }
-  return 3221266944LL;
+  return -1073700352;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x14095D738
+ * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x140A02FF8
  * Callers:
- *     AlpcpExposeViewAttributeInSenderContext @ 0x1409C0C80 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpPrepareViewForDelivery @ 0x140A87C38 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140991C60 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpPrepareViewForDelivery @ 0x140A8ED68 (AlpcpPrepareViewForDelivery.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiSetReadOnlyOnSectionView @ 0x14036BB54 (MiSetReadOnlyOnSectionView.c)
- *     MiVadSupportsPrivateCommit @ 0x1403BBFA4 (MiVadSupportsPrivateCommit.c)
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x14095D964 (MiUnsecureVirtualMemoryAgainstWrites.c)
- *     MiAddSecureEntry @ 0x14095D9B8 (MiAddSecureEntry.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
- *     MiIsRangeFullyCommitted @ 0x14095DDE4 (MiIsRangeFullyCommitted.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14036D8F4 (MiSetReadOnlyOnSectionView.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403C5E14 (MiVadSupportsPrivateCommit.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x140A03224 (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MiAddSecureEntry @ 0x140A03278 (MiAddSecureEntry.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
+ *     MiIsRangeFullyCommitted @ 0x140A036A4 (MiIsRangeFullyCommitted.c)
  */
 
 __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(struct _KPROCESS *a1, __int64 a2, __int64 a3)
@@ -87,6 +87,6 @@ __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(struct _KPROCESS *a1, __in
   if ( Process )
     KiUnstackDetachProcess((__int64)&ApcState, 0);
   if ( v6 )
-    return qword_140E2D640 ^ v6;
+    return qword_140E2D7C0 ^ v6;
   return v6;
 }

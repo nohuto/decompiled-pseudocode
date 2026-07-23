@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14015A2C8
+ * XREFs of PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14015A3C8
  * Callers:
- *     PipEnumerateDevice @ 0x1406E7F10 (PipEnumerateDevice.c)
- *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x1406E91B0 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1406ECCFC (PnpStartDeviceNode.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall PnpDeviceCompletionQueueAddDispatchedRequest(__int64 a1, _QWORD *a2)
@@ -16,17 +16,17 @@ _BOOL8 __fastcall PnpDeviceCompletionQueueAddDispatchedRequest(__int64 a1, _QWOR
   BOOL v5; // esi
   struct _KPRCB *CurrentPrcb; // rcx
 
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140434BC8);
-  v4 = (_QWORD *)qword_140434B88;
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140435C68);
+  v4 = (_QWORD *)qword_140435C28;
   v5 = PnpDeviceCompletionQueue == (_QWORD)&PnpDeviceCompletionQueue;
-  if ( *(__int64 **)qword_140434B88 != &PnpDeviceCompletionQueue )
+  if ( *(__int64 **)qword_140435C28 != &PnpDeviceCompletionQueue )
     __fastfail(3u);
   *a2 = &PnpDeviceCompletionQueue;
   a2[1] = v4;
   *v4 = a2;
-  ++dword_140434B90;
-  qword_140434B88 = (__int64)a2;
-  KxReleaseSpinLock(&qword_140434BC8);
+  ++dword_140435C30;
+  qword_140435C28 = (__int64)a2;
+  KxReleaseSpinLock(&qword_140435C68);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlDedupChangeInit @ 0x14078F8C0
+ * XREFs of FsRtlDedupChangeInit @ 0x1407923F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FsRtlpDedupChangeQueryValueKey @ 0x14078FB64 (FsRtlpDedupChangeQueryValueKey.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14078FCA0 (FsRtlpDedupChangeRegisterVolume.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FsRtlpDedupChangeQueryValueKey @ 0x140792694 (FsRtlpDedupChangeQueryValueKey.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x1407927D0 (FsRtlpDedupChangeRegisterVolume.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlDedupChangeInit(_QWORD *a1, int a2, int a3, char a4, __int64 a5)

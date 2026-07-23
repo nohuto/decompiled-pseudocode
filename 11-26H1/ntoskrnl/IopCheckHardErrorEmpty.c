@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCheckHardErrorEmpty @ 0x1405CA690
+ * XREFs of IopCheckHardErrorEmpty @ 0x1405CCF60
  * Callers:
- *     IopHardErrorThread @ 0x140794C00 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x140797730 (IopHardErrorThread.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char IopCheckHardErrorEmpty()
@@ -12,13 +12,13 @@ char IopCheckHardErrorEmpty()
   KIRQL v0; // al
   char v1; // bl
 
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140F853B0);
+  v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread);
   v1 = 0;
-  IopCurrentHardError = 0LL;
-  if ( (__int64 *)qword_140F853A0 == &qword_140F853A0 )
-    byte_140F853D8 = 0;
+  IopPerfIoTrackingLock.Spare32 = 0LL;
+  if ( *(struct _KTHREAD **)&IopPerfIoTrackingLock.SavedApcStateFill[40] == (struct _KTHREAD *)&IopPerfIoTrackingLock.SavedApcStateFill[40] )
+    IopPerfIoTrackingLock.SchedulerApcFill3[48] = 0;
   else
     v1 = 1;
-  KeReleaseSpinLock(&qword_140F853B0, v0);
+  KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread, v0);
   return v1;
 }

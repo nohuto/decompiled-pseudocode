@@ -11,14 +11,15 @@
  *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
  */
 
-__int64 __fastcall PopFxIssueDirectedPowerTransition(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)
+void __fastcall PopFxIssueDirectedPowerTransition(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)
 {
   volatile signed __int64 *v6; // r14
   unsigned __int64 v7; // rsi
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
+  int v11; // eax
+  bool v12; // zf
 
   if ( (_InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter2 + 824), 0, 0) & 0x20) == 0 )
     PopFxBugCheck(0x910uLL, 1uLL, BugCheckParameter2, 0LL);
@@ -39,24 +40,23 @@ __int64 __fastcall PopFxIssueDirectedPowerTransition(ULONG_PTR BugCheckParameter
   *(_QWORD *)(BugCheckParameter2 + 1168) = a3;
   *(_DWORD *)(BugCheckParameter2 + 1176) = -1073741436;
   PopFxQueueWorkOrder(BugCheckParameter2 + 920, BugCheckParameter2);
-  result = KxReleaseSpinLock(v6);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock(v6);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+      v12 = (v11 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v11;
+      if ( v12 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);
-  return result;
 }

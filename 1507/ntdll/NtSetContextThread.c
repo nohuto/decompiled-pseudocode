@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetContextThread()
+NTSTATUS __cdecl NtSetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 367LL;
+  result = 367;
   __asm { syscall; Low latency system call }
   return result;
 }

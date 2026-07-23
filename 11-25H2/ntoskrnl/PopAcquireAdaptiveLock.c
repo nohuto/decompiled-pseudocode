@@ -18,7 +18,7 @@ struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
   struct _KTHREAD *result; // rax
   _OWORD v4[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v5; // [rsp+40h] [rbp-18h]
-  int v6; // [rsp+60h] [rbp+8h] BYREF
+  ULONG v6; // [rsp+60h] [rbp+8h] BYREF
   LARGE_INTEGER Interval; // [rsp+68h] [rbp+10h] BYREF
 
   v5 = 0LL;

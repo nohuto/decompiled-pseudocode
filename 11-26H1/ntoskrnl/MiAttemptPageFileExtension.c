@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAttemptPageFileExtension @ 0x140B2FAF8
+ * XREFs of MiAttemptPageFileExtension @ 0x140B318D8
  * Callers:
- *     MiExtendPagingFiles @ 0x140B2F8D4 (MiExtendPagingFiles.c)
+ *     MiExtendPagingFiles @ 0x140B316B4 (MiExtendPagingFiles.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiFinishPageFileExtension @ 0x14050F0CC (MiFinishPageFileExtension.c)
- *     MiLogPagefileExtension @ 0x1406F8D4C (MiLogPagefileExtension.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IopQueryXxxInformation @ 0x1409B8C10 (IopQueryXxxInformation.c)
- *     IoSetInformation @ 0x140B326A0 (IoSetInformation.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiFinishPageFileExtension @ 0x140508B3C (MiFinishPageFileExtension.c)
+ *     MiLogPagefileExtension @ 0x1406FDA1C (MiLogPagefileExtension.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IopQueryXxxInformation @ 0x140989BF0 (IopQueryXxxInformation.c)
+ *     IoSetInformation @ 0x140B34AF0 (IoSetInformation.c)
  */
 
 __int64 __fastcall MiAttemptPageFileExtension(__int64 a1, unsigned int *a2, unsigned __int64 a3)
@@ -103,9 +103,9 @@ LABEL_8:
         break;
     }
   }
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 4096LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 4096LL) )
   {
     MiLogPagefileExtension(v19, (int *)a2, (unsigned int)a3, v6, v5, v20);
   }

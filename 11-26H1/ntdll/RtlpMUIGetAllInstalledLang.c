@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpMUIGetAllInstalledLang @ 0x180037134
+ * XREFs of RtlpMUIGetAllInstalledLang @ 0x180022294
  * Callers:
- *     RtlGetFileMUIPath @ 0x180035550 (RtlGetFileMUIPath.c)
+ *     RtlGetFileMUIPath @ 0x1800206B0 (RtlGetFileMUIPath.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x180125D34 (RtlpAddLanguagesToMultiSZ.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x180125AA4 (RtlpAddLanguagesToMultiSZ.c)
  */
 
-char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, __int64 *a2, _QWORD *a3)
+char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, char **a2, _QWORD *a3)
 {
   char v6; // bl
-  __int64 v7; // r9
+  char *v7; // r9
   __int64 v8; // rdx
-  unsigned int v9; // eax
+  int v9; // eax
   unsigned int v10; // edi
   _WORD *v11; // r9
   int v13; // [rsp+40h] [rbp-20h] BYREF
-  __int64 Heap_0; // [rsp+48h] [rbp-18h] BYREF
+  char *Heap_0; // [rsp+48h] [rbp-18h] BYREF
   __int64 v15; // [rsp+50h] [rbp-10h] BYREF
-  unsigned int v16; // [rsp+98h] [rbp+38h] BYREF
+  int v16; // [rsp+98h] [rbp+38h] BYREF
 
   v13 = 520;
   v6 = 0;
-  Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8LL, 520LL);
+  Heap_0 = (char *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   v7 = Heap_0;
   if ( Heap_0 )
   {
@@ -54,7 +54,7 @@ char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, __int64 *a2, _QWORD *a3)
     }
     if ( (v9 & 1) == 0 )
     {
-      *(_WORD *)(v9 + v7) = 0;
+      *(_WORD *)&v7[v9] = 0;
       v6 = 1;
       *a2 = Heap_0;
       *a3 = v15;

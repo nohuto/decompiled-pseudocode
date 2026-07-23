@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpCloseFileCallback @ 0x140C13460
+ * XREFs of KdpCloseFileCallback @ 0x140C19460
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall KdpCloseFileCallback(__int64 a1)

@@ -3,7 +3,7 @@
  * Callers:
  *     BgMarkHiberPhase @ 0x14072537C (BgMarkHiberPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
  */
 
 __int64 BgpFwMarkHiberPhase()

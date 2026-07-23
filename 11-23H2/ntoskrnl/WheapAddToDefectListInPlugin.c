@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapAddToDefectListInPlugin @ 0x1406121B4
+ * XREFs of WheapAddToDefectListInPlugin @ 0x140612704
  * Callers:
- *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A07C2C (WheaAddrTranslateAndAddToDefectListInPlugin.c)
+ *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A07EDC (WheaAddrTranslateAndAddToDefectListInPlugin.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WheapAddToDefectListInPlugin(__int128 *a1)

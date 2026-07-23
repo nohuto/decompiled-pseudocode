@@ -1,39 +1,37 @@
 /*
- * XREFs of RtlApplyRXact @ 0x180106760
+ * XREFs of RtlApplyRXact @ 0x180101690
  * Callers:
  *     <none>
  * Callees:
- *     RXactpCommit @ 0x180106868 (RXactpCommit.c)
- *     RtlAbortRXact @ 0x180106A30 (RtlAbortRXact.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     ZwSetValueKey @ 0x180162880 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x180163860 (ZwDeleteValueKey.c)
- *     ZwFlushKey @ 0x180163AC0 (ZwFlushKey.c)
+ *     RXactpCommit @ 0x180101798 (RXactpCommit.c)
+ *     RtlAbortRXact @ 0x180101960 (RtlAbortRXact.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     ZwSetValueKey @ 0x180160C40 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x180161C20 (ZwDeleteValueKey.c)
+ *     ZwFlushKey @ 0x180161E80 (ZwFlushKey.c)
  */
 
-__int64 __fastcall RtlApplyRXact(__int64 a1)
+NTSTATUS __fastcall RtlApplyRXact(__int64 a1)
 {
-  __int64 v1; // rbx
+  void *v1; // rbx
   size_t v3; // rax
-  __int64 v4; // rcx
-  __int64 result; // rax
-  int v6; // edi
-  __int64 v7; // rcx
-  _WORD v8[2]; // [rsp+30h] [rbp-18h] BYREF
-  int v9; // [rsp+34h] [rbp-14h]
-  const wchar_t *v10; // [rsp+38h] [rbp-10h]
+  ULONG *Data; // rcx
+  NTSTATUS result; // eax
+  NTSTATUS v6; // edi
+  void *v7; // rcx
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 8);
-  v9 = 0;
-  v10 = L"Log";
+  v1 = *(void **)(a1 + 8);
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  ValueName.Buffer = (wchar_t *)L"Log";
   v3 = 2 * wcslen(L"Log");
   if ( v3 >= 0xFFFE )
     LOWORD(v3) = -4;
-  v4 = *(_QWORD *)(a1 + 24);
-  v8[0] = v3;
-  v8[1] = v3 + 2;
-  result = ZwSetValueKey(v1, v8, 0LL, 3LL, v4, *(_DWORD *)(v4 + 8));
-  if ( (int)result >= 0 )
+  Data = *(ULONG **)(a1 + 24);
+  ValueName.Length = v3;
+  ValueName.MaximumLength = v3 + 2;
+  result = ZwSetValueKey(v1, &ValueName, 0, 3u, Data, Data[2]);
+  if ( result >= 0 )
   {
     v6 = ZwFlushKey(v1);
     if ( v6 < 0 )
@@ -46,13 +44,13 @@ __int64 __fastcall RtlApplyRXact(__int64 a1)
       v7 = v1;
       if ( v6 >= 0 )
       {
-        ZwDeleteValueKey(v1, v8);
+        ZwDeleteValueKey(v1, &ValueName);
         RtlAbortRXact(a1);
-        return 0LL;
+        return 0;
       }
     }
-    ZwDeleteValueKey(v7, v8);
-    return (unsigned int)v6;
+    ZwDeleteValueKey(v7, &ValueName);
+    return v6;
   }
   return result;
 }

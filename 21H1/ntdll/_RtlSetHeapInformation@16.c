@@ -16,18 +16,22 @@
  *     _RtlpHpStackTraceConfig@4 @ 0x4B36E268 (_RtlpHpStackTraceConfig@4.c)
  */
 
-int __stdcall RtlSetHeapInformation(_DWORD *a1, int a2, int a3, unsigned int a4)
+NTSTATUS __cdecl RtlSetHeapInformation(
+        PVOID HeapHandle,
+        HEAP_INFORMATION_CLASS HeapInformationClass,
+        PVOID HeapInformation,
+        SIZE_T HeapInformationLength)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v5; // ecx
   int *v6; // ecx
 
-  switch ( a2 )
+  switch ( HeapInformationClass )
   {
     case -2147483646:
-      if ( a3 && a4 == 28 )
+      if ( HeapInformation && (_DWORD)HeapInformationLength == 28 )
       {
-        result = RtlSetHeapDebuggingInformation(a1);
+        result = RtlSetHeapDebuggingInformation(HeapHandle);
 LABEL_13:
         if ( result >= 0 )
           return 0;
@@ -35,13 +39,13 @@ LABEL_13:
       }
       return -1073741823;
     case 0:
-      if ( a4 < 4 )
+      if ( (unsigned int)HeapInformationLength < 4 )
         return -1073741789;
-      if ( *(_DWORD *)a3 == 2 )
+      if ( *(_DWORD *)HeapInformation == 2 )
       {
-        if ( a1[2] == -571548178 )
+        if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
           return 0;
-        if ( (a1[16] & 0x75010F63) != 2 || (NtCurrentPeb()->NtGlobalFlag & 0x800) != 0 )
+        if ( (*((_DWORD *)HeapHandle + 16) & 0x75010F63) != 2 || (NtCurrentPeb()->NtGlobalFlag & 0x800) != 0 )
           return -1073741811;
         result = RtlpSetRequestedFrontEndHeap();
         goto LABEL_13;
@@ -51,14 +55,18 @@ LABEL_13:
       RtlpDisableBreakOnFailureCookie = 0;
       return 0;
     case 3:
-      if ( a3 && a4 >= 4 && *(_DWORD *)a3 == 1 && a4 == 8 && !*(_DWORD *)(a3 + 4) )
+      if ( HeapInformation
+        && (unsigned int)HeapInformationLength >= 4
+        && *(_DWORD *)HeapInformation == 1
+        && (_DWORD)HeapInformationLength == 8
+        && !*((_DWORD *)HeapInformation + 1) )
       {
-        if ( a1 )
+        if ( HeapHandle )
         {
-          RtlEnterCriticalSection((int)&RtlpProcessHeapsListLock);
-          if ( !RtlpIsProtectedHeap(a1) )
+          RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+          if ( !RtlpIsProtectedHeap(HeapHandle) )
             RtlpFlushHeap();
-          RtlLeaveCriticalSection((int)&RtlpProcessHeapsListLock);
+          RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
         }
         else
         {
@@ -68,48 +76,55 @@ LABEL_13:
       }
       return -1073741811;
   }
-  if ( a2 != 4 )
+  if ( HeapInformationClass != 4 )
   {
-    if ( a2 != 5 )
+    if ( HeapInformationClass != 5 )
     {
-      if ( a2 != 6 )
+      if ( HeapInformationClass != 6 )
         return 0;
-      if ( a4 >= 0x14 && *(_DWORD *)a3 == 1 && ((*(_DWORD *)(a3 + 4) + 4095) & 0xFFFFF000) == *(_DWORD *)(a3 + 4) )
+      if ( (unsigned int)HeapInformationLength >= 0x14
+        && *(_DWORD *)HeapInformation == 1
+        && ((*((_DWORD *)HeapInformation + 1) + 4095) & 0xFFFFF000) == *((_DWORD *)HeapInformation + 1) )
       {
-        if ( a1 )
+        if ( HeapHandle )
         {
-          if ( a1[2] == -571548178 )
+          if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
           {
-            v5 = 6;
+            v5 = 24;
           }
           else
           {
-            if ( (a1[17] & 0x1000000) != 0 )
+            if ( (*((_DWORD *)HeapHandle + 17) & 0x1000000) != 0 )
               return 0;
-            v5 = 53;
+            v5 = 212;
           }
-          v6 = &a1[v5];
+          v6 = (int *)((char *)HeapHandle + v5);
         }
         else
         {
           v6 = &dword_4B3A432C;
         }
-        v6[1] = *(_DWORD *)(a3 + 8);
-        v6[3] = *(_DWORD *)(a3 + 16);
-        *v6 = *(_DWORD *)(a3 + 4);
-        v6[2] = *(_DWORD *)(a3 + 12);
+        v6[1] = *((_DWORD *)HeapInformation + 2);
+        v6[3] = *((_DWORD *)HeapInformation + 4);
+        *v6 = *((_DWORD *)HeapInformation + 1);
+        v6[2] = *((_DWORD *)HeapInformation + 3);
         return 0;
       }
       return -1073741811;
     }
-    if ( !a3 || a4 < 8 || *(_WORD *)a3 != 1 || (*(_WORD *)(a3 + 2) & 0xFFFE) != 0 )
+    if ( !HeapInformation
+      || (unsigned int)HeapInformationLength < 8
+      || *(_WORD *)HeapInformation != 1
+      || (*((_WORD *)HeapInformation + 1) & 0xFFFE) != 0 )
+    {
       return -1073741811;
-    result = RtlpHpStackTraceConfig(a3);
+    }
+    result = RtlpHpStackTraceConfig(HeapInformation);
     goto LABEL_13;
   }
   if ( (RtlpHpHeapFeatures & 1) == 0 )
     return -1073741811;
-  result = RtlRunOnceExecuteOnce((int)&RtlpHpTagInitVar, RtlpHpTagRunOnceInit, (int)&RtlpHpTagContext, 0);
+  result = RtlRunOnceExecuteOnce(&RtlpHpTagInitVar, RtlpHpTagRunOnceInit, &RtlpHpTagContext, 0);
   if ( result >= 0 )
   {
     RtlpHpHeapFeatures |= 2u;

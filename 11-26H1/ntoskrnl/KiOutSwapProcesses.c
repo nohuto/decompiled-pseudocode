@@ -1,19 +1,19 @@
 /*
- * XREFs of KiOutSwapProcesses @ 0x14049A3E4
+ * XREFs of KiOutSwapProcesses @ 0x140493F34
  * Callers:
- *     KeSwapProcessOrStack @ 0x1405F7C80 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1405FA6A0 (KeSwapProcessOrStack.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiReadyOutSwappedThreads @ 0x14037B7C4 (KiReadyOutSwappedThreads.c)
- *     MmOutSwapProcess @ 0x14049A5C8 (MmOutSwapProcess.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiReadyOutSwappedThreads @ 0x14037D574 (KiReadyOutSwappedThreads.c)
+ *     MmOutSwapProcess @ 0x140494118 (MmOutSwapProcess.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-void __fastcall KiOutSwapProcesses(unsigned __int64 *a1, __int64 a2, __int64 a3)
+void __fastcall KiOutSwapProcesses(signed __int64 *a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 *v3; // rsi
-  unsigned __int64 *v4; // r12
+  signed __int64 *v3; // rsi
+  signed __int64 *v4; // r12
   struct _EPROCESS *v5; // rbx
   unsigned __int8 CurrentIrql; // bp
   volatile _KSTACK_COUNT v7; // eax
@@ -26,14 +26,14 @@ void __fastcall KiOutSwapProcesses(unsigned __int64 *a1, __int64 a2, __int64 a3)
   __int64 v14; // rcx
   __int64 v15; // rdx
   unsigned int v16; // eax
-  unsigned __int64 AffinityVersion; // rax
+  signed __int64 v17; // rax
 
   v3 = a1;
   do
   {
     v4 = v3;
     v5 = (struct _EPROCESS *)(v3 - 15);
-    v3 = (unsigned __int64 *)*v3;
+    v3 = (signed __int64 *)*v3;
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql != 2 )
       __writecr8(2uLL);
@@ -69,28 +69,28 @@ void __fastcall KiOutSwapProcesses(unsigned __int64 *a1, __int64 a2, __int64 a3)
       }
       else
       {
-        _m_prefetchw(&KiSupervisorXStateFeaturesLock.AffinityVersion);
-        AffinityVersion = KiSupervisorXStateFeaturesLock.AffinityVersion;
+        _m_prefetchw(&qword_140F26B90);
+        v17 = qword_140F26B90;
         do
         {
-          *v4 = AffinityVersion;
-          a1 = (unsigned __int64 *)AffinityVersion;
-          AffinityVersion = _InterlockedCompareExchange64(
-                              (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.AffinityVersion,
-                              (signed __int64)v4,
-                              AffinityVersion);
+          *v4 = v17;
+          a1 = (signed __int64 *)v17;
+          v17 = _InterlockedCompareExchange64(&qword_140F26B90, (signed __int64)v4, v17);
         }
-        while ( (unsigned __int64 *)AffinityVersion != a1 );
-        v13 = AffinityVersion == 0;
+        while ( (signed __int64 *)v17 != a1 );
+        v13 = v17 == 0;
         v16 = 7;
       }
       _InterlockedXor(&v5->Pcb.StackCount.Value, v16);
       _InterlockedAnd(&v5->Pcb.Header.Lock, 0xFFFFFF7F);
       if ( v13 )
       {
-        KiAcquireKobjectLockSafe((volatile signed __int32 *)&KiSupervisorXStateFeaturesLock.StackLimit, a2, a3);
-        HIDWORD(KiSupervisorXStateFeaturesLock.StackLimit) = 1;
-        _InterlockedAnd((volatile signed __int32 *)&KiSupervisorXStateFeaturesLock.StackLimit, 0xFFFFFF7F);
+        KiAcquireKobjectLockSafe(
+          (volatile signed __int32 *)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry,
+          a2,
+          a3);
+        HIDWORD(KiSupervisorXStateFeaturesLock.Timer.TimerListEntry.Flink) = 1;
+        _InterlockedAnd((volatile signed __int32 *)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 0xFFFFFF7F);
       }
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

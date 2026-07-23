@@ -11,9 +11,9 @@
 __int64 __fastcall SC_MBR::CreatePartitionTable(SC_MBR *this, struct _CREATE_DISK *a2)
 {
   __int64 v4; // rbx
-  ULONG Signature; // eax
+  DWORD Signature; // eax
   __int64 v7; // [rsp+20h] [rbp-D8h] BYREF
-  ULONG v8; // [rsp+28h] [rbp-D0h]
+  DWORD v8; // [rsp+28h] [rbp-D0h]
   _BYTE v9[180]; // [rsp+2Ch] [rbp-CCh] BYREF
 
   memset(v9, 0, sizeof(v9));

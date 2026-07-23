@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmMediaBufferingWorker @ 0x14036C640
+ * XREFs of PpmMediaBufferingWorker @ 0x14036C7F0
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmPdcNotifyMediaBufferingUpdate @ 0x1408F5E04 (PpmPdcNotifyMediaBufferingUpdate.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x1408F5F64 (PpmPdcNotifyMediaBufferingUpdate.c)
  */
 
 __int64 PpmMediaBufferingWorker()
@@ -37,11 +37,11 @@ __int64 PpmMediaBufferingWorker()
   {
     v0 = 1;
     v1 = KeAcquireSpinLockRaiseToDpc(&PpmMediaBufferingWork);
-    v2 = byte_140C245C9;
+    v2 = byte_140C24629;
     v3 = v1;
-    if ( byte_140C245C9 == byte_140C23ECC )
+    if ( byte_140C24629 == byte_140C2336C )
       break;
-    byte_140C23ECC = byte_140C245C9;
+    byte_140C2336C = byte_140C24629;
     KxReleaseSpinLock(&PpmMediaBufferingWork);
     if ( KiIrqlFlags )
     {
@@ -90,7 +90,7 @@ __int64 PpmMediaBufferingWorker()
       PpmPdcNotifyMediaBufferingUpdate(v5);
     }
   }
-  byte_140C245C8 = 0;
+  byte_140C24628 = 0;
   KxReleaseSpinLock(&PpmMediaBufferingWork);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

@@ -1,16 +1,16 @@
 /*
  * XREFs of MmGetSectionInformation @ 0x14066C980
  * Callers:
- *     AlpcpMapLegacyPortView @ 0x14066C1DC (AlpcpMapLegacyPortView.c)
- *     NtQuerySection @ 0x14066C850 (NtQuerySection.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     sub_14066C1DC @ 0x14066C1DC (sub_14066C1DC.c)
+ *     sub_14066C850 @ 0x14066C850 (sub_14066C850.c)
+ *     sub_14070BD10 @ 0x14070BD10 (sub_14070BD10.c)
  *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     PspLocateSystemDll @ 0x14084565C (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x14092A29C (DbgkpSendErrorMessage.c)
+ *     sub_14084565C @ 0x14084565C (sub_14084565C.c)
+ *     sub_14092A29C @ 0x14092A29C (sub_14092A29C.c)
  * Callees:
- *     MiGetControlAreaLoadConfig @ 0x140281A3C (MiGetControlAreaLoadConfig.c)
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x14028799C (MiAweControlArea.c)
+ *     sub_140281A3C @ 0x140281A3C (sub_140281A3C.c)
+ *     sub_140287970 @ 0x140287970 (sub_140287970.c)
+ *     sub_14028799C @ 0x14028799C (sub_14028799C.c)
  *     memset @ 0x140435E00 (memset.c)
  */
 
@@ -29,7 +29,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
   __int64 v16; // rdx
   __int64 v17; // rdx
   __int64 v18; // rdx
-  int *ControlAreaLoadConfig; // r8
+  int *v19; // r8
   int v20; // eax
   int v21; // ecx
   int v22; // r10d
@@ -43,8 +43,8 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
   _OWORD v31[5]; // [rsp+30h] [rbp-58h] BYREF
 
   memset(v31, 0, 0x48uLL);
-  v6 = MiSectionControlArea(a1);
-  if ( !MiAweControlArea(v6) )
+  v6 = sub_140287970(a1);
+  if ( !sub_14028799C(v6) )
   {
     if ( !a2 )
     {
@@ -91,14 +91,14 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
           }
           if ( a2 == 4 )
           {
-            ControlAreaLoadConfig = (int *)MiGetControlAreaLoadConfig(v9);
+            v19 = (int *)sub_140281A3C(v9);
             v20 = v8;
             LODWORD(v31[4]) = v8;
             v21 = v8;
-            if ( ControlAreaLoadConfig )
+            if ( v19 )
             {
-              v22 = *ControlAreaLoadConfig;
-              if ( (*ControlAreaLoadConfig & 0x10) != 0 )
+              v22 = *v19;
+              if ( (*v19 & 0x10) != 0 )
               {
                 v20 = 1;
                 LODWORD(v31[4]) = 1;

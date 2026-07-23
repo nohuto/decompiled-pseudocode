@@ -1,18 +1,18 @@
 /*
- * XREFs of IoMakeAssociatedIrpPriv @ 0x140374CE8
+ * XREFs of IoMakeAssociatedIrpPriv @ 0x14025D5A8
  * Callers:
- *     IoMakeAssociatedIrpEx @ 0x140374CD0 (IoMakeAssociatedIrpEx.c)
- *     IoMakeAssociatedIrp @ 0x1404B1020 (IoMakeAssociatedIrp.c)
+ *     IoMakeAssociatedIrpEx @ 0x14025D590 (IoMakeAssociatedIrpEx.c)
+ *     IoMakeAssociatedIrp @ 0x1404AB8B0 (IoMakeAssociatedIrp.c)
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x1403743E4 (IopSetDiskIoAttributionExtension.c)
- *     IopIsActivityTracingEnabled @ 0x140375090 (IopIsActivityTracingEnabled.c)
- *     IopSetDriverFlagsExtension @ 0x140375374 (IopSetDriverFlagsExtension.c)
- *     IopIrpHasExtensionType @ 0x1403F51A0 (IopIrpHasExtensionType.c)
- *     IoSetActivityIdIrp @ 0x140454CF0 (IoSetActivityIdIrp.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14025CCA4 (IopSetDiskIoAttributionExtension.c)
+ *     IopIsActivityTracingEnabled @ 0x14025D950 (IopIsActivityTracingEnabled.c)
+ *     IopSetDriverFlagsExtension @ 0x14025DC34 (IopSetDriverFlagsExtension.c)
+ *     IopIrpHasExtensionType @ 0x1403E8190 (IopIrpHasExtensionType.c)
+ *     IoSetActivityIdIrp @ 0x140449B90 (IoSetActivityIdIrp.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
@@ -89,7 +89,7 @@ __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
     if ( v13 )
       goto LABEL_17;
 LABEL_37:
-    result = ExAllocatePool2(0x40uLL);
+    result = ExAllocatePool2(0x40uLL, v9, 0x20707249u);
     v13 = (PSLIST_ENTRY)result;
     if ( !result )
       return result;

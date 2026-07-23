@@ -77,10 +77,13 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 **a3,
   v6 = (struct _FILE_OBJECT *)MiPreventControlAreaDelete(P);
   SpinLock = (volatile LONG *)(P + 72);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -106,10 +109,10 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 **a3,
     {
       MiRemoveWakeListEntry((__int64)P, &v37);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v31 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v31 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v31 >= 2u )
         {
           v32 = KeGetCurrentPrcb();
           v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
@@ -133,10 +136,10 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 **a3,
   {
     ++*((_DWORD *)P + 19);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)P + 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;
@@ -197,10 +200,10 @@ LABEL_38:
   else
     v25 = *(_QWORD *)(qword_140C674C8 + 8LL * (*((_WORD *)P + 30) & 0x3FF));
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = v28->SchedulerAssist;

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlBarrier()
+BOOLEAN __cdecl RtlBarrier(PRTL_BARRIER Barrier, ULONG Flags)
 {
-  return RtlBarrier_0();
+  return RtlBarrier_0(Barrier, Flags);
 }

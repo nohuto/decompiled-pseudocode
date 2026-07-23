@@ -1,41 +1,41 @@
 /*
- * XREFs of ViGetAdapterInformationInternal @ 0x140709708
+ * XREFs of ViGetAdapterInformationInternal @ 0x140709738
  * Callers:
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x1407063A4 (VfAllocateAdapterChannelEx.c)
- *     VfAllocateCommonBuffer @ 0x140706588 (VfAllocateCommonBuffer.c)
- *     VfAllocateCommonBufferEx @ 0x14070662C (VfAllocateCommonBufferEx.c)
- *     VfAllocateCrashDumpRegisters @ 0x1407066B8 (VfAllocateCrashDumpRegisters.c)
- *     VfBuildMdlFromScatterGatherList @ 0x140706744 (VfBuildMdlFromScatterGatherList.c)
- *     VfBuildScatterGatherList @ 0x140706890 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x140706B6C (VfBuildScatterGatherListEx.c)
- *     VfCancelAdapterChannel @ 0x140706D70 (VfCancelAdapterChannel.c)
- *     VfFlushAdapterBuffers @ 0x140706E98 (VfFlushAdapterBuffers.c)
- *     VfFlushAdapterBuffersEx @ 0x140707030 (VfFlushAdapterBuffersEx.c)
- *     VfFreeAdapterChannel @ 0x1407070CC (VfFreeAdapterChannel.c)
- *     VfFreeAdapterObject @ 0x14070716C (VfFreeAdapterObject.c)
- *     VfFreeCommonBuffer @ 0x140707280 (VfFreeCommonBuffer.c)
- *     VfFreeMapRegisters @ 0x140707338 (VfFreeMapRegisters.c)
- *     VfGetScatterGatherList @ 0x1407075F8 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x140707934 (VfGetScatterGatherListEx.c)
- *     VfHalAllocateMapRegisters @ 0x140707AB4 (VfHalAllocateMapRegisters.c)
- *     VfMapTransfer @ 0x140707CC0 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x140707E68 (VfMapTransferEx.c)
- *     VfPutScatterGatherList @ 0x140708310 (VfPutScatterGatherList.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
- *     ViHookDmaAdapter @ 0x140709C74 (ViHookDmaAdapter.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x1407063D4 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateCommonBuffer @ 0x1407065B8 (VfAllocateCommonBuffer.c)
+ *     VfAllocateCommonBufferEx @ 0x14070665C (VfAllocateCommonBufferEx.c)
+ *     VfAllocateCrashDumpRegisters @ 0x1407066E8 (VfAllocateCrashDumpRegisters.c)
+ *     VfBuildMdlFromScatterGatherList @ 0x140706774 (VfBuildMdlFromScatterGatherList.c)
+ *     VfBuildScatterGatherList @ 0x1407068C0 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x140706B9C (VfBuildScatterGatherListEx.c)
+ *     VfCancelAdapterChannel @ 0x140706DA0 (VfCancelAdapterChannel.c)
+ *     VfFlushAdapterBuffers @ 0x140706EC8 (VfFlushAdapterBuffers.c)
+ *     VfFlushAdapterBuffersEx @ 0x140707060 (VfFlushAdapterBuffersEx.c)
+ *     VfFreeAdapterChannel @ 0x1407070FC (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x14070719C (VfFreeAdapterObject.c)
+ *     VfFreeCommonBuffer @ 0x1407072B0 (VfFreeCommonBuffer.c)
+ *     VfFreeMapRegisters @ 0x140707368 (VfFreeMapRegisters.c)
+ *     VfGetScatterGatherList @ 0x140707628 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x140707964 (VfGetScatterGatherListEx.c)
+ *     VfHalAllocateMapRegisters @ 0x140707AE4 (VfHalAllocateMapRegisters.c)
+ *     VfMapTransfer @ 0x140707CF0 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140707E98 (VfMapTransferEx.c)
+ *     VfPutScatterGatherList @ 0x140708340 (VfPutScatterGatherList.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
+ *     ViHookDmaAdapter @ 0x140709CA4 (ViHookDmaAdapter.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140705FE0 (VF_ASSERT_MAX_IRQL.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140706010 (VF_ASSERT_MAX_IRQL.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
-ULONG_PTR __fastcall ViGetAdapterInformationInternal(__int64 a1, char a2)
+struct _LIST_ENTRY *__fastcall ViGetAdapterInformationInternal(struct _LIST_ENTRY *a1, char a2)
 {
   KIRQL v4; // al
-  ULONG_PTR i; // rbx
+  struct _LIST_ENTRY *i; // rbx
 
   if ( !a1 )
     return 0LL;
@@ -48,24 +48,24 @@ ULONG_PTR __fastcall ViGetAdapterInformationInternal(__int64 a1, char a2)
   if ( !ViVerifyDma && ViEnableAfterHibernate == 1 )
     return 0LL;
   v4 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  for ( i = ViAdapterList; ; i = *(_QWORD *)i )
+  for ( i = ViAdapterList.Flink; ; i = i->Flink )
   {
-    if ( &ViAdapterList == (ULONG_PTR *)i )
+    if ( &ViAdapterList == i )
     {
       KeReleaseSpinLock(&Lock, v4);
       return 0LL;
     }
-    if ( a1 == *(_QWORD *)(i + 16) )
+    if ( a1 == i[1].Flink )
       break;
   }
   KeReleaseSpinLock(&Lock, v4);
-  if ( a2 && *(int *)(i + 36) <= 0 )
+  if ( a2 && SHIDWORD(i[2].Flink) <= 0 )
   {
     ViHalPreprocessOptions(
       byte_1402F99BC,
       "Driver has attempted to access an adapter (%p) that has already been released",
       (const void *)0x18);
-    VfReportIssueWithOptions(230, 24, a1, i, 0LL, byte_1402F99BC);
+    VfReportIssueWithOptions(230, 24, (int)a1, (int)i, 0LL, byte_1402F99BC);
   }
   return i;
 }

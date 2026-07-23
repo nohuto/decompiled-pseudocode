@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockPte @ 0x140325920
+ * XREFs of MiLockPte @ 0x140327950
  * Callers:
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiTerminateWsle @ 0x140324930 (MiTerminateWsle.c)
- *     MiWalkPageTablesPrepareToDescend @ 0x140325B20 (MiWalkPageTablesPrepareToDescend.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiTerminateWsle @ 0x140326960 (MiTerminateWsle.c)
+ *     MiWalkPageTablesPrepareToDescend @ 0x140327B50 (MiWalkPageTablesPrepareToDescend.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiLockPte(unsigned __int64 a1, char a2)

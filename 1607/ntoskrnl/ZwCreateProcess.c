@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateProcess @ 0x14015B260
+ * XREFs of ZwCreateProcess @ 0x14015B7D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateProcess(
         PHANDLE ProcessHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwCreateProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(ProcessHandle);
 }

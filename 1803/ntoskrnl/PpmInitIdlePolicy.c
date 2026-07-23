@@ -8,17 +8,17 @@
  *     ZwQueryLicenseValue @ 0x1401A9E20 (ZwQueryLicenseValue.c)
  */
 
-__int64 PpmInitIdlePolicy()
+NTSTATUS PpmInitIdlePolicy()
 {
   __int64 v0; // rax
   unsigned __int64 *v1; // rbx
   __int64 v2; // rdi
   unsigned __int64 v3; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  int v6; // [rsp+50h] [rbp+8h]
-  int v7; // [rsp+58h] [rbp+10h] BYREF
-  int v8; // [rsp+60h] [rbp+18h] BYREF
+  ULONG ResultDataSize; // [rsp+50h] [rbp+8h] BYREF
+  ULONG Type; // [rsp+58h] [rbp+10h] BYREF
+  int Data; // [rsp+60h] [rbp+18h] BYREF
 
   word_1403A660C = 0;
   word_1403A708C = 0;
@@ -45,8 +45,8 @@ __int64 PpmInitIdlePolicy()
   }
   while ( v2 );
   RtlInitUnicodeString(&DestinationString, L"Power-IdleStatesMax-Enabled");
-  result = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v7, (__int64)&v8);
-  if ( (int)result >= 0 && v6 == 4 && v7 == 4 )
-    PpmIdleRespectIdleStateMax = v8 != 0;
+  result = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize);
+  if ( result >= 0 && ResultDataSize == 4 && Type == 4 )
+    PpmIdleRespectIdleStateMax = Data != 0;
   return result;
 }

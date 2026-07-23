@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpInitializeKcbStack @ 0x1407D1B94
+ * XREFs of CmpInitializeKcbStack @ 0x1407D1E64
  * Callers:
- *     CmQueryLayeredKey @ 0x14035DC84 (CmQueryLayeredKey.c)
- *     CmDeleteLayeredKey @ 0x1406168EC (CmDeleteLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x14035DE24 (CmQueryLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x140616E3C (CmDeleteLayeredKey.c)
  * Callees:
  *     <none>
  */

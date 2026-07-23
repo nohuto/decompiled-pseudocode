@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpVirtualPopShadowStack @ 0x14036EE80
+ * XREFs of RtlpVirtualPopShadowStack @ 0x14036F020
  * Callers:
- *     RtlpxVirtualUnwind @ 0x1402A5A80 (RtlpxVirtualUnwind.c)
- *     RtlpUnwindPrologue @ 0x1402A5F50 (RtlpUnwindPrologue.c)
- *     RtlpUnwindEpilogue @ 0x1404643C0 (RtlpUnwindEpilogue.c)
+ *     RtlpxVirtualUnwind @ 0x1402A5D10 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindPrologue @ 0x1402A61E0 (RtlpUnwindPrologue.c)
+ *     RtlpUnwindEpilogue @ 0x1404647C0 (RtlpUnwindEpilogue.c)
  * Callees:
- *     RtlLocateExtendedFeature2 @ 0x140464240 (RtlLocateExtendedFeature2.c)
+ *     RtlLocateExtendedFeature2 @ 0x140464640 (RtlLocateExtendedFeature2.c)
  */
 
 void __fastcall RtlpVirtualPopShadowStack(__int64 a1, int a2, int a3)

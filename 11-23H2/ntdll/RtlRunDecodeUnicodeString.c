@@ -6,26 +6,22 @@
  *     <none>
  */
 
-_BYTE *__fastcall RtlRunDecodeUnicodeString(char a1, unsigned __int16 *a2)
+void __cdecl RtlRunDecodeUnicodeString(UCHAR Seed, PUNICODE_STRING String)
 {
-  _BYTE *result; // rax
-  unsigned __int64 v3; // r9
+  unsigned int Length; // eax
+  __int64 v3; // r9
 
-  result = (_BYTE *)*a2;
-  if ( (unsigned int)result > 1 )
+  Length = String->Length;
+  if ( Length > 1 )
   {
     do
     {
-      v3 = (unsigned int)((_DWORD)result - 1);
-      *(_BYTE *)(v3 + *((_QWORD *)a2 + 1)) ^= a1 ^ *(_BYTE *)((unsigned int)((_DWORD)result - 2) + *((_QWORD *)a2 + 1));
-      result = (_BYTE *)v3;
+      v3 = Length - 1;
+      *((_BYTE *)String->Buffer + v3) ^= Seed ^ *((_BYTE *)String->Buffer + Length - 2);
+      --Length;
     }
     while ( (unsigned int)v3 > 1 );
   }
-  if ( *a2 )
-  {
-    result = (_BYTE *)*((_QWORD *)a2 + 1);
-    *result ^= a1 | 0x43;
-  }
-  return result;
+  if ( String->Length )
+    *(_BYTE *)String->Buffer ^= Seed | 0x43;
 }

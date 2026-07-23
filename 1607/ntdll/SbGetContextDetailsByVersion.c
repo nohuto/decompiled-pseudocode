@@ -1,8 +1,8 @@
 /*
- * XREFs of SbGetContextDetailsByVersion @ 0x18002EDBC
+ * XREFs of SbGetContextDetailsByVersion @ 0x18002EDAC
  * Callers:
- *     SbpDetermineDllContext @ 0x18002E304 (SbpDetermineDllContext.c)
- *     SbpUpdateCacheWithCurrentImpl @ 0x18002EBE0 (SbpUpdateCacheWithCurrentImpl.c)
+ *     SbpDetermineDllContext @ 0x18002E2F4 (SbpDetermineDllContext.c)
+ *     SbpUpdateCacheWithCurrentImpl @ 0x18002EBD0 (SbpUpdateCacheWithCurrentImpl.c)
  * Callees:
  *     <none>
  */

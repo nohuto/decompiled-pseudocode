@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtGetScalableModePasidTables @ 0x1405A69C8
+ * XREFs of IvtGetScalableModePasidTables @ 0x1405A91D8
  * Callers:
- *     IvtProcessDeviceExceptions @ 0x140BF0684 (IvtProcessDeviceExceptions.c)
+ *     IvtProcessDeviceExceptions @ 0x140BF6684 (IvtProcessDeviceExceptions.c)
  * Callees:
  *     <none>
  */

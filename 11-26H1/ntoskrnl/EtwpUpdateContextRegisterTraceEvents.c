@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpUpdateContextRegisterTraceEvents @ 0x1408272DC
+ * XREFs of EtwpUpdateContextRegisterTraceEvents @ 0x14082D51C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     EtwpInitializeApcPool @ 0x140498EE8 (EtwpInitializeApcPool.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     EtwpPreallocateApcPool @ 0x140AFAC58 (EtwpPreallocateApcPool.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpInitializeApcPool @ 0x140492A38 (EtwpInitializeApcPool.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     EtwpPreallocateApcPool @ 0x140AB3AF8 (EtwpPreallocateApcPool.c)
  */
 
 __int64 __fastcall EtwpUpdateContextRegisterTraceEvents(__int64 a1, int a2, __int64 a3, unsigned int a4, char a5)

@@ -3,19 +3,21 @@
  * Callers:
  *     RtlEnterUmsSchedulingMode @ 0x1800F63F0 (RtlEnterUmsSchedulingMode.c)
  * Callees:
- *     RtlpCopyLegacyContext @ 0x18008A768 (RtlpCopyLegacyContext.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ZwGetContextThread @ 0x1800A2050 (ZwGetContextThread.c)
+ *     RtlpCopyLegacyContext @ 0x18008A778 (RtlpCopyLegacyContext.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ZwGetContextThread @ 0x1800A2070 (ZwGetContextThread.c)
  */
 
 __int64 __fastcall RtlpSaveUmsDebugRegisterState(__int64 a1)
 {
   __int64 v3; // rcx
-  int ContextThread; // edi
+  NTSTATUS ContextThread; // edi
+  struct _CONTEXT ThreadContext; // [rsp+20h] [rbp-4E8h] BYREF
 
   if ( !a1 )
     return 3221225485LL;
-  ContextThread = ZwGetContextThread();
+  ThreadContext.ContextFlags = 1048592;
+  ContextThread = ZwGetContextThread((HANDLE)0xFFFFFFFFFFFFFFFELL, &ThreadContext);
   if ( ContextThread >= 0 )
   {
     RtlpCopyLegacyContext(v3, a1 + 16, 1048592);

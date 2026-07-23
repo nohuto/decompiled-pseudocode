@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x140ABAD8C
+ * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x140ABC24C
  * Callers:
- *     PsSetProcessPriorityByClass @ 0x140ABAD60 (PsSetProcessPriorityByClass.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PsSetProcessPriorityByClass @ 0x140ABC220 (PsSetProcessPriorityByClass.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     PspSetProcessPriorityByClass @ 0x14051C2E4 (PspSetProcessPriorityByClass.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     PspSetProcessPriorityByClass @ 0x140518324 (PspSetProcessPriorityByClass.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,7 +23,7 @@ __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2,
   _DWORD v14[3]; // [rsp+34h] [rbp-45h] BYREF
   EVENT_DESCRIPTOR EventDescriptor; // [rsp+40h] [rbp-39h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-29h] BYREF
-  char *v17; // [rsp+60h] [rbp-19h]
+  __int16 *v17; // [rsp+60h] [rbp-19h]
   int v18; // [rsp+68h] [rbp-11h]
   int v19; // [rsp+6Ch] [rbp-Dh]
   _DWORD *v20; // [rsp+70h] [rbp-9h]
@@ -51,7 +51,7 @@ __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2,
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 0LL;
     UserData.Size = (unsigned __int16)**(_WORD **)&SshpBlockerCollections.SchedulerApc.Type;
-    v17 = &byte_14005288F;
+    v17 = word_140053882;
     UserData.Reserved = 2;
     v18 = 82;
     v19 = 1;
@@ -77,6 +77,6 @@ __int64 __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2,
     _InterlockedAnd((volatile signed __int32 *)(a1 + 1532), ~v9);
     v7 = (v11 & (v4 != 0 ? 0x10000 : 0x20000)) != 0;
   }
-  PspSetProcessPriorityByClass(a1, v7);
+  PspSetProcessPriorityByClass((void *)a1, v7);
   return PspUnlockProcessExclusive(a1, (__int64)CurrentThread);
 }

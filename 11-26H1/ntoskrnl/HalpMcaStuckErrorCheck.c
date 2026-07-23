@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcaStuckErrorCheck @ 0x1404531D8
+ * XREFs of HalpMcaStuckErrorCheck @ 0x14044B308
  * Callers:
- *     HalpMcaReadError @ 0x140453B40 (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x14044BC70 (HalpMcaReadError.c)
  * Callees:
- *     HalpGetMcaPcrContext @ 0x140453A54 (HalpGetMcaPcrContext.c)
+ *     HalpGetMcaPcrContext @ 0x14044BB84 (HalpGetMcaPcrContext.c)
  */
 
 unsigned __int64 __fastcall HalpMcaStuckErrorCheck(int a1, __int64 a2, __int64 a3)

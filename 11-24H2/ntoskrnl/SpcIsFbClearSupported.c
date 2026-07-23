@@ -1,8 +1,8 @@
 /*
- * XREFs of SpcIsFbClearSupported @ 0x1406A0A3C
+ * XREFs of SpcIsFbClearSupported @ 0x1406A1B44
  * Callers:
- *     KeQuerySpeculationControlInformation @ 0x140AC3E38 (KeQuerySpeculationControlInformation.c)
- *     SpcDetectKvaLeakage @ 0x140B638D8 (SpcDetectKvaLeakage.c)
+ *     KeQuerySpeculationControlInformation @ 0x140AC167C (KeQuerySpeculationControlInformation.c)
+ *     SpcDetectKvaLeakage @ 0x140B659A8 (SpcDetectKvaLeakage.c)
  * Callees:
  *     <none>
  */

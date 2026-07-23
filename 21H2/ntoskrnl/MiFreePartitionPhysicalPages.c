@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreePartitionPhysicalPages @ 0x1408DB0F0
+ * XREFs of MiFreePartitionPhysicalPages @ 0x1408DB250
  * Callers:
- *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x140561B58 (MiDeletePartitionResources.c)
  * Callees:
- *     MiReturnResident @ 0x140296E9C (MiReturnResident.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiIncreaseCommitLimits @ 0x1403BF7AC (MiIncreaseCommitLimits.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiReturnPartitionPagesToParent @ 0x140562CC4 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnResident @ 0x140273F7C (MiReturnResident.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiIncreaseCommitLimits @ 0x1403BFBD8 (MiIncreaseCommitLimits.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiReturnPartitionPagesToParent @ 0x140562F04 (MiReturnPartitionPagesToParent.c)
  */
 
 void __fastcall MiFreePartitionPhysicalPages(_QWORD *a1, ULONG_PTR *a2)
@@ -45,7 +45,7 @@ void __fastcall MiFreePartitionPhysicalPages(_QWORD *a1, ULONG_PTR *a2)
   if ( a2 == &MiSystemPartition )
   {
     MiReturnCommit((__int64)a2, v7);
-    _InterlockedExchangeAdd64(&qword_140C4EFB8, -(__int64)v7);
+    _InterlockedExchangeAdd64(&qword_140C4EFF8, -(__int64)v7);
   }
   else
   {

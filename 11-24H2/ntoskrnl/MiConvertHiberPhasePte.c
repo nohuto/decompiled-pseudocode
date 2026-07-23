@@ -1,12 +1,12 @@
 /*
- * XREFs of MiConvertHiberPhasePte @ 0x140B6A300
+ * XREFs of MiConvertHiberPhasePte @ 0x140B6BA10
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiIsPfn @ 0x14045A380 (MiIsPfn.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiIsPfn @ 0x14044F7D0 (MiIsPfn.c)
  */
 
 __int64 __fastcall MiConvertHiberPhasePte(__int64 a1, ULONG_PTR *a2, int a3)
@@ -32,7 +32,7 @@ __int64 __fastcall MiConvertHiberPhasePte(__int64 a1, ULONG_PTR *a2, int a3)
         && (v8 & 0x20) == 0
         && (unsigned __int64)a2 >= MiGetPteAddress(0xFFFF800000000000uLL) )
       {
-        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)a2, v8, 128);
+        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)a2, v8, 128LL);
       }
       goto LABEL_6;
     }
@@ -42,8 +42,8 @@ __int64 __fastcall MiConvertHiberPhasePte(__int64 a1, ULONG_PTR *a2, int a3)
     v10 = (PVOID)((v3 >> 12) & 0xFFFFFFFFFFLL);
     if ( (unsigned int)MiIsPfn((unsigned __int64)v10) )
     {
-      if ( v10 != qword_140E37340[0]
-        && v10 != (PVOID)qword_140E37378
+      if ( v10 != qword_140E37480[0]
+        && v10 != (PVOID)qword_140E374B8
         && !_bittest64(*(const signed __int64 **)(*(_QWORD *)(a1 + 184) + 8LL), (unsigned int)v10) )
       {
         v8 = v3 & 0xFFFFFFFFFFFFFBFAuLL | 0x404;

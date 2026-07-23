@@ -1,12 +1,12 @@
 /*
- * XREFs of CcSlowReferenceSharedCacheMapFileObject @ 0x1402F5800
+ * XREFs of CcSlowReferenceSharedCacheMapFileObject @ 0x140300550
  * Callers:
- *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140300520 (CcReferenceSharedCacheMapFileObject.c)
  * Callees:
- *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObFastReferenceObjectLocked @ 0x1402AAC68 (ObFastReferenceObjectLocked.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 unsigned __int64 __fastcall CcSlowReferenceSharedCacheMapFileObject(__int64 a1)

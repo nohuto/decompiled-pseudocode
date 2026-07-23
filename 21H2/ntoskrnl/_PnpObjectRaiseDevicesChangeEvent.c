@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpObjectRaiseDevicesChangeEvent @ 0x140755C80
+ * XREFs of _PnpObjectRaiseDevicesChangeEvent @ 0x140755E40
  * Callers:
- *     _CmRemoveDeviceFromContainer @ 0x14072BAEC (_CmRemoveDeviceFromContainer.c)
- *     _CmAddDeviceToContainer @ 0x140759124 (_CmAddDeviceToContainer.c)
- *     _CmAddPanelDevice @ 0x14097774C (_CmAddPanelDevice.c)
- *     _CmRemovePanelDevice @ 0x140978A98 (_CmRemovePanelDevice.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072BF9C (_CmRemoveDeviceFromContainer.c)
+ *     _CmAddDeviceToContainer @ 0x1407592E4 (_CmAddDeviceToContainer.c)
+ *     _CmAddPanelDevice @ 0x14097792C (_CmAddPanelDevice.c)
+ *     _CmRemovePanelDevice @ 0x140978C78 (_CmRemovePanelDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _PnpContainerRaiseDevicesChangeEvent @ 0x140755CC0 (_PnpContainerRaiseDevicesChangeEvent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _PnpContainerRaiseDevicesChangeEvent @ 0x140755E80 (_PnpContainerRaiseDevicesChangeEvent.c)
  */
 
 void __fastcall PnpObjectRaiseDevicesChangeEvent(__int64 a1, __int64 a2, __int64 a3)

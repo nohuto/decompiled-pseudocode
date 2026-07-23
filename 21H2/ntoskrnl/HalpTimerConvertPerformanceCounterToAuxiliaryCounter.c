@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404B6840
+ * XREFs of HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404B6A80
  * Callers:
  *     <none>
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404B6550 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
- *     HalpTimerConvertAuxiliaryCounter @ 0x1404B6614 (HalpTimerConvertAuxiliaryCounter.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404B6790 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
+ *     HalpTimerConvertAuxiliaryCounter @ 0x1404B6854 (HalpTimerConvertAuxiliaryCounter.c)
  */
 
 __int64 __fastcall HalpTimerConvertPerformanceCounterToAuxiliaryCounter(unsigned __int64 a1, __int64 *a2, _QWORD *a3)

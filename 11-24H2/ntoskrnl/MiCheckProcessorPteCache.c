@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckProcessorPteCache @ 0x1403FC740
+ * XREFs of MiCheckProcessorPteCache @ 0x1403F6100
  * Callers:
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiEmptyPteBins @ 0x1403FCDF4 (MiEmptyPteBins.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiEmptyPteBins @ 0x1403F67B4 (MiEmptyPteBins.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
@@ -68,26 +68,26 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
-    v4 = qword_140E375A8;
+    v4 = qword_140E376E8;
     v5 = 0LL;
     v6 = -1LL;
 LABEL_7:
     while ( 2 )
     {
-      v7 = (unsigned __int64 *)&qword_140E37568;
-      while ( qword_140E375B0 )
+      v7 = (unsigned __int64 *)&qword_140E376A8;
+      while ( qword_140E376F0 )
       {
-        if ( qword_140E37568 >= (unsigned __int64)qword_140E375B0 )
+        if ( qword_140E376A8 >= (unsigned __int64)qword_140E376F0 )
         {
           v7 = (unsigned __int64 *)&v44;
-          *(_QWORD *)&v44 = qword_140E37568 - qword_140E375B0;
-          *((_QWORD *)&v44 + 1) = qword_140E37570 + 8 * ((unsigned __int64)qword_140E375B0 >> 6);
+          *(_QWORD *)&v44 = qword_140E376A8 - qword_140E376F0;
+          *((_QWORD *)&v44 + 1) = qword_140E376B0 + 8 * ((unsigned __int64)qword_140E376F0 >> 6);
           if ( v4 )
-            v4 -= qword_140E375B0;
+            v4 -= qword_140E376F0;
           break;
         }
-        v43 = ExAcquireSpinLockExclusive(dword_140E3759C);
-        MiReleaseSpinLockExclusive(dword_140E3759C, v43);
+        v43 = ExAcquireSpinLockExclusive(dword_140E376DC);
+        MiReleaseSpinLockExclusive(dword_140E376DC, v43);
       }
       v8 = *v7;
       v9 = 0LL;
@@ -112,7 +112,7 @@ LABEL_7:
 LABEL_39:
         if ( !v9 )
         {
-          result = MiEmptyPteBins(&qword_140E37568, 0LL, 2LL);
+          result = MiEmptyPteBins(&qword_140E376A8, 0LL, 2LL);
           if ( !result )
             return result;
           v4 = 0LL;
@@ -123,9 +123,9 @@ LABEL_39:
         if ( v4 + 1 > v8 )
           v27 = v8;
       }
-      v33 = (v26 + qword_140E375B0) & 0xFFFFFFFFFFFFFFC0uLL;
-      v34 = *(_QWORD *)(qword_140E37570 + 8 * (v33 >> 6));
-      v35 = (volatile signed __int64 *)(qword_140E37570 + 8 * (v33 >> 6));
+      v33 = (v26 + qword_140E376F0) & 0xFFFFFFFFFFFFFFC0uLL;
+      v34 = *(_QWORD *)(qword_140E376B0 + 8 * (v33 >> 6));
+      v35 = (volatile signed __int64 *)(qword_140E376B0 + 8 * (v33 >> 6));
       if ( v34 == -1LL )
       {
 LABEL_80:
@@ -152,8 +152,8 @@ LABEL_80:
     {
       CurrentPrcb->PteBitCache = v34;
       CurrentPrcb->PteBitOffset = v33;
-      _InterlockedAdd64(&qword_140E375C0, -(__int64)(unsigned int)__popcnt(~v34));
-      qword_140E375A8 = v33 + 64;
+      _InterlockedAdd64(&qword_140E37700, -(__int64)(unsigned int)__popcnt(~v34));
+      qword_140E376E8 = v33 + 64;
     }
     else
     {
@@ -303,7 +303,7 @@ LABEL_27:
     {
       if ( (v6 & 7) != 0 )
       {
-        *v22++ |= byte_140012BB8[v21];
+        *v22++ |= byte_140012870[v21];
         a1 -= (unsigned int)(8 - v21);
       }
       if ( a1 > 8 )
@@ -315,16 +315,16 @@ LABEL_27:
       v5 = v6;
       if ( !a1 )
         goto LABEL_31;
-      v23 = byte_14002B770[a1];
+      v23 = byte_14002BBD0[a1];
     }
     else
     {
       v5 = v6;
-      v23 = byte_14002B770[a1] << v21;
+      v23 = byte_14002BBD0[a1] << v21;
     }
     *v22 |= v23;
 LABEL_31:
-    v5 = qword_140E37588 + 8 * (v5 + CurrentPrcb->PteBitOffset);
+    v5 = qword_140E376C8 + 8 * (v5 + CurrentPrcb->PteBitOffset);
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

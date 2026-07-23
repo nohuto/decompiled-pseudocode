@@ -1,9 +1,9 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityHelper @ 0x1405B15E0
+ * XREFs of CcWaitForCurrentLazyWriterActivityHelper @ 0x1405B3DF0
  * Callers:
  *     <none>
  * Callees:
- *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x1405B17CC (CcWaitForCurrentLazyWriterActivityOnPartition.c)
+ *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x1405B3FDC (CcWaitForCurrentLazyWriterActivityOnPartition.c)
  */
 
 char __fastcall CcWaitForCurrentLazyWriterActivityHelper(__int64 a1, __int64 a2, int *a3)

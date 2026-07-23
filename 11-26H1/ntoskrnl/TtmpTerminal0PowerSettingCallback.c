@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpTerminal0PowerSettingCallback @ 0x1407E7850
+ * XREFs of TtmpTerminal0PowerSettingCallback @ 0x1407ED3B0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiTerminalSetDisplayTimeouts @ 0x1407EC504 (TtmiTerminalSetDisplayTimeouts.c)
- *     TtmpAcquireSessionLock @ 0x140A3ACCC (TtmpAcquireSessionLock.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1407F2068 (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmpAcquireSessionLock @ 0x1409F68CC (TtmpAcquireSessionLock.c)
  */
 
 __int64 __fastcall TtmpTerminal0PowerSettingCallback(
@@ -35,7 +35,7 @@ __int64 __fastcall TtmpTerminal0PowerSettingCallback(
       (unsigned int)Context[66],
       (unsigned int)Context[67]);
   }
-  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+  ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
   KeLeaveCriticalRegion();
   return 0LL;
 }

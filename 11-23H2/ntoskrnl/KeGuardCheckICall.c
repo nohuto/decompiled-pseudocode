@@ -1,8 +1,8 @@
 /*
  * XREFs of KeGuardCheckICall @ 0x140B137B0
  * Callers:
- *     KiSwInterruptDispatch @ 0x1403E45D0 (KiSwInterruptDispatch.c)
- *     sub_1403E5840 @ 0x1403E5840 (sub_1403E5840.c)
+ *     KiSwInterruptDispatch @ 0x1403E47B0 (KiSwInterruptDispatch.c)
+ *     sub_1403E5A20 @ 0x1403E5A20 (sub_1403E5A20.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140AFA010 (FsRtlMdlReadCompleteDevEx.c)
  *     sub_140B11A74 @ 0x140B11A74 (sub_140B11A74.c)
  *     sub_140B121A0 @ 0x140B121A0 (sub_140B121A0.c)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteThreadContext @ 0x14068F644
+ * XREFs of MiDeleteThreadContext @ 0x140690714
  * Callers:
- *     MiZeroNodeConductorWait @ 0x1406900D8 (MiZeroNodeConductorWait.c)
+ *     MiZeroNodeConductorWait @ 0x1406911A8 (MiZeroNodeConductorWait.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiRemoveConductorListZeroThread @ 0x1407FF960 (MiRemoveConductorListZeroThread.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiRemoveConductorListZeroThread @ 0x1408000A0 (MiRemoveConductorListZeroThread.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteThreadContext(__int64 a1, void *a2)

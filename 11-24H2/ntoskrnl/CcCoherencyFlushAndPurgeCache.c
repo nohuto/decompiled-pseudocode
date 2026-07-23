@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCoherencyFlushAndPurgeCache @ 0x1404DD130
+ * XREFs of CcCoherencyFlushAndPurgeCache @ 0x1404D6B50
  * Callers:
  *     <none>
  * Callees:
- *     CcPurgeCacheSection @ 0x14023EF70 (CcPurgeCacheSection.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     MmOnlySystemCacheViewsPresent @ 0x140314B88 (MmOnlySystemCacheViewsPresent.c)
- *     MmTrimSection @ 0x140370AB4 (MmTrimSection.c)
+ *     CcPurgeCacheSection @ 0x1402070C0 (CcPurgeCacheSection.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     MmTrimSection @ 0x1404724C4 (MmTrimSection.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x14047EE60 (MmOnlySystemCacheViewsPresent.c)
  */
 
 void __stdcall CcCoherencyFlushAndPurgeCache(
@@ -28,7 +28,7 @@ void __stdcall CcCoherencyFlushAndPurgeCache(
   v12 = v11 | 2;
   if ( (Flags & 1) != 0 )
   {
-    if ( (Flags & 4) != 0 || MmOnlySystemCacheViewsPresent((__int64)SectionObjectPointer) )
+    if ( (Flags & 4) != 0 || MmOnlySystemCacheViewsPresent(SectionObjectPointer) )
     {
       IoStatus->Status = 0;
       goto LABEL_9;

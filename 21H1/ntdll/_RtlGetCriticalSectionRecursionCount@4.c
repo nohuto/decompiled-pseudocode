@@ -6,10 +6,10 @@
  *     <none>
  */
 
-int __stdcall RtlGetCriticalSectionRecursionCount(int a1)
+ULONG __cdecl RtlGetCriticalSectionRecursionCount(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  if ( *(void **)(a1 + 12) == NtCurrentTeb()->ClientId.UniqueThread )
-    return *(_DWORD *)(a1 + 8);
+  if ( CriticalSection->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
+    return CriticalSection->RecursionCount;
   else
     return 0;
 }

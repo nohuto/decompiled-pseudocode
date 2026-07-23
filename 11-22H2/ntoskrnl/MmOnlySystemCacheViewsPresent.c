@@ -26,7 +26,9 @@ char __fastcall MmOnlySystemCacheViewsPresent(_QWORD *a1)
     return 1;
   v2 = *(_QWORD *)(v1 + 40) == *(unsigned int *)(v1 + 88);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 72));
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v10;
     if ( v10 <= 0xFu && CurrentIrql >= 2u )

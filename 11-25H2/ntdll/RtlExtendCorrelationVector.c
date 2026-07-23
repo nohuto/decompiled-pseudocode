@@ -7,24 +7,19 @@
  *     RtlpGetCorrelationVectorBufferLength @ 0x1800F81F4 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
-__int64 RtlExtendCorrelationVector()
+DWORD __cdecl RtlExtendCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
   int CorrelationVectorBufferLength; // eax
-  __int64 v1; // rcx
-  unsigned int v2; // r10d
-  __int64 v3; // r11
+  __int64 v2; // rcx
+  DWORD v3; // r10d
+  __int64 v4; // r11
 
-  if ( (int)RtlpGetCorrelationVectorEndPosition() < 0 )
-    return (unsigned int)-2147483643;
+  if ( (int)RtlpGetCorrelationVectorEndPosition(CorrelationVector) < 0 )
+    return -2147483643;
   CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength();
-  if ( (int)v3 >= CorrelationVectorBufferLength - 3 )
-  {
-    return (unsigned int)-2147483643;
-  }
-  else
-  {
-    *(_WORD *)(v3 + v1 + 1) = 12334;
-    *(_BYTE *)(v3 + v1 + 3) = v2;
-  }
-  return v2;
+  if ( (int)v4 >= CorrelationVectorBufferLength - 3 )
+    return -2147483643;
+  *(_WORD *)(v4 + v2 + 1) = 12334;
+  *(_BYTE *)(v4 + v2 + 3) = v3;
+  return v3;
 }

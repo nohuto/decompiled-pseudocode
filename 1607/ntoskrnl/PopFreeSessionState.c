@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFreeSessionState @ 0x140533988
+ * XREFs of PopFreeSessionState @ 0x140533EC8
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     PopFreeRegistration @ 0x140533A30 (PopFreeRegistration.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PopFreeRegistration @ 0x140533F70 (PopFreeRegistration.c)
  */
 
 void __fastcall PopFreeSessionState(int a1)

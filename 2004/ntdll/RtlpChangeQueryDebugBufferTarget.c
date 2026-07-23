@@ -11,123 +11,164 @@
  *     NtUnmapViewOfSection @ 0x18009D350 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall RtlpChangeQueryDebugBufferTarget(__int64 a1, __int64 a2, int a3, _QWORD *a4)
+NTSTATUS __fastcall RtlpChangeQueryDebugBufferTarget(__int64 a1, void *a2, int a3, HANDLE *a4)
 {
-  __int64 v4; // r14
-  __int64 result; // rax
-  __int64 v10; // rcx
-  int v11; // eax
-  unsigned int v12; // edi
-  HANDLE v13; // rdx
-  _QWORD *v14; // rdi
-  int v15; // esi
-  __int128 v16; // xmm0
-  _OWORD *v17; // rbx
-  __int64 Handle; // [rsp+58h] [rbp-39h]
-  HANDLE v19; // [rsp+F8h] [rbp+67h]
+  void *v4; // rax
+  __int64 v5; // r14
+  NTSTATUS result; // eax
+  __int64 v11; // rcx
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // edi
+  HANDLE v14; // rdx
+  PVOID *v15; // rdi
+  ULONG_PTR v16; // r8
+  NTSTATUS v17; // esi
+  HANDLE v18; // rdx
+  __int128 v19; // xmm0
+  _OWORD *v20; // rbx
+  HANDLE ProcessHandle; // [rsp+58h] [rbp-39h] BYREF
+  ULONG_PTR ViewSize; // [rsp+60h] [rbp-31h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+68h] [rbp-29h] BYREF
+  _CLIENT_ID ClientId; // [rsp+70h] [rbp-21h] BYREF
+  _CLIENT_ID v25; // [rsp+80h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-1h] BYREF
+  HANDLE Handle; // [rsp+F8h] [rbp+67h] BYREF
 
-  v4 = a1 + *(_QWORD *)(a1 + 88);
-  if ( *(_QWORD *)(a1 + 48) )
+  v4 = *(void **)(a1 + 48);
+  v5 = a1 + *(_QWORD *)(a1 + 88);
+  ObjectAttributes.Length = 48;
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( v4 )
   {
-    result = NtOpenProcess();
-    if ( (int)result < 0 )
+    ClientId.UniqueProcess = v4;
+    ClientId.UniqueThread = 0LL;
+    result = NtOpenProcess(&ProcessHandle, 0x1FFFFFu, &ObjectAttributes, &ClientId);
+    if ( result < 0 )
       return result;
-    v10 = Handle;
+    v11 = (__int64)ProcessHandle;
   }
   else
   {
-    v10 = -1LL;
-    Handle = -1LL;
+    v11 = -1LL;
+    ProcessHandle = (HANDLE)-1LL;
   }
   if ( a2 )
   {
-    v11 = NtOpenProcess();
-    v10 = Handle;
-    v12 = v11;
-    if ( v11 < 0 )
+    v25.UniqueProcess = a2;
+    v25.UniqueThread = 0LL;
+    v12 = NtOpenProcess(&Handle, 0x1FFFFFu, &ObjectAttributes, &v25);
+    v11 = (__int64)ProcessHandle;
+    v13 = v12;
+    if ( v12 < 0 )
     {
-      if ( Handle != -1 )
-        NtClose((HANDLE)Handle);
-      return v12;
+      if ( ProcessHandle != (HANDLE)-1LL )
+        NtClose(ProcessHandle);
+      return v13;
     }
-    v13 = v19;
+    v14 = Handle;
   }
   else
   {
-    v13 = 0LL;
-    v19 = 0LL;
+    v14 = 0LL;
+    Handle = 0LL;
   }
-  v14 = (_QWORD *)(a1 + 16);
-  if ( v10 == -1 )
+  v15 = (PVOID *)(a1 + 16);
+  if ( v11 == -1 )
   {
-    *v14 = *(_QWORD *)(a1 + 88) + *(_QWORD *)(a1 + 8);
+    v16 = *(_QWORD *)(a1 + 88);
+    *v15 = (PVOID)(v16 + *(_QWORD *)(a1 + 8));
   }
   else
   {
-    if ( *v14 )
+    if ( *v15 )
     {
-      NtUnmapViewOfSection();
-      v10 = Handle;
-      *v14 = 0LL;
+      NtUnmapViewOfSection((HANDLE)v11, *v15);
+      v11 = (__int64)ProcessHandle;
+      *v15 = 0LL;
     }
-    NtClose((HANDLE)v10);
-    v13 = v19;
+    NtClose((HANDLE)v11);
+    v16 = *(_QWORD *)(a1 + 88);
+    v14 = Handle;
   }
-  if ( v13 )
+  ViewSize = v16;
+  SectionOffset.QuadPart = v16;
+  if ( v14 )
   {
-    v15 = ZwMapViewOfSection();
-    if ( v15 == -1073741800 )
+    v17 = ZwMapViewOfSection(
+            *(HANDLE *)a1,
+            v14,
+            (PVOID *)(a1 + 16),
+            0LL,
+            0LL,
+            &SectionOffset,
+            &ViewSize,
+            ViewUnmap,
+            0,
+            4u);
+    if ( v17 == -1073741800 )
     {
-      *v14 = 0LL;
-      v15 = ZwMapViewOfSection();
+      v18 = Handle;
+      *v15 = 0LL;
+      v17 = ZwMapViewOfSection(
+              *(HANDLE *)a1,
+              v18,
+              (PVOID *)(a1 + 16),
+              0LL,
+              0LL,
+              &SectionOffset,
+              &ViewSize,
+              ViewUnmap,
+              0,
+              4u);
     }
-    if ( v15 < 0 )
+    if ( v17 < 0 )
     {
-      NtClose(v19);
-      return (unsigned int)v15;
+      NtClose(Handle);
+      return v17;
     }
     if ( a4 )
-      *a4 = v19;
+      *a4 = Handle;
     else
-      NtClose(v19);
+      NtClose(Handle);
   }
   *(_QWORD *)(a1 + 48) = a2;
-  *(_QWORD *)(a1 + 24) = a1 - *v14;
+  *(_QWORD *)(a1 + 24) = a1 - (_QWORD)*v15;
   if ( a3 == 1 )
   {
-    *(_DWORD *)v4 = 0;
-    *(_DWORD *)(v4 + 4) = *(_DWORD *)v14;
-    *(_DWORD *)(v4 + 8) = *(_DWORD *)v14;
-    *(_DWORD *)(v4 + 12) = *(_DWORD *)(a1 + 24);
-    *(_DWORD *)(v4 + 16) = *(_DWORD *)(a1 + 32);
-    *(_DWORD *)(v4 + 20) = *(_DWORD *)(a1 + 40);
-    *(_DWORD *)(v4 + 24) = *(_DWORD *)(a1 + 48);
-    *(_DWORD *)(v4 + 28) = *(_DWORD *)(a1 + 56);
-    *(_DWORD *)(v4 + 32) = *(_DWORD *)(a1 + 64);
-    *(_DWORD *)(v4 + 36) = *(_DWORD *)(a1 + 72);
-    *(_DWORD *)(v4 + 40) = *(_DWORD *)(a1 + 80);
-    *(_DWORD *)(v4 + 44) = *(_DWORD *)(a1 + 88);
-    *(_DWORD *)(v4 + 80) = *(_DWORD *)(a1 + 160);
+    *(_DWORD *)v5 = 0;
+    *(_DWORD *)(v5 + 4) = *(_DWORD *)v15;
+    *(_DWORD *)(v5 + 8) = *(_DWORD *)v15;
+    *(_DWORD *)(v5 + 12) = *(_DWORD *)(a1 + 24);
+    *(_DWORD *)(v5 + 16) = *(_DWORD *)(a1 + 32);
+    *(_DWORD *)(v5 + 20) = *(_DWORD *)(a1 + 40);
+    *(_DWORD *)(v5 + 24) = *(_DWORD *)(a1 + 48);
+    *(_DWORD *)(v5 + 28) = *(_DWORD *)(a1 + 56);
+    *(_DWORD *)(v5 + 32) = *(_DWORD *)(a1 + 64);
+    *(_DWORD *)(v5 + 36) = *(_DWORD *)(a1 + 72);
+    *(_DWORD *)(v5 + 40) = *(_DWORD *)(a1 + 80);
+    *(_DWORD *)(v5 + 44) = *(_DWORD *)(a1 + 88);
+    *(_DWORD *)(v5 + 80) = *(_DWORD *)(a1 + 160);
   }
   else
   {
-    *(_OWORD *)v4 = *(_OWORD *)a1;
-    *(_OWORD *)(v4 + 16) = *(_OWORD *)(a1 + 16);
-    *(_OWORD *)(v4 + 32) = *(_OWORD *)(a1 + 32);
-    *(_OWORD *)(v4 + 48) = *(_OWORD *)(a1 + 48);
-    *(_OWORD *)(v4 + 64) = *(_OWORD *)(a1 + 64);
-    *(_OWORD *)(v4 + 80) = *(_OWORD *)(a1 + 80);
-    *(_OWORD *)(v4 + 96) = *(_OWORD *)(a1 + 96);
-    v16 = *(_OWORD *)(a1 + 112);
-    v17 = (_OWORD *)(a1 + 128);
-    *(_OWORD *)(v4 + 112) = v16;
-    *(_OWORD *)(v4 + 128) = *v17;
-    *(_OWORD *)(v4 + 144) = v17[1];
-    *(_OWORD *)(v4 + 160) = v17[2];
-    *(_OWORD *)(v4 + 176) = v17[3];
-    *(_OWORD *)(v4 + 192) = v17[4];
-    *(_QWORD *)(v4 + 8) = *(_QWORD *)(v4 + 16);
-    *(_QWORD *)v4 = 0LL;
+    *(_OWORD *)v5 = *(_OWORD *)a1;
+    *(_OWORD *)(v5 + 16) = *(_OWORD *)(a1 + 16);
+    *(_OWORD *)(v5 + 32) = *(_OWORD *)(a1 + 32);
+    *(_OWORD *)(v5 + 48) = *(_OWORD *)(a1 + 48);
+    *(_OWORD *)(v5 + 64) = *(_OWORD *)(a1 + 64);
+    *(_OWORD *)(v5 + 80) = *(_OWORD *)(a1 + 80);
+    *(_OWORD *)(v5 + 96) = *(_OWORD *)(a1 + 96);
+    v19 = *(_OWORD *)(a1 + 112);
+    v20 = (_OWORD *)(a1 + 128);
+    *(_OWORD *)(v5 + 112) = v19;
+    *(_OWORD *)(v5 + 128) = *v20;
+    *(_OWORD *)(v5 + 144) = v20[1];
+    *(_OWORD *)(v5 + 160) = v20[2];
+    *(_OWORD *)(v5 + 176) = v20[3];
+    *(_OWORD *)(v5 + 192) = v20[4];
+    *(_QWORD *)(v5 + 8) = *(_QWORD *)(v5 + 16);
+    *(_QWORD *)v5 = 0LL;
   }
-  return 0LL;
+  return 0;
 }

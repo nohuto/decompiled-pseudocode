@@ -1,17 +1,17 @@
 /*
- * XREFs of ViDeadlockRemoveMemoryRangeResources @ 0x140613FD8
+ * XREFs of ViDeadlockRemoveMemoryRangeResources @ 0x140612598
  * Callers:
- *     VfFreeMemoryNotification @ 0x140BA7A7C (VfFreeMemoryNotification.c)
+ *     VfFreeMemoryNotification @ 0x140BA9A7C (VfFreeMemoryNotification.c)
  * Callees:
- *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x140613F88 (ViDeadlockDetectionTryConvertSharedToExclusive.c)
- *     ViLowerIrql @ 0x140614268 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1406142A0 (ViRaiseIrqlToDpcLevel.c)
- *     VfUtilAddressRangeFit @ 0x140B83148 (VfUtilAddressRangeFit.c)
- *     ViDeadlockDatabaseHashIndex @ 0x140B99150 (ViDeadlockDatabaseHashIndex.c)
- *     ViDeadlockDetectionLock @ 0x140B991D4 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140B9920C (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140B99680 (ViDeadlockFree.c)
- *     ViDeadlockRemoveResource @ 0x140B99DFC (ViDeadlockRemoveResource.c)
+ *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x140612548 (ViDeadlockDetectionTryConvertSharedToExclusive.c)
+ *     ViLowerIrql @ 0x140612828 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x140612860 (ViRaiseIrqlToDpcLevel.c)
+ *     VfUtilAddressRangeFit @ 0x140B85148 (VfUtilAddressRangeFit.c)
+ *     ViDeadlockDatabaseHashIndex @ 0x140B9B150 (ViDeadlockDatabaseHashIndex.c)
+ *     ViDeadlockDetectionLock @ 0x140B9B1D4 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140B9B20C (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140B9B680 (ViDeadlockFree.c)
+ *     ViDeadlockRemoveResource @ 0x140B9BDFC (ViDeadlockRemoveResource.c)
  */
 
 __int64 __fastcall ViDeadlockRemoveMemoryRangeResources(

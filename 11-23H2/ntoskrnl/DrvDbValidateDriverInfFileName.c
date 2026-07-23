@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbValidateDriverInfFileName @ 0x140A6D898
+ * XREFs of DrvDbValidateDriverInfFileName @ 0x140A6DB48
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x140876020 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbDispatchDriverPackage @ 0x1408763A0 (DrvDbDispatchDriverPackage.c)
- *     DrvDbDispatchDriverFile @ 0x140A6DE60 (DrvDbDispatchDriverFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x140876260 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverPackage @ 0x1408765E0 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverFile @ 0x140A6E110 (DrvDbDispatchDriverFile.c)
  * Callees:
- *     wcschr @ 0x1403DB910 (wcschr.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
  */
 
 __int64 __fastcall DrvDbValidateDriverInfFileName(__int64 a1, const wchar_t *a2)

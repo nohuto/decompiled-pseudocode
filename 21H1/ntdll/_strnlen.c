@@ -9,13 +9,19 @@
 
 size_t __cdecl strnlen(const char *String, size_t MaxCount)
 {
-  size_t result; // eax
+  size_t result; // rax
 
-  for ( result = 0; result < MaxCount; ++String )
+  LODWORD(result) = 0;
+  if ( (_DWORD)MaxCount )
   {
-    if ( !*String )
-      break;
-    ++result;
+    do
+    {
+      if ( !*String )
+        break;
+      LODWORD(result) = result + 1;
+      ++String;
+    }
+    while ( (unsigned int)result < (unsigned int)MaxCount );
   }
   return result;
 }

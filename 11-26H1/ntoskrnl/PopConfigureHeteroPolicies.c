@@ -1,18 +1,18 @@
 /*
- * XREFs of PopConfigureHeteroPolicies @ 0x140A9E35C
+ * XREFs of PopConfigureHeteroPolicies @ 0x140AA9D88
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopConfigureHeteroThresholds @ 0x140A9EEA8 (PopConfigureHeteroThresholds.c)
- *     PpmHeteroComputeBias @ 0x140A9F15C (PpmHeteroComputeBias.c)
- *     KeConfigureHeteroPolicy @ 0x140A9F184 (KeConfigureHeteroPolicy.c)
- *     PopCapturePlatformRole @ 0x140B0E868 (PopCapturePlatformRole.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopConfigureHeteroThresholds @ 0x140AAA414 (PopConfigureHeteroThresholds.c)
+ *     PpmHeteroComputeBias @ 0x140AAA6C8 (PpmHeteroComputeBias.c)
+ *     KeConfigureHeteroPolicy @ 0x140AAA6F0 (KeConfigureHeteroPolicy.c)
+ *     PopCapturePlatformRole @ 0x140B100A0 (PopCapturePlatformRole.c)
  */
 
 char __fastcall PopConfigureHeteroPolicies(int a1, char a2, char a3)
@@ -34,57 +34,58 @@ char __fastcall PopConfigureHeteroPolicies(int a1, char a2, char a3)
   __int64 v19; // r9
   __int64 v20; // rsi
   __int64 v21; // r11
-  __int64 v22; // rdx
-  __int64 *v23; // rax
+  __int64 WriteTransferCount; // rdx
+  char *v23; // rax
   int v24; // eax
-  wchar_t **v25; // rdi
-  __int64 v26; // rsi
-  __int64 v27; // rax
-  __int64 v28; // rdi
-  __int64 v29; // rcx
-  __int32 v30; // edx
-  __int64 Teb_low; // rdx
-  int Blink_high; // ecx
-  int Dpc; // ecx
-  int Dpc_high; // ecx
-  __m128i *v35; // rax
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  int v38; // edi
-  int v39; // eax
-  __int64 v40; // r8
-  int v41; // eax
-  unsigned int v42; // eax
-  __int64 v43; // rcx
-  int v44; // esi
-  char v45; // di
-  _DWORD *v46; // rsi
-  __int64 v47; // r14
-  __m128i *v48; // r10
-  unsigned __int8 v49; // r11
-  __int64 v50; // rdx
-  __int32 v51; // eax
-  char v52; // r11
-  char v53; // r9
-  int *v54; // rdi
+  __m128i v25; // xmm0
+  wchar_t **v26; // rdi
+  __int64 v27; // rsi
+  __int64 v28; // rax
+  __int64 v29; // rdi
+  __int64 v30; // rcx
+  __int32 v31; // edx
+  __int64 v32; // rdx
+  int v33; // ecx
+  int v34; // ecx
+  int v35; // ecx
+  __m128i *v36; // rax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  int v39; // edi
+  int v40; // eax
+  __int64 v41; // r8
+  int v42; // eax
+  unsigned int v43; // eax
+  __int64 v44; // rcx
+  int v45; // esi
+  char v46; // di
+  _DWORD *v47; // rsi
+  __int64 v48; // r14
+  __m128i *v49; // r10
+  unsigned __int8 v50; // r11
+  __int64 v51; // rdx
+  __int32 v52; // eax
+  char v53; // r11
+  char v54; // r9
+  int *v55; // rdi
   __int64 i; // rcx
   char result; // al
-  int v57; // ecx
+  int v58; // ecx
   HANDLE Handle; // [rsp+40h] [rbp-C8h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   _QWORD ResultLength[4]; // [rsp+50h] [rbp-B8h] BYREF
   _QWORD ObjectAttributes[7]; // [rsp+70h] [rbp-98h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING ValueName; // [rsp+B8h] [rbp-50h] BYREF
-  unsigned int v66; // [rsp+C8h] [rbp-40h] BYREF
-  __m128i v67; // [rsp+CCh] [rbp-3Ch] BYREF
-  __m128i v68; // [rsp+DCh] [rbp-2Ch]
-  __m128i v69; // [rsp+ECh] [rbp-1Ch]
-  __int64 v70; // [rsp+FCh] [rbp-Ch]
-  int v71; // [rsp+104h] [rbp-4h]
-  int v72; // [rsp+108h] [rbp+0h]
-  int v73; // [rsp+10Ch] [rbp+4h]
-  int v74; // [rsp+110h] [rbp+8h]
+  unsigned int v67; // [rsp+C8h] [rbp-40h] BYREF
+  __m128i v68; // [rsp+CCh] [rbp-3Ch] BYREF
+  __m128i v69; // [rsp+DCh] [rbp-2Ch]
+  __m128i v70; // [rsp+ECh] [rbp-1Ch]
+  __int64 v71; // [rsp+FCh] [rbp-Ch]
+  int v72; // [rsp+104h] [rbp-4h]
+  int v73; // [rsp+108h] [rbp+0h]
+  int v74; // [rsp+10Ch] [rbp+4h]
+  int v75; // [rsp+110h] [rbp+8h]
   __int128 KeyValueInformation; // [rsp+138h] [rbp+30h] BYREF
 
   v3 = 0LL;
@@ -96,38 +97,38 @@ char __fastcall PopConfigureHeteroPolicies(int a1, char a2, char a3)
   KeyValueInformation = 0LL;
   ValueName = 0LL;
   *(_OWORD *)&ResultLength[1] = 0LL;
-  memset_0(&v66, 0, 0x68uLL);
+  memset_0(&v67, 0, 0x68uLL);
   v7 = 5;
-  v66 = 5;
+  v67 = 5;
   v8 = 7LL;
   if ( a1 == 3 )
   {
-    v71 = 8;
+    v72 = 8;
     v9 = PopCapturePlatformRole(v6, 5LL, 3LL);
     if ( v9 == 2 || v9 == 8 )
-      v71 = 10;
-    v72 = 5200;
-    v73 = 51;
+      v72 = 10;
+    v73 = 5200;
+    v74 = 51;
     si128 = _mm_load_si128((const __m128i *)&_xmm);
-    v67 = si128;
-    v67.m128i_i32[3] = 2;
-    v67.m128i_i32[1] = 2;
     v68 = si128;
+    v68.m128i_i32[3] = 2;
+    v68.m128i_i32[1] = 2;
     v69 = si128;
-    v70 = si128.m128i_i64[0];
+    v70 = si128;
+    v71 = si128.m128i_i64[0];
   }
   else
   {
-    v72 = 100;
-    v71 = 10;
+    v73 = 100;
+    v72 = 10;
     v11 = 3;
     if ( ((a1 - 1) & 0xFFFFFFFA) == 0 )
       v11 = 19;
-    v73 = v11;
+    v74 = v11;
     if ( a1 == 1 || a1 == 2 || (unsigned int)(a1 - 5) < 2 )
     {
       v12 = 0;
-      v13 = (int *)&v67;
+      v13 = (int *)&v68;
       do
       {
         v14 = 2LL;
@@ -148,14 +149,14 @@ char __fastcall PopConfigureHeteroPolicies(int a1, char a2, char a3)
     }
     else
     {
-      v67 = 0LL;
-      v70 = 0LL;
       v68 = 0LL;
+      v71 = 0LL;
       v69 = 0LL;
+      v70 = 0LL;
     }
   }
   v16 = ResultLength[1];
-  v17 = &unk_140E0B47C;
+  v17 = &unk_140E0B59C;
   v18 = v7;
   v19 = v7;
   v20 = 7LL;
@@ -172,36 +173,36 @@ char __fastcall PopConfigureHeteroPolicies(int a1, char a2, char a3)
       case 0:
         goto LABEL_36;
       case 1:
-        v22 = PpmEntryLevelPerfProfile;
+        WriteTransferCount = *(_QWORD *)&PopDirectedDripsDiagLock.ThreadTimerDelay;
         break;
       case 2:
-        v22 = PpmBackgroundProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.WriteTransferCount;
         break;
       case 3:
-        v22 = PpmMultimediaQosProfile;
-        if ( PpmMultimediaQosProfile )
+        WriteTransferCount = PopDirectedDripsDiagLock.OtherTransferCount;
+        if ( PopDirectedDripsDiagLock.OtherTransferCount )
         {
 LABEL_33:
-          v23 = (__int64 *)(v22 + 712LL * dword_140F106CC + 40);
-          v16 = *v23;
+          v23 = (char *)(WriteTransferCount + 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40);
+          v16 = *(_QWORD *)v23;
           goto LABEL_37;
         }
 LABEL_36:
-        v23 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+        v23 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
         v16 |= 0x1800000000000000uLL;
         goto LABEL_37;
       case 4:
         goto LABEL_36;
       case 5:
-        v22 = PpmEcoQosProfile;
+        WriteTransferCount = (__int64)PopDirectedDripsDiagLock.QueuedScb;
         break;
       case 6:
-        v22 = PpmUtilityQosProfile;
+        WriteTransferCount = PopDirectedDripsDiagLock.ReadTransferCount;
         break;
       default:
         goto LABEL_36;
     }
-    if ( v22 )
+    if ( WriteTransferCount )
       goto LABEL_33;
     v23 = 0LL;
     v16 = 0LL;
@@ -212,26 +213,27 @@ LABEL_37:
       v19 = *((unsigned int *)v23 + 165);
     v7 = 5;
     if ( v18 != 5 )
-      v67.m128i_i32[2 * v21] = v18;
+      v68.m128i_i32[2 * v21] = v18;
     if ( (_DWORD)v19 != 5 )
-      v67.m128i_i32[2 * v21 + 1] = v19;
+      v68.m128i_i32[2 * v21 + 1] = v19;
     v17 += 8;
     --v20;
   }
   while ( v20 );
-  v24 = v72;
-  if ( HIDWORD(PpmCurrentProfile[89 * dword_140F106CC + 86]) )
-    v24 = HIDWORD(PpmCurrentProfile[89 * dword_140F106CC + 86]);
-  v72 = v24;
+  v24 = v73;
+  if ( *((_DWORD *)PpmCurrentProfile + 178 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 173) )
+    v24 = *((_DWORD *)PpmCurrentProfile + 178 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 173);
+  v73 = v24;
   if ( a2 )
   {
-    *(__m128i *)((char *)&PopWeakChargerLock.Teb + 4) = _mm_load_si128((const __m128i *)&_xmm);
-    LODWORD(PopWeakChargerLock.Teb) = 5;
-    *(_OWORD *)&PopWeakChargerLock.Timer.Header.SignalState = *(_OWORD *)((char *)&PopWeakChargerLock.Teb + 4);
-    *(_LIST_ENTRY *)((char *)&PopWeakChargerLock.Timer.TimerListEntry + 4) = (_LIST_ENTRY)*(unsigned __int64 *)((char *)&PopWeakChargerLock.Teb + 4);
-    *(_OWORD *)((char *)&PopWeakChargerLock.Timer.Header.WaitListHead.Blink + 4) = *(_OWORD *)((char *)&PopWeakChargerLock.Teb
-                                                                                             + 4);
-    HIDWORD(PopWeakChargerLock.Timer.Dpc) = -1;
+    v25 = _mm_load_si128((const __m128i *)&_xmm);
+    qword_140F0D2D4 = v25.m128i_i64[0];
+    xmmword_140F0D2A4 = (__int128)v25;
+    PopHeteroLegacyOverride = 5;
+    xmmword_140F0D2B4 = (__int128)v25;
+    qword_140F0D2DC = 0LL;
+    xmmword_140F0D2C4 = (__int128)v25;
+    dword_140F0D2E4 = -1;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
     LODWORD(ObjectAttributes[1]) = 48;
     ObjectAttributes[3] = &DestinationString;
@@ -240,15 +242,15 @@ LABEL_37:
     *(_OWORD *)&ObjectAttributes[5] = 0LL;
     if ( ZwOpenKey(&KeyHandle, 8u, (POBJECT_ATTRIBUTES)&ObjectAttributes[1]) >= 0 )
     {
-      v25 = &off_140BDAF28;
+      v26 = &off_140BE1DD8;
       ObjectAttributes[2] = KeyHandle;
-      v26 = 7LL;
+      v27 = 7LL;
       do
       {
-        RtlInitUnicodeString(&DestinationString, *(v25 - 1));
+        RtlInitUnicodeString(&DestinationString, *(v26 - 1));
         if ( ZwOpenKey(&Handle, 1u, (POBJECT_ATTRIBUTES)&ObjectAttributes[1]) >= 0 )
         {
-          RtlInitUnicodeString(&ValueName, *v25);
+          RtlInitUnicodeString(&ValueName, *v26);
           if ( ZwQueryValueKey(
                  Handle,
                  &ValueName,
@@ -258,7 +260,7 @@ LABEL_37:
                  (PULONG)ResultLength) >= 0
             && (_DWORD)KeyValueInformation == 4 )
           {
-            *(_DWORD *)((char *)&PopWeakChargerLock.Teb + *((unsigned int *)v25 + 2)) = DWORD2(KeyValueInformation);
+            *(int *)((char *)&PopHeteroLegacyOverride + *((unsigned int *)v26 + 2)) = DWORD2(KeyValueInformation);
           }
           if ( Handle )
           {
@@ -266,10 +268,10 @@ LABEL_37:
             Handle = 0LL;
           }
         }
-        v25 += 3;
-        --v26;
+        v26 += 3;
+        --v27;
       }
-      while ( v26 );
+      while ( v27 );
       if ( KeyHandle )
       {
         ZwClose(KeyHandle);
@@ -277,184 +279,184 @@ LABEL_37:
       }
     }
   }
-  v27 = 0LL;
-  v28 = 7LL;
+  v28 = 0LL;
+  v29 = 7LL;
   do
   {
-    v29 = 2LL;
+    v30 = 2LL;
     do
     {
-      v30 = *(_DWORD *)((char *)&PopWeakChargerLock.Teb + v27 * 4 + 4);
-      if ( v30 != 5 )
-        v67.m128i_i32[v27] = v30;
-      ++v27;
-      --v29;
+      v31 = *(_DWORD *)((char *)&xmmword_140F0D2A4 + v28 * 4);
+      if ( v31 != 5 )
+        v68.m128i_i32[v28] = v31;
+      ++v28;
+      --v30;
     }
-    while ( v29 );
-    --v28;
+    while ( v30 );
+    --v29;
   }
-  while ( v28 );
-  Teb_low = v66;
-  if ( LODWORD(PopWeakChargerLock.Teb) != 5 )
-    Teb_low = LODWORD(PopWeakChargerLock.Teb);
-  Blink_high = v71;
-  if ( HIDWORD(PopWeakChargerLock.Timer.TimerListEntry.Blink) )
-    Blink_high = HIDWORD(PopWeakChargerLock.Timer.TimerListEntry.Blink);
-  v71 = Blink_high;
-  Dpc = v72;
-  if ( LODWORD(PopWeakChargerLock.Timer.Dpc) )
-    Dpc = (int)PopWeakChargerLock.Timer.Dpc;
-  v66 = Teb_low;
-  v72 = Dpc;
-  Dpc_high = v73;
-  if ( HIDWORD(PopWeakChargerLock.Timer.Dpc) != -1 )
-    Dpc_high = HIDWORD(PopWeakChargerLock.Timer.Dpc);
-  v73 = Dpc_high;
+  while ( v29 );
+  v32 = v67;
+  if ( PopHeteroLegacyOverride != 5 )
+    v32 = (unsigned int)PopHeteroLegacyOverride;
+  v33 = v72;
+  if ( (_DWORD)qword_140F0D2DC )
+    v33 = qword_140F0D2DC;
+  v72 = v33;
+  v34 = v73;
+  if ( HIDWORD(qword_140F0D2DC) )
+    v34 = HIDWORD(qword_140F0D2DC);
+  v67 = v32;
+  v73 = v34;
+  v35 = v74;
+  if ( dword_140F0D2E4 != -1 )
+    v35 = dword_140F0D2E4;
+  v74 = v35;
   if ( PpmPerfBootHeteroPolicyOverrideEnabled )
   {
-    v35 = &v67;
-    v36 = 7LL;
+    v36 = &v68;
+    v37 = 7LL;
     do
     {
-      v37 = 2LL;
+      v38 = 2LL;
       do
       {
-        if ( v35->m128i_i32[0] == 3 )
-          v35->m128i_i32[0] = 4;
-        v35 = (__m128i *)((char *)v35 + 4);
-        --v37;
+        if ( v36->m128i_i32[0] == 3 )
+          v36->m128i_i32[0] = 4;
+        v36 = (__m128i *)((char *)v36 + 4);
+        --v38;
       }
-      while ( v37 );
-      --v36;
+      while ( v38 );
+      --v37;
     }
-    while ( v36 );
-    Teb_low = v66;
+    while ( v37 );
+    v32 = v67;
   }
-  v38 = PpmPerfQosTransitionHysteresisOverride;
   v39 = PpmPerfQosTransitionHysteresisOverride;
-  v40 = (unsigned int)PpmPerfQosTransitionHysteresis;
+  v40 = PpmPerfQosTransitionHysteresisOverride;
+  v41 = (unsigned int)PpmPerfQosTransitionHysteresis;
   if ( PpmPerfQosTransitionHysteresisOverride == -1 )
-    v39 = PpmPerfQosTransitionHysteresis;
-  if ( v39 )
+    v40 = PpmPerfQosTransitionHysteresis;
+  if ( v40 )
   {
-    v41 = KeMinimumIncrement;
+    v42 = KeMinimumIncrement;
     if ( 10 * PpmPerfQosTransitionHysteresis > (unsigned int)KeMinimumIncrement )
-      v41 = 10 * PpmPerfQosTransitionHysteresis;
-    v74 = v41;
+      v42 = 10 * PpmPerfQosTransitionHysteresis;
+    v75 = v42;
   }
-  v42 = PpmPerfQosTransitionHysteresisOverride;
-  v43 = 500LL;
+  v43 = PpmPerfQosTransitionHysteresisOverride;
+  v44 = 500LL;
   if ( PpmPerfQosTransitionHysteresisOverride == -1 )
-    v42 = PpmPerfQosTransitionHysteresis;
-  if ( v42 <= 0x1F4 )
+    v43 = PpmPerfQosTransitionHysteresis;
+  if ( v43 <= 0x1F4 )
   {
-    v38 = 500;
+    v39 = 500;
   }
   else if ( PpmPerfQosTransitionHysteresisOverride == -1 )
   {
-    v38 = PpmPerfQosTransitionHysteresis;
+    v39 = PpmPerfQosTransitionHysteresis;
   }
-  PpmPerfQosIdleExpirationTimeout = (unsigned int)(10 * v38);
+  PpmPerfQosIdleExpirationTimeout = (unsigned int)(10 * v39);
   if ( ((a1 - 1) & 0xFFFFFFFA) != 0 )
   {
-    v44 = 1;
+    v45 = 1;
     *(__m128i *)&ResultLength[1] = _mm_load_si128((const __m128i *)&_xmm);
     ResultLength[3] = ResultLength[1];
     LODWORD(ObjectAttributes[0]) = _mm_cvtsi128_si32(*(__m128i *)&ResultLength[1]);
     goto LABEL_123;
   }
-  v45 = 0;
-  LOBYTE(v40) = 0;
+  v46 = 0;
+  LOBYTE(v41) = 0;
   LOBYTE(v19) = 0;
-  if ( !(_DWORD)Teb_low )
+  if ( !(_DWORD)v32 )
   {
-    v45 = 1;
-    LOBYTE(v40) = 1;
+    v46 = 1;
+    LOBYTE(v41) = 1;
     goto LABEL_118;
   }
-  Teb_low = (unsigned int)(Teb_low - 2);
-  if ( (_DWORD)Teb_low )
+  v32 = (unsigned int)(v32 - 2);
+  if ( (_DWORD)v32 )
   {
-    Teb_low = (unsigned int)(Teb_low - 2);
-    if ( (_DWORD)Teb_low )
+    v32 = (unsigned int)(v32 - 2);
+    if ( (_DWORD)v32 )
     {
-      if ( (_DWORD)Teb_low == 1 )
+      if ( (_DWORD)v32 == 1 )
       {
-        v46 = &ResultLength[1];
-        v47 = 7LL;
-        v48 = &v67;
+        v47 = &ResultLength[1];
+        v48 = 7LL;
+        v49 = &v68;
         do
         {
-          LOBYTE(v43) = 0;
-          v49 = 0;
-          v50 = 2LL;
+          LOBYTE(v44) = 0;
+          v50 = 0;
+          v51 = 2LL;
           do
           {
-            v51 = v48->m128i_i32[0];
-            if ( v48->m128i_i32[0] )
+            v52 = v49->m128i_i32[0];
+            if ( v49->m128i_i32[0] )
             {
-              if ( v51 == 2 )
+              if ( v52 == 2 )
               {
-                v49 = 1;
+                v50 = 1;
               }
-              else if ( v51 == 4 )
+              else if ( v52 == 4 )
               {
-                LOBYTE(v43) = 1;
+                LOBYTE(v44) = 1;
               }
             }
             else
             {
-              LOBYTE(v43) = 1;
-              v49 = 1;
+              LOBYTE(v44) = 1;
+              v50 = 1;
             }
-            v48 = (__m128i *)((char *)v48 + 4);
-            --v50;
+            v49 = (__m128i *)((char *)v49 + 4);
+            --v51;
           }
-          while ( v50 );
-          *v46 = PpmHeteroComputeBias(v43, v49, v40, v19);
-          v45 |= v43;
-          ++v46;
-          LOBYTE(v40) = v52 | v40;
-          --v47;
+          while ( v51 );
+          *v47 = PpmHeteroComputeBias(v44, v50, v41, v19);
+          v46 |= v44;
+          ++v47;
+          LOBYTE(v41) = v53 | v41;
+          --v48;
         }
-        while ( v47 );
+        while ( v48 );
       }
       goto LABEL_119;
     }
-    v45 = 1;
+    v46 = 1;
 LABEL_118:
     LOBYTE(v19) = 1;
   }
   else
   {
-    LOBYTE(v40) = 1;
+    LOBYTE(v41) = 1;
     LOBYTE(v19) = 1;
   }
 LABEL_119:
-  LOBYTE(Teb_low) = v40;
-  LOBYTE(v43) = v45;
-  v44 = PpmHeteroComputeBias(v43, Teb_low, v40, v19);
-  if ( v53 )
+  LOBYTE(v32) = v41;
+  LOBYTE(v44) = v46;
+  v45 = PpmHeteroComputeBias(v44, v32, v41, v19);
+  if ( v54 )
   {
-    v54 = (int *)&ResultLength[1];
+    v55 = (int *)&ResultLength[1];
     for ( i = 7LL; i; --i )
-      *v54++ = v44;
+      *v55++ = v45;
   }
 LABEL_123:
-  LOBYTE(Teb_low) = a3;
-  PopConfigureHeteroThresholds(&v66, Teb_low);
-  result = KeConfigureHeteroPolicy(&v66);
-  if ( PpmHeteroParkBias != v44 )
+  LOBYTE(v32) = a3;
+  PopConfigureHeteroThresholds(&v67, v32);
+  result = KeConfigureHeteroPolicy(&v67);
+  if ( PpmHeteroParkBias != v45 )
   {
-    PpmHeteroParkBias = v44;
+    PpmHeteroParkBias = v45;
     result = 1;
   }
   do
   {
-    v57 = *(_DWORD *)((char *)&ResultLength[1] + v3);
-    if ( *(_DWORD *)((char *)stru_140FC01F0.Padding + v3) != v57 )
+    v58 = *(_DWORD *)((char *)&ResultLength[1] + v3);
+    if ( *(_DWORD *)((char *)stru_140FC11F0.Padding + v3) != v58 )
     {
-      *(_DWORD *)((char *)stru_140FC01F0.Padding + v3) = v57;
+      *(_DWORD *)((char *)stru_140FC11F0.Padding + v3) = v58;
       result = 1;
     }
     v3 += 4LL;

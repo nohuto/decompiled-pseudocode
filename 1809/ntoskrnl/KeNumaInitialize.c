@@ -1,9 +1,9 @@
 /*
- * XREFs of KeNumaInitialize @ 0x1409DED20
+ * XREFs of KeNumaInitialize @ 0x1409DFD20
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 (*KeNumaInitialize())()
@@ -17,7 +17,7 @@ __int64 (*KeNumaInitialize())()
   __int64 (__fastcall *v6)(); // [rsp+68h] [rbp-10h]
   __int64 v7; // [rsp+80h] [rbp+8h] BYREF
 
-  result = (__int64 (*)())((__int64 (__fastcall *)(__int64, __int64, __int16 *, __int64 *))off_140400458[0])(
+  result = (__int64 (*)())((__int64 (__fastcall *)(__int64, __int64, __int16 *, __int64 *))off_140401458[0])(
                             11LL,
                             64LL,
                             &v1,
@@ -26,8 +26,8 @@ __int64 (*KeNumaInitialize())()
   {
     KeNumberNodes = v1;
     KiNumaQueryProcessorNode = v2;
-    KiNumaQueryNodeCapacity = v5;
-    KiNumaQueryNodeDistance[0] = v6;
+    KiNumaQueryNodeCapacity[0] = v5;
+    KiNumaQueryNodeDistance = v6;
     KiNumaQueryProximityNode = v3;
     KiNumaQueryProximityId = v4;
     result = KiQueryProximityNode;

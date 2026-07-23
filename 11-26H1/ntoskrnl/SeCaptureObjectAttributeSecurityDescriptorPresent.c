@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1402604DC
+ * XREFs of SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1404066BC
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     NtDuplicateToken @ 0x1408EB8C0 (NtDuplicateToken.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     NtDuplicateToken @ 0x1408F1E80 (NtDuplicateToken.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SeCaptureObjectAttributeSecurityDescriptorPresent(__int64 a1, char a2, _BYTE *a3)

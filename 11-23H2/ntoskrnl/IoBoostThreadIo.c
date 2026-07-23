@@ -1,10 +1,10 @@
 /*
- * XREFs of IoBoostThreadIo @ 0x140373BE0
+ * XREFs of IoBoostThreadIo @ 0x140373D80
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     IoBoostThreadIoPriority @ 0x14031B320 (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x14031B5B0 (IoBoostThreadIoPriority.c)
  */
 
 __int64 __fastcall IoBoostThreadIo(volatile signed __int64 *a1, int a2, char a3, int a4)

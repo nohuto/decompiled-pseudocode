@@ -1,25 +1,25 @@
 /*
- * XREFs of IopCreateRegistryKeyEx @ 0x1407096C4
+ * XREFs of IopCreateRegistryKeyEx @ 0x14070A964
  * Callers:
- *     PiDevCfgConfigureSoftwareDevices @ 0x1406F9F00 (PiDevCfgConfigureSoftwareDevices.c)
- *     NtDisableLastKnownGood @ 0x140706A90 (NtDisableLastKnownGood.c)
- *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
- *     PnpBuildCmResourceList @ 0x14072E7C0 (PnpBuildCmResourceList.c)
- *     IopWriteResourceList @ 0x14072FBA8 (IopWriteResourceList.c)
- *     PnpOpenCCSPnpRegKey @ 0x14073C50C (PnpOpenCCSPnpRegKey.c)
- *     IoSetSystemPartition @ 0x14081C970 (IoSetSystemPartition.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x140822F44 (PipHardwareConfigTriggerRespecialize.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14083E128 (PiDrvDbQuerySyncNodesUpdated.c)
- *     IoReportHalResourceUsage @ 0x1409C0AA0 (IoReportHalResourceUsage.c)
- *     IopInitializeResourceMap @ 0x1409C0C58 (IopInitializeResourceMap.c)
- *     PipHardwareConfigInit @ 0x1409C63FC (PipHardwareConfigInit.c)
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
- *     PipInitComputerIds @ 0x1409C8C60 (PipInitComputerIds.c)
- *     IopStoreSystemPartitionInformation @ 0x1409D62F4 (IopStoreSystemPartitionInformation.c)
- *     PiInitFirmwareResources @ 0x1409DF1D0 (PiInitFirmwareResources.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x1406FB1A0 (PiDevCfgConfigureSoftwareDevices.c)
+ *     NtDisableLastKnownGood @ 0x140707D30 (NtDisableLastKnownGood.c)
+ *     PipOpenServiceEnumKeys @ 0x14070A7D4 (PipOpenServiceEnumKeys.c)
+ *     PnpBuildCmResourceList @ 0x14072F9B0 (PnpBuildCmResourceList.c)
+ *     IopWriteResourceList @ 0x140730D98 (IopWriteResourceList.c)
+ *     PnpOpenCCSPnpRegKey @ 0x14073D6FC (PnpOpenCCSPnpRegKey.c)
+ *     IoSetSystemPartition @ 0x14081DB70 (IoSetSystemPartition.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x140824144 (PipHardwareConfigTriggerRespecialize.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x14083F388 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     IoReportHalResourceUsage @ 0x1409C1AA0 (IoReportHalResourceUsage.c)
+ *     IopInitializeResourceMap @ 0x1409C1C58 (IopInitializeResourceMap.c)
+ *     PipHardwareConfigInit @ 0x1409C73FC (PipHardwareConfigInit.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
+ *     PipInitComputerIds @ 0x1409C9C60 (PipInitComputerIds.c)
+ *     IopStoreSystemPartitionInformation @ 0x1409D72F4 (IopStoreSystemPartitionInformation.c)
+ *     PiInitFirmwareResources @ 0x1409E01D0 (PiInitFirmwareResources.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
  */
 
 __int64 __fastcall IopCreateRegistryKeyEx(

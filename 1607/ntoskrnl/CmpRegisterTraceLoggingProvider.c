@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpRegisterTraceLoggingProvider @ 0x140580FF8
+ * XREFs of CmpRegisterTraceLoggingProvider @ 0x1405814A4
  * Callers:
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  * Callees:

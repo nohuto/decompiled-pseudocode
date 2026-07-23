@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpGrowMapBufferWorker @ 0x140501990
+ * XREFs of HalpGrowMapBufferWorker @ 0x140501EE0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D7EE (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050FE78 (HalpDmaProcessMapRegisterQueueV3.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x140934520 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x140934624 (HalpDmaGrowScatterMapBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045DBEE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1405103C8 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140934720 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140934824 (HalpDmaGrowScatterMapBuffers.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -36,7 +36,7 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
   *(_DWORD *)((char *)&HalpDmaGrowMapBufferWorkerQueued + (-(__int64)(*((_BYTE *)P + 40) != 0) & 4)) = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql != 2 )
@@ -56,10 +56,10 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
     LOBYTE(v4) = *((_BYTE *)P + 40);
     HalpDmaProcessMapRegisterQueueV3(v2, v4);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;
@@ -67,7 +67,7 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
       v13 = (v12 & v11[5]) == 0;
       v11[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

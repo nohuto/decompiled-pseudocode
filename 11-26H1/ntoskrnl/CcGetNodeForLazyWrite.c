@@ -1,9 +1,9 @@
 /*
- * XREFs of CcGetNodeForLazyWrite @ 0x14038964C
+ * XREFs of CcGetNodeForLazyWrite @ 0x14038B3FC
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcNotifyOfMappedWrite @ 0x14038984C (CcNotifyOfMappedWrite.c)
- *     CcLazyWriteScan @ 0x1404FB788 (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcNotifyOfMappedWrite @ 0x14038B5FC (CcNotifyOfMappedWrite.c)
+ *     CcLazyWriteScan @ 0x1404F4BD4 (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */

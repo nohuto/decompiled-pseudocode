@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapKernelStack @ 0x14026DB94
+ * XREFs of DbgkpLkmdSnapKernelStack @ 0x14026DD84
  * Callers:
- *     DbgkpLkmdSnapThreadInContext @ 0x14081202C (DbgkpLkmdSnapThreadInContext.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x14081322C (DbgkpLkmdSnapThreadInContext.c)
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x14013D2E8 (KeEnumerateKernelStackSegments.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeEnumerateKernelStackSegments @ 0x14013D3E8 (KeEnumerateKernelStackSegments.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapKernelStack(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5, __int64 a6)

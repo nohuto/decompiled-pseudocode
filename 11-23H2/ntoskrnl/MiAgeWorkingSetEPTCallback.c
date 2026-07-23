@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAgeWorkingSetEPTCallback @ 0x14046BC00
+ * XREFs of MiAgeWorkingSetEPTCallback @ 0x14046C000
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAgePteWorker @ 0x14027C1F0 (MiAgePteWorker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAgePteWorker @ 0x14027C480 (MiAgePteWorker.c)
  */
 
 __int64 __fastcall MiAgeWorkingSetEPTCallback(

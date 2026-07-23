@@ -22,14 +22,14 @@
  *     WerEscalationReadImageVersionInfoForModuleBaseSafe @ 0x1800560AC (WerEscalationReadImageVersionInfoForModuleBaseSafe.c)
  *     WerEscalationReadImageVersionInfoForModuleBase @ 0x180056124 (WerEscalationReadImageVersionInfoForModuleBase.c)
  *     CsrClientConnectToServer @ 0x18005D7C0 (CsrClientConnectToServer.c)
- *     LdrpFindLoadedDllByMappingFile @ 0x180076D40 (LdrpFindLoadedDllByMappingFile.c)
- *     LdrGetDllHandleByMapping @ 0x180076EB0 (LdrGetDllHandleByMapping.c)
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180076FE4 (LdrpFindLoadedDllByMappingLockHeld.c)
- *     LdrpGetImportDescriptorForSnap @ 0x180078D00 (LdrpGetImportDescriptorForSnap.c)
- *     LdrpCodeAuthzInitialize @ 0x18007FC08 (LdrpCodeAuthzInitialize.c)
- *     LdrpSetProtection @ 0x180087480 (LdrpSetProtection.c)
- *     LdrRelocateImageWithBias @ 0x1800875E8 (LdrRelocateImageWithBias.c)
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7B0 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x180076D50 (LdrpFindLoadedDllByMappingFile.c)
+ *     LdrGetDllHandleByMapping @ 0x180076EC0 (LdrGetDllHandleByMapping.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180076FF4 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     LdrpGetImportDescriptorForSnap @ 0x180078D10 (LdrpGetImportDescriptorForSnap.c)
+ *     LdrpCodeAuthzInitialize @ 0x18007FC18 (LdrpCodeAuthzInitialize.c)
+ *     LdrpSetProtection @ 0x180087490 (LdrpSetProtection.c)
+ *     LdrRelocateImageWithBias @ 0x1800875F8 (LdrRelocateImageWithBias.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7C0 (LdrVerifyImageMatchesChecksumEx.c)
  *     LdrpInitializeExceptionTable @ 0x1800D3090 (LdrpInitializeExceptionTable.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     LdrpLocateMrdata @ 0x1800D7BB0 (LdrpLocateMrdata.c)
@@ -39,45 +39,45 @@
  *     RtlImageNtHeaderEx_ExceptionFilter @ 0x1800FAF80 (RtlImageNtHeaderEx_ExceptionFilter.c)
  */
 
-__int64 __fastcall RtlImageNtHeaderEx(int a1, unsigned __int64 a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl RtlImageNtHeaderEx(ULONG Flags, PVOID BaseOfImage, ULONG64 Size, PIMAGE_NT_HEADERS *OutHeaders)
 {
-  __int64 result; // rax
-  _DWORD *v6; // r10
-  unsigned __int64 v7; // r8
+  NTSTATUS result; // eax
+  _IMAGE_NT_HEADERS64 *v6; // r10
+  ULONG64 v7; // r8
 
-  result = 0LL;
+  result = 0;
   v6 = 0LL;
-  if ( !a4 )
-    return 3221225485LL;
-  *a4 = 0LL;
-  if ( (a1 & 0xFFFFFFFC) != 0 || a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225485LL;
-  if ( (a1 & 1) == 0 && a3 < 0x40 )
-    return 3221225595LL;
-  if ( *(_WORD *)a2 != 23117 )
+  if ( !OutHeaders )
+    return -1073741811;
+  *OutHeaders = 0LL;
+  if ( (Flags & 0xFFFFFFFC) != 0 || (char *)BaseOfImage - 1 > (char *)0xFFFFFFFFFFFFFFFDLL )
+    return -1073741811;
+  if ( (Flags & 1) == 0 && Size < 0x40 )
+    return -1073741701;
+  if ( *(_WORD *)BaseOfImage != 23117 )
   {
 LABEL_15:
-    result = 3221225595LL;
+    result = -1073741701;
     goto LABEL_17;
   }
-  v7 = *(unsigned int *)(a2 + 60);
-  if ( (a1 & 1) == 0 && (v7 >= a3 || (unsigned int)v7 >= 0xFFFFFFE7 || v7 + 24 >= a3) )
+  v7 = *((unsigned int *)BaseOfImage + 15);
+  if ( (Flags & 1) == 0 && (v7 >= Size || (unsigned int)v7 >= 0xFFFFFFE7 || v7 + 24 >= Size) )
   {
-    result = 3221225595LL;
+    result = -1073741701;
     v6 = 0LL;
     goto LABEL_17;
   }
   if ( (unsigned int)v7 < 0x10000000 )
   {
-    v6 = (_DWORD *)(a2 + v7);
-    if ( a2 + v7 >= a2 && *v6 == 17744 )
+    v6 = (_IMAGE_NT_HEADERS64 *)((char *)BaseOfImage + v7);
+    if ( (char *)BaseOfImage + v7 >= BaseOfImage && v6->Signature == 17744 )
       goto LABEL_17;
     goto LABEL_15;
   }
-  result = 3221225595LL;
+  result = -1073741701;
   v6 = 0LL;
 LABEL_17:
-  if ( (int)result >= 0 )
-    *a4 = v6;
+  if ( result >= 0 )
+    *OutHeaders = v6;
   return result;
 }

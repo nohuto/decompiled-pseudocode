@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlUninitializeFileLock @ 0x14029DDF0
+ * XREFs of FsRtlUninitializeFileLock @ 0x14021A970
  * Callers:
- *     FsRtlFreeFileLock @ 0x14029CFC0 (FsRtlFreeFileLock.c)
+ *     FsRtlFreeFileLock @ 0x140219B00 (FsRtlFreeFileLock.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     RtlDeleteNoSplay @ 0x14029FFC0 (RtlDeleteNoSplay.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     RtlDeleteNoSplay @ 0x14021D540 (RtlDeleteNoSplay.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlCompleteLockIrpReal @ 0x1404EF930 (FsRtlCompleteLockIrpReal.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF8B0 (FsRtlCompleteLockIrpReal.c)
  */
 
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
@@ -23,7 +23,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
   PRTL_SPLAY_LINKS v6; // rdi
   _QWORD *v7; // rdi
   KSPIN_LOCK *v8; // rcx
-  RTL_SPLAY_LINKS *v9; // rdi
+  _RTL_SPLAY_LINKS *v9; // rdi
   _RTL_SPLAY_LINKS *Parent; // rdx
   __int64 v11; // rsi
   KIRQL v12; // dl
@@ -47,7 +47,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
     v4 = LockInformation + 32;
     while ( *v4 )
     {
-      v9 = (RTL_SPLAY_LINKS *)(*v4 - 24LL);
+      v9 = (_RTL_SPLAY_LINKS *)(*v4 - 24LL);
       while ( v9->Parent )
       {
         Parent = v9->Parent;

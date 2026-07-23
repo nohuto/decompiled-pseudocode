@@ -1,7 +1,7 @@
 /*
- * XREFs of PoCallDriver @ 0x14013063C
+ * XREFs of PoCallDriver @ 0x140130BAC
  * Callers:
- *     IoCancelFileOpen @ 0x14062333C (IoCancelFileOpen.c)
+ *     IoCancelFileOpen @ 0x1406233F0 (IoCancelFileOpen.c)
  *     ViFilterDispatchPower @ 0x14071AF80 (ViFilterDispatchPower.c)
  * Callees:
  *     <none>

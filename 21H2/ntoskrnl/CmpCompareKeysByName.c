@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCompareKeysByName @ 0x140875D54
+ * XREFs of CmpCompareKeysByName @ 0x140875EB4
  * Callers:
- *     CmpKeyEnumStackAdvanceInternal @ 0x140729BBC (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140729E3C (CmpKeyEnumStackEntryBegin.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140870448 (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x14087A918 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x14072A06C (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x14072A2EC (CmpKeyEnumStackEntryBegin.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x1408705A8 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14087AA78 (CmpKeyEnumStackEntryAdvance.c)
  * Callees:
- *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
- *     CmpCompareUnicodeString @ 0x140672920 (CmpCompareUnicodeString.c)
- *     CmpCompareTwoCompressedNames @ 0x140875E28 (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareUnicodeString @ 0x140667B50 (CmpCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1406DDE80 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875F88 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
   __int64 v2; // r10
   __int16 v3; // r9
   bool v4; // zf
-  unsigned int v5; // eax
+  __int16 v5; // ax
   __int64 v6; // rdx
   unsigned __int16 v8; // r8
   __int128 v9; // [rsp+20h] [rbp-20h] BYREF
@@ -49,11 +49,11 @@ __int64 __fastcall CmpCompareKeysByName(__int64 a1, __int64 a2)
   }
   else
   {
-    v5 = *(unsigned __int16 *)(a2 + 72);
+    v5 = *(_WORD *)(a2 + 72);
     v6 = *(unsigned __int16 *)(a1 + 72);
     if ( v3 )
     {
-      return CmpCompareTwoCompressedNames(a1 + 76, v6, v2, v5);
+      return CmpCompareTwoCompressedNames(a1 + 76, v6, v2);
     }
     else
     {

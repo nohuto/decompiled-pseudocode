@@ -1,20 +1,20 @@
 /*
- * XREFs of PfTFullEventListAdd @ 0x1404AC31C
+ * XREFs of PfTFullEventListAdd @ 0x1404A59AC
  * Callers:
- *     PfpEventHandleFullBuffer @ 0x1404AC2D0 (PfpEventHandleFullBuffer.c)
- *     PfpFlushEventBuffers @ 0x140A05AD0 (PfpFlushEventBuffers.c)
+ *     PfpEventHandleFullBuffer @ 0x1404A5960 (PfpEventHandleFullBuffer.c)
+ *     PfpFlushEventBuffers @ 0x1409F12C0 (PfpFlushEventBuffers.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1404AC4DC (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     PfFbBufferListInsertInFree @ 0x1404A5B6C (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall PfTFullEventListAdd(__int64 a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall PfTFullEventListAdd(__int64 a1, _SLIST_ENTRY *a2)
 {
-  union _SLIST_HEADER *v2; // rbx
+  _SLIST_HEADER *v2; // rbx
   PSLIST_ENTRY result; // rax
 
-  v2 = (union _SLIST_HEADER *)(a1 + 544);
+  v2 = (_SLIST_HEADER *)(a1 + 544);
   RtlpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 544), a2);
   while ( 1 )
   {

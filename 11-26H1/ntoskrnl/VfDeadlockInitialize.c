@@ -1,13 +1,13 @@
 /*
- * XREFs of VfDeadlockInitialize @ 0x140C36058
+ * XREFs of VfDeadlockInitialize @ 0x140C3C068
  * Callers:
- *     VfDeadlockPluginEntry @ 0x140C364B0 (VfDeadlockPluginEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140C3C4C0 (VfDeadlockPluginEntry.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViDeadlockDetectionApplySettings @ 0x140C37414 (ViDeadlockDetectionApplySettings.c)
- *     ViDeadlockPopulateLookasideCache @ 0x140C37D58 (ViDeadlockPopulateLookasideCache.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140C3D424 (ViDeadlockDetectionApplySettings.c)
+ *     ViDeadlockPopulateLookasideCache @ 0x140C3DD68 (ViDeadlockPopulateLookasideCache.c)
  */
 
 void VfDeadlockInitialize()

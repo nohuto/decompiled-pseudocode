@@ -1,31 +1,31 @@
 /*
- * XREFs of KeCancelTimer2 @ 0x14031DEE0
+ * XREFs of KeCancelTimer2 @ 0x14031E170
  * Callers:
- *     ExpShutdownWorkerFactory @ 0x14031D908 (ExpShutdownWorkerFactory.c)
- *     ExCancelTimer @ 0x14031DE80 (ExCancelTimer.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x14032EFC0 (PopIdleCancelAoAcDozeS4Timer.c)
- *     ExpSetTimerObject2 @ 0x140339824 (ExpSetTimerObject2.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140389E70 (PopThermalUpdateTelemetryClientCount.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x14058702C (PopDirectedDripsStartDisengageTimer.c)
- *     PopThermalEventTransitionEnableDeepSleep @ 0x14058FA38 (PopThermalEventTransitionEnableDeepSleep.c)
- *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x140590330 (PopCheckPowerSourceAfterRtcWakeCancel.c)
- *     PopUpdatePdcSystemIdleState @ 0x1407A6FFC (PopUpdatePdcSystemIdleState.c)
- *     EtwpDisableKernelTrace @ 0x1407D5404 (EtwpDisableKernelTrace.c)
- *     EtwpCoverageFlushPending @ 0x1407E8894 (EtwpCoverageFlushPending.c)
- *     SshpAlpcOpenTraceSessionUnsafe @ 0x14084C370 (SshpAlpcOpenTraceSessionUnsafe.c)
- *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408552E0 (PopPowerRequestExecutionRequiredSettingCallback.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x140981560 (PopPowerRequestDebounceTimerWorker.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140996A30 (PopNetWnfLowPowerEpochCallback.c)
- *     PdcPoNetworkResiliency @ 0x140997930 (PdcPoNetworkResiliency.c)
- *     ExpPartitionDestroy @ 0x140A008E8 (ExpPartitionDestroy.c)
+ *     ExpShutdownWorkerFactory @ 0x14031DB98 (ExpShutdownWorkerFactory.c)
+ *     ExCancelTimer @ 0x14031E110 (ExCancelTimer.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14032F250 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     ExpSetTimerObject2 @ 0x140339AB4 (ExpSetTimerObject2.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14038A050 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x14058751C (PopDirectedDripsStartDisengageTimer.c)
+ *     PopThermalEventTransitionEnableDeepSleep @ 0x14058FF28 (PopThermalEventTransitionEnableDeepSleep.c)
+ *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x140590820 (PopCheckPowerSourceAfterRtcWakeCancel.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1407A71EC (PopUpdatePdcSystemIdleState.c)
+ *     EtwpDisableKernelTrace @ 0x1407D56D4 (EtwpDisableKernelTrace.c)
+ *     EtwpCoverageFlushPending @ 0x1407E8B64 (EtwpCoverageFlushPending.c)
+ *     SshpAlpcOpenTraceSessionUnsafe @ 0x14084C670 (SshpAlpcOpenTraceSessionUnsafe.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408555E0 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x140981760 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140996C30 (PopNetWnfLowPowerEpochCallback.c)
+ *     PdcPoNetworkResiliency @ 0x140997B30 (PdcPoNetworkResiliency.c)
+ *     ExpPartitionDestroy @ 0x140A00B78 (ExpPartitionDestroy.c)
  * Callees:
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x1402500B4 (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x1402500F8 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveTimer2 @ 0x1402518B0 (KiRemoveTimer2.c)
- *     KiUpdateTimer2Flags @ 0x14031E018 (KiUpdateTimer2Flags.c)
- *     KiTraceCancelTimer2 @ 0x1404629E8 (KiTraceCancelTimer2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x140250184 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x1402501C8 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveTimer2 @ 0x140251970 (KiRemoveTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x14031E2A8 (KiUpdateTimer2Flags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTraceCancelTimer2 @ 0x140462DE8 (KiTraceCancelTimer2.c)
  */
 
 char __fastcall KeCancelTimer2(__int64 a1)
@@ -59,7 +59,7 @@ char __fastcall KeCancelTimer2(__int64 a1)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -90,10 +90,10 @@ LABEL_7:
     goto LABEL_7;
   }
 LABEL_8:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

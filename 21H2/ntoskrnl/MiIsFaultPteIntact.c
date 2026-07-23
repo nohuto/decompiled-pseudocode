@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsFaultPteIntact @ 0x14028D274
+ * XREFs of MiIsFaultPteIntact @ 0x14020A414
  * Callers:
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
- *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiPrivateFixup @ 0x140209BC8 (MiPrivateFixup.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiIdealClusterPage @ 0x140556054 (MiIdealClusterPage.c)
  * Callees:
- *     MiFindActualFaultingPte @ 0x14028D344 (MiFindActualFaultingPte.c)
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
- *     MiCheckVirtualAddress @ 0x14028D510 (MiCheckVirtualAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFindActualFaultingPte @ 0x14020A4E4 (MiFindActualFaultingPte.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
+ *     MiCheckVirtualAddress @ 0x14020A6B0 (MiCheckVirtualAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiIsFaultPteIntact(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -35,18 +35,18 @@ __int64 __fastcall MiIsFaultPteIntact(__int64 a1, __int64 a2, __int64 a3, _QWORD
     {
       if ( (v9 & 0x400) == 0 )
         return 0LL;
-      if ( (unsigned int)MiIsPrototypePteVadLookup(v9) )
+      if ( (unsigned int)MiIsPrototypePteVadLookup(v9, v9) )
       {
         v12 = MiCheckVirtualAddress(a2, &v14, &v15);
       }
       else
       {
-        if ( qword_140C4DF40 )
+        if ( qword_140C4DF80 )
         {
           if ( (v11 & 0x10) != 0 )
             v11 &= ~0x10uLL;
           else
-            v11 &= ~qword_140C4DF40;
+            v11 &= ~qword_140C4DF80;
         }
         v12 = v11 >> 16;
       }

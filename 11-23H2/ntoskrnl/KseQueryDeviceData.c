@@ -1,19 +1,19 @@
 /*
- * XREFs of KseQueryDeviceData @ 0x140808000
+ * XREFs of KseQueryDeviceData @ 0x1408082D0
  * Callers:
- *     KseQueryDeviceFlags @ 0x140807EE0 (KseQueryDeviceFlags.c)
- *     ExpGetDeviceDataInformation @ 0x1409F62A8 (ExpGetDeviceDataInformation.c)
+ *     KseQueryDeviceFlags @ 0x1408081B0 (KseQueryDeviceFlags.c)
+ *     ExpGetDeviceDataInformation @ 0x1409F6538 (ExpGetDeviceDataInformation.c)
  * Callees:
- *     KsepShimDbChanged @ 0x140373FD8 (KsepShimDbChanged.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     KsepDbQueryRegistryDeviceData @ 0x14080818C (KsepDbQueryRegistryDeviceData.c)
- *     KsepDbCacheQueryDevice @ 0x140808424 (KsepDbCacheQueryDevice.c)
- *     KsepDbCacheReadDevice @ 0x14080851C (KsepDbCacheReadDevice.c)
- *     KsepDbCacheQueryDeviceData @ 0x140808B38 (KsepDbCacheQueryDeviceData.c)
- *     KsepDbCacheInsertDevice @ 0x14085DDB8 (KsepDbCacheInsertDevice.c)
- *     KseResetDeviceCache @ 0x140976AAC (KseResetDeviceCache.c)
- *     KsepCacheDeviceFree @ 0x1409776A0 (KsepCacheDeviceFree.c)
+ *     KsepShimDbChanged @ 0x140374178 (KsepShimDbChanged.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14080845C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbCacheQueryDevice @ 0x1408086F4 (KsepDbCacheQueryDevice.c)
+ *     KsepDbCacheReadDevice @ 0x1408087EC (KsepDbCacheReadDevice.c)
+ *     KsepDbCacheQueryDeviceData @ 0x140808E08 (KsepDbCacheQueryDeviceData.c)
+ *     KsepDbCacheInsertDevice @ 0x14085DFF8 (KsepDbCacheInsertDevice.c)
+ *     KseResetDeviceCache @ 0x140976CAC (KseResetDeviceCache.c)
+ *     KsepCacheDeviceFree @ 0x1409778A0 (KsepCacheDeviceFree.c)
  */
 
 __int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, __int64 a2, _DWORD *a3, _DWORD *a4, void *a5)

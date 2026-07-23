@@ -1,57 +1,57 @@
 /*
- * XREFs of RtlCheckBootStatusIntegrity @ 0x18013E0F0
+ * XREFs of RtlCheckBootStatusIntegrity @ 0x18013C2E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlBootStatusItemInfo @ 0x18013E0B4 (RtlBootStatusItemInfo.c)
- *     NtReadFile @ 0x180161D50 (NtReadFile.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlBootStatusItemInfo @ 0x18013C2A4 (RtlBootStatusItemInfo.c)
+ *     NtReadFile @ 0x180160110 (NtReadFile.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(__int64 a1, bool *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
   char v4; // r14
-  int v5; // ebx
-  unsigned __int64 Heap; // rsi
+  NTSTATUS v5; // ebx
+  PVOID Buffer; // rsi
   __int64 v7; // rcx
   _BYTE *v8; // rax
   int v10; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+58h] [rbp-18h] BYREF
-  __int128 v12; // [rsp+60h] [rbp-10h] BYREF
-  unsigned int v13; // [rsp+B0h] [rbp+40h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-10h] BYREF
+  SIZE_T Size; // [rsp+B0h] [rbp+40h] BYREF
   int v14; // [rsp+B8h] [rbp+48h] BYREF
 
   v14 = 0;
   v10 = 0;
-  v13 = 0;
-  v11 = 0LL;
+  LODWORD(Size) = 0;
+  ByteOffset.QuadPart = 0LL;
   v4 = 0;
-  v12 = 0LL;
-  v5 = NtReadFile(a1, 0LL, 0LL, 0LL, &v12, &v13, 4, &v11, 0LL);
+  IoStatusBlock = 0LL;
+  v5 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Size, 4u, &ByteOffset, 0LL);
   if ( v5 >= 0 )
   {
     v5 = RtlBootStatusItemInfo(15, &v14, &v10);
     if ( v5 >= 0 )
     {
-      if ( v13 < v14 + v10 || v13 > 0x800 )
+      if ( (unsigned int)Size < v14 + v10 || (unsigned int)Size > 0x800 )
       {
-        *a2 = 0;
+        *Verified = 0;
       }
       else
       {
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
-        if ( Heap )
+        Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)Size);
+        if ( Buffer )
         {
-          v5 = NtReadFile(a1, 0LL, 0LL, 0LL, &v12, Heap, v13, &v11, 0LL);
+          v5 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Size, &ByteOffset, 0LL);
           if ( v5 >= 0 )
           {
-            v7 = v13;
-            if ( *((_QWORD *)&v12 + 1) == v13 )
+            v7 = (unsigned int)Size;
+            if ( IoStatusBlock.Information == (unsigned int)Size )
             {
-              if ( v13 )
+              if ( (_DWORD)Size )
               {
-                v8 = (_BYTE *)Heap;
+                v8 = Buffer;
                 do
                 {
                   v4 += *v8++;
@@ -59,21 +59,21 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(__int64 a1, bool *a2)
                 }
                 while ( v7 );
               }
-              *a2 = v4 == 0;
+              *Verified = v4 == 0;
             }
             else
             {
-              *a2 = 0;
+              *Verified = 0;
             }
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
         }
         else
         {
-          return (unsigned int)-1073741801;
+          return -1073741801;
         }
       }
     }
   }
-  return (unsigned int)v5;
+  return v5;
 }

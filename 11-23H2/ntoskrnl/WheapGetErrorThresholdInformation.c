@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapGetErrorThresholdInformation @ 0x140610EEC
+ * XREFs of WheapGetErrorThresholdInformation @ 0x14061143C
  * Callers:
- *     WheapApplyThresholdChecks @ 0x140610BB8 (WheapApplyThresholdChecks.c)
+ *     WheapApplyThresholdChecks @ 0x140611108 (WheapApplyThresholdChecks.c)
  * Callees:
  *     <none>
  */

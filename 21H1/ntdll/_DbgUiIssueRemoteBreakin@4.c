@@ -7,13 +7,24 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __thiscall DbgUiIssueRemoteBreakin(void *this, int a2)
+NTSTATUS __cdecl DbgUiIssueRemoteBreakin(HANDLE Process)
 {
+  int v1; // ecx
   int v2; // esi
   int v4; // [esp+4h] [ebp-Ch] BYREF
   HANDLE Handle; // [esp+Ch] [ebp-4h] BYREF
 
-  v2 = RtlpCreateUserThreadEx(a2, 0, 2, 0, 0, 0x4000, (int)this, (int)DbgUiRemoteBreakin, 0, &Handle, &v4);
+  v2 = RtlpCreateUserThreadEx(
+         Process,
+         0,
+         2,
+         0LL,
+         0x4000u,
+         v1,
+         (NTSTATUS (__cdecl *)(PVOID))DbgUiRemoteBreakin,
+         0,
+         &Handle,
+         &v4);
   if ( v2 >= 0 )
     NtClose(Handle);
   return v2;

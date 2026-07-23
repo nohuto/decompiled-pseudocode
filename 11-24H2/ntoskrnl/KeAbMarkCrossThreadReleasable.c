@@ -1,19 +1,19 @@
 /*
- * XREFs of KeAbMarkCrossThreadReleasable @ 0x1403DD90C
+ * XREFs of KeAbMarkCrossThreadReleasable @ 0x1403BD5FC
  * Callers:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140341510 (ExpAcquireFastResourceSharedSlow.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x1403D707C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403DCCD0 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceExclusive @ 0x1403DD040 (ExAcquireFastResourceExclusive.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1403DD330 (ExpAcquireFastResourceExclusiveSlow.c)
- *     ExDisownFastResource @ 0x140497BC0 (ExDisownFastResource.c)
- *     KeAbCrossThreadDeleteDpcRoutine @ 0x1405C4030 (KeAbCrossThreadDeleteDpcRoutine.c)
- *     ExAcquireFastResourceWithFlags @ 0x140656180 (ExAcquireFastResourceWithFlags.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x1402F0B5C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x1403209F0 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403BC9C0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceExclusive @ 0x1403BCD30 (ExAcquireFastResourceExclusive.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x1403BD020 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExDisownFastResource @ 0x1404926D0 (ExDisownFastResource.c)
+ *     KeAbCrossThreadDeleteDpcRoutine @ 0x1405C1600 (KeAbCrossThreadDeleteDpcRoutine.c)
+ *     ExAcquireFastResourceWithFlags @ 0x140654880 (ExAcquireFastResourceWithFlags.c)
  * Callees:
- *     KiAbForceProcessLockEntry @ 0x1404183E4 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140408194 (KiAbForceProcessLockEntry.c)
  */
 
 char __fastcall KeAbMarkCrossThreadReleasable(__int64 a1, __int64 *a2)

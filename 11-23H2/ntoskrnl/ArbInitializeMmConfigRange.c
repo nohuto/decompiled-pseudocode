@@ -3,9 +3,9 @@
  * Callers:
  *     HalpPciReportMmConfigAddressRange @ 0x140B69E10 (HalpPciReportMmConfigAddressRange.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall ArbInitializeMmConfigRange(ULONG *Data)

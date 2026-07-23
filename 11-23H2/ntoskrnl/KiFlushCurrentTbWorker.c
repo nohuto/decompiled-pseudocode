@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushCurrentTbWorker @ 0x140339D60
+ * XREFs of KiFlushCurrentTbWorker @ 0x140339FF0
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
  * Callees:
- *     KiSetUserTbFlushPending @ 0x140420160 (KiSetUserTbFlushPending.c)
+ *     KiSetUserTbFlushPending @ 0x1404204F0 (KiSetUserTbFlushPending.c)
  */
 
 struct _KTHREAD *__fastcall KiFlushCurrentTbWorker(__int64 a1, __int64 a2, __int64 a3)

@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     BgpDisplayCharacterEx @ 0x140239538 (BgpDisplayCharacterEx.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     BgpDisplayCharacterEx @ 0x14023941C (BgpDisplayCharacterEx.c)
  *     AnFwFadeCompletion @ 0x140726D9C (AnFwFadeCompletion.c)
  */
 
@@ -24,14 +24,14 @@ __int64 __fastcall BgpConsoleDisplayCharacter(unsigned __int16 a1, unsigned int 
   v6 = a3;
   v7 = a2;
   BgpFwAcquireLock();
-  v9 = qword_140329968;
-  if ( qword_140329968 )
+  v9 = qword_140329998;
+  if ( qword_140329998 )
   {
-    if ( (*(_DWORD *)(qword_140329968 + 8) & 0x10000) != 0 )
+    if ( (*(_DWORD *)(qword_140329998 + 8) & 0x10000) != 0 )
     {
       AnFwFadeCompletion();
-      v9 = qword_140329968;
-      *(_DWORD *)(qword_140329968 + 8) &= ~0x10000u;
+      v9 = qword_140329998;
+      *(_DWORD *)(qword_140329998 + 8) &= ~0x10000u;
     }
     v11 = v6 + 25 * v7;
     v12 = 3 * v11;

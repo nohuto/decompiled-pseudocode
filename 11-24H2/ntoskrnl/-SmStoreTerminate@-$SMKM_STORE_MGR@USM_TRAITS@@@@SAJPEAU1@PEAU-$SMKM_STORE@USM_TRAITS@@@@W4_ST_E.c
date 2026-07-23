@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmStoreTerminate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_ETW_TERMINATION_REASON@@J@Z @ 0x14060EBC4
+ * XREFs of ?SmStoreTerminate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_ETW_TERMINATION_REASON@@J@Z @ 0x14060D184
  * Callers:
- *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x14060B338 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
+ *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x1406098F8 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
  * Callees:
- *     SmKmStoreReference @ 0x140247170 (SmKmStoreReference.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     SmKmStoreReference @ 0x1402F6020 (SmKmStoreReference.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStoreTerminate(__int64 a1, __int64 a2, int a3, int a4)
@@ -16,7 +16,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStoreTerminate(__int64 a1, __int
   int v10; // edx
 
   v8 = 0;
-  v9 = SmAllocEx(64LL, 1834249587LL, -1);
+  v9 = SmAllocEx(0x40uLL, 0x6D546D73u, -1);
   if ( v9 )
   {
     if ( SmKmStoreReference(a1, *(_DWORD *)(a2 + 6832)) )

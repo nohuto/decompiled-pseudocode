@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeDriverPtes @ 0x1409B8AAC
+ * XREFs of MiInitializeDriverPtes @ 0x1409B9AAC
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA590 (MiIsImportOptimizationEnabled.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall MiInitializeDriverPtes(__int64 a1)
@@ -63,9 +63,9 @@ char *__fastcall MiInitializeDriverPtes(__int64 a1)
     *(_QWORD *)v12 = 0LL;
     *(_QWORD *)(v12 + 8) = ((v2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     *(_DWORD *)(v12 + 36) = 1;
-    qword_140438F08[0] = v12;
+    qword_140439FC8[0] = v12;
     if ( MiIsImportOptimizationEnabled() )
-      qword_14043A278 = (v4 - qword_14043A280) >> 21;
+      qword_14043B338 = (v4 - qword_14043B340) >> 21;
     return (char *)v14;
   }
   return result;

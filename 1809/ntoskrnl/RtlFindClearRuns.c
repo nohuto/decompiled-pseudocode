@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearRuns @ 0x14013BD20
+ * XREFs of RtlFindClearRuns @ 0x14013BE20
  * Callers:
- *     RtlFindLongestRunClear @ 0x1402EE770 (RtlFindLongestRunClear.c)
+ *     RtlFindLongestRunClear @ 0x1402EE960 (RtlFindLongestRunClear.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v19; // eax
   signed int v20; // edx
   __int64 v21; // rcx
-  struct _RTL_BITMAP_RUN *m; // r8
+  _RTL_BITMAP_RUN *m; // r8
   __int64 v24; // rbp
   ULONG v25; // r11d
   unsigned __int8 v26; // r10
@@ -38,7 +38,7 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v28; // r12d
   signed int v29; // r15d
   __int64 v30; // r14
-  struct _RTL_BITMAP_RUN *i; // rdx
+  _RTL_BITMAP_RUN *i; // rdx
   __int64 v32; // rcx
   __int64 v33; // r12
   int v34; // r15d
@@ -46,9 +46,9 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v36; // ecx
   signed int v37; // r14d
   __int64 v38; // r8
-  struct _RTL_BITMAP_RUN *k; // rdx
+  _RTL_BITMAP_RUN *k; // rdx
   __int64 v40; // rcx
-  struct _RTL_BITMAP_RUN *v41; // rdx
+  _RTL_BITMAP_RUN *v41; // rdx
   unsigned int v42; // [rsp+0h] [rbp-58h]
   unsigned int SizeOfBitMap; // [rsp+4h] [rbp-54h]
   ULONG v44; // [rsp+60h] [rbp+8h]
@@ -76,7 +76,7 @@ ULONG __stdcall RtlFindClearRuns(
       v18 = *(_BYTE *)Buffer;
       Buffer = (unsigned int *)((char *)Buffer + 1);
       if ( v13 == v12 - 1 && v9 )
-        v18 |= byte_140360D38[v7 & 7];
+        v18 |= byte_140361CC8[v7 & 7];
       if ( v18 )
       {
         v24 = RtlpBitsClearLow[v18];
@@ -114,14 +114,14 @@ ULONG __stdcall RtlFindClearRuns(
         }
         v15 = RtlpBitsClearHigh[v18];
         v16 = v17 - v15 + 8;
-        v26 = *((_BYTE *)&unk_140360D40 - v15) | byte_140362158[v24] | v18;
+        v26 = *((_BYTE *)&unk_140361CD0 - v15) | byte_1403630E8[v24] | v18;
         if ( v26 != 0xFF )
         {
           while ( v14 < v5 || v4[v14 - 1].NumberOfBits < RtlpBitsClearAnywhere[v26] )
           {
             v33 = RtlpBitsClearAnywhere[v26];
             v34 = 0;
-            for ( j = byte_140362158[v33]; ((unsigned __int8)j & v26) != 0; ++v34 )
+            for ( j = byte_1403630E8[v33]; ((unsigned __int8)j & v26) != 0; ++v34 )
               j *= 2;
             v36 = v14 + 1;
             if ( v14 >= SizeOfRunArray )

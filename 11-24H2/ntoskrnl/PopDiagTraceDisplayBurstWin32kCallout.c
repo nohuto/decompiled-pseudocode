@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x140AA9850
+ * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x140AA4900
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDisplayBurstWin32kCallout(__int64 a1, __int64 a2, char a3)
@@ -22,7 +22,7 @@ char __fastcall PopDiagTraceDisplayBurstWin32kCallout(__int64 a1, __int64 a2, ch
   __int64 v13; // [rsp+88h] [rbp+3Fh]
 
   result = PopConsoleExternalDisplayConnected;
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
     v5 = PopConsoleExternalDisplayConnected;
     v4 = PopLidOpened;
@@ -34,8 +34,8 @@ char __fastcall PopDiagTraceDisplayBurstWin32kCallout(__int64 a1, __int64 a2, ch
     v11 = 1LL;
     v13 = 1LL;
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140E076F0,
-             (unsigned __int8 *)byte_140048BF0,
+             (__int64)&dword_140E07680,
+             (unsigned __int8 *)byte_140049D39,
              0LL,
              0LL,
              5u,

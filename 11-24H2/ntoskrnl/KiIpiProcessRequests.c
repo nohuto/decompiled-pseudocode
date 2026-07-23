@@ -1,18 +1,18 @@
 /*
- * XREFs of KiIpiProcessRequests @ 0x1403FEB60
+ * XREFs of KiIpiProcessRequests @ 0x1403F91B0
  * Callers:
- *     KiIpiInterruptSubDispatch @ 0x1406B2980 (KiIpiInterruptSubDispatch.c)
+ *     KiIpiInterruptSubDispatch @ 0x1406B3920 (KiIpiInterruptSubDispatch.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14034EB80 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KiIpiUpdateThreadTag @ 0x1403FF0D0 (KiIpiUpdateThreadTag.c)
- *     KiIpiGenericCallTarget @ 0x1403FF0F0 (KiIpiGenericCallTarget.c)
- *     KiSynchronizeStibpPairingTarget @ 0x1403FF1E0 (KiSynchronizeStibpPairingTarget.c)
- *     EtwpGetHostPerfCounter @ 0x1403FF27C (EtwpGetHostPerfCounter.c)
- *     PerfInfoLogIpiReceive @ 0x1403FF2B0 (PerfInfoLogIpiReceive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1406AB3E0 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetSystemTimePrecise @ 0x14036D060 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KiIpiUpdateThreadTag @ 0x1403F9720 (KiIpiUpdateThreadTag.c)
+ *     KiIpiGenericCallTarget @ 0x1403F9740 (KiIpiGenericCallTarget.c)
+ *     KiSynchronizeStibpPairingTarget @ 0x1403F9830 (KiSynchronizeStibpPairingTarget.c)
+ *     EtwpGetHostPerfCounter @ 0x1403F98CC (EtwpGetHostPerfCounter.c)
+ *     PerfInfoLogIpiReceive @ 0x1403F9900 (PerfInfoLogIpiReceive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1406AC380 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall KiIpiProcessRequests(_KTRAP_FRAME *a1)
@@ -88,17 +88,17 @@ char __fastcall KiIpiProcessRequests(_KTRAP_FRAME *a1)
       }
       v9 = 0;
       v36 = 1;
-      if ( qword_140FCEC80 )
+      if ( qword_140FCFC80 )
       {
-        v10 = *(_DWORD *)(qword_140FCEC80 + 4520);
+        v10 = *(_DWORD *)(qword_140FCFC80 + 4520);
         for ( i = !_BitScanForward((unsigned int *)&v12, v10); !i; i = !_BitScanForward((unsigned int *)&v12, v10) )
         {
           v10 &= v10 - 1;
           v4 = (unsigned int)v12;
-          v13 = qword_140FCEC80 + 32 * v12 + 4556;
+          v13 = qword_140FCFC80 + 32 * v12 + 4556;
           if ( v13 && (*(_DWORD *)(v13 + 8) & 0x400000) != 0 )
           {
-            v4 = *(unsigned __int8 *)(qword_140FCEC80 + 2 * v4 + 4505);
+            v4 = *(unsigned __int8 *)(qword_140FCFC80 + 2 * v4 + 4505);
             v9 |= 1 << v4;
           }
         }
@@ -112,7 +112,7 @@ char __fastcall KiIpiProcessRequests(_KTRAP_FRAME *a1)
       *(LARGE_INTEGER *)&v42 = KeQueryPerformanceCounter(0LL);
 LABEL_13:
       if ( (v9 & 4) != 0 )
-        *((_QWORD *)&v42 + 1) = RtlGetSystemTimePrecise();
+        *((LARGE_INTEGER *)&v42 + 1) = RtlGetSystemTimePrecise();
       else
         *((_QWORD *)&v42 + 1) = 0LL;
       if ( (v9 & 8) != 0 )
@@ -259,7 +259,7 @@ LABEL_60:
           {
             if ( v28 != KiSynchronizeStibpPairingTarget )
             {
-              guard_dispatch_icall_no_overrides(v8, v31, v30, v29);
+              guard_dispatch_icall_no_overrides(v8, v31);
               goto LABEL_60;
             }
             KiSynchronizeStibpPairingTarget(v8, v31, v30, v29);

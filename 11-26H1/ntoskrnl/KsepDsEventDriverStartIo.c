@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventDriverStartIo @ 0x1405FF034
+ * XREFs of KsepDsEventDriverStartIo @ 0x140601A84
  * Callers:
- *     KseDsCallbackHookDriverStartIo @ 0x1405FE440 (KseDsCallbackHookDriverStartIo.c)
+ *     KseDsCallbackHookDriverStartIo @ 0x140600E90 (KseDsCallbackHookDriverStartIo.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall KsepDsEventDriverStartIo(__int64 a1, __int64 a2, __int64 a3)
@@ -22,9 +22,9 @@ void __fastcall KsepDsEventDriverStartIo(__int64 a1, __int64 a2, __int64 a3)
   v10 = a3;
   v9 = a2;
   v8 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    if ( EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventStartIo) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventStartIo) )
     {
       UserData.Ptr = (ULONGLONG)&v8;
       *(_QWORD *)&UserData.Size = 8LL;
@@ -32,7 +32,7 @@ void __fastcall KsepDsEventDriverStartIo(__int64 a1, __int64 a2, __int64 a3)
       v5 = 8LL;
       v6 = &v10;
       v7 = 8LL;
-      EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventStartIo, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+      EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventStartIo, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

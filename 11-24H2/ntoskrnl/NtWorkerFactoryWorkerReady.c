@@ -1,17 +1,17 @@
 /*
- * XREFs of NtWorkerFactoryWorkerReady @ 0x14046AFC0
+ * XREFs of NtWorkerFactoryWorkerReady @ 0x140463A40
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
+NTSTATUS __cdecl NtWorkerFactoryWorkerReady(HANDLE WorkerFactoryHandle)
 {
-  NTSTATUS v1; // edi
+  int v1; // edi
   _DWORD *v2; // rbx
   int v3; // eax
   int v4; // eax
@@ -21,7 +21,7 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   Object = 0LL;
   v1 = ObReferenceObjectByHandle(
-         a1,
+         WorkerFactoryHandle,
          0x10u,
          ExpWorkerFactoryObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -54,5 +54,5 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     ObfDereferenceObjectWithTag(v2, 0x746C6644u);
   }
-  return (unsigned int)v1;
+  return v1;
 }

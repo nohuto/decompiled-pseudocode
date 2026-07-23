@@ -6,7 +6,7 @@
  *     _NLS_UPCASE@4 @ 0x4B2BFDC8 (_NLS_UPCASE@4.c)
  */
 
-unsigned __int16 __stdcall RtlUpcaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlUpcaseUnicodeChar(WCHAR SourceCharacter)
 {
-  return NLS_UPCASE(a1);
+  return NLS_UPCASE(SourceCharacter);
 }

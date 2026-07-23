@@ -18,7 +18,7 @@
 __int64 PiCreateDriverDataDirectoryRoot()
 {
   void *v0; // rdi
-  int StateRootPath; // ebx
+  NTSTATUS StateRootPath; // ebx
   unsigned int v2; // esi
   UNICODE_STRING Name; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
@@ -41,7 +41,11 @@ __int64 PiCreateDriverDataDirectoryRoot()
   *(_QWORD *)&Name.Length = 0LL;
   Name.Buffer = 0LL;
   v8 = 0LL;
-  StateRootPath = PiGetStateRootPath(L"DriverData", L"\\SystemRoot\\System32\\Drivers\\DriverData", 1u, &Name);
+  StateRootPath = PiGetStateRootPath(
+                    L"DriverData",
+                    L"\\SystemRoot\\System32\\Drivers\\DriverData",
+                    LocationTypeFileSystem,
+                    &Name);
   if ( StateRootPath >= 0 )
   {
     StateRootPath = PiAuGetDriverDataDirectorySecurityObject(&v8);

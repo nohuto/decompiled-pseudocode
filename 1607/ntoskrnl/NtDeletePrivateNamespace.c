@@ -1,24 +1,24 @@
 /*
- * XREFs of NtDeletePrivateNamespace @ 0x140668A8C
+ * XREFs of NtDeletePrivateNamespace @ 0x140668B70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140477960 (ObpVerifyCreatorAccessCheck.c)
- *     ObpRemoveNamespaceFromTable @ 0x1404D5BE0 (ObpRemoveNamespaceFromTable.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140476830 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpRemoveNamespaceFromTable @ 0x1404B91E4 (ObpRemoveNamespaceFromTable.c)
  */
 
-NTSTATUS __fastcall NtDeletePrivateNamespace(void *a1)
+NTSTATUS __cdecl NtDeletePrivateNamespace(HANDLE NamespaceHandle)
 {
   NTSTATUS result; // eax
   _DWORD *v2; // rbx
-  int v3; // edi
+  NTSTATUS v3; // edi
   PVOID Object; // [rsp+48h] [rbp+10h] BYREF
   struct _OBJECT_HANDLE_INFORMATION v5; // [rsp+50h] [rbp+18h] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             NamespaceHandle,
              0x10000u,
              ObpDirectoryObjectType,
              KeGetCurrentThread()->PreviousMode,

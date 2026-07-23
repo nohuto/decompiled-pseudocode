@@ -12,7 +12,7 @@
  *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   __int64 CurrentServerSilo; // rax
   _QWORD *v2; // rax
@@ -24,5 +24,5 @@ __int64 RtlGetActiveConsoleId()
     v2 = *(_QWORD **)(CurrentServerSilo + 1488);
   else
     v2 = &PspHostSiloGlobals;
-  return *(unsigned int *)(v2[165] + 4LL);
+  return *(_DWORD *)(v2[165] + 4LL);
 }

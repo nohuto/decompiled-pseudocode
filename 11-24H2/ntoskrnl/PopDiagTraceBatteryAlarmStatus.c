@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceBatteryAlarmStatus @ 0x140755630
+ * XREFs of PopDiagTraceBatteryAlarmStatus @ 0x140753950
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned int *a3)
@@ -64,9 +64,9 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
   {
     v4 = IndexToActionName[v3];
     v5 = 0;
-    if ( (unsigned int)dword_140E076F0 > 5 )
+    if ( (unsigned int)dword_140E07680 > 5 )
     {
-      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
       if ( (_BYTE)v3 )
       {
         tlgCreate1Sz_char((__int64)v26, v4);
@@ -74,7 +74,7 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
         v27 = (int *)&v13;
         v28 = 1LL;
         v29 = &v20;
-        v21 = xmmword_140F0AE80;
+        v21 = xmmword_140F0BCC0;
         v31 = &v21;
         v14 = *v7;
         v33 = (int *)&v14;
@@ -92,7 +92,7 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
         v45 = &v17;
         v18 = *(_DWORD *)(v8 + 24);
         v47 = &v18;
-        v19 = (unsigned __int8)byte_140F0AF98;
+        v19 = (unsigned __int8)byte_140F0BDD8;
         v49 = &v19;
         v20 = v9;
         v30 = 4LL;
@@ -107,26 +107,26 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
         v48 = 4LL;
         v50 = 4LL;
         LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140E076F0,
-                       (unsigned __int8 *)byte_140049163,
+                       (__int64)&dword_140E07680,
+                       (unsigned __int8 *)byte_140049668,
                        0LL,
                        0LL,
                        0xFu,
                        v25);
       }
     }
-    if ( (unsigned int)dword_140F0AE54 > 1 )
+    if ( (unsigned int)dword_140F0BC94 > 1 )
     {
-      v10 = qword_140F0AE70;
-      v3 = (unsigned __int64)&qword_140F0AE70;
-      while ( (__int64 *)v10 != &qword_140F0AE70 )
+      v10 = qword_140F0BCB0;
+      v3 = (unsigned __int64)&qword_140F0BCB0;
+      while ( (__int64 *)v10 != &qword_140F0BCB0 )
       {
         ++v5;
         if ( *(_DWORD *)(v10 + 64) )
-          v3 = (unsigned __int64)&qword_140F0AE70;
-        if ( (unsigned int)dword_140E076F0 > 5 )
+          v3 = (unsigned __int64)&qword_140F0BCB0;
+        if ( (unsigned int)dword_140E07680 > 5 )
         {
-          if ( tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+          if ( tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
           {
             tlgCreate1Sz_char((__int64)v26, v4);
             v16 = v11;
@@ -145,14 +145,14 @@ char __fastcall PopDiagTraceBatteryAlarmStatus(__int64 a1, __int64 a2, unsigned 
             v34 = 4LL;
             v36 = 4LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140E076F0,
-              (unsigned __int8 *)byte_14004929D,
+              (__int64)&dword_140E07680,
+              (unsigned __int8 *)word_1400497A2,
               0LL,
               0LL,
               8u,
               v25);
           }
-          v3 = (unsigned __int64)&qword_140F0AE70;
+          v3 = (unsigned __int64)&qword_140F0BCB0;
         }
         v10 = *(_QWORD *)v10;
       }

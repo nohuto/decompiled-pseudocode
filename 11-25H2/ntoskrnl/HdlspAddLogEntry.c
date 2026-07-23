@@ -31,13 +31,13 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   KSPIN_LOCK v15; // rax
   KSPIN_LOCK v16; // rdx
   __int64 v17; // rcx
-  __int128 v18; // [rsp+20h] [rbp-68h] BYREF
+  __int128 SystemInformation; // [rsp+20h] [rbp-68h] BYREF
   __int128 v19; // [rsp+30h] [rbp-58h]
   __int128 v20; // [rsp+40h] [rbp-48h]
 
   v1 = 0LL;
   v2 = -1LL;
-  v18 = 0LL;
+  SystemInformation = 0LL;
   v19 = 0LL;
   v20 = 0LL;
   do
@@ -46,9 +46,9 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   v4 = 2 * v2 + 2;
   if ( KeGetCurrentIrql() < 2u )
   {
-    if ( (int)ZwQuerySystemInformation(3LL, (__int64)&v18) < 0 )
+    if ( ZwQuerySystemInformation(SystemTimeOfDayInformation, &SystemInformation, 0x30u, 0LL) < 0 )
     {
-      v18 = 0LL;
+      SystemInformation = 0LL;
       v19 = 0LL;
       v20 = 0LL;
     }
@@ -79,7 +79,7 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
     }
     v14 = 56LL * v11;
     v15 = v8[2];
-    *(_OWORD *)(v14 + v15) = v18;
+    *(_OWORD *)(v14 + v15) = SystemInformation;
     *(_OWORD *)(v14 + v15 + 16) = v19;
     *(_OWORD *)(v14 + v15 + 32) = v20;
     v16 = v8[2];

@@ -1,22 +1,22 @@
 /*
- * XREFs of NtAcquireProcessActivityReference @ 0x140731390
+ * XREFs of NtAcquireProcessActivityReference @ 0x140731550
  * Callers:
  *     <none>
  * Callees:
- *     ExCpuSetResourceManagerAccessCheck @ 0x1402BD264 (ExCpuSetResourceManagerAccessCheck.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     PspCreateActivityReference @ 0x140731498 (PspCreateActivityReference.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x14023B914 (ExCpuSetResourceManagerAccessCheck.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     PspCreateActivityReference @ 0x140731658 (PspCreateActivityReference.c)
  */
 
-int __fastcall NtAcquireProcessActivityReference(__int64 *a1, void *a2, int a3)
+int __fastcall NtAcquireProcessActivityReference(_QWORD *a1, void *a2, int a3)
 {
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v6; // rcx
   int result; // eax
   PVOID v8; // rbx
   int ActivityReference; // edi
-  __int64 v10[3]; // [rsp+48h] [rbp-20h] BYREF
+  _QWORD v10[3]; // [rsp+48h] [rbp-20h] BYREF
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   v10[0] = 0LL;
@@ -45,7 +45,7 @@ int __fastcall NtAcquireProcessActivityReference(__int64 *a1, void *a2, int a3)
     if ( result >= 0 )
     {
       v8 = Object;
-      ActivityReference = PspCreateActivityReference(Object, (__int64)v10);
+      ActivityReference = PspCreateActivityReference(Object, v10);
       if ( ActivityReference >= 0 )
         *a1 = v10[0];
       ObfDereferenceObjectWithTag(v8, 0x63417350u);

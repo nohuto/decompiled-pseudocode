@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpCopyCodeStream @ 0x1409188A8
+ * XREFs of KdpCopyCodeStream @ 0x1409198A8
  * Callers:
- *     KdpAddBreakpoint @ 0x140918BE4 (KdpAddBreakpoint.c)
- *     KdpInsertBreakpoint @ 0x140918E64 (KdpInsertBreakpoint.c)
- *     KdpLowRestoreBreakpoint @ 0x140918EC8 (KdpLowRestoreBreakpoint.c)
- *     KdpLowWriteContent @ 0x140918F7C (KdpLowWriteContent.c)
- *     KdpRemoveBreakpoint @ 0x14091904C (KdpRemoveBreakpoint.c)
- *     KdpSetOwedBreakpoints @ 0x14091910C (KdpSetOwedBreakpoints.c)
+ *     KdpAddBreakpoint @ 0x140919BE4 (KdpAddBreakpoint.c)
+ *     KdpInsertBreakpoint @ 0x140919E64 (KdpInsertBreakpoint.c)
+ *     KdpLowRestoreBreakpoint @ 0x140919EC8 (KdpLowRestoreBreakpoint.c)
+ *     KdpLowWriteContent @ 0x140919F7C (KdpLowWriteContent.c)
+ *     KdpRemoveBreakpoint @ 0x14091A04C (KdpRemoveBreakpoint.c)
+ *     KdpSetOwedBreakpoints @ 0x14091A10C (KdpSetOwedBreakpoints.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1409199A8 (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpCopyCodeStream(PVOID BaseAddress, __int64 a2, __int64 a3, int a4)

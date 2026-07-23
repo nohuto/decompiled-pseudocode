@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxAddDeviceRelation @ 0x140604200
+ * XREFs of PoFxAddDeviceRelation @ 0x140606D00
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     PopFxActivateComponent @ 0x14037AB40 (PopFxActivateComponent.c)
- *     PopFxReferenceDevice @ 0x1403948D4 (PopFxReferenceDevice.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PoFxIdleDevice @ 0x1404B2604 (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x1404D5290 (PopFxActivateDevice.c)
- *     PopFxInsertDeviceRelation @ 0x140605120 (PopFxInsertDeviceRelation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     PopFxActivateComponent @ 0x14037C8F0 (PopFxActivateComponent.c)
+ *     PopFxReferenceDevice @ 0x140396654 (PopFxReferenceDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PoFxIdleDevice @ 0x1404ABB10 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x1404CEB00 (PopFxActivateDevice.c)
+ *     PopFxInsertDeviceRelation @ 0x140607C20 (PopFxInsertDeviceRelation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4)

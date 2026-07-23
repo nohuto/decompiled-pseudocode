@@ -15,7 +15,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   int v4; // edi
   __int64 v5; // r15
   __int64 v6; // rsi
-  int v7; // edi
+  NTSTATUS v7; // edi
   __int64 v8; // rax
   _WORD *v9; // rcx
   _QWORD *v10; // rdx
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
     if ( *(_QWORD *)(a1 + 8 * v3 + 2224) )
     {
       v7 = -1073741302;
@@ -65,7 +65,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
         *(_QWORD *)(a1 + 8 * v3 + 2224) = v8;
       }
     }
-    RtlLeaveCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
   }
   return (unsigned int)v7;
 }

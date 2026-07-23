@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
- *     PopOkayToQueueNextWorkItem @ 0x1402D1FF4 (PopOkayToQueueNextWorkItem.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlComputeCrc32 @ 0x14021FAD0 (RtlComputeCrc32.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1402503C4 (PopOkayToQueueNextWorkItem.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     PopWriteBsdPoInfo @ 0x1403F8074 (PopWriteBsdPoInfo.c)
  */
 
@@ -41,32 +41,32 @@ void PopBsdUpdateWorker()
     v0 = PopBsdUpdateRequests & 1;
     if ( (PopBsdUpdateRequests & 1) != 0 )
     {
-      *(_QWORD *)&xmmword_140C50598 = MEMORY[0xFFFFF78000000014];
-      DWORD2(xmmword_140C50598) = RtlComputeCrc32(0, (char *)&xmmword_140C50598, 8u);
+      *(_QWORD *)&xmmword_140C505A8 = MEMORY[0xFFFFF78000000014];
+      DWORD2(xmmword_140C505A8) = RtlComputeCrc32(0, &xmmword_140C505A8, 8u);
       v4 = PopBsdPowerTransition;
-      v5 = xmmword_140C50598;
+      v5 = xmmword_140C505A8;
     }
     v1 = v3 & 2;
     if ( (v3 & 2) != 0 )
     {
       v6 = PopBsdPowerTransitionExtension;
-      v7 = xmmword_140C50758;
+      v7 = xmmword_140C50798;
     }
     v2 = v3 & 4;
     if ( v2 )
     {
       v8 = PopBsdPhysicalPowerButtonInfo;
-      v9 = xmmword_140C50568;
-      v10 = xmmword_140C50578;
+      v9 = xmmword_140C505C8;
+      v10 = xmmword_140C505D8;
     }
     PopBsdUpdateRequests = 0;
     PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
     if ( v0 )
-      PopWriteBsdPoInfo(7u, (__int64)&v4);
+      PopWriteBsdPoInfo(7u, &v4);
     if ( v1 )
-      PopWriteBsdPoInfo(0x10u, (__int64)&v6);
+      PopWriteBsdPoInfo(0x10u, &v6);
     if ( v2 )
-      PopWriteBsdPoInfo(0xEu, (__int64)&v8);
+      PopWriteBsdPoInfo(0xEu, &v8);
   }
   PopOkayToQueueNextWorkItem((__int64)&PopBsdUpdateWorkItem);
   PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);

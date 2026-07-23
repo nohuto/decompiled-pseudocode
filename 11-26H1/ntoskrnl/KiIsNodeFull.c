@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsNodeFull @ 0x1405EFB94
+ * XREFs of KiIsNodeFull @ 0x1405F2504
  * Callers:
- *     KiQueryProcessorNode @ 0x1405EFC3C (KiQueryProcessorNode.c)
+ *     KiQueryProcessorNode @ 0x1405F25AC (KiQueryProcessorNode.c)
  * Callees:
  *     <none>
  */

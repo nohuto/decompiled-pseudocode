@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCreatePerSessionProtos @ 0x1406BC914
+ * XREFs of MiCreatePerSessionProtos @ 0x14061BAE4
  * Callers:
- *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
- *     MiCloneImageVad @ 0x140559280 (MiCloneImageVad.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
- *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
- *     MiMapSystemImage @ 0x14075D0C4 (MiMapSystemImage.c)
+ *     MiInsertInSystemSpace @ 0x140305B30 (MiInsertInSystemSpace.c)
+ *     MiCloneImageVad @ 0x1405594C0 (MiCloneImageVad.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiValidateSectionCreate @ 0x1406C32C0 (MiValidateSectionCreate.c)
+ *     MiFinishCreateSection @ 0x14071D000 (MiFinishCreateSection.c)
+ *     MiMapSystemImage @ 0x14075D284 (MiMapSystemImage.c)
  * Callees:
- *     MiLocateSessionProtosInSubsection @ 0x1402CF08C (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x1402CF0B8 (MiUpdatePerSessionProto.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiDereferenceSubsectionProtos @ 0x1406BC8AC (MiDereferenceSubsectionProtos.c)
- *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1406BCC40 (MiFreeSubsectionProtos.c)
+ *     MiLocateSessionProtosInSubsection @ 0x14024D58C (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x14024D5B8 (MiUpdatePerSessionProto.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceSubsectionProtos @ 0x14061BA7C (MiDereferenceSubsectionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x14061BC08 (MiAllocatePerSessionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x14061BE10 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiCreatePerSessionProtos(__int64 *a1, unsigned int a2)

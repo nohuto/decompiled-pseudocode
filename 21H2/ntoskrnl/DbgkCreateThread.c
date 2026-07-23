@@ -1,25 +1,25 @@
 /*
- * XREFs of DbgkCreateThread @ 0x140647420
+ * XREFs of DbgkCreateThread @ 0x14063C210
  * Callers:
- *     PspUserThreadStartup @ 0x140646E40 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x14063BC30 (PspUserThreadStartup.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsReferenceProcessFilePointer @ 0x140604BE0 (PsReferenceProcessFilePointer.c)
- *     PsWow64GetProcessNtdllType @ 0x140611C4C (PsWow64GetProcessNtdllType.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
- *     PsQuerySystemDllInfo @ 0x14064E8DC (PsQuerySystemDllInfo.c)
- *     PspReferenceSystemDll @ 0x140712A44 (PspReferenceSystemDll.c)
- *     DbgkSendSystemDllMessages @ 0x1408844DC (DbgkSendSystemDllMessages.c)
- *     DbgkpPostModuleMessages @ 0x1408852A0 (DbgkpPostModuleMessages.c)
- *     DbgkpSendApiMessage @ 0x140887154 (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x140887B94 (DbgkpSectionToFileHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsQuerySystemDllInfo @ 0x1406436FC (PsQuerySystemDllInfo.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsCallImageNotifyRoutines @ 0x140684E90 (PsCallImageNotifyRoutines.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406A16FC (PsWow64GetProcessNtdllType.c)
+ *     PspReferenceSystemDll @ 0x1406C1094 (PspReferenceSystemDll.c)
+ *     PsReferenceProcessFilePointer @ 0x1406F4310 (PsReferenceProcessFilePointer.c)
+ *     DbgkSendSystemDllMessages @ 0x14088463C (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140885400 (DbgkpPostModuleMessages.c)
+ *     DbgkpSendApiMessage @ 0x1408872B4 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140887CF4 (DbgkpSectionToFileHandle.c)
  */
 
 void __fastcall DbgkCreateThread(_QWORD *a1)
@@ -28,16 +28,16 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
   __int64 v3; // rax
   signed __int32 v4; // eax
   char v5; // r12
-  __int64 v6; // rax
+  PIMAGE_NT_HEADERS v6; // rax
   int i; // esi
   __int64 SystemDllInfo; // rax
   __int64 v9; // r15
-  __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   struct _DMA_ADAPTER *v11; // r13
   unsigned __int64 v12; // rax
   struct _DMA_ADAPTER *v13; // rax
   __int16 v14; // ax
-  __int64 v15; // rax
+  PIMAGE_NT_HEADERS v15; // rax
   bool v16; // [rsp+20h] [rbp-1B8h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+28h] [rbp-1B0h] BYREF
   signed __int32 v18; // [rsp+30h] [rbp-1A8h]
@@ -76,13 +76,13 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
     BYTE8(v21) = 3;
     *(_QWORD *)&v22 = *(_QWORD *)(v2 + 1312);
     *(_QWORD *)&v23 = 0LL;
-    v6 = RtlImageNtHeader(v22);
+    v6 = RtlImageNtHeader((PVOID)v22);
     if ( v6 )
-      *(_QWORD *)&v23 = *(unsigned int *)(v6 + 80);
+      *(_QWORD *)&v23 = v6->OptionalHeader.SizeOfImage;
     DWORD2(v22) = 0;
     DWORD2(v23) = 0;
-    PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)v2, (ULONG_PTR *)&DmaAdapter);
-    PsCallImageNotifyRoutines(*(unsigned __int16 **)(v2 + 1472), v2, (__int64)&v21, (__int64)DmaAdapter);
+    PsReferenceProcessFilePointer(v2, &DmaAdapter);
+    PsCallImageNotifyRoutines(*(_QWORD *)(v2 + 1472), v2, &v21, DmaAdapter);
     HalPutDmaAdapter(DmaAdapter);
     for ( i = 0; ; ++i )
     {
@@ -99,9 +99,9 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
         DWORD2(v21) = 3;
         *(_QWORD *)&v22 = *(_QWORD *)(v9 + 24);
         *(_QWORD *)&v23 = 0LL;
-        v10 = RtlImageNtHeader(*(_QWORD *)(v9 + 24));
+        v10 = RtlImageNtHeader(*(PVOID *)(v9 + 24));
         if ( v10 )
-          *(_QWORD *)&v23 = *(unsigned int *)(v10 + 80);
+          *(_QWORD *)&v23 = v10->OptionalHeader.SizeOfImage;
         DWORD2(v22) = 0;
         DWORD2(v23) = 0;
         v11 = (struct _DMA_ADAPTER *)PspReferenceSystemDll(v9 - 16);
@@ -113,7 +113,7 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
           ObFastDereferenceObject((signed __int64 *)(v9 - 16), v11);
           v13 = DmaAdapter;
         }
-        PsCallImageNotifyRoutines((unsigned __int16 *)(v9 + 8), v2, (__int64)&v21, (__int64)v13);
+        PsCallImageNotifyRoutines(v9 + 8, v2, &v21, v13);
         HalPutDmaAdapter(DmaAdapter);
       }
     }
@@ -138,14 +138,14 @@ void __fastcall DbgkCreateThread(_QWORD *a1)
       v26[8] = *(_QWORD *)(v2 + 1312);
       v26[11] = 0LL;
       v26[9] = 0LL;
-      v15 = RtlImageNtHeader(*(_QWORD *)(v2 + 1312));
+      v15 = RtlImageNtHeader(*(PVOID *)(v2 + 1312));
       if ( v15 )
       {
         if ( v16 )
-          v26[11] = (unsigned int)(*(_DWORD *)(v15 + 40) + *(_DWORD *)(v15 + 52));
+          v26[11] = v15->OptionalHeader.AddressOfEntryPoint + HIDWORD(v15->OptionalHeader.ImageBase);
         else
-          v26[11] = *(_QWORD *)(v15 + 48) + *(unsigned int *)(v15 + 40);
-        v26[9] = *(_QWORD *)(v15 + 12);
+          v26[11] = v15->OptionalHeader.ImageBase + v15->OptionalHeader.AddressOfEntryPoint;
+        v26[9] = *(_QWORD *)&v15->FileHeader.PointerToSymbolTable;
       }
       v26[0] = 0x800600038LL;
       LODWORD(v26[5]) = 2;

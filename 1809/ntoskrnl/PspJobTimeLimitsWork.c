@@ -1,9 +1,9 @@
 /*
- * XREFs of PspJobTimeLimitsWork @ 0x140600A90
+ * XREFs of PspJobTimeLimitsWork @ 0x140601A90
  * Callers:
  *     <none>
  * Callees:
- *     PspEnforceLimits @ 0x1405FD570 (PspEnforceLimits.c)
+ *     PspEnforceLimits @ 0x1405FE570 (PspEnforceLimits.c)
  */
 
 __int64 PspJobTimeLimitsWork()

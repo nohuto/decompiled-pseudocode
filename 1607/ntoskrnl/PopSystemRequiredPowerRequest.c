@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSystemRequiredPowerRequest @ 0x140009BA8
+ * XREFs of PopSystemRequiredPowerRequest @ 0x140009728
  * Callers:
- *     PopSystemRequiredCallback @ 0x1405206C0 (PopSystemRequiredCallback.c)
- *     PopExecutionRequiredCallback @ 0x140520920 (PopExecutionRequiredCallback.c)
+ *     PopSystemRequiredCallback @ 0x140503728 (PopSystemRequiredCallback.c)
+ *     PopExecutionRequiredCallback @ 0x140503988 (PopExecutionRequiredCallback.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopCheckResiliencyScenarios @ 0x1403F5C64 (PopCheckResiliencyScenarios.c)
+ *     PopCheckResiliencyScenarios @ 0x1403F4B28 (PopCheckResiliencyScenarios.c)
  */
 
 __int64 __fastcall PopSystemRequiredPowerRequest(char a1, int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall PopSystemRequiredPowerRequest(char a1, int a2)
     v6 = v5 == 0;
     if ( v5 > 0 )
     {
-      dword_1403033A4 |= a2;
+      dword_1403032E4 |= a2;
       goto LABEL_4;
     }
   }
@@ -36,14 +36,14 @@ __int64 __fastcall PopSystemRequiredPowerRequest(char a1, int a2)
   {
     v6 = v5 == 0;
   }
-  v8 = dword_1403033A4;
+  v8 = dword_1403032E4;
   if ( v6 )
   {
-    v8 = ~a2 & dword_1403033A4;
-    dword_1403033A4 = v8;
+    v8 = ~a2 & dword_1403032E4;
+    dword_1403032E4 = v8;
   }
   if ( !v8 )
-    dword_1403033C0 = dword_140303388;
+    dword_140303300 = dword_1403032C8;
 LABEL_4:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   PopCheckResiliencyScenarios();

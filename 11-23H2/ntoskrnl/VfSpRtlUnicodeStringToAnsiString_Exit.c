@@ -1,9 +1,9 @@
 /*
- * XREFs of VfSpRtlUnicodeStringToAnsiString_Exit @ 0x140AE8720
+ * XREFs of VfSpRtlUnicodeStringToAnsiString_Exit @ 0x140AE8710
  * Callers:
  *     <none>
  * Callees:
- *     ViSpRtlReplaceStringBuffer @ 0x140AE87A4 (ViSpRtlReplaceStringBuffer.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140AE8794 (ViSpRtlReplaceStringBuffer.c)
  */
 
 __int64 __fastcall VfSpRtlUnicodeStringToAnsiString_Exit(__int64 a1)

@@ -9,17 +9,17 @@
 char __fastcall LdrpIsModuleUnderSystem32(__int64 a1)
 {
   char v1; // bl
-  unsigned __int16 v3[12]; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_OWORD *)v3 = *(_OWORD *)(a1 + 72);
-  v3[0] = LdrpSystem32;
-  if ( *(unsigned __int16 *)(a1 + 72) - (unsigned int)*(unsigned __int16 *)(a1 + 88) <= (unsigned int)(unsigned __int16)LdrpSystem32
+  String1 = *(_UNICODE_STRING *)(a1 + 72);
+  String1.Length = LdrpSystem32.Length;
+  if ( *(unsigned __int16 *)(a1 + 72) - (unsigned int)*(unsigned __int16 *)(a1 + 88) <= (unsigned int)LdrpSystem32.Length
                                                                                       + 2 )
     return 0;
-  if ( *(_WORD *)(*(_QWORD *)(a1 + 80) + 2 * ((unsigned __int64)(unsigned __int16)LdrpSystem32 >> 1)) != 92 )
+  if ( *(_WORD *)(*(_QWORD *)(a1 + 80) + 2 * ((unsigned __int64)LdrpSystem32.Length >> 1)) != 92 )
     return 0;
   v1 = 1;
-  if ( (unsigned int)RtlCompareUnicodeString(v3, (unsigned __int16 *)&LdrpSystem32, 1) )
+  if ( RtlCompareUnicodeString(&String1, &LdrpSystem32, 1u) )
     return 0;
   return v1;
 }

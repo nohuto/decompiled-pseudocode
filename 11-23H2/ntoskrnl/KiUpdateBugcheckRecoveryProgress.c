@@ -1,21 +1,21 @@
 /*
- * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x14057B878
+ * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x14057BD68
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
- *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x14057A6A8 (KiBugCheckRecoveryCleanupFromCrashDump.c)
- *     KiBugCheckRecoveryPrepareForCrashDump @ 0x14057AB48 (KiBugCheckRecoveryPrepareForCrashDump.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057ADE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x14057B308 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
- *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B364 (KiSaveBugCheckRecoveryStatusPhase0.c)
- *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B3E8 (KiSaveBugCheckRecoveryStatusPhase1.c)
- *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B43C (KiSaveBugCheckRecoveryStatusPhase2.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x14057AB98 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x14057B038 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x14057B2D0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x14057B7F8 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
+ *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B854 (KiSaveBugCheckRecoveryStatusPhase0.c)
+ *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B8D8 (KiSaveBugCheckRecoveryStatusPhase1.c)
+ *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B92C (KiSaveBugCheckRecoveryStatusPhase2.c)
  * Callees:
  *     KiSendThawExecution @ 0x14020D210 (KiSendThawExecution.c)
- *     IoSaveBugCheckProgress @ 0x1405509E0 (IoSaveBugCheckProgress.c)
- *     IoSaveInitialBugCheckProgress @ 0x140550BF0 (IoSaveInitialBugCheckProgress.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x140551004 (IoUpdateBugCheckProgressEnvVariable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A7BC (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IoSaveBugCheckProgress @ 0x1405510A0 (IoSaveBugCheckProgress.c)
+ *     IoSaveInitialBugCheckProgress @ 0x1405512B0 (IoSaveInitialBugCheckProgress.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1405516C4 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057ACAC (KiBugCheckRecoveryFreezeOtherProcessors.c)
  */
 
 __int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
@@ -47,7 +47,7 @@ __int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
     _InterlockedOr(SchedulerAssist, 0x200000u);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v7 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -88,10 +88,10 @@ LABEL_14:
   }
 LABEL_23:
   KiSendThawExecution(v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

@@ -23,12 +23,12 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(__int64 a1, unsigned
   __int64 v5; // r12
   _QWORD *CurrentServerSiloGlobals; // rax
   char *v7; // rbx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rsi
+  PRTL_BALANCED_NODE v8; // rax
+  PRTL_BALANCED_NODE v9; // rsi
   NTSTATUS v10; // eax
   unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // r14
+  PRTL_BALANCED_NODE v12; // rax
+  PRTL_BALANCED_NODE v13; // r14
   unsigned __int64 v14; // r8
   unsigned __int64 Data; // [rsp+30h] [rbp-40h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-38h] BYREF
@@ -52,9 +52,9 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(__int64 a1, unsigned
   v8 = KeAbPreAcquire((ULONG_PTR)(v7 + 32), 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7 + 8, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v7 + 4, v8, (__int16 *)v7 + 16);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v7 + 4, (__int64)v8, (__int16 *)v7 + 16);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v2 = 1;
   if ( *((_QWORD *)v7 + 5) )
     goto LABEL_13;
@@ -88,9 +88,9 @@ LABEL_13:
         v12 = KeAbPreAcquire((ULONG_PTR)(v7 + 32), 0LL, 0);
         v13 = v12;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v7 + 8, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v7 + 4, v12, (__int16 *)v7 + 16);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v7 + 4, (__int64)v12, (__int16 *)v7 + 16);
         if ( v13 )
-          *(_BYTE *)(v13 + 26) |= 1u;
+          BYTE2(v13[1].Left) |= 1u;
         v2 = 1;
       }
       if ( v11 <= *((_QWORD *)v7 + 5) )

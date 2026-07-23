@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpCheckFullProcessInformationAccess @ 0x14048D0EC
+ * XREFs of ExpCheckFullProcessInformationAccess @ 0x14048DB7C
  * Callers:
- *     ExpGetProcessInformation @ 0x1404513E0 (ExpGetProcessInformation.c)
- *     NtSetDefaultLocale @ 0x140548C40 (NtSetDefaultLocale.c)
+ *     ExpGetProcessInformation @ 0x1404502B0 (ExpGetProcessInformation.c)
+ *     NtSetDefaultLocale @ 0x140549180 (NtSetDefaultLocale.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400852A4 (RtlCheckTokenMembership.c)
- *     RtlRunOnceExecuteOnce @ 0x14045CE04 (RtlRunOnceExecuteOnce.c)
+ *     RtlCheckTokenMembership @ 0x140086B90 (RtlCheckTokenMembership.c)
+ *     RtlRunOnceExecuteOnce @ 0x14045BCD4 (RtlRunOnceExecuteOnce.c)
  */
 
 __int64 __fastcall ExpCheckFullProcessInformationAccess(char a1)
 {
-  char v2; // [rsp+30h] [rbp+8h]
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
   PVOID Context; // [rsp+38h] [rbp+10h] BYREF
 
   if ( a1 == 1
     && (RtlRunOnceExecuteOnce(&ExpFullProcessInfoInit, ExpInitFullProcessSecurityInfo, 0LL, &Context) >= 0
-     && (int)RtlCheckTokenMembership(0LL, Context) >= 0
-     && v2
-     || (int)RtlCheckTokenMembership(0LL, SeAliasAdminsSid) >= 0 && v2) )
+     && RtlCheckTokenMembership(0LL, Context, &IsMember) >= 0
+     && IsMember
+     || RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) >= 0 && IsMember) )
   {
     return 0LL;
   }

@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
@@ -17,10 +17,7 @@ PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buf
     return 0LL;
   while ( 1 )
   {
-    v5 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
-           Table,
-           Buffer,
-           &TableRoot[1].RightChild);
+    v5 = sub_14042A5E0(Table, Buffer, &TableRoot[1].RightChild);
     if ( v5 )
       break;
     TableRoot = TableRoot->LeftChild;

@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_FeatureStateCache_ReevaluateCachedVariantState @ 0x140611124
+ * XREFs of wil_details_FeatureStateCache_ReevaluateCachedVariantState @ 0x14060EAD4
  * Callers:
- *     Feature_AdaptiveHibernateEnhancements__private_GetVariant @ 0x140610CA0 (Feature_AdaptiveHibernateEnhancements__private_GetVariant.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_GetVariant @ 0x14060E86C (Feature_AdaptiveHibernateEnhancements__private_GetVariant.c)
  * Callees:
- *     wil_details_GetCurrentVariantState @ 0x14061122C (wil_details_GetCurrentVariantState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     wil_details_GetCurrentVariantState @ 0x14060EBDC (wil_details_GetCurrentVariantState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 signed __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedVariantState(

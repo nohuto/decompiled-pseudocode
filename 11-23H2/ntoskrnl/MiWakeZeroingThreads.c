@@ -2,16 +2,16 @@
  * XREFs of MiWakeZeroingThreads @ 0x1402224D4
  * Callers:
  *     MiWakePageZeroing @ 0x14021E7A4 (MiWakePageZeroing.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiZeroNodeExiting @ 0x140655738 (MiZeroNodeExiting.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiZeroNodeExiting @ 0x140655C88 (MiZeroNodeExiting.c)
  * Callees:
  *     MiUnparkedCoreCount @ 0x140220E6C (MiUnparkedCoreCount.c)
  *     MiAddZeroingThreads @ 0x140222574 (MiAddZeroingThreads.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
  */
 
 int __fastcall MiWakeZeroingThreads(__int64 a1, char a2)

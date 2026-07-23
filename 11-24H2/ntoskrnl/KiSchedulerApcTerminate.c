@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSchedulerApcTerminate @ 0x1408A7B70
+ * XREFs of KiSchedulerApcTerminate @ 0x1408FDDD0
  * Callers:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
  * Callees:
- *     KiIsProcessTerminationRequested @ 0x140475EB4 (KiIsProcessTerminationRequested.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
- *     PsTerminateProcess @ 0x140938BD4 (PsTerminateProcess.c)
+ *     KiIsProcessTerminationRequested @ 0x140471F54 (KiIsProcessTerminationRequested.c)
+ *     PsTerminateProcess @ 0x1408F32A4 (PsTerminateProcess.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  */
 
 void __noreturn KiSchedulerApcTerminate()
@@ -14,7 +14,7 @@ void __noreturn KiSchedulerApcTerminate()
 
   v0[0] = 0;
   if ( KiIsProcessTerminationRequested((__int64)KeGetCurrentThread(), v0) )
-    PsTerminateProcess(KeGetCurrentThread()->ApcState.Process, v0[0]);
+    PsTerminateProcess(KeGetCurrentThread()->ApcState.Process);
   PspExitThread(KeGetCurrentThread()[1].Timer.DueTime.LowPart);
   __debugbreak();
 }

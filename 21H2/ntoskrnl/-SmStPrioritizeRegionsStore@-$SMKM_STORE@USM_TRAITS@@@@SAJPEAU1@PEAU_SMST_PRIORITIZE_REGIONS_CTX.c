@@ -1,221 +1,221 @@
 /*
- * XREFs of ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599604
+ * XREFs of ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599834
  * Callers:
- *     ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140599350 (-SmHighMemPriorityWatchdogWorker@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140599580 (-SmHighMemPriorityWatchdogWorker@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1402DE5C8 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402DE790 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
- *     MmSetPriorityVaRanges @ 0x1408C855C (MmSetPriorityVaRanges.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14028F918 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14028FAE0 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA9E0 (ZwQueryVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x1408C86BC (MmSetPriorityVaRanges.c)
  */
 
-__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStPrioritizeRegionsStore(__int64 a1, __int64 *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStPrioritizeRegionsStore(__int64 a1, __int64 *a2)
 {
-  bool v4; // zf
-  __int64 *v5; // r15
-  unsigned int v7; // ebx
-  unsigned int v8; // r14d
-  unsigned int v9; // r12d
+  bool v2; // zf
+  __int64 *v3; // r15
+  unsigned int v5; // ebx
+  unsigned int v6; // r14d
+  unsigned int v7; // r12d
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v11; // rsi
-  __int64 v12; // r9
-  unsigned int v13; // r8d
-  unsigned int v14; // r13d
-  int v15; // ecx
-  char *v16; // r14
-  __int64 v17; // rax
-  char *v18; // rcx
-  __int64 v19; // r15
-  char *v20; // r12
-  char *v21; // rax
-  unsigned __int64 *v22; // rdx
-  unsigned __int64 v23; // rcx
-  char *v24; // r8
-  char *v25; // r10
-  unsigned int v26; // r9d
-  unsigned __int64 v27; // rcx
-  __int64 v28; // rax
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // rax
-  struct _KTHREAD *v34; // rax
-  __int64 v35; // r8
-  __int64 v36; // r9
+  volatile signed __int64 *v9; // rsi
+  __int64 v10; // r9
+  unsigned int v11; // r8d
+  unsigned int v12; // r13d
+  int v13; // ecx
+  char *v14; // r14
+  __int64 v15; // rax
+  char *v16; // rcx
+  __int64 v17; // r15
+  char *v18; // r12
+  char *v19; // rax
+  unsigned __int64 *v20; // rdx
+  unsigned __int64 v21; // rcx
+  char *v22; // r8
+  char *v23; // r10
+  unsigned int v24; // r9d
+  unsigned __int64 v25; // rcx
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rax
+  struct _KTHREAD *v32; // rax
+  __int64 v33; // r8
+  __int64 v34; // r9
   int MemoryInformationLength; // [rsp+20h] [rbp-E0h]
-  unsigned int v39; // [rsp+30h] [rbp-D0h]
-  unsigned int v40; // [rsp+34h] [rbp-CCh]
-  unsigned int v41; // [rsp+38h] [rbp-C8h]
-  _OWORD v43[3]; // [rsp+50h] [rbp-B0h] BYREF
-  char *v44; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v45[63]; // [rsp+88h] [rbp-78h]
+  unsigned int v37; // [rsp+30h] [rbp-D0h]
+  unsigned int v38; // [rsp+34h] [rbp-CCh]
+  unsigned int v39; // [rsp+38h] [rbp-C8h]
+  _OWORD v41[3]; // [rsp+50h] [rbp-B0h] BYREF
+  char *v42; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v43[63]; // [rsp+88h] [rbp-78h]
   char MemoryInformation[8]; // [rsp+280h] [rbp+180h] BYREF
-  char v47; // [rsp+288h] [rbp+188h] BYREF
+  char v45; // [rsp+288h] [rbp+188h] BYREF
 
-  v4 = (*(_BYTE *)(a1 + 6021) & 4) == 0;
-  memset(v43, 0, sizeof(v43));
-  v5 = a2;
-  if ( v4 )
+  v2 = (*(_BYTE *)(a1 + 6021) & 4) == 0;
+  memset(v41, 0, sizeof(v41));
+  v3 = a2;
+  if ( v2 )
     return (unsigned int)-1073741637;
-  v8 = *(_DWORD *)(a1 + 1952);
-  v7 = 0;
-  v40 = v8;
-  if ( !v8 )
-    return v7;
-  v9 = *(_DWORD *)(a1 + 6208) >> 12;
-  v39 = v9;
-  KiStackAttachProcess(*(_KPROCESS **)(a1 + 6584), 0LL, (__int64)v43, a4);
+  v6 = *(_DWORD *)(a1 + 1952);
+  v5 = 0;
+  v38 = v6;
+  if ( !v6 )
+    return v5;
+  v7 = *(_DWORD *)(a1 + 6208) >> 12;
+  v37 = v7;
+  KiStackAttachProcess(*(_KPROCESS **)(a1 + 6584), 0, (__int64)v41);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v11 = (volatile signed __int64 *)(a1 + 6024);
+  v9 = (volatile signed __int64 *)(a1 + 6024);
   ExAcquirePushLockSharedEx(a1 + 6024, 0LL);
   _InterlockedIncrement((volatile signed __int32 *)(a1 + 6596));
-  v13 = 0;
-  v14 = 0;
+  v11 = 0;
+  v12 = 0;
   if ( !*(_DWORD *)(a1 + 6212) )
     goto LABEL_43;
   do
   {
-    if ( v13 >= v8 )
+    if ( v11 >= v6 )
       break;
-    if ( (*(_QWORD *)(*(_QWORD *)(a1 + 6216) + 8LL * v14) & 0x7FFFFFFFFFFF0000LL) == 0 )
+    if ( (*(_QWORD *)(*(_QWORD *)(a1 + 6216) + 8LL * v12) & 0x7FFFFFFFFFFF0000LL) == 0 )
       goto LABEL_42;
-    v15 = *(_BYTE *)(a1 + 856) ? 0 : *(unsigned __int16 *)(*(_QWORD *)(a1 + 1112) + 2LL * v14) >> 13;
-    if ( v15 != 6 )
+    v13 = *(_BYTE *)(a1 + 856) ? 0 : *(unsigned __int16 *)(*(_QWORD *)(a1 + 1112) + 2LL * v12) >> 13;
+    if ( v13 != 6 )
       goto LABEL_42;
-    v41 = v13 + 1;
-    v16 = (char *)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v14, 0, v12, 0);
-    if ( (unsigned __int64)v16 <= 3 )
+    v39 = v11 + 1;
+    v14 = (char *)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v12, 0, v10, 0);
+    if ( (unsigned __int64)v14 <= 3 )
       goto LABEL_41;
-    if ( _InterlockedCompareExchange64(v11, 0LL, 17LL) != 17 )
+    if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(a1 + 6024));
     KeAbPostRelease(a1 + 6024);
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
-    if ( !*v5 )
+    if ( !*v3 )
     {
-      v17 = *(unsigned int *)(a1 + 6208);
-      v44 = v16;
-      v45[0] = v17;
-      MmSetPriorityVaRanges(1LL, &v44, 5LL);
+      v15 = *(unsigned int *)(a1 + 6208);
+      v42 = v14;
+      v43[0] = v15;
+      MmSetPriorityVaRanges(1LL, &v42, 5LL);
       goto LABEL_40;
     }
-    v18 = v16;
-    v19 = v9 << 12;
-    v20 = &v16[v19];
-    v21 = MemoryInformation;
-    if ( v16 < &v16[v19] )
+    v16 = v14;
+    v17 = v7 << 12;
+    v18 = &v14[v17];
+    v19 = MemoryInformation;
+    if ( v14 < &v14[v17] )
     {
       do
       {
-        *(_QWORD *)v21 = v18;
-        v18 += 4096;
-        v21 += 16;
+        *(_QWORD *)v19 = v16;
+        v16 += 4096;
+        v19 += 16;
       }
-      while ( v18 < v20 );
+      while ( v16 < v18 );
     }
     if ( ZwQueryVirtualMemory(
            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-           v16,
-           (MEMORY_INFORMATION_CLASS)4,
+           v14,
+           MemoryWorkingSetExInformation,
            MemoryInformation,
-           16LL * v39,
+           16LL * v37,
            0LL) < 0
-      && v16 < v20 )
+      && v14 < v18 )
     {
-      v22 = (unsigned __int64 *)&v47;
-      v23 = ((unsigned __int64)(v19 - 1) >> 12) + 1;
+      v20 = (unsigned __int64 *)&v45;
+      v21 = ((unsigned __int64)(v17 - 1) >> 12) + 1;
       do
       {
-        *v22 = *v22 & 0xFFFFFFFFF8FFFFFEuLL | 0x6000001;
-        v22 += 2;
-        --v23;
+        *v20 = *v20 & 0xFFFFFFFFF8FFFFFEuLL | 0x6000001;
+        v20 += 2;
+        --v21;
       }
-      while ( v23 );
+      while ( v21 );
     }
-    v24 = MemoryInformation;
-    v25 = v16;
-    v26 = 0;
-    if ( v16 >= v20 )
+    v22 = MemoryInformation;
+    v23 = v14;
+    v24 = 0;
+    if ( v14 >= v18 )
     {
-      v5 = a2;
+      v3 = a2;
       goto LABEL_39;
     }
     do
     {
-      if ( (*((_QWORD *)v24 + 1) & 1) != 0 || (*((_QWORD *)v24 + 1) & 0xC00000LL) == 0x400000 )
+      if ( (*((_QWORD *)v22 + 1) & 1) != 0 || (*((_QWORD *)v22 + 1) & 0xC00000LL) == 0x400000 )
       {
-        v5 = a2;
-        v27 = *((_QWORD *)v24 + 1) & 0x7000000LL;
-        if ( v27 == 100663296 )
+        v3 = a2;
+        v25 = *((_QWORD *)v22 + 1) & 0x7000000LL;
+        if ( v25 == 100663296 )
         {
           if ( !*a2 )
           {
-            v33 = *(unsigned int *)(a1 + 6208);
-            v32 = 5LL;
-            v44 = v16;
-            v45[0] = v33;
-            v31 = 1LL;
+            v31 = *(unsigned int *)(a1 + 6208);
+            v30 = 5LL;
+            v42 = v14;
+            v43[0] = v31;
+            v29 = 1LL;
             goto LABEL_37;
           }
-          v28 = *a2 - 1;
+          v26 = *a2 - 1;
           goto LABEL_28;
         }
-        if ( v27 < 0x6000000 )
+        if ( v25 < 0x6000000 )
         {
-          v29 = *a2;
+          v27 = *a2;
           if ( *a2 )
           {
-            v30 = 2LL * v26++;
-            v45[v30 - 1] = *(_QWORD *)v24;
-            v28 = v29 - 1;
-            v45[v30] = 4096LL;
+            v28 = 2LL * v24++;
+            v43[v28 - 1] = *(_QWORD *)v22;
+            v26 = v27 - 1;
+            v43[v28] = 4096LL;
 LABEL_28:
-            *a2 = v28;
+            *a2 = v26;
           }
         }
       }
       else
       {
-        v5 = a2;
+        v3 = a2;
       }
-      v25 += 4096;
-      v24 += 16;
+      v23 += 4096;
+      v22 += 16;
     }
-    while ( v25 < v20 );
-    if ( !v26 )
+    while ( v23 < v18 );
+    if ( !v24 )
       goto LABEL_39;
-    v31 = v26;
-    v32 = 6LL;
+    v29 = v24;
+    v30 = 6LL;
 LABEL_37:
-    MmSetPriorityVaRanges(v31, &v44, v32);
+    MmSetPriorityVaRanges(v29, &v42, v30);
 LABEL_39:
-    v9 = v39;
+    v7 = v37;
 LABEL_40:
-    v34 = KeGetCurrentThread();
-    --v34->SpecialApcDisable;
+    v32 = KeGetCurrentThread();
+    --v32->SpecialApcDisable;
     ExAcquirePushLockSharedEx(a1 + 6024, 0LL);
-    SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(a1, v14, v35, v36, MemoryInformationLength, 0);
+    SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(a1, v12, v33, v34, MemoryInformationLength, 0);
 LABEL_41:
-    v13 = v41;
-    v8 = v40;
+    v11 = v39;
+    v6 = v38;
 LABEL_42:
-    ++v14;
+    ++v12;
   }
-  while ( v14 < *(_DWORD *)(a1 + 6212) );
+  while ( v12 < *(_DWORD *)(a1 + 6212) );
 LABEL_43:
-  if ( _InterlockedCompareExchange64(v11, 0LL, 17LL) != 17 )
+  if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)(a1 + 6024));
   KeAbPostRelease(a1 + 6024);
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   _InterlockedAdd((volatile signed __int32 *)(a1 + 6596), 0xFFFFFFFF);
-  KiUnstackDetachProcess((__int64)v43, 0);
-  return v7;
+  KiUnstackDetachProcess((__int64)v41, 0LL);
+  return v5;
 }

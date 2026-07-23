@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvFlushDomainTbs @ 0x14047BC18
+ * XREFs of IommupHvFlushDomainTbs @ 0x140475588
  * Callers:
- *     HalpIommuFlushDomainTbs @ 0x14047B168 (HalpIommuFlushDomainTbs.c)
+ *     HalpIommuFlushDomainTbs @ 0x140474AD8 (HalpIommuFlushDomainTbs.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall IommupHvFlushDomainTbs(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ void __fastcall IommupHvFlushDomainTbs(__int64 a1, unsigned __int64 a2, __int64 
   __int64 v9; // [rsp+88h] [rbp+20h] BYREF
 
   v9 = 0LL;
-  if ( qword_140FBB260 && qword_140FBB138 && a3 )
+  if ( qword_140FBB600 && qword_140FBB4D8 && a3 )
   {
     v4 = a2 + a3 - 1 >= a2;
     v5 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 88));

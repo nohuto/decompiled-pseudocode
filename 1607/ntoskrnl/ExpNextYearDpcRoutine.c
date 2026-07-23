@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpNextYearDpcRoutine @ 0x14022C90C
+ * XREFs of ExpNextYearDpcRoutine @ 0x14022C738
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 void __fastcall ExpNextYearDpcRoutine(

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B5F20
+ * XREFs of RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B6490
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x14038944C (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpRegisterEnvironment @ 0x14038962C (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpAcquireLockExclusive @ 0x140316CC4 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpMetadataFree @ 0x14032405C (RtlpHpMetadataFree.c)
- *     RtlpHpMetadataAlloc @ 0x140324528 (RtlpHpMetadataAlloc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlpHpCustomVaCallbacksEncodedComparison @ 0x1405B5EA0 (RtlpHpCustomVaCallbacksEncodedComparison.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140316F54 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpMetadataFree @ 0x1403242EC (RtlpHpMetadataFree.c)
+ *     RtlpHpMetadataAlloc @ 0x1403247B8 (RtlpHpMetadataAlloc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlpHpCustomVaCallbacksEncodedComparison @ 0x1405B6410 (RtlpHpCustomVaCallbacksEncodedComparison.c)
  */
 
 __int64 __fastcall RtlpHpCustomVaCallbacksRegistrarRegister(__int64 a1, char *a2, __int64 *a3, __int128 *a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of GetPrintableOperandValue @ 0x140A63E28
+ * XREFs of GetPrintableOperandValue @ 0x140A70DF8
  * Callers:
- *     LocalpGetStringForCondition @ 0x140A62C88 (LocalpGetStringForCondition.c)
- *     GetPrintableOperandValue @ 0x140A63E28 (GetPrintableOperandValue.c)
+ *     LocalpGetStringForCondition @ 0x140A6FC58 (LocalpGetStringForCondition.c)
+ *     GetPrintableOperandValue @ 0x140A70DF8 (GetPrintableOperandValue.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SddlpReAlloc @ 0x1408186C4 (SddlpReAlloc.c)
- *     SddlpFree @ 0x1409ED230 (SddlpFree.c)
- *     LocalGetStringForSid @ 0x140A626A0 (LocalGetStringForSid.c)
- *     SddlpAlloc @ 0x140A62788 (SddlpAlloc.c)
- *     GetPrintableOperandValue @ 0x140A63E28 (GetPrintableOperandValue.c)
- *     ULongAddStringSize @ 0x140ADE3A8 (ULongAddStringSize.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SddlpReAlloc @ 0x14081E8D4 (SddlpReAlloc.c)
+ *     SddlpFree @ 0x1409E9A00 (SddlpFree.c)
+ *     LocalGetStringForSid @ 0x140A6F670 (LocalGetStringForSid.c)
+ *     SddlpAlloc @ 0x140A6F758 (SddlpAlloc.c)
+ *     GetPrintableOperandValue @ 0x140A70DF8 (GetPrintableOperandValue.c)
+ *     ULongAddStringSize @ 0x140ADB118 (ULongAddStringSize.c)
  */
 
 __int64 __fastcall GetPrintableOperandValue(

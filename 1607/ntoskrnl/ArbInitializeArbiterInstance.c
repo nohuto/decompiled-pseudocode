@@ -1,16 +1,16 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x140555648
+ * XREFs of ArbInitializeArbiterInstance @ 0x140555B88
  * Callers:
- *     IopPortInitialize @ 0x1405547EC (IopPortInitialize.c)
- *     IopDmaInitialize @ 0x14055487C (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x1405548EC (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x14055494C (IopBusNumberInitialize.c)
- *     IopMemInitialize @ 0x14055B080 (IopMemInitialize.c)
+ *     IopPortInitialize @ 0x140554D2C (IopPortInitialize.c)
+ *     IopDmaInitialize @ 0x140554DBC (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x140554E2C (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x140554E8C (IopBusNumberInitialize.c)
+ *     IopMemInitialize @ 0x14055B5C0 (IopMemInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ArbBuildAssignmentOrdering @ 0x140558A4C (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x140558F8C (ArbBuildAssignmentOrdering.c)
  */
 
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)

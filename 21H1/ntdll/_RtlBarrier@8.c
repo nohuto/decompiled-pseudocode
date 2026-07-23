@@ -6,7 +6,7 @@
  *     _RtlPosixBarrier@8 @ 0x4B35031D (_RtlPosixBarrier@8.c)
  */
 
-int __stdcall RtlBarrier(int a1, int a2)
+BOOLEAN __cdecl RtlBarrier(PRTL_BARRIER Barrier, ULONG Flags)
 {
-  return RtlPosixBarrier(a1, a2);
+  return RtlPosixBarrier(Barrier, Flags);
 }

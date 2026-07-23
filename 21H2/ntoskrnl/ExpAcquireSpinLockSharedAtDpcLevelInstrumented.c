@@ -1,58 +1,55 @@
 /*
- * XREFs of ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5C64
+ * XREFs of ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5E94
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MiProbeAndLockPrepare @ 0x14020A2F0 (MiProbeAndLockPrepare.c)
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiMakeHyperRangeAccessible @ 0x14021B4E0 (MiMakeHyperRangeAccessible.c)
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiMakeSystemCacheRangeValid @ 0x14031EB90 (MiMakeSystemCacheRangeValid.c)
- *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     ExpAddTagForBigPages @ 0x14033BDC0 (ExpAddTagForBigPages.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MiProbeAndLockPrepare @ 0x1402AEBF0 (MiProbeAndLockPrepare.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiMakeHyperRangeAccessible @ 0x1402BFDE0 (MiMakeHyperRangeAccessible.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     MiSynchronizeSystemVa @ 0x14031C990 (MiSynchronizeSystemVa.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140327620 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiMakeSystemCacheRangeValid @ 0x1403298E0 (MiMakeSystemCacheRangeValid.c)
+ *     MiOffsetToProtos @ 0x14032B8A0 (MiOffsetToProtos.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     ExpAddTagForBigPages @ 0x140346B10 (ExpAddTagForBigPages.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140213930 (ExpWaitForSpinLockSharedAndAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogSpinLockAcquire @ 0x1405AB3D4 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1405AB604 (PerfLogSpinLockAcquire.c)
  */
 
-char __fastcall ExpAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1, __int64 a2, __int64 a3, _DWORD *a4)
+char __fastcall ExpAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1, unsigned __int8 a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  int v5; // esi
-  int v6; // r15d
-  char v7; // r12
-  char v9; // bp
-  unsigned __int64 v10; // rax
+  int v3; // esi
+  int v4; // r15d
+  char v7; // bp
+  unsigned __int64 v8; // rax
   int InterruptCount; // r14d
   _DWORD *SchedulerAssist; // rcx
-  int v13; // eax
-  signed __int32 v14; // eax
-  signed __int32 v15; // ett
-  _DWORD *v16; // rcx
-  int v17; // eax
-  __int64 v18; // rax
+  int v11; // eax
+  signed __int32 v12; // eax
+  signed __int32 v13; // ett
+  _DWORD *v14; // rcx
+  int v15; // eax
+  __int64 v16; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v5 = 0;
-  v6 = 0;
-  v7 = a2;
+  v3 = 0;
+  v4 = 0;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    v9 = 1;
-    v10 = __rdtsc();
+    v7 = 1;
+    v8 = __rdtsc();
     InterruptCount = CurrentPrcb->InterruptCount;
-    a2 = (unsigned __int64)HIDWORD(v10) << 32;
-    v6 = v10;
+    v4 = v8;
   }
   else
   {
-    v9 = 0;
+    v7 = 0;
     InterruptCount = 0;
   }
   ++CurrentPrcb->SynchCounters.SpinLockAcquireCount;
@@ -61,38 +58,37 @@ char __fastcall ExpAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1, __int
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v13 = SchedulerAssist[6];
-      SchedulerAssist[6] = v13 + 1;
-      if ( v13 == -1 )
+      v11 = SchedulerAssist[6];
+      SchedulerAssist[6] = v11 + 1;
+      if ( v11 == -1 )
         KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   _m_prefetchw(a1);
-  v15 = *a1 & 0x7FFFFFFF;
-  v14 = _InterlockedCompareExchange(a1, v15 + 1, v15);
-  if ( v15 != v14 )
+  v13 = *a1 & 0x7FFFFFFF;
+  v12 = _InterlockedCompareExchange(a1, v13 + 1, v13);
+  if ( v13 != v12 )
   {
-    v16 = CurrentPrcb->SchedulerAssist;
-    if ( v16 )
+    v14 = CurrentPrcb->SchedulerAssist;
+    if ( v14 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v17 = v16[6] - 1;
-        v16[6] = v17;
-        if ( !v17 )
+        v15 = v14[6] - 1;
+        v14[6] = v15;
+        if ( !v15 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
-    LOBYTE(a2) = v7;
-    v14 = ExpWaitForSpinLockSharedAndAcquire((unsigned __int64)a1, a2, a3, a4);
+    v12 = ExpWaitForSpinLockSharedAndAcquire(a1, a2);
     ++CurrentPrcb->SynchCounters.SpinLockContentionCount;
-    v5 = v14;
-    CurrentPrcb->SynchCounters.SpinLockSpinCount += v14;
+    v3 = v12;
+    CurrentPrcb->SynchCounters.SpinLockSpinCount += v12;
   }
-  if ( v9 )
+  if ( v7 )
   {
-    v18 = __rdtsc();
-    LOBYTE(v14) = PerfLogSpinLockAcquire((__int64)a1, v18, v18 - v6, v5, InterruptCount, 2);
+    v16 = __rdtsc();
+    LOBYTE(v12) = PerfLogSpinLockAcquire((__int64)a1, v16, v16 - v4, v3, InterruptCount, 2);
   }
-  return v14;
+  return v12;
 }

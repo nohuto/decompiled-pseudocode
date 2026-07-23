@@ -21,22 +21,21 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, int a2
   bool v9; // zf
   __int64 **v10; // rdi
   _KLOCK_ENTRY *v11; // rbp
-  __int64 v12; // rax
+  PRTL_BALANCED_NODE v12; // rax
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // rax
-  int v17; // [rsp+60h] [rbp+8h]
-  KIRQL v18; // [rsp+68h] [rbp+10h]
+  PRTL_BALANCED_NODE v14; // rax
+  int v16; // [rsp+60h] [rbp+8h]
+  KIRQL v17; // [rsp+68h] [rbp+10h]
   volatile LONG *SpinLock; // [rsp+78h] [rbp+20h]
 
   v3 = a2 & 0x10;
   v4 = (volatile LONG *)(*BugCheckParameter2 + 72LL);
-  v17 = v3;
+  v16 = v3;
   v5 = 0;
   SpinLock = v4;
   while ( 1 )
   {
-    v18 = ExAcquireSpinLockExclusive(v4);
+    v17 = ExAcquireSpinLockExclusive(v4);
     if ( v3 )
     {
       MiUnlinkSubsectionWaitBlock(BugCheckParameter2, a3, 1LL);
@@ -70,10 +69,10 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, int a2
         while ( v10 );
         if ( v10 )
         {
-          v12 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+          v12 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
           v11 = (_KLOCK_ENTRY *)v12;
           if ( v12 )
-            KeAbPreWait(v12, v13, v14);
+            KeAbPreWait((__int64)v12, v13);
         }
       }
     }
@@ -90,22 +89,22 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, int a2
     if ( !v10 )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    __writecr8(v18);
+    __writecr8(v17);
     KeWaitForGate(a3 + 16, 0x12u);
     v4 = SpinLock;
-    v3 = v17;
+    v3 = v16;
     if ( v11 )
     {
-      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, (__int64)v11, 0LL);
+      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, &v11->TreeNode, 0);
       KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v11);
       v4 = SpinLock;
     }
   }
-  v15 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
-  if ( v15 )
-    *(_BYTE *)(v15 + 26) |= 1u;
+  v14 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
+  if ( v14 )
+    BYTE2(v14[1].Left) |= 1u;
 LABEL_21:
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  __writecr8(v18);
+  __writecr8(v17);
   return v5;
 }

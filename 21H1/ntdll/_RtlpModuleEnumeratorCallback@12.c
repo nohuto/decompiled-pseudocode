@@ -7,65 +7,58 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlpModuleEnumeratorCallback(int a1, unsigned int *a2, _BYTE *a3)
+void __stdcall RtlpModuleEnumeratorCallback(PLDR_DATA_TABLE_ENTRY a1, char *a2, BOOLEAN *a3)
 {
   unsigned int v3; // ecx
-  int v4; // ebx
-  int result; // eax
-  int v6; // edx
-  __int16 v7; // si
-  unsigned __int16 v8; // di
-  _DWORD *i; // edx
-  unsigned int v10; // esi
-  int v11; // eax
-  unsigned int v12; // edi
-  unsigned __int16 v13; // [esp+10h] [ebp-24h]
+  _DWORD *DllBase; // ebx
+  char *v5; // edx
+  __int16 v6; // si
+  unsigned __int16 v7; // di
+  _DWORD *v8; // edx
+  char *v9; // esi
+  int v10; // eax
+  unsigned int v11; // edi
+  unsigned __int16 v12; // [esp+10h] [ebp-24h]
 
   v3 = 0;
-  v4 = *(_DWORD *)(a1 + 24);
-  result = 23117;
-  if ( *(_WORD *)v4 == 23117 )
+  DllBase = a1->DllBase;
+  if ( *(_WORD *)DllBase == 23117 )
   {
-    v6 = v4 + *(_DWORD *)(v4 + 60);
-    if ( *(_DWORD *)v6 == 17744 )
+    v5 = (char *)DllBase + DllBase[15];
+    if ( *(_DWORD *)v5 == 17744 )
     {
-      v7 = *(_WORD *)(v6 + 20);
-      if ( v7 )
+      v6 = *((_WORD *)v5 + 10);
+      if ( v6 )
       {
-        result = *(unsigned __int16 *)(v6 + 6);
-        v8 = result;
-        v13 = *(_WORD *)(v6 + 6);
-        if ( (_WORD)result )
+        v7 = *((_WORD *)v5 + 3);
+        v12 = v7;
+        if ( v7 )
         {
-          result = 224;
-          if ( v7 == 224 )
+          if ( v6 == 224 )
           {
-            for ( i = (_DWORD *)(v6 + 248); ; i += 10 )
+            v8 = v5 + 248;
+            while ( v3 < v7 )
             {
-              result = v8;
-              if ( v3 >= v8 )
-                break;
-              v10 = v4 + i[3];
-              v11 = i[2];
-              if ( !v11 )
-                v11 = i[4];
-              v12 = (v10 + v11 + 4095) & 0xFFFFF000;
-              if ( *a2 < v12 && *a2 >= v10 )
+              v9 = (char *)DllBase + v8[3];
+              v10 = v8[2];
+              if ( !v10 )
+                v10 = v8[4];
+              v11 = (unsigned int)&v9[v10 + 4095] & 0xFFFFF000;
+              if ( *(_DWORD *)a2 < v11 && *(_DWORD *)a2 >= (unsigned int)v9 )
               {
-                a2[2] = v10;
-                a2[3] = v12 - v10;
-                a2[1] = ZwLockVirtualMemory(-1, a2 + 2, a2 + 3, 1);
-                result = (int)a3;
+                *((_DWORD *)a2 + 2) = v9;
+                *((_DWORD *)a2 + 3) = v11 - (_DWORD)v9;
+                *((_DWORD *)a2 + 1) = ZwLockVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)a2 + 2, (PSIZE_T)(a2 + 12), 1u);
                 *a3 = 1;
-                return result;
+                return;
               }
+              v8 += 10;
               ++v3;
-              v8 = v13;
+              v7 = v12;
             }
           }
         }
       }
     }
   }
-  return result;
 }

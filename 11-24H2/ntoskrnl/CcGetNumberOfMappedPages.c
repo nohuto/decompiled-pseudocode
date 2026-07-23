@@ -1,19 +1,19 @@
 /*
- * XREFs of CcGetNumberOfMappedPages @ 0x1404C10C0
+ * XREFs of CcGetNumberOfMappedPages @ 0x1404BC6B0
  * Callers:
  *     <none>
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall CcGetNumberOfMappedPages(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v3; // rsi
   signed __int64 *v6; // rbx
-  _QWORD *v7; // rdi
+  char *v7; // rdi
   signed __int64 v8; // rax
   signed __int64 v9; // rdx
   signed __int64 v10; // rtt
@@ -24,11 +24,11 @@ void __fastcall CcGetNumberOfMappedPages(__int64 a1, _QWORD *a2, _QWORD *a3)
   if ( v3 )
   {
     v6 = (signed __int64 *)(v3 + 104);
-    v7 = KeAbPreAcquire(v3 + 104, 0LL);
+    v7 = (char *)KeAbPreAcquire(v3 + 104, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v3 + 104), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(v3 + 104), 0, v7, v3 + 104);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     *a2 = (unsigned __int64)*(unsigned int *)(v3 + 548) << 6;
     *a3 = (unsigned __int64)*(unsigned int *)(v3 + 552) << 6;
     _m_prefetchw(v6);

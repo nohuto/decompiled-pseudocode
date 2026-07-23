@@ -1,12 +1,12 @@
 /*
- * XREFs of HalSendSoftwareInterrupt @ 0x140254730
+ * XREFs of HalSendSoftwareInterrupt @ 0x1402547F0
  * Callers:
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KiProcessThreadWaitList @ 0x140253DC0 (KiProcessThreadWaitList.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiSendSoftwareInterrupt @ 0x140318944 (KiSendSoftwareInterrupt.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KiProcessThreadWaitList @ 0x140253E80 (KiProcessThreadWaitList.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiSendSoftwareInterrupt @ 0x140318BD4 (KiSendSoftwareInterrupt.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140254D50 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x140254E10 (HalpInterruptSendIpi.c)
  */
 
 __int64 __fastcall HalSendSoftwareInterrupt(int a1, char a2)

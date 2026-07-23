@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueBuffer @ 0x1404596C0
+ * XREFs of EtwpCovSampCaptureQueueBuffer @ 0x14044E3F8
  * Callers:
- *     EtwpCovSampSampleBufferDecRef @ 0x1406520D4 (EtwpCovSampSampleBufferDecRef.c)
- *     EtwpCoverageSamplerQuery @ 0x14095DA30 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x1406507D4 (EtwpCovSampSampleBufferDecRef.c)
+ *     EtwpCoverageSamplerQuery @ 0x1409454F0 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
-char __fastcall EtwpCovSampCaptureQueueBuffer(__int64 a1, struct _SLIST_ENTRY *a2)
+char __fastcall EtwpCovSampCaptureQueueBuffer(__int64 a1, _SLIST_ENTRY *a2)
 {
   PSLIST_ENTRY v3; // rax
 

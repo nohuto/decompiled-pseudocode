@@ -1,18 +1,18 @@
 /*
- * XREFs of HvMarkBaseBlockDirty @ 0x140564650
+ * XREFs of HvMarkBaseBlockDirty @ 0x140564B90
  * Callers:
- *     CmpCreateHiveRootCell @ 0x140140F24 (CmpCreateHiveRootCell.c)
- *     CmpReorganizeHive @ 0x14047FA2C (CmpReorganizeHive.c)
- *     CmpInitCmRM @ 0x14049EB58 (CmpInitCmRM.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     NtCompressKey @ 0x1405F964C (NtCompressKey.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     CmFreezeRegistry @ 0x140602BC0 (CmFreezeRegistry.c)
- *     CmThawRegistry @ 0x140602DE0 (CmThawRegistry.c)
+ *     CmpCreateHiveRootCell @ 0x140141494 (CmpCreateHiveRootCell.c)
+ *     CmpReorganizeHive @ 0x14047E780 (CmpReorganizeHive.c)
+ *     CmpInitCmRM @ 0x140516F64 (CmpInitCmRM.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     NtCompressKey @ 0x1405F9700 (NtCompressKey.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     CmFreezeRegistry @ 0x140602C74 (CmFreezeRegistry.c)
+ *     CmThawRegistry @ 0x140602E94 (CmThawRegistry.c)
  * Callees:
- *     CmpArmLazyWriter @ 0x1400F0130 (CmpArmLazyWriter.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     CmpIssueNewDirtyCallback @ 0x1404EC660 (CmpIssueNewDirtyCallback.c)
+ *     CmpArmLazyWriter @ 0x1400EDFB0 (CmpArmLazyWriter.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     CmpIssueNewDirtyCallback @ 0x1404CE6E8 (CmpIssueNewDirtyCallback.c)
  */
 
 void __fastcall HvMarkBaseBlockDirty(__int64 a1)

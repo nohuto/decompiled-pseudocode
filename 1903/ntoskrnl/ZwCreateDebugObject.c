@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateDebugObject(
         PHANDLE DebugHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwCreateDebugObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DebugHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(DebugHandle);
 }

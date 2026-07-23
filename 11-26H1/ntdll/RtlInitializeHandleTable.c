@@ -1,23 +1,25 @@
 /*
- * XREFs of RtlInitializeHandleTable @ 0x1800FDE60
+ * XREFs of RtlInitializeHandleTable @ 0x1800FD5B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int __fastcall RtlInitializeHandleTable(int a1, int a2, __int64 a3)
+void __cdecl RtlInitializeHandleTable(
+        ULONG MaximumNumberOfHandles,
+        ULONG SizeOfHandleTableEntry,
+        PRTL_HANDLE_TABLE HandleTable)
 {
-  int result; // eax
+  ULONG v3; // eax
 
-  *(_OWORD *)a3 = 0LL;
-  result = a2 & 0x7FFFFFFF;
-  *(_OWORD *)(a3 + 16) = 0LL;
-  *(_OWORD *)(a3 + 32) = 0LL;
-  if ( a2 >= 0 )
-    result = a2;
-  *(_DWORD *)a3 = a1;
-  *(_DWORD *)(a3 + 8) = (unsigned int)a2 >> 31;
-  *(_DWORD *)(a3 + 4) = result;
-  return result;
+  *(_OWORD *)&HandleTable->MaximumNumberOfHandles = 0LL;
+  v3 = SizeOfHandleTableEntry & 0x7FFFFFFF;
+  *(_OWORD *)&HandleTable->FreeHandles = 0LL;
+  *(_OWORD *)&HandleTable->UnCommittedHandles = 0LL;
+  if ( (SizeOfHandleTableEntry & 0x80000000) == 0 )
+    v3 = SizeOfHandleTableEntry;
+  HandleTable->MaximumNumberOfHandles = MaximumNumberOfHandles;
+  HandleTable->Reserved[0] = SizeOfHandleTableEntry >> 31;
+  HandleTable->SizeOfHandleTableEntry = v3;
 }

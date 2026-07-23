@@ -12,7 +12,7 @@
  *     SmKmCleanup @ 0x14078A574 (SmKmCleanup.c)
  */
 
-char __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(union _SLIST_HEADER *a1)
+char __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(_SLIST_HEADER *a1)
 {
   char *Alignment; // rdx
 

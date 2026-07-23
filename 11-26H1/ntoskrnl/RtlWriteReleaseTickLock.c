@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWriteReleaseTickLock @ 0x140485188
+ * XREFs of RtlWriteReleaseTickLock @ 0x14047EAF8
  * Callers:
- *     KiAddCpuToSystemCpuPartition @ 0x140BF54BC (KiAddCpuToSystemCpuPartition.c)
- *     KiCreateCpuSetForProcessor @ 0x140BF5578 (KiCreateCpuSetForProcessor.c)
- *     KiCalibrateTimeAdjustment @ 0x140C078A0 (KiCalibrateTimeAdjustment.c)
+ *     KiAddCpuToSystemCpuPartition @ 0x140BFB4BC (KiAddCpuToSystemCpuPartition.c)
+ *     KiCreateCpuSetForProcessor @ 0x140BFB578 (KiCreateCpuSetForProcessor.c)
+ *     KiCalibrateTimeAdjustment @ 0x140C0DAB0 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

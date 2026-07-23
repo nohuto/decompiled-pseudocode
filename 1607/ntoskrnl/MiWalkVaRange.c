@@ -1,30 +1,30 @@
 /*
- * XREFs of MiWalkVaRange @ 0x1400BB684
+ * XREFs of MiWalkVaRange @ 0x1400B9514
  * Callers:
- *     MiResetVirtualMemory @ 0x1400AFDEC (MiResetVirtualMemory.c)
- *     MiSetPriorityVaRanges @ 0x1404E75C0 (MiSetPriorityVaRanges.c)
+ *     MiResetVirtualMemory @ 0x1400ADFA4 (MiResetVirtualMemory.c)
+ *     MiSetPriorityVaRanges @ 0x1404C9B34 (MiSetPriorityVaRanges.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiMakeProtoLeafValid @ 0x140098CDC (MiMakeProtoLeafValid.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x1400BDB30 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiMakeProtoLeafValid @ 0x1400984DC (MiMakeProtoLeafValid.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1400BB9C0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
  */
 
 __int64 __fastcall MiWalkVaRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -146,7 +146,7 @@ __int64 __fastcall MiWalkVaRange(unsigned __int64 a1, unsigned __int64 a2, __int
       if ( !(unsigned __int8)MI_PROTO_FORMAT_COMBINED(v18) )
       {
         v20 = ((__int64)(v8 << 25) >> 16) & 0xFFFFFFFFFFFFF000uLL;
-        if ( (v20 == 2147352576 || v20 == qword_140326998 && qword_140326998)
+        if ( (v20 == 2147352576 || v20 == qword_1403269D8 && qword_1403269D8)
           && (Process[2].ActiveProcessors.Bitmap[0] & 0x100000000LL) == 0
           || ((*(_DWORD *)(a3 + 48) & 0x8000) != 0
            || !*(_QWORD *)(a3 + 80)

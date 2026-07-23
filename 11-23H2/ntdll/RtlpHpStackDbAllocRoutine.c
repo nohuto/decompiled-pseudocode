@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpStackDbAllocRoutine @ 0x180116D20
+ * XREFs of RtlpHpStackDbAllocRoutine @ 0x180116CF0
  * Callers:
- *     RtlpHpStackTraceAllocAdd @ 0x180116F94 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x180116F64 (RtlpHpStackTraceAllocAdd.c)
  * Callees:
  *     RtlpHpMetadataAlloc @ 0x180065DE8 (RtlpHpMetadataAlloc.c)
  */

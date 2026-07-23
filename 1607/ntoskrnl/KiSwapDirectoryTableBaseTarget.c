@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSwapDirectoryTableBaseTarget @ 0x1401DAFE4
+ * XREFs of KiSwapDirectoryTableBaseTarget @ 0x1401DAE10
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiLoadDirectoryTableBase @ 0x1400981E0 (KiLoadDirectoryTableBase.c)
- *     MmStealTopLevelPage @ 0x1401E36D8 (MmStealTopLevelPage.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiLoadDirectoryTableBase @ 0x1400979E0 (KiLoadDirectoryTableBase.c)
+ *     MmStealTopLevelPage @ 0x1401E3504 (MmStealTopLevelPage.c)
  */
 
 unsigned __int64 __fastcall KiSwapDirectoryTableBaseTarget(

@@ -1,31 +1,31 @@
 /*
- * XREFs of FsRtlpOplockCleanup @ 0x1403FCDAC
+ * XREFs of FsRtlpOplockCleanup @ 0x1403F959C
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1403FB980 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockAckTimeoutWorker @ 0x1405B75A0 (FsRtlpOplockAckTimeoutWorker.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403F8170 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockAckTimeoutWorker @ 0x1405B9E10 (FsRtlpOplockAckTimeoutWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PsBoostThreadIoEx @ 0x1402468A0 (PsBoostThreadIoEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     FsRtlpOplockDequeueRH @ 0x1402C1DF8 (FsRtlpOplockDequeueRH.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1403F7FB8 (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F81F0 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403F8514 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpComputeShareableOplockState @ 0x1403F8764 (FsRtlpComputeShareableOplockState.c)
- *     FsRtlpClearOwner @ 0x1403FCCBC (FsRtlpClearOwner.c)
- *     IoGetOplockFullFoExt @ 0x1403FD594 (IoGetOplockFullFoExt.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     FsRtlpSyncWithAckTimeout @ 0x1403FE3D0 (FsRtlpSyncWithAckTimeout.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FE7A0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpFreeRHOpContext @ 0x1403FE8B4 (FsRtlpFreeRHOpContext.c)
- *     FsRtlpModifyThreadPriorities @ 0x1403FE8E4 (FsRtlpModifyThreadPriorities.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FsRtlpFillOutputBuffer @ 0x140ADD764 (FsRtlpFillOutputBuffer.c)
- *     FsRtlpOplockPerfSendData @ 0x140AE8CD4 (FsRtlpOplockPerfSendData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PsBoostThreadIoEx @ 0x140248200 (PsBoostThreadIoEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlpOplockDequeueRH @ 0x14030CAB8 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1403F47AC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F49E4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403F4D08 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpComputeShareableOplockState @ 0x1403F4F58 (FsRtlpComputeShareableOplockState.c)
+ *     FsRtlpClearOwner @ 0x1403F94AC (FsRtlpClearOwner.c)
+ *     IoGetOplockFullFoExt @ 0x1403F9D84 (IoGetOplockFullFoExt.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     FsRtlpSyncWithAckTimeout @ 0x1403FABC0 (FsRtlpSyncWithAckTimeout.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FAF90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpFreeRHOpContext @ 0x1403FB0A4 (FsRtlpFreeRHOpContext.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403FB0D4 (FsRtlpModifyThreadPriorities.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FsRtlpFillOutputBuffer @ 0x140ADA4D4 (FsRtlpFillOutputBuffer.c)
+ *     FsRtlpOplockPerfSendData @ 0x140AEAF28 (FsRtlpOplockPerfSendData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 int __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2, char a3)
@@ -71,7 +71,7 @@ int __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2, char a3)
   EVENT_DESCRIPTOR v45; // [rsp+90h] [rbp-148h] BYREF
   EVENT_DESCRIPTOR EventDescriptor; // [rsp+A0h] [rbp-138h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+B0h] [rbp-128h] BYREF
-  char *v48; // [rsp+C0h] [rbp-118h]
+  void *v48; // [rsp+C0h] [rbp-118h]
   int v49; // [rsp+C8h] [rbp-110h]
   int v50; // [rsp+CCh] [rbp-10Ch]
   __int64 *v51; // [rsp+D0h] [rbp-108h]
@@ -79,7 +79,7 @@ int __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2, char a3)
   int *v53; // [rsp+E0h] [rbp-F8h]
   __int64 v54; // [rsp+E8h] [rbp-F0h]
   struct _EVENT_DATA_DESCRIPTOR v55; // [rsp+F0h] [rbp-E8h] BYREF
-  char *v56; // [rsp+100h] [rbp-D8h]
+  __int16 *v56; // [rsp+100h] [rbp-D8h]
   int v57; // [rsp+108h] [rbp-D0h]
   int v58; // [rsp+10Ch] [rbp-CCh]
   __int64 *v59; // [rsp+110h] [rbp-C8h]
@@ -119,7 +119,7 @@ int __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2, char a3)
     UserData.Ptr = (ULONGLONG)off_140E06B38;
     UserData.Size = *(unsigned __int16 *)off_140E06B38;
     UserData.Reserved = 2;
-    v48 = byte_1400467DB;
+    v48 = &unk_140046CD8;
     v49 = 55;
     v50 = 1;
     v36 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
@@ -150,7 +150,7 @@ int __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2, char a3)
       v73 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06B30,
-        (unsigned __int8 *)&dword_140046274,
+        (unsigned __int8 *)&byte_140046C57,
         0LL,
         0LL,
         5u,
@@ -343,7 +343,7 @@ LABEL_9:
     v55.Ptr = (ULONGLONG)off_140E06B38;
     v55.Size = *(unsigned __int16 *)off_140E06B38;
     v55.Reserved = 2;
-    v56 = &byte_140046207;
+    v56 = word_140046BEA;
     v57 = 108;
     v58 = 1;
     v36 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAbCrossThreadRelease @ 0x1403D8674
+ * XREFs of KeAbCrossThreadRelease @ 0x1402F2154
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x1403D7FE8 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x1403D8120 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x1402F1AC8 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1402F1C00 (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
- *     KiAbCrossThreadRelease @ 0x1403D86A8 (KiAbCrossThreadRelease.c)
+ *     KiAbCrossThreadRelease @ 0x1402F2188 (KiAbCrossThreadRelease.c)
  */
 
 __int64 __fastcall KeAbCrossThreadRelease(__int64 a1, unsigned __int64 a2, __int64 a3)

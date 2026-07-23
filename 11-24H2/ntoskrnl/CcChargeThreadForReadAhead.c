@@ -1,10 +1,10 @@
 /*
- * XREFs of CcChargeThreadForReadAhead @ 0x1404DD06C
+ * XREFs of CcChargeThreadForReadAhead @ 0x1404D6A8C
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
  * Callees:
- *     PsUpdateDiskCounters @ 0x14043EFB0 (PsUpdateDiskCounters.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PsUpdateDiskCounters @ 0x140434B60 (PsUpdateDiskCounters.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 volatile signed __int64 *__fastcall CcChargeThreadForReadAhead(

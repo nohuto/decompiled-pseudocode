@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1408EE190
+ * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1408EE2F0
  * Callers:
- *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE7F0 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE950 (PopPowerAggregatorScreenOffEnterStateHandler.c)
  * Callees:
- *     PopNetSetConnectivityConstraint @ 0x140796800 (PopNetSetConnectivityConstraint.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopNetSetConnectivityConstraint @ 0x140796A00 (PopNetSetConnectivityConstraint.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopPowerAggregatorEngageAggressiveStandbyActions(int a1, __int64 a2)

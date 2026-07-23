@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14042B760
+ * XREFs of KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14041E2F0
  * Callers:
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiAddThreadToPrcbQueue @ 0x1403102F0 (KiAddThreadToPrcbQueue.c)
- *     KiAddThreadToReadyQueue @ 0x1403F4AB0 (KiAddThreadToReadyQueue.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402D7CF0 (KiAddThreadToPrcbQueue.c)
+ *     KiAddThreadToReadyQueue @ 0x1403E7AA0 (KiAddThreadToReadyQueue.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiScheduleSoftParkElectionIfNecessary @ 0x14042B8DC (KiScheduleSoftParkElectionIfNecessary.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x14041E46C (KiScheduleSoftParkElectionIfNecessary.c)
  */
 
 __int64 __fastcall KiUpdateSoftParkElectionStatisticsOnInsertion(__int64 a1, __int64 a2)

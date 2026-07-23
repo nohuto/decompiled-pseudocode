@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcRevokeSecurityContext @ 0x1406A75B0
+ * XREFs of ZwAlpcRevokeSecurityContext @ 0x1406A8550
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcRevokeSecurityContext(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcRevokeSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

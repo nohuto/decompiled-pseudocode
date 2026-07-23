@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlOwnerAcesPresent @ 0x14022A360
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     sub_140722B40 @ 0x140722B40 (sub_140722B40.c)
  * Callees:
- *     RtlpOwnerAcesPresent @ 0x14022A380 (RtlpOwnerAcesPresent.c)
+ *     sub_14022A380 @ 0x14022A380 (sub_14022A380.c)
  */
 
-__int64 __fastcall RtlOwnerAcesPresent(__int64 a1)
+BOOLEAN __cdecl RtlOwnerAcesPresent(PACL pAcl)
 {
-  return RtlpOwnerAcesPresent(0LL, a1);
+  return sub_14022A380(0LL, pAcl);
 }

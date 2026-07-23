@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetNameFromLangInfoNode @ 0x14061D784
+ * XREFs of RtlpGetNameFromLangInfoNode @ 0x1406207D4
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x1408AA5F8 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x1408B0A68 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     RtlLCIDToCultureName @ 0x140B5CEE0 (RtlLCIDToCultureName.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     RtlLCIDToCultureName @ 0x140B60060 (RtlLCIDToCultureName.c)
  */
 
-__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v5; // rax
@@ -25,7 +25,7 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
     {
       v8 = *(_WORD *)(a2 + 4);
       if ( v8 != 4096 && v8 != 5120 )
-        return (unsigned __int8)RtlLCIDToCultureName(*(unsigned __int16 *)(a2 + 4), a3) == 0 ? 0xC00000E5 : 0;
+        return RtlLCIDToCultureName(*(unsigned __int16 *)(a2 + 4), a3) == 0 ? 0xC00000E5 : 0;
     }
     else
     {
@@ -35,10 +35,10 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v5)));
       Length = DestinationString.Length;
-      if ( DestinationString.Length <= *(_WORD *)(a3 + 2)
-        && RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(a3 + 8), *(unsigned __int16 *)(a3 + 2), DestinationString.Buffer) >= 0 )
+      if ( DestinationString.Length <= a3->MaximumLength
+        && RtlStringCbCopyW(a3->Buffer, a3->MaximumLength, DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a3 = Length;
+        a3->Length = Length;
         return v3;
       }
     }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryDynamicTimeZoneInformation @ 0x14068858C
+ * XREFs of RtlQueryDynamicTimeZoneInformation @ 0x140688670
  * Callers:
  *     ExInitializeUtcTimeZoneBias @ 0x1407BD1DC (ExInitializeUtcTimeZoneBias.c)
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExInitializeExternalBootSupport @ 0x140A73BEC
+ * XREFs of ExInitializeExternalBootSupport @ 0x140A74BEC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 ExInitializeExternalBootSupport()
 
   LOWORD(ExBootDevicesRemovedEvent.Header.Lock) = 1;
   ExNumMissingBootDevices = 0;
-  qword_140C193E8 = (__int64)&ExBootDeviceList;
+  qword_140C19428 = (__int64)&ExBootDeviceList;
   ExBootDeviceList = (__int64)&ExBootDeviceList;
   ExBootDevicesRemovedEvent.Header.WaitListHead.Blink = &ExBootDevicesRemovedEvent.Header.WaitListHead;
   ExBootDevicesRemovedEvent.Header.WaitListHead.Flink = &ExBootDevicesRemovedEvent.Header.WaitListHead;

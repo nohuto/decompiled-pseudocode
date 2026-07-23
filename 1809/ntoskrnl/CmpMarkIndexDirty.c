@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpMarkIndexDirty @ 0x1405AD40C
+ * XREFs of CmpMarkIndexDirty @ 0x1405AE40C
  * Callers:
- *     CmpMarkKeyDirty @ 0x1405AE028 (CmpMarkKeyDirty.c)
- *     CmpMarkKeyParentDirty @ 0x1407FD864 (CmpMarkKeyParentDirty.c)
+ *     CmpMarkKeyDirty @ 0x1405AF028 (CmpMarkKeyDirty.c)
+ *     CmpMarkKeyParentDirty @ 0x1407FEA64 (CmpMarkKeyParentDirty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
- *     CmpFindSubKeyInRoot @ 0x1405D4F64 (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1405D5370 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpCopyCompressedName @ 0x1405B0298 (CmpCopyCompressedName.c)
+ *     CmpFindSubKeyInRoot @ 0x1405D5F64 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1405D6370 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
  */
 
 char __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3)

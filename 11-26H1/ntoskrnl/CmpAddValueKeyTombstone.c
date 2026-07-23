@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddValueKeyTombstone @ 0x140858F40
+ * XREFs of CmpAddValueKeyTombstone @ 0x14085F2D0
  * Callers:
- *     CmpSetValueKeyTombstone @ 0x140B4F768 (CmpSetValueKeyTombstone.c)
+ *     CmpSetValueKeyTombstone @ 0x140B51FF8 (CmpSetValueKeyTombstone.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
- *     CmpNameSize @ 0x1408DD750 (CmpNameSize.c)
- *     CmpCopyName @ 0x1408DD790 (CmpCopyName.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
+ *     CmpNameSize @ 0x1408E3D10 (CmpNameSize.c)
+ *     CmpCopyName @ 0x1408E3D50 (CmpCopyName.c)
  */
 
 __int64 __fastcall CmpAddValueKeyTombstone(ULONG_PTR BugCheckParameter2, unsigned __int16 *a2, __int64 a3, _DWORD *a4)

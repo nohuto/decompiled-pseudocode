@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExSetResourceOwnerPointer @ 0x14070C488
+ * XREFs of VerifierExSetResourceOwnerPointer @ 0x14070C4B8
  * Callers:
  *     <none>
  * Callees:

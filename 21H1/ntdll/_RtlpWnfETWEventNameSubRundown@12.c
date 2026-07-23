@@ -8,10 +8,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall RtlpWnfETWEventNameSubRundown(void *this, int a2, int a3)
+NTSTATUS __thiscall RtlpWnfETWEventNameSubRundown(void *this, int a2, int a3)
 {
   int v3; // eax
-  _BYTE v5[6]; // [esp+0h] [ebp-38h] BYREF
+  _BYTE Fields[6]; // [esp+0h] [ebp-38h] BYREF
   __int16 v6; // [esp+6h] [ebp-32h]
   int v7; // [esp+20h] [ebp-18h]
   int v8; // [esp+24h] [ebp-14h]
@@ -25,5 +25,5 @@ int __thiscall RtlpWnfETWEventNameSubRundown(void *this, int a2, int a3)
     v3 = (int)NtCurrentPeb()->SharedData + 564;
   else
     v3 = 2147353486;
-  return NtTraceEvent(*(unsigned __int8 *)v3, 132098, 12, (int)v5);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x20402u, 0xCu, Fields);
 }

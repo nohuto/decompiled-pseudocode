@@ -9,24 +9,29 @@
  *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlFindMessage(unsigned __int64 a1, unsigned int a2, unsigned int a3, unsigned int a4, __int64 a5)
+NTSTATUS __cdecl RtlFindMessage(
+        PVOID DllHandle,
+        ULONG MessageTableId,
+        ULONG MessageLanguageId,
+        ULONG MessageId,
+        PMESSAGE_RESOURCE_ENTRY *MessageEntry)
 {
-  __int64 result; // rax
-  unsigned int v8; // [rsp+30h] [rbp-48h] BYREF
-  unsigned int *v9; // [rsp+38h] [rbp-40h] BYREF
-  unsigned __int64 v10; // [rsp+40h] [rbp-38h] BYREF
+  NTSTATUS result; // eax
+  ULONG ResourceLength; // [rsp+30h] [rbp-48h] BYREF
+  PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+38h] [rbp-40h] BYREF
+  PVOID ResourceBuffer; // [rsp+40h] [rbp-38h] BYREF
   _QWORD v11[4]; // [rsp+48h] [rbp-30h] BYREF
 
-  v11[0] = a2;
-  v11[2] = a3;
+  v11[0] = MessageTableId;
+  v11[2] = MessageLanguageId;
   v11[1] = 1LL;
-  v11[3] = a4;
-  result = sub_180018D8C(a1, (__int64)v11, 4u, 0x40u, (unsigned __int64 *)&v9);
-  if ( (int)result >= 0 )
+  v11[3] = MessageId;
+  result = sub_180018D8C(DllHandle, (__int64)v11, 4u, 0x40u, (__int64)&ResourceDataEntry);
+  if ( result >= 0 )
   {
-    result = LdrAccessResource_0(a1, v9, &v10, &v8);
-    if ( (int)result >= 0 )
-      return sub_1800683DC(v10, v8, a4, a5);
+    result = LdrAccessResource_0(DllHandle, ResourceDataEntry, &ResourceBuffer, &ResourceLength);
+    if ( result >= 0 )
+      return sub_1800683DC(ResourceBuffer, ResourceLength, MessageId, MessageEntry);
   }
   return result;
 }

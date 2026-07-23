@@ -9,19 +9,19 @@
  *     _TppETWPoolThreadMin@8 @ 0x4B384CB2 (_TppETWPoolThreadMin@8.c)
  */
 
-int __stdcall TpSetPoolMinThreads(int a1, int a2)
+NTSTATUS __cdecl TpSetPoolMinThreads(PTP_POOL Pool, ULONG MinThreads)
 {
   int v2; // edi
   int v3; // ecx
 
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !Pool || (MinThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  v2 = ZwSetInformationWorkerFactory(*(_DWORD *)(a1 + 36), 4, &a2, 4);
+  v2 = ZwSetInformationWorkerFactory(*((HANDLE *)Pool + 9), WorkerFactoryThreadMinimum, &MinThreads, 4u);
   if ( RtlGetCurrentServiceSessionId() )
     v3 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v3 = 2147353478;
   if ( *(_BYTE *)v3 && v2 >= 0 )
-    TppETWPoolThreadMin(a1, a2);
+    TppETWPoolThreadMin(Pool, MinThreads);
   return v2;
 }

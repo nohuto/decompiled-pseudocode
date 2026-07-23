@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlPcToFilePath @ 0x140899660
+ * XREFs of RtlPcToFilePath @ 0x14089A8C0
  * Callers:
- *     KitLogFeatureUsage @ 0x14031E800 (KitLogFeatureUsage.c)
- *     EtwpProviderArrivalCallback @ 0x14070A0A4 (EtwpProviderArrivalCallback.c)
+ *     KitLogFeatureUsage @ 0x14031E9F0 (KitLogFeatureUsage.c)
+ *     EtwpProviderArrivalCallback @ 0x14070B344 (EtwpProviderArrivalCallback.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall RtlPcToFilePath(unsigned __int64 a1, UNICODE_STRING *a2)

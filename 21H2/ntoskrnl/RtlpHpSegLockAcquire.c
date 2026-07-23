@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegLockAcquire @ 0x140308384
+ * XREFs of RtlpHpSegLockAcquire @ 0x1403130D4
  * Callers:
- *     RtlpHpSegContextCompact @ 0x1403067D0 (RtlpHpSegContextCompact.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x140307DD0 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeShrink @ 0x1403299F0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x140311520 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x140312B20 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x140314740 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x140334740 (RtlpHpSegPageRangeShrink.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
  */
 
 char __fastcall RtlpHpSegLockAcquire(__int64 a1, char a2)

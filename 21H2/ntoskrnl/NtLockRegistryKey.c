@@ -1,42 +1,35 @@
 /*
- * XREFs of NtLockRegistryKey @ 0x1407C2F50
+ * XREFs of NtLockRegistryKey @ 0x1407C3470
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
- *     CmObReferenceObjectByHandle @ 0x14066461C (CmObReferenceObjectByHandle.c)
- *     CmLockKeyForWrite @ 0x1407C2FF0 (CmLockKeyForWrite.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     CmpReleaseShutdownRundown @ 0x14064A4A0 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x14064B8D0 (CmpAcquireShutdownRundown.c)
+ *     CmObReferenceObjectByHandle @ 0x14065943C (CmObReferenceObjectByHandle.c)
+ *     CmLockKeyForWrite @ 0x1407C3510 (CmLockKeyForWrite.c)
  */
 
-__int64 __fastcall NtLockRegistryKey(void *a1)
+NTSTATUS __cdecl NtLockRegistryKey(HANDLE KeyHandle)
 {
   __int64 v2; // r8
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
   DmaAdapter = 0LL;
   if ( KeGetCurrentThread()->PreviousMode )
+    return -1073741727;
+  if ( !CmpAcquireShutdownRundown() )
+    return -1073741431;
+  v3 = CmObReferenceObjectByHandle(KeyHandle, 0x20006u, v2, 0, &DmaAdapter, 0LL);
+  if ( v3 >= 0 )
   {
-    return (unsigned int)-1073741727;
-  }
-  else if ( CmpAcquireShutdownRundown() )
-  {
-    v3 = CmObReferenceObjectByHandle(a1, 0x20006u, v2, 0, &DmaAdapter, 0LL);
+    v3 = CmLockKeyForWrite(DmaAdapter);
     if ( v3 >= 0 )
-    {
-      v3 = CmLockKeyForWrite(DmaAdapter);
-      if ( v3 >= 0 )
-        v3 = 0;
-    }
-    if ( DmaAdapter )
-      HalPutDmaAdapter(DmaAdapter);
-    CmpReleaseShutdownRundown();
+      v3 = 0;
   }
-  else
-  {
-    return (unsigned int)-1073741431;
-  }
-  return (unsigned int)v3;
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  CmpReleaseShutdownRundown();
+  return v3;
 }

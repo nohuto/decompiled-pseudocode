@@ -1,5 +1,5 @@
 /*
- * XREFs of WdHwpReadPortUChar @ 0x14056CB20
+ * XREFs of WdHwpReadPortUChar @ 0x140569FB0
  * Callers:
  *     <none>
  * Callees:

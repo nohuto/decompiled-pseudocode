@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCloudbookHardwareLockedProvider @ 0x1407B8420
+ * XREFs of ExpCloudbookHardwareLockedProvider @ 0x1407B8870
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExpOsProductCacheProviderHelper @ 0x1407B9058 (ExpOsProductCacheProviderHelper.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1407B94A8 (ExpOsProductCacheProviderHelper.c)
  */
 
 __int64 __fastcall ExpCloudbookHardwareLockedProvider(
@@ -21,17 +21,17 @@ __int64 __fastcall ExpCloudbookHardwareLockedProvider(
   char v10; // dl
   size_t v11; // r8
   BOOL Src; // [rsp+40h] [rbp-68h] BYREF
-  _OWORD v14[2]; // [rsp+48h] [rbp-60h] BYREF
+  _OWORD SystemInformation[2]; // [rsp+48h] [rbp-60h] BYREF
   int v15; // [rsp+68h] [rbp-40h]
 
   v15 = 0;
-  memset(v14, 0, sizeof(v14));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v9 = ExpOsProductCacheProviderHelper(a1, L"*,", a2, a3, a4, a5, a6);
   if ( (int)(v9 + 0x80000000) >= 0 && v9 != -1073741789 )
   {
     *a5 = 4;
     v9 = 0;
-    if ( (int)ZwQuerySystemInformation(190LL, (__int64)v14) < 0 )
+    if ( ZwQuerySystemInformation(SystemCodeIntegrityUnlockInformation, SystemInformation, 0x24u, 0LL) < 0 )
     {
       v9 = -1073741772;
     }
@@ -41,7 +41,7 @@ __int64 __fastcall ExpCloudbookHardwareLockedProvider(
     }
     else
     {
-      v10 = v14[0] & 5;
+      v10 = SystemInformation[0] & 5;
       *a2 = 4;
       v11 = *a5;
       Src = v10 == 5;

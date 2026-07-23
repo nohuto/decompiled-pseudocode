@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxTracePerfRegistration @ 0x140ABE960
+ * XREFs of PopFxTracePerfRegistration @ 0x140AB99D0
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x14074E534 (PopFxRegisterComponentPerfStates.c)
- *     PopFxTraceDeviceRegistration @ 0x140A58DFC (PopFxTraceDeviceRegistration.c)
+ *     PopFxRegisterComponentPerfStates @ 0x14074C864 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxTraceDeviceRegistration @ 0x140A505AC (PopFxTraceDeviceRegistration.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x1403782D8 (PopFxAddLogEntry.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopDiagTraceFxPerfRegistration @ 0x14075656C (PopDiagTraceFxPerfRegistration.c)
- *     PopDiagTraceFxPerfSetRegistration @ 0x1407565FC (PopDiagTraceFxPerfSetRegistration.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x1402E69B4 (PopFxAddLogEntry.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopDiagTraceFxPerfRegistration @ 0x1407549EC (PopDiagTraceFxPerfRegistration.c)
+ *     PopDiagTraceFxPerfSetRegistration @ 0x140754A7C (PopDiagTraceFxPerfSetRegistration.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxTracePerfRegistration(int *a1, char a2)
@@ -76,7 +76,7 @@ void __fastcall PopFxTracePerfRegistration(int *a1, char a2)
           if ( 8 * (unsigned __int64)v7 > 0xFFFFFFFF )
             return;
           v10 = 8 * v7;
-          Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          Pool2 = (void *)ExAllocatePool2(0x100uLL, 8 * v7, 0x4D584650u);
           if ( !Pool2 )
             return;
           goto LABEL_21;

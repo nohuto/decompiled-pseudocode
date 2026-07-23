@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapArbitraryPage @ 0x140369610
+ * XREFs of MiMapArbitraryPage @ 0x1403697C0
  * Callers:
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
- *     MiCombinePte @ 0x14055C900 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
+ *     MiCombinePte @ 0x14055CB40 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x140727760 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiCombineCandidate @ 0x1403697A0 (MiCombineCandidate.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiCombineCandidate @ 0x140369950 (MiCombineCandidate.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -35,12 +35,11 @@ __int64 __fastcall MiMapArbitraryPage(__int64 a1, _QWORD *a2, __int64 a3, _DWORD
   unsigned __int8 v24; // al
   _DWORD *v25; // r8
   int v26; // eax
-  __int64 v27; // r8
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r10
-  _DWORD *v30; // r9
-  int v31; // edx
-  int v32; // [rsp+68h] [rbp+20h] BYREF
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r10
+  _DWORD *v29; // r9
+  int v30; // edx
+  int v31; // [rsp+68h] [rbp+20h] BYREF
 
   v5 = a2[8];
   v6 = (int)SchedulerAssist;
@@ -56,11 +55,11 @@ __int64 __fastcall MiMapArbitraryPage(__int64 a1, _QWORD *a2, __int64 a3, _DWORD
     a3 = (unsigned int)v11 | SchedulerAssist[5];
     SchedulerAssist[5] = a3;
   }
-  v32 = 0;
+  v31 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v32, v11, a3, (__int64)SchedulerAssist);
+      KeYieldProcessorEx(&v31, v11, a3, (__int64)SchedulerAssist);
     while ( *(__int64 *)(v5 + 24) < 0 );
   }
   v13 = MiCombineCandidate(a1, v8, v5);
@@ -143,10 +142,10 @@ LABEL_38:
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
-      if ( !HIBYTE(word_140C4E008) && (v17 & 1) != 0 )
+      if ( !HIBYTE(word_140C4E048) && (v17 & 1) != 0 )
         v17 |= 0x8000000000000000uLL;
       *v7 = v17;
-      MiWritePteShadow((__int64)v7, v17, v27);
+      MiWritePteShadow((__int64)v7, v17);
       goto LABEL_12;
     }
     if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 && (v17 & 1) != 0 )
@@ -159,16 +158,16 @@ LABEL_12:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v28 = KeGetCurrentIrql();
-      if ( v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+      v27 = KeGetCurrentIrql();
+      if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
       {
-        v29 = KeGetCurrentPrcb();
-        v30 = v29->SchedulerAssist;
-        v31 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v23 = (v31 & v30[5]) == 0;
-        v30[5] &= v31;
+        v28 = KeGetCurrentPrcb();
+        v29 = v28->SchedulerAssist;
+        v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v23 = (v30 & v29[5]) == 0;
+        v29[5] &= v30;
         if ( v23 )
-          KiRemoveSystemWorkPriorityKick(v29);
+          KiRemoveSystemWorkPriorityKick(v28);
       }
     }
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSnapShotHandleTables @ 0x1408AB512
+ * XREFs of ExpSnapShotHandleTables @ 0x1408AB762
  * Callers:
- *     ObGetHandleInformation @ 0x14097B5F8 (ObGetHandleInformation.c)
- *     ObGetHandleInformationEx @ 0x14097B64C (ObGetHandleInformationEx.c)
+ *     ObGetHandleInformation @ 0x14097B7F8 (ObGetHandleInformation.c)
+ *     ObGetHandleInformationEx @ 0x14097B84C (ObGetHandleInformationEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExLockHandleTableEntry @ 0x1402BEAD4 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ExpLookupHandleTableEntry @ 0x1406E6930 (ExpLookupHandleTableEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExLockHandleTableEntry @ 0x1402BED64 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ExpLookupHandleTableEntry @ 0x1406E6960 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpSnapShotHandleTables(

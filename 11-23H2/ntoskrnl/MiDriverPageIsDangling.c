@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDriverPageIsDangling @ 0x14062C5A8
+ * XREFs of MiDriverPageIsDangling @ 0x14062CAF8
  * Callers:
- *     MiDeleteValidSystemPage @ 0x140280810 (MiDeleteValidSystemPage.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteValidSystemPage @ 0x140280AA0 (MiDeleteValidSystemPage.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
  * Callees:
  *     <none>
  */

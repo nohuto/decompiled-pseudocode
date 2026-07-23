@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxRequestCommon @ 0x14058B780
+ * XREFs of PopFxRequestCommon @ 0x14058BC70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PpmIdleAllocateVetoReasons @ 0x140981B64 (PpmIdleAllocateVetoReasons.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PpmIdleAllocateVetoReasons @ 0x140981D64 (PpmIdleAllocateVetoReasons.c)
  */
 
 __int64 __fastcall PopFxRequestCommon(int a1, __int64 a2)

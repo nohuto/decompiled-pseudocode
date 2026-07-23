@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwDelayExecution @ 0x1403FAA20
+ * XREFs of ZwDelayExecution @ 0x1403FAC00
  * Callers:
- *     IovUnloadDrivers @ 0x1409C52F0 (IovUnloadDrivers.c)
+ *     IovUnloadDrivers @ 0x1409C62F0 (IovUnloadDrivers.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDelayExecution(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwDelayExecution(BOOLEAN Alertable, PLARGE_INTEGER DelayInterval)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Alertable);
 }

@@ -7,12 +7,12 @@
  *     _RtlAcquireSRWLockShared@4 @ 0x4B2B5380 (_RtlAcquireSRWLockShared@4.c)
  */
 
-int __fastcall RtlpHpTagContextUpdate(int a1, unsigned __int16 a2, int a3, int a4)
+void __fastcall RtlpHpTagContextUpdate(int a1, unsigned __int16 a2, int a3, int a4)
 {
   int v4; // esi
 
   v4 = *(_DWORD *)(dword_4B3A46B0 + 4 * a2 - 4);
   RtlAcquireSRWLockShared(&RtlpHpTagContext);
   _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 24), a4 - a3);
-  return RtlReleaseSRWLockShared(&RtlpHpTagContext);
+  RtlReleaseSRWLockShared(&RtlpHpTagContext);
 }

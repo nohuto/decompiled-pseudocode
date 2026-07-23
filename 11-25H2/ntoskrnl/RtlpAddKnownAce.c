@@ -50,25 +50,25 @@
  *     RtlValidAcl @ 0x14092A320 (RtlValidAcl.c)
  */
 
-__int64 __fastcall RtlpAddKnownAce(__int64 a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, char a6)
+__int64 __fastcall RtlpAddKnownAce(ACL *a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, UCHAR a6)
 {
-  char v7; // si
-  unsigned __int8 v9; // r14
+  UCHAR v7; // si
+  unsigned __int8 AclRevision; // r14
   __int64 result; // rax
-  unsigned __int64 v11; // rcx
+  ACL *v11; // rcx
   unsigned int i; // edx
-  unsigned __int64 v13; // r8
-  unsigned __int16 v14; // dx
+  ACL *v13; // r8
+  USHORT v14; // dx
   unsigned int v15; // eax
 
   v7 = a3;
   if ( (unsigned __int64)Src <= 0x7FFFFFFF0000LL || (*Src & 0xF) != 1 || Src[1] > 0xFu )
     return 3221225592LL;
-  v9 = *(_BYTE *)a1;
-  if ( a2 > 4 || v9 > 4u )
+  AclRevision = a1->AclRevision;
+  if ( a2 > 4 || AclRevision > 4u )
     return 3221225561LL;
-  if ( v9 <= (unsigned __int8)a2 )
-    v9 = a2;
+  if ( AclRevision <= (unsigned __int8)a2 )
+    AclRevision = a2;
   if ( (a3 & 0xFFFFFFE0) != 0 )
   {
     if ( a6 == 2 )
@@ -88,26 +88,26 @@ __int64 __fastcall RtlpAddKnownAce(__int64 a1, unsigned int a2, int a3, int a4, 
 LABEL_12:
   if ( !RtlValidAcl(a1) )
     return 3221225591LL;
-  v11 = a1 + 8;
-  for ( i = 0; i < *(unsigned __int16 *)(a1 + 4); ++i )
+  v11 = a1 + 1;
+  for ( i = 0; i < a1->AceCount; ++i )
   {
-    if ( v11 >= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+    if ( v11 >= (ACL *)((char *)a1 + a1->AclSize) )
       return 3221225591LL;
-    v11 += *(unsigned __int16 *)(v11 + 2);
+    v11 = (ACL *)((char *)v11 + v11->AclSize);
   }
-  v13 = a1 + *(unsigned __int16 *)(a1 + 2);
+  v13 = (ACL *)((char *)a1 + a1->AclSize);
   if ( v11 > v13 )
     v11 = 0LL;
   v14 = 4 * (Src[1] + 4);
-  if ( !v11 || v11 + v14 > v13 )
+  if ( !v11 || (ACL *)((char *)v11 + v14) > v13 )
     return 3221225625LL;
-  *(_WORD *)(v11 + 2) = v14;
-  *(_BYTE *)(v11 + 1) = v7;
-  *(_BYTE *)v11 = a6;
-  *(_DWORD *)(v11 + 4) = a4;
-  memmove((void *)(v11 + 8), Src, 4LL * Src[1] + 8);
-  ++*(_WORD *)(a1 + 4);
+  v11->AclSize = v14;
+  v11->Sbz1 = v7;
+  v11->AclRevision = a6;
+  *(_DWORD *)&v11->AceCount = a4;
+  memmove(&v11[1], Src, 4LL * Src[1] + 8);
+  ++a1->AceCount;
   result = 0LL;
-  *(_BYTE *)a1 = v9;
+  a1->AclRevision = AclRevision;
   return result;
 }

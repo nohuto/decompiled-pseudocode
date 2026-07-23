@@ -14,12 +14,12 @@ char sub_1800F7C30()
   __int64 i; // r14
   __int64 v2; // r15
   __int64 v3; // rsi
-  _QWORD *v4; // rbx
+  __int64 *v4; // rbx
   __int64 v5; // r9
-  unsigned int v6; // r8d
-  unsigned int NumberOfHeaps; // r10d
+  ULONG v6; // r8d
+  ULONG NumberOfHeaps; // r10d
   __int64 v8; // rdx
-  __int64 v9; // rcx
+  void *v9; // rcx
   __int64 Src; // [rsp+50h] [rbp+8h] BYREF
 
   v0 = 0;
@@ -29,8 +29,8 @@ char sub_1800F7C30()
     if ( _interlockedbittestandset64(*(volatile signed __int32 **)(qword_1801669E8 + 8 * v2), 0LL) )
       break;
     v3 = 16LL * v0;
-    v4 = *(_QWORD **)(i + qword_180166870);
-    if ( v4 != (_QWORD *)(v3 + qword_180166870) )
+    v4 = *(__int64 **)(i + qword_180166870);
+    if ( v4 != (__int64 *)(v3 + qword_180166870) )
     {
       while ( 1 )
       {
@@ -42,29 +42,29 @@ char sub_1800F7C30()
           if ( NumberOfHeaps )
           {
             v8 = 0LL;
-            while ( (void *)v4[2] != NtCurrentPeb()->ProcessHeaps[v8] )
+            while ( (PVOID)v4[2] != NtCurrentPeb()->ProcessHeaps[v8] )
             {
               ++v6;
               ++v8;
               if ( v6 >= NumberOfHeaps )
                 goto LABEL_12;
             }
-            v9 = v4[2];
+            v9 = (void *)v4[2];
             Src = 8 * v5;
-            if ( RtlSizeHeap(v9, 0, 8 * v5) != -1 && !(unsigned __int8)sub_1800F8464(0x20uLL, &Src, 8uLL) )
+            if ( RtlSizeHeap(v9, 0, (PVOID)(8 * v5)) != -1LL && !(unsigned __int8)sub_1800F8464(0x20uLL, &Src, 8uLL) )
               break;
           }
         }
 LABEL_12:
-        v4 = (_QWORD *)*v4;
-        if ( v4 == (_QWORD *)(v3 + qword_180166870) )
+        v4 = (__int64 *)*v4;
+        if ( v4 == (__int64 *)(v3 + qword_180166870) )
           goto LABEL_13;
       }
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801669E8 + 8LL * (v0 & 0xF)));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801669E8 + 8LL * (v0 & 0xF)));
       return 0;
     }
 LABEL_13:
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801669E8 + 8 * v2));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801669E8 + 8 * v2));
     if ( ++v0 >= 0x1EEF )
       return 1;
   }

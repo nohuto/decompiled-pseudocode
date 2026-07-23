@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpGenerateLogEntryMetadata @ 0x140291490
+ * XREFs of HvpGenerateLogEntryMetadata @ 0x140291720
  * Callers:
- *     HvpGenerateLogEntry @ 0x140705758 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140705968 (HvpGenerateLogEntry.c)
  * Callees:
- *     HvpCopyDataToOffsetArray @ 0x140294F94 (HvpCopyDataToOffsetArray.c)
- *     HvpGenerateLogMetadata @ 0x140707080 (HvpGenerateLogMetadata.c)
+ *     HvpCopyDataToOffsetArray @ 0x140295224 (HvpCopyDataToOffsetArray.c)
+ *     HvpGenerateLogMetadata @ 0x140707290 (HvpGenerateLogMetadata.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryMetadata(

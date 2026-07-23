@@ -1,163 +1,169 @@
 /*
- * XREFs of RtlGetVersion @ 0x1800AA620
+ * XREFs of RtlGetVersion @ 0x18000B7B0
  * Callers:
- *     SbSelectProcedure @ 0x1800A9EF0 (SbSelectProcedure.c)
- *     RtlpGetDeviceFamilyInfoEnum @ 0x1800AAF10 (RtlpGetDeviceFamilyInfoEnum.c)
- *     RtlVerifyVersionInfo @ 0x1800ABEF0 (RtlVerifyVersionInfo.c)
+ *     RtlVerifyVersionInfo @ 0x18000A100 (RtlVerifyVersionInfo.c)
+ *     RtlpGetDeviceFamilyInfoEnum @ 0x18000A5E0 (RtlpGetDeviceFamilyInfoEnum.c)
+ *     SbSelectProcedure @ 0x18000B080 (SbSelectProcedure.c)
  * Callees:
- *     RtlAnsiStringToUnicodeString @ 0x18000CF60 (RtlAnsiStringToUnicodeString.c)
- *     RtlGetNtProductType @ 0x1800AA990 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x1800AAA10 (RtlGetSuiteMask.c)
- *     RtlStringCbCopyW @ 0x1800E1140 (RtlStringCbCopyW.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     ZwQueryLicenseValue @ 0x180164880 (ZwQueryLicenseValue.c)
- *     NtQuerySystemInformationEx @ 0x180164A40 (NtQuerySystemInformationEx.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     strlen @ 0x180167CE0 (strlen.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlGetNtProductType @ 0x18000BB20 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x18000BBA0 (RtlGetSuiteMask.c)
+ *     RtlAnsiStringToUnicodeString @ 0x180039960 (RtlAnsiStringToUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x1800DC690 (RtlStringCbCopyW.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     ZwQueryLicenseValue @ 0x180162C40 (ZwQueryLicenseValue.c)
+ *     NtQuerySystemInformationEx @ 0x180162E00 (NtQuerySystemInformationEx.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     strlen @ 0x1801660A0 (strlen.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlGetVersion(int *a1)
+NTSTATUS __cdecl RtlGetVersion(PRTL_OSVERSIONINFOEXW VersionInformation)
 {
-  unsigned int v1; // edi
+  NTSTATUS v1; // edi
   struct _PEB *v3; // r10
   wchar_t *Buffer; // r8
-  int v5; // esi
-  __int64 result; // rax
-  __int64 v7; // rcx
-  size_t v8; // rax
+  DWORD dwOSVersionInfoSize; // esi
+  NTSTATUS result; // eax
+  size_t v7; // rax
+  unsigned int dwMinorVersion_low; // ecx
   unsigned int v9; // ecx
   unsigned int v10; // ecx
   unsigned int v11; // ecx
   unsigned int v12; // ecx
   unsigned int v13; // ecx
-  unsigned int v14; // ecx
   char *p_Str; // rcx
-  size_t v16; // rax
-  NTSTATUS v17; // eax
-  int v18; // [rsp+30h] [rbp-D0h] BYREF
-  int v19; // [rsp+34h] [rbp-CCh] BYREF
-  int v20; // [rsp+38h] [rbp-C8h] BYREF
-  int v21; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v22; // [rsp+40h] [rbp-C0h] BYREF
-  _WORD v23[2]; // [rsp+48h] [rbp-B8h] BYREF
-  int v24; // [rsp+4Ch] [rbp-B4h]
-  const wchar_t *v25; // [rsp+50h] [rbp-B0h]
-  STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v28[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int16 v29; // [rsp+82h] [rbp-7Eh]
-  int v30; // [rsp+84h] [rbp-7Ch]
-  int v31; // [rsp+88h] [rbp-78h]
-  int v32; // [rsp+8Ch] [rbp-74h]
-  int v33; // [rsp+90h] [rbp-70h]
+  size_t v15; // rax
+  int v16; // eax
+  ULONG ResultDataSize; // [rsp+30h] [rbp-D0h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+34h] [rbp-CCh] BYREF
+  ULONG Type; // [rsp+38h] [rbp-C8h] BYREF
+  int Data; // [rsp+3Ch] [rbp-C4h] BYREF
+  int InputBuffer; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+48h] [rbp-B8h] BYREF
+  ANSI_STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE SystemInformation[2]; // [rsp+80h] [rbp-80h] BYREF
+  __int16 v26; // [rsp+82h] [rbp-7Eh]
+  DWORD v27; // [rsp+84h] [rbp-7Ch]
+  DWORD v28; // [rsp+88h] [rbp-78h]
+  DWORD v29; // [rsp+8Ch] [rbp-74h]
+  DWORD v30; // [rsp+90h] [rbp-70h]
   char Str; // [rsp+94h] [rbp-6Ch] BYREF
-  char v35; // [rsp+114h] [rbp+14h] BYREF
-  char v36; // [rsp+194h] [rbp+94h] BYREF
-  char v37; // [rsp+214h] [rbp+114h] BYREF
-  char v38; // [rsp+294h] [rbp+194h] BYREF
-  char v39; // [rsp+2AEh] [rbp+1AEh] BYREF
-  int v40; // [rsp+2C0h] [rbp+1C0h]
+  char v32; // [rsp+114h] [rbp+14h] BYREF
+  char v33; // [rsp+194h] [rbp+94h] BYREF
+  char v34; // [rsp+214h] [rbp+114h] BYREF
+  char v35; // [rsp+294h] [rbp+194h] BYREF
+  char v36; // [rsp+2AEh] [rbp+1AEh] BYREF
+  DWORD v37; // [rsp+2C0h] [rbp+1C0h]
 
   v1 = 0;
-  v19 = 0;
-  v24 = 0;
-  v20 = 0;
-  v18 = 0;
-  v21 = 0;
-  memset_thunk_772440563353939046(v28, 0, 0x244uLL);
+  NtProductType = 0;
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  Type = 0;
+  ResultDataSize = 0;
+  Data = 0;
+  memset_thunk_772440563353939046(SystemInformation, 0, 0x244uLL);
   v3 = NtCurrentPeb();
   DestinationString = 0LL;
-  a1[1] = v3->OSMajorVersion;
-  a1[2] = v3->OSMinorVersion;
-  a1[3] = v3->OSBuildNumber;
-  a1[4] = v3->OSPlatformId;
+  VersionInformation->dwMajorVersion = v3->OSMajorVersion;
+  VersionInformation->dwMinorVersion = v3->OSMinorVersion;
+  VersionInformation->dwBuildNumber = v3->OSBuildNumber;
+  VersionInformation->dwPlatformId = v3->OSPlatformId;
   Buffer = v3->CSDVersion.Buffer;
-  if ( !Buffer || !*Buffer || (int)RtlStringCbCopyW(a1 + 5, 256LL, Buffer) < 0 )
-    *((_WORD *)a1 + 10) = 0;
-  v5 = *a1;
-  if ( ((*a1 - 284) & 0xFFFFFFE7) != 0 || v5 == 308 )
-    return 0LL;
-  *((_WORD *)a1 + 138) = HIBYTE(v3->OSCSDVersion);
-  *((_WORD *)a1 + 139) = (unsigned __int8)v3->OSCSDVersion;
-  *((_WORD *)a1 + 140) = RtlGetSuiteMask(255LL);
-  if ( v5 == 292 )
-    a1[71] = RtlGetSuiteMask(v7) & 0x1FFFF;
-  *((_BYTE *)a1 + 282) = 0;
-  if ( (unsigned __int8)RtlGetNtProductType(&v19) )
-    *((_BYTE *)a1 + 282) = v19;
-  v24 = 0;
-  v25 = L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
-  v8 = 2 * wcslen(L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
-  if ( v8 >= 0xFFFE )
-    LOWORD(v8) = -4;
-  v23[0] = v8;
-  v23[1] = v8 + 2;
-  if ( (int)ZwQueryLicenseValue(v23, &v20, &v21, 4LL, &v18) < 0 || v21 != 1 || v20 != 4 || v18 != 4 )
+  if ( !Buffer || !*Buffer || (int)RtlStringCbCopyW(VersionInformation->szCSDVersion, 256LL) < 0 )
+    VersionInformation->szCSDVersion[0] = 0;
+  dwOSVersionInfoSize = VersionInformation->dwOSVersionInfoSize;
+  if ( ((VersionInformation->dwOSVersionInfoSize - 284) & 0xFFFFFFE7) != 0 || dwOSVersionInfoSize == 308 )
+    return 0;
+  VersionInformation->wServicePackMajor = HIBYTE(v3->OSCSDVersion);
+  VersionInformation->wServicePackMinor = (unsigned __int8)v3->OSCSDVersion;
+  VersionInformation->wSuiteMask = RtlGetSuiteMask();
+  if ( dwOSVersionInfoSize == 292 )
+    VersionInformation[1].dwOSVersionInfoSize = RtlGetSuiteMask() & 0x1FFFF;
+  VersionInformation->wProductType = 0;
+  if ( RtlGetNtProductType(&NtProductType) )
+    VersionInformation->wProductType = NtProductType;
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  ValueName.Buffer = (wchar_t *)L"TerminalServices-RemoteConnectionManager-AllowAppServerMode";
+  v7 = 2 * wcslen(L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
+  if ( v7 >= 0xFFFE )
+    LOWORD(v7) = -4;
+  ValueName.Length = v7;
+  ValueName.MaximumLength = v7 + 2;
+  if ( ZwQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) < 0
+    || Data != 1
+    || Type != 4
+    || ResultDataSize != 4 )
   {
-    *((_WORD *)a1 + 140) &= ~0x10u;
-    *((_WORD *)a1 + 140) |= 0x100u;
-    if ( *a1 == 292 )
-      a1[71] = a1[71] & 0xFFFDFEEF | 0x100;
+    VersionInformation->wSuiteMask &= ~0x10u;
+    VersionInformation->wSuiteMask |= 0x100u;
+    if ( VersionInformation->dwOSVersionInfoSize == 292 )
+      VersionInformation[1].dwOSVersionInfoSize = VersionInformation[1].dwOSVersionInfoSize & 0xFFFDFEEF | 0x100;
   }
-  if ( *a1 != 300 )
-    return 0LL;
-  v22 = a1[73] & 0xFFF;
-  result = NtQuerySystemInformationEx(222LL, &v22, 4LL, v28, 580, &v18);
-  if ( (int)result < 0 )
+  if ( VersionInformation->dwOSVersionInfoSize != 300 )
+    return 0;
+  InputBuffer = VersionInformation[1].dwMinorVersion & 0xFFF;
+  result = NtQuerySystemInformationEx(
+             SystemBuildVersionInformation,
+             &InputBuffer,
+             4u,
+             SystemInformation,
+             0x244u,
+             &ResultDataSize);
+  if ( result < 0 )
     return result;
-  v9 = *((unsigned __int16 *)a1 + 146);
-  a1[1] = v30;
-  a1[2] = v31;
-  a1[3] = v32;
-  a1[4] = v33;
-  v10 = v9 >> 12;
-  *((_WORD *)a1 + 147) = v29;
-  a1[74] = v40;
-  if ( !v10 )
+  dwMinorVersion_low = LOWORD(VersionInformation[1].dwMinorVersion);
+  VersionInformation->dwMajorVersion = v27;
+  VersionInformation->dwMinorVersion = v28;
+  VersionInformation->dwBuildNumber = v29;
+  VersionInformation->dwPlatformId = v30;
+  v9 = dwMinorVersion_low >> 12;
+  HIWORD(VersionInformation[1].dwMinorVersion) = v26;
+  VersionInformation[1].dwBuildNumber = v37;
+  if ( !v9 )
   {
     p_Str = &Str;
+    goto LABEL_31;
+  }
+  v10 = v9 - 1;
+  if ( !v10 )
+  {
+    p_Str = &v35;
     goto LABEL_31;
   }
   v11 = v10 - 1;
   if ( !v11 )
   {
-    p_Str = &v38;
+    p_Str = &v32;
     goto LABEL_31;
   }
   v12 = v11 - 1;
   if ( !v12 )
   {
-    p_Str = &v35;
+    p_Str = &v36;
     goto LABEL_31;
   }
   v13 = v12 - 1;
   if ( !v13 )
   {
-    p_Str = &v39;
+    p_Str = &v33;
     goto LABEL_31;
   }
-  v14 = v13 - 1;
-  if ( !v14 )
-  {
-    p_Str = &v36;
-    goto LABEL_31;
-  }
-  if ( v14 != 1 )
-    return 0LL;
-  p_Str = &v37;
+  if ( v13 != 1 )
+    return 0;
+  p_Str = &v34;
 LABEL_31:
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
   SourceString.Buffer = p_Str;
-  v16 = strlen(p_Str);
+  v15 = strlen(p_Str);
   DestinationString.MaximumLength = 256;
-  if ( v16 >= 0xFFFF )
-    LOWORD(v16) = -2;
-  SourceString.Length = v16;
-  DestinationString.Buffer = (wchar_t *)(a1 + 5);
-  SourceString.MaximumLength = v16 + 1;
-  v17 = RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 0);
-  if ( v17 < 0 )
-    return (unsigned int)v17;
+  if ( v15 >= 0xFFFF )
+    LOWORD(v15) = -2;
+  SourceString.Length = v15;
+  DestinationString.Buffer = VersionInformation->szCSDVersion;
+  SourceString.MaximumLength = v15 + 1;
+  v16 = RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 0);
+  if ( v16 < 0 )
+    return v16;
   return v1;
 }

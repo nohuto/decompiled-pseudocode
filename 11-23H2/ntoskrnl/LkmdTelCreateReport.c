@@ -1,14 +1,14 @@
 /*
- * XREFs of LkmdTelCreateReport @ 0x140A76B24
+ * XREFs of LkmdTelCreateReport @ 0x140A76DD4
  * Callers:
- *     WheapReportLiveDump @ 0x140A0927C (WheapReportLiveDump.c)
+ *     WheapReportLiveDump @ 0x140A0952C (WheapReportLiveDump.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeCapturePersistentThreadState @ 0x1405542C0 (KeCapturePersistentThreadState.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x140554980 (KeCapturePersistentThreadState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
@@ -23,7 +23,7 @@ char *__fastcall LkmdTelCreateReport(__int64 a1, __int64 a2, __int64 a3, __int64
   int v14; // eax
   __int64 v15; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v16; // [rsp+50h] [rbp-B8h] BYREF
-  struct _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
+  _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
 
   memset(&ContextRecord, 0, sizeof(ContextRecord));
   v16 = 0LL;

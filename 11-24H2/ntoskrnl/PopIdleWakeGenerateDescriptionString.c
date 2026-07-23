@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeGenerateDescriptionString @ 0x140AA4F28
+ * XREFs of PopIdleWakeGenerateDescriptionString @ 0x140AA0228
  * Callers:
- *     PopIdleWakeSourceAccountingToDiagnostic @ 0x140AA0930 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x140A9BCC0 (PopIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x140457C50 (RtlStringCbLengthW.c)
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A8190C (PopIdleWakeGenerateInterruptDescriptionString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlStringCbLengthW @ 0x14044CF68 (RtlStringCbLengthW.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A7C204 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 signed int __fastcall PopIdleWakeGenerateDescriptionString(const wchar_t *a1, __int64 a2)
@@ -22,8 +22,8 @@ signed int __fastcall PopIdleWakeGenerateDescriptionString(const wchar_t *a1, __
   __int64 v12; // rax
   __int64 v13; // rax
   const wchar_t *v14; // r12
-  size_t v15; // r11
-  size_t v16; // rbp
+  ULONG_PTR v15; // r11
+  ULONG_PTR v16; // rbp
   __int64 Pool2; // rax
   size_t pcbLength; // [rsp+50h] [rbp+8h] BYREF
   size_t v19; // [rsp+58h] [rbp+10h] BYREF
@@ -85,7 +85,7 @@ signed int __fastcall PopIdleWakeGenerateDescriptionString(const wchar_t *a1, __
       }
       if ( v16 <= v15 )
       {
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v16, 0x67696450u);
         v3->Buffer = (wchar_t *)Pool2;
         if ( !Pool2 )
           return -1073741670;
@@ -104,7 +104,7 @@ signed int __fastcall PopIdleWakeGenerateDescriptionString(const wchar_t *a1, __
     }
     else
     {
-      v13 = ExAllocatePool2(0x100uLL);
+      v13 = ExAllocatePool2(0x100uLL, 0x40uLL, 0x67696450u);
       v3->Buffer = (wchar_t *)v13;
       if ( !v13 )
         return -1073741670;

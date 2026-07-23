@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsChunkAlignSplit @ 0x180111E80
+ * XREFs of RtlpHpVsChunkAlignSplit @ 0x180111930
  * Callers:
- *     RtlpHpVsSlotAddSubsegment @ 0x1800130E0 (RtlpHpVsSlotAddSubsegment.c)
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSlotAddSubsegment @ 0x18005E810 (RtlpHpVsSlotAddSubsegment.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
  * Callees:
  *     <none>
  */

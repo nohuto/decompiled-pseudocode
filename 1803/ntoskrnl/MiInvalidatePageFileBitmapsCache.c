@@ -10,12 +10,12 @@
  *     RtlRbRemoveNode @ 0x1400E9770 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, __int64 a4)
+char __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
-  char v5; // bl
-  __int64 *v8; // rcx
-  __int64 result; // rax
-  __int64 v10; // rdi
+  BOOLEAN v5; // bl
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rdi
   int v11; // r8d
   unsigned int v12; // ecx
   int v13; // r8d
@@ -27,19 +27,20 @@ __int64 __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2,
   _QWORD *v19; // r9
   __int64 *v20; // r14
   __int64 v21; // r8
-  __int64 v22; // r8
-  __int64 v23; // rax
-  unsigned __int64 v24; // rdx
+  __int64 v22; // rax
+  unsigned __int64 v23; // rdx
+  BOOLEAN v24; // r8
   int v25; // ecx
   unsigned __int64 v26; // rax
-  __int64 v27; // rcx
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // rax
-  unsigned int v31; // eax
-  __int64 v32; // rdx
-  int v33; // ecx
-  __int64 v34; // rsi
+  _RTL_RB_TREE *v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rdx
+  int v30; // r8d
+  __int64 v31; // rax
+  unsigned int v32; // eax
+  unsigned __int64 v33; // rdx
+  int v34; // ecx
+  __int64 v35; // rsi
 
   v5 = 0;
   if ( a4 )
@@ -48,24 +49,24 @@ LABEL_18:
     v13 = *(_DWORD *)(a4 + 48);
     if ( v13 == a2 || (v14 = a2 + a3, v15 = v13 + *(_DWORD *)(a4 + 52), a2 + a3 == v15) )
     {
-      v33 = *(_DWORD *)(a4 + 52) - a3;
-      *(_DWORD *)(a4 + 52) = v33;
+      v34 = *(_DWORD *)(a4 + 52) - a3;
+      *(_DWORD *)(a4 + 52) = v34;
       if ( v13 == a2 )
         *(_DWORD *)(a4 + 48) = v13 + a3;
-      v32 = a4;
-      if ( !v33 )
+      v33 = a4;
+      if ( !v34 )
       {
-        RtlRbRemoveNode(a1 + 144, a4);
-        RtlRbRemoveNode(a1 + 160, a4 + 24);
-        v34 = a1 + 176;
-        result = *(_QWORD *)(v34 + 8);
-        if ( *(_QWORD *)result != v34 )
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)a4);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(a4 + 24));
+        v35 = a1 + 176;
+        v9 = *(_QWORD *)(v35 + 8);
+        if ( *(_QWORD *)v9 != v35 )
           __fastfail(3u);
-        *(_QWORD *)a4 = v34;
-        *(_QWORD *)(a4 + 8) = result;
-        *(_QWORD *)result = a4;
-        *(_QWORD *)(v34 + 8) = a4;
-        return result;
+        *(_QWORD *)a4 = v35;
+        *(_QWORD *)(a4 + 8) = v9;
+        *(_QWORD *)v9 = a4;
+        *(_QWORD *)(v35 + 8) = a4;
+        return v9;
       }
     }
     else
@@ -85,143 +86,144 @@ LABEL_18:
         *((_DWORD *)v20 + 12) = v14;
         *(_DWORD *)(a4 + 52) = v17;
         MiBitmapsCachedEntryLengthChanged(a1, a4, 0LL);
-        v23 = *(_QWORD *)(a1 + 152);
-        v24 = *(_QWORD *)(a1 + 144);
-        if ( (v23 & 1) != 0 )
+        v22 = *(_QWORD *)(a1 + 152);
+        v23 = *(_QWORD *)(a1 + 144);
+        if ( (v22 & 1) != 0 )
         {
-          if ( v24 )
-            v24 ^= a1 + 144;
+          if ( v23 )
+            v23 ^= a1 + 144;
           else
-            v24 = 0LL;
+            v23 = 0LL;
         }
-        LOBYTE(v22) = 0;
-        v25 = v23 & 1;
-        if ( v24 )
+        v24 = 0;
+        v25 = v22 & 1;
+        if ( v23 )
         {
-          v22 = *((unsigned int *)v20 + 13);
           while ( 1 )
           {
-            if ( (unsigned __int64)v20[6] < *(_QWORD *)(v24 + 48) )
+            if ( (unsigned __int64)v20[6] < *(_QWORD *)(v23 + 48) )
             {
-              v26 = *(_QWORD *)v24;
+              v26 = *(_QWORD *)v23;
               if ( v25 )
               {
                 if ( !v26 )
-                  goto LABEL_40;
-                v26 ^= v24;
+                  goto LABEL_39;
+                v26 ^= v23;
               }
               if ( !v26 )
               {
-LABEL_40:
-                LOBYTE(v22) = 0;
+LABEL_39:
+                v24 = 0;
                 break;
               }
             }
             else
             {
-              v26 = *(_QWORD *)(v24 + 8);
+              v26 = *(_QWORD *)(v23 + 8);
               if ( v25 )
               {
                 if ( !v26 )
-                  goto LABEL_34;
-                v26 ^= v24;
+                  goto LABEL_33;
+                v26 ^= v23;
               }
               if ( !v26 )
               {
-LABEL_34:
-                LOBYTE(v22) = 1;
+LABEL_33:
+                v24 = 1;
                 break;
               }
             }
-            v24 = v26;
+            v23 = v26;
           }
         }
-        RtlRbInsertNodeEx(a1 + 144, v24, v22, v20);
-        v27 = a1 + 160;
-        v28 = *(_QWORD *)(a1 + 160);
-        if ( (*(_QWORD *)(a1 + 168) & 1) != 0 )
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v23, v24, (PRTL_BALANCED_NODE)v20);
+        v27 = (_RTL_RB_TREE *)(a1 + 160);
+        v28 = *(_QWORD *)(a1 + 168);
+        v29 = *(_QWORD *)(a1 + 160);
+        if ( (v28 & 1) != 0 )
         {
-          if ( v28 )
-            v28 ^= v27;
+          if ( v29 )
+            v29 ^= (unsigned __int64)v27;
           else
-            v28 = 0LL;
+            v29 = 0LL;
         }
-        v29 = *(_QWORD *)(a1 + 168) & 1LL;
-        if ( v28 )
+        v30 = v28 & 1;
+        if ( v29 )
         {
           while ( 1 )
           {
-            if ( *((_DWORD *)v20 + 12) < *(_DWORD *)(v28 + 24) )
+            if ( *((_DWORD *)v20 + 12) < *(_DWORD *)(v29 + 24) )
             {
-              v30 = *(_QWORD *)v28;
-              if ( (_DWORD)v29 )
+              v31 = *(_QWORD *)v29;
+              if ( v30 )
               {
-                if ( !v30 )
+                if ( !v31 )
                   break;
-                v30 ^= v28;
+                v31 ^= v29;
               }
-              if ( !v30 )
+              if ( !v31 )
                 break;
             }
             else
             {
-              v30 = *(_QWORD *)(v28 + 8);
-              if ( (_DWORD)v29 )
+              v31 = *(_QWORD *)(v29 + 8);
+              if ( v30 )
               {
-                if ( !v30 )
-                  goto LABEL_51;
-                v30 ^= v28;
+                if ( !v31 )
+                  goto LABEL_50;
+                v31 ^= v29;
               }
-              if ( !v30 )
+              if ( !v31 )
               {
-LABEL_51:
+LABEL_50:
                 v5 = 1;
                 break;
               }
             }
-            v28 = v30;
+            v29 = v31;
           }
         }
-        LOBYTE(v29) = v5;
-        return RtlRbInsertNodeEx(v27, v28, v29, v20 + 3);
+        LOBYTE(v9) = RtlRbInsertNodeEx(v27, (PRTL_BALANCED_NODE)v29, v5, (PRTL_BALANCED_NODE)v20 + 1);
+        return v9;
       }
       if ( v17 <= v18 )
       {
         *(_DWORD *)(a4 + 48) = v14;
         *(_DWORD *)(a4 + 52) = v18;
-        v31 = *(_DWORD *)(a1 + 140);
-        if ( v31 <= v17 )
-          v31 = v17;
+        v32 = *(_DWORD *)(a1 + 140);
+        if ( v32 <= v17 )
+          v32 = v17;
       }
       else
       {
         *(_DWORD *)(a4 + 52) = v17;
-        v31 = *(_DWORD *)(a1 + 140);
-        if ( v31 <= v18 )
-          v31 = v18;
+        v32 = *(_DWORD *)(a1 + 140);
+        if ( v32 <= v18 )
+          v32 = v18;
       }
-      *(_DWORD *)(a1 + 140) = v31;
-      v32 = a4;
+      *(_DWORD *)(a1 + 140) = v32;
+      v33 = a4;
     }
-    return MiBitmapsCachedEntryLengthChanged(a1, v32, 0LL);
+    LOBYTE(v9) = MiBitmapsCachedEntryLengthChanged(a1, v33, 0LL);
+    return v9;
   }
-  v8 = (__int64 *)(a1 + 160);
-  result = v8[1];
-  v10 = *v8;
-  if ( (result & 1) != 0 )
+  v8 = a1 + 160;
+  v9 = *(_QWORD *)(v8 + 8);
+  v10 = *(_QWORD *)v8;
+  if ( (v9 & 1) != 0 )
   {
     if ( v10 )
-      v10 ^= (unsigned __int64)v8;
+      v10 ^= v8;
     else
       v10 = 0LL;
   }
-  v11 = result & 1;
+  v11 = v9 & 1;
   while ( v10 )
   {
     v12 = *(_DWORD *)(v10 + 24);
     if ( a2 + a3 <= v12 )
     {
-      result = *(_QWORD *)v10;
+      v9 = *(_QWORD *)v10;
     }
     else
     {
@@ -230,12 +232,12 @@ LABEL_51:
         a4 = v10 - 24;
         goto LABEL_18;
       }
-      result = *(_QWORD *)(v10 + 8);
+      v9 = *(_QWORD *)(v10 + 8);
     }
-    if ( v11 && result )
-      v10 ^= result;
+    if ( v11 && v9 )
+      v10 ^= v9;
     else
-      v10 = result;
+      v10 = v9;
   }
-  return result;
+  return v9;
 }

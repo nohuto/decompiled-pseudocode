@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierFsRtlPrivateLock @ 0x140ACE950
+ * XREFs of VerifierFsRtlPrivateLock @ 0x140ACE940
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierFsRtlPrivateLock(

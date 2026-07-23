@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitializeProcessorState @ 0x1407BB330
+ * XREFs of KiInitializeProcessorState @ 0x1407BE390
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KiAssignProcessorNumberToPrcb @ 0x1405EF448 (KiAssignProcessorNumberToPrcb.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KiEnableKvaShadowing @ 0x140BF8180 (KiEnableKvaShadowing.c)
+ *     KiAssignProcessorNumberToPrcb @ 0x1405F1DB8 (KiAssignProcessorNumberToPrcb.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KiEnableKvaShadowing @ 0x140BFE180 (KiEnableKvaShadowing.c)
  */
 
 __int64 __fastcall KiInitializeProcessorState(unsigned __int64 *a1, _QWORD *a2, __int64 a3)
@@ -103,7 +103,7 @@ __int64 __fastcall KiInitializeProcessorState(unsigned __int64 *a1, _QWORD *a2, 
   v24 = *(_QWORD *)(a3 + 48);
   a2[16] = *(_QWORD *)(a3 + 64);
   a2[19] = v24;
-  a2[18] = &unk_140FC8F40;
+  a2[18] = &unk_140FC9F40;
   a2[17] = v7 + 384;
   if ( (_BYTE)KiKernelCetEnabled )
   {

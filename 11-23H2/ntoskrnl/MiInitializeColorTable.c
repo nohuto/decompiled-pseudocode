@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeColorTable @ 0x140397CFC
+ * XREFs of MiInitializeColorTable @ 0x140397EDC
  * Callers:
- *     MiInitializeLargePageNodeLists @ 0x140837928 (MiInitializeLargePageNodeLists.c)
- *     MiCreateZeroThreadContext @ 0x140837A38 (MiCreateZeroThreadContext.c)
+ *     MiInitializeLargePageNodeLists @ 0x140837C28 (MiInitializeLargePageNodeLists.c)
+ *     MiCreateZeroThreadContext @ 0x140837D38 (MiCreateZeroThreadContext.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 __fastcall MiInitializeColorTable(_DWORD *a1, int a2)

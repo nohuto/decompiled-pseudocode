@@ -33,6 +33,6 @@ int __thiscall RtlpHeapTrkFindStack(void *this)
   v7 = i[4];
   i[3] = 0;
 LABEL_8:
-  RtlReleaseSRWLockExclusive(*(volatile signed __int32 **)(dword_4B3A6D84 + 4 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(dword_4B3A6D84 + 4 * v3));
   return v7;
 }

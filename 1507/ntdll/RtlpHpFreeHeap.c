@@ -15,7 +15,7 @@
  *     RtlpLogHeapFreeEvent @ 0x1800EF964 (RtlpLogHeapFreeEvent.c)
  */
 
-_BOOL8 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3)
+_BOOL8 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3)
 {
   int v3; // eax
   __int64 v5; // rcx
@@ -27,14 +27,14 @@ _BOOL8 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3)
   int v13; // r8d
   int v14; // eax
 
-  v3 = a1[5] & 0x11000001;
-  v5 = (unsigned int)a1[10];
+  v3 = *(_DWORD *)(a1 + 20) & 0x11000001;
+  v5 = *(unsigned int *)(a1 + 40);
   v6 = v3 | a3;
   if ( (_DWORD)v5 && (_DWORD)v5 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
     v6 |= 1u;
   if ( (v6 & 0x1000000) == 0 )
   {
-    if ( a1[8] )
+    if ( *(_DWORD *)(a1 + 32) )
     {
       v11 = RtlpHpExtrasGet(a1, a2, v6);
       v12 = v11;
@@ -56,15 +56,15 @@ _BOOL8 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3)
           {
             v13 = a2;
           }
-          if ( (int)RtlpCallInterceptRoutine(*(_BYTE *)(v12 + 2) & 0xF, (_DWORD)a1, v13, 3, v12 + 16) < 0 )
+          if ( (int)RtlpCallInterceptRoutine(*(_BYTE *)(v12 + 2) & 0xF, a1, v13, 3, v12 + 16) < 0 )
             return 0;
         }
       }
     }
   }
-  if ( (a1[5] & 0x10000000) != 0 && RtlpHpSizeHeap((__int64)a1, a2, v6) == -1 )
+  if ( (*(_DWORD *)(a1 + 20) & 0x10000000) != 0 && RtlpHpSizeHeap(a1, a2, v6) == -1 )
   {
-    RtlpLogHeapFailure(9, (_DWORD)a1, a2, 0, 0LL, 0LL);
+    RtlpLogHeapFailure(9, a1, a2, 0, 0LL, 0LL);
     return 0;
   }
   if ( (_WORD)a2 )
@@ -79,7 +79,7 @@ _BOOL8 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3)
   }
   else
   {
-    return (BOOL)RtlpHpSegFree((__int64)a1, (char *)a2, v6);
+    return (BOOL)RtlpHpSegFree((_RTL_SRWLOCK *)a1, a2, v6);
   }
   return v9;
 }

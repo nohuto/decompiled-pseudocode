@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPowerDumpIrpStack @ 0x140940C40
+ * XREFs of VfPowerDumpIrpStack @ 0x140941C40
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
+ *     VfUtilDbgPrint @ 0x140309C3C (VfUtilDbgPrint.c)
  */
 
 char __fastcall VfPowerDumpIrpStack(__int64 a1)

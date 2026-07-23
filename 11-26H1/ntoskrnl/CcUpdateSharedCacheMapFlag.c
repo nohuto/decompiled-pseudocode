@@ -1,15 +1,15 @@
 /*
- * XREFs of CcUpdateSharedCacheMapFlag @ 0x1404B3B68
+ * XREFs of CcUpdateSharedCacheMapFlag @ 0x1404AD134
  * Callers:
- *     CcApplyLowIoPriorityToThread @ 0x140385788 (CcApplyLowIoPriorityToThread.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404F13AC (CcBoostLowPriorityWorkerThread.c)
- *     CcMapAndCopyFromCache @ 0x140A64900 (CcMapAndCopyFromCache.c)
- *     CcMdlRead @ 0x140AED790 (CcMdlRead.c)
- *     CcUnmapVacb @ 0x140AFAAD0 (CcUnmapVacb.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140387538 (CcApplyLowIoPriorityToThread.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404EA98C (CcBoostLowPriorityWorkerThread.c)
+ *     CcMapAndCopyFromCache @ 0x140A718D0 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x140AF04E0 (CcMdlRead.c)
+ *     CcUnmapVacb @ 0x140AFCD38 (CcUnmapVacb.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 void __fastcall CcUpdateSharedCacheMapFlag(__int64 a1, int a2, char a3)

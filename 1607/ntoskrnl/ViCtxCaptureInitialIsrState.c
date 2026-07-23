@@ -4,7 +4,7 @@
  *     ViCtxIsr @ 0x140719FC4 (ViCtxIsr.c)
  *     ViCtxIsrMessageBased @ 0x14071A010 (ViCtxIsrMessageBased.c)
  * Callees:
- *     RtlXSave @ 0x14008308C (RtlXSave.c)
+ *     RtlXSave @ 0x140083D0C (RtlXSave.c)
  */
 
 char *__fastcall ViCtxCaptureInitialIsrState(__int64 a1)

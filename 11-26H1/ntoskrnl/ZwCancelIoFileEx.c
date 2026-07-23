@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwCancelIoFileEx @ 0x140724670
+ * XREFs of ZwCancelIoFileEx @ 0x140729240
  * Callers:
- *     DifZwCancelIoFileExWrapper @ 0x14069C660 (DifZwCancelIoFileExWrapper.c)
+ *     DifZwCancelIoFileExWrapper @ 0x1406A0240 (DifZwCancelIoFileExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCancelIoFileEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCancelIoFileEx(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoRequestToCancel,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

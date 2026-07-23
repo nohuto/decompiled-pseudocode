@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlushTbListEarly @ 0x1400854DC
+ * XREFs of MiFlushTbListEarly @ 0x1400854CC
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiReplenishBitMap @ 0x1400EFDF0 (MiReplenishBitMap.c)
- *     MiResetAccessBitPteWorker @ 0x1402B3780 (MiResetAccessBitPteWorker.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
+ *     MiReplenishBitMap @ 0x1400EFE70 (MiReplenishBitMap.c)
+ *     MiResetAccessBitPteWorker @ 0x1402B3970 (MiResetAccessBitPteWorker.c)
  * Callees:
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
  */
 
 __int64 __fastcall MiFlushTbListEarly(__int64 a1, _KPROCESS *Process)
@@ -13,7 +13,7 @@ __int64 __fastcall MiFlushTbListEarly(__int64 a1, _KPROCESS *Process)
   unsigned __int64 v2; // r9
   char v3; // r10
 
-  v2 = qword_14043A110;
+  v2 = qword_14043B1D0;
   v3 = (char)Process;
   if ( (*(_BYTE *)(a1 + 4) & 2) == 0 && *(_DWORD *)a1 == 1 )
   {

@@ -1,45 +1,51 @@
 /*
- * XREFs of NtRaiseException @ 0x1403FEA60
+ * XREFs of NtRaiseException @ 0x1403FEC40
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateStibpPairing @ 0x14021F5B0 (KiUpdateStibpPairing.c)
- *     KiRestoreDebugRegisterState @ 0x1403FE3C0 (KiRestoreDebugRegisterState.c)
- *     NtRaiseException @ 0x1403FEA60 (NtRaiseException.c)
- *     KiRestoreSetContextState @ 0x1403FF120 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x140403520 (KiInitiateUserApc.c)
- *     KiUmsExit @ 0x140413A00 (KiUmsExit.c)
- *     KiCopyCounters @ 0x14051BE60 (KiCopyCounters.c)
- *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
+ *     KiUpdateStibpPairing @ 0x1402C3EB0 (KiUpdateStibpPairing.c)
+ *     KiRestoreDebugRegisterState @ 0x1403FE5A0 (KiRestoreDebugRegisterState.c)
+ *     NtRaiseException @ 0x1403FEC40 (NtRaiseException.c)
+ *     KiRestoreSetContextState @ 0x1403FF300 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x140403700 (KiInitiateUserApc.c)
+ *     KiUmsExit @ 0x140413B00 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x14051C0A0 (KiCopyCounters.c)
+ *     KiRaiseException @ 0x1405220D0 (KiRaiseException.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5)
+NTSTATUS __cdecl NtRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, BOOLEAN FirstChance)
 {
-  __int64 v5; // rbp
-  __int64 result; // rax
+  __int64 v3; // rbp
+  NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rbx
-  struct _KTHREAD *v8; // rcx
-  __int64 v9; // r9
-  __int64 v10; // r8
+  struct _KTHREAD *v6; // rcx
+  __int64 v7; // r9
+  __int64 v8; // r8
   unsigned __int16 BpbUserSpecCtrl; // ax
-  unsigned __int8 v12; // cf
-  _QWORD v15[87]; // [rsp-298h] [rbp-3D0h] BYREF
+  unsigned __int8 v10; // cf
+  _QWORD v13[87]; // [rsp-298h] [rbp-3D0h] BYREF
+  char v15; // [rsp+160h] [rbp+28h]
 
-  *(_QWORD *)(v5 + 80) = *(_QWORD *)(v5 + 232);
-  result = KiRaiseException(a1, a2, (unsigned int)v15, (int)v5 - 128, a3);
-  if ( !(_DWORD)result )
+  *(_QWORD *)(v3 + 80) = *(_QWORD *)(v3 + 232);
+  result = KiRaiseException(
+             (_DWORD)ExceptionRecord,
+             (_DWORD)ContextRecord,
+             (unsigned int)v13,
+             (int)v3 - 128,
+             FirstChance);
+  if ( !result )
   {
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v3 + 240) & 1) == 0 )
     {
       CurrentThread = KeGetCurrentThread();
-      CurrentThread->TrapFrame = *(_KTRAP_FRAME **)(v5 + 184);
-      CurrentThread->PreviousMode = *(_BYTE *)(v5 - 88);
+      CurrentThread->TrapFrame = *(_KTRAP_FRAME **)(v3 + 184);
+      CurrentThread->PreviousMode = *(_BYTE *)(v3 - 88);
     }
     _disable();
-    if ( (*(_BYTE *)(v5 + 240) & 1) == 0 )
+    if ( (*(_BYTE *)(v3 + 240) & 1) == 0 )
     {
-      _mm_setcsr(*(_DWORD *)(v5 - 84));
+      _mm_setcsr(*(_DWORD *)(v3 - 84));
       __asm { iretq }
     }
     if ( (_BYTE)KeSmapEnabled )
@@ -56,25 +62,25 @@ __int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5
       ((void (__fastcall *)(_QWORD))KiUpdateStibpPairing)(0LL);
     if ( (KeGetCurrentThread()->Header.LockNV & 0x8000000) != 0 )
       ((void (*)(void))KiRestoreSetContextState)();
-    v8 = KeGetCurrentThread();
-    if ( (v8->Header.LockNV & 0x40010000) != 0 )
+    v6 = KeGetCurrentThread();
+    if ( (v6->Header.LockNV & 0x40010000) != 0 )
     {
-      if ( (v8->Header.Size & 1) != 0 )
+      if ( (v6->Header.Size & 1) != 0 )
       {
         KiCopyCounters();
-        v8 = KeGetCurrentThread();
+        v6 = KeGetCurrentThread();
       }
-      if ( (v8->Header.Reserved1 & 0x40) != 0 )
+      if ( (v6->Header.Reserved1 & 0x40) != 0 )
       {
-        LOBYTE(v8) = 1;
-        ((void (__fastcall *)(struct _KTHREAD *))KiUmsExit)(v8);
+        LOBYTE(v6) = 1;
+        ((void (__fastcall *)(struct _KTHREAD *))KiUmsExit)(v6);
       }
     }
-    _mm_setcsr(*(_DWORD *)(v5 - 84));
-    if ( *(_WORD *)(v5 + 128) )
+    _mm_setcsr(*(_DWORD *)(v3 - 84));
+    if ( *(_WORD *)(v3 + 128) )
       KiRestoreDebugRegisterState();
-    v9 = *(_QWORD *)(v5 - 48);
-    v10 = *(_QWORD *)(v5 - 56);
+    v7 = *(_QWORD *)(v3 - 48);
+    v8 = *(_QWORD *)(v3 - 56);
     __writegsbyte(0x856u, 0);
     BpbUserSpecCtrl = KeGetPcr()->Prcb.BpbUserSpecCtrl;
     if ( KeGetPcr()->Prcb.BpbCurrentSpecCtrl != BpbUserSpecCtrl )
@@ -82,44 +88,44 @@ __int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5
       __writegsword(0x864u, BpbUserSpecCtrl);
       __writemsr(0x48u, BpbUserSpecCtrl);
     }
-    v12 = _bittestandreset16(MK_FP(__GS__, 2144LL), 2u);
-    if ( v12 )
+    v10 = _bittestandreset16(MK_FP(__GS__, 2144LL), 2u);
+    if ( v10 )
       __writemsr(0x49u, 1uLL);
-    v12 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
-    if ( v12 )
+    v10 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
+    if ( v10 )
     {
-      v15[21] = 0x1403FECA4LL;
-      v15[52] = 0x1403FEDBBLL;
-      v15[51] = 0x1403FEDB2LL;
-      v15[50] = 0x1403FEDA9LL;
-      v15[49] = 0x1403FEDA0LL;
-      v15[48] = 0x1403FED97LL;
-      v15[47] = 0x1403FED8ELL;
-      v15[46] = 0x1403FED85LL;
-      v15[45] = 0x1403FED7CLL;
-      v15[44] = 0x1403FED73LL;
-      v15[43] = 0x1403FED6ALL;
-      v15[42] = 0x1403FED61LL;
-      v15[41] = 0x1403FED58LL;
-      v15[40] = 0x1403FED4FLL;
-      v15[39] = 0x1403FED46LL;
-      v15[38] = 0x1403FED3DLL;
-      v15[37] = 0x1403FED34LL;
-      v15[36] = 0x1403FED2BLL;
-      v15[35] = 0x1403FED22LL;
-      v15[34] = 0x1403FED19LL;
-      v15[33] = 0x1403FED10LL;
-      v15[32] = 0x1403FED07LL;
-      v15[31] = 0x1403FECFELL;
-      v15[30] = 0x1403FECF5LL;
-      v15[29] = 0x1403FECECLL;
-      v15[28] = 0x1403FECE3LL;
-      v15[27] = 0x1403FECDALL;
-      v15[26] = 0x1403FECD1LL;
-      v15[25] = 0x1403FECC8LL;
-      v15[24] = 0x1403FECBFLL;
-      v15[23] = 0x1403FECB6LL;
-      v15[22] = 0x1403FECADLL;
+      v13[21] = 0x1403FEE84LL;
+      v13[52] = 0x1403FEF9BLL;
+      v13[51] = 0x1403FEF92LL;
+      v13[50] = 0x1403FEF89LL;
+      v13[49] = 0x1403FEF80LL;
+      v13[48] = 0x1403FEF77LL;
+      v13[47] = 0x1403FEF6ELL;
+      v13[46] = 0x1403FEF65LL;
+      v13[45] = 0x1403FEF5CLL;
+      v13[44] = 0x1403FEF53LL;
+      v13[43] = 0x1403FEF4ALL;
+      v13[42] = 0x1403FEF41LL;
+      v13[41] = 0x1403FEF38LL;
+      v13[40] = 0x1403FEF2FLL;
+      v13[39] = 0x1403FEF26LL;
+      v13[38] = 0x1403FEF1DLL;
+      v13[37] = 0x1403FEF14LL;
+      v13[36] = 0x1403FEF0BLL;
+      v13[35] = 0x1403FEF02LL;
+      v13[34] = 0x1403FEEF9LL;
+      v13[33] = 0x1403FEEF0LL;
+      v13[32] = 0x1403FEEE7LL;
+      v13[31] = 0x1403FEEDELL;
+      v13[30] = 0x1403FEED5LL;
+      v13[29] = 0x1403FEECCLL;
+      v13[28] = 0x1403FEEC3LL;
+      v13[27] = 0x1403FEEBALL;
+      v13[26] = 0x1403FEEB1LL;
+      v13[25] = 0x1403FEEA8LL;
+      v13[24] = 0x1403FEE9FLL;
+      v13[23] = 0x1403FEE96LL;
+      v13[22] = 0x1403FEE8DLL;
     }
     if ( (KiKvaShadow & 1) == 0 )
     {
@@ -131,7 +137,7 @@ __int64 __fastcall NtRaiseException(int a1, int a2, char a3, __int64 a4, char a5
         iretq
       }
     }
-    return KiKernelExit(*(_QWORD *)(v5 - 72), *(_QWORD *)(v5 - 64), v10, v9, a5);
+    return KiKernelExit(*(_QWORD *)(v3 - 72), *(_QWORD *)(v3 - 64), v8, v7, v15);
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiConfigureHeteroProcessorsTarget @ 0x14028D200
+ * XREFs of KiConfigureHeteroProcessorsTarget @ 0x14028D3F0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KiConfigureHeteroProcessorsTarget(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -69,9 +69,9 @@ __int64 __fastcall KiConfigureHeteroProcessorsTarget(__int64 a1, __int64 a2, __i
         *(_BYTE *)(v12 + 24224) = *(v10 - 2);
         v14 = *(_QWORD *)(v12 + 200);
         if ( *v10 )
-          qword_1405429D8[a2] &= ~v14;
+          qword_1405439D8[a2] &= ~v14;
         else
-          qword_1405429D8[a2] |= v14;
+          qword_1405439D8[a2] |= v14;
         v10 += 3;
         ++v9;
         --v11;

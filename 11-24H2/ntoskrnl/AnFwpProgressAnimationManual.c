@@ -1,11 +1,11 @@
 /*
- * XREFs of AnFwpProgressAnimationManual @ 0x140BB227C
+ * XREFs of AnFwpProgressAnimationManual @ 0x140BB427C
  * Callers:
- *     AnFwDisplayProgressIndicator @ 0x140BB1FD0 (AnFwDisplayProgressIndicator.c)
+ *     AnFwDisplayProgressIndicator @ 0x140BB3FD0 (AnFwDisplayProgressIndicator.c)
  * Callees:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpFwQueryPerformanceCounter @ 0x1404B67D4 (BgpFwQueryPerformanceCounter.c)
- *     LogFwStat @ 0x140BB4790 (LogFwStat.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404B0FB4 (BgpFwQueryPerformanceCounter.c)
+ *     LogFwStat @ 0x140BB6790 (LogFwStat.c)
  */
 
 LONGLONG AnFwpProgressAnimationManual()
@@ -25,41 +25,41 @@ LONGLONG AnFwpProgressAnimationManual()
   v0 = BgpFwQueryPerformanceCounter(&v9);
   v1 = v9.QuadPart / 33;
   v2 = 10 * (v9.QuadPart / 33) / 100;
-  result = qword_140EEFAD0;
-  if ( v0.QuadPart + v2 >= qword_140EEFAD0 + v9.QuadPart / 33 )
+  result = qword_140EEFD18;
+  if ( v0.QuadPart + v2 >= qword_140EEFD18 + v9.QuadPart / 33 )
   {
-    v4 = word_140E0EE24;
-    v5 = word_140E0EEC8;
-    if ( word_140E0EE24 != word_140E0EEC8 && (qword_140EEFAD0 - v0.QuadPart - v2) / v1 >= 2 )
-      v4 = ++word_140E0EE24;
-    v6 = word_140E0EE1C;
-    if ( v4 >= (unsigned __int16)word_140E0EE1C )
+    v4 = word_140E0EEEC;
+    v5 = word_140E0EF88;
+    if ( word_140E0EEEC != word_140E0EF88 && (qword_140EEFD18 - v0.QuadPart - v2) / v1 >= 2 )
+      v4 = ++word_140E0EEEC;
+    v6 = word_140E0EF8C;
+    if ( v4 >= (unsigned __int16)word_140E0EF8C )
     {
-      if ( v4 > (unsigned __int16)word_140E0EEC8 )
+      if ( v4 > (unsigned __int16)word_140E0EF88 )
         goto LABEL_10;
       LogFwStat(1LL, 1LL);
-      BgpTxtDisplayCharacter(qword_140EF0110, (unsigned __int16)word_140E0EE24, 0, 0LL, 0LL);
+      BgpTxtDisplayCharacter(qword_140EF0330, (unsigned __int16)word_140E0EEEC, 0, 0LL, 0LL);
       LogFwStat(0LL, 1LL);
-      v4 = word_140E0EE24;
-      v5 = word_140E0EEC8;
-      v6 = word_140E0EE1C;
+      v4 = word_140E0EEEC;
+      v5 = word_140E0EF88;
+      v6 = word_140E0EF8C;
     }
     if ( v4 == v5 )
     {
-      v7 = v6 - word_140E0EE20;
+      v7 = v6 - word_140E0EF90;
       goto LABEL_11;
     }
 LABEL_10:
     v7 = v4 + 1;
 LABEL_11:
-    word_140E0EE24 = v7;
-    qword_140EEFAD0 = v0.QuadPart;
+    word_140E0EEEC = v7;
+    qword_140EEFD18 = v0.QuadPart;
     v8 = v1 / 2;
     result = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - v0.QuadPart;
     if ( result > v8 )
     {
       result = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - v8;
-      qword_140EEFAD0 = result;
+      qword_140EEFD18 = result;
     }
   }
   return result;

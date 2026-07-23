@@ -8,7 +8,7 @@
  *     KdpRemoveBreakpoint @ 0x1406F635C (KdpRemoveBreakpoint.c)
  *     KdpSetOwedBreakpoints @ 0x1406F640C (KdpSetOwedBreakpoints.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x1406F2F08 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1406F2BA0 (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpCopyCodeStream(char *a1, __int64 a2, unsigned int a3, int a4)

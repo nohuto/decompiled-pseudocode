@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmCheckCustomRun @ 0x14032B63C
+ * XREFs of PpmCheckCustomRun @ 0x14032B8CC
  * Callers:
  *     PpmPerfLatencySensitivityHintWorker @ 0x140201E80 (PpmPerfLatencySensitivityHintWorker.c)
- *     PoLatencySensitivityHint @ 0x14036D860 (PoLatencySensitivityHint.c)
- *     PpmCheckDelayedPeriodicStart @ 0x140373B40 (PpmCheckDelayedPeriodicStart.c)
- *     PopIntSteerSetMode @ 0x140391850 (PopIntSteerSetMode.c)
- *     PpmCheckApplyParkConstraints @ 0x14039305C (PpmCheckApplyParkConstraints.c)
- *     PpmCheckApplyResetNotification @ 0x14046315E (PpmCheckApplyResetNotification.c)
- *     PpmParkSetLpiCap @ 0x14059D28C (PpmParkSetLpiCap.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6350 (PpmPerfUpdateDomainPolicy.c)
- *     PpmPerfReApplyStates @ 0x1409869D4 (PpmPerfReApplyStates.c)
- *     PpmCheckApplyPerfConstraints @ 0x140992E08 (PpmCheckApplyPerfConstraints.c)
+ *     PoLatencySensitivityHint @ 0x14036DA00 (PoLatencySensitivityHint.c)
+ *     PpmCheckDelayedPeriodicStart @ 0x140373CE0 (PpmCheckDelayedPeriodicStart.c)
+ *     PopIntSteerSetMode @ 0x140391A30 (PopIntSteerSetMode.c)
+ *     PpmCheckApplyParkConstraints @ 0x14039323C (PpmCheckApplyParkConstraints.c)
+ *     PpmCheckApplyResetNotification @ 0x14046355E (PpmCheckApplyResetNotification.c)
+ *     PpmParkSetLpiCap @ 0x14059D77C (PpmParkSetLpiCap.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x1407A6540 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfReApplyStates @ 0x140986BD4 (PpmPerfReApplyStates.c)
+ *     PpmCheckApplyPerfConstraints @ 0x140993008 (PpmCheckApplyPerfConstraints.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KiEndThreadCycleAccumulation @ 0x1402B2C90 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D40 (KiStartThreadCycleAccumulation.c)
- *     PpmCheckStart @ 0x14032C0C4 (PpmCheckStart.c)
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402B2F20 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402B2FD0 (KiStartThreadCycleAccumulation.c)
+ *     PpmCheckStart @ 0x14032C354 (PpmCheckStart.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PpmCheckCustomRun(unsigned int a1)
@@ -46,7 +46,7 @@ void __fastcall PpmCheckCustomRun(unsigned int a1)
   PpmPerfPolicyLock = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v16) = 4;
@@ -95,10 +95,10 @@ void __fastcall PpmCheckCustomRun(unsigned int a1)
       KiRemoveSystemWorkPriorityKick(v9);
   }
   _enable();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

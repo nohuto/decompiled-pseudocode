@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInitializePriQueue @ 0x140147C34
+ * XREFs of KeInitializePriQueue @ 0x1401481A4
  * Callers:
- *     ExAllocatePrivateWorkerPool @ 0x140575508 (ExAllocatePrivateWorkerPool.c)
- *     ExpAllocatePoolForNode @ 0x1406B5F40 (ExpAllocatePoolForNode.c)
+ *     ExAllocatePrivateWorkerPool @ 0x140575A48 (ExAllocatePrivateWorkerPool.c)
+ *     ExpAllocatePoolForNode @ 0x1406B6078 (ExpAllocatePoolForNode.c)
  *     ExpWorkerInitialization @ 0x1407B4A64 (ExpWorkerInitialization.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
  */
 
 int __fastcall KeInitializePriQueue(__int64 a1, int a2)

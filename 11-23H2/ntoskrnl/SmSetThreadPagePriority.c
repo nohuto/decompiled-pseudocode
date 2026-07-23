@@ -1,11 +1,11 @@
 /*
- * XREFs of SmSetThreadPagePriority @ 0x140368D00
+ * XREFs of SmSetThreadPagePriority @ 0x140368EA0
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368A50 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     SmKmStoreHelperCommandProcess @ 0x1405CB808 (SmKmStoreHelperCommandProcess.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368BF0 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1405CBD78 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     PsSetPagePriorityThread @ 0x1402C1748 (PsSetPagePriorityThread.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x1402C19D8 (PsSetPagePriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x1402E17B0 (PsGetPagePriorityThread.c)
  */
 
 __int64 __fastcall SmSetThreadPagePriority(struct _KTHREAD **a1)

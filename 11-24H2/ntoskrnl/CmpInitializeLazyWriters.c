@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpInitializeLazyWriters @ 0x1407DF164
+ * XREFs of CmpInitializeLazyWriters @ 0x1407DF6B4
  * Callers:
- *     CmpCmdInit @ 0x1407D5788 (CmpCmdInit.c)
+ *     CmpCmdInit @ 0x1407D5C78 (CmpCmdInit.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpCreateRegistryThread @ 0x1407D819C (CmpCreateRegistryThread.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpCreateRegistryThread @ 0x1407D86F0 (CmpCreateRegistryThread.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS CmpInitializeLazyWriters()

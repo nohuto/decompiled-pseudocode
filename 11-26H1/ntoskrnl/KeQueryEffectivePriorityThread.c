@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryEffectivePriorityThread @ 0x14045A8B0
+ * XREFs of KeQueryEffectivePriorityThread @ 0x140452130
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F9024 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F2634 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeQueryEffectivePriorityThread(__int64 a1, __int64 a2)

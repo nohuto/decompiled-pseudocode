@@ -1,13 +1,13 @@
 /*
  * XREFs of IopGetBootDiskInformationLite @ 0x1407A7560
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x1405541F8 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x140554738 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     IopAddBootDiskInformation @ 0x14013CB38 (IopAddBootDiskInformation.c)
- *     IopCheckDiskName @ 0x14013CBAC (IopCheckDiskName.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     IopAddBootDiskInformation @ 0x14013D0A8 (IopAddBootDiskInformation.c)
+ *     IopCheckDiskName @ 0x14013D11C (IopCheckDiskName.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     VhdiGetDiskParameters @ 0x1407D2808 (VhdiGetDiskParameters.c)
  */
@@ -32,9 +32,9 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
   ULONG v18; // [rsp+24h] [rbp-B5h]
   __int128 v19; // [rsp+28h] [rbp-B1h]
   int v20; // [rsp+38h] [rbp-A1h]
-  STRING v21; // [rsp+40h] [rbp-99h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-89h] BYREF
-  STRING v23; // [rsp+60h] [rbp-79h] BYREF
+  _STRING v21; // [rsp+40h] [rbp-99h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-89h] BYREF
+  _STRING v23; // [rsp+60h] [rbp-79h] BYREF
   _DWORD v24[48]; // [rsp+70h] [rbp-69h] BYREF
   ULONG v25; // [rsp+148h] [rbp+6Fh] BYREF
   __int128 *v26; // [rsp+150h] [rbp+77h] BYREF

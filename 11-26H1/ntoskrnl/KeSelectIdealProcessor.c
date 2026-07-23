@@ -3,8 +3,8 @@
  * Callers:
  *     ?KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFINITY_EX@@2PEAE3PEAK@Z @ 0x140200F50 (-KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFI.c)
  *     KeSelectInitialIdealProcessorForThread @ 0x140201100 (KeSelectInitialIdealProcessorForThread.c)
- *     ExpWorkQueueManagerInitialize @ 0x1408402B8 (ExpWorkQueueManagerInitialize.c)
- *     ExpNodeCreateSystemThread @ 0x140A03568 (ExpNodeCreateSystemThread.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1408464F8 (ExpWorkQueueManagerInitialize.c)
+ *     ExpNodeCreateSystemThread @ 0x140A78BB8 (ExpNodeCreateSystemThread.c)
  * Callees:
  *     <none>
  */
@@ -80,7 +80,8 @@ __int64 __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, __int64 a3, uns
     return 0LL;
   if ( (unsigned __int16)v19 >= (unsigned __int16)KiActiveGroups || (unsigned __int8)v18 >= 0x40u )
     return 0xFFFFFFFFLL;
-  v20 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * v19 + (unsigned __int8)v18);
+  v20 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v19].Flink
+        + (unsigned __int8)v18);
   if ( !v20 )
     LOWORD(v20) = -1;
   return (unsigned __int16)v20;

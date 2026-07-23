@@ -1,50 +1,52 @@
 /*
- * XREFs of DbgkLkmdRegisterCallback @ 0x140707E70
+ * XREFs of DbgkLkmdRegisterCallback @ 0x140705A30
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     ExAllocateCallBack @ 0x140A89920 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     ExAllocateCallBack @ 0x140A85D20 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  int v4; // ebp
   unsigned int i; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
-  struct _EX_RUNDOWN_REF *v9; // rax
-  struct _EX_RUNDOWN_REF *v10; // rdi
+  _RTL_RUN_ONCE *v9; // rdi
+  struct _EX_RUNDOWN_REF *v10; // rax
+  struct _EX_RUNDOWN_REF *v11; // rdi
   unsigned int j; // ebx
 
+  v4 = a3;
   if ( (a3 & 3) == 3 )
     return 3221225485LL;
   for ( i = 0; i < 8; ++i )
   {
-    v8 = &stru_140E3EBE0 + 2 * i;
-    v9 = ExReferenceCallBackBlock((signed __int64 *)v8);
-    if ( v9 )
+    v9 = &RunOnce + 2 * i;
+    v10 = ExReferenceCallBackBlock((signed __int64 *)v9, a2, a3, a4);
+    if ( v10 )
     {
-      if ( a1 == v9[1].Count )
+      if ( a1 == v10[1].Count )
       {
-        ExDereferenceCallBackBlock((signed __int64 *)v8, v9);
+        ExDereferenceCallBackBlock((signed __int64 *)v9, v10);
         return 3221227288LL;
       }
-      ExDereferenceCallBackBlock((signed __int64 *)v8, v9);
+      ExDereferenceCallBackBlock((signed __int64 *)v9, v10);
     }
   }
-  v10 = (struct _EX_RUNDOWN_REF *)ExAllocateCallBack(a1, a2);
-  if ( !v10 )
+  v11 = (struct _EX_RUNDOWN_REF *)ExAllocateCallBack(a1, a2);
+  if ( !v11 )
     return 3221225495LL;
   for ( j = 0; j < 8; ++j )
   {
-    if ( ExCompareExchangeCallBack((signed __int64 *)&stru_140E3EBE0 + 2 * j, v10, 0LL) )
+    if ( ExCompareExchangeCallBack((signed __int64 *)&RunOnce + 2 * j, v11, 0LL) )
     {
-      *((_DWORD *)&stru_140E3EBE0 + 4 * j + 2) = a3;
+      *((_DWORD *)&RunOnce + 4 * j + 2) = v4;
       return 0LL;
     }
   }
-  ExFreePoolWithTag(v10, 0);
+  ExFreePoolWithTag(v11, 0);
   return 3221226539LL;
 }

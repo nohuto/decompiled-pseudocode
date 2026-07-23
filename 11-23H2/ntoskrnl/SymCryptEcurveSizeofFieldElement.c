@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptEcurveSizeofFieldElement @ 0x1403F885C
+ * XREFs of SymCryptEcurveSizeofFieldElement @ 0x1403F8A3C
  * Callers:
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointGetValue @ 0x1403FF0D0 (SymCryptEcpointGetValue.c)
- *     SymCryptEcpointSetValue @ 0x1403FF260 (SymCryptEcpointSetValue.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointGetValue @ 0x1403FF2B0 (SymCryptEcpointGetValue.c)
+ *     SymCryptEcpointSetValue @ 0x1403FF440 (SymCryptEcpointSetValue.c)
  * Callees:
  *     <none>
  */

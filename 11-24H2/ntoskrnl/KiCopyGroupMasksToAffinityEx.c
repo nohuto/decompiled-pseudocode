@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCopyGroupMasksToAffinityEx @ 0x14040D9A0
+ * XREFs of KiCopyGroupMasksToAffinityEx @ 0x140405BF0
  * Callers:
- *     KiComputeCpuSetAffinity @ 0x14029B010 (KiComputeCpuSetAffinity.c)
+ *     KiComputeCpuSetAffinity @ 0x1402A9B00 (KiComputeCpuSetAffinity.c)
  * Callees:
  *     <none>
  */

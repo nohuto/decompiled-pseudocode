@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxAcpiDispatchNotification @ 0x14020E2E8
+ * XREFs of PopFxAcpiDispatchNotification @ 0x14020E114
  * Callers:
- *     PoFxPlatformRequestHandler @ 0x140147F5C (PoFxPlatformRequestHandler.c)
+ *     PoFxPlatformRequestHandler @ 0x1401484CC (PoFxPlatformRequestHandler.c)
  * Callees:
- *     PopFxAcpiForwardNotification @ 0x14020E3F0 (PopFxAcpiForwardNotification.c)
- *     PopFxAcpiPrepareDevice @ 0x14020E608 (PopFxAcpiPrepareDevice.c)
- *     PopFxAcpiRegisterDevice @ 0x14020E744 (PopFxAcpiRegisterDevice.c)
- *     PopFxAcpiUnregisterDevice @ 0x14020E838 (PopFxAcpiUnregisterDevice.c)
- *     PopFxAcpiValidateParameters @ 0x14020E8F4 (PopFxAcpiValidateParameters.c)
- *     PopPluginAcpiNotificationStrict @ 0x14020EB58 (PopPluginAcpiNotificationStrict.c)
+ *     PopFxAcpiForwardNotification @ 0x14020E21C (PopFxAcpiForwardNotification.c)
+ *     PopFxAcpiPrepareDevice @ 0x14020E434 (PopFxAcpiPrepareDevice.c)
+ *     PopFxAcpiRegisterDevice @ 0x14020E570 (PopFxAcpiRegisterDevice.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14020E664 (PopFxAcpiUnregisterDevice.c)
+ *     PopFxAcpiValidateParameters @ 0x14020E720 (PopFxAcpiValidateParameters.c)
+ *     PopPluginAcpiNotificationStrict @ 0x14020E984 (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiDispatchNotification(__int64 a1)

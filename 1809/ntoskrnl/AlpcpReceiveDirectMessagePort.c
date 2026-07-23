@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpReceiveDirectMessagePort @ 0x14069BA78
+ * XREFs of AlpcpReceiveDirectMessagePort @ 0x14069CC38
  * Callers:
- *     AlpcpReceiveMessage @ 0x1406322B0 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveMessage @ 0x1406332D0 (AlpcpReceiveMessage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x14069BC84 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpLogReceiveMessage @ 0x14084B960 (AlpcpLogReceiveMessage.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpLookupMessage @ 0x140637990 (AlpcpLookupMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x14069CE44 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x14084CBC0 (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveDirectMessagePort(__int64 *a1, int a2, int a3, ULONG_PTR *a4, int a5)

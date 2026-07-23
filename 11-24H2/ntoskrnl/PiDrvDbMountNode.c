@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDrvDbMountNode @ 0x140ABC164
+ * XREFs of PiDrvDbMountNode @ 0x140AB7184
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x1404F7A60 (PiDrvDbFindNode.c)
- *     PiDrvDbQueryHiveFileName @ 0x140737B8C (PiDrvDbQueryHiveFileName.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x1404F5340 (PiDrvDbFindNode.c)
+ *     PiDrvDbQueryHiveFileName @ 0x140735ABC (PiDrvDbQueryHiveFileName.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDrvDbMountNode(PCWSTR Source)
@@ -38,7 +38,7 @@ LABEL_3:
   }
   DestinationString.Length = 0;
   DestinationString.MaximumLength = Sourcea.Length + 38;
-  DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+  DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned __int16)(Sourcea.Length + 38), 0x67727453u);
   Buffer = DestinationString.Buffer;
   if ( DestinationString.Buffer )
   {

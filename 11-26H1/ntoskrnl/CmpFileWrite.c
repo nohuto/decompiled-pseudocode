@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFileWrite @ 0x140AE6AC0
+ * XREFs of CmpFileWrite @ 0x140AE4880
  * Callers:
- *     CmpSaveKeyByFileCopy @ 0x14084E260 (CmpSaveKeyByFileCopy.c)
+ *     CmpSaveKeyByFileCopy @ 0x140854570 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     CmpDoFileWrite @ 0x140AE6B08 (CmpDoFileWrite.c)
+ *     CmpDoFileWrite @ 0x140AE48C8 (CmpDoFileWrite.c)
  */
 
 __int64 __fastcall CmpFileWrite(__int64 a1, unsigned int a2, int a3, int a4, char a5)

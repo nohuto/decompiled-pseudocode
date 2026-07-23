@@ -1,20 +1,20 @@
 /*
- * XREFs of KiNormalPriorityReadyScan @ 0x1403BF1A4
+ * XREFs of KiNormalPriorityReadyScan @ 0x1403C90A4
  * Callers:
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
  * Callees:
- *     KiDeferredReadyThread @ 0x14022F370 (KiDeferredReadyThread.c)
- *     KiRemoveThreadFromReadyQueue @ 0x1402306B0 (KiRemoveThreadFromReadyQueue.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     KiScanSharedReadyThreads @ 0x1403BF4BC (KiScanSharedReadyThreads.c)
- *     KiShouldScanLocalReadyQueue @ 0x1403BF9A8 (KiShouldScanLocalReadyQueue.c)
- *     KiShouldScanSharedReadyQueue @ 0x1403BF9C8 (KiShouldScanSharedReadyQueue.c)
- *     KiSetPriorityBoost @ 0x1403BFA08 (KiSetPriorityBoost.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1403C0494 (KiReadGuestSchedulerAssistPriority.c)
- *     EtwTraceAntiStarvationBoost @ 0x14052F264 (EtwTraceAntiStarvationBoost.c)
+ *     KiDeferredReadyThread @ 0x140230D00 (KiDeferredReadyThread.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x140232008 (KiRemoveThreadFromReadyQueue.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     KiScanSharedReadyThreads @ 0x1403C93BC (KiScanSharedReadyThreads.c)
+ *     KiShouldScanLocalReadyQueue @ 0x1403C98A8 (KiShouldScanLocalReadyQueue.c)
+ *     KiShouldScanSharedReadyQueue @ 0x1403C98C8 (KiShouldScanSharedReadyQueue.c)
+ *     KiSetPriorityBoost @ 0x1403C9908 (KiSetPriorityBoost.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1403CA394 (KiReadGuestSchedulerAssistPriority.c)
+ *     EtwTraceAntiStarvationBoost @ 0x140531784 (EtwTraceAntiStarvationBoost.c)
  */
 
 __int64 __fastcall KiNormalPriorityReadyScan(struct _KPRCB *a1)

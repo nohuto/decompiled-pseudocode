@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRecordIoAttribution @ 0x140207994
+ * XREFs of IopRecordIoAttribution @ 0x140207A74
  * Callers:
- *     IoDiskIoAttributionQuery @ 0x1402074B4 (IoDiskIoAttributionQuery.c)
- *     IoRecordIoAttribution @ 0x1402077D0 (IoRecordIoAttribution.c)
+ *     IoDiskIoAttributionQuery @ 0x140207594 (IoDiskIoAttributionQuery.c)
+ *     IoRecordIoAttribution @ 0x1402078B0 (IoRecordIoAttribution.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall IopRecordIoAttribution(unsigned __int64 *a1, __int64 a2, char a3)
@@ -69,7 +69,7 @@ __int64 __fastcall IopRecordIoAttribution(unsigned __int64 *a1, __int64 a2, char
       v6 = 1;
     }
     LockHandle.OldIrql = CurrentIrql;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( !_InterlockedExchange64((volatile __int64 *)a1 + 5, (__int64)&LockHandle) )
       {

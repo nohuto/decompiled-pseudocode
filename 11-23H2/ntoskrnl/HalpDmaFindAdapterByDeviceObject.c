@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaFindAdapterByDeviceObject @ 0x140390B38
+ * XREFs of HalpDmaFindAdapterByDeviceObject @ 0x140390D18
  * Callers:
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140827AC0 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140827DC0 (HalGetAdapterV2.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall HalpDmaFindAdapterByDeviceObject(__int64 a1)
@@ -37,10 +37,13 @@ __int64 *__fastcall HalpDmaFindAdapterByDeviceObject(__int64 a1)
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaAdapterListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

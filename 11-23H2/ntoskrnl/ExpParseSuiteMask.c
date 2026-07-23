@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpParseSuiteMask @ 0x14082327C
+ * XREFs of ExpParseSuiteMask @ 0x14082357C
  * Callers:
- *     ExGetSuiteMask @ 0x1408231D8 (ExGetSuiteMask.c)
+ *     ExGetSuiteMask @ 0x1408234D8 (ExGetSuiteMask.c)
  * Callees:
  *     <none>
  */

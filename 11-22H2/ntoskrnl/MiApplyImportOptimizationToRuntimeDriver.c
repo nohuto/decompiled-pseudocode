@@ -20,27 +20,26 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
   __int64 v5; // rdx
   __int64 v6; // rdx
   char v7; // r8
-  __int64 v8; // rbx
+  void *v8; // rbx
   int v9; // ebx
-  __int64 v11; // rax
-  unsigned int v12; // [rsp+58h] [rbp+20h] BYREF
+  PVOID v11; // rax
+  ULONG Size; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = 0LL;
   if ( !MiIsImportOptimizationEnabled() )
     return 0;
   if ( !MiDoesControlAreaRequireRetpolineFixups(v5) )
     return 0;
-  v8 = *(_QWORD *)(a1 + 48);
-  if ( *(_QWORD *)(*(_QWORD *)v6 + 32LL) != v8 || (v7 & 1) != 0 )
+  v8 = *(void **)(a1 + 48);
+  if ( *(void **)(*(_QWORD *)v6 + 32LL) != v8 || (v7 & 1) != 0 )
     return 0;
   if ( (MiFlags & 0x8000) != 0 )
   {
-    v12 = 0;
-    LOBYTE(v6) = 1;
-    v11 = RtlImageDirectoryEntryToData(v8, v6, 12, (int)&v12);
+    Size = 0;
+    v11 = RtlImageDirectoryEntryToData(v8, 1u, 0xCu, &Size);
     if ( v11 )
     {
-      v9 = VslCaptureSecureImageIat(v8, v11, v12);
+      v9 = VslCaptureSecureImageIat(v8, v11, Size);
       if ( v9 < 0 )
         return (unsigned int)v9;
     }

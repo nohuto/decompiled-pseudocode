@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptShortWeierstrassIsZero @ 0x14052E330
+ * XREFs of SymCryptShortWeierstrassIsZero @ 0x140534F40
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementIsZero @ 0x140523C3C (SymCryptModElementIsZero.c)
+ *     SymCryptModElementIsZero @ 0x140521554 (SymCryptModElementIsZero.c)
  */
 
 __int64 SymCryptShortWeierstrassIsZero()

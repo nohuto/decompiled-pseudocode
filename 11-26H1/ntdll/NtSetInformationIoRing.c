@@ -1,16 +1,20 @@
 /*
- * XREFs of NtSetInformationIoRing @ 0x180162450
+ * XREFs of NtSetInformationIoRing @ 0x180162350
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationIoRing()
+NTSTATUS __cdecl NtSetInformationIoRing(
+        HANDLE IoRingHandle,
+        ULONG IoRingInformationClass,
+        ULONG IoRingInformationLength,
+        PVOID IoRingInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 425LL;
+  result = 425;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

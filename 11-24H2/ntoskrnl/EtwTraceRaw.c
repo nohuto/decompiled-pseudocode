@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwTraceRaw @ 0x14064F1FC
+ * XREFs of EtwTraceRaw @ 0x14064D8FC
  * Callers:
- *     NtTraceEvent @ 0x140325D10 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x1402CE8A0 (NtTraceEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x140327DF0 (EtwpReserveTraceBuffer.c)
- *     EtwpReleaseTraceBuffer @ 0x14032ACC0 (EtwpReleaseTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpCloseLogger @ 0x140347D90 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140347F50 (EtwpOpenLogger.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14043FE70 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpSendTraceEvent @ 0x1404AC8C4 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1404AC9C0 (EtwpInvokeEventCallback.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0980 (EtwpReserveTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpCloseLogger @ 0x140326790 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x140326950 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x1403FAE70 (EtwpReleaseTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x140436130 (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpSendTraceEvent @ 0x1404A70B8 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1404A71B4 (EtwpInvokeEventCallback.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwTraceRaw(unsigned __int16 a1, void *a2, unsigned int a3, char a4)
@@ -82,7 +82,7 @@ LABEL_28:
           EtwpSendTraceEvent(v10, (__int64)&v14);
         }
         if ( *(_QWORD *)(v10 + 1552) )
-          EtwpInvokeEventCallback(v10, (__int64 *)&v14, 0LL);
+          EtwpInvokeEventCallback(v10, (__int64 *)&v14);
         EtwpReleaseTraceBuffer((signed __int64 *)&v14);
       }
       else

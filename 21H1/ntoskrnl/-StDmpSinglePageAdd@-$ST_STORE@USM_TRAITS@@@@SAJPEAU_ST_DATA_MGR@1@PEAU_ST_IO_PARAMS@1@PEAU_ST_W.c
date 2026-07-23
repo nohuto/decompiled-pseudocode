@@ -38,9 +38,9 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   __int64 v11; // r15
   unsigned __int64 v12; // r15
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v15; // r12
-  __int64 v16; // r8
+  unsigned int v16; // r8d
   bool v17; // zf
   __int64 v18; // rcx
   __int64 v19; // rsi
@@ -66,11 +66,11 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   unsigned int v40; // ecx
   __int64 v41; // r9
   __int64 v42; // rcx
-  int v43; // eax
-  ULONG FinalCompressedSize; // [rsp+40h] [rbp-49h] BYREF
+  ULONG32 v43; // eax
+  ULONG Length; // [rsp+40h] [rbp-49h] BYREF
   ULONG_PTR v45; // [rsp+44h] [rbp-45h] BYREF
   int v46; // [rsp+4Ch] [rbp-3Dh] BYREF
-  _DWORD *v47; // [rsp+50h] [rbp-39h] BYREF
+  ULONG32 *v47; // [rsp+50h] [rbp-39h] BYREF
   __int64 v48; // [rsp+58h] [rbp-31h]
   unsigned __int8 v49[8]; // [rsp+60h] [rbp-29h] BYREF
   int v50; // [rsp+68h] [rbp-21h]
@@ -91,7 +91,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   LODWORD(v45) = 0;
   v9 = 0;
   v50 = 0;
-  FinalCompressedSize = 0;
+  Length = 0;
   if ( ((unsigned __int8)v7 == 0 ? 7 : 0) < v8 )
     v8 = v7 == 0 ? 7 : 0;
   Space = ST_STORE<SM_TRAITS>::StDmpSinglePageFindSpace(a1, v8, *a4, (unsigned int)&v47, (__int64)&v45);
@@ -106,12 +106,12 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
     v46 = 0;
     CurrentThread = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v12) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --CurrentThread->SpecialApcDisable;
     v15 = ++CurrentThread->AbAllocationRegionCount;
-    LODWORD(v16) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v16 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v17 = !_BitScanReverse((unsigned int *)&v18, v16);
@@ -119,11 +119,11 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
       if ( v17 )
         break;
       v19 = (__int64)&CurrentThread->LockEntries[v18];
-      v16 = ~(1 << v18) & (unsigned int)v16;
+      v16 &= ~(1 << v18);
       if ( (*(_BYTE *)(v19 + 26) & 1) != 0
         && (*(_DWORD *)(v19 + 32) & 1) == 0
         && (*(_QWORD *)(v19 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v12 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v19 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v19 + 40) == SessionId )
       {
         *(_BYTE *)(v19 + 26) &= ~1u;
         if ( *(_QWORD *)(v19 + 32) )
@@ -132,7 +132,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
           {
             *(_BYTE *)(v19 + 32) |= 2u;
             if ( *(__int64 *)(v19 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v19, SessionId, v16);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
             v46 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
             *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v19 + 25) &= ~1u;
@@ -149,7 +149,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
       }
     }
     if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v12, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v12, SessionId, 0LL);
 LABEL_21:
     --CurrentThread->AbAllocationRegionCount;
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, v12, &v46);
@@ -185,7 +185,7 @@ LABEL_21:
     v27 = *(_DWORD *)(*(_QWORD *)(v48 + 16) + 40LL);
   }
   v28 = *(_DWORD *)(a1 + 816) - (v45 & *(_DWORD *)(a1 + 808));
-  FinalCompressedSize = v27;
+  Length = v27;
   if ( v24 < 0 )
   {
     v29 = v27;
@@ -200,22 +200,14 @@ LABEL_29:
     v39 = *(UCHAR **)(a1 + 1784);
   if ( !v27 )
   {
-    if ( RtlCompressBuffer(
-           *(_WORD *)(a1 + 992),
-           v26,
-           0x1000u,
-           v39,
-           0x1000u,
-           0x1000u,
-           &FinalCompressedSize,
-           *(PVOID *)(a1 + 896)) >= 0 )
+    if ( RtlCompressBuffer(*(_WORD *)(a1 + 992), v26, 0x1000u, v39, 0x1000u, 0x1000u, &Length, *(PVOID *)(a1 + 896)) >= 0 )
     {
-      v27 = FinalCompressedSize;
+      v27 = Length;
     }
     else
     {
       v27 = 4096;
-      FinalCompressedSize = 4096;
+      Length = 4096;
     }
   }
   if ( v39 != v25 )
@@ -237,7 +229,7 @@ LABEL_29:
     }
     v27 = 4096;
     v39 = v26;
-    FinalCompressedSize = 4096;
+    Length = 4096;
   }
   if ( v39 != v25 )
   {
@@ -260,11 +252,11 @@ LABEL_30:
     ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, v31);
     *(_QWORD *)(v6 + 4) = 0LL;
     *(_DWORD *)v6 = v45;
-    v33 = FinalCompressedSize;
-    if ( FinalCompressedSize < 0x1000 )
+    v33 = Length;
+    if ( Length < 0x1000 )
     {
-      *(_DWORD *)(v6 + 4) ^= FinalCompressedSize & 0xFFF;
-      v33 = FinalCompressedSize;
+      *(_DWORD *)(v6 + 4) ^= Length & 0xFFF;
+      v33 = Length;
     }
     v34 = v52;
     if ( *v52 >= 0 )
@@ -281,11 +273,11 @@ LABEL_30:
     v36 = *(_QWORD *)(a1 + 1016);
     if ( *(_DWORD *)(v36 + 24) )
     {
-      v41 = -*(_DWORD *)(v36 + 8) & (*(_DWORD *)(v36 + 8) + FinalCompressedSize - 1);
+      v41 = -*(_DWORD *)(v36 + 8) & (*(_DWORD *)(v36 + 8) + Length - 1);
       ++*(_QWORD *)(a1 + 1024);
       *(_DWORD *)(v6 + 12) = *(_DWORD *)(a1 + 1024);
       *(_WORD *)(v6 + 6) = *(_WORD *)(a1 + 1028);
-      LODWORD(v53) = FinalCompressedSize;
+      LODWORD(v53) = Length;
       HIDWORD(v53) = *(_DWORD *)(v6 + 12);
       v42 = *(_QWORD *)(a1 + 1016);
       v54 = *(unsigned __int16 *)(v6 + 6);
@@ -297,7 +289,7 @@ LABEL_30:
     }
     else if ( *(_BYTE *)(a1 + 776) )
     {
-      v43 = RtlComputeCrc32(0LL, v25, FinalCompressedSize);
+      v43 = RtlComputeCrc32(0, v25, Length);
       *v47 = v43;
     }
     Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, v34, v6);

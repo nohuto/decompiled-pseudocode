@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwReleaseMutant @ 0x14015A080
+ * XREFs of ZwReleaseMutant @ 0x14015A5F0
  * Callers:
- *     BiReleaseBcdSyncMutant @ 0x14053E1A4 (BiReleaseBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14053E6E4 (BiReleaseBcdSyncMutant.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwReleaseMutant(HANDLE MutantHandle, PLONG ReleaseCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(MutantHandle, ReleaseCount, v2);
+  return KiServiceInternal(MutantHandle);
 }

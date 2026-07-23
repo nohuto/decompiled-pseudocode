@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePageFileBlockOwner @ 0x140666C9C
+ * XREFs of MiUpdatePageFileBlockOwner @ 0x1406671EC
  * Callers:
- *     MiTransferPageFileOwnership @ 0x1402ED1B0 (MiTransferPageFileOwnership.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
+ *     MiTransferPageFileOwnership @ 0x1402ED440 (MiTransferPageFileOwnership.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPageHashBugCheck @ 0x140666BB8 (MiPageHashBugCheck.c)
- *     MiWriteEntirePageHashEntry @ 0x140666DFC (MiWriteEntirePageHashEntry.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPageHashBugCheck @ 0x140667108 (MiPageHashBugCheck.c)
+ *     MiWriteEntirePageHashEntry @ 0x14066734C (MiWriteEntirePageHashEntry.c)
  */
 
 void __fastcall MiUpdatePageFileBlockOwner(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, int a5)

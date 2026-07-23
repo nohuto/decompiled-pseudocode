@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetFileVolumeNameInformation @ 0x1404E0678
+ * XREFs of IopGetFileVolumeNameInformation @ 0x1404D9D58
  * Callers:
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObQueryNameString @ 0x1409FDA20 (ObQueryNameString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObQueryNameString @ 0x140922620 (ObQueryNameString.c)
  */
 
 __int64 __fastcall IopGetFileVolumeNameInformation(void *a1, void *a2, _DWORD *a3, int a4, char a5)
@@ -21,7 +21,7 @@ __int64 __fastcall IopGetFileVolumeNameInformation(void *a1, void *a2, _DWORD *a
   _DWORD Src[2]; // [rsp+20h] [rbp-258h] BYREF
   __int64 v15; // [rsp+28h] [rbp-250h]
   ULONG ReturnLength[4]; // [rsp+30h] [rbp-248h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+40h] [rbp-238h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+40h] [rbp-238h] BYREF
 
   ReturnLength[0] = 0;
   v7 = a4 - 4;

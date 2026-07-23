@@ -1,14 +1,14 @@
 /*
- * XREFs of PopHandleDevicePowerIrpCompletion @ 0x14028E1A0
+ * XREFs of PopHandleDevicePowerIrpCompletion @ 0x14028E430
  * Callers:
- *     PopRequestCompletion @ 0x14028E0C0 (PopRequestCompletion.c)
+ *     PopRequestCompletion @ 0x14028E350 (PopRequestCompletion.c)
  * Callees:
- *     PopFxQueueWorkItem @ 0x14028C22C (PopFxQueueWorkItem.c)
- *     PopPepDeviceDState @ 0x14028DB5C (PopPepDeviceDState.c)
- *     PopDiagTraceFxDevicePowerState @ 0x14028DCC4 (PopDiagTraceFxDevicePowerState.c)
- *     PopFxNotifyPostDIrpCompletion @ 0x14028E038 (PopFxNotifyPostDIrpCompletion.c)
- *     PopFreeIrp @ 0x14028E298 (PopFreeIrp.c)
- *     PopDequeueQuerySetIrp @ 0x14028E3BC (PopDequeueQuerySetIrp.c)
+ *     PopFxQueueWorkItem @ 0x14028C4BC (PopFxQueueWorkItem.c)
+ *     PopPepDeviceDState @ 0x14028DDEC (PopPepDeviceDState.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x14028DF54 (PopDiagTraceFxDevicePowerState.c)
+ *     PopFxNotifyPostDIrpCompletion @ 0x14028E2C8 (PopFxNotifyPostDIrpCompletion.c)
+ *     PopFreeIrp @ 0x14028E528 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x14028E64C (PopDequeueQuerySetIrp.c)
  */
 
 __int64 __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1, __int64 a2, __int64 a3)
@@ -42,5 +42,5 @@ LABEL_4:
     PopFxNotifyPostDIrpCompletion((__int64)v5, *(_DWORD *)(a1 + 192));
     goto LABEL_4;
   }
-  return PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (struct _LIST_ENTRY *)(a1 + 248));
+  return PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (_LIST_ENTRY *)(a1 + 248));
 }

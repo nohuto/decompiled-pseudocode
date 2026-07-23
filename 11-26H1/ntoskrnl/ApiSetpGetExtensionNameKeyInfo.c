@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetpGetExtensionNameKeyInfo @ 0x1406DB138
+ * XREFs of ApiSetpGetExtensionNameKeyInfo @ 0x1406DF3D0
  * Callers:
- *     ApiSetQuerySchemaInfo2_V7 @ 0x1406D9F5C (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406DBF60 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x1406DE0EC (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406E01F8 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1409E1590 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1409DE5A0 (RtlCompareUnicodeString.c)
  */
 
 char __fastcall ApiSetpGetExtensionNameKeyInfo(wchar_t *a1, unsigned __int16 a2, char a3, __int64 a4)

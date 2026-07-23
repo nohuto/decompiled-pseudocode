@@ -6,7 +6,7 @@
  *     <none>
  */
 
-unsigned __int64 NtGetTickCount()
+ULONG NtGetTickCount(void)
 {
   return (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
 }

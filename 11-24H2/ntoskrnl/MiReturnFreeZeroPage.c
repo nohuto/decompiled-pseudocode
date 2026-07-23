@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnFreeZeroPage @ 0x1402220B0
+ * XREFs of MiReturnFreeZeroPage @ 0x14024EE00
  * Callers:
- *     MiReleaseFreshPageAtDpc @ 0x140222030 (MiReleaseFreshPageAtDpc.c)
- *     MiCoalesceFreeSmallPages @ 0x1402238B0 (MiCoalesceFreeSmallPages.c)
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiReleaseFreshPageLocked @ 0x14044321C (MiReleaseFreshPageLocked.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14068CDFC (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiReleaseFreshPageAtDpc @ 0x14024ED80 (MiReleaseFreshPageAtDpc.c)
+ *     MiCoalesceFreeSmallPages @ 0x140250600 (MiCoalesceFreeSmallPages.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiReleaseFreshPageLocked @ 0x14043C168 (MiReleaseFreshPageLocked.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14068DF2C (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiReturnFreeZeroPage(__int64 a1)

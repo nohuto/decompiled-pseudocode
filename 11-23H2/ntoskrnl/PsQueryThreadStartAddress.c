@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryThreadStartAddress @ 0x1405A3EF4
+ * XREFs of PsQueryThreadStartAddress @ 0x1405A4458
  * Callers:
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
- *     NtQueryInformationThread @ 0x14079F6D0 (NtQueryInformationThread.c)
- *     EtwpPsProvTraceThread @ 0x1409E651C (EtwpPsProvTraceThread.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
+ *     NtQueryInformationThread @ 0x14079F8C0 (NtQueryInformationThread.c)
+ *     EtwpPsProvTraceThread @ 0x1409E67AC (EtwpPsProvTraceThread.c)
  *     sub_140B34730 @ 0x140B34730 (sub_140B34730.c)
  * Callees:
  *     <none>

@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbGetPathSystemSdb @ 0x14088652C
+ * XREFs of SdbGetPathSystemSdb @ 0x14088C92C
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140886554 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x14088C954 (SdbResolveDatabaseEx.c)
  * Callees:
- *     SdbpGetSystemSdbFilePath @ 0x140886F14 (SdbpGetSystemSdbFilePath.c)
+ *     SdbpGetSystemSdbFilePath @ 0x14088D314 (SdbpGetSystemSdbFilePath.c)
  */
 
 _BOOL8 __fastcall SdbGetPathSystemSdb(int a1, int a2, int a3, __int64 a4)

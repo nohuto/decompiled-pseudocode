@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpTransDereferenceTransaction @ 0x1406A32E0
+ * XREFs of CmpTransDereferenceTransaction @ 0x1405DEFE0
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
- *     CmpCleanupLightWeightTransaction @ 0x1406A2E10 (CmpCleanupLightWeightTransaction.c)
- *     NtOpenKeyTransactedEx @ 0x1406A2EF0 (NtOpenKeyTransactedEx.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x1406A3134 (CmpTransSearchAddLightWeightTrans.c)
- *     CmRmFinalizeRecovery @ 0x1406BF8BC (CmRmFinalizeRecovery.c)
- *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
- *     CmpCleanupRollbackPacket @ 0x14071C518 (CmpCleanupRollbackPacket.c)
- *     CmpTransSearchAddTrans @ 0x140766E2C (CmpTransSearchAddTrans.c)
- *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
- *     NtCreateKeyTransacted @ 0x140769B00 (NtCreateKeyTransacted.c)
- *     CmpCleanupTransactionState @ 0x140770484 (CmpCleanupTransactionState.c)
- *     CmpAbortRollbackPacket @ 0x14077A8CC (CmpAbortRollbackPacket.c)
- *     CmpRollbackTransactionArray @ 0x140875078 (CmpRollbackTransactionArray.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1405DEB10 (CmpCleanupLightWeightTransaction.c)
+ *     NtOpenKeyTransactedEx @ 0x1405DEBF0 (NtOpenKeyTransactedEx.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1405DEE34 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpCleanupRollbackPacket @ 0x1405E094C (CmpCleanupRollbackPacket.c)
+ *     CmRmFinalizeRecovery @ 0x14061E72C (CmRmFinalizeRecovery.c)
+ *     CmpDeleteKeyObject @ 0x14065C3E0 (CmpDeleteKeyObject.c)
+ *     CmpCreateKeyBody @ 0x140713A70 (CmpCreateKeyBody.c)
+ *     CmpTransSearchAddTrans @ 0x140766FEC (CmpTransSearchAddTrans.c)
+ *     CmpTransInitializeTransaction @ 0x14076727C (CmpTransInitializeTransaction.c)
+ *     NtCreateKeyTransacted @ 0x140769CC0 (NtCreateKeyTransacted.c)
+ *     CmpCleanupTransactionState @ 0x140770644 (CmpCleanupTransactionState.c)
+ *     CmpAbortRollbackPacket @ 0x14077AA8C (CmpAbortRollbackPacket.c)
+ *     CmpRollbackTransactionArray @ 0x1408751D8 (CmpRollbackTransactionArray.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
  */
 
 void __fastcall CmpTransDereferenceTransaction(__int64 a1)

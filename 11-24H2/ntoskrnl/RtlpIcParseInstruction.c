@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIcParseInstruction @ 0x140BB84F0
+ * XREFs of RtlpIcParseInstruction @ 0x140BBA4F0
  * Callers:
- *     RtlIcParseInstruction @ 0x140BB70E8 (RtlIcParseInstruction.c)
+ *     RtlIcParseInstruction @ 0x140BB90E8 (RtlIcParseInstruction.c)
  * Callees:
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
- *     RtlpIcParseInstructionPrefix @ 0x140BB851C (RtlpIcParseInstructionPrefix.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcParseInstructionPrefix @ 0x140BBA51C (RtlpIcParseInstructionPrefix.c)
  */
 
 __int64 __fastcall RtlpIcParseInstruction(__int64 a1)

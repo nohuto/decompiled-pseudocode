@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiDetectPiix4Work @ 0x1407823C0
+ * XREFs of HalpAcpiDetectPiix4Work @ 0x140784EC0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpPiix4Detect @ 0x140C0A8DC (HalpPiix4Detect.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpPiix4Detect @ 0x140C10AEC (HalpPiix4Detect.c)
  */
 
 __int64 __fastcall HalpAcpiDetectPiix4Work(__int64 a1)

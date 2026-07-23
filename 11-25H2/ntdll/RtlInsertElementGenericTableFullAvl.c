@@ -9,91 +9,94 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-_OWORD *__fastcall RtlInsertElementGenericTableFullAvl(
-        __int64 a1,
-        const void *a2,
-        unsigned __int64 a3,
-        bool *a4,
-        __int64 *a5,
-        int a6)
+// local variable allocation has failed, the output may be wrong!
+PVOID __cdecl RtlInsertElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement,
+        PVOID NodeOrParent,
+        TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v7; // rbp
-  __int64 (__fastcall *v10)(char *, unsigned int, unsigned __int64); // rax
-  _OWORD *v11; // rax
-  _OWORD *v12; // rbx
-  __int64 *v13; // rcx
-  _OWORD *v14; // r8
-  __int64 *i; // rdx
+  void *(__fastcall *AllocateRoutine)(_RTL_AVL_TABLE *, unsigned int); // rax
+  _RTL_BALANCED_LINKS *v11; // rax
+  char *v12; // rbx
+  _RTL_BALANCED_LINKS *v13; // rcx
+  _RTL_BALANCED_LINKS *v14; // r8
+  _RTL_BALANCED_LINKS *i; // rdx
   bool v16; // zf
   char v17; // al
-  __int64 v18; // rdx
+  __int64 Balance; // rdx
 
-  v7 = (unsigned int)a3;
-  if ( a6 == 1 )
+  v7 = BufferSize;
+  if ( SearchResult == TableFoundNode )
   {
-    v12 = a5;
+    v12 = (char *)NodeOrParent;
 LABEL_17:
-    if ( a4 )
-      *a4 = a6 != 1;
-    *(_DWORD *)(a1 + 40) = 0;
-    *(_QWORD *)(a1 + 32) = 0LL;
-    return v12 + 2;
+    if ( NewElement )
+      *NewElement = SearchResult != TableFoundNode;
+    Table->WhichOrderedElement = 0;
+    Table->OrderedPointer = 0LL;
+    return v12 + 32;
   }
-  if ( (int)a3 + 32 >= (unsigned int)a3 )
+  if ( BufferSize + 32 >= BufferSize )
   {
-    v10 = *(__int64 (__fastcall **)(char *, unsigned int, unsigned __int64))(a1 + 80);
-    v11 = (_OWORD *)(v10 == RtlAllocateHeap ? RtlAllocateHeap((char *)a1, (int)a3 + 32, a3) : ((__int64 (*)(void))v10)());
-    v12 = v11;
+    AllocateRoutine = Table->AllocateRoutine;
+    v11 = (char *)AllocateRoutine == (char *)RtlAllocateHeap
+        ? (_RTL_BALANCED_LINKS *)RtlAllocateHeap(Table, BufferSize + 32, *(SIZE_T *)&BufferSize)
+        : (_RTL_BALANCED_LINKS *)((__int64 (*)(void))AllocateRoutine)();
+    v12 = (char *)v11;
     if ( v11 )
     {
-      *v11 = 0LL;
-      v11[1] = 0LL;
-      ++*(_DWORD *)(a1 + 44);
-      if ( a6 )
+      *(_OWORD *)&v11->Parent = 0LL;
+      *(_OWORD *)&v11->RightChild = 0LL;
+      ++Table->NumberGenericTableElements;
+      if ( SearchResult )
       {
-        v13 = a5;
+        v13 = (_RTL_BALANCED_LINKS *)NodeOrParent;
         v14 = v11;
-        if ( a6 == 2 )
-          a5[1] = (__int64)v11;
+        if ( SearchResult == TableInsertAsLeft )
+          *((_QWORD *)NodeOrParent + 1) = v11;
         else
-          a5[2] = (__int64)v11;
-        *(_QWORD *)v11 = a5;
-        *(_BYTE *)(a1 + 24) = -1;
-        for ( i = *(__int64 **)v11; ; v13 = i )
+          *((_QWORD *)NodeOrParent + 2) = v11;
+        v11->Parent = (_RTL_BALANCED_LINKS *)NodeOrParent;
+        Table->BalancedRoot.Balance = -1;
+        for ( i = v11->Parent; ; v13 = i )
         {
-          v16 = i[1] == (_QWORD)v14;
+          v16 = i->LeftChild == v14;
           v17 = -1;
-          v18 = *((unsigned __int8 *)v13 + 24);
+          Balance = (unsigned __int8)v13->Balance;
           if ( !v16 )
             v17 = 1;
-          if ( (_BYTE)v18 )
+          if ( (_BYTE)Balance )
             break;
-          i = (__int64 *)*v13;
+          i = v13->Parent;
           v14 = v13;
-          *((_BYTE *)v13 + 24) = v17;
+          v13->Balance = v17;
         }
-        if ( (_BYTE)v18 == v17 )
+        if ( (_BYTE)Balance == v17 )
         {
-          RebalanceNode(v13, v18, v14, 1LL);
+          RebalanceNode(v13, Balance, v14, 1LL);
         }
         else
         {
-          *((_BYTE *)v13 + 24) = 0;
-          if ( !*(_BYTE *)(a1 + 24) )
-            ++*(_DWORD *)(a1 + 48);
+          v13->Balance = 0;
+          if ( !Table->BalancedRoot.Balance )
+            ++Table->DepthOfTree;
         }
       }
       else
       {
-        *(_QWORD *)(a1 + 16) = v11;
-        *(_QWORD *)v11 = a1;
-        *(_DWORD *)(a1 + 48) = 1;
+        Table->BalancedRoot.RightChild = v11;
+        v11->Parent = &Table->BalancedRoot;
+        Table->DepthOfTree = 1;
       }
-      memmove(v12 + 2, a2, v7);
+      memmove(v12 + 32, Buffer, v7);
       goto LABEL_17;
     }
   }
-  if ( a4 )
-    *a4 = 0;
+  if ( NewElement )
+    *NewElement = 0;
   return 0LL;
 }

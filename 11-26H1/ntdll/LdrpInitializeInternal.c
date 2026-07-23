@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpInitializeInternal @ 0x1800CEA78
+ * XREFs of LdrpInitializeInternal @ 0x1800CC1E8
  * Callers:
- *     LdrpInitialize @ 0x1800CE998 (LdrpInitialize.c)
+ *     LdrpInitialize @ 0x1800CC108 (LdrpInitialize.c)
  * Callees:
- *     LdrpLoadPatchedNtdll @ 0x1800CDADC (LdrpLoadPatchedNtdll.c)
- *     LdrpInitializeHotPatching @ 0x1800CE894 (LdrpInitializeHotPatching.c)
- *     LdrpWaitForInitializationComplete @ 0x1800CEB74 (LdrpWaitForInitializationComplete.c)
- *     LdrpInitializationComplete @ 0x1800CEC50 (LdrpInitializationComplete.c)
- *     _LdrpInitialize @ 0x1800CEF48 (_LdrpInitialize.c)
- *     ZwCreateEvent @ 0x18015F840 (ZwCreateEvent.c)
+ *     LdrpLoadPatchedNtdll @ 0x1800CB24C (LdrpLoadPatchedNtdll.c)
+ *     LdrpInitializeHotPatching @ 0x1800CC004 (LdrpInitializeHotPatching.c)
+ *     LdrpWaitForInitializationComplete @ 0x1800CC2E4 (LdrpWaitForInitializationComplete.c)
+ *     LdrpInitializationComplete @ 0x1800CC3C0 (LdrpInitializationComplete.c)
+ *     _LdrpInitialize @ 0x1800CC6B8 (_LdrpInitialize.c)
+ *     ZwCreateEvent @ 0x18015F740 (ZwCreateEvent.c)
  */
 
 struct _TEB *__fastcall LdrpInitializeInternal(__int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ struct _TEB *__fastcall LdrpInitializeInternal(__int64 a1, __int64 a2)
     }
     else
     {
-      ZwCreateEvent(&LdrpHotPatchInitCompleteEvent, 2031619LL, 0LL, 0LL, 0);
+      ZwCreateEvent(&LdrpHotPatchInitCompleteEvent, 0x1F0003u, 0LL, NotificationEvent, 0);
       LdrpInitializeHotPatching();
       LdrpNtdllHotPatchContext = (__int64)&v7;
       if ( LdrpIsHotPatchingEnabled )

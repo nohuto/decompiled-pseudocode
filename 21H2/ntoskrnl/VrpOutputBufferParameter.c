@@ -4,7 +4,7 @@
  *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
  *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall VrpOutputBufferParameter(char a1, void *a2, unsigned int a3, const void **a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetSlabSecondaryStandbyList @ 0x1402CAB60
+ * XREFs of MiGetSlabSecondaryStandbyList @ 0x1402AC920
  * Callers:
- *     MiReplaceSecondaryListStandbyPage @ 0x1402CA5B0 (MiReplaceSecondaryListStandbyPage.c)
+ *     MiReplaceSecondaryListStandbyPage @ 0x1402AC370 (MiReplaceSecondaryListStandbyPage.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall MiGetSlabSecondaryStandbyList(
   if ( a3 == 8 )
   {
     v9 = (__int64)((unsigned __int128)((a2 + 0x220000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
-    v7 = *(_BYTE *)(qword_140E3D0C0 + 2 * (((v9 >> 63) + v9) >> 9) + 1) & 0x7F;
+    v7 = *(_BYTE *)(qword_140E3D240 + 2 * (((v9 >> 63) + v9) >> 9) + 1) & 0x7F;
   }
   else
   {

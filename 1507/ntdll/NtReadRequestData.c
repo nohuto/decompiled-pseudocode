@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtReadRequestData()
+NTSTATUS __cdecl NtReadRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 84LL;
+  result = 84;
   __asm { syscall; Low latency system call }
   return result;
 }

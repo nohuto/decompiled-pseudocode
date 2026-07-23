@@ -1,21 +1,21 @@
 /*
- * XREFs of HvlpDetermineEnlightenments @ 0x1405C19D8
+ * XREFs of HvlpDetermineEnlightenments @ 0x1405C4248
  * Callers:
- *     HvlPhase0Initialize @ 0x14079166C (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x14079419C (HvlPhase0Initialize.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     VslGetNestedPageProtectionFlags @ 0x14041D934 (VslGetNestedPageProtectionFlags.c)
- *     HvlpSetRegister64 @ 0x140493EC0 (HvlpSetRegister64.c)
- *     HvlpGetRegister64 @ 0x1404D0D20 (HvlpGetRegister64.c)
- *     HviGetHardwareFeatures @ 0x1404E6360 (HviGetHardwareFeatures.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x1405BB934 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlpGetRegister128 @ 0x1405C1760 (HvlpGetRegister128.c)
- *     HvlpQueryExtendedCapabilities @ 0x1405C2034 (HvlpQueryExtendedCapabilities.c)
- *     HviGetEnlightenmentInformation @ 0x1406DC6E8 (HviGetEnlightenmentInformation.c)
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140415184 (VslGetNestedPageProtectionFlags.c)
+ *     HvlpSetRegister64 @ 0x14048DA10 (HvlpSetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1404CA750 (HvlpGetRegister64.c)
+ *     HviGetHardwareFeatures @ 0x1404DF900 (HviGetHardwareFeatures.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x1405BE1A4 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlpGetRegister128 @ 0x1405C3FD0 (HvlpGetRegister128.c)
+ *     HvlpQueryExtendedCapabilities @ 0x1405C48A4 (HvlpQueryExtendedCapabilities.c)
+ *     HviGetEnlightenmentInformation @ 0x1406E0980 (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)
@@ -149,7 +149,7 @@ __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)
   {
     *(_QWORD *)&v37 = 1LL;
     HvlpSetRegister64(589831, 1uLL);
-    HvlpGetRegister64(589831, (unsigned __int64 *)&v37);
+    HvlpGetRegister64(589831, &v37);
     if ( (v37 & 0x4000000000000000LL) != 0 )
     {
       HvlpSetRegister64(589831, 0x8000000000000001uLL);

@@ -18,76 +18,76 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformationMessage(
-        void *a1,
-        __int64 a2,
-        int a3,
-        volatile void *a4,
-        unsigned int Length,
-        ULONG64 a6)
+NTSTATUS __cdecl NtAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  void *v7; // r10
+  HANDLE v7; // r10
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // si
-  int v10; // r14d
-  int v11; // r13d
-  __int64 v12; // r15
+  unsigned int MessageId; // r14d
+  unsigned int CallbackId; // r13d
+  PULONG v12; // r15
   _DWORD *v13; // rcx
-  int v14; // esi
+  NTSTATUS v14; // esi
   int v15; // r8d
   PVOID v16; // r13
   ULONG_PTR v17; // r14
-  int v18; // r12d
+  __int32 v18; // r12d
   int v19; // r15d
   char v20; // cl
   signed __int64 v21; // rcx
   PVOID v22; // rcx
   struct _KTHREAD *v23; // rcx
   __int16 v24; // ax
-  int TokenModifiedIdMessage; // eax
-  int v27; // [rsp+34h] [rbp-44h]
+  NTSTATUS TokenModifiedIdMessage; // eax
+  unsigned int v27; // [rsp+34h] [rbp-44h]
   ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-40h] BYREF
   PVOID Object; // [rsp+40h] [rbp-38h] BYREF
 
-  v7 = a1;
+  v7 = PortHandle;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && (a2 & 3) != 0 )
+  if ( PreviousMode && ((unsigned __int8)PortMessage & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( (*(_WORD *)(a2 + 4) & 0x1000) != 0 )
+  if ( (PortMessage->u2.s2.Type & 0x1000) != 0 )
   {
-    v10 = *(_DWORD *)(a2 + 16);
-    v27 = v10;
-    v11 = *(_DWORD *)(a2 + 20);
+    MessageId = *((_DWORD *)&PortMessage->DoNotUseThisField + 2);
+    v27 = MessageId;
+    CallbackId = *((_DWORD *)&PortMessage->DoNotUseThisField + 3);
   }
   else
   {
-    if ( PreviousMode && (a2 & 3) != 0 )
+    if ( PreviousMode && ((unsigned __int8)PortMessage & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v10 = *(_DWORD *)(a2 + 24);
-    v27 = v10;
-    v11 = *(_DWORD *)(a2 + 32);
+    MessageId = PortMessage->MessageId;
+    v27 = MessageId;
+    CallbackId = PortMessage->CallbackId;
   }
   if ( PreviousMode )
   {
-    ProbeForWrite(a4, Length, 4u);
-    v12 = a6;
-    if ( a6 )
+    ProbeForWrite(MessageInformation, Length, 4u);
+    v12 = ReturnLength;
+    if ( ReturnLength )
     {
-      v13 = (_DWORD *)a6;
-      if ( a6 >= MmUserProbeAddress )
+      v13 = ReturnLength;
+      if ( (unsigned __int64)ReturnLength >= MmUserProbeAddress )
         v13 = (_DWORD *)MmUserProbeAddress;
       *v13 = *v13;
-      v10 = v27;
+      MessageId = v27;
     }
-    v7 = a1;
+    v7 = PortHandle;
   }
   else
   {
-    v12 = a6;
+    v12 = ReturnLength;
   }
-  if ( !v10 )
+  if ( !MessageId )
   {
     v14 = -1073741811;
     goto LABEL_39;
@@ -95,9 +95,9 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   v14 = ObReferenceObjectByHandle(v7, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
-    v15 = v11;
+    v15 = CallbackId;
     v16 = Object;
-    v14 = AlpcpLookupMessage((__int64)Object, v10, v15, &BugCheckParameter2);
+    v14 = AlpcpLookupMessage((__int64)Object, MessageId, v15, &BugCheckParameter2);
     if ( v14 < 0 )
     {
       v22 = v16;
@@ -108,12 +108,12 @@ LABEL_38:
     v17 = BugCheckParameter2;
     if ( *(_QWORD *)(BugCheckParameter2 + 24) )
     {
-      if ( a3 )
+      if ( MessageInformationClass )
       {
-        v18 = a3 - 1;
+        v18 = MessageInformationClass - 1;
         if ( v18 )
         {
-          if ( v18 != 1 || a4 || Length || v12 )
+          if ( v18 != 1 || MessageInformation || Length || v12 )
           {
             v14 = -1073741811;
           }
@@ -128,13 +128,18 @@ LABEL_38:
         TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage(
                                    (_DWORD)v16,
                                    BugCheckParameter2,
-                                   (_DWORD)a4,
+                                   (_DWORD)MessageInformation,
                                    Length,
-                                   v12);
+                                   (__int64)v12);
       }
       else
       {
-        TokenModifiedIdMessage = AlpcpQuerySidMessage((_DWORD)v16, BugCheckParameter2, (_DWORD)a4, Length, v12);
+        TokenModifiedIdMessage = AlpcpQuerySidMessage(
+                                   (_DWORD)v16,
+                                   BugCheckParameter2,
+                                   (_DWORD)MessageInformation,
+                                   Length,
+                                   (__int64)v12);
       }
       v14 = TokenModifiedIdMessage;
     }
@@ -179,5 +184,5 @@ LABEL_39:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v14;
+  return v14;
 }

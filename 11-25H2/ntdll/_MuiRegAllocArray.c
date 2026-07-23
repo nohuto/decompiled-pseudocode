@@ -10,13 +10,13 @@
  *     <none>
  */
 
-__int64 __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
+PVOID __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v2; // rax
 
   v2 = 2LL * a2;
   if ( v2 <= 0xFFFFFFFF && (_DWORD)v2 )
-    return RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)v2);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)v2);
   else
     return 0LL;
 }

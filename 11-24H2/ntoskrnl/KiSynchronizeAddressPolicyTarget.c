@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSynchronizeAddressPolicyTarget @ 0x14048C9B0
+ * XREFs of KiSynchronizeAddressPolicyTarget @ 0x1404876D0
  * Callers:
- *     KeSynchronizeAddressPolicy @ 0x14048C814 (KeSynchronizeAddressPolicy.c)
+ *     KeSynchronizeAddressPolicy @ 0x140487534 (KeSynchronizeAddressPolicy.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x140321A30 (KiSetAddressPolicy.c)
+ *     KiSetAddressPolicy @ 0x1402CA5C0 (KiSetAddressPolicy.c)
  */
 
-int KiSynchronizeAddressPolicyTarget()
+int __fastcall KiSynchronizeAddressPolicyTarget(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 Process; // rdx
@@ -17,7 +17,7 @@ int KiSynchronizeAddressPolicyTarget()
   {
     LODWORD(CurrentThread) = KeGetPcr()->Prcb.ShadowFlags;
     if ( ((unsigned __int8)CurrentThread & 2) == 0 )
-      LODWORD(CurrentThread) = KiSetAddressPolicy(1LL, Process);
+      LODWORD(CurrentThread) = KiSetAddressPolicy(1LL, Process, a3, a4);
   }
   return (int)CurrentThread;
 }

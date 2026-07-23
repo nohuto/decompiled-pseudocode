@@ -1,17 +1,16 @@
 /*
- * XREFs of SymCryptRsaPkcs1Verify @ 0x14055ECB0
+ * XREFs of SymCryptRsaPkcs1Verify @ 0x1405611D4
  * Callers:
- *     SymCryptRsaSelftest @ 0x1405632FC (SymCryptRsaSelftest.c)
- *     SymCryptRsaSignVerifyPct @ 0x140563510 (SymCryptRsaSignVerifyPct.c)
- *     HashpVerifyPkcs1Signature @ 0x1408ABEDC (HashpVerifyPkcs1Signature.c)
+ *     SymCryptRsaSelftest @ 0x14056580C (SymCryptRsaSelftest.c)
+ *     HashpVerifyPkcs1Signature @ 0x1408B2320 (HashpVerifyPkcs1Signature.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptRsakeySizeofModulus @ 0x14055ABB8 (SymCryptRsakeySizeofModulus.c)
- *     SymCryptRsaPkcs1VerifySignaturePadding @ 0x14055BFD0 (SymCryptRsaPkcs1VerifySignaturePadding.c)
- *     SymCryptRsaCoreEnc @ 0x14055E8B4 (SymCryptRsaCoreEnc.c)
- *     SymCryptRsaCoreEncScratchSpace @ 0x14055EA48 (SymCryptRsaCoreEncScratchSpace.c)
- *     SymCryptCallbackAlloc @ 0x140722890 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptRsakeySizeofModulus @ 0x14055D0CC (SymCryptRsakeySizeofModulus.c)
+ *     SymCryptRsaPkcs1VerifySignaturePadding @ 0x14055E4B8 (SymCryptRsaPkcs1VerifySignaturePadding.c)
+ *     SymCryptRsaCoreEnc @ 0x140560DD8 (SymCryptRsaCoreEnc.c)
+ *     SymCryptRsaCoreEncScratchSpace @ 0x140560F6C (SymCryptRsaCoreEncScratchSpace.c)
+ *     SymCryptCallbackAlloc @ 0x140727460 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
  */
 
 __int64 __fastcall SymCryptRsaPkcs1Verify(

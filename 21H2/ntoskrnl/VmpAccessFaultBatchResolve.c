@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpAccessFaultBatchResolve @ 0x14092F2C8
+ * XREFs of VmpAccessFaultBatchResolve @ 0x14092F428
  * Callers:
- *     VmpAccessFaultBatch @ 0x1405A2B6C (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1405A2D9C (VmpAccessFaultBatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmGetNodeFastLargePageCounts @ 0x140547D00 (MmGetNodeFastLargePageCounts.c)
- *     MmVirtualAccessFault @ 0x1408D1D64 (MmVirtualAccessFault.c)
- *     MmBuildLargePages @ 0x1408D76D4 (MmBuildLargePages.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmGetNodeFastLargePageCounts @ 0x140547F40 (MmGetNodeFastLargePageCounts.c)
+ *     MmVirtualAccessFault @ 0x1408D1EC4 (MmVirtualAccessFault.c)
+ *     MmBuildLargePages @ 0x1408D7834 (MmBuildLargePages.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatchResolve(_QWORD *a1, unsigned int a2, __int64 a3, char a4, char a5, int a6)

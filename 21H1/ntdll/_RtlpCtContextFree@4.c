@@ -11,16 +11,16 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __thiscall RtlpCtContextFree(int this)
+LOGICAL __thiscall RtlpCtContextFree(PVOID *BaseAddress)
 {
-  if ( *(_DWORD *)(this + 4) )
-    RtlUnsubscribeWnfNotificationWaitForCompletion(*(_DWORD *)(this + 4));
-  if ( *(_DWORD *)(this + 8) )
+  if ( BaseAddress[1] )
+    RtlUnsubscribeWnfNotificationWaitForCompletion(BaseAddress[1]);
+  if ( BaseAddress[2] )
   {
-    NtClose(*(HANDLE *)(this + 8));
-    *(_DWORD *)(this + 8) = 0;
+    NtClose(BaseAddress[2]);
+    BaseAddress[2] = 0;
   }
-  if ( *(_DWORD *)this )
-    TpReleaseWork(*(_DWORD *)this);
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this);
+  if ( *BaseAddress )
+    TpReleaseWork((PTP_WORK)*BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

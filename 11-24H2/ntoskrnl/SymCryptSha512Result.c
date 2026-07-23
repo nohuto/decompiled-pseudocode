@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptSha512Result @ 0x140526E18
+ * XREFs of SymCryptSha512Result @ 0x140524730
  * Callers:
- *     SymCryptSha384Result @ 0x140525788 (SymCryptSha384Result.c)
- *     HashpFinalizeHash @ 0x14083005C (HashpFinalizeHash.c)
+ *     SymCryptSha384Result @ 0x1405230A0 (SymCryptSha384Result.c)
+ *     HashpFinalizeHash @ 0x14083088C (HashpFinalizeHash.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptSha512AppendBlocks_ull @ 0x1405258FC (SymCryptSha512AppendBlocks_ull.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptSha512AppendBlocks_ull @ 0x140523214 (SymCryptSha512AppendBlocks_ull.c)
  */
 
 __int64 __fastcall SymCryptSha512Result(unsigned int *a1, _QWORD *a2)
@@ -45,8 +45,8 @@ __int64 __fastcall SymCryptSha512Result(unsigned int *a1, _QWORD *a2)
   while ( v8 );
   result = SymCryptWipe((__int64)a1, 0xE0uLL);
   *((_OWORD *)a1 + 10) = SymCryptSha512InitialState;
-  *((_OWORD *)a1 + 11) = xmmword_14001FF20;
-  *((_OWORD *)a1 + 12) = xmmword_14001FF30;
-  *((_OWORD *)a1 + 13) = xmmword_14001FF40;
+  *((_OWORD *)a1 + 11) = xmmword_1400202A0;
+  *((_OWORD *)a1 + 12) = xmmword_1400202B0;
+  *((_OWORD *)a1 + 13) = xmmword_1400202C0;
   return result;
 }

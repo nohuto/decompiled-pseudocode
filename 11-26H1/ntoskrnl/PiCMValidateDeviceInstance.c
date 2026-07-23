@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMValidateDeviceInstance @ 0x14099A028
+ * XREFs of PiCMValidateDeviceInstance @ 0x14095AA88
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     PiAuDoesClientHaveAccess @ 0x14098DE50 (PiAuDoesClientHaveAccess.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PiCMCaptureObjectInputData @ 0x1409994A8 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14099A4D4 (PiCMReturnBasicResultData.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x14099B1B0 (PiPnpRtlApplyMandatoryFilters.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     PiAuDoesClientHaveAccess @ 0x14094E8B0 (PiAuDoesClientHaveAccess.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PiCMCaptureObjectInputData @ 0x140959F08 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x14095AF34 (PiCMReturnBasicResultData.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14095BC10 (PiPnpRtlApplyMandatoryFilters.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMValidateDeviceInstance(
@@ -47,7 +47,7 @@ __int64 __fastcall PiCMValidateDeviceInstance(
   unsigned int v27; // [rsp+4Ch] [rbp-BCh] BYREF
   int v28; // [rsp+50h] [rbp-B8h]
   int v29; // [rsp+54h] [rbp-B4h] BYREF
-  unsigned int v30; // [rsp+58h] [rbp-B0h] BYREF
+  int v30; // [rsp+58h] [rbp-B0h] BYREF
   int v31; // [rsp+5Ch] [rbp-ACh]
   HANDLE Handle; // [rsp+60h] [rbp-A8h] BYREF
   int v33; // [rsp+68h] [rbp-A0h]
@@ -166,7 +166,7 @@ LABEL_18:
     {
 LABEL_44:
       v30 = 4;
-      if ( PnpCtxRegQueryValue(v18, Handle, L"Phantom", &v29, &v27, &v30) >= 0 && v29 == 4 && v30 == 4 )
+      if ( (int)PnpCtxRegQueryValue(v18, Handle, L"Phantom", &v29, &v27, &v30) >= 0 && v29 == 4 && v30 == 4 )
       {
         v24 = v16;
         if ( v27 )

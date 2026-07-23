@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprRecopyAddress @ 0x1405A7D30
+ * XREFs of PnprRecopyAddress @ 0x1405A4D20
  * Callers:
- *     PnprRecopyMappingReserve @ 0x1405A7D88 (PnprRecopyMappingReserve.c)
- *     PnprRecopyMirrorPages @ 0x1405A7E3C (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMappingReserve @ 0x1405A4D78 (PnprRecopyMappingReserve.c)
+ *     PnprRecopyMirrorPages @ 0x1405A4E2C (PnprRecopyMirrorPages.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     PnprMarkOrMirrorPages @ 0x140B54268 (PnprMarkOrMirrorPages.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     PnprMarkOrMirrorPages @ 0x140B562B8 (PnprMarkOrMirrorPages.c)
  */
 
 __int64 __fastcall PnprRecopyAddress(__int64 a1, unsigned int a2)

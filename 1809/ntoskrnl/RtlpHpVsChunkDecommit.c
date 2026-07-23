@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsChunkDecommit @ 0x1400BE800
+ * XREFs of RtlpHpVsChunkDecommit @ 0x1400BE740
  * Callers:
- *     RtlpHpVsChunkFree @ 0x1400BD390 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x1400BD2D0 (RtlpHpVsChunkFree.c)
  * Callees:
- *     RtlpHpVsChunkComputeCost @ 0x1400BD5D0 (RtlpHpVsChunkComputeCost.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x14010EBB0 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B6304 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B636C (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsChunkComputeCost @ 0x1400BD510 (RtlpHpVsChunkComputeCost.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14010EC30 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B646C (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B64D4 (RtlpHpReleaseQueuedLockExclusive.c)
  */
 
 __int64 __fastcall RtlpHpVsChunkDecommit(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5)

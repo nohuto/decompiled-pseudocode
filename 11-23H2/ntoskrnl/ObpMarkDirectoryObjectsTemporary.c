@@ -3,13 +3,13 @@
  * Callers:
  *     ObpDeleteDirectoryName @ 0x1406978D4 (ObpDeleteDirectoryName.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
  *     ObpLockDirectoryExclusive @ 0x140697B24 (ObpLockDirectoryExclusive.c)
  *     ObpDeleteSymbolicLinkName @ 0x140697B5C (ObpDeleteSymbolicLinkName.c)
- *     ObpUnlockDirectory @ 0x1406C3248 (ObpUnlockDirectory.c)
+ *     ObpUnlockDirectory @ 0x1406C3278 (ObpUnlockDirectory.c)
  */
 
 _QWORD *__fastcall ObpMarkDirectoryObjectsTemporary(_QWORD **Object, _QWORD *a2)

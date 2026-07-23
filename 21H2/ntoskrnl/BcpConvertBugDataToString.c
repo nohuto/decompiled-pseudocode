@@ -1,7 +1,7 @@
 /*
- * XREFs of BcpConvertBugDataToString @ 0x1405C46E4
+ * XREFs of BcpConvertBugDataToString @ 0x1405C4914
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1405C4CB8 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayErrorInformation @ 0x1405C4EE8 (BcpDisplayErrorInformation.c)
  * Callees:
  *     <none>
  */

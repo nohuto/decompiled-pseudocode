@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnNameQueryWorker @ 0x1400A0734
+ * XREFs of PfSnNameQueryWorker @ 0x14009F05C
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     PfSnVolumeKeyQuery @ 0x1404C9F88 (PfSnVolumeKeyQuery.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     PfSnVolumeKeyQuery @ 0x1404AFD08 (PfSnVolumeKeyQuery.c)
  */
 
 void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
@@ -29,7 +29,7 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
     *Count = 0LL;
     ExReleaseSpinLockExclusive(v2, v3);
     v5 = (void *)Count[1];
-    if ( (*(int (__fastcall **)(unsigned __int64, void *, __int64 *))(qword_140328678 + 16))(a1[44].Count, v5, &v6) >= 0 )
+    if ( (*(int (__fastcall **)(unsigned __int64, void *, __int64 *))(qword_1403286B8 + 16))(a1[44].Count, v5, &v6) >= 0 )
       PfSnVolumeKeyQuery(a1, v6, v5);
     ObfDereferenceObjectWithTag(v5, 0x746C6644u);
   }

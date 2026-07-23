@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLargeSparseBmpInitialize @ 0x18005D86C
+ * XREFs of RtlpHpLargeSparseBmpInitialize @ 0x18005D85C
  * Callers:
- *     RtlInitializeHeapManager @ 0x18005D72C (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x18005D71C (RtlInitializeHeapManager.c)
  * Callees:
- *     RtlSparseBitmapCtxStart @ 0x18005D900 (RtlSparseBitmapCtxStart.c)
+ *     RtlSparseBitmapCtxStart @ 0x18005D8F0 (RtlSparseBitmapCtxStart.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

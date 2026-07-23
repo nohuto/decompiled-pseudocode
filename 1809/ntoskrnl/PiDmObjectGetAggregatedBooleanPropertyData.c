@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1405986C4
+ * XREFs of PiDmObjectGetAggregatedBooleanPropertyData @ 0x1405996C4
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1405983A0 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1405993A0 (PiPnpRtlObjectActionCallback.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PiDmGetObject @ 0x1405999C8 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
@@ -61,7 +61,7 @@ __int64 __fastcall PiDmObjectGetAggregatedBooleanPropertyData(
   }
   if ( a1 < 7 && !a4 )
   {
-    v15 = &unk_14034F2A8;
+    v15 = &unk_1403502A8;
     v16 = 0;
     while ( 1 )
     {

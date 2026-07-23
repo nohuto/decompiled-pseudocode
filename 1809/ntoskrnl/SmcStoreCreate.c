@@ -1,19 +1,19 @@
 /*
- * XREFs of SmcStoreCreate @ 0x1408AF0F0
+ * XREFs of SmcStoreCreate @ 0x1408B0350
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x1408AC414 (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x1408AD674 (SmcProcessStoreCreateRequest.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SmStoreCreate @ 0x1408AB894 (SmStoreCreate.c)
- *     SmKmKeyGenGenerate @ 0x1408ACD9C (SmKmKeyGenGenerate.c)
- *     SmKmRegParamsLoad @ 0x1408AD3C0 (SmKmRegParamsLoad.c)
- *     SmcCacheReference @ 0x1408AECA8 (SmcCacheReference.c)
- *     SmcStoreSlotAbort @ 0x1408AF898 (SmcStoreSlotAbort.c)
- *     SmcStoreSlotCommit @ 0x1408AF92C (SmcStoreSlotCommit.c)
- *     SmcStoreSlotReserve @ 0x1408AF9D4 (SmcStoreSlotReserve.c)
+ *     SmAlloc @ 0x1400E4BD4 (SmAlloc.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SmStoreCreate @ 0x1408ACAF4 (SmStoreCreate.c)
+ *     SmKmKeyGenGenerate @ 0x1408ADFFC (SmKmKeyGenGenerate.c)
+ *     SmKmRegParamsLoad @ 0x1408AE620 (SmKmRegParamsLoad.c)
+ *     SmcCacheReference @ 0x1408AFF08 (SmcCacheReference.c)
+ *     SmcStoreSlotAbort @ 0x1408B0AF8 (SmcStoreSlotAbort.c)
+ *     SmcStoreSlotCommit @ 0x1408B0B8C (SmcStoreSlotCommit.c)
+ *     SmcStoreSlotReserve @ 0x1408B0C34 (SmcStoreSlotReserve.c)
  */
 
 __int64 __fastcall SmcStoreCreate(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int a4, unsigned int *a5)

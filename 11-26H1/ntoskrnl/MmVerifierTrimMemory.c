@@ -1,14 +1,14 @@
 /*
- * XREFs of MmVerifierTrimMemory @ 0x140C437B8
+ * XREFs of MmVerifierTrimMemory @ 0x140C497C8
  * Callers:
- *     ViKeIrqlLogAndTrimMemory @ 0x140C46CD4 (ViKeIrqlLogAndTrimMemory.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140C4CCE4 (ViKeIrqlLogAndTrimMemory.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiTrimAllSystemPagableMemory @ 0x140457728 (MiTrimAllSystemPagableMemory.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14044EF98 (MiTrimAllSystemPagableMemory.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
  */
 
 LARGE_INTEGER __fastcall MmVerifierTrimMemory(int a1)
@@ -30,28 +30,28 @@ LARGE_INTEGER __fastcall MmVerifierTrimMemory(int a1)
   v1 = (unsigned int)(10000000 * a1) / 0x64uLL;
   v2 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
   v3 = v2 / 0x989680;
-  if ( v2 / 0x989680 != qword_140E36088 || (result.QuadPart = qword_140E36090, qword_140E36090 < v1) )
+  if ( v2 / 0x989680 != qword_140E36208 || (result.QuadPart = qword_140E36210, qword_140E36210 < v1) )
   {
-    result.QuadPart = (unsigned int)dword_140E360A4;
-    if ( !dword_140E360A4 )
+    result.QuadPart = (unsigned int)dword_140E36224;
+    if ( !dword_140E36224 )
     {
-      result.QuadPart = (unsigned int)dword_140E360C0;
-      if ( dword_140E360C0 )
+      result.QuadPart = (unsigned int)dword_140E36240;
+      if ( dword_140E36240 )
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->SpecialApcDisable;
-        result.QuadPart = (unsigned int)_InterlockedCompareExchange(&dword_140E360A4, 1, 0);
+        result.QuadPart = (unsigned int)_InterlockedCompareExchange(&dword_140E36224, 1, 0);
         if ( result.LowPart )
           goto LABEL_6;
         v2 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
-        result.QuadPart = qword_140E36088;
+        result.QuadPart = qword_140E36208;
         v3 = v2 / 0x989680;
-        if ( v2 / 0x989680 == qword_140E36088 )
+        if ( v2 / 0x989680 == qword_140E36208 )
         {
-          if ( qword_140E36090 >= v1 )
+          if ( qword_140E36210 >= v1 )
           {
 LABEL_25:
-            _InterlockedAdd(&dword_140E360A4, 0xFFFFFFFF);
+            _InterlockedAdd(&dword_140E36224, 0xFFFFFFFF);
 LABEL_6:
             if ( CurrentThread->SpecialApcDisable++ == -1 )
             {
@@ -64,9 +64,9 @@ LABEL_6:
         }
         else
         {
-          qword_140E36088 = v2 / 0x989680;
-          qword_140E36090 = 0LL;
-          dword_140E360A0 = 0;
+          qword_140E36208 = v2 / 0x989680;
+          qword_140E36210 = 0LL;
+          dword_140E36220 = 0;
         }
         result.QuadPart = RtlpGetStackLimits((__int64)&PerformanceFrequency, (__int64)&v11);
         if ( LOBYTE(result.LowPart) )
@@ -74,8 +74,8 @@ LABEL_6:
           result.QuadPart = (LONGLONG)&KeGetCurrentStackPointer()[-PerformanceFrequency.QuadPart];
           if ( result.QuadPart > 0x1A30uLL )
           {
-            ++dword_140F086A0;
-            dword_140E360C0 = 0;
+            ++dword_140F08A40;
+            dword_140E36240 = 0;
             PerformanceFrequency.QuadPart = 0LL;
             v7 = KeQueryPerformanceCounter(&PerformanceFrequency);
             if ( PerformanceFrequency.QuadPart != 10000000 )
@@ -94,12 +94,12 @@ LABEL_6:
               v9 = v7;
               if ( result.QuadPart >= (unsigned __int64)v7.QuadPart )
                 v9 = result;
-              ++dword_140E360A0;
+              ++dword_140E36220;
               v2 = v9.QuadPart - v7.QuadPart;
-              qword_140E36090 += v2;
-              if ( v2 > qword_140E36098 )
-                qword_140E36098 = v2;
-              ++dword_140F086A4;
+              qword_140E36210 += v2;
+              if ( v2 > qword_140E36218 )
+                qword_140E36218 = v2;
+              ++dword_140F08A44;
             }
           }
         }

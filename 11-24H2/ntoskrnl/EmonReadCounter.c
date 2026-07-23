@@ -1,8 +1,8 @@
 /*
- * XREFs of EmonReadCounter @ 0x14055D7C4
+ * XREFs of EmonReadCounter @ 0x14055B3F4
  * Callers:
- *     EmonSaveProfilingContextInternalEnhanced @ 0x14055E5AC (EmonSaveProfilingContextInternalEnhanced.c)
- *     EmonSaveProfilingContextInternalOriginal @ 0x14055E664 (EmonSaveProfilingContextInternalOriginal.c)
+ *     EmonSaveProfilingContextInternalEnhanced @ 0x14055C1DC (EmonSaveProfilingContextInternalEnhanced.c)
+ *     EmonSaveProfilingContextInternalOriginal @ 0x14055C294 (EmonSaveProfilingContextInternalOriginal.c)
  * Callees:
  *     <none>
  */

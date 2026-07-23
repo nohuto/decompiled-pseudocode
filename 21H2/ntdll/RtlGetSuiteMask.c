@@ -7,17 +7,17 @@
  *     RtlpActivateLowFragmentationHeap @ 0x180044A7C (RtlpActivateLowFragmentationHeap.c)
  *     LdrpEnableParallelLoading @ 0x180062B18 (LdrpEnableParallelLoading.c)
  *     RtlpQueryDiskSpeedPolicy @ 0x180088BB4 (RtlpQueryDiskSpeedPolicy.c)
- *     RtlInitializeHeapManager @ 0x1800F2694 (RtlInitializeHeapManager.c)
- *     RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit @ 0x1800F4410 (RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit.c)
- *     RtlpHpOptIntoSegmentHeap @ 0x1800F4508 (RtlpHpOptIntoSegmentHeap.c)
+ *     RtlInitializeHeapManager @ 0x1800F2654 (RtlInitializeHeapManager.c)
+ *     RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit @ 0x1800F43D0 (RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x1800F44C8 (RtlpHpOptIntoSegmentHeap.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return *((unsigned int *)NtCurrentPeb()->SharedData + 5);
+  if ( RtlGetCurrentServiceSessionId() )
+    return *((_DWORD *)NtCurrentPeb()->SharedData + 5);
   else
     return MEMORY[0x7FFE02D0];
 }

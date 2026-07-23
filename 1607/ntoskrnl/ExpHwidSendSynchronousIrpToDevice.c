@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpHwidSendSynchronousIrpToDevice @ 0x14051DCA4
+ * XREFs of ExpHwidSendSynchronousIrpToDevice @ 0x140500D54
  * Callers:
  *     ExpHwidNetworkIfDeviceInfoProvider @ 0x1403E247C (ExpHwidNetworkIfDeviceInfoProvider.c)
- *     ExpCheckPortableOperatingSystem @ 0x1404ED840 (ExpCheckPortableOperatingSystem.c)
- *     ExpHwidSysVolIfDeviceInfoProvider @ 0x14051D564 (ExpHwidSysVolIfDeviceInfoProvider.c)
- *     ExpHwidSysVolIfGetDiskInfo @ 0x14051DAC0 (ExpHwidSysVolIfGetDiskInfo.c)
- *     sub_1406B9CE8 @ 0x1406B9CE8 (sub_1406B9CE8.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1404CF8F8 (ExpCheckPortableOperatingSystem.c)
+ *     ExpHwidSysVolIfDeviceInfoProvider @ 0x140500954 (ExpHwidSysVolIfDeviceInfoProvider.c)
+ *     ExpHwidSysVolIfGetDiskInfo @ 0x140500B70 (ExpHwidSysVolIfGetDiskInfo.c)
+ *     sub_1406B9E20 @ 0x1406B9E20 (sub_1406B9E20.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400ED0DC (IoBuildDeviceIoControlRequest.c)
- *     IoGetDeviceObjectPointer @ 0x1405083E8 (IoGetDeviceObjectPointer.c)
- *     sub_14051DFC8 @ 0x14051DFC8 (sub_14051DFC8.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400EAF4C (IoBuildDeviceIoControlRequest.c)
+ *     IoGetDeviceObjectPointer @ 0x1404EB378 (IoGetDeviceObjectPointer.c)
+ *     sub_140501030 @ 0x140501030 (sub_140501030.c)
  */
 
 __int64 __fastcall ExpHwidSendSynchronousIrpToDevice(
@@ -71,7 +71,7 @@ __int64 __fastcall ExpHwidSendSynchronousIrpToDevice(
         if ( a7 )
           *a7 = IoStatusBlock.Information;
         if ( a8 )
-          *a8 = sub_14051DFC8(v15);
+          *a8 = sub_140501030(v15);
       }
     }
     else

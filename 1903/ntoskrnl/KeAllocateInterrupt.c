@@ -8,13 +8,13 @@
  *     RtlpInterlockedPushEntrySList @ 0x1401CBA30 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall KeAllocateInterrupt(union _SLIST_HEADER *a1)
+__int64 __fastcall KeAllocateInterrupt(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rsi
+  _SLIST_HEADER *v1; // rsi
   unsigned __int16 v3; // bx
   __int64 result; // rax
   int v5; // r14d
-  struct _SLIST_ENTRY *v6; // rbx
+  _SLIST_ENTRY *v6; // rbx
   __int64 v7; // rbp
 
   v1 = a1 + 732;
@@ -31,7 +31,7 @@ LABEL_2:
     while ( 1 )
     {
       result = MmAllocateIndependentPagesEx(0x1000uLL, v5, 0LL, 0);
-      v6 = (struct _SLIST_ENTRY *)result;
+      v6 = (_SLIST_ENTRY *)result;
       if ( !result )
         break;
       v7 = 12LL;

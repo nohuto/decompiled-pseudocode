@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRaiseException @ 0x14041DBA0
+ * XREFs of ZwRaiseException @ 0x14041DF30
  * Callers:
- *     RtlUnwindEx @ 0x1402A4D40 (RtlUnwindEx.c)
- *     RtlRaiseException @ 0x14030D590 (RtlRaiseException.c)
- *     RtlRaiseNoncontinuableException @ 0x1404297A0 (RtlRaiseNoncontinuableException.c)
+ *     RtlUnwindEx @ 0x1402A4FD0 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x14030D820 (RtlRaiseException.c)
+ *     RtlRaiseNoncontinuableException @ 0x140429B30 (RtlRaiseNoncontinuableException.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRaiseException(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, BOOLEAN FirstChance)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ExceptionRecord);
 }

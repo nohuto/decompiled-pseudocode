@@ -1,8 +1,8 @@
 /*
- * XREFs of StringCopyWorkerW @ 0x14060D1E0
+ * XREFs of StringCopyWorkerW @ 0x14060B7A0
  * Callers:
- *     SmUniqueIdParseProductName @ 0x14060CCB0 (SmUniqueIdParseProductName.c)
- *     StringCbCopyNW @ 0x14060D194 (StringCbCopyNW.c)
+ *     SmUniqueIdParseProductName @ 0x14060B270 (SmUniqueIdParseProductName.c)
+ *     StringCbCopyNW @ 0x14060B754 (StringCbCopyNW.c)
  * Callees:
  *     <none>
  */

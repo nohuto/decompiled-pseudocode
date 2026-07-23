@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     NtQueryLicenseValue @ 0x1407AEF90 (NtQueryLicenseValue.c)
+ *     NtQueryLicenseValue @ 0x1407AF180 (NtQueryLicenseValue.c)
  *     MiLimitLoaderBlockHighMemory @ 0x140B5F310 (MiLimitLoaderBlockHighMemory.c)
  *     MiLimitLoaderBlockTotalMemory @ 0x140B5F44C (MiLimitLoaderBlockTotalMemory.c)
  */
@@ -14,17 +14,17 @@ __int64 __fastcall MiMemoryLicense(__int64 a1)
   unsigned __int64 v3; // rbx
   __int64 v4; // rbx
   __int64 result; // rax
-  _QWORD v6[5]; // [rsp+30h] [rbp-28h] BYREF
+  UNICODE_STRING v6; // [rsp+30h] [rbp-28h] BYREF
   unsigned int v7; // [rsp+68h] [rbp+10h] BYREF
-  int v8; // [rsp+70h] [rbp+18h] BYREF
-  int v9; // [rsp+78h] [rbp+20h] BYREF
+  ULONG v8; // [rsp+70h] [rbp+18h] BYREF
+  ULONG v9; // [rsp+78h] [rbp+20h] BYREF
 
   v9 = 0;
   v7 = 0;
-  v6[1] = L"Kernel-WindowsMaxMemAllowedx64";
-  v6[0] = 4063292LL;
+  v6.Buffer = L"Kernel-WindowsMaxMemAllowedx64";
+  *(_QWORD *)&v6.Length = 4063292LL;
   v8 = 4;
-  if ( (int)NtQueryLicenseValue((unsigned __int64)v6, &v9, &v7, 4u, &v8) >= 0 && v7 )
+  if ( NtQueryLicenseValue(&v6, &v9, &v7, 4u, &v8) >= 0 && v7 )
     v2 = (unsigned __int64)v7 << 8;
   else
     v2 = 0x80000LL;

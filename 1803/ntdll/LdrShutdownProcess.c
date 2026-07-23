@@ -15,26 +15,22 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-void LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // rbx
-  struct _PEB *ProcessEnvironmentBlock; // rdi
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
-  void *FlsData; // rcx
+  PPEB ProcessEnvironmentBlock; // rdi
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // rax
+  PVOID FlsData; // rcx
   __int64 *v4; // rdi
   __int64 v5; // rbx
   __int64 v6; // rsi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // r8
-  __int64 v10; // r9
-  struct _UNICODE_STRING CommandLine; // [rsp+40h] [rbp-B8h] BYREF
-  __int64 v12; // [rsp+50h] [rbp-A8h] BYREF
-  int v13; // [rsp+58h] [rbp-A0h]
-  _BYTE v14[56]; // [rsp+60h] [rbp-98h] BYREF
-  __int64 v15; // [rsp+A0h] [rbp-58h] BYREF
-  int v16; // [rsp+A8h] [rbp-50h]
-  _BYTE v17[56]; // [rsp+B0h] [rbp-48h] BYREF
+  UNICODE_STRING CommandLine; // [rsp+40h] [rbp-B8h] BYREF
+  __int64 v8; // [rsp+50h] [rbp-A8h] BYREF
+  int v9; // [rsp+58h] [rbp-A0h]
+  _BYTE v10[56]; // [rsp+60h] [rbp-98h] BYREF
+  __int64 v11; // [rsp+A0h] [rbp-58h] BYREF
+  int v12; // [rsp+A8h] [rbp-50h]
+  _BYTE v13[56]; // [rsp+B0h] [rbp-48h] BYREF
 
   v0 = NtCurrentTeb();
   ProcessEnvironmentBlock = v0->ProcessEnvironmentBlock;
@@ -43,7 +39,7 @@ void LdrShutdownProcess()
     CommandLine = ProcessEnvironmentBlock->ProcessParameters->CommandLine;
     ProcessParameters = ProcessEnvironmentBlock->ProcessParameters;
     if ( (ProcessParameters->Flags & 1) == 0 )
-      CommandLine.Buffer = (wchar_t *)((char *)CommandLine.Buffer + (unsigned __int64)ProcessParameters);
+      CommandLine.Buffer = (PWCH)((char *)CommandLine.Buffer + (unsigned __int64)ProcessParameters);
     if ( (dword_180156A70 & 5) != 0 )
       sub_1800CA554(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
@@ -72,24 +68,24 @@ void LdrShutdownProcess()
         v6 = *(_QWORD *)(v5 + 56);
         if ( v6 && (*(_DWORD *)(v5 + 104) & 0x80000) != 0 )
         {
-          v12 = 72LL;
-          v13 = 1;
-          memset(v14, 0, sizeof(v14));
-          RtlActivateActivationContextUnsafeFast((__int64)&v12, *(_QWORD *)(v5 + 136));
+          v8 = 72LL;
+          v9 = 1;
+          memset(v10, 0, sizeof(v10));
+          RtlActivateActivationContextUnsafeFast((__int64)&v8, *(_QWORD *)(v5 + 136));
           if ( *(_WORD *)(v5 + 110) )
-            sub_18003B5F8(0, v5, v7, v8);
+            sub_18003B5F8(0, v5);
           sub_18003B518(v6, *(_QWORD *)(v5 + 48), 0);
-          RtlDeactivateActivationContextUnsafeFast((__int64)&v12);
+          RtlDeactivateActivationContextUnsafeFast((__int64)&v8);
         }
       }
       if ( *(_WORD *)(qword_18015BF88 + 110) )
       {
-        v15 = 72LL;
-        v16 = 1;
-        memset(v17, 0, sizeof(v17));
-        RtlActivateActivationContextUnsafeFast((__int64)&v15, *(_QWORD *)(qword_18015BF88 + 136));
-        sub_18003B5F8(0, qword_18015BF88, v9, v10);
-        RtlDeactivateActivationContextUnsafeFast((__int64)&v15);
+        v11 = 72LL;
+        v12 = 1;
+        memset(v13, 0, sizeof(v13));
+        RtlActivateActivationContextUnsafeFast((__int64)&v11, *(_QWORD *)(qword_18015BF88 + 136));
+        sub_18003B5F8(0, qword_18015BF88);
+        RtlDeactivateActivationContextUnsafeFast((__int64)&v11);
       }
       RtlDetectHeapLeaks();
     }

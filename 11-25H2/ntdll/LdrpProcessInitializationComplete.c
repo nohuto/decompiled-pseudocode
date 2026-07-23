@@ -6,7 +6,7 @@
  *     <none>
  */
 
-struct _PEB *LdrpProcessInitializationComplete()
+int LdrpProcessInitializationComplete()
 {
   return LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252);
 }

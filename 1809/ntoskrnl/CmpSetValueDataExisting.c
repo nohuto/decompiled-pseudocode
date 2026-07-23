@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpSetValueDataExisting @ 0x1406CE43C
+ * XREFs of CmpSetValueDataExisting @ 0x1406CF6DC
  * Callers:
- *     CmpSetValueKeyExisting @ 0x1405AE27C (CmpSetValueKeyExisting.c)
+ *     CmpSetValueKeyExisting @ 0x1405AF27C (CmpSetValueKeyExisting.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvReallocateCell @ 0x1405AE9CC (HvReallocateCell.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpSetValueDataExisting(

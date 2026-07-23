@@ -1,12 +1,13 @@
 /*
- * XREFs of IoSetOplockKeyContext @ 0x140247C44
+ * XREFs of IoSetOplockKeyContext @ 0x1403CE0DC
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x14041D800 (FsRtlpAttachOplockKey.c)
+ *     FsRtlpAttachOplockKey @ 0x1403CD800 (FsRtlpAttachOplockKey.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403CE7F0 (FsRtlCheckOplockEx2.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __int16 a3)
@@ -27,16 +28,16 @@ __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __in
   v7 = 0;
   if ( v6 )
   {
-    if ( v6 != qword_140014770 )
+    if ( v6 != &qword_1400145A0 )
       goto LABEL_4;
     return (unsigned int)-1073741670;
   }
-  Pool2 = (__int64 *)ExAllocatePool2(0x40uLL);
+  Pool2 = (__int64 *)ExAllocatePool2(0x40uLL, 0x60uLL, 0x45466F49u);
   v6 = Pool2;
   v13 = Pool2 == 0LL ? 0xC000009A : 0;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
   {
-    if ( Pool2 && Pool2 != qword_140014770 )
+    if ( Pool2 && Pool2 != &qword_1400145A0 )
       ExFreePoolWithTag(Pool2, 0);
     v6 = *(__int64 **)(a1 + 208);
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpPgContextInitialize @ 0x1801124A4
+ * XREFs of RtlpHpPgContextInitialize @ 0x180111F54
  * Callers:
- *     RtlpHpHeapCreate @ 0x18008DE64 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180104964 (RtlpHpHeapCreate.c)
  * Callees:
  *     <none>
  */
@@ -40,12 +40,12 @@ __int64 __fastcall RtlpHpPgContextInitialize(
   *(_QWORD *)(a1 + 56) = v9;
   *(_BYTE *)(a1 + 85) = *a7;
   *(_DWORD *)(a1 + 80) = (unsigned int)(a6 - 2) <= 3;
-  v11 = qword_1801C6F00;
+  v11 = qword_1801C5F00;
   do
   {
     v12 = v11 ^ (v11 >> 12) ^ ((v11 ^ (v11 >> 12)) << 25) ^ ((v11 ^ (v11 >> 12) ^ ((v11 ^ (v11 >> 12)) << 25)) >> 27);
     v13 = v11;
-    v11 = _InterlockedCompareExchange64(&qword_1801C6F00, v12, v11);
+    v11 = _InterlockedCompareExchange64(&qword_1801C5F00, v12, v11);
   }
   while ( v13 != v11 );
   *(_BYTE *)(a1 + 84) = 29 * v12;

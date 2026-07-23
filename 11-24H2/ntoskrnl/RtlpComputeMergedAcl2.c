@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpComputeMergedAcl2 @ 0x1407811B4
+ * XREFs of RtlpComputeMergedAcl2 @ 0x1407810E4
  * Callers:
- *     RtlpComputeMergedAcl @ 0x140AB1A54 (RtlpComputeMergedAcl.c)
+ *     RtlpComputeMergedAcl @ 0x140AAC9C4 (RtlpComputeMergedAcl.c)
  * Callees:
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpCopyAces @ 0x140919190 (RtlpCopyAces.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpCopyAces @ 0x14090CC00 (RtlpCopyAces.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl2(

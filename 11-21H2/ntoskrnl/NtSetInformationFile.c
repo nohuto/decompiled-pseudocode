@@ -1,45 +1,45 @@
 /*
  * XREFs of NtSetInformationFile @ 0x1402F72B0
  * Callers:
- *     DifNtSetInformationFileWrapper @ 0x140618030 (DifNtSetInformationFileWrapper.c)
+ *     sub_140618030 @ 0x140618030 (sub_140618030.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x1402A3A60 (IopAllocateFileObjectExtension.c)
- *     IopWaitForSynchronousIo @ 0x1402A41A4 (IopWaitForSynchronousIo.c)
+ *     sub_1402A3A60 @ 0x1402A3A60 (sub_1402A3A60.c)
+ *     sub_1402A41A4 @ 0x1402A41A4 (sub_1402A41A4.c)
  *     IoGetAttachedDevice @ 0x1402A78F0 (IoGetAttachedDevice.c)
- *     IopResetEvent @ 0x1402AABB0 (IopResetEvent.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
+ *     sub_1402AABB0 @ 0x1402AABB0 (sub_1402AABB0.c)
+ *     sub_1402AACA0 @ 0x1402AACA0 (sub_1402AACA0.c)
  *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IopReferenceFileObject @ 0x1402AC790 (IopReferenceFileObject.c)
- *     IopReleaseFileObjectLock @ 0x1402AD350 (IopReleaseFileObjectLock.c)
+ *     sub_1402AC790 @ 0x1402AC790 (sub_1402AC790.c)
+ *     sub_1402AD350 @ 0x1402AD350 (sub_1402AD350.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
+ *     sub_1402AE1B0 @ 0x1402AE1B0 (sub_1402AE1B0.c)
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     KeReleaseSpinLock @ 0x1402B1CB0 (KeReleaseSpinLock.c)
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     IopUpdateOtherOperationCount @ 0x1402F672C (IopUpdateOtherOperationCount.c)
+ *     sub_1402F672C @ 0x1402F672C (sub_1402F672C.c)
  *     KeSetKernelStackSwapEnable @ 0x1402F8AA0 (KeSetKernelStackSwapEnable.c)
- *     IopCallDriverReference @ 0x1402F8AE0 (IopCallDriverReference.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_1402F8AE0 @ 0x1402F8AE0 (sub_1402F8AE0.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopCompleteRequest @ 0x140347E10 (IopCompleteRequest.c)
- *     IopReplaceCompletionPort @ 0x1403989FC (IopReplaceCompletionPort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140347E10 @ 0x140347E10 (sub_140347E10.c)
+ *     sub_1403989FC @ 0x1403989FC (sub_1403989FC.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     IopExceptionCleanupEx @ 0x140658670 (IopExceptionCleanupEx.c)
- *     IopCancelAlertedRequest @ 0x140661B8C (IopCancelAlertedRequest.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406C78D4 (IopOpenLinkOrRenameTarget.c)
- *     IopTrackLink @ 0x1406D3128 (IopTrackLink.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140709FAC (IopWaitAndAcquireFileObjectLock.c)
+ *     sub_140658670 @ 0x140658670 (sub_140658670.c)
+ *     sub_140661B8C @ 0x140661B8C (sub_140661B8C.c)
+ *     sub_1406C78D4 @ 0x1406C78D4 (sub_1406C78D4.c)
+ *     sub_1406D3128 @ 0x1406D3128 (sub_1406D3128.c)
+ *     sub_140709FAC @ 0x140709FAC (sub_140709FAC.c)
  *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
  *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
  *     RtlIsSandboxedToken @ 0x14079F1E0 (RtlIsSandboxedToken.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     IopAllocateIrpCleanup @ 0x140933BA4 (IopAllocateIrpCleanup.c)
- *     IopSetFileObjectIosbRange @ 0x140935790 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140936BF8 (IopSetFileMemoryPartitionInformation.c)
+ *     sub_140933BA4 @ 0x140933BA4 (sub_140933BA4.c)
+ *     sub_140935790 @ 0x140935790 (sub_140935790.c)
+ *     sub_140936BF8 @ 0x140936BF8 (sub_140936BF8.c)
  *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -54,11 +54,11 @@ NTSTATUS __stdcall NtSetInformationFile(
 {
   size_t v5; // r13
   struct _KTHREAD *CurrentThread; // r9
-  KPROCESSOR_MODE PreviousMode; // si
+  KPROCESSOR_MODE v9; // si
   FILE_INFORMATION_CLASS v10; // r14d
   unsigned int v11; // eax
   __int64 v12; // rcx
-  _KPROCESS *Process; // rax
+  __int64 v13; // rax
   __int16 v14; // ax
   __int64 v15; // rax
   ACCESS_MASK v16; // edi
@@ -116,7 +116,7 @@ NTSTATUS __stdcall NtSetInformationFile(
   unsigned __int8 CurrentIrql; // bl
   unsigned __int8 v69; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v71; // r9
   int v72; // eax
   KPROCESSOR_MODE v73; // [rsp+30h] [rbp-E8h]
   BOOLEAN v74; // [rsp+31h] [rbp-E7h]
@@ -147,14 +147,14 @@ NTSTATUS __stdcall NtSetInformationFile(
   DeviceObject[2] = 0;
   CurrentThread = KeGetCurrentThread();
   v81 = CurrentThread;
-  PreviousMode = CurrentThread->PreviousMode;
-  v73 = PreviousMode;
-  if ( PreviousMode )
+  v9 = *((_BYTE *)CurrentThread + 562);
+  v73 = v9;
+  if ( v9 )
   {
     v10 = FileInformationClass;
     if ( (unsigned int)FileInformationClass >= (FileMaximumInformation|FileDirectoryInformation) )
       return -1073741821;
-    v11 = *((unsigned __int8 *)IopSetOperationLength + (int)FileInformationClass);
+    v11 = *((unsigned __int8 *)qword_140A39470 + (int)FileInformationClass);
     if ( !(_BYTE)v11 )
       return -1073741821;
     if ( (unsigned int)v5 < v11 )
@@ -163,9 +163,8 @@ NTSTATUS __stdcall NtSetInformationFile(
     if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
       v12 = (__int64)IoStatusBlock;
     *(_DWORD *)v12 = *(_DWORD *)v12;
-    Process = CurrentThread->ApcState.Process;
-    if ( Process[1].Affinity.StaticBitmap[30]
-      && ((v14 = WORD2(Process[2].Affinity.StaticBitmap[20]), v14 == 332) || v14 == 452) )
+    v13 = *((_QWORD *)CurrentThread + 23);
+    if ( *(_QWORD *)(v13 + 1408) && ((v14 = *(_WORD *)(v13 + 2412), v14 == 332) || v14 == 452) )
     {
       if ( (_DWORD)v5 )
       {
@@ -181,15 +180,15 @@ LABEL_17:
     }
     else if ( (_DWORD)v5 )
     {
-      if ( ((*((unsigned __int8 *)IopQuerySetAlignmentRequirement + (int)FileInformationClass) - 1LL) & (unsigned __int64)FileInformation) != 0 )
+      if ( ((*((unsigned __int8 *)&qword_140A394C0[10] + (int)FileInformationClass) - 1LL) & (unsigned __int64)FileInformation) != 0 )
         ExRaiseDatatypeMisalignment();
       goto LABEL_17;
     }
-    v16 = IopSetOperationAccess[FileInformationClass];
+    v16 = dword_140A3A610[FileInformationClass];
     if ( FileInformationClass == FileLinkInformation || FileInformationClass == FileLinkInformationEx )
     {
       memset(&SubjectContext, 0, sizeof(SubjectContext));
-      SeCaptureSubjectContextEx(CurrentThread, CurrentThread->Process, &SubjectContext);
+      SeCaptureSubjectContextEx(CurrentThread, *((PEPROCESS *)CurrentThread + 68), &SubjectContext);
       IsSandboxedToken = RtlIsSandboxedToken(&SubjectContext);
       SeReleaseSubjectContext(&SubjectContext);
       if ( IsSandboxedToken )
@@ -221,9 +220,9 @@ LABEL_17:
       DeviceObject[2] = 1;
       break;
   }
-  v16 = IopSetOperationAccess[v10];
+  v16 = dword_140A3A610[v10];
 LABEL_36:
-  result = IopReferenceFileObject(FileHandle, v16, PreviousMode, (PVOID *)&FileObject, 0LL);
+  result = sub_1402AC790(FileHandle, v16, v9, (PVOID *)&FileObject, 0LL);
   v19 = result;
   if ( result < 0 )
     return result;
@@ -242,12 +241,12 @@ LABEL_36:
   if ( (v20->Flags & 2) != 0 )
   {
     v23 = KeGetCurrentThread();
-    --v23->KernelApcDisable;
-    v24 = KeAbPreAcquire(&v20->Lock, 0LL, 0LL);
+    --*((_WORD *)v23 + 242);
+    v24 = sub_140347C10(&v20->Lock, 0LL, 0LL);
     DeviceObject[0] = 0;
     if ( _InterlockedExchange((volatile __int32 *)&v20->Busy, 1) )
     {
-      v19 = IopWaitAndAcquireFileObjectLock(v20, (__int64)DeviceObject);
+      v19 = sub_140709FAC(v20, (__int64)DeviceObject);
     }
     else
     {
@@ -267,7 +266,7 @@ LABEL_58:
     {
       if ( (unsigned int)v5 < 8 )
       {
-        IopReleaseFileObjectLock((volatile __int32 *)&FileObject->Type);
+        sub_1402AD350((volatile __int32 *)&FileObject->Type);
         ObfDereferenceObject(FileObject);
         return -1073741820;
       }
@@ -287,9 +286,9 @@ LABEL_58:
         IoStatusBlock->Information = 0LL;
       }
       v27 = KeGetCurrentThread();
-      v27->OtherTransferCount += (unsigned int)v5;
+      *((_QWORD *)v27 + 117) += (unsigned int)v5;
       __addgsqword(0x2EF8u, (unsigned int)v5);
-      IopReleaseFileObjectLock((volatile __int32 *)&FileObject->Type);
+      sub_1402AD350((volatile __int32 *)&FileObject->Type);
       goto LABEL_58;
     }
     v28 = 1;
@@ -305,10 +304,10 @@ LABEL_58:
     v28 = 0;
   }
   DeviceObject[1] = v28;
-  IopResetEvent((__int64)v20);
+  sub_1402AABB0((__int64)v20);
   if ( v10 != FileTrackingInformation )
   {
-    v31 = (IRP *)IopAllocateIrpExReturn(
+    v31 = (IRP *)sub_1402AACA0(
                    *(__int64 *)&DeviceObject[7],
                    *(unsigned __int8 *)(*(_QWORD *)&DeviceObject[7] + 76LL),
                    (unsigned __int8)v28 ^ 1u);
@@ -316,7 +315,7 @@ LABEL_58:
     Irp = v31;
     if ( !v31 )
     {
-      IopAllocateIrpCleanup(FileObject, 0LL);
+      sub_140933BA4(FileObject, 0LL);
       return -1073741670;
     }
     v31->Tail.Overlay.OriginalFileObject = FileObject;
@@ -348,15 +347,15 @@ LABEL_58:
     v81 = (struct _KTHREAD *)Pool2;
     v32->AssociatedIrp.MasterIrp = Pool2;
     memmove(Pool2, FileInformation, v5);
-    if ( ((unsigned int)(v10 - 19) <= 1 || v10 == FilePositionInformation) && v81->Header.SignalState < 0 )
+    if ( ((unsigned int)(v10 - 19) <= 1 || v10 == FilePositionInformation) && *((int *)v81 + 1) < 0 )
       RtlRaiseStatus(-1073741811);
     v32->Flags |= 0x830u;
     CurrentStackLocation[-1].Parameters.Read.Length = v5;
     CurrentStackLocation[-1].Parameters.Create.Options = v10;
     if ( v76 || DeviceObject[2] )
       CurrentStackLocation[-1].Flags |= 1u;
-    IopQueueThreadIrp((__int64)v32);
-    IopUpdateOtherOperationCount();
+    sub_1402AE1B0((__int64)v32);
+    sub_1402F672C();
     if ( v10 == FileModeInformation )
     {
       MasterIrp = v32->AssociatedIrp.MasterIrp;
@@ -433,7 +432,7 @@ LABEL_179:
         }
         if ( *((_WORD *)&v45->Flags + 2) == 92 || v45->MdlAddress )
         {
-          v48 = IopOpenLinkOrRenameTarget(&Handle, v32, v45, FileObject);
+          v48 = sub_1406C78D4(&Handle, v32, v45, FileObject);
           v19 = v48;
           if ( v48 < 0 )
           {
@@ -537,7 +536,7 @@ LABEL_105:
           }
           if ( v19 >= 0 )
           {
-            v19 = IopReplaceCompletionPort(v56, v55, v54->MdlAddress);
+            v19 = sub_1403989FC(v56, v55, v54->MdlAddress);
             if ( v55 )
             {
               ObfDereferenceObject(v55);
@@ -583,7 +582,7 @@ LABEL_105:
         goto LABEL_179;
       case FileIoStatusBlockRangeInformation:
         v62 = v73;
-        if ( SeSinglePrivilegeCheck(SeLockMemoryPrivilege, v73) )
+        if ( SeSinglePrivilegeCheck(stru_140D3CA80, v73) )
         {
           if ( (FileObject->Flags & 2) != 0 )
           {
@@ -592,7 +591,7 @@ LABEL_105:
           }
           else
           {
-            v19 = IopSetFileObjectIosbRange(FileObject, v32);
+            v19 = sub_140935790(FileObject, v32);
             v32->IoStatus.Status = v19;
           }
           v32->IoStatus.Information = 0LL;
@@ -609,7 +608,7 @@ LABEL_105:
         v63 = v32->AssociatedIrp.MasterIrp;
         if ( *(_DWORD *)&v63->Type <= 2u )
         {
-          v19 = IopAllocateFileObjectExtension((__int64)FileObject, &v84);
+          v19 = sub_1402A3A60((__int64)FileObject, &v84);
           if ( v19 >= 0 )
           {
             *(_DWORD *)(v84 + 80) = *(_DWORD *)&v63->Type + 1;
@@ -629,14 +628,14 @@ LABEL_105:
         }
         else
         {
-          v19 = IopSetFileMemoryPartitionInformation(FileObject, v32->AssociatedIrp.MasterIrp, (unsigned int)v5);
+          v19 = sub_140936BF8(FileObject, v32->AssociatedIrp.MasterIrp, (unsigned int)v5);
           v32->IoStatus.Status = v19;
         }
         v32->IoStatus.Information = 0LL;
         break;
       default:
 LABEL_178:
-        v19 = IopCallDriverReference(*(PDEVICE_OBJECT *)&DeviceObject[7], v32, 2);
+        v19 = sub_1402F8AE0(*(PDEVICE_OBJECT *)&DeviceObject[7], v32, 2);
         goto LABEL_179;
     }
 LABEL_180:
@@ -646,13 +645,13 @@ LABEL_180:
       {
         v66 = KeWaitForSingleObject(&v79, Executive, v62, 0, 0LL);
         if ( v66 == 257 || v66 == 192 )
-          IopCancelAlertedRequest(&v79, v32);
+          sub_140661B8C(&v79, v32);
         v19 = v87;
         *(_OWORD *)&IoStatusBlock->Status = v87;
         v67 = v74;
         goto LABEL_199;
       }
-      v19 = IopWaitForSynchronousIo(v32, (unsigned int *)FileObject, v62);
+      v19 = sub_1402A41A4(v32, (unsigned int *)FileObject, v62);
     }
     else
     {
@@ -663,26 +662,21 @@ LABEL_180:
       v32->UserIosb = IoStatusBlock;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(1uLL);
-      IopCompleteRequest(
-        (_DWORD)v32 + 120,
-        (unsigned int)&Irp,
-        (unsigned int)&v85,
-        (unsigned int)&FileObject,
-        (__int64)&v85);
-      if ( KiIrqlFlags )
+      sub_140347E10((_DWORD)v32 + 120, (unsigned int)&Irp, (unsigned int)&v85, (unsigned int)&FileObject, (__int64)&v85);
+      if ( dword_140D06B08 )
       {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( (dword_140D06B08 & 1) != 0 )
         {
           v69 = KeGetCurrentIrql();
           if ( v69 <= 0xFu && CurrentIrql <= 0xFu && v69 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v71 = *((_QWORD *)CurrentPrcb + 4375);
             v72 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v65 = (v72 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v72;
+            v65 = (v72 & *(_DWORD *)(v71 + 20)) == 0;
+            *(_DWORD *)(v71 + 20) &= v72;
             if ( v65 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              sub_140418E4C(CurrentPrcb);
           }
         }
       }
@@ -690,7 +684,7 @@ LABEL_180:
       if ( !v28 )
         goto LABEL_198;
     }
-    IopReleaseFileObjectLock((volatile __int32 *)&FileObject->Type);
+    sub_1402AD350((volatile __int32 *)&FileObject->Type);
 LABEL_198:
     v67 = v74;
 LABEL_199:
@@ -705,7 +699,7 @@ LABEL_199:
     p_Event = &FileObject->Event;
     if ( !v28 )
       p_Event = (KEVENT *)&v79;
-    v29 = IopTrackLink(FileObject, (__int64)p_Event, PreviousMode);
+    v29 = sub_1406D3128(FileObject, (__int64)p_Event, v9);
     *(_DWORD *)&DeviceObject[3] = v29;
     if ( v29 >= 0 )
     {
@@ -718,7 +712,7 @@ LABEL_199:
     v29 = -1073741820;
   }
   if ( v28 )
-    IopReleaseFileObjectLock((volatile __int32 *)&FileObject->Type);
+    sub_1402AD350((volatile __int32 *)&FileObject->Type);
   ObfDereferenceObject(FileObject);
   return v29;
 }

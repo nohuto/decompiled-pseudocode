@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpBlkPoWritePerfIoPort @ 0x14056D240
+ * XREFs of HalpBlkPoWritePerfIoPort @ 0x14056A6D0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpInterruptSendIpiToPhysicalTarget @ 0x1405447F0 (HalpInterruptSendIpiToPhysicalTarget.c)
- *     HalpBlkPoBusyWait @ 0x14056CDA8 (HalpBlkPoBusyWait.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpInterruptSendIpiToPhysicalTarget @ 0x140542140 (HalpInterruptSendIpiToPhysicalTarget.c)
+ *     HalpBlkPoBusyWait @ 0x14056A238 (HalpBlkPoBusyWait.c)
  */
 
 __int64 __fastcall HalpBlkPoWritePerfIoPort(unsigned int a1, __int16 a2, __int16 a3, int a4, int a5)
@@ -27,7 +27,7 @@ __int64 __fastcall HalpBlkPoWritePerfIoPort(unsigned int a1, __int16 a2, __int16
   *(_DWORD *)(v10 + 2240) = a4;
   *(_DWORD *)(v10 + 2244) = a5;
   _InterlockedExchange((volatile __int32 *)(v10 + 2224), 1);
-  v12 = HalpInterruptSendIpiToPhysicalTarget(*(_DWORD *)(v10 + 20));
+  v12 = HalpInterruptSendIpiToPhysicalTarget();
   if ( v12 < 0 )
     KeBugCheckEx(0x1DAu, 4uLL, 4uLL, a1, v10 + 2216);
   KeReleaseSpinLock((PKSPIN_LOCK)(v10 + 2216), v11);

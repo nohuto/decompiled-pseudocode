@@ -1,15 +1,15 @@
 /*
- * XREFs of ObFastReferenceObjectLocked @ 0x140397714
+ * XREFs of ObFastReferenceObjectLocked @ 0x1403517CC
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
- *     MiPrepareToFlushSubsection @ 0x14036F8DC (MiPrepareToFlushSubsection.c)
- *     MiReferenceInPageFile @ 0x140398340 (MiReferenceInPageFile.c)
- *     MiNotifyUserOfLostData @ 0x140672438 (MiNotifyUserOfLostData.c)
- *     MiNoPagesLastChance @ 0x1406849B0 (MiNoPagesLastChance.c)
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     PspReferenceSystemDll @ 0x1408FF9C8 (PspReferenceSystemDll.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
+ *     MiReferenceInPageFile @ 0x140350A90 (MiReferenceInPageFile.c)
+ *     MiPrepareToFlushSubsection @ 0x14043F1F4 (MiPrepareToFlushSubsection.c)
+ *     MiNotifyUserOfLostData @ 0x140673608 (MiNotifyUserOfLostData.c)
+ *     MiNoPagesLastChance @ 0x140685ADC (MiNoPagesLastChance.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     PspReferenceSystemDll @ 0x1409222A8 (PspReferenceSystemDll.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 unsigned __int64 __fastcall ObFastReferenceObjectLocked(_QWORD *a1, ULONG a2)

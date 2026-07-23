@@ -1,16 +1,16 @@
 /*
- * XREFs of KiUpdateThreadHgsFeedback @ 0x1405786E0
+ * XREFs of KiUpdateThreadHgsFeedback @ 0x140578BD0
  * Callers:
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x140318968 (KiRequestSoftwareInterrupt.c)
- *     KiIsPrcbThread @ 0x140324D00 (KiIsPrcbThread.c)
- *     KiEvaluateHgsClassChange @ 0x140576F70 (KiEvaluateHgsClassChange.c)
- *     EtwTraceThreadFeedbackRead @ 0x1405FD670 (EtwTraceThreadFeedbackRead.c)
- *     EtwTraceWorkloadClassUpdate @ 0x1405FD774 (EtwTraceWorkloadClassUpdate.c)
+ *     KiRequestSoftwareInterrupt @ 0x140318BF8 (KiRequestSoftwareInterrupt.c)
+ *     KiIsPrcbThread @ 0x140324F90 (KiIsPrcbThread.c)
+ *     KiEvaluateHgsClassChange @ 0x140577460 (KiEvaluateHgsClassChange.c)
+ *     EtwTraceThreadFeedbackRead @ 0x1405FDBE0 (EtwTraceThreadFeedbackRead.c)
+ *     EtwTraceWorkloadClassUpdate @ 0x1405FDCE4 (EtwTraceWorkloadClassUpdate.c)
  */
 
 char __fastcall KiUpdateThreadHgsFeedback(struct _KPRCB *a1, __int64 a2, __int64 a3, char a4)

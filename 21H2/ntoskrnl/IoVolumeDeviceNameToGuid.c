@@ -1,11 +1,11 @@
 /*
- * XREFs of IoVolumeDeviceNameToGuid @ 0x140895820
+ * XREFs of IoVolumeDeviceNameToGuid @ 0x140895980
  * Callers:
  *     <none>
  * Callees:
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
- *     IoVolumeDeviceNameToGuidPath @ 0x1407223C0 (IoVolumeDeviceNameToGuidPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x1406F9CC0 (IoVolumeDeviceNameToGuidPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoVolumeDeviceNameToGuid(const void **a1, GUID *a2)

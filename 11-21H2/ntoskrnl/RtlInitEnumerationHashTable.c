@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlInitEnumerationHashTable @ 0x140206B50
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x140206780 (SepCleanupMarkedForDeletionEntries.c)
+ *     sub_140206780 @ 0x140206780 (sub_140206780.c)
  *     RtlInitWeakEnumerationHashTable @ 0x14045F140 (RtlInitWeakEnumerationHashTable.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409CEBD4 (SepFindMatchingLowBoxNumberEntries.c)
- *     SepRmDestroyCapTable @ 0x1409CF8D8 (SepRmDestroyCapTable.c)
+ *     sub_1409CEBD4 @ 0x1409CEBD4 (sub_1409CEBD4.c)
+ *     sub_1409CF8D8 @ 0x1409CF8D8 (sub_1409CF8D8.c)
  * Callees:
- *     RtlpPopulateContext @ 0x140206BC4 (RtlpPopulateContext.c)
+ *     sub_140206BC4 @ 0x140206BC4 (sub_140206BC4.c)
  */
 
 BOOLEAN __stdcall RtlInitEnumerationHashTable(
@@ -18,7 +18,7 @@ BOOLEAN __stdcall RtlInitEnumerationHashTable(
   __int128 v7; // [rsp+20h] [rbp-28h] BYREF
 
   v7 = 0LL;
-  RtlpPopulateContext(HashTable, &v7);
+  sub_140206BC4(HashTable, &v7);
   v4 = (struct _LIST_ENTRY *)v7;
   ++HashTable->NumEnumerators;
   if ( v4->Flink == v4 )

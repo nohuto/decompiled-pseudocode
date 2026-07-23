@@ -6,20 +6,21 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TpReleaseCleanupGroup(volatile signed __int32 *a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpReleaseCleanupGroup(PTP_CLEANUP_GROUP CleanupGroup)
 {
-  __int64 result; // rax
+  _PEB_LDR_DATA *Ldr; // rdx
 
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, a2, a1, a4);
-  result = (__int64)NtCurrentPeb();
-  a2 = *(_QWORD *)(result + 24);
-  if ( *(_BYTE *)(a2 + 72) )
-    return result;
-  if ( _InterlockedExchange(a1 + 1, 1) )
-    return TppRaiseInvalidParameter(a1, a2, a1, a4);
-  result = (unsigned int)_InterlockedExchangeAdd(a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag, (__int64)a1);
-  return result;
+  if ( !CleanupGroup )
+    goto LABEL_7;
+  Ldr = NtCurrentPeb()->Ldr;
+  if ( Ldr->ShutdownInProgress )
+    return;
+  if ( _InterlockedExchange((volatile __int32 *)CleanupGroup + 1, 1) )
+  {
+LABEL_7:
+    TppRaiseInvalidParameter(CleanupGroup, Ldr, CleanupGroup);
+    return;
+  }
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)CleanupGroup, 0xFFFFFFFF) == 1 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, CleanupGroup);
 }

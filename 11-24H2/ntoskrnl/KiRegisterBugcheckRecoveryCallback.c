@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRegisterBugcheckRecoveryCallback @ 0x140467E94
+ * XREFs of KiRegisterBugcheckRecoveryCallback @ 0x140460844
  * Callers:
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
  */
 
 char __fastcall KiRegisterBugcheckRecoveryCallback(__int64 a1)

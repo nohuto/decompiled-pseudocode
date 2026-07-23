@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpArtDiscover @ 0x1403AC3DC
+ * XREFs of HalpArtDiscover @ 0x1403AD16C
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403AA5BC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403AB34C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
- *     HalpArtAvailable @ 0x1403AC43C (HalpArtAvailable.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     HalpTimerRegister @ 0x1403AC990 (HalpTimerRegister.c)
+ *     HalpArtAvailable @ 0x1403AD1CC (HalpArtAvailable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 HalpArtDiscover()

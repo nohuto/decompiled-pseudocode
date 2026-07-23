@@ -1,10 +1,10 @@
 /*
- * XREFs of XpressBuildHuffmanEncodings @ 0x1800C20B0
+ * XREFs of XpressBuildHuffmanEncodings @ 0x1800B9E70
  * Callers:
- *     RtlCompressBufferXpressHuffMax @ 0x1800C07C0 (RtlCompressBufferXpressHuffMax.c)
- *     RtlCompressBufferXpressHuffStandard @ 0x1800C18B0 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1800B8580 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x1800B9670 (RtlCompressBufferXpressHuffStandard.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall XpressBuildHuffmanEncodings(_QWORD *a1)

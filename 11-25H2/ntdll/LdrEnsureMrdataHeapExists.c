@@ -20,57 +20,57 @@
  *     ZwFreeVirtualMemory @ 0x1801635E0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 LdrEnsureMrdataHeapExists()
+NTSTATUS LdrEnsureMrdataHeapExists()
 {
-  __int64 result; // rax
+  int v0; // eax
+  NTSTATUS result; // eax
   void *Heap; // rax
-  __int64 v2; // rbx
-  _DWORD *v3; // rax
-  __int64 v4; // rdx
-  __int64 v5; // rdi
-  __int64 v6; // rcx
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+58h] [rbp+10h] BYREF
+  void *v3; // rbx
+  _DWORD *v4; // rax
+  void *v5; // rdi
+  void *v6; // rcx
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp+10h] BYREF
 
-  if ( !LdrControlFlowGuardEnforced() || LdrpMrdataHeap )
-    return 0LL;
-  v7 = 0LL;
-  v8 = LdrpAllocationGranularity;
-  result = ZwAllocateVirtualMemory(-1LL, &v7, 0LL, &v8, 0x2000, 4);
-  if ( (int)result >= 0 )
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  if ( !v0 || LdrpMrdataHeap )
+    return 0;
+  BaseAddress = 0LL;
+  RegionSize = LdrpAllocationGranularity;
+  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u);
+  if ( result >= 0 )
   {
-    Heap = (void *)RtlpCreateHeap(2, v7, 0, 0, 0LL, 0LL, 1);
-    v2 = (__int64)Heap;
+    Heap = (void *)RtlpCreateHeap(2, (_DWORD)BaseAddress, 0, 0, 0LL, 0LL, 1);
+    v3 = Heap;
     if ( Heap )
     {
-      v3 = (_DWORD *)RtlAllocateHeap(Heap);
-      v5 = (__int64)v3;
-      v6 = v2;
-      if ( v3 )
+      v4 = RtlAllocateHeap(Heap, 0, 4uLL);
+      v5 = v4;
+      v6 = v3;
+      if ( v4 )
       {
-        LOBYTE(v4) = 1;
-        *v3 = 0;
-        RtlProtectHeap(v2, v4);
+        *v4 = 0;
+        RtlProtectHeap(v3, 1u);
         LdrProtectMrdata(0);
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpMrdataLock);
+        RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
         if ( !LdrpMrdataHeap )
         {
-          LdrpMrdataHeapUnprotected = v5;
-          LdrpMrdataHeap = v2;
+          LdrpMrdataHeapUnprotected = (__int64)v5;
+          LdrpMrdataHeap = v3;
           RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
           LdrProtectMrdata(1);
-          return 0LL;
+          return 0;
         }
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         LdrProtectMrdata(1);
-        RtlProtectHeap(v2, 0LL);
-        RtlFreeHeap(v2, 0LL, v5);
-        v6 = v2;
+        RtlProtectHeap(v3, 0);
+        RtlFreeHeap(v3, 0, v5);
+        v6 = v3;
       }
       RtlDestroyHeap(v6);
     }
-    ZwFreeVirtualMemory(-1LL, &v7, &v8, 0x8000LL);
-    return LdrpMrdataHeap == 0 ? 0xC0000017 : 0;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    return LdrpMrdataHeap == 0LL ? 0xC0000017 : 0;
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateSemaphore @ 0x1405F8710
+ * XREFs of NtCreateSemaphore @ 0x1405F9710
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeSemaphore @ 0x14008A3E0 (KeInitializeSemaphore.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     KeInitializeSemaphore @ 0x14008A3D0 (KeInitializeSemaphore.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall NtCreateSemaphore(

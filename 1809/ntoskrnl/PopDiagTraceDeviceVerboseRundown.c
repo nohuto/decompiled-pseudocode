@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x1406DA17C
+ * XREFs of PopDiagTraceDeviceVerboseRundown @ 0x1406DB41C
  * Callers:
- *     PopDiagTraceFxRundown @ 0x140141664 (PopDiagTraceFxRundown.c)
+ *     PopDiagTraceFxRundown @ 0x140141764 (PopDiagTraceFxRundown.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     PopPepGetDevicePlatformStateDependents @ 0x14014174C (PopPepGetDevicePlatformStateDependents.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     PopPepGetDevicePlatformStateDependents @ 0x14014184C (PopPepGetDevicePlatformStateDependents.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceVerboseRundown(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslWriteProtectedPage @ 0x1405C44A0
+ * XREFs of VslWriteProtectedPage @ 0x1405C6D10
  * Callers:
- *     MiDbgCopyPrivilegedData @ 0x1406FDCAC (MiDbgCopyPrivilegedData.c)
+ *     MiDbgCopyPrivilegedData @ 0x14070297C (MiDbgCopyPrivilegedData.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslWriteProtectedPage(__int64 a1, __int128 *a2, int a3, __int64 a4, int a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIncrementCombinedPte @ 0x1402F9928
+ * XREFs of MiIncrementCombinedPte @ 0x1402946E0
  * Callers:
- *     MiMapImageScpCfgPages @ 0x140264810 (MiMapImageScpCfgPages.c)
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiMapImageScpCfgPages @ 0x140294080 (MiMapImageScpCfgPages.c)
  * Callees:
- *     MiReferenceCloneProto @ 0x1402F99D8 (MiReferenceCloneProto.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiReferenceCloneProto @ 0x140294790 (MiReferenceCloneProto.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiIncrementCombinedPte(__int64 a1, __int64 a2, int a3)

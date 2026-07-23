@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
  */
 
 __int64 __fastcall ViFilterGenericCompletionRoutine(__int64 a1, __int64 a2)

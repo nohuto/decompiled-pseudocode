@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpValidateHeapSegment @ 0x1800DD034
+ * XREFs of RtlpValidateHeapSegment @ 0x1800D9FA4
  * Callers:
- *     RtlpValidateHeap @ 0x180014EB8 (RtlpValidateHeap.c)
+ *     RtlpValidateHeap @ 0x1800605E8 (RtlpValidateHeap.c)
  * Callees:
- *     RtlpGetExtraStuffPointer @ 0x1800148A0 (RtlpGetExtraStuffPointer.c)
- *     RtlpCheckBusyBlockTail @ 0x180015B4C (RtlpCheckBusyBlockTail.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpAnalyzeHeapFailure @ 0x1800257B0 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapRemoveListEntry @ 0x180025AF0 (RtlpHeapRemoveListEntry.c)
- *     RtlpDeCommitFreeBlock @ 0x180025C70 (RtlpDeCommitFreeBlock.c)
- *     RtlpCommitBlock @ 0x1800274E0 (RtlpCommitBlock.c)
- *     RtlpFindEntry @ 0x180029F40 (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x18007E3B0 (RtlpHeapAddListEntry.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     RtlCompareMemoryUlong @ 0x180163260 (RtlCompareMemoryUlong.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180010880 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x180010BC0 (RtlpHeapRemoveListEntry.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010D40 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCommitBlock @ 0x1800125B0 (RtlpCommitBlock.c)
+ *     RtlpFindEntry @ 0x180015010 (RtlpFindEntry.c)
+ *     RtlpGetExtraStuffPointer @ 0x18005FFD0 (RtlpGetExtraStuffPointer.c)
+ *     RtlpCheckBusyBlockTail @ 0x18006127C (RtlpCheckBusyBlockTail.c)
+ *     RtlpHeapAddListEntry @ 0x18006CAA0 (RtlpHeapAddListEntry.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     RtlCompareMemoryUlong @ 0x180163160 (RtlCompareMemoryUlong.c)
  */
 
 char __fastcall RtlpValidateHeapSegment(
@@ -39,7 +39,7 @@ char __fastcall RtlpValidateHeapSegment(
   bool v20; // zf
   __int64 v22; // rax
   unsigned __int64 v23; // rcx
-  unsigned __int64 v24; // rsi
+  SIZE_T v24; // rsi
   __int64 *v25; // r14
   _QWORD *v26; // r15
   __int64 v27; // rsi
@@ -58,7 +58,7 @@ char __fastcall RtlpValidateHeapSegment(
   __int64 v40; // rdx
   unsigned __int64 v41; // rcx
   unsigned __int16 v42; // cx
-  __int64 v43; // r14
+  SIZE_T v43; // r14
   unsigned __int16 v44; // cx
   char v45; // al
   char v46; // al
@@ -94,7 +94,7 @@ char __fastcall RtlpValidateHeapSegment(
       DbgPrint(
         "Heap entry %p has incorrect PreviousSize field (%04x instead of %04x)\n",
         (const void *)v14,
-        *(unsigned __int16 *)(a1 + 140) ^ *(unsigned __int16 *)(v14 + 12),
+        *(unsigned __int16 *)(v14 + 12) ^ *(unsigned __int16 *)(a1 + 140),
         (unsigned __int16)v12);
 LABEL_21:
       v20 = *(_DWORD *)(a1 + 124) == 0;
@@ -149,7 +149,7 @@ LABEL_22:
         v24 = v16 - 36;
       if ( (v15 & 8) == 0 )
       {
-        v43 = RtlCompareMemoryUlong(v14 + 32, v24, 4277075694LL);
+        v43 = RtlCompareMemoryUlong((PVOID)(v14 + 32), v24, 0xFEEEFEEE);
         if ( v43 != v24 )
         {
           if ( NtCurrentPeb()->Ldr )

@@ -7,11 +7,14 @@
  *     ObInsertObjectEx @ 0x14042D940 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateWaitCompletionPacket(__int64 *a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl NtCreateWaitCompletionPacket(
+        PHANDLE WaitCompletionPacketHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // di
   _QWORD *v6; // rdx
-  int inserted; // ecx
+  NTSTATUS inserted; // ecx
   _BYTE *v8; // rcx
   __int64 v10; // [rsp+20h] [rbp-68h]
   __int64 v11; // [rsp+58h] [rbp-30h] BYREF
@@ -20,15 +23,15 @@ __int64 __fastcall NtCreateWaitCompletionPacket(__int64 *a1, unsigned int a2, __
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v6 = a1;
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+    v6 = WaitCompletionPacketHandle;
+    if ( (unsigned __int64)WaitCompletionPacketHandle >= MmUserProbeAddress )
       v6 = (_QWORD *)MmUserProbeAddress;
     *v6 = *v6;
   }
   inserted = ObCreateObjectEx(
                PreviousMode,
                IopWaitCompletionPacketObjectType,
-               a3,
+               (__int64)ObjectAttributes,
                PreviousMode,
                v10,
                112,
@@ -41,9 +44,9 @@ __int64 __fastcall NtCreateWaitCompletionPacket(__int64 *a1, unsigned int a2, __
     v8 = Object[0];
     *((_QWORD *)Object[0] + 12) = 0LL;
     v8[104] = 0;
-    inserted = ObInsertObjectEx(v8, 0LL, a2, 0, 0, 0LL, &v11);
+    inserted = ObInsertObjectEx(v8, 0LL, DesiredAccess, 0, 0, 0LL, &v11);
     if ( inserted >= 0 )
-      *a1 = v11;
+      *WaitCompletionPacketHandle = (HANDLE)v11;
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

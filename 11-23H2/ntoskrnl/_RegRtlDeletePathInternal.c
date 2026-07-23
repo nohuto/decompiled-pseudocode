@@ -1,16 +1,16 @@
 /*
- * XREFs of _RegRtlDeletePathInternal @ 0x140A6AB9C
+ * XREFs of _RegRtlDeletePathInternal @ 0x140A6AE4C
  * Callers:
- *     PiDevCfgClearDeviceMigrationNode @ 0x14095CFB4 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x14095D1B4 (PiDevCfgClearDeviceMigrationNode.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B238 (RtlStringCchCopyExW.c)
- *     RtlUnalignedStringCchLengthW @ 0x14022B66C (RtlUnalignedStringCchLengthW.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406CED70 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862E48 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlQueryInfoKey @ 0x14086B3E4 (_RegRtlQueryInfoKey.c)
+ *     RtlStringCchCopyExW @ 0x14022B348 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14022B77C (RtlUnalignedStringCchLengthW.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406CEDA0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140863088 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlQueryInfoKey @ 0x14086B624 (_RegRtlQueryInfoKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

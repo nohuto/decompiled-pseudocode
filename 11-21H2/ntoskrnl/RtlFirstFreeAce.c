@@ -5,34 +5,34 @@
  *     RtlDeleteAce @ 0x1406DC070 (RtlDeleteAce.c)
  *     RtlQueryInformationAcl @ 0x140724B00 (RtlQueryInformationAcl.c)
  *     RtlAddAce @ 0x140724BB0 (RtlAddAce.c)
- *     RtlpInheritAcl2 @ 0x140727FB0 (RtlpInheritAcl2.c)
+ *     sub_140727FB0 @ 0x140727FB0 (sub_140727FB0.c)
  *     RtlAddProcessTrustLabelAce @ 0x140848A40 (RtlAddProcessTrustLabelAce.c)
- *     SddlAddMandatoryAce @ 0x140882C7A (SddlAddMandatoryAce.c)
+ *     sub_140882C7A @ 0x140882C7A (sub_140882C7A.c)
  *     RtlAddAccessFilterAce @ 0x1409B7E50 (RtlAddAccessFilterAce.c)
  *     RtlAddResourceAttributeAce @ 0x1409B8170 (RtlAddResourceAttributeAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409B84A4 (RtlpAddKnownObjectAce.c)
- *     SddlAddAccessFilterAce @ 0x1409CF980 (SddlAddAccessFilterAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x1409CFB98 (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x1409CFCF8 (SddlAddScopedPolicyIDAce.c)
+ *     sub_1409B84A4 @ 0x1409B84A4 (sub_1409B84A4.c)
+ *     sub_1409CF980 @ 0x1409CF980 (sub_1409CF980.c)
+ *     sub_1409CFB98 @ 0x1409CFB98 (sub_1409CFB98.c)
+ *     sub_1409CFCF8 @ 0x1409CFCF8 (sub_1409CFCF8.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlFirstFreeAce(__int64 a1, _QWORD *a2)
+BOOLEAN __cdecl RtlFirstFreeAce(PACL Acl, PVOID *FirstFree)
 {
   unsigned int v3; // ecx
-  unsigned __int64 v4; // r8
+  PACL v4; // r8
 
   v3 = 0;
-  *a2 = 0LL;
-  v4 = a1 + 8;
-  if ( *(_WORD *)(a1 + 4) )
+  *FirstFree = 0LL;
+  v4 = Acl + 1;
+  if ( Acl->AceCount )
   {
-    while ( v4 < a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+    while ( v4 < (PACL)((char *)Acl + Acl->AclSize) )
     {
       ++v3;
-      v4 += *(unsigned __int16 *)(v4 + 2);
-      if ( v3 >= *(unsigned __int16 *)(a1 + 4) )
+      v4 = (PACL)((char *)v4 + v4->AclSize);
+      if ( v3 >= Acl->AceCount )
         goto LABEL_4;
     }
     return 0;
@@ -40,8 +40,8 @@ char __fastcall RtlFirstFreeAce(__int64 a1, _QWORD *a2)
   else
   {
 LABEL_4:
-    if ( v4 <= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-      *a2 = v4;
+    if ( v4 <= (PACL)((char *)Acl + Acl->AclSize) )
+      *FirstFree = v4;
     return 1;
   }
 }

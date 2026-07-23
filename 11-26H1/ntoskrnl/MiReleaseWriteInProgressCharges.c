@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReleaseWriteInProgressCharges @ 0x1402CCBF4
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x1402AE9B4
  * Callers:
- *     MiFreeModWriterEntry @ 0x1402CCB90 (MiFreeModWriterEntry.c)
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
- *     MiAddPageToInsertList @ 0x14031EF60 (MiAddPageToInsertList.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiReleaseMappedPages @ 0x140502058 (MiReleaseMappedPages.c)
- *     MiModwriterReturnUnusedPages @ 0x14070D6F4 (MiModwriterReturnUnusedPages.c)
+ *     MiFreeModWriterEntry @ 0x1402AE950 (MiFreeModWriterEntry.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
+ *     MiAddPageToInsertList @ 0x140320F90 (MiAddPageToInsertList.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiReleaseMappedPages @ 0x1404FB928 (MiReleaseMappedPages.c)
+ *     MiModwriterReturnUnusedPages @ 0x1407123A4 (MiModwriterReturnUnusedPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
  */
 
 __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, __int64 a2, int a3)

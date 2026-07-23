@@ -1,21 +1,21 @@
 /*
- * XREFs of ExSweepHandleTable @ 0x1409E502C
+ * XREFs of ExSweepHandleTable @ 0x1409DFA8C
  * Callers:
- *     PspRundownSingleProcess @ 0x1408A8B38 (PspRundownSingleProcess.c)
- *     ObInitProcess @ 0x14093BD38 (ObInitProcess.c)
- *     ObKillProcess @ 0x1409E4FC8 (ObKillProcess.c)
+ *     PspRundownSingleProcess @ 0x1408FED98 (PspRundownSingleProcess.c)
+ *     ObInitProcess @ 0x14094D010 (ObInitProcess.c)
+ *     ObKillProcess @ 0x1409DFA28 (ObKillProcess.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ExSweepHandleTable(struct _KPROCESS *a1, __int64 a2, unsigned __int8 a3)
@@ -28,21 +28,23 @@ __int64 __fastcall ExSweepHandleTable(struct _KPROCESS *a1, __int64 a2, unsigned
   char v10; // r9
   __int64 v11; // r8
   int v12; // eax
-  _QWORD *v13; // rax
-  _QWORD *v14; // rsi
+  char *v13; // rax
+  char *v14; // rsi
   __int64 result; // rax
-  char v16; // [rsp+30h] [rbp-78h]
+  __int64 v16; // r8
+  __int64 v17; // r9
+  char v18; // [rsp+30h] [rbp-78h]
   struct _KAPC_STATE ApcState; // [rsp+38h] [rbp-70h] BYREF
 
   memset(&ApcState, 0, sizeof(ApcState));
   v3 = 0;
-  v16 = 0;
+  v18 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->ApcState.Process != a1 )
   {
     KeStackAttachProcess(a1, &ApcState);
     v3 = 1;
-    v16 = 1;
+    v18 = 1;
   }
   --CurrentThread->KernelApcDisable;
   v7 = 4LL;
@@ -74,7 +76,7 @@ LABEL_8:
             v9 = (__int64 *)ExpLookupHandleTableEntry((unsigned int *)a2, v7);
             if ( !v9 )
             {
-              v3 = v16;
+              v3 = v18;
               goto LABEL_11;
             }
           }
@@ -92,12 +94,12 @@ LABEL_8:
     }
   }
 LABEL_11:
-  v13 = KeAbPreAcquire(a2 + 64, 0LL);
+  v13 = (char *)KeAbPreAcquire(a2 + 64, 0LL);
   v14 = v13;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 64), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 64), (__int64)v13, a2 + 64);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 64), v13, a2 + 64);
   if ( v14 )
-    *((_BYTE *)v14 + 10) = 1;
+    v14[10] = 1;
   *(_DWORD *)(a2 + 88) -= v8;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 64), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)(a2 + 64));
@@ -105,6 +107,6 @@ LABEL_11:
   *(_BYTE *)(a2 + 44) |= 4u;
   result = KeLeaveCriticalRegionThread();
   if ( v3 == 1 )
-    return KiUnstackDetachProcess((__int64)&ApcState, 0);
+    return KiUnstackDetachProcess((__int64)&ApcState, 0, v16, v17);
   return result;
 }

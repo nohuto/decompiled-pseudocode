@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char __fastcall LdrUnloadAlternateResourceModule(__int64 a1)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModule(PVOID DllHandle)
 {
-  return LdrUnloadAlternateResourceModuleEx(a1, 0);
+  return LdrUnloadAlternateResourceModuleEx(DllHandle, 0);
 }

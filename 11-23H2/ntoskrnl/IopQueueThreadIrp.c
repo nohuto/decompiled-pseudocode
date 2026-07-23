@@ -1,29 +1,29 @@
 /*
- * XREFs of IopQueueThreadIrp @ 0x14022ED60
+ * XREFs of IopQueueThreadIrp @ 0x14022EE70
  * Callers:
- *     IoAsynchronousPageWrite @ 0x140369A0C (IoAsynchronousPageWrite.c)
- *     IoQueueThreadIrp @ 0x1403C7780 (IoQueueThreadIrp.c)
+ *     IoAsynchronousPageWrite @ 0x140369BAC (IoAsynchronousPageWrite.c)
+ *     IoQueueThreadIrp @ 0x1403C7960 (IoQueueThreadIrp.c)
  *     IopGetSetSecurityObject @ 0x14069C1D0 (IopGetSetSecurityObject.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopCloseFile @ 0x140730000 (IopCloseFile.c)
- *     IopDeleteFile @ 0x140730490 (IopDeleteFile.c)
- *     IopGetFileInformation @ 0x14075AE5C (IopGetFileInformation.c)
- *     IopQueryXxxInformation @ 0x14075D28C (IopQueryXxxInformation.c)
- *     IopSynchronousCall @ 0x1407683A4 (IopSynchronousCall.c)
- *     IopFilterResourceRequirementsCall @ 0x140790230 (IopFilterResourceRequirementsCall.c)
- *     IopBuildSynchronousFsdRequest @ 0x1407FD3C0 (IopBuildSynchronousFsdRequest.c)
- *     IoSetInformation @ 0x1408831F0 (IoSetInformation.c)
- *     IoCancelFileOpen @ 0x140946D00 (IoCancelFileOpen.c)
- *     IoEnqueueIrp @ 0x140947350 (IoEnqueueIrp.c)
- *     IoVerifyVolume @ 0x1409476B0 (IoVerifyVolume.c)
- *     IopFreeBandwidthContract @ 0x14095192C (IopFreeBandwidthContract.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopCloseFile @ 0x1407301F0 (IopCloseFile.c)
+ *     IopDeleteFile @ 0x140730680 (IopDeleteFile.c)
+ *     IopGetFileInformation @ 0x14075B04C (IopGetFileInformation.c)
+ *     IopQueryXxxInformation @ 0x14075D47C (IopQueryXxxInformation.c)
+ *     IopSynchronousCall @ 0x140768594 (IopSynchronousCall.c)
+ *     IopFilterResourceRequirementsCall @ 0x140790420 (IopFilterResourceRequirementsCall.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407FD690 (IopBuildSynchronousFsdRequest.c)
+ *     IoSetInformation @ 0x140883430 (IoSetInformation.c)
+ *     IoCancelFileOpen @ 0x140946F00 (IoCancelFileOpen.c)
+ *     IoEnqueueIrp @ 0x140947550 (IoEnqueueIrp.c)
+ *     IoVerifyVolume @ 0x1409478B0 (IoVerifyVolume.c)
+ *     IopFreeBandwidthContract @ 0x140951B2C (IopFreeBandwidthContract.c)
  * Callees:
- *     KxWaitForSpinLockAndAcquire @ 0x140250F20 (KxWaitForSpinLockAndAcquire.c)
- *     KiAcquireSpinLockInstrumented @ 0x140460430 (KiAcquireSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140250FE0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140460830 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopQueueThreadIrp(__int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall IopQueueThreadIrp(__int64 a1)
   v4 = (volatile signed __int32 *)(v1 + 1496);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -78,10 +78,10 @@ __int64 __fastcall IopQueueThreadIrp(__int64 a1)
     KiReleaseSpinLockInstrumented(v4, retaddr);
   else
     _InterlockedAnd64((volatile signed __int64 *)v4, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;

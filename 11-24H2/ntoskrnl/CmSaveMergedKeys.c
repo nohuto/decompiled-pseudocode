@@ -1,34 +1,34 @@
 /*
- * XREFs of CmSaveMergedKeys @ 0x1407CE060
+ * XREFs of CmSaveMergedKeys @ 0x1407CE550
  * Callers:
- *     NtSaveMergedKeys @ 0x1407D1090 (NtSaveMergedKeys.c)
+ *     NtSaveMergedKeys @ 0x1407D1580 (NtSaveMergedKeys.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpCreateTemporaryHive @ 0x1407CE548 (CmpCreateTemporaryHive.c)
- *     CmpCopySyncTree @ 0x1407E1E30 (CmpCopySyncTree.c)
- *     CmpMergeKeyValues @ 0x1407E1F94 (CmpMergeKeyValues.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpCopyKeyPartial @ 0x140880F10 (CmpCopyKeyPartial.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpBlockTwoHiveWrites @ 0x14090AFE4 (CmpBlockTwoHiveWrites.c)
- *     CmpLogUnsupportedOperation @ 0x14097AB10 (CmpLogUnsupportedOperation.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmpLockTwoKcbsShared @ 0x1409F45F0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1409F67C4 (CmpUnlockTwoKcbs.c)
- *     HvWriteExternal @ 0x140A6D050 (HvWriteExternal.c)
- *     CmpUuidCreate @ 0x140AA1208 (CmpUuidCreate.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140BB9480 (CmpIsKeyDeletedForKeyBody.c)
- *     CmLockHiveSecurityShared @ 0x140BB996C (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140BB99C8 (CmUnlockHiveSecurity.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140BB9A98 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140BB9AB4 (HvLockHiveFlusherExclusive.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140BB9B34 (CmpDoAccessCheckOnSubtree.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpCreateTemporaryHive @ 0x1407CEA38 (CmpCreateTemporaryHive.c)
+ *     CmpCopySyncTree @ 0x1407E2380 (CmpCopySyncTree.c)
+ *     CmpMergeKeyValues @ 0x1407E24E4 (CmpMergeKeyValues.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpCopyKeyPartial @ 0x140884DC0 (CmpCopyKeyPartial.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpBlockTwoHiveWrites @ 0x1408E2704 (CmpBlockTwoHiveWrites.c)
+ *     CmpLogUnsupportedOperation @ 0x140963320 (CmpLogUnsupportedOperation.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmpLockTwoKcbsShared @ 0x1409E8950 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1409EA714 (CmpUnlockTwoKcbs.c)
+ *     HvWriteExternal @ 0x140A66710 (HvWriteExternal.c)
+ *     CmpUuidCreate @ 0x140A9C598 (CmpUuidCreate.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140BBB480 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmLockHiveSecurityShared @ 0x140BBB96C (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140BBB9C8 (CmUnlockHiveSecurity.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140BBBA98 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140BBBAB4 (HvLockHiveFlusherExclusive.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140BBBB34 (CmpDoAccessCheckOnSubtree.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3)
@@ -224,14 +224,14 @@ LABEL_49:
           HvUnlockHiveFlusherExclusive(v7);
         goto LABEL_56;
       }
-      if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+      if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
       {
         v29 = 0x1000000LL;
         v33 = &v29;
         v34 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E09EE8,
-          (unsigned __int8 *)&dword_1400544DC,
+          (__int64)&dword_140E09F58,
+          (unsigned __int8 *)&word_140054FD6,
           0LL,
           0LL,
           3u,

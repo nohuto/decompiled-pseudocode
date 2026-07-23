@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSetPfnRemovalRequested @ 0x14064DEB4
+ * XREFs of MiSetPfnRemovalRequested @ 0x14064E404
  * Callers:
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiRemoveBadPages @ 0x14062A440 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x14062AD10 (MiUnlinkBadPages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
- *     MiMarkFileOnlyPfnBad @ 0x14063E040 (MiMarkFileOnlyPfnBad.c)
- *     MiMakePageBad @ 0x14065E2B0 (MiMakePageBad.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiRemoveBadPages @ 0x14062A990 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x14062B260 (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14063E590 (MiMarkFileOnlyPfnBad.c)
+ *     MiMakePageBad @ 0x14065E800 (MiMakePageBad.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAddPendingBadPageNode @ 0x1406296E8 (MiAddPendingBadPageNode.c)
- *     MiRemovePendingBadPageNode @ 0x14062A908 (MiRemovePendingBadPageNode.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAddPendingBadPageNode @ 0x140629C38 (MiAddPendingBadPageNode.c)
+ *     MiRemovePendingBadPageNode @ 0x14062AE58 (MiRemovePendingBadPageNode.c)
  */
 
 void __fastcall MiSetPfnRemovalRequested(unsigned __int64 a1, int a2, int a3, unsigned __int64 a4)

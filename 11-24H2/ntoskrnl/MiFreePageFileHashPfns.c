@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x1402D2BA0
+ * XREFs of MiFreePageFileHashPfns @ 0x140353E18
  * Callers:
- *     MiScanPagefiles @ 0x1402D2B08 (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x1407EEEF8 (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x140353D80 (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x1407EF4C8 (MiDeletePagefile.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiFreePageFileHashPfn @ 0x1404A8FE0 (MiFreePageFileHashPfn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiFreePageFileHashPfn @ 0x1404A3400 (MiFreePageFileHashPfn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
-void __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
+void __fastcall MiFreePageFileHashPfns(_SLIST_HEADER *a1)
 {
   unsigned __int64 v1; // rbx
   __int64 v2; // rcx
   PSLIST_ENTRY v3; // rdi
-  struct _SLIST_ENTRY *Next; // r14
+  _SLIST_ENTRY *Next; // r14
   unsigned int v5; // ebp
   __int64 v6; // rdx
   unsigned __int8 CurrentIrql; // si
@@ -95,7 +95,7 @@ LABEL_7:
     if ( v1 )
     {
       MiReleaseNonPagedResources(Region, v1);
-      _InterlockedAdd64(&qword_140E387E8, -(__int64)v1);
+      _InterlockedAdd64(&qword_140E38928, -(__int64)v1);
     }
   }
 }

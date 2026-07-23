@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushAllHintedStorePages @ 0x1401EE714
+ * XREFs of MiFlushAllHintedStorePages @ 0x1401EE540
  * Callers:
- *     MmStoreFlushAllHintedPages @ 0x140661810 (MmStoreFlushAllHintedPages.c)
+ *     MmStoreFlushAllHintedPages @ 0x1406618F4 (MmStoreFlushAllHintedPages.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     MiWakeModifiedPageWriter @ 0x140113248 (MiWakeModifiedPageWriter.c)
- *     MiCanFlushMakeProgress @ 0x14011329C (MiCanFlushMakeProgress.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     MiWakeModifiedPageWriter @ 0x1401137B8 (MiWakeModifiedPageWriter.c)
+ *     MiCanFlushMakeProgress @ 0x14011380C (MiCanFlushMakeProgress.c)
  */
 
 __int64 MiFlushAllHintedStorePages()
@@ -21,13 +21,13 @@ __int64 MiFlushAllHintedStorePages()
 
   CurrentThread = KeGetCurrentThread();
   v1 = 0;
-  if ( !dword_140323968 )
+  if ( !dword_1403239A8 )
     return 1LL;
   --CurrentThread->SpecialApcDisable;
   v3 = KeSetActualBasePriorityThread((__int64)CurrentThread, 0x12u);
   v4 = MEMORY[0xFFFFF78000000008];
-  _InterlockedExchangeAdd(&dword_140323960, 2u);
-  v5 = 5LL * (unsigned int)dword_140323964;
+  _InterlockedExchangeAdd(&dword_1403239A0, 2u);
+  v5 = 5LL * (unsigned int)dword_1403239A4;
   while ( *(_QWORD *)&MiSystemPartition[2 * v5 + 592] )
   {
     if ( (unsigned int)MiCanFlushMakeProgress((__int64)MiSystemPartition, 1) )
@@ -41,9 +41,9 @@ __int64 MiFlushAllHintedStorePages()
   }
   v1 = 1;
 LABEL_8:
-  _InterlockedOr(&dword_140323960, 1u);
-  _InterlockedExchangeAdd(&dword_140323960, 0xFFFFFFFE);
-  KeSetEvent(&stru_140323858, 0, 0);
+  _InterlockedOr(&dword_1403239A0, 1u);
+  _InterlockedExchangeAdd(&dword_1403239A0, 0xFFFFFFFE);
+  KeSetEvent(&stru_140323898, 0, 0);
   KeSetActualBasePriorityThread((__int64)CurrentThread, v3);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v1;

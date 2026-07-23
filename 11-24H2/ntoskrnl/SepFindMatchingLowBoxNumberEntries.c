@@ -1,11 +1,11 @@
 /*
- * XREFs of SepFindMatchingLowBoxNumberEntries @ 0x140794B28
+ * XREFs of SepFindMatchingLowBoxNumberEntries @ 0x140794BB0
  * Callers:
- *     SepIsParentOfChildAppContainer @ 0x140794F90 (SepIsParentOfChildAppContainer.c)
+ *     SepIsParentOfChildAppContainer @ 0x140795018 (SepIsParentOfChildAppContainer.c)
  * Callees:
- *     RtlInitWeakEnumerationHashTable @ 0x140356C60 (RtlInitWeakEnumerationHashTable.c)
- *     RtlEnumerateEntryHashTable @ 0x140357000 (RtlEnumerateEntryHashTable.c)
- *     RtlEndWeakEnumerationHashTable @ 0x14043F0A0 (RtlEndWeakEnumerationHashTable.c)
+ *     RtlEnumerateEntryHashTable @ 0x1403E3040 (RtlEnumerateEntryHashTable.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x1403E31D0 (RtlInitWeakEnumerationHashTable.c)
+ *     RtlEndWeakEnumerationHashTable @ 0x140434C50 (RtlEndWeakEnumerationHashTable.c)
  */
 
 __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
@@ -20,7 +20,7 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
   int Signature; // ecx
   bool v12; // zf
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v13; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-58h] BYREF
 
   *a4 = 0LL;
   Enumerator.HashEntry.Linkage = 0LL;

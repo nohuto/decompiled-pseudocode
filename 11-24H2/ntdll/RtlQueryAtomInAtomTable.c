@@ -1,145 +1,116 @@
 /*
- * XREFs of RtlQueryAtomInAtomTable @ 0x1801191C0
+ * XREFs of RtlQueryAtomInAtomTable @ 0x18007AA70
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpLockAtomTable @ 0x1800AEA00 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1800AEA2C (RtlpAtomMapAtomToHandleEntry.c)
- *     _snwprintf_s @ 0x18012CE60 (_snwprintf_s.c)
- *     Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline @ 0x18013C074 (Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpLockAtomTable @ 0x18007B1E0 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x18007B20C (RtlpAtomMapAtomToHandleEntry.c)
+ *     _snwprintf_s @ 0x18012B090 (_snwprintf_s.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryAtomInAtomTable(
-        __int64 a1,
-        volatile signed __int32 **a2,
-        _DWORD *a3,
-        _DWORD *a4,
-        void *a5,
-        unsigned int *a6)
+NTSTATUS __cdecl RtlQueryAtomInAtomTable(
+        PVOID AtomTableHandle,
+        RTL_ATOM Atom,
+        PULONG AtomUsage,
+        PULONG AtomFlags,
+        PWSTR AtomName,
+        PULONG AtomNameLength)
 {
   int v8; // esi
-  unsigned int v9; // ebx
-  unsigned int v11; // edi
-  unsigned int v12; // esi
-  unsigned int v13; // eax
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  unsigned int v16; // r9d
-  __int64 v17; // r14
-  unsigned __int16 *v18; // rax
-  unsigned int v19; // eax
-  wchar_t Buffer[16]; // [rsp+50h] [rbp-68h] BYREF
+  ULONG v9; // ebx
+  NTSTATUS v10; // edi
+  __int64 v11; // rax
+  _RTL_SRWLOCK *v12; // rcx
+  unsigned __int32 v13; // r9d
+  __int64 v14; // rdx
+  unsigned __int16 *v15; // rax
+  ULONG v16; // esi
+  unsigned __int64 v17; // rbx
+  wchar_t Buffer[16]; // [rsp+48h] [rbp-60h] BYREF
 
-  v8 = (unsigned __int16)a2;
-  v9 = 0;
-  if ( !RtlpLockAtomTable(a1, a2, (unsigned __int64)a3) )
-    return 3221225485LL;
-  if ( (unsigned int)Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline() )
-    v9 = *a6 & 0xFFFFFFFE;
-  if ( (unsigned __int16)v8 >= 0xC000u )
+  v8 = Atom;
+  if ( (unsigned __int8)RtlpLockAtomTable() )
   {
-    v11 = -1073741816;
-    v14 = RtlpAtomMapAtomToHandleEntry(a1, v8 & 0x3FFF);
-    v17 = v14;
-    if ( !v14 )
-      goto LABEL_44;
-    if ( *(_WORD *)(v14 + 10) != (_WORD)v8 )
-      goto LABEL_44;
-    v18 = (unsigned __int16 *)(v14 + 12);
-    if ( !v18 )
-      goto LABEL_44;
-    v11 = v16;
-    if ( a3 )
-      *a3 = *v18;
-    if ( a4 )
-      *a4 = *(unsigned __int16 *)(v17 + 14);
-    if ( !a5 )
-      goto LABEL_44;
-    v12 = 2 * *(unsigned __int8 *)(v17 + 16);
-    if ( (unsigned int)Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline() )
+    v9 = *AtomNameLength & 0xFFFFFFFE;
+    if ( (unsigned __int16)v8 < 0xC000u )
     {
-      if ( v12 < v9 )
-        goto LABEL_40;
-      if ( v9 >= 2 )
+      if ( !(_WORD)v8 )
       {
-        v12 = v9 - 2;
-        goto LABEL_40;
+        v10 = -1073741811;
+        goto LABEL_15;
       }
+      v10 = 0;
+      if ( AtomUsage )
+        *AtomUsage = 1;
+      if ( AtomFlags )
+        *AtomFlags = 1;
+      if ( !AtomName )
+        goto LABEL_15;
+      v16 = 2 * snwprintf_s(Buffer, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", v8);
+      if ( v16 >= v9 )
+      {
+        v16 = v9 - 2;
+        if ( v9 < 2 )
+          v16 = 0;
+      }
+      if ( !v16 )
+      {
+        v10 = -1073741789;
+        goto LABEL_15;
+      }
+      memmove(AtomName, Buffer, v16);
+      v17 = (unsigned __int64)v16 >> 1;
     }
     else
     {
-      v19 = *a6;
-      if ( v12 < *a6 )
-        goto LABEL_40;
-      if ( v19 >= 2 )
+      v10 = -1073741816;
+      v11 = RtlpAtomMapAtomToHandleEntry(AtomTableHandle, v8 & 0x3FFF);
+      v14 = v11;
+      if ( !v11 )
+        goto LABEL_33;
+      if ( *(_WORD *)(v11 + 10) != (_WORD)v8 )
+        goto LABEL_33;
+      v15 = (unsigned __int16 *)(v11 + 12);
+      if ( !v15 )
+        goto LABEL_33;
+      v10 = v13;
+      if ( AtomUsage )
+        *AtomUsage = *v15;
+      if ( AtomFlags )
+        *AtomFlags = *(unsigned __int16 *)(v14 + 14);
+      if ( !AtomName )
+        goto LABEL_33;
+      v16 = 2 * *(unsigned __int8 *)(v14 + 16);
+      if ( v16 >= v9 )
       {
-        v12 = v19 - 2;
-        goto LABEL_40;
+        if ( v9 < 2 )
+        {
+          *AtomNameLength = v16;
+          v16 = v13;
+        }
+        else
+        {
+          v16 = v9 - 2;
+        }
       }
+      if ( !v16 )
+      {
+        v10 = -1073741789;
+        goto LABEL_33;
+      }
+      memmove(AtomName, (const void *)(v14 + 18), v16);
+      v17 = (unsigned __int64)v16 >> 1;
     }
-    *a6 = v12;
-    v12 = 0;
-LABEL_40:
-    if ( v12 )
-    {
-      memmove(a5, (const void *)(v17 + 18), v12);
-      *((_WORD *)a5 + ((unsigned __int64)v12 >> 1)) = 0;
-      goto LABEL_23;
-    }
-LABEL_42:
-    v11 = -1073741789;
-    goto LABEL_43;
+    AtomName[v17] = 0;
+    *AtomNameLength = v16;
+LABEL_15:
+    v12 = (_RTL_SRWLOCK *)AtomTableHandle;
+LABEL_33:
+    RtlReleaseSRWLockExclusive(v12 + 1);
+    return v10;
   }
-  if ( (_WORD)v8 )
-  {
-    v11 = 0;
-    if ( a3 )
-      *a3 = 1;
-    if ( a4 )
-      *a4 = 1;
-    if ( !a5 )
-      goto LABEL_43;
-    v12 = 2 * snwprintf_s(Buffer, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", v8);
-    if ( (unsigned int)Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline() )
-    {
-      if ( v12 < v9 )
-        goto LABEL_21;
-      if ( v9 >= 2 )
-      {
-        v12 = v9 - 2;
-        goto LABEL_21;
-      }
-    }
-    else
-    {
-      v13 = *a6;
-      if ( v12 < *a6 )
-        goto LABEL_21;
-      if ( v13 >= 2 )
-      {
-        v12 = v13 - 2;
-        goto LABEL_21;
-      }
-    }
-    v12 = 0;
-LABEL_21:
-    if ( v12 )
-    {
-      memmove(a5, Buffer, v12);
-      *((_WORD *)a5 + ((unsigned __int64)v12 >> 1)) = 0;
-LABEL_23:
-      *a6 = v12;
-      goto LABEL_43;
-    }
-    goto LABEL_42;
-  }
-  v11 = -1073741811;
-LABEL_43:
-  v15 = a1;
-LABEL_44:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v15 + 8));
-  return v11;
+  return -1073741811;
 }

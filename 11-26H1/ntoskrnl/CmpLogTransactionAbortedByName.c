@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLogTransactionAbortedByName @ 0x1407766C4
+ * XREFs of CmpLogTransactionAbortedByName @ 0x14077956C
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1408AF680 (CmpLogTransactionAbortedWithChildName.c)
- *     CmSetValueKey @ 0x1408CEE30 (CmSetValueKey.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1408B59EC (CmpLogTransactionAbortedWithChildName.c)
+ *     CmSetValueKey @ 0x1408D53E0 (CmSetValueKey.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __int64 a3, unsigned int a4)
@@ -38,7 +38,7 @@ void __fastcall CmpLogTransactionAbortedByName(unsigned __int16 *a1, int a2, __i
         v14 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E09EE8,
-          (unsigned __int8 *)&dword_140056DAC,
+          (unsigned __int8 *)byte_140057D9F,
           0LL,
           0LL,
           5u,

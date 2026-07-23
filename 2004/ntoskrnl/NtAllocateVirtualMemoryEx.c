@@ -6,25 +6,25 @@
  *     MmAllocateVirtualMemory @ 0x1406B6B00 (MmAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall NtAllocateVirtualMemoryEx(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        volatile void *Address,
-        ULONGLONG a7)
+NTSTATUS __cdecl NtAllocateVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   ULONGLONG ullMultiplicand; // [rsp+30h] [rbp-38h]
 
-  LODWORD(ullMultiplicand) = a7;
+  LODWORD(ullMultiplicand) = ExtendedParameterCount;
   return MmAllocateVirtualMemory(
-           a1,
-           a2,
-           a3,
-           a4,
-           a5,
-           Address,
+           (int)ProcessHandle,
+           (int)BaseAddress,
+           (int)RegionSize,
+           AllocationType,
+           PageProtection,
+           ExtendedParameters,
            ullMultiplicand,
            KeGetCurrentThread()->PreviousMode,
            0,

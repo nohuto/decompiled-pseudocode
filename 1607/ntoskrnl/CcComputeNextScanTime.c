@@ -1,7 +1,7 @@
 /*
- * XREFs of CcComputeNextScanTime @ 0x1400B071C
+ * XREFs of CcComputeNextScanTime @ 0x1400AE78C
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */

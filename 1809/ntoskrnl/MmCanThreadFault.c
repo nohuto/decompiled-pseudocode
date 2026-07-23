@@ -1,13 +1,13 @@
 /*
- * XREFs of MmCanThreadFault @ 0x1400CC1F4
+ * XREFs of MmCanThreadFault @ 0x1400CC2D4
  * Callers:
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
- *     EtwpStackTraceDispatcher @ 0x14030F51C (EtwpStackTraceDispatcher.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x140317498 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     RtlWalkFrameChain @ 0x1400CCC50 (RtlWalkFrameChain.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
+ *     EtwpStackTraceDispatcher @ 0x14030F70C (EtwpStackTraceDispatcher.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x140317688 (EtwpCovSampSafeForUserAddressCapture.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     KeGetEffectiveIrql @ 0x1400CABB0 (KeGetEffectiveIrql.c)
  */
 
 _BOOL8 MmCanThreadFault()
@@ -25,7 +25,7 @@ _BOOL8 MmCanThreadFault()
     {
       if ( MmPhysicalMemoryBlock )
       {
-        v1 = *(_QWORD *)(*(_QWORD *)(qword_14043A748
+        v1 = *(_QWORD *)(*(_QWORD *)(qword_14043B808
                                    + 8LL
                                    * *((unsigned __int16 *)&CurrentThread->ApcState.Process[1].SecureState.Flags + 3))
                        + 7024LL);

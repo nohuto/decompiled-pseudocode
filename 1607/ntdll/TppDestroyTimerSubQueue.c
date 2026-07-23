@@ -1,8 +1,8 @@
 /*
- * XREFs of TppDestroyTimerSubQueue @ 0x180083CC8
+ * XREFs of TppDestroyTimerSubQueue @ 0x180083CB8
  * Callers:
- *     TppInitializeTimerQueue @ 0x1800732E0 (TppInitializeTimerQueue.c)
- *     TppPoolpFree @ 0x180083BB8 (TppPoolpFree.c)
+ *     TppInitializeTimerQueue @ 0x1800732D0 (TppInitializeTimerQueue.c)
+ *     TppPoolpFree @ 0x180083BA8 (TppPoolpFree.c)
  * Callees:
  *     NtClose @ 0x1800A6600 (NtClose.c)
  */

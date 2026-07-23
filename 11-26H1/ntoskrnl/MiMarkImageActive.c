@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkImageActive @ 0x140AFF5C4
+ * XREFs of MiMarkImageActive @ 0x140B01254
  * Callers:
- *     MiRelocateImageAgain @ 0x14087B470 (MiRelocateImageAgain.c)
- *     MiRelocateFinish @ 0x1409CB614 (MiRelocateFinish.c)
+ *     MiRelocateImageAgain @ 0x140881870 (MiRelocateImageAgain.c)
+ *     MiRelocateFinish @ 0x14099C5F4 (MiRelocateFinish.c)
  * Callees:
- *     MiWriteControlAreaFlags2 @ 0x1404B65F0 (MiWriteControlAreaFlags2.c)
+ *     MiWriteControlAreaFlags2 @ 0x1404AFA40 (MiWriteControlAreaFlags2.c)
  */
 
 void __fastcall MiMarkImageActive(__int64 a1)

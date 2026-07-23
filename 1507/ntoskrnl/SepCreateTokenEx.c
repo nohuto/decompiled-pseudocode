@@ -39,7 +39,7 @@ __int64 __fastcall SepCreateTokenEx(
         int a6,
         __int64 a7,
         _QWORD *a8,
-        struct _SID_AND_ATTRIBUTES *a9,
+        _SID_AND_ATTRIBUTES *a9,
         ULONG Count,
         PSID_AND_ATTRIBUTES a11,
         unsigned int a12,
@@ -64,7 +64,7 @@ __int64 __fastcall SepCreateTokenEx(
   unsigned __int8 *Sid; // rsi
   ULONG v30; // r12d
   ULONG v31; // ebx
-  struct _SID_AND_ATTRIBUTES *v32; // rdi
+  _SID_AND_ATTRIBUTES *v32; // rdi
   __int64 v33; // rax
   PSID v34; // rbx
   ULONG Attributes; // eax
@@ -496,7 +496,10 @@ LABEL_43:
             &SidArea,
             &SidAreaSize);
         }
-        RtlSidHashInitialize(*((__int64 **)v64 + 19), *((_DWORD *)v64 + 31), (_QWORD *)v64 + 29);
+        RtlSidHashInitialize(
+          *((PSID_AND_ATTRIBUTES *)v64 + 19),
+          *((_DWORD *)v64 + 31),
+          (PSID_AND_ATTRIBUTES_HASH)(v64 + 232));
         v73 = NumberOfBytes;
         *((_QWORD *)v64 + 20) = 0LL;
         *((_DWORD *)v64 + 32) = 0;

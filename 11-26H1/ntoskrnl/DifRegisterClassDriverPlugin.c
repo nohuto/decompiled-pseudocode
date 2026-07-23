@@ -1,11 +1,11 @@
 /*
- * XREFs of DifRegisterClassDriverPlugin @ 0x1406401C0
+ * XREFs of DifRegisterClassDriverPlugin @ 0x140643DA0
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetNode @ 0x1403B7A04 (VfTargetDriversGetNode.c)
- *     ViAddVerifierSpecialThunks @ 0x14064081C (ViAddVerifierSpecialThunks.c)
- *     ViAddVerifierThunks @ 0x140640934 (ViAddVerifierThunks.c)
+ *     VfTargetDriversGetNode @ 0x1403C1904 (VfTargetDriversGetNode.c)
+ *     ViAddVerifierSpecialThunks @ 0x1406443FC (ViAddVerifierSpecialThunks.c)
+ *     ViAddVerifierThunks @ 0x140644514 (ViAddVerifierThunks.c)
  */
 
 __int64 __fastcall DifRegisterClassDriverPlugin(int a1, __int64 a2, unsigned int a3, __int64 a4)

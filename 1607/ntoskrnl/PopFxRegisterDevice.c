@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxRegisterDevice @ 0x140566BDC
+ * XREFs of PopFxRegisterDevice @ 0x14056711C
  * Callers:
- *     PoFxRegisterDevice @ 0x140566A50 (PoFxRegisterDevice.c)
- *     PoFxEnableDStateReporting @ 0x14066C318 (PoFxEnableDStateReporting.c)
- *     PoFxRegisterPrimaryDevice @ 0x14066C458 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxRegisterDevice @ 0x140566F90 (PoFxRegisterDevice.c)
+ *     PoFxEnableDStateReporting @ 0x14066C3FC (PoFxEnableDStateReporting.c)
+ *     PoFxRegisterPrimaryDevice @ 0x14066C53C (PoFxRegisterPrimaryDevice.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x1400C48F0 (IoGetAttachedDeviceReference.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     PopFxInsertDevice @ 0x140141DD4 (PopFxInsertDevice.c)
- *     PopFxAssignDeviceToDevNode @ 0x140141E98 (PopFxAssignDeviceToDevNode.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
- *     PopFxTraceDeviceRegistration @ 0x14052B8C0 (PopFxTraceDeviceRegistration.c)
- *     PopFxRegisterDeviceWorker @ 0x140566D28 (PopFxRegisterDeviceWorker.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1400C2790 (IoGetAttachedDeviceReference.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     PopFxInsertDevice @ 0x140142344 (PopFxInsertDevice.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140142408 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
+ *     PopFxTraceDeviceRegistration @ 0x14052C510 (PopFxTraceDeviceRegistration.c)
+ *     PopFxRegisterDeviceWorker @ 0x140567268 (PopFxRegisterDeviceWorker.c)
  */
 
 __int64 __fastcall PopFxRegisterDevice(

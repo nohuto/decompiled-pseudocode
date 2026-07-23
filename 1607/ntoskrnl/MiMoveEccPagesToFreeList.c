@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMoveEccPagesToFreeList @ 0x1401E2030
+ * XREFs of MiMoveEccPagesToFreeList @ 0x1401E1E5C
  * Callers:
- *     MmMarkPhysicalMemoryAsGood @ 0x1401E275C (MmMarkPhysicalMemoryAsGood.c)
+ *     MmMarkPhysicalMemoryAsGood @ 0x1401E2588 (MmMarkPhysicalMemoryAsGood.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     MiReferencePagePartition @ 0x1401E8400 (MiReferencePagePartition.c)
- *     MiUnlinkPageFromBadList @ 0x1401F3054 (MiUnlinkPageFromBadList.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     MiReferencePagePartition @ 0x1401E822C (MiReferencePagePartition.c)
+ *     MiUnlinkPageFromBadList @ 0x1401F2E80 (MiUnlinkPageFromBadList.c)
  */
 
 unsigned __int64 __fastcall MiMoveEccPagesToFreeList(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

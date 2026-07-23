@@ -50,7 +50,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   if ( a2 < 8 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-byte "
       "header length!\n",
@@ -64,7 +64,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v21 = *a1;
     v20 = 1682469715;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
       "RtlpCrackActivationContextStringSectionHeader",
@@ -77,7 +77,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   {
     v22 = v14;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed string section at %p claims %lu byte header size; that doesn't even include the HeaderSize member!\n",
       "RtlpCrackActivationContextStringSectionHeader",
@@ -90,7 +90,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v28 = 44;
     v23 = v14;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed string section at %p with too small of a header\n   HeaderSize: %lu\n   Required: %lu\n",
       "RtlpCrackActivationContextStringSectionHeader",
@@ -105,7 +105,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v29 = a1[6];
     v24 = v14;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with element list overlapping section header\n"
       "   Section header: %p\n"
@@ -123,7 +123,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v30 = a1[8];
     v25 = v14;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with search structure overlapping section header\n"
       "   Section header: %p\n"
@@ -141,7 +141,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v31 = a1[9];
     v26 = v14;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with user data overlapping section header\n"
       "   Section header: %p\n"
@@ -159,7 +159,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v32 = 56;
     v27 = a1[10];
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with user data too small\n"
       "   Section header: %p\n"
@@ -173,7 +173,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   if ( v18 + v17 > a2 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with user data extending beyond section data\n"
       "   Section header: %p\n"

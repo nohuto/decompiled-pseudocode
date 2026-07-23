@@ -1,18 +1,18 @@
 /*
- * XREFs of HalFreeCommonBufferV3 @ 0x140512280
+ * XREFs of HalFreeCommonBufferV3 @ 0x1405127D0
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpPopCommonBufferEntry @ 0x14050FF70 (HalpPopCommonBufferEntry.c)
- *     HalpDmaDereferenceDomainObject @ 0x1405127A8 (HalpDmaDereferenceDomainObject.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpPopCommonBufferEntry @ 0x1405104C0 (HalpPopCommonBufferEntry.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140512CF8 (HalpDmaDereferenceDomainObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-unsigned __int64 __fastcall HalFreeCommonBufferV3(__int64 a1, unsigned int a2, __int64 a3, void *a4)
+unsigned __int64 __fastcall HalFreeCommonBufferV3(__int64 a1, unsigned int a2, __int64 a3, _RTL_BALANCED_NODE *a4)
 {
   ULONG_PTR v4; // r14
   __int64 v6; // r13
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall HalFreeCommonBufferV3(__int64 a1, unsigned int a2, _
   v4 = *(_QWORD *)(a1 + 512);
   v6 = a2;
   v8 = 0;
-  result = HalpPopCommonBufferEntry((unsigned __int64)a4, v4);
+  result = HalpPopCommonBufferEntry(a4, v4);
   v10 = (void *)result;
   if ( !result )
     return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SmFpInitialize @ 0x1403A88A8
+ * XREFs of SmFpInitialize @ 0x1403A8A88
  * Callers:
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
- *     SmPartitionInitialize @ 0x14084F2DC (SmPartitionInitialize.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
+ *     SmPartitionInitialize @ 0x14084F5DC (SmPartitionInitialize.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall SmFpInitialize(__int64 a1, __int64 a2)

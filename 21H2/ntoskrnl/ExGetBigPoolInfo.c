@@ -1,17 +1,17 @@
 /*
- * XREFs of ExGetBigPoolInfo @ 0x1405B375C
+ * XREFs of ExGetBigPoolInfo @ 0x1405B398C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     EtwpPoolRunDown @ 0x14093E300 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x140949F60 (ExGetSessionBigPoolInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x14093E4D0 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x14094A130 (ExGetSessionBigPoolInformation.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     ExAllocateHeapPages @ 0x1403756C8 (ExAllocateHeapPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     ExAllocateHeapPages @ 0x140375218 (ExAllocateHeapPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigned int *a4)
@@ -30,17 +30,17 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
   bool v16; // zf
   unsigned int v17; // edx
   __int64 v18; // r8
-  __m128i *v19; // rax
+  __int64 v19; // rax
   unsigned __int8 v21; // al
   struct _KPRCB *v22; // r10
   _DWORD *v23; // r9
   int v24; // eax
-  __m128i *v25; // rax
+  __int64 v25; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
   int v29; // eax
-  __m128i *HeapFromVA; // rax
+  __int64 HeapFromVA; // rax
   unsigned int v31; // [rsp+30h] [rbp-68h]
   unsigned int v32; // [rsp+34h] [rbp-64h]
   unsigned __int64 v33; // [rsp+38h] [rbp-60h]
@@ -75,8 +75,8 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
     }
     else
     {
-      v11 = *(const void **)(qword_140C4DDE0 + 992);
-      v34 = *(_QWORD *)(qword_140C4DDE0 + 1000);
+      v11 = *(const void **)(qword_140C4DE20 + 992);
+      v34 = *(_QWORD *)(qword_140C4DE20 + 1000);
     }
     if ( !v11 )
     {
@@ -101,7 +101,7 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
       __writecr8(v10);
       if ( HeapPages )
       {
-        HeapFromVA = (__m128i *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
+        HeapFromVA = ExGetHeapFromVA((ULONG_PTR)HeapPages);
         RtlpHpFreeHeap(HeapFromVA, (unsigned __int64)HeapPages, 0);
       }
       *a4 = 0;
@@ -131,7 +131,7 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
     __writecr8(v10);
     if ( HeapPages )
     {
-      v25 = (__m128i *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
+      v25 = ExGetHeapFromVA((ULONG_PTR)HeapPages);
       RtlpHpFreeHeap(v25, (unsigned __int64)HeapPages, 0);
     }
     HeapPages = (void *)ExAllocateHeapPages();
@@ -195,7 +195,7 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
     }
     v33 += 24LL;
   }
-  v19 = (__m128i *)ExGetHeapFromVA((ULONG_PTR)HeapPages);
+  v19 = ExGetHeapFromVA((ULONG_PTR)HeapPages);
   RtlpHpFreeHeap(v19, (unsigned __int64)HeapPages, 0);
   *a4 = v31;
   return v32;

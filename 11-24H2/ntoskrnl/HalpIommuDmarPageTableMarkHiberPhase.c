@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuDmarPageTableMarkHiberPhase @ 0x14056795C
+ * XREFs of HalpIommuDmarPageTableMarkHiberPhase @ 0x14056544C
  * Callers:
- *     HalpIommuDomainMarkHiberLogicalRange @ 0x140553C74 (HalpIommuDomainMarkHiberLogicalRange.c)
+ *     HalpIommuDomainMarkHiberLogicalRange @ 0x1405515B4 (HalpIommuDomainMarkHiberLogicalRange.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall HalpIommuDmarPageTableMarkHiberPhase(

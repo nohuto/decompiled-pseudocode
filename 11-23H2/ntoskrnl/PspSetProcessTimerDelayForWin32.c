@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSetProcessTimerDelayForWin32 @ 0x1405A49F4
+ * XREFs of PspSetProcessTimerDelayForWin32 @ 0x1405A4F64
  * Callers:
- *     PspApplyTimerDelayProcess @ 0x1405A41A8 (PspApplyTimerDelayProcess.c)
+ *     PspApplyTimerDelayProcess @ 0x1405A4718 (PspApplyTimerDelayProcess.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PspSetProcessTimerDelayForWin32(__int64 a1)

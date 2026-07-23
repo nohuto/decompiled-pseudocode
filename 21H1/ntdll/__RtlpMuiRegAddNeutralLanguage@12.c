@@ -10,76 +10,75 @@
  *     _RtlGetParentLocaleName@16 @ 0x4B2D41A0 (_RtlGetParentLocaleName@16.c)
  */
 
-int __fastcall _RtlpMuiRegAddNeutralLanguage(int a1, int a2, PCWSTR SourceString)
+NTSTATUS __fastcall _RtlpMuiRegAddNeutralLanguage(int a1, int a2, PCWSTR LocaleName)
 {
   unsigned __int8 v4; // bl
-  int v5; // eax
-  int v6; // eax
+  PVOID v5; // eax
+  void *v6; // eax
   int v7; // ecx
-  int ParentLocaleName; // esi
+  NTSTATUS LanguageSpec; // esi
   __int16 v9; // ax
-  int v11; // [esp+10h] [ebp-1Ch] BYREF
-  int v12; // [esp+14h] [ebp-18h]
-  int v13; // [esp+18h] [ebp-14h]
-  int v14; // [esp+1Ch] [ebp-10h]
-  __int16 v15[3]; // [esp+20h] [ebp-Ch] BYREF
-  char v16[5]; // [esp+27h] [ebp-5h] BYREF
+  _UNICODE_STRING ParentLocaleName; // [esp+10h] [ebp-1Ch] BYREF
+  int v12; // [esp+18h] [ebp-14h]
+  PVOID BaseAddress; // [esp+1Ch] [ebp-10h]
+  _WORD v14[3]; // [esp+20h] [ebp-Ch] BYREF
+  _BYTE v15[5]; // [esp+27h] [ebp-5h] BYREF
 
-  v13 = a1;
+  v12 = a1;
   v4 = 0;
   v5 = 0;
+  v14[0] = 0;
   v15[0] = 0;
-  v16[0] = 0;
   if ( a1 && a2 )
   {
-    v6 = MuiRegAllocArray();
-    v14 = v6;
+    v6 = (void *)MuiRegAllocArray();
+    BaseAddress = v6;
     if ( !v6 )
     {
-      ParentLocaleName = -1073741801;
+      LanguageSpec = -1073741801;
 LABEL_18:
       *(_WORD *)(a2 + 8) &= 0x3FFFu;
       v9 = 0;
       goto LABEL_13;
     }
-    v12 = v6;
-    v11 = 11141120;
-    ParentLocaleName = RtlGetParentLocaleName(SourceString, (int)&v11, 6, 0);
-    if ( ParentLocaleName >= 0 )
+    ParentLocaleName.Buffer = (wchar_t *)v6;
+    *(_DWORD *)&ParentLocaleName.Length = 11141120;
+    LanguageSpec = RtlGetParentLocaleName(LocaleName, &ParentLocaleName, 6u, 0);
+    if ( LanguageSpec >= 0 )
     {
-      ParentLocaleName = RtlpMuiRegGetLanguageSpec(v13, v12, v16, v7, v15);
-      if ( ParentLocaleName < 0 )
+      LanguageSpec = RtlpMuiRegGetLanguageSpec(v12, ParentLocaleName.Buffer, v15, v7, v14);
+      if ( LanguageSpec < 0 )
       {
         v4 = 0;
-        v16[0] = 0;
         v15[0] = 0;
+        v14[0] = 0;
       }
       else
       {
-        v4 = v16[0];
+        v4 = v15[0];
       }
     }
-    v5 = v14;
+    v5 = BaseAddress;
   }
   else
   {
-    ParentLocaleName = -1073741811;
+    LanguageSpec = -1073741811;
   }
   if ( v5 )
   {
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
-    v4 = v16[0];
+    v4 = v15[0];
   }
-  if ( ParentLocaleName < 0 )
+  if ( LanguageSpec < 0 )
     goto LABEL_18;
   if ( !v4 )
   {
-    ParentLocaleName = -1073741823;
+    LanguageSpec = -1073741823;
     goto LABEL_18;
   }
-  v9 = v15[0];
+  v9 = v14[0];
   *(_WORD *)(a2 + 8) = *(_WORD *)(a2 + 8) & 0x3FFF | (v4 << 14);
 LABEL_13:
   *(_WORD *)(a2 + 10) = v9;
-  return ParentLocaleName;
+  return LanguageSpec;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlLookupPerFileObjectContext @ 0x14008BBF0
+ * XREFs of FsRtlLookupPerFileObjectContext @ 0x14008B350
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(
@@ -79,7 +79,7 @@ LABEL_43:
     _interlockedbittestandset((volatile signed __int32 *)&v11->116 + 1, 0xFu);
     goto LABEL_12;
   }
-  if ( v7 < qword_140326910 || v7 >= qword_140326910 + 0x8000000000LL )
+  if ( v7 < qword_140326950 || v7 >= qword_140326950 + 0x8000000000LL )
     SessionId = -1;
   else
     SessionId = MmGetSessionIdEx(v11->ApcState.Process);

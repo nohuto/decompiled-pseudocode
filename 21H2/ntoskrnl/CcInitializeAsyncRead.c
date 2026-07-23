@@ -1,14 +1,14 @@
 /*
- * XREFs of CcInitializeAsyncRead @ 0x1403C2F70
+ * XREFs of CcInitializeAsyncRead @ 0x1403C33A0
  * Callers:
- *     CcInitializePartition @ 0x1403C2964 (CcInitializePartition.c)
+ *     CcInitializePartition @ 0x1403C2D94 (CcInitializePartition.c)
  * Callees:
- *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CcDereferencePartition @ 0x140301A7C (CcDereferencePartition.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CcInitializeAsyncRead(__int64 a1)

@@ -5,7 +5,7 @@
  *     KsepDbGetDriverShims @ 0x140694A54 (KsepDbGetDriverShims.c)
  *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
  *     KseDriverUnloadImage @ 0x140697128 (KseDriverUnloadImage.c)
- *     KsepDbGetShimInfo @ 0x140855540 (KsepDbGetShimInfo.c)
+ *     KsepDbGetShimInfo @ 0x140855840 (KsepDbGetShimInfo.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)

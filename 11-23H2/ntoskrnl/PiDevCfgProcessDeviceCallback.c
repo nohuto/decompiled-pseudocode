@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgProcessDeviceCallback @ 0x140842950
+ * XREFs of PiDevCfgProcessDeviceCallback @ 0x140842C50
  * Callers:
  *     <none>
  * Callees:
- *     PipAreDriversLoaded @ 0x14022B0E8 (PipAreDriversLoaded.c)
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PnpDuplicateUnicodeString @ 0x1403CDE80 (PnpDuplicateUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407D9030 (PiDevCfgFreeDeviceContext.c)
- *     PnpSetTargetDeviceRemove @ 0x140867C50 (PnpSetTargetDeviceRemove.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14087BDDC (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgInitDeviceContext @ 0x14087C808 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C8D0 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PipAreDriversLoaded @ 0x14022B1F8 (PipAreDriversLoaded.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PnpDuplicateUnicodeString @ 0x1403CE060 (PnpDuplicateUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     PiDevCfgFreeDeviceContext @ 0x1407D9300 (PiDevCfgFreeDeviceContext.c)
+ *     PnpSetTargetDeviceRemove @ 0x140867E90 (PnpSetTargetDeviceRemove.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x14087C01C (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgInitDeviceContext @ 0x14087CA48 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095CAD0 (PiDevCfgCheckDeviceNeedsUpdate.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

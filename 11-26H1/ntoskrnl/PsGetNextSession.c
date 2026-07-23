@@ -1,18 +1,18 @@
 /*
- * XREFs of PsGetNextSession @ 0x140A7D980
+ * XREFs of PsGetNextSession @ 0x140A837F0
  * Callers:
- *     PsQueryCpuQuotaInformation @ 0x14052AF9C (PsQueryCpuQuotaInformation.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x1407CC494 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x1407D10E8 (PopSendSuspendResumeApplicationNotification.c)
- *     PsPerfLogSessionRundown @ 0x1407FF12C (PsPerfLogSessionRundown.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
+ *     PsQueryCpuQuotaInformation @ 0x14052D4BC (PsQueryCpuQuotaInformation.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x1407CF534 (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x1407D4188 (PopSendSuspendResumeApplicationNotification.c)
+ *     PsPerfLogSessionRundown @ 0x140804B5C (PsPerfLogSessionRundown.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspSelectSessionAttachProcess @ 0x140A7DA78 (PspSelectSessionAttachProcess.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspSelectSessionAttachProcess @ 0x140A838E8 (PspSelectSessionAttachProcess.c)
  */
 
 void *__fastcall PsGetNextSession(_QWORD *Object)
@@ -21,7 +21,7 @@ void *__fastcall PsGetNextSession(_QWORD *Object)
   unsigned __int64 CurrentServerSilo; // r14
   __int64 v4; // rbx
   struct _KTHREAD *CurrentThread; // rsi
-  struct _KTHREAD *Thread; // rbx
+  unsigned __int16 *v6; // rbx
   void *v7; // rax
 
   v2 = 0LL;
@@ -34,20 +34,20 @@ void *__fastcall PsGetNextSession(_QWORD *Object)
   PspLockProcessListExclusive((__int64)CurrentThread);
   if ( v4 )
   {
-    Thread = *(struct _KTHREAD **)(v4 + 80);
+    v6 = *(unsigned __int16 **)(v4 + 80);
 LABEL_5:
-    while ( Thread != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[72] )
+    while ( v6 != &PsAltSystemCallRegistrationLock.UserAffinityPrimaryGroup )
     {
-      v7 = (void *)PspSelectSessionAttachProcess(&Thread[-1].1136);
+      v7 = (void *)PspSelectSessionAttachProcess(v6 - 40);
       v2 = v7;
       if ( v7 )
       {
-        if ( !CurrentServerSilo || *(_QWORD *)&Thread->CurrentRunTime == CurrentServerSilo )
+        if ( !CurrentServerSilo || *((_QWORD *)v6 + 10) == CurrentServerSilo )
           break;
         ObfDereferenceObjectWithTag(v7, 0x79517350u);
         v2 = 0LL;
       }
-      Thread = *(struct _KTHREAD **)&Thread->Header.Lock;
+      v6 = *(unsigned __int16 **)v6;
     }
     PspUnlockProcessListExclusive(CurrentThread);
     if ( Object )
@@ -56,8 +56,8 @@ LABEL_5:
   }
   else
   {
-    Thread = PsAltSystemCallRegistrationLock.WaitBlock[1].Thread;
-    if ( PsAltSystemCallRegistrationLock.WaitBlock[1].Thread )
+    v6 = *(unsigned __int16 **)&PsAltSystemCallRegistrationLock.UserAffinityPrimaryGroup;
+    if ( *(_QWORD *)&PsAltSystemCallRegistrationLock.UserAffinityPrimaryGroup )
       goto LABEL_5;
     PspUnlockProcessListExclusive(CurrentThread);
     return 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsKvaShadowDisabled @ 0x14017E4C4
+ * XREFs of KiIsKvaShadowDisabled @ 0x14017E604
  * Callers:
- *     KiEnableKvaShadowing @ 0x140572BD8 (KiEnableKvaShadowing.c)
+ *     KiEnableKvaShadowing @ 0x140573BD8 (KiEnableKvaShadowing.c)
  * Callees:
  *     <none>
  */

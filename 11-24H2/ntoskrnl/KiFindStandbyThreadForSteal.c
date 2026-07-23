@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFindStandbyThreadForSteal @ 0x140298390
+ * XREFs of KiFindStandbyThreadForSteal @ 0x1402A6E80
  * Callers:
- *     KiAttemptToStealStandbyThread @ 0x140297D94 (KiAttemptToStealStandbyThread.c)
+ *     KiAttemptToStealStandbyThread @ 0x1402A6884 (KiAttemptToStealStandbyThread.c)
  * Callees:
- *     KiMayStealStandbyThread @ 0x140298460 (KiMayStealStandbyThread.c)
+ *     KiMayStealStandbyThread @ 0x1402A6F50 (KiMayStealStandbyThread.c)
  */
 
 __int64 __fastcall KiFindStandbyThreadForSteal(__int64 a1, __int64 a2, int a3)

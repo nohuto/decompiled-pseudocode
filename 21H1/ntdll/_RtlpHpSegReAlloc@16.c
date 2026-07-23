@@ -56,7 +56,7 @@ int __fastcall RtlpHpSegReAlloc(int a1, int a2, void *a3, int *a4)
   {
 LABEL_21:
     if ( (a2 & 0x2000000) == 0 )
-      return (int)RtlpHpReallocMove(*(_DWORD *)(v4 + 36), a3, a4, a2);
+      return (int)RtlpHpReallocMove(*(unsigned __int16 **)(v4 + 36), a3, a4, a2);
     return 0;
   }
   v6 = RtlpHpVsContextGrowInPlace(a3, a4, a2);

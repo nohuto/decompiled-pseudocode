@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetHugeRangeFromNode @ 0x140532A54
+ * XREFs of MiGetHugeRangeFromNode @ 0x140532C94
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DAAD8 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiHugePageOperation @ 0x140532F78 (MiHugePageOperation.c)
- *     MiUnlinkHugeRange @ 0x140533B5C (MiUnlinkHugeRange.c)
+ *     MiHugePageOperation @ 0x1405331B8 (MiHugePageOperation.c)
+ *     MiUnlinkHugeRange @ 0x140533D9C (MiUnlinkHugeRange.c)
  */
 
 __int64 __fastcall MiGetHugeRangeFromNode(_QWORD *a1, unsigned int a2, int a3)
@@ -43,16 +43,16 @@ __int64 __fastcall MiGetHugeRangeFromNode(_QWORD *a1, unsigned int a2, int a3)
   v6 = a1[2] + 4544LL * a2;
   if ( v3 )
   {
-    v7 = dword_140C4DF80[0];
-    v8 = (unsigned int)dword_140C4DF80[0];
-    v9 = (_QWORD *)(v3 + 16LL * a2 * dword_140C4DF80[0]);
+    v7 = dword_140C4DFC0[0];
+    v8 = (unsigned int)dword_140C4DFC0[0];
+    v9 = (_QWORD *)(v3 + 16LL * a2 * dword_140C4DFC0[0]);
     if ( a3 )
     {
       v10 = 0LL;
     }
     else
     {
-      v9 += (unsigned int)dword_140C4DF80[0];
+      v9 += (unsigned int)dword_140C4DFC0[0];
       v10 = 1LL;
     }
     v11 = 0LL;
@@ -124,11 +124,11 @@ LABEL_22:
       }
     }
     __writecr8(OldIrql);
-    if ( v14 && a3 && (*(_DWORD *)(qword_140C4E670 + 8 * v14) & 0x3FFFF) == 1LL )
+    if ( v14 && a3 && (*(_DWORD *)(qword_140C4E6B0 + 8 * v14) & 0x3FFFF) == 1LL )
     {
       MiHugePageOperation(v4);
       KeAcquireInStackQueuedSpinLock(SpinLock, &LockHandle);
-      *(_QWORD *)(qword_140C4E670 + 8 * v14) &= 0xFFFFFFFFFFFC0000uLL;
+      *(_QWORD *)(qword_140C4E6B0 + 8 * v14) &= 0xFFFFFFFFFFFC0000uLL;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       v21 = LockHandle.OldIrql;
       if ( KiIrqlFlags )

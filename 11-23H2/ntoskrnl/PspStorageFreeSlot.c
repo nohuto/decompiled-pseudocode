@@ -1,20 +1,20 @@
 /*
- * XREFs of PspStorageFreeSlot @ 0x1409B7E44
+ * XREFs of PspStorageFreeSlot @ 0x1409B8044
  * Callers:
- *     PsFreeSiloContextSlot @ 0x1409AC590 (PsFreeSiloContextSlot.c)
- *     PsUnregisterSiloMonitor @ 0x1409B4010 (PsUnregisterSiloMonitor.c)
+ *     PsFreeSiloContextSlot @ 0x1409AC790 (PsFreeSiloContextSlot.c)
+ *     PsUnregisterSiloMonitor @ 0x1409B4210 (PsUnregisterSiloMonitor.c)
  *     PspInitializeSiloStructures @ 0x140B49810 (PspInitializeSiloStructures.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
 {
   unsigned int v1; // edi
-  RTL_BITMAP *v2; // rsi
+  _RTL_BITMAP *v2; // rsi
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v4; // edi
 

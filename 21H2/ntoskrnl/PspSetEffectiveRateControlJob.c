@@ -1,8 +1,8 @@
 /*
- * XREFs of PspSetEffectiveRateControlJob @ 0x1409093F8
+ * XREFs of PspSetEffectiveRateControlJob @ 0x140909558
  * Callers:
- *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
- *     PspSetRateControlJobPreCallback @ 0x140909B80 (PspSetRateControlJobPreCallback.c)
+ *     PspEstablishJobHierarchy @ 0x1406F5948 (PspEstablishJobHierarchy.c)
+ *     PspSetRateControlJobPreCallback @ 0x140909CE0 (PspSetRateControlJobPreCallback.c)
  * Callees:
  *     <none>
  */

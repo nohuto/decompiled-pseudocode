@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHsaCreateReservedDevice @ 0x14052E19C
+ * XREFs of HalpHsaCreateReservedDevice @ 0x14052E6EC
  * Callers:
- *     HsaEnumerateIvmdDevices @ 0x14052F7B0 (HsaEnumerateIvmdDevices.c)
+ *     HsaEnumerateIvmdDevices @ 0x14052FD00 (HsaEnumerateIvmdDevices.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
  */
 
 _QWORD *__fastcall HalpHsaCreateReservedDevice(__int64 a1, __int64 a2)

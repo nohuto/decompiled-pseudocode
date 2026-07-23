@@ -1,46 +1,46 @@
 /*
- * XREFs of CsrClientConnectToServer @ 0x1800CA4C0
+ * XREFs of CsrClientConnectToServer @ 0x1800C7C30
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     LdrGetDllHandleEx @ 0x1800511B0 (LdrGetDllHandleEx.c)
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     CsrpClientConnectToServer @ 0x1800CA6BC (CsrpClientConnectToServer.c)
- *     CsrpConnectToServer @ 0x1800CAD04 (CsrpConnectToServer.c)
- *     RtlCreateTagHeap @ 0x1800CB280 (RtlCreateTagHeap.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     LdrGetDllHandleEx @ 0x18003B730 (LdrGetDllHandleEx.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     CsrpClientConnectToServer @ 0x1800C7E2C (CsrpClientConnectToServer.c)
+ *     CsrpConnectToServer @ 0x1800C8474 (CsrpConnectToServer.c)
+ *     RtlCreateTagHeap @ 0x1800C89F0 (RtlCreateTagHeap.c)
  */
 
-__int64 __fastcall CsrClientConnectToServer(void *Src, unsigned int a2, __int64 a3, unsigned int a4, _BYTE *a5)
+NTSTATUS __fastcall CsrClientConnectToServer(void *Src, unsigned int a2, __int64 a3, unsigned int a4, _BYTE *a5)
 {
   char v9; // al
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _PEB *v11; // rax
-  __int64 v12; // [rsp+30h] [rbp-28h] BYREF
-  unsigned __int64 v13[4]; // [rsp+38h] [rbp-20h] BYREF
-  __int64 retaddr; // [rsp+58h] [rbp+0h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp-28h] BYREF
+  PVOID DllHandle; // [rsp+38h] [rbp-20h] BYREF
+  PVOID *Callback; // [rsp+58h] [rbp+0h]
   __int64 v15; // [rsp+70h] [rbp+18h] BYREF
 
   LODWORD(v15) = -1073741823;
-  v13[0] = 0LL;
-  v12 = 0LL;
+  DllHandle = 0LL;
+  OutHeaders = 0LL;
   if ( a3 && !a4 )
-    return 3221225485LL;
+    return -1073741811;
   if ( !CsrInitOnceDone )
   {
     v11 = NtCurrentPeb();
     CsrInitOnceDone = 1;
-    CsrHeap = (__int64)v11->ProcessHeap;
+    CsrHeap = v11->ProcessHeap;
   }
   if ( CsrServerApiRoutine && !CsrClientProcess )
   {
 LABEL_23:
     if ( a5 )
       *a5 = 1;
-    return 0LL;
+    return 0;
   }
-  RtlImageNtHeaderEx(3, (unsigned __int64)NtCurrentPeb()->ImageBaseAddress, 0LL, &v12);
-  if ( *(_WORD *)(v12 + 92) == 1 )
+  RtlImageNtHeaderEx(3u, NtCurrentPeb()->ImageBaseAddress, 0LL, &OutHeaders);
+  if ( OutHeaders->OptionalHeader.Subsystem == 1 )
   {
     v9 = CsrClientProcess;
   }
@@ -51,23 +51,29 @@ LABEL_23:
   }
   if ( !v9 )
   {
-    result = LdrGetDllHandleEx(1, 0LL, 0LL, (__int64)&unk_180171DA0, v13);
-    if ( (int)result < 0 )
+    result = LdrGetDllHandleEx(1u, 0LL, 0LL, (PUNICODE_STRING)&stru_180170D98, &DllHandle);
+    if ( result < 0 )
       return result;
-    result = LdrGetProcedureAddressForCaller(v13[0], &qword_180171DB0, 0, &CsrServerApiRoutine, 0, retaddr);
-    if ( (int)result < 0 )
+    result = LdrGetProcedureAddressForCaller(
+               DllHandle,
+               (PANSI_STRING)&stru_180170DA8,
+               0,
+               &CsrServerApiRoutine,
+               0,
+               Callback);
+    if ( result < 0 )
       return result;
-    CsrPortHeap = (__int64)NtCurrentPeb()->ProcessHeap;
-    CsrPortBaseTag = RtlCreateTagHeap((void *)CsrPortHeap);
+    CsrPortHeap = NtCurrentPeb()->ProcessHeap;
+    CsrPortBaseTag = RtlCreateTagHeap(CsrPortHeap, 0, (PWSTR)L"CSRPORT!", (PWSTR)L"CAPTURE");
     goto LABEL_23;
   }
-  result = 0LL;
+  result = 0;
   if ( a3 )
   {
     if ( CsrPortHandle )
       goto LABEL_11;
     result = CsrpConnectToServer(Src, (__int64)&v15);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     if ( (int)v15 < 0 )
 LABEL_11:

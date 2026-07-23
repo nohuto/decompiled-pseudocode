@@ -40,21 +40,27 @@
  *     NtdllpReallocateStringRoutine @ 0x1800E0AA4 (NtdllpReallocateStringRoutine.c)
  */
 
-__int64 __fastcall LdrpLoadDependentModuleInternal(int *a1, __int64 a2, __int64 a3, int a4, __int64 *a5, _QWORD *a6)
+__int64 __fastcall LdrpLoadDependentModuleInternal(
+        PUNICODE_STRING OriginalName,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        char **a5,
+        _QWORD *a6)
 {
   int v6; // r10d
   __int64 v7; // r9
   __int64 v8; // r15
-  int *v9; // r11
-  __int64 *v10; // r12
+  PUNICODE_STRING v9; // r11
+  char **v10; // r12
   _QWORD *v11; // rsi
   __int64 v12; // rdx
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r8
   unsigned __int64 ActiveFrame; // rcx
-  int v15; // edi
+  unsigned int v15; // edi
   int FullPath; // ebx
   char v17; // r15
-  int *v18; // r14
+  _UNICODE_STRING *v18; // r14
   struct _PEB *v19; // r13
   char v20; // r12
   int v21; // ebx
@@ -93,198 +99,188 @@ __int64 __fastcall LdrpLoadDependentModuleInternal(int *a1, __int64 a2, __int64 
   unsigned __int64 v54; // r11
   __int64 v55; // rax
   signed __int64 v56; // rax
-  unsigned __int64 v57; // rdx
-  unsigned __int64 v58; // r8
-  unsigned __int64 v59; // r9
-  __int64 v60; // rcx
-  int v61; // esi
-  __int64 v62; // r14
-  int *v63; // r15
-  __int64 v64; // rsi
-  unsigned __int64 v65; // rdx
-  unsigned __int64 v66; // r8
-  unsigned __int64 v67; // r9
-  __int64 v68; // rcx
-  int v69; // eax
-  signed __int64 v70; // rax
-  int v71; // edi
-  unsigned __int64 v72; // r9
-  __int64 v73; // rax
-  __int64 v74; // rsi
-  __int64 v75; // rcx
-  __int64 *v76; // r8
-  __int64 v77; // rcx
-  __int64 v78; // r13
-  __int64 v79; // r14
-  __int64 v80; // r15
-  unsigned __int64 v81; // rdx
-  int v82; // ecx
-  __int64 v83; // rax
-  signed __int64 v84; // rax
-  __int64 v85; // rbx
-  __int64 v86; // rdx
-  _QWORD *v87; // rcx
-  _QWORD *v88; // rbx
-  _QWORD *v89; // rdi
-  volatile signed __int32 *v90; // rcx
-  _QWORD *v91; // rdx
-  _QWORD *v92; // rax
-  __int64 *v93; // rdx
-  unsigned __int64 *v94; // r8
-  bool v95; // zf
-  int v96; // eax
-  signed __int64 v97; // r8
-  __int64 v98; // rdx
-  signed __int64 v99; // rdx
-  signed __int64 v100; // rtt
-  signed __int64 v101; // rcx
-  __int64 v102; // rdx
-  signed __int64 v103; // rdx
-  signed __int64 v104; // rtt
-  signed __int64 v105; // rcx
-  __int64 v106; // rdx
-  signed __int64 v107; // rtt
-  __int16 v108; // dx
-  _WORD *v109; // rcx
-  _WORD *v110; // rax
-  unsigned __int64 v111; // r8
-  char *v112; // rdx
+  __int64 v57; // rcx
+  unsigned int v58; // esi
+  __int64 v59; // r14
+  _UNICODE_STRING *v60; // r15
+  char *v61; // rsi
+  signed __int64 v62; // rdx
+  __int64 v63; // rcx
+  int v64; // eax
+  signed __int64 v65; // rax
+  int v66; // edi
+  __int64 v67; // r9
+  char *v68; // rax
+  char *v69; // rsi
+  __int64 v70; // rcx
+  _QWORD *v71; // r8
+  _DWORD *v72; // rcx
+  __int64 v73; // r13
+  __int64 v74; // r14
+  __int64 v75; // r15
+  _QWORD *v76; // rdx
+  int v77; // ecx
+  __int64 v78; // rax
+  signed __int64 v79; // rax
+  char *v80; // rbx
+  __int64 v81; // rdx
+  char **v82; // rcx
+  _QWORD *v83; // rbx
+  _QWORD *v84; // rdi
+  _ACTIVATION_CONTEXT *v85; // rcx
+  _QWORD *v86; // rdx
+  _QWORD *v87; // rax
+  _QWORD *v88; // rdx
+  _QWORD *v89; // r8
+  bool v90; // zf
+  int v91; // eax
+  signed __int64 v92; // r8
+  __int64 v93; // rdx
+  signed __int64 v94; // rdx
+  signed __int64 v95; // rtt
+  signed __int64 v96; // rcx
+  __int64 v97; // rdx
+  signed __int64 v98; // rdx
+  signed __int64 v99; // rtt
+  signed __int64 v100; // rcx
+  __int64 v101; // rdx
+  signed __int64 v102; // rtt
+  __int16 v103; // dx
+  _WORD *v104; // rcx
+  _WORD *v105; // rax
   char *i; // r9
-  char *v114; // rcx
-  __int16 v115; // cx
-  int v116; // r10d
-  int v117; // r11d
-  int v118; // eax
-  __int64 Heap; // rax
-  int v120; // edi
-  unsigned __int64 v121; // rdx
-  _WORD *v122; // rax
+  char *v107; // rcx
+  __int16 v108; // cx
+  int v109; // r10d
+  int v110; // r11d
+  int v111; // eax
+  unsigned __int64 v112; // r8
+  PVOID Heap; // rax
+  NTSTATUS v114; // edi
+  wchar_t *Buffer; // rdx
+  wchar_t *v116; // rax
+  unsigned int v117; // r13d
+  unsigned int v118; // eax
+  PVOID StringRoutine; // rcx
+  unsigned int v120; // edi
+  unsigned int v121; // eax
+  PVOID v122; // rsi
   unsigned int v123; // r13d
   unsigned int v124; // eax
-  void *StringRoutine; // rcx
-  unsigned int v126; // edi
-  unsigned int v127; // eax
-  void *v128; // rsi
-  unsigned int v129; // r13d
-  unsigned int v130; // eax
-  void *v131; // r14
-  __int64 v132; // rcx
-  unsigned __int16 v133; // cx
-  char *v134; // rcx
-  unsigned __int64 v135; // rdx
-  unsigned __int64 v136; // r8
-  unsigned __int64 v137; // r9
-  __int64 v138; // rbx
-  __int64 v139; // rax
-  __int64 v141; // [rsp+30h] [rbp-418h]
-  char v142; // [rsp+51h] [rbp-3F7h] BYREF
-  char v143; // [rsp+52h] [rbp-3F6h]
-  int v144; // [rsp+54h] [rbp-3F4h]
-  int v145; // [rsp+58h] [rbp-3F0h]
-  char v146; // [rsp+5Ch] [rbp-3ECh]
-  char v147; // [rsp+5Dh] [rbp-3EBh]
-  __int16 v148; // [rsp+5Eh] [rbp-3EAh]
-  __int16 v149; // [rsp+60h] [rbp-3E8h]
-  __int16 v150; // [rsp+62h] [rbp-3E6h]
+  PVOID v125; // r14
+  __int64 v126; // rcx
+  char *v127; // rcx
+  __int64 v128; // rbx
+  _DWORD *v129; // rax
+  PULONG NewFlags; // [rsp+30h] [rbp-418h]
+  char v132; // [rsp+51h] [rbp-3F7h] BYREF
+  char v133; // [rsp+52h] [rbp-3F6h]
+  int v134; // [rsp+54h] [rbp-3F4h]
+  unsigned int v135; // [rsp+58h] [rbp-3F0h]
+  char v136; // [rsp+5Ch] [rbp-3ECh]
+  char v137; // [rsp+5Dh] [rbp-3EBh]
+  __int16 v138; // [rsp+5Eh] [rbp-3EAh]
+  __int16 v139; // [rsp+60h] [rbp-3E8h]
+  __int16 v140; // [rsp+62h] [rbp-3E6h]
   int appended; // [rsp+64h] [rbp-3E4h]
-  int v152; // [rsp+68h] [rbp-3E0h]
-  int v153; // [rsp+70h] [rbp-3D8h]
-  unsigned int v154; // [rsp+78h] [rbp-3D0h]
-  int v155; // [rsp+7Ch] [rbp-3CCh]
-  int v156; // [rsp+80h] [rbp-3C8h] BYREF
-  int *v157; // [rsp+88h] [rbp-3C0h]
-  int v158; // [rsp+90h] [rbp-3B8h]
-  int v159; // [rsp+98h] [rbp-3B0h]
-  int v160; // [rsp+A0h] [rbp-3A8h]
-  int v161; // [rsp+A8h] [rbp-3A0h]
-  int v162; // [rsp+ACh] [rbp-39Ch]
-  int v163; // [rsp+B0h] [rbp-398h]
-  int v164; // [rsp+B4h] [rbp-394h]
-  __int64 v165; // [rsp+B8h] [rbp-390h]
-  int *v166; // [rsp+C0h] [rbp-388h]
-  struct _PEB *v167; // [rsp+C8h] [rbp-380h]
-  int v168; // [rsp+D0h] [rbp-378h]
-  int v169; // [rsp+D4h] [rbp-374h]
-  int v170; // [rsp+D8h] [rbp-370h]
-  int v171; // [rsp+DCh] [rbp-36Ch]
-  int v172; // [rsp+E0h] [rbp-368h]
-  __int64 v173; // [rsp+E8h] [rbp-360h]
-  int v174; // [rsp+F0h] [rbp-358h]
-  char *v175; // [rsp+F8h] [rbp-350h]
-  __int64 *v176; // [rsp+100h] [rbp-348h]
-  __int64 v177; // [rsp+108h] [rbp-340h]
-  void *v178; // [rsp+110h] [rbp-338h]
-  __int64 v179; // [rsp+118h] [rbp-330h]
-  __int64 v180; // [rsp+120h] [rbp-328h]
-  __int64 v181; // [rsp+128h] [rbp-320h]
-  __int64 v182; // [rsp+130h] [rbp-318h]
-  unsigned __int16 v183; // [rsp+138h] [rbp-310h] BYREF
+  int v142; // [rsp+68h] [rbp-3E0h]
+  int v143; // [rsp+70h] [rbp-3D8h]
+  unsigned int v144; // [rsp+78h] [rbp-3D0h]
+  int v145; // [rsp+7Ch] [rbp-3CCh]
+  int v146; // [rsp+80h] [rbp-3C8h] BYREF
+  PUNICODE_STRING v147; // [rsp+88h] [rbp-3C0h]
+  int v148; // [rsp+90h] [rbp-3B8h]
+  int v149; // [rsp+98h] [rbp-3B0h]
+  int v150; // [rsp+A0h] [rbp-3A8h]
+  int v151; // [rsp+A8h] [rbp-3A0h]
+  int v152; // [rsp+ACh] [rbp-39Ch]
+  int v153; // [rsp+B0h] [rbp-398h]
+  int v154; // [rsp+B4h] [rbp-394h]
+  __int64 v155; // [rsp+B8h] [rbp-390h]
+  int *v156; // [rsp+C0h] [rbp-388h]
+  struct _PEB *v157; // [rsp+C8h] [rbp-380h]
+  int v158; // [rsp+D0h] [rbp-378h]
+  int v159; // [rsp+D4h] [rbp-374h]
+  int v160; // [rsp+D8h] [rbp-370h]
+  int v161; // [rsp+DCh] [rbp-36Ch]
+  int v162; // [rsp+E0h] [rbp-368h]
+  __int64 v163; // [rsp+E8h] [rbp-360h]
+  int v164; // [rsp+F0h] [rbp-358h]
+  char *v165; // [rsp+F8h] [rbp-350h]
+  char **v166; // [rsp+100h] [rbp-348h]
+  __int64 v167; // [rsp+108h] [rbp-340h]
+  PVOID v168; // [rsp+110h] [rbp-338h]
+  __int64 v169; // [rsp+118h] [rbp-330h]
+  _DWORD *v170; // [rsp+120h] [rbp-328h]
+  __int64 v171; // [rsp+128h] [rbp-320h]
+  __int64 v172; // [rsp+130h] [rbp-318h]
+  unsigned __int16 v173; // [rsp+138h] [rbp-310h] BYREF
   void *Src; // [rsp+140h] [rbp-308h]
-  int v185; // [rsp+148h] [rbp-300h]
-  int v186; // [rsp+14Ch] [rbp-2FCh]
-  __int64 v187; // [rsp+150h] [rbp-2F8h]
-  int v188; // [rsp+158h] [rbp-2F0h]
-  void *v189; // [rsp+160h] [rbp-2E8h]
-  void *v190; // [rsp+168h] [rbp-2E0h]
-  int *v191; // [rsp+170h] [rbp-2D8h]
-  _WORD *v192; // [rsp+178h] [rbp-2D0h]
-  _WORD *v193; // [rsp+180h] [rbp-2C8h]
-  _WORD *v194; // [rsp+188h] [rbp-2C0h]
-  char *v195; // [rsp+190h] [rbp-2B8h]
-  unsigned __int16 *v196; // [rsp+198h] [rbp-2B0h]
-  unsigned __int16 *v197; // [rsp+1A0h] [rbp-2A8h]
-  __int64 v198; // [rsp+1A8h] [rbp-2A0h]
-  __int64 v199; // [rsp+1B0h] [rbp-298h]
-  __int64 v200; // [rsp+1B8h] [rbp-290h]
-  __int64 v201; // [rsp+1C0h] [rbp-288h] BYREF
-  int v202; // [rsp+1C8h] [rbp-280h]
-  __int128 v203; // [rsp+1D0h] [rbp-278h] BYREF
-  __int128 v204; // [rsp+1E0h] [rbp-268h]
-  __int128 v205; // [rsp+1F0h] [rbp-258h]
-  __int64 v206; // [rsp+200h] [rbp-248h]
-  _BYTE v207[16]; // [rsp+210h] [rbp-238h] BYREF
-  __int16 v208; // [rsp+220h] [rbp-228h]
-  __int16 v209; // [rsp+222h] [rbp-226h]
-  char *v210; // [rsp+228h] [rbp-220h]
-  struct _TEB *v211; // [rsp+230h] [rbp-218h]
-  __int64 v212; // [rsp+238h] [rbp-210h]
-  __int128 v213; // [rsp+240h] [rbp-208h] BYREF
+  int v175; // [rsp+148h] [rbp-300h]
+  ULONG v176; // [rsp+14Ch] [rbp-2FCh]
+  __int64 v177; // [rsp+150h] [rbp-2F8h]
+  ULONG v178; // [rsp+158h] [rbp-2F0h]
+  PVOID v179; // [rsp+160h] [rbp-2E8h]
+  PVOID v180; // [rsp+168h] [rbp-2E0h]
+  int *v181; // [rsp+170h] [rbp-2D8h]
+  wchar_t *v182; // [rsp+178h] [rbp-2D0h]
+  _WORD *v183; // [rsp+180h] [rbp-2C8h]
+  _WORD *v184; // [rsp+188h] [rbp-2C0h]
+  char *v185; // [rsp+190h] [rbp-2B8h]
+  unsigned __int16 *v186; // [rsp+198h] [rbp-2B0h]
+  unsigned __int16 *v187; // [rsp+1A0h] [rbp-2A8h]
+  char *v188; // [rsp+1A8h] [rbp-2A0h]
+  _DWORD *v189; // [rsp+1B0h] [rbp-298h]
+  char *v190; // [rsp+1B8h] [rbp-290h]
+  __int64 v191; // [rsp+1C0h] [rbp-288h] BYREF
+  int v192; // [rsp+1C8h] [rbp-280h]
+  __int128 v193; // [rsp+1D0h] [rbp-278h] BYREF
+  __int128 v194; // [rsp+1E0h] [rbp-268h]
+  __int128 v195; // [rsp+1F0h] [rbp-258h]
+  __int64 v196; // [rsp+200h] [rbp-248h]
+  _UNICODE_STRING DynamicString; // [rsp+210h] [rbp-238h] BYREF
+  __int16 v198; // [rsp+220h] [rbp-228h]
+  __int16 v199; // [rsp+222h] [rbp-226h]
+  char *v200; // [rsp+228h] [rbp-220h]
+  struct _TEB *v201; // [rsp+230h] [rbp-218h]
+  __int64 v202; // [rsp+238h] [rbp-210h]
+  __int128 v203; // [rsp+240h] [rbp-208h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+250h] [rbp-1F8h] BYREF
-  int v215; // [rsp+2F0h] [rbp-158h] BYREF
-  void *v216; // [rsp+2F8h] [rbp-150h]
-  _WORD v217[128]; // [rsp+300h] [rbp-148h] BYREF
+  int v205; // [rsp+2F0h] [rbp-158h] BYREF
+  void *v206; // [rsp+2F8h] [rbp-150h]
+  _WORD v207[128]; // [rsp+300h] [rbp-148h] BYREF
   _UNKNOWN *retaddr; // [rsp+448h] [rbp+0h]
 
   v6 = a4;
-  v164 = a4;
+  v154 = a4;
   v7 = a3;
-  v177 = a3;
+  v167 = a3;
   v8 = a2;
-  v179 = a2;
-  v9 = a1;
-  v157 = a1;
+  v169 = a2;
+  v9 = OriginalName;
+  v147 = OriginalName;
   v10 = a5;
-  v176 = a5;
+  v166 = a5;
   v11 = a6;
-  v165 = (__int64)a6;
-  v216 = v217;
-  v215 = 0x1000000;
-  v217[0] = 0;
-  v201 = 72LL;
-  v202 = 1;
-  v203 = 0LL;
-  v204 = 0LL;
-  v205 = 0LL;
-  v206 = 0LL;
+  v155 = (__int64)a6;
+  v206 = v207;
+  v205 = 0x1000000;
+  v207[0] = 0;
+  v191 = 72LL;
+  v192 = 1;
+  v193 = 0LL;
+  v194 = 0LL;
+  v195 = 0LL;
+  v196 = 0LL;
   v12 = *(_QWORD *)(a3 + 136);
   ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
   if ( ActivationContextStackPointer )
     ActiveFrame = (unsigned __int64)ActivationContextStackPointer->ActiveFrame;
   else
     ActiveFrame = 0LL;
-  *((_QWORD *)&v204 + 1) = ~ActiveFrame;
-  *(_QWORD *)&v205 = ~v12;
-  *((_QWORD *)&v205 + 1) = retaddr;
+  *((_QWORD *)&v194 + 1) = ~ActiveFrame;
+  *(_QWORD *)&v195 = ~v12;
+  *((_QWORD *)&v195 + 1) = retaddr;
   if ( ActiveFrame && (*(_DWORD *)(ActiveFrame + 16) & 0x70) != 0x20 )
   {
     ExceptionRecord.ExceptionRecord = 0LL;
@@ -296,14 +292,14 @@ __int64 __fastcall LdrpLoadDependentModuleInternal(int *a1, __int64 a2, __int64 
     ExceptionRecord.ExceptionCode = -1072365548;
     ExceptionRecord.ExceptionFlags = 1;
     RtlRaiseException(&ExceptionRecord);
-    v9 = v157;
-    v7 = v177;
-    v6 = v164;
+    v9 = v147;
+    v7 = v167;
+    v6 = v154;
     goto LABEL_7;
   }
-  *(_QWORD *)&v203 = ActiveFrame;
-  *((_QWORD *)&v203 + 1) = v12;
-  LODWORD(v204) = 32;
+  *(_QWORD *)&v193 = ActiveFrame;
+  *((_QWORD *)&v193 + 1) = v12;
+  LODWORD(v194) = 32;
   if ( ActiveFrame )
   {
     if ( *(_QWORD *)(ActiveFrame + 8) == v12 )
@@ -312,58 +308,58 @@ __int64 __fastcall LdrpLoadDependentModuleInternal(int *a1, __int64 a2, __int64 
   else if ( !v12 )
   {
 LABEL_6:
-    LODWORD(v204) = 48;
+    LODWORD(v194) = 48;
     goto LABEL_7;
   }
-  ActivationContextStackPointer->ActiveFrame = (_RTL_ACTIVATION_CONTEXT_STACK_FRAME *)&v203;
+  ActivationContextStackPointer->ActiveFrame = (_RTL_ACTIVATION_CONTEXT_STACK_FRAME *)&v193;
 LABEL_7:
   v15 = *(_DWORD *)(v8 + 32) & 0x1800800;
-  v145 = v15;
+  v135 = v15;
   if ( v6 != 9 )
   {
     FullPath = 0;
     appended = 0;
     v17 = 0;
-    v143 = 0;
+    v133 = 0;
     if ( (v15 & 0x800008) != 0 )
     {
 LABEL_42:
       if ( FullPath < 0 )
-        goto LABEL_227;
-      v39 = v9;
-      v191 = v9;
-      if ( !(_WORD)v215 )
+        goto LABEL_226;
+      v39 = (int *)v9;
+      v181 = (int *)v9;
+      if ( !(_WORD)v205 )
       {
-        v121 = *((_QWORD *)v9 + 1);
-        v122 = (_WORD *)(v121 + *(unsigned __int16 *)v9);
-        v192 = v122;
+        Buffer = v9->Buffer;
+        v116 = (wchar_t *)((char *)Buffer + v9->Length);
+        v182 = v116;
         while ( 1 )
         {
-          v192 = --v122;
-          if ( (unsigned __int64)v122 < v121 )
+          v182 = --v116;
+          if ( v116 < Buffer )
             break;
-          if ( *v122 == 92 || *v122 == 47 )
+          if ( *v116 == 92 || *v116 == 47 )
           {
             if ( (unsigned int)RtlDetermineDosPathNameType_Ustr(v9) != 5 )
             {
-              FullPath = LdrpGetFullPath(v132, &v215);
+              FullPath = LdrpGetFullPath(v126, &v205);
               appended = FullPath;
               if ( FullPath >= 0 )
               {
                 v15 |= 0x600u;
-                v145 = v15;
+                v135 = v15;
               }
               goto LABEL_49;
             }
-LABEL_223:
-            appended = LdrpAppendUnicodeStringToFilenameBuffer(&v215, v9, ActivationContextStackPointer, v7);
+LABEL_222:
+            appended = LdrpAppendUnicodeStringToFilenameBuffer(&v205, v9, ActivationContextStackPointer, v7);
             FullPath = appended;
             goto LABEL_49;
           }
         }
         v15 |= 0x20u;
-        v145 = v15;
-        goto LABEL_223;
+        v135 = v15;
+        goto LABEL_222;
       }
       if ( v17 )
         v40 = "SxS";
@@ -376,90 +372,90 @@ LABEL_223:
         2,
         "DLL %wZ was redirected to %wZ by %s\n",
         v9,
-        &v215,
+        &v205,
         v40);
       v15 |= 0x200u;
-      v145 = v15;
+      v135 = v15;
       if ( v17 )
       {
         v15 |= 4u;
-        v145 = v15;
+        v135 = v15;
       }
-      v39 = &v215;
-      v191 = &v215;
+      v39 = &v205;
+      v181 = &v205;
 LABEL_49:
       if ( FullPath < 0 )
-        goto LABEL_227;
+        goto LABEL_226;
       v43 = *((_QWORD *)v39 + 1);
       v44 = (_WORD *)(v43 + *(unsigned __int16 *)v39);
-      v193 = v44;
-      v147 = 0;
+      v183 = v44;
+      v137 = 0;
       while ( 1 )
       {
-        v193 = --v44;
+        v183 = --v44;
         if ( (unsigned __int64)v44 < v43 )
         {
-LABEL_224:
-          FullPath = LdrpAppendUnicodeStringToFilenameBuffer(&v215, L"\b\n", v41, v42);
+LABEL_223:
+          FullPath = LdrpAppendUnicodeStringToFilenameBuffer(&v205, &LdrpDefaultExtension, v41, v42);
           appended = FullPath;
-          goto LABEL_186;
+          goto LABEL_185;
         }
         v45 = *v44;
         if ( *v44 == 46 )
           break;
         if ( v45 == 47 || v45 == 92 )
-          goto LABEL_224;
+          goto LABEL_223;
       }
-      v147 = 1;
-      v108 = v215;
-      v109 = v216;
-      v110 = (char *)v216 + (unsigned __int16)v215;
-      v194 = v110;
+      v137 = 1;
+      v103 = v205;
+      v104 = v206;
+      v105 = (char *)v206 + (unsigned __int16)v205;
+      v184 = v105;
       while ( 1 )
       {
-        v194 = --v110;
-        if ( v110 < v109 || *v110 != 46 )
+        v184 = --v105;
+        if ( v105 < v104 || *v105 != 46 )
           break;
-        v108 -= 2;
-        LOWORD(v215) = v108;
-        v109 = v216;
+        v103 -= 2;
+        LOWORD(v205) = v103;
+        v104 = v206;
       }
-      v110[1] = 0;
-LABEL_186:
+      v105[1] = 0;
+LABEL_185:
       if ( FullPath < 0 )
       {
-LABEL_227:
-        LODWORD(v141) = FullPath;
+LABEL_226:
+        LODWORD(NewFlags) = FullPath;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrutil.c",
           2737,
           (unsigned int)"LdrpPreprocessDllName",
           0,
           "LdrpPreprocessDllName for DLL %wZ failed with status 0x%08lx\n",
-          v157,
-          v141);
+          v147,
+          NewFlags);
       }
-      v144 = FullPath;
-      v8 = v179;
-      v11 = (_QWORD *)v165;
-      goto LABEL_188;
+      v134 = FullPath;
+      v8 = v169;
+      v11 = (_QWORD *)v155;
+      goto LABEL_187;
     }
     v18 = v9;
-    v166 = v9;
+    v156 = (int *)v9;
     v19 = NtCurrentPeb();
-    v167 = v19;
-    v143 = 0;
+    v157 = v19;
+    v133 = 0;
     v20 = 1;
-    v146 = 1;
+    v136 = 1;
     v21 = v7 + 88;
     ApiSetMap = v19->ApiSetMap;
     LdrpLogDllState(0LL, v9, 5328LL);
-    FullPath = ApiSetResolveToHost((_DWORD)ApiSetMap, (_DWORD)v157, v21, (unsigned int)&v142, (__int64)&v183);
-    v23 = v142;
-    if ( FullPath >= 0 && v142 )
+    FullPath = ApiSetResolveToHost((_DWORD)ApiSetMap, (_DWORD)v147, v21, (unsigned int)&v132, (__int64)&v173);
+    v23 = v132;
+    if ( FullPath >= 0 && v132 )
     {
-      v24 = v183;
-      if ( v183 )
+      v24 = v173;
+      if ( v173 )
         v25 = 5329;
       else
         v25 = 5330;
@@ -467,27 +463,27 @@ LABEL_227:
     else
     {
       v25 = 5331;
-      v24 = v183;
+      v24 = v173;
     }
     LdrpLogDllState(0LL, v18, v25);
-    v155 = FullPath;
+    v145 = FullPath;
     if ( v23 )
     {
       if ( !v24 )
       {
         FullPath = -1073740671;
-        goto LABEL_214;
+        goto LABEL_213;
       }
       ActivationContextStackPointer = 0LL;
-      LOWORD(v215) = 0;
+      LOWORD(v205) = 0;
       SharedData = (int *)NtCurrentPeb()->SharedData;
-      if ( SharedData && (v185 = *SharedData) != 0 )
+      if ( SharedData && (v175 = *SharedData) != 0 )
         v27 = (__int64)NtCurrentPeb()->SharedData + 30;
       else
         v27 = 2147352624LL;
-      v187 = v27;
-      v181 = 0LL;
-      v182 = v27;
+      v177 = v27;
+      v171 = 0LL;
+      v172 = v27;
       if ( v27 )
       {
         v28 = -1LL;
@@ -495,366 +491,359 @@ LABEL_227:
           ++v28;
         while ( *(_WORD *)(v27 + 2 * v28) );
         v29 = 2 * v28;
-        v173 = v29;
+        v163 = v29;
         v30 = v29;
         if ( v29 >= 0xFFFE )
         {
           LOWORD(v29) = -4;
-          v173 = 65532LL;
+          v163 = 65532LL;
           v30 = -4;
         }
-        LOWORD(v181) = v29;
-        WORD1(v181) = v30 + 2;
+        LOWORD(v171) = v29;
+        WORD1(v171) = v30 + 2;
       }
       else
       {
-        LOWORD(v29) = v181;
+        LOWORD(v29) = v171;
       }
-      v168 = 0;
+      v158 = 0;
       if ( (_WORD)v29 )
       {
         v31 = (unsigned __int16)v29 + 2;
-        v158 = v31;
+        v148 = v31;
         v32 = 0;
-        v159 = 0;
-        if ( v31 > HIWORD(v215) )
+        v149 = 0;
+        if ( v31 > HIWORD(v205) )
         {
           if ( v31 <= 0xFFFE )
           {
-            v123 = ((unsigned __int16)v29 + 65) & 0xFFFFFFC0;
-            v158 = v123;
-            v124 = v123;
-            if ( v123 > 0xFFFE )
+            v117 = ((unsigned __int16)v29 + 65) & 0xFFFFFFC0;
+            v148 = v117;
+            v118 = v117;
+            if ( v117 > 0xFFFE )
             {
-              LOWORD(v123) = -2;
-              v158 = 65534;
-              v124 = 65534;
+              LOWORD(v117) = -2;
+              v148 = 65534;
+              v118 = 65534;
             }
-            if ( v216 == v217 )
+            if ( v206 == v207 )
             {
-              StringRoutine = (void *)NtdllpAllocateStringRoutine(v124);
-              v178 = StringRoutine;
-              if ( StringRoutine && (_WORD)v215 )
+              StringRoutine = NtdllpAllocateStringRoutine(v118);
+              v168 = StringRoutine;
+              if ( StringRoutine && (_WORD)v205 )
               {
-                memmove(StringRoutine, v216, (unsigned __int16)v215);
-                StringRoutine = v178;
+                memmove(StringRoutine, v206, (unsigned __int16)v205);
+                StringRoutine = v168;
               }
             }
             else
             {
-              StringRoutine = (void *)NtdllpReallocateStringRoutine(v124);
-              v178 = StringRoutine;
+              StringRoutine = (PVOID)NtdllpReallocateStringRoutine(v118);
+              v168 = StringRoutine;
             }
             ActivationContextStackPointer = 0LL;
             if ( StringRoutine )
             {
-              v216 = StringRoutine;
-              HIWORD(v215) = v123;
+              v206 = StringRoutine;
+              HIWORD(v205) = v117;
             }
             else
             {
               v32 = -1073741801;
-              v159 = -1073741801;
+              v149 = -1073741801;
             }
-            v19 = v167;
+            v19 = v157;
           }
           else
           {
             v32 = -1073741562;
-            v159 = -1073741562;
+            v149 = -1073741562;
           }
         }
-        v168 = v32;
+        v158 = v32;
         if ( v32 >= 0 )
         {
-          memmove((char *)v216 + (unsigned __int16)v215, (const void *)v27, (unsigned __int16)v29);
-          LOWORD(v215) = v29 + v215;
+          memmove((char *)v206 + (unsigned __int16)v205, (const void *)v27, (unsigned __int16)v29);
+          LOWORD(v205) = v29 + v205;
           ActivationContextStackPointer = 0LL;
-          *((_WORD *)v216 + ((unsigned __int64)(unsigned __int16)v215 >> 1)) = 0;
+          *((_WORD *)v206 + ((unsigned __int64)(unsigned __int16)v205 >> 1)) = 0;
         }
-        LODWORD(v18) = (_DWORD)v166;
+        v18 = (_UNICODE_STRING *)v156;
       }
-      v169 = 0;
-      v33 = (unsigned __int16)v215 + 22;
-      v160 = v33;
+      v159 = 0;
+      v33 = (unsigned __int16)v205 + 22;
+      v150 = v33;
       v34 = 0;
-      v161 = 0;
-      if ( v33 > HIWORD(v215) )
+      v151 = 0;
+      if ( v33 > HIWORD(v205) )
       {
         if ( v33 <= 0xFFFE )
         {
-          v126 = ((unsigned __int16)v215 + 85) & 0xFFFFFFC0;
-          v160 = v126;
-          v127 = v126;
-          if ( v126 > 0xFFFE )
+          v120 = ((unsigned __int16)v205 + 85) & 0xFFFFFFC0;
+          v150 = v120;
+          v121 = v120;
+          if ( v120 > 0xFFFE )
           {
-            LOWORD(v126) = -2;
-            v160 = 65534;
-            v127 = 65534;
+            LOWORD(v120) = -2;
+            v150 = 65534;
+            v121 = 65534;
           }
-          if ( v216 == v217 )
+          if ( v206 == v207 )
           {
-            v128 = (void *)NtdllpAllocateStringRoutine(v127);
-            v189 = v128;
-            if ( v128 && (_WORD)v215 )
-              memmove(v128, v216, (unsigned __int16)v215);
+            v122 = NtdllpAllocateStringRoutine(v121);
+            v179 = v122;
+            if ( v122 && (_WORD)v205 )
+              memmove(v122, v206, (unsigned __int16)v205);
           }
           else
           {
-            v128 = (void *)NtdllpReallocateStringRoutine(v127);
-            v189 = v128;
+            v122 = (PVOID)NtdllpReallocateStringRoutine(v121);
+            v179 = v122;
           }
           ActivationContextStackPointer = 0LL;
-          if ( v128 )
+          if ( v122 )
           {
-            v216 = v128;
-            HIWORD(v215) = v126;
+            v206 = v122;
+            HIWORD(v205) = v120;
           }
           else
           {
             v34 = -1073741801;
-            v161 = -1073741801;
+            v151 = -1073741801;
           }
         }
         else
         {
           v34 = -1073741562;
-          v161 = -1073741562;
+          v151 = -1073741562;
         }
       }
-      v169 = v34;
+      v159 = v34;
       if ( v34 >= 0 )
       {
-        v35 = (char *)v216 + (unsigned __int16)v215;
-        *(_OWORD *)v35 = *(_OWORD *)L"\\SYSTEM32\\";
-        *((_DWORD *)v35 + 4) = *(_DWORD *)L"2\\";
-        LOWORD(v215) = v215 + 20;
-        *((_WORD *)v216 + ((unsigned __int64)(unsigned __int16)v215 >> 1)) = 0;
+        v35 = (char *)v206 + (unsigned __int16)v205;
+        *(_OWORD *)v35 = *(_OWORD *)SlashSystem32SlashString.Buffer;
+        *((_DWORD *)v35 + 4) = *((_DWORD *)SlashSystem32SlashString.Buffer + 4);
+        LOWORD(v205) = v205 + 20;
+        *((_WORD *)v206 + ((unsigned __int64)(unsigned __int16)v205 >> 1)) = 0;
       }
-      v174 = 0;
-      v36 = v183;
-      v37 = v183 + (unsigned __int16)v215 + 2;
-      v153 = v37;
+      v164 = 0;
+      v36 = v173;
+      v37 = v173 + (unsigned __int16)v205 + 2;
+      v143 = v37;
       FullPath = 0;
-      v162 = 0;
-      if ( v37 > HIWORD(v215) )
+      v152 = 0;
+      if ( v37 > HIWORD(v205) )
       {
         if ( v37 <= 0xFFFE )
         {
-          v129 = (v37 + 63) & 0xFFFFFFC0;
-          v153 = v129;
-          v130 = v129;
-          if ( v129 > 0xFFFE )
+          v123 = (v37 + 63) & 0xFFFFFFC0;
+          v143 = v123;
+          v124 = v123;
+          if ( v123 > 0xFFFE )
           {
-            LOWORD(v129) = -2;
-            v153 = 65534;
-            v130 = 65534;
+            LOWORD(v123) = -2;
+            v143 = 65534;
+            v124 = 65534;
           }
-          if ( v216 == v217 )
+          if ( v206 == v207 )
           {
-            v131 = (void *)NtdllpAllocateStringRoutine(v130);
-            v190 = v131;
-            if ( v131 && (_WORD)v215 )
-              memmove(v131, v216, (unsigned __int16)v215);
+            v125 = NtdllpAllocateStringRoutine(v124);
+            v180 = v125;
+            if ( v125 && (_WORD)v205 )
+              memmove(v125, v206, (unsigned __int16)v205);
           }
           else
           {
-            v131 = (void *)NtdllpReallocateStringRoutine(v130);
-            v190 = v131;
+            v125 = (PVOID)NtdllpReallocateStringRoutine(v124);
+            v180 = v125;
           }
-          if ( v131 )
+          if ( v125 )
           {
-            v216 = v131;
-            HIWORD(v215) = v129;
+            v206 = v125;
+            HIWORD(v205) = v123;
           }
           else
           {
             FullPath = -1073741801;
-            v162 = -1073741801;
+            v152 = -1073741801;
           }
-          v19 = v167;
-          LODWORD(v18) = (_DWORD)v166;
+          v19 = v157;
+          v18 = (_UNICODE_STRING *)v156;
         }
         else
         {
           FullPath = -1073741562;
-          v162 = -1073741562;
+          v152 = -1073741562;
         }
       }
-      v174 = FullPath;
+      v164 = FullPath;
       if ( FullPath >= 0 )
       {
-        memmove((char *)v216 + (unsigned __int16)v215, Src, v36);
-        LOWORD(v215) = v36 + v215;
-        *((_WORD *)v216 + ((unsigned __int64)(unsigned __int16)v215 >> 1)) = 0;
+        memmove((char *)v206 + (unsigned __int16)v205, Src, v36);
+        LOWORD(v205) = v36 + v205;
+        *((_WORD *)v206 + ((unsigned __int64)(unsigned __int16)v205 >> 1)) = 0;
       }
-      v155 = FullPath;
+      v145 = FullPath;
       if ( FullPath >= 0 )
       {
         ProcessParameters = v19->ProcessParameters;
         if ( !ProcessParameters || (ProcessParameters->Flags & 0x1000) == 0 )
           v20 = 0;
-        v146 = v20;
-        v18 = &v215;
-        v166 = &v215;
+        v136 = v20;
+        v18 = (_UNICODE_STRING *)&v205;
+        v156 = &v205;
       }
     }
     if ( FullPath < 0 || !v20 || LdrpIsSecureProcess )
       goto LABEL_41;
-    v120 = RtlDosApplyFileIsolationRedirection_Ustr(
-             1,
-             (_DWORD)v18,
-             (unsigned int)L"\b\n",
-             0,
-             (__int64)v207,
+    v114 = RtlDosApplyFileIsolationRedirection_Ustr(
+             1u,
+             v18,
+             (PUNICODE_STRING)&LdrpDefaultExtension,
+             0LL,
+             &DynamicString,
              0LL,
              0LL,
              0LL,
              0LL);
-    if ( v120 >= 0 )
+    if ( v114 >= 0 )
     {
       v17 = 1;
-      v143 = 1;
-      LdrpGetFullPath(v207, &v215);
-      LdrpFreeUnicodeString(v207);
+      v133 = 1;
+      LdrpGetFullPath(&DynamicString, &v205);
+      LdrpFreeUnicodeString(&DynamicString);
     }
-    if ( v120 == -1072365560 )
+    if ( v114 == -1072365560 )
       goto LABEL_41;
-    FullPath = v120;
-LABEL_214:
-    v155 = FullPath;
+    FullPath = v114;
+LABEL_213:
+    v145 = FullPath;
 LABEL_41:
     appended = FullPath;
-    v15 = v145;
-    v9 = v157;
-    v10 = v176;
+    v15 = v135;
+    v9 = v147;
+    v10 = v166;
     goto LABEL_42;
   }
-  FullPath = LdrpAppendUnicodeStringToFilenameBuffer(&v215, v9, ActivationContextStackPointer, v7);
-  v144 = FullPath;
+  FullPath = LdrpAppendUnicodeStringToFilenameBuffer(&v205, v9, ActivationContextStackPointer, v7);
+  v134 = FullPath;
   v15 |= 0x200u;
-  v145 = v15;
-LABEL_188:
+  v135 = v15;
+LABEL_187:
   if ( FullPath < 0 )
-    goto LABEL_306;
+    goto LABEL_305;
   if ( (v15 & 0x800000) != 0 )
   {
     FullPath = LdrpFindOrPrepareEnclaveModule(
                  *(_QWORD *)(v8 + 176),
-                 (unsigned int)&v215,
+                 &v205,
                  *(_QWORD *)(v8 + 16),
                  v15,
-                 v177,
-                 (__int64)v10,
+                 v167,
+                 v10,
                  *(_QWORD *)(v8 + 40));
-    v144 = FullPath;
-    goto LABEL_306;
+    v134 = FullPath;
+    goto LABEL_305;
   }
   if ( !*v11 )
   {
-    v188 = NtdllBaseTag + 2621440;
-    Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2621440, 32LL);
+    v178 = NtdllBaseTag + 2621440;
+    Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2621440, 0x20uLL);
     *v11 = Heap;
     if ( !Heap )
     {
       FullPath = -1073741801;
-      v144 = -1073741801;
-      goto LABEL_306;
+      v134 = -1073741801;
+      goto LABEL_305;
     }
   }
-  v62 = *(_QWORD *)(v8 + 40);
-  v173 = v62;
-  v61 = v15;
-  v153 = v15;
-  v63 = *(int **)(v8 + 16);
-  v157 = v63;
-  v111 = 0LL;
+  v59 = *(_QWORD *)(v8 + 40);
+  v163 = v59;
+  v58 = v15;
+  v143 = v15;
+  v60 = *(_UNICODE_STRING **)(v8 + 16);
+  v147 = v60;
   *v10 = 0LL;
-  v156 = 0;
+  v146 = 0;
   if ( (v15 & 0x20) != 0 )
   {
-    FullPath = LdrpFindLoadedDllByName((unsigned int)&v215, 0, v15, (_DWORD)v10, (__int64)&v156);
-    v152 = FullPath;
+    FullPath = LdrpFindLoadedDllByName((unsigned int)&v205, 0, v15, (_DWORD)v10, (__int64)&v146);
+    v142 = FullPath;
     goto LABEL_89;
   }
   if ( (v15 & 0x200) == 0 )
   {
-    v152 = -1073741515;
+    v142 = -1073741515;
     goto LABEL_159;
   }
-  v112 = (char *)v216 + (unsigned __int16)v215;
-  v175 = v112;
-  for ( i = v112 - 2; ; i -= 2 )
+  v165 = (char *)v206 + (unsigned __int16)v205;
+  for ( i = v165 - 2; ; i -= 2 )
   {
-    v114 = i;
-    v175 = i;
-    if ( i <= v216 )
+    v107 = i;
+    v165 = i;
+    if ( i <= v206 )
       break;
     if ( *(_WORD *)i == 92 || *(_WORD *)i == 47 )
     {
       i += 2;
-      v175 = v114 + 2;
-      LOWORD(v114) = (_WORD)v114 + 2;
+      v165 = v107 + 2;
+      LOWORD(v107) = (_WORD)v107 + 2;
       break;
     }
   }
-  v115 = (_WORD)v114 - (_WORD)v216;
-  v210 = i;
-  v208 = v215 - v115;
-  v209 = HIWORD(v215) - v115;
-  v116 = 0;
-  v171 = 0;
-  v195 = i;
-  v154 = 0;
-  v117 = (unsigned __int16)(v215 - v115) >> 1;
-  v170 = v117;
+  v108 = (_WORD)v107 - (_WORD)v206;
+  v200 = i;
+  v198 = v205 - v108;
+  v199 = HIWORD(v205) - v108;
+  v109 = 0;
+  v161 = 0;
+  v185 = i;
+  v144 = 0;
+  v110 = (unsigned __int16)(v205 - v108) >> 1;
+  v160 = v110;
   while ( 1 )
   {
-    v118 = v117--;
-    v170 = v117;
-    if ( !v118 )
+    v111 = v110--;
+    v160 = v110;
+    if ( !v111 )
       break;
-    v111 = *(unsigned __int16 *)i;
+    v112 = *(unsigned __int16 *)i;
     i += 2;
-    v195 = i;
-    if ( (unsigned int)v111 < 0x61 )
-      goto LABEL_204;
-    if ( (unsigned int)v111 <= 0x7A )
+    v185 = i;
+    if ( (unsigned int)v112 < 0x61 )
+      goto LABEL_203;
+    if ( (unsigned int)v112 <= 0x7A )
     {
-      LOWORD(v111) = v111 - 32;
-LABEL_204:
-      v148 = v111;
-      goto LABEL_205;
-    }
-    if ( !qword_1801776F8 || (unsigned __int16)v111 < 0xC0u )
+      LOWORD(v112) = v112 - 32;
+LABEL_203:
+      v138 = v112;
       goto LABEL_204;
-    v112 = (char *)(v111 & 0xF);
-    v133 = v111
-         + *(_WORD *)(qword_1801776F8
-                    + 2LL
-                    * ((unsigned int)v112
-                     + *(unsigned __int16 *)(qword_1801776F8
-                                           + 2LL
-                                           * (((unsigned __int8)v111 >> 4)
-                                            + (unsigned int)*(unsigned __int16 *)(qword_1801776F8 + 2 * (v111 >> 8))))));
-    v111 = v133;
-    v148 = v133;
-LABEL_205:
-    v116 = (unsigned __int16)v111 + 65599 * v116;
-    v171 = v116;
+    }
+    if ( !qword_1801776F8 || (unsigned __int16)v112 < 0xC0u )
+      goto LABEL_203;
+    LOWORD(v112) = v112
+                 + *(_WORD *)(qword_1801776F8
+                            + 2
+                            * ((v112 & 0xF)
+                             + *(unsigned __int16 *)(qword_1801776F8
+                                                   + 2LL
+                                                   * (((unsigned __int8)v112 >> 4)
+                                                    + (unsigned int)*(unsigned __int16 *)(qword_1801776F8
+                                                                                        + 2 * (v112 >> 8))))));
+    v138 = v112;
+LABEL_204:
+    v109 = (unsigned __int16)v112 + 65599 * v109;
+    v161 = v109;
   }
-  v154 = v116;
-  v46 = v116;
-  if ( !v116 )
+  v144 = v109;
+  v46 = v109;
+  if ( !v109 )
   {
     v46 = 0x80000000;
-    v154 = 0x80000000;
+    v144 = 0x80000000;
   }
-  RtlAcquireSRWLockExclusive(
-    (unsigned __int64)&LdrpModuleDatatableLock,
-    (unsigned __int64)v112,
-    v111,
-    (unsigned __int64)i);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v47 = (_QWORD **)((char *)&LdrpHashTable + 16 * (v46 & 0x1F));
   v48 = 0;
   v49 = *v47;
@@ -862,11 +851,11 @@ LABEL_205:
   {
     if ( v49 == v47 )
     {
-      v10 = v176;
+      v10 = v166;
       goto LABEL_80;
     }
     v50 = (volatile signed __int32 *)(v49 - 14);
-    if ( v46 != *((_DWORD *)v49 + 38) || (v153 & 8) != 0 && (v50[26] & 1) == 0 )
+    if ( v46 != *((_DWORD *)v49 + 38) || (v143 & 8) != 0 && (v50[26] & 1) == 0 )
     {
 LABEL_75:
       v49 = (_QWORD *)*v49;
@@ -874,17 +863,17 @@ LABEL_75:
     }
     break;
   }
-  if ( (unsigned __int16)v215 != *((unsigned __int16 *)v50 + 36) )
+  if ( (unsigned __int16)v205 != *((unsigned __int16 *)v50 + 36) )
   {
 LABEL_74:
     v48 = 0;
     goto LABEL_75;
   }
-  v51 = (unsigned __int16 *)v216;
-  v196 = (unsigned __int16 *)v216;
+  v51 = (unsigned __int16 *)v206;
+  v186 = (unsigned __int16 *)v206;
   v52 = (unsigned __int16 *)*((_QWORD *)v50 + 10);
-  v197 = v52;
-  while ( v51 < (unsigned __int16 *)((char *)v216 + (unsigned __int16)v215) )
+  v187 = v52;
+  while ( v51 < (unsigned __int16 *)((char *)v206 + (unsigned __int16)v205) )
   {
     v53 = *v51;
     v54 = *v52;
@@ -896,7 +885,7 @@ LABEL_74:
     {
       LOWORD(v53) = v53 - 32;
 LABEL_70:
-      v149 = v53;
+      v139 = v53;
       goto LABEL_71;
     }
     if ( !qword_1801776F8 || (unsigned __int16)v53 < 0xC0u )
@@ -909,7 +898,7 @@ LABEL_70:
                                                   + 2LL
                                                   * (((unsigned __int8)v53 >> 4)
                                                    + (unsigned int)*(unsigned __int16 *)(qword_1801776F8 + 2 * (v53 >> 8))))));
-    v149 = v53;
+    v139 = v53;
 LABEL_71:
     if ( (unsigned int)v54 < 0x61 )
       goto LABEL_72;
@@ -917,7 +906,7 @@ LABEL_71:
     {
       LOWORD(v54) = v54 - 32;
 LABEL_72:
-      v150 = v54;
+      v140 = v54;
       goto LABEL_73;
     }
     if ( !qword_1801776F8 || (unsigned __int16)v54 < 0xC0u )
@@ -930,342 +919,341 @@ LABEL_72:
                                                   + 2LL
                                                   * (((unsigned __int8)v54 >> 4)
                                                    + (unsigned int)*(unsigned __int16 *)(qword_1801776F8 + 2 * (v54 >> 8))))));
-    v150 = v54;
+    v140 = v54;
 LABEL_73:
     if ( (_WORD)v53 != (_WORD)v54 )
       goto LABEL_74;
 LABEL_66:
-    v196 = ++v51;
-    v197 = ++v52;
+    v186 = ++v51;
+    v187 = ++v52;
   }
   v48 = 1;
   v55 = *((_QWORD *)v50 + 19);
   if ( *(_DWORD *)(v55 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v55 - 56LL) & 0x20) == 0 )
     _InterlockedIncrement(v50 + 69);
-  v10 = v176;
-  *v176 = (__int64)v50;
+  v10 = v166;
+  *v166 = (char *)v50;
 LABEL_80:
   if ( v48 )
   {
     FullPath = 0;
-    v156 = *(_DWORD *)(*(_QWORD *)(*v10 + 152) + 56LL);
+    v146 = *(_DWORD *)(*((_QWORD *)*v10 + 19) + 56LL);
   }
   else
   {
     FullPath = -1073741515;
   }
-  v56 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, 1LL);
+  v56 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, 1LL);
   if ( v56 != 1 )
   {
     do
     {
-      v101 = v56 & 6;
-      v102 = 3LL;
-      if ( v101 != 2 )
-        v102 = -1LL;
-      v103 = v56 + v102;
-      v104 = v56;
-      v56 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v103, v56);
+      v96 = v56 & 6;
+      v97 = 3LL;
+      if ( v96 != 2 )
+        v97 = -1LL;
+      v98 = v56 + v97;
+      v99 = v56;
+      v56 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v98, v56);
     }
-    while ( v104 != v56 );
-    if ( v101 == 2 )
-      RtlpWakeSRWLock(&LdrpModuleDatatableLock, v103, 0);
+    while ( v99 != v56 );
+    if ( v96 == 2 )
+      RtlpWakeSRWLock((volatile signed __int64 *)&LdrpModuleDatatableLock, v98, 0);
   }
   if ( FullPath < 0 )
-    v163 = 3;
+    v153 = 3;
   else
-    v163 = 0;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v60 = (__int64)NtCurrentPeb()->SharedData + 554;
+    v153 = 0;
+  if ( RtlGetCurrentServiceSessionId() )
+    v57 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v60 = 2147353476LL;
-  if ( *(_BYTE *)v60 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+    v57 = 2147353476LL;
+  if ( *(_BYTE *)v57 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v134 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
-    if ( (*v134 & 0x20) != 0 )
-      LdrpLogEtwEvent(5280, 0, 0, (unsigned __int8)v163, (__int64)&v215, 0LL);
+    v127 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v127 & 0x20) != 0 )
+      LdrpLogEtwEvent(5280, 0, 0, (unsigned __int8)v153, (__int64)&v205, 0LL);
   }
-  v152 = FullPath;
-  LOWORD(v15) = v145;
-  v61 = v153;
-  v62 = v173;
-  LODWORD(v63) = (_DWORD)v157;
+  v142 = FullPath;
+  LOWORD(v15) = v135;
+  v58 = v143;
+  v59 = v163;
+  LODWORD(v60) = (_DWORD)v147;
 LABEL_89:
   if ( FullPath != -1073741515 )
   {
-    v64 = *v10;
-    if ( v156 < 0 )
+    v61 = *v10;
+    if ( v146 < 0 )
     {
-      v213 = *(_OWORD *)(v64 + 72);
-      LODWORD(v141) = v156;
+      v203 = *(_OWORD *)(v61 + 72);
+      LODWORD(NewFlags) = v146;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrmap.c",
         3049,
         (unsigned int)"LdrpFindOrPrepareLoadingModule",
         0,
         "Found circular dependent DLL: \"%wZ\" that failed to load previously, ModuleState: %d\n",
-        &v213,
-        v141);
+        &v203,
+        NewFlags);
       FullPath = -1073741595;
-      v152 = -1073741595;
-      LdrpDereferenceModule(*v10, v135, v136, v137);
-      v65 = 0LL;
+      v142 = -1073741595;
+      LdrpDereferenceModule(*v10);
+      v62 = 0LL;
       *v10 = 0LL;
     }
     else
     {
-      v172 = 0;
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v57, v58, v59);
-      v68 = *(_QWORD *)(v64 + 152);
-      v69 = *(_DWORD *)(v68 + 24);
-      if ( v69 != -1 )
+      v162 = 0;
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      v63 = *((_QWORD *)v61 + 19);
+      v64 = *(_DWORD *)(v63 + 24);
+      if ( v64 != -1 )
       {
-        if ( v69 )
+        if ( v64 )
         {
-          *(_DWORD *)(v68 + 24) = v69 + 1;
+          *(_DWORD *)(v63 + 24) = v64 + 1;
         }
         else
         {
-          v211 = NtCurrentTeb();
-          if ( (v211->SameTebFlags & 0x1000) != 0 )
-            ++*(_DWORD *)(v68 + 28);
+          v201 = NtCurrentTeb();
+          if ( (v201->SameTebFlags & 0x1000) != 0 )
+            ++*(_DWORD *)(v63 + 28);
           else
-            v172 = -1073741515;
+            v162 = -1073741515;
         }
       }
-      v70 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, 1LL);
-      if ( v70 != 1 )
+      v65 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, 1LL);
+      if ( v65 != 1 )
       {
-        v66 = -1LL;
         do
         {
-          v105 = v70 & 6;
-          v106 = 3LL;
-          if ( v105 != 2 )
-            v106 = -1LL;
-          v65 = v70 + v106;
-          v107 = v70;
-          v70 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v65, v70);
+          v100 = v65 & 6;
+          v101 = 3LL;
+          if ( v100 != 2 )
+            v101 = -1LL;
+          v62 = v65 + v101;
+          v102 = v65;
+          v65 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v62, v65);
         }
-        while ( v107 != v70 );
-        if ( v105 == 2 )
-          RtlpWakeSRWLock(&LdrpModuleDatatableLock, v65, 0);
+        while ( v102 != v65 );
+        if ( v100 == 2 )
+          RtlpWakeSRWLock((volatile signed __int64 *)&LdrpModuleDatatableLock, v62, 0);
       }
-      LOWORD(v15) = v145;
+      LOWORD(v15) = v135;
     }
     goto LABEL_94;
   }
 LABEL_159:
-  FullPath = LdrpAllocatePlaceHolder((unsigned int)&v215, (_DWORD)v63, v61, v164, v177, (__int64)v10, v62);
-  v152 = FullPath;
+  FullPath = LdrpAllocatePlaceHolder((unsigned int)&v205, (_DWORD)v60, v58, v154, v167, (__int64)v10, v59);
+  v142 = FullPath;
   if ( FullPath >= 0 )
   {
-    FullPath = LdrpLoadKnownDll(*(_QWORD *)(*v10 + 176));
-    v152 = FullPath;
+    FullPath = LdrpLoadKnownDll(*((_QWORD *)*v10 + 22));
+    v142 = FullPath;
   }
 LABEL_94:
-  v144 = FullPath;
+  v134 = FullPath;
   if ( *v10 )
   {
-    v71 = v15 & 0x400;
-    if ( v71 && FullPath == -1073741515 )
+    v66 = v15 & 0x400;
+    if ( v66 && FullPath == -1073741515 )
     {
-      v138 = *(_QWORD *)(*v10 + 176);
-      v212 = v138;
-      *(_DWORD *)(v138 + 32) |= 0x4000000u;
-      LOBYTE(v65) = 1;
-      LdrpProcessWork(v138, v65);
-      FullPath = **(_DWORD **)(v138 + 40);
-      v144 = FullPath;
+      v128 = *((_QWORD *)*v10 + 22);
+      v202 = v128;
+      *(_DWORD *)(v128 + 32) |= 0x4000000u;
+      LOBYTE(v62) = 1;
+      LdrpProcessWork(v128, v62);
+      FullPath = **(_DWORD **)(v128 + 40);
+      v134 = FullPath;
     }
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v65, v66, v67);
-    v73 = *v10;
-    v74 = v73;
-    v198 = *v10;
-    if ( v73 )
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v68 = *v10;
+    v69 = v68;
+    v188 = *v10;
+    if ( v68 )
     {
-      v75 = *(_QWORD *)(v73 + 176);
-      if ( v75 )
+      v70 = *((_QWORD *)v68 + 22);
+      if ( v70 )
       {
-        if ( (*(_DWORD *)(v75 + 32) & 0x80000) == 0 && *(_QWORD *)(v75 + 56) != v73 )
+        if ( (*(_DWORD *)(v70 + 32) & 0x80000) == 0 && *(char **)(v70 + 56) != v68 )
         {
-          v74 = *(_QWORD *)(v75 + 56);
-          v198 = v74;
-          *(_QWORD *)(v75 + 56) = v73;
+          v69 = *(char **)(v70 + 56);
+          v188 = v69;
+          *(_QWORD *)(v70 + 56) = v68;
         }
       }
     }
-    v200 = v74;
-    v76 = (__int64 *)v165;
-    *(_DWORD *)(*(_QWORD *)v165 + 24LL) &= ~1u;
-    v77 = *v76;
-    v180 = *v76;
-    v78 = v179;
-    v79 = *(_QWORD *)(v74 + 152);
-    v80 = *(_QWORD *)(*(_QWORD *)(v179 + 56) + 152LL);
-    if ( v80 == v79
-      || *(_DWORD *)(v79 + 56) == 9 && (*(_DWORD *)(v79 + 24) == -1 || (*(_BYTE *)(*(_QWORD *)v79 - 56LL) & 0x20) != 0) )
+    v190 = v69;
+    v71 = (_QWORD *)v155;
+    *(_DWORD *)(*(_QWORD *)v155 + 24LL) &= ~1u;
+    v72 = (_DWORD *)*v71;
+    v170 = (_DWORD *)*v71;
+    v73 = v169;
+    v74 = *((_QWORD *)v69 + 19);
+    v75 = *(_QWORD *)(*(_QWORD *)(v169 + 56) + 152LL);
+    if ( v75 == v74
+      || *(_DWORD *)(v74 + 56) == 9 && (*(_DWORD *)(v74 + 24) == -1 || (*(_BYTE *)(*(_QWORD *)v74 - 56LL) & 0x20) != 0) )
     {
       goto LABEL_101;
     }
-    v91 = *(_QWORD **)(v80 + 40);
-    if ( v91 )
+    v86 = *(_QWORD **)(v75 + 40);
+    if ( v86 )
     {
-      v92 = *(_QWORD **)(v80 + 40);
+      v87 = *(_QWORD **)(v75 + 40);
       while ( 1 )
       {
-        v92 = (_QWORD *)*v92;
-        if ( v92[1] == v79 )
+        v87 = (_QWORD *)*v87;
+        if ( v87[1] == v74 )
           break;
-        if ( v92 == v91 )
+        if ( v87 == v86 )
           goto LABEL_138;
       }
 LABEL_101:
-      v81 = *(unsigned int *)(v79 + 24);
-      if ( (unsigned int)(v81 - 2) <= 0xFFFFFFFC )
-        *(_DWORD *)(v79 + 24) = v81 - 1;
+      v76 = (_QWORD *)*(unsigned int *)(v74 + 24);
+      if ( (unsigned int)((_DWORD)v76 - 2) <= 0xFFFFFFFC )
+        *(_DWORD *)(v74 + 24) = (_DWORD)v76 - 1;
     }
     else
     {
 LABEL_138:
-      if ( !v77 )
+      if ( !v72 )
       {
-        v186 = NtdllBaseTag + 2359296;
-        v139 = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 32LL);
-        v77 = v139;
-        v180 = v139;
-        if ( !v139 )
+        v176 = NtdllBaseTag + 2359296;
+        v129 = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
+        v72 = v129;
+        v170 = v129;
+        if ( !v129 )
         {
           MEMORY[0] = -1073741801;
-          v77 = 0LL;
-          v76 = (__int64 *)v165;
+          v72 = 0LL;
+          v71 = (_QWORD *)v155;
           goto LABEL_103;
         }
-        *(_DWORD *)(v139 + 24) |= 1u;
+        v129[6] |= 1u;
       }
-      v93 = *(__int64 **)(v80 + 40);
-      if ( v93 )
+      v88 = *(_QWORD **)(v75 + 40);
+      if ( v88 )
       {
-        *(_QWORD *)v77 = *v93;
-        *v93 = v77;
+        *(_QWORD *)v72 = *v88;
+        *v88 = v72;
       }
       else
       {
-        *(_QWORD *)v77 = v77;
+        *(_QWORD *)v72 = v72;
       }
-      *(_QWORD *)(v80 + 40) = v77;
-      *(_QWORD *)(v77 + 8) = v79;
-      v81 = v77 + 16;
-      v94 = *(unsigned __int64 **)(v79 + 48);
-      if ( v94 )
+      *(_QWORD *)(v75 + 40) = v72;
+      *((_QWORD *)v72 + 1) = v74;
+      v76 = v72 + 4;
+      v89 = *(_QWORD **)(v74 + 48);
+      if ( v89 )
       {
-        *(_QWORD *)v81 = *v94;
-        *v94 = v81;
+        *v76 = *v89;
+        *v89 = v76;
       }
       else
       {
-        *(_QWORD *)v81 = v81;
+        *v76 = v76;
       }
-      *(_QWORD *)(v79 + 48) = v81;
-      v95 = (*(_DWORD *)(v77 + 24) & 1) == 0;
-      v96 = *(_DWORD *)(v77 + 24) & 1;
-      *(_QWORD *)(v77 + 24) = v80;
-      if ( !v95 )
-        *(_DWORD *)(v77 + 24) = v96 | v80 & 0xFFFFFFFE;
-      v77 = 0LL;
-      v180 = 0LL;
-      v76 = (__int64 *)v165;
+      *(_QWORD *)(v74 + 48) = v76;
+      v90 = (v72[6] & 1) == 0;
+      v91 = v72[6] & 1;
+      *((_QWORD *)v72 + 3) = v75;
+      if ( !v90 )
+        v72[6] = v91 | v75 & 0xFFFFFFFE;
+      v72 = 0LL;
+      v170 = 0LL;
+      v71 = (_QWORD *)v155;
     }
 LABEL_103:
-    v199 = v77;
-    *v76 = v77;
+    v189 = v72;
+    *v71 = v72;
     if ( FullPath != -1073741515 )
     {
       if ( FullPath != -1073741267 )
         goto LABEL_105;
-      v144 = 0;
+      v134 = 0;
       goto LABEL_106;
     }
-    if ( !v71 )
+    if ( !v66 )
     {
-      LdrpQueueWork(*(_QWORD *)(v74 + 176), v81, v76, v72);
-      v144 = 0;
-      v76 = (__int64 *)v165;
+      LdrpQueueWork(*((_QWORD *)v69 + 22), v76, v71, v67);
+      v134 = 0;
+      v71 = (_QWORD *)v155;
       goto LABEL_106;
     }
 LABEL_105:
     if ( FullPath >= 0 )
     {
 LABEL_106:
-      v82 = *(_DWORD *)(v78 + 108);
-      if ( v82 )
+      v77 = *(_DWORD *)(v73 + 108);
+      if ( v77 )
       {
-        if ( *v76 || *(int *)(*(_QWORD *)(v74 + 152) + 56LL) >= 2 )
-          *(_DWORD *)(v78 + 108) = v82 - 1;
+        if ( *v71 || *(int *)(*((_QWORD *)v69 + 19) + 56LL) >= 2 )
+          *(_DWORD *)(v73 + 108) = v77 - 1;
       }
-      else if ( *(int *)(*(_QWORD *)(v74 + 152) + 56LL) < 2 )
+      else if ( *(int *)(*((_QWORD *)v69 + 19) + 56LL) < 2 )
       {
-        *(_QWORD *)(v78 + 80) = v74;
-        *(_DWORD *)(v78 + 108) = 1;
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v78 + 56) + 152LL) + 56LL) = 3;
-        v144 = 259;
+        *(_QWORD *)(v73 + 80) = v69;
+        *(_DWORD *)(v73 + 108) = 1;
+        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v73 + 56) + 152LL) + 56LL) = 3;
+        v134 = 259;
       }
     }
-    v83 = *(_QWORD *)(v74 + 152);
-    if ( *(_DWORD *)(v83 + 24) != -1
-      && (*(_BYTE *)(*(_QWORD *)v83 - 56LL) & 0x20) == 0
-      && _InterlockedExchangeAdd((volatile signed __int32 *)(v74 + 276), 0xFFFFFFFF) == 1 )
+    v78 = *((_QWORD *)v69 + 19);
+    if ( *(_DWORD *)(v78 + 24) != -1
+      && (*(_BYTE *)(*(_QWORD *)v78 - 56LL) & 0x20) == 0
+      && _InterlockedExchangeAdd((volatile signed __int32 *)v69 + 69, 0xFFFFFFFF) == 1 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v81, (unsigned __int64)v76, v72);
-      v86 = *(_QWORD *)(v74 + 160);
-      v87 = *(_QWORD **)(v74 + 168);
-      if ( *(_QWORD *)(v86 + 8) != v74 + 160 || *v87 != v74 + 160 )
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      v81 = *((_QWORD *)v69 + 20);
+      v82 = (char **)*((_QWORD *)v69 + 21);
+      if ( *(char **)(v81 + 8) != v69 + 160 || *v82 != v69 + 160 )
         __fastfail(3u);
-      *v87 = v86;
-      *(_QWORD *)(v86 + 8) = v87;
-      v88 = *(_QWORD **)(v74 + 152);
-      v89 = (_QWORD *)*v88;
+      *v82 = (char *)v81;
+      *(_QWORD *)(v81 + 8) = v82;
+      v83 = (_QWORD *)*((_QWORD *)v69 + 19);
+      v84 = (_QWORD *)*v83;
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-      if ( *(_WORD *)(v74 + 110) )
-        LdrpReleaseTlsEntry(v74, 0LL);
-      LdrpUnmapModule(v74);
-      v90 = *(volatile signed __int32 **)(v74 + 136);
-      if ( (unsigned __int64)v90 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
-        RtlReleaseActivationContext(v90);
-      if ( *(_QWORD *)(v74 + 80) )
-        LdrpFreeUnicodeString(v74 + 72);
-      RtlFreeHeap(LdrpHeap, 0, v74);
-      if ( v89 == v88 )
-        LdrpDestroyNode(v88);
+      if ( *((_WORD *)v69 + 55) )
+        LdrpReleaseTlsEntry(v69, 0LL);
+      LdrpUnmapModule(v69);
+      v85 = (_ACTIVATION_CONTEXT *)*((_QWORD *)v69 + 17);
+      if ( (unsigned __int64)&v85[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+        RtlReleaseActivationContext(v85);
+      if ( *((_QWORD *)v69 + 10) )
+        LdrpFreeUnicodeString(v69 + 72);
+      RtlFreeHeap(LdrpHeap, 0, v69);
+      if ( v84 == v83 )
+        LdrpDestroyNode(v83);
     }
-    v84 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, 1LL);
-    if ( v84 != 1 )
+    v79 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, 1LL);
+    if ( v79 != 1 )
     {
       do
       {
-        v97 = v84 & 6;
-        v98 = 3LL;
-        if ( v97 != 2 )
-          v98 = -1LL;
-        v99 = v84 + v98;
-        v100 = v84;
-        v84 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v99, v84);
+        v92 = v79 & 6;
+        v93 = 3LL;
+        if ( v92 != 2 )
+          v93 = -1LL;
+        v94 = v79 + v93;
+        v95 = v79;
+        v79 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v94, v79);
       }
-      while ( v100 != v84 );
-      if ( v97 == 2 )
-        RtlpWakeSRWLock(&LdrpModuleDatatableLock, v99, 0);
+      while ( v95 != v79 );
+      if ( v92 == 2 )
+        RtlpWakeSRWLock((volatile signed __int64 *)&LdrpModuleDatatableLock, v94, 0);
     }
-    v85 = v200;
-    if ( v200 != *v10 )
+    v80 = v190;
+    if ( v190 != *v10 )
     {
       LdrpFreeReplacedModule(*v10);
-      *v10 = v85;
+      *v10 = v80;
     }
-    FullPath = v144;
+    FullPath = v134;
   }
-LABEL_306:
-  RtlDeactivateActivationContextUnsafeFast(&v201);
-  if ( v217 != v216 )
-    NtdllpFreeStringRoutine((__int64)v216);
+LABEL_305:
+  RtlDeactivateActivationContextUnsafeFast(&v191);
+  if ( v207 != v206 )
+    NtdllpFreeStringRoutine(v206);
   return (unsigned int)FullPath;
 }

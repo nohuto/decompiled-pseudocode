@@ -1,10 +1,10 @@
 /*
- * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x140843370
+ * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x140843670
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403686D0 (HalpIsInterruptTypeSecondary.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     HalpIsInterruptTypeSecondary @ 0x140368870 (HalpIsInterruptTypeSecondary.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

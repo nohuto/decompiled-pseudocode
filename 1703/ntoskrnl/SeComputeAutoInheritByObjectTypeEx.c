@@ -12,8 +12,9 @@
  *     ExfReleasePushLockShared @ 0x1401125E0 (ExfReleasePushLockShared.c)
  */
 
-__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *Index)
 {
+  _DWORD *v5; // rdi
   char v6; // r12
   int v11; // esi
   int v12; // ebp
@@ -29,19 +30,19 @@ __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __
   __int64 v23; // rcx
   unsigned int v24; // edx
   __int16 v25; // cx
-  __int64 v26; // rcx
+  ACL *v26; // rcx
   __int64 v27; // rax
-  __int64 AceByType; // rax
-  int v29; // [rsp+80h] [rbp+28h]
+  _BYTE *AceByType; // rax
 
+  v5 = Index;
   v6 = 0;
   v11 = 0;
   v12 = 0;
-  if ( a5 )
+  if ( Index )
   {
-    if ( *a5 != 8 )
+    if ( *Index != 8 )
       return 3221225485LL;
-    a5[1] = -1;
+    Index[1] = -1;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -129,7 +130,7 @@ LABEL_17:
   {
     if ( a2 )
     {
-      v29 = 0;
+      LODWORD(Index) = 0;
       while ( 1 )
       {
         v25 = *(_WORD *)(a2 + 2);
@@ -139,31 +140,31 @@ LABEL_17:
         }
         else if ( v25 >= 0 )
         {
-          v26 = *(_QWORD *)(a2 + 24);
+          v26 = *(ACL **)(a2 + 24);
         }
         else
         {
           v27 = *(unsigned int *)(a2 + 12);
-          v26 = (_DWORD)v27 ? a2 + v27 : 0LL;
+          v26 = (_DWORD)v27 ? (ACL *)(a2 + v27) : 0LL;
         }
-        AceByType = RtlFindAceByType(v26, 17LL);
+        AceByType = RtlFindAceByType(v26, 0x11u, (PULONG)&Index);
         if ( AceByType )
         {
-          if ( (*(_BYTE *)(AceByType + 1) & 8) == 0 )
+          if ( (AceByType[1] & 8) == 0 )
             break;
         }
-        ++v29;
+        LODWORD(Index) = (_DWORD)Index + 1;
         if ( !AceByType )
           goto LABEL_55;
       }
-      *(_DWORD *)(AceByType + 4) &= v16;
+      *((_DWORD *)AceByType + 1) &= v16;
     }
     else
     {
 LABEL_55:
-      if ( a5 )
+      if ( v5 )
       {
-        a5[1] = v16;
+        v5[1] = v16;
         v11 |= 0x800u;
       }
     }

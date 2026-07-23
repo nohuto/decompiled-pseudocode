@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxAcpiUnregisterDevice @ 0x14020E838
+ * XREFs of PopFxAcpiUnregisterDevice @ 0x14020E664
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x14020E2E8 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x14020E114 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     IoAcquireRemoveLockEx @ 0x1400C1730 (IoAcquireRemoveLockEx.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x1401CCDEC (IoReleaseRemoveLockAndWaitEx.c)
- *     PopFxDestroyDeviceCommon @ 0x140202808 (PopFxDestroyDeviceCommon.c)
- *     PopFxRemoveAcpiDevice @ 0x14020388C (PopFxRemoveAcpiDevice.c)
- *     PopPluginAcpiNotificationStrict @ 0x14020EB58 (PopPluginAcpiNotificationStrict.c)
- *     PoFxAbandonDevice @ 0x1404C61AC (PoFxAbandonDevice.c)
+ *     IoAcquireRemoveLockEx @ 0x1400BF5C0 (IoAcquireRemoveLockEx.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x1401CCC38 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxDestroyDeviceCommon @ 0x140202634 (PopFxDestroyDeviceCommon.c)
+ *     PopFxRemoveAcpiDevice @ 0x1402036B8 (PopFxRemoveAcpiDevice.c)
+ *     PopPluginAcpiNotificationStrict @ 0x14020E984 (PopPluginAcpiNotificationStrict.c)
+ *     PoFxAbandonDevice @ 0x1404849B4 (PoFxAbandonDevice.c)
  */
 
 __int64 __fastcall PopFxAcpiUnregisterDevice(__int64 a1, ULONG_PTR a2)

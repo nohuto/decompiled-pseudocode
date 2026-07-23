@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryPerformanceCounter @ 0x14068FC20
+ * XREFs of NtQueryPerformanceCounter @ 0x140690DE0
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryPerformanceCounter(PLARGE_INTEGER Counter, PLARGE_INTEGER Frequency)

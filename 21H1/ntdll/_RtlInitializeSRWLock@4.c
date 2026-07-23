@@ -6,11 +6,7 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlInitializeSRWLock(_DWORD *a1)
+void __cdecl RtlInitializeSRWLock(PRTL_SRWLOCK SRWLock)
 {
-  _DWORD *result; // eax
-
-  result = a1;
-  *a1 = 0;
-  return result;
+  SRWLock->Value = 0;
 }

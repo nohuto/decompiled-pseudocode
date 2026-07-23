@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 EtwpGetSystemTime()
+LARGE_INTEGER EtwpGetSystemTime(void)
 {
   return RtlGetSystemTimePrecise();
 }

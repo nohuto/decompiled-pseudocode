@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfGetVmPerfControlSupport @ 0x140AC17C0
+ * XREFs of PpmPerfGetVmPerfControlSupport @ 0x140ABCAA8
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
  */
 
 LONG __fastcall PpmPerfGetVmPerfControlSupport(__int64 a1, __int64 a2, unsigned int a3)

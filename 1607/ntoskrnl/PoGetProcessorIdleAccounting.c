@@ -1,5 +1,5 @@
 /*
- * XREFs of PoGetProcessorIdleAccounting @ 0x1401FF504
+ * XREFs of PoGetProcessorIdleAccounting @ 0x1401FF330
  * Callers:
  *     <none>
  * Callees:

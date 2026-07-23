@@ -1,51 +1,51 @@
 /*
- * XREFs of KiInitializeKernel @ 0x140BF6190
+ * XREFs of KiInitializeKernel @ 0x140BFC190
  * Callers:
- *     KiSystemStartup @ 0x140BE9640 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140BEF640 (KiSystemStartup.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeHaltOnAddress @ 0x1403E57D0 (KeHaltOnAddress.c)
- *     HvlEnlightenProcessor @ 0x140530860 (HvlEnlightenProcessor.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KiFatalFilter @ 0x1405E50D0 (KiFatalFilter.c)
- *     KiInitializeProcessorCycleAccumulation @ 0x1405E51A4 (KiInitializeProcessorCycleAccumulation.c)
- *     KeCompactServiceTable @ 0x1405E95B4 (KeCompactServiceTable.c)
- *     KiStartPrcbThreads @ 0x1405EB9A4 (KiStartPrcbThreads.c)
- *     KeGetTopologyIdForProcessor @ 0x1405EE9A4 (KeGetTopologyIdForProcessor.c)
- *     KiAddProcessorToCoreControlBlock @ 0x1405EEC18 (KiAddProcessorToCoreControlBlock.c)
- *     KiInitializeCoreControlBlock @ 0x1405EFAE4 (KiInitializeCoreControlBlock.c)
- *     KiSetHardwareSpeculationControlFeatures @ 0x1405F31B4 (KiSetHardwareSpeculationControlFeatures.c)
- *     KiInitializeAndStartInitialThread @ 0x1405F685C (KiInitializeAndStartInitialThread.c)
- *     KiStartIdleThread @ 0x1405F6B40 (KiStartIdleThread.c)
- *     RtlGetXSaveFeatureFlags @ 0x140619470 (RtlGetXSaveFeatureFlags.c)
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1407284C0 (KiSetUserTbFlushPending.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvlPhase0Initialize @ 0x14079166C (HvlPhase0Initialize.c)
- *     KiEnableXSave @ 0x140BE9020 (KiEnableXSave.c)
- *     KiDetectFpuLeakage @ 0x140BE9930 (KiDetectFpuLeakage.c)
- *     HalInitSystem @ 0x140BE9970 (HalInitSystem.c)
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
- *     KiConfigureProcessorBlock @ 0x140BF3A10 (KiConfigureProcessorBlock.c)
- *     KeInitializeClockOtherProcessors @ 0x140BF4EF0 (KeInitializeClockOtherProcessors.c)
- *     KiConfigureAmdTprLowerInterruptDelayWorkaround @ 0x140BF56C8 (KiConfigureAmdTprLowerInterruptDelayWorkaround.c)
- *     KiInitializeTopologyStructures @ 0x140BF6BB4 (KiInitializeTopologyStructures.c)
- *     KiSetCacheInformation @ 0x140BF6FC0 (KiSetCacheInformation.c)
- *     KiSetControlEnforcement @ 0x140BF7410 (KiSetControlEnforcement.c)
- *     PoInitializePrcb @ 0x140BFDDE8 (PoInitializePrcb.c)
- *     KiSetPageAttributesTable @ 0x140C0C54C (KiSetPageAttributesTable.c)
- *     KiCheckMicrocode @ 0x140C0D88C (KiCheckMicrocode.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     KiIsKernelCfgActive @ 0x140CC8184 (KiIsKernelCfgActive.c)
- *     KiInitSystem @ 0x140CC9D74 (KiInitSystem.c)
- *     RtlInitKernelModeSpecialMachineFrameEntries @ 0x140CD9FFC (RtlInitKernelModeSpecialMachineFrameEntries.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeHaltOnAddress @ 0x1403E89C0 (KeHaltOnAddress.c)
+ *     HvlEnlightenProcessor @ 0x140532D60 (HvlEnlightenProcessor.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KiFatalFilter @ 0x1405E7A40 (KiFatalFilter.c)
+ *     KiInitializeProcessorCycleAccumulation @ 0x1405E7B14 (KiInitializeProcessorCycleAccumulation.c)
+ *     KeCompactServiceTable @ 0x1405EBF24 (KeCompactServiceTable.c)
+ *     KiStartPrcbThreads @ 0x1405EE314 (KiStartPrcbThreads.c)
+ *     KeGetTopologyIdForProcessor @ 0x1405F1314 (KeGetTopologyIdForProcessor.c)
+ *     KiAddProcessorToCoreControlBlock @ 0x1405F1588 (KiAddProcessorToCoreControlBlock.c)
+ *     KiInitializeCoreControlBlock @ 0x1405F2454 (KiInitializeCoreControlBlock.c)
+ *     KiSetHardwareSpeculationControlFeatures @ 0x1405F5B74 (KiSetHardwareSpeculationControlFeatures.c)
+ *     KiInitializeAndStartInitialThread @ 0x1405F921C (KiInitializeAndStartInitialThread.c)
+ *     KiStartIdleThread @ 0x1405F9500 (KiStartIdleThread.c)
+ *     RtlGetXSaveFeatureFlags @ 0x14061C470 (RtlGetXSaveFeatureFlags.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x14072D090 (KiSetUserTbFlushPending.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvlPhase0Initialize @ 0x14079419C (HvlPhase0Initialize.c)
+ *     KiEnableXSave @ 0x140BEF020 (KiEnableXSave.c)
+ *     KiDetectFpuLeakage @ 0x140BEF930 (KiDetectFpuLeakage.c)
+ *     HalInitSystem @ 0x140BEF970 (HalInitSystem.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
+ *     KiConfigureProcessorBlock @ 0x140BF9A10 (KiConfigureProcessorBlock.c)
+ *     KeInitializeClockOtherProcessors @ 0x140BFAEF0 (KeInitializeClockOtherProcessors.c)
+ *     KiConfigureAmdTprLowerInterruptDelayWorkaround @ 0x140BFB6C8 (KiConfigureAmdTprLowerInterruptDelayWorkaround.c)
+ *     KiInitializeTopologyStructures @ 0x140BFCBB4 (KiInitializeTopologyStructures.c)
+ *     KiSetCacheInformation @ 0x140BFCFC0 (KiSetCacheInformation.c)
+ *     KiSetControlEnforcement @ 0x140BFD410 (KiSetControlEnforcement.c)
+ *     PoInitializePrcb @ 0x140C03E34 (PoInitializePrcb.c)
+ *     KiSetPageAttributesTable @ 0x140C1275C (KiSetPageAttributesTable.c)
+ *     KiCheckMicrocode @ 0x140C13A9C (KiCheckMicrocode.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     KiIsKernelCfgActive @ 0x140CCE274 (KiIsKernelCfgActive.c)
+ *     KiInitSystem @ 0x140CCFE5C (KiInitSystem.c)
+ *     RtlInitKernelModeSpecialMachineFrameEntries @ 0x140CE037C (RtlInitKernelModeSpecialMachineFrameEntries.c)
  */
 
-__int64 __fastcall KiInitializeKernel(
+void __fastcall KiInitializeKernel(
         struct _KPROCESS *a1,
         unsigned __int64 a2,
         __int64 a3,
@@ -83,28 +83,27 @@ __int64 __fastcall KiInitializeKernel(
   __int64 v44; // rbx
   int v45; // r14d
   unsigned int v46; // ebx
-  __int64 result; // rax
   ULONG_PTR BugCheckParameter1[3]; // [rsp+30h] [rbp-2B8h] BYREF
-  __int64 v49; // [rsp+48h] [rbp-2A0h]
-  unsigned __int64 v50; // [rsp+50h] [rbp-298h]
-  __int64 v51; // [rsp+58h] [rbp-290h]
+  __int64 v48; // [rsp+48h] [rbp-2A0h]
+  unsigned __int64 v49; // [rsp+50h] [rbp-298h]
+  __int64 v50; // [rsp+58h] [rbp-290h]
   unsigned __int8 *p_CpuVendor; // [rsp+60h] [rbp-288h]
-  struct _KPROCESS *v53; // [rsp+68h] [rbp-280h]
-  unsigned __int64 v54; // [rsp+70h] [rbp-278h]
-  struct _KPRCB *v55; // [rsp+78h] [rbp-270h]
-  __int64 v56; // [rsp+80h] [rbp-268h]
-  __int128 v57; // [rsp+88h] [rbp-260h] BYREF
-  _DWORD v58[7]; // [rsp+A0h] [rbp-248h] BYREF
-  int v59; // [rsp+BCh] [rbp-22Ch]
+  struct _KPROCESS *v52; // [rsp+68h] [rbp-280h]
+  unsigned __int64 v53; // [rsp+70h] [rbp-278h]
+  struct _KPRCB *v54; // [rsp+78h] [rbp-270h]
+  __int64 v55; // [rsp+80h] [rbp-268h]
+  __int128 v56; // [rsp+88h] [rbp-260h] BYREF
+  _DWORD v57[7]; // [rsp+A0h] [rbp-248h] BYREF
+  int v58; // [rsp+BCh] [rbp-22Ch]
 
-  v49 = a3;
-  v50 = a2;
-  v53 = a1;
-  v54 = a2;
-  v55 = a4;
-  v51 = a6;
-  v56 = a6;
-  v57 = 0LL;
+  v48 = a3;
+  v49 = a2;
+  v52 = a1;
+  v53 = a2;
+  v54 = a4;
+  v50 = a6;
+  v55 = a6;
+  v56 = 0LL;
   if ( !a5 )
   {
     HvlPhase0Initialize(a6);
@@ -118,8 +117,8 @@ __int64 __fastcall KiInitializeKernel(
   if ( CpuVendor == 2 || ((CpuVendor - 1) & 0xFD) == 0 )
     KiSetHardwareSpeculationControlFeatures((__int64)a4, FeatureBits);
   KiCheckMicrocode(a4);
-  memset_0(v58, 0, 0x200uLL);
-  _fxsave(v58);
+  memset_0(v57, 0, 0x200uLL);
+  _fxsave(v57);
   if ( a5 )
   {
     if ( KiFpuLeakage )
@@ -191,8 +190,8 @@ __int64 __fastcall KiInitializeKernel(
     KiInitializeTopologyStructures((ULONG_PTR)a4);
     v17 = 65471;
     v18 = 65471;
-    if ( v59 )
-      v18 = v59;
+    if ( v58 )
+      v18 = v58;
     KiMxCsrMask = v18;
     KeCompactServiceTable((int *)KiServiceTable, (unsigned __int8 *)&KiArgumentTable, KiServiceLimit, 0LL, 0x40000000);
   }
@@ -237,8 +236,8 @@ __int64 __fastcall KiInitializeKernel(
     v33 = BugCheckParameter1[0] | 0x100000000000000LL;
   if ( a5 )
   {
-    if ( v59 )
-      v17 = v59;
+    if ( v58 )
+      v17 = v58;
     v36 = KeFeatureBits & 0xFFFFFFFF37FFFFFFuLL | 0x8000000;
     if ( (v33 & 0x8000000) == 0 )
       v36 = KeFeatureBits & 0xFFFFFFFF37FFFFFFuLL;
@@ -281,13 +280,13 @@ __int64 __fastcall KiInitializeKernel(
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), 1u);
     __writecr8(1uLL);
     KiFreezeExecutionLock = 0LL;
-    KiInitSystem(v53);
+    KiInitSystem(v52);
     v34 = __rdtsc();
     KiWaitNever = __ROR8__(v34 ^ __ROL8__(v34, 43), v34 & 0xF);
     v35 = __rdtsc();
-    stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink = (struct _LIST_ENTRY *)__ROL8__(v35 ^ __ROR8__(v35, 47), v35 & 0xF);
-    HviGetHypervisorFeatures(&v57);
-    if ( (WORD6(v57) & 0x1000) != 0 )
+    stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink = (struct _LIST_ENTRY *)__ROL8__(v35 ^ __ROR8__(v35, 47), v35 & 0xF);
+    HviGetHypervisorFeatures(&v56);
+    if ( (WORD6(v56) & 0x1000) != 0 )
       KiNPIEPEnabled = 1;
     if ( (unsigned int)KiIsKernelCfgActive() )
       RtlInitKernelModeSpecialMachineFrameEntries();
@@ -338,16 +337,16 @@ __int64 __fastcall KiInitializeKernel(
   if ( (v33 & 0x400000000000000LL) != 0 )
     *(_BYTE *)(MmWriteableSharedUserData + 689) = 1;
   *(_BYTE *)(MmWriteableSharedUserData + 749) = KiVirtFlags;
-  v43 = v50;
+  v43 = v49;
   if ( a5 )
   {
-    KiStartIdleThread(v50, a4, v49);
-    v44 = v51;
+    KiStartIdleThread(v49, a4, v48);
+    v44 = v50;
   }
   else
   {
-    v44 = v51;
-    KiInitializeAndStartInitialThread(v50, v49, (__int64)a4, v51);
+    v44 = v50;
+    KiInitializeAndStartInitialThread(v49, v48, (__int64)a4, v50);
   }
   if ( a5 )
   {
@@ -367,7 +366,6 @@ __int64 __fastcall KiInitializeKernel(
   v46 = 0;
   while ( 1 )
   {
-    result = (unsigned int)KiBarrierWait;
     LODWORD(BugCheckParameter1[0]) = KiBarrierWait;
     if ( !KiBarrierWait )
       break;
@@ -386,11 +384,10 @@ __int64 __fastcall KiInitializeKernel(
     }
   }
   if ( a5 )
-    result = KiInitializeProcessorCycleAccumulation((__int64)a4);
+    KiInitializeProcessorCycleAccumulation((__int64)a4);
   if ( KiClockTimerPerCpuTickScheduling )
   {
     if ( a5 )
-      return KeInitializeClockOtherProcessors((__int64)a4);
+      KeInitializeClockOtherProcessors((__int64)a4);
   }
-  return result;
 }

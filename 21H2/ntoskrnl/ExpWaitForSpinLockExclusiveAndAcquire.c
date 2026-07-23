@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402315C0
+ * XREFs of ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402D5E10
  * Callers:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
- *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MmGetControlAreaPartition @ 0x140332B10 (MmGetControlAreaPartition.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
+ *     MiZeroPage @ 0x1402D7B60 (MiZeroPage.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     MiPfPutPagesInTransition @ 0x140306370 (MiPfPutPagesInTransition.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     CcGetVirtualAddress @ 0x14032BC60 (CcGetVirtualAddress.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MmGetControlAreaPartition @ 0x14033D860 (MmGetControlAreaPartition.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -10,69 +10,83 @@
  *     _RtlGUIDFromString@8 @ 0x4B362640 (_RtlGUIDFromString@8.c)
  */
 
-int __stdcall RtlQueryPackageClaims(
-        int a1,
-        wchar_t *a2,
-        size_t *a3,
-        wchar_t *a4,
-        size_t *a5,
-        _DWORD *a6,
-        int a7,
-        int a8)
+NTSTATUS __cdecl RtlQueryPackageClaims(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PPS_PKG_CLAIM PkgClaim,
+        PULONG64 AttributesPresent)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v9; // esi
   wchar_t *v10; // edi
-  _DWORD *v11; // ecx
-  wchar_t *v12; // [esp+8h] [ebp-310h] BYREF
-  wchar_t *Buffer; // [esp+Ch] [ebp-30Ch]
-  size_t *v14; // [esp+10h] [ebp-308h]
+  PGUID v11; // ecx
+  wchar_t *StackCookie; // [esp+8h] [ebp-310h] BYREF
+  wchar_t *StackCookie_4; // [esp+Ch] [ebp-30Ch]
+  int *v14; // [esp+10h] [ebp-308h]
   int v15; // [esp+14h] [ebp-304h] BYREF
-  _DWORD *v16; // [esp+18h] [ebp-300h]
+  PGUID Guid; // [esp+18h] [ebp-300h]
   int v17; // [esp+1Ch] [ebp-2FCh] BYREF
-  _BYTE v18[8]; // [esp+20h] [ebp-2F8h] BYREF
+  _BYTE Buffer[8]; // [esp+20h] [ebp-2F8h] BYREF
   int v19; // [esp+28h] [ebp-2F0h]
 
-  Buffer = a2;
-  v12 = a4;
-  v14 = a5;
-  v16 = a6;
-  result = RtlpQueryPackageIdentityAttributes(v18, a7, a8);
+  StackCookie_4 = (wchar_t *)PackageFullName;
+  StackCookie = (wchar_t *)AppId;
+  v14 = (int *)AppIdSize;
+  Guid = DynamicId;
+  result = RtlpQueryPackageIdentityAttributes(TokenHandle, Buffer, (int)PkgClaim, (int)AttributesPresent);
   v9 = result;
   if ( result >= 0 )
   {
-    if ( Buffer )
+    if ( StackCookie_4 )
     {
-      if ( a3 )
+      if ( PackageSize )
       {
-        result = RtlStringCbPrintfExW(Buffer, *a3, (int)&v15, (int)&v17, 2048, (wchar_t *)L"%wZ", *(_DWORD *)(v19 + 20));
+        result = RtlStringCbPrintfExW(
+                   StackCookie_4,
+                   *(_DWORD *)PackageSize,
+                   (int)&v15,
+                   (int)&v17,
+                   2048,
+                   (int)L"%wZ",
+                   *(_DWORD *)(v19 + 20));
         v9 = result;
         if ( result < 0 )
           return result;
-        *a3 = v15 - (_DWORD)Buffer + 2;
+        *(_DWORD *)PackageSize = v15 - (_DWORD)StackCookie_4 + 2;
 LABEL_7:
-        v10 = v12;
-        if ( v12 )
+        v10 = StackCookie;
+        if ( StackCookie )
         {
-          v9 = RtlStringCbPrintfExW(v12, *v14, (int)&v12, 0, 2048, (wchar_t *)L"%wZ", *(_DWORD *)(v19 + 20) + 8);
+          v9 = RtlStringCbPrintfExW(
+                 StackCookie,
+                 *v14,
+                 (int)&StackCookie,
+                 0,
+                 2048,
+                 (int)L"%wZ",
+                 *(_DWORD *)(v19 + 20) + 8);
           if ( v9 < 0 )
             return v9;
-          *v14 = (char *)v12 - (char *)v10 + 2;
+          *v14 = (char *)StackCookie - (char *)v10 + 2;
         }
-        v11 = v16;
-        if ( v16 )
+        v11 = Guid;
+        if ( Guid )
         {
-          *v16 = 0;
-          v11[1] = 0;
-          v11[2] = 0;
-          v11[3] = 0;
+          Guid->Data1 = 0;
+          *(_DWORD *)&v11->Data2 = 0;
+          *(_DWORD *)v11->Data4 = 0;
+          *(_DWORD *)&v11->Data4[4] = 0;
           if ( *(_DWORD *)(v19 + 16) > 3u )
-            RtlGUIDFromString(*(_DWORD *)(v19 + 20) + 24, v11);
+            RtlGUIDFromString((PUNICODE_STRING)(*(_DWORD *)(v19 + 20) + 24), v11);
         }
         return v9;
       }
     }
-    else if ( !a3 )
+    else if ( !PackageSize )
     {
       goto LABEL_7;
     }

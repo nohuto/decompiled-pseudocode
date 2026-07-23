@@ -1,15 +1,15 @@
 /*
- * XREFs of SecureDump_ValidateAmeCertChain @ 0x14055E7D0
+ * XREFs of SecureDump_ValidateAmeCertChain @ 0x14055EE90
  * Callers:
- *     SecureDump_LoadCertAndProvisionKey @ 0x14055E140 (SecureDump_LoadCertAndProvisionKey.c)
+ *     SecureDump_LoadCertAndProvisionKey @ 0x14055E800 (SecureDump_LoadCertAndProvisionKey.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     SecureDump_ConvertToRsaBlob @ 0x14055DAF0 (SecureDump_ConvertToRsaBlob.c)
- *     SecureDump_GetCertificateThumbprint @ 0x14055DF70 (SecureDump_GetCertificateThumbprint.c)
- *     MincrypK_ParseCertificateChainWithPolicy @ 0x140A702CC (MincrypK_ParseCertificateChainWithPolicy.c)
- *     MincryptFreePolicyInfo @ 0x140A70CF4 (MincryptFreePolicyInfo.c)
- *     MincryptGetLeafKeyFromPolicy @ 0x140A70D34 (MincryptGetLeafKeyFromPolicy.c)
- *     MincryptGetRootKeyFromPolicy @ 0x140A70D64 (MincryptGetRootKeyFromPolicy.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     SecureDump_ConvertToRsaBlob @ 0x14055E1B0 (SecureDump_ConvertToRsaBlob.c)
+ *     SecureDump_GetCertificateThumbprint @ 0x14055E630 (SecureDump_GetCertificateThumbprint.c)
+ *     MincrypK_ParseCertificateChainWithPolicy @ 0x140A7057C (MincrypK_ParseCertificateChainWithPolicy.c)
+ *     MincryptFreePolicyInfo @ 0x140A70FA4 (MincryptFreePolicyInfo.c)
+ *     MincryptGetLeafKeyFromPolicy @ 0x140A70FE4 (MincryptGetLeafKeyFromPolicy.c)
+ *     MincryptGetRootKeyFromPolicy @ 0x140A71014 (MincryptGetRootKeyFromPolicy.c)
  */
 
 __int64 __fastcall SecureDump_ValidateAmeCertChain(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)

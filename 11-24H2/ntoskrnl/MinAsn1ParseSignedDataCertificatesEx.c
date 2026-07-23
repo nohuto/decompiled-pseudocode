@@ -1,11 +1,11 @@
 /*
- * XREFs of MinAsn1ParseSignedDataCertificatesEx @ 0x140827270
+ * XREFs of MinAsn1ParseSignedDataCertificatesEx @ 0x140827A40
  * Callers:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x140826868 (MinCrypK_VerifySignedDataKModeEx.c)
- *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140828398 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x140827038 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140828B68 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
  * Callees:
- *     MinAsn1ParseCertificate @ 0x140827040 (MinAsn1ParseCertificate.c)
- *     MinAsn1ExtractContent @ 0x1408282B0 (MinAsn1ExtractContent.c)
+ *     MinAsn1ParseCertificate @ 0x140827810 (MinAsn1ParseCertificate.c)
+ *     MinAsn1ExtractContent @ 0x140828A80 (MinAsn1ExtractContent.c)
  */
 
 __int64 MinAsn1ParseSignedDataCertificatesEx(unsigned int *a1, unsigned int *a2, __int64 a3, ...)

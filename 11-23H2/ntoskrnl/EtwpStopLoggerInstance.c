@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpStopLoggerInstance @ 0x1407F6374
+ * XREFs of EtwpStopLoggerInstance @ 0x1407F6644
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpLogger @ 0x140773100 (EtwpLogger.c)
- *     EtwpStopTrace @ 0x1407F8284 (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1407732F0 (EtwpLogger.c)
+ *     EtwpStopTrace @ 0x1407F8554 (EtwpStopTrace.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     ExCancelTimer @ 0x14031DE80 (ExCancelTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpStackRundown @ 0x1404692E0 (EtwpStackRundown.c)
- *     EtwpDisableTraceProviders @ 0x1406BEFF8 (EtwpDisableTraceProviders.c)
- *     EtwpSendSessionNotification @ 0x14077E820 (EtwpSendSessionNotification.c)
- *     EtwpUpdateGroupMasks @ 0x14081FFA8 (EtwpUpdateGroupMasks.c)
- *     EtwpLogPmcCounterRundown @ 0x1409EED5C (EtwpLogPmcCounterRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     ExCancelTimer @ 0x14031E110 (ExCancelTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpStackRundown @ 0x1404696E0 (EtwpStackRundown.c)
+ *     EtwpDisableTraceProviders @ 0x1406BF028 (EtwpDisableTraceProviders.c)
+ *     EtwpSendSessionNotification @ 0x14077EA10 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateGroupMasks @ 0x1408202A8 (EtwpUpdateGroupMasks.c)
+ *     EtwpLogPmcCounterRundown @ 0x1409EEFEC (EtwpLogPmcCounterRundown.c)
  */
 
 __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)

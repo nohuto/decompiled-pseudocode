@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogStopTimer @ 0x140B51AE8
+ * XREFs of PopDripsWatchdogStopTimer @ 0x140B54388
  * Callers:
- *     PopDripsWatchdogStopWatchdog @ 0x140A3CCE0 (PopDripsWatchdogStopWatchdog.c)
+ *     PopDripsWatchdogStopWatchdog @ 0x1409F8700 (PopDripsWatchdogStopWatchdog.c)
  * Callees:
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
  */
 
 unsigned __int8 __fastcall PopDripsWatchdogStopTimer(__int64 a1)

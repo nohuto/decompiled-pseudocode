@@ -13,34 +13,34 @@
  *     LdrpTraceLoadMUIDll @ 0x1800E0910 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrpAccessResourceData(unsigned __int64 a1, unsigned int *a2, unsigned __int64 *a3, _DWORD *a4)
+__int64 __fastcall LdrpAccessResourceData(unsigned __int64 a1, ULONG *a2, unsigned __int64 *a3, _DWORD *a4)
 {
   __int64 v8; // r14
   __int64 v9; // rcx
   __int64 v10; // rdi
   unsigned int ImageSize; // ebp
   unsigned __int64 v13; // r15
-  int v14; // eax
+  NTSTATUS v14; // eax
   __int64 v15; // rdx
   unsigned __int64 v16; // rcx
   __int64 v17; // rcx
   __int64 AlternateResourceModuleHandle; // rax
   __int64 v19; // [rsp+30h] [rbp-48h] BYREF
-  unsigned __int64 v20; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-40h] BYREF
   __int64 v21; // [rsp+40h] [rbp-38h] BYREF
-  int v22; // [rsp+80h] [rbp+8h] BYREF
+  unsigned int v22; // [rsp+80h] [rbp+8h] BYREF
 
   v21 = 0LL;
   v19 = 0LL;
   v8 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v9 = 2147353477LL;
   v10 = 2147353476LL;
   if ( (*(_BYTE *)v9 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v17 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v17 = 2147353476LL;
@@ -50,14 +50,14 @@ __int64 __fastcall LdrpAccessResourceData(unsigned __int64 a1, unsigned int *a2,
     return 3221225485LL;
   if ( NtCurrentTeb()->ResourceRetValue
     && *(_QWORD *)NtCurrentTeb()->ResourceRetValue == a1
-    && *((unsigned int **)NtCurrentTeb()->ResourceRetValue + 1) == a2 )
+    && *((ULONG **)NtCurrentTeb()->ResourceRetValue + 1) == a2 )
   {
     a1 = *((_QWORD *)NtCurrentTeb()->ResourceRetValue + 2);
   }
   else
   {
     v13 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v14 = RtlpImageDirectoryEntryToDataEx(a1, 1, 2u, &v22, (__int64 *)&v20);
+    v14 = RtlpImageDirectoryEntryToDataEx(a1, 1, 2u, &v22, &v20);
     v16 = v20;
     if ( v14 < 0 )
       v16 = 0LL;
@@ -81,11 +81,11 @@ LABEL_30:
   }
   ImageSize = LdrpAccessResourceDataNoMultipleLanguage(a1, a2, a3, a4);
 LABEL_11:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v8 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 554;
     LdrpTraceLoadMUIDll(L"*,", *(unsigned __int8 *)v10);
   }

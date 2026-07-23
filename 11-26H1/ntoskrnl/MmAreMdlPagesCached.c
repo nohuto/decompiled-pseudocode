@@ -1,7 +1,7 @@
 /*
- * XREFs of MmAreMdlPagesCached @ 0x1404510E0
+ * XREFs of MmAreMdlPagesCached @ 0x140449210
  * Callers:
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020F02C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020F10C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall MmAreMdlPagesCached(_DWORD *a1)
   v1 = a1 + 12;
   do
   {
-    if ( *v1 > (unsigned __int64)qword_140E2D7A0
+    if ( *v1 > (unsigned __int64)qword_140E2D920
       || (*(_QWORD *)(48LL * *v1 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0
       || (*(_DWORD *)(48LL * *v1 - 0x21FFFFFFFFE0LL) & 0xC00000) != 0x400000 )
     {

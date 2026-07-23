@@ -15,7 +15,7 @@ __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
   unsigned __int8 v5; // bp
   int v7; // edx
   int v8; // r11d
-  int v9; // r10d
+  NTSTATUS v9; // r10d
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // r15
   unsigned int v12; // edi

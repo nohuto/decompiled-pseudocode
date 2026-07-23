@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlGetGroupSecurityDescriptor @ 0x140678970
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140678874 (PiDevCfgGetKeySecurityDescriptor.c)
- *     IopGetSecurityDescriptorInformation @ 0x1406796E8 (IopGetSecurityDescriptorInformation.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406BCE90 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     CmpCopySaclToVirtualKey @ 0x14091822C (CmpCopySaclToVirtualKey.c)
+ *     sub_140676314 @ 0x140676314 (sub_140676314.c)
+ *     sub_140678874 @ 0x140678874 (sub_140678874.c)
+ *     sub_1406796E8 @ 0x1406796E8 (sub_1406796E8.c)
+ *     sub_1406BCE90 @ 0x1406BCE90 (sub_1406BCE90.c)
+ *     sub_14091822C @ 0x14091822C (sub_14091822C.c)
  *     RtlReplaceSidInSd @ 0x1409B92B0 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>

@@ -1,24 +1,24 @@
 /*
- * XREFs of MmProtectMdlSystemAddress @ 0x14030FA10
+ * XREFs of MmProtectMdlSystemAddress @ 0x1402F1A90
  * Callers:
- *     IopLiveDumpBufferDumpData @ 0x1405CDF10 (IopLiveDumpBufferDumpData.c)
- *     DifMmProtectMdlSystemAddressWrapper @ 0x1406680D0 (DifMmProtectMdlSystemAddressWrapper.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405D0720 (IopLiveDumpBufferDumpData.c)
+ *     DifMmProtectMdlSystemAddressWrapper @ 0x14066BCB0 (DifMmProtectMdlSystemAddressWrapper.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMappingHasIoReferences @ 0x14024DE74 (MiMappingHasIoReferences.c)
- *     MiMappingHasIoTracker @ 0x140281B60 (MiMappingHasIoTracker.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiLookupIoPageNode @ 0x140367E4C (MiLookupIoPageNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiMappingHasIoReferences @ 0x14024F7D4 (MiMappingHasIoReferences.c)
+ *     MiMappingHasIoTracker @ 0x1402810D0 (MiMappingHasIoTracker.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiLookupIoPageNode @ 0x140369BEC (MiLookupIoPageNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG NewProtect)
@@ -62,7 +62,7 @@ NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG Ne
   v22 = ((MappedSystemVa & 0xFFF) + MemoryDescriptorList->ByteCount + 4095LL) >> 12;
   v8 = (ULONG_PTR *)(((MappedSystemVa >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v9 = MappedSystemVa & 0xFFFFFFFFFFFFF000uLL;
-  MiInitializeTbFlushList((unsigned int)v24, (unsigned int)&unk_140E371C0, 20, 8, 1);
+  MiInitializeTbFlushList((unsigned int)v24, (unsigned int)&unk_140E37340, 20, 8, 1);
   HasIoTracker = 0;
   v12 = v9;
   while ( v10 )
@@ -81,12 +81,12 @@ NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG Ne
       if ( (v13 & 0x800) == 0 || ((v13 >> 5) & 0x1F) != 0x18 )
         KeBugCheckEx(0x1Au, 0x1235uLL, (ULONG_PTR)MemoryDescriptorList, (ULONG_PTR)v8, *v8);
       v20 = *v8;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         if ( (v13 & 0x10) != 0 )
           v20 = v13 & 0xFFFFFFFFFFFFFFEFuLL;
         else
-          v20 = v13 & qword_140E2D748;
+          v20 = v13 & qword_140E2D8C8;
       }
       v14 = (v20 >> 12) & 0xFFFFFFFFFFLL;
       v23 = 0;
@@ -105,7 +105,7 @@ NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG Ne
     }
     else
     {
-      if ( v14 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      if ( v14 <= qword_140E2D920 && ((*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
       {
         ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(v6, 48 * v14 - 0x220000000000LL);
       }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreePlaceholderVadEvent @ 0x1409B073C
+ * XREFs of MiFreePlaceholderVadEvent @ 0x14099A43C
  * Callers:
- *     MiReleaseVadEventBlocks @ 0x1409B0550 (MiReleaseVadEventBlocks.c)
- *     MiFreePlaceholderStorage @ 0x140A94A68 (MiFreePlaceholderStorage.c)
+ *     MiReleaseVadEventBlocks @ 0x14099A250 (MiReleaseVadEventBlocks.c)
+ *     MiFreePlaceholderStorage @ 0x140A91218 (MiFreePlaceholderStorage.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiFreePlaceholderVadEvent(__int64 a1)

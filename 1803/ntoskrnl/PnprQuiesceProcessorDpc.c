@@ -33,7 +33,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   int v14; // eax
   PVOID v15[14]; // [rsp+20h] [rbp-78h] BYREF
   int v16; // [rsp+90h] [rbp-8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+A8h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+A8h] [rbp+10h] BYREF
   unsigned int v18; // [rsp+B0h] [rbp+18h] BYREF
   __int64 v19; // [rsp+B8h] [rbp+20h] BYREF
 

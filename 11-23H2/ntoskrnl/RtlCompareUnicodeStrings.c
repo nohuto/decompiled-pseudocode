@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlCompareUnicodeStrings @ 0x1406D9FE0
+ * XREFs of RtlCompareUnicodeStrings @ 0x1406DA010
  * Callers:
- *     ApiSetpSearchForApiSet @ 0x14035F580 (ApiSetpSearchForApiSet.c)
- *     EtwpAvlCompareKeyNames @ 0x140394A30 (EtwpAvlCompareKeyNames.c)
- *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x140418034 (ApiSetpSearchForHostOverrideIndex_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1404180EC (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetpSearchForApiSetHost @ 0x1406148E8 (ApiSetpSearchForApiSetHost.c)
- *     AsiSortValueList @ 0x1406152E0 (AsiSortValueList.c)
- *     CmpFindNameInListFromIndex @ 0x1406DFE60 (CmpFindNameInListFromIndex.c)
- *     PnpCheckDeviceIdsChanged @ 0x1407987F0 (PnpCheckDeviceIdsChanged.c)
- *     sub_14082F980 @ 0x14082F980 (sub_14082F980.c)
- *     PiDevCfgResolveVariableExpression @ 0x140960150 (PiDevCfgResolveVariableExpression.c)
- *     PnpCompareMultiSz @ 0x14096C5C0 (PnpCompareMultiSz.c)
- *     PopDirectedDripsUmTestDeviceCompare @ 0x14099FAD0 (PopDirectedDripsUmTestDeviceCompare.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x140A7569C (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75948 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     ApiSetpSearchForApiSet @ 0x14035F720 (ApiSetpSearchForApiSet.c)
+ *     EtwpAvlCompareKeyNames @ 0x140394C10 (EtwpAvlCompareKeyNames.c)
+ *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x1404183C4 (ApiSetpSearchForHostOverrideIndex_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14041847C (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpSearchForApiSetHost @ 0x140614E38 (ApiSetpSearchForApiSetHost.c)
+ *     AsiSortValueList @ 0x140615830 (AsiSortValueList.c)
+ *     CmpFindNameInListFromIndex @ 0x1406DFE90 (CmpFindNameInListFromIndex.c)
+ *     PnpCheckDeviceIdsChanged @ 0x1407989E0 (PnpCheckDeviceIdsChanged.c)
+ *     sub_14082FC80 @ 0x14082FC80 (sub_14082FC80.c)
+ *     PiDevCfgResolveVariableExpression @ 0x140960350 (PiDevCfgResolveVariableExpression.c)
+ *     PnpCompareMultiSz @ 0x14096C7C0 (PnpCompareMultiSz.c)
+ *     PopDirectedDripsUmTestDeviceCompare @ 0x14099FCD0 (PopDirectedDripsUmTestDeviceCompare.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x140A7594C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A75BF8 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 LONG __stdcall RtlCompareUnicodeStrings(

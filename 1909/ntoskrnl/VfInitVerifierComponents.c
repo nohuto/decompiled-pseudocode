@@ -70,7 +70,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
   ViFaultsInitializeTagsList();
   ViFaultsInitializeAppsList();
   ViFaultsInitialized = 1;
-  v7 = (int)VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViLookasideAvl,
+              96LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v8 = &ViLookasideInitialized;
   if ( v7 )
     v8 = &ViLookasideAllocationFailures;
@@ -98,7 +102,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     v20,
     VfInitializedWithoutReboot,
     (__int64)ExInitializeNPagedLookasideListInternal);
-  v7 = (int)VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViResourceAvl,
+              104LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v9 = &ViResourceInitialized;
   if ( v7 )
     v9 = &ViResourceNotTracked;
@@ -187,12 +195,20 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     *v15 = v15;
   }
   ViDdiInitialized = 1;
-  v7 = (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViRemLockAvl,
+              32LL,
+              136LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v16 = &ViRemLockInitialized;
   if ( v7 )
     v16 = &ViRemLockAllocationFailures;
   _InterlockedExchange(v16, 1);
-  v7 = (int)VfAvlInitializeTree(&ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v7 = (int)VfAvlInitializeTree(
+              &ViDevObjAvl,
+              336LL,
+              24LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v17 = &ViDevObjInitialized;
   if ( v7 )
     v17 = &ViDevObjAllocationFailures;

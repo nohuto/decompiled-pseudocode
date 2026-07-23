@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllEditWndProcWorker @ 0x180161C10
+ * XREFs of NtdllEditWndProcWorker @ 0x18015FFD0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllEditWndProcWorker()
 {
-  off_1801E72D0();
+  off_1801E62D0();
 }

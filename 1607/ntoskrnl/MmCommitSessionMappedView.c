@@ -1,17 +1,17 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x1404BA0D8
+ * XREFs of MmCommitSessionMappedView @ 0x1404A5E08
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiLocatePagefileSubsection @ 0x14002D040 (MiLocatePagefileSubsection.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiChargeSegmentCommit @ 0x1404BA400 (MiChargeSegmentCommit.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiLocatePagefileSubsection @ 0x14002CBC0 (MiLocatePagefileSubsection.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiChargeSegmentCommit @ 0x1404A6130 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
@@ -42,10 +42,10 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   volatile signed __int64 *v27; // rdi
   unsigned __int64 v28; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( a1 < qword_140326910 || a1 >= qword_140326910 + 0x8000000000LL )
+  if ( a1 < qword_140326950 || a1 >= qword_140326950 + 0x8000000000LL )
     return 3221225711LL;
   v3 = a2 + a1;
-  if ( v3 <= a1 || v3 < qword_140326910 || v3 >= qword_140326910 + 0x8000000000LL )
+  if ( v3 <= a1 || v3 < qword_140326950 || v3 >= qword_140326950 + 0x8000000000LL )
     return 3221225712LL;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;

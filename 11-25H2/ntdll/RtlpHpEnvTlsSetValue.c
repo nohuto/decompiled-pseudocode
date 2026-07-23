@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHpEnvTlsSetValue(unsigned int a1, __int64 a2)
 
   v3 = a1;
   v4 = HIWORD(a1);
-  result = RtlpFlsSetValue(&RtlpHpEnvFlsContext, &NtCurrentTeb()->HeapFlsData, HIWORD(a1), a2);
+  result = RtlpFlsSetValue(&RtlpHpEnvFlsContext);
   if ( (int)result >= 0 )
   {
     if ( (int)RtlTlsSetValue(v3, a2) < 0 )

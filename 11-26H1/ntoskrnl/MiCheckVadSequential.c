@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckVadSequential @ 0x1404481E0
+ * XREFs of MiCheckVadSequential @ 0x140440CD0
  * Callers:
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiCheckVadSequential(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall MiCheckVadSequential(__int64 a1)
   v3 = 0;
   v4 = *(_QWORD *)(a1 + 56);
   v5 = v1 & 0x7FFFFFFFFFFFF000LL | 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v6 = 0;
     if ( _interlockedbittestandset((volatile signed __int32 *)(v4 + 64), 0x1Fu) )
@@ -141,7 +141,7 @@ LABEL_42:
     *(_DWORD *)(v4 + 72) = v17 & 0xFFFFFFFD;
   }
   *(_QWORD *)(v4 + 128) = v5;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     *(_DWORD *)(v4 + 64) = 0;
   else
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v4 + 64), retaddr);

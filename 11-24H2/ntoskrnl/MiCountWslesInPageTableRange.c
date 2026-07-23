@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCountWslesInPageTableRange @ 0x1402E3F20
+ * XREFs of MiCountWslesInPageTableRange @ 0x140392E70
  * Callers:
- *     MiCountWslesInPageTable @ 0x1402E3E10 (MiCountWslesInPageTable.c)
+ *     MiCountWslesInPageTable @ 0x140392D68 (MiCountWslesInPageTable.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiUnlockWorkingSetCoreShared @ 0x1402327A0 (MiUnlockWorkingSetCoreShared.c)
- *     MiWriteWsle @ 0x140232940 (MiWriteWsle.c)
- *     MiGetVaAge @ 0x1402871E0 (MiGetVaAge.c)
- *     MiLockWorkingSetCoreShared @ 0x1402DF160 (MiLockWorkingSetCoreShared.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiWriteWsle @ 0x140203470 (MiWriteWsle.c)
+ *     MiLockWorkingSetCoreShared @ 0x140240A40 (MiLockWorkingSetCoreShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiGetVaAge @ 0x140296DE0 (MiGetVaAge.c)
+ *     MiUnlockWorkingSetCoreShared @ 0x1403030A0 (MiUnlockWorkingSetCoreShared.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 volatile signed __int32 *__fastcall MiCountWslesInPageTableRange(
@@ -152,7 +152,7 @@ LABEL_9:
   }
   if ( v26 )
   {
-    MiLockWorkingSetCoreShared(a1, 0xFFFFF68000000000uLL);
+    MiLockWorkingSetCoreShared(a1, 0xFFFFF68000000000uLL, 0x7FFFFFFFF8LL, a4);
     _InterlockedAdd64((volatile signed __int64 *)(a1 + 40), v26);
     v19 = 48LL;
     v20 = (unsigned int *)v29 + 1;

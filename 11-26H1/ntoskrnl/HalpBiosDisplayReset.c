@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBiosDisplayReset @ 0x1405787D0
+ * XREFs of HalpBiosDisplayReset @ 0x14057AD00
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosCall @ 0x140578840 (x86BiosCall.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     x86BiosCall @ 0x14057AD70 (x86BiosCall.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 HalpBiosDisplayReset()

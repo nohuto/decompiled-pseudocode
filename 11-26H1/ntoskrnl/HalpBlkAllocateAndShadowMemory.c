@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBlkAllocateAndShadowMemory @ 0x140CB2C6C
+ * XREFs of HalpBlkAllocateAndShadowMemory @ 0x140CB8CAC
  * Callers:
- *     HalpBlkAllocateShadowCodePages @ 0x140CB2E90 (HalpBlkAllocateShadowCodePages.c)
- *     HalpBlkAllocateShadowData @ 0x140CB2EDC (HalpBlkAllocateShadowData.c)
+ *     HalpBlkAllocateShadowCodePages @ 0x140CB8ED0 (HalpBlkAllocateShadowCodePages.c)
+ *     HalpBlkAllocateShadowData @ 0x140CB8F1C (HalpBlkAllocateShadowData.c)
  * Callees:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpBlkAddVirtualMapping @ 0x140CB2B28 (HalpBlkAddVirtualMapping.c)
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpBlkAddVirtualMapping @ 0x140CB8B68 (HalpBlkAddVirtualMapping.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
  */
 
 char *__fastcall HalpBlkAllocateAndShadowMemory(char *Src, unsigned int a2, __int64 a3, int a4, __int64 *a5)

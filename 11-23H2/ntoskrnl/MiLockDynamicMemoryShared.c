@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLockDynamicMemoryShared @ 0x1403463D4
+ * XREFs of MiLockDynamicMemoryShared @ 0x140346664
  * Callers:
- *     MmQueryPfnList @ 0x1406EF440 (MmQueryPfnList.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MmPrefetchPagesEx @ 0x14073E6D8 (MmPrefetchPagesEx.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
- *     MiGetPhysicalMemoryRanges @ 0x140834478 (MiGetPhysicalMemoryRanges.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MiMapNewPfns @ 0x140A2C910 (MiMapNewPfns.c)
- *     MmRelocatePfnList @ 0x140A3C988 (MmRelocatePfnList.c)
+ *     MmQueryPfnList @ 0x1406EF470 (MmQueryPfnList.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MmPrefetchPagesEx @ 0x14073E8C8 (MmPrefetchPagesEx.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140834778 (MiGetPhysicalMemoryRanges.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MiMapNewPfns @ 0x140A2CBC0 (MiMapNewPfns.c)
+ *     MmRelocatePfnList @ 0x140A3CC38 (MmRelocatePfnList.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 signed __int64 __fastcall MiLockDynamicMemoryShared(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmInPageKernelStack @ 0x14022F2B0
+ * XREFs of MmInPageKernelStack @ 0x140230C40
  * Callers:
- *     KeSwapProcessOrStack @ 0x1405F7C80 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1405FA6A0 (KeSwapProcessOrStack.c)
  * Callees:
- *     MiInPageSingleKernelStack @ 0x1402A0214 (MiInPageSingleKernelStack.c)
+ *     MiInPageSingleKernelStack @ 0x14029F764 (MiInPageSingleKernelStack.c)
  */
 
 void __fastcall MmInPageKernelStack(ULONG_PTR BugCheckParameter3)

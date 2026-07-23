@@ -22,7 +22,7 @@
  *     EtwTraceEnqueueWork @ 0x14025CFD4 (EtwTraceEnqueueWork.c)
  */
 
-void *__fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int64 InterruptTimePrecise, _DWORD *a4)
+void *__fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER InterruptTimePrecise, _DWORD *a4)
 {
   char v4; // di
   __int64 v5; // r10
@@ -76,7 +76,7 @@ void *__fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int6
   __int64 v53; // [rsp+48h] [rbp-B0h]
   _DWORD *v54; // [rsp+50h] [rbp-A8h]
   unsigned __int64 v55; // [rsp+58h] [rbp-A0h]
-  LARGE_INTEGER v56; // [rsp+60h] [rbp-98h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp-98h] BYREF
   _QWORD v57[2]; // [rsp+68h] [rbp-90h] BYREF
   __int64 v58; // [rsp+78h] [rbp-80h]
   __int64 v59; // [rsp+80h] [rbp-78h]
@@ -112,9 +112,9 @@ void *__fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int6
   if ( !*(_QWORD *)(a1 + 88) || (*(_BYTE *)(a1 + 1) & 0x20) != 0 )
     goto LABEL_37;
   if ( (*(_BYTE *)(a1 + 129) & 4) != 0 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v56);
-  v7 = InterruptTimePrecise + *(_QWORD *)(v6 + 88);
-  if ( v7 < InterruptTimePrecise || v7 == -1LL )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v7 = InterruptTimePrecise.QuadPart + *(_QWORD *)(v6 + 88);
+  if ( v7 < InterruptTimePrecise.QuadPart || v7 == -1LL )
   {
     v4 = 1;
     v7 = -2LL;

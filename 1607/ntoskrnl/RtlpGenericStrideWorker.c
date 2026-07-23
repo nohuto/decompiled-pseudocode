@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGenericStrideWorker @ 0x1402170D0
+ * XREFs of RtlpGenericStrideWorker @ 0x140216EFC
  * Callers:
- *     RtlScrubMemory @ 0x140216774 (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x1402165A0 (RtlScrubMemory.c)
  * Callees:
- *     RtlpFillMemoryWithInverseStride @ 0x1402168F0 (RtlpFillMemoryWithInverseStride.c)
+ *     RtlpFillMemoryWithInverseStride @ 0x14021671C (RtlpFillMemoryWithInverseStride.c)
  */
 
 char __fastcall RtlpGenericStrideWorker(int a1, int a2, __int64 a3, unsigned __int64 a4)

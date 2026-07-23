@@ -1,19 +1,19 @@
 /*
- * XREFs of ObSetCurrentProcessDeviceMap @ 0x1404CAA3C
+ * XREFs of ObSetCurrentProcessDeviceMap @ 0x14048845C
  * Callers:
- *     ObpReferenceDeviceMap @ 0x140421DE0 (ObpReferenceDeviceMap.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
+ *     ObpReferenceDeviceMap @ 0x140420CA0 (ObpReferenceDeviceMap.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     ObfDereferenceDeviceMap @ 0x140422458 (ObfDereferenceDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x1404CABA0 (SeGetTokenDeviceMap.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     ObfDereferenceDeviceMap @ 0x140421318 (ObfDereferenceDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1404885C0 (SeGetTokenDeviceMap.c)
  */
 
 __int64 ObSetCurrentProcessDeviceMap()

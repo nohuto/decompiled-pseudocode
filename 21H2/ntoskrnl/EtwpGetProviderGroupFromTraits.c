@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetProviderGroupFromTraits @ 0x140643528
+ * XREFs of EtwpGetProviderGroupFromTraits @ 0x140638338
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x14064323C (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x14063804C (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     strnlen @ 0x1403D3BD0 (strnlen.c)
+ *     strnlen @ 0x1403D3D40 (strnlen.c)
  */
 
 char *__fastcall EtwpGetProviderGroupFromTraits(const char *a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdateForkMaps @ 0x1402CAC08
+ * XREFs of MiUpdateForkMaps @ 0x1402CADF8
  * Callers:
- *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
+ *     MiCloneVads @ 0x1402C8D58 (MiCloneVads.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiMapSinglePage @ 0x14012187C (MiMapSinglePage.c)
- *     MiBuildForkPageTable @ 0x1402C790C (MiBuildForkPageTable.c)
- *     MiDoneWithThisPageGetAnother @ 0x1402C98E0 (MiDoneWithThisPageGetAnother.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiMapSinglePage @ 0x14012194C (MiMapSinglePage.c)
+ *     MiBuildForkPageTable @ 0x1402C7AFC (MiBuildForkPageTable.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1402C9AD0 (MiDoneWithThisPageGetAnother.c)
  */
 
 ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5, char a6)
@@ -90,12 +90,12 @@ ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWOR
           {
             v23 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v26);
           }
-          else if ( qword_14043A0C0 )
+          else if ( qword_14043B180 )
           {
             if ( (v22 & 0x10) != 0 )
               v23 = v22 & 0xFFFFFFFFFFFFFFEFuLL;
             else
-              v23 = ~qword_14043A0C0 & v22;
+              v23 = ~qword_14043B180 & v22;
           }
           v18 = (v23 >> 12) & 0xFFFFFFFFFLL;
         }

@@ -6,7 +6,7 @@
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
  *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
  *     ExpRemoveHandleTable @ 0x14068EB88 (ExpRemoveHandleTable.c)
- *     ExSweepHandleTable @ 0x14073FC60 (ExSweepHandleTable.c)
+ *     ExSweepHandleTable @ 0x14073FE50 (ExSweepHandleTable.c)
  */
 
 void __fastcall ObKillProcess(__int64 a1)

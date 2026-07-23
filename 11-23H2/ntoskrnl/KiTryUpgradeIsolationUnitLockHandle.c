@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTryUpgradeIsolationUnitLockHandle @ 0x14056D030
+ * XREFs of KiTryUpgradeIsolationUnitLockHandle @ 0x14056D6F0
  * Callers:
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140576D3C (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14057722C (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
  * Callees:
- *     KzReleaseAdditionalPrcbLocks @ 0x14056D124 (KzReleaseAdditionalPrcbLocks.c)
+ *     KzReleaseAdditionalPrcbLocks @ 0x14056D7E4 (KzReleaseAdditionalPrcbLocks.c)
  */
 
 char __fastcall KiTryUpgradeIsolationUnitLockHandle(int *a1, int a2)

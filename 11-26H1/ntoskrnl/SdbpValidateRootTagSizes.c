@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpValidateRootTagSizes @ 0x1409E6A38
+ * XREFs of SdbpValidateRootTagSizes @ 0x1409D616C
  * Callers:
- *     SdbpValidateAndApplyCompatFlags @ 0x1409E3A44 (SdbpValidateAndApplyCompatFlags.c)
- *     SdbpOpenDatabaseInMemory @ 0x1409E4018 (SdbpOpenDatabaseInMemory.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x1409D87A8 (SdbpValidateAndApplyCompatFlags.c)
+ *     SdbpOpenDatabaseInMemory @ 0x1409D8A34 (SdbpOpenDatabaseInMemory.c)
  * Callees:
- *     SdbpReadMappedData @ 0x1409E85D8 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpReadMappedData @ 0x1409D4FE8 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpValidateRootTagSizes(__int64 a1)
@@ -41,7 +41,7 @@ __int64 __fastcall SdbpValidateRootTagSizes(__int64 a1)
     if ( v4 == *(_DWORD *)(a1 + 20) )
       return 0LL;
     v5 = v4;
-    if ( !(unsigned int)SdbpReadMappedData(a1, (unsigned int)v4, &v13, 2LL) )
+    if ( !(unsigned int)SdbpReadMappedData(a1, v4, &v13, 2u) )
     {
       if ( !v8 || !v7 )
         return 3221225816LL;
@@ -90,7 +90,7 @@ LABEL_23:
     }
     if ( v9 + 3 > (unsigned __int64)*(unsigned int *)(a1 + 20) )
       return 3221225503LL;
-    if ( !(unsigned int)SdbpReadMappedData(a1, (unsigned int)v9, &v14, 4LL) )
+    if ( !(unsigned int)SdbpReadMappedData(a1, v9, &v14, 4u) )
       return 3221225816LL;
     v11 = v14;
     v9 += 4LL;
@@ -108,11 +108,7 @@ LABEL_13:
   }
   if ( !v8 || !v7 )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpValidateRootTagSizes",
-      2339,
-      (unsigned int)"Unknown root TAG_TYPE encountered (corrupt SDB): 0x%X");
+    AslLogCallPrintf(1LL, (__int64)"SdbpValidateRootTagSizes");
     return 3221225700LL;
   }
 LABEL_40:

@@ -10,7 +10,7 @@
 
 __int64 KiForceSymbolReferences()
 {
-  unsigned __int64 v0; // rax
+  PRTL_BALANCED_NODE v0; // rax
   unsigned __int8 CurrentIrql; // bl
   __int64 result; // rax
   signed __int32 v4; // [rsp+30h] [rbp+8h] BYREF
@@ -22,11 +22,11 @@ __int64 KiForceSymbolReferences()
     if ( _interlockedbittestandset64((volatile signed __int32 *)&BugCheckParameter2, 0LL) )
     {
       if ( v0 )
-        KeAbPostReleaseEx((ULONG_PTR)&BugCheckParameter2, v0);
+        KeAbPostReleaseEx((ULONG_PTR)&BugCheckParameter2, (unsigned __int64)v0);
     }
     else if ( v0 )
     {
-      *(_BYTE *)(v0 + 26) |= 1u;
+      BYTE2(v0[1].Left) |= 1u;
     }
   }
   CurrentIrql = KeGetCurrentIrql();

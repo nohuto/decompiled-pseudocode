@@ -21,14 +21,14 @@
  *     RtlpLogHeapFailure @ 0x14031A17C (RtlpLogHeapFailure.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, unsigned int a3)
+unsigned __int64 __fastcall RtlpHpLargeFree(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   unsigned __int64 v3; // r14
   char v4; // r15
-  __m128i *v5; // r12
+  __int64 v5; // r12
   unsigned __int8 v6; // al
   __int64 v7; // rbx
-  unsigned __int64 *v8; // rcx
+  _RTL_RB_TREE *v8; // rcx
   unsigned __int64 v9; // rdi
   unsigned __int8 v10; // r13
   unsigned __int64 v11; // rax
@@ -50,7 +50,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
   _KLOCK_ENTRY *v28; // r15
   __int64 v29; // rdx
   __int64 v30; // rcx
-  __m128i *v31; // r15
+  volatile signed __int64 *v31; // r15
   struct _KTHREAD *v32; // rdi
   unsigned int v33; // edx
   unsigned __int8 v34; // r13
@@ -76,10 +76,10 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
   v5 = a1;
   v6 = RtlpHpLargeLockAcquire(a1, a3);
   v7 = 0LL;
-  v8 = &v5[4].m128i_u64[1];
-  v9 = v5[4].m128i_u64[1];
+  v8 = (_RTL_RB_TREE *)(v5 + 72);
+  v9 = *(_QWORD *)(v5 + 72);
   v10 = v6;
-  if ( (v5[5].m128i_i8[0] & 1) != 0 )
+  if ( (*(_BYTE *)(v5 + 80) & 1) != 0 )
   {
     if ( v9 )
       v9 ^= (unsigned __int64)v8;
@@ -99,7 +99,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
     {
       v12 = *(_QWORD *)v9;
     }
-    if ( (v5[5].m128i_i8[0] & 1) != 0 && v12 )
+    if ( (*(_BYTE *)(v5 + 80) & 1) != 0 && v12 )
       v9 ^= v12;
     else
       v9 = v12;
@@ -109,11 +109,11 @@ LABEL_16:
   v13 = v4 & 1;
   if ( v9 )
   {
-    RtlRbRemoveNode(v8, v9);
+    RtlRbRemoveNode(v8, (PRTL_BALANCED_NODE)v9);
     if ( !v13 )
     {
-      v14 = *v5;
-      v15 = (unsigned __int64)&v5[4];
+      v14 = *(__m128i *)v5;
+      v15 = v5 + 64;
       if ( (_mm_cvtsi128_si32(v14) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v15);
@@ -160,7 +160,7 @@ LABEL_16:
               {
                 v28->CrossThreadReleasableAndBusyByte |= 2u;
                 if ( (__int64)v28->LockState.LockState < 0 )
-                  KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v27]);
+                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v27].TreeNode);
                 v44[0] = v28->BoostBitmap.AllFields & 0x1FFFF;
                 v28->BoostBitmap.AllFields &= 0xFFFE0000;
                 v28->ThreadLocalFlags &= ~1u;
@@ -193,13 +193,13 @@ LABEL_41:
     }
     v16 = *(_QWORD *)(v9 + 32);
     v17 = (unsigned __int8)v16 >> 2;
-    v46 = *v5;
+    v46 = *(__m128i *)v5;
     v18 = (((v16 >> 12) + ((v16 >> 1) & 1)) << 12) - 1;
     v45 = (1LL << v17) - (((1LL << v17) - 1) & ((1LL << v17) + v18)) + v18;
     RtlpHpFreeVA(&v49, &v45, 0x8000LL, &v46);
-    _InterlockedExchangeAdd64(v5[6].m128i_i64, -(*(_QWORD *)(v9 + 32) >> 12));
-    _InterlockedExchangeAdd64(&v5[5].m128i_i64[1], -(__int64)(v45 >> 12));
-    v47 = *v5;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 96), -(*(_QWORD *)(v9 + 32) >> 12));
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 88), -(__int64)(v45 >> 12));
+    v47 = *(__m128i *)v5;
     RtlpHpMetadataFree(v9, &v47);
     return v45;
   }
@@ -207,10 +207,10 @@ LABEL_41:
   {
     if ( !v13 )
     {
-      v31 = v5 + 4;
-      if ( (v5->m128i_i32[0] & 1) != 0 )
+      v31 = (volatile signed __int64 *)(v5 + 64);
+      if ( (*(_DWORD *)v5 & 1) != 0 )
       {
-        ExReleaseSpinLockExclusiveFromDpcLevel(v5[4].m128i_i32);
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 64));
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
         {
           v42 = KeGetCurrentPrcb();
@@ -222,11 +222,11 @@ LABEL_41:
       }
       else
       {
-        if ( (_InterlockedExchangeAdd64(v31->m128i_i64, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v5[4].m128i_i64);
+        if ( (_InterlockedExchangeAdd64(v31, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 64));
         v50 = 0;
         v32 = KeGetCurrentThread();
-        if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&v5[4]) == 1 )
+        if ( (unsigned int)MiGetSystemRegionType(v5 + 64) == 1 )
           v33 = MmGetSessionIdEx((__int64)v32->ApcState.Process);
         else
           v33 = -1;
@@ -257,12 +257,12 @@ LABEL_41:
         {
 LABEL_57:
           if ( (*((_DWORD *)&v32->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)v32, (ULONG_PTR)&v5[4], v33, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)v32, v5 + 64, v33, 0LL);
           goto LABEL_69;
         }
         v39->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v39->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v32->LockEntries[v38]);
+          KiAbEntryRemoveFromTree(&v32->LockEntries[v38].TreeNode);
         v50 = v39->BoostBitmap.AllFields & 0x1FFFF;
         v39->BoostBitmap.AllFields &= 0xFFFE0000;
         v39->ThreadLocalFlags &= ~1u;
@@ -274,7 +274,7 @@ LABEL_57:
           _InterlockedOr8((volatile signed __int8 *)&v32->AbOrphanedEntrySummary, 1 << v40);
 LABEL_69:
         --v32->AbAllocationRegionCount;
-        KiAbThreadRemoveBoosts((ULONG_PTR)v32, (__int64)v5[4].m128i_i64, &v50);
+        KiAbThreadRemoveBoosts((ULONG_PTR)v32, v5 + 64, &v50);
         v24 = v32->SpecialApcDisable++ == -1;
         if ( v24 && ($6EAC78A6FCFADE0A5FA44F358736B38F *)v32->ApcState.ApcListHead[0].Flink != &v32->152 )
           KiCheckForKernelApcDelivery(v41);
@@ -282,7 +282,7 @@ LABEL_69:
         LODWORD(v3) = v49;
       }
     }
-    RtlpLogHeapFailure(8, (_DWORD)v5, v3, 0, 0LL, 0LL);
+    RtlpLogHeapFailure(8, v5, v3, 0, 0LL, 0LL);
   }
   return v7;
 }

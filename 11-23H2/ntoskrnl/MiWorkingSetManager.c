@@ -1,8 +1,8 @@
 /*
  * XREFs of MiWorkingSetManager @ 0x14021D5F0
  * Callers:
- *     KeBalanceSetManager @ 0x140394500 (KeBalanceSetManager.c)
- *     MiPartitionWorkingSetManager @ 0x140629550 (MiPartitionWorkingSetManager.c)
+ *     KeBalanceSetManager @ 0x1403946E0 (KeBalanceSetManager.c)
+ *     MiPartitionWorkingSetManager @ 0x140629AA0 (MiPartitionWorkingSetManager.c)
  * Callees:
  *     MiSignalLargePageRebuild @ 0x14021D424 (MiSignalLargePageRebuild.c)
  *     MiNumberWsSwapPagefiles @ 0x14021D8C0 (MiNumberWsSwapPagefiles.c)
@@ -21,15 +21,15 @@
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
  *     KePulseEvent @ 0x1402206A0 (KePulseEvent.c)
  *     KeQueryUnbiasedInterruptTime @ 0x1402235A0 (KeQueryUnbiasedInterruptTime.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiEmptyDecayClusterTimers @ 0x14025AF20 (MiEmptyDecayClusterTimers.c)
- *     MiReleaseSystemCacheView @ 0x1402A0140 (MiReleaseSystemCacheView.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiHandleForceTrimWorkingSets @ 0x140634AC0 (MiHandleForceTrimWorkingSets.c)
- *     MiQueueExtentPfnDeletion @ 0x14063F0B8 (MiQueueExtentPfnDeletion.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiEmptyDecayClusterTimers @ 0x14025B1B0 (MiEmptyDecayClusterTimers.c)
+ *     MiReleaseSystemCacheView @ 0x1402A03D0 (MiReleaseSystemCacheView.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     PsReferencePartitionSafe @ 0x1402F9EAC (PsReferencePartitionSafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiHandleForceTrimWorkingSets @ 0x140635010 (MiHandleForceTrimWorkingSets.c)
+ *     MiQueueExtentPfnDeletion @ 0x14063F608 (MiQueueExtentPfnDeletion.c)
  */
 
 __int64 __fastcall MiWorkingSetManager(__int64 a1, int a2)

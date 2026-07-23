@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpAllocateCommonBufferDmarThin @ 0x1404F1E84
+ * XREFs of HalpAllocateCommonBufferDmarThin @ 0x1404EB464
  * Callers:
- *     HalAllocateCommonBufferDmarThinEx @ 0x1404F1DF0 (HalAllocateCommonBufferDmarThinEx.c)
- *     HalAllocateCommonBufferWithBoundsDmarThin @ 0x14058B3D0 (HalAllocateCommonBufferWithBoundsDmarThin.c)
- *     HalAllocateDomainCommonBufferDmarThin @ 0x14058B450 (HalAllocateDomainCommonBufferDmarThin.c)
+ *     HalAllocateCommonBufferDmarThinEx @ 0x1404EB3D0 (HalAllocateCommonBufferDmarThinEx.c)
+ *     HalAllocateCommonBufferWithBoundsDmarThin @ 0x14058DB50 (HalAllocateCommonBufferWithBoundsDmarThin.c)
+ *     HalAllocateDomainCommonBufferDmarThin @ 0x14058DBD0 (HalAllocateDomainCommonBufferDmarThin.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HalpAllocateCommonBufferEntry @ 0x140348EB0 (HalpAllocateCommonBufferEntry.c)
- *     HalpDmaReferenceDomainObject @ 0x14034914C (HalpDmaReferenceDomainObject.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14034AF30 (HalpAllocateCommonBufferEntry.c)
+ *     HalpDmaReferenceDomainObject @ 0x14034B1CC (HalpDmaReferenceDomainObject.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpAllocateCommonBufferDmarThin(
@@ -26,10 +26,10 @@ __int64 __fastcall HalpAllocateCommonBufferDmarThin(
         MEMORY_CACHING_TYPE *a6,
         unsigned int a7,
         _QWORD *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
   SIZE_T v9; // r14
-  PVOID v11; // rbp
+  _RTL_BALANCED_NODE *v11; // rbp
   struct _MDL *v12; // rsi
   int CommonBufferEntry; // edi
   __int64 v14; // rax
@@ -71,18 +71,13 @@ __int64 __fastcall HalpAllocateCommonBufferDmarThin(
                                        Flags,
                                        0LL);
       v12 = PagesForMdl;
-      if ( PagesForMdl && (v11 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, CacheType, 0LL, 0, 0x40000010u)) != 0LL )
+      if ( PagesForMdl
+        && (v11 = (_RTL_BALANCED_NODE *)MmMapLockedPagesSpecifyCache(PagesForMdl, 0, CacheType, 0LL, 0, 0x40000010u)) != 0LL )
       {
         CommonBufferEntry = guard_dispatch_icall_no_overrides(a1[5], 3LL);
         if ( CommonBufferEntry >= 0 )
         {
-          CommonBufferEntry = HalpAllocateCommonBufferEntry(
-                                (__int64)v12,
-                                (unsigned __int64)v11,
-                                0LL,
-                                (__int64)a1,
-                                1,
-                                0LL);
+          CommonBufferEntry = HalpAllocateCommonBufferEntry((__int64)v12, v11, 0LL, (__int64)a1, 1, 0LL);
           if ( CommonBufferEntry >= 0 )
           {
             *a8 = 0LL;

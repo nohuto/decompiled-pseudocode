@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEventCalloutDispatch @ 0x1404EA9D8
+ * XREFs of PopEventCalloutDispatch @ 0x1404E3D88
  * Callers:
- *     PopDispatchShutdownEvent @ 0x1407D7410 (PopDispatchShutdownEvent.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPolicyTimeChange @ 0x140A8BD80 (PopPolicyTimeChange.c)
- *     PopDispatchCallout @ 0x140B47520 (PopDispatchCallout.c)
+ *     PopDispatchShutdownEvent @ 0x1407DA7B0 (PopDispatchShutdownEvent.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPolicyTimeChange @ 0x140A91050 (PopPolicyTimeChange.c)
+ *     PopDispatchCallout @ 0x140B49550 (PopDispatchCallout.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
  */
 
 struct _KTHREAD *__fastcall PopEventCalloutDispatch(int a1, __int64 a2)
@@ -24,7 +24,7 @@ struct _KTHREAD *__fastcall PopEventCalloutDispatch(int a1, __int64 a2)
   v6 = 0;
   v5 = a1;
   v7 = a2;
-  if ( LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) )
+  if ( BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) )
   {
     v3 = 1LL;
     if ( a1 != 1 )

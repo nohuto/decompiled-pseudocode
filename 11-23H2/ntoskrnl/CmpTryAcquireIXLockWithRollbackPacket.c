@@ -3,7 +3,7 @@
  * Callers:
  *     CmpTryAcquireKcbIXLocks @ 0x140699E30 (CmpTryAcquireKcbIXLocks.c)
  * Callees:
- *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1E7C8 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1EA78 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
  */
 
 __int64 __fastcall CmpTryAcquireIXLockWithRollbackPacket(int *a1, char a2, __int64 a3)

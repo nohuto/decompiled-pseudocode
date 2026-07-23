@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlQueryMinrootInfo @ 0x140583540
+ * XREFs of HvlQueryMinrootInfo @ 0x1405808C0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlQueryMinrootInfo(_DWORD *a1, unsigned int a2, _DWORD *a3)
@@ -26,13 +26,13 @@ __int64 __fastcall HvlQueryMinrootInfo(_DWORD *a1, unsigned int a2, _DWORD *a3)
     if ( v7 )
     {
       *(_OWORD *)(a1 + 3) = KeRootProcNumaNodes;
-      *(_OWORD *)(a1 + 7) = xmmword_140FC6680;
-      *(_OWORD *)(a1 + 11) = xmmword_140FC6690;
-      *(_OWORD *)(a1 + 15) = xmmword_140FC66A0;
-      *(_OWORD *)(a1 + 19) = xmmword_140FC66B0;
-      *(_OWORD *)(a1 + 23) = xmmword_140FC66C0;
-      *(_OWORD *)(a1 + 27) = xmmword_140FC66D0;
-      *(_OWORD *)(a1 + 31) = xmmword_140FC66E0;
+      *(_OWORD *)(a1 + 7) = xmmword_140FC76E0;
+      *(_OWORD *)(a1 + 11) = xmmword_140FC76F0;
+      *(_OWORD *)(a1 + 15) = xmmword_140FC7700;
+      *(_OWORD *)(a1 + 19) = xmmword_140FC7710;
+      *(_OWORD *)(a1 + 23) = xmmword_140FC7720;
+      *(_OWORD *)(a1 + 27) = xmmword_140FC7730;
+      *(_OWORD *)(a1 + 31) = xmmword_140FC7740;
     }
     a1[35] = KeRootProcPerCoreSpecified;
     a1[36] = KeRootProcPerNodeSpecified;

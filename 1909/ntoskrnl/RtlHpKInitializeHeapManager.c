@@ -10,7 +10,7 @@
 
 NTSTATUS RtlHpKInitializeHeapManager()
 {
-  union _RTL_RUN_ONCE v1; // [rsp+40h] [rbp+8h] BYREF
+  _RTL_RUN_ONCE v1; // [rsp+40h] [rbp+8h] BYREF
 
   RtlHpGlobalsInitialize();
   v1.Value = 0x500010200LL;
@@ -18,5 +18,5 @@ NTSTATUS RtlHpKInitializeHeapManager()
   dword_14046F750 = (unsigned __int16)KeNumberNodes;
   if ( (unsigned __int16)KeNumberNodes > 0x40u )
     dword_14046F750 = 64;
-  return RtlHpHeapManagerStart(ExPoolState, 1u, (union _RTL_RUN_ONCE)0xFFFF800000000000uLL, 0x800000000000uLL, 2);
+  return RtlHpHeapManagerStart(ExPoolState, 1u, (_RTL_RUN_ONCE)0xFFFF800000000000uLL, 0x800000000000uLL, 2);
 }

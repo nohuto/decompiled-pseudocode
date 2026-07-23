@@ -1,15 +1,15 @@
 /*
- * XREFs of KeGetCurrentStackPointer @ 0x1401BC2A0
+ * XREFs of KeGetCurrentStackPointer @ 0x1401BC400
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AE0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCC70 (RtlEnoughStackSpaceForStackCapture.c)
- *     PnprGetStackLimits @ 0x14028A3E8 (PnprGetStackLimits.c)
- *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
- *     EtwpTraceLastBranchRecord @ 0x140317E58 (EtwpTraceLastBranchRecord.c)
- *     MmVerifierTrimMemory @ 0x140924C08 (MmVerifierTrimMemory.c)
- *     VerifierCaptureViolationKernelStack @ 0x140930960 (VerifierCaptureViolationKernelStack.c)
- *     ViDeadlockAnalyze @ 0x14093CAA8 (ViDeadlockAnalyze.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9BC0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAC30 (KeQueryCurrentStackInformation.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x1400CCCF0 (RtlEnoughStackSpaceForStackCapture.c)
+ *     PnprGetStackLimits @ 0x14028A5D8 (PnprGetStackLimits.c)
+ *     EtwpTraceStackWalk @ 0x14030F934 (EtwpTraceStackWalk.c)
+ *     EtwpTraceLastBranchRecord @ 0x140318048 (EtwpTraceLastBranchRecord.c)
+ *     MmVerifierTrimMemory @ 0x140925C08 (MmVerifierTrimMemory.c)
+ *     VerifierCaptureViolationKernelStack @ 0x140931960 (VerifierCaptureViolationKernelStack.c)
+ *     ViDeadlockAnalyze @ 0x14093DAA8 (ViDeadlockAnalyze.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpQueuePendingSurpriseRemoval @ 0x140883070
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1408832B0
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x140882FE4 (PiEventRemovalPostSurpriseRemove.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x140883224 (PiEventRemovalPostSurpriseRemove.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9958 (PnpAcquireDependencyRelationsLock.c)
- *     IopEnumerateRelations @ 0x140868390 (IopEnumerateRelations.c)
- *     IopFreeRelationList @ 0x1408684BC (IopFreeRelationList.c)
- *     IopAllocateRelationList @ 0x14086850C (IopAllocateRelationList.c)
- *     PnpAllocateCriticalMemory @ 0x140868654 (PnpAllocateCriticalMemory.c)
- *     IopIsDescendantNode @ 0x140868EF4 (IopIsDescendantNode.c)
- *     IopCheckIfMergeRequired @ 0x14096C92C (IopCheckIfMergeRequired.c)
- *     IopMergeRelationLists @ 0x14096CA34 (IopMergeRelationLists.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406C9988 (PnpAcquireDependencyRelationsLock.c)
+ *     IopEnumerateRelations @ 0x1408685D0 (IopEnumerateRelations.c)
+ *     IopFreeRelationList @ 0x1408686FC (IopFreeRelationList.c)
+ *     IopAllocateRelationList @ 0x14086874C (IopAllocateRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x140868894 (PnpAllocateCriticalMemory.c)
+ *     IopIsDescendantNode @ 0x140869134 (IopIsDescendantNode.c)
+ *     IopCheckIfMergeRequired @ 0x14096CB2C (IopCheckIfMergeRequired.c)
+ *     IopMergeRelationLists @ 0x14096CC34 (IopMergeRelationLists.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

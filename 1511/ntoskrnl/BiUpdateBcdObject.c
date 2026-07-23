@@ -17,50 +17,50 @@
  *     BiGetFilePathFromEfiPath @ 0x140690870 (BiGetFilePathFromEfiPath.c)
  */
 
-__int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)
+__int64 __fastcall BiUpdateBcdObject(void *a1, const GUID *a2)
 {
   ULONG *v2; // rsi
   PVOID v4; // r15
   PVOID PoolWithTag; // r14
-  int v6; // eax
+  NTSTATUS v6; // eax
   HANDLE v7; // rdi
   int v8; // ebx
   ULONG v9; // eax
-  __int64 v10; // r8
+  BCD_FLAGS v10; // r8d
   __int64 v11; // rax
   _WORD *v12; // r12
-  unsigned int v13; // r13d
-  int ElementDataWithFlags; // eax
-  __int64 v15; // r8
-  __int64 v16; // r8
+  ULONG v13; // r13d
+  NTSTATUS ElementDataWithFlags; // eax
+  BCD_FLAGS v15; // r8d
+  BCD_FLAGS v16; // r8d
   __int64 v17; // rax
   char *v18; // rbx
   PVOID v19; // rsi
-  __int64 v20; // r8
-  __int64 v21; // r8
-  PVOID v23; // [rsp+30h] [rbp-20h] BYREF
+  BCD_FLAGS v20; // r8d
+  BCD_FLAGS v21; // r8d
+  PVOID P; // [rsp+30h] [rbp-20h] BYREF
   void *Source2; // [rsp+38h] [rbp-18h] BYREF
-  HANDLE Handle[2]; // [rsp+40h] [rbp-10h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+98h] [rbp+48h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+40h] [rbp-10h] BYREF
+  ULONG BufferSize; // [rsp+98h] [rbp+48h] BYREF
   int v27; // [rsp+A0h] [rbp+50h] BYREF
-  PVOID P; // [rsp+A8h] [rbp+58h] BYREF
+  PVOID Buffer; // [rsp+A8h] [rbp+58h] BYREF
 
-  v2 = *(ULONG **)(a2 + 40);
-  P = 0LL;
+  v2 = *(ULONG **)a2[2].Data4;
+  Buffer = 0LL;
   v4 = 0LL;
-  v23 = 0LL;
+  P = 0LL;
   Source2 = 0LL;
   PoolWithTag = 0LL;
   v27 = 0;
-  Handle[0] = 0LL;
-  LODWORD(NumberOfBytes) = 0;
-  v6 = BcdOpenObject(a1, (__int128 *)(a2 + 16), Handle);
-  v7 = Handle[0];
+  BcdObjectHandle = 0LL;
+  BufferSize = 0;
+  v6 = BcdOpenObject(a1, a2 + 1, &BcdObjectHandle);
+  v7 = BcdObjectHandle;
   v8 = v6;
   if ( v6 < 0 )
     goto LABEL_32;
-  if ( (*(_DWORD *)(a2 + 48) & 2) != 0
-    && (int)BiGetRegistryValue(Handle[0], L"FirmwareVariable", (__int64)L"Description", 3, &Source2, &v27) >= 0 )
+  if ( (a2[3].Data1 & 2) != 0
+    && (int)BiGetRegistryValue(BcdObjectHandle, L"FirmwareVariable", (__int64)L"Description", 3, &Source2, &v27) >= 0 )
   {
     v9 = v2[1];
     if ( v9 == v27 && RtlCompareMemory(v2, Source2, v9) == v2[1] )
@@ -72,44 +72,44 @@ LABEL_8:
         ++v11;
       while ( v12[v11] );
       v13 = 2 * v11 + 2;
-      ElementDataWithFlags = BcdGetElementDataWithFlags((__int64)v7, 0x12000004u, v10, 0LL, &NumberOfBytes);
+      ElementDataWithFlags = BcdGetElementDataWithFlags(v7, 0x12000004u, v10, 0LL, &BufferSize);
       if ( ElementDataWithFlags == -1073741789 )
       {
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, BufferSize, 0x4B444342u);
         if ( !PoolWithTag )
         {
 LABEL_17:
-          BcdDeleteElement((__int64)v7, 0x12000004u);
-          BcdSetElementDataWithFlags((__int64)v7, 0x12000004u, v16, (__int64)v12, v13);
+          BcdDeleteElement(v7, 0x12000004u);
+          BcdSetElementDataWithFlags(v7, 0x12000004u, v16, v12, v13);
 LABEL_18:
           v17 = v2[5];
           if ( *(ULONG *)((char *)v2 + v17 + 8) == 4 )
           {
             v18 = (char *)v2 + v17;
-            if ( (int)BiGetDeviceFromEfiPath((unsigned __int64)v2 + v17 + 12, &P, (unsigned int *)&NumberOfBytes) < 0 )
+            if ( (int)BiGetDeviceFromEfiPath((unsigned __int64)v2 + v17 + 12, &Buffer, &BufferSize) < 0 )
             {
-              v19 = P;
+              v19 = Buffer;
             }
             else
             {
-              BcdDeleteElement((__int64)v7, 0x11000001u);
-              v19 = P;
-              BcdSetElementDataWithFlags((__int64)v7, 0x11000001u, v20, (__int64)P, NumberOfBytes);
+              BcdDeleteElement(v7, 0x11000001u);
+              v19 = Buffer;
+              BcdSetElementDataWithFlags(v7, 0x11000001u, v20, Buffer, BufferSize);
             }
-            if ( (int)BiGetFilePathFromEfiPath((unsigned __int64)(v18 + 12), &v23, (unsigned int *)&NumberOfBytes) < 0 )
+            if ( (int)BiGetFilePathFromEfiPath((unsigned __int64)(v18 + 12), &P, &BufferSize) < 0 )
             {
-              v4 = v23;
+              v4 = P;
             }
             else
             {
-              BcdDeleteElement((__int64)v7, 0x12000002u);
-              v4 = v23;
-              BcdSetElementDataWithFlags((__int64)v7, 0x12000002u, v21, (__int64)v23, NumberOfBytes);
+              BcdDeleteElement(v7, 0x12000002u);
+              v4 = P;
+              BcdSetElementDataWithFlags(v7, 0x12000002u, v21, P, BufferSize);
             }
           }
           else
           {
-            v19 = P;
+            v19 = Buffer;
           }
           v8 = 0;
           if ( v19 )
@@ -118,16 +118,11 @@ LABEL_18:
             ExFreePoolWithTag(v4, 0);
           goto LABEL_30;
         }
-        ElementDataWithFlags = BcdGetElementDataWithFlags(
-                                 (__int64)v7,
-                                 0x12000004u,
-                                 v15,
-                                 (__int64)PoolWithTag,
-                                 &NumberOfBytes);
+        ElementDataWithFlags = BcdGetElementDataWithFlags(v7, 0x12000004u, v15, PoolWithTag, &BufferSize);
       }
       if ( ElementDataWithFlags >= 0
         && PoolWithTag
-        && (_DWORD)NumberOfBytes == v13
+        && BufferSize == v13
         && RtlCompareMemory(v12, PoolWithTag, v13) == v13 )
       {
         goto LABEL_18;
@@ -138,7 +133,7 @@ LABEL_18:
   v8 = BiSetRegistryValue(v7, L"FirmwareVariable", L"Description", 3u, v2, v2[1]);
   if ( v8 >= 0 )
   {
-    *(_DWORD *)(a2 + 48) |= 2u;
+    a2[3].Data1 |= 2u;
     goto LABEL_8;
   }
 LABEL_30:

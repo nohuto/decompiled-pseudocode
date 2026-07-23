@@ -1,19 +1,19 @@
 /*
- * XREFs of _PnpGetObjectPropertyKeysWorker @ 0x140AB4328
+ * XREFs of _PnpGetObjectPropertyKeysWorker @ 0x140AB56C8
  * Callers:
- *     _PnpGetObjectPropertyKeys @ 0x140AB41AC (_PnpGetObjectPropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x140AB554C (_PnpGetObjectPropertyKeys.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140919888 (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     _PnpGetMappedPropertyKeysDispatch @ 0x140AB44A8 (_PnpGetMappedPropertyKeysDispatch.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1409742E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpGetMappedPropertyKeysDispatch @ 0x140AB5848 (_PnpGetMappedPropertyKeysDispatch.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyKeysWorker(
         __int64 a1,
         __int64 a2,
         int a3,
-        __int64 a4,
+        void *a4,
         const WCHAR *a5,
         char a6,
         __int64 a7,
@@ -25,7 +25,7 @@ __int64 __fastcall PnpGetObjectPropertyKeysWorker(
   signed int MappedPropertyKeysDispatch; // ebx
   __int64 v15; // r8
   unsigned int v16; // eax
-  int v17; // edx
+  HANDLE v17; // rdx
   unsigned int v18; // edx
   unsigned int v20; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v21; // [rsp+54h] [rbp-Ch] BYREF
@@ -50,7 +50,7 @@ __int64 __fastcall PnpGetObjectPropertyKeysWorker(
                                      a1,
                                      v13,
                                      a3,
-                                     a4,
+                                     (_DWORD)a4,
                                      (__int64)a5,
                                      a6,
                                      a7,
@@ -68,10 +68,10 @@ __int64 __fastcall PnpGetObjectPropertyKeysWorker(
           v15 = a7 + 20LL * v20;
           v16 = a8 - v20;
         }
-        v17 = (int)Handle;
+        v17 = Handle;
         if ( a4 )
           v17 = a4;
-        MappedPropertyKeysDispatch = PnpGetGenericStorePropertyKeys(a1, v17, a5, a6, v15, v16, &v21);
+        MappedPropertyKeysDispatch = PnpGetGenericStorePropertyKeys(a1, (__int64)v17, a5, a6, v15, v16, &v21);
         if ( (unsigned int)(MappedPropertyKeysDispatch + 1073741790) <= 1 || !MappedPropertyKeysDispatch )
         {
           v18 = v20 + v21;

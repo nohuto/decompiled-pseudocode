@@ -1,28 +1,28 @@
 /*
- * XREFs of ?KiAbConvertWaiterToOwnerEntry@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRY@@K@Z @ 0x140272FF0
+ * XREFs of ?KiAbConvertWaiterToOwnerEntry@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRY@@K@Z @ 0x140272560
  * Callers:
- *     KeAbPreWakeupHandle @ 0x1402736A4 (KeAbPreWakeupHandle.c)
- *     KeWakeWaitChain @ 0x140273700 (KeWakeWaitChain.c)
- *     ExpCommitWakeFastResource @ 0x140273AF0 (ExpCommitWakeFastResource.c)
- *     ExpCommitWakeResourceShared @ 0x140273EB0 (ExpCommitWakeResourceShared.c)
- *     ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x140457E30 (-KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z.c)
+ *     KeAbPreWakeupHandle @ 0x140272C14 (KeAbPreWakeupHandle.c)
+ *     KeWakeWaitChain @ 0x140272C70 (KeWakeWaitChain.c)
+ *     ExpCommitWakeFastResource @ 0x140273060 (ExpCommitWakeFastResource.c)
+ *     ExpCommitWakeResourceShared @ 0x140273420 (ExpCommitWakeResourceShared.c)
+ *     ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x14044F6A0 (-KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z.c)
  * Callees:
- *     ?KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z @ 0x14023BA30 (-KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ?KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z @ 0x14026F754 (-KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z.c)
- *     ?KiAbThreadInsertList@LegacyAutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z @ 0x14026F7A0 (-KiAbThreadInsertList@LegacyAutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x14032F930 (KiReadyDeferredReadyList.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     ?KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1404342C4 (-KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PE.c)
- *     EtwTraceAutoBoostConvertWaiterToOwner @ 0x1404B1374 (EtwTraceAutoBoostConvertWaiterToOwner.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ?KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z @ 0x14023D390 (-KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ?KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z @ 0x14026ECC4 (-KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z.c)
+ *     ?KiAbThreadInsertList@LegacyAutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z @ 0x14026ED10 (-KiAbThreadInsertList@LegacyAutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x140331960 (KiReadyDeferredReadyList.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     ?KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140429394 (-KiAbThreadRemoveBoostsSlow@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXT_KLOCK_ENTRY_BOOST_BITMAP@@PE.c)
+ *     EtwTraceAutoBoostConvertWaiterToOwner @ 0x1404AAA04 (EtwTraceAutoBoostConvertWaiterToOwner.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbConvertWaiterToOwnerEntry(
@@ -55,11 +55,11 @@ void __fastcall LegacyAutoBoost::KiAbConvertWaiterToOwnerEntry(
   struct _KLOCK_ENTRY *v25; // rdx
   void *v26; // r8
   signed __int8 v27; // al
-  __int64 v28; // r8
-  unsigned __int64 v29; // rbx
-  signed __int8 v30; // r9
-  __int64 v31; // rdx
-  __int64 v32; // rax
+  _RTL_RB_TREE *v28; // rbx
+  signed __int8 v29; // r9
+  _RTL_BALANCED_NODE *Root; // rdx
+  BOOLEAN v31; // r8
+  _RTL_BALANCED_NODE *v32; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
   union _KLOCK_ENTRY_BOOST_BITMAP v35; // [rsp+88h] [rbp+48h] BYREF
   int v36; // [rsp+90h] [rbp+50h]
@@ -77,10 +77,10 @@ void __fastcall LegacyAutoBoost::KiAbConvertWaiterToOwnerEntry(
   v8 = v7 >> 4;
   if ( *(char *)(a2 + 8) >= 0 )
   {
-    v9 = &unk_140E162C0;
+    v9 = &unk_140E16400;
     v24 = ((v7 >> 4) & 0x3FF) << 6;
-    v12 = (volatile LONG *)((char *)&unk_140E162C0 + v24 + 16);
-    v11 = (__int64)&unk_140E162C0 + v24;
+    v12 = (volatile LONG *)((char *)&unk_140E16400 + v24 + 16);
+    v11 = (__int64)&unk_140E16400 + v24;
   }
   else
   {
@@ -137,7 +137,7 @@ LABEL_60:
   LockHandle.LockQueue.Next = 0LL;
   v18 = (unsigned __int64 *)(v14 - 16 + 72);
   LockHandle.LockQueue.Lock = v18;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _InterlockedExchange64((volatile __int64 *)v18, (__int64)&LockHandle) )
       KxWaitForLockOwnerShip(&LockHandle);
@@ -174,7 +174,7 @@ LABEL_60:
   }
   else
   {
-    RtlRbRemoveNode(v17 + 7, v4 + 16);
+    RtlRbRemoveNode((PRTL_RB_TREE)(v17 + 7), (PRTL_BALANCED_NODE)(v4 + 16));
     *(_BYTE *)(v4 + 9) = 0;
     v26 = (void *)*(unsigned int *)(v4 + 80);
     *(_DWORD *)(v4 + 80) = 0;
@@ -186,49 +186,49 @@ LABEL_60:
         (union _KLOCK_ENTRY_BOOST_BITMAP)&v35,
         (struct _SINGLE_LIST_ENTRY *)LockHandle.LockQueue.Next);
     v27 = LegacyAutoBoost::KiAbOwnerComputeCpuPriorityKey((LegacyAutoBoost *)v4, v25);
-    v29 = (unsigned __int64)(v17 + 5);
+    v28 = (_RTL_RB_TREE *)(v17 + 5);
     *(_BYTE *)(v4 + 40) = v27;
-    v30 = v27;
-    v31 = *(_QWORD *)v29;
-    if ( (*(_BYTE *)(v29 + 8) & 1) != 0 && v31 )
-      v31 ^= v29;
-    LOBYTE(v28) = 0;
-    if ( v31 )
+    v29 = v27;
+    Root = v28->Root;
+    if ( (*(_BYTE *)&v28->0 & 1) != 0 && Root )
+      Root = (_RTL_BALANCED_NODE *)((unsigned __int64)v28 ^ (unsigned __int64)Root);
+    v31 = 0;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( *(char *)(v31 + 24) <= v30 )
+        if ( SLOBYTE(Root[1].Children[0]) <= v29 )
         {
-          v32 = *(_QWORD *)(v31 + 8);
-          if ( (*(_BYTE *)(v29 + 8) & 1) != 0 )
+          v32 = Root->Children[1];
+          if ( (*(_BYTE *)&v28->0 & 1) != 0 )
           {
             if ( !v32 )
               goto LABEL_55;
-            v32 ^= v31;
+            v32 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v32);
           }
           if ( !v32 )
           {
 LABEL_55:
-            LOBYTE(v28) = 1;
+            v31 = 1;
             break;
           }
         }
         else
         {
-          v32 = *(_QWORD *)v31;
-          if ( (*(_BYTE *)(v29 + 8) & 1) != 0 )
+          v32 = Root->Children[0];
+          if ( (*(_BYTE *)&v28->0 & 1) != 0 )
           {
             if ( !v32 )
               break;
-            v32 ^= v31;
+            v32 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v32);
           }
           if ( !v32 )
             break;
         }
-        v31 = v32;
+        Root = v32;
       }
     }
-    RtlRbInsertNodeEx(v29, v31, v28, v4 + 16);
+    RtlRbInsertNodeEx(v28, Root, v31, (PRTL_BALANCED_NODE)(v4 + 16));
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   CurrentPrcb = KeGetCurrentPrcb();
@@ -256,6 +256,6 @@ LABEL_33:
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
 LABEL_36:
-  if ( (WORD2(xmmword_140FBFC10) & 0x1000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x1000) != 0 )
     EtwTraceAutoBoostConvertWaiterToOwner(v19, v6, v5);
 }

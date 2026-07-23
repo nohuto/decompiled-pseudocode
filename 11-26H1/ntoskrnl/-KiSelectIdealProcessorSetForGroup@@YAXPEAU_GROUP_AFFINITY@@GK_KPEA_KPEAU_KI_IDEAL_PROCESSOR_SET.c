@@ -6,7 +6,7 @@
  * Callees:
  *     KeQueryNodeGroupAffinity @ 0x14020183C (KeQueryNodeGroupAffinity.c)
  *     KiFindBiasedProcessorIndex @ 0x140201890 (KiFindBiasedProcessorIndex.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 void __fastcall KiSelectIdealProcessorSetForGroup(
@@ -96,7 +96,7 @@ LABEL_3:
         if ( v16 == (unsigned __int16)KeNumberNodes )
           v18 = 0xFFFFFFFFLL;
         else
-          v18 = *(unsigned int *)(qword_140E2D690 + 4LL * (v16 + v14 * (unsigned int)(unsigned __int16)KeNumberNodes));
+          v18 = *(unsigned int *)(qword_140E2D810 + 4LL * (v16 + v14 * (unsigned int)(unsigned __int16)KeNumberNodes));
         v17 = v43;
       }
       else

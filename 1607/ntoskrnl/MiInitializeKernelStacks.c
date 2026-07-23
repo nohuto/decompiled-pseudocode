@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     MiMarkBootGuardPage @ 0x14054E27C (MiMarkBootGuardPage.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     MiMarkBootGuardPage @ 0x14054E61C (MiMarkBootGuardPage.c)
  *     MiMarkBootKernelStack @ 0x14078E4F0 (MiMarkBootKernelStack.c)
  */
 
@@ -19,7 +19,7 @@ void (__fastcall *MiInitializeKernelStacks())(__int64 a1)
   void (__fastcall *result)(__int64); // rax
 
   CurrentThread = KeGetCurrentThread();
-  InitializeSListHead(&stru_140327550);
+  InitializeSListHead(&stru_140327590);
   v1 = (unsigned __int64)KeGetPcr()->Prcb.DpcStack + 80;
   v2 = v1 - (unsigned int)KeKernelStackSize;
   CurrentIrql = KeGetCurrentIrql();
@@ -31,10 +31,10 @@ void (__fastcall *MiInitializeKernelStacks())(__int64 a1)
   __writecr8(CurrentIrql);
   MiMarkBootGuardPage((_BYTE *)(v5 - 8));
   MiMarkBootGuardPage((_BYTE *)(v4 - 8));
-  stru_140327580.Parameter = 0LL;
-  stru_140327580.List.Flink = 0LL;
-  byte_140327540 = (unsigned int)KeKernelStackSize >> 12;
+  stru_1403275C0.Parameter = 0LL;
+  stru_1403275C0.List.Flink = 0LL;
+  byte_140327580 = (unsigned int)KeKernelStackSize >> 12;
   result = MiDeleteNoBlockStacks;
-  stru_140327580.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteNoBlockStacks;
+  stru_1403275C0.WorkerRoutine = (void (__fastcall *)(void *))MiDeleteNoBlockStacks;
   return result;
 }

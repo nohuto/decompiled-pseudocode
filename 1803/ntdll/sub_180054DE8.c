@@ -25,17 +25,15 @@ __int64 __fastcall sub_180054DE8(__int64 a1)
   __int64 v7; // rbx
   __int64 v8; // r13
   char v9; // r12
-  __int64 v10; // r8
-  __int64 v11; // r9
-  char v12; // al
-  __int64 v14; // [rsp+48h] [rbp-E0h]
-  __int64 v15; // [rsp+68h] [rbp-C0h]
-  __int64 v16; // [rsp+A0h] [rbp-88h] BYREF
-  int v17; // [rsp+A8h] [rbp-80h]
-  _BYTE v18[56]; // [rsp+B0h] [rbp-78h] BYREF
+  char v10; // al
+  __int64 v12; // [rsp+48h] [rbp-E0h]
+  __int64 v13; // [rsp+68h] [rbp-C0h]
+  __int64 v14; // [rsp+A0h] [rbp-88h] BYREF
+  int v15; // [rsp+A8h] [rbp-80h]
+  _BYTE v16[56]; // [rsp+B0h] [rbp-78h] BYREF
 
   v1 = a1;
-  v15 = a1;
+  v13 = a1;
   *(_DWORD *)(a1 + 56) = 8;
   v2 = qword_18015BF88;
   v3 = (__int64 **)qword_18015C398;
@@ -64,7 +62,7 @@ __int64 __fastcall sub_180054DE8(__int64 a1)
     {
       v8 = qword_18015CA68;
       qword_18015CA68 = i - 160;
-      v14 = *(_QWORD *)(v7 + 56);
+      v12 = *(_QWORD *)(v7 + 56);
       if ( (dword_180156A70 & 5) != 0 )
         sub_1800CA554(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
@@ -75,21 +73,21 @@ __int64 __fastcall sub_180054DE8(__int64 a1)
           *(_QWORD *)(v7 + 56),
           v7 + 72);
       v9 = 1;
-      v16 = 72LL;
-      v17 = 1;
-      memset(v18, 0, sizeof(v18));
-      RtlActivateActivationContextUnsafeFast((__int64)&v16, *(_QWORD *)(v7 + 136));
+      v14 = 72LL;
+      v15 = 1;
+      memset(v16, 0, sizeof(v16));
+      RtlActivateActivationContextUnsafeFast((__int64)&v14, *(_QWORD *)(v7 + 136));
       if ( *(_WORD *)(v7 + 110) )
-        sub_18003B5F8(1, i - 160, v10, v11);
-      if ( v14 )
-        v9 = sub_18003B518(v14, *(_QWORD *)(v7 + 48), 1);
-      RtlDeactivateActivationContextUnsafeFast((__int64)&v16);
-      v12 = dword_180156A70;
+        sub_18003B5F8(1, i - 160);
+      if ( v12 )
+        v9 = sub_18003B518(v12, *(_QWORD *)(v7 + 48), 1);
+      RtlDeactivateActivationContextUnsafeFast((__int64)&v14);
+      v10 = dword_180156A70;
       qword_18015CA68 = v8;
       *(_DWORD *)(v7 + 104) |= 0x80000u;
       if ( !v9 )
       {
-        if ( (v12 & 3) != 0 )
+        if ( (v10 & 3) != 0 )
         {
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
@@ -97,11 +95,11 @@ __int64 __fastcall sub_180054DE8(__int64 a1)
             (unsigned int)"LdrpInitializeNode",
             0,
             "Init routine %p for DLL \"%wZ\" failed during DLL_PROCESS_ATTACH\n",
-            v14,
+            v12,
             v7 + 72);
-          v12 = dword_180156A70;
+          v10 = dword_180156A70;
         }
-        if ( (v12 & 0x10) != 0 )
+        if ( (v10 & 0x10) != 0 )
           __debugbreak();
         v5 = -1073741502;
         *(_DWORD *)(v7 + 104) |= 0x100000u;
@@ -111,6 +109,6 @@ __int64 __fastcall sub_180054DE8(__int64 a1)
       v2 = qword_18015BF88;
     }
   }
-  *(_DWORD *)(v15 + 56) = v5 != 0 ? -4 : 9;
+  *(_DWORD *)(v13 + 56) = v5 != 0 ? -4 : 9;
   return v5;
 }

@@ -3,26 +3,28 @@
  * Callers:
  *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800D0C80 (LdrpCheckComponentOnDemandEtwEvent.c)
  * Callees:
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenKeyEx @ 0x1800A2610 (NtOpenKeyEx.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenKeyEx @ 0x1800A2630 (NtOpenKeyEx.c)
  */
 
 bool LdrpIsCODServiceEnabled()
 {
-  int v1; // [rsp+20h] [rbp-40h] BYREF
-  const wchar_t *v2; // [rsp+28h] [rbp-38h]
-  int v3; // [rsp+30h] [rbp-30h]
-  __int64 v4; // [rsp+38h] [rbp-28h]
-  int *v5; // [rsp+40h] [rbp-20h]
-  int v6; // [rsp+48h] [rbp-18h]
-  __int128 v7; // [rsp+50h] [rbp-10h]
+  bool v0; // bl
+  int v2; // [rsp+20h] [rbp-40h] BYREF
+  const wchar_t *v3; // [rsp+28h] [rbp-38h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp+10h] BYREF
 
-  v1 = 13500620;
-  v2 = L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\";
-  v3 = 48;
-  v5 = &v1;
-  v4 = 0LL;
-  v6 = 64;
-  v7 = 0LL;
-  return (int)NtOpenKeyEx() >= 0;
+  v2 = 13500620;
+  v3 = L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\";
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v2;
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v0 = NtOpenKeyEx(&KeyHandle, 0x20119u, &ObjectAttributes, 0) >= 0;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  return v0;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFreeVirtualMemory @ 0x14095F790
+ * XREFs of MiFreeVirtualMemory @ 0x140A05050
  * Callers:
- *     MmCommitDecommitSecuredMemory @ 0x14086AD74 (MmCommitDecommitSecuredMemory.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
+ *     MmCommitDecommitSecuredMemory @ 0x140871154 (MmCommitDecommitSecuredMemory.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiDeleteEmptyPageTables @ 0x140315248 (MiDeleteEmptyPageTables.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiFreeVadRange @ 0x1403BC958 (MiFreeVadRange.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetVadPageSize @ 0x14044F880 (MiGetVadPageSize.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
- *     MiDecommitEnclavePages @ 0x14095FD48 (MiDecommitEnclavePages.c)
- *     MiDecommitRegion @ 0x14095FDBC (MiDecommitRegion.c)
- *     PerfInfoLogVirtualFree @ 0x140961510 (PerfInfoLogVirtualFree.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiDeleteEmptyPageTables @ 0x140317278 (MiDeleteEmptyPageTables.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiFreeVadRange @ 0x1403C67C8 (MiFreeVadRange.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetVadPageSize @ 0x1404479B0 (MiGetVadPageSize.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
+ *     MiDecommitEnclavePages @ 0x140A05608 (MiDecommitEnclavePages.c)
+ *     MiDecommitRegion @ 0x140A0567C (MiDecommitRegion.c)
+ *     PerfInfoLogVirtualFree @ 0x140A06DC0 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MiFreeVirtualMemory(

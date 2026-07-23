@@ -23,8 +23,8 @@ BOOLEAN __fastcall CcRescheduleLazyWriteScan(__int64 a1, __int64 *a2)
       if ( a2 && (v3 = *a2, *a2 != 0x7FFFFFFFFFFFFFFFLL) && v3 )
       {
         v4.QuadPart = 160000000LL;
-        if ( v3 * (unsigned int)KeMaximumIncrement <= 160000000 )
-          v4.QuadPart = v3 * (unsigned int)KeMaximumIncrement;
+        if ( v3 * KeMaximumIncrement <= 160000000 )
+          v4.QuadPart = v3 * KeMaximumIncrement;
         if ( v4.QuadPart < 10000000 )
           v4 = CcIdleDelay;
         if ( v4.QuadPart > 0 )

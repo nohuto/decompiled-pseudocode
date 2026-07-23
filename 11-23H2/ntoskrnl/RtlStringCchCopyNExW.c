@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlStringCchCopyNExW @ 0x14022B860
+ * XREFs of RtlStringCchCopyNExW @ 0x14022B970
  * Callers:
- *     _CmValidateDeviceInterfaceName @ 0x1406CE9C0 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406CF49C (_CmGetDeviceInterfaceSubkeyPath.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140793F5C (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmSplitDevicePanelId @ 0x14082B5BC (_CmSplitDevicePanelId.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087D7E4 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     punycode_encode @ 0x1409BFD08 (punycode_encode.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406CE9F0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406CF4CC (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x14079414C (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSplitDevicePanelId @ 0x14082B8BC (_CmSplitDevicePanelId.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087DA24 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     punycode_encode @ 0x1409BFF08 (punycode_encode.c)
  * Callees:
- *     RtlStringCopyWorkerW_0 @ 0x14022B9A0 (RtlStringCopyWorkerW_0.c)
- *     memset @ 0x140435A00 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x14055F7D8 (StringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_0 @ 0x14022BAB0 (RtlStringCopyWorkerW_0.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14055FE98 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNExW(

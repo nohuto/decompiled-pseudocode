@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetSystemProcessorInformation @ 0x1400A5E10
+ * XREFs of ExpGetSystemProcessorInformation @ 0x1400A5D50
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     ExSystemExceptionFilter @ 0x1406E3A10 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall ExpGetSystemProcessorInformation(__int64 a1)

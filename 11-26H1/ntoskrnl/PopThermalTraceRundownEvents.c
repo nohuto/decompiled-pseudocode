@@ -1,32 +1,34 @@
 /*
- * XREFs of PopThermalTraceRundownEvents @ 0x14043572C
+ * XREFs of PopThermalTraceRundownEvents @ 0x1404246B4
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     PopDiagTraceThermalZoneRundown @ 0x140434FBC (PopDiagTraceThermalZoneRundown.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopDiagTraceThermalZoneRundown @ 0x140423E94 (PopDiagTraceThermalZoneRundown.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
  */
 
 __int64 PopThermalTraceRundownEvents()
 {
-  void **i; // rbx
+  struct _SINGLE_LIST_ENTRY *i; // rbx
   char v1; // r8
 
-  PopAcquireRwLockShared(&unk_140F10E30);
-  for ( i = (void **)stru_140F10828.FirstArgument; i != &stru_140F10828.FirstArgument; i = (void **)*i )
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
+  for ( i = PpmIdlePolicyLock.SystemAffinityTokenListHead.Next;
+        i != &PpmIdlePolicyLock.SystemAffinityTokenListHead;
+        i = i->Next )
   {
-    v1 = *((_BYTE *)i + 65);
+    v1 = BYTE1(i[8].Next);
     if ( (v1 & 2) != 0 )
       PopDiagTraceThermalZoneRundown(
-        (__int64)i[6],
-        (unsigned __int16 *)i + 520,
+        (__int64)i[6].Next,
+        (unsigned __int16 *)&i[130],
         (v1 & 4) != 0,
-        *((unsigned __int8 *)i + 69),
+        BYTE5(i[8].Next),
         v1 & 1,
-        *((_DWORD *)i + 20),
-        *((_BYTE *)i + 72),
-        *((_BYTE *)i + 73));
+        (char)i[10].Next,
+        (char)i[9].Next,
+        BYTE1(i[9].Next));
   }
-  return PopReleaseRwLock(&unk_140F10E30);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPolicyDeviceLock);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiQueryHeteroSetFromSubNode @ 0x1404396D0
+ * XREFs of KiQueryHeteroSetFromSubNode @ 0x14042C290
  * Callers:
- *     KiTraceLogHeteroRundown @ 0x140438E68 (KiTraceLogHeteroRundown.c)
- *     PpmEventTraceHeteroSets @ 0x140439268 (PpmEventTraceHeteroSets.c)
+ *     KiTraceLogHeteroRundown @ 0x14042BA28 (KiTraceLogHeteroRundown.c)
+ *     PpmEventTraceHeteroSets @ 0x14042BE28 (PpmEventTraceHeteroSets.c)
  * Callees:
  *     <none>
  */

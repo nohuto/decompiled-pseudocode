@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpGrowMapBufferWorker @ 0x1404EE5A0
+ * XREFs of HalpGrowMapBufferWorker @ 0x1404E7B80
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x140359B80 (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14043E9DC (HalpDmaProcessMapRegisterQueueV3.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x140B30E5C (HalpDmaGrowScatterMapBuffers.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x140B62D30 (HalpDmaGrowContiguousMapBuffers.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14035B920 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404374EC (HalpDmaProcessMapRegisterQueueV3.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140B3305C (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140B65DD0 (HalpDmaGrowContiguousMapBuffers.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpGrowMapBufferWorker(_QWORD *P)

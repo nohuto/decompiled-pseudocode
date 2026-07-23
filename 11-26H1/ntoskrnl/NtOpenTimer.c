@@ -1,37 +1,37 @@
 /*
- * XREFs of NtOpenTimer @ 0x14083AA90
+ * XREFs of NtOpenTimer @ 0x140840CD0
  * Callers:
- *     DifNtOpenTimerWrapper @ 0x14067F760 (DifNtOpenTimerWrapper.c)
+ *     DifNtOpenTimerWrapper @ 0x140683340 (DifNtOpenTimerWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenTimer(_QWORD *a1, int a2, int a3)
+NTSTATUS __cdecl NtOpenTimer(PHANDLE TimerHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   int v3; // ebx
   char PreviousMode; // si
   __int64 ULong64FromUser; // rax
-  int v8; // ebx
-  __int64 v10; // [rsp+48h] [rbp-10h] BYREF
+  NTSTATUS v8; // ebx
+  void *v10; // [rsp+48h] [rbp-10h] BYREF
 
-  v3 = a3;
+  v3 = (int)ObjectAttributes;
   v10 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(TimerHandle);
+    RtlWriteULong64ToUser(TimerHandle, ULong64FromUser);
   }
-  LOBYTE(a3) = PreviousMode;
-  v8 = ObOpenObjectByName(v3, ExTimerObjectType, a3, 0, a2, 0LL, (__int64)&v10);
+  LOBYTE(ObjectAttributes) = PreviousMode;
+  v8 = ObOpenObjectByName(v3, ExTimerObjectType, (_DWORD)ObjectAttributes, 0, DesiredAccess, 0LL, (__int64)&v10);
   if ( v8 >= 0 )
   {
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, v10);
+      RtlWriteULong64ToUser(TimerHandle, (__int64)v10);
     else
-      *a1 = v10;
+      *TimerHandle = v10;
   }
-  return (unsigned int)v8;
+  return v8;
 }

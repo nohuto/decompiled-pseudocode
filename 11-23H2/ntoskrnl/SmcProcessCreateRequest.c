@@ -1,21 +1,21 @@
 /*
- * XREFs of SmcProcessCreateRequest @ 0x1409D7E9C
+ * XREFs of SmcProcessCreateRequest @ 0x1409D809C
  * Callers:
- *     SmSetStoreInformation @ 0x1407E7D74 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1407E8044 (SmSetStoreInformation.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SmcCacheCreatePrepare @ 0x1409D7DD0 (SmcCacheCreatePrepare.c)
- *     SmcCacheAdd @ 0x1409DA9D0 (SmcCacheAdd.c)
- *     SmcCacheCleanup @ 0x1409DAAE4 (SmcCacheCleanup.c)
- *     SmcCacheDelete @ 0x1409DAB7C (SmcCacheDelete.c)
- *     SmcCacheInitialize @ 0x1409DABD8 (SmcCacheInitialize.c)
- *     SmcCacheStart @ 0x1409DAF1C (SmcCacheStart.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SmcCacheCreatePrepare @ 0x1409D7FD0 (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x1409DABD0 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x1409DACE4 (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x1409DAD7C (SmcCacheDelete.c)
+ *     SmcCacheInitialize @ 0x1409DADD8 (SmcCacheInitialize.c)
+ *     SmcCacheStart @ 0x1409DB11C (SmcCacheStart.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmcProcessCreateRequest(unsigned __int64 a1, int a2, char a3)

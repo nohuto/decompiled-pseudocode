@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSectionProtectProtoPte @ 0x14033CDD0
+ * XREFs of MiSectionProtectProtoPte @ 0x14033EE50
  * Callers:
- *     MiSectionProtectAllPtes @ 0x140303F00 (MiSectionProtectAllPtes.c)
+ *     MiSectionProtectAllPtes @ 0x1402E5F80 (MiSectionProtectAllPtes.c)
  * Callees:
- *     MiMakePrototypePteVadLookup @ 0x1402CFD90 (MiMakePrototypePteVadLookup.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiSanitizePfnProtection @ 0x14033CE50 (MiSanitizePfnProtection.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402B1B50 (MiMakePrototypePteVadLookup.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiSanitizePfnProtection @ 0x14033EED0 (MiSanitizePfnProtection.c)
  */
 
 __int64 __fastcall MiSectionProtectProtoPte(__int64 a1, __int64 a2, __int64 a3)

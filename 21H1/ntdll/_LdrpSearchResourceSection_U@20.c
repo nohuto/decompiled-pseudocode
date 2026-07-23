@@ -36,21 +36,21 @@
  *     _ResourceEntryBinarySearch@32 @ 0x4B306E16 (_ResourceEntryBinarySearch@32.c)
  */
 
-int __fastcall LdrpSearchResourceSection_U(int a1, int a2, unsigned int a3, int a4, int **a5)
+int __fastcall LdrpSearchResourceSection_U(PVOID BaseOfImage, int a2, unsigned int a3, ULONG Flags, int a5)
 {
-  int v6; // ebx
-  int v7; // ecx
-  int v8; // eax
+  ULONG v6; // ebx
+  unsigned int v7; // ecx
+  _IMAGE_NT_HEADERS64 *v8; // eax
   unsigned int v9; // ecx
-  unsigned int v10; // esi
+  PVOID v10; // esi
   int v11; // edi
-  int v12; // edx
-  __int16 v13; // ax
-  unsigned int v14; // esi
+  NTSTATUS v12; // edx
+  WORD Magic; // ax
+  DWORD VirtualAddress; // esi
   _DWORD *v15; // edx
-  unsigned int v16; // ebx
+  unsigned int NumberOfSections; // ebx
   unsigned int i; // ecx
-  unsigned int v18; // edi
+  DWORD v18; // edi
   int v19; // eax
   int v20; // ecx
   int v21; // eax
@@ -58,21 +58,21 @@ int __fastcall LdrpSearchResourceSection_U(int a1, int a2, unsigned int a3, int 
   int result; // eax
   int v24; // eax
   int v25; // eax
-  int *v26; // ecx
+  unsigned int v26; // ecx
   unsigned __int16 CurrentLocale; // si
-  int v28; // eax
-  int v29; // edx
+  unsigned int v28; // eax
+  unsigned int v29; // edx
   bool v30; // zf
   unsigned int v31; // edx
   int *v32; // ecx
-  int Heap; // eax
-  int v34; // edx
-  int v35; // edi
+  PVOID Heap; // eax
+  PVOID v34; // edx
+  NTSTATUS v35; // edi
   int v36; // eax
   int v37; // eax
   int v38; // eax
   int v39; // eax
-  int v40; // esi
+  NTSTATUS v40; // esi
   int v41; // ecx
   unsigned int v42; // edi
   _DWORD *RcConfig; // eax
@@ -81,55 +81,55 @@ int __fastcall LdrpSearchResourceSection_U(int a1, int a2, unsigned int a3, int 
   __int16 v46; // ax
   wchar_t *v47; // ecx
   unsigned int v48; // ecx
-  int v49; // esi
+  NTSTATUS v49; // esi
   int *v50; // edi
-  int ResourceFromAlternativeModule; // eax
+  NTSTATUS ResourceFromAlternativeModule; // eax
   int v52; // eax
-  int v53; // ebx
+  PVOID v53; // ebx
   int *v54; // esi
-  int v55; // eax
+  NTSTATUS v55; // eax
   int v56; // eax
-  int v57; // ebx
-  int v58; // [esp-8h] [ebp-F8h]
-  int v59; // [esp-8h] [ebp-F8h]
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-E0h] BYREF
-  int v61; // [esp+18h] [ebp-D8h] BYREF
-  int *v62; // [esp+20h] [ebp-D0h]
-  unsigned int v63; // [esp+24h] [ebp-CCh]
-  int v64; // [esp+28h] [ebp-C8h] BYREF
-  int v65; // [esp+2Ch] [ebp-C4h] BYREF
-  unsigned __int16 v66; // [esp+30h] [ebp-C0h] BYREF
-  _DWORD *v67; // [esp+34h] [ebp-BCh]
+  PVOID v57; // ebx
+  ULONG v58; // [esp-8h] [ebp-F8h]
+  ULONG v59; // [esp-8h] [ebp-F8h]
+  SIZE_T v60; // [esp-4h] [ebp-F4h]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-E0h] BYREF
+  int v62; // [esp+18h] [ebp-D8h] BYREF
+  int *v63; // [esp+20h] [ebp-D0h]
+  unsigned int v64; // [esp+24h] [ebp-CCh]
+  int v65; // [esp+28h] [ebp-C8h] BYREF
+  DWORD v66; // [esp+2Ch] [ebp-C4h] BYREF
+  DWORD Lcid[2]; // [esp+30h] [ebp-C0h] BYREF
   int v68; // [esp+38h] [ebp-B8h]
   int v69; // [esp+3Ch] [ebp-B4h]
-  int v70; // [esp+40h] [ebp-B0h] BYREF
+  int Size; // [esp+40h] [ebp-B0h] BYREF
   int v71; // [esp+44h] [ebp-ACh] BYREF
   unsigned int v72; // [esp+48h] [ebp-A8h] BYREF
-  int v73; // [esp+4Ch] [ebp-A4h] BYREF
+  DWORD DefaultLocaleId; // [esp+4Ch] [ebp-A4h] BYREF
   unsigned int v74; // [esp+50h] [ebp-A0h]
-  unsigned int v75; // [esp+54h] [ebp-9Ch]
+  PVOID v75; // [esp+54h] [ebp-9Ch]
   bool v76; // [esp+5Bh] [ebp-95h] BYREF
   int *v77; // [esp+5Ch] [ebp-94h]
   int v78; // [esp+60h] [ebp-90h] BYREF
   int v79; // [esp+64h] [ebp-8Ch]
-  unsigned int v80; // [esp+68h] [ebp-88h] BYREF
+  int v80; // [esp+68h] [ebp-88h] BYREF
   int v81; // [esp+6Ch] [ebp-84h] BYREF
   int v82; // [esp+70h] [ebp-80h]
   int v83; // [esp+74h] [ebp-7Ch] BYREF
-  int v84; // [esp+78h] [ebp-78h]
-  int v85; // [esp+7Ch] [ebp-74h] BYREF
+  unsigned int v84; // [esp+78h] [ebp-78h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+7Ch] [ebp-74h] BYREF
   int v86; // [esp+80h] [ebp-70h]
   int v87; // [esp+84h] [ebp-6Ch] BYREF
-  int **v88; // [esp+88h] [ebp-68h]
+  int v88; // [esp+88h] [ebp-68h]
   int v89; // [esp+8Ch] [ebp-64h] BYREF
   int *v90; // [esp+90h] [ebp-60h]
-  int v91; // [esp+94h] [ebp-5Ch]
+  PVOID BaseOfImagea; // [esp+94h] [ebp-5Ch]
   int v92; // [esp+98h] [ebp-58h]
   unsigned int v93; // [esp+9Ch] [ebp-54h]
   unsigned __int16 v94; // [esp+A0h] [ebp-50h]
   char v95; // [esp+A4h] [ebp-4Ch]
   int v96; // [esp+A8h] [ebp-48h] BYREF
-  int v97; // [esp+ACh] [ebp-44h]
+  NTSTATUS v97; // [esp+ACh] [ebp-44h]
   _BYTE v98[3]; // [esp+B3h] [ebp-3Dh] BYREF
   const wchar_t *v99; // [esp+B8h] [ebp-38h]
   int v100; // [esp+BCh] [ebp-34h]
@@ -141,15 +141,15 @@ int __fastcall LdrpSearchResourceSection_U(int a1, int a2, unsigned int a3, int 
   CPPEH_RECORD ms_exc; // [esp+D8h] [ebp-18h]
 
   v90 = (int *)a2;
-  v91 = a1;
+  BaseOfImagea = BaseOfImage;
   v77 = (int *)a2;
   v88 = a5;
   v92 = a2;
   v98[0] = 0;
   v72 = 0;
   v74 = 0;
-  v6 = a4;
-  if ( a3 < 3 && (a4 & 2) == 0 || a3 > 4 || (a4 & 0x41) != 0 && a3 != 4 )
+  v6 = Flags;
+  if ( a3 < 3 && (Flags & 2) == 0 || a3 > 4 || (Flags & 0x41) != 0 && a3 != 4 )
     return -1073741583;
   if ( a3 != 4 )
   {
@@ -157,33 +157,33 @@ int __fastcall LdrpSearchResourceSection_U(int a1, int a2, unsigned int a3, int 
     v93 = a3;
     goto LABEL_10;
   }
-  if ( (a4 & 0x41) == 0 )
+  if ( (Flags & 0x41) == 0 )
     return -1073741583;
   v7 = 3;
   v93 = 3;
 LABEL_10:
   v84 = v7;
   ms_exc.registration.TryLevel = 0;
-  v79 = ~a4;
-  if ( (~(_BYTE)a4 & 0x10) == 0 || (unsigned int)(v7 - 1) > 2 )
+  v79 = ~Flags;
+  if ( (~(_BYTE)Flags & 0x10) == 0 || v7 - 1 > 2 )
     goto LABEL_25;
   if ( v7 == 3 )
-    v8 = *(unsigned __int16 *)(a2 + 8);
+    v8 = (_IMAGE_NT_HEADERS64 *)*(unsigned __int16 *)(a2 + 8);
   else
     v8 = 0;
-  v85 = v8;
-  v94 = v8;
+  OutHeaders = v8;
+  v94 = (unsigned __int16)v8;
   v9 = *(_DWORD *)a2;
   if ( *(_DWORD *)a2 != 16 && v9 != 24 )
   {
     if ( (v9 & 0xFFFF0000) == 0 || _wcsicmp((const wchar_t *)v9, L"MUI") )
       goto LABEL_39;
-    LOWORD(v8) = v85;
+    LOWORD(v8) = (_WORD)OutHeaders;
   }
   if ( (v79 & 8) != 0 && (!(_WORD)v8 || (_WORD)v8 == 1024 || (_WORD)v8 == 2048) )
   {
-    v6 = a4 | 0x10;
-    a4 |= 0x10u;
+    v6 = Flags | 0x10;
+    Flags |= 0x10u;
     goto LABEL_25;
   }
 LABEL_39:
@@ -202,7 +202,7 @@ LABEL_55:
   v99 = L"MUI";
   v100 = 1;
   v101 = 0;
-  v20 = LdrpSearchResourceSection_U(3, 33554480, &v71);
+  v20 = LdrpSearchResourceSection_U(BaseOfImage, 3, 0x2000030u, (int)&v71);
   v69 = v20;
   if ( v20 < 0 )
   {
@@ -210,7 +210,7 @@ LABEL_55:
     v21 = -1;
     goto LABEL_48;
   }
-  v20 = LdrpAccessResourceDataNoMultipleLanguage(&v89, &v80);
+  v20 = LdrpAccessResourceDataNoMultipleLanguage(BaseOfImage, (int)&v89, (int)&v80);
   v69 = v20;
   if ( v20 < 0 )
     goto LABEL_46;
@@ -226,12 +226,12 @@ LABEL_46:
   }
   v80 = 0;
 LABEL_48:
-  LdrpSetAlternateResourceModuleHandle(a1, 0, 0, v21, 0, 2, v20, 0);
+  LdrpSetAlternateResourceModuleHandle((int)BaseOfImage, 0, 0, v21, 0, 2, v20, 0);
   v19 = v89;
   if ( !v89 )
     goto LABEL_55;
 LABEL_49:
-  if ( LdrRscIsTypeExist(v19, (wchar_t *)*v90, a4, (int)&v87) < 0 )
+  if ( LdrRscIsTypeExist(v19, (wchar_t *)*v90, Flags, (int)&v87) < 0 )
   {
     v22 = 393216;
 LABEL_56:
@@ -250,8 +250,8 @@ LABEL_56:
     goto LABEL_56;
   }
 LABEL_57:
-  v6 = v22 | a4;
-  a4 = v6;
+  v6 = v22 | Flags;
+  Flags = v6;
   if ( (v6 & 0x40000) != 0 )
   {
     result = -1073741686;
@@ -271,61 +271,61 @@ LABEL_57:
       v104 = v25;
       if ( a3 == 4 )
         v105 = v90[3];
-      result = LdrpLoadResourceFromAlternativeModule(a1, (int)&v102, a3, v6, v88);
+      result = LdrpLoadResourceFromAlternativeModule(BaseOfImage, (int)&v102, a3, v6, v88);
       v97 = result;
     }
     goto LABEL_68;
   }
 LABEL_25:
   v95 = 1;
-  v10 = v91;
-  v75 = v91;
-  v85 = 0;
+  v10 = BaseOfImagea;
+  v75 = BaseOfImagea;
+  OutHeaders = 0;
   v11 = 0;
   v83 = 0;
-  if ( (v91 & 3) != 0 )
+  if ( ((unsigned __int8)BaseOfImagea & 3) != 0 )
   {
-    v95 = (v91 & 1) == 0;
-    v10 = v91 & 0xFFFFFFFC;
-    v75 = v91 & 0xFFFFFFFC;
+    v95 = ((unsigned __int8)BaseOfImagea & 1) == 0;
+    v10 = (PVOID)((unsigned int)BaseOfImagea & 0xFFFFFFFC);
+    v75 = (PVOID)((unsigned int)BaseOfImagea & 0xFFFFFFFC);
   }
-  v12 = RtlImageNtHeaderEx(1, v10, 0, 0, &v85);
-  if ( !v85 )
+  v12 = RtlImageNtHeaderEx(1u, v10, 0LL, &OutHeaders);
+  if ( !OutHeaders )
     goto LABEL_76;
-  v13 = *(_WORD *)(v85 + 24);
-  if ( v13 != 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic != 267 )
   {
-    if ( v13 != 523 )
+    if ( Magic != 523 )
       goto LABEL_77;
-    v12 = RtlpImageDirectoryEntryToData64(v10, v95, 2u, &v70, v85, &v83);
+    v12 = RtlpImageDirectoryEntryToData64((char *)v10, v95, 2u, (unsigned int *)&Size, OutHeaders, &v83);
     v11 = v83;
 LABEL_76:
     if ( v12 >= 0 )
       goto LABEL_79;
     goto LABEL_77;
   }
-  if ( *(_DWORD *)(v85 + 116) <= 2u )
+  if ( HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) <= 2 )
     goto LABEL_77;
-  v14 = *(_DWORD *)(v85 + 136);
-  if ( !v14 )
+  VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+  if ( !VirtualAddress )
     goto LABEL_77;
-  v70 = *(_DWORD *)(v85 + 140);
-  if ( !v95 && v14 >= *(_DWORD *)(v85 + 84) )
+  Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+  if ( !v95 && VirtualAddress >= OutHeaders->OptionalHeader.SizeOfHeaders )
   {
-    v15 = (_DWORD *)(*(unsigned __int16 *)(v85 + 20) + v85 + 24);
-    v16 = *(unsigned __int16 *)(v85 + 6);
+    v15 = (_DWORD *)((char *)&OutHeaders->OptionalHeader.Magic + OutHeaders->FileHeader.SizeOfOptionalHeader);
+    NumberOfSections = OutHeaders->FileHeader.NumberOfSections;
     for ( i = 0; ; ++i )
     {
-      v63 = i;
-      v67 = v15;
-      if ( i >= v16 )
+      v64 = i;
+      Lcid[1] = (DWORD)v15;
+      if ( i >= NumberOfSections )
         break;
       v18 = v15[3];
-      if ( v14 >= v18 && v14 < v18 + v15[4] )
+      if ( VirtualAddress >= v18 && VirtualAddress < v18 + v15[4] )
       {
         if ( v15 )
         {
-          v11 = v75 + v14 + v15[5] - v15[3];
+          v11 = (int)v75 + VirtualAddress + v15[5] - v15[3];
           goto LABEL_71;
         }
         break;
@@ -335,7 +335,7 @@ LABEL_76:
     v11 = 0;
 LABEL_71:
     v83 = v11;
-    v6 = a4;
+    v6 = Flags;
     v90 = v77;
     if ( v11 )
     {
@@ -346,7 +346,7 @@ LABEL_77:
     v11 = 0;
     goto LABEL_78;
   }
-  v11 = v14 + v75;
+  v11 = (int)v75 + VirtualAddress;
 LABEL_78:
   v83 = v11;
 LABEL_79:
@@ -356,7 +356,7 @@ LABEL_79:
     ms_exc.registration.TryLevel = -2;
     return -1073741687;
   }
-  result = LdrpResGetMappingSize(v91, &v72, 256, 1);
+  result = LdrpResGetMappingSize((int)BaseOfImagea, &v72, 256, 1);
   v97 = result;
   if ( result < 0 )
   {
@@ -373,7 +373,7 @@ LABEL_68:
   CurrentLocale = 0;
   *(_WORD *)&v98[1] = 0;
   v94 = 0;
-  v73 = 0;
+  DefaultLocaleId = 0;
   while ( 1 )
   {
     if ( !v11 )
@@ -397,27 +397,27 @@ LABEL_68:
     }
 LABEL_168:
     v71 = *(unsigned __int16 *)(v11 + 14);
-    v70 = *(unsigned __int16 *)(v11 + 12);
-    result = RtlULongPtrAdd((unsigned __int16)v70, (unsigned __int16)v71, &v64);
+    Size = *(unsigned __int16 *)(v11 + 12);
+    result = RtlULongPtrAdd((unsigned __int16)Size, (unsigned __int16)v71, &v65);
     v97 = result;
     if ( result < 0 )
       goto LABEL_68;
-    result = RtlULongMult(&v61);
+    result = RtlULongMult(&v62);
     v97 = result;
     if ( result < 0 )
       goto LABEL_68;
     v45 = (int *)(v11 + 16);
-    v62 = (int *)(v11 + 16);
-    v80 = v72 + (v91 & 0xFFFFFFFC);
-    if ( v11 + 16 + v61 > v80 )
+    v63 = (int *)(v11 + 16);
+    v80 = v72 + ((unsigned int)BaseOfImagea & 0xFFFFFFFC);
+    if ( v11 + 16 + v62 > (unsigned int)v80 )
       goto LABEL_171;
-    v46 = v70;
-    LOWORD(v79) = v70;
+    v46 = Size;
+    LOWORD(v79) = Size;
     v47 = (wchar_t *)*v90;
     if ( (*v90 & 0xFFFF0000) == 0 )
     {
-      v45 += 2 * (unsigned __int16)v70;
-      v62 = v45;
+      v45 += 2 * (unsigned __int16)Size;
+      v63 = v45;
       v46 = v71;
       LOWORD(v79) = v71;
     }
@@ -450,7 +450,12 @@ LABEL_168:
       v104 = *(_DWORD *)(v92 + 8);
       if ( a3 == 4 )
         v105 = *(_DWORD *)(v92 + 12);
-      ResourceFromAlternativeModule = LdrpLoadResourceFromAlternativeModule(v91, (int)&v102, a3, v6 | 0x1000000, v88);
+      ResourceFromAlternativeModule = LdrpLoadResourceFromAlternativeModule(
+                                        BaseOfImagea,
+                                        (int)&v102,
+                                        a3,
+                                        v6 | 0x1000000,
+                                        v88);
       v48 = v93;
       if ( ResourceFromAlternativeModule == -1073020927 || ResourceFromAlternativeModule == -1073020922 )
         goto LABEL_190;
@@ -469,8 +474,8 @@ LABEL_190:
           if ( a3 == 4 )
             v105 = v50[3];
           v58 = v6;
-          v53 = v91;
-          v49 = LdrpLoadResourceFromAlternativeModule(v91, (int)&v102, a3, v58, v88);
+          v53 = BaseOfImagea;
+          v49 = LdrpLoadResourceFromAlternativeModule(BaseOfImagea, (int)&v102, a3, v58, v88);
           v97 = v49;
           if ( v49 >= 0 )
             LdrpResReportResourceAccessInternal(v53, 0, (int *)&v102, a3);
@@ -485,13 +490,13 @@ LABEL_190:
       goto LABEL_171;
     v77 = ++v90;
     v11 = v78;
-    v26 = (int *)v81;
+    v26 = v81;
   }
   v11 = 0;
   v78 = 0;
   v96 = *v45;
-  v26 = (int *)(v68 + v45[1]);
-  if ( (unsigned int)v26 > v80 )
+  v26 = v68 + v45[1];
+  if ( v26 > v80 )
   {
 LABEL_171:
     ms_exc.registration.TryLevel = -2;
@@ -501,29 +506,30 @@ LABEL_171:
 LABEL_90:
   if ( v26 && (v6 & 2) == 0 )
   {
-    *v88 = v26;
+    *(_DWORD *)v88 = v26;
     if ( !NtCurrentTeb()->ResourceRetValue )
     {
       v90 = (int *)NtCurrentTeb();
-      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 12);
-      v90[1016] = Heap;
+      LODWORD(v60) = 12;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v60);
+      v90[1016] = (int)Heap;
     }
     if ( NtCurrentTeb()->ResourceRetValue )
     {
-      v34 = v91;
-      *(_DWORD *)NtCurrentTeb()->ResourceRetValue = v91;
+      v34 = BaseOfImagea;
+      *(_DWORD *)NtCurrentTeb()->ResourceRetValue = BaseOfImagea;
       *((_DWORD *)NtCurrentTeb()->ResourceRetValue + 1) = v81;
       *((_DWORD *)NtCurrentTeb()->ResourceRetValue + 2) = v34;
     }
     v35 = 0;
     v97 = 0;
-    v6 = a4;
+    v6 = Flags;
     v31 = v93;
     goto LABEL_210;
   }
   if ( v11 && (v6 & 2) != 0 )
   {
-    *v88 = (int *)v11;
+    *(_DWORD *)v88 = v11;
     v35 = 0;
     v31 = v93;
 LABEL_209:
@@ -581,11 +587,11 @@ LABEL_107:
           v104 = v39;
           if ( a3 == 4 )
             v105 = v32[3];
-          v40 = LdrpLoadResourceFromAlternativeModule(v91, (int)&v102, a3, v6, v88);
+          v40 = LdrpLoadResourceFromAlternativeModule(BaseOfImagea, (int)&v102, a3, v6, v88);
           v97 = v40;
           if ( v40 < 0 )
             goto LABEL_138;
-          LdrpResReportResourceAccessInternal(v91, 0, (int *)&v102, a3);
+          LdrpResReportResourceAccessInternal(BaseOfImagea, 0, (int *)&v102, a3);
           ms_exc.registration.TryLevel = -2;
           return v40;
         case 2:
@@ -664,11 +670,11 @@ LABEL_109:
               {
                 v74 = v42 + 1;
                 --v86;
-                v6 = a4;
+                v6 = Flags;
                 goto LABEL_164;
               }
             }
-            v6 = a4;
+            v6 = Flags;
             CurrentLocale = v96;
             *(_WORD *)&v98[1] = v96;
           }
@@ -691,14 +697,14 @@ LABEL_164:
           break;
         case 7:
           if ( (~v6 & 0x80000) != 0
-            && (RcConfig = (_DWORD *)LdrpGetRcConfig(0, 1)) != 0
+            && (RcConfig = (_DWORD *)LdrpGetRcConfig(BaseOfImagea, 0, 1)) != 0
             && *RcConfig == -20054323
             && (v44 = RcConfig[31]) != 0
             && (RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)RcConfig + v44)),
-                (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v66)) )
+                RtlCultureNameToLCID(&DestinationString, Lcid)) )
           {
-            CurrentLocale = v66;
-            *(_WORD *)&v98[1] = v66;
+            CurrentLocale = Lcid[0];
+            *(_WORD *)&v98[1] = Lcid[0];
           }
           else
           {
@@ -716,32 +722,32 @@ LABEL_138:
           {
             CurrentLocale = NtCurrentTeb()->CurrentLocale;
             *(_WORD *)&v98[1] = CurrentLocale;
-            v6 = a4;
+            v6 = Flags;
           }
           else
           {
-            v6 = a4;
+            v6 = Flags;
             CurrentLocale = *(_WORD *)&v98[1];
           }
           goto LABEL_164;
         case 9:
           CurrentLocale = v96;
           *(_WORD *)&v98[1] = v96;
-          v97 = NtQueryDefaultLocale(1, &v73);
+          v97 = NtQueryDefaultLocale(1u, &DefaultLocaleId);
           if ( v97 >= 0 )
           {
-            CurrentLocale = v73;
-            *(_WORD *)&v98[1] = v73;
+            CurrentLocale = DefaultLocaleId;
+            *(_WORD *)&v98[1] = DefaultLocaleId;
           }
           goto LABEL_164;
         case 10:
           CurrentLocale = v96;
           *(_WORD *)&v98[1] = v96;
-          v97 = NtQueryDefaultLocale(0, &v65);
-          if ( v97 >= 0 && v65 != v73 )
+          v97 = NtQueryDefaultLocale(0, &v66);
+          if ( v97 >= 0 && v66 != DefaultLocaleId )
           {
-            CurrentLocale = v65;
-            *(_WORD *)&v98[1] = v65;
+            CurrentLocale = v66;
+            *(_WORD *)&v98[1] = v66;
           }
           goto LABEL_164;
         case 11:
@@ -751,7 +757,7 @@ LABEL_138:
         case 12:
 LABEL_163:
           v6 |= 0x20u;
-          a4 = v6;
+          Flags = v6;
           goto LABEL_164;
         default:
 LABEL_128:
@@ -771,7 +777,7 @@ LABEL_210:
       v104 = *(_DWORD *)(v92 + 8);
       if ( a3 == 4 )
         v105 = *(_DWORD *)(v92 + 12);
-      v55 = LdrpLoadResourceFromAlternativeModule(v91, (int)&v102, a3, v6 | 0x1000000, v88);
+      v55 = LdrpLoadResourceFromAlternativeModule(BaseOfImagea, (int)&v102, a3, v6 | 0x1000000, v88);
       if ( v55 != -1073020927 && v55 != -1073020922 )
       {
         v35 = v55;
@@ -794,8 +800,8 @@ LABEL_210:
   if ( a3 == 4 )
     v105 = v54[3];
   v59 = v6;
-  v57 = v91;
-  v35 = LdrpLoadResourceFromAlternativeModule(v91, (int)&v102, a3, v59, v88);
+  v57 = BaseOfImagea;
+  v35 = LdrpLoadResourceFromAlternativeModule(BaseOfImagea, (int)&v102, a3, v59, v88);
   v97 = v35;
   if ( v35 >= 0 )
   {

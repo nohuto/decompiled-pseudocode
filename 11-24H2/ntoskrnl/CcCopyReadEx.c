@@ -1,25 +1,25 @@
 /*
- * XREFs of CcCopyReadEx @ 0x1404DBF70
+ * XREFs of CcCopyReadEx @ 0x1404D5990
  * Callers:
- *     FsRtlCopyRead @ 0x140A265F0 (FsRtlCopyRead.c)
- *     CcCopyRead @ 0x140A4D130 (CcCopyRead.c)
- *     CcFastCopyRead @ 0x140A77C30 (CcFastCopyRead.c)
+ *     FsRtlCopyRead @ 0x140A1B070 (FsRtlCopyRead.c)
+ *     CcCopyRead @ 0x140A43CC0 (CcCopyRead.c)
+ *     CcFastCopyRead @ 0x140A71D50 (CcFastCopyRead.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x140245180 (IoDiskIoAttributionDereference.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcGetNodeForReadAhead @ 0x1402A94A0 (CcGetNodeForReadAhead.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     IoReferenceIoAttributionFromThread @ 0x1403C6140 (IoReferenceIoAttributionFromThread.c)
- *     CcUpdateReadHistory @ 0x140462070 (CcUpdateReadHistory.c)
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140AC25B4 (CcSetTelemetryPeriodicTimer.c)
- *     CcMapAndCopyFromCache @ 0x140AC2F00 (CcMapAndCopyFromCache.c)
- *     CcTelemetryBucketizeLatency @ 0x140AC35E0 (CcTelemetryBucketizeLatency.c)
+ *     IoDiskIoAttributionDereference @ 0x14020D960 (IoDiskIoAttributionDereference.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140273BD0 (IoReferenceIoAttributionFromThread.c)
+ *     CcGetNodeForReadAhead @ 0x140273DD0 (CcGetNodeForReadAhead.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     CcUpdateReadHistory @ 0x140457680 (CcUpdateReadHistory.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140ABD89C (CcSetTelemetryPeriodicTimer.c)
+ *     CcMapAndCopyFromCache @ 0x140ABE1E0 (CcMapAndCopyFromCache.c)
+ *     CcTelemetryBucketizeLatency @ 0x140ABE8C0 (CcTelemetryBucketizeLatency.c)
  */
 
 __int64 __fastcall CcCopyReadEx(
-        _QWORD *Object,
+        _SLIST_ENTRY *Object,
         __int64 *a2,
         unsigned int a3,
         unsigned __int8 a4,
@@ -33,7 +33,7 @@ __int64 __fastcall CcCopyReadEx(
   unsigned __int64 v13; // rax
   int v14; // eax
   __int64 v15; // r15
-  unsigned int *v16; // rdi
+  _SLIST_ENTRY *Next; // rdi
   __int64 Ahead; // rcx
   unsigned int v18; // ebx
   bool v19; // zf
@@ -73,11 +73,11 @@ __int64 __fastcall CcCopyReadEx(
   v31 = 0LL;
   v32 = 0LL;
   v37 = 0LL;
-  v15 = *(_QWORD *)(Object[5] + 8LL);
+  v15 = *(_QWORD *)(*((_QWORD *)&Object[2].Next + 1) + 8LL);
   v34 = v15;
-  v16 = (unsigned int *)Object[6];
-  ++qword_140F8E520;
-  if ( !byte_140F8E501 && CcTelemetryGlobalData && !dword_140F8E620 && !dword_140F8E624 )
+  Next = Object[3].Next;
+  ++qword_140F8E700;
+  if ( !byte_140F8E6E1 && CcTelemetryGlobalData && !dword_140F8E800 && !dword_140F8E804 )
     CcSetTelemetryPeriodicTimer(DueTime);
   if ( v12 <= 0 )
     a4 = 1;
@@ -88,9 +88,9 @@ __int64 __fastcall CcCopyReadEx(
     RtlRaiseStatus(-1073741592);
   Ahead = CcGetNodeForReadAhead(v15);
   v33 = Ahead;
-  v18 = *v16;
-  v19 = (*v16 & 0x20000) == 0;
-  v36 = *v16 & 0x20000;
+  v18 = (unsigned int)Next->Next;
+  v19 = ((__int64)Next->Next & 0x20000) == 0;
+  v36 = (__int64)Next->Next & 0x20000;
   v20 = a7;
   if ( !v19 )
     CcScheduleReadAheadNuma(Object, a2, v8, a7, Ahead);
@@ -122,7 +122,7 @@ __int64 __fastcall CcCopyReadEx(
   }
   if ( v31 )
     IoDiskIoAttributionDereference(v31);
-  if ( !byte_140F8E501 )
+  if ( !byte_140F8E6E1 )
   {
     v23 = 29LL;
     v24 = (_QWORD *)(*(_QWORD *)(v15 + 512) + 232LL);
@@ -131,7 +131,7 @@ __int64 __fastcall CcCopyReadEx(
       v25 = v32;
       if ( v32 )
       {
-        v26 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v25) / stru_140F8E4C8.QuadPart;
+        v26 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v25) / stru_140F8E6A8.QuadPart;
         v37 = v26;
       }
       else

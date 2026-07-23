@@ -1,27 +1,27 @@
 /*
- * XREFs of TppCallbackSendAndDestroyAlpcMessage @ 0x18006A498
+ * XREFs of TppCallbackSendAndDestroyAlpcMessage @ 0x180086B88
  * Callers:
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
- *     TpCallbackSendPendingAlpcMessage @ 0x18006A420 (TpCallbackSendPendingAlpcMessage.c)
- *     TppCallbackPerformDeferredWork @ 0x18006A460 (TppCallbackPerformDeferredWork.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
+ *     TpCallbackSendPendingAlpcMessage @ 0x180086B10 (TpCallbackSendPendingAlpcMessage.c)
+ *     TppCallbackPerformDeferredWork @ 0x180086B50 (TppCallbackPerformDeferredWork.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     ZwAlpcSendWaitReceivePort @ 0x180162E40 (ZwAlpcSendWaitReceivePort.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x180161200 (ZwAlpcSendWaitReceivePort.c)
  */
 
 __int64 __fastcall TppCallbackSendAndDestroyAlpcMessage(__int64 a1)
 {
-  unsigned int v2; // ebx
+  unsigned __int32 v2; // ebx
 
   v2 = ZwAlpcSendWaitReceivePort(
-         *(_QWORD *)(a1 + 216),
-         *(unsigned int *)(a1 + 224),
-         *(_QWORD *)(a1 + 208),
+         *(HANDLE *)(a1 + 216),
+         *(_DWORD *)(a1 + 224),
+         *(PPORT_MESSAGE *)(a1 + 208),
          0LL,
          0LL,
          0LL,
          0LL,
          0LL);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(_QWORD *)(a1 + 208));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 208));
   return v2;
 }

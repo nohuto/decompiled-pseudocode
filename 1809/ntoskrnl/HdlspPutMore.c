@@ -1,12 +1,12 @@
 /*
- * XREFs of HdlspPutMore @ 0x14094CEF8
+ * XREFs of HdlspPutMore @ 0x14094DEF8
  * Callers:
- *     HdlspProcessDumpCommand @ 0x14094CB74 (HdlspProcessDumpCommand.c)
+ *     HdlspProcessDumpCommand @ 0x14094DB74 (HdlspProcessDumpCommand.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HdlspGetLine @ 0x14094C584 (HdlspGetLine.c)
- *     HdlspPutString @ 0x14094CF98 (HdlspPutString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HdlspGetLine @ 0x14094D584 (HdlspGetLine.c)
+ *     HdlspPutString @ 0x14094DF98 (HdlspPutString.c)
  */
 
 char __fastcall HdlspPutMore(bool *a1)

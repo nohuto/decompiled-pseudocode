@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAccessCheckByTypeResultList @ 0x14015A900
+ * XREFs of ZwAccessCheckByTypeResultList @ 0x14015AE70
  * Callers:
  *     <none>
  * Callees:
@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwAccessCheckByTypeResultList(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SecurityDescriptor, PrincipalSelfSid, ClientToken);
+  return KiServiceInternal(SecurityDescriptor);
 }

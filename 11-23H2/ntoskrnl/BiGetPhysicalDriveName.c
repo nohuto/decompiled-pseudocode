@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetPhysicalDriveName @ 0x140A5D030
+ * XREFs of BiGetPhysicalDriveName @ 0x140A5D2E0
  * Callers:
- *     BiCreatePartitionDevice @ 0x1408066E0 (BiCreatePartitionDevice.c)
- *     BiGetDriveLayoutBlock @ 0x140807838 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x1408069B0 (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140807B08 (BiGetDriveLayoutBlock.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     BiGetVolumeDiskExtentsInformation @ 0x140A5D180 (BiGetVolumeDiskExtentsInformation.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x140A5D430 (BiGetVolumeDiskExtentsInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

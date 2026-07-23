@@ -1,16 +1,16 @@
 /*
  * XREFs of HalpCmciInit @ 0x140A8A70C
  * Callers:
- *     HalpCmcWorkerRoutine @ 0x14081E6F0 (HalpCmcWorkerRoutine.c)
+ *     HalpCmcWorkerRoutine @ 0x14081E9C0 (HalpCmcWorkerRoutine.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpCmciInitializeErrorPacket @ 0x1403800E4 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmciInitProcessor @ 0x1403801A8 (HalpCmciInitProcessor.c)
- *     HalpCmciLoadThresholdConfiguration @ 0x1403B0FC0 (HalpCmciLoadThresholdConfiguration.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpCmciInitializeErrorPacket @ 0x140380284 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmciInitProcessor @ 0x140380348 (HalpCmciInitProcessor.c)
+ *     HalpCmciLoadThresholdConfiguration @ 0x1403B11A0 (HalpCmciLoadThresholdConfiguration.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void HalpCmciInit()
@@ -21,11 +21,11 @@ void HalpCmciInit()
   ULONG ActiveProcessorCount; // r15d
   int *v4; // r14
   unsigned int v5; // ecx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rsi
   __int64 v8; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   v0 = HalpCmcErrorSource;
   Affinity = 0LL;

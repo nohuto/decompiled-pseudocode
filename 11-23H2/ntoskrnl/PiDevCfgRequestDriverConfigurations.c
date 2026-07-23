@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgRequestDriverConfigurations @ 0x14095FA08
+ * XREFs of PiDevCfgRequestDriverConfigurations @ 0x14095FC08
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A1F0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x14087A430 (PiDevCfgProcessDevice.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140879374 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgSetObjectProperty @ 0x14087B740 (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgAppendMultiSz @ 0x14095C634 (PiDevCfgAppendMultiSz.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1408795B4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgSetObjectProperty @ 0x14087B980 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgAppendMultiSz @ 0x14095C834 (PiDevCfgAppendMultiSz.c)
  */
 
 __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)

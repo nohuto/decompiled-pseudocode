@@ -1,21 +1,21 @@
 /*
- * XREFs of MiBuildForkPte @ 0x14030AB74
+ * XREFs of MiBuildForkPte @ 0x1402ECBF4
  * Callers:
- *     MiCloneVad @ 0x14030A8F8 (MiCloneVad.c)
+ *     MiCloneVad @ 0x1402EC978 (MiCloneVad.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiHandleForkZeroPte @ 0x14030AD68 (MiHandleForkZeroPte.c)
- *     MiHandleForkValidPrivatePte @ 0x14030ADC0 (MiHandleForkValidPrivatePte.c)
- *     MiHandleForkValidProtoPte @ 0x14030B310 (MiHandleForkValidProtoPte.c)
- *     MiUnlockClonePageTable @ 0x14030B67C (MiUnlockClonePageTable.c)
- *     MiHandleForkPagefilePte @ 0x14030CE54 (MiHandleForkPagefilePte.c)
- *     MiHandleForkValidPteCopy @ 0x14030DAD8 (MiHandleForkValidPteCopy.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
- *     MiHandleForkProtoPte @ 0x14030EB98 (MiHandleForkProtoPte.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     MiHandleForkDemandZeroPte @ 0x14049AABC (MiHandleForkDemandZeroPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiHandleForkZeroPte @ 0x1402ECDE8 (MiHandleForkZeroPte.c)
+ *     MiHandleForkValidPrivatePte @ 0x1402ECE40 (MiHandleForkValidPrivatePte.c)
+ *     MiHandleForkValidProtoPte @ 0x1402ED390 (MiHandleForkValidProtoPte.c)
+ *     MiUnlockClonePageTable @ 0x1402ED6FC (MiUnlockClonePageTable.c)
+ *     MiHandleForkPagefilePte @ 0x1402EEED4 (MiHandleForkPagefilePte.c)
+ *     MiHandleForkValidPteCopy @ 0x1402EFB58 (MiHandleForkValidPteCopy.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
+ *     MiHandleForkProtoPte @ 0x1402F0C18 (MiHandleForkProtoPte.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     MiHandleForkDemandZeroPte @ 0x14049460C (MiHandleForkDemandZeroPte.c)
  */
 
 __int64 __fastcall MiBuildForkPte(__int64 *a1)
@@ -75,8 +75,8 @@ __int64 __fastcall MiBuildForkPte(__int64 *a1)
         else
         {
           v10 = v4;
-          if ( qword_140E2D740 && (v4 & 0x10) == 0 )
-            v10 = v4 & qword_140E2D748;
+          if ( qword_140E2D8C0 && (v4 & 0x10) == 0 )
+            v10 = v4 & qword_140E2D8C8;
           if ( (v10 & 0x400) == 0 && (v10 & 0x800) == 0 && (v10 & 8) == 0 )
           {
             MiHandleForkDemandZeroPte(a1);

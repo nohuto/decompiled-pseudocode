@@ -3,7 +3,7 @@
  * Callers:
  *     BgpConsoleDisplayString @ 0x14072A77C (BgpConsoleDisplayString.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140239538 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x14023941C (BgpDisplayCharacterEx.c)
  *     BgpConsoleScrollScreen @ 0x14072A9AC (BgpConsoleScrollScreen.c)
  */
 
@@ -33,13 +33,13 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
   va_start(va, a5);
   if ( a2 > 0x50 )
     return 3221225485LL;
-  v7 = qword_140329968;
-  if ( a3 > *(_DWORD *)(qword_140329968 + 4) )
+  v7 = qword_140329998;
+  if ( a3 > *(_DWORD *)(qword_140329998 + 4) )
     return 3221225485LL;
-  v8 = (int *)(qword_140329968 + 68);
+  v8 = (int *)(qword_140329998 + 68);
   v9 = 0;
-  v10 = (_DWORD *)(qword_140329968 + 60);
-  v11 = (_DWORD *)(qword_140329968 + 48);
+  v10 = (_DWORD *)(qword_140329998 + 60);
+  v11 = (_DWORD *)(qword_140329998 + 48);
   v12 = (unsigned int)a1 - 8;
   if ( !(_DWORD)v12 )
   {
@@ -60,10 +60,10 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
            v25);
     if ( v9 >= 0 )
     {
-      v7 = qword_140329968;
+      v7 = qword_140329998;
       v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
       v22 = 3 * v12;
-      *(_WORD *)(qword_140329968 + 4 * v22 + 88) = 32;
+      *(_WORD *)(qword_140329998 + 4 * v22 + 88) = 32;
       *(_DWORD *)(v7 + 4 * v22 + 80) = a4;
       *(_DWORD *)(v7 + 4 * v22 + 84) = v20;
       goto LABEL_20;
@@ -89,9 +89,9 @@ LABEL_22:
     v14 = a5;
     v9 = BgpDisplayCharacterEx(
            a1,
-           *(__int64 **)(qword_140329968 + 40),
-           *(_DWORD *)(qword_140329968 + 60) + *v11 * *v8,
-           *(_DWORD *)(qword_140329968 + 64) + *(_DWORD *)(qword_140329968 + 72) * *(_DWORD *)(qword_140329968 + 52),
+           *(__int64 **)(qword_140329998 + 40),
+           *(_DWORD *)(qword_140329998 + 60) + *v11 * *v8,
+           *(_DWORD *)(qword_140329998 + 64) + *(_DWORD *)(qword_140329998 + 72) * *(_DWORD *)(qword_140329998 + 52),
            a5,
            a4,
            (int *)va,
@@ -100,15 +100,15 @@ LABEL_22:
     if ( v9 >= 0 )
     {
       v12 = 3 * ((unsigned int)v8[1] + 25LL * (unsigned int)*v8);
-      v7 = qword_140329968;
-      *(_WORD *)(qword_140329968 + 4 * v12 + 88) = a1;
+      v7 = qword_140329998;
+      *(_WORD *)(qword_140329998 + 4 * v12 + 88) = a1;
       *(_DWORD *)(v7 + 4 * v12 + 80) = a4;
       *(_DWORD *)(v7 + 4 * v12 + 84) = v14;
       ++*v8;
       goto LABEL_20;
     }
 LABEL_19:
-    v7 = qword_140329968;
+    v7 = qword_140329998;
     goto LABEL_20;
   }
   LODWORD(v12) = 5;
@@ -129,13 +129,13 @@ LABEL_19:
               (int *)va,
               &v26,
               v25);
-      v7 = qword_140329968;
+      v7 = qword_140329998;
       v9 = v18;
       if ( v18 >= 0 )
       {
         v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
         v19 = 3 * v12;
-        *(_WORD *)(qword_140329968 + 4 * v19 + 88) = 32;
+        *(_WORD *)(qword_140329998 + 4 * v19 + 88) = 32;
         *(_DWORD *)(v7 + 4 * v19 + 80) = a4;
         *(_DWORD *)(v7 + 4 * v19 + 84) = v16;
       }

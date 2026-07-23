@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtEnergyContextSetState @ 0x140950B44
+ * XREFs of PopEtEnergyContextSetState @ 0x1409CC484
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x1409505D0 (PoEnergyContextUpdateComponentPower.c)
- *     PoSetProcessEnergyTrackingState @ 0x140AFC0C0 (PoSetProcessEnergyTrackingState.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1409CBF10 (PoEnergyContextUpdateComponentPower.c)
+ *     PoSetProcessEnergyTrackingState @ 0x140AFDCC0 (PoSetProcessEnergyTrackingState.c)
  * Callees:
- *     RtlStateDurationUpdate @ 0x1404CC008 (RtlStateDurationUpdate.c)
- *     PopEtStringIntern @ 0x1409503AC (PopEtStringIntern.c)
- *     PopEtStringSet @ 0x140951008 (PopEtStringSet.c)
- *     RtlInternEntryDereference @ 0x1409518B8 (RtlInternEntryDereference.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1409521A4 (PopEtEnergyContextProcessStateUpdate.c)
+ *     RtlStateDurationUpdate @ 0x1404C5A38 (RtlStateDurationUpdate.c)
+ *     PopEtStringIntern @ 0x1409CBCEC (PopEtStringIntern.c)
+ *     PopEtStringSet @ 0x1409CC948 (PopEtStringSet.c)
+ *     RtlInternEntryDereference @ 0x1409CD1F8 (RtlInternEntryDereference.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1409CDAE4 (PopEtEnergyContextProcessStateUpdate.c)
  */
 
 __int64 __fastcall PopEtEnergyContextSetState(__int64 a1, _DWORD *a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of _mbstrlen @ 0x14053A37C
+ * XREFs of _mbstrlen @ 0x14053C7FC
  * Callers:
- *     mbstowcs @ 0x140536D40 (mbstowcs.c)
+ *     mbstowcs @ 0x1405391C0 (mbstowcs.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar @ 0x14096CA60 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x14097D3A0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 size_t __cdecl mbstrlen(const char *Str)
 {
-  const char *v3; // [rsp+30h] [rbp+8h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = Str;
-  while ( (unsigned __int16)RtlAnsiCharToUnicodeChar(&v3) )
+  SourceCharacter = (PUCHAR)Str;
+  while ( RtlAnsiCharToUnicodeChar(&SourceCharacter) )
     ;
-  return v3 - Str - 1;
+  return SourceCharacter - (PUCHAR)Str - 1;
 }

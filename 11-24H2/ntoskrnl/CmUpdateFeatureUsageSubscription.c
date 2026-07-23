@@ -1,20 +1,20 @@
 /*
- * XREFs of CmUpdateFeatureUsageSubscription @ 0x1407D5E8C
+ * XREFs of CmUpdateFeatureUsageSubscription @ 0x1407D6388
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     CmpAllocatePoolWithQuota @ 0x14045935C (CmpAllocatePoolWithQuota.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A35848 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     CmpAllocatePoolWithQuota @ 0x14044E3DC (CmpAllocatePoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A2AD64 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  */
 
 __int64 __fastcall CmUpdateFeatureUsageSubscription(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)
 {
-  size_t v4; // rsi
+  ULONG_PTR v4; // rsi
   struct _PRIVILEGE_SET *v6; // rdi
   BOOLEAN v7; // bl
   unsigned int updated; // ebx
@@ -51,7 +51,7 @@ __int64 __fastcall CmUpdateFeatureUsageSubscription(void *Src, size_t Size, KPRO
   }
   if ( (unsigned int)v4 < 4 )
     goto LABEL_4;
-  PoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuota(256LL);
+  PoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuota(256LL, v4, 0x63466D43u);
   v6 = PoolWithQuota;
   v14 = PoolWithQuota;
   if ( PoolWithQuota )

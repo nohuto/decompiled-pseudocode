@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpFreeObject @ 0x140923CC0
+ * XREFs of ObpFreeObject @ 0x1408FF7D0
  * Callers:
- *     ObpRemoveObjectRoutine @ 0x140923BC0 (ObpRemoveObjectRoutine.c)
+ *     ObpRemoveObjectRoutine @ 0x1408FF6D0 (ObpRemoveObjectRoutine.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     PspReturnQuota @ 0x1403BD9F0 (PspReturnQuota.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspDereferenceQuotaBlock @ 0x140924100 (PspDereferenceQuotaBlock.c)
- *     ObpLockObjectTypeExclusive @ 0x1409242F0 (ObpLockObjectTypeExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     PspReturnQuota @ 0x1403C7860 (PspReturnQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspDereferenceQuotaBlock @ 0x1408FFC10 (PspDereferenceQuotaBlock.c)
+ *     ObpLockObjectTypeExclusive @ 0x1408FFE00 (ObpLockObjectTypeExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpFreeObject(__int64 a1)
@@ -39,7 +39,7 @@ void __fastcall ObpFreeObject(__int64 a1)
   bool v22; // zf
   void *v23; // rcx
   struct _KPRCB *CurrentPrcb; // r8
-  struct _SLIST_ENTRY *v25; // rdx
+  _SLIST_ENTRY *v25; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
   void *v27; // rcx
   unsigned int v28; // [rsp+70h] [rbp+8h]
@@ -98,7 +98,7 @@ void __fastcall ObpFreeObject(__int64 a1)
     KeAbPostRelease(v8 + 184);
     CurrentThread = KeGetCurrentThread();
     v22 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v22 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v22 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery((__int64)CurrentThread, v20);
   }
   _InterlockedDecrement((volatile signed __int32 *)(v8 + 44));
@@ -115,7 +115,7 @@ void __fastcall ObpFreeObject(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(a1 + 32) + 32LL) = 0LL;
       }
       CurrentPrcb = KeGetCurrentPrcb();
-      v25 = *(struct _SLIST_ENTRY **)(a1 + 32);
+      v25 = *(_SLIST_ENTRY **)(a1 + 32);
       P = CurrentPrcb->PPLookasideList[4].P;
       ++P->TotalFrees;
       if ( LOWORD(P->ListHead.Alignment) < P->Depth

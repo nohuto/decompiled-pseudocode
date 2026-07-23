@@ -1,15 +1,12 @@
 /*
- * XREFs of PiCompareDDBCacheEntries @ 0x1404E3B64
+ * XREFs of PiCompareDDBCacheEntries @ 0x1404C681C
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
  */
 
-__int64 __fastcall PiCompareDDBCacheEntries(
-        struct _RTL_AVL_TABLE *Table,
-        const UNICODE_STRING *FirstStruct,
-        const UNICODE_STRING *SecondStruct)
+__int64 __fastcall PiCompareDDBCacheEntries(_RTL_AVL_TABLE *a1, const UNICODE_STRING *a2, const UNICODE_STRING *a3)
 {
   LONG v6; // eax
   __int64 result; // rax
@@ -18,15 +15,15 @@ __int64 __fastcall PiCompareDDBCacheEntries(
   bool v10; // cf
   bool v11; // zf
 
-  v6 = RtlCompareUnicodeString(FirstStruct + 1, SecondStruct + 1, 1u);
+  v6 = RtlCompareUnicodeString(a2 + 1, a3 + 1, 1u);
   if ( v6 < 0 )
     return 0LL;
   if ( v6 > 0 )
     return 1LL;
-  if ( Table->TableContext )
+  if ( a1->TableContext )
     return 2LL;
-  v8 = *(_DWORD *)&FirstStruct[2].Length;
-  v9 = *(_DWORD *)&SecondStruct[2].Length;
+  v8 = *(_DWORD *)&a2[2].Length;
+  v9 = *(_DWORD *)&a3[2].Length;
   v10 = v8 < v9;
   v11 = v8 == v9;
   if ( v8 < v9 )

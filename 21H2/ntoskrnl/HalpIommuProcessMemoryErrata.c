@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuProcessMemoryErrata @ 0x1404C9AB4
+ * XREFs of HalpIommuProcessMemoryErrata @ 0x1404C9CF4
  * Callers:
- *     HalpIommuProcessReservationsInternal @ 0x1404C9BA0 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x1404C9DE0 (HalpIommuProcessReservationsInternal.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpIommuProcessMemoryErrata(unsigned int a1, __int64 a2, __int64 a3)

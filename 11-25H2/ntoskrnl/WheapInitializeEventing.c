@@ -11,7 +11,7 @@
 
 PSLIST_ENTRY WheapInitializeEventing()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   __int64 v1; // rdi
   PSLIST_ENTRY result; // rax
 

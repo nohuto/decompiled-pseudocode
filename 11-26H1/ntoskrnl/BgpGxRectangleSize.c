@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpGxRectangleSize @ 0x1404FA16C
+ * XREFs of BgpGxRectangleSize @ 0x1404F377C
  * Callers:
- *     AnFwConfigureProgressResources @ 0x140C510AC (AnFwConfigureProgressResources.c)
- *     AnFwDisplayFade @ 0x140C52BA0 (AnFwDisplayFade.c)
- *     BgpGxReservePoolRectangleSize @ 0x140C54E28 (BgpGxReservePoolRectangleSize.c)
+ *     AnFwConfigureProgressResources @ 0x140C570AC (AnFwConfigureProgressResources.c)
+ *     AnFwDisplayFade @ 0x140C58BA0 (AnFwDisplayFade.c)
+ *     BgpGxReservePoolRectangleSize @ 0x140C5AE28 (BgpGxReservePoolRectangleSize.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPreparePageAccessor @ 0x140432670
+ * XREFs of MiPreparePageAccessor @ 0x140424F00
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x140209AF0 (MiGetBackgroundHugePageToZero.c)
- *     MiScrubLargePage @ 0x14068DA04 (MiScrubLargePage.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1403310D0 (MiGetBackgroundHugePageToZero.c)
+ *     MiScrubLargePage @ 0x14068EB34 (MiScrubLargePage.c)
  * Callees:
  *     <none>
  */

@@ -1,85 +1,81 @@
 /*
- * XREFs of DifIoGetDeviceDirectoryWrapper @ 0x140628870
+ * XREFs of DifIoGetDeviceDirectoryWrapper @ 0x140626E30
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IoGetDeviceDirectory @ 0x14071EEF0 (IoGetDeviceDirectory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IoGetDeviceDirectory @ 0x14071CA80 (IoGetDeviceDirectory.c)
  */
 
 __int64 __fastcall DifIoGetDeviceDirectoryWrapper(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4, __int64 a5)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 *v12; // rsi
-  int v13; // eax
-  BOOLEAN v14; // r14
+  __int64 *v10; // rsi
+  int v11; // eax
+  BOOLEAN v12; // r14
   __int64 *i; // rbx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  BOOLEAN v19; // di
-  _QWORD **v20; // rsi
+  __int64 v14; // rdx
+  BOOLEAN v15; // di
+  _QWORD **v16; // rsi
   _QWORD *j; // rbx
-  __int128 v23; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v24; // [rsp+40h] [rbp-20h]
-  __int128 v25; // [rsp+50h] [rbp-10h]
+  __int128 v19; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v20; // [rsp+40h] [rbp-20h]
+  __int128 v21; // [rsp+50h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+88h] [rbp+28h]
 
-  v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(337);
-  v12 = APIThunkContextById;
+  v10 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v13 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v13 & 0x18) != 0 )
+    v11 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v11 & 0x18) != 0 )
     {
-      *(_QWORD *)&v23 = retaddr;
+      *(_QWORD *)&v19 = retaddr;
     }
-    else if ( (v13 & 4) != 0 )
+    else if ( (v11 & 4) != 0 )
     {
-      *(_QWORD *)&v23 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v19 = DifGetReturnAddressForWrappers();
     }
-    v14 = 0;
-    *(_QWORD *)&v25 = a1;
-    *((_QWORD *)&v23 + 1) = a5;
-    *((_QWORD *)&v24 + 1) = __PAIR64__(a2, a3);
-    *(_QWORD *)&v24 = a4;
+    v12 = 0;
+    *(_QWORD *)&v21 = a1;
+    *((_QWORD *)&v19 + 1) = a5;
+    *((_QWORD *)&v20 + 1) = __PAIR64__(a2, a3);
+    *(_QWORD *)&v20 = a4;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v14 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v12 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v12[4]; i != v12 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v10[4]; i != v10 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v23, v9, v10, v11);
+          guard_dispatch_icall_no_overrides(&v19, v9);
       }
-      if ( v14 )
+      if ( v12 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v25) = IoGetDeviceDirectory(a1, a2, a3, a4, a5);
-  if ( v12 )
+  DWORD2(v21) = IoGetDeviceDirectory(a1, a2, a3, a4, a5);
+  if ( v10 )
   {
-    if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v19 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v15 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v20 = (_QWORD **)(v12 + 6);
-      for ( j = *v20; j != v20; j = (_QWORD *)*j )
+      v16 = (_QWORD **)(v10 + 6);
+      for ( j = *v16; j != v16; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v23, v16, v17, v18);
+          guard_dispatch_icall_no_overrides(&v19, v14);
       }
-      if ( v19 )
+      if ( v15 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return DWORD2(v25);
+  return DWORD2(v21);
 }

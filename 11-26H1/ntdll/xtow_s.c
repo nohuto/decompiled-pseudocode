@@ -1,11 +1,11 @@
 /*
- * XREFs of xtow_s @ 0x180132E84
+ * XREFs of xtow_s @ 0x180132BF4
  * Callers:
- *     _itow_s @ 0x180132C90 (_itow_s.c)
- *     _ltow_s @ 0x180132CD0 (_ltow_s.c)
- *     _ultow_s @ 0x180132D20 (_ultow_s.c)
+ *     _itow_s @ 0x180132A00 (_itow_s.c)
+ *     _ltow_s @ 0x180132A40 (_ltow_s.c)
+ *     _ultow_s @ 0x180132A90 (_ultow_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 __int64 __fastcall xtow_s(unsigned int a1, __int16 *a2, unsigned __int64 a3, unsigned int a4, int a5)

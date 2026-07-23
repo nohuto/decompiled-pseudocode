@@ -16,25 +16,25 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-char __fastcall RtlCreateUnicodeString(__int64 a1, _WORD *a2)
+BOOLEAN __cdecl RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   __int64 v4; // rax
   unsigned int v5; // ebx
-  void *v6; // rax
+  WCHAR *v6; // rax
 
   v4 = -1LL;
   do
     ++v4;
-  while ( a2[v4] );
+  while ( SourceString[v4] );
   v5 = 2 * v4 + 2;
   if ( (unsigned int)(2 * v4 + 1) > 0xFFFD )
     return 0;
-  v6 = (void *)sub_180043FE0(v5);
-  *(_QWORD *)(a1 + 8) = v6;
+  v6 = (WCHAR *)sub_180043FE0(v5);
+  DestinationString->Buffer = v6;
   if ( !v6 )
     return 0;
-  *(_WORD *)(a1 + 2) = v5;
-  memmove(v6, a2, v5);
-  *(_WORD *)a1 = v5 - 2;
+  DestinationString->MaximumLength = v5;
+  memmove(v6, SourceString, v5);
+  DestinationString->Length = v5 - 2;
   return 1;
 }

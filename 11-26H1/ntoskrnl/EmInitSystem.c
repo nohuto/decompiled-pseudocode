@@ -1,24 +1,24 @@
 /*
- * XREFs of EmInitSystem @ 0x140D07BB4
+ * XREFs of EmInitSystem @ 0x140D0DE84
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1407234B0 (ZwReadFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x140B20220 (RtlAppendStringToString.c)
- *     EmpProviderRegister @ 0x140B58860 (EmpProviderRegister.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpParseInfDatabase @ 0x140CB63E0 (EmpParseInfDatabase.c)
- *     EmpCacheBiosDate @ 0x140D080CC (EmpCacheBiosDate.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x140728080 (ZwReadFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x140B22640 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x140B5B680 (EmpProviderRegister.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpParseInfDatabase @ 0x140CBC420 (EmpParseInfDatabase.c)
+ *     EmpCacheBiosDate @ 0x140D0E39C (EmpCacheBiosDate.c)
  */
 
 __int64 __fastcall EmInitSystem(int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -177,20 +177,20 @@ LABEL_19:
   }
   else
   {
-    *(_DWORD *)&EmpParseLock.WaitRegister.Flags |= 0x80000000;
-    EmpParseLock.InitialStack = EmpRuleUpdateWorkerThread;
+    *((_DWORD *)&EmpParseLock.0 + 1) |= 0x80000000;
+    *(_QWORD *)&EmpParseLock.CurrentRunTime = EmpRuleUpdateWorkerThread;
     *(_QWORD *)&EmpParseLock.Header.Lock = 0LL;
-    EmpParseLock.KernelStack = 0LL;
-    *($353D57E818BB6F967B4B818D974CF463 *)((char *)&EmpParseLock.116 + 4) = 0LL;
-    EmpParseLock.CycleTime = 0LL;
-    *(_QWORD *)&EmpParseLock.CurrentRunTime = 0LL;
-    EmpParseLock.StackBase = 0LL;
-    EmpRuleListHead = 0LL;
-    EmpTargetRuleListHead = 0LL;
-    EmpParseLock.ThreadLock = 0LL;
-    EmpWorkerBusy = 0;
-    EmpParseLock.StackLimit = 0LL;
+    EmpParseLock.QuantumTarget = 0LL;
+    *(_QWORD *)&EmpParseLock.SystemCallNumber = 0LL;
+    EmpParseLock.Header.WaitListHead.Blink = 0LL;
     EmpParseLock.SListFaultAddress = 0LL;
+    EmpParseLock.StateSaveArea = 0LL;
+    EmpParseLock.Header.WaitListHead.Flink = 0LL;
+    EmpTargetRuleListHead = 0LL;
+    EmpRuleUpdateQueue = 0LL;
+    EmpWorkerBusy = 0;
+    EmpParseLock.KernelStack = 0LL;
+    EmpParseLock.ThreadLock = 0LL;
     v6 = *(_QWORD *)(a2 + 240);
     EmpStringTable = 0LL;
     EmpNumberOfEntryTypes = 0;
@@ -204,7 +204,7 @@ LABEL_19:
       EmpCacheBiosDate();
       EmpProviderRegister(0LL, 0LL, 0, (struct _KLOCK_ENTRIES *)&off_140005B00, 6u, &v24);
       EmpProviderRegister(0LL, 0LL, 0, (struct _KLOCK_ENTRIES *)&off_140005B90, 1u, &v24);
-      v9 = EmpProviderRegister(0LL, 0LL, 0, (struct _KLOCK_ENTRIES *)&BuiltinCallbackReg, 6u, &EmBuiltinProviderHandle);
+      v9 = EmpProviderRegister(0LL, 0LL, 0, (struct _KLOCK_ENTRIES *)&BuiltinCallbackReg, 6u, EmBuiltinProviderHandle);
       if ( v9 >= 0 )
         goto LABEL_6;
     }

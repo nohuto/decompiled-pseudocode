@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCheckPoolTagFilters @ 0x1406C3824
+ * XREFs of EtwpCheckPoolTagFilters @ 0x1406C7464
  * Callers:
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14043AD5C (ExCheckSingleFilter.c)
+ *     ExCheckSingleFilter @ 0x14042D60C (ExCheckSingleFilter.c)
  */
 
 char __fastcall EtwpCheckPoolTagFilters(unsigned int a1, int a2)
@@ -17,10 +17,10 @@ char __fastcall EtwpCheckPoolTagFilters(unsigned int a1, int a2)
   v2 = a1;
   v3 = a2;
   v4 = 0;
-  v5 = (unsigned __int16)EtwpPoolTagFilter[10 * a1];
+  v5 = *(unsigned __int16 *)&stru_140F03830.ApcStateFill[20 * a1 + 24];
   while ( v4 < v5 )
   {
-    if ( (unsigned int)ExCheckSingleFilter(v3, *(_DWORD *)&EtwpPoolTagFilter[10 * v2 + 2 + 2 * v4]) )
+    if ( (unsigned int)ExCheckSingleFilter(v3, *(_DWORD *)&stru_140F03830.ApcStateFill[20 * v2 + 28 + 4 * v4]) )
       return 1;
     v4 = v6 + 1;
   }

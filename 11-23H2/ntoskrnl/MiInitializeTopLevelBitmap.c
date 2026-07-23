@@ -3,15 +3,15 @@
  * Callers:
  *     MiInitializeSystemVa @ 0x140B5FA88 (MiInitializeSystemVa.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 MiInitializeTopLevelBitmap()
 {
   unsigned __int64 v0; // rbx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
   dword_140C66F80 = (unsigned __int8)ExGenRandom(1);

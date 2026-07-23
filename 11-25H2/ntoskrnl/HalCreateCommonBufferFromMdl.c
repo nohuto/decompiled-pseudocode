@@ -40,7 +40,7 @@ __int64 __fastcall HalCreateCommonBufferFromMdl(
   unsigned __int64 *v22; // rdx
   bool v23; // cc
   char v24; // al
-  PVOID MappedSystemVa; // rax
+  char *MappedSystemVa; // rax
   char v27; // [rsp+40h] [rbp-81h]
   char v28; // [rsp+41h] [rbp-80h]
   PMDL MemoryDescriptorList; // [rsp+48h] [rbp-79h] BYREF
@@ -152,14 +152,14 @@ LABEL_48:
 LABEL_51:
         if ( (v9->MdlFlags & 5) != 0 )
         {
-          MappedSystemVa = v9->MappedSystemVa;
+          MappedSystemVa = (char *)v9->MappedSystemVa;
         }
         else
         {
-          MappedSystemVa = MmMapLockedPagesSpecifyCache(v9, 0, MmCached, 0LL, 0, 0x40000000u);
+          MappedSystemVa = (char *)MmMapLockedPagesSpecifyCache(v9, 0, MmCached, 0LL, 0, 0x40000000u);
           v17 = v31;
         }
-        CacheAttribute = HalpAllocateCommonBufferEntry(v18, (unsigned __int64)MappedSystemVa + v38, v17, v5, 0, 0LL);
+        CacheAttribute = HalpAllocateCommonBufferEntry(v18, (_RTL_BALANCED_NODE *)&MappedSystemVa[v38], v17, v5, 0, 0LL);
         if ( CacheAttribute >= 0 )
         {
           *v39 = v31;

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpResetCachedSecurity @ 0x14060B7A8
+ * XREFs of CmpResetCachedSecurity @ 0x14060B85C
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x1403FDF60 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1403FCE20 (CmpFindSecurityCellCacheIndex.c)
  */
 
 __int64 __fastcall CmpResetCachedSecurity(__int64 a1, int a2)

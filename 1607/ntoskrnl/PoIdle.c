@@ -1,18 +1,18 @@
 /*
- * XREFs of PoIdle @ 0x1400D9F40
+ * XREFs of PoIdle @ 0x1400D7DE0
  * Callers:
- *     KiIdleLoop @ 0x140161A70 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140161FE0 (KiIdleLoop.c)
  * Callees:
- *     PpmEventIdleStateChange @ 0x1400A1760 (PpmEventIdleStateChange.c)
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
- *     PpmIdlePrepare @ 0x1400DBCB0 (PpmIdlePrepare.c)
- *     PpmIdleSelectStates @ 0x14013B680 (PpmIdleSelectStates.c)
- *     PpmResetProcessorIdleAccounting @ 0x140145C8C (PpmResetProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeExecuteVerw @ 0x140171240 (KeExecuteVerw.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeIdleSpecCtrl @ 0x1401D909C (KeIdleSpecCtrl.c)
- *     PpmSetPlatformIdleDurationHint @ 0x140201044 (PpmSetPlatformIdleDurationHint.c)
+ *     PpmEventIdleStateChange @ 0x1400A0088 (PpmEventIdleStateChange.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
+ *     PpmIdlePrepare @ 0x1400D9B50 (PpmIdlePrepare.c)
+ *     PpmIdleSelectStates @ 0x14013BBF0 (PpmIdleSelectStates.c)
+ *     PpmResetProcessorIdleAccounting @ 0x1401461FC (PpmResetProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeExecuteVerw @ 0x140171740 (KeExecuteVerw.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeIdleSpecCtrl @ 0x1401D8EC8 (KeIdleSpecCtrl.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x140200E70 (PpmSetPlatformIdleDurationHint.c)
  */
 
 __int64 __fastcall PoIdle(__int64 a1)
@@ -60,8 +60,8 @@ __int64 __fastcall PoIdle(__int64 a1)
   __int64 v43; // [rsp+70h] [rbp-98h] BYREF
   unsigned __int16 v44[88]; // [rsp+78h] [rbp-90h] BYREF
 
-  result = dword_140303E0C;
-  if ( BYTE5(PpmCurrentProfile[174 * dword_140303E0C + 16]) )
+  result = dword_140303D4C;
+  if ( BYTE5(PpmCurrentProfile[174 * dword_140303D4C + 16]) )
     return result;
   v3 = 0;
   v4 = *(_QWORD *)(a1 + 23808);
@@ -248,7 +248,7 @@ LABEL_62:
     {
       while ( ++v29 != (unsigned __int16)KeNumberNodes )
       {
-        v31 = *((unsigned __int16 *)qword_1403269A8
+        v31 = *((unsigned __int16 *)qword_1403269E8
               + v29
               + ParentNode->Affinity.Reserved[0] * (unsigned int)(unsigned __int16)KeNumberNodes);
         if ( *(_QWORD *)(KeNodeBlock[v31] + 64) != *(_QWORD *)(KeNodeBlock[v31] + 136) )

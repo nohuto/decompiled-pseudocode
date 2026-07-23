@@ -14,8 +14,8 @@ __int64 __fastcall EtwpUseDescriptorType(__int64 a1, char *a2)
   __int64 v2; // rdi
   char v3; // si
   NTSTATUS v4; // eax
-  ULONG v5; // ebx
-  __int64 v7; // [rsp+30h] [rbp-38h] BYREF
+  unsigned __int32 v5; // ebx
+  ULONG v7; // [rsp+30h] [rbp-38h] BYREF
   __int64 v8; // [rsp+38h] [rbp-30h] BYREF
   char v9; // [rsp+40h] [rbp-28h]
 
@@ -34,13 +34,7 @@ __int64 __fastcall EtwpUseDescriptorType(__int64 a1, char *a2)
   }
   v8 = *(_QWORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x58);
   v9 = v3;
-  v4 = ((__int64 (__fastcall *)(__int64, __int64 *, __int64, _QWORD, _DWORD, __int64 *))NtTraceControl)(
-         31LL,
-         &v8,
-         16LL,
-         0LL,
-         0,
-         &v7);
+  v4 = NtTraceControl(EtwUseDescriptorTypeCode, &v8, 0x10u, 0LL, 0, &v7);
   if ( v4 )
   {
     v5 = RtlNtStatusToDosError(v4);

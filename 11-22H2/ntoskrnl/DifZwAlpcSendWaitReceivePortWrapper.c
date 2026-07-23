@@ -10,15 +10,15 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAlpcSendWaitReceivePortWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __fastcall DifZwAlpcSendWaitReceivePortWrapper(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   __int64 v12; // rdx
   __int64 v13; // rcx
@@ -28,7 +28,7 @@ __int64 __fastcall DifZwAlpcSendWaitReceivePortWrapper(
   int v17; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v21; // rdi
   _QWORD *v22; // rbx
   _QWORD v23[10]; // [rsp+48h] [rbp-39h] BYREF
@@ -62,21 +62,29 @@ LABEL_8:
   }
   v23[0] = 0LL;
 LABEL_10:
-  v23[4] = a5;
-  v23[3] = a6;
-  v23[2] = a7;
-  v23[1] = a8;
-  v23[8] = a1;
-  LODWORD(v23[7]) = a2;
-  v23[6] = a3;
-  v23[5] = a4;
+  v23[4] = ReceiveMessage;
+  v23[3] = BufferLength;
+  v23[2] = ReceiveMessageAttributes;
+  v23[1] = Timeout;
+  v23[8] = PortHandle;
+  LODWORD(v23[7]) = Flags;
+  v23[6] = SendMessageA;
+  v23[5] = SendMessageAttributes;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v23);
   }
 LABEL_17:
-  result = ZwAlpcSendWaitReceivePort(a1, a2);
+  result = ZwAlpcSendWaitReceivePort(
+             PortHandle,
+             Flags,
+             SendMessageA,
+             SendMessageAttributes,
+             ReceiveMessage,
+             BufferLength,
+             ReceiveMessageAttributes,
+             Timeout);
   LODWORD(v23[9]) = result;
   if ( APIThunkContextById )
   {
@@ -91,7 +99,7 @@ LABEL_17:
         v22 = (_QWORD *)*v22;
       }
       while ( v22 != v21 );
-      return LODWORD(v23[9]);
+      return v23[9];
     }
   }
   return result;

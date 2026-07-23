@@ -6,7 +6,7 @@
  *     _RtlpAddVectoredHandler@12 @ 0x4B2AB096 (_RtlpAddVectoredHandler@12.c)
  */
 
-int __stdcall RtlAddVectoredExceptionHandler(int a1, int a2)
+PVOID __cdecl RtlAddVectoredExceptionHandler(ULONG First, PVECTORED_EXCEPTION_HANDLER Handler)
 {
-  return RtlpAddVectoredHandler(0);
+  return (PVOID)RtlpAddVectoredHandler(0);
 }

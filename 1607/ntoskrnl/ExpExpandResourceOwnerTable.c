@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpExpandResourceOwnerTable @ 0x1400971CC
+ * XREFs of ExpExpandResourceOwnerTable @ 0x1400969CC
  * Callers:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExpFindEmptyEntry @ 0x140096E48 (ExpFindEmptyEntry.c)
- *     ExpFindCurrentThread @ 0x1400970C0 (ExpFindCurrentThread.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExpFindEmptyEntry @ 0x140096648 (ExpFindEmptyEntry.c)
+ *     ExpFindCurrentThread @ 0x1400968C0 (ExpFindCurrentThread.c)
  * Callees:
- *     ExpLockResource @ 0x14005DB60 (ExpLockResource.c)
- *     ExpUnlockResource @ 0x140066CF0 (ExpUnlockResource.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExpLockResource @ 0x14005D6E0 (ExpLockResource.c)
+ *     ExpUnlockResource @ 0x140066870 (ExpUnlockResource.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

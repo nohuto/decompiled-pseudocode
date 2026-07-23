@@ -18,7 +18,7 @@ void WheaFlushETWEventsAddWorkRtn()
   __int16 v2; // [rsp+30h] [rbp-10h]
   int v3; // [rsp+32h] [rbp-Eh]
   __int16 v4; // [rsp+36h] [rbp-Ah]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp+10h] BYREF
   ULONG ProcIndex; // [rsp+58h] [rbp+18h] BYREF
 
   ProcNumber = 0;

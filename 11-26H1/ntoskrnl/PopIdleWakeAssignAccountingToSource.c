@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeAssignAccountingToSource @ 0x140610698
+ * XREFs of PopIdleWakeAssignAccountingToSource @ 0x1406138FC
  * Callers:
- *     PopIdleWakeFindOrAllocateWakeSource @ 0x1406107E8 (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x140613A48 (PopIdleWakeFindOrAllocateWakeSource.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
  */
 
 __int64 __fastcall PopIdleWakeAssignAccountingToSource(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -24,7 +24,7 @@ __int64 __fastcall PopIdleWakeAssignAccountingToSource(__int64 a1, __int64 a2, i
   *(_QWORD *)(a2 + 136) = *(_QWORD *)(a4 + 128);
   do
   {
-    result = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)&PopAdaptiveStandbyLock.InGlobalUpdateVpThreadPriorityList);
+    result = (unsigned int)_InterlockedIncrement(&PopIdleWakeNextToken);
     *(_DWORD *)(a2 + 408) = result;
   }
   while ( (_DWORD)result == -1 );

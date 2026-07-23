@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x1403CA408
+ * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x1403B27DC
  * Callers:
- *     AuthzBasepAddSecurityAttributeValues @ 0x1403CA128 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x14052C43C (AuthzBasepDeleteSecurityAttributeValues.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x140A29E40 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x1403B24FC (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x14052E95C (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x140A3CEE0 (AuthzBasepCompareSecurityAttribute.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1403CBD00 (AuthzBasepEqualUnicodeString.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B0620 (AuthzBasepEqualUnicodeString.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepFindSecurityAttributeValue(__int64 a1, unsigned __int16 *a2, unsigned __int16 a3)
@@ -38,7 +38,7 @@ __int64 __fastcall AuthzBasepFindSecurityAttributeValue(__int64 a1, unsigned __i
   unsigned int v28; // eax
   unsigned int v29; // eax
   UNICODE_STRING String1; // [rsp+20h] [rbp-20h] BYREF
-  __int128 v31; // [rsp+30h] [rbp-10h] BYREF
+  UNICODE_STRING v31; // [rsp+30h] [rbp-10h] BYREF
 
   v3 = a3;
   v4 = (__int64 *)(a1 + 72);
@@ -99,9 +99,9 @@ LABEL_14:
     String1.Length = a2[4];
     String1.MaximumLength = String1.Length;
     String1.Buffer = (wchar_t *)*((_QWORD *)a2 + 2);
-    LOWORD(v31) = *((_WORD *)v5 + 24);
-    WORD1(v31) = v31;
-    *((_QWORD *)&v31 + 1) = v5[7];
+    v31.Length = *((_WORD *)v5 + 24);
+    v31.MaximumLength = v31.Length;
+    v31.Buffer = (wchar_t *)v5[7];
     if ( *(_QWORD *)a2 == v5[5] )
     {
       v23 = AuthzBasepEqualUnicodeString(&String1, &v31);
@@ -165,9 +165,9 @@ LABEL_38:
         String1.Length = a2[4];
         String1.MaximumLength = String1.Length;
         String1.Buffer = (wchar_t *)*((_QWORD *)a2 + 2);
-        LOWORD(v31) = *(_WORD *)(v6 + 48);
-        WORD1(v31) = v31;
-        *((_QWORD *)&v31 + 1) = *(_QWORD *)(v6 + 56);
+        v31.Length = *(_WORD *)(v6 + 48);
+        v31.MaximumLength = v31.Length;
+        v31.Buffer = *(wchar_t **)(v6 + 56);
         if ( *(_QWORD *)a2 != *(_QWORD *)(v6 + 40) )
           goto LABEL_38;
         v27 = AuthzBasepEqualUnicodeString(&String1, &v31);

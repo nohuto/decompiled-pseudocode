@@ -1,46 +1,46 @@
 /*
- * XREFs of MiWriteComplete @ 0x14040A870
+ * XREFs of MiWriteComplete @ 0x140403960
  * Callers:
- *     MiModwriterIssueWrite @ 0x140408928 (MiModwriterIssueWrite.c)
- *     MiStoreWriteModifiedCompleteApc @ 0x14040A850 (MiStoreWriteModifiedCompleteApc.c)
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
+ *     MiModwriterIssueWrite @ 0x140401A18 (MiModwriterIssueWrite.c)
+ *     MiStoreWriteModifiedCompleteApc @ 0x140403940 (MiStoreWriteModifiedCompleteApc.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     FsRtlReleaseFileForModWrite @ 0x14026EE84 (FsRtlReleaseFileForModWrite.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiFreeModWriterEntry @ 0x1402CCB90 (MiFreeModWriterEntry.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402CCBF4 (MiReleaseWriteInProgressCharges.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14040646C (MiMakePagefileWriterEntryAvailable.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x14040684C (MiStoreCheckCompleteWriteBatch.c)
- *     MiWriteCompletePfn @ 0x1404077B0 (MiWriteCompletePfn.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MI_PAGEFILE_WRITE @ 0x140408C3C (MI_PAGEFILE_WRITE.c)
- *     MiStoreDecrementOutstandingWrites @ 0x1404096F8 (MiStoreDecrementOutstandingWrites.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     MiDecrementModifiedWriteCount @ 0x140469350 (MiDecrementModifiedWriteCount.c)
- *     CcNotifyOfMappedWriteComplete @ 0x14046D008 (CcNotifyOfMappedWriteComplete.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     MmIsWriteErrorFatal @ 0x14046DBD8 (MmIsWriteErrorFatal.c)
- *     MiUnlockPartitionMappedWriter @ 0x140496C74 (MiUnlockPartitionMappedWriter.c)
- *     MiLockPartitionMappedWriter @ 0x140497478 (MiLockPartitionMappedWriter.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     MiSetDeleteOnClose @ 0x14050687C (MiSetDeleteOnClose.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiNotifyUserOfLostData @ 0x140527B18 (MiNotifyUserOfLostData.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     FsRtlReleaseFileForModWrite @ 0x14026E3F4 (FsRtlReleaseFileForModWrite.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiFreeModWriterEntry @ 0x1402AE950 (MiFreeModWriterEntry.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402AE9B4 (MiReleaseWriteInProgressCharges.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x1403FF560 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1403FF93C (MiStoreCheckCompleteWriteBatch.c)
+ *     MiWriteCompletePfn @ 0x1404008A0 (MiWriteCompletePfn.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MI_PAGEFILE_WRITE @ 0x140401D2C (MI_PAGEFILE_WRITE.c)
+ *     MiStoreDecrementOutstandingWrites @ 0x1404027E8 (MiStoreDecrementOutstandingWrites.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     MiDecrementModifiedWriteCount @ 0x140462920 (MiDecrementModifiedWriteCount.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x140466788 (CcNotifyOfMappedWriteComplete.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     MmIsWriteErrorFatal @ 0x140467358 (MmIsWriteErrorFatal.c)
+ *     MiUnlockPartitionMappedWriter @ 0x1404907C4 (MiUnlockPartitionMappedWriter.c)
+ *     MiLockPartitionMappedWriter @ 0x140490FC8 (MiLockPartitionMappedWriter.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     MiSetDeleteOnClose @ 0x14050012C (MiSetDeleteOnClose.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiNotifyUserOfLostData @ 0x14052A188 (MiNotifyUserOfLostData.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiWriteComplete(_QWORD *P, int *a2, int a3)
@@ -264,14 +264,14 @@ LABEL_25:
         v22 = 2LL;
         v15 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
       }
-      if ( v19->Next != (struct _MDL *)qword_140E36038 )
+      if ( v19->Next != (struct _MDL *)qword_140E361B8 )
         break;
       if ( (P[5] & 0x40) == 0 )
         v21 = v60;
 LABEL_107:
       if ( v21 )
       {
-        MiReleasePageFileInfo((struct _KEVENT *)v6, v21, 0);
+        MiReleasePageFileInfo((struct _KEVENT *)v6, v21, 0LL);
         v15 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
         v21 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
       }
@@ -326,7 +326,7 @@ LABEL_107:
     v5 &= 0xFFFFFFF3;
     if ( (P[5] & 0x40) != 0 )
     {
-      v36 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v33 + 40) >> 43) & 0x3FFLL));
+      v36 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v33 + 40) >> 43) & 0x3FFLL));
       if ( (v5 & 2) != 0 || (*(_QWORD *)(v33 + 24) & 0x4000000000000000LL) != 0 )
         goto LABEL_102;
       if ( (unsigned __int16)*(_DWORD *)(v33 + 32) > 1u )
@@ -497,7 +497,7 @@ LABEL_115:
       if ( v56 == 17 )
         goto LABEL_153;
 LABEL_176:
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)(v6 + 1136) = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v6 + 1136), retaddr);
@@ -541,7 +541,7 @@ LABEL_176:
     if ( v46 == 17 )
     {
 LABEL_153:
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)(v6 + 1136) = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v6 + 1136), retaddr);

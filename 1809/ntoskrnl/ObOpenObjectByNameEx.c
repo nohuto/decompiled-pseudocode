@@ -1,18 +1,18 @@
 /*
- * XREFs of ObOpenObjectByNameEx @ 0x1405E2E30
+ * XREFs of ObOpenObjectByNameEx @ 0x1405E3E30
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1402846C0 (IoRevokeHandlesForProcess.c)
- *     CmCreateKey @ 0x1405B5A60 (CmCreateKey.c)
- *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
- *     CmOpenKey @ 0x1405E0EA0 (CmOpenKey.c)
- *     NtQueryFullAttributesFile @ 0x14060B590 (NtQueryFullAttributesFile.c)
- *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)
- *     NtQueryAttributesFile @ 0x14060CC30 (NtQueryAttributesFile.c)
- *     NtOpenSymbolicLinkObject @ 0x140691BB0 (NtOpenSymbolicLinkObject.c)
- *     NtOpenSection @ 0x14069C000 (NtOpenSection.c)
- *     NtDeleteFile @ 0x14070F0F0 (NtDeleteFile.c)
- *     IoQueryInformationByName @ 0x14081C540 (IoQueryInformationByName.c)
- *     IopFastQueryNetworkAttributes @ 0x14081CDF4 (IopFastQueryNetworkAttributes.c)
+ *     IoRevokeHandlesForProcess @ 0x1402848B0 (IoRevokeHandlesForProcess.c)
+ *     CmCreateKey @ 0x1405B6A60 (CmCreateKey.c)
+ *     ObOpenObjectByName @ 0x1405BA290 (ObOpenObjectByName.c)
+ *     CmOpenKey @ 0x1405E1EA0 (CmOpenKey.c)
+ *     NtQueryFullAttributesFile @ 0x14060C590 (NtQueryFullAttributesFile.c)
+ *     IopCreateFile @ 0x14060CAC0 (IopCreateFile.c)
+ *     NtQueryAttributesFile @ 0x14060DC30 (NtQueryAttributesFile.c)
+ *     NtOpenSymbolicLinkObject @ 0x140692D70 (NtOpenSymbolicLinkObject.c)
+ *     NtOpenSection @ 0x14069D1C0 (NtOpenSection.c)
+ *     NtDeleteFile @ 0x140710390 (NtDeleteFile.c)
+ *     IoQueryInformationByName @ 0x14081D740 (IoQueryInformationByName.c)
+ *     IopFastQueryNetworkAttributes @ 0x14081DFF4 (IopFastQueryNetworkAttributes.c)
  * Callees:
  *     SepCreateAccessStateFromSubjectContext @ 0x14004D710 (SepCreateAccessStateFromSubjectContext.c)
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
@@ -27,20 +27,20 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     PsDereferenceSiloContext @ 0x14012C0A0 (PsDereferenceSiloContext.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     ObpCaptureObjectCreateInformation @ 0x1405E2910 (ObpCaptureObjectCreateInformation.c)
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x14069B990 (RtlValidSecurityDescriptor.c)
- *     SeObjectCreateSaclAccessBits @ 0x1406B0F98 (SeObjectCreateSaclAccessBits.c)
+ *     ObFastReferenceObjectLocked @ 0x14007DFE4 (ObFastReferenceObjectLocked.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     PsDereferenceSiloContext @ 0x14012C170 (PsDereferenceSiloContext.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObpDeleteNameCheck @ 0x1405AA740 (ObpDeleteNameCheck.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1405E3910 (ObpCaptureObjectCreateInformation.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     SeReleaseSecurityDescriptor @ 0x140632870 (SeReleaseSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14069CB50 (RtlValidSecurityDescriptor.c)
+ *     SeObjectCreateSaclAccessBits @ 0x1406B2238 (SeObjectCreateSaclAccessBits.c)
  */
 
 __int64 __fastcall ObOpenObjectByNameEx(
@@ -65,7 +65,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   ULONG_PTR v21; // rsi
   __int64 v22; // r8
   _SLIST_ENTRY *Next; // rsi
-  struct _SLIST_ENTRY *v24; // r14
+  _SLIST_ENTRY *v24; // r14
   void *v25; // rcx
   void *v26; // r15
   __int64 v27; // r14
@@ -77,7 +77,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   __int64 v33; // r14
   void *v34; // rcx
   _SLIST_ENTRY *v35; // rcx
-  struct _SLIST_ENTRY *v36; // r8
+  _SLIST_ENTRY *v36; // r8
   struct _KPRCB *v37; // rdx
   _GENERAL_LOOKASIDE *v38; // rcx
   struct _KPRCB *v39; // rdx
@@ -301,7 +301,7 @@ LABEL_35:
             else
             {
               ++v38->FreeMisses;
-              ((void (__fastcall *)(struct _SLIST_ENTRY *))v38->FreeEx)(v36);
+              ((void (__fastcall *)(_SLIST_ENTRY *))v38->FreeEx)(v36);
             }
           }
           else

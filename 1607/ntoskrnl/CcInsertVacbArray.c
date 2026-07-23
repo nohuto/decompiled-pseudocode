@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInsertVacbArray @ 0x1401362D4
+ * XREFs of CcInsertVacbArray @ 0x140136844
  * Callers:
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
  *     CcInitializeVacbs @ 0x1407B499C (CcInitializeVacbs.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall CcInsertVacbArray(_DWORD *a1)
@@ -42,25 +42,25 @@ LABEL_6:
   {
     if ( *(result - 2) )
     {
-      v7 = (_QWORD *)qword_140322F18;
-      if ( *(__int64 **)qword_140322F18 != &CcVacbFreeHighPriorityList )
+      v7 = (_QWORD *)qword_140322F38;
+      if ( *(__int64 **)qword_140322F38 != &CcVacbFreeHighPriorityList )
         __fastfail(3u);
       *result = &CcVacbFreeHighPriorityList;
       result[1] = v7;
       *v7 = result;
       ++CcNumberOfFreeHighPriorityVacbs;
-      qword_140322F18 = (__int64)result;
+      qword_140322F38 = (__int64)result;
     }
     else
     {
-      v6 = (_QWORD *)qword_140322F08;
-      if ( *(__int64 **)qword_140322F08 != &CcVacbFreeList )
+      v6 = (_QWORD *)qword_140322F28;
+      if ( *(__int64 **)qword_140322F28 != &CcVacbFreeList )
         __fastfail(3u);
       *result = &CcVacbFreeList;
       result[1] = v6;
       *v6 = result;
       ++CcNumberOfFreeVacbs;
-      qword_140322F08 = (__int64)result;
+      qword_140322F28 = (__int64)result;
     }
     ++v4;
     result += 5;

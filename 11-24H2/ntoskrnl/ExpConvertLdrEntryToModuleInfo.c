@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x140A92EF4
+ * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x140A8F6A4
  * Callers:
- *     ExpQueryModuleInformationImageEx @ 0x140A92E50 (ExpQueryModuleInformationImageEx.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQueryModuleInformationImageEx @ 0x140A8F600 (ExpQueryModuleInformationImageEx.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x1408AEF80 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1409051E0 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpConvertLdrEntryToModuleInfo(int a1, __int64 a2, __int16 a3, int a4, __int64 a5)
@@ -16,7 +16,7 @@ __int64 __fastcall ExpConvertLdrEntryToModuleInfo(int a1, __int64 a2, __int16 a3
   __int16 v11; // r9
   char v12; // dl
   __int64 result; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   v7 = 0LL;

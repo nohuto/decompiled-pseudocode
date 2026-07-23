@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMakeHyperRangeAccessible @ 0x14021B4E0
+ * XREFs of MiMakeHyperRangeAccessible @ 0x1402BFDE0
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
- *     MiExpandVadBitMap @ 0x140711880 (MiExpandVadBitMap.c)
- *     MiExpandVadBitMapDown @ 0x1408D0E24 (MiExpandVadBitMapDown.c)
+ *     MiExpandVadBitMap @ 0x1406BFED0 (MiExpandVadBitMap.c)
+ *     MiCommitPageTablesForVad @ 0x1406E8900 (MiCommitPageTablesForVad.c)
+ *     MiExpandVadBitMapDown @ 0x1408D0F84 (MiExpandVadBitMapDown.c)
  * Callees:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiFastLockLeafPageTable @ 0x14020E6D0 (MiFastLockLeafPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BF60 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiFillHyperPtes @ 0x1402ADD8C (MiFillHyperPtes.c)
- *     MiMakeHyperPteDemandZero @ 0x1402ADF18 (MiMakeHyperPteDemandZero.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140213930 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiFillHyperPtes @ 0x14022C0EC (MiFillHyperPtes.c)
+ *     MiMakeHyperPteDemandZero @ 0x14022C278 (MiMakeHyperPteDemandZero.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiFastLockLeafPageTable @ 0x1402B2FD0 (MiFastLockLeafPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5C64 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1406EE838 (MiReturnFullProcessCommitment.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1405B5E94 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140705C18 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __int64 a2, __int64 *a3, _DWORD *a4)
@@ -45,9 +45,9 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
   unsigned __int64 v23; // rcx
   unsigned __int64 *AnyMultiplexedVm; // r14
   int v25; // eax
-  _KPROCESS *v26; // rdx
+  __int64 v26; // rdx
   unsigned __int64 v27; // rbx
-  __int64 v28; // r14
+  unsigned __int64 v28; // r14
   unsigned __int64 v29; // rbx
   __int64 v30; // rcx
   __int64 v31; // rax
@@ -61,7 +61,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
   _DWORD *SchedulerAssist; // r9
   int v40; // eax
   int v41; // eax
-  struct _LIST_ENTRY *Flink; // r8
+  __int64 v42; // r8
   __int64 v43; // rax
   __int64 v44; // r8
   int v45; // [rsp+20h] [rbp-E0h]
@@ -103,7 +103,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
   else
   {
     if ( v9 == 2 )
-      v10 = &dword_140C4F780;
+      v10 = &dword_140C4F7C0;
     else
       v10 = (LONG *)(v8 + 192);
     v11 = KeGetCurrentIrql();
@@ -188,7 +188,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
           while ( v23 >= 0xFFFFF68000000000uLL );
           v8 = v50;
         }
-        if ( v23 >= 0xFFFF800000000000uLL && (v23 < qword_140C4FB38 || v23 > qword_140C4E368) )
+        if ( v23 >= 0xFFFF800000000000uLL && (v23 < qword_140C4FB78 || v23 > qword_140C4E3A8) )
           AnyMultiplexedVm = (unsigned __int64 *)MiGetAnyMultiplexedVm(1LL);
         else
           AnyMultiplexedVm = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
@@ -228,16 +228,16 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
                 v30 = *(_QWORD *)v20;
                 if ( v20 >= 0xFFFFF6FB7DBED000uLL && v20 <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0xC00000) != 0 )
                 {
-                  v26 = KeGetCurrentThread()->ApcState.Process;
-                  if ( v26->AddressPolicy != 1 && (v30 & 1) != 0 && ((v30 & 0x20) == 0 || (v30 & 0x42) == 0) )
+                  v26 = (__int64)KeGetCurrentThread()->ApcState.Process;
+                  if ( *(_BYTE *)(v26 + 912) != 1 && (v30 & 1) != 0 && ((v30 & 0x20) == 0 || (v30 & 0x42) == 0) )
                   {
-                    v26 = KeGetCurrentThread()->ApcState.Process;
-                    Flink = v26[1].ProcessListEntry.Flink;
-                    if ( Flink )
+                    v26 = (__int64)KeGetCurrentThread()->ApcState.Process;
+                    v42 = *(_QWORD *)(v26 + 1928);
+                    if ( v42 )
                     {
-                      v43 = *((_QWORD *)&Flink->Flink + ((v20 >> 3) & 0x1FF));
+                      v43 = *(_QWORD *)(v42 + 8 * ((v20 >> 3) & 0x1FF));
                       v44 = v30 | 0x20;
-                      v26 = (_KPROCESS *)(unsigned __int8)v43;
+                      v26 = (unsigned __int8)v43;
                       LOBYTE(v26) = v43 & 0x20;
                       if ( (v43 & 0x20) == 0 )
                         v44 = *(_QWORD *)v20;
@@ -248,7 +248,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
                   }
                 }
                 if ( !v30 )
-                  MiMakeHyperPteDemandZero(v20, v26, v47);
+                  MiMakeHyperPteDemandZero((__int64 *)v20, v26, (__int64)v47);
                 v20 += 8LL;
               }
               while ( (v20 & 0xFFF) != 0 && v20 <= v29 );
@@ -265,7 +265,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
         {
           v33 = v17;
         }
-        MiFillHyperPtes(v20, v33, v46, v47);
+        MiFillHyperPtes(v20, v33, v46, (__int64)v47);
         v20 = v33 + 8;
 LABEL_36:
         v21 = v55;

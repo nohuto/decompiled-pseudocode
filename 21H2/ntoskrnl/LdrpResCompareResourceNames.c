@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpResCompareResourceNames @ 0x14068D22C
+ * XREFs of LdrpResCompareResourceNames @ 0x1405ED09C
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x14068C6A4 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1405EC514 (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
- *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     wcsncmp @ 0x1403D41B0 (wcsncmp.c)
  */
 
 __int64 __fastcall LdrpResCompareResourceNames(

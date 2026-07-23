@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14000EA70
+ * XREFs of AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x14000E5F0
  * Callers:
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E570 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x14000E0F0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
  * Callees:
  *     <none>
  */

@@ -4,20 +4,19 @@
  *     TpSetWaitEx @ 0x18002C0B0 (TpSetWaitEx.c)
  *     TpReleaseWait @ 0x18002F6C0 (TpReleaseWait.c)
  *     TpWaitForWait @ 0x1800303D0 (TpWaitForWait.c)
- *     TppStopWaitCallbackGeneration @ 0x180089110 (TppStopWaitCallbackGeneration.c)
+ *     TppStopWaitCallbackGeneration @ 0x180089120 (TppStopWaitCallbackGeneration.c)
  * Callees:
  *     TppCancelTimer @ 0x18002C984 (TppCancelTimer.c)
- *     TppBarrierAdjust @ 0x180073CB8 (TppBarrierAdjust.c)
- *     ZwCancelWaitCompletionPacket @ 0x1800A1530 (ZwCancelWaitCompletionPacket.c)
+ *     TppBarrierAdjust @ 0x180073CC8 (TppBarrierAdjust.c)
+ *     ZwCancelWaitCompletionPacket @ 0x1800A1550 (ZwCancelWaitCompletionPacket.c)
  *     TppRaiseInvalidParameter @ 0x180110908 (TppRaiseInvalidParameter.c)
  */
 
 char __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
 {
   int v4; // r8d
-  __int64 v6; // rbp
   char v8; // si
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
@@ -26,11 +25,9 @@ char __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
   char v16; // al
 
   v4 = a3 & 2;
-  v6 = a2;
   if ( *(_QWORD *)(a1 + 360) )
   {
-    LOBYTE(a2) = v4 != 0;
-    v10 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), a2);
+    v10 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), v4 != 0);
     if ( v10 )
     {
       if ( v10 != 259 && v10 != -1073741536 )
@@ -49,7 +46,7 @@ char __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
       *(_QWORD *)(a1 + 360) = 0LL;
       v8 = 1;
       LOBYTE(v13) = 1;
-      v15 = TppCancelTimer(a1, v6, v13);
+      v15 = TppCancelTimer(a1, a2, v13);
       *a4 = -1;
       if ( v15 )
         *a4 = -2;

@@ -1,92 +1,92 @@
 /*
- * XREFs of LdrpDereferenceModule @ 0x180032238
+ * XREFs of LdrpDereferenceModule @ 0x180032228
  * Callers:
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
- *     LdrLoadDll @ 0x180011F30 (LdrLoadDll.c)
- *     LdrGetDllHandleEx @ 0x180012220 (LdrGetDllHandleEx.c)
- *     LdrpFindLoadedDll @ 0x180012330 (LdrpFindLoadedDll.c)
- *     LdrpLoadDllInternal @ 0x180018D30 (LdrpLoadDllInternal.c)
- *     LdrpFastpthReloadedDll @ 0x180018F98 (LdrpFastpthReloadedDll.c)
- *     LdrUnloadDll @ 0x18002EF70 (LdrUnloadDll.c)
- *     LdrResolveDelayLoadedAPI @ 0x1800319E0 (LdrResolveDelayLoadedAPI.c)
- *     LdrGetProcedureAddressForCaller @ 0x180031D60 (LdrGetProcedureAddressForCaller.c)
- *     LdrpHandleProtectedDelayload @ 0x180033840 (LdrpHandleProtectedDelayload.c)
- *     LdrAddRefDll @ 0x180039C20 (LdrAddRefDll.c)
- *     RtlQueryInformationActivationContext @ 0x18003DAF0 (RtlQueryInformationActivationContext.c)
- *     LdrpFreeReplacedModule @ 0x18006B66C (LdrpFreeReplacedModule.c)
- *     LdrpLoadContextReplaceModule @ 0x180073728 (LdrpLoadContextReplaceModule.c)
- *     LdrFindEntryForAddress @ 0x180076030 (LdrFindEntryForAddress.c)
- *     LdrGetDllHandleByMapping @ 0x1800784B0 (LdrGetDllHandleByMapping.c)
- *     LdrGetDllFullName @ 0x180079B30 (LdrGetDllFullName.c)
- *     LdrGetDllHandleByName @ 0x18007AEF0 (LdrGetDllHandleByName.c)
- *     LdrpHandleUnprotectedDelayLoad @ 0x18007B434 (LdrpHandleUnprotectedDelayLoad.c)
- *     LdrpResolveProcedureAddress @ 0x18007B5EC (LdrpResolveProcedureAddress.c)
- *     LdrDisableThreadCalloutsForDll @ 0x18007DB40 (LdrDisableThreadCalloutsForDll.c)
- *     LdrpInitShimEngine @ 0x18007DB94 (LdrpInitShimEngine.c)
- *     LdrpLoadShimEngine @ 0x18007DCE0 (LdrpLoadShimEngine.c)
- *     LdrpCorInitialize @ 0x1800863F0 (LdrpCorInitialize.c)
- *     LdrQueryModuleServiceTags @ 0x1800D0740 (LdrQueryModuleServiceTags.c)
- *     LdrSetImplicitPathOptions @ 0x1800D0B80 (LdrSetImplicitPathOptions.c)
- *     AVrfCallAPILookupCallback @ 0x1800D5DC0 (AVrfCallAPILookupCallback.c)
- *     AVrfInitializeVerifier @ 0x1800D5F68 (AVrfInitializeVerifier.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
+ *     LdrLoadDll @ 0x180011F20 (LdrLoadDll.c)
+ *     LdrGetDllHandleEx @ 0x180012210 (LdrGetDllHandleEx.c)
+ *     LdrpFindLoadedDll @ 0x180012320 (LdrpFindLoadedDll.c)
+ *     LdrpLoadDllInternal @ 0x180018D20 (LdrpLoadDllInternal.c)
+ *     LdrpFastpthReloadedDll @ 0x180018F88 (LdrpFastpthReloadedDll.c)
+ *     LdrUnloadDll @ 0x18002EF60 (LdrUnloadDll.c)
+ *     LdrResolveDelayLoadedAPI @ 0x1800319D0 (LdrResolveDelayLoadedAPI.c)
+ *     LdrGetProcedureAddressForCaller @ 0x180031D50 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpHandleProtectedDelayload @ 0x180033830 (LdrpHandleProtectedDelayload.c)
+ *     LdrAddRefDll @ 0x180039C10 (LdrAddRefDll.c)
+ *     RtlQueryInformationActivationContext @ 0x18003DAE0 (RtlQueryInformationActivationContext.c)
+ *     LdrpFreeReplacedModule @ 0x18006B65C (LdrpFreeReplacedModule.c)
+ *     LdrpLoadContextReplaceModule @ 0x180073718 (LdrpLoadContextReplaceModule.c)
+ *     LdrFindEntryForAddress @ 0x180076020 (LdrFindEntryForAddress.c)
+ *     LdrGetDllHandleByMapping @ 0x1800784A0 (LdrGetDllHandleByMapping.c)
+ *     LdrGetDllFullName @ 0x180079B20 (LdrGetDllFullName.c)
+ *     LdrGetDllHandleByName @ 0x18007AEE0 (LdrGetDllHandleByName.c)
+ *     LdrpHandleUnprotectedDelayLoad @ 0x18007B424 (LdrpHandleUnprotectedDelayLoad.c)
+ *     LdrpResolveProcedureAddress @ 0x18007B5DC (LdrpResolveProcedureAddress.c)
+ *     LdrDisableThreadCalloutsForDll @ 0x18007DB30 (LdrDisableThreadCalloutsForDll.c)
+ *     LdrpInitShimEngine @ 0x18007DB84 (LdrpInitShimEngine.c)
+ *     LdrpLoadShimEngine @ 0x18007DCD0 (LdrpLoadShimEngine.c)
+ *     LdrpCorInitialize @ 0x1800863E0 (LdrpCorInitialize.c)
+ *     LdrQueryModuleServiceTags @ 0x1800D0800 (LdrQueryModuleServiceTags.c)
+ *     LdrSetImplicitPathOptions @ 0x1800D0C40 (LdrSetImplicitPathOptions.c)
+ *     AVrfCallAPILookupCallback @ 0x1800D5E80 (AVrfCallAPILookupCallback.c)
+ *     AVrfInitializeVerifier @ 0x1800D6028 (AVrfInitializeVerifier.c)
  * Callees:
- *     LdrpFreeUnicodeString @ 0x18000E8FC (LdrpFreeUnicodeString.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseActivationContext @ 0x18003B790 (RtlReleaseActivationContext.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     LdrpDestroyNode @ 0x1800747A0 (LdrpDestroyNode.c)
- *     RtlRemoveInvertedFunctionTable @ 0x18007AA84 (RtlRemoveInvertedFunctionTable.c)
- *     LdrpReleaseTlsEntry @ 0x18008410C (LdrpReleaseTlsEntry.c)
+ *     LdrpFreeUnicodeString @ 0x18000E8EC (LdrpFreeUnicodeString.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseActivationContext @ 0x18003B780 (RtlReleaseActivationContext.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     LdrpDestroyNode @ 0x180074790 (LdrpDestroyNode.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x18007AA74 (RtlRemoveInvertedFunctionTable.c)
+ *     LdrpReleaseTlsEntry @ 0x1800840FC (LdrpReleaseTlsEntry.c)
  *     NtUnmapViewOfSection @ 0x1800A6960 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall LdrpDereferenceModule(__int64 a1, char *a2, __int64 a3, __int64 a4)
+int __fastcall LdrpDereferenceModule(char *BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v6; // r8
-  _QWORD *v7; // rdx
-  _QWORD *v8; // rdi
-  bool v9; // si
-  __int64 v10; // rdx
-  __int64 v11; // rcx
+  __int64 *v1; // rax
+  char **v3; // r8
+  PVOID *v4; // rdx
+  _QWORD *v5; // rdi
+  bool v6; // si
+  void *v7; // rdx
+  _ACTIVATION_CONTEXT *v8; // rcx
 
-  result = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(result + 24) != -1 )
+  v1 = (__int64 *)*((_QWORD *)BaseAddress + 19);
+  if ( *((_DWORD *)v1 + 6) != -1 )
   {
-    result = *(_QWORD *)result;
-    if ( (*(_BYTE *)(result - 56) & 0x20) == 0 )
+    v1 = (__int64 *)*v1;
+    if ( (*(_BYTE *)(v1 - 7) & 0x20) == 0 )
     {
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 276), 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
+      LODWORD(v1) = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 69, 0xFFFFFFFF);
+      if ( (_DWORD)v1 == 1 )
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
-        v6 = *(_QWORD *)(a1 + 160);
-        v7 = *(_QWORD **)(a1 + 168);
-        if ( *(_QWORD *)(v6 + 8) != a1 + 160 || *v7 != a1 + 160 )
+        RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+        v3 = (char **)*((_QWORD *)BaseAddress + 20);
+        v4 = (PVOID *)*((_QWORD *)BaseAddress + 21);
+        if ( v3[1] != BaseAddress + 160 || *v4 != BaseAddress + 160 )
           __fastfail(3u);
-        *v7 = v6;
-        *(_QWORD *)(v6 + 8) = v7;
-        v8 = *(_QWORD **)(a1 + 152);
-        v9 = *v8 == (_QWORD)v8;
+        *v4 = v3;
+        v3[1] = (char *)v4;
+        v5 = (_QWORD *)*((_QWORD *)BaseAddress + 19);
+        v6 = *v5 == (_QWORD)v5;
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        if ( *(_WORD *)(a1 + 110) )
-          LdrpReleaseTlsEntry(a1, 0LL);
-        if ( (*(_DWORD *)(a1 + 104) & 0x200) != 0 )
-          RtlRemoveInvertedFunctionTable(*(_QWORD *)(a1 + 48));
-        v10 = *(_QWORD *)(a1 + 48);
-        if ( v10 )
-          NtUnmapViewOfSection(-1LL, v10);
-        v11 = *(_QWORD *)(a1 + 136);
-        if ( (unsigned __int64)(v11 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext(v11);
-        if ( *(_QWORD *)(a1 + 80) )
-          LdrpFreeUnicodeString(a1 + 72);
-        result = RtlFreeHeap(LdrpHeap, 0LL, a1);
-        if ( v9 )
-          return LdrpDestroyNode(v8);
+        if ( *((_WORD *)BaseAddress + 55) )
+          LdrpReleaseTlsEntry(BaseAddress, 0LL);
+        if ( (*((_DWORD *)BaseAddress + 26) & 0x200) != 0 )
+          RtlRemoveInvertedFunctionTable(*((_QWORD *)BaseAddress + 6));
+        v7 = (void *)*((_QWORD *)BaseAddress + 6);
+        if ( v7 )
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7);
+        v8 = (_ACTIVATION_CONTEXT *)*((_QWORD *)BaseAddress + 17);
+        if ( (unsigned __int64)&v8[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v8);
+        if ( *((_QWORD *)BaseAddress + 10) )
+          LdrpFreeUnicodeString((__int64)(BaseAddress + 72));
+        LODWORD(v1) = RtlFreeHeap(LdrpHeap, 0, BaseAddress);
+        if ( v6 )
+          LODWORD(v1) = LdrpDestroyNode(v5);
       }
     }
   }
-  return result;
+  return (int)v1;
 }

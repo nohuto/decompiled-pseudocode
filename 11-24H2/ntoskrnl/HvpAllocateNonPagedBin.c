@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpAllocateNonPagedBin @ 0x140A60388
+ * XREFs of HvpAllocateNonPagedBin @ 0x140A588D8
  * Callers:
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
- *     HvpDropPagedBins @ 0x140A60168 (HvpDropPagedBins.c)
- *     HvpAllocateBin @ 0x140A60328 (HvpAllocateBin.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
+ *     HvpDropPagedBins @ 0x140A586B8 (HvpDropPagedBins.c)
+ *     HvpAllocateBin @ 0x140A58878 (HvpAllocateBin.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpReleaseGlobalQuota @ 0x14087EEC0 (CmpReleaseGlobalQuota.c)
- *     CmpClaimGlobalQuota @ 0x14087F12C (CmpClaimGlobalQuota.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpReleaseGlobalQuota @ 0x140882D70 (CmpReleaseGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x140882FDC (CmpClaimGlobalQuota.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall HvpAllocateNonPagedBin(__int64 a1, __int64 a2, _QWORD *a3)

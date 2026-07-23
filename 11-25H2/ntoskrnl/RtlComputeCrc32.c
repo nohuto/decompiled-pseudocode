@@ -8,7 +8,7 @@
  *     crc32 @ 0x1404F120C (crc32.c)
  */
 
-__int64 __fastcall RtlComputeCrc32(__int64 a1, __int64 a2, __int64 a3)
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  return crc32(a1, a2, a3);
+  return crc32(PartialCrc, Buffer, Length);
 }

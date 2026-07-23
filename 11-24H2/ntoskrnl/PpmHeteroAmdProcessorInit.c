@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroAmdProcessorInit @ 0x140B60108
+ * XREFs of PpmHeteroAmdProcessorInit @ 0x140B621D4
  * Callers:
- *     PpmHeteroHgsProcessorInit @ 0x1405D72FC (PpmHeteroHgsProcessorInit.c)
+ *     PpmHeteroHgsProcessorInit @ 0x1405D48A0 (PpmHeteroHgsProcessorInit.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmHeteroAmdProcessorInit(__int64 a1)

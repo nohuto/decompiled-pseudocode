@@ -1,25 +1,25 @@
 /*
- * XREFs of SeCaptureSidAndAttributesArray @ 0x140A44CF8
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x1409E2E88
  * Callers:
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     NtCreateTokenEx @ 0x140A44080 (NtCreateTokenEx.c)
- *     SepLengthSidAndAttributesArray @ 0x140A44A14 (SepLengthSidAndAttributesArray.c)
- *     SepSetTokenCapabilities @ 0x140A44AC4 (SepSetTokenCapabilities.c)
- *     NtFilterToken @ 0x140A45140 (NtFilterToken.c)
- *     NtAdjustGroupsToken @ 0x140A46440 (NtAdjustGroupsToken.c)
- *     SepCreateClaimAttributes @ 0x140AEFEE8 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x140AFBF28 (SepDuplicateClaimAttributes.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     NtAdjustGroupsToken @ 0x1409E0F30 (NtAdjustGroupsToken.c)
+ *     NtCreateTokenEx @ 0x1409E2210 (NtCreateTokenEx.c)
+ *     SepLengthSidAndAttributesArray @ 0x1409E2BA4 (SepLengthSidAndAttributesArray.c)
+ *     SepSetTokenCapabilities @ 0x1409E2C54 (SepSetTokenCapabilities.c)
+ *     NtFilterToken @ 0x1409E32D0 (NtFilterToken.c)
+ *     SepCreateClaimAttributes @ 0x140AF2AAC (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x140AFDB28 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSidAndAttributesArray(

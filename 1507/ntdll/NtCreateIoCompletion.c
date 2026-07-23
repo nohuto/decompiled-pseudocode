@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtCreateIoCompletion()
+NTSTATUS __cdecl NtCreateIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 160LL;
+  result = 160;
   __asm { syscall; Low latency system call }
   return result;
 }

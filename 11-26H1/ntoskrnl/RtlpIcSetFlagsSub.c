@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIcSetFlagsSub @ 0x140C5778C
+ * XREFs of RtlpIcSetFlagsSub @ 0x140C5D78C
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140C564D4 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateGroup1Instruction @ 0x140C56800 (RtlpIcEmulateGroup1Instruction.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140C5C4D4 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateGroup1Instruction @ 0x140C5C800 (RtlpIcEmulateGroup1Instruction.c)
  * Callees:
- *     RtlpIcSetFlagsZeroSignParity @ 0x140C57870 (RtlpIcSetFlagsZeroSignParity.c)
+ *     RtlpIcSetFlagsZeroSignParity @ 0x140C5D870 (RtlpIcSetFlagsZeroSignParity.c)
  */
 
 __int64 __fastcall RtlpIcSetFlagsSub(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

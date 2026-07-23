@@ -16,5 +16,5 @@ __int64 __fastcall PopUmpoSendPowerRequestOverrideCleanup(__int64 a1)
   v2 = *(_DWORD *)(a1 + 36);
   Src[0] = 9;
   Src[2] = v2;
-  return PopUmpoSendPowerMessage(Src, 0x48uLL, 0, 0LL);
+  return PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
 }

@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtAdjustGroupsToken()
+NTSTATUS __cdecl NtAdjustGroupsToken(
+        HANDLE TokenHandle,
+        BOOLEAN ResetToDefault,
+        PTOKEN_GROUPS NewState,
+        ULONG BufferLength,
+        PTOKEN_GROUPS PreviousState,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 106LL;
+  result = 106;
   __asm { syscall; Low latency system call }
   return result;
 }

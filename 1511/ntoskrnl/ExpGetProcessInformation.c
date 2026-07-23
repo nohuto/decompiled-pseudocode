@@ -96,7 +96,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   char *v51; // r9
   _WORD *v52; // rdx
   unsigned __int64 v53; // r13
-  UINT v54; // r12d
+  int v54; // r12d
   UINT v55; // eax
   __int64 v56; // rax
   _QWORD *p_Lock; // rbx
@@ -112,8 +112,8 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   UINT v67; // r12d
   NTSTATUS v68; // eax
   unsigned int v69; // r9d
-  UINT v70; // r12d
-  UINT v71; // r12d
+  unsigned int v70; // r12d
+  unsigned int v71; // r12d
   NTSTATUS v72; // eax
   NTSTATUS v73; // eax
   struct _KTHREAD *v74; // rdi
@@ -121,7 +121,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   __int64 result; // rax
   signed __int32 v77[8]; // [rsp+0h] [rbp-458h] BYREF
   int v78; // [rsp+40h] [rbp-418h]
-  int PackageIdentity; // [rsp+44h] [rbp-414h]
+  NTSTATUS v79; // [rsp+44h] [rbp-414h]
   UINT uAugend; // [rsp+48h] [rbp-410h] BYREF
   char v81; // [rsp+4Ch] [rbp-40Ch]
   char v82; // [rsp+4Dh] [rbp-40Bh]
@@ -129,7 +129,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   PVOID v84; // [rsp+58h] [rbp-400h]
   PVOID Object; // [rsp+60h] [rbp-3F8h]
   void *v86; // [rsp+68h] [rbp-3F0h]
-  UINT v87; // [rsp+7Ch] [rbp-3DCh]
+  int v87; // [rsp+7Ch] [rbp-3DCh]
   char *v88; // [rsp+80h] [rbp-3D8h]
   __int64 v89; // [rsp+88h] [rbp-3D0h]
   UINT *v90; // [rsp+90h] [rbp-3C8h]
@@ -142,8 +142,8 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   unsigned __int8 v97; // [rsp+B5h] [rbp-3A3h]
   char v98; // [rsp+B6h] [rbp-3A2h]
   char v99; // [rsp+B7h] [rbp-3A1h]
-  UINT uAddend[2]; // [rsp+B8h] [rbp-3A0h] BYREF
-  UINT v101[2]; // [rsp+C0h] [rbp-398h] BYREF
+  ULONG_PTR PackageSize; // [rsp+B8h] [rbp-3A0h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+C0h] [rbp-398h] BYREF
   void *v102; // [rsp+C8h] [rbp-390h]
   char *v103; // [rsp+D0h] [rbp-388h]
   unsigned __int16 *v104; // [rsp+D8h] [rbp-380h]
@@ -162,14 +162,14 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   PACCESS_TOKEN v117; // [rsp+1D0h] [rbp-288h]
   _QWORD v118[10]; // [rsp+1E0h] [rbp-278h] BYREF
   _BYTE Src[80]; // [rsp+230h] [rbp-228h] BYREF
-  _BYTE v120[144]; // [rsp+280h] [rbp-1D8h] BYREF
-  _BYTE v121[256]; // [rsp+310h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+280h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+310h] [rbp-148h] BYREF
 
   v111 = a1;
   v90 = a3;
-  *(_QWORD *)v101 = 130LL;
+  AppIdSize = 130LL;
   v83 = 0;
-  *(_QWORD *)uAddend = 254LL;
+  PackageSize = 254LL;
   v84 = 0LL;
   v78 = 0;
   Object = 0LL;
@@ -200,7 +200,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, UINT a2, UINT *a3, _DWOR
   {
     if ( (unsigned int)ExIsRestrictedCaller(v5) )
       v81 = 1;
-    PackageIdentity = 0;
+    v79 = 0;
     P = 0LL;
     KeFlushProcessWriteBuffers(1);
     CurrentSilo = (PVOID)PsGetCurrentSilo();
@@ -212,9 +212,9 @@ LABEL_10:
 LABEL_11:
       if ( !v6 )
       {
-        if ( v78 >= 0 && v89 && (*(_DWORD *)v89 = 0, PackageIdentity < 0) )
+        if ( v78 >= 0 && v89 && (*(_DWORD *)v89 = 0, v79 < 0) )
         {
-          v78 = PackageIdentity;
+          v78 = v79;
         }
         else if ( v90 )
         {
@@ -249,7 +249,7 @@ LABEL_11:
                 v10 = 0;
               }
               uAugend = v9;
-              PackageIdentity = v10;
+              v79 = v10;
               if ( v10 < 0 )
               {
                 v78 = v10;
@@ -268,7 +268,7 @@ LABEL_180:
               {
                 v12 = ExpCopyProcessInfo(v89, (__int64)v6, v82, v118);
                 v10 = v12;
-                PackageIdentity = v12;
+                v79 = v12;
                 if ( v12 < 0 )
                 {
                   v78 = v12;
@@ -326,7 +326,7 @@ LABEL_33:
                   v108 = 0LL;
                 }
                 v6 = (PEPROCESS)v84;
-                v10 = PackageIdentity;
+                v10 = v79;
                 v9 = uAugend;
                 v14 = (char *)v86;
                 goto LABEL_38;
@@ -362,7 +362,7 @@ LABEL_38:
                   }
                   uAugend = v25;
                   v9 = v25;
-                  PackageIdentity = v10;
+                  v79 = v10;
                   if ( v10 < 0 )
                   {
                     v78 = v10;
@@ -409,7 +409,7 @@ LABEL_38:
                           v27 = 0LL;
                         }
                         v6 = (PEPROCESS)v84;
-                        v10 = PackageIdentity;
+                        v10 = v79;
                         p_Blink = (char *)Object;
                         v9 = uAugend;
                         v14 = (char *)v86;
@@ -432,7 +432,7 @@ LABEL_38:
                           v14 = (char *)v86;
                           *((_QWORD *)v86 + 11) = *((_QWORD *)p_Blink + 6);
                           v6 = (PEPROCESS)v84;
-                          v10 = PackageIdentity;
+                          v10 = v79;
                           p_Blink = (char *)Object;
                           v9 = uAugend;
                         }
@@ -503,7 +503,7 @@ LABEL_38:
                     v110 = 0LL;
                   }
                   v6 = (PEPROCESS)v84;
-                  v10 = PackageIdentity;
+                  v10 = v79;
                   v9 = uAugend;
                   v14 = (char *)v86;
                 }
@@ -554,10 +554,10 @@ LABEL_38:
                   memset(v37, 0, 0x28uLL);
                 }
                 PsQueryProcessEnergyValues(v6, (__int64)(v37 + 16));
-                v10 = PackageIdentity;
-                if ( PackageIdentity < 0 )
+                v10 = v79;
+                if ( v79 < 0 )
                 {
-                  v78 = PackageIdentity;
+                  v78 = v79;
                   goto LABEL_180;
                 }
                 p_Blink = (char *)Object;
@@ -569,26 +569,20 @@ LABEL_38:
                 v66 = PsReferencePrimaryToken(v6);
                 v117 = v66;
                 SeQueryUserSidToken(v66, Src, 68LL);
-                *(_QWORD *)uAddend = 254LL;
-                *(_QWORD *)v101 = 130LL;
-                PackageIdentity = RtlQueryPackageIdentity(
-                                    (__int64)v66,
-                                    (__int64)v121,
-                                    (__int64)uAddend,
-                                    (__int64)v120,
-                                    (__int64)v101,
-                                    0LL);
-                if ( PackageIdentity < 0 )
+                PackageSize = 254LL;
+                AppIdSize = 130LL;
+                v79 = RtlQueryPackageIdentity(v66, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
+                if ( v79 < 0 )
                 {
-                  *(_QWORD *)uAddend = 0LL;
-                  *(_QWORD *)v101 = 0LL;
+                  PackageSize = 0LL;
+                  AppIdSize = 0LL;
                 }
                 ObFastDereferenceObject((signed __int64 *)&v6[1].Affinity.Bitmap[5], (unsigned __int64)v66);
                 v67 = (v94 + 7) & 0xFFFFFFF8;
                 v87 = v67;
                 v68 = RtlUIntAdd(v9, v67, &uAugend);
                 v10 = v68;
-                PackageIdentity = v68;
+                v79 = v68;
                 if ( v68 < 0 )
                 {
                   v78 = v68;
@@ -623,18 +617,18 @@ LABEL_238:
                   v38 += v67;
                   v86 = v38;
                 }
-                v70 = uAddend[0];
-                if ( *(_QWORD *)uAddend )
+                v70 = PackageSize;
+                if ( PackageSize )
                 {
-                  if ( *(_QWORD *)uAddend > 0xFFFFFFFFuLL )
+                  if ( PackageSize > 0xFFFFFFFF )
                   {
                     v78 = -1073741820;
                     goto LABEL_238;
                   }
-                  v87 = uAddend[0];
-                  v72 = RtlUIntAdd(v9, uAddend[0], &uAugend);
+                  v87 = PackageSize;
+                  v72 = RtlUIntAdd(v9, PackageSize, &uAugend);
                   v10 = v72;
-                  PackageIdentity = v72;
+                  v79 = v72;
                   if ( v72 < 0 )
                   {
                     v78 = v72;
@@ -651,7 +645,7 @@ LABEL_238:
                   else
                   {
                     v37[14] = (_DWORD)v38 - (_DWORD)v37;
-                    memmove(v38, v121, v70);
+                    memmove(v38, PackageFullName, v70);
                     if ( v10 < 0 )
                     {
                       v78 = v10;
@@ -661,18 +655,18 @@ LABEL_238:
                     v86 = v38;
                   }
                 }
-                v71 = v101[0];
-                if ( *(_QWORD *)v101 )
+                v71 = AppIdSize;
+                if ( AppIdSize )
                 {
-                  if ( *(_QWORD *)v101 > 0xFFFFFFFFuLL )
+                  if ( AppIdSize > 0xFFFFFFFF )
                   {
                     v78 = -1073741820;
                     goto LABEL_238;
                   }
-                  v87 = v101[0];
-                  v73 = RtlUIntAdd(v9, v101[0], &uAugend);
+                  v87 = AppIdSize;
+                  v73 = RtlUIntAdd(v9, AppIdSize, &uAugend);
                   v10 = v73;
-                  PackageIdentity = v73;
+                  v79 = v73;
                   if ( v73 < 0 )
                   {
                     v78 = v73;
@@ -689,7 +683,7 @@ LABEL_238:
                   else
                   {
                     v37[52] = (_DWORD)v38 - (_DWORD)v37;
-                    memmove(v38, v120, v71);
+                    memmove(v38, AppId, v71);
                     if ( v10 < 0 )
                     {
                       v78 = v10;
@@ -743,7 +737,7 @@ LABEL_238:
                     v48 = -1073741801;
                   }
                 }
-                PackageIdentity = v48;
+                v79 = v48;
                 if ( v48 < 0 )
                   v49 = (unsigned __int16 *)v6[1].ActiveProcessors.Bitmap[15];
                 else
@@ -788,7 +782,7 @@ LABEL_238:
                 v10 = 0;
               }
               uAugend = v55;
-              PackageIdentity = v10;
+              v79 = v10;
               if ( v10 < 0 )
               {
                 v78 = v10;

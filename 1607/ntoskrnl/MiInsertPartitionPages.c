@@ -1,30 +1,30 @@
 /*
- * XREFs of MiInsertPartitionPages @ 0x1401F1B74
+ * XREFs of MiInsertPartitionPages @ 0x1401F19A0
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x1406605D8 (MiHotAddPartitionMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1406606BC (MiHotAddPartitionMemory.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiLockDynamicMemoryExclusive @ 0x140132E08 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x140132E74 (MiUnlockDynamicMemoryExclusive.c)
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
- *     MiIncreaseCommitLimits @ 0x1401429F8 (MiIncreaseCommitLimits.c)
- *     MiComputeCommitThresholds @ 0x140142AD4 (MiComputeCommitThresholds.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiReduceCommitLimits @ 0x1401ED148 (MiReduceCommitLimits.c)
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
- *     MiClearPartitionPageBitMap @ 0x1401F1248 (MiClearPartitionPageBitMap.c)
- *     MiFreePartitionNodePages @ 0x1401F19C8 (MiFreePartitionNodePages.c)
- *     MiFreePartitionTree @ 0x1401F1A80 (MiFreePartitionTree.c)
- *     MiMergePageNodes @ 0x1401F1E8C (MiMergePageNodes.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140133378 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1401333E4 (MiUnlockDynamicMemoryExclusive.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
+ *     MiIncreaseCommitLimits @ 0x140142F68 (MiIncreaseCommitLimits.c)
+ *     MiComputeCommitThresholds @ 0x140143044 (MiComputeCommitThresholds.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiReduceCommitLimits @ 0x1401ECF74 (MiReduceCommitLimits.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
+ *     MiClearPartitionPageBitMap @ 0x1401F1074 (MiClearPartitionPageBitMap.c)
+ *     MiFreePartitionNodePages @ 0x1401F17F4 (MiFreePartitionNodePages.c)
+ *     MiFreePartitionTree @ 0x1401F18AC (MiFreePartitionTree.c)
+ *     MiMergePageNodes @ 0x1401F1CB8 (MiMergePageNodes.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiMakePartitionMemoryBlock @ 0x1406607FC (MiMakePartitionMemoryBlock.c)
+ *     MiMakePartitionMemoryBlock @ 0x1406608E0 (MiMakePartitionMemoryBlock.c)
  */
 
 void __fastcall MiInsertPartitionPages(__int16 *a1, __int64 a2, unsigned __int64 a3)
@@ -106,7 +106,7 @@ void __fastcall MiInsertPartitionPages(__int16 *a1, __int64 a2, unsigned __int64
   }
   if ( a1 == (__int16 *)MiSystemPartition )
   {
-    _InterlockedExchangeAdd64(&qword_140327000, (unsigned __int64)v35[5]);
+    _InterlockedExchangeAdd64(&qword_140327040, (unsigned __int64)v35[5]);
   }
   else
   {

@@ -32,26 +32,26 @@
  *     RtlpExtendedHeapInformationWorkerCallback @ 0x1801000E0 (RtlpExtendedHeapInformationWorkerCallback.c)
  *     RtlpExtendedHeapInformationWorkerThread @ 0x180100200 (RtlpExtendedHeapInformationWorkerThread.c)
  *     RtlpHpRemoteStackSerializeWriter @ 0x180100DC0 (RtlpHpRemoteStackSerializeWriter.c)
- *     RtlpGetCustomCultureData @ 0x18010AE04 (RtlpGetCustomCultureData.c)
- *     RtlHeapTrkInitialize @ 0x18010BE00 (RtlHeapTrkInitialize.c)
- *     RtlpHpStackTraceSerializeRemote @ 0x180117C48 (RtlpHpStackTraceSerializeRemote.c)
- *     RtlpHpTagQueryHeapsRemote @ 0x180119984 (RtlpHpTagQueryHeapsRemote.c)
- *     PssNtFreeWalkMarker @ 0x180129110 (PssNtFreeWalkMarker.c)
- *     PsspCaptureHandleTrace @ 0x1801296D8 (PsspCaptureHandleTrace.c)
- *     PsspCaptureIptTrace @ 0x1801298CC (PsspCaptureIptTrace.c)
- *     PsspCaptureAuxiliaryPages @ 0x180129BC8 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation2 @ 0x18012A054 (PsspCaptureVaSpaceInformation2.c)
- *     PsspCaptureHandleInformation @ 0x18012A744 (PsspCaptureHandleInformation.c)
- *     PsspCaptureThreadInformation @ 0x18012B180 (PsspCaptureThreadInformation.c)
+ *     RtlpGetCustomCultureData @ 0x18010ADD4 (RtlpGetCustomCultureData.c)
+ *     RtlHeapTrkInitialize @ 0x18010BDD0 (RtlHeapTrkInitialize.c)
+ *     RtlpHpStackTraceSerializeRemote @ 0x180117C18 (RtlpHpStackTraceSerializeRemote.c)
+ *     RtlpHpTagQueryHeapsRemote @ 0x180119954 (RtlpHpTagQueryHeapsRemote.c)
+ *     PssNtFreeWalkMarker @ 0x1801290E0 (PssNtFreeWalkMarker.c)
+ *     PsspCaptureHandleTrace @ 0x1801296A8 (PsspCaptureHandleTrace.c)
+ *     PsspCaptureIptTrace @ 0x18012989C (PsspCaptureIptTrace.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180129B98 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation2 @ 0x18012A024 (PsspCaptureVaSpaceInformation2.c)
+ *     PsspCaptureHandleInformation @ 0x18012A714 (PsspCaptureHandleInformation.c)
+ *     PsspCaptureThreadInformation @ 0x18012B150 (PsspCaptureThreadInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtUnmapViewOfSection()
+NTSTATUS __cdecl NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 42LL;
+  result = 42;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

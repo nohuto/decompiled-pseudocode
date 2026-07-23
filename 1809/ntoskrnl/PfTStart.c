@@ -1,23 +1,23 @@
 /*
- * XREFs of PfTStart @ 0x140752A7C
+ * XREFs of PfTStart @ 0x140753C6C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
- *     PfpParametersPropagate @ 0x1408658E4 (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
+ *     PfpParametersPropagate @ 0x140866B44 (PfpParametersPropagate.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PfFbBufferListUpdateMax @ 0x14013BB7C (PfFbBufferListUpdateMax.c)
- *     PfFbBufferListAllocate @ 0x14018C050 (PfFbBufferListAllocate.c)
- *     PfTAccessTracingStart @ 0x140565FF4 (PfTAccessTracingStart.c)
- *     PsEnumProcesses @ 0x1405B1AFC (PsEnumProcesses.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
- *     PfTInitialize @ 0x140751D58 (PfTInitialize.c)
- *     PfTAllocateBuffers @ 0x140752CFC (PfTAllocateBuffers.c)
- *     PfpCreateEvent @ 0x140752E70 (PfpCreateEvent.c)
- *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PfFbBufferListUpdateMax @ 0x14013BC7C (PfFbBufferListUpdateMax.c)
+ *     PfFbBufferListAllocate @ 0x14018C190 (PfFbBufferListAllocate.c)
+ *     PfTAccessTracingStart @ 0x140566FF4 (PfTAccessTracingStart.c)
+ *     PsEnumProcesses @ 0x1405B2AFC (PsEnumProcesses.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
+ *     PfTInitialize @ 0x140752F48 (PfTInitialize.c)
+ *     PfTAllocateBuffers @ 0x140753EEC (PfTAllocateBuffers.c)
+ *     PfpCreateEvent @ 0x140754060 (PfpCreateEvent.c)
+ *     PfTCleanup @ 0x14086643C (PfTCleanup.c)
  */
 
 __int64 __fastcall PfTStart(__int64 a1, void *a2, unsigned int a3)
@@ -35,9 +35,9 @@ __int64 __fastcall PfTStart(__int64 a1, void *a2, unsigned int a3)
 
   Handle = a2;
   v3 = a3;
-  if ( (a3 & 1) != 0 && (xmmword_14043BEC4 & 1) == 0 )
+  if ( (a3 & 1) != 0 && (xmmword_14043CF84 & 1) == 0 )
     v3 = a3 & 0xFFFFFFFE;
-  if ( (v3 & 2) != 0 && (xmmword_14043BEC4 & 1) == 0 && (_DWORD)qword_14043BEE0 != 1 && HIDWORD(qword_14043BEE0) != 1 )
+  if ( (v3 & 2) != 0 && (xmmword_14043CF84 & 1) == 0 && (_DWORD)qword_14043CFA0 != 1 && HIDWORD(qword_14043CFA0) != 1 )
     v3 &= ~2u;
   if ( (v3 & 1) != 0 )
   {
@@ -89,12 +89,12 @@ LABEL_30:
   ExAcquireFastMutex((PFAST_MUTEX)(a1 + 560));
   if ( (v3 & 1) != 0 )
   {
-    *(_DWORD *)(a1 + 540) = HIDWORD(xmmword_14043BEC4);
-    if ( dword_14043BD58 < (unsigned int)dword_14043BD5C )
+    *(_DWORD *)(a1 + 540) = HIDWORD(xmmword_14043CF84);
+    if ( dword_14043CE18 < (unsigned int)dword_14043CE1C )
       PfTAccessTracingStart(a1, (__int64)&PfKernelGlobals, 2);
   }
   if ( (v3 & 2) != 0 )
-    *(_DWORD *)(a1 + 548) = DWORD2(xmmword_14043BEC4);
+    *(_DWORD *)(a1 + 548) = DWORD2(xmmword_14043CF84);
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(a1 + 560));
   *(_DWORD *)(a1 + 8) |= v3;
   if ( (v3 & 1) != 0 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMcUpdateMicrocode @ 0x1404D1C2C
+ * XREFs of HalpMcUpdateMicrocode @ 0x1404CAC6C
  * Callers:
- *     HalpMcLoadMicrocodeWorker @ 0x140559A30 (HalpMcLoadMicrocodeWorker.c)
- *     HalpLoadMicrocodeSerialized @ 0x140701CD0 (HalpLoadMicrocodeSerialized.c)
- *     HalpProcInitSystem @ 0x140B4D1C0 (HalpProcInitSystem.c)
- *     HalpDpPostReplaceInitialization @ 0x140B4F9EC (HalpDpPostReplaceInitialization.c)
- *     HalpPostSleepMP @ 0x140B6886C (HalpPostSleepMP.c)
+ *     HalpMcLoadMicrocodeWorker @ 0x140557660 (HalpMcLoadMicrocodeWorker.c)
+ *     HalpLoadMicrocodeSerialized @ 0x1406FF910 (HalpLoadMicrocodeSerialized.c)
+ *     HalpProcInitSystem @ 0x140B4F200 (HalpProcInitSystem.c)
+ *     HalpDpPostReplaceInitialization @ 0x140B51A3C (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140B70824 (HalpPostSleepMP.c)
  * Callees:
- *     PrExtApplyPatch @ 0x1404D1CF4 (PrExtApplyPatch.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     PrExtApplyPatch @ 0x1404CAD34 (PrExtApplyPatch.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpMcUpdateMicrocode(__int64 a1)

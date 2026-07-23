@@ -9,13 +9,13 @@
 
 __int64 (__fastcall *HalpInitializeGhesRecovery())()
 {
-  struct _SLIST_ENTRY *v0; // rdi
+  _SLIST_ENTRY *v0; // rdi
   _QWORD *v1; // rbx
   __int64 v2; // rsi
   __int64 (__fastcall *result)(); // rax
 
   if ( ((unsigned __int8)&WheapDrsPoolList & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   v0 = &WheapDrsPoolEntries;
   WheapDrsPoolList = 0LL;
   v1 = &unk_140CED9E8;

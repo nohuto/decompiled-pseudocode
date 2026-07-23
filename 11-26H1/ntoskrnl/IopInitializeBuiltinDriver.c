@@ -1,32 +1,32 @@
 /*
- * XREFs of IopInitializeBuiltinDriver @ 0x140D08E68
+ * XREFs of IopInitializeBuiltinDriver @ 0x140D0F138
  * Callers:
- *     PnpInitializeBootStartDriver @ 0x140D08CFC (PnpInitializeBootStartDriver.c)
+ *     PnpInitializeBootStartDriver @ 0x140D0EFCC (PnpInitializeBootStartDriver.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     VfDifCaptureDriverEntry @ 0x1403B7900 (VfDifCaptureDriverEntry.c)
- *     VfDifCaptureIoCallbacks @ 0x1403B796C (VfDifCaptureIoCallbacks.c)
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
- *     RtlEqualString @ 0x1404A4570 (RtlEqualString.c)
- *     HeadlessKernelAddLogEntry @ 0x1404EDA18 (HeadlessKernelAddLogEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObInsertObject @ 0x14092AFB0 (ObInsertObject.c)
- *     ObCreateObject @ 0x140932FB0 (ObCreateObject.c)
- *     IopReadyDeviceObjects @ 0x140A25474 (IopReadyDeviceObjects.c)
- *     KseDriverLoadImage @ 0x140A25978 (KseDriverLoadImage.c)
- *     KseShimDriverIoCallbacks @ 0x140A26360 (KseShimDriverIoCallbacks.c)
- *     PnpPrepareDriverLoading @ 0x140A266A4 (PnpPrepareDriverLoading.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     ObMakeTemporaryObject @ 0x140B01A40 (ObMakeTemporaryObject.c)
- *     PnpDriverLoadingFailed @ 0x140B4655C (PnpDriverLoadingFailed.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     InbvIndicateProgress @ 0x140CBA0E4 (InbvIndicateProgress.c)
- *     MmReapplyBootPatchImports @ 0x140CFBA34 (MmReapplyBootPatchImports.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     VfDifCaptureDriverEntry @ 0x1403C1800 (VfDifCaptureDriverEntry.c)
+ *     VfDifCaptureIoCallbacks @ 0x1403C186C (VfDifCaptureIoCallbacks.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
+ *     RtlEqualString @ 0x14049DC00 (RtlEqualString.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404E6FF8 (HeadlessKernelAddLogEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObInsertObject @ 0x140906AE0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x14090EB60 (ObCreateObject.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     IopReadyDeviceObjects @ 0x140A38514 (IopReadyDeviceObjects.c)
+ *     KseDriverLoadImage @ 0x140A38A18 (KseDriverLoadImage.c)
+ *     KseShimDriverIoCallbacks @ 0x140A39400 (KseShimDriverIoCallbacks.c)
+ *     PnpPrepareDriverLoading @ 0x140A39744 (PnpPrepareDriverLoading.c)
+ *     ObMakeTemporaryObject @ 0x140B03770 (ObMakeTemporaryObject.c)
+ *     PnpDriverLoadingFailed @ 0x140B4858C (PnpDriverLoadingFailed.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     InbvIndicateProgress @ 0x140CC0124 (InbvIndicateProgress.c)
+ *     MmReapplyBootPatchImports @ 0x140D01DB4 (MmReapplyBootPatchImports.c)
  */
 
 __int64 __fastcall IopInitializeBuiltinDriver(
@@ -43,7 +43,7 @@ __int64 __fastcall IopInitializeBuiltinDriver(
   __int64 v12; // rdx
   __int64 v13; // rcx
   PVOID *i; // rdi
-  unsigned __int64 v15; // r13
+  void *v15; // r13
   PVOID v16; // rcx
   ULONG_PTR Pool2; // rax
   ULONG_PTR v18; // rdi
@@ -97,7 +97,16 @@ __int64 __fastcall IopInitializeBuiltinDriver(
   v49 = 0LL;
   v47 = 80;
   v46 = a1;
-  inserted = ObCreateObject(KeGetCurrentThread()->PreviousMode, IoDriverObjectType, v44, 0, 0, 424, 0, 0, &Object);
+  inserted = ObCreateObject(
+               KeGetCurrentThread()->PreviousMode,
+               IoDriverObjectType,
+               (__int64)v44,
+               0,
+               0,
+               424,
+               0,
+               0,
+               &Object);
   if ( inserted < 0 )
     goto LABEL_2;
   v11 = (char *)Object;
@@ -131,9 +140,9 @@ LABEL_2:
     goto LABEL_14;
   }
 LABEL_11:
-  v15 = *(_QWORD *)(a4 + 48);
+  v15 = *(void **)(a4 + 48);
   Object = 0LL;
-  RtlImageNtHeaderEx(1, v15, 0LL, &Object);
+  RtlImageNtHeaderEx(1u, v15, 0LL, (PIMAGE_NT_HEADERS *)&Object);
   v16 = Object;
   *((_QWORD *)v11 + 3) = v15;
   *((_DWORD *)v11 + 8) = *((_DWORD *)v16 + 20);
@@ -207,7 +216,7 @@ LABEL_33:
           *((_DWORD *)v11 + 4) |= 0x100u;
         if ( v50 )
           *((_DWORD *)v11 + 4) |= 0x1000u;
-        *((_QWORD *)v11 + 9) = &PspSiloMonitorLock.648;
+        *((_QWORD *)v11 + 9) = &PspSiloMonitorLock.SavedApcState.Process;
         VfDifCaptureDriverEntry((__int64)v11);
         v33 = KseDriverLoadImage(a4, &v40);
         inserted = v33;

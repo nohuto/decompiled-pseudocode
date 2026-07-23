@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializePagedLookasideListInternal @ 0x140002824
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x140002998
  * Callers:
- *     ExInitializePagedLookasideList @ 0x1403E3794 (ExInitializePagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x1403E4DC0 (ExInitializePagedLookasideList.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall ExInitializePagedLookasideListInternal(
@@ -48,13 +48,13 @@ void __fastcall ExInitializePagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v14 = (_QWORD *)qword_1402FB588;
+  v14 = (_QWORD *)qword_1402FB598;
   v15 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_1402FB588 != &ExPagedLookasideListHead )
+  if ( *(__int64 **)qword_1402FB598 != &ExPagedLookasideListHead )
     __fastfail(3u);
   *v15 = &ExPagedLookasideListHead;
   v15[1] = v14;
   *v14 = v15;
-  qword_1402FB588 = (__int64)v15;
+  qword_1402FB598 = (__int64)v15;
   KeReleaseSpinLock(&ExPagedLookasideLock, v13);
 }

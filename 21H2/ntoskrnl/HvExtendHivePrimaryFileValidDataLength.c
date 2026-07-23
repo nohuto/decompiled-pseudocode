@@ -1,10 +1,10 @@
 /*
- * XREFs of HvExtendHivePrimaryFileValidDataLength @ 0x1408768E4
+ * XREFs of HvExtendHivePrimaryFileValidDataLength @ 0x140876A44
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFileFlushAndPurge @ 0x14071DC38 (CmpFileFlushAndPurge.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFileFlushAndPurge @ 0x1406FA1C8 (CmpFileFlushAndPurge.c)
  */
 
 __int64 __fastcall HvExtendHivePrimaryFileValidDataLength(__int64 a1, int a2, int a3)

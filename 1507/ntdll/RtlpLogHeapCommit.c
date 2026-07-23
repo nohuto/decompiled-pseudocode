@@ -19,15 +19,15 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-__int64 __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)
+NTSTATUS __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  _DWORD v9[15]; // [rsp+24h] [rbp-74h] BYREF
+  _QWORD Fields[8]; // [rsp+20h] [rbp-78h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  *(_QWORD *)&v9[7] = a1;
-  HIWORD(v9[0]) = 4147;
-  *(_QWORD *)&v9[9] = a2;
-  *(_QWORD *)&v9[11] = a3;
-  v9[13] = a4;
-  return NtTraceEvent();
+  memset(Fields, 0, sizeof(Fields));
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 4147;
+  Fields[5] = a2;
+  Fields[6] = a3;
+  LODWORD(Fields[7]) = a4;
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0388], 0x20402u, 0x20u, Fields);
 }

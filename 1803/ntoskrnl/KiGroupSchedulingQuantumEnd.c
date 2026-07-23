@@ -131,7 +131,7 @@ char __fastcall KiGroupSchedulingQuantumEnd(__int64 a1, __int64 a2, char a3, _QW
             if ( (_BYTE)ready )
             {
               if ( (*(_BYTE *)(v16 + 112) & 1) != 0 )
-                LOBYTE(ready) = KiRemoveSchedulingGroupQueue(a1, v16, 1);
+                LOBYTE(ready) = KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a1, v16, 1);
               goto LABEL_30;
             }
             ready = *(_QWORD *)(v16 + 24);

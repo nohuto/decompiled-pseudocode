@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1404EA5F4
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1404CC6E8
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlSidDominatesForTrust @ 0x1400D3CA0 (RtlSidDominatesForTrust.c)
- *     SepCreateClientSecurityEx @ 0x140412280 (SepCreateClientSecurityEx.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlSidDominatesForTrust @ 0x1400D1B40 (RtlSidDominatesForTrust.c)
+ *     SepCreateClientSecurityEx @ 0x140411140 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
@@ -20,27 +20,27 @@ NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
   __int64 v6; // r15
   int v10; // r14d
   int ClientSecurity; // edi
-  __int64 v13; // rbp
-  char v14; // [rsp+A0h] [rbp+8h] BYREF
+  void *v13; // rbp
+  BOOLEAN DominatesTrust; // [rsp+A0h] [rbp+8h] BYREF
   BOOLEAN v15; // [rsp+B0h] [rbp+18h]
 
   v15 = ServerIsRemote;
   ClientToken = SubjectContext->ClientToken;
   v5 = 0;
   v6 = 0LL;
-  v14 = 0;
+  DominatesTrust = 0;
   if ( !ClientToken )
     ClientToken = SubjectContext->PrimaryToken;
   ObfReferenceObject(ClientToken);
   if ( SubjectContext->ClientToken )
   {
     v10 = 2;
-    v13 = *((_QWORD *)SubjectContext->PrimaryToken + 138);
-    RtlSidDominatesForTrust(v13, *((_QWORD *)SubjectContext->ClientToken + 138), &v14);
-    if ( !v14 )
+    v13 = (void *)*((_QWORD *)SubjectContext->PrimaryToken + 138);
+    RtlSidDominatesForTrust(v13, *((PSID *)SubjectContext->ClientToken + 138), &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v5 = 1;
-      v6 = v13;
+      v6 = (__int64)v13;
     }
   }
   else

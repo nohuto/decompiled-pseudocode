@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlQueryInformationAcl @ 0x14040700C
+ * XREFs of RtlQueryInformationAcl @ 0x140405ECC
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x1400807C0 (SepAppendAceToTokenDefaultDacl.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140406AA0 (SepAppendAceToTokenObjectAcl.c)
- *     SepBuildDaclWithAllApplicationPackageSid @ 0x14069492C (SepBuildDaclWithAllApplicationPackageSid.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140080840 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140405960 (SepAppendAceToTokenObjectAcl.c)
+ *     SepBuildDaclWithAllApplicationPackageSid @ 0x140694A10 (SepBuildDaclWithAllApplicationPackageSid.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x140420A70 (RtlFirstFreeAce.c)
+ *     RtlFirstFreeAce @ 0x14041F930 (RtlFirstFreeAce.c)
  */
 
 NTSTATUS __stdcall RtlQueryInformationAcl(

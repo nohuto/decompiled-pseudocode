@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwAcceptConnectPort @ 0x1403FA3E0
+ * XREFs of ZwAcceptConnectPort @ 0x1403FA5C0
  * Callers:
- *     SepRmLsaConnectRequest @ 0x1407AD3B0 (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x1407AD5B0 (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAcceptConnectPort()
+NTSTATUS __cdecl ZwAcceptConnectPort(
+        PHANDLE PortHandle,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        BOOLEAN AcceptConnection,
+        PPORT_VIEW ServerView,
+        PREMOTE_PORT_VIEW ClientView)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal();
+  return KiServiceInternal(PortHandle);
 }

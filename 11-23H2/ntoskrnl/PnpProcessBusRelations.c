@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpProcessBusRelations @ 0x140868C60
+ * XREFs of PnpProcessBusRelations @ 0x140868EA0
  * Callers:
- *     PnpProcessRelation @ 0x140868A58 (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x140868C98 (PnpProcessRelation.c)
  * Callees:
- *     PnpProcessRelation @ 0x140868A58 (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x140868C98 (PnpProcessRelation.c)
  */
 
 __int64 __fastcall PnpProcessBusRelations(

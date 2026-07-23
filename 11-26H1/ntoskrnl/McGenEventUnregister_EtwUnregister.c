@@ -1,9 +1,9 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1406494B0
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x14064D090
  * Callers:
- *     CarCleanup @ 0x1406495F0 (CarCleanup.c)
+ *     CarCleanup @ 0x14064D1D0 (CarCleanup.c)
  * Callees:
- *     EtwUnregister @ 0x140A84ED0 (EtwUnregister.c)
+ *     EtwUnregister @ 0x1409BE550 (EtwUnregister.c)
  */
 
 NTSTATUS McGenEventUnregister_EtwUnregister()

@@ -13,9 +13,9 @@
 __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, __int64 a2)
 {
   int v5; // ebx
-  PIMAGE_NT_HEADERS v6; // rax
-  _DWORD *v7; // rax
-  unsigned int v8; // edx
+  _IMAGE_NT_HEADERS64 *v6; // rax
+  PIMAGE_SECTION_HEADER v7; // rax
+  unsigned int SizeOfRawData; // edx
 
   if ( !KiKvaShadow )
     return 1LL;
@@ -28,14 +28,14 @@ __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, __int64 a2)
       if ( *(_DWORD *)(a1 + 36) )
         return 1LL;
       v6 = RtlImageNtHeader((PVOID)0x140000000LL);
-      v7 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                       (unsigned __int64)v6,
-                       0x140000000LL,
-                       (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
-      v8 = v7[4];
-      if ( v7[2] > v8 )
-        v8 = v7[2];
-      if ( (unsigned int)MmCreateShadowMapping(0x140000000LL + (unsigned int)v7[3], (v8 + 4095) & 0xFFFFF000) )
+      v7 = RtlSectionTableFromVirtualAddress(
+             v6,
+             (PVOID)0x140000000LL,
+             (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
+      SizeOfRawData = v7->SizeOfRawData;
+      if ( v7->Misc.PhysicalAddress > SizeOfRawData )
+        SizeOfRawData = v7->Misc.PhysicalAddress;
+      if ( (unsigned int)MmCreateShadowMapping(0x140000000LL + v7->VirtualAddress, (SizeOfRawData + 4095) & 0xFFFFF000) )
         return 1LL;
     }
     MmDeleteShadowMapping(a2, 20480LL);

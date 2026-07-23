@@ -1,7 +1,7 @@
 /*
- * XREFs of MiConvertAssignedRegionToVaType @ 0x140CF9454
+ * XREFs of MiConvertAssignedRegionToVaType @ 0x140CFF7D4
  * Callers:
- *     MiSetSystemRegionTypes @ 0x140CF9A04 (MiSetSystemRegionTypes.c)
+ *     MiSetSystemRegionTypes @ 0x140CFFD84 (MiSetSystemRegionTypes.c)
  * Callees:
  *     <none>
  */

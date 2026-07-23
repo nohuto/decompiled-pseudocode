@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpLinkHiveToMaster @ 0x1404A10B4
+ * XREFs of CmpLinkHiveToMaster @ 0x1405194C0
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x14060D2DC (CmpLoadHiveVolatile.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x14060D390 (CmpLoadHiveVolatile.c)
  *     CmpInitializeSystemHive @ 0x1407AD830 (CmpInitializeSystemHive.c)
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  *     CmpInitializePreloadedHive @ 0x1407AE20C (CmpInitializePreloadedHive.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x14000BEC0 (RtlUnicodeStringCopy.c)
- *     CmpFreeTransientPoolWithTag @ 0x14002D218 (CmpFreeTransientPoolWithTag.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     CmpRemoveHiveFromNamespace @ 0x1400878C4 (CmpRemoveHiveFromNamespace.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlUnicodeStringCopy @ 0x14000BA40 (RtlUnicodeStringCopy.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14002CD98 (CmpFreeTransientPoolWithTag.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     CmpRemoveHiveFromNamespace @ 0x14010BABC (CmpRemoveHiveFromNamespace.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpCleanupParseContext @ 0x14046466C (CmpCleanupParseContext.c)
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
- *     CmpRecordUnloadEventForHive @ 0x14049B43C (CmpRecordUnloadEventForHive.c)
- *     CmpConstructName @ 0x1404A1DCC (CmpConstructName.c)
- *     CmpInitializeKcbCache @ 0x1404A1DEC (CmpInitializeKcbCache.c)
- *     CmpReportNotify @ 0x140514840 (CmpReportNotify.c)
- *     CmpEtwDumpKcb @ 0x1405FB920 (CmpEtwDumpKcb.c)
- *     CmpLogHiveLinkEvent @ 0x1405FBB7C (CmpLogHiveLinkEvent.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpCleanupParseContext @ 0x14046353C (CmpCleanupParseContext.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
+ *     CmpRecordUnloadEventForHive @ 0x1404D009C (CmpRecordUnloadEventForHive.c)
+ *     CmpReportNotify @ 0x1404F7C30 (CmpReportNotify.c)
+ *     CmpConstructName @ 0x14051A1D8 (CmpConstructName.c)
+ *     CmpInitializeKcbCache @ 0x14051A1F8 (CmpInitializeKcbCache.c)
+ *     CmpEtwDumpKcb @ 0x1405FB9D4 (CmpEtwDumpKcb.c)
+ *     CmpLogHiveLinkEvent @ 0x1405FBC30 (CmpLogHiveLinkEvent.c)
  */
 
 __int64 __fastcall CmpLinkHiveToMaster(
@@ -48,7 +48,7 @@ __int64 __fastcall CmpLinkHiveToMaster(
   int v15; // eax
   int v16; // edi
   int v17; // eax
-  volatile signed __int32 **v18; // rsi
+  __int64 *v18; // rsi
   __int64 v19; // rdx
   UNICODE_STRING *v20; // r15
   PVOID PoolWithTag; // rax
@@ -109,7 +109,7 @@ __int64 __fastcall CmpLinkHiveToMaster(
     else
     {
       ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL);
-      v18 = (volatile signed __int32 **)Object;
+      v18 = (__int64 *)Object;
       ZwClose(Handle);
       if ( !a11 )
         CmpLockRegistry();
@@ -127,10 +127,10 @@ __int64 __fastcall CmpLinkHiveToMaster(
         *(_DWORD *)(a3 + 2828) = _InterlockedIncrement(&CmHiveIdentity);
         if ( !a11 )
           CmpLockRegistry();
-        CmpReportNotify((unsigned int)v18[1], *((_QWORD *)v18[1] + 3), *((_DWORD *)v18[1] + 8), 0, 1, 0LL);
+        CmpReportNotify(v18[1], *(_QWORD *)(v18[1] + 24), *(_DWORD *)(v18[1] + 32), 0LL, 1, 0LL);
         if ( a6 )
         {
-          CmpReferenceKeyControlBlockUnsafe(v18[1]);
+          CmpReferenceKeyControlBlockUnsafe((volatile signed __int32 *)v18[1]);
           *(_QWORD *)(a3 + 4104) = v18[1];
           if ( Event )
           {
@@ -148,7 +148,7 @@ __int64 __fastcall CmpLinkHiveToMaster(
         v23 = (_QWORD *)v31;
         if ( v31 )
         {
-          CmpReferenceKeyControlBlockUnsafe(v18[1]);
+          CmpReferenceKeyControlBlockUnsafe((volatile signed __int32 *)v18[1]);
           *v23 = v18[1];
         }
         ObfDereferenceObject(Object);
@@ -162,7 +162,7 @@ __int64 __fastcall CmpLinkHiveToMaster(
         v16 = -1073741670;
         if ( !a11 )
           CmpLockRegistry();
-        CmpRemoveHiveFromNamespace(a3, (__int64)v18[1]);
+        CmpRemoveHiveFromNamespace(a3, v18[1]);
         if ( !a11 )
           CmpUnlockRegistry();
       }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeCompactServiceTable @ 0x14012DA2C
+ * XREFs of KeCompactServiceTable @ 0x14012DF9C
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
- *     MiCompactServiceTable @ 0x14053A248 (MiCompactServiceTable.c)
+ *     MiCompactServiceTable @ 0x14053A788 (MiCompactServiceTable.c)
  * Callees:
  *     <none>
  */

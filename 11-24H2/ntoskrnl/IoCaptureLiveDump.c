@@ -1,41 +1,41 @@
 /*
- * XREFs of IoCaptureLiveDump @ 0x1404E6068
+ * XREFs of IoCaptureLiveDump @ 0x1404DC764
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x14057EAD8 (DbgkCaptureLiveKernelDump.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x140A9AEBC (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x14057BF68 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140A9642C (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1404F70B8 (SecureDump_GetSecureDumpSettings.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpCaptureDumpStart @ 0x140599F68 (IopLiveDumpCaptureDumpStart.c)
- *     IopLiveDumpCaptureMemoryPages @ 0x140599FDC (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpInitRegistrySettings @ 0x14059B7E4 (IopLiveDumpInitRegistrySettings.c)
- *     IopLiveDumpOpenVMMemoryPartition @ 0x14059C448 (IopLiveDumpOpenVMMemoryPartition.c)
- *     IopLiveDumpReleaseResources @ 0x14059CE5C (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14059DA40 (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x14059DB64 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpValidateParameters @ 0x14059E5D0 (IopLiveDumpValidateParameters.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059E850 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405A3320 (IopLiveDumpTraceIoCaptureLiveDumpEntry.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405A33C0 (IopLiveDumpTraceNoArgs.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IoCreateNotificationEvent @ 0x140A69020 (IoCreateNotificationEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1404F4998 (SecureDump_GetSecureDumpSettings.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpCaptureDumpStart @ 0x140596EEC (IopLiveDumpCaptureDumpStart.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140596F60 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x140598764 (IopLiveDumpInitRegistrySettings.c)
+ *     IopLiveDumpOpenVMMemoryPartition @ 0x1405993C8 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     IopLiveDumpReleaseResources @ 0x140599DDC (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14059A9C0 (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x14059AAE4 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpValidateParameters @ 0x14059B550 (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14059B7D0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405A0260 (IopLiveDumpTraceIoCaptureLiveDumpEntry.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405A0300 (IopLiveDumpTraceNoArgs.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IoCreateNotificationEvent @ 0x140A623D0 (IoCreateNotificationEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoCaptureLiveDump(
@@ -53,102 +53,94 @@ __int64 __fastcall IoCaptureLiveDump(
   __int64 v10; // rbx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  HANDLE v15; // rcx
+  HANDLE v13; // rcx
   int SecureDumpSettings; // edi
-  HANDLE v17; // rsi
-  int *v18; // r15
-  HANDLE v19; // r14
+  HANDLE v15; // rsi
+  int *v16; // r15
+  HANDLE v17; // r14
+  __int64 v18; // rdx
+  __int64 v19; // rcx
   __int64 v20; // rdx
   __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // r9
+  __int64 v22; // rdx
   __int64 Pool2; // rax
-  int v32; // ecx
-  unsigned int v33; // ecx
-  HANDLE v34; // rax
-  __int64 v35; // rax
-  _BYTE *v36; // rcx
-  int v37; // eax
+  int v24; // ecx
+  unsigned int v25; // ecx
+  HANDLE v26; // rax
+  __int64 v27; // rax
+  _BYTE *v28; // rcx
+  int v29; // eax
   __int64 MillisecondCounter; // r14
-  int v39; // eax
-  __int64 v40; // rsi
-  __int64 v41; // rax
-  void *v42; // rcx
-  void *v43; // rsi
-  int v44; // ecx
-  const GUID *v45; // r9
-  const GUID *v46; // r8
-  char v48; // [rsp+30h] [rbp-D0h] BYREF
-  bool v49; // [rsp+31h] [rbp-CFh] BYREF
-  bool v50; // [rsp+32h] [rbp-CEh] BYREF
-  char v51; // [rsp+33h] [rbp-CDh] BYREF
+  int v31; // eax
+  __int64 v32; // rsi
+  __int64 v33; // rax
+  void *v34; // rcx
+  void *v35; // rsi
+  int v36; // ecx
+  const GUID *v37; // r9
+  const GUID *v38; // r8
+  char v40; // [rsp+30h] [rbp-D0h] BYREF
+  bool v41; // [rsp+31h] [rbp-CFh] BYREF
+  bool v42; // [rsp+32h] [rbp-CEh] BYREF
+  char v43; // [rsp+33h] [rbp-CDh] BYREF
   HANDLE EventHandle; // [rsp+38h] [rbp-C8h] BYREF
-  HANDLE v53; // [rsp+40h] [rbp-C0h] BYREF
+  HANDLE v45; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v55; // [rsp+50h] [rbp-B0h] BYREF
-  void *v56; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v57; // [rsp+60h] [rbp-A0h]
-  __int64 v58; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v59; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v60; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v47; // [rsp+50h] [rbp-B0h] BYREF
+  void *v48; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v49; // [rsp+60h] [rbp-A0h]
+  __int64 v50; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v51; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v52; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v62; // [rsp+90h] [rbp-70h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v63[2]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 *v64; // [rsp+C0h] [rbp-40h]
-  __int64 v65; // [rsp+C8h] [rbp-38h]
-  HANDLE *v66; // [rsp+D0h] [rbp-30h]
-  __int64 v67; // [rsp+D8h] [rbp-28h]
+  __int128 v54; // [rsp+90h] [rbp-70h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v55[2]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 *v56; // [rsp+C0h] [rbp-40h]
+  __int64 v57; // [rsp+C8h] [rbp-38h]
+  HANDLE *v58; // [rsp+D0h] [rbp-30h]
+  __int64 v59; // [rsp+D8h] [rbp-28h]
   HANDLE *p_Handle; // [rsp+E0h] [rbp-20h]
-  __int64 v69; // [rsp+E8h] [rbp-18h]
-  struct _EVENT_DATA_DESCRIPTOR v70; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 *v71; // [rsp+110h] [rbp+10h]
-  __int64 v72; // [rsp+118h] [rbp+18h]
-  void **v73; // [rsp+120h] [rbp+20h]
-  __int64 v74; // [rsp+128h] [rbp+28h]
-  HANDLE *v75; // [rsp+130h] [rbp+30h]
-  __int64 v76; // [rsp+138h] [rbp+38h]
-  __int64 *v77; // [rsp+140h] [rbp+40h]
-  __int64 v78; // [rsp+148h] [rbp+48h]
-  __int64 *v79; // [rsp+150h] [rbp+50h]
-  __int64 v80; // [rsp+158h] [rbp+58h]
-  __int64 *v81; // [rsp+160h] [rbp+60h]
-  __int64 v82; // [rsp+168h] [rbp+68h]
-  HANDLE *v83; // [rsp+170h] [rbp+70h]
-  __int64 v84; // [rsp+178h] [rbp+78h]
-  char *v85; // [rsp+180h] [rbp+80h]
-  __int64 v86; // [rsp+188h] [rbp+88h]
-  bool *v87; // [rsp+190h] [rbp+90h]
-  __int64 v88; // [rsp+198h] [rbp+98h]
-  bool *v89; // [rsp+1A0h] [rbp+A0h]
-  __int64 v90; // [rsp+1A8h] [rbp+A8h]
+  __int64 v61; // [rsp+E8h] [rbp-18h]
+  struct _EVENT_DATA_DESCRIPTOR v62; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 *v63; // [rsp+110h] [rbp+10h]
+  __int64 v64; // [rsp+118h] [rbp+18h]
+  void **v65; // [rsp+120h] [rbp+20h]
+  __int64 v66; // [rsp+128h] [rbp+28h]
+  HANDLE *v67; // [rsp+130h] [rbp+30h]
+  __int64 v68; // [rsp+138h] [rbp+38h]
+  __int64 *v69; // [rsp+140h] [rbp+40h]
+  __int64 v70; // [rsp+148h] [rbp+48h]
+  __int64 *v71; // [rsp+150h] [rbp+50h]
+  __int64 v72; // [rsp+158h] [rbp+58h]
+  __int64 *v73; // [rsp+160h] [rbp+60h]
+  __int64 v74; // [rsp+168h] [rbp+68h]
+  HANDLE *v75; // [rsp+170h] [rbp+70h]
+  __int64 v76; // [rsp+178h] [rbp+78h]
+  char *v77; // [rsp+180h] [rbp+80h]
+  __int64 v78; // [rsp+188h] [rbp+88h]
+  bool *v79; // [rsp+190h] [rbp+90h]
+  __int64 v80; // [rsp+198h] [rbp+98h]
+  bool *v81; // [rsp+1A0h] [rbp+A0h]
+  __int64 v82; // [rsp+1A8h] [rbp+A8h]
   HANDLE *p_EventHandle; // [rsp+1B0h] [rbp+B0h]
-  __int64 v92; // [rsp+1B8h] [rbp+B8h]
-  char *v93; // [rsp+1C0h] [rbp+C0h]
-  __int64 v94; // [rsp+1C8h] [rbp+C8h]
+  __int64 v84; // [rsp+1B8h] [rbp+B8h]
+  char *v85; // [rsp+1C0h] [rbp+C0h]
+  __int64 v86; // [rsp+1C8h] [rbp+C8h]
 
-  v60 = a4;
+  v52 = a4;
   v7 = 0LL;
-  v59 = a3;
+  v51 = a3;
   v8 = 0LL;
-  v58 = a2;
+  v50 = a2;
   v9 = 0LL;
-  v57 = a1;
+  v49 = a1;
   v10 = 0LL;
   EventHandle = 0LL;
   Handle = 0LL;
-  v53 = 0LL;
-  v55 = 0LL;
+  v45 = 0LL;
+  v47 = 0LL;
   DestinationString = 0LL;
-  v62 = 0LL;
+  v54 = 0LL;
   if ( !ForceDumpDisabled && AllowLiveDump )
   {
     if ( ExtraDumpContextEnabled )
@@ -165,34 +157,34 @@ __int64 __fastcall IoCaptureLiveDump(
       *a7 = 0LL;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v48 = ExAcquireResourceExclusiveLite(&IopLiveDumpLock, 0);
-    if ( v48 != 1 )
+    v40 = ExAcquireResourceExclusiveLite(&IopLiveDumpLock, 0);
+    if ( v40 != 1 )
     {
-      v15 = v53;
+      v13 = v45;
       SecureDumpSettings = -1073741267;
-      v17 = EventHandle;
-      v18 = (int *)(a6 + 24);
-      v19 = Handle;
+      v15 = EventHandle;
+      v16 = (int *)(a6 + 24);
+      v17 = Handle;
 LABEL_38:
       if ( IptInterface )
       {
-        guard_dispatch_icall_no_overrides(0LL, v12, v13, v14);
+        guard_dispatch_icall_no_overrides(0LL, v12);
         ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v9 + 88));
         IptInterface = 0LL;
       }
+      if ( v15 )
+        ZwClose(v15);
       if ( v17 )
         ZwClose(v17);
-      if ( v19 )
-        ZwClose(v19);
-      if ( v53 )
-        ZwClose(v53);
-      if ( (*v18 & 0x10) != 0
+      if ( v45 )
+        ZwClose(v45);
+      if ( (*v16 & 0x10) != 0
         && SecureDumpSettings == -1073741248
-        && (unsigned __int8)IopLiveDumpIsTracingEnabled(v15, v12) == 1 )
+        && (unsigned __int8)IopLiveDumpIsTracingEnabled(v13, v12) == 1 )
       {
         IopLiveDumpTraceNoArgs(LIVEDUMP_EVENT_MEMORY_PRESSURE_ABORT);
       }
-      if ( v48 )
+      if ( v40 )
       {
         IopLiveDumpContext = 0LL;
         ExReleaseResourceLite(&IopLiveDumpLock);
@@ -203,11 +195,11 @@ LABEL_38:
         SecureDumpSettings = SecureDump_GetSecureDumpSettings(v10 + 984);
         if ( SecureDumpSettings >= 0 )
         {
-          if ( !*v36
-            || (v37 = *(_DWORD *)(v10 + 992)) != 0
+          if ( !*v28
+            || (v29 = *(_DWORD *)(v10 + 992)) != 0
             && *(_BYTE *)(v10 + 985)
             && *(_DWORD *)(v10 + 988) == 4096
-            && (v37 & 0xFFF) == 0 )
+            && (v29 & 0xFFF) == 0 )
           {
             if ( (*(_DWORD *)(v10 + 40) & 8) != 0 )
             {
@@ -219,33 +211,33 @@ LABEL_38:
               IopLiveDumpTraceNoArgs(LIVEDUMP_EVENT_WRITE_DUMPDATA_TO_FILE_START);
               MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
               if ( *(_QWORD *)(v10 + 192) || *(_QWORD *)(v10 + 200) )
-                v39 = IopLiveDumpWriteDumpFileWithExtraPages(v10);
+                v31 = IopLiveDumpWriteDumpFileWithExtraPages(v10);
               else
-                v39 = IopLiveDumpWriteDumpFile(v10);
-              SecureDumpSettings = v39;
-              v40 = IopLiveDumpGetMillisecondCounter(0);
+                v31 = IopLiveDumpWriteDumpFile(v10);
+              SecureDumpSettings = v31;
+              v32 = IopLiveDumpGetMillisecondCounter(0);
               if ( (unsigned int)dword_140E06E80 > 5 && tlgKeywordOn((__int64)&dword_140E06E80, 0x400000000000LL) )
               {
-                v55 = 0x1000000LL;
-                v64 = &v55;
-                v41 = *(_QWORD *)(v10 + 560);
-                v65 = 8LL;
-                v67 = 8LL;
-                v69 = 8LL;
-                v42 = *(void **)(v41 + 4000);
-                v66 = &v53;
-                v53 = v42;
-                Handle = (HANDLE)(v40 - MillisecondCounter);
+                v47 = 0x1000000LL;
+                v56 = &v47;
+                v33 = *(_QWORD *)(v10 + 560);
+                v57 = 8LL;
+                v59 = 8LL;
+                v61 = 8LL;
+                v34 = *(void **)(v33 + 4000);
+                v58 = &v45;
+                v45 = v34;
+                Handle = (HANDLE)(v32 - MillisecondCounter);
                 p_Handle = &Handle;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140E06E80,
-                  (unsigned __int8 *)&dword_1400458AC,
+                  (unsigned __int8 *)&byte_14004621F,
                   (const GUID *)(v10 + 968),
                   (const GUID *)(v10 + 952),
                   5u,
-                  v63);
+                  v55);
               }
-              IopLiveDumpTraceDumpFileWriteEnd(v10, v40 - MillisecondCounter, 0LL, (unsigned int)SecureDumpSettings);
+              IopLiveDumpTraceDumpFileWriteEnd(v10, v32 - MillisecondCounter, 0LL, (unsigned int)SecureDumpSettings);
               if ( SecureDumpSettings >= 0 && (*(_DWORD *)(v10 + 80) & 2) != 0 )
                 SecureDumpSettings = 261;
             }
@@ -256,61 +248,61 @@ LABEL_38:
           }
         }
       }
-      v43 = (void *)IopLiveDumpGetMillisecondCounter(0);
-      IopLiveDumpTraceInterfaceEnd(v10, 0LL, (unsigned int)SecureDumpSettings, v43);
+      v35 = (void *)IopLiveDumpGetMillisecondCounter(0);
+      IopLiveDumpTraceInterfaceEnd(v10, 0LL, (unsigned int)SecureDumpSettings, v35);
       if ( (unsigned int)dword_140E06E80 > 5 && tlgKeywordOn((__int64)&dword_140E06E80, 0x400000000000LL) )
       {
-        v44 = *v18;
-        v71 = &v55;
-        v55 = 0x1000000LL;
-        v73 = &v56;
-        v53 = (HANDLE)v57;
-        v75 = &v53;
-        v77 = &v58;
-        v79 = &v59;
-        v81 = &v60;
+        v36 = *v16;
+        v63 = &v47;
+        v47 = 0x1000000LL;
+        v65 = &v48;
+        v45 = (HANDLE)v49;
+        v67 = &v45;
+        v69 = &v50;
+        v71 = &v51;
+        v73 = &v52;
         Handle = a5;
-        v83 = &Handle;
-        v72 = 8LL;
-        v48 = (v44 & 8) != 0;
-        v85 = &v48;
-        v49 = (v44 & 0x10) != 0;
-        LODWORD(v56) = SecureDumpSettings;
-        v87 = &v49;
-        v89 = &v50;
+        v75 = &Handle;
+        v64 = 8LL;
+        v40 = (v36 & 8) != 0;
+        v77 = &v40;
+        v41 = (v36 & 0x10) != 0;
+        LODWORD(v48) = SecureDumpSettings;
+        v79 = &v41;
+        v81 = &v42;
         p_EventHandle = &EventHandle;
-        v51 = IOSpaceEnabled;
-        v93 = &v51;
-        v74 = 4LL;
+        v43 = IOSpaceEnabled;
+        v85 = &v43;
+        v66 = 4LL;
+        v68 = 8LL;
+        v70 = 8LL;
+        v72 = 8LL;
+        v74 = 8LL;
         v76 = 8LL;
-        v78 = 8LL;
-        v80 = 8LL;
-        v82 = 8LL;
+        v78 = 1LL;
+        v80 = 1LL;
+        v42 = (v36 & 0x20) != 0;
+        v82 = 1LL;
+        EventHandle = v35;
         v84 = 8LL;
         v86 = 1LL;
-        v88 = 1LL;
-        v50 = (v44 & 0x20) != 0;
-        v90 = 1LL;
-        EventHandle = v43;
-        v92 = 8LL;
-        v94 = 1LL;
         if ( v10 )
         {
-          v45 = (const GUID *)(v10 + 952);
-          v46 = (const GUID *)(v10 + 968);
+          v37 = (const GUID *)(v10 + 952);
+          v38 = (const GUID *)(v10 + 968);
         }
         else
         {
-          v45 = (const GUID *)&v62;
-          v46 = (const GUID *)&v62;
+          v37 = (const GUID *)&v54;
+          v38 = (const GUID *)&v54;
         }
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06E80,
-          (unsigned __int8 *)&word_1400457A6,
-          v46,
-          v45,
+          (unsigned __int8 *)&qword_140046278,
+          v38,
+          v37,
           0xEu,
-          &v70);
+          &v62);
       }
       if ( v10 )
       {
@@ -330,11 +322,11 @@ LABEL_38:
       IptInterface = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)KiSupervisorStateExtensionHost);
       if ( IptInterface )
       {
-        LOBYTE(v21) = 1;
-        guard_dispatch_icall_no_overrides(v21, v20, v22, v23);
-        if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(v25, v24, v26, v27) )
+        LOBYTE(v19) = 1;
+        guard_dispatch_icall_no_overrides(v19, v18);
+        if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(v21, v20) )
         {
-          guard_dispatch_icall_no_overrides(0LL, v28, v29, v30);
+          guard_dispatch_icall_no_overrides(0LL, v22);
           ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v9 + 88));
           IptInterface = 0LL;
         }
@@ -348,43 +340,43 @@ LABEL_38:
       RtlInitUnicodeString(&DestinationString, L"\\KernelObjects\\LowMemoryCondition");
       v8 = IoCreateNotificationEvent(&DestinationString, &Handle);
       RtlInitUnicodeString(&DestinationString, L"\\KernelObjects\\HighCommitCondition");
-      v55 = (__int64)IoCreateNotificationEvent(&DestinationString, &v53);
+      v47 = (__int64)IoCreateNotificationEvent(&DestinationString, &v45);
     }
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x4C8uLL, 0x706D644Cu);
     v10 = Pool2;
     if ( !Pool2 )
     {
-      v18 = (int *)(a6 + 24);
-      v17 = EventHandle;
+      v16 = (int *)(a6 + 24);
+      v15 = EventHandle;
       SecureDumpSettings = -1073741670;
-      v19 = Handle;
+      v17 = Handle;
       goto LABEL_38;
     }
-    v32 = *(_DWORD *)(Pool2 + 80);
-    v56 = 0LL;
-    v33 = v32 & 0xFFFFFFF3;
-    *(_DWORD *)Pool2 = v57;
-    *(_QWORD *)(Pool2 + 8) = v58;
-    *(_QWORD *)(Pool2 + 16) = v59;
-    *(_QWORD *)(Pool2 + 24) = v60;
+    v24 = *(_DWORD *)(Pool2 + 80);
+    v48 = 0LL;
+    v25 = v24 & 0xFFFFFFF3;
+    *(_DWORD *)Pool2 = v49;
+    *(_QWORD *)(Pool2 + 8) = v50;
+    *(_QWORD *)(Pool2 + 16) = v51;
+    *(_QWORD *)(Pool2 + 24) = v52;
     *(_QWORD *)(Pool2 + 32) = a5;
-    v34 = EventHandle;
+    v26 = EventHandle;
     EventHandle = 0LL;
-    *(_QWORD *)(v10 + 904) = v34;
+    *(_QWORD *)(v10 + 904) = v26;
     *(_QWORD *)(v10 + 912) = Handle;
-    *(_QWORD *)(v10 + 920) = v53;
-    v53 = 0LL;
-    v35 = v55;
+    *(_QWORD *)(v10 + 920) = v45;
+    v45 = 0LL;
+    v27 = v47;
     *(_QWORD *)(v10 + 928) = v7;
-    *(_QWORD *)(v10 + 944) = v35;
-    LODWORD(v35) = *(_DWORD *)(v10 + 40);
+    *(_QWORD *)(v10 + 944) = v27;
+    LODWORD(v27) = *(_DWORD *)(v10 + 40);
     IopLiveDumpContext = v10;
     *(_QWORD *)(v10 + 936) = v8;
     *(_QWORD *)(v10 + 1096) = 0LL;
     *(_QWORD *)(v10 + 1104) = 0LL;
-    *(_DWORD *)(v10 + 80) = v33;
-    if ( (v35 & 4) != 0 )
-      *(_DWORD *)(v10 + 80) = v33 | 0x18000;
+    *(_DWORD *)(v10 + 80) = v25;
+    if ( (v27 & 4) != 0 )
+      *(_DWORD *)(v10 + 80) = v25 | 0x18000;
     *(_QWORD *)(v10 + 1208) = v10 + 1200;
     *(_QWORD *)(v10 + 1200) = v10 + 1200;
     IopLiveDumpInitRegistrySettings(v10);
@@ -394,27 +386,27 @@ LABEL_38:
       EtwActivityIdControl(1u, (LPGUID)(v10 + 968));
       if ( (unsigned int)dword_140E06E80 > 5 && tlgKeywordOn((__int64)&dword_140E06E80, 0x400000000000LL) )
       {
-        v64 = &v55;
-        v55 = 0x1000000LL;
-        v65 = 8LL;
+        v56 = &v47;
+        v47 = 0x1000000LL;
+        v57 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06E80,
-          (unsigned __int8 *)byte_140045905,
+          (unsigned __int8 *)&word_14004637E,
           (const GUID *)(v10 + 968),
           (const GUID *)(v10 + 952),
           3u,
-          v63);
+          v55);
       }
       SecureDumpSettings = IopLiveDumpValidateParameters(v10, a6);
-      v18 = (int *)(a6 + 24);
+      v16 = (int *)(a6 + 24);
       if ( SecureDumpSettings < 0 )
         goto LABEL_37;
-      v15 = (HANDLE)*(unsigned int *)(v10 + 40);
-      if ( ((unsigned __int8)v15 & 4) != 0 )
+      v13 = (HANDLE)*(unsigned int *)(v10 + 40);
+      if ( ((unsigned __int8)v13 & 4) != 0 )
         *(_DWORD *)(v10 + 80) |= 0x18000u;
       *(_QWORD *)(v10 + 1208) = v10 + 1200;
       *(_QWORD *)(v10 + 1200) = v10 + 1200;
-      if ( ((unsigned __int8)v15 & 8) == 0 || a7 )
+      if ( ((unsigned __int8)v13 & 8) == 0 || a7 )
       {
         IopLiveDumpOpenVMMemoryPartition(v10);
         SecureDumpSettings = IopLiveDumpAllocAndInitResources(v10);
@@ -425,12 +417,12 @@ LABEL_38:
     }
     else
     {
-      v18 = (int *)(a6 + 24);
+      v16 = (int *)(a6 + 24);
     }
     SecureDumpSettings = -1073741811;
 LABEL_37:
-    v17 = v56;
-    v19 = EventHandle;
+    v15 = v48;
+    v17 = EventHandle;
     goto LABEL_38;
   }
   if ( a7 )

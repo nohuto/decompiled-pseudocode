@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpGetVpIndexFromApicId @ 0x1405BA204
+ * XREFs of HvlpGetVpIndexFromApicId @ 0x1405BCA74
  * Callers:
- *     HvlpEnableNextLogicalProcessor @ 0x1405BA0DC (HvlpEnableNextLogicalProcessor.c)
- *     HvlHalGetVpIndexFromApicId @ 0x1405BD490 (HvlHalGetVpIndexFromApicId.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1405BC94C (HvlpEnableNextLogicalProcessor.c)
+ *     HvlHalGetVpIndexFromApicId @ 0x1405BFD00 (HvlHalGetVpIndexFromApicId.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
  */
 
 __int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)

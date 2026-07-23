@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegMgrAllocate @ 0x1402A4D14
+ * XREFs of RtlpHpSegMgrAllocate @ 0x140222154
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x1402A3D3C (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x14022117C (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     RtlpHpSegMgrReserve @ 0x1402A4DCC (RtlpHpSegMgrReserve.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x1402A52C4 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrReserve @ 0x14022220C (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x140222704 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrCommit @ 0x140315360 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrRelease @ 0x140389CA4 (RtlpHpSegMgrRelease.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)

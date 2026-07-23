@@ -10,7 +10,7 @@
  *     DbgPrintEx @ 0x180051450 (DbgPrintEx.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     bsearch @ 0x18008F3C0 (bsearch.c)
- *     ARRAY_FITS @ 0x1800DFBB0 (ARRAY_FITS.c)
+ *     ARRAY_FITS @ 0x1800DFB70 (ARRAY_FITS.c)
  */
 
 __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD *a4, _DWORD *a5)
@@ -49,8 +49,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v6 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v6,
@@ -66,8 +66,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(v22, 1LL, 16LL) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v23,
         v24);
@@ -79,8 +79,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
                              24LL) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of ac"
         "tivation context data (%lu bytes)\n",
         (unsigned int)v26,
@@ -106,8 +106,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(*(unsigned int *)&v29[24 * v30 + 16], 1LL, 16LL) )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
         v30,
         v11,
@@ -136,8 +136,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     || (int)v15 + (int)v14 > v6 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       (unsigned int)v14,
       *((_DWORD *)v12 + 1),
@@ -184,8 +184,8 @@ LABEL_15:
   if ( (unsigned int)v18 + v19 > v20 || (unsigned int)v18 + v19 < v19 || (unsigned int)v18 >= v20 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v18,
       v19,

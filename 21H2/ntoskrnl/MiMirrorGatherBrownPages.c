@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorGatherBrownPages @ 0x140384378
+ * XREFs of MiMirrorGatherBrownPages @ 0x1403844C8
  * Callers:
- *     MiMirrorBrownPhase @ 0x14099568C (MiMirrorBrownPhase.c)
+ *     MiMirrorBrownPhase @ 0x14099668C (MiMirrorBrownPhase.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiIsDecayPfn @ 0x1402B8C2C (MiIsDecayPfn.c)
- *     MiMirrorAddPagesToBrownList @ 0x1403845F8 (MiMirrorAddPagesToBrownList.c)
- *     MiMirrorNodeLargePages @ 0x14038590C (MiMirrorNodeLargePages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiIsDecayPfn @ 0x140236E3C (MiIsDecayPfn.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiMirrorAddPagesToBrownList @ 0x140384748 (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorNodeLargePages @ 0x140385A5C (MiMirrorNodeLargePages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -89,8 +89,8 @@ LABEL_7:
           if ( v4 == 2 && MiIsDecayPfn(v11) )
           {
             v20 = v12[2];
-            if ( qword_140C4DF40 && (v20 & 0x10) == 0 )
-              v20 &= ~qword_140C4DF40;
+            if ( qword_140C4DF80 && (v20 & 0x10) == 0 )
+              v20 &= ~qword_140C4DF80;
             v21 = (v20 >> 12) & 0xFFFFFFFFFLL;
             if ( v21 != v11 )
             {
@@ -140,7 +140,7 @@ LABEL_7:
     if ( v4 <= 1 )
     {
       v35 = ++v8;
-      if ( v8 >= dword_140C4DEFC )
+      if ( v8 >= dword_140C4DF3C )
       {
         v35 = 0;
         v8 = 0;

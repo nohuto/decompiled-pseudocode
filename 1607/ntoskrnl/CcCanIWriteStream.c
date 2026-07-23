@@ -1,18 +1,18 @@
 /*
- * XREFs of CcCanIWriteStream @ 0x140020AA0
+ * XREFs of CcCanIWriteStream @ 0x140020620
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14002078C (CcNotifyOfMappedWrite.c)
- *     CcCanIWrite @ 0x1400209F0 (CcCanIWrite.c)
- *     CcMapAndCopyInToCache @ 0x140034F60 (CcMapAndCopyInToCache.c)
- *     CcScheduleReadAheadEx @ 0x14006EE10 (CcScheduleReadAheadEx.c)
- *     CcShouldLazyWriteCacheMap @ 0x1400713B0 (CcShouldLazyWriteCacheMap.c)
- *     CcPrepareMdlWrite @ 0x1400B161C (CcPrepareMdlWrite.c)
- *     CcCopyWriteWontFlush @ 0x1400EBD60 (CcCopyWriteWontFlush.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ *     CcNotifyOfMappedWrite @ 0x14002030C (CcNotifyOfMappedWrite.c)
+ *     CcCanIWrite @ 0x140020570 (CcCanIWrite.c)
+ *     CcMapAndCopyInToCache @ 0x140034AE0 (CcMapAndCopyInToCache.c)
+ *     CcScheduleReadAheadEx @ 0x14006E990 (CcScheduleReadAheadEx.c)
+ *     CcShouldLazyWriteCacheMap @ 0x140070F30 (CcShouldLazyWriteCacheMap.c)
+ *     CcPrepareMdlWrite @ 0x1400AF55C (CcPrepareMdlWrite.c)
+ *     CcCopyWriteWontFlush @ 0x1400E9BD0 (CcCopyWriteWontFlush.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
  * Callees:
- *     MmEnoughMemoryForWrite @ 0x140020C10 (MmEnoughMemoryForWrite.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     MmEnoughMemoryForWrite @ 0x140020790 (MmEnoughMemoryForWrite.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 bool __fastcall CcCanIWriteStream(__int64 a1, unsigned int a2, unsigned int a3, char a4)

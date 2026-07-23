@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHeapHandleError @ 0x1402188DC
+ * XREFs of RtlpHeapHandleError @ 0x140218708
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x140093070 (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x1400930CC (RtlpInsertFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x140094D74 (RtlpFindAndCommitPages.c)
- *     RtlpCreateUCREntry @ 0x140094EF8 (RtlpCreateUCREntry.c)
- *     RtlpFindUCREntry @ 0x140095070 (RtlpFindUCREntry.c)
- *     RtlpPopulateListIndex @ 0x14012E690 (RtlpPopulateListIndex.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     RtlDestroyHeap @ 0x140533900 (RtlDestroyHeap.c)
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x140092870 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x1400928CC (RtlpInsertFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x140094574 (RtlpFindAndCommitPages.c)
+ *     RtlpCreateUCREntry @ 0x1400946F8 (RtlpCreateUCREntry.c)
+ *     RtlpFindUCREntry @ 0x140094870 (RtlpFindUCREntry.c)
+ *     RtlpPopulateListIndex @ 0x14012EC00 (RtlpPopulateListIndex.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     RtlDestroyHeap @ 0x140533E40 (RtlDestroyHeap.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __noreturn RtlpHeapHandleError()

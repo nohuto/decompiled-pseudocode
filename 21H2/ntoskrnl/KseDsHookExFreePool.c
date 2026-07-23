@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsHookExFreePool @ 0x140527860
+ * XREFs of KseDsHookExFreePool @ 0x140527AA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KsepDsEventPoolFree @ 0x14052859C (KsepDsEventPoolFree.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KsepDsEventPoolFree @ 0x1405287DC (KsepDsEventPoolFree.c)
  */
 
 __int64 __fastcall KseDsHookExFreePool(__int64 a1)

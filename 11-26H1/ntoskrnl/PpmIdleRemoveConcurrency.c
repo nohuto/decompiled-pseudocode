@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleRemoveConcurrency @ 0x1404A95F0
+ * XREFs of PpmIdleRemoveConcurrency @ 0x1404A2C80
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     PpmIdleUpdateConcurrency @ 0x1404A9700 (PpmIdleUpdateConcurrency.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     PpmIdleUpdateConcurrency @ 0x1404A2D90 (PpmIdleUpdateConcurrency.c)
  */
 
 __int64 __fastcall PpmIdleRemoveConcurrency(__int64 a1)

@@ -10,7 +10,7 @@
 __int64 sub_18006B880()
 {
   int v0; // eax
-  volatile uint64_t EnvironmentVersion; // rbx
+  ULONG_PTR EnvironmentVersion; // rbx
   __int64 result; // rax
 
   v0 = 1;
@@ -25,7 +25,7 @@ __int64 sub_18006B880()
     {
       v0 = dword_180166334;
       if ( !dword_180166334 )
-        v0 = sub_18006C210(L"*,", 0LL, &dword_180166334);
+        v0 = sub_18006C210((PUNICODE_STRING)&stru_1801184B0);
     }
   }
   result = sub_18006BB94((char *)&unk_18011DD10 + 16 * v0, 4LL, 0LL);

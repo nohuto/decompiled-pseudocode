@@ -27,7 +27,7 @@ __int64 __fastcall ExpCommitWakeResourceShared(
   __int64 result; // rax
   char v8; // r14
   volatile signed __int32 *v9; // rbx
-  struct _PROCESSOR_NUMBER v10; // esi
+  _PROCESSOR_NUMBER v10; // esi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r15
   volatile signed __int32 *v13; // r12
@@ -68,13 +68,13 @@ __int64 __fastcall ExpCommitWakeResourceShared(
   if ( (a5 & 2) != 0 )
     v8 |= 4u;
   v9 = *a2;
-  v10 = (struct _PROCESSOR_NUMBER)1;
+  v10 = (_PROCESSOR_NUMBER)1;
   if ( *a2 )
   {
     CurrentIrql = KeGetCurrentIrql();
     v41 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -131,7 +131,7 @@ LABEL_9:
               *(_QWORD *)v18 = 0LL;
               v27 = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
               {
                 v28 = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( v27 == 2 )
@@ -205,7 +205,7 @@ LABEL_19:
     v25 = KiRemoveBoostThread(CurrentPrcb, CurrentPrcb->CurrentThread);
     if ( a4 )
     {
-      v10 = (struct _PROCESSOR_NUMBER)2;
+      v10 = (_PROCESSOR_NUMBER)2;
       if ( v25 > (char)a4 )
         a4 = v25;
     }

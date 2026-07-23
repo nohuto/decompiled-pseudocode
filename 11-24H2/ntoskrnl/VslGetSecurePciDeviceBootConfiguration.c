@@ -1,13 +1,13 @@
 /*
- * XREFs of VslGetSecurePciDeviceBootConfiguration @ 0x14058D360
+ * XREFs of VslGetSecurePciDeviceBootConfiguration @ 0x14058A650
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140456290 (HvlQueryVsmConnection.c)
- *     RtlCmEncodeMemIoResource @ 0x1405E9950 (RtlCmEncodeMemIoResource.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14044B190 (HvlQueryVsmConnection.c)
+ *     RtlCmEncodeMemIoResource @ 0x1405E6EA0 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 int __fastcall VslGetSecurePciDeviceBootConfiguration(
@@ -43,7 +43,7 @@ int __fastcall VslGetSecurePciDeviceBootConfiguration(
     v15 = a3;
     v16 = a4;
     v17 = i;
-    result = VslpEnterIumSecureMode(2u, 269LL, 0, (__int64)v12);
+    result = VslpEnterIumSecureMode(2u, 0x10Du, 0, (__int64)v12);
     if ( result < 0 )
       return result;
     if ( v18 )

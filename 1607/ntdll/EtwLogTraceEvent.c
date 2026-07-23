@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwLogTraceEvent @ 0x18005B880
+ * XREFs of EtwLogTraceEvent @ 0x18005B870
  * Callers:
  *     <none>
  * Callees:
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
- *     EtwpTraceUmEvent @ 0x18005B8D8 (EtwpTraceUmEvent.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
+ *     EtwpTraceUmEvent @ 0x18005B8C8 (EtwpTraceUmEvent.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  */
 
-__int64 __fastcall EtwLogTraceEvent(__int64 a1, __int64 a2)
+__int64 __fastcall EtwLogTraceEvent(__int64 a1, void *a2)
 {
   unsigned int v2; // ebx
   NTSTATUS v5; // eax
@@ -22,7 +22,7 @@ __int64 __fastcall EtwLogTraceEvent(__int64 a1, __int64 a2)
     }
     else
     {
-      v5 = NtTraceEvent((unsigned __int16)a1, 256LL, 48LL, a2);
+      v5 = NtTraceEvent((HANDLE)(unsigned __int16)a1, 0x100u, 0x30u, a2);
       if ( !v5 )
         return v2;
       return RtlNtStatusToDosError(v5);

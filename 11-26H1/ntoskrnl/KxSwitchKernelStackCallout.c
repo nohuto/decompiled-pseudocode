@@ -1,10 +1,10 @@
 /*
- * XREFs of KxSwitchKernelStackCallout @ 0x140728B00
+ * XREFs of KxSwitchKernelStackCallout @ 0x14072D6D0
  * Callers:
- *     KiSwitchKernelStackAndCallout @ 0x140728A70 (KiSwitchKernelStackAndCallout.c)
+ *     KiSwitchKernelStackAndCallout @ 0x14072D640 (KiSwitchKernelStackAndCallout.c)
  * Callees:
- *     MmGrowKernelStackEx @ 0x1403D1450 (MmGrowKernelStackEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmGrowKernelStackEx @ 0x1403D4420 (MmGrowKernelStackEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall KxSwitchKernelStackCallout(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6, __int64 a7)
@@ -38,5 +38,5 @@ LABEL_5:
   if ( (KiTrapFeatures & 2) != 0 )
     __writemsr(0x1CCu, v9);
   __writegsqword(0x1A8u, v9);
-  JUMPOUT(0x140728AEALL);
+  JUMPOUT(0x14072D6BALL);
 }

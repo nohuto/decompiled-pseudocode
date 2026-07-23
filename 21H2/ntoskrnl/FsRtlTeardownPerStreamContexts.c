@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlTeardownPerStreamContexts @ 0x14071A6B0
+ * XREFs of FsRtlTeardownPerStreamContexts @ 0x1406CA160
  * Callers:
- *     RawCleanupVcb @ 0x14071A630 (RawCleanupVcb.c)
+ *     RawCleanupVcb @ 0x1406CA0E4 (RawCleanupVcb.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
@@ -17,7 +17,13 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
   struct _KTHREAD *CurrentThread; // rax
   struct _LIST_ENTRY *Flink; // rsi
   struct _LIST_ENTRY *v5; // rax
-  struct _KTHREAD *v6; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  struct _KTHREAD *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   p_FilterContexts = &AdvancedHeader->FilterContexts;
   if ( p_FilterContexts->Flink != p_FilterContexts )
@@ -49,7 +55,7 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
       else
       {
         ExReleasePushLockEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
       }
       ((void (__fastcall *)(struct _LIST_ENTRY *))Flink[2].Flink)(Flink);
       if ( (*((_BYTE *)AdvancedHeader + 7) & 0xF0u) < 0x10 )
@@ -58,8 +64,8 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
       }
       else
       {
-        v6 = KeGetCurrentThread();
-        --v6->KernelApcDisable;
+        v9 = KeGetCurrentThread();
+        --v9->KernelApcDisable;
         ExAcquirePushLockExclusiveEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
       }
     }
@@ -70,7 +76,7 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
     else
     {
       ExReleasePushLockEx((ULONG_PTR)&AdvancedHeader->PushLock, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
     }
   }
 }

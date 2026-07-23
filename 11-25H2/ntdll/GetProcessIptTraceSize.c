@@ -16,35 +16,32 @@ NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
   NTSTATUS result; // eax
   bool v5; // bl
   NTSTATUS v6; // edi
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
   HANDLE FileHandle; // [rsp+50h] [rbp-29h] BYREF
-  HANDLE *v11; // [rsp+58h] [rbp-21h] BYREF
+  PVOID StatePointer; // [rsp+58h] [rbp-21h] BYREF
   __int128 InputBuffer; // [rsp+60h] [rbp-19h] BYREF
-  __int128 v13; // [rsp+70h] [rbp-9h]
-  __int128 v14; // [rsp+80h] [rbp+7h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+90h] [rbp+17h] BYREF
+  __int128 v10; // [rsp+70h] [rbp-9h]
+  __int128 v11; // [rsp+80h] [rbp+7h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+90h] [rbp+17h] BYREF
   __int128 OutputBuffer; // [rsp+A0h] [rbp+27h] BYREF
-  __int64 v17; // [rsp+B0h] [rbp+37h]
+  __int64 v14; // [rsp+B0h] [rbp+37h]
 
   FileHandle = 0LL;
-  v11 = 0LL;
+  StatePointer = 0LL;
   *a2 = 0;
   InputBuffer = 0LL;
-  v17 = 0LL;
-  v13 = 0LL;
   v14 = 0LL;
+  v10 = 0LL;
+  v11 = 0LL;
   OutputBuffer = 0LL;
   IoStatusBlock = 0LL;
   result = OpenIptDevice(&FileHandle);
   if ( result >= 0 )
   {
-    v5 = AcquireDebugPrivilege(&v11);
+    v5 = AcquireDebugPrivilege(&StatePointer);
     *(_QWORD *)&InputBuffer = 1LL;
     DWORD2(InputBuffer) = 1;
-    LOWORD(v13) = 1;
-    *((_QWORD *)&v13 + 1) = a1;
+    LOWORD(v10) = 1;
+    *((_QWORD *)&v10 + 1) = a1;
     v6 = NtDeviceIoControlFile(
            FileHandle,
            0LL,
@@ -58,7 +55,7 @@ NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
            0x18u);
     NtClose(FileHandle);
     if ( v5 )
-      RtlReleasePrivilege(v11, v7, v8, v9);
+      RtlReleasePrivilege(StatePointer);
     if ( v6 >= 0 )
     {
       if ( *((_QWORD *)&OutputBuffer + 1) <= 0xFFFFFFFFuLL )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetClosestNodeWithProcessors @ 0x14036E7F0
+ * XREFs of MiGetClosestNodeWithProcessors @ 0x14036E990
  * Callers:
- *     MiComputeIdealDpcGang @ 0x14038B91C (MiComputeIdealDpcGang.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
- *     MiCreateZeroThreadContext @ 0x140837A38 (MiCreateZeroThreadContext.c)
+ *     MiComputeIdealDpcGang @ 0x14038BAFC (MiComputeIdealDpcGang.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
+ *     MiCreateZeroThreadContext @ 0x140837D38 (MiCreateZeroThreadContext.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall MiGetClosestNodeWithProcessors(int a1)

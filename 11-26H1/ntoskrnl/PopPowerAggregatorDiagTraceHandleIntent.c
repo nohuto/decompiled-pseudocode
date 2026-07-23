@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x140A3F534
+ * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x1409FAF54
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x140A3F340 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1409FAD60 (PopPowerAggregatorRecordIntent.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, int *a4, int *a5, int a6, __int64 a7)
@@ -92,18 +92,11 @@ char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, 
   v38 = 4LL;
   v39 = a7;
   v40 = 24LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v10) = EtwEventEnabled(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &POP_ETW_EVENT_POWER_AGGREGATOR_HANDLE_INTENT);
+    LOBYTE(v10) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_HANDLE_INTENT);
     if ( (_BYTE)v10 )
-      LOBYTE(v10) = EtwWrite(
-                      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                      &POP_ETW_EVENT_POWER_AGGREGATOR_HANDLE_INTENT,
-                      0LL,
-                      9u,
-                      &UserData);
+      LOBYTE(v10) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_HANDLE_INTENT, 0LL, 9u, &UserData);
   }
   v11 = *v7;
   v12 = *a4;
@@ -112,10 +105,10 @@ char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, 
     v13 = 0;
     if ( v12 == 1 )
       v13 = *((_BYTE *)a4 + 27) != 0;
-    if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+    if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
     {
       LOBYTE(v10) = 0;
-      if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+      if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
       {
         v17 = v60;
         v42 = &v17;
@@ -144,8 +137,8 @@ char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, 
         v23 = 0x1000000LL;
         v59 = 8LL;
         LOBYTE(v10) = tlgWriteTransfer_EtwWriteTransfer(
-                        (__int64)&dword_140E07598,
-                        (unsigned __int8 *)byte_140050BF5,
+                        (__int64)&dword_140E07560,
+                        (unsigned __int8 *)byte_140051BE8,
                         0LL,
                         0LL,
                         0xBu,

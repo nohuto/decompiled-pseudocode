@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIsALicensedRegularLanguage @ 0x14082B38C
+ * XREFs of RtlpIsALicensedRegularLanguage @ 0x14082BBBC
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x14082B8E8 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegValidateInstalled @ 0x14082E674 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14082C118 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14082EEA4 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x140784298 (RtlpLangNameInMultiSzString.c)
+ *     RtlpLangNameInMultiSzString @ 0x1407841C8 (RtlpLangNameInMultiSzString.c)
  */
 
 __int64 __fastcall RtlpIsALicensedRegularLanguage(_QWORD *a1, wchar_t *a2)

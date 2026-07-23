@@ -1,19 +1,19 @@
 /*
  * XREFs of _TlgWriteAgg @ 0x140012A30
  * Callers:
- *     CmpThreadInfoLogStack @ 0x1401B3054 (CmpThreadInfoLogStack.c)
- *     EtwpWriteAppStateChangeSummary @ 0x1405B2694 (EtwpWriteAppStateChangeSummary.c)
- *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmpBounceContextStart @ 0x1405D2F60 (CmpBounceContextStart.c)
- *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
- *     CmpOKToFollowLink @ 0x1406411D0 (CmpOKToFollowLink.c)
- *     PnpTraceSetDevNodeProblem @ 0x14070D9F4 (PnpTraceSetDevNodeProblem.c)
- *     PnpTraceClearDevNodeProblem @ 0x14070DDBC (PnpTraceClearDevNodeProblem.c)
- *     HvpIsReadErrorTransient @ 0x140806DAC (HvpIsReadErrorTransient.c)
+ *     CmpThreadInfoLogStack @ 0x1401B3194 (CmpThreadInfoLogStack.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x1405B3694 (EtwpWriteAppStateChangeSummary.c)
+ *     CmLoadAppKey @ 0x1405D054C (CmLoadAppKey.c)
+ *     CmpBounceContextStart @ 0x1405D3F60 (CmpBounceContextStart.c)
+ *     NtQueryValueKey @ 0x140641360 (NtQueryValueKey.c)
+ *     CmpOKToFollowLink @ 0x1406421F0 (CmpOKToFollowLink.c)
+ *     PnpTraceSetDevNodeProblem @ 0x14070EC94 (PnpTraceSetDevNodeProblem.c)
+ *     PnpTraceClearDevNodeProblem @ 0x14070F05C (PnpTraceClearDevNodeProblem.c)
+ *     HvpIsReadErrorTransient @ 0x140807FAC (HvpIsReadErrorTransient.c)
  * Callees:
  *     InsertEventEntryInLookUpTable @ 0x140012AF4 (InsertEventEntryInLookUpTable.c)
  *     ExtractAggregateFieldTypes @ 0x140012E5C (ExtractAggregateFieldTypes.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall TlgWriteAgg(

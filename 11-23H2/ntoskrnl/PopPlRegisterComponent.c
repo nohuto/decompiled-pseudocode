@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPlRegisterComponent @ 0x140397060
+ * XREFs of PopPlRegisterComponent @ 0x140397240
  * Callers:
- *     PopPlRegisterDeviceIterator @ 0x1405A1700 (PopPlRegisterDeviceIterator.c)
- *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
+ *     PopPlRegisterDeviceIterator @ 0x1405A1BF0 (PopPlRegisterDeviceIterator.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408369AC (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopPlLookupComponentPowerProfile @ 0x1405A12F0 (PopPlLookupComponentPowerProfile.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopPlLookupComponentPowerProfile @ 0x1405A17E0 (PopPlLookupComponentPowerProfile.c)
  */
 
 void __fastcall PopPlRegisterComponent(__int64 a1)
@@ -80,6 +80,6 @@ void __fastcall PopPlRegisterComponent(__int64 a1)
     v29 = v5;
     v30[0] = v4;
     v27 = 2;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140C03950, (unsigned __int8 *)&dword_140032594, 2LL, 1u, v8, v9, 8u, &v13);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140C03950, (unsigned __int8 *)&dword_1400324BC, 2LL, 1u, v8, v9, 8u, &v13);
   }
 }

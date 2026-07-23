@@ -14,7 +14,7 @@
  *     wcsstr @ 0x18009BCE0 (wcsstr.c)
  */
 
-ULONG __fastcall sub_1801050C4(const wchar_t **a1, volatile signed __int32 *a2, UNICODE_STRING *a3)
+ULONG __fastcall sub_1801050C4(const wchar_t **a1, volatile signed __int32 *a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // rsi
   NTSTATUS v8; // ecx
@@ -27,7 +27,7 @@ ULONG __fastcall sub_1801050C4(const wchar_t **a1, volatile signed __int32 *a2, 
       && memcmp(a1[1], Buf2, *(unsigned __int16 *)a1) )
     {
       RtlFreeUnicodeString(a3);
-      RtlCreateUnicodeString((__int64)a3, Buf2);
+      RtlCreateUnicodeString(a3, Buf2);
       return 0;
     }
     v8 = -1073741776;

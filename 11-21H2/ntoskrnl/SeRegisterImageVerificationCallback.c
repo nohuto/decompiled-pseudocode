@@ -30,7 +30,7 @@ __int64 __fastcall SeRegisterImageVerificationCallback(
     }
     else
     {
-      v7 = ExRegisterCallback(ExCbSeImageVerificationDriverInfo, a3, a4);
+      v7 = ExRegisterCallback(qword_140C158E0, a3, a4);
       if ( v7 )
       {
         _InterlockedIncrement(&dword_140CF6644);

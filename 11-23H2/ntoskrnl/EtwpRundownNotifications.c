@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRundownNotifications @ 0x1406C0258
+ * XREFs of EtwpRundownNotifications @ 0x1406C0288
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x1406BED90 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x1406BEDC0 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     EtwpUnreferenceDataBlock @ 0x1407817E8 (EtwpUnreferenceDataBlock.c)
- *     EtwpReleaseQueueEntry @ 0x140781810 (EtwpReleaseQueueEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     EtwpUnreferenceDataBlock @ 0x1407819D8 (EtwpUnreferenceDataBlock.c)
+ *     EtwpReleaseQueueEntry @ 0x140781A00 (EtwpReleaseQueueEntry.c)
  */
 
 void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)

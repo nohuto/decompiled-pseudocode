@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleasePartitionHugeIoSpace @ 0x1406ED674
+ * XREFs of MiReleasePartitionHugeIoSpace @ 0x1406F2314
  * Callers:
- *     MiReturnPartitionPagesToParent @ 0x1407098B8 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnPartitionPagesToParent @ 0x14070E56C (MiReturnPartitionPagesToParent.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406ED07C (MiMoveBadHugeRangeCrossPartition.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140B60228 (MiAllocatePartitionPhysicalPages.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x1406F1D1C (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140B632C4 (MiAllocatePartitionPhysicalPages.c)
  */
 
 void __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
@@ -33,8 +33,8 @@ void __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
     v3 = *(_QWORD *)(BugCheckParameter2 + 17048);
     if ( v3 )
       MiAllocatePartitionPhysicalPages(BugCheckParameter2, (_DWORD)v2, (_DWORD)v3 << 18, 0, 769);
-    v4 = ExAcquireSpinLockShared(&dword_140E2EB10);
-    v5 = (_QWORD *)qword_140E2EB60;
+    v4 = ExAcquireSpinLockShared(&dword_140E2EC90);
+    v5 = (_QWORD *)qword_140E2ECE0;
     v6 = v4;
     v7 = 0LL;
     while ( v5 )
@@ -63,24 +63,24 @@ void __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
           v10 = v7;
         }
       }
-      if ( ((*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8LL * (v9[3] & 0x3FFFFF)) >> 4) & 0x7FFLL) == *(_WORD *)BugCheckParameter2 )
+      if ( ((*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8LL * (v9[3] & 0x3FFFFF)) >> 4) & 0x7FFLL) == *(_WORD *)BugCheckParameter2 )
       {
         if ( v6 == 17 )
-          ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EB10);
+          ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EC90);
         else
-          ExReleaseSpinLockShared(&dword_140E2EB10, v6);
+          ExReleaseSpinLockShared(&dword_140E2EC90, v6);
         MiMoveBadHugeRangeCrossPartition(v9[3], (_WORD *)BugCheckParameter2, v2);
-        v6 = ExAcquireSpinLockShared(&dword_140E2EB10);
+        v6 = ExAcquireSpinLockShared(&dword_140E2EC90);
         v7 = 0LL;
-        for ( j = (_QWORD *)qword_140E2EB60; j; j = (_QWORD *)*j )
+        for ( j = (_QWORD *)qword_140E2ECE0; j; j = (_QWORD *)*j )
           v7 = j;
       }
     }
     v13 = *(_QWORD *)(BugCheckParameter2 + 17048);
     if ( v6 == 17 )
-      ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EB10);
+      ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2EC90);
     else
-      ExReleaseSpinLockShared(&dword_140E2EB10, v6);
+      ExReleaseSpinLockShared(&dword_140E2EC90, v6);
   }
   while ( v13 );
   v14 = *(_QWORD *)(BugCheckParameter2 + 496);

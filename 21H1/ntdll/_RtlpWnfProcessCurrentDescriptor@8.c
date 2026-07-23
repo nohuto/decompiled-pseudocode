@@ -15,40 +15,40 @@
  *     _RtlpWnfCalculateRetryTime@4 @ 0x4B33C30F (_RtlpWnfCalculateRetryTime@4.c)
  */
 
-int __fastcall RtlpWnfProcessCurrentDescriptor(_DWORD *a1, int a2)
+ULONG __fastcall RtlpWnfProcessCurrentDescriptor(_WNF_STATE_NAME *BaseAddress, int a2)
 {
-  int v2; // ebx
+  ULONG v2; // ebx
   _DWORD *i; // ecx
-  int v5; // esi
-  _DWORD *j; // eax
-  volatile signed __int32 *v8; // [esp-4h] [ebp-18h]
+  _RTL_SRWLOCK *v5; // esi
+  _RTL_SRWLOCK *j; // eax
+  _RTL_SRWLOCK *v8; // [esp-4h] [ebp-18h]
   int v10; // [esp+10h] [ebp-4h]
 
   v2 = 0;
   v10 = 0;
-  RtlAcquireSRWLockShared((volatile signed __int32 *)(dword_4B3A664C + 4));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 4));
   for ( i = *(_DWORD **)(dword_4B3A664C + 8); ; i = (_DWORD *)*i )
   {
     if ( i == (_DWORD *)(dword_4B3A664C + 8) )
       goto LABEL_27;
-    v5 = (int)(i - 7);
-    if ( *(i - 3) == a1[2]
-      && *(_DWORD *)(v5 + 20) == a1[3]
-      && *(_DWORD *)(v5 + 8) == *a1
-      && *(_DWORD *)(v5 + 12) == a1[1] )
+    v5 = (_RTL_SRWLOCK *)(i - 7);
+    if ( *(i - 3) == BaseAddress[1].Data[0]
+      && v5[5].Value == BaseAddress[1].Data[1]
+      && v5[2].Value == BaseAddress->Data[0]
+      && v5[3].Value == BaseAddress->Data[1] )
     {
       break;
     }
   }
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v5 + 40));
-  if ( *(_DWORD *)(v5 + 92) != 2 )
+  RtlAcquireSRWLockExclusive(v5 + 10);
+  if ( v5[23].Value != 2 )
   {
-    if ( *(_DWORD *)(v5 + 92) != 1 )
+    if ( v5[23].Value != 1 )
       goto LABEL_9;
-    v8 = (volatile signed __int32 *)(v5 + 40);
+    v8 = v5 + 10;
     if ( !a2 )
     {
-      *(_DWORD *)(v5 + 88) = a1;
+      v5[22].Value = (unsigned int)BaseAddress;
       RtlReleaseSRWLockExclusive(v8);
       v2 = 259;
       goto LABEL_27;
@@ -57,22 +57,22 @@ LABEL_30:
     RtlReleaseSRWLockExclusive(v8);
     v2 = 128;
 LABEL_27:
-    RtlReleaseSRWLockShared((volatile signed __int32 *)(dword_4B3A664C + 4));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 4));
     goto LABEL_21;
   }
   if ( a2 )
   {
-    v8 = (volatile signed __int32 *)(v5 + 40);
+    v8 = v5 + 10;
     goto LABEL_30;
   }
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v5 + 88));
-  *(_DWORD *)(v5 + 88) = 0;
-  *(_DWORD *)(v5 + 92) = 0;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5[22].Ptr);
+  v5[22].Value = 0;
+  v5[23].Value = 0;
 LABEL_9:
-  _InterlockedIncrement((volatile signed __int32 *)(v5 + 80));
-  *(_DWORD *)(v5 + 92) = 1;
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v5 + 40));
-  RtlReleaseSRWLockShared((volatile signed __int32 *)(dword_4B3A664C + 4));
+  _InterlockedIncrement((volatile signed __int32 *)&v5[20]);
+  v5[23].Value = 1;
+  RtlReleaseSRWLockExclusive(v5 + 10);
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(dword_4B3A664C + 4));
   while ( 1 )
   {
     v2 = 0;
@@ -80,36 +80,36 @@ LABEL_9:
       v2 = -1073741267;
     if ( RtlpWnfWalkUserSubscriptionList(1) == -1073741267 )
       v2 = -1073741267;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v5 + 40));
+    RtlAcquireSRWLockExclusive(v5 + 10);
     ++v10;
-    for ( j = *(_DWORD **)(v5 + 44); j != (_DWORD *)(v5 + 44); j = (_DWORD *)*j )
-      j[24] = 0;
-    if ( !*(_DWORD *)(v5 + 88) )
+    for ( j = (_RTL_SRWLOCK *)v5[11].Value; j != &v5[11]; j = (_RTL_SRWLOCK *)j->Value )
+      j[24].Value = 0;
+    if ( !v5[22].Value )
       break;
-    a1 = *(_DWORD **)(v5 + 88);
-    *(_DWORD *)(v5 + 88) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v5 + 40));
+    BaseAddress = (_WNF_STATE_NAME *)v5[22].Value;
+    v5[22].Value = 0;
+    RtlReleaseSRWLockExclusive(v5 + 10);
   }
   if ( v2 )
   {
-    *(_DWORD *)(v5 + 88) = a1;
-    *(_DWORD *)(v5 + 92) = 2;
+    v5[22].Value = (unsigned int)BaseAddress;
+    v5[23].Value = 2;
     RtlpWnfCalculateRetryTime(v5);
   }
   else
   {
-    *(_DWORD *)(v5 + 92) = 0;
-    if ( !*(_DWORD *)(v5 + 24) || a1[4] - *(_DWORD *)(v5 + 24) > 0 )
-      *(_DWORD *)(v5 + 24) = a1[4];
+    v5[23].Value = 0;
+    if ( !v5[6].Value || (signed int)(BaseAddress[2].Data[0] - v5[6].Value) > 0 )
+      v5[6].0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)BaseAddress[2].Data[0];
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v5 + 40));
-  RtlpDecRefWnfNameSubscription(v5);
+  RtlReleaseSRWLockExclusive(v5 + 10);
+  RtlpDecRefWnfNameSubscription((char *)v5);
 LABEL_21:
   if ( v10 > 1 )
   {
-    NtGetCompleteWnfStateSubscription(a1 + 2, a1, a1[6], v2, 0, 0);
+    NtGetCompleteWnfStateSubscription(BaseAddress + 1, (ULONG64 *)BaseAddress->Data, BaseAddress[3].Data[0], v2, 0, 0);
     if ( !v2 )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     return 128;
   }
   return v2;

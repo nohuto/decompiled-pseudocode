@@ -17,22 +17,22 @@ char LdrpIsSecurityEtwLoggingEnabled()
 
   v0 = 0;
   v1 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v2 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v2 = 2147353476LL;
   v3 = 2147353477LL;
   if ( *(_BYTE *)v2 )
   {
-    v5 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v5 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v5 & 0x40) != 0 )
       return 1;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v1 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v3 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v3 & 0x20) != 0 )
       return 1;

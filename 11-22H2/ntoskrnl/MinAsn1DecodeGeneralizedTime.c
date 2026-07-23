@@ -48,7 +48,7 @@ bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)
   PLARGE_INTEGER v33; // rbx
   int v35; // [rsp+20h] [rbp-40h] BYREF
   int v36; // [rsp+24h] [rbp-3Ch] BYREF
-  TIME_FIELDS TimeFields; // [rsp+28h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+28h] [rbp-38h] BYREF
   int v38; // [rsp+38h] [rbp-28h]
   int v39; // [rsp+3Ch] [rbp-24h]
   int v40; // [rsp+40h] [rbp-20h]

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeMdlBatchPages @ 0x14050EE1C
+ * XREFs of MiInitializeMdlBatchPages @ 0x14050888C
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiReturnMdlExcess @ 0x1406EEC54 (MiReturnMdlExcess.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiReturnMdlExcess @ 0x1406F38F4 (MiReturnMdlExcess.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiSwizzleInvalidPte @ 0x1402D0130 (MiSwizzleInvalidPte.c)
- *     MiInitializeMdlSinglePage @ 0x14033BB38 (MiInitializeMdlSinglePage.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403C5A90 (MiConvertSmallPageRangeToLarge.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1406EE640 (MiInitializeMdlOneNodeBatchPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiSwizzleInvalidPte @ 0x1402B1EF0 (MiSwizzleInvalidPte.c)
+ *     MiInitializeMdlSinglePage @ 0x14033DBB8 (MiInitializeMdlSinglePage.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403CF990 (MiConvertSmallPageRangeToLarge.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1406F32E0 (MiInitializeMdlOneNodeBatchPages.c)
  */
 
 __int64 __fastcall MiInitializeMdlBatchPages(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCreateSection @ 0x14042C990
+ * XREFs of NtCreateSection @ 0x14042B860
  * Callers:
- *     PfpFileBuildReadSupport @ 0x140509310 (PfpFileBuildReadSupport.c)
- *     PfSnGetSectionObject @ 0x14050ACA0 (PfSnGetSectionObject.c)
+ *     PfpFileBuildReadSupport @ 0x1404EC2A0 (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x1404EDC30 (PfSnGetSectionObject.c)
  * Callees:
- *     CcZeroEndOfLastPage @ 0x140024850 (CcZeroEndOfLastPage.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     MmCreateSection @ 0x14042CC10 (MmCreateSection.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     CcZeroEndOfLastPage @ 0x1400243D0 (CcZeroEndOfLastPage.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     MmCreateSection @ 0x14042BAE0 (MmCreateSection.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtCreateSection(

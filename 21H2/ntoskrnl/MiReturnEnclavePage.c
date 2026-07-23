@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnEnclavePage @ 0x14054B420
+ * XREFs of MiReturnEnclavePage @ 0x14054B660
  * Callers:
- *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x1408D2188 (MiCopyPagesIntoEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x1409B0D60 (MiReturnReservedEnclavePages.c)
- *     MiInitializeEnclaveMetadataPage @ 0x140A92754 (MiInitializeEnclaveMetadataPage.c)
+ *     MiAddPagesToEnclave @ 0x140549344 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D22E8 (MiCopyPagesIntoEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x1409B1C90 (MiReturnReservedEnclavePages.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140A93754 (MiInitializeEnclaveMetadataPage.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

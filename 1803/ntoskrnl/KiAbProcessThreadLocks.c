@@ -24,7 +24,7 @@
  *     _guard_dispatch_icall @ 0x1401B3560 (_guard_dispatch_icall.c)
  */
 
-void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
+void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
 {
   int v7; // r14d
   int v8; // r15d
@@ -35,7 +35,7 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
   __int64 v14; // rax
   bool v15; // zf
   int v16; // esi
-  __int64 LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v18; // rdx
   __int64 v19; // r8
   __int64 v20; // rdi
@@ -44,7 +44,7 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
   char v23; // r14
   int v24; // r10d
   char CpuPriorityKey; // r15
-  unsigned int v26; // eax
+  int v26; // eax
   char v27; // al
   char v28; // r9
   _DWORD *v29; // rbx
@@ -98,16 +98,16 @@ LABEL_26:
 LABEL_11:
             v16 = 0;
             v32 = 0;
-            LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v13, a2, &LockHandle);
-            v20 = LockedHeadEntry;
+            LockedHeadEntry = (_RTL_RB_TREE *)KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v13);
+            v20 = (__int64)LockedHeadEntry;
             if ( LockedHeadEntry )
             {
               if ( (*(_BYTE *)(v13 + 25) & 1) != 0 )
               {
                 if ( v8 )
                 {
-                  if ( v13 != LockedHeadEntry )
-                    KiAbEntryUpdateWaiterTreePosition(v13, LockedHeadEntry);
+                  if ( (_RTL_RB_TREE *)v13 != LockedHeadEntry )
+                    KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v13);
                   v21 = *(_QWORD *)(v20 + 56);
                   if ( v21 )
                   {
@@ -171,15 +171,15 @@ LABEL_33:
               }
               if ( !v7 )
                 goto LABEL_33;
-              if ( v13 != LockedHeadEntry )
-                KiAbEntryUpdateOwnerTreePosition(v13, LockedHeadEntry);
+              if ( (_RTL_RB_TREE *)v13 != LockedHeadEntry )
+                KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13, LockedHeadEntry);
               KiAbDetermineMaxWaiterPriority(v20, (__int64)&v35);
               if ( v35 )
               {
                 if ( (unsigned int)KiAbSetMinimumThreadPriority(v13, (unsigned int)&v35, a5, a6, a7, (__int64)&v32)
                   && v13 != v20 )
                 {
-                  KiAbEntryUpdateOwnerTreePosition(v13, v20);
+                  KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13, (_RTL_RB_TREE *)v20);
                 }
                 v16 = v32;
                 goto LABEL_33;

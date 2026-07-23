@@ -1,14 +1,14 @@
 /*
- * XREFs of SeTokenIsAdmin @ 0x140475CE4
+ * XREFs of SeTokenIsAdmin @ 0x140474BB4
  * Callers:
- *     SepMandatorySubProcessToken @ 0x14007C05C (SepMandatorySubProcessToken.c)
- *     IoComputeRedirectionTrustLevel @ 0x1401CA2FC (IoComputeRedirectionTrustLevel.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     PspDisablePrimaryTokenExchange @ 0x140459688 (PspDisablePrimaryTokenExchange.c)
- *     PopUserIsAdmin @ 0x14051D2C4 (PopUserIsAdmin.c)
+ *     SepMandatorySubProcessToken @ 0x14007C0DC (SepMandatorySubProcessToken.c)
+ *     IoComputeRedirectionTrustLevel @ 0x1401CA19C (IoComputeRedirectionTrustLevel.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     PspDisablePrimaryTokenExchange @ 0x140458558 (PspDisablePrimaryTokenExchange.c)
+ *     PopUserIsAdmin @ 0x1405006B4 (PopUserIsAdmin.c)
  * Callees:
- *     SeTokenIsRestricted @ 0x14007F740 (SeTokenIsRestricted.c)
- *     SepSidInToken @ 0x1400C45A4 (SepSidInToken.c)
+ *     SeTokenIsRestricted @ 0x14007F7C0 (SeTokenIsRestricted.c)
+ *     SepSidInToken @ 0x1400C2444 (SepSidInToken.c)
  */
 
 BOOLEAN __stdcall SeTokenIsAdmin(PACCESS_TOKEN Token)

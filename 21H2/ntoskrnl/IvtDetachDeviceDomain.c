@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtDetachDeviceDomain @ 0x1404DFA30
+ * XREFs of IvtDetachDeviceDomain @ 0x1404DFC70
  * Callers:
  *     <none>
  * Callees:
- *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF808 (IvtAttachDeviceDomainInternal.c)
  */
 
 __int64 __fastcall IvtDetachDeviceDomain(__int64 a1, __int64 a2)

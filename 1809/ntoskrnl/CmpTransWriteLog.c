@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransWriteLog @ 0x1406F7E98
+ * XREFs of CmpTransWriteLog @ 0x1406F9138
  * Callers:
- *     CmAddLogForAction @ 0x1406BCEDC (CmAddLogForAction.c)
- *     CmLogTmRmAction @ 0x1406F7DC8 (CmLogTmRmAction.c)
+ *     CmAddLogForAction @ 0x1406BE17C (CmAddLogForAction.c)
+ *     CmLogTmRmAction @ 0x1406F9068 (CmLogTmRmAction.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpComputeLogFillLevel @ 0x1406F7F80 (CmpComputeLogFillLevel.c)
- *     CmpDoTransWriteLogRecord @ 0x1406F80C0 (CmpDoTransWriteLogRecord.c)
- *     CmpLogCheckpoint @ 0x140701D78 (CmpLogCheckpoint.c)
- *     CmpAddRemoveRMLogContainer @ 0x1407F8C38 (CmpAddRemoveRMLogContainer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpComputeLogFillLevel @ 0x1406F9220 (CmpComputeLogFillLevel.c)
+ *     CmpDoTransWriteLogRecord @ 0x1406F9360 (CmpDoTransWriteLogRecord.c)
+ *     CmpLogCheckpoint @ 0x140703018 (CmpLogCheckpoint.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1407F9E38 (CmpAddRemoveRMLogContainer.c)
  */
 
 __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, PCLFS_LSN plsnFinish)

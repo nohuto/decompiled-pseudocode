@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementPower2Round @ 0x1405735B0
+ * XREFs of SymCryptMlDsaPolyElementPower2Round @ 0x1405727BC
  * Callers:
- *     SymCryptMlDsaVectorPower2Round @ 0x1405746E0 (SymCryptMlDsaVectorPower2Round.c)
+ *     SymCryptMlDsaVectorPower2Round @ 0x140573944 (SymCryptMlDsaVectorPower2Round.c)
  * Callees:
  *     <none>
  */

@@ -51,24 +51,30 @@ void __fastcall PopDiagTraceControlCallback(
   __int64 v13; // rdx
   __int64 v14; // rcx
   __int64 v15; // r8
-  PVOID v16; // rsi
-  unsigned int v17; // r15d
-  char *v18; // r14
-  unsigned int v19; // r12d
-  char *v20; // r13
-  ULONG v21; // ebx
-  int v22; // ecx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  unsigned int v26; // [rsp+30h] [rbp-30h] BYREF
-  BOOL v27; // [rsp+34h] [rbp-2Ch] BYREF
+  __int64 v16; // r9
+  PVOID v17; // rsi
+  unsigned int v18; // r15d
+  char *v19; // r14
+  unsigned int v20; // r12d
+  char *v21; // r13
+  ULONG v22; // ebx
+  int v23; // ecx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  PEVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-40h]
+  PEVENT_DATA_DESCRIPTOR UserDataa; // [rsp+20h] [rbp-40h]
+  __int64 v30; // [rsp+28h] [rbp-38h]
+  __int64 v31; // [rsp+28h] [rbp-38h]
+  unsigned int v32; // [rsp+30h] [rbp-30h] BYREF
+  BOOL v33; // [rsp+34h] [rbp-2Ch] BYREF
   PVOID P; // [rsp+38h] [rbp-28h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-20h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v35; // [rsp+40h] [rbp-20h] BYREF
 
   if ( (_DWORD)ControlCode == 2 )
   {
-    v26 = 0;
+    v32 = 0;
     if ( CallbackContext == &dword_140C03950 )
     {
       if ( (MatchAnyKeyword & 0x800000000000LL) != 0 )
@@ -84,11 +90,11 @@ void __fastcall PopDiagTraceControlCallback(
       for ( i = (PVOID *)PopPowerRequestObjectList; i != &PopPowerRequestObjectList; i = (PVOID *)*i )
         PopDiagTracePowerRequestCreate(1, (__int64)i);
       PopReleaseRwLock((__int64 *)&PopPowerRequestLock);
-      UserData.Size = 4;
-      UserData.Reserved = 0;
-      v27 = dword_140C3D90C == 0;
-      UserData.Ptr = (ULONGLONG)&v27;
-      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_ACDC_STATE_RUNDOWN, 0LL, 1u, &UserData);
+      v35.Size = 4;
+      v35.Reserved = 0;
+      v33 = dword_140C3D90C == 0;
+      v35.Ptr = (ULONGLONG)&v33;
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_ACDC_STATE_RUNDOWN, 0LL, 1u, &v35);
       ExAcquireFastMutex(&PopSettingLock);
       v8 = (PVOID *)PopPowerSettings;
       if ( PopPowerSettings != &PopPowerSettings )
@@ -107,45 +113,45 @@ void __fastcall PopDiagTraceControlCallback(
       PopThermalTraceRundownEvents();
       P = 0LL;
       PopAcquirePolicyLock(v11);
-      v12 = PopLoggingInformation(&P, &v26);
-      PopReleasePolicyLock(v14, v13, v15);
-      v16 = P;
+      v12 = PopLoggingInformation(&P, &v32);
+      PopReleasePolicyLock(v14, v13, v15, v16, UserData, v30);
+      v17 = P;
       if ( v12 >= 0 )
       {
-        v17 = *(_DWORD *)P;
-        v18 = (char *)P + 4;
-        v19 = 0;
+        v18 = *(_DWORD *)P;
+        v19 = (char *)P + 4;
+        v20 = 0;
         if ( *(_DWORD *)P )
         {
-          v20 = (char *)P + v26;
+          v21 = (char *)P + v32;
           do
           {
-            if ( v18 >= v20 )
+            if ( v19 >= v21 )
               break;
-            v21 = *((_DWORD *)v18 + 3);
-            UserData.Reserved = 0;
-            v21 += 16;
-            UserData.Size = v21;
-            UserData.Ptr = (ULONGLONG)v18;
-            EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SLEEP_DISABLE_REASON_RUNDOWN, 0LL, 1u, &UserData);
-            ++v19;
-            v18 += v21;
+            v22 = *((_DWORD *)v19 + 3);
+            v35.Reserved = 0;
+            v22 += 16;
+            v35.Size = v22;
+            v35.Ptr = (ULONGLONG)v19;
+            EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SLEEP_DISABLE_REASON_RUNDOWN, 0LL, 1u, &v35);
+            ++v20;
+            v19 += v22;
           }
-          while ( v19 < v17 );
+          while ( v20 < v18 );
         }
       }
-      if ( v16 )
-        ExFreePoolWithTag(v16, 0);
+      if ( v17 )
+        ExFreePoolWithTag(v17, 0);
       if ( !_InterlockedCompareExchange(&PopDiagDeviceRundownRequests, 1, 0) )
         ExQueueWorkItem(&PopDiagDeviceRundownWorkItem, DelayedWorkQueue);
       if ( CallbackContext == (int *)&PopDiagHandle )
         PopDiagTraceFxRundown(0LL);
       PopDiagTracePlatformRoleRundown();
       PopRundownThermalRequests();
-      PopAcquirePolicyLock(v22);
+      PopAcquirePolicyLock(v23);
       PopTraceStandbyConnectivityRundown();
       PopDiagTraceDeviceComplianceRundown();
-      PopReleasePolicyLock(v24, v23, v25);
+      PopReleasePolicyLock(v25, v24, v26, v27, UserDataa, v31);
       PopDiagTraceDynamicTickStatusRundown();
       PopDiagTraceDeepSleepConstraintRundown();
       PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerEventLock);

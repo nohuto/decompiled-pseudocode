@@ -6,7 +6,7 @@
  *     _RtlInitializeCriticalSectionEx@12 @ 0x4B2DFB90 (_RtlInitializeCriticalSectionEx@12.c)
  */
 
-int __stdcall RtlInitializeCriticalSectionAndSpinCount(_DWORD *a1, int a2)
+NTSTATUS __cdecl RtlInitializeCriticalSectionAndSpinCount(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount)
 {
-  return RtlInitializeCriticalSectionEx(a1, a2 & 0xFFFFFF, 0);
+  return RtlInitializeCriticalSectionEx(CriticalSection, SpinCount & 0xFFFFFF, 0);
 }

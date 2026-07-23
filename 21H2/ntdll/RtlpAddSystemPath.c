@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpAddSystemPath @ 0x1800DEEDC
+ * XREFs of RtlpAddSystemPath @ 0x1800DEE9C
  * Callers:
- *     RtlpAddForwarderPath @ 0x1800DEE9C (RtlpAddForwarderPath.c)
+ *     RtlpAddForwarderPath @ 0x1800DEE5C (RtlpAddForwarderPath.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 char *__fastcall RtlpAddSystemPath(void *Src, unsigned __int64 a2, char *a3)

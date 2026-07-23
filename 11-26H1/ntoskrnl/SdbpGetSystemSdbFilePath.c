@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetSystemSdbFilePath @ 0x140886F14
+ * XREFs of SdbpGetSystemSdbFilePath @ 0x14088D314
  * Callers:
- *     SdbGetPathCustomSdb @ 0x14088645C (SdbGetPathCustomSdb.c)
- *     SdbGetPathSystemSdb @ 0x14088652C (SdbGetPathSystemSdb.c)
+ *     SdbGetPathCustomSdb @ 0x14088C85C (SdbGetPathCustomSdb.c)
+ *     SdbGetPathSystemSdb @ 0x14088C92C (SdbGetPathSystemSdb.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetSystemSdbFilePath(_WORD *a1, __int64 a2, int a3)

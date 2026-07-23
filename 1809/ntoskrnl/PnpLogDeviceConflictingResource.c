@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpLogDeviceConflictingResource @ 0x14073041C
+ * XREFs of PnpLogDeviceConflictingResource @ 0x14073160C
  * Callers:
- *     IopTestConfiguration @ 0x14072E2F8 (IopTestConfiguration.c)
+ *     IopTestConfiguration @ 0x14072F4E8 (IopTestConfiguration.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PnpLogDeviceConflictingResource(__int64 a1, __int64 a2)

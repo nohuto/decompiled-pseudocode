@@ -13,9 +13,9 @@ char __fastcall sub_180003824(int a1)
   __int64 v3; // rax
   __int64 v4; // rax
 
-  if ( qword_18015A260 && (v1 = 0, dword_18015A268) )
+  if ( BaseAddress && (v1 = 0, dword_18015A268) )
   {
-    v2 = (_DWORD *)(qword_18015A260 + 60);
+    v2 = (char *)BaseAddress + 60;
     while ( *(v2 - 1) != a1 && *v2 != a1 )
     {
       ++v1;
@@ -28,10 +28,10 @@ char __fastcall sub_180003824(int a1)
   else
   {
 LABEL_7:
-    if ( qword_18015A258 == -1 )
+    if ( qword_18015A258 == (PVOID)-1LL )
       return sub_1800E20D4();
     if ( qword_18015A258
-      && ((v3 = *(_QWORD *)(qword_18015A258 + 16)) == 0
+      && ((v3 = *((_QWORD *)qword_18015A258 + 2)) == 0
        || (v4 = *(_QWORD *)(v3 + 24)) == 0
        || (*(_DWORD *)(v4 + 48) & 0x100000) != 0) )
     {

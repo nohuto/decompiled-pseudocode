@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpCompleteDeferSignalRequestAndWait @ 0x140A87DC4
+ * XREFs of AlpcpCompleteDeferSignalRequestAndWait @ 0x140A8EEF4
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x140ACC1E4 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x140ACE424 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     AlpcpSignalAndWait @ 0x140264830 (AlpcpSignalAndWait.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     AlpcpLogUnwait @ 0x14077A678 (AlpcpLogUnwait.c)
+ *     AlpcpSignalAndWait @ 0x140263DA0 (AlpcpSignalAndWait.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpLogUnwait @ 0x14077D5A8 (AlpcpLogUnwait.c)
  */
 
 __int64 __fastcall AlpcpCompleteDeferSignalRequestAndWait(
@@ -27,11 +27,11 @@ __int64 __fastcall AlpcpCompleteDeferSignalRequestAndWait(
   else
   {
     v7 = (*(_DWORD *)(a1 + 48) & 0x200000) != 0;
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)a2, a3);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v8 = KeWaitForSingleObject(a2, WrLpcReceive, a4, v7, Timeout);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    if ( BYTE4(stru_140E66B30.StackBase) )
+    if ( LOBYTE(stru_140E66D40.CycleTime) )
       AlpcpLogUnwait(v8);
   }
   return v8;

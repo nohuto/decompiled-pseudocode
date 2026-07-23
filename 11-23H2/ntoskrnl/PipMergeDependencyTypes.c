@@ -1,11 +1,11 @@
 /*
- * XREFs of PipMergeDependencyTypes @ 0x140398428
+ * XREFs of PipMergeDependencyTypes @ 0x140398608
  * Callers:
- *     PipAddRequestToEdge @ 0x1408380BC (PipAddRequestToEdge.c)
+ *     PipAddRequestToEdge @ 0x1408383BC (PipAddRequestToEdge.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PipMergeDependencyTypes(__int64 a1, int a2)
@@ -23,10 +23,13 @@ __int64 __fastcall PipMergeDependencyTypes(__int64 a1, int a2)
   v5 = v4;
   KxReleaseSpinLock((volatile signed __int64 *)&PiDependencyEdgeWriteLock);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

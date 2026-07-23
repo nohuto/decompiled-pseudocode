@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCleanupKeyNodeStack @ 0x14060B8B0
+ * XREFs of CmpCleanupKeyNodeStack @ 0x14060B964
  * Callers:
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x1401B366C (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1401B3C44 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
- *     CmQueryLayeredKey @ 0x1401B3DE4 (CmQueryLayeredKey.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140609FD4 (CmpGetSubKeyCountForKcbStack.c)
- *     CmpKeyEnumStackCleanup @ 0x14060A308 (CmpKeyEnumStackCleanup.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x14060A6C8 (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x14060B718 (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1401B3550 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1401B3B28 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmQueryLayeredKey @ 0x1401B3CC8 (CmQueryLayeredKey.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x14060A088 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpKeyEnumStackCleanup @ 0x14060A3BC (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14060A77C (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14060B7CC (CmpValueEnumStackStartFromKcbStack.c)
  * Callees:
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     CmpKeyNodeStackEntryCleanup @ 0x14060BCC4 (CmpKeyNodeStackEntryCleanup.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BCE4 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     CmpKeyNodeStackEntryCleanup @ 0x14060BD78 (CmpKeyNodeStackEntryCleanup.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BD98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpCleanupKeyNodeStack(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpInitNonBusHandler @ 0x140B3500C
  * Callers:
- *     HalpPciInitSystem @ 0x140A916E0 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x140A91560 (HalpPciInitSystem.c)
  * Callees:
  *     <none>
  */

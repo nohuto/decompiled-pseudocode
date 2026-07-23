@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPurgeSubsection @ 0x1402A2C28
+ * XREFs of MiPurgeSubsection @ 0x1402A2E18
  * Callers:
- *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1C08 (MiDeleteCachedSubsection.c)
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiCheckProtoPtePageState @ 0x140030780 (MiCheckProtoPtePageState.c)
@@ -9,17 +9,17 @@
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPurgeSubsection(ULONG_PTR BugCheckParameter2)
@@ -95,12 +95,12 @@ LABEL_37:
   }
   if ( (BugCheckParameter4 & 1) == 0 )
   {
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (BugCheckParameter4 & 0x10) != 0 )
         v12 = BugCheckParameter4 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v12 = ~qword_14043A0C0 & BugCheckParameter4;
+        v12 = ~qword_14043B180 & BugCheckParameter4;
     }
     v13 = (v12 >> 12) & 0xFFFFFFFFFLL;
     v14 = 48 * v13 - 0x58000000000LL;
@@ -115,7 +115,7 @@ LABEL_37:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v16 = 1;
-      if ( HIBYTE(word_14043A1AC) == v17 )
+      if ( HIBYTE(word_14043B26C) == v17 )
       {
         v18 = (v15 & 1) == 0;
         goto LABEL_28;

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwOpenSession @ 0x140644BB0
+ * XREFs of VerifierZwOpenSession @ 0x140648790
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierZwOpenSession(__int64 a1, __int64 a2)

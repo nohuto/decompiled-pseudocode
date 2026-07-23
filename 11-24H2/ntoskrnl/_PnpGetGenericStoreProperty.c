@@ -1,20 +1,20 @@
 /*
- * XREFs of _PnpGetGenericStoreProperty @ 0x1408C7EF0
+ * XREFs of _PnpGetGenericStoreProperty @ 0x1408C5920
  * Callers:
- *     PnpGetObjectProperty @ 0x1408CCF60 (PnpGetObjectProperty.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D43AC (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqPnPGetObjectProperty @ 0x1408D4AF0 (PiDqPnPGetObjectProperty.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140AA3320 (PiCreateDriverSwDeviceCallback.c)
+ *     PnpGetObjectProperty @ 0x1408CA950 (PnpGetObjectProperty.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1408D1D9C (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqPnPGetObjectProperty @ 0x1408D24E0 (PiDqPnPGetObjectProperty.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140A9E6B0 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetGenericStoreProperty(
@@ -112,7 +112,7 @@ __int64 __fastcall PnpGetGenericStoreProperty(
     if ( (unsigned __int64)(512 - v12) >= 0x30 )
     {
       v15 = 512 - v12 + 12;
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v15, 0x52504E50u);
       if ( !Pool2 )
       {
         v11 = -1073741801;
@@ -149,7 +149,7 @@ __int64 __fastcall PnpGetGenericStoreProperty(
       if ( !v20 || v20 == PnpRegQueryValueIndirect )
         v21 = PnpRegQueryValueIndirect(a1, Handle, v28, &v25, v27, (ULONG *)&v24 + 1, (bool *)&v24);
       else
-        v21 = guard_dispatch_icall_no_overrides(a1, Handle, v28, &v25);
+        v21 = guard_dispatch_icall_no_overrides(a1, Handle);
       v22 = v21;
       if ( v21 != -1073741772 && v21 != -1073741444 )
       {

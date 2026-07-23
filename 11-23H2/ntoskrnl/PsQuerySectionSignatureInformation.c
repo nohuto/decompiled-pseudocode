@@ -1,12 +1,12 @@
 /*
- * XREFs of PsQuerySectionSignatureInformation @ 0x1407C63C0
+ * XREFs of PsQuerySectionSignatureInformation @ 0x1407C6690
  * Callers:
- *     PsConvertToGuiThread @ 0x1407C6290 (PsConvertToGuiThread.c)
- *     PsCheckProcessFileSigningLevel @ 0x1409B0810 (PsCheckProcessFileSigningLevel.c)
+ *     PsConvertToGuiThread @ 0x1407C6560 (PsConvertToGuiThread.c)
+ *     PsCheckProcessFileSigningLevel @ 0x1409B0A10 (PsCheckProcessFileSigningLevel.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1, _BYTE *a2)

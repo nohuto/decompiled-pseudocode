@@ -18,19 +18,19 @@ __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
   if ( !a1 )
     return 0LL;
   LdrpInitMuiCrits(&DataLoadLockCount, &LoadAsDataCrits);
-  RtlEnterCriticalSection((__int64)&LoadAsDataCrits);
+  RtlEnterCriticalSection(&LoadAsDataCrits);
   v3 = LoadAsDataTableCount;
   if ( LoadAsDataTableCount )
   {
     while ( v3 > 0 )
     {
-      if ( *(_QWORD *)(LoadAsDataTable + 48LL * --v3) == a1 )
+      if ( *((_QWORD *)LoadAsDataTable + 6 * --v3) == a1 )
       {
-        v2 = *(_QWORD *)(LoadAsDataTable + 48LL * v3 + 16);
+        v2 = *((_QWORD *)LoadAsDataTable + 6 * v3 + 2);
         break;
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&LoadAsDataCrits);
+  RtlLeaveCriticalSection(&LoadAsDataCrits);
   return v2;
 }

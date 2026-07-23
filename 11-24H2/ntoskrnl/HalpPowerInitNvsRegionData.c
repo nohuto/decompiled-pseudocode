@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPowerInitNvsRegionData @ 0x140C13300
+ * XREFs of HalpPowerInitNvsRegionData @ 0x140C15300
  * Callers:
- *     HalpPowerInitDiscard @ 0x140C0E460 (HalpPowerInitDiscard.c)
+ *     HalpPowerInitDiscard @ 0x140C10460 (HalpPowerInitDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 HalpPowerInitNvsRegionData()
@@ -50,7 +50,7 @@ __int64 HalpPowerInitNvsRegionData()
         result = HalpMmAllocateMemoryInternal(24 * v2, 1u);
         HalpNvsRegionData = result;
         if ( !result )
-          KeBugCheckEx(0xACu, v6, 1uLL, (ULONG_PTR)"minkernel\\hals\\lib\\power\\pmsleep.c", 0x741uLL);
+          KeBugCheckEx(0xACu, v6, 1uLL, (ULONG_PTR)"minkernel\\hals\\lib\\power\\pmsleep.c", 0x742uLL);
         v7 = 0LL;
         v8 = 0;
         if ( *(_QWORD *)(v0 + 8) )

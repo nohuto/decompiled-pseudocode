@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpTimerDpcRoutine @ 0x1402D15B0
+ * XREFs of HalpTimerDpcRoutine @ 0x14024FA40
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerDpcRoutine()
 {
-  __int64 v0; // rdi
-  unsigned __int64 v1; // rbx
+  ULONG_PTR v0; // rdi
+  __int64 v1; // rbx
   __int64 result; // rax
   ULONG_PTR v3; // rcx
   __int64 InternalData; // rax
@@ -92,7 +92,7 @@ __int64 HalpTimerDpcRoutine()
     result = KiProcessorBlock[0];
     v3 = _InterlockedExchange64((volatile __int64 *)(KiProcessorBlock[0] + 224), 0LL);
     if ( v3 )
-      result = KiInsertQueueDpc(v3, (unsigned int)v1, HIDWORD(v1), 0LL, 0);
+      result = KiInsertQueueDpc(v3, 0);
     HalpTimerLastDpc = v1;
   }
   return result;

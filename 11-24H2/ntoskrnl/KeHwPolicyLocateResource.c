@@ -1,16 +1,16 @@
 /*
- * XREFs of KeHwPolicyLocateResource @ 0x140C288B0
+ * XREFs of KeHwPolicyLocateResource @ 0x140C2A950
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x140B56EB4 (KiIntersectFeaturesWithPolicy.c)
- *     HalpWheaInitDiscard @ 0x140C0FBD4 (HalpWheaInitDiscard.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x140B58F34 (KiIntersectFeaturesWithPolicy.c)
+ *     HalpWheaInitDiscard @ 0x140C11BD4 (HalpWheaInitDiscard.c)
  * Callees:
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
- *     RtlCompareUnicodeString @ 0x140932290 (RtlCompareUnicodeString.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
+ *     RtlCompareUnicodeString @ 0x1409343D0 (RtlCompareUnicodeString.c)
  */
 
-int __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, wchar_t *a3, _QWORD *a4, __int64 *a5)
+__int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, wchar_t *a3, _QWORD *a4, __int64 *a5)
 {
-  __int64 v7; // rcx
+  unsigned __int64 v7; // rcx
   int *v10; // rdi
   int *i; // rbx
   __int64 v12; // rcx
@@ -53,5 +53,5 @@ LABEL_10:
   }
 LABEL_12:
   KiHwPolicyDriverNotPresent = 1;
-  return -1073741204;
+  return 3221226092LL;
 }

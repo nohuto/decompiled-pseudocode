@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAllocateNumaConfigData @ 0x140CB1210
+ * XREFs of HalpAllocateNumaConfigData @ 0x140CB7250
  * Callers:
- *     HalpInitializeConfigurationFromMadt @ 0x140CB1670 (HalpInitializeConfigurationFromMadt.c)
- *     HalpNumaInitializeStaticConfiguration @ 0x140CB19FC (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140CB76B0 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140CB7A3C (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall HalpAllocateNumaConfigData(int a1, unsigned int a2, unsigned int a3, int a4)
@@ -80,9 +80,9 @@ unsigned __int64 __fastcall HalpAllocateNumaConfigData(int a1, unsigned int a2, 
     }
     if ( v8 )
     {
-      HalpChannelMemoryRangeCount = v8;
+      dword_140F87A80 = v8;
       result = (v20 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-      HalpChannelMemoryRanges = (void *)result;
+      qword_140F87A78 = (void *)result;
     }
   }
   return result;

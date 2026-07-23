@@ -1,13 +1,13 @@
 /*
- * XREFs of KeRegisterObjectDpc @ 0x1405680E8
+ * XREFs of KeRegisterObjectDpc @ 0x1405687A8
  * Callers:
- *     ExQueueDpcEventWait @ 0x14060C020 (ExQueueDpcEventWait.c)
+ *     ExQueueDpcEventWait @ 0x14060C570 (ExQueueDpcEventWait.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiWaitSatisfyOther @ 0x14034B3B4 (KiWaitSatisfyOther.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiWaitSatisfyOther @ 0x14034B554 (KiWaitSatisfyOther.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a4)
@@ -29,7 +29,7 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
   LODWORD(v8) = 4;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql != 2 )
@@ -48,10 +48,10 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
     *v12 = a3;
     *(_QWORD *)(a1 + 16) = a3;
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;
@@ -59,7 +59,7 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
         v17 = (v16 & v15[5]) == 0;
         v15[5] &= v16;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);
@@ -69,7 +69,7 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
     *(_BYTE *)(a3 + 17) = 5;
     KiInsertQueueDpc(a2, a1, a3, 0LL, 0);
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   }
   return v11;
 }

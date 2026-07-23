@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTrimThisWsle @ 0x140322190
+ * XREFs of MiTrimThisWsle @ 0x1403241C0
  * Callers:
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
- *     MiTrimPteWorker @ 0x140320BF0 (MiTrimPteWorker.c)
- *     MiTrimPte @ 0x140321400 (MiTrimPte.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
+ *     MiTrimPteWorker @ 0x140322C20 (MiTrimPteWorker.c)
+ *     MiTrimPte @ 0x140323430 (MiTrimPte.c)
  * Callees:
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
  */
 
 __int64 __fastcall MiTrimThisWsle(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int *a4, char a5, _DWORD *a6)
@@ -149,7 +149,7 @@ __int64 __fastcall MiTrimThisWsle(__int64 a1, unsigned __int64 a2, unsigned __in
     if ( a3 >= 0xFFFFDE0000000000uLL )
     {
       v18 = 0xFFFFDE0000000000uLL;
-      if ( a3 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+      if ( a3 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
         || MiIsDecayPfn((__int64)(a3 + 0x220000000000LL) / 48)
         || (v17 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(a3) == 9 )
       {
@@ -214,7 +214,7 @@ LABEL_70:
       if ( (*(_QWORD *)(a3 + 40) & 0x20000000000000LL) != 0
         || (*(_DWORD *)(a3 + 32) & 0x8000000) != 0
         && (a3 < 0xFFFFDE0000000000uLL
-         || a3 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+         || a3 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
          || MiIsDecayPfn((__int64)(a3 + 0x220000000000LL) / 48)
          || (v35 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(a3) == 9) )
       {

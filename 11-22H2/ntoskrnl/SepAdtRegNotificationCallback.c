@@ -9,7 +9,7 @@
  *     SepAdtInitializeBounds @ 0x1408443A8 (SepAdtInitializeBounds.c)
  */
 
-__int64 SepAdtRegNotificationCallback()
+NTSTATUS SepAdtRegNotificationCallback()
 {
   SepAdtInitializeCrashOnFail();
   SepAdtInitializePrivilegeAuditing();
@@ -17,12 +17,12 @@ __int64 SepAdtRegNotificationCallback()
   return NtNotifyChangeKey(
            SepAdtRegNotifyHandle,
            0LL,
-           (void (__stdcall *)(POPLOCK))&SepAdtLsaRegWatchWorkItem,
-           1LL,
-           SepAdtIoStatusBlock,
+           SepAdtLsaRegWatchWorkItem,
+           (PVOID)1,
+           &SepAdtIoStatusBlock,
            5u,
            0,
            0LL,
            0,
-           1);
+           1u);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDirectGraphicsCall @ 0x1403FBEE0
+ * XREFs of ZwDirectGraphicsCall @ 0x1403FC0C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDirectGraphicsCall(__int64 a1, __int64 a2)
+__int64 __fastcall ZwDirectGraphicsCall(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

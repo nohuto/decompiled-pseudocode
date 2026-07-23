@@ -1,13 +1,13 @@
 /*
- * XREFs of PopThermalWriteShutdownToRegistry @ 0x140500640
+ * XREFs of PopThermalWriteShutdownToRegistry @ 0x1404F9E30
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1404ED080 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalProcessUsermodeEvent @ 0x140B44A20 (PopThermalProcessUsermodeEvent.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1404E6660 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalProcessUsermodeEvent @ 0x140B46A5C (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopOpenThermalLoggingKey @ 0x1405007D4 (PopOpenThermalLoggingKey.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopOpenThermalLoggingKey @ 0x1404F9FC4 (PopOpenThermalLoggingKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 int __fastcall PopThermalWriteShutdownToRegistry(__int64 a1, void *a2)
@@ -36,7 +36,7 @@ int __fastcall PopThermalWriteShutdownToRegistry(__int64 a1, void *a2)
     v5 = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
     Data = 1;
     result = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
-    if ( !unk_140F10E95 )
+    if ( !PopThermalCriticalShutdownReported )
     {
       if ( a1 )
         ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, *(PVOID *)(a1 + 8), *(unsigned __int16 *)(a1 + 2));
@@ -44,7 +44,7 @@ int __fastcall PopThermalWriteShutdownToRegistry(__int64 a1, void *a2)
       if ( a2 )
         result = ZwSetValueKey(KeyHandle, &v9, 0, 4u, a2, 4u);
     }
-    unk_140F10E95 = 1;
+    PopThermalCriticalShutdownReported = 1;
     if ( KeyHandle )
       return ZwClose(KeyHandle);
   }

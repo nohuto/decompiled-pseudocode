@@ -54,15 +54,14 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, const void *a3,
   __int64 v33; // r11
   __int64 v34; // rcx
   __int64 v35; // rcx
-  unsigned int v36; // r8d
-  __int64 v37; // rdx
-  unsigned __int8 *v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // rax
-  char v41; // cl
-  BOOL v42; // edi
-  __int64 v43; // rcx
-  __int64 v44; // [rsp+30h] [rbp-38h]
+  __int64 v36; // rdx
+  unsigned __int8 *v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rax
+  char v40; // cl
+  BOOL v41; // edi
+  __int64 v42; // rcx
+  __int64 v43; // [rsp+30h] [rbp-38h]
 
   v8 = 0LL;
   v9 = RtlpHpSegDescriptorValidate(a1, (unsigned __int64)a3);
@@ -78,12 +77,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, const void *a3,
   {
     if ( v12 == 12 && *(_QWORD *)(a4 + 24) > *(_QWORD *)a4 && v10 <= 0x20000 )
     {
-      v27 = RtlpHpVsContextGrowInPlace(
-              *(_QWORD *)(a1 + 32),
-              ((v9 - (v9 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)) + (v9 & *(_DWORD *)a1),
-              (_DWORD)a3,
-              a4,
-              a2);
+      v27 = RtlpHpVsContextGrowInPlace(*(PRTL_SRWLOCK *)(a1 + 32), a2);
       if ( v27 )
       {
         if ( *(_DWORD *)(a4 + 16) )
@@ -115,24 +109,24 @@ LABEL_5:
     if ( (_DWORD)v16 == (_DWORD)v15 )
       v17 = (unsigned int)v15;
     if ( (v18 = v14 + 896,
-          v44 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v17 + 15) >> 4],
-          (*(_QWORD *)(v14 + 896 + 8 * v44 + 128) & 1) != 0)
+          v43 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v17 + 15) >> 4],
+          (*(_QWORD *)(v14 + 896 + 8 * v43 + 128) & 1) != 0)
       && !(unsigned int)RtlpHpLfhBucketUpdateStats(v14 + 896, v17, 1LL)
-      || ((v19 = *(_QWORD *)(v18 + 8 * v44 + 128),
+      || ((v19 = *(_QWORD *)(v18 + 8 * v43 + 128),
            v20 = ((((unsigned int)RtlpHpLfhPerfFlags >> 10) & 1) + 2LL) << 6,
            *(_BYTE *)(v19 + 2) != 1)
         ? (v21 = *(_BYTE *)(v20 + BYTE1(NtCurrentTeb()->HeapData) + v19))
         : (v21 = 0),
           v8 = (void *)RtlpHpLfhSlotAllocate(
                          v14 + 896,
-                         *(_QWORD *)(v18 + 8 * v44 + 128),
-                         *(_QWORD *)(*(unsigned __int8 *)(v14 + 952)
-                                   - (unsigned __int64)((*(_BYTE *)(v14 + 952) - 1) & 7)
-                                   + v20
-                                   + 7
-                                   + 8LL * v21
-                                   + v19),
-                         (_QWORD *)(unsigned int)v16,
+                         *(_RTL_SRWLOCK **)(v18 + 8 * v43 + 128),
+                         *(_RTL_SRWLOCK **)(*(unsigned __int8 *)(v14 + 952)
+                                          - (unsigned __int64)((*(_BYTE *)(v14 + 952) - 1) & 7)
+                                          + v20
+                                          + 7
+                                          + 8LL * v21
+                                          + v19),
+                         v16,
                          a2),
           v8 == (void *)-1LL) )
     {
@@ -141,7 +135,7 @@ LABEL_35:
       {
         if ( v15 > *(unsigned int *)(v14 + 528) )
         {
-          v32 = RtlpHpLargeAlloc(v14, v16, v15, a2);
+          v32 = RtlpHpLargeAlloc((PVOID)v14);
         }
         else
         {
@@ -183,11 +177,11 @@ LABEL_35:
     {
       if ( *(_DWORD *)(v14 + 24) )
       {
-        v40 = RtlpHpExtrasGet(v14, a3, v24);
-        if ( (unsigned __int64)(v40 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+        v39 = RtlpHpExtrasGet(v14, a3, v24);
+        if ( (unsigned __int64)(v39 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
         {
-          v41 = *(_BYTE *)(v40 + 2);
-          if ( (v41 & 0xF) != 0 && (int)RtlpCallInterceptRoutine(v41 & 0xF, v14, (_DWORD)a3, 3, v40 + 16) < 0 )
+          v40 = *(_BYTE *)(v39 + 2);
+          if ( (v40 & 0xF) != 0 && (int)RtlpCallInterceptRoutine(v40 & 0xF, v14, (_DWORD)a3, 3, v39 + 16) < 0 )
             return (__int64)v8;
         }
       }
@@ -204,15 +198,15 @@ LABEL_35:
       }
       else
       {
-        v26 = RtlCSparseBitmapBitmaskRead(&unk_1801859C0, 2 * (((unsigned __int64)a3 - qword_1801859B8) >> 20));
+        v26 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * (((unsigned __int64)a3 - qword_1801859B8) >> 20));
         if ( !v26 || (v25 = v26 - 1, v25 == 2) )
         {
-          v42 = RtlpHpLargeFree(v14, a3, v24) != 0;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-            v43 = (__int64)NtCurrentPeb()->SharedData + 550;
+          v41 = RtlpHpLargeFree(v14, a3, v24) != 0;
+          if ( RtlGetCurrentServiceSessionId() )
+            v42 = (__int64)NtCurrentPeb()->SharedData + 550;
           else
-            v43 = 2147353472LL;
-          if ( *(_BYTE *)v43 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v42 )
+            v42 = 2147353472LL;
+          if ( *(_BYTE *)v42 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v41 )
             RtlpLogHeapFreeEvent(v14, a3, 3LL);
           return (__int64)v8;
         }
@@ -223,19 +217,18 @@ LABEL_35:
   }
   if ( v13 > *(unsigned __int8 *)(v9 + 31) )
     goto LABEL_5;
-  v36 = (unsigned __int16)~*(_WORD *)(v9 + 28);
-  if ( (unsigned int)v11 > v36 && (int)RtlpHpSegPageRangeCommit(a1, v9, v36, (unsigned int)v11 - v36, 0, 0LL) < 0 )
+  if ( (unsigned int)v11 > (unsigned __int16)~*(_WORD *)(v9 + 28) && (int)RtlpHpSegPageRangeCommit(a1, 0, 0LL) < 0 )
     return (__int64)v8;
   if ( *(_DWORD *)(a4 + 16) )
   {
-    v37 = (__int64)a3 + *(_QWORD *)a4 + 16;
+    v36 = (__int64)a3 + *(_QWORD *)a4 + 16;
     if ( (a2 & 0x10000000) == 0 )
-      v37 = (__int64)a3 + *(_QWORD *)a4;
-    v38 = (unsigned __int8 *)((v37 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
-    v39 = (__int64)a3 + *(_QWORD *)(a4 + 24) + 16;
+      v36 = (__int64)a3 + *(_QWORD *)a4;
+    v37 = (unsigned __int8 *)((v36 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
+    v38 = (__int64)a3 + *(_QWORD *)(a4 + 24) + 16;
     if ( (a2 & 0x10000000) == 0 )
-      v39 = (__int64)a3 + *(_QWORD *)(a4 + 24);
-    memmove((void *)((v39 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v38, 16 * (v38[3] + 1LL));
+      v38 = (__int64)a3 + *(_QWORD *)(a4 + 24);
+    memmove((void *)((v38 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v37, 16 * (v37[3] + 1LL));
   }
   if ( v13 < *(unsigned __int8 *)(v9 + 31) )
     RtlpHpSegPageRangeShrink(a1, v9, v13, a2);

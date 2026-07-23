@@ -1,19 +1,19 @@
 /*
- * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x140841E14
+ * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x140842114
  * Callers:
  *     SeRmInitPhase1 @ 0x140B60C6C (SeRmInitPhase1.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8D40 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x14036AF8C (AuthzBasepAllocateSecurityAttributesList.c)
- *     RtlIsMultiSessionSku @ 0x1407ECD20 (RtlIsMultiSessionSku.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8FD0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x14036B12C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlIsMultiSessionSku @ 0x1407ECFF0 (RtlIsMultiSessionSku.c)
  */
 
 __int64 __fastcall AuthzBasepInitializeSystemSecurityAttributes(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx
   _QWORD *SecurityAttributesList; // rdi
-  char IsMultiSessionSku; // al
+  BOOLEAN IsMultiSessionSku; // al
   char v5; // si
   __int64 v6; // rdx
   unsigned int v7; // ebx

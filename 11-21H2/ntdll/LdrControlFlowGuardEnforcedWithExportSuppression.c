@@ -17,5 +17,8 @@
 
 _BOOL8 LdrControlFlowGuardEnforcedWithExportSuppression()
 {
-  return (unsigned int)LdrControlFlowGuardEnforced() && (BYTE5(qword_18018F390) & 3) == 3;
+  int v0; // eax
+
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  return v0 && (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
 }

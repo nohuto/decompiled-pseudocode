@@ -70,7 +70,7 @@ __int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, char a3, _QWORD 
   __int64 v27; // rcx
   struct _KTHREAD *v28; // rbx
   __int64 SessionId; // rdx
-  __int64 v30; // r8
+  unsigned int v30; // r8d
   __int64 v31; // r9
   bool v32; // zf
   __int64 v33; // rcx
@@ -180,7 +180,7 @@ __int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, char a3, _QWORD 
               SessionId = 0xFFFFFFFFLL;
             --v28->SpecialApcDisable;
             ++v28->AbAllocationRegionCount;
-            LODWORD(v30) = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
+            v30 = ((char)v28->AbEntrySummary | (char)v28->AbOrphanedEntrySummary) ^ 0x3F;
             v41 = v28->AbAllocationRegionCount == 1;
             v31 = v26 & 0x7FFFFFFFFFFFFFFCLL;
             v32 = !_BitScanReverse((unsigned int *)&v33, v30);
@@ -197,7 +197,7 @@ LABEL_46:
                 v34 = 1 << v33;
                 v35 = v33;
                 v36 = &v28->LockEntries[v35];
-                v30 = ~v34 & (unsigned int)v30;
+                v30 &= ~v34;
                 if ( (v36->AcquiredByte & 1) != 0
                   && (*(_DWORD *)&v36->LockState.0 & 1) == 0
                   && (*(_QWORD *)&v36->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == v31
@@ -219,7 +219,7 @@ LABEL_45:
               }
               v36->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v36->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v28->LockEntries[v35], SessionId, v30);
+                KiAbEntryRemoveFromTree(&v28->LockEntries[v35].TreeNode, SessionId);
               v44 = 0;
               v44 = v36->BoostBitmap.AllFields & 0x1FFFF;
               v36->BoostBitmap.AllFields &= 0xFFFE0000;

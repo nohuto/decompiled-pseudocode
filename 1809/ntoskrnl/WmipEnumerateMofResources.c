@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipEnumerateMofResources @ 0x1406AA6FC
+ * XREFs of WmipEnumerateMofResources @ 0x1406AB99C
  * Callers:
- *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406AB080 (WmipIoControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)

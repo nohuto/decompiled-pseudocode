@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckReset @ 0x1403A7080
+ * XREFs of PpmCheckReset @ 0x1403A7260
  * Callers:
  *     <none>
  * Callees:
- *     PpmResetPerfTimes @ 0x1403A70A0 (PpmResetPerfTimes.c)
+ *     PpmResetPerfTimes @ 0x1403A7280 (PpmResetPerfTimes.c)
  */
 
 __int64 __fastcall PpmCheckReset(__int64 a1)

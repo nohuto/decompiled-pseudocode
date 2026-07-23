@@ -867,7 +867,7 @@ LABEL_21:
   {
     _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
     KiFastExitThreadWait(v17, CurrentThread, v12);
-    RtlRaiseStatus(3221225873LL);
+    RtlRaiseStatus(-1073741423);
   }
   v31 = v30 - 1;
   *((_DWORD *)Object + 1) = v31;

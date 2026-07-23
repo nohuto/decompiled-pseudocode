@@ -1,9 +1,9 @@
 /*
- * XREFs of Uart16550SetBaudCommon @ 0x1405CB080
+ * XREFs of Uart16550SetBaudCommon @ 0x1405CB2B0
  * Callers:
- *     Uart16550SetBaud @ 0x1405CB060 (Uart16550SetBaud.c)
+ *     Uart16550SetBaud @ 0x1405CB290 (Uart16550SetBaud.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall Uart16550SetBaudCommon(__int64 a1, unsigned int a2)

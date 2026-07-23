@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdatePartitionLargePfnBitMap @ 0x1408DB778
+ * XREFs of MiUpdatePartitionLargePfnBitMap @ 0x1408DB8D8
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x1408DB27C (MiHotAddPartitionMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DAAD8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB3DC (MiHotAddPartitionMemory.c)
  * Callees:
- *     MiUnlockDynamicMemoryExclusive @ 0x1402AC034 (MiUnlockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryExclusive @ 0x1402AC3F4 (MiLockDynamicMemoryExclusive.c)
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1402745E0 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x1402749A0 (MiLockDynamicMemoryExclusive.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
  */
 
 __int64 __fastcall MiUpdatePartitionLargePfnBitMap(__int64 a1, _QWORD **a2)

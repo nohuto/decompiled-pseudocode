@@ -30,7 +30,7 @@ __int64 __fastcall KiInitSystem(__int64 a1)
   KiProfileSourceListHead = (__int64)&KiProfileSourceListHead;
   KiSwapEvent.Header.WaitListHead.Blink = &KiSwapEvent.Header.WaitListHead;
   KiSwapEvent.Header.WaitListHead.Flink = &KiSwapEvent.Header.WaitListHead;
-  *(_QWORD *)&KeServiceDescriptorTable = KiServiceTable;
+  *(_QWORD *)&KeServiceDescriptorTable = &KiServiceTable;
   LODWORD(xmmword_140E018D0) = KiServiceLimit;
   *((_QWORD *)&xmmword_140E018D0 + 1) = &KiArgumentTable;
   qword_140C426D8 = (__int64)KiBalanceSetManagerDeferredRoutine;

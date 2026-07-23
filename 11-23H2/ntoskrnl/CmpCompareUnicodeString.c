@@ -2,15 +2,15 @@
  * XREFs of CmpCompareUnicodeString @ 0x140690A4C
  * Callers:
  *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmpCheckValueList @ 0x1406DE4C0 (CmpCheckValueList.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7E90 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpFindKcbInHashEntryByName @ 0x1407C461C (CmpFindKcbInHashEntryByName.c)
- *     CmpGetMappingHiveForString @ 0x140A19B68 (CmpGetMappingHiveForString.c)
- *     CmpCompareKeysByName @ 0x140A1F6C4 (CmpCompareKeysByName.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmpCheckValueList @ 0x1406DE4F0 (CmpCheckValueList.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7EC0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1407C48EC (CmpFindKcbInHashEntryByName.c)
+ *     CmpGetMappingHiveForString @ 0x140A19E18 (CmpGetMappingHiveForString.c)
+ *     CmpCompareKeysByName @ 0x140A1F974 (CmpCompareKeysByName.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)

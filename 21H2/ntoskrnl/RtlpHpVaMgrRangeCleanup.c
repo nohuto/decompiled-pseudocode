@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCleanup @ 0x1402A3650
+ * XREFs of RtlpHpVaMgrRangeCleanup @ 0x140220A90
  * Callers:
- *     RtlpHpVaMgrRangeFree @ 0x1402A35E8 (RtlpHpVaMgrRangeFree.c)
+ *     RtlpHpVaMgrRangeFree @ 0x140220A28 (RtlpHpVaMgrRangeFree.c)
  * Callees:
- *     RtlCSparseBitmapBitsClear @ 0x1402A3714 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140220B54 (RtlCSparseBitmapBitsClear.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeCleanup(__int64 a1, char *a2)

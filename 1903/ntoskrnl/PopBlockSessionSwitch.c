@@ -13,10 +13,10 @@
  *     PoBlockConsoleSwitch @ 0x1406A3A78 (PoBlockConsoleSwitch.c)
  */
 
-__int64 __fastcall PopBlockSessionSwitch(char a1, int *a2)
+ULONG __fastcall PopBlockSessionSwitch(char a1, ULONG *a2)
 {
-  __int64 result; // rax
-  int v4; // [rsp+20h] [rbp-38h] BYREF
+  ULONG result; // eax
+  ULONG v4; // [rsp+20h] [rbp-38h] BYREF
   __int64 v5; // [rsp+28h] [rbp-30h] BYREF
   int v6; // [rsp+30h] [rbp-28h]
   int v7; // [rsp+34h] [rbp-24h]

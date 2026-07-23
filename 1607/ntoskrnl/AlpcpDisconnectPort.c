@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpDisconnectPort @ 0x140409FEC
+ * XREFs of AlpcpDisconnectPort @ 0x140408EAC
  * Callers:
- *     AlpcpDoPortCleanup @ 0x14040ABA4 (AlpcpDoPortCleanup.c)
- *     NtAlpcDisconnectPort @ 0x1404D77E8 (NtAlpcDisconnectPort.c)
+ *     AlpcpDoPortCleanup @ 0x140409A64 (AlpcpDoPortCleanup.c)
+ *     NtAlpcDisconnectPort @ 0x1404BADEC (NtAlpcDisconnectPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpCancelMessagesByRequestor @ 0x14040A38C (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpSignalPortAndUnlock @ 0x1404D0C84 (AlpcpSignalPortAndUnlock.c)
- *     AlpcpWalkConnectionList @ 0x1404DC2D4 (AlpcpWalkConnectionList.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x1404DF038 (AlpcpInsertMessageCanceledQueue.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x14040924C (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1404B4724 (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpWalkConnectionList @ 0x1404BF8D8 (AlpcpWalkConnectionList.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1404C263C (AlpcpInsertMessageCanceledQueue.c)
  */
 
 __int64 __fastcall AlpcpDisconnectPort(char *Object, char a2)

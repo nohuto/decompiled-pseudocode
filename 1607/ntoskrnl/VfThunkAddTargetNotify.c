@@ -1,7 +1,7 @@
 /*
  * XREFs of VfThunkAddTargetNotify @ 0x1406FDDDC
  * Callers:
- *     VfTargetDriversAdd @ 0x14008439C (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1400824FC (VfTargetDriversAdd.c)
  * Callees:
  *     ViThunkCreateSharedExportInformation @ 0x1406FDEAC (ViThunkCreateSharedExportInformation.c)
  *     ViThunkFreeSharedThunksArray @ 0x1406FE100 (ViThunkFreeSharedThunksArray.c)

@@ -15,13 +15,17 @@
  *     RtlSetLastWin32Error @ 0x180053850 (RtlSetLastWin32Error.c)
  */
 
-__int64 __fastcall EtwEventRegister(int a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl EtwEventRegister(
+        LPCGUID ProviderId,
+        PENABLECALLBACK EnableCallback,
+        PVOID CallbackContext,
+        PREGHANDLE RegHandle)
 {
-  unsigned int v4; // ebx
+  LONG v4; // ebx
 
-  if ( !a2 && a3 )
-    return 87LL;
-  v4 = EtwNotificationRegister(a1, 3, a2, a3, a4);
+  if ( !EnableCallback && CallbackContext )
+    return 87;
+  v4 = EtwNotificationRegister(ProviderId, 3u, (PETW_NOTIFICATION_CALLBACK)EnableCallback, CallbackContext, RegHandle);
   if ( v4 )
     RtlSetLastWin32Error(v4);
   return v4;

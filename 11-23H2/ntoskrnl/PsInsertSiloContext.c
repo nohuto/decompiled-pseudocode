@@ -1,12 +1,12 @@
 /*
- * XREFs of PsInsertSiloContext @ 0x14077C9E0
+ * XREFs of PsInsertSiloContext @ 0x14077CBD0
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A068 (VrpHandleIoctlInitializeJobForVreg.c)
- *     PspAssignSiloSystemRootPath @ 0x1409AC9B0 (PspAssignSiloSystemRootPath.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B00 (ObCreateSiloRootDirectory.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A258 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     PspAssignSiloSystemRootPath @ 0x1409ACBB0 (PspAssignSiloSystemRootPath.c)
+ *     ObCreateSiloRootDirectory @ 0x140A73DB0 (ObCreateSiloRootDirectory.c)
  * Callees:
- *     PspStorageInsertObject @ 0x14077CB30 (PspStorageInsertObject.c)
- *     PspIsSiloContext @ 0x14077CC94 (PspIsSiloContext.c)
+ *     PspStorageInsertObject @ 0x14077CD20 (PspStorageInsertObject.c)
+ *     PspIsSiloContext @ 0x14077CE84 (PspIsSiloContext.c)
  */
 
 __int64 __fastcall PsInsertSiloContext(__int64 a1, unsigned int a2, __int64 a3)

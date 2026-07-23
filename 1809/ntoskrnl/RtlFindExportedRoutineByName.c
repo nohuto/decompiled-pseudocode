@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlFindExportedRoutineByName @ 0x140678EC0
+ * XREFs of RtlFindExportedRoutineByName @ 0x14067A080
  * Callers:
- *     MmGetSystemRoutineAddress @ 0x14067B890 (MmGetSystemRoutineAddress.c)
- *     MiUnloadApproved @ 0x14070DF74 (MiUnloadApproved.c)
- *     MiCompactServiceTable @ 0x140718328 (MiCompactServiceTable.c)
- *     MmCallDllInitialize @ 0x14071B6FC (MmCallDllInitialize.c)
- *     KsepResolveShimHooks @ 0x140848054 (KsepResolveShimHooks.c)
- *     PspInitializeSystemDlls @ 0x1409D6048 (PspInitializeSystemDlls.c)
+ *     MmGetSystemRoutineAddress @ 0x14067CA50 (MmGetSystemRoutineAddress.c)
+ *     MiUnloadApproved @ 0x14070F214 (MiUnloadApproved.c)
+ *     MiCompactServiceTable @ 0x1407195C8 (MiCompactServiceTable.c)
+ *     MmCallDllInitialize @ 0x14071C99C (MmCallDllInitialize.c)
+ *     KsepResolveShimHooks @ 0x1408492B4 (KsepResolveShimHooks.c)
+ *     PspInitializeSystemDlls @ 0x1409D7048 (PspInitializeSystemDlls.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
  */
 
-char *__fastcall RtlFindExportedRoutineByName(char *a1, char *a2)
+PVOID __cdecl RtlFindExportedRoutineByName(PVOID BaseOfImage, PCSTR RoutineName)
 {
   char *v4; // rax
   char *v5; // r9
@@ -20,34 +20,34 @@ char *__fastcall RtlFindExportedRoutineByName(char *a1, char *a2)
   char *v8; // rbp
   char *v9; // rsi
   int v10; // ecx
-  char *v11; // rax
+  PCSTR v11; // rax
   int v12; // edx
-  char *v13; // rdi
-  char v14; // r11
+  signed __int64 v13; // rdi
+  CHAR v14; // r11
   int v15; // eax
   unsigned int v16; // ecx
   ULONG Size; // [rsp+60h] [rbp+18h] BYREF
 
-  v4 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 0, &Size);
+  v4 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0, &Size);
   v5 = v4;
   v6 = 0LL;
   if ( v4 )
   {
     v7 = 0;
-    v8 = &a1[*((unsigned int *)v4 + 8)];
-    v9 = &a1[*((unsigned int *)v4 + 9)];
+    v8 = (char *)BaseOfImage + *((unsigned int *)v4 + 8);
+    v9 = (char *)BaseOfImage + *((unsigned int *)v4 + 9);
     v10 = *((_DWORD *)v4 + 6) - 1;
     if ( v10 >= 0 )
     {
       do
       {
-        v11 = a2;
+        v11 = RoutineName;
         v12 = (v10 + v7) >> 1;
-        v13 = (char *)(&a1[*(unsigned int *)&v8[4 * v12]] - a2);
+        v13 = (_BYTE *)BaseOfImage + *(unsigned int *)&v8[4 * v12] - RoutineName;
         while ( 1 )
         {
           v14 = *v11;
-          if ( *v11 != v13[(_QWORD)v11] )
+          if ( *v11 != v11[v13] )
             break;
           ++v11;
           if ( !v14 )
@@ -56,7 +56,7 @@ char *__fastcall RtlFindExportedRoutineByName(char *a1, char *a2)
             goto LABEL_7;
           }
         }
-        v15 = (unsigned __int8)*v11 < (unsigned int)v13[(_QWORD)v11] ? -1 : 1;
+        v15 = *v11 < (unsigned int)v11[v13] ? -1 : 1;
 LABEL_7:
         if ( v15 < 0 )
         {
@@ -77,7 +77,8 @@ LABEL_7:
         v16 = *(unsigned __int16 *)&v9[2 * v12];
         if ( v16 < *((_DWORD *)v5 + 5) )
         {
-          v6 = &a1[*(unsigned int *)&a1[4 * (unsigned __int16)v16 + *((unsigned int *)v5 + 7)]];
+          v6 = (char *)BaseOfImage
+             + *(unsigned int *)((char *)BaseOfImage + 4 * (unsigned __int16)v16 + *((unsigned int *)v5 + 7));
           if ( v6 > v5 && v6 < &v5[Size] )
             return 0LL;
         }

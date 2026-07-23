@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTimLogBlockNonCetBinaries @ 0x14082A400
+ * XREFs of EtwTimLogBlockNonCetBinaries @ 0x140830640
  * Callers:
- *     PsBlockNonCetBinaries @ 0x1407F0288 (PsBlockNonCetBinaries.c)
+ *     PsBlockNonCetBinaries @ 0x1407F5DE8 (PsBlockNonCetBinaries.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x14096DF60 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1409D37CC (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4, unsigned __int16 *a5, int a6)
@@ -168,8 +168,8 @@ void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4,
   *((_QWORD *)&UserData.Size + v25) = 4LL;
   if ( v23 != 1 )
     v26 = &MITIGATION_ENFORCE_BLOCK_NON_CET_BINARIES;
-  EtwWriteEx(EtwSecurityMitigationsRegHandle, v26, 0LL, 1u, 0LL, 0LL, v18 + 5, &UserData);
-  if ( (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL) )
+  EtwWriteEx(*(REGHANDLE *)&stru_140F03830.SavedApcStateFill[40], v26, 0LL, 1u, 0LL, 0LL, v18 + 5, &UserData);
+  if ( (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL) )
   {
     v30 = v23;
     v39 = &v30;
@@ -205,8 +205,8 @@ void __fastcall EtwTimLogBlockNonCetBinaries(int a1, __int64 a2, int a3, int a4,
     v36 = 0x1000000LL;
     v62 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08F48,
-      (unsigned __int8 *)&byte_14005492F,
+      (__int64)&dword_140E08F78,
+      (unsigned __int8 *)&dword_140055A04,
       0LL,
       0LL,
       0xEu,

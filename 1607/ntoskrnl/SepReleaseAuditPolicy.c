@@ -1,7 +1,7 @@
 /*
- * XREFs of SepReleaseAuditPolicy @ 0x14069107C
+ * XREFs of SepReleaseAuditPolicy @ 0x140691160
  * Callers:
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

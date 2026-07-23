@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHiddenProcessorThermalCapChange @ 0x14060E414
+ * XREFs of PpmEventHiddenProcessorThermalCapChange @ 0x140611514
  * Callers:
- *     PpmRegisterPerfCap @ 0x14044DCE0 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x140445E10 (PpmRegisterPerfCap.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHiddenProcessorThermalCapChange(__int64 a1, int a2, int a3)
@@ -28,9 +28,7 @@ char __fastcall PpmEventHiddenProcessorThermalCapChange(__int64 a1, int a2, int 
   v15 = a2;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                   &PPM_ETW_HIDDEN_PROCESSOR_THERMAL_CAP_CHANGE);
+    LOBYTE(v3) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_HIDDEN_PROCESSOR_THERMAL_CAP_CHANGE);
     if ( (_BYTE)v3 )
     {
       v6 = *(unsigned __int8 *)(a1 + 208);
@@ -43,7 +41,7 @@ char __fastcall PpmEventHiddenProcessorThermalCapChange(__int64 a1, int a2, int 
       v12 = &v16;
       v9 = 1LL;
       LOBYTE(v3) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
+                     PpmEtwHandle,
                      &PPM_ETW_HIDDEN_PROCESSOR_THERMAL_CAP_CHANGE,
                      0LL,
                      0,

@@ -10,7 +10,7 @@
  *     RtlpInterlockedPushEntrySList @ 0x1403FF030 (RtlpInterlockedPushEntrySList.c)
  */
 
-void __fastcall PfpReturnAccessBuffer(struct _SLIST_ENTRY *P)
+void __fastcall PfpReturnAccessBuffer(_SLIST_ENTRY *P)
 {
   unsigned int Alignment_low; // ebx
   int v3; // ebx

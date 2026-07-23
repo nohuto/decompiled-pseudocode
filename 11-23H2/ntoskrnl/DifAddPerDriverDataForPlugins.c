@@ -1,9 +1,9 @@
 /*
- * XREFs of DifAddPerDriverDataForPlugins @ 0x1405D495C
+ * XREFs of DifAddPerDriverDataForPlugins @ 0x1405D4ECC
  * Callers:
  *     VfTargetDriversAdd @ 0x14020A190 (VfTargetDriversAdd.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

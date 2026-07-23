@@ -1,15 +1,15 @@
 /*
- * XREFs of EmpClientRuleRegisterNotification @ 0x14093C464
+ * XREFs of EmpClientRuleRegisterNotification @ 0x14093C664
  * Callers:
- *     EmClientRuleRegisterNotification @ 0x14093C440 (EmClientRuleRegisterNotification.c)
+ *     EmClientRuleRegisterNotification @ 0x14093C640 (EmClientRuleRegisterNotification.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     EmpSearchTargetRuleList @ 0x14032D8C4 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x14032D8EC (EmpSearchRuleDatabase.c)
- *     EmpQueueRuleUpdateState @ 0x14038B334 (EmpQueueRuleUpdateState.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     EmpSearchTargetRuleList @ 0x14032DB54 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x14032DB7C (EmpSearchRuleDatabase.c)
+ *     EmpQueueRuleUpdateState @ 0x14038B514 (EmpQueueRuleUpdateState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

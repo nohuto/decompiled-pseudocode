@@ -1,18 +1,18 @@
 /*
- * XREFs of NtFlushInstallUILanguage @ 0x180160D30
+ * XREFs of NtFlushInstallUILanguage @ 0x180160C30
  * Callers:
- *     RtlpSetInstallLanguage @ 0x180142B80 (RtlpSetInstallLanguage.c)
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x180143D50 (RtlpVerifyAndCommitUILanguageSettings.c)
- *     RtlpRefreshCachedUILanguage @ 0x18014DB60 (RtlpRefreshCachedUILanguage.c)
+ *     RtlpSetInstallLanguage @ 0x180142A80 (RtlpSetInstallLanguage.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x180143C50 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpRefreshCachedUILanguage @ 0x18014DA10 (RtlpRefreshCachedUILanguage.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtFlushInstallUILanguage()
+NTSTATUS __cdecl NtFlushInstallUILanguage(LANGID InstallUILanguage, ULONG SetComittedFlag)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 240LL;
+  result = 240;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

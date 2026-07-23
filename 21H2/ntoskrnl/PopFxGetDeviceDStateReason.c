@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxGetDeviceDStateReason @ 0x1403A0514
+ * XREFs of PopFxGetDeviceDStateReason @ 0x1403A0664
  * Callers:
- *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
- *     PoFxReportDevicePoweredOn @ 0x14039FC80 (PoFxReportDevicePoweredOn.c)
- *     PopIrpWorker @ 0x14039FE70 (PopIrpWorker.c)
+ *     PopRequestPowerIrp @ 0x14036DED0 (PopRequestPowerIrp.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039FDD0 (PoFxReportDevicePoweredOn.c)
+ *     PopIrpWorker @ 0x14039FFC0 (PopIrpWorker.c)
  * Callees:
  *     <none>
  */

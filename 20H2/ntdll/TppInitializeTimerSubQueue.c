@@ -10,32 +10,40 @@
  *     NtCreateWaitCompletionPacket @ 0x18009E9C0 (NtCreateWaitCompletionPacket.c)
  */
 
-__int64 __fastcall TppInitializeTimerSubQueue(__int64 a1, __int64 a2, unsigned __int8 a3)
+NTSTATUS __fastcall TppInitializeTimerSubQueue(__int64 a1, __int64 a2, unsigned __int8 a3)
 {
   HANDLE *v3; // rsi
-  __int64 v6; // r15
-  __int64 result; // rax
-  int WaitCompletionPacket; // edi
+  ULONG_PTR IoStatusInformation; // r15
+  NTSTATUS result; // eax
+  NTSTATUS WaitCompletionPacket; // edi
   char v9; // dl
   int v10; // ecx
-  char v11; // [rsp+60h] [rbp+8h] BYREF
+  BOOLEAN AlreadySignaled; // [rsp+60h] [rbp+8h] BYREF
 
   *(_QWORD *)a1 = 0LL;
   v3 = (HANDLE *)(a1 + 24);
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_QWORD *)(a1 + 8) = 0LL;
-  v6 = a3;
-  result = NtCreateTimer2(a1 + 24, 0LL, 0LL, 8LL, 1048578);
-  if ( (int)result >= 0 )
+  IoStatusInformation = a3;
+  result = NtCreateTimer2((PHANDLE)(a1 + 24), 0LL, 0LL, 8u, 0x100002u);
+  if ( result >= 0 )
   {
-    WaitCompletionPacket = NtCreateWaitCompletionPacket(a1 + 32, 1LL);
+    WaitCompletionPacket = NtCreateWaitCompletionPacket((PHANDLE)(a1 + 32), 1u, 0LL);
     if ( WaitCompletionPacket < 0 )
     {
       NtClose(*v3);
     }
     else
     {
-      ZwAssociateWaitCompletionPacket(*(_QWORD *)(a1 + 32), *(_QWORD *)(a2 + 64), *v3, a1 + 40, a2 + 112, 0, v6, &v11);
+      ZwAssociateWaitCompletionPacket(
+        *(HANDLE *)(a1 + 32),
+        *(HANDLE *)(a2 + 64),
+        *v3,
+        (PVOID)(a1 + 40),
+        (PVOID)(a2 + 112),
+        0,
+        IoStatusInformation,
+        &AlreadySignaled);
       *(_QWORD *)(a1 + 96) = TppTimerQueueExpiration;
       TppGetCurrentThreadNumaNode(a2, (_DWORD *)(a1 + 104), (_BYTE *)(a1 + 108));
       *(_QWORD *)(a1 + 72) = 0LL;
@@ -47,7 +55,7 @@ __int64 __fastcall TppInitializeTimerSubQueue(__int64 a1, __int64 a2, unsigned _
       *(_DWORD *)(a1 + 48) = v10;
       *(_BYTE *)(a1 + 52) = v9;
     }
-    return (unsigned int)WaitCompletionPacket;
+    return WaitCompletionPacket;
   }
   return result;
 }

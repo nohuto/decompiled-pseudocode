@@ -17,7 +17,7 @@ __int64 __fastcall ExEnterCriticalRegionAndAcquireFastMutexUnsafe(ULONG_PTR BugC
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v3 = KeGetCurrentThread();
-  result = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+  result = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
   v5 = result;
   if ( !_interlockedbittestandreset((volatile signed __int32 *)BugCheckParameter2, 0) )
     result = ExpAcquireFastMutexContended(BugCheckParameter2);

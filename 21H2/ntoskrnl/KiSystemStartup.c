@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSystemStartup @ 0x14098F010
+ * XREFs of KiSystemStartup @ 0x140990010
  * Callers:
  *     <none>
  * Callees:
- *     KiIdleLoop @ 0x140402950 (KiIdleLoop.c)
- *     KiInitializeXSave @ 0x14099BC40 (KiInitializeXSave.c)
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
- *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
+ *     KiIdleLoop @ 0x140402B30 (KiIdleLoop.c)
+ *     KiInitializeXSave @ 0x14099CC40 (KiInitializeXSave.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
+ *     KdInitSystem @ 0x1409B6160 (KdInitSystem.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -25,12 +25,10 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   __int64 v13; // rdx
   unsigned __int64 v14; // r8
   __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  unsigned __int64 v18; // rax
-  __int64 v19; // rax
+  unsigned __int64 v16; // rax
+  __int64 v17; // rax
   struct _KTHREAD *CurrentThread; // rcx
-  bool v21; // zf
+  bool v19; // zf
 
   KeLoaderBlock_0 = (__int64)DriverObject;
   if ( !*((_DWORD *)DriverObject->MajorFunction[3] + 9) )
@@ -99,20 +97,20 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   KiInitializeKernel(v12, v13);
   if ( !*MK_FP(43, &KeGetPcr()->Prcb.Number) )
   {
-    v18 = __rdtsc();
-    v15 = __ROR8__(v18, 49);
-    v19 = __ROL8__(ExpSecurityCookieRandomData ^ v15 ^ v18, 16);
-    LOWORD(v19) = 0;
-    _security_cookie = __ROR8__(v19, 16);
+    v16 = __rdtsc();
+    v15 = __ROR8__(v16, 49);
+    v17 = __ROL8__(ExpSecurityCookieRandomData ^ v15 ^ v16, 16);
+    LOWORD(v17) = 0;
+    _security_cookie = __ROR8__(v17, 16);
     _security_cookie_complement = ~_security_cookie;
   }
   CurrentThread = KeGetCurrentThread();
   *MK_FP(43, &CurrentThread->WaitBlockFill11[70]) = 2;
   do
   {
-    v21 = KiBarrierWait == 0;
+    v19 = KiBarrierWait == 0;
     _mm_pause();
   }
-  while ( !v21 );
-  KiIdleLoop((__int64)CurrentThread, v15, v16, v17);
+  while ( !v19 );
+  KiIdleLoop((__int64)CurrentThread, v15);
 }

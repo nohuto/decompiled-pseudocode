@@ -10,25 +10,29 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall SiQuerySystemInformationString(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        void *a2,
+        unsigned int a3,
+        unsigned int *a4)
 {
-  unsigned int v7; // esi
-  int SystemInformation; // eax
-  int v9; // ebx
-  __int64 Pool2; // rax
+  NTSTATUS SystemInformation; // eax
+  NTSTATUS v9; // ebx
+  const void **Pool2; // rax
   const void **v11; // rdi
   unsigned int v12; // eax
+  ULONG ReturnLength[10]; // [rsp+20h] [rbp-28h] BYREF
 
-  v7 = a1;
-  SystemInformation = ZwQuerySystemInformation(a1, 0LL);
+  ReturnLength[0] = 0;
+  SystemInformation = ZwQuerySystemInformation(SystemInformationClass, 0LL, 0, ReturnLength);
   v9 = SystemInformation;
   if ( SystemInformation == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(256LL, 0LL, 1263556947LL);
-    v11 = (const void **)Pool2;
+    Pool2 = (const void **)ExAllocatePool2(256LL, ReturnLength[0], 1263556947LL);
+    v11 = Pool2;
     if ( Pool2 )
     {
-      v9 = ZwQuerySystemInformation(v7, Pool2);
+      v9 = ZwQuerySystemInformation(SystemInformationClass, Pool2, ReturnLength[0], ReturnLength);
       if ( v9 >= 0 )
       {
         v12 = *(unsigned __int16 *)v11 + 2;

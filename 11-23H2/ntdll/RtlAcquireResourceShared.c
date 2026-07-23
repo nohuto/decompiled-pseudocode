@@ -6,55 +6,58 @@
  *     DbgPrintEx @ 0x1800538D0 (DbgPrintEx.c)
  *     NtWaitForSingleObject @ 0x1800A0F30 (NtWaitForSingleObject.c)
  *     RtlpPossibleDeadlock @ 0x1800F4EB4 (RtlpPossibleDeadlock.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
-char __fastcall RtlAcquireResourceShared(__int64 a1, char a2)
+BOOLEAN __cdecl RtlAcquireResourceShared(PRTL_RESOURCE Resource, BOOLEAN Wait)
 {
-  signed __int32 v2; // r8d
+  LONG NumberOfActive; // r8d
   signed __int32 v5; // eax
   int v7; // ebp
   LARGE_INTEGER *v8; // rsi
-  NTSTATUS v9; // eax
-  signed __int32 v10; // eax
+  int v9; // eax
+  signed int NumberOfWaitingShared; // eax
   bool v11; // zf
-  signed __int32 v12; // ett
+  signed int v12; // ett
 
-  v2 = *(_DWORD *)(a1 + 68);
-  if ( v2 < 0 && *(void **)(a1 + 72) == NtCurrentTeb()->ClientId.UniqueThread )
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive < 0 && Resource->ExclusiveOwnerThread == NtCurrentTeb()->ClientId.UniqueThread )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(a1 + 68));
+    _InterlockedDecrement(&Resource->NumberOfActive);
     return 1;
   }
   while ( 1 )
   {
-    while ( v2 >= 0 )
+    while ( NumberOfActive >= 0 )
     {
-      v5 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 68), v2 + 1, v2);
-      v11 = v2 == v5;
-      v2 = v5;
+      v5 = _InterlockedCompareExchange(&Resource->NumberOfActive, NumberOfActive + 1, NumberOfActive);
+      v11 = NumberOfActive == v5;
+      NumberOfActive = v5;
       if ( v11 )
         return 1;
     }
-    if ( !a2 )
+    if ( !Wait )
       return 0;
-    ++*(_DWORD *)(*(_QWORD *)(a1 + 88) + 36LL);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 48));
-    v2 = *(_DWORD *)(a1 + 68);
-    if ( v2 >= 0 )
+    ++Resource->DebugInfo->ContentionCount;
+    _InterlockedIncrement((volatile signed __int32 *)&Resource->NumberOfWaitingShared);
+    NumberOfActive = Resource->NumberOfActive;
+    if ( NumberOfActive >= 0 )
     {
-      v10 = *(_DWORD *)(a1 + 48);
-      v11 = v10 == 0;
-      if ( v10 > 0 )
+      NumberOfWaitingShared = Resource->NumberOfWaitingShared;
+      v11 = NumberOfWaitingShared == 0;
+      if ( NumberOfWaitingShared > 0 )
       {
         while ( 1 )
         {
-          v12 = v10;
-          v10 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 48), v10 - 1, v10);
-          if ( v12 == v10 )
+          v12 = NumberOfWaitingShared;
+          NumberOfWaitingShared = _InterlockedCompareExchange(
+                                    (volatile signed __int32 *)&Resource->NumberOfWaitingShared,
+                                    NumberOfWaitingShared - 1,
+                                    NumberOfWaitingShared);
+          if ( v12 == NumberOfWaitingShared )
             break;
-          v11 = v10 == 0;
-          if ( v10 <= 0 )
+          v11 = NumberOfWaitingShared == 0;
+          if ( NumberOfWaitingShared <= 0 )
             goto LABEL_16;
         }
       }
@@ -72,26 +75,26 @@ LABEL_9:
       while ( 1 )
       {
         v8 = (LARGE_INTEGER *)&RtlpTimeout;
-        if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
+        if ( (Resource->Flags & 1) != 0 )
           v8 = 0LL;
-        v9 = NtWaitForSingleObject(*(HANDLE *)(a1 + 40), 0, v8);
+        v9 = NtWaitForSingleObject(Resource->SharedSemaphore, 0, v8);
         if ( v9 != 258 )
           break;
         DbgPrintEx(
-          101,
+          0x65u,
           0,
           "RTL: Acquire Shared Sem Timeout %d(%I64u secs)\n",
           v7,
           ((unsigned __int64)(((unsigned __int128)(v8->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v8->QuadPart) >> 63)
         + ((__int64)(((unsigned __int128)(v8->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v8->QuadPart) >> 23));
-        DbgPrintEx(101, 0, "RTL: Resource at %p\n", (const void *)a1);
+        DbgPrintEx(0x65u, 0, "RTL: Resource at %p\n", Resource);
         if ( (unsigned int)++v7 > 2 )
-          RtlpPossibleDeadlock(a1);
-        DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+          RtlpPossibleDeadlock(Resource);
+        DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
       }
       if ( v9 < 0 )
-        RtlRaiseStatus((unsigned int)v9);
-      v2 = *(_DWORD *)(a1 + 68);
+        RtlRaiseStatus(v9);
+      NumberOfActive = Resource->NumberOfActive;
     }
   }
 }

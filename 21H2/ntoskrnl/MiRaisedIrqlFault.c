@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRaisedIrqlFault @ 0x1402A2AFC
+ * XREFs of MiRaisedIrqlFault @ 0x14021FF3C
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
  * Callees:
- *     KeInvalidAccessAllowed @ 0x1402A2C40 (KeInvalidAccessAllowed.c)
- *     MiCheckSystemNxFault @ 0x1402C77E8 (MiCheckSystemNxFault.c)
- *     MiNoFaultFound @ 0x1403121C8 (MiNoFaultFound.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiGenerateAccessViolation @ 0x140548560 (MiGenerateAccessViolation.c)
- *     MiTransientCombineAddress @ 0x14055D224 (MiTransientCombineAddress.c)
+ *     KeInvalidAccessAllowed @ 0x140220080 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x140245F28 (MiCheckSystemNxFault.c)
+ *     MiNoFaultFound @ 0x14031CF18 (MiNoFaultFound.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiGenerateAccessViolation @ 0x1405487A0 (MiGenerateAccessViolation.c)
+ *     MiTransientCombineAddress @ 0x14055D464 (MiTransientCombineAddress.c)
  */
 
 __int64 __fastcall MiRaisedIrqlFault(ULONG_PTR *a1)
@@ -23,17 +23,14 @@ __int64 __fastcall MiRaisedIrqlFault(ULONG_PTR *a1)
   __int64 v8; // rbx
   _QWORD *i; // r14
   ULONG_PTR v10; // rax
-  __int64 v11; // r9
-  __int64 v12; // rbp
-  ULONG_PTR v13; // rax
-  __int64 v14; // r9
-  ULONG_PTR v15; // rbx
-  __int64 v16; // rdx
+  __int64 v11; // rbp
+  ULONG_PTR v12; // rax
+  ULONG_PTR v13; // rbx
   struct _LIST_ENTRY *Flink; // rdx
-  __int64 v18; // rax
-  __int64 v19; // rbx
-  ULONG_PTR v20; // rdx
-  ULONG_PTR v21; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v15; // rax
+  __int64 v16; // rbx
+  ULONG_PTR v17; // rdx
+  ULONG_PTR v18; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = a1[2];
   if ( (v2 & 1) == 0 && (unsigned __int8)KeInvalidAccessAllowed(v2, 1LL) == 1 )
@@ -77,55 +74,55 @@ LABEL_20:
       {
         if ( (a1[1] & 2) != 0 && (v10 & 0x800) == 0 )
           KeBugCheckEx(0xBEu, v7, v10, a1[2], 0xFuLL);
-        MiCheckSystemNxFault(a1, v10, 3LL, v11);
-        v20 = *a1;
-        if ( *a1 >= 0xFFFFF68000000000uLL && v20 <= 0xFFFFF6FFFFFFFFFFuLL )
-          KeBugCheckEx(0x50u, v20, a1[1], a1[2], 8uLL);
+        MiCheckSystemNxFault(a1, v10, 3LL);
+        v17 = *a1;
+        if ( *a1 >= 0xFFFFF68000000000uLL && v17 <= 0xFFFFF6FFFFFFFFFFuLL )
+          KeBugCheckEx(0x50u, v17, a1[1], a1[2], 8uLL);
         return 0LL;
       }
       if ( !v8 )
         break;
       --v8;
     }
-    v12 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v13 = MI_READ_PTE_LOCK_FREE(v12);
-    v21 = v13;
-    v15 = v13;
-    if ( (v13 & 1) != 0 )
+    v11 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v12 = MI_READ_PTE_LOCK_FREE(v11);
+    v18 = v12;
+    v13 = v12;
+    if ( (v12 & 1) != 0 )
     {
       if ( (a1[1] & 2) != 0 )
       {
-        if ( (v13 & 0x200) != 0 )
+        if ( (v12 & 0x200) != 0 )
           return 3489660934LL;
-        if ( (v13 & 0x800) == 0 )
-          KeBugCheckEx(0xBEu, v7, v13, a1[2], 0xAuLL);
+        if ( (v12 & 0x800) == 0 )
+          KeBugCheckEx(0xBEu, v7, v12, a1[2], 0xAuLL);
       }
-      MiCheckSystemNxFault(a1, v21, 0LL, v14);
-      if ( (unsigned int)MiPteInShadowRange(&v21, v16)
+      MiCheckSystemNxFault(a1, v18, 0LL);
+      if ( (unsigned int)MiPteInShadowRange(&v18)
         && (MiFlags & 0xC00000) != 0
         && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-        && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
+        && ((v13 & 0x20) == 0 || (v13 & 0x42) == 0) )
       {
         Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
         if ( Flink )
         {
-          v18 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v21 >> 3) & 0x1FF));
-          if ( (v18 & 0x20) != 0 )
-            v15 |= 0x20uLL;
-          if ( (v18 & 0x42) != 0 )
-            v15 |= 0x42uLL;
+          v15 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v18 >> 3) & 0x1FF));
+          if ( (v15 & 0x20) != 0 )
+            v13 |= 0x20uLL;
+          if ( (v15 & 0x42) != 0 )
+            v13 |= 0x42uLL;
         }
         else
         {
-          v15 = v21;
+          v13 = v18;
         }
       }
-      v19 = (v15 >> 12) & 0xFFFFFFFFFLL;
-      if ( *(_WORD *)(48 * v19 - 0x58000000000LL + 32) > 1u
-        || (*(_BYTE *)(48 * v19 - 0x58000000000LL) & 1) == 0
-        || (*(_BYTE *)(48 * v19 - 0x58000000000LL + 35) & 8) != 0 )
+      v16 = (v13 >> 12) & 0xFFFFFFFFFLL;
+      if ( *(_WORD *)(48 * v16 - 0x58000000000LL + 32) > 1u
+        || (*(_BYTE *)(48 * v16 - 0x58000000000LL) & 1) == 0
+        || (*(_BYTE *)(48 * v16 - 0x58000000000LL + 35) & 8) != 0 )
       {
-        MiNoFaultFound((_DWORD)a1, v12, *a1, a1[2], 1);
+        MiNoFaultFound((_DWORD)a1, v11, *a1, a1[2], 1);
         return 0LL;
       }
     }

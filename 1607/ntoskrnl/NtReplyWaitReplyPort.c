@@ -1,11 +1,11 @@
 /*
- * XREFs of NtReplyWaitReplyPort @ 0x140654A2C
+ * XREFs of NtReplyWaitReplyPort @ 0x140654B10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     LpcpReplyWaitReplyPort @ 0x140654848 (LpcpReplyWaitReplyPort.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     LpcpReplyWaitReplyPort @ 0x14065492C (LpcpReplyWaitReplyPort.c)
  */
 
 NTSTATUS __stdcall NtReplyWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE ReplyMessage)

@@ -1,0 +1,159 @@
+/*
+ * XREFs of sub_140789E04 @ 0x140789E04
+ * Callers:
+ *     sub_14077BCA0 @ 0x14077BCA0 (sub_14077BCA0.c)
+ * Callees:
+ *     sub_1406BACAC @ 0x1406BACAC (sub_1406BACAC.c)
+ *     sub_14077C780 @ 0x14077C780 (sub_14077C780.c)
+ *     sub_140789FA0 @ 0x140789FA0 (sub_140789FA0.c)
+ *     sub_14078A1A8 @ 0x14078A1A8 (sub_14078A1A8.c)
+ *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall sub_140789E04(__int64 a1, __int64 a2, _DWORD *a3, unsigned int a4, unsigned int a5, _DWORD *a6)
+{
+  _DWORD *v6; // r12
+  void *Pool2; // rsi
+  int v10; // ebx
+  int v11; // r8d
+  int v12; // r9d
+  int v13; // ecx
+  int v14; // ebx
+  unsigned int v15; // edi
+  unsigned int v16; // edi
+  signed int v17; // eax
+  unsigned int v18; // r10d
+  int v19; // eax
+  __int128 v21; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v22; // [rsp+60h] [rbp-20h]
+  __int64 v23; // [rsp+70h] [rbp-10h]
+
+  v6 = a6;
+  LODWORD(a6) = 0;
+  v23 = 0LL;
+  Pool2 = 0LL;
+  *v6 = 0;
+  v21 = 0LL;
+  v22 = 0LL;
+  v10 = sub_14078A1A8(a1, a2, a5, &v21);
+  if ( v10 < 0 )
+    goto LABEL_20;
+  if ( (_QWORD)v22 || __PAIR64__(DWORD2(v22), 0) != DWORD1(v21) || HIDWORD(v22) || !a3 || a4 < 0x14 )
+    goto LABEL_43;
+  v13 = DWORD2(v21);
+  v14 = 6;
+  if ( SDWORD2(v21) > 6 )
+  {
+    v13 = DWORD2(v21) - 65537;
+    if ( DWORD2(v21) == 65537 )
+    {
+      v14 = 7;
+    }
+    else
+    {
+      v13 = DWORD2(v21) - 65538;
+      if ( DWORD2(v21) == 65538 )
+      {
+        v14 = 8;
+      }
+      else
+      {
+        v13 = DWORD2(v21) - 65539;
+        if ( DWORD2(v21) == 65539 )
+        {
+          v14 = 9;
+        }
+        else
+        {
+          v13 = DWORD2(v21) - 65540;
+          if ( DWORD2(v21) == 65540 )
+          {
+            v14 = 10;
+          }
+          else
+          {
+            if ( DWORD2(v21) != 65541 )
+              goto LABEL_43;
+            v14 = 11;
+          }
+        }
+      }
+    }
+    if ( qword_140D00AC8 )
+      goto LABEL_11;
+LABEL_43:
+    v18 = -1073741811;
+    goto LABEL_17;
+  }
+  if ( DWORD2(v21) != 6 )
+  {
+    if ( DWORD2(v21) == 1 )
+    {
+      v18 = -1073741637;
+      goto LABEL_17;
+    }
+    v13 = DWORD2(v21) - 2;
+    if ( DWORD2(v21) == 2 )
+    {
+      v14 = 2;
+    }
+    else
+    {
+      v13 = DWORD2(v21) - 3;
+      if ( DWORD2(v21) == 3 )
+      {
+        v14 = 4;
+      }
+      else
+      {
+        v13 = DWORD2(v21) - 4;
+        if ( DWORD2(v21) == 4 )
+        {
+          v14 = 3;
+        }
+        else
+        {
+          if ( DWORD2(v21) != 5 )
+            goto LABEL_43;
+          v14 = 5;
+        }
+      }
+    }
+  }
+LABEL_11:
+  v15 = 0;
+  if ( a4 - 20 >= 2 )
+    v15 = a4 - 20;
+  if ( v15 )
+  {
+    Pool2 = (void *)ExAllocatePool2(256LL, v15, 879783504LL);
+    if ( !Pool2 )
+    {
+      v18 = -1073741670;
+      goto LABEL_17;
+    }
+    v16 = v15 >> 1;
+  }
+  else
+  {
+    v16 = 0;
+  }
+  LODWORD(a6) = v16;
+  v17 = sub_140789FA0(v13, v14, v11, v12, (__int64)Pool2, v16, (__int64)&a6, 0);
+  v18 = v17;
+  if ( v17 < 0 )
+  {
+LABEL_17:
+    v19 = sub_14077C780(v18, 2 * (int)a6, 0, 0LL, 0, v23, a3, a4, v6);
+    goto LABEL_18;
+  }
+  v19 = sub_14077C780(v17, 2 * (int)a6, 0, Pool2, 2 * (int)a6, v23, a3, a4, v6);
+LABEL_18:
+  v10 = v19;
+  if ( Pool2 )
+    ExFreePoolWithTag(Pool2, 0x34706E50u);
+LABEL_20:
+  sub_1406BACAC((__int64)&v21);
+  return (unsigned int)v10;
+}

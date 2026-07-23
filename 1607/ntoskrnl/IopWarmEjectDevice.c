@@ -1,14 +1,14 @@
 /*
- * XREFs of IopWarmEjectDevice @ 0x14064C5EC
+ * XREFs of IopWarmEjectDevice @ 0x14064C6D0
  * Callers:
- *     PnpProcessCompletedEject @ 0x14062DF9C (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x14062E050 (PnpProcessCompletedEject.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     NtInitiatePowerAction @ 0x140530B04 (NtInitiatePowerAction.c)
- *     PnpSetPowerVetoEvent @ 0x140642F74 (PnpSetPowerVetoEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     NtInitiatePowerAction @ 0x140531044 (NtInitiatePowerAction.c)
+ *     PnpSetPowerVetoEvent @ 0x140643058 (PnpSetPowerVetoEvent.c)
  */
 
 __int64 __fastcall IopWarmEjectDevice(_QWORD *a1, SYSTEM_POWER_STATE a2)

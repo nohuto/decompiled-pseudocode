@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpOptimizePushLockList @ 0x1402F3184
+ * XREFs of ExpOptimizePushLockList @ 0x1402FDED4
  * Callers:
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
  * Callees:
- *     ExpWakePushLock @ 0x1402F15A0 (ExpWakePushLock.c)
+ *     ExpWakePushLock @ 0x1402FC2F0 (ExpWakePushLock.c)
  */
 
 int __fastcall ExpOptimizePushLockList(volatile signed __int64 *a1, signed __int64 a2)

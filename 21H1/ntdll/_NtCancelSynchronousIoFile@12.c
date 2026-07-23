@@ -6,7 +6,10 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCancelSynchronousIoFile(int a1, int a2, int a3)
+NTSTATUS __cdecl NtCancelSynchronousIoFile(
+        HANDLE ThreadHandle,
+        PIO_STATUS_BLOCK IoRequestToCancel,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
   return Wow64SystemServiceCall();
 }

@@ -22,8 +22,8 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, int a3)
   int v8; // ecx
   __int64 v9; // rcx
   int v10; // eax
-  __int64 v11; // rax
-  __int64 ExportedRoutineByName; // rax
+  PVOID v11; // rax
+  PVOID ExportedRoutineByName; // rax
 
   v3 = a1 - 1;
   if ( !v3 )

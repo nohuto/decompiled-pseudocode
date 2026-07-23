@@ -1,64 +1,68 @@
 /*
- * XREFs of MiObtainReferencedVadEx @ 0x14021B2A0
+ * XREFs of MiObtainReferencedVadEx @ 0x1402BFBA0
  * Callers:
- *     MiProbeAndLockPrepare @ 0x14020A2F0 (MiProbeAndLockPrepare.c)
- *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
- *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
+ *     MiGetWorkingSetInfoList @ 0x14025C83C (MiGetWorkingSetInfoList.c)
+ *     MiProbeAndLockPrepare @ 0x1402AEBF0 (MiProbeAndLockPrepare.c)
+ *     NtGetWriteWatch @ 0x1403373A0 (NtGetWriteWatch.c)
  *     MmUpdateUserShadowStackValue @ 0x1403F4628 (MmUpdateUserShadowStackValue.c)
- *     MiPrefetchPreallocatePages @ 0x140539620 (MiPrefetchPreallocatePages.c)
- *     MmGetEnclaveModuleList @ 0x14054B734 (MmGetEnclaveModuleList.c)
- *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
- *     MmSecureVirtualMemoryEx @ 0x14061FC20 (MmSecureVirtualMemoryEx.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
- *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
- *     MiCheckShadowStackOverflow @ 0x14069588C (MiCheckShadowStackOverflow.c)
- *     NtAreMappedFilesTheSame @ 0x1406BD520 (NtAreMappedFilesTheSame.c)
- *     MmStoreFreeVirtualMemory @ 0x1406BEF90 (MmStoreFreeVirtualMemory.c)
- *     MmDeleteTeb @ 0x1406E93D0 (MmDeleteTeb.c)
- *     NtResetWriteWatch @ 0x1406ED050 (NtResetWriteWatch.c)
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
- *     MiCfgMarkValidEntries @ 0x14070F9B4 (MiCfgMarkValidEntries.c)
- *     MiProcessVaRangesInfoClass @ 0x14070FBB4 (MiProcessVaRangesInfoClass.c)
- *     MiReferenceCfgVad @ 0x140712A8C (MiReferenceCfgVad.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14076DC9C (MiUnmapLockedPagesInUserSpace.c)
- *     MmGetFileNameForAddress @ 0x1408C4044 (MmGetFileNameForAddress.c)
- *     MmSetGraphicsPtes @ 0x1408C6EB0 (MmSetGraphicsPtes.c)
- *     MiSetImageHotPatchAllowed @ 0x1408CE504 (MiSetImageHotPatchAllowed.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x1408D12A0 (MiQueryMemoryPhysicalContiguity.c)
- *     MiHandleEnclaveFault @ 0x1408D1D08 (MiHandleEnclaveFault.c)
- *     MiInitializeEnclave @ 0x1408D2F90 (MiInitializeEnclave.c)
- *     MmSelectVsmEnclaveByAddress @ 0x1408D3C74 (MmSelectVsmEnclaveByAddress.c)
- *     NtLoadEnclaveData @ 0x1408D4450 (NtLoadEnclaveData.c)
- *     NtTerminateEnclave @ 0x1408D4AD0 (NtTerminateEnclave.c)
- *     MiDeleteAllHardwareEnclaves @ 0x1409B09C0 (MiDeleteAllHardwareEnclaves.c)
+ *     MiPrefetchPreallocatePages @ 0x140539860 (MiPrefetchPreallocatePages.c)
+ *     MmGetEnclaveModuleList @ 0x14054B974 (MmGetEnclaveModuleList.c)
+ *     MiProcessVaContiguityInformation @ 0x140552500 (MiProcessVaContiguityInformation.c)
+ *     MmRotatePhysicalView @ 0x1405E48E0 (MmRotatePhysicalView.c)
+ *     MmFlushVirtualMemory @ 0x1405E85C4 (MmFlushVirtualMemory.c)
+ *     MiCheckShadowStackOverflow @ 0x1405F4DDC (MiCheckShadowStackOverflow.c)
+ *     NtAreMappedFilesTheSame @ 0x14061C730 (NtAreMappedFilesTheSame.c)
+ *     MmStoreFreeVirtualMemory @ 0x14061E080 (MmStoreFreeVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140657018 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiUnmapViewOfSection @ 0x140687D60 (MiUnmapViewOfSection.c)
+ *     MmSecureVirtualMemoryEx @ 0x140689890 (MmSecureVirtualMemoryEx.c)
+ *     MiCfgMarkValidEntries @ 0x1406BE004 (MiCfgMarkValidEntries.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BE204 (MiProcessVaRangesInfoClass.c)
+ *     MiReferenceCfgVad @ 0x1406C10DC (MiReferenceCfgVad.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1406E97C0 (MmProtectVirtualMemory.c)
+ *     MmDeleteTeb @ 0x1407007B0 (MmDeleteTeb.c)
+ *     NtResetWriteWatch @ 0x140704430 (NtResetWriteWatch.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076DE5C (MiUnmapLockedPagesInUserSpace.c)
+ *     MmGetFileNameForAddress @ 0x1408C41A4 (MmGetFileNameForAddress.c)
+ *     MmSetGraphicsPtes @ 0x1408C7010 (MmSetGraphicsPtes.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE664 (MiSetImageHotPatchAllowed.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x1408D1400 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiHandleEnclaveFault @ 0x1408D1E68 (MiHandleEnclaveFault.c)
+ *     MiInitializeEnclave @ 0x1408D30F0 (MiInitializeEnclave.c)
+ *     MmSelectVsmEnclaveByAddress @ 0x1408D3DD4 (MmSelectVsmEnclaveByAddress.c)
+ *     NtLoadEnclaveData @ 0x1408D45B0 (NtLoadEnclaveData.c)
+ *     NtTerminateEnclave @ 0x1408D4C30 (NtTerminateEnclave.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x1409B18F0 (MiDeleteAllHardwareEnclaves.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiWaitForVadDeletion @ 0x14055BE10 (MiWaitForVadDeletion.c)
+ *     MiUnlockVadShared @ 0x14027C67C (MiUnlockVadShared.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403534E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiWaitForVadDeletion @ 0x14055C050 (MiWaitForVadDeletion.c)
  */
 
-volatile signed __int32 *__fastcall MiObtainReferencedVadEx(unsigned __int64 a1, char a2, int *a3)
+__int64 __fastcall MiObtainReferencedVadEx(unsigned __int64 a1, char a2, int *a3)
 {
   struct _KTHREAD *CurrentThread; // rdi
   _KPROCESS *Process; // r14
   _KPROCESS *v8; // rdx
-  volatile signed __int32 *v9; // rbx
+  __int64 v9; // rbx
   unsigned __int64 v10; // rsi
   ULONG_PTR v11; // rcx
   int v12; // r15d
-  bool v13; // zf
-  int v15; // edx
-  int v16; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  bool v17; // zf
+  int v19; // edx
+  int v20; // eax
 
   *a3 = 0;
   CurrentThread = KeGetCurrentThread();
@@ -68,36 +72,36 @@ volatile signed __int32 *__fastcall MiObtainReferencedVadEx(unsigned __int64 a1,
   ExAcquirePushLockSharedEx((ULONG_PTR)&Process[1].Affinity.Bitmap[7], 0LL);
   LOBYTE(CurrentThread[1].Queue) |= 2u;
   v8 = KeGetCurrentThread()->ApcState.Process;
-  v9 = *(volatile signed __int32 **)&v8[1].Spare2[23];
+  v9 = *(_QWORD *)&v8[1].Spare2[23];
   if ( !v9 )
   {
 LABEL_15:
-    v15 = -1073741664;
+    v19 = -1073741664;
     if ( (Process[1].DirectoryTableBase & 0x2000000000LL) != 0 )
-      v15 = -1073741558;
+      v19 = -1073741558;
     goto LABEL_17;
   }
   v10 = a1 >> 12;
-  if ( v10 < (*((unsigned int *)v9 + 6) | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32))
-    || v10 > (*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32)) )
+  if ( v10 < (*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32))
+    || v10 > (*(unsigned int *)(v9 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 33) << 32)) )
   {
-    v9 = *(volatile signed __int32 **)&v8[1].Spare2[15];
+    v9 = *(_QWORD *)&v8[1].Spare2[15];
     if ( v9 )
     {
       while ( 1 )
       {
-        if ( v10 > (*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32)) )
+        if ( v10 > (*(unsigned int *)(v9 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 33) << 32)) )
         {
-          v9 = (volatile signed __int32 *)*((_QWORD *)v9 + 1);
+          v9 = *(_QWORD *)(v9 + 8);
         }
         else
         {
-          if ( v10 >= (*((unsigned int *)v9 + 6) | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) )
+          if ( v10 >= (*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32)) )
           {
             *(_QWORD *)&v8[1].Spare2[23] = v9;
             goto LABEL_4;
           }
-          v9 = *(volatile signed __int32 **)v9;
+          v9 = *(_QWORD *)v9;
         }
         if ( !v9 )
           goto LABEL_15;
@@ -108,18 +112,18 @@ LABEL_15:
 LABEL_4:
   if ( (a2 & 1) == 0 && (Process[1].DirectoryTableBase & 0x2000000000LL) != 0 )
   {
-    v15 = -1073741558;
+    v19 = -1073741558;
 LABEL_17:
-    *a3 = v15;
+    *a3 = v19;
     UNLOCK_ADDRESS_SPACE_SHARED(CurrentThread, Process);
     KiLeaveGuardedRegionUnsafe(CurrentThread);
     return 0LL;
   }
-  if ( !_InterlockedIncrement(v9 + 9) )
+  if ( !_InterlockedIncrement((volatile signed __int32 *)(v9 + 36)) )
     __fastfail(0xEu);
   UNLOCK_ADDRESS_SPACE_SHARED(CurrentThread, Process);
   --CurrentThread->SpecialApcDisable;
-  v11 = (ULONG_PTR)(v9 + 10);
+  v11 = v9 + 40;
   v12 = a2 & 2;
   if ( v12 )
   {
@@ -131,34 +135,34 @@ LABEL_17:
     ExAcquirePushLockExclusiveEx(v11, 0LL);
     LOBYTE(CurrentThread[1].Queue) |= 0x80u;
   }
-  v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  if ( (v9[12] & 4) != 0 )
+  v17 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v17 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery(v14, v13, v15, v16);
+  if ( (*(_DWORD *)(v9 + 48) & 4) != 0 )
   {
     if ( v12 )
     {
-      MiUnlockVadShared(CurrentThread, v9);
+      MiUnlockVadShared((__int64)CurrentThread, v9);
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)(v9 + 10), 0LL);
+      ExAcquirePushLockExclusiveEx(v9 + 40, 0LL);
       LOBYTE(CurrentThread[1].Queue) |= 0x80u;
     }
     MiWaitForVadDeletion(v9);
     MiUnlockAndDereferenceVad((char *)v9);
-    v16 = -1073741558;
+    v20 = -1073741558;
     if ( (Process[1].DirectoryTableBase & 0x2000000000LL) == 0 )
-      v16 = -1073741664;
-    *a3 = v16;
+      v20 = -1073741664;
+    *a3 = v20;
   }
   else
   {
-    if ( v10 >= (*((unsigned int *)v9 + 6) | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32))
-      && v10 <= (*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32)) )
+    if ( v10 >= (*(unsigned int *)(v9 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 32) << 32))
+      && v10 <= (*(unsigned int *)(v9 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v9 + 33) << 32)) )
     {
       return v9;
     }
     if ( v12 )
-      MiUnlockAndDereferenceVadShared((PVOID)v9);
+      MiUnlockAndDereferenceVadShared((char *)v9);
     else
       MiUnlockAndDereferenceVad((char *)v9);
     *a3 = -1073741664;

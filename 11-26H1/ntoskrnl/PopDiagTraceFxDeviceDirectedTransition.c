@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x1403B919C
+ * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x1403C309C
  * Callers:
- *     PopFxHandleDirectedPowerTransition @ 0x1403B782C (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x1403C172C (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned __int8 a2)
@@ -22,11 +22,9 @@ BOOLEAN __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned _
   v2 = a2;
   v5 = a1;
   result = (unsigned __int8)PopFxAddLogEntry(a1, 0, 25, a2);
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v5;
@@ -34,15 +32,7 @@ BOOLEAN __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned _
       v7 = &v4;
       *(_QWORD *)&UserData.Size = 8LL;
       v8 = 4LL;
-      return EtwWriteEx(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               2u,
-               &UserData);
+      return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_POWER_TRANSITION_START, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return result;

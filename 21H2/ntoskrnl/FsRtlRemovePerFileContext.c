@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlRemovePerFileContext @ 0x1404F1400
+ * XREFs of FsRtlRemovePerFileContext @ 0x1404F1380
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
@@ -21,6 +21,9 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
   struct _FSRTL_PER_FILE_CONTEXT *v10; // rbx
   struct _LIST_ENTRY *v11; // rax
   struct _LIST_ENTRY *Blink; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   v5 = _InterlockedCompareExchange64((volatile signed __int64 *)PerFileContextPointer, 0LL, 0LL);
   v6 = v5;
@@ -69,6 +72,6 @@ LABEL_6:
     }
   }
   ExReleasePushLockEx(v6, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
   return v10;
 }

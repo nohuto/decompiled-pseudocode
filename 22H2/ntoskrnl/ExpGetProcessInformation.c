@@ -112,8 +112,8 @@ __int64 __fastcall ExpGetProcessInformation(int *a1, unsigned int a2, unsigned i
   unsigned __int64 *j; // rbx
   _LIST_ENTRY *v76; // rdi
   struct _DMA_ADAPTER *v77; // rsi
-  size_t v78; // r14
-  size_t v79; // r15
+  ULONG_PTR v78; // r14
+  ULONG_PTR v79; // r15
   size_t v80; // rcx
   unsigned int v81; // esi
   unsigned int v82; // eax
@@ -128,7 +128,7 @@ __int64 __fastcall ExpGetProcessInformation(int *a1, unsigned int a2, unsigned i
   int v91; // [rsp+40h] [rbp-618h]
   unsigned int v92; // [rsp+44h] [rbp-614h]
   unsigned int v93; // [rsp+48h] [rbp-610h]
-  int v94; // [rsp+4Ch] [rbp-60Ch]
+  NTSTATUS v94; // [rsp+4Ch] [rbp-60Ch]
   char v95; // [rsp+50h] [rbp-608h]
   PVOID Object; // [rsp+58h] [rbp-600h]
   int v97; // [rsp+60h] [rbp-5F8h]
@@ -146,8 +146,8 @@ __int64 __fastcall ExpGetProcessInformation(int *a1, unsigned int a2, unsigned i
   size_t Size; // [rsp+B8h] [rbp-5A0h]
   unsigned int *v110; // [rsp+C0h] [rbp-598h]
   PVOID P; // [rsp+C8h] [rbp-590h] BYREF
-  size_t v112; // [rsp+D0h] [rbp-588h] BYREF
-  size_t v113; // [rsp+D8h] [rbp-580h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+D0h] [rbp-588h] BYREF
+  ULONG_PTR PackageSize; // [rsp+D8h] [rbp-580h] BYREF
   int v114; // [rsp+E0h] [rbp-578h]
   __int64 v115; // [rsp+E8h] [rbp-570h]
   __int64 *v116; // [rsp+F0h] [rbp-568h]
@@ -172,17 +172,17 @@ __int64 __fastcall ExpGetProcessInformation(int *a1, unsigned int a2, unsigned i
   _QWORD v135[14]; // [rsp+210h] [rbp-448h] BYREF
   _BYTE Src[80]; // [rsp+280h] [rbp-3D8h] BYREF
   _OWORD v137[27]; // [rsp+2D0h] [rbp-388h] BYREF
-  wchar_t v138[72]; // [rsp+480h] [rbp-1D8h] BYREF
-  wchar_t v139[128]; // [rsp+510h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+480h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+510h] [rbp-148h] BYREF
 
   v114 = a5;
   v124 = a1;
   v110 = a3;
-  v112 = 130LL;
+  AppIdSize = 130LL;
   memset(v137, 0, sizeof(v137));
   v106 = 0;
   LODWORD(Size) = 0;
-  v113 = 254LL;
+  PackageSize = 254LL;
   Process = 0LL;
   memset(v135, 0, 0x68uLL);
   v99 = 0;
@@ -433,9 +433,8 @@ LABEL_206:
               *(_DWORD *)(v61 + 72) = BYTE9(v130[0]);
               *(_DWORD *)(v61 + 56) = SBYTE10(v130[0]);
               *(_DWORD *)(v61 + 60) = SBYTE11(v130[0]);
-              *(_QWORD *)v61 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*((unsigned int *)p_Blink + 163);
-              *(_QWORD *)(v61 + 8) = (unsigned int)KeMaximumIncrement
-                                   * (unsigned __int64)*((unsigned int *)p_Blink + 183);
+              *(_QWORD *)v61 = KeMaximumIncrement * (unsigned __int64)*((unsigned int *)p_Blink + 163);
+              *(_QWORD *)(v61 + 8) = KeMaximumIncrement * (unsigned __int64)*((unsigned int *)p_Blink + 183);
               *(_QWORD *)(v61 + 16) = p_Blink[134];
               *(_DWORD *)(v61 + 64) = *((_DWORD *)p_Blink + 85);
               *(_OWORD *)(v61 + 40) = *(_OWORD *)(p_Blink + 143);
@@ -694,21 +693,21 @@ LABEL_48:
         v77 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(v12);
         v132 = v77;
         SeQueryUserSidToken(v77, Src, 68LL);
-        v113 = 254LL;
-        v112 = 130LL;
+        PackageSize = 254LL;
+        AppIdSize = 130LL;
         v30 = 0;
-        v94 = RtlQueryPackageIdentity((int)v77, v139, &v113, v138, &v112, 0LL);
+        v94 = RtlQueryPackageIdentity(v77, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
         if ( v94 >= 0 )
         {
-          v79 = v112;
-          v78 = v113;
+          v79 = AppIdSize;
+          v78 = PackageSize;
         }
         else
         {
           v78 = 0LL;
-          v113 = 0LL;
+          PackageSize = 0LL;
           v79 = 0LL;
-          v112 = 0LL;
+          AppIdSize = 0LL;
         }
         ObFastDereferenceObject((signed __int64 *)Object + 151, v77);
         v80 = (unsigned int)Size;
@@ -781,7 +780,7 @@ LABEL_48:
                 else
                 {
                   *(_DWORD *)(v13 + 56) = (_DWORD)v15 - v13;
-                  memmove(v15, v139, (unsigned int)v78);
+                  memmove(v15, PackageFullName, (unsigned int)v78);
                   v84 = v92;
                   v15 += (unsigned int)v78;
                   v107 = v15;
@@ -837,7 +836,7 @@ LABEL_188:
                 else
                 {
                   *(_DWORD *)(v13 + 336) = (_DWORD)v15 - v13;
-                  memmove(v15, v138, (unsigned int)v79);
+                  memmove(v15, AppId, (unsigned int)v79);
                   v12 = (PEPROCESS)Object;
                   v15 += (unsigned int)v79;
                   v107 = v15;

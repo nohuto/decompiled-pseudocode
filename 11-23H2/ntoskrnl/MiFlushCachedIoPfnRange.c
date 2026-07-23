@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFlushCachedIoPfnRange @ 0x14062DF4C
+ * XREFs of MiFlushCachedIoPfnRange @ 0x14062E49C
  * Callers:
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
  * Callees:
- *     MiFlushCacheMdl @ 0x140660EA0 (MiFlushCacheMdl.c)
+ *     MiFlushCacheMdl @ 0x1406613F0 (MiFlushCacheMdl.c)
  */
 
 __int64 __fastcall MiFlushCachedIoPfnRange(__int64 a1, int a2)

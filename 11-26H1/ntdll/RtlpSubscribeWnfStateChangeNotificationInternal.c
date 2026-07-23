@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18006E03C
+ * XREFs of RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18008E48C
  * Callers:
- *     RtlSubscribeWnfStateChangeNotification @ 0x18006DFF0 (RtlSubscribeWnfStateChangeNotification.c)
- *     RtlpFcStartSubscriptionManager @ 0x18006EBBC (RtlpFcStartSubscriptionManager.c)
- *     LdrpEnableUMGLTracingStateSync @ 0x18006FA5C (LdrpEnableUMGLTracingStateSync.c)
- *     RtlWaitForWnfMetaNotification @ 0x1800701C0 (RtlWaitForWnfMetaNotification.c)
- *     RtlRegisterForWnfMetaNotification @ 0x180106960 (RtlRegisterForWnfMetaNotification.c)
- *     RtlRegisterAvailableCpusChangeNotification @ 0x180149170 (RtlRegisterAvailableCpusChangeNotification.c)
- *     RtlpCtContextInit @ 0x18014969C (RtlpCtContextInit.c)
+ *     RtlSubscribeWnfStateChangeNotification @ 0x18008E440 (RtlSubscribeWnfStateChangeNotification.c)
+ *     RtlpFcStartSubscriptionManager @ 0x18008F00C (RtlpFcStartSubscriptionManager.c)
+ *     LdrpEnableUMGLTracingStateSync @ 0x18008FEAC (LdrpEnableUMGLTracingStateSync.c)
+ *     RtlWaitForWnfMetaNotification @ 0x180090610 (RtlWaitForWnfMetaNotification.c)
+ *     RtlRegisterForWnfMetaNotification @ 0x180106360 (RtlRegisterForWnfMetaNotification.c)
+ *     RtlRegisterAvailableCpusChangeNotification @ 0x180149020 (RtlRegisterAvailableCpusChangeNotification.c)
+ *     RtlpCtContextInit @ 0x18014954C (RtlpCtContextInit.c)
  * Callees:
- *     RtlRunOnceBeginInitialize @ 0x18000EC60 (RtlRunOnceBeginInitialize.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlpDecrementWnfSerializationGroup @ 0x18006E314 (RtlpDecrementWnfSerializationGroup.c)
- *     RtlpCreateWnfUserSubscription @ 0x18006E3B8 (RtlpCreateWnfUserSubscription.c)
- *     RtlpCreateWnfNameSubscription @ 0x18006E480 (RtlpCreateWnfNameSubscription.c)
- *     RtlpAddWnfUserSubToNameSub @ 0x18006E764 (RtlpAddWnfUserSubToNameSub.c)
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18006E910 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
- *     RtlRunOnceComplete @ 0x18006EFF0 (RtlRunOnceComplete.c)
- *     RtlReportCriticalFailure @ 0x18006F0F8 (RtlReportCriticalFailure.c)
- *     RtlpCreateSerializationGroup @ 0x18006F2E0 (RtlpCreateSerializationGroup.c)
- *     RtlpInitializeWnf @ 0x180070624 (RtlpInitializeWnf.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlRunOnceBeginInitialize @ 0x18005A390 (RtlRunOnceBeginInitialize.c)
+ *     RtlpDecrementWnfSerializationGroup @ 0x18008E764 (RtlpDecrementWnfSerializationGroup.c)
+ *     RtlpCreateWnfUserSubscription @ 0x18008E808 (RtlpCreateWnfUserSubscription.c)
+ *     RtlpCreateWnfNameSubscription @ 0x18008E8D0 (RtlpCreateWnfNameSubscription.c)
+ *     RtlpAddWnfUserSubToNameSub @ 0x18008EBB4 (RtlpAddWnfUserSubToNameSub.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18008ED60 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     RtlRunOnceComplete @ 0x18008F440 (RtlRunOnceComplete.c)
+ *     RtlReportCriticalFailure @ 0x18008F548 (RtlReportCriticalFailure.c)
+ *     RtlpCreateSerializationGroup @ 0x18008F730 (RtlpCreateSerializationGroup.c)
+ *     RtlpInitializeWnf @ 0x180090A74 (RtlpInitializeWnf.c)
  */
 
 __int64 __fastcall RtlpSubscribeWnfStateChangeNotificationInternal(
@@ -33,24 +33,24 @@ __int64 __fastcall RtlpSubscribeWnfStateChangeNotificationInternal(
         int a8,
         int a9)
 {
-  __int64 SerializationGroup; // rsi
-  int v14; // eax
-  int WnfUserSubscription; // edi
-  __int64 v16; // rbx
+  void *SerializationGroup; // rsi
+  NTSTATUS v14; // eax
+  NTSTATUS WnfUserSubscription; // edi
+  void *v16; // rbx
   __int64 v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  int v21; // eax
+  void *v18; // rdx
+  void *v19; // r8
+  NTSTATUS v21; // eax
   char v22[8]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-30h] BYREF
+  void *v23; // [rsp+48h] [rbp-30h] BYREF
   __int64 v24; // [rsp+50h] [rbp-28h] BYREF
 
   SerializationGroup = 0LL;
   v24 = 0LL;
   v23 = 0LL;
-  if ( byte_1801CB8C8 )
+  if ( byte_1801CA908 )
     return (unsigned int)-1073741558;
-  v14 = RtlRunOnceBeginInitialize(&qword_1801C71F8, 0, 0LL);
+  v14 = RtlRunOnceBeginInitialize(&RunOnce, 0, 0LL);
   WnfUserSubscription = v14;
   if ( v14 < 0 )
   {
@@ -59,10 +59,10 @@ __int64 __fastcall RtlpSubscribeWnfStateChangeNotificationInternal(
   }
   if ( v14 != 259 )
     goto LABEL_4;
-  if ( !(unsigned int)RtlpInitializeWnf(&qword_1801C71F8, 0LL, 0LL) )
+  if ( !(unsigned int)RtlpInitializeWnf(&RunOnce, 0LL, 0LL) )
   {
     WnfUserSubscription = -1073741823;
-    v21 = RtlRunOnceComplete(&qword_1801C71F8, 4LL, 0LL);
+    v21 = RtlRunOnceComplete(&RunOnce, 4u, 0LL);
     if ( v21 >= 0 )
     {
 LABEL_4:
@@ -76,16 +76,23 @@ LABEL_23:
     RtlReportCriticalFailure((unsigned int)WnfUserSubscription, v22, 1LL);
     goto LABEL_4;
   }
-  WnfUserSubscription = RtlRunOnceComplete(&qword_1801C71F8, 0LL, 0LL);
+  WnfUserSubscription = RtlRunOnceComplete(&RunOnce, 0, 0LL);
   if ( WnfUserSubscription < 0 )
   {
     v22[0] = 1;
     goto LABEL_23;
   }
 LABEL_8:
-  if ( !a7 || (SerializationGroup = RtlpCreateSerializationGroup()) != 0 )
+  if ( !a7 || (SerializationGroup = (void *)RtlpCreateSerializationGroup()) != 0LL )
   {
-    WnfUserSubscription = RtlpCreateWnfUserSubscription((unsigned int)&v23, a3, a4, a5, SerializationGroup, a8, a9);
+    WnfUserSubscription = RtlpCreateWnfUserSubscription(
+                            (unsigned int)&v23,
+                            a3,
+                            a4,
+                            a5,
+                            (__int64)SerializationGroup,
+                            a8,
+                            a9);
     if ( WnfUserSubscription < 0
       || (SerializationGroup = 0LL,
           WnfUserSubscription = RtlpCreateWnfNameSubscription(&v24, a2, a6),
@@ -108,7 +115,7 @@ LABEL_8:
       v19 = 0LL;
     }
     if ( v19 )
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v19);
     if ( SerializationGroup )
       RtlpDecrementWnfSerializationGroup(SerializationGroup);
   }

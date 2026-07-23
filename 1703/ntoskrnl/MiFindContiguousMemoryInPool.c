@@ -16,9 +16,9 @@ ULONG_PTR __fastcall MiFindContiguousMemoryInPool(
         unsigned __int64 a4,
         unsigned int a5)
 {
-  struct _SLIST_ENTRY *v6; // rbx
+  _SLIST_ENTRY *v6; // rbx
   unsigned int v7; // ebp
-  union _SLIST_HEADER *v8; // rdi
+  _SLIST_HEADER *v8; // rdi
   unsigned __int64 Alignment; // rax
   unsigned __int64 v11; // rcx
   __int64 v12; // rax
@@ -36,7 +36,7 @@ ULONG_PTR __fastcall MiFindContiguousMemoryInPool(
     return 0LL;
   if ( MmProtectFreedNonPagedPool == 1 )
     return 0LL;
-  v6 = (struct _SLIST_ENTRY *)((a4 >> 12) + ((a4 & 0xFFF) != 0));
+  v6 = (_SLIST_ENTRY *)((a4 >> 12) + ((a4 & 0xFFF) != 0));
   if ( (unsigned __int64)v6 >= 0x200 )
     return 0LL;
   if ( a3 )

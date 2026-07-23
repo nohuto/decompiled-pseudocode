@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpDeviceEventWorker @ 0x140786860
+ * XREFs of PnpDeviceEventWorker @ 0x140786A50
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     IoSetActivityIdThread @ 0x14031E670 (IoSetActivityIdThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PiUEventNotifyUserMode @ 0x1407839EC (PiUEventNotifyUserMode.c)
- *     PnpCompleteDeviceEvent @ 0x140783D70 (PnpCompleteDeviceEvent.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x14078554C (PnpDisableAndFreeEventWatchdog.c)
- *     PnpAllocateAndEnableEventWatchdog @ 0x140785740 (PnpAllocateAndEnableEventWatchdog.c)
- *     PnpProcessDeferredRegistrations @ 0x140786B44 (PnpProcessDeferredRegistrations.c)
- *     PnpNotifyDeviceClassChange @ 0x14078F280 (PnpNotifyDeviceClassChange.c)
- *     PnpProcessTargetDeviceEvent @ 0x14079439C (PnpProcessTargetDeviceEvent.c)
- *     PnpProcessCustomDeviceEvent @ 0x1407DAE40 (PnpProcessCustomDeviceEvent.c)
- *     PnpNotifyHwProfileChange @ 0x14095669C (PnpNotifyHwProfileChange.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     IoSetActivityIdThread @ 0x14031E900 (IoSetActivityIdThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PiUEventNotifyUserMode @ 0x140783BDC (PiUEventNotifyUserMode.c)
+ *     PnpCompleteDeviceEvent @ 0x140783F60 (PnpCompleteDeviceEvent.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14078573C (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpAllocateAndEnableEventWatchdog @ 0x140785930 (PnpAllocateAndEnableEventWatchdog.c)
+ *     PnpProcessDeferredRegistrations @ 0x140786D34 (PnpProcessDeferredRegistrations.c)
+ *     PnpNotifyDeviceClassChange @ 0x14078F470 (PnpNotifyDeviceClassChange.c)
+ *     PnpProcessTargetDeviceEvent @ 0x14079458C (PnpProcessTargetDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1407DB110 (PnpProcessCustomDeviceEvent.c)
+ *     PnpNotifyHwProfileChange @ 0x14095689C (PnpNotifyHwProfileChange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

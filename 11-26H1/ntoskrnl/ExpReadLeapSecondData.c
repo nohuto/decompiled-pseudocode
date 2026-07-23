@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpReadLeapSecondData @ 0x140835F5C
+ * XREFs of ExpReadLeapSecondData @ 0x14083C19C
  * Callers:
- *     ExInitializeLeapSecondData @ 0x1408356F4 (ExInitializeLeapSecondData.c)
- *     ExpLeapSecondDataRegistryNotifyHandler @ 0x140835C70 (ExpLeapSecondDataRegistryNotifyHandler.c)
+ *     ExInitializeLeapSecondData @ 0x14083B934 (ExInitializeLeapSecondData.c)
+ *     ExpLeapSecondDataRegistryNotifyHandler @ 0x14083BEB0 (ExpLeapSecondDataRegistryNotifyHandler.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x140725870 (ZwNotifyChangeKey.c)
- *     EtwTraceLeapSecondDataParseFailure @ 0x1408278B0 (EtwTraceLeapSecondDataParseFailure.c)
- *     EtwTraceLeapSecondDataUpdate @ 0x140827988 (EtwTraceLeapSecondDataUpdate.c)
- *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x140835BD4 (ExpGetLeapSecondDataRegistryKeyHandle.c)
- *     ExpParseAndUpdateLeapSecondData @ 0x140835E60 (ExpParseAndUpdateLeapSecondData.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x140A66A6C (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x140A66AE4 (ExReleaseTimeRefreshLockExclusive.c)
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x14072A440 (ZwNotifyChangeKey.c)
+ *     EtwTraceLeapSecondDataParseFailure @ 0x14082DAF0 (EtwTraceLeapSecondDataParseFailure.c)
+ *     EtwTraceLeapSecondDataUpdate @ 0x14082DBC8 (EtwTraceLeapSecondDataUpdate.c)
+ *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x14083BE14 (ExpGetLeapSecondDataRegistryKeyHandle.c)
+ *     ExpParseAndUpdateLeapSecondData @ 0x14083C0A0 (ExpParseAndUpdateLeapSecondData.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x140A73A3C (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x140A73AB4 (ExReleaseTimeRefreshLockExclusive.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpReadLeapSecondData(bool *a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -52,13 +52,13 @@ void __fastcall ExpReadLeapSecondData(bool *a1, char a2, __int64 a3, struct _KLO
   Blink = 0LL;
   Pool2 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v9 = (AutoBoost *)KeAbPreAcquire((__int64)&PspSiloMonitorLock.AbWaitObject, 0LL, 0LL, a4);
+  v9 = (AutoBoost *)KeAbPreAcquire((__int64)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue, 0LL, 0LL, a4);
   v11 = v9;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&PspSiloMonitorLock.AbWaitObject, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&PspSiloMonitorLock.AbWaitObject,
+      (unsigned __int64 *)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue,
       v9,
-      (__int64)&PspSiloMonitorLock.AbWaitObject);
+      (__int64)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -158,9 +158,11 @@ LABEL_24:
     goto LABEL_24;
   }
 LABEL_29:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspSiloMonitorLock.AbWaitObject, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&PspSiloMonitorLock.AbWaitObject);
-  KeAbPostRelease((unsigned __int64)&PspSiloMonitorLock.AbWaitObject);
+  if ( (_InterlockedExchangeAdd64(
+          (volatile signed __int64 *)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue,
+          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue);
+  KeAbPostRelease((unsigned __int64)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue);
   KeLeaveCriticalRegion();
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x6453704Cu);

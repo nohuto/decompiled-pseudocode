@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIssueFlowThroughFault @ 0x1402EEEF0
+ * XREFs of MiIssueFlowThroughFault @ 0x1402EF180
  * Callers:
- *     MiHandleCollidedFault @ 0x1402EED90 (MiHandleCollidedFault.c)
+ *     MiHandleCollidedFault @ 0x1402EF020 (MiHandleCollidedFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
  */
 
 __int64 __fastcall MiIssueFlowThroughFault(

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObpAssignSecurity @ 0x140669694 (ObpAssignSecurity.c)
+ *     sub_140669694 @ 0x140669694 (sub_140669694.c)
  */
 
-__int64 __fastcall ObAssignSecurity(__int64 a1, __int64 a2, void *a3, struct _OBJECT_TYPE *a4)
+__int64 __fastcall ObAssignSecurity(__int64 a1, __int64 a2, __int64 a3, struct _OBJECT_TYPE *a4)
 {
-  return ObpAssignSecurity(a1, a2, a3, a4, 0, 0);
+  return sub_140669694(a1, a2, a3, a4, 0, 0);
 }

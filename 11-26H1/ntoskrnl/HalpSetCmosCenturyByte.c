@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpSetCmosCenturyByte @ 0x1404525A8
+ * XREFs of HalpSetCmosCenturyByte @ 0x14044A6D8
  * Callers:
- *     HalpWriteCmosTime @ 0x14045130C (HalpWriteCmosTime.c)
+ *     HalpWriteCmosTime @ 0x14044943C (HalpWriteCmosTime.c)
  * Callees:
  *     <none>
  */

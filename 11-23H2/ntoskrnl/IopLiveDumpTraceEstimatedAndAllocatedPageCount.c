@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceEstimatedAndAllocatedPageCount @ 0x14055AADC
+ * XREFs of IopLiveDumpTraceEstimatedAndAllocatedPageCount @ 0x14055B19C
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14094CBF4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x14094CDF4 (IopLiveDumpAllocateDumpBuffers.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559D90 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14055A450 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceEstimatedAndAllocatedPageCount(__int64 a1, ...)

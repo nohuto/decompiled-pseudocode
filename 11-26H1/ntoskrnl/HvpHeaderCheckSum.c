@@ -1,19 +1,19 @@
 /*
- * XREFs of HvpHeaderCheckSum @ 0x140C58720
+ * XREFs of HvpHeaderCheckSum @ 0x140C5E720
  * Callers:
- *     HvpGenerateLogEntryHeader @ 0x1404B2F8C (HvpGenerateLogEntryHeader.c)
- *     HvRecoverFlushProtocolStateFromFiles @ 0x14085CFE4 (HvRecoverFlushProtocolStateFromFiles.c)
- *     HvIsInPlaceBaseBlockValid @ 0x14085F0DC (HvIsInPlaceBaseBlockValid.c)
- *     HvWriteExternal @ 0x140AAA58C (HvWriteExternal.c)
- *     HvWriteHivePrimaryFile @ 0x140AAAADC (HvWriteHivePrimaryFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140AAADE0 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvHiveStartFileBacked @ 0x140AC226C (HvHiveStartFileBacked.c)
- *     HvpGetHiveHeader @ 0x140ADEAF8 (HvpGetHiveHeader.c)
- *     HvpIsLogFileBaseBlockValid @ 0x140ADFCE8 (HvpIsLogFileBaseBlockValid.c)
- *     HvpLogInvalidLogHeader @ 0x140ADFD54 (HvpLogInvalidLogHeader.c)
- *     HvApplyLogFiles @ 0x140AEB7E4 (HvApplyLogFiles.c)
- *     HvHiveStartMemoryBacked @ 0x140B487A4 (HvHiveStartMemoryBacked.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140C5846C (HvSnapshotHiveToOffsetArray.c)
+ *     HvpGenerateLogEntryHeader @ 0x1404AC60C (HvpGenerateLogEntryHeader.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x1408632D4 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvIsInPlaceBaseBlockValid @ 0x1408653CC (HvIsInPlaceBaseBlockValid.c)
+ *     HvWriteExternal @ 0x140AA7B6C (HvWriteExternal.c)
+ *     HvWriteHivePrimaryFile @ 0x140AA80BC (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140AA83C0 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvHiveStartFileBacked @ 0x140AC430C (HvHiveStartFileBacked.c)
+ *     HvpGetHiveHeader @ 0x140ADBCE8 (HvpGetHiveHeader.c)
+ *     HvpIsLogFileBaseBlockValid @ 0x140ADD528 (HvpIsLogFileBaseBlockValid.c)
+ *     HvpLogInvalidLogHeader @ 0x140ADD594 (HvpLogInvalidLogHeader.c)
+ *     HvApplyLogFiles @ 0x140AEE6F0 (HvApplyLogFiles.c)
+ *     HvHiveStartMemoryBacked @ 0x140B4A534 (HvHiveStartMemoryBacked.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140C5E46C (HvSnapshotHiveToOffsetArray.c)
  * Callees:
  *     <none>
  */

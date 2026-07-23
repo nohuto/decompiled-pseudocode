@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x1405ECE60
+ * XREFs of NtAllocateVirtualMemory @ 0x1405EDE60
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1405ED0B0 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x1406083B4 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1405EE0B0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     PsReferencePartitionByHandle @ 0x1406093B4 (PsReferencePartitionByHandle.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(
@@ -103,9 +103,9 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       VirtualMemoryPrepare = -1073741811;
 LABEL_22:
       if ( v25[0] )
-        ++dword_14043A88C;
+        ++dword_14043B94C;
       else
-        ++dword_14043A888;
+        ++dword_14043B948;
       goto LABEL_15;
     }
     VirtualMemoryPrepare = MiAllocateVirtualMemory(v25, v15, &v21);

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestCallbackWorker @ 0x1402825A0
+ * XREFs of PopPowerRequestCallbackWorker @ 0x1402707E0
  * Callers:
- *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
- *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
+ *     PoClearPowerRequestInternal @ 0x1402701DC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1402703A0 (PoSetPowerRequestInternal.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestExecuteCallbacks @ 0x1402826D8 (PopPowerRequestExecuteCallbacks.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopPowerRequestExecuteCallbacks @ 0x140270918 (PopPowerRequestExecuteCallbacks.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -40,11 +40,11 @@ __int64 PopPowerRequestCallbackWorker()
     }
     else
     {
-      v0 = *(_QWORD **)(qword_140C25038 + 8);
-      if ( *(__int64 **)qword_140C25038 != &PopPowerRequestCallbacks || *v0 != qword_140C25038 )
+      v0 = *(_QWORD **)(qword_140C24F38 + 8);
+      if ( *(__int64 **)qword_140C24F38 != &PopPowerRequestCallbacks || *v0 != qword_140C24F38 )
         __fastfail(3u);
-      v1 = qword_140C25038 - 56;
-      qword_140C25038 = *(_QWORD *)(qword_140C25038 + 8);
+      v1 = qword_140C24F38 - 56;
+      qword_140C24F38 = *(_QWORD *)(qword_140C24F38 + 8);
       v2 = 0;
       *v0 = &PopPowerRequestCallbacks;
       v3 = (char *)(v1 + 72);

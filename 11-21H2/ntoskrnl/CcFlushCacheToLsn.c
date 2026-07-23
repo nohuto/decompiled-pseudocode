@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     sub_140283030 @ 0x140283030 (sub_140283030.c)
  */
 
 void __fastcall CcFlushCacheToLsn(__int64 a1, signed __int64 *a2, int *a3)
 {
-  CcFlushCachePriv(a1, 0LL, 0, a2, 0, a3);
+  sub_140283030(a1, 0LL, 0, a2, 0, a3);
 }

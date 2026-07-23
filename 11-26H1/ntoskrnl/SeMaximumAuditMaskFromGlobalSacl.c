@@ -1,14 +1,14 @@
 /*
- * XREFs of SeMaximumAuditMaskFromGlobalSacl @ 0x140AB6258
+ * XREFs of SeMaximumAuditMaskFromGlobalSacl @ 0x140AB75F8
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1409F966C (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140A6173C (SeSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x1402C5B28 (SepRmAcquireGlobalSaclReadLock.c)
- *     SeMaximumAuditMask @ 0x1404A5E44 (SeMaximumAuditMask.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x1403107C4 (SepRmAcquireGlobalSaclReadLock.c)
+ *     SeMaximumAuditMask @ 0x14049F4D4 (SeMaximumAuditMask.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
  */
 
 void __stdcall SeMaximumAuditMaskFromGlobalSacl(
@@ -45,7 +45,7 @@ void __stdcall SeMaximumAuditMaskFromGlobalSacl(
         v8 = *(_QWORD *)v8;
       }
     }
-    ExReleaseResourceLite(&SepRmGlobalSaclLock);
+    ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime);
     KeLeaveCriticalRegion();
   }
 }

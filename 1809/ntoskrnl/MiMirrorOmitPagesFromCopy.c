@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMirrorOmitPagesFromCopy @ 0x140152FFC
+ * XREFs of MiMirrorOmitPagesFromCopy @ 0x1401530FC
  * Callers:
- *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
- *     MiMirrorReduceBlackWrites @ 0x140152DE0 (MiMirrorReduceBlackWrites.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x14057C7F8 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorNodeLargePages @ 0x140152CA8 (MiMirrorNodeLargePages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140152EE0 (MiMirrorReduceBlackWrites.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x14057D7F8 (MiRemoveEnclavePagesFromMirror.c)
  * Callees:
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
  */
 
 __int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, un
   v5 = a3;
   v6 = a2;
   v7 = a2 & 0x1F;
-  v8 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (a2 >> 5));
+  v8 = (volatile signed __int32 *)(qword_14043B888 + 4 * (a2 >> 5));
   if ( v7 + v5 > 0x20 )
   {
     if ( (a2 & 0x1F) != 0 )
@@ -67,7 +67,7 @@ LABEL_4:
   }
 LABEL_5:
   if ( *(_QWORD *)(a1 + 24) )
-    RtlClearBitsEx((__int64)&qword_14043A7B0, v6, v3);
+    RtlClearBitsEx((__int64)&qword_14043B870, v6, v3);
   result = *(unsigned int *)(a1 + 32);
   if ( (result & 0x20) != 0 && v3 )
   {

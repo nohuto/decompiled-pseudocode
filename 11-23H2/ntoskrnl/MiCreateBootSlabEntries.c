@@ -4,13 +4,13 @@
  *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140B45044 (MiCreateSlabAllocationsFromLoaderBlock.c)
  *     MiCreateKernelHalSlabRange @ 0x140B466A0 (MiCreateKernelHalSlabRange.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MiInsertSlabEntry @ 0x1402E7080 (MiInsertSlabEntry.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     MiInsertSlabEntry @ 0x1402E7310 (MiInsertSlabEntry.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -19,8 +19,8 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   __int64 v5; // r12
   unsigned __int64 v6; // rsi
   __int64 v8; // r13
-  RTL_BITMAP *Pool; // rax
-  unsigned __int64 v10; // rdi
+  _RTL_BITMAP *Pool; // rax
+  __int64 v10; // rdi
   _DWORD *v11; // r10
   int v12; // eax
   __int64 v13; // r14
@@ -44,8 +44,8 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   v8 = 48 * a2 - 0x21FFFFFFFFF0LL;
   while ( 1 )
   {
-    Pool = (RTL_BITMAP *)MiAllocatePool(64, 0x90uLL, 0x6553694Du);
-    v10 = (unsigned __int64)Pool;
+    Pool = (_RTL_BITMAP *)MiAllocatePool(64, 0x90uLL, 0x6553694Du);
+    v10 = (__int64)Pool;
     if ( !Pool )
       return 3221225626LL;
     Pool[2].Buffer = (unsigned int *)a1;

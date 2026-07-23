@@ -1,21 +1,21 @@
 /*
- * XREFs of ExCreateHandleTable @ 0x1404C11BC
+ * XREFs of ExCreateHandleTable @ 0x1404ACEEC
  * Callers:
- *     ExDupHandleTable @ 0x14045E7E0 (ExDupHandleTable.c)
- *     ObInitProcess @ 0x14045F504 (ObInitProcess.c)
- *     RtlpInitializeHandleTableForAtomTable @ 0x1404C10FC (RtlpInitializeHandleTableForAtomTable.c)
- *     AlpcpInitSystem @ 0x14057BD0C (AlpcpInitSystem.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x1406550F4 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ExDupHandleTable @ 0x14045D6B0 (ExDupHandleTable.c)
+ *     ObInitProcess @ 0x14045E3D4 (ObInitProcess.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x1404ACE2C (RtlpInitializeHandleTableForAtomTable.c)
+ *     AlpcpInitSystem @ 0x14057C1B8 (AlpcpInitSystem.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1406551D8 (AlpcpAllocateMessageFromExtendedTables.c)
  *     PspInitPhase0 @ 0x14079E090 (PspInitPhase0.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
  *     PspInitializeJobStructures @ 0x1407BB73C (PspInitializeJobStructures.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpAllocateHandleTable @ 0x1404C1378 (ExpAllocateHandleTable.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpAllocateHandleTable @ 0x1404AD0A8 (ExpAllocateHandleTable.c)
  */
 
 __int64 __fastcall ExCreateHandleTable(__int64 a1, __int64 a2)

@@ -13,7 +13,7 @@
  *     sub_18005EC0C @ 0x18005EC0C (sub_18005EC0C.c)
  */
 
-unsigned __int64 __fastcall sub_18002302C(__int64 a1, int a2, int a3)
+__int64 __fastcall sub_18002302C(__int64 a1, int a2, int a3)
 {
   char v4; // cl
   char v5; // r14d^3
@@ -22,11 +22,11 @@ unsigned __int64 __fastcall sub_18002302C(__int64 a1, int a2, int a3)
   int v8; // r15d
   unsigned int v9; // r8d
   __int64 v10; // rax
-  unsigned __int64 v11; // rbx
+  __int64 v11; // rbx
   int v12; // ecx
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rax
-  __int64 v15; // rbp
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  _RTL_SRWLOCK *v15; // rbp
   __int64 v16; // rcx
   __int64 v17; // rax
   __int64 v18; // rsi
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall sub_18002302C(__int64 a1, int a2, int a3)
   v7 = v24 | (((v6 << 16) | (unsigned __int16)~((_WORD)v6 << v4)) << 8);
   v8 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 24);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   v9 = v7;
   v10 = *(_QWORD *)(a1 + 64);
   v11 = *(_QWORD *)(a1 + 56);
@@ -70,7 +70,7 @@ unsigned __int64 __fastcall sub_18002302C(__int64 a1, int a2, int a3)
   }
   v11 = v13;
 LABEL_17:
-  v15 = a1 + 24;
+  v15 = (_RTL_SRWLOCK *)(a1 + 24);
   if ( v11 )
   {
     sub_180022300(a1, v11);
@@ -78,7 +78,7 @@ LABEL_17:
   else
   {
     if ( !v8 )
-      RtlReleaseSRWLockExclusive(a1 + 24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     v17 = sub_18005EC0C(a1, 0LL);
     v18 = v17;
     if ( !v17 )
@@ -86,12 +86,12 @@ LABEL_17:
     sub_18005E3F8(a1, v17, 0LL);
     v11 = v18 + 32LL * *(unsigned __int8 *)(a1 + 10);
     if ( !v8 )
-      RtlAcquireSRWLockExclusive(a1 + 24);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     sub_18005E3B4(a1, v18);
   }
   v19 = sub_1800231DC(v16, v11, v6);
   if ( v19 )
-    sub_18001F734(a1, v19, 0LL);
+    sub_18001F734(a1, v19, 0);
   v20 = v6 - 1;
   *(_BYTE *)(v11 + 24) |= v5 & 0xC | 1;
   *(_BYTE *)(32LL * (v6 - 1) + v11 + 24) |= 1u;

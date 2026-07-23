@@ -1,5 +1,5 @@
 /*
- * XREFs of KiIsKvaShadowDisabled @ 0x140377480
+ * XREFs of KiIsKvaShadowDisabled @ 0x140377620
  * Callers:
  *     KiEnableKvaShadowing @ 0x140A89238 (KiEnableKvaShadowing.c)
  * Callees:

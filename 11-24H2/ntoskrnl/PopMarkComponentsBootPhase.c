@@ -1,25 +1,25 @@
 /*
- * XREFs of PopMarkComponentsBootPhase @ 0x140B5D694
+ * XREFs of PopMarkComponentsBootPhase @ 0x140B5F714
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     MmIsAddressValid @ 0x1403FF300 (MmIsAddressValid.c)
- *     VfIsVerifierEnabled @ 0x1404BC290 (VfIsVerifierEnabled.c)
- *     HvlMarkHiberPhase @ 0x14058935C (HvlMarkHiberPhase.c)
- *     KeMarkDynamicTracingHiberPhase @ 0x1405C94E0 (KeMarkDynamicTracingHiberPhase.c)
- *     RtlMarkHiberPhase @ 0x1405F2060 (RtlMarkHiberPhase.c)
- *     VfIsVerifierExtensionEnabled @ 0x1406101EC (VfIsVerifierExtensionEnabled.c)
- *     DifMarkHiberPhase @ 0x1406188EC (DifMarkHiberPhase.c)
- *     FirstEntrySList @ 0x1406B3880 (FirstEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     BgkResumePrepare @ 0x140B5368C (BgkResumePrepare.c)
- *     KdMarkHiberPhase @ 0x140B55330 (KdMarkHiberPhase.c)
- *     KeMarkPcrHiberPhase @ 0x140B553C0 (KeMarkPcrHiberPhase.c)
- *     PopSstInvokeNotificationHandlers @ 0x140B5BD90 (PopSstInvokeNotificationHandlers.c)
- *     PopMarkHiberPhase @ 0x140B5D9D8 (PopMarkHiberPhase.c)
- *     MiConvertHiberPhasePages @ 0x140B62664 (MiConvertHiberPhasePages.c)
- *     MmMarkHiberPhase @ 0x140B62DB8 (MmMarkHiberPhase.c)
+ *     MmIsAddressValid @ 0x1402433E0 (MmIsAddressValid.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     VfIsVerifierEnabled @ 0x1404B71A0 (VfIsVerifierEnabled.c)
+ *     HvlMarkHiberPhase @ 0x14058663C (HvlMarkHiberPhase.c)
+ *     KeMarkDynamicTracingHiberPhase @ 0x1405C6C10 (KeMarkDynamicTracingHiberPhase.c)
+ *     RtlMarkHiberPhase @ 0x1405EF6A0 (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x14060E7AC (VfIsVerifierExtensionEnabled.c)
+ *     DifMarkHiberPhase @ 0x140616EAC (DifMarkHiberPhase.c)
+ *     FirstEntrySList @ 0x1406B4820 (FirstEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     BgkResumePrepare @ 0x140B556DC (BgkResumePrepare.c)
+ *     KdMarkHiberPhase @ 0x140B57380 (KdMarkHiberPhase.c)
+ *     KeMarkPcrHiberPhase @ 0x140B57410 (KeMarkPcrHiberPhase.c)
+ *     PopSstInvokeNotificationHandlers @ 0x140B5DE00 (PopSstInvokeNotificationHandlers.c)
+ *     PopMarkHiberPhase @ 0x140B5FA58 (PopMarkHiberPhase.c)
+ *     MiConvertHiberPhasePages @ 0x140B64734 (MiConvertHiberPhasePages.c)
+ *     MmMarkHiberPhase @ 0x140B64E88 (MmMarkHiberPhase.c)
  */
 
 void __fastcall PopMarkComponentsBootPhase(char *Address)
@@ -27,22 +27,14 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
   PVOID *i; // rbx
   __int64 v3; // rdx
   PSLIST_ENTRY j; // rbx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  unsigned __int64 v7; // rsi
-  __int64 v8; // rbx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  unsigned __int64 v5; // rsi
+  __int64 v6; // rbx
   unsigned int k; // ebx
   PVOID *m; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
+  __int64 v9; // rdx
   PVOID *n; // rbx
-  __int128 v17; // [rsp+30h] [rbp-18h] BYREF
 
-  v17 = 0LL;
-  if ( !byte_140F0AD81 )
+  if ( !byte_140F0BBC1 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);
@@ -54,9 +46,9 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
       if ( MmIsAddressValid(i[10]) )
         PoSetHiberRange(0LL, 0x10000u, i[10], *((unsigned __int16 *)i + 37), 0x6E72654Bu);
     }
-    for ( j = FirstEntrySList(&stru_140E27600); j; j = j->Next )
+    for ( j = FirstEntrySList(&stru_140E27740); j; j = j->Next )
       KeMarkPcrHiberPhase((size_t *)j[-1].Next);
-    guard_dispatch_icall_no_overrides(0LL, v3, v5, v6);
+    guard_dispatch_icall_no_overrides(0LL, v3);
     PopMarkHiberPhase(Address);
     KdMarkHiberPhase();
     if ( (unsigned int)VfIsVerifierEnabled() )
@@ -70,24 +62,24 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
     BgkResumePrepare(0LL);
     RtlMarkHiberPhase();
     HvlMarkHiberPhase();
-    v7 = 0LL;
+    v5 = 0LL;
     if ( VslpHiberBootRangeCount )
     {
-      v8 = 0LL;
+      v6 = 0LL;
       do
       {
         PoSetHiberRange(
           0LL,
           0x10000u,
-          *(PVOID *)(v8 + VslpHiberBootRanges),
-          *(_QWORD *)(v8 + VslpHiberBootRanges + 8),
+          *(PVOID *)(v6 + VslpHiberBootRanges),
+          *(_QWORD *)(v6 + VslpHiberBootRanges + 8),
           0x52706B53u);
-        ++v7;
-        v8 += 16LL;
+        ++v5;
+        v6 += 16LL;
       }
-      while ( v7 < VslpHiberBootRangeCount );
+      while ( v5 < VslpHiberBootRangeCount );
     }
-    PoSetHiberRange(0LL, 0x10000u, qword_140F21E78, (unsigned __int16)KiMaximumGroups << 8, 0x6467654Bu);
+    PoSetHiberRange(0LL, 0x10000u, qword_140F22998, (unsigned __int16)KiMaximumGroups << 8, 0x6467654Bu);
     PoSetHiberRange(0LL, 0x10000u, KiGlobalState, (unsigned int)(4 * KeMaximumProcessors), 0x6467654Bu);
     KeMarkDynamicTracingHiberPhase();
     MmMarkHiberPhase();
@@ -101,16 +93,12 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
     for ( m = (PVOID *)PopShutdownNotificationCallbackList; m != &PopShutdownNotificationCallbackList; m = (PVOID *)*m )
     {
       PoSetHiberRange(0LL, 0x10000u, m, 0x28uLL, 0x6E72654Bu);
-      guard_dispatch_icall_no_overrides(m[4], v13, v14, v15);
+      guard_dispatch_icall_no_overrides(m[4], v9);
     }
     for ( n = (PVOID *)PopThermal; n != &PopThermal; n = (PVOID *)*n )
       PoSetHiberRange(0LL, 0x10000u, n, 0x420uLL, 0x6D726854u);
-    if ( Address[489] )
-    {
-      *(_QWORD *)&v17 = Address;
-      *((_QWORD *)&v17 + 1) = PopHiberNotificationMarkBootPhaseCallback;
-      PopSstInvokeNotificationHandlers(1u, (__int64)&v17, v9, v10);
-    }
+    if ( Address[493] )
+      PopSstInvokeNotificationHandlers(1u);
     if ( (PopSimulateHiberBugcheck & 0x100) == 0 )
       MiConvertHiberPhasePages(Address + 48);
     Address[2] = 1;

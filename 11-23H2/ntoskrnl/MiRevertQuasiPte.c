@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRevertQuasiPte @ 0x14064E2A8
+ * XREFs of MiRevertQuasiPte @ 0x14064E7F8
  * Callers:
- *     MiUpdateUserMappings @ 0x140AAC764 (MiUpdateUserMappings.c)
+ *     MiUpdateUserMappings @ 0x140AAC5D4 (MiUpdateUserMappings.c)
  * Callees:
  *     <none>
  */

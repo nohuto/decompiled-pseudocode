@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpDiskProvTraceDisk @ 0x1405FDA48
+ * XREFs of EtwpDiskProvTraceDisk @ 0x1405FDFB8
  * Callers:
  *     EtwpTraceIo @ 0x1402146F0 (EtwpTraceIo.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140258520 (EtwpLevelKeywordEnabled.c)
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402585E0 (EtwpLevelKeywordEnabled.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a3, GUID *a4)
@@ -52,7 +52,7 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
         v11,
         0,
         0,
-        (__int64)v9,
+        (unsigned __int16 *)v9,
         0,
         0,
         a4,
@@ -71,7 +71,7 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
         v14,
         0,
         0,
-        (__int64)v9,
+        (unsigned __int16 *)v9,
         0,
         0,
         a4,
@@ -96,7 +96,7 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
           v15,
           0,
           0,
-          (__int64)v9,
+          (unsigned __int16 *)v9,
           0,
           0,
           a4,
@@ -118,7 +118,7 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
             v18,
             0,
             0,
-            (__int64)v9,
+            (unsigned __int16 *)v9,
             0,
             0,
             a4,

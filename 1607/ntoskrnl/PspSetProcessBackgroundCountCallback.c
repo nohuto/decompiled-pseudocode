@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessBackgroundCountCallback @ 0x1404B9EE8
+ * XREFs of PspSetProcessBackgroundCountCallback @ 0x1404A5C18
  * Callers:
  *     <none>
  * Callees:
- *     PspNotifyProcessBackgroundTransition @ 0x140095BBC (PspNotifyProcessBackgroundTransition.c)
+ *     PspNotifyProcessBackgroundTransition @ 0x1400953BC (PspNotifyProcessBackgroundTransition.c)
  */
 
 __int64 __fastcall PspSetProcessBackgroundCountCallback(__int64 a1, _BYTE *a2)

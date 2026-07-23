@@ -3,7 +3,7 @@
  * Callers:
  *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -13,7 +13,7 @@ __int64 __fastcall sub_140A0BA74(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned int i; // ecx
   __int64 v8; // r8
   unsigned int *v9; // rdx
-  unsigned int v10; // edx
+  __int64 v10; // rdx
   unsigned int *v11; // rcx
   unsigned int *v12; // rax
   unsigned int v13; // ebx
@@ -48,14 +48,14 @@ __int64 __fastcall sub_140A0BA74(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   if ( v4 + 1 < v4 )
     return (unsigned int)-1073741675;
   v12 = 0LL;
-  if ( v10 )
+  if ( (_DWORD)v10 )
     v12 = v11;
-  if ( v10 != 8 )
+  if ( (_DWORD)v10 != 8 )
     return (unsigned int)-1073741789;
   v14 = *(_QWORD *)v12;
   if ( !qword_140D3B370 )
     return (unsigned int)-1073741637;
-  v13 = qword_140D3B370();
+  v13 = sub_14042A5E0(v11, v10);
   if ( (v13 & 0x80000000) == 0 )
   {
     if ( *(_DWORD *)(a2 + 16) < 0xFFFFFFD0

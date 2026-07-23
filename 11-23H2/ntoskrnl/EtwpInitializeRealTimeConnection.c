@@ -3,9 +3,9 @@
  * Callers:
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
  */
 
 __int64 EtwpInitializeRealTimeConnection()

@@ -7,13 +7,13 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800D6BE4(_QWORD *a1, void *a2)
+__int64 __fastcall sub_1800D6BE4(const WCHAR **a1, const WCHAR *a2)
 {
-  void *v2; // r8
+  const WCHAR *v2; // r8
   __int64 v3; // rax
   __int64 result; // rax
 
-  v2 = &unk_18011B604;
+  v2 = &word_18011B604;
   LODWORD(v3) = 0;
   if ( a2 )
   {
@@ -21,10 +21,10 @@ __int64 __fastcall sub_1800D6BE4(_QWORD *a1, void *a2)
     v3 = -1LL;
     do
       ++v3;
-    while ( *((_WORD *)a2 + v3) );
+    while ( a2[v3] );
   }
   result = (unsigned int)(2 * v3 + 2);
   *a1 = v2;
-  a1[1] = (unsigned int)result;
+  a1[1] = (const WCHAR *)(unsigned int)result;
   return result;
 }

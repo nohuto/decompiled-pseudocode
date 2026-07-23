@@ -1,11 +1,11 @@
 /*
- * XREFs of MiModifiedWriterDeterminePriority @ 0x1404069D8
+ * XREFs of MiModifiedWriterDeterminePriority @ 0x1403FFAC8
  * Callers:
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x140406A70 (MiUseLowIoPriorityForModifiedPages.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x1403FFB60 (MiUseLowIoPriorityForModifiedPages.c)
  */
 
 __int64 __fastcall MiModifiedWriterDeterminePriority(__int64 a1, int *a2)

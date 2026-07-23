@@ -14,16 +14,25 @@
  *     ZwQueryVirtualMemory @ 0x1800A0520 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpHpHeapValidateProtection(__int64 a1, unsigned int a2)
+__int64 __fastcall RtlpHpHeapValidateProtection(PVOID BaseAddress, unsigned int a2)
 {
   unsigned int v2; // ebx
-  _QWORD v5[4]; // [rsp+30h] [rbp-38h] BYREF
+  PVOID MemoryInformation[4]; // [rsp+30h] [rbp-38h] BYREF
   int v6; // [rsp+54h] [rbp-14h]
 
   v2 = a2;
-  if ( a2 == 64 && ((int)ZwQueryVirtualMemory(-1LL, a1, 0LL, v5, 48LL, 0LL) < 0 || (v6 & 0x60) == 0 || v5[0] != a1) )
+  if ( a2 == 64
+    && (ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryBasicInformation,
+          MemoryInformation,
+          0x30uLL,
+          0LL) < 0
+     || (v6 & 0x60) == 0
+     || MemoryInformation[0] != BaseAddress) )
   {
-    RtlpLogHeapFailure(0, a1, 1, v6, 0LL, 0LL);
+    RtlpLogHeapFailure(0, (_DWORD)BaseAddress, 1, v6, 0LL, 0LL);
     return 4;
   }
   return v2;

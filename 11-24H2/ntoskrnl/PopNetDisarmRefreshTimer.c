@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNetDisarmRefreshTimer @ 0x14075C748
+ * XREFs of PopNetDisarmRefreshTimer @ 0x14075B6E8
  * Callers:
- *     PopNetWnfLowPowerEpochCallback @ 0x140A3B690 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140A30E70 (PopNetWnfLowPowerEpochCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
  */
 
 char __fastcall PopNetDisarmRefreshTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

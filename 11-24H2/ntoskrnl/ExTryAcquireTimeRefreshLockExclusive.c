@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryAcquireTimeRefreshLockExclusive @ 0x1407B6080
+ * XREFs of ExTryAcquireTimeRefreshLockExclusive @ 0x1407B64D0
  * Callers:
- *     KdpTimeSlipWork @ 0x140B78650 (KdpTimeSlipWork.c)
+ *     KdpTimeSlipWork @ 0x140B7A650 (KdpTimeSlipWork.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
 char ExTryAcquireTimeRefreshLockExclusive()

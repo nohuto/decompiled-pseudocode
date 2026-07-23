@@ -1,42 +1,42 @@
 /*
- * XREFs of SetFailureLocation @ 0x1402F69F0
+ * XREFs of SetFailureLocation @ 0x1402F6C80
  * Callers:
  *     CmpDoFileRead @ 0x140207B68 (CmpDoFileRead.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
  *     CmpInitHiveFromFile @ 0x14068B418 (CmpInitHiveFromFile.c)
  *     CmpOpenHiveFiles @ 0x14068B784 (CmpOpenHiveFiles.c)
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
  *     CmpGetCompleteFileName @ 0x14068BFFC (CmpGetCompleteFileName.c)
  *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
  *     CmLoadKey @ 0x1406957C0 (CmLoadKey.c)
- *     CmpCheckLeaf @ 0x1406DCAC0 (CmpCheckLeaf.c)
- *     CmpCheckValueList @ 0x1406DE4C0 (CmpCheckValueList.c)
- *     CmpCheckRegistry2 @ 0x1406DFAD0 (CmpCheckRegistry2.c)
- *     CmpCheckKey @ 0x1406E0710 (CmpCheckKey.c)
- *     HvHiveStartFileBacked @ 0x140701204 (HvHiveStartFileBacked.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmCheckRegistry @ 0x140705210 (CmCheckRegistry.c)
- *     HvCheckHive @ 0x14070A0A0 (HvCheckHive.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x14070C9DC (CmpValidateHiveSecurityDescriptors.c)
- *     HvCheckBin @ 0x140745770 (HvCheckBin.c)
- *     HvpInitMap @ 0x14074EA70 (HvpInitMap.c)
- *     HvLoadHive @ 0x14074ED44 (HvLoadHive.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14074F794 (HvpRemapAndEnlistHiveBins.c)
- *     HvpEnlistFreeCells @ 0x14074F950 (HvpEnlistFreeCells.c)
- *     CmLoadAppKey @ 0x140769640 (CmLoadAppKey.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
- *     HvHiveStartMemoryBacked @ 0x140826290 (HvHiveStartMemoryBacked.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x140826778 (HvpBuildMapForMemoryBackedHive.c)
- *     CmpLoadHiveThread @ 0x140826880 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16A18 (CmpResolveHiveLoadConflict.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x140A1CD04 (CmpOpenFileWithExtremePrejudice.c)
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1CE84 (CmpRecoverFlushProtocolStateFromFiles.c)
- *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1D658 (HvRecoverFlushProtocolStateFromFiles.c)
- *     HvpMapHiveImage @ 0x140A1DCF4 (HvpMapHiveImage.c)
+ *     CmpCheckLeaf @ 0x1406DCAF0 (CmpCheckLeaf.c)
+ *     CmpCheckValueList @ 0x1406DE4F0 (CmpCheckValueList.c)
+ *     CmpCheckRegistry2 @ 0x1406DFB00 (CmpCheckRegistry2.c)
+ *     CmpCheckKey @ 0x1406E0740 (CmpCheckKey.c)
+ *     HvHiveStartFileBacked @ 0x140701414 (HvHiveStartFileBacked.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmCheckRegistry @ 0x140705420 (CmCheckRegistry.c)
+ *     HvCheckHive @ 0x14070A2B0 (HvCheckHive.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14070CBEC (CmpValidateHiveSecurityDescriptors.c)
+ *     HvCheckBin @ 0x140745960 (HvCheckBin.c)
+ *     HvpInitMap @ 0x14074EC60 (HvpInitMap.c)
+ *     HvLoadHive @ 0x14074EF34 (HvLoadHive.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14074F984 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpEnlistFreeCells @ 0x14074FB40 (HvpEnlistFreeCells.c)
+ *     CmLoadAppKey @ 0x140769830 (CmLoadAppKey.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
+ *     HvHiveStartMemoryBacked @ 0x140826590 (HvHiveStartMemoryBacked.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x140826A78 (HvpBuildMapForMemoryBackedHive.c)
+ *     CmpLoadHiveThread @ 0x140826B80 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408632EC (CmpMountPreloadedHives.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A16CC8 (CmpResolveHiveLoadConflict.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x140A1CFB4 (CmpOpenFileWithExtremePrejudice.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1D134 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1D908 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvpMapHiveImage @ 0x140A1DFA4 (HvpMapHiveImage.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
@@ -61,7 +61,7 @@ void __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
   int v26; // [rsp+98h] [rbp+17h]
   int v27; // [rsp+9Ch] [rbp+1Bh]
 
-  if ( (unsigned int)dword_140C043C8 > 5 )
+  if ( (unsigned int)dword_140C04390 > 5 )
   {
     v18 = 0;
     v21 = 0;
@@ -79,7 +79,7 @@ void __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
     v11 = a2;
     v17 = 1;
     v14 = a5;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140C043C8, byte_140037BE3, 0LL, 0LL, 6, v15);
+    tlgWriteTransfer_EtwWriteTransfer(&dword_140C04390, byte_140037CCB, 0LL, 0LL, 6, v15);
   }
   if ( a1 )
   {

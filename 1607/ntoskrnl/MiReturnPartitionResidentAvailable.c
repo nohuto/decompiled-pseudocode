@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnPartitionResidentAvailable @ 0x1401718E8
+ * XREFs of MiReturnPartitionResidentAvailable @ 0x140171DE4
  * Callers:
- *     MiRemoveVadCharges @ 0x14042FB20 (MiRemoveVadCharges.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MiCleanEmbryonicProcess @ 0x14045F008 (MiCleanEmbryonicProcess.c)
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MiCleanPhysicalProcessPages @ 0x14065C30C (MiCleanPhysicalProcessPages.c)
- *     MiMapUserLargePages @ 0x140662B28 (MiMapUserLargePages.c)
+ *     MiRemoveVadCharges @ 0x14042E9F0 (MiRemoveVadCharges.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MiCleanEmbryonicProcess @ 0x14045DED8 (MiCleanEmbryonicProcess.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MiCleanPhysicalProcessPages @ 0x14065C3F0 (MiCleanPhysicalProcessPages.c)
+ *     MiMapUserLargePages @ 0x140662C0C (MiMapUserLargePages.c)
  * Callees:
  *     <none>
  */

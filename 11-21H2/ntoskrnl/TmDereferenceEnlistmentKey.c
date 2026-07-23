@@ -9,5 +9,5 @@
 // attributes: thunk
 NTSTATUS __stdcall TmDereferenceEnlistmentKey(PKENLISTMENT Enlistment, PBOOLEAN LastReference)
 {
-  return __imp_TmDereferenceEnlistmentKey(Enlistment, LastReference);
+  return TmDereferenceEnlistmentKey_0(Enlistment, LastReference);
 }

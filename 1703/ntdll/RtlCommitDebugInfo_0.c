@@ -14,32 +14,32 @@
  *     ZwAllocateVirtualMemory @ 0x1800A5600 (ZwAllocateVirtualMemory.c)
  */
 
-char *__fastcall RtlCommitDebugInfo_0(_QWORD *a1, unsigned int a2)
+PVOID __cdecl RtlCommitDebugInfo_0(PRTL_DEBUG_INFORMATION Buffer, SIZE_T Size)
 {
-  unsigned __int64 v3; // rdi
-  unsigned __int64 v4; // rcx
-  char *result; // rax
-  unsigned __int64 v6; // [rsp+50h] [rbp+18h] BYREF
+  SIZE_T v3; // rdi
+  SIZE_T CommitSize; // rcx
+  PVOID result; // rax
+  ULONG_PTR v6; // [rsp+50h] [rbp+18h] BYREF
   char *v7; // [rsp+58h] [rbp+20h] BYREF
 
-  if ( a2 <= 0xFFFFFFF8 )
+  if ( (unsigned int)Size <= 0xFFFFFFF8 )
   {
-    v3 = a1[9] + ((a2 + 7) & 0xFFFFFFF8);
-    v4 = a1[10];
-    if ( v3 <= v4 )
+    v3 = Buffer->OffsetFree + (((_DWORD)Size + 7) & 0xFFFFFFF8);
+    CommitSize = Buffer->CommitSize;
+    if ( v3 <= CommitSize )
     {
 LABEL_6:
-      result = (char *)a1 + a1[9];
-      a1[9] = v3;
+      result = (char *)Buffer + Buffer->OffsetFree;
+      Buffer->OffsetFree = v3;
       return result;
     }
-    if ( v3 < a1[11] )
+    if ( v3 < Buffer->ViewSize )
     {
-      v7 = (char *)a1 + v4;
-      v6 = v3 - v4;
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &v7, 0LL, &v6, 4096, 4) >= 0 )
+      v7 = (char *)Buffer + CommitSize;
+      v6 = v3 - CommitSize;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v7, 0LL, &v6, 0x1000u, 4u) >= 0 )
       {
-        a1[10] += v6;
+        Buffer->CommitSize += v6;
         goto LABEL_6;
       }
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaGetErrPacketFromErrRecord @ 0x1405194E0
+ * XREFs of WheaGetErrPacketFromErrRecord @ 0x140519A30
  * Callers:
- *     HalpMceRecovery @ 0x140518E50 (HalpMceRecovery.c)
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
- *     WheapAttemptErrorRecovery @ 0x140610C64 (WheapAttemptErrorRecovery.c)
+ *     HalpMceRecovery @ 0x1405193A0 (HalpMceRecovery.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
+ *     WheapAttemptErrorRecovery @ 0x1406111B4 (WheapAttemptErrorRecovery.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  */
 
 PWHEA_ERROR_PACKET __stdcall WheaGetErrPacketFromErrRecord(PWHEA_ERROR_RECORD Record)

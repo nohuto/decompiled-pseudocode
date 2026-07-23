@@ -27,26 +27,26 @@ __int64 __fastcall sub_180005870(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int v10; // r14d
   __int16 v12; // si
   unsigned __int64 v13; // rdx
-  int v14; // esi
-  __int64 v15; // rcx
+  NTSTATUS v14; // esi
+  void *v15; // rcx
   int v16; // eax
   unsigned __int64 v17; // r12
   _QWORD *v18; // rax
   unsigned __int64 v19; // r12
-  __int64 v20; // rdi
-  unsigned __int64 v21; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v24; // [rsp+68h] [rbp-98h] BYREF
+  char *v20; // rdi
+  LARGE_INTEGER MaximumSize; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR CommitSize; // [rsp+68h] [rbp-98h] BYREF
   __int64 (__fastcall *v25)(); // [rsp+70h] [rbp-90h]
   _QWORD *v26; // [rsp+78h] [rbp-88h]
   int v27; // [rsp+80h] [rbp-80h] BYREF
   __int64 (__fastcall *v28)(); // [rsp+88h] [rbp-78h]
   _QWORD *v29; // [rsp+90h] [rbp-70h]
   _QWORD v30[12]; // [rsp+A0h] [rbp-60h] BYREF
-  _QWORD v31[18]; // [rsp+100h] [rbp+0h] BYREF
+  _QWORD Buffer[18]; // [rsp+100h] [rbp+0h] BYREF
   int v32; // [rsp+1A0h] [rbp+A0h]
-  __int64 v34; // [rsp+1B8h] [rbp+B8h] BYREF
+  HANDLE SectionHandle; // [rsp+1B8h] [rbp+B8h] BYREF
 
   if ( (a1 & 7) != 0 )
     return 3221225485LL;
@@ -69,7 +69,7 @@ __int64 __fastcall sub_180005870(__int64 a1, __int64 a2, _QWORD *a3)
       v28 = sub_1800F0200;
     }
     v29 = v6;
-    RtlEnterCriticalSection(&unk_180159A80);
+    RtlEnterCriticalSection(&stru_180159A80);
     v7 = *(_QWORD *)(a1 + 8);
     if ( v7 )
     {
@@ -78,16 +78,16 @@ __int64 __fastcall sub_180005870(__int64 a1, __int64 a2, _QWORD *a3)
       else
         v12 = *(_WORD *)(v7 + 208);
       if ( v12 != -1 )
-        RtlLockHeap();
-      v8 = sub_180005B00(*(_QWORD *)(a1 + 8), &v27);
+        RtlLockHeap((PVOID)v7);
+      v8 = sub_180005B00(*(PVOID *)(a1 + 8));
       if ( v12 != -1 )
-        RtlUnlockHeap(*(_QWORD *)(a1 + 8));
+        RtlUnlockHeap(*(PVOID *)(a1 + 8));
     }
     else
     {
       v8 = sub_18000594C(&v27);
     }
-    RtlLeaveCriticalSection(&unk_180159A80);
+    RtlLeaveCriticalSection(&stru_180159A80);
     v9 = 0;
     if ( v8 != -2147483622 )
       v9 = v8;
@@ -111,36 +111,46 @@ __int64 __fastcall sub_180005870(__int64 a1, __int64 a2, _QWORD *a3)
   }
   else
   {
-    v34 = 0LL;
-    v22 = 0LL;
-    v21 = 0x10000LL;
-    v14 = ZwCreateSection(&v34, 983071LL, 0LL, &v21, 4, 0x8000000, 0LL);
+    SectionHandle = 0LL;
+    BaseAddress = 0LL;
+    MaximumSize.QuadPart = 0x10000LL;
+    v14 = ZwCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
     if ( v14 >= 0 )
     {
       while ( 1 )
       {
-        memset(v31, 0, 0x58uLL);
-        v15 = *(_QWORD *)a1;
-        v31[2] = *(_QWORD *)(a1 + 8);
-        LODWORD(v31[3]) = *(_DWORD *)(a1 + 16);
-        v31[1] = v21;
-        v31[0] = v34;
-        v16 = sub_1800F096C(v15, v31);
+        memset(Buffer, 0, 0x58uLL);
+        v15 = *(void **)a1;
+        Buffer[2] = *(_QWORD *)(a1 + 8);
+        LODWORD(Buffer[3]) = *(_DWORD *)(a1 + 16);
+        Buffer[1] = MaximumSize.QuadPart;
+        Buffer[0] = SectionHandle;
+        v16 = sub_1800F096C(v15, Buffer);
         v14 = v16;
         if ( v16 != -1073741789 )
           break;
-        ZwClose(v34);
-        v34 = 0LL;
-        v21 = (v31[4] + 0xFFFFLL) & 0xFFFFFFFFFFFF0000uLL;
-        v14 = ZwCreateSection(&v34, 983071LL, 0LL, &v21, 4, 0x8000000, 0LL);
+        ZwClose(SectionHandle);
+        SectionHandle = 0LL;
+        MaximumSize.QuadPart = (Buffer[4] + 0xFFFFLL) & 0xFFFFFFFFFFFF0000uLL;
+        v14 = ZwCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
         if ( v14 < 0 )
           goto LABEL_56;
       }
       if ( v16 >= 0 )
       {
-        v23 = 0LL;
-        v24 = 0x10000LL;
-        v14 = ZwMapViewOfSection(v34, -1LL, &v22, 0LL, 0x10000LL, &v23, &v24, 2, 0, 4);
+        SectionOffset.QuadPart = 0LL;
+        CommitSize = 0x10000LL;
+        v14 = ZwMapViewOfSection(
+                SectionHandle,
+                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                &BaseAddress,
+                0LL,
+                0x10000uLL,
+                &SectionOffset,
+                &CommitSize,
+                ViewUnmap,
+                0,
+                4u);
         if ( v14 >= 0 )
         {
           v17 = 0LL;
@@ -161,30 +171,44 @@ __int64 __fastcall sub_180005870(__int64 a1, __int64 a2, _QWORD *a3)
           }
           v32 = 0;
           v26 = v18;
-          if ( LODWORD(v31[5]) )
+          if ( LODWORD(Buffer[5]) )
           {
             while ( 1 )
             {
               v19 = (v17 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-              if ( v19 >= v21 || v19 >= 2 * v24 || (__int64)(v24 + v23) > (__int64)v21 )
-                break;
-              v20 = v19 + v22;
-              if ( v19 + 16 >= v24 || !*(_DWORD *)v20 )
+              if ( v19 >= MaximumSize.QuadPart
+                || v19 >= 2 * CommitSize
+                || (__int64)(CommitSize + SectionOffset.QuadPart) > MaximumSize.QuadPart )
               {
-                ZwUnmapViewOfSection(-1LL, v22);
-                v22 = 0LL;
-                v23 += v24;
-                v14 = ZwMapViewOfSection(v34, -1LL, &v22, 0LL, v24, &v23, &v24, 2, 0, 4);
+                break;
+              }
+              v20 = (char *)BaseAddress + v19;
+              if ( v19 + 16 >= CommitSize || !*(_DWORD *)v20 )
+              {
+                ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+                BaseAddress = 0LL;
+                SectionOffset.QuadPart += CommitSize;
+                v14 = ZwMapViewOfSection(
+                        SectionHandle,
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        &BaseAddress,
+                        0LL,
+                        CommitSize,
+                        &SectionOffset,
+                        &CommitSize,
+                        ViewUnmap,
+                        0,
+                        4u);
                 if ( v14 < 0 )
                   goto LABEL_48;
-                v20 = v22;
+                v20 = (char *)BaseAddress;
                 v19 = 0LL;
               }
-              v14 = ((__int64 (__fastcall *)(__int64, _QWORD *))v25)(v20, v26);
+              v14 = ((__int64 (__fastcall *)(char *, _QWORD *))v25)(v20, v26);
               if ( v14 >= 0 )
               {
-                v17 = *(_QWORD *)(v20 + 8) + v19;
-                if ( (unsigned int)++v32 < LODWORD(v31[5]) )
+                v17 = *((_QWORD *)v20 + 1) + v19;
+                if ( (unsigned int)++v32 < LODWORD(Buffer[5]) )
                   continue;
               }
               goto LABEL_48;
@@ -210,10 +234,10 @@ LABEL_48:
       }
     }
 LABEL_56:
-    if ( v22 )
-      ZwUnmapViewOfSection(-1LL, v22);
-    if ( v34 )
-      ZwClose(v34);
+    if ( BaseAddress )
+      ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+    if ( SectionHandle )
+      ZwClose(SectionHandle);
     return (unsigned int)v14;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleCsVetoAccountingDeviceUpdate @ 0x14042C7DC
+ * XREFs of PpmIdleCsVetoAccountingDeviceUpdate @ 0x140420EAC
  * Callers:
- *     PopFxPlatformStateAvailable @ 0x14042C75C (PopFxPlatformStateAvailable.c)
+ *     PopFxPlatformStateAvailable @ 0x140420E2C (PopFxPlatformStateAvailable.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14042C8CC (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140420F9C (PpmIdleCsVetoAccountingUpdateBlock.c)
  */
 
 void __fastcall PpmIdleCsVetoAccountingDeviceUpdate(unsigned int a1, char a2)
@@ -17,10 +17,10 @@ void __fastcall PpmIdleCsVetoAccountingDeviceUpdate(unsigned int a1, char a2)
   KIRQL v7; // di
 
   v2 = a1;
-  v4 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.KcsanThread);
+  v4 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
   LOBYTE(v5) = a2;
   LOBYTE(v6) = 1;
   v7 = v4;
   PpmIdleCsVetoAccountingUpdateBlock(448 * v2 + PpmPlatformStates + 80, v6, v5);
-  KeReleaseSpinLock(&stru_140F10070.KcsanThread, v7);
+  KeReleaseSpinLock(&PpmIdleVetoLock, v7);
 }

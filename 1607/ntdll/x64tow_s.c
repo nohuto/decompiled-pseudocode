@@ -4,7 +4,7 @@
  *     _i64tow_s @ 0x1800A0EA0 (_i64tow_s.c)
  *     _ui64tow_s @ 0x1800A0F30 (_ui64tow_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  */
 
 __int64 __fastcall x64tow_s(unsigned __int64 a1, __int16 *a2, unsigned __int64 a3, unsigned int a4, int a5)

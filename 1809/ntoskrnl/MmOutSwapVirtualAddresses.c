@@ -1,7 +1,7 @@
 /*
- * XREFs of MmOutSwapVirtualAddresses @ 0x1402CBA90
+ * XREFs of MmOutSwapVirtualAddresses @ 0x1402CBC80
  * Callers:
- *     SmPerformStoreSwapOperation @ 0x140309180 (SmPerformStoreSwapOperation.c)
+ *     SmPerformStoreSwapOperation @ 0x140309370 (SmPerformStoreSwapOperation.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,21 +12,21 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiFindBestOutswapPagefile @ 0x1400E4DAC (MiFindBestOutswapPagefile.c)
- *     MiOutSwapWorkingSet @ 0x1400E57E8 (MiOutSwapWorkingSet.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x1400E58DC (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x1400E5934 (MiAllocateWorkingSetSwapSupport.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiValidateMemoryRangeEntries @ 0x1405F6D18 (MiValidateMemoryRangeEntries.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
- *     MiFreeReservationRuns @ 0x1406B8E4C (MiFreeReservationRuns.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x14085EA34 (MiExtendWorkingSetSwapPagefile.c)
- *     MiReserveWorkingSetSwapSpace @ 0x14085EB4C (MiReserveWorkingSetSwapSpace.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiFindBestOutswapPagefile @ 0x1400E4E2C (MiFindBestOutswapPagefile.c)
+ *     MiOutSwapWorkingSet @ 0x1400E5868 (MiOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1400E595C (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1400E59B4 (MiAllocateWorkingSetSwapSupport.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiValidateMemoryRangeEntries @ 0x1405F7D18 (MiValidateMemoryRangeEntries.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066C988 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeReservationRuns @ 0x1406BA0EC (MiFreeReservationRuns.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x14085FC94 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x14085FDAC (MiReserveWorkingSetSwapSpace.c)
  */
 
 __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64 *a2, __int64 a3, _QWORD *a4)
@@ -78,7 +78,7 @@ __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64
   v7 = *((unsigned __int16 *)&Process[1].SecureState.Flags + 3);
   v42 = a4;
   v41 = CurrentThread;
-  v9 = *(_QWORD *)(qword_14043A748 + 8 * v7);
+  v9 = *(_QWORD *)(qword_14043B808 + 8 * v7);
   BestOutswapPagefile = MiFindBestOutswapPagefile(v9, v40);
   if ( BestOutswapPagefile == 16 )
     return 3221225799LL;
@@ -195,7 +195,7 @@ LABEL_35:
   }
   v32->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v32->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v20->LockEntries[v31], SessionId);
+    KiAbEntryRemoveFromTree(&v20->LockEntries[v31].TreeNode, SessionId);
   v37 = 0;
   v37 = v32->BoostBitmap.AllFields & 0x1FFFF;
   v32->BoostBitmap.AllFields &= 0xFFFE0000;

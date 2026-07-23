@@ -1,9 +1,9 @@
 /*
- * XREFs of _RtlpMuiRegValidatePartialLanguage @ 0x14082EC60
+ * XREFs of _RtlpMuiRegValidatePartialLanguage @ 0x14082F490
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x14082E674 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14082EEA4 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x14082C210 (RtlpMuiRegGetInstalledLangInfoIndex.c)
+ *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x14082CA40 (RtlpMuiRegGetInstalledLangInfoIndex.c)
  */
 
 __int64 __fastcall RtlpMuiRegValidatePartialLanguage(__int64 a1, int a2)

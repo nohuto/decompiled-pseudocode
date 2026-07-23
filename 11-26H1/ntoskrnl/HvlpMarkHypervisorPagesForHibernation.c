@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpMarkHypervisorPagesForHibernation @ 0x1405BF8C4
+ * XREFs of HvlpMarkHypervisorPagesForHibernation @ 0x1405C2134
  * Callers:
- *     HvlMarkHiberPhase @ 0x1405BF26C (HvlMarkHiberPhase.c)
+ *     HvlMarkHiberPhase @ 0x1405C1ADC (HvlMarkHiberPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     HvlpGetPageList @ 0x1405C2250 (HvlpGetPageList.c)
- *     HvlpGetPageListIterator @ 0x1405C2308 (HvlpGetPageListIterator.c)
- *     HvlpStartPageListIteration @ 0x1405C2460 (HvlpStartPageListIteration.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     HvlpGetPageList @ 0x1405C4AC0 (HvlpGetPageList.c)
+ *     HvlpGetPageListIterator @ 0x1405C4B78 (HvlpGetPageListIterator.c)
+ *     HvlpStartPageListIteration @ 0x1405C4CD0 (HvlpStartPageListIteration.c)
  */
 
 __int64 HvlpMarkHypervisorPagesForHibernation()

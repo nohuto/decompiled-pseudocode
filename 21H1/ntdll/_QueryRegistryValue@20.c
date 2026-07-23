@@ -9,23 +9,26 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall QueryRegistryValue(int a1, int a2, _DWORD *a3, void *a4, size_t *a5)
+NTSTATUS __fastcall QueryRegistryValue(void *a1, _UNICODE_STRING *a2, _DWORD *a3, void *a4, unsigned int *a5)
 {
-  int v6; // esi
+  ULONG v6; // esi
   _DWORD *Heap; // edi
-  int ValueKey; // esi
-  size_t v9; // eax
-  int v12; // [esp+14h] [ebp-4h] BYREF
+  NTSTATUS v8; // esi
+  unsigned int v9; // eax
+  SIZE_T v10; // [esp-4h] [ebp-1Ch]
+  size_t v11; // [esp-4h] [ebp-1Ch]
+  ULONG ResultLength; // [esp+14h] [ebp-4h] BYREF
 
-  v12 = 0;
+  ResultLength = 0;
   if ( !a5 )
     return -1073741811;
   v6 = *a5 + 12;
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v6);
+  LODWORD(v10) = v6;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
   if ( !Heap )
     return -1073741670;
-  ValueKey = NtQueryValueKey(a1, a2, 2, (int)Heap, v6, (int)&v12);
-  if ( ValueKey < 0 )
+  v8 = NtQueryValueKey(a1, a2, KeyValuePartialInformation, Heap, v6, &ResultLength);
+  if ( v8 < 0 )
     goto LABEL_13;
   v9 = Heap[2];
   if ( v9 )
@@ -33,22 +36,25 @@ int __fastcall QueryRegistryValue(int a1, int a2, _DWORD *a3, void *a4, size_t *
     if ( v9 > *a5 )
     {
 LABEL_15:
-      ValueKey = -1073741789;
+      v8 = -1073741789;
       *a5 = Heap[2];
       goto LABEL_16;
     }
     *a5 = v9;
     if ( a4 )
-      memcpy(a4, Heap + 3, v9);
+    {
+      LODWORD(v11) = v9;
+      memcpy(a4, Heap + 3, v11);
+    }
     if ( a3 )
       *a3 = Heap[1];
 LABEL_13:
-    if ( ValueKey != -2147483643 && ValueKey != -1073741789 )
+    if ( v8 != -2147483643 && v8 != -1073741789 )
       goto LABEL_16;
     goto LABEL_15;
   }
-  ValueKey = -1073741811;
+  v8 = -1073741811;
 LABEL_16:
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-  return ValueKey;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v8;
 }

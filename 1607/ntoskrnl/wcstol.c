@@ -1,10 +1,10 @@
 /*
- * XREFs of wcstol @ 0x14014F43C
+ * XREFs of wcstol @ 0x14014F9FC
  * Callers:
- *     RtlIpv6StringToAddressW @ 0x1400A83A8 (RtlIpv6StringToAddressW.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406E334C (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     RtlIpv6StringToAddressW @ 0x1400A6920 (RtlIpv6StringToAddressW.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406E3484 (DrvDbSplitDeviceIdDriverInfMatch.c)
  * Callees:
- *     wcstoxlX @ 0x14014F230 (wcstoxlX.c)
+ *     wcstoxlX @ 0x14014F7F0 (wcstoxlX.c)
  */
 
 int __cdecl wcstol(const wchar_t *Str, wchar_t **EndPtr, int Radix)

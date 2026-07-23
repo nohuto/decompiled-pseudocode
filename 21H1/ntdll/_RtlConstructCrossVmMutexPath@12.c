@@ -6,7 +6,7 @@
  *     _RtlpConstructCrossVmObjectPath@12 @ 0x4B35AB97 (_RtlpConstructCrossVmObjectPath@12.c)
  */
 
-int __stdcall RtlConstructCrossVmMutexPath(int a1, int a2, int a3)
+int __stdcall RtlConstructCrossVmMutexPath(int a1, int a2, PGUID Guid)
 {
-  return RtlpConstructCrossVmObjectPath(a3);
+  return RtlpConstructCrossVmObjectPath(Guid);
 }

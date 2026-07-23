@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpShutdown @ 0x140746FD0
+ * XREFs of PfpRpShutdown @ 0x1407452C0
  * Callers:
- *     PfpParametersWatcher @ 0x1407484A0 (PfpParametersWatcher.c)
+ *     PfpParametersWatcher @ 0x140746790 (PfpParametersWatcher.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     PfpRpControlRequestReset @ 0x140A9E17C (PfpRpControlRequestReset.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     PfpRpControlRequestReset @ 0x140A996EC (PfpRpControlRequestReset.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpShutdown(__int64 a1)

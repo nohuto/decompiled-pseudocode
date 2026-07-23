@@ -1,44 +1,44 @@
 /*
- * XREFs of MiWalkPageTables @ 0x1402092C0
+ * XREFs of MiWalkPageTables @ 0x1402ADBC0
  * Callers:
- *     MiAgeWorkingSet @ 0x140208B40 (MiAgeWorkingSet.c)
- *     MiMakeHyperRangeAccessible @ 0x14021B4E0 (MiMakeHyperRangeAccessible.c)
- *     MiCountSharedPages @ 0x14028C460 (MiCountSharedPages.c)
- *     MiClearNonPagedPtes @ 0x140296238 (MiClearNonPagedPtes.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
- *     MiDeleteSystemPageTables @ 0x1402FD75C (MiDeleteSystemPageTables.c)
- *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
- *     MiTrimWorkingSet @ 0x140359EE4 (MiTrimWorkingSet.c)
- *     MiEmptyWorkingSetInitiate @ 0x14035A3D4 (MiEmptyWorkingSetInitiate.c)
- *     MiOutSwapWorkingSet @ 0x14035CE28 (MiOutSwapWorkingSet.c)
- *     MiSimpleAging @ 0x14036C428 (MiSimpleAging.c)
- *     MmRemoveExecuteGrants @ 0x14037ED20 (MmRemoveExecuteGrants.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x1403A0948 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiCountSharedPages @ 0x140209600 (MiCountSharedPages.c)
+ *     MiClearNonPagedPtes @ 0x14021AB20 (MiClearNonPagedPtes.c)
+ *     MiTrimWorkingSet @ 0x14029EC80 (MiTrimWorkingSet.c)
+ *     MiEmptyWorkingSetInitiate @ 0x14029F170 (MiEmptyWorkingSetInitiate.c)
+ *     MiOutSwapWorkingSet @ 0x1402A1D58 (MiOutSwapWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x1402AD440 (MiAgeWorkingSet.c)
+ *     MiMakeHyperRangeAccessible @ 0x1402BFDE0 (MiMakeHyperRangeAccessible.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
+ *     MiDeleteSystemPageTables @ 0x1403084AC (MiDeleteSystemPageTables.c)
+ *     MiGetNextPageTable @ 0x140318570 (MiGetNextPageTable.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
+ *     MiSimpleAging @ 0x14036C5D8 (MiSimpleAging.c)
+ *     MmRemoveExecuteGrants @ 0x14037E870 (MmRemoveExecuteGrants.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x1403A0A98 (MiCaptureAndResetWorkingSetAccessBits.c)
  *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
- *     MiWalkResetCommitPages @ 0x14052CAF8 (MiWalkResetCommitPages.c)
- *     MmRemoveSystemCacheFromDump @ 0x140538B8C (MmRemoveSystemCacheFromDump.c)
- *     MmUpdateOldWorkingSetPages @ 0x14053C9EC (MmUpdateOldWorkingSetPages.c)
- *     MiGetWorkingSetInfoEx @ 0x140546DE0 (MiGetWorkingSetInfoEx.c)
- *     MiCombineWorkingSet @ 0x14055CC24 (MiCombineWorkingSet.c)
- *     MiConvertHiberPhasePages @ 0x140994F28 (MiConvertHiberPhasePages.c)
- *     MiMarkHiberNotCachedPages @ 0x1409B026C (MiMarkHiberNotCachedPages.c)
- *     MiMarkKernelPageTablePages @ 0x1409B03D8 (MiMarkKernelPageTablePages.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x1409B0474 (MiMarkNonPagedHiberPhasePages.c)
- *     MiMarkLargePageMappings @ 0x140A42CD0 (MiMarkLargePageMappings.c)
- *     MiCreateInitialSystemWsles @ 0x140A4F20C (MiCreateInitialSystemWsles.c)
- *     MiAddLoaderHalIoMappings @ 0x140A543A4 (MiAddLoaderHalIoMappings.c)
+ *     MiWalkResetCommitPages @ 0x14052CD38 (MiWalkResetCommitPages.c)
+ *     MmRemoveSystemCacheFromDump @ 0x140538DCC (MmRemoveSystemCacheFromDump.c)
+ *     MmUpdateOldWorkingSetPages @ 0x14053CC2C (MmUpdateOldWorkingSetPages.c)
+ *     MiGetWorkingSetInfoEx @ 0x140547020 (MiGetWorkingSetInfoEx.c)
+ *     MiCombineWorkingSet @ 0x14055CE64 (MiCombineWorkingSet.c)
+ *     MiConvertHiberPhasePages @ 0x140995F28 (MiConvertHiberPhasePages.c)
+ *     MiMarkHiberNotCachedPages @ 0x1409B119C (MiMarkHiberNotCachedPages.c)
+ *     MiMarkKernelPageTablePages @ 0x1409B1308 (MiMarkKernelPageTablePages.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x1409B13A4 (MiMarkNonPagedHiberPhasePages.c)
+ *     MiMarkLargePageMappings @ 0x140A43CD0 (MiMarkLargePageMappings.c)
+ *     MiCreateInitialSystemWsles @ 0x140A5020C (MiCreateInitialSystemWsles.c)
+ *     MiAddLoaderHalIoMappings @ 0x140A553A4 (MiAddLoaderHalIoMappings.c)
  * Callees:
- *     MiInitializeWalkBounds @ 0x140209110 (MiInitializeWalkBounds.c)
- *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPerformSafePdeWrite @ 0x14038179C (MiPerformSafePdeWrite.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiInitializeWalkBounds @ 0x1402ADA10 (MiInitializeWalkBounds.c)
+ *     MiWalkPageTablesRecursively @ 0x1402B06A0 (MiWalkPageTablesRecursively.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPerformSafePdeWrite @ 0x1403812EC (MiPerformSafePdeWrite.c)
  */
 
 __int64 __fastcall MiWalkPageTables(__int64 a1)
@@ -100,7 +100,7 @@ __int64 __fastcall MiWalkPageTables(__int64 a1)
   if ( !*(_BYTE *)(a1 + 5) )
     *(_BYTE *)(a1 + 5) = 15;
   v2 = *(_QWORD *)(a1 + 56);
-  *(_QWORD *)(a1 + 72) = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 24) + 174LL));
+  *(_QWORD *)(a1 + 72) = *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 24) + 174LL));
   if ( v2 )
   {
     if ( v2 == 0xFFFFF6FB7DBEDF68uLL )
@@ -254,13 +254,13 @@ __int64 __fastcall MiWalkPageTables(__int64 a1)
       {
         *(_QWORD *)(v1 + 48) = v7;
         if ( (v25 & 0x400) != 0 )
-          ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4E31C);
+          ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4E35C);
       }
       *(_BYTE *)(v1 + 2) &= ~1u;
 LABEL_34:
       v32 = MiWalkPageTablesRecursively(v1, v24, 3LL);
       if ( (*(_WORD *)v1 & 0x400) != 0 )
-        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4E31C);
+        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4E35C);
       if ( v32 >= 3 )
         return (unsigned int)v32;
       v13 = v40;

@@ -58,7 +58,7 @@ __int64 __fastcall CmpOpenHiveFile(
   ULONG CreateDisposition; // edi
   ULONG CreateOptions; // r14d
   _DWORD *v22; // rbx
-  int AttributesFile; // eax
+  NTSTATUS v23; // eax
   int Information; // r14d
   __int64 v25; // r15
   int VolumeClusterSize; // eax
@@ -92,13 +92,12 @@ __int64 __fastcall CmpOpenHiveFile(
   __int64 v55; // [rsp+120h] [rbp+20h]
   _QWORD *v56; // [rsp+128h] [rbp+28h]
   int *v57; // [rsp+130h] [rbp+30h]
-  _OWORD v58[2]; // [rsp+138h] [rbp+38h] BYREF
-  __int64 v59; // [rsp+158h] [rbp+58h]
-  __m128i FileInformation; // [rsp+160h] [rbp+60h] BYREF
-  __m128i v61; // [rsp+170h] [rbp+70h]
-  __int64 v62; // [rsp+180h] [rbp+80h]
-  __int128 v63; // [rsp+188h] [rbp+88h] BYREF
-  __int64 v64; // [rsp+198h] [rbp+98h]
+  struct _FILE_BASIC_INFORMATION FileInformation; // [rsp+138h] [rbp+38h] BYREF
+  __m128i si128; // [rsp+160h] [rbp+60h] BYREF
+  __m128i v60; // [rsp+170h] [rbp+70h]
+  __int64 v61; // [rsp+180h] [rbp+80h]
+  __int128 v62; // [rsp+188h] [rbp+88h] BYREF
+  __int64 v63; // [rsp+198h] [rbp+98h]
 
   ShareAccess = 0;
   v11 = a5;
@@ -108,8 +107,8 @@ __int64 __fastcall CmpOpenHiveFile(
   v14 = 0LL;
   v52.Pointer = a8;
   v54 = a7;
-  v62 = 0LL;
-  v64 = 0LL;
+  v61 = 0LL;
+  v63 = 0LL;
   ObjectAttributes.SecurityDescriptor = 0LL;
   LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
   v43 = Source;
@@ -117,13 +116,13 @@ __int64 __fastcall CmpOpenHiveFile(
   ImpersonationLevel = SecurityImpersonation;
   v57 = a4;
   v56 = a3;
-  FileInformation = 0LL;
+  si128 = 0LL;
   InputBuffer = 0;
-  v61 = 0LL;
+  v60 = 0LL;
   CopyOnOpen[0] = 0;
   *(_OWORD *)Event = 0LL;
   Thread = 0LL;
-  v63 = 0LL;
+  v62 = 0LL;
   EffectiveOnly = 0;
   IoStatusBlock = 0LL;
   *a3 = 0LL;
@@ -224,21 +223,20 @@ __int64 __fastcall CmpOpenHiveFile(
   if ( Status == -1073741790 )
   {
     SetFailureLocation(a10, 1, 35, -1073741790, 64);
-    v59 = 0LL;
     v52 = 0LL;
     FileHandle = 0LL;
-    memset(v58, 0, sizeof(v58));
+    memset(&FileInformation, 0, sizeof(FileInformation));
     Handle = 0LL;
-    AttributesFile = ZwQueryAttributesFile((__int64)&ObjectAttributes, (__int64)v58);
-    Status = AttributesFile;
-    if ( AttributesFile >= 0 )
+    v23 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+    Status = v23;
+    if ( v23 >= 0 )
     {
-      LODWORD(v59) = v59 & 0xFFFFFFFE;
+      FileInformation.FileAttributes &= ~1u;
       v32 = ZwOpenFile(&Handle, 0x100u, &ObjectAttributes, &v52, 7u, 0x4000u);
       Status = v32;
       if ( v32 >= 0 )
       {
-        v33 = ZwSetInformationFile(Handle, &v52, v58, 0x28u, FileBasicInformation);
+        v33 = ZwSetInformationFile(Handle, &v52, &FileInformation, 0x28u, FileBasicInformation);
         Status = v33;
         if ( v33 >= 0 )
         {
@@ -274,7 +272,7 @@ __int64 __fastcall CmpOpenHiveFile(
     }
     else
     {
-      SetFailureLocation(a10, 0, 36, AttributesFile, 16);
+      SetFailureLocation(a10, 0, 36, v23, 16);
     }
     if ( Handle )
       ZwClose(Handle);
@@ -305,10 +303,10 @@ LABEL_44:
   Information = IoStatusBlock.Information;
   if ( (v11 & 0x28) == 0 )
   {
-    LODWORD(v62) = 0;
-    FileInformation = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
-    v61 = FileInformation;
-    ZwSetInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x28u, FileBasicInformation);
+    LODWORD(v61) = 0;
+    si128 = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
+    v60 = si128;
+    ZwSetInformationFile(FileHandle, &IoStatusBlock, &si128, 0x28u, FileBasicInformation);
   }
   if ( (v11 & 2) != 0 && (v11 & 0x20) == 0 )
   {
@@ -329,8 +327,8 @@ LABEL_44:
   if ( !v48 )
   {
     if ( Information != 2
-      && ZwQueryInformationFile(FileHandle, &IoStatusBlock, &v63, 0x18u, FileStandardInformation) >= 0
-      && !*((_QWORD *)&v63 + 1) )
+      && ZwQueryInformationFile(FileHandle, &IoStatusBlock, &v62, 0x18u, FileStandardInformation) >= 0
+      && !*((_QWORD *)&v62 + 1) )
     {
       Information = 2;
     }

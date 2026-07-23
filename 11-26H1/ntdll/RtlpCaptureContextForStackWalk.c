@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCaptureContextForStackWalk @ 0x1801275F0
+ * XREFs of RtlpCaptureContextForStackWalk @ 0x180127360
  * Callers:
- *     RtlpWalkFrameChain @ 0x180010544 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x18005BC74 (RtlpWalkFrameChain.c)
  * Callees:
  *     <none>
  */

@@ -25,30 +25,30 @@
  *     RtlSetImageMitigationPolicy @ 0x1800EE2C0 (RtlSetImageMitigationPolicy.c)
  *     RtlpIsEmptyImageFileOptionsKey @ 0x1800EF610 (RtlpIsEmptyImageFileOptionsKey.c)
  *     RtlpQueryEafPlusModuleList @ 0x1800EF7F0 (RtlpQueryEafPlusModuleList.c)
- *     SbpResolveBasedOnName @ 0x1801286EC (SbpResolveBasedOnName.c)
+ *     SbpResolveBasedOnName @ 0x1801286BC (SbpResolveBasedOnName.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlInitUnicodeStringEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlInitUnicodeStringEx(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   unsigned __int64 v2; // rax
-  __int16 v3; // ax
+  unsigned __int16 v3; // ax
 
-  *(_QWORD *)a1 = 0LL;
-  *(_QWORD *)(a1 + 8) = a2;
-  if ( !a2 )
-    return 0LL;
+  *(_QWORD *)&DestinationString->Length = 0LL;
+  DestinationString->Buffer = (wchar_t *)SourceString;
+  if ( !SourceString )
+    return 0;
   v2 = -1LL;
   do
     ++v2;
-  while ( *(_WORD *)(a2 + 2 * v2) );
+  while ( SourceString[v2] );
   if ( v2 <= 0x7FFE )
   {
     v3 = 2 * v2;
-    *(_WORD *)a1 = v3;
-    *(_WORD *)(a1 + 2) = v3 + 2;
-    return 0LL;
+    DestinationString->Length = v3;
+    DestinationString->MaximumLength = v3 + 2;
+    return 0;
   }
-  return 3221225734LL;
+  return -1073741562;
 }

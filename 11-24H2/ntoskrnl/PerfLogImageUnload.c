@@ -1,51 +1,49 @@
 /*
- * XREFs of PerfLogImageUnload @ 0x1408E6808
+ * XREFs of PerfLogImageUnload @ 0x140A0E50C
  * Callers:
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     EtwpTraceImageUnload @ 0x1403C4AF8 (EtwpTraceImageUnload.c)
- *     KeInitializeApc @ 0x140422520 (KeInitializeApc.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpCoverageSamplerUnloadImage @ 0x1408E6A9C (EtwpCoverageSamplerUnloadImage.c)
- *     FsRtlReleaseFileNameInformation @ 0x140A13E20 (FsRtlReleaseFileNameInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     EtwpTraceImageUnload @ 0x1403B36B8 (EtwpTraceImageUnload.c)
+ *     KeInitializeApc @ 0x1404163D0 (KeInitializeApc.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140A0C580 (FsRtlReleaseFileNameInformation.c)
+ *     EtwpCoverageSamplerUnloadImage @ 0x140A0E7A0 (EtwpCoverageSamplerUnloadImage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PerfLogImageUnload(
         unsigned __int16 *a1,
         void *a2,
         void *a3,
-        unsigned __int64 a4,
+        void *a4,
         __int64 a5,
-        int a6,
+        int CheckSum,
         int a7,
         int a8,
         unsigned int a9)
 {
-  __int64 v13; // rdi
-  int v14; // esi
-  unsigned __int64 v15; // rax
+  __int64 ImageBase; // rdi
+  int TimeDateStamp; // esi
+  PIMAGE_NT_HEADERS v15; // rax
   __int64 Pool2; // r14
   __int64 v17; // rdx
   int v18; // eax
   unsigned __int16 *v19; // rcx
   int v20; // [rsp+50h] [rbp-68h]
   __int64 v21; // [rsp+58h] [rbp-60h]
-  __int64 v22; // [rsp+60h] [rbp-58h] BYREF
-  _OWORD v23[5]; // [rsp+68h] [rbp-50h] BYREF
+  __int128 v22; // [rsp+68h] [rbp-50h] BYREF
 
-  v13 = 0LL;
+  ImageBase = 0LL;
   v21 = 0LL;
-  v23[0] = 0LL;
   v22 = 0LL;
-  v14 = 0;
+  TimeDateStamp = 0;
   v20 = 0;
   if ( EtwpHostSiloState != -4844 && (*(_DWORD *)(EtwpHostSiloState + 4844) & 4) != 0 )
     EtwpCoverageSamplerUnloadImage(a3, a4, a5);
@@ -54,18 +52,18 @@ void __fastcall PerfLogImageUnload(
     v15 = RtlImageNtHeader(a4);
     if ( v15 )
     {
-      a6 = *(_DWORD *)(v15 + 88);
-      v14 = *(_DWORD *)(v15 + 8);
-      v20 = v14;
-      v13 = *(_QWORD *)(v15 + 48);
-      v21 = v13;
+      CheckSum = v15->OptionalHeader.CheckSum;
+      TimeDateStamp = v15->FileHeader.TimeDateStamp;
+      v20 = TimeDateStamp;
+      ImageBase = v15->OptionalHeader.ImageBase;
+      v21 = ImageBase;
     }
   }
   if ( a2 )
   {
     if ( a9 || KeAreAllApcsDisabled() )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x90uLL, 0x41777445u);
       if ( Pool2 )
       {
         PsReferenceSiloContext(a3);
@@ -74,11 +72,11 @@ void __fastcall PerfLogImageUnload(
         *(_QWORD *)(Pool2 + 96) = a3;
         *(_QWORD *)(Pool2 + 104) = a4;
         *(_QWORD *)(Pool2 + 112) = a5;
-        *(_DWORD *)(Pool2 + 120) = a6;
-        *(_DWORD *)(Pool2 + 124) = v14;
+        *(_DWORD *)(Pool2 + 120) = CheckSum;
+        *(_DWORD *)(Pool2 + 124) = TimeDateStamp;
         *(_DWORD *)(Pool2 + 128) = a7;
         *(_DWORD *)(Pool2 + 132) = a8;
-        *(_QWORD *)(Pool2 + 136) = v13;
+        *(_QWORD *)(Pool2 + 136) = ImageBase;
         KeInitializeApc(
           Pool2,
           (__int64)KeGetCurrentThread(),
@@ -93,8 +91,8 @@ void __fastcall PerfLogImageUnload(
         ExFreePoolWithTag((PVOID)Pool2, 0);
         ObfDereferenceObject(a2);
         ObfDereferenceObject(a3);
-        v13 = v21;
-        v14 = v20;
+        ImageBase = v21;
+        TimeDateStamp = v20;
       }
       v17 = 512LL;
     }
@@ -104,14 +102,12 @@ void __fastcall PerfLogImageUnload(
     }
     if ( FltMgrCallbacks )
     {
-      v18 = guard_dispatch_icall_no_overrides(a2, v17, v23, &v22);
-      v19 = (unsigned __int16 *)v23;
+      v18 = guard_dispatch_icall_no_overrides(a2, v17);
+      v19 = (unsigned __int16 *)&v22;
       if ( v18 < 0 )
         v19 = a1;
       a1 = v19;
     }
   }
-  EtwpTraceImageUnload(a1, (__int64)a3, a4, a5, a6, v14, a7, a8, v13, a9);
-  if ( v22 )
-    FsRtlReleaseFileNameInformation();
+  EtwpTraceImageUnload(a1, (__int64)a3, (__int64)a4, a5, CheckSum, TimeDateStamp, a7, a8, ImageBase, a9);
 }

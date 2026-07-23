@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlIsAnyDebuggerPresent @ 0x1800F2A08
+ * XREFs of RtlIsAnyDebuggerPresent @ 0x1800ED2F8
  * Callers:
- *     RtlQueryProcessLockInformation @ 0x180046FA0 (RtlQueryProcessLockInformation.c)
- *     RtlReportCriticalFailure @ 0x180098B40 (RtlReportCriticalFailure.c)
- *     RtlAssert @ 0x1800F28E0 (RtlAssert.c)
- *     RtlpReportHeapFailure @ 0x18011F4EC (RtlpReportHeapFailure.c)
- *     RtlUnhandledExceptionFilter2 @ 0x18011F650 (RtlUnhandledExceptionFilter2.c)
+ *     RtlQueryProcessLockInformation @ 0x18002AFA0 (RtlQueryProcessLockInformation.c)
+ *     RtlReportCriticalFailure @ 0x18002D990 (RtlReportCriticalFailure.c)
+ *     RtlAssert @ 0x1800ED1D0 (RtlAssert.c)
+ *     RtlpReportHeapFailure @ 0x18011D71C (RtlpReportHeapFailure.c)
+ *     RtlUnhandledExceptionFilter2 @ 0x18011D880 (RtlUnhandledExceptionFilter2.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 RtlIsAnyDebuggerPresent()
+BOOLEAN RtlIsAnyDebuggerPresent(void)
 {
-  unsigned __int8 result; // al
+  BOOLEAN result; // al
 
   result = NtCurrentPeb()->BeingDebugged;
   if ( !result )

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiApplyProcessorDpcLimits @ 0x140B55BCC
+ * XREFs of KiApplyProcessorDpcLimits @ 0x140B57C1C
  * Callers:
- *     KiUpdateProcessorDpcWatchdogConfiguration @ 0x1405B4D80 (KiUpdateProcessorDpcWatchdogConfiguration.c)
- *     KiInitializeProcessor @ 0x140B565CC (KiInitializeProcessor.c)
+ *     KiUpdateProcessorDpcWatchdogConfiguration @ 0x1405B1D10 (KiUpdateProcessorDpcWatchdogConfiguration.c)
+ *     KiInitializeProcessor @ 0x140B5861C (KiInitializeProcessor.c)
  * Callees:
- *     KiSetProcessorDpcLimits @ 0x1405B74A0 (KiSetProcessorDpcLimits.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiSetProcessorDpcLimits @ 0x1405B4800 (KiSetProcessorDpcLimits.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiApplyProcessorDpcLimits(__int64 a1, int *a2)
 {
-  int v3; // eax
+  unsigned int v3; // eax
   __int64 Pool2; // r8
   int v6; // ebx
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
@@ -22,7 +22,7 @@ __int64 __fastcall KiApplyProcessorDpcLimits(__int64 a1, int *a2)
   if ( a2[7] != v3 )
   {
     if ( v3 )
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, v3, 0x5057694Bu);
     else
       Pool2 = 0LL;
   }

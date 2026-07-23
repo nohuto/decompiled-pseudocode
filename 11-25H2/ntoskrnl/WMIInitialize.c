@@ -28,7 +28,7 @@ char __fastcall WMIInitialize(__int64 a1, __int64 a2)
   }
   WmipInitializeAllocs(a1, a2);
   RtlInitUnicodeString(&DestinationString, L"\\Driver\\WMIxWDM");
-  if ( (int)IoCreateDriver(&DestinationString, (unsigned __int64)WmipDriverEntry) >= 0 )
+  if ( (int)IoCreateDriver(&DestinationString, WmipDriverEntry) >= 0 )
   {
     v4 = *(_QWORD *)(a2 + 240);
     ExInitializeResourceLite2(&WmipSMBiosLock, -1);

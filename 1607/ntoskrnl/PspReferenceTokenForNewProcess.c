@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReferenceTokenForNewProcess @ 0x14045CF84
+ * XREFs of PspReferenceTokenForNewProcess @ 0x14045BE54
  * Callers:
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x1404EB990 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1404CDA18 (PspCreateProcess.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall PspReferenceTokenForNewProcess(struct _KPROCESS *a1, void *a2, KPROCESSOR_MODE a3, _QWORD *a4)

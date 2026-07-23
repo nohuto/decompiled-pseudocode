@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgGetDriverDmarCompatLevel @ 0x140B24300
+ * XREFs of PipDmgGetDriverDmarCompatLevel @ 0x140B267A0
  * Callers:
- *     PipDmgGetDriversDmarPolicy @ 0x140B2423C (PipDmgGetDriversDmarPolicy.c)
+ *     PipDmgGetDriversDmarPolicy @ 0x140B266DC (PipDmgGetDriversDmarPolicy.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1404F4BE8 (PnpGetRegistryDword.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     PipDmgIsDmaVerifierEnabled @ 0x1407A7A40 (PipDmgIsDmaVerifierEnabled.c)
- *     PipOpenServiceEnumKeys @ 0x140A12308 (PipOpenServiceEnumKeys.c)
+ *     PnpGetRegistryDword @ 0x1404EE1C8 (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     PipDmgIsDmaVerifierEnabled @ 0x1407AA5F0 (PipDmgIsDmaVerifierEnabled.c)
+ *     PipOpenServiceEnumKeys @ 0x140A114F8 (PipOpenServiceEnumKeys.c)
  */
 
 __int64 __fastcall PipDmgGetDriverDmarCompatLevel(__int64 a1)

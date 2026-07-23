@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCaptureUnicodeStringBuffer @ 0x1408F2650
+ * XREFs of CmpCaptureUnicodeStringBuffer @ 0x1408F8C10
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     CmCreateKey @ 0x1409748F0 (CmCreateKey.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
- *     NtDeleteValueKey @ 0x14097CD00 (NtDeleteValueKey.c)
- *     CmpCaptureKeyValueArray @ 0x14097DACC (CmpCaptureKeyValueArray.c)
- *     CmUnloadKey @ 0x140B0A63C (CmUnloadKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     CmCreateKey @ 0x140936900 (CmCreateKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
+ *     NtDeleteValueKey @ 0x14093ED10 (NtDeleteValueKey.c)
+ *     CmpCaptureKeyValueArray @ 0x14093FADC (CmpCaptureKeyValueArray.c)
+ *     CmUnloadKey @ 0x140A3E88C (CmUnloadKey.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 void *__fastcall CmpCaptureUnicodeStringBuffer(unsigned __int16 *a1, void *a2, char a3)

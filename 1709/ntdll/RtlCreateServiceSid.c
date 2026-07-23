@@ -11,12 +11,12 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateServiceSid(unsigned __int16 *a1, _DWORD *a2, _DWORD *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
   bool v4; // cf
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v6; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-39h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
   _BYTE v8[64]; // [rsp+30h] [rbp-29h] BYREF
   int v9; // [rsp+70h] [rbp+17h]
   int v10; // [rsp+74h] [rbp+1Bh]
@@ -31,14 +31,14 @@ __int64 __fastcall RtlCreateServiceSid(unsigned __int16 *a1, _DWORD *a2, _DWORD 
   int v19; // [rsp+9Ch] [rbp+43h]
   int v20; // [rsp+A0h] [rbp+47h]
 
-  if ( !a1 || !a3 )
-    return 3221225485LL;
-  v4 = *a3 < 0x20u;
-  *a3 = 32;
+  if ( !ServiceName || !ServiceSidLength )
+    return -1073741811;
+  v4 = *ServiceSidLength < 0x20;
+  *ServiceSidLength = 32;
   if ( v4 )
-    return 3221225507LL;
-  result = RtlUpcaseUnicodeString((__int64)&UnicodeString, a1, 1);
-  if ( (int)result >= 0 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
+  if ( result >= 0 )
   {
     v14 = 0;
     v15 = 0;
@@ -47,18 +47,18 @@ __int64 __fastcall RtlCreateServiceSid(unsigned __int16 *a1, _DWORD *a2, _DWORD 
     v11 = -1732584194;
     v12 = 271733878;
     v13 = -1009589776;
-    A_SHAUpdate(v8, UnicodeString.Buffer, UnicodeString.Length);
+    A_SHAUpdate(v8, DestinationString.Buffer, DestinationString.Length);
     A_SHAFinal(v8);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid((__int64)a2, (__int64)&RtlpNtAuthority, 6u);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(ServiceSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
     v6 = v16;
-    a2[2] = 80;
-    a2[3] = v6;
-    a2[4] = v17;
-    a2[5] = v18;
-    a2[6] = v19;
-    a2[7] = v20;
-    return 0LL;
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v6;
+    *((_DWORD *)ServiceSid + 4) = v17;
+    *((_DWORD *)ServiceSid + 5) = v18;
+    *((_DWORD *)ServiceSid + 6) = v19;
+    *((_DWORD *)ServiceSid + 7) = v20;
+    return 0;
   }
   return result;
 }

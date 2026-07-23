@@ -44,7 +44,7 @@ __int64 PopDeepSleepEvaluateCallback()
     if ( PopDeepSleepDisengageReasonMask )
       PopDiagTraceIdleResiliencyEnd(v1, v3 + 2);
     else
-      PopDiagTraceIdleResiliencyStart(v1, v3 + 2, 0x1Eu / KeMaximumIncrement + 1);
+      PopDiagTraceIdleResiliencyStart(v1, v3 + 2, 0x1E / KeMaximumIncrement + 1);
     PopDeepSleepIsEngaged = v4;
     KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);
     if ( KiIrqlFlags )

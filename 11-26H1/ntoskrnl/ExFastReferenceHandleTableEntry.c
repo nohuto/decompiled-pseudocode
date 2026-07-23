@@ -1,13 +1,13 @@
 /*
- * XREFs of ExFastReferenceHandleTableEntry @ 0x1403F3A50
+ * XREFs of ExFastReferenceHandleTableEntry @ 0x1403ED400
  * Callers:
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
- *     PspThreadFromTicket @ 0x140A191C0 (PspThreadFromTicket.c)
- *     NtAlertThreadByThreadIdEx @ 0x140A33250 (NtAlertThreadByThreadIdEx.c)
- *     NtAlertThreadByThreadId @ 0x140A5D8F0 (NtAlertThreadByThreadId.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
+ *     PspThreadFromTicket @ 0x140A227F0 (PspThreadFromTicket.c)
+ *     NtAlertThreadByThreadIdEx @ 0x140A4E1B0 (NtAlertThreadByThreadIdEx.c)
+ *     NtAlertThreadByThreadId @ 0x140A6A8B0 (NtAlertThreadByThreadId.c)
  * Callees:
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ExFastReferenceHandleTableEntry(__int64 a1, _QWORD *a2, unsigned __int64 *a3)

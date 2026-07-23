@@ -1,18 +1,18 @@
 /*
- * XREFs of KiRestoreClockTickRate @ 0x140418994
+ * XREFs of KiRestoreClockTickRate @ 0x14040CECC
  * Callers:
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     KiResumeClockTimer @ 0x140523C58 (KiResumeClockTimer.c)
- *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     KiResumeClockTimer @ 0x1405262C8 (KiResumeClockTimer.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405F03F4 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KiLogClockIncrementUpdate @ 0x14021D628 (KiLogClockIncrementUpdate.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiSetNextClockTickDueTime @ 0x1403796D0 (KiSetNextClockTickDueTime.c)
- *     KiShouldRearmClockTimer @ 0x14041902C (KiShouldRearmClockTimer.c)
- *     KiGetClockIntervalOneShot @ 0x14046F550 (KiGetClockIntervalOneShot.c)
- *     KiSetPendingTick @ 0x14047CCA4 (KiSetPendingTick.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLogClockIncrementUpdate @ 0x14021EFB8 (KiLogClockIncrementUpdate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiSetNextClockTickDueTime @ 0x14037B480 (KiSetNextClockTickDueTime.c)
+ *     KiShouldRearmClockTimer @ 0x14040D55C (KiShouldRearmClockTimer.c)
+ *     KiGetClockIntervalOneShot @ 0x140468CD0 (KiGetClockIntervalOneShot.c)
+ *     KiSetPendingTick @ 0x140476614 (KiSetPendingTick.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, _QWORD *a2, int *a3)
@@ -49,7 +49,7 @@ __int64 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, _QWORD *a2, int *
     if ( (unsigned __int8)KiShouldRearmClockTimer(CurrentPrcb, v6, a3) )
     {
       CurrentPrcb->ClockTimerState.OneShotState = KClockTimerOneShotRearmRequired;
-      KiSetNextClockTickDueTime(v6, 1);
+      KiSetNextClockTickDueTime((LARGE_INTEGER)v6, 1);
     }
     *(_QWORD *)v4 = CurrentPrcb->ClockTimerState.TimeIncrement;
     LastRequestedTimeIncrement = CurrentPrcb->ClockTimerState.LastRequestedTimeIncrement;

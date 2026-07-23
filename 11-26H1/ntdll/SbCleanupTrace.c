@@ -1,10 +1,10 @@
 /*
- * XREFs of SbCleanupTrace @ 0x180102E00
+ * XREFs of SbCleanupTrace @ 0x180102180
  * Callers:
- *     LdrShutdownProcess @ 0x180087920 (LdrShutdownProcess.c)
+ *     LdrShutdownProcess @ 0x18007ECA0 (LdrShutdownProcess.c)
  * Callees:
- *     SbGetCurrentSwitchContext @ 0x180064460 (SbGetCurrentSwitchContext.c)
- *     EtwNotificationUnregister @ 0x18006D0E0 (EtwNotificationUnregister.c)
+ *     SbGetCurrentSwitchContext @ 0x1800848B0 (SbGetCurrentSwitchContext.c)
+ *     EtwNotificationUnregister @ 0x18008D530 (EtwNotificationUnregister.c)
  */
 
 __int64 SbCleanupTrace()
@@ -12,7 +12,7 @@ __int64 SbCleanupTrace()
   unsigned int v0; // ebx
   char *CurrentSwitchContext; // rax
   char *v2; // rdi
-  __int64 v3; // rcx
+  REGHANDLE v3; // rcx
 
   v0 = 0;
   CurrentSwitchContext = SbGetCurrentSwitchContext();

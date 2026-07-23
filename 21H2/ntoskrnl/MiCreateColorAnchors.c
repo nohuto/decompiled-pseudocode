@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateColorAnchors @ 0x1402E2394
+ * XREFs of MiCreateColorAnchors @ 0x1402936E4
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
- *     MiFindLargePageMemory @ 0x1408DA0E4 (MiFindLargePageMemory.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140295074 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
+ *     MiFindLargePageMemory @ 0x1408DA244 (MiFindLargePageMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiGetOptimalProcessorWriteCount @ 0x1402E2484 (MiGetOptimalProcessorWriteCount.c)
- *     MiGetClosestNodeWithProcessors @ 0x1402E24C0 (MiGetClosestNodeWithProcessors.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiGetOptimalProcessorWriteCount @ 0x1402937D4 (MiGetOptimalProcessorWriteCount.c)
+ *     MiGetClosestNodeWithProcessors @ 0x140293810 (MiGetClosestNodeWithProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall MiCreateColorAnchors(__int64 a1, unsigned int a2)
@@ -22,8 +22,8 @@ __int64 __fastcall MiCreateColorAnchors(__int64 a1, unsigned int a2)
   __int64 result; // rax
   _QWORD *v10; // rcx
   __int64 v11; // rdx
-  struct _GROUP_AFFINITY v12; // xmm0
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY v12; // xmm0
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
   USHORT Count; // [rsp+50h] [rbp+18h] BYREF
 
   Affinity = 0LL;
@@ -74,7 +74,7 @@ LABEL_4:
     *(_QWORD *)a1 = result;
     result = 1LL;
     *(_DWORD *)(a1 + 20) = 0;
-    *(struct _GROUP_AFFINITY *)(a1 + 32) = v12;
+    *(_GROUP_AFFINITY *)(a1 + 32) = v12;
     *(_DWORD *)(a1 + 16) = v8;
     *(_DWORD *)(a1 + 24) = ClosestNodeWithProcessors;
     *(_DWORD *)(a1 + 8) = 0;

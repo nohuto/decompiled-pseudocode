@@ -1,19 +1,19 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x1409071A0
+ * XREFs of MmMapViewOfSection @ 0x1408DE270
  * Callers:
- *     DifMmMapViewOfSectionWrapper @ 0x140634090 (DifMmMapViewOfSectionWrapper.c)
- *     NtCreateIoRing @ 0x140717160 (NtCreateIoRing.c)
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
- *     EtwpCoverageEnsureUserModeView @ 0x140906720 (EtwpCoverageEnsureUserModeView.c)
- *     PspMapSiloSharedDataView @ 0x140906E34 (PspMapSiloSharedDataView.c)
- *     NtInitializeNlsFiles @ 0x140906E70 (NtInitializeNlsFiles.c)
- *     MmMapApiSetView @ 0x140907078 (MmMapApiSetView.c)
- *     PspSchedulerSharedDataRegionCreate @ 0x140946D5C (PspSchedulerSharedDataRegionCreate.c)
- *     MmCreatePeb @ 0x140AE79AC (MmCreatePeb.c)
+ *     DifMmMapViewOfSectionWrapper @ 0x140632650 (DifMmMapViewOfSectionWrapper.c)
+ *     NtCreateIoRing @ 0x140714CF0 (NtCreateIoRing.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x1408DCCEC (EtwpCoverageEnsureUserModeView.c)
+ *     PspMapSiloSharedDataView @ 0x1408DD840 (PspMapSiloSharedDataView.c)
+ *     NtInitializeNlsFiles @ 0x1408DD880 (NtInitializeNlsFiles.c)
+ *     MmMapApiSetView @ 0x1408DDA88 (MmMapApiSetView.c)
+ *     MmCreatePeb @ 0x1408DDBA4 (MmCreatePeb.c)
+ *     PspSchedulerSharedDataRegionCreate @ 0x1408EB67C (PspSchedulerSharedDataRegionCreate.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiMapViewOfSection @ 0x14089A1A0 (MiMapViewOfSection.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiMapViewOfSection @ 0x1408A2840 (MiMapViewOfSection.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(
@@ -106,9 +106,9 @@ __int64 __fastcall MmMapViewOfSection(
   if ( (int)result < 0 )
   {
     if ( *a3 )
-      ++dword_140E301AC;
+      ++dword_140E302EC;
     else
-      ++dword_140E301A8;
+      ++dword_140E302E8;
   }
   else
   {

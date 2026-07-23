@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlAddAce @ 0x1405CAE40
+ * XREFs of RtlAddAce @ 0x1405CBE40
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140132D18 (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x1401B6D90 (SepSetProcessTrustLabelAceForToken.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326154 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1405C9190 (SepAppendAceToTokenObjectAcl.c)
- *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140132DE8 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1401B6EF8 (SepSetProcessTrustLabelAceForToken.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326344 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1405CA190 (SepAppendAceToTokenObjectAcl.c)
+ *     LocalGetAclForString @ 0x1406B0F2C (LocalGetAclForString.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
- *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
+ *     RtlFirstFreeAce @ 0x140631A10 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x140632720 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)

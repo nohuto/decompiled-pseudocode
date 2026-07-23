@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetProcessWin32Process @ 0x140A4A7B0
+ * XREFs of PsSetProcessWin32Process @ 0x140A414D0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsSetProcessWin32Process(struct _LIST_ENTRY *Object, struct _LIST_ENTRY *a2, struct _LIST_ENTRY *a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PsSetProcessWin32Process(struct _LIST_ENTRY *Object, struct _
       Object[41].Blink = a2;
       if ( (((__int64)Object[111].Flink | ((unsigned __int64)Object[111].Flink >> 30)) & 0x3FFFFFFF) != 0 )
       {
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x65446954u);
         v9 = (struct _WORK_QUEUE_ITEM *)Pool2;
         if ( Pool2 )
         {

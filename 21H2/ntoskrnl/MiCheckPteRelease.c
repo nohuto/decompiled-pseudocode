@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPteRelease @ 0x140553AD0
+ * XREFs of MiCheckPteRelease @ 0x140553D10
  * Callers:
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
@@ -31,24 +31,24 @@ __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
     KeBugCheckEx(0xDAu, 0x300uLL, a1 << 25 >> 16, 0LL, 0LL);
   if ( (unsigned int)MiGetSystemRegionType(a1 << 25 >> 16) != 9 )
     KeBugCheckEx(0xDAu, 0x301uLL, v4, 0LL, 0LL);
-  v5 = 2LL * (unsigned int)((a1 - qword_140C4EF50) >> 3);
-  if ( _bittest64((const signed __int64 *)qword_140C4EAE0, v5) )
+  v5 = 2LL * (unsigned int)((a1 - qword_140C4EF90) >> 3);
+  if ( _bittest64((const signed __int64 *)qword_140C4EB20, v5) )
     KeBugCheckEx(0xDAu, 0x303uLL, v4, a2, 0LL);
   LOBYTE(v6) = 2;
-  if ( v5 && *(_DWORD *)(qword_140C4EAE0 + 4 * ((v5 - 2) >> 5)) >> ((v5 - 2) & 0x1F) == 2 )
+  if ( v5 && *(_DWORD *)(qword_140C4EB20 + 4 * ((v5 - 2) >> 5)) >> ((v5 - 2) & 0x1F) == 2 )
     KeBugCheckEx(0xDAu, 0x304uLL, v4, a2, 0LL);
-  for ( i = v5 + 1; _bittest64((const signed __int64 *)qword_140C4EAE0, i) == 1; i += 2LL )
+  for ( i = v5 + 1; _bittest64((const signed __int64 *)qword_140C4EB20, i) == 1; i += 2LL )
     ;
   BugCheckParameter4 = ((i - v5) >> 1) + 1;
   if ( BugCheckParameter4 != a2 )
     KeBugCheckEx(0xDAu, 0x305uLL, v4, a2, BugCheckParameter4);
   v9 = v5 + 2 * BugCheckParameter4;
-  v10 = 2LL * (unsigned int)((a1 - qword_140C4EF50) >> 3);
+  v10 = 2LL * (unsigned int)((a1 - qword_140C4EF90) >> 3);
   if ( v5 < v9 )
   {
     do
     {
-      if ( _bittest64((const signed __int64 *)qword_140C4EAE0, v10) == 1 )
+      if ( _bittest64((const signed __int64 *)qword_140C4EB20, v10) == 1 )
         KeBugCheckEx(0xDAu, 0x306uLL, v4, v4 + (((v10 - v5) << 11) & 0xFFFFFFFFFFFFF000uLL), BugCheckParameter4);
       v10 += 2LL;
     }
@@ -58,7 +58,7 @@ __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
   while ( 1 )
   {
     v16 = v5 & 0x1F;
-    v14 = (volatile signed __int32 *)(qword_140C4EAE0 + 4 * (v5 >> 5));
+    v14 = (volatile signed __int32 *)(qword_140C4EB20 + 4 * (v5 >> 5));
     if ( v5 >= v11 )
       break;
     LOBYTE(v12) = 1;

@@ -1,7 +1,7 @@
 /*
- * XREFs of _SysCtxGetTransaction @ 0x1408201B8
+ * XREFs of _SysCtxGetTransaction @ 0x1408208F8
  * Callers:
- *     _PnpCtxRegisterMachineNode @ 0x14081799C (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408180DC (_PnpCtxRegisterMachineNode.c)
  * Callees:
  *     <none>
  */

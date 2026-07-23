@@ -7,7 +7,7 @@
  *     TpWaitForWait @ 0x18004FBC0 (TpWaitForWait.c)
  * Callees:
  *     TppValidateCleanupGroupMember @ 0x180034C74 (TppValidateCleanupGroupMember.c)
- *     TppRaiseInvalidParameter @ 0x180127278 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x180127248 (TppRaiseInvalidParameter.c)
  */
 
 __int64 __fastcall TppWaitpValidateWait(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlInitializeHistoryTable @ 0x1800F1E4C
+ * XREFs of RtlInitializeHistoryTable @ 0x1800ECACC
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrProtectMrdata @ 0x180007080 (LdrProtectMrdata.c)
- *     RtlLookupFunctionEntry @ 0x180015110 (RtlLookupFunctionEntry.c)
- *     RtlpFunctionAddressTableEntry @ 0x1800F1F0C (RtlpFunctionAddressTableEntry.c)
+ *     LdrProtectMrdata @ 0x180033A80 (LdrProtectMrdata.c)
+ *     RtlLookupFunctionEntry @ 0x180041B10 (RtlLookupFunctionEntry.c)
+ *     RtlpFunctionAddressTableEntry @ 0x1800ECB8C (RtlpFunctionAddressTableEntry.c)
  */
 
-__int64 RtlInitializeHistoryTable()
+void RtlInitializeHistoryTable()
 {
   unsigned int i; // ebx
   void (__stdcall *v1)(PEXCEPTION_RECORD); // rax
@@ -26,18 +26,18 @@ __int64 RtlInitializeHistoryTable()
     if ( !v1 )
       break;
     if ( v1 == RtlRaiseException )
-      byte_1801E7355 = i;
+      byte_1801E6355 = i;
     v2 = RtlLookupFunctionEntry((ULONG64)v1, &ImageBase, 0LL);
     v3 = 2LL * i;
     v4 = ImageBase + v2->BeginAddress;
     v5 = ImageBase + v2->EndAddress;
     *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 6] = ImageBase;
     *(_QWORD *)&RtlpUnwindHistoryTable[2 * v3 + 8] = v2;
-    if ( v4 < qword_1801E7358 )
-      qword_1801E7358 = v4;
-    if ( v5 > qword_1801E7360 )
-      qword_1801E7360 = v5;
+    if ( v4 < qword_1801E6358 )
+      qword_1801E6358 = v4;
+    if ( v5 > qword_1801E6360 )
+      qword_1801E6360 = v5;
   }
   RtlpUnwindHistoryTable[0] = i;
-  return LdrProtectMrdata(1);
+  LdrProtectMrdata(1);
 }

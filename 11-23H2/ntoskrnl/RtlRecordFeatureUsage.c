@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRecordFeatureUsage @ 0x140411760
+ * XREFs of RtlRecordFeatureUsage @ 0x1404119A0
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerRecordFeatureUsage @ 0x140419A58 (CmFcManagerRecordFeatureUsage.c)
+ *     CmFcManagerRecordFeatureUsage @ 0x140419DE8 (CmFcManagerRecordFeatureUsage.c)
  */
 
 __int64 __fastcall RtlRecordFeatureUsage(__int64 a1, __int64 a2)

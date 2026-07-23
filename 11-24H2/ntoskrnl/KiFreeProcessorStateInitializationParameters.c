@@ -1,21 +1,22 @@
 /*
- * XREFs of KiFreeProcessorStateInitializationParameters @ 0x1405B7038
+ * XREFs of KiFreeProcessorStateInitializationParameters @ 0x1405B42F8
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     KiFreeProcessorStacks @ 0x1405B6F14 (KiFreeProcessorStacks.c)
- *     KiFreeProcessorNumber @ 0x1405BB6B8 (KiFreeProcessorNumber.c)
- *     KeUninitThread @ 0x140A19A98 (KeUninitThread.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KiFreeProcessorStacks @ 0x1405B41D4 (KiFreeProcessorStacks.c)
+ *     KiFreeProcessorNumber @ 0x1405B8CE8 (KiFreeProcessorNumber.c)
+ *     KeUninitThread @ 0x140A12C08 (KeUninitThread.c)
  */
 
-unsigned __int64 __fastcall KiFreeProcessorStateInitializationParameters(__int64 a1)
+__int64 __fastcall KiFreeProcessorStateInitializationParameters(__int64 a1)
 {
   void *v1; // rdi
-  unsigned __int64 result; // rax
-  unsigned __int64 v4; // rcx
+  __int64 result; // rax
+  __int64 v4; // r8
+  unsigned __int64 v5; // rcx
 
   v1 = *(void **)(a1 + 48);
   if ( v1 )
@@ -26,8 +27,8 @@ unsigned __int64 __fastcall KiFreeProcessorStateInitializationParameters(__int64
   if ( *(_WORD *)(a1 + 32) || *(_BYTE *)(a1 + 34) )
     KiFreeProcessorNumber();
   result = KiFreeProcessorStacks((_QWORD *)a1);
-  v4 = *(_QWORD *)(a1 + 8);
-  if ( v4 )
-    return MmFreeIndependentPages(v4, *(unsigned int *)(a1 + 16));
+  v5 = *(_QWORD *)(a1 + 8);
+  if ( v5 )
+    return MmFreeIndependentPages(v5, *(unsigned int *)(a1 + 16), v4);
   return result;
 }

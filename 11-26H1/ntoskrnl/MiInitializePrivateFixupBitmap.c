@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializePrivateFixupBitmap @ 0x1409CE834
+ * XREFs of MiInitializePrivateFixupBitmap @ 0x14099F814
  * Callers:
- *     MiAddPrivateFixupEntryForSystemImage @ 0x1406E6BA8 (MiAddPrivateFixupEntryForSystemImage.c)
- *     MiCreateFixupVad @ 0x1409CE47C (MiCreateFixupVad.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1406EB858 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MiCreateFixupVad @ 0x14099F45C (MiCreateFixupVad.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x1409CF294 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x1409A0274 (RtlDoesRequireFunctionOverrideFixups.c)
  */
 
 __int64 __fastcall MiInitializePrivateFixupBitmap(__int64 a1, __int64 a2, char a3)

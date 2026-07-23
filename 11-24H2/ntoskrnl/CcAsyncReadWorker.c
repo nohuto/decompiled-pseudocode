@@ -1,25 +1,25 @@
 /*
- * XREFs of CcAsyncReadWorker @ 0x1404DF280
+ * XREFs of CcAsyncReadWorker @ 0x1404D8CA0
  * Callers:
- *     CcAsyncReadWorkerThread @ 0x14057DDB0 (CcAsyncReadWorkerThread.c)
+ *     CcAsyncReadWorkerThread @ 0x14057B240 (CcAsyncReadWorkerThread.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     CcFindNextWorkQueueEntry @ 0x1402A788C (CcFindNextWorkQueueEntry.c)
- *     CcFreeWorkQueueEntry @ 0x1402A7E6C (CcFreeWorkQueueEntry.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD54C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x140397070 (MmWaitMultipleForCacheManagerPrefetch.c)
- *     CcAsyncReadPrefetch @ 0x140461E40 (CcAsyncReadPrefetch.c)
- *     CcCompleteAsyncRead @ 0x1404DF87C (CcCompleteAsyncRead.c)
- *     CcPostWorkQueueAsyncRead @ 0x1404DFCEC (CcPostWorkQueueAsyncRead.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1404E00C0 (CcShouldSpinAsyncReadWorkerThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14027372C (CcPostWorkQueueAsyncRead.c)
+ *     CcFreeWorkQueueEntry @ 0x140279C5C (CcFreeWorkQueueEntry.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     CcFindNextWorkQueueEntry @ 0x14027ACDC (CcFindNextWorkQueueEntry.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402E624C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x1403529EC (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CcAsyncReadPrefetch @ 0x140457450 (CcAsyncReadPrefetch.c)
+ *     CcCompleteAsyncRead @ 0x1404D929C (CcCompleteAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1404D970C (CcShouldSpinAsyncReadWorkerThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
@@ -40,9 +40,9 @@ void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
   void *v14; // rax
   NTSTATUS v15; // eax
   unsigned int v16; // r15d
-  _QWORD *v17; // rax
+  char *v17; // rax
   __int64 v18; // rcx
-  _QWORD *v19; // rdi
+  char *v19; // rdi
   __int64 v20; // rsi
   _QWORD *v21; // r8
   _QWORD *NextWorkQueueEntry; // rdi
@@ -57,13 +57,13 @@ void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
   __int64 v31; // rdx
   __int64 v32; // r8
   __int64 v33; // r9
-  _QWORD *v34; // rax
-  _QWORD *v35; // rdi
+  char *v34; // rax
+  char *v35; // rdi
   signed __int64 v36; // rax
   signed __int64 v37; // rdx
   unsigned __int64 v38; // rtt
-  _QWORD *v39; // rax
-  _QWORD *v40; // rdi
+  char *v39; // rax
+  char *v40; // rdi
   signed __int64 v41; // rax
   signed __int64 v42; // rdx
   unsigned __int64 v43; // rtt
@@ -74,26 +74,27 @@ void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
   __int64 v48; // rdx
   __int64 v49; // r8
   __int64 v50; // r9
-  __int64 v51; // rax
-  unsigned int v52; // r8d
-  __int64 v53; // rcx
-  __int64 v54; // rax
-  unsigned int v55; // [rsp+40h] [rbp-C0h]
-  __int64 v56; // [rsp+48h] [rbp-B8h]
-  __int64 v57; // [rsp+50h] [rbp-B0h]
-  __int64 v58; // [rsp+58h] [rbp-A8h]
-  unsigned int v59; // [rsp+60h] [rbp-A0h]
+  unsigned int v51; // r8d
+  __int64 v52; // rax
+  unsigned int v53; // r8d
+  __int64 v54; // rcx
+  __int64 v55; // rax
+  unsigned int v56; // [rsp+40h] [rbp-C0h]
+  __int64 v57; // [rsp+48h] [rbp-B8h]
+  __int64 v58; // [rsp+50h] [rbp-B0h]
+  __int64 v59; // [rsp+58h] [rbp-A8h]
+  unsigned int v60; // [rsp+60h] [rbp-A0h]
   ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v61; // [rsp+70h] [rbp-90h]
-  __int64 v62; // [rsp+78h] [rbp-88h]
-  _QWORD *v63; // [rsp+80h] [rbp-80h]
+  __int64 v62; // [rsp+70h] [rbp-90h]
+  __int64 v63; // [rsp+78h] [rbp-88h]
+  _QWORD *v64; // [rsp+80h] [rbp-80h]
   PVOID Object[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v65; // [rsp+98h] [rbp-68h]
+  __int64 v66; // [rsp+98h] [rbp-68h]
   PVOID P; // [rsp+A0h] [rbp-60h]
-  __int64 v67; // [rsp+A8h] [rbp-58h]
+  __int64 v68; // [rsp+A8h] [rbp-58h]
   struct _KWAIT_BLOCK WaitBlockArray; // [rsp+B0h] [rbp-50h] BYREF
-  _QWORD v69[64]; // [rsp+110h] [rbp+10h] BYREF
-  _QWORD v70[64]; // [rsp+310h] [rbp+210h] BYREF
+  _QWORD v70[64]; // [rsp+110h] [rbp+10h] BYREF
+  _QWORD v71[64]; // [rsp+310h] [rbp+210h] BYREF
 
   if ( !StartContext )
     return;
@@ -106,23 +107,23 @@ void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
   BugCheckParameter2 = 0LL;
   v7 = *((_DWORD *)StartContext + 10);
   P = StartContext;
-  v55 = v7;
+  v56 = v7;
   *(_OWORD *)Object = 0LL;
-  v59 = v1;
-  v58 = v2;
-  v56 = v4;
-  v67 = v5;
-  memset_0(v69, 0, sizeof(v69));
+  v60 = v1;
+  v59 = v2;
+  v57 = v4;
+  v68 = v5;
   memset_0(v70, 0, sizeof(v70));
+  memset_0(v71, 0, sizeof(v71));
   v8 = *(_QWORD *)(v4 + 272);
-  v65 = 3 * v1;
+  v66 = 3 * v1;
   v9 = (unsigned int)v1;
-  v62 = v1;
+  v63 = v1;
   v10 = v8 + 24 * v1;
   v11 = 404 * v1;
-  v57 = v10;
+  v58 = v10;
   v12 = (unsigned __int64 *)(v5 + 1160);
-  v61 = *(_QWORD *)(v4 + 280) + v11;
+  v62 = *(_QWORD *)(v4 + 280) + v11;
   if ( !CcEnablePerVolumeLazyWriter )
     v12 = (unsigned __int64 *)(v2 + 1224);
   v13 = *(_DWORD *)(v4 + 4) == 1;
@@ -136,19 +137,19 @@ LABEL_7:
   {
     v6 = 0;
 LABEL_25:
-    v17 = KeAbPreAcquire((__int64)v12, 0LL);
+    v17 = (char *)KeAbPreAcquire((__int64)v12, 0LL);
     v19 = v17;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v12, (__int64)v17, (__int64)v12);
+      ExfAcquirePushLockExclusiveEx(v12, v17, (__int64)v12);
     if ( v19 )
-      *((_BYTE *)v19 + 10) = 1;
-    v20 = 16 * v62;
+      v19[10] = 1;
+    v20 = 16 * v63;
     while ( 1 )
     {
       v21 = (_QWORD *)(v20 + *(_QWORD *)(v4 + 256));
       if ( (_QWORD *)*v21 == v21 )
       {
-        v2 = v58;
+        v2 = v59;
         goto LABEL_58;
       }
       if ( v3 >= 0x3F )
@@ -164,14 +165,14 @@ LABEL_25:
           ExfReleasePushLock(v12);
         }
         KeAbPostRelease((ULONG_PTR)v12);
-        v2 = v58;
-        CcShouldSpinAsyncReadWorkerThread(v58, v4, &BugCheckParameter2, v59);
-        v39 = KeAbPreAcquire((__int64)v12, 0LL);
+        v2 = v59;
+        CcShouldSpinAsyncReadWorkerThread(v59, v4, &BugCheckParameter2, v60);
+        v39 = (char *)KeAbPreAcquire((__int64)v12, 0LL);
         v40 = v39;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v12, (__int64)v39, (__int64)v12);
+          ExfAcquirePushLockExclusiveEx(v12, v39, (__int64)v12);
         if ( v40 )
-          *((_BYTE *)v40 + 10) = 1;
+          v40[10] = 1;
 LABEL_58:
         _m_prefetchw(v12);
         v41 = *v12;
@@ -187,14 +188,14 @@ LABEL_58:
         v44 = (_QWORD *)BugCheckParameter2;
         if ( BugCheckParameter2 )
         {
-          *(_DWORD *)(v61 + 4LL * *(unsigned int *)(BugCheckParameter2 + 40)) = 0;
+          *(_DWORD *)(v62 + 4LL * *(unsigned int *)(BugCheckParameter2 + 40)) = 0;
           *v44 = 0LL;
           ExQueueWorkItemToPartition((ULONG_PTR)v44, 0, *(_DWORD *)(v4 + 24), *(_QWORD *)(v2 + 8));
           BugCheckParameter2 = 0LL;
         }
 LABEL_77:
-        v9 = v62;
-        if ( v55 && !v3 )
+        v9 = v63;
+        if ( v56 && !v3 )
           return;
         goto LABEL_7;
       }
@@ -216,13 +217,13 @@ LABEL_77:
       v27 = *v26;
       if ( *v26 )
       {
-        v28 = v61;
+        v28 = v62;
         v29 = v3++;
-        v69[v29] = v27;
-        v70[v29] = NextWorkQueueEntry;
-        _InterlockedIncrement((volatile signed __int32 *)(v28 + 4LL * v55));
+        v70[v29] = v27;
+        v71[v29] = NextWorkQueueEntry;
+        _InterlockedIncrement((volatile signed __int32 *)(v28 + 4LL * v56));
         v10 &= -(__int64)(v3 < 0x3F);
-        v57 = v10;
+        v58 = v10;
         goto LABEL_44;
       }
       ExFreePoolWithTag(v26, 0x73416343u);
@@ -233,29 +234,29 @@ LABEL_77:
       {
 LABEL_43:
         CcCompleteAsyncRead(NextWorkQueueEntry);
-        CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)NextWorkQueueEntry, v31, v32, v33);
+        CcFreeWorkQueueEntry((_SLIST_ENTRY *)NextWorkQueueEntry, v31, v32, v33);
       }
       else
       {
-        CcPostWorkQueueAsyncRead(NextWorkQueueEntry);
+        CcPostWorkQueueAsyncRead(NextWorkQueueEntry, 0LL);
       }
 LABEL_44:
-      v34 = KeAbPreAcquire((__int64)v12, 0LL);
+      v34 = (char *)KeAbPreAcquire((__int64)v12, 0LL);
       v35 = v34;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v12, (__int64)v34, (__int64)v12);
+        ExfAcquirePushLockExclusiveEx(v12, v34, (__int64)v12);
       if ( v35 )
-        *((_BYTE *)v35 + 10) = 1;
+        v35[10] = 1;
     }
   }
   if ( v3 )
   {
-    v16 = MmWaitMultipleForCacheManagerPrefetch((__int64)v69, v3, v10);
+    v16 = MmWaitMultipleForCacheManagerPrefetch((__int64)v70, v3, v10);
     if ( v16 < v3 )
     {
       v6 = 1;
       _mm_lfence();
-      v45 = &v70[v16];
+      v45 = &v71[v16];
       v46 = *v45;
       if ( *v45 )
       {
@@ -266,50 +267,52 @@ LABEL_44:
           *(_DWORD *)(v46 + 128) = 6;
           *v45 = 0LL;
           *(_QWORD *)(v46 + 48) = 0LL;
-          v69[v16] = 0LL;
-          v63 = &v69[v16];
+          v70[v16] = 0LL;
+          v64 = &v70[v16];
           if ( *(_DWORD *)(*(_QWORD *)(v46 + 16) + 528LL) == 1 && *(_DWORD *)(v46 + 40) <= 0x20000u )
           {
             CcCompleteAsyncRead(v46);
-            CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)v46, v48, v49, v50);
+            CcFreeWorkQueueEntry((_SLIST_ENTRY *)v46, v48, v49, v50);
           }
           else
           {
-            CcPostWorkQueueAsyncRead((PVOID)v46);
+            CcPostWorkQueueAsyncRead((_QWORD *)v46, 0LL);
           }
-          if ( v16 < --v3 )
+          v51 = v3 - 1;
+          v3 = v51;
+          if ( v16 < v51 )
           {
-            v51 = v16 + 1;
-            v52 = v3 - v16;
+            v52 = v16 + 1;
+            v53 = v51 - v16;
             v16 = v3;
-            qmemcpy(v45, &v70[v51], 8LL * v52);
-            qmemcpy(v63, &v69[v51], 8LL * v52);
+            qmemcpy(v45, &v71[v52], 8LL * v53);
+            qmemcpy(v64, &v70[v52], 8LL * v53);
           }
-          v53 = v61;
-          v10 = v57;
-          v2 = v58;
-          v54 = v16;
-          v4 = v56;
-          v69[v54] = 0LL;
-          v70[v54] = 0LL;
-          _InterlockedDecrement((volatile signed __int32 *)(v53 + 4LL * v55));
-          if ( !v57 )
+          v54 = v62;
+          v10 = v58;
+          v2 = v59;
+          v55 = v16;
+          v4 = v57;
+          v70[v55] = 0LL;
+          v71[v55] = 0LL;
+          _InterlockedDecrement((volatile signed __int32 *)(v54 + 4LL * v56));
+          if ( !v58 )
           {
-            v10 = *(_QWORD *)(v56 + 272) + 8 * v65;
-            v57 = v10;
+            v10 = *(_QWORD *)(v57 + 272) + 8 * v66;
+            v58 = v10;
           }
           goto LABEL_77;
         }
       }
-      v2 = v58;
-      v10 = v57;
+      v2 = v59;
+      v10 = v58;
 LABEL_76:
-      v4 = v56;
+      v4 = v57;
       goto LABEL_77;
     }
     v6 = 0;
 LABEL_24:
-    v4 = v56;
+    v4 = v57;
     goto LABEL_25;
   }
   v15 = KeWaitForMultipleObjects(2u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
@@ -326,12 +329,12 @@ LABEL_24:
     goto LABEL_24;
   if ( v6 == 1 )
     goto LABEL_76;
-  v57 = v10;
+  v58 = v10;
   if ( v6 != 2 )
     goto LABEL_76;
-  if ( !v55 )
+  if ( !v56 )
   {
     ExFreePoolWithTag(P, 0x71576343u);
-    CcDereferencePartitionAndPrivateVolumeCacheMap(v2, v67);
+    CcDereferencePartitionAndPrivateVolumeCacheMap(v2, v68);
   }
 }

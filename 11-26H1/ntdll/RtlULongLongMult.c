@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlULongLongMult @ 0x1800E2354
+ * XREFs of RtlULongLongMult @ 0x1800DFE54
  * Callers:
- *     RtlpValidateRemoteDebugInformation @ 0x180090470 (RtlpValidateRemoteDebugInformation.c)
- *     RtlpFcValidateFeatureConfigurationBuffer @ 0x18016F05C (RtlpFcValidateFeatureConfigurationBuffer.c)
+ *     RtlpValidateRemoteDebugInformation @ 0x1800751D0 (RtlpValidateRemoteDebugInformation.c)
+ *     RtlpFcValidateFeatureConfigurationBuffer @ 0x18016E05C (RtlpFcValidateFeatureConfigurationBuffer.c)
  * Callees:
  *     <none>
  */

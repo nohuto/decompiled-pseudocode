@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataParseFailure @ 0x1408278B0
+ * XREFs of EtwTraceLeapSecondDataParseFailure @ 0x14082DAF0
  * Callers:
- *     ExpReadLeapSecondData @ 0x140835F5C (ExpReadLeapSecondData.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     ExpReadLeapSecondData @ 0x14083C19C (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceLeapSecondDataParseFailure(int a1)
@@ -21,17 +21,17 @@ void __fastcall EtwTraceLeapSecondDataParseFailure(int a1)
   int v7; // [rsp+90h] [rbp+10h] BYREF
 
   v7 = a1;
-  if ( (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL) )
   {
     v2 = v1;
     v5 = &v2;
     v6 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E08F48, (unsigned __int8 *)&byte_1400542DF, 0LL, 0LL, 3u, &v4);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E08F78, (unsigned __int8 *)byte_1400549BD, 0LL, 0LL, 3u, &v4);
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v7;
-    EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, &KernelLeapSecondDataParseFailure, 0LL, 1u, &UserData);
+    EtwWrite(EtwKernelProvRegHandle, &KernelLeapSecondDataParseFailure, 0LL, 1u, &UserData);
   }
 }

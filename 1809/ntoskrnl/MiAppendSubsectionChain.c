@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAppendSubsectionChain @ 0x140092AA4
+ * XREFs of MiAppendSubsectionChain @ 0x1400929E4
  * Callers:
- *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
+ *     MiExtendSection @ 0x14061D4C8 (MiExtendSection.c)
  * Callees:
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
- *     MiInsertSubsectionNode @ 0x14009290C (MiInsertSubsectionNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4D20 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsection @ 0x14007B7CC (MiInsertUnusedSubsection.c)
+ *     MiInsertSubsectionNode @ 0x14009284C (MiInsertSubsectionNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4F10 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiAppendSubsectionChain(__int64 a1, __int64 a2, char a3)
@@ -136,6 +136,6 @@ LABEL_4:
   }
   __writecr8(v11);
   if ( v7 )
-    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v25 + 60) & 0x3FF)), 1LL, v7);
+    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v25 + 60) & 0x3FF)), 1LL, v7);
   return 0LL;
 }

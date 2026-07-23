@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetNextAffinityWalker @ 0x1403BF8C8
+ * XREFs of MiGetNextAffinityWalker @ 0x1403BFAA8
  * Callers:
- *     MiSelectBestZeroingProcessor @ 0x1402D06B0 (MiSelectBestZeroingProcessor.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiComputeIdealDpcGang @ 0x14038B91C (MiComputeIdealDpcGang.c)
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402D0940 (MiSelectBestZeroingProcessor.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     MiComputeIdealDpcGang @ 0x14038BAFC (MiComputeIdealDpcGang.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetNextAffinityWalker(__int64 a1, _OWORD *a2)

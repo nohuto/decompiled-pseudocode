@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpFreeDumpBuffers @ 0x140898020
+ * XREFs of IopLiveDumpFreeDumpBuffers @ 0x140898180
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x140897254 (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpReleaseResources @ 0x1408986EC (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x140898B80 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1408973B4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpReleaseResources @ 0x14089884C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898CE0 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140899000 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
- *     VslIsSecureKernelRunning @ 0x1402D3F0C (VslIsSecureKernelRunning.c)
- *     VslAbortLiveDump @ 0x1404FBD90 (VslAbortLiveDump.c)
- *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmFreePagesFromMdl @ 0x14024E380 (MmFreePagesFromMdl.c)
+ *     VslIsSecureKernelRunning @ 0x14025217C (VslIsSecureKernelRunning.c)
+ *     VslAbortLiveDump @ 0x1404FBD10 (VslAbortLiveDump.c)
+ *     MmFreeIndependentPages @ 0x140764790 (MmFreeIndependentPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpFreeDumpBuffers(__int64 a1)

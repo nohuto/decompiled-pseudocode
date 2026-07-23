@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeDummyPages @ 0x140CF32F0
+ * XREFs of MiInitializeDummyPages @ 0x140CF9670
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFillPhysicalPages @ 0x140289560 (MiFillPhysicalPages.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiFillPhysicalPagesWithPtes @ 0x1406E72C0 (MiFillPhysicalPagesWithPtes.c)
- *     MiAllocateDummyPage @ 0x140CF267C (MiAllocateDummyPage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFillPhysicalPages @ 0x140288AC0 (MiFillPhysicalPages.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFillPhysicalPagesWithPtes @ 0x1406EBF70 (MiFillPhysicalPagesWithPtes.c)
+ *     MiAllocateDummyPage @ 0x140CF89FC (MiAllocateDummyPage.c)
  */
 
 __int64 MiInitializeDummyPages()
@@ -37,7 +37,7 @@ __int64 MiInitializeDummyPages()
   unsigned __int64 v18; // [rsp+70h] [rbp+18h]
 
   v0 = 0;
-  v1 = &qword_140E36030;
+  v1 = &qword_140E361B0;
   v16 = 0;
   DemandZeroPte = MiMakeDemandZeroPte(1);
   do
@@ -88,7 +88,7 @@ __int64 MiInitializeDummyPages()
                      (((unsigned __int64)MmPfnDatabase >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
                      *(v3 - 1),
                      v11);
-        if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << v5) & (unsigned __int8)byte_140E2D689) != 0 )
+        if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << v5) & (unsigned __int8)byte_140E2D809) != 0 )
           ValidPte &= ~0x20uLL;
         if ( v5 == 2 )
           *v1 = ValidPte;
@@ -111,6 +111,6 @@ __int64 MiInitializeDummyPages()
   while ( v0 < 2 );
   v13 = MiAllocateDummyPage();
   result = MiFillPhysicalPages(0LL, v13, v14, 0LL);
-  qword_140E36070 = v13;
+  qword_140E361F0 = v13;
   return result;
 }

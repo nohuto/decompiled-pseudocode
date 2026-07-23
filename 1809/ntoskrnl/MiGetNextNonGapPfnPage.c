@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetNextNonGapPfnPage @ 0x140184468
+ * XREFs of MiGetNextNonGapPfnPage @ 0x1401845A8
  * Callers:
- *     MiFreeUnusedPfnPages @ 0x140183FE0 (MiFreeUnusedPfnPages.c)
- *     MiGetFileOnlyRanges @ 0x1402A64A8 (MiGetFileOnlyRanges.c)
+ *     MiFreeUnusedPfnPages @ 0x140184120 (MiFreeUnusedPfnPages.c)
+ *     MiGetFileOnlyRanges @ 0x1402A6698 (MiGetFileOnlyRanges.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64 *a2, char a3, int a4)
@@ -103,7 +103,7 @@ __int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64
           v30 = MI_READ_PTE_LOCK_FREE(v17);
           if ( (v30 & 1) != 0 )
           {
-            if ( qword_14043AE28 == (PVOID)qword_14043AE30 )
+            if ( qword_14043BEE8 == (PVOID)qword_14043BEF0 )
               break;
             v18 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v30);
             if ( ((v18 >> 12) & 0xFFFFFFFFFLL) != v19 )

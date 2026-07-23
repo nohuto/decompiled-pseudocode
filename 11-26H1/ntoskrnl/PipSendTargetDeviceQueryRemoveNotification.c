@@ -1,12 +1,12 @@
 /*
- * XREFs of PipSendTargetDeviceQueryRemoveNotification @ 0x140B3DBDC
+ * XREFs of PipSendTargetDeviceQueryRemoveNotification @ 0x140B3FCBC
  * Callers:
- *     PiProcessQueryAndCancelRemoval @ 0x1409135AC (PiProcessQueryAndCancelRemoval.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1409B568C (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1407B8884 (PiSendTargetDeviceRemoveCanceledNotification.c)
- *     PnpNotifyTargetDeviceChange @ 0x1409DD2BC (PnpNotifyTargetDeviceChange.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x1407BB8E4 (PiSendTargetDeviceRemoveCanceledNotification.c)
+ *     PnpNotifyTargetDeviceChange @ 0x140A1A56C (PnpNotifyTargetDeviceChange.c)
  */
 
 __int64 __fastcall PipSendTargetDeviceQueryRemoveNotification(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

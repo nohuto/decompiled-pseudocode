@@ -8,15 +8,17 @@
  *     ZwQueryLicenseValue @ 0x1401C35F0 (ZwQueryLicenseValue.c)
  */
 
-__int64 __fastcall InitializeDynamicPartitioningPolicy(int a1)
+NTSTATUS __fastcall InitializeDynamicPartitioningPolicy(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   bool IsAnyHypervisorPresent; // al
   const WCHAR *v3; // rdx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  int v6; // [rsp+58h] [rbp+10h] BYREF
-  int v7; // [rsp+60h] [rbp+18h] BYREF
+  __int64 ResultDataSize; // [rsp+50h] [rbp+8h] BYREF
+  ULONG Type; // [rsp+58h] [rbp+10h] BYREF
+  int Data; // [rsp+60h] [rbp+18h] BYREF
 
+  ResultDataSize = a1;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   result = HvlpFlags;
@@ -27,14 +29,14 @@ __int64 __fastcall InitializeDynamicPartitioningPolicy(int a1)
     if ( !IsAnyHypervisorPresent )
       v3 = L"Kernel-DynamicPartitioningSupported";
     RtlInitUnicodeString(&DestinationString, v3);
-    result = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v6, (__int64)&v7);
-    if ( (int)result >= 0 && v7 && a1 == 4 && v6 == 4 )
+    result = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, (PULONG)&ResultDataSize);
+    if ( result >= 0 && Data && (_DWORD)ResultDataSize == 4 && Type == 4 )
     {
       result = HvlpFlags;
       if ( (HvlpFlags & 4) == 0 )
       {
         KeDynamicPartitioningSupported = 1;
-        result = MEMORY[0xFFFFF780000002F0] | 0x20u;
+        result = MEMORY[0xFFFFF780000002F0] | 0x20;
         MEMORY[0xFFFFF780000002F0] |= 0x20u;
       }
     }

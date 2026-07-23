@@ -12,10 +12,10 @@
  *     TtmNotifyConsoleUserPresent @ 0x1409A42C4 (TtmNotifyConsoleUserPresent.c)
  */
 
-__int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
+ULONG __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
 {
-  __int64 result; // rax
-  unsigned int v5; // ebx
+  ULONG result; // eax
+  ULONG v5; // ebx
   int v6; // [rsp+20h] [rbp-30h] BYREF
   __int16 v7; // [rsp+25h] [rbp-2Bh]
   char v8; // [rsp+27h] [rbp-29h]
@@ -25,11 +25,11 @@ __int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
   int v12; // [rsp+38h] [rbp-18h]
   int v13; // [rsp+3Ch] [rbp-14h]
   __int64 v14; // [rsp+40h] [rbp-10h]
-  int v15; // [rsp+80h] [rbp+30h] BYREF
+  ULONG v15; // [rsp+80h] [rbp+30h] BYREF
   int v16; // [rsp+88h] [rbp+38h] BYREF
   unsigned int v17; // [rsp+8Ch] [rbp+3Ch]
 
-  result = 0LL;
+  result = 0;
   v7 = 0;
   v8 = 0;
   v10 = 0;
@@ -41,7 +41,7 @@ __int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
     result = RtlGetActiveConsoleId();
     v15 = result;
     v5 = result;
-    if ( (_DWORD)result != -1 )
+    if ( result != -1 )
     {
       if ( TtmIsEnabled() )
       {

@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtIommuFaultLogDeferredRoutine @ 0x1405A74E0
+ * XREFs of IvtIommuFaultLogDeferredRoutine @ 0x1405A9CF0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall IvtIommuFaultLogDeferredRoutine(__int64 a1, __int64 a2)

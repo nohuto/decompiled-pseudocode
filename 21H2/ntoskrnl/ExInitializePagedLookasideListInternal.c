@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializePagedLookasideListInternal @ 0x14035E040
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x1402A2F70
  * Callers:
- *     ExInitializePagedLookasideList @ 0x1407113C0 (ExInitializePagedLookasideList.c)
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407CB890 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x1406BFA10 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407CBA00 (FsRtlInitExtraCreateParameterLookasideList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -53,14 +53,14 @@ __int64 __fastcall ExInitializePagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v13 = (_QWORD *)qword_140C16A88;
+  v13 = (_QWORD *)qword_140C16AD8;
   v14 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140C16A88 != &ExPagedLookasideListHead )
+  if ( *(__int64 **)qword_140C16AD8 != &ExPagedLookasideListHead )
     __fastfail(3u);
   *v14 = &ExPagedLookasideListHead;
   v14[1] = v13;
   *v13 = v14;
-  qword_140C16A88 = (__int64)v14;
+  qword_140C16AD8 = (__int64)v14;
   KxReleaseSpinLock(&ExPagedLookasideLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

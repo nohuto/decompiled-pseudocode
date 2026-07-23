@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBuildScatterGatherListDmaThin @ 0x1403ECC40
+ * XREFs of HalpBuildScatterGatherListDmaThin @ 0x1403E1230
  * Callers:
- *     HalBuildScatterGatherListDmaThinEx @ 0x1403ECB90 (HalBuildScatterGatherListDmaThinEx.c)
- *     HalGetScatterGatherListDmaThinEx @ 0x1405516A0 (HalGetScatterGatherListDmaThinEx.c)
+ *     HalBuildScatterGatherListDmaThinEx @ 0x1403E1180 (HalBuildScatterGatherListDmaThinEx.c)
+ *     HalGetScatterGatherListDmaThinEx @ 0x14054EFE0 (HalGetScatterGatherListDmaThinEx.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpBuildScatterGatherListDmaThin(
@@ -40,27 +40,28 @@ __int64 __fastcall HalpBuildScatterGatherListDmaThin(
   __int64 v28; // r11
   unsigned int v29; // ecx
   unsigned int v30; // r10d
-  unsigned int *v31; // r9
-  unsigned int *v32; // rdi
-  __int64 v33; // rbp
-  __int64 v34; // r13
-  void *v35; // r9
-  unsigned int v36; // r11d
-  unsigned int v37; // r8d
-  __int64 *v38; // rdx
-  unsigned int v39; // ecx
-  __int64 v40; // r15
-  __int64 v41; // r12
-  unsigned int v42; // r9d
-  unsigned int v43; // ecx
-  unsigned int v44; // r10d
+  ULONG_PTR v31; // rdx
+  unsigned int *v32; // r9
+  unsigned int *v33; // rdi
+  __int64 v34; // rbp
+  __int64 v35; // r13
+  void *v36; // r9
+  unsigned int v37; // r11d
+  unsigned int v38; // r8d
+  __int64 *v39; // rdx
+  unsigned int v40; // ecx
+  __int64 v41; // r15
+  __int64 v42; // r12
+  unsigned int v43; // r9d
+  unsigned int v44; // ecx
+  unsigned int v45; // r10d
   __int64 *j; // r14
-  __int64 v46; // rsi
-  unsigned int v47; // eax
-  unsigned int v48; // r10d
-  __int64 v49; // r13
-  int v51; // eax
-  void *v52; // [rsp+30h] [rbp-48h]
+  __int64 v47; // rsi
+  unsigned int v48; // eax
+  unsigned int v49; // r10d
+  __int64 v50; // r13
+  int v52; // eax
+  void *v53; // [rsp+30h] [rbp-48h]
   unsigned int *P; // [rsp+98h] [rbp+20h]
 
   v14 = a2;
@@ -111,40 +112,41 @@ __int64 __fastcall HalpBuildScatterGatherListDmaThin(
         while ( v22 );
         v14 = a2;
       }
+      v31 = 24LL * v21 + 120;
       if ( a11 )
       {
-        if ( a12 < 24 * (unsigned __int64)v21 + 120 )
+        if ( a12 < v31 )
           return 3221225507LL;
-        v31 = a11;
+        v32 = a11;
         P = a11;
       }
       else
       {
-        P = (unsigned int *)ExAllocatePool2(0x42uLL);
-        v31 = P;
+        P = (unsigned int *)ExAllocatePool2(0x42uLL, v31, 0x446C6148u);
+        v32 = P;
         if ( !P )
           return 3221225626LL;
         v14 = a2;
       }
-      *v31 = v21;
-      v32 = &v31[6 * v21 + 4];
-      *((_QWORD *)v32 + 4) = v14;
-      *((_BYTE *)v32 + 97) = a11 == 0LL;
-      *((_QWORD *)v32 + 3) = a1;
-      *((_QWORD *)v32 + 5) = *(_QWORD *)(v14 + 32);
-      *((_QWORD *)v32 + 8) = a8;
-      *((_QWORD *)v32 + 9) = a9;
-      v32[14] = a6;
-      *((_QWORD *)v32 + 6) = v15;
-      v32[15] = a5;
-      *((_QWORD *)v32 + 10) = v31;
-      *((_BYTE *)v32 + 96) = a7 & 1;
-      v32[4] = 2;
-      *((_BYTE *)v32 + 98) = 0;
-      *((_QWORD *)v32 + 11) = 0LL;
+      *v32 = v21;
+      v33 = &v32[6 * v21 + 4];
+      *((_QWORD *)v33 + 4) = v14;
+      *((_BYTE *)v33 + 97) = a11 == 0LL;
+      *((_QWORD *)v33 + 3) = a1;
+      *((_QWORD *)v33 + 5) = *(_QWORD *)(v14 + 32);
+      *((_QWORD *)v33 + 8) = a8;
+      *((_QWORD *)v33 + 9) = a9;
+      v33[14] = a6;
+      *((_QWORD *)v33 + 6) = v15;
+      v33[15] = a5;
+      *((_QWORD *)v33 + 10) = v32;
+      *((_BYTE *)v33 + 96) = a7 & 1;
+      v33[4] = 2;
+      *((_BYTE *)v33 + 98) = 0;
+      *((_QWORD *)v33 + 11) = 0LL;
       if ( a3
-        && (*(_QWORD *)(a3 + 88) = v32,
-            *((_QWORD *)v32 + 11) = a3 + 8,
+        && (*(_QWORD *)(a3 + 88) = v33,
+            *((_QWORD *)v33 + 11) = a3 + 8,
             _m_prefetchw((const void *)(a3 + 8)),
             (_InterlockedOr((volatile signed __int32 *)(a3 + 8), 4u) & 2) != 0) )
       {
@@ -152,81 +154,81 @@ __int64 __fastcall HalpBuildScatterGatherListDmaThin(
       }
       else
       {
-        v33 = *((_QWORD *)v32 + 10);
-        v34 = 0LL;
-        v35 = (void *)*((_QWORD *)v32 + 11);
-        v36 = 0;
-        v37 = v32[14];
-        v38 = (__int64 *)*((_QWORD *)v32 + 6);
-        v39 = v32[15];
-        v40 = v33 + 16;
-        v41 = *((_QWORD *)v32 + 8);
-        *(_QWORD *)(v33 + 8) = v32;
-        v52 = v35;
-        if ( v37 )
+        v34 = *((_QWORD *)v33 + 10);
+        v35 = 0LL;
+        v36 = (void *)*((_QWORD *)v33 + 11);
+        v37 = 0;
+        v38 = v33[14];
+        v39 = (__int64 *)*((_QWORD *)v33 + 6);
+        v40 = v33[15];
+        v41 = v34 + 16;
+        v42 = *((_QWORD *)v33 + 8);
+        *(_QWORD *)(v34 + 8) = v33;
+        v53 = v36;
+        if ( v38 )
         {
-          while ( v38 )
+          while ( v39 )
           {
-            v42 = v37;
-            if ( *((_DWORD *)v38 + 10) - v39 <= v37 )
-              v42 = *((_DWORD *)v38 + 10) - v39;
-            v43 = *((_DWORD *)v38 + 11) + v39;
-            v37 -= v42;
-            v44 = v43 & 0xFFF;
-            for ( j = &v38[((unsigned __int64)v43 >> 12) + 6]; v42; v34 = v46 + v49 )
+            v43 = v38;
+            if ( *((_DWORD *)v39 + 10) - v40 <= v38 )
+              v43 = *((_DWORD *)v39 + 10) - v40;
+            v44 = *((_DWORD *)v39 + 11) + v40;
+            v38 -= v43;
+            v45 = v44 & 0xFFF;
+            for ( j = &v39[((unsigned __int64)v44 >> 12) + 6]; v43; v35 = v47 + v50 )
             {
-              v46 = v44 + (*j << 12);
-              v47 = 4096 - v44;
-              v48 = v42;
-              if ( v47 <= v42 )
-                v48 = v47;
-              if ( v46 != v34 + 1 || !v36 )
+              v47 = v45 + (*j << 12);
+              v48 = 4096 - v45;
+              v49 = v43;
+              if ( v48 <= v43 )
+                v49 = v48;
+              if ( v47 != v35 + 1 || !v37 )
               {
-                v40 = v33 + 24LL * v36++ + 16;
-                *(_QWORD *)v40 = v46;
-                *(_DWORD *)(v40 + 8) = 0;
-                *(_QWORD *)(v40 + 16) = 0LL;
+                v41 = v34 + 24LL * v37++ + 16;
+                *(_QWORD *)v41 = v47;
+                *(_DWORD *)(v41 + 8) = 0;
+                *(_QWORD *)(v41 + 16) = 0LL;
               }
-              *(_DWORD *)(v40 + 8) += v48;
-              v42 -= v48;
+              *(_DWORD *)(v41 + 8) += v49;
+              v43 -= v49;
               ++j;
-              v49 = v48 - 1LL;
-              v44 = 0;
+              v50 = v49 - 1LL;
+              v45 = 0;
             }
-            v38 = (__int64 *)*v38;
-            v39 = 0;
-            if ( !v37 )
+            v39 = (__int64 *)*v39;
+            v40 = 0;
+            if ( !v38 )
             {
-              v35 = v52;
+              v36 = v53;
               goto LABEL_35;
             }
           }
-          v35 = v52;
-          if ( v36 )
-            *(_DWORD *)(v33 + 24 * (v36 - 1 + 1LL)) += v37;
+          v36 = v53;
+          if ( v37 )
+            *(_DWORD *)(v34 + 24 * (v37 - 1 + 1LL)) += v38;
         }
 LABEL_35:
-        *(_DWORD *)v33 = v36;
-        if ( v35 )
+        *(_DWORD *)v34 = v37;
+        if ( v36 )
         {
-          _m_prefetchw(v35);
-          v51 = 0;
-          if ( (_InterlockedOr((volatile signed __int32 *)v35, 1u) & 2) != 0 )
-            v51 = -1073741536;
-          v16 = v51;
+          _m_prefetchw(v36);
+          v52 = 0;
+          if ( (_InterlockedOr((volatile signed __int32 *)v36, 1u) & 2) != 0 )
+            v52 = -1073741536;
+          v16 = v52;
         }
-        if ( v41 )
-          guard_dispatch_icall_no_overrides(*((_QWORD *)v32 + 4), *((_QWORD *)v32 + 5), v33, *((_QWORD *)v32 + 9));
+        if ( v42 )
+          guard_dispatch_icall_no_overrides(*((_QWORD *)v33 + 4), *((_QWORD *)v33 + 5));
         if ( v16 >= 0 )
         {
           if ( a13 )
             *a13 = P;
           return (unsigned int)v16;
         }
-        v31 = P;
+        v32 = P;
       }
-      if ( *((_BYTE *)v32 + 97) )
-        ExFreePoolWithTag(v31, 0);
+      if ( *((_BYTE *)v33 + 97) )
+        ExFreePoolWithTag(v32, 0);
       return (unsigned int)v16;
     }
     v15 = (__int64 *)*v15;

@@ -14,7 +14,7 @@
  *     LdrpLogInternal @ 0x18007B390 (LdrpLogInternal.c)
  */
 
-char __fastcall LdrpInitializeDllPath(const wchar_t *a1, __int64 a2, __int64 a3)
+char __fastcall LdrpInitializeDllPath(const WCHAR *a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rcx
   char result; // al
@@ -36,13 +36,13 @@ char __fastcall LdrpInitializeDllPath(const wchar_t *a1, __int64 a2, __int64 a3)
   {
     *(_QWORD *)a3 = a2;
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrutil.c",
+      "minkernel\\ldr\\ldrutil.c",
       1552,
       (__int64)"LdrpInitializeDllPath",
       2,
       "DLL search path passed in externally: %ws\n",
       a2);
-    return LdrpLogDllStateEx2(v5, a1, *(const wchar_t **)a3, 5312);
+    return LdrpLogDllStateEx2(v5, a1, *(const WCHAR **)a3, 5312);
   }
   return result;
 }

@@ -9,7 +9,7 @@
  *     HvAddToLayoutStats @ 0x14054D974 (HvAddToLayoutStats.c)
  */
 
-__int64 __fastcall HvCheckBin(__int64 a1, _DWORD *a2, _DWORD *a3, struct _RTL_BITMAP *a4, __int64 a5)
+__int64 __fastcall HvCheckBin(__int64 a1, _DWORD *a2, _DWORD *a3, _RTL_BITMAP *a4, __int64 a5)
 {
   __int64 v5; // r10
   unsigned int v7; // r9d

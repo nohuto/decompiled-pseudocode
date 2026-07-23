@@ -15,7 +15,7 @@
 
 __int64 __fastcall BiConvertElementToRegistryData(
         unsigned int a1,
-        char *a2,
+        GUID *a2,
         unsigned int a3,
         __int64 a4,
         _QWORD *a5,
@@ -24,10 +24,10 @@ __int64 __fastcall BiConvertElementToRegistryData(
   int v6; // ebx
   size_t v7; // r14
   unsigned int *v9; // r13
-  int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // ecx
   int v12; // ecx
-  _WORD *v13; // rcx
+  GUID *v13; // rcx
   unsigned int v14; // eax
   int v15; // eax
   unsigned int v16; // r15d
@@ -46,7 +46,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   __int64 v30; // rcx
   size_t v31; // rbx
   void *Src; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-18h] BYREF
+  UNICODE_STRING GuidString; // [rsp+28h] [rbp-18h] BYREF
   int v34; // [rsp+88h] [rbp+48h]
 
   v6 = 0;
@@ -57,7 +57,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   v11 = (HIBYTE(a1) & 0xF) - 1;
   if ( !v11 )
   {
-    if ( *(_DWORD *)a2 == 6 )
+    if ( a2->Data1 == 6 )
       v15 = BiConvertQualifiedPartitionToBootEnvironment(a2, a3, &Src);
     else
       v15 = BiConvertNtDeviceToBootEnvironment(a2, a3, 0LL, &Src);
@@ -76,7 +76,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
         Buffer = PoolWithTag;
         if ( PoolWithTag )
         {
-          *PoolWithTag = *(_OWORD *)(a2 + 4);
+          *PoolWithTag = *(_OWORD *)&a2->Data2;
           memmove(PoolWithTag + 1, v9, v9[2]);
           ExFreePoolWithTag(v9, 0);
           v9 = 0LL;
@@ -99,9 +99,9 @@ LABEL_60:
       v14 = a3 >> 1;
       if ( a3 >> 1 )
       {
-        while ( *v13 )
+        while ( LOWORD(v13->Data1) )
         {
-          ++v13;
+          v13 = (GUID *)((char *)v13 + 2);
           if ( !--v14 )
             goto LABEL_25;
         }
@@ -134,11 +134,11 @@ LABEL_25:
   {
     if ( a3 != 16 )
       return (unsigned int)-1073741788;
-    v10 = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&DestinationString, 1);
+    v10 = RtlStringFromGUIDEx(a2, &GuidString, 1u);
     if ( v10 < 0 )
       return (unsigned int)v10;
-    Buffer = DestinationString.Buffer;
-    v16 = DestinationString.Length + 2;
+    Buffer = GuidString.Buffer;
+    v16 = GuidString.Length + 2;
 LABEL_14:
     if ( v10 >= 0 )
     {
@@ -178,7 +178,7 @@ LABEL_15:
         Buffer = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x4B444342u);
         if ( Buffer )
         {
-          *Buffer = *a2 != 0;
+          *Buffer = LOBYTE(a2->Data1) != 0;
           goto LABEL_15;
         }
         return (unsigned int)-1073741801;
@@ -193,7 +193,7 @@ LABEL_15:
         Buffer = v26;
         if ( v26 )
         {
-          *v26 = *(_QWORD *)a2;
+          *v26 = *(_QWORD *)&a2->Data1;
           goto LABEL_15;
         }
         return (unsigned int)-1073741801;
@@ -220,13 +220,13 @@ LABEL_45:
     {
       while ( 1 )
       {
-        v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v30], (__int64)&DestinationString, 1);
+        v10 = RtlStringFromGUIDEx(&a2[v30], &GuidString, 1u);
         if ( v10 < 0 )
           break;
-        v31 = (unsigned int)DestinationString.Length + 2;
-        memmove(Src, DestinationString.Buffer, v31);
+        v31 = (unsigned int)GuidString.Length + 2;
+        memmove(Src, GuidString.Buffer, v31);
         Src = (char *)Src + v31;
-        RtlFreeAnsiString(&DestinationString);
+        RtlFreeAnsiString(&GuidString);
         v30 = (unsigned int)(v34 + 1);
         v34 = v30;
         if ( (unsigned int)v30 >= v27 )
@@ -247,12 +247,12 @@ LABEL_50:
   }
   while ( 1 )
   {
-    RtlInitUnicodeString(&DestinationString, 0LL);
-    v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v6], (__int64)&DestinationString, 1);
+    RtlInitUnicodeString(&GuidString, 0LL);
+    v10 = RtlStringFromGUIDEx(&a2[v6], &GuidString, 1u);
     if ( v10 < 0 )
       return (unsigned int)v10;
-    v28 += DestinationString.Length + 2;
-    RtlFreeAnsiString(&DestinationString);
+    v28 += GuidString.Length + 2;
+    RtlFreeAnsiString(&GuidString);
     if ( ++v6 >= v27 )
       goto LABEL_45;
   }

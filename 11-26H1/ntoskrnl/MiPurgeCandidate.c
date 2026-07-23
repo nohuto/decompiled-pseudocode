@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPurgeCandidate @ 0x1403C1FE0
+ * XREFs of MiPurgeCandidate @ 0x1403CBEE0
  * Callers:
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
  * Callees:
- *     MiWaitForPageWriteCompletion @ 0x1403C2610 (MiWaitForPageWriteCompletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiWaitForPageWriteCompletion @ 0x1403CC510 (MiWaitForPageWriteCompletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPurgeCandidate(int *a1, ULONG_PTR a2, ULONG_PTR BugCheckParameter4)
@@ -22,10 +22,10 @@ __int64 __fastcall MiPurgeCandidate(int *a1, ULONG_PTR a2, ULONG_PTR BugCheckPar
   v5 = *((_QWORD *)a1 + 4);
   v6 = BugCheckParameter4;
   v7 = *((_QWORD *)a1 + 6);
-  if ( qword_140E2D740 && (BugCheckParameter4 & 0x10) == 0 )
-    v6 = BugCheckParameter4 & qword_140E2D748;
+  if ( qword_140E2D8C0 && (BugCheckParameter4 & 0x10) == 0 )
+    v6 = BugCheckParameter4 & qword_140E2D8C8;
   v8 = 48 * ((v6 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
-  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
     return 3221225496LL;
   if ( (BugCheckParameter4 & 0x400) != 0
     || (*(_BYTE *)(v8 + 16) & 1) != 0

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetContext @ 0x1409A5350
+ * XREFs of PspGetContext @ 0x140988970
  * Callers:
- *     PspGetSetContextInternal @ 0x1409A4CA0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1409882C0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlXSaveS @ 0x1403E5210 (RtlXSaveS.c)
- *     RtlCopyXStateArea @ 0x140407A90 (RtlCopyXStateArea.c)
- *     KeCopyLastBranchInformation @ 0x14043AAB0 (KeCopyLastBranchInformation.c)
- *     KiGetAllocatedXSaveArea @ 0x1404445B0 (KiGetAllocatedXSaveArea.c)
+ *     RtlXSaveS @ 0x1403D2DB0 (RtlXSaveS.c)
+ *     RtlCopyXStateArea @ 0x1403FFF70 (RtlCopyXStateArea.c)
+ *     KeCopyLastBranchInformation @ 0x14042D2F0 (KeCopyLastBranchInformation.c)
+ *     KiGetAllocatedXSaveArea @ 0x14043A050 (KiGetAllocatedXSaveArea.c)
  */
 
 int __fastcall PspGetContext(__int64 a1, __int64 a2, __int64 a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of WheapPfaReset @ 0x1408DCD48
+ * XREFs of WheapPfaReset @ 0x1408DE008
  * Callers:
- *     WheapCommitPolicy @ 0x1408DC1DC (WheapCommitPolicy.c)
+ *     WheapCommitPolicy @ 0x1408DD49C (WheapCommitPolicy.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WheapApplyPolicyChanges @ 0x1408DC0BC (WheapApplyPolicyChanges.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WheapApplyPolicyChanges @ 0x1408DD37C (WheapApplyPolicyChanges.c)
  */
 
 __int64 WheapPfaReset()
 {
-  __int64 v0; // rax
+  _RTL_BALANCED_NODE *v0; // rax
   signed __int8 v1; // cf
-  __int64 v2; // rbx
+  _RTL_BALANCED_NODE *v2; // rbx
   PVOID *v3; // rbx
   PVOID *v4; // rax
   PVOID *v5; // rcx
@@ -27,7 +27,7 @@ __int64 WheapPfaReset()
   if ( v1 )
     ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v0, (ULONG_PTR)&WheapPfaLock);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   WheapApplyPolicyChanges();
   v3 = (PVOID *)WheapPfaList;
   while ( v3 != &WheapPfaList )

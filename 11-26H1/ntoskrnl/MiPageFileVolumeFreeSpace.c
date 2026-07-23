@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPageFileVolumeFreeSpace @ 0x1404E7680
+ * XREFs of MiPageFileVolumeFreeSpace @ 0x1404E0A3C
  * Callers:
- *     MiPageFileChangeCandidate @ 0x1404E75F0 (MiPageFileChangeCandidate.c)
- *     MiContractPagingFiles @ 0x1404E8970 (MiContractPagingFiles.c)
+ *     MiPageFileChangeCandidate @ 0x1404E09AC (MiPageFileChangeCandidate.c)
+ *     MiContractPagingFiles @ 0x1404E1D30 (MiContractPagingFiles.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoQueryVolumeInformation @ 0x1409B7DE0 (IoQueryVolumeInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IoQueryVolumeInformation @ 0x140988DC0 (IoQueryVolumeInformation.c)
  */
 
 unsigned __int64 __fastcall MiPageFileVolumeFreeSpace(__int64 a1)

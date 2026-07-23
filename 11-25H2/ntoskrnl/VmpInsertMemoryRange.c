@@ -9,35 +9,35 @@
  *     VmpFreeMemoryRanges @ 0x140A5BB24 (VmpFreeMemoryRanges.c)
  */
 
-__int64 __fastcall VmpInsertMemoryRange(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall VmpInsertMemoryRange(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 *v3; // rdi
+  _RTL_BALANCED_NODE *v3; // rdi
   void *v7; // r14
-  __int64 v8; // r15
+  unsigned __int64 v8; // r15
   __int64 v9; // rax
   __int64 v10; // r8
   __int64 v11; // r12
-  unsigned __int64 *v12; // r10
+  _RTL_BALANCED_NODE **v12; // r10
   unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rax
   unsigned int v15; // ebx
-  __int64 v16; // rdx
-  __int64 v17; // rax
-  __int64 *v18; // rax
-  __int64 **v19; // rcx
-  __int64 ***v20; // rdx
-  __int64 **i; // rcx
+  unsigned __int64 v16; // rdx
+  unsigned __int64 v17; // rax
+  _RTL_BALANCED_NODE *v18; // rax
+  _RTL_BALANCED_NODE *v19; // rcx
+  _RTL_BALANCED_NODE **v20; // rdx
+  _RTL_BALANCED_NODE *i; // rcx
   unsigned __int64 v22; // rdx
-  bool v23; // r8
-  unsigned __int64 v24; // r8
+  BOOLEAN v23; // r8
+  _RTL_BALANCED_NODE *v24; // r8
   unsigned __int64 v25; // rax
-  __int64 *v26; // rcx
+  _RTL_RB_TREE *v26; // rcx
   unsigned __int64 v27; // rdx
-  bool v28; // r8
-  unsigned __int64 v29; // r8
+  BOOLEAN v28; // r8
+  _RTL_BALANCED_NODE *v29; // r8
   unsigned __int64 v30; // rax
 
-  v3 = *(__int64 **)(a2 + 40);
+  v3 = *(_RTL_BALANCED_NODE **)(a2 + 40);
   v7 = 0LL;
   v8 = 0LL;
   v9 = VmpProcessContextLockExclusive((PEX_SPIN_LOCK)a1);
@@ -52,7 +52,7 @@ __int64 __fastcall VmpInsertMemoryRange(__int64 a1, unsigned __int64 a2, __int64
     v15 = -1073740007;
     goto LABEL_83;
   }
-  v12 = (unsigned __int64 *)(a1 + 8);
+  v12 = (_RTL_BALANCED_NODE **)(a1 + 8);
   v13 = *(_QWORD *)(a1 + 8);
   if ( (*(_BYTE *)(a1 + 16) & 1) != 0 && v13 )
     v13 ^= (unsigned __int64)v12;
@@ -60,9 +60,9 @@ __int64 __fastcall VmpInsertMemoryRange(__int64 a1, unsigned __int64 a2, __int64
   {
     do
     {
-      if ( (unsigned __int64)v3[7] >= *(_QWORD *)(v13 + 24) )
+      if ( v3[2].Children[1] >= (_RTL_BALANCED_NODE *)*(_QWORD *)(v13 + 24) )
       {
-        if ( (unsigned __int64)v3[6] <= *(_QWORD *)(v13 + 32) )
+        if ( v3[2].Children[0] <= (_RTL_BALANCED_NODE *)*(_QWORD *)(v13 + 32) )
           break;
         v14 = *(_QWORD *)(v13 + 8);
       }
@@ -113,35 +113,35 @@ LABEL_19:
         v15 = -1073741800;
         goto LABEL_83;
       }
-      v18 = (__int64 *)*v3;
-      if ( *(__int64 **)(*v3 + 8) != v3 || (v19 = (__int64 **)v3[1], *v19 != v3) )
+      v18 = v3->Children[0];
+      if ( v3->Children[0]->Children[1] != v3 || (v19 = v3->Children[1], v19->Children[0] != v3) )
         __fastfail(3u);
-      *v19 = v18;
-      v18[1] = (__int64)v19;
-      v3[2] = v16;
-      v20 = (__int64 ***)(v16 + 40);
-      for ( i = *v20; i != (__int64 **)v20; i = (__int64 **)*i )
+      v19->Children[0] = v18;
+      v18->Children[1] = v19;
+      v3->ParentValue = v16;
+      v20 = (_RTL_BALANCED_NODE **)(v16 + 40);
+      for ( i = *v20; i != (_RTL_BALANCED_NODE *)v20; i = i->Children[0] )
       {
-        if ( (unsigned __int64)i[6] > v3[6] )
+        if ( i[2].Children[0] > v3[2].Children[0] )
           break;
       }
       v7 = (void *)a2;
-      *i[1] = (__int64)v3;
-      v3[1] = (__int64)i[1];
-      i[1] = v3;
-      *v3 = (__int64)i;
+      i->Children[1]->Children[0] = v3;
+      v3->Children[1] = i->Children[1];
+      i->Children[1] = v3;
+      v3->Children[0] = i;
     }
   }
-  v22 = *v12;
+  v22 = (unsigned __int64)*v12;
   if ( (*(_BYTE *)(a1 + 16) & 1) != 0 && v22 )
     v22 ^= (unsigned __int64)v12;
   v23 = 0;
   if ( v22 )
   {
-    v24 = v3[6];
+    v24 = v3[2].Children[0];
     while ( 1 )
     {
-      if ( v24 > *(_QWORD *)(v22 + 32) || v24 >= *(_QWORD *)(v22 + 24) )
+      if ( (unsigned __int64)v24 > *(_QWORD *)(v22 + 32) || (unsigned __int64)v24 >= *(_QWORD *)(v22 + 24) )
       {
         v25 = *(_QWORD *)(v22 + 8);
         if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
@@ -176,20 +176,20 @@ LABEL_54:
       v22 = v25;
     }
   }
-  RtlRbInsertNodeEx((__int64 *)(a1 + 8), v22, v23, (unsigned __int64)(v3 + 3));
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)v22, v23, v3 + 1);
   if ( !v8 )
   {
-    v26 = (__int64 *)(a1 + 24);
+    v26 = (_RTL_RB_TREE *)(a1 + 24);
     v27 = *(_QWORD *)(a1 + 24);
     if ( (*(_BYTE *)(a1 + 32) & 1) != 0 && v27 )
       v27 ^= (unsigned __int64)v26;
     v28 = 0;
     if ( v27 )
     {
-      v29 = *(_QWORD *)(a2 + 24);
+      v29 = *(_RTL_BALANCED_NODE **)(a2 + 24);
       while ( 1 )
       {
-        if ( v29 > *(_QWORD *)(v27 + 32) || v29 >= *(_QWORD *)(v27 + 24) )
+        if ( (unsigned __int64)v29 > *(_QWORD *)(v27 + 32) || (unsigned __int64)v29 >= *(_QWORD *)(v27 + 24) )
         {
           v30 = *(_QWORD *)(v27 + 8);
           if ( (*(_BYTE *)(a1 + 32) & 1) != 0 )
@@ -224,7 +224,7 @@ LABEL_74:
         v27 = v30;
       }
     }
-    RtlRbInsertNodeEx(v26, v27, v28, a2);
+    RtlRbInsertNodeEx(v26, (PRTL_BALANCED_NODE)v27, v28, (PRTL_BALANCED_NODE)a2);
   }
   v15 = 0;
 LABEL_83:

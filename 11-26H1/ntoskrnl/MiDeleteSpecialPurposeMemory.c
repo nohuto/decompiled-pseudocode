@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteSpecialPurposeMemory @ 0x14087E578
+ * XREFs of MiDeleteSpecialPurposeMemory @ 0x140884978
  * Callers:
- *     MiDeletePartitionResources @ 0x140868E28 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x14086F208 (MiDeletePartitionResources.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteSpecialPurposeMemory(__int64 a1)

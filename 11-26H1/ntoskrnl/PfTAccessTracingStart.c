@@ -1,15 +1,15 @@
 /*
- * XREFs of PfTAccessTracingStart @ 0x140BF8EDC
+ * XREFs of PfTAccessTracingStart @ 0x140BFEEDC
  * Callers:
- *     PfTStart @ 0x1407C67E4 (PfTStart.c)
- *     PfGetCompletedTrace @ 0x140A538E4 (PfGetCompletedTrace.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140BF87E0 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PfTStart @ 0x1407C9844 (PfTStart.c)
+ *     PfGetCompletedTrace @ 0x140A5CBD4 (PfGetCompletedTrace.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140BFE7E0 (PfpPowerActionStartScenarioTracingCallback.c)
  * Callees:
- *     MmGetDefaultPagePriority @ 0x1404B6960 (MmGetDefaultPagePriority.c)
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     MmSetAccessLogging @ 0x140703220 (MmSetAccessLogging.c)
+ *     MmGetDefaultPagePriority @ 0x1404AFDB0 (MmGetDefaultPagePriority.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     MmSetAccessLogging @ 0x140707EF0 (MmSetAccessLogging.c)
  */
 
 void __fastcall PfTAccessTracingStart(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

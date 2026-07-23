@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlReleaseFileForModWrite @ 0x14026EE84
+ * XREFs of FsRtlReleaseFileForModWrite @ 0x14026E3F4
  * Callers:
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x14026E410 (IoGetBaseFileSystemDeviceObject.c)
- *     FsFilterPerformCallbacks @ 0x14026EAC0 (FsFilterPerformCallbacks.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     FsFilterPerformCompletionCallbacks @ 0x14026F350 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterFreeCompletionStack @ 0x14026F3E8 (FsFilterFreeCompletionStack.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14026D980 (IoGetBaseFileSystemDeviceObject.c)
+ *     FsFilterPerformCallbacks @ 0x14026E030 (FsFilterPerformCallbacks.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x14026E8C0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterFreeCompletionStack @ 0x14026E958 (FsFilterFreeCompletionStack.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 int *__fastcall FsRtlReleaseFileForModWrite(PFILE_OBJECT FileObject, struct _ERESOURCE *a2)
@@ -36,8 +36,8 @@ int *__fastcall FsRtlReleaseFileForModWrite(PFILE_OBJECT FileObject, struct _ERE
   char v15; // r12
   struct _DRIVER_OBJECT *v16; // rax
   int *result; // rax
-  _QWORD *AutoBoostThreadState; // rsi
-  $AA7B8230874764A53E1F7A8CE5E032EC *p_IptSaveArea; // r14
+  _QWORD *v18; // rsi
+  unsigned int *p_SchedulerAssistYieldCounter; // r14
   __int64 Pool2; // rbx
   int v21; // eax
   int v22; // [rsp+34h] [rbp-CCh] BYREF
@@ -96,8 +96,8 @@ int *__fastcall FsRtlReleaseFileForModWrite(PFILE_OBJECT FileObject, struct _ERE
     StackSize = 15;
     goto LABEL_9;
   }
-  AutoBoostThreadState = 0LL;
-  p_IptSaveArea = 0LL;
+  v18 = 0LL;
+  p_SchedulerAssistYieldCounter = 0LL;
   Pool2 = ExAllocatePool2(0x40uLL);
   if ( !Pool2 )
   {
@@ -111,13 +111,13 @@ int *__fastcall FsRtlReleaseFileForModWrite(PFILE_OBJECT FileObject, struct _ERE
           goto LABEL_53;
         case 0xFDu:
 LABEL_52:
-          AutoBoostThreadState = VslpReservedTransferLock.AutoBoostThreadState;
-          p_IptSaveArea = ($AA7B8230874764A53E1F7A8CE5E032EC *)&VslpReservedTransferLock.IptSaveArea;
+          v18 = AcquireOpsReservePool;
+          p_SchedulerAssistYieldCounter = (unsigned int *)&VslpReservedTransferLock.Padding[2];
 LABEL_54:
-          KeWaitForSingleObject(p_IptSaveArea, Executive, 0, 0, 0LL);
-          Pool2 = (__int64)(AutoBoostThreadState + 1);
-          *AutoBoostThreadState = KeGetCurrentThread();
-          memset_0(AutoBoostThreadState + 1, 0, 0x3C8uLL);
+          KeWaitForSingleObject(p_SchedulerAssistYieldCounter, Executive, 0, 0, 0LL);
+          Pool2 = (__int64)(v18 + 1);
+          *v18 = KeGetCurrentThread();
+          memset_0(v18 + 1, 0, 0x3C8uLL);
           v21 = v32 | 2;
           goto LABEL_34;
       }
@@ -129,8 +129,8 @@ LABEL_54:
       }
     }
 LABEL_53:
-    AutoBoostThreadState = &VslpReservedTransferLock.SystemAffinityTokenListHead.Next->Next;
-    p_IptSaveArea = &VslpReservedTransferLock.1144;
+    v18 = (_QWORD *)VslpReservedTransferLock.Padding[1];
+    p_SchedulerAssistYieldCounter = &VslpReservedTransferLock.SchedulerAssistYieldCounter;
     goto LABEL_54;
   }
   v21 = v32;

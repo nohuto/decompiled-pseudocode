@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpCorValidateImage @ 0x1800885AC
+ * XREFs of LdrpCorValidateImage @ 0x18008859C
  * Callers:
- *     LdrpMapImage @ 0x18002F44C (LdrpMapImage.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpMapImage @ 0x18002F43C (LdrpMapImage.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall LdrpCorValidateImage(unsigned __int64 a1)
+__int64 __fastcall LdrpCorValidateImage(void *a1)
 {
-  int v2; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+38h] [rbp+10h] BYREF
 
-  return RtlImageDirectoryEntryToData(a1, 1, 9u, &v2) != 0 ? 0xC000007B : 0;
+  return RtlImageDirectoryEntryToData(a1, 1u, 9u, &Size) != 0LL ? 0xC000007B : 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x14038FD00
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x14038FEE0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -37,7 +37,7 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile sign
     v9 = (_DWORD *)(a4 + 4);
     *(_DWORD *)a4 = *(_DWORD *)(a4 + 4) | v8;
     memmove(*(void **)a2, ExPoolTagTables, 80LL * *(_QWORD *)(a2 + 8));
-    v10 = (__int64 *)&unk_140C2D7A8;
+    v10 = (__int64 *)&unk_140C2D748;
     v11 = 2047LL;
     v12 = *(_QWORD *)a2 + 80LL * *(_QWORD *)(a2 + 8);
     do

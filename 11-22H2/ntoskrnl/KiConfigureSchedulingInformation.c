@@ -127,7 +127,7 @@ LABEL_15:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v36) = 4;
@@ -202,10 +202,10 @@ LABEL_29:
     if ( *(_QWORD *)(v30 + 34888) != *(_QWORD *)(v30 + 35968) )
       KiFreeLocalSharedReadyQueue(v30);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v39 = CurrentPrcb->SchedulerAssist;

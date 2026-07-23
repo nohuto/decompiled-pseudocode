@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireFannedOutPushLockExclusive @ 0x140496708
+ * XREFs of ExpTryAcquireFannedOutPushLockExclusive @ 0x140491098
  * Callers:
- *     ExTryAcquireAutoExpandPushLockExclusive @ 0x1404A0300 (ExTryAcquireAutoExpandPushLockExclusive.c)
+ *     ExTryAcquireAutoExpandPushLockExclusive @ 0x14049A980 (ExTryAcquireAutoExpandPushLockExclusive.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
  */
 
 char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned int a1)

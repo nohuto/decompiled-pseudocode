@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetDebugFilterState @ 0x1401BB230
+ * XREFs of ZwSetDebugFilterState @ 0x1401BB390
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwSetDebugFilterState(ULONG ComponentId, ULONG Level, BOOLEAN
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&ComponentId, *(_QWORD *)&Level, State);
+  return KiServiceInternal(*(_QWORD *)&ComponentId);
 }

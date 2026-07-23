@@ -23,10 +23,10 @@
  *     LdrpSetModuleSigningLevel @ 0x1800E0C90 (LdrpSetModuleSigningLevel.c)
  */
 
-__int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
+__int64 __fastcall LdrpMapDllNtFileName(__int64 a1, _UNICODE_STRING *a2)
 {
   __int64 v3; // rbx
-  __int64 v5; // r12
+  unsigned __int64 v5; // r12
   ULONG v6; // eax
   __int64 v7; // r15
   __int64 v8; // rcx
@@ -34,10 +34,10 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
   int i; // esi
   NTSTATUS v11; // eax
   char v12; // r8
-  int v13; // r9d
+  __int64 v13; // r9
   int v14; // ebx
-  int v15; // esi
-  int v16; // eax
+  ULONG v15; // esi
+  NTSTATUS v16; // eax
   int v18; // r8d
   int v19; // r9d
   char *v20; // rcx
@@ -45,16 +45,16 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
   int v22; // r9d
   int v23; // eax
   HANDLE FileHandle; // [rsp+40h] [rbp-69h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-61h] BYREF
+  HANDLE SectionHandle; // [rsp+48h] [rbp-61h] BYREF
   __int64 v26; // [rsp+50h] [rbp-59h]
-  _QWORD v27[2]; // [rsp+58h] [rbp-51h] BYREF
-  UNICODE_STRING v28; // [rsp+68h] [rbp-41h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-31h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-1h] BYREF
+  unsigned __int64 Parameters[2]; // [rsp+58h] [rbp-51h] BYREF
+  _UNICODE_STRING InputBuffer; // [rsp+68h] [rbp-41h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-31h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A8h] [rbp-1h] BYREF
   char v31; // [rsp+110h] [rbp+67h] BYREF
-  UNICODE_STRING *v32; // [rsp+118h] [rbp+6Fh]
+  _UNICODE_STRING *v32; // [rsp+118h] [rbp+6Fh]
   char v33; // [rsp+120h] [rbp+77h] BYREF
-  char v34; // [rsp+128h] [rbp+7Fh] BYREF
+  ULONG Response; // [rsp+128h] [rbp+7Fh] BYREF
 
   v32 = a2;
   v3 = *(_QWORD *)(a1 + 56);
@@ -72,14 +72,14 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
   ObjectAttributes.Attributes = v6;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v7 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v8 = 2147353476LL;
   v9 = 2147353477LL;
   if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v20 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v20 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v20 & 0x20) != 0 )
     {
       LOBYTE(v19) = -1;
@@ -89,8 +89,8 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
   }
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x40000) != 0 )
   {
-    v28 = *a2;
-    ZwSystemDebugControl(38LL, &v28, 16LL);
+    InputBuffer = *a2;
+    ZwSystemDebugControl(SysDbgKdPullRemoteFile, &InputBuffer, 0x10u, 0LL, 0, 0LL);
   }
   for ( i = 0; ; i = 1 )
   {
@@ -104,18 +104,11 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
       return (unsigned int)v14;
   }
   if ( LdrpAuditIntegrityContinuity
-    && (v14 = LdrpValidateIntegrityContinuity(a1, (__int64)FileHandle, v12), v14 < 0)
+    && (v14 = LdrpValidateIntegrityContinuity(a1, (__int64)FileHandle, v12, v13), v14 < 0)
     && LdrpEnforceIntegrityContinuity
     || (v15 = 0x1000000, (*(_DWORD *)(a1 + 32) & 0x1000000) != 0)
     && (NtCurrentPeb()->BitField & 0x10) == 0
-    && (LOBYTE(v13) = 8,
-        v14 = LdrpSetModuleSigningLevel(
-                (_DWORD)FileHandle,
-                *(_QWORD *)(a1 + 56),
-                (unsigned int)&v33,
-                v13,
-                (__int64)&v31),
-        v14 < 0) )
+    && (LOBYTE(v13) = 8, v14 = LdrpSetModuleSigningLevel(FileHandle, *(_QWORD *)(a1 + 56), &v33, v13, &v31), v14 < 0) )
   {
 LABEL_23:
     NtClose(FileHandle);
@@ -123,7 +116,7 @@ LABEL_23:
   }
   if ( UseWOW64 && (*(_DWORD *)(a1 + 32) & 0x800) == 0 )
     v15 = 17825792;
-  v16 = NtCreateSection(&Handle, 13LL, 0LL, 0LL, 16, v15, FileHandle);
+  v16 = NtCreateSection(&SectionHandle, 0xDu, 0LL, 0LL, 0x10u, v15, FileHandle);
   v14 = v16;
   if ( v16 < 0 )
   {
@@ -133,19 +126,19 @@ LABEL_23:
     }
     else if ( v16 != -1073741801 && v16 != -1073741670 && v16 != -1073741523 )
     {
-      v27[0] = v5;
-      v27[1] = v16;
-      if ( (int)NtRaiseHardError(3221225595LL, 2LL, 1LL, v27, 1, &v34) >= 0 && LdrInitState != 3 )
+      Parameters[0] = v5;
+      Parameters[1] = v16;
+      if ( NtRaiseHardError(-1073741701, 2u, 1u, Parameters, 1u, &Response) >= 0 && LdrInitState != 3 )
         ++LdrpFatalHardErrorCount;
     }
     LdrpLogError((unsigned int)v14, 5253LL, 0LL, v5);
     goto LABEL_23;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v9 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v9 & 0x20) != 0 )
     {
@@ -157,21 +150,21 @@ LABEL_23:
   if ( !UseWOW64
     && (*(_DWORD *)(a1 + 32) & 0x100) == 0
     && LdrpAdvapi32DllHandle
-    && (v23 = ((__int64 (__fastcall *)(HANDLE, UNICODE_STRING *))(__ROR8__(
-                                                                    LdrpSaferIsDllAllowedRoutine,
-                                                                    64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+    && (v23 = ((__int64 (__fastcall *)(HANDLE, _UNICODE_STRING *))(__ROR8__(
+                                                                     LdrpSaferIsDllAllowedRoutine,
+                                                                     64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
                 FileHandle,
                 v32),
         v14 = v23,
         v23 != -1073741275)
     && v23 < 0
-    || (v14 = LdrpMapDllWithSectionHandle(a1, (__int64)Handle), !v26)
+    || (v14 = LdrpMapDllWithSectionHandle(a1, SectionHandle), !v26)
     || v14 < 0 )
   {
-    NtClose(Handle);
+    NtClose(SectionHandle);
     goto LABEL_23;
   }
   *(_QWORD *)(a1 + 184) = FileHandle;
-  *(_QWORD *)(a1 + 24) = Handle;
+  *(_QWORD *)(a1 + 24) = SectionHandle;
   return (unsigned int)v14;
 }

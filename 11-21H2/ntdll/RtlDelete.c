@@ -9,41 +9,43 @@
  *     RtlSubtreePredecessor @ 0x18006A9E0 (RtlSubtreePredecessor.c)
  */
 
-_QWORD *__fastcall RtlDelete(_QWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlDelete(PRTL_SPLAY_LINKS Links)
 {
-  _QWORD *result; // rax
-  __int64 v3; // rax
-  _QWORD *v4; // rcx
+  PRTL_SPLAY_LINKS result; // rax
+  PRTL_SPLAY_LINKS v3; // rax
+  _RTL_SPLAY_LINKS *Parent; // rcx
   __int64 v5; // rdx
-  _QWORD *v6; // rcx
+  _RTL_SPLAY_LINKS *v6; // rcx
   __int64 v7; // rdx
 
-  result = (_QWORD *)a1[1];
-  if ( result && (!a1[2] || (v3 = RtlSubtreePredecessor(), SwapSplayLinks(v3, a1), (result = (_QWORD *)a1[1]) != 0LL))
-    || (result = (_QWORD *)a1[2]) != 0LL )
+  result = Links->LeftChild;
+  if ( result
+    && (!Links->RightChild
+     || (v3 = RtlSubtreePredecessor(Links), SwapSplayLinks(v3, Links), (result = Links->LeftChild) != 0LL))
+    || (result = Links->RightChild) != 0LL )
   {
-    v4 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 != a1 )
+    Parent = Links->Parent;
+    if ( Links->Parent != Links )
     {
-      v5 = 1LL;
-      if ( (_QWORD *)v4[1] != a1 )
-        v5 = 2LL;
-      v4[v5] = result;
-      v6 = (_QWORD *)*a1;
-      *result = *a1;
+      v5 = 8LL;
+      if ( Parent->LeftChild != Links )
+        v5 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&Parent->Parent + v5) = result;
+      v6 = Links->Parent;
+      result->Parent = Links->Parent;
       return RtlSplay(v6);
     }
-    *result = result;
+    result->Parent = result;
   }
   else
   {
-    v6 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 != a1 )
+    v6 = Links->Parent;
+    if ( Links->Parent != Links )
     {
-      v7 = 1LL;
-      if ( (_QWORD *)v6[1] != a1 )
-        v7 = 2LL;
-      v6[v7] = 0LL;
+      v7 = 8LL;
+      if ( v6->LeftChild != Links )
+        v7 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&v6->Parent + v7) = 0LL;
       return RtlSplay(v6);
     }
     return 0LL;

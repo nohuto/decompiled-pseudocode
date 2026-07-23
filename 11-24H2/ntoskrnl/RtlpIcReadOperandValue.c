@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIcReadOperandValue @ 0x140BB8634
+ * XREFs of RtlpIcReadOperandValue @ 0x140BBA634
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140BB74F8 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateGroup1Instruction @ 0x140BB7818 (RtlpIcEmulateGroup1Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140BB94F8 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateGroup1Instruction @ 0x140BB9818 (RtlpIcEmulateGroup1Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcAccessMemory @ 0x140BB7198 (RtlpIcAccessMemory.c)
- *     RtlpIcSignExtendOperandValue @ 0x140BB8928 (RtlpIcSignExtendOperandValue.c)
+ *     RtlpIcAccessMemory @ 0x140BB9198 (RtlpIcAccessMemory.c)
+ *     RtlpIcSignExtendOperandValue @ 0x140BBA928 (RtlpIcSignExtendOperandValue.c)
  */
 
 __int64 __fastcall RtlpIcReadOperandValue(__int64 a1, __int64 a2, volatile void *a3, char a4, char a5, _BYTE *a6)

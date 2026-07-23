@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExInitializeNPagedLookasideList @ 0x140C3EA90
+ * XREFs of VerifierExInitializeNPagedLookasideList @ 0x140C44AA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID (__stdcall *__fastcall VerifierExInitializeNPagedLookasideList(

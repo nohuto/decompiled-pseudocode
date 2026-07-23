@@ -1,23 +1,23 @@
 /*
- * XREFs of MiLargePageFault @ 0x1401EF82C
+ * XREFs of MiLargePageFault @ 0x1401EF658
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
- *     MiNoFaultFound @ 0x14001F4F8 (MiNoFaultFound.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     MiCheckSystemNxFault @ 0x1400B0E08 (MiCheckSystemNxFault.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiCanGrantExecute @ 0x1401EF6B4 (MiCanGrantExecute.c)
- *     MiValidVirtualizationFault @ 0x1401EFD00 (MiValidVirtualizationFault.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiNoFaultFound @ 0x14001F078 (MiNoFaultFound.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     MiCheckSystemNxFault @ 0x1400AEE78 (MiCheckSystemNxFault.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiCanGrantExecute @ 0x1401EF4E0 (MiCanGrantExecute.c)
+ *     MiValidVirtualizationFault @ 0x1401EFB2C (MiValidVirtualizationFault.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiLargePageFault(__int64 a1, unsigned __int64 a2, ULONG_PTR a3, char a4)

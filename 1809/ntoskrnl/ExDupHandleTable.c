@@ -1,24 +1,24 @@
 /*
- * XREFs of ExDupHandleTable @ 0x140696580
+ * XREFs of ExDupHandleTable @ 0x140697740
  * Callers:
- *     ObInitProcess @ 0x1406092E4 (ObInitProcess.c)
+ *     ObInitProcess @ 0x14060A2E4 (ObInitProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExLockHandleTableEntry @ 0x140053220 (ExLockHandleTableEntry.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpFreeHandleTable @ 0x1406067F8 (ExpFreeHandleTable.c)
- *     ExCreateHandleTable @ 0x140696400 (ExCreateHandleTable.c)
- *     ObInheritObjectHandle @ 0x1406969A4 (ObInheritObjectHandle.c)
- *     ExpAllocateHandleTable @ 0x140696A64 (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x140696B74 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x1408CE15C (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExpLookupHandleTableEntry @ 0x1405E9990 (ExpLookupHandleTableEntry.c)
+ *     ExpFreeHandleTable @ 0x1406077F8 (ExpFreeHandleTable.c)
+ *     ExCreateHandleTable @ 0x1406975C0 (ExCreateHandleTable.c)
+ *     ObInheritObjectHandle @ 0x140697B64 (ObInheritObjectHandle.c)
+ *     ExpAllocateHandleTable @ 0x140697C24 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140697D34 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CF3D0 (ExpGetHandleExtraInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x1408CF41C (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CF6A8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExDupHandleTable(__int64 a1, unsigned int *a2, unsigned int a3, _BYTE *a4, unsigned int **a5)
@@ -301,14 +301,14 @@ LABEL_29:
   {
     v31[23] = v31[22];
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&HandleTableListLock, 0LL);
-    v33 = (_QWORD *)qword_14096EA18;
+    v33 = (_QWORD *)qword_14096FA18;
     v34 = *v7 + 6;
-    if ( *(__int64 **)qword_14096EA18 != &HandleTableListHead )
+    if ( *(__int64 **)qword_14096FA18 != &HandleTableListHead )
       __fastfail(3u);
     *v34 = &HandleTableListHead;
     v34[1] = v33;
     *v33 = v34;
-    qword_14096EA18 = (__int64)v34;
+    qword_14096FA18 = (__int64)v34;
     v35 = _InterlockedExchangeAdd64((volatile signed __int64 *)&HandleTableListLock, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v35 & 2) != 0 && (v35 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)&HandleTableListLock);

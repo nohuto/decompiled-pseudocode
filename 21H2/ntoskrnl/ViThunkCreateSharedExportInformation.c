@@ -1,16 +1,21 @@
 /*
- * XREFs of ViThunkCreateSharedExportInformation @ 0x1409C21C8
+ * XREFs of ViThunkCreateSharedExportInformation @ 0x1409C31C8
  * Callers:
- *     VfThunkAddTargetNotify @ 0x1409C20F0 (VfThunkAddTargetNotify.c)
+ *     VfThunkAddTargetNotify @ 0x1409C30F0 (VfThunkAddTargetNotify.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x140253800 (RtlNumberOfClearBits.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ViThunkSnapSharedExports @ 0x1409C229C (ViThunkSnapSharedExports.c)
- *     ViThunkFreeSharedThunksArray @ 0x1409C2448 (ViThunkFreeSharedThunksArray.c)
+ *     RtlNumberOfClearBits @ 0x140274D70 (RtlNumberOfClearBits.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ViThunkSnapSharedExports @ 0x1409C329C (ViThunkSnapSharedExports.c)
+ *     ViThunkFreeSharedThunksArray @ 0x1409C3448 (ViThunkFreeSharedThunksArray.c)
  */
 
-__int64 __fastcall ViThunkCreateSharedExportInformation(__int64 a1, __int64 a2, __int64 a3, RTL_BITMAP *a4, _QWORD *a5)
+__int64 __fastcall ViThunkCreateSharedExportInformation(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        _RTL_BITMAP *a4,
+        _QWORD *a5)
 {
   unsigned int v9; // ebx
   ULONG v10; // eax

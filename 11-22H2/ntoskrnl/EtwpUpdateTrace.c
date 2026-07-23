@@ -139,14 +139,14 @@ LABEL_8:
 LABEL_20:
         v14 = v10 + 69;
         v15 = *(_QWORD *)(v10 + 69);
-        v16 = HeapGuid - v15;
-        if ( HeapGuid == v15 )
-          v16 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(v10 + 71);
+        v16 = *(_QWORD *)&HeapGuid.Data1 - v15;
+        if ( *(_QWORD *)&HeapGuid.Data1 == v15 )
+          v16 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(v10 + 71);
         if ( v16 )
         {
-          v17 = CritSecGuid - v15;
-          if ( CritSecGuid == v15 )
-            v17 = 0x6B81390EF58D1581LL - *(_QWORD *)(v10 + 71);
+          v17 = *(_QWORD *)&CritSecGuid.Data1 - v15;
+          if ( *(_QWORD *)&CritSecGuid.Data1 == v15 )
+            v17 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(v10 + 71);
           if ( v17 )
           {
 LABEL_26:

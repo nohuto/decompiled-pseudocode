@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PspAddAccountingValues @ 0x1406A3EE4 (PspAddAccountingValues.c)
- *     PsQueryStatisticsProcess @ 0x140742BB0 (PsQueryStatisticsProcess.c)
+ *     PsQueryStatisticsProcess @ 0x140742DA0 (PsQueryStatisticsProcess.c)
  */
 
 __int64 __fastcall PspEnforceLimitsProcessCallback(__int64 a1, _QWORD *a2)

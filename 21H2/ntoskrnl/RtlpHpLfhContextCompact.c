@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x140306B2C
+ * XREFs of RtlpHpLfhContextCompact @ 0x14031187C
  * Callers:
- *     RtlpHpHeapCompact @ 0x1402C3FF8 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x140242578 (RtlpHpHeapCompact.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     RtlpHpLfhOwnerCompact @ 0x140306C14 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpAcquireLockShared @ 0x140306D74 (RtlpHpAcquireLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140311964 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpAcquireLockShared @ 0x140311AC4 (RtlpHpAcquireLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

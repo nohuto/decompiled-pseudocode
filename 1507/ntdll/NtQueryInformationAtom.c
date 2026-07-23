@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationAtom()
+NTSTATUS __cdecl NtQueryInformationAtom(
+        RTL_ATOM Atom,
+        ATOM_INFORMATION_CLASS AtomInformationClass,
+        PVOID AtomInformation,
+        ULONG AtomInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 303LL;
+  result = 303;
   __asm { syscall; Low latency system call }
   return result;
 }

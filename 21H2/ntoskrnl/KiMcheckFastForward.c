@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMcheckFastForward @ 0x1405266C0
+ * XREFs of KiMcheckFastForward @ 0x140526900
  * Callers:
- *     KiNmiInterruptStart @ 0x14040AE40 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x14040EBC0 (KiMcheckAbort.c)
+ *     KiNmiInterruptStart @ 0x14040AF40 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x14040ECC0 (KiMcheckAbort.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiRspInIstStack @ 0x140518BF8 (KiRspInIstStack.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiRspInIstStack @ 0x140518E38 (KiRspInIstStack.c)
  */
 
 unsigned __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
@@ -33,18 +33,18 @@ unsigned __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, ch
     if ( KiRspInIstStack(2u, v5) )
     {
       v4 |= 2u;
-      _InterlockedAdd(&dword_140C2AFA4, 1u);
+      _InterlockedAdd(&dword_140C2AFC4, 1u);
     }
     v6 = *(_QWORD *)(v3 + 360);
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailMceBegin && v6 < (unsigned __int64)&KiMcheckExitMceTailMceEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd(&dword_140C2AFA8, 1u);
+      _InterlockedAdd(&dword_140C2AFC8, 1u);
     }
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailNmiBegin && v6 < (unsigned __int64)KiMcheckExitMceTailNmiEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd(&dword_140C2AFA8, 1u);
+      _InterlockedAdd(&dword_140C2AFC8, 1u);
     }
     if ( KiKvaShadow )
     {
@@ -52,14 +52,14 @@ unsigned __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, ch
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailMceEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd(&dword_140C2AFAC, 1u);
+        _InterlockedAdd(&dword_140C2AFCC, 1u);
       }
       if ( KiKvaShadow
         && v6 >= (unsigned __int64)&KiKernelIstMceExitMceTailNmiBegin
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailNmiEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd(&dword_140C2AFAC, 1u);
+        _InterlockedAdd(&dword_140C2AFCC, 1u);
       }
     }
   }
@@ -67,14 +67,14 @@ unsigned __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, ch
   result = v4 & 1;
   if ( a2 || (v4 & 1) != 0 )
   {
-    _InterlockedAdd(&dword_140C2AFB8, 1u);
+    _InterlockedAdd(&dword_140C2AFD8, 1u);
     if ( (v4 & 1) != 0 )
-      _InterlockedAdd(&dword_140C2AFC0, 1u);
+      _InterlockedAdd(&dword_140C2AFE0, 1u);
     v9 = 1;
   }
   else
   {
-    _InterlockedAdd(&dword_140C2AFBC, 1u);
+    _InterlockedAdd(&dword_140C2AFDC, 1u);
     v9 = 0;
   }
   v10 = 0LL;
@@ -103,7 +103,7 @@ LABEL_30:
 LABEL_31:
   if ( (v4 & 4) != 0 )
   {
-    _InterlockedAdd(&dword_140C2AFC4, 1u);
+    _InterlockedAdd(&dword_140C2AFE4, 1u);
     v13 = *(_QWORD *)(&CurrentPrcb->CpuType + v12);
     if ( KiKvaShadow )
     {
@@ -112,7 +112,7 @@ LABEL_31:
       if ( (CurrentPrcb->HalReserved[(unsigned __int64)v12 / 8] & 3) != 0
         && CurrentPrcb->CurrentThread->Process->AddressPolicy != 1 )
       {
-        _InterlockedAdd(&dword_140C2AFC8, 1u);
+        _InterlockedAdd(&dword_140C2AFE8, 1u);
         _interlockedbittestandreset((volatile signed __int32 *)&CurrentPrcb->ShadowFlags, 0);
         v14 = __readcr4();
         if ( (v14 & 0x20080) != 0 )
@@ -138,12 +138,12 @@ LABEL_31:
     *(_QWORD *)(v3 + 56) = *(unsigned __int64 *)((char *)&CurrentPrcb->PrcbLock + v12);
     result = *(unsigned __int64 *)((char *)&CurrentPrcb->PriorityState + v12);
     *(_QWORD *)(v3 + 64) = result;
-    _InterlockedAdd(&dword_140C2AFB4, 1u);
+    _InterlockedAdd(&dword_140C2AFD4, 1u);
     *(_WORD *)((char *)&CurrentPrcb->CurrentThread + v12) = 0;
   }
   if ( !a2 )
   {
-    _InterlockedAdd(&dword_140C2AFB0, 1u);
+    _InterlockedAdd(&dword_140C2AFD0, 1u);
     *(_OWORD *)((char *)&CurrentPrcb->MxCsr + v12) = *(_OWORD *)(v3 + 360);
     *(_OWORD *)((char *)&CurrentPrcb->NextThread + v12) = *(_OWORD *)(v3 + 376);
     *(_QWORD *)(&CurrentPrcb->NestingLevel + v12) = *(_QWORD *)(v3 + 392);

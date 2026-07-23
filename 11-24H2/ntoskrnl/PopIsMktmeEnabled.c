@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIsMktmeEnabled @ 0x140B5D604
+ * XREFs of PopIsMktmeEnabled @ 0x140B5F684
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiGetCpuVendor @ 0x140B6D9F4 (KiGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x140B6F294 (KiGetCpuVendor.c)
  */
 
 bool __fastcall PopIsMktmeEnabled(__int64 a1)

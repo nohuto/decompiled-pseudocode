@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlInitializeProcessor @ 0x14070EDCC
+ * XREFs of HvlInitializeProcessor @ 0x14070C95C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HvlpFreeOverlayPages @ 0x1403A9100 (HvlpFreeOverlayPages.c)
- *     KeGetProcessorNodeNumber @ 0x140438120 (KeGetProcessorNodeNumber.c)
- *     HvlpGetLpcbByLpIndex @ 0x1404485D0 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x140448610 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlGetRootVpSharedPages @ 0x14058332C (HvlGetRootVpSharedPages.c)
- *     HvlpGetLpcbByApicId @ 0x140584518 (HvlpGetLpcbByApicId.c)
- *     HvlpSetupCachedHypercallPages @ 0x140585504 (HvlpSetupCachedHypercallPages.c)
- *     HvlpAllocateOverlayPages @ 0x14058C158 (HvlpAllocateOverlayPages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvlpCreateRootVirtualProcessor @ 0x14070F000 (HvlpCreateRootVirtualProcessor.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HvlpFreeOverlayPages @ 0x140397D90 (HvlpFreeOverlayPages.c)
+ *     KeGetProcessorNodeNumber @ 0x14042ACE0 (KeGetProcessorNodeNumber.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140440CF0 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x140440D30 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlGetRootVpSharedPages @ 0x1405806AC (HvlGetRootVpSharedPages.c)
+ *     HvlpGetLpcbByApicId @ 0x140581898 (HvlpGetLpcbByApicId.c)
+ *     HvlpSetupCachedHypercallPages @ 0x140582884 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpAllocateOverlayPages @ 0x140589448 (HvlpAllocateOverlayPages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14070CB90 (HvlpCreateRootVirtualProcessor.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, int a3)
@@ -60,7 +60,7 @@ __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, int a3)
     v9 = *(_DWORD *)(a1 + 36);
     v7[5] = v9;
     if ( v9 != v7[1] )
-      byte_140E0A834 = 0;
+      byte_140E0A8BC = 0;
   }
   v10 = 0LL;
   if ( (HvlpFlags & 2) != 0 && ((HvlpFlags & 0x20) != 0 || (HvlpFlags & 0x80000) != 0) )
@@ -79,7 +79,7 @@ __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, int a3)
   {
     if ( (HvlpFlags & 2) != 0 )
     {
-      *(_QWORD *)(a1 + 35848) = MmMapIoSpaceEx(*v11, 4096LL, 4u);
+      *(_QWORD *)(a1 + 35848) = MmMapIoSpaceEx(*v11, 4096LL, 4LL);
     }
     else
     {
@@ -96,7 +96,7 @@ __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, int a3)
     LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(*(_DWORD *)(a1 + 36));
     LpcbByLpIndex = HvlpGetLpcbByLpIndex(LpIndexFromProcessorIndex);
     if ( (v16 & 0x20) != 0 )
-      *((_QWORD *)LpcbByLpIndex + 4) = MmMapIoSpaceEx(v12, 4096LL, 4u);
+      *((_QWORD *)LpcbByLpIndex + 4) = MmMapIoSpaceEx(v12, 4096LL, 4LL);
   }
   if ( (HvlpFlags & 2) == 0 && (HvlpFlags & 0x8000) != 0 )
   {
@@ -120,7 +120,7 @@ __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, int a3)
       --v5;
     }
     while ( v5 );
-    HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)a1);
+    HvlpSetupCachedHypercallPages((_SLIST_HEADER *)a1);
     return 0LL;
   }
 LABEL_25:

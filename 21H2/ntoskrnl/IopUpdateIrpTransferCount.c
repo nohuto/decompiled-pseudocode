@@ -1,12 +1,12 @@
 /*
- * XREFs of IopUpdateIrpTransferCount @ 0x1403F123C
+ * XREFs of IopUpdateIrpTransferCount @ 0x1403F116C
  * Callers:
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1900 (IopCopyCompleteReadRequest.c)
  * Callees:
- *     IopUpdateWriteTransferCount @ 0x14027BD10 (IopUpdateWriteTransferCount.c)
- *     IopUpdateReadTransferCount @ 0x14027C420 (IopUpdateReadTransferCount.c)
- *     IopUpdateOtherTransferCount @ 0x1403456C0 (IopUpdateOtherTransferCount.c)
+ *     IopUpdateWriteTransferCount @ 0x140269CB0 (IopUpdateWriteTransferCount.c)
+ *     IopUpdateReadTransferCount @ 0x14026A3C0 (IopUpdateReadTransferCount.c)
+ *     IopUpdateOtherTransferCount @ 0x140350410 (IopUpdateOtherTransferCount.c)
  */
 
 struct _KTHREAD *__fastcall IopUpdateIrpTransferCount(__int64 a1, __int64 a2)

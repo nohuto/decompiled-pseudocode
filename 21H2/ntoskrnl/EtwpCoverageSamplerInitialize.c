@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerInitialize @ 0x140946374
+ * XREFs of EtwpCoverageSamplerInitialize @ 0x140946544
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x140947B0C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerInitialize(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPfCompleteCoalescedIo @ 0x1402AED8C
+ * XREFs of MiPfCompleteCoalescedIo @ 0x1402AEF7C
  * Callers:
  *     MiPfCompletePrefetchIos @ 0x14001A020 (MiPfCompletePrefetchIos.c)
  * Callees:
  *     MiPfCompleteInPageSupport @ 0x14001A0B8 (MiPfCompleteInPageSupport.c)
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiRetardMdl @ 0x1402A83EC (MiRetardMdl.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x1402A85DC (MiRetardMdl.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPfCompleteCoalescedIo(char *P, __int64 a2)

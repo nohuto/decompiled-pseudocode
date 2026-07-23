@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x140750824
+ * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x1407509E4
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
- *     IopPnPDispatch @ 0x14074F750 (IopPnPDispatch.c)
- *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074EF10 (IopInitializeDeviceInstanceKey.c)
+ *     IopPnPDispatch @ 0x14074F910 (IopPnPDispatch.c)
+ *     IopQueryDeviceResources @ 0x14075062C (IopQueryDeviceResources.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     PnpReadDeviceConfiguration @ 0x140750DD0 (PnpReadDeviceConfiguration.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     PnpReadDeviceConfiguration @ 0x140750F90 (PnpReadDeviceConfiguration.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDeviceResourcesFromRegistry(__int64 a1, int a2, char a3, void **a4, _DWORD *a5)

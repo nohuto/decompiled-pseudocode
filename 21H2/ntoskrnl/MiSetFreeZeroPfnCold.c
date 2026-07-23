@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSetFreeZeroPfnCold @ 0x1403B1490
+ * XREFs of MiSetFreeZeroPfnCold @ 0x1403B1600
  * Callers:
- *     MiDemoteLocalLargePage @ 0x140232110 (MiDemoteLocalLargePage.c)
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
- *     MiInsertLargePageChain @ 0x1402FE784 (MiInsertLargePageChain.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MiLargePageFreeToZero @ 0x140303D40 (MiLargePageFreeToZero.c)
- *     MiEnableNewPfns @ 0x14052E060 (MiEnableNewPfns.c)
+ *     MiDemoteLocalLargePage @ 0x1402D6960 (MiDemoteLocalLargePage.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
+ *     MiInsertLargePageChain @ 0x1403094D4 (MiInsertLargePageChain.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MiLargePageFreeToZero @ 0x14030EA90 (MiLargePageFreeToZero.c)
+ *     MiEnableNewPfns @ 0x14052E2A0 (MiEnableNewPfns.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402E25D0 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiSetFreeZeroPfnCold(__int64 a1, int a2)

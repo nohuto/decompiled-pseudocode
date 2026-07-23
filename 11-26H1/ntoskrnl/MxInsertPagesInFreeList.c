@@ -1,13 +1,13 @@
 /*
- * XREFs of MxInsertPagesInFreeList @ 0x140CF7780
+ * XREFs of MxInsertPagesInFreeList @ 0x140CFDB00
  * Callers:
- *     MxCreateDescriptorPfns @ 0x140CF5814 (MxCreateDescriptorPfns.c)
- *     MxInsertFreeZeroPages @ 0x140CF7648 (MxInsertFreeZeroPages.c)
- *     MxSwitchToPfns @ 0x140CF8360 (MxSwitchToPfns.c)
+ *     MxCreateDescriptorPfns @ 0x140CFBB94 (MxCreateDescriptorPfns.c)
+ *     MxInsertFreeZeroPages @ 0x140CFD9C8 (MxInsertFreeZeroPages.c)
+ *     MxSwitchToPfns @ 0x140CFE6E0 (MxSwitchToPfns.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MxFreeEmptyBootPageTable @ 0x140CF6AA4 (MxFreeEmptyBootPageTable.c)
- *     MxInsertFreePages @ 0x140CF7300 (MxInsertFreePages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MxFreeEmptyBootPageTable @ 0x140CFCE24 (MxFreeEmptyBootPageTable.c)
+ *     MxInsertFreePages @ 0x140CFD680 (MxInsertFreePages.c)
  */
 
 void __fastcall MxInsertPagesInFreeList(__int64 a1)

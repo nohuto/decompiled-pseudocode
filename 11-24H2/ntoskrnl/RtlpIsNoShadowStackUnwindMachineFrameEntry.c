@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpIsNoShadowStackUnwindMachineFrameEntry @ 0x140475E88
+ * XREFs of RtlpIsNoShadowStackUnwindMachineFrameEntry @ 0x140471F28
  * Callers:
- *     RtlpUnwindPrologue @ 0x140280090 (RtlpUnwindPrologue.c)
+ *     RtlpUnwindPrologue @ 0x140235620 (RtlpUnwindPrologue.c)
  * Callees:
  *     <none>
  */

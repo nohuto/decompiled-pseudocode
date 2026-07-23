@@ -1,24 +1,24 @@
 /*
- * XREFs of PiNormalizeDeviceText @ 0x140A27F78
+ * XREFs of PiNormalizeDeviceText @ 0x140A3B018
  * Callers:
- *     PnpQueryDeviceText @ 0x140AA7990 (PnpQueryDeviceText.c)
+ *     PnpQueryDeviceText @ 0x1409DAEC4 (PnpQueryDeviceText.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbPrintfExW @ 0x140460AA8 (RtlStringCbPrintfExW.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     _wcstoi64 @ 0x140538B88 (_wcstoi64.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PiGetDefaultMessageString @ 0x140A26864 (PiGetDefaultMessageString.c)
- *     IopBuildFullDriverPath @ 0x140A27A4C (IopBuildFullDriverPath.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbPrintfExW @ 0x140459FE8 (RtlStringCbPrintfExW.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     _wcstoi64 @ 0x14053B008 (_wcstoi64.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PiGetDefaultMessageString @ 0x140A39904 (PiGetDefaultMessageString.c)
+ *     IopBuildFullDriverPath @ 0x140A3AAEC (IopBuildFullDriverPath.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   const wchar_t *v10; // r12
   wchar_t *v11; // rax
   wchar_t *v12; // rdi
-  int v13; // r13d
+  ULONG v13; // r13d
   unsigned int v14; // r14d
   __int64 v15; // rdx
   __int64 v16; // r8
@@ -68,7 +68,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   inited = RtlInitUnicodeStringEx(&String2, Src);
   if ( inited < 0 )
     goto LABEL_24;
-  if ( !RtlPrefixUnicodeString((PCUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32], &String2, 1u) )
+  if ( !RtlPrefixUnicodeString((PCUNICODE_STRING)&PspSiloMonitorLock.648, &String2, 1u) )
   {
     inited = 0;
     goto LABEL_24;

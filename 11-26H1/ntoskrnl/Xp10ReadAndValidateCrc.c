@@ -1,11 +1,11 @@
 /*
- * XREFs of Xp10ReadAndValidateCrc @ 0x14080E79C
+ * XREFs of Xp10ReadAndValidateCrc @ 0x14081422C
  * Callers:
- *     RtlDecompressBuffer2Xp10 @ 0x14080A530 (RtlDecompressBuffer2Xp10.c)
+ *     RtlDecompressBuffer2Xp10 @ 0x14080FFC0 (RtlDecompressBuffer2Xp10.c)
  * Callees:
- *     Xp10Compute2Crc32 @ 0x14080C22C (Xp10Compute2Crc32.c)
- *     Xp10Compute2Crc64 @ 0x14080C334 (Xp10Compute2Crc64.c)
- *     Xp10ScatteredBitBufferReadBytes @ 0x14080E9F4 (Xp10ScatteredBitBufferReadBytes.c)
+ *     Xp10Compute2Crc32 @ 0x140811CBC (Xp10Compute2Crc32.c)
+ *     Xp10Compute2Crc64 @ 0x140811DC4 (Xp10Compute2Crc64.c)
+ *     Xp10ScatteredBitBufferReadBytes @ 0x140814484 (Xp10ScatteredBitBufferReadBytes.c)
  */
 
 __int64 __fastcall Xp10ReadAndValidateCrc(unsigned __int16 *a1, __int64 *a2, __int64 a3)

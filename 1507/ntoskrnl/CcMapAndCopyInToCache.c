@@ -50,7 +50,7 @@ __int64 __fastcall CcMapAndCopyInToCache(
   int v11; // edx
   bool v12; // r10
   int v13; // r12d
-  struct _SLIST_ENTRY *v14; // rdi
+  _SLIST_ENTRY *v14; // rdi
   char v15; // bl
   struct _KTHREAD *v16; // r8
   int v17; // edx
@@ -60,7 +60,7 @@ __int64 __fastcall CcMapAndCopyInToCache(
   volatile signed __int64 **v21; // rbx
   __int64 v22; // rax
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v24; // rax
+  _SLIST_ENTRY **v24; // rax
   volatile signed __int64 **v25; // rbx
   __int64 v26; // rax
   struct _KPRCB *CurrentPrcb; // rcx
@@ -243,7 +243,7 @@ LABEL_42:
       goto LABEL_43;
     }
     KeAcquireQueuedSpinLockAtDpcLevel((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 128);
-    v14 = *(struct _SLIST_ENTRY **)(a1 + 496);
+    v14 = *(_SLIST_ENTRY **)(a1 + 496);
     if ( !v14 )
     {
       v21 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 128);
@@ -268,7 +268,7 @@ LABEL_30:
       RtlRaiseStatus(-1073741608);
     }
     Next = v14->Next;
-    v24 = (struct _SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
+    v24 = (_SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
     if ( *(&v14->Next->Next + 1) != v14 || *v24 != v14 )
       __fastfail(3u);
     *v24 = Next;
@@ -315,7 +315,7 @@ LABEL_43:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v14);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v14);
     }
     v13 = 0;
   }

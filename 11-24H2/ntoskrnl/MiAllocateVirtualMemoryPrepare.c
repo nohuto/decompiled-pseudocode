@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1408DEC10
+ * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1409157C0
  * Callers:
- *     MmAllocateUserStack @ 0x1408DE514 (MmAllocateUserStack.c)
- *     NtAllocateVirtualMemory @ 0x1408DE710 (NtAllocateVirtualMemory.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1408DE9F0 (MiAllocateVirtualMemoryCommon.c)
+ *     MmAllocateUserStack @ 0x1409150D0 (MmAllocateUserStack.c)
+ *     NtAllocateVirtualMemory @ 0x1409152C0 (NtAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1409155A0 (MiAllocateVirtualMemoryCommon.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiHugePagesSupported @ 0x140495838 (MiHugePagesSupported.c)
- *     xHalUnmaskInterrupt @ 0x1404D6880 (xHalUnmaskInterrupt.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     MiValidateZeroBits @ 0x1408DFE40 (MiValidateZeroBits.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     MiHugePagesSupported @ 0x1404900F8 (MiHugePagesSupported.c)
+ *     xHalUnmaskInterrupt @ 0x1404CFCD0 (xHalUnmaskInterrupt.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiValidateZeroBits @ 0x1409169F0 (MiValidateZeroBits.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemoryPrepare(

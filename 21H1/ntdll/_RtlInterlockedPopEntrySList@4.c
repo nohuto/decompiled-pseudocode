@@ -9,17 +9,17 @@
 
 PSLIST_ENTRY __stdcall RtlInterlockedPopEntrySList(PSLIST_HEADER ListHead)
 {
-  struct _SINGLE_LIST_ENTRY *Next; // edi
+  _SLIST_ENTRY *Next; // edi
   _SINGLE_LIST_ENTRY *v2; // ecx
 
-  RtlAcquireSRWLockExclusive((char *)&RtlpSlistLockedAltLocks + 4 * (((unsigned int)ListHead >> 2) & 0x1F));
-  Next = ListHead->Next.Next;
+  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)ListHead >> 2) & 0x1F));
+  Next = (_SLIST_ENTRY *)ListHead->Next.Next;
   if ( ListHead->Next.Next )
   {
-    v2 = Next->Next;
+    v2 = (_SINGLE_LIST_ENTRY *)Next->Next;
     --ListHead->Depth;
     ListHead->Next.Next = v2;
   }
-  RtlReleaseSRWLockExclusive((char *)&RtlpSlistLockedAltLocks + 4 * (((unsigned int)ListHead >> 2) & 0x1F));
+  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)ListHead >> 2) & 0x1F));
   return Next;
 }

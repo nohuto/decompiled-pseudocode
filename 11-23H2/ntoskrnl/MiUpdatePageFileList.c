@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePageFileList @ 0x140395E00
+ * XREFs of MiUpdatePageFileList @ 0x140395FE0
  * Callers:
- *     MiIncreaseCommitLimits @ 0x140396064 (MiIncreaseCommitLimits.c)
- *     MiInsertPageFileInList @ 0x140834090 (MiInsertPageFileInList.c)
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
+ *     MiIncreaseCommitLimits @ 0x140396244 (MiIncreaseCommitLimits.c)
+ *     MiInsertPageFileInList @ 0x140834390 (MiInsertPageFileInList.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
@@ -57,10 +57,13 @@ LABEL_7:
   RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C69640, (unsigned __int64)v8, v7, (unsigned __int64)v4);
 LABEL_8:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69648);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

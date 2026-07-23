@@ -1,9 +1,9 @@
 /*
- * XREFs of PiIommuUninitializeDeviceAts @ 0x1403B69F0
+ * XREFs of PiIommuUninitializeDeviceAts @ 0x1403B6BD0
  * Callers:
- *     PiDmaGuardProcessPostRemove @ 0x140869D84 (PiDmaGuardProcessPostRemove.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140869FC4 (PiDmaGuardProcessPostRemove.c)
  * Callees:
- *     ExUninitializeDeviceAts @ 0x14060C50C (ExUninitializeDeviceAts.c)
+ *     ExUninitializeDeviceAts @ 0x14060CA5C (ExUninitializeDeviceAts.c)
  */
 
 __int64 __fastcall PiIommuUninitializeDeviceAts(__int64 a1)

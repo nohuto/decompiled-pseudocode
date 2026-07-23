@@ -6,44 +6,42 @@
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
  */
 
-void __fastcall MiUpdateThunks(__int64 a1, _QWORD *a2, __int64 a3, int a4)
+void __fastcall MiUpdateThunks(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
-  char *v4; // rbp
-  _QWORD *v5; // rdi
-  _QWORD *v6; // rbx
+  unsigned __int64 v4; // rbp
+  __int64 *v5; // rdi
+  __int64 *v6; // rbx
   __int64 v7; // r14
-  _QWORD *v8; // rsi
-  __int64 v9; // r8
-  unsigned __int64 v10; // rax
-  unsigned int v11; // [rsp+58h] [rbp+20h] BYREF
+  unsigned __int64 *v9; // rdx
+  __int64 v10; // r8
+  unsigned __int64 v11; // rax
+  ULONG Size; // [rsp+58h] [rbp+20h] BYREF
 
-  v11 = 0;
-  v4 = (char *)a2 + (unsigned int)(a4 - 1);
-  v5 = (_QWORD *)(a1 + 16);
-  v6 = *(_QWORD **)(a1 + 16);
-  v7 = a3 - (_QWORD)a2;
-  v8 = a2;
+  Size = 0;
+  v4 = a2 + (unsigned int)(a4 - 1);
+  v5 = (__int64 *)(a1 + 16);
+  v6 = *(__int64 **)(a1 + 16);
+  v7 = a3 - a2;
   while ( v6 != v5 )
   {
-    LOBYTE(a2) = 1;
-    a2 = (_QWORD *)RtlImageDirectoryEntryToData(v6[6], (int)a2, 12, (int)&v11);
-    if ( a2 )
+    v9 = (unsigned __int64 *)RtlImageDirectoryEntryToData((PVOID)v6[6], 1u, 0xCu, &Size);
+    if ( v9 )
     {
-      v11 >>= 3;
-      v9 = v11;
-      if ( v11 )
+      Size >>= 3;
+      v10 = Size;
+      if ( Size )
       {
         do
         {
-          v10 = *a2;
-          if ( *a2 >= (unsigned __int64)v8 && v10 <= (unsigned __int64)v4 )
-            *a2 = v7 + v10;
-          ++a2;
-          --v9;
+          v11 = *v9;
+          if ( *v9 >= a2 && v11 <= v4 )
+            *v9 = v7 + v11;
+          ++v9;
+          --v10;
         }
-        while ( v9 );
+        while ( v10 );
       }
     }
-    v6 = (_QWORD *)*v6;
+    v6 = (__int64 *)*v6;
   }
 }

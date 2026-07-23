@@ -1,23 +1,23 @@
 /*
- * XREFs of MiSystemVaTypeToVm @ 0x140285CBC
+ * XREFs of MiSystemVaTypeToVm @ 0x14028521C
  * Callers:
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiGetPteFromCopyList @ 0x140285490 (MiGetPteFromCopyList.c)
- *     MiDecommitSystemPageTables @ 0x1402A46B8 (MiDecommitSystemPageTables.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
- *     MiTranslatePageForCopy @ 0x140338D4C (MiTranslatePageForCopy.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     MiTrimViewLockSystemPte @ 0x1403A6720 (MiTrimViewLockSystemPte.c)
- *     MiLockStealSystemVm @ 0x140455630 (MiLockStealSystemVm.c)
- *     MiFreedUnusedPfnPagesDpc @ 0x1406E8B80 (MiFreedUnusedPfnPagesDpc.c)
- *     MiGetFileOnlyRanges @ 0x1406E8E88 (MiGetFileOnlyRanges.c)
- *     MiGetNextNonGapPfnPage @ 0x1406E9108 (MiGetNextNonGapPfnPage.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     MiInitializeDynamicVa @ 0x140CF97E4 (MiInitializeDynamicVa.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiGetPteFromCopyList @ 0x1402849F0 (MiGetPteFromCopyList.c)
+ *     MiDecommitSystemPageTables @ 0x1402A3C08 (MiDecommitSystemPageTables.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
+ *     MiTranslatePageForCopy @ 0x14033ADCC (MiTranslatePageForCopy.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     MiTrimViewLockSystemPte @ 0x1403A8480 (MiTrimViewLockSystemPte.c)
+ *     MiLockStealSystemVm @ 0x14044D760 (MiLockStealSystemVm.c)
+ *     MiFreedUnusedPfnPagesDpc @ 0x1406ED820 (MiFreedUnusedPfnPagesDpc.c)
+ *     MiGetFileOnlyRanges @ 0x1406EDB28 (MiGetFileOnlyRanges.c)
+ *     MiGetNextNonGapPfnPage @ 0x1406EDDA8 (MiGetNextNonGapPfnPage.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     MiInitializeDynamicVa @ 0x140CFFB64 (MiInitializeDynamicVa.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
  */
 
 void *volatile *__fastcall MiSystemVaTypeToVm(int a1)
@@ -44,19 +44,19 @@ void *volatile *__fastcall MiSystemVaTypeToVm(int a1)
   {
     v8 = a1 - 12;
     if ( !v8 )
-      return (void *volatile *)&unk_140E371C0;
+      return (void *volatile *)&unk_140E37340;
     v9 = v8 - 1;
     if ( !v9 )
-      return (void *volatile *)&unk_140E37300;
+      return (void *volatile *)&unk_140E37480;
     v12 = v9 - 1;
     if ( v12 )
     {
       v13 = v12 - 1;
       if ( !v13 )
-        return (void *volatile *)&unk_140E376C0;
+        return (void *volatile *)&unk_140E37840;
       v14 = v13 - 1;
       if ( !v14 )
-        return &stru_140E2D930.AbWaitObject;
+        return &stru_140E2DAB0.AbWaitObject;
       v15 = v14 - 1;
       if ( !v15 )
       {
@@ -65,7 +65,7 @@ void *volatile *__fastcall MiSystemVaTypeToVm(int a1)
       }
       v16 = v15 - 1;
       if ( !v16 )
-        return (void *volatile *)&unk_140E376C0;
+        return (void *volatile *)&unk_140E37840;
       if ( (unsigned int)(v16 - 1) > 1 )
         return (void *volatile *)v1;
     }
@@ -77,21 +77,21 @@ void *volatile *__fastcall MiSystemVaTypeToVm(int a1)
   {
     v2 = a1 - 7;
     if ( !v2 )
-      return (void *volatile *)&unk_140E3D500;
+      return (void *volatile *)&unk_140E3D680;
     v10 = v2 - 1;
     if ( !v10 )
-      return (void *volatile *)&unk_140E371C0;
+      return (void *volatile *)&unk_140E37340;
     v11 = v10 - 1;
     if ( v11 )
     {
       if ( v11 != 1 )
         return (void *volatile *)v1;
-      return (void *volatile *)&unk_140E371C0;
+      return (void *volatile *)&unk_140E37340;
     }
     goto LABEL_29;
   }
   if ( a1 == 6 )
-    return (void *volatile *)&unk_140E371C0;
+    return (void *volatile *)&unk_140E37340;
   v4 = a1 - 1;
   if ( !v4 )
     return (void *volatile *)&KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
@@ -104,7 +104,7 @@ LABEL_30:
   }
   v6 = v5 - 1;
   if ( !v6 )
-    return (void *volatile *)&unk_140E36F40;
+    return (void *volatile *)&unk_140E370C0;
   v7 = v6 - 1;
   if ( !v7 )
   {
@@ -113,6 +113,6 @@ LABEL_29:
     return (void *volatile *)MiGetAnyMultiplexedVm(v17, 0LL);
   }
   if ( v7 == 1 )
-    return (void *volatile *)&unk_140E37080;
+    return (void *volatile *)&unk_140E37200;
   return (void *volatile *)v1;
 }

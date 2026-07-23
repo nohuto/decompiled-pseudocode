@@ -9,10 +9,10 @@
  *     NtClose @ 0x14062C900 (NtClose.c)
  */
 
-__int64 __fastcall RtlQueryValidationRunlevel(PUNICODE_STRING ValueName)
+ULONG __cdecl RtlQueryValidationRunlevel(PUNICODE_STRING ComponentName)
 {
   int v1; // ebx
-  unsigned int v3; // edi
+  int v3; // edi
   ULONG ResultLength; // [rsp+30h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-28h] BYREF
   __int128 KeyValueInformation; // [rsp+40h] [rbp-20h] BYREF
@@ -24,11 +24,17 @@ __int64 __fastcall RtlQueryValidationRunlevel(PUNICODE_STRING ValueName)
   v8 = 0;
   KeyValueInformation = 0LL;
   v3 = MEMORY[0xFFFFF78000000258];
-  if ( ValueName
+  if ( ComponentName
     && MEMORY[0xFFFFF78000000258] != -1
     && ZwOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&ObjectAttributes) >= 0 )
   {
-    if ( ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
+    if ( ZwQueryValueKey(
+           KeyHandle,
+           ComponentName,
+           KeyValuePartialInformation,
+           &KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
       && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
     {
       v1 = HIDWORD(KeyValueInformation);

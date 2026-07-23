@@ -35,15 +35,15 @@ __int64 (*PpmPerfInitialize())()
   }
   while ( v0 );
   dword_1403017F4 = 100;
-  stru_1403044F0.WorkerRoutine = (void (__fastcall *)(void *))PpmMediaBufferingWorker;
+  stru_140304510.WorkerRoutine = (void (__fastcall *)(void *))PpmMediaBufferingWorker;
   result = PpmPerfLatencySensitivityHintWorker;
   PpmPerfLatencyBoostWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmPerfLatencySensitivityHintWorker;
   dword_140301D64 = 100;
   dword_1403017F8 = 2;
   dword_140301D68 = 2;
   PpmMediaBufferingWork = 0LL;
-  stru_1403044F0.Parameter = 0LL;
-  stru_1403044F0.List.Flink = 0LL;
+  stru_140304510.Parameter = 0LL;
+  stru_140304510.List.Flink = 0LL;
   PpmPerfLatencyBoostWorkItem.Parameter = 0LL;
   PpmPerfLatencyBoostWorkItem.List.Flink = 0LL;
   return result;

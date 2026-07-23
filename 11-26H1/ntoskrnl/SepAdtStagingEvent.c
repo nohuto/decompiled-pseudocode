@@ -1,22 +1,22 @@
 /*
- * XREFs of SepAdtStagingEvent @ 0x1409FB6F8
+ * XREFs of SepAdtStagingEvent @ 0x1409202F8
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeAuditHandleCreation @ 0x1409FAC60 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeAuditHandleCreation @ 0x14091F860 (SeAuditHandleCreation.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1404AF614 (SepCheckAndCopySelfRelativeSD.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     ObNormalizeHandleValue @ 0x1409FA514 (ObNormalizeHandleValue.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1404A8CA4 (SepCheckAndCopySelfRelativeSD.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     ObNormalizeHandleValue @ 0x14091F114 (ObNormalizeHandleValue.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14091F7B0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall SepAdtStagingEvent(

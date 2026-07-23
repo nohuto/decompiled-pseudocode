@@ -1,15 +1,15 @@
 /*
- * XREFs of PopIdlePhaseWatchdogCallback @ 0x1403D5810
+ * XREFs of PopIdlePhaseWatchdogCallback @ 0x1403D59F0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
- *     PopPdcSnapDiagnosticContext @ 0x140883678 (PopPdcSnapDiagnosticContext.c)
- *     PopPowerAggregatorSnapDiagnosticContext @ 0x14088369C (PopPowerAggregatorSnapDiagnosticContext.c)
- *     PopSnapSystemIdleContext @ 0x1408839C0 (PopSnapSystemIdleContext.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPdcSnapDiagnosticContext @ 0x1408838B8 (PopPdcSnapDiagnosticContext.c)
+ *     PopPowerAggregatorSnapDiagnosticContext @ 0x1408838DC (PopPowerAggregatorSnapDiagnosticContext.c)
+ *     PopSnapSystemIdleContext @ 0x140883C00 (PopSnapSystemIdleContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -30,14 +30,14 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int 
   PopPdcSnapDiagnosticContext(&v12);
   if ( (v13 & 0xFFFFFFDF) != 0 )
   {
-    PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C39F68);
-    v10 = qword_140C39F78;
-    qword_140C39F78 = 0LL;
+    PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C39F08);
+    v10 = qword_140C39F18;
+    qword_140C39F18 = 0LL;
     P[0] = v10;
-    LODWORD(v10) = dword_140C39F80;
-    dword_140C39F80 = 0;
+    LODWORD(v10) = dword_140C39F20;
+    dword_140C39F20 = 0;
     LODWORD(P[1]) = (_DWORD)v10;
-    PopReleaseRwLock((__int64 *)&xmmword_140C39F68);
+    PopReleaseRwLock((__int64 *)&xmmword_140C39F08);
     *(_OWORD *)&P[4] = v12;
     P[6] = *((PVOID *)&v13 + 1);
     *(_OWORD *)&P[7] = v14;

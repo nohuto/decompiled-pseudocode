@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPrototypePteBoundaries @ 0x1402C7664
+ * XREFs of MiGetPrototypePteBoundaries @ 0x1402C7854
  * Callers:
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     MiObtainProtoBaseFromNode @ 0x1400961A4 (MiObtainProtoBaseFromNode.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiObtainProtoBaseFromNode @ 0x1400960E4 (MiObtainProtoBaseFromNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
@@ -27,10 +27,10 @@ __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
   __int64 v18; // [rsp+40h] [rbp+18h]
 
   v4 = 0LL;
-  v5 = ExAcquireSpinLockShared(&dword_140438D78);
-  v6 = (_QWORD *)qword_140438D70;
+  v5 = ExAcquireSpinLockShared(&dword_140439E38);
+  v6 = (_QWORD *)qword_140439E30;
   v7 = v5;
-  if ( !qword_140438D70 )
+  if ( !qword_140439E30 )
     goto LABEL_25;
   v8 = v18;
   while ( 1 )
@@ -97,7 +97,7 @@ LABEL_21:
   if ( v6 )
     v4 = MiObtainProtoBaseFromNode(v6, a2);
 LABEL_25:
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140438D78);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140439E38);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

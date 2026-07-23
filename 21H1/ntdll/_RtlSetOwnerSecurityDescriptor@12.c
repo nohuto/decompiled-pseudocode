@@ -10,22 +10,25 @@
  *     <none>
  */
 
-int __stdcall RtlSetOwnerSecurityDescriptor(int a1, int a2, char a3)
+NTSTATUS __cdecl RtlSetOwnerSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID Owner,
+        BOOLEAN OwnerDefaulted)
 {
   __int16 v3; // cx
   __int16 v4; // cx
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v3 = *(_WORD *)(a1 + 2);
+  v3 = *((_WORD *)SecurityDescriptor + 1);
   if ( v3 < 0 )
     return -1073741703;
-  *(_DWORD *)(a1 + 4) = 0;
-  if ( a2 )
-    *(_DWORD *)(a1 + 4) = a2;
+  *((_DWORD *)SecurityDescriptor + 1) = 0;
+  if ( Owner )
+    *((_DWORD *)SecurityDescriptor + 1) = Owner;
   v4 = v3 & 0xFFFE;
-  *(_WORD *)(a1 + 2) = v4;
-  if ( a3 )
-    *(_WORD *)(a1 + 2) = v4 | 1;
+  *((_WORD *)SecurityDescriptor + 1) = v4;
+  if ( OwnerDefaulted )
+    *((_WORD *)SecurityDescriptor + 1) = v4 | 1;
   return 0;
 }

@@ -1,23 +1,26 @@
 /*
- * XREFs of MiZeroAndFlushGoodCitizen @ 0x1404C6618
+ * XREFs of MiZeroAndFlushGoodCitizen @ 0x1404BFA78
  * Callers:
- *     MiClearMappingAndDereferenceIoSpace @ 0x14028E960 (MiClearMappingAndDereferenceIoSpace.c)
+ *     MiClearMappingAndDereferenceIoSpace @ 0x14029E560 (MiClearMappingAndDereferenceIoSpace.c)
  * Callees:
- *     MiReduceShareCount @ 0x14023EDC0 (MiReduceShareCount.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1402E3A1C (MiLockWorkingSetSharedAtDpc.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
+ *     MiReduceShareCount @ 0x140206F10 (MiReduceShareCount.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x14020BF58 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
  */
 
 char __fastcall MiZeroAndFlushGoodCitizen(__int64 a1, _QWORD *a2, unsigned __int8 a3, unsigned int a4, int a5)
 {
   __int64 v5; // r14
-  unsigned __int64 v9; // rbx
+  __int64 v9; // rbx
   unsigned int v10; // esi
   char result; // al
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
 
   v5 = a4;
   if ( a4 )
@@ -51,7 +54,7 @@ char __fastcall MiZeroAndFlushGoodCitizen(__int64 a1, _QWORD *a2, unsigned __int
     if ( a3 == 17 )
       return MiLockWorkingSetSharedAtDpc(a1);
     else
-      return MiLockWorkingSetShared(a1);
+      return MiLockWorkingSetShared(a1, v12, v13, v14);
   }
   return result;
 }

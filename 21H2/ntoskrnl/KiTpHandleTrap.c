@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpHandleTrap @ 0x14051D1D0
+ * XREFs of KiTpHandleTrap @ 0x14051D410
  * Callers:
- *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1402612C0 (KiDispatchException.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KiTpWriteBreakpoint @ 0x14051D468 (KiTpWriteBreakpoint.c)
- *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KiTpWriteBreakpoint @ 0x14051D6A8 (KiTpWriteBreakpoint.c)
+ *     KiTpEmulateInstruction @ 0x140A138C0 (KiTpEmulateInstruction.c)
  */
 
 bool __fastcall KiTpHandleTrap(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)

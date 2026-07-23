@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceBootSystemTime @ 0x140C3D9C4
+ * XREFs of EtwpTraceBootSystemTime @ 0x140C3FB14
  * Callers:
- *     EtwpTraceSystemInitialization @ 0x140C3DC1C (EtwpTraceSystemInitialization.c)
+ *     EtwpTraceSystemInitialization @ 0x140C3FD6C (EtwpTraceSystemInitialization.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char EtwpTraceBootSystemTime()
@@ -55,27 +55,27 @@ char EtwpTraceBootSystemTime()
   _UNKNOWN *retaddr; // [rsp+1B0h] [rbp+A8h] BYREF
 
   v0 = &retaddr;
-  if ( (unsigned int)dword_140E09128 > 5 )
+  if ( (unsigned int)dword_140E09198 > 5 )
   {
-    LOBYTE(v0) = tlgKeywordOn((__int64)&dword_140E09128, 0x200000000000LL);
+    LOBYTE(v0) = tlgKeywordOn((__int64)&dword_140E09198, 0x200000000000LL);
     if ( (_BYTE)v0 )
     {
       v7 = KeBootTimeInfo;
       v27 = 8LL;
       v26 = &v7;
-      v8 = qword_140FC60C0;
+      v8 = qword_140FC70F8;
       v28 = &v8;
-      v9 = qword_140FC60C8;
+      v9 = qword_140FC7100;
       v30 = &v9;
-      v5 = dword_140FC60D0;
+      v5 = dword_140FC7108;
       v32 = &v5;
       v2 = ExpRealTimeIsUniversal;
       v34 = &v2;
-      v3 = dword_140FC60D8;
+      v3 = dword_140FC7110;
       v36 = &v3;
-      v4 = dword_140FC60DC;
+      v4 = dword_140FC7114;
       v38 = &v4;
-      LODWORD(v6) = dword_140FC60E0;
+      LODWORD(v6) = dword_140FC7118;
       v40 = &v6;
       v29 = 8LL;
       v31 = 8LL;
@@ -85,8 +85,8 @@ char EtwpTraceBootSystemTime()
       v39 = 1LL;
       v41 = 4LL;
       LOBYTE(v0) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E09128,
-                     (unsigned __int8 *)&dword_14005264C,
+                     (__int64)&dword_140E09198,
+                     (unsigned __int8 *)byte_140053998,
                      0LL,
                      0LL,
                      0xAu,
@@ -98,15 +98,15 @@ char EtwpTraceBootSystemTime()
     *(_QWORD *)&UserData.Size = 8LL;
     UserData.Ptr = (ULONGLONG)&KeBootTimeInfo;
     v12 = 8LL;
-    v11 = &qword_140FC60C0;
+    v11 = &qword_140FC70F8;
     v14 = 8LL;
-    v13 = &qword_140FC60C8;
+    v13 = &qword_140FC7100;
     v16 = 4LL;
-    v15 = &dword_140FC60D0;
+    v15 = &dword_140FC7108;
     v17 = &ExpRealTimeIsUniversal;
-    v19 = &dword_140FC60D8;
-    v21 = &dword_140FC60DC;
-    v23 = &dword_140FC60E0;
+    v19 = &dword_140FC7110;
+    v21 = &dword_140FC7114;
+    v23 = &dword_140FC7118;
     v18 = 4LL;
     v20 = 4LL;
     v22 = 4LL;

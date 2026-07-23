@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 ZwMapViewOfSectionEx()
+NTSTATUS __cdecl ZwMapViewOfSectionEx(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 271LL;
+  result = 271;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

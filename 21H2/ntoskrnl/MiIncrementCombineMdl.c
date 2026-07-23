@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIncrementCombineMdl @ 0x14036AEAC
+ * XREFs of MiIncrementCombineMdl @ 0x14036B05C
  * Callers:
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiIncrementCombineMdl(__int64 a1, int a2)

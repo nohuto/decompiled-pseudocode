@@ -1,13 +1,13 @@
 /*
- * XREFs of MiApplyHotPatchToDriver @ 0x14086E13C
+ * XREFs of MiApplyHotPatchToDriver @ 0x14087450C
  * Callers:
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x14086E384 (MiApplyHotPatchToLoadedDriver.c)
- *     MiLogHotPatchOperationStatus @ 0x140871F28 (MiLogHotPatchOperationStatus.c)
- *     RtlIsPatchMachineApplicable @ 0x1408AB31C (RtlIsPatchMachineApplicable.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140874754 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiLogHotPatchOperationStatus @ 0x140878288 (MiLogHotPatchOperationStatus.c)
+ *     RtlIsPatchMachineApplicable @ 0x1408B178C (RtlIsPatchMachineApplicable.c)
  */
 
 __int64 __fastcall MiApplyHotPatchToDriver(int a1, int a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -40,9 +40,9 @@ __int64 __fastcall MiApplyHotPatchToDriver(int a1, int a2, __int64 a3, unsigned 
   if ( !v5 )
     return (unsigned int)-1073741515;
   v10 = MiApplyHotPatchToLoadedDriver(v5, a3, a5);
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
   {
     MiLogHotPatchOperationStatus(v11, *((_DWORD *)v5 + 30), *((_DWORD *)v5 + 39), a3, v10, 1);
   }

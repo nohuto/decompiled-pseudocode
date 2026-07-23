@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLogHotPatchRundown @ 0x140A396B0
+ * XREFs of MiLogHotPatchRundown @ 0x140A39960
  * Callers:
- *     MiTracingEnabledCallback @ 0x140865E80 (MiTracingEnabledCallback.c)
+ *     MiTracingEnabledCallback @ 0x1408660C0 (MiTracingEnabledCallback.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiFillLogProcessInfo @ 0x14025B460 (MiFillLogProcessInfo.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
- *     MiGetProcessHotPatchContext @ 0x140A37290 (MiGetProcessHotPatchContext.c)
- *     MiIsActiveSystemHotPatch @ 0x140A37F30 (MiIsActiveSystemHotPatch.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MiFillLogProcessInfo @ 0x14025B6F0 (MiFillLogProcessInfo.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
+ *     MiGetProcessHotPatchContext @ 0x140A37540 (MiGetProcessHotPatchContext.c)
+ *     MiIsActiveSystemHotPatch @ 0x140A381E0 (MiIsActiveSystemHotPatch.c)
  */
 
 struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
@@ -204,7 +204,7 @@ struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
         v136 = 4LL;
         v138 = 2LL;
         v140[1] = 0;
-        tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&word_140038BCE, v5, 1u, v44, v45, 6u, &v132);
+        tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&word_140038DCE, v5, 1u, v44, v45, 6u, &v132);
       }
       v7 = *(_QWORD ***)(i + 8);
       v8 = i;
@@ -260,7 +260,7 @@ struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
           v128[1] = 0;
           v131 = 0;
           v130 = 4 * v16 + 8;
-          tlgWriteEx_EtwWriteEx(v15, (unsigned __int8 *)&byte_140038C21, v14, 1u, v44, v45, 7u, &v120);
+          tlgWriteEx_EtwWriteEx(v15, (unsigned __int8 *)&byte_140038E21, v14, 1u, v44, v45, 7u, &v120);
         }
         v17 = *(_QWORD ***)(j + 8);
         v18 = j;
@@ -338,7 +338,7 @@ struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
         v80 = 4LL;
         v82 = 2LL;
         v84[1] = 0;
-        tlgWriteEx_EtwWriteEx(v27, (unsigned __int8 *)&dword_140038C84, v26, 1u, v44, v45, 9u, &v70);
+        tlgWriteEx_EtwWriteEx(v27, (unsigned __int8 *)&dword_140038E84, v26, 1u, v44, v45, 9u, &v70);
       }
       v28 = *(_QWORD ***)(m + 8);
       v29 = m;
@@ -384,7 +384,7 @@ struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
         v95 = 4LL;
         v97 = 2LL;
         v99[1] = 0;
-        tlgWriteEx_EtwWriteEx(v35, (unsigned __int8 *)&word_140038D1A, v33, 1u, v44, v45, 9u, &v85);
+        tlgWriteEx_EtwWriteEx(v35, (unsigned __int8 *)&word_140038F1A, v33, 1u, v44, v45, 9u, &v85);
       }
     }
     MmReleaseLoadLock((__int64)CurrentThread);
@@ -440,7 +440,7 @@ struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
               v115 = 2LL;
               v117[1] = v42;
               v119 = 4LL;
-              tlgWriteEx_EtwWriteEx(v40, (unsigned __int8 *)&byte_140038DA7, v42, v42 + 1, v44, v45, 0xCu, &v100);
+              tlgWriteEx_EtwWriteEx(v40, (unsigned __int8 *)&byte_140038FA7, v42, v42 + 1, v44, v45, 0xCu, &v100);
             }
           }
           if ( _InterlockedCompareExchange64(ProcessHotPatchContext + 2, 0LL, 17LL) != 17 )

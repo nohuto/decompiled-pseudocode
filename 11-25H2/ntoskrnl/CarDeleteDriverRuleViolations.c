@@ -16,7 +16,7 @@ _UNKNOWN **__fastcall CarDeleteDriverRuleViolations(unsigned __int64 a1, __int64
   _UNKNOWN **result; // rax
   BOOLEAN i; // dl
   unsigned __int64 v6; // rcx
-  RTL_AVL_TABLE *v7; // rbx
+  _RTL_AVL_TABLE *v7; // rbx
   _QWORD *v8; // rax
   __int128 v9; // [rsp+20h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF

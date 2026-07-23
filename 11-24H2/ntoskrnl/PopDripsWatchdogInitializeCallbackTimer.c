@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogInitializeCallbackTimer @ 0x140C337FC
+ * XREFs of PopDripsWatchdogInitializeCallbackTimer @ 0x140C3593C
  * Callers:
- *     PopDripsWatchdogInitialize @ 0x140C3371C (PopDripsWatchdogInitialize.c)
+ *     PopDripsWatchdogInitialize @ 0x140C3585C (PopDripsWatchdogInitialize.c)
  * Callees:
- *     PopInitializeTimer @ 0x140749388 (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407476B8 (PopInitializeTimer.c)
  */
 
 __int64 PopDripsWatchdogInitializeCallbackTimer()
@@ -13,9 +13,9 @@ __int64 PopDripsWatchdogInitializeCallbackTimer()
   v0 = PopDripsCallbackInterval;
   if ( PopDripsCallbackInterval || (v0 = PopDirectedDripsTimeout) != 0 )
   {
-    dword_140F071A0 = v0;
+    dword_140F074A0 = v0;
     PopInitializeTimer(
-      (__int64)&unk_140F070F0,
+      (__int64)&unk_140F073F0,
       (__int64)PopDripsWatchdogTimerCallback,
       (__int64)&PopDripsWatchdogContext,
       (__int64)PopDripsWatchdogCallbackWorker,
@@ -24,7 +24,7 @@ __int64 PopDripsWatchdogInitializeCallbackTimer()
       PopDripsWatchdogDebounceTickInterval = (PopDripsWatchdogDebounceInterval - 1) / v0 + 1;
     if ( PopDripsWatchdogDebounceTickInterval == 1 )
       PopDripsWatchdogDebounceTickInterval = 2;
-    dword_140F071A4 |= 1u;
+    dword_140F074A4 |= 1u;
   }
   return 0LL;
 }

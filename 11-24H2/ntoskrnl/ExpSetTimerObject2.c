@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpSetTimerObject2 @ 0x1403C1E18
+ * XREFs of ExpSetTimerObject2 @ 0x1403B09D8
  * Callers:
- *     NtCancelTimer @ 0x1403320A0 (NtCancelTimer.c)
- *     NtSetTimer @ 0x140332480 (NtSetTimer.c)
- *     NtSetTimerEx @ 0x140332710 (NtSetTimerEx.c)
+ *     NtCancelTimer @ 0x1402BCF30 (NtCancelTimer.c)
+ *     NtSetTimer @ 0x1402BD310 (NtSetTimer.c)
+ *     NtSetTimerEx @ 0x1402BD5A0 (NtSetTimerEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403C3480 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403B2040 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
  */
 
 __int64 __fastcall ExpSetTimerObject2(ULONG_PTR BugCheckParameter2, __int64 *a2, __int64 a3, __int64 a4)

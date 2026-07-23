@@ -1,13 +1,13 @@
 /*
- * XREFs of IovInitAiDb @ 0x1406424E0
+ * XREFs of IovInitAiDb @ 0x1406460C0
  * Callers:
- *     ViIovInitialization @ 0x140C2AC6C (ViIovInitialization.c)
+ *     ViIovInitialization @ 0x140C30C7C (ViIovInitialization.c)
  * Callees:
- *     IovExpandAiDbRawEntries @ 0x140642470 (IovExpandAiDbRawEntries.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfIsRuleClassEnabled @ 0x140C46310 (VfIsRuleClassEnabled.c)
+ *     IovExpandAiDbRawEntries @ 0x140646050 (IovExpandAiDbRawEntries.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfIsRuleClassEnabled @ 0x140C4C320 (VfIsRuleClassEnabled.c)
  */
 
 __int64 IovInitAiDb()
@@ -20,7 +20,7 @@ __int64 IovInitAiDb()
     && (int)IovExpandAiDbRawEntries() >= 0 )
   {
     v0 = IovAiDb;
-    memset_0(IovAiDb, 0, sizeof(RTL_AVL_TABLE));
+    memset_0(IovAiDb, 0, sizeof(_RTL_AVL_TABLE));
     v0->BalancedRoot.Parent = &v0->BalancedRoot;
     v0->CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))IovAiDbNodeCompare;
     v0->AllocateRoutine = (void *(__fastcall *)(_RTL_AVL_TABLE *, unsigned int))IovAiDbNodeAlloc;

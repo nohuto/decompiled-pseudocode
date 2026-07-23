@@ -1,13 +1,13 @@
 /*
- * XREFs of PipMatchPersistentMemory @ 0x14071C4CC
+ * XREFs of PipMatchPersistentMemory @ 0x14071A05C
  * Callers:
- *     PipEnumeratePersistedMemoryCallback @ 0x1405A4300 (PipEnumeratePersistedMemoryCallback.c)
- *     PipGetPersistentMemory @ 0x14071BE10 (PipGetPersistentMemory.c)
+ *     PipEnumeratePersistedMemoryCallback @ 0x1405A1240 (PipEnumeratePersistedMemoryCallback.c)
+ *     PipGetPersistentMemory @ 0x1407199A0 (PipGetPersistentMemory.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     PipGetDeviceObjectLocation @ 0x14071BA24 (PipGetDeviceObjectLocation.c)
- *     PnpCompareMultiSz @ 0x140732F4C (PnpCompareMultiSz.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     PipGetDeviceObjectLocation @ 0x1407195B4 (PipGetDeviceObjectLocation.c)
+ *     PnpCompareMultiSz @ 0x140730F5C (PnpCompareMultiSz.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipMatchPersistentMemory(ULONG_PTR a1, const void **a2, _WORD *a3, __int64 a4, char a5, _BYTE *a6)

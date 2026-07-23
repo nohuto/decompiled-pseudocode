@@ -6,17 +6,17 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a2)
+LONG __cdecl RtlCompareAltitudes(PUNICODE_STRING Altitude1, PUNICODE_STRING Altitude2)
 {
-  unsigned __int16 v2; // r11
-  unsigned __int16 v3; // r10
-  _WORD *v4; // rsi
+  USHORT Length; // r11
+  USHORT v3; // r10
+  PWCH Buffer; // rsi
   unsigned __int16 v5; // cx
-  _WORD *v6; // r14
+  PWCH v6; // r14
   unsigned __int16 v7; // dx
   unsigned __int16 v8; // r11
   unsigned __int16 v9; // r10
-  unsigned int v10; // r9d
+  LONG v10; // r9d
   unsigned __int16 i; // r8
   unsigned __int16 v12; // bx
   unsigned __int16 j; // ax
@@ -24,34 +24,34 @@ __int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a
   unsigned __int16 k; // ax
   bool v16; // cf
   unsigned __int16 v18; // bx
-  unsigned __int16 v19; // di
-  unsigned __int16 v20; // ax
+  WCHAR v19; // di
+  WCHAR v20; // ax
   __int16 v21; // r15
   __int16 v22; // bp
   signed __int16 v23; // di
   unsigned __int16 m; // r11
   __int16 v25; // r11
   unsigned __int16 n; // r10
-  _WORD *v27; // r15
-  _WORD *v28; // r14
+  WCHAR *v27; // r15
+  WCHAR *v28; // r14
   int v29; // eax
-  unsigned __int16 v30; // dx
-  unsigned __int16 v31; // r8
+  WCHAR v30; // dx
+  WCHAR v31; // r8
 
-  v2 = *a1;
-  v3 = *a2;
-  v4 = (_WORD *)*((_QWORD *)a1 + 1);
+  Length = Altitude1->Length;
+  v3 = Altitude2->Length;
+  Buffer = Altitude1->Buffer;
   v5 = 0;
-  v6 = (_WORD *)*((_QWORD *)a2 + 1);
+  v6 = Altitude2->Buffer;
   v7 = 0;
-  v8 = v2 >> 1;
+  v8 = Length >> 1;
   v9 = v3 >> 1;
   v10 = 1;
   if ( v8 )
   {
     do
     {
-      if ( v4[v7] == 46 )
+      if ( Buffer[v7] == 46 )
         break;
       ++v7;
     }
@@ -65,10 +65,10 @@ __int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a
   v12 = v7;
   for ( j = 0; j < v12; --v8 )
   {
-    if ( *v4 != 48 )
+    if ( *Buffer != 48 )
       break;
     ++j;
-    ++v4;
+    ++Buffer;
     --v7;
   }
   v14 = i;
@@ -90,7 +90,7 @@ __int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a
   {
     do
     {
-      v19 = v4[v18];
+      v19 = Buffer[v18];
       v20 = v6[v18];
       v16 = v20 < v19;
       if ( v20 != v19 )
@@ -109,7 +109,7 @@ __int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a
   {
     for ( m = v8 - 1; m > v7; --m )
     {
-      if ( v4[m] != 48 )
+      if ( Buffer[m] != 48 )
         break;
       --v23;
     }
@@ -124,7 +124,7 @@ __int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a
       --v25;
     }
   }
-  v27 = &v4[v7 + 1];
+  v27 = &Buffer[v7 + 1];
   v28 = &v6[i + 1];
   if ( v23 > 0 )
   {
@@ -141,8 +141,8 @@ __int64 __fastcall RtlCompareAltitudes(unsigned __int16 *a1, unsigned __int16 *a
     }
   }
   if ( v23 == v25 )
-    return 0LL;
+    return 0;
   if ( v23 <= v25 )
-    return (unsigned int)-1;
+    return -1;
   return v10;
 }

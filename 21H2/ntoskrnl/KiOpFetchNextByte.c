@@ -1,10 +1,10 @@
 /*
- * XREFs of KiOpFetchNextByte @ 0x140274068
+ * XREFs of KiOpFetchNextByte @ 0x140262008
  * Callers:
- *     KiOpDecode @ 0x140273EE0 (KiOpDecode.c)
- *     KiOpLocateDecodeEntry @ 0x140274134 (KiOpLocateDecodeEntry.c)
- *     KiOpDecodeModRM @ 0x1403CF55C (KiOpDecodeModRM.c)
- *     KiOpFetchBytes @ 0x1405246EC (KiOpFetchBytes.c)
+ *     KiOpDecode @ 0x140261E80 (KiOpDecode.c)
+ *     KiOpLocateDecodeEntry @ 0x1402620D4 (KiOpLocateDecodeEntry.c)
+ *     KiOpDecodeModRM @ 0x1403CF6CC (KiOpDecodeModRM.c)
+ *     KiOpFetchBytes @ 0x14052492C (KiOpFetchBytes.c)
  * Callees:
  *     <none>
  */

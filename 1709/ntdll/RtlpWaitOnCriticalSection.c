@@ -62,13 +62,13 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3, __i
   v38 = 0;
   v32 = v4;
   v6 = 0;
-  if ( (_UNKNOWN **)a1 == &LdrpLoaderLock )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &LdrpLoaderLock )
   {
     v38 = 1;
     v4->WaitingOnLoaderLock = 1;
   }
   if ( (unsigned __int8)RtlpWaitCouldDeadlock(&LdrpLoaderLock, a2, a3, a4) )
-    ZwTerminateProcess(-1LL, 3221225547LL);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
   v7 = &RtlpTimeout;
   if ( RtlpTimeoutDisable )
     v7 = 0LL;
@@ -82,7 +82,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3, __i
   v9 = 0;
   for ( i = v8; ; v8 = i )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 552;
     else
       v10 = 2147353474LL;
@@ -173,17 +173,17 @@ LABEL_52:
       v26 = 0;
     else
       v26 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
-    if ( v6 > 2 && (_UNKNOWN **)a1 != &LdrpLoaderLock && v26 == v9 )
+    if ( v6 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &LdrpLoaderLock && v26 == v9 )
       RtlpPossibleDeadlock(a1);
     v9 = v26;
-    DbgPrintEx(101LL, 0LL, "RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
   if ( (int)v18 < 0 )
-    RtlRaiseStatus((int)v18);
+    RtlRaiseStatus((NTSTATUS)v18);
   if ( v38 )
   {
     v32->WaitingOnLoaderLock = 0;
-    LODWORD(v18) = (unsigned int)RtlGetCurrentServiceSessionId();
+    LODWORD(v18) = RtlGetCurrentServiceSessionId();
     if ( (_DWORD)v18 )
     {
       v18 = NtCurrentPeb();
@@ -198,7 +198,7 @@ LABEL_52:
       v18 = NtCurrentPeb();
       if ( (v18->TracingFlags & 4) != 0 )
       {
-        LODWORD(v18) = (unsigned int)RtlGetCurrentServiceSessionId();
+        LODWORD(v18) = RtlGetCurrentServiceSessionId();
         if ( (_DWORD)v18 )
         {
           v18 = NtCurrentPeb();

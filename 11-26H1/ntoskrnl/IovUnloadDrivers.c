@@ -1,13 +1,13 @@
 /*
- * XREFs of IovUnloadDrivers @ 0x140C20E8C
+ * XREFs of IovUnloadDrivers @ 0x140C26E9C
  * Callers:
- *     IoShutdownSystem @ 0x140C0C858 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x140C12A68 (IoShutdownSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ZwDelayExecution @ 0x140723A70 (ZwDelayExecution.c)
- *     ObEnumerateObjectsByType @ 0x1407C36F4 (ObEnumerateObjectsByType.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     IovpUnloadDriver @ 0x140C2100C (IovpUnloadDriver.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ZwDelayExecution @ 0x140728640 (ZwDelayExecution.c)
+ *     ObEnumerateObjectsByType @ 0x1407C6754 (ObEnumerateObjectsByType.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     IovpUnloadDriver @ 0x140C2701C (IovpUnloadDriver.c)
  */
 
 __int64 IovUnloadDrivers()
@@ -22,9 +22,9 @@ __int64 IovUnloadDrivers()
   _DWORD *v8; // rcx
   PVOID *v9; // rdi
   PVOID v10; // rcx
-  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( !LODWORD(stru_140F10828.KernelShadowStackInitial) )
+  if ( !PopShutdownCleanly )
     return 3221225473LL;
   v1 = 0LL;
   IovDriverListHead = 0LL;
@@ -72,8 +72,8 @@ __int64 IovUnloadDrivers()
     }
     if ( !v4 )
       break;
-    v11 = -100000000LL;
-    ZwDelayExecution(0LL, (__int64)&v11);
+    DelayInterval.QuadPart = -100000000LL;
+    ZwDelayExecution(0, &DelayInterval);
     v1 = v5;
     if ( !v5 )
       goto LABEL_17;

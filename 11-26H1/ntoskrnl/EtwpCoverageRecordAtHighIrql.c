@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageRecordAtHighIrql @ 0x1406C68DC
+ * XREFs of EtwpCoverageRecordAtHighIrql @ 0x1406CA5DC
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x140B0E008 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140B0F758 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     EtwTelemetryCoverageReport @ 0x14048CFE0 (EtwTelemetryCoverageReport.c)
- *     RtlStringCchCopyA @ 0x14048D1D8 (RtlStringCchCopyA.c)
- *     EtwpCoverageValidateCP @ 0x14048D23C (EtwpCoverageValidateCP.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     EtwTelemetryCoverageReport @ 0x140486B20 (EtwTelemetryCoverageReport.c)
+ *     RtlStringCchCopyA @ 0x140486D18 (RtlStringCchCopyA.c)
+ *     EtwpCoverageValidateCP @ 0x140486D7C (EtwpCoverageValidateCP.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpCoverageRecordAtHighIrql(char **a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of SshpWriteBlocker @ 0x1405A2DC0
+ * XREFs of SshpWriteBlocker @ 0x1405A32B0
  * Callers:
- *     SshpSendSessionData @ 0x14087822C (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x14087846C (SshpSendSessionData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     SshpStopBlockerAccounting @ 0x14032D818 (SshpStopBlockerAccounting.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     SshpStopBlockerAccounting @ 0x14032DAA8 (SshpStopBlockerAccounting.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     SSHSupportAllocatePaged @ 0x14069376C (SSHSupportAllocatePaged.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
@@ -122,10 +122,13 @@ int __fastcall SshpWriteBlocker(PKSPIN_LOCK SpinLock, PVOID *a2, unsigned int *a
   v23 = SpinLock[1] & 4;
   KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
   v24 = 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -270,11 +273,11 @@ LABEL_26:
         }
         else
         {
-          v54 = &word_14001F044;
+          v54 = &word_14001F0C4;
           v63 = 0;
-          v55 = &word_14001F044;
+          v55 = &word_14001F0C4;
           v62 = 0;
-          v57 = &word_14001F044;
+          v57 = &word_14001F0C4;
           v56 = 0;
         }
         v65 = v56;

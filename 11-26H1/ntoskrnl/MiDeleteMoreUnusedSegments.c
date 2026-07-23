@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteMoreUnusedSegments @ 0x1404C9B00
+ * XREFs of MiDeleteMoreUnusedSegments @ 0x1404C3538
  * Callers:
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpDoBoost @ 0x140358D38
+ * XREFs of FsRtlpDoBoost @ 0x140358ED8
  * Callers:
- *     FsRtlpModifyThreadPriorities @ 0x140358C84 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140358E24 (FsRtlpModifyThreadPriorities.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KeSetPriorityBoost @ 0x140307990 (KeSetPriorityBoost.c)
- *     IoBoostThreadIoPriority @ 0x14031B320 (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     KeSetPriorityBoost @ 0x140307C20 (KeSetPriorityBoost.c)
+ *     IoBoostThreadIoPriority @ 0x14031B5B0 (IoBoostThreadIoPriority.c)
  */
 
 void __fastcall FsRtlpDoBoost(__int64 a1, __int64 a2, _BYTE *a3, _BYTE *a4, __int64 a5)

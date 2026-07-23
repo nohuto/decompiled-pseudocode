@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuProcessReservationsInternal @ 0x14058E128
+ * XREFs of HalpIommuProcessReservationsInternal @ 0x1405908A8
  * Callers:
- *     HalpIommuProcessReservations @ 0x14058E0CC (HalpIommuProcessReservations.c)
+ *     HalpIommuProcessReservations @ 0x14059084C (HalpIommuProcessReservations.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpIommuDetermineReservedPciRid @ 0x14058D674 (HalpIommuDetermineReservedPciRid.c)
- *     HalpIommuProcessMemoryErrata @ 0x14058DFD8 (HalpIommuProcessMemoryErrata.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpIommuDetermineReservedPciRid @ 0x14058FDF4 (HalpIommuDetermineReservedPciRid.c)
+ *     HalpIommuProcessMemoryErrata @ 0x140590758 (HalpIommuProcessMemoryErrata.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuProcessReservationsInternal(_QWORD *a1, __int64 a2)

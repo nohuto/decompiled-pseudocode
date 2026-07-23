@@ -1,7 +1,7 @@
 /*
- * XREFs of IopGetModeInformation @ 0x140694D58
+ * XREFs of IopGetModeInformation @ 0x1405F42A8
  * Callers:
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExSaFree @ 0x1403942DC
+ * XREFs of ExSaFree @ 0x14039442C
  * Callers:
- *     ExCleanupAutoExpandPushLock @ 0x140296D80 (ExCleanupAutoExpandPushLock.c)
+ *     ExCleanupAutoExpandPushLock @ 0x140273E60 (ExCleanupAutoExpandPushLock.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExpSaAllocatorFree @ 0x140394354 (ExpSaAllocatorFree.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExpSaAllocatorFree @ 0x1403944A4 (ExpSaAllocatorFree.c)
  */
 
 char __fastcall ExSaFree(unsigned int a1)

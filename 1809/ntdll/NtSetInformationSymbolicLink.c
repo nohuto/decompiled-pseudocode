@@ -1,16 +1,20 @@
 /*
- * XREFs of NtSetInformationSymbolicLink @ 0x1800A3530
+ * XREFs of NtSetInformationSymbolicLink @ 0x1800A3550
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationSymbolicLink()
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 403LL;
+  result = 403;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

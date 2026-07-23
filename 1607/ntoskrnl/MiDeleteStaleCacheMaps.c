@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteStaleCacheMaps @ 0x1400BE6CC
+ * XREFs of MiDeleteStaleCacheMaps @ 0x1400BC55C
  * Callers:
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -28,32 +28,32 @@ unsigned __int64 MiDeleteStaleCacheMaps()
 
   result = (unsigned __int64)&retaddr;
   v1 = (unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( (__int64 *)qword_1403275E0 != &qword_1403275E0 )
+  if ( (__int64 *)qword_140327620 != &qword_140327620 )
   {
     _InterlockedOr(v11, 0);
     v2 = KiCacheFlushTimeStamp;
-    result = (unsigned int)(KiCacheFlushTimeStamp - dword_1403275F0);
-    if ( (unsigned int)result > 2 || (dword_1403275F0 & 1) == 0 && (unsigned int)result >= 2 )
+    result = (unsigned int)(KiCacheFlushTimeStamp - dword_140327630);
+    if ( (unsigned int)result > 2 || (dword_140327630 & 1) == 0 && (unsigned int)result >= 2 )
     {
       *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = (unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL;
       *(_QWORD *)v1 = v1;
-      KeAcquireInStackQueuedSpinLock(&qword_1403275C0, (PKLOCK_QUEUE_HANDLE)(v1 + 16));
-      while ( (__int64 *)qword_1403275E0 != &qword_1403275E0 )
+      KeAcquireInStackQueuedSpinLock(&qword_140327600, (PKLOCK_QUEUE_HANDLE)(v1 + 16));
+      while ( (__int64 *)qword_140327620 != &qword_140327620 )
       {
-        v3 = qword_1403275E0 - 24;
-        v4 = *(_DWORD *)(qword_1403275E0 - 24 + 56);
+        v3 = qword_140327620 - 24;
+        v4 = *(_DWORD *)(qword_140327620 - 24 + 56);
         if ( (unsigned int)(v2 - v4) <= 2 && ((v4 & 1) != 0 || (unsigned int)(v2 - v4) < 2) )
           break;
-        v5 = (unsigned __int64 *)qword_1403275E0;
-        v6 = *(_QWORD *)qword_1403275E0;
+        v5 = (unsigned __int64 *)qword_140327620;
+        v6 = *(_QWORD *)qword_140327620;
         v7 = *(_QWORD **)(v3 + 32);
-        if ( *(_QWORD *)(*(_QWORD *)qword_1403275E0 + 8LL) != qword_1403275E0 || *v7 != qword_1403275E0 )
+        if ( *(_QWORD *)(*(_QWORD *)qword_140327620 + 8LL) != qword_140327620 || *v7 != qword_140327620 )
           __fastfail(3u);
         *v7 = v6;
         *(_QWORD *)(v6 + 8) = v7;
-        RtlAvlRemoveNode((unsigned __int64 *)&qword_1403275D8, v3);
+        RtlAvlRemoveNode((unsigned __int64 *)&qword_140327618, v3);
         v8 = *(_QWORD *)v1;
-        --qword_1403275F8;
+        --qword_140327638;
         if ( *(_QWORD *)(v8 + 8) != v1 )
           __fastfail(3u);
         *v5 = v8;

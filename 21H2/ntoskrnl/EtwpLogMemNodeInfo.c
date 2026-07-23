@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpLogMemNodeInfo @ 0x1405A8D98
+ * XREFs of EtwpLogMemNodeInfo @ 0x1405A8FC8
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1405A8D20 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1405A8F50 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
- *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MmFillEtwNodeInformation @ 0x140547BF4 (MmFillEtwNodeInformation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PsGetNextPartition @ 0x140250E68 (PsGetNextPartition.c)
+ *     EtwProviderEnabled @ 0x14027E6F0 (EtwProviderEnabled.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MmFillEtwNodeInformation @ 0x140547E34 (MmFillEtwNodeInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void EtwpLogMemNodeInfo()

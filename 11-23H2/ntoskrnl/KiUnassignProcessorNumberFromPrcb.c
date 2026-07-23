@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUnassignProcessorNumberFromPrcb @ 0x140570A5C
+ * XREFs of KiUnassignProcessorNumberFromPrcb @ 0x140570F9C
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  * Callees:
  *     <none>
  */

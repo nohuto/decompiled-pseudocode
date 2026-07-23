@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpIsValidUILanguage @ 0x1408CBA9C
+ * XREFs of ExpIsValidUILanguage @ 0x1408CCD5C
  * Callers:
- *     ExpGetCurrentUserUILanguage @ 0x14071AEB0 (ExpGetCurrentUserUILanguage.c)
- *     ExpGetUILanguagePolicy @ 0x14071AFE0 (ExpGetUILanguagePolicy.c)
+ *     ExpGetCurrentUserUILanguage @ 0x14071C150 (ExpGetCurrentUserUILanguage.c)
+ *     ExpGetUILanguagePolicy @ 0x14071C280 (ExpGetUILanguagePolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 bool __fastcall ExpIsValidUILanguage(const WCHAR *a1)
@@ -40,7 +40,7 @@ bool __fastcall ExpIsValidUILanguage(const WCHAR *a1)
     a1 += 4;
   RtlInitUnicodeString(&DestinationString, a1);
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140401D20;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140402D20;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

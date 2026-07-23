@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtHandleInterrupt @ 0x14052CE00
+ * XREFs of IvtHandleInterrupt @ 0x14052D350
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuGetNextTranslatedDevice @ 0x14040F9BC (HalpIommuGetNextTranslatedDevice.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpIommuGetNextTranslatedDevice @ 0x14040FB9C (HalpIommuGetNextTranslatedDevice.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall IvtHandleInterrupt(ULONG_PTR BugCheckParameter2)

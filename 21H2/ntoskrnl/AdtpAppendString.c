@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpAppendString @ 0x14096E0B8
+ * XREFs of AdtpAppendString @ 0x14096E298
  * Callers:
- *     AdtpAppendZString @ 0x14096E260 (AdtpAppendZString.c)
- *     AdtpBuildObjectTypeStrings @ 0x14096E768 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpAppendZString @ 0x14096E440 (AdtpAppendZString.c)
+ *     AdtpBuildObjectTypeStrings @ 0x14096E948 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpAppendString(__int64 a1, __int64 a2, UNICODE_STRING *a3, _DWORD *a4)

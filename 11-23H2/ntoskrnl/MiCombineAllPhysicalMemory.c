@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCombineAllPhysicalMemory @ 0x1406F9D10
+ * XREFs of MiCombineAllPhysicalMemory @ 0x1406F9F20
  * Callers:
- *     MiCombineIdenticalPages @ 0x1407EB514 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x1407EB7E4 (MiCombineIdenticalPages.c)
  * Callees:
- *     MiComputeCombineHash @ 0x140281C50 (MiComputeCombineHash.c)
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x140357BC8 (MiDereferencePageRuns.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14036BB80 (KeQueryNodeActiveAffinity2.c)
- *     KeRevertToUserMultipleGroupAffinityThread @ 0x14036C118 (KeRevertToUserMultipleGroupAffinityThread.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14036CB74 (KeSetSystemMultipleGroupAffinityThread.c)
- *     MiGetClosestNodeWithProcessors @ 0x14036E7F0 (MiGetClosestNodeWithProcessors.c)
- *     PsAllocateAffinityToken @ 0x14036E950 (PsAllocateAffinityToken.c)
- *     PsFreeAffinityToken @ 0x14036F040 (PsFreeAffinityToken.c)
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
- *     MiAllocateCrcList @ 0x1407E4FF4 (MiAllocateCrcList.c)
+ *     MiComputeCombineHash @ 0x140281EE0 (MiComputeCombineHash.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x140357D68 (MiDereferencePageRuns.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x14036BD20 (KeQueryNodeActiveAffinity2.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x14036C2B8 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x14036CD14 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     MiGetClosestNodeWithProcessors @ 0x14036E990 (MiGetClosestNodeWithProcessors.c)
+ *     PsAllocateAffinityToken @ 0x14036EAF0 (PsAllocateAffinityToken.c)
+ *     PsFreeAffinityToken @ 0x14036F1E0 (PsFreeAffinityToken.c)
+ *     MiProcessCrcList @ 0x1406B0300 (MiProcessCrcList.c)
+ *     MiAllocateCrcList @ 0x1407E52C4 (MiAllocateCrcList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

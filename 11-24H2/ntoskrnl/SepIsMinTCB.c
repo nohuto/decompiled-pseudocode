@@ -1,16 +1,16 @@
 /*
- * XREFs of SepIsMinTCB @ 0x140A1BD1C
+ * XREFs of SepIsMinTCB @ 0x1409FA28C
  * Callers:
- *     SeQuerySigningPolicy @ 0x140A1BB40 (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x1409FA0B0 (SeQuerySigningPolicy.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     SepSetSystemPaths @ 0x14078EA40 (SepSetSystemPaths.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     SeCompareSigningLevels @ 0x1409354F0 (SeCompareSigningLevels.c)
- *     SepIsImageInMinTcbList @ 0x140A1B9DC (SepIsImageInMinTcbList.c)
- *     SepCheckAndSetAuditModeForProcess @ 0x140A1C0F8 (SepCheckAndSetAuditModeForProcess.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     SepSetSystemPaths @ 0x14078E970 (SepSetSystemPaths.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     SepIsImageInMinTcbList @ 0x1409F9F4C (SepIsImageInMinTcbList.c)
+ *     SepCheckAndSetAuditModeForProcess @ 0x1409FA668 (SepCheckAndSetAuditModeForProcess.c)
+ *     SeCompareSigningLevels @ 0x1409FA8D0 (SeCompareSigningLevels.c)
  */
 
 __int64 __fastcall SepIsMinTCB(
@@ -35,18 +35,14 @@ __int64 __fastcall SepIsMinTCB(
   __int64 v22; // rsi
   __int64 v23; // rdx
   unsigned __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  int v27; // eax
-  char v28; // al
-  unsigned __int8 v29; // di
-  char *v30; // r14
-  char v31; // al
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  char v36; // bl
+  int v25; // eax
+  char v26; // al
+  unsigned __int8 v27; // di
+  char *v28; // r14
+  char v29; // al
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  char v32; // bl
   UNICODE_STRING String1; // [rsp+50h] [rbp-38h] BYREF
 
   String1 = 0LL;
@@ -77,7 +73,7 @@ __int64 __fastcall SepIsMinTCB(
     }
     return (unsigned int)-1073741275;
   }
-  if ( !RtlPrefixUnicodeString(&stru_140002F20, String2, 1u) && !RtlPrefixUnicodeString(&stru_14000B530, String2, 1u) )
+  if ( !RtlPrefixUnicodeString(&stru_140002F08, String2, 1u) && !RtlPrefixUnicodeString(&stru_14000B7E0, String2, 1u) )
     return (unsigned int)-1073741275;
 LABEL_13:
   v18 = (unsigned __int16)(String2->Length - v14);
@@ -92,47 +88,47 @@ LABEL_13:
     v22 = 3LL * v21;
     if ( RtlEqualUnicodeString(&String1, (PCUNICODE_STRING)&SeMsMinTCBList[3 * v21], 1u) )
     {
-      v27 = dword_140B41354[6 * v21];
-      if ( !v27 || v27 == dword_140EFEAF0 )
+      v25 = dword_140B43154[6 * v21];
+      if ( !v25 || v25 == dword_140EFEE10 )
       {
         _mm_lfence();
-        v28 = byte_140B41352[24 * v21];
-        if ( v28 || !a3 )
+        v26 = byte_140B43152[24 * v21];
+        if ( v26 || !a3 )
         {
-          a3 = byte_140B41352[24 * v21];
-          v29 = a3;
-          if ( v28 )
+          a3 = byte_140B43152[24 * v21];
+          v27 = a3;
+          if ( v26 )
             goto LABEL_24;
-          v30 = a5;
-          *a5 = byte_140B41350[8 * v22];
-          v31 = byte_140B41351[8 * v22];
+          v28 = a5;
+          *a5 = byte_140B43150[8 * v22];
+          v29 = byte_140B43151[8 * v22];
         }
         else
         {
-          v29 = a3;
+          v27 = a3;
 LABEL_24:
-          v30 = a5;
+          v28 = a5;
           v24 = (unsigned __int64)a3 >> 4;
           *a5 = SeProtectedMapping[2 * v24];
-          v31 = byte_140B3B109[2 * v24];
+          v29 = byte_140B3CEB9[2 * v24];
         }
         LOBYTE(v23) = a4;
-        *a6 = v31;
-        LOBYTE(v24) = *v30;
-        if ( !(unsigned int)SeCompareSigningLevels(v24, v23, v25, v26) )
-          *v30 = a4;
-        LOBYTE(v33) = *a6;
-        LOBYTE(v32) = a4;
-        if ( !(unsigned int)SeCompareSigningLevels(v33, v32, v34, v35) )
+        *a6 = v29;
+        LOBYTE(v24) = *v28;
+        if ( !(unsigned int)SeCompareSigningLevels(v24, v23) )
+          *v28 = a4;
+        LOBYTE(v31) = *a6;
+        LOBYTE(v30) = a4;
+        if ( !(unsigned int)SeCompareSigningLevels(v31, v30) )
           *a6 = a4;
-        v36 = a3 & 7;
-        if ( v36 != 1 && ((a2 & 1) != 0 || v36 == 2) )
+        v32 = a3 & 7;
+        if ( v32 != 1 && ((a2 & 1) != 0 || v32 == 2) )
         {
           if ( (*a6 & 0xFu) < 4 )
-            *a6 = *v30;
-          v29 = *a7 & 8 ^ v29 & 0xF2 | 2;
+            *a6 = *v28;
+          v27 = *a7 & 8 ^ v27 & 0xF2 | 2;
         }
-        *a7 = v29;
+        *a7 = v27;
         SepCheckAndSetAuditModeForProcess(&String1, a6);
         return 0;
       }

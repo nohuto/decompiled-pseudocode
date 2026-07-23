@@ -1,10 +1,10 @@
 /*
- * XREFs of KiOpPciConfigSpaceAccessCommon @ 0x14057F5AC
+ * XREFs of KiOpPciConfigSpaceAccessCommon @ 0x14057FA9C
  * Callers:
- *     KiOp_Mov @ 0x14035B690 (KiOp_Mov.c)
+ *     KiOp_Mov @ 0x14035B830 (KiOp_Mov.c)
  * Callees:
- *     VslAccessPciDevice @ 0x14054A9A0 (VslAccessPciDevice.c)
- *     KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057F3B4 (KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress.c)
+ *     VslAccessPciDevice @ 0x14054B060 (VslAccessPciDevice.c)
+ *     KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057F8A4 (KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress.c)
  */
 
 __int64 __fastcall KiOpPciConfigSpaceAccessCommon(char a1, __int64 a2, unsigned int a3, char *a4)

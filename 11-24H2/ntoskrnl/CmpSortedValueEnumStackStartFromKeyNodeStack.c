@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A28364
+ * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A1CDE4
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x140462930 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x140457F40 (CmpGetValueCountForKeyNodeStack.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140916CB8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140916F14 (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x140A285A0 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpSortedValueEnumStackEntryStart @ 0x140A287B0 (CmpSortedValueEnumStackEntryStart.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14090A728 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14090A984 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x140A1D020 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpSortedValueEnumStackEntryStart @ 0x140A1D230 (CmpSortedValueEnumStackEntryStart.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(__int64 a1, __int16 *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(__int64 a1, __in
   if ( (__int16)(*a2 + 1) > 2 )
   {
     v12 = v2 - 1;
-    Pool = CmpAllocatePool(0x100uLL);
+    Pool = CmpAllocatePool(0x100uLL, 32LL * (__int16)(v2 - 1), 0x39374D43u);
     *(_QWORD *)(a1 + 80) = Pool;
     if ( !Pool )
       return 3221225626LL;

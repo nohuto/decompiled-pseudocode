@@ -1,19 +1,19 @@
 /*
- * XREFs of SeCreateAccessStateEx @ 0x1408A64E0
+ * XREFs of SeCreateAccessStateEx @ 0x1408FCAF0
  * Callers:
- *     CmpDoAccessCheckOnKCB @ 0x1407DB468 (CmpDoAccessCheckOnKCB.c)
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
- *     PspInsertProcess @ 0x1408A7074 (PspInsertProcess.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14091735C (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpDoAccessCheckOnKCB @ 0x1407DB9B8 (CmpDoAccessCheckOnKCB.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
+ *     PspInsertProcess @ 0x1408FD2CC (PspInsertProcess.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x14090ADCC (CmpCheckKeySecurityDescriptorAccess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1403EBC80 (SepCreateAccessStateFromSubjectContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x1403E0270 (SepCreateAccessStateFromSubjectContext.c)
  */
 
 __int64 __fastcall SeCreateAccessStateEx(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, int a5, _DWORD *a6)
@@ -22,7 +22,7 @@ __int64 __fastcall SeCreateAccessStateEx(__int64 a1, __int64 a2, _QWORD *a3, _QW
   ULONG_PTR v11; // rax
   struct _KTHREAD *CurrentThread; // r12
   signed __int64 *v14; // r15
-  _QWORD *v15; // r14
+  char *v15; // r14
   void *v16; // r14
   _QWORD *v17; // [rsp+30h] [rbp-48h] BYREF
   __int128 v18; // [rsp+38h] [rbp-40h]
@@ -37,11 +37,11 @@ __int64 __fastcall SeCreateAccessStateEx(__int64 a1, __int64 a2, _QWORD *a3, _QW
       CurrentThread = KeGetCurrentThread();
       v14 = (signed __int64 *)(a1 + 1424);
       --CurrentThread->KernelApcDisable;
-      v15 = KeAbPreAcquire(a1 + 1424, 0LL);
+      v15 = (char *)KeAbPreAcquire(a1 + 1424, 0LL);
       if ( _InterlockedCompareExchange64(v14, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v14, 0, v15, (__int64)v14);
       if ( v15 )
-        *((_BYTE *)v15 + 10) = 1;
+        v15[10] = 1;
       if ( (*(_DWORD *)(a1 + 1440) & 8) != 0 )
       {
         v16 = (void *)(*(_QWORD *)(a1 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);

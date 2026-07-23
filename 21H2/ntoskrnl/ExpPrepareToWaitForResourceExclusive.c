@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpPrepareToWaitForResourceExclusive @ 0x1402B9CC0
+ * XREFs of ExpPrepareToWaitForResourceExclusive @ 0x140237ED0
  * Callers:
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastResourceExclusive @ 0x14038ECD0 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastResourceExclusive @ 0x14038EE20 (ExAcquireFastResourceExclusive.c)
  * Callees:
  *     <none>
  */

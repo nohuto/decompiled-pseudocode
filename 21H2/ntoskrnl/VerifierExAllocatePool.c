@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExAllocatePool @ 0x1409D48F0
+ * XREFs of VerifierExAllocatePool @ 0x1409D58F0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool @ 0x1402D2D70 (ExAllocatePool.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     ExAllocatePool @ 0x1402512F0 (ExAllocatePool.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409C8D64 (VfCheckPoolType.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
  */
 
 PVOID __fastcall VerifierExAllocatePool(__int32 PoolType, ULONG_PTR BugCheckParameter3)
@@ -18,7 +18,7 @@ PVOID __fastcall VerifierExAllocatePool(__int32 PoolType, ULONG_PTR BugCheckPara
   if ( (MmVerifierData & 0x400000) == 0 || (VfRuleClasses & 0x800000000LL) != 0 || (MmVerifierData & 1) != 0 )
   {
     VfCheckPoolType(PoolType, retaddr, 0);
-    ++dword_140C2A87C;
+    ++dword_140C2A8BC;
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetIncrementCounter(retaddr, 164LL);
     v5 = PoolType | 0x80;

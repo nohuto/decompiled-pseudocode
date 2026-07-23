@@ -24,13 +24,13 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
   PVOID BaseAddress; // [rsp+68h] [rbp-9h] BYREF
   __int64 v17; // [rsp+70h] [rbp-1h] BYREF
   __int64 v18; // [rsp+78h] [rbp+7h] BYREF
-  PVOID v19; // [rsp+80h] [rbp+Fh]
-  __int64 v20; // [rsp+88h] [rbp+17h]
-  _QWORD v21[2]; // [rsp+90h] [rbp+1Fh] BYREF
-  _QWORD v22[3]; // [rsp+A0h] [rbp+2Fh] BYREF
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+80h] [rbp+Fh] BYREF
+  _QWORD v20[2]; // [rsp+90h] [rbp+1Fh] BYREF
+  _QWORD v21[3]; // [rsp+A0h] [rbp+2Fh] BYREF
+  int VmInformation; // [rsp+E0h] [rbp+6Fh] BYREF
 
-  v19 = 0LL;
-  v20 = 0LL;
+  VirtualAddresses.VirtualAddress = 0LL;
+  VirtualAddresses.NumberOfBytes = 0LL;
   v8 = PspReferenceSystemDll(a2);
   if ( !v8 )
     return 3221225473LL;
@@ -38,13 +38,13 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
   v18 = 0LL;
   v17 = 0LL;
   v9 = 0LL;
-  v21[1] = v22;
-  v22[0] = 0LL;
-  v22[2] = 0LL;
-  v21[0] = 1LL;
+  v20[1] = v21;
+  v21[0] = 0LL;
+  v21[2] = 0LL;
+  v20[0] = 1LL;
   if ( (*(_BYTE *)(a2 + 16) & 8) == 0 )
     v9 = 0x7FFFFFFEFFFFLL;
-  v22[1] = v9;
+  v21[1] = v9;
   v10 = MmMapViewOfSectionEx(
           v8,
           (__int64)a1,
@@ -53,7 +53,7 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
           (__int64)&v17,
           a3 != 0 ? 0x20000000 : 0,
           4,
-          (__int64)v21,
+          (__int64)v20,
           v15,
           0,
           0LL);
@@ -82,9 +82,16 @@ LABEL_5:
   }
   if ( *(PVOID *)(a2 + 40) == BaseAddress )
   {
-    v19 = BaseAddress;
-    v20 = 4096LL;
-    ZwSetInformationVirtualMemory(-1LL, 4LL, 1LL);
+    VirtualAddresses.VirtualAddress = BaseAddress;
+    VmInformation = 1;
+    VirtualAddresses.NumberOfBytes = 4096LL;
+    ZwSetInformationVirtualMemory(
+      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+      VmImageHotPatchInformation,
+      1uLL,
+      &VirtualAddresses,
+      &VmInformation,
+      4u);
     return v10;
   }
   return 3221225473LL;

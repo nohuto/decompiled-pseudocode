@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCommitPoolMemory @ 0x14030B22C
+ * XREFs of MiCommitPoolMemory @ 0x140315F7C
  * Callers:
- *     MmAllocatePoolMemory @ 0x14030B0D8 (MmAllocatePoolMemory.c)
- *     MmAllocateSecurePoolMemory @ 0x140544DC0 (MmAllocateSecurePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x140315E28 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140545000 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiClearNonPagedPtes @ 0x140296238 (MiClearNonPagedPtes.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
- *     MiLockPoolCommitPageTable @ 0x14030B3D0 (MiLockPoolCommitPageTable.c)
- *     MiLinkPoolCommitChain @ 0x14030B540 (MiLinkPoolCommitChain.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiUnlockPoolCommitWs @ 0x14030B808 (MiUnlockPoolCommitWs.c)
- *     MiLockPoolCommitWs @ 0x14030B858 (MiLockPoolCommitWs.c)
- *     MiReturnExcessPoolCommit @ 0x14030B894 (MiReturnExcessPoolCommit.c)
- *     MiCountSystemPool @ 0x14030B920 (MiCountSystemPool.c)
- *     MiFillPoolCommitPageTable @ 0x14030B9E0 (MiFillPoolCommitPageTable.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14053161C (MiLogPerfMemoryRangeEvent.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiClearNonPagedPtes @ 0x14021AB20 (MiClearNonPagedPtes.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
+ *     MiLockPoolCommitPageTable @ 0x140316120 (MiLockPoolCommitPageTable.c)
+ *     MiLinkPoolCommitChain @ 0x140316290 (MiLinkPoolCommitChain.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiUnlockPoolCommitWs @ 0x140316558 (MiUnlockPoolCommitWs.c)
+ *     MiLockPoolCommitWs @ 0x1403165A8 (MiLockPoolCommitWs.c)
+ *     MiReturnExcessPoolCommit @ 0x1403165E4 (MiReturnExcessPoolCommit.c)
+ *     MiCountSystemPool @ 0x140316670 (MiCountSystemPool.c)
+ *     MiFillPoolCommitPageTable @ 0x140316730 (MiFillPoolCommitPageTable.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14053185C (MiLogPerfMemoryRangeEvent.c)
  */
 
 __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)

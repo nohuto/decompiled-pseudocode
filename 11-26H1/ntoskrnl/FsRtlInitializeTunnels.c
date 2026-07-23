@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlInitializeTunnels @ 0x140CB8E4C
+ * XREFs of FsRtlInitializeTunnels @ 0x140CBEE90
  * Callers:
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
  * Callees:
- *     FsRtlGetTunnelParameterValue @ 0x14078DF18 (FsRtlGetTunnelParameterValue.c)
- *     ExInitializePagedLookasideList @ 0x140B31D30 (ExInitializePagedLookasideList.c)
+ *     FsRtlGetTunnelParameterValue @ 0x140790A48 (FsRtlGetTunnelParameterValue.c)
+ *     ExInitializePagedLookasideList @ 0x140B33F30 (ExInitializePagedLookasideList.c)
  */
 
 void FsRtlInitializeTunnels()
@@ -13,7 +13,7 @@ void FsRtlInitializeTunnels()
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-18h] BYREF
 
   *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
-  if ( (_BYTE)dword_140FBE22C )
+  if ( (_BYTE)dword_140FBF22C )
     TunnelMaxEntries = 1024;
   *(_DWORD *)&ValueName.Length = 2752552;
   ValueName.Buffer = L"MaximumTunnelEntries";

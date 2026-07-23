@@ -11,27 +11,19 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, unsigned int *a3)
 {
-  char v3; // al
-  unsigned int v6; // ebx
+  int v5; // ebx
   char *i; // rbx
-  unsigned int v8; // ebx
-  char *PoolWithTag; // rax
-  char *v10; // rsi
-  int v11; // eax
-  char *v12; // rdi
-  unsigned int v13; // ebp
-  _DWORD *v14; // rax
-  _DWORD *v15; // r14
-  _QWORD *v16; // rax
-  PVOID P; // [rsp+60h] [rbp+8h] BYREF
-  _QWORD *v19; // [rsp+68h] [rbp+10h]
+  unsigned int v7; // ebx
+  _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *v9; // rsi
+  unsigned int v10; // ebp
+  unsigned int v11; // r15d
+  _DWORD *v12; // rax
+  _DWORD *v13; // r14
 
-  v19 = a2;
-  v3 = *Src;
-  P = 0LL;
-  if ( (v3 & 0x7F) == 0x7F )
+  if ( (*Src & 0x7F) == 0x7F )
   {
     return (unsigned int)-1073741766;
   }
@@ -43,46 +35,42 @@ __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)
     {
       ;
     }
-    v8 = (_DWORD)i - (_DWORD)Src;
-    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v8 + 16, 0x4B444342u);
-    v10 = PoolWithTag;
+    v7 = (_DWORD)i - (_DWORD)Src;
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v7 + 16, 0x4B444342u);
+    v9 = PoolWithTag;
     if ( PoolWithTag )
     {
-      *(_DWORD *)PoolWithTag = 1;
-      *((_DWORD *)PoolWithTag + 1) = v8 + 16;
-      *((_DWORD *)PoolWithTag + 2) = 4;
-      memmove(PoolWithTag + 12, Src, v8);
-      *(_DWORD *)&v10[v8 + 12] = 327551;
-      v11 = BiTranslateFilePath(v10, 3LL, &P);
-      v12 = (char *)P;
-      v6 = v11;
-      if ( v11 >= 0 )
+      PoolWithTag->Version = 1;
+      PoolWithTag->Length = v7 + 16;
+      PoolWithTag->Type = 4;
+      memmove(PoolWithTag->FilePath, Src, v7);
+      *(_DWORD *)&v9->FilePath[v7] = 327551;
+      v5 = BiTranslateFilePath(v9, 3u);
+      if ( v5 >= 0 )
       {
-        v13 = *((_DWORD *)P + 1) - 12;
-        v14 = ExAllocatePoolWithTag(PagedPool, v13 + 20, 0x4B444342u);
-        v15 = v14;
-        if ( v14 )
+        v10 = MEMORY[4] - 12;
+        v11 = MEMORY[4] - 12 + 20;
+        v12 = ExAllocatePoolWithTag(PagedPool, v11, 0x4B444342u);
+        v13 = v12;
+        if ( v12 )
         {
-          memset(v14, 0, v13 + 20);
-          *v15 = 2;
-          memmove(v15 + 5, v12 + 12, v13);
-          v16 = v19;
-          *a3 = v13 + 20;
-          *v16 = v15;
+          memset(v12, 0, v10 + 20);
+          *v13 = 2;
+          memmove(v13 + 5, (const void *)0xC, v10);
+          *a3 = v11;
+          *a2 = v13;
         }
         else
         {
-          v6 = -1073741670;
+          v5 = -1073741670;
         }
       }
-      if ( v12 )
-        ExFreePoolWithTag(v12, 0x4B444342u);
-      ExFreePoolWithTag(v10, 0x4B444342u);
+      ExFreePoolWithTag(v9, 0x4B444342u);
     }
     else
     {
       return (unsigned int)-1073741670;
     }
   }
-  return v6;
+  return (unsigned int)v5;
 }

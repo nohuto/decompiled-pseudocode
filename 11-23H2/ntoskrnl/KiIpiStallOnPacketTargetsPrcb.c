@@ -1,18 +1,18 @@
 /*
- * XREFs of KiIpiStallOnPacketTargetsPrcb @ 0x1402C02F0
+ * XREFs of KiIpiStallOnPacketTargetsPrcb @ 0x1402C0580
  * Callers:
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     KeQueryTotalCycleTimeThread @ 0x140329DB0 (KeQueryTotalCycleTimeThread.c)
- *     KeSynchronizeSecurityDomain @ 0x140356984 (KeSynchronizeSecurityDomain.c)
- *     KeSynchronizeAddressPolicy @ 0x1403608FC (KeSynchronizeAddressPolicy.c)
- *     KeUpdateThreadTag @ 0x140366BD0 (KeUpdateThreadTag.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
- *     KiSynchronizeStibpPairing @ 0x1404609F6 (KiSynchronizeStibpPairing.c)
- *     KeFlushRsb @ 0x1405739E4 (KeFlushRsb.c)
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F2E0 (KiInitializeDynamicProcessorDpc.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14032A040 (KeQueryTotalCycleTimeThread.c)
+ *     KeSynchronizeSecurityDomain @ 0x140356B24 (KeSynchronizeSecurityDomain.c)
+ *     KeSynchronizeAddressPolicy @ 0x140360A9C (KeSynchronizeAddressPolicy.c)
+ *     KeUpdateThreadTag @ 0x140366D70 (KeUpdateThreadTag.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
+ *     KiSynchronizeStibpPairing @ 0x140460DF6 (KiSynchronizeStibpPairing.c)
+ *     KeFlushRsb @ 0x140573F24 (KeFlushRsb.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9F150 (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KiIpiStallOnPacketTargetsPrcb(__int64 a1, __int64 a2)

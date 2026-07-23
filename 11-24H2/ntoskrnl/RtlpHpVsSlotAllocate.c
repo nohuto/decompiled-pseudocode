@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpVsSlotAllocate @ 0x1402C00DC
+ * XREFs of RtlpHpVsSlotAllocate @ 0x140367A10
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x1402B7840 (RtlpHpVsContextAllocate.c)
- *     RtlpHpVsContextMultiAlloc @ 0x1402C0B14 (RtlpHpVsContextMultiAlloc.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     RtlpHpVsContextAllocate @ 0x14036781C (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14020D900 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BB160 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsChunkSplit @ 0x1402BF1C0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsSubsegmentCreate @ 0x1402C03D4 (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1402C0530 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkAlignSplit @ 0x1402C06F0 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140336C60 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403628A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsChunkSplit @ 0x140366900 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x140367D08 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x140367E64 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x140368020 (RtlpHpVsChunkAlignSplit.c)
  */
 
 _DWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5)

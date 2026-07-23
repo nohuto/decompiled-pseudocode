@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInsertProcess @ 0x1406093A8
+ * XREFs of PspInsertProcess @ 0x14060A3A8
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14075DE10 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075871C (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x14075F000 (PspCreateProcess.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -12,23 +12,23 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PspUnlockProcessListExclusive @ 0x140091DE0 (PspUnlockProcessListExclusive.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     PsGetProcessImageFileName @ 0x140129C70 (PsGetProcessImageFileName.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PspImplicitAssignProcessToJob @ 0x1406047A0 (PspImplicitAssignProcessToJob.c)
- *     DbgkCopyProcessDebugPort @ 0x140609650 (DbgkCopyProcessDebugPort.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
- *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     PspValidateJobAffinityState @ 0x1406C2054 (PspValidateJobAffinityState.c)
- *     SeAuditProcessCreation @ 0x1407495B0 (SeAuditProcessCreation.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PspUnlockProcessListExclusive @ 0x140091D20 (PspUnlockProcessListExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     PsGetProcessImageFileName @ 0x140129D40 (PsGetProcessImageFileName.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406057A0 (PspImplicitAssignProcessToJob.c)
+ *     DbgkCopyProcessDebugPort @ 0x14060A650 (DbgkCopyProcessDebugPort.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14060B3C0 (SeAuditingWithTokenForSubcategory.c)
+ *     SeCreateAccessStateEx @ 0x140613280 (SeCreateAccessStateEx.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     PspValidateJobAffinityState @ 0x1406C32F4 (PspValidateJobAffinityState.c)
+ *     SeAuditProcessCreation @ 0x14074A7A0 (SeAuditProcessCreation.c)
  */
 
 __int64 __fastcall PspInsertProcess(
@@ -52,9 +52,9 @@ __int64 __fastcall PspInsertProcess(
   struct _ACCESS_STATE *v19; // rbp
   __int64 v20; // rcx
   NTSTATUS v22; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   struct _KTHREAD *v24; // rax
-  STRING DestinationString; // [rsp+40h] [rbp-58h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-58h] BYREF
   UNICODE_STRING String1; // [rsp+50h] [rbp-48h] BYREF
   char v27; // [rsp+A0h] [rbp+8h]
   PVOID v28; // [rsp+A8h] [rbp+10h] BYREF
@@ -76,14 +76,14 @@ __int64 __fastcall PspInsertProcess(
   {
     --CurrentThread->SpecialApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
-    v15 = (_QWORD *)qword_14040E4E8;
+    v15 = (_QWORD *)qword_14040F548;
     v16 = Object + 744;
-    if ( *(__int64 **)qword_14040E4E8 != &PsActiveProcessHead )
+    if ( *(__int64 **)qword_14040F548 != &PsActiveProcessHead )
       __fastfail(3u);
-    *((_QWORD *)Object + 94) = qword_14040E4E8;
+    *((_QWORD *)Object + 94) = qword_14040F548;
     *v16 = &PsActiveProcessHead;
     *v15 = v16;
-    qword_14040E4E8 = (__int64)(Object + 744);
+    qword_14040F548 = (__int64)(Object + 744);
     *((_QWORD *)Object + 233) = ++PspProcessSequenceNumber;
     PspUnlockProcessListExclusive((__int64)CurrentThread);
     if ( (Process[1].DirectoryTableBase & 0x800000000LL) != 0 )
@@ -144,7 +144,7 @@ __int64 __fastcall PspInsertProcess(
 LABEL_21:
               if ( (ObpTraceFlags & 0x20) != 0 )
               {
-                ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)Object);
+                ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)Object);
                 RtlInitAnsiString(&DestinationString, ProcessImageFileName);
                 if ( DestinationString.Length )
                 {

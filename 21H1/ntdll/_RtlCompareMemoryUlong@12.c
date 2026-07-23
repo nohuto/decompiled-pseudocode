@@ -12,25 +12,27 @@
  *     <none>
  */
 
-char *__stdcall RtlCompareMemoryUlong(char *a1, unsigned int a2, int a3)
+SIZE_T __cdecl RtlCompareMemoryUlong(PVOID Source, SIZE_T Length, ULONG Pattern)
 {
   char *v3; // edi
   bool v4; // zf
   unsigned int v5; // ecx
+  SIZE_T result; // rax
 
-  v3 = a1;
-  v5 = a2 >> 2;
-  v4 = a2 >> 2 == 0;
+  v3 = (char *)Source;
+  v5 = (unsigned int)Length >> 2;
+  v4 = (unsigned int)Length >> 2 == 0;
   do
   {
     if ( !v5 )
       break;
-    v4 = *(_DWORD *)v3 == a3;
+    v4 = *(_DWORD *)v3 == HIDWORD(Length);
     v3 += 4;
     --v5;
   }
   while ( v4 );
   if ( !v4 )
     v3 -= 4;
-  return (char *)(v3 - a1);
+  LODWORD(result) = v3 - (_BYTE *)Source;
+  return result;
 }

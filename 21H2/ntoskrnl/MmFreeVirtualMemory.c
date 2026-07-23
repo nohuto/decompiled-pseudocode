@@ -1,33 +1,33 @@
 /*
- * XREFs of MmFreeVirtualMemory @ 0x1406ED600
+ * XREFs of MmFreeVirtualMemory @ 0x1407049E0
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     PspDeleteUserStack @ 0x1406BECD8 (PspDeleteUserStack.c)
- *     NtFreeVirtualMemory @ 0x1406ED530 (NtFreeVirtualMemory.c)
- *     PspFreeUserFiberShadowStack @ 0x14090A174 (PspFreeUserFiberShadowStack.c)
- *     PspReserveAndCommitUserShadowStack @ 0x14090A318 (PspReserveAndCommitUserShadowStack.c)
- *     PspSetupUserFiberShadowStack @ 0x14090A500 (PspSetupUserFiberShadowStack.c)
- *     PspSetupUserShadowStack @ 0x14090A5DC (PspSetupUserShadowStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x14090B028 (PspFreeCurrentThreadUserShadowStack.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     PspDeleteUserStack @ 0x14061DDC8 (PspDeleteUserStack.c)
+ *     NtFreeVirtualMemory @ 0x140704910 (NtFreeVirtualMemory.c)
+ *     PspFreeUserFiberShadowStack @ 0x14090A2D4 (PspFreeUserFiberShadowStack.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x14090A478 (PspReserveAndCommitUserShadowStack.c)
+ *     PspSetupUserFiberShadowStack @ 0x14090A660 (PspSetupUserFiberShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x14090A73C (PspSetupUserShadowStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x14090B188 (PspFreeCurrentThreadUserShadowStack.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiFreeVadRange @ 0x140323314 (MiFreeVadRange.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
- *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
- *     MiCheckSecuredVad @ 0x1406623F8 (MiCheckSecuredVad.c)
- *     MiDecommitRegion @ 0x1406EE5F0 (MiDecommitRegion.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408C87A4 (MiCoalescePlaceholderAllocations.c)
- *     MiDecommitEnclavePages @ 0x1408D2E84 (MiDecommitEnclavePages.c)
- *     MiFreeEnclaveModules @ 0x1408D2F20 (MiFreeEnclaveModules.c)
- *     PerfInfoLogVirtualFree @ 0x140937C94 (PerfInfoLogVirtualFree.c)
+ *     MiGetVadPageSize @ 0x14055BFF0 (MiGetVadPageSize.c)
+ *     MiCheckSecuredVad @ 0x140657218 (MiCheckSecuredVad.c)
+ *     MiDecommitRegion @ 0x1407059D0 (MiDecommitRegion.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408C8904 (MiCoalescePlaceholderAllocations.c)
+ *     MiDecommitEnclavePages @ 0x1408D2FE4 (MiDecommitEnclavePages.c)
+ *     MiFreeEnclaveModules @ 0x1408D3080 (MiFreeEnclaveModules.c)
+ *     PerfInfoLogVirtualFree @ 0x140937E64 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MmFreeVirtualMemory(
@@ -47,74 +47,73 @@ __int64 __fastcall MmFreeVirtualMemory(
   int v13; // ebx
   unsigned __int64 v14; // r14
   ULONG_PTR v15; // r13
-  _DWORD *v16; // r9
-  int v17; // edi
-  volatile signed __int32 *v18; // rsi
-  int v19; // r11d
-  unsigned __int64 v20; // r15
-  unsigned __int64 v21; // r12
-  unsigned __int64 v22; // r10
-  __int64 v23; // rdi
-  int v24; // r8d
-  int v25; // r9d
-  bool v26; // zf
+  int v16; // edi
+  __int64 v17; // rsi
+  int v18; // r11d
+  unsigned __int64 v19; // r15
+  unsigned __int64 v20; // r12
+  unsigned __int64 v21; // r10
+  __int64 v22; // rdi
+  int v23; // r8d
+  int v24; // r9d
+  bool v25; // zf
+  __int64 v26; // rax
   __int64 v27; // rax
-  __int64 v28; // rax
-  int v29; // ecx
-  unsigned __int64 v30; // r8
-  unsigned __int64 v31; // rdx
-  int v32; // eax
-  unsigned __int64 v33; // r15
-  __int64 v34; // r12
+  int v28; // ecx
+  unsigned __int64 v29; // r8
+  unsigned __int64 v30; // rdx
+  int v31; // eax
+  unsigned __int64 v32; // r15
+  __int64 v33; // r12
+  int v34; // eax
   int v35; // eax
-  int v36; // eax
-  int v37; // ecx
-  __int64 v38; // rax
-  char v39; // [rsp+40h] [rbp-C0h] BYREF
-  int v40; // [rsp+44h] [rbp-BCh]
-  int v41; // [rsp+48h] [rbp-B8h]
-  int v42; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v36; // ecx
+  __int64 v37; // rax
+  char v38; // [rsp+40h] [rbp-C0h] BYREF
+  int v39; // [rsp+44h] [rbp-BCh]
+  int v40; // [rsp+48h] [rbp-B8h]
+  int v41; // [rsp+4Ch] [rbp-B4h] BYREF
   ULONG_PTR BugCheckParameter1a; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int64 v44; // [rsp+58h] [rbp-A8h]
-  int v45; // [rsp+60h] [rbp-A0h]
-  ULONG_PTR v46; // [rsp+68h] [rbp-98h]
-  unsigned __int64 v47; // [rsp+70h] [rbp-90h]
-  unsigned __int64 v48; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v49; // [rsp+80h] [rbp-80h]
-  unsigned __int64 v50; // [rsp+88h] [rbp-78h]
-  __int64 v51; // [rsp+90h] [rbp-70h]
-  __int64 *v52; // [rsp+98h] [rbp-68h]
-  unsigned __int64 *v53; // [rsp+A0h] [rbp-60h]
-  __int64 v54[2]; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned __int64 v43; // [rsp+58h] [rbp-A8h]
+  int v44; // [rsp+60h] [rbp-A0h]
+  ULONG_PTR v45; // [rsp+68h] [rbp-98h]
+  unsigned __int64 v46; // [rsp+70h] [rbp-90h]
+  unsigned __int64 v47; // [rsp+78h] [rbp-88h]
+  unsigned __int64 v48; // [rsp+80h] [rbp-80h]
+  unsigned __int64 v49; // [rsp+88h] [rbp-78h]
+  __int64 v50; // [rsp+90h] [rbp-70h]
+  __int64 *v51; // [rsp+98h] [rbp-68h]
+  unsigned __int64 *v52; // [rsp+A0h] [rbp-60h]
+  __int64 v53[2]; // [rsp+A8h] [rbp-58h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+B8h] [rbp-48h]
-  __int64 v56; // [rsp+C0h] [rbp-40h] BYREF
-  __int128 v57; // [rsp+C8h] [rbp-38h]
-  __int64 v58; // [rsp+D8h] [rbp-28h]
-  __int64 v59; // [rsp+E0h] [rbp-20h]
-  __int64 v60; // [rsp+E8h] [rbp-18h]
+  __int64 v55; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v56; // [rsp+C8h] [rbp-38h]
+  __int64 v57; // [rsp+D8h] [rbp-28h]
+  __int64 v58; // [rsp+E0h] [rbp-20h]
+  __int64 v59; // [rsp+E8h] [rbp-18h]
 
-  v46 = BugCheckParameter1;
-  v41 = a4;
-  v52 = a3;
-  v53 = a2;
-  v51 = 0LL;
+  v45 = BugCheckParameter1;
+  v40 = a4;
+  v51 = a3;
+  v52 = a2;
+  v50 = 0LL;
   v6 = a4;
-  v56 = 0LL;
-  v58 = 0LL;
-  v60 = 0LL;
-  BugCheckParameter1a = 0LL;
-  v42 = 0;
-  v54[1] = 0LL;
-  v54[0] = 0LL;
+  v55 = 0LL;
   v57 = 0LL;
+  v59 = 0LL;
+  BugCheckParameter1a = 0LL;
+  v41 = 0;
+  v53[1] = 0LL;
+  v53[0] = 0LL;
+  v56 = 0LL;
   if ( (a4 & 0xC000) == 0 || (a4 & 0xC000) == 0xC000 )
     return 3221225714LL;
   v7 = *a2;
   v8 = *a3;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v50 = v7;
-  v49 = v8;
+  v49 = v7;
+  v48 = v8;
   if ( v7 > 0x7FFFFFFEFFFFLL )
     return 3221225712LL;
   if ( 0x7FFFFFFF0000LL - v7 < v8 )
@@ -125,23 +124,23 @@ __int64 __fastcall MmFreeVirtualMemory(
       return 3221225485LL;
     v10 = a6 | 0x4000000;
     v6 &= ~2u;
-    v41 = v6;
+    v40 = v6;
   }
   else
   {
     v10 = a6;
   }
-  v40 = v10;
+  v39 = v10;
   if ( (v6 & 1) != 0 )
   {
     if ( (v6 & 2) != 0 )
       return 3221225485LL;
     v10 |= 0xC000000u;
     v6 &= ~1u;
-    v40 = v10;
-    v41 = v6;
+    v39 = v10;
+    v40 = v6;
   }
-  v45 = v10 & 0x4000000;
+  v44 = v10 & 0x4000000;
   if ( (v10 & 0x4000000) == 0 )
     goto LABEL_18;
   if ( v6 != 0x8000 )
@@ -153,226 +152,225 @@ __int64 __fastcall MmFreeVirtualMemory(
 LABEL_18:
   v12 = v7 & 0x7FFFFFFFF000LL;
   v13 = 0;
-  v47 = (v7 & 0xFFFFFFFFFFFFF000uLL) >> 12;
-  v44 = v7 & 0xFFFFFFFFFFFFF000uLL;
+  v46 = (v7 & 0xFFFFFFFFFFFFF000uLL) >> 12;
+  v43 = v7 & 0xFFFFFFFFFFFFF000uLL;
   v14 = (v7 + v8 - 1) | 0xFFF;
-  v59 = 0LL;
-  v48 = v14 >> 12;
+  v58 = 0LL;
+  v47 = v14 >> 12;
   if ( BugCheckParameter1 == -1LL )
   {
     v15 = (ULONG_PTR)Process;
   }
   else
   {
-    v42 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x6D566D4Du, (__int64)&BugCheckParameter1a, 0LL, 0LL);
-    v17 = v42;
-    if ( v42 < 0 )
-      return (unsigned int)v17;
+    v41 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x6D566D4Du, (__int64)&BugCheckParameter1a, 0LL, 0LL);
+    v16 = v41;
+    if ( v41 < 0 )
+      return (unsigned int)v16;
     v15 = BugCheckParameter1a;
     if ( Process != (_KPROCESS *)BugCheckParameter1a )
     {
       v13 = 1;
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1a, 0LL, (__int64)&v56, v16);
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1a, 0, (__int64)&v55);
     }
-    v10 = v40;
-    v12 = v44;
+    v10 = v39;
+    v12 = v43;
   }
-  v39 = 0;
+  v38 = 0;
   if ( (v6 & 0xFFFF3FFF) != 0 && (!*(_QWORD *)(v15 + 2240) || (v6 & 0x10000) == 0 || (v6 & 0x4000) != 0) )
   {
-    v17 = -1073741582;
+    v16 = -1073741582;
     goto LABEL_123;
   }
   if ( (v10 & 0xC000000) == 0xC000000 )
   {
-    v17 = MiCoalescePlaceholderAllocations(v15, v12, v14, a5);
+    v16 = MiCoalescePlaceholderAllocations(v15, v12, v14, a5);
     goto LABEL_123;
   }
   LODWORD(BugCheckParameter1a) = v6 & 0x8000;
-  v18 = MiObtainReferencedVadEx(v12, (_DWORD)BugCheckParameter1a != 0, &v42);
-  if ( !v18 )
+  v17 = MiObtainReferencedVadEx(v12, (_DWORD)BugCheckParameter1a != 0, &v41);
+  if ( !v17 )
   {
-    v17 = v42;
+    v16 = v41;
     goto LABEL_123;
   }
   while ( 1 )
   {
-    v19 = BugCheckParameter1a;
-    v20 = *((unsigned int *)v18 + 6) | ((unsigned __int64)*((unsigned __int8 *)v18 + 32) << 32);
-    v21 = *((unsigned int *)v18 + 7) | ((unsigned __int64)*((unsigned __int8 *)v18 + 33) << 32);
-    if ( v49 )
+    v18 = BugCheckParameter1a;
+    v19 = *(unsigned int *)(v17 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v17 + 32) << 32);
+    v20 = *(unsigned int *)(v17 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v17 + 33) << 32);
+    if ( v48 )
     {
-      v22 = v48;
+      v21 = v47;
     }
     else
     {
-      v48 = *((unsigned int *)v18 + 7) | ((unsigned __int64)*((unsigned __int8 *)v18 + 33) << 32);
-      v22 = v21;
-      v14 = (v21 << 12) | 0xFFF;
+      v47 = *(unsigned int *)(v17 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v17 + 33) << 32);
+      v21 = v20;
+      v14 = (v20 << 12) | 0xFFF;
       if ( (_DWORD)BugCheckParameter1a )
       {
-        if ( v47 != v20 )
+        if ( v46 != v19 )
           goto LABEL_105;
-        v44 = v20 << 12;
+        v43 = v19 << 12;
       }
     }
-    v23 = v47;
-    if ( v47 < v20 || v47 > v21 || v22 < v20 || v22 > v21 )
+    v22 = v46;
+    if ( v46 < v19 || v46 > v20 || v21 < v19 || v21 > v20 )
     {
-      v17 = -1073741798;
+      v16 = -1073741798;
       goto LABEL_120;
     }
-    v24 = *((_DWORD *)v18 + 12);
-    v25 = v24 & 0x100000;
-    if ( (v41 & 0x10000) == 0 )
+    v23 = *(_DWORD *)(v17 + 48);
+    v24 = v23 & 0x100000;
+    if ( (v40 & 0x10000) == 0 )
     {
-      if ( !v25 )
+      if ( !v24 )
         goto LABEL_118;
-      v26 = (v24 & 0x70) == 16;
+      v25 = (v23 & 0x70) == 16;
 LABEL_48:
-      if ( v26 )
+      if ( v25 )
         goto LABEL_118;
       goto LABEL_49;
     }
-    if ( v25 || (v24 & 0x70) != 0 )
+    if ( v24 || (v23 & 0x70) != 0 )
     {
 LABEL_118:
-      v17 = -1073741797;
+      v16 = -1073741797;
       goto LABEL_120;
     }
-    if ( v47 == v20 )
+    if ( v46 == v19 )
     {
-      v26 = v22 == v21;
+      v25 = v21 == v20;
       goto LABEL_48;
     }
 LABEL_49:
-    if ( v45 )
+    if ( v44 )
     {
-      if ( !MiLocateVadEvent((__int64)v18, 128LL) )
+      if ( !MiLocateVadEvent(v17) )
       {
-        v27 = *((unsigned int *)v18 + 13);
-        LODWORD(v27) = v27 & 0x7FFFFFFF;
-        if ( (v27 | ((unsigned __int64)*((unsigned __int8 *)v18 + 34) << 31)) != 0x7FFFFFFFDLL )
+        v26 = *(unsigned int *)(v17 + 52);
+        LODWORD(v26) = v26 & 0x7FFFFFFF;
+        if ( (v26 | ((unsigned __int64)*(unsigned __int8 *)(v17 + 34) << 31)) != 0x7FFFFFFFDLL )
           break;
       }
-      v28 = *((unsigned int *)v18 + 13);
-      LODWORD(v28) = v28 & 0x7FFFFFFF;
-      if ( (v28 | ((unsigned __int64)*((unsigned __int8 *)v18 + 34) << 31)) == 0x7FFFFFFFDLL && v23 == v20 && v22 == v21 )
+      v27 = *(unsigned int *)(v17 + 52);
+      LODWORD(v27) = v27 & 0x7FFFFFFF;
+      if ( (v27 | ((unsigned __int64)*(unsigned __int8 *)(v17 + 34) << 31)) == 0x7FFFFFFFDLL && v22 == v19 && v21 == v20 )
         break;
     }
-    v29 = v40;
-    if ( (v40 & 0x40000000) != 0 && (!v25 || (v24 & 0x1000000) != 0 || (v24 & 0x4000000) == 0) )
+    v28 = v39;
+    if ( (v39 & 0x40000000) != 0 && (!v24 || (v23 & 0x1000000) != 0 || (v23 & 0x4000000) == 0) )
       break;
-    if ( (v24 & 8) == 0 || (v40 & 0x40000000) != 0 )
+    if ( (v23 & 8) == 0 || (v39 & 0x40000000) != 0 )
       goto LABEL_69;
-    if ( !v19 )
+    if ( !v18 )
     {
-      v31 = v50;
-      v30 = v22 - v23;
+      v30 = v49;
+      v29 = v21 - v22;
       goto LABEL_66;
     }
     if ( (*(_DWORD *)(v15 + 1124) & 0x20) == 0 )
     {
-      v30 = v21 - v20;
-      v31 = v20 << 12;
+      v29 = v20 - v19;
+      v30 = v19 << 12;
 LABEL_66:
-      v17 = MiCheckSecuredVad((__int64)v18, v31, (v30 + 1) << 12, 0x55u, a5);
+      v16 = MiCheckSecuredVad(v17, v30, (v29 + 1) << 12, 0x55u, a5);
       goto LABEL_67;
     }
-    v17 = 0;
+    v16 = 0;
 LABEL_67:
-    if ( v17 < 0 )
+    if ( v16 < 0 )
       goto LABEL_120;
-    v23 = v47;
-    v22 = v48;
-    v29 = v40;
+    v22 = v46;
+    v21 = v47;
+    v28 = v39;
 LABEL_69:
     if ( !(_DWORD)BugCheckParameter1a )
     {
-      v34 = v49;
-      v33 = v44;
-      if ( v49 )
-        v34 = v14 - v44 + 1;
-      v35 = *((_DWORD *)v18 + 12);
-      if ( (v35 & 0x100000) == 0
-        || (v35 & 0x1000000) != 0
-        || (v35 & 0x2000000) == 0
-        || (v36 = MiDecommitEnclavePages(v15, (_DWORD)v18, v44, v34, v29), v17 = v36, v36 == -1073741802) )
+      v33 = v48;
+      v32 = v43;
+      if ( v48 )
+        v33 = v14 - v43 + 1;
+      v34 = *(_DWORD *)(v17 + 48);
+      if ( (v34 & 0x100000) == 0
+        || (v34 & 0x1000000) != 0
+        || (v34 & 0x2000000) == 0
+        || (v35 = MiDecommitEnclavePages(v15, v17, v43, v33, v28), v16 = v35, v35 == -1073741802) )
       {
-        v37 = *((_DWORD *)v18 + 12);
-        if ( (v18[12] & 0x70) == 0x30
-          || (v37 & 0x100000) != 0
-          && ((v37 & 0x400000) != 0 || (v37 & 0xC0000u) >= 0x80000)
-          && ((v37 & 0x500000) != 0x500000
-           || v34 && (((MiGetVadPageSize((__int64)v18) << 12) - 1) & (v33 | (v14 + 1))) != 0)
-          || (v38 = *((unsigned int *)v18 + 13),
-              LODWORD(v38) = v38 & 0x7FFFFFFF,
-              (v38 | ((unsigned __int64)*((unsigned __int8 *)v18 + 34) << 31)) == 0x7FFFFFFFDLL) )
+        v36 = *(_DWORD *)(v17 + 48);
+        if ( (*(_BYTE *)(v17 + 48) & 0x70) == 0x30
+          || (v36 & 0x100000) != 0
+          && ((v36 & 0x400000) != 0 || (v36 & 0xC0000u) >= 0x80000)
+          && ((v36 & 0x500000) != 0x500000 || v33 && (((MiGetVadPageSize(v17) << 12) - 1) & (v32 | (v14 + 1))) != 0)
+          || (v37 = *(unsigned int *)(v17 + 52),
+              LODWORD(v37) = v37 & 0x7FFFFFFF,
+              (v37 | ((unsigned __int64)*(unsigned __int8 *)(v17 + 34) << 31)) == 0x7FFFFFFFDLL) )
         {
-          v17 = -1073741664;
+          v16 = -1073741664;
           goto LABEL_120;
         }
-        if ( !v34 )
+        if ( !v33 )
         {
-          if ( v50 >> 12 != (*((unsigned int *)v18 + 6) | ((unsigned __int64)*((unsigned __int8 *)v18 + 32) << 32)) )
+          if ( v49 >> 12 != (*(unsigned int *)(v17 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v17 + 32) << 32)) )
           {
 LABEL_105:
-            v17 = -1073741665;
+            v16 = -1073741665;
             goto LABEL_120;
           }
-          v14 = ((*((unsigned int *)v18 + 7) | ((unsigned __int64)*((unsigned __int8 *)v18 + 33) << 32)) << 12) | 0xFFF;
+          v14 = ((*(unsigned int *)(v17 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v17 + 33) << 32)) << 12) | 0xFFF;
         }
-        LODWORD(v51) = MiDecommitRegion(v18, v33, v14);
+        LODWORD(v50) = MiDecommitRegion(v17, v32, v14);
       }
-      else if ( v36 < 0 )
+      else if ( v35 < 0 )
       {
         goto LABEL_120;
       }
-      MiUnlockAndDereferenceVad((char *)v18);
-      if ( (_DWORD)v51 )
-        MiDeleteEmptyPageTables(v33, v14, 0);
+      MiUnlockAndDereferenceVad((char *)v17);
+      if ( (_DWORD)v50 )
+        MiDeleteEmptyPageTables(v32, v14, 0);
       if ( (WORD2(PerfGlobalGroupMask) & 0x8000) != 0 )
-        PerfInfoLogVirtualFree(v33, v34, v15);
+        PerfInfoLogVirtualFree(v32, v33, v15);
       if ( v13 )
-        KiUnstackDetachProcess((__int64)&v56, 0);
-      if ( v46 != -1LL )
+        KiUnstackDetachProcess((__int64)&v55, 0LL);
+      if ( v45 != -1LL )
         ObfDereferenceObjectWithTag((PVOID)v15, 0x6D566D4Du);
-      *v52 = v34;
+      *v51 = v33;
 LABEL_85:
-      *v53 = v33;
+      *v52 = v32;
       return 0LL;
     }
-    if ( (*(_DWORD *)(v15 + 2172) & 0x100) != 0 && (v23 != v20 || v22 != v21) )
+    if ( (*(_DWORD *)(v15 + 2172) & 0x100) != 0 && (v22 != v19 || v21 != v20) )
     {
-      v17 = -1073741558;
+      v16 = -1073741558;
       goto LABEL_120;
     }
-    v32 = MiFreeVadRange((ULONG_PTR)v18, (int)&v39, v23, v22, v15, v45 != 0);
-    v17 = v32;
-    if ( v32 >= 0 )
+    v31 = MiFreeVadRange(v17, (int)&v38, v22, v21, v15, v44 != 0);
+    v16 = v31;
+    if ( v31 >= 0 )
     {
       if ( v13 )
-        KiUnstackDetachProcess((__int64)&v56, 0);
-      if ( v54[0] )
-        MiFreeEnclaveModules(v54);
-      if ( v46 != -1LL )
+        KiUnstackDetachProcess((__int64)&v55, 0LL);
+      if ( v53[0] )
+        MiFreeEnclaveModules(v53);
+      if ( v45 != -1LL )
         ObfDereferenceObjectWithTag((PVOID)v15, 0x6D566D4Du);
-      v33 = v44;
-      *v52 = v14 - v44 + 1;
+      v32 = v43;
+      *v51 = v14 - v43 + 1;
       goto LABEL_85;
     }
-    if ( v32 != -1073741267 )
+    if ( v31 != -1073741267 )
       goto LABEL_120;
   }
-  v17 = -1073741800;
+  v16 = -1073741800;
 LABEL_120:
-  MiUnlockAndDereferenceVad((char *)v18);
-  if ( v39 == 1 )
+  MiUnlockAndDereferenceVad((char *)v17);
+  if ( v38 == 1 )
     UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, v15);
 LABEL_123:
   if ( v13 )
-    KiUnstackDetachProcess((__int64)&v56, 0);
-  if ( v46 != -1LL )
+    KiUnstackDetachProcess((__int64)&v55, 0LL);
+  if ( v45 != -1LL )
     ObfDereferenceObjectWithTag((PVOID)v15, 0x6D566D4Du);
-  return (unsigned int)v17;
+  return (unsigned int)v16;
 }

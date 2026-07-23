@@ -1,11 +1,11 @@
 /*
- * XREFs of ComputeNameLength @ 0x1409BA884
+ * XREFs of ComputeNameLength @ 0x1409BAA84
  * Callers:
- *     PfxFindPrefix @ 0x1409BA960 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x1409BAA60 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x1409BAB60 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x1409BAC60 (PfxInsertPrefix.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA530 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406DA560 (RtlpIsUtf8Process.c)
  */
 
 __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)

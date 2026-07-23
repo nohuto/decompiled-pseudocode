@@ -8,30 +8,30 @@
  *     __stricmp @ 0x4B2F7400 (__stricmp.c)
  */
 
-_DWORD *__fastcall LdrpGetDelayloadDescriptor(int a1, const char *a2)
+_DWORD *__fastcall LdrpGetDelayloadDescriptor(PVOID BaseOfImage, const char *a2)
 {
   char *v2; // eax
   int v3; // edi
   _DWORD *v4; // esi
-  unsigned int v5; // eax
-  unsigned int v6; // ebx
-  unsigned int v10; // [esp+14h] [ebp-4h] BYREF
+  ULONG v5; // eax
+  ULONG v6; // ebx
+  ULONG Size; // [esp+14h] [ebp-4h] BYREF
 
-  v2 = (char *)RtlImageDirectoryEntryToData(&v10, a1, 1, 13, (int)&v10);
+  v2 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xDu, &Size);
   v3 = 0;
   if ( v2 )
   {
     v4 = v2 + 4;
-    v5 = v10 >> 5;
+    v5 = Size >> 5;
     v6 = 0;
-    v10 >>= 5;
+    Size >>= 5;
     if ( *v4 )
     {
       while ( v6 < v5 )
       {
-        if ( !_stricmp((const char *)(a1 + *v4), a2) )
+        if ( !_stricmp((const char *)BaseOfImage + *v4, a2) )
           return v4 - 1;
-        v5 = v10;
+        v5 = Size;
         v4 += 8;
         ++v6;
         if ( !*v4 )

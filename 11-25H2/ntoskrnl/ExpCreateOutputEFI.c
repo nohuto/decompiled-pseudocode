@@ -11,7 +11,7 @@
  *     ExpGetDriveGeometry @ 0x140AAD5E0 (ExpGetDriveGeometry.c)
  */
 
-__int64 __fastcall ExpCreateOutputEFI(
+NTSTATUS __fastcall ExpCreateOutputEFI(
         char *a1,
         unsigned int *a2,
         _QWORD *a3,
@@ -21,13 +21,13 @@ __int64 __fastcall ExpCreateOutputEFI(
         _WORD *Src,
         char a8)
 {
-  unsigned int v8; // esi
+  int v8; // esi
   unsigned __int64 v9; // rbx
   int *v10; // rax
   int v13; // ebp
   __int64 v15; // rax
   unsigned int v16; // ebp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v18; // eax
   int *v19; // rax
   unsigned __int64 v20; // rcx
@@ -68,10 +68,10 @@ LABEL_7:
   v24 = v18;
   v26 = 0LL;
   result = ExpFindDiskSignature(a3, &v24, &v23, 0LL, 0LL, a8);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     result = ExpGetDriveGeometry(v23, &v26);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       memset_0(a1, 0, v16);
       v19 = v25;

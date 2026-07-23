@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRequestTimer2Expiration @ 0x140293D24
+ * XREFs of KiRequestTimer2Expiration @ 0x140211C94
  * Callers:
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14039E3F0 (KiAdjustTimer2DueTimes.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14039E540 (KiAdjustTimer2DueTimes.c)
  * Callees:
- *     KiSetDpcRequestFlag @ 0x140293D88 (KiSetDpcRequestFlag.c)
- *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
- *     KiRequestSoftwareInterrupt @ 0x140293E54 (KiRequestSoftwareInterrupt.c)
+ *     KiSetDpcRequestFlag @ 0x140211CF8 (KiSetDpcRequestFlag.c)
+ *     KiSendSoftwareInterrupt @ 0x140211D5C (KiSendSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x140211DC4 (KiRequestSoftwareInterrupt.c)
  */
 
 __int64 KiRequestTimer2Expiration()

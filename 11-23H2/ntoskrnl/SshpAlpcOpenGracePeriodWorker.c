@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpAlpcOpenGracePeriodWorker @ 0x14084C300
+ * XREFs of SshpAlpcOpenGracePeriodWorker @ 0x14084C600
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D320 (SSHSupportReleasePushLockExclusive.c)
- *     SshpAlpcSendMessage @ 0x14084C7E0 (SshpAlpcSendMessage.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x14032D5B0 (SSHSupportReleasePushLockExclusive.c)
+ *     SshpAlpcSendMessage @ 0x14084CAE0 (SshpAlpcSendMessage.c)
  */
 
 signed __int32 __fastcall SshpAlpcOpenGracePeriodWorker(int a1)
@@ -16,13 +16,13 @@ signed __int32 __fastcall SshpAlpcOpenGracePeriodWorker(int a1)
   int v6; // [rsp+40h] [rbp+8h] BYREF
 
   v6 = a1;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
-  v3 = &dword_140C38558[48 * a1];
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
+  v3 = &dword_140C384F8[48 * a1];
   if ( *((_BYTE *)v3 + 4) && !*v3 )
   {
     v5 = 0;
     SshpAlpcSendMessage(v2, 2LL, 4LL, &v6, v5);
     *((_BYTE *)v3 + 4) = 0;
   }
-  return SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
+  return SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
 }

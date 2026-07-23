@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmCompareAndApplyPolicySettings @ 0x140945E50
+ * XREFs of PpmCompareAndApplyPolicySettings @ 0x1409C17C0
  * Callers:
- *     PpmProfileAcDcUpdate @ 0x140945984 (PpmProfileAcDcUpdate.c)
- *     PpmApplyProfile @ 0x140945C68 (PpmApplyProfile.c)
+ *     PpmProfileAcDcUpdate @ 0x1409C12F4 (PpmProfileAcDcUpdate.c)
+ *     PpmApplyProfile @ 0x1409C15D8 (PpmApplyProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x14060636C (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     PpmReapplyIdlePolicy @ 0x140A9C8FC (PpmReapplyIdlePolicy.c)
- *     PpmGetPolicyAction @ 0x140A9CA04 (PpmGetPolicyAction.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140608E6C (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     PpmGetPolicyAction @ 0x140AD881C (PpmGetPolicyAction.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyIdlePolicy @ 0x140AD8F94 (PpmReapplyIdlePolicy.c)
  */
 
 LONG __fastcall PpmCompareAndApplyPolicySettings(const __m128i *a1, __int64 a2, __int64 a3, char a4)
@@ -53,7 +53,7 @@ LONG __fastcall PpmCompareAndApplyPolicySettings(const __m128i *a1, __int64 a2, 
   v26 = 0LL;
   v10 = (__m128i)_mm_and_ps(
                    (__m128)_mm_loadu_si128(a1),
-                   (__m128)_mm_loadu_si128((const __m128i *)&PopSleepstudySessionLock.QuantumTarget));
+                   (__m128)_mm_loadu_si128((const __m128i *)&PpmPolicySettingGlobalMask));
   v27 = v10;
   if ( v10.m128i_i64[0] | _mm_srli_si128(v10, 8).m128i_u64[0] )
   {
@@ -106,9 +106,9 @@ LONG __fastcall PpmCompareAndApplyPolicySettings(const __m128i *a1, __int64 a2, 
     v4 &= ~1u;
     v23 = v4;
   }
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+  PopReleaseRwLock(&PpmIdlePolicyLock);
   if ( (_WORD)v4 )
     return PpmReapplyPerfPolicy(&v23);
   else
-    return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
 }

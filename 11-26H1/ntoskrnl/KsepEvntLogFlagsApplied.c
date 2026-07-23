@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepEvntLogFlagsApplied @ 0x140514B1C
+ * XREFs of KsepEvntLogFlagsApplied @ 0x14050E58C
  * Callers:
- *     KseQueryDeviceFlags @ 0x1409E5610 (KseQueryDeviceFlags.c)
+ *     KseQueryDeviceFlags @ 0x1409D7790 (KseQueryDeviceFlags.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char KsepEvntLogFlagsApplied(unsigned __int16 *a1, unsigned __int16 *a2, int a3, ...)
@@ -28,9 +28,9 @@ char KsepEvntLogFlagsApplied(unsigned __int16 *a1, unsigned __int16 *a2, int a3,
   va_start(va, a3);
   v3 = &retaddr;
   v18 = a3;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseFlagsApplied);
+    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseFlagsApplied);
     if ( (_BYTE)v3 )
     {
       if ( a1 && a2 )
@@ -47,7 +47,7 @@ char KsepEvntLogFlagsApplied(unsigned __int16 *a1, unsigned __int16 *a2, int a3,
         va_copy(v15, va);
         v12 = 0;
         v16 = 8LL;
-        LOBYTE(v3) = EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseFlagsApplied, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+        LOBYTE(v3) = EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseFlagsApplied, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       }
     }
   }

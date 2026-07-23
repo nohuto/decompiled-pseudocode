@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUnlinkPageListUpdateCounts @ 0x1402991A0
+ * XREFs of MiUnlinkPageListUpdateCounts @ 0x140298700
  * Callers:
- *     MiFinishUnlinkBatch @ 0x1402990A0 (MiFinishUnlinkBatch.c)
+ *     MiFinishUnlinkBatch @ 0x140298600 (MiFinishUnlinkBatch.c)
  * Callees:
  *     <none>
  */

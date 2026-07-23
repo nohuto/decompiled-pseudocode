@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlLookupElementGenericTableAvl @ 0x14022CF10
+ * XREFs of RtlLookupElementGenericTableAvl @ 0x14022D020
  * Callers:
  *     PiLookupInDDBCache @ 0x140692D24 (PiLookupInDDBCache.c)
  *     PiUpdateDriverDBCache @ 0x140693190 (PiUpdateDriverDBCache.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBEA4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiDmGetObject @ 0x1406D8120 (PiDmGetObject.c)
- *     PiDcHandleDeviceEvent @ 0x140787320 (PiDcHandleDeviceEvent.c)
- *     PiPnpRtlObjectEventWorker @ 0x1407884D0 (PiPnpRtlObjectEventWorker.c)
- *     PiSwFindBusRelations @ 0x140798364 (PiSwFindBusRelations.c)
- *     PopPowerRequestTableLookupEntry @ 0x1407A6CF0 (PopPowerRequestTableLookupEntry.c)
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
- *     PiDmLookupObject @ 0x1407C2284 (PiDmLookupObject.c)
- *     PiDqQueryIsObjectInResultSet @ 0x1407E1C74 (PiDqQueryIsObjectInResultSet.c)
- *     PiSwFindSwDevice @ 0x140869F3C (PiSwFindSwDevice.c)
- *     IopCleanupFileObjectIosbRange @ 0x1409446E0 (IopCleanupFileObjectIosbRange.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x14099F854 (PopDirectedDripsUmMarkTestDevices.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBED4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiDmGetObject @ 0x1406D8150 (PiDmGetObject.c)
+ *     PiDcHandleDeviceEvent @ 0x140787510 (PiDcHandleDeviceEvent.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407886C0 (PiPnpRtlObjectEventWorker.c)
+ *     PiSwFindBusRelations @ 0x140798554 (PiSwFindBusRelations.c)
+ *     PopPowerRequestTableLookupEntry @ 0x1407A6EE0 (PopPowerRequestTableLookupEntry.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
+ *     PiDmLookupObject @ 0x1407C2554 (PiDmLookupObject.c)
+ *     PiDqQueryIsObjectInResultSet @ 0x1407E1F44 (PiDqQueryIsObjectInResultSet.c)
+ *     PiSwFindSwDevice @ 0x14086A17C (PiSwFindSwDevice.c)
+ *     IopCleanupFileObjectIosbRange @ 0x1409448E0 (IopCleanupFileObjectIosbRange.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x14099FA54 (PopDirectedDripsUmMarkTestDevices.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)

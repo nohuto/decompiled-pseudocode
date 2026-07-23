@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeSlabPage @ 0x1402C25CC
+ * XREFs of MiFreeSlabPage @ 0x1402C27BC
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     MiFreePageToSlabAllocator @ 0x1402C1F80 (MiFreePageToSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x1402C2170 (MiFreePageToSlabAllocator.c)
  */
 
 __int64 __fastcall MiFreeSlabPage(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall MiFreeSlabPage(__int64 a1)
   __int64 result; // rax
 
   v2 = 0LL;
-  v3 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
+  v3 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
   do
   {
     result = MiFreePageToSlabAllocator(a1, v3 + 8 * ((unsigned int)v2 + 767LL + 8 * v2));

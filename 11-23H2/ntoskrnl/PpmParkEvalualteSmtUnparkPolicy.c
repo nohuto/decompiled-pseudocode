@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x140392E8C
+ * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x14039306C
  * Callers:
- *     PpmParkApplyPolicy @ 0x140392600 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x1403927E0 (PpmParkApplyPolicy.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
@@ -38,7 +38,7 @@ char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
     if ( a1 < 2u )
     {
       LODWORD(v3) = 0;
-      v10[1] = (unsigned __int16 *)qword_140C0BE68[0];
+      v10[1] = (unsigned __int16 *)qword_140C0BE78[0];
       v11 = 0;
       v10[0] = (unsigned __int16 *)&PpmCheckRegistered;
       while ( 1 )

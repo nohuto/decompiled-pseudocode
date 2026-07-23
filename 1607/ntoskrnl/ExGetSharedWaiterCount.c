@@ -1,5 +1,5 @@
 /*
- * XREFs of ExGetSharedWaiterCount @ 0x14022D9BC
+ * XREFs of ExGetSharedWaiterCount @ 0x14022D7E8
  * Callers:
  *     <none>
  * Callees:

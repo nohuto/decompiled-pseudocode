@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpLightWeightPrepareRenameKeyUoW @ 0x1408045F8
+ * XREFs of CmpLightWeightPrepareRenameKeyUoW @ 0x1408057F8
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1405A942C (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmpRemoveSubKeyFromList @ 0x1405AE780 (CmpRemoveSubKeyFromList.c)
- *     CmpAddSubKeyToList @ 0x1405AECF4 (CmpAddSubKeyToList.c)
- *     CmpCleanupRollbackPacket @ 0x1405AFF78 (CmpCleanupRollbackPacket.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
- *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpMarkAllChildrenDirty @ 0x1407FFBDC (CmpMarkAllChildrenDirty.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x140803E5C (CmpLightWeightCreateModificationData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1405AA42C (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     CmpRemoveSubKeyFromList @ 0x1405AF780 (CmpRemoveSubKeyFromList.c)
+ *     CmpAddSubKeyToList @ 0x1405AFCF4 (CmpAddSubKeyToList.c)
+ *     CmpCleanupRollbackPacket @ 0x1405B0F78 (CmpCleanupRollbackPacket.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
+ *     CmpReferenceKeyControlBlock @ 0x140693BFC (CmpReferenceKeyControlBlock.c)
+ *     CmpCopyCell @ 0x1406968D8 (CmpCopyCell.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407FAE88 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpMarkAllChildrenDirty @ 0x140800DDC (CmpMarkAllChildrenDirty.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408047A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14080505C (CmpLightWeightCreateModificationData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareRenameKeyUoW(__int64 a1)

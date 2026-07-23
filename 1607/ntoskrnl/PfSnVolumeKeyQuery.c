@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnVolumeKeyQuery @ 0x1404C9F88
+ * XREFs of PfSnVolumeKeyQuery @ 0x1404AFD08
  * Callers:
- *     PfSnNameQueryWorker @ 0x1400A0734 (PfSnNameQueryWorker.c)
+ *     PfSnNameQueryWorker @ 0x14009F05C (PfSnNameQueryWorker.c)
  * Callees:
- *     PfSnArrayGrow @ 0x1404CA040 (PfSnArrayGrow.c)
- *     PfSnFailProcessTrace @ 0x14052A490 (PfSnFailProcessTrace.c)
+ *     PfSnArrayGrow @ 0x1404AFDC0 (PfSnArrayGrow.c)
+ *     PfSnFailProcessTrace @ 0x14052A9D0 (PfSnFailProcessTrace.c)
  */
 
 __int64 __fastcall PfSnVolumeKeyQuery(__int64 a1, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall PfSnVolumeKeyQuery(__int64 a1, __int64 a2, __int64 a3)
   if ( (unsigned int)PfSnArrayGrow(v3, a2, a3, (int)a1 + 592, (__int64)v4) )
   {
     *(_QWORD *)(*v4 + 8LL * (unsigned int)(*(_DWORD *)(a1 + 596))++) = a2;
-    v12 = (*(__int64 (__fastcall **)(_QWORD, __int64))(qword_140328678 + 24))(*(_QWORD *)(a1 + 352), a3);
+    v12 = (*(__int64 (__fastcall **)(_QWORD, __int64))(qword_1403286B8 + 24))(*(_QWORD *)(a1 + 352), a3);
     if ( v12 >= 0 )
       return 0;
     return (unsigned int)v12;

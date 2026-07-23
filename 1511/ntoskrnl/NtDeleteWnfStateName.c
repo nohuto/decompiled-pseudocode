@@ -20,16 +20,16 @@
  *     ExpWnfDeletePermanentStateData @ 0x140677B58 (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(__int64 a1)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v2; // r14
-  int v3; // edi
+  NTSTATUS v3; // edi
   char v4; // r8
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // r12
   unsigned __int64 v7; // r15
-  BOOL v8; // r13d
+  _BOOL8 v8; // r13
   _KPROCESS *Process; // rax
   void *Ptr; // rdi
   __int64 v11; // r8
@@ -55,7 +55,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
   v2 = 0LL;
   *(_QWORD *)v16 = 0LL;
   v14 = 0LL;
-  v3 = ExpCaptureWnfStateName(a1, &v15);
+  v3 = ExpCaptureWnfStateName(StateName, &v15);
   AccessStatus[2] = v3;
   if ( v3 >= 0 )
   {
@@ -92,7 +92,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
         v3 = (int)v25;
         if ( (int)v25 < 0 )
           goto LABEL_21;
-        v8 = 1;
+        LODWORD(v8) = 1;
       }
       v3 = ExpWnfDeletePermanentName(v5);
       if ( v3 < 0 )
@@ -149,7 +149,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
             v3 = AccessStatus[0];
             if ( AccessStatus[0] < 0 )
               goto LABEL_21;
-            v8 = 1;
+            LODWORD(v8) = 1;
           }
           if ( v15 == 3 && (_KPROCESS *)v14[19].Count != v25 )
           {
@@ -190,5 +190,5 @@ LABEL_21:
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
   KeLeaveCriticalRegion();
-  return (unsigned int)v3;
+  return v3;
 }

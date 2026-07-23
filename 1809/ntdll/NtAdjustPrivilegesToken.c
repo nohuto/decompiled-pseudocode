@@ -1,21 +1,27 @@
 /*
- * XREFs of NtAdjustPrivilegesToken @ 0x1800A0B00
+ * XREFs of NtAdjustPrivilegesToken @ 0x1800A0B20
  * Callers:
  *     TppCritSetThread @ 0x180029604 (TppCritSetThread.c)
- *     RtlAcquirePrivilege @ 0x18007C220 (RtlAcquirePrivilege.c)
- *     RtlAdjustPrivilege @ 0x18007E580 (RtlAdjustPrivilege.c)
- *     RtlReleasePrivilege @ 0x180084C20 (RtlReleasePrivilege.c)
- *     RtlRemovePrivileges @ 0x18008D8B0 (RtlRemovePrivileges.c)
- *     RtlpSysVolTakeOwnership @ 0x18008F800 (RtlpSysVolTakeOwnership.c)
+ *     RtlAcquirePrivilege @ 0x18007C230 (RtlAcquirePrivilege.c)
+ *     RtlAdjustPrivilege @ 0x18007E590 (RtlAdjustPrivilege.c)
+ *     RtlReleasePrivilege @ 0x180084C30 (RtlReleasePrivilege.c)
+ *     RtlRemovePrivileges @ 0x18008D8C0 (RtlRemovePrivileges.c)
+ *     RtlpSysVolTakeOwnership @ 0x18008F810 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtAdjustPrivilegesToken()
+NTSTATUS __cdecl NtAdjustPrivilegesToken(
+        HANDLE TokenHandle,
+        BOOLEAN DisableAllPrivileges,
+        PTOKEN_PRIVILEGES NewState,
+        ULONG BufferLength,
+        PTOKEN_PRIVILEGES PreviousState,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 65LL;
+  result = 65;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -42,10 +42,10 @@ __int64 SeMakeAnonymousLogonTokenNoEveryone()
   __int64 v20; // [rsp+B0h] [rbp-78h] BYREF
   __int64 v21; // [rsp+B8h] [rbp-70h] BYREF
   int v22[2]; // [rsp+C0h] [rbp-68h] BYREF
-  struct _SID_AND_ATTRIBUTES v23; // [rsp+C8h] [rbp-60h] BYREF
+  _SID_AND_ATTRIBUTES v23; // [rsp+C8h] [rbp-60h] BYREF
   __m128i si128; // [rsp+D8h] [rbp-50h] BYREF
   int v25[12]; // [rsp+E8h] [rbp-40h] BYREF
-  struct _SID_AND_ATTRIBUTES v26; // [rsp+118h] [rbp-10h] BYREF
+  _SID_AND_ATTRIBUTES v26; // [rsp+118h] [rbp-10h] BYREF
 
   v23.Sid = 0LL;
   *(_QWORD *)&v23.Attributes = 0LL;

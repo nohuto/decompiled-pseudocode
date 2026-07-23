@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwRenameKey @ 0x14070CE2C
+ * XREFs of VerifierZwRenameKey @ 0x14070CE5C
  * Callers:
  *     <none>
  * Callees:

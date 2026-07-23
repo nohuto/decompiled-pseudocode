@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlQueryRegistryValues @ 0x1406C4A30
+ * XREFs of RtlQueryRegistryValues @ 0x1406C5CD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

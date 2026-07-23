@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockAllMemoryLists @ 0x140703904
+ * XREFs of MiLockAllMemoryLists @ 0x1407085D4
  * Callers:
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIterateOverPartitions @ 0x1404A90F4 (MiIterateOverPartitions.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIterateOverPartitions @ 0x1404A2784 (MiIterateOverPartitions.c)
  */
 
 void MiLockAllMemoryLists()
 {
   MiIterateOverPartitions((__int64)MiLockMemoryLists, 1LL);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32]);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EA70);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EA60);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EB10);
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32]);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EBF0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EBE0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2EC90);
 }

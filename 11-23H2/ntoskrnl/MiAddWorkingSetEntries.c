@@ -1,25 +1,25 @@
 /*
- * XREFs of MiAddWorkingSetEntries @ 0x14026BD20
+ * XREFs of MiAddWorkingSetEntries @ 0x14026BFB0
  * Callers:
- *     MiMakeSystemCacheRangeValid @ 0x140267860 (MiMakeSystemCacheRangeValid.c)
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140267AF0 (MiMakeSystemCacheRangeValid.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
  * Callees:
  *     MiGetStandbyRepurposed @ 0x1402204FC (MiGetStandbyRepurposed.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MmUnlockLoadedModuleListShared @ 0x1402A7D8C (MmUnlockLoadedModuleListShared.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiCountWslesInPageTable @ 0x140317D00 (MiCountWslesInPageTable.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     MmLockLoadedModuleListShared @ 0x1403399A0 (MmLockLoadedModuleListShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402A801C (MmUnlockLoadedModuleListShared.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiCountWslesInPageTable @ 0x140317F90 (MiCountWslesInPageTable.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     MmLockLoadedModuleListShared @ 0x140339C30 (MmLockLoadedModuleListShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
@@ -210,7 +210,8 @@ LABEL_9:
     if ( (*(_BYTE *)(a1 + 184) & 7) == 4 )
     {
       if ( PsNtosImageBase
-        && (v6 < PsNtosImageEnd && v6 >= PsNtosImageBase || v6 < PsHalImageEnd && v6 >= PsHalImageBase) )
+        && (v6 < PsNtosImageEnd && v6 >= (unsigned __int64)PsNtosImageBase
+         || v6 < PsHalImageEnd && v6 >= (unsigned __int64)PsHalImageBase) )
       {
         _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C65950, v5);
       }

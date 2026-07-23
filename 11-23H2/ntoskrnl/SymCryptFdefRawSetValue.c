@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefRawSetValue @ 0x140405AB8
+ * XREFs of SymCryptFdefRawSetValue @ 0x140405C98
  * Callers:
- *     SymCryptFdefModElementSetValueGeneric @ 0x140404324 (SymCryptFdefModElementSetValueGeneric.c)
- *     SymCryptFdefIntSetValue @ 0x14040591C (SymCryptFdefIntSetValue.c)
+ *     SymCryptFdefModElementSetValueGeneric @ 0x140404504 (SymCryptFdefModElementSetValueGeneric.c)
+ *     SymCryptFdefIntSetValue @ 0x140405AFC (SymCryptFdefIntSetValue.c)
  * Callees:
  *     <none>
  */

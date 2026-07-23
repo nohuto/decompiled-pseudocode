@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateResourceManager @ 0x14015B2E0
+ * XREFs of ZwCreateResourceManager @ 0x14015B850
  * Callers:
- *     CmpInitCmRM @ 0x14049EB58 (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140516F64 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateResourceManager(
         PHANDLE ResourceManagerHandle,
         ACCESS_MASK DesiredAccess,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwCreateResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&DesiredAccess, TmHandle);
+  return KiServiceInternal(ResourceManagerHandle);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of DifCallPluginEntry @ 0x14064B4C0
+ * XREFs of DifCallPluginEntry @ 0x14064F0A0
  * Callers:
- *     DifRegisterKernelPlugins @ 0x14064BA0C (DifRegisterKernelPlugins.c)
+ *     DifRegisterKernelPlugins @ 0x14064F5EC (DifRegisterKernelPlugins.c)
  * Callees:
- *     DifUtilDbgPrint @ 0x14064AD50 (DifUtilDbgPrint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifUtilDbgPrint @ 0x14064E930 (DifUtilDbgPrint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall DifCallPluginEntry(unsigned int a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEndWeakEnumerationHashTable @ 0x1402EFCB0
+ * XREFs of RtlEndWeakEnumerationHashTable @ 0x1402EFEA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEndEnumerationHashTable @ 0x14012F760 (RtlEndEnumerationHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x14012F830 (RtlEndEnumerationHashTable.c)
  */
 
 void __stdcall RtlEndWeakEnumerationHashTable(

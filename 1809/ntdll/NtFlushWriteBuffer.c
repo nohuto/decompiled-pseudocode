@@ -1,16 +1,16 @@
 /*
- * XREFs of NtFlushWriteBuffer @ 0x1800A1F90
+ * XREFs of NtFlushWriteBuffer @ 0x1800A1FB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtFlushWriteBuffer()
+NTSTATUS NtFlushWriteBuffer(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 230LL;
+  result = 230;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

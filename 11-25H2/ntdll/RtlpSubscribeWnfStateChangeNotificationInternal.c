@@ -22,7 +22,7 @@
  */
 
 __int64 __fastcall RtlpSubscribeWnfStateChangeNotificationInternal(
-        _QWORD *a1,
+        PVOID *a1,
         __int64 a2,
         int a3,
         int a4,
@@ -32,25 +32,25 @@ __int64 __fastcall RtlpSubscribeWnfStateChangeNotificationInternal(
         int a8,
         int a9)
 {
-  __int64 SerializationGroup; // r14
+  __int64 *SerializationGroup; // r14
   int WnfUserSubscription; // edi
-  int v15; // eax
-  int v16; // esi
-  __int64 v17; // rbx
+  NTSTATUS v15; // eax
+  NTSTATUS v16; // esi
+  PVOID v17; // rbx
   __int64 v18; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // rax
-  int v22; // eax
+  PVOID v19; // rdx
+  PVOID v20; // rax
+  NTSTATUS v22; // eax
   char v23[8]; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-18h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-18h] BYREF
   __int64 v25; // [rsp+50h] [rbp-10h] BYREF
 
   v25 = 0LL;
-  v24 = 0LL;
+  BaseAddress = 0LL;
   SerializationGroup = 0LL;
   if ( byte_1801D4988 )
     return (unsigned int)-1073741558;
-  v15 = RtlRunOnceBeginInitialize(&qword_1801D01F8, 0LL, 0LL);
+  v15 = RtlRunOnceBeginInitialize(&stru_1801D01F8, 0, 0LL);
   v16 = v15;
   if ( v15 < 0 )
   {
@@ -59,9 +59,9 @@ __int64 __fastcall RtlpSubscribeWnfStateChangeNotificationInternal(
   }
   if ( v15 != 259 )
     goto LABEL_5;
-  if ( (unsigned int)RtlpInitializeWnf(&qword_1801D01F8, 0LL, 0LL) )
+  if ( (unsigned int)RtlpInitializeWnf(&stru_1801D01F8, 0LL, 0LL) )
   {
-    v16 = RtlRunOnceComplete(&qword_1801D01F8, 0, 0LL);
+    v16 = RtlRunOnceComplete(&stru_1801D01F8, 0, 0LL);
     if ( v16 >= 0 )
     {
       v16 = 0;
@@ -73,7 +73,7 @@ LABEL_21:
     goto LABEL_5;
   }
   v16 = -1073741823;
-  v22 = RtlRunOnceComplete(&qword_1801D01F8, 4u, 0LL);
+  v22 = RtlRunOnceComplete(&stru_1801D01F8, 4u, 0LL);
   if ( v22 < 0 )
   {
     v16 = v22;
@@ -84,22 +84,29 @@ LABEL_5:
   WnfUserSubscription = v16;
   if ( v16 >= 0 )
   {
-    if ( !a7 || (SerializationGroup = RtlpCreateSerializationGroup(a7)) != 0 )
+    if ( !a7 || (SerializationGroup = RtlpCreateSerializationGroup(a7)) != 0LL )
     {
-      WnfUserSubscription = RtlpCreateWnfUserSubscription((unsigned int)&v24, a3, a4, a5, SerializationGroup, a8, a9);
+      WnfUserSubscription = RtlpCreateWnfUserSubscription(
+                              (unsigned int)&BaseAddress,
+                              a3,
+                              a4,
+                              a5,
+                              (__int64)SerializationGroup,
+                              a8,
+                              a9);
       if ( WnfUserSubscription < 0
         || (SerializationGroup = 0LL,
             WnfUserSubscription = RtlpCreateWnfNameSubscription(&v25, a2, a6),
             WnfUserSubscription < 0) )
       {
-        v20 = v24;
+        v20 = BaseAddress;
       }
       else
       {
-        v17 = v24;
+        v17 = BaseAddress;
         v18 = v25;
-        v19 = v24;
-        *a1 = v24;
+        v19 = BaseAddress;
+        *a1 = BaseAddress;
         WnfUserSubscription = RtlpAddWnfUserSubToNameSub(v18, v19);
         if ( WnfUserSubscription < 0 )
         {
@@ -107,10 +114,10 @@ LABEL_5:
           RtlUnsubscribeWnfNotificationWaitForCompletion(v17);
         }
         v20 = 0LL;
-        v24 = 0LL;
+        BaseAddress = 0LL;
       }
       if ( v20 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v24);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       if ( SerializationGroup )
         RtlpDecrementWnfSerializationGroup(SerializationGroup);
     }

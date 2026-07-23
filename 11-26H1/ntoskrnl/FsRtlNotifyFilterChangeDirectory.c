@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x140A85310
+ * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x140A89F10
  * Callers:
- *     FsRtlNotifyChangeDirectory @ 0x1407908B0 (FsRtlNotifyChangeDirectory.c)
- *     FsRtlNotifyFullChangeDirectory @ 0x140A852A0 (FsRtlNotifyFullChangeDirectory.c)
+ *     FsRtlNotifyChangeDirectory @ 0x1407933E0 (FsRtlNotifyChangeDirectory.c)
+ *     FsRtlNotifyFullChangeDirectory @ 0x140A89EA0 (FsRtlNotifyFullChangeDirectory.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x1404A3ED0 (FsRtlNotifySetCancelRoutine.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     FsRtlNotifyCompleteIrp @ 0x140A85F54 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlIsNotifyOnList @ 0x140A86418 (FsRtlIsNotifyOnList.c)
- *     FsRtlCheckNotifyForDelete @ 0x140B566C0 (FsRtlCheckNotifyForDelete.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x1403FB9D0 (FsRtlNotifySetCancelRoutine.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     FsRtlNotifyCompleteIrp @ 0x140A8AB54 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlIsNotifyOnList @ 0x140A8B018 (FsRtlIsNotifyOnList.c)
+ *     FsRtlCheckNotifyForDelete @ 0x140B593C0 (FsRtlCheckNotifyForDelete.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlNotifyFilterChangeDirectory(

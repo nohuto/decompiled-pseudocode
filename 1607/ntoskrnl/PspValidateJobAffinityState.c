@@ -1,11 +1,11 @@
 /*
- * XREFs of PspValidateJobAffinityState @ 0x1404DFA30
+ * XREFs of PspValidateJobAffinityState @ 0x1404C3034
  * Callers:
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PspCheckJobAccessState @ 0x140680418 (PspCheckJobAccessState.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PspCheckJobAccessState @ 0x1406804FC (PspCheckJobAccessState.c)
  */
 
 __int64 __fastcall PspValidateJobAffinityState(__int64 a1, __int64 a2)

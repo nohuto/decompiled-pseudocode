@@ -9,28 +9,28 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 RtlpWow64ThunkEnvironmentTo64()
+NTSTATUS RtlpWow64ThunkEnvironmentTo64()
 {
   _BYTE *v0; // rbx
   __int64 v1; // rsi
-  wchar_t *v2; // rdi
+  const wchar_t *v2; // rdi
   size_t v3; // rax
-  unsigned __int64 v4; // r14
-  __int64 result; // rax
+  SIZE_T v4; // r14
+  NTSTATUS result; // eax
   unsigned __int16 v6; // bp
-  wchar_t *v7; // rdi
+  const wchar_t *v7; // rdi
   size_t v8; // rax
-  __int128 v9; // [rsp+30h] [rbp-248h] BYREF
-  _WORD v10[264]; // [rsp+40h] [rbp-238h] BYREF
+  ULONG_PTR ReturnLength[2]; // [rsp+30h] [rbp-248h] BYREF
+  WCHAR Value[264]; // [rsp+40h] [rbp-238h] BYREF
 
   v0 = &unk_180175900;
-  v9 = 0LL;
+  *(_OWORD *)ReturnLength = 0LL;
   v1 = 3LL;
   do
   {
-    v2 = (wchar_t *)*((_QWORD *)v0 - 2);
+    v2 = (const wchar_t *)*((_QWORD *)v0 - 2);
     LOWORD(v3) = 0;
-    v9 = 0LL;
+    *(_OWORD *)ReturnLength = 0LL;
     if ( v2 )
     {
       v3 = 2 * wcslen(v2);
@@ -38,18 +38,18 @@ __int64 RtlpWow64ThunkEnvironmentTo64()
         LOWORD(v3) = -4;
     }
     v4 = (unsigned __int64)(unsigned __int16)v3 >> 1;
-    *(_QWORD *)&v9 = 0LL;
-    result = RtlQueryEnvironmentVariable(0LL, v2, v4, v10, 260LL, &v9);
-    if ( (unsigned __int64)v9 <= 0x7FFF && (_DWORD)result != -1073741789 )
+    ReturnLength[0] = 0LL;
+    result = RtlQueryEnvironmentVariable(0LL, v2, v4, Value, 0x104uLL, ReturnLength);
+    if ( ReturnLength[0] <= 0x7FFF && result != -1073741789 )
     {
-      v6 = 2 * v9;
-      if ( (int)result >= 0 )
+      v6 = 2 * LOWORD(ReturnLength[0]);
+      if ( result >= 0 )
       {
         if ( !*v0 )
-          RtlSetEnvironmentVar(0LL, (_RTL_USER_PROCESS_PARAMETERS *)v2, v4, 0LL, 0LL);
-        v7 = (wchar_t *)*((_QWORD *)v0 - 4);
+          RtlSetEnvironmentVar(0LL, v2, v4, 0LL, 0LL);
+        v7 = (const wchar_t *)*((_QWORD *)v0 - 4);
         LOWORD(v8) = 0;
-        v9 = 0LL;
+        *(_OWORD *)ReturnLength = 0LL;
         if ( v7 )
         {
           v8 = 2 * wcslen(v7);
@@ -58,9 +58,9 @@ __int64 RtlpWow64ThunkEnvironmentTo64()
         }
         result = RtlSetEnvironmentVar(
                    0LL,
-                   (_RTL_USER_PROCESS_PARAMETERS *)v7,
+                   v7,
                    (unsigned __int64)(unsigned __int16)v8 >> 1,
-                   v10,
+                   Value,
                    (unsigned __int64)v6 >> 1);
       }
     }

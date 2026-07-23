@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC090
+ * XREFs of WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC2C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyA @ 0x1402C8734 (RtlStringCchCopyA.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBCB0 (WheaAddHwErrorReportSectionDeviceDriver.c)
- *     WheaCreateHwErrorReportDeviceDriver @ 0x1405BBDB0 (WheaCreateHwErrorReportDeviceDriver.c)
- *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BBDE0 (WheaHwErrorReportAbandonDeviceDriver.c)
- *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x1405BBE10 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
- *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x1405BBE90 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBF80 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     RtlStringCchCopyA @ 0x140246F94 (RtlStringCchCopyA.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBEE0 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaCreateHwErrorReportDeviceDriver @ 0x1405BBFE0 (WheaCreateHwErrorReportDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BC010 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x1405BC040 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
+ *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x1405BC0C0 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BC1B0 (WheaHwErrorReportSubmitDeviceDriver.c)
  */
 
 __int64 __fastcall WheaReportFatalHwErrorDeviceDriverEx(

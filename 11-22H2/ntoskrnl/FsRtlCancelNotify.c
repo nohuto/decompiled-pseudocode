@@ -40,7 +40,7 @@ _QWORD *__fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
   unsigned int *v19; // r8
   PVOID v20; // rax
   __int64 v21; // rcx
-  NTSTATUS v22; // eax
+  int v22; // eax
   _BYTE *v23; // rcx
   struct _SECURITY_SUBJECT_CONTEXT *SubjectContext; // [rsp+48h] [rbp-A0h]
   _QWORD *v27; // [rsp+50h] [rbp-98h]

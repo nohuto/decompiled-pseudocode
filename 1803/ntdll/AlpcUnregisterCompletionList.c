@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 AlpcUnregisterCompletionList()
+NTSTATUS __cdecl AlpcUnregisterCompletionList(HANDLE PortHandle)
 {
-  return ZwAlpcSetInformation();
+  return ZwAlpcSetInformation(PortHandle, AlpcUnregisterCompletionListInformation, 0LL, 0);
 }

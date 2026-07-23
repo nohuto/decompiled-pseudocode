@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpKeyNodeStackEntryInitialize @ 0x140916A3C
+ * XREFs of CmpKeyNodeStackEntryInitialize @ 0x14090A4AC
  * Callers:
- *     CmpGetSubKeyCountForKcbStack @ 0x140913D68 (CmpGetSubKeyCountForKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140914330 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x1409145DC (CmpValueEnumStackStartFromKcbStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140915178 (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpStartKeyNodeStack @ 0x1409155E4 (CmpStartKeyNodeStack.c)
- *     CmpKeyNodeStackEntryReset @ 0x1409169DC (CmpKeyNodeStackEntryReset.c)
- *     CmpInitializeKeyNodeStack @ 0x140916A00 (CmpInitializeKeyNodeStack.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x1409077DC (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140907DA0 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14090804C (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x140908BE8 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpStartKeyNodeStack @ 0x140909054 (CmpStartKeyNodeStack.c)
+ *     CmpKeyNodeStackEntryReset @ 0x14090A44C (CmpKeyNodeStackEntryReset.c)
+ *     CmpInitializeKeyNodeStack @ 0x14090A470 (CmpInitializeKeyNodeStack.c)
  * Callees:
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
  */
 
 __int64 __fastcall CmpKeyNodeStackEntryInitialize(__int64 a1)

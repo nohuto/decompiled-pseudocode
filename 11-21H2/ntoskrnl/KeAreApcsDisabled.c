@@ -8,5 +8,5 @@
 
 BOOLEAN KeAreApcsDisabled(void)
 {
-  return KeGetCurrentThread()->WaitBlock[3].SpareLong != 0;
+  return *((_DWORD *)KeGetCurrentThread() + 121) != 0;
 }

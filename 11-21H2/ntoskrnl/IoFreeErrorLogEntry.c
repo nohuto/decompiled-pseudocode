@@ -20,6 +20,6 @@ void __stdcall IoFreeErrorLogEntry(PVOID ElEntry)
   v3 = (void *)*((_QWORD *)v1 + 4);
   if ( v3 )
     ObfDereferenceObjectWithTag(v3, 0x746C6644u);
-  _InterlockedExchangeAdd(&IopErrorLogAllocation, -*((unsigned __int16 *)v1 + 1));
+  _InterlockedExchangeAdd(&dword_140C46D00, -*((unsigned __int16 *)v1 + 1));
   ExFreePoolWithTag(v1, 0);
 }

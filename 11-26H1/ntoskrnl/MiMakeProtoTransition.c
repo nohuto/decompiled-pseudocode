@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMakeProtoTransition @ 0x1402DCAF0
+ * XREFs of MiMakeProtoTransition @ 0x1402BE8B0
  * Callers:
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiMakeProtoTransition(_QWORD *a1, unsigned __int64 a2)
@@ -36,7 +36,7 @@ unsigned __int64 __fastcall MiMakeProtoTransition(_QWORD *a1, unsigned __int64 a
     if ( v7 >= a2 )
       break;
     v9 = v5[1] | 0x8000000000000000uLL;
-    if ( v9 >= 0xFFFF800000000000uLL && byte_140E37A70[((v9 >> 39) & 0x1FF) - 256] == 4 )
+    if ( v9 >= 0xFFFF800000000000uLL && byte_140E37BF0[((v9 >> 39) & 0x1FF) - 256] == 4 )
     {
       if ( v6 )
       {
@@ -72,12 +72,12 @@ LABEL_8:
     if ( (_QWORD *)(48 * v15 - 0x220000000000LL) != v5 )
       KeBugCheckEx(0x4Eu, 6uLL, (__int64)(v5 + 0x44000000000LL) / 48, (ULONG_PTR)v14, BugCheckParameter4);
     v16 = (32 * (_WORD)v3) & 0x3E0 ^ ((v15 << 12) | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFF0000000000C1FuLL | 0x800);
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
-      if ( (qword_140E2D740 & v16) != 0 )
+      if ( (qword_140E2D8C0 & v16) != 0 )
         v16 |= 0x10uLL;
       else
-        v16 |= qword_140E2D740;
+        v16 |= qword_140E2D8C0;
     }
     *v14 = v16;
     result = v7 + 1;

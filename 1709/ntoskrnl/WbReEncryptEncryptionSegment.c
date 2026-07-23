@@ -18,8 +18,8 @@ __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 
   int InitializedEncryptionSegment; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rsi
+  PRTL_BALANCED_NODE v6; // rax
+  PRTL_BALANCED_NODE v7; // rsi
   char v8; // bl
   __int64 v10; // [rsp+48h] [rbp+20h] BYREF
 
@@ -39,9 +39,9 @@ __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 
       v6 = KeAbPreAcquire(v10 + 8, 0LL, 0);
       v7 = v6;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v5, v6, (__int16 *)v5);
+        ExfAcquirePushLockExclusiveEx(v5, (__int64)v6, (__int16 *)v5);
       if ( v7 )
-        *(_BYTE *)(v7 + 26) |= 1u;
+        BYTE2(v7[1].Left) |= 1u;
       InitializedEncryptionSegment = sub_14044ABD4(v10);
       v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v8 & 2) != 0 && (v8 & 4) == 0 )

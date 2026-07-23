@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnblockHiveWrites @ 0x140A13974
+ * XREFs of CmpUnblockHiveWrites @ 0x140A13C24
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x1406DD4D0 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A208 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A404 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x1406DD500 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A4B8 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A6B4 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
- *     CmpGetNextHive @ 0x140769F50 (CmpGetNextHive.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
+ *     CmpGetNextHive @ 0x14076A140 (CmpGetNextHive.c)
  *     HvUnlockHiveFlusherExclusive @ 0x140AF568C (HvUnlockHiveFlusherExclusive.c)
  */
 

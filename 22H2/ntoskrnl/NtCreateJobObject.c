@@ -20,14 +20,15 @@
  *     ExCreateHandle @ 0x14094C680 (ExCreateHandle.c)
  */
 
-__int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, int a3)
+NTSTATUS __cdecl NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
+  int v3; // r13d
   struct _KTHREAD *CurrentThread; // r15
   unsigned __int8 v6; // si
   __int64 v7; // rcx
   char v8; // r12
   unsigned int v9; // ebx
-  int inserted; // esi
+  NTSTATUS inserted; // esi
   size_t v11; // r8
   PRKEVENT v12; // rbx
   struct _KEVENT *v13; // rax
@@ -39,6 +40,7 @@ __int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, int a3)
   LARGE_INTEGER Interval; // [rsp+68h] [rbp-40h] BYREF
   volatile unsigned int Lock; // [rsp+C8h] [rbp+20h]
 
+  v3 = (int)ObjectAttributes;
   Event = 0LL;
   Handle = 0LL;
   Lock = 0;
@@ -47,14 +49,14 @@ __int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, int a3)
   if ( v6 )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)JobHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)JobHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  *a1 = 0LL;
+  *JobHandle = 0LL;
   v8 = PoEnergyEstimationEnabled();
   v9 = v8 != 0 ? 2032 : 1600;
-  inserted = ObCreateObject(v6, PsJobType, a3, v6, 0, v9, 0, v9, &Event);
+  inserted = ObCreateObject(v6, PsJobType, v3, v6, 0, v9, 0, v9, &Event);
   if ( inserted < 0 )
   {
     v12 = Event;
@@ -128,10 +130,10 @@ __int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, int a3)
     if ( inserted >= 0 )
     {
       ObfReferenceObject(v12);
-      inserted = ObInsertObject(v12, 0LL, a2, 0, 0LL, &Handle);
+      inserted = ObInsertObject(v12, 0LL, DesiredAccess, 0, 0LL, &Handle);
       if ( inserted >= 0 )
       {
-        *a1 = Handle;
+        *JobHandle = Handle;
         goto LABEL_20;
       }
       v16 = (struct _DMA_ADAPTER *)v12;
@@ -144,5 +146,5 @@ LABEL_20:
     EtwTraceJob(v12, Lock, (unsigned int)inserted, 1824LL);
   if ( v12 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v12);
-  return (unsigned int)inserted;
+  return inserted;
 }

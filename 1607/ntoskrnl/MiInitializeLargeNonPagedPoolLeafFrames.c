@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeLargeNonPagedPoolLeafFrames @ 0x1400957C0
+ * XREFs of MiInitializeLargeNonPagedPoolLeafFrames @ 0x140094FC0
  * Callers:
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
  *     MiInitializeNonPagedPool @ 0x1407A47DC (MiInitializeNonPagedPool.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiInitializeLargeNonPagedPoolLeafFrames(unsigned __int64 a1, __int64 a2)

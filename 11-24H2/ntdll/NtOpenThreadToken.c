@@ -1,22 +1,26 @@
 /*
- * XREFs of NtOpenThreadToken @ 0x180162110
+ * XREFs of NtOpenThreadToken @ 0x1801604D0
  * Callers:
- *     RtlDeleteTimer @ 0x18006AB60 (RtlDeleteTimer.c)
- *     RtlpTpRevertCapture @ 0x18006CFA0 (RtlpTpRevertCapture.c)
- *     RtlQueueWorkItem @ 0x18006D9E0 (RtlQueueWorkItem.c)
- *     RtlRegisterWait @ 0x18006DF00 (RtlRegisterWait.c)
- *     RtlDeregisterWaitEx @ 0x18006E2B0 (RtlDeregisterWaitEx.c)
- *     LdrpThreadTokenSetMainThreadToken @ 0x1800F0760 (LdrpThreadTokenSetMainThreadToken.c)
- *     RtlAdjustPrivilege @ 0x1800F1D00 (RtlAdjustPrivilege.c)
+ *     RtlDeleteTimer @ 0x180087440 (RtlDeleteTimer.c)
+ *     RtlpTpRevertCapture @ 0x180089880 (RtlpTpRevertCapture.c)
+ *     RtlQueueWorkItem @ 0x18008A2C0 (RtlQueueWorkItem.c)
+ *     RtlRegisterWait @ 0x18008A7E0 (RtlRegisterWait.c)
+ *     RtlDeregisterWaitEx @ 0x18008AB90 (RtlDeregisterWaitEx.c)
+ *     LdrpThreadTokenSetMainThreadToken @ 0x1800EB3E0 (LdrpThreadTokenSetMainThreadToken.c)
+ *     RtlAdjustPrivilege @ 0x1800EC980 (RtlAdjustPrivilege.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenThreadToken()
+NTSTATUS __cdecl NtOpenThreadToken(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 36LL;
+  result = 36;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

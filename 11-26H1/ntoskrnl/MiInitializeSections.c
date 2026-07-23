@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeSections @ 0x140864CD8
+ * XREFs of MiInitializeSections @ 0x14086B0B8
  * Callers:
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1404A5F90 (KeInitializeTimerEx.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeInitializeTimerEx @ 0x14049F620 (KeInitializeTimerEx.c)
  */
 
 void __fastcall MiInitializeSections(__int64 a1)
@@ -43,8 +43,8 @@ void __fastcall MiInitializeSections(__int64 a1)
   KeInitializeEvent((PRKEVENT)(a1 + 2832), SynchronizationEvent, 0);
   if ( (ULONG *)a1 == &MiSystemPartition )
   {
-    stru_140E2D150.StateSaveArea = (_XSAVE_FORMAT *)&stru_140E2D150.KernelStack;
-    stru_140E2D150.KernelStack = &stru_140E2D150.KernelStack;
+    stru_140E2D2D0.StateSaveArea = (_XSAVE_FORMAT *)&stru_140E2D2D0.KernelStack;
+    stru_140E2D2D0.KernelStack = &stru_140E2D2D0.KernelStack;
   }
   v6 = *(_BYTE *)(a1 + 2287) & 0xFD;
   *(_QWORD *)(a1 + 2200) = 0LL;

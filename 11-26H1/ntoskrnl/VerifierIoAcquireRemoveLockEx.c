@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoAcquireRemoveLockEx @ 0x140C30A20
+ * XREFs of VerifierIoAcquireRemoveLockEx @ 0x140C36A30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViRemLockFindSurrogate @ 0x140C30E38 (ViRemLockFindSurrogate.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViRemLockFindSurrogate @ 0x140C36E48 (ViRemLockFindSurrogate.c)
  */
 
 __int64 __fastcall VerifierIoAcquireRemoveLockEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

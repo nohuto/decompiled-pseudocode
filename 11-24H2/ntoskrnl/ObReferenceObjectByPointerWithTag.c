@@ -1,15 +1,15 @@
 /*
- * XREFs of ObReferenceObjectByPointerWithTag @ 0x140418730
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x1404084E0
  * Callers:
- *     DifObReferenceObjectByPointerWithTagWrapper @ 0x140636200 (DifObReferenceObjectByPointerWithTagWrapper.c)
- *     DifObReferenceObjectByPointerWrapper @ 0x1406363A0 (DifObReferenceObjectByPointerWrapper.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     PspSchedulerSharedDataRegionSlotAllocate @ 0x1409137C4 (PspSchedulerSharedDataRegionSlotAllocate.c)
- *     PspSchedulerSharedDataRegionCreate @ 0x140946D5C (PspSchedulerSharedDataRegionCreate.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
+ *     DifObReferenceObjectByPointerWithTagWrapper @ 0x1406347C0 (DifObReferenceObjectByPointerWithTagWrapper.c)
+ *     DifObReferenceObjectByPointerWrapper @ 0x140634960 (DifObReferenceObjectByPointerWrapper.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     PspSchedulerSharedDataRegionSlotAllocate @ 0x1408EAED0 (PspSchedulerSharedDataRegionSlotAllocate.c)
+ *     PspSchedulerSharedDataRegionCreate @ 0x1408EB67C (PspSchedulerSharedDataRegionCreate.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     ObpTraceObjectReferenceIfActive @ 0x140340450 (ObpTraceObjectReferenceIfActive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x14031F930 (ObpTraceObjectReferenceIfActive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(

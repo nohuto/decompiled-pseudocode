@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmReapplyPerfPolicy @ 0x14082C6C0
+ * XREFs of PpmReapplyPerfPolicy @ 0x14082C9C0
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x14082BF80 (PpmSetProfilePolicySetting.c)
- *     PpmReinitializeHeteroEngine @ 0x14082F1A8 (PpmReinitializeHeteroEngine.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140992E4C (PpmCompareAndApplyPolicySettings.c)
- *     PpmPerfProcCapFloorSettingCallback @ 0x140993170 (PpmPerfProcCapFloorSettingCallback.c)
+ *     PpmSetProfilePolicySetting @ 0x14082C280 (PpmSetProfilePolicySetting.c)
+ *     PpmReinitializeHeteroEngine @ 0x14082F4A8 (PpmReinitializeHeteroEngine.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x14099304C (PpmCompareAndApplyPolicySettings.c)
+ *     PpmPerfProcCapFloorSettingCallback @ 0x140993370 (PpmPerfProcCapFloorSettingCallback.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x140392600 (PpmParkApplyPolicy.c)
- *     PpmCheckApplyParkConstraints @ 0x14039305C (PpmCheckApplyParkConstraints.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6350 (PpmPerfUpdateDomainPolicy.c)
- *     PpmUpdateProcessorPolicy @ 0x14082C7B0 (PpmUpdateProcessorPolicy.c)
- *     PpmCheckReInit @ 0x14082CAEC (PpmCheckReInit.c)
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
- *     PpmCheckInitProcessors @ 0x14082E2C4 (PpmCheckInitProcessors.c)
- *     PpmPerfResizeHistoryAll @ 0x140986ACC (PpmPerfResizeHistoryAll.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x1403927E0 (PpmParkApplyPolicy.c)
+ *     PpmCheckApplyParkConstraints @ 0x14039323C (PpmCheckApplyParkConstraints.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x1407A6540 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x14082CAB0 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckReInit @ 0x14082CDEC (PpmCheckReInit.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
+ *     PpmCheckInitProcessors @ 0x14082E5C4 (PpmCheckInitProcessors.c)
+ *     PpmPerfResizeHistoryAll @ 0x140986CCC (PpmPerfResizeHistoryAll.c)
  */
 
 void __fastcall PpmReapplyPerfPolicy(_DWORD *a1)

@@ -1,12 +1,12 @@
 /*
  * XREFs of PspSetRedirectionTrustPolicy @ 0x1405CF6A4
  * Callers:
- *     PspApplyMitigationOptions @ 0x1406D8A1C (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406AFCFC (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x1403F9000 (SeTokenSetRedirectionTrustPolicy.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x1403F9084 (SeTokenSetRedirectionTrustPolicy.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 void __fastcall PspSetRedirectionTrustPolicy(struct _KPROCESS *a1, int a2)

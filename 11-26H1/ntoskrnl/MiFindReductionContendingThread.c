@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindReductionContendingThread @ 0x1403E8FFC
+ * XREFs of MiFindReductionContendingThread @ 0x1402F5EDC
  * Callers:
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
  * Callees:
- *     MiZeroThreadContending @ 0x1403E9760 (MiZeroThreadContending.c)
- *     MiEngineAffinity @ 0x1403E9844 (MiEngineAffinity.c)
+ *     MiZeroThreadContending @ 0x1402F6640 (MiZeroThreadContending.c)
+ *     MiEngineAffinity @ 0x1402F6724 (MiEngineAffinity.c)
  */
 
 _QWORD *__fastcall MiFindReductionContendingThread(__int64 a1, __int64 a2)

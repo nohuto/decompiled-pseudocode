@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpFindNextIndexedWildCardTag @ 0x1406C4FB0
+ * XREFs of SdbpFindNextIndexedWildCardTag @ 0x1406C50E8
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x140484B38 (SdbGetDatabaseMatchEx.c)
- *     SdbpSearchDB @ 0x140484F3C (SdbpSearchDB.c)
+ *     SdbGetDatabaseMatchEx @ 0x140513EC0 (SdbGetDatabaseMatchEx.c)
+ *     SdbpSearchDB @ 0x1405142C4 (SdbpSearchDB.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SdbpGetIndex @ 0x140484AD4 (SdbpGetIndex.c)
- *     AslStringUpcaseToMultiByteN @ 0x1404851EC (AslStringUpcaseToMultiByteN.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     AslStringPatternMatchA @ 0x14053554C (AslStringPatternMatchA.c)
- *     SdbpKeyToAnsiString @ 0x1405392C0 (SdbpKeyToAnsiString.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     AslStringPatternMatchW @ 0x140578D34 (AslStringPatternMatchW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbpGetIndex @ 0x140513E5C (SdbpGetIndex.c)
+ *     AslStringUpcaseToMultiByteN @ 0x140514574 (AslStringUpcaseToMultiByteN.c)
+ *     AslStringPatternMatchA @ 0x140535A8C (AslStringPatternMatchA.c)
+ *     SdbpKeyToAnsiString @ 0x140539800 (SdbpKeyToAnsiString.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     AslStringPatternMatchW @ 0x140579274 (AslStringPatternMatchW.c)
  */
 
 __int64 __fastcall SdbpFindNextIndexedWildCardTag(__int64 a1, __int64 a2)

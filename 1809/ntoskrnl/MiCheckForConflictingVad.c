@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckForConflictingVad @ 0x140088510
+ * XREFs of MiCheckForConflictingVad @ 0x140088500
  * Callers:
- *     MiCheckForConflictingVadExistence @ 0x1400884E8 (MiCheckForConflictingVadExistence.c)
- *     MiLocateLowestConflictingVad @ 0x1400F2F08 (MiLocateLowestConflictingVad.c)
- *     MmGetImageBase @ 0x1406BA3A4 (MmGetImageBase.c)
+ *     MiCheckForConflictingVadExistence @ 0x1400884D8 (MiCheckForConflictingVadExistence.c)
+ *     MiLocateLowestConflictingVad @ 0x1400F2F88 (MiLocateLowestConflictingVad.c)
+ *     MmGetImageBase @ 0x1406BB644 (MmGetImageBase.c)
  * Callees:
  *     <none>
  */

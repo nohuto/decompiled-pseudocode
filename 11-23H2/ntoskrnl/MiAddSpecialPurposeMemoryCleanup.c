@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAddSpecialPurposeMemoryCleanup @ 0x140A46CC4
+ * XREFs of MiAddSpecialPurposeMemoryCleanup @ 0x140A46F74
  * Callers:
- *     MmManagePartitionInitialAddMemory @ 0x140A456CC (MmManagePartitionInitialAddMemory.c)
- *     MmManagePartitionMoveMemory @ 0x140A457B8 (MmManagePartitionMoveMemory.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140A4597C (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140A45A68 (MmManagePartitionMoveMemory.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 void __fastcall MiAddSpecialPurposeMemoryCleanup(__int64 a1, volatile signed __int64 **a2)

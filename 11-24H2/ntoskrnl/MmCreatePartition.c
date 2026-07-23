@@ -1,20 +1,20 @@
 /*
- * XREFs of MmCreatePartition @ 0x1407FC90C
+ * XREFs of MmCreatePartition @ 0x1407FD07C
  * Callers:
- *     DifGetAvailableSystemPages @ 0x1406196F4 (DifGetAvailableSystemPages.c)
- *     PspAllocatePartition @ 0x14077ABFC (PspAllocatePartition.c)
+ *     DifGetAvailableSystemPages @ 0x140617CB4 (DifGetAvailableSystemPages.c)
+ *     PspAllocatePartition @ 0x14077AAAC (PspAllocatePartition.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x140678930 (MiInitializeWorkingSetManagerParameters.c)
- *     MiAllocatePartitionId @ 0x1407EC3B0 (MiAllocatePartitionId.c)
- *     MiCreatePartitionOffsets @ 0x1407EC4FC (MiCreatePartitionOffsets.c)
- *     MiDeletePartition @ 0x1407EC62C (MiDeletePartition.c)
- *     MiInitializePartition @ 0x1407EC758 (MiInitializePartition.c)
- *     MiInitializePartitionThreads @ 0x1407ED08C (MiInitializePartitionThreads.c)
- *     MiCreatePfnBitMaps @ 0x1407FA7CC (MiCreatePfnBitMaps.c)
- *     MiInitializeMemoryEvents @ 0x1407FFF3C (MiInitializeMemoryEvents.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x1409A4220 (ExAllocateCacheAwareRundownProtection.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x140679B10 (MiInitializeWorkingSetManagerParameters.c)
+ *     MiAllocatePartitionId @ 0x1407EC980 (MiAllocatePartitionId.c)
+ *     MiCreatePartitionOffsets @ 0x1407ECACC (MiCreatePartitionOffsets.c)
+ *     MiDeletePartition @ 0x1407ECBFC (MiDeletePartition.c)
+ *     MiInitializePartition @ 0x1407ECD28 (MiInitializePartition.c)
+ *     MiInitializePartitionThreads @ 0x1407ED65C (MiInitializePartitionThreads.c)
+ *     MiCreatePfnBitMaps @ 0x1407FAF3C (MiCreatePfnBitMaps.c)
+ *     MiInitializeMemoryEvents @ 0x14080067C (MiInitializeMemoryEvents.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1408ACFB0 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmCreatePartition(__int64 *a1, char a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MmCreatePartition(__int64 *a1, char a2)
   {
     *a1 = (__int64)&MiSystemPartition;
     result = 0LL;
-    qword_140E38CB8 = (__int64)a1;
+    qword_140E38DF8 = (__int64)a1;
     return result;
   }
   PartitionOffsets = MiCreatePartitionOffsets(0LL, 0LL);

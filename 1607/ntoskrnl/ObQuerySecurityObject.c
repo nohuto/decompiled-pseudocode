@@ -1,10 +1,10 @@
 /*
- * XREFs of ObQuerySecurityObject @ 0x14052121C
+ * XREFs of ObQuerySecurityObject @ 0x140504284
  * Callers:
- *     SepMandatorySubProcessToken @ 0x14007C05C (SepMandatorySubProcessToken.c)
- *     RtlIsUntrustedObject @ 0x1400FC880 (RtlIsUntrustedObject.c)
- *     SepVerifyDesktopAppxImage @ 0x140219CAC (SepVerifyDesktopAppxImage.c)
- *     CmpCheckExeOwnerForPca @ 0x140601DF0 (CmpCheckExeOwnerForPca.c)
+ *     SepMandatorySubProcessToken @ 0x14007C0DC (SepMandatorySubProcessToken.c)
+ *     RtlIsUntrustedObject @ 0x1400FA600 (RtlIsUntrustedObject.c)
+ *     SepVerifyDesktopAppxImage @ 0x140219AD8 (SepVerifyDesktopAppxImage.c)
+ *     CmpCheckExeOwnerForPca @ 0x140601EA4 (CmpCheckExeOwnerForPca.c)
  * Callees:
  *     <none>
  */

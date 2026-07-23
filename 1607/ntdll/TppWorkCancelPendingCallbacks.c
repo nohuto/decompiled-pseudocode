@@ -1,43 +1,37 @@
 /*
- * XREFs of TppWorkCancelPendingCallbacks @ 0x180064030
+ * XREFs of TppWorkCancelPendingCallbacks @ 0x180064020
  * Callers:
- *     TppWorkpExecuteCallback @ 0x180020650 (TppWorkpExecuteCallback.c)
- *     TppWorkCallbackPrologRelease @ 0x18003AFD0 (TppWorkCallbackPrologRelease.c)
+ *     TppWorkpExecuteCallback @ 0x180020640 (TppWorkpExecuteCallback.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003AFC0 (TppWorkCallbackPrologRelease.c)
  * Callees:
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  *     TppETWCallbackCancel @ 0x1800FE67C (TppETWCallbackCancel.c)
  */
 
-__int64 __fastcall TppWorkCancelPendingCallbacks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+unsigned __int32 __fastcall TppWorkCancelPendingCallbacks(_RTL_SRWLOCK *a1)
 {
-  __int64 result; // rax
-  int v6; // ett
-  unsigned int v7; // edi
+  unsigned __int32 result; // eax
+  unsigned __int32 v3; // ett
+  unsigned __int32 v4; // edi
 
-  _m_prefetchw((const void *)(a1 + 232));
-  result = *(unsigned int *)(a1 + 232);
+  _m_prefetchw(&a1[29]);
+  result = a1[29].Value;
   if ( (result & 0xFFFFFFFE) != 0 )
   {
-    _m_prefetchw((const void *)(a1 + 232));
-    LODWORD(result) = *(_DWORD *)(a1 + 232);
+    _m_prefetchw(&a1[29]);
+    result = a1[29].Value;
     do
     {
-      v6 = result;
-      result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 232), result & 1, result);
+      v3 = result;
+      result = _InterlockedCompareExchange((volatile signed __int32 *)&a1[29], result & 1, result);
     }
-    while ( v6 != (_DWORD)result );
-    v7 = (unsigned int)result >> 1;
-    if ( (unsigned int)result >> 1 )
+    while ( v3 != result );
+    v4 = result >> 1;
+    if ( result >> 1 )
     {
-      result = TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -v7, 0LL, a4);
+      result = TppBarrierAdjust(a1 + 7, -v4, 0);
       if ( MEMORY[0x7FFE0386] )
-        return TppETWCallbackCancel(
-                 *(_QWORD *)(a1 + 144),
-                 (int)a1 + 200,
-                 *(_QWORD *)(a1 + 80),
-                 *(_QWORD *)(a1 + 88),
-                 *(_QWORD *)(a1 + 104),
-                 v7);
+        return TppETWCallbackCancel(a1[18].Value, (int)a1 + 200, a1[10].Value, a1[11].Value, a1[13].Value, v4);
     }
   }
   return result;

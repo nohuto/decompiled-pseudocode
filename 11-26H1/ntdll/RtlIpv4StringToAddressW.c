@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIpv4StringToAddressW @ 0x1800AC1D0
+ * XREFs of RtlIpv4StringToAddressW @ 0x1800AB300
  * Callers:
- *     RtlIpv4StringToAddressExW @ 0x1800ABFF0 (RtlIpv4StringToAddressExW.c)
- *     RtlCanonicalizeDomainName @ 0x1800AC4D0 (RtlCanonicalizeDomainName.c)
+ *     RtlIpv4StringToAddressExW @ 0x1800AB120 (RtlIpv4StringToAddressExW.c)
+ *     RtlCanonicalizeDomainName @ 0x1800AB600 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     iswctype @ 0x18012AE10 (iswctype.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     iswctype @ 0x18012AB80 (iswctype.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 LONG __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Terminator, struct in_addr *Addr)
@@ -136,7 +136,7 @@ LONG __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Termin
     v18 = (unsigned __int8)v27 | (((unsigned __int8)v26 | (((v24 << 8) | (unsigned __int8)v25) << 8)) << 8);
 LABEL_22:
     *Terminator = S;
-    Addr->S_un.S_addr = _byteswap_ulong(v18);
+    *(_DWORD *)Addr = _byteswap_ulong(v18);
     return 0;
   }
 LABEL_37:

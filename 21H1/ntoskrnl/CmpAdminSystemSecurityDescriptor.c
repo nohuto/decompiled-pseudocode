@@ -32,7 +32,7 @@ ACL *CmpAdminSystemSecurityDescriptor()
   ULONG_PTR v12; // r14
   NTSTATUS v13; // eax
   ULONG_PTR v14; // r14
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp+8h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)IdentifierAuthority.Value = 0;
@@ -55,8 +55,8 @@ ACL *CmpAdminSystemSecurityDescriptor()
   Acl = RtlCreateAcl(v5, v3, 2u);
   if ( Acl < 0 )
     KeBugCheckEx(0x51u, 0xBuLL, 4uLL, Acl, 0LL);
-  v8 = RtlpAddKnownAce((__int64)v6, 2u, 0, 2032127, PoolWithTag, 0);
-  if ( v8 < 0 || (v8 = RtlpAddKnownAce((__int64)v6, 2u, 0, 2032127, v2, 0), v8 < 0) )
+  v8 = RtlpAddKnownAce(v6, 2u, 0, 2032127, PoolWithTag, 0);
+  if ( v8 < 0 || (v8 = RtlpAddKnownAce(v6, 2u, 0, 2032127, v2, 0), v8 < 0) )
     KeBugCheckEx(0x51u, 0xBuLL, 5uLL, v8, 0LL);
   v9 = (ACL *)ExAllocatePoolWithTag(PagedPool, v3 + 40LL, 0x20204D43u);
   v10 = v9;

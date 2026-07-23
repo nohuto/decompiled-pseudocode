@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetDanglingExtent @ 0x1401ED7D8
+ * XREFs of MiGetDanglingExtent @ 0x1401ED604
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
@@ -23,8 +23,8 @@ __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   *a1 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  v4 = ExAcquireSpinLockExclusive(&dword_140326678);
-  v5 = (_QWORD *)qword_140326670;
+  v4 = ExAcquireSpinLockExclusive(&dword_1403266B8);
+  v5 = (_QWORD *)qword_1403266B0;
   v6 = v4;
   do
   {
@@ -35,10 +35,10 @@ __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
       v3 = v5;
     v5 = (_QWORD *)*v5;
     ++v2;
-    qword_140326670 = (__int64)v5;
+    qword_1403266B0 = (__int64)v5;
   }
   while ( v5 == v7 - 6 );
-  ExReleaseSpinLockExclusive(&dword_140326678, v6);
+  ExReleaseSpinLockExclusive(&dword_1403266B8, v6);
   if ( !v2 )
     return -1LL;
   v9 = &v3[-6 * v2];

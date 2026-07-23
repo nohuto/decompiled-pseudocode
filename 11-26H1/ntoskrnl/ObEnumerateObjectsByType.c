@@ -1,11 +1,11 @@
 /*
- * XREFs of ObEnumerateObjectsByType @ 0x1407C36F4
+ * XREFs of ObEnumerateObjectsByType @ 0x1407C6754
  * Callers:
- *     IovUnloadDrivers @ 0x140C20E8C (IovUnloadDrivers.c)
+ *     IovUnloadDrivers @ 0x140C26E9C (IovUnloadDrivers.c)
  * Callees:
- *     ObpCreateTypeArray @ 0x140A5A9E4 (ObpCreateTypeArray.c)
- *     ObpDestroyTypeArray @ 0x140B246E8 (ObpDestroyTypeArray.c)
- *     IovpBuildDriverObjectList @ 0x140C20F98 (IovpBuildDriverObjectList.c)
+ *     ObpCreateTypeArray @ 0x140A67954 (ObpCreateTypeArray.c)
+ *     ObpDestroyTypeArray @ 0x140B26B88 (ObpDestroyTypeArray.c)
+ *     IovpBuildDriverObjectList @ 0x140C26FA8 (IovpBuildDriverObjectList.c)
  */
 
 __int64 ObEnumerateObjectsByType()

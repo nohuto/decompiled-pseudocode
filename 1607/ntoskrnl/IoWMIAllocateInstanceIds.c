@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWMIAllocateInstanceIds @ 0x14069C8A8
+ * XREFs of IoWMIAllocateInstanceIds @ 0x14069C98C
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

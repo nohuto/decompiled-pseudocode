@@ -13,5 +13,5 @@ NTSTATUS __stdcall ZwMapUserPhysicalPagesScatter(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VirtualAddresses, NumberOfPages, UserPfnArray);
+  return KiServiceInternal(VirtualAddresses);
 }

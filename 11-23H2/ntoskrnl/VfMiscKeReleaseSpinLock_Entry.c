@@ -1,11 +1,11 @@
 /*
- * XREFs of VfMiscKeReleaseSpinLock_Entry @ 0x140AE0040
+ * XREFs of VfMiscKeReleaseSpinLock_Entry @ 0x140AE0030
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViMiscCheckKeLowerIrql @ 0x140AE1338 (ViMiscCheckKeLowerIrql.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViMiscCheckKeLowerIrql @ 0x140AE1328 (ViMiscCheckKeLowerIrql.c)
  */
 
 __int64 __fastcall VfMiscKeReleaseSpinLock_Entry(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpTransMgrRollback @ 0x1407D0938
+ * XREFs of CmpTransMgrRollback @ 0x1407D0C08
  * Callers:
  *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
- *     CmpAbortLightWeightTransaction @ 0x1407D0898 (CmpAbortLightWeightTransaction.c)
- *     CmRmFinalizeRecovery @ 0x1407E8728 (CmRmFinalizeRecovery.c)
- *     CmpRmUnDoPhase @ 0x140A1F058 (CmpRmUnDoPhase.c)
+ *     CmpAbortLightWeightTransaction @ 0x1407D0B68 (CmpAbortLightWeightTransaction.c)
+ *     CmRmFinalizeRecovery @ 0x1407E89F8 (CmRmFinalizeRecovery.c)
+ *     CmpRmUnDoPhase @ 0x140A1F308 (CmpRmUnDoPhase.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */
 

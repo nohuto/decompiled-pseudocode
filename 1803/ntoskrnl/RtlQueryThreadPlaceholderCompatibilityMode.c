@@ -6,10 +6,10 @@
  *     <none>
  */
 
-char RtlQueryThreadPlaceholderCompatibilityMode()
+CHAR RtlQueryThreadPlaceholderCompatibilityMode(void)
 {
   _BYTE *Teb; // rcx
-  char result; // al
+  CHAR result; // al
 
   if ( (KeGetCurrentThread()->MiscFlags & 0x400) != 0 || KeGetCurrentThread()->ApcStateIndex == 1 )
     Teb = 0LL;

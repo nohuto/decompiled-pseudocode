@@ -1,15 +1,15 @@
 /*
- * XREFs of IopMcRemoveMdlPagesFromTable @ 0x1405A2D94
+ * XREFs of IopMcRemoveMdlPagesFromTable @ 0x14059FCD4
  * Callers:
- *     IopMcTryUnlockMdl @ 0x1405A2EE8 (IopMcTryUnlockMdl.c)
- *     IopMcCreateBufferEntryMdl @ 0x140719BD8 (IopMcCreateBufferEntryMdl.c)
+ *     IopMcTryUnlockMdl @ 0x14059FE28 (IopMcTryUnlockMdl.c)
+ *     IopMcCreateBufferEntryMdl @ 0x140717768 (IopMcCreateBufferEntryMdl.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     IopMcShouldYield @ 0x1404BCC78 (IopMcShouldYield.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     IopMcShouldYield @ 0x1404B7DE8 (IopMcShouldYield.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall IopMcRemoveMdlPagesFromTable(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -36,7 +36,7 @@ void __fastcall IopMcRemoveMdlPagesFromTable(ULONG_PTR BugCheckParameter2, ULONG
   v13 = 0;
   v7 = (unsigned __int64)(v6 + v5 + 4095) >> 12;
   v8 = 0;
-  v9 = ExAcquireSpinLockExclusive(&dword_140F8C264);
+  v9 = ExAcquireSpinLockExclusive(&dword_140F8C4E4);
   if ( (_DWORD)v7 )
   {
     v10 = BugCheckParameter2 + 96;
@@ -44,17 +44,17 @@ void __fastcall IopMcRemoveMdlPagesFromTable(ULONG_PTR BugCheckParameter2, ULONG
     {
       if ( IopMcShouldYield(v8, v9) )
       {
-        ExReleaseSpinLockExclusive(&dword_140F8C264, v9);
+        ExReleaseSpinLockExclusive(&dword_140F8C4E4, v9);
         KeYieldProcessorEx(&v13);
-        v9 = ExAcquireSpinLockExclusive(&dword_140F8C264);
+        v9 = ExAcquireSpinLockExclusive(&dword_140F8C4E4);
       }
-      RtlAvlRemoveNode((unsigned __int64 *)&qword_140F8C268, v10);
+      RtlAvlRemoveNode((unsigned __int64 *)&qword_140F8C4E8, v10);
       ++v8;
       v10 += 32LL;
     }
     while ( v8 < (unsigned int)v7 );
   }
-  ExReleaseSpinLockExclusive(&dword_140F8C264, v9);
+  ExReleaseSpinLockExclusive(&dword_140F8C4E4, v9);
   if ( (_DWORD)v7 )
   {
     v11 = (_DWORD *)(BugCheckParameter2 + 120);

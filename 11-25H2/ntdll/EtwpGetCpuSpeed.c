@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall EtwpGetCpuSpeed(_DWORD *a1)
+NTSTATUS __fastcall EtwpGetCpuSpeed(_DWORD *a1)
 {
   return EtwpGetCpuSpeedFromRegistry(a1);
 }

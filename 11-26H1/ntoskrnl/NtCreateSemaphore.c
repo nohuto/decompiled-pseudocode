@@ -1,47 +1,62 @@
 /*
- * XREFs of NtCreateSemaphore @ 0x140A9F4A0
+ * XREFs of NtCreateSemaphore @ 0x140A9F7D0
  * Callers:
- *     DifNtCreateSemaphoreWrapper @ 0x140673950 (DifNtCreateSemaphoreWrapper.c)
+ *     DifNtCreateSemaphoreWrapper @ 0x140677530 (DifNtCreateSemaphoreWrapper.c)
  * Callees:
- *     KeInitializeSemaphore @ 0x1404B5E80 (KeInitializeSemaphore.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     KeInitializeSemaphore @ 0x1404AF2D0 (KeInitializeSemaphore.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall NtCreateSemaphore(_QWORD *a1, unsigned int a2, __int64 a3, LONG a4, int Limit)
+NTSTATUS __cdecl NtCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
   char PreviousMode; // si
-  int inserted; // ebx
+  NTSTATUS inserted; // ebx
   __int64 ULong64FromUser; // rax
   __int64 v13; // [rsp+20h] [rbp-58h]
   PRKSEMAPHORE Semaphore; // [rsp+58h] [rbp-20h] BYREF
-  __int64 v15; // [rsp+60h] [rbp-18h] BYREF
+  void *v15; // [rsp+60h] [rbp-18h] BYREF
 
   v15 = 0LL;
   Semaphore = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(SemaphoreHandle);
+    RtlWriteULong64ToUser(SemaphoreHandle, ULong64FromUser);
   }
-  if ( Limit <= 0 || a4 < 0 || a4 > Limit )
-    return 3221225485LL;
-  inserted = ObCreateObjectEx(PreviousMode, ExSemaphoreObjectType, a3, PreviousMode, v13, 32, 0, 0, &Semaphore, 0LL);
+  if ( MaximumCount <= 0 || InitialCount < 0 || InitialCount > MaximumCount )
+    return -1073741811;
+  inserted = ObCreateObjectEx(
+               PreviousMode,
+               ExSemaphoreObjectType,
+               (__int64)ObjectAttributes,
+               PreviousMode,
+               v13,
+               32,
+               0,
+               0,
+               &Semaphore,
+               0LL);
   if ( inserted >= 0 )
   {
-    KeInitializeSemaphore(Semaphore, a4, Limit);
-    inserted = ObInsertObjectEx((char *)Semaphore, 0LL, a2, 0, 0, 0LL, &v15);
+    KeInitializeSemaphore(Semaphore, InitialCount, MaximumCount);
+    inserted = ObInsertObjectEx((char *)Semaphore, 0LL, DesiredAccess, 0, 0, 0LL, &v15);
     LODWORD(Semaphore) = inserted;
     if ( inserted >= 0 )
     {
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a1, v15);
+        RtlWriteULong64ToUser(SemaphoreHandle, (__int64)v15);
       else
-        *a1 = v15;
+        *SemaphoreHandle = v15;
     }
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiRemoveCpuPartitionAssignmentProcess @ 0x14043A35C
+ * XREFs of KiRemoveCpuPartitionAssignmentProcess @ 0x1402B9BA0
  * Callers:
- *     KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x14043A220 (KiRemoveAndFreeCpuPartitionAssignmentProcess.c)
- *     KeAssignCpuPartitionsToProcess @ 0x1405BF410 (KeAssignCpuPartitionsToProcess.c)
+ *     KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x1402B9A64 (KiRemoveAndFreeCpuPartitionAssignmentProcess.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405BCA40 (KeAssignCpuPartitionsToProcess.c)
  * Callees:
  *     <none>
  */

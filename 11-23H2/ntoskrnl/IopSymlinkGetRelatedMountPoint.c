@@ -1,8 +1,8 @@
 /*
- * XREFs of IopSymlinkGetRelatedMountPoint @ 0x14087FB40
+ * XREFs of IopSymlinkGetRelatedMountPoint @ 0x14087FD80
  * Callers:
- *     IopSymlinkRememberJunction @ 0x14087F418 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14087F518 (IopGraftName.c)
+ *     IopSymlinkRememberJunction @ 0x14087F658 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x14087F758 (IopGraftName.c)
  * Callees:
  *     <none>
  */

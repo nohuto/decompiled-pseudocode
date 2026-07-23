@@ -1,17 +1,17 @@
 /*
- * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x14027B394
+ * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x140269334
  * Callers:
- *     KiIpiSendRequest @ 0x14027AED0 (KiIpiSendRequest.c)
+ *     KiIpiSendRequest @ 0x140268E70 (KiIpiSendRequest.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
  */
 
 _UNKNOWN **__fastcall KiIpiEnlightenedGuestPriorityKick(__int64 a1)
 {
   _UNKNOWN **result; // rax
   struct _KPRCB *CurrentPrcb; // rbx
-  unsigned __int16 *v4; // rax
+  __int64 v4; // rax
   __int64 v5; // rcx
   int *v6; // rax
   int v7; // edx
@@ -19,7 +19,7 @@ _UNKNOWN **__fastcall KiIpiEnlightenedGuestPriorityKick(__int64 a1)
   bool v9; // zf
   _DWORD *SchedulerAssist; // rdx
   __int64 v11; // rcx
-  unsigned __int16 *v12[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v12[2]; // [rsp+20h] [rbp-28h] BYREF
   __int16 v13; // [rsp+30h] [rbp-18h]
   int v14; // [rsp+32h] [rbp-16h]
   __int16 v15; // [rsp+36h] [rbp-12h]
@@ -33,11 +33,11 @@ _UNKNOWN **__fastcall KiIpiEnlightenedGuestPriorityKick(__int64 a1)
   v17 = 0;
   if ( CurrentPrcb->SchedulerAssist )
   {
-    result = (_UNKNOWN **)KeIsEmptyAffinityEx((_WORD *)a1);
+    result = (_UNKNOWN **)KeIsEmptyAffinityEx(a1);
     if ( !(_DWORD)result )
     {
-      v4 = *(unsigned __int16 **)(a1 + 8);
-      v12[0] = (unsigned __int16 *)a1;
+      v4 = *(_QWORD *)(a1 + 8);
+      v12[0] = a1;
       v12[1] = v4;
       v13 = 0;
       while ( 1 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x14030B630
+ * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x14030B820
  * Callers:
- *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
- *     VfIoFreeIrp @ 0x14093027C (VfIoFreeIrp.c)
- *     VfPendingMoreProcessingRequired @ 0x140933880 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140933B18 (ViPendingCompleteAfterWait.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x14093E2D0 (VfIrpDatabaseEntryInsertAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x140930620 (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x14093127C (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x140934880 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140934B18 (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x14093F2D0 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x14093F3A4 (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)

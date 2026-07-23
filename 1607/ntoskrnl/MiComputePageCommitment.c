@@ -1,18 +1,18 @@
 /*
- * XREFs of MiComputePageCommitment @ 0x140096300
+ * XREFs of MiComputePageCommitment @ 0x140095B00
  * Callers:
- *     MiCommitExistingVad @ 0x14002AC20 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
+ *     MiCommitExistingVad @ 0x14002A7A0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x1400BDB30 (MI_PROTO_FORMAT_COMBINED.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1400BB9C0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiComputePageCommitment(
@@ -92,7 +92,7 @@ LABEL_7:
           if ( (v6 & 1) == 0 )
             ++v10;
         }
-        if ( v11 && *(_QWORD *)(qword_140327F90 + 276840632) && !v15 )
+        if ( v11 && *(_QWORD *)(qword_140327FD0 + 276840632) && !v15 )
         {
           if ( (v14 & 1) != 0 )
           {

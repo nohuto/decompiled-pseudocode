@@ -40,10 +40,10 @@ NTSTATUS __fastcall ObpGetSilosRootDirectory(PHANDLE DirectoryHandle)
       Acl = RtlCreateAcl(Pool2, v4, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 131075, (unsigned __int8 *)SeWorldSid, 0);
+        Acl = RtlpAddKnownAce(v6, 2u, 0, 131075, (unsigned __int8 *)SeWorldSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
+          Acl = RtlpAddKnownAce(v6, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
           if ( Acl >= 0 )
           {
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v6, 0);

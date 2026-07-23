@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x14060ECAC
+ * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x14060ED60
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     HvAllocateCell @ 0x140401D3C (HvAllocateCell.c)
- *     CmpAddSubKeyToList @ 0x1404B0C8C (CmpAddSubKeyToList.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E2DC (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x14060EB20 (CmpLightWeightCreateModificationData.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     HvAllocateCell @ 0x140400BFC (HvAllocateCell.c)
+ *     CmpAddSubKeyToList @ 0x14049B06C (CmpAddSubKeyToList.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E390 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14060EBD4 (CmpLightWeightCreateModificationData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareAddKeyUoW(__int64 a1)

@@ -1,28 +1,28 @@
 /*
- * XREFs of NtCompareTokens @ 0x1407C70C0
+ * XREFs of NtCompareTokens @ 0x1407C7390
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenIsRestricted @ 0x140228830 (SeTokenIsRestricted.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepReleaseOrderedReadLocks @ 0x140356C98 (SepReleaseOrderedReadLocks.c)
- *     SepAcquireOrderedReadLocks @ 0x140356CCC (SepAcquireOrderedReadLocks.c)
- *     SeTokenIsWriteRestricted @ 0x1403713B0 (SeTokenIsWriteRestricted.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     SepCompareClaimAttributes @ 0x1407C7378 (SepCompareClaimAttributes.c)
- *     SepCompareSidAndAttributeArrays @ 0x1407C73D0 (SepCompareSidAndAttributeArrays.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C7464 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     SeTokenIsRestricted @ 0x140228940 (SeTokenIsRestricted.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepReleaseOrderedReadLocks @ 0x140356E38 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x140356E6C (SepAcquireOrderedReadLocks.c)
+ *     SeTokenIsWriteRestricted @ 0x140371550 (SeTokenIsWriteRestricted.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     SepCompareClaimAttributes @ 0x1407C7648 (SepCompareClaimAttributes.c)
+ *     SepCompareSidAndAttributeArrays @ 0x1407C76A0 (SepCompareSidAndAttributeArrays.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C7734 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
  */
 
-__int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, char *a3)
+NTSTATUS __cdecl NtCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
   unsigned int *v5; // rdi
-  char v6; // r12
+  BOOLEAN v6; // r12
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v8; // rcx
-  NTSTATUS InformationToken; // r15d
+  int InformationToken; // r15d
   unsigned int *v10; // rsi
   __int64 v11; // rbx
   __int64 v12; // r13
@@ -42,22 +42,34 @@ __int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, char *a3)
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a3;
+    if ( (unsigned __int64)Equal < 0x7FFFFFFF0000LL )
+      v8 = (__int64)Equal;
     *(_BYTE *)v8 = *(_BYTE *)v8;
   }
   Token[0] = 0LL;
-  InformationToken = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, Token, 0LL);
+  InformationToken = ObReferenceObjectByHandle(
+                       FirstTokenHandle,
+                       8u,
+                       (POBJECT_TYPE)SeTokenObjectType,
+                       PreviousMode,
+                       Token,
+                       0LL);
   v10 = (unsigned int *)Token[0];
   if ( InformationToken < 0 )
   {
     v10 = 0LL;
     goto LABEL_26;
   }
-  if ( Handle == a2 )
+  if ( FirstTokenHandle == SecondTokenHandle )
     goto LABEL_34;
   Token[0] = 0LL;
-  InformationToken = ObReferenceObjectByHandle(a2, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, Token, 0LL);
+  InformationToken = ObReferenceObjectByHandle(
+                       SecondTokenHandle,
+                       8u,
+                       (POBJECT_TYPE)SeTokenObjectType,
+                       PreviousMode,
+                       Token,
+                       0LL);
   v5 = (unsigned int *)Token[0];
   if ( InformationToken < 0 )
   {
@@ -136,6 +148,6 @@ LABEL_26:
     ObfDereferenceObject(v10);
   if ( v5 )
     ObfDereferenceObject(v5);
-  *a3 = v6;
-  return (unsigned int)InformationToken;
+  *Equal = v6;
+  return InformationToken;
 }

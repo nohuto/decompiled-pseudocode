@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogTimerCallback @ 0x1404B4040
+ * XREFs of PopDripsWatchdogTimerCallback @ 0x1404AE860
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 char __fastcall PopDripsWatchdogTimerCallback(__int64 a1, __int64 a2)

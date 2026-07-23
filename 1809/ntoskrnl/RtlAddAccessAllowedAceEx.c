@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAddAccessAllowedAceEx @ 0x14070ED20
+ * XREFs of RtlAddAccessAllowedAceEx @ 0x14070FFC0
  * Callers:
- *     PiAuCreateLocalSystemSecurityObject @ 0x1409C68D4 (PiAuCreateLocalSystemSecurityObject.c)
- *     PiAuCreateStandardSecurityObject @ 0x1409C6C8C (PiAuCreateStandardSecurityObject.c)
- *     PiAuGetDriverDataDirectorySecurityObject @ 0x1409D99A8 (PiAuGetDriverDataDirectorySecurityObject.c)
+ *     PiAuCreateLocalSystemSecurityObject @ 0x1409C78D4 (PiAuCreateLocalSystemSecurityObject.c)
+ *     PiAuCreateStandardSecurityObject @ 0x1409C7C8C (PiAuCreateStandardSecurityObject.c)
+ *     PiAuGetDriverDataDirectorySecurityObject @ 0x1409DA9A8 (PiAuGetDriverDataDirectorySecurityObject.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessAllowedAceEx(

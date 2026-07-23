@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B3E0
+ * XREFs of RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B670
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
- *     RtlTimeFieldsToTime @ 0x14033B350 (RtlTimeFieldsToTime.c)
- *     HalSetRealTimeClock @ 0x1404FEC10 (HalSetRealTimeClock.c)
- *     HalEfiGetTime @ 0x14050CE4C (HalEfiGetTime.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C384 (HalpCheckWakeupTimeAndAdjust.c)
- *     RtlParseLeapSecondData @ 0x140A74174 (RtlParseLeapSecondData.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x14033B5E0 (RtlTimeFieldsToTime.c)
+ *     HalSetRealTimeClock @ 0x1404FF160 (HalSetRealTimeClock.c)
+ *     HalEfiGetTime @ 0x14050D39C (HalEfiGetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x14051C8D4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     RtlParseLeapSecondData @ 0x140A74424 (RtlParseLeapSecondData.c)
  *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B53620 (SeMakeAnonymousLogonTokenNoEveryone.c)
  *     SeMakeAnonymousLogonToken @ 0x140B538B0 (SeMakeAnonymousLogonToken.c)
  *     SeMakeSystemToken @ 0x140B53B60 (SeMakeSystemToken.c)

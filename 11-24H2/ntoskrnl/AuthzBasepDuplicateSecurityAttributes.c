@@ -1,20 +1,20 @@
 /*
- * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x14035F940
+ * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x1403BA310
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepGetAnonymousToken @ 0x14035F4BC (SepGetAnonymousToken.c)
- *     SepValidateAndCopyGlobalEntry @ 0x1404F721C (SepValidateAndCopyGlobalEntry.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     SepDuplicateClaimAttributes @ 0x140A5E1D0 (SepDuplicateClaimAttributes.c)
- *     SepFilterToken @ 0x140AD2664 (SepFilterToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepGetAnonymousToken @ 0x1403B977C (SepGetAnonymousToken.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1404F4AFC (SepValidateAndCopyGlobalEntry.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140985C1C (SepFilterToken.c)
+ *     SepDuplicateClaimAttributes @ 0x140A565F0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x140360060 (AuthzBasepAllocateSecurityAttributeValue.c)
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140360380 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     AuthzBasepRollbackSecurityAttributeChanges @ 0x140696C5C (AuthzBasepRollbackSecurityAttributeChanges.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x1403BAA30 (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1403BAD50 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x140697D2C (AuthzBasepRollbackSecurityAttributeChanges.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepDuplicateSecurityAttributes(__int64 a1, __int64 a2, char a3)
@@ -104,7 +104,7 @@ __int64 __fastcall AuthzBasepDuplicateSecurityAttributes(__int64 a1, __int64 a2,
       v8 = 256LL;
       if ( KeGetCurrentIrql() >= 2u )
         v8 = 64LL;
-      Pool2 = (char *)ExAllocatePool2(v8);
+      Pool2 = (char *)ExAllocatePool2(v8, *((unsigned __int16 *)v3 + 16) + 112LL, 0x74416553u);
       v10 = Pool2;
       if ( !Pool2 )
       {
@@ -155,7 +155,7 @@ LABEL_16:
           v18 = 256LL;
           if ( KeGetCurrentIrql() >= 2u )
             v18 = 64LL;
-          v19 = (_QWORD *)ExAllocatePool2(v18);
+          v19 = (_QWORD *)ExAllocatePool2(v18, 0x40uLL, 0x74416553u);
           v20 = v19;
           if ( !v19 )
             goto LABEL_24;
@@ -193,7 +193,7 @@ LABEL_16:
               v47 = 256LL;
               if ( KeGetCurrentIrql() >= 2u )
                 v47 = 64LL;
-              v48 = (char *)ExAllocatePool2(v47);
+              v48 = (char *)ExAllocatePool2(v47, *((unsigned __int16 *)v45 + 20) + 64LL, 0x74416553u);
               v49 = v48;
               if ( !v48 )
                 goto LABEL_24;

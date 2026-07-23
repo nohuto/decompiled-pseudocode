@@ -1,30 +1,30 @@
 /*
- * XREFs of MiClearDriverTablePtes @ 0x140505FE8
+ * XREFs of MiClearDriverTablePtes @ 0x1404FF898
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiWriteWsle @ 0x14029F7F0 (MiWriteWsle.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiDecreaseUsedPtesInPfn @ 0x140309000 (MiDecreaseUsedPtesInPfn.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiReducePteUseCount @ 0x140361410 (MiReducePteUseCount.c)
- *     MiGetSecurePageState @ 0x140531F30 (MiGetSecurePageState.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiWriteWsle @ 0x14029ED40 (MiWriteWsle.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiDecreaseUsedPtesInPfn @ 0x1402EB080 (MiDecreaseUsedPtesInPfn.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiReducePteUseCount @ 0x1403631B0 (MiReducePteUseCount.c)
+ *     MiGetSecurePageState @ 0x1405343D0 (MiGetSecurePageState.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiClearDriverTablePtes(__int64 a1, __int64 a2, __int64 a3)
@@ -52,11 +52,11 @@ void __fastcall MiClearDriverTablePtes(__int64 a1, __int64 a2, __int64 a3)
   v3 = 0LL;
   v4 = (unsigned int)((*(_DWORD *)(a1 + 64) & 0xFFF) != 0) + (*(_DWORD *)(a1 + 64) >> 12);
   v5 = ((*(_QWORD *)(a1 + 48) >> 9) & 0x7FFFFFFFF8LL) + 8 * v4 - 0x98000000000LL;
-  v6 = MiLockWorkingSetShared((__int64)&unk_140E36E00, v4, a3);
+  v6 = MiLockWorkingSetShared((__int64)&unk_140E36F80, v4, a3);
   v7 = v5
      + 8LL
-     * (((unsigned int)(HIDWORD(stru_140E36558.SListFaultAddress) + LODWORD(stru_140E36558.QuantumTarget)) >> 12)
-      + (((HIDWORD(stru_140E36558.SListFaultAddress) + LODWORD(stru_140E36558.QuantumTarget)) & 0xFFF) != 0));
+     * (((unsigned int)(HIDWORD(stru_140E366D8.SListFaultAddress) + LODWORD(stru_140E366D8.QuantumTarget)) >> 12)
+      + (((HIDWORD(stru_140E366D8.SListFaultAddress) + LODWORD(stru_140E366D8.QuantumTarget)) & 0xFFF) != 0));
   v21 = v7;
   v8 = (__int64)(v5 << 25) >> 16;
   ProcessorFlushList = 0LL;
@@ -72,10 +72,10 @@ void __fastcall MiClearDriverTablePtes(__int64 a1, __int64 a2, __int64 a3)
         MiReleaseProcessorFlushList();
         ProcessorFlushList = 0LL;
       }
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v3);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v3);
 LABEL_8:
       v3 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiLockPageTableInternal((signed __int64)&unk_140E36E00, v3, 0);
+      MiLockPageTableInternal((signed __int64)&unk_140E36F80, v3, 0);
     }
     PteShadow = *(_QWORD *)v5;
     if ( v5 >= 0xFFFFF6FB7DBED000uLL && v5 <= 0xFFFFF6FB7DBED7F8uLL )
@@ -100,7 +100,7 @@ LABEL_8:
           ProcessorFlushList = MiGetProcessorFlushList();
           MiInitializeTbFlushList(
             (__int64)ProcessorFlushList,
-            (__int64)&unk_140E36E00,
+            (__int64)&unk_140E36F80,
             *((_DWORD *)ProcessorFlushList + 3),
             8,
             1);
@@ -155,7 +155,7 @@ LABEL_8:
     MiFlushTbList((__int64)ProcessorFlushList);
     MiReleaseProcessorFlushList();
   }
-  MiUnlockPageTableInternal((__int64)&unk_140E36E00, v3);
+  MiUnlockPageTableInternal((__int64)&unk_140E36F80, v3);
   LOBYTE(v19) = v6;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v19);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v19);
 }

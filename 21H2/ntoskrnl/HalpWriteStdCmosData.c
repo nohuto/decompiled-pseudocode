@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWriteStdCmosData @ 0x1404D62A0
+ * XREFs of HalpWriteStdCmosData @ 0x1404D64E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x1402B612C (HalpAcquireCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x14023430C (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 __fastcall HalpWriteStdCmosData(__int64 a1, __int64 a2, __int64 a3)

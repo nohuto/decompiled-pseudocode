@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindStateSepKeysRedirectionMapNode @ 0x140C4BA64
+ * XREFs of CmpFindStateSepKeysRedirectionMapNode @ 0x140C4DC00
  * Callers:
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140C4BF4C (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140C4E0E8 (CmpGetStateSepKeysRedirectionPathValue.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpFindSubKeyByName @ 0x140A3D268 (CmpFindSubKeyByName.c)
- *     CmpFindHiveSubKey @ 0x140C4B8A8 (CmpFindHiveSubKey.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x140A32B78 (CmpFindSubKeyByName.c)
+ *     CmpFindHiveSubKey @ 0x140C4DA44 (CmpFindHiveSubKey.c)
  */
 
 bool __fastcall CmpFindStateSepKeysRedirectionMapNode(

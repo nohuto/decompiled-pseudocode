@@ -1,20 +1,20 @@
 /*
- * XREFs of CmLogMcUpdateStatus @ 0x14026C5A8
+ * XREFs of CmLogMcUpdateStatus @ 0x14026C798
  * Callers:
- *     HvlpLogMicrocodeUpdateStatus @ 0x1408177A4 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x1408189A4 (HvlpLogMicrocodeUpdateStatus.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlIntegerToChar @ 0x1405A8CF0 (RtlIntegerToChar.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     CmpInitializeRegistryNode @ 0x1407321F8 (CmpInitializeRegistryNode.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlIntegerToChar @ 0x1405A9CF0 (RtlIntegerToChar.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x1407333E8 (CmpInitializeRegistryNode.c)
  */
 
 __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
@@ -26,7 +26,7 @@ __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
   HANDLE v9; // [rsp+60h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING v11; // [rsp+98h] [rbp-68h] BYREF
-  STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
+  _STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
   _DWORD v13[18]; // [rsp+C0h] [rbp-40h] BYREF
   CHAR String[16]; // [rsp+110h] [rbp+10h] BYREF
   char v15; // [rsp+120h] [rbp+20h] BYREF
@@ -44,7 +44,7 @@ __int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
   {
     ObjectAttributes.RootDirectory = KeyHandle;
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_14096F660;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_140970660;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v4 = ZwOpenKey(&v9, 0x20019u, &ObjectAttributes);

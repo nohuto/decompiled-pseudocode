@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAccessCheckAndAuditAlarm @ 0x1405BA46C
+ * XREFs of SepAccessCheckAndAuditAlarm @ 0x1405BB46C
  * Callers:
- *     NtAccessCheckAndAuditAlarm @ 0x1405BA330 (NtAccessCheckAndAuditAlarm.c)
- *     NtAccessCheckByTypeAndAuditAlarm @ 0x1405BA3C0 (NtAccessCheckByTypeAndAuditAlarm.c)
- *     NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1408A0400 (NtAccessCheckByTypeResultListAndAuditAlarm.c)
- *     NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1408A04B0 (NtAccessCheckByTypeResultListAndAuditAlarmByHandle.c)
+ *     NtAccessCheckAndAuditAlarm @ 0x1405BB330 (NtAccessCheckAndAuditAlarm.c)
+ *     NtAccessCheckByTypeAndAuditAlarm @ 0x1405BB3C0 (NtAccessCheckByTypeAndAuditAlarm.c)
+ *     NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1408A1660 (NtAccessCheckByTypeResultListAndAuditAlarm.c)
+ *     NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1408A1710 (NtAccessCheckByTypeResultListAndAuditAlarmByHandle.c)
  * Callees:
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  */
 
 __int64 __fastcall SepAccessCheckAndAuditAlarm(

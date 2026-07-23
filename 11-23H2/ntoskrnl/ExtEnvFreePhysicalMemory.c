@@ -1,17 +1,17 @@
 /*
- * XREFs of ExtEnvFreePhysicalMemory @ 0x14051F5EC
+ * XREFs of ExtEnvFreePhysicalMemory @ 0x14051FB3C
  * Callers:
- *     IvtAllocateContextTable @ 0x14052B220 (IvtAllocateContextTable.c)
- *     IvtFreeScalableModePasidTables @ 0x14052C7D8 (IvtFreeScalableModePasidTables.c)
- *     HsaAllocateRemappingTableEntry @ 0x14052ECB0 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x14052FE10 (HsaFreeRemappingTableEntry.c)
+ *     IvtAllocateContextTable @ 0x14052B770 (IvtAllocateContextTable.c)
+ *     IvtFreeScalableModePasidTables @ 0x14052CD28 (IvtFreeScalableModePasidTables.c)
+ *     HsaAllocateRemappingTableEntry @ 0x14052F200 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x140530360 (HsaFreeRemappingTableEntry.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     HalpMmIsInsideHalVa @ 0x140505684 (HalpMmIsInsideHalVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpMmIsInsideHalVa @ 0x140505BD4 (HalpMmIsInsideHalVa.c)
  */
 
 void __fastcall ExtEnvFreePhysicalMemory(__int64 a1, void *a2, unsigned int a3, unsigned int a4)
@@ -55,10 +55,13 @@ void __fastcall ExtEnvFreePhysicalMemory(__int64 a1, void *a2, unsigned int a3, 
         v8 = (__int64 *)*v8;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&ExtEnvAllocationLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -66,7 +69,7 @@ void __fastcall ExtEnvFreePhysicalMemory(__int64 a1, void *a2, unsigned int a3, 
           v14 = (v13 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v13;
           if ( v14 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v9);

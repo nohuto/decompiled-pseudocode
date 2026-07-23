@@ -17,9 +17,9 @@
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   unsigned int v7; // r10d
-  __int64 (__fastcall *v8)(); // rcx
-  __int64 v9; // r8
-  int v10; // edi
+  void (*v8)(void); // rcx
+  ULONG64 v9; // r8
+  ULONG v10; // edi
   unsigned __int64 v11; // rcx
   int v12; // edx
   int v13; // eax
@@ -29,11 +29,11 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   void *v17; // rsp
   unsigned int v18; // edi
   __int64 v19; // rsi
-  int v20; // eax
+  NTSTATUS v20; // eax
   __int64 v21; // rcx
   int v22; // r14d
   bool v23; // cl
-  __int64 v24; // r8
+  __int64 Offset; // r8
   char *v25; // r9
   __int64 v26; // r10
   unsigned int v27; // edx
@@ -47,30 +47,30 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   int v36; // [rsp+74h] [rbp+14h]
   unsigned __int64 v37; // [rsp+78h] [rbp+18h] BYREF
   unsigned __int64 v38; // [rsp+80h] [rbp+20h] BYREF
-  _DWORD *v39; // [rsp+88h] [rbp+28h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+88h] [rbp+28h] BYREF
   __int64 v40; // [rsp+90h] [rbp+30h] BYREF
   __int64 v41; // [rsp+98h] [rbp+38h] BYREF
-  __int64 (__fastcall *v42)(); // [rsp+A0h] [rbp+40h]
+  void (*v42)(void); // [rsp+A0h] [rbp+40h]
   __int128 v43; // [rsp+A8h] [rbp+48h] BYREF
   __int64 v44; // [rsp+B8h] [rbp+58h]
-  __int128 v45; // [rsp+C0h] [rbp+60h] BYREF
+  __int128 v45; // [rsp+C0h] [rbp+60h]
   __int64 v46; // [rsp+D0h] [rbp+70h]
-  __int128 v47; // [rsp+E0h] [rbp+80h] BYREF
+  __int128 MemoryInformation; // [rsp+E0h] [rbp+80h] BYREF
   __int128 v48; // [rsp+F0h] [rbp+90h]
   __int128 v49; // [rsp+100h] [rbp+A0h]
-  __int64 (__fastcall *v50)(); // [rsp+158h] [rbp+F8h]
+  void (*v50)(void); // [rsp+158h] [rbp+F8h]
 
-  v39 = 0LL;
+  ContextEx = 0LL;
   v7 = 0;
   v40 = 0LL;
   v41 = 0LL;
   v38 = 0LL;
   v37 = 0LL;
-  v47 = 0LL;
+  MemoryInformation = 0LL;
   v48 = 0LL;
   v49 = 0LL;
   v8 = RtlRaiseExceptionForReturnAddressHijack;
-  if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) != 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
     v8 = 0LL;
   v42 = v8;
   v9 = v8 != 0LL ? 0x800 : 0;
@@ -101,7 +101,7 @@ LABEL_11:
   v15 = v14 & 0xFFFFFFFFFFFFFFF0uLL;
   v16 = alloca(v15);
   v17 = alloca(v15);
-  RtlInitializeExtendedContext2((__int64)v31, v10, &v39, v9);
+  RtlInitializeExtendedContext2((PCONTEXT)v31, v10, &ContextEx, v9);
   RtlpCaptureContext2(v31);
   v31[0] = 0;
   if ( RtlpGetStackLimits(&v37, (void **)&v38) )
@@ -113,7 +113,7 @@ LABEL_11:
     {
       if ( (BYTE8(v48) & 7) != 0 || *((_QWORD *)&v48 + 1) < v37 || *((_QWORD *)&v48 + 1) >= v38 )
         return v18;
-      v19 = RtlpLookupFunctionEntryForStackWalks(v50, &v45);
+      v19 = RtlpLookupFunctionEntryForStackWalks(v50);
       if ( v19 )
       {
         v20 = 0;
@@ -122,7 +122,13 @@ LABEL_11:
         v22 = DWORD2(v45);
         if ( !*(_WORD *)(v21 + *((_QWORD *)&v45 + 1) + 1) && (*(_BYTE *)(v21 + *((_QWORD *)&v45 + 1)) & 0x20) == 0 )
         {
-          v20 = ZwQueryVirtualMemory(-1LL, v50, 0LL, &v47, 48LL, 0LL);
+          v20 = ZwQueryVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  v50,
+                  MemoryBasicInformation,
+                  &MemoryInformation,
+                  0x30uLL,
+                  0LL);
           v34 = v20;
           if ( v20 >= 0 && (BYTE4(v49) & 0x40) != 0 )
           {
@@ -201,13 +207,13 @@ LABEL_35:
         goto LABEL_80;
       if ( (MEMORY[0x7FFE03EC] & 0xFFFFFFF8) != 0 )
         goto LABEL_80;
-      v24 = (int)v39[4];
-      if ( *v39 > (int)v24 )
+      Offset = ContextEx->XState.Offset;
+      if ( ContextEx->All.Offset > (int)Offset )
         goto LABEL_80;
-      if ( v39[1] + *v39 < (int)v24 + v39[5] )
+      if ( (signed int)(ContextEx->All.Length + ContextEx->All.Offset) < (signed int)(Offset + ContextEx->XState.Length) )
         goto LABEL_80;
-      v25 = (char *)v39 + v24;
-      if ( !(_DWORD *)((char *)v39 + v24) )
+      v25 = (char *)ContextEx + Offset;
+      if ( !(PCONTEXT_EX)((char *)ContextEx + Offset) )
         goto LABEL_80;
       if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
       {
@@ -244,10 +250,10 @@ LABEL_35:
 LABEL_80:
           v29 = 8LL;
         }
-        v50 = *(__int64 (__fastcall **)())(*(_QWORD *)v29 - 8LL);
+        v50 = *(void (**)(void))(*(_QWORD *)v29 - 8LL);
         goto LABEL_38;
       }
-      v50 = *(__int64 (__fastcall **)())(*(_QWORD *)&v25[MEMORY[0x7FFE0448] - 504] - 8LL);
+      v50 = *(void (**)(void))(*(_QWORD *)&v25[MEMORY[0x7FFE0448] - 504] - 8LL);
 LABEL_38:
       if ( v50 )
       {

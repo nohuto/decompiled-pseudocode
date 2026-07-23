@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14060C920
+ * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14069C3D0
  * Callers:
- *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
- *     FsRtlpCleanupEcps @ 0x14060C8C0 (FsRtlpCleanupEcps.c)
- *     PspCreateUserProcessEcp @ 0x14060CD84 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405FD94C (IopSymlinkAllocateAndAddECP.c)
+ *     NtCreateUserProcess @ 0x140699C80 (NtCreateUserProcess.c)
+ *     FsRtlpCleanupEcps @ 0x14069C370 (FsRtlpCleanupEcps.c)
+ *     PspCreateUserProcessEcp @ 0x14069C834 (PspCreateUserProcessEcp.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14069C490 (FsRtlFreeExtraCreateParameter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
@@ -34,11 +34,11 @@ void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
   }
   if ( (EcpList->Flags & 4) != 0 )
   {
-    ++dword_140CDB55C;
-    if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= (unsigned __int16)word_140CDB550 )
+    ++dword_140CDB59C;
+    if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= (unsigned __int16)word_140CDB590 )
     {
-      ++dword_140CDB560;
-      ((void (__fastcall *)(PECP_LIST))qword_140CDB578)(EcpList);
+      ++dword_140CDB5A0;
+      ((void (__fastcall *)(PECP_LIST))qword_140CDB5B8)(EcpList);
     }
     else
     {

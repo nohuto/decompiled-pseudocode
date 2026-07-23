@@ -83,7 +83,7 @@ __int64 __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, __int64 a3, struct 
   struct _KTHREAD *v44; // r9
   unsigned __int64 DeepFreezeStartTime; // rdx
   PSLIST_ENTRY v46; // rbx
-  struct _SLIST_ENTRY *v47; // rax
+  _SLIST_ENTRY *v47; // rax
   __int64 **v48; // rdx
   __int64 *v49; // rcx
   __int64 v50; // rax
@@ -196,15 +196,12 @@ LABEL_58:
     {
       if ( *(_QWORD *)(v5 + 32) > 0x300000uLL )
       {
-        ++CcBitmapLookasideList.L.TotalAllocates;
-        result = (__int64)RtlpInterlockedPopEntrySList(&CcBitmapLookasideList.L.ListHead);
+        ++unk_140CDB7D4;
+        result = (__int64)RtlpInterlockedPopEntrySList(&CcBitmapLookasideList);
         if ( !result )
         {
-          ++CcBitmapLookasideList.L.AllocateMisses;
-          result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))CcBitmapLookasideList.L.AllocateEx)(
-                     (unsigned int)CcBitmapLookasideList.L.Type,
-                     CcBitmapLookasideList.L.Size,
-                     CcBitmapLookasideList.L.Tag);
+          ++unk_140CDB7D8;
+          result = unk_140CDB7F0(unk_140CDB7E4, unk_140CDB7EC, unk_140CDB7E8);
           if ( !result )
           {
             ++CcDbgNumberOfFailedBitmapAllocations;
@@ -278,7 +275,7 @@ LABEL_17:
       memset(ListEntry, 0, 0x400uLL);
       if ( *(_DWORD *)(v21 + 80) )
       {
-        v47 = *(struct _SLIST_ENTRY **)(v21 + 88);
+        v47 = *(_SLIST_ENTRY **)(v21 + 88);
         *v46 = *v47;
         v46[1] = v47[1];
         v46[2] = v47[2];
@@ -541,15 +538,15 @@ LABEL_60:
   }
   if ( ListEntry )
   {
-    ++CcBitmapLookasideList.L.TotalFrees;
-    if ( LOWORD(CcBitmapLookasideList.L.ListHead.Alignment) >= CcBitmapLookasideList.L.Depth )
+    ++unk_140CDB7DC;
+    if ( LOWORD(CcBitmapLookasideList.Alignment) >= unk_140CDB7D0 )
     {
-      ++CcBitmapLookasideList.L.FreeMisses;
-      return ((__int64 (*)(void))CcBitmapLookasideList.L.FreeEx)();
+      ++unk_140CDB7E0;
+      return unk_140CDB7F8();
     }
     else
     {
-      return (__int64)RtlpInterlockedPushEntrySList(&CcBitmapLookasideList.L.ListHead, ListEntry);
+      return (__int64)RtlpInterlockedPushEntrySList(&CcBitmapLookasideList, ListEntry);
     }
   }
   return result;

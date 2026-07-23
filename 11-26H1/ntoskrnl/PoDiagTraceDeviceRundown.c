@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDiagTraceDeviceRundown @ 0x140ADDF28
+ * XREFs of PoDiagTraceDeviceRundown @ 0x140ADAC98
  * Callers:
- *     IoDiagTraceDevicesRundown @ 0x140ADDEB0 (IoDiagTraceDevicesRundown.c)
+ *     IoDiagTraceDevicesRundown @ 0x140ADAC20 (IoDiagTraceDevicesRundown.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PoDiagTraceDeviceRundown(__int64 a1, unsigned __int16 *a2, unsigned __int16 *a3, char a4)
@@ -57,10 +57,5 @@ NTSTATUS __fastcall PoDiagTraceDeviceRundown(__int64 a1, unsigned __int16 *a2, u
     v23 = v6;
     v24 = 0;
   }
-  return EtwWrite(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_DEVICE_RUNDOWN,
-           0LL,
-           v7,
-           &UserData);
+  return EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DEVICE_RUNDOWN, 0LL, v7, &UserData);
 }

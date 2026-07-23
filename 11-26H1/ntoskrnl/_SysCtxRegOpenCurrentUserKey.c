@@ -1,28 +1,28 @@
 /*
- * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x140A2AEE0
+ * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x140A3DF70
  * Callers:
- *     _CmOpenDeviceRegKeyWorker @ 0x140996CF0 (_CmOpenDeviceRegKeyWorker.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14099FC70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1409A0580 (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x140A298F0 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x140A2AEB0 (_PnpCtxRegOpenCurrentUserKey.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A2CCFC (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x140957750 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1409606D0 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140960FE0 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x140A3C990 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x140A3DF40 (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A3FBE4 (_CmDeleteDeviceContainerRegKeyWorker.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     RtlSubAuthoritySid @ 0x14047F970 (RtlSubAuthoritySid.c)
- *     RtlUShortAdd @ 0x140481650 (RtlUShortAdd.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationToken @ 0x140723810 (ZwQueryInformationToken.c)
- *     RtlConvertSidToUnicodeString @ 0x140925970 (RtlConvertSidToUnicodeString.c)
- *     _SysCtxRegOpenKey @ 0x1409978F0 (_SysCtxRegOpenKey.c)
- *     _SysCtxOpenEffectiveToken @ 0x140A2CBB4 (_SysCtxOpenEffectiveToken.c)
- *     RtlInitializeSid @ 0x140A6AF80 (RtlInitializeSid.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x140AB0D34 (_SysCtxGetCachedContextBaseKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     RtlSubAuthoritySid @ 0x1404792E0 (RtlSubAuthoritySid.c)
+ *     RtlUShortAdd @ 0x14047AFC0 (RtlUShortAdd.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationToken @ 0x1407283E0 (ZwQueryInformationToken.c)
+ *     RtlConvertSidToUnicodeString @ 0x140901480 (RtlConvertSidToUnicodeString.c)
+ *     _SysCtxRegOpenKey @ 0x140958350 (_SysCtxRegOpenKey.c)
+ *     _SysCtxOpenEffectiveToken @ 0x140A3EE08 (_SysCtxOpenEffectiveToken.c)
+ *     RtlInitializeSid @ 0x140A77920 (RtlInitializeSid.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x140AAED18 (_SysCtxGetCachedContextBaseKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SysCtxRegOpenCurrentUserKey(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -36,7 +36,7 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(__int64 a1, unsigned int a2, unsi
   __int64 v15; // r9
   __int64 v16; // rcx
   USHORT pusResult[2]; // [rsp+30h] [rbp-99h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
   int TokenInformation; // [rsp+3Ch] [rbp-8Dh] BYREF
   ULONG ReturnLength; // [rsp+40h] [rbp-89h] BYREF
   int v21; // [rsp+44h] [rbp-85h] BYREF
@@ -111,7 +111,7 @@ LABEL_17:
           Destination.Length = 0;
           Destination.MaximumLength = v13;
           Destination.Buffer = Pool2;
-          appended = RtlAppendUnicodeStringToString(&Destination, &stru_14000F4E8);
+          appended = RtlAppendUnicodeStringToString(&Destination, &stru_14000F7F8);
           if ( appended >= 0 )
           {
             appended = RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)P);

@@ -11,7 +11,7 @@
 
 __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
 {
-  __int64 InterruptTimePrecise; // rbp
+  LARGE_INTEGER InterruptTimePrecise; // rbp
   unsigned __int64 v5; // rdi
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
@@ -32,14 +32,14 @@ __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
     else
     {
       dword_140C0B758 = a2;
-      qword_140C0B760 = InterruptTimePrecise;
+      qword_140C0B760 = InterruptTimePrecise.QuadPart;
     }
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopModernStandbyTransitionInfo);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

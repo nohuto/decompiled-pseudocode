@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaHwErrorReportAbandonDeviceDriver @ 0x1406D5090
+ * XREFs of WheaHwErrorReportAbandonDeviceDriver @ 0x1406D9170
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1406D5350 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x1406D5470 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1406D9430 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1406D9550 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapErrorHandleIsValid @ 0x1406D567C (WheapErrorHandleIsValid.c)
- *     WheapFreeDriverPacketBuffer @ 0x1406D5698 (WheapFreeDriverPacketBuffer.c)
+ *     WheapErrorHandleIsValid @ 0x1406D975C (WheapErrorHandleIsValid.c)
+ *     WheapFreeDriverPacketBuffer @ 0x1406D9778 (WheapFreeDriverPacketBuffer.c)
  */
 
 __int64 WheaHwErrorReportAbandonDeviceDriver()

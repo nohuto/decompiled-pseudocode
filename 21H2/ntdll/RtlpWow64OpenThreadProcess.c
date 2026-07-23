@@ -1,42 +1,58 @@
 /*
- * XREFs of RtlpWow64OpenThreadProcess @ 0x1800DC728
+ * XREFs of RtlpWow64OpenThreadProcess @ 0x1800DC6E8
  * Callers:
- *     RtlWow64SuspendThread @ 0x1800DC4E0 (RtlWow64SuspendThread.c)
+ *     RtlWow64SuspendThread @ 0x1800DC4A0 (RtlWow64SuspendThread.c)
  * Callees:
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwQueryInformationThread @ 0x18009DAE0 (ZwQueryInformationThread.c)
- *     NtOpenProcess @ 0x18009DB00 (NtOpenProcess.c)
- *     ZwDuplicateObject @ 0x18009DDC0 (ZwDuplicateObject.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwQueryInformationThread @ 0x18009DAA0 (ZwQueryInformationThread.c)
+ *     NtOpenProcess @ 0x18009DAC0 (NtOpenProcess.c)
+ *     ZwDuplicateObject @ 0x18009DD80 (ZwDuplicateObject.c)
  */
 
-__int64 __fastcall RtlpWow64OpenThreadProcess(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, _OWORD *a5)
+int __fastcall RtlpWow64OpenThreadProcess(HANDLE SourceHandle, __int64 a2, _QWORD *a3, HANDLE *a4, _CLIENT_ID *a5)
 {
-  __int64 result; // rax
-  int InformationThread; // ebx
-  HANDLE Handle; // [rsp+48h] [rbp-21h]
-  __int64 v10; // [rsp+88h] [rbp+1Fh]
-  __int128 v11; // [rsp+90h] [rbp+27h]
+  int result; // eax
+  NTSTATUS InformationThread; // ebx
+  HANDLE TargetHandle; // [rsp+48h] [rbp-21h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-19h] BYREF
+  _BYTE ThreadInformation[8]; // [rsp+80h] [rbp+17h] BYREF
+  __int64 v12; // [rsp+88h] [rbp+1Fh]
+  _CLIENT_ID ClientId; // [rsp+90h] [rbp+27h] BYREF
 
-  result = ZwDuplicateObject();
-  if ( (int)result >= 0 )
+  result = ZwDuplicateObject(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             SourceHandle,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &TargetHandle,
+             0x800u,
+             0,
+             0);
+  if ( result >= 0 )
   {
-    InformationThread = ZwQueryInformationThread();
-    NtClose(Handle);
+    InformationThread = ZwQueryInformationThread(TargetHandle, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
+    NtClose(TargetHandle);
     if ( InformationThread >= 0 )
     {
       if ( a5 )
-        *a5 = v11;
+        *a5 = ClientId;
       if ( a3 )
-        *a3 = v10;
+        *a3 = v12;
       if ( a4 )
       {
-        if ( (void *)v11 == NtCurrentTeb()->ClientId.UniqueProcess )
-          *a4 = -1LL;
+        if ( ClientId.UniqueProcess == NtCurrentTeb()->ClientId.UniqueProcess )
+        {
+          *a4 = (HANDLE)-1LL;
+        }
         else
-          return (unsigned int)NtOpenProcess();
+        {
+          memset(&ObjectAttributes.RootDirectory, 0, 20);
+          ObjectAttributes.Length = 48;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          return NtOpenProcess(a4, 0x452u, &ObjectAttributes, &ClientId);
+        }
       }
     }
-    return (unsigned int)InformationThread;
+    return InformationThread;
   }
   return result;
 }

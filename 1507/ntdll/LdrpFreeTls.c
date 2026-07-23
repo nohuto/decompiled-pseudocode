@@ -8,20 +8,20 @@
  *     RtlAcquireSRWLockShared @ 0x180030820 (RtlAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall LdrpFreeTls(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 LdrpFreeTls()
 {
-  struct _TEB *v4; // rbx
+  struct _TEB *v0; // rbx
   void *ProcessHeap; // rbp
   void **p_ThreadLocalStoragePointer; // rdi
   void **ThreadLocalStoragePointer; // rbx
-  void **v8; // rdi
-  __int64 v9; // rsi
+  void **v4; // rdi
+  __int64 v5; // rsi
 
-  v4 = NtCurrentTeb();
+  v0 = NtCurrentTeb();
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  RtlAcquireSRWLockShared(&LdrpTlsLock, a2, a3, a4);
-  p_ThreadLocalStoragePointer = &v4->ThreadLocalStoragePointer;
-  ThreadLocalStoragePointer = (void **)v4->ThreadLocalStoragePointer;
+  RtlAcquireSRWLockShared(&LdrpTlsLock);
+  p_ThreadLocalStoragePointer = &v0->ThreadLocalStoragePointer;
+  ThreadLocalStoragePointer = (void **)v0->ThreadLocalStoragePointer;
   if ( ThreadLocalStoragePointer )
   {
     _InterlockedDecrement(&LdrpActiveThreadCount);
@@ -30,20 +30,20 @@ __int64 __fastcall LdrpFreeTls(__int64 a1, char *a2, __int64 a3, __int64 a4)
   RtlReleaseSRWLockShared(&LdrpTlsLock);
   if ( ThreadLocalStoragePointer && ThreadLocalStoragePointer != p_ThreadLocalStoragePointer )
   {
-    v8 = ThreadLocalStoragePointer - 2;
+    v4 = ThreadLocalStoragePointer - 2;
     if ( *((_DWORD *)ThreadLocalStoragePointer - 4) )
     {
-      v9 = *(unsigned int *)v8;
+      v5 = *(unsigned int *)v4;
       do
       {
         if ( *ThreadLocalStoragePointer )
-          RtlFreeHeap((__int64)ProcessHeap, 0, *((_QWORD *)*ThreadLocalStoragePointer - 1));
+          RtlFreeHeap(ProcessHeap, 0, *((PVOID *)*ThreadLocalStoragePointer - 1));
         ++ThreadLocalStoragePointer;
-        --v9;
+        --v5;
       }
-      while ( v9 );
+      while ( v5 );
     }
-    RtlFreeHeap((__int64)ProcessHeap, 0, (unsigned __int64)v8);
+    RtlFreeHeap(ProcessHeap, 0, v4);
   }
   return LdrpCleanupThreadTlsData();
 }

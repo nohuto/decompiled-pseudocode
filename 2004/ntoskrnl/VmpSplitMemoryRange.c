@@ -30,26 +30,26 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
   _DWORD *SchedulerAssist; // r9
   int v18; // eax
   bool v19; // zf
-  _QWORD *MemoryRanges; // r14
+  _RTL_BALANCED_NODE *MemoryRanges; // r14
   unsigned __int8 v21; // al
   struct _KPRCB *v22; // r10
   _DWORD *v23; // r9
   int v24; // eax
-  unsigned __int64 *v25; // rcx
+  _RTL_RB_TREE *v25; // rcx
   unsigned __int64 v26; // r12
   unsigned __int64 v27; // r12
   unsigned __int64 v28; // rdx
-  bool v29; // r8
-  unsigned __int64 v30; // r8
+  BOOLEAN v29; // r8
+  _RTL_BALANCED_NODE *v30; // r8
   unsigned __int64 v31; // rax
-  _QWORD *v32; // r14
+  _RTL_BALANCED_NODE *ParentValue; // r14
   _QWORD *v33; // rbp
   _QWORD *v34; // r15
-  unsigned __int64 *v35; // rbx
-  unsigned __int64 v36; // rcx
+  _RTL_BALANCED_NODE **v35; // rbx
+  _RTL_BALANCED_NODE *v36; // rcx
   unsigned __int64 v37; // rdx
-  bool v38; // r8
-  unsigned __int64 v39; // r8
+  BOOLEAN v38; // r8
+  _RTL_BALANCED_NODE *v39; // r8
   unsigned __int64 v40; // rax
   unsigned __int8 v41; // al
   struct _KPRCB *v42; // r9
@@ -121,7 +121,7 @@ LABEL_10:
       }
     }
     __writecr8((unsigned __int8)v7);
-    MemoryRanges = (_QWORD *)VmpAllocateMemoryRanges(v14);
+    MemoryRanges = (_RTL_BALANCED_NODE *)VmpAllocateMemoryRanges(v14);
     if ( !MemoryRanges )
       return (unsigned int)-1073741670;
     v7 = VmpProcessContextLockExclusive(SpinLock);
@@ -151,11 +151,11 @@ LABEL_10:
     }
     break;
   }
-  v25 = (unsigned __int64 *)(SpinLock + 6);
+  v25 = (_RTL_RB_TREE *)(SpinLock + 6);
   v26 = a2 - *(_QWORD *)(v8 + 24);
-  MemoryRanges[4] = *(_QWORD *)(v8 + 32);
+  MemoryRanges[1].Children[1] = *(_RTL_BALANCED_NODE **)(v8 + 32);
   v27 = v26 + 1;
-  MemoryRanges[3] = a2 + 1;
+  MemoryRanges[1].Children[0] = (_RTL_BALANCED_NODE *)(a2 + 1);
   *(_QWORD *)(v8 + 32) = a2;
   v28 = *((_QWORD *)SpinLock + 3);
   if ( (SpinLock[8] & 1) != 0 && v28 )
@@ -163,10 +163,10 @@ LABEL_10:
   v29 = 0;
   if ( !v28 )
     goto LABEL_52;
-  v30 = MemoryRanges[3];
+  v30 = MemoryRanges[1].Children[0];
   while ( 2 )
   {
-    if ( v30 <= *(_QWORD *)(v28 + 32) && v30 < *(_QWORD *)(v28 + 24) )
+    if ( (unsigned __int64)v30 <= *(_QWORD *)(v28 + 32) && (unsigned __int64)v30 < *(_QWORD *)(v28 + 24) )
     {
       v31 = *(_QWORD *)v28;
       if ( (SpinLock[8] & 1) != 0 )
@@ -199,27 +199,27 @@ LABEL_50:
 LABEL_51:
   v29 = 1;
 LABEL_52:
-  RtlRbInsertNodeEx(v25, v28, v29, (unsigned __int64)MemoryRanges);
-  v32 = (_QWORD *)MemoryRanges[5];
+  RtlRbInsertNodeEx(v25, (PRTL_BALANCED_NODE)v28, v29, MemoryRanges);
+  ParentValue = (_RTL_BALANCED_NODE *)MemoryRanges[1].ParentValue;
   v33 = (_QWORD *)(v8 + 40);
   v34 = *(_QWORD **)(v8 + 40);
-  v35 = (unsigned __int64 *)(SpinLock + 2);
+  v35 = (_RTL_BALANCED_NODE **)(SpinLock + 2);
   while ( 1 )
   {
-    v36 = v27 + v34[6];
-    v32[6] = v36;
-    v32[7] = v34[7];
-    v34[7] = v36 - 1;
-    v37 = *v35;
+    v36 = (_RTL_BALANCED_NODE *)(v27 + v34[6]);
+    ParentValue[2].Children[0] = v36;
+    ParentValue[2].Children[1] = (_RTL_BALANCED_NODE *)v34[7];
+    v34[7] = (char *)v36 - 1;
+    v37 = (unsigned __int64)*v35;
     if ( (SpinLock[4] & 1) != 0 && v37 )
       v37 ^= (unsigned __int64)v35;
     v38 = 0;
     if ( v37 )
     {
-      v39 = v32[6];
+      v39 = ParentValue[2].Children[0];
       while ( 1 )
       {
-        if ( v39 > *(_QWORD *)(v37 + 32) || v39 >= *(_QWORD *)(v37 + 24) )
+        if ( (unsigned __int64)v39 > *(_QWORD *)(v37 + 32) || (unsigned __int64)v39 >= *(_QWORD *)(v37 + 24) )
         {
           v40 = *(_QWORD *)(v37 + 8);
           if ( (SpinLock[4] & 1) != 0 )
@@ -254,11 +254,11 @@ LABEL_64:
         v37 = v40;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 1, v37, v38, (unsigned __int64)(v32 + 3));
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v37, v38, ParentValue + 1);
     v34 = (_QWORD *)*v34;
     if ( v34 == v33 )
       break;
-    v32 = (_QWORD *)*v32;
+    ParentValue = ParentValue->Children[0];
   }
   ++*((_QWORD *)SpinLock + 5);
   v6 = 0;

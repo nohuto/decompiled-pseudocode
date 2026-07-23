@@ -1,24 +1,24 @@
 /*
- * XREFs of VmpTracingEnabledCallback @ 0x140B1FF10
+ * XREFs of VmpTracingEnabledCallback @ 0x140B22330
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 LIST_ENTRY *__fastcall VmpTracingEnabledCallback(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -34,18 +34,18 @@ LIST_ENTRY *__fastcall VmpTracingEnabledCallback(__int64 a1, __int64 a2, __int64
   struct _KTHREAD *CurrentThread; // rax
   void *v13; // rdx
   LegacyAutoBoost *v14; // rbx
-  unsigned __int64 QuantumTarget; // rbx
+  void *InitialStack; // rbx
   struct _LIST_ENTRY *Blink; // rcx
   __int64 v17; // r8
   struct _LIST_ENTRY *v18; // rax
   unsigned __int64 v19; // rbx
-  unsigned __int64 v20; // r14
+  void *v20; // r14
   unsigned int v21; // eax
   __int64 v22; // rcx
   int v23; // eax
   __int64 v24; // r8
   __int64 *i; // r14
-  unsigned __int64 v26; // r12
+  void *v26; // r12
   unsigned int v27; // eax
   struct _LIST_ENTRY *v28; // rdx
   __int64 v29; // rcx
@@ -123,8 +123,8 @@ LABEL_7:
         else
           *((_BYTE *)v14 + 10) = 1;
       }
-      QuantumTarget = stru_140F066E8.QuantumTarget;
-      if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL) )
+      InitialStack = stru_140F06A28.InitialStack;
+      if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL) )
       {
         ProcessId = (unsigned int)PsGetProcessId((PEPROCESS)v8);
         v48 = 4LL;
@@ -134,7 +134,7 @@ LABEL_7:
         v51 = (__int64 *)&v38;
         v38 = Blink;
         v52 = 8LL;
-        tlgWriteEx_EtwWriteEx(QuantumTarget, (unsigned __int8 *)&byte_140052DC9, v17, 0, v35, v36, 5u, v46);
+        tlgWriteEx_EtwWriteEx((__int64)InitialStack, (unsigned __int8 *)&byte_1400546D5, v17, 0, v35, v36, 5u, v46);
       }
       v18 = Flink[2].Flink;
       if ( ((unsigned __int8)v18 & 1) != 0 )
@@ -158,8 +158,8 @@ LABEL_41:
       {
         do
         {
-          v20 = stru_140F066E8.QuantumTarget;
-          if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL) )
+          v20 = stru_140F06A28.InitialStack;
+          if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL) )
           {
             v21 = (unsigned int)PsGetProcessId((PEPROCESS)v8);
             v22 = *(_QWORD *)(v19 + 24);
@@ -185,12 +185,13 @@ LABEL_41:
             v56 = 8LL;
             v58 = 4LL;
             v60 = 8LL;
-            tlgWriteEx_EtwWriteEx(v20, (unsigned __int8 *)&byte_140053025, v24, 0, v35, v36, 9u, v46);
+            tlgWriteEx_EtwWriteEx((__int64)v20, (unsigned __int8 *)&byte_140054505, v24, 0, v35, v36, 9u, v46);
           }
           for ( i = *(__int64 **)(v19 + 40); i != (__int64 *)(v19 + 40); i = (__int64 *)*i )
           {
-            v26 = stru_140F066E8.QuantumTarget;
-            if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL) )
+            v26 = stru_140F06A28.InitialStack;
+            if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u
+              && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL) )
             {
               v27 = (unsigned int)PsGetProcessId((PEPROCESS)v8);
               v28 = (struct _LIST_ENTRY *)i[6];
@@ -220,7 +221,7 @@ LABEL_41:
               v58 = 8LL;
               v60 = 4LL;
               v62 = 8LL;
-              tlgWriteEx_EtwWriteEx(v26, (unsigned __int8 *)&byte_1400532D1, v31, 0, v35, v36, 0xAu, v46);
+              tlgWriteEx_EtwWriteEx((__int64)v26, (unsigned __int8 *)&dword_1400542D4, v31, 0, v35, v36, 0xAu, v46);
             }
           }
           v32 = *(_QWORD ***)(v19 + 8);

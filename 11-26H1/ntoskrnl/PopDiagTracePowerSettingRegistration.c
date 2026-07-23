@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerSettingRegistration @ 0x140A3B524
+ * XREFs of PopDiagTracePowerSettingRegistration @ 0x1409F6F44
  * Callers:
- *     PopGetSettingNotificationName @ 0x140A3B2C4 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x1409F6CE4 (PopGetSettingNotificationName.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTracePowerSettingRegistration(__int64 a1, int a2, char a3)
@@ -54,10 +54,10 @@ int __fastcall PopDiagTracePowerSettingRegistration(__int64 a1, int a2, char a3)
     v12 = v11 + 1;
     if ( v11 == v8 )
       v12 = v11;
-    if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+    if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
     {
       LODWORD(CurrentThreadProcess) = 0;
-      if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+      if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
       {
         v16 = 0x2000000LL;
         v18 = &v16;
@@ -72,8 +72,8 @@ int __fastcall PopDiagTracePowerSettingRegistration(__int64 a1, int a2, char a3)
         v14 = a3;
         v26 = 1LL;
         LODWORD(CurrentThreadProcess) = tlgWriteTransfer_EtwWriteTransfer(
-                                          (__int64)&dword_140E07598,
-                                          (unsigned __int8 *)word_14004B28A,
+                                          (__int64)&dword_140E07560,
+                                          (unsigned __int8 *)byte_14004B898,
                                           0LL,
                                           0LL,
                                           7u,

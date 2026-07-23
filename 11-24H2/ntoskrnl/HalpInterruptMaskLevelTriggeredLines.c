@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x140561F60
+ * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x14055FB90
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x1403B9D44 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140B4C140 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140372714 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140B4E180 (HalpInterruptRestoreAllControllerState.c)
  */
 
 __int64 HalpInterruptMaskLevelTriggeredLines()
@@ -56,7 +56,7 @@ __int64 HalpInterruptMaskLevelTriggeredLines()
           v10.m128i_i32[3] = _mm_srli_si128(v10, 8).m128i_i32[1] & 0xFFFFFFEF;
           LODWORD(v14) = *(_DWORD *)(v1 + 256);
           HIDWORD(v14) = v4 + *((_DWORD *)v5 + 5);
-          v8 = HalpInterruptSetLineStateInternal(v1, (__int64)&v14, (__int64)&v10, v1);
+          v8 = HalpInterruptSetLineStateInternal(v1, (__int64)&v14, (__int64)&v10);
           if ( v8 < 0 )
           {
             HalpInterruptRestoreAllControllerState();

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAllocateTags @ 0x180141E48
+ * XREFs of RtlpAllocateTags @ 0x18013FFF8
  * Callers:
- *     RtlCreateTagHeap @ 0x1800A5370 (RtlCreateTagHeap.c)
+ *     RtlCreateTagHeap @ 0x180022EE0 (RtlCreateTagHeap.c)
  * Callees:
- *     RtlLogStackBackTraceEx @ 0x18009C824 (RtlLogStackBackTraceEx.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
+ *     RtlLogStackBackTraceEx @ 0x180030DDC (RtlLogStackBackTraceEx.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
@@ -14,16 +14,16 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   __int16 v5; // r15
   __int16 v6; // r12
   __int64 v7; // rsi
-  __int64 v8; // r8
+  _WORD *v8; // r8
   __int64 v9; // rdx
   __int64 v10; // rax
-  __int64 v12; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v13; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v14; // [rsp+98h] [rbp+58h] BYREF
+  ULONG_PTR v12[2]; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+90h] [rbp+50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+58h] BYREF
 
   v2 = RtlpGlobalTagHeap;
-  v14 = 0LL;
-  v12 = 0LL;
+  RegionSize = 0LL;
+  v12[0] = 0LL;
   v4 = a1;
   if ( !RtlpGlobalTagHeap )
     return 0LL;
@@ -43,8 +43,8 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
     v6 = RtlLogStackBackTraceEx(1u);
   if ( !*(_QWORD *)(v4 + 232) )
   {
-    v14 = 147384LL;
-    if ( (int)ZwAllocateVirtualMemory(-1LL, v4 + 232, 0LL, &v14, 0x2000, 4) < 0 )
+    RegionSize = 147384LL;
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v4 + 232), 0LL, &RegionSize, 0x2000u, 4u) < 0 )
       return 0LL;
     *(_DWORD *)(v4 + 224) = 134152192;
     ++a2;
@@ -52,23 +52,23 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   v7 = *(unsigned __int16 *)(v4 + 224);
   if ( a2 > *(unsigned __int16 *)(v4 + 226) - (unsigned int)v7 )
     return 0LL;
-  v8 = *(_QWORD *)(v4 + 232) + 72 * v7;
+  v8 = (_WORD *)(*(_QWORD *)(v4 + 232) + 72 * v7);
   while ( 1 )
   {
     v9 = *(unsigned __int16 *)(v4 + 224);
-    v13 = v8;
+    BaseAddress = v8;
     if ( (unsigned int)v7 >= a2 + (unsigned int)v9 )
       break;
     if ( (((_WORD)v8 + 72) & 0xFFFu) <= 0x48uLL )
     {
-      v12 = 4096LL;
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &v13, 0LL, &v12, 4096, 4) < 0 )
+      v12[0] = 4096LL;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, v12, 0x1000u, 4u) < 0 )
         return 0LL;
-      v8 = v13;
+      v8 = BaseAddress;
     }
-    *(_WORD *)(v8 + 16) = v5 | v7;
-    *(_WORD *)(v13 + 18) = v6;
-    v8 = v13 + 72;
+    v8[8] = v5 | v7;
+    *((_WORD *)BaseAddress + 9) = v6;
+    v8 = (char *)BaseAddress + 72;
     LODWORD(v7) = v7 + 1;
   }
   v10 = *(_QWORD *)(v4 + 232);

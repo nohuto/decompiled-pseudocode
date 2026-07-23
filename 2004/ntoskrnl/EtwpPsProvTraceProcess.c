@@ -62,7 +62,7 @@ unsigned int __fastcall EtwpPsProvTraceProcess(PEPROCESS Process, char a2, unsig
   unsigned __int64 v45; // [rsp+98h] [rbp-70h] BYREF
   PVOID TokenInformation; // [rsp+A0h] [rbp-68h] BYREF
   PVOID P; // [rsp+A8h] [rbp-60h] BYREF
-  struct _SID_AND_ATTRIBUTES IntegritySA; // [rsp+B0h] [rbp-58h] BYREF
+  _SID_AND_ATTRIBUTES IntegritySA; // [rsp+B0h] [rbp-58h] BYREF
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
   _QWORD v50[14]; // [rsp+D8h] [rbp-30h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+148h] [rbp+40h] BYREF

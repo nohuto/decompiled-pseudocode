@@ -1,17 +1,17 @@
 /*
- * XREFs of VmpFaultEntryInsert @ 0x140466838
+ * XREFs of VmpFaultEntryInsert @ 0x140466C38
  * Callers:
- *     VmpAccessFaultBatch @ 0x140466546 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x140466946 (VmpAccessFaultBatch.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall VmpFaultEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
 {
-  unsigned __int64 v3; // rsi
+  _RTL_BALANCED_NODE *v3; // rsi
   unsigned __int64 v5; // r15
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
@@ -19,7 +19,7 @@ __int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned
   volatile LONG *v9; // rbp
   __int64 v10; // rdi
   unsigned __int64 v11; // rdx
-  bool v12; // r8
+  BOOLEAN v12; // r8
   unsigned __int64 v13; // rax
   unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r9
@@ -29,10 +29,10 @@ __int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned
   __int64 result; // rax
 
   v3 = a2;
-  v5 = a2 + 48LL * a3;
+  v5 = (unsigned __int64)&a2[2 * a3];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -43,7 +43,7 @@ __int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned
   }
   v9 = (volatile LONG *)(a1 + 64);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( v3 < v5 )
+  if ( (unsigned __int64)v3 < v5 )
   {
     v10 = a1 + 48;
     do
@@ -56,7 +56,7 @@ __int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned
       {
         while ( 1 )
         {
-          if ( (*(_QWORD *)(v3 + 24) & 0xFFFFFFFFFFFFFuLL) >= (*(_QWORD *)(v11 + 24) & 0xFFFFFFFFFFFFFuLL) )
+          if ( ((unsigned __int64)v3[1].Children[0] & 0xFFFFFFFFFFFFFLL) >= (*(_QWORD *)(v11 + 24) & 0xFFFFFFFFFFFFFuLL) )
           {
             v13 = *(_QWORD *)(v11 + 8);
             if ( (*(_BYTE *)(v10 + 8) & 1) != 0 )
@@ -87,16 +87,16 @@ LABEL_25:
           v11 = v13;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)v10, v11, v12, v3);
-      v3 += 48LL;
+      RtlRbInsertNodeEx((PRTL_RB_TREE)v10, (PRTL_BALANCED_NODE)v11, v12, v3);
+      v3 += 2;
     }
-    while ( v3 < v5 );
+    while ( (unsigned __int64)v3 < v5 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v9);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = CurrentPrcb->SchedulerAssist;
@@ -104,7 +104,7 @@ LABEL_25:
       v18 = (v17 & v16[5]) == 0;
       v16[5] &= v17;
       if ( v18 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

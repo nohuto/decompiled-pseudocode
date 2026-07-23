@@ -12,30 +12,29 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-__int64 __fastcall sub_18003C014(__int64 a1, int a2, unsigned __int64 *a3)
+__int64 __fastcall sub_18003C014(__int64 a1, int a2, char **a3)
 {
   int v5; // ebx
   int v7; // [rsp+30h] [rbp-D0h] BYREF
   _DWORD v8[3]; // [rsp+34h] [rbp-CCh] BYREF
-  int v9; // [rsp+40h] [rbp-C0h] BYREF
-  _WORD *v10; // [rsp+48h] [rbp-B8h]
-  _WORD v11[128]; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING v9; // [rsp+40h] [rbp-C0h] BYREF
+  _WORD v10[128]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v9 = 0x1000000;
+  *(_DWORD *)&v9.Length = 0x1000000;
   *a3 = 0LL;
   v7 = 0;
-  v10 = v11;
-  v11[0] = 0;
+  v9.Buffer = v10;
+  v10[0] = 0;
   v5 = sub_18003C6F4(a1, &v9, 0LL, &v7);
   if ( v5 >= 0 )
   {
-    v5 = sub_18003BD44((unsigned __int16 *)&v9, a2, a3, v8, v7);
+    v5 = sub_18003BD44(&v9, a2, a3, v8, v7);
     if ( v5 >= 0 && v8[0] < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
     {
       sub_18003015C(*a3);
       *a3 = 0LL;
       sub_18001AE14(0);
-      v5 = sub_18003BD44((unsigned __int16 *)&v9, a2, a3, v8, v7);
+      v5 = sub_18003BD44(&v9, a2, a3, v8, v7);
       sub_18001A338();
       if ( v5 >= 0 && v8[0] != 9 )
       {
@@ -45,7 +44,7 @@ __int64 __fastcall sub_18003C014(__int64 a1, int a2, unsigned __int64 *a3)
       }
     }
   }
-  if ( v11 != v10 )
-    RtlDeleteBoundaryDescriptor();
+  if ( v10 != v9.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v9.Buffer);
   return (unsigned int)v5;
 }

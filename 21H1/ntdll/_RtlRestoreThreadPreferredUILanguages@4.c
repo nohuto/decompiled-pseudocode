@@ -9,19 +9,19 @@
  *     _RtlReportCriticalFailure@12 @ 0x4B3669C7 (_RtlReportCriticalFailure@12.c)
  */
 
-int __stdcall RtlRestoreThreadPreferredUILanguages(void **a1)
+LOGICAL __stdcall RtlRestoreThreadPreferredUILanguages(PVOID BaseAddress)
 {
   struct _PEB *v1; // eax
 
-  if ( a1[3] != NtCurrentTeb()->ClientId.UniqueThread )
+  if ( (void *)*((_DWORD *)BaseAddress + 3) != NtCurrentTeb()->ClientId.UniqueThread )
     RtlReportCriticalFailure(1);
-  RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->PreferredLanguages);
-  RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->MergedPrefLanguages);
-  RtlpFreeTebLanguageList((_DWORD *)NtCurrentTeb()->UserPrefLanguages);
-  NtCurrentTeb()->PreferredLanguages = *a1;
-  NtCurrentTeb()->MergedPrefLanguages = a1[1];
-  NtCurrentTeb()->UserPrefLanguages = a1[2];
+  RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
+  RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
+  RtlpFreeTebLanguageList((PVOID *)NtCurrentTeb()->UserPrefLanguages);
+  NtCurrentTeb()->PreferredLanguages = *(void **)BaseAddress;
+  NtCurrentTeb()->MergedPrefLanguages = (void *)*((_DWORD *)BaseAddress + 1);
+  NtCurrentTeb()->UserPrefLanguages = (void *)*((_DWORD *)BaseAddress + 2);
   v1 = NtCurrentPeb();
-  a1[3] = 0;
-  return RtlFreeHeap((int)v1->ProcessHeap, 0, (int)a1);
+  *((_DWORD *)BaseAddress + 3) = 0;
+  return RtlFreeHeap(v1->ProcessHeap, 0, BaseAddress);
 }

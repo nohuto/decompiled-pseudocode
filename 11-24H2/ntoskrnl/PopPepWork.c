@@ -1,27 +1,27 @@
 /*
- * XREFs of PopPepWork @ 0x140316330
+ * XREFs of PopPepWork @ 0x1402BEEE0
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x140315E30 (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1402BE9E4 (PopFxDispatchPluginWorkOnce.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PopPepStartDevicePowerOffActivity @ 0x1403156D0 (PopPepStartDevicePowerOffActivity.c)
- *     PopPepStartDevicePowerOnActivity @ 0x140315700 (PopPepStartDevicePowerOnActivity.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140315720 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140316850 (TRY_ACQUIRE_EXLOCK_EXCLUSIVE.c)
- *     PopDiagTraceFxDefaultPepWorkerStart @ 0x140316888 (PopDiagTraceFxDefaultPepWorkerStart.c)
- *     PopPepStartComponentActivatingActivity @ 0x140316EC0 (PopPepStartComponentActivatingActivity.c)
- *     PopPepStartActivity @ 0x140319BA0 (PopPepStartActivity.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x1404416E0 (PopDiagTraceFxDefaultPepWorkerEnd.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x1402BF400 (TRY_ACQUIRE_EXLOCK_EXCLUSIVE.c)
+ *     PopDiagTraceFxDefaultPepWorkerStart @ 0x1402BF438 (PopDiagTraceFxDefaultPepWorkerStart.c)
+ *     PopPepStartComponentActivatingActivity @ 0x1402BFA70 (PopPepStartComponentActivatingActivity.c)
+ *     PopPepStartActivity @ 0x1402C2730 (PopPepStartActivity.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x140438020 (PopDiagTraceFxDefaultPepWorkerEnd.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1404627C0 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     PopPepStartDevicePowerOnActivity @ 0x140478D00 (PopPepStartDevicePowerOnActivity.c)
+ *     PopPepStartDevicePowerOffActivity @ 0x14047E8F0 (PopPepStartDevicePowerOffActivity.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPepWork(char a1, __int64 a2)
@@ -33,40 +33,39 @@ __int64 __fastcall PopPepWork(char a1, __int64 a2)
   struct _KTHREAD *CurrentThread; // rax
   __int64 v7; // rsi
   __int64 *v8; // r12
-  unsigned __int64 v9; // rdx
-  __int64 v10; // r8
-  int **v11; // r9
   unsigned __int8 CurrentIrql; // r15
-  unsigned int v13; // esi
-  int v14; // eax
-  __int64 v15; // rax
-  __int64 v16; // rsi
-  int v17; // r8d
-  int **v18; // rcx
-  int v19; // edx
-  __int64 v20; // rbp
-  __int64 v21; // rdx
-  char (__fastcall *v22)(__int64, __int64, __int64); // rax
-  unsigned __int8 v23; // al
-  int v24; // ebp
-  int v25; // ecx
-  int v26; // edx
-  __int64 v27; // rsi
-  char (__fastcall *v28)(__int64, __int64, __int64); // rax
+  unsigned int v10; // esi
+  int v11; // eax
+  __int64 v12; // rax
+  int v13; // r8d
+  __int64 v14; // rsi
+  int v15; // r8d
+  int **v16; // rcx
+  int v17; // edx
+  __int64 v18; // rbp
+  __int64 v19; // rdx
+  __int64 (__fastcall *v20)(_QWORD, _QWORD, _QWORD); // rax
+  unsigned __int8 v21; // al
+  int v22; // ebp
+  int v23; // ecx
+  int **v24; // r9
+  int v25; // edx
+  __int64 v26; // rsi
+  __int64 (__fastcall *v27)(_QWORD, _QWORD, _QWORD); // rax
   unsigned __int8 started; // al
-  int v30; // r9d
-  int **v31; // rcx
-  int v32; // edx
-  int v34; // [rsp+30h] [rbp-58h]
+  int v29; // r9d
+  int **v30; // rcx
+  int v31; // edx
+  int v33; // [rsp+30h] [rbp-58h]
   void *retaddr; // [rsp+88h] [rbp+0h]
-  unsigned __int8 v38; // [rsp+A0h] [rbp+18h]
-  unsigned int v39; // [rsp+A8h] [rbp+20h]
+  unsigned __int8 v37; // [rsp+A0h] [rbp+18h]
+  unsigned int v38; // [rsp+A8h] [rbp+20h]
 
   v2 = a1;
   v3 = 0LL;
-  v34 = 0;
+  v33 = 0;
   i = 0;
-  v38 = 0;
+  v37 = 0;
   LODWORD(v5) = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -89,12 +88,12 @@ __int64 __fastcall PopPepWork(char a1, __int64 a2)
   __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
-  v13 = 0;
+  v10 = 0;
 LABEL_10:
-  v39 = v13;
-  if ( v13 >= 3 )
+  v38 = v10;
+  if ( v10 >= 3 )
   {
-    v24 = 0;
+    v22 = 0;
     goto LABEL_40;
   }
   v3 = (__int64)v8;
@@ -110,13 +109,13 @@ LABEL_10:
     {
       goto LABEL_28;
     }
-    if ( v13 )
+    if ( v10 )
       break;
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
-      v14 = TRY_ACQUIRE_EXLOCK_EXCLUSIVE(v3 + 64, v9, v10, v11);
+      v11 = TRY_ACQUIRE_EXLOCK_EXCLUSIVE(v3 + 64);
     else
-      v14 = ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(v3 + 64, v9, v10, (__int64)v11);
-    if ( v14 )
+      v11 = ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(v3 + 64);
+    if ( v11 )
       goto LABEL_18;
 LABEL_28:
     v3 = *(_QWORD *)v3;
@@ -125,137 +124,136 @@ LABEL_28:
     if ( (__int64 *)v3 == v8 )
     {
       v2 = a1;
-      ++v13;
+      ++v10;
       goto LABEL_10;
     }
   }
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v3 + 64));
-  if ( v13 == 2 )
-    ++v34;
+  if ( v10 == 2 )
+    ++v33;
 LABEL_18:
-  v15 = *(_QWORD *)(v3 + 32);
-  if ( v15 )
-    v5 = *(_QWORD *)(v15 + 48);
-  v10 = *(unsigned int *)(v3 + 120);
-  if ( (_DWORD)v10 )
+  v12 = *(_QWORD *)(v3 + 32);
+  if ( v12 )
+    v5 = *(_QWORD *)(v12 + 48);
+  v13 = *(_DWORD *)(v3 + 120);
+  if ( v13 )
   {
-    v25 = 0;
-    v11 = (int **)(v3 + 72);
-    while ( v25 <= 0 )
+    v23 = 0;
+    v24 = (int **)(v3 + 72);
+    while ( v23 <= 0 )
     {
-      v26 = **v11;
-      if ( (v26 & 2) != 0 || (v26 & 8) != 0 )
+      v25 = **v24;
+      if ( (v25 & 2) != 0 || (v25 & 8) != 0 )
       {
         _InterlockedDecrement((volatile signed __int32 *)(v3 + 120));
-        v27 = v25;
-        v28 = (char (__fastcall *)(__int64, __int64, __int64))ActivityAttributes[17 * v25 + 15];
-        if ( (char *)v28 == (char *)PopPepStartComponentActivatingActivity )
+        v26 = v23;
+        v27 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))ActivityAttributes[17 * v23 + 15];
+        if ( v27 == PopPepStartComponentActivatingActivity )
         {
           started = PopPepStartComponentActivatingActivity(v3, 0LL, a2);
         }
-        else if ( v28 == PopPepStartDevicePowerOnActivity )
+        else if ( v27 == PopPepStartDevicePowerOnActivity )
         {
           started = PopPepStartDevicePowerOnActivity(v3, 0LL, a2);
         }
-        else if ( v28 == PopPepStartDevicePowerOffActivity )
+        else if ( v27 == PopPepStartDevicePowerOffActivity )
         {
           started = PopPepStartDevicePowerOffActivity(v3, 0LL, a2);
         }
         else
         {
-          started = guard_dispatch_icall_no_overrides(v3, 0LL, a2, v11);
+          started = guard_dispatch_icall_no_overrides(v3, 0LL);
         }
-        v38 = started;
-        **(_DWORD **)(v3 + 8 * v27 + 72) &= ~2u;
-        **(_DWORD **)(v3 + 8 * v27 + 72) &= ~8u;
-        **(_DWORD **)(v3 + 8 * v27 + 72) |= 4u;
+        v37 = started;
+        **(_DWORD **)(v3 + 8 * v26 + 72) &= ~2u;
+        **(_DWORD **)(v3 + 8 * v26 + 72) &= ~8u;
+        **(_DWORD **)(v3 + 8 * v26 + 72) |= 4u;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 64));
-        v13 = v39;
-        v24 = 1;
+        v10 = v38;
+        v22 = 1;
         goto LABEL_40;
       }
-      ++v25;
-      ++v11;
+      ++v23;
+      ++v24;
     }
   }
-  v9 = *(unsigned int *)(v3 + 180);
-  for ( i = 0; i < (unsigned int)v9; ++i )
+  for ( i = 0; i < *(_DWORD *)(v3 + 180); ++i )
   {
-    v16 = v3 + 208LL * i + 192;
-    if ( *(_DWORD *)(v16 + 104) )
+    v14 = v3 + 208LL * i + 192;
+    if ( *(_DWORD *)(v14 + 104) )
     {
-      v17 = 1;
-      v18 = (int **)(v16 + 64);
-      while ( v17 <= 3 )
+      v15 = 1;
+      v16 = (int **)(v14 + 64);
+      while ( v15 <= 3 )
       {
-        v19 = **v18;
-        if ( (v19 & 2) != 0 || (v19 & 8) != 0 )
+        v17 = **v16;
+        if ( (v17 & 2) != 0 || (v17 & 8) != 0 )
           goto LABEL_37;
-        ++v17;
-        ++v18;
+        ++v15;
+        ++v16;
       }
-      v17 = 6;
+      v15 = 6;
 LABEL_37:
-      _InterlockedDecrement((volatile signed __int32 *)(v16 + 104));
-      v20 = v17;
-      v21 = v3 + 208LL * i + 192;
-      v22 = (char (__fastcall *)(__int64, __int64, __int64))ActivityAttributes[17 * v17 + 15];
-      if ( (char *)v22 == (char *)PopPepStartComponentActivatingActivity )
+      _InterlockedDecrement((volatile signed __int32 *)(v14 + 104));
+      v18 = v15;
+      v19 = v3 + 208LL * i + 192;
+      v20 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))ActivityAttributes[17 * v15 + 15];
+      if ( v20 == PopPepStartComponentActivatingActivity )
       {
-        v23 = PopPepStartComponentActivatingActivity(v3, v21, a2);
+        v21 = PopPepStartComponentActivatingActivity(v3, v19, a2);
       }
-      else if ( v22 == PopPepStartDevicePowerOnActivity )
+      else if ( v20 == PopPepStartDevicePowerOnActivity )
       {
-        v23 = PopPepStartDevicePowerOnActivity(v3, v21, a2);
+        v21 = PopPepStartDevicePowerOnActivity(v3, v19, a2);
       }
-      else if ( v22 == PopPepStartDevicePowerOffActivity )
+      else if ( v20 == PopPepStartDevicePowerOffActivity )
       {
-        v23 = PopPepStartDevicePowerOffActivity(v3, v21, a2);
+        v21 = PopPepStartDevicePowerOffActivity(v3, v19, a2);
       }
       else
       {
-        v23 = guard_dispatch_icall_no_overrides(v3, v21, a2, v11);
+        v21 = guard_dispatch_icall_no_overrides(v3, v19);
       }
-      v38 = v23;
-      **(_DWORD **)(v16 + 8 * v20 + 56) &= ~2u;
-      **(_DWORD **)(v16 + 8 * v20 + 56) &= ~8u;
-      **(_DWORD **)(v16 + 8 * v20 + 56) |= 4u;
+      v37 = v21;
+      **(_DWORD **)(v14 + 8 * v18 + 56) &= ~2u;
+      **(_DWORD **)(v14 + 8 * v18 + 56) &= ~8u;
+      **(_DWORD **)(v14 + 8 * v18 + 56) |= 4u;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 64));
-      v13 = v39;
-      v24 = 2;
+      v10 = v38;
+      v22 = 2;
       goto LABEL_40;
     }
   }
-  if ( !(_DWORD)v10 )
+  if ( !v13 )
   {
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
-      v13 = v39;
+      v10 = v38;
       *(_DWORD *)(v3 + 64) = 0;
     }
     else
     {
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v3 + 64, retaddr);
-      v13 = v39;
+      v10 = v38;
     }
     goto LABEL_28;
   }
-  v30 = 4;
-  v31 = (int **)(v3 + 104);
-  while ( v30 <= 5 )
+  v29 = 4;
+  v30 = (int **)(v3 + 104);
+  while ( v29 <= 5 )
   {
-    v32 = **v31;
-    if ( (v32 & 2) != 0 || (v32 & 8) != 0 )
+    v31 = **v30;
+    if ( (v31 & 2) != 0 || (v31 & 8) != 0 )
       goto LABEL_61;
+    ++v29;
     ++v30;
-    ++v31;
   }
-  v30 = 6;
+  v29 = 6;
 LABEL_61:
-  v38 = PopPepStartActivity(v3, 0, (int)v3 + 72, v30, v3 + 120, a2);
+  v37 = PopPepStartActivity(v3, 0, (int)v3 + 72, v29, v3 + 120, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 64));
-  v13 = v39;
-  v24 = 3;
+  v10 = v38;
+  v22 = 3;
 LABEL_40:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
@@ -266,6 +264,6 @@ LABEL_40:
     ExfReleasePushLockShared((signed __int64 *)&PopPepDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
   KeLeaveCriticalRegionThread();
-  PopDiagTraceFxDefaultPepWorkerEnd(v5, v24, i, v13, v34);
-  return v38;
+  PopDiagTraceFxDefaultPepWorkerEnd(v5, v22, i, v10, v33);
+  return v37;
 }

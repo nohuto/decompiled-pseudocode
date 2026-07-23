@@ -1,11 +1,11 @@
 /*
- * XREFs of PopConsoleSessionPassiveInput @ 0x1406DC3A0
+ * XREFs of PopConsoleSessionPassiveInput @ 0x1406DD640
  * Callers:
- *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
+ *     PopSessionInputChange @ 0x1406DD7A0 (PopSessionInputChange.c)
  * Callees:
- *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
- *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
- *     PopGetLockConsoleTimeout @ 0x1406DCDF4 (PopGetLockConsoleTimeout.c)
+ *     PopUpdateTimeouts @ 0x1406DDAA0 (PopUpdateTimeouts.c)
+ *     PopSetSessionUserStatus @ 0x1406DDC58 (PopSetSessionUserStatus.c)
+ *     PopGetLockConsoleTimeout @ 0x1406DE094 (PopGetLockConsoleTimeout.c)
  */
 
 __int64 __fastcall PopConsoleSessionPassiveInput(unsigned int a1, int a2, _DWORD *a3)
@@ -18,11 +18,11 @@ __int64 __fastcall PopConsoleSessionPassiveInput(unsigned int a1, int a2, _DWORD
   v9 = 256;
   v8 = 0;
   v10 = 0LL;
-  byte_14040FDC4 = 0;
+  byte_140410E44 = 0;
   PopGetLockConsoleTimeout();
-  dword_14040FDB8 = a2;
+  dword_140410E38 = a2;
   PopSetSessionUserStatus(a1, 2LL);
-  v6 = qword_14040FDAC;
+  v6 = qword_140410E2C;
   *a3 = 0;
   LODWORD(v10) = v6;
   a3[1] = v6;

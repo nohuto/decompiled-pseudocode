@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSystemImageHasPrivateFixups @ 0x140499228
+ * XREFs of MiSystemImageHasPrivateFixups @ 0x140492D78
  * Callers:
- *     MiProtoFaultApplyPrivateFixups @ 0x1402DA280 (MiProtoFaultApplyPrivateFixups.c)
+ *     MiProtoFaultApplyPrivateFixups @ 0x1402BC040 (MiProtoFaultApplyPrivateFixups.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
  */
 
 signed __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, __int64 *a2, unsigned __int64 *a3)
@@ -19,14 +19,14 @@ signed __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, __i
   unsigned __int64 v12; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = 0LL;
-  v4 = stru_140E2D150.SavedApcState.ApcListHead[1].Blink == (struct _LIST_ENTRY *)&stru_140E2D150.SavedApcState.ApcListHead[1].Blink;
+  v4 = stru_140E2D2D0.SavedApcState.ApcListHead[1].Blink == (struct _LIST_ENTRY *)&stru_140E2D2D0.SavedApcState.ApcListHead[1].Blink;
   *a3 = 0LL;
   *a2 = 0LL;
   if ( v4 || (unsigned int)MiGetSystemRegionType(a1) != 11 )
     return 0LL;
-  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.SchedulerApc.SpareLong0);
-  for ( i = stru_140E2D150.SavedApcState.ApcListHead[1].Blink;
-        i != (struct _LIST_ENTRY *)&stru_140E2D150.SavedApcStateFill[24];
+  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.SchedulerApc.SpareLong0);
+  for ( i = stru_140E2D2D0.SavedApcState.ApcListHead[1].Blink;
+        i != (struct _LIST_ENTRY *)&stru_140E2D2D0.SavedApcStateFill[24];
         i = i->Flink )
   {
     Flink = i[1].Flink;
@@ -43,6 +43,6 @@ signed __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, __i
       break;
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.SchedulerApc.SpareLong0);
+  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.SchedulerApc.SpareLong0);
   return v3;
 }

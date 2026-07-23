@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrAccessResource @ 0x1405646B4
+ * XREFs of LdrAccessResource @ 0x140564BF4
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     FindBitmapResource @ 0x1407B2098 (FindBitmapResource.c)

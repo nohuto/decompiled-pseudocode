@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWMIHandleToInstanceName @ 0x14071D890
+ * XREFs of IoWMIHandleToInstanceName @ 0x14071EB30
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x14071D910 (IoWMIDeviceObjectToInstanceName.c)
- *     WmipGetFilePDO @ 0x14071DB50 (WmipGetFilePDO.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14071EBB0 (IoWMIDeviceObjectToInstanceName.c)
+ *     WmipGetFilePDO @ 0x14071EDF0 (WmipGetFilePDO.c)
  */
 
 NTSTATUS __stdcall IoWMIHandleToInstanceName(PVOID DataBlockObject, HANDLE FileHandle, PUNICODE_STRING InstanceName)

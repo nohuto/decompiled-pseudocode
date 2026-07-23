@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcDeleteResourceReserve()
+NTSTATUS __cdecl NtAlpcDeleteResourceReserve(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ResourceId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 125LL;
+  result = 125;
   __asm { syscall; Low latency system call }
   return result;
 }

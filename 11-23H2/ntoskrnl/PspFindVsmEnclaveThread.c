@@ -1,12 +1,12 @@
 /*
- * XREFs of PspFindVsmEnclaveThread @ 0x1408A5D7C
+ * XREFs of PspFindVsmEnclaveThread @ 0x1408A5FCC
  * Callers:
- *     PsAdjustBasicEnclaveThreadList @ 0x1405A6680 (PsAdjustBasicEnclaveThreadList.c)
- *     PsLoadVsmEnclaveData @ 0x1405A6A50 (PsLoadVsmEnclaveData.c)
- *     PspProcessDynamicEHContinuationTargets @ 0x1409AED1C (PspProcessDynamicEHContinuationTargets.c)
- *     PsCallEnclave @ 0x1409B6800 (PsCallEnclave.c)
- *     RtlAddDynamicEHContinuationTarget @ 0x1409C255C (RtlAddDynamicEHContinuationTarget.c)
- *     RtlpFindDynamicEHContinuationTarget @ 0x1409C2A58 (RtlpFindDynamicEHContinuationTarget.c)
+ *     PsAdjustBasicEnclaveThreadList @ 0x1405A6BF0 (PsAdjustBasicEnclaveThreadList.c)
+ *     PsLoadVsmEnclaveData @ 0x1405A6FC0 (PsLoadVsmEnclaveData.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x1409AEF1C (PspProcessDynamicEHContinuationTargets.c)
+ *     PsCallEnclave @ 0x1409B6A00 (PsCallEnclave.c)
+ *     RtlAddDynamicEHContinuationTarget @ 0x1409C275C (RtlAddDynamicEHContinuationTarget.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x1409C2C58 (RtlpFindDynamicEHContinuationTarget.c)
  * Callees:
  *     <none>
  */

@@ -12,11 +12,11 @@ __int64 __fastcall sub_180019D38(_QWORD *a1, int a2, __int64 a3, __int64 a4, __i
   _QWORD *Heap; // rax
   _QWORD *v12; // rbx
   struct _TEB *v13; // rax
-  void *SubProcessTag; // rcx
+  PVOID SubProcessTag; // rcx
   __int64 result; // rax
 
   *a1 = 0LL;
-  Heap = (_QWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 168LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xA8uLL);
   v12 = Heap;
   if ( !Heap )
     return 3221225495LL;

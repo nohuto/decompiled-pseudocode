@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMiscInitSystem @ 0x140A91720
+ * XREFs of HalpMiscInitSystem @ 0x140A915A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMiscInitializeTelemetry @ 0x140854A98 (HalpMiscInitializeTelemetry.c)
- *     HalpMiscInitializeKsr @ 0x140854AE0 (HalpMiscInitializeKsr.c)
+ *     HalpMiscInitializeTelemetry @ 0x140854D98 (HalpMiscInitializeTelemetry.c)
+ *     HalpMiscInitializeKsr @ 0x140854DE0 (HalpMiscInitializeKsr.c)
  *     HalpMiscInitDiscard @ 0x140B6A188 (HalpMiscInitDiscard.c)
  *     HalpMiscGetParameters @ 0x140B6A208 (HalpMiscGetParameters.c)
  */

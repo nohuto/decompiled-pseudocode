@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputePxeWalkAction @ 0x1403283D0
+ * XREFs of MiComputePxeWalkAction @ 0x14032A400
  * Callers:
- *     MiWalkPageTablesEvaluatePte @ 0x140327B30 (MiWalkPageTablesEvaluatePte.c)
+ *     MiWalkPageTablesEvaluatePte @ 0x140329B60 (MiWalkPageTablesEvaluatePte.c)
  * Callees:
- *     MiGetSystemCacheReverseMap @ 0x1402E46F0 (MiGetSystemCacheReverseMap.c)
- *     MiWalkLeap @ 0x1403260B0 (MiWalkLeap.c)
- *     MiIsPageAGapPage @ 0x140339B10 (MiIsPageAGapPage.c)
- *     MiMakeSystemLeavesNonZero @ 0x140518F50 (MiMakeSystemLeavesNonZero.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402C6730 (MiGetSystemCacheReverseMap.c)
+ *     MiWalkLeap @ 0x1403280E0 (MiWalkLeap.c)
+ *     MiIsPageAGapPage @ 0x14033BB90 (MiIsPageAGapPage.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1405129C0 (MiMakeSystemLeavesNonZero.c)
  */
 
 __int64 __fastcall MiComputePxeWalkAction(__int64 a1, unsigned __int64 a2, int a3, int a4)
@@ -67,8 +67,8 @@ __int64 __fastcall MiComputePxeWalkAction(__int64 a1, unsigned __int64 a2, int a
   {
     if ( a2 == 0xFFFFF6FB7DBEDF68uLL
       || (v14 & 0x100) != 0
-      && qword_140E36000[0] != (PVOID)qword_140E36018
-      && (PVOID)((v4 >> 12) & 0xFFFFFFFFFFLL) == qword_140E36000[v6] )
+      && qword_140E36180[0] != (PVOID)qword_140E36198
+      && (PVOID)((v4 >> 12) & 0xFFFFFFFFFFLL) == qword_140E36180[v6] )
     {
       return 1LL;
     }

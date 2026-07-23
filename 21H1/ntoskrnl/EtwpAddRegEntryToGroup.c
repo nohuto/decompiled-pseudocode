@@ -63,7 +63,7 @@ __int64 __fastcall EtwpAddRegEntryToGroup(__int64 a1, __int64 a2, __int64 a3, un
   REGHANDLE v31; // rdi
   __int64 v33; // r15
   __int64 v34; // rdx
-  struct _TOKEN_ACCESS_INFORMATION *v35; // r8
+  _TOKEN_ACCESS_INFORMATION *v35; // r8
   int v36; // r12d
   unsigned int *v37; // r14
   __int16 v38; // ax
@@ -77,7 +77,7 @@ __int64 __fastcall EtwpAddRegEntryToGroup(__int64 a1, __int64 a2, __int64 a3, un
   unsigned __int8 i; // r14
   __int64 v47; // rdi
   __int64 v48; // rdx
-  struct _TOKEN_ACCESS_INFORMATION *v49; // r8
+  _TOKEN_ACCESS_INFORMATION *v49; // r8
   int v50; // r12d
   _DWORD *v51; // r9
   _KPROCESS *v52; // rcx
@@ -183,7 +183,7 @@ LABEL_22:
         if ( EtwpIsGuidAllowed(v33, (const void *)(*(_QWORD *)(a1 + 32) + 40LL)) )
         {
           ExAcquirePushLockSharedEx(v33 + 704, 0LL);
-          v35 = *(struct _TOKEN_ACCESS_INFORMATION **)(v33 + 792);
+          v35 = *(_TOKEN_ACCESS_INFORMATION **)(v33 + 792);
           if ( v35 )
             v36 = EtwpAccessCheckFromState(*(_QWORD *)(a1 + 32) + 40LL, v34, v35);
           else
@@ -224,7 +224,7 @@ LABEL_22:
           if ( EtwpIsGuidAllowed(v47, (const void *)(*(_QWORD *)(a1 + 32) + 40LL)) )
           {
             ExAcquirePushLockSharedEx(v47 + 704, 0LL);
-            v49 = *(struct _TOKEN_ACCESS_INFORMATION **)(v47 + 792);
+            v49 = *(_TOKEN_ACCESS_INFORMATION **)(v47 + 792);
             if ( v49 )
               v50 = EtwpAccessCheckFromState(*(_QWORD *)(a1 + 32) + 40LL, v48, v49);
             else

@@ -18,13 +18,13 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx
   KIRQL v3; // bp
-  RTL_SPLAY_LINKS **v4; // r14
-  RTL_SPLAY_LINKS *v5; // rdi
+  _RTL_SPLAY_LINKS **v4; // r14
+  _RTL_SPLAY_LINKS *v5; // rdi
   PRTL_SPLAY_LINKS *v6; // rsi
   PRTL_SPLAY_LINKS v7; // rdi
   _QWORD *v8; // rdi
   volatile signed __int64 *v9; // rcx
-  RTL_SPLAY_LINKS *v10; // rsi
+  _RTL_SPLAY_LINKS *v10; // rsi
   _RTL_SPLAY_LINKS *Parent; // rdx
   __int64 v12; // r14
   KIRQL v13; // dl
@@ -46,7 +46,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
     KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
-    v4 = (RTL_SPLAY_LINKS **)(LockInformation + 32);
+    v4 = (_RTL_SPLAY_LINKS **)(LockInformation + 32);
     while ( 1 )
     {
       v5 = *v4;
@@ -95,10 +95,10 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
       {
         KeReleaseQueuedSpinLock(7uLL, v13);
         KxReleaseSpinLock((volatile signed __int64 *)&FsRtlFileLockCancelCollideLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -119,10 +119,10 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
     }
     KxReleaseSpinLock(v9);
     KxReleaseSpinLock((volatile signed __int64 *)&FsRtlFileLockCancelCollideLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && v3 <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && v3 <= 0xFu && v19 >= 2u )
       {
         v20 = KeGetCurrentPrcb();
         v21 = v20->SchedulerAssist;

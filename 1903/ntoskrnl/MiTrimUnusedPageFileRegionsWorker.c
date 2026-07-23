@@ -219,7 +219,7 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
           {
             v23->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v23->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v16->LockEntries[v22]);
+              KiAbEntryRemoveFromTree(&v16->LockEntries[v22].TreeNode);
             LODWORD(v31) = v23->BoostBitmap.AllFields & 0x1FFFF;
             v23->BoostBitmap.AllFields &= 0xFFFE0000;
             v23->ThreadLocalFlags &= ~1u;

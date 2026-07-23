@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPurgeLargeZeroNodePages @ 0x14064FC58
+ * XREFs of MiPurgeLargeZeroNodePages @ 0x1406501A8
  * Callers:
- *     MiPurgeZeroList @ 0x14064DD3C (MiPurgeZeroList.c)
+ *     MiPurgeZeroList @ 0x14064E28C (MiPurgeZeroList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMoveLargeZeroToFree @ 0x14064F9D4 (MiMoveLargeZeroToFree.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMoveLargeZeroToFree @ 0x14064FF24 (MiMoveLargeZeroToFree.c)
  */
 
 __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
@@ -92,10 +92,13 @@ __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
                         if ( !(unsigned int)MiMoveLargeZeroToFree(a1, v1, v5, v31, v15, v10, v13) )
                         {
                           ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-                          if ( KiIrqlFlags )
+                          if ( (_DWORD)KiIrqlFlags )
                           {
                             CurrentIrql = KeGetCurrentIrql();
-                            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+                            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                              && CurrentIrql <= 0xFu
+                              && v7 <= 0xFu
+                              && CurrentIrql >= 2u )
                             {
                               CurrentPrcb = KeGetCurrentPrcb();
                               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -146,10 +149,10 @@ __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
       }
       while ( v5 < 3 );
       ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v7 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v7 <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;

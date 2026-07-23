@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushCachedIoPfnRange @ 0x140675D24
+ * XREFs of MiFlushCachedIoPfnRange @ 0x140676EF4
  * Callers:
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiFlushStaleCacheMap @ 0x140675DB0 (MiFlushStaleCacheMap.c)
- *     MiIoPfnTreeExclusionCompatible @ 0x140675F9C (MiIoPfnTreeExclusionCompatible.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiFlushStaleCacheMap @ 0x140676F80 (MiFlushStaleCacheMap.c)
+ *     MiIoPfnTreeExclusionCompatible @ 0x14067716C (MiIoPfnTreeExclusionCompatible.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiFlushCachedIoPfnRange(__int64 a1, int a2)
@@ -20,9 +20,9 @@ __int64 __fastcall MiFlushCachedIoPfnRange(__int64 a1, int a2)
   *(_DWORD *)(a1 + 40) = a2 << 12;
   *(_WORD *)(a1 + 10) = 2;
   *(_WORD *)(a1 + 8) = 8 * (a2 + 6);
-  ++dword_140E37238;
+  ++dword_140E37378;
   memset_0(v3, 0, 0xC8uLL);
-  ++dword_140E2DB54;
+  ++dword_140E2DC94;
   KeInvalidateAllCaches();
   return 1LL;
 }

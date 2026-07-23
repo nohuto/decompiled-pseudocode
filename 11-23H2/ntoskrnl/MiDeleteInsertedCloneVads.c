@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteInsertedCloneVads @ 0x140A48CB8
+ * XREFs of MiDeleteInsertedCloneVads @ 0x140A48F68
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140A48954 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A48C04 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MiReferenceVad @ 0x140275454 (MiReferenceVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiDeleteCloneZombies @ 0x140367684 (MiDeleteCloneZombies.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiDeleteCloneDescriptor @ 0x140663E40 (MiDeleteCloneDescriptor.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MiReferenceVad @ 0x1402756E4 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiDeleteCloneZombies @ 0x140367824 (MiDeleteCloneZombies.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiDeleteCloneDescriptor @ 0x140664390 (MiDeleteCloneDescriptor.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
  */
 
 __int64 __fastcall MiDeleteInsertedCloneVads(__int64 a1)

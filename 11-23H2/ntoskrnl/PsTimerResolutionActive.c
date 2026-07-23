@@ -1,12 +1,12 @@
 /*
- * XREFs of PsTimerResolutionActive @ 0x140255200
+ * XREFs of PsTimerResolutionActive @ 0x1402552C0
  * Callers:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KiExpireTimer2 @ 0x140251A80 (KiExpireTimer2.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KiTimerWaitTest @ 0x140252EF0 (KiTimerWaitTest.c)
- *     KeSetTimerEx @ 0x140253590 (KeSetTimerEx.c)
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KiExpireTimer2 @ 0x140251B40 (KiExpireTimer2.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KiTimerWaitTest @ 0x140252FB0 (KiTimerWaitTest.c)
+ *     KeSetTimerEx @ 0x140253650 (KeSetTimerEx.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
  * Callees:
  *     <none>
  */

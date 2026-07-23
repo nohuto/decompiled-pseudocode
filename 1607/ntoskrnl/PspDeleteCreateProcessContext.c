@@ -1,15 +1,15 @@
 /*
- * XREFs of PspDeleteCreateProcessContext @ 0x140458B9C
+ * XREFs of PspDeleteCreateProcessContext @ 0x140457A6C
  * Callers:
- *     NtCreateThreadEx @ 0x140458958 (NtCreateThreadEx.c)
- *     PspBuildCreateProcessContext @ 0x1404599E8 (PspBuildCreateProcessContext.c)
- *     NtCreateUserProcess @ 0x14045AB40 (NtCreateUserProcess.c)
+ *     NtCreateThreadEx @ 0x140457828 (NtCreateThreadEx.c)
+ *     PspBuildCreateProcessContext @ 0x1404588B8 (PspBuildCreateProcessContext.c)
+ *     NtCreateUserProcess @ 0x140459A10 (NtCreateUserProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 void __fastcall PspDeleteCreateProcessContext(__int64 a1)

@@ -8,8 +8,8 @@
  *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
  *     RtlpInitializeUCRIndex @ 0x18008AFE4 (RtlpInitializeUCRIndex.c)
- *     RtlZeroHeap @ 0x1800F6500 (RtlZeroHeap.c)
- *     RtlpValidateHeapSegment @ 0x1800FADB0 (RtlpValidateHeapSegment.c)
+ *     RtlZeroHeap @ 0x1800F64C0 (RtlZeroHeap.c)
+ *     RtlpValidateHeapSegment @ 0x1800FAD70 (RtlpValidateHeapSegment.c)
  * Callees:
  *     RtlpHeapListCompare @ 0x18006EB28 (RtlpHeapListCompare.c)
  */

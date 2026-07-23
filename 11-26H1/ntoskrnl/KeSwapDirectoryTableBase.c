@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSwapDirectoryTableBase @ 0x140483D2C
+ * XREFs of KeSwapDirectoryTableBase @ 0x14047D69C
  * Callers:
- *     MiTradeForPageTablePage @ 0x14033B46C (MiTradeForPageTablePage.c)
+ *     MiTradeForPageTablePage @ 0x14033D4EC (MiTradeForPageTablePage.c)
  * Callees:
- *     KeGenericProcessorCallback @ 0x140379F74 (KeGenericProcessorCallback.c)
- *     KeFlushProcessTb @ 0x1404840AC (KeFlushProcessTb.c)
- *     KiCpuPartitionCheckGenericDpc @ 0x1405F4330 (KiCpuPartitionCheckGenericDpc.c)
+ *     KeGenericProcessorCallback @ 0x14037BD24 (KeGenericProcessorCallback.c)
+ *     KeFlushProcessTb @ 0x14047DA1C (KeFlushProcessTb.c)
+ *     KiCpuPartitionCheckGenericDpc @ 0x1405F6CF0 (KiCpuPartitionCheckGenericDpc.c)
  */
 
 __int64 __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
   {
     v3 = *(_QWORD *)(a1 + 40);
   }
-  if ( (WORD2(xmmword_140FBFC10) & 0x200) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x200) != 0 )
     KiCpuPartitionCheckGenericDpc(KiSwapDirectoryTableBaseTarget);
   v5[0] = KiSwapDirectoryTableBaseTarget;
   v5[1] = &v6;

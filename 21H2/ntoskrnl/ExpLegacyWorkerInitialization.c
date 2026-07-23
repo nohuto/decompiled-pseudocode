@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpLegacyWorkerInitialization @ 0x1403C6C80
+ * XREFs of ExpLegacyWorkerInitialization @ 0x1403C6E20
  * Callers:
- *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
+ *     ExpWorkerInitialization @ 0x140A6BE74 (ExpWorkerInitialization.c)
  * Callees:
  *     <none>
  */

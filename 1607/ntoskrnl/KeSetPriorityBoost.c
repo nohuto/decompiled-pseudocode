@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetPriorityBoost @ 0x1400919AC
+ * XREFs of KeSetPriorityBoost @ 0x14009110C
  * Callers:
- *     ExpApplyPriorityBoost @ 0x14005D2D0 (ExpApplyPriorityBoost.c)
- *     FsRtlpDoBoost @ 0x1400918B4 (FsRtlpDoBoost.c)
- *     FsRtlpWaitForIoAtEof @ 0x1400C71EC (FsRtlpWaitForIoAtEof.c)
- *     KeGenericProcessorCallback @ 0x1400CA714 (KeGenericProcessorCallback.c)
- *     CmpBoostActiveHiveWriter @ 0x14047D444 (CmpBoostActiveHiveWriter.c)
+ *     ExpApplyPriorityBoost @ 0x14005CE50 (ExpApplyPriorityBoost.c)
+ *     FsRtlpDoBoost @ 0x140091014 (FsRtlpDoBoost.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1400C508C (FsRtlpWaitForIoAtEof.c)
+ *     KeGenericProcessorCallback @ 0x1400C85B4 (KeGenericProcessorCallback.c)
+ *     CmpBoostActiveHiveWriter @ 0x14047C198 (CmpBoostActiveHiveWriter.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiSetPriorityBoost @ 0x140091A7C (KiSetPriorityBoost.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiSetPriorityBoost @ 0x1400911DC (KiSetPriorityBoost.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
  */
 
 __int64 __fastcall KeSetPriorityBoost(__int64 a1, int a2, __int64 a3)

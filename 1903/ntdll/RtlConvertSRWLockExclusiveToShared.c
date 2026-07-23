@@ -15,7 +15,7 @@ char __fastcall RtlConvertSRWLockExclusiveToShared(volatile signed __int64 *a1)
   if ( v1 == 1 )
     return 1;
   if ( (v1 & 1) == 0 )
-    RtlRaiseStatus(3221226084LL);
+    RtlRaiseStatus(-1073741212);
   if ( !_interlockedbittestandset64((volatile signed __int32 *)a1, 2uLL) )
   {
     sub_180035E30(a1, v1 | 4, 1);

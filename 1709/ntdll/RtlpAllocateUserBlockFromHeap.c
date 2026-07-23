@@ -12,17 +12,17 @@
  *     RtlpLogHeapSubSegmentAlloc @ 0x1801019D4 (RtlpLogHeapSubSegmentAlloc.c)
  */
 
-__int64 __fastcall RtlpAllocateUserBlockFromHeap(__int64 a1, char a2, __int64 a3, char a4)
+_BYTE *__fastcall RtlpAllocateUserBlockFromHeap(PRTL_CRITICAL_SECTION *HeapHandle, char a2, __int64 a3, char a4)
 {
   __int64 v5; // rdi
-  __int64 v9; // rbp
-  __int64 Heap; // rax
-  __int64 v11; // rbx
+  SIZE_T v9; // rbp
+  _BYTE *Heap; // rax
+  _BYTE *v11; // rbx
   __int64 v12; // rcx
-  __int64 v14; // rbp
-  unsigned __int64 v15[9]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+80h] [rbp+8h] BYREF
-  char v17; // [rsp+88h] [rbp+10h] BYREF
+  char *v14; // rbp
+  PVOID BaseAddress; // [rsp+30h] [rbp-48h] BYREF
+  ULONG_PTR RegionSize; // [rsp+80h] [rbp+8h] BYREF
+  ULONG OldProtect; // [rsp+88h] [rbp+10h] BYREF
 
   v5 = 1LL << a2;
   if ( (unsigned __int64)(1LL << a2) > 0xF0000 )
@@ -30,40 +30,40 @@ __int64 __fastcall RtlpAllocateUserBlockFromHeap(__int64 a1, char a2, __int64 a3
   v9 = v5;
   if ( a4 )
     v9 = v5 + 0x2000;
-  RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-  Heap = RtlAllocateHeap(a1, 0x800001u, v9);
+  RtlEnterCriticalSection(HeapHandle[44]);
+  Heap = RtlAllocateHeap(HeapHandle, 0x800001u, v9);
   v11 = Heap;
   if ( Heap )
   {
     if ( a4 )
     {
-      v15[0] = (Heap + v5 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      v14 = v15[0] - Heap + 4096;
-      v11 = RtlReAllocateHeap(a1, 0x800001u, Heap, v14);
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-      v16 = 4096LL;
-      ZwProtectVirtualMemory(-1LL, v15, &v16, 1LL, &v17);
-      v9 = v14 - 4096;
-      *(_BYTE *)(v11 + 17) = 1;
-      *(_WORD *)(v11 + 18) = v9 - v5;
+      BaseAddress = (PVOID)((unsigned __int64)&Heap[v5 + 4095] & 0xFFFFFFFFFFFFF000uLL);
+      v14 = (char *)((_BYTE *)BaseAddress - Heap + 4096);
+      v11 = RtlReAllocateHeap(HeapHandle, 0x800001u, Heap, (SIZE_T)v14);
+      RtlLeaveCriticalSection(HeapHandle[44]);
+      RegionSize = 4096LL;
+      ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u, &OldProtect);
+      v9 = (SIZE_T)(v14 - 4096);
+      v11[17] = 1;
+      *((_WORD *)v11 + 9) = v9 - v5;
     }
     else
     {
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-      *(_WORD *)(v11 + 18) = 0;
-      *(_BYTE *)(v11 + 17) = 0;
+      RtlLeaveCriticalSection(HeapHandle[44]);
+      *((_WORD *)v11 + 9) = 0;
+      v11[17] = 0;
     }
-    *(_BYTE *)(v11 + 16) = a2;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v11[16] = a2;
+    if ( RtlGetCurrentServiceSessionId() )
       v12 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v12 = 2147353472LL;
     if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapSubSegmentAlloc(a1, v11, v9, a3);
+      RtlpLogHeapSubSegmentAlloc(HeapHandle, v11, v9, a3);
   }
   else
   {
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(HeapHandle[44]);
   }
   return v11;
 }

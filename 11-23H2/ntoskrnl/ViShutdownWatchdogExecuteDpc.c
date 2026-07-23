@@ -1,10 +1,10 @@
 /*
- * XREFs of ViShutdownWatchdogExecuteDpc @ 0x140AD5130
+ * XREFs of ViShutdownWatchdogExecuteDpc @ 0x140AD5120
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViShutdownScheduleWatchdog @ 0x140AD50B4 (ViShutdownScheduleWatchdog.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViShutdownScheduleWatchdog @ 0x140AD50A4 (ViShutdownScheduleWatchdog.c)
  */
 
 void __fastcall ViShutdownWatchdogExecuteDpc(

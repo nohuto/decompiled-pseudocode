@@ -14,23 +14,24 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-char __fastcall RtlpValidOwnerSubjectContext(void *a1, unsigned __int8 *a2, char a3, int *a4)
+char __fastcall RtlpValidOwnerSubjectContext(void *a1, void *a2, char a3, NTSTATUS *a4)
 {
-  int v5; // eax
+  NTSTATUS v5; // eax
   char v6; // bl
-  int v8; // eax
-  unsigned int *Heap; // edi
+  NTSTATUS v8; // eax
+  PSID *Heap; // edi
   unsigned int v10; // ebx
-  _WORD **v11; // eax
-  int v12; // eax
-  int v13; // eax
-  _DWORD *v16; // [esp+14h] [ebp-80h]
-  void *ProcessHeap; // [esp+18h] [ebp-7Ch]
-  int v18; // [esp+1Ch] [ebp-78h] BYREF
-  HANDLE Handle; // [esp+20h] [ebp-74h] BYREF
-  char v20; // [esp+27h] [ebp-6Dh] BYREF
-  _DWORD v21[5]; // [esp+28h] [ebp-6Ch] BYREF
-  void *Buf2; // [esp+3Ch] [ebp-58h] BYREF
+  PSID *v11; // eax
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // eax
+  SIZE_T v14; // [esp-4h] [ebp-98h]
+  _DWORD *v17; // [esp+14h] [ebp-80h]
+  PVOID HeapHandle; // [esp+18h] [ebp-7Ch]
+  ULONG ReturnLength; // [esp+1Ch] [ebp-78h] BYREF
+  HANDLE TokenHandle; // [esp+20h] [ebp-74h] BYREF
+  BOOLEAN Result; // [esp+27h] [ebp-6Dh] BYREF
+  _PRIVILEGE_SET RequiredPrivileges; // [esp+28h] [ebp-6Ch] BYREF
+  PSID TokenInformation[21]; // [esp+3Ch] [ebp-58h] BYREF
 
   if ( !a2 )
   {
@@ -40,29 +41,30 @@ LABEL_31:
   }
   if ( !a3 )
   {
-    Handle = a1;
+    TokenHandle = a1;
 LABEL_4:
-    ProcessHeap = NtCurrentPeb()->ProcessHeap;
-    v5 = ZwQueryInformationToken(Handle, 1, &Buf2, 76, &v18);
+    HeapHandle = NtCurrentPeb()->ProcessHeap;
+    v5 = ZwQueryInformationToken(TokenHandle, 1u, TokenInformation, 0x4Cu, &ReturnLength);
     *a4 = v5;
     if ( v5 >= 0 )
     {
-      if ( RtlEqualSid(a2, Buf2) )
+      if ( RtlEqualSid(a2, TokenInformation[0]) )
       {
         if ( a3 )
-          NtClose(Handle);
+          NtClose(TokenHandle);
         return 1;
       }
-      v8 = ZwQueryInformationToken(Handle, 2, 0, 0, &v18);
+      v8 = ZwQueryInformationToken(TokenHandle, 2u, 0, 0, &ReturnLength);
       *a4 = v8;
       if ( v8 >= 0 || v8 == -1073741789 )
       {
-        Heap = (unsigned int *)RtlAllocateHeap((int)ProcessHeap, 0, v18);
+        LODWORD(v14) = ReturnLength;
+        Heap = (PSID *)RtlAllocateHeap(HeapHandle, 0, v14);
         if ( Heap )
         {
-          *a4 = ZwQueryInformationToken(Handle, 2, Heap, v18, &v18);
+          *a4 = ZwQueryInformationToken(TokenHandle, 2u, Heap, ReturnLength, &ReturnLength);
           if ( a3 )
-            NtClose(Handle);
+            NtClose(TokenHandle);
           if ( *a4 < 0 )
           {
             v6 = 0;
@@ -71,35 +73,35 @@ LABEL_4:
           v10 = 0;
           if ( *Heap )
           {
-            v11 = (_WORD **)(Heap + 1);
-            v16 = Heap + 1;
+            v11 = Heap + 1;
+            v17 = Heap + 1;
             while ( !RtlEqualSid(a2, *v11) )
             {
               ++v10;
-              v11 = (_WORD **)(v16 + 2);
-              v16 += 2;
-              if ( v10 >= *Heap )
+              v11 = (PSID *)(v17 + 2);
+              v17 += 2;
+              if ( v10 >= (unsigned int)*Heap )
                 goto LABEL_30;
             }
-            if ( (Heap[2 * v10 + 2] & 0x18) == 8 )
+            if ( ((unsigned __int8)Heap[2 * v10 + 2] & 0x18) == 8 )
             {
               v6 = 1;
 LABEL_23:
-              RtlFreeHeap((int)ProcessHeap, 0, (int)Heap);
+              RtlFreeHeap(HeapHandle, 0, Heap);
               return v6;
             }
           }
 LABEL_30:
-          RtlFreeHeap((int)ProcessHeap, 0, (int)Heap);
-          v21[3] = 0;
-          v21[4] = 0;
-          v21[2] = 18;
+          RtlFreeHeap(HeapHandle, 0, Heap);
+          RequiredPrivileges.Privilege[0].Luid.HighPart = 0;
+          RequiredPrivileges.Privilege[0].Attributes = 0;
+          RequiredPrivileges.Privilege[0].Luid.LowPart = 18;
           v6 = 1;
-          v21[0] = 1;
-          v21[1] = 1;
-          v13 = ZwPrivilegeCheck(a1, v21, &v20);
-          v20 = v13 < 0 ? 0 : v20;
-          if ( v20 )
+          RequiredPrivileges.PrivilegeCount = 1;
+          RequiredPrivileges.Control = 1;
+          v13 = ZwPrivilegeCheck(a1, &RequiredPrivileges, &Result);
+          Result &= (v13 < 0) - 1;
+          if ( Result )
             return v6;
           goto LABEL_31;
         }
@@ -107,10 +109,10 @@ LABEL_30:
       }
     }
     if ( a3 )
-      NtClose(Handle);
+      NtClose(TokenHandle);
     return 0;
   }
-  v12 = ZwOpenProcessToken(-1, 8, &Handle);
+  v12 = ZwOpenProcessToken((HANDLE)0xFFFFFFFF, 8u, &TokenHandle);
   *a4 = v12;
   if ( v12 >= 0 )
     goto LABEL_4;

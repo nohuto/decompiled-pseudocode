@@ -74,7 +74,7 @@ __int64 __fastcall sub_1800F14C0(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int v63; // eax
   int v64; // eax
   unsigned __int16 v65; // ax
-  __int64 v66; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   int v67; // [rsp+28h] [rbp-40h]
   int v68; // [rsp+38h] [rbp-30h]
   int v69; // [rsp+48h] [rbp-20h]
@@ -552,11 +552,11 @@ LABEL_67:
   }
   v76 = -2147483622;
 LABEL_192:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v66 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v66 = 2147353472LL;
-  if ( *(_BYTE *)v66 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v76 != -2147483622 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 && v76 != -2147483622 )
     sub_180103BDC(a1);
   return v76;
 }

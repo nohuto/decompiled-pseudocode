@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAddPartitionHugeRange @ 0x14066F778
+ * XREFs of MiAddPartitionHugeRange @ 0x140670948
  * Callers:
- *     MiHotAddHugeRange @ 0x1407EAFDC (MiHotAddHugeRange.c)
- *     MiCreateHugeIoRanges @ 0x140C535FC (MiCreateHugeIoRanges.c)
+ *     MiHotAddHugeRange @ 0x1407EB5AC (MiHotAddHugeRange.c)
+ *     MiCreateHugeIoRanges @ 0x140C5578C (MiCreateHugeIoRanges.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
- *     MiUnlockDynamicMemoryShared @ 0x1403D57CC (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1403D5830 (MiLockDynamicMemoryShared.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     MiMemoryRangeAlreadyExists @ 0x14066E040 (MiMemoryRangeAlreadyExists.c)
- *     MiUpdateHugePageCounts @ 0x140671CF4 (MiUpdateHugePageCounts.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140264630 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x140264694 (MiLockDynamicMemoryShared.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     MiMemoryRangeAlreadyExists @ 0x14066F214 (MiMemoryRangeAlreadyExists.c)
+ *     MiUpdateHugePageCounts @ 0x140672EC4 (MiUpdateHugePageCounts.c)
  */
 
 __int64 __fastcall MiAddPartitionHugeRange(_WORD *a1, __int64 a2, int a3, int a4)
@@ -22,9 +22,9 @@ __int64 __fastcall MiAddPartitionHugeRange(_WORD *a1, __int64 a2, int a3, int a4
   unsigned __int64 v7; // rdi
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rsi
-  __int64 *v14; // rdx
-  __int64 v15; // r9
-  unsigned __int64 v16; // r10
+  unsigned __int64 *v14; // rdx
+  unsigned __int64 v15; // r9
+  unsigned __int64 *v16; // r10
   bool v17; // zf
   bool i; // zf
   __int64 v19; // rax
@@ -41,22 +41,22 @@ __int64 __fastcall MiAddPartitionHugeRange(_WORD *a1, __int64 a2, int a3, int a4
     goto LABEL_9;
   v11 = (*(_QWORD *)(a2 + 32) >> 18) & 0x3FFFFFLL;
   v12 = (*(_QWORD *)(a2 + 40) >> 18) & 0x3FFFFFLL;
-  v23 = ExAcquireSpinLockExclusive(&dword_140E30000);
-  if ( v11 >= qword_140E2FFB0 )
+  v23 = ExAcquireSpinLockExclusive(&dword_140E30140);
+  if ( v11 >= stru_140E300F0.SizeOfBitMap )
     goto LABEL_8;
   if ( v12 > 1 )
   {
-    if ( qword_140E2FFB0 - v11 >= v12 )
+    if ( stru_140E300F0.SizeOfBitMap - v11 >= v12 )
     {
-      v14 = (__int64 *)(qword_140E2FFB8 + 8 * (v11 >> 6));
+      v14 = &stru_140E300F0.Buffer[v11 >> 6];
       v15 = *v14;
-      v16 = qword_140E2FFB8 + 8 * ((v11 + v12 - 1) >> 6);
-      if ( v14 != (__int64 *)v16 )
+      v16 = &stru_140E300F0.Buffer[(v11 + v12 - 1) >> 6];
+      if ( v14 != v16 )
       {
         for ( i = (v15 & (-1LL << v11)) == 0; i; i = v19 == 0 )
         {
           v19 = *++v14;
-          if ( v14 == (__int64 *)v16 )
+          if ( v14 == v16 )
           {
             v17 = (v19 & (0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v11 + (unsigned __int8)v12 - 1))) == 0;
             goto LABEL_20;
@@ -70,21 +70,19 @@ LABEL_20:
         goto LABEL_21;
     }
 LABEL_8:
-    MiReleaseSpinLockExclusive(&dword_140E30000, v23);
+    MiReleaseSpinLockExclusive(&dword_140E30140, v23);
 LABEL_9:
     if ( !a4 )
       MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
     return 3221225496LL;
   }
   if ( v12 != 1
-    || _bittest64(
-         (const signed __int64 *)(qword_140E2FFB8 + 8 * ((unsigned __int64)(unsigned int)v11 >> 6)),
-         v11 & 0x3F) )
+    || _bittest64((const signed __int64 *)&stru_140E300F0.Buffer[(unsigned __int64)(unsigned int)v11 >> 6], v11 & 0x3F) )
   {
     goto LABEL_8;
   }
 LABEL_21:
-  v20 = (__int64 *)(qword_140E2FFC0 + 8 * v11);
+  v20 = (__int64 *)(qword_140E30100 + 8 * v11);
   if ( a3 == 3 )
     v21 = (16LL * (*a1 & 0x7FF)) | 3;
   else
@@ -92,21 +90,21 @@ LABEL_21:
   do
   {
     MiLockHugePfnInternal((__int64)v20);
-    RtlSetBitsEx((__int64)&qword_140E2FFB0, v11 & 0x3FFFFF, 1uLL);
+    RtlSetBitsEx((__int64)&stru_140E300F0, v11 & 0x3FFFFF, 1uLL);
     *v20 = v21;
     if ( a3 == 3 )
       MiUpdateHugePageCounts(a1, v11, 1LL, 1LL);
     else
       MiInsertHugeRangeInList((__int64)a1, v11, a3 == 1);
     _InterlockedAnd(
-      (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v20 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << ((((__int64)v20 - qword_140E2FFC0) >> 3) & 0x1F)));
+      (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v20 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << ((((__int64)v20 - qword_140E30100) >> 3) & 0x1F)));
     ++v20;
     v11 = (v11 + 1) ^ ((v11 + 1) ^ v11) & 0xFFFFFFFFFFC00000uLL;
     --v12;
   }
   while ( v12 );
-  MiReleaseSpinLockExclusive(&dword_140E30000, v23);
+  MiReleaseSpinLockExclusive(&dword_140E30140, v23);
   if ( !a4 )
     MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
   return 0LL;

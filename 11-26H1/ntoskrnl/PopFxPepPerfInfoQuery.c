@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxPepPerfInfoQuery @ 0x1407CD73C
+ * XREFs of PopFxPepPerfInfoQuery @ 0x1407D07DC
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x1407CD93C (PopFxRegisterComponentPerfStates.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1407D09DC (PopFxRegisterComponentPerfStates.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     PopPluginQueryComponentPerfCapabilities @ 0x140605E48 (PopPluginQueryComponentPerfCapabilities.c)
- *     PopPluginQueryComponentPerfSet @ 0x140605E9C (PopPluginQueryComponentPerfSet.c)
- *     PopPluginQueryComponentPerfSetName @ 0x140605F54 (PopPluginQueryComponentPerfSetName.c)
- *     PopPluginQueryComponentPerfStates @ 0x140605FE0 (PopPluginQueryComponentPerfStates.c)
- *     PopFxPepPerfInfoFree @ 0x1407CD6BC (PopFxPepPerfInfoFree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     PopPluginQueryComponentPerfCapabilities @ 0x140608948 (PopPluginQueryComponentPerfCapabilities.c)
+ *     PopPluginQueryComponentPerfSet @ 0x14060899C (PopPluginQueryComponentPerfSet.c)
+ *     PopPluginQueryComponentPerfSetName @ 0x140608A54 (PopPluginQueryComponentPerfSetName.c)
+ *     PopPluginQueryComponentPerfStates @ 0x140608AE0 (PopPluginQueryComponentPerfStates.c)
+ *     PopFxPepPerfInfoFree @ 0x1407D075C (PopFxPepPerfInfoFree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopFxPepPerfInfoQuery(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, unsigned int **a3)

@@ -10,33 +10,36 @@
  *     LdrpLogDbgPrint @ 0x1800CDB18 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpDoPostSnapWork(__int64 a1)
+NTSTATUS __fastcall LdrpDoPostSnapWork(__int64 a1)
 {
   int v2; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v4; // rax
-  __int64 v5; // rcx
-  char v6; // al
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  char v5; // al
+  ULONG v6; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = 0;
   if ( !*(_QWORD *)(a1 + 104)
-    || (result = ZwProtectVirtualMemory(-1LL, a1 + 104, a1 + 112, *(unsigned int *)(a1 + 136), &v7),
+    || (result = ZwProtectVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   (PVOID *)(a1 + 104),
+                   (PSIZE_T)(a1 + 112),
+                   *(_DWORD *)(a1 + 136),
+                   &v6),
         v2 = result,
-        (int)result >= 0) )
+        result >= 0) )
   {
     v4 = *(_QWORD **)(a1 + 152);
     if ( v4 && *v4 != *(_QWORD *)(a1 + 144) )
       __fastfail(0x13u);
-    v5 = *(_QWORD *)(a1 + 56);
-    if ( *(_WORD *)(v5 + 110) || (result = LdrpHandleTlsData(), v2 = result, (int)result >= 0) )
+    if ( *(_WORD *)(*(_QWORD *)(a1 + 56) + 110LL) || (result = LdrpHandleTlsData(), v2 = result, result >= 0) )
     {
-      if ( LdrControlFlowGuardEnforcedWithExportSuppression(v5) )
+      if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
       {
-        v2 = LdrpUnsuppressAddressTakenIat(*(_QWORD *)(*(_QWORD *)(a1 + 56) + 48LL), 0, 0);
+        v2 = LdrpUnsuppressAddressTakenIat(*(char **)(*(_QWORD *)(a1 + 56) + 48LL), 0, 0);
         if ( v2 < 0 )
         {
-          v6 = LdrpDebugFlags;
+          v5 = LdrpDebugFlags;
           if ( (LdrpDebugFlags & 3) != 0 )
           {
             LdrpLogDbgPrint(
@@ -48,13 +51,13 @@ __int64 __fastcall LdrpDoPostSnapWork(__int64 a1)
                        "DLL based at 0x%p.Status = 0x%x\n",
               *(const void **)(*(_QWORD *)(a1 + 56) + 48LL),
               v2);
-            v6 = LdrpDebugFlags;
+            v5 = LdrpDebugFlags;
           }
-          if ( (v6 & 0x10) != 0 )
+          if ( (v5 & 0x10) != 0 )
             __debugbreak();
         }
       }
-      return (unsigned int)v2;
+      return v2;
     }
   }
   return result;

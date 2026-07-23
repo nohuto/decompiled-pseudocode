@@ -1,7 +1,7 @@
 /*
- * XREFs of x64toa @ 0x1800974C0
+ * XREFs of x64toa @ 0x1800974B0
  * Callers:
- *     _i64toa @ 0x1800973A0 (_i64toa.c)
+ *     _i64toa @ 0x180097390 (_i64toa.c)
  * Callees:
  *     <none>
  */

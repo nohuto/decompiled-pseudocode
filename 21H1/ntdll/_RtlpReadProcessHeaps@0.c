@@ -10,14 +10,15 @@
 char __stdcall RtlpReadProcessHeaps()
 {
   char result; // al
-  _DWORD v1[11]; // [esp+4h] [ebp-2Ch] BYREF
+  ULONG_PTR *v1; // [esp+0h] [ebp-30h]
+  _DWORD HeapInformation[11]; // [esp+4h] [ebp-2Ch] BYREF
 
-  v1[0] = -1;
-  v1[3] = RtlpLeakCallbackRoutine;
-  v1[1] = 0;
-  v1[4] = 0;
-  v1[2] = 5;
-  result = RtlQueryHeapInformation(0, 2, v1, 0x2Cu, 0);
+  HeapInformation[0] = -1;
+  HeapInformation[3] = RtlpLeakCallbackRoutine;
+  HeapInformation[1] = 0;
+  HeapInformation[4] = 0;
+  HeapInformation[2] = 5;
+  result = RtlQueryHeapInformation(0, (HEAP_INFORMATION_CLASS)2, HeapInformation, 0x2CuLL, v1);
   if ( RtlpLDPreviousPage )
     result = RtlpPushPageDescriptor(RtlpLDPreviousPage, 1);
   RtlpLDPreviousPage = 0;

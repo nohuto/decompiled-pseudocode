@@ -1,18 +1,18 @@
 /*
- * XREFs of ViMapDoubleBuffer @ 0x140709E7C
+ * XREFs of ViMapDoubleBuffer @ 0x140709EAC
  * Callers:
- *     VfBuildScatterGatherList @ 0x140706890 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x1407075F8 (VfGetScatterGatherList.c)
- *     VfMapTransfer @ 0x140707CC0 (VfMapTransfer.c)
+ *     VfBuildScatterGatherList @ 0x1407068C0 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140707628 (VfGetScatterGatherList.c)
+ *     VfMapTransfer @ 0x140707CF0 (VfMapTransfer.c)
  * Callees:
- *     KeFlushIoBuffers @ 0x14009D3F0 (KeFlushIoBuffers.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViAllocateMapRegistersFromFile @ 0x1407089D8 (ViAllocateMapRegistersFromFile.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     KeFlushIoBuffers @ 0x14009CBF0 (KeFlushIoBuffers.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViAllocateMapRegistersFromFile @ 0x140708A08 (ViAllocateMapRegistersFromFile.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViMapDoubleBuffer(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4, char a5)

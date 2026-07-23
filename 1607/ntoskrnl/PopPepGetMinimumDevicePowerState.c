@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepGetMinimumDevicePowerState @ 0x140206200
+ * XREFs of PopPepGetMinimumDevicePowerState @ 0x14020602C
  * Callers:
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x140203BC0 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x1402039EC (PopFxSetDeviceAccountingCsPlatformState.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, unsigned int *a3)

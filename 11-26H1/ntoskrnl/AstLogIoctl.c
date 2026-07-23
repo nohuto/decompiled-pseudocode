@@ -1,12 +1,12 @@
 /*
- * XREFs of AstLogIoctl @ 0x1408F7080
+ * XREFs of AstLogIoctl @ 0x140927010
  * Callers:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     memcpy_s @ 0x14053C3B0 (memcpy_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     memcpy_s @ 0x14053E830 (memcpy_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall AstLogIoctl(unsigned __int64 a1, unsigned int a2)
@@ -56,7 +56,7 @@ void __fastcall AstLogIoctl(unsigned __int64 a1, unsigned int a2)
         {
           v5 = (unsigned int)AstIoctlBloomFilter;
           v6 = (a1 >> 4) ^ ((unsigned __int64)a2 << 32);
-          v7 = 37 * dword_140F84D70;
+          v7 = 37 * dword_140F85110;
           if ( ((*(char *)((((HIBYTE(v6)
                             + 442596621 * (v7 + (unsigned __int8)(a1 >> 4))
                             + 37
@@ -71,7 +71,7 @@ void __fastcall AstLogIoctl(unsigned __int64 a1, unsigned int a2)
                                 * ((unsigned __int8)((unsigned int)(a1 >> 4) >> 16)
                                  + 37 * (unsigned __int8)((unsigned __int16)(a1 >> 4) >> 8)))))))
                            % AstIoctlBloomFilter) >> 3)
-                         + qword_140F84D68) >> (((HIBYTE(v6)
+                         + qword_140F85108) >> (((HIBYTE(v6)
                                                 + 442596621 * (v7 + (unsigned __int8)(a1 >> 4))
                                                 + 37
                                                 * (BYTE6(v6)
@@ -98,8 +98,8 @@ void __fastcall AstLogIoctl(unsigned __int64 a1, unsigned int a2)
                        + 37
                        * ((unsigned __int8)((unsigned int)(a1 >> 4) >> 16)
                         + 37 * (unsigned __int8)((unsigned __int16)(a1 >> 4) >> 8)))))),
-                ((*(char *)(((unsigned __int64)(HIWORD(v8) % (unsigned int)AstIoctlBloomFilter) >> 3) + qword_140F84D68) >> ((HIWORD(v8) % (unsigned int)AstIoctlBloomFilter) & 7)) & 1) == 0)
-            || ((*(char *)(((v6 % (unsigned int)AstIoctlBloomFilter) >> 3) + qword_140F84D68) >> ((v6
+                ((*(char *)(((unsigned __int64)(HIWORD(v8) % (unsigned int)AstIoctlBloomFilter) >> 3) + qword_140F85108) >> ((HIWORD(v8) % (unsigned int)AstIoctlBloomFilter) & 7)) & 1) == 0)
+            || ((*(char *)(((v6 % (unsigned int)AstIoctlBloomFilter) >> 3) + qword_140F85108) >> ((v6
                                                                                                  % (unsigned int)AstIoctlBloomFilter) & 7)) & 1) == 0 )
           {
             v9 = (HIBYTE(v6)
@@ -116,9 +116,9 @@ void __fastcall AstLogIoctl(unsigned __int64 a1, unsigned int a2)
                    + 37
                    * (BYTE5(v6) + 37 * (BYTE4(v6) + 37 * (BYTE3(v6) + 37 * (BYTE2(v6) + 37 * (unsigned int)BYTE1(v6))))))) >> 16)
                 % AstIoctlBloomFilter;
-            *(_BYTE *)((v9 >> 3) + qword_140F84D68) |= 1 << (v9 & 7);
-            *(_BYTE *)(qword_140F84D68 + ((unsigned __int64)v10 >> 3)) |= 1 << (v10 & 7);
-            v11 = (_BYTE *)(qword_140F84D68
+            *(_BYTE *)((v9 >> 3) + qword_140F85108) |= 1 << (v9 & 7);
+            *(_BYTE *)(qword_140F85108 + ((unsigned __int64)v10 >> 3)) |= 1 << (v10 & 7);
+            v11 = (_BYTE *)(qword_140F85108
                           + ((unsigned __int64)(unsigned int)(((a1 >> 4) ^ ((unsigned __int64)a2 << 32)) % v5) >> 3));
             *v11 |= 1 << ((v6 % v5) & 7);
             memset_0(&v18, 0, 0x40uLL);
@@ -187,7 +187,7 @@ void __fastcall AstLogIoctl(unsigned __int64 a1, unsigned int a2)
               v36 = 4LL;
               tlgWriteTransfer_EtwWriteTransfer(
                 (__int64)&dword_140E06E00,
-                (unsigned __int8 *)byte_140047CD1,
+                (unsigned __int8 *)byte_140048335,
                 0LL,
                 0LL,
                 7u,

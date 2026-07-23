@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreFaultComplete @ 0x1402CCA70
+ * XREFs of MiStoreFaultComplete @ 0x14024B0D0
  * Callers:
- *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiWaitForInPageComplete @ 0x140325F40 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, _DWORD *a2)

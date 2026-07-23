@@ -163,7 +163,7 @@ LABEL_51:
       }
       if ( v18 == 4 )
       {
-        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, v16, (__int64)&v21);
+        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, v16, &v21);
 LABEL_44:
         v17 = v19;
         v13 = v21;

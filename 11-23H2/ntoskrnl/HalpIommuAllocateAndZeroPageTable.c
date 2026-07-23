@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuAllocateAndZeroPageTable @ 0x14037E008
+ * XREFs of HalpIommuAllocateAndZeroPageTable @ 0x14037E1A8
  * Callers:
- *     HalpIommuMapLogicalRange @ 0x14037D7D8 (HalpIommuMapLogicalRange.c)
- *     HalpIommuInitializeDmarPageTable @ 0x14037F738 (HalpIommuInitializeDmarPageTable.c)
- *     HalpIommuMapLogical @ 0x140526FE4 (HalpIommuMapLogical.c)
+ *     HalpIommuMapLogicalRange @ 0x14037D978 (HalpIommuMapLogicalRange.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x14037F8D8 (HalpIommuInitializeDmarPageTable.c)
+ *     HalpIommuMapLogical @ 0x140527534 (HalpIommuMapLogical.c)
  * Callees:
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpAllocPhysicalMemory @ 0x140B4893C (HalpAllocPhysicalMemory.c)
  */
 

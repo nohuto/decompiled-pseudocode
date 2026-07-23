@@ -13,7 +13,7 @@ char __fastcall SepMatchCapability(__int64 a1, int a2, void *a3, int a4, _BYTE *
 {
   char result; // al
 
-  result = SepSidInTokenSidHash(a1 + 808, 0LL, a3, 0, 1, 0, 0);
+  result = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a1 + 808), 0LL, a3, 0, 1, 0, 0);
   if ( result )
   {
     *a6 |= a4 & a2;

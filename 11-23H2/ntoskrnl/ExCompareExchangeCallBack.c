@@ -1,26 +1,26 @@
 /*
- * XREFs of ExCompareExchangeCallBack @ 0x14039FE58
+ * XREFs of ExCompareExchangeCallBack @ 0x1403A0038
  * Callers:
- *     IoRegisterPriorityCallback @ 0x14039FDB0 (IoRegisterPriorityCallback.c)
- *     IoUnregisterPriorityCallback @ 0x1405574E0 (IoUnregisterPriorityCallback.c)
- *     KeDeregisterBoundCallback @ 0x14056C300 (KeDeregisterBoundCallback.c)
- *     KeRegisterBoundCallback @ 0x14056C9F0 (KeRegisterBoundCallback.c)
- *     DbgkLkmdRegisterCallback @ 0x140842C90 (DbgkLkmdRegisterCallback.c)
- *     PsEstablishWin32Callouts @ 0x140842D50 (PsEstablishWin32Callouts.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x140842DE0 (PsSetLoadImageNotifyRoutineEx.c)
- *     PoRegisterCoalescingCallback @ 0x140842F70 (PoRegisterCoalescingCallback.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x140843064 (PspSetCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140843108 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkLkmdUnregisterCallback @ 0x14093AC90 (DbgkLkmdUnregisterCallback.c)
- *     PoUnregisterCoalescingCallback @ 0x140986E40 (PoUnregisterCoalescingCallback.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x1409B5C10 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x1409B5D00 (PsRemoveLoadImageNotifyRoutine.c)
+ *     IoRegisterPriorityCallback @ 0x14039FF90 (IoRegisterPriorityCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x140557BA0 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x14056C9C0 (KeDeregisterBoundCallback.c)
+ *     KeRegisterBoundCallback @ 0x14056D0B0 (KeRegisterBoundCallback.c)
+ *     DbgkLkmdRegisterCallback @ 0x140842F90 (DbgkLkmdRegisterCallback.c)
+ *     PsEstablishWin32Callouts @ 0x140843050 (PsEstablishWin32Callouts.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x1408430E0 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PoRegisterCoalescingCallback @ 0x140843270 (PoRegisterCoalescingCallback.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x140843364 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140843408 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x14093AE90 (DbgkLkmdUnregisterCallback.c)
+ *     PoUnregisterCoalescingCallback @ 0x140987040 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x1409B5E10 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x1409B5F00 (PsRemoveLoadImageNotifyRoutine.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireRundownProtectionEx @ 0x1402F5CE0 (ExAcquireRundownProtectionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireRundownProtectionEx @ 0x1402F5F70 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN_REF *a2, __int64 a3)
@@ -78,10 +78,13 @@ char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN
   {
     v12 = ExAcquireSpinLockExclusive(&ExpCallBackFlush);
     ExReleaseSpinLockExclusiveFromDpcLevel(&ExpCallBackFlush);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

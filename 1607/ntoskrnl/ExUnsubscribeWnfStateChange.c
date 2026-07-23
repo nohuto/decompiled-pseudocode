@@ -1,9 +1,9 @@
 /*
- * XREFs of ExUnsubscribeWnfStateChange @ 0x1404C19F8
+ * XREFs of ExUnsubscribeWnfStateChange @ 0x1404AD728
  * Callers:
  *     <none>
  * Callees:
- *     ExpWnfDeleteSubscription @ 0x1404C1E2C (ExpWnfDeleteSubscription.c)
+ *     ExpWnfDeleteSubscription @ 0x1404ADB5C (ExpWnfDeleteSubscription.c)
  */
 
 void __fastcall ExUnsubscribeWnfStateChange(void *a1)

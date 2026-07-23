@@ -1,17 +1,17 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140613C70
+ * XREFs of VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140613D24
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     VrpLoadDifferencingHive @ 0x140617474 (VrpLoadDifferencingHive.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     VrpLoadDifferencingHive @ 0x140617528 (VrpLoadDifferencingHive.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHiveForHost(_WORD *a1, unsigned int a2, KPROCESSOR_MODE a3)

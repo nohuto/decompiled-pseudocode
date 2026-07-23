@@ -1,11 +1,11 @@
 /*
- * XREFs of KasanWrapperRtlRestoreContext @ 0x14047DE40
+ * XREFs of KasanWrapperRtlRestoreContext @ 0x1404777B0
  * Callers:
- *     RtlRestoreContext @ 0x140534CC0 (RtlRestoreContext.c)
+ *     RtlRestoreContext @ 0x140537140 (RtlRestoreContext.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140263F70 (KeQueryCurrentStackInformationEx.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402634E0 (KeQueryCurrentStackInformationEx.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
  */
 
 char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
@@ -22,7 +22,7 @@ char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
   v8 = 0;
   BugCheckParameter3 = 0LL;
   v7[0] = 0LL;
-  if ( byte_140FC7BE8 )
+  if ( byte_140FC8BD8 )
   {
     v1 = *(_DWORD *)(a1 + 48) & 0x100001;
     if ( v1 == 1048577 )
@@ -41,7 +41,7 @@ char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
               v4 = v8 - 8;
               if ( (unsigned int)v4 >= 2 )
               {
-                if ( byte_140FC7BE8 )
+                if ( byte_140FC8BD8 )
                   KasanMarkAddressValidNoInline(BugCheckParameter3, *(_QWORD *)(a1 + 152) - BugCheckParameter3);
               }
             }
@@ -50,7 +50,7 @@ char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
       }
       CurrentStackPointer = KeGetCurrentStackPointer(v4, v3);
       LOBYTE(v1) = KeQueryCurrentStackInformationEx(CurrentStackPointer, &v8, (char **)&BugCheckParameter3, v7);
-      if ( (_BYTE)v1 == 1 && v8 == 10 && byte_140FC7BE8 )
+      if ( (_BYTE)v1 == 1 && v8 == 10 && byte_140FC8BD8 )
         LOBYTE(v1) = KasanMarkAddressValidNoInline(BugCheckParameter3, v7[0] - BugCheckParameter3);
     }
   }

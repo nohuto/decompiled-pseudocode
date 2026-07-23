@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlRemoveEntryHashTable @ 0x1402069A0
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x140206780 (SepCleanupMarkedForDeletionEntries.c)
- *     SepDereferenceCachedHandlesEntry @ 0x140696EC8 (SepDereferenceCachedHandlesEntry.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1406AB17C (SepDereferenceLowBoxNumberEntry.c)
- *     SepDeReferenceSharedSidEntries @ 0x1409CE7E8 (SepDeReferenceSharedSidEntries.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1409CED4C (SepInsertOrReferenceSharedSidEntries.c)
- *     SepRmDestroyCapTable @ 0x1409CF8D8 (SepRmDestroyCapTable.c)
+ *     sub_140206780 @ 0x140206780 (sub_140206780.c)
+ *     sub_140696EC8 @ 0x140696EC8 (sub_140696EC8.c)
+ *     sub_1406AB17C @ 0x1406AB17C (sub_1406AB17C.c)
+ *     sub_1409CE7E8 @ 0x1409CE7E8 (sub_1409CE7E8.c)
+ *     sub_1409CED4C @ 0x1409CED4C (sub_1409CED4C.c)
+ *     sub_1409CF8D8 @ 0x1409CF8D8 (sub_1409CF8D8.c)
  * Callees:
- *     RtlpPopulateContext @ 0x140206BC4 (RtlpPopulateContext.c)
+ *     sub_140206BC4 @ 0x140206BC4 (sub_140206BC4.c)
  */
 
 BOOLEAN __stdcall RtlRemoveEntryHashTable(
@@ -33,6 +33,6 @@ BOOLEAN __stdcall RtlRemoveEntryHashTable(
   Blink->Flink = Flink;
   Flink->Blink = Blink;
   if ( Context && !Context->ChainHead )
-    RtlpPopulateContext(HashTable, Context);
+    sub_140206BC4(HashTable, Context);
   return 1;
 }

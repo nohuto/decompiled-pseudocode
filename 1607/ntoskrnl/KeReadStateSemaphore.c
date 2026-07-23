@@ -1,5 +1,5 @@
 /*
- * XREFs of KeReadStateSemaphore @ 0x140096E20
+ * XREFs of KeReadStateSemaphore @ 0x140096620
  * Callers:
  *     <none>
  * Callees:

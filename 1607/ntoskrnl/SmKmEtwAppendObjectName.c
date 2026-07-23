@@ -1,22 +1,22 @@
 /*
- * XREFs of SmKmEtwAppendObjectName @ 0x140220778
+ * XREFs of SmKmEtwAppendObjectName @ 0x1402205A4
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x140220D48 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x140220B74 (SmKmStoreTerminateWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     ObQueryNameString @ 0x1404DC4E0 (ObQueryNameString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     ObQueryNameString @ 0x1404BFAE4 (ObQueryNameString.c)
  */
 
 __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, PDEVICE_OBJECT DeviceAttachmentBaseRef)
 {
   __int64 v3; // rdx
   void *v5; // r13
-  struct _OBJECT_NAME_INFORMATION *v6; // rdi
+  _OBJECT_NAME_INFORMATION *v6; // rdi
   ULONG v7; // r14d
   void *v8; // rbp
   BOOLEAN v9; // r15
@@ -33,7 +33,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, PDEVICE_OBJECT DeviceAtta
 
   v3 = *(_QWORD *)(a1 + 8) + *(unsigned int *)(a1 + 24);
   v5 = (void *)(v3 + 2);
-  v6 = (struct _OBJECT_NAME_INFORMATION *)((v3 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
+  v6 = (_OBJECT_NAME_INFORMATION *)((v3 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
   v7 = v3 + *(_DWORD *)(a1 + 28) - *(_DWORD *)(a1 + 24) - (_DWORD)v6;
   Src[0] = *(_OWORD *)L"\\Device\\Unknown";
   Src[1] = *(_OWORD *)L"Unknown";

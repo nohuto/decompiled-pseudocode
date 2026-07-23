@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140669074
+ * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140669158
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPreWait @ 0x1400C8450 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPreWait @ 0x1400C62F0 (KeAbPreWait.c)
  */
 
 __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
@@ -19,7 +19,7 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
 
   v3 = 0;
   v5 = 0LL;
-  ++dword_1403286AC;
+  ++dword_1403286EC;
   if ( BugCheckParameter2 )
   {
     *((_DWORD *)BugCheckParameter2 + 18) = 1;

@@ -1,7 +1,7 @@
 /*
  * XREFs of MmGetWorkingSetLeafSize @ 0x14021DAC0
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406B1F34 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     MiGetCurrentMultiplexedVm @ 0x14021DB04 (MiGetCurrentMultiplexedVm.c)
  *     MiTranslateWsType @ 0x14021DB44 (MiTranslateWsType.c)

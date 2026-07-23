@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInitializeQuotaBlock @ 0x1407EFFF0
+ * XREFs of PspInitializeQuotaBlock @ 0x1407F5B50
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x140AB8F60 (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x140ABA378 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     PspExpandLimit @ 0x140614CE0 (PspExpandLimit.c)
- *     PspInsertExpansionEntry @ 0x140614D5C (PspInsertExpansionEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopQueryProcessorInitValues @ 0x140794008 (IopQueryProcessorInitValues.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x140A885F0 (KeSynchronizeWithDynamicProcessors.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     PspExpandLimit @ 0x140617B20 (PspExpandLimit.c)
+ *     PspInsertExpansionEntry @ 0x140617B9C (PspInsertExpansionEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopQueryProcessorInitValues @ 0x140796B38 (IopQueryProcessorInitValues.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x140A8F720 (KeSynchronizeWithDynamicProcessors.c)
  */
 
 __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, LIST_ENTRY *p_ApcListEntry, __int64 *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, LIST_ENTRY *p_ApcListEntr
   __int64 v6; // rdx
   struct _KLOCK_ENTRIES *v7; // r9
   signed int v8; // esi
-  _LIST_ENTRY *v9; // r15
+  _KDPC **p_Dpc; // r15
   LIST_ENTRY *v10; // r12
   __int64 *v11; // rdi
   __int64 v12; // r14
@@ -44,13 +44,13 @@ __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, LIST_ENTRY *p_ApcListEntr
     p_ApcListEntry = &PspSiloMonitorLock.SchedulerApc.ApcListEntry;
   }
   v8 = 0;
-  v9 = &PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1];
+  p_Dpc = &PsAltSystemCallRegistrationLock.Timer.Dpc;
   v10 = p_ApcListEntry;
   v11 = a3 + 8;
   v12 = 0LL;
   while ( v8 < 4 )
   {
-    v13 = stru_140FC01F0.SchedulerApcFill3[v12 * 8 + 48];
+    v13 = stru_140FC11F0.SchedulerApcFill3[v12 * 8 + 40];
     if ( (v13 & 2) == 0 )
     {
       v14 = p_ApcListEntry ? SLODWORD(v10->Flink) : *(_QWORD *)(a1 + PspQuotaLimitOffsets[v12]);
@@ -60,7 +60,7 @@ __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, LIST_ENTRY *p_ApcListEntr
         if ( v14 == -1 )
         {
           *v11 = 0LL;
-          PspInsertExpansionEntry((__int64)v9, (__int64)(v11 - 8), -1LL, v7);
+          PspInsertExpansionEntry((__int64)p_Dpc, (__int64)(v11 - 8), -1LL, v7);
         }
         else if ( v14 )
         {
@@ -100,7 +100,7 @@ __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, LIST_ENTRY *p_ApcListEntr
     v11 += 16;
     v10 = (LIST_ENTRY *)((char *)v10 + 4);
     ++v12;
-    v9 = (_LIST_ENTRY *)((char *)v9 + 56);
+    p_Dpc += 7;
   }
   return 0LL;
 }

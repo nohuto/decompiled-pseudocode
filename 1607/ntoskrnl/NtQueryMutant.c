@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryMutant @ 0x1404DB624
+ * XREFs of NtQueryMutant @ 0x1404BEC28
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeQueryOwnerMutant @ 0x1400AB79C (KeQueryOwnerMutant.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeQueryOwnerMutant @ 0x1400A9D04 (KeQueryOwnerMutant.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtQueryMutant(

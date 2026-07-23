@@ -8,7 +8,7 @@
  *     MiExpandNonPagedPool @ 0x140126E74 (MiExpandNonPagedPool.c)
  */
 
-unsigned __int64 __fastcall MiFindNonPagedPoolVa(int a1, struct _SLIST_ENTRY *a2, unsigned int a3, _DWORD *a4)
+unsigned __int64 __fastcall MiFindNonPagedPoolVa(int a1, _SLIST_ENTRY *a2, unsigned int a3, _DWORD *a4)
 {
   unsigned int v5; // ebx
   int v8; // r14d

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDeleteEnclavePages @ 0x140AAD468
+ * XREFs of MiDeleteEnclavePages @ 0x140AAD2D8
  * Callers:
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140AAD240 (MiDeleteAllHardwareEnclaves.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140AAD0B0 (MiDeleteAllHardwareEnclaves.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeRemoveEnclavePage @ 0x1405706A0 (KeRemoveEnclavePage.c)
- *     MiDeleteEnclavePage @ 0x140647E20 (MiDeleteEnclavePage.c)
- *     PsDeleteVsmEnclave @ 0x1409B7408 (PsDeleteVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x140AAD6B0 (MiReturnReservedEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x140AAD708 (MiTerminateHardwareEnclave.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeRemoveEnclavePage @ 0x140570BE0 (KeRemoveEnclavePage.c)
+ *     MiDeleteEnclavePage @ 0x140648370 (MiDeleteEnclavePage.c)
+ *     PsDeleteVsmEnclave @ 0x1409B7608 (PsDeleteVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140AAD520 (MiReturnReservedEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x140AAD578 (MiTerminateHardwareEnclave.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

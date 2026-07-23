@@ -1,20 +1,20 @@
 /*
- * XREFs of ObSetSecurityDescriptorInfo @ 0x1404A5248
+ * XREFs of ObSetSecurityDescriptorInfo @ 0x14051D648
  * Callers:
- *     SeDefaultObjectMethod @ 0x14041FBE0 (SeDefaultObjectMethod.c)
- *     WmipSecurityMethod @ 0x1404E1DBC (WmipSecurityMethod.c)
+ *     SeDefaultObjectMethod @ 0x14041EAA0 (SeDefaultObjectMethod.c)
+ *     WmipSecurityMethod @ 0x1404C53C0 (WmipSecurityMethod.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObLogSecurityDescriptor @ 0x14041FCF0 (ObLogSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
- *     ObAdjustSecurityQuota @ 0x1404A53E0 (ObAdjustSecurityQuota.c)
- *     SeComputeQuotaInformationSize @ 0x1404A55E0 (SeComputeQuotaInformationSize.c)
- *     SeSetSecurityDescriptorInfo @ 0x1404A5664 (SeSetSecurityDescriptorInfo.c)
+ *     ObLogSecurityDescriptor @ 0x14041EBB0 (ObLogSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
+ *     ObAdjustSecurityQuota @ 0x14051D7E0 (ObAdjustSecurityQuota.c)
+ *     SeComputeQuotaInformationSize @ 0x14051D9E0 (SeComputeQuotaInformationSize.c)
+ *     SeSetSecurityDescriptorInfo @ 0x14051DA64 (SeSetSecurityDescriptorInfo.c)
  */
 
 __int64 __fastcall ObSetSecurityDescriptorInfo(

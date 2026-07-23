@@ -1,63 +1,63 @@
 /*
- * XREFs of NtDrawText @ 0x14022C734
+ * XREFs of NtDrawText @ 0x14022C560
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
  *     BgkDrawText @ 0x14072A138 (BgkDrawText.c)
  */
 
-__int64 __fastcall NtDrawText(unsigned __int64 a1)
+NTSTATUS __cdecl NtDrawText(PUNICODE_STRING Text)
 {
-  int v2; // edi
-  void *v3; // rsi
+  NTSTATUS v2; // edi
+  wchar_t *v3; // rsi
   KPROCESSOR_MODE PreviousMode; // r15
   int v6; // eax
-  void *v7; // r14
+  wchar_t *Buffer; // r14
   unsigned __int64 v8; // rax
-  PVOID PoolWithTag; // rax
+  wchar_t *PoolWithTag; // rax
   unsigned __int16 v10; // cx
   int v11; // [rsp+20h] [rbp-28h] BYREF
-  void *v12; // [rsp+28h] [rbp-20h]
+  wchar_t *v12; // [rsp+28h] [rbp-20h]
   int v13; // [rsp+58h] [rbp+10h]
 
   v2 = 0;
   v3 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-    return 3221225569LL;
-  if ( !a1 )
-    return 3221225485LL;
+    return -1073741727;
+  if ( !Text )
+    return -1073741811;
   if ( !PreviousMode )
     goto LABEL_17;
-  if ( a1 >= 0x7FFFFFFF0000LL )
-    a1 = 0x7FFFFFFF0000LL;
-  v6 = *(_DWORD *)a1;
-  v13 = *(_DWORD *)a1;
-  v11 = *(_DWORD *)a1;
-  v7 = *(void **)(a1 + 8);
-  v12 = v7;
-  if ( !v7 || !HIWORD(v6) )
+  if ( (unsigned __int64)Text >= 0x7FFFFFFF0000LL )
+    Text = (PUNICODE_STRING)0x7FFFFFFF0000LL;
+  v6 = *(_DWORD *)&Text->Length;
+  v13 = *(_DWORD *)&Text->Length;
+  v11 = *(_DWORD *)&Text->Length;
+  Buffer = Text->Buffer;
+  v12 = Buffer;
+  if ( !Buffer || !HIWORD(v6) )
     goto LABEL_24;
-  v8 = (unsigned __int64)v7 + HIWORD(v13);
-  if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)v7 )
+  v8 = (unsigned __int64)Buffer + HIWORD(v13);
+  if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)Buffer )
     MEMORY[0x7FFFFFFF0000] = 0;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, HIWORD(v13), 0x67727453u);
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, HIWORD(v13), 0x67727453u);
   v3 = PoolWithTag;
   if ( PoolWithTag )
   {
-    memmove(PoolWithTag, v7, HIWORD(v13));
+    memmove(PoolWithTag, Buffer, HIWORD(v13));
     v12 = v3;
-    a1 = (unsigned __int64)&v11;
+    Text = (PUNICODE_STRING)&v11;
 LABEL_17:
     v2 = -1073741811;
-    v10 = *(_WORD *)(a1 + 2) >> 1;
+    v10 = Text->MaximumLength >> 1;
     if ( v10 )
     {
-      while ( *(_WORD *)(*(_QWORD *)(a1 + 8) + 2LL * (v10 - 1)) )
+      while ( Text->Buffer[v10 - 1] )
       {
         if ( !--v10 )
           goto LABEL_22;
@@ -66,12 +66,12 @@ LABEL_17:
     }
 LABEL_22:
     if ( v2 >= 0 )
-      v2 = BgkDrawText(*(_QWORD *)(a1 + 8));
+      v2 = BgkDrawText(Text->Buffer);
     goto LABEL_24;
   }
   v2 = -1073741801;
 LABEL_24:
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
-  return (unsigned int)v2;
+  return v2;
 }

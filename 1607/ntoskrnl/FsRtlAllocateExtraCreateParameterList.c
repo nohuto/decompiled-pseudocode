@@ -1,18 +1,17 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x14045C9A0
+ * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x14045B870
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14045C848 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x140540F84 (IopSymlinkAllocateAndAddECP.c)
+ *     PspCreateUserProcessEcp @ 0x14045B718 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405414C4 (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_FLAGS Flags, PECP_LIST *EcpList)
 {
   int v2; // ebx
   struct _ECP_LIST *PoolWithQuotaTag; // rax
-  _LOOKASIDE_LIST_EX *v5; // r9
 
   v2 = 0;
   *EcpList = 0LL;
@@ -22,16 +21,12 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_
   }
   else
   {
-    ++FsRtlEcpListLookaside.L.TotalAllocates;
-    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside.L.ListHead);
+    ++unk_140329A14;
+    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside);
     if ( !PoolWithQuotaTag )
     {
-      ++FsRtlEcpListLookaside.L.AllocateMisses;
-      PoolWithQuotaTag = (struct _ECP_LIST *)FsRtlEcpListLookaside.L.AllocateEx(
-                                               FsRtlEcpListLookaside.L.Type,
-                                               FsRtlEcpListLookaside.L.Size,
-                                               FsRtlEcpListLookaside.L.Tag,
-                                               v5);
+      ++unk_140329A18;
+      PoolWithQuotaTag = (struct _ECP_LIST *)unk_140329A30(unk_140329A24, unk_140329A2C, unk_140329A28);
     }
     v2 = 4;
   }

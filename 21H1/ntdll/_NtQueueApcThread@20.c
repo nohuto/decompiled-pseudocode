@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtQueueApcThread(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtQueueApcThread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
   return Wow64SystemServiceCall();
 }

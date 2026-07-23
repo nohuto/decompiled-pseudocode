@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlHpInitializeHeapManager @ 0x18010B490
+ * XREFs of RtlHpInitializeHeapManager @ 0x18010B450
  * Callers:
- *     RtlInitializeHeapManager @ 0x1800F2694 (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x1800F2654 (RtlInitializeHeapManager.c)
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x18009DD00 (NtQuerySystemInformation.c)
- *     RtlHpHeapManagerInitialize @ 0x18010DF74 (RtlHpHeapManagerInitialize.c)
- *     RtlHpHeapManagerStart @ 0x18010E048 (RtlHpHeapManagerStart.c)
+ *     NtQuerySystemInformation @ 0x18009DCC0 (NtQuerySystemInformation.c)
+ *     RtlHpHeapManagerInitialize @ 0x18010DF34 (RtlHpHeapManagerInitialize.c)
+ *     RtlHpHeapManagerStart @ 0x18010E008 (RtlHpHeapManagerStart.c)
  */
 
 NTSTATUS __fastcall RtlHpInitializeHeapManager(__int64 a1)

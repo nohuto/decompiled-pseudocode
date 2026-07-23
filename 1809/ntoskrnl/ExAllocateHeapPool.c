@@ -1,8 +1,8 @@
 /*
- * XREFs of ExAllocateHeapPool @ 0x1400BA170
+ * XREFs of ExAllocateHeapPool @ 0x1400BA0B0
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  * Callees:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
  *     RtlpHpLfhContextAllocate @ 0x140008C54 (RtlpHpLfhContextAllocate.c)
@@ -10,27 +10,27 @@
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
  *     RtlpHpSegAlloc @ 0x14000B118 (RtlpHpSegAlloc.c)
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpVsContextAllocate @ 0x1400BC2F0 (RtlpHpVsContextAllocate.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpAddTagForBigPages @ 0x1400E7110 (ExpAddTagForBigPages.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
- *     RtlFreeHeap @ 0x14011EE90 (RtlFreeHeap.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
- *     ExCheckSingleFilter @ 0x1401B7408 (ExCheckSingleFilter.c)
- *     ExHeapLookasideReplenish @ 0x1401B7514 (ExHeapLookasideReplenish.c)
- *     RtlpDynamicLookasideAllocate @ 0x1401B7AC0 (RtlpDynamicLookasideAllocate.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
- *     RtlpHpAllocateHeapBackend @ 0x1402FC934 (RtlpHpAllocateHeapBackend.c)
- *     RtlpHpExtrasAppend @ 0x1402FC96C (RtlpHpExtrasAppend.c)
- *     ExAllocateHeapSpecialPool @ 0x14031E9BC (ExAllocateHeapSpecialPool.c)
- *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BADE0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x1400BC230 (RtlpHpVsContextAllocate.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpAddTagForBigPages @ 0x1400E7190 (ExpAddTagForBigPages.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140104330 (ExpInsertPoolTrackerExpansion.c)
+ *     RtlFreeHeap @ 0x14011EF00 (RtlFreeHeap.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1401B7350 (EtwTracePool.c)
+ *     ExCheckSingleFilter @ 0x1401B7570 (ExCheckSingleFilter.c)
+ *     ExHeapLookasideReplenish @ 0x1401B7674 (ExHeapLookasideReplenish.c)
+ *     RtlpDynamicLookasideAllocate @ 0x1401B7C20 (RtlpDynamicLookasideAllocate.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
+ *     RtlpHpAllocateHeapBackend @ 0x1402FCB24 (RtlpHpAllocateHeapBackend.c)
+ *     RtlpHpExtrasAppend @ 0x1402FCB5C (RtlpHpExtrasAppend.c)
+ *     ExAllocateHeapSpecialPool @ 0x14031EBAC (ExAllocateHeapSpecialPool.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140925F50 (VeAllocatePoolWithTagPriority.c)
  */
 
 __int64 __fastcall ExAllocateHeapPool(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG a3, char a4)
@@ -190,9 +190,9 @@ __int64 __fastcall ExAllocateHeapPool(POOL_TYPE PoolType, SIZE_T NumberOfBytes, 
   if ( NumberOfBytes )
     v14 = NumberOfBytes;
   v15 = CurrentPrcb->ParentNode->Affinity.Reserved[0];
-  if ( (unsigned int)v15 >= dword_140443408 )
+  if ( (unsigned int)v15 >= dword_1404444C8 )
     v15 = 0LL;
-  v16 = (char *)&unk_140443440 + 8384 * v15;
+  v16 = (char *)&unk_140444500 + 8384 * v15;
   if ( (int)v8 >= 0 )
   {
     if ( (v8 & 0x21) == 0x21 )
@@ -241,7 +241,7 @@ __int64 __fastcall ExAllocateHeapPool(POOL_TYPE PoolType, SIZE_T NumberOfBytes, 
       v50 = v49;
       v51 = *(_DWORD *)(v17 + 20) & 0x93000F0B;
       v95 = v51;
-      if ( (v49 || (v50 = qword_14040E0A8) != 0) && v46 > v50 )
+      if ( (v49 || (v50 = qword_14040F108) != 0) && v46 > v50 )
       {
         v52 = *(_QWORD *)(v17 + 56);
         if ( v52 )
@@ -515,7 +515,7 @@ LABEL_195:
   }
   v20 = *(_QWORD *)(v17 + 48);
   v21 = *(_DWORD *)(v17 + 20) & 0x93000F0B;
-  if ( (v20 || (v20 = qword_14040E0A8) != 0) && v19 > v20 )
+  if ( (v20 || (v20 = qword_14040F108) != 0) && v19 > v20 )
   {
     v22 = *(_QWORD *)(v17 + 56);
     if ( v22 )

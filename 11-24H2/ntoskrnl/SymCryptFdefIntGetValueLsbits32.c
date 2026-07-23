@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefIntGetValueLsbits32 @ 0x140522AE4
+ * XREFs of SymCryptFdefIntGetValueLsbits32 @ 0x1405203F8
  * Callers:
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
  * Callees:
  *     <none>
  */

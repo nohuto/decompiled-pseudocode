@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDripsWatchdogCallbackWorker @ 0x1407DE0A0
+ * XREFs of PopDripsWatchdogCallbackWorker @ 0x1407E2720
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PopCalculateIdleInformation @ 0x140434E0C (PopCalculateIdleInformation.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140483348 (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsSetDisengageReason @ 0x1404833B0 (PopDirectedDripsSetDisengageReason.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline @ 0x1404F7B44 (Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409D92BC (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x140A3C818 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogCallbackHandler @ 0x140B3FB6C (PopDripsWatchdogCallbackHandler.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopCalculateIdleInformation @ 0x140423CE4 (PopCalculateIdleInformation.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14047CCB8 (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14047CD20 (PopDirectedDripsSetDisengageReason.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline @ 0x1404F1154 (Feature_Servicing_PopDripsWatchdogTimerCallback__private_IsEnabledDeviceUsageNoInline.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409AA1AC (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1409F8238 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140B41B9C (PopDripsWatchdogCallbackHandler.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
@@ -23,7 +23,7 @@ void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
   struct _OWNER_ENTRY *v3; // rsi
   ULONG v4; // r15d
   __int128 v5; // xmm0
-  int Blink; // eax
+  int v6; // eax
   OWNER_ENTRY v7; // xmm1
   unsigned int Flink; // eax
   int Reserved2_high; // eax
@@ -71,14 +71,14 @@ void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
     if ( v22.TableSize != Resource[3].OwnerEntry.TableSize )
     {
       v5 = v21;
-      Blink = (int)PopAdaptiveStandbyLock.Header.WaitListHead.Blink;
+      v6 = PopDripsWatchdogDebounceTickInterval;
       v7 = v22;
       Resource[3].OwnerTable = v3;
       *(_OWORD *)&Resource[3].SharedWaiters = v5;
       HIDWORD(Resource[2].SpinLock) = 0;
       *(_QWORD *)&v5 = v23;
       Resource[3].OwnerEntry = v7;
-      LODWORD(Resource[3].SystemResourcesList.Flink) = Blink;
+      LODWORD(Resource[3].SystemResourcesList.Flink) = v6;
       *(_QWORD *)&Resource[3].ActiveEntries = v5;
       Resource[3].SystemResourcesList.Blink = (struct _LIST_ENTRY *)v3;
     }
@@ -92,7 +92,7 @@ void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
       else
       {
         PopDirectedDripsSetDisengageReason(0);
-        LODWORD(Resource[3].SystemResourcesList.Flink) = LODWORD(PopAdaptiveStandbyLock.Header.WaitListHead.Blink)
+        LODWORD(Resource[3].SystemResourcesList.Flink) = PopDripsWatchdogDebounceTickInterval
                                                        + HIDWORD(Resource[2].SpinLock);
       }
     }
@@ -109,7 +109,7 @@ void __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
       ExReleaseResourceLite(Resource);
       KeLeaveCriticalRegion();
       PopAcquirePolicyLock(v15, v14);
-      if ( v4 || qword_140E26F90 )
+      if ( v4 || qword_140E270D0 )
       {
         PopReleasePolicyLock(v17, v16, v18, v19, v20);
       }

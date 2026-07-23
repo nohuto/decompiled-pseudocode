@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCompressBufferXpressHuffMax @ 0x1800B8590
+ * XREFs of RtlCompressBufferXpressHuffMax @ 0x1800B5AB0
  * Callers:
- *     RtlCompressBufferXpressHuff @ 0x1800B84D0 (RtlCompressBufferXpressHuff.c)
+ *     RtlCompressBufferXpressHuff @ 0x1800B59F0 (RtlCompressBufferXpressHuff.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x1800B9EE0 (RtlpMakeXpressCallback.c)
- *     XpressBuildHuffmanEncodings @ 0x1800B9F30 (XpressBuildHuffmanEncodings.c)
- *     XpressDoHuffmanPass @ 0x1800BA360 (XpressDoHuffmanPass.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpMakeXpressCallback @ 0x1800B7400 (RtlpMakeXpressCallback.c)
+ *     XpressBuildHuffmanEncodings @ 0x1800B7450 (XpressBuildHuffmanEncodings.c)
+ *     XpressDoHuffmanPass @ 0x1800B7890 (XpressDoHuffmanPass.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressHuffMax(
@@ -188,7 +188,7 @@ LABEL_11:
     v26 = (v13 - v10) % 0x20000;
     do
     {
-      v27 = (unsigned __int16)word_18018FA30[v25[1]] ^ (unsigned __int16)XpressHashFunction[*v25] ^ (unsigned __int64)(unsigned __int16)word_18018FC30[v25[2]];
+      v27 = (unsigned __int16)word_18018EA20[v25[1]] ^ (unsigned __int16)XpressHashFunction[*v25] ^ (unsigned __int64)(unsigned __int16)word_18018EC20[v25[2]];
       v28 = *(_QWORD *)&a6[8 * v27];
       *(_QWORD *)&a6[8 * v27] = v25++;
       *(_QWORD *)&a6[8 * v26 + 0x40000] = v28;

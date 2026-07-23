@@ -1,18 +1,18 @@
 /*
- * XREFs of CcMdlWriteComplete2 @ 0x14040F680
+ * XREFs of CcMdlWriteComplete2 @ 0x14040EDA0
  * Callers:
- *     CcMdlWriteComplete @ 0x140B0A090 (CcMdlWriteComplete.c)
- *     FsRtlMdlWriteCompleteDev @ 0x140B238F0 (FsRtlMdlWriteCompleteDev.c)
+ *     CcMdlWriteComplete @ 0x140B0BE50 (CcMdlWriteComplete.c)
+ *     FsRtlMdlWriteCompleteDev @ 0x140B25CF0 (FsRtlMdlWriteCompleteDev.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     CcSetDirtyInMask @ 0x14039D5F0 (CcSetDirtyInMask.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     CcSetDirtyInMask @ 0x14039F350 (CcSetDirtyInMask.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
  */
 
 void __fastcall CcMdlWriteComplete2(__int64 a1, struct _KTHREAD **a2, struct _MDL *a3)
@@ -30,7 +30,7 @@ void __fastcall CcMdlWriteComplete2(__int64 a1, struct _KTHREAD **a2, struct _MD
   __int64 v14; // rax
   struct _MDL *v15; // rbx
   BOOLEAN IsNtstatusExpected; // al
-  int v17; // ecx
+  NTSTATUS v17; // ecx
   __int128 v18; // [rsp+30h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
   struct _KTHREAD *v20; // [rsp+90h] [rbp+8h] BYREF

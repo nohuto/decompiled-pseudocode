@@ -24,8 +24,8 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   size_t v6; // r13
   const void *v7; // r12
   volatile signed __int64 *v9; // rsi
-  __int64 v10; // rax
-  __int64 v11; // rbx
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rbx
   _DWORD *v12; // rcx
   _DWORD *v13; // r14
   __int32 i; // esi
@@ -35,8 +35,8 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   _KPROCESS *v19; // rcx
   int v20; // r12d
   _DWORD *PoolWithTag; // r14
-  __int64 v22; // rax
-  __int64 v23; // r14
+  _RTL_BALANCED_NODE *v22; // rax
+  _RTL_BALANCED_NODE *v23; // r14
   char v24; // bl
   _DWORD *v25; // [rsp+30h] [rbp-D8h]
   NTSTATUS v26; // [rsp+38h] [rbp-D0h]
@@ -64,7 +64,7 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v10, a1 + 80);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   if ( a5 && *(_DWORD *)(a1 + 96) != a4 )
   {
     v24 = _InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL);
@@ -118,7 +118,7 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v22, a1 + 80);
     if ( v23 )
-      *(_BYTE *)(v23 + 26) |= 1u;
+      BYTE2(v23[1].Left) |= 1u;
     v13 = 0LL;
     if ( *(_QWORD *)(a1 + 88) != 1LL )
       v13 = *(_DWORD **)(a1 + 88);

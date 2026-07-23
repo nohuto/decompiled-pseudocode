@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhOwnerListCompact @ 0x14034D3B0
+ * XREFs of RtlpHpLfhOwnerListCompact @ 0x14034F430
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x140347910 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140349990 (RtlpHpLfhOwnerCompact.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockShared @ 0x14034BE40 (RtlpHpReleaseLockShared.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x14034D710 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockShared @ 0x14034DEC0 (RtlpHpReleaseLockShared.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x14034F790 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall RtlpHpLfhOwnerListCompact(__int64 a1, __int64 a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)

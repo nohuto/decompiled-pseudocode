@@ -1,9 +1,9 @@
 /*
- * XREFs of MmUnmapViewOfSection @ 0x1408E4C50
+ * XREFs of MmUnmapViewOfSection @ 0x140896C60
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
  */
 
 __int64 __fastcall MmUnmapViewOfSection(struct _KPROCESS *a1)

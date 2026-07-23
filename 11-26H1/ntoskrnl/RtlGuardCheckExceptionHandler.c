@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlGuardCheckExceptionHandler @ 0x1404570C0
+ * XREFs of RtlGuardCheckExceptionHandler @ 0x14044E930
  * Callers:
- *     RtlUnwindEx @ 0x1402E8510 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x1402CA550 (RtlUnwindEx.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1402E9A40 (RtlpxLookupFunctionTable.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     RtlFailFast2 @ 0x140535240 (RtlFailFast2.c)
- *     bsearch_s @ 0x140536A50 (bsearch_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x14077DECC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CBA80 (RtlpxLookupFunctionTable.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     RtlFailFast2 @ 0x1405376C0 (RtlFailFast2.c)
+ *     bsearch_s @ 0x140538ED0 (bsearch_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x1407809CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1)

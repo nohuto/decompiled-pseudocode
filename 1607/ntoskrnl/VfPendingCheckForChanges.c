@@ -1,11 +1,11 @@
 /*
- * XREFs of VfPendingCheckForChanges @ 0x14070CE84
+ * XREFs of VfPendingCheckForChanges @ 0x14070CEB4
  * Callers:
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
  *     VfSettingsCheckForChanges @ 0x140716730 (VfSettingsCheckForChanges.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall VfPendingCheckForChanges(__int16 a1)

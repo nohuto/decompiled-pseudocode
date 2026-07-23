@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpQueryScenarioInformation @ 0x1406E11A0
+ * XREFs of PfpQueryScenarioInformation @ 0x1406E2440
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14062AAF0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     PfpScenCtxQueryScenarioInformation @ 0x14056DBA8 (PfpScenCtxQueryScenarioInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     PfpScenCtxQueryScenarioInformation @ 0x14056EBA8 (PfpScenCtxQueryScenarioInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfpQueryScenarioInformation(__int64 a1, char a2, _DWORD *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall PfpQueryScenarioInformation(__int64 a1, char a2, _DWORD *a3)
     v12 = v7[1];
     if ( (_DWORD)v11 == 4 )
     {
-      PfpScenCtxQueryScenarioInformation((ULONG_PTR)&qword_14043C0A0, (__int64)&v11);
+      PfpScenCtxQueryScenarioInformation((ULONG_PTR)&qword_14043D160, (__int64)&v11);
       if ( a2 )
       {
         v8 = *(_QWORD *)(a1 + 16);

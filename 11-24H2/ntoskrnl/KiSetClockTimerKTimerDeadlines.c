@@ -1,49 +1,49 @@
 /*
- * XREFs of KiSetClockTimerKTimerDeadlines @ 0x1402A04E0
+ * XREFs of KiSetClockTimerKTimerDeadlines @ 0x140317E50
  * Callers:
- *     KiSetClockInterval @ 0x14029F358 (KiSetClockInterval.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x14029FDD0 (ExpUpdateTimerConfigurationWorker.c)
- *     KeClockInterruptNotify @ 0x14033A5E0 (KeClockInterruptNotify.c)
- *     KiResumeClockTimer @ 0x1404F5708 (KiResumeClockTimer.c)
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
- *     KiResetClockInterval @ 0x1405BA4D4 (KiResetClockInterval.c)
- *     KeInitializeClock @ 0x140C60350 (KeInitializeClock.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x140317740 (ExpUpdateTimerConfigurationWorker.c)
+ *     KeClockInterruptNotify @ 0x140319AC0 (KeClockInterruptNotify.c)
+ *     KiSetClockInterval @ 0x140463DB4 (KiSetClockInterval.c)
+ *     KiResumeClockTimer @ 0x1404F3008 (KiResumeClockTimer.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
+ *     KiResetClockInterval @ 0x1405B7B04 (KiResetClockInterval.c)
+ *     KeInitializeClock @ 0x140C624A0 (KeInitializeClock.c)
  * Callees:
- *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x14029D018 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
- *     KiSetClockTimer @ 0x14029F85C (KiSetClockTimer.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x1402ABB08 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     KiSetClockTimer @ 0x14043504C (KiSetClockTimer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-char __fastcall KiSetClockTimerKTimerDeadlines(__int64 a1, __int64 a2, char a3)
+char __fastcall KiSetClockTimerKTimerDeadlines(__int64 a1, LARGE_INTEGER a2, char a3)
 {
   __int64 v4; // rdi
   int IsEnabledNoReportingNoInline; // eax
   int v8; // r12d
-  __int64 InterruptTimePrecise; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rcx
   char v10; // r14
-  __int64 v11; // rbx
+  LARGE_INTEGER v11; // rbx
   char v12; // al
   char result; // al
   char v14; // [rsp+40h] [rbp-C0h] BYREF
   char v15; // [rsp+41h] [rbp-BFh] BYREF
   int v16; // [rsp+44h] [rbp-BCh] BYREF
   int v17; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v19; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-B0h] BYREF
+  LARGE_INTEGER v19; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v20; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v21; // [rsp+68h] [rbp-98h] BYREF
-  char v22[32]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 *v23; // [rsp+90h] [rbp-70h]
+  LONGLONG v21; // [rsp+68h] [rbp-98h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+70h] [rbp-90h] BYREF
+  LARGE_INTEGER *v23; // [rsp+90h] [rbp-70h]
   __int64 v24; // [rsp+98h] [rbp-68h]
   int *v25; // [rsp+A0h] [rbp-60h]
   __int64 v26; // [rsp+A8h] [rbp-58h]
   __int64 *v27; // [rsp+B0h] [rbp-50h]
   __int64 v28; // [rsp+B8h] [rbp-48h]
-  __int64 *v29; // [rsp+C0h] [rbp-40h]
+  LONGLONG *v29; // [rsp+C0h] [rbp-40h]
   __int64 v30; // [rsp+C8h] [rbp-38h]
-  __int64 *v31; // [rsp+D0h] [rbp-30h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+D0h] [rbp-30h]
   __int64 v32; // [rsp+D8h] [rbp-28h]
   int *v33; // [rsp+E0h] [rbp-20h]
   __int64 v34; // [rsp+E8h] [rbp-18h]
@@ -58,12 +58,12 @@ char __fastcall KiSetClockTimerKTimerDeadlines(__int64 a1, __int64 a2, char a3)
   InterruptTimePrecise = a2;
   v10 = IsEnabledNoReportingNoInline == 0;
   if ( !KiClockTimerReducePreciseTimeQueries )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v18);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   if ( v4 > 0 )
-    v11 = v4;
+    v11.QuadPart = v4;
   else
-    v11 = InterruptTimePrecise - v4;
-  if ( (unsigned int)dword_140E070B8 > 5 )
+    v11.QuadPart = InterruptTimePrecise.QuadPart - v4;
+  if ( (unsigned int)dword_140E07080 > 5 )
   {
     v19 = InterruptTimePrecise;
     v23 = &v19;
@@ -73,33 +73,39 @@ char __fastcall KiSetClockTimerKTimerDeadlines(__int64 a1, __int64 a2, char a3)
     v27 = &v20;
     v16 = 1;
     v26 = 4LL;
-    v21 = v11 - InterruptTimePrecise;
+    v21 = v11.QuadPart - InterruptTimePrecise.QuadPart;
     v20 = v4;
     v29 = &v21;
-    v31 = &v18;
+    p_PerformanceCounter = &PerformanceCounter;
     v33 = &v17;
     v35 = &v14;
     v37 = &v15;
     v28 = 8LL;
     v30 = 8LL;
-    v18 = v11;
+    PerformanceCounter = v11;
     v32 = 8LL;
     v17 = v8;
     v34 = 4LL;
     v14 = v10;
     v36 = 1LL;
     v38 = 1LL;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140E070B8, word_140047B72, 0LL, 0LL, 10, v22);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140E07080,
+      (unsigned __int8 *)&word_1400480C6,
+      0LL,
+      0LL,
+      0xAu,
+      &v22);
   }
   v12 = *(_BYTE *)(a1 + 38324);
-  *(_QWORD *)(a1 + 38312) = v11;
+  *(LARGE_INTEGER *)(a1 + 38312) = v11;
   result = v12 & 0xFD;
   *(_DWORD *)(a1 + 38320) = v8;
   *(_BYTE *)(a1 + 38324) = result | (2 * v10) | 1;
   if ( a3 )
   {
     if ( KiClockOwnerOneShotRequest )
-      return KiSetClockTimer(a1, a2, KiClockOwnerOneShotRequest, 0, 2, v10, 0);
+      return KiSetClockTimer(a1, a2.LowPart, KiClockOwnerOneShotRequest, 0, 2, v10, 0);
   }
   return result;
 }

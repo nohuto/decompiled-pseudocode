@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlDeleteOwnersRanges @ 0x140839700
  * Callers:
- *     ArbDeleteOwnerRanges @ 0x1408394A0 (ArbDeleteOwnerRanges.c)
- *     ArbQueryConflict @ 0x14090B4C0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x14090B860 (ArbRetestAllocation.c)
+ *     sub_1408394A0 @ 0x1408394A0 (sub_1408394A0.c)
+ *     sub_14090B4C0 @ 0x14090B4C0 (sub_14090B4C0.c)
+ *     sub_14090B860 @ 0x14090B860 (sub_14090B860.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x1408394BC (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x1408398AC (RtlpFreeRangeListEntry.c)
+ *     sub_1408394BC @ 0x1408394BC (sub_1408394BC.c)
+ *     sub_1408398AC @ 0x1408398AC (sub_1408398AC.c)
  */
 
 __int64 __fastcall RtlDeleteOwnersRanges(__int64 **a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall RtlDeleteOwnersRanges(__int64 **a1, __int64 a2)
   __int64 v9; // r8
   _QWORD *v10; // rax
   _QWORD *v11; // rax
-  _QWORD *v12; // r9
+  __int64 v12; // r9
 
   v4 = 0;
 LABEL_2:
@@ -34,19 +34,19 @@ LABEL_2:
     if ( (*(_BYTE *)(v6 + 34) & 1) != 0 )
     {
       v11 = *(_QWORD **)(v6 + 16);
-      v12 = v11 - 5;
+      v12 = (__int64)(v11 - 5);
       while ( (_QWORD *)(v6 + 16) != v11 )
       {
-        if ( v12[3] == a2 )
+        if ( *(_QWORD *)(v12 + 24) == a2 )
         {
-          v4 = RtlpDeleteFromMergedRange(v12, (_QWORD *)v6);
+          v4 = sub_1408394BC(v12, (_QWORD *)v6);
           if ( v4 < 0 )
             return (unsigned int)v4;
           --*((_DWORD *)a1 + 5);
           ++*((_DWORD *)a1 + 6);
           goto LABEL_2;
         }
-        v12 = (_QWORD *)(*v11 - 40LL);
+        v12 = *v11 - 40LL;
         v11 = (_QWORD *)*v11;
       }
     }
@@ -57,7 +57,7 @@ LABEL_2:
         __fastfail(3u);
       *v10 = v9;
       *(_QWORD *)(v9 + 8) = v10;
-      RtlpFreeRangeListEntry((PVOID)v6);
+      sub_1408398AC(v6);
       --*((_DWORD *)a1 + 5);
       ++*((_DWORD *)a1 + 6);
       v4 = 0;

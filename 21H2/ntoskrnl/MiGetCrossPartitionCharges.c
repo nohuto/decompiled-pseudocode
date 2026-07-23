@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetCrossPartitionCharges @ 0x140562428
+ * XREFs of MiGetCrossPartitionCharges @ 0x140562668
  * Callers:
- *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
- *     MiGetCrossPartitionCloneCharges @ 0x14055A984 (MiGetCrossPartitionCloneCharges.c)
- *     MiGetCrossPartitionCombineCharges @ 0x14055CF3C (MiGetCrossPartitionCombineCharges.c)
- *     MiCreateLargePfnList @ 0x14055DEFC (MiCreateLargePfnList.c)
+ *     MiGetSubsectionCharges @ 0x140555108 (MiGetSubsectionCharges.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x14055ABC4 (MiGetCrossPartitionCloneCharges.c)
+ *     MiGetCrossPartitionCombineCharges @ 0x14055D17C (MiGetCrossPartitionCombineCharges.c)
+ *     MiCreateLargePfnList @ 0x14055E13C (MiCreateLargePfnList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiApplyCrossPartitionCharges @ 0x140561408 (MiApplyCrossPartitionCharges.c)
+ *     MiApplyCrossPartitionCharges @ 0x140561648 (MiApplyCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, int a2, char a3, __int64 a4)

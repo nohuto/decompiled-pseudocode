@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpRemoveUCRBlock @ 0x180081ECC
+ * XREFs of RtlpRemoveUCRBlock @ 0x180081EDC
  * Callers:
  *     RtlpDeCommitFreeBlock @ 0x18001BD18 (RtlpDeCommitFreeBlock.c)
  * Callees:
- *     RtlpUpdateUCRIndexRemove @ 0x180081F50 (RtlpUpdateUCRIndexRemove.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpUpdateUCRIndexRemove @ 0x180081F60 (RtlpUpdateUCRIndexRemove.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpRemoveUCRBlock(__int64 a1, __int64 *a2)

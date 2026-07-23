@@ -1,16 +1,16 @@
 /*
- * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x1403AEEB0
+ * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x1403AF090
  * Callers:
- *     DifHalDmaAllocateCrashDumpRegistersExWrapper @ 0x1405DA980 (DifHalDmaAllocateCrashDumpRegistersExWrapper.c)
+ *     DifHalDmaAllocateCrashDumpRegistersExWrapper @ 0x1405DAEF0 (DifHalDmaAllocateCrashDumpRegistersExWrapper.c)
  * Callees:
- *     HalpIsHvPresent @ 0x140377F7C (HalpIsHvPresent.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AF000 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045BF9E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaFreeMapRegisters @ 0x14045C4F6 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140510504 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpIsHvPresent @ 0x14037811C (HalpIsHvPresent.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AF1E0 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045C39E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaFreeMapRegisters @ 0x14045C8F6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140510A54 (HalpDmaAllocateMapRegistersAtHighLevel.c)
  */
 
 __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(

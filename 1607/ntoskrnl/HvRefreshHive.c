@@ -1,16 +1,16 @@
 /*
- * XREFs of HvRefreshHive @ 0x140605F64
+ * XREFs of HvRefreshHive @ 0x140606018
  * Callers:
- *     CmpRefreshHive @ 0x14060D810 (CmpRefreshHive.c)
+ *     CmpRefreshHive @ 0x14060D8C4 (CmpRefreshHive.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmpDestroySecurityCache @ 0x14049FDD4 (CmpDestroySecurityCache.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     CmpDestroySecurityCache @ 0x1405181E0 (CmpDestroySecurityCache.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  */
 
 __int64 __fastcall HvRefreshHive(__int64 a1)

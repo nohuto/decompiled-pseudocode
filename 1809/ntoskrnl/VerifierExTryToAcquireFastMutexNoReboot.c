@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExTryToAcquireFastMutexNoReboot @ 0x140942360
+ * XREFs of VerifierExTryToAcquireFastMutexNoReboot @ 0x140943360
  * Callers:
  *     <none>
  * Callees:
- *     ViExTryToAcquireFastMutexCommon @ 0x1409427A8 (ViExTryToAcquireFastMutexCommon.c)
+ *     ViExTryToAcquireFastMutexCommon @ 0x1409437A8 (ViExTryToAcquireFastMutexCommon.c)
  */
 
 __int64 __fastcall VerifierExTryToAcquireFastMutexNoReboot(__int64 a1)

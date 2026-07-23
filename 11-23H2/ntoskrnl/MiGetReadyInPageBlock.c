@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetReadyInPageBlock @ 0x140A31330
+ * XREFs of MiGetReadyInPageBlock @ 0x140A315E0
  * Callers:
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiInitializeInPageSupport @ 0x1402E13A0 (MiInitializeInPageSupport.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiInitializeInPageSupport @ 0x1402E1630 (MiInitializeInPageSupport.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
  */
 
 __int64 __fastcall MiGetReadyInPageBlock(__int64 a1)

@@ -30,7 +30,7 @@ char __thiscall RtlpActivateLowFragmentationHeap(int this)
             && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0;
   if ( (_BYTE)v2 )
   {
-    RtlEnterCriticalSection(*(_DWORD *)(this + 200));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
     v8 = 1;
     if ( *(_BYTE *)(this + 234) == 2 )
       v2 = *(_DWORD *)(this + 228);
@@ -48,16 +48,16 @@ char __thiscall RtlpActivateLowFragmentationHeap(int this)
     {
       *(_WORD *)(this + 232) = 1;
       v7 = 1;
-      v2 = RtlpExtendFrontEndUsageArray(this, ((unsigned int)RtlpLargestLfhBlock >> 3) + 2);
+      v2 = RtlpExtendFrontEndUsageArray((PVOID)this);
       v4 = v2;
       if ( v2 >= 0 )
       {
-        RtlpExtendListLookup(v3);
+        RtlpExtendListLookup((PVOID)this, v3);
         *(_DWORD *)(this + 228) = 0;
         *(_BYTE *)(this + 234) = 0;
-        RtlLeaveCriticalSection(*(_DWORD *)(this + 200));
-        LowFragHeap = RtlpCreateLowFragHeap(this);
-        RtlEnterCriticalSection(*(_DWORD *)(this + 200));
+        RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
+        LowFragHeap = RtlpCreateLowFragHeap((PVOID)this);
+        RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
         if ( LowFragHeap )
         {
           *(_DWORD *)(this + 228) = LowFragHeap;
@@ -72,7 +72,7 @@ char __thiscall RtlpActivateLowFragmentationHeap(int this)
         --*(_WORD *)(this + 232);
         v7 = 0;
         v8 = 0;
-        LOBYTE(v2) = RtlLeaveCriticalSection(*(_DWORD *)(this + 200));
+        LOBYTE(v2) = RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
       }
     }
   }
@@ -81,7 +81,7 @@ char __thiscall RtlpActivateLowFragmentationHeap(int this)
     v4 = 13;
   }
   if ( v8 )
-    LOBYTE(v2) = RtlLeaveCriticalSection(*(_DWORD *)(this + 200));
+    LOBYTE(v2) = RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
   if ( v7 )
   {
     --*(_WORD *)(this + 232);

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfThunkAddTargetNotify @ 0x140C43FA0
+ * XREFs of VfThunkAddTargetNotify @ 0x140C49FB0
  * Callers:
- *     VfTargetDriversAdd @ 0x1403B7B18 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1403C1A18 (VfTargetDriversAdd.c)
  * Callees:
- *     ViThunkFreeSharedThunksArray @ 0x140C4404C (ViThunkFreeSharedThunksArray.c)
- *     ViThunkCreateSharedExportInformation @ 0x140C4407C (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkFreeSharedThunksArray @ 0x140C4A05C (ViThunkFreeSharedThunksArray.c)
+ *     ViThunkCreateSharedExportInformation @ 0x140C4A08C (ViThunkCreateSharedExportInformation.c)
  */
 
 __int64 __fastcall VfThunkAddTargetNotify(_QWORD *a1, __int64 a2, __int64 a3)

@@ -1,111 +1,106 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x140273264
+ * XREFs of MiFreePageFileHashPfns @ 0x140261204
  * Callers:
- *     MiScanPagefiles @ 0x1402732EC (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x14026128C (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x1408D05EC (MiDeletePagefile.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     MiFreePageFileHashPfn @ 0x14055D57C (MiFreePageFileHashPfn.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     MiFreePageFileHashPfn @ 0x14055D7BC (MiFreePageFileHashPfn.c)
  */
 
-unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
+unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int64 v1; // rdi
+  unsigned __int64 v4; // rdi
   unsigned __int64 result; // rax
-  union _SLIST_HEADER **v3; // r15
-  __int64 v4; // rbp
-  union _SLIST_HEADER *v5; // rcx
-  __int64 v6; // r8
-  unsigned __int64 v7; // r14
-  unsigned __int64 v8; // r13
-  unsigned __int64 v9; // r12
+  _SLIST_HEADER **v6; // r15
+  __int64 v7; // rbp
+  _SLIST_HEADER *v8; // rcx
+  unsigned __int64 v9; // r14
+  unsigned __int64 v10; // r13
+  unsigned __int64 v11; // r12
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v13; // zf
-  unsigned __int64 v14; // r8
-  struct _KPRCB *v15; // r9
+  bool v14; // zf
+  unsigned __int64 v15; // r8
+  struct _KPRCB *v16; // r9
   __int64 CachedResidentAvailable; // rdx
 
-  v1 = 0LL;
+  v4 = 0LL;
   result = *(unsigned int *)(a1 + 6936);
   if ( (_DWORD)result )
   {
-    v3 = (union _SLIST_HEADER **)(a1 + 6944);
-    v4 = (unsigned int)result;
+    v6 = (_SLIST_HEADER **)(a1 + 6944);
+    v7 = (unsigned int)result;
     do
     {
-      v5 = *v3 + 5;
-      if ( LOWORD(v5->Alignment) )
+      v8 = *v6 + 5;
+      if ( LOWORD(v8->Alignment) )
       {
-        result = (unsigned __int64)RtlpInterlockedFlushSList(v5);
-        v7 = result;
+        result = (unsigned __int64)RtlpInterlockedFlushSList(v8);
+        v9 = result;
         if ( result )
         {
           do
           {
-            v8 = *(_QWORD *)v7;
-            v9 = (unsigned __int8)MiLockPageInline(
-                                    v7,
-                                    (unsigned __int128)((__int64)(v7 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
-                                    v6);
-            MiFreePageFileHashPfn((__int64)(v7 + 0x58000000000LL) / 48);
-            _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            v10 = *(_QWORD *)v9;
+            v11 = (unsigned __int8)MiLockPageInline(v9);
+            MiFreePageFileHashPfn((__int64)(v9 + 0x58000000000LL) / 48);
+            _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
             result = (unsigned int)KiIrqlFlags;
             if ( KiIrqlFlags )
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
                 CurrentIrql = KeGetCurrentIrql();
-                if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+                if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                  result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-                  v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-                  v6 = (unsigned int)result & SchedulerAssist[5];
-                  SchedulerAssist[5] = v6;
-                  if ( v13 )
+                  result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+                  v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+                  a3 = (unsigned int)result & SchedulerAssist[5];
+                  SchedulerAssist[5] = a3;
+                  if ( v14 )
                     result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
                 }
               }
             }
-            __writecr8(v9);
-            ++v1;
-            v7 = v8;
+            __writecr8(v11);
+            ++v4;
+            v9 = v10;
           }
-          while ( v8 );
+          while ( v10 );
         }
       }
-      ++v3;
-      --v4;
+      ++v6;
+      --v7;
     }
-    while ( v4 );
-    if ( v1 )
+    while ( v7 );
+    if ( v4 )
     {
-      MiReturnCommit(a1, v1);
+      MiReturnCommit(a1, v4, a3, SchedulerAssist);
       result = (unsigned __int64)&MiSystemPartition;
-      v14 = v1;
+      v15 = v4;
       if ( (ULONG_PTR *)a1 == &MiSystemPartition )
       {
-        v15 = KeGetCurrentPrcb();
-        CachedResidentAvailable = (int)v15->CachedResidentAvailable;
+        v16 = KeGetCurrentPrcb();
+        CachedResidentAvailable = (int)v16->CachedResidentAvailable;
         if ( (_DWORD)CachedResidentAvailable != -1 )
         {
-          for ( ; v1 + CachedResidentAvailable <= 0x100; result = v1 + (int)result )
+          for ( ; v4 + CachedResidentAvailable <= 0x100; result = v4 + (int)result )
           {
-            if ( v1 >= 0x80000 )
+            if ( v4 >= 0x80000 )
               break;
             result = (unsigned int)_InterlockedCompareExchange(
-                                     (volatile signed __int32 *)&v15->CachedResidentAvailable,
-                                     CachedResidentAvailable + v1,
+                                     (volatile signed __int32 *)&v16->CachedResidentAvailable,
+                                     CachedResidentAvailable + v4,
                                      CachedResidentAvailable);
-            v13 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
+            v14 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
             CachedResidentAvailable = (int)result;
-            if ( v13 )
+            if ( v14 )
               goto LABEL_29;
             if ( (_DWORD)result == -1 )
               break;
@@ -113,21 +108,21 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
           if ( (int)CachedResidentAvailable > 192 )
           {
             result = (unsigned int)_InterlockedCompareExchange(
-                                     (volatile signed __int32 *)&v15->CachedResidentAvailable,
+                                     (volatile signed __int32 *)&v16->CachedResidentAvailable,
                                      192,
                                      CachedResidentAvailable);
             if ( (_DWORD)CachedResidentAvailable == (_DWORD)result )
             {
               result = (unsigned int)(CachedResidentAvailable - 192);
-              v14 = v1 + (int)result;
+              v15 = v4 + (int)result;
             }
           }
         }
       }
-      if ( v14 )
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v14);
+      if ( v15 )
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v15);
 LABEL_29:
-      _InterlockedExchangeAdd64(&qword_140C4F828, -(__int64)v1);
+      _InterlockedExchangeAdd64(&qword_140C4F868, -(__int64)v4);
     }
   }
   return result;

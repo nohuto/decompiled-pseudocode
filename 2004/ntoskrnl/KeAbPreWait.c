@@ -29,7 +29,7 @@ char __fastcall KeAbPreWait(__int64 a1)
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree(a1);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1);
   *(_BYTE *)(a1 + 25) |= 1u;
   result = *(_BYTE *)(a1 + 32) & 0xFD;
   *(_BYTE *)(a1 + 32) = result;

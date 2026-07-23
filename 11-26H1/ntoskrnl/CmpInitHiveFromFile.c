@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpInitHiveFromFile @ 0x1408B48B4
+ * XREFs of CmpInitHiveFromFile @ 0x1408BAE88
  * Callers:
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpCmdHiveOpen @ 0x1408B4674 (CmpCmdHiveOpen.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpCmdHiveOpen @ 0x1408BAC48 (CmpCmdHiveOpen.c)
  * Callees:
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiAllocateMemory @ 0x1404BE3D8 (CmSiAllocateMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     CmpOpenHiveFiles @ 0x1408B4E2C (CmpOpenHiveFiles.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpLogEvent @ 0x1408B67A4 (CmpLogEvent.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140C58CD4 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140C58F14 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpIsHiveLoadUnloadRundownActive @ 0x140C58FB8 (CmpIsHiveLoadUnloadRundownActive.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiAllocateMemory @ 0x1404B7C28 (CmSiAllocateMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     CmpOpenHiveFiles @ 0x1408BB400 (CmpOpenHiveFiles.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpLogEvent @ 0x1408BCD78 (CmpLogEvent.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140C5ECD4 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140C5EF14 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140C5EFB8 (CmpIsHiveLoadUnloadRundownActive.c)
  */
 
 __int64 __fastcall CmpInitHiveFromFile(
@@ -65,7 +65,7 @@ __int64 __fastcall CmpInitHiveFromFile(
   __int64 v39; // [rsp+110h] [rbp+10h]
   struct _KAPC_STATE ApcState; // [rsp+118h] [rbp+18h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+150h] [rbp+50h] BYREF
-  int *v42; // [rsp+160h] [rbp+60h]
+  char *v42; // [rsp+160h] [rbp+60h]
   int v43; // [rsp+168h] [rbp+68h]
   int v44; // [rsp+16Ch] [rbp+6Ch]
   __int64 *v45; // [rsp+170h] [rbp+70h]
@@ -101,7 +101,7 @@ __int64 __fastcall CmpInitHiveFromFile(
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 8LL;
     UserData.Size = *(unsigned __int16 *)off_140E09EF0;
-    v42 = &dword_1400570F4;
+    v42 = byte_140058111;
     UserData.Reserved = 2;
     v43 = 31;
     v44 = 1;
@@ -237,7 +237,7 @@ LABEL_9:
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 8LL;
     UserData.Size = *(unsigned __int16 *)off_140E09EF0;
-    v42 = (int *)&byte_14005711F;
+    v42 = &byte_1400580E7;
     UserData.Reserved = 2;
     v43 = 30;
     v44 = 1;

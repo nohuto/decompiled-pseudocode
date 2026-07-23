@@ -9,12 +9,12 @@
  *     RtlpInterlockedPushEntrySList @ 0x1406A8600 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall PfTFullEventListAdd(__int64 a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall PfTFullEventListAdd(__int64 a1, _SLIST_ENTRY *a2)
 {
-  union _SLIST_HEADER *v2; // rbx
+  _SLIST_HEADER *v2; // rbx
   PSLIST_ENTRY result; // rax
 
-  v2 = (union _SLIST_HEADER *)(a1 + 544);
+  v2 = (_SLIST_HEADER *)(a1 + 544);
   RtlpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 544), a2);
   while ( 1 )
   {

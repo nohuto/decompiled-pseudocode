@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkSessionMasterProcess @ 0x1401708B0
+ * XREFs of MiMarkSessionMasterProcess @ 0x1401709B0
  * Callers:
- *     MiSessionCreateInternal @ 0x140715C68 (MiSessionCreateInternal.c)
+ *     MiSessionCreateInternal @ 0x140716F08 (MiSessionCreateInternal.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSessionAddProcess @ 0x1406D0D04 (MiSessionAddProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSessionAddProcess @ 0x1406D1FA4 (MiSessionAddProcess.c)
  */
 
 __int64 __fastcall MiMarkSessionMasterProcess(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiMarkSessionMasterProcess(__int64 a1, __int64 a2)
   int v11; // [rsp+50h] [rbp+8h]
 
   MiSessionAddProcess();
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   v4 = a2 + 16;
   v11 = *(_DWORD *)(a1 + 1464);
   BYTE1(v11) |= 1u;

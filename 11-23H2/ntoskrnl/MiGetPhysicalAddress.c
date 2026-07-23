@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetPhysicalAddress @ 0x14028BF20
+ * XREFs of MiGetPhysicalAddress @ 0x14028C1B0
  * Callers:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     RtlMarkHiberPhase @ 0x1405B474C (RtlMarkHiberPhase.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     RtlMarkHiberPhase @ 0x1405B4CBC (RtlMarkHiberPhase.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiQueuePinDriverAddressLog @ 0x1402959BC (MiQueuePinDriverAddressLog.c)
- *     MiVaToPfnEx @ 0x14038A270 (MiVaToPfnEx.c)
- *     MiSetNonPagedPoolNoSteal @ 0x1406418A8 (MiSetNonPagedPoolNoSteal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiQueuePinDriverAddressLog @ 0x140295C4C (MiQueuePinDriverAddressLog.c)
+ *     MiVaToPfnEx @ 0x14038A450 (MiVaToPfnEx.c)
+ *     MiSetNonPagedPoolNoSteal @ 0x140641DF8 (MiSetNonPagedPoolNoSteal.c)
  */
 
 __int64 __fastcall MiGetPhysicalAddress(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)

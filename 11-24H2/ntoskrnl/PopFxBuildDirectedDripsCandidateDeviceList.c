@@ -1,23 +1,23 @@
 /*
- * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x14048DAD8
+ * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x140488370
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140A401F4 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140A35AD4 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     PopFxReferenceDevice @ 0x14029F788 (PopFxReferenceDevice.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopFxReferenceDevice @ 0x1403AA248 (PopFxReferenceDevice.c)
  */
 
 __int64 __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v5; // rdi
+  char *v6; // rax
+  char *v7; // rdi
   ULONG_PTR i; // rdi
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
@@ -26,20 +26,20 @@ __int64 __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
   *a1 = a1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&PopFxBlockingDeviceListLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&PopFxBlockingDeviceListLock, (__int64)v3, (__int64)&PopFxBlockingDeviceListLock);
+    ExfAcquirePushLockExclusiveEx(&PopFxBlockingDeviceListLock, v3, (__int64)&PopFxBlockingDeviceListLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
-  v6 = KeAbPreAcquire((__int64)&PopFxDeviceListLock, 0LL);
+    v5[10] = 1;
+  v6 = (char *)KeAbPreAcquire((__int64)&PopFxDeviceListLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&PopFxDeviceListLock, 0LL);
   v7 = v6;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&PopFxDeviceListLock, (__int64)v6, (__int64)&PopFxDeviceListLock);
+    ExfAcquirePushLockExclusiveEx(&PopFxDeviceListLock, v6, (__int64)&PopFxDeviceListLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   for ( i = PopFxDeviceList; (ULONG_PTR *)i != &PopFxDeviceList; i = *(_QWORD *)i )
   {
     if ( (_InterlockedCompareExchange((volatile signed __int32 *)(i + 864), 0, 0) & 0x40) != 0 )

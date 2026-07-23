@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueueApcThread @ 0x1401B8A30
+ * XREFs of ZwQueueApcThread @ 0x1401B8B90
  * Callers:
  *     <none>
  * Callees:
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwQueueApcThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, ApcRoutine, NormalContext);
+  return KiServiceInternal(ThreadHandle);
 }

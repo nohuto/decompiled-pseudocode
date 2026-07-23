@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPushPopSegment @ 0x1403C4060
+ * XREFs of XmPushPopSegment @ 0x1403C4490
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403970E8 (XmSetDestinationValue.c)
  */
 
 __int64 __fastcall XmPushPopSegment(__int64 a1)

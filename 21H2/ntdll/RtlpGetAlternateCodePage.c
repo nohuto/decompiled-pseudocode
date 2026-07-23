@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpGetAlternateCodePage @ 0x1800FD11C
+ * XREFs of RtlpGetAlternateCodePage @ 0x1800FD0DC
  * Callers:
  *     RtlpConsoleFallbackNameFromLocaleName @ 0x18003D0E0 (RtlpConsoleFallbackNameFromLocaleName.c)
  * Callees:

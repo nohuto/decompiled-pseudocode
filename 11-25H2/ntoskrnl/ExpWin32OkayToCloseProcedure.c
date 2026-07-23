@@ -14,7 +14,7 @@ bool __fastcall ExpWin32OkayToCloseProcedure(unsigned __int64 a1, int *a2, unsig
   unsigned __int64 v5; // r11
   POBJECT_TYPE *v6; // rax
   int v7; // r10d
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v9; // r10
   __int128 v11; // [rsp+30h] [rbp-30h] BYREF
   __int128 v12; // [rsp+40h] [rbp-20h]

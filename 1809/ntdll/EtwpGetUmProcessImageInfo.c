@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpCheckForPrivatePreEnable @ 0x180020EE0 (EtwpCheckForPrivatePreEnable.c)
  *     EtwpUpdateEnableInfoAndCallback @ 0x180021104 (EtwpUpdateEnableInfoAndCallback.c)
- *     EtwpTrackRegBinaryInfo @ 0x18008D3B8 (EtwpTrackRegBinaryInfo.c)
+ *     EtwpTrackRegBinaryInfo @ 0x18008D3C8 (EtwpTrackRegBinaryInfo.c)
  * Callees:
  *     EtwpDemuxUmTraceHandle @ 0x18010F274 (EtwpDemuxUmTraceHandle.c)
  *     EtwpProviderArrivalCallback @ 0x18010FE08 (EtwpProviderArrivalCallback.c)

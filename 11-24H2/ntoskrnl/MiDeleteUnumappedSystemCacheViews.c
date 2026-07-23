@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteUnumappedSystemCacheViews @ 0x140676A90
+ * XREFs of MiDeleteUnumappedSystemCacheViews @ 0x140677C60
  * Callers:
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402D24DC (MiReturnSystemCacheRegionsToKva.c)
- *     MiRebalanceSystemCacheFreedViews @ 0x1402D4480 (MiRebalanceSystemCacheFreedViews.c)
- *     MiIssueFlushTbEntire @ 0x1403AFDC8 (MiIssueFlushTbEntire.c)
- *     MiGetSystemCacheRegionsToFree @ 0x14047F2F4 (MiGetSystemCacheRegionsToFree.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x140353754 (MiReturnSystemCacheRegionsToKva.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x140355700 (MiRebalanceSystemCacheFreedViews.c)
+ *     MiIssueFlushTbEntire @ 0x14039E5D8 (MiIssueFlushTbEntire.c)
+ *     MiGetSystemCacheRegionsToFree @ 0x14047A114 (MiGetSystemCacheRegionsToFree.c)
  */
 
 void __fastcall MiDeleteUnumappedSystemCacheViews(__int64 a1)
@@ -17,13 +17,15 @@ void __fastcall MiDeleteUnumappedSystemCacheViews(__int64 a1)
   __int64 v3; // r8
   int v4; // ecx
   _QWORD *v5; // rdx
-  signed __int32 v6[8]; // [rsp+0h] [rbp-38h] BYREF
-  _QWORD *v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v6; // r8
+  __int64 v7; // r9
+  signed __int32 v8[8]; // [rsp+0h] [rbp-38h] BYREF
+  _QWORD *v9[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v7[1] = v7;
-  v7[0] = v7;
-  v2 = ExAcquireSpinLockExclusive(&dword_140E2F2B8);
-  _InterlockedOr(v6, 0);
+  v9[1] = v9;
+  v9[0] = v9;
+  v2 = ExAcquireSpinLockExclusive(&dword_140E2F3F8);
+  _InterlockedOr(v8, 0);
   MiRebalanceSystemCacheFreedViews(a1, KiTbFlushTimeStamp, 0);
   v4 = 0;
   v5 = (_QWORD *)(a1 + 2176);
@@ -40,8 +42,8 @@ void __fastcall MiDeleteUnumappedSystemCacheViews(__int64 a1)
   MiIssueFlushTbEntire(2LL, 2LL, v3);
   MiRebalanceSystemCacheFreedViews(a1, 0, 1);
 LABEL_6:
-  MiGetSystemCacheRegionsToFree(a1, v7);
-  MiReleaseSpinLockExclusive(&dword_140E2F2B8, v2);
-  if ( v7[0] != v7 )
-    MiReturnSystemCacheRegionsToKva(a1, v7);
+  MiGetSystemCacheRegionsToFree(a1, v9);
+  MiReleaseSpinLockExclusive(&dword_140E2F3F8, v2);
+  if ( v9[0] != v9 )
+    MiReturnSystemCacheRegionsToKva(a1, v9, v6, v7);
 }

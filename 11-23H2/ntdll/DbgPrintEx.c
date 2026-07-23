@@ -37,16 +37,16 @@
  *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800EBB44 (RtlpGetAssemblyStorageMapRootLocation.c)
  *     RtlpNotOwnerCriticalSection @ 0x1800F4D50 (RtlpNotOwnerCriticalSection.c)
  *     RtlAssert @ 0x1800F9FE0 (RtlAssert.c)
- *     RtlReportCriticalFailure @ 0x18010D62C (RtlReportCriticalFailure.c)
- *     RtlUnhandledExceptionFilter2 @ 0x18010EB60 (RtlUnhandledExceptionFilter2.c)
+ *     RtlReportCriticalFailure @ 0x18010D5FC (RtlReportCriticalFailure.c)
+ *     RtlUnhandledExceptionFilter2 @ 0x18010EB30 (RtlUnhandledExceptionFilter2.c)
  * Callees:
  *     vDbgPrintExWithPrefixInternal @ 0x180053958 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrintEx(int a1, int a2, const char *a3, ...)
+ULONG DbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format, ...)
 {
   va_list va; // [rsp+58h] [rbp+20h] BYREF
 
-  va_start(va, a3);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_180138CCA, a1, a2, (_DWORD)a3, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, ComponentId, Level, Format, (__int64 *)va, 1);
 }

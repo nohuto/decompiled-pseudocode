@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x14037AE10
+ * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x14037AFB0
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A2AC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x14037A44C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpIsHvPresent @ 0x140377F7C (HalpIsHvPresent.c)
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
+ *     HalpIsHvPresent @ 0x14037811C (HalpIsHvPresent.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
  */
 
 __int64 HalpTimerFindIdealPerformanceCounterSource()

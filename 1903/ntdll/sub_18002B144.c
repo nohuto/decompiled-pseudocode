@@ -11,14 +11,14 @@
  *     sub_1800F8AB8 @ 0x1800F8AB8 (sub_1800F8AB8.c)
  */
 
-__int64 __fastcall sub_18002B144(
+NTSTATUS __fastcall sub_18002B144(
         int a1,
-        wchar_t *a2,
+        WCHAR *a2,
         __int64 a3,
         void *a4,
-        int *a5,
+        LONG *a5,
         char a6,
-        wchar_t *String1,
+        PWSTR DestinationString,
         char a8,
         void *Src,
         char a10)
@@ -26,57 +26,57 @@ __int64 __fastcall sub_18002B144(
   __int16 v10; // r11
   void *v11; // r15
   int v12; // edi
-  int *v14; // rsi
+  LONG *v14; // rsi
   int v15; // ebp
   char v16; // r13
   char v17; // dl
   char v18; // r12
   char v19; // al
   __int64 v20; // r8
-  int v21; // r10d
-  int v22; // ebx
-  wchar_t *v23; // rdx
-  __int64 result; // rax
-  wchar_t *v25; // r13
-  int v26; // ecx
-  int v27; // r9d
+  LONG v21; // r10d
+  LONG v22; // ebx
+  WCHAR *v23; // rdx
+  NTSTATUS result; // eax
+  WCHAR *v25; // r13
+  LONG v26; // ecx
+  WCHAR *v27; // r9
   int v28; // eax
   bool v29; // zf
-  wchar_t v30; // dx
-  wchar_t v31; // cx
+  WCHAR v30; // dx
+  WCHAR v31; // cx
   _WORD *v32; // r14
-  int v33; // edi
-  int v34; // eax
-  int v35; // r11d
+  LONG v33; // edi
+  LONG v34; // eax
+  LONG v35; // r11d
   bool v36; // zf
   bool v37; // cc
   __int64 v38; // rax
   __int64 v39; // [rsp+30h] [rbp-38h] BYREF
   int v40; // [rsp+38h] [rbp-30h]
-  int v41; // [rsp+78h] [rbp+10h] BYREF
+  LONG DestinationStringLength; // [rsp+78h] [rbp+10h] BYREF
 
   v10 = 0;
   v11 = a4;
   v12 = a3;
   if ( !a2 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (int)a3 < -1 )
-    return 3221225485LL;
+    return -1073741811;
   v14 = a5;
   if ( !a5 )
-    return 3221225485LL;
+    return -1073741811;
   v15 = *a5;
   if ( *a5 < 0 || v15 > 0 && !a4 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (a1 & 0xFFFFFFF8) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   a8 = 0;
   v16 = 0;
   v40 = a1 & 1;
-  v41 = a1 & 4;
-  v17 = v41 != 0;
+  DestinationStringLength = a1 & 4;
+  v17 = DestinationStringLength != 0;
   v18 = (a1 & 2) != 0;
-  a10 = v41 != 0;
+  a10 = DestinationStringLength != 0;
   if ( (_DWORD)a3 == -1 )
   {
     if ( (int)sub_180016C58(a2, 0x7FFFFFFFuLL, &v39) >= 0 )
@@ -85,7 +85,7 @@ __int64 __fastcall sub_18002B144(
       v12 = v39 + 1;
       goto LABEL_9;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
 LABEL_9:
   if ( v12 > 0 && a2[v12 - 1] == v10 )
@@ -100,47 +100,47 @@ LABEL_9:
   v21 = 0;
   if ( !v19 )
   {
-    v25 = String1;
+    v25 = DestinationString;
     v26 = 511;
-    v27 = (int)String1;
+    v27 = DestinationString;
     v28 = 0;
     v22 = 0;
-    if ( !v41 )
+    if ( !DestinationStringLength )
       goto LABEL_26;
-    v34 = sub_1800F8AB8(a2, (unsigned int)v12, v20, String1);
+    v34 = sub_1800F8AB8(a2, (unsigned int)v12, v20, DestinationString);
     LODWORD(v39) = v34;
     if ( !v34 )
       goto LABEL_30;
-    v41 = v35;
-    result = RtlNormalizeString(1, (_DWORD)a2, v34, (_DWORD)v25, (__int64)&v41);
-    v22 = v41;
+    DestinationStringLength = v35;
+    result = RtlNormalizeString(1u, a2, v34, v25, &DestinationStringLength);
+    v22 = DestinationStringLength;
     v21 = 0;
-    v36 = (_DWORD)result == 0;
-    if ( (int)result >= 0 )
+    v36 = result == 0;
+    if ( result >= 0 )
     {
-      if ( v41 )
+      if ( DestinationStringLength )
       {
         v28 = v39;
-        v27 = (_DWORD)v25 + 2 * v41;
-        v26 = 511 - v41;
+        v27 = &v25[DestinationStringLength];
+        v26 = 511 - DestinationStringLength;
 LABEL_26:
         if ( v28 < v12 )
         {
-          v41 = v26;
+          DestinationStringLength = v26;
           result = RtlNormalizeString(
-                     (((unsigned __int8)v40 ^ 1u) << 8) + 13,
-                     (int)a2 + 2 * v28,
+                     (((unsigned __int8)v40 ^ 1) << 8) + 13,
+                     &a2[v28],
                      v12 - v28,
                      v27,
-                     (__int64)&v41);
+                     &DestinationStringLength);
           v21 = 0;
-          v29 = (_DWORD)result == 0;
-          if ( (int)result < 0 )
+          v29 = result == 0;
+          if ( result < 0 )
           {
 LABEL_28:
-            if ( !v29 && (_DWORD)result != -1073740009 && (_DWORD)result != -1073741789 )
+            if ( !v29 && result != -1073740009 && result != -1073741789 )
             {
-              v37 = v41 <= 0;
+              v37 = DestinationStringLength <= 0;
 LABEL_51:
               if ( v37 )
                 goto LABEL_31;
@@ -148,12 +148,12 @@ LABEL_51:
             }
             goto LABEL_30;
           }
-          if ( !v41 )
+          if ( !DestinationStringLength )
           {
-            v29 = (_DWORD)result == 0;
+            v29 = result == 0;
             goto LABEL_28;
           }
-          v22 += v41;
+          v22 += DestinationStringLength;
         }
         if ( v22 > 0 )
         {
@@ -168,11 +168,11 @@ LABEL_51:
             goto LABEL_30;
         }
         v32 = Src;
-        v41 = 515;
+        DestinationStringLength = 515;
         result = sub_1800808C0(v25, a10, v18);
-        v33 = v41;
+        v33 = DestinationStringLength;
         v21 = 0;
-        if ( !v41 )
+        if ( !DestinationStringLength )
           goto LABEL_31;
         if ( !a6 )
         {
@@ -194,9 +194,9 @@ LABEL_51:
         }
         if ( a8 )
         {
-          if ( v41 >= 515 )
+          if ( DestinationStringLength >= 515 )
             goto LABEL_30;
-          v32[v41] = 0;
+          v32[DestinationStringLength] = 0;
           ++v33;
         }
         if ( v11 && v15 )
@@ -204,23 +204,23 @@ LABEL_51:
           if ( v33 > v15 )
           {
 LABEL_76:
-            result = 3221225507LL;
+            result = -1073741789;
             goto LABEL_31;
           }
           memmove(v11, v32, 2LL * v33);
         }
         *v14 = v33;
-        return 0LL;
+        return 0;
       }
-      v36 = (_DWORD)result == 0;
+      v36 = result == 0;
     }
-    if ( !v36 && (_DWORD)result != -1073741789 && (_DWORD)result != -1073740009 )
+    if ( !v36 && result != -1073741789 && result != -1073740009 )
     {
-      v37 = v41 <= 0;
+      v37 = DestinationStringLength <= 0;
       goto LABEL_51;
     }
 LABEL_30:
-    result = 3221227286LL;
+    result = -1073740010;
 LABEL_31:
     *v14 = v21;
     return result;
@@ -239,9 +239,9 @@ LABEL_20:
       memmove(v11, v23, 2LL * v22);
 LABEL_21:
       *v14 = v22;
-      return 0LL;
+      return 0;
     }
     goto LABEL_76;
   }
-  return 3221227286LL;
+  return -1073740010;
 }

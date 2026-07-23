@@ -10,32 +10,37 @@
  *     LdrpLogDbgPrint @ 0x1800D0E14 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpDoPostSnapWork(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall LdrpDoPostSnapWork(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rdx
+  PVOID *v3; // rdx
   int v5; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v7; // rax
   __int64 v8; // rcx
   char v9; // al
-  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v10; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a1 + 104;
+  v3 = (PVOID *)(a1 + 104);
   v5 = 0;
   if ( !*(_QWORD *)(a1 + 104)
-    || (result = ZwProtectVirtualMemory(-1LL, v3, a1 + 112, *(unsigned int *)(a1 + 136), &v10),
+    || (result = ZwProtectVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   v3,
+                   (PSIZE_T)(a1 + 112),
+                   *(_DWORD *)(a1 + 136),
+                   &v10),
         v5 = result,
-        (int)result >= 0) )
+        result >= 0) )
   {
     v7 = *(_QWORD **)(a1 + 152);
     if ( v7 && *v7 != *(_QWORD *)(a1 + 144) )
       __fastfail(0x13u);
     v8 = *(_QWORD *)(a1 + 56);
-    if ( *(_WORD *)(v8 + 110) || (result = LdrpHandleTlsData(), v5 = result, (int)result >= 0) )
+    if ( *(_WORD *)(v8 + 110) || (result = LdrpHandleTlsData(), v5 = result, result >= 0) )
     {
       if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(v8, v3, a3) )
       {
-        v5 = LdrpUnsuppressAddressTakenIat(*(_QWORD *)(*(_QWORD *)(a1 + 56) + 48LL), 0, 0);
+        v5 = LdrpUnsuppressAddressTakenIat(*(char **)(*(_QWORD *)(a1 + 56) + 48LL), 0, 0);
         if ( v5 < 0 )
         {
           v9 = LdrpDebugFlags;
@@ -56,7 +61,7 @@ __int64 __fastcall LdrpDoPostSnapWork(__int64 a1, __int64 a2, __int64 a3)
             __debugbreak();
         }
       }
-      return (unsigned int)v5;
+      return v5;
     }
   }
   return result;

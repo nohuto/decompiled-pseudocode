@@ -1,34 +1,34 @@
 /*
  * XREFs of RtlCreateUnicodeString @ 0x14066A0F0
  * Callers:
- *     DifRtlCreateUnicodeStringWrapper @ 0x14061B060 (DifRtlCreateUnicodeStringWrapper.c)
+ *     sub_14061B060 @ 0x14061B060 (sub_14061B060.c)
  *     RtlConvertSidToUnicodeString @ 0x140669DD0 (RtlConvertSidToUnicodeString.c)
- *     PiDevCfgResolveVariable @ 0x14069A1F8 (PiDevCfgResolveVariable.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     EtwpCaptureString @ 0x1406EF170 (EtwpCaptureString.c)
- *     PipGenerateContainerID @ 0x1407452A0 (PipGenerateContainerID.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1407459F4 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgQueryDriverNode @ 0x140746270 (PiDevCfgQueryDriverNode.c)
- *     EtwpRealtimeCreateLogfile @ 0x14079AADC (EtwpRealtimeCreateLogfile.c)
- *     EtwpQueryRegistryCallback @ 0x1408166C0 (EtwpQueryRegistryCallback.c)
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14081D0F0 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x1408264C0 (PiDrvDbResolveNodeFilePaths.c)
- *     PiDrvDbCreateNode @ 0x1408268AC (PiDrvDbCreateNode.c)
- *     DrvDbCreateDatabaseNode @ 0x1408274C4 (DrvDbCreateDatabaseNode.c)
- *     _PnpCtxCreateNode @ 0x140827AA8 (_PnpCtxCreateNode.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
- *     PiGetDefaultMessageString @ 0x1408523B4 (PiGetDefaultMessageString.c)
- *     CmpCreateHwProfileFriendlyName @ 0x14091E3D0 (CmpCreateHwProfileFriendlyName.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x14094CBE0 (PiDevCfgQueryDeviceMigrationNode.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14094CFE8 (PiDevCfgQueryIncludedDriverNode.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14095A750 (PiCreateDriverSwDeviceCallback.c)
- *     AslPathWildcardFindFirst @ 0x140A15ECC (AslPathWildcardFindFirst.c)
- *     PipInitDeviceOverrideCache @ 0x140B107D8 (PipInitDeviceOverrideCache.c)
- *     CmpOpenSystemDriverHiveContext @ 0x140B12AF0 (CmpOpenSystemDriverHiveContext.c)
+ *     sub_14069A1F8 @ 0x14069A1F8 (sub_14069A1F8.c)
+ *     sub_1406EE2AC @ 0x1406EE2AC (sub_1406EE2AC.c)
+ *     sub_1406EF170 @ 0x1406EF170 (sub_1406EF170.c)
+ *     sub_1407452A0 @ 0x1407452A0 (sub_1407452A0.c)
+ *     sub_1407459F4 @ 0x1407459F4 (sub_1407459F4.c)
+ *     sub_140746270 @ 0x140746270 (sub_140746270.c)
+ *     sub_14079AADC @ 0x14079AADC (sub_14079AADC.c)
+ *     sub_1408166C0 @ 0x1408166C0 (sub_1408166C0.c)
+ *     sub_140817CD8 @ 0x140817CD8 (sub_140817CD8.c)
+ *     sub_14081D0F0 @ 0x14081D0F0 (sub_14081D0F0.c)
+ *     sub_1408264C0 @ 0x1408264C0 (sub_1408264C0.c)
+ *     sub_1408268AC @ 0x1408268AC (sub_1408268AC.c)
+ *     sub_1408274C4 @ 0x1408274C4 (sub_1408274C4.c)
+ *     sub_140827AA8 @ 0x140827AA8 (sub_140827AA8.c)
+ *     sub_14082848C @ 0x14082848C (sub_14082848C.c)
+ *     sub_1408523B4 @ 0x1408523B4 (sub_1408523B4.c)
+ *     sub_14091E3D0 @ 0x14091E3D0 (sub_14091E3D0.c)
+ *     sub_14094CBE0 @ 0x14094CBE0 (sub_14094CBE0.c)
+ *     sub_14094CFE8 @ 0x14094CFE8 (sub_14094CFE8.c)
+ *     sub_14095A750 @ 0x14095A750 (sub_14095A750.c)
+ *     sub_140A15ECC @ 0x140A15ECC (sub_140A15ECC.c)
+ *     sub_140B107D8 @ 0x140B107D8 (sub_140B107D8.c)
+ *     sub_140B12AF0 @ 0x140B12AF0 (sub_140B12AF0.c)
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
+ *     sub_1406BE560 @ 0x1406BE560 (sub_1406BE560.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -36,7 +36,7 @@ BOOLEAN __stdcall RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWS
 {
   __int64 v4; // rax
   unsigned int v5; // esi
-  wchar_t *StringRoutine; // rax
+  wchar_t *v6; // rax
 
   v4 = -1LL;
   do
@@ -45,12 +45,12 @@ BOOLEAN __stdcall RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWS
   v5 = 2 * v4 + 2;
   if ( (unsigned int)(2 * v4 + 1) > 0xFFFD )
     return 0;
-  StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v5);
-  DestinationString->Buffer = StringRoutine;
-  if ( !StringRoutine )
+  v6 = (wchar_t *)sub_1406BE560(v5);
+  DestinationString->Buffer = v6;
+  if ( !v6 )
     return 0;
   DestinationString->MaximumLength = v5;
-  memmove(StringRoutine, SourceString, v5);
+  memmove(v6, SourceString, v5);
   DestinationString->Length = v5 - 2;
   return 1;
 }

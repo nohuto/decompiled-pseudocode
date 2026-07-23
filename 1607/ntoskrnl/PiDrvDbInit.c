@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDrvDbInit @ 0x140551A0C
+ * XREFs of PiDrvDbInit @ 0x140551F4C
  * Callers:
- *     PiPnpRtlInit @ 0x1405518D0 (PiPnpRtlInit.c)
- *     PnpBootPhaseComplete @ 0x140580834 (PnpBootPhaseComplete.c)
+ *     PiPnpRtlInit @ 0x140551E10 (PiPnpRtlInit.c)
+ *     PnpBootPhaseComplete @ 0x140580CE0 (PnpBootPhaseComplete.c)
  * Callees:
- *     PiDrvDbRegisterNode @ 0x140551AE8 (PiDrvDbRegisterNode.c)
- *     DrvDbSuspendDatabase @ 0x140551DF8 (DrvDbSuspendDatabase.c)
- *     DrvDbOpenContext @ 0x140578960 (DrvDbOpenContext.c)
+ *     PiDrvDbRegisterNode @ 0x140552028 (PiDrvDbRegisterNode.c)
+ *     DrvDbSuspendDatabase @ 0x140552338 (DrvDbSuspendDatabase.c)
+ *     DrvDbOpenContext @ 0x140578EA0 (DrvDbOpenContext.c)
  */
 
 __int64 __fastcall PiDrvDbInit(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall PiDrvDbInit(__int64 a1)
   }
   else
   {
-    qword_14031E128 = (__int64)&PiDrvDbNodeList;
+    qword_14031E168 = (__int64)&PiDrvDbNodeList;
     PiDrvDbNodeList = (__int64)&PiDrvDbNodeList;
     v1 = DrvDbOpenContext(a1, 0LL);
     if ( v1 >= 0 )

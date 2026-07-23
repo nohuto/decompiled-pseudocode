@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x140729FF0
+ * XREFs of CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x14072A4A0
  * Callers:
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140729FB4 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14072A464 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1405F8E58 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorBeginForKeyNodeStack(__int64 a1, __int16 *a2)

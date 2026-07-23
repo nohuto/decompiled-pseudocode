@@ -3,7 +3,7 @@
  * Callers:
  *     SeAuditHardLinkCreation @ 0x1409C76E0 (SeAuditHardLinkCreation.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
+ *     sub_1403CD84C @ 0x1403CD84C (sub_1403CD84C.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
@@ -59,10 +59,10 @@ void __stdcall SeAuditHardLinkCreationWithTransaction(
   Src[26] = v8;
   LODWORD(Src[1]) = 6;
   HIDWORD(Src[3]) = 4 * (_DWORD)v11 + 8;
-  Src[10] = &SeSubsystemName;
+  Src[10] = &qword_140001B08;
   Src[12] = PrimaryToken[3];
   HIDWORD(Src[15]) = FileName->Length + 16;
   HIDWORD(Src[19]) = LinkName->Length + 16;
-  SepAdtLogAuditRecord(Src);
+  sub_1403CD84C(Src);
   SeReleaseSubjectContext(&SubjectContext);
 }

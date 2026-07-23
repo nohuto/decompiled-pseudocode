@@ -1,31 +1,31 @@
 /*
- * XREFs of CcSetFileSizesEx @ 0x1404A6800
+ * XREFs of CcSetFileSizesEx @ 0x1404A10D0
  * Callers:
- *     CcSetFileSizes @ 0x1404A67E0 (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x1404A10B0 (CcSetFileSizes.c)
  * Callees:
- *     CcPurgeCacheSection @ 0x14023EF70 (CcPurgeCacheSection.c)
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcDecrementOpenCount @ 0x1402ABDBC (CcDecrementOpenCount.c)
- *     CcDeleteMbcb @ 0x1402CD624 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x1402CE42C (CcDeleteBcbs.c)
- *     CcSetVacbLargeOffset @ 0x1402D5FE0 (CcSetVacbLargeOffset.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     CcExtendVacbArray @ 0x1403F6E60 (CcExtendVacbArray.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1403F8E34 (CcAcquireBcbLockAndVacbLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1403F8EA0 (CcReleaseBcbLockAndVacbLock.c)
- *     CcSetVacbInFreeList @ 0x1403F8F18 (CcSetVacbInFreeList.c)
- *     CcGetVacbLargeOffset @ 0x1403F8FC0 (CcGetVacbLargeOffset.c)
- *     FsRtlIsNtstatusExpected @ 0x140456400 (FsRtlIsNtstatusExpected.c)
- *     CcPurgeAndClearCacheSection @ 0x1404612E4 (CcPurgeAndClearCacheSection.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     CcUnmapVacb @ 0x1408E5FE0 (CcUnmapVacb.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     CcPurgeCacheSection @ 0x1402070C0 (CcPurgeCacheSection.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     CcDecrementOpenCount @ 0x140279504 (CcDecrementOpenCount.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     CcDeleteMbcb @ 0x1402E5278 (CcDeleteMbcb.c)
+ *     CcSetVacbLargeOffset @ 0x140357260 (CcSetVacbLargeOffset.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     CcExtendVacbArray @ 0x1403ED180 (CcExtendVacbArray.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1403EEF44 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1403EEFB0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcSetVacbInFreeList @ 0x1403EF028 (CcSetVacbInFreeList.c)
+ *     CcGetVacbLargeOffset @ 0x1403EF0D0 (CcGetVacbLargeOffset.c)
+ *     FsRtlIsNtstatusExpected @ 0x14044B3D0 (FsRtlIsNtstatusExpected.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404568F4 (CcPurgeAndClearCacheSection.c)
+ *     CcDeleteBcbs @ 0x1404B21D4 (CcDeleteBcbs.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     CcUnmapVacb @ 0x1409DC780 (CcUnmapVacb.c)
  */
 
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)
@@ -43,7 +43,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
   unsigned int v12; // r8d
   __int64 v13; // rcx
   NTSTATUS v14; // eax
-  int v15; // edi
+  NTSTATUS v15; // edi
   NTSTATUS result; // eax
   LARGE_INTEGER v17; // rax
   LARGE_INTEGER v18; // rdi
@@ -99,7 +99,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
   {
     KeReleaseInStackQueuedSpinLock(&v32);
     if ( (FileOffset.LowPart & 0xFFF) == 0
-      || (MmFlushSection((__int64 *)SectionObjectPointer, (__int64 *)&FileOffset, 1LL, 0LL, &v30, 0),
+      || (MmFlushSection((int)SectionObjectPointer, (__int64 *)&FileOffset, 1LL, 0LL, &v30, 0),
           result = v30,
           (int)v30 >= 0) )
     {

@@ -8,43 +8,43 @@
  *     memcmp @ 0x180168C50 (memcmp.c)
  */
 
-__int64 __fastcall EtwpInsertRegistration(unsigned __int64 a1)
+void __fastcall EtwpInsertRegistration(PRTL_BALANCED_NODE Node)
 {
   unsigned __int16 v1; // r14
-  __int64 v3; // rbx
-  bool v4; // r8
+  unsigned __int64 Root; // rbx
+  BOOLEAN v4; // r8
   int v5; // edi
   int v6; // eax
-  __int64 v7; // rax
+  unsigned __int64 v7; // rax
 
-  v1 = *(_WORD *)(a1 + 84);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&EtwpProvLock);
-  v3 = EtwpRegistrationTable;
-  if ( (qword_1801D42C8 & 1) != 0 )
+  v1 = WORD2(Node[3].Right);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = (unsigned __int64)EtwpRegistrationTable.Root;
+  if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 )
   {
-    if ( !EtwpRegistrationTable )
+    if ( !EtwpRegistrationTable.Root )
     {
       v4 = 0;
       goto LABEL_14;
     }
-    v3 = (unsigned __int64)&EtwpRegistrationTable ^ EtwpRegistrationTable;
+    Root = (unsigned __int64)&EtwpRegistrationTable ^ (unsigned __int64)EtwpRegistrationTable.Root;
   }
   v4 = 0;
-  v5 = qword_1801D42C8 & 1;
-  if ( v3 )
+  v5 = *(_BYTE *)&EtwpRegistrationTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      v6 = memcmp((const void *)(a1 + 32), (const void *)(v3 + 32), 0x10uLL);
+      v6 = memcmp(&Node[1].Right, (const void *)(Root + 32), 0x10uLL);
       if ( v6 )
       {
         if ( v6 >= 0 )
           goto LABEL_11;
       }
-      else if ( v1 <= *(_WORD *)(v3 + 84) )
+      else if ( v1 <= *(_WORD *)(Root + 84) )
       {
 LABEL_11:
-        v7 = *(_QWORD *)(v3 + 8);
+        v7 = *(_QWORD *)(Root + 8);
         if ( v5 )
         {
           if ( !v7 )
@@ -53,18 +53,18 @@ LABEL_13:
             v4 = 1;
             break;
           }
-          v7 ^= v3;
+          v7 ^= Root;
         }
         if ( !v7 )
           goto LABEL_13;
         goto LABEL_9;
       }
-      v7 = *(_QWORD *)v3;
+      v7 = *(_QWORD *)Root;
       if ( v5 )
       {
         if ( !v7 )
           goto LABEL_17;
-        v7 ^= v3;
+        v7 ^= Root;
       }
       if ( !v7 )
       {
@@ -73,10 +73,10 @@ LABEL_17:
         break;
       }
 LABEL_9:
-      v3 = v7;
+      Root = v7;
     }
   }
 LABEL_14:
-  RtlRbInsertNodeEx((unsigned __int64)&EtwpRegistrationTable, v3, v4, a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpRegistrationTable, (PRTL_BALANCED_NODE)Root, v4, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

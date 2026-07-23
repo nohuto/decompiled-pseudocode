@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpUpdatePerDeviceMsiLimitInformation @ 0x140A72004
+ * XREFs of HalpUpdatePerDeviceMsiLimitInformation @ 0x140A73004
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x1403CDB2C (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CDC9C (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     HalpIsHvRemappingInterrupts @ 0x1407D1EC4 (HalpIsHvRemappingInterrupts.c)
+ *     HalpIsHvRemappingInterrupts @ 0x1407D2034 (HalpIsHvRemappingInterrupts.c)
  */
 
 __int64 HalpUpdatePerDeviceMsiLimitInformation()

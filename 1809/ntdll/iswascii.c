@@ -1,5 +1,5 @@
 /*
- * XREFs of iswascii @ 0x1800937B0
+ * XREFs of iswascii @ 0x1800937C0
  * Callers:
  *     <none>
  * Callees:

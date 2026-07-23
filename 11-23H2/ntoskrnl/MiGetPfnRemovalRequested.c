@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetPfnRemovalRequested @ 0x14064D8E4
+ * XREFs of MiGetPfnRemovalRequested @ 0x14064DE34
  * Callers:
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
  *     <none>
  */

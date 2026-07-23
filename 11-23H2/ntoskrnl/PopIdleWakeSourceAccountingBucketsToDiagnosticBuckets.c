@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x14099B098
+ * XREFs of PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x14099B298
  * Callers:
- *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099B254 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x14099B454 (PopIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
- *     PpmConvertTimeTo @ 0x1403A7204 (PpmConvertTimeTo.c)
- *     PopIdleWakeConvertIntervalBucketsTo @ 0x14099A348 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PpmConvertTimeTo @ 0x1403A73E4 (PpmConvertTimeTo.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x14099A548 (PopIdleWakeConvertIntervalBucketsTo.c)
  */
 
 void __fastcall PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeToOemN @ 0x1408AEA00
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x140904C60
  * Callers:
- *     RtlUpcaseUnicodeStringToOemString @ 0x140A6D650 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140A66D10 (RtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     UpcaseUnicodeToUTF8NHelper @ 0x140347308 (UpcaseUnicodeToUTF8NHelper.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x140348330 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1404187C0 (UpcaseUnicodeToMultiByteNHelper.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140325D78 (UpcaseUnicodeToUTF8NHelper.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1403C1D70 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140408570 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(

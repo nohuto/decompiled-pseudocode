@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeletePagablePteRange @ 0x140361860
+ * XREFs of MiDeletePagablePteRange @ 0x140363600
  * Callers:
- *     MiDeleteVirtualAddresses @ 0x1403617EC (MiDeleteVirtualAddresses.c)
- *     MiDeleteRotateAndStopFaults @ 0x1404DED80 (MiDeleteRotateAndStopFaults.c)
- *     MiDeleteVadBitmap @ 0x140AFAF24 (MiDeleteVadBitmap.c)
+ *     MiDeleteVirtualAddresses @ 0x14036358C (MiDeleteVirtualAddresses.c)
+ *     MiDeleteRotateAndStopFaults @ 0x1404D8460 (MiDeleteRotateAndStopFaults.c)
+ *     MiDeleteVadBitmap @ 0x140AFCE30 (MiDeleteVadBitmap.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockShared @ 0x140277AD0 (ExAcquireAutoExpandPushLockShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiDecommitInitializePacket @ 0x140361B88 (MiDecommitInitializePacket.c)
- *     MiDeleteVaDirect @ 0x140361EF0 (MiDeleteVaDirect.c)
- *     MiFreeLargePages @ 0x1403C700C (MiFreeLargePages.c)
- *     MiFreePhysicalPageChain @ 0x1403C73D4 (MiFreePhysicalPageChain.c)
- *     MiUnlockAweVadsShared @ 0x1404FA958 (MiUnlockAweVadsShared.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x140277040 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiDecommitInitializePacket @ 0x140363928 (MiDecommitInitializePacket.c)
+ *     MiDeleteVaDirect @ 0x140363C90 (MiDeleteVaDirect.c)
+ *     MiFreeLargePages @ 0x1403D0F00 (MiFreeLargePages.c)
+ *     MiFreePhysicalPageChain @ 0x1403D12C8 (MiFreePhysicalPageChain.c)
+ *     MiUnlockAweVadsShared @ 0x1404F3F68 (MiUnlockAweVadsShared.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiDeletePagablePteRange(
@@ -141,7 +141,7 @@ void __fastcall MiDeletePagablePteRange(
   if ( v21 < 0 )
   {
     v20[1] = MiFreeLargePages(
-               *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v31 + 174)),
+               *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v31 + 174)),
                v21,
                (unsigned int)&v26,
                (int)v20 + 16,

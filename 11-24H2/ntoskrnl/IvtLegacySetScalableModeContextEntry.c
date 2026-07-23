@@ -1,8 +1,8 @@
 /*
- * XREFs of IvtLegacySetScalableModeContextEntry @ 0x140570DF8
+ * XREFs of IvtLegacySetScalableModeContextEntry @ 0x14056E288
  * Callers:
- *     IvtLegacyUpdateScalableModeContextEntry @ 0x140570E38 (IvtLegacyUpdateScalableModeContextEntry.c)
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtLegacyUpdateScalableModeContextEntry @ 0x14056E2C8 (IvtLegacyUpdateScalableModeContextEntry.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

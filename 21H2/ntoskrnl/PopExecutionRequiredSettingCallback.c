@@ -1,13 +1,13 @@
 /*
- * XREFs of PopExecutionRequiredSettingCallback @ 0x1407D36E0
+ * XREFs of PopExecutionRequiredSettingCallback @ 0x1407D3850
  * Callers:
  *     <none>
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x140772464 (PopHandleExecutionRequiredEnablementUpdate.c)
- *     PopSetExecutionRequiredTimer @ 0x1407D377C (PopSetExecutionRequiredTimer.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x140772624 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopSetExecutionRequiredTimer @ 0x1407D38EC (PopSetExecutionRequiredTimer.c)
  */
 
 __int64 __fastcall PopExecutionRequiredSettingCallback(_QWORD *a1, int *a2, int a3)

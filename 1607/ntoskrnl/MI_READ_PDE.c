@@ -1,12 +1,12 @@
 /*
- * XREFs of MI_READ_PDE @ 0x1400E5F70
+ * XREFs of MI_READ_PDE @ 0x1400E3E10
  * Callers:
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiExchangeWsle @ 0x1400B1E68 (MiExchangeWsle.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiExchangeWsle @ 0x1400AFDA8 (MiExchangeWsle.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MI_READ_PDE(_BYTE *a1)

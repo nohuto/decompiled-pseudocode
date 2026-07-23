@@ -1,11 +1,11 @@
 /*
- * XREFs of _vsnprintf_l @ 0x14014CDC0
+ * XREFs of _vsnprintf_l @ 0x14014D330
  * Callers:
- *     _vsnprintf @ 0x14014CDA8 (_vsnprintf.c)
+ *     _vsnprintf @ 0x14014D318 (_vsnprintf.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     _flsbuf @ 0x14014FB84 (_flsbuf.c)
- *     _output_l @ 0x140150590 (_output_l.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     _output_l @ 0x140150B48 (_output_l.c)
+ *     _flsbuf @ 0x1401569B8 (_flsbuf.c)
  */
 
 int __cdecl vsnprintf_l(char *DstBuf, size_t MaxCount, const char *Format, _locale_t Locale, va_list ArgList)

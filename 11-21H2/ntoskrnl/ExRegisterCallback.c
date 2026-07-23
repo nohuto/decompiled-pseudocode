@@ -1,27 +1,27 @@
 /*
  * XREFs of ExRegisterCallback @ 0x14025A0B0
  * Callers:
- *     HvlPhase2Initialize @ 0x1403DE4F0 (HvlPhase2Initialize.c)
- *     DifExRegisterCallbackWrapper @ 0x1406090C0 (DifExRegisterCallbackWrapper.c)
- *     HaliInitPowerManagement @ 0x14081E1F0 (HaliInitPowerManagement.c)
+ *     sub_1403DE4F0 @ 0x1403DE4F0 (sub_1403DE4F0.c)
+ *     sub_1406090C0 @ 0x1406090C0 (sub_1406090C0.c)
+ *     sub_14081E1F0 @ 0x14081E1F0 (sub_14081E1F0.c)
  *     KeRegisterProcessorChangeCallback @ 0x140858460 (KeRegisterProcessorChangeCallback.c)
- *     HalpMiscInitializeKsr @ 0x140858BAC (HalpMiscInitializeKsr.c)
+ *     sub_140858BAC @ 0x140858BAC (sub_140858BAC.c)
  *     IoRegisterBootDriverCallback @ 0x140863630 (IoRegisterBootDriverCallback.c)
  *     SeRegisterImageVerificationCallback @ 0x140864610 (SeRegisterImageVerificationCallback.c)
  *     IoRegisterContainerNotification @ 0x140937220 (IoRegisterContainerNotification.c)
- *     PiCslInitialize @ 0x140B01758 (PiCslInitialize.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
- *     SshpAlpcInitialize @ 0x140B2984C (SshpAlpcInitialize.c)
- *     PopUmpoInitializeChannel @ 0x140B2B9FC (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140B2CD08 (PopUmpoInitializeMonitorChannel.c)
- *     PopSetupKsrCallbacks @ 0x140B3129C (PopSetupKsrCallbacks.c)
- *     PiKsrNotifyInitialize @ 0x140B509E0 (PiKsrNotifyInitialize.c)
+ *     sub_140B01758 @ 0x140B01758 (sub_140B01758.c)
+ *     sub_140B0433C @ 0x140B0433C (sub_140B0433C.c)
+ *     sub_140B2984C @ 0x140B2984C (sub_140B2984C.c)
+ *     sub_140B2B9FC @ 0x140B2B9FC (sub_140B2B9FC.c)
+ *     sub_140B2CD08 @ 0x140B2CD08 (sub_140B2CD08.c)
+ *     sub_140B3129C @ 0x140B3129C (sub_140B3129C.c)
+ *     sub_140B509E0 @ 0x140B509E0 (sub_140B509E0.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
@@ -38,7 +38,7 @@ PVOID __stdcall ExRegisterCallback(
   PCALLBACK_OBJECT *v10; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v14; // r9
   int v15; // eax
   bool v16; // zf
 
@@ -66,21 +66,21 @@ PVOID __stdcall ExRegisterCallback(
       *v10 = v7;
       *((_QWORD *)CallbackObject + 3) = v7;
     }
-    KxReleaseSpinLock((PKSPIN_LOCK)CallbackObject + 1);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)CallbackObject + 1);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = *((_QWORD *)CurrentPrcb + 4375);
           v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v16 = (v15 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v15;
+          v16 = (v15 & *(_DWORD *)(v14 + 20)) == 0;
+          *(_DWORD *)(v14 + 20) &= v15;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }

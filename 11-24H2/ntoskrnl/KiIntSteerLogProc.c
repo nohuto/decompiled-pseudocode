@@ -1,50 +1,50 @@
 /*
- * XREFs of KiIntSteerLogProc @ 0x140353A78
+ * XREFs of KiIntSteerLogProc @ 0x1402B1848
  * Callers:
- *     KeIntSteerPeriodic @ 0x1403534C4 (KeIntSteerPeriodic.c)
- *     KiIntSteerLogStatus @ 0x140354250 (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogStatus @ 0x1402AF804 (KiIntSteerLogStatus.c)
+ *     KeIntSteerPeriodic @ 0x1402B1294 (KeIntSteerPeriodic.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     KiIntSteerEtwEventEnabled @ 0x1403536D8 (KiIntSteerEtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     KiIntSteerEtwEventEnabled @ 0x1402B14A8 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-char __fastcall KiIntSteerLogProc(char a1)
+char __fastcall KiIntSteerLogProc(char a1, __int64 a2)
 {
-  const EVENT_DESCRIPTOR *v1; // rsi
+  const EVENT_DESCRIPTOR *v2; // rsi
   char result; // al
-  unsigned __int64 v3; // rdi
+  unsigned __int64 v4; // rdi
   unsigned __int16 i; // bx
-  unsigned __int64 v5; // rdx
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  int v8; // [rsp+40h] [rbp-38h] BYREF
+  unsigned __int64 v6; // rdx
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  int v9; // [rsp+40h] [rbp-38h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-20h]
-  __int64 v11; // [rsp+60h] [rbp-18h]
+  __int64 v11; // [rsp+58h] [rbp-20h]
+  __int64 v12; // [rsp+60h] [rbp-18h]
 
-  v8 = 0;
-  v1 = (const EVENT_DESCRIPTOR *)PPM_ETW_INTERRUPT_STEERING_PROC_CHANGE;
+  v9 = 0;
+  v2 = (const EVENT_DESCRIPTOR *)PPM_ETW_INTERRUPT_STEERING_PROC_CHANGE;
   if ( a1 )
-    v1 = &PPM_ETW_INTERRUPT_STEERING_PROC_RUNDOWN;
-  result = KiIntSteerEtwEventEnabled((__int64)v1);
+    v2 = &PPM_ETW_INTERRUPT_STEERING_PROC_RUNDOWN;
+  result = KiIntSteerEtwEventEnabled((__int64)v2, a2);
   if ( result )
   {
-    v3 = KeActiveProcessors.Bitmap[0];
-    for ( i = 0; ; v3 = KeActiveProcessors.Bitmap[i] )
+    v4 = KeActiveProcessors.Bitmap[0];
+    for ( i = 0; ; v4 = KeActiveProcessors.Bitmap[i] )
     {
-      while ( v3 )
+      while ( v4 )
       {
-        _BitScanForward64(&v5, v3);
-        v3 &= ~(1LL << v5);
-        v6 = *((unsigned int *)qword_140F21E78 + 64 * i + (unsigned __int8)v5);
-        UserData.Ptr = (ULONGLONG)&v8;
-        v8 = v6;
-        v7 = KiProcessorBlock[v6];
+        _BitScanForward64(&v6, v4);
+        v4 &= ~(1LL << v6);
+        v7 = *((unsigned int *)qword_140F22998 + 64 * i + (unsigned __int8)v6);
+        UserData.Ptr = (ULONGLONG)&v9;
+        v9 = v7;
+        v8 = KiProcessorBlock[v7];
         *(_QWORD *)&UserData.Size = 4LL;
-        v10 = v7 + 11672;
-        v11 = 4LL;
-        EtwWriteEx(KiIntSteerEtwHandle, v1, 0LL, 0, 0LL, 0LL, 2u, &UserData);
+        v11 = v8 + 11672;
+        v12 = 4LL;
+        EtwWriteEx(KiIntSteerEtwHandle, v2, 0LL, 0, 0LL, 0LL, 2u, &UserData);
       }
       result = ++i;
       if ( i >= (unsigned int)KeActiveProcessors.Count )

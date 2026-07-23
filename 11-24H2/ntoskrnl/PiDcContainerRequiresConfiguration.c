@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDcContainerRequiresConfiguration @ 0x140A9E6E0
+ * XREFs of PiDcContainerRequiresConfiguration @ 0x140A99C50
  * Callers:
- *     PiDcHandleSystemFirmwareUpdate @ 0x1407276C0 (PiDcHandleSystemFirmwareUpdate.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x140990834 (PiDcUpdateDeviceContainerMembership.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409EEF24 (PiDcHandleCustomDeviceEvent.c)
- *     PiDcHandleDeviceEvent @ 0x140A424AC (PiDcHandleDeviceEvent.c)
- *     PiDcHandleInterfaceEvent @ 0x140A4267C (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x140725250 (PiDcHandleSystemFirmwareUpdate.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14097B874 (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1409EC964 (PiDcHandleCustomDeviceEvent.c)
+ *     PiDcHandleDeviceEvent @ 0x140A37CEC (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x140A37EBC (PiDcHandleInterfaceEvent.c)
  * Callees:
- *     wcscmp @ 0x1404FFE20 (wcscmp.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
+ *     wcscmp @ 0x1404FD6E0 (wcscmp.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
@@ -43,7 +43,7 @@ __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
       ObjectProperty = PnpSetObjectProperty(
                          *(__int64 *)&PiPnpRtlCtx,
                          (__int64)Str2,
-                         5u,
+                         5,
                          0LL,
                          0LL,
                          (__int64)&DEVPKEY_DeviceContainer_ConfigFlags,
@@ -52,7 +52,7 @@ __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
                          4u,
                          0);
       if ( ObjectProperty >= 0 )
-        ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+        ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
   }
   return (unsigned int)ObjectProperty;

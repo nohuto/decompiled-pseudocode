@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetImageBaseAddress @ 0x14068C9A0
+ * XREFs of SeSetImageBaseAddress @ 0x14068CA84
  * Callers:
- *     MiRelocateImageAgain @ 0x14042C2BC (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiCaptureSecureImageBaseAddress @ 0x14066167C (MiCaptureSecureImageBaseAddress.c)
+ *     MiRelocateImageAgain @ 0x14042B18C (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140661760 (MiCaptureSecureImageBaseAddress.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeKernelCfgImages @ 0x140CFEAB0
+ * XREFs of MiInitializeKernelCfgImages @ 0x140D04E50
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
- *     MiProcessKernelCfgImage @ 0x1404F8C10 (MiProcessKernelCfgImage.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiMarkKernelImageCfgBits @ 0x140AC705C (MiMarkKernelImageCfgBits.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140AC7290 (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x140B05B58 (MiProcessKernelCfgImageLoadConfig.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
+ *     MiProcessKernelCfgImage @ 0x1404F2220 (MiProcessKernelCfgImage.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiMarkKernelImageCfgBits @ 0x140AC8C4C (MiMarkKernelImageCfgBits.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140AC8E80 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x140B07BEC (MiProcessKernelCfgImageLoadConfig.c)
  */
 
 __int64 __fastcall MiInitializeKernelCfgImages(
@@ -18,18 +18,18 @@ __int64 __fastcall MiInitializeKernelCfgImages(
         struct _KLOCK_ENTRIES *a4)
 {
   int KernelCfgBitmapPageTables; // eax
-  unsigned __int64 v7; // rdx
+  PVOID v7; // rdx
   int Config; // eax
-  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
   if ( a2 )
   {
     if ( (*(_DWORD *)(BugCheckParameter2 + 104) & 0x2000) != 0 )
       return 0LL;
-    v7 = *(_QWORD *)(BugCheckParameter2 + 48);
+    v7 = *(PVOID *)(BugCheckParameter2 + 48);
     if ( v7 == PsNtosImageBase )
     {
-      RtlImageNtHeaderEx(1, v7, 0LL, &v9);
+      RtlImageNtHeaderEx(1u, v7, 0LL, &OutHeaders);
       Config = MiMarkKernelImageCfgBits(BugCheckParameter2, 1);
       *(_DWORD *)(BugCheckParameter2 + 104) |= 0x2000u;
     }

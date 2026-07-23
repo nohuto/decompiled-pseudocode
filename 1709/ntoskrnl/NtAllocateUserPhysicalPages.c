@@ -267,7 +267,7 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
               ExReleaseAutoExpandPushLockShared(v29, 0LL);
               KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
               UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, v11);
-              AweInfo = MiResizeAweBitMap((char **)v43);
+              AweInfo = MiResizeAweBitMap((_RTL_BITMAP_EX *)v43);
               if ( AweInfo >= 0 )
               {
                 v26 = v44;

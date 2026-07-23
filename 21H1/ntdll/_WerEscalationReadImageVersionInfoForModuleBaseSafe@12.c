@@ -10,23 +10,23 @@
  *     ModuleAccessFilter @ 0x4B33B678 (ModuleAccessFilter.c)
  */
 
-int __fastcall WerEscalationReadImageVersionInfoForModuleBaseSafe(unsigned int a1, int a2, int a3)
+NTSTATUS __fastcall WerEscalationReadImageVersionInfoForModuleBaseSafe(void *a1, DWORD a2, int a3)
 {
-  int result; // eax
-  int v5; // [esp+1Ch] [ebp-20h] BYREF
-  int v6; // [esp+20h] [ebp-1Ch]
+  NTSTATUS result; // eax
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+1Ch] [ebp-20h] BYREF
+  DWORD SizeOfImage; // [esp+20h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+24h] [ebp-18h]
 
-  v6 = a2;
+  SizeOfImage = a2;
   ms_exc.registration.TryLevel = 0;
   if ( a2 )
     goto LABEL_2;
-  result = RtlImageNtHeaderEx(3, a1, 0, 0, &v5);
+  result = RtlImageNtHeaderEx(3u, a1, 0LL, &OutHeaders);
   if ( result >= 0 )
   {
-    v6 = *(_DWORD *)(v5 + 80);
+    SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
 LABEL_2:
-    WerEscalationReadImageVersionInfoForModuleBase(a1, a3);
+    WerEscalationReadImageVersionInfoForModuleBase(a1);
     ms_exc.registration.TryLevel = -2;
     return 0;
   }

@@ -1,31 +1,25 @@
 /*
- * XREFs of MiResetAccessBitPteWorker @ 0x1403FB050
+ * XREFs of MiResetAccessBitPteWorker @ 0x1402941D8
  * Callers:
- *     MiResetAccessBitsVpabCallback @ 0x1403FA450 (MiResetAccessBitsVpabCallback.c)
- *     MiResetAccessBitPte @ 0x1403FA890 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPte @ 0x140294320 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitsVpabCallback @ 0x140497620 (MiResetAccessBitsVpabCallback.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
- *     MiClearPteAccessed @ 0x1402307A0 (MiClearPteAccessed.c)
- *     MiSetVaAgeList @ 0x140230FB0 (MiSetVaAgeList.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x140231E18 (MiAcquirePrcbAgeTrimLists.c)
- *     MiLogPageAccess @ 0x140286F90 (MiLogPageAccess.c)
- *     MiGetVaAge @ 0x1402871E0 (MiGetVaAge.c)
- *     MiGetVmAccessLoggingPartition @ 0x140399050 (MiGetVmAccessLoggingPartition.c)
+ *     MiLogPageAccess @ 0x140296B90 (MiLogPageAccess.c)
+ *     MiGetVaAge @ 0x140296DE0 (MiGetVaAge.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x140303A64 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiClearPteAccessed @ 0x140304BA0 (MiClearPteAccessed.c)
+ *     MiSetVaAgeList @ 0x140304F30 (MiSetVaAgeList.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
+ *     MiGetVmAccessLoggingPartition @ 0x140351780 (MiGetVmAccessLoggingPartition.c)
  */
 
-__int64 __fastcall MiResetAccessBitPteWorker(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        __int64 a5,
-        char a6)
+__int64 __fastcall MiResetAccessBitPteWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)
 {
-  char VaAge; // r11
+  unsigned __int8 VaAge; // r11
   int v11; // ebx
   __int64 v12; // rbp
   int v13; // r15d
-  unsigned int v14; // r14d
+  int v14; // r14d
   __int64 result; // rax
   unsigned int PfnPriority; // eax
   __int64 v17; // r10
@@ -39,8 +33,8 @@ __int64 __fastcall MiResetAccessBitPteWorker(
   else
   {
     v11 = 1;
-    if ( VaAge && (unsigned __int8)VaAge < 7u )
-      MiSetVaAgeList(a1, a3, 1u, 0);
+    if ( VaAge && VaAge < 7u )
+      MiSetVaAgeList(a1, a3, 1LL, 0LL);
   }
   v12 = 0LL;
   v13 = 0;
@@ -51,7 +45,7 @@ __int64 __fastcall MiResetAccessBitPteWorker(
   else if ( *(_DWORD *)(a5 + 4) )
   {
     if ( !*(_QWORD *)(a5 + 8) )
-      MiAcquirePrcbAgeTrimLists(a1, (__int64 *)(a5 + 8));
+      MiAcquirePrcbAgeTrimLists(a1, a5 + 8);
     v12 = *(_QWORD *)(a5 + 8);
   }
   v14 = v13 | 1;

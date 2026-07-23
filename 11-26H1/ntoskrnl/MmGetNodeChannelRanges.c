@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetNodeChannelRanges @ 0x140B1FB9C
+ * XREFs of MmGetNodeChannelRanges @ 0x140B21FB8
  * Callers:
- *     ExpQueryMemoryTopologyInformation @ 0x1407740EC (ExpQueryMemoryTopologyInformation.c)
+ *     ExpQueryMemoryTopologyInformation @ 0x1407770EC (ExpQueryMemoryTopologyInformation.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MmGetNodeChannelRanges(__int64 *a1, ULONG_PTR *a2)
@@ -40,7 +40,7 @@ __int64 __fastcall MmGetNodeChannelRanges(__int64 *a1, ULONG_PTR *a2)
     v12 = (__int64 *)(v4 + 4);
     v13 = 0;
     *(_DWORD *)(PoolMm + 8) = (unsigned __int16)KeNumberNodes;
-    *(_DWORD *)(PoolMm + 12) = (unsigned __int8)byte_140E2D718;
+    *(_DWORD *)(PoolMm + 12) = (unsigned __int8)byte_140E2D898;
     v14 = *v4;
     v15 = &v4[4 * v14 + 4];
     if ( (_DWORD)v14 )
@@ -58,7 +58,7 @@ __int64 __fastcall MmGetNodeChannelRanges(__int64 *a1, ULONG_PTR *a2)
         v18 = *((unsigned __int8 *)v15 - 4);
         *(_DWORD *)(v11 - 28) = v18;
         ++v13;
-        *(_QWORD *)(v11 - 8) = *(_BYTE *)(v18 + qword_140E37CD0 + 56320 * v17 + 14149) == 1;
+        *(_QWORD *)(v11 - 8) = *(_BYTE *)(v18 + qword_140E37E50 + 56320 * v17 + 14149) == 1;
       }
       while ( v13 < *v4 );
     }

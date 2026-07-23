@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryThreadProfiling @ 0x1801329C0
+ * XREFs of RtlQueryThreadProfiling @ 0x180130BF0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryInformationThread @ 0x180162130 (ZwQueryInformationThread.c)
+ *     ZwQueryInformationThread @ 0x1801604F0 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlQueryThreadProfiling(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlQueryThreadProfiling(HANDLE ThreadHandle, PBOOLEAN Enabled)
 {
-  return ZwQueryInformationThread(a1, 32LL, a2, 1LL, 0LL);
+  return ZwQueryInformationThread(ThreadHandle, ThreadCounterProfiling, Enabled, 1u, 0LL);
 }

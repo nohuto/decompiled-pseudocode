@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInitializeTimers @ 0x1403A9638
+ * XREFs of HalpInitializeTimers @ 0x1403AA3C8
  * Callers:
- *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A9340 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
- *     HalpTimerCreateReferencePage @ 0x1403A97D4 (HalpTimerCreateReferencePage.c)
- *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AA588 (HalpTimerRegisterBuiltinPluginsCommon.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x1403ABF14 (HalpTimerBuildKnownResourceIdString.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpTimerCalculateMaximumAllowableDrift @ 0x1404BFA60 (HalpTimerCalculateMaximumAllowableDrift.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     HalpFindTimer @ 0x14039D5A8 (HalpFindTimer.c)
+ *     HalpTimerCreateReferencePage @ 0x1403AA564 (HalpTimerCreateReferencePage.c)
+ *     HalpTimerSelectRoles @ 0x1403AAB2C (HalpTimerSelectRoles.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AB318 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403ACCA4 (HalpTimerBuildKnownResourceIdString.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x1404BFCA0 (HalpTimerCalculateMaximumAllowableDrift.c)
  */
 
 __int64 __fastcall HalpInitializeTimers(__int64 a1)
@@ -84,19 +84,19 @@ LABEL_13:
         KeBugCheckEx(0x5Cu, 0x110uLL, 0x5250631uLL, HalpTimerLastProblem, v4);
       }
       HalpOriginalPerformanceCounter = HalpPerformanceCounter;
-      qword_140C4C0D8 = (__int64)HalpTimerDpcRoutine;
-      qword_140C4C030 = (__int64)&qword_140C4C028;
-      qword_140C4C028 = (__int64)&qword_140C4C028;
+      qword_140C4C118 = (__int64)HalpTimerDpcRoutine;
+      qword_140C4C070 = (__int64)&qword_140C4C068;
+      qword_140C4C068 = (__int64)&qword_140C4C068;
       off_140C006A8[0] = HalpTimerReportIdleStateUsage;
       HalpTimerPeriodicTimer = 8LL;
       off_140C006A0[0] = (__int64 (__fastcall *)())HalpTimerQueryWakeTime;
       HalpTimerDpc = 275;
-      qword_140C4C0E0 = 0LL;
-      qword_140C4C0F8 = 0LL;
-      qword_140C4C0D0 = 0LL;
-      qword_140C4C038 = 0LL;
-      dword_140C4C05C = 0;
-      word_140C4C058 = 0;
+      qword_140C4C120 = 0LL;
+      qword_140C4C138 = 0LL;
+      qword_140C4C110 = 0LL;
+      qword_140C4C078 = 0LL;
+      dword_140C4C09C = 0;
+      word_140C4C098 = 0;
       if ( HalpAlwaysOnCounter )
         HalpTimerMaximumAllowableDrift = HalpTimerCalculateMaximumAllowableDrift(
                                            v17,

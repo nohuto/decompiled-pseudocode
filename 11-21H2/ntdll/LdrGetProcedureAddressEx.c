@@ -6,14 +6,14 @@
  *     LdrGetProcedureAddressForCaller @ 0x18003AFD0 (LdrGetProcedureAddressForCaller.c)
  */
 
-__int64 __fastcall LdrGetProcedureAddressEx(
-        unsigned __int64 a1,
-        const void **a2,
-        __int64 a3,
-        volatile signed __int32 *a4,
-        char a5)
+NTSTATUS __cdecl LdrGetProcedureAddressEx(
+        PVOID DllHandle,
+        PANSI_STRING ProcedureName,
+        ULONG ProcedureNumber,
+        PVOID *ProcedureAddress,
+        ULONG Flags)
 {
-  unsigned __int64 retaddr; // [rsp+38h] [rbp+0h]
+  PVOID *Callback; // [rsp+38h] [rbp+0h]
 
-  return LdrGetProcedureAddressForCaller(a1, a2, a3, a4, a5, retaddr);
+  return LdrGetProcedureAddressForCaller(DllHandle, ProcedureName, ProcedureNumber, ProcedureAddress, Flags, Callback);
 }

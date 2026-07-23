@@ -1,41 +1,41 @@
 /*
- * XREFs of MiWaitForInPageComplete @ 0x1402A17A0
+ * XREFs of MiWaitForInPageComplete @ 0x1402A1A30
  * Callers:
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     MiPfCompleteInPageSupport @ 0x1402A3AEC (MiPfCompleteInPageSupport.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     MiPfCompleteInPageSupport @ 0x1402A3D7C (MiPfCompleteInPageSupport.c)
  * Callees:
  *     MiDeleteControlArea @ 0x1402199D0 (MiDeleteControlArea.c)
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     PfHardFaultLog @ 0x1402A30A8 (PfHardFaultLog.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiPrefetchRestOfCluster @ 0x140367AFC (MiPrefetchRestOfCluster.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiValidatePagefilePageHash @ 0x14046F37A (MiValidatePagefilePageHash.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRetardMdl @ 0x14061C9C0 (MiRetardMdl.c)
- *     MiFlushAllFilesystemPages @ 0x140629294 (MiFlushAllFilesystemPages.c)
- *     MiExceptionForMappedVa @ 0x140630AC0 (MiExceptionForMappedVa.c)
- *     MiStoreFaultComplete @ 0x14065C208 (MiStoreFaultComplete.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     PfHardFaultLog @ 0x1402A3338 (PfHardFaultLog.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiValidateInPage @ 0x1402DC710 (MiValidateInPage.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiIsRetryIoStatus @ 0x1402F4C28 (MiIsRetryIoStatus.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiPrefetchRestOfCluster @ 0x140367C9C (MiPrefetchRestOfCluster.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiValidatePagefilePageHash @ 0x14046F77A (MiValidatePagefilePageHash.c)
+ *     MiRetardMdl @ 0x14061CF10 (MiRetardMdl.c)
+ *     MiFlushAllFilesystemPages @ 0x1406297E4 (MiFlushAllFilesystemPages.c)
+ *     MiExceptionForMappedVa @ 0x140631010 (MiExceptionForMappedVa.c)
+ *     MiStoreFaultComplete @ 0x14065C758 (MiStoreFaultComplete.c)
  */
 
 __int64 __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned int *a3)
@@ -166,10 +166,13 @@ __int64 __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned in
       v35 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v30 + 232));
       RtlAvlRemoveNode((unsigned __int64 *)(v30 + 240), (unsigned __int64 *)(a2 + 352));
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v30 + 232));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v35 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v35 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -318,10 +321,10 @@ LABEL_30:
       v43 = (unsigned __int8)MiLockPageInline(v5);
       *(_QWORD *)(v5 + 8) = *(_QWORD *)(v42 + 8);
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v44 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v44 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v44 >= 2u )
         {
           v45 = KeGetCurrentPrcb();
           v46 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v43 + 1));

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiUEventNotifyTargetDeviceChange @ 0x1403F0500
+ * XREFs of PiUEventNotifyTargetDeviceChange @ 0x14048A778
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1403EF31C (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x140489744 (PiUEventProcessEventWorker.c)
  * Callees:
- *     PiUEventHashStringIntoBucket @ 0x140007EEC (PiUEventHashStringIntoBucket.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PiUEventHashStringIntoBucket @ 0x1400860C4 (PiUEventHashStringIntoBucket.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiUEventNotifyClient @ 0x1403F0784 (PiUEventNotifyClient.c)
- *     PiUEventApplyAdditionalFilters @ 0x1403F0920 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x14048A9FC (PiUEventNotifyClient.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14048AB98 (PiUEventApplyAdditionalFilters.c)
  */
 
 __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
   _QWORD *v16; // rsi
   __int64 v18; // rdx
   _DWORD *PoolWithTag; // rax
-  __int64 v20; // r8
+  ULONG v20; // r8d
   char v21; // [rsp+80h] [rbp+8h]
   char v22; // [rsp+88h] [rbp+10h]
 
@@ -135,14 +135,14 @@ LABEL_16:
       {
         memset(v1, 0, 0x1000uLL);
         *v1 = -1;
-        v20 = 4LL;
+        v20 = 4;
       }
       else
       {
-        v20 = 4096LL;
+        v20 = 4096;
         *v1 = v4 - 1;
       }
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)v1, v20);
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, v1, v20, 0LL, 0LL, 0, 0);
     }
     KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
     if ( v1 )

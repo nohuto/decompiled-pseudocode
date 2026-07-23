@@ -1,15 +1,15 @@
 /*
- * XREFs of PipAllocateDeviceNode @ 0x1406FEADC
+ * XREFs of PipAllocateDeviceNode @ 0x1406FFD7C
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406DA64C (IopInitializeDeviceInstanceKey.c)
- *     PipProcessEnumeratedChildDevice @ 0x1406E501C (PipProcessEnumeratedChildDevice.c)
- *     IopLegacyResourceAllocation @ 0x14072CE94 (IopLegacyResourceAllocation.c)
- *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
- *     PiInitializeDevice @ 0x14083C164 (PiInitializeDevice.c)
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1406DB8EC (IopInitializeDeviceInstanceKey.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1406E62BC (PipProcessEnumeratedChildDevice.c)
+ *     IopLegacyResourceAllocation @ 0x14072E084 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x14072E410 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x14083D3C4 (PiInitializeDevice.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipAllocateDeviceNode(__int64 a1, void **a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQuerySystemAvailableCpus @ 0x1405E5670
+ * XREFs of PsQuerySystemAvailableCpus @ 0x1405E2C20
  * Callers:
  *     <none>
  * Callees:
- *     KeQuerySystemAvailableCpus @ 0x1405B836C (KeQuerySystemAvailableCpus.c)
+ *     KeQuerySystemAvailableCpus @ 0x1405B594C (KeQuerySystemAvailableCpus.c)
  */
 
 __int64 __fastcall PsQuerySystemAvailableCpus(struct _KAFFINITY_EX *a1, _QWORD *a2, __int64 *a3)

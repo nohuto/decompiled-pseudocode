@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSparseBitmapCtxClearBits @ 0x18004F750
+ * XREFs of RtlSparseBitmapCtxClearBits @ 0x18004F740
  * Callers:
- *     RtlpHpLargeFree @ 0x18004F630 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x18004F77C (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeFree @ 0x18004F620 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x18004F76C (RtlpHpLargeAlloc.c)
  *     RtlpHpLargeAllocationDestroy @ 0x1800FBEA4 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAC4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
+ *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAB4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
  */
 
 __int64 __fastcall RtlSparseBitmapCtxClearBits(int a1, int a2, int a3, int a4, __int64 a5)

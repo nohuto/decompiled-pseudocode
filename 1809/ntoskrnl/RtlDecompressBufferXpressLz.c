@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDecompressBufferXpressLz @ 0x1401537E0
+ * XREFs of RtlDecompressBufferXpressLz @ 0x1401538E0
  * Callers:
  *     <none>
  * Callees:

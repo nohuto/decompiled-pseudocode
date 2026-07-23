@@ -1,10 +1,10 @@
 /*
- * XREFs of IopWheaSelLogError @ 0x140595800
+ * XREFs of IopWheaSelLogError @ 0x140592830
  * Callers:
  *     <none>
  * Callees:
- *     WheaSelLogError @ 0x14065B3D8 (WheaSelLogError.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     WheaSelLogError @ 0x140659AF8 (WheaSelLogError.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopWheaSelLogError(__int64 a1, __int64 a2, int a3)

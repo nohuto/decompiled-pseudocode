@@ -1,18 +1,18 @@
 /*
- * XREFs of HsaInitializeIommu @ 0x140A99260
+ * XREFs of HsaInitializeIommu @ 0x140A990D0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HsaBuildDeviceTableEntry @ 0x14052F298 (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x14052FFBC (HsaGetBlockedDomain.c)
- *     HsaProcessDeviceExceptions @ 0x140530838 (HsaProcessDeviceExceptions.c)
- *     HsaInitializeInterruptRemapping @ 0x140A990C8 (HsaInitializeInterruptRemapping.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HsaBuildDeviceTableEntry @ 0x14052F7E8 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x14053050C (HsaGetBlockedDomain.c)
+ *     HsaProcessDeviceExceptions @ 0x140530D88 (HsaProcessDeviceExceptions.c)
+ *     HsaInitializeInterruptRemapping @ 0x140A98F38 (HsaInitializeInterruptRemapping.c)
  */
 
 __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)

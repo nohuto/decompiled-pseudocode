@@ -3,87 +3,100 @@
  * Callers:
  *     RtlCreateUserProcess @ 0x1407A280C (RtlCreateUserProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwCreateUserProcess @ 0x14015B420 (ZwCreateUserProcess.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwCreateUserProcess @ 0x14015B990 (ZwCreateUserProcess.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
-__int64 __fastcall RtlpCreateUserProcess(
+NTSTATUS __fastcall RtlpCreateUserProcess(
         unsigned __int16 *a1,
-        __int64 a2,
+        void *a2,
         __int64 a3,
         __int64 a4,
-        int a5,
-        int a6,
-        char a7,
-        int a8,
-        int a9,
-        int a10,
-        char *a11)
+        __int64 a5,
+        __int64 a6,
+        int a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        HANDLE *a11)
 {
-  unsigned int v12; // ecx
-  __int64 v13; // rax
-  _DWORD v15[4]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v16; // [rsp+78h] [rbp-88h]
-  __int64 v17; // [rsp+80h] [rbp-80h]
-  int v18; // [rsp+88h] [rbp-78h]
-  __int128 v19; // [rsp+90h] [rbp-70h]
-  int v20; // [rsp+A0h] [rbp-60h]
-  __int64 v21; // [rsp+A8h] [rbp-58h]
-  __int64 v22; // [rsp+B0h] [rbp-50h]
-  int v23; // [rsp+B8h] [rbp-48h]
-  __int128 v24; // [rsp+C0h] [rbp-40h]
-  _QWORD v25[13]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v26; // [rsp+138h] [rbp+38h]
-  __int64 v27; // [rsp+140h] [rbp+40h]
-  char *v28; // [rsp+148h] [rbp+48h]
-  _QWORD v29[34]; // [rsp+150h] [rbp+50h]
+  unsigned int v13; // ecx
+  __int64 v14; // rax
+  unsigned int v16; // [rsp+68h] [rbp-98h] BYREF
+  OBJECT_ATTRIBUTES ThreadObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
+  OBJECT_ATTRIBUTES ProcessObjectAttributes; // [rsp+A0h] [rbp-60h] BYREF
+  _PS_CREATE_INFO CreateInfo; // [rsp+D0h] [rbp-30h] BYREF
+  _PS_ATTRIBUTE_LIST AttributeList; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v21; // [rsp+158h] [rbp+58h]
+  __int64 v22; // [rsp+160h] [rbp+60h]
+  HANDLE *v23; // [rsp+168h] [rbp+68h]
+  __int64 v24; // [rsp+170h] [rbp+70h]
+  __int64 v25; // [rsp+178h] [rbp+78h]
+  __int64 v26; // [rsp+180h] [rbp+80h]
+  __int64 v27; // [rsp+188h] [rbp+88h]
+  __int64 v28; // [rsp+190h] [rbp+90h]
+  __int64 v29; // [rsp+198h] [rbp+98h]
+  __int64 v30; // [rsp+1A0h] [rbp+A0h]
+  unsigned int *v31; // [rsp+1A8h] [rbp+A8h]
+  __int64 v32; // [rsp+1B0h] [rbp+B0h]
 
   memset(a11, 0, 0x68uLL);
   *(_DWORD *)a11 = 104;
-  v20 = 48;
-  v15[2] = 48;
-  v21 = 0LL;
-  v23 = 512;
-  v22 = 0LL;
+  ProcessObjectAttributes.Length = 48;
+  ThreadObjectAttributes.Length = 48;
+  ProcessObjectAttributes.RootDirectory = 0LL;
+  ProcessObjectAttributes.Attributes = 512;
+  ProcessObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ProcessObjectAttributes.SecurityDescriptor = 0LL;
+  ThreadObjectAttributes.RootDirectory = 0LL;
+  ThreadObjectAttributes.Attributes = 512;
+  ThreadObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ThreadObjectAttributes.SecurityDescriptor = 0LL;
+  memset(&CreateInfo, 0, sizeof(CreateInfo));
+  *(_BYTE *)&CreateInfo.InitState.1 |= 4u;
+  AttributeList.Attributes[0].Value = (ULONG_PTR)(a11 + 3);
+  v23 = a11 + 5;
+  v13 = 2;
+  CreateInfo.Size = 88LL;
+  AttributeList.Attributes[0].Attribute = 65539LL;
+  AttributeList.Attributes[0].Size = 16LL;
+  AttributeList.Attributes[0].ReturnLength = 0LL;
+  v21 = 6LL;
+  v22 = 64LL;
   v24 = 0LL;
-  v16 = 0LL;
-  v18 = 512;
-  v17 = 0LL;
-  v19 = 0LL;
-  memset(v25, 0, 0x58uLL);
-  LOBYTE(v25[2]) |= 4u;
-  v28 = a11 + 24;
-  v29[3] = a11 + 40;
-  v12 = 2;
-  v25[0] = 88LL;
-  v26 = 65539LL;
-  v27 = 16LL;
-  v29[0] = 0LL;
-  v29[1] = 6LL;
-  v29[2] = 64LL;
-  v29[4] = 0LL;
   if ( a1 )
   {
-    v29[6] = *a1;
-    v29[7] = *((_QWORD *)a1 + 1);
-    v29[5] = 131077LL;
-    v29[8] = 0LL;
-    v15[0] = v15[0] & 0xFFFFFFE0 | 2;
-    v12 = 4;
-    v29[9] = 131082LL;
-    v29[11] = v15;
-    v29[10] = 8LL;
-    v29[12] = 0LL;
+    v26 = *a1;
+    v27 = *((_QWORD *)a1 + 1);
+    v25 = 131077LL;
+    v28 = 0LL;
+    v16 = v16 & 0xFFFFFFE0 | 2;
+    v13 = 4;
+    v29 = 131082LL;
+    v31 = &v16;
+    v30 = 8LL;
+    v32 = 0LL;
   }
   if ( (a7 & 0x40) != 0 )
   {
-    v13 = 4LL * v12++;
-    *(__int64 *)((char *)&v26 + v13 * 8) = 393233LL;
-    *(__int64 *)((char *)&v27 + v13 * 8) = 1LL;
-    v29[v13] = 0LL;
-    v29[v13 - 1] = 97LL;
+    v14 = v13++;
+    AttributeList.Attributes[v14].Attribute = 393233LL;
+    AttributeList.Attributes[v14].Size = 1LL;
+    AttributeList.Attributes[v14].ReturnLength = 0LL;
+    *(ULONG_PTR *)((char *)&AttributeList.Attributes[0].Value + v14 * 32) = 97LL;
   }
-  v25[12] = 32LL * v12 + 8;
-  return ZwCreateUserProcess((__int64)(a11 + 8), (__int64)(a11 + 16), 0x2000000LL);
+  AttributeList.TotalLength = 32LL * v13 + 8;
+  return ZwCreateUserProcess(
+           a11 + 1,
+           a11 + 2,
+           0x2000000u,
+           0x2000000u,
+           &ProcessObjectAttributes,
+           &ThreadObjectAttributes,
+           a7 | 0x100,
+           1u,
+           a2,
+           &CreateInfo,
+           &AttributeList);
 }

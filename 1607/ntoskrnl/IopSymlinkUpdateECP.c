@@ -1,21 +1,21 @@
 /*
- * XREFs of IopSymlinkUpdateECP @ 0x140540BD0
+ * XREFs of IopSymlinkUpdateECP @ 0x140541110
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     IopSymlinkRememberJunction @ 0x140540AD0 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x140541028 (IopGraftName.c)
- *     IopSymlinkApplyToOpenedName @ 0x140624DAC (IopSymlinkApplyToOpenedName.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     IopSymlinkRememberJunction @ 0x140541010 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x140541568 (IopGraftName.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140624E60 (IopSymlinkApplyToOpenedName.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     IopSymlinkGetECP @ 0x140079FA0 (IopSymlinkGetECP.c)
- *     IopSymlinkRemoveECP @ 0x140079FB4 (IopSymlinkRemoveECP.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     IopSymlinkGetECP @ 0x14007A020 (IopSymlinkGetECP.c)
+ *     IopSymlinkRemoveECP @ 0x14007A034 (IopSymlinkRemoveECP.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1404150D0 (FsRtlFreeExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14046B530 (IoGetIrpExtraCreateParameter.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x140540D0C (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x140540EE0 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkAllocateAndAddECP @ 0x140540F84 (IopSymlinkAllocateAndAddECP.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140413F90 (FsRtlFreeExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x14046A400 (IoGetIrpExtraCreateParameter.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x14054124C (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x140541420 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405414C4 (IopSymlinkAllocateAndAddECP.c)
  */
 
 __int64 __fastcall IopSymlinkUpdateECP(

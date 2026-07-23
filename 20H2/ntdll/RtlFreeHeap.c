@@ -328,36 +328,31 @@
  *     RtlpLogHeapFailure @ 0x18010E31C (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, __int64 a3)
+LOGICAL __cdecl RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned int v7; // r9d
+  LOGICAL v7; // r9d
   unsigned __int16 v9; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h]
 
-  if ( a3 )
+  if ( BaseAddress )
   {
-    if ( !a1 )
-      RtlpLogHeapFailure(19, 0, a3, 0, 0LL, 0LL);
-    if ( *(_DWORD *)(a1 + 16) == -571548178 )
+    if ( !HeapHandle )
+      RtlpLogHeapFailure(19, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      return RtlpHpFreeWithExceptionProtection(HeapHandle, BaseAddress, Flags);
+    if ( (RtlpHpHeapFeatures & 2) != 0 )
     {
-      return (unsigned int)RtlpHpFreeWithExceptionProtection(a1, a3, a2);
-    }
-    else
-    {
-      if ( (RtlpHpHeapFeatures & 2) != 0 )
+      v7 = RtlpFreeHeapInternal((_DWORD)HeapHandle, (__int64)&v9);
+      if ( v7 )
       {
-        v7 = RtlpFreeHeapInternal(a1, a3, a2, (unsigned int)&v10, (__int64)&v9);
-        if ( v7 )
-        {
-          if ( v9 )
-            _InterlockedExchangeAdd64(
-              (volatile signed __int64 *)(*(_QWORD *)(qword_18016AB18 + 8LL * v9 - 8) + 32LL),
-              -v10);
-        }
-        return v7;
+        if ( v9 )
+          _InterlockedExchangeAdd64(
+            (volatile signed __int64 *)(*(_QWORD *)(qword_18016AB18 + 8LL * v9 - 8) + 32LL),
+            -v10);
       }
-      return (unsigned int)RtlpFreeHeapInternal(a1, a3, a2, 0, 0LL);
+      return v7;
     }
+    return RtlpFreeHeapInternal((_DWORD)HeapHandle, 0LL);
   }
-  return 1LL;
+  return 1;
 }

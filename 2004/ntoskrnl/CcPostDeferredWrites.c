@@ -58,7 +58,7 @@ __int64 __fastcall CcPostDeferredWrites(__int64 a1)
       if ( CcCanIWriteStreamEx((unsigned __int64 *)a1, v5[1], v9, v3, 2, 0LL)
         && (!*((_BYTE *)v5 + 80)
          || MEMORY[0xFFFFF78000000320] >= (__int64)((unsigned int)(10000 * CcSoftThrottleDelay)
-                                                  / (unsigned __int64)(unsigned int)KeMaximumIncrement
+                                                  / (unsigned __int64)KeMaximumIncrement
                                                   + v5[11])) )
       {
         v3 = v10;

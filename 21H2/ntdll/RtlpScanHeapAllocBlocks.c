@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpScanHeapAllocBlocks @ 0x1800F84AC
+ * XREFs of RtlpScanHeapAllocBlocks @ 0x1800F846C
  * Callers:
- *     RtlpScanProcessVirtualMemory @ 0x1800F86F0 (RtlpScanProcessVirtualMemory.c)
+ *     RtlpScanProcessVirtualMemory @ 0x1800F86B0 (RtlpScanProcessVirtualMemory.c)
  * Callees:
  *     RtlSizeHeap @ 0x180024160 (RtlSizeHeap.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpGetBlockInfo @ 0x1800F7F0C (RtlpGetBlockInfo.c)
- *     RtlpGetHeapBlock @ 0x1800F7F58 (RtlpGetHeapBlock.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpGetBlockInfo @ 0x1800F7ECC (RtlpGetBlockInfo.c)
+ *     RtlpGetHeapBlock @ 0x1800F7F18 (RtlpGetHeapBlock.c)
  */
 
 char RtlpScanHeapAllocBlocks()
@@ -28,10 +28,10 @@ char RtlpScanHeapAllocBlocks()
   __int64 i; // rdi
   __int64 BlockInfo; // rax
   int v15; // r9d
-  unsigned __int64 v16; // r10
+  char *v16; // r10
   __int64 v17; // rbx
-  __int64 v18; // rax
-  __int64 v19; // rsi
+  SIZE_T v18; // rax
+  _DWORD *v19; // rsi
   unsigned __int8 *v20; // rbx
   int v21; // eax
 
@@ -89,8 +89,8 @@ char RtlpScanHeapAllocBlocks()
     {
       if ( *((_QWORD *)&xmmword_18016ADE0 + 1) )
       {
-        v18 = RtlSizeHeap(*(_QWORD *)(BlockInfo + 8), 0, v16);
-        (*((void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, _DWORD, _QWORD))&xmmword_18016ADE0 + 1))(
+        v18 = RtlSizeHeap(*(PVOID *)(BlockInfo + 8), 0, v16);
+        (*((void (__fastcall **)(_QWORD, _QWORD, _QWORD, SIZE_T, _DWORD, _QWORD))&xmmword_18016ADE0 + 1))(
           0LL,
           *(_QWORD *)(v17 + 8),
           *(_QWORD *)(i + 16),
@@ -105,22 +105,22 @@ char RtlpScanHeapAllocBlocks()
           DbgPrint("Below is a list of potentially leaked heap entries \nuse !heap -i Entry -h Heap for more information\n\n");
           DbgPrint("Entry     Heap              Size       \n");
           DbgPrint("---------------------------------------\n");
-          v16 = *(_QWORD *)(i + 16);
+          v16 = *(char **)(i + 16);
         }
-        v19 = *(_QWORD *)(v17 + 8);
-        if ( *(_DWORD *)(v19 + 16) == -571548178 )
+        v19 = *(_DWORD **)(v17 + 8);
+        if ( v19[4] == -571548178 )
         {
           v20 = (unsigned __int8 *)v16;
         }
         else
         {
           v20 = (unsigned __int8 *)(v16 - 16);
-          _m_prefetchw((const void *)(v16 - 16));
-          if ( *(_BYTE *)(v16 - 16 + 15) == 5 )
+          _m_prefetchw(v16 - 16);
+          if ( *(v16 - 1) == 5 )
             v20 -= 16 * v20[14];
         }
         v21 = RtlSizeHeap(v19, 0, v16);
-        DbgPrint("%p  %-16Ix  %Id", v20, v19, v21);
+        DbgPrint("%p  %-16Ix  %Id", v20, (_DWORD)v19, v21);
         DbgPrint("\n");
       }
       ++RtlpLeaksCount;

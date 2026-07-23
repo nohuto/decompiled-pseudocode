@@ -26,43 +26,43 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   char v16; // cl
   unsigned __int8 v17; // al
   unsigned __int8 v18; // dl
-  NTSTATUS v19; // eax
+  NTSTATUS InformationToken; // eax
   _BYTE v20[8]; // [rsp+40h] [rbp-10h] BYREF
-  PVOID TokenInformation; // [rsp+48h] [rbp-8h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+48h] [rbp-8h] BYREF
 
-  TokenInformation = 0LL;
+  PkgClaim = 0LL;
   PsQueryProcessAttributesByToken(Token, 0LL, v20);
   v12 = v20[0];
   if ( v20[0] )
   {
-    LODWORD(v14) = RtlQueryPackageClaims((int)Token, 0LL, 0LL, 0LL, 0LL, 0LL, (int)&TokenInformation, 0LL);
+    LODWORD(v14) = RtlQueryPackageClaims(Token, 0LL, 0LL, 0LL, 0LL, 0LL, &PkgClaim, 0LL);
     if ( (int)v14 < 0 )
       return (unsigned int)v14;
     v16 = v12;
-    if ( ((unsigned __int8)TokenInformation & 4) != 0 )
+    if ( (PkgClaim.Flags & 4) != 0 )
       v16 = 0;
     if ( v16 )
     {
       if ( (a3 & 1) == 0 )
       {
         v13 = 6;
-        if ( BYTE2(TokenInformation) > 6uLL )
+        if ( BYTE2(PkgClaim.Flags) > 6uLL )
           goto LABEL_8;
-        if ( BYTE2(TokenInformation) <= 1u )
+        if ( BYTE2(PkgClaim.Flags) <= 1u )
         {
           v13 = a5;
         }
         else
         {
-          if ( BYTE2(TokenInformation) == 2 )
+          if ( BYTE2(PkgClaim.Flags) == 2 )
           {
             *a6 = 8;
             *a7 = a5;
             goto LABEL_7;
           }
-          if ( BYTE2(TokenInformation) != 3 )
+          if ( BYTE2(PkgClaim.Flags) != 3 )
           {
-            if ( (unsigned int)BYTE2(TokenInformation) - 4 > 2 )
+            if ( (unsigned int)BYTE2(PkgClaim.Flags) - 4 > 2 )
               goto LABEL_8;
             v13 = a5 != 2 ? 0 : 2;
           }
@@ -81,16 +81,16 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   }
   if ( a2 && (unsigned __int8)SepIsNgenImage(a2) )
   {
-    LODWORD(TokenInformation) = 0;
-    v19 = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
-    v14 = (unsigned int)v19;
-    if ( v19 < 0 )
+    PkgClaim.Flags = 0;
+    InformationToken = SeQueryInformationToken(Token, TokenIsAppContainer, (PVOID *)&PkgClaim);
+    v14 = (unsigned int)InformationToken;
+    if ( InformationToken < 0 )
       return (unsigned int)v14;
     *a6 = 11;
     if ( (a3 & 1) == 0 )
     {
       LOBYTE(v14) = a5;
-      if ( !(_DWORD)TokenInformation )
+      if ( !PkgClaim.Flags )
       {
         *a7 = a5;
         *a8 = a5 >= 2u ? 0x21 : 0;
@@ -107,7 +107,7 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
     }
     if ( !a4 )
     {
-      *a7 = (_DWORD)TokenInformation != 0 ? 6 : 8;
+      *a7 = PkgClaim.Flags != 0 ? 6 : 8;
       *a8 = 33;
       goto LABEL_8;
     }

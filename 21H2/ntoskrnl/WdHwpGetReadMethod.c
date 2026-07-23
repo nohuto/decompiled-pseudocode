@@ -1,7 +1,7 @@
 /*
- * XREFs of WdHwpGetReadMethod @ 0x1404DE4FC
+ * XREFs of WdHwpGetReadMethod @ 0x1404DE73C
  * Callers:
- *     WdHwCreateHardwareRegister @ 0x1404DE3C8 (WdHwCreateHardwareRegister.c)
+ *     WdHwCreateHardwareRegister @ 0x1404DE608 (WdHwCreateHardwareRegister.c)
  * Callees:
  *     <none>
  */

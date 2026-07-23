@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFindLongestRunClearEx @ 0x14039B660
+ * XREFs of RtlFindLongestRunClearEx @ 0x14039B7B0
  * Callers:
- *     RtlpHpFixedVsAllocate @ 0x1402D1E30 (RtlpHpFixedVsAllocate.c)
- *     MiGetSystemPteStatistics @ 0x1408D7A34 (MiGetSystemPteStatistics.c)
+ *     RtlpHpFixedVsAllocate @ 0x140250200 (RtlpHpFixedVsAllocate.c)
+ *     MiGetSystemPteStatistics @ 0x1408D7B94 (MiGetSystemPteStatistics.c)
  * Callees:
- *     RtlFindClearRunsEx @ 0x14039B698 (RtlFindClearRunsEx.c)
+ *     RtlFindClearRunsEx @ 0x14039B7E8 (RtlFindClearRunsEx.c)
  */
 
 __int64 __fastcall RtlFindLongestRunClearEx(__int64 a1, _QWORD *a2)

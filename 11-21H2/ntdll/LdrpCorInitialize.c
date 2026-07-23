@@ -17,38 +17,32 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpCorInitialize(_QWORD *a1)
+__int64 __fastcall LdrpCorInitialize(PVOID *a1)
 {
   bool v2; // bl
   int ProcedureAddress; // ebx
   unsigned __int16 *v4; // rdi
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r9
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r9
-  unsigned __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v13; // [rsp+30h] [rbp-1B8h] BYREF
-  unsigned __int64 v14; // [rsp+38h] [rbp-1B0h] BYREF
-  int v15; // [rsp+40h] [rbp-1A8h] BYREF
-  _WORD *v16; // [rsp+48h] [rbp-1A0h]
-  _WORD v17[128]; // [rsp+50h] [rbp-198h] BYREF
-  __int64 v18[15]; // [rsp+150h] [rbp-98h] BYREF
-  char v19; // [rsp+1CCh] [rbp-1Ch]
+  char *v5; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp-1B8h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+38h] [rbp-1B0h] BYREF
+  int v9; // [rsp+40h] [rbp-1A8h] BYREF
+  _WORD *v10; // [rsp+48h] [rbp-1A0h]
+  _WORD v11[128]; // [rsp+50h] [rbp-198h] BYREF
+  PWSTR Path[15]; // [rsp+150h] [rbp-98h] BYREF
+  char v13; // [rsp+1CCh] [rbp-1Ch]
 
   v2 = 1;
-  RtlEnterCriticalSection((__int64)&FastPebLock);
-  if ( (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 0x13uLL, 0LL, 0LL, &v14) == -1073741789 )
-    v2 = (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 0xFuLL, 0LL, 0LL, &v14) != -1073741789;
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
-  v16 = v17;
-  v15 = 0x1000000;
-  v17[0] = 0;
+  RtlEnterCriticalSection(&FastPebLock);
+  if ( RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 0x13uLL, 0LL, 0LL, &ReturnLength) == -1073741789 )
+    v2 = RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 0xFuLL, 0LL, 0LL, &ReturnLength) != -1073741789;
+  RtlLeaveCriticalSection(&FastPebLock);
+  v10 = v11;
+  v9 = 0x1000000;
+  v11[0] = 0;
   if ( v2 )
   {
-    ProcedureAddress = LdrpBuildSystem32FileName(&v15, &LdrpMscoreeDllName);
-    v4 = (unsigned __int16 *)&v15;
+    ProcedureAddress = LdrpBuildSystem32FileName(&v9, &LdrpMscoreeDllName);
+    v4 = (unsigned __int16 *)&v9;
   }
   else
   {
@@ -57,29 +51,28 @@ __int64 __fastcall LdrpCorInitialize(_QWORD *a1)
   }
   if ( ProcedureAddress >= 0 )
   {
-    LdrpInitializeDllPath(0LL, 0LL, v18);
-    ProcedureAddress = LdrpLoadDll(v4, (int)v18, 1u, &v13);
-    if ( v19 )
-      RtlReleasePath(v18[0], v5, v6, v7);
+    LdrpInitializeDllPath(0LL, 0LL, (const WCHAR **)Path);
+    ProcedureAddress = LdrpLoadDll(v4, (int)Path, 1, &BaseAddress);
+    if ( v13 )
+      RtlReleasePath(Path[0]);
     if ( ProcedureAddress >= 0 )
     {
-      ProcedureAddress = LdrpGetProcedureAddress(*(_QWORD *)(v13 + 48), "_CorExeMain", 0, (char **)&v14);
+      ProcedureAddress = LdrpGetProcedureAddress(*((_QWORD *)BaseAddress + 6), "_CorExeMain", 0, (char **)&ReturnLength);
       if ( ProcedureAddress < 0 )
       {
-        LdrpDecrementModuleLoadCountEx(v13, 0LL, v8, v9);
-        v11 = v13;
+        LdrpDecrementModuleLoadCountEx((__int64)BaseAddress, 0);
+        v5 = (char *)BaseAddress;
       }
       else
       {
-        v10 = __ROR8__(v14 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
-        LdrpCorExeMainRoutine = v10;
-        v11 = v13;
-        *a1 = v13;
+        LdrpCorExeMainRoutine = __ROR8__(ReturnLength ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
+        v5 = (char *)BaseAddress;
+        *a1 = BaseAddress;
       }
-      LdrpDereferenceModule(v11, v10, v8, v9);
+      LdrpDereferenceModule(v5);
     }
   }
-  if ( v17 != v16 )
-    NtdllpFreeStringRoutine((__int64)v16);
+  if ( v11 != v10 )
+    NtdllpFreeStringRoutine(v10);
   return (unsigned int)ProcedureAddress;
 }

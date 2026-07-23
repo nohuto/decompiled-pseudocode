@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDecrementModifiedWriteCount @ 0x140469350
+ * XREFs of MiDecrementModifiedWriteCount @ 0x140462920
  * Callers:
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
- *     MiReservePageFileSpace @ 0x1403670E8 (MiReservePageFileSpace.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiReleasePageFileSectionInfo @ 0x140469304 (MiReleasePageFileSectionInfo.c)
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiPrepareToFlushSubsection @ 0x1404EBD20 (MiPrepareToFlushSubsection.c)
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
- *     MiEntireSubsectionIsPurged @ 0x140529CA0 (MiEntireSubsectionIsPurged.c)
- *     MiLocateSharedPageViews @ 0x1406F8320 (MiLocateSharedPageViews.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
+ *     MiReservePageFileSpace @ 0x140368E88 (MiReservePageFileSpace.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiReleasePageFileSectionInfo @ 0x1404628D4 (MiReleasePageFileSectionInfo.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiPrepareToFlushSubsection @ 0x1404E5300 (MiPrepareToFlushSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
+ *     MiEntireSubsectionIsPurged @ 0x14052C1C0 (MiEntireSubsectionIsPurged.c)
+ *     MiLocateSharedPageViews @ 0x1406FCFF0 (MiLocateSharedPageViews.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 *__fastcall MiDecrementModifiedWriteCount(__int64 a1, int a2)
@@ -54,7 +54,7 @@ __int64 *__fastcall MiDecrementModifiedWriteCount(__int64 a1, int a2)
   }
   if ( v3 != 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(a1 + 72) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(a1 + 72), retaddr);

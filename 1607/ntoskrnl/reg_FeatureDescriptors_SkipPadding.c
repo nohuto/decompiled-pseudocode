@@ -1,5 +1,5 @@
 /*
- * XREFs of reg_FeatureDescriptors_SkipPadding @ 0x1401B2C6C
+ * XREFs of reg_FeatureDescriptors_SkipPadding @ 0x1401B2B50
  * Callers:
  *     CmpInitializeSystemPoliciesFeatureOverrides @ 0x1407CD9B4 (CmpInitializeSystemPoliciesFeatureOverrides.c)
  * Callees:

@@ -17,7 +17,7 @@
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
-  int RegistryValue; // ebx
+  NTSTATUS RegistryValue; // ebx
   __int64 v7; // r15
   int v8; // r14d
   unsigned int v9; // edx
@@ -25,12 +25,12 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
   __int64 v11; // r8
   int ObjectProperty; // eax
   unsigned int v13; // esi
-  _DWORD *v14; // rdi
-  int v15; // ecx
+  _DWORD *p_Data1; // rdi
+  int Data1_low; // ecx
   _DWORD *PoolWithTag; // rax
   unsigned __int64 v17; // rax
   int v19; // [rsp+28h] [rbp-61h]
-  PVOID P; // [rsp+60h] [rbp-29h] BYREF
+  PGUID v20; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING GuidString; // [rsp+68h] [rbp-21h] BYREF
   __int64 v22; // [rsp+78h] [rbp-11h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-9h] BYREF
@@ -38,7 +38,7 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
   int v25; // [rsp+A0h] [rbp+17h]
 
   *(_QWORD *)&GuidString.Length = 0LL;
-  P = 0LL;
+  v20 = 0LL;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
   RegistryValue = IopGetRegistryValue(a2, L"PropertyGuid", 0, &GuidString);
@@ -82,7 +82,7 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
                          v19,
                          (__int64)&Guid,
                          (__int64)&v22,
-                         &P,
+                         (PVOID *)&v20,
                          &GuidString,
                          0);
       RegistryValue = ObjectProperty;
@@ -99,10 +99,10 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
         {
           v13 = *(_DWORD *)&GuidString.Length;
           if ( *(_DWORD *)&GuidString.Length < 4u
-            || (v17 = (unsigned __int64)*(unsigned int *)&GuidString.Length >> 1, *((_WORD *)P + v17 - 1))
-            || *((_WORD *)P + v17 - 2) )
+            || (v17 = (unsigned __int64)*(unsigned int *)&GuidString.Length >> 1, *((_WORD *)v20 + v17 - 1))
+            || *((_WORD *)v20 + v17 - 2) )
           {
-            if ( *(_DWORD *)&GuidString.Length != 2 || *(_WORD *)P )
+            if ( *(_DWORD *)&GuidString.Length != 2 || LOWORD(v20->Data1) )
               goto LABEL_46;
           }
           v8 = 7;
@@ -114,12 +114,12 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
           {
             if ( *(_DWORD *)&GuidString.Length == 16 )
             {
-              RegistryValue = RtlStringFromGUIDEx((unsigned int *)P, (__int64)&UnicodeString, 1);
+              RegistryValue = RtlStringFromGUIDEx(v20, &UnicodeString, 1u);
               if ( RegistryValue < 0 )
                 goto LABEL_61;
               v13 = UnicodeString.Length + 2;
               PoolWithTag = ExAllocatePoolWithTag(PagedPool, v13, 0x63647050u);
-              v14 = PoolWithTag;
+              p_Data1 = PoolWithTag;
               if ( !PoolWithTag )
                 goto LABEL_19;
               memmove(PoolWithTag, UnicodeString.Buffer, v13);
@@ -137,14 +137,14 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
                 {
                   v8 = 4;
                   v13 = 4;
-                  v14 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-                  if ( !v14 )
+                  p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+                  if ( !p_Data1 )
                   {
 LABEL_19:
                     RegistryValue = -1073741670;
                     goto LABEL_61;
                   }
-                  v15 = *(unsigned __int8 *)P;
+                  Data1_low = LOBYTE(v20->Data1);
                   goto LABEL_21;
                 }
 LABEL_46:
@@ -152,7 +152,7 @@ LABEL_46:
                 goto LABEL_61;
               }
 LABEL_58:
-              v14 = 0LL;
+              p_Data1 = 0LL;
               v13 = 0;
               v8 = 0;
               goto LABEL_59;
@@ -161,16 +161,16 @@ LABEL_58:
               goto LABEL_46;
             v8 = 4;
             v13 = 4;
-            v14 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-            if ( !v14 )
+            p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+            if ( !p_Data1 )
               goto LABEL_19;
-            v15 = *(unsigned __int16 *)P;
+            Data1_low = LOWORD(v20->Data1);
 LABEL_21:
-            *v14 = v15;
+            *p_Data1 = Data1_low;
 LABEL_59:
             *(_DWORD *)(a3 + 32) = v8;
             *(_DWORD *)(a3 + 36) = v13;
-            *(_QWORD *)(a3 + 40) = v14;
+            *(_QWORD *)(a3 + 40) = p_Data1;
             goto LABEL_61;
           }
           if ( (unsigned int)v22 > 7 )
@@ -198,10 +198,10 @@ LABEL_42:
             goto LABEL_46;
           v8 = 4;
           v13 = 4;
-          v14 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-          if ( !v14 )
+          p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+          if ( !p_Data1 )
             goto LABEL_19;
-          v15 = *(_BYTE *)P == 0xFF;
+          Data1_low = LOBYTE(v20->Data1) == 0xFF;
           goto LABEL_21;
         }
         if ( (_DWORD)v22 == 18 || (_DWORD)v22 == 20 )
@@ -216,11 +216,11 @@ LABEL_44:
             v13 = *(_DWORD *)&GuidString.Length;
             if ( *(_DWORD *)&GuidString.Length < 2u )
               goto LABEL_46;
-            v14 = P;
-            if ( *((_WORD *)P + ((unsigned __int64)*(unsigned int *)&GuidString.Length >> 1) - 1) )
+            p_Data1 = &v20->Data1;
+            if ( *((_WORD *)v20 + ((unsigned __int64)*(unsigned int *)&GuidString.Length >> 1) - 1) )
               goto LABEL_46;
 LABEL_41:
-            P = 0LL;
+            v20 = 0LL;
             goto LABEL_59;
           }
         }
@@ -229,15 +229,15 @@ LABEL_39:
       v13 = *(_DWORD *)&GuidString.Length;
       v8 = 3;
 LABEL_40:
-      v14 = P;
+      p_Data1 = &v20->Data1;
       goto LABEL_41;
     }
   }
   v7 = *(_QWORD *)&GuidString.Length;
 LABEL_61:
   RtlFreeAnsiString(&UnicodeString);
-  if ( P )
-    ExFreePoolWithTag(P, 0);
+  if ( v20 )
+    ExFreePoolWithTag(v20, 0);
   if ( v7 )
     ExFreePoolWithTag((PVOID)v7, 0);
   return (unsigned int)RegistryValue;

@@ -1,20 +1,20 @@
 /*
- * XREFs of PoEnergyContextUpdateComponentPower @ 0x1409048E0
+ * XREFs of PoEnergyContextUpdateComponentPower @ 0x14099B564
  * Callers:
- *     PsUpdateComponentPower @ 0x14042D9F0 (PsUpdateComponentPower.c)
- *     PopPowerRequestCallbackDisplayRequired @ 0x140903ED0 (PopPowerRequestCallbackDisplayRequired.c)
- *     NtSetThreadExecutionState @ 0x140AC6F10 (NtSetThreadExecutionState.c)
+ *     PsUpdateComponentPower @ 0x14041F720 (PsUpdateComponentPower.c)
+ *     PopPowerRequestCallbackDisplayRequired @ 0x14099B3A0 (PopPowerRequestCallbackDisplayRequired.c)
+ *     NtSetThreadExecutionState @ 0x140AC4920 (NtSetThreadExecutionState.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlTimelineBitmapUpdate @ 0x1404006B0 (RtlTimelineBitmapUpdate.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     RtlTimelineBitmapUpdateRange @ 0x140431040 (RtlTimelineBitmapUpdateRange.c)
- *     KeQueryTimelineBitmapTime @ 0x140456314 (KeQueryTimelineBitmapTime.c)
- *     RtlStateDurationUpdate @ 0x14048E158 (RtlStateDurationUpdate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopEtEnergyContextSetState @ 0x140904E6C (PopEtEnergyContextSetState.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1409062E8 (PopEtEnergyContextProcessStateUpdate.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     RtlTimelineBitmapUpdate @ 0x1403FB2C0 (RtlTimelineBitmapUpdate.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x140423580 (RtlTimelineBitmapUpdateRange.c)
+ *     KeQueryTimelineBitmapTime @ 0x14044B2E4 (KeQueryTimelineBitmapTime.c)
+ *     RtlStateDurationUpdate @ 0x140488628 (RtlStateDurationUpdate.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopEtEnergyContextSetState @ 0x14099BAF0 (PopEtEnergyContextSetState.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x14099CF68 (PopEtEnergyContextProcessStateUpdate.c)
  */
 
 void *__fastcall PoEnergyContextUpdateComponentPower(__int64 a1, int a2, __int64 a3)

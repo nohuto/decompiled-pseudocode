@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvCheckIommuCapability @ 0x140CAFD04
+ * XREFs of HalpHvCheckIommuCapability @ 0x140CB5D44
  * Callers:
- *     HalpIommuInitDiscard @ 0x140CAFE24 (HalpIommuInitDiscard.c)
+ *     HalpIommuInitDiscard @ 0x140CB5E64 (HalpIommuInitDiscard.c)
  * Callees:
- *     HviGetHardwareFeatures @ 0x1404E6360 (HviGetHardwareFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HviGetHardwareFeatures @ 0x1404DF900 (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _QWORD *__fastcall HalpHvCheckIommuCapability(__int64 a1, __int64 a2)
@@ -32,7 +32,7 @@ _QWORD *__fastcall HalpHvCheckIommuCapability(__int64 a1, __int64 a2)
   }
   v15 = 0;
   v14 = 0LL;
-  if ( qword_140FBB118 )
+  if ( qword_140FBB4B8 )
     guard_dispatch_icall_no_overrides((__int64)&v14, a2);
   HviGetHardwareFeatures((__int64)&v13);
   if ( HalpPrebootMode || (v13 & 0x20) != 0 || (result = (_QWORD *)(v14 & 5), (_BYTE)result == 5) )

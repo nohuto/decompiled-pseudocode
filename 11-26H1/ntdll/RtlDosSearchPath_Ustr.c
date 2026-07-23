@@ -1,60 +1,60 @@
 /*
- * XREFs of RtlDosSearchPath_Ustr @ 0x1800A6100
+ * XREFs of RtlDosSearchPath_Ustr @ 0x1800A5230
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x180043CF0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180044540 (RtlpDosPathNameToRelativeNtPathName.c)
- *     RtlDoesFileExists_UstrEx @ 0x1800A5FB0 (RtlDoesFileExists_UstrEx.c)
- *     RtlUnicodeStringValidateWorker @ 0x1800A6A10 (RtlUnicodeStringValidateWorker.c)
- *     RtlGetFullPathName_UstrEx @ 0x1800A6A60 (RtlGetFullPathName_UstrEx.c)
- *     RtlReleaseRelativeName @ 0x1800A6DC0 (RtlReleaseRelativeName.c)
- *     RtlDetermineDosPathNameType_Ustr @ 0x1800A6E20 (RtlDetermineDosPathNameType_Ustr.c)
- *     ZwQueryAttributesFile @ 0x18015F6E0 (ZwQueryAttributesFile.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18002E260 (RtlDosApplyFileIsolationRedirection_Ustr.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18002EAB0 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     RtlDoesFileExists_UstrEx @ 0x1800A50E0 (RtlDoesFileExists_UstrEx.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1800A5B40 (RtlUnicodeStringValidateWorker.c)
+ *     RtlGetFullPathName_UstrEx @ 0x1800A5B90 (RtlGetFullPathName_UstrEx.c)
+ *     RtlReleaseRelativeName @ 0x1800A5EF0 (RtlReleaseRelativeName.c)
+ *     RtlDetermineDosPathNameType_Ustr @ 0x1800A5F50 (RtlDetermineDosPathNameType_Ustr.c)
+ *     ZwQueryAttributesFile @ 0x18015F5E0 (ZwQueryAttributesFile.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlDosSearchPath_Ustr(
-        int a1,
-        unsigned __int16 *a2,
-        __m128i *a3,
-        const void **a4,
-        __int64 a5,
-        __int64 a6,
-        _QWORD *a7,
-        _QWORD *a8,
-        _QWORD *a9)
+NTSTATUS __cdecl RtlDosSearchPath_Ustr(
+        ULONG Flags,
+        PUNICODE_STRING Path,
+        PUNICODE_STRING FileName,
+        PUNICODE_STRING DefaultExtension,
+        PUNICODE_STRING StaticString,
+        PUNICODE_STRING DynamicString,
+        PCUNICODE_STRING *FullFileNameOut,
+        SIZE_T *FilePartPrefixCch,
+        SIZE_T *BytesRequired)
 {
   char v11; // bl
   unsigned __int64 v13; // rdi
   unsigned __int16 v14; // r14
-  int v15; // eax
-  _QWORD *v16; // r8
-  _QWORD *v17; // r9
-  __int64 v18; // r10
-  _DWORD *v19; // r11
+  RTL_PATH_TYPE v15; // eax
+  ULONG_PTR *FileNameSize; // r8
+  ULONG_PTR *RequiredLength; // r9
+  _UNICODE_STRING *v18; // r10
+  _UNICODE_STRING *v19; // r11
   int FullPathName_Ustr; // ebx
-  _WORD *v21; // rcx
+  wchar_t *Buffer; // rcx
   unsigned __int64 v22; // rax
-  unsigned __int64 v23; // rdx
-  unsigned __int64 v24; // rcx
+  wchar_t *v23; // rdx
+  wchar_t *v24; // rcx
   __int16 v25; // ax
   unsigned __int64 v26; // rax
-  unsigned __int64 v27; // r8
-  char *v28; // r10
-  char *v29; // rdx
-  char *v30; // rcx
+  wchar_t *v27; // r8
+  wchar_t *v28; // r10
+  unsigned __int64 v29; // rdx
+  wchar_t *v30; // rcx
   __int64 v31; // rax
   __int16 v32; // cx
   __int64 v33; // r12
-  unsigned __int64 v34; // r8
-  _WORD *v35; // rbx
-  _WORD *v36; // r15
-  _WORD *v37; // r14
+  _UNICODE_STRING *v34; // r8
+  wchar_t *v35; // rbx
+  wchar_t *v36; // r15
+  wchar_t *v37; // r14
   __int64 v38; // rdi
   bool v39; // zf
   unsigned __int16 v40; // di
@@ -62,7 +62,7 @@ __int64 __fastcall RtlDosSearchPath_Ustr(
   unsigned __int64 v42; // rdx
   __int16 v43; // r10
   unsigned __int16 v44; // r11
-  _WORD *v45; // r8
+  wchar_t *v45; // r8
   __int16 v46; // r11
   unsigned __int64 v47; // rax
   unsigned __int64 i; // rdx
@@ -70,127 +70,125 @@ __int64 __fastcall RtlDosSearchPath_Ustr(
   unsigned __int64 v50; // rbx
   __int64 v51; // r10
   __int16 v52; // r9
-  _WORD *v53; // rdx
+  wchar_t *v53; // rdx
   unsigned __int64 v54; // rcx
-  _WORD *v55; // r8
+  wchar_t *v55; // r8
   __int64 j; // r10
-  const void **v57; // rdi
+  unsigned __int16 *p_Length; // rdi
   unsigned __int64 v58; // rbx
   __int64 v59; // r10
   __int16 v60; // r9
-  _WORD *v61; // rdx
+  wchar_t *v61; // rdx
   unsigned __int64 v62; // rax
-  _WORD *v63; // r8
+  wchar_t *v63; // r8
   __int64 k; // r10
-  __int64 v65; // rax
-  int v66; // ebx
-  int v67; // eax
-  int v69; // eax
-  __int64 v70; // rax
-  unsigned __int16 v71; // r9
-  __int16 v72; // r10
-  __int16 v73; // ax
-  __int64 v74; // rdx
-  unsigned __int64 v75; // rdx
-  __int16 v76; // r8
-  __int16 v77; // dx
-  unsigned __int64 v78; // rax
-  unsigned __int64 v79; // r8
-  unsigned __int64 v80; // rcx
-  __int16 v81; // ax
-  __m128i v82; // [rsp+50h] [rbp-B0h] BYREF
-  int v83; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v84; // [rsp+68h] [rbp-98h]
-  _DWORD *v85; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD *v86; // [rsp+78h] [rbp-88h]
-  _QWORD *v87; // [rsp+80h] [rbp-80h]
-  __int64 v88; // [rsp+88h] [rbp-78h]
-  const void **v89; // [rsp+90h] [rbp-70h]
-  __int128 v90; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v91; // [rsp+A8h] [rbp-58h]
-  __int128 v92; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v93; // [rsp+C0h] [rbp-40h]
-  __int128 v94; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 v95; // [rsp+E0h] [rbp-20h]
-  __int128 v96; // [rsp+F0h] [rbp-10h]
-  _OWORD v97[2]; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v98; // [rsp+120h] [rbp+20h]
-  _BYTE v99[528]; // [rsp+130h] [rbp+30h] BYREF
+  PVOID v65; // rdi
+  HANDLE ContainingDirectory; // rax
+  NTSTATUS v67; // ebx
+  NTSTATUS v68; // eax
+  NTSTATUS v70; // eax
+  __int64 v71; // rax
+  unsigned __int16 v72; // r9
+  __int16 v73; // r10
+  __int16 v74; // ax
+  __int64 Length; // rdx
+  unsigned __int64 v76; // rdx
+  wchar_t v77; // r8
+  wchar_t v78; // dx
+  unsigned __int64 v79; // rax
+  wchar_t *v80; // r8
+  wchar_t *v81; // rcx
+  __int16 v82; // ax
+  _UNICODE_STRING FileNamea; // [rsp+50h] [rbp-B0h] BYREF
+  RTL_PATH_TYPE InputPathType; // [rsp+60h] [rbp-A0h] BYREF
+  SIZE_T *v85; // [rsp+68h] [rbp-98h]
+  PUNICODE_STRING NewName; // [rsp+70h] [rbp-90h] BYREF
+  PUNICODE_STRING *StringUsed; // [rsp+78h] [rbp-88h]
+  SIZE_T *v88; // [rsp+80h] [rbp-80h]
+  PUNICODE_STRING v89; // [rsp+88h] [rbp-78h]
+  PUNICODE_STRING v90; // [rsp+90h] [rbp-70h]
+  PVOID BaseAddress[2]; // [rsp+98h] [rbp-68h] BYREF
+  PUNICODE_STRING v92; // [rsp+A8h] [rbp-58h]
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+B0h] [rbp-50h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D0h] [rbp-30h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+100h] [rbp+0h] BYREF
+  _BYTE v96[528]; // [rsp+130h] [rbp+30h] BYREF
 
-  v11 = a1;
-  v89 = a4;
-  v84 = a8;
+  v11 = Flags;
+  v90 = DefaultExtension;
+  v85 = FilePartPrefixCch;
   v13 = 0LL;
-  v87 = a9;
+  v88 = BytesRequired;
   v14 = 0;
-  v82.m128i_i64[1] = (__int64)v99;
-  v91 = a6;
-  v88 = a5;
-  v86 = a7;
-  v82.m128i_i64[0] = 34078720LL;
-  if ( a7 )
-    *a7 = 0LL;
-  if ( a9 )
-    *a9 = 0LL;
-  if ( a8 )
-    *a8 = 0LL;
-  if ( a6 )
+  FileNamea.Buffer = (wchar_t *)v96;
+  v92 = DynamicString;
+  v89 = StaticString;
+  StringUsed = (PUNICODE_STRING *)FullFileNameOut;
+  *(_QWORD *)&FileNamea.Length = 34078720LL;
+  if ( FullFileNameOut )
+    *FullFileNameOut = 0LL;
+  if ( BytesRequired )
+    *BytesRequired = 0LL;
+  if ( FilePartPrefixCch )
+    *FilePartPrefixCch = 0LL;
+  if ( DynamicString )
   {
-    *(_DWORD *)a6 = 0;
-    *(_QWORD *)(a6 + 8) = 0LL;
+    *(_DWORD *)&DynamicString->Length = 0;
+    DynamicString->Buffer = 0LL;
   }
-  if ( (a1 & 0xFFFFFFF8) != 0 || !a2 || !a3 || a5 && a6 && !a7 )
-    return 3221225485LL;
-  v15 = RtlDetermineDosPathNameType_Ustr(a3);
-  v83 = v15;
+  if ( (Flags & 0xFFFFFFF8) != 0 || !Path || !FileName || StaticString && DynamicString && !FullFileNameOut )
+    return -1073741811;
+  v15 = (unsigned int)RtlDetermineDosPathNameType_Ustr(FileName);
+  InputPathType = v15;
   if ( (v11 & 2) != 0 )
   {
-    if ( v15 != 5 )
+    if ( v15 != RtlPathTypeRelative )
       goto LABEL_17;
-    if ( a3->m128i_i16[0] >= 4u )
+    if ( FileName->Length >= 4u )
     {
-      v21 = (_WORD *)a3->m128i_i64[1];
-      if ( *v21 == 46 )
+      Buffer = FileName->Buffer;
+      if ( *Buffer == 46 )
       {
-        v76 = v21[1];
-        if ( v76 == 92 || v76 == 47 || v76 == 46 && a3->m128i_i16[0] >= 6u && ((v77 = v21[2], v77 == 92) || v77 == 47) )
+        v77 = Buffer[1];
+        if ( v77 == 92
+          || v77 == 47
+          || v77 == 46 && FileName->Length >= 6u && ((v78 = Buffer[2], v78 == 92) || v78 == 47) )
         {
-          v83 = (int)v19;
+          InputPathType = (int)v19;
 LABEL_17:
-          if ( RtlDoesFileExists_UstrEx(a3, 1) )
+          if ( RtlDoesFileExists_UstrEx((__m128i *)FileName, 1) )
           {
             FullPathName_Ustr = RtlGetFullPathName_UstrEx(
-                                  (_DWORD)a3,
-                                  v88,
-                                  a6,
-                                  (_DWORD)v86,
-                                  (__int64)v84,
+                                  FileName,
+                                  v89,
+                                  DynamicString,
+                                  StringUsed,
+                                  v85,
                                   0LL,
-                                  (__int64)&v83,
-                                  (__int64)v87);
+                                  &InputPathType,
+                                  v88);
             if ( FullPathName_Ustr >= 0 )
               FullPathName_Ustr = 0;
             goto LABEL_79;
           }
-          if ( a4 )
+          if ( DefaultExtension )
           {
-            v74 = *(unsigned __int16 *)a4;
-            if ( (_WORD)v74 )
+            Length = DefaultExtension->Length;
+            if ( (_WORD)Length )
             {
               if ( (v11 & 4) == 0 )
               {
-                v78 = a3->m128i_u16[0];
-                if ( (_WORD)v78 )
+                v79 = FileName->Length;
+                if ( (_WORD)v79 )
                 {
-                  v79 = a3->m128i_u64[1];
-                  v80 = v79 + 2 * (v78 >> 1);
-                  while ( v80 > v79 )
+                  v80 = FileName->Buffer;
+                  v81 = &v80[v79 >> 1];
+                  while ( v81 > v80 )
                   {
-                    v81 = *(_WORD *)(v80 - 2);
-                    v80 -= 2LL;
-                    if ( v81 == 92 || v81 == 47 )
+                    v82 = *--v81;
+                    if ( v82 == 92 || v82 == 47 )
                       break;
-                    if ( v81 == 46 )
+                    if ( v82 == 46 )
                     {
                       FullPathName_Ustr = -1073741809;
                       goto LABEL_79;
@@ -198,41 +196,41 @@ LABEL_17:
                   }
                 }
               }
-              v75 = a3->m128i_u16[0] + 2LL + v74;
-              if ( v75 > 0xFFFE )
+              v76 = FileName->Length + 2LL + Length;
+              if ( v76 > 0xFFFE )
               {
                 FullPathName_Ustr = -1073741562;
                 goto LABEL_79;
               }
-              if ( v75 > v82.m128i_u16[1] )
+              if ( v76 > FileNamea.MaximumLength )
               {
-                v82.m128i_i16[1] = v75;
-                v82.m128i_i64[1] = RtlpAllocateAtom((unsigned __int16)v75);
-                if ( !v82.m128i_i64[1] )
+                FileNamea.MaximumLength = v76;
+                FileNamea.Buffer = (wchar_t *)RtlpAllocateAtom((unsigned __int16)v76);
+                if ( !FileNamea.Buffer )
                 {
 LABEL_124:
                   FullPathName_Ustr = -1073741801;
                   goto LABEL_79;
                 }
               }
-              memmove((void *)v82.m128i_i64[1], (const void *)a3->m128i_i64[1], a3->m128i_u16[0]);
+              memmove(FileNamea.Buffer, FileName->Buffer, FileName->Length);
               memmove(
-                (void *)(v82.m128i_i64[1] + 2 * ((unsigned __int64)a3->m128i_u16[0] >> 1)),
-                a4[1],
-                *(unsigned __int16 *)a4);
-              *(_WORD *)(v82.m128i_i64[1] + 2 * ((a3->m128i_u16[0] + (unsigned __int64)*(unsigned __int16 *)a4) >> 1)) = 0;
-              v82.m128i_i16[0] = *(_WORD *)a4 + a3->m128i_i16[0];
-              if ( RtlDoesFileExists_UstrEx(&v82, 1) )
+                &FileNamea.Buffer[(unsigned __int64)FileName->Length >> 1],
+                DefaultExtension->Buffer,
+                DefaultExtension->Length);
+              FileNamea.Buffer[(FileName->Length + (unsigned __int64)DefaultExtension->Length) >> 1] = 0;
+              FileNamea.Length = DefaultExtension->Length + FileName->Length;
+              if ( RtlDoesFileExists_UstrEx((__m128i *)&FileNamea, 1) )
               {
                 FullPathName_Ustr = RtlGetFullPathName_UstrEx(
-                                      (unsigned int)&v82,
-                                      v88,
-                                      a6,
-                                      (_DWORD)v86,
-                                      (__int64)v84,
+                                      &FileNamea,
+                                      v89,
+                                      DynamicString,
+                                      StringUsed,
+                                      v85,
                                       0LL,
-                                      (__int64)&v83,
-                                      (__int64)v87);
+                                      &InputPathType,
+                                      v88);
                 if ( FullPathName_Ustr >= 0 )
                   FullPathName_Ustr = 0;
                 goto LABEL_79;
@@ -241,94 +239,93 @@ LABEL_124:
           }
           goto LABEL_111;
         }
-        v16 = v84;
+        FileNameSize = v85;
       }
     }
   }
-  if ( v15 != 5 )
+  if ( v15 != RtlPathTypeRelative )
     goto LABEL_17;
   if ( (v11 & 1) == 0 )
     goto LABEL_24;
-  v85 = v19;
-  v69 = RtlDosApplyFileIsolationRedirection_Ustr(
-          1,
-          (__int128 *)a3->m128i_i8,
-          (__m128i *)a4,
+  NewName = v19;
+  v70 = RtlDosApplyFileIsolationRedirection_Ustr(
+          1u,
+          FileName,
+          DefaultExtension,
           v18,
-          (_OWORD *)a6,
-          (unsigned __int64)&v85,
-          v19,
-          v16,
-          v17);
-  FullPathName_Ustr = v69;
-  if ( v69 >= 0 )
+          DynamicString,
+          &NewName,
+          (PULONG)&v19->Length,
+          FileNameSize,
+          RequiredLength);
+  FullPathName_Ustr = v70;
+  if ( v70 >= 0 )
   {
-    if ( v86 )
-      *v86 = v85;
+    if ( StringUsed )
+      *StringUsed = NewName;
     FullPathName_Ustr = 0;
     goto LABEL_79;
   }
-  if ( v69 == -1072365560 )
+  if ( v70 == -1072365560 )
   {
     v19 = 0LL;
 LABEL_24:
-    if ( a4 )
+    if ( DefaultExtension )
     {
-      v22 = a3->m128i_u16[0];
-      v14 = *(_WORD *)a4;
+      v22 = FileName->Length;
+      v14 = DefaultExtension->Length;
       if ( (_WORD)v22 )
       {
-        v23 = a3->m128i_u64[1];
-        v24 = v23 + 2 * (v22 >> 1);
+        v23 = FileName->Buffer;
+        v24 = &v23[v22 >> 1];
         while ( v24 > v23 )
         {
-          v25 = *(_WORD *)(v24 - 2);
-          v24 -= 2LL;
+          v25 = *--v24;
           if ( v25 == 92 || v25 == 47 )
             break;
           if ( v25 == 46 )
           {
-            v89 = (const void **)v19;
+            v90 = v19;
             v14 = (unsigned __int16)v19;
             break;
           }
         }
       }
     }
-    v26 = *a2;
+    v26 = Path->Length;
     if ( (_WORD)v26 )
     {
-      v27 = *((_QWORD *)a2 + 1);
-      v28 = (char *)(v27 + 2 * (v26 >> 1));
-      v29 = v28;
-      if ( (unsigned __int64)v28 > v27 )
+      v27 = Path->Buffer;
+      v28 = &v27[v26 >> 1];
+      v29 = (unsigned __int64)v28;
+      if ( v28 > v27 )
       {
-        v30 = v28 - 2;
+        v30 = v28 - 1;
         do
         {
-          if ( *(_WORD *)v30 == 59 )
+          if ( *v30 == 59 )
           {
-            v70 = (v28 - v29 + 2) >> 1;
-            v71 = v70 - 1;
-            if ( (_WORD)v70 != 1 )
+            v71 = (__int64)((__int64)v28 - v29 + 2) >> 1;
+            v72 = v71 - 1;
+            if ( (_WORD)v71 != 1 )
             {
-              v72 = *((_WORD *)v28 - 1);
-              if ( v72 != 92 && v72 != 47 )
-                v71 = v70;
+              v73 = *(v28 - 1);
+              if ( v73 != 92 && v73 != 47 )
+                v72 = v71;
             }
             v28 = v30;
-            if ( v71 > v13 )
-              v13 = v71;
+            if ( v72 > v13 )
+              v13 = v72;
           }
-          v29 -= 2;
-          v30 -= 2;
+          v29 -= 2LL;
+          --v30;
         }
-        while ( (unsigned __int64)v29 > v27 );
+        while ( v29 > (unsigned __int64)v27 );
       }
-      v31 = (v28 - v29) >> 1;
+      v31 = (__int64)((__int64)v28 - v29) >> 1;
       if ( (_WORD)v31 )
       {
-        v32 = *((_WORD *)v28 - 1);
+        v32 = *(v28 - 1);
         if ( v32 != 92 && v32 != 47 )
           LOWORD(v31) = v31 + 1;
       }
@@ -337,15 +334,15 @@ LABEL_24:
       v13 *= 2LL;
     }
     v33 = v14;
-    v34 = v14 + (unsigned __int64)a3->m128i_u16[0] + v13 + 2;
-    v85 = (_DWORD *)v34;
-    if ( v34 > 0xFFFE )
+    v34 = (_UNICODE_STRING *)(v14 + (unsigned __int64)FileName->Length + v13 + 2);
+    NewName = v34;
+    if ( (unsigned __int64)v34 > 0xFFFE )
     {
       FullPathName_Ustr = -1073741562;
       goto LABEL_79;
     }
-    v35 = (_WORD *)*((_QWORD *)a2 + 1);
-    v36 = &v35[(unsigned __int64)*a2 >> 1];
+    v35 = Path->Buffer;
+    v36 = &v35[(unsigned __int64)Path->Length >> 1];
     while ( v35 < v36 )
     {
       v37 = v35;
@@ -362,27 +359,27 @@ LABEL_24:
       v41 = v40;
       if ( !v39 )
       {
-        v73 = *(v37 - 1);
-        if ( v73 != 92 && v73 != 47 )
+        v74 = *(v37 - 1);
+        if ( v74 != 92 && v74 != 47 )
           v40 += 2;
       }
-      v42 = v33 + a3->m128i_u16[0] + v40;
-      if ( v82.m128i_u16[1] < v42 + 2 )
+      v42 = v33 + FileName->Length + v40;
+      if ( FileNamea.MaximumLength < v42 + 2 )
       {
-        if ( (_BYTE *)v82.m128i_i64[1] != v99 || v42 > 0xFFFC )
+        if ( (_BYTE *)FileNamea.Buffer != v96 || v42 > 0xFFFC )
           goto LABEL_104;
-        v82.m128i_i16[1] = v34;
-        v82.m128i_i64[1] = RtlpAllocateAtom((unsigned __int16)v34);
-        if ( !v82.m128i_i64[1] )
+        FileNamea.MaximumLength = (unsigned __int16)v34;
+        FileNamea.Buffer = (wchar_t *)RtlpAllocateAtom((unsigned __int16)v34);
+        if ( !FileNamea.Buffer )
           goto LABEL_124;
       }
-      v82.m128i_i16[0] = 0;
-      if ( (int)RtlUnicodeStringValidateWorker(&v82) >= 0 )
+      FileNamea.Length = 0;
+      if ( (int)RtlUnicodeStringValidateWorker(&FileNamea) >= 0 )
       {
-        v45 = (_WORD *)v82.m128i_i64[1];
+        v45 = FileNamea.Buffer;
         v46 = v43;
         v47 = v41 >> 1;
-        for ( i = (unsigned __int64)v82.m128i_u16[1] >> 1; i; --i )
+        for ( i = (unsigned __int64)FileNamea.MaximumLength >> 1; i; --i )
         {
           if ( !v47 )
             break;
@@ -393,22 +390,22 @@ LABEL_24:
           ++v46;
         }
         v44 = 2 * v46;
-        v82.m128i_i16[0] = v44;
+        FileNamea.Length = v44;
       }
       if ( v40 && (_WORD)v41 != v40 )
       {
-        *(_WORD *)(v82.m128i_i64[1] + 2 * ((unsigned __int64)v44 >> 1)) = 92;
-        v82.m128i_i16[0] += 2;
+        FileNamea.Buffer[(unsigned __int64)v44 >> 1] = 92;
+        FileNamea.Length += 2;
       }
-      if ( (int)RtlUnicodeStringValidateWorker(&v82) >= 0 )
+      if ( (int)RtlUnicodeStringValidateWorker(&FileNamea) >= 0 )
       {
         v50 = (unsigned __int64)v49 >> 1;
-        if ( (int)RtlUnicodeStringValidateWorker(a3) >= 0 )
+        if ( (int)RtlUnicodeStringValidateWorker(FileName) >= 0 )
         {
           v52 = 0;
-          v53 = (_WORD *)a3->m128i_i64[1];
-          v54 = (unsigned __int64)a3->m128i_u16[0] >> 1;
-          v55 = (_WORD *)(v82.m128i_i64[1] + 2 * v50);
+          v53 = FileName->Buffer;
+          v54 = (unsigned __int64)FileName->Length >> 1;
+          v55 = &FileNamea.Buffer[v50];
           for ( j = v51 - v50; j; --j )
           {
             if ( !v54 )
@@ -418,21 +415,21 @@ LABEL_24:
             ++v52;
           }
           v49 = 2 * (v52 + v50);
-          v82.m128i_i16[0] = v49;
+          FileNamea.Length = v49;
         }
       }
-      v57 = v89;
-      if ( v89 )
+      p_Length = &v90->Length;
+      if ( v90 )
       {
-        if ( (int)RtlUnicodeStringValidateWorker(&v82) >= 0 )
+        if ( (int)RtlUnicodeStringValidateWorker(&FileNamea) >= 0 )
         {
           v58 = (unsigned __int64)v49 >> 1;
-          if ( (int)RtlUnicodeStringValidateWorker(v57) >= 0 )
+          if ( (int)RtlUnicodeStringValidateWorker(p_Length) >= 0 )
           {
             v60 = 0;
-            v61 = v57[1];
-            v62 = (unsigned __int64)*(unsigned __int16 *)v57 >> 1;
-            v63 = (_WORD *)(v82.m128i_i64[1] + 2 * v58);
+            v61 = (wchar_t *)*((_QWORD *)p_Length + 1);
+            v62 = (unsigned __int64)*p_Length >> 1;
+            v63 = &FileNamea.Buffer[v58];
             for ( k = v59 - v58; k; --k )
             {
               if ( !v62 )
@@ -442,64 +439,60 @@ LABEL_24:
               ++v60;
             }
             v49 = 2 * (v60 + v58);
-            v82.m128i_i16[0] = v49;
+            FileNamea.Length = v49;
           }
         }
       }
-      if ( (unsigned __int64)v49 + 2 > v82.m128i_u16[1] )
+      if ( (unsigned __int64)v49 + 2 > FileNamea.MaximumLength )
       {
 LABEL_104:
         FullPathName_Ustr = -1073741595;
         goto LABEL_79;
       }
-      v94 = 0LL;
-      *(_WORD *)(v82.m128i_i64[1] + 2 * ((unsigned __int64)v49 >> 1)) = 0;
-      *(_QWORD *)&v96 = 0LL;
-      DWORD2(v96) = 0;
-      v98 = 0LL;
-      v95 = 0LL;
-      v90 = 0LL;
-      v92 = 0LL;
-      v93 = 0LL;
-      memset(v97, 0, sizeof(v97));
-      if ( (int)RtlpDosPathNameToRelativeNtPathName(2, &v82, 0LL, (unsigned __int16 *)&v90, 0LL, 0LL, (__int64)&v92) >= 0 )
+      *(_OWORD *)&ObjectAttributes.Length = 0LL;
+      FileNamea.Buffer[(unsigned __int64)v49 >> 1] = 0;
+      memset(&ObjectAttributes.ObjectName, 0, 28);
+      *(_OWORD *)BaseAddress = 0LL;
+      memset(&RelativeName, 0, sizeof(RelativeName));
+      memset(&FileInformation, 0, sizeof(FileInformation));
+      if ( (int)RtlpDosPathNameToRelativeNtPathName(
+                  2,
+                  (__m128i *)&FileNamea,
+                  0LL,
+                  (unsigned __int16 *)BaseAddress,
+                  0LL,
+                  0LL,
+                  (__int64)&RelativeName) >= 0 )
       {
-        if ( (_WORD)v92 )
+        v65 = BaseAddress[1];
+        if ( RelativeName.RelativeName.Length )
         {
-          v65 = v93;
-          v90 = v92;
+          ContainingDirectory = RelativeName.ContainingDirectory;
+          *(UNICODE_STRING *)BaseAddress = RelativeName.RelativeName;
         }
         else
         {
-          v65 = 0LL;
-          *(_QWORD *)&v93 = 0LL;
+          ContainingDirectory = 0LL;
+          RelativeName.ContainingDirectory = 0LL;
         }
-        *((_QWORD *)&v94 + 1) = v65;
-        LODWORD(v94) = 48;
-        *(_QWORD *)&v95 = &v90;
-        DWORD2(v95) = 64;
-        v96 = 0LL;
-        v66 = ZwQueryAttributesFile(&v94, v97);
-        RtlReleaseRelativeName(&v92);
-        RtlFreeHeap_0();
-        if ( v66 >= 0 )
+        ObjectAttributes.RootDirectory = ContainingDirectory;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
+        ObjectAttributes.Attributes = 64;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v67 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+        RtlReleaseRelativeName(&RelativeName);
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v65);
+        if ( v67 >= 0 )
         {
-          v67 = RtlGetFullPathName_UstrEx(
-                  (unsigned int)&v82,
-                  v88,
-                  v91,
-                  (_DWORD)v86,
-                  (__int64)v84,
-                  0LL,
-                  (__int64)&v83,
-                  (__int64)v87);
+          v68 = RtlGetFullPathName_UstrEx(&FileNamea, v89, v92, StringUsed, v85, 0LL, &InputPathType, v88);
           FullPathName_Ustr = 0;
-          if ( v67 < 0 )
-            FullPathName_Ustr = v67;
+          if ( v68 < 0 )
+            FullPathName_Ustr = v68;
           goto LABEL_79;
         }
       }
-      LOWORD(v34) = (_WORD)v85;
+      LOWORD(v34) = (_WORD)NewName;
       if ( v37 == v36 )
         v35 = v37;
       else
@@ -509,10 +502,10 @@ LABEL_111:
     FullPathName_Ustr = -1073741809;
   }
 LABEL_79:
-  if ( v82.m128i_i64[1] )
+  if ( FileNamea.Buffer )
   {
-    if ( (_BYTE *)v82.m128i_i64[1] != v99 )
-      RtlpSysVolFree(v82.m128i_i64[1]);
+    if ( (_BYTE *)FileNamea.Buffer != v96 )
+      RtlpSysVolFree(FileNamea.Buffer);
   }
-  return (unsigned int)FullPathName_Ustr;
+  return FullPathName_Ustr;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of NtPrivilegeObjectAuditAlarm @ 0x1409F8190
+ * XREFs of NtPrivilegeObjectAuditAlarm @ 0x140A60CD0
  * Callers:
- *     DifNtPrivilegeObjectAuditAlarmWrapper @ 0x1406806E0 (DifNtPrivilegeObjectAuditAlarmWrapper.c)
+ *     DifNtPrivilegeObjectAuditAlarmWrapper @ 0x1406842C0 (DifNtPrivilegeObjectAuditAlarmWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SepProbeAndCaptureString_U @ 0x1409F71E8 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x1409F7320 (SeCheckAuditPrivilege.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SepProbeAndCaptureString_U @ 0x140A5FD38 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x140A5FE70 (SeCheckAuditPrivilege.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtPrivilegeObjectAuditAlarm(

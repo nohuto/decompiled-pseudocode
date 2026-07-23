@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapWorkQueueDpcRoutine @ 0x1406139F0
+ * XREFs of WheapWorkQueueDpcRoutine @ 0x140613F40
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void __fastcall WheapWorkQueueDpcRoutine(__int64 a1, struct _WORK_QUEUE_ITEM *a2)

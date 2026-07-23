@@ -1,15 +1,15 @@
 /*
- * XREFs of CmInitServerSiloState @ 0x1407D5B34
+ * XREFs of CmInitServerSiloState @ 0x1407D6024
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
- *     CmpInitSiloSupport @ 0x1407D5BB4 (CmpInitSiloSupport.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
+ *     CmpInitSiloSupport @ 0x1407D60A4 (CmpInitSiloSupport.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x1409E1D14 (CmpGetOrCreateContextForSiloNoRef.c)
- *     CmpStartSiloRegistryNamespace @ 0x1409E2450 (CmpStartSiloRegistryNamespace.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x140A872EC (CmpUnlockSiloKeyLockTracker.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1409DBAC4 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1409DC200 (CmpStartSiloRegistryNamespace.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140A8203C (CmpUnlockSiloKeyLockTracker.c)
  */
 
 __int64 CmInitServerSiloState()

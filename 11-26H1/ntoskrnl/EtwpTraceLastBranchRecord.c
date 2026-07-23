@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceLastBranchRecord @ 0x140263D10
+ * XREFs of EtwpTraceLastBranchRecord @ 0x140263280
  * Callers:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x140406FB0 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140263F70 (KeQueryCurrentStackInformationEx.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402634E0 (KeQueryCurrentStackInformationEx.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall EtwpTraceLastBranchRecord(int *a1, _QWORD *a2, struct _KTHREAD *a3, int a4)
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall EtwpTraceLastBranchRecord(int *a1, _QWORD *a2, struc
   PSLIST_ENTRY v14; // rax
   __int64 v15; // rax
   void *v16; // rsp
-  struct _SLIST_ENTRY *v17; // rdi
+  _SLIST_ENTRY *v17; // rdi
   __int64 v18; // rax
   int v19; // ecx
   int v20; // r8d
@@ -68,7 +68,7 @@ unsigned __int64 __fastcall EtwpTraceLastBranchRecord(int *a1, _QWORD *a2, struc
       {
         v12 = 0;
         v13 = (unsigned int)(24 * EtwpLastBranchStackSize);
-        v14 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E28440.ThreadListEntry.Blink);
+        v14 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E285C0.IoSelfBoostsEntry);
         if ( !v14 || (v17 = v14 + 1, v14 == (PSLIST_ENTRY)-16LL) )
         {
           result = KeGetCurrentStackPointer() - v26;
@@ -79,7 +79,7 @@ unsigned __int64 __fastcall EtwpTraceLastBranchRecord(int *a1, _QWORD *a2, struc
             v15 = 0xFFFFFFFFFFFFFF0LL;
           v16 = alloca(v15 & 0xFFFFFFFFFFFFFFF0uLL);
           v12 = 1;
-          v17 = (struct _SLIST_ENTRY *)&v24;
+          v17 = (_SLIST_ENTRY *)&v24;
         }
         result = guard_dispatch_icall_no_overrides((unsigned int)v13, v17, &v24);
         if ( (result & 0x80000000) == 0LL && v24 )
@@ -103,7 +103,7 @@ unsigned __int64 __fastcall EtwpTraceLastBranchRecord(int *a1, _QWORD *a2, struc
         }
         if ( !v12 )
           return (unsigned __int64)RtlpInterlockedPushEntrySList(
-                                     (PSLIST_HEADER)&stru_140E28440.ThreadListEntry.Blink,
+                                     (PSLIST_HEADER)&stru_140E285C0.IoSelfBoostsEntry,
                                      v17 - 1);
       }
     }

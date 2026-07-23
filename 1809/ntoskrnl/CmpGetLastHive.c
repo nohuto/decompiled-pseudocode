@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetLastHive @ 0x1406C22F4
+ * XREFs of CmpGetLastHive @ 0x1406C3594
  * Callers:
- *     CmpDoFlushAll @ 0x140157A08 (CmpDoFlushAll.c)
- *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
+ *     CmpDoFlushAll @ 0x140157B08 (CmpDoFlushAll.c)
+ *     CmLoadAppKey @ 0x1405D054C (CmLoadAppKey.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     CmpReferenceHive @ 0x1405D16FC (CmpReferenceHive.c)
+ *     CmpReferenceHive @ 0x1405D26FC (CmpReferenceHive.c)
  */
 
 __int64 CmpGetLastHive()
@@ -19,7 +19,7 @@ __int64 CmpGetLastHive()
 
   v0 = 0LL;
   ExAcquirePushLockSharedEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
-  v1 = qword_14096E7D0;
+  v1 = qword_14096F7D0;
   v2 = &CmpHiveListHead;
   while ( (__int64 *)v1 != v2 )
   {

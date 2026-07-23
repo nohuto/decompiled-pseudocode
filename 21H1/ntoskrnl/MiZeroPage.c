@@ -332,7 +332,7 @@ LABEL_101:
         break;
     }
     v30 = qword_140C4EB38;
-    v89 = (!qword_140C4EB38 || v29 < qword_140C4EB38 || v29 >= qword_140C4EB38 + (qword_140C4EB48 << 30))
+    v89 = (!qword_140C4EB38 || v29 < qword_140C4EB38 || v29 >= qword_140C4EB38 + (BitMapHeader.SizeOfBitMap << 30))
        && (unsigned int)v23 <= 1;
     if ( v25 )
       goto LABEL_91;

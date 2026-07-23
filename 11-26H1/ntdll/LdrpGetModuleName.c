@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpGetModuleName @ 0x180033E20
+ * XREFs of LdrpGetModuleName @ 0x18001EF80
  * Callers:
- *     LdrQueryModuleInfoFromLdrEntry @ 0x180033C20 (LdrQueryModuleInfoFromLdrEntry.c)
- *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8E40 (LdrQueryModuleInfoFromLdrEntry32.c)
+ *     LdrQueryModuleInfoFromLdrEntry @ 0x18001ED80 (LdrQueryModuleInfoFromLdrEntry.c)
+ *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8610 (LdrQueryModuleInfoFromLdrEntry32.c)
  * Callees:
- *     RtlGetNtSystemRoot @ 0x180032E30 (RtlGetNtSystemRoot.c)
- *     RtlUnicodeStringToAnsiString @ 0x1800344C0 (RtlUnicodeStringToAnsiString.c)
- *     RtlWow64GetProcessMachines @ 0x180034FB0 (RtlWow64GetProcessMachines.c)
- *     RtlReplaceSystemDirectoryInPath @ 0x180035310 (RtlReplaceSystemDirectoryInPath.c)
- *     _wcsnicmp @ 0x180129080 (_wcsnicmp.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlGetNtSystemRoot @ 0x18001DF90 (RtlGetNtSystemRoot.c)
+ *     RtlUnicodeStringToAnsiString @ 0x18001F620 (RtlUnicodeStringToAnsiString.c)
+ *     RtlWow64GetProcessMachines @ 0x180020110 (RtlWow64GetProcessMachines.c)
+ *     RtlReplaceSystemDirectoryInPath @ 0x180020470 (RtlReplaceSystemDirectoryInPath.c)
+ *     _wcsnicmp @ 0x180128DF0 (_wcsnicmp.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a4)
@@ -19,7 +19,7 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
   unsigned __int16 v6; // bx
   bool v7; // cf
   __int64 v10; // rdx
-  __int64 (__fastcall *v11)(__int64, __int64, wchar_t *, _QWORD, _QWORD *); // rax
+  __int64 (__fastcall *v11)(__int64, __int64, wchar_t *, _QWORD, _UNICODE_STRING *); // rax
   NTSTATUS result; // eax
   char *v13; // rax
   char *v14; // rcx
@@ -30,10 +30,10 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
   __int64 v19; // rcx
   size_t v20; // rdi
   __int64 v21; // rcx
-  _WORD v22[8]; // [rsp+30h] [rbp-D0h] BYREF
+  USHORT ProcessMachine[8]; // [rsp+30h] [rbp-D0h] BYREF
   UNICODE_STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v24[2]; // [rsp+50h] [rbp-B0h] BYREF
-  STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+50h] [rbp-B0h] BYREF
+  _STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
   wchar_t String1[264]; // [rsp+70h] [rbp-90h] BYREF
 
   v5 = *a1;
@@ -43,19 +43,19 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
   if ( v7 )
     v6 = *(_WORD *)a2;
   v10 = *(_QWORD *)(a2 + 8);
-  v11 = (__int64 (__fastcall *)(__int64, __int64, wchar_t *, _QWORD, _QWORD *))a1[1];
+  v11 = (__int64 (__fastcall *)(__int64, __int64, wchar_t *, _QWORD, _UNICODE_STRING *))a1[1];
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  v22[0] = 0;
-  v24[0] = 0LL;
-  result = v11(v5, v10, String1, v6, v24);
+  ProcessMachine[0] = 0;
+  *(_QWORD *)&Destination.Length = 0LL;
+  result = v11(v5, v10, String1, v6, &Destination);
   if ( result >= 0 )
   {
-    if ( v24[0] == v6 )
+    if ( *(_QWORD *)&Destination.Length == v6 )
     {
       String1[256] = 0;
       if ( !a4 )
         goto LABEL_6;
-      NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+      NtSystemRoot = RtlGetNtSystemRoot();
       v19 = -1LL;
       do
         ++v19;
@@ -72,15 +72,15 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 *a1, __int64 a2, __int64 a3, int a
       v21 = *a1;
       if ( !*a1 )
         v21 = -1LL;
-      if ( (int)RtlWow64GetProcessMachines(v21, v22, 0LL) >= 0
+      if ( RtlWow64GetProcessMachines((HANDLE)v21, ProcessMachine, 0LL) >= 0
         && (SourceString.Buffer = String1,
             SourceString.MaximumLength = v6,
             SourceString.Length = v6,
-            HIDWORD(v24[0]) = *(_DWORD *)(&SourceString.MaximumLength + 1),
-            LOWORD(v24[0]) = v6 - 2 * v20,
-            WORD1(v24[0]) = v24[0],
-            v24[1] = &String1[v20],
-            (int)RtlReplaceSystemDirectoryInPath(v24, 1LL, v22[0], 0LL) >= 0) )
+            *(_DWORD *)(&Destination.MaximumLength + 1) = *(_DWORD *)(&SourceString.MaximumLength + 1),
+            Destination.Length = v6 - 2 * v20,
+            Destination.MaximumLength = Destination.Length,
+            Destination.Buffer = &String1[v20],
+            (RtlReplaceSystemDirectoryInPath(&Destination, 1u, ProcessMachine[0], 0) & 0x80000000) == 0) )
       {
 LABEL_6:
         SourceString.MaximumLength = v6;

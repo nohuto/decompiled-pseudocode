@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetDatabaseRuntimePlatform @ 0x140B38678
+ * XREFs of SdbpGetDatabaseRuntimePlatform @ 0x140B3A888
  * Callers:
- *     SdbpCheckRuntimePlatform @ 0x140883D30 (SdbpCheckRuntimePlatform.c)
- *     SdbInitDatabaseInMemory @ 0x1409E62EC (SdbInitDatabaseInMemory.c)
+ *     SdbpCheckRuntimePlatform @ 0x14088A130 (SdbpCheckRuntimePlatform.c)
+ *     SdbInitDatabaseInMemory @ 0x1409D6974 (SdbInitDatabaseInMemory.c)
  * Callees:
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140886044 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbReadDWORDTag @ 0x1409E8A54 (SdbReadDWORDTag.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x14088C444 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x1409D5464 (SdbReadDWORDTag.c)
  */
 
 __int64 __fastcall SdbpGetDatabaseRuntimePlatform(__int64 a1)

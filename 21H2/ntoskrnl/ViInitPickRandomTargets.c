@@ -1,10 +1,10 @@
 /*
- * XREFs of ViInitPickRandomTargets @ 0x140A6FC9C
+ * XREFs of ViInitPickRandomTargets @ 0x140A70C9C
  * Callers:
- *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140A70AB8 (ViInitSystemPhase0.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     VfRandomGetNumber @ 0x1409C6290 (VfRandomGetNumber.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VfRandomGetNumber @ 0x1409C7290 (VfRandomGetNumber.c)
  */
 
 __int64 ViInitPickRandomTargets()

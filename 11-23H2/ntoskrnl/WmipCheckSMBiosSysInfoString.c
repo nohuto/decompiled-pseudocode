@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipCheckSMBiosSysInfoString @ 0x1409DF668
+ * XREFs of WmipCheckSMBiosSysInfoString @ 0x1409DF868
  * Callers:
- *     WmiMatchSMBiosSysInfo @ 0x1409DF5C0 (WmiMatchSMBiosSysInfo.c)
+ *     WmiMatchSMBiosSysInfo @ 0x1409DF7C0 (WmiMatchSMBiosSysInfo.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  */
 
 char __fastcall WmipCheckSMBiosSysInfoString(PCSZ SourceString, PCUNICODE_STRING String2)

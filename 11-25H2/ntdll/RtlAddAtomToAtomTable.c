@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlAddAtomToAtomTable(__int64 a1, unsigned __int64 a2, _WORD *a3)
+NTSTATUS __cdecl RtlAddAtomToAtomTable(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
-  return RtlAddAtomToAtomTableEx(a1, a2, a3);
+  return RtlAddAtomToAtomTableEx((__int64)AtomTableHandle, (unsigned __int64)AtomName, Atom);
 }

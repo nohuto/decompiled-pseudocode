@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateEnclaveRegions @ 0x140C57EDC
+ * XREFs of MiCreateEnclaveRegions @ 0x140C5A06C
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiUpdateLargePageBitMap @ 0x1403A29EC (MiUpdateLargePageBitMap.c)
+ *     MiUpdateLargePageBitMap @ 0x140219EE0 (MiUpdateLargePageBitMap.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
  */
 
 __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
@@ -26,10 +26,10 @@ __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
   __int64 v14; // rax
 
   v1 = 0LL;
-  qword_140E374F0 = 0LL;
-  stru_140E374F8.Count = 0LL;
-  qword_140E374E8 = (__int64)&qword_140E374E0;
-  qword_140E374E0 = (__int64)&qword_140E374E0;
+  qword_140E37630 = 0LL;
+  stru_140E37638.Count = 0LL;
+  qword_140E37628 = (__int64)&qword_140E37620;
+  qword_140E37620 = (__int64)&qword_140E37620;
   v2 = *(_QWORD *)(a1 + 360);
   if ( (v2 & 1) != 0 )
   {
@@ -64,8 +64,8 @@ __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
     *(_QWORD *)(Pool + 24) = v4;
     v8 = 0;
     *(_QWORD *)(Pool + 32) = v5;
-    v9 = (_QWORD *)qword_140E374B8;
-    if ( !qword_140E374B8 )
+    v9 = (_QWORD *)qword_140E375F8;
+    if ( !qword_140E375F8 )
       goto LABEL_19;
     while ( v4 < v9[3] )
     {
@@ -80,9 +80,9 @@ LABEL_17:
       goto LABEL_17;
     v8 = 1;
 LABEL_19:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E374B8, (unsigned __int64)v9, v8, v1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E375F8, (unsigned __int64)v9, v8, v1);
 LABEL_20:
-    MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v4, v5, 0);
+    MiUpdateLargePageBitMap((unsigned __int64)&MiSystemPartition, v4, v5, 0);
 LABEL_21:
     v11 = *(_QWORD ***)(i + 8);
     v12 = i;
@@ -103,7 +103,7 @@ LABEL_21:
       }
     }
   }
-  if ( qword_140E374B8 )
+  if ( qword_140E375F8 )
   {
     v14 = MiAllocatePool(0x40uLL, 0x50uLL, 1296190789);
     if ( !v14 )
@@ -111,9 +111,9 @@ LABEL_21:
     *(_DWORD *)v14 = 512;
     *(_QWORD *)(v14 + 8) = v14 + 16;
     *(_BYTE *)(v14 + 16) |= 1u;
-    qword_140E374D0 = 0LL;
-    qword_140E374C8 = v14;
-    dword_140E374D8 = 0;
+    qword_140E37610 = 0LL;
+    qword_140E37608 = v14;
+    dword_140E37618 = 0;
   }
   return 1LL;
 }

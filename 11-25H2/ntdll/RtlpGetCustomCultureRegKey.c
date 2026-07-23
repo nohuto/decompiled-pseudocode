@@ -9,14 +9,14 @@
 
 __int64 RtlpGetCustomCultureRegKey()
 {
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
+  KeyHandle = 0LL;
   if ( !gCustomCultureRegKey
-    && (int)NtOpenKey(&Handle, 1LL, &`RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
-    && _InterlockedCompareExchange64(&gCustomCultureRegKey, (signed __int64)Handle, 0LL) )
+    && NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&`RtlpGetCustomCultureRegKey'::`2'::ObjAttribute) >= 0
+    && _InterlockedCompareExchange64(&gCustomCultureRegKey, (signed __int64)KeyHandle, 0LL) )
   {
-    NtClose(Handle);
+    NtClose(KeyHandle);
   }
   return gCustomCultureRegKey;
 }

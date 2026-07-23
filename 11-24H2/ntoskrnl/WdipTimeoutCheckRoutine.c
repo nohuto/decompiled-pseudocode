@@ -1,25 +1,25 @@
 /*
- * XREFs of WdipTimeoutCheckRoutine @ 0x140A47800
+ * XREFs of WdipTimeoutCheckRoutine @ 0x140A3D620
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExSetTimer @ 0x1403C1FC0 (ExSetTimer.c)
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x140A47970 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemDisableContextProviders @ 0x140A47CA4 (WdipSemDisableContextProviders.c)
- *     WdipSemDeleteTransitionalInstance @ 0x140A47D18 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140A47E04 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
- *     WdipSemLogTimeoutInformation @ 0x140A47F1C (WdipSemLogTimeoutInformation.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExSetTimer @ 0x1403B0B80 (ExSetTimer.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x140A3D790 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemDisableContextProviders @ 0x140A3DAC4 (WdipSemDisableContextProviders.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140A3DB38 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140A3DC24 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemLogTimeoutInformation @ 0x140A3DD3C (WdipSemLogTimeoutInformation.c)
  */
 
 __int64 WdipTimeoutCheckRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v1; // rbx
+  char *v1; // rbx
   signed __int64 v2; // rbx
   signed __int64 v3; // rdx
   ULONG_PTR v4; // rtt
@@ -32,11 +32,11 @@ __int64 WdipTimeoutCheckRoutine()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&WdipSemPushLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&WdipSemPushLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WdipSemPushLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&WdipSemPushLock, 0, v1, (__int64)&WdipSemPushLock);
   if ( v1 )
-    *((_BYTE *)v1 + 10) = 1;
+    v1[10] = 1;
   WdipSemSqmLogInflightLimitExceededDataPoints();
   if ( WdipSemTimeoutEnabled )
   {

@@ -1,36 +1,42 @@
 /*
- * XREFs of PopDirectedDripsInitializePhase0 @ 0x140CD0A60
+ * XREFs of PopDirectedDripsInitializePhase0 @ 0x140CD6C08
  * Callers:
- *     PopInitializeDirectedDrips @ 0x140CD0CA8 (PopInitializeDirectedDrips.c)
+ *     PopInitializeDirectedDrips @ 0x140CD6E50 (PopInitializeDirectedDrips.c)
  * Callees:
- *     PopInitializeWorkItem @ 0x1407C8C6C (PopInitializeWorkItem.c)
- *     PopDirectedDripsInitializeDisengageTimer @ 0x1407CC0A4 (PopDirectedDripsInitializeDisengageTimer.c)
- *     PopDirectedDripsUmInitialize @ 0x1407E26CC (PopDirectedDripsUmInitialize.c)
- *     PopDirectedDripsDiagInitialize @ 0x140CD6C5C (PopDirectedDripsDiagInitialize.c)
+ *     PopInitializeWorkItem @ 0x1407CBD0C (PopInitializeWorkItem.c)
+ *     PopDirectedDripsInitializeDisengageTimer @ 0x1407CF144 (PopDirectedDripsInitializeDisengageTimer.c)
+ *     PopDirectedDripsUmInitialize @ 0x1407E775C (PopDirectedDripsUmInitialize.c)
+ *     PopDirectedDripsDiagInitialize @ 0x140CDCFB0 (PopDirectedDripsDiagInitialize.c)
  */
 
 void PopDirectedDripsInitializePhase0()
 {
-  *(_QWORD *)&unk_140F12B60.Header.Lock = 0LL;
-  unk_140F12AE8 = &qword_140F12AE0;
-  qword_140F12AE0 = &qword_140F12AE0;
-  LOWORD(unk_140F12AD8.Header.Lock) = 1;
-  unk_140F12ADA = 6;
-  unk_140F12ADC = 0;
-  dword_140F12AF8[0] = -1946157056;
-  unk_140F12BA0 = 0;
-  qword_140F12CF8 = -1LL;
-  unk_140F12B68 = 0;
-  unk_140F12B6C = 0;
-  unk_140F12B70 = 0;
+  *(_QWORD *)&stru_140F12EA0.Header.Lock = 0LL;
+  stru_140F12E18.Header.WaitListHead.Blink = &stru_140F12E18.Header.WaitListHead;
+  stru_140F12E18.Header.WaitListHead.Flink = &stru_140F12E18.Header.WaitListHead;
+  LOWORD(stru_140F12E18.Header.Lock) = 1;
+  stru_140F12E18.Header.Size = 6;
+  stru_140F12E18.Header.SignalState = 0;
+  dword_140F12E38[0] = -1946157056;
+  LODWORD(stru_140F12EA0.ThreadLock) = 0;
+  stru_140F12EA0.WaitBlock[1].SparePtr = (PVOID)-1LL;
+  LOWORD(stru_140F12EA0.Header.WaitListHead.Flink) = 0;
+  HIDWORD(stru_140F12EA0.Header.WaitListHead.Flink) = 0;
+  LOBYTE(stru_140F12EA0.Header.WaitListHead.Blink) = 0;
   PopInitializeWorkItem(
-    (__int64)&unk_140F12B78,
+    (__int64)&stru_140F12EA0.SListFaultAddress,
     (__int64)PopDirectedDripsNotifyResiliencyCompletionWorker,
-    (__int64)dword_140F12AC0);
-  PopDirectedDripsInitializeDisengageTimer((__int64)&unk_140F12BA8, 2, PopDirectedDripsWaitWakeTimeoutSeconds);
-  PopDirectedDripsInitializeDisengageTimer((__int64)&unk_140F12C48, 3, PopDirectedDripsSurprisePowerOnTimeoutSeconds);
-  qword_140F12D00 = 0LL;
-  dword_140F12D08 = 0;
+    (__int64)&PopDirectedDripsState);
+  PopDirectedDripsInitializeDisengageTimer(
+    (__int64)&stru_140F12EA0.CycleTime,
+    2,
+    PopDirectedDripsWaitWakeTimeoutSeconds);
+  PopDirectedDripsInitializeDisengageTimer(
+    (__int64)&stru_140F12EA0.Queue,
+    3,
+    PopDirectedDripsSurprisePowerOnTimeoutSeconds);
+  stru_140F12EA0.WaitBlock[2].WaitListEntry.Flink = 0LL;
+  *(_DWORD *)&stru_140F12EA0.WaitBlockFill11[104] = 0;
   PopDirectedDripsDiagInitialize(0LL);
   PopDirectedDripsUmInitialize();
 }

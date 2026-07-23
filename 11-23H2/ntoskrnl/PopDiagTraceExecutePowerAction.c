@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceExecutePowerAction @ 0x14098EC1C
+ * XREFs of PopDiagTraceExecutePowerAction @ 0x14098EE1C
  * Callers:
- *     PopExecutePowerAction @ 0x1409897F4 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1409899F4 (PopExecutePowerAction.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessImageFileName @ 0x14034E4F0 (PsGetProcessImageFileName.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessImageFileName @ 0x14034E690 (PsGetProcessImageFileName.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char PopDiagTraceExecutePowerAction(
@@ -222,7 +222,7 @@ char PopDiagTraceExecutePowerAction(
           v95 = 8LL;
           LOBYTE(ProcessImageFileName) = tlgWriteTransfer_EtwWriteTransfer(
                                            v20,
-                                           (unsigned __int8 *)&dword_14002E894,
+                                           (unsigned __int8 *)byte_14002E343,
                                            0LL,
                                            0LL,
                                            0x11u,

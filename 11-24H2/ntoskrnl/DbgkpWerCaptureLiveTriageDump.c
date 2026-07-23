@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x140708900
+ * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x1407064C0
  * Callers:
- *     DbgkpWerProcessPolicyResult @ 0x140708E78 (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerProcessPolicyResult @ 0x140706A38 (DbgkpWerProcessPolicyResult.c)
  * Callees:
- *     KeCapturePersistentThreadState @ 0x140262B20 (KeCapturePersistentThreadState.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     RtlCaptureContext @ 0x1404FC8A0 (RtlCaptureContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     DbgkpWerWriteTriageDump @ 0x140709160 (DbgkpWerWriteTriageDump.c)
- *     DbgkpWerInvokeCallbacks @ 0x140A9B0D4 (DbgkpWerInvokeCallbacks.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeCapturePersistentThreadState @ 0x140420EC0 (KeCapturePersistentThreadState.c)
+ *     RtlCaptureContext @ 0x1404FA160 (RtlCaptureContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     DbgkpWerWriteTriageDump @ 0x140706D20 (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerInvokeCallbacks @ 0x140A96644 (DbgkpWerInvokeCallbacks.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
@@ -21,12 +21,12 @@ __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
   int v5; // eax
   int v6; // eax
   int v7; // eax
-  struct _CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
+  _CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
 
   DbgPrintEx(5u, 3u, "DBGK: Creating mini live dump. ComponentName %ws\n", a1);
   *(_DWORD *)(a1 + 80) = 67108860;
   memset_0(&ContextRecord, 0, sizeof(ContextRecord));
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x40000uLL, 0x57676244u);
   *(_QWORD *)(a1 + 136) = Pool2;
   if ( Pool2 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerInitializeEarlyStallSource @ 0x14057797C
+ * XREFs of HalpTimerInitializeEarlyStallSource @ 0x140579EAC
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline @ 0x140576A60 (Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline.c)
- *     HalpTimerInitialize @ 0x1405778D8 (HalpTimerInitialize.c)
- *     HalpFindTimer @ 0x140581834 (HalpFindTimer.c)
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140582E04 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline @ 0x140578F90 (Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline.c)
+ *     HalpTimerInitialize @ 0x140579E08 (HalpTimerInitialize.c)
+ *     HalpFindTimer @ 0x140583D54 (HalpFindTimer.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140585324 (HalpTimerRegisterBuiltinPluginsCommon.c)
  */
 
 __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
   unsigned __int64 v10; // rcx
 
   LODWORD(HalpRegisteredTimerCount) = 0;
-  qword_140FBD468 = (__int64)&HalpRegisteredTimers;
+  qword_140FBD7C8 = (__int64)&HalpRegisteredTimers;
   HalpRegisteredTimers = (ULONG_PTR)&HalpRegisteredTimers;
   HalpTimerLoaderBlock = a1;
   if ( (unsigned int)Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline() )

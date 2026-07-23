@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpReferenceUmGuidEntry @ 0x18010D65C
+ * XREFs of EtwpReferenceUmGuidEntry @ 0x18010853C
  * Callers:
- *     EtwpFindGuidEntry @ 0x18001DBB0 (EtwpFindGuidEntry.c)
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpFindGuidEntry @ 0x18004A5B0 (EtwpFindGuidEntry.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
  *     <none>
  */

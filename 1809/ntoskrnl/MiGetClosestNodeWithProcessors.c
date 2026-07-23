@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetClosestNodeWithProcessors @ 0x1402BB7E4
+ * XREFs of MiGetClosestNodeWithProcessors @ 0x1402BB9D4
  * Callers:
- *     MiZeroInParallel @ 0x14013C544 (MiZeroInParallel.c)
- *     MiCreateColorAnchors @ 0x14085CF64 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x14013C644 (MiZeroInParallel.c)
+ *     MiCreateColorAnchors @ 0x14085E1C4 (MiCreateColorAnchors.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall MiGetClosestNodeWithProcessors(unsigned int a1)
@@ -17,7 +17,7 @@ __int64 __fastcall MiGetClosestNodeWithProcessors(unsigned int a1)
   KeQueryNodeActiveAffinity(a1, 0LL, &Count);
   if ( Count )
     return a1;
-  v3 = (USHORT *)((char *)qword_14043A050 + 2 * a1 * (unsigned __int16)KeNumberNodes);
+  v3 = (USHORT *)((char *)qword_14043B110 + 2 * a1 * (unsigned __int16)KeNumberNodes);
   v4 = &v3[(unsigned __int16)KeNumberNodes];
   do
   {

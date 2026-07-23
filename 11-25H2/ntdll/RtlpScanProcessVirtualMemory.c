@@ -11,8 +11,8 @@
 
 char RtlpScanProcessVirtualMemory()
 {
-  _QWORD *v0; // r12
-  int v1; // r15d
+  char *v0; // r12
+  NTSTATUS v1; // r15d
   _QWORD *v3; // rbx
   unsigned __int64 v4; // rsi
   unsigned __int64 v5; // rdi
@@ -21,18 +21,24 @@ char RtlpScanProcessVirtualMemory()
   __int64 v8; // rdx
   _QWORD *v9; // rcx
   __int64 *v10; // rcx
-  __int128 v11; // [rsp+30h] [rbp-68h] BYREF
+  __int128 MemoryInformation; // [rsp+30h] [rbp-68h] BYREF
   __int128 v12; // [rsp+40h] [rbp-58h]
   __int128 v13; // [rsp+50h] [rbp-48h]
 
   v0 = 0LL;
-  v11 = 0LL;
+  MemoryInformation = 0LL;
   v12 = 0LL;
   v13 = 0LL;
   v1 = 0;
   while ( v1 >= 0 )
   {
-    v1 = ZwQueryVirtualMemory(-1LL, v0, 0LL, &v11, 48LL, 0LL);
+    v1 = ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           v0,
+           MemoryBasicInformation,
+           &MemoryInformation,
+           0x30uLL,
+           0LL);
     if ( v1 >= 0 )
     {
       if ( (v12 & 0xCC) != 0
@@ -74,7 +80,7 @@ char RtlpScanProcessVirtualMemory()
           ++v5;
         }
       }
-      v0 = (_QWORD *)((char *)v0 + *((_QWORD *)&v12 + 1));
+      v0 += *((_QWORD *)&v12 + 1);
     }
   }
   RtlpScanHeapAllocBlocks();

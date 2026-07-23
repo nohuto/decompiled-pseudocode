@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetMaxDynamicTickDuration @ 0x1405E4EC4
+ * XREFs of KeSetMaxDynamicTickDuration @ 0x1405E7834
  * Callers:
- *     PopEnforceDeepSleep @ 0x140B50284 (PopEnforceDeepSleep.c)
+ *     PopEnforceDeepSleep @ 0x140B52B14 (PopEnforceDeepSleep.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +10,9 @@ __int64 __fastcall KeSetMaxDynamicTickDuration(unsigned __int64 a1)
 {
   __int64 result; // rax
 
-  result = (unsigned int)KeMaximumIncrement;
-  if ( (unsigned int)KeMaximumIncrement < a1 )
-    a1 = (unsigned int)KeMaximumIncrement;
+  result = KeMaximumIncrement;
+  if ( KeMaximumIncrement < a1 )
+    a1 = KeMaximumIncrement;
   _InterlockedExchange64(&KiMaxDynamicTickDuration, a1);
   return result;
 }

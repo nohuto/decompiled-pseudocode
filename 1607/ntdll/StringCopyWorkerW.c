@@ -1,8 +1,8 @@
 /*
- * XREFs of StringCopyWorkerW @ 0x18005A840
+ * XREFs of StringCopyWorkerW @ 0x18005A830
  * Callers:
- *     _ResGetSystemWindowsDirectory @ 0x18005A6BC (_ResGetSystemWindowsDirectory.c)
- *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x18005A7C0 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     _ResGetSystemWindowsDirectory @ 0x18005A6AC (_ResGetSystemWindowsDirectory.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x18005A7B0 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
  * Callees:
  *     <none>
  */

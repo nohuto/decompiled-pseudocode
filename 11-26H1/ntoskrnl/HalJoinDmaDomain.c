@@ -1,14 +1,14 @@
 /*
- * XREFs of HalJoinDmaDomain @ 0x140517980
+ * XREFs of HalJoinDmaDomain @ 0x1405113F0
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x14078041C (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140782F1C (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     HalpDmaReferenceDomainObject @ 0x14034914C (HalpDmaReferenceDomainObject.c)
- *     HalpDmaGetAdapterVersion @ 0x14035C9B8 (HalpDmaGetAdapterVersion.c)
- *     HalpDmaAllocateDomain @ 0x14058A460 (HalpDmaAllocateDomain.c)
- *     HalpDmaIsDomainCompatible @ 0x14058ADA4 (HalpDmaIsDomainCompatible.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDmaReferenceDomainObject @ 0x14034B1CC (HalpDmaReferenceDomainObject.c)
+ *     HalpDmaGetAdapterVersion @ 0x14035E758 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaAllocateDomain @ 0x14058CB90 (HalpDmaAllocateDomain.c)
+ *     HalpDmaIsDomainCompatible @ 0x14058D52C (HalpDmaIsDomainCompatible.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalJoinDmaDomain(__int64 a1, __int64 *a2)

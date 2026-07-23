@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAssignProcessToJobObject @ 0x180160150
+ * XREFs of NtAssignProcessToJobObject @ 0x180160050
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAssignProcessToJobObject()
+NTSTATUS __cdecl NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 145LL;
+  result = 145;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

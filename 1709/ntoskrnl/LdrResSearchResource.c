@@ -18,7 +18,7 @@
  */
 
 __int64 __fastcall LdrResSearchResource(
-        ULONGLONG a1,
+        unsigned __int64 a1,
         const void *a2,
         unsigned int a3,
         int a4,
@@ -28,7 +28,7 @@ __int64 __fastcall LdrResSearchResource(
         __int64 a8)
 {
   unsigned int v8; // r14d
-  ULONGLONG v10; // rsi
+  void *v10; // rsi
   int v11; // ecx
   unsigned int v12; // ebx
   bool v13; // zf
@@ -119,12 +119,12 @@ LABEL_17:
 LABEL_28:
   if ( (v12 & 0x300) == 0 )
     return (unsigned int)LdrpResSearchResourceMappedFile(v10, v17, v12, (__int64)v20, v8, v19, a6, a7, v18);
-  v10 = a1;
+  v10 = (void *)a1;
   if ( (v12 & 0x200) != 0 )
   {
-    v10 = a1 | 1;
+    v10 = (void *)(a1 | 1);
     if ( (a1 & 1) != 0 )
-      v10 = a1;
+      v10 = (void *)a1;
     if ( (v12 & 0x1000) != 0 && !a1 )
       return 3221225485LL;
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x14055846C
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x140558B2C
  * Callers:
- *     IoDecrementKeepAliveCount @ 0x140557FC0 (IoDecrementKeepAliveCount.c)
- *     IoIncrementKeepAliveCount @ 0x140558120 (IoIncrementKeepAliveCount.c)
+ *     IoDecrementKeepAliveCount @ 0x140558680 (IoDecrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x1405587E0 (IoIncrementKeepAliveCount.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopGetSetSpecificExtension @ 0x1403017F8 (IopGetSetSpecificExtension.c)
+ *     IopGetFileObjectExtension @ 0x14030192C (IopGetFileObjectExtension.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -126,7 +126,9 @@ LABEL_11:
     }
   }
   KxReleaseSpinLock(v27);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v21 = v28;
     if ( v28 <= 0xFu && CurrentIrql >= 2u )
@@ -137,7 +139,7 @@ LABEL_11:
       v25 = (v24 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v24;
       if ( v25 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   else

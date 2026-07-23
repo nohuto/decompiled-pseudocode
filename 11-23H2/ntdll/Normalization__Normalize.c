@@ -5,7 +5,7 @@
  * Callees:
  *     Normalization__NormalizeCharacter @ 0x18008A014 (Normalization__NormalizeCharacter.c)
  *     NormBuffer__Append @ 0x18008A160 (NormBuffer__Append.c)
- *     Normalization__GuessCharCountBySize @ 0x18010E550 (Normalization__GuessCharCountBySize.c)
+ *     Normalization__GuessCharCountBySize @ 0x18010E520 (Normalization__GuessCharCountBySize.c)
  */
 
 __int64 __fastcall Normalization__Normalize(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _DWORD *a6)

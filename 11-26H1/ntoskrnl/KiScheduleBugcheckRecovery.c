@@ -1,13 +1,13 @@
 /*
- * XREFs of KiScheduleBugcheckRecovery @ 0x1405FA570
+ * XREFs of KiScheduleBugcheckRecovery @ 0x1405FCF90
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405F9734 (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405FC154 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiRecordRecoveryFailure @ 0x1405FA508 (KiRecordRecoveryFailure.c)
- *     KiStallBugcheckThread @ 0x1405FA6C8 (KiStallBugcheckThread.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRecordRecoveryFailure @ 0x1405FCF28 (KiRecordRecoveryFailure.c)
+ *     KiStallBugcheckThread @ 0x1405FD0E8 (KiStallBugcheckThread.c)
  */
 
 char KiScheduleBugcheckRecovery()
@@ -38,12 +38,12 @@ char KiScheduleBugcheckRecovery()
       KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
   _enable();
-  *(_DWORD *)&KsepShimDbLock.SavedApcStateFill[32] = 531;
-  KsepShimDbLock.SchedulerApc.Thread = (struct _KTHREAD *)KiScheduleBugcheckRecoveryWorkItem;
-  KsepShimDbLock.SchedulerApc.ApcListEntry.Flink = 0LL;
-  KsepShimDbLock.SchedulerApc.Reserved[1] = 0LL;
-  *(_QWORD *)&KsepShimDbLock.SchedulerApc.Type = 0LL;
-  if ( (unsigned __int8)KiInsertQueueDpc((ULONG_PTR)&KsepShimDbLock.SavedApcState.Process, 0LL, 0LL, 0LL, 0) )
+  *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[136] = 531;
+  *(_QWORD *)&KsepShimDbLock.WaitBlockFill11[160] = KiScheduleBugcheckRecoveryWorkItem;
+  KsepShimDbLock.WaitBlock[3].Thread = 0LL;
+  *(_QWORD *)&KsepShimDbLock.ThreadFlags2 = 0LL;
+  KsepShimDbLock.WaitBlock[3].WaitListEntry.Blink = 0LL;
+  if ( (unsigned __int8)KiInsertQueueDpc((ULONG_PTR)&KsepShimDbLock.WaitBlock[2].SparePtr, 0LL, 0LL, 0LL, 0) )
     result = KiStallBugcheckThread();
   else
     result = KiRecordRecoveryFailure(4);

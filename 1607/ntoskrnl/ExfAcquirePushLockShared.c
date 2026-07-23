@@ -1,7 +1,7 @@
 /*
- * XREFs of ExfAcquirePushLockShared @ 0x1400C8268
+ * XREFs of ExfAcquirePushLockShared @ 0x1400C6108
  * Callers:
- *     ExpCovQueryInformation @ 0x1406B71B8 (ExpCovQueryInformation.c)
+ *     ExpCovQueryInformation @ 0x1406B72F0 (ExpCovQueryInformation.c)
  * Callees:
  *     <none>
  */

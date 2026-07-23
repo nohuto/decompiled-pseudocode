@@ -15,9 +15,9 @@
 
 _DWORD *__fastcall CmpAllocateKeyControlBlock(__int64 a1)
 {
-  __int64 v1; // rax
+  _RTL_BALANCED_NODE *v1; // rax
   _QWORD *v2; // rcx
-  __int64 v3; // rbx
+  _RTL_BALANCED_NODE *v3; // rbx
   unsigned __int8 CurrentIrql; // di
   __int64 v5; // rax
   __int64 v6; // rcx
@@ -41,7 +41,7 @@ _DWORD *__fastcall CmpAllocateKeyControlBlock(__int64 a1)
     if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpAllocBucketLock, 0) )
       ExpAcquireFastMutexContended((ULONG_PTR)&CmpAllocBucketLock, v1);
     if ( v3 )
-      *(_BYTE *)(v3 + 26) |= 1u;
+      BYTE2(v3[1].Left) |= 1u;
     *(&CmpAllocBucketLock + 1) = (ULONG_PTR)KeGetCurrentThread();
     *((_DWORD *)&CmpAllocBucketLock + 12) = CurrentIrql;
     while ( 1 )

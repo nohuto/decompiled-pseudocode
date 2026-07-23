@@ -1,20 +1,20 @@
 /*
- * XREFs of HvpSetRangeProtection @ 0x1408832A4
+ * XREFs of HvpSetRangeProtection @ 0x140887154
  * Callers:
- *     HvpResetPageProtection @ 0x14097EE80 (HvpResetPageProtection.c)
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x140A6E9D0 (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpPerformLogFileRecovery @ 0x140AB060C (HvpPerformLogFileRecovery.c)
+ *     HvpResetPageProtection @ 0x140967690 (HvpResetPageProtection.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140A67E54 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpPerformLogFileRecovery @ 0x140AAB57C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HvpMapEntryGetFreeBin @ 0x140883424 (HvpMapEntryGetFreeBin.c)
- *     HvpViewMapSealRange @ 0x14097FCD4 (HvpViewMapSealRange.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x14097FDC0 (HvpViewMapCOWAndUnsealRange.c)
- *     HvpProtectBinPartial @ 0x140A378BC (HvpProtectBinPartial.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140BB9790 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140BB98D0 (HvpGetBinContextInitialize.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408872D4 (HvpMapEntryGetFreeBin.c)
+ *     HvpViewMapSealRange @ 0x1409684E4 (HvpViewMapSealRange.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x1409685D0 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpProtectBinPartial @ 0x140A2C4E4 (HvpProtectBinPartial.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140BBB790 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140BBB8D0 (HvpGetBinContextInitialize.c)
  */
 
 _BOOL8 __fastcall HvpSetRangeProtection(

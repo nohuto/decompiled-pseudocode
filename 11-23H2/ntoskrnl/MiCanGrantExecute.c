@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCanGrantExecute @ 0x140645AC4
+ * XREFs of MiCanGrantExecute @ 0x140646014
  * Callers:
- *     MiValidFault @ 0x1403334E0 (MiValidFault.c)
- *     MiLargePageFault @ 0x14064646C (MiLargePageFault.c)
+ *     MiValidFault @ 0x140333770 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1406469BC (MiLargePageFault.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
  */
 
 __int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2)

@@ -2,15 +2,15 @@
  * XREFs of KeInitThread @ 0x1403C8E74
  * Callers:
  *     KiInitializeIdleThread @ 0x1403D4908 (KiInitializeIdleThread.c)
- *     PspAllocateThread @ 0x1405154A0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x1404F8890 (PspAllocateThread.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     KiInitializeContextThread @ 0x1400F0C70 (KiInitializeContextThread.c)
- *     KeAbInitializeThreadState @ 0x1400F0F14 (KeAbInitializeThreadState.c)
- *     KeInitializeApc @ 0x1400F0F58 (KeInitializeApc.c)
- *     MmCreateKernelStack @ 0x1400F17B0 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400F1B80 (MmDeleteKernelStack.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     KiInitializeContextThread @ 0x1400EEAC0 (KiInitializeContextThread.c)
+ *     KeAbInitializeThreadState @ 0x1400EED64 (KeAbInitializeThreadState.c)
+ *     KeInitializeApc @ 0x1400EEDA8 (KeInitializeApc.c)
+ *     MmCreateKernelStack @ 0x1400EF600 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400EF9D0 (MmDeleteKernelStack.c)
  */
 
 __int64 __fastcall KeInitThread(

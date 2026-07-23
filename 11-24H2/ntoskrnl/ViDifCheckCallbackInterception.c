@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDifCheckCallbackInterception @ 0x140B8A858
+ * XREFs of ViDifCheckCallbackInterception @ 0x140B8C858
  * Callers:
- *     VfDifCaptureIoCallbacks @ 0x14049E358 (VfDifCaptureIoCallbacks.c)
- *     VfDifCaptureDriverEntry @ 0x14049E3B8 (VfDifCaptureDriverEntry.c)
+ *     VfDifCaptureIoCallbacks @ 0x140499158 (VfDifCaptureIoCallbacks.c)
+ *     VfDifCaptureDriverEntry @ 0x1404991B8 (VfDifCaptureDriverEntry.c)
  * Callees:
- *     VfUtilEqualUnicodeString @ 0x140B83228 (VfUtilEqualUnicodeString.c)
+ *     VfUtilEqualUnicodeString @ 0x140B85228 (VfUtilEqualUnicodeString.c)
  */
 
 bool __fastcall ViDifCheckCallbackInterception(__int64 a1)

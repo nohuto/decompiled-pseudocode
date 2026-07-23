@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpIsKeyStackSymlink @ 0x1406D3200
+ * XREFs of CmpIsKeyStackSymlink @ 0x1406D3230
  * Callers:
- *     CmQueryLayeredKey @ 0x14035DC84 (CmQueryLayeredKey.c)
- *     CmSetValueKey @ 0x1406D3240 (CmSetValueKey.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmQueryLayeredKey @ 0x14035DE24 (CmQueryLayeredKey.c)
+ *     CmSetValueKey @ 0x1406D3270 (CmSetValueKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
  */
 
 bool __fastcall CmpIsKeyStackSymlink(__int64 a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpWriteProcessEvent @ 0x14096E304
+ * XREFs of EtwpWriteProcessEvent @ 0x1409D04C4
  * Callers:
- *     EtwTraceProcess @ 0x14096E118 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x1409D02D8 (EtwTraceProcess.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140216A20 (EtwTraceSiloKernelEvent.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpPsProvTraceProcess @ 0x140952CBC (EtwpPsProvTraceProcess.c)
- *     EtwpBuildProcessEvent @ 0x14096D8A8 (EtwpBuildProcessEvent.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     EtwTraceSiloKernelEvent @ 0x140216D50 (EtwTraceSiloKernelEvent.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpBuildProcessEvent @ 0x1408FBCAC (EtwpBuildProcessEvent.c)
+ *     EtwpPsProvTraceProcess @ 0x1409CE5FC (EtwpPsProvTraceProcess.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
-void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, int *a3, int *a4, unsigned __int16 *a5, __int64 a6)
+void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, int *a3, ULONG_PTR *a4, unsigned __int16 *a5, __int64 a6)
 {
   char v6; // r14
   char v11; // si

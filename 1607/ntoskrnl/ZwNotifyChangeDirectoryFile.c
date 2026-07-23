@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwNotifyChangeDirectoryFile @ 0x14015BDA0
+ * XREFs of ZwNotifyChangeDirectoryFile @ 0x14015C310
  * Callers:
  *     <none>
  * Callees:
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwNotifyChangeDirectoryFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

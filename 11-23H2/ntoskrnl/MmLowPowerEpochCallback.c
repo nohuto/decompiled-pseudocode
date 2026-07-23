@@ -1,5 +1,5 @@
 /*
- * XREFs of MmLowPowerEpochCallback @ 0x1403B01C0
+ * XREFs of MmLowPowerEpochCallback @ 0x1403B03A0
  * Callers:
  *     <none>
  * Callees:

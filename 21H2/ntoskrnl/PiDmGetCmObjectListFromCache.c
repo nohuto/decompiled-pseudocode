@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmGetCmObjectListFromCache @ 0x1406C0324
+ * XREFs of PiDmGetCmObjectListFromCache @ 0x14061F234
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x14063A9DC (PiPnpRtlGetFilteredDeviceInterfaceList.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x14063ACF4 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x14062F7EC (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x14062FB04 (PiPnpRtlGetFilteredDeviceList.c)
  * Callees:
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406363C8 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     PiDmGetObjectList @ 0x1406C0378 (PiDmGetObjectList.c)
+ *     PiDmGetObjectList @ 0x14061F288 (PiDmGetObjectList.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x14062B1D8 (_CmMapCmObjectTypeToPnpObjectType.c)
  */
 
 __int64 __fastcall PiDmGetCmObjectListFromCache(int a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
@@ -21,6 +21,6 @@ __int64 __fastcall PiDmGetCmObjectListFromCache(int a1, __int64 a2, __int64 a3, 
   v9[0] = a2;
   v9[1] = a3;
   v10 = a1;
-  v6 = CmMapCmObjectTypeToPnpObjectType(a1);
+  v6 = CmMapCmObjectTypeToPnpObjectType();
   return PiDmGetObjectList(v6, (unsigned int)PiDmCmObjectMatchCallback, (unsigned int)v9, v7, a5, a6);
 }

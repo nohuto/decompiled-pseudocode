@@ -1,9 +1,9 @@
 /*
- * XREFs of WerpProcessId @ 0x1800077BC
+ * XREFs of WerpProcessId @ 0x1800077AC
  * Callers:
- *     RtlReportSilentProcessExit @ 0x180007310 (RtlReportSilentProcessExit.c)
- *     RtlReportExceptionHelper @ 0x18000787C (RtlReportExceptionHelper.c)
- *     RtlReportExceptionEx @ 0x1800D86C0 (RtlReportExceptionEx.c)
+ *     RtlReportSilentProcessExit @ 0x180007300 (RtlReportSilentProcessExit.c)
+ *     RtlReportExceptionHelper @ 0x18000786C (RtlReportExceptionHelper.c)
+ *     RtlReportExceptionEx @ 0x1800D8780 (RtlReportExceptionEx.c)
  * Callees:
  *     NtQueryInformationProcess @ 0x1800A6740 (NtQueryInformationProcess.c)
  */

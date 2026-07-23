@@ -1,10 +1,10 @@
 /*
- * XREFs of BcpDisplayCriticalCharacter @ 0x140327C8C
+ * XREFs of BcpDisplayCriticalCharacter @ 0x140327E7C
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1403280B0 (BcpDisplayErrorInformation.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x1403282A0 (BcpDisplayErrorInformation.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328CFC (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140327A64 (BgpDisplayCharacterEx.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2)
@@ -27,12 +27,12 @@ __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2)
   v4 = HIDWORD(BcpCursor);
   v5 = HIDWORD(BcpCursor);
   v12 = 0;
-  v6 = *(_QWORD *)(qword_14043FB70 + 24);
+  v6 = *(_QWORD *)(qword_140440C30 + 24);
   v11 = 0;
-  v7 = dword_140438740;
+  v7 = dword_140439800;
   *(_DWORD *)(v6 + 56) = a2;
-  *(_DWORD *)(qword_14043FB70 + 8) = a2;
-  result = BgpDisplayCharacterEx(0x20u, (__int64 *)qword_14043FB70, v3, v5, *(_DWORD *)(v6 + 40), -1, &v12, &v11, v10);
+  *(_DWORD *)(qword_140440C30 + 8) = a2;
+  result = BgpDisplayCharacterEx(0x20u, (__int64 *)qword_140440C30, v3, v5, *(_DWORD *)(v6 + 40), -1, &v12, &v11, v10);
   if ( (int)result >= 0 )
   {
     v9 = v4 + v11;
@@ -40,7 +40,7 @@ __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2)
     LODWORD(BcpCursor) = v2 + v12;
     if ( v7 >= v4 + v11 )
       v9 = v7;
-    dword_140438740 = v9;
+    dword_140439800 = v9;
   }
   return result;
 }

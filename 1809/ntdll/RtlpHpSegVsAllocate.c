@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegVsAllocate @ 0x1800820B0
+ * XREFs of RtlpHpSegVsAllocate @ 0x1800820C0
  * Callers:
  *     <none>
  * Callees:

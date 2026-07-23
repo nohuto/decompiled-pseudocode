@@ -1,14 +1,14 @@
 /*
- * XREFs of VmPrefetchVirtualAddresses @ 0x14079E6C8
+ * XREFs of VmPrefetchVirtualAddresses @ 0x14079E7D8
  * Callers:
- *     MmInSwapWorkingSet @ 0x140404E48 (MmInSwapWorkingSet.c)
- *     NtSetInformationVirtualMemory @ 0x1409E8FB0 (NtSetInformationVirtualMemory.c)
+ *     MmInSwapWorkingSet @ 0x1403C6A50 (MmInSwapWorkingSet.c)
+ *     NtSetInformationVirtualMemory @ 0x1409E3F70 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     VmpPrefetchVirtualAddresses @ 0x1403AA658 (VmpPrefetchVirtualAddresses.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1403990BC (VmpPrefetchVirtualAddresses.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, 
     }
     else
     {
-      Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+      Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 16 * (a2 + 4), 0x63506D56u);
       v9 = Pool2;
       if ( Pool2 )
       {

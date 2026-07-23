@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRelocateFinish @ 0x1409CB614
+ * XREFs of MiRelocateFinish @ 0x14099C5F4
  * Callers:
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7214 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404AE6C4 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MiSetDeleteOnClose @ 0x14050687C (MiSetDeleteOnClose.c)
- *     MiWalkEntireImage @ 0x140AC8434 (MiWalkEntireImage.c)
- *     MiMarkImageActive @ 0x140AFF5C4 (MiMarkImageActive.c)
- *     SeSetImageBaseAddress @ 0x140B35488 (SeSetImageBaseAddress.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A08A4 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7D54 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiSetDeleteOnClose @ 0x14050012C (MiSetDeleteOnClose.c)
+ *     MiWalkEntireImage @ 0x140ACA024 (MiWalkEntireImage.c)
+ *     MiMarkImageActive @ 0x140B01254 (MiMarkImageActive.c)
+ *     SeSetImageBaseAddress @ 0x140B37698 (SeSetImageBaseAddress.c)
  */
 
 __int64 __fastcall MiRelocateFinish(__int64 **a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

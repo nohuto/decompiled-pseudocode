@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwFilterToken @ 0x140725190
+ * XREFs of ZwFilterToken @ 0x140729D60
  * Callers:
- *     DifZwFilterTokenWrapper @ 0x1406A6060 (DifZwFilterTokenWrapper.c)
+ *     DifZwFilterTokenWrapper @ 0x1406A9C40 (DifZwFilterTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFilterToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFilterToken(
+        HANDLE ExistingTokenHandle,
+        ULONG Flags,
+        PTOKEN_GROUPS SidsToDisable,
+        PTOKEN_PRIVILEGES PrivilegesToDelete,
+        PTOKEN_GROUPS RestrictedSids,
+        PHANDLE NewTokenHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ExistingTokenHandle);
 }

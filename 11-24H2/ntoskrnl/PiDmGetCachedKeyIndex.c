@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmGetCachedKeyIndex @ 0x1408BA590
+ * XREFs of PiDmGetCachedKeyIndex @ 0x1408B7F40
  * Callers:
- *     PiDmObjectGetCachedObjectReference @ 0x1408B96C8 (PiDmObjectGetCachedObjectReference.c)
- *     PiDmObjectProcessPropertyChange @ 0x1408BA158 (PiDmObjectProcessPropertyChange.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140A71808 (PiDmListUpdateAggregationCountWorker.c)
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x1408B7070 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1408B7B08 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140A6ABE8 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetInformationResourceManager @ 0x140726970
+ * XREFs of ZwSetInformationResourceManager @ 0x14072B540
  * Callers:
- *     DifZwSetInformationResourceManagerWrapper @ 0x1406BA790 (DifZwSetInformationResourceManagerWrapper.c)
+ *     DifZwSetInformationResourceManagerWrapper @ 0x1406BE370 (DifZwSetInformationResourceManagerWrapper.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationResourceManager(
         HANDLE ResourceManagerHandle,
         RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetInformationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
+  return KiServiceInternal(ResourceManagerHandle);
 }

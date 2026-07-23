@@ -1,5 +1,5 @@
 /*
- * XREFs of PopAwayModePowerRequest @ 0x14066A844
+ * XREFs of PopAwayModePowerRequest @ 0x14066A928
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@
 __int64 __fastcall PopAwayModePowerRequest(char a1)
 {
   PopAcquireAwaymodeLock();
-  byte_140303E10 = a1 != 0;
+  byte_140303D50 = a1 != 0;
   PopReleaseAwaymodeLock();
   return 0LL;
 }

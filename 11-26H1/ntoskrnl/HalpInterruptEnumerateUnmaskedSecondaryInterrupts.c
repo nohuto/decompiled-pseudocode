@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14058F814
+ * XREFs of HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x140591F94
  * Callers:
- *     HalpInterruptEnumerateUnmaskedInterrupts @ 0x14057B7E0 (HalpInterruptEnumerateUnmaskedInterrupts.c)
+ *     HalpInterruptEnumerateUnmaskedInterrupts @ 0x14057DD10 (HalpInterruptEnumerateUnmaskedInterrupts.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedSecondaryInterrupts(__int64 a1, __int64 a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptSha256Result @ 0x14051C610
+ * XREFs of SymCryptSha256Result @ 0x140519EE0
  * Callers:
- *     SymCryptSha256 @ 0x14051ADAC (SymCryptSha256.c)
- *     HashpFinalizeHash @ 0x14083005C (HashpFinalizeHash.c)
+ *     SymCryptSha256 @ 0x14051867C (SymCryptSha256.c)
+ *     HashpFinalizeHash @ 0x14083088C (HashpFinalizeHash.c)
  * Callees:
- *     SymCryptSha256AppendBlocks @ 0x14051AF20 (SymCryptSha256AppendBlocks.c)
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     SymCryptSha256AppendBlocks @ 0x1405187F0 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptSha256Result(unsigned int *a1, _QWORD *a2)
@@ -42,7 +42,7 @@ __int64 __fastcall SymCryptSha256Result(unsigned int *a1, _QWORD *a2)
   }
   while ( v7 );
   result = SymCryptWipe(a1, 128LL);
-  *((_OWORD *)a1 + 6) = xmmword_14001F4F0;
-  *((_OWORD *)a1 + 7) = xmmword_14001F500;
+  *((_OWORD *)a1 + 6) = xmmword_14001F7B0;
+  *((_OWORD *)a1 + 7) = xmmword_14001F7C0;
   return result;
 }

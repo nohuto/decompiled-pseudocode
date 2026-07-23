@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbGetTagDataSize @ 0x140757B90
+ * XREFs of SdbGetTagDataSize @ 0x140757D80
  * Callers:
- *     SdbpGetIndex @ 0x140757218 (SdbpGetIndex.c)
- *     SdbpReadTagData @ 0x14075749C (SdbpReadTagData.c)
- *     SdbpGetNextTagId @ 0x140757A90 (SdbpGetNextTagId.c)
- *     SdbpGetFirstIndexedRecord @ 0x1407CB558 (SdbpGetFirstIndexedRecord.c)
- *     SdbpGetNextIndexedRecord @ 0x140849FD4 (SdbpGetNextIndexedRecord.c)
- *     KsepDbReadKData @ 0x140976ED8 (KsepDbReadKData.c)
- *     SdbQueryDataExTagID @ 0x140A4EF88 (SdbQueryDataExTagID.c)
- *     SdbpGetMatchingTextAttributes @ 0x140A50E68 (SdbpGetMatchingTextAttributes.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140A51094 (SdbpGetRegistryMatchingAttributes.c)
- *     SdbMergeIsEntryUpdated @ 0x140A536DC (SdbMergeIsEntryUpdated.c)
- *     SdbpMergeAreTagValuesEqual @ 0x140A53AC4 (SdbpMergeAreTagValuesEqual.c)
+ *     SdbpGetIndex @ 0x140757408 (SdbpGetIndex.c)
+ *     SdbpReadTagData @ 0x14075768C (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x140757C80 (SdbpGetNextTagId.c)
+ *     SdbpGetFirstIndexedRecord @ 0x1407CB828 (SdbpGetFirstIndexedRecord.c)
+ *     SdbpGetNextIndexedRecord @ 0x14084A2D4 (SdbpGetNextIndexedRecord.c)
+ *     KsepDbReadKData @ 0x1409770D8 (KsepDbReadKData.c)
+ *     SdbQueryDataExTagID @ 0x140A4F238 (SdbQueryDataExTagID.c)
+ *     SdbpGetMatchingTextAttributes @ 0x140A51118 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140A51344 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A5398C (SdbMergeIsEntryUpdated.c)
+ *     SdbpMergeAreTagValuesEqual @ 0x140A53D74 (SdbpMergeAreTagValuesEqual.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiProtectLargeKernelHalRange @ 0x1407A1470
+ * XREFs of MiProtectLargeKernelHalRange @ 0x1407A1670
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiGetPdeAddress @ 0x14026DF3C (MiGetPdeAddress.c)
- *     MiInitializeTbFlushList @ 0x14026DF5C (MiInitializeTbFlushList.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiLockPageTable @ 0x14038216C (MiLockPageTable.c)
- *     MiRewritePteWithLockBit @ 0x1403B6C18 (MiRewritePteWithLockBit.c)
- *     MiUnlockPageTable @ 0x1403B6C60 (MiUnlockPageTable.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiComputeDriverProtection @ 0x1407A1990 (MiComputeDriverProtection.c)
+ *     MiGetPdeAddress @ 0x14025BEDC (MiGetPdeAddress.c)
+ *     MiInitializeTbFlushList @ 0x14025BEFC (MiInitializeTbFlushList.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiLockPageTable @ 0x140381CBC (MiLockPageTable.c)
+ *     MiRewritePteWithLockBit @ 0x1403B6D88 (MiRewritePteWithLockBit.c)
+ *     MiUnlockPageTable @ 0x1403B6DD0 (MiUnlockPageTable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiComputeDriverProtection @ 0x1407A1B90 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiProtectLargeKernelHalRange(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

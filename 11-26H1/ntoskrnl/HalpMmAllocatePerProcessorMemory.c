@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMmAllocatePerProcessorMemory @ 0x14057DE10
+ * XREFs of HalpMmAllocatePerProcessorMemory @ 0x140580330
  * Callers:
- *     HalpTimerInitializeProfiling @ 0x1405844A8 (HalpTimerInitializeProfiling.c)
- *     HalpInitializePmcCounterSetInfo @ 0x140CAE788 (HalpInitializePmcCounterSetInfo.c)
+ *     HalpTimerInitializeProfiling @ 0x1405869C8 (HalpTimerInitializeProfiling.c)
+ *     HalpInitializePmcCounterSetInfo @ 0x140CB47C8 (HalpInitializePmcCounterSetInfo.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall HalpMmAllocatePerProcessorMemory(int a1)

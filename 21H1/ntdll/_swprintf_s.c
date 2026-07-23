@@ -13,8 +13,7 @@
 
 int swprintf_s(wchar_t *const Buffer, const size_t BufferCount, const wchar_t *const Format, ...)
 {
-  va_list ArgList; // [esp+14h] [ebp+14h] BYREF
+  va_list savedregs; // [esp+0h] [ebp+0h]
 
-  va_start(ArgList, Format);
-  return vswprintf_s(Buffer, BufferCount, Format, ArgList);
+  return vswprintf_s(Buffer, BufferCount, (const wchar_t *const)&Format, savedregs);
 }

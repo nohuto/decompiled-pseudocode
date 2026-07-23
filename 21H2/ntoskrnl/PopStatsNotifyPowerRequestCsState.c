@@ -1,17 +1,17 @@
 /*
- * XREFs of PopStatsNotifyPowerRequestCsState @ 0x1408F6690
+ * XREFs of PopStatsNotifyPowerRequestCsState @ 0x1408F67F0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     RtlEnumerateGenericTableAvl @ 0x1402C9AF0 (RtlEnumerateGenericTableAvl.c)
- *     PoUnarmStopWatchCollection @ 0x1402D16C4 (PoUnarmStopWatchCollection.c)
- *     PoArmStopWatchCollection @ 0x1402D1D08 (PoArmStopWatchCollection.c)
- *     PoIsArmedStopWatchCollection @ 0x1402D332C (PoIsArmedStopWatchCollection.c)
- *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
- *     PopLogPowerRequestAction @ 0x14062B588 (PopLogPowerRequestAction.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x1408F641C (PopPublishAndPurgePowerRequestStats.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1402483E0 (RtlEnumerateGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PoArmStopWatchCollection @ 0x140272598 (PoArmStopWatchCollection.c)
+ *     PoUnarmStopWatchCollection @ 0x1402725E8 (PoUnarmStopWatchCollection.c)
+ *     PoIsArmedStopWatchCollection @ 0x140272658 (PoIsArmedStopWatchCollection.c)
+ *     __report_rangecheckfailure @ 0x1404B66AC (__report_rangecheckfailure.c)
+ *     PopLogPowerRequestAction @ 0x14066FB30 (PopLogPowerRequestAction.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x1408F657C (PopPublishAndPurgePowerRequestStats.c)
  */
 
 void __fastcall PopStatsNotifyPowerRequestCsState(__int64 a1, char a2)

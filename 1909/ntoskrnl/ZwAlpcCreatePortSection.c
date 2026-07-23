@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreatePortSection(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

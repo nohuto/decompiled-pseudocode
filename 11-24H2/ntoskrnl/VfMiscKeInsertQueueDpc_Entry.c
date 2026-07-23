@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeInsertQueueDpc_Entry @ 0x140B9DDB0
+ * XREFs of VfMiscKeInsertQueueDpc_Entry @ 0x140B9FDB0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404B2134 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404AC9C4 (VfMiscCheckKernelAddress.c)
  */
 
 unsigned __int64 __fastcall VfMiscKeInsertQueueDpc_Entry(__int64 a1)

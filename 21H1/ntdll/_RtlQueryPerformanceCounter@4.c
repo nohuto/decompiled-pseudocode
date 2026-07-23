@@ -16,7 +16,7 @@
  *     ReadTimeStampCounterFromEmulator @ 0x4B344841 (ReadTimeStampCounterFromEmulator.c)
  */
 
-int __stdcall RtlQueryPerformanceCounter(_DWORD *a1)
+LOGICAL __cdecl RtlQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter)
 {
   char v1; // bl
   int v2; // edx
@@ -33,7 +33,7 @@ int __stdcall RtlQueryPerformanceCounter(_DWORD *a1)
   struct _TEB *v14; // eax
   int WowTebOffset; // ecx
   _BYTE *v16; // eax
-  _DWORD v17[2]; // [esp+Ch] [ebp-54h] BYREF
+  LARGE_INTEGER v17; // [esp+Ch] [ebp-54h] BYREF
   _DWORD v18[2]; // [esp+14h] [ebp-4Ch] BYREF
   unsigned __int64 v19; // [esp+1Ch] [ebp-44h] BYREF
   unsigned __int64 v20; // [esp+24h] [ebp-3Ch] BYREF
@@ -47,8 +47,8 @@ int __stdcall RtlQueryPerformanceCounter(_DWORD *a1)
   unsigned int v28; // [esp+4Ch] [ebp-14h]
   unsigned int v29; // [esp+50h] [ebp-10h]
   unsigned __int64 *v30; // [esp+54h] [ebp-Ch]
-  char v31[4]; // [esp+58h] [ebp-8h] BYREF
-  __int16 v32; // [esp+5Ch] [ebp-4h] BYREF
+  USHORT ProcessMachine; // [esp+58h] [ebp-8h] BYREF
+  USHORT NativeMachine; // [esp+5Ch] [ebp-4h] BYREF
 
   v1 = MEMORY[0x7FFE03C6];
   if ( (MEMORY[0x7FFE03C6] & 4) != 0 )
@@ -64,9 +64,8 @@ int __stdcall RtlQueryPerformanceCounter(_DWORD *a1)
   if ( (MEMORY[0x7FFE03C6] & 1) == 0 )
   {
 LABEL_23:
-    NtQueryPerformanceCounter(v17, 0);
-    *a1 = v17[0];
-    a1[1] = v17[1];
+    NtQueryPerformanceCounter(&v17, 0);
+    *PerformanceCounter = v17;
     return 1;
   }
   v2 = 2147353528;
@@ -83,9 +82,9 @@ LABEL_23:
         v23 = *v4;
         if ( !v23 )
           goto LABEL_23;
-        RtlWow64GetProcessMachines(-1, v31, &v32);
+        RtlWow64GetProcessMachines((HANDLE)0xFFFFFFFF, &ProcessMachine, &NativeMachine);
         LODWORD(v6) = 43620;
-        if ( v32 == -21916 )
+        if ( NativeMachine == 0xAA64 )
         {
           v30 = &v20;
           __asm { int     81h }
@@ -184,6 +183,6 @@ LABEL_14:
     __asm { rdtscp }
     v19 = v12;
   }
-  *(_QWORD *)a1 = (v3 + v12) >> MEMORY[0x7FFE03C7];
+  PerformanceCounter->QuadPart = (v3 + v12) >> MEMORY[0x7FFE03C7];
   return 1;
 }

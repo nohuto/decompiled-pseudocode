@@ -7,33 +7,33 @@
  *     KeAcquireSpinLockRaiseToDpc @ 0x1400693C0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-ULONG_PTR __fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(__int64 a1)
+struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  ULONG_PTR v2; // rbx
+  struct _LIST_ENTRY *v2; // rbx
   KIRQL v3; // si
-  ULONG_PTR v4; // rax
-  ULONG_PTR *v5; // rcx
-  ULONG_PTR **v7; // rdx
+  struct _LIST_ENTRY *Flink; // rax
+  _LIST_ENTRY *v5; // rcx
+  struct _LIST_ENTRY *Blink; // rdx
 
   v2 = 0LL;
   v3 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  v4 = ViAdapterList;
-  if ( &ViAdapterList != (ULONG_PTR *)ViAdapterList )
+  Flink = ViAdapterList.Flink;
+  if ( &ViAdapterList != ViAdapterList.Flink )
   {
     while ( 1 )
     {
-      v5 = *(ULONG_PTR **)v4;
-      if ( *(_QWORD *)(v4 + 24) == a1 )
+      v5 = Flink->Flink;
+      if ( Flink[1].Blink == a1 )
         break;
-      v4 = *(_QWORD *)v4;
+      Flink = Flink->Flink;
       if ( &ViAdapterList == v5 )
         goto LABEL_4;
     }
-    v2 = v4;
-    if ( v5[1] != v4 || (v7 = *(ULONG_PTR ***)(v4 + 8), *v7 != (ULONG_PTR *)v4) )
+    v2 = Flink;
+    if ( v5->Blink != Flink || (Blink = Flink->Blink, Blink->Flink != Flink) )
       __fastfail(3u);
-    *v7 = v5;
-    v5[1] = (ULONG_PTR)v7;
+    Blink->Flink = v5;
+    v5->Blink = Blink;
   }
 LABEL_4:
   KxReleaseSpinLock(&Lock);

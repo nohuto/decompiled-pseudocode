@@ -1,48 +1,47 @@
 /*
- * XREFs of RtlpConvertLCIDsToCultureNames @ 0x18013F9D0
+ * XREFs of RtlpConvertLCIDsToCultureNames @ 0x18013DBC0
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x180140750 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x18013E940 (RtlpSetPreferredUILanguages.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     LdrpMultiSZCchLength @ 0x1800EB96C (LdrpMultiSZCchLength.c)
- *     RtlUnicodeStringToLcid @ 0x180116D44 (RtlUnicodeStringToLcid.c)
- *     wcsnlen @ 0x180127A20 (wcsnlen.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringToLcid @ 0x1800CB240 (RtlUnicodeStringToLcid.c)
+ *     LdrpMultiSZCchLength @ 0x1800E6C7C (LdrpMultiSZCchLength.c)
+ *     wcsnlen @ 0x180125C50 (wcsnlen.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, unsigned __int64 *a2)
+__int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, _QWORD *a2)
 {
   PCWSTR v3; // rsi
   unsigned int v4; // r13d
   unsigned int v5; // edi
   unsigned int v6; // ebx
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v9; // ecx
-  unsigned __int64 v10; // r14
+  void *v10; // r14
   _DWORD *v11; // r15
   unsigned int i; // eax
-  unsigned int v13; // ebx
-  char v14; // al
+  LCID v13; // ebx
+  BOOLEAN v14; // al
   unsigned int v15; // ecx
-  unsigned __int64 v16; // rbx
+  unsigned __int64 Length; // rbx
   unsigned int v18; // [rsp+20h] [rbp-E0h] BYREF
   unsigned __int16 v19; // [rsp+24h] [rbp-DCh]
-  _DWORD v20[2]; // [rsp+28h] [rbp-D8h] BYREF
-  void *Src; // [rsp+30h] [rbp-D0h]
-  __int64 v22; // [rsp+38h] [rbp-C8h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  int v24[4]; // [rsp+50h] [rbp-B0h] BYREF
-  char v25; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING String; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-C8h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG v23[4]; // [rsp+50h] [rbp-B0h] BYREF
+  char v24; // [rsp+60h] [rbp-A0h] BYREF
 
   v18 = 0;
   v19 = 0;
   v3 = SourceString;
-  v20[1] = 0;
+  *(_DWORD *)(&String.MaximumLength + 1) = 0;
   v4 = 0;
   v5 = 0;
   DestinationString = 0LL;
@@ -51,10 +50,10 @@ __int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, unsigned 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   v18 *= 2;
   v6 = v18;
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, 0x2A8uLL);
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x2A8uLL);
   v9 = v18;
   v10 = Heap;
-  v11 = (_DWORD *)Heap;
+  v11 = Heap;
   for ( i = v6; ; i = v9 )
   {
     v18 = v9;
@@ -65,35 +64,35 @@ __int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, unsigned 
     }
     if ( v4 >= 4 )
       break;
-    v22 = 2 * (unsigned int)wcsnlen(v3, (unsigned __int64)i >> 1);
+    v21 = 2 * (unsigned int)wcsnlen(v3, (unsigned __int64)i >> 1);
     RtlInitUnicodeString(&DestinationString, v3);
-    if ( (int)RtlUnicodeStringToLcid(&DestinationString.Length, &v24[v4]) < 0 )
+    if ( (int)RtlUnicodeStringToLcid(&DestinationString, &v23[v4]) < 0 )
       break;
-    v13 = v24[v4];
-    Src = &v25;
-    v20[0] = 11141120;
-    v14 = RtlLCIDToCultureName(v13, (__int64)v20);
+    v13 = v23[v4];
+    String.Buffer = (wchar_t *)&v24;
+    *(_DWORD *)&String.Length = 11141120;
+    v14 = RtlLCIDToCultureName(v13, &String);
     v15 = 0;
     if ( !v14 )
       break;
     while ( v15 < v4 )
     {
-      if ( v13 == v24[v15] )
+      if ( v13 == v23[v15] )
         goto LABEL_18;
       ++v15;
     }
-    v19 += LOWORD(v20[0]) + 2;
+    v19 += String.Length + 2;
     if ( v19 >= 0x2A7u )
     {
       v5 = -1073741595;
       goto LABEL_19;
     }
-    v16 = LOWORD(v20[0]);
-    memmove(v11, Src, LOWORD(v20[0]) + 2LL);
+    Length = String.Length;
+    memmove(v11, String.Buffer, String.Length + 2LL);
     ++v4;
-    v3 = (PCWSTR)((char *)v3 + (unsigned int)v22 + 2);
-    v11 = (_DWORD *)((char *)v11 + 2 * (v16 >> 1) + 2);
-    v9 = -2 - v22 + v18;
+    v3 = (PCWSTR)((char *)v3 + (unsigned int)v21 + 2);
+    v11 = (_DWORD *)((char *)v11 + 2 * (Length >> 1) + 2);
+    v9 = -2 - v21 + v18;
     v6 = v9;
   }
 LABEL_18:
@@ -101,7 +100,7 @@ LABEL_18:
 LABEL_19:
   if ( v10 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
     return v5;
   }
 LABEL_22:

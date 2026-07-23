@@ -1,18 +1,18 @@
 /*
- * XREFs of IoRequestDeviceRemovalForReset @ 0x1408A05B0
+ * XREFs of IoRequestDeviceRemovalForReset @ 0x1408A0710
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     memset @ 0x140414200 (memset.c)
- *     McTemplateK0hzr0_EtwWriteTransfer @ 0x14050CBE8 (McTemplateK0hzr0_EtwWriteTransfer.c)
- *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
- *     IopFreeResetRemovalContext @ 0x1408A08D0 (IopFreeResetRemovalContext.c)
- *     IopQueueDeviceResetEvent @ 0x1408A094C (IopQueueDeviceResetEvent.c)
- *     PnpTraceRequestDeviceRemovalForReset @ 0x1408B1FF0 (PnpTraceRequestDeviceRemovalForReset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x14050CE28 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     IopAllocateUnicodeString @ 0x14074986C (IopAllocateUnicodeString.c)
+ *     IopFreeResetRemovalContext @ 0x1408A0A30 (IopFreeResetRemovalContext.c)
+ *     IopQueueDeviceResetEvent @ 0x1408A0AAC (IopQueueDeviceResetEvent.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x1408B2150 (PnpTraceRequestDeviceRemovalForReset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoRequestDeviceRemovalForReset(PVOID Object, unsigned int a2)

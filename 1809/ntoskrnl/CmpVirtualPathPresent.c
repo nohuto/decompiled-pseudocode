@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpVirtualPathPresent @ 0x1407F3F5C
+ * XREFs of CmpVirtualPathPresent @ 0x1407F515C
  * Callers:
- *     CmpReparseToVirtualPath @ 0x1407F36FC (CmpReparseToVirtualPath.c)
+ *     CmpReparseToVirtualPath @ 0x1407F48FC (CmpReparseToVirtualPath.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpBlockTwoHiveWrites @ 0x1407F0754 (CmpBlockTwoHiveWrites.c)
- *     CmpUnblockTwoHiveWrites @ 0x1407F09F0 (CmpUnblockTwoHiveWrites.c)
- *     CmpFindPathByName @ 0x1407F2EA4 (CmpFindPathByName.c)
- *     CmpGetCmHiveFromVirtualPath @ 0x1407F3344 (CmpGetCmHiveFromVirtualPath.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpBlockTwoHiveWrites @ 0x1407F1954 (CmpBlockTwoHiveWrites.c)
+ *     CmpUnblockTwoHiveWrites @ 0x1407F1BF0 (CmpUnblockTwoHiveWrites.c)
+ *     CmpFindPathByName @ 0x1407F40A4 (CmpFindPathByName.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1407F4544 (CmpGetCmHiveFromVirtualPath.c)
  */
 
 bool __fastcall CmpVirtualPathPresent(__m128i *a1)

@@ -6,7 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAddIntegrityLabelToBoundaryDescriptor(__int64 a1, _BYTE *a2)
+NTSTATUS __cdecl RtlAddIntegrityLabelToBoundaryDescriptor(
+        POBJECT_BOUNDARY_DESCRIPTOR *BoundaryDescriptor,
+        PSID IntegrityLabel)
 {
-  return sub_18007F3E8(a1, a2, 1);
+  return sub_18007F3E8((__int64)BoundaryDescriptor, (unsigned __int8 *)IntegrityLabel, 1);
 }

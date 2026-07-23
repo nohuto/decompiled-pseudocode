@@ -1,5 +1,5 @@
 /*
- * XREFs of VfIsRuleClassEnabled @ 0x140ABD450
+ * XREFs of VfIsRuleClassEnabled @ 0x140ABD440
  * Callers:
  *     ViDifCheckCallbackInterception @ 0x14020A524 (ViDifCheckCallbackInterception.c)
  *     ViInitSystemPhase1 @ 0x140B532E4 (ViInitSystemPhase1.c)

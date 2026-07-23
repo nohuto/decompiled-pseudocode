@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCreateUserProcessEcp @ 0x1406B9360
+ * XREFs of PspCreateUserProcessEcp @ 0x1406B9390
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
  * Callees:
- *     FsRtlInsertExtraCreateParameter @ 0x1406B9450 (FsRtlInsertExtraCreateParameter.c)
- *     FsRtlAllocateExtraCreateParameterList @ 0x140739D10 (FsRtlAllocateExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x14073E0A0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E120 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlAllocateExtraCreateParameter @ 0x1407429D0 (FsRtlAllocateExtraCreateParameter.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x1406B9480 (FsRtlInsertExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameterList @ 0x140739F00 (FsRtlAllocateExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14073E290 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14073E310 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x140742BC0 (FsRtlAllocateExtraCreateParameter.c)
  */
 
 __int64 __fastcall PspCreateUserProcessEcp(__int64 a1, __int64 a2)

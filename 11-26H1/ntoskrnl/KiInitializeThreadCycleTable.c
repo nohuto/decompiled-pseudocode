@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeThreadCycleTable @ 0x140BF40D8
+ * XREFs of KiInitializeThreadCycleTable @ 0x140BFA0D8
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeGetProcessorNodeNumber @ 0x14046B620 (KeGetProcessorNodeNumber.c)
- *     KeGetThreadWorkloadClassCount @ 0x140515378 (KeGetThreadWorkloadClassCount.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     KeGetProcessorNodeNumber @ 0x140464DA0 (KeGetProcessorNodeNumber.c)
+ *     KeGetThreadWorkloadClassCount @ 0x14050EDE8 (KeGetThreadWorkloadClassCount.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall KiInitializeThreadCycleTable(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiEncls @ 0x1403FF060
+ * XREFs of KiEncls @ 0x1403FF240
  * Callers:
- *     KeAddEnclavePage @ 0x140514F58 (KeAddEnclavePage.c)
- *     KeBlockEnclavePage @ 0x1405150CC (KeBlockEnclavePage.c)
- *     KeCanChangeEnclavePageProtection @ 0x14051511C (KeCanChangeEnclavePageProtection.c)
- *     KeChangeEnclavePageProtection @ 0x1405151E4 (KeChangeEnclavePageProtection.c)
- *     KeCreateEnclaveMetadataPage @ 0x1405152EC (KeCreateEnclaveMetadataPage.c)
- *     KeOutPageEnclavePage @ 0x140515330 (KeOutPageEnclavePage.c)
- *     KeRemoveEnclavePage @ 0x1405153F0 (KeRemoveEnclavePage.c)
- *     KeTrackEnclaveTbFlush @ 0x140515434 (KeTrackEnclaveTbFlush.c)
- *     KeCreateEnclave @ 0x1408BB49C (KeCreateEnclave.c)
- *     KeDebugWriteEnclaveMemory @ 0x1408BB65C (KeDebugWriteEnclaveMemory.c)
- *     KeInitializeEnclave @ 0x1408BB6E8 (KeInitializeEnclave.c)
+ *     KeAddEnclavePage @ 0x140515198 (KeAddEnclavePage.c)
+ *     KeBlockEnclavePage @ 0x14051530C (KeBlockEnclavePage.c)
+ *     KeCanChangeEnclavePageProtection @ 0x14051535C (KeCanChangeEnclavePageProtection.c)
+ *     KeChangeEnclavePageProtection @ 0x140515424 (KeChangeEnclavePageProtection.c)
+ *     KeCreateEnclaveMetadataPage @ 0x14051552C (KeCreateEnclaveMetadataPage.c)
+ *     KeOutPageEnclavePage @ 0x140515570 (KeOutPageEnclavePage.c)
+ *     KeRemoveEnclavePage @ 0x140515630 (KeRemoveEnclavePage.c)
+ *     KeTrackEnclaveTbFlush @ 0x140515674 (KeTrackEnclaveTbFlush.c)
+ *     KeCreateEnclave @ 0x1408BB5FC (KeCreateEnclave.c)
+ *     KeDebugWriteEnclaveMemory @ 0x1408BB7BC (KeDebugWriteEnclaveMemory.c)
+ *     KeInitializeEnclave @ 0x1408BB848 (KeInitializeEnclave.c)
  * Callees:
  *     <none>
  */

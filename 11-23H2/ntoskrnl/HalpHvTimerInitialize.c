@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHvTimerInitialize @ 0x1403CD9F0
+ * XREFs of HalpHvTimerInitialize @ 0x1403CDBD0
  * Callers:
  *     <none>
  * Callees:
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
- *     HalQueryMaximumProcessorCount @ 0x14037F8A0 (HalQueryMaximumProcessorCount.c)
- *     HalpHvTimerAcknowledgeInterrupt @ 0x1403CDA30 (HalpHvTimerAcknowledgeInterrupt.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037FA40 (HalQueryMaximumProcessorCount.c)
+ *     HalpHvTimerAcknowledgeInterrupt @ 0x1403CDC10 (HalpHvTimerAcknowledgeInterrupt.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvTimerInitialize(__int64 a1)

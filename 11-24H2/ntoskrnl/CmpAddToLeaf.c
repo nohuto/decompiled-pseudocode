@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpAddToLeaf @ 0x1408835A8
+ * XREFs of CmpAddToLeaf @ 0x140887458
  * Callers:
- *     CmpAddSubKeyToList @ 0x14087E9C8 (CmpAddSubKeyToList.c)
+ *     CmpAddSubKeyToList @ 0x140882878 (CmpAddSubKeyToList.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408734B0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvReallocateCell @ 0x1408814EC (HvReallocateCell.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     CmpCompareInIndex @ 0x140884480 (CmpCompareInIndex.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpGenerateFastLeafHintForUnicodeString @ 0x140A4653C (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408777E0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvReallocateCell @ 0x14088539C (HvReallocateCell.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     CmpCompareInIndex @ 0x140888330 (CmpCompareInIndex.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x140A3C2FC (CmpGenerateFastLeafHintForUnicodeString.c)
  */
 
 __int64 __fastcall CmpAddToLeaf(ULONG_PTR BugCheckParameter3, unsigned int a2, int a3, __m128i *a4, unsigned int *a5)

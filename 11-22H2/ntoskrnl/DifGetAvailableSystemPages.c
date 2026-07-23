@@ -19,7 +19,7 @@ __int64 DifGetAvailableSystemPages()
   }
   else
   {
-    result = MmCreatePartition((union _SLIST_HEADER **)&DifpSystemPartition, 1);
+    result = MmCreatePartition((_SLIST_HEADER **)&DifpSystemPartition, 1);
     if ( (int)result >= 0 )
     {
       if ( DifpSystemPartition )

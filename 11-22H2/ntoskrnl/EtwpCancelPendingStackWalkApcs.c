@@ -18,10 +18,10 @@
 
 void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
 {
-  union _SLIST_HEADER *v1; // r15
+  _SLIST_HEADER *v1; // r15
   void *v3; // rsi
   PSLIST_ENTRY v4; // rdi
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *v5; // r13
   unsigned __int64 v6; // r14
   void *v7; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -30,7 +30,7 @@ void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
   int v11; // eax
   bool v12; // zf
 
-  v1 = (union _SLIST_HEADER *)(a1 + 236);
+  v1 = (_SLIST_HEADER *)(a1 + 236);
   v3 = 0LL;
   v4 = RtlpInterlockedFlushSList((PSLIST_HEADER)a1 + 59);
   while ( v4 )
@@ -47,10 +47,13 @@ void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)a1 + 114);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

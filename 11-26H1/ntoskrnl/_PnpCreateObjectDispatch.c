@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpCreateObjectDispatch @ 0x140898304
+ * XREFs of _PnpCreateObjectDispatch @ 0x14089E704
  * Callers:
- *     _PnpCreateObject @ 0x140898194 (_PnpCreateObject.c)
+ *     _PnpCreateObject @ 0x14089E594 (_PnpCreateObject.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x140A81690 (_PnpCtxGetObjectDispatchCallback.c)
- *     _PnpObjectRaiseCreateEvent @ 0x140AF2EE0 (_PnpObjectRaiseCreateEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x140A87500 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _PnpObjectRaiseCreateEvent @ 0x140AF56CC (_PnpObjectRaiseCreateEvent.c)
  */
 
 __int64 __fastcall PnpCreateObjectDispatch(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, _BYTE *a6, __int16 a7)

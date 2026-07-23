@@ -14,12 +14,12 @@
  *     ExRaiseDatatypeMisalignment @ 0x140913EC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // di
   __int64 v8; // rcx
-  NTSTATUS SectionView; // ebx
+  int SectionView; // ebx
   PVOID v10; // r15
   void *v11; // r14
   ULONG_PTR v12; // rdi
@@ -29,25 +29,25 @@ __int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, unsigned __int
   memset(&Object[2], 0, 0x20uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
     goto LABEL_22;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ViewAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v8 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v8 = a3;
+    if ( (unsigned __int64)ViewAttributes < 0x7FFFFFFF0000LL )
+      v8 = (__int64)ViewAttributes;
     *(_BYTE *)v8 = *(_BYTE *)v8;
     *(_BYTE *)(v8 + 31) = *(_BYTE *)(v8 + 31);
-    *(_OWORD *)&Object[2] = *(_OWORD *)a3;
-    *(_OWORD *)&Object[4] = *(_OWORD *)(a3 + 16);
+    *(_OWORD *)&Object[2] = *(_OWORD *)&ViewAttributes->Flags;
+    *(_OWORD *)&Object[4] = *(_OWORD *)&ViewAttributes->ViewBase;
   }
   else
   {
-    *(_OWORD *)&Object[2] = *(_OWORD *)a3;
-    *(_OWORD *)&Object[4] = *(_OWORD *)(a3 + 16);
+    *(_OWORD *)&Object[2] = *(_OWORD *)&ViewAttributes->Flags;
+    *(_OWORD *)&Object[4] = *(_OWORD *)&ViewAttributes->ViewBase;
   }
   if ( LODWORD(Object[2]) || !Object[5] || Object[4] )
   {
@@ -57,7 +57,7 @@ LABEL_22:
   else
   {
     SectionView = ObReferenceObjectByHandle(
-                    Handle,
+                    PortHandle,
                     1u,
                     AlpcPortObjectType,
                     KeGetCurrentThread()->PreviousMode,
@@ -76,16 +76,16 @@ LABEL_22:
           if ( PreviousMode )
           {
             v12 = BugCheckParameter2;
-            *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-            *(_QWORD *)(a3 + 24) = *(_QWORD *)(v12 + 48);
+            ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+            ViewAttributes->ViewSize = *(_QWORD *)(v12 + 48);
             if ( SectionView < 0 )
               AlpcpDeleteView(v12);
           }
           else
           {
             v12 = BugCheckParameter2;
-            *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-            *(_QWORD *)(a3 + 24) = *(_QWORD *)(v12 + 48);
+            ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+            ViewAttributes->ViewSize = *(_QWORD *)(v12 + 48);
           }
           AlpcpDereferenceBlobEx(v12);
         }
@@ -99,5 +99,5 @@ LABEL_22:
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)SectionView;
+  return SectionView;
 }

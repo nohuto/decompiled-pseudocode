@@ -1,13 +1,13 @@
 /*
- * XREFs of NtFreeVirtualMemory @ 0x14095F2D0
+ * XREFs of NtFreeVirtualMemory @ 0x140A04B90
  * Callers:
- *     DifNtFreeVirtualMemoryWrapper @ 0x140678490 (DifNtFreeVirtualMemoryWrapper.c)
- *     RtlpInitializeStackTraceDatabase @ 0x14080288C (RtlpInitializeStackTraceDatabase.c)
+ *     DifNtFreeVirtualMemoryWrapper @ 0x14067C070 (DifNtFreeVirtualMemoryWrapper.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x14080832C (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)

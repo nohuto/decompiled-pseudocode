@@ -43,10 +43,13 @@ char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
     if ( (a3 & 4) != 0 )
       *(_DWORD *)(a1 + 56) |= 0x40000u;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,10 +74,10 @@ char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
     v21 = 263;
     v22 = 6;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;

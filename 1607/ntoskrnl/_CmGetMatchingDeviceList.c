@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetMatchingDeviceList @ 0x140561984
+ * XREFs of _CmGetMatchingDeviceList @ 0x140561EC4
  * Callers:
- *     _PnpDispatchDevice @ 0x140500604 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x1406D8934 (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDevice @ 0x1404E3594 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x1406D8A6C (_CmDeleteDeviceWorker.c)
  *     PipMigratePnpState @ 0x1407BBCE0 (PipMigratePnpState.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmGetMatchingDeviceListForSubkey @ 0x140561A98 (_CmGetMatchingDeviceListForSubkey.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x140561FD8 (_CmGetMatchingDeviceListForSubkey.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6, int a7)

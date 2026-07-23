@@ -1,21 +1,21 @@
 /*
- * XREFs of _PnpCtxGetCachedNodeBaseKey @ 0x1408C7D10
+ * XREFs of _PnpCtxGetCachedNodeBaseKey @ 0x1408C5740
  * Callers:
- *     _PnpCtxOpenContextNodeBaseKey @ 0x1408175F4 (_PnpCtxOpenContextNodeBaseKey.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x1408C6A30 (_CmOpenDeviceRegKeyWorker.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1408C8D6C (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408CAE98 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140990A40 (_CmGetDeviceContainerIdFromBase.c)
- *     PiCMEnumerateSubKeys @ 0x14099245C (PiCMEnumerateSubKeys.c)
- *     PiDevCfgInitMigrationContext @ 0x14099AB2C (PiDevCfgInitMigrationContext.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1409B75AC (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x140817D34 (_PnpCtxOpenContextNodeBaseKey.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x1408C4460 (_CmOpenDeviceRegKeyWorker.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1408C679C (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408C88C8 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14097BA80 (_CmGetDeviceContainerIdFromBase.c)
+ *     PiCMEnumerateSubKeys @ 0x14097D49C (PiCMEnumerateSubKeys.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1409AE93C (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     PiDevCfgInitMigrationContext @ 0x1409CD29C (PiDevCfgInitMigrationContext.c)
  * Callees:
- *     _PnpGetEnumSecurityDescriptor @ 0x1408206AC (_PnpGetEnumSecurityDescriptor.c)
- *     _SysCtxRegCreateTree @ 0x140926924 (_SysCtxRegCreateTree.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x140A2D770 (_SysCtxGetCachedContextBaseKey.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x140820DEC (_PnpGetEnumSecurityDescriptor.c)
+ *     _SysCtxRegCreateTree @ 0x140928A64 (_SysCtxRegCreateTree.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x140A221B0 (_SysCtxGetCachedContextBaseKey.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxGetCachedNodeBaseKey(__int64 a1, _QWORD *a2, int a3, _QWORD *a4)

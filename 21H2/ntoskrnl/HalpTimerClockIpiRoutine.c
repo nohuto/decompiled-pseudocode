@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerClockIpiRoutine @ 0x140221560
+ * XREFs of HalpTimerClockIpiRoutine @ 0x1402C5E60
  * Callers:
  *     <none>
  * Callees:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C29A0 (HalpTimerWatchdogTriggerSystemReset.c)
  */
 
 char __fastcall HalpTimerClockIpiRoutine(__int64 a1)

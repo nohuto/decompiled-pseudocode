@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDispatchShutdownEvent @ 0x140672DAC
+ * XREFs of PopDispatchShutdownEvent @ 0x140672E90
  * Callers:
  *     <none>
  * Callees:
- *     KeAreApcsDisabled @ 0x140009B90 (KeAreApcsDisabled.c)
- *     PopEventCalloutDispatch @ 0x140131C64 (PopEventCalloutDispatch.c)
+ *     KeAreApcsDisabled @ 0x140009710 (KeAreApcsDisabled.c)
+ *     PopEventCalloutDispatch @ 0x1401321D4 (PopEventCalloutDispatch.c)
  */
 
 BOOLEAN PopDispatchShutdownEvent()

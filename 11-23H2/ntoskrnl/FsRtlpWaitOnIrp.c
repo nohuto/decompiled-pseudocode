@@ -1,25 +1,25 @@
 /*
  * XREFs of FsRtlpWaitOnIrp @ 0x1402010B8
  * Callers:
- *     FsRtlpOplockBreakToII @ 0x1402FBB38 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToNone @ 0x14053E8F0 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockBreakNotify @ 0x14093E488 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakToII @ 0x1402FBDC8 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053EFB8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOplockBreakNotify @ 0x14093E688 (FsRtlpOplockBreakNotify.c)
  * Callees:
  *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201C30 (FsRtlpRemoveAndCompleteWaitingIrp.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     IoCancelIrp @ 0x140351E90 (IoCancelIrp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     FsRtlpCancelWaitingIrp @ 0x14053E284 (FsRtlpCancelWaitingIrp.c)
- *     FsRtlCancellableWaitForSingleObject @ 0x140773570 (FsRtlCancellableWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     IoCancelIrp @ 0x140352030 (IoCancelIrp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     FsRtlpCancelWaitingIrp @ 0x14053E7D4 (FsRtlpCancelWaitingIrp.c)
+ *     FsRtlCancellableWaitForSingleObject @ 0x140773760 (FsRtlCancellableWaitForSingleObject.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -118,7 +118,7 @@ __int64 __fastcall FsRtlpWaitOnIrp(
     v42 = *(_DWORD *)(a1 + 144);
     v75 = &v42;
     v76 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, &word_14002A21E, 0LL, 0LL, 5, v70);
+    tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, word_14002A212, 0LL, 0LL, 5, v70);
   }
   v15 = 1;
   v16 = &v35;
@@ -284,7 +284,7 @@ LABEL_53:
       v38 = *(_DWORD *)(a1 + 144);
       v61 = &v38;
       v62 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, byte_14002A0CB, 0LL, 0LL, 6, v54);
+      tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, byte_14002A16D, 0LL, 0LL, 6, v54);
     }
     ExReleaseFastMutexUnsafe(*(PFAST_MUTEX *)(a1 + 152));
   }
@@ -299,7 +299,7 @@ LABEL_53:
     v45 = a1;
     v68 = &v45;
     v69 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, byte_14002A079, 0LL, 0LL, 5, v63);
+    tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, byte_14002A11B, 0LL, 0LL, 5, v63);
   }
   return v25;
 }

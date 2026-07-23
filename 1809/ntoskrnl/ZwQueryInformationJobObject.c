@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationJobObject @ 0x1401BA9F0
+ * XREFs of ZwQueryInformationJobObject @ 0x1401BAB50
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationJobObject(
         HANDLE JobHandle,
         JOBOBJECTINFOCLASS JobInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationJobObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(JobHandle, *(_QWORD *)&JobInformationClass, JobInformation);
+  return KiServiceInternal(JobHandle);
 }

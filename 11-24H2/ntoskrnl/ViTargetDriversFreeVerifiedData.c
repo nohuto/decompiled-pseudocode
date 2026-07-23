@@ -1,12 +1,12 @@
 /*
- * XREFs of ViTargetDriversFreeVerifiedData @ 0x140611344
+ * XREFs of ViTargetDriversFreeVerifiedData @ 0x14060F904
  * Callers:
- *     VfTargetDriversAdd @ 0x1403F01F8 (VfTargetDriversAdd.c)
- *     VfTargetDriversRemove @ 0x1403F0E5C (VfTargetDriversRemove.c)
- *     VfTargetDriversDisableVerifier @ 0x140B8B2DC (VfTargetDriversDisableVerifier.c)
- *     VfTargetDriversEnableVerifier @ 0x140B8B364 (VfTargetDriversEnableVerifier.c)
+ *     VfTargetDriversAdd @ 0x1403E3ED4 (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x1403E4B7C (VfTargetDriversRemove.c)
+ *     VfTargetDriversDisableVerifier @ 0x140B8D2DC (VfTargetDriversDisableVerifier.c)
+ *     VfTargetDriversEnableVerifier @ 0x140B8D364 (VfTargetDriversEnableVerifier.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ViTargetDriversFreeVerifiedData(void *a1)

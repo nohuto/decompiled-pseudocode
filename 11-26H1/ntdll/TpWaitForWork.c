@@ -1,32 +1,30 @@
 /*
- * XREFs of TpWaitForWork @ 0x180064D50
+ * XREFs of TpWaitForWork @ 0x1800851A0
  * Callers:
- *     RtlpFcFreeChangeRegistration @ 0x180064B0C (RtlpFcFreeChangeRegistration.c)
- *     LdrpDetectDetour @ 0x180064B60 (LdrpDetectDetour.c)
+ *     RtlpFcFreeChangeRegistration @ 0x180084F5C (RtlpFcFreeChangeRegistration.c)
+ *     LdrpDetectDetour @ 0x180084FB0 (LdrpDetectDetour.c)
  * Callees:
- *     TppWorkWait @ 0x18002B5F0 (TppWorkWait.c)
+ *     TppWorkWait @ 0x1800166F0 (TppWorkWait.c)
  */
 
-struct _PEB *__fastcall TpWaitForWork(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // eax
-  struct _PEB *result; // rax
+  volatile int Flags; // eax
   _PEB_LDR_DATA *Ldr; // rcx
 
-  if ( a1 )
+  if ( !Work
+    || (Flags = Work->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)(PVOID))Work->CleanupGroupMember.VFuncs != &TppWorkpCleanupGroupMemberVFuncs
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    v3 = *(_DWORD *)(a1 + 168);
-    if ( (v3 & 0x10000) == 0
-      && (v3 & 0x20000) == 0
-      && *(__int64 (__fastcall ***)())(a1 + 8) == TppWorkpCleanupGroupMemberVFuncs
-      && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    {
-      return TppWorkWait((_QWORD *)a1, a2);
-    }
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      TppRaiseInvalidParameter(Ldr, *(_QWORD *)&CancelPendingCallbacks);
   }
-  result = NtCurrentPeb();
-  Ldr = result->Ldr;
-  if ( !Ldr->ShutdownInProgress )
-    return (struct _PEB *)TppRaiseInvalidParameter(Ldr, a2, a1);
-  return result;
+  else
+  {
+    TppWorkWait(Work, CancelPendingCallbacks);
+  }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AslPathClean @ 0x140A54B88
+ * XREFs of AslPathClean @ 0x140A54E38
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140A51760 (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x140A51A10 (SdbpResolveMatchingFile.c)
  * Callees:
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall AslPathClean(const wchar_t *Src, void *a2, unsigned __int64 a3)

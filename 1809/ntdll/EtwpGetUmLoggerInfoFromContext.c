@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpStopUmLogger @ 0x18004CFF4 (EtwpStopUmLogger.c)
  *     EtwpStartUmLogger @ 0x18004FFC8 (EtwpStartUmLogger.c)
- *     EtwpQueryUmLogger @ 0x180089384 (EtwpQueryUmLogger.c)
+ *     EtwpQueryUmLogger @ 0x180089394 (EtwpQueryUmLogger.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140B1F4E0
+ * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140B21560
  * Callers:
- *     MiFlushDeferredRetpolineImageLoadEvents @ 0x14086D6FC (MiFlushDeferredRetpolineImageLoadEvents.c)
- *     MiLogRetpolineImageLoadEvents @ 0x140B1F474 (MiLogRetpolineImageLoadEvents.c)
+ *     MiFlushDeferredRetpolineImageLoadEvents @ 0x140873ACC (MiFlushDeferredRetpolineImageLoadEvents.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x140B214F4 (MiLogRetpolineImageLoadEvents.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall MiLogNonRetpolineImageLoadEvent(unsigned __int16 *a1, int a2, int a3)
@@ -29,11 +29,11 @@ int __fastcall MiLogNonRetpolineImageLoadEvent(unsigned __int16 *a1, int a2, int
   __int64 *v20; // [rsp+C0h] [rbp+37h]
   __int64 v21; // [rsp+C8h] [rbp+3Fh]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000000000LL) != 0 )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000000000LL) != 0 )
   {
-    v3 = *((_QWORD *)stru_140E36558.FirstArgument + 3) & 0x400000000000LL;
-    if ( v3 == *((_QWORD *)stru_140E36558.FirstArgument + 3) )
+    v3 = *((_QWORD *)stru_140E366D8.FirstArgument + 3) & 0x400000000000LL;
+    if ( v3 == *((_QWORD *)stru_140E366D8.FirstArgument + 3) )
     {
       v5 = a2;
       v7 = 1LL;
@@ -52,7 +52,7 @@ int __fastcall MiLogNonRetpolineImageLoadEvent(unsigned __int16 *a1, int a2, int
       v6 = a3;
       v19 = 4LL;
       v21 = 8LL;
-      LODWORD(v3) = tlgWriteAgg((__int64)stru_140E36558.FirstArgument, (unsigned __int8 *)&byte_1400581EF, 0LL, 8u, &v9);
+      LODWORD(v3) = tlgWriteAgg((__int64)stru_140E366D8.FirstArgument, (unsigned __int8 *)&word_1400591E2, 0LL, 8u, &v9);
     }
   }
   return v3;

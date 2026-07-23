@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRemoveKeyHashFromTableEntry @ 0x140A6A2B0
+ * XREFs of CmpRemoveKeyHashFromTableEntry @ 0x140A76C50
  * Callers:
- *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x140A6A258 (CmpRemoveKeyHashFromDeletedKcbTable.c)
+ *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x140A76BF8 (CmpRemoveKeyHashFromDeletedKcbTable.c)
  * Callees:
  *     <none>
  */

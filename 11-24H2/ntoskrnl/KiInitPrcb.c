@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitPrcb @ 0x140B56204
+ * XREFs of KiInitPrcb @ 0x140B58254
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
  * Callees:
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     KiInitializeSharedReadyQueue @ 0x1405B72FC (KiInitializeSharedReadyQueue.c)
- *     KiInitializeSoftwareInterruptBatch @ 0x1405BD360 (KiInitializeSoftwareInterruptBatch.c)
- *     KiIntSteerInitPrcb @ 0x1405C4588 (KiIntSteerInitPrcb.c)
- *     KiInitializeBugcheckRecoveryProcessor @ 0x1405C63C8 (KiInitializeBugcheckRecoveryProcessor.c)
- *     KiInitializeDpcList @ 0x1405C7118 (KiInitializeDpcList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     KiInitializeSharedReadyQueue @ 0x1405B465C (KiInitializeSharedReadyQueue.c)
+ *     KiInitializeSoftwareInterruptBatch @ 0x1405BA990 (KiInitializeSoftwareInterruptBatch.c)
+ *     KiIntSteerInitPrcb @ 0x1405C1BA8 (KiIntSteerInitPrcb.c)
+ *     KiInitializeBugcheckRecoveryProcessor @ 0x1405C3AF8 (KiInitializeBugcheckRecoveryProcessor.c)
+ *     KiInitializeDpcList @ 0x1405C4848 (KiInitializeDpcList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall KiInitPrcb(__int64 a1, int a2)

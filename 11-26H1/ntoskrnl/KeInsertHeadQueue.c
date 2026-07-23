@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInsertHeadQueue @ 0x1405F1610
+ * XREFs of KeInsertHeadQueue @ 0x1405F3FD0
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     EtwTraceEnqueueWork @ 0x140268108 (EtwTraceEnqueueWork.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiWakeOtherQueueWaiters @ 0x1402C2F00 (KiWakeOtherQueueWaiters.c)
- *     KiWakeQueueWaiter @ 0x1403F6E10 (KiWakeQueueWaiter.c)
- *     KeIsThreadRunning @ 0x1403F72D0 (KeIsThreadRunning.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     EtwTraceEnqueueWork @ 0x140267678 (EtwTraceEnqueueWork.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeOtherQueueWaiters @ 0x14030DBC0 (KiWakeOtherQueueWaiters.c)
+ *     KiWakeQueueWaiter @ 0x1403F07C0 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x1403F0C80 (KeIsThreadRunning.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 LONG __stdcall KeInsertHeadQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)

@@ -8,18 +8,18 @@
  *     _RtlSetLastWin32Error@4 @ 0x4B2DAB00 (_RtlSetLastWin32Error@4.c)
  */
 
-int __stdcall EtwUnregisterTraceGuids(int a1, __int16 a2)
+LONG __stdcall EtwUnregisterTraceGuids(REGHANDLE RegHandle)
 {
-  int v2; // eax
-  int v3; // esi
-  int v5; // [esp+4h] [ebp-4h] BYREF
+  LONG v1; // eax
+  LONG v2; // esi
+  PVOID Context; // [esp+4h] [ebp-4h] BYREF
 
-  v5 = 0;
-  v2 = EtwNotificationUnregister(a1, a2, &v5);
-  v3 = v2;
-  if ( v2 )
-    RtlSetLastWin32Error(v2);
+  Context = 0;
+  v1 = EtwNotificationUnregister(RegHandle, &Context);
+  v2 = v1;
+  if ( v1 )
+    RtlSetLastWin32Error(v1);
   else
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v5);
-  return v3;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Context);
+  return v2;
 }

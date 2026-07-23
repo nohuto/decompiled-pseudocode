@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCopyAndFixupParameters @ 0x140A9AAB8
+ * XREFs of PspCopyAndFixupParameters @ 0x1409E5AE8
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x140A9A3AC (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1409E53DC (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
  */
 
 __int64 __fastcall PspCopyAndFixupParameters(__int64 a1, unsigned int *a2, __int64 a3)

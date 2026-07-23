@@ -1,55 +1,53 @@
 /*
- * XREFs of MiInitializePagedPoolEvents @ 0x140C53EC4
+ * XREFs of MiInitializePagedPoolEvents @ 0x140C56054
  * Callers:
- *     MiInitializeMemoryEvents @ 0x1407FFF3C (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x14080067C (MiInitializeMemoryEvents.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiFreePoolPagesLeft @ 0x140449280 (MiFreePoolPagesLeft.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiFreePoolPagesLeft @ 0x1404419D0 (MiFreePoolPagesLeft.c)
  */
 
-$81B80DCEA5A02D890AB7B2872B48AC01 *MiInitializePagedPoolEvents()
+$727077A9B6E167EAE1398C74674DC5A5 *MiInitializePagedPoolEvents()
 {
   struct _KTHREAD *CurrentThread; // rbx
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rdi
+  char *v3; // rdi
   unsigned __int64 v4; // rdi
-  $81B80DCEA5A02D890AB7B2872B48AC01 *result; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
+  $727077A9B6E167EAE1398C74674DC5A5 *result; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v1 = KeAbPreAcquire((__int64)&qword_140E37540, 0LL);
-  v2 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E37540, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&qword_140E37680, 0LL);
+  v2 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E37680, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&qword_140E37540, (__int64)v1, (__int64)&qword_140E37540);
+    ExfAcquirePushLockExclusiveEx(&qword_140E37680, v1, (__int64)&qword_140E37680);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   v4 = MiFreePoolPagesLeft(5);
-  if ( v4 < qword_140E2CA68 )
-    KeResetEvent(qword_140E38D00);
+  if ( v4 < qword_140E2CBA8 )
+    KeResetEvent(qword_140E38E40);
   else
-    KeSetEvent(qword_140E38D00, 0, 0);
-  if ( v4 > qword_140E2CA60 )
-    KeResetEvent(qword_140E38CF8);
+    KeSetEvent(qword_140E38E40, 0, 0);
+  if ( v4 > qword_140E2CBA0 )
+    KeResetEvent(qword_140E38E38);
   else
-    KeSetEvent(qword_140E38CF8, 0, 0);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E37540, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E37540);
-  result = ($81B80DCEA5A02D890AB7B2872B48AC01 *)KeAbPostRelease((ULONG_PTR)&qword_140E37540);
+    KeSetEvent(qword_140E38E38, 0, 0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E37680, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E37680);
+  result = ($727077A9B6E167EAE1398C74674DC5A5 *)KeAbPostRelease((ULONG_PTR)&qword_140E37680);
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     result = &CurrentThread->152;
-    if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)result->ApcState.ApcListHead[0].Flink != result )
-      return ($81B80DCEA5A02D890AB7B2872B48AC01 *)KiCheckForKernelApcDelivery(v7, v6);
+    if ( ($727077A9B6E167EAE1398C74674DC5A5 *)result->ApcState.ApcListHead[0].Flink != result )
+      return ($727077A9B6E167EAE1398C74674DC5A5 *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

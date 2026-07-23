@@ -1,24 +1,24 @@
 /*
- * XREFs of SepGetLowBoxNumberEntry @ 0x1407180B8
+ * XREFs of SepGetLowBoxNumberEntry @ 0x1406C6708
  * Callers:
- *     SepSetTokenLowboxNumber @ 0x140717F5C (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenLowboxNumber @ 0x1406C65AC (SepSetTokenLowboxNumber.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     RtlInsertEntryHashTable @ 0x1402515F0 (RtlInsertEntryHashTable.c)
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     SepFindMatchingLowBoxNumberEntry @ 0x1407181E4 (SepFindMatchingLowBoxNumberEntry.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     RtlInsertEntryHashTable @ 0x1402F5E00 (RtlInsertEntryHashTable.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x1406C6834 (SepFindMatchingLowBoxNumberEntry.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, _QWORD *a3)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v3; // r13
-  RTL_BITMAP *v4; // r14
+  _RTL_DYNAMIC_HASH_TABLE *v3; // r13
+  _RTL_BITMAP *v4; // r14
   unsigned int v6; // edi
   unsigned int v8; // ebp
   _QWORD *PoolWithTag; // rax
@@ -29,10 +29,10 @@ __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, _QWO
   ULONG_PTR v14; // r8
   ULONG v16; // ebp
   unsigned int *v17; // r13
-  struct _RTL_DYNAMIC_HASH_TABLE *v18; // [rsp+78h] [rbp+20h]
+  _RTL_DYNAMIC_HASH_TABLE *v18; // [rsp+78h] [rbp+20h]
 
-  v3 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
-  v4 = (RTL_BITMAP *)(a1 + 8);
+  v3 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
+  v4 = (_RTL_BITMAP *)(a1 + 8);
   v18 = v3;
   v6 = 0;
   SepFindMatchingLowBoxNumberEntry(v3, a2);

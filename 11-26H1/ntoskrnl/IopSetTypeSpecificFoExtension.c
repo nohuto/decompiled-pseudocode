@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSetTypeSpecificFoExtension @ 0x14047FA30
+ * XREFs of IopSetTypeSpecificFoExtension @ 0x1404793A0
  * Callers:
- *     IopSetFileMemoryPartitionInformation @ 0x140777A08 (IopSetFileMemoryPartitionInformation.c)
- *     IopSetFileObjectIosbRange @ 0x140795690 (IopSetFileObjectIosbRange.c)
- *     IopSymlinkPropagateToExtensionIfNeeded @ 0x1409035A0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14077A8A8 (IopSetFileMemoryPartitionInformation.c)
+ *     IopSetFileObjectIosbRange @ 0x1407981C0 (IopSetFileObjectIosbRange.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140933530 (IopSymlinkPropagateToExtensionIfNeeded.c)
  * Callees:
  *     <none>
  */

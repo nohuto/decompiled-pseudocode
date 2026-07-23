@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlCheckNoSharedConflict @ 0x1402C4230
+ * XREFs of FsRtlCheckNoSharedConflict @ 0x14030EEF0
  * Callers:
- *     FsRtlFastCheckLockForWrite @ 0x1402C4100 (FsRtlFastCheckLockForWrite.c)
+ *     FsRtlFastCheckLockForWrite @ 0x14030EDC0 (FsRtlFastCheckLockForWrite.c)
  * Callees:
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     FsRtlFindFirstOverlapInNode @ 0x14052DC90 (FsRtlFindFirstOverlapInNode.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     FsRtlFindFirstOverlapInNode @ 0x1405301B0 (FsRtlFindFirstOverlapInNode.c)
  */
 
 bool __fastcall FsRtlCheckNoSharedConflict(__int64 a1, _RTL_SPLAY_LINKS **a2, _RTL_SPLAY_LINKS **a3)
 {
-  RTL_SPLAY_LINKS *v3; // r9
-  RTL_SPLAY_LINKS *v5; // rcx
-  RTL_SPLAY_LINKS *v6; // rbx
-  RTL_SPLAY_LINKS *v7; // r11
+  _RTL_SPLAY_LINKS *v3; // r9
+  _RTL_SPLAY_LINKS *v5; // rcx
+  _RTL_SPLAY_LINKS *v6; // rbx
+  _RTL_SPLAY_LINKS *v7; // r11
   bool v10; // zf
   _RTL_SPLAY_LINKS *v11; // r10
   _RTL_SPLAY_LINKS *Parent; // rdi
   _RTL_SPLAY_LINKS *LeftChild; // r8
   __int64 v14; // rbx
 
-  v3 = *(RTL_SPLAY_LINKS **)(a1 + 8);
+  v3 = *(_RTL_SPLAY_LINKS **)(a1 + 8);
   v5 = 0LL;
   v6 = 0LL;
   v7 = 0LL;

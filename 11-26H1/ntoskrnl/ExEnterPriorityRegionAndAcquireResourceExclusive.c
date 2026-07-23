@@ -1,10 +1,10 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1406CE6E0
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1406D2710
  * Callers:
- *     DifExEnterPriorityRegionAndAcquireResourceExclusiveWrapper @ 0x140651600 (DifExEnterPriorityRegionAndAcquireResourceExclusiveWrapper.c)
+ *     DifExEnterPriorityRegionAndAcquireResourceExclusiveWrapper @ 0x1406551E0 (DifExEnterPriorityRegionAndAcquireResourceExclusiveWrapper.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
  */
 
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceExclusive(

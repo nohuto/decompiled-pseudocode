@@ -1,12 +1,12 @@
 /*
- * XREFs of NtLoadKey @ 0x140781B80
+ * XREFs of NtLoadKey @ 0x140781D40
  * Callers:
  *     <none>
  * Callees:
- *     NtLoadKeyEx @ 0x14066E520 (NtLoadKeyEx.c)
+ *     NtLoadKeyEx @ 0x140664A00 (NtLoadKeyEx.c)
  */
 
-__int64 __fastcall NtLoadKey(int a1, int a2)
+NTSTATUS __cdecl NtLoadKey(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile)
 {
-  return NtLoadKeyEx(a1, a2, 0, 0, 0LL, 0, 0LL, 0LL);
+  return NtLoadKeyEx(TargetKey, SourceFile, 0, 0LL, 0LL, 0, 0LL, 0LL);
 }

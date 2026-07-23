@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptEckeyAllocate @ 0x1403F8874
+ * XREFs of SymCryptEckeyAllocate @ 0x1403F8A54
  * Callers:
- *     HashpVerifyEcdsaSignature @ 0x140A771D4 (HashpVerifyEcdsaSignature.c)
+ *     HashpVerifyEcdsaSignature @ 0x140A77484 (HashpVerifyEcdsaSignature.c)
  * Callees:
- *     SymCryptEckeyCreate @ 0x1403F88C8 (SymCryptEckeyCreate.c)
- *     SymCryptSizeofEckeyFromCurve @ 0x1403F8F1C (SymCryptSizeofEckeyFromCurve.c)
- *     SymCryptCallbackAlloc @ 0x14067D9E0 (SymCryptCallbackAlloc.c)
+ *     SymCryptEckeyCreate @ 0x1403F8AA8 (SymCryptEckeyCreate.c)
+ *     SymCryptSizeofEckeyFromCurve @ 0x1403F90FC (SymCryptSizeofEckeyFromCurve.c)
+ *     SymCryptCallbackAlloc @ 0x14067DF30 (SymCryptCallbackAlloc.c)
  */
 
 __int64 __fastcall SymCryptEckeyAllocate(__int64 a1)

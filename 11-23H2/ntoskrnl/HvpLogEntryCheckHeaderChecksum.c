@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpLogEntryCheckHeaderChecksum @ 0x1407FE274
+ * XREFs of HvpLogEntryCheckHeaderChecksum @ 0x1407FE544
  * Callers:
- *     HvpIsLogEntryHeaderCoherent @ 0x1407FE204 (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x1407FE4D4 (HvpIsLogEntryHeaderCoherent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptMarvin32 @ 0x1403F5F08 (SymCryptMarvin32.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptMarvin32 @ 0x1403F60E8 (SymCryptMarvin32.c)
  */
 
 _BOOL8 __fastcall HvpLogEntryCheckHeaderChecksum(__int64 a1)

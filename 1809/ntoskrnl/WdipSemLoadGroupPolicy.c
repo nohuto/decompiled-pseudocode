@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemLoadGroupPolicy @ 0x140743630
+ * XREFs of WdipSemLoadGroupPolicy @ 0x140744820
  * Callers:
- *     WdipSemCleanStart @ 0x140743494 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140744684 (WdipSemCleanStart.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     WdipSemCleanupGroupPolicy @ 0x140743500 (WdipSemCleanupGroupPolicy.c)
- *     WdipSemQueryValueFromRegistry @ 0x140744680 (WdipSemQueryValueFromRegistry.c)
- *     WdipSemOpenRegistryKey @ 0x140744788 (WdipSemOpenRegistryKey.c)
- *     WdipSemLoadLocalGroupPolicy @ 0x1408B130C (WdipSemLoadLocalGroupPolicy.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     WdipSemCleanupGroupPolicy @ 0x1407446F0 (WdipSemCleanupGroupPolicy.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140745870 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140745978 (WdipSemOpenRegistryKey.c)
+ *     WdipSemLoadLocalGroupPolicy @ 0x1408B256C (WdipSemLoadLocalGroupPolicy.c)
  */
 
 __int64 WdipSemLoadGroupPolicy()

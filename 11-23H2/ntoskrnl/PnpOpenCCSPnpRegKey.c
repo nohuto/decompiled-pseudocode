@@ -3,8 +3,8 @@
  * Callers:
  *     PnpInitializePnpWatchdogs @ 0x140B6104C (PnpInitializePnpWatchdogs.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DA498 (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x1407DA768 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PnpOpenCCSPnpRegKey(_QWORD *a1)

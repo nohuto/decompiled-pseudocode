@@ -1,15 +1,15 @@
 /*
- * XREFs of CmPostCallbackNotificationEx @ 0x140847C20
+ * XREFs of CmPostCallbackNotificationEx @ 0x140843EE0
  * Callers:
- *     NtRenameKey @ 0x1407D04D0 (NtRenameKey.c)
- *     NtReplaceKey @ 0x1407D0990 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1407D0CE0 (NtRestoreKey.c)
- *     NtSaveMergedKeys @ 0x1407D1090 (NtSaveMergedKeys.c)
- *     NtSaveKeyEx @ 0x140A6DF30 (NtSaveKeyEx.c)
- *     NtEnumerateKey @ 0x140AE3CA0 (NtEnumerateKey.c)
+ *     NtRenameKey @ 0x1407D09C0 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x1407D0E80 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x1407D11D0 (NtRestoreKey.c)
+ *     NtSaveMergedKeys @ 0x1407D1580 (NtSaveMergedKeys.c)
+ *     NtSaveKeyEx @ 0x140A67430 (NtSaveKeyEx.c)
+ *     NtEnumerateKey @ 0x140AE5580 (NtEnumerateKey.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotificationEx(

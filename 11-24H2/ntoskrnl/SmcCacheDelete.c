@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheDelete @ 0x14079D07C
+ * XREFs of SmcCacheDelete @ 0x14079D18C
  * Callers:
- *     SmcProcessCreateRequest @ 0x140798E7C (SmcProcessCreateRequest.c)
- *     SmcProcessDeleteRequest @ 0x140799130 (SmcProcessDeleteRequest.c)
- *     SmcVolumePnpNotification @ 0x14079E340 (SmcVolumePnpNotification.c)
+ *     SmcProcessCreateRequest @ 0x140798F8C (SmcProcessCreateRequest.c)
+ *     SmcProcessDeleteRequest @ 0x140799240 (SmcProcessDeleteRequest.c)
+ *     SmcVolumePnpNotification @ 0x14079E450 (SmcVolumePnpNotification.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmcCacheCleanup @ 0x14079CFE4 (SmcCacheCleanup.c)
- *     SmcCacheRemove @ 0x14079D398 (SmcCacheRemove.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmcCacheCleanup @ 0x14079D0F4 (SmcCacheCleanup.c)
+ *     SmcCacheRemove @ 0x14079D4A8 (SmcCacheRemove.c)
  */
 
 __int64 __fastcall SmcCacheDelete(__int64 a1)

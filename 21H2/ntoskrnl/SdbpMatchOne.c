@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpMatchOne @ 0x140966000
+ * XREFs of SdbpMatchOne @ 0x1409661E0
  * Callers:
  *     <none>
  * Callees:
- *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
- *     SdbpMatchList @ 0x1407548A8 (SdbpMatchList.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F989C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     SdbpMatchList @ 0x140754A68 (SdbpMatchList.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpMatchOne(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SbpUpdateCache @ 0x18002C538
+ * XREFs of SbpUpdateCache @ 0x18002C528
  * Callers:
- *     SbSelectProcedure @ 0x18002E9C0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x18002E9B0 (SbSelectProcedure.c)
  * Callees:
- *     SbpFindMatchingContext @ 0x18002C6A4 (SbpFindMatchingContext.c)
- *     SbAtomicCaptureContextGuid @ 0x18002C6E0 (SbAtomicCaptureContextGuid.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     SbpFindMatchingContext @ 0x18002C694 (SbpFindMatchingContext.c)
+ *     SbAtomicCaptureContextGuid @ 0x18002C6D0 (SbAtomicCaptureContextGuid.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     SbpResolveBasedOnName @ 0x1800FEBF4 (SbpResolveBasedOnName.c)
  */
 

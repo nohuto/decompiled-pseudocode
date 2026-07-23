@@ -82,8 +82,8 @@ LABEL_18:
       KiCheckForKernelApcDelivery();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    LOBYTE(v3) = KiIrqlFlags;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    LOBYTE(v3) = (_BYTE)KiIrqlFlags;
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v3) = 4;

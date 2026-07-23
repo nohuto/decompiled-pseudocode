@@ -1,12 +1,12 @@
 /*
- * XREFs of MmSnapTriageDumpInformation @ 0x14044A658
+ * XREFs of MmSnapTriageDumpInformation @ 0x140442788
  * Callers:
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
- *     IopCollectTriageDumpData @ 0x1405C8974 (IopCollectTriageDumpData.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CA224 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
+ *     IopCollectTriageDumpData @ 0x1405CB244 (IopCollectTriageDumpData.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CCAF4 (IopWriteCapsuleTriageDumpToFirmware.c)
  * Callees:
- *     MiAddTriageDumpPtes @ 0x14044A7A4 (MiAddTriageDumpPtes.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
+ *     MiAddTriageDumpPtes @ 0x1404428D4 (MiAddTriageDumpPtes.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
  */
 
 __int64 __fastcall MmSnapTriageDumpInformation(__int64 a1, _QWORD *a2)
@@ -17,21 +17,21 @@ __int64 __fastcall MmSnapTriageDumpInformation(__int64 a1, _QWORD *a2)
 
   IoAddTriageDumpDataBlock((ULONG)&MiState, (PVOID)0xB740);
   IoAddTriageDumpDataBlock((ULONG)&MiSystemPartition, (PVOID)0x6C40);
-  *(_QWORD *)&MiTriageDumpData = qword_140E399D0;
-  dword_140EF8C28 = *(_DWORD *)&stru_140E2EB88.SchedulerApc.Type;
-  dword_140EF8C2C = *(_DWORD *)&stru_140E2EB88.SuspendCount;
-  qword_140EF8C30 = (__int64)stru_140E2EB88.SchedulerApc.Reserved[1];
-  qword_140EF8C40 = KeFeatureBits;
-  qword_140EF8C48 = 0LL;
-  dword_140EF8C3C = 0;
-  qword_140EF8C58 = 0LL;
-  dword_140EF8C38 = *(_DWORD *)&stru_140E2EB88.SavedApcStateFill[12]
-                  + *(_DWORD *)&stru_140E2EB88.SavedApcStateFill[16]
-                  + *(_DWORD *)&stru_140E2EB88.SavedApcStateFill[20];
-  LODWORD(qword_140EF8C48) = MEMORY[0xFFFFF78000000240];
-  qword_140EF8C50 = MiFlags;
+  *(_QWORD *)&MiTriageDumpData = qword_140E39B50;
+  dword_140EF8F88 = *(_DWORD *)&stru_140E2ED08.SchedulerApc.Type;
+  dword_140EF8F8C = *(_DWORD *)&stru_140E2ED08.SuspendCount;
+  qword_140EF8F90 = (__int64)stru_140E2ED08.SchedulerApc.Reserved[1];
+  qword_140EF8FA0 = KeFeatureBits;
+  qword_140EF8FA8 = 0LL;
+  dword_140EF8F9C = 0;
+  qword_140EF8FB8 = 0LL;
+  dword_140EF8F98 = *(_DWORD *)&stru_140E2ED08.SavedApcStateFill[12]
+                  + *(_DWORD *)&stru_140E2ED08.SavedApcStateFill[16]
+                  + *(_DWORD *)&stru_140E2ED08.SavedApcStateFill[20];
+  LODWORD(qword_140EF8FA8) = MEMORY[0xFFFFF78000000240];
+  qword_140EF8FB0 = MiFlags;
   if ( *(_QWORD *)&HvlpVsmVtlCallVa )
-    qword_140EF8C58 = *(_QWORD *)&HvlpVsmVtlCallVa;
+    qword_140EF8FB8 = *(_QWORD *)&HvlpVsmVtlCallVa;
   v4 = 4LL;
   do
   {

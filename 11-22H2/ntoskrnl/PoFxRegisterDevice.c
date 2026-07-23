@@ -68,9 +68,9 @@ LABEL_6:
     }
     return (unsigned int)-1073741811;
   }
-  PopPrintEx(1LL, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", Object);
-  PopPrintEx(1LL, (__int64)" - Driver: \"%wZ\"", Object[1] + 56LL);
-  PopPrintEx(1LL, (__int64)"\n");
+  PopPrintEx(1u, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", Object);
+  PopPrintEx(1u, (__int64)" - Driver: \"%wZ\"", Object[1] + 56LL);
+  PopPrintEx(1u, (__int64)"\n");
   v23 = *((_QWORD *)a2 + 7);
   v17 = *((_QWORD *)a2 + 1);
   v18 = *((_QWORD *)a2 + 2);

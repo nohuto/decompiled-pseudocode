@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpStackTraceEnable @ 0x1801090C8
+ * XREFs of RtlpHpStackTraceEnable @ 0x180109088
  * Callers:
- *     RtlSetLowFragHeapGlobalFlags @ 0x1800F2D78 (RtlSetLowFragHeapGlobalFlags.c)
- *     RtlpHpStackTraceConfig @ 0x180109000 (RtlpHpStackTraceConfig.c)
+ *     RtlSetLowFragHeapGlobalFlags @ 0x1800F2D38 (RtlSetLowFragHeapGlobalFlags.c)
+ *     RtlpHpStackTraceConfig @ 0x180108FC0 (RtlpHpStackTraceConfig.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceEnable(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 RtlpHpStackTraceEnable()
 {
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpHpStackTrackingContext, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_18016D578 & 1) == 0 )
   {
     dword_18016D578 = 3;

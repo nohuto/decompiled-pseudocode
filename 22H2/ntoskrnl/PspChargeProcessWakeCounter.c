@@ -146,7 +146,7 @@ LABEL_34:
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v9 )
   {
-    ZwUpdateWnfStateData(Object + 2464, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)(Object + 2464), 0LL, 0, 0LL, 0LL, 0, 0);
     v25 = a3;
     if ( (xmmword_140CFC490 & 0x400) != 0 && v10 == 1 )
       EtwTraceWakeEvent(Object, a3);

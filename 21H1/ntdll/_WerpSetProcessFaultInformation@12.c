@@ -7,13 +7,13 @@
  *     _ZwSetInformationProcess@16 @ 0x4B2F2B40 (_ZwSetInformationProcess@16.c)
  */
 
-int __thiscall WerpSetProcessFaultInformation(void *this, int a2)
+NTSTATUS __thiscall WerpSetProcessFaultInformation(HANDLE ProcessHandle, int a2)
 {
-  _DWORD v3[2]; // [esp+0h] [ebp-8h] BYREF
+  _DWORD ProcessInformation[2]; // [esp+0h] [ebp-8h] BYREF
 
-  if ( !this )
+  if ( !ProcessHandle )
     return -1073741585;
-  v3[1] = 0;
-  v3[0] = 1;
-  return ZwSetInformationProcess((int)this, 63, (int)v3, 8);
+  ProcessInformation[1] = 0;
+  ProcessInformation[0] = 1;
+  return ZwSetInformationProcess(ProcessHandle, ProcessFaultInformation, ProcessInformation, 8u);
 }

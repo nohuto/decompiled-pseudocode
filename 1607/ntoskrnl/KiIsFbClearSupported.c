@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIsFbClearSupported @ 0x1401D8E6C
+ * XREFs of KiIsFbClearSupported @ 0x1401D8C98
  * Callers:
  *     KiDetectKvaLeakage @ 0x1403DDD24 (KiDetectKvaLeakage.c)
- *     KeQuerySpeculationControlInformation @ 0x140650070 (KeQuerySpeculationControlInformation.c)
+ *     KeQuerySpeculationControlInformation @ 0x140650154 (KeQuerySpeculationControlInformation.c)
  * Callees:
  *     <none>
  */

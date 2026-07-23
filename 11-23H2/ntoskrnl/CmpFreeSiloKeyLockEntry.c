@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeSiloKeyLockEntry @ 0x140A1BD7C
+ * XREFs of CmpFreeSiloKeyLockEntry @ 0x140A1C02C
  * Callers:
- *     CmLockKeyForWrite @ 0x1408472CC (CmLockKeyForWrite.c)
- *     CmpStopSiloKeyLockTracker @ 0x140A1BE98 (CmpStopSiloKeyLockTracker.c)
+ *     CmLockKeyForWrite @ 0x1408475CC (CmLockKeyForWrite.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140A1C148 (CmpStopSiloKeyLockTracker.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076AB10 (CmpDereferenceKeyControlBlock.c)
- *     CmpGlobalUnlockKeyForWrite @ 0x140A1BDC4 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     CmpDereferenceKeyControlBlock @ 0x14076AD00 (CmpDereferenceKeyControlBlock.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x140A1C074 (CmpGlobalUnlockKeyForWrite.c)
  */
 
 void __fastcall CmpFreeSiloKeyLockEntry(ULONG_PTR *a1)

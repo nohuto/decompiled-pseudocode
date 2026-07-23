@@ -3,10 +3,10 @@
  * Callers:
  *     IoOpenDeviceRegistryKey @ 0x140687CA0 (IoOpenDeviceRegistryKey.c)
  *     IoOpenDriverRegistryKey @ 0x14068A0E0 (IoOpenDriverRegistryKey.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140848CF0 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140848FF0 (IoOpenDeviceInterfaceRegistryKey.c)
  * Callees:
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
- *     ZwSetInformationKey @ 0x14041E240 (ZwSetInformationKey.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
+ *     ZwSetInformationKey @ 0x14041E5D0 (ZwSetInformationKey.c)
  */
 
 int __fastcall IopApplyMutableTagToRegistryKey(HANDLE KeyHandle)

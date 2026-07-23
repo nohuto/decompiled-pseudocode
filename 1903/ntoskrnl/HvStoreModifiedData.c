@@ -55,7 +55,7 @@ __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, ch
   unsigned int v39; // [rsp+68h] [rbp-1h] BYREF
   unsigned int v40[3]; // [rsp+6Ch] [rbp+3h] BYREF
   void *v41; // [rsp+78h] [rbp+Fh]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+80h] [rbp+17h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+80h] [rbp+17h] BYREF
   unsigned int v43; // [rsp+D0h] [rbp+67h]
   unsigned int Size; // [rsp+E8h] [rbp+7Fh]
 

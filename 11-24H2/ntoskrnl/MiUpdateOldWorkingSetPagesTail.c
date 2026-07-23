@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateOldWorkingSetPagesTail @ 0x1403AAA70
+ * XREFs of MiUpdateOldWorkingSetPagesTail @ 0x140296100
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140287894 (MiFreeWsleList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiQueryVpabAccessedState @ 0x1403AACE4 (MiQueryVpabAccessedState.c)
- *     MiProcessVpabAccessedInfo @ 0x1403AAE48 (MiProcessVpabAccessedInfo.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x140297494 (MiFreeWsleList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiQueryVpabAccessedState @ 0x1403994CC (MiQueryVpabAccessedState.c)
+ *     MiProcessVpabAccessedInfo @ 0x140480648 (MiProcessVpabAccessedInfo.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUpdateOldWorkingSetPagesTail(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall MiUpdateOldWorkingSetPagesTail(__int64 a1)
   _QWORD *v1; // rdi
   int v3; // ebp
   __int64 v4; // rcx
-  ULONG_PTR v6; // rdx
+  __int64 v6; // rdx
   _DWORD *v7; // rax
   __int64 v8; // rdx
   unsigned __int64 v9; // rbx
@@ -34,7 +34,7 @@ __int64 __fastcall MiUpdateOldWorkingSetPagesTail(__int64 a1)
       MiFlushTbList(v4);
     v6 = v1[4];
     if ( *(_DWORD *)(v6 + 28) )
-      MiFreeWsleList(*(_QWORD *)(a1 + 32), v6, 0);
+      MiFreeWsleList(*(_QWORD *)(a1 + 32), v6, 0LL);
     v7 = (_DWORD *)v1[5];
     if ( !v7
       || !*v7

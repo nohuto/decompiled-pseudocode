@@ -1,11 +1,11 @@
 /*
- * XREFs of PspCaptureAndValidateUnicodeString @ 0x140A65D1C
+ * XREFs of PspCaptureAndValidateUnicodeString @ 0x140A72CEC
  * Callers:
- *     PspCaptureUserProcessParameters @ 0x140A65460 (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x140A72430 (PspCaptureUserProcessParameters.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall PspCaptureAndValidateUnicodeString(unsigned int *a1, unsigned __int16 *a2)

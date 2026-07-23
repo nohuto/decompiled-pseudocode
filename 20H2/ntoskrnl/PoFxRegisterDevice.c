@@ -41,9 +41,9 @@ __int64 __fastcall PoFxRegisterDevice(PDEVICE_OBJECT DeviceObject, int *a2, __in
   v9 = 0LL;
   if ( *a2 == 1 )
   {
-    PopPrintEx(1LL, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", DeviceObject);
-    PopPrintEx(1LL, (__int64)" - Driver: \"%wZ\"", &DeviceObject->DriverObject->DriverName);
-    PopPrintEx(1LL, (__int64)"\n");
+    PopPrintEx(1u, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", DeviceObject);
+    PopPrintEx(1u, (__int64)" - Driver: \"%wZ\"", &DeviceObject->DriverObject->DriverName);
+    PopPrintEx(1u, (__int64)"\n");
     v24 = *((_QWORD *)a2 + 7);
     v18 = *((_QWORD *)a2 + 1);
     v19 = *((_QWORD *)a2 + 2);

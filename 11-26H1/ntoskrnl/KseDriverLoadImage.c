@@ -1,16 +1,16 @@
 /*
- * XREFs of KseDriverLoadImage @ 0x140A25978
+ * XREFs of KseDriverLoadImage @ 0x140A38A18
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     IopInitializeBuiltinDriver @ 0x140D0F138 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     KsepEvntLogShimsApplied @ 0x1405FE07C (KsepEvntLogShimsApplied.c)
- *     KsepApplyShimsToDriver @ 0x1407BD8BC (KsepApplyShimsToDriver.c)
- *     KsepGetShimsForDriver @ 0x140A255BC (KsepGetShimsForDriver.c)
- *     KsepStringDuplicateUnicode @ 0x140A25B24 (KsepStringDuplicateUnicode.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     KsepEvntLogShimsApplied @ 0x140600ACC (KsepEvntLogShimsApplied.c)
+ *     KsepApplyShimsToDriver @ 0x1407C091C (KsepApplyShimsToDriver.c)
+ *     KsepGetShimsForDriver @ 0x140A3865C (KsepGetShimsForDriver.c)
+ *     KsepStringDuplicateUnicode @ 0x140A38BC4 (KsepStringDuplicateUnicode.c)
  */
 
 __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)
   v10 = 0LL;
   v11 = 0LL;
   *a2 = 0;
-  if ( !a1 || dword_140E66B04 != 2 || (KseEngine & 1) != 0 )
+  if ( !a1 || dword_140E66D14 != 2 || (KseEngine & 1) != 0 )
     goto LABEL_3;
   v5 = KsepStringDuplicateUnicode(&v9, a1 + 88);
   if ( v5 >= 0 )
@@ -63,19 +63,19 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1, _DWORD *a2)
   }
   if ( !v5 )
   {
-    dword_140E66B08 |= 0x800u;
-    stru_140E66B30.InitialStack = *(void **)(a1 + 48);
+    dword_140E66D18 |= 0x800u;
+    stru_140E66D40.InitialStack = *(void **)(a1 + 48);
     goto LABEL_15;
   }
   if ( v5 >= 0 )
   {
 LABEL_15:
-    *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-    + (((unsigned __int8)_InterlockedExchangeAdd(
-                           (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                           1u)
-      + 1) & 0x3F)) = 458946LL;
-    if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+    *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                      * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                             &KsepHistoryMessagesIndex,
+                                                                             1u)
+                                                        + 1) & 0x3F)] = 458946LL;
+    if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
       KsepDebugPrint(4LL, (int)"KSE: Applied %d shim(s) to [%ws].\n", v4, *((_QWORD *)&v9 + 1));
     KsepLogInfo(4LL, (__int64)"KSE: Applied %d shim(s) to [%ws].\n", v4, *((_QWORD *)&v9 + 1));
     goto LABEL_4;
@@ -86,12 +86,12 @@ LABEL_3:
     v5 = 0;
     goto LABEL_4;
   }
-  *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-  + (((unsigned __int8)_InterlockedExchangeAdd(
-                         (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                         1u)
-    + 1) & 0x3F)) = 458937LL;
-  if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+  *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                    * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                           &KsepHistoryMessagesIndex,
+                                                                           1u)
+                                                      + 1) & 0x3F)] = 458937LL;
+  if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
     KsepDebugPrint(4LL, (int)"KSE: driver blocked from loading [%ws].\n", *((_QWORD *)&v9 + 1));
   KsepLogInfo(4LL, (__int64)"KSE: driver blocked from loading [%ws].\n", *((_QWORD *)&v9 + 1));
 LABEL_4:

@@ -3,17 +3,18 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x18002CD80 (RtlGetCurrentServiceSessionId.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18002CD70 (RtlGetCurrentServiceSessionId.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQueryInformationJobObject @ 0x1800A8AF0 (NtQueryInformationJobObject.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
-  __int64 v1; // [rsp+38h] [rbp-30h]
+  _BYTE JobObjectInformation[8]; // [rsp+30h] [rbp-38h] BYREF
+  ULONGLONG v2; // [rsp+38h] [rbp-30h]
 
-  if ( !(unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( !RtlGetCurrentServiceSessionId() )
     return MEMORY[0x7FFE0338];
-  NtQueryInformationJobObject();
-  return v1;
+  NtQueryInformationJobObject(0LL, JobObjectServerSiloUserSharedData, JobObjectInformation, 0x20u, 0LL);
+  return v2;
 }

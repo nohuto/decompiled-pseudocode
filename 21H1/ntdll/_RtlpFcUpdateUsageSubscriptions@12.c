@@ -14,27 +14,29 @@
 int __fastcall RtlpFcUpdateUsageSubscriptions(_DWORD *a1, unsigned int a2, unsigned __int8 a3)
 {
   int v4; // esi
-  unsigned int *Heap; // eax
-  int v6; // ebx
+  _DWORD *Heap; // eax
+  void *v6; // ebx
   _DWORD *v7; // ecx
   _DWORD *v8; // edx
   unsigned int v9; // eax
   _DWORD *v10; // esi
   _DWORD *v11; // edi
-  unsigned int *v13; // [esp+Ch] [ebp-14h]
-  int v15; // [esp+18h] [ebp-8h] BYREF
-  int v16; // [esp+1Ch] [ebp-4h] BYREF
+  SIZE_T v13; // [esp-4h] [ebp-24h]
+  _DWORD *v14; // [esp+Ch] [ebp-14h]
+  int v16; // [esp+18h] [ebp-8h] BYREF
+  SIZE_T Size; // [esp+1Ch] [ebp-4h] BYREF
 
-  v16 = 4;
-  v4 = RtlULongLongToUInt(&v15, 20 * a2, (20 * (unsigned __int64)a2) >> 32);
+  LODWORD(Size) = 4;
+  v4 = RtlULongLongToUInt(&v16, 20 * a2, (20 * (unsigned __int64)a2) >> 32);
   if ( v4 >= 0 )
   {
-    v4 = RtlULongPtrAdd(4u, v15, &v16);
+    v4 = RtlULongPtrAdd(4u, v16, (int *)&Size);
     if ( v4 >= 0 )
     {
-      Heap = (unsigned int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v16);
-      v6 = (int)Heap;
-      v13 = Heap;
+      LODWORD(v13) = Size;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v13);
+      v6 = Heap;
+      v14 = Heap;
       if ( Heap )
       {
         *Heap = a2;
@@ -42,7 +44,7 @@ int __fastcall RtlpFcUpdateUsageSubscriptions(_DWORD *a1, unsigned int a2, unsig
         {
           v7 = Heap + 1;
           v8 = a1;
-          v15 = a3;
+          v16 = a3;
           v9 = a2;
           do
           {
@@ -58,12 +60,12 @@ int __fastcall RtlpFcUpdateUsageSubscriptions(_DWORD *a1, unsigned int a2, unsig
             --v9;
           }
           while ( v9 );
-          v6 = (int)v13;
+          v6 = v14;
         }
-        v4 = ZwSetSystemInformation(212, v6, v16);
+        v4 = ZwSetSystemInformation(SystemFeatureUsageSubscriptionInformation, v6, Size);
         if ( v4 >= 0 )
           v4 = 0;
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v6);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
       }
       else
       {

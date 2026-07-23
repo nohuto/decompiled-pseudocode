@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUnregisterBootDriverCallback @ 0x140CC3DA0
+ * XREFs of IoUnregisterBootDriverCallback @ 0x140CC9E80
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x1404ECF50 (ExUnregisterCallback.c)
+ *     ExUnregisterCallback @ 0x1404E6530 (ExUnregisterCallback.c)
  */
 
 void __fastcall IoUnregisterBootDriverCallback(void *a1)

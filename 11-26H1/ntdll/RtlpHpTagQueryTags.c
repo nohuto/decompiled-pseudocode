@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpTagQueryTags @ 0x1800EB628
+ * XREFs of RtlpHpTagQueryTags @ 0x1800EA838
  * Callers:
- *     RtlQueryHeapInformation @ 0x180091560 (RtlQueryHeapInformation.c)
- *     RtlpExtendedHeapInformationWorkerThread @ 0x180144D20 (RtlpExtendedHeapInformationWorkerThread.c)
+ *     RtlQueryHeapInformation @ 0x180076310 (RtlQueryHeapInformation.c)
+ *     RtlpExtendedHeapInformationWorkerThread @ 0x180144BD0 (RtlpExtendedHeapInformationWorkerThread.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpTagContextFindMapping @ 0x1800D7190 (RtlpHpTagContextFindMapping.c)
- *     RtlpHpTagQueryHeapsRemote @ 0x1801157E0 (RtlpHpTagQueryHeapsRemote.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpTagContextFindMapping @ 0x1800D4150 (RtlpHpTagContextFindMapping.c)
+ *     RtlpHpTagQueryHeapsRemote @ 0x180114FC0 (RtlpHpTagQueryHeapsRemote.c)
  */
 
-__int64 __fastcall RtlpHpTagQueryTags(char *a1, unsigned __int64 a2, _QWORD *a3)
+__int64 __fastcall RtlpHpTagQueryTags(char *a1, SIZE_T a2, _QWORD *a3)
 {
   int v5; // ecx
   unsigned int v6; // edi
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpHpTagQueryTags(char *a1, unsigned __int64 a2, _QWORD *a3)
   if ( (v5 & 0xFFFFFFFD) != 0 )
     return (unsigned int)-1073741811;
   if ( *((_QWORD *)a1 + 1) != -1LL )
-    return (unsigned int)RtlpHpTagQueryHeapsRemote(a1);
+    return (unsigned int)RtlpHpTagQueryHeapsRemote(a1, a2);
   v7 = 2LL;
   if ( (v5 & 2) != 0 && a2 < 0x30 )
     return (unsigned int)-1073741811;
@@ -83,10 +83,10 @@ __int64 __fastcall RtlpHpTagQueryTags(char *a1, unsigned __int64 a2, _QWORD *a3)
       v16 = (a2 - 24) / 0x18;
       v17 = &v10[24 * v16];
       RtlAcquireSRWLockShared(&RtlpHpTagContext);
-      if ( (unsigned int)dword_1801CCBE8 <= v16 )
+      if ( (unsigned int)dword_1801CBC28 <= v16 )
       {
-        v18 = (_QWORD **)qword_1801CCBF0;
-        v19 = (_QWORD *)qword_1801CCBF0;
+        v18 = (_QWORD **)qword_1801CBC30;
+        v19 = (_QWORD *)qword_1801CBC30;
         if ( v10 < v17 )
         {
           while ( v19 )
@@ -107,7 +107,7 @@ LABEL_28:
             goto LABEL_30;
           }
           for ( ++v18;
-                (unsigned __int64)v18 < qword_1801CCBF0 + 8 * ((unsigned __int64)(unsigned int)dword_1801CCBEC >> 5);
+                (unsigned __int64)v18 < qword_1801CBC30 + 8 * ((unsigned __int64)(unsigned int)dword_1801CBC2C >> 5);
                 ++v18 )
           {
             v19 = *v18;
@@ -127,7 +127,7 @@ LABEL_30:
       else
       {
         v6 = -1073741789;
-        *a3 = 8 * (3LL * (unsigned int)dword_1801CCBE8 + 3);
+        *a3 = 8 * (3LL * (unsigned int)dword_1801CBC28 + 3);
         RtlReleaseSRWLockShared(&RtlpHpTagContext);
       }
     }

@@ -120,7 +120,7 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(
     v14 = *(_DWORD *)off_140E09638;
     if ( *(_DWORD *)off_140E09638 == 1 )
     {
-      WheaPersistBadPageToBcd(a2);
+      WheaPersistBadPageToBcd((UNICODE_STRING *)a2);
 LABEL_23:
       v8 = 1;
       WheaAddressTranslateAndAddToDefectList((__int64)&v26, v30);

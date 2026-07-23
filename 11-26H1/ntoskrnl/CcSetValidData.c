@@ -1,13 +1,13 @@
 /*
- * XREFs of CcSetValidData @ 0x14048FE94
+ * XREFs of CcSetValidData @ 0x140489944
  * Callers:
- *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
+ *     CcWriteBehindPostProcess @ 0x140386A84 (CcWriteBehindPostProcess.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140B5F268 (CcSetTelemetryPeriodicTimer.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140B623E8 (CcSetTelemetryPeriodicTimer.c)
  */
 
 __int64 __fastcall CcSetValidData(PFILE_OBJECT FileObject, __int64 *a2)
@@ -25,15 +25,15 @@ __int64 __fastcall CcSetValidData(PFILE_OBJECT FileObject, __int64 *a2)
   _QWORD v14[3]; // [rsp+48h] [rbp-18h] BYREF
   __int64 v15; // [rsp+78h] [rbp+18h] BYREF
 
-  ++*(_QWORD *)&EmpParseLock.WaitBlockFill11[16];
+  ++EmpParseLock.WaitBlock[0].Thread;
   v12 = 0;
   v9 = 0LL;
-  if ( !BYTE1(EmpParseLock.Timer.DueTime.LowPart)
-    && !HIDWORD(EmpParseLock.AffinityVersion)
-    && LOBYTE(EmpParseLock.WaitListEntry.Flink)
-    && !LODWORD(EmpParseLock.AffinityVersion) )
+  if ( !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink)
+    && !HIDWORD(EmpParseLock.Affinity)
+    && *((_BYTE *)&EmpParseLock.SwapListEntry + 8)
+    && !LODWORD(EmpParseLock.Affinity) )
   {
-    CcSetTelemetryPeriodicTimer((LARGE_INTEGER)EmpParseLock.RelativeTimerBias);
+    CcSetTelemetryPeriodicTimer(*(LARGE_INTEGER *)&EmpParseLock.Timer.Header.Lock);
   }
   v15 = *a2;
   v14[1] = v14;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PsSwapImpersonationToken @ 0x140706BD0
+ * XREFs of PsSwapImpersonationToken @ 0x14071DFB0
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x14071D2E0 (NtOpenThreadTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
  */
 
 __int64 __fastcall PsSwapImpersonationToken(__int64 a1, struct _DMA_ADAPTER *a2, struct _DMA_ADAPTER *a3)
@@ -18,7 +18,10 @@ __int64 __fastcall PsSwapImpersonationToken(__int64 a1, struct _DMA_ADAPTER *a2,
   struct _KTHREAD *CurrentThread; // r15
   __int64 v9; // rcx
   char v10; // al
-  struct _DMA_ADAPTER *v12; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct _DMA_ADAPTER *v15; // rcx
 
   v3 = 0;
   v7 = 0LL;
@@ -51,19 +54,19 @@ __int64 __fastcall PsSwapImpersonationToken(__int64 a1, struct _DMA_ADAPTER *a2,
     if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
       ExfTryToWakePushLock(a1 + 1280);
     KeAbPostRelease(a1 + 1280);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread, v11, v12, v13);
     if ( v3 < 0 )
     {
-      v12 = a3;
+      v15 = a3;
     }
     else
     {
       HalPutDmaAdapter(a2);
       if ( !v7 )
         return (unsigned int)v3;
-      v12 = v7;
+      v15 = v7;
     }
-    HalPutDmaAdapter(v12);
+    HalPutDmaAdapter(v15);
     return (unsigned int)v3;
   }
   return 3221225596LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLightWeightCommitSetSecDescUoW @ 0x140A286F0
+ * XREFs of CmpLightWeightCommitSetSecDescUoW @ 0x140A289A0
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C8AC (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140A1CB5C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x140297450 (CmpDereferenceSecurityNode.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpAssignSecurityToKcb @ 0x14076AA60 (CmpAssignSecurityToKcb.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A27F58 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     CmpDereferenceSecurityNode @ 0x1402976E0 (CmpDereferenceSecurityNode.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpAssignSecurityToKcb @ 0x14076AC50 (CmpAssignSecurityToKcb.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A28208 (CmpLightWeightCleanupSetSecDescUoW.c)
  */
 
 void __fastcall CmpLightWeightCommitSetSecDescUoW(__int64 a1, _QWORD *a2)

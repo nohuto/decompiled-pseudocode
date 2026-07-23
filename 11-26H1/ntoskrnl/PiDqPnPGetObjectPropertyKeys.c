@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x140AB4038
+ * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x140AB53D8
  * Callers:
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140991870 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140AB34B0 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1409522D0 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140AB4850 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
  * Callees:
- *     _PnpGetGenericStorePropertyKeys @ 0x140919888 (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpGetObjectPropertyKeys @ 0x140AB41AC (_PnpGetObjectPropertyKeys.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1409742E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x140AB554C (_PnpGetObjectPropertyKeys.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqPnPGetObjectPropertyKeys(int a1, int a2, int a3, __int64 a4, PVOID *a5, unsigned int *a6)
+__int64 __fastcall PiDqPnPGetObjectPropertyKeys(int a1, int a2, __int64 a3, __int64 a4, PVOID *a5, unsigned int *a6)
 {
   unsigned __int64 v9; // rbx
   __int64 Pool2; // rax

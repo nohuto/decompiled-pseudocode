@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxUpdateComponentAccountingEnhanced @ 0x1403A07E4
+ * XREFs of PopFxUpdateComponentAccountingEnhanced @ 0x1403A0934
  * Callers:
- *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403A0720 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A48B0 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepDeviceDState @ 0x1403A0370 (PopPepDeviceDState.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403A0870 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A4A00 (PopPepStartComponentIdleStateChangeActivity.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxUpdateAccountingActiveTime @ 0x1402613A4 (PopFxUpdateAccountingActiveTime.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140282874 (PopFxUpdateAccountingActiveTime.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

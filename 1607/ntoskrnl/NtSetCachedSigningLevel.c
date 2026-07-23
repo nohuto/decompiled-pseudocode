@@ -6,7 +6,12 @@
  *     NtSetCachedSigningLevel2 @ 0x1403E21EC (NtSetCachedSigningLevel2.c)
  */
 
-__int64 __fastcall NtSetCachedSigningLevel(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
-  return NtSetCachedSigningLevel2(a1, a2);
+  return NtSetCachedSigningLevel2(Flags, InputSigningLevel, SourceFiles, SourceFileCount, TargetFile, 0LL);
 }

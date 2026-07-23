@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpGetStateSepKeysRedirectionPathValue @ 0x140CEF8A0
+ * XREFs of CmpGetStateSepKeysRedirectionPathValue @ 0x140CF5C1C
  * Callers:
- *     CmpFindRedirectedDriverServiceStateNode @ 0x140CEF2DC (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140CF5658 (CmpFindRedirectedDriverServiceStateNode.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
- *     CmpFindStateSepKeysRedirectionMapNode @ 0x140CEF3B4 (CmpFindStateSepKeysRedirectionMapNode.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
+ *     CmpFindStateSepKeysRedirectionMapNode @ 0x140CF5730 (CmpFindStateSepKeysRedirectionMapNode.c)
  */
 
 char __fastcall CmpGetStateSepKeysRedirectionPathValue(

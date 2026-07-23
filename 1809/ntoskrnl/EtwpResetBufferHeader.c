@@ -2,13 +2,13 @@
  * XREFs of EtwpResetBufferHeader @ 0x140015524
  * Callers:
  *     EtwpDequeueFreeBuffer @ 0x140015278 (EtwpDequeueFreeBuffer.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x14065AE54 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpUpdateFileHeader @ 0x140699E1C (EtwpUpdateFileHeader.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x1407021A0 (EtwpInitializeProviderInfoBuffer.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x14075F47C (EtwpRealtimeUpdateReferenceTime.c)
- *     EtwpPreserveLogger @ 0x1408CA0CC (EtwpPreserveLogger.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x14065C014 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpUpdateFileHeader @ 0x14069AFDC (EtwpUpdateFileHeader.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x140703440 (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x14076066C (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpPreserveLogger @ 0x1408CB38C (EtwpPreserveLogger.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall EtwpResetBufferHeader(__int64 a1, __int16 a2)

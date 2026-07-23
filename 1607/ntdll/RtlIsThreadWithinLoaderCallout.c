@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsThreadWithinLoaderCallout @ 0x180086C20
+ * XREFs of RtlIsThreadWithinLoaderCallout @ 0x180086C10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool RtlIsThreadWithinLoaderCallout()
+BOOLEAN RtlIsThreadWithinLoaderCallout(void)
 {
-  return (void *)qword_18014C578 == NtCurrentTeb()->ClientId.UniqueThread;
+  return LdrpLoaderLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread;
 }

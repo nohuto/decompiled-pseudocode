@@ -1,11 +1,11 @@
 /*
- * XREFs of sprintf @ 0x14014E354
+ * XREFs of sprintf @ 0x14014E914
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     _flsbuf @ 0x14014FB84 (_flsbuf.c)
- *     _output_l @ 0x140150590 (_output_l.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     _output_l @ 0x140150B48 (_output_l.c)
+ *     _flsbuf @ 0x1401569B8 (_flsbuf.c)
  */
 
 int sprintf(char *Dest, const char *Format, ...)

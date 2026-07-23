@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpCompareInterruptInformation @ 0x14078F10C
+ * XREFs of PnpCompareInterruptInformation @ 0x14078F2FC
  * Callers:
- *     PnpGetDevicePropertyData @ 0x140791078 (PnpGetDevicePropertyData.c)
+ *     PnpGetDevicePropertyData @ 0x140791268 (PnpGetDevicePropertyData.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  */
 
 char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
@@ -60,7 +60,7 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
           v12 = v18;
           v18[0] = v13;
           v17 = v4;
-          v8 = byte_14002C8C5;
+          v8 = byte_14002C9AD;
 LABEL_20:
           v23 = v12;
           v26[1] = v27;
@@ -99,7 +99,7 @@ LABEL_21:
         v12 = &v17;
         v17 = v9;
         v18[0] = v4;
-        v8 = (char *)&dword_14002C91C;
+        v8 = (char *)&dword_14002CA04;
         goto LABEL_20;
       }
     }
@@ -115,7 +115,7 @@ LABEL_21:
       while ( aNotFound_0[v7] );
       v20 = "Not Found";
       v21 = v7 + 1;
-      v8 = byte_14002C973;
+      v8 = byte_14002CA5B;
       v24 = 2LL;
       v23 = (int *)v26;
       v25 = *(int **)(v6 + 48);

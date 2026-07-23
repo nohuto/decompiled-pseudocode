@@ -10,9 +10,9 @@
  *     PopAdaptiveInitializeBootContext @ 0x140C223B8 (PopAdaptiveInitializeBootContext.c)
  */
 
-__int64 PopInitializeAdpm()
+NTSTATUS PopInitializeAdpm()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v1; // [rsp+40h] [rbp+8h] BYREF
 
   ExInitializeResourceLite2(&PopAdpmLock, -1);

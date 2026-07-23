@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpConsumeAddonPolicySetCacheProvider @ 0x1408CEFD0
+ * XREFs of ExpConsumeAddonPolicySetCacheProvider @ 0x1408D0290
  * Callers:
  *     <none>
  * Callees:
@@ -14,5 +14,5 @@ __int64 __fastcall ExpConsumeAddonPolicySetCacheProvider(
         _BYTE *a5)
 {
   *a5 = 1;
-  return sub_1400076D0((__int64)&qword_140909158, a1, a2, a3, a4);
+  return sub_1400076D0((__int64)&qword_14090A418, a1, a2, a3, a4);
 }

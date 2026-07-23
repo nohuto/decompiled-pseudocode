@@ -1,21 +1,21 @@
 /*
- * XREFs of _RegRtlCreateKeyTransacted @ 0x140926504
+ * XREFs of _RegRtlCreateKeyTransacted @ 0x140928644
  * Callers:
- *     _SysCtxOpenControlSet @ 0x1408201E0 (_SysCtxOpenControlSet.c)
- *     _RegRtlCopyTreeInternal @ 0x140820BA0 (_RegRtlCopyTreeInternal.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B16A8 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _RegRtlCreateTreeTransacted @ 0x1409261A4 (_RegRtlCreateTreeTransacted.c)
- *     _PnpSetPropertyWorker @ 0x14099197C (_PnpSetPropertyWorker.c)
- *     _SysCtxRegCreateKey @ 0x140A51E2C (_SysCtxRegCreateKey.c)
- *     _CmAddDeviceToContainerWorker @ 0x140A547D0 (_CmAddDeviceToContainerWorker.c)
- *     _CmCreateOrdinalInstanceKey @ 0x140A60638 (_CmCreateOrdinalInstanceKey.c)
+ *     _SysCtxOpenControlSet @ 0x140820920 (_SysCtxOpenControlSet.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408212E0 (_RegRtlCopyTreeInternal.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408AEF9C (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _RegRtlCreateTreeTransacted @ 0x1409282E4 (_RegRtlCreateTreeTransacted.c)
+ *     _PnpSetPropertyWorker @ 0x14097C9BC (_PnpSetPropertyWorker.c)
+ *     _SysCtxRegCreateKey @ 0x140A496BC (_SysCtxRegCreateKey.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140A4C720 (_CmAddDeviceToContainerWorker.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x140A58B88 (_CmCreateOrdinalInstanceKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x1408210F4 (_RegRtlOpenPredefinedKey.c)
- *     NtCreateKeyTransacted_Stub @ 0x1408213D4 (NtCreateKeyTransacted_Stub.c)
- *     _RegRtlIsPredefinedKey @ 0x140926654 (_RegRtlIsPredefinedKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140821834 (_RegRtlOpenPredefinedKey.c)
+ *     NtCreateKeyTransacted_Stub @ 0x140821B14 (NtCreateKeyTransacted_Stub.c)
+ *     _RegRtlIsPredefinedKey @ 0x140928794 (_RegRtlIsPredefinedKey.c)
  */
 
 __int64 __fastcall RegRtlCreateKeyTransacted(
@@ -60,7 +60,7 @@ __int64 __fastcall RegRtlCreateKeyTransacted(
       ObjectAttributes.SecurityDescriptor = a5;
       if ( a9 )
       {
-        inited = NtCreateKeyTransacted_Stub((__int64)KeyHandle, a4, (__int64)&ObjectAttributes);
+        inited = NtCreateKeyTransacted_Stub((__int64)KeyHandle, a4);
         if ( inited == -1073741702 )
           inited = -1072103420;
       }

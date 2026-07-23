@@ -1,28 +1,28 @@
 /*
- * XREFs of MmGetSessionById @ 0x1400765C0
+ * XREFs of MmGetSessionById @ 0x140076640
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x140018E50 (MiTrimSharedPageFromViews.c)
- *     MmGetSessionObjectById @ 0x1401EC9D8 (MmGetSessionObjectById.c)
- *     PopWatchdogWorker @ 0x14020B81C (PopWatchdogWorker.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x140462DF0 (ExpWnfCaptureScopeInstanceId.c)
- *     ExCallSessionCallBack @ 0x140463D04 (ExCallSessionCallBack.c)
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpSendDataBlock @ 0x140490A2C (EtwpSendDataBlock.c)
- *     PspAttachSession @ 0x1404EA760 (PspAttachSession.c)
- *     PsGetSiloBySessionId @ 0x1405209F0 (PsGetSiloBySessionId.c)
- *     PiUEventBroadcastEventWorker @ 0x140528030 (PiUEventBroadcastEventWorker.c)
- *     PnpNotifyDriverCallback @ 0x14052C110 (PnpNotifyDriverCallback.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14062E460 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x14062E4E4 (PiUEventBroadcastPortsChangedEvent.c)
- *     PopLazySensorActiveInput @ 0x140674B58 (PopLazySensorActiveInput.c)
- *     TtmpSessionWorker @ 0x14067904C (TtmpSessionWorker.c)
+ *     MiTrimSharedPageFromViews @ 0x1400189D0 (MiTrimSharedPageFromViews.c)
+ *     MmGetSessionObjectById @ 0x1401EC804 (MmGetSessionObjectById.c)
+ *     PopWatchdogWorker @ 0x14020B648 (PopWatchdogWorker.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x140461CC0 (ExpWnfCaptureScopeInstanceId.c)
+ *     ExCallSessionCallBack @ 0x140462BD4 (ExCallSessionCallBack.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1404914BC (EtwpSendDataBlock.c)
+ *     PspAttachSession @ 0x1404CC854 (PspAttachSession.c)
+ *     PsGetSiloBySessionId @ 0x140503A58 (PsGetSiloBySessionId.c)
+ *     PiUEventBroadcastEventWorker @ 0x140528570 (PiUEventBroadcastEventWorker.c)
+ *     PnpNotifyDriverCallback @ 0x14052AFF8 (PnpNotifyDriverCallback.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14062E514 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x14062E598 (PiUEventBroadcastPortsChangedEvent.c)
+ *     PopLazySensorActiveInput @ 0x140674C3C (PopLazySensorActiveInput.c)
+ *     TtmpSessionWorker @ 0x140679130 (TtmpSessionWorker.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
- *     PspGetJobSilo @ 0x140076728 (PspGetJobSilo.c)
- *     MiSelectSessionAttachProcess @ 0x140076748 (MiSelectSessionAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
+ *     PspGetJobSilo @ 0x1400767A8 (PspGetJobSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x1400767C8 (MiSelectSessionAttachProcess.c)
  */
 
 __int64 __fastcall MmGetSessionById(unsigned int a1, __int64 a2, __int64 a3)
@@ -43,8 +43,8 @@ __int64 __fastcall MmGetSessionById(unsigned int a1, __int64 a2, __int64 a3)
   else
     JobSilo = *(_QWORD *)&CurrentThread[1].WaitBlockFill11[160];
   EffectiveServerSilo = PsGetEffectiveServerSilo(JobSilo);
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
-  v8 = (_QWORD *)qword_140326920;
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
+  v8 = (_QWORD *)qword_140326960;
   while ( v8 )
   {
     v9 = *((_DWORD *)v8 - 38);

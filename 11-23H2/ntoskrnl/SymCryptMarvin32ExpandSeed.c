@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMarvin32ExpandSeed @ 0x1403F6234
+ * XREFs of SymCryptMarvin32ExpandSeed @ 0x1403F6414
  * Callers:
- *     HvInitializeHashLibrary @ 0x14080C5F0 (HvInitializeHashLibrary.c)
+ *     HvInitializeHashLibrary @ 0x14080C8C0 (HvInitializeHashLibrary.c)
  * Callees:
  *     <none>
  */

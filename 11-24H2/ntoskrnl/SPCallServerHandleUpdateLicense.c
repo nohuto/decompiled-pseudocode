@@ -1,17 +1,17 @@
 /*
- * XREFs of SPCallServerHandleUpdateLicense @ 0x140A8D010
+ * XREFs of SPCallServerHandleUpdateLicense @ 0x140A89540
  * Callers:
- *     sub_140973C40 @ 0x140973C40 (sub_140973C40.c)
+ *     sub_14095C450 @ 0x14095C450 (sub_14095C450.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SPCallServerHandleUpdateLicense(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int *v7; // rcx
   unsigned int *v8; // rax
-  __int64 i; // r9
+  unsigned int i; // r9d
   __int64 v10; // r10
   unsigned int *v11; // rdx
   unsigned int v12; // edx
@@ -45,11 +45,11 @@ __int64 __fastcall SPCallServerHandleUpdateLicense(__int64 a1, __int64 a2, __int
   if ( !v7 || *(_DWORD *)a1 <= 3u )
     return (unsigned int)-1073741811;
   v8 = v7;
-  for ( i = 0LL; ; i = (unsigned int)(i + 1) )
+  for ( i = 0; ; ++i )
   {
     v10 = *v8;
     v11 = v8 + 1;
-    if ( (unsigned int)i >= 3 )
+    if ( i >= 3 )
       break;
     if ( v11 < v8 )
       return (unsigned int)-1073741675;
@@ -84,7 +84,7 @@ __int64 __fastcall SPCallServerHandleUpdateLicense(__int64 a1, __int64 a2, __int
   v19 = 0LL;
   if ( (_DWORD)v17 )
     v19 = v18;
-  v20 = qword_140FD7338 ? guard_dispatch_icall_no_overrides(v19, (unsigned int)v17, qword_140FD7338, i) : -1073741637;
+  v20 = qword_140FD8348 ? guard_dispatch_icall_no_overrides(v19, (unsigned int)v17) : -1073741637;
   v21 = *(_DWORD *)(a2 + 32);
   if ( *(_DWORD *)(a2 + 16) >= 0xFFFFFFD0 )
     return (unsigned int)-1073741675;
@@ -96,7 +96,7 @@ __int64 __fastcall SPCallServerHandleUpdateLicense(__int64 a1, __int64 a2, __int
   if ( v23 >= v22 )
   {
     *(_DWORD *)(a4 + 4) = 20;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x14uLL, 0x20534C53u);
     if ( !Pool2 )
       return (unsigned int)-1073741801;
     *(_QWORD *)(a4 + 8) = Pool2;

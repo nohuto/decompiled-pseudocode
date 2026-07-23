@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapContiguousMemoryLarge @ 0x1402A29AC
+ * XREFs of MiMapContiguousMemoryLarge @ 0x1402A1EFC
  * Callers:
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMapWithLargePages @ 0x1402A2694 (MiMapWithLargePages.c)
- *     MiAssignInitialPageAttribute @ 0x1402A2C40 (MiAssignInitialPageAttribute.c)
- *     MiGetPageTablesForLargeMap @ 0x1402A30D4 (MiGetPageTablesForLargeMap.c)
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMapWithLargePages @ 0x1402A1BE4 (MiMapWithLargePages.c)
+ *     MiAssignInitialPageAttribute @ 0x1402A2190 (MiAssignInitialPageAttribute.c)
+ *     MiGetPageTablesForLargeMap @ 0x1402A2624 (MiGetPageTablesForLargeMap.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall MiMapContiguousMemoryLarge(
   *a5 = 0;
   v23 = MiProtectionToCacheAttribute(a3);
   v9 = v23;
-  if ( BugCheckParameter2 > qword_140E2D7A0 )
+  if ( BugCheckParameter2 > qword_140E2D920 )
   {
     LODWORD(v11) = BugCheckParameter4;
     v10 = (_QWORD *)(48 * BugCheckParameter2 - 0x21FFFFFFFFD8LL);
@@ -67,7 +67,7 @@ LABEL_4:
   v14 = v12 + 32;
   for ( i = BugCheckParameter4; i < a2; ++i )
   {
-    if ( i + BugCheckParameter2 <= qword_140E2D7A0 && ((*v10 >> 54) & 1) != 0 )
+    if ( i + BugCheckParameter2 <= qword_140E2D920 && ((*v10 >> 54) & 1) != 0 )
     {
       if ( (v7 & 2) != 0 && ((*(_BYTE *)(v14 + 2) & 7) != 5 || (*(_QWORD *)(v14 + 8) & 0x20000000000000LL) == 0) )
         KeBugCheckEx(0x1Au, 0x1246uLL, i + BugCheckParameter2, 0LL, BugCheckParameter4);
@@ -121,7 +121,7 @@ LABEL_26:
   v21 = PageTablesForLargeMap;
   if ( PageTablesForLargeMap )
   {
-    MiMapWithLargePages((__int64)&unk_140E371C0, PageTablesForLargeMap, BugCheckParameter2, a2, 1u, v19, v13);
+    MiMapWithLargePages((__int64)&unk_140E37340, PageTablesForLargeMap, BugCheckParameter2, a2, 1u, v19, v13);
     if ( v17 )
       *a5 |= 1u;
   }

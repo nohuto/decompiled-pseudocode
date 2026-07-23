@@ -1,9 +1,8 @@
 /*
- * XREFs of EtwpReleaseTraceBuffer @ 0x14032ACC0
+ * XREFs of EtwpReleaseTraceBuffer @ 0x1403FAE70
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpFailLogging @ 0x14032A9F0 (EtwpFailLogging.c)
- *     EtwTraceRaw @ 0x14064F1FC (EtwTraceRaw.c)
+ *     EtwpFailLogging @ 0x1403FABA0 (EtwpFailLogging.c)
+ *     EtwTraceRaw @ 0x14064D8FC (EtwTraceRaw.c)
  * Callees:
  *     <none>
  */

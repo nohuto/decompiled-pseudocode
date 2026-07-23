@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventInitialize @ 0x140C332E8
+ * XREFs of PpmEventInitialize @ 0x140C35428
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     PpmEventInitializeEx @ 0x140C3411C (PpmEventInitializeEx.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     PpmEventInitializeEx @ 0x140C3625C (PpmEventInitializeEx.c)
  */
 
 NTSTATUS PpmEventInitialize()

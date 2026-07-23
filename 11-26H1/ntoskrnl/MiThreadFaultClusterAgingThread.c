@@ -1,11 +1,11 @@
 /*
- * XREFs of MiThreadFaultClusterAgingThread @ 0x1402A96E0
+ * XREFs of MiThreadFaultClusterAgingThread @ 0x1402A8AF0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
  */
 
 NTSTATUS __fastcall MiThreadFaultClusterAgingThread(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpFlushTLB @ 0x140522658
+ * XREFs of HalpFlushTLB @ 0x140524CC4
  * Callers:
- *     HalpAcpiIsCachedTableCompromised @ 0x140342D10 (HalpAcpiIsCachedTableCompromised.c)
- *     HalpAcpiGetRsdt @ 0x140342E64 (HalpAcpiGetRsdt.c)
- *     HalpAcpiCheckAndMapTable @ 0x140343370 (HalpAcpiCheckAndMapTable.c)
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalpMmZeroPageWithTemporaryMapping @ 0x14057E010 (HalpMmZeroPageWithTemporaryMapping.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x140344D90 (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpAcpiGetRsdt @ 0x140344EE4 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiCheckAndMapTable @ 0x1403453F0 (HalpAcpiCheckAndMapTable.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalpMmZeroPageWithTemporaryMapping @ 0x140580530 (HalpMmZeroPageWithTemporaryMapping.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
  */
 
 char HalpFlushTLB()

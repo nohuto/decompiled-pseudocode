@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x1409C1F50
+ * XREFs of MmMapViewOfSection @ 0x140992F30
  * Callers:
- *     DifMmMapViewOfSectionWrapper @ 0x140667A60 (DifMmMapViewOfSectionWrapper.c)
- *     NtCreateIoRing @ 0x140798AC0 (NtCreateIoRing.c)
- *     NtMapCMFModule @ 0x1408446A0 (NtMapCMFModule.c)
- *     MmMapApiSetView @ 0x140863ED4 (MmMapApiSetView.c)
- *     PspSchedulerSharedDataRegionCreate @ 0x1409B7374 (PspSchedulerSharedDataRegionCreate.c)
- *     NtGetNlsSectionPtr @ 0x140A97650 (NtGetNlsSectionPtr.c)
- *     PspMapSiloSharedDataView @ 0x140A9B2D8 (PspMapSiloSharedDataView.c)
- *     MmCreatePeb @ 0x140ACA4F0 (MmCreatePeb.c)
- *     NtInitializeNlsFiles @ 0x140AD4080 (NtInitializeNlsFiles.c)
- *     EtwpCoverageEnsureUserModeView @ 0x140B0E0B0 (EtwpCoverageEnsureUserModeView.c)
+ *     DifMmMapViewOfSectionWrapper @ 0x14066B640 (DifMmMapViewOfSectionWrapper.c)
+ *     NtCreateIoRing @ 0x14079B5F0 (NtCreateIoRing.c)
+ *     NtMapCMFModule @ 0x140849B30 (NtMapCMFModule.c)
+ *     MmMapApiSetView @ 0x14086A2B4 (MmMapApiSetView.c)
+ *     PspSchedulerSharedDataRegionCreate @ 0x140988354 (PspSchedulerSharedDataRegionCreate.c)
+ *     PspMapSiloSharedDataView @ 0x1409E6308 (PspMapSiloSharedDataView.c)
+ *     NtGetNlsSectionPtr @ 0x140A9B7D0 (NtGetNlsSectionPtr.c)
+ *     MmCreatePeb @ 0x140ACC600 (MmCreatePeb.c)
+ *     NtInitializeNlsFiles @ 0x140AD14E0 (NtInitializeNlsFiles.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140B0F800 (EtwpCoverageEnsureUserModeView.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiMapViewOfSection @ 0x1409C31E8 (MiMapViewOfSection.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiMapViewOfSection @ 0x1409941C8 (MiMapViewOfSection.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(
@@ -109,9 +109,9 @@ __int64 __fastcall MmMapViewOfSection(
   if ( (int)result < 0 )
   {
     if ( *a3 )
-      ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[52];
+      ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[52];
     else
-      ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[48];
+      ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[48];
   }
   else
   {

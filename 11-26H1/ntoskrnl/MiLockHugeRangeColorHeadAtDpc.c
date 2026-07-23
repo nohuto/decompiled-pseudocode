@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockHugeRangeColorHeadAtDpc @ 0x14048E350
+ * XREFs of MiLockHugeRangeColorHeadAtDpc @ 0x140487E90
  * Callers:
- *     MiHugeRangeFreeToZero @ 0x14048DD70 (MiHugeRangeFreeToZero.c)
- *     MiStopHugePageAccessor @ 0x14048E1B4 (MiStopHugePageAccessor.c)
- *     MiCanBeginHugeIoPageAccessor @ 0x14052EEFC (MiCanBeginHugeIoPageAccessor.c)
- *     MiMarkHugePfnBad @ 0x1406EC7AC (MiMarkHugePfnBad.c)
- *     MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406ED210 (MiMoveHibernateHugeRangesFreeToZeroCallback.c)
+ *     MiHugeRangeFreeToZero @ 0x1404878B0 (MiHugeRangeFreeToZero.c)
+ *     MiStopHugePageAccessor @ 0x140487CF4 (MiStopHugePageAccessor.c)
+ *     MiCanBeginHugeIoPageAccessor @ 0x14053141C (MiCanBeginHugeIoPageAccessor.c)
+ *     MiMarkHugePfnBad @ 0x1406F144C (MiMarkHugePfnBad.c)
+ *     MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406F1EB0 (MiMoveHibernateHugeRangesFreeToZeroCallback.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiComputeHugeRangeColorHeadAtDpc @ 0x140532364 (MiComputeHugeRangeColorHeadAtDpc.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiComputeHugeRangeColorHeadAtDpc @ 0x140534804 (MiComputeHugeRangeColorHeadAtDpc.c)
  */
 
 volatile signed __int32 *MiLockHugeRangeColorHeadAtDpc()

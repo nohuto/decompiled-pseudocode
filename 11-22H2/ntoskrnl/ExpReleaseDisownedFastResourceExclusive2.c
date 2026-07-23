@@ -50,7 +50,7 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive2(__int64 a1, __int64
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v9 = 4;
@@ -69,10 +69,10 @@ LONG_PTR __fastcall ExpReleaseDisownedFastResourceExclusive2(__int64 a1, __int64
     ExpPrepareToWakeFastResourceExclusive(a1, (__int64 *)&v22, &v18, &v21, &v20);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     ExpCommitWakeFastResource(&v22, v11, v12, v20);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;

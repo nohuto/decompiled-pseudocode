@@ -11,22 +11,29 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlDispatchAPC(int (__thiscall *a1)(_DWORD, int), int a2, int a3)
+void __stdcall RtlDispatchAPC(void (__thiscall *a1)(_DWORD, int), int a2, PACTIVATION_CONTEXT ActivationContext)
 {
-  _DWORD v4[9]; // [esp+10h] [ebp-3Ch] BYREF
+  _DWORD v3[9]; // [esp+10h] [ebp-3Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+34h] [ebp-18h]
 
-  v4[0] = 36;
-  v4[1] = 1;
-  memset(&v4[2], 0, 0x1Cu);
+  v3[0] = 36;
+  v3[1] = 1;
+  memset(&v3[2], 0, 0x1Cu);
   if ( LdrDelegatedRtlDispatchAPC )
-    return LdrDelegatedRtlDispatchAPC(LdrDelegatedRtlDispatchAPC, a1, a2, a3);
-  if ( a3 == -1 )
-    return a1(a1, a2);
-  RtlActivateActivationContextUnsafeFast(v4, a3);
-  ms_exc.registration.TryLevel = 0;
-  a1(a1, a2);
-  ms_exc.registration.TryLevel = -2;
-  RtlDeactivateActivationContextUnsafeFast(v4, 1261490901);
-  return RtlReleaseActivationContext(a3);
+  {
+    LdrDelegatedRtlDispatchAPC(LdrDelegatedRtlDispatchAPC, a1, a2, ActivationContext);
+  }
+  else if ( ActivationContext == (PACTIVATION_CONTEXT)-1 )
+  {
+    a1(a1, a2);
+  }
+  else
+  {
+    RtlActivateActivationContextUnsafeFast(v3, ActivationContext);
+    ms_exc.registration.TryLevel = 0;
+    a1(a1, a2);
+    ms_exc.registration.TryLevel = -2;
+    RtlDeactivateActivationContextUnsafeFast(v3, 1261490901);
+    RtlReleaseActivationContext(ActivationContext);
+  }
 }

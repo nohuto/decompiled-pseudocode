@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCreateTimebrokerServiceSid @ 0x140C2D120
+ * XREFs of PopCreateTimebrokerServiceSid @ 0x140C2F240
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x1409E3B60 (RtlInitializeSid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x1409DE5C0 (RtlInitializeSid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PopCreateTimebrokerServiceSid()
@@ -15,7 +15,7 @@ __int64 PopCreateTimebrokerServiceSid()
   _DWORD *Pool2; // rax
   _DWORD *v2; // rbx
   NTSTATUS v3; // edi
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
@@ -37,7 +37,7 @@ __int64 PopCreateTimebrokerServiceSid()
       v2[5] = 1717734767;
       v2[6] = -1973635081;
       v2[7] = -539001157;
-      PopTimeBrokerServiceSid = (__int64)v2;
+      PopTimeBrokerServiceSid = v2;
     }
   }
   else

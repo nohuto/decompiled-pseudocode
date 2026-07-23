@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpUpdatePrivateEnableInfo @ 0x18008689C
+ * XREFs of EtwpUpdatePrivateEnableInfo @ 0x18008688C
  * Callers:
- *     EtwpUpdateEnableInfoAndCallback @ 0x18002A95C (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18002A94C (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
  *     <none>
  */

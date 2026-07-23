@@ -1,21 +1,21 @@
 /*
- * XREFs of SmKmStoreDelete @ 0x1407B72E8
+ * XREFs of SmKmStoreDelete @ 0x1407B75C8
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x140343280 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmProcessCreateRequest @ 0x1407B767C (SmProcessCreateRequest.c)
- *     SmProcessDeleteRequest @ 0x1409D6D2C (SmProcessDeleteRequest.c)
- *     SmKmCleanup @ 0x1409D86E8 (SmKmCleanup.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x140343510 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessCreateRequest @ 0x1407B795C (SmProcessCreateRequest.c)
+ *     SmProcessDeleteRequest @ 0x1409D6F2C (SmProcessDeleteRequest.c)
+ *     SmKmCleanup @ 0x1409D88E8 (SmKmCleanup.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     SmEtwEnabled @ 0x1403432E4 (SmEtwEnabled.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140345194 (SmKmStoreRefFromStoreIndex.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SmKmEtwLogStoreChange @ 0x1409D8774 (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x1409D8884 (SmKmEtwLogStoreStats.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     SmEtwEnabled @ 0x140343574 (SmEtwEnabled.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140345424 (SmKmStoreRefFromStoreIndex.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SmKmEtwLogStoreChange @ 0x1409D8974 (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x1409D8A84 (SmKmEtwLogStoreStats.c)
  */
 
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)

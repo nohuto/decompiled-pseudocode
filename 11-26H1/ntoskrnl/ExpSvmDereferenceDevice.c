@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpSvmDereferenceDevice @ 0x1406D20D0
+ * XREFs of ExpSvmDereferenceDevice @ 0x1406D6100
  * Callers:
- *     ExFreeSvmAsid @ 0x1404CE2AC (ExFreeSvmAsid.c)
- *     ExpShareAddressSpaceWithDevice @ 0x1406D1A1C (ExpShareAddressSpaceWithDevice.c)
+ *     ExFreeSvmAsid @ 0x1404C7CDC (ExFreeSvmAsid.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406D5A4C (ExpShareAddressSpaceWithDevice.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpSvmDereferenceDevice(_DWORD *P, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -37,14 +37,14 @@ __int64 __fastcall ExpSvmDereferenceDevice(_DWORD *P, __int64 a2, __int64 a3, st
   CurrentThread = KeGetCurrentThread();
   v7 = 0;
   --CurrentThread->SpecialApcDisable;
-  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1], 0LL, 0LL, a4);
-  v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[16], 0LL);
+  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.152, 0LL, 0LL, a4);
+  v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.152, 0LL);
   v11 = v8;
   if ( v10 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1],
+      (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
       v8,
-      (__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+      (__int64)&ExSaPageGroupDescriptorArrayLock.152);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -90,12 +90,12 @@ __int64 __fastcall ExpSvmDereferenceDevice(_DWORD *P, __int64 a2, __int64 a3, st
     }
   }
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Flink,
+          (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-  KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152);
+  KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.152);
   v20 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v19, v18);
   return v7;
 }

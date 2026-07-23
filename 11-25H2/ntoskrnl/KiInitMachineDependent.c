@@ -19,7 +19,7 @@ char KiInitMachineDependent()
   unsigned int i; // edi
   __int64 v4; // rcx
   char result; // al
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   PreviousAffinity = 0LL;
   if ( (KiCacheErrataMonitor & 3) != 0 )

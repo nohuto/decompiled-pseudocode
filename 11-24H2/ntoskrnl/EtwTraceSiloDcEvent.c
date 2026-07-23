@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceSiloDcEvent @ 0x140480320
+ * XREFs of EtwTraceSiloDcEvent @ 0x14047AF60
  * Callers:
- *     PsPerfLogSessionRundown @ 0x14077B980 (PsPerfLogSessionRundown.c)
- *     CmpLogHiveRundownEvent @ 0x1407D6488 (CmpLogHiveRundownEvent.c)
- *     MmIdentifyPhysicalMemory @ 0x1407EBB48 (MmIdentifyPhysicalMemory.c)
- *     MmLogQueryCombineStats @ 0x140932778 (MmLogQueryCombineStats.c)
- *     CmEtwRunDown @ 0x140A6EEE8 (CmEtwRunDown.c)
+ *     PsPerfLogSessionRundown @ 0x14077B830 (PsPerfLogSessionRundown.c)
+ *     CmpLogHiveRundownEvent @ 0x1407D69FC (CmpLogHiveRundownEvent.c)
+ *     MmIdentifyPhysicalMemory @ 0x1407EC118 (MmIdentifyPhysicalMemory.c)
+ *     MmLogQueryCombineStats @ 0x1408F78D4 (MmLogQueryCombineStats.c)
+ *     CmEtwRunDown @ 0x140A6836C (CmEtwRunDown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
  */
 
 int __fastcall EtwTraceSiloDcEvent(

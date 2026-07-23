@@ -1,7 +1,7 @@
 /*
  * XREFs of WerLiveKernelCloseHandle_0 @ 0x140001330
  * Callers:
- *     DbgkpWerCleanupContext @ 0x14061C01C (DbgkpWerCleanupContext.c)
+ *     DbgkpWerCleanupContext @ 0x14061C0D0 (DbgkpWerCleanupContext.c)
  * Callees:
  *     <none>
  */

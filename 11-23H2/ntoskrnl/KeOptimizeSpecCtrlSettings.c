@@ -1,12 +1,12 @@
 /*
- * XREFs of KeOptimizeSpecCtrlSettings @ 0x14039ABB4
+ * XREFs of KeOptimizeSpecCtrlSettings @ 0x14039AD94
  * Callers:
- *     KiDynamicProcessorInitialization @ 0x14056BC68 (KiDynamicProcessorInitialization.c)
+ *     KiDynamicProcessorInitialization @ 0x14056C328 (KiDynamicProcessorInitialization.c)
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KeOptimizeSpecCtrlSettings()
@@ -25,7 +25,7 @@ __int64 KeOptimizeSpecCtrlSettings()
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -37,10 +37,10 @@ __int64 KeOptimizeSpecCtrlSettings()
   Context_4 = KeQueryActiveProcessorCountEx(0xFFFFu);
   Context = Context_4;
   KeIpiGenericCall((PKIPI_BROADCAST_WORKER)KiOptimizeSpecCtrlSettingsWorker, (ULONG_PTR)&Context);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = CurrentPrcb->SchedulerAssist;

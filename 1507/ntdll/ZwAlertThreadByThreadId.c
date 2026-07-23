@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 ZwAlertThreadByThreadId()
+NTSTATUS __cdecl ZwAlertThreadByThreadId(HANDLE ThreadId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 110LL;
+  result = 110;
   __asm { syscall; Low latency system call }
   return result;
 }

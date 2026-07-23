@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAllocatePool @ 0x140427060
+ * XREFs of ExAllocatePool @ 0x14041AEE0
  * Callers:
- *     VerifierExAllocatePool @ 0x140B91070 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePool @ 0x140B93070 (VerifierExAllocatePool.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 PVOID __stdcall ExAllocatePool(POOL_TYPE PoolType, SIZE_T NumberOfBytes)
@@ -45,7 +45,7 @@ PVOID __stdcall ExAllocatePool(POOL_TYPE PoolType, SIZE_T NumberOfBytes)
     if ( (PoolType & 0x10) != 0 )
       v6 |= 0x20uLL;
   }
-  result = (PVOID)ExAllocatePool2(v6);
+  result = (PVOID)ExAllocatePool2(v6, NumberOfBytes, 0x656E6F4Eu);
   if ( !result && (PoolType & 2) != 0 )
     KeBugCheckEx(0x41u, NumberOfBytes, 0LL, 0LL, 0LL);
   return result;

@@ -10,42 +10,42 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall AVrfpAppendCurrentUserSid(__int16 *this)
+NTSTATUS __thiscall AVrfpAppendCurrentUserSid(__int16 *this)
 {
-  int result; // eax
-  int InformationToken; // edi
+  NTSTATUS result; // eax
+  NTSTATUS v3; // edi
   unsigned int v4; // ecx
   unsigned __int16 v5; // dx
   __int16 v6; // ax
-  _BYTE v7[4]; // [esp+4h] [ebp-64h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+8h] [ebp-60h] BYREF
-  HANDLE Handle; // [esp+10h] [ebp-58h] BYREF
-  PSID Sid[20]; // [esp+14h] [ebp-54h] BYREF
+  ULONG ReturnLength; // [esp+4h] [ebp-64h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+8h] [ebp-60h] BYREF
+  HANDLE TokenHandle; // [esp+10h] [ebp-58h] BYREF
+  PSID TokenInformation[20]; // [esp+14h] [ebp-54h] BYREF
 
-  Handle = 0;
-  result = ZwOpenProcessTokenEx(-1, 8, 512, (int)&Handle);
+  TokenHandle = 0;
+  result = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFF, 8u, 0x200u, &TokenHandle);
   if ( result >= 0 )
   {
-    InformationToken = ZwQueryInformationToken((int)Handle, 1, (int)Sid, 80, (int)v7);
-    NtClose(Handle);
-    if ( InformationToken < 0 )
-      return InformationToken;
+    v3 = ZwQueryInformationToken(TokenHandle, 1u, TokenInformation, 0x50u, &ReturnLength);
+    NtClose(TokenHandle);
+    if ( v3 < 0 )
+      return v3;
     v4 = (unsigned __int16)*this;
     UnicodeString.MaximumLength = this[1] - v4;
     UnicodeString.Length = 0;
     UnicodeString.Buffer = (wchar_t *)(*((_DWORD *)this + 1) + 2 * (v4 >> 1));
-    InformationToken = RtlConvertSidToUnicodeString(&UnicodeString, Sid[0], 0);
-    if ( InformationToken < 0 )
-      return InformationToken;
+    v3 = RtlConvertSidToUnicodeString(&UnicodeString, TokenInformation[0], 0);
+    if ( v3 < 0 )
+      return v3;
     v5 = *this;
-    Handle = (HANDLE)(unsigned __int16)(*this + UnicodeString.Length);
+    TokenHandle = (HANDLE)(unsigned __int16)(*this + UnicodeString.Length);
     v6 = v5 + UnicodeString.Length;
     if ( (unsigned __int16)(v5 + UnicodeString.Length) < v5 )
       v6 = -1;
     *this = v6;
     result = -1073741789;
-    if ( (unsigned __int16)Handle >= v5 )
-      return InformationToken;
+    if ( (unsigned __int16)TokenHandle >= v5 )
+      return v3;
   }
   return result;
 }

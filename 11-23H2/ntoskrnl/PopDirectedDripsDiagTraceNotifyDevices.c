@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceNotifyDevices @ 0x1405A0894
+ * XREFs of PopDirectedDripsDiagTraceNotifyDevices @ 0x1405A0D84
  * Callers:
- *     PopDirectedDripsResumeDevices @ 0x140983BC4 (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsSuspendDevices @ 0x140983E14 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsResumeDevices @ 0x140983DC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140984014 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDirectedDripsDiagTraceNotifyDevices(unsigned __int8 a1, int a2, __int64 a3)
@@ -71,7 +71,7 @@ char __fastcall PopDirectedDripsDiagTraceNotifyDevices(unsigned __int8 a1, int a
         }
         v10 = (char *)&v6[v9];
         v11 = &v6[v8];
-        if ( *((_DWORD *)v6 + 9) == dword_140C390C8 && v7 && ((_DWORD)v6[5] & 0x100) == 0 )
+        if ( *((_DWORD *)v6 + 9) == dword_140C391E8 && v7 && ((_DWORD)v6[5] & 0x100) == 0 )
         {
           v12 = 0;
           v13 = v5 - v7;

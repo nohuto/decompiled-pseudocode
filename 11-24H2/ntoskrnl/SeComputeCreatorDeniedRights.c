@@ -1,21 +1,25 @@
 /*
- * XREFs of SeComputeCreatorDeniedRights @ 0x140359A70
+ * XREFs of SeComputeCreatorDeniedRights @ 0x1403B5DC0
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x14087AD00 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x14087EBB0 (ObpAdjustCreatorAccessState.c)
  * Callees:
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     SepGetScopedPolicySid @ 0x140454F4C (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x140454FA4 (SepRmReferenceFindCap.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     SepRmReferenceFindCap @ 0x1403B562C (SepRmReferenceFindCap.c)
+ *     SepGetScopedPolicySid @ 0x1403B56EC (SepGetScopedPolicySid.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
-__int64 __fastcall SeComputeCreatorDeniedRights(struct _SECURITY_SUBJECT_CONTEXT *a1, __int64 a2, int a3, void *a4)
+__int64 __fastcall SeComputeCreatorDeniedRights(
+        struct _SECURITY_SUBJECT_CONTEXT *a1,
+        __int64 a2,
+        int a3,
+        unsigned int *a4)
 {
-  __int16 *v5; // rbp
+  unsigned int *v5; // rbp
   __int16 v6; // r15
-  char *v7; // rcx
+  __int64 v7; // rcx
   __int64 v8; // rax
   char *v9; // rcx
   _WORD *SeOwnerRightsSid; // r14
@@ -27,7 +31,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(struct _SECURITY_SUBJECT_CONTEXT
   char v16; // al
   void *ScopedPolicySid; // rax
   int Cap; // eax
-  __int64 v20; // rdx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v20; // rdx
   char *ClientToken; // rsi
   __int64 v22; // rax
   unsigned __int8 *v23; // r14
@@ -65,28 +69,28 @@ __int64 __fastcall SeComputeCreatorDeniedRights(struct _SECURITY_SUBJECT_CONTEXT
   unsigned int v55; // [rsp+54h] [rbp-64h]
   NTSTATUS AccessStatus; // [rsp+5Ch] [rbp-5Ch] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+60h] [rbp-58h] BYREF
-  __int64 v58; // [rsp+68h] [rbp-50h]
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v58; // [rsp+68h] [rbp-50h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+70h] [rbp-48h]
 
   AccessStatus = 0;
   GrantedAccess = 0;
   if ( (a3 & 0xC0000) == 0 )
     return 0LL;
-  v5 = *(__int16 **)(*(_QWORD *)(a2 + 72) + 48LL);
+  v5 = *(unsigned int **)(*(_QWORD *)(a2 + 72) + 48LL);
   SecurityDescriptor = v5;
   if ( !v5 )
   {
     SecurityDescriptor = a4;
-    v5 = (__int16 *)a4;
+    v5 = a4;
     if ( !a4 )
     {
-      v5 = *(__int16 **)(a2 + 64);
+      v5 = *(unsigned int **)(a2 + 64);
       SecurityDescriptor = v5;
       if ( !v5 )
         return 0LL;
     }
   }
-  v6 = v5[1];
+  v6 = *((_WORD *)v5 + 1);
   if ( (v6 & 4) != 0 )
   {
     if ( v6 >= 0 )
@@ -95,7 +99,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(struct _SECURITY_SUBJECT_CONTEXT
     }
     else
     {
-      v8 = *((unsigned int *)v5 + 4);
+      v8 = v5[4];
       if ( !(_DWORD)v8 )
         goto LABEL_6;
       v9 = (char *)v5 + v8;
@@ -153,13 +157,13 @@ LABEL_6:
   {
     if ( v6 >= 0 )
     {
-      v7 = (char *)*((_QWORD *)v5 + 3);
+      v7 = *((_QWORD *)v5 + 3);
     }
     else
     {
-      v51 = *((unsigned int *)v5 + 3);
+      v51 = v5[3];
       if ( (_DWORD)v51 )
-        v7 = (char *)v5 + v51;
+        v7 = (__int64)v5 + v51;
       else
         v7 = 0LL;
     }
@@ -173,26 +177,26 @@ LABEL_6:
     return 0LL;
   if ( !v7 )
     return 0LL;
-  ScopedPolicySid = (void *)SepGetScopedPolicySid();
+  ScopedPolicySid = (void *)SepGetScopedPolicySid(v7);
   if ( !ScopedPolicySid )
     return 0LL;
-  Cap = SepRmReferenceFindCap(ScopedPolicySid);
+  Cap = SepRmReferenceFindCap(ScopedPolicySid, &v58);
   v20 = v58;
   if ( Cap < 0 )
-    v20 = SepRmDefaultCap;
-  if ( (*(_DWORD *)(v20 + 56) & 1) == 0 )
+    v20 = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)SepRmDefaultCap;
+  if ( ((__int64)v20[2].Linkage.Blink & 1) == 0 )
     return 0LL;
 LABEL_34:
   ClientToken = (char *)a1->ClientToken;
   if ( !a1->ClientToken )
     ClientToken = (char *)a1->PrimaryToken;
-  if ( v5[1] >= 0 )
+  if ( *((__int16 *)v5 + 1) >= 0 )
   {
     v23 = (unsigned __int8 *)*((_QWORD *)v5 + 1);
   }
   else
   {
-    v22 = *((unsigned int *)v5 + 1);
+    v22 = v5[1];
     if ( (_DWORD)v22 )
       v23 = (unsigned __int8 *)v5 + v22;
     else
@@ -333,7 +337,7 @@ LABEL_28:
           }
           return v40;
         }
-        LOBYTE(v33) = v58;
+        LOBYTE(v33) = (_BYTE)v58;
         v27 = v54;
         v26 = v52;
       }

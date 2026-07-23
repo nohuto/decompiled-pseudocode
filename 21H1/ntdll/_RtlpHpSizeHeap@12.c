@@ -14,6 +14,7 @@ int __fastcall RtlpHpSizeHeap(int a1, int a2, int a3)
   int v4; // edi
   void *v5; // edx
   int v6; // esi
+  SIZE_T v8; // [esp-4h] [ebp-10h]
 
   v4 = *(_DWORD *)(a1 + 12) | a3;
   v5 = *(void **)(a1 + 176);
@@ -24,7 +25,11 @@ int __fastcall RtlpHpSizeHeap(int a1, int a2, int a3)
   if ( (a2 & 7) != 0 )
     return -1;
   v6 = RtlpHpSizeHeapInternal(v4, 0);
-  if ( v6 != -1 && (v4 & 0x10000000) != 0 && RtlCompareMemory((const void *)(v6 + a2), CheckHeapFillPattern, 8u) != 8 )
-    return -1;
+  if ( v6 != -1 && (v4 & 0x10000000) != 0 )
+  {
+    LODWORD(v8) = 8;
+    if ( (unsigned int)RtlCompareMemory((const void *)(v6 + a2), CheckHeapFillPattern, v8) != 8 )
+      return -1;
+  }
   return v6;
 }

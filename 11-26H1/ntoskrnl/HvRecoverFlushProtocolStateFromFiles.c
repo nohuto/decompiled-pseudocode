@@ -1,16 +1,16 @@
 /*
- * XREFs of HvRecoverFlushProtocolStateFromFiles @ 0x14085CFE4
+ * XREFs of HvRecoverFlushProtocolStateFromFiles @ 0x1408632D4
  * Callers:
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x14085C268 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x140862558 (CmpRecoverFlushProtocolStateFromFiles.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140AAB46C (HvpLogTypeToLogArrayIndex.c)
- *     HvpGetHiveHeader @ 0x140ADEAF8 (HvpGetHiveHeader.c)
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140AA8A4C (HvpLogTypeToLogArrayIndex.c)
+ *     HvpGetHiveHeader @ 0x140ADBCE8 (HvpGetHiveHeader.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvRecoverFlushProtocolStateFromFiles(__int64 a1, __int64 a2)

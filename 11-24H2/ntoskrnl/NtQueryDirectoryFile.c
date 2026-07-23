@@ -1,10 +1,10 @@
 /*
- * XREFs of NtQueryDirectoryFile @ 0x1408C5120
+ * XREFs of NtQueryDirectoryFile @ 0x1408C2AE0
  * Callers:
  *     <none>
  * Callees:
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     BuildQueryDirectoryIrp @ 0x1408C48F0 (BuildQueryDirectoryIrp.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     BuildQueryDirectoryIrp @ 0x1408C22B0 (BuildQueryDirectoryIrp.c)
  */
 
 NTSTATUS __stdcall NtQueryDirectoryFile(

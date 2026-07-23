@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpPostNotify @ 0x14049A9D4
+ * XREFs of CmpPostNotify @ 0x1403E38F4
  * Callers:
- *     CmpNotifyChangeKey @ 0x140401234 (CmpNotifyChangeKey.c)
- *     CmpFlushNotify @ 0x14049A0FC (CmpFlushNotify.c)
- *     CmpCloseKeyObject @ 0x14049A770 (CmpCloseKeyObject.c)
- *     CmpReportNotifyHelper @ 0x140514960 (CmpReportNotifyHelper.c)
+ *     CmpCloseKeyObject @ 0x1403E3690 (CmpCloseKeyObject.c)
+ *     CmpFlushNotify @ 0x1403E435C (CmpFlushNotify.c)
+ *     CmpNotifyChangeKey @ 0x1404000F4 (CmpNotifyChangeKey.c)
+ *     CmpReportNotifyHelper @ 0x1404F7D50 (CmpReportNotifyHelper.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeInsertQueueApc @ 0x1400C9FD0 (KeInsertQueueApc.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpSignalDeferredPosts @ 0x14049A8F0 (CmpSignalDeferredPosts.c)
- *     CmpFreePostBlock @ 0x14049A988 (CmpFreePostBlock.c)
- *     CmpAddToDelayedDeref @ 0x14049AC1C (CmpAddToDelayedDeref.c)
- *     CmpCancelSubordinatePost @ 0x14049AC48 (CmpCancelSubordinatePost.c)
- *     CmpFreeSubordinatePost @ 0x14049AC84 (CmpFreeSubordinatePost.c)
- *     CmpDelayedDerefKeys @ 0x140514B2C (CmpDelayedDerefKeys.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeInsertQueueApc @ 0x1400C7E70 (KeInsertQueueApc.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpSignalDeferredPosts @ 0x1403E3810 (CmpSignalDeferredPosts.c)
+ *     CmpFreePostBlock @ 0x1403E38A8 (CmpFreePostBlock.c)
+ *     CmpAddToDelayedDeref @ 0x1403E3B3C (CmpAddToDelayedDeref.c)
+ *     CmpCancelSubordinatePost @ 0x1403E3B68 (CmpCancelSubordinatePost.c)
+ *     CmpFreeSubordinatePost @ 0x1403E3BA4 (CmpFreeSubordinatePost.c)
+ *     CmpDelayedDerefKeys @ 0x1404F7F1C (CmpDelayedDerefKeys.c)
  */
 
 void __fastcall CmpPostNotify(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, _QWORD *a6, _QWORD *a7)

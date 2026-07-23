@@ -14,7 +14,7 @@
  *     LdrpTraceLoadMUIDll @ 0x1800CBC78 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResGetRCConfig(unsigned __int64 a1, unsigned __int64 a2, _QWORD *a3, int a4, char a5)
+__int64 __fastcall LdrResGetRCConfig(__int64 DllHandle, ULONG64 a2, _QWORD *a3, int a4, char a5)
 {
   int v9; // esi
   char v10; // di
@@ -22,7 +22,7 @@ __int64 __fastcall LdrResGetRCConfig(unsigned __int64 a1, unsigned __int64 a2, _
   _DWORD *v12; // rax
   unsigned int v13; // edi
   __int64 result; // rax
-  int v15; // ecx
+  NTSTATUS v15; // ecx
   _DWORD *v16; // r8
   int v17; // r9d
   __int64 v18; // rdx
@@ -46,14 +46,14 @@ __int64 __fastcall LdrResGetRCConfig(unsigned __int64 a1, unsigned __int64 a2, _
   __int64 v36; // r8
   __int64 v37; // rcx
   _DWORD *v38; // [rsp+58h] [rbp-90h] BYREF
-  unsigned __int64 v39; // [rsp+60h] [rbp-88h] BYREF
+  ULONG64 v39; // [rsp+60h] [rbp-88h] BYREF
   __int64 v40[2]; // [rsp+68h] [rbp-80h] BYREF
   int v41; // [rsp+78h] [rbp-70h] BYREF
   const wchar_t *v42; // [rsp+80h] [rbp-68h]
-  unsigned __int64 v43; // [rsp+88h] [rbp-60h]
+  __int64 v43; // [rsp+88h] [rbp-60h]
   _QWORD v44[3]; // [rsp+90h] [rbp-58h] BYREF
 
-  v43 = a1;
+  v43 = DllHandle;
   v44[0] = L"MUI";
   v44[1] = 1LL;
   v44[2] = 0LL;
@@ -76,7 +76,7 @@ __int64 __fastcall LdrResGetRCConfig(unsigned __int64 a1, unsigned __int64 a2, _
   v11 = v9 | 0x30;
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(v40, MEMORY[0x7FFE0384]);
-  if ( !a1 )
+  if ( !DllHandle )
   {
     v13 = -1073741811;
     goto LABEL_9;
@@ -88,12 +88,12 @@ LABEL_13:
     {
       if ( v10 )
       {
-        result = LdrpResGetMappingSize(a1, &v39, a4, 0);
+        result = LdrpResGetMappingSize(DllHandle, &v39, a4, 0);
         if ( (int)result < 0 )
           return result;
       }
     }
-    v15 = LdrpResSearchResourceMappedFile(a1, v39, v11, (__int64)v44, 3, (__int64 *)&v38, v40, 0LL, 0LL);
+    v15 = LdrpResSearchResourceMappedFile((void *)DllHandle, v39, v11, (__int64)v44, 3, (__int64 *)&v38, v40, 0LL, 0LL);
     if ( v15 < 0 )
     {
       if ( v15 != -1073741701 )
@@ -105,7 +105,7 @@ LABEL_13:
     if ( v10 )
     {
       v18 = (unsigned int)v38[1];
-      if ( (unsigned __int64)v38 + v18 > v39 + (a1 & 0xFFFFFFFFFFFFFFFCuLL) )
+      if ( (unsigned __int64)v38 + v18 > v39 + (DllHandle & 0xFFFFFFFFFFFFFFFCuLL) )
       {
         v13 = -1073741701;
 LABEL_18:
@@ -116,7 +116,7 @@ LABEL_19:
           v17 = -1;
           if ( v16 )
             v17 = (int)v16;
-          LdrpSetAlternateResourceModuleHandle(a1, 0, 0, v17, -1, 0, 2, v13, 0LL);
+          LdrpSetAlternateResourceModuleHandle(DllHandle, 0, 0, v17, -1, 0, 2, v13, 0LL);
         }
         goto LABEL_9;
       }
@@ -202,7 +202,7 @@ LABEL_19:
     v13 = 0;
     goto LABEL_19;
   }
-  v12 = LdrpGetFromMUIMemCache(a1, 0, 0LL, 8);
+  v12 = LdrpGetFromMUIMemCache(DllHandle, 0, 0LL, 8);
   v38 = v12;
   if ( v12 != (_DWORD *)-1LL )
   {

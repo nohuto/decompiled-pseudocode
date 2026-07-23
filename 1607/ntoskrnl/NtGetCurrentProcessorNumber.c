@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetCurrentProcessorNumber @ 0x14067D308
+ * XREFs of NtGetCurrentProcessorNumber @ 0x14067D3EC
  * Callers:
  *     <none>
  * Callees:

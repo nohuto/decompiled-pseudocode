@@ -1,17 +1,17 @@
 /*
- * XREFs of MiChargeCommitSlow @ 0x1402F4DE8
+ * XREFs of MiChargeCommitSlow @ 0x1402D6E68
  * Callers:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
  * Callees:
- *     MiReplenishLocalCommit @ 0x140462B18 (MiReplenishLocalCommit.c)
- *     MiUpdateCommitCounts @ 0x140462BC4 (MiUpdateCommitCounts.c)
- *     MiFreeExcessSegments @ 0x140474D10 (MiFreeExcessSegments.c)
- *     MiExtendPageFilesIfNecessary @ 0x1404A4E40 (MiExtendPageFilesIfNecessary.c)
- *     MiCauseOverCommitPopup @ 0x1404BC9D4 (MiCauseOverCommitPopup.c)
- *     MiCreateCommit @ 0x1404CF830 (MiCreateCommit.c)
- *     MiApplyCommitDelay @ 0x1404F60B4 (MiApplyCommitDelay.c)
- *     MiConsumeOverCommit @ 0x1405089F8 (MiConsumeOverCommit.c)
- *     MiPulseCommitSignal @ 0x1405098B4 (MiPulseCommitSignal.c)
+ *     MiReplenishLocalCommit @ 0x14045BAD8 (MiReplenishLocalCommit.c)
+ *     MiUpdateCommitCounts @ 0x14045BB84 (MiUpdateCommitCounts.c)
+ *     MiFreeExcessSegments @ 0x14046E490 (MiFreeExcessSegments.c)
+ *     MiExtendPageFilesIfNecessary @ 0x14049E4D0 (MiExtendPageFilesIfNecessary.c)
+ *     MiCauseOverCommitPopup @ 0x1404B61B4 (MiCauseOverCommitPopup.c)
+ *     MiCreateCommit @ 0x1404C9260 (MiCreateCommit.c)
+ *     MiApplyCommitDelay @ 0x1404EF674 (MiApplyCommitDelay.c)
+ *     MiConsumeOverCommit @ 0x1405024A0 (MiConsumeOverCommit.c)
+ *     MiPulseCommitSignal @ 0x140503364 (MiPulseCommitSignal.c)
  */
 
 __int64 __fastcall MiChargeCommitSlow(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -80,7 +80,7 @@ LABEL_10:
     if ( (v5 & 4) != 0 )
     {
       if ( !v10 )
-        _InterlockedIncrement((volatile signed __int32 *)&stru_140E2EB88.AffinityVersion);
+        _InterlockedIncrement((volatile signed __int32 *)&stru_140E2ED08.AffinityVersion);
       goto LABEL_22;
     }
     Commit = MiCreateCommit(a1, a2, v5, v11, (int)v11 + (int)a2, v10);
@@ -121,7 +121,7 @@ LABEL_16:
   if ( (v5 & 4) != 0 )
   {
     if ( !v10 )
-      _InterlockedIncrement((_DWORD *)&stru_140E2EB88.AffinityVersion + 1);
+      _InterlockedIncrement((_DWORD *)&stru_140E2ED08.AffinityVersion + 1);
 LABEL_22:
     if ( a2 )
       return (unsigned int)MiConsumeOverCommit(a1, a2, v10) == 0 ? 0xC000022D : 0;

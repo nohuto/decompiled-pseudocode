@@ -1,50 +1,48 @@
 /*
- * XREFs of LdrProtectMrdataHeap @ 0x18002D9F4
+ * XREFs of LdrProtectMrdataHeap @ 0x18002D9E4
  * Callers:
  *     RtlpProtectReadOnlyHeap @ 0x1800F7668 (RtlpProtectReadOnlyHeap.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlProtectHeap @ 0x18002D7A0 (RtlProtectHeap.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlProtectHeap @ 0x18002D790 (RtlProtectHeap.c)
  */
 
-signed __int64 __fastcall LdrProtectMrdataHeap(int a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall LdrProtectMrdataHeap(int a1)
 {
-  int v5; // ebx
-  int v6; // ebx
-  signed __int64 result; // rax
+  int v2; // ebx
+  int v3; // ebx
 
-  if ( qword_180163310 )
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, a2, a3, a4);
-    v5 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v2 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( a1 )
     {
-      if ( !v5 )
+      if ( !v2 )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      v6 = v5 - 1;
+      v3 = v2 - 1;
     }
     else
     {
-      if ( !v5 )
+      if ( !v2 )
         RtlProtectHeap(LdrpMrdataHeap, 0);
-      if ( v5 == -1 )
+      if ( v2 == -1 )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      v6 = v5 + 1;
+      v3 = v2 + 1;
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v6;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v3;
     if ( a1 )
     {
-      if ( !v6 )
-        RtlProtectHeap(LdrpMrdataHeap, 1);
+      if ( !v3 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
     }
-    return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+    RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  return result;
 }

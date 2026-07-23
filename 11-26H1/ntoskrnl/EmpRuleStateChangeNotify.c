@@ -1,9 +1,9 @@
 /*
- * XREFs of EmpRuleStateChangeNotify @ 0x1405B4C04
+ * XREFs of EmpRuleStateChangeNotify @ 0x1405B7414
  * Callers:
- *     EmpUpdateRuleState @ 0x1404D1E5C (EmpUpdateRuleState.c)
+ *     EmpUpdateRuleState @ 0x1404CBA0C (EmpUpdateRuleState.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall EmpRuleStateChangeNotify(__int64 a1)

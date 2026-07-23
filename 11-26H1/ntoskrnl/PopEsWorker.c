@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWorker @ 0x140B72400
+ * XREFs of PopEsWorker @ 0x140B773E0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopEsUpdateState @ 0x14051C1C0 (PopEsUpdateState.c)
- *     PopEsPublishStateV2 @ 0x1407DB984 (PopEsPublishStateV2.c)
- *     PopEsUpdateSetting @ 0x1407DBAE4 (PopEsUpdateSetting.c)
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
- *     PopEsStartTelemetry @ 0x140B4F63C (PopEsStartTelemetry.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopEsUpdateState @ 0x140517FA0 (PopEsUpdateState.c)
+ *     PopEsPublishStateV2 @ 0x1407DFBA0 (PopEsPublishStateV2.c)
+ *     PopEsUpdateSetting @ 0x1407DFD00 (PopEsUpdateSetting.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
+ *     PopEsStartTelemetry @ 0x140B51ECC (PopEsStartTelemetry.c)
  */
 
 __int64 __fastcall PopEsWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -69,30 +69,26 @@ __int64 __fastcall PopEsWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK
       {
         if ( (_DWORD)v14 != 2 )
           continue;
-        PopAcquireRwLockExclusive((unsigned __int64 *)&PopModernStandbyStateNotify.MutantListHead.Blink, v14, v8, a4);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock, v14, v8, a4);
       }
       else
       {
-        PopAcquireRwLockExclusive((unsigned __int64 *)&PopModernStandbyStateNotify.MutantListHead.Blink, v14, v8, a4);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock, v14, v8, a4);
         PopEsUpdateSetting();
       }
       PopEsUpdateState(v4);
-      result = PopReleaseRwLock((struct _KTHREAD *)&PopModernStandbyStateNotify.MutantListHead.Blink);
+      result = PopReleaseRwLock((struct _KTHREAD *)&PopEsLock);
     }
     else
     {
       PopEsPublishStateV2(1);
-      PopAcquireRwLockExclusive((unsigned __int64 *)&PopModernStandbyStateNotify.MutantListHead.Blink, v15, v16, v17);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock, v15, v16, v17);
       PopEsStartTelemetry(v19, v18, v20, v21);
-      PopReleaseRwLock((struct _KTHREAD *)&PopModernStandbyStateNotify.MutantListHead.Blink);
-      ExSubscribeWnfStateChange(
-        (__int64)&PopModernStandbyStateNotify.MutantListHead,
-        (__int64)&WNF_PO_ENERGY_SAVER_OVERRIDE);
-      ExSubscribeWnfStateChange(
-        (__int64)&PopModernStandbyStateNotify.SuspendEvent.Header.WaitListHead.Blink,
-        (__int64)&WNF_GPOL_SYSTEM_CHANGES);
+      PopReleaseRwLock((struct _KTHREAD *)&PopEsLock);
+      ExSubscribeWnfStateChange((__int64)&PopEsWnfSubscriptionOverride, (__int64)&WNF_PO_ENERGY_SAVER_OVERRIDE);
+      ExSubscribeWnfStateChange((__int64)&PopEsWnfSubscriptionGroupPolicy, (__int64)&WNF_GPOL_SYSTEM_CHANGES);
       result = ExSubscribeWnfStateChange(
-                 (__int64)&PopModernStandbyStateNotify.ThreadListEntry,
+                 (__int64)&PopEsWnfSubscriptionOverrideMdm,
                  (__int64)&WNF_PO_ENERGY_SAVER_OVERRIDE_MDM);
     }
   }

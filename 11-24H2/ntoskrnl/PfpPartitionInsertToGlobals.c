@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPartitionInsertToGlobals @ 0x1405CC9C0
+ * XREFs of PfpPartitionInsertToGlobals @ 0x1405CA130
  * Callers:
- *     PfpPartitionCreate @ 0x1405CC80C (PfpPartitionCreate.c)
+ *     PfpPartitionCreate @ 0x1405C9F7C (PfpPartitionCreate.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReInitializeRundownProtectionCacheAware @ 0x14045ADC0 (ExReInitializeRundownProtectionCacheAware.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReInitializeRundownProtectionCacheAware @ 0x140450160 (ExReInitializeRundownProtectionCacheAware.c)
  */
 
 __int64 __fastcall PfpPartitionInsertToGlobals(__int64 *a1)

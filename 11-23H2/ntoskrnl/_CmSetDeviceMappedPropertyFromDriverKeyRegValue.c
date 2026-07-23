@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14087BC00
+ * XREFs of _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14087BE40
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140799A70 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140799C60 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlUnalignedStringCchLengthW @ 0x14022B66C (RtlUnalignedStringCchLengthW.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _RegRtlSetValue @ 0x1407D49D4 (_RegRtlSetValue.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14022B77C (RtlUnalignedStringCchLengthW.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _RegRtlSetValue @ 0x1407D4CA4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
@@ -34,13 +34,13 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
   __int64 v22; // [rsp+28h] [rbp-58h]
   HANDLE Handle; // [rsp+40h] [rbp-40h] BYREF
   size_t pcchLength; // [rsp+48h] [rbp-38h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+50h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+50h] [rbp-30h] BYREF
   wchar_t pszDest[12]; // [rsp+60h] [rbp-20h] BYREF
 
   Handle = 0LL;
   pcchLength = 0LL;
   v8 = *(_DWORD *)(a3 + 16);
-  v9 = &off_140A7B1B0;
+  v9 = &off_140A7B460;
   TimeFields = 0LL;
   for ( i = 0; i < 0xD; ++i )
   {

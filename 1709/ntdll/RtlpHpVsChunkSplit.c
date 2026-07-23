@@ -51,10 +51,10 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   unsigned int v41; // r9d
   unsigned int v42; // r8d
   unsigned __int64 v43; // rdx
-  bool v44; // r8
+  BOOLEAN v44; // r8
   unsigned __int64 v45; // rax
-  unsigned __int64 v46; // rdx
-  unsigned __int64 v47; // rax
+  _RTL_BALANCED_NODE *v46; // rdx
+  _RTL_BALANCED_NODE *v47; // rax
   unsigned __int64 v49; // rbx
   int v50; // ecx
   unsigned __int64 v51; // r8
@@ -74,7 +74,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
 
   v5 = WORD1(RtlpHeapKey);
   v7 = WORD1(RtlpHeapKey) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2);
-  RtlRbRemoveNode(a1 + 8, (unsigned __int64 *)(a3 + 8));
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(a3 + 8));
   v10 = RtlpHeapKey;
   v11 = 0;
   v12 = a1;
@@ -112,7 +112,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
     *(_DWORD *)(a3 + 8) = v22 | 0x200;
     if ( (a5 & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)a1);
       LODWORD(v12) = a1;
       v25 = v59;
     }
@@ -131,7 +131,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
       a4 = 0;
     }
     if ( (a5 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)a1);
     *(_DWORD *)(a3 + 8) &= ~0x200u;
     v10 = RtlpHeapKey;
     v5 = WORD1(RtlpHeapKey);
@@ -243,13 +243,13 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
       *(_DWORD *)(v27 + 8) = (unsigned __int8)(v10 ^ v27 ^ ((unsigned int)(v27 - a2) >> 12)) | 0x200;
       if ( (a5 & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)a1);
         v50 = a1;
         LODWORD(v52) = v62;
       }
       RtlpHpVsSubsegmentCommitPages(v50, a2, v49, v52, 0);
       if ( (a5 & 1) == 0 )
-        RtlAcquireSRWLockExclusive(a1);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)a1);
       v29 = v65;
       *(_DWORD *)(v27 + 8) &= ~0x200u;
       v10 = RtlpHeapKey;
@@ -277,14 +277,14 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
                                - ((unsigned __int64)(v40 + 4095) >> 12)
                                + (v11 >> 12)
                                - ((0x101010101010101LL * ((v45 + (v45 >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56));
-    v46 = *(_QWORD *)(a1 + 8);
+    v46 = *(_RTL_BALANCED_NODE **)(a1 + 8);
     if ( v46 )
     {
       while ( 1 )
       {
-        if ( ((unsigned int)v10 ^ (unsigned int)v27 ^ *(_DWORD *)v27) < ((unsigned int)v10 ^ ((_DWORD)v46 - 8) ^ *(_DWORD *)(v46 - 8)) )
+        if ( ((unsigned int)v10 ^ (unsigned int)v27 ^ *(_DWORD *)v27) < ((unsigned int)v10 ^ ((_DWORD)v46 - 8) ^ *(_DWORD *)&v46[-1].0) )
         {
-          v47 = *(_QWORD *)v46;
+          v47 = v46->Children[0];
           if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
           {
             if ( !v47 )
@@ -293,14 +293,14 @@ LABEL_35:
               v44 = 0;
               break;
             }
-            v47 ^= v46;
+            v47 = (_RTL_BALANCED_NODE *)((unsigned __int64)v46 ^ (unsigned __int64)v47);
           }
           if ( !v47 )
             goto LABEL_35;
         }
         else
         {
-          v47 = *(_QWORD *)(v46 + 8);
+          v47 = v46->Children[1];
           if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
           {
             if ( !v47 )
@@ -309,7 +309,7 @@ LABEL_36:
               v44 = 1;
               break;
             }
-            v47 ^= v46;
+            v47 = (_RTL_BALANCED_NODE *)((unsigned __int64)v46 ^ (unsigned __int64)v47);
           }
           if ( !v47 )
             goto LABEL_36;
@@ -317,7 +317,7 @@ LABEL_36:
         v46 = v47;
       }
     }
-    RtlRbInsertNodeEx(a1 + 8, v46, v44, v27 + 8);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), v46, v44, (PRTL_BALANCED_NODE)(v27 + 8));
   }
   return a4;
 }

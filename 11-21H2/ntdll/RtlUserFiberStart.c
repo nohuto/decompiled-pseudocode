@@ -10,5 +10,5 @@
 void __noreturn RtlUserFiberStart()
 {
   (*((void (**)(void))NtCurrentTeb()->NtTib.FiberData + 21))();
-  RtlExitUserThread(0xC0000001);
+  RtlExitUserThread(-1073741823);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlockWorkingSetCoreExclusive @ 0x14054F8EC
+ * XREFs of MiUnlockWorkingSetCoreExclusive @ 0x14054FB2C
  * Callers:
- *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
+ *     MiAllocateWsle @ 0x1402B65C0 (MiAllocateWsle.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall MiUnlockWorkingSetCoreExclusive(struct _KLOCK_QUEUE_HANDLE *a1)

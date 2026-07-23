@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInterruptSubDispatch @ 0x1401BD7C0
+ * XREFs of KiInterruptSubDispatch @ 0x1401BD920
  * Callers:
- *     KiInterruptDispatch @ 0x1401BDB70 (KiInterruptDispatch.c)
+ *     KiInterruptDispatch @ 0x1401BDCD0 (KiInterruptDispatch.c)
  * Callees:
  *     KiCallInterruptServiceRoutine @ 0x1400162E0 (KiCallInterruptServiceRoutine.c)
- *     PerfInfoLogInterrupt @ 0x1400C83A0 (PerfInfoLogInterrupt.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2030 (KiEndThreadAccountingPeriod.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     KiEntropyQueueDpc @ 0x14012F4A0 (KiEntropyQueueDpc.c)
- *     KzSetIrqlUnsafe @ 0x14028DA60 (KzSetIrqlUnsafe.c)
+ *     PerfInfoLogInterrupt @ 0x1400C82E0 (PerfInfoLogInterrupt.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D20B0 (KiEndThreadAccountingPeriod.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     KiEntropyQueueDpc @ 0x14012F570 (KiEntropyQueueDpc.c)
+ *     KzSetIrqlUnsafe @ 0x14028DC50 (KzSetIrqlUnsafe.c)
  */
 
 void __fastcall KiInterruptSubDispatch()

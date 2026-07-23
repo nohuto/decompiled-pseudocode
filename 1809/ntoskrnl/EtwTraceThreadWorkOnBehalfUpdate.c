@@ -4,8 +4,8 @@
  *     PspRevertContainerImpersonation @ 0x14005B390 (PspRevertContainerImpersonation.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceThreadWorkOnBehalfUpdate(__int64 a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSqmThermalCriticalEvent @ 0x14087C6B0
+ * XREFs of PopSqmThermalCriticalEvent @ 0x14087D910
  * Callers:
- *     PopSqmThermalCriticalShutdown @ 0x14087C884 (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x14087C8A4 (PopSqmThermalHibernate.c)
+ *     PopSqmThermalCriticalShutdown @ 0x14087DAE4 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x14087DB04 (PopSqmThermalHibernate.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
@@ -102,7 +102,7 @@ char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
         v22 = a2;
         TlgCreateWsz(&pDesc, v13);
         TlgCreateWsz(&v46, v14);
-        LOBYTE(DeviceAttachmentBaseRefWithTag) = TlgWrite(&pCallbackContext, &unk_1403714F4, 0LL, 0LL, 0xBu, &pData);
+        LOBYTE(DeviceAttachmentBaseRefWithTag) = TlgWrite(&pCallbackContext, &unk_140372466, 0LL, 0LL, 0xBu, &pData);
       }
     }
   }

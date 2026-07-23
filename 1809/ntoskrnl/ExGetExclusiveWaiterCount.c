@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetExclusiveWaiterCount @ 0x14031BA50
+ * XREFs of ExGetExclusiveWaiterCount @ 0x14031BC40
  * Callers:
- *     CmpIsRegistryLockContended @ 0x14026C40C (CmpIsRegistryLockContended.c)
+ *     CmpIsRegistryLockContended @ 0x14026C5FC (CmpIsRegistryLockContended.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 ULONG __stdcall ExGetExclusiveWaiterCount(PERESOURCE Resource)

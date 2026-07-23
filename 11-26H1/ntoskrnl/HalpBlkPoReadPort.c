@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkPoReadPort @ 0x140C7C188
+ * XREFs of HalpBlkPoReadPort @ 0x140C82188
  * Callers:
- *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140C7C0EC (HalpBlkPoPerformPpmOperationForIoPort.c)
+ *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140C820EC (HalpBlkPoPerformPpmOperationForIoPort.c)
  * Callees:
  *     <none>
  */

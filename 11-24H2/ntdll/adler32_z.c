@@ -1,10 +1,10 @@
 /*
- * XREFs of adler32_z @ 0x180155314
+ * XREFs of adler32_z @ 0x1801536D4
  * Callers:
- *     inflate @ 0x180151674 (inflate.c)
- *     deflate @ 0x1801529BC (deflate.c)
- *     deflateResetKeep @ 0x180152D28 (deflateResetKeep.c)
- *     read_buf @ 0x180154964 (read_buf.c)
+ *     inflate @ 0x18014FA34 (inflate.c)
+ *     deflate @ 0x180150D7C (deflate.c)
+ *     deflateResetKeep @ 0x1801510E8 (deflateResetKeep.c)
+ *     read_buf @ 0x180152D24 (read_buf.c)
  * Callees:
  *     <none>
  */

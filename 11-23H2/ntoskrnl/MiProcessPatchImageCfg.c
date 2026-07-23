@@ -1,15 +1,15 @@
 /*
- * XREFs of MiProcessPatchImageCfg @ 0x140A3B018
+ * XREFs of MiProcessPatchImageCfg @ 0x140A3B2C8
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiSelectCfgBitMap @ 0x1406AEA54 (MiSelectCfgBitMap.c)
- *     MiPopulateCfgBitMap @ 0x1407A4970 (MiPopulateCfgBitMap.c)
- *     RtlEnumerateHotPatchPatches @ 0x140A76404 (RtlEnumerateHotPatchPatches.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiSelectCfgBitMap @ 0x1406AEA84 (MiSelectCfgBitMap.c)
+ *     MiPopulateCfgBitMap @ 0x1407A4B60 (MiPopulateCfgBitMap.c)
+ *     RtlEnumerateHotPatchPatches @ 0x140A766B4 (RtlEnumerateHotPatchPatches.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -2,11 +2,11 @@
  * XREFs of MiFreeWorkingSetSwapContext @ 0x14068196C
  * Callers:
  *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x140342000 (MmOutSwapWorkingSet.c)
- *     MiBeginProcessClean @ 0x140342800 (MiBeginProcessClean.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x140A431D0 (MiInSwapSharedWorkingSetWorker.c)
+ *     MmOutSwapWorkingSet @ 0x140342290 (MmOutSwapWorkingSet.c)
+ *     MiBeginProcessClean @ 0x140342A90 (MiBeginProcessClean.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x140A43480 (MiInSwapSharedWorkingSetWorker.c)
  * Callees:
- *     MiFreeReservationRun @ 0x1407B7144 (MiFreeReservationRun.c)
+ *     MiFreeReservationRun @ 0x1407B7424 (MiFreeReservationRun.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

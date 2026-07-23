@@ -2,7 +2,7 @@
  * XREFs of RtlpHpMetadataAlloc @ 0x1400099CC
  * Callers:
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapAllocate @ 0x1401410D0 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapAllocate @ 0x1401411D0 (RtlpHpHeapAllocate.c)
  * Callees:
  *     RtlpHpAllocateHeap @ 0x1400098C4 (RtlpHpAllocateHeap.c)
  *     RtlpHpMetadataHeapStart @ 0x140009ACC (RtlpHpMetadataHeapStart.c)

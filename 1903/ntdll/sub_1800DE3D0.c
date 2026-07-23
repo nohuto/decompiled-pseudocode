@@ -16,7 +16,7 @@ __int64 sub_1800DE3D0()
   __int64 v3; // rsi
   unsigned int v4; // ecx
   unsigned int v5; // edx
-  volatile signed __int64 *v6; // rcx
+  _RTL_SRWLOCK *v6; // rcx
   __int64 result; // rax
 
   v0 = qword_180166178;
@@ -32,7 +32,7 @@ __int64 sub_1800DE3D0()
       {
         _BitScanReverse(&v4, v2);
         v5 = v2 ^ (1 << v4);
-        v6 = (volatile signed __int64 *)qword_180166120[v4 - 3];
+        v6 = (_RTL_SRWLOCK *)*((_QWORD *)&stru_180166120 + v4 - 3);
         if ( v6 )
           v6 += 2 * v5 + 1;
         RtlAcquireSRWLockExclusive(v6);
@@ -41,12 +41,12 @@ __int64 sub_1800DE3D0()
       }
       while ( v3 );
     }
-    RtlAcquireSRWLockExclusive(qword_180166120);
+    RtlAcquireSRWLockExclusive(&stru_180166120);
     result = qword_180166178;
     if ( (unsigned int)qword_180166178 <= v0 )
       break;
     v0 = qword_180166178;
-    RtlReleaseSRWLockExclusive(qword_180166120);
+    RtlReleaseSRWLockExclusive(&stru_180166120);
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiProcessNewDeviceNodeAsync @ 0x1407E24A8
+ * XREFs of PiProcessNewDeviceNodeAsync @ 0x1407E2778
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x1403228A4 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PnpDeviceCompletionRequestCreate @ 0x140794E8C (PnpDeviceCompletionRequestCreate.c)
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x140322B34 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x14079507C (PnpDeviceCompletionRequestCreate.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -23,7 +23,7 @@ __int64 __fastcall PiProcessNewDeviceNodeAsync(__int64 a1, int a2)
   __int64 v10; // rcx
 
   v3 = 259;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return (unsigned int)PiProcessNewDeviceNode(a1);
   v4 = a2 == 0;
   if ( (PnpAsyncOptions & 4) == 0 || a2 )

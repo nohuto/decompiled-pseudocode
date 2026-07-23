@@ -1,14 +1,14 @@
 /*
- * XREFs of PiProcessDeviceResetAction @ 0x1405D9548
+ * XREFs of PiProcessDeviceResetAction @ 0x1405DBD48
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     McTemplateK0zq_EtwWriteTransfer @ 0x14049ED1C (McTemplateK0zq_EtwWriteTransfer.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopLogDeviceResetComplete @ 0x1407A27D4 (IopLogDeviceResetComplete.c)
- *     IopQueueDeviceResetEvent @ 0x1407A29D4 (IopQueueDeviceResetEvent.c)
- *     PnpTraceRequestDeviceRemovalForReset @ 0x1407B2050 (PnpTraceRequestDeviceRemovalForReset.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     McTemplateK0zq_EtwWriteTransfer @ 0x14049886C (McTemplateK0zq_EtwWriteTransfer.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopLogDeviceResetComplete @ 0x1407A5314 (IopLogDeviceResetComplete.c)
+ *     IopQueueDeviceResetEvent @ 0x1407A5514 (IopQueueDeviceResetEvent.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x1407B50B0 (PnpTraceRequestDeviceRemovalForReset.c)
  */
 
 __int64 __fastcall PiProcessDeviceResetAction(__int64 a1)
@@ -135,7 +135,7 @@ LABEL_42:
     KeBugCheckEx(0xCAu, 2uLL, *(_QWORD *)(a1 + 16), 0LL, 0LL);
   }
   v4 = *(_DWORD *)(a1 + 40);
-  if ( (byte_140EF3DCC & 8) != 0 )
+  if ( (byte_140EF412C & 8) != 0 )
     McTemplateK0zq_EtwWriteTransfer(
       a1,
       (__int64)KMPnPEvt_DeviceReset_DevMgnt_Start,

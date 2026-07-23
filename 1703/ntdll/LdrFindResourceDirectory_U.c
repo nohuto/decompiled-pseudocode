@@ -6,7 +6,11 @@
  *     sub_180035838 @ 0x180035838 (sub_180035838.c)
  */
 
-__int64 __fastcall LdrFindResourceDirectory_U(unsigned __int64 a1, __int64 a2, unsigned int a3, __int64 *a4)
+NTSTATUS __cdecl LdrFindResourceDirectory_U(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DIRECTORY *ResourceDirectory)
 {
-  return sub_180035838(a1, a2, a3, 2u, a4);
+  return sub_180035838(DllHandle, (__int64)ResourceInfo, Level, 2u, (__int64)ResourceDirectory);
 }

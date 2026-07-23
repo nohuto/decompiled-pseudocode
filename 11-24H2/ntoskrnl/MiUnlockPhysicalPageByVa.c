@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockPhysicalPageByVa @ 0x14066EBA0
+ * XREFs of MiUnlockPhysicalPageByVa @ 0x14066FD70
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiProbeUnlockPage @ 0x14028A3B0 (MiProbeUnlockPage.c)
- *     MiUnlockPageTableCharges @ 0x1402C7D50 (MiUnlockPageTableCharges.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiReleaseWalkLocks @ 0x1402E37F0 (MiReleaseWalkLocks.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiReleaseWalkLocks @ 0x14020BAF0 (MiReleaseWalkLocks.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiProbeUnlockPage @ 0x140299FB0 (MiProbeUnlockPage.c)
+ *     MiUnlockPageTableCharges @ 0x1403DB820 (MiUnlockPageTableCharges.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockPhysicalPageByVa(_QWORD *a1, unsigned __int64 a2, int a3)
@@ -27,11 +27,13 @@ __int64 __fastcall MiUnlockPhysicalPageByVa(_QWORD *a1, unsigned __int64 a2, int
   int v18; // esi
   __int64 v19; // rbx
   __int64 v20; // r15
-  __int64 v21; // [rsp+80h] [rbp+8h] BYREF
-  unsigned __int64 v22; // [rsp+88h] [rbp+10h]
+  __int64 v21; // r8
+  _QWORD *v22; // r9
+  __int64 v23; // [rsp+80h] [rbp+8h] BYREF
+  unsigned __int64 v24; // [rsp+88h] [rbp+10h]
   ULONG_PTR BugCheckParameter4; // [rsp+98h] [rbp+20h] BYREF
 
-  v22 = a2;
+  v24 = a2;
   v6 = a1[23];
   v7 = MI_READ_PTE_LOCK_FREE(a2);
   v8 = 1LL;
@@ -40,16 +42,16 @@ __int64 __fastcall MiUnlockPhysicalPageByVa(_QWORD *a1, unsigned __int64 a2, int
     if ( (v7 & 0x400) != 0 )
     {
       MiReleaseWalkLocks((__int64)a1);
-      v21 = (__int64)(a2 << 25) >> 16;
+      v23 = (__int64)(a2 << 25) >> 16;
       return 2LL;
     }
     v17 = v7;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       if ( (v7 & 0x10) != 0 )
         v17 = v7 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v17 = v7 & ~qword_140E2DB80;
+        v17 = v7 & ~qword_140E2DCC0;
     }
     v9 = (v17 >> 12) & 0xFFFFFFFFFFLL;
     goto LABEL_18;
@@ -65,11 +67,11 @@ LABEL_18:
       v20 = v8;
       do
       {
-        LODWORD(v21) = 1;
+        LODWORD(v23) = 1;
         BugCheckParameter4 = 0x3FFFFFFFFFLL;
-        MiProbeUnlockPage(v19, v18 + 256, (__int64 *)&BugCheckParameter4, (int *)&v21);
+        MiProbeUnlockPage(v19, v18 + 256, (__int64 *)&BugCheckParameter4, (int *)&v23);
         if ( BugCheckParameter4 != 0x3FFFFFFFFFLL )
-          MiUnlockPageTableCharges(48 * BugCheckParameter4 - 0x220000000000LL, v21);
+          MiUnlockPageTableCharges(48 * BugCheckParameter4 - 0x220000000000LL, v23, v21, v22);
         v19 += 48LL;
         --v20;
       }

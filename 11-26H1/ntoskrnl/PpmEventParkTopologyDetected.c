@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventParkTopologyDetected @ 0x14060E9F0
+ * XREFs of PpmEventParkTopologyDetected @ 0x140611AF0
  * Callers:
- *     PpmParkDetectComplexAndModulePresence @ 0x14060F3C4 (PpmParkDetectComplexAndModulePresence.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmParkDetectComplexAndModulePresence @ 0x140612628 (PpmParkDetectComplexAndModulePresence.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkTopologyDetected(
@@ -57,7 +57,7 @@ char __fastcall PpmEventParkTopologyDetected(
       v14 = &PPM_ETW_PROCESSOR_PARK_MODULE_COMPLEX_TOPOLOGY;
     if ( PpmEtwRegistered )
     {
-      LOBYTE(v9) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v14);
+      LOBYTE(v9) = EtwEventEnabled(PpmEtwHandle, v14);
       if ( (_BYTE)v9 )
       {
         *(_QWORD *)&UserData->Size = 4LL;
@@ -98,15 +98,7 @@ char __fastcall PpmEventParkTopologyDetected(
           &v18,
           &v17,
           &UserDataCount);
-        LOBYTE(v9) = EtwWriteEx(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       v14,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       UserDataCount,
-                       UserData);
+        LOBYTE(v9) = EtwWriteEx(PpmEtwHandle, v14, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
       }
     }
   }

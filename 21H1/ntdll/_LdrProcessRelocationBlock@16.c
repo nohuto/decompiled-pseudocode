@@ -6,7 +6,15 @@
  *     _LdrProcessRelocationBlockLongLong@24 @ 0x4B3427A0 (_LdrProcessRelocationBlockLongLong@24.c)
  */
 
-int __stdcall LdrProcessRelocationBlock(int a1, int a2, int a3, int a4)
+PIMAGE_BASE_RELOCATION __cdecl LdrProcessRelocationBlock(
+        ULONG_PTR VA,
+        ULONG SizeOfBlock,
+        PUSHORT NextOffset,
+        LONG_PTR Diff)
 {
-  return LdrProcessRelocationBlockLongLong(a2, a3, a4, a4 >> 31);
+  return (PIMAGE_BASE_RELOCATION)LdrProcessRelocationBlockLongLong(
+                                   HIDWORD(VA),
+                                   SizeOfBlock,
+                                   NextOffset,
+                                   (int)NextOffset >> 31);
 }

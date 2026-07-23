@@ -1,13 +1,13 @@
 /*
- * XREFs of VslGetSecureSpeculationControlInformation @ 0x140388154
+ * XREFs of VslGetSecureSpeculationControlInformation @ 0x140388334
  * Callers:
- *     KeQuerySecureSpeculationInformation @ 0x140573AE8 (KeQuerySecureSpeculationInformation.c)
+ *     KeQuerySecureSpeculationInformation @ 0x140574028 (KeQuerySecureSpeculationInformation.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140340388 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 VslGetSecureSpeculationControlInformation()

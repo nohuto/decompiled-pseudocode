@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCleanUpKcbCacheWithLock @ 0x1406D8510
+ * XREFs of CmpCleanUpKcbCacheWithLock @ 0x1406D8540
  * Callers:
  *     CmpCleanUpKCBCacheTable @ 0x140699C14 (CmpCleanUpKCBCacheTable.c)
- *     CmpDeleteKeyObject @ 0x1406DB340 (CmpDeleteKeyObject.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDelayCloseWorker @ 0x14076A130 (CmpDelayCloseWorker.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A17744 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpDeleteKeyObject @ 0x1406DB370 (CmpDeleteKeyObject.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDelayCloseWorker @ 0x14076A320 (CmpDelayCloseWorker.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A179F4 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
- *     CmpDelayDerefKeyControlBlock @ 0x1406D86A0 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x1406D8D90 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpRemoveKeyHashFromTableEntry @ 0x1406D92F8 (CmpRemoveKeyHashFromTableEntry.c)
- *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x140769590 (CmpLockDeletedHashEntryExclusiveByKcb.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x14076AE28 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14076AF6C (CmpRemoveKeyHashFromDeletedKcbTable.c)
- *     CmpEtwDumpKcb @ 0x1408AB876 (CmpEtwDumpKcb.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1406D86D0 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1406D8DC0 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpRemoveKeyHashFromTableEntry @ 0x1406D9328 (CmpRemoveKeyHashFromTableEntry.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x140769780 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x14076B018 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14076B15C (CmpRemoveKeyHashFromDeletedKcbTable.c)
+ *     CmpEtwDumpKcb @ 0x1408ABAC6 (CmpEtwDumpKcb.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

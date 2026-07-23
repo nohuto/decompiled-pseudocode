@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDqQueryEvaluateFilter @ 0x140788354
+ * XREFs of PiDqQueryEvaluateFilter @ 0x140788544
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x140786C94 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryEnumObject @ 0x140788234 (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140786E84 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x140788424 (PiDqQueryEnumObject.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     FilterEval @ 0x140788460 (FilterEval.c)
- *     PiPnpRtlEndOperation @ 0x1407887CC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x1407889D0 (PiPnpRtlBeginOperation.c)
- *     PnpFreeDevPropertyArray @ 0x140789698 (PnpFreeDevPropertyArray.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     FilterEval @ 0x140788650 (FilterEval.c)
+ *     PiPnpRtlEndOperation @ 0x1407889BC (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140788BC0 (PiPnpRtlBeginOperation.c)
+ *     PnpFreeDevPropertyArray @ 0x140789888 (PnpFreeDevPropertyArray.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

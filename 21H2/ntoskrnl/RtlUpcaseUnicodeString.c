@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlUpcaseUnicodeString @ 0x1406CC820
+ * XREFs of RtlUpcaseUnicodeString @ 0x14067B110
  * Callers:
- *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
- *     PfSnLogVolumeCreate @ 0x1406B25A4 (PfSnLogVolumeCreate.c)
- *     PiCMOpenClassKey @ 0x1406BEA68 (PiCMOpenClassKey.c)
- *     PfCalculateProcessHash @ 0x1406CC490 (PfCalculateProcessHash.c)
- *     PfSnLogStreamCreate @ 0x1406CC634 (PfSnLogStreamCreate.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x14075A4D0 (SdbMakeIndexKeyFromStringEx.c)
- *     AslStringUpcaseToMultiByteN @ 0x14075A7D0 (AslStringUpcaseToMultiByteN.c)
- *     PipMakeGloballyUniqueId @ 0x14076C400 (PipMakeGloballyUniqueId.c)
- *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x1408A98B0 (PiDevCfgResolveVariableGenerateGuid.c)
- *     PiCMGenerateDeviceInstance @ 0x1408B0590 (PiCMGenerateDeviceInstance.c)
- *     ViCreateProcessCallbackInternal @ 0x1409DCAA4 (ViCreateProcessCallbackInternal.c)
- *     ViFaultsAddAppNoDuplicates @ 0x1409DCCD4 (ViFaultsAddAppNoDuplicates.c)
- *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x14029E950 (RtlDeriveCapabilitySidsFromName.c)
+ *     PfSnLogVolumeCreate @ 0x1406115E4 (PfSnLogVolumeCreate.c)
+ *     PiCMOpenClassKey @ 0x140622BDC (PiCMOpenClassKey.c)
+ *     PfCalculateProcessHash @ 0x14067AD80 (PfCalculateProcessHash.c)
+ *     PfSnLogStreamCreate @ 0x14067AF24 (PfSnLogStreamCreate.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x14075A690 (SdbMakeIndexKeyFromStringEx.c)
+ *     AslStringUpcaseToMultiByteN @ 0x14075A990 (AslStringUpcaseToMultiByteN.c)
+ *     PipMakeGloballyUniqueId @ 0x14076C5C0 (PipMakeGloballyUniqueId.c)
+ *     IoReportDetectedDevice @ 0x1407AEB10 (IoReportDetectedDevice.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x1408A9A10 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     PiCMGenerateDeviceInstance @ 0x1408B06F0 (PiCMGenerateDeviceInstance.c)
+ *     ViCreateProcessCallbackInternal @ 0x1409DDAA4 (ViCreateProcessCallbackInternal.c)
+ *     ViFaultsAddAppNoDuplicates @ 0x1409DDCD4 (ViFaultsAddAppNoDuplicates.c)
+ *     PipInitComputerIds @ 0x140A5C730 (PipInitComputerIds.c)
  * Callees:
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeString(

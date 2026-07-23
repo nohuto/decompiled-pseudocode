@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpAddDebugInfoEvents @ 0x180126168
+ * XREFs of EtwpAddDebugInfoEvents @ 0x180126138
  * Callers:
  *     EtwpAddProviderTrackingInfo @ 0x18005E3DC (EtwpAddProviderTrackingInfo.c)
  * Callees:
@@ -9,26 +9,25 @@
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3)
+int __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v4; // edi
-  __int64 result; // rax
+  int result; // eax
   _QWORD *v7; // r14
   __int64 v8; // rax
   __int64 **v9; // rsi
   __int64 *v10; // rbx
   _DWORD v11[4]; // [rsp+40h] [rbp-358h] BYREF
-  _BYTE v12[272]; // [rsp+50h] [rbp-348h] BYREF
-  _BYTE v13[528]; // [rsp+160h] [rbp-238h] BYREF
+  CHAR MultiByteString[272]; // [rsp+50h] [rbp-348h] BYREF
+  WCHAR UnicodeString[264]; // [rsp+160h] [rbp-238h] BYREF
 
   v4 = a3 - *(_DWORD *)(a2 + 48);
   result = EtwpQueryRegString(
              L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion",
              L"BuildLabEx",
-             v13,
+             UnicodeString,
              0x104u);
-  if ( (int)result < 0
-    || (result = RtlUnicodeToMultiByteN((__int64)v12, 260LL, 0LL, (__int64)v13, 520), (int)result < 0) )
+  if ( result < 0 || (result = RtlUnicodeToMultiByteN(MultiByteString, 0x104u, 0LL, UnicodeString, 0x208u), result < 0) )
   {
     v7 = (_QWORD *)(a2 + 88);
   }
@@ -38,9 +37,9 @@ __int64 __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3)
     v8 = -1LL;
     do
       ++v8;
-    while ( v12[v8] );
-    result = EtwpAddEventToBuffer(a2, 66, (_QWORD *)(a2 + 88), v12, (int)v8 + 1, v4, v11);
-    if ( (int)result < 0 )
+    while ( MultiByteString[v8] );
+    result = EtwpAddEventToBuffer(a2, 66, (_QWORD *)(a2 + 88), MultiByteString, (int)v8 + 1, v4, v11);
+    if ( result < 0 )
       return result;
     result = (v11[0] + 7) & 0xFFFFFFF8;
     v4 -= result;
@@ -50,7 +49,7 @@ __int64 __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3)
   while ( v10 != (__int64 *)v9 )
   {
     result = EtwpAddEventToBuffer(a2, 64, v7, (char *)v10 + 28, *((_DWORD *)v10 + 5) - 4, v4, v11);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       break;
     v10 = (__int64 *)*v10;
     result = (v11[0] + 7) & 0xFFFFFFF8;

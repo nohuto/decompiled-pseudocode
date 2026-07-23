@@ -1,10 +1,10 @@
 /*
- * XREFs of SepInitializeCodeIntegrity @ 0x140822CE8
+ * XREFs of SepInitializeCodeIntegrity @ 0x140822FE8
  * Callers:
- *     SepInitializationPhase1 @ 0x140822A40 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140822D40 (SepInitializationPhase1.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     SepIsOptionPresent @ 0x140822DA8 (SepIsOptionPresent.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SepIsOptionPresent @ 0x1408230A8 (SepIsOptionPresent.c)
  */
 
 __int64 SepInitializeCodeIntegrity()
@@ -15,10 +15,10 @@ __int64 SepInitializeCodeIntegrity()
   unsigned int *v3; // rdx
 
   v0 = 6;
-  memset(&unk_140C379A4, 0, 0xECuLL);
+  memset(&unk_140C37944, 0, 0xECuLL);
   v1 = 0LL;
   SeCiCallbacks = 248;
-  qword_140C37A90 = 167772172LL;
+  qword_140C37A30 = 167772172LL;
   if ( KeLoaderBlock_0 )
   {
     v2 = *(_QWORD *)(KeLoaderBlock_0 + 240);

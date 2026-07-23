@@ -15,21 +15,18 @@
  *     NtClose @ 0x1800A52A0 (NtClose.c)
  */
 
-__int64 __fastcall RtlReleaseRelativeName(__int64 a1)
+void __cdecl RtlReleaseRelativeName(PRTL_RELATIVE_NAME_U RelativeName)
 {
-  unsigned __int64 v1; // rbx
-  __int64 result; // rax
+  PRTLP_CURDIR_REF CurDirRef; // rbx
 
-  v1 = *(_QWORD *)(a1 + 24);
-  if ( v1 )
+  CurDirRef = RelativeName->CurDirRef;
+  if ( CurDirRef )
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
+    if ( _InterlockedExchangeAdd(&CurDirRef->ReferenceCount, 0xFFFFFFFF) == 1 )
     {
-      NtClose(*(HANDLE *)(v1 + 8));
-      result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+      NtClose(CurDirRef->DirectoryHandle);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, CurDirRef);
     }
-    *(_QWORD *)(a1 + 24) = 0LL;
+    RelativeName->CurDirRef = 0LL;
   }
-  return result;
 }

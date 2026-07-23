@@ -17,7 +17,7 @@
  * Callees:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
  *     DbgPrintEx @ 0x18004D290 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 void __fastcall RtlDeactivateActivationContextUnsafeFast(__int64 a1)
@@ -109,8 +109,8 @@ LABEL_31:
       v8 = *v5;
       v9 = 0;
       DbgPrintEx(
-        51LL,
-        2LL,
+        0x33u,
+        2u,
         "SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
         "RtlDeactivateActivationContextUnsafeFast",
         ActivationContextStackPointer->ActiveFrame,

@@ -34,7 +34,7 @@ unsigned __int64 __fastcall EtwpReserveTraceBuffer(unsigned int *a1, __int64 a2,
   int v15; // eax
   unsigned __int32 v16; // ebp
   unsigned __int64 v17; // rax
-  LARGE_INTEGER v18; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   unsigned __int32 v19; // eax
   signed __int64 v20; // rax
   signed __int64 i; // rcx
@@ -210,7 +210,7 @@ LABEL_62:
         }
         goto LABEL_62;
       }
-      v18 = v39;
+      SystemTimePrecise = v39;
       v8 = v35;
     }
     else
@@ -220,7 +220,7 @@ LABEL_62:
         goto LABEL_70;
       if ( (_DWORD)v17 == 3 )
       {
-        v18.QuadPart = __rdtsc();
+        SystemTimePrecise.QuadPart = __rdtsc();
       }
       else if ( (_DWORD)v17 )
       {
@@ -232,25 +232,25 @@ LABEL_70:
             __fastfail(0x3Du);
           v40.QuadPart = 0LL;
           ((void (__fastcall *)(LARGE_INTEGER *, __int64, __int64))off_140C009E0[0])(&v40, a2, v9);
-          v18 = v40;
+          SystemTimePrecise = v40;
           v9 = v36;
           v8 = v35;
         }
         else
         {
-          v18 = KeQueryPerformanceCounter(0LL);
+          SystemTimePrecise = KeQueryPerformanceCounter(0LL);
           v9 = v36;
           v8 = v35;
         }
       }
       else
       {
-        v18.QuadPart = RtlGetSystemTimePrecise();
+        SystemTimePrecise = RtlGetSystemTimePrecise();
         v9 = v36;
         v8 = v35;
       }
     }
-    *a4 = v18;
+    *a4 = SystemTimePrecise;
     v19 = _InterlockedCompareExchange((volatile signed __int32 *)(v13 + 8), v10 + v16, v16);
     a2 = v19;
     if ( v16 == v19 )

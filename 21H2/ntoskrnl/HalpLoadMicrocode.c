@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpLoadMicrocode @ 0x140866020
+ * XREFs of HalpLoadMicrocode @ 0x140866180
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     HalpMcUpdateUnlock @ 0x1403840E0 (HalpMcUpdateUnlock.c)
- *     HalpMcUpdateLock @ 0x140387EE4 (HalpMcUpdateLock.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpMcUpdateMicrocode @ 0x1403A6514 (HalpMcUpdateMicrocode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpMcUpdateInitialize @ 0x140790E20 (HalpMcUpdateInitialize.c)
- *     HalpMcExportAllData @ 0x140791900 (HalpMcExportAllData.c)
- *     HalpUnloadMicrocode @ 0x1408661D0 (HalpUnloadMicrocode.c)
- *     PoDisableSleepStates @ 0x1408E3C20 (PoDisableSleepStates.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMcUpdateUnlock @ 0x140384230 (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x140388034 (HalpMcUpdateLock.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMcUpdateMicrocode @ 0x1403A6664 (HalpMcUpdateMicrocode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpMcUpdateInitialize @ 0x1407923D0 (HalpMcUpdateInitialize.c)
+ *     HalpMcExportAllData @ 0x140792EB0 (HalpMcExportAllData.c)
+ *     HalpUnloadMicrocode @ 0x140866330 (HalpUnloadMicrocode.c)
+ *     PoDisableSleepStates @ 0x1408E3D80 (PoDisableSleepStates.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpLoadMicrocode(__int64 a1)
@@ -36,8 +36,8 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
   __int64 v13; // rcx
   __int64 v14; // r8
   unsigned int v16; // [rsp+20h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v16 = 0;
   Affinity = 0LL;
@@ -46,12 +46,12 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
   updated = HalpMcUpdateInitialize(0LL, v2);
   if ( updated < 0 )
     goto LABEL_22;
-  if ( IsMicrosoftCompatibleHvLoaded && qword_140C4A338 )
+  if ( IsMicrosoftCompatibleHvLoaded && qword_140C4A378 )
   {
     v6 = HalpMcExportAllData(&v16, 0LL, NonPagedPoolNx);
     if ( v6 )
     {
-      updated = qword_140C4A338(v6, v16);
+      updated = qword_140C4A378(v6, v16);
       ExFreePoolWithTag(v6, 0x206C6148u);
     }
     else

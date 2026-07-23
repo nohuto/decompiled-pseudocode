@@ -4,7 +4,7 @@
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  *     ViMakeVerifierSettings @ 0x140B972C4 (ViMakeVerifierSettings.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void *__fastcall VfInitSetVerifyDriverTargets(void *Src, unsigned int a2)

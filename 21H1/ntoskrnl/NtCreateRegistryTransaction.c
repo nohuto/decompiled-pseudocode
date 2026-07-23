@@ -12,7 +12,11 @@
  *     NtClose @ 0x14062C900 (NtClose.c)
  */
 
-__int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int64 a3, int a4)
+NTSTATUS __cdecl NtCreateRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes,
+        ULONG CreateOptions)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v9; // rdx
@@ -25,7 +29,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
   __int64 v16; // rdx
   __int64 v17; // r8
   __int64 v18; // r9
-  int Object; // edi
+  NTSTATUS Object; // edi
   __int64 v21; // [rsp+20h] [rbp-68h]
   HANDLE Handle; // [rsp+58h] [rbp-30h] BYREF
   PADAPTER_OBJECT DmaAdapter[2]; // [rsp+60h] [rbp-28h] BYREF
@@ -37,7 +41,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
   v10 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   if ( v10 )
   {
-    if ( a4 )
+    if ( CreateOptions )
     {
       Object = -1073741811;
     }
@@ -47,18 +51,18 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
       if ( PreviousMode == 1 )
       {
         v14 = 0x7FFFFFFF0000LL;
-        if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-          v14 = (__int64)a1;
+        if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+          v14 = (__int64)RegistryTransactionHandle;
         *(_QWORD *)v14 = 0LL;
       }
       else
       {
-        *a1 = 0LL;
+        *RegistryTransactionHandle = 0LL;
       }
       Object = ObCreateObjectEx(
                  PreviousMode,
                  CmRegistryTransactionType,
-                 a3,
+                 (__int64)ObjAttributes,
                  PreviousMode,
                  v21,
                  24,
@@ -72,11 +76,11 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
         *DmaAdapter[0] = 0LL;
         *(_QWORD *)&v15[1].Version = 0LL;
         v15->DmaOperations = 0LL;
-        Object = ObInsertObjectEx(v15, 0LL, a2, 0, 0, 0LL, &Handle);
+        Object = ObInsertObjectEx(v15, 0LL, DesiredAccess, 0, 0, 0LL, &Handle);
         DmaAdapter[0] = 0LL;
         if ( Object >= 0 )
         {
-          *a1 = Handle;
+          *RegistryTransactionHandle = Handle;
           Handle = 0LL;
           Object = 0;
         }
@@ -97,5 +101,5 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, ACCESS_MASK a2, __int
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
   }
-  return (unsigned int)Object;
+  return Object;
 }

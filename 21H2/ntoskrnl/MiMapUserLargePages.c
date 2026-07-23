@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMapUserLargePages @ 0x14055E730
+ * XREFs of MiMapUserLargePages @ 0x14055E970
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiCopyLargeVad @ 0x1408D9D20 (MiCopyLargeVad.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiCopyLargeVad @ 0x1408D9E80 (MiCopyLargeVad.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetLargestPageIndex @ 0x1402C9DE0 (MiGetLargestPageIndex.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiUnlockPageTable @ 0x1403B6C60 (MiUnlockPageTable.c)
+ *     MiGetLargestPageIndex @ 0x1402486D0 (MiGetLargestPageIndex.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiUnlockPageTable @ 0x1403B6DD0 (MiUnlockPageTable.c)
  *     MiInitializeLargeUserBasePfn @ 0x1403F7C20 (MiInitializeLargeUserBasePfn.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14053161C (MiLogPerfMemoryRangeEvent.c)
- *     MiShouldYieldProcessor @ 0x1405369D8 (MiShouldYieldProcessor.c)
- *     MiInitPerfMemoryFlags @ 0x140544A58 (MiInitPerfMemoryFlags.c)
- *     MiComputePreferredNode @ 0x140547B78 (MiComputePreferredNode.c)
- *     MiLockWorkingSetForLargeMapping @ 0x14054F7D8 (MiLockWorkingSetForLargeMapping.c)
- *     MiCreateLargePfnList @ 0x14055DEFC (MiCreateLargePfnList.c)
- *     MiDemotePfnListChain @ 0x14055E218 (MiDemotePfnListChain.c)
- *     MiInsertLargeUserMapping @ 0x14055E578 (MiInsertLargeUserMapping.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14053185C (MiLogPerfMemoryRangeEvent.c)
+ *     MiShouldYieldProcessor @ 0x140536C18 (MiShouldYieldProcessor.c)
+ *     MiInitPerfMemoryFlags @ 0x140544C98 (MiInitPerfMemoryFlags.c)
+ *     MiComputePreferredNode @ 0x140547DB8 (MiComputePreferredNode.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x14054FA18 (MiLockWorkingSetForLargeMapping.c)
+ *     MiCreateLargePfnList @ 0x14055E13C (MiCreateLargePfnList.c)
+ *     MiDemotePfnListChain @ 0x14055E458 (MiDemotePfnListChain.c)
+ *     MiInsertLargeUserMapping @ 0x14055E7B8 (MiInsertLargeUserMapping.c)
  */
 
 __int64 __fastcall MiMapUserLargePages(__int64 a1)
@@ -79,7 +79,7 @@ __int64 __fastcall MiMapUserLargePages(__int64 a1)
   v5 = (((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) << 12) | 0xFFF) + 1;
   v41 = v5;
   v42 = (v5 - v4) >> 12;
-  result = MiCreateLargePfnList(a1, v42, v7, v6, (__int64)v43);
+  result = MiCreateLargePfnList(a1, v42, v7, v6, (char *)v43);
   if ( (int)result < 0 )
     return result;
   v9 = *(_DWORD *)(a1 + 48);
@@ -110,7 +110,7 @@ LABEL_8:
   v17 = 0LL;
   v18 = v4;
   v36 = (_DWORD *)v4;
-  v34 = *(_DWORD *)(v10 + 4 * ((v11 >> 7) & 0x1F) + 98368);
+  v34 = *(_DWORD *)(v10 + 4 * ((v11 >> 7) & 0x1F) + 98416);
   BugCheckParameter1 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( v4 >= v5 )
     goto LABEL_61;
@@ -119,7 +119,7 @@ LABEL_8:
     v19 = LargestPageIndex;
     for ( i = LargestPageIndex <= v13; i; i = v19 <= v13 )
     {
-      v21 = *(_QWORD *)(v10 + 8LL * v19 + 111960) << 12;
+      v21 = *(_QWORD *)(v10 + 8LL * v19 + 112136) << 12;
       if ( !(v18 % v21) && v5 - v18 >= v21 )
       {
         LODWORD(v22) = v19;
@@ -153,7 +153,7 @@ LABEL_17:
     v39 = (_QWORD *)v43[v19];
     v43[v19] = *v39;
     v24 = BugCheckParameter1;
-    v40 = *(_QWORD *)(v10 + 8LL * v19 + 111960);
+    v40 = *(_QWORD *)(v10 + 8LL * v19 + 112136);
     if ( v19 < 2 )
     {
       v25 = 2 - v19;

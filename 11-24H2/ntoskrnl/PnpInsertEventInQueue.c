@@ -1,31 +1,31 @@
 /*
- * XREFs of PnpInsertEventInQueue @ 0x1408B3950
+ * XREFs of PnpInsertEventInQueue @ 0x1408B1240
  * Callers:
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140487208 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x1404A4D80 (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
- *     PnpSetDeviceInstanceRemovalEvent @ 0x1404A7878 (PnpSetDeviceInstanceRemovalEvent.c)
- *     PnpSetBlockedDriverEvent @ 0x14072DDE4 (PnpSetBlockedDriverEvent.c)
- *     PnpSetDeviceRemovalSafe @ 0x14072DE54 (PnpSetDeviceRemovalSafe.c)
- *     PnpSetHwProfileChangeEvent @ 0x14072DF60 (PnpSetHwProfileChangeEvent.c)
- *     PnpSetInvalidIDEvent @ 0x14072DFFC (PnpSetInvalidIDEvent.c)
- *     PnpSetPowerVetoEvent @ 0x14072E0B4 (PnpSetPowerVetoEvent.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x1408B220C (PnpSynchronizeDeviceEventQueue.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x1408B2EAC (PnpQueueQueryAndRemoveEvent.c)
- *     PnpSetDeviceClassChange @ 0x1408B3588 (PnpSetDeviceClassChange.c)
- *     PnpInsertNoopEvent @ 0x1408B3754 (PnpInsertNoopEvent.c)
- *     PnpSetCustomTargetEvent @ 0x1408B37C0 (PnpSetCustomTargetEvent.c)
- *     PnpSetPlugPlayEvent @ 0x140990378 (PnpSetPlugPlayEvent.c)
- *     PnpRequestDeviceRemoval @ 0x140A1132C (PnpRequestDeviceRemoval.c)
- *     PnpSetTargetDeviceRemove @ 0x140A8F494 (PnpSetTargetDeviceRemove.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140482278 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x14049FB10 (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
+ *     PnpSetDeviceInstanceRemovalEvent @ 0x1404A22A8 (PnpSetDeviceInstanceRemovalEvent.c)
+ *     PnpSetBlockedDriverEvent @ 0x14072BDF4 (PnpSetBlockedDriverEvent.c)
+ *     PnpSetDeviceRemovalSafe @ 0x14072BE64 (PnpSetDeviceRemovalSafe.c)
+ *     PnpSetHwProfileChangeEvent @ 0x14072BF70 (PnpSetHwProfileChangeEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x14072C00C (PnpSetInvalidIDEvent.c)
+ *     PnpSetPowerVetoEvent @ 0x14072C0C4 (PnpSetPowerVetoEvent.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x1408AFB00 (PnpSynchronizeDeviceEventQueue.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x1408B079C (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpSetDeviceClassChange @ 0x1408B0E78 (PnpSetDeviceClassChange.c)
+ *     PnpInsertNoopEvent @ 0x1408B1044 (PnpInsertNoopEvent.c)
+ *     PnpSetCustomTargetEvent @ 0x1408B10B0 (PnpSetCustomTargetEvent.c)
+ *     PnpSetPlugPlayEvent @ 0x14097B3B0 (PnpSetPlugPlayEvent.c)
+ *     PnpRequestDeviceRemoval @ 0x1409BF73C (PnpRequestDeviceRemoval.c)
+ *     PnpSetTargetDeviceRemove @ 0x140A8BB2C (PnpSetTargetDeviceRemove.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     IoGetActivityIdThread @ 0x14043F3F0 (IoGetActivityIdThread.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x14046D660 (PnpIsSafeToExamineUserModeTeb.c)
- *     McTemplateK0zjqdtd_EtwWriteTransfer @ 0x1405A73C8 (McTemplateK0zjqdtd_EtwWriteTransfer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     IoGetActivityIdThread @ 0x140435520 (IoGetActivityIdThread.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x140468200 (PnpIsSafeToExamineUserModeTeb.c)
+ *     McTemplateK0zjqdtd_EtwWriteTransfer @ 0x1405A43B8 (McTemplateK0zjqdtd_EtwWriteTransfer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpInsertEventInQueue(__int64 a1)
@@ -33,54 +33,56 @@ __int64 __fastcall PnpInsertEventInQueue(__int64 a1)
   unsigned int v2; // esi
   struct _WORK_QUEUE_ITEM *Pool2; // rdi
   struct _LIST_ENTRY *ActivityIdThread; // rax
-  __int64 v5; // r8
-  __int64 v6; // rax
-  _QWORD *v7; // rcx
-  _QWORD *v9; // rdx
-  __int64 v10; // rax
-  __int64 v11; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rax
+  _QWORD *v9; // rcx
+  _QWORD *v11; // rdx
   __int64 v12; // rax
-  __int64 v13; // r9
-  GUID v14; // [rsp+50h] [rbp-28h]
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // r9
+  GUID v16; // [rsp+50h] [rbp-28h]
 
-  v14 = CPER_EMPTY_GUID;
+  v16 = CPER_EMPTY_GUID;
   v2 = 0;
   Pool2 = 0LL;
   ActivityIdThread = IoGetActivityIdThread();
   if ( ActivityIdThread )
   {
-    v14 = (GUID)*ActivityIdThread;
+    v16 = (GUID)*ActivityIdThread;
   }
-  else if ( PnpIsSafeToExamineUserModeTeb()
-         && KeGetPcr()->NtTib.$F9182C7BBDA5465159379F5666D1C81A::$B2F89C67BE96B06D3F6044187E462952::Self )
+  else if ( PnpIsSafeToExamineUserModeTeb(v6, v5)
+         && KeGetPcr()->NtTib.$5225818D498B3FAE6A65DB4E37572489::$27D8BC11A01A0546FE12179A0057C7B6::Self )
   {
-    v14 = *(GUID *)&KeGetPcr()->NtTib.$F9182C7BBDA5465159379F5666D1C81A::$B2F89C67BE96B06D3F6044187E462952::Self[105].SubSystemTib;
+    v16 = *(GUID *)&KeGetPcr()->NtTib.$5225818D498B3FAE6A65DB4E37572489::$27D8BC11A01A0546FE12179A0057C7B6::Self[105].SubSystemTib;
   }
-  *(GUID *)(a1 + 88) = v14;
-  if ( (byte_140EEFD23 & 0x10) != 0 )
+  *(GUID *)(a1 + 88) = v16;
+  if ( (byte_140EEFF63 & 0x10) != 0 )
   {
-    v9 = (_QWORD *)(a1 + 120);
-    v10 = *(_QWORD *)(a1 + 120) - *(_QWORD *)&GUID_DEVICE_QUERY_AND_REMOVE.Data1;
-    if ( !v10 )
-      v10 = *(_QWORD *)(a1 + 128) - *(_QWORD *)GUID_DEVICE_QUERY_AND_REMOVE.Data4;
-    if ( !v10 )
+    v11 = (_QWORD *)(a1 + 120);
+    v12 = *(_QWORD *)(a1 + 120) - *(_QWORD *)&GUID_DEVICE_QUERY_AND_REMOVE.Data1;
+    if ( !v12 )
+      v12 = *(_QWORD *)(a1 + 128) - *(_QWORD *)GUID_DEVICE_QUERY_AND_REMOVE.Data4;
+    if ( !v12 )
       goto LABEL_23;
-    v11 = *v9 - *(_QWORD *)&GUID_DEVICE_EJECT.Data1;
-    if ( *v9 == *(_QWORD *)&GUID_DEVICE_EJECT.Data1 )
-      v11 = *(_QWORD *)(a1 + 128) - *(_QWORD *)GUID_DEVICE_EJECT.Data4;
-    if ( !v11 )
+    v13 = *v11 - *(_QWORD *)&GUID_DEVICE_EJECT.Data1;
+    if ( *v11 == *(_QWORD *)&GUID_DEVICE_EJECT.Data1 )
+      v13 = *(_QWORD *)(a1 + 128) - *(_QWORD *)GUID_DEVICE_EJECT.Data4;
+    if ( !v13 )
     {
 LABEL_23:
-      v12 = *(_QWORD *)(a1 + 160);
-      if ( v12 )
-        v13 = *(_QWORD *)(*(_QWORD *)(v12 + 312) + 40LL);
+      v14 = *(_QWORD *)(a1 + 160);
+      if ( v14 )
+        v15 = *(_QWORD *)(*(_QWORD *)(v14 + 312) + 40LL);
       else
-        v13 = 0LL;
+        v15 = 0LL;
       McTemplateK0zjqdtd_EtwWriteTransfer(
         *(_QWORD *)(a1 + 24) != 0LL,
-        (__int64)v9,
-        v5,
-        *(const wchar_t **)(v13 + 48),
+        (__int64)v11,
+        v7,
+        *(const wchar_t **)(v15 + 48),
         a1 + 120,
         *(_DWORD *)(a1 + 16),
         *(_DWORD *)(a1 + 20),
@@ -92,7 +94,7 @@ LABEL_23:
   ExAcquireFastMutex(&PnpNotificationInProgressLock);
   if ( !BYTE3(NlsMbOemCodePageTag) )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x4C706E50u);
     if ( Pool2 )
     {
       BYTE3(NlsMbOemCodePageTag) = 1;
@@ -103,14 +105,14 @@ LABEL_23:
       v2 = -1073741670;
     }
   }
-  v6 = PnpDeviceEventList + 120;
-  v7 = *(_QWORD **)(PnpDeviceEventList + 128);
-  if ( *v7 != PnpDeviceEventList + 120 )
+  v8 = PnpDeviceEventList + 120;
+  v9 = *(_QWORD **)(PnpDeviceEventList + 128);
+  if ( *v9 != PnpDeviceEventList + 120 )
     __fastfail(3u);
-  *(_QWORD *)a1 = v6;
-  *(_QWORD *)(a1 + 8) = v7;
-  *v7 = a1;
-  *(_QWORD *)(v6 + 8) = a1;
+  *(_QWORD *)a1 = v8;
+  *(_QWORD *)(a1 + 8) = v9;
+  *v9 = a1;
+  *(_QWORD *)(v8 + 8) = a1;
   KeReleaseGuardedMutex(&PnpNotificationInProgressLock);
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)(PnpDeviceEventList + 64));
   if ( Pool2 )

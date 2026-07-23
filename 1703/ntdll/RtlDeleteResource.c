@@ -8,11 +8,11 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-void *__fastcall RtlDeleteResource(__int64 a1)
+void __cdecl RtlDeleteResource(PRTL_RESOURCE Resource)
 {
-  RtlDeleteCriticalSection((void *)a1);
-  ZwClose(*(_QWORD *)(a1 + 40));
-  ZwClose(*(_QWORD *)(a1 + 56));
-  sub_180008E24(*(PSLIST_ENTRY *)(a1 + 88));
-  return memset((void *)a1, 0, 0x60uLL);
+  RtlDeleteCriticalSection(&Resource->CriticalSection);
+  ZwClose(Resource->SharedSemaphore);
+  ZwClose(Resource->ExclusiveSemaphore);
+  sub_180008E24((PSLIST_ENTRY)Resource->DebugInfo);
+  memset(Resource, 0, sizeof(_RTL_RESOURCE));
 }

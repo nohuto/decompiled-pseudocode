@@ -1,16 +1,16 @@
 /*
- * XREFs of KseShimDatabaseOpen @ 0x14067DAB8
+ * XREFs of KseShimDatabaseOpen @ 0x14067EC78
  * Callers:
- *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
- *     KsepDbGetShimInfo @ 0x140847808 (KsepDbGetShimInfo.c)
- *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
+ *     KsepDbGetDriverShims @ 0x14067EA64 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x140721F7C (KsepDbCacheReadDevice.c)
+ *     KsepDbGetShimInfo @ 0x140848A68 (KsepDbGetShimInfo.c)
+ *     KseInitialize @ 0x1409B0930 (KseInitialize.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KsepShimDbMapToMemory @ 0x1405A2050 (KsepShimDbMapToMemory.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KsepShimDbMapToMemory @ 0x1405A3050 (KsepShimDbMapToMemory.c)
  */
 
 __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
@@ -28,7 +28,7 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
       ++KsepShimDbRefCount;
       v3 = 0;
       *a1 = KsepShimDbHandle;
-      _InterlockedIncrement(&dword_14041AB50);
+      _InterlockedIncrement(&dword_14041BC10);
       goto LABEL_4;
     }
     *a1 = 0LL;
@@ -40,7 +40,7 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
       ++KsepShimDbRefCount;
       v3 = 0;
       *a1 = KsepShimDbHandle;
-      _InterlockedIncrement(&dword_14041AB58);
+      _InterlockedIncrement(&dword_14041BC18);
       goto LABEL_4;
     }
     v3 = KsepShimDbMapToMemory();
@@ -48,11 +48,11 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
     {
       ++KsepShimDbRefCount;
       *a1 = KsepShimDbHandle;
-      _InterlockedIncrement(&dword_14041AB54);
+      _InterlockedIncrement(&dword_14041BC14);
       goto LABEL_4;
     }
     *a1 = 0LL;
-    _InterlockedIncrement(&dword_14041AB5C);
+    _InterlockedIncrement(&dword_14041BC1C);
   }
   v3 = -1073741823;
 LABEL_4:

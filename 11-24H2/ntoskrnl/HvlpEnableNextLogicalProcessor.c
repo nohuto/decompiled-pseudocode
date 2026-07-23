@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpEnableNextLogicalProcessor @ 0x140584340
+ * XREFs of HvlpEnableNextLogicalProcessor @ 0x1405816C0
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140583AD8 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x140580E58 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HvlpGetVpIndexFromApicId @ 0x140584540 (HvlpGetVpIndexFromApicId.c)
- *     HvlpMapStatisticsPage @ 0x140584828 (HvlpMapStatisticsPage.c)
- *     HvlpStartLogicalProcessor @ 0x140585648 (HvlpStartLogicalProcessor.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HvlpGetVpIndexFromApicId @ 0x1405818C0 (HvlpGetVpIndexFromApicId.c)
+ *     HvlpMapStatisticsPage @ 0x140581BA8 (HvlpMapStatisticsPage.c)
+ *     HvlpStartLogicalProcessor @ 0x1405829C8 (HvlpStartLogicalProcessor.c)
  */
 
 __int64 __fastcall HvlpEnableNextLogicalProcessor(__int64 a1, unsigned __int16 a2)
@@ -49,7 +49,7 @@ __int64 __fastcall HvlpEnableNextLogicalProcessor(__int64 a1, unsigned __int16 a
     result = HvlpMapStatisticsPage(2LL, &v10, &v12);
     if ( (int)result < 0 )
       return result;
-    v7 = MmMapIoSpaceEx(v12, 4096LL, 2u);
+    v7 = MmMapIoSpaceEx(v12, 4096LL, 2LL);
     if ( !v7 )
       return 3221225626LL;
     *((_QWORD *)v5 + 3) = v7;

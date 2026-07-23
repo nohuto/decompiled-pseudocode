@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompressBufferXpressLzStandard @ 0x180077BE4 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x180077BD4 (RtlCompressBufferXpressLzStandard.c)
  *     RtlCompressBufferXpressLzMax @ 0x1800FC530 (RtlCompressBufferXpressLzMax.c)
  */
 

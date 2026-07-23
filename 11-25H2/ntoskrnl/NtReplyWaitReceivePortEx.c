@@ -15,12 +15,17 @@
  *     AlpcpReplyLegacySynchronousRequest @ 0x1409F1EF0 (AlpcpReplyLegacySynchronousRequest.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 a5)
+NTSTATUS __cdecl NtReplyWaitReceivePortEx(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v11; // rcx
-  NTSTATUS v12; // ebx
+  int v12; // ebx
   __int64 v13; // r8
   __int64 v14; // r9
   PVOID v15; // rdi
@@ -40,22 +45,22 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a4 & 3) != 0 )
+    if ( ((unsigned __int8)ReceiveMessage & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v11 = 0x7FFFFFFF0000LL;
-    if ( a4 < 0x7FFFFFFF0000LL )
-      v11 = a4;
+    if ( (unsigned __int64)ReceiveMessage < 0x7FFFFFFF0000LL )
+      v11 = (__int64)ReceiveMessage;
     *(_BYTE *)v11 = *(_BYTE *)v11;
     *(_BYTE *)(v11 + 39) = *(_BYTE *)(v11 + 39);
   }
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
     v15 = Object;
     v22[0] = Object;
     v26[0] = 0;
-    if ( !a3 )
+    if ( !ReplyMessage )
       goto LABEL_9;
     if ( (*((_DWORD *)Object + 104) & 0x2000) != 0 )
     {
@@ -64,7 +69,7 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
       v23 = 0LL;
       v25 = 0LL;
       LOBYTE(v13) = PreviousMode;
-      v20 = AlpcpReplyLegacySynchronousRequest(v22, a3, v13);
+      v20 = AlpcpReplyLegacySynchronousRequest(v22, ReplyMessage, v13);
     }
     else
     {
@@ -73,7 +78,7 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
       v23 = 0LL;
       v25 = 0LL;
       LOBYTE(v14) = PreviousMode;
-      v20 = AlpcpSendMessage(v22, a3, 0LL, v14);
+      v20 = AlpcpSendMessage(v22, ReplyMessage, 0LL, v14);
     }
     v12 = v20;
     if ( v20 < 0 )
@@ -85,7 +90,7 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __int64 a
     else
     {
 LABEL_9:
-      v12 = AlpcpReceiveLegacyMessage(v22, a4, a5, a2);
+      v12 = AlpcpReceiveLegacyMessage(v22, ReceiveMessage, Timeout, PortContext);
       if ( _bittestandreset((signed __int32 *)v26, 2u) )
       {
         v19 = v26[0] >> 22;
@@ -98,5 +103,5 @@ LABEL_9:
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v12;
+  return v12;
 }

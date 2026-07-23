@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnloadHotPatch @ 0x1408581F8
+ * XREFs of MiUnloadHotPatch @ 0x140859458
  * Callers:
- *     NtManageHotPatch @ 0x140858450 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408596B0 (NtManageHotPatch.c)
  * Callees:
- *     VslRevertHotPatch @ 0x14027BF0C (VslRevertHotPatch.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MiApplyHotPatchToDriver @ 0x140854324 (MiApplyHotPatchToDriver.c)
- *     MiDeleteHotPatchRecord @ 0x140854BCC (MiDeleteHotPatchRecord.c)
- *     MiHotPatchAllProcesses @ 0x140855288 (MiHotPatchAllProcesses.c)
+ *     VslRevertHotPatch @ 0x14027C0FC (VslRevertHotPatch.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MiApplyHotPatchToDriver @ 0x140855584 (MiApplyHotPatchToDriver.c)
+ *     MiDeleteHotPatchRecord @ 0x140855E2C (MiDeleteHotPatchRecord.c)
+ *     MiHotPatchAllProcesses @ 0x1408564E8 (MiHotPatchAllProcesses.c)
  */
 
 __int64 __fastcall MiUnloadHotPatch(unsigned int a1, unsigned int a2)

@@ -1,36 +1,36 @@
 /*
- * XREFs of MmCleanProcessAddressSpace @ 0x14045EDFC
+ * XREFs of MmCleanProcessAddressSpace @ 0x14045DCCC
  * Callers:
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
  * Callees:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BED0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiVadDeleted @ 0x14002C370 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PsReturnProcessQuota @ 0x1400750A4 (PsReturnProcessQuota.c)
- *     MiDeleteVadBitmap @ 0x1400750D0 (MiDeleteVadBitmap.c)
- *     MiCleanCfg @ 0x140075528 (MiCleanCfg.c)
- *     ExFreeSvmAsid @ 0x140075598 (ExFreeSvmAsid.c)
- *     MiBeginProcessClean @ 0x1400755E8 (MiBeginProcessClean.c)
- *     MiUnlinkWorkingSet @ 0x140101484 (MiUnlinkWorkingSet.c)
- *     MiCleanWorkingSet @ 0x14010159C (MiCleanWorkingSet.c)
- *     MiReturnPartitionResidentAvailable @ 0x1401718E8 (MiReturnPartitionResidentAvailable.c)
- *     MiClearCommitReleaseState @ 0x1401DF84C (MiClearCommitReleaseState.c)
- *     MiWaitForVadDeletion @ 0x1401F7718 (MiWaitForVadDeletion.c)
- *     MiUnmapVad @ 0x14042EEF0 (MiUnmapVad.c)
- *     MiCleanEmbryonicProcess @ 0x14045F008 (MiCleanEmbryonicProcess.c)
- *     MiDereferenceSession @ 0x14045F498 (MiDereferenceSession.c)
- *     MiContractWsSwapPageFile @ 0x1404F1C0C (MiContractWsSwapPageFile.c)
- *     MiCleanPhysicalProcessPages @ 0x14065C30C (MiCleanPhysicalProcessPages.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BA50 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiVadDeleted @ 0x14002BEF0 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PsReturnProcessQuota @ 0x140075124 (PsReturnProcessQuota.c)
+ *     MiDeleteVadBitmap @ 0x140075150 (MiDeleteVadBitmap.c)
+ *     MiCleanCfg @ 0x1400755A8 (MiCleanCfg.c)
+ *     ExFreeSvmAsid @ 0x140075618 (ExFreeSvmAsid.c)
+ *     MiBeginProcessClean @ 0x140075668 (MiBeginProcessClean.c)
+ *     MiUnlinkWorkingSet @ 0x1400FF204 (MiUnlinkWorkingSet.c)
+ *     MiCleanWorkingSet @ 0x1400FF31C (MiCleanWorkingSet.c)
+ *     MiReturnPartitionResidentAvailable @ 0x140171DE4 (MiReturnPartitionResidentAvailable.c)
+ *     MiClearCommitReleaseState @ 0x1401DF678 (MiClearCommitReleaseState.c)
+ *     MiWaitForVadDeletion @ 0x1401F7544 (MiWaitForVadDeletion.c)
+ *     MiUnmapVad @ 0x14042DDC0 (MiUnmapVad.c)
+ *     MiCleanEmbryonicProcess @ 0x14045DED8 (MiCleanEmbryonicProcess.c)
+ *     MiDereferenceSession @ 0x14045E368 (MiDereferenceSession.c)
+ *     MiContractWsSwapPageFile @ 0x1404D43A0 (MiContractWsSwapPageFile.c)
+ *     MiCleanPhysicalProcessPages @ 0x14065C3F0 (MiCleanPhysicalProcessPages.c)
  */
 
 void __fastcall MmCleanProcessAddressSpace(ULONG_PTR BugCheckParameter2)
@@ -55,7 +55,7 @@ void __fastcall MmCleanProcessAddressSpace(ULONG_PTR BugCheckParameter2)
     CurrentThread = KeGetCurrentThread();
     v3 = MiBeginProcessClean((__int64)CurrentThread, BugCheckParameter2);
     ProcessPartition = MiGetProcessPartition(BugCheckParameter2);
-    v5 = qword_140327F90;
+    v5 = qword_140327FD0;
     v6 = ProcessPartition;
     while ( 1 )
     {

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpFilterResourceRequirementsList @ 0x14098D2D0
+ * XREFs of PnpFilterResourceRequirementsList @ 0x140978308
  * Callers:
- *     PnpGetResourceRequirementsForAssignTable @ 0x14098DBA0 (PnpGetResourceRequirementsForAssignTable.c)
- *     IopQueryDeviceResources @ 0x14098DEA4 (IopQueryDeviceResources.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x140978BD8 (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopQueryDeviceResources @ 0x140978EDC (IopQueryDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1404955C0 (RtlCmDecodeMemIoResource.c)
- *     RtlIoDecodeMemIoResource @ 0x1405E9AE0 (RtlIoDecodeMemIoResource.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpCmResourcesToIoResources @ 0x140733330 (PnpCmResourcesToIoResources.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x14048FE80 (RtlCmDecodeMemIoResource.c)
+ *     RtlIoDecodeMemIoResource @ 0x1405E7030 (RtlIoDecodeMemIoResource.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpCmResourcesToIoResources @ 0x140731264 (PnpCmResourcesToIoResources.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpFilterResourceRequirementsList(unsigned int *Src, unsigned int *a2, __int64 *a3, _DWORD *a4)
@@ -60,9 +60,9 @@ __int64 __fastcall PnpFilterResourceRequirementsList(unsigned int *Src, unsigned
   UCHAR v50; // cl
   struct _IO_RESOURCE_DESCRIPTOR *m; // rdi
   int v52; // eax
-  int v53; // edi
-  int *v54; // rax
-  int *v55; // rdx
+  unsigned int v53; // edi
+  unsigned int *v54; // rax
+  unsigned int *v55; // rdx
   unsigned int v56; // eax
   _DWORD *v57; // r10
   bool v58; // sf
@@ -106,7 +106,7 @@ __int64 __fastcall PnpFilterResourceRequirementsList(unsigned int *Src, unsigned
   *a4 = 0;
   if ( Src && Src[7] )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, *Src, 0x36706E50u);
     v86 = Pool2;
     v10 = Pool2;
     if ( !Pool2 )
@@ -478,7 +478,7 @@ LABEL_134:
         return v4;
       }
       v53 = 32 * (v65 - v20) + 8 * (v52 - 1 + 4 * (v52 - 1) + 9);
-      v54 = (int *)ExAllocatePool2(0x100uLL);
+      v54 = (unsigned int *)ExAllocatePool2(0x100uLL, v53, 0x36706E50u);
       v55 = v54;
       if ( !v54 )
       {

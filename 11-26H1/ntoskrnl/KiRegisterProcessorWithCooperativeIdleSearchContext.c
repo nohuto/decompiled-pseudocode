@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRegisterProcessorWithCooperativeIdleSearchContext @ 0x1405FB1DC
+ * XREFs of KiRegisterProcessorWithCooperativeIdleSearchContext @ 0x1405FDC38
  * Callers:
- *     KiAssignCooperativeIdleSearchContexts @ 0x1405EA2A8 (KiAssignCooperativeIdleSearchContexts.c)
- *     KiReconfigureSubNodeSchedulingInformation @ 0x1405EB788 (KiReconfigureSubNodeSchedulingInformation.c)
+ *     KiAssignCooperativeIdleSearchContexts @ 0x1405ECC18 (KiAssignCooperativeIdleSearchContexts.c)
+ *     KiReconfigureSubNodeSchedulingInformation @ 0x1405EE0F8 (KiReconfigureSubNodeSchedulingInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiRegisterProcessorWithCooperativeIdleSearchContext(__int64 a1, __int64 a2, __int64 a3)

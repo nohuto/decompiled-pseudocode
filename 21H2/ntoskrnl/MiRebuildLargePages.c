@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRebuildLargePages @ 0x14038D6C0
+ * XREFs of MiRebuildLargePages @ 0x14038D810
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     MiNodeFreeZeroPages @ 0x140318CA4 (MiNodeFreeZeroPages.c)
- *     MiNodeLargeFreeZeroPages @ 0x140318E40 (MiNodeLargeFreeZeroPages.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     MiNodeFreeZeroPages @ 0x1403239F4 (MiNodeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x140323B90 (MiNodeLargeFreeZeroPages.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x140550758 (MiGetNodeStandbyPageCount.c)
- *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
+ *     MiGetNodeStandbyPageCount @ 0x140550998 (MiGetNodeStandbyPageCount.c)
+ *     MiRebuildLargePage @ 0x140552918 (MiRebuildLargePage.c)
  */
 
 void __fastcall MiRebuildLargePages(unsigned __int64 a1)
@@ -30,7 +30,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
   unsigned __int64 *v13; // rbp
-  __int64 v14; // rax
+  PRTL_BALANCED_NODE v14; // rax
   bool v15; // cf
   unsigned int v16; // ebp
   unsigned __int64 v17; // r11
@@ -88,7 +88,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v1 + 4328));
   v14 = KeAbPreAcquire(v1, 0LL, 0);
   if ( v14 )
-    *(_BYTE *)(v14 + 26) |= 1u;
+    BYTE2(v14[1].Left) |= 1u;
   if ( v9 >= v8 )
   {
     v6 = v39;

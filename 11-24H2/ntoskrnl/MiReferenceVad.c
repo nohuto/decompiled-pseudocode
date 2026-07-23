@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReferenceVad @ 0x140262A70
+ * XREFs of MiReferenceVad @ 0x140292770
  * Callers:
- *     MiObtainReferencedSecureVad @ 0x140262864 (MiObtainReferencedSecureVad.c)
- *     MiWaitForRotateToComplete @ 0x14049A424 (MiWaitForRotateToComplete.c)
- *     MiHotPatchProcess @ 0x1407F2D08 (MiHotPatchProcess.c)
- *     MiAllocateEnclaveVad @ 0x1407F6D40 (MiAllocateEnclaveVad.c)
- *     MiDeleteInsertedCloneVads @ 0x140800264 (MiDeleteInsertedCloneVads.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408DC33C (MiCoalescePlaceholderAllocations.c)
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiLockVadRange @ 0x1408E8B10 (MiLockVadRange.c)
- *     MiCommitInitialVadMetadataBits @ 0x1408F9980 (MiCommitInitialVadMetadataBits.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x1409C33C4 (MiAllocateFromSubAllocatedRegion.c)
- *     MiMapLockedPagesInUserSpace @ 0x1409C3AE8 (MiMapLockedPagesInUserSpace.c)
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A135A0 (MiMapViewOfPhysicalSection.c)
- *     MiPreparePlaceholderVadReplacement @ 0x140A6753C (MiPreparePlaceholderVadReplacement.c)
+ *     MiObtainReferencedSecureVad @ 0x140292568 (MiObtainReferencedSecureVad.c)
+ *     MiWaitForRotateToComplete @ 0x140494E48 (MiWaitForRotateToComplete.c)
+ *     MiHotPatchProcess @ 0x1407F32D8 (MiHotPatchProcess.c)
+ *     MiAllocateEnclaveVad @ 0x1407F74B4 (MiAllocateEnclaveVad.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408009A4 (MiDeleteInsertedCloneVads.c)
+ *     MiLockVadRange @ 0x1408D92F0 (MiLockVadRange.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408DA56C (MiCoalescePlaceholderAllocations.c)
+ *     MiMapLockedPagesInUserSpace @ 0x1408DC1EC (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1408DE814 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiCommitInitialVadMetadataBits @ 0x14091C25C (MiCommitInitialVadMetadataBits.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0BD00 (MiMapViewOfPhysicalSection.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x140A6031C (MiPreparePlaceholderVadReplacement.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
  *     <none>
  */

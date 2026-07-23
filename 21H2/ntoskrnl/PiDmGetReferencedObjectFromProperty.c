@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDmGetReferencedObjectFromProperty @ 0x14074AA30
+ * XREFs of PiDmGetReferencedObjectFromProperty @ 0x14074ABF0
  * Callers:
- *     PiDmObjectProcessPropertyChange @ 0x14074A454 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectProcessPropertyChange @ 0x14074A614 (PiDmObjectProcessPropertyChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1406B2EC0 (PiDmObjectGetCachedObjectReference.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x140611F80 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmGetObject @ 0x14062B87C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     PnpGetObjectProperty @ 0x14062C84C (PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmGetReferencedObjectFromProperty(
-        unsigned int a1,
+        __int64 a1,
         __int64 a2,
         ULONG_PTR a3,
         __int64 a4,
@@ -22,6 +22,7 @@ __int64 __fastcall PiDmGetReferencedObjectFromProperty(
         __int64 *a7)
 {
   int v7; // ebp
+  int v8; // edi
   int CachedObjectReference; // eax
   unsigned int Object; // ebx
   int ObjectProperty; // eax
@@ -33,6 +34,7 @@ __int64 __fastcall PiDmGetReferencedObjectFromProperty(
   wchar_t v18[40]; // [rsp+80h] [rbp-88h] BYREF
 
   v7 = a2;
+  v8 = a1;
   LODWORD(v15) = 0;
   P = 0LL;
   *a7 = 0LL;
@@ -50,7 +52,7 @@ __int64 __fastcall PiDmGetReferencedObjectFromProperty(
   }
   if ( CachedObjectReference != -1073741802 )
     return Object;
-  ObjectProperty = PnpGetObjectProperty(0x5A706E50u, 0x10uLL, v7, a1, 0LL, 0LL, a5, (__int64)&v15, &P, &v17, 0);
+  ObjectProperty = PnpGetObjectProperty(0x5A706E50u, 0x10uLL, v7, v8, 0LL, 0LL, a5, (__int64)&v15, &P, &v17, 0);
   v13 = P;
   Object = ObjectProperty;
   if ( ObjectProperty >= 0 )

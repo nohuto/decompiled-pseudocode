@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnDeactivateTrace @ 0x1400E2404
+ * XREFs of PfSnDeactivateTrace @ 0x1400E2484
  * Callers:
- *     PfSnEndTrace @ 0x140669354 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x14066A514 (PfSnEndTrace.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PfSnCancelTraceTimer @ 0x1400E24D8 (PfSnCancelTraceTimer.c)
- *     PfSnRemoveProcessTrace @ 0x1400E257C (PfSnRemoveProcessTrace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PfSnCancelTraceTimer @ 0x1400E2558 (PfSnCancelTraceTimer.c)
+ *     PfSnRemoveProcessTrace @ 0x1400E25FC (PfSnRemoveProcessTrace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
@@ -21,8 +21,8 @@ __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v8; // rcx
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_14043C210);
-  KxReleaseSpinLock(&qword_14043C210);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_14043D2D0);
+  KxReleaseSpinLock(&qword_14043D2D0);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -34,7 +34,7 @@ __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
   ExReleaseRundownProtection_0(a1 + 45);
   PfSnCancelTraceTimer(a1);
   ExWaitForRundownProtectionRelease(a1 + 45);
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_14043C210);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_14043D2D0);
   Count = a1[1].Count;
   v5 = (struct _EX_RUNDOWN_REF **)a1[2].Count;
   if ( *(struct _EX_RUNDOWN_REF **)(Count + 8) != &a1[1] || *v5 != &a1[1] )
@@ -42,7 +42,7 @@ __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
   --PfSnNumActiveTraces;
   *v5 = (struct _EX_RUNDOWN_REF *)Count;
   *(_QWORD *)(Count + 8) = v5;
-  KxReleaseSpinLock(&qword_14043C210);
+  KxReleaseSpinLock(&qword_14043D2D0);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
   {
     v8 = KeGetCurrentPrcb();

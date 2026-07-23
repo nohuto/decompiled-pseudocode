@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpQueryPrmInterface @ 0x1407BF618
+ * XREFs of ExpQueryPrmInterface @ 0x1407BFA68
  * Callers:
- *     ExpAcquirePrmInterface @ 0x1407BF2A8 (ExpAcquirePrmInterface.c)
+ *     ExpAcquirePrmInterface @ 0x1407BF6F8 (ExpAcquirePrmInterface.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IoGetAttachedDeviceReference @ 0x14041D070 (IoGetAttachedDeviceReference.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IoBuildSynchronousFsdRequest @ 0x140A3CD90 (IoBuildSynchronousFsdRequest.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IoGetAttachedDeviceReference @ 0x140411960 (IoGetAttachedDeviceReference.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IoBuildSynchronousFsdRequest @ 0x140A326A0 (IoBuildSynchronousFsdRequest.c)
  */
 
 __int64 __fastcall ExpQueryPrmInterface(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)

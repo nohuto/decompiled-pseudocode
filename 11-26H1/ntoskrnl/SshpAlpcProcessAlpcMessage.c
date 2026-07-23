@@ -1,128 +1,147 @@
 /*
- * XREFs of SshpAlpcProcessAlpcMessage @ 0x1407E48A4
+ * XREFs of SshpAlpcProcessAlpcMessage @ 0x1407EA404
  * Callers:
- *     SshpAlpcMessageCallback @ 0x1407E4760 (SshpAlpcMessageCallback.c)
+ *     SshpAlpcMessageCallback @ 0x1407EA2C0 (SshpAlpcMessageCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x140724310 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcCancelMessage @ 0x140724330 (ZwAlpcCancelMessage.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1407245B0 (ZwAlpcSendWaitReceivePort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SshpSessionManagerOpenControlTrace @ 0x1407E4148 (SshpSessionManagerOpenControlTrace.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x140728EE0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x140728F00 (ZwAlpcCancelMessage.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140729180 (ZwAlpcSendWaitReceivePort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SshpSessionManagerOpenControlTrace @ 0x1407E959C (SshpSessionManagerOpenControlTrace.c)
  */
 
-__int64 __fastcall SshpAlpcProcessAlpcMessage(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+__int64 __fastcall SshpAlpcProcessAlpcMessage(
+        PPORT_MESSAGE SendMessageA,
+        PALPC_CONTEXT_ATTR MessageContext,
+        __int64 a3,
+        struct _KLOCK_ENTRIES *a4)
 {
   unsigned int v5; // edi
-  __int64 v6; // rdx
-  unsigned int v7; // ecx
-  unsigned int v8; // ecx
+  __int64 Type; // rdx
+  int v8; // ecx
   unsigned int v9; // ecx
   unsigned int v10; // ecx
   unsigned int v11; // ecx
-  struct _KLOCK_ENTRIES *v12; // r9
-  AutoBoost *v13; // rax
-  void *v14; // rdx
-  signed __int8 v15; // cf
-  AutoBoost *v16; // r15
-  AutoBoost *v17; // rax
-  void *v18; // rdx
-  AutoBoost *v19; // r14
-  void *KernelShadowStackBase; // rbx
-  char v22[16]; // [rsp+80h] [rbp-29h] BYREF
-  __int64 v23; // [rsp+90h] [rbp-19h]
+  unsigned int v12; // ecx
+  unsigned int v13; // ecx
+  struct _KLOCK_ENTRIES *v14; // r9
+  AutoBoost *v15; // rax
+  void *v16; // rdx
+  signed __int8 v17; // cf
+  AutoBoost *v18; // r15
+  AutoBoost *v19; // rax
+  void *v20; // rdx
+  AutoBoost *v21; // r14
+  HANDLE v22; // rbx
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-59h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+80h] [rbp-29h] BYREF
 
   v5 = 0;
-  v6 = *(unsigned __int16 *)(a1 + 4);
-  v7 = (*(unsigned __int16 *)(a1 + 4) & 0xFFFF00FF) - 1;
-  if ( v7 )
+  *(&ObjectAttributes.Length + 1) = 0;
+  Type = (unsigned __int16)SendMessageA->u2.s2.Type;
+  v8 = (unsigned __int16)SendMessageA->u2.s2.Type;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v9 = (v8 & 0xFFFF00FF) - 1;
+  if ( v9 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v10 = v9 - 1;
+    if ( v10 )
     {
-      v9 = v8 - 1;
-      if ( v9 )
+      v11 = v10 - 1;
+      if ( v11 )
       {
-        v10 = v9 - 2;
-        if ( v10 && (v11 = v10 - 1) != 0 )
+        v12 = v11 - 2;
+        if ( v12 && (v13 = v12 - 1) != 0 )
         {
-          if ( v11 == 4 )
+          if ( v13 == 4 )
           {
-            memset_0(v22, 0, 0x48uLL);
-            v23 = 64LL;
-            v13 = (AutoBoost *)KeAbPreAcquire(
-                                 (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
-                                 0LL,
-                                 0LL,
-                                 v12);
-            v15 = _interlockedbittestandset64(
-                    (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 512;
+            ObjectAttributes.ObjectName = 0LL;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            memset_0(&PortAttributes, 0, sizeof(PortAttributes));
+            PortAttributes.MaxMessageLength = 64LL;
+            v15 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Padding[4], 0LL, 0LL, v14);
+            v17 = _interlockedbittestandset64(
+                    (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Padding[4],
                     0LL);
-            v16 = v13;
-            if ( v15 )
+            v18 = v15;
+            if ( v17 )
               ExfAcquirePushLockExclusiveEx(
-                (unsigned __int64 *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
-                v13,
-                (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial);
-            if ( v16 )
+                &PsAltSystemCallRegistrationLock.Padding[4],
+                v15,
+                (__int64)&PsAltSystemCallRegistrationLock.Padding[4]);
+            if ( v18 )
             {
               if ( (KiAbpGlobalState & 1) != 0 )
-                AutoBoost::KiAbpPostAcquire(v16, v14);
+                AutoBoost::KiAbpPostAcquire(v18, v16);
               else
-                *((_BYTE *)v16 + 10) = 1;
+                *((_BYTE *)v18 + 10) = 1;
             }
-            if ( (int)ZwAlpcAcceptConnectPort(
-                        (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackBase,
-                        (__int64)PsAltSystemCallRegistrationLock.KernelShadowStack) < 0 )
+            if ( ZwAlpcAcceptConnectPort(
+                   &qword_140F0A830,
+                   (HANDLE)PsAltSystemCallRegistrationLock.Padding[3],
+                   0,
+                   &ObjectAttributes,
+                   &PortAttributes,
+                   0LL,
+                   SendMessageA,
+                   0LL,
+                   qword_140F0A830 == 0LL) < 0 )
               ZwAlpcAcceptConnectPort(
-                (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackBase,
-                (__int64)PsAltSystemCallRegistrationLock.KernelShadowStack);
-            SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial);
+                &qword_140F0A830,
+                (HANDLE)PsAltSystemCallRegistrationLock.Padding[3],
+                0,
+                &ObjectAttributes,
+                &PortAttributes,
+                0LL,
+                SendMessageA,
+                0LL,
+                0);
+            SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Padding[4]);
           }
         }
         else
         {
-          v17 = (AutoBoost *)KeAbPreAcquire(
-                               (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
-                               0LL,
-                               0LL,
-                               a4);
-          v15 = _interlockedbittestandset64(
-                  (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
-                  0LL);
-          v19 = v17;
-          if ( v15 )
+          v19 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Padding[4], 0LL, 0LL, a4);
+          v17 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Padding[4], 0LL);
+          v21 = v19;
+          if ( v17 )
             ExfAcquirePushLockExclusiveEx(
-              (unsigned __int64 *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
-              v17,
-              (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial);
-          if ( v19 )
+              &PsAltSystemCallRegistrationLock.Padding[4],
+              v19,
+              (__int64)&PsAltSystemCallRegistrationLock.Padding[4]);
+          if ( v21 )
           {
             if ( (KiAbpGlobalState & 1) != 0 )
-              AutoBoost::KiAbpPostAcquire(v19, v18);
+              AutoBoost::KiAbpPostAcquire(v21, v20);
             else
-              *((_BYTE *)v19 + 10) = 1;
+              *((_BYTE *)v21 + 10) = 1;
           }
-          KernelShadowStackBase = PsAltSystemCallRegistrationLock.KernelShadowStackBase;
-          PsAltSystemCallRegistrationLock.KernelShadowStackBase = 0LL;
-          SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial);
-          ZwClose(KernelShadowStackBase);
+          v22 = qword_140F0A830;
+          qword_140F0A830 = 0LL;
+          SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Padding[4]);
+          ZwClose(v22);
         }
         return v5;
       }
     }
-    if ( (v6 & 0x2000) != 0 )
-      return (unsigned int)ZwAlpcCancelMessage((__int64)PsAltSystemCallRegistrationLock.KernelShadowStack, 0LL);
+    if ( (Type & 0x2000) != 0 )
+      return (unsigned int)ZwAlpcCancelMessage((HANDLE)PsAltSystemCallRegistrationLock.Padding[3], 0, MessageContext);
   }
-  if ( *(_DWORD *)(a1 + 40) == 1 )
+  if ( SendMessageA[1].u1.Length == 1 )
   {
-    *(_DWORD *)(a1 + 48) = SshpSessionManagerOpenControlTrace(*(_QWORD *)(a1 + 48), v6);
-    ZwAlpcSendWaitReceivePort((__int64)PsAltSystemCallRegistrationLock.KernelShadowStackBase, 0x10000LL);
+    LODWORD(SendMessageA[1].DoNotUseThisField) = SshpSessionManagerOpenControlTrace(
+                                                   (__int64)SendMessageA[1].ClientId.UniqueProcess,
+                                                   Type);
+    ZwAlpcSendWaitReceivePort(qword_140F0A830, 0x10000u, SendMessageA, 0LL, 0LL, 0LL, 0LL, 0LL);
   }
   return v5;
 }

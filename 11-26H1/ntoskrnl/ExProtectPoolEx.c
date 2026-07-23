@@ -1,22 +1,22 @@
 /*
- * XREFs of ExProtectPoolEx @ 0x14024CE7C
+ * XREFs of ExProtectPoolEx @ 0x14024E7DC
  * Callers:
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14020D0D8 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     SmHpChunkFree @ 0x140211220 (SmHpChunkFree.c)
- *     SmHpBufferProtectEx @ 0x14024CCB0 (SmHpBufferProtectEx.c)
- *     SmHpChunkUnprotect @ 0x14024D5B0 (SmHpChunkUnprotect.c)
- *     SmHpBufferUpdateFullness @ 0x14024DAA0 (SmHpBufferUpdateFullness.c)
- *     SmHpUnprotectListNeighbors @ 0x14024DC94 (SmHpUnprotectListNeighbors.c)
- *     SmHpChunkAlloc @ 0x14024E5B0 (SmHpChunkAlloc.c)
- *     CmpProtectPool @ 0x14024E81C (CmpProtectPool.c)
- *     SmHpChunkHeapProtect @ 0x14024F764 (SmHpChunkHeapProtect.c)
- *     CmpProtectPoolEx @ 0x1404C9778 (CmpProtectPoolEx.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14020D1B8 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     SmHpChunkFree @ 0x140211300 (SmHpChunkFree.c)
+ *     SmHpBufferProtectEx @ 0x14024E610 (SmHpBufferProtectEx.c)
+ *     SmHpChunkUnprotect @ 0x14024EF10 (SmHpChunkUnprotect.c)
+ *     SmHpBufferUpdateFullness @ 0x14024F400 (SmHpBufferUpdateFullness.c)
+ *     SmHpUnprotectListNeighbors @ 0x14024F5F4 (SmHpUnprotectListNeighbors.c)
+ *     SmHpChunkAlloc @ 0x14024FF10 (SmHpChunkAlloc.c)
+ *     CmpProtectPool @ 0x14025017C (CmpProtectPool.c)
+ *     SmHpChunkHeapProtect @ 0x1402510C4 (SmHpChunkHeapProtect.c)
+ *     CmpProtectPoolEx @ 0x1404C3198 (CmpProtectPoolEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MmProtectPool @ 0x14024E084 (MmProtectPool.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MmProtectPool @ 0x14024F9E4 (MmProtectPool.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -29,7 +29,7 @@ __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __i
   char *v12; // r9
   __int64 v13; // r11
   unsigned __int64 v14; // rbx
-  char *StackLimit; // rdx
+  char *v15; // rdx
   unsigned __int64 v16; // r8
   __int64 v17; // r10
   unsigned __int64 v18; // rbx
@@ -42,55 +42,55 @@ __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __i
   v8 = 40543 * (a1 >> 12);
   LOWORD(v9) = 0;
   LOWORD(v10) = 128;
-  v11 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
-  if ( !stru_140EFEF90.StackLimit )
+  v11 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
+  if ( !PoolBigPageTable )
   {
-    ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+    ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
     __writecr8(v11);
     return 0LL;
   }
-  v12 = (char *)stru_140EFEF90.StackLimit + 32 * (__int64)stru_140EFEF90.SListFaultAddress;
-  v13 = 32LL * ((LODWORD(stru_140EFEF90.SListFaultAddress) - 1) & ((unsigned int)v8 ^ HIDWORD(v8)));
+  v12 = (char *)PoolBigPageTable + 32 * PoolBigPageTableSize;
+  v13 = 32LL * (((_DWORD)PoolBigPageTableSize - 1) & ((unsigned int)v8 ^ HIDWORD(v8)));
   v14 = a3 + a2 - 1;
-  StackLimit = (char *)stru_140EFEF90.StackLimit + v13;
+  v15 = (char *)PoolBigPageTable + v13;
   while ( 1 )
   {
     do
     {
-      v16 = *(_QWORD *)StackLimit;
-      if ( (*(_QWORD *)StackLimit & 1) == 0 && a2 >= v16 )
+      v16 = *(_QWORD *)v15;
+      if ( (*(_QWORD *)v15 & 1) == 0 && a2 >= v16 )
       {
-        v17 = *((_QWORD *)StackLimit + 2);
+        v17 = *((_QWORD *)v15 + 2);
         if ( v14 < v17 + v16
           && ((v17 & 0xFFF) == 0 || ((v14 + 4095) & 0xFFFFFFFFFFFFF000uLL) < ((v17 + v16 + 4095) & 0xFFFFFFFFFFFFF000uLL)) )
         {
-          v18 = *(_QWORD *)StackLimit;
-          v10 = (unsigned __int64)*((unsigned int *)StackLimit + 3) >> 8;
-          v9 = *((_QWORD *)StackLimit + 2);
+          v18 = *(_QWORD *)v15;
+          v10 = (unsigned __int64)*((unsigned int *)v15 + 3) >> 8;
+          v9 = *((_QWORD *)v15 + 2);
           goto LABEL_12;
         }
       }
-      StackLimit += 32;
+      v15 += 32;
     }
-    while ( StackLimit < v12 );
+    while ( v15 < v12 );
     if ( v7 == 1 )
       break;
-    StackLimit = (char *)stru_140EFEF90.StackLimit;
+    v15 = (char *)PoolBigPageTable;
     v7 = 1;
-    v12 = (char *)stru_140EFEF90.StackLimit + v13;
+    v12 = (char *)PoolBigPageTable + v13;
   }
   v18 = 0LL;
 LABEL_12:
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
-    _InterlockedAnd((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, 0xBFFFFFFF);
-    _InterlockedDecrement((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+    _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
+    _InterlockedDecrement(&ExpLargePoolTableLock);
   }
   else
   {
-    ExpReleaseSpinLockSharedFromDpcLevelInstrumented((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, retaddr);
+    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);

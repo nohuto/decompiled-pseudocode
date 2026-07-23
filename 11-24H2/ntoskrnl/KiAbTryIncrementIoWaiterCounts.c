@@ -1,8 +1,8 @@
 /*
- * XREFs of KiAbTryIncrementIoWaiterCounts @ 0x140418610
+ * XREFs of KiAbTryIncrementIoWaiterCounts @ 0x1404083C0
  * Callers:
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     KiAbForceProcessLockEntry @ 0x1404183E4 (KiAbForceProcessLockEntry.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140408194 (KiAbForceProcessLockEntry.c)
  * Callees:
  *     <none>
  */

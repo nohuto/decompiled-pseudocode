@@ -7,21 +7,15 @@
  *     ZwCreateEvent @ 0x180093D80 (ZwCreateEvent.c)
  */
 
-__int64 LdrpInitParallelLoadingSupport()
+int LdrpInitParallelLoadingSupport()
 {
-  __int64 result; // rax
-  char v1; // [rsp+20h] [rbp-18h]
-  int v2; // [rsp+20h] [rbp-18h]
+  int result; // eax
 
   qword_180146158 = (__int64)&LdrpWorkQueue;
   LdrpWorkQueue = (__int64)&LdrpWorkQueue;
-  RtlInitializeCriticalSectionEx(&LdrpWorkQueueLock, 0LL, 0LL);
-  v1 = 0;
-  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 2031619LL, 0LL, 1LL, v1);
-  if ( (int)result >= 0 )
-  {
-    LOBYTE(v2) = 0;
-    return ZwCreateEvent(&LdrpWorkCompleteEvent, 2031619LL, 0LL, 1LL, v2);
-  }
+  RtlInitializeCriticalSectionEx(&LdrpWorkQueueLock, 0, 0);
+  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
+  if ( result >= 0 )
+    return ZwCreateEvent(&LdrpWorkCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   return result;
 }

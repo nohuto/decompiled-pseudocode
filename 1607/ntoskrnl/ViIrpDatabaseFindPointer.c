@@ -4,7 +4,7 @@
  *     VfIrpDatabaseCheckExFreePool @ 0x140716988 (VfIrpDatabaseCheckExFreePool.c)
  *     VfIrpDatabaseEntryFindAndLock @ 0x140716A10 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
- *     VfUtilAddressRangeFit @ 0x140702B80 (VfUtilAddressRangeFit.c)
+ *     VfUtilAddressRangeFit @ 0x140702BB0 (VfUtilAddressRangeFit.c)
  */
 
 _QWORD *__fastcall ViIrpDatabaseFindPointer(unsigned __int64 a1)

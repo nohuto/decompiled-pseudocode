@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmDeleteDevice @ 0x1408F66A8
+ * XREFs of _CmDeleteDevice @ 0x1408F7968
  * Callers:
- *     _PnpDispatchDevice @ 0x14059AFF0 (_PnpDispatchDevice.c)
- *     PpDevCfgProcessDevices @ 0x14073A48C (PpDevCfgProcessDevices.c)
- *     IoReportRootDevice @ 0x140758BF0 (IoReportRootDevice.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14082D2F4 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PiCMDeleteDevice @ 0x140837188 (PiCMDeleteDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x140837E04 (PiCMGenerateDeviceInstance.c)
- *     PipResetDevice @ 0x1409F5578 (PipResetDevice.c)
+ *     _PnpDispatchDevice @ 0x14059BFF0 (_PnpDispatchDevice.c)
+ *     PpDevCfgProcessDevices @ 0x14073B67C (PpDevCfgProcessDevices.c)
+ *     IoReportRootDevice @ 0x140759DE0 (IoReportRootDevice.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x14082E524 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiCMDeleteDevice @ 0x1408383E8 (PiCMDeleteDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x140839064 (PiCMGenerateDeviceInstance.c)
+ *     PipResetDevice @ 0x1409F6578 (PipResetDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _CmDeleteDeviceWorker @ 0x1408F75BC (_CmDeleteDeviceWorker.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _CmDeleteDeviceWorker @ 0x1408F887C (_CmDeleteDeviceWorker.c)
  */
 
 __int64 __fastcall CmDeleteDevice(__int64 a1, __int64 a2, int a3)

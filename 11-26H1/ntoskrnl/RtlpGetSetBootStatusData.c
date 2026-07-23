@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpGetSetBootStatusData @ 0x140ACBB20
+ * XREFs of RtlpGetSetBootStatusData @ 0x140ACDD60
  * Callers:
- *     RtlGetSetBootStatusData @ 0x140ACB990 (RtlGetSetBootStatusData.c)
+ *     RtlGetSetBootStatusData @ 0x140ACDBD0 (RtlGetSetBootStatusData.c)
  * Callees:
- *     ZwReadFile @ 0x1407234B0 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
- *     ZwFlushBuffersFile @ 0x140723D50 (ZwFlushBuffersFile.c)
- *     ZwPowerInformation @ 0x140723FD0 (ZwPowerInformation.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ZwReadFile @ 0x140728080 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
+ *     ZwFlushBuffersFile @ 0x140728920 (ZwFlushBuffersFile.c)
+ *     ZwPowerInformation @ 0x140728BA0 (ZwPowerInformation.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 NTSTATUS __fastcall RtlpGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, void *a4, unsigned int a5, _DWORD *a6)
@@ -44,12 +44,12 @@ NTSTATUS __fastcall RtlpGetSetBootStatusData(HANDLE FileHandle, char a2, int a3,
       return -1073741789;
     if ( a2 )
     {
-      if ( LOBYTE(NormalizationListLock.CurrentRunTime)
-        && (HANDLE)NormalizationListLock.CycleTime == FileHandle
-        && NormalizationListLock.KernelStack )
+      if ( BYTE4(NormalizationListLock.CycleTime)
+        && *(HANDLE *)&NormalizationListLock.CurrentRunTime == FileHandle
+        && NormalizationListLock.StateSaveArea )
       {
         IoStatusBlock.Information = Length;
-        memmove(a4, (char *)NormalizationListLock.KernelStack + v11, Length);
+        memmove(a4, (char *)NormalizationListLock.StateSaveArea + v11, Length);
         v13 = 0;
         goto LABEL_16;
       }
@@ -57,14 +57,14 @@ NTSTATUS __fastcall RtlpGetSetBootStatusData(HANDLE FileHandle, char a2, int a3,
     }
     else
     {
-      if ( LOBYTE(NormalizationListLock.CurrentRunTime)
-        && (HANDLE)NormalizationListLock.CycleTime == FileHandle
-        && NormalizationListLock.KernelStack )
+      if ( BYTE4(NormalizationListLock.CycleTime)
+        && *(HANDLE *)&NormalizationListLock.CurrentRunTime == FileHandle
+        && NormalizationListLock.StateSaveArea )
       {
-        memmove((char *)NormalizationListLock.KernelStack + v11, a4, (unsigned int)Length);
+        memmove((char *)NormalizationListLock.StateSaveArea + v11, a4, (unsigned int)Length);
       }
       v13 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
-      if ( v13 >= 0 && !LOBYTE(NormalizationListLock.StateSaveArea) )
+      if ( v13 >= 0 && !LOBYTE(NormalizationListLock.KernelStack) )
         v13 = ZwFlushBuffersFile(FileHandle, &v17);
       InputBuffer[0] = a4;
       InputBuffer[1] = Length;

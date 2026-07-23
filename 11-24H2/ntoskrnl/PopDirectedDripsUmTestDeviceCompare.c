@@ -1,16 +1,13 @@
 /*
- * XREFs of PopDirectedDripsUmTestDeviceCompare @ 0x140764AD0
+ * XREFs of PopDirectedDripsUmTestDeviceCompare @ 0x1407644A0
  * Callers:
  *     <none>
  * Callees:
- *     PopDirectedDripsUmGetDeviceInstancePath @ 0x14076499C (PopDirectedDripsUmGetDeviceInstancePath.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
+ *     PopDirectedDripsUmGetDeviceInstancePath @ 0x14076436C (PopDirectedDripsUmGetDeviceInstancePath.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall PopDirectedDripsUmTestDeviceCompare(
-        struct _RTL_AVL_TABLE *Table,
-        _DWORD *FirstStruct,
-        PVOID SecondStruct)
+__int64 __fastcall PopDirectedDripsUmTestDeviceCompare(_RTL_AVL_TABLE *a1, _DWORD *a2, PVOID a3)
 {
   unsigned int v3; // ebx
   _DWORD *v4; // r8
@@ -23,7 +20,7 @@ __int64 __fastcall PopDirectedDripsUmTestDeviceCompare(
   v3 = 0;
   LODWORD(String1Length) = 0;
   LODWORD(String2Length) = 0;
-  PopDirectedDripsUmGetDeviceInstancePath(FirstStruct, &String1Length);
+  PopDirectedDripsUmGetDeviceInstancePath(a2, &String1Length);
   DeviceInstancePath = (const WCHAR *)PopDirectedDripsUmGetDeviceInstancePath(v4, &String2Length);
   v7 = RtlCompareUnicodeStrings(v6, (unsigned int)String1Length, DeviceInstancePath, (unsigned int)String2Length, 1u);
   if ( v7 >= 0 )

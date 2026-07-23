@@ -1,46 +1,46 @@
 /*
- * XREFs of PopInitializePowerSettings @ 0x140CD149C
+ * XREFs of PopInitializePowerSettings @ 0x140CD7644
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
 
-__int64 *PopInitializePowerSettings()
+const WNF_STATE_NAME *PopInitializePowerSettings()
 {
-  unsigned int *p_ReservedPreviousReadyTimeValue; // rax
+  _QWORD *v0; // rax
   __int64 v1; // rdx
-  unsigned int *v2; // rcx
-  __int64 *result; // rax
+  char *v2; // rcx
+  const WNF_STATE_NAME *result; // rax
 
-  p_ReservedPreviousReadyTimeValue = &stru_140F10828.ReservedPreviousReadyTimeValue;
+  v0 = &PopSessionSpecificLists;
   v1 = 2LL;
-  v2 = &stru_140F10828.ReservedPreviousReadyTimeValue;
+  v2 = (char *)&PopSessionSpecificLists;
   do
   {
-    *((_QWORD *)p_ReservedPreviousReadyTimeValue + 1) = v2;
-    *(_QWORD *)p_ReservedPreviousReadyTimeValue = v2;
-    v2 += 4;
-    p_ReservedPreviousReadyTimeValue += 4;
+    v0[1] = v2;
+    *v0 = v2;
+    v2 += 16;
+    v0 += 2;
     --v1;
   }
   while ( v1 );
-  LODWORD(stru_140F11D08.LastXStateSaveDebugInfo) = 1;
-  stru_140F10828.WriteTransferCount = 0LL;
-  stru_140F11D08.Process = (_KPROCESS *)&stru_140F11D08.536;
-  *(_QWORD *)&stru_140F11D08.NextProcessor = &stru_140F11D08.536;
-  stru_140F10828.QueuedScb = (_KSCB *)&stru_140F10828.OtherTransferCount;
-  stru_140F10828.OtherTransferCount = (__int64)&stru_140F10828.OtherTransferCount;
-  stru_140F10828.TracingPrivate[0] = (unsigned __int64)&stru_140F10828.ThreadTimerDelay;
-  *(_QWORD *)&stru_140F10828.ThreadTimerDelay = &stru_140F10828.ThreadTimerDelay;
+  PopSettingLock.Count = 1;
+  PopPendingPowerSettingUpdateLock = 0LL;
+  PopSettingLock.Event.Header.WaitListHead.Blink = &PopSettingLock.Event.Header.WaitListHead;
+  PopSettingLock.Event.Header.WaitListHead.Flink = &PopSettingLock.Event.Header.WaitListHead;
+  qword_140F0FFC8 = (__int64)&PopRegisteredPowerSettingCallbacks;
+  PopRegisteredPowerSettingCallbacks = (__int64)&PopRegisteredPowerSettingCallbacks;
+  qword_140F0FFD8 = (__int64)&PopPowerSettings;
+  PopPowerSettings = &PopPowerSettings;
   result = &WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE;
-  stru_140F11D08.WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE;
-  *(_QWORD *)&stru_140F11D08.ThreadFlags2 = 0LL;
-  LODWORD(stru_140F11D08.QueueListEntry.Flink) = 0;
-  LOWORD(stru_140F11D08.QueueListEntry.Blink) = 1;
-  BYTE2(stru_140F11D08.QueueListEntry.Blink) = 6;
-  HIDWORD(stru_140F11D08.QueueListEntry.Blink) = 0;
-  *(_OWORD *)&stru_140F11D08.WaitBlockFill11[160] = 0LL;
-  stru_140F11D08.Spare18 = 0LL;
+  PopPrimaryDisplayVisibleStateErratum = (__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE;
+  PopSettingLock.Owner = 0LL;
+  PopSettingLock.Contention = 0;
+  LOWORD(PopSettingLock.Event.Header.Lock) = 1;
+  PopSettingLock.Event.Header.Size = 6;
+  PopSettingLock.Event.Header.SignalState = 0;
+  xmmword_140F12288 = 0LL;
+  qword_140F12298 = 0LL;
   return result;
 }

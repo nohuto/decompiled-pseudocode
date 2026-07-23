@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpCreateLangFallbackList @ 0x1800DA720
+ * XREFs of LdrpCreateLangFallbackList @ 0x1800C8560
  * Callers:
- *     LdrpMergeLangFallbackLists @ 0x1800356C0 (LdrpMergeLangFallbackLists.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007DD80 (RtlGetSystemPreferredUILanguages.c)
- *     RtlpFilterandReplaceConsoleLanguages @ 0x1800D9B58 (RtlpFilterandReplaceConsoleLanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x1800DA0F0 (RtlGetUserPreferredUILanguages.c)
+ *     LdrpMergeLangFallbackLists @ 0x180015940 (LdrpMergeLangFallbackLists.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x1800C798C (RtlpFilterandReplaceConsoleLanguages.c)
+ *     RtlGetUserPreferredUILanguages @ 0x1800C7F30 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x1800C9E60 (RtlGetSystemPreferredUILanguages.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  */
 
 __int64 __fastcall LdrpCreateLangFallbackList(_QWORD *a1, __int64 a2, int a3, char a4)
@@ -28,7 +28,7 @@ __int64 __fastcall LdrpCreateLangFallbackList(_QWORD *a1, __int64 a2, int a3, ch
   v9 = 6 * v7;
   if ( v9 <= 0xFFFFFFFF
     && (v11 = v9 + 64, (unsigned int)v9 < 0xFFFFFFC0)
-    && (Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v11), (v13 = Heap) != 0LL) )
+    && (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11), (v13 = Heap) != 0LL) )
   {
     *Heap = v11;
     result = 0LL;

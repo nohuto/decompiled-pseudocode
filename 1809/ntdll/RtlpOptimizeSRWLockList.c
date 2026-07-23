@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpOptimizeSRWLockList @ 0x1800751F4
+ * XREFs of RtlpOptimizeSRWLockList @ 0x180075204
  * Callers:
  *     RtlpxLookupFunctionTable @ 0x180006E00 (RtlpxLookupFunctionTable.c)
  *     RtlAcquireSRWLockShared @ 0x180009F00 (RtlAcquireSRWLockShared.c)
  *     RtlpHpLfhSlotAllocate @ 0x1800110C0 (RtlpHpLfhSlotAllocate.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpQueueWaitBlockToSRWLock @ 0x18007F868 (RtlpQueueWaitBlockToSRWLock.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x18007F878 (RtlpQueueWaitBlockToSRWLock.c)
  * Callees:
  *     <none>
  */

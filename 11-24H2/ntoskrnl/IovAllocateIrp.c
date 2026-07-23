@@ -1,16 +1,16 @@
 /*
- * XREFs of IovAllocateIrp @ 0x140BA9550
+ * XREFs of IovAllocateIrp @ 0x140BAB550
  * Callers:
- *     IoAllocateIrpEx @ 0x140253BB0 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoAllocateIrp @ 0x1403724A0 (IoAllocateIrp.c)
+ *     IoAllocateIrp @ 0x14025AD60 (IoAllocateIrp.c)
+ *     IoAllocateIrpEx @ 0x1402841C0 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
  * Callees:
- *     IopAllocateIrpPrivate @ 0x140253E10 (IopAllocateIrpPrivate.c)
- *     IopIsActivityTracingEnabled @ 0x140375090 (IopIsActivityTracingEnabled.c)
- *     IopInitActivityIdIrp @ 0x140454AF0 (IopInitActivityIdIrp.c)
- *     VfIoAllocateIrp1 @ 0x140B8DDA4 (VfIoAllocateIrp1.c)
- *     VfIoAllocateIrp2 @ 0x140B8DE1C (VfIoAllocateIrp2.c)
- *     IovpLogStackTrace @ 0x140BA6A6C (IovpLogStackTrace.c)
+ *     IopIsActivityTracingEnabled @ 0x14025D950 (IopIsActivityTracingEnabled.c)
+ *     IopAllocateIrpPrivate @ 0x140284420 (IopAllocateIrpPrivate.c)
+ *     IopInitActivityIdIrp @ 0x140449990 (IopInitActivityIdIrp.c)
+ *     VfIoAllocateIrp1 @ 0x140B8FDA4 (VfIoAllocateIrp1.c)
+ *     VfIoAllocateIrp2 @ 0x140B8FE1C (VfIoAllocateIrp2.c)
+ *     IovpLogStackTrace @ 0x140BA8A6C (IovpLogStackTrace.c)
  */
 
 __int64 __fastcall IovAllocateIrp(__int64 a1, char a2, unsigned __int8 a3, __int64 a4)

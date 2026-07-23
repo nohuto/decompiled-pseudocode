@@ -1,22 +1,22 @@
 /*
- * XREFs of MmDeleteKernelStack @ 0x1400CA4A0
+ * XREFs of MmDeleteKernelStack @ 0x1400CA580
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9C20 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     PspDeleteKernelStack @ 0x14012F190 (PspDeleteKernelStack.c)
- *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     KeUserModeCallback @ 0x140646460 (KeUserModeCallback.c)
- *     KeFreeCalloutStack @ 0x140706720 (KeFreeCalloutStack.c)
- *     KeAllocateCalloutStackEx @ 0x14070CCA0 (KeAllocateCalloutStackEx.c)
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9D00 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     PspDeleteKernelStack @ 0x14012F260 (PspDeleteKernelStack.c)
+ *     KeInitThread @ 0x1405666E0 (KeInitThread.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     KeUserModeCallback @ 0x140647480 (KeUserModeCallback.c)
+ *     KeFreeCalloutStack @ 0x1407079C0 (KeFreeCalloutStack.c)
+ *     KeAllocateCalloutStackEx @ 0x14070DF40 (KeAllocateCalloutStackEx.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiDeleteKernelStack @ 0x14007A5B0 (MiDeleteKernelStack.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1402BB764 (MiLogKernelStackEvent.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiDeleteKernelStack @ 0x14007A5A0 (MiDeleteKernelStack.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1402BB954 (MiLogKernelStackEvent.c)
  */
 
 signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
@@ -103,7 +103,7 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
     v11 = (a2 & 1) == 0;
     v41 = 18LL;
     if ( v11 )
-      v41 = (unsigned __int8)byte_14043AC7C;
+      v41 = (unsigned __int8)byte_14043BD3C;
     MiLogKernelStackEvent(a1 - (unsigned int)((_DWORD)v41 << 12), v41, 0LL);
     v2 = a2;
   }
@@ -150,7 +150,7 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
         v7 = v46 | 0x42;
     }
   }
-  if ( *(ULONG_PTR **)(qword_14043A748
+  if ( *(ULONG_PTR **)(qword_14043B808
                      + 8 * ((*(_QWORD *)(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL + 40) >> 40) & 0x3FFLL)) != &MiSystemPartition )
     return MiDeleteKernelStack(v5, v2);
   v8 = v2 & 1;
@@ -277,7 +277,7 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
       if ( v22->ParentNode->Affinity.Reserved[0] == (_DWORD)v10 && !v22->CachedStack )
       {
         v23 = (__int64)(v5 << 25) >> 16;
-        *(_QWORD *)(v23 + 4064) = v23 ^ qword_14043AEC0;
+        *(_QWORD *)(v23 + 4064) = v23 ^ qword_14043BF80;
         result = _InterlockedCompareExchange64((volatile signed __int64 *)&v22->CachedStack, v23 + 4080, 0LL);
         if ( !result )
           return result;
@@ -290,13 +290,13 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
   v72 = v25;
   while ( 1 )
   {
-    v26 = (int *)((char *)&qword_14043A058[2 * v9 + 7] + v25);
+    v26 = (int *)((char *)&qword_14043B118[2 * v9 + 7] + v25);
     v74 = v26;
     if ( *(unsigned __int16 *)v26 >= v26[4] )
       goto LABEL_59;
     v27 = (__int64)(v5 << 25) >> 16;
     v73 = v27;
-    *(_QWORD *)(v27 + 0xFE0) = v27 ^ qword_14043AEC0;
+    *(_QWORD *)(v27 + 0xFE0) = v27 ^ qword_14043BF80;
     if ( v9 == 1 )
       return (signed __int64)RtlpInterlockedPushEntrySList((PSLIST_HEADER)v26, (PSLIST_ENTRY)(v27 + 4080));
     v28 = KeGetCurrentIrql();
@@ -314,8 +314,8 @@ signed __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, char a2)
     }
     else
     {
-      v31 = v5 - 8LL * (unsigned __int8)byte_14043AC7C;
-      v32 = (unsigned __int8)byte_14043AC7C;
+      v31 = v5 - 8LL * (unsigned __int8)byte_14043BD3C;
+      v32 = (unsigned __int8)byte_14043BD3C;
     }
     v33 = v31 + 8LL * (unsigned int)(v32 + 1);
     v34 = v31 + 8;

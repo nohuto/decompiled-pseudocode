@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkFindDriverImportEntry @ 0x140C35940
+ * XREFs of ViThunkFindDriverImportEntry @ 0x140C3B950
  * Callers:
- *     VfThunkApplyDriverAddedThunks @ 0x140C35250 (VfThunkApplyDriverAddedThunks.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x140C3B260 (VfThunkApplyDriverAddedThunks.c)
  * Callees:
  *     <none>
  */

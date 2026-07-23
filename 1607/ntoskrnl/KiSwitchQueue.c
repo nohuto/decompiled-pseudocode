@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSwitchQueue @ 0x1400A8074
+ * XREFs of KiSwitchQueue @ 0x1400A65EC
  * Callers:
- *     KeRemoveQueueEx @ 0x14006A3B0 (KeRemoveQueueEx.c)
- *     KiSwapToUmsThreadContinue @ 0x1401DC690 (KiSwapToUmsThreadContinue.c)
+ *     KeRemoveQueueEx @ 0x140069F30 (KeRemoveQueueEx.c)
+ *     KiSwapToUmsThreadContinue @ 0x1401DC4BC (KiSwapToUmsThreadContinue.c)
  * Callees:
- *     KiActivateWaiterQueueWithNoLocks @ 0x14007E5F8 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14007E678 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KiSwitchQueue(__int64 a1, __int64 a2, unsigned __int64 a3)

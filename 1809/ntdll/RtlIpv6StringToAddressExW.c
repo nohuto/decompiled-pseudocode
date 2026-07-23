@@ -4,7 +4,7 @@
  *     RtlCanonicalizeDomainName @ 0x1800464A0 (RtlCanonicalizeDomainName.c)
  * Callees:
  *     RtlIpv6StringToAddressW @ 0x1800470E0 (RtlIpv6StringToAddressW.c)
- *     iswctype @ 0x180093860 (iswctype.c)
+ *     iswctype @ 0x180093870 (iswctype.c)
  */
 
 LONG __stdcall RtlIpv6StringToAddressExW(PCWSTR AddressString, struct in6_addr *Address, PULONG ScopeId, PUSHORT Port)

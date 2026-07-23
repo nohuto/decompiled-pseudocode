@@ -10,17 +10,17 @@
  *     RtlpHpLfhContextLockExtension @ 0x180009A88 (RtlpHpLfhContextLockExtension.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextMetadataFree(__int64 a1, _QWORD *a2, int a3)
+void __fastcall RtlpHpLfhContextMetadataFree(_RTL_SRWLOCK *a1, unsigned __int64 *a2, int a3)
 {
   __int64 v3; // rdi
-  _QWORD *v4; // rbx
+  unsigned __int64 *v4; // rbx
 
   v3 = a3;
   v4 = a2 + 2;
   if ( a3 != 3 )
     v4 = a2;
   RtlpHpLfhContextLockExtension();
-  *v4 = *(_QWORD *)(a1 + 8 * v3 + 136);
-  *(_QWORD *)(a1 + 8 * v3 + 136) = v4;
-  return RtlReleaseSRWLockExclusive(a1 + 128);
+  *v4 = a1[v3 + 17].Value;
+  a1[v3 + 17].Value = (unsigned __int64)v4;
+  RtlReleaseSRWLockExclusive(a1 + 16);
 }

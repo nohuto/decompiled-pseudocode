@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateUuids @ 0x1401B8FF0
+ * XREFs of ZwAllocateUuids @ 0x1401B9150
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Time, Range, Sequence);
+  return KiServiceInternal(Time);
 }

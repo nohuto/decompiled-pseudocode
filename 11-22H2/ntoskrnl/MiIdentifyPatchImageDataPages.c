@@ -15,12 +15,12 @@ __int64 __fastcall MiIdentifyPatchImageDataPages(__int64 a1, int a2)
   __int64 v5; // rbx
   SIZE_T v6; // r12
   PVOID Pool; // rax
-  __int64 v8; // rbp
+  unsigned __int64 v8; // rbp
   unsigned int v9; // edi
   __int64 v10; // rbx
   __int16 v11; // ax
-  __int64 v12; // rbx
-  PVOID v13; // rax
+  _RTL_BITMAP_EX *v12; // rbx
+  unsigned __int64 *v13; // rax
 
   v3 = *(_QWORD *)(a1 + 8);
   v5 = *(unsigned int *)(**(_QWORD **)(a1 + 16) + 8LL);
@@ -45,12 +45,12 @@ __int64 __fastcall MiIdentifyPatchImageDataPages(__int64 a1, int a2)
     }
     while ( v10 );
   }
-  v12 = *(_QWORD *)(a1 + 8);
-  v13 = MiAllocatePool(256, v6, 0x4D424450u);
+  v12 = *(_RTL_BITMAP_EX **)(a1 + 8);
+  v13 = (unsigned __int64 *)MiAllocatePool(256, v6, 0x4D424450u);
   if ( !v13 )
     return 3221225626LL;
-  *(_QWORD *)(v12 + 64) = v8;
-  *(_QWORD *)(v12 + 72) = v13;
-  RtlClearAllBitsEx(v12 + 64);
+  v12[4].SizeOfBitMap = v8;
+  v12[4].Buffer = v13;
+  RtlClearAllBitsEx(v12 + 4);
   return 0LL;
 }

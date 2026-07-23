@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmListRemoveObjectWorker @ 0x1408297A8
+ * XREFs of PiDmListRemoveObjectWorker @ 0x14082A9A8
  * Callers:
- *     PiDmListRemoveList @ 0x14082957C (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x1408296DC (PiDmListRemoveObject.c)
+ *     PiDmListRemoveList @ 0x14082A77C (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x14082A8DC (PiDmListRemoveObject.c)
  * Callees:
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140702A38 (PiDmListUpdateAggregationCountWorker.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140703CD8 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 bool *__fastcall PiDmListRemoveObjectWorker(int a1, __int64 a2, unsigned int *a3, __int64 a4, bool *a5)

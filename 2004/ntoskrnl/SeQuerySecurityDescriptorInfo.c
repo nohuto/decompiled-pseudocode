@@ -33,13 +33,13 @@ NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
   char *v18; // rcx
   unsigned __int64 v19; // rcx
   unsigned int v20; // ebx
-  ULONG v21; // r9d
-  ULONG v22; // eax
-  ULONG v23; // edx
+  DWORD v21; // r9d
+  DWORD v22; // eax
+  DWORD v23; // edx
   int v24; // eax
   __int16 v25; // dx
   char *v26; // rbx
-  ULONG v27; // eax
+  DWORD v27; // eax
   PSECURITY_INFORMATION v28; // r15
   int v29; // esi
   char v30; // si

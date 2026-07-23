@@ -1,19 +1,19 @@
 /*
- * XREFs of VfVolatileClearDifRuleClass @ 0x140647964
+ * XREFs of VfVolatileClearDifRuleClass @ 0x14064B544
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     VfDriverUnloadImage @ 0x140C46D88 (VfDriverUnloadImage.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     VfDriverUnloadImage @ 0x140C4CD98 (VfDriverUnloadImage.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     CarCleanup @ 0x1406495F0 (CarCleanup.c)
- *     CarDeregisterRuleClassConfiguration @ 0x140649950 (CarDeregisterRuleClassConfiguration.c)
- *     DifTerminateObjectTracking @ 0x14064B400 (DifTerminateObjectTracking.c)
- *     DifClean @ 0x14064B580 (DifClean.c)
- *     DifDeregisterPlugin @ 0x14064B66C (DifDeregisterPlugin.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfSetVerifierEnabled @ 0x140C215E0 (VfSetVerifierEnabled.c)
- *     VfClearDifWithoutReboot @ 0x140C21DBC (VfClearDifWithoutReboot.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     CarCleanup @ 0x14064D1D0 (CarCleanup.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x14064D530 (CarDeregisterRuleClassConfiguration.c)
+ *     DifTerminateObjectTracking @ 0x14064EFE0 (DifTerminateObjectTracking.c)
+ *     DifClean @ 0x14064F160 (DifClean.c)
+ *     DifDeregisterPlugin @ 0x14064F24C (DifDeregisterPlugin.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfSetVerifierEnabled @ 0x140C275F0 (VfSetVerifierEnabled.c)
+ *     VfClearDifWithoutReboot @ 0x140C27DCC (VfClearDifWithoutReboot.c)
  */
 
 __int64 VfVolatileClearDifRuleClass()
@@ -60,12 +60,12 @@ __int64 VfVolatileClearDifRuleClass()
     CarCleanup();
     VfDifRunningWithoutReboot = 0;
     DifIsVolatileMode = 0;
-    qword_140E67FE8 = 0LL;
+    qword_140E682A8 = 0LL;
     VfAllowedVolatileRC = 0LL;
     VfRuleClasses = 0LL;
     DifpPoolTags = 0LL;
     DifpPoolTagsSize = 0;
-    xmmword_140E67FD8 = 0LL;
+    xmmword_140E68298 = 0LL;
     DifpPoolTagsSizeBytes = 0;
     VfOptionFlags = 0;
     memset_0(&MmVerifierData, 0, 0x98uLL);

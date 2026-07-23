@@ -1,10 +1,10 @@
 /*
- * XREFs of SepDeleteLogonSessionClaims @ 0x140AFE77C
+ * XREFs of SepDeleteLogonSessionClaims @ 0x140B007EC
  * Callers:
- *     SepDeleteLogonSessionTrack @ 0x140AFE360 (SepDeleteLogonSessionTrack.c)
- *     SepDeReferenceLogonSession @ 0x140B7CDEC (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x140B003D0 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x140B8585C (SepDeReferenceLogonSession.c)
  * Callees:
- *     SepDeleteClaimAttributes @ 0x140B215F0 (SepDeleteClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x140B239F0 (SepDeleteClaimAttributes.c)
  */
 
 __int64 __fastcall SepDeleteLogonSessionClaims(__int64 a1)

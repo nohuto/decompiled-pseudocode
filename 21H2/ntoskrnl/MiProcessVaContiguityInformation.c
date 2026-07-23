@@ -1,21 +1,21 @@
 /*
- * XREFs of MiProcessVaContiguityInformation @ 0x1405522C0
+ * XREFs of MiProcessVaContiguityInformation @ 0x140552500
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x14070F280 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1406BD8D0 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
- *     MiVadPagesTradable @ 0x1402BBEC0 (MiVadPagesTradable.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiVadPagesTradable @ 0x14023A0D0 (MiVadPagesTradable.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
- *     MiQueryVaPhysicalContiguity @ 0x140547254 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x140551F74 (MiMakeVaRangePhysicallyContiguous.c)
- *     MiGetVadCacheAttribute @ 0x14055BD80 (MiGetVadCacheAttribute.c)
- *     MiVadSupportsPhysicalContiguityQuery @ 0x1408D17CC (MiVadSupportsPhysicalContiguityQuery.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140547494 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1405521B4 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiGetVadCacheAttribute @ 0x14055BFC0 (MiGetVadCacheAttribute.c)
+ *     MiVadSupportsPhysicalContiguityQuery @ 0x1408D192C (MiVadSupportsPhysicalContiguityQuery.c)
  */
 
 __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 a1, __int64
   __int64 v8; // r13
   unsigned __int64 v10; // r12
   unsigned __int64 v11; // r8
-  volatile signed __int32 *v12; // rax
+  __int64 v12; // rax
   unsigned __int64 v13; // r15
   signed __int32 v14; // ecx
   unsigned int v15; // r9d
@@ -57,7 +57,7 @@ __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 a1, __int64
   v33 = v6;
   v31 = 0LL;
   v7 = 0;
-  v8 = *(_QWORD *)(qword_140C4E648 + 8LL * *((unsigned __int16 *)v6 + 87));
+  v8 = *(_QWORD *)(qword_140C4E688 + 8LL * *((unsigned __int16 *)v6 + 87));
   if ( (int)MiAcquireNonPagedResources((ULONG_PTR *)v8, 0x200uLL, 1024LL, 6u) < 0 )
     return 3221225626LL;
   v10 = a1 + 16 * a2;
@@ -87,10 +87,10 @@ LABEL_41:
     {
 LABEL_11:
       v12 = MiObtainReferencedVadEx(*(_QWORD *)a1, 2, (int *)&VaRangePhysicallyContiguous);
-      v4 = (__int64)v12;
+      v4 = v12;
       if ( !v12 )
         goto LABEL_44;
-      if ( *(_QWORD *)(a1 + 8) + *(_QWORD *)a1 - 1LL > (((*((unsigned int *)v12 + 7) | ((unsigned __int64)*((unsigned __int8 *)v12 + 33) << 32)) << 12) | 0xFFF) )
+      if ( *(_QWORD *)(a1 + 8) + *(_QWORD *)a1 - 1LL > (((*(unsigned int *)(v12 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v12 + 33) << 32)) << 12) | 0xFFF) )
       {
         VaRangePhysicallyContiguous = -1073741800;
         goto LABEL_42;
@@ -132,7 +132,7 @@ LABEL_34:
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  LargePage = MiGetLargePage(v8, 1u, 1u, v15, 4, 0LL);
+  LargePage = MiGetLargePage(v8, 1u, 1, v15, 4, 0LL);
   v29 = (_DWORD *)LargePage;
   if ( LargePage )
     MiConvertEntireLargePageToSmall(LargePage, 1, 2LL, 1LL, 0LL, 0LL);

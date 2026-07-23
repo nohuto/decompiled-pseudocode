@@ -10,43 +10,56 @@
  *     PspAllocatePartition @ 0x1405E9330 (PspAllocatePartition.c)
  */
 
-__int64 __fastcall NtCreatePartition(void *a1, HANDLE *a2, ACCESS_MASK a3, __int64 a4)
+NTSTATUS __cdecl NtCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
   char PreviousMode; // di
-  __int64 v9; // rcx
-  int v10; // ebx
-  void *v12; // [rsp+20h] [rbp-58h]
+  __int64 v10; // rcx
+  NTSTATUS v11; // ebx
+  void *v13; // [rsp+20h] [rbp-58h]
   HANDLE Handle; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v14; // [rsp+50h] [rbp-28h] BYREF
-  volatile signed __int64 *v15; // [rsp+60h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+50h] [rbp-28h] BYREF
+  volatile signed __int64 *v16; // [rsp+60h] [rbp-18h] BYREF
 
   Handle = 0LL;
-  v14 = 0LL;
+  v15 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a2;
-    *(_QWORD *)v9 = *(_QWORD *)v9;
+    v10 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)PartitionHandle < 0x7FFFFFFF0000LL )
+      v10 = (__int64)PartitionHandle;
+    *(_QWORD *)v10 = *(_QWORD *)v10;
   }
   if ( SeSinglePrivilegeCheck(SeLockMemoryPrivilege, PreviousMode) )
   {
-    if ( !a1 || (v10 = PsReferencePartitionByHandle(a1, 2u, PreviousMode, (PVOID *)&v14, v12), v10 >= 0) )
+    if ( !ParentPartitionHandle
+      || (v11 = PsReferencePartitionByHandle(ParentPartitionHandle, 2u, PreviousMode, (PVOID *)&v15, v13), v11 >= 0) )
     {
-      v10 = PspAllocatePartition(a4, a3, PreviousMode, v14, 0, &v15, (__int64 *)&Handle);
-      if ( v10 >= 0 )
+      v11 = PspAllocatePartition(
+              (__int64)ObjectAttributes,
+              DesiredAccess,
+              PreviousMode,
+              v15,
+              0,
+              &v16,
+              (__int64 *)&Handle);
+      if ( v11 >= 0 )
       {
-        PsDereferencePartition((__int64)v15);
-        *a2 = Handle;
+        PsDereferencePartition((__int64)v16);
+        *PartitionHandle = Handle;
       }
     }
   }
   else
   {
-    v10 = -1073741727;
+    v11 = -1073741727;
   }
-  if ( v14 )
-    PsDereferencePartition(v14);
-  return (unsigned int)v10;
+  if ( v15 )
+    PsDereferencePartition(v15);
+  return v11;
 }

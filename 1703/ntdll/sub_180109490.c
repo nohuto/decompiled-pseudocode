@@ -13,8 +13,8 @@
 
 _BOOL8 __fastcall sub_180109490(__int64 a1)
 {
-  unsigned int LastErrorValue; // ecx
-  __int64 v4; // rcx
+  LONG LastErrorValue; // ecx
+  void *v4; // rcx
   __int64 v5; // rax
   __int64 v6; // rax
   _BYTE Src[528]; // [rsp+20h] [rbp-228h] BYREF
@@ -28,7 +28,7 @@ LABEL_4:
     RtlSetLastWin32Error(LastErrorValue);
     return 0LL;
   }
-  v4 = *(_QWORD *)(a1 + 8);
+  v4 = *(void **)(a1 + 8);
   if ( v4 )
   {
     v5 = sub_18010E330(v4);

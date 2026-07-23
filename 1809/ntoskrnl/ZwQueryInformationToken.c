@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwQueryInformationToken @ 0x1401B85B0
+ * XREFs of ZwQueryInformationToken @ 0x1401B8710
  * Callers:
- *     RtlCheckTokenCapability @ 0x1402EDAB0 (RtlCheckTokenCapability.c)
- *     RtlFormatCurrentUserKeyPath @ 0x14065A5A0 (RtlFormatCurrentUserKeyPath.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x1408FFF28 (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlCheckTokenCapability @ 0x1402EDCA0 (RtlCheckTokenCapability.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x14065B760 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D1CD0 (ExpFirmwareAccessAppContainerCheck.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x1409011E8 (_SysCtxRegOpenCurrentUserKey.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationToken(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwQueryInformationToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&TokenInformationClass, TokenInformation);
+  return KiServiceInternal(TokenHandle);
 }

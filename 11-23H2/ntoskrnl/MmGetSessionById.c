@@ -1,30 +1,30 @@
 /*
- * XREFs of MmGetSessionById @ 0x1402C1E30
+ * XREFs of MmGetSessionById @ 0x1402C20C0
  * Callers:
- *     MmGetSessionObjectById @ 0x1402C0B60 (MmGetSessionObjectById.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     PopWatchdogWorker @ 0x1403D62A0 (PopWatchdogWorker.c)
- *     PopPowerButtonWorkCallback @ 0x1405990F0 (PopPowerButtonWorkCallback.c)
+ *     MmGetSessionObjectById @ 0x1402C0DF0 (MmGetSessionObjectById.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFEEC (MiTrimSharedPageFromViews.c)
+ *     PopWatchdogWorker @ 0x1403D6480 (PopWatchdogWorker.c)
+ *     PopPowerButtonWorkCallback @ 0x1405995E0 (PopPowerButtonWorkCallback.c)
  *     CmFcpFeatureUsageProviderSubscriptionWrapper @ 0x14067F990 (CmFcpFeatureUsageProviderSubscriptionWrapper.c)
  *     PnpNotifyDriverCallback @ 0x140687B60 (PnpNotifyDriverCallback.c)
  *     PspChangeProcessExecutionState @ 0x1406A6C04 (PspChangeProcessExecutionState.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14071328C (ExpWnfCaptureScopeInstanceId.c)
- *     PsGetSiloBySessionId @ 0x140741E78 (PsGetSiloBySessionId.c)
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
- *     EtwpSendDataBlock @ 0x140780FF0 (EtwpSendDataBlock.c)
- *     PiUEventBroadcastEventWorker @ 0x1407AA0B0 (PiUEventBroadcastEventWorker.c)
- *     PspAttachSession @ 0x1407C5C10 (PspAttachSession.c)
- *     ExCallSessionCallBack @ 0x1407C5C90 (ExCallSessionCallBack.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140959AB0 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x140959B3C (PiUEventBroadcastPortsChangedEvent.c)
- *     TtmpSessionWorker @ 0x1409A5930 (TtmpSessionWorker.c)
- *     CmFcpChangeSubscriptionWrapper @ 0x140A27AF0 (CmFcpChangeSubscriptionWrapper.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071349C (ExpWnfCaptureScopeInstanceId.c)
+ *     PsGetSiloBySessionId @ 0x140742068 (PsGetSiloBySessionId.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1407811E0 (EtwpSendDataBlock.c)
+ *     PiUEventBroadcastEventWorker @ 0x1407AA2A0 (PiUEventBroadcastEventWorker.c)
+ *     PspAttachSession @ 0x1407C5EE0 (PspAttachSession.c)
+ *     ExCallSessionCallBack @ 0x1407C5F60 (ExCallSessionCallBack.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140959CB0 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x140959D3C (PiUEventBroadcastPortsChangedEvent.c)
+ *     TtmpSessionWorker @ 0x1409A5B30 (TtmpSessionWorker.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x140A27DA0 (CmFcpChangeSubscriptionWrapper.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     MiSelectSessionAttachProcess @ 0x1402C1EE8 (MiSelectSessionAttachProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x1402C2178 (MiSelectSessionAttachProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmGetSessionById(unsigned int a1)
@@ -68,10 +68,13 @@ __int64 __fastcall MmGetSessionById(unsigned int a1)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

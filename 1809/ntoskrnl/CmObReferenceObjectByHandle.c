@@ -1,26 +1,26 @@
 /*
- * XREFs of CmObReferenceObjectByHandle @ 0x1405CD4CC
+ * XREFs of CmObReferenceObjectByHandle @ 0x1405CE4CC
  * Callers:
- *     NtDeleteKey @ 0x1405A9940 (NtDeleteKey.c)
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
- *     NtDeleteValueKey @ 0x1405B6030 (NtDeleteValueKey.c)
- *     NtQueryMultipleValueKey @ 0x1405B7130 (NtQueryMultipleValueKey.c)
- *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x1405CE180 (NtNotifyChangeMultipleKeys.c)
- *     NtLockRegistryKey @ 0x14068E270 (NtLockRegistryKey.c)
- *     NtFlushKey @ 0x1406BFF70 (NtFlushKey.c)
- *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
- *     NtCompactKeys @ 0x1407E8EB0 (NtCompactKeys.c)
- *     NtCompressKey @ 0x1407E91B0 (NtCompressKey.c)
- *     NtRenameKey @ 0x1407E9B80 (NtRenameKey.c)
- *     NtReplaceKey @ 0x1407EA070 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1407EA3F0 (NtRestoreKey.c)
- *     NtSaveKeyEx @ 0x1407EA6B0 (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x1407EA960 (NtSaveMergedKeys.c)
- *     CmpOpenSystemDriverHiveContext @ 0x1409CC4F0 (CmpOpenSystemDriverHiveContext.c)
+ *     NtDeleteKey @ 0x1405AA940 (NtDeleteKey.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
+ *     NtDeleteValueKey @ 0x1405B7030 (NtDeleteValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x1405B8130 (NtQueryMultipleValueKey.c)
+ *     NtSetValueKey @ 0x1405CD8E0 (NtSetValueKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1405CF180 (NtNotifyChangeMultipleKeys.c)
+ *     NtLockRegistryKey @ 0x14068F430 (NtLockRegistryKey.c)
+ *     NtFlushKey @ 0x1406C1210 (NtFlushKey.c)
+ *     CmpSaveBootControlSet @ 0x1407E9AD0 (CmpSaveBootControlSet.c)
+ *     NtCompactKeys @ 0x1407EA0B0 (NtCompactKeys.c)
+ *     NtCompressKey @ 0x1407EA3B0 (NtCompressKey.c)
+ *     NtRenameKey @ 0x1407EAD80 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x1407EB270 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x1407EB5F0 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x1407EB8B0 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x1407EBB60 (NtSaveMergedKeys.c)
+ *     CmpOpenSystemDriverHiveContext @ 0x1409CD4F0 (CmpOpenSystemDriverHiveContext.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmObReferenceObjectByHandle(

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlxUnicodeStringToOemSize @ 0x18007E8A0
+ * XREFs of RtlxUnicodeStringToOemSize @ 0x18007E890
  * Callers:
- *     RtlUnicodeStringToAnsiString @ 0x180018950 (RtlUnicodeStringToAnsiString.c)
- *     RtlUnicodeStringToOemString @ 0x18006CBA0 (RtlUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x18007C7C0 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1800E31F0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800E3340 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800E3460 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x180018940 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToOemString @ 0x18006CB90 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x18007C7B0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800E32B0 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800E3400 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800E3520 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     RtlUnicodeToMultiByteSize @ 0x18007E8D0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteSize @ 0x18007E8C0 (RtlUnicodeToMultiByteSize.c)
  */
 
 __int64 __fastcall RtlxUnicodeStringToOemSize(PWCH *a1)

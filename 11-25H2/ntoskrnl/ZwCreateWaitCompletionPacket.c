@@ -6,9 +6,12 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreateWaitCompletionPacket(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateWaitCompletionPacket(
+        PHANDLE WaitCompletionPacketHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WaitCompletionPacketHandle);
 }

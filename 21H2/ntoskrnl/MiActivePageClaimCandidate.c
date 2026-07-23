@@ -1,16 +1,16 @@
 /*
- * XREFs of MiActivePageClaimCandidate @ 0x140302700
+ * XREFs of MiActivePageClaimCandidate @ 0x14030D450
  * Callers:
- *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
- *     MiPfnsWorthTrying @ 0x140302130 (MiPfnsWorthTrying.c)
- *     MiCheckContiguityTradeEligible @ 0x140546BC4 (MiCheckContiguityTradeEligible.c)
+ *     MiTradePage @ 0x14030B930 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x14030CE80 (MiPfnsWorthTrying.c)
+ *     MiCheckContiguityTradeEligible @ 0x140546E04 (MiCheckContiguityTradeEligible.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     MiHyperPage @ 0x140302F44 (MiHyperPage.c)
- *     MiVaIsPageFileHash @ 0x140302FFC (MiVaIsPageFileHash.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     MiHyperPage @ 0x14030DC94 (MiHyperPage.c)
+ *     MiVaIsPageFileHash @ 0x14030DD4C (MiVaIsPageFileHash.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  *     MiGetBaseResidentPage @ 0x1403F6734 (MiGetBaseResidentPage.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
@@ -74,7 +74,7 @@ __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, __int64 a3
     if ( PfnPageSizeIndex == -1 )
     {
 LABEL_9:
-      if ( *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a2 + 40) >> 39) & 0x3FFLL)) == a1 )
+      if ( *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(a2 + 40) >> 39) & 0x3FFLL)) == a1 )
       {
         if ( *(_BYTE *)(a1 + 4830) )
         {
@@ -100,8 +100,8 @@ LABEL_15:
             {
               v19 = *(_QWORD *)(a2 + 24);
               if ( (v19 & 0x4000000000000000LL) == 0
-                && v11 != qword_140C4DE38
-                && v11 != qword_140C4DE40
+                && v11 != qword_140C4DE78
+                && v11 != qword_140C4DE80
                 && (v4 != 1 || !MiIsPfnFileOnly(v18)) )
               {
                 v20 = *(unsigned __int16 *)(a2 + 32);
@@ -148,7 +148,7 @@ LABEL_15:
                           v29 = v28 & 0x3FFFFFFFFFFFFFFFLL;
                           if ( (v28 & 0x3FFFFFFFFFFFFFFFuLL) <= 1 )
                           {
-                            if ( (v28 & 0xFFFFFFFFFLL) != 0 && (v22 < qword_140C4DDE0 || v22 >= qword_140C4DDE0 + 4096) )
+                            if ( (v28 & 0xFFFFFFFFFLL) != 0 && (v22 < qword_140C4DE20 || v22 >= qword_140C4DE20 + 4096) )
                             {
                               v30 = *(unsigned __int16 *)(a2 + 32);
                               if ( (unsigned int)v30 <= 1 && v30 <= v29 )
@@ -180,7 +180,7 @@ LABEL_15:
                 }
                 else
                 {
-                  if ( MiVaIsPageFileHash(*(_QWORD *)(qword_140C4E648 + 8 * ((v21 >> 39) & 0x3FF)), v22) )
+                  if ( MiVaIsPageFileHash(*(_QWORD *)(qword_140C4E688 + 8 * ((v21 >> 39) & 0x3FF)), v22) )
                     return 0LL;
                   if ( (unsigned int)MiGetSystemRegionType(v22) == 5
                     && (*(_BYTE *)(a2 + 35) & 0x10) == 0

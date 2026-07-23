@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAbProcessContextSwitch @ 0x1402BBE18
+ * XREFs of KiAbProcessContextSwitch @ 0x1402BC0A8
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
- *     KiHandleDeferredPreemption @ 0x1403091C8 (KiHandleDeferredPreemption.c)
- *     KeSetThreadSchedulerAssist @ 0x14056D21C (KeSetThreadSchedulerAssist.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
+ *     KiHandleDeferredPreemption @ 0x140309458 (KiHandleDeferredPreemption.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056D8DC (KeSetThreadSchedulerAssist.c)
  * Callees:
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiAbPropagateBoosts @ 0x1402BBED0 (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA78 (KiCheckForThreadDispatch.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiAbPropagateBoosts @ 0x1402BC160 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiCheckForThreadDispatch @ 0x1402BCD08 (KiCheckForThreadDispatch.c)
  */
 
 __int64 __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)

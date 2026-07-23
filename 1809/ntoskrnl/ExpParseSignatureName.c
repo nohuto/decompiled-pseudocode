@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpParseSignatureName @ 0x1408D13D8
+ * XREFs of ExpParseSignatureName @ 0x1408D2698
  * Callers:
- *     ExpConvertSignatureName @ 0x1408CFDE4 (ExpConvertSignatureName.c)
+ *     ExpConvertSignatureName @ 0x1408D10A4 (ExpConvertSignatureName.c)
  * Callees:
- *     wcsncpy_s @ 0x14019BE70 (wcsncpy_s.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     ExpTranslateHexStringToGUID @ 0x1408D2BA4 (ExpTranslateHexStringToGUID.c)
- *     ExpTranslateHexStringToULONG @ 0x1408D2D2C (ExpTranslateHexStringToULONG.c)
- *     ExpTranslateHexStringToULONGLONG @ 0x1408D2DD0 (ExpTranslateHexStringToULONGLONG.c)
+ *     wcsncpy_s @ 0x14019BFB0 (wcsncpy_s.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     ExpTranslateHexStringToGUID @ 0x1408D3E64 (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1408D3FEC (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x1408D4090 (ExpTranslateHexStringToULONGLONG.c)
  */
 
 NTSTATUS __fastcall ExpParseSignatureName(

@@ -1,9 +1,9 @@
 /*
  * XREFs of CmpFreeCallbackObjectContexts @ 0x14068EF1C
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406DB340 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x1406DB370 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
  *     CmpLockContextListExclusive @ 0x14068F02C (CmpLockContextListExclusive.c)
  *     CmpUnlockContextList @ 0x14068F210 (CmpUnlockContextList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)

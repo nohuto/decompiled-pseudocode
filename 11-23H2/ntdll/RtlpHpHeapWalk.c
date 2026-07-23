@@ -52,7 +52,7 @@ LABEL_6:
   }
   if ( (_WORD)v5 )
     goto LABEL_4;
-  v9 = RtlCSparseBitmapBitmaskRead(&unk_180188A90, 2 * ((v5 - qword_180188A88) >> 20));
+  v9 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((v5 - qword_180188A88) >> 20));
   if ( v9 )
   {
     v7 = v9 - 1;

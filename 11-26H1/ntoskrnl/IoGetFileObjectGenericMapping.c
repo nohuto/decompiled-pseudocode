@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetFileObjectGenericMapping @ 0x140A87E80
+ * XREFs of IoGetFileObjectGenericMapping @ 0x140A8EFB0
  * Callers:
- *     DifIoGetFileObjectGenericMappingWrapper @ 0x14065CA30 (DifIoGetFileObjectGenericMappingWrapper.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1406E2720 (CmpCheckHivePrimaryFileReadWriteAccess.c)
- *     VfUtilIsLocalSystem @ 0x140C21924 (VfUtilIsLocalSystem.c)
+ *     DifIoGetFileObjectGenericMappingWrapper @ 0x140660610 (DifIoGetFileObjectGenericMappingWrapper.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1406E6A00 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     VfUtilIsLocalSystem @ 0x140C27934 (VfUtilIsLocalSystem.c)
  * Callees:
  *     <none>
  */

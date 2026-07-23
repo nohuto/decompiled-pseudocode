@@ -13,17 +13,17 @@ __int64 __fastcall HvlSetPartitionProperty(_SLIST_ENTRY *a1, __int64 a2, _SLIST_
   char v3; // si
   __int16 v7; // di
   bool v8; // di
-  struct _SLIST_ENTRY *HypercallCachedPages; // rax
+  _SLIST_ENTRY *HypercallCachedPages; // rax
   _SLIST_ENTRY *Next; // r14
   struct _KPRCB *CurrentPrcb; // rbx
-  struct _SLIST_ENTRY *v12; // r15
+  _SLIST_ENTRY *v12; // r15
   char v13; // bp
   __int16 v14; // ax
   __int16 v15; // bx
   __int64 v16; // rax
   struct _KPRCB *v17; // rcx
-  union _SLIST_HEADER *v18; // [rsp+28h] [rbp-40h]
-  struct _SLIST_ENTRY *v19; // [rsp+30h] [rbp-38h]
+  _SLIST_HEADER *v18; // [rsp+28h] [rbp-40h]
+  _SLIST_ENTRY *v19; // [rsp+30h] [rbp-38h]
   _SLIST_ENTRY *v20; // [rsp+38h] [rbp-30h]
   __int16 v21; // [rsp+60h] [rbp-8h]
 
@@ -36,7 +36,7 @@ __int64 __fastcall HvlSetPartitionProperty(_SLIST_ENTRY *a1, __int64 a2, _SLIST_
     _disable();
     v8 = (v7 & 0x200) != 0;
     LOBYTE(v18) = v8;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
     Next = HypercallCachedPages[1].Next;
 LABEL_8:
     v12 = v19;
@@ -53,12 +53,12 @@ LABEL_8:
     Next = v20;
     v8 = (v14 & 0x200) != 0;
     LOBYTE(v18) = v8;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
     goto LABEL_8;
   }
   Next = HypercallCachedPages[1].Next;
   v3 = 1;
-  v18 = (union _SLIST_HEADER *)CurrentPrcb;
+  v18 = (_SLIST_HEADER *)CurrentPrcb;
   v12 = HypercallCachedPages;
   v13 = BYTE4(CurrentPrcb);
   v8 = (char)CurrentPrcb;

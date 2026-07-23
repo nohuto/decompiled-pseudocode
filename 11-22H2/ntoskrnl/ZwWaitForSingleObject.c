@@ -26,5 +26,5 @@ NTSTATUS __stdcall ZwWaitForSingleObject(HANDLE Handle, BOOLEAN Alertable, PLARG
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, Alertable, Timeout);
+  return KiServiceInternal(Handle);
 }

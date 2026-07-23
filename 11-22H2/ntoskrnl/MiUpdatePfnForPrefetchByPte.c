@@ -76,7 +76,9 @@ __int64 __fastcall MiUpdatePfnForPrefetchByPte(unsigned __int64 a1, unsigned int
       }
     }
     _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v10 = v21;
       if ( v21 <= 0xFu && CurrentIrql >= 2u )

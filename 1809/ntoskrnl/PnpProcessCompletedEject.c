@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpProcessCompletedEject @ 0x140828280
+ * XREFs of PnpProcessCompletedEject @ 0x140829480
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     PnpFreeWatchdog @ 0x140005AF8 (PnpFreeWatchdog.c)
  *     PnpDisablePnpEventWorkerWatchdog @ 0x140005B14 (PnpDisablePnpEventWorkerWatchdog.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpCompleteDeviceEvent @ 0x14058BFC0 (PnpCompleteDeviceEvent.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     PnpInvalidateRelationsInList @ 0x1406EDCB0 (PnpInvalidateRelationsInList.c)
- *     IopFreeRelationList @ 0x1406EEA3C (IopFreeRelationList.c)
- *     PpProfileMarkAllTransitioningDocksEjected @ 0x140832AF8 (PpProfileMarkAllTransitioningDocksEjected.c)
- *     PnpSetDeviceRemovalSafe @ 0x140833330 (PnpSetDeviceRemovalSafe.c)
- *     PnpTrackQueryRemoveDevices @ 0x1408336F8 (PnpTrackQueryRemoveDevices.c)
- *     IopWarmEjectDevice @ 0x14083CE54 (IopWarmEjectDevice.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PnpCompleteDeviceEvent @ 0x14058CFC0 (PnpCompleteDeviceEvent.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
+ *     PnpInvalidateRelationsInList @ 0x1406EEF50 (PnpInvalidateRelationsInList.c)
+ *     IopFreeRelationList @ 0x1406EFCDC (IopFreeRelationList.c)
+ *     PpProfileMarkAllTransitioningDocksEjected @ 0x140833D58 (PpProfileMarkAllTransitioningDocksEjected.c)
+ *     PnpSetDeviceRemovalSafe @ 0x140834590 (PnpSetDeviceRemovalSafe.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140834958 (PnpTrackQueryRemoveDevices.c)
+ *     IopWarmEjectDevice @ 0x14083E0B4 (IopWarmEjectDevice.c)
  */
 
 void __fastcall PnpProcessCompletedEject(PVOID P)

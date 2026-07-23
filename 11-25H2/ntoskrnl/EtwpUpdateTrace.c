@@ -138,7 +138,7 @@ LABEL_84:
           v10[52] = (v12 & 0x10) != 0 ? 1000 : 1;
 LABEL_36:
         v14 = v10 + 69;
-        if ( HeapGuid == *(_QWORD *)(v10 + 69) && *(_QWORD *)(v10 + 71) == 0x4AA2F2756B3425A8LL )
+        if ( *(_QWORD *)&HeapGuid.Data1 == *(_QWORD *)(v10 + 69) && *(_QWORD *)HeapGuid.Data4 == *(_QWORD *)(v10 + 71) )
         {
           v15 = a1;
           v16 = 0LL;
@@ -146,7 +146,7 @@ LABEL_36:
         else
         {
           v15 = a1;
-          if ( CritSecGuid != *v14 || *(_QWORD *)(v10 + 71) != 0x6B81390EF58D1581LL )
+          if ( *(_QWORD *)&CritSecGuid.Data1 != *v14 || *(_QWORD *)CritSecGuid.Data4 != *(_QWORD *)(v10 + 71) )
             goto LABEL_40;
           v16 = 1LL;
         }

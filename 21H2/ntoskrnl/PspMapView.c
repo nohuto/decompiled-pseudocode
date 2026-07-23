@@ -1,11 +1,11 @@
 /*
- * XREFs of PspMapView @ 0x1405841DC
+ * XREFs of PspMapView @ 0x14058440C
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmMapViewOfSection @ 0x1406A1F20 (MmMapViewOfSection.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall PspMapView(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupFunctionTable @ 0x1403C5D58
+ * XREFs of RtlLookupFunctionTable @ 0x1403C5EFC
  * Callers:
- *     CcInitializeBcbProfiler @ 0x140A1B354 (CcInitializeBcbProfiler.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     CcInitializeBcbProfiler @ 0x140A1C354 (CcInitializeBcbProfiler.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x14021EBB0 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1402C34B0 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
@@ -17,7 +17,7 @@ PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD 
   v6 = 0LL;
   if ( a1 < *(&xmmword_140E00020 + 1) || a1 >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
   {
-    result = RtlpxLookupFunctionTable(a1, (unsigned __int64)&v6, (__int64)a3, *(&xmmword_140E00020 + 1));
+    result = RtlpxLookupFunctionTable(a1, (__int64)&v6);
   }
   else
   {

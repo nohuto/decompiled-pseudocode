@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoAllocateMdl @ 0x140705538
+ * XREFs of VerifierIoAllocateMdl @ 0x140705568
  * Callers:
  *     <none>
  * Callees:
- *     XdvIoAllocateMdl @ 0x140223418 (XdvIoAllocateMdl.c)
+ *     XdvIoAllocateMdl @ 0x140223244 (XdvIoAllocateMdl.c)
  */
 
 __int64 __fastcall VerifierIoAllocateMdl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,39 +1,39 @@
 /*
- * XREFs of PsCreateSystemThreadEx @ 0x14066AAC0
+ * XREFs of PsCreateSystemThreadEx @ 0x14066BC80
  * Callers:
- *     MiZeroNodePages @ 0x14017F400 (MiZeroNodePages.c)
- *     MiZeroBootLargePages @ 0x140192554 (MiZeroBootLargePages.c)
- *     MiEnablePartitionMappedWrites @ 0x14061BE6C (MiEnablePartitionMappedWrites.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     ExpNodeCreateSystemThread @ 0x14066A9A8 (ExpNodeCreateSystemThread.c)
- *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
- *     NtGetMUIRegistryInfo @ 0x1406AD5C0 (NtGetMUIRegistryInfo.c)
- *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
- *     PopInitSystemSleeperThread @ 0x1406DCE64 (PopInitSystemSleeperThread.c)
- *     IoCreateSystemThread @ 0x1406FF180 (IoCreateSystemThread.c)
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
- *     KiStartDpcThread @ 0x1407364E8 (KiStartDpcThread.c)
- *     CmpInitializeLazyWriters @ 0x1407485B4 (CmpInitializeLazyWriters.c)
- *     MmStoreRegister @ 0x14074BD2C (MmStoreRegister.c)
- *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
- *     PfTStart @ 0x140752A7C (PfTStart.c)
- *     CmpInitializeSystemHivesLoad @ 0x140756824 (CmpInitializeSystemHivesLoad.c)
- *     CmpInitializeRegistryProcess @ 0x1407572CC (CmpInitializeRegistryProcess.c)
- *     IopCreatePassiveInterruptRealtimeThreads @ 0x14075A344 (IopCreatePassiveInterruptRealtimeThreads.c)
- *     PopFxCreateEmergencyWorkerThread @ 0x14075B5D4 (PopFxCreateEmergencyWorkerThread.c)
- *     CmpCreateRegistryThread @ 0x1407F6570 (CmpCreateRegistryThread.c)
- *     IopStartApcHardError @ 0x14081B650 (IopStartApcHardError.c)
- *     MiInitializePartitionThreads @ 0x140851E50 (MiInitializePartitionThreads.c)
- *     EtwpCovSampCaptureContextStart @ 0x1408C3D80 (EtwpCovSampCaptureContextStart.c)
- *     ExpWatchLicenseInfoWork @ 0x1408CD560 (ExpWatchLicenseInfoWork.c)
+ *     MiZeroNodePages @ 0x14017F540 (MiZeroNodePages.c)
+ *     MiZeroBootLargePages @ 0x140192694 (MiZeroBootLargePages.c)
+ *     MiEnablePartitionMappedWrites @ 0x14061CE6C (MiEnablePartitionMappedWrites.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     ExpNodeCreateSystemThread @ 0x14066BB68 (ExpNodeCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x14066BC30 (PsCreateSystemThread.c)
+ *     NtGetMUIRegistryInfo @ 0x1406AE860 (NtGetMUIRegistryInfo.c)
+ *     ExpWatchProductTypeWork @ 0x1406C0BB0 (ExpWatchProductTypeWork.c)
+ *     PopInitSystemSleeperThread @ 0x1406DE104 (PopInitSystemSleeperThread.c)
+ *     IoCreateSystemThread @ 0x140700420 (IoCreateSystemThread.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
+ *     KiStartDpcThread @ 0x1407376D8 (KiStartDpcThread.c)
+ *     CmpInitializeLazyWriters @ 0x1407497A4 (CmpInitializeLazyWriters.c)
+ *     MmStoreRegister @ 0x14074CF1C (MmStoreRegister.c)
+ *     MiInsertPageFileInList @ 0x14074DB00 (MiInsertPageFileInList.c)
+ *     PfTStart @ 0x140753C6C (PfTStart.c)
+ *     CmpInitializeSystemHivesLoad @ 0x140757A14 (CmpInitializeSystemHivesLoad.c)
+ *     CmpInitializeRegistryProcess @ 0x1407584BC (CmpInitializeRegistryProcess.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x14075B534 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     PopFxCreateEmergencyWorkerThread @ 0x14075C7C4 (PopFxCreateEmergencyWorkerThread.c)
+ *     CmpCreateRegistryThread @ 0x1407F7770 (CmpCreateRegistryThread.c)
+ *     IopStartApcHardError @ 0x14081C850 (IopStartApcHardError.c)
+ *     MiInitializePartitionThreads @ 0x1408530B0 (MiInitializePartitionThreads.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1408C5040 (EtwpCovSampCaptureContextStart.c)
+ *     ExpWatchLicenseInfoWork @ 0x1408CE820 (ExpWatchLicenseInfoWork.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeQueryActiveGroupCount @ 0x1400E3C10 (KeQueryActiveGroupCount.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PspCreateThread @ 0x140621D64 (PspCreateThread.c)
+ *     KeQueryActiveGroupCount @ 0x1400E3C90 (KeQueryActiveGroupCount.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspCreateThread @ 0x140622D64 (PspCreateThread.c)
  */
 
 __int64 __fastcall PsCreateSystemThreadEx(
@@ -97,7 +97,7 @@ __int64 __fastcall PsCreateSystemThreadEx(
       v9 = &v28;
       LOWORD(v29) = v15 % KeQueryActiveGroupCount();
       v13 = (char *)Object;
-      v28 = qword_1405416A8[(unsigned __int16)v29];
+      v28 = qword_1405426A8[(unsigned __int16)v29];
     }
     memset(v30, 0, 0x1E8uLL);
     if ( v9 )

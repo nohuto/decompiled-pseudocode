@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSynchronousPageWrite @ 0x1404ACAF0
+ * XREFs of IoSynchronousPageWrite @ 0x1404A6180
  * Callers:
  *     <none>
  * Callees:
- *     IoSynchronousPageWriteEx @ 0x14026B9F0 (IoSynchronousPageWriteEx.c)
+ *     IoSynchronousPageWriteEx @ 0x14026AF60 (IoSynchronousPageWriteEx.c)
  */
 
 NTSTATUS __stdcall IoSynchronousPageWrite(

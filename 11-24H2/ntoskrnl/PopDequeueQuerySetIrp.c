@@ -1,21 +1,21 @@
 /*
- * XREFs of PopDequeueQuerySetIrp @ 0x140375DBC
+ * XREFs of PopDequeueQuerySetIrp @ 0x1402BA5A0
  * Callers:
- *     PopHandleDevicePowerIrpCompletion @ 0x140376270 (PopHandleDevicePowerIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140B6F8E0 (PopSystemIrpCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403A65A0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140B71950 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PopCompleteIrpWatchdog @ 0x140331C98 (PopCompleteIrpWatchdog.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     PopDiagTraceIrpStart @ 0x14037712C (PopDiagTraceIrpStart.c)
- *     PopDiagTraceIrpFinish @ 0x140377E10 (PopDiagTraceIrpFinish.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403CB4D8 (PopDeepSleepClearDisengageReason.c)
- *     PopEnableIrpWatchdog @ 0x140440F7C (PopEnableIrpWatchdog.c)
- *     PopDisableIrpWatchdog @ 0x14049F5CC (PopDisableIrpWatchdog.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402B9FF0 (PopDeepSleepClearDisengageReason.c)
+ *     PopCompleteIrpWatchdog @ 0x1402BC618 (PopCompleteIrpWatchdog.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PopDiagTraceIrpFinish @ 0x1402E64EC (PopDiagTraceIrpFinish.c)
+ *     PopEnableIrpWatchdog @ 0x140314DDC (PopEnableIrpWatchdog.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTraceIrpStart @ 0x14046B350 (PopDiagTraceIrpStart.c)
+ *     PopDisableIrpWatchdog @ 0x14049A414 (PopDisableIrpWatchdog.c)
  */
 
 void __fastcall PopDequeueQuerySetIrp(__int64 a1)
@@ -163,7 +163,7 @@ LABEL_8:
     v9 = v8;
     if ( v5 )
     {
-      PopDeepSleepClearDisengageReason(2LL);
+      PopDeepSleepClearDisengageReason(2u);
       if ( !PopDevicePowerTransitionInProgressWorkerQueued )
       {
         PopDevicePowerTransitionInProgressWorkerQueued = 1;

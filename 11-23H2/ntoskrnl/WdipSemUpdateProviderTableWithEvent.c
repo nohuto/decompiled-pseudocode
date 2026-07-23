@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x140831900
+ * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x140831C00
  * Callers:
- *     WdipSemUpdateProviderTableWithScenario @ 0x14083188C (WdipSemUpdateProviderTableWithScenario.c)
+ *     WdipSemUpdateProviderTableWithScenario @ 0x140831B8C (WdipSemUpdateProviderTableWithScenario.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WdipSemFastAllocate @ 0x14083178C (WdipSemFastAllocate.c)
- *     WdipSemQueryProviderTable @ 0x1408319A4 (WdipSemQueryProviderTable.c)
- *     WdipSemWriteProviderLimitExceededEvent @ 0x1409DE478 (WdipSemWriteProviderLimitExceededEvent.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WdipSemFastAllocate @ 0x140831A8C (WdipSemFastAllocate.c)
+ *     WdipSemQueryProviderTable @ 0x140831CA4 (WdipSemQueryProviderTable.c)
+ *     WdipSemWriteProviderLimitExceededEvent @ 0x1409DE678 (WdipSemWriteProviderLimitExceededEvent.c)
  */
 
 __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
     {
       *(_QWORD *)(a1 + 40) = ProviderTable;
     }
-    else if ( (unsigned int)dword_140C34AA0 >= 0x400 )
+    else if ( (unsigned int)dword_140C34E60 >= 0x400 )
     {
       if ( EtwEventEnabled(WdipSemRegHandle, &WDI_SEM_EVENT_INIT_PROVIDER_MAX) )
         WdipSemWriteProviderLimitExceededEvent(a1);
@@ -39,7 +39,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
       {
         memset(v5, 0, 0x50uLL);
         *v6 = *(_OWORD *)a1;
-        WdipSemProviderTable[dword_140C34AA0++] = v6;
+        WdipSemProviderTable[dword_140C34E60++] = v6;
         *(_QWORD *)(a1 + 40) = v6;
       }
       else

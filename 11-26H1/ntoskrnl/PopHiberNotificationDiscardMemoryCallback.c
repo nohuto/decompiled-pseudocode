@@ -1,9 +1,9 @@
 /*
- * XREFs of PopHiberNotificationDiscardMemoryCallback @ 0x140BFACB0
+ * XREFs of PopHiberNotificationDiscardMemoryCallback @ 0x140C00CB0
  * Callers:
  *     <none>
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  */
 
 void __fastcall PopHiberNotificationDiscardMemoryCallback(void *a1, void *a2, ULONG_PTR a3, ULONG Tag)

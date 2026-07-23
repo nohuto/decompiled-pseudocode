@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeZeroTruncateLogfile @ 0x1408573E0
+ * XREFs of EtwpRealtimeZeroTruncateLogfile @ 0x140857620
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140772D48 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x140772FD8 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140772F38 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1407731C8 (EtwpRealtimeFlushSavedBuffers.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeZeroTruncateLogfile(__int64 a1)

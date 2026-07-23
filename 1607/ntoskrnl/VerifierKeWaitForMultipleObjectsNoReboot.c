@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeWaitForMultipleObjectsNoReboot @ 0x140712964
+ * XREFs of VerifierKeWaitForMultipleObjectsNoReboot @ 0x14071291C
  * Callers:
  *     <none>
  * Callees:

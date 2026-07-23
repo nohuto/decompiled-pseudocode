@@ -1,20 +1,20 @@
 /*
- * XREFs of KeAbCrossThreadDelete @ 0x140520E78
+ * XREFs of KeAbCrossThreadDelete @ 0x1405210B8
  * Callers:
- *     KeDeleteMutant @ 0x1402AA058 (KeDeleteMutant.c)
+ *     KeDeleteMutant @ 0x140228198 (KeDeleteMutant.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
- *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KiAbCrossThreadRelease @ 0x14038E850 (KiAbCrossThreadRelease.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadStateLock @ 0x14029B7D0 (KiReleaseThreadStateLock.c)
+ *     KeGenericCallDpc @ 0x14029E250 (KeGenericCallDpc.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KiAcquireThreadStateLock @ 0x1402D5790 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     MmIsSessionAddress @ 0x140353E60 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KiAbCrossThreadRelease @ 0x14038E9A0 (KiAbCrossThreadRelease.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall KeAbCrossThreadDelete(unsigned __int64 a1, ULONG_PTR a2)

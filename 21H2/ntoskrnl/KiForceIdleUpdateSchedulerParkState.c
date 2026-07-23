@@ -1,18 +1,18 @@
 /*
- * XREFs of KiForceIdleUpdateSchedulerParkState @ 0x1405234B0
+ * XREFs of KiForceIdleUpdateSchedulerParkState @ 0x1405236F0
  * Callers:
- *     KiForceIdleStartDpcRoutine @ 0x1405232B0 (KiForceIdleStartDpcRoutine.c)
- *     KiForceIdleStopDpcRoutine @ 0x1405233C0 (KiForceIdleStopDpcRoutine.c)
+ *     KiForceIdleStartDpcRoutine @ 0x1405234F0 (KiForceIdleStartDpcRoutine.c)
+ *     KiForceIdleStopDpcRoutine @ 0x140523600 (KiForceIdleStopDpcRoutine.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeOrAffinityEx @ 0x14022B850 (KeOrAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiForceIdleParkUnparkProcessor @ 0x1405230F8 (KiForceIdleParkUnparkProcessor.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeOrAffinityEx @ 0x1402D0100 (KeOrAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x140523338 (KiForceIdleParkUnparkProcessor.c)
  */
 
 __int64 __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140ADA47C
+ * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140ADA46C
  * Callers:
- *     VfGetVerifierInformation @ 0x1405D2078 (VfGetVerifierInformation.c)
+ *     VfGetVerifierInformation @ 0x1405D25E8 (VfGetVerifierInformation.c)
  * Callees:
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     VfAvlInitializeLockContext @ 0x1404664A8 (VfAvlInitializeLockContext.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfTargetDriversGetZeroCounters @ 0x140ACB5A8 (VfTargetDriversGetZeroCounters.c)
- *     VfAvlEnumerateNodes @ 0x140ADC2D4 (VfAvlEnumerateNodes.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     VfAvlInitializeLockContext @ 0x1404668A8 (VfAvlInitializeLockContext.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfTargetDriversGetZeroCounters @ 0x140ACB598 (VfTargetDriversGetZeroCounters.c)
+ *     VfAvlEnumerateNodes @ 0x140ADC2C4 (VfAvlEnumerateNodes.c)
  */
 
 __int64 __fastcall VfSuspectDriversGetVerifierInformation(

@@ -13,22 +13,22 @@
  *     BiAcquireBcdSyncMutant @ 0x1404FD784 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall PopBcdClearPendingResume(HANDLE KeyHandle)
+NTSTATUS __fastcall PopBcdClearPendingResume(HANDLE KeyHandle)
 {
-  __int64 result; // rax
-  int v3; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v3; // ebx
   __int64 v4; // rcx
   char v5; // bp
   __int64 v6; // rcx
-  HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  result = BcdOpenObject(KeyHandle, &GUID_WINDOWS_BOOTMGR, &Handle);
-  if ( (int)result >= 0 )
+  result = BcdOpenObject(KeyHandle, &GUID_WINDOWS_BOOTMGR, &BcdObjectHandle);
+  if ( result >= 0 )
   {
-    v3 = BcdDeleteElement(Handle, 637534213LL);
+    v3 = BcdDeleteElement(BcdObjectHandle, 0x26000005u);
     if ( v3 >= 0 )
     {
-      v3 = BcdDeleteElement(Handle, 637534245LL);
+      v3 = BcdDeleteElement(BcdObjectHandle, 0x26000025u);
       if ( v3 >= 0 )
       {
         LOBYTE(v4) = BiIsOfflineHandle((char)KeyHandle);
@@ -41,8 +41,8 @@ __int64 __fastcall PopBcdClearPendingResume(HANDLE KeyHandle)
         }
       }
     }
-    BcdCloseObject(Handle);
-    return (unsigned int)v3;
+    BcdCloseObject(BcdObjectHandle);
+    return v3;
   }
   return result;
 }

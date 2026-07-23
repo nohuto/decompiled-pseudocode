@@ -1,17 +1,17 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x1409CF8FC
+ * XREFs of SepSetTokenUserAndGroups @ 0x1409CFAFC
  * Callers:
- *     SepCreateTokenEx @ 0x140229710 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x140229820 (SepCreateTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SepDuplicateSid @ 0x140711014 (SepDuplicateSid.c)
- *     SepLogTokenSidManagement @ 0x1409C9C10 (SepLogTokenSidManagement.c)
- *     SepCompareSidValuesBlocks @ 0x1409CF474 (SepCompareSidValuesBlocks.c)
- *     SepCreateSidValuesBlock @ 0x1409CF51C (SepCreateSidValuesBlock.c)
- *     SepDereferenceSidValuesBlock @ 0x1409CF754 (SepDereferenceSidValuesBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SepDuplicateSid @ 0x140711224 (SepDuplicateSid.c)
+ *     SepLogTokenSidManagement @ 0x1409C9E10 (SepLogTokenSidManagement.c)
+ *     SepCompareSidValuesBlocks @ 0x1409CF674 (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x1409CF71C (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x1409CF954 (SepDereferenceSidValuesBlock.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)

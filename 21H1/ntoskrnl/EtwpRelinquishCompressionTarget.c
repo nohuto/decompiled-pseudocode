@@ -10,11 +10,11 @@
  *     EtwpEnqueueAvailableBuffer @ 0x14024161C (EtwpEnqueueAvailableBuffer.c)
  */
 
-void __fastcall EtwpRelinquishCompressionTarget(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall EtwpRelinquishCompressionTarget(__int64 a1)
 {
   if ( *(_QWORD *)(a1 + 1168) )
   {
-    *(LARGE_INTEGER *)(*(_QWORD *)(a1 + 1168) + 16LL) = EtwpGetLoggerTimeStamp(a1, a2, a3, a4);
+    *(LARGE_INTEGER *)(*(_QWORD *)(a1 + 1168) + 16LL) = EtwpGetLoggerTimeStamp(a1);
     EtwpEnqueueAvailableBuffer(a1, *(unsigned int **)(a1 + 1168), 5u);
     *(_QWORD *)(a1 + 1168) = 0LL;
   }

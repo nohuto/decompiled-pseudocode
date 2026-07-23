@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAssessSystemIdleEvent @ 0x140A3BDA8
+ * XREFs of PopAssessSystemIdleEvent @ 0x1409F77C8
  * Callers:
- *     PopIsSystemIdle @ 0x140A3BCDC (PopIsSystemIdle.c)
+ *     PopIsSystemIdle @ 0x1409F76FC (PopIsSystemIdle.c)
  * Callees:
- *     PopDiagTraceSystemIdleEventAssessment @ 0x140A3BE3C (PopDiagTraceSystemIdleEventAssessment.c)
+ *     PopDiagTraceSystemIdleEventAssessment @ 0x1409F785C (PopDiagTraceSystemIdleEventAssessment.c)
  */
 
 __int64 __fastcall PopAssessSystemIdleEvent(int *a1, unsigned int a2, unsigned __int64 *a3)

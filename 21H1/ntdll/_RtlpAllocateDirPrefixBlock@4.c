@@ -6,16 +6,18 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __fastcall RtlpAllocateDirPrefixBlock(unsigned __int16 a1)
+_WORD *__fastcall RtlpAllocateDirPrefixBlock(unsigned __int16 a1)
 {
-  int result; // eax
+  _WORD *result; // eax
+  SIZE_T v3; // [esp-4h] [ebp-8h]
 
-  result = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, a1 + 16);
+  LODWORD(v3) = a1 + 16;
+  result = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, v3);
   if ( result )
   {
-    *(_WORD *)(result + 10) = a1;
-    *(_WORD *)(result + 8) = 0;
-    *(_DWORD *)(result + 12) = result + 16;
+    result[5] = a1;
+    result[4] = 0;
+    *((_DWORD *)result + 3) = result + 8;
   }
   return result;
 }

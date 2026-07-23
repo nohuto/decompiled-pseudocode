@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInsertPageChainHead @ 0x14039EC34
+ * XREFs of MiInsertPageChainHead @ 0x14021CD10
  * Callers:
- *     MiAllocateEnclavePages @ 0x140394D84 (MiAllocateEnclavePages.c)
- *     MiAddSystemPageTableToList @ 0x14039E874 (MiAddSystemPageTableToList.c)
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiGetLargePageChain @ 0x1403D4E10 (MiGetLargePageChain.c)
- *     MiMapMdlWithLargePages @ 0x1404C71D0 (MiMapMdlWithLargePages.c)
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
- *     MiGetClusterPage @ 0x1404D2DE4 (MiGetClusterPage.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
- *     MiInitializeDynamicBitmap @ 0x1406794B8 (MiInitializeDynamicBitmap.c)
- *     MiAddExpansionNonPagedPool @ 0x14067C9FC (MiAddExpansionNonPagedPool.c)
- *     MiCaptureSparsePages @ 0x1407FA6FC (MiCaptureSparsePages.c)
- *     MiPfPrepareReadList @ 0x1409557EC (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiAddSystemPageTableToList @ 0x14021C950 (MiAddSystemPageTableToList.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiGetLargePageChain @ 0x140263C74 (MiGetLargePageChain.c)
+ *     MiAllocateEnclavePages @ 0x1403F85DC (MiAllocateEnclavePages.c)
+ *     MiMapMdlWithLargePages @ 0x1404C0630 (MiMapMdlWithLargePages.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
+ *     MiGetClusterPage @ 0x1404CBFA4 (MiGetClusterPage.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
+ *     MiInitializeDynamicBitmap @ 0x14067A698 (MiInitializeDynamicBitmap.c)
+ *     MiAddExpansionNonPagedPool @ 0x14067DBDC (MiAddExpansionNonPagedPool.c)
+ *     MiCaptureSparsePages @ 0x1407FAE6C (MiCaptureSparsePages.c)
+ *     MiPfPrepareReadList @ 0x14093919C (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeOrAffinityEx @ 0x1400DC8F0
+ * XREFs of KeOrAffinityEx @ 0x1400DC970
  * Callers:
  *     KiForwardTick @ 0x140061720 (KiForwardTick.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1400DBFB0 (KeQueryLogicalProcessorRelationship.c)
- *     PpmPerfApplyProcessorStates @ 0x140175190 (PpmPerfApplyProcessorStates.c)
- *     KiStartProfileTarget @ 0x1402960B0 (KiStartProfileTarget.c)
- *     PpmUpdateProcessorPolicy @ 0x14071CB38 (PpmUpdateProcessorPolicy.c)
- *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x14074EE38 (PpmCheckInitProcessors.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1400DC030 (KeQueryLogicalProcessorRelationship.c)
+ *     PpmPerfApplyProcessorStates @ 0x140175290 (PpmPerfApplyProcessorStates.c)
+ *     KiStartProfileTarget @ 0x1402962A0 (KiStartProfileTarget.c)
+ *     PpmUpdateProcessorPolicy @ 0x14071DDD8 (PpmUpdateProcessorPolicy.c)
+ *     PpmRegisterPerfStates @ 0x14074F6AC (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x140750028 (PpmCheckInitProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeOrAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

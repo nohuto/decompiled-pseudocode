@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMirrorOmitPagesFromCopy @ 0x140627288
+ * XREFs of MiMirrorOmitPagesFromCopy @ 0x1406277D8
  * Callers:
- *     MiMirrorReduceBlackWrites @ 0x140628060 (MiMirrorReduceBlackWrites.c)
- *     MiMirrorRemoveBlackChildPartitionPages @ 0x140628260 (MiMirrorRemoveBlackChildPartitionPages.c)
- *     MiMirrorRemoveInactivePages @ 0x1406282C4 (MiMirrorRemoveInactivePages.c)
- *     MiMirrorNodeLargePages @ 0x14064F504 (MiMirrorNodeLargePages.c)
- *     MiRemoveEnclavePagesFromMirror @ 0x140AAD628 (MiRemoveEnclavePagesFromMirror.c)
+ *     MiMirrorReduceBlackWrites @ 0x1406285B0 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorRemoveBlackChildPartitionPages @ 0x1406287B0 (MiMirrorRemoveBlackChildPartitionPages.c)
+ *     MiMirrorRemoveInactivePages @ 0x140628814 (MiMirrorRemoveInactivePages.c)
+ *     MiMirrorNodeLargePages @ 0x14064FA54 (MiMirrorNodeLargePages.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x140AAD498 (MiRemoveEnclavePagesFromMirror.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
  */
 
 __int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

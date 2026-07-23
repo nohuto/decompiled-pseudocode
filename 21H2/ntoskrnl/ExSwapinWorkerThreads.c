@@ -1,22 +1,22 @@
 /*
- * XREFs of ExSwapinWorkerThreads @ 0x140777354
+ * XREFs of ExSwapinWorkerThreads @ 0x140777514
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
- *     PopUnlockAfterSleepWorker @ 0x140994FE0 (PopUnlockAfterSleepWorker.c)
- *     ExShutdownSystem @ 0x1409B2B58 (ExShutdownSystem.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopUnlockAfterSleepWorker @ 0x140995FE0 (PopUnlockAfterSleepWorker.c)
+ *     ExShutdownSystem @ 0x1409B3A88 (ExShutdownSystem.c)
  * Callees:
- *     KeSetKernelStackSwapEnable @ 0x14022C190 (KeSetKernelStackSwapEnable.c)
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsGetNextPartitionUnsafe @ 0x1402F8D08 (PsGetNextPartitionUnsafe.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
- *     PsReferencePartitionSystemProcess @ 0x1407774B8 (PsReferencePartitionSystemProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402D0A10 (KeSetKernelStackSwapEnable.c)
+ *     PsGetNextPartitionUnsafe @ 0x140303A58 (PsGetNextPartitionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsGetNextProcessThread @ 0x1407216D0 (PsGetNextProcessThread.c)
+ *     PsReferencePartitionSystemProcess @ 0x140777678 (PsReferencePartitionSystemProcess.c)
  */
 
 void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)

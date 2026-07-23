@@ -8,12 +8,12 @@
  *     sub_18008C6D8 @ 0x18008C6D8 (sub_18008C6D8.c)
  */
 
-__int64 __fastcall sub_18009658C(_DWORD *a1, _BYTE *a2, unsigned __int64 a3, __int16 a4)
+__int64 __fastcall sub_18009658C(ULONG *a1, CHAR *a2, unsigned __int64 a3, WCHAR a4)
 {
-  unsigned int v6; // [rsp+48h] [rbp+10h] BYREF
-  unsigned int v7; // [rsp+58h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF
+  WCHAR UnicodeString; // [rsp+58h] [rbp+20h] BYREF
 
-  LOWORD(v7) = a4;
+  UnicodeString = a4;
   if ( a2 || !a3 )
   {
     if ( a1 )
@@ -25,13 +25,13 @@ __int64 __fastcall sub_18009658C(_DWORD *a1, _BYTE *a2, unsigned __int64 a3, __i
     }
     if ( a2 )
     {
-      if ( (int)RtlUnicodeToMultiByteN(a2, a3, &v6, &v7, 2u) < 0 )
+      if ( RtlUnicodeToMultiByteN(a2, a3, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
       {
         *errno() = 42;
         return (unsigned int)*errno();
       }
       if ( a1 )
-        *a1 = v6;
+        *a1 = BytesInMultiByteString;
     }
     else if ( a1 )
     {

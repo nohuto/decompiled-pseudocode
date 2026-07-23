@@ -7,11 +7,11 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegFreeStringPool(__int64 a1)
+LOGICAL __fastcall RtlpMuiRegFreeStringPool(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( BaseAddress )
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return result;
 }

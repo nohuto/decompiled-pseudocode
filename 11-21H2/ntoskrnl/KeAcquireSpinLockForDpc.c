@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockAtDpcLevel @ 0x140211E00 (KeAcquireSpinLockAtDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
@@ -11,9 +11,9 @@ KIRQL __stdcall KeAcquireSpinLockForDpc(PKSPIN_LOCK SpinLock)
 {
   KIRQL v1; // bl
 
-  if ( (KeGetCurrentPrcb()->DpcRequestSummary & 0x10000) != 0 )
+  if ( (*((_DWORD *)KeGetCurrentPrcb() + 3311) & 0x10000) != 0 )
     return KeAcquireSpinLockRaiseToDpc(SpinLock);
   v1 = 2;
-  KxAcquireSpinLock(SpinLock);
+  KeAcquireSpinLockAtDpcLevel(SpinLock);
   return v1;
 }

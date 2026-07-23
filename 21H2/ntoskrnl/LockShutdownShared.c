@@ -1,9 +1,9 @@
 /*
- * XREFs of LockShutdownShared @ 0x14071D274
+ * XREFs of LockShutdownShared @ 0x14061B8A0
  * Callers:
- *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpLoadKeyCommon @ 0x14026D10C (CmpLoadKeyCommon.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 LockShutdownShared()

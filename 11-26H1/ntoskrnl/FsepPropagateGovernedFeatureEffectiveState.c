@@ -1,175 +1,187 @@
 /*
- * XREFs of FsepPropagateGovernedFeatureEffectiveState @ 0x1408A4E88
+ * XREFs of FsepPropagateGovernedFeatureEffectiveState @ 0x1408AB298
  * Callers:
- *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408A4DD8 (FseInitializeGovernedFeaturesEffectiveStates.c)
+ *     FseInitializeGovernedFeaturesEffectiveStates @ 0x1408AB1E8 (FseInitializeGovernedFeaturesEffectiveStates.c)
  * Callees:
- *     AllocateZeroMemory @ 0x14071E37C (AllocateZeroMemory.c)
- *     SafeFree @ 0x14071E3D8 (SafeFree.c)
+ *     AllocateZeroMemory @ 0x14072300C (AllocateZeroMemory.c)
+ *     SafeFree @ 0x140723068 (SafeFree.c)
  */
 
 __int64 __fastcall FsepPropagateGovernedFeatureEffectiveState(__int64 a1, unsigned __int16 a2, __int64 a3, __int64 a4)
 {
   size_t v6; // rdx
-  int v7; // esi
-  int v8; // r10d
-  __int64 v9; // r12
-  _QWORD *v10; // r14
-  __int64 v11; // r13
-  __int64 v12; // r9
-  unsigned __int64 v13; // r8
-  int v14; // r11d
-  unsigned __int64 v15; // r8
-  unsigned int v16; // edx
-  unsigned int v17; // r15d
-  int v18; // r8d
-  __int16 v19; // r10
-  __int64 v20; // rdi
-  unsigned int v21; // ecx
-  unsigned int v22; // eax
-  int v23; // ecx
+  int v8; // r14d
+  int v9; // r10d
+  __int64 v10; // r13
+  _QWORD *v11; // r15
+  __int64 v12; // r11
+  __int64 v13; // r8
+  unsigned __int64 v14; // r9
+  int v15; // ebx
+  unsigned __int64 v16; // r9
+  unsigned int v17; // edx
+  unsigned int v18; // r12d
+  int v19; // r9d
+  int v20; // eax
+  __int16 v21; // dx
+  __int64 v22; // r10
+  unsigned int v23; // ecx
   unsigned int v24; // eax
-  unsigned int v25; // edx
-  bool v26; // zf
-  bool v27; // r10
-  BOOL v28; // eax
-  unsigned int v29; // ebx
-  __int64 v31; // [rsp+20h] [rbp-40h]
-  unsigned __int64 v32; // [rsp+20h] [rbp-40h]
-  _QWORD *v33; // [rsp+38h] [rbp-28h] BYREF
-  __int128 v34; // [rsp+40h] [rbp-20h]
-  __int128 v35; // [rsp+50h] [rbp-10h]
-  int v37; // [rsp+B0h] [rbp+50h]
-  unsigned int v38; // [rsp+B8h] [rbp+58h]
+  int v25; // ecx
+  unsigned int v26; // r11d
+  unsigned int v27; // eax
+  unsigned __int64 v28; // rax
+  unsigned int v29; // esi
+  __int64 v31; // [rsp+20h] [rbp-60h]
+  unsigned __int64 v32; // [rsp+20h] [rbp-60h]
+  __int64 v33; // [rsp+28h] [rbp-58h]
+  _QWORD *v34; // [rsp+38h] [rbp-48h] BYREF
+  int v35; // [rsp+40h] [rbp-40h]
+  int v36; // [rsp+44h] [rbp-3Ch]
+  unsigned int v37; // [rsp+48h] [rbp-38h]
+  unsigned __int64 v38; // [rsp+50h] [rbp-30h]
+  __int128 v39; // [rsp+58h] [rbp-28h]
+  __int128 v40; // [rsp+68h] [rbp-18h]
+  int v41; // [rsp+D8h] [rbp+58h]
 
   v6 = 8LL * (unsigned __int16)*(_DWORD *)a4;
-  v33 = 0LL;
-  v7 = AllocateZeroMemory(&v33, v6);
-  if ( v7 >= 0 )
+  v34 = 0LL;
+  v8 = AllocateZeroMemory(&v34, v6);
+  if ( v8 >= 0 )
   {
-    v8 = *(_DWORD *)(a4 + 4);
-    v9 = a4 + *(_QWORD *)(a4 + 8);
-    v10 = v33;
-    v11 = a4 + *(_QWORD *)(a4 + 16);
-    HIDWORD(v31) = (unsigned __int16)v8;
+    v9 = *(_DWORD *)(a4 + 4);
+    v10 = a4 + *(_QWORD *)(a4 + 8);
+    v11 = v34;
+    v12 = a4 + *(_QWORD *)(a4 + 16);
+    HIDWORD(v31) = (unsigned __int16)v9;
     LODWORD(v31) = a2;
-    v38 = (unsigned __int16)v8;
-    *v33 = v31;
-    LODWORD(v12) = 1;
-    v37 = v8;
+    v37 = (unsigned __int16)v9;
+    *v34 = v31;
+    LODWORD(v13) = 1;
+    v33 = v12;
+    v41 = v9;
+    v36 = 1;
+    v35 = 2;
     while ( 1 )
     {
-      while ( 1 )
-      {
-LABEL_6:
-        if ( !(_DWORD)v12 )
-          goto LABEL_47;
-        v12 = (unsigned int)(v12 - 1);
-        v13 = v10[v12];
-        v14 = (unsigned __int16)v13;
-        v32 = v13;
-        v34 = *(_OWORD *)(v9 + 16LL * (unsigned __int16)v13);
-        v35 = *(_OWORD *)(v9 + 16LL * ((unsigned int)(unsigned __int16)v13 + 1));
-        if ( (int)v13 >> 16 )
-          break;
-        if ( WORD2(v34) != WORD2(v35) )
-        {
-          LODWORD(v32) = (unsigned __int16)v13 | 0x10000;
-          v10[v12] = v32;
-          LODWORD(v12) = v12 + 1;
-        }
-      }
-      if ( (int)v13 >> 16 != 1 )
+      v13 = (unsigned int)(v13 - 1);
+      v14 = v11[v13];
+      v15 = (unsigned __int16)v14;
+      v32 = v14;
+      v39 = *(_OWORD *)(v10 + 16LL * (unsigned __int16)v14);
+      v40 = *(_OWORD *)(v10 + 16LL * ((unsigned int)(unsigned __int16)v14 + 1));
+      if ( (int)v14 >> 16 )
         break;
-      v15 = HIDWORD(v13);
-      if ( (unsigned __int16)v15 == v8 )
-        v16 = v15 ^ (unsigned __int16)(v15 ^ WORD2(v34));
+      if ( WORD2(v39) != WORD2(v40) )
+      {
+        LODWORD(v32) = (unsigned __int16)v14 | 0x10000;
+        v11[v13] = v32;
+        LODWORD(v13) = v13 + 1;
+      }
+LABEL_43:
+      if ( !(_DWORD)v13 )
+        goto LABEL_54;
+    }
+    if ( (int)v14 >> 16 == 1 )
+    {
+      v16 = HIDWORD(v14);
+      if ( (unsigned __int16)v16 == v9 )
+        v17 = v16 ^ (unsigned __int16)(v16 ^ WORD2(v39));
       else
-        v16 = HIDWORD(v32) & 0xFFFF0000 | (unsigned __int16)(WORD2(v32) + 1);
+        v17 = HIDWORD(v32) & 0xFFFF0000 | (unsigned __int16)(WORD2(v32) + 1);
       while ( 1 )
       {
-        HIDWORD(v32) = v16;
-        if ( (unsigned __int16)v16 >= (unsigned int)WORD2(v35) )
-          goto LABEL_6;
-        if ( (unsigned __int16)(*(_WORD *)(v11 + 4LL * (unsigned __int16)v16 + 2) - 1) <= 1u )
+        HIDWORD(v32) = v17;
+        if ( (unsigned __int16)v17 >= (unsigned int)WORD2(v40) )
+          goto LABEL_43;
+        if ( (unsigned __int16)(*(_WORD *)(v12 + 4LL * (unsigned __int16)v17 + 2) - 1) <= 1u )
           break;
-        v16 ^= (unsigned __int16)(v16 ^ (v16 + 1));
+        v17 ^= (unsigned __int16)(v17 ^ (v17 + 1));
       }
-      if ( (unsigned __int16)v16 >= (unsigned int)WORD2(v35) )
-        goto LABEL_6;
-      v17 = HIDWORD(v34);
-      v10[v12] = v32;
-      v12 = (unsigned int)(v12 + 1);
-      v18 = (v17 >> 1) & 3;
-      v19 = *(_WORD *)(v11 + 4LL * (unsigned __int16)v16 + 2);
-      v20 = (unsigned __int16)*(_DWORD *)(v11 + 4LL * (unsigned __int16)v16);
-      v21 = *(_DWORD *)(v9 + 16 * v20 + 12);
-      if ( (v21 & 1) != 0 || (v22 = *(_DWORD *)(a1 + 4 * v20), (v22 & 1) == 0) )
-        v22 = (16 * (v21 & 0xFFFFFFFE)) | (v21 >> 2) & 0x1E;
-      v23 = v22 & 0x60;
-      if ( !v18 )
+      if ( (unsigned __int16)v17 >= (unsigned int)WORD2(v40) )
+        goto LABEL_43;
+      v18 = HIDWORD(v39);
+      v11[v13] = v32;
+      v13 = (unsigned int)(v13 + 1);
+      v19 = (v18 >> 1) & 3;
+      v20 = *(_DWORD *)(v12 + 4LL * (unsigned __int16)v17);
+      v21 = *(_WORD *)(v12 + 4LL * (unsigned __int16)v17 + 2);
+      v22 = (unsigned __int16)v20;
+      v23 = *(_DWORD *)(v10 + 16LL * (unsigned __int16)v20 + 12);
+      if ( (v23 & 1) != 0 || (v24 = *(_DWORD *)(a1 + 4LL * (unsigned __int16)v20), (v24 & 1) == 0) )
+        v24 = (16 * (v23 & 0xFFFFFFFE)) | (v23 >> 2) & 0x1E;
+      v25 = v24 & 0x60;
+      v26 = (v18 >> 3) & 0xF;
+      if ( v19 == 2 )
       {
-        v8 = v37;
-        goto LABEL_6;
+        if ( v26 == 15 )
+          v26 = 0;
       }
-      v24 = (v22 >> 1) & 0xF;
-      v25 = (v17 >> 3) & 0xF;
-      if ( v25 <= v24 )
+      else if ( !v19 )
       {
-        if ( v25 == v24 )
+        goto LABEL_42;
+      }
+      v27 = (v24 >> 1) & 0xF;
+      if ( v26 <= v27 )
+      {
+        if ( v26 != v27 )
+        {
+          if ( v21 != 2 || v19 != 1 || v25 == 32 )
+            goto LABEL_42;
+          goto LABEL_48;
+        }
+        if ( v21 != (_WORD)v36 )
+        {
+          if ( v21 != 2 || v19 != 1 )
+            goto LABEL_42;
+          goto LABEL_48;
+        }
+        if ( v19 == 2 )
+        {
+          if ( v25 == 32 && !v27 )
+            goto LABEL_38;
+        }
+        else if ( v19 == 1 && v25 != 32 )
+        {
+          goto LABEL_49;
+        }
+        if ( (*(_DWORD *)(a1 + 4 * v22) & 0x60) != 0 && (*(_DWORD *)(a1 + 4 * v22) & 1) != 0 )
+          goto LABEL_42;
+      }
+      else
+      {
+        if ( (v21 != 2 || v19 != 1) && v21 != 1 )
+          goto LABEL_42;
+        if ( v21 == (_WORD)v35 )
         {
           if ( v19 == 1 )
-          {
-            if ( v18 == 2 )
-            {
-              if ( v23 == 32 && !v24 )
-                goto LABEL_42;
-LABEL_33:
-              v27 = (*(_DWORD *)(a1 + 4 * v20) & 1) == 0 || (*(_DWORD *)(a1 + 4 * v20) & 0x60) == 0;
-LABEL_37:
-              if ( !v27 )
-              {
-                v8 = v37;
-                goto LABEL_6;
-              }
-            }
-            else
-            {
-              if ( v18 != 1 || v23 == 32 )
-                goto LABEL_33;
+LABEL_48:
+            *(_DWORD *)(a1 + 4 * v22) |= 0x100u;
+LABEL_49:
+          v38 = __PAIR64__(v37, (unsigned int)v22 | 0x10000);
+          v28 = __PAIR64__(v37, (unsigned int)v22 | 0x10000);
+          v29 = (v15 << 7) | (((8 * v26) | (*(_DWORD *)(v10 + 16 * v22 + 12) & 0xFFFFFFFE ^ 1) & 0xFFFFFF81) ^ (2 * ((v18 >> 1) & 3))) & 0xFF80007F;
+          *(_DWORD *)(v10 + 16 * v22 + 12) = v29 ^ (v29 ^ v18 & 0xFF800000) & 0x800000;
+          v11[v13] = v28;
+          LODWORD(v13) = v13 + 1;
 LABEL_42:
-              v27 = 1;
-            }
-            v28 = v27;
-            v8 = v37;
-            v29 = ((v28 | *(_DWORD *)(v9 + 16 * v20 + 12) & 0xFFFFFFFE) ^ ((v28 | *(_BYTE *)(v9 + 16 * v20 + 12) & 0xFE) ^ (unsigned __int8)(8 * (v17 >> 3))) & 0x78) & 0xFFFFFFF9 ^ (2 * ((v17 >> 1) & 3));
-            *(_DWORD *)(v9 + 16 * v20 + 12) = ((v14 << 7) | v29 & 0xFF80007F) ^ (((v14 << 7) | v29 & 0xFF80007F) ^ v17 & 0xFF800000) & 0x800000;
-            v10[v12] = __PAIR64__(v38, (unsigned int)v20 | 0x10000);
-            LODWORD(v12) = v12 + 1;
-            goto LABEL_6;
-          }
-          v26 = v19 == 2;
-          v8 = v37;
-          if ( v26 && v18 == 1 )
-            goto LABEL_36;
+          v12 = v33;
+          v9 = v41;
+          goto LABEL_43;
         }
-        else
-        {
-          v26 = v19 == 2;
-          v8 = v37;
-          if ( v26 && v18 == 1 && v23 != 32 )
-            goto LABEL_42;
-        }
+        if ( v21 != 1 )
+          goto LABEL_49;
       }
-      else if ( v19 == 2 && v18 == 1 || (v26 = v19 == 1, v8 = v37, v26) )
-      {
-LABEL_36:
-        v27 = 1;
-        goto LABEL_37;
-      }
+      if ( v19 != 2 )
+        goto LABEL_49;
+LABEL_38:
+      if ( (*(_DWORD *)(a1 + 4 * v22) & 0x100) != 0 )
+        goto LABEL_42;
+      goto LABEL_49;
     }
-    v7 = -1073741811;
+    v8 = -1073741811;
   }
-LABEL_47:
-  SafeFree((void **)&v33);
-  return (unsigned int)v7;
+LABEL_54:
+  SafeFree((void **)&v34);
+  return (unsigned int)v8;
 }

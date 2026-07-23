@@ -1,17 +1,17 @@
 /*
- * XREFs of TppIopFree @ 0x180065230
+ * XREFs of TppIopFree @ 0x180085680
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     TppCleanupGroupMemberDestroy @ 0x18004D650 (TppCleanupGroupMemberDestroy.c)
- *     TpAdjustBindingCount @ 0x180065570 (TpAdjustBindingCount.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     TppCleanupGroupMemberDestroy @ 0x180037BD0 (TppCleanupGroupMemberDestroy.c)
+ *     TpAdjustBindingCount @ 0x1800859C0 (TpAdjustBindingCount.c)
  */
 
-__int64 __fastcall TppIopFree(__int64 a1)
+LOGICAL __fastcall TppIopFree(_QWORD *BaseAddress)
 {
-  TpAdjustBindingCount(*(_QWORD *)(a1 + 144), 0xFFFFFFFFLL);
-  *(_QWORD *)(a1 + 256) = 0LL;
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap_0();
+  TpAdjustBindingCount(BaseAddress[18], 0xFFFFFFFFLL);
+  BaseAddress[32] = 0LL;
+  TppCleanupGroupMemberDestroy(BaseAddress);
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x40000, BaseAddress);
 }

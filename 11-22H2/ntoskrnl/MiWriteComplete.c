@@ -246,10 +246,10 @@ LABEL_22:
 LABEL_20:
     v20 = MiWriteCompletePfn(v19);
     _InterlockedAnd64((volatile signed __int64 *)(v56 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v57 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v57 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -406,10 +406,10 @@ LABEL_122:
       *(_BYTE *)(v5 + v25 + 2) = 1;
 LABEL_123:
       ExReleaseSpinLockExclusiveFromDpcLevel(v41);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v47 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v47 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v47 >= 2u )
         {
           v48 = KeGetCurrentPrcb();
           v49 = v48->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgSetDebugPrintCallback @ 0x1405A77E0
+ * XREFs of DbgSetDebugPrintCallback @ 0x1405A7D50
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1407D5090 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1407D5404 (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1407D5360 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1407D56D4 (EtwpDisableKernelTrace.c)
  * Callees:
- *     DbgpInsertDebugPrintCallback @ 0x1405A7844 (DbgpInsertDebugPrintCallback.c)
- *     DbgpRemoveDebugPrintCallback @ 0x1405A79A8 (DbgpRemoveDebugPrintCallback.c)
+ *     DbgpInsertDebugPrintCallback @ 0x1405A7DB4 (DbgpInsertDebugPrintCallback.c)
+ *     DbgpRemoveDebugPrintCallback @ 0x1405A7F18 (DbgpRemoveDebugPrintCallback.c)
  */
 
 NTSTATUS __stdcall DbgSetDebugPrintCallback(PDEBUG_PRINT_CALLBACK DebugPrintCallback, BOOLEAN Enable)

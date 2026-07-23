@@ -1,20 +1,20 @@
 /*
- * XREFs of ExNotifyWithProcessing @ 0x140009D60
+ * XREFs of ExNotifyWithProcessing @ 0x1400098E0
  * Callers:
- *     ExNotifyCallback @ 0x140009D58 (ExNotifyCallback.c)
- *     IopSessionChangeWorker @ 0x1401314A4 (IopSessionChangeWorker.c)
- *     PoNotifySystemTimeSet @ 0x140131E00 (PoNotifySystemTimeSet.c)
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
- *     KiDynamicProcessorAddNotification @ 0x1401D5954 (KiDynamicProcessorAddNotification.c)
- *     SepImageVerificationCallbackWorker @ 0x1404EEFE8 (SepImageVerificationCallbackWorker.c)
+ *     ExNotifyCallback @ 0x1400098D8 (ExNotifyCallback.c)
+ *     IopSessionChangeWorker @ 0x140131A14 (IopSessionChangeWorker.c)
+ *     PoNotifySystemTimeSet @ 0x140132370 (PoNotifySystemTimeSet.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
+ *     KiDynamicProcessorAddNotification @ 0x1401D5780 (KiDynamicProcessorAddNotification.c)
+ *     SepImageVerificationCallbackWorker @ 0x1404D10DC (SepImageVerificationCallbackWorker.c)
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  *     PnpNotifyEarlyLaunchStatusUpdate @ 0x14079AAB4 (PnpNotifyEarlyLaunchStatusUpdate.c)
  *     PnpNotifyEarlyLaunchImageLoad @ 0x14079BFE8 (PnpNotifyEarlyLaunchImageLoad.c)
  * Callees:
- *     ExpCallProcessing @ 0x140009E54 (ExpCallProcessing.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpCallProcessing @ 0x1400099D4 (ExpCallProcessing.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

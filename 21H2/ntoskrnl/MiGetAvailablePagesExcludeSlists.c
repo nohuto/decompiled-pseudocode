@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetAvailablePagesExcludeSlists @ 0x1402C7B9C
+ * XREFs of MiGetAvailablePagesExcludeSlists @ 0x1402463F0
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140385120 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140385270 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

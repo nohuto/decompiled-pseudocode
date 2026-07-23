@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestCreated @ 0x140769B78
+ * XREFs of TtmNotifySessionPowerRequestCreated @ 0x140769D98
  * Callers:
- *     PopPowerRequestCreateUserModeRequest @ 0x140331200 (PopPowerRequestCreateUserModeRequest.c)
+ *     PopPowerRequestCreateUserModeRequest @ 0x1402B9970 (PopPowerRequestCreateUserModeRequest.c)
  * Callees:
- *     TtmpInsertPowerRequestToSession @ 0x14076A838 (TtmpInsertPowerRequestToSession.c)
- *     TtmiLogSessionPowerRequestCreated @ 0x14076E1BC (TtmiLogSessionPowerRequestCreated.c)
+ *     TtmpInsertPowerRequestToSession @ 0x14076AA58 (TtmpInsertPowerRequestToSession.c)
+ *     TtmiLogSessionPowerRequestCreated @ 0x14076E3DC (TtmiLogSessionPowerRequestCreated.c)
  */
 
 __int64 __fastcall TtmNotifySessionPowerRequestCreated(unsigned int a1, unsigned int a2, int a3, int a4)

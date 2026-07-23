@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpEnsureTailingSlashAndAddToList @ 0x1800DA228
+ * XREFs of RtlpEnsureTailingSlashAndAddToList @ 0x1800DA2E8
  * Callers:
- *     RtlpLookupSafeCurDirList @ 0x1800DA2C0 (RtlpLookupSafeCurDirList.c)
+ *     RtlpLookupSafeCurDirList @ 0x1800DA380 (RtlpLookupSafeCurDirList.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x18006C9BC (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringCatString @ 0x1800DA060 (RtlUnicodeStringCatString.c)
- *     RtlpAllocateDirPrefixBlock @ 0x1800DA1E0 (RtlpAllocateDirPrefixBlock.c)
+ *     RtlUnicodeStringCopy @ 0x18006C9AC (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCatString @ 0x1800DA120 (RtlUnicodeStringCatString.c)
+ *     RtlpAllocateDirPrefixBlock @ 0x1800DA2A0 (RtlpAllocateDirPrefixBlock.c)
  */
 
 __int64 __fastcall RtlpEnsureTailingSlashAndAddToList(__int64 a1, __int64 a2)
 {
-  __int64 DirPrefixBlock; // rax
+  _WORD *DirPrefixBlock; // rax
   _QWORD *v5; // rbx
   _QWORD *v7; // rax
 
@@ -18,10 +18,10 @@ __int64 __fastcall RtlpEnsureTailingSlashAndAddToList(__int64 a1, __int64 a2)
     || (int)RtlUnicodeStringCatString((unsigned __int16 *)a2, a2) >= 0 )
   {
     DirPrefixBlock = RtlpAllocateDirPrefixBlock(*(_WORD *)a2 + 2);
-    v5 = (_QWORD *)DirPrefixBlock;
+    v5 = DirPrefixBlock;
     if ( !DirPrefixBlock )
       return 3221225495LL;
-    RtlUnicodeStringCopy((_WORD *)(DirPrefixBlock + 16), a2);
+    RtlUnicodeStringCopy(DirPrefixBlock + 8, a2);
     v7 = *(_QWORD **)(a1 + 8);
     if ( *v7 != a1 )
       __fastfail(3u);

@@ -50,31 +50,31 @@
  *     EtwpSetProviderBinaryTracking @ 0x140751548 (EtwpSetProviderBinaryTracking.c)
  */
 
-__int64 __fastcall NtTraceControl(
-        unsigned int a1,
-        char *a2,
-        unsigned int a3,
-        volatile void *a4,
-        unsigned int Length,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   unsigned __int64 v8; // rbx
   _QWORD *v9; // r15
   char PreviousMode; // di
-  int TraceGuidList; // esi
-  _DWORD *v12; // rdi
+  NTSTATUS TraceGuidList; // esi
+  PULONG v12; // rdi
   __int64 v13; // rcx
   int v14; // eax
-  unsigned int v15; // r12d
-  unsigned int v16; // r14d
-  unsigned int v17; // eax
+  ULONG v15; // r12d
+  ULONG v16; // r14d
+  ULONG v17; // eax
   _QWORD *PoolWithQuotaTag; // rax
-  char *v19; // rdx
-  int updated; // eax
+  unsigned int *v19; // rdx
+  NTSTATUS updated; // eax
   __int64 v21; // rcx
   unsigned __int64 v23; // r8
   __int64 v24; // rcx
-  int Trace; // eax
+  NTSTATUS Trace; // eax
   void *v26; // rcx
   unsigned int v27; // edx
   _QWORD *v28; // r9
@@ -85,14 +85,14 @@ __int64 __fastcall NtTraceControl(
   unsigned int v33; // [rsp+30h] [rbp-78h] BYREF
   unsigned __int8 v34; // [rsp+34h] [rbp-74h]
   __int64 v35; // [rsp+38h] [rbp-70h]
-  __int16 v36[2]; // [rsp+40h] [rbp-68h] BYREF
+  _WORD v36[2]; // [rsp+40h] [rbp-68h] BYREF
   int v37; // [rsp+44h] [rbp-64h]
   _QWORD *v38; // [rsp+48h] [rbp-60h]
   unsigned int v39; // [rsp+50h] [rbp-58h]
   void *v40; // [rsp+58h] [rbp-50h]
   __int64 v41; // [rsp+60h] [rbp-48h]
 
-  v8 = a1;
+  v8 = (unsigned int)FunctionCode;
   v9 = 0LL;
   v38 = 0LL;
   v33 = 0;
@@ -108,56 +108,60 @@ __int64 __fastcall NtTraceControl(
       LODWORD(v8) = v8 & 0x7FFFFFFF;
       v34 = 1;
     }
-    if ( a2 )
+    if ( InputBuffer )
     {
-      if ( a3 && ((unsigned __int64)&a2[a3] > 0x7FFFFFFF0000LL || &a2[a3] < a2) )
+      if ( InputBufferLength
+        && ((unsigned __int64)InputBuffer + InputBufferLength > 0x7FFFFFFF0000LL
+         || (char *)InputBuffer + InputBufferLength < InputBuffer) )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
     else
     {
-      a3 = 0;
+      InputBufferLength = 0;
     }
-    if ( a4 )
-      ProbeForWrite(a4, Length, 1u);
+    if ( OutputBuffer )
+      ProbeForWrite(OutputBuffer, OutputBufferLength, 1u);
     else
-      Length = 0;
-    v12 = (_DWORD *)a6;
-    if ( !a6 )
+      OutputBufferLength = 0;
+    v12 = ReturnLength;
+    if ( !ReturnLength )
     {
       TraceGuidList = -1073741811;
       v37 = -1073741811;
       goto LABEL_43;
     }
-    v13 = a6;
-    if ( a6 >= 0x7FFFFFFF0000LL )
+    v13 = (__int64)ReturnLength;
+    if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
       v13 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v13 = *(_DWORD *)v13;
     TraceGuidList = v37;
   }
   else
   {
-    v12 = (_DWORD *)a6;
+    v12 = ReturnLength;
   }
   if ( (unsigned int)v8 <= 0x1B )
   {
     v14 = 134238208;
     if ( _bittest(&v14, v8) )
     {
-      v16 = Length;
-      v15 = a3;
+      v16 = OutputBufferLength;
+      v15 = InputBufferLength;
 LABEL_52:
-      v19 = a2;
+      v19 = (unsigned int *)InputBuffer;
       goto LABEL_26;
     }
   }
-  v15 = a3;
-  v16 = Length;
-  if ( !a3 && !Length )
+  v15 = InputBufferLength;
+  v16 = OutputBufferLength;
+  if ( !InputBufferLength && !OutputBufferLength )
     goto LABEL_52;
-  if ( a3 > Length )
-    v17 = a3;
+  if ( InputBufferLength > OutputBufferLength )
+    v17 = InputBufferLength;
   else
-    v17 = Length;
+    v17 = OutputBufferLength;
   PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v17, 0x50777445u);
   v9 = PoolWithQuotaTag;
   v38 = PoolWithQuotaTag;
@@ -166,12 +170,12 @@ LABEL_52:
     TraceGuidList = -1073741801;
     goto LABEL_43;
   }
-  memset(PoolWithQuotaTag, 0, Length);
-  v19 = a2;
-  if ( a2 )
+  memset(PoolWithQuotaTag, 0, OutputBufferLength);
+  v19 = (unsigned int *)InputBuffer;
+  if ( InputBuffer )
   {
-    memmove(v9, a2, a3);
-    v19 = a2;
+    memmove(v9, InputBuffer, InputBufferLength);
+    v19 = (unsigned int *)InputBuffer;
   }
 LABEL_26:
   if ( (_DWORD)v8 != 15 )
@@ -181,7 +185,7 @@ LABEL_26:
       if ( v16 == 16 )
       {
         TraceGuidList = 0;
-        EtwpCreateActivityId((volatile signed __int64 *)a4);
+        EtwpCreateActivityId((volatile signed __int64 *)OutputBuffer);
         goto LABEL_31;
       }
       goto LABEL_169;
@@ -259,7 +263,7 @@ LABEL_82:
       case 14:
         if ( v15 != 8 || v16 )
           goto LABEL_169;
-        v26 = (void *)*(unsigned int *)v19;
+        v26 = (void *)*v19;
         v40 = v26;
         TraceGuidList = EtwpRealtimeDisconnectConsumerByHandle(v26);
         goto LABEL_31;
@@ -345,7 +349,7 @@ LABEL_82:
       case 27:
         if ( v15 != 4 )
           goto LABEL_169;
-        v24 = *(unsigned int *)v19;
+        v24 = *v19;
         v41 = v24;
         if ( !v24 )
           goto LABEL_169;
@@ -465,7 +469,7 @@ LABEL_31:
   if ( TraceGuidList >= 0 )
   {
     if ( v33 )
-      memmove((void *)a4, v9, v33);
+      memmove(OutputBuffer, v9, v33);
     *v12 = v33;
   }
   if ( TraceGuidList == -1073741789 && ((unsigned int)(v8 - 15) <= 1 || (unsigned int)(v8 - 21) <= 1)
@@ -476,5 +480,5 @@ LABEL_31:
 LABEL_43:
   if ( v9 )
     ExFreePoolWithTag(v9, 0);
-  return (unsigned int)TraceGuidList;
+  return TraceGuidList;
 }

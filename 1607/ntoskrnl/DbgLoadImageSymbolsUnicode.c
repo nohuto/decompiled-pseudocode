@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgLoadImageSymbolsUnicode @ 0x1400B0FFC
+ * XREFs of DbgLoadImageSymbolsUnicode @ 0x140084674
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140484174 (MiDriverLoadSucceeded.c)
+ *     MiDriverLoadSucceeded @ 0x140482EC8 (MiDriverLoadSucceeded.c)
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     DbgLoadImageSymbols @ 0x1400B1044 (DbgLoadImageSymbols.c)
- *     DbgUnicodeStringToAnsiString @ 0x1400B1090 (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x1400846BC (DbgLoadImageSymbols.c)
+ *     DbgUnicodeStringToAnsiString @ 0x140084708 (DbgUnicodeStringToAnsiString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

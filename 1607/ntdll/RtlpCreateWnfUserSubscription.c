@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCreateWnfUserSubscription @ 0x18002986C
+ * XREFs of RtlpCreateWnfUserSubscription @ 0x18002985C
  * Callers:
- *     RtlSubscribeWnfStateChangeNotificationInternal @ 0x18002943C (RtlSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlSubscribeWnfStateChangeNotificationInternal @ 0x18002942C (RtlSubscribeWnfStateChangeNotificationInternal.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpCreateWnfUserSubscription(
   __int64 result; // rax
 
   *a1 = 0LL;
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0xA8uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xA8uLL);
   v12 = Heap;
   if ( !Heap )
     return 3221225495LL;

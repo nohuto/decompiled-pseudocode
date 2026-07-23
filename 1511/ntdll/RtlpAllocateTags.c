@@ -15,12 +15,14 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   __int16 v7; // r15
   __int64 *v8; // r14
   __int64 v9; // rsi
-  __int64 v10; // rdx
+  _WORD *v10; // rdx
   unsigned int i; // eax
   __int16 v12; // ax
   __int64 v13; // rdx
   __int64 v14; // rax
-  __int64 v15; // [rsp+80h] [rbp+18h]
+  ULONG_PTR v15[7]; // [rsp+30h] [rbp-38h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp+18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp+20h] BYREF
 
   v2 = RtlpGlobalTagHeap;
   v4 = a1;
@@ -43,7 +45,8 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   v8 = (__int64 *)(v4 + 232);
   if ( !*(_QWORD *)(v4 + 232) )
   {
-    if ( (int)ZwAllocateVirtualMemory() < 0 )
+    RegionSize = 147384LL;
+    if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v4 + 232), 0LL, &RegionSize, 0x2000u, 4u) < 0 )
       return 0LL;
     *(_DWORD *)(v4 + 224) = 134152192;
     ++a2;
@@ -51,23 +54,24 @@ __int64 __fastcall RtlpAllocateTags(__int64 a1, unsigned int a2)
   v9 = *(unsigned __int16 *)(v4 + 224);
   if ( a2 > *(unsigned __int16 *)(v4 + 226) - (unsigned int)v9 )
     return 0LL;
-  v10 = *v8 + 72 * v9;
+  v10 = (_WORD *)(*v8 + 72 * v9);
   for ( i = v9 + a2; ; i = a2 + *(unsigned __int16 *)(v4 + 224) )
   {
-    v15 = v10;
+    BaseAddress = v10;
     if ( (unsigned int)v9 >= i )
       break;
     if ( (((_WORD)v10 + 72) & 0xFFFu) <= 0x48uLL )
     {
-      if ( (int)ZwAllocateVirtualMemory() < 0 )
+      v15[0] = 4096LL;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, v15, 0x1000u, 4u) < 0 )
         return 0LL;
-      v10 = v15;
+      v10 = BaseAddress;
     }
     v12 = v9;
     LODWORD(v9) = v9 + 1;
-    *(_WORD *)(v10 + 16) = v6 | v12;
-    *(_WORD *)(v15 + 18) = v7;
-    v10 = v15 + 72;
+    v10[8] = v6 | v12;
+    *((_WORD *)BaseAddress + 9) = v7;
+    v10 = (char *)BaseAddress + 72;
   }
   v13 = *(unsigned __int16 *)(v4 + 224);
   v14 = *v8;

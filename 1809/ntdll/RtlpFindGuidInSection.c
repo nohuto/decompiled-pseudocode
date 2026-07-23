@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFindGuidInSection @ 0x180075074
+ * XREFs of RtlpFindGuidInSection @ 0x180075084
  * Callers:
  *     RtlFindActivationContextSectionGuid @ 0x18000A540 (RtlFindActivationContextSectionGuid.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     bsearch @ 0x180092930 (bsearch.c)
- *     RtlCompareMemory @ 0x1800A4A60 (RtlCompareMemory.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     bsearch @ 0x180092940 (bsearch.c)
+ *     RtlCompareMemory @ 0x1800A4A80 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall RtlpFindGuidInSection(__int64 a1, _DWORD *a2, unsigned int *a3)

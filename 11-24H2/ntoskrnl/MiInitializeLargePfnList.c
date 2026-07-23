@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeLargePfnList @ 0x140428B20
+ * XREFs of MiInitializeLargePfnList @ 0x14041CC70
  * Callers:
- *     MmCreateShadowMapping @ 0x1407F674C (MmCreateShadowMapping.c)
- *     MiAllocateFastAwePages @ 0x1407F833C (MiAllocateFastAwePages.c)
- *     MiCreatePagingFileMap @ 0x140942908 (MiCreatePagingFileMap.c)
+ *     MmCreateShadowMapping @ 0x1407F6EC0 (MmCreateShadowMapping.c)
+ *     MiAllocateFastAwePages @ 0x1407F8AAC (MiAllocateFastAwePages.c)
+ *     MiCreatePagingFileMap @ 0x14098CB78 (MiCreatePagingFileMap.c)
  * Callees:
  *     <none>
  */

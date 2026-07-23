@@ -1,12 +1,12 @@
 /*
- * XREFs of PiControlGetRelatedDevice @ 0x1409A8800
+ * XREFs of PiControlGetRelatedDevice @ 0x140969210
  * Callers:
  *     <none>
  * Callees:
- *     PiControlCopyUserModeCallersBuffer @ 0x1409A6B58 (PiControlCopyUserModeCallersBuffer.c)
- *     PiGetRelatedDevice @ 0x1409A8A10 (PiGetRelatedDevice.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1409675B8 (PiControlCopyUserModeCallersBuffer.c)
+ *     PiGetRelatedDevice @ 0x140969420 (PiGetRelatedDevice.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetRelatedDevice(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)

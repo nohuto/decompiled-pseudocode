@@ -1,23 +1,23 @@
 /*
- * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x140348260
+ * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0
  * Callers:
- *     MmAllocateNodePagesForMdlEx @ 0x1403481C0 (MmAllocateNodePagesForMdlEx.c)
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x140348C34 (HalpAllocateCommonBufferDmaThin.c)
- *     EtwpAllocatePartitionMemory @ 0x1404BD074 (EtwpAllocatePartitionMemory.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x1404D18A4 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1404F1E84 (HalpAllocateCommonBufferDmarThin.c)
- *     HvlpDepositPages @ 0x140516D78 (HvlpDepositPages.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140589FC0 (HalpAllocateDomainCommonBufferInternal.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x1405CD8A4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     DifMmAllocateNodePagesForMdlExWrapper @ 0x140665DA0 (DifMmAllocateNodePagesForMdlExWrapper.c)
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
- *     MiMeasureDemandCoalesceTimeBounds @ 0x140CFEB84 (MiMeasureDemandCoalesceTimeBounds.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x14034A240 (MmAllocateNodePagesForMdlEx.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14034ACB4 (HalpAllocateCommonBufferDmaThin.c)
+ *     EtwpAllocatePartitionMemory @ 0x1404B6854 (EtwpAllocatePartitionMemory.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x1404CB450 (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1404EB464 (HalpAllocateCommonBufferDmarThin.c)
+ *     HvlpDepositPages @ 0x1405107E8 (HvlpDepositPages.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0 (HalpAllocateDomainCommonBufferInternal.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x1405D00B4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     DifMmAllocateNodePagesForMdlExWrapper @ 0x140669980 (DifMmAllocateNodePagesForMdlExWrapper.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
+ *     MiMeasureDemandCoalesceTimeBounds @ 0x140D04F24 (MiMeasureDemandCoalesceTimeBounds.c)
  * Callees:
- *     MiTranslateCacheType @ 0x140348400 (MiTranslateCacheType.c)
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
+ *     MiTranslateCacheType @ 0x14034A480 (MiTranslateCacheType.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
  */
 
 __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(

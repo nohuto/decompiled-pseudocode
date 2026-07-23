@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSetDependency @ 0x140823A80
+ * XREFs of IoSetDependency @ 0x140824C80
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x1406EB810 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipSetDependency @ 0x140824210 (PipSetDependency.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14059E8F4 (PnpAcquireDependencyRelationsLock.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406ECAB0 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipSetDependency @ 0x140825410 (PipSetDependency.c)
  */
 
 __int64 __fastcall IoSetDependency(__int64 a1, __int64 a2, int a3)

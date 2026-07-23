@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetUltraMdlContext @ 0x14055F368
+ * XREFs of MiGetUltraMdlContext @ 0x14055F5A8
  * Callers:
- *     MmMapMdl @ 0x1405375B0 (MmMapMdl.c)
+ *     MmMapMdl @ 0x1405377F0 (MmMapMdl.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiCreateUltraThreadContextHelper @ 0x1402E3164 (MiCreateUltraThreadContextHelper.c)
- *     MiDeleteUltraMapContext @ 0x1402E6634 (MiDeleteUltraMapContext.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402944B4 (MiCreateUltraThreadContextHelper.c)
+ *     MiDeleteUltraMapContext @ 0x140297984 (MiDeleteUltraMapContext.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY MiGetUltraMdlContext()
@@ -37,14 +37,14 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   do
   {
     LODWORD(v1) = v1 & 7;
-    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C4EC38 + ((v2 + (unsigned int)v1) << 6)));
+    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C4EC78 + ((v2 + (unsigned int)v1) << 6)));
     if ( result )
       return result;
     LOBYTE(v1) = v1 + 1;
     ++v0;
   }
   while ( v0 < 8 );
-  if ( (unsigned int)dword_140C4EC30 >= 0x80 )
+  if ( (unsigned int)dword_140C4EC70 >= 0x80 )
     return 0LL;
   Pool = MiAllocatePool(64, 0x28uLL, 0x6D55694Du);
   v5 = Pool;
@@ -56,11 +56,11 @@ PSLIST_ENTRY MiGetUltraMdlContext()
     return 0LL;
   }
   v6 = 0;
-  KeAcquireInStackQueuedSpinLock(&qword_140C4EBF0, &LockHandle);
-  if ( (unsigned int)dword_140C4EC30 >= 0x80 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C4EC30, &LockHandle);
+  if ( (unsigned int)dword_140C4EC70 >= 0x80 )
     v6 = 1;
   else
-    ++dword_140C4EC30;
+    ++dword_140C4EC70;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
@@ -83,7 +83,7 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   __writecr8(OldIrql);
   if ( v6 )
   {
-    MiDeleteUltraMapContext((__int64)v5 + 8, 3u);
+    MiDeleteUltraMapContext((__int64)v5 + 8, 3LL);
     ExFreePoolWithTag(v5, 0);
     return 0LL;
   }

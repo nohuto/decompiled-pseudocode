@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x1404BC09C
+ * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x1404A7DCC
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1404BC224 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1404A7F54 (RtlUpcaseUnicodeStringToCountedOemString.c)
  */
 
 BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PCUNICODE_STRING Name, POEM_STRING OemName, PBOOLEAN NameContainsSpaces)

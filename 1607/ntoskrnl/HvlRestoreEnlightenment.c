@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlRestoreEnlightenment @ 0x140171734
+ * XREFs of HvlRestoreEnlightenment @ 0x140171C34
  * Callers:
  *     PopHiberCheckResume @ 0x1403D06EC (PopHiberCheckResume.c)
  * Callees:

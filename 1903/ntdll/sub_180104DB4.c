@@ -13,28 +13,28 @@
  *     sub_18010A580 @ 0x18010A580 (sub_18010A580.c)
  */
 
-__int64 __fastcall sub_180104DB4(_DWORD *Src, int a2, __int64 a3, _WORD *a4)
+__int64 __fastcall sub_180104DB4(PRTL_CRITICAL_SECTION *Src, int a2, WCHAR *a3, WCHAR *a4)
 {
   char v8; // si
-  unsigned int TagHeap; // r14d
-  int v10; // edi
+  ULONG TagHeap; // r14d
+  ULONG v10; // edi
 
   v8 = 0;
   TagHeap = 0;
   if ( sub_180019C74(Src, "RtlCreateTagHeap") )
   {
-    v10 = Src[29] | 0x10000000 | a2;
+    v10 = *((_DWORD *)Src + 29) | 0x10000000 | a2;
     if ( (v10 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(Src[44]);
       v8 = 1;
       v10 |= 1u;
     }
-    if ( (unsigned __int8)sub_1801061B8(Src, 0LL) )
+    if ( (unsigned __int8)sub_1801061B8((_DWORD)Src) )
       TagHeap = RtlCreateTagHeap(Src, v10, a3, a4);
     sub_180106798(Src);
   }
   if ( v8 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(Src[44]);
   return TagHeap;
 }

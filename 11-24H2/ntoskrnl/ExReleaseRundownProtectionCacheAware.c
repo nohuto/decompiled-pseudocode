@@ -1,12 +1,12 @@
 /*
- * XREFs of ExReleaseRundownProtectionCacheAware @ 0x140275DE0
+ * XREFs of ExReleaseRundownProtectionCacheAware @ 0x14022B370
  * Callers:
- *     PfpPartitionIterate @ 0x140274CF0 (PfpPartitionIterate.c)
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
- *     MiProbeUnlockPage @ 0x14028A3B0 (MiProbeUnlockPage.c)
- *     PfpPartitionRundownProtectionRelease @ 0x14046FF1C (PfpPartitionRundownProtectionRelease.c)
+ *     PfpPartitionIterate @ 0x14022A280 (PfpPartitionIterate.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
+ *     MiProbeUnlockPage @ 0x140299FB0 (MiProbeUnlockPage.c)
+ *     PfpPartitionRundownProtectionRelease @ 0x14046A344 (PfpPartitionRundownProtectionRelease.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 void __stdcall ExReleaseRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

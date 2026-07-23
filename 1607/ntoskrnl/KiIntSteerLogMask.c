@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerLogMask @ 0x1401DA6E4
+ * XREFs of KiIntSteerLogMask @ 0x1401DA510
  * Callers:
- *     KiIntSteerLogStatus @ 0x1401DA8BC (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogStatus @ 0x1401DA6E8 (KiIntSteerLogStatus.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KiIntSteerEtwEventEnabled @ 0x14012D778 (KiIntSteerEtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KiIntSteerEtwEventEnabled @ 0x14012DCE8 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall KiIntSteerLogMask(char a1)
@@ -44,7 +44,7 @@ BOOLEAN __fastcall KiIntSteerLogMask(char a1)
     UserData.Size = 4;
     v5 = 4;
     v8 = 4;
-    v13 = qword_140307968;
+    v13 = qword_1403079A8;
     v11 = 2;
     v14 = 160 * (unsigned __int16)KiIntSteerMask;
     return EtwWrite(KiIntSteerEtwHandle, v1, 0LL, 5u, &UserData);

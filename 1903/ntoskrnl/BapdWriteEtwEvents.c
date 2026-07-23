@@ -157,7 +157,7 @@ LABEL_45:
         {
           case 20:
             if ( !*v7 )
-              ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL);
+              ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
             break;
           case 16:
           case 29:

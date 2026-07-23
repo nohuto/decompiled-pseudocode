@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetPhaseAccessBit @ 0x140A16894
+ * XREFs of CmpGetPhaseAccessBit @ 0x140A16B44
  * Callers:
- *     CmpCreateTombstone @ 0x140616E4C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14061739C (CmpCreateTombstone.c)
  * Callees:
  *     <none>
  */

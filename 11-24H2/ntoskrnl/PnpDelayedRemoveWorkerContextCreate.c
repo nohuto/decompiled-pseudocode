@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpDelayedRemoveWorkerContextCreate @ 0x140723B9C
+ * XREFs of PnpDelayedRemoveWorkerContextCreate @ 0x14072172C
  * Callers:
- *     PnpChainDereferenceComplete @ 0x140A878A4 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x140A83D94 (PnpChainDereferenceComplete.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _QWORD *__fastcall PnpDelayedRemoveWorkerContextCreate(__int64 a1)
@@ -12,7 +12,7 @@ _QWORD *__fastcall PnpDelayedRemoveWorkerContextCreate(__int64 a1)
   __int64 v3; // r8
   __int64 v4; // rcx
 
-  result = (_QWORD *)ExAllocatePool2(0x40uLL);
+  result = (_QWORD *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x54706E50u);
   v3 = 0LL;
   if ( result )
   {

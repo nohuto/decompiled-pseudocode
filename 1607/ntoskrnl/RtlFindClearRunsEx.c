@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearRunsEx @ 0x140212600
+ * XREFs of RtlFindClearRunsEx @ 0x14021242C
  * Callers:
- *     RtlFindLongestRunClearEx @ 0x140212B0C (RtlFindLongestRunClearEx.c)
+ *     RtlFindLongestRunClearEx @ 0x140212938 (RtlFindLongestRunClearEx.c)
  * Callees:
  *     <none>
  */
@@ -58,7 +58,7 @@ __int64 __fastcall RtlFindClearRunsEx(unsigned __int64 *a1, __int64 a2)
     v14 = *v4++;
     v34 = v4;
     if ( v11 == v12 && v5 )
-      v14 |= byte_14026F6A8[v5];
+      v14 |= byte_14026F6C8[v5];
     if ( !v14 )
     {
       v7 += 8;
@@ -91,7 +91,7 @@ LABEL_12:
 LABEL_17:
     v7 = RtlpBitsClearHigh[v14];
     v8 = v13 - v7 + 8;
-    v21 = byte_14026F698[v15] | byte_14026F6A8[8 - v7] | v14;
+    v21 = byte_14026F6B8[v15] | byte_14026F6C8[8 - v7] | v14;
     if ( v21 != 0xFF )
     {
       do
@@ -100,7 +100,7 @@ LABEL_17:
           break;
         v22 = 0;
         v23 = RtlpBitsClearAnywhere[v21];
-        for ( j = byte_14026F698[v23]; ((unsigned __int8)j & v21) != 0; j *= 2 )
+        for ( j = byte_14026F6B8[v23]; ((unsigned __int8)j & v21) != 0; j *= 2 )
           ++v22;
         if ( !v3 )
           v3 = 1;

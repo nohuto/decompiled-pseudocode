@@ -1,39 +1,39 @@
 /*
- * XREFs of MiUnmapViewOfSection @ 0x14071EFC0
+ * XREFs of MiUnmapViewOfSection @ 0x14071F1C0
  * Callers:
  *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)
- *     AlpcViewDestroyProcedure @ 0x14071ECE0 (AlpcViewDestroyProcedure.c)
- *     NtUnmapViewOfSectionEx @ 0x14071EEF0 (NtUnmapViewOfSectionEx.c)
- *     MiMapViewOfSection @ 0x140721660 (MiMapViewOfSection.c)
- *     MmUnmapViewOfSection @ 0x1407D73D0 (MmUnmapViewOfSection.c)
- *     EtwpCoverageEnsureUserModeView @ 0x140873EF4 (EtwpCoverageEnsureUserModeView.c)
- *     IopCloseIoRing @ 0x140949170 (IopCloseIoRing.c)
- *     PsShutdownSystem @ 0x1409B3544 (PsShutdownSystem.c)
- *     NtMapCMFModule @ 0x140A03210 (NtMapCMFModule.c)
- *     MiUnmapImageForEnclaveUse @ 0x140A3E994 (MiUnmapImageForEnclaveUse.c)
+ *     AlpcViewDestroyProcedure @ 0x14071EEE0 (AlpcViewDestroyProcedure.c)
+ *     NtUnmapViewOfSectionEx @ 0x14071F0F0 (NtUnmapViewOfSectionEx.c)
+ *     MiMapViewOfSection @ 0x140721860 (MiMapViewOfSection.c)
+ *     MmUnmapViewOfSection @ 0x1407D76A0 (MmUnmapViewOfSection.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140874134 (EtwpCoverageEnsureUserModeView.c)
+ *     IopCloseIoRing @ 0x140949370 (IopCloseIoRing.c)
+ *     PsShutdownSystem @ 0x1409B3744 (PsShutdownSystem.c)
+ *     NtMapCMFModule @ 0x140A034A0 (NtMapCMFModule.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A3EC44 (MiUnmapImageForEnclaveUse.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MiUpdateVadStartVpn @ 0x14029C908 (MiUpdateVadStartVpn.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MiUpdateVadStartVpn @ 0x14029CB98 (MiUpdateVadStartVpn.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PerfLogImageUnload @ 0x140697438 (PerfLogImageUnload.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiCheckSecuredVad @ 0x14071A0B4 (MiCheckSecuredVad.c)
- *     MiUnmapVad @ 0x14071F2A4 (MiUnmapVad.c)
- *     DbgkUnMapViewOfSection @ 0x1407CB830 (DbgkUnMapViewOfSection.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiCheckSecuredVad @ 0x14071A2B4 (MiCheckSecuredVad.c)
+ *     MiUnmapVad @ 0x14071F4A4 (MiUnmapVad.c)
+ *     DbgkUnMapViewOfSection @ 0x1407CBB00 (DbgkUnMapViewOfSection.c)
  */
 
 __int64 __fastcall MiUnmapViewOfSection(__int64 BugCheckParameter1, unsigned __int64 a2, int a3, int a4)
 {
-  __int64 v4; // rsi
+  char *v4; // rsi
   __int64 v5; // r13
   _KPROCESS *Process; // rcx
   __int64 *v9; // rax
@@ -94,7 +94,7 @@ __int64 __fastcall MiUnmapViewOfSection(__int64 BugCheckParameter1, unsigned __i
     v13 = *((unsigned int *)v9 + 6);
     v14 = (v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) << 12;
     if ( (v12 & 7) == 2 && (v11 & 0xF80) == 0x380 )
-      v4 = (v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) << 12;
+      v4 = (char *)((v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) << 12);
     v15 = ((*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32))
          - (v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32))
          + 1) << 12;
@@ -127,7 +127,7 @@ __int64 __fastcall MiUnmapViewOfSection(__int64 BugCheckParameter1, unsigned __i
     if ( v4 && (unsigned int)MiVadMapsLargeImage(v10) )
     {
       v30 = MiLocateVadEvent(v18, 16LL);
-      v4 += (unsigned __int64)*(unsigned __int8 *)(v30 + 8) << 16;
+      v4 += 0x10000 * (unsigned __int64)*(unsigned __int8 *)(v30 + 8);
       v15 = *(_QWORD *)(v30 + 16) << 12;
     }
     if ( (PerfGlobalGroupMask & 4) != 0 )

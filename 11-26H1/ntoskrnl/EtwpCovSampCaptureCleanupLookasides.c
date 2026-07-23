@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x1404FE700
+ * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x1404F7CB0
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1404FE56C (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureCleanupDpc @ 0x1406C8660 (EtwpCovSampCaptureCleanupDpc.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1404F7B1C (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureCleanupDpc @ 0x1406CC640 (EtwpCovSampCaptureCleanupDpc.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406C8AA0 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406CCA80 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
  */
 
 void __fastcall EtwpCovSampCaptureCleanupLookasides(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpLogRefreshTimeZoneInformationSuccess @ 0x140B12960
+ * XREFs of ExpLogRefreshTimeZoneInformationSuccess @ 0x140B146E0
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall ExpLogRefreshTimeZoneInformationSuccess(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 *a5)
@@ -64,7 +64,7 @@ int __fastcall ExpLogRefreshTimeZoneInformationSuccess(__int64 a1, __int64 a2, _
 
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   Blink = CurrentServerSiloGlobals[76].Blink;
-  if ( (unsigned int)dword_140E09178 > 5 )
+  if ( (unsigned int)dword_140E09170 > 5 )
   {
     v17 = (int)Blink[62].Blink;
     v27 = &v17;
@@ -109,8 +109,8 @@ int __fastcall ExpLogRefreshTimeZoneInformationSuccess(__int64 a1, __int64 a2, _
     v53 = 16LL;
     v55 = 16LL;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
-                                          (__int64)&dword_140E09178,
-                                          (unsigned __int8 *)byte_140055695,
+                                          (__int64)&dword_140E09170,
+                                          (unsigned __int8 *)byte_140056415,
                                           0LL,
                                           0LL,
                                           0x11u,

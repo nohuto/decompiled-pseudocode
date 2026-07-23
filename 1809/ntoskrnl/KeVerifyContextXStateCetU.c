@@ -1,10 +1,10 @@
 /*
- * XREFs of KeVerifyContextXStateCetU @ 0x1400A1C10
+ * XREFs of KeVerifyContextXStateCetU @ 0x1400A1B50
  * Callers:
- *     KiContinuePreviousModeUser @ 0x1400A240C (KiContinuePreviousModeUser.c)
- *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
+ *     KiContinuePreviousModeUser @ 0x1400A234C (KiContinuePreviousModeUser.c)
+ *     PspGetSetContextInternal @ 0x140620940 (PspGetSetContextInternal.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1401B8750 (ZwQueryVirtualMemory.c)
  */
 
 __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, _DWORD *a2)
@@ -84,13 +84,7 @@ __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, _DWORD *a2)
     }
     if ( *(_QWORD *)v6 == 1LL && *((_QWORD *)v6 + 1) >= (unsigned __int64)v14 )
     {
-      ZwQueryVirtualMemory(
-        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-        v14,
-        MemoryBasicVlmInformation,
-        MemoryInformation,
-        0x20uLL,
-        0LL);
+      ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v14, MemoryRegionInformation, MemoryInformation, 0x20uLL, 0LL);
       if ( *((_QWORD *)v6 + 1) <= (unsigned __int64)(MemoryInformation[2] + MemoryInformation[0] - 4096LL) )
         return 0LL;
     }

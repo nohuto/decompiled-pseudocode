@@ -25,7 +25,7 @@ __int64 __fastcall CmpCheckValueList(
         unsigned int a4,
         int a5,
         int a6,
-        struct _RTL_BITMAP *a7,
+        _RTL_BITMAP *a7,
         __int64 a8,
         _DWORD *a9,
         unsigned int *a10)

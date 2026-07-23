@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x1406C2F90
+ * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x140621C40
  * Callers:
- *     SeMarkLogonSessionForTerminationNotification @ 0x1406C2F70 (SeMarkLogonSessionForTerminationNotification.c)
+ *     SeMarkLogonSessionForTerminationNotification @ 0x140621C20 (SeMarkLogonSessionForTerminationNotification.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)
@@ -14,6 +14,9 @@ __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __
   __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v7; // rbp
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
 
   v4 = (unsigned int)(1529154084 * *a1) >> 28;
   v5 = SepLogonSessions + 8 * v4;
@@ -33,6 +36,6 @@ __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __
     }
   }
   ExReleaseResourceLite(v7);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
   return v5 == 0 ? 0xC0000225 : 0;
 }

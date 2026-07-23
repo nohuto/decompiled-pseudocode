@@ -6,7 +6,7 @@
  *     PoFxStartDevicePowerManagement @ 0x1403B9A30 (PoFxStartDevicePowerManagement.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
- *     PopFxRegisterDevice @ 0x1408236BC (PopFxRegisterDevice.c)
+ *     sub_1408236BC @ 0x1408236BC (sub_1408236BC.c)
  */
 
 __int64 __fastcall PoFxEnableDStateReporting(PDEVICE_OBJECT DeviceObject, ULONG_PTR *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall PoFxEnableDStateReporting(PDEVICE_OBJECT DeviceObject, ULONG_
     v9 = (unsigned __int64)&v11;
     v7 = 0LL;
     v11 = 0LL;
-    v4 = PopFxRegisterDevice(DeviceObject, (int)v6, (int)&v7, 1, 0LL, 0LL, a2);
+    v4 = sub_1408236BC(DeviceObject, (int)v6, (int)&v7, 1, 0LL, 0LL, a2);
     if ( v4 >= 0 )
     {
       *(_DWORD *)(*a2 + 824) |= 1u;

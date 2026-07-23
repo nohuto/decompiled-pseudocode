@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCreateObjectTypes @ 0x140CEA620
+ * XREFs of CmpCreateObjectTypes @ 0x140CF09C0
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
  */
 
 __int64 CmpCreateObjectTypes()

@@ -1,11 +1,10 @@
 /*
- * XREFs of RtlpHpHeapCheckCommitLimit @ 0x18009D2E0
+ * XREFs of RtlpHpHeapCheckCommitLimit @ 0x1800DCC00
  * Callers:
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x18009FC30 (RtlpExtendHeap.c)
- *     RtlpInitializeHeapSegment @ 0x1800A88DC (RtlpInitializeHeapSegment.c)
+ *     RtlpExtendHeap @ 0x18000CB60 (RtlpExtendHeap.c)
+ *     RtlpInitializeHeapSegment @ 0x180025C40 (RtlpInitializeHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpHeapCheckCommitLimit(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -13,14 +12,14 @@ __int64 __fastcall RtlpHpHeapCheckCommitLimit(__int64 a1, __int64 a2, __int64 a3
   unsigned __int64 v4; // rax
   __int64 v6; // r9
 
-  if ( dword_1801CC578 )
+  if ( dword_1801CB578 )
     return 1LL;
   v4 = *a4;
   if ( !*a4 )
   {
-    v4 = qword_1801CDED8;
-    a4 = &qword_1801CDED8;
-    if ( !qword_1801CDED8 )
+    v4 = qword_1801CCED8;
+    a4 = &qword_1801CCED8;
+    if ( !qword_1801CCED8 )
       return 1LL;
   }
   if ( a2 + a1 <= v4 )

@@ -23,7 +23,7 @@
  *     EtwTraceEnqueueWork @ 0x1402535C8 (EtwTraceEnqueueWork.c)
  */
 
-void *__fastcall KiExpireTimer2(__int64 a1, __int64 a2, __int64 InterruptTimePrecise, _DWORD *a4)
+void *__fastcall KiExpireTimer2(__int64 a1, __int64 a2, LARGE_INTEGER InterruptTimePrecise, _DWORD *a4)
 {
   __int64 v4; // r15
   int v5; // ebp
@@ -92,7 +92,7 @@ void *__fastcall KiExpireTimer2(__int64 a1, __int64 a2, __int64 InterruptTimePre
   __int64 v70; // [rsp+50h] [rbp-C8h]
   _QWORD *v71; // [rsp+58h] [rbp-C0h]
   _KTHREAD *v72; // [rsp+60h] [rbp-B8h]
-  LARGE_INTEGER v73; // [rsp+68h] [rbp-B0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+68h] [rbp-B0h] BYREF
   _QWORD v74[2]; // [rsp+70h] [rbp-A8h] BYREF
   __int64 v75; // [rsp+80h] [rbp-98h]
   __int64 v76; // [rsp+88h] [rbp-90h]
@@ -126,8 +126,11 @@ void *__fastcall KiExpireTimer2(__int64 a1, __int64 a2, __int64 InterruptTimePre
   if ( *(_QWORD *)(a1 + 88) && (*(_BYTE *)(a1 + 1) & 0x20) == 0 )
   {
     if ( (*(_BYTE *)(a1 + 129) & 4) != 0 )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v73);
-    v27 = KiTimer2ComputeDueTime(InterruptTimePrecise, *(_QWORD *)(a1 + 88), &v64);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v27 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))KiTimer2ComputeDueTime)(
+            (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+            *(_QWORD *)(a1 + 88),
+            &v64);
     v30 = *(_QWORD *)(a1 + 80);
     if ( v30 != -1 )
     {
@@ -357,7 +360,7 @@ LABEL_46:
   if ( *(_QWORD *)(v70 + 11528) )
     KiProcessThreadWaitList(v70, 1u, 0, 2u);
   if ( v11 )
-    EtwGetKernelTraceTimestamp(v80, (char *)0x40020000);
+    EtwGetKernelTraceTimestamp(v80, 0x40020000u);
   v38 = (*v6)++ & 0xF;
   v39 = &v68[4 * v38 + 4];
   *(_QWORD *)v39 = v21;
@@ -403,7 +406,7 @@ LABEL_15:
     if ( v75 )
       v79 = v63 | 2;
     if ( !v21 )
-      EtwGetKernelTraceTimestamp(v80, (char *)0x40020000);
+      EtwGetKernelTraceTimestamp(v80, 0x40020000u);
     return EtwTraceTimedEvent(3945, 0x40020000u, (__int64)v74, 56, 4197890, (__int64)v80);
   }
   return result;

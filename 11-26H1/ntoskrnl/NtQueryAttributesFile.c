@@ -1,36 +1,36 @@
 /*
- * XREFs of NtQueryAttributesFile @ 0x1409B5A50
+ * XREFs of NtQueryAttributesFile @ 0x140986B10
  * Callers:
- *     DifNtQueryAttributesFileWrapper @ 0x1406810A0 (DifNtQueryAttributesFileWrapper.c)
+ *     DifNtQueryAttributesFileWrapper @ 0x140684C80 (DifNtQueryAttributesFileWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408F5DA0 (ExRaiseAccessViolation.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     FsRtlpCleanupEcps @ 0x1409B5D30 (FsRtlpCleanupEcps.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExRaiseAccessViolation @ 0x140925D30 (ExRaiseAccessViolation.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     FsRtlpCleanupEcps @ 0x140986DF0 (FsRtlpCleanupEcps.c)
  */
 
-__int64 __fastcall NtQueryAttributesFile(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PFILE_BASIC_INFORMATION FileInformation)
 {
   char PreviousMode; // r15
-  unsigned __int64 v5; // rbx
+  PFILE_BASIC_INFORMATION v5; // rbx
   char UCharFromUser; // al
   struct _KTHREAD *CurrentThread; // rdx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   char v9; // al
   PVOID v10; // rcx
   HANDLE Handle; // [rsp+48h] [rbp-270h] BYREF
   _DWORD v13[12]; // [rsp+50h] [rbp-268h] BYREF
-  __int64 v14; // [rsp+80h] [rbp-238h]
+  POBJECT_ATTRIBUTES v14; // [rsp+80h] [rbp-238h]
   int v15; // [rsp+90h] [rbp-228h]
   __int16 v16; // [rsp+96h] [rbp-222h]
   int v17; // [rsp+A8h] [rbp-210h]
-  unsigned __int64 v18; // [rsp+B0h] [rbp-208h]
+  PFILE_BASIC_INFORMATION v18; // [rsp+B0h] [rbp-208h]
   _OWORD *v19; // [rsp+B8h] [rbp-200h]
   char v20; // [rsp+D9h] [rbp-1DFh]
   _BYTE *v21; // [rsp+E0h] [rbp-1D8h]
@@ -47,18 +47,19 @@ __int64 __fastcall NtQueryAttributesFile(__int64 a1, unsigned __int64 a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v5 = a2;
-    if ( (a2 & 7) != 0 )
+    v5 = FileInformation;
+    if ( ((unsigned __int8)FileInformation & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a2 + 40 < a2 || a2 + 40 > 0x7FFFFFFF0000LL )
+    if ( &FileInformation[1] < FileInformation || (unsigned __int64)&FileInformation[1] > 0x7FFFFFFF0000LL )
       ExRaiseAccessViolation();
     do
     {
-      UCharFromUser = RtlReadUCharFromUser((volatile void *)v5);
-      RtlWriteUCharToUser((_BYTE *)v5, UCharFromUser);
-      v5 = (v5 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+      UCharFromUser = RtlReadUCharFromUser(v5);
+      RtlWriteUCharToUser(v5, UCharFromUser);
+      v5 = (PFILE_BASIC_INFORMATION)(((unsigned __int64)v5 & 0xFFFFFFFFFFFFF000uLL) + 4096);
     }
-    while ( v5 != ((a2 + 39) & 0xFFFFFFFFFFFFF000uLL) + 4096 );
+    while ( v5 != (PFILE_BASIC_INFORMATION)((((unsigned __int64)&FileInformation->FileAttributes + 7) & 0xFFFFFFFFFFFFF000uLL)
+                                          + 4096) );
   }
   memset_0(v13, 0, 0xE0uLL);
   memset(v26, 0, sizeof(v26));
@@ -67,11 +68,11 @@ __int64 __fastcall NtQueryAttributesFile(__int64 a1, unsigned __int64 a2)
   v16 = 7;
   v17 = 1;
   v15 = 2113536;
-  v18 = a2;
+  v18 = FileInformation;
   v19 = v26;
   v20 = 1;
   v21 = v28;
-  v14 = a1;
+  v14 = ObjectAttributes;
   v22 = 32;
   *(_OWORD *)P = 0LL;
   v24 = 0LL;
@@ -82,7 +83,7 @@ __int64 __fastcall NtQueryAttributesFile(__int64 a1, unsigned __int64 a2)
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
   v8 = ObOpenObjectByNameEx(
-         a1,
+         (__int64)ObjectAttributes,
          (__int64)IoFileObjectType,
          PreviousMode,
          0LL,
@@ -103,7 +104,7 @@ __int64 __fastcall NtQueryAttributesFile(__int64 a1, unsigned __int64 a2)
   if ( v8 >= 0 )
   {
     ObCloseHandle(Handle, PreviousMode);
-    return (unsigned int)-1073741788;
+    return -1073741788;
   }
-  return (unsigned int)v8;
+  return v8;
 }

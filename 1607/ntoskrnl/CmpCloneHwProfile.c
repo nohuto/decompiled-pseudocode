@@ -1,32 +1,32 @@
 /*
- * XREFs of CmpCloneHwProfile @ 0x1406071B0
+ * XREFs of CmpCloneHwProfile @ 0x140607264
  * Callers:
- *     CmSetAcpiHwProfile @ 0x14055B9E8 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x14055BF28 (CmSetAcpiHwProfile.c)
  *     CmpCreateControlSet @ 0x1407AC02C (CmpCreateControlSet.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wtoi @ 0x14014DA68 (_wtoi.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwQuerySecurityObject @ 0x14015C580 (ZwQuerySecurityObject.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wtoi @ 0x14014DFD8 (_wtoi.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwQuerySecurityObject @ 0x14015CAF0 (ZwQuerySecurityObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlStringFromGUIDEx @ 0x1403F7E8C (RtlStringFromGUIDEx.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpRebuildKcbCache @ 0x1403FDA60 (CmpRebuildKcbCache.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     ExUuidCreate @ 0x1404A2404 (ExUuidCreate.c)
- *     CmpCreateHwProfileFriendlyName @ 0x140607904 (CmpCreateHwProfileFriendlyName.c)
- *     CmpCopySyncTree @ 0x1406081A4 (CmpCopySyncTree.c)
+ *     RtlStringFromGUIDEx @ 0x1403F6D4C (RtlStringFromGUIDEx.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x1403FC920 (CmpRebuildKcbCache.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     ExUuidCreate @ 0x14051A810 (ExUuidCreate.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x1406079B8 (CmpCreateHwProfileFriendlyName.c)
+ *     CmpCopySyncTree @ 0x140608258 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpCloneHwProfile(
@@ -206,7 +206,7 @@ LABEL_13:
               Data = 1;
               RtlInitUnicodeString(&ValueName, L"Cloned");
               ZwSetValueKey(v24, &ValueName, 0, 4u, &Data, 4u);
-              if ( ExUuidCreate(&Uuid) >= 0 && (int)RtlStringFromGUIDEx(&Uuid.Data1, (__int64)&UnicodeString, 1) >= 0 )
+              if ( ExUuidCreate(&Uuid) >= 0 && RtlStringFromGUIDEx(&Uuid, &UnicodeString, 1u) >= 0 )
               {
                 RtlInitUnicodeString(&ValueName, L"HwProfileGuid");
                 ZwSetValueKey(v24, &ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.MaximumLength);

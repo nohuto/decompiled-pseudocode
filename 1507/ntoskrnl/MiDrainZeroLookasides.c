@@ -21,7 +21,7 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   unsigned int v10; // esi
   _WORD *v11; // r13
   PSLIST_ENTRY v12; // rbx
-  struct _SLIST_ENTRY *Next; // r12
+  _SLIST_ENTRY *Next; // r12
   unsigned __int8 CurrentIrql; // bp
   unsigned int v15; // r15d
   unsigned int v16; // [rsp+20h] [rbp-68h]

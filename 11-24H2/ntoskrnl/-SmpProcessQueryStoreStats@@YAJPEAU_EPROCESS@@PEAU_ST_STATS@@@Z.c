@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x14024555C
+ * XREFs of ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x14020DD3C
  * Callers:
- *     SmQueryStoreCommitUsage @ 0x14060CA70 (SmQueryStoreCommitUsage.c)
- *     EtwpLogMemInfoWs @ 0x1408EE804 (EtwpLogMemInfoWs.c)
- *     SmProcessQueryStoreStats @ 0x1408EF0B4 (SmProcessQueryStoreStats.c)
+ *     SmQueryStoreCommitUsage @ 0x14060B030 (SmQueryStoreCommitUsage.c)
+ *     EtwpLogMemInfoWs @ 0x140860034 (EtwpLogMemInfoWs.c)
+ *     SmProcessQueryStoreStats @ 0x1408608B4 (SmProcessQueryStoreStats.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1402456FC (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     SmKmStoreGet @ 0x140245714 (SmKmStoreGet.c)
- *     SmpKeyedStoreEntryGet @ 0x1402457A0 (SmpKeyedStoreEntryGet.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14020DEDC (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     SmKmStoreGet @ 0x14020DEF4 (SmKmStoreGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x14020DF80 (SmpKeyedStoreEntryGet.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
  */
 
 __int64 __fastcall SmpProcessQueryStoreStats(struct _EPROCESS *a1, struct _ST_STATS *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall SmpProcessQueryStoreStats(struct _EPROCESS *a1, struct _ST_ST
     v5 = *(_DWORD *)(v3 + 2272);
     if ( v5 != -1 )
     {
-      v11 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v3 + 2112));
+      v11 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v3 + 2112));
       v6 = v11;
       if ( !v11 )
         return (unsigned int)-1073740640;

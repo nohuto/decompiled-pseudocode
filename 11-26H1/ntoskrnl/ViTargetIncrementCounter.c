@@ -1,13 +1,13 @@
 /*
- * XREFs of ViTargetIncrementCounter @ 0x140C29768
+ * XREFs of ViTargetIncrementCounter @ 0x140C2F778
  * Callers:
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     ViTargetUpdateTreeAllowed @ 0x140C29944 (ViTargetUpdateTreeAllowed.c)
- *     VfDriverIsKernelImageAddress @ 0x140C46BA8 (VfDriverIsKernelImageAddress.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140C2F954 (ViTargetUpdateTreeAllowed.c)
+ *     VfDriverIsKernelImageAddress @ 0x140C4CBB8 (VfDriverIsKernelImageAddress.c)
  */
 
 __int64 __fastcall ViTargetIncrementCounter(__int64 a1, __int64 a2)

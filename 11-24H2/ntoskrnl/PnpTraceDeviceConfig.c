@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceConfig @ 0x1406F7BE0
+ * XREFs of PnpTraceDeviceConfig @ 0x1406F5BE0
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140A98C04 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140ABF650 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PnpTraceDeviceConfig(
@@ -198,7 +198,7 @@ char __fastcall PnpTraceDeviceConfig(
       v100 = 8LL;
       LOBYTE(v28) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140E06F38,
-                      (unsigned __int8 *)byte_140046643,
+                      (unsigned __int8 *)&dword_1400469B4,
                       0LL,
                       0LL,
                       0x23u,

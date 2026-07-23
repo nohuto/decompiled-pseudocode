@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetSubsectionCharges @ 0x14066B1A8
+ * XREFs of MiGetSubsectionCharges @ 0x14066B6F8
  * Callers:
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     MiReferenceActiveSubsection @ 0x140288DA0 (MiReferenceActiveSubsection.c)
- *     MiUpdateLastSubsectionSize @ 0x140365E94 (MiUpdateLastSubsectionSize.c)
- *     MiExtendSection @ 0x1407067D4 (MiExtendSection.c)
- *     MiChargeSegmentCommit @ 0x140748008 (MiChargeSegmentCommit.c)
+ *     MiReferenceActiveSubsection @ 0x140289030 (MiReferenceActiveSubsection.c)
+ *     MiUpdateLastSubsectionSize @ 0x140366034 (MiUpdateLastSubsectionSize.c)
+ *     MiExtendSection @ 0x1407069E4 (MiExtendSection.c)
+ *     MiChargeSegmentCommit @ 0x1407481F8 (MiChargeSegmentCommit.c)
  * Callees:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiGetCrossPartitionCharges @ 0x140659F78 (MiGetCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharges @ 0x14065B354 (MiReturnCrossPartitionCharges.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MiGetCrossPartitionCharges @ 0x14065A4C8 (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x14065B8A4 (MiReturnCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiGetSubsectionCharges(__int64 a1, unsigned __int64 a2)

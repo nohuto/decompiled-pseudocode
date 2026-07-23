@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAddToHiveFileList @ 0x1406CCF80
+ * XREFs of CmpAddToHiveFileList @ 0x1406CE220
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmpFinishSystemHivesLoad @ 0x140733770 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x140803AF8 (CmpLoadHiveVolatile.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryObject @ 0x1401B8390 (ZwQueryObject.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryObject @ 0x1401B84F0 (ZwQueryObject.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpAddToHiveFileList(__int64 a1)

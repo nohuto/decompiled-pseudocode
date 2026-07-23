@@ -1,17 +1,17 @@
 /*
- * XREFs of MiResumeBackgroundZeroing @ 0x14051F69C
+ * XREFs of MiResumeBackgroundZeroing @ 0x140521D40
  * Callers:
- *     MiWakePageZeroing @ 0x14028E71C (MiWakePageZeroing.c)
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiBackgroundZeroTimerExpired @ 0x14070E284 (MiBackgroundZeroTimerExpired.c)
+ *     MiWakePageZeroing @ 0x14028DC7C (MiWakePageZeroing.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiBackgroundZeroTimerExpired @ 0x140712F84 (MiBackgroundZeroTimerExpired.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdateBackgroundZeroingActive @ 0x14051FD0C (MiUpdateBackgroundZeroingActive.c)
- *     MiWakeZeroingThreads @ 0x14070ED28 (MiWakeZeroingThreads.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateBackgroundZeroingActive @ 0x1405223B0 (MiUpdateBackgroundZeroingActive.c)
+ *     MiWakeZeroingThreads @ 0x140713A28 (MiWakeZeroingThreads.c)
  */
 
 void __fastcall MiResumeBackgroundZeroing(__int64 a1, int a2, int a3)

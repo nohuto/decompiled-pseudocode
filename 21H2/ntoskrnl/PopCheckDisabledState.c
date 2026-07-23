@@ -1,7 +1,7 @@
 /*
- * XREFs of PopCheckDisabledState @ 0x14067B5F8
+ * XREFs of PopCheckDisabledState @ 0x14066ED38
  * Callers:
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
  * Callees:
  *     <none>
  */

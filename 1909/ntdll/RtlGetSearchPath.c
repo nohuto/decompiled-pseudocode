@@ -6,7 +6,7 @@
  *     RtlpGetCachedPath @ 0x1800321F8 (RtlpGetCachedPath.c)
  */
 
-__int64 __fastcall RtlGetSearchPath(_QWORD *a1)
+NTSTATUS __cdecl RtlGetSearchPath(PWSTR *SearchPathA)
 {
   __int64 CachedPath; // rax
 
@@ -17,12 +17,12 @@ __int64 __fastcall RtlGetSearchPath(_QWORD *a1)
                  0LL);
   if ( CachedPath )
   {
-    *a1 = CachedPath + 112;
-    return 0LL;
+    *SearchPathA = (PWSTR)(CachedPath + 112);
+    return 0;
   }
   else
   {
-    *a1 = 0LL;
-    return 3221225495LL;
+    *SearchPathA = 0LL;
+    return -1073741801;
   }
 }

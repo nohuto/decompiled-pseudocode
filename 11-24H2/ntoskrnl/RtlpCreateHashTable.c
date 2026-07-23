@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x140481260
+ * XREFs of RtlpCreateHashTable @ 0x14047C520
  * Callers:
- *     RtlCreateHashTable @ 0x140481240 (RtlCreateHashTable.c)
- *     RtlCreateHashTableEx @ 0x1405EA350 (RtlCreateHashTableEx.c)
- *     SepBuildCapPolicyTable @ 0x1406096BC (SepBuildCapPolicyTable.c)
- *     SepInitializeSingletonAttributesStructures @ 0x140C3AED4 (SepInitializeSingletonAttributesStructures.c)
+ *     RtlCreateHashTable @ 0x14047C500 (RtlCreateHashTable.c)
+ *     RtlCreateHashTableEx @ 0x1405E78A0 (RtlCreateHashTableEx.c)
+ *     SepBuildCapPolicyTable @ 0x140607C74 (SepBuildCapPolicyTable.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140C3D02C (SepInitializeSingletonAttributesStructures.c)
  * Callees:
- *     RtlpAllocateSecondLevelDir @ 0x140481380 (RtlpAllocateSecondLevelDir.c)
- *     RtlpInitializeSecondLevelDir @ 0x1404813AC (RtlpInitializeSecondLevelDir.c)
- *     RtlDeleteHashTable @ 0x1404813D0 (RtlDeleteHashTable.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlpAllocateSecondLevelDir @ 0x14047C640 (RtlpAllocateSecondLevelDir.c)
+ *     RtlpInitializeSecondLevelDir @ 0x14047C66C (RtlpInitializeSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x14047C690 (RtlDeleteHashTable.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4)
@@ -38,7 +38,7 @@ char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4
   v10 = 0;
   if ( !*a1 )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x28uLL, 0x62615448u);
     if ( !Pool2 )
       return 0;
     v10 = 1;
@@ -57,7 +57,7 @@ char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4
     v15 = v14;
     v16 = v14 - 7;
     v17 = (a2 + 127) ^ (1 << v15);
-    v18 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    v18 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x80uLL, 0x62615448u);
     v19 = v18;
     if ( v18 )
     {

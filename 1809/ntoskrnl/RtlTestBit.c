@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTestBit @ 0x1401212B0
+ * XREFs of RtlTestBit @ 0x140121380
  * Callers:
  *     <none>
  * Callees:

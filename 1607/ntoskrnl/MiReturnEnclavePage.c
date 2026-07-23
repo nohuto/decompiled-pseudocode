@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnEnclavePage @ 0x1401F06EC
+ * XREFs of MiReturnEnclavePage @ 0x1401F0518
  * Callers:
- *     MiAddPagesToEnclave @ 0x14065E1EC (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x14065F89C (MiReturnReservedEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14065E2D0 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x14065F980 (MiReturnReservedEnclavePages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiReturnEnclavePage(ULONG_PTR BugCheckParameter2)

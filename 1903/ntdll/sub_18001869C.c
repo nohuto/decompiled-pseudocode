@@ -19,7 +19,7 @@
 __int64 __fastcall sub_18001869C(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
 {
   __int64 v3; // rbx
-  unsigned __int64 v7; // rax
+  unsigned __int64 Root; // rax
   unsigned __int64 v8; // rcx
   __int64 v10; // rax
 
@@ -34,36 +34,36 @@ __int64 __fastcall sub_18001869C(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(&qword_1801660B0);
-      v7 = qword_1801662C8;
-      if ( (qword_1801662D0 & 1) != 0 && qword_1801662C8 )
-        v7 = (unsigned __int64)&qword_1801662C8 ^ qword_1801662C8;
-      while ( v7 )
+      RtlAcquireSRWLockExclusive(&stru_1801660B0);
+      Root = (unsigned __int64)stru_1801662C8.Root;
+      if ( ((__int64)stru_1801662C8.Min & 1) != 0 && stru_1801662C8.Root )
+        Root = (unsigned __int64)&stru_1801662C8 ^ (unsigned __int64)stru_1801662C8.Root;
+      while ( Root )
       {
-        if ( a1 >= *(_QWORD *)(v7 - 152) )
+        if ( a1 >= *(_QWORD *)(Root - 152) )
         {
-          if ( a1 <= *(_QWORD *)(v7 - 152) )
+          if ( a1 <= *(_QWORD *)(Root - 152) )
           {
-            v3 = v7 - 200;
-            v10 = *(_QWORD *)(v7 - 200 + 152);
+            v3 = Root - 200;
+            v10 = *(_QWORD *)(Root - 200 + 152);
             if ( *(_DWORD *)(v10 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v10 - 56LL) & 0x20) == 0 )
               _InterlockedIncrement((volatile signed __int32 *)(v3 + 276));
             if ( a3 )
               *a3 = *(_DWORD *)(*(_QWORD *)(v3 + 152) + 56LL);
             break;
           }
-          v8 = *(_QWORD *)(v7 + 8);
+          v8 = *(_QWORD *)(Root + 8);
         }
         else
         {
-          v8 = *(_QWORD *)v7;
+          v8 = *(_QWORD *)Root;
         }
-        if ( (qword_1801662D0 & 1) != 0 && v8 )
-          v7 ^= v8;
+        if ( ((__int64)stru_1801662C8.Min & 1) != 0 && v8 )
+          Root ^= v8;
         else
-          v7 = v8;
+          Root = v8;
       }
-      RtlReleaseSRWLockExclusive(&qword_1801660B0);
+      RtlReleaseSRWLockExclusive(&stru_1801660B0);
     }
   }
   *a2 = v3;

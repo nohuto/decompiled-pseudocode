@@ -1,23 +1,30 @@
 /*
- * XREFs of _CmIsDeviceInContainer @ 0x140486528
+ * XREFs of _CmIsDeviceInContainer @ 0x140513338
  * Callers:
- *     _CmGetDeviceContainerIdFromBase @ 0x140486454 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x140513264 (_CmGetDeviceContainerIdFromBase.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x140504098 (_PnpCtxRegQueryValue.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1404E7028 (_PnpCtxRegQueryValue.c)
  */
 
-__int64 __fastcall CmIsDeviceInContainer(__int64 *a1, int a2, int a3, int a4, __int64 a5, _BYTE *a6, _BYTE *a7)
+__int64 __fastcall CmIsDeviceInContainer(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        const WCHAR *a5,
+        _BYTE *a6,
+        _BYTE *a7)
 {
   _BYTE *v7; // r14
   _BYTE *v9; // rsi
-  __int64 *v10; // rdi
-  int v11; // ebx
+  _QWORD *v10; // rdi
+  int Value; // ebx
   __int64 v12; // rcx
   __int64 v13; // rcx
   __int64 v14; // rcx
-  __int64 v15; // r8
+  const WCHAR *v15; // r8
   HANDLE v16; // rdx
   HANDLE v18; // [rsp+30h] [rbp-10h] BYREF
   HANDLE v19; // [rsp+38h] [rbp-8h] BYREF
@@ -32,40 +39,34 @@ __int64 __fastcall CmIsDeviceInContainer(__int64 *a1, int a2, int a3, int a4, __
   *a6 = 0;
   *v9 = 0;
   if ( a1 )
-    a1 = (__int64 *)*a1;
-  v11 = SysCtxRegOpenKey((_DWORD)a1, a2, a3, 0, 1, (__int64)&v19);
-  if ( v11 >= 0 )
+    a1 = (_QWORD *)*a1;
+  Value = SysCtxRegOpenKey((__int64)a1, a2, a3, 0, 1u, (__int64)&v19);
+  if ( Value >= 0 )
   {
-    if ( v10 )
-      v12 = *v10;
-    else
-      LODWORD(v12) = 0;
-    v11 = SysCtxRegOpenKey(v12, (_DWORD)v19, (unsigned int)L"BaseContainers", 0, 1, (__int64)&v18);
-    if ( v11 >= 0 )
+    v12 = v10 ? *v10 : 0LL;
+    Value = SysCtxRegOpenKey(v12, (__int64)v19, (__int64)L"BaseContainers", 0, 1u, (__int64)&v18);
+    if ( Value >= 0 )
     {
-      if ( v10 )
-        v13 = *v10;
-      else
-        LODWORD(v13) = 0;
-      v11 = SysCtxRegOpenKey(v13, (_DWORD)v18, a4, 0, 1, (__int64)&Handle);
-      if ( v11 >= 0 )
+      v13 = v10 ? *v10 : 0LL;
+      Value = SysCtxRegOpenKey(v13, (__int64)v18, a4, 0, 1u, (__int64)&Handle);
+      if ( Value >= 0 )
       {
         v15 = a5;
         v16 = Handle;
         *v7 = 1;
-        v11 = PnpCtxRegQueryValue(v14, v16, v15, 0LL, 0LL, &a6);
-        if ( v11 >= 0 )
+        Value = PnpCtxRegQueryValue(v14, v16, v15, 0LL, 0LL, (unsigned int *)&a6);
+        if ( Value >= 0 )
           *v9 = 1;
       }
     }
   }
-  if ( v11 == -1073741772 || v11 == -1073741444 )
-    v11 = 0;
+  if ( Value == -1073741772 || Value == -1073741444 )
+    Value = 0;
   if ( Handle )
     ZwClose(Handle);
   if ( v18 )
     ZwClose(v18);
   if ( v19 )
     ZwClose(v19);
-  return (unsigned int)v11;
+  return (unsigned int)Value;
 }

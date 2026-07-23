@@ -21,9 +21,9 @@ char __fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rsi
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v6; // r14
-  __int64 v7; // r8
+  unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
   __int64 v10; // rdi
@@ -36,23 +36,23 @@ char __fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)
     ExfTryToWakePushLock((volatile signed __int64 *)(a2 + 1232));
   CurrentThread = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v2) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+    SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --CurrentThread->SpecialApcDisable;
   v6 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v7) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v7 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v8 = !_BitScanReverse((unsigned int *)&v9, v7);
     if ( v8 )
       break;
     v10 = (__int64)&CurrentThread->LockEntries[v9];
-    v7 = ~(1 << v9) & (unsigned int)v7;
+    v7 &= ~(1 << v9);
     if ( (*(_BYTE *)(v10 + 26) & 1) != 0
       && (*(_DWORD *)(v10 + 32) & 1) == 0
       && (*(_QWORD *)(v10 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v2 & 0x7FFFFFFFFFFFFFFCLL)
-      && *(_DWORD *)(v10 + 40) == (_DWORD)SessionId )
+      && *(_DWORD *)(v10 + 40) == SessionId )
     {
       *(_BYTE *)(v10 + 26) &= ~1u;
       if ( *(_QWORD *)(v10 + 32) )
@@ -61,7 +61,7 @@ char __fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v10 + 32) |= 2u;
           if ( *(__int64 *)(v10 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v10, SessionId, v7);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
           *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v10 + 25) &= ~1u;
           *(_QWORD *)(v10 + 32) = 0LL;
@@ -77,7 +77,7 @@ char __fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)
     }
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, SessionId, 0LL);
 LABEL_17:
   --CurrentThread->AbAllocationRegionCount;
   LOBYTE(v12) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);

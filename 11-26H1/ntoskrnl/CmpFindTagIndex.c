@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpFindTagIndex @ 0x140CEF488
+ * XREFs of CmpFindTagIndex @ 0x140CF5804
  * Callers:
- *     CmpAddDriverToList @ 0x140CEE5C0 (CmpAddDriverToList.c)
+ *     CmpAddDriverToList @ 0x140CF493C (CmpAddDriverToList.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpGetValueData @ 0x1409803F0 (CmpGetValueData.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpGetValueData @ 0x140942400 (CmpGetValueData.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpFindTagIndex(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3, unsigned __int16 *a4)

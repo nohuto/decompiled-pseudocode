@@ -10,12 +10,12 @@
  *     LdrpCompareModuleName @ 0x18008B940 (LdrpCompareModuleName.c)
  */
 
-bool __fastcall LdrpCheckForRetryLoading(__int64 a1, char a2)
+BOOLEAN __fastcall LdrpCheckForRetryLoading(__int64 a1, char a2)
 {
-  bool v2; // bl
+  BOOLEAN v2; // bl
   __int64 v5; // r13
-  char v6; // al
-  unsigned __int64 v7; // rdi
+  $7D93978C745EB1C2D28075BAF55422B4 v6; // al
+  unsigned __int64 Root; // rdi
   unsigned __int64 v8; // rsi
   int v9; // r14d
   int v10; // eax
@@ -29,21 +29,21 @@ bool __fastcall LdrpCheckForRetryLoading(__int64 a1, char a2)
   if ( !*(_QWORD *)(a1 + 176) && (*(_DWORD *)(a1 + 32) & 0x4100000) == 0 )
   {
     v5 = *(_QWORD *)(a1 + 56);
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-    v6 = BYTE8(LdrpRetryingModuleIndex);
-    v7 = LdrpRetryingModuleIndex;
-    if ( (BYTE8(LdrpRetryingModuleIndex) & 1) != 0 )
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
+    v6 = LdrpRetryingModuleIndex.0;
+    Root = (unsigned __int64)LdrpRetryingModuleIndex.Root;
+    if ( (*(_BYTE *)&LdrpRetryingModuleIndex.0 & 1) != 0 )
     {
-      if ( (_QWORD)LdrpRetryingModuleIndex )
-        v8 = (unsigned __int64)&LdrpRetryingModuleIndex ^ LdrpRetryingModuleIndex;
+      if ( LdrpRetryingModuleIndex.Root )
+        v8 = (unsigned __int64)&LdrpRetryingModuleIndex ^ (unsigned __int64)LdrpRetryingModuleIndex.Root;
       else
         v8 = 0LL;
     }
     else
     {
-      v8 = LdrpRetryingModuleIndex;
+      v8 = (unsigned __int64)LdrpRetryingModuleIndex.Root;
     }
-    v9 = BYTE8(LdrpRetryingModuleIndex) & 1;
+    v9 = *(_BYTE *)&LdrpRetryingModuleIndex.0 & 1;
     if ( v8 )
     {
       do
@@ -67,47 +67,47 @@ bool __fastcall LdrpCheckForRetryLoading(__int64 a1, char a2)
       while ( v8 );
       if ( v8 )
         goto LABEL_38;
-      v6 = BYTE8(LdrpRetryingModuleIndex);
-      v7 = LdrpRetryingModuleIndex;
+      v6 = LdrpRetryingModuleIndex.0;
+      Root = (unsigned __int64)LdrpRetryingModuleIndex.Root;
     }
     if ( !a2 )
     {
 LABEL_14:
-      RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlLeaveCriticalSection(&LdrpWorkQueueLock);
       return v2;
     }
-    if ( (v6 & 1) != 0 )
+    if ( (*(_BYTE *)&v6 & 1) != 0 )
     {
-      if ( v7 )
-        v7 ^= (unsigned __int64)&LdrpRetryingModuleIndex;
+      if ( Root )
+        Root ^= (unsigned __int64)&LdrpRetryingModuleIndex;
       else
-        v7 = 0LL;
+        Root = 0LL;
     }
-    v13 = v6 & 1;
-    if ( v7 )
+    v13 = *(_BYTE *)&v6 & 1;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( (int)LdrpCompareModuleName(v5, v7) < 0 )
+        if ( (int)LdrpCompareModuleName(v5, Root) < 0 )
         {
-          v14 = *(_QWORD *)v7;
+          v14 = *(_QWORD *)Root;
           if ( v13 )
           {
             if ( !v14 )
               break;
-            v14 ^= v7;
+            v14 ^= Root;
           }
           if ( !v14 )
             break;
         }
         else
         {
-          v14 = *(_QWORD *)(v7 + 8);
+          v14 = *(_QWORD *)(Root + 8);
           if ( v13 )
           {
             if ( !v14 )
               goto LABEL_36;
-            v14 ^= v7;
+            v14 ^= Root;
           }
           if ( !v14 )
           {
@@ -116,10 +116,10 @@ LABEL_36:
             break;
           }
         }
-        v7 = v14;
+        Root = v14;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)&LdrpRetryingModuleIndex, v7, v2, v5 + 224);
+    RtlRbInsertNodeEx(&LdrpRetryingModuleIndex, (PRTL_BALANCED_NODE)Root, v2, (PRTL_BALANCED_NODE)(v5 + 224));
 LABEL_38:
     *(_DWORD *)(a1 + 32) |= 0x100000u;
     v15 = (_QWORD *)qword_18017A008;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMOpenObjectKey @ 0x1406338E0
+ * XREFs of PiCMOpenObjectKey @ 0x140628AA8
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PiCMDuplicateRegistryHandle @ 0x14062FEA4 (PiCMDuplicateRegistryHandle.c)
- *     PiCMReturnHandleResultData @ 0x140633848 (PiCMReturnHandleResultData.c)
- *     PiCMCaptureRegistryInputData @ 0x140633C4C (PiCMCaptureRegistryInputData.c)
- *     PiCMReleaseRegistryInputData @ 0x140633E60 (PiCMReleaseRegistryInputData.c)
- *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
- *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
- *     _PnpCreateObject @ 0x1407322DC (_PnpCreateObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiAuDoesClientHaveAccess @ 0x1405FF814 (PiAuDoesClientHaveAccess.c)
+ *     PiCMDuplicateRegistryHandle @ 0x140624F24 (PiCMDuplicateRegistryHandle.c)
+ *     PiCMReturnHandleResultData @ 0x140628A10 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x140628CD8 (PiCMCaptureRegistryInputData.c)
+ *     PiCMReleaseRegistryInputData @ 0x140628EEC (PiCMReleaseRegistryInputData.c)
+ *     _PnpOpenObjectRegKey @ 0x14062C674 (_PnpOpenObjectRegKey.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     _PnpCreateObject @ 0x14073249C (_PnpCreateObject.c)
  */
 
 __int64 __fastcall PiCMOpenObjectKey(__int64 a1, __int64 a2, _DWORD *a3, unsigned int a4, unsigned int a5, _DWORD *a6)
@@ -109,7 +109,7 @@ LABEL_14:
       goto LABEL_16;
     if ( (_DWORD)v19 == 1 )
     {
-      if ( (unsigned __int8)PiAuDoesClientHaveAccess(2LL) )
+      if ( PiAuDoesClientHaveAccess(2u) )
       {
         Object = PnpCreateObject(v14, v18, v10, HIDWORD(v18), (__int64)&Handle);
 LABEL_16:

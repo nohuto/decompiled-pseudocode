@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpAddLogHeader @ 0x140A12D58
+ * XREFs of EtwpAddLogHeader @ 0x140A11F48
  * Callers:
- *     EtwpPreserveLogger @ 0x14082E4AC (EtwpPreserveLogger.c)
- *     EtwpUpdateFileHeader @ 0x140A16280 (EtwpUpdateFileHeader.c)
+ *     EtwpPreserveLogger @ 0x1408346EC (EtwpPreserveLogger.c)
+ *     EtwpUpdateFileHeader @ 0x140A15D84 (EtwpUpdateFileHeader.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpIsWow64Logger @ 0x140A13330 (EtwpIsWow64Logger.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x140A13354 (RtlpQueryTimeZoneInformationWorker.c)
- *     EtwpPrepareHeader @ 0x140A13A08 (EtwpPrepareHeader.c)
- *     EtwpAddBinaryInfoEvents @ 0x140A17074 (EtwpAddBinaryInfoEvents.c)
- *     EtwpAddDebugInfoEvents @ 0x140A1722C (EtwpAddDebugInfoEvents.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpIsWow64Logger @ 0x140A12520 (EtwpIsWow64Logger.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140A12544 (RtlpQueryTimeZoneInformationWorker.c)
+ *     EtwpPrepareHeader @ 0x140A12BF8 (EtwpPrepareHeader.c)
+ *     EtwpAddBinaryInfoEvents @ 0x140ABCE74 (EtwpAddBinaryInfoEvents.c)
+ *     EtwpAddDebugInfoEvents @ 0x140ABD02C (EtwpAddDebugInfoEvents.c)
  */
 
 unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
@@ -96,9 +96,9 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
     a2[34] = *(_DWORD *)(a1 + 12) & 0xFF3FFEFF;
     a2[33] = *(_DWORD *)(a1 + 292);
     a2[32] = KeMaximumIncrement;
-    a2[39] = EtwCPUSpeedInMHz;
+    a2[39] = HIDWORD(stru_140F03830.CycleTime);
     KeQueryPerformanceCounter(&PerformanceFrequency);
-    _InterlockedExchange64((volatile __int64 *)&EtwPerfFreq, PerformanceFrequency.QuadPart);
+    _InterlockedExchange64((volatile __int64 *)&stru_140F03830.CurrentRunTime, PerformanceFrequency.QuadPart);
     if ( (unsigned __int8)EtwpIsWow64Logger(a1) )
     {
       a2[18] = -1073676286;
@@ -107,7 +107,7 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
       v24 = 1;
       *((_QWORD *)a2 + 44) = v12;
       *((_QWORD *)a2 + 45) = *(_QWORD *)(a1 + 304);
-      *((_QWORD *)a2 + 43) = EtwpBootTime;
+      *((_QWORD *)a2 + 43) = stru_140F03830.AffinityVersion;
       if ( *(_DWORD *)(a1 + 200) != 4 )
         v24 = *(_DWORD *)(a1 + 200);
       a2[92] = v24;
@@ -120,7 +120,7 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
       *((_QWORD *)a2 + 45) = v12;
       v13 = (char *)(a2 + 96);
       *((_QWORD *)a2 + 46) = *(_QWORD *)(a1 + 304);
-      *((_QWORD *)a2 + 44) = EtwpBootTime;
+      *((_QWORD *)a2 + 44) = stru_140F03830.AffinityVersion;
       v14 = 1;
       a2[37] = 8;
       if ( *(_DWORD *)(a1 + 200) != 4 )

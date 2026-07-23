@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwRemoveProcessDebug @ 0x14041DD20
+ * XREFs of ZwRemoveProcessDebug @ 0x14041E0B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRemoveProcessDebug(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRemoveProcessDebug(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -21,10 +21,10 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiFreeBootDriverPages(__int64 a1, unsigned __int64 a2, __int64 a3, char a4, int *a5)
+void __fastcall MiFreeBootDriverPages(void *a1, unsigned __int64 a2, __int64 a3, char a4, int *a5)
 {
   int *v5; // r14
-  __int64 v8; // r15
+  PVOID v8; // r15
   char v9; // r12
   unsigned __int64 v10; // rbp
   __int64 v11; // rsi
@@ -50,7 +50,7 @@ void __fastcall MiFreeBootDriverPages(__int64 a1, unsigned __int64 a2, __int64 a
   int *v32; // [rsp+38h] [rbp-130h]
   __int64 v33; // [rsp+48h] [rbp-120h] BYREF
   __int64 v34; // [rsp+50h] [rbp-118h]
-  __int64 v35; // [rsp+58h] [rbp-110h]
+  void *v35; // [rsp+58h] [rbp-110h]
   _QWORD v36[24]; // [rsp+60h] [rbp-108h] BYREF
 
   v5 = a5;
@@ -121,10 +121,13 @@ LABEL_7:
             ++*(_WORD *)(v16 + 32);
           *(_BYTE *)(v16 + 35) &= ~8u;
           _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v23 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v23 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

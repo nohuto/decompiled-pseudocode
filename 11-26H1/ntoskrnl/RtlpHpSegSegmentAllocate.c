@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpSegSegmentAllocate @ 0x14034FDFC
+ * XREFs of RtlpHpSegSegmentAllocate @ 0x140351E7C
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14034B898 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x1406392C4 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14034D918 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14063C2D4 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlpHpSegSegmentFree @ 0x14034F76C (RtlpHpSegSegmentFree.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x14034F848 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpHpSegMgrAllocate @ 0x14034F948 (RtlpHpSegMgrAllocate.c)
- *     RtlpLogHeapCommit @ 0x14052DAC4 (RtlpLogHeapCommit.c)
+ *     RtlpHpSegSegmentFree @ 0x1403517EC (RtlpHpSegSegmentFree.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1403518C8 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpHpSegMgrAllocate @ 0x1403519C8 (RtlpHpSegMgrAllocate.c)
+ *     RtlpLogHeapCommit @ 0x14052FFE4 (RtlpLogHeapCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2, int a3)
@@ -31,11 +31,11 @@ __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2, int a3)
     _InterlockedAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1), v8 >> 12);
     _InterlockedAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v3);
     v9 = (_DWORD)v8 != 0x100000;
-    v10 = 2 * ((v6 - (unsigned __int64)ExpUuidLock.StackBase) >> 20);
+    v10 = 2 * ((v6 - ExpUuidLock.ThreadLock) >> 20);
     v11 = v10 + 2 * (v8 >> 20);
     while ( v10 < v11 )
     {
-      if ( (int)RtlCSparseBitmapBitmaskWrite((__int64)&ExpUuidLock.ThreadLock, v10, v7, v9 + 1) < 0 )
+      if ( (int)RtlCSparseBitmapBitmaskWrite((__int64)&ExpUuidLock.CycleTime, v10, v7, v9 + 1) < 0 )
       {
         RtlpHpSegSegmentFree(a1, v6, v3, 0);
         return v5;

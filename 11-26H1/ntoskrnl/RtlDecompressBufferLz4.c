@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBufferLz4 @ 0x1403906F0
+ * XREFs of RtlDecompressBufferLz4 @ 0x1403924A0
  * Callers:
- *     SmStoreDecompressBuffer @ 0x1403905E0 (SmStoreDecompressBuffer.c)
+ *     SmStoreDecompressBuffer @ 0x140392390 (SmStoreDecompressBuffer.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall RtlDecompressBufferLz4(char *a1, int a2, char *a3, int a4, int a5, int *a6)
@@ -196,9 +196,9 @@ LABEL_54:
                       v17[1] = v19[1];
                       v17[2] = v19[2];
                       v17[3] = v19[3];
-                      v58 = &v19[dword_140037450[v18]];
+                      v58 = &v19[dword_1400379E0[v18]];
                       *((_DWORD *)v17 + 1) = *(_DWORD *)v58;
-                      v42 = &v58[-dword_140037430[v18]];
+                      v42 = &v58[-dword_1400379C0[v18]];
                     }
                     else
                     {
@@ -409,9 +409,9 @@ LABEL_21:
               v17[1] = v19[1];
               v17[2] = v19[2];
               v17[3] = v19[3];
-              v59 = &v19[dword_140037450[v18]];
+              v59 = &v19[dword_1400379E0[v18]];
               *((_DWORD *)v17 + 1) = *(_DWORD *)v59;
-              v60 = &v59[-dword_140037430[v18]];
+              v60 = &v59[-dword_1400379C0[v18]];
             }
             v61 = v17 + 8;
             v62 = v60 - v61;

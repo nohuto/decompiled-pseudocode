@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_AvoidSmtGroupings__private_IsEnabledFallback @ 0x140526B80
+ * XREFs of Feature_AvoidSmtGroupings__private_IsEnabledFallback @ 0x1405291F0
  * Callers:
- *     Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline @ 0x140526B44 (Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline @ 0x1405291B4 (Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_AvoidSmtGroupings__private_IsEnabledFallback(__int64 a1, unsigned int a2)

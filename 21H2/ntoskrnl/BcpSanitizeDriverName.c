@@ -1,7 +1,7 @@
 /*
- * XREFs of BcpSanitizeDriverName @ 0x1405C53C8
+ * XREFs of BcpSanitizeDriverName @ 0x1405C55F8
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1405C4CB8 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayErrorInformation @ 0x1405C4EE8 (BcpDisplayErrorInformation.c)
  * Callees:
  *     <none>
  */

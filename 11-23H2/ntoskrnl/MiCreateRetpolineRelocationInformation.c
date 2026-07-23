@@ -2,11 +2,11 @@
  * XREFs of MiCreateRetpolineRelocationInformation @ 0x1406A7128
  * Callers:
  *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14082F420 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x14082F720 (MiCaptureBootDriverRetpolineInfo.c)
  * Callees:
  *     RtlCreateRetpolineRelocationInformation @ 0x14020CB74 (RtlCreateRetpolineRelocationInformation.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiFreeRetpolineRelocationInformation @ 0x1408656E8 (MiFreeRetpolineRelocationInformation.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x140865928 (MiFreeRetpolineRelocationInformation.c)
  */
 
 __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, unsigned int a3, _QWORD *a4)

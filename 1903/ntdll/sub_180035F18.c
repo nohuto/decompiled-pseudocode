@@ -28,29 +28,30 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_180035F18(int a1)
+void __fastcall sub_180035F18(int a1)
 {
   int v2; // edi
 
-  RtlAcquireSRWLockExclusive(&qword_180165010);
-  v2 = dword_18017A3B8;
+  RtlAcquireSRWLockExclusive(&stru_180165010);
+  v2 = LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[2];
   if ( !a1 )
   {
-    if ( !dword_18017A3B8 )
+    if ( !LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[2]) )
       sub_180032A38(4u);
     if ( v2 != -1 )
     {
-      dword_18017A3B8 = v2 + 1;
-      return RtlReleaseSRWLockExclusive(&qword_180165010);
+      LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[2]) = v2 + 1;
+      goto LABEL_6;
     }
 LABEL_10:
-    RtlReleaseSRWLockExclusive(&qword_180165010);
+    RtlReleaseSRWLockExclusive(&stru_180165010);
     __fastfail(0xEu);
   }
-  if ( !dword_18017A3B8 )
+  if ( !LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[2]) )
     goto LABEL_10;
-  --dword_18017A3B8;
+  --LODWORD(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[2]);
   if ( v2 == 1 )
     sub_180032A38(2u);
-  return RtlReleaseSRWLockExclusive(&qword_180165010);
+LABEL_6:
+  RtlReleaseSRWLockExclusive(&stru_180165010);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReservePageFileSpace @ 0x14001E5D0
+ * XREFs of MiReservePageFileSpace @ 0x14001E150
  * Callers:
- *     MiCheckReservePageFileSpace @ 0x1400E4C50 (MiCheckReservePageFileSpace.c)
- *     MiFillNoReservationCluster @ 0x140123700 (MiFillNoReservationCluster.c)
+ *     MiCheckReservePageFileSpace @ 0x1400E2AF0 (MiCheckReservePageFileSpace.c)
+ *     MiFillNoReservationCluster @ 0x140123C70 (MiFillNoReservationCluster.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiReservePageFileSpaceForPage @ 0x14001E990 (MiReservePageFileSpaceForPage.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009E3AC (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiUpdateReserveClusterInfo @ 0x1400B5470 (MiUpdateReserveClusterInfo.c)
- *     MiFindFreePageFileSpace @ 0x1400B65FC (MiFindFreePageFileSpace.c)
- *     MiGetPageFileSectionForReservation @ 0x140115A88 (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x140115B2C (MiReleasePageFileSectionInfo.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiReservePageFileSpaceForPage @ 0x14001E510 (MiReservePageFileSpaceForPage.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009DBAC (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiUpdateReserveClusterInfo @ 0x1400B32A8 (MiUpdateReserveClusterInfo.c)
+ *     MiFindFreePageFileSpace @ 0x1400B4424 (MiFindFreePageFileSpace.c)
+ *     MiGetPageFileSectionForReservation @ 0x140115FF8 (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x14011609C (MiReleasePageFileSectionInfo.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)

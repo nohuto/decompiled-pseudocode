@@ -1,29 +1,29 @@
 /*
- * XREFs of AdtpPackageParameters @ 0x140188D9C
+ * XREFs of AdtpPackageParameters @ 0x140188EDC
  * Callers:
- *     AdtpWriteToEtwEx @ 0x1403259D0 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x14074D564 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x140325BC0 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x14074E754 (AdtpWriteToEtw.c)
  * Callees:
- *     AdtpIsCorrectlyFormedUnicodeString @ 0x1401892C0 (AdtpIsCorrectlyFormedUnicodeString.c)
- *     AdtpBuildMultiSzStringListString @ 0x1401892DC (AdtpBuildMultiSzStringListString.c)
- *     AdtpBuildAccessReasonAuditString @ 0x140325BEC (AdtpBuildAccessReasonAuditString.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     AdtpEtwBuildDashString @ 0x1406D0B60 (AdtpEtwBuildDashString.c)
- *     AdtpEtwBuildString @ 0x14074D960 (AdtpEtwBuildString.c)
- *     AdtpSubstituteDriveLetter @ 0x14074DA24 (AdtpSubstituteDriveLetter.c)
- *     AdtpBuildMessageString @ 0x14074DB54 (AdtpBuildMessageString.c)
- *     AdtpBuildLogonIdStrings @ 0x14074DC08 (AdtpBuildLogonIdStrings.c)
- *     AdtpBuildPrivilegeAuditString @ 0x1408EEF94 (AdtpBuildPrivilegeAuditString.c)
- *     AdtpBuildSecurityDescriptorChangeString @ 0x1408EF454 (AdtpBuildSecurityDescriptorChangeString.c)
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x1408EF520 (AdtpBuildSecurityDescriptorUnicodeString.c)
- *     AdtpBuildSidListString @ 0x1408EF728 (AdtpBuildSidListString.c)
- *     AdtpBuildSockAddrString @ 0x1408EF990 (AdtpBuildSockAddrString.c)
- *     AdtpBuildStringListString @ 0x1408EFA4C (AdtpBuildStringListString.c)
- *     AdtpBuildUlongString @ 0x1408EFBB4 (AdtpBuildUlongString.c)
- *     AdtpBuildAccessesString @ 0x1408EFEAC (AdtpBuildAccessesString.c)
- *     AdtpBuildObjectTypeStrings @ 0x1408F0348 (AdtpBuildObjectTypeStrings.c)
- *     AdtpBuildUserAccountControlString @ 0x1408F05CC (AdtpBuildUserAccountControlString.c)
+ *     AdtpIsCorrectlyFormedUnicodeString @ 0x140189400 (AdtpIsCorrectlyFormedUnicodeString.c)
+ *     AdtpBuildMultiSzStringListString @ 0x14018941C (AdtpBuildMultiSzStringListString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140325DDC (AdtpBuildAccessReasonAuditString.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     AdtpEtwBuildDashString @ 0x1406D1E00 (AdtpEtwBuildDashString.c)
+ *     AdtpEtwBuildString @ 0x14074EB50 (AdtpEtwBuildString.c)
+ *     AdtpSubstituteDriveLetter @ 0x14074EC14 (AdtpSubstituteDriveLetter.c)
+ *     AdtpBuildMessageString @ 0x14074ED44 (AdtpBuildMessageString.c)
+ *     AdtpBuildLogonIdStrings @ 0x14074EDF8 (AdtpBuildLogonIdStrings.c)
+ *     AdtpBuildPrivilegeAuditString @ 0x1408F0254 (AdtpBuildPrivilegeAuditString.c)
+ *     AdtpBuildSecurityDescriptorChangeString @ 0x1408F0714 (AdtpBuildSecurityDescriptorChangeString.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x1408F07E0 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     AdtpBuildSidListString @ 0x1408F09E8 (AdtpBuildSidListString.c)
+ *     AdtpBuildSockAddrString @ 0x1408F0C50 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildStringListString @ 0x1408F0D0C (AdtpBuildStringListString.c)
+ *     AdtpBuildUlongString @ 0x1408F0E74 (AdtpBuildUlongString.c)
+ *     AdtpBuildAccessesString @ 0x1408F116C (AdtpBuildAccessesString.c)
+ *     AdtpBuildObjectTypeStrings @ 0x1408F1608 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpBuildUserAccountControlString @ 0x1408F188C (AdtpBuildUserAccountControlString.c)
  */
 
 __int64 __fastcall AdtpPackageParameters(
@@ -543,7 +543,7 @@ LABEL_35:
           {
             v53 = 2LL * v10;
             v54 = v18 + v10;
-            v55 = 4 * (unsigned __int8)byte_14096E931 + 8;
+            v55 = 4 * (unsigned __int8)byte_14096F931 + 8;
             *(_QWORD *)(v17 + 8 * v53) = v19;
             *(_DWORD *)(v17 + 8 * v53 + 8) = v55;
             *(_DWORD *)(v17 + 8 * v53 + 12) = (_DWORD)v9;

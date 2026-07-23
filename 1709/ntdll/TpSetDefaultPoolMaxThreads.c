@@ -11,77 +11,70 @@
  *     TpSetPoolMaxThreadsSoftLimit @ 0x180083A00 (TpSetPoolMaxThreadsSoftLimit.c)
  */
 
-signed __int64 __fastcall TpSetDefaultPoolMaxThreads(
-        unsigned int a1,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+void __fastcall TpSetDefaultPoolMaxThreads(ULONG a1)
 {
-  unsigned int v5; // esi
-  unsigned int v6; // ebp
-  signed __int64 result; // rax
-  int v8; // eax
-  int v9; // edi
-  __int64 v10; // rbx
-  __int64 v11; // r8
-  __int64 v12; // r9
+  unsigned int v2; // esi
+  unsigned int v3; // ebp
+  unsigned int v4; // eax
+  ULONG v5; // eax
+  ULONG v6; // edi
+  _TP_POOL *v7; // rax
+  __int64 v8; // rbx
 
-  v5 = 8 * MEMORY[0x7FFE03C0];
+  v2 = 8 * MEMORY[0x7FFE03C0];
   if ( (unsigned int)(8 * MEMORY[0x7FFE03C0]) < 0x300 )
-    v5 = 768;
-  v6 = 4 * MEMORY[0x7FFE03C0];
+    v2 = 768;
+  v3 = 4 * MEMORY[0x7FFE03C0];
   if ( (unsigned int)(4 * MEMORY[0x7FFE03C0]) < 0x180 )
-    v6 = 384;
-  result = (unsigned int)TppPoolpGlobalPoolMaxThreads;
+    v3 = 384;
   if ( TppPoolpGlobalPoolMaxThreads )
   {
     if ( a1 <= TppPoolpGlobalPoolMaxThreads )
-      return result;
+      return;
     goto LABEL_10;
   }
-  if ( a1 <= v6 )
-    return result;
-  result = v5;
-  if ( a1 > v5 )
+  if ( a1 <= v3 )
+    return;
+  v4 = v2;
+  if ( a1 > v2 )
 LABEL_10:
-    result = a1;
-  if ( !(_DWORD)result )
-    return result;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&TppPoolpGlobalPoolLock, a2, a3, a4);
-  v8 = TppPoolpGlobalPoolMaxThreads;
-  v9 = 0;
+    v4 = a1;
+  if ( !v4 )
+    return;
+  RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock);
+  v5 = TppPoolpGlobalPoolMaxThreads;
+  v6 = 0;
   if ( TppPoolpGlobalPoolMaxThreads )
   {
     if ( a1 > TppPoolpGlobalPoolMaxThreads )
       goto LABEL_17;
   }
-  else if ( a1 > v6 )
+  else if ( a1 > v3 )
   {
-    v9 = v5;
-    if ( a1 <= v5 )
+    v6 = v2;
+    if ( a1 <= v2 )
     {
 LABEL_18:
-      if ( v9 )
-        v8 = v9;
-      TppPoolpGlobalPoolMaxThreads = v8;
+      if ( v6 )
+        v5 = v6;
+      TppPoolpGlobalPoolMaxThreads = v5;
       goto LABEL_21;
     }
 LABEL_17:
-    v9 = a1;
+    v6 = a1;
     goto LABEL_18;
   }
 LABEL_21:
-  result = RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
-  if ( v9 )
+  RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
+  if ( v6 )
   {
-    result = TpPoolReferenceExistingGlobalPool();
-    v10 = result;
-    if ( result )
+    v7 = (_TP_POOL *)TpPoolReferenceExistingGlobalPool();
+    v8 = (__int64)v7;
+    if ( v7 )
     {
-      TpSetPoolMaxThreads(result, v9);
-      TpSetPoolMaxThreadsSoftLimit(v10, 0LL, v11, v12);
-      return TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, (__int64)&TppPoolpGlobalPoolLock);
+      TpSetPoolMaxThreads(v7, v6);
+      TpSetPoolMaxThreadsSoftLimit(v8, 0);
+      TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
     }
   }
-  return result;
 }

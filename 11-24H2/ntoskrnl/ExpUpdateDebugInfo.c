@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpUpdateDebugInfo @ 0x14084D2F4
+ * XREFs of ExpUpdateDebugInfo @ 0x1408495B4
  * Callers:
- *     ExHandleLogBadReference @ 0x14043AC30 (ExHandleLogBadReference.c)
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ExDupHandleTable @ 0x14093D080 (ExDupHandleTable.c)
- *     ExDestroyHandle @ 0x14098A050 (ExDestroyHandle.c)
+ *     ExHandleLogBadReference @ 0x14042D470 (ExHandleLogBadReference.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ExDupHandleTable @ 0x140891770 (ExDupHandleTable.c)
+ *     ExDestroyHandle @ 0x1408961C0 (ExDestroyHandle.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExReferenceHandleDebugInfo @ 0x1409E6738 (ExReferenceHandleDebugInfo.c)
- *     ExDereferenceHandleDebugInfo @ 0x140A03E50 (ExDereferenceHandleDebugInfo.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExReferenceHandleDebugInfo @ 0x1409E16F8 (ExReferenceHandleDebugInfo.c)
+ *     ExDereferenceHandleDebugInfo @ 0x140A00380 (ExDereferenceHandleDebugInfo.c)
  */
 
 __int64 __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpTruncateBins @ 0x14097ED44
+ * XREFs of HvpTruncateBins @ 0x140967554
  * Callers:
- *     HvStoreModifiedData @ 0x14097E3EC (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x140966BFC (HvStoreModifiedData.c)
  * Callees:
- *     ExIsResourceAcquiredExclusiveLite @ 0x140403710 (ExIsResourceAcquiredExclusiveLite.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpTestRegistryLockExclusive @ 0x1406680E4 (CmpTestRegistryLockExclusive.c)
- *     HvpMapEntryGetFreeBin @ 0x140883424 (HvpMapEntryGetFreeBin.c)
- *     HvFreeHivePartial @ 0x140A4FDCC (HvFreeHivePartial.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x1403FE4D0 (ExIsResourceAcquiredExclusiveLite.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpTestRegistryLockExclusive @ 0x1406669D4 (CmpTestRegistryLockExclusive.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408872D4 (HvpMapEntryGetFreeBin.c)
+ *     HvFreeHivePartial @ 0x140A46B7C (HvFreeHivePartial.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
  */
 
 char __fastcall HvpTruncateBins(ULONG_PTR BugCheckParameter2)
@@ -41,7 +41,7 @@ char __fastcall HvpTruncateBins(ULONG_PTR BugCheckParameter2)
       }
       while ( v4 );
     }
-    if ( dword_140EF6D28 == 1 )
+    if ( dword_140EF6F68 == 1 )
     {
       if ( !i )
       {

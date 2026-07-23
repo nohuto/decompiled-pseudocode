@@ -8,12 +8,12 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlActivateActivationContext(__int64 a1, struct _ACTIVATION_CONTEXT *a2, unsigned __int64 *a3)
+NTSTATUS __cdecl RtlActivateActivationContext(ULONG Flags, PACTIVATION_CONTEXT ActivationContext, PULONG_PTR Cookie)
 {
-  struct _ACTIVATION_CONTEXT *v4; // rsi
+  PACTIVATION_CONTEXT v4; // rsi
   struct _TEB *v5; // r14
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   bool v8; // zf
   _RTL_ACTIVATION_CONTEXT_STACK_FRAME *v9; // rdi
   unsigned int v10; // edx
@@ -22,21 +22,21 @@ __int64 __fastcall RtlActivateActivationContext(__int64 a1, struct _ACTIVATION_C
   ULONG BackTraceHash; // [rsp+50h] [rbp+8h] BYREF
   _RTL_ACTIVATION_CONTEXT_STACK_FRAME *v14; // [rsp+60h] [rbp+18h] BYREF
 
-  if ( a3 )
-    *a3 = 0LL;
-  if ( (_DWORD)a1 || !a3 )
-    return 3221225485LL;
-  v4 = (struct _ACTIVATION_CONTEXT *)&unk_180175458;
+  if ( Cookie )
+    *Cookie = 0LL;
+  if ( Flags || !Cookie )
+    return -1073741811;
+  v4 = (PACTIVATION_CONTEXT)&unk_180175458;
   v5 = NtCurrentTeb();
-  if ( a2 != (struct _ACTIVATION_CONTEXT *)-3LL )
-    v4 = a2;
+  if ( ActivationContext != (PACTIVATION_CONTEXT)-3LL )
+    v4 = ActivationContext;
   v14 = 0LL;
-  *a3 = 0LL;
-  if ( !v5 || v4 == (struct _ACTIVATION_CONTEXT *)-1LL )
-    return 3221225485LL;
+  *Cookie = 0LL;
+  if ( !v5 || v4 == (PACTIVATION_CONTEXT)-1LL )
+    return -1073741811;
   ActivationContextStackPointer = v5->ActivationContextStackPointer;
-  result = RtlpAllocateActivationContextStackFrame(a1, ActivationContextStackPointer, &v14);
-  if ( (int)result >= 0 )
+  result = RtlpAllocateActivationContextStackFrame(Flags, ActivationContextStackPointer, &v14);
+  if ( result >= 0 )
   {
     v8 = RtlpCaptureActivationContextActivationStacks == 0;
     v9 = v14;
@@ -54,13 +54,13 @@ __int64 __fastcall RtlActivateActivationContext(__int64 a1, struct _ACTIVATION_C
     memset_thunk_772440563353939046(&v9[1].ActivationContext + v10, 0, 8LL * (8 - v10));
 LABEL_13:
     v9->Previous = ActivationContextStackPointer->ActiveFrame;
-    result = 0LL;
+    result = 0;
     v9->ActivationContext = v4;
     NextCookieSequenceNumber = ActivationContextStackPointer->NextCookieSequenceNumber;
     v12 = NextCookieSequenceNumber | ((unsigned __int64)(ActivationContextStackPointer->StackId & 0xFFFFFFF) << 32) | 0x1000000000000000LL;
     ActivationContextStackPointer->NextCookieSequenceNumber = NextCookieSequenceNumber + 1;
     v9[1].Previous = (_RTL_ACTIVATION_CONTEXT_STACK_FRAME *)v12;
-    *a3 = v12;
+    *Cookie = v12;
     ActivationContextStackPointer->ActiveFrame = v9;
   }
   return result;

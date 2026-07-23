@@ -1,9 +1,9 @@
 /*
- * XREFs of MiStoreGraphicsProtectionInVad @ 0x140AC0730
+ * XREFs of MiStoreGraphicsProtectionInVad @ 0x140ABB894
  * Callers:
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
  * Callees:
- *     RtlFindMostSignificantBit @ 0x1404489A0 (RtlFindMostSignificantBit.c)
+ *     RtlFindMostSignificantBit @ 0x1404410F0 (RtlFindMostSignificantBit.c)
  */
 
 __int64 __fastcall MiStoreGraphicsProtectionInVad(__int64 a1, unsigned int a2)

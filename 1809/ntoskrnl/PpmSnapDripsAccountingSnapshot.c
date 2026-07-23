@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmSnapDripsAccountingSnapshot @ 0x1402D5BE0
+ * XREFs of PpmSnapDripsAccountingSnapshot @ 0x1402D5DD0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopDiagTraceDripsHistogram @ 0x1402E0290 (PopDiagTraceDripsHistogram.c)
- *     PpmEventTraceDripsAccountingSnapshot @ 0x140878054 (PpmEventTraceDripsAccountingSnapshot.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopDiagTraceDripsHistogram @ 0x1402E0480 (PopDiagTraceDripsHistogram.c)
+ *     PpmEventTraceDripsAccountingSnapshot @ 0x1408792B4 (PpmEventTraceDripsAccountingSnapshot.c)
  */
 
 __int64 __fastcall PpmSnapDripsAccountingSnapshot(__int64 a1, int a2, int a3)
@@ -21,13 +21,13 @@ __int64 __fastcall PpmSnapDripsAccountingSnapshot(__int64 a1, int a2, int a3)
   int v12; // r9d
   _QWORD v13[26]; // [rsp+30h] [rbp-108h] BYREF
 
-  result = (unsigned int)dword_14043C4C0;
+  result = (unsigned int)dword_14043D580;
   v5 = 0LL;
   v6 = PopWnfCsEnterScenarioId;
-  if ( PpmPlatformStates && dword_14043C4C0 != -1 )
+  if ( PpmPlatformStates && dword_14043D580 != -1 )
   {
     v8 = 26LL;
-    v9 = (_QWORD *)(1008LL * (unsigned int)dword_14043C4C0 + *(_QWORD *)(PpmPlatformStates + 48) + 200LL);
+    v9 = (_QWORD *)(1008LL * (unsigned int)dword_14043D580 + *(_QWORD *)(PpmPlatformStates + 48) + 200LL);
     do
     {
       v13[v5] = PpmConvertTime(

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x14030438C
+ * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x14030F0DC
  * Callers:
- *     MiValidateInPage @ 0x14023B570 (MiValidateInPage.c)
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiChangePageAttributeContiguous @ 0x1402CF8B8 (MiChangePageAttributeContiguous.c)
- *     MiChangePageAttributeBatch @ 0x1403035A0 (MiChangePageAttributeBatch.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiCombiningInProgress @ 0x140366CB8 (MiCombiningInProgress.c)
- *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
- *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
+ *     MiChangePageAttributeContiguous @ 0x14024DC38 (MiChangePageAttributeContiguous.c)
+ *     MiValidateInPage @ 0x1402DFDC0 (MiValidateInPage.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiChangePageAttributeBatch @ 0x14030E2F0 (MiChangePageAttributeBatch.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiCombiningInProgress @ 0x140366E68 (MiCombiningInProgress.c)
+ *     MiValidateSectionCreate @ 0x1406C32C0 (MiValidateSectionCreate.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
+ *     MiInitializeCacheFlushing @ 0x140A55B0C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 MiFlushEntireTbDueToAttributeChange()
@@ -23,7 +23,7 @@ __int64 MiFlushEntireTbDueToAttributeChange()
   _BYTE v1[112]; // [rsp+40h] [rbp-A8h] BYREF
   _QWORD v2[4]; // [rsp+B0h] [rbp-38h] BYREF
 
-  ++dword_140C4DF00;
+  ++dword_140C4DF40;
   if ( VslVsmEnabled )
   {
     if ( (HvlEnlightenments & 0x4000000) != 0 )

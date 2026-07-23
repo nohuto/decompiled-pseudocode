@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeProcessAvailableCpuState @ 0x1404AD0A4
+ * XREFs of KiInitializeProcessAvailableCpuState @ 0x1404A7788
  * Callers:
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 (__fastcall *__fastcall KiInitializeProcessAvailableCpuState(__int64 a1, __int64 a2, __int64 a3))()

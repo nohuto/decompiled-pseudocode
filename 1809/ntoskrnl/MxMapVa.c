@@ -1,16 +1,16 @@
 /*
- * XREFs of MxMapVa @ 0x1409BB8F8
+ * XREFs of MxMapVa @ 0x1409BC8F8
  * Callers:
- *     MxMapPfnRange @ 0x1409BB688 (MxMapPfnRange.c)
+ *     MxMapPfnRange @ 0x1409BC688 (MxMapPfnRange.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
- *     MxGetNextPage @ 0x1409BBB2C (MxGetNextPage.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiFillPhysicalPages @ 0x14012B050 (MiFillPhysicalPages.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
+ *     MxGetNextPage @ 0x1409BCB2C (MxGetNextPage.c)
  */
 
 __int64 __fastcall MxMapVa(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MxMapVa(__int64 a1)
   int v15; // r8d
   unsigned __int64 v16[4]; // [rsp+20h] [rbp-48h] BYREF
 
-  v2 = qword_14043E510 > 0x20000;
+  v2 = qword_14043F5D0 > 0x20000;
   MiFillPteHierarchy(*(_QWORD *)a1, v16);
   ValidPte = MiMakeValidPte(v16[3], 0LL, -1207959548);
   for ( i = 3; ; --i )
@@ -54,14 +54,14 @@ LABEL_5:
     NextPage = MxGetNextPage(*(unsigned int *)(a1 + 8), 1LL);
     if ( NextPage != -1 )
     {
-      qword_14043B040 += 512LL;
+      qword_14043C100 += 512LL;
       MiMakeValidPte(v5, NextPage, -1275068412);
       if ( !MiPteInShadowRange(v5) )
         goto LABEL_11;
       if ( (unsigned int)MiPteHasShadow() )
       {
         v8 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
           goto LABEL_41;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -95,7 +95,7 @@ LABEL_16:
   v13 = v11;
   if ( v11 != -1LL )
   {
-    ++qword_14043B040;
+    ++qword_14043C100;
     if ( !i && *(_DWORD *)(a1 + 12) != 1 || (MiFillPhysicalPages(v11, v12, 0LL), !i) )
       ValidPte = MiMakeValidPte(v5, v13, -1342177276);
     if ( !MiPteInShadowRange(v5) )
@@ -103,7 +103,7 @@ LABEL_16:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v15 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_35:
         if ( (ValidPte & 1) != 0 )

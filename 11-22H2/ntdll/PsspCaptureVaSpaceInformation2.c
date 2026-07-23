@@ -13,9 +13,9 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PsspCaptureVaSpaceInformation2(
+NTSTATUS __fastcall PsspCaptureVaSpaceInformation2(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         __int64 (__fastcall *a3)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD),
         __int64 a4,
         __int16 a5)
@@ -34,8 +34,8 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   __int64 v16; // rdx
   int v17; // eax
   unsigned __int64 v18; // rcx
-  __int64 result; // rax
-  int v20; // edi
+  NTSTATUS result; // eax
+  NTSTATUS v20; // edi
   unsigned int v21; // esi
   __int64 v22; // r14
   _OWORD *v23; // rdi
@@ -50,21 +50,18 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   int v32; // eax
   size_t v33; // r8
   unsigned __int16 v34; // r14
-  _QWORD *v35; // [rsp+38h] [rbp-91h]
-  int v36; // [rsp+40h] [rbp-89h]
-  int v37; // [rsp+48h] [rbp-81h]
-  int v38; // [rsp+50h] [rbp-79h]
-  int v39; // [rsp+58h] [rbp-71h]
-  __int64 v40; // [rsp+60h] [rbp-69h] BYREF
-  int v41; // [rsp+68h] [rbp-61h]
-  unsigned int v42; // [rsp+6Ch] [rbp-5Dh]
-  __int128 v43; // [rsp+70h] [rbp-59h] BYREF
-  __int128 v44; // [rsp+80h] [rbp-49h]
-  __int128 v45; // [rsp+90h] [rbp-39h]
-  void *v46; // [rsp+A0h] [rbp-29h]
-  HANDLE Handle; // [rsp+A8h] [rbp-21h]
-  _QWORD v48[2]; // [rsp+B0h] [rbp-19h] BYREF
-  _OWORD v49[5]; // [rsp+C0h] [rbp-9h] BYREF
+  int v35; // [rsp+58h] [rbp-71h]
+  __int64 v36; // [rsp+60h] [rbp-69h] BYREF
+  int v37; // [rsp+68h] [rbp-61h]
+  unsigned int v38; // [rsp+6Ch] [rbp-5Dh]
+  __int128 v39; // [rsp+70h] [rbp-59h] BYREF
+  __int128 v40; // [rsp+80h] [rbp-49h]
+  __int128 v41; // [rsp+90h] [rbp-39h]
+  PVOID BaseAddress; // [rsp+A0h] [rbp-29h] BYREF
+  HANDLE SectionHandle; // [rsp+A8h] [rbp-21h] BYREF
+  ULONG_PTR ViewSize; // [rsp+B0h] [rbp-19h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+B8h] [rbp-11h] BYREF
+  _OWORD v46[5]; // [rsp+C0h] [rbp-9h] BYREF
 
   v5 = (int (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))a3;
   v6 = a4;
@@ -76,34 +73,34 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   v12 = a5 & 0x1000;
   while ( 1 )
   {
-    v41 = v12;
-    v43 = 0LL;
-    v44 = 0LL;
-    v45 = 0LL;
-    if ( v5(v6, v7, 0LL, &v43, 48LL, 0LL) < 0 )
+    v37 = v12;
+    v39 = 0LL;
+    v40 = 0LL;
+    v41 = 0LL;
+    if ( v5(v6, v7, 0LL, &v39, 48LL, 0LL) < 0 )
       break;
-    v13 = v43;
-    if ( (_QWORD)v43 != v7 )
-      return 3221225793LL;
-    if ( DWORD2(v45) == 0x1000000 || (v14 = 0, DWORD2(v45) == 0x40000) )
+    v13 = v39;
+    if ( (_QWORD)v39 != v7 )
+      return -1073741503;
+    if ( DWORD2(v41) == 0x1000000 || (v14 = 0, DWORD2(v41) == 0x40000) )
       v14 = 1;
     v9 += v14;
     v12 = a5 & 0x1000;
-    if ( (a5 & 0x1000) != 0 && !v11 && (DWORD2(v45) == 0x1000000 || DWORD2(v45) == 0x40000) )
+    if ( (a5 & 0x1000) != 0 && !v11 && (DWORD2(v41) == 0x1000000 || DWORD2(v41) == 0x40000) )
     {
-      v40 = 0LL;
-      v49[0] = 0LL;
-      v15 = a3(v6, v7, 2LL, v49, 16LL, &v40);
+      v36 = 0LL;
+      v46[0] = 0LL;
+      v15 = a3(v6, v7, 2LL, v46, 16LL, &v36);
       if ( v15 >= 0 || v15 == -1073741820 || v15 == -1073741789 || v15 == -2147483643 )
       {
-        v16 = v40;
-        if ( HIDWORD(v40) )
+        v16 = v36;
+        if ( HIDWORD(v36) )
           v16 = 0LL;
-        v40 = v16;
+        v36 = v16;
       }
       else
       {
-        LODWORD(v16) = v40;
+        LODWORD(v16) = v36;
       }
       if ( (unsigned int)v16 > 0x10 && (v15 >= 0 || v15 == -1073741820 || v15 == -1073741789 || v15 == -2147483643) )
         v17 = (v16 - 5) & 0xFFFFFFF8;
@@ -118,112 +115,112 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
       {
         LODWORD(v10) = v17 + v10;
       }
-      v13 = v43;
+      v13 = v39;
     }
     ++v8;
-    v7 = v13 + *((_QWORD *)&v44 + 1);
-    if ( v13 + *((_QWORD *)&v44 + 1) < v13 )
+    v7 = v13 + *((_QWORD *)&v40 + 1);
+    if ( v13 + *((_QWORD *)&v40 + 1) < v13 )
     {
-      v12 = v41;
+      v12 = v37;
       break;
     }
     v5 = (int (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))a3;
   }
   v18 = 72LL * v8;
   if ( v18 > 0xFFFFFFFF )
-    return 3221225621LL;
+    return -1073741675;
   if ( v11 )
   {
     v10 = 8LL * v9;
     if ( v10 > 0xFFFFFFFF )
-      return 3221225621LL;
+      return -1073741675;
   }
   else if ( v12 )
   {
     if ( (int)v10 + 16 < (unsigned int)v10 )
-      return 3221225621LL;
+      return -1073741675;
     LODWORD(v10) = v10 + 16;
   }
   if ( (_DWORD)v10 )
   {
     if ( (int)v18 + (int)v10 < (unsigned int)v18 )
-      return 3221225621LL;
+      return -1073741675;
     LODWORD(v18) = v18 + v10;
   }
-  v48[1] = (unsigned int)v18;
-  result = NtCreateSection();
-  if ( (int)result >= 0 )
+  MaximumSize.QuadPart = (unsigned int)v18;
+  result = NtCreateSection(
+             &SectionHandle,
+             0xF0007u,
+             (POBJECT_ATTRIBUTES)&stru_18015A028,
+             &MaximumSize,
+             4u,
+             0x8000000u,
+             0LL);
+  if ( result >= 0 )
   {
-    v38 = 4;
-    v37 = 0;
-    v36 = 1;
-    v35 = v48;
-    v46 = 0LL;
-    v48[0] = 0LL;
-    v20 = ZwMapViewOfSection();
+    BaseAddress = 0LL;
+    ViewSize = 0LL;
+    v20 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &BaseAddress,
+            0LL,
+            0LL,
+            0LL,
+            &ViewSize,
+            ViewShare,
+            0,
+            4u);
     if ( v20 < 0 )
     {
-      NtClose(Handle);
-      return (unsigned int)v20;
+      NtClose(SectionHandle);
+      return v20;
     }
-    v21 = v48[0];
+    v21 = ViewSize;
     v22 = 0LL;
-    v23 = v46;
+    v23 = BaseAddress;
     v24 = 0;
-    v42 = v48[0];
-    v39 = 0;
+    v38 = ViewSize;
+    v35 = 0;
     while ( 1 )
     {
       if ( v24 + 72 < v24
         || v24 + 72 > v21
-        || (v43 = 0LL,
-            v44 = 0LL,
-            v45 = 0LL,
-            ((int (__fastcall *)(__int64, __int64, _QWORD, __int128 *, __int64, _QWORD, _QWORD *, int, int, int))a3)(
-              v6,
-              v22,
-              0LL,
-              &v43,
-              48LL,
-              0LL,
-              v35,
-              v36,
-              v37,
-              v38) < 0) )
+        || (v39 = 0LL, v40 = 0LL, v41 = 0LL, (int)a3(v6, v22, 0LL, &v39, 48LL, 0LL) < 0) )
       {
 LABEL_84:
-        NtUnmapViewOfSection();
-        *(_DWORD *)(a1 + 912) = v39;
-        *(_QWORD *)(a1 + 920) = Handle;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+        *(_DWORD *)(a1 + 912) = v35;
+        *(_QWORD *)(a1 + 920) = SectionHandle;
         *(_DWORD *)(a1 + 916) = v24;
         *(_QWORD *)(a1 + 928) = MEMORY[0x7FFE0014];
-        return 0LL;
+        return 0;
       }
-      if ( (_QWORD)v43 != v22 )
-        return 3221225793LL;
+      if ( (_QWORD)v39 != v22 )
+        return -1073741503;
       memset_thunk_772440563353939046(v23, 0, 0x48uLL);
       v25 = 72;
-      *v23 = v43;
-      *((_DWORD *)v23 + 4) = v44;
-      *((_QWORD *)v23 + 3) = *((_QWORD *)&v44 + 1);
-      *((_QWORD *)v23 + 4) = v45;
-      *((_DWORD *)v23 + 10) = DWORD2(v45);
-      if ( v41 )
+      *v23 = v39;
+      *((_DWORD *)v23 + 4) = v40;
+      *((_QWORD *)v23 + 3) = *((_QWORD *)&v40 + 1);
+      *((_QWORD *)v23 + 4) = v41;
+      *((_DWORD *)v23 + 10) = DWORD2(v41);
+      if ( v37 )
         break;
 LABEL_81:
       v24 += v25;
-      v22 = v43 + *((_QWORD *)&v44 + 1);
-      ++v39;
+      v22 = v39 + *((_QWORD *)&v40 + 1);
+      ++v35;
       v23 = (_OWORD *)((char *)v23 + v25);
-      if ( (_QWORD)v43 + *((_QWORD *)&v44 + 1) < (unsigned __int64)v43 )
+      if ( (_QWORD)v39 + *((_QWORD *)&v40 + 1) < (unsigned __int64)v39 )
         goto LABEL_84;
-      v21 = v42;
+      v21 = v38;
     }
-    if ( DWORD2(v45) == 0x1000000 )
+    if ( DWORD2(v41) == 0x1000000 )
     {
-      PsspCaptureImageInformation((__int64)(v23 + 3));
+      PsspCaptureImageInformation((__int64)(v23 + 3), a2, *((char **)&v39 + 1));
     }
-    else if ( DWORD2(v45) != 0x40000 )
+    else if ( DWORD2(v41) != 0x40000 )
     {
       goto LABEL_81;
     }
@@ -235,7 +232,7 @@ LABEL_81:
       if ( v24 + 92 >= v24 + 76 && v26 <= v21 )
       {
         v27 = (_WORD *)v23 + 36;
-        v28 = v42 - v26;
+        v28 = v38 - v26;
         *((_WORD *)v23 + 36) = 0;
         v29 = (unsigned __int16 *)v23 + 36;
         if ( v28 >= (unsigned int)v10 )
@@ -246,9 +243,9 @@ LABEL_81:
           v31 = v30;
         *((_WORD *)v23 + 37) = v31;
         *((_QWORD *)v23 + 10) = (char *)v23 + 88;
-        v40 = 0LL;
-        v32 = a3(a4, v22, 2LL, (char *)v23 + 72, v30, &v40);
-        if ( (v32 >= 0 || v32 == -1073741820 || v32 == -1073741789 || v32 == -2147483643) && HIDWORD(v40) )
+        v36 = 0LL;
+        v32 = a3(a4, v22, 2LL, (char *)v23 + 72, v30, &v36);
+        if ( (v32 >= 0 || v32 == -1073741820 || v32 == -1073741789 || v32 == -2147483643) && HIDWORD(v36) )
         {
           v29 = 0LL;
           v32 = -1073741675;

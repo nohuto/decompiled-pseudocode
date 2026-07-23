@@ -10,11 +10,11 @@
 __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
         ULONG_PTR *BugCheckParameter2,
         __int64 a2,
-        void (__fastcall **a3)(volatile signed __int64 *a1, unsigned __int64 a2))
+        void (__fastcall **a3)(volatile signed __int64 *a1, _RTL_BALANCED_NODE *a2))
 {
   unsigned int v3; // ebx
-  __int64 v5; // rdi
-  __int64 v6; // rax
+  PRTL_BALANCED_NODE v5; // rdi
+  PRTL_BALANCED_NODE v6; // rax
 
   v3 = 0;
   v5 = 0LL;
@@ -37,13 +37,13 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
   v5 = v6;
   if ( v6 )
   {
-    KeAbPreWait(v6);
+    KeAbPreWait((__int64)v6);
     goto LABEL_9;
   }
 LABEL_6:
   v3 = -1073741670;
 LABEL_9:
-  a3[1] = (void (__fastcall *)(volatile signed __int64 *, unsigned __int64))v5;
+  a3[1] = (void (__fastcall *)(volatile signed __int64 *, _RTL_BALANCED_NODE *))v5;
   *a3 = PfpPrefetchSharedConflictNotifyEnd;
   return v3;
 }

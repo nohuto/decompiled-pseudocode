@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpSetWakeAlarm @ 0x1404515F8
+ * XREFs of HalpSetWakeAlarm @ 0x140449728
  * Callers:
- *     HalpCheckWakeupTimeAndAdjust @ 0x140594734 (HalpCheckWakeupTimeAndAdjust.c)
- *     HaliSetWakeAlarm @ 0x140C0A6E0 (HaliSetWakeAlarm.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140596EB4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     HaliSetWakeAlarm @ 0x140C108F0 (HaliSetWakeAlarm.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLockAndWait @ 0x140451A90 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x140449BC0 (HalpAcquireCmosSpinLockAndWait.c)
  */
 
 __int64 __fastcall HalpSetWakeAlarm(__int64 a1, unsigned __int8 *a2)
@@ -26,15 +26,15 @@ __int64 __fastcall HalpSetWakeAlarm(__int64 a1, unsigned __int8 *a2)
   v6 = a2[6];
   __outbyte(0x70u, 5u);
   __outbyte(0x71u, v6 + 6 * ((unsigned int)v6 / 0xA));
-  if ( HalpDeviceBlockUnblockPushLock.SchedulerApc.Size > 9u )
+  if ( HalpDeviceBlockUnblockPushLock.SavedApcStateFill[18] > 9u )
   {
     v6 = a2[4];
-    __outbyte(0x70u, HalpDeviceBlockUnblockPushLock.SchedulerApc.Size);
+    __outbyte(0x70u, HalpDeviceBlockUnblockPushLock.SavedApcStateFill[18]);
     __outbyte(0x71u, v6 + 6 * ((unsigned int)v6 / 0xA));
-    if ( HalpDeviceBlockUnblockPushLock.SchedulerApc.SpareByte1 > 9u )
+    if ( HalpDeviceBlockUnblockPushLock.SavedApcStateFill[19] > 9u )
     {
       v6 = a2[2];
-      __outbyte(0x70u, HalpDeviceBlockUnblockPushLock.SchedulerApc.SpareByte1);
+      __outbyte(0x70u, HalpDeviceBlockUnblockPushLock.SavedApcStateFill[19]);
       __outbyte(0x71u, v6 + 6 * ((unsigned int)v6 / 0xA));
     }
   }

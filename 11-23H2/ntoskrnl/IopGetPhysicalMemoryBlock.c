@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetPhysicalMemoryBlock @ 0x1403963D0
+ * XREFs of IopGetPhysicalMemoryBlock @ 0x1403965B0
  * Callers:
- *     IopLoadCrashdumpDriver @ 0x140396270 (IopLoadCrashdumpDriver.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551060 (IoUpdateDumpPhysicalRanges.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14094C56C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLoadCrashdumpDriver @ 0x140396450 (IopLoadCrashdumpDriver.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140551720 (IoUpdateDumpPhysicalRanges.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14094C76C (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     MmGetPhysicalMemoryRanges @ 0x1408343F0 (MmGetPhysicalMemoryRanges.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1408346F0 (MmGetPhysicalMemoryRanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

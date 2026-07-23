@@ -1,23 +1,23 @@
 /*
- * XREFs of MiManageUltraSpacePageTable @ 0x1402D1CC4
+ * XREFs of MiManageUltraSpacePageTable @ 0x140352F3C
  * Callers:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiDeleteUltraMapContext @ 0x1402D1B78 (MiDeleteUltraMapContext.c)
- *     MiReuseUltraPageTable @ 0x140469758 (MiReuseUltraPageTable.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiDeleteUltraMapContext @ 0x140352DF0 (MiDeleteUltraMapContext.c)
+ *     MiReuseUltraPageTable @ 0x1404622AC (MiReuseUltraPageTable.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseFreshPage @ 0x140221FC0 (MiReleaseFreshPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140222030 (MiReleaseFreshPageAtDpc.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExFlushTb @ 0x1402922A4 (ExFlushTb.c)
- *     KiFlushAddressSpaceTb @ 0x1403AFCAC (KiFlushAddressSpaceTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
- *     KxFlushEntireTb @ 0x1403B07A4 (KxFlushEntireTb.c)
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiReleaseFreshPage @ 0x14024ED10 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x14024ED80 (MiReleaseFreshPageAtDpc.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExFlushTb @ 0x1402A1EA4 (ExFlushTb.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiFlushAddressSpaceTb @ 0x14039E4BC (KiFlushAddressSpaceTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
+ *     KxFlushEntireTb @ 0x14039EFB4 (KxFlushEntireTb.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiManageUltraSpacePageTable(__int64 *a1, unsigned int a2, int a3)
@@ -44,13 +44,13 @@ unsigned __int64 __fastcall MiManageUltraSpacePageTable(__int64 *a1, unsigned in
   __int64 *v24; // rdi
   __int64 v25; // rdx
   __int64 v26; // r8
-  __int64 v28; // rax
-  __int64 *v29; // rdx
-  unsigned __int64 v30; // r14
-  __int64 *v31; // rbx
+  __int64 v27; // r9
+  __int64 v29; // rax
+  __int64 *v30; // rdx
+  unsigned __int64 v31; // r14
   __int64 *v32; // rbx
-  __int64 v33; // rcx
-  __int64 v34; // r9
+  __int64 *v33; // rbx
+  __int64 v34; // rcx
   unsigned __int8 CurrentIrql; // di
   __int64 v36; // rdx
   signed __int32 v37[8]; // [rsp+0h] [rbp-68h] BYREF
@@ -58,9 +58,9 @@ unsigned __int64 __fastcall MiManageUltraSpacePageTable(__int64 *a1, unsigned in
   KIRQL v39; // [rsp+78h] [rbp+10h]
   int v40; // [rsp+88h] [rbp+20h]
 
-  v40 = *(_DWORD *)(qword_140E38D30 + 4);
+  v40 = *(_DWORD *)(qword_140E38E70 + 4);
   v5 = 0;
-  v38 = *(_QWORD *)(qword_140E2DAF8 + 384LL * ((a2 >> 9) & 0x3F) + 376);
+  v38 = *(_QWORD *)(qword_140E2DC38 + 384LL * ((a2 >> 9) & 0x3F) + 376);
   v6 = v38 + 648;
   v7 = (__int64 **)(v38 + 776);
   v8 = (volatile LONG *)(v38 + 808);
@@ -152,10 +152,10 @@ unsigned __int64 __fastcall MiManageUltraSpacePageTable(__int64 *a1, unsigned in
       __writecr8(0xFuLL);
       if ( KiIrqlFlags )
       {
-        LOBYTE(v33) = CurrentIrql;
-        KiRaiseIrqlProcessIrqlFlags(v33, 15LL);
+        LOBYTE(v34) = CurrentIrql;
+        KiRaiseIrqlProcessIrqlFlags(v34, 15LL);
       }
-      ExFlushTb(0, 0LL, 2, v34);
+      ExFlushTb(0, 0LL, 2);
       if ( KiIrqlFlags )
       {
         LOBYTE(v36) = CurrentIrql;
@@ -202,24 +202,24 @@ LABEL_32:
   if ( v40 )
   {
     *v7 = (__int64 *)v7;
-    v29 = (__int64 *)v7;
+    v30 = (__int64 *)v7;
     v22 = 0LL;
     goto LABEL_45;
   }
-  v28 = 256LL;
+  v29 = 256LL;
   do
   {
     v24 = (__int64 *)*v24;
-    --v28;
+    --v29;
   }
-  while ( v28 );
-  v29 = (__int64 *)v24[1];
-  if ( *(__int64 **)(*v24 + 8) != v24 || (__int64 *)*v29 != v24 )
+  while ( v29 );
+  v30 = (__int64 *)v24[1];
+  if ( *(__int64 **)(*v24 + 8) != v24 || (__int64 *)*v30 != v24 )
 LABEL_10:
     __fastfail(3u);
-  *v29 = (__int64)v7;
+  *v30 = (__int64)v7;
 LABEL_45:
-  v7[1] = v29;
+  v7[1] = v30;
   v23 = (unsigned __int64)&v7[2][v22 / 0xFFFFFFFFFFFFFFF8uLL];
   v7[2] = (__int64 *)v22;
 LABEL_34:
@@ -228,32 +228,32 @@ LABEL_34:
   {
     if ( v23 )
     {
-      v30 = v23;
+      v31 = v23;
       if ( v39 == 2 )
       {
         do
         {
-          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E30170 & MmPageValidationFrequency) == 0 )
+          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E302B0 & MmPageValidationFrequency) == 0 )
             MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v24 + 0x44000000000LL) >> 4));
-          v32 = (__int64 *)*v24;
-          MiReleaseFreshPageAtDpc((__int64)v24);
-          v24 = v32;
-          --v30;
+          v33 = (__int64 *)*v24;
+          MiReleaseFreshPageAtDpc((__int64)v24, v25, v26, v27);
+          v24 = v33;
+          --v31;
         }
-        while ( v30 );
+        while ( v31 );
       }
       else
       {
         do
         {
-          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E30170 & MmPageValidationFrequency) == 0 )
+          if ( (MiFlags & 0x80u) != 0LL && (++dword_140E302B0 & MmPageValidationFrequency) == 0 )
             MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v24 + 0x44000000000LL) >> 4));
-          v31 = (__int64 *)*v24;
-          MiReleaseFreshPage((__int64)v24, v25, v26);
-          v24 = v31;
-          --v30;
+          v32 = (__int64 *)*v24;
+          MiReleaseFreshPage((__int64)v24);
+          v24 = v32;
+          --v31;
         }
-        while ( v30 );
+        while ( v31 );
       }
     }
     MiReleaseNonPagedResources((__int64)&MiSystemPartition, v23);

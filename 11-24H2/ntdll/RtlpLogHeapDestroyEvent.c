@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpLogHeapDestroyEvent @ 0x18008EC6C
+ * XREFs of RtlpLogHeapDestroyEvent @ 0x18010D118
  * Callers:
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
- *     RtlpHpHeapDestroy @ 0x180090050 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1800270BC (RtlpHpHeapDestroy.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
  * Callees:
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpLogHeapDestroyEvent(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpLogHeapDestroyEvent(__int64 a1, void *a2)
 {
-  _OWORD v3[2]; // [rsp+20h] [rbp-38h] BYREF
+  _OWORD Fields[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v4; // [rsp+40h] [rbp-18h]
 
   v4 = a1;
-  memset(v3, 0, sizeof(v3));
-  WORD3(v3[0]) = 4131;
-  return NtTraceEvent(a2, 1026LL, 8LL, v3);
+  memset(Fields, 0, sizeof(Fields));
+  WORD3(Fields[0]) = 4131;
+  return NtTraceEvent(a2, 0x402u, 8u, Fields);
 }

@@ -28,7 +28,7 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, 
   _WORD *v13; // r14
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
-  STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
+  _STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+A8h] [rbp+48h] BYREF
 
   RtlInitUnicodeString(&DestinationString, 0LL);

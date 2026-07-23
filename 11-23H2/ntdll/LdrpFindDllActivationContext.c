@@ -15,7 +15,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
   _WORD *v4; // rdx
   int v5; // eax
   __int64 v6; // rax
-  volatile signed __int32 *v8; // rcx
+  _ACTIVATION_CONTEXT *v8; // rcx
   __int64 v9; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -46,9 +46,9 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       {
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
-          735LL,
+          735,
           (__int64)"LdrpFindDllActivationContext",
-          2LL,
+          2u,
           "Probing for the manifest of DLL \"%wZ\" failed with status 0x%08lx\n",
           a1 + 9,
           v5);
@@ -57,7 +57,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       v6 = v9;
       if ( v9 )
       {
-        v8 = (volatile signed __int32 *)a1[17];
+        v8 = (_ACTIVATION_CONTEXT *)a1[17];
         if ( v8 )
         {
           RtlReleaseActivationContext(v8);
@@ -68,9 +68,9 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       if ( v2 < 0 )
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
-          764LL,
+          764,
           (__int64)"LdrpFindDllActivationContext",
-          0LL,
+          0,
           "Querying the active activation context failed with status 0x%08lx\n",
           v2);
     }

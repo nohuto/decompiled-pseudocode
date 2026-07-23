@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwReserveAllocate @ 0x14039C70C
+ * XREFs of BgpFwReserveAllocate @ 0x14039C85C
  * Callers:
- *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039C6D4 (BgpFwAllocateMemory.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall BgpFwReserveAllocate(__int64 a1)
@@ -14,18 +14,18 @@ __int64 __fastcall BgpFwReserveAllocate(__int64 a1)
   __int64 result; // rax
 
   v1 = ((a1 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 32;
-  ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, v1, HintIndex);
-  v3 = dword_140C50788;
-  if ( ClearBitsAndSet > dword_140C50788 - 16 )
+  ClearBitsAndSet = RtlFindClearBitsAndSet(&stru_140C507B8, v1, dword_140C507B0);
+  v3 = dword_140C507C8;
+  if ( ClearBitsAndSet > dword_140C507C8 - 16 )
   {
-    HintIndex = 0;
-    ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, v1, 0);
-    v3 = dword_140C50788;
+    dword_140C507B0 = 0;
+    ClearBitsAndSet = RtlFindClearBitsAndSet(&stru_140C507B8, v1, 0);
+    v3 = dword_140C507C8;
   }
   if ( ClearBitsAndSet > v3 - 16 )
     return 0LL;
-  HintIndex = v1 + ClearBitsAndSet;
-  result = ClearBitsAndSet + qword_140C50768 + 32;
+  dword_140C507B0 = v1 + ClearBitsAndSet;
+  result = ClearBitsAndSet + qword_140C507A8 + 32;
   *(_QWORD *)(result - 8) = 0LL;
   *(_DWORD *)(result - 24) = 1262700354;
   *(_QWORD *)(result - 16) = v1;

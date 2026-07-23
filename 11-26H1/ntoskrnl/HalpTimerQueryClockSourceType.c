@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerQueryClockSourceType @ 0x1404E0A34
+ * XREFs of HalpTimerQueryClockSourceType @ 0x1404DA114
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

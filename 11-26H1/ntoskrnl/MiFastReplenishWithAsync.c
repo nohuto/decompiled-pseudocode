@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFastReplenishWithAsync @ 0x1402A5938
+ * XREFs of MiFastReplenishWithAsync @ 0x1402A4E88
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
  * Callees:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     MiAsyncSlabReplenish @ 0x1402A5984 (MiAsyncSlabReplenish.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     MiAsyncSlabReplenish @ 0x1402A4ED4 (MiAsyncSlabReplenish.c)
  */
 
 __int64 __fastcall MiFastReplenishWithAsync(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)

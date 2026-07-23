@@ -2,13 +2,13 @@
  * XREFs of MiComputeFlushRange @ 0x14002015C
  * Callers:
  *     MmFlushSection @ 0x14001FFD8 (MmFlushSection.c)
- *     MmTrimSection @ 0x1400E96F0 (MmTrimSection.c)
+ *     MmTrimSection @ 0x1400E9770 (MmTrimSection.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
- *     MiComputeDataFlushRange @ 0x140076E30 (MiComputeDataFlushRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x140112030 (MiDoesControlAreaHaveUserWritableReferences.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeDataFlushRange @ 0x140076E20 (MiComputeDataFlushRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x1401120A0 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComputeFlushRange(__int64 a1, int a2, int a3, int a4, __int64 a5)

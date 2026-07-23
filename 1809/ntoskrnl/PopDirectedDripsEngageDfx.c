@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsEngageDfx @ 0x140867B34
+ * XREFs of PopDirectedDripsEngageDfx @ 0x140868D94
  * Callers:
- *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
+ *     PopDirectedDripsProcessWork @ 0x140869698 (PopDirectedDripsProcessWork.c)
  * Callees:
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
- *     PopDirectedDripsRefreshDeviceState @ 0x1408685BC (PopDirectedDripsRefreshDeviceState.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
+ *     PopDirectedDripsRefreshDeviceState @ 0x14086981C (PopDirectedDripsRefreshDeviceState.c)
  */
 
 __int64 __fastcall PopDirectedDripsEngageDfx(_BYTE *a1, __int64 a2, __int64 a3)

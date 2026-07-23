@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkDisplayCharacter @ 0x140AF0F70
+ * XREFs of BgkDisplayCharacter @ 0x140AF0F80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14054EF88 (BgkpAcquireConsole.c)
- *     BgkpReleaseConsole @ 0x14054EFD4 (BgkpReleaseConsole.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14054F648 (BgkpAcquireConsole.c)
+ *     BgkpReleaseConsole @ 0x14054F694 (BgkpReleaseConsole.c)
  *     BgDisplayFade @ 0x140AEF4BC (BgDisplayFade.c)
  */
 

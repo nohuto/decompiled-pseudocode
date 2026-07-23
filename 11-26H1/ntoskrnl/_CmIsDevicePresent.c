@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmIsDevicePresent @ 0x140A8332C
+ * XREFs of _CmIsDevicePresent @ 0x140A8919C
  * Callers:
- *     _CmEnumSubkeyCallback @ 0x140898D70 (_CmEnumSubkeyCallback.c)
- *     PiPnpRtlServiceFilterCallback @ 0x140A82F30 (PiPnpRtlServiceFilterCallback.c)
+ *     _CmEnumSubkeyCallback @ 0x14089F170 (_CmEnumSubkeyCallback.c)
+ *     PiPnpRtlServiceFilterCallback @ 0x140A88DA0 (PiPnpRtlServiceFilterCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 int __fastcall CmIsDevicePresent(__int64 a1, const WCHAR *a2, _BYTE *a3)

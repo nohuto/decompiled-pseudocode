@@ -3,7 +3,7 @@
  * Callers:
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  * Callees:
- *     InbvPortPutByte @ 0x14023DFE8 (InbvPortPutByte.c)
+ *     InbvPortPutByte @ 0x14023DECC (InbvPortPutByte.c)
  */
 
 __int64 __fastcall HdlspPutData(__int64 a1, unsigned __int64 a2)

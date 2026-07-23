@@ -1,47 +1,47 @@
 /*
- * XREFs of MiLockTransitionLeafPageEx @ 0x14033E050
+ * XREFs of MiLockTransitionLeafPageEx @ 0x1403400D0
  * Callers:
- *     MiOutSwapWorkingSetPte @ 0x140296850 (MiOutSwapWorkingSetPte.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiQueryPteAttributes @ 0x1402D2E80 (MiQueryPteAttributes.c)
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
- *     MiSharePagesLockPageTable @ 0x1403072AC (MiSharePagesLockPageTable.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
- *     MiUpdatePrefetchPriority @ 0x1403149AC (MiUpdatePrefetchPriority.c)
- *     MiTranslatePageForCopy @ 0x140338D4C (MiTranslatePageForCopy.c)
- *     MiActOnTransitionPte @ 0x14033C8B0 (MiActOnTransitionPte.c)
- *     MiSetProtectionOnTransitionPte @ 0x14033CED4 (MiSetProtectionOnTransitionPte.c)
- *     MiCopyPageTablePageContents @ 0x14033CFD0 (MiCopyPageTablePageContents.c)
- *     MiGetPageForWriteCluster @ 0x14033DC08 (MiGetPageForWriteCluster.c)
- *     MiDecommitHandleTransitionPte @ 0x14033DDD4 (MiDecommitHandleTransitionPte.c)
- *     MiReservePageFileSpaceForPage @ 0x1403676AC (MiReservePageFileSpaceForPage.c)
- *     MiSetSystemCodeProtection @ 0x14038B984 (MiSetSystemCodeProtection.c)
- *     MiAccessCheck @ 0x1403A69D0 (MiAccessCheck.c)
- *     MiResolveTransitionFault @ 0x1403A6F04 (MiResolveTransitionFault.c)
- *     MiMakeOutswappedPageResident @ 0x14040BF9C (MiMakeOutswappedPageResident.c)
- *     MiProtectPagedPool @ 0x1404B84A4 (MiProtectPagedPool.c)
- *     MiMakeTransitionHeatBatch @ 0x14050A470 (MiMakeTransitionHeatBatch.c)
- *     MiDiscardPteTransitionPage @ 0x1405287F0 (MiDiscardPteTransitionPage.c)
- *     MiCheckCommitReleaseFromVad @ 0x1406E3E20 (MiCheckCommitReleaseFromVad.c)
- *     MiWalkResetCommitPte @ 0x1406E5400 (MiWalkResetCommitPte.c)
- *     MiQueryVaPhysicalContiguity @ 0x1407004D4 (MiQueryVaPhysicalContiguity.c)
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14070B50C (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiOutSwapWorkingSetPte @ 0x140295DB0 (MiOutSwapWorkingSetPte.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiQueryPteAttributes @ 0x1402B4C40 (MiQueryPteAttributes.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
+ *     MiSharePagesLockPageTable @ 0x1402E932C (MiSharePagesLockPageTable.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
+ *     MiUpdatePrefetchPriority @ 0x1403169DC (MiUpdatePrefetchPriority.c)
+ *     MiTranslatePageForCopy @ 0x14033ADCC (MiTranslatePageForCopy.c)
+ *     MiActOnTransitionPte @ 0x14033E930 (MiActOnTransitionPte.c)
+ *     MiSetProtectionOnTransitionPte @ 0x14033EF54 (MiSetProtectionOnTransitionPte.c)
+ *     MiCopyPageTablePageContents @ 0x14033F050 (MiCopyPageTablePageContents.c)
+ *     MiGetPageForWriteCluster @ 0x14033FC88 (MiGetPageForWriteCluster.c)
+ *     MiDecommitHandleTransitionPte @ 0x14033FE54 (MiDecommitHandleTransitionPte.c)
+ *     MiReservePageFileSpaceForPage @ 0x14036944C (MiReservePageFileSpaceForPage.c)
+ *     MiSetSystemCodeProtection @ 0x14038D734 (MiSetSystemCodeProtection.c)
+ *     MiAccessCheck @ 0x1403A8730 (MiAccessCheck.c)
+ *     MiResolveTransitionFault @ 0x1403A8C64 (MiResolveTransitionFault.c)
+ *     MiMakeOutswappedPageResident @ 0x1404296E4 (MiMakeOutswappedPageResident.c)
+ *     MiProtectPagedPool @ 0x1404B1CD4 (MiProtectPagedPool.c)
+ *     MiMakeTransitionHeatBatch @ 0x140503EE0 (MiMakeTransitionHeatBatch.c)
+ *     MiDiscardPteTransitionPage @ 0x14052AE60 (MiDiscardPteTransitionPage.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1406E8AD0 (MiCheckCommitReleaseFromVad.c)
+ *     MiWalkResetCommitPte @ 0x1406EA0B0 (MiWalkResetCommitPte.c)
+ *     MiQueryVaPhysicalContiguity @ 0x1407051A4 (MiQueryVaPhysicalContiguity.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1407101BC (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402AA2EC (MiLockSpecialPurposeMemoryCachedPage.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402A96FC (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiLockTransitionLeafPageEx(ULONG_PTR BugCheckParameter2, char *a2, char a3)
 {
   unsigned __int64 v6; // r11
   __int64 v7; // r9
-  unsigned __int64 v8; // r8
+  __int64 v8; // r8
   ULONG_PTR v9; // r10
   ULONG_PTR v10; // rbx
   unsigned __int64 v11; // rcx
@@ -99,15 +99,15 @@ LABEL_1:
           if ( (unsigned __int64)a2 > 1 && ((v10 & 1) != 0 || (v10 & 0x400) != 0) || (v10 & 0x800) == 0 )
             return 0LL;
         }
-        while ( (v10 & 1) != 0 || v10 && qword_140E2D740 && (qword_140E2D740 & v10) == 0 );
+        while ( (v10 & 1) != 0 || v10 && qword_140E2D8C0 && (qword_140E2D8C0 & v10) == 0 );
         v11 = v10;
-        if ( qword_140E2D740 && (v10 & 0x10) == 0 )
-          v11 = v10 & qword_140E2D748;
+        if ( qword_140E2D8C0 && (v10 & 0x10) == 0 )
+          v11 = v10 & qword_140E2D8C8;
         v12 = v7 & (v11 >> 12);
         v13 = v8 + 48 * v12;
         if ( (unsigned __int64)a2 <= 1 )
           break;
-        v21 = MiSafeLockPage(v12, 6 * v12);
+        v21 = MiSafeLockPage(v12, 6 * v12, v8);
         *a2 = v21;
         v7 = 0xFFFFFFFFFFLL;
         v8 = 0xFFFFDE0000000000uLL;
@@ -117,7 +117,7 @@ LABEL_1:
           goto LABEL_18;
       }
     }
-    while ( v12 > qword_140E2D7A0 || (*(_QWORD *)(v6 + 48 * v12) & 0x40000000000000LL) == 0 );
+    while ( v12 > qword_140E2D920 || (*(_QWORD *)(v6 + 48 * v12) & 0x40000000000000LL) == 0 );
     if ( a2 != (char *)1 )
     {
       v14 = 0;
@@ -188,7 +188,7 @@ LABEL_19:
       _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
   }
-  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
   {
     v26 = (a2 == (char *)1) | 2;
     if ( (a3 & 1) == 0 )

@@ -4,7 +4,7 @@
  *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
- *     CmpDeleteKcbCache @ 0x14074E818 (CmpDeleteKcbCache.c)
+ *     CmpDeleteKcbCache @ 0x14074EA08 (CmpDeleteKcbCache.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

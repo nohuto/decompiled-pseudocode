@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntRedirectAllocateObject @ 0x1405015CC
+ * XREFs of KiIntRedirectAllocateObject @ 0x1404FADBC
  * Callers:
- *     KiIntRedirectConnnect @ 0x140425244 (KiIntRedirectConnnect.c)
+ *     KiIntRedirectConnnect @ 0x140432334 (KiIntRedirectConnnect.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KiIntRedirectAllocateObject(__int64 a1, __int64 *a2)

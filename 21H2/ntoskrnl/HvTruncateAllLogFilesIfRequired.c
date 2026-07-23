@@ -1,41 +1,47 @@
 /*
- * XREFs of HvTruncateAllLogFilesIfRequired @ 0x140725808
+ * XREFs of HvTruncateAllLogFilesIfRequired @ 0x1406202D4
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvpLogTypeToLogArrayIndex @ 0x14072465C (HvpLogTypeToLogArrayIndex.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1406FC61C (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1406FC688 (HvpLogTypeToLogArrayIndex.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
  */
 
-__int64 __fastcall HvTruncateAllLogFilesIfRequired(unsigned int *a1)
+__int64 __fastcall HvTruncateAllLogFilesIfRequired(__int64 a1)
 {
+  __int64 v2; // rdx
+  __int64 v3; // r8
   unsigned int EffectiveLogSizeCapForHive; // eax
-  __int64 v3; // r11
-  __int64 result; // rax
   __int64 v5; // r11
-  __int64 v6; // r11
-  unsigned int v7; // edx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 result; // rax
+  __int64 v9; // r11
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r11
+  __int64 v13; // rdx
 
-  if ( a1[41] == 1 )
+  if ( *(_DWORD *)(a1 + 164) == 1 )
   {
-    HvpLogTypeToLogArrayIndex(1);
-    result = HvGetEffectiveLogSizeCapForHive(a1);
-    if ( *(_QWORD *)&a1[2 * v6 + 450] <= (unsigned __int64)(unsigned int)result )
+    HvpLogTypeToLogArrayIndex(1LL);
+    result = HvGetEffectiveLogSizeCapForHive(a1, v10, v11);
+    if ( *(_QWORD *)(a1 + 8 * v12 + 1800) <= (unsigned __int64)(unsigned int)result )
       return result;
-    v7 = 1;
-    return CmpDoFileSetSizeEx((__int64)a1, v7, 0LL, 0);
+    v13 = 1LL;
+    return CmpDoFileSetSizeEx(a1, v13, 0LL, 0LL);
   }
-  HvpLogTypeToLogArrayIndex(4);
-  EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(a1);
-  if ( *(_QWORD *)&a1[2 * v3 + 450] > (unsigned __int64)EffectiveLogSizeCapForHive )
-    CmpDoFileSetSizeEx((__int64)a1, 4u, 0LL, 0);
-  HvpLogTypeToLogArrayIndex(5);
-  result = HvGetEffectiveLogSizeCapForHive(a1);
-  if ( *(_QWORD *)&a1[2 * v5 + 450] > (unsigned __int64)(unsigned int)result )
+  HvpLogTypeToLogArrayIndex(4LL);
+  EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(a1, v2, v3);
+  if ( *(_QWORD *)(a1 + 8 * v5 + 1800) > (unsigned __int64)EffectiveLogSizeCapForHive )
+    CmpDoFileSetSizeEx(a1, 4LL, 0LL, 0LL);
+  HvpLogTypeToLogArrayIndex(5LL);
+  result = HvGetEffectiveLogSizeCapForHive(a1, v6, v7);
+  if ( *(_QWORD *)(a1 + 8 * v9 + 1800) > (unsigned __int64)(unsigned int)result )
   {
-    v7 = 5;
-    return CmpDoFileSetSizeEx((__int64)a1, v7, 0LL, 0);
+    v13 = 5LL;
+    return CmpDoFileSetSizeEx(a1, v13, 0LL, 0LL);
   }
   return result;
 }

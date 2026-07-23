@@ -1,32 +1,32 @@
 /*
- * XREFs of PipClearDevNodeProblem @ 0x1409C5678
+ * XREFs of PipClearDevNodeProblem @ 0x14098187C
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404926CC (PnpRemoveLockedDeviceNode.c)
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     PipAttemptDependentStart @ 0x14071E570 (PipAttemptDependentStart.c)
- *     PnpDisableDevice @ 0x140723260 (PnpDisableDevice.c)
- *     PiProcessResourceRequirementsChanged @ 0x140724064 (PiProcessResourceRequirementsChanged.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x14072D300 (PiProfileUpdateDeviceTreeCallback.c)
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
- *     PiProcessQueryRemoveNoFdo @ 0x14073A064 (PiProcessQueryRemoveNoFdo.c)
- *     PnpProcessAssignResourcesWorker @ 0x14098E91C (PnpProcessAssignResourcesWorker.c)
- *     PiDevCfgProcessDevice @ 0x140996E44 (PiDevCfgProcessDevice.c)
- *     PiProcessClearDeviceProblem @ 0x1409C5564 (PiProcessClearDeviceProblem.c)
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
- *     IopInitializeDeviceInstanceKey @ 0x140A626D8 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
- *     PiRestartRemovalRelations @ 0x140A9A270 (PiRestartRemovalRelations.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14048D53C (PnpRemoveLockedDeviceNode.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     PipAttemptDependentStart @ 0x14071C100 (PipAttemptDependentStart.c)
+ *     PnpDisableDevice @ 0x140720DF0 (PnpDisableDevice.c)
+ *     PiProcessResourceRequirementsChanged @ 0x140721BF4 (PiProcessResourceRequirementsChanged.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x14072B310 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x140737F94 (PiProcessQueryRemoveNoFdo.c)
+ *     PnpProcessAssignResourcesWorker @ 0x140979954 (PnpProcessAssignResourcesWorker.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
+ *     PiProcessClearDeviceProblem @ 0x140981B8C (PiProcessClearDeviceProblem.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
+ *     PiDevCfgProcessDevice @ 0x1409C9598 (PiDevCfgProcessDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140A5AFD8 (IopInitializeDeviceInstanceKey.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
+ *     PiRestartRemovalRelations @ 0x140A957DC (PiRestartRemovalRelations.c)
  * Callees:
- *     McTemplateK0pzzqdqd_EtwWriteTransfer @ 0x1405A5F98 (McTemplateK0pzzqdqd_EtwWriteTransfer.c)
- *     PiAuditDeviceEnableDisableAction @ 0x140736834 (PiAuditDeviceEnableDisableAction.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1408B94C4 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PiPnpRtlBeginOperation @ 0x1408CBF78 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140938740 (SeAuditingWithTokenForSubcategory.c)
- *     PnpTraceClearDevNodeProblem @ 0x1409C5844 (PnpTraceClearDevNodeProblem.c)
+ *     McTemplateK0pzzqdqd_EtwWriteTransfer @ 0x1405A2E78 (McTemplateK0pzzqdqd_EtwWriteTransfer.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x140734764 (PiAuditDeviceEnableDisableAction.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1408B6E6C (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PiPnpRtlBeginOperation @ 0x1408C99A8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1408F2E10 (SeAuditingWithTokenForSubcategory.c)
+ *     PnpTraceClearDevNodeProblem @ 0x140981A48 (PnpTraceClearDevNodeProblem.c)
  */
 
 void __fastcall PipClearDevNodeProblem(__int64 a1)
@@ -65,7 +65,7 @@ void __fastcall PipClearDevNodeProblem(__int64 a1)
       PnpSetObjectProperty(
         *(__int64 *)&PiPnpRtlCtx,
         *(_QWORD *)(a1 + 48),
-        1u,
+        1,
         0LL,
         0LL,
         (__int64)DEVPKEY_Device_ProblemStatusOverride,
@@ -80,7 +80,7 @@ void __fastcall PipClearDevNodeProblem(__int64 a1)
     *(_DWORD *)(a1 + 8 * v8 + 796) = v2;
     *(_DWORD *)(a1 + 8 * v8 + 800) = v3;
     *(_DWORD *)(a1 + 880) = ((unsigned __int8)*(_DWORD *)(a1 + 880) + 1) & 3;
-    if ( (byte_140EEFD23 & 0x20) != 0 )
+    if ( (byte_140EEFF63 & 0x20) != 0 )
     {
       LODWORD(v12) = v3;
       LODWORD(v11) = v2;

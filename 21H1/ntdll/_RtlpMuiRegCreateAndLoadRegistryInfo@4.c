@@ -17,8 +17,8 @@
 
 int __thiscall RtlpMuiRegCreateAndLoadRegistryInfo(_DWORD *this)
 {
-  int v2; // esi
-  int RegistryInfo; // eax
+  _DWORD *v2; // esi
+  _DWORD *RegistryInfo; // eax
   int v4; // edi
   int result; // eax
 
@@ -29,7 +29,7 @@ int __thiscall RtlpMuiRegCreateAndLoadRegistryInfo(_DWORD *this)
   }
   else
   {
-    RegistryInfo = RtlpMuiRegCreateRegistryInfo();
+    RegistryInfo = (_DWORD *)RtlpMuiRegCreateRegistryInfo();
     v2 = RegistryInfo;
     if ( RegistryInfo )
     {
@@ -43,7 +43,7 @@ int __thiscall RtlpMuiRegCreateAndLoadRegistryInfo(_DWORD *this)
       else
       {
         v4 = 0;
-        *(_DWORD *)(v2 + 12) = MEMORY[0x7FFE03A4];
+        v2[3] = MEMORY[0x7FFE03A4];
       }
     }
     else

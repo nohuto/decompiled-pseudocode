@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPurgeBadFileOnlyPages @ 0x1402B6620
+ * XREFs of MiPurgeBadFileOnlyPages @ 0x1402B6810
  * Callers:
- *     MiDeleteExtentPfns @ 0x1402B5AC0 (MiDeleteExtentPfns.c)
+ *     MiDeleteExtentPfns @ 0x1402B5CB0 (MiDeleteExtentPfns.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)
@@ -10,16 +10,16 @@
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiDecrementSubsection @ 0x1400E7718 (MiDecrementSubsection.c)
- *     MiPreventControlAreaDeletion @ 0x1400E94F8 (MiPreventControlAreaDeletion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
- *     MiUnlinkPageFromBadList @ 0x1402BFE00 (MiUnlinkPageFromBadList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiDecrementSubsection @ 0x1400E7798 (MiDecrementSubsection.c)
+ *     MiPreventControlAreaDeletion @ 0x1400E9578 (MiPreventControlAreaDeletion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B6B98 (MiPurgeFileOnlyPfn.c)
+ *     MiUnlinkPageFromBadList @ 0x1402BFFF0 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 __fastcall MiPurgeBadFileOnlyPages(__int64 a1, __int64 a2, __int64 a3)
@@ -54,17 +54,17 @@ __int64 __fastcall MiPurgeBadFileOnlyPages(__int64 a1, __int64 a2, __int64 a3)
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
         _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
-      LockHandle.LockQueue.Lock = qword_14043D920;
+      LockHandle.LockQueue.Lock = qword_14043E9E0;
       LockHandle.LockQueue.Next = 0LL;
-      KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_14043D920, a3);
-      v4 = qword_140438D10;
-      byte_140438D69 = 0;
-      if ( qword_140438D10 == 0xFFFFFFFFFLL )
+      KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_14043E9E0, a3);
+      v4 = qword_140439DD0;
+      byte_140439E29 = 0;
+      if ( qword_140439DD0 == 0xFFFFFFFFFLL )
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         goto LABEL_43;
       }
-      v5 = 48 * qword_140438D10 - 0x58000000000LL;
+      v5 = 48 * qword_140439DD0 - 0x58000000000LL;
       if ( !_interlockedbittestandset64((volatile signed __int32 *)(v5 + 24), 0x3FuLL) )
         break;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
@@ -76,7 +76,7 @@ __int64 __fastcall MiPurgeBadFileOnlyPages(__int64 a1, __int64 a2, __int64 a3)
       }
       __writecr8(CurrentIrql);
     }
-    v7 = qword_140438D00;
+    v7 = qword_140439DC0;
     MiUnlinkPageFromBadList(48 * v4 - 0x58000000000LL, 128LL);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     MiAddLockedPageCharge(48 * v4 - 0x58000000000LL, 1);
@@ -134,9 +134,9 @@ __int64 __fastcall MiPurgeBadFileOnlyPages(__int64 a1, __int64 a2, __int64 a3)
     __writecr8(v16);
   }
   while ( !v17 || v7 != 1 );
-  KeAcquireInStackQueuedSpinLock(qword_14043D920, &LockHandle);
-  if ( qword_140438D00 )
-    byte_140438D69 = 1;
+  KeAcquireInStackQueuedSpinLock(qword_14043E9E0, &LockHandle);
+  if ( qword_140439DC0 )
+    byte_140439E29 = 1;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   CurrentIrql = LockHandle.OldIrql;
 LABEL_43:

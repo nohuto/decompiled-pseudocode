@@ -42,7 +42,7 @@ char __fastcall CcZeroDataInCache(__int64 a1, __int64 *a2, unsigned int a3, unsi
     v12 = v15 - v16 + v7;
     MemoryDescriptorList = (struct _MDL *)IopAllocateMdl(v17, (int)v15 - (int)v16, 0, v8, 0LL, 0);
     if ( !MemoryDescriptorList )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     v9 = BYTE5(KeGetCurrentThread()[1].Queue);
     BYTE5(KeGetCurrentThread()[1].Queue) = 1;
     MiProbeAndLockPages(MemoryDescriptorList, 0LL, 0LL);

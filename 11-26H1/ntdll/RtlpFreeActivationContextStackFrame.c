@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFreeActivationContextStackFrame @ 0x180088F70
+ * XREFs of RtlpFreeActivationContextStackFrame @ 0x180080370
  * Callers:
- *     RtlFreeActivationContextStack @ 0x180088C30 (RtlFreeActivationContextStack.c)
- *     RtlDeactivateActivationContext @ 0x180088D10 (RtlDeactivateActivationContext.c)
+ *     RtlFreeActivationContextStack @ 0x180080030 (RtlFreeActivationContextStack.c)
+ *     RtlDeactivateActivationContext @ 0x180080110 (RtlDeactivateActivationContext.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int64 __fastcall RtlpFreeActivationContextStackFrame(__int64 a1, unsigned __int64 a2)
@@ -84,7 +84,7 @@ unsigned __int64 __fastcall RtlpFreeActivationContextStackFrame(__int64 a1, unsi
                         __fastfail(3u);
                       *v9 = v10;
                       *(_QWORD *)(v10 + 8) = v9;
-                      RtlFreeHeap_0();
+                      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, (PVOID)(result - 8));
                     }
                     result = (unsigned __int64)v9;
                   }

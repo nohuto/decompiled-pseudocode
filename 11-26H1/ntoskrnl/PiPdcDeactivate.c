@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPdcDeactivate @ 0x1409DE320
+ * XREFs of PiPdcDeactivate @ 0x140A1B44C
  * Callers:
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     PnpCompleteDeviceEvent @ 0x1409DE1B4 (PnpCompleteDeviceEvent.c)
- *     PnpDeleteDeviceActionRequest @ 0x140B03630 (PnpDeleteDeviceActionRequest.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     PnpCompleteDeviceEvent @ 0x140A1B2E0 (PnpCompleteDeviceEvent.c)
+ *     PnpDeleteDeviceActionRequest @ 0x140B05244 (PnpDeleteDeviceActionRequest.c)
  * Callees:
  *     <none>
  */

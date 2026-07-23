@@ -18,23 +18,23 @@
  *     DownLevelLangIDToLanguageName @ 0x1401778C4 (DownLevelLangIDToLanguageName.c)
  */
 
-char __fastcall RtlLCIDToCultureName(int a1, UNICODE_STRING *a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int16 v4; // di
 
   v2 = 0;
-  v4 = a1;
-  if ( a1 )
+  v4 = Lcid;
+  if ( Lcid )
   {
-    if ( a2 )
+    if ( String )
     {
-      if ( a1 != 4096 )
+      if ( Lcid != 4096 )
       {
         DbgPrint("!!! RTLMUI: Reusing LocaleBuffer !!!");
         if ( (int)DownLevelLangIDToLanguageName(v4, word_14050C1B0, 64, 2) > 0 )
         {
-          RtlInitUnicodeString(a2, word_14050C1B0);
+          RtlInitUnicodeString(String, word_14050C1B0);
           return 1;
         }
       }

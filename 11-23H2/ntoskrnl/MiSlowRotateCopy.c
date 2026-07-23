@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSlowRotateCopy @ 0x140632F64
+ * XREFs of MiSlowRotateCopy @ 0x1406334B4
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x140A31408 (MiReplaceRotateWithDemandZero.c)
- *     MiRotateToFrameBuffer @ 0x140A316A0 (MiRotateToFrameBuffer.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A316B8 (MiReplaceRotateWithDemandZero.c)
+ *     MiRotateToFrameBuffer @ 0x140A31950 (MiRotateToFrameBuffer.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReturnPteMappingSet @ 0x140284188 (MiReturnPteMappingSet.c)
- *     MiGetPteMappingSet @ 0x1402841F0 (MiGetPteMappingSet.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeCopyPage @ 0x1404246E0 (KeCopyPage.c)
- *     MiInitializeSlowPte @ 0x140632678 (MiInitializeSlowPte.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReturnPteMappingSet @ 0x140284418 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x140284480 (MiGetPteMappingSet.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeCopyPage @ 0x140424A70 (KeCopyPage.c)
+ *     MiInitializeSlowPte @ 0x140632BC8 (MiInitializeSlowPte.c)
  */
 
 char __fastcall MiSlowRotateCopy(__int64 a1, __int64 a2, __int64 a3)

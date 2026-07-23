@@ -1,64 +1,64 @@
 /*
- * XREFs of NtQueryInformationThread @ 0x140A1F330
+ * XREFs of NtQueryInformationThread @ 0x140A28950
  * Callers:
- *     DifNtQueryInformationThreadWrapper @ 0x140683470 (DifNtQueryInformationThreadWrapper.c)
+ *     DifNtQueryInformationThreadWrapper @ 0x140687050 (DifNtQueryInformationThreadWrapper.c)
  * Callees:
- *     KeQueryTotalCycleTimeThread @ 0x14021AB70 (KeQueryTotalCycleTimeThread.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PsGetEffectiveContainerId @ 0x14026E950 (PsGetEffectiveContainerId.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     KeQueryBasePriorityThread @ 0x14029BF80 (KeQueryBasePriorityThread.c)
- *     KeQueryValuesThread @ 0x1402BAA70 (KeQueryValuesThread.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     PsQueryThreadStartAddress @ 0x140418630 (PsQueryThreadStartAddress.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x140427F74 (KeSetIdealProcessorThreadByNumber.c)
- *     PspLockThreadSecurityShared @ 0x14044ADE0 (PspLockThreadSecurityShared.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     PsGetWorkOnBehalfThread @ 0x14045F7E0 (PsGetWorkOnBehalfThread.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x140476D00 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     MmGetDefaultPagePriority @ 0x1404B6960 (MmGetDefaultPagePriority.c)
- *     KeQueryUserAffinityThread @ 0x1404C9A3C (KeQueryUserAffinityThread.c)
- *     KeQueryTotalSuspendCountThread @ 0x1404D5BDC (KeQueryTotalSuspendCountThread.c)
- *     KeQueryPrimaryGroupAffinityThread @ 0x1404E6E10 (KeQueryPrimaryGroupAffinityThread.c)
- *     KeQueryCpuSetsThread @ 0x140507A18 (KeQueryCpuSetsThread.c)
- *     xKdEnumerateDebuggingDevices @ 0x1405306C0 (xKdEnumerateDebuggingDevices.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspQueryThreadIndexInformation @ 0x1407798A0 (PspQueryThreadIndexInformation.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlCopyToUserFromUser @ 0x14077F2E8 (RtlCopyToUserFromUser.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspWow64GetContextThread @ 0x140A214E8 (PspWow64GetContextThread.c)
- *     PsGetThreadExitStatus @ 0x140A219D0 (PsGetThreadExitStatus.c)
- *     PspQueryLastCallThread @ 0x140A21A18 (PspQueryLastCallThread.c)
- *     PspGetThreadPpmPolicy @ 0x140A21B88 (PspGetThreadPpmPolicy.c)
- *     PspSchedulerSharedDataRegionSlotRetrieve @ 0x140A21BDC (PspSchedulerSharedDataRegionSlotRetrieve.c)
- *     MiCopyVirtualMemory @ 0x140A22370 (MiCopyVirtualMemory.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x140202C34 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14021C500 (KeQueryTotalCycleTimeThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PsGetEffectiveContainerId @ 0x14026DEC0 (PsGetEffectiveContainerId.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     KeQueryBasePriorityThread @ 0x14029B4E0 (KeQueryBasePriorityThread.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeQueryValuesThread @ 0x140305730 (KeQueryValuesThread.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     PsQueryThreadStartAddress @ 0x14040CC40 (PsQueryThreadStartAddress.c)
+ *     PspLockThreadSecurityShared @ 0x140442F10 (PspLockThreadSecurityShared.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     PsGetWorkOnBehalfThread @ 0x140458EE0 (PsGetWorkOnBehalfThread.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x140470480 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     MmGetDefaultPagePriority @ 0x1404AFDB0 (MmGetDefaultPagePriority.c)
+ *     KeQueryUserAffinityThread @ 0x1404C345C (KeQueryUserAffinityThread.c)
+ *     KeQueryTotalSuspendCountThread @ 0x1404CF3A0 (KeQueryTotalSuspendCountThread.c)
+ *     KeQueryPrimaryGroupAffinityThread @ 0x1404E02B0 (KeQueryPrimaryGroupAffinityThread.c)
+ *     KeQueryCpuSetsThread @ 0x1405013E8 (KeQueryCpuSetsThread.c)
+ *     xKdEnumerateDebuggingDevices @ 0x140532BC0 (xKdEnumerateDebuggingDevices.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspQueryThreadIndexInformation @ 0x14077C7D0 (PspQueryThreadIndexInformation.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlCopyToUserFromUser @ 0x140781DE8 (RtlCopyToUserFromUser.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspWow64GetContextThread @ 0x140A2AB08 (PspWow64GetContextThread.c)
+ *     PsGetThreadExitStatus @ 0x140A2AFF0 (PsGetThreadExitStatus.c)
+ *     PspQueryLastCallThread @ 0x140A2B038 (PspQueryLastCallThread.c)
+ *     PspGetThreadPpmPolicy @ 0x140A2B1A8 (PspGetThreadPpmPolicy.c)
+ *     PspSchedulerSharedDataRegionSlotRetrieve @ 0x140A2B1FC (PspSchedulerSharedDataRegionSlotRetrieve.c)
+ *     MiCopyVirtualMemory @ 0x140A2B990 (MiCopyVirtualMemory.c)
  */
 
-__int64 __fastcall NtQueryInformationThread(
-        ULONG_PTR a1,
-        int a2,
-        volatile void **a3,
-        unsigned int a4,
-        unsigned int *a5)
+NTSTATUS __cdecl NtQueryInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength,
+        PULONG ReturnLength)
 {
   unsigned __int64 v8; // rsi
   PETHREAD CurrentThread; // r13
@@ -68,7 +68,7 @@ __int64 __fastcall NtQueryInformationThread(
   ULONG_PTR v13; // rdi
   ULONG64 v14; // rax
   PETHREAD v15; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PVOID WorkOnBehalfThread; // rcx
   PETHREAD v18; // rdi
   __int64 v19; // rdx
@@ -79,10 +79,10 @@ __int64 __fastcall NtQueryInformationThread(
   bool v24; // zf
   PETHREAD v25; // rdi
   int PagePriorityThread; // eax
-  int v27; // r15d
+  NTSTATUS v27; // r15d
   PETHREAD v28; // rdi
   int v29; // edx
-  unsigned int v30; // ebx
+  NTSTATUS v30; // ebx
   PETHREAD v31; // rdi
   int ThreadPpmPolicy; // eax
   int v33; // eax
@@ -92,13 +92,13 @@ __int64 __fastcall NtQueryInformationThread(
   __int64 v37; // rax
   WCHAR *v38; // rdx
   unsigned int v39; // eax
-  void *v40; // rcx
-  unsigned int v41; // edi
+  char *v40; // rcx
+  NTSTATUS v41; // edi
   struct _LIST_ENTRY *Blink; // rsi
   int v43; // esi
   int v44; // edi
-  unsigned int v45; // eax
-  unsigned int v46; // ebx
+  NTSTATUS v45; // eax
+  NTSTATUS v46; // ebx
   void *v47; // rcx
   PETHREAD v48; // r13
   _KPROCESS *Process; // rdx
@@ -109,32 +109,32 @@ __int64 __fastcall NtQueryInformationThread(
   char *v54; // rdx
   int v55; // eax
   __int64 ULong64FromUser; // rax
-  _QWORD *v57; // rcx
+  __int16 *v57; // rcx
   char UCharFromUser; // al
-  _BYTE *v59; // rcx
+  __int16 *v59; // rcx
   __int16 UShortFromUser; // ax
-  _WORD *v61; // rcx
+  __int16 *v61; // rcx
   int v62; // eax
-  _DWORD *v63; // rcx
+  __int16 *v63; // rcx
   size_t v64; // r8
-  void *v65; // rcx
-  int *v66; // rdi
+  __int16 *v65; // rcx
+  ULONG *v66; // rdi
   __int64 v67; // rdx
   __int64 v68; // r8
   int TotalSuspendCountThread; // eax
   __int64 UserAffinityPrimaryGroup; // rax
-  int v71; // eax
-  unsigned int v72; // edi
+  ULONG v71; // eax
+  NTSTATUS v72; // edi
   PETHREAD v73; // r15
-  unsigned int v74; // r15d
+  NTSTATUS v74; // r15d
   PETHREAD v75; // r13
   unsigned __int64 ThreadStartAddress; // rdi
   PETHREAD v77; // rsi
   char v78; // al
   int DefaultPagePriority; // eax
   int v80; // r8d
-  int v81; // r13d
-  unsigned int v82; // edi
+  NTSTATUS v81; // r13d
+  ULONG v82; // edi
   int v83; // edi
   PETHREAD v84; // rsi
   char v85; // al
@@ -144,7 +144,7 @@ __int64 __fastcall NtQueryInformationThread(
   char v89; // [rsp+59h] [rbp-3DFh]
   unsigned __int64 CycleTimeStamp; // [rsp+60h] [rbp-3D8h] BYREF
   int v91; // [rsp+68h] [rbp-3D0h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+6Ch] [rbp-3CCh] BYREF
+  _PROCESSOR_NUMBER v92[3]; // [rsp+6Ch] [rbp-3CCh] BYREF
   void *v93; // [rsp+78h] [rbp-3C0h]
   volatile void *Address[2]; // [rsp+120h] [rbp-318h] BYREF
   NTSTATUS ThreadExitStatus; // [rsp+130h] [rbp-308h] BYREF
@@ -183,9 +183,9 @@ __int64 __fastcall NtQueryInformationThread(
   PETHREAD v128; // [rsp+280h] [rbp-1B8h]
   struct _KAFFINITY_EX v129; // [rsp+2E0h] [rbp-158h] BYREF
 
-  BugCheckParameter1 = a1;
-  Src.m128i_i64[0] = a1;
-  v103.m128i_i64[0] = (__int64)a5;
+  BugCheckParameter1 = (ULONG_PTR)ThreadHandle;
+  Src.m128i_i64[0] = (__int64)ThreadHandle;
+  v103.m128i_i64[0] = (__int64)ReturnLength;
   v96 = 0;
   v8 = 0LL;
   v116.m128i_i64[0] = 0LL;
@@ -194,7 +194,7 @@ __int64 __fastcall NtQueryInformationThread(
   v119 = 0LL;
   *(_OWORD *)Address = 0LL;
   memset(v117, 0, 12);
-  ProcNumber = 0;
+  v92[0] = 0;
   Thread = 0LL;
   memset_0(&v129.8, 0, sizeof(v129.8));
   CycleTimeStamp = 0LL;
@@ -204,52 +204,52 @@ __int64 __fastcall NtQueryInformationThread(
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a2 == 38 )
+    if ( ThreadInformationClass == ThreadNameInformation )
     {
       v11 = 8;
     }
-    else if ( a2 == 49 )
+    else if ( ThreadInformationClass == ThreadPowerThrottlingState )
     {
       v11 = 4;
     }
     else
     {
       v11 = 1;
-      if ( a4 >= 4 )
+      if ( ThreadInformationLength >= 4 )
         v11 = 4;
     }
-    if ( a4 && ((v11 - 1) & (unsigned int)a3) != 0 )
+    if ( ThreadInformationLength && ((v11 - 1) & (unsigned int)ThreadInformation) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a5 )
+    if ( ReturnLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, ULongFromUser);
     }
   }
   v96 = 0;
   v98 = 0LL;
-  if ( a2 != 23 )
+  if ( ThreadInformationClass != ThreadCycleTime )
   {
-    if ( a2 )
+    if ( ThreadInformationClass )
     {
-      switch ( a2 )
+      switch ( ThreadInformationClass )
       {
-        case 1:
-          if ( a4 != 32 )
-            return 3221225476LL;
+        case ThreadTimes:
+          if ( ThreadInformationLength != 32 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
-          v124 = (unsigned int)KeMaximumIncrement * (unsigned __int64)Thread->SchedulerApc.SpareLong0;
-          v125 = (unsigned int)KeMaximumIncrement * (unsigned __int64)Thread->UserTime;
+          v124 = KeMaximumIncrement * (unsigned __int64)Thread->SchedulerApc.SpareLong0;
+          v125 = KeMaximumIncrement * (unsigned __int64)Thread->UserTime;
           v122 = *(_QWORD *)&Thread[1].Header.Lock;
           if ( (unsigned __int8)Thread->Header.SignalState )
             Flink = Thread[1].Header.WaitListHead.Flink;
@@ -257,368 +257,373 @@ __int64 __fastcall NtQueryInformationThread(
             Flink = 0LL;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlCopyToUser(a3, &v122, 0x20uLL);
+            RtlCopyToUser(ThreadInformation, &v122, 0x20uLL);
           else
-            RtlCopyVolatileMemory(a3, &v122, 0x20uLL);
-          if ( a5 )
+            RtlCopyVolatileMemory(ThreadInformation, &v122, 0x20uLL);
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 32);
+              RtlWriteULongToUser(ReturnLength, 32);
             else
-              *a5 = 32;
+              *ReturnLength = 32;
           }
-          return 0LL;
-        case 6:
+          return 0;
+        case ThreadDescriptorTableEntry:
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     64LL,
-                     PsThreadType,
+                     64,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v45 = xKdEnumerateDebuggingDevices();
           goto LABEL_227;
-        case 9:
-          if ( a4 != 8 )
-            return 3221225476LL;
+        case ThreadQuerySetWin32StartAddress:
+          if ( ThreadInformationLength != 8 )
+            return -1073741820;
           v41 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  64LL,
-                  PsThreadType,
+                  64,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
                   0LL,
                   0LL);
-          if ( (v41 & 0x80000000) != 0 )
+          if ( v41 < 0 )
             return v41;
           Blink = Thread[1].ApcState.ApcListHead[0].Blink;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a3, (__int64)Blink);
+            RtlWriteULong64ToUser(ThreadInformation, (__int64)Blink);
           else
-            *a3 = Blink;
-          if ( !a5 )
+            *(_QWORD *)ThreadInformation = Blink;
+          if ( !ReturnLength )
             return v41;
           if ( PreviousMode )
             goto LABEL_200;
-          *a5 = 8;
+          *ReturnLength = 8;
           return v41;
-        case 11:
-          if ( a4 != 8 )
-            return 3221225476LL;
+        case ThreadPerformanceCount:
+          if ( ThreadInformationLength != 8 )
+            return -1073741820;
           v41 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  64LL,
-                  PsThreadType,
+                  64,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
                   0LL,
                   0LL);
-          if ( (v41 & 0x80000000) != 0 )
+          if ( v41 < 0 )
             return v41;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a3, 0LL);
+            RtlWriteULong64ToUser(ThreadInformation, 0LL);
           else
-            *a3 = 0LL;
-          if ( !a5 )
+            *(_QWORD *)ThreadInformation = 0LL;
+          if ( !ReturnLength )
             return v41;
           if ( PreviousMode )
 LABEL_200:
-            RtlWriteULongToUser(a5, 8);
+            RtlWriteULongToUser(ReturnLength, 8);
           else
-            *a5 = 8;
+            *ReturnLength = 8;
           return v41;
-        case 12:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadAmILastThread:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           LOBYTE(v8) = LODWORD(CurrentThread->Process[1].CpuPartitionList.Blink) == 1;
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, v8);
+            RtlWriteULongToUser(ThreadInformation, v8);
           else
-            *(_DWORD *)a3 = v8;
-          if ( a5 )
+            *(_DWORD *)ThreadInformation = v8;
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 4);
+              RtlWriteULongToUser(ReturnLength, 4);
             else
-              *a5 = 4;
+              *ReturnLength = 4;
           }
-          return 0LL;
-        case 14:
-          if ( a4 != 4 )
-            return 3221225476LL;
+          return 0;
+        case ThreadPriorityBoost:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           v41 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  2048LL,
-                  PsThreadType,
+                  2048,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
                   0LL,
                   0LL);
-          if ( (v41 & 0x80000000) == 0 )
+          if ( v41 >= 0 )
           {
             v43 = (*((_DWORD *)&Thread->0 + 1) >> 3) & 1;
             ObfDereferenceObjectWithTag(Thread, 0x79517350u);
             if ( PreviousMode )
-              RtlWriteULongToUser(a3, v43);
+              RtlWriteULongToUser(ThreadInformation, v43);
             else
-              *(_DWORD *)a3 = v43;
-            if ( a5 )
+              *(_DWORD *)ThreadInformation = v43;
+            if ( ReturnLength )
             {
               if ( PreviousMode )
-                RtlWriteULongToUser(a5, 4);
+                RtlWriteULongToUser(ReturnLength, 4);
               else
-                *a5 = 4;
+                *ReturnLength = 4;
             }
           }
           return v41;
-        case 16:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadIsIoPending:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     64LL,
-                     PsThreadType,
+                     64,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           LOBYTE(v8) = *(_QWORD *)&Thread[1].SystemCallNumber != (_QWORD)Thread + 1344;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, v8);
+            RtlWriteULongToUser(ThreadInformation, v8);
           else
-            *(_DWORD *)a3 = v8;
-          if ( !a5 )
-            return 0LL;
+            *(_DWORD *)ThreadInformation = v8;
+          if ( !ReturnLength )
+            return 0;
           if ( PreviousMode )
             goto LABEL_467;
-          *a5 = 4;
-          return 0LL;
-        case 17:
-          if ( a4 != 1 )
-            return 3221225476LL;
+          *ReturnLength = 4;
+          return 0;
+        case ThreadHideFromDebugger:
+          if ( ThreadInformationLength != 1 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     64LL,
-                     PsThreadType,
+                     64,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v41 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v77 = Thread;
           v78 = (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 4) != 0;
           if ( PreviousMode )
-            RtlWriteUCharToUser(a3, v78);
+            RtlWriteUCharToUser(ThreadInformation, v78);
           else
-            *(_BYTE *)a3 = v78;
-          if ( a5 )
+            *(_BYTE *)ThreadInformation = v78;
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 1);
+              RtlWriteULongToUser(ReturnLength, 1);
             else
-              *a5 = 1;
+              *ReturnLength = 1;
           }
           goto LABEL_378;
-        case 18:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadBreakOnTermination:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     64LL,
-                     PsThreadType,
+                     64,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v83 = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 5) & 1;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, v83);
+            RtlWriteULongToUser(ThreadInformation, v83);
           else
-            *(_DWORD *)a3 = v83;
-          if ( !a5 )
-            return 0LL;
+            *(_DWORD *)ThreadInformation = v83;
+          if ( !ReturnLength )
+            return 0;
           if ( PreviousMode )
             goto LABEL_467;
-          *a5 = 4;
-          return 0LL;
-        case 20:
-          if ( a4 != 4 )
-            return 3221225476LL;
+          *ReturnLength = 4;
+          return 0;
+        case ThreadIsTerminated:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v44 = *(_DWORD *)(&Thread[1].SwapListEntry + 1) & 1;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, v44);
+            RtlWriteULongToUser(ThreadInformation, v44);
           else
-            *(_DWORD *)a3 = v44;
-          if ( !a5 )
-            return 0LL;
+            *(_DWORD *)ThreadInformation = v44;
+          if ( !ReturnLength )
+            return 0;
           if ( PreviousMode )
             goto LABEL_467;
-          *a5 = 4;
-          return 0LL;
-        case 21:
+          *ReturnLength = 4;
+          return 0;
+        case ThreadLastSystemCall:
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     8LL,
-                     PsThreadType,
+                     8,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
-          v45 = PspQueryLastCallThread((_DWORD)Thread, (_DWORD)a3, a4, (_DWORD)a5, PreviousMode);
+          v45 = PspQueryLastCallThread(
+                  (_DWORD)Thread,
+                  (_DWORD)ThreadInformation,
+                  ThreadInformationLength,
+                  (_DWORD)ReturnLength,
+                  PreviousMode);
 LABEL_227:
           v46 = v45;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           return v46;
-        case 22:
-        case 54:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadIoPriority:
+        case ThreadEffectiveIoPriority:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v27 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           LODWORD(CycleTimeStamp) = 0;
           v28 = Thread;
           v29 = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 9) & 7;
           LODWORD(CycleTimeStamp) = v29;
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, v29);
+            RtlWriteULongToUser(ThreadInformation, v29);
           else
-            RtlCopyVolatileMemory(a3, &CycleTimeStamp, 4uLL);
-          if ( !a5 )
+            RtlCopyVolatileMemory(ThreadInformation, &CycleTimeStamp, 4uLL);
+          if ( !ReturnLength )
             goto LABEL_113;
           if ( PreviousMode )
             goto LABEL_286;
-          *a5 = 4;
+          *ReturnLength = 4;
           goto LABEL_113;
-        case 24:
-        case 55:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadPagePriority:
+        case ThreadEffectivePagePriority:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           LODWORD(v8) = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
-          v24 = a2 == 24;
+          v24 = ThreadInformationClass == ThreadPagePriority;
           v25 = Thread;
           if ( v24 )
             PagePriorityThread = (*((_DWORD *)&Thread[1].SwapListEntry + 2) >> 12) & 7;
           else
             PagePriorityThread = PsGetPagePriorityThread((__int64)Thread);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, PagePriorityThread);
+            RtlWriteULongToUser(ThreadInformation, PagePriorityThread);
           else
-            *(_DWORD *)a3 = PagePriorityThread;
-          if ( !a5 )
+            *(_DWORD *)ThreadInformation = PagePriorityThread;
+          if ( !ReturnLength )
             goto LABEL_103;
           if ( PreviousMode )
             goto LABEL_424;
-          *a5 = 4;
+          *ReturnLength = 4;
           goto LABEL_103;
-        case 25:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadActualBasePriority:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           BasePriority = Thread->BasePriority;
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, BasePriority);
+            RtlWriteULongToUser(ThreadInformation, BasePriority);
           else
-            *(_DWORD *)a3 = BasePriority;
-          if ( !a5 )
-            return 0LL;
+            *(_DWORD *)ThreadInformation = BasePriority;
+          if ( !ReturnLength )
+            return 0;
           if ( PreviousMode )
             goto LABEL_467;
-          *a5 = 4;
-          return 0LL;
-        case 26:
-        case 58:
-          if ( a4 != 16 )
-            return 3221225476LL;
+          *ReturnLength = 4;
+          return 0;
+        case ThreadTebInformation:
+        case ThreadTebInformationAtomic:
+          if ( ThreadInformationLength != 16 )
+            return -1073741820;
           if ( PreviousMode )
           {
-            RtlCopyFromUser(Address, a3, 0x10uLL);
+            RtlCopyFromUser(Address, ThreadInformation, 0x10uLL);
             ProbeForWrite(Address[0], HIDWORD(Address[1]), 1u);
-            a3 = Address;
+            ThreadInformation = Address;
           }
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     24LL,
-                     PsThreadType,
+                     24,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v27 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v48 = Thread;
           if ( (Thread->MiscFlags & 0x400) != 0 )
           {
             ObfDereferenceObjectWithTag(Thread, 0x79517350u);
-            result = 3221225480LL;
+            result = -1073741816;
           }
           else
           {
@@ -626,7 +631,7 @@ LABEL_227:
             v93 = Process;
             v50 = KeGetCurrentThread()->ApcState.Process;
             BugCheckParameter1 = (ULONG_PTR)v50;
-            if ( a2 == 58 && Process != v50 )
+            if ( ThreadInformationClass == ThreadTebInformationAtomic && Process != v50 )
               goto LABEL_331;
             v51 = 6256LL;
             if ( Process[1].ReadyTime )
@@ -635,27 +640,27 @@ LABEL_227:
               if ( WORD2(Process[3].PerProcessorCycleTimes) == 0x8664 )
                 v51 = 14448LL;
             }
-            CycleTimeStamp = (unsigned __int64)a3 + 12;
-            v52 = *((unsigned int *)a3 + 3);
-            if ( (_DWORD)v52 && (v53 = *((unsigned int *)a3 + 2), v53 < v51) && v52 <= v51 - v53 )
+            CycleTimeStamp = (unsigned __int64)ThreadInformation + 12;
+            v52 = *((unsigned int *)ThreadInformation + 3);
+            if ( (_DWORD)v52 && (v53 = *((unsigned int *)ThreadInformation + 2), v53 < v51) && v52 <= v51 - v53 )
             {
               Src.m128i_i64[0] = (__int64)&Thread[1].WaitStatus;
               if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&Thread[1].WaitStatus) )
               {
-                v54 = (char *)v48->Teb + *((unsigned int *)a3 + 2);
+                v54 = (char *)v48->Teb + *((unsigned int *)ThreadInformation + 2);
                 if ( v93 == (void *)BugCheckParameter1 )
                 {
                   v55 = *(_DWORD *)CycleTimeStamp;
-                  if ( a2 == 58 )
+                  if ( ThreadInformationClass == ThreadTebInformationAtomic )
                   {
                     if ( v55 == 1 )
                     {
-                      UCharFromUser = RtlReadUCharFromUser((char *)v48->Teb + *((unsigned int *)a3 + 2));
-                      v59 = *a3;
+                      UCharFromUser = RtlReadUCharFromUser((char *)v48->Teb + *((unsigned int *)ThreadInformation + 2));
+                      v59 = *(__int16 **)ThreadInformation;
                       if ( PreviousMode )
                         RtlWriteUCharToUser(v59, UCharFromUser);
                       else
-                        *v59 = UCharFromUser;
+                        *(_BYTE *)v59 = UCharFromUser;
                     }
                     else if ( v55 != 2 || ((unsigned __int8)v54 & 1) != 0 )
                     {
@@ -668,29 +673,31 @@ LABEL_227:
                         }
                         else
                         {
-                          ULong64FromUser = RtlReadULong64FromUser((char *)v48->Teb + *((unsigned int *)a3 + 2));
-                          v57 = *a3;
+                          ULong64FromUser = RtlReadULong64FromUser((char *)v48->Teb + *((unsigned int *)ThreadInformation
+                                                                                      + 2));
+                          v57 = *(__int16 **)ThreadInformation;
                           if ( PreviousMode )
                             RtlWriteULong64ToUser(v57, ULong64FromUser);
                           else
-                            *v57 = ULong64FromUser;
+                            *(_QWORD *)v57 = ULong64FromUser;
                         }
                       }
                       else
                       {
-                        v62 = RtlReadULongFromUser((unsigned int *)((char *)v48->Teb + *((unsigned int *)a3 + 2)));
-                        v63 = *a3;
+                        v62 = RtlReadULongFromUser((unsigned int *)((char *)v48->Teb
+                                                                  + *((unsigned int *)ThreadInformation + 2)));
+                        v63 = *(__int16 **)ThreadInformation;
                         if ( PreviousMode )
                           RtlWriteULongToUser(v63, v62);
                         else
-                          *v63 = v62;
+                          *(_DWORD *)v63 = v62;
                       }
                     }
                     else
                     {
                       UShortFromUser = RtlReadUShortFromUser((unsigned __int16 *)((char *)v48->Teb
-                                                                                + *((unsigned int *)a3 + 2)));
-                      v61 = *a3;
+                                                                                + *((unsigned int *)ThreadInformation + 2)));
+                      v61 = *(__int16 **)ThreadInformation;
                       if ( PreviousMode )
                         RtlWriteUShortToUser(v61, UShortFromUser);
                       else
@@ -700,22 +707,22 @@ LABEL_227:
                   else
                   {
                     v64 = *(unsigned int *)CycleTimeStamp;
-                    v65 = (void *)*a3;
+                    v65 = *(__int16 **)ThreadInformation;
                     if ( PreviousMode )
                       RtlCopyToUserFromUser(v65, v54, v64);
                     else
                       RtlCopyFromUser(v65, v54, v64);
                   }
-                  v66 = (int *)CycleTimeStamp;
+                  v66 = (ULONG *)CycleTimeStamp;
                 }
                 else
                 {
-                  v66 = (int *)CycleTimeStamp;
+                  v66 = (ULONG *)CycleTimeStamp;
                   v27 = MiCopyVirtualMemory(
                           (_DWORD)v93,
                           (_DWORD)v54,
                           BugCheckParameter1,
-                          (unsigned int)*a3,
+                          *(_QWORD *)ThreadInformation,
                           *(unsigned int *)CycleTimeStamp,
                           PreviousMode,
                           (__int64)&v116,
@@ -725,24 +732,24 @@ LABEL_227:
                 ObfDereferenceObjectWithTag(v48, 0x79517350u);
                 if ( v27 >= 0 )
                 {
-                  if ( a5 )
+                  if ( ReturnLength )
                   {
                     v71 = *v66;
                     if ( PreviousMode )
-                      RtlWriteULongToUser(a5, v71);
+                      RtlWriteULongToUser(ReturnLength, v71);
                     else
-                      *a5 = v71;
+                      *ReturnLength = v71;
                   }
                   v27 = 0;
                   v91 = 0;
                 }
 LABEL_114:
-                result = (unsigned int)v27;
+                result = v27;
               }
               else
               {
                 ObfDereferenceObjectWithTag(v48, 0x79517350u);
-                result = 3221225547LL;
+                result = -1073741749;
               }
             }
             else
@@ -750,46 +757,46 @@ LABEL_114:
 LABEL_331:
               ObfDereferenceObjectWithTag(Thread, 0x79517350u);
 LABEL_332:
-              result = 3221225485LL;
+              result = -1073741811;
             }
           }
           break;
-        case 29:
+        case ThreadWow64Context:
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     8LL,
-                     PsThreadType,
+                     8,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
-          LODWORD(v8) = PspWow64GetContextThread(Thread, a3, a4, PreviousMode);
+          LODWORD(v8) = PspWow64GetContextThread(Thread, ThreadInformation, ThreadInformationLength, PreviousMode);
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
-          if ( (v8 & 0x80000000) == 0LL && a5 )
+          if ( (v8 & 0x80000000) == 0LL && ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 716);
+              RtlWriteULongToUser(ReturnLength, 716);
             else
-              *a5 = 716;
+              *ReturnLength = 716;
           }
-          return (unsigned int)v8;
-        case 30:
-          if ( a4 != 16 )
-            return 3221225476LL;
+          return v8;
+        case ThreadGroupInformation:
+          if ( ThreadInformationLength != 16 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v27 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           *(_QWORD *)&v129.Count = 2097153LL;
           memset_0(&v129.8, 0, sizeof(v129.8));
@@ -801,192 +808,192 @@ LABEL_332:
             v8 = v129.Bitmap[UserAffinityPrimaryGroup];
           *(_QWORD *)&v119 = v8;
           if ( PreviousMode )
-            RtlCopyToUser(a3, &v119, 0x10uLL);
+            RtlCopyToUser(ThreadInformation, &v119, 0x10uLL);
           else
-            RtlCopyVolatileMemory(a3, &v119, 0x10uLL);
-          if ( a5 )
+            RtlCopyVolatileMemory(ThreadInformation, &v119, 0x10uLL);
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 16);
+              RtlWriteULongToUser(ReturnLength, 16);
             else
-              *a5 = 16;
+              *ReturnLength = 16;
           }
           goto LABEL_113;
-        case 32:
-          if ( a4 != 1 )
-            return 3221225476LL;
+        case ThreadCounterProfiling:
+          if ( ThreadInformationLength != 1 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     64LL,
-                     PsThreadType,
+                     64,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v41 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v84 = Thread;
           v85 = Thread->WaitBlock[0].SparePtr != 0LL;
           if ( PreviousMode )
-            RtlWriteUCharToUser(a3, v85);
+            RtlWriteUCharToUser(ThreadInformation, v85);
           else
-            *(_BYTE *)a3 = v85;
+            *(_BYTE *)ThreadInformation = v85;
           ObfDereferenceObjectWithTag(v84, 0x79517350u);
-          if ( (v41 & 0x80000000) == 0 && a5 )
+          if ( v41 >= 0 && ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 1);
+              RtlWriteULongToUser(ReturnLength, 1);
             else
-              *a5 = 1;
+              *ReturnLength = 1;
           }
           return v41;
-        case 33:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadIdealProcessorEx:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
-          ProcNumber = (struct _PROCESSOR_NUMBER)0x400000;
-          KeSetIdealProcessorThreadByNumber(Thread, &ProcNumber, &ProcNumber);
+          v92[0] = (_PROCESSOR_NUMBER)0x400000;
+          KeSetIdealProcessorThreadByNumber(Thread, v92, v92);
           ObfDereferenceObjectWithTag(Thread, 0x79517350u);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, *(_DWORD *)&ProcNumber);
+            RtlWriteULongToUser(ThreadInformation, *(_DWORD *)v92);
           else
-            RtlCopyVolatileMemory(a3, &ProcNumber, 4uLL);
-          if ( !a5 )
-            return 0LL;
+            RtlCopyVolatileMemory(ThreadInformation, v92, 4uLL);
+          if ( !ReturnLength )
+            return 0;
           if ( PreviousMode )
 LABEL_467:
-            RtlWriteULongToUser(a5, 4);
+            RtlWriteULongToUser(ReturnLength, 4);
           else
-            *a5 = 4;
-          return 0LL;
-        case 34:
-          if ( !a4 )
-            return 3221225476LL;
+            *ReturnLength = 4;
+          return 0;
+        case ThreadCpuAccountingInformation:
+          if ( !ThreadInformationLength )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     64LL,
-                     PsThreadType,
+                     64,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v72 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v73 = Thread;
           LOBYTE(v8) = Thread->SchedulingGroup != 0LL;
           LODWORD(CycleTimeStamp) = v8;
           if ( PreviousMode )
-            RtlWriteUCharToUser(a3, v8);
+            RtlWriteUCharToUser(ThreadInformation, v8);
           else
-            *(_BYTE *)a3 = v8;
-          if ( a5 )
+            *(_BYTE *)ThreadInformation = v8;
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 1);
+              RtlWriteULongToUser(ReturnLength, 1);
             else
-              *a5 = 1;
+              *ReturnLength = 1;
           }
           goto LABEL_346;
-        case 35:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadSuspendCount:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           LODWORD(v8) = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v25 = Thread;
           TotalSuspendCountThread = KeQueryTotalSuspendCountThread((__int64)Thread, v67, v68);
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, TotalSuspendCountThread);
+            RtlWriteULongToUser(ThreadInformation, TotalSuspendCountThread);
           else
-            *(_DWORD *)a3 = TotalSuspendCountThread;
-          if ( !a5 )
+            *(_DWORD *)ThreadInformation = TotalSuspendCountThread;
+          if ( !ReturnLength )
             goto LABEL_103;
           if ( PreviousMode )
 LABEL_424:
-            RtlWriteULongToUser(a5, 4);
+            RtlWriteULongToUser(ReturnLength, 4);
           else
-            *a5 = 4;
+            *ReturnLength = 4;
           goto LABEL_103;
-        case 36:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadHeterogeneousCpuPolicy:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           LODWORD(v8) = ObpReferenceObjectByHandleWithTag(
                           BugCheckParameter1,
-                          2048LL,
-                          PsThreadType,
+                          2048,
+                          (__int64)PsThreadType,
                           PreviousMode,
                           0x79517350u,
                           &Thread,
                           0LL,
                           0LL);
           if ( (v8 & 0x80000000) != 0LL )
-            return (unsigned int)v8;
+            return v8;
           v25 = Thread;
           DefaultPagePriority = MmGetDefaultPagePriority();
           v102[0] = DefaultPagePriority;
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, DefaultPagePriority);
+            RtlWriteULongToUser(ThreadInformation, DefaultPagePriority);
           else
-            RtlCopyVolatileMemory(a3, v102, 4uLL);
-          if ( !a5 )
+            RtlCopyVolatileMemory(ThreadInformation, v102, 4uLL);
+          if ( !ReturnLength )
             goto LABEL_103;
           if ( PreviousMode )
             goto LABEL_424;
-          *a5 = 4;
+          *ReturnLength = 4;
 LABEL_103:
           v15 = v25;
           goto LABEL_29;
-        case 37:
-          if ( a4 != 16 )
-            return 3221225476LL;
+        case ThreadContainerId:
+          if ( ThreadInformationLength != 16 )
+            return -1073741820;
           if ( BugCheckParameter1 != -2LL )
             goto LABEL_332;
           result = PsGetEffectiveContainerId(4, CurrentThread, (__int64)&v120);
           v41 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           if ( PreviousMode )
-            RtlCopyToUser(a3, &v120, 0x10uLL);
+            RtlCopyToUser(ThreadInformation, &v120, 0x10uLL);
           else
-            RtlCopyVolatileMemory(a3, &v120, 0x10uLL);
-          if ( a5 )
+            RtlCopyVolatileMemory(ThreadInformation, &v120, 0x10uLL);
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 16);
+              RtlWriteULongToUser(ReturnLength, 16);
             else
-              *a5 = 16;
+              *ReturnLength = 16;
           }
           return v41;
-        case 38:
+        case ThreadNameInformation:
           v89 = 0;
           v88 = 0;
           v91 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  2048LL,
-                  PsThreadType,
+                  2048,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
@@ -1010,11 +1017,11 @@ LABEL_103:
             }
             else
             {
-              v38 = (WCHAR *)&word_140B814F0;
+              v38 = (WCHAR *)&word_140B8A320;
             }
             v39 = (unsigned __int16)v8 + 16;
             LODWORD(CycleTimeStamp) = v39;
-            if ( v39 > a4 )
+            if ( v39 > ThreadInformationLength )
             {
               LODWORD(v8) = -1073741789;
               v91 = -1073741789;
@@ -1022,49 +1029,49 @@ LABEL_103:
             else
             {
               Src = 0LL;
-              v40 = a3 + 2;
+              v40 = (char *)ThreadInformation + 16;
               if ( PreviousMode )
                 RtlCopyToUser(v40, v38, (unsigned __int16)v8);
               else
                 RtlCopyVolatileMemory(v40, v38, (unsigned __int16)v8);
               Src.m128i_i16[0] = v8;
               Src.m128i_i16[1] = v8;
-              Src.m128i_i64[1] = (__int64)(a3 + 2);
+              Src.m128i_i64[1] = (__int64)ThreadInformation + 16;
               v116 = Src;
               if ( PreviousMode )
               {
                 v103 = Src;
-                RtlWriteULongToUser(a3, _mm_cvtsi128_si32(Src));
-                RtlWriteULong64ToUser(a3 + 1, (__int64)(a3 + 2));
+                RtlWriteULongToUser(ThreadInformation, _mm_cvtsi128_si32(Src));
+                RtlWriteULong64ToUser((_QWORD *)ThreadInformation + 1, (__int64)ThreadInformation + 16);
               }
               else
               {
-                *(_DWORD *)a3 = Src.m128i_i32[0];
-                a3[1] = a3 + 2;
+                *(_DWORD *)ThreadInformation = Src.m128i_i32[0];
+                *((_QWORD *)ThreadInformation + 1) = (char *)ThreadInformation + 16;
               }
               v39 = CycleTimeStamp;
               LODWORD(v8) = v91;
             }
-            if ( a5 )
+            if ( ReturnLength )
             {
               if ( PreviousMode )
-                RtlWriteULongToUser(a5, v39);
+                RtlWriteULongToUser(ReturnLength, v39);
               else
-                *a5 = v39;
+                *ReturnLength = v39;
             }
           }
           if ( v88 )
             PspUnlockThreadSecurityShared((__int64)v25, CurrentThread);
           if ( !v89 )
-            return (unsigned int)v8;
+            return v8;
           goto LABEL_103;
-        case 39:
-          if ( (a4 & 7) != 0 || a4 > 0x100 )
-            return 3221225476LL;
+        case ThreadSelectedCpuSets:
+          if ( (ThreadInformationLength & 7) != 0 || ThreadInformationLength > 0x100 )
+            return -1073741820;
           v81 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  2048LL,
-                  PsThreadType,
+                  2048,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
@@ -1074,38 +1081,38 @@ LABEL_103:
           {
             v82 = 8 * KeQueryCpuSetsThread((__int64)Thread, (char *)&v129, v80);
             ObfDereferenceObjectWithTag(Thread, 0x79517350u);
-            if ( a5 )
+            if ( ReturnLength )
             {
               if ( PreviousMode )
-                RtlWriteULongToUser(a5, v82);
+                RtlWriteULongToUser(ReturnLength, v82);
               else
-                *a5 = v82;
+                *ReturnLength = v82;
             }
-            if ( v82 >= a4 )
-              v82 = a4;
+            if ( v82 >= ThreadInformationLength )
+              v82 = ThreadInformationLength;
             if ( PreviousMode )
-              RtlCopyToUser(a3, &v129, v82);
+              RtlCopyToUser(ThreadInformation, &v129, v82);
             else
-              RtlCopyVolatileMemory(a3, &v129, v82);
+              RtlCopyVolatileMemory(ThreadInformation, &v129, v82);
           }
-          return (unsigned int)v81;
-        case 40:
-          if ( a4 != 80 )
-            return 3221225476LL;
+          return v81;
+        case ThreadSystemThreadInformation:
+          if ( ThreadInformationLength != 80 )
+            return -1073741820;
           v107 = 0;
           v109 = 0uLL;
           v115 = 0;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v74 = result;
-          if ( (int)result >= 0 )
+          if ( result >= 0 )
           {
             v75 = Thread;
             KeQueryValuesThread((__int64)Thread, (__int64)&v104);
@@ -1115,8 +1122,8 @@ LABEL_103:
             v111 = SBYTE11(v104);
             v110 = SBYTE10(v104);
             v106 = v104;
-            v105[0] = (unsigned int)KeMaximumIncrement * (unsigned __int64)v75->SchedulerApc.SpareLong0;
-            v105[1] = (unsigned int)KeMaximumIncrement * (unsigned __int64)v75->UserTime;
+            v105[0] = KeMaximumIncrement * (unsigned __int64)v75->SchedulerApc.SpareLong0;
+            v105[1] = KeMaximumIncrement * (unsigned __int64)v75->UserTime;
             v105[2] = *(_QWORD *)&v75[1].Header.Lock;
             SpareLong = v75->WaitBlock[0].SpareLong;
             v109 = *(_OWORD *)&v75[1].CycleTime;
@@ -1124,131 +1131,131 @@ LABEL_103:
               v8 = ThreadStartAddress;
             v108 = v8;
             if ( PreviousMode )
-              RtlCopyToUser(a3, v105, 0x50uLL);
+              RtlCopyToUser(ThreadInformation, v105, 0x50uLL);
             else
-              RtlCopyVolatileMemory(a3, v105, 0x50uLL);
-            if ( a5 )
+              RtlCopyVolatileMemory(ThreadInformation, v105, 0x50uLL);
+            if ( ReturnLength )
             {
               if ( PreviousMode )
-                RtlWriteULongToUser(a5, 80);
+                RtlWriteULongToUser(ReturnLength, 80);
               else
-                *a5 = 80;
+                *ReturnLength = 80;
             }
             ObfDereferenceObjectWithTag(v75, 0x79517350u);
             return v74;
           }
           return result;
-        case 41:
-          if ( a4 != 16 )
-            return 3221225476LL;
+        case ThreadActualGroupAffinity:
+          if ( ThreadInformationLength != 16 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v41 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v77 = Thread;
           KeQueryPrimaryGroupAffinityThread((__int64)Thread, (__int64)&v119);
           if ( PreviousMode )
-            RtlCopyToUser(a3, &v119, 0x10uLL);
+            RtlCopyToUser(ThreadInformation, &v119, 0x10uLL);
           else
-            RtlCopyVolatileMemory(a3, &v119, 0x10uLL);
-          if ( a5 )
+            RtlCopyVolatileMemory(ThreadInformation, &v119, 0x10uLL);
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 16);
+              RtlWriteULongToUser(ReturnLength, 16);
             else
-              *a5 = 16;
+              *ReturnLength = 16;
           }
 LABEL_378:
           ObfDereferenceObjectWithTag(v77, 0x79517350u);
           return v41;
-        case 42:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadDynamicCodePolicyInfo:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v27 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v28 = Thread;
           if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 0x40000) != 0 )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a3, 1);
+              RtlWriteULongToUser(ThreadInformation, 1);
             else
-              *(_DWORD *)a3 = 1;
+              *(_DWORD *)ThreadInformation = 1;
           }
           else if ( PreviousMode )
           {
-            RtlWriteULongToUser(a3, 0);
+            RtlWriteULongToUser(ThreadInformation, 0);
           }
           else
           {
-            *(_DWORD *)a3 = 0;
+            *(_DWORD *)ThreadInformation = 0;
           }
-          if ( !a5 )
+          if ( !ReturnLength )
             goto LABEL_113;
           if ( PreviousMode )
             goto LABEL_286;
-          *a5 = 4;
+          *ReturnLength = 4;
           goto LABEL_113;
-        case 43:
-          if ( a4 != 4 )
-            return 3221225476LL;
+        case ThreadExplicitCaseSensitivity:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v27 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v28 = Thread;
           if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 0x80000) != 0 )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a3, 1);
+              RtlWriteULongToUser(ThreadInformation, 1);
             else
-              *(_DWORD *)a3 = 1;
+              *(_DWORD *)ThreadInformation = 1;
           }
           else if ( PreviousMode )
           {
-            RtlWriteULongToUser(a3, 0);
+            RtlWriteULongToUser(ThreadInformation, 0);
           }
           else
           {
-            *(_DWORD *)a3 = 0;
+            *(_DWORD *)ThreadInformation = 0;
           }
-          if ( !a5 )
+          if ( !ReturnLength )
             goto LABEL_113;
           if ( PreviousMode )
 LABEL_286:
-            RtlWriteULongToUser(a5, 4);
+            RtlWriteULongToUser(ReturnLength, 4);
           else
-            *a5 = 4;
+            *ReturnLength = 4;
           goto LABEL_113;
-        case 44:
+        case ThreadWorkOnBehalfTicket:
           LODWORD(CycleTimeStamp) = 0;
-          if ( a4 != 16 )
-            return 3221225476LL;
+          if ( ThreadInformationLength != 16 )
+            return -1073741820;
           if ( BugCheckParameter1 != -2LL )
             goto LABEL_332;
           Src = 0LL;
@@ -1265,98 +1272,98 @@ LABEL_286:
             Src.m128i_i32[2] |= 1u;
           }
           if ( PreviousMode )
-            RtlCopyToUser(a3, &Src, 0x10uLL);
+            RtlCopyToUser(ThreadInformation, &Src, 0x10uLL);
           else
-            RtlCopyVolatileMemory(a3, &Src, 0x10uLL);
-          if ( a5 )
+            RtlCopyVolatileMemory(ThreadInformation, &Src, 0x10uLL);
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 16);
+              RtlWriteULongToUser(ReturnLength, 16);
             else
-              *a5 = 16;
+              *ReturnLength = 16;
           }
-          return 0LL;
-        case 45:
-          if ( a4 != 4 )
-            return 3221225476LL;
+          return 0;
+        case ThreadSubsystemInformation:
+          if ( ThreadInformationLength != 4 )
+            return -1073741820;
           result = ObpReferenceObjectByHandleWithTag(
                      BugCheckParameter1,
-                     2048LL,
-                     PsThreadType,
+                     2048,
+                     (__int64)PsThreadType,
                      PreviousMode,
                      0x79517350u,
                      &Thread,
                      0LL,
                      0LL);
           v72 = result;
-          if ( (int)result < 0 )
+          if ( result < 0 )
             return result;
           v73 = Thread;
           if ( *(_QWORD *)&Thread[1].WaitBlockFill11[112] )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a3, qword_140F0A070);
+              RtlWriteULongToUser(ThreadInformation, PsAltSystemCallRegistrationLock.SystemCallNumber);
             else
-              *(_DWORD *)a3 = qword_140F0A070;
+              *(_DWORD *)ThreadInformation = PsAltSystemCallRegistrationLock.SystemCallNumber;
           }
           else if ( PreviousMode )
           {
-            RtlWriteULongToUser(a3, 0);
+            RtlWriteULongToUser(ThreadInformation, 0);
           }
           else
           {
-            *(_DWORD *)a3 = 0;
+            *(_DWORD *)ThreadInformation = 0;
           }
-          if ( a5 )
+          if ( ReturnLength )
           {
             if ( PreviousMode )
-              RtlWriteULongToUser(a5, 4);
+              RtlWriteULongToUser(ReturnLength, 4);
             else
-              *a5 = 4;
+              *ReturnLength = 4;
           }
 LABEL_346:
           ObfDereferenceObjectWithTag(v73, 0x79517350u);
           return v72;
-        case 49:
-          if ( a4 < 4 )
+        case ThreadPowerThrottlingState:
+          if ( ThreadInformationLength < 4 )
           {
-            if ( a5 )
+            if ( ReturnLength )
             {
               if ( PreviousMode )
-                RtlWriteULongToUser(a5, 12);
+                RtlWriteULongToUser(ReturnLength, 12);
               else
-                *a5 = 12;
+                *ReturnLength = 12;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
           else
           {
             if ( PreviousMode )
-              RtlCopyFromUser(v117, a3, 0xCuLL);
+              RtlCopyFromUser(v117, ThreadInformation, 0xCuLL);
             else
-              RtlCopyVolatileMemory(v117, a3, 0xCuLL);
+              RtlCopyVolatileMemory(v117, ThreadInformation, 0xCuLL);
             if ( LODWORD(v117[0]) == 1 )
             {
-              if ( a5 )
+              if ( ReturnLength )
               {
                 if ( PreviousMode )
-                  RtlWriteULongToUser(a5, 12);
+                  RtlWriteULongToUser(ReturnLength, 12);
                 else
-                  *a5 = 12;
+                  *ReturnLength = 12;
               }
-              if ( a4 == 12 )
+              if ( ThreadInformationLength == 12 )
               {
                 result = ObpReferenceObjectByHandleWithTag(
                            BugCheckParameter1,
-                           64LL,
-                           PsThreadType,
+                           64,
+                           (__int64)PsThreadType,
                            PreviousMode,
                            0x79517350u,
                            &Thread,
                            0LL,
                            0LL);
                 v30 = result;
-                if ( (int)result >= 0 )
+                if ( result >= 0 )
                 {
                   v31 = Thread;
                   ThreadPpmPolicy = PspGetThreadPpmPolicy(Thread);
@@ -1383,9 +1390,9 @@ LABEL_346:
                       *(_QWORD *)((char *)v117 + 4) = 0LL;
                     }
                     if ( PreviousMode )
-                      RtlCopyToUser(a3, v117, 0xCuLL);
+                      RtlCopyToUser(ThreadInformation, v117, 0xCuLL);
                     else
-                      RtlCopyVolatileMemory(a3, v117, 0xCuLL);
+                      RtlCopyVolatileMemory(ThreadInformation, v117, 0xCuLL);
                     v30 = 0;
                     v91 = 0;
                   }
@@ -1395,22 +1402,22 @@ LABEL_346:
               }
               else
               {
-                return 3221225476LL;
+                return -1073741820;
               }
             }
             else
             {
-              return 3221225485LL;
+              return -1073741811;
             }
           }
           return result;
-        case 57:
-          if ( a4 != 8 )
-            return 3221225476LL;
+        case ThreadSchedulerSharedDataSlot:
+          if ( ThreadInformationLength != 8 )
+            return -1073741820;
           v27 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  64LL,
-                  PsThreadType,
+                  64,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
@@ -1424,22 +1431,22 @@ LABEL_346:
           if ( v27 < 0 )
             goto LABEL_391;
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a3, CycleTimeStamp);
+            RtlWriteULong64ToUser(ThreadInformation, CycleTimeStamp);
           else
-            *a3 = (volatile void *)CycleTimeStamp;
-          if ( !a5 )
+            *(_QWORD *)ThreadInformation = CycleTimeStamp;
+          if ( !ReturnLength )
             goto LABEL_391;
           if ( PreviousMode )
             goto LABEL_388;
-          *a5 = 8;
+          *ReturnLength = 8;
           goto LABEL_391;
-        case 59:
-          if ( a4 != 8 )
-            return 3221225476LL;
+        case ThreadIndexInformation:
+          if ( ThreadInformationLength != 8 )
+            return -1073741820;
           v27 = ObpReferenceObjectByHandleWithTag(
                   BugCheckParameter1,
-                  2048LL,
-                  PsThreadType,
+                  2048,
+                  (__int64)PsThreadType,
                   PreviousMode,
                   0x79517350u,
                   &Thread,
@@ -1454,42 +1461,42 @@ LABEL_346:
           if ( v27 < 0 )
             goto LABEL_391;
           if ( PreviousMode )
-            RtlWriteULongToUser(a3, BugCheckParameter1);
+            RtlWriteULongToUser(ThreadInformation, BugCheckParameter1);
           else
-            *(_DWORD *)a3 = BugCheckParameter1;
+            *(_DWORD *)ThreadInformation = BugCheckParameter1;
           if ( PreviousMode )
-            RtlWriteULongToUser((_DWORD *)a3 + 1, CycleTimeStamp);
+            RtlWriteULongToUser((_DWORD *)ThreadInformation + 1, CycleTimeStamp);
           else
-            *((_DWORD *)a3 + 1) = CycleTimeStamp;
-          if ( !a5 )
+            *((_DWORD *)ThreadInformation + 1) = CycleTimeStamp;
+          if ( !ReturnLength )
             goto LABEL_391;
           if ( PreviousMode )
 LABEL_388:
-            RtlWriteULongToUser(a5, 8);
+            RtlWriteULongToUser(ReturnLength, 8);
           else
-            *a5 = 8;
+            *ReturnLength = 8;
 LABEL_391:
           if ( v28 )
 LABEL_113:
             ObfDereferenceObjectWithTag(v28, 0x79517350u);
           goto LABEL_114;
         default:
-          return 3221225475LL;
+          return -1073741821;
       }
       return result;
     }
-    if ( a4 == 48 )
+    if ( ThreadInformationLength == 48 )
     {
       result = ObpReferenceObjectByHandleWithTag(
                  BugCheckParameter1,
-                 2048LL,
-                 PsThreadType,
+                 2048,
+                 (__int64)PsThreadType,
                  PreviousMode,
                  0x79517350u,
                  &Thread,
                  0LL,
                  0LL);
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
         v18 = Thread;
         if ( (unsigned __int8)Thread->Header.SignalState )
@@ -1515,24 +1522,24 @@ LABEL_113:
         BasePriorityThread = KeQueryBasePriorityThread((__int64)v18, v19, v20);
         ObfDereferenceObjectWithTag(v18, 0x79517350u);
         if ( PreviousMode )
-          RtlCopyToUser(a3, &ThreadExitStatus, 0x30uLL);
+          RtlCopyToUser(ThreadInformation, &ThreadExitStatus, 0x30uLL);
         else
-          RtlCopyVolatileMemory(a3, &ThreadExitStatus, 0x30uLL);
-        if ( a5 )
+          RtlCopyVolatileMemory(ThreadInformation, &ThreadExitStatus, 0x30uLL);
+        if ( ReturnLength )
         {
           if ( PreviousMode )
-            RtlWriteULongToUser(a5, 48);
+            RtlWriteULongToUser(ReturnLength, 48);
           else
-            *a5 = 48;
+            *ReturnLength = 48;
         }
-        return 0LL;
+        return 0;
       }
       return result;
     }
-    return 3221225476LL;
+    return -1073741820;
   }
-  if ( a4 != 16 )
-    return 3221225476LL;
+  if ( ThreadInformationLength != 16 )
+    return -1073741820;
   v13 = BugCheckParameter1;
   if ( BugCheckParameter1 == -2LL )
   {
@@ -1542,33 +1549,33 @@ LABEL_113:
   {
     result = ObpReferenceObjectByHandleWithTag(
                BugCheckParameter1,
-               2048LL,
-               PsThreadType,
+               2048,
+               (__int64)PsThreadType,
                PreviousMode,
                0x79517350u,
                &Thread,
                0LL,
                0LL);
     LODWORD(v8) = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     CurrentThread = Thread;
   }
   v14 = KeQueryTotalCycleTimeThread(CurrentThread, &CycleTimeStamp);
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a3, v14);
+    RtlWriteULong64ToUser(ThreadInformation, v14);
   else
-    *a3 = (volatile void *)v14;
+    *(_QWORD *)ThreadInformation = v14;
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a3 + 1, CycleTimeStamp);
+    RtlWriteULong64ToUser((_QWORD *)ThreadInformation + 1, CycleTimeStamp);
   else
-    a3[1] = (volatile void *)CycleTimeStamp;
-  if ( a5 )
+    *((_QWORD *)ThreadInformation + 1) = CycleTimeStamp;
+  if ( ReturnLength )
   {
     if ( PreviousMode )
-      RtlWriteULongToUser(a5, 16);
+      RtlWriteULongToUser(ReturnLength, 16);
     else
-      *a5 = 16;
+      *ReturnLength = 16;
   }
   if ( v13 != -2LL )
   {
@@ -1576,5 +1583,5 @@ LABEL_113:
 LABEL_29:
     ObfDereferenceObjectWithTag(v15, 0x79517350u);
   }
-  return (unsigned int)v8;
+  return v8;
 }

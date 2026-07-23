@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpFtFeatureConfigChangeCallback @ 0x180145EF0
+ * XREFs of RtlpFtFeatureConfigChangeCallback @ 0x1801442A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlpFtFeatureConfigChangeCallback()
+void __fastcall RtlpFtFeatureConfigChangeCallback(PVOID a1)
 {
-  return _FT_token_increment();
+  _FT_token_increment(a1);
 }

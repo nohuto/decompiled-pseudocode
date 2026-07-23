@@ -1,22 +1,22 @@
 /*
- * XREFs of AnFwpFadeAnimationTimer @ 0x140BB2F50
+ * XREFs of AnFwpFadeAnimationTimer @ 0x140BB4F50
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     BgpGxDrawRectangle @ 0x140481E44 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x1404822C8 (BgpGetBitsPerPixel.c)
- *     BgpFwReleaseLock @ 0x1404A9ACC (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1404A9CA4 (BgpFwAcquireLock.c)
- *     BgpFwQueryPerformanceCounter @ 0x1404B67D4 (BgpFwQueryPerformanceCounter.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     BgpGxDrawRectangle @ 0x14047D084 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14047D508 (BgpGetBitsPerPixel.c)
+ *     BgpFwReleaseLock @ 0x1404A3D9C (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404A3F74 (BgpFwAcquireLock.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404B0FB4 (BgpFwQueryPerformanceCounter.c)
  */
 
 void __fastcall AnFwpFadeAnimationTimer(
         struct _KDPC *Dpc,
-        PVOID DeferredContext,
-        PVOID SystemArgument1,
-        PVOID SystemArgument2)
+        __int64 DeferredContext,
+        __int64 SystemArgument1,
+        __int64 SystemArgument2)
 {
   int v4; // ebx
   __int64 v5; // rdx
@@ -92,34 +92,34 @@ void __fastcall AnFwpFadeAnimationTimer(
 
   v4 = 0;
   v73 = 0LL;
-  BgpFwAcquireLock();
-  if ( byte_140EEFAD8 )
+  BgpFwAcquireLock((__int64)Dpc, DeferredContext, SystemArgument1, SystemArgument2);
+  if ( byte_140EEFD20 )
   {
-    qword_140EEFB40 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    qword_140E65010 = qword_140EEFB40;
+    qword_140EEFDD8 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
+    qword_140E65190 = qword_140EEFDD8;
     PerformanceCounter = BgpFwQueryPerformanceCounter(0LL);
-    v8 = qword_140E0EE88;
-    v9 = byte_140E0EE40;
-    v10 = byte_140E0EE41;
-    v11 = byte_140E0EE42;
-    v12 = qword_140E0EEB8;
-    qword_140EEFB40 = PerformanceCounter.QuadPart;
-    qword_140E65000 = PerformanceCounter.QuadPart;
-    v73 = qword_140E0EE38;
-    v70 = dword_140E0EE34;
-    v71 = (int *)qword_140E0EE78;
-    v74.QuadPart = qword_140E0EE88;
-    v72 = qword_140E0EEC0;
-    v13 = 10 * (dword_140E0EE30 - dword_140E0EE30 / (unsigned int)(dword_140EF0054 - dword_140E0EE34));
+    v8 = qword_140E0EF48;
+    v9 = byte_140E0EF00;
+    v10 = byte_140E0EF01;
+    v11 = byte_140E0EF02;
+    v12 = qword_140E0EF78;
+    qword_140EEFDD8 = PerformanceCounter.QuadPart;
+    qword_140E65180 = PerformanceCounter.QuadPart;
+    v73 = qword_140E0EEF8;
+    v70 = dword_140E0EEF4;
+    v71 = (int *)qword_140E0EF38;
+    v74.QuadPart = qword_140E0EF48;
+    v72 = qword_140E0EF80;
+    v13 = 10 * (dword_140E0EEF0 - dword_140E0EEF0 / (unsigned int)(dword_140EF0274 - dword_140E0EEF4));
     if ( (unsigned int)BgpGetBitsPerPixel() == 24 )
     {
       v17 = 0;
       if ( !v11 )
       {
-        v54 = qword_140E0EE80;
+        v54 = qword_140E0EF40;
         v55 = 0;
         v56 = *(_QWORD *)(v8 + 24);
-        for ( i = *(_QWORD *)(qword_140E0EE80 + 24); v55 < *(_DWORD *)(v54 + 12); ++v55 )
+        for ( i = *(_QWORD *)(qword_140E0EF40 + 24); v55 < *(_DWORD *)(v54 + 12); ++v55 )
         {
           v58 = *(unsigned __int8 *)(v55 + i);
           if ( (_BYTE)v58 )
@@ -172,10 +172,10 @@ void __fastcall AnFwpFadeAnimationTimer(
       v17 = 0;
       if ( !v11 )
       {
-        v43 = qword_140E0EE80;
+        v43 = qword_140E0EF40;
         v44 = 0LL;
         v45 = *(_QWORD *)(v8 + 24);
-        for ( m = *(_QWORD *)(qword_140E0EE80 + 24);
+        for ( m = *(_QWORD *)(qword_140E0EF40 + 24);
               (unsigned int)v44 < *(_DWORD *)(v43 + 12);
               v44 = (unsigned int)(v44 + 4) )
         {
@@ -264,12 +264,12 @@ void __fastcall AnFwpFadeAnimationTimer(
         }
       }
     }
-    qword_140EEFB40 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    v30 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E65000;
-    qword_140EEFB78 += v30;
-    qword_140EEFB88 = v30;
-    qword_140EEFB40 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    qword_140E64FF8 = qword_140EEFB40;
+    qword_140EEFDD8 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
+    v30 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E65180;
+    qword_140EEFD78 += v30;
+    qword_140EEFD80 = v30;
+    qword_140EEFDD8 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
+    qword_140E65178 = qword_140EEFDD8;
     if ( !v11 )
     {
       BgpGxDrawRectangle((int *)v74.QuadPart, (__int64)&v73);
@@ -277,42 +277,42 @@ void __fastcall AnFwpFadeAnimationTimer(
     }
     if ( !v9 )
     {
-      if ( !v70 && !v18 || (BgpGxDrawRectangle(v71, (__int64)&xmmword_140E0EE50), !v18) )
+      if ( !v70 && !v18 || (BgpGxDrawRectangle(v71, (__int64)&xmmword_140E0EF10), !v18) )
         v9 = 1;
     }
     if ( !v10 )
     {
-      if ( !v70 && !v4 || (BgpGxDrawRectangle((int *)v72, (__int64)&xmmword_140E0EE90), !v4) )
+      if ( !v70 && !v4 || (BgpGxDrawRectangle((int *)v72, (__int64)&xmmword_140E0EF50), !v4) )
         v10 = 1;
     }
-    qword_140EEFB40 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    v31 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64FF8;
-    qword_140EEFB70 += v31;
-    qword_140EEFB88 = v31;
-    qword_140EEFB40 = BgpFwQueryPerformanceCounter(&v74).QuadPart;
-    v32.QuadPart = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E65010;
-    qword_140EEFB88 = v32.QuadPart;
-    if ( v32.QuadPart < qword_140E0F078 )
-      qword_140E0F078 = v32.QuadPart;
-    if ( v32.QuadPart > qword_140EEFB58 )
-      qword_140EEFB58 = v32.QuadPart;
-    qword_140EEFB20 += v32.QuadPart;
-    qword_140EEFB38 += v32.QuadPart;
-    ++dword_140EEFB50;
+    qword_140EEFDD8 = BgpFwQueryPerformanceCounter(0LL).QuadPart;
+    v31 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E65178;
+    qword_140EEFD70 += v31;
+    qword_140EEFD80 = v31;
+    qword_140EEFDD8 = BgpFwQueryPerformanceCounter(&v74).QuadPart;
+    v32.QuadPart = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E65190;
+    qword_140EEFD80 = v32.QuadPart;
+    if ( v32.QuadPart < qword_140E0F150 )
+      qword_140E0F150 = v32.QuadPart;
+    if ( v32.QuadPart > qword_140EEFD50 )
+      qword_140EEFD50 = v32.QuadPart;
+    qword_140EEFDC8 += v32.QuadPart;
+    qword_140EEFDE0 += v32.QuadPart;
+    ++dword_140EEFD58;
     if ( v17 || v4 || v18 )
     {
-      byte_140E0EE40 = v9;
-      byte_140E0EE41 = v10;
+      byte_140E0EF00 = v9;
+      byte_140E0EF01 = v10;
       v5 = v13 / 0xA;
-      dword_140E0EE30 = v13 / 0xA;
-      dword_140E0EE34 = v70 + 1;
-      byte_140E0EE42 = v11;
+      dword_140E0EEF0 = v13 / 0xA;
+      dword_140E0EEF4 = v70 + 1;
+      byte_140E0EF02 = v11;
     }
     else
     {
-      byte_140EEFAD8 = 0;
-      KeCancelTimer(&stru_140E64F40);
-      KeSetEvent(&stru_140E64FC0, 0, 0);
+      byte_140EEFD20 = 0;
+      KeCancelTimer(&stru_140E650C0);
+      KeSetEvent(&stru_140E65140, 0, 0);
     }
   }
   BgpFwReleaseLock(v6, v5);

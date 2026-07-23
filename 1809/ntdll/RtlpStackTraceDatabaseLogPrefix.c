@@ -4,11 +4,11 @@
  *     RtlpCallInterceptRoutine @ 0x1800F2E74 (RtlpCallInterceptRoutine.c)
  * Callees:
  *     RtlCaptureStackBackTrace @ 0x180003790 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlpRegisterStackTrace @ 0x1801069E4 (RtlpRegisterStackTrace.c)
  */
 
-__int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsigned int a3, signed __int64 *a4)
+__int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsigned int a3, char **a4)
 {
   USHORT v5; // ax
   ULONG BackTraceHash[4]; // [rsp+20h] [rbp-128h] BYREF
@@ -16,7 +16,7 @@ __int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsig
 
   if ( a3 == 1 )
   {
-    *a4 = 16LL;
+    *a4 = (char *)16;
   }
   else if ( a3 > 1 && (a3 <= 3 || a3 - 5 <= 1) )
   {

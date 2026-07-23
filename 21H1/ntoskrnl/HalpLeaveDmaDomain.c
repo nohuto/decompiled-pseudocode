@@ -28,7 +28,7 @@ __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)
   unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
-  unsigned __int64 v10; // rsi
+  __int64 v10; // rsi
   int v11; // eax
   unsigned int v12; // ecx
   __int64 v13; // rdx
@@ -41,7 +41,7 @@ __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)
   unsigned __int8 v20; // r15
   unsigned int v21; // r8d
   __int64 v22; // rcx
-  unsigned __int64 v23; // rsi
+  __int64 v23; // rsi
   int v24; // eax
   unsigned int v25; // ecx
   __int64 v26; // rdx
@@ -82,7 +82,7 @@ __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)
       v38 = v22;
       if ( v8 )
         break;
-      v23 = (unsigned __int64)&CurrentThread->LockEntries[v22];
+      v23 = (__int64)&CurrentThread->LockEntries[v22];
       v21 &= ~(1 << v22);
       if ( (*(_BYTE *)(v23 + 26) & 1) != 0
         && (*(_DWORD *)(v23 + 32) & 1) == 0
@@ -96,14 +96,14 @@ __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)
           {
             *(_BYTE *)(v23 + 32) |= 2u;
             if ( *(__int64 *)(v23 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v23);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
             v24 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
             v25 = *(_DWORD *)(v23 + 88) & 0xFFFE0000;
             *(_BYTE *)(v23 + 25) &= ~1u;
             v34 = v24;
             *(_DWORD *)(v23 + 88) = v25;
             *(_QWORD *)(v23 + 32) = 0LL;
-            v26 = (__int64)(v23 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+            v26 = (signed __int64)(v23 - (unsigned __int64)CurrentThread->LockEntries) / 96;
             if ( v20 == 1 )
               CurrentThread->AbEntrySummary |= 1 << v26;
             else
@@ -142,7 +142,7 @@ LABEL_45:
       v8 = !_BitScanReverse((unsigned int *)&v9, v7);
       if ( v8 )
         break;
-      v10 = (unsigned __int64)&v5->LockEntries[v9];
+      v10 = (__int64)&v5->LockEntries[v9];
       v7 &= ~(1 << v9);
       if ( (*(_BYTE *)(v10 + 26) & 1) != 0
         && (*(_DWORD *)(v10 + 32) & 1) == 0
@@ -156,14 +156,14 @@ LABEL_45:
           {
             *(_BYTE *)(v10 + 32) |= 2u;
             if ( *(__int64 *)(v10 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v10);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
             v11 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
             v12 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
             *(_BYTE *)(v10 + 25) &= ~1u;
             v37 = v11;
             *(_DWORD *)(v10 + 88) = v12;
             *(_QWORD *)(v10 + 32) = 0LL;
-            v13 = (__int64)(v10 - (unsigned __int64)v5->LockEntries) / 96;
+            v13 = (signed __int64)(v10 - (unsigned __int64)v5->LockEntries) / 96;
             if ( v36 == 1 )
               v5->AbEntrySummary |= 1 << v13;
             else

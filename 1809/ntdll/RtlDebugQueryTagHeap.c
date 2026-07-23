@@ -12,27 +12,32 @@
  *     RtlpHeapExceptionFilter @ 0x18010C5C8 (RtlpHeapExceptionFilter.c)
  */
 
-void *__fastcall RtlDebugQueryTagHeap(__int64 a1, int a2, unsigned __int16 a3, char a4, __int64 a5)
+PWSTR __fastcall RtlDebugQueryTagHeap(
+        PRTL_CRITICAL_SECTION *HeapHandle,
+        int a2,
+        USHORT a3,
+        BOOLEAN a4,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
   char v9; // si
-  void *TagHeap; // r14
-  int v11; // ebx
+  PWSTR TagHeap; // r14
+  ULONG v11; // ebx
 
   v9 = 0;
   TagHeap = 0LL;
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlQueryTagHeap") )
+  if ( RtlpCheckHeapSignature(HeapHandle, "RtlQueryTagHeap") )
   {
-    v11 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v11 = *((_DWORD *)HeapHandle + 29) | 0x10000000 | a2;
     if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(HeapHandle[44]);
       v9 = 1;
       v11 |= 1u;
     }
-    if ( (unsigned __int8)RtlpValidateHeap(a1, 0LL) )
-      TagHeap = RtlQueryTagHeap(a1, v11, a3, a4, a5);
+    if ( (unsigned __int8)RtlpValidateHeap(HeapHandle) )
+      TagHeap = RtlQueryTagHeap(HeapHandle, v11, a3, a4, TagInfo);
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(HeapHandle[44]);
   return TagHeap;
 }

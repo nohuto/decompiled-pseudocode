@@ -5,7 +5,7 @@
  *     RtlpHpSegVsAllocate @ 0x180080D30 (RtlpHpSegVsAllocate.c)
  * Callees:
  *     RtlpHpSegAlloc @ 0x180034D48 (RtlpHpSegAlloc.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x180123DA0 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x180123D70 (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
 __int64 __fastcall RtlpHpSegSubAllocate(__int64 a1, unsigned int a2, int a3, _DWORD *a4, _DWORD *a5)

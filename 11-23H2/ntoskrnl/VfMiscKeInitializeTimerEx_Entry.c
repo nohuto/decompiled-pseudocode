@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscKeInitializeTimerEx_Entry @ 0x140ADFED0
+ * XREFs of VfMiscKeInitializeTimerEx_Entry @ 0x140ADFEC0
  * Callers:
  *     <none>
  * Callees:
- *     KeCheckForTimer @ 0x140570AEC (KeCheckForTimer.c)
- *     ViMiscValidateSynchronizationObject @ 0x140AE1730 (ViMiscValidateSynchronizationObject.c)
+ *     KeCheckForTimer @ 0x14057102C (KeCheckForTimer.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140AE1720 (ViMiscValidateSynchronizationObject.c)
  */
 
 ULONG __fastcall VfMiscKeInitializeTimerEx_Entry(__int64 a1)

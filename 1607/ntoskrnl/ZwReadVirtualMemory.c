@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwReadVirtualMemory @ 0x14015A460
+ * XREFs of ZwReadVirtualMemory @ 0x14015A9D0
  * Callers:
- *     MmCopyMemory @ 0x1401E51D4 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1401E5000 (MmCopyMemory.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwReadVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, Buffer);
+  return KiServiceInternal(ProcessHandle);
 }

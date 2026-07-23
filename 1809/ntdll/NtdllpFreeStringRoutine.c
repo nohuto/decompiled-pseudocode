@@ -27,10 +27,10 @@
  *     LdrpMapDllSearchPath @ 0x180071120 (LdrpMapDllSearchPath.c)
  *     LdrpFreeUnicodeString @ 0x1800713F4 (LdrpFreeUnicodeString.c)
  *     LdrpMapDllRetry @ 0x180071958 (LdrpMapDllRetry.c)
- *     RtlpEnsureBufferSize @ 0x180075A30 (RtlpEnsureBufferSize.c)
- *     RtlDowncaseUnicodeString @ 0x180078210 (RtlDowncaseUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x18007E1C0 (RtlDuplicateUnicodeString.c)
- *     RtlFreeOemString @ 0x18008D4E0 (RtlFreeOemString.c)
+ *     RtlpEnsureBufferSize @ 0x180075A40 (RtlpEnsureBufferSize.c)
+ *     RtlDowncaseUnicodeString @ 0x180078220 (RtlDowncaseUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x18007E1D0 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeOemString @ 0x18008D4F0 (RtlFreeOemString.c)
  *     LdrpEnclaveAddDependentModule @ 0x1800CF448 (LdrpEnclaveAddDependentModule.c)
  *     LdrpGetProcApphelpCheckModule @ 0x1800D28CC (LdrpGetProcApphelpCheckModule.c)
  *     LdrpAddRedirectedFunction @ 0x1800D7210 (LdrpAddRedirectedFunction.c)
@@ -42,7 +42,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtdllpFreeStringRoutine(__int64 a1)
+LOGICAL __fastcall NtdllpFreeStringRoutine(void *a1)
 {
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

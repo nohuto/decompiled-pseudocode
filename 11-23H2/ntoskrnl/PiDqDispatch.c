@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDqDispatch @ 0x1407F8E60
+ * XREFs of PiDqDispatch @ 0x1407F9130
  * Callers:
- *     PiDaDispatch @ 0x1407BC540 (PiDaDispatch.c)
+ *     PiDaDispatch @ 0x1407BC810 (PiDaDispatch.c)
  * Callees:
- *     IoIs32bitProcess @ 0x14022BA20 (IoIs32bitProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     wcscmp @ 0x1403DB950 (wcscmp.c)
- *     PiDqQueryRelease @ 0x14078722C (PiDqQueryRelease.c)
- *     PiDqQueryCreate @ 0x1407F9084 (PiDqQueryCreate.c)
- *     PiDqIrpQueryCreate @ 0x1407F9148 (PiDqIrpQueryCreate.c)
- *     PiDqQueryGetObjectManager @ 0x1407F9F24 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerUnregisterQuery @ 0x1407FB0EC (PiDqObjectManagerUnregisterQuery.c)
- *     PiDqIrpQueryGetResult @ 0x1407FB64C (PiDqIrpQueryGetResult.c)
- *     PiDqIrpPropertySet @ 0x1407FFDD4 (PiDqIrpPropertySet.c)
+ *     IoIs32bitProcess @ 0x14022BB30 (IoIs32bitProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     wcscmp @ 0x1403DBB30 (wcscmp.c)
+ *     PiDqQueryRelease @ 0x14078741C (PiDqQueryRelease.c)
+ *     PiDqQueryCreate @ 0x1407F9354 (PiDqQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x1407F9418 (PiDqIrpQueryCreate.c)
+ *     PiDqQueryGetObjectManager @ 0x1407FA1F4 (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x1407FB3BC (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqIrpQueryGetResult @ 0x1407FB91C (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpPropertySet @ 0x1408000A4 (PiDqIrpPropertySet.c)
  */
 
 __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)

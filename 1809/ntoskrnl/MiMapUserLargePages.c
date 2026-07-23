@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapUserLargePages @ 0x14085D558
+ * XREFs of MiMapUserLargePages @ 0x14085E7B8
  * Callers:
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiCopyLargeVad @ 0x14085CD54 (MiCopyLargeVad.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiCopyLargeVad @ 0x14085DFB4 (MiCopyLargeVad.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeLargeZeroPages @ 0x14002891C (MiFreeLargeZeroPages.c)
@@ -12,18 +12,18 @@
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiGetPfnLink @ 0x1400E1060 (MiGetPfnLink.c)
- *     MiGetPdeAddress @ 0x1400EDB64 (MiGetPdeAddress.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1402B9020 (MiInitPerfMemoryFlags.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
- *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
- *     MiInsertLargeUserMapping @ 0x1402C57F0 (MiInsertLargeUserMapping.c)
- *     MiGetCrossPartitionCharges @ 0x1402D1A7C (MiGetCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharges @ 0x1402D24BC (MiReturnCrossPartitionCharges.c)
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiGetPfnLink @ 0x1400E10E0 (MiGetPfnLink.c)
+ *     MiGetPdeAddress @ 0x1400EDBE4 (MiGetPdeAddress.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1402B9210 (MiInitPerfMemoryFlags.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0230 (MiReturnPartitionResidentAvailable.c)
+ *     MiDemotePfnListChain @ 0x1402C55C0 (MiDemotePfnListChain.c)
+ *     MiInsertLargeUserMapping @ 0x1402C59E0 (MiInsertLargeUserMapping.c)
+ *     MiGetCrossPartitionCharges @ 0x1402D1C6C (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x1402D26AC (MiReturnCrossPartitionCharges.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  */
 
 __int64 __fastcall MiMapUserLargePages(__int64 a1, int a2, __int64 a3)
@@ -104,7 +104,7 @@ LABEL_17:
     {
       v9 |= 4u;
       v14 = MmMakeProtectNotWriteCopy[(unsigned __int8)*(_DWORD *)(a1 + 48) >> 3];
-      v15 = (unsigned __int16 *)((char *)qword_14043A050 + 2 * v13 * (unsigned __int16)KeNumberNodes);
+      v15 = (unsigned __int16 *)((char *)qword_14043B110 + 2 * v13 * (unsigned __int16)KeNumberNodes);
       v33 = &v15[(unsigned __int16)KeNumberNodes];
       LargeZeroPages = MiAllocateLargeZeroPages(ProcessPartition, v10, 512LL, v13, v14, (__int64)&v30, 0);
       v17 = v10 - LargeZeroPages;

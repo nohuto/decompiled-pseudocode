@@ -6,9 +6,9 @@
  *     _RtlpQuerySecurityDescriptor@36 @ 0x4B2E6B3E (_RtlpQuerySecurityDescriptor@36.c)
  */
 
-int __stdcall RtlSelfRelativeToAbsoluteSD2(int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlSelfRelativeToAbsoluteSD2(PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor, PULONG BufferSize)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   __int16 v3; // si
   int v4; // ecx
   unsigned int v5; // [esp+0h] [ebp-20h] BYREF
@@ -20,16 +20,16 @@ int __stdcall RtlSelfRelativeToAbsoluteSD2(int a1, _DWORD *a2)
   int v11; // [esp+18h] [ebp-8h] BYREF
   int v12; // [esp+1Ch] [ebp-4h] BYREF
 
-  if ( !a1 )
+  if ( !SelfRelativeSecurityDescriptor )
     return -1073741585;
-  if ( !a2 )
+  if ( !BufferSize )
     return -1073741584;
-  if ( *a2 < 0x14u )
+  if ( *BufferSize < 0x14 )
     return -1073741811;
-  v3 = *(_WORD *)(a1 + 2);
+  v3 = *((_WORD *)SelfRelativeSecurityDescriptor + 1);
   if ( v3 >= 0 )
     return -1073741593;
-  RtlpQuerySecurityDescriptor(a1, &v12, &v5, &v11, &v6, &v9, &v7, &v10, &v8);
+  RtlpQuerySecurityDescriptor((int)SelfRelativeSecurityDescriptor, &v12, &v5, &v11, &v6, &v9, &v7, &v10, &v8);
   *(_DWORD *)(v4 + 4) = v12;
   *(_DWORD *)(v4 + 8) = v11;
   *(_DWORD *)(v4 + 12) = v10;

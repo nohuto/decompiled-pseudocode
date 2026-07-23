@@ -6,23 +6,23 @@
  *     VfDifCaptureIoCallbacks @ 0x140209F20 (VfDifCaptureIoCallbacks.c)
  *     VfDifCaptureDriverEntry @ 0x140209F44 (VfDifCaptureDriverEntry.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     RtlEqualString @ 0x14034C590 (RtlEqualString.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     RtlEqualString @ 0x14034C730 (RtlEqualString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PnpPrepareDriverLoading @ 0x14068F654 (PnpPrepareDriverLoading.c)
  *     KseShimDriverIoCallbacks @ 0x140693D74 (KseShimDriverIoCallbacks.c)
  *     KseDriverLoadImage @ 0x140694730 (KseDriverLoadImage.c)
- *     ObCreateObject @ 0x1406B6350 (ObCreateObject.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObInsertObject @ 0x14076B590 (ObInsertObject.c)
- *     ObMakeTemporaryObject @ 0x1407E0C90 (ObMakeTemporaryObject.c)
- *     IopReadyDeviceObjects @ 0x1407E3494 (IopReadyDeviceObjects.c)
- *     IopOpenRegistryKeyEx @ 0x140811070 (IopOpenRegistryKeyEx.c)
- *     PnpDriverLoadingFailed @ 0x140862C44 (PnpDriverLoadingFailed.c)
+ *     ObCreateObject @ 0x1406B6500 (ObCreateObject.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObInsertObject @ 0x14076B780 (ObInsertObject.c)
+ *     ObMakeTemporaryObject @ 0x1407E0F60 (ObMakeTemporaryObject.c)
+ *     IopReadyDeviceObjects @ 0x1407E3764 (IopReadyDeviceObjects.c)
+ *     IopOpenRegistryKeyEx @ 0x140811340 (IopOpenRegistryKeyEx.c)
+ *     PnpDriverLoadingFailed @ 0x140862E84 (PnpDriverLoadingFailed.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     HdlspKernelAddLogEntry @ 0x140AEAA40 (HdlspKernelAddLogEntry.c)
  *     InbvIndicateProgress @ 0x140B3E018 (InbvIndicateProgress.c)
@@ -37,13 +37,13 @@ __int64 __fastcall IopInitializeBuiltinDriver(
         unsigned __int8 a5,
         char **a6)
 {
-  __int64 v6; // r12
+  void *v6; // r12
   unsigned __int16 *p_Length; // r13
   unsigned __int16 *v10; // r14
   int inserted; // edi
   char *v12; // rbx
   PVOID *v13; // rdi
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   __int64 Pool2; // rax
   unsigned __int16 v16; // cx
   __int64 v17; // rdi
@@ -272,11 +272,11 @@ LABEL_32:
 LABEL_10:
         InbvIndicateProgress();
       }
-      v6 = *(_QWORD *)(a4 + 48);
+      v6 = *(void **)(a4 + 48);
       v14 = RtlImageNtHeader(v6);
       *((_QWORD *)v12 + 3) = v6;
-      *((_DWORD *)v12 + 8) = *(_DWORD *)(v14 + 80);
-      if ( _bittest16((const signed __int16 *)(v14 + 94), 0xDu) )
+      *((_DWORD *)v12 + 8) = v14->OptionalHeader.SizeOfImage;
+      if ( _bittest16((const signed __int16 *)&v14->OptionalHeader.DllCharacteristics, 0xDu) )
         goto LABEL_14;
       goto LABEL_13;
     }

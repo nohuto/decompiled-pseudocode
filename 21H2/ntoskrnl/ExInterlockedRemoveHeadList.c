@@ -1,17 +1,17 @@
 /*
- * XREFs of ExInterlockedRemoveHeadList @ 0x1402A0430
+ * XREFs of ExInterlockedRemoveHeadList @ 0x14021D9B0
  * Callers:
- *     PopFxProcessWorkPool @ 0x140263914 (PopFxProcessWorkPool.c)
- *     WheapWorkQueueWorkerRoutine @ 0x1405BD830 (WheapWorkQueueWorkerRoutine.c)
- *     WmipEventNotification @ 0x140756510 (WmipEventNotification.c)
+ *     PopFxProcessWorkPool @ 0x140284DE8 (PopFxProcessWorkPool.c)
+ *     WheapWorkQueueWorkerRoutine @ 0x1405BDA60 (WheapWorkQueueWorkerRoutine.c)
+ *     WmipEventNotification @ 0x1407566D0 (WmipEventNotification.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1402A04C4 (ExpAcquireSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x14021DA44 (ExpAcquireSpinLockDisabled.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *Flink; // rbx
+  _LIST_ENTRY *Flink; // rbx
   char v5; // bp
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // r8

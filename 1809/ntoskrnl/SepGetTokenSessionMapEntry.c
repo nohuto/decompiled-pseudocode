@@ -1,11 +1,11 @@
 /*
- * XREFs of SepGetTokenSessionMapEntry @ 0x1403008A8
+ * XREFs of SepGetTokenSessionMapEntry @ 0x140300A98
  * Callers:
- *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x14065C0E4 (SepSetTokenLowboxNumber.c)
- *     SepIsParentOfChildAppContainer @ 0x1408A451C (SepIsParentOfChildAppContainer.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1405E0038 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x14065D2A4 (SepSetTokenLowboxNumber.c)
+ *     SepIsParentOfChildAppContainer @ 0x1408A577C (SepIsParentOfChildAppContainer.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepGetTokenSessionMapEntry(int a1, char a2, _QWORD *a3)

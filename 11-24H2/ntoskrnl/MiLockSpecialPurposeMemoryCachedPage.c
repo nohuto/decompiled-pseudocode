@@ -1,34 +1,34 @@
 /*
- * XREFs of MiLockSpecialPurposeMemoryCachedPage @ 0x14023C31C
+ * XREFs of MiLockSpecialPurposeMemoryCachedPage @ 0x140204044
  * Callers:
- *     MiResolveProtoPteFault @ 0x140214BB0 (MiResolveProtoPteFault.c)
- *     MiResolveTransitionFault @ 0x14021A2F0 (MiResolveTransitionFault.c)
- *     MiSetProtectionOnTransitionPte @ 0x1402386B4 (MiSetProtectionOnTransitionPte.c)
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
- *     MiTryDeleteTransitionPte @ 0x14023C7DC (MiTryDeleteTransitionPte.c)
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
- *     MiTryLockLeafPage @ 0x14030245C (MiTryLockLeafPage.c)
- *     MiOutSwapWorkingSetPte @ 0x140302690 (MiOutSwapWorkingSetPte.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiReservePageFileSpaceForPage @ 0x1403687E0 (MiReservePageFileSpaceForPage.c)
- *     MiLockTransitionLeafPageEx @ 0x14036A520 (MiLockTransitionLeafPageEx.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
- *     MiUpdatePrefetchPriority @ 0x1403FE3E8 (MiUpdatePrefetchPriority.c)
- *     MiSetSystemCodeProtection @ 0x140435F3C (MiSetSystemCodeProtection.c)
+ *     MiTryDeleteTransitionPte @ 0x140204568 (MiTryDeleteTransitionPte.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140212844 (MiSetProtectionOnTransitionPte.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MiResolveTransitionFault @ 0x140247040 (MiResolveTransitionFault.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402EC2C0 (MiLockTransitionLeafPageEx.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiResolveProtoPteFault @ 0x140334760 (MiResolveProtoPteFault.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiTryLockLeafPage @ 0x1403460BC (MiTryLockLeafPage.c)
+ *     MiOutSwapWorkingSetPte @ 0x140346260 (MiOutSwapWorkingSetPte.c)
+ *     MiUpdatePrefetchPriority @ 0x1403DCA60 (MiUpdatePrefetchPriority.c)
+ *     MiReservePageFileSpaceForPage @ 0x1403FDC68 (MiReservePageFileSpaceForPage.c)
+ *     MiSetSystemCodeProtection @ 0x1404289BC (MiSetSystemCodeProtection.c)
  * Callees:
- *     MiReuseStandbyPage @ 0x140442E50 (MiReuseStandbyPage.c)
- *     MiReleaseFreshPageLocked @ 0x14044321C (MiReleaseFreshPageLocked.c)
+ *     MiReuseStandbyPage @ 0x14043BE20 (MiReuseStandbyPage.c)
+ *     MiReleaseFreshPageLocked @ 0x14043C168 (MiReleaseFreshPageLocked.c)
  */
 
-ULONG_PTR __fastcall MiLockSpecialPurposeMemoryCachedPage(ULONG_PTR a1, char a2)
+__int64 __fastcall MiLockSpecialPurposeMemoryCachedPage(__int64 a1, char a2)
 {
   if ( (a2 & 2) != 0 )
     return a1;
-  MiReuseStandbyPage(a1);
+  MiReuseStandbyPage();
   MiReleaseFreshPageLocked(a1);
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return 0LL;

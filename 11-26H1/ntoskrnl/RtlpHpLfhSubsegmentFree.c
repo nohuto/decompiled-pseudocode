@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFree @ 0x140349360
+ * XREFs of RtlpHpLfhSubsegmentFree @ 0x14034B3E0
  * Callers:
- *     RtlpHpLfhBucketAddSubsegment @ 0x140349230 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerCleanup @ 0x140639A4C (RtlpHpLfhOwnerCleanup.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14034B2B0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerCleanup @ 0x14063CA5C (RtlpHpLfhOwnerCleanup.c)
  * Callees:
- *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x140349CC0 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140349D0C (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x14034BD40 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x14034BD8C (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentFree(_QWORD *a1, __int64 a2, __int64 a3)

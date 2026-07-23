@@ -80,7 +80,7 @@ __int64 __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, ULONG_
   struct _KTHREAD *v40; // rbx
   ULONG_PTR SessionId; // r9
   unsigned __int8 v42; // r15
-  unsigned __int64 v43; // r14
+  __int64 v43; // r14
   unsigned int v44; // edx
   __int64 v45; // rcx
   bool v46; // zf
@@ -400,12 +400,12 @@ LABEL_62:
       {
         *(_BYTE *)(v43 + 32) |= 2u;
         if ( *(__int64 *)(v43 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v43);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v43);
         v62 = *(_DWORD *)(v43 + 88) & 0x1FFFF;
         *(_DWORD *)(v43 + 88) &= 0xFFFE0000;
         *(_BYTE *)(v43 + 25) &= ~1u;
         *(_QWORD *)(v43 + 32) = 0LL;
-        v48 = (__int64)(v43 - (unsigned __int64)v40->LockEntries) / 96;
+        v48 = (signed __int64)(v43 - (unsigned __int64)v40->LockEntries) / 96;
         if ( v42 == 1 )
           v40->AbEntrySummary |= 1 << v48;
         else

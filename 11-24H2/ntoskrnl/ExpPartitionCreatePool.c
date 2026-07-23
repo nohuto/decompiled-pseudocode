@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPartitionCreatePool @ 0x140AB9EF0
+ * XREFs of ExpPartitionCreatePool @ 0x140AB4F0C
  * Callers:
- *     ExAllocatePrivateWorkerPool @ 0x1406FBA78 (ExAllocatePrivateWorkerPool.c)
+ *     ExAllocatePrivateWorkerPool @ 0x1406F96B8 (ExAllocatePrivateWorkerPool.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeGetCurrentNode @ 0x1405BA900 (KeGetCurrentNode.c)
- *     ExpPartitionCreatePoolInternal @ 0x140A22748 (ExpPartitionCreatePoolInternal.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeGetCurrentNode @ 0x1405B7F30 (KeGetCurrentNode.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1408F7C7C (ExpPartitionCreatePoolInternal.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)

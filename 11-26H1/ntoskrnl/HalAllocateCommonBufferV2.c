@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferV2 @ 0x140349970
+ * XREFs of HalAllocateCommonBufferV2 @ 0x14034B9F0
  * Callers:
  *     <none>
  * Callees:
- *     HalAllocateCommonBufferExV2 @ 0x14034A060 (HalAllocateCommonBufferExV2.c)
+ *     HalAllocateCommonBufferExV2 @ 0x14034C0E0 (HalAllocateCommonBufferExV2.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferV2(int a1, int a2, int a3, char a4)

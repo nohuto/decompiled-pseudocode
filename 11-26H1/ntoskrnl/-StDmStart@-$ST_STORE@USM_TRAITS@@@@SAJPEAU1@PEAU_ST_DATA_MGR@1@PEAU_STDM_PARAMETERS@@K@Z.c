@@ -1,13 +1,13 @@
 /*
- * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@K@Z @ 0x1403F40E8
+ * XREFs of ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@K@Z @ 0x1403EDA98
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403F3DE0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403ED790 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
- *     SmHpChunkHeapCleanup @ 0x1403F03E0 (SmHpChunkHeapCleanup.c)
- *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x1403F4324 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     SmHpChunkHeapInitialize @ 0x140498B20 (SmHpChunkHeapInitialize.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     SmHpChunkHeapCleanup @ 0x1403E9DB0 (SmHpChunkHeapCleanup.c)
+ *     ?NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z @ 0x1403EDCD4 (-NpStart@NP_CONTEXT@@SAJPEAU1@PEAU_NP_PARAMETERS@1@@Z.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     SmHpChunkHeapInitialize @ 0x140492670 (SmHpChunkHeapInitialize.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a3, int a4)
@@ -50,7 +50,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
               64LL,
               4 * (((unsigned __int64)(unsigned int)*v8 + 31) >> 5),
               1951624563LL,
-              &stru_140E27B08.Header.WaitListHead.Blink,
+              &stru_140E27C48.Header.WaitListHead.Blink,
               1);
     if ( !Pool3 )
       return 3221225626LL;
@@ -62,7 +62,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *a
           64LL,
           4 * (((unsigned __int64)(unsigned int)*v8 + 31) >> 5),
           1951624563LL,
-          &stru_140E27B08.Header.WaitListHead.Blink,
+          &stru_140E27C48.Header.WaitListHead.Blink,
           1);
   if ( !v13 )
     return 3221225626LL;

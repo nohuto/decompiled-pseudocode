@@ -4,13 +4,13 @@
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
  *     KseShimDatabaseClose @ 0x140694D78 (KseShimDatabaseClose.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
- *     KseRegisterShim @ 0x140808710 (KseRegisterShim.c)
- *     KsepCacheUninitialize @ 0x140977790 (KsepCacheUninitialize.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
+ *     KseRegisterShim @ 0x1408089E0 (KseRegisterShim.c)
+ *     KsepCacheUninitialize @ 0x140977990 (KsepCacheUninitialize.c)
  *     KseVersionLieInitialize @ 0x140B36014 (KseVersionLieInitialize.c)
  *     KsepEngineInitialize @ 0x140B611A8 (KsepEngineInitialize.c)
  *     KsepMatchInitMachineInfo @ 0x140B6137C (KsepMatchInitMachineInfo.c)
@@ -66,7 +66,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v5 < 0 )
         {
           v19 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v19] = v5;
+          dword_140C40784[2 * v19] = v5;
           v20 = KsepDebugFlag;
           KsepHistoryErrors[2 * v19] = 852115;
           if ( (v20 & 2) != 0 )
@@ -77,7 +77,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v6 < 0 )
         {
           v21 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v21] = v6;
+          dword_140C40784[2 * v21] = v6;
           v22 = KsepDebugFlag;
           KsepHistoryErrors[2 * v21] = 1048692;
           if ( (v22 & 2) != 0 )
@@ -88,7 +88,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v7 < 0 )
         {
           v23 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v23] = v7;
+          dword_140C40784[2 * v23] = v7;
           v24 = KsepDebugFlag;
           KsepHistoryErrors[2 * v23] = 917629;
           if ( (v24 & 2) != 0 )
@@ -99,7 +99,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v8 < 0 )
         {
           v25 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v25] = v8;
+          dword_140C40784[2 * v25] = v8;
           v26 = KsepDebugFlag;
           KsepHistoryErrors[2 * v25] = 983165;
           if ( (v26 & 2) != 0 )
@@ -110,7 +110,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v9 < 0 )
         {
           v27 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v27] = v9;
+          dword_140C40784[2 * v27] = v9;
           v28 = KsepDebugFlag;
           KsepHistoryErrors[2 * v27] = 1114208;
           if ( (v28 & 2) != 0 )
@@ -121,7 +121,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v10 < 0 )
         {
           v29 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v29] = v10;
+          dword_140C40784[2 * v29] = v10;
           v30 = KsepDebugFlag;
           KsepHistoryErrors[2 * v29] = 1179753;
           if ( (v30 & 2) != 0 )
@@ -132,7 +132,7 @@ __int64 __fastcall KseInitialize(__int64 a1, int a2)
         if ( v11 < 0 )
         {
           v31 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v31] = v11;
+          dword_140C40784[2 * v31] = v11;
           v32 = KsepDebugFlag;
           KsepHistoryErrors[2 * v31] = 1245275;
           if ( (v32 & 2) != 0 )
@@ -207,7 +207,7 @@ LABEL_35:
     v18 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
     if ( matched == -1073741637 )
     {
-      dword_140C407C4[2 * v18] = -1073741637;
+      dword_140C40784[2 * v18] = -1073741637;
       KsepHistoryErrors[2 * v18] = 327962;
       if ( (v17 & 2) != 0 )
         KsepDebugPrint(
@@ -219,7 +219,7 @@ LABEL_35:
     }
     else
     {
-      dword_140C407C4[2 * v18] = matched;
+      dword_140C40784[2 * v18] = matched;
       KsepHistoryErrors[2 * v18] = 327966;
       if ( (v17 & 2) != 0 )
         KsepDebugPrint(1LL, "KSE: Initialization failed: 0x%x\n", matched);

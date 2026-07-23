@@ -1,15 +1,15 @@
 /*
- * XREFs of AslpFileVerQueryBlock @ 0x14095B7DC
+ * XREFs of AslpFileVerQueryBlock @ 0x14094329C
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14080F48C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileQueryVersionString @ 0x14080FADC (AslpFileQueryVersionString.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x14080FBCC (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileQueryVersionString @ 0x14081021C (AslpFileQueryVersionString.c)
  * Callees:
- *     AslpFileStringTokenize @ 0x1404A0D28 (AslpFileStringTokenize.c)
- *     AslpFileVerBlockGetValueOffset @ 0x1404AAB8C (AslpFileVerBlockGetValueOffset.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     AslStringDuplicate @ 0x14095A750 (AslStringDuplicate.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslpFileStringTokenize @ 0x14049B3A8 (AslpFileStringTokenize.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1404A4D8C (AslpFileVerBlockGetValueOffset.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     AslStringDuplicate @ 0x140942210 (AslStringDuplicate.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileVerQueryBlock(unsigned __int16 *a1, const wchar_t *a2, unsigned __int16 **a3, _QWORD *a4)

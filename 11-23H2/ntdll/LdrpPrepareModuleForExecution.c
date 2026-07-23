@@ -24,7 +24,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   char v10; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
-  if ( (void *)qword_180181310 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return v2;
   v5 = *(_QWORD *)(a1 + 152);
   switch ( *(_DWORD *)(v5 + 56) )
@@ -44,9 +44,9 @@ LABEL_4:
         {
           LdrpLogInternal(
             (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
-            2549LL,
+            2549,
             (__int64)"LdrpPrepareModuleForExecution",
-            1LL,
+            1u,
             "Failed to load for appcompat reasons\n");
           return v2;
         }

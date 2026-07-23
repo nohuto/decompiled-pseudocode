@@ -7,14 +7,14 @@
  *     FsRtlpCleanupEcps @ 0x140423220 (FsRtlpCleanupEcps.c)
  */
 
-void __fastcall IopCleanupExtraCreateParameters(__int64 a1, _LOOKASIDE_LIST_EX *a2)
+void __fastcall IopCleanupExtraCreateParameters(__int64 a1)
 {
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v2; // rcx
 
-  v3 = *(struct _SLIST_ENTRY **)(a1 + 160);
-  if ( v3 )
+  v2 = *(_SLIST_ENTRY **)(a1 + 160);
+  if ( v2 )
   {
-    if ( FsRtlpCleanupEcps(v3, a2) )
+    if ( FsRtlpCleanupEcps(v2) )
       *(_QWORD *)(a1 + 160) = 0LL;
   }
 }

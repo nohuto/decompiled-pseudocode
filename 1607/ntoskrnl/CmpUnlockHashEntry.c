@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpUnlockHashEntry @ 0x140437EC0
+ * XREFs of CmpUnlockHashEntry @ 0x140436D90
  * Callers:
- *     CmpWalkOneLevel @ 0x14002D9B0 (CmpWalkOneLevel.c)
- *     CmpDelayCloseWorker @ 0x1404256F0 (CmpDelayCloseWorker.c)
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1404A01C8 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1404A0334 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpWalkOneLevel @ 0x14002D530 (CmpWalkOneLevel.c)
+ *     CmpDelayCloseWorker @ 0x1404245C0 (CmpDelayCloseWorker.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1405185D4 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x140518740 (CmpPerformSingleKcbCacheLookup.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CmpDeleteHive @ 0x140088098 (CmpDeleteHive.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     CmpDeleteHive @ 0x14010C288 (CmpDeleteHive.c)
  */
 
 __int64 __fastcall CmpUnlockHashEntry(__int64 a1, unsigned int a2)

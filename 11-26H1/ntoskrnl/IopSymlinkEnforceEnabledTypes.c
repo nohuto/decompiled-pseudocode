@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSymlinkEnforceEnabledTypes @ 0x140AC8AC8
+ * XREFs of IopSymlinkEnforceEnabledTypes @ 0x140ACA6B8
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     FsRtlInsertExtraCreateParameter @ 0x140903DB0 (FsRtlInsertExtraCreateParameter.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x140933D40 (FsRtlInsertExtraCreateParameter.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopSymlinkEnforceEnabledTypes(bool a1, char a2, struct _ECP_LIST *a3)

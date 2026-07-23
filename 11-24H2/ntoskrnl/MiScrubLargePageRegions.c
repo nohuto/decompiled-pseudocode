@@ -1,13 +1,13 @@
 /*
- * XREFs of MiScrubLargePageRegions @ 0x1406F80D4
+ * XREFs of MiScrubLargePageRegions @ 0x1406F60D4
  * Callers:
- *     MiScrubNode @ 0x140A38DD4 (MiScrubNode.c)
+ *     MiScrubNode @ 0x140A2DE94 (MiScrubNode.c)
  * Callees:
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiScrubInterrupted @ 0x1404898E0 (MiScrubInterrupted.c)
- *     MiScrubLargePage @ 0x14068DA04 (MiScrubLargePage.c)
- *     MiScrubActiveLargePage @ 0x1407FDA28 (MiScrubActiveLargePage.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiScrubInterrupted @ 0x1404845F4 (MiScrubInterrupted.c)
+ *     MiScrubLargePage @ 0x14068EB34 (MiScrubLargePage.c)
+ *     MiScrubActiveLargePage @ 0x1407FE198 (MiScrubActiveLargePage.c)
  */
 
 __int64 __fastcall MiScrubLargePageRegions(__int64 a1, __int64 a2, unsigned __int64 a3)

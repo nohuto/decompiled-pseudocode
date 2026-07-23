@@ -1,9 +1,9 @@
 /*
- * XREFs of PspRelinquishUmsThreadSpecialApc @ 0x14068269C
+ * XREFs of PspRelinquishUmsThreadSpecialApc @ 0x140682780
  * Callers:
  *     <none>
  * Callees:
- *     PspDisassociateUmsThreadFromPrimary @ 0x140682394 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x140682478 (PspDisassociateUmsThreadFromPrimary.c)
  */
 
 void __fastcall PspRelinquishUmsThreadSpecialApc(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, __int64 *a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessionFromCapturedData @ 0x140825A10
+ * XREFs of EtwpEventWriteTemplateSessionFromCapturedData @ 0x14082BC50
  * Callers:
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessionFromCapturedData(
@@ -45,5 +45,10 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSessionFromCapturedData(
   v9 = 4LL;
   v14 = 2LL;
   v19 = 2LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_LARGE_MDL_NOT_SUPPORTED, 0LL, 6u, &UserData);
+  return EtwWrite(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_LARGE_MDL_NOT_SUPPORTED,
+           0LL,
+           6u,
+           &UserData);
 }

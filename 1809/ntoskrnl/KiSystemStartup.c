@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSystemStartup @ 0x140565010
+ * XREFs of KiSystemStartup @ 0x140566010
  * Callers:
  *     <none>
  * Callees:
- *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
- *     KiInitializeXSave @ 0x1405732C0 (KiInitializeXSave.c)
- *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
+ *     KiIdleLoop @ 0x1401C0680 (KiIdleLoop.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
+ *     KiInitializeXSave @ 0x1405742C0 (KiInitializeXSave.c)
+ *     KdInitSystem @ 0x140916140 (KdInitSystem.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

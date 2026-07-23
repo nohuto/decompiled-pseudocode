@@ -3,28 +3,28 @@
  * Callers:
  *     ExpInitFastCache @ 0x1407B5348 (ExpInitFastCache.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
- *     ExpObtainFastCacheKeyBody @ 0x14057A65C (ExpObtainFastCacheKeyBody.c)
- *     sub_1406AEC3C @ 0x1406AEC3C (sub_1406AEC3C.c)
- *     ExpParseFastCache @ 0x1406AF56C (ExpParseFastCache.c)
- *     ExpParseFastCacheHelper @ 0x1406AF5FC (ExpParseFastCacheHelper.c)
- *     sub_1406AF6C0 @ 0x1406AF6C0 (sub_1406AF6C0.c)
- *     sub_1406AF784 @ 0x1406AF784 (sub_1406AF784.c)
- *     ExpValidateFastCacheSize @ 0x1406AFBA8 (ExpValidateFastCacheSize.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
+ *     ExpObtainFastCacheKeyBody @ 0x14057AB9C (ExpObtainFastCacheKeyBody.c)
+ *     sub_1406AED74 @ 0x1406AED74 (sub_1406AED74.c)
+ *     ExpParseFastCache @ 0x1406AF6A4 (ExpParseFastCache.c)
+ *     ExpParseFastCacheHelper @ 0x1406AF734 (ExpParseFastCacheHelper.c)
+ *     sub_1406AF7F8 @ 0x1406AF7F8 (sub_1406AF7F8.c)
+ *     sub_1406AF8BC @ 0x1406AF8BC (sub_1406AF8BC.c)
+ *     ExpValidateFastCacheSize @ 0x1406AFCE0 (ExpValidateFastCacheSize.c)
  */
 
 __int64 __fastcall sub_1407D22C0(unsigned int a1, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -113,7 +113,7 @@ __int64 __fastcall sub_1407D22C0(unsigned int a1, unsigned int a2, __int64 a3, _
     return (unsigned int)updated;
   if ( v61 != *(_QWORD *)(v5 + 16) )
   {
-    sub_1406AF784(8507);
+    sub_1406AF8BC(8507);
     return (unsigned int)-1073700221;
   }
   updated = ExpParseFastCacheHelper(v5, &NumOfElements, &Base);
@@ -147,7 +147,7 @@ __int64 __fastcall sub_1407D22C0(unsigned int a1, unsigned int a2, __int64 a3, _
           if ( ++v15 >= (unsigned int)v9 )
             goto LABEL_17;
         }
-        sub_1406AF784(8507);
+        sub_1406AF8BC(8507);
         updated = -1073700221;
         goto LABEL_67;
       }
@@ -155,7 +155,7 @@ __int64 __fastcall sub_1407D22C0(unsigned int a1, unsigned int a2, __int64 a3, _
 LABEL_17:
     v18 = a2 - v14;
     v19 = v9 - v13;
-    updated = sub_1406AEC3C(v18, &Object, &MappedBase);
+    updated = sub_1406AED74(v18, &Object, &MappedBase);
     if ( updated < 0 )
       goto LABEL_61;
     v12 = v13 == 0;
@@ -241,7 +241,7 @@ LABEL_34:
           v34[26] |= 1u;
         if ( !v56
           || !*(_QWORD *)&qword_140747E48
-          && (int)ExpObtainFastCacheKeyBody((UNICODE_STRING *)&stru_1406E9958, (PVOID *)&qword_140747E48) < 0 )
+          && (int)ExpObtainFastCacheKeyBody((UNICODE_STRING *)&stru_1406E9A88, (PVOID *)&qword_140747E48) < 0 )
         {
           goto LABEL_57;
         }
@@ -295,10 +295,10 @@ LABEL_47:
               LODWORD(v51) = 24,
               *(_QWORD *)v67 = v37,
               v69 = v39,
-              (int)CmSetValueKey(*(__int64 *)&qword_140747E48, (UNICODE_STRING *)&stru_1406E9948, 3, v67, v51, 0LL, 0) >= 0) )
+              (int)CmSetValueKey(*(__int64 *)&qword_140747E48, (UNICODE_STRING *)&stru_1406E9A78, 3, v67, v51, 0LL, 0) >= 0) )
         {
           v43 = MappedBase;
-          sub_1406AF6C0(v40, MappedBase);
+          sub_1406AF7F8(v40, MappedBase);
         }
         else
         {

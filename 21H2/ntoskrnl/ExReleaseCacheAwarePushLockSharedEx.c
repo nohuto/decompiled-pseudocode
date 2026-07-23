@@ -1,16 +1,16 @@
 /*
- * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x14034A5B0
+ * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x140355300
  * Callers:
  *     <none>
  * Callees:
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KiAbThreadClearAcquiredLockEntry @ 0x14034ADC0 (KiAbThreadClearAcquiredLockEntry.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiAbThreadClearAcquiredLockEntry @ 0x140355B10 (KiAbThreadClearAcquiredLockEntry.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -49,7 +49,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParamet
     {
       *(_BYTE *)(v9 + 32) |= 2u;
       if ( *(__int64 *)(v9 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v9);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9);
       v12 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
       *(_BYTE *)(v11 + 25) &= ~1u;
       *(_DWORD *)(v11 + 88) = v12;

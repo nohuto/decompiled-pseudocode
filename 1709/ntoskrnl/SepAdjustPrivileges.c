@@ -10,7 +10,7 @@
  *     SepAdtTokenRightAdjusted @ 0x14053A1CC (SepAdtTokenRightAdjusted.c)
  */
 
-__int64 __fastcall SepAdjustPrivileges(
+NTSTATUS __fastcall SepAdjustPrivileges(
         __int64 a1,
         char a2,
         char a3,
@@ -22,8 +22,8 @@ __int64 __fastcall SepAdjustPrivileges(
         _BYTE *a9)
 {
   unsigned int v12; // r15d
-  __int64 result; // rax
-  char *v14; // rdi
+  NTSTATUS result; // eax
+  PSID v14; // rdi
   int v15; // r12d
   __int64 v17; // r10
   __int64 v18; // r12
@@ -58,8 +58,8 @@ __int64 __fastcall SepAdjustPrivileges(
   __int64 v47; // rcx
   __int64 v48; // rcx
   __int64 v49; // rcx
-  bool v50; // [rsp+30h] [rbp-D0h] BYREF
-  bool v51; // [rsp+31h] [rbp-CFh] BYREF
+  BOOLEAN Dominates; // [rsp+30h] [rbp-D0h] BYREF
+  BOOLEAN v51; // [rsp+31h] [rbp-CFh] BYREF
   char v52; // [rsp+32h] [rbp-CEh]
   int v53; // [rsp+34h] [rbp-CCh]
   unsigned int v54; // [rsp+38h] [rbp-C8h]
@@ -67,13 +67,13 @@ __int64 __fastcall SepAdjustPrivileges(
   int v56; // [rsp+48h] [rbp-B8h]
   unsigned int v57; // [rsp+4Ch] [rbp-B4h]
   unsigned int v58; // [rsp+50h] [rbp-B0h]
-  int v59; // [rsp+54h] [rbp-ACh]
+  NTSTATUS v59; // [rsp+54h] [rbp-ACh]
   __int64 v60; // [rsp+58h] [rbp-A8h]
   __int64 v61; // [rsp+68h] [rbp-98h] BYREF
   __int64 v62; // [rsp+70h] [rbp-90h] BYREF
   _BYTE *v63; // [rsp+78h] [rbp-88h]
   int *v64; // [rsp+80h] [rbp-80h]
-  void *Buf1; // [rsp+88h] [rbp-78h]
+  PSID Sid1; // [rsp+88h] [rbp-78h]
   _QWORD v66[54]; // [rsp+A0h] [rbp-60h] BYREF
   _QWORD v67[54]; // [rsp+250h] [rbp+150h] BYREF
 
@@ -81,7 +81,7 @@ __int64 __fastcall SepAdjustPrivileges(
   v64 = a7;
   v58 = a4;
   v60 = 0LL;
-  v50 = 0;
+  Dominates = 0;
   v12 = 0;
   v51 = 0;
   LOBYTE(v56) = 0;
@@ -97,28 +97,28 @@ __int64 __fastcall SepAdjustPrivileges(
   *a9 = 0;
   SepCopyTokenIntegrity(a1);
   result = AppContainerPrivilegesEnabledExt(*(_QWORD *)(a1 + 784), 0x200800000LL, &v61, &v62);
-  if ( (_DWORD)result == -1073741637 )
+  if ( result == -1073741637 )
   {
     v52 = 0;
   }
   else
   {
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v52 = 1;
   }
-  v14 = (char *)Buf1;
-  result = RtlSidDominates((char *)Buf1, (char *)SeHighMandatorySid, &v50);
+  v14 = Sid1;
+  result = RtlSidDominates(Sid1, SeHighMandatorySid, &Dominates);
   v59 = result;
   v15 = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  if ( !v50 )
+  if ( !Dominates )
   {
-    result = RtlSidDominates(v14, *(char **)&SeMediumMandatorySid, &v51);
+    result = RtlSidDominates(v14, SeMediumMandatorySid, &v51);
     v59 = result;
     v15 = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v33 = (unsigned __int8)v56;
     if ( !v51 )
@@ -204,7 +204,7 @@ __int64 __fastcall SepAdjustPrivileges(
       }
       v29 = 3LL * v57;
       v30 = v57 + 1;
-      v31 = !v50;
+      v31 = Dominates == 0;
       *(_QWORD *)((char *)v67 + 4 * v29) = v28;
       *((_DWORD *)&v67[1] + v29) = v23;
       v57 = v30;
@@ -296,5 +296,5 @@ LABEL_17:
       v27 = 16;
     *v64 = v27;
   }
-  return (unsigned int)v15;
+  return v15;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializePfnsForValidMappings @ 0x140A5668C
+ * XREFs of MiInitializePfnsForValidMappings @ 0x140A5768C
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     KeFlushCurrentTbOnly @ 0x1403B7498 (KeFlushCurrentTbOnly.c)
- *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
- *     MxZeroPageTablePfns @ 0x140A57504 (MxZeroPageTablePfns.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B7608 (KeFlushCurrentTbOnly.c)
+ *     MxCreatePfns @ 0x140A57C60 (MxCreatePfns.c)
+ *     MxZeroPageTablePfns @ 0x140A58504 (MxZeroPageTablePfns.c)
  */
 
 struct _KTHREAD *__fastcall MiInitializePfnsForValidMappings(__int64 a1)

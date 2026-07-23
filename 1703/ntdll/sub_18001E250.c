@@ -21,7 +21,7 @@ __int64 __fastcall sub_18001E250(_QWORD *a1, __int64 a2, __int64 a3, unsigned in
   int v8; // r10d
   unsigned int v9; // r12d
   unsigned int v11; // edi
-  __int64 v12; // rbp
+  _RTL_SRWLOCK *v12; // rbp
   unsigned int v13; // r8d
   __int64 v14; // r11
   unsigned __int64 v15; // r9
@@ -52,7 +52,7 @@ LABEL_11:
     {
       if ( !v12 && (!(_WORD)v21 || (unsigned __int16)v21 == v20 - 1) )
       {
-        v12 = sub_1800218EC(a2, v7);
+        v12 = (_RTL_SRWLOCK *)sub_1800218EC(a2, v7);
         if ( !v12 )
           return v11;
       }
@@ -66,7 +66,7 @@ LABEL_11:
       {
 LABEL_18:
         if ( v12 )
-          RtlReleaseSRWLockExclusive(v12 + 16);
+          RtlReleaseSRWLockExclusive(v12 + 2);
         return v11;
       }
     }
@@ -75,7 +75,7 @@ LABEL_18:
       v9 = 0;
     }
     v25 = sub_1800217D0(v12, a2, v9);
-    RtlReleaseSRWLockExclusive(v12 + 16);
+    RtlReleaseSRWLockExclusive(v12 + 2);
     v12 = 0LL;
     if ( v25 )
       sub_18001F6A8(a1, a1[(unsigned __int8)byte_1801196F0[((unsigned __int64)v26 + 15) >> 4] + 24], v25, a4);

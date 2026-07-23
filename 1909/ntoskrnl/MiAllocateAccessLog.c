@@ -8,16 +8,16 @@
  *     ExAllocatePoolWithTag @ 0x14036E010 (ExAllocatePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY **__fastcall MiAllocateAccessLog(__int64 a1)
+_SLIST_ENTRY **__fastcall MiAllocateAccessLog(__int64 a1)
 {
   __int64 v2; // rdx
   unsigned __int64 v3; // rcx
   SIZE_T v4; // rbp
-  struct _SLIST_ENTRY **v5; // rdi
-  struct _SLIST_ENTRY *v6; // rsi
-  struct _SLIST_ENTRY *PoolWithTag; // rdx
-  struct _SLIST_ENTRY **v8; // rdx
-  struct _SLIST_ENTRY **result; // rax
+  _SLIST_ENTRY **v5; // rdi
+  _SLIST_ENTRY *v6; // rsi
+  _SLIST_ENTRY *PoolWithTag; // rdx
+  _SLIST_ENTRY **v8; // rdx
+  _SLIST_ENTRY **result; // rax
   unsigned __int16 **v10; // r9
   __int64 v11; // r8
   unsigned __int16 *v12; // r10
@@ -58,9 +58,9 @@ LABEL_15:
   else
     v4 = 4096LL;
   if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-    v5 = (struct _SLIST_ENTRY **)&unk_140466F28;
+    v5 = (_SLIST_ENTRY **)&unk_140466F28;
   else
-    v5 = (struct _SLIST_ENTRY **)(a1 + 232);
+    v5 = (_SLIST_ENTRY **)(a1 + 232);
   v6 = *v5;
   if ( *v5 && (v4 == 512 || v6->Next && v6->Next->Next) )
   {
@@ -68,7 +68,7 @@ LABEL_15:
     v6 = 0LL;
     *v5 = 0LL;
   }
-  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x63416D4Du);
+  PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x63416D4Du);
   if ( PoolWithTag )
   {
 LABEL_9:
@@ -90,7 +90,7 @@ LABEL_9:
       v4 >>= 1;
       if ( v4 < 0x200 )
         return 0LL;
-      PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x63416D4Du);
+      PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x63416D4Du);
       if ( PoolWithTag )
         goto LABEL_9;
     }

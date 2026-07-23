@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSetNonResidentPteHeat @ 0x1402D90B0
+ * XREFs of MiSetNonResidentPteHeat @ 0x1402D9340
  * Callers:
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x140273080 (MiUpdatePfnForPrefetchByPte.c)
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiInitializePfn @ 0x1402E1040 (MiInitializePfn.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140346C04 (MiRewriteTrimPteAsDemandZero.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140348168 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiInitializeNewPfns @ 0x140375770 (MiInitializeNewPfns.c)
- *     MiCanBatchSystemCacheUnmapPages @ 0x14062EAF4 (MiCanBatchSystemCacheUnmapPages.c)
- *     MiMakeTransitionHeatBatch @ 0x1406542B8 (MiMakeTransitionHeatBatch.c)
- *     MiSetActivePfnHeat @ 0x1406548B8 (MiSetActivePfnHeat.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x140273310 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiDeletePteList @ 0x1402D26E0 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiInitializePfn @ 0x1402E12D0 (MiInitializePfn.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140346E94 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403483F8 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiInitializeNewPfns @ 0x140375910 (MiInitializeNewPfns.c)
+ *     MiCanBatchSystemCacheUnmapPages @ 0x14062F044 (MiCanBatchSystemCacheUnmapPages.c)
+ *     MiMakeTransitionHeatBatch @ 0x140654808 (MiMakeTransitionHeatBatch.c)
+ *     MiSetActivePfnHeat @ 0x140654E08 (MiSetActivePfnHeat.c)
  * Callees:
  *     <none>
  */

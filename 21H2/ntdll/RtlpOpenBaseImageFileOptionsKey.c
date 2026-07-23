@@ -5,7 +5,7 @@
  *     RtlQueryImageFileExecutionOptions @ 0x18007B430 (RtlQueryImageFileExecutionOptions.c)
  * Callees:
  *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x1800764C8 (RtlpOpenBaseImageFileOptionsKeyEx.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
  */
 
 __int64 __fastcall RtlpOpenBaseImageFileOptionsKey(_QWORD *a1)

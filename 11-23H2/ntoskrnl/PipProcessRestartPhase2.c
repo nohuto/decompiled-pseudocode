@@ -1,15 +1,15 @@
 /*
- * XREFs of PipProcessRestartPhase2 @ 0x14096F408
+ * XREFs of PipProcessRestartPhase2 @ 0x14096F608
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     PoFxIdleDevice @ 0x140322F7C (PoFxIdleDevice.c)
- *     IoRequestDeviceEject @ 0x14055FDB0 (IoRequestDeviceEject.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1405644F8 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x14079C174 (PnpStartedDeviceNodeDependencyCheck.c)
- *     PnpRequestDeviceRemoval @ 0x1408673BC (PnpRequestDeviceRemoval.c)
- *     PnpUpdateRebootRequiredReason @ 0x140958DC0 (PnpUpdateRebootRequiredReason.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14032320C (PoFxIdleDevice.c)
+ *     IoRequestDeviceEject @ 0x140560470 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140564BB8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x14079C364 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PnpRequestDeviceRemoval @ 0x1408675FC (PnpRequestDeviceRemoval.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140958FC0 (PnpUpdateRebootRequiredReason.c)
  */
 
 __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)

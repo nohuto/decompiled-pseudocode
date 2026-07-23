@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtDisableInterrupt @ 0x140704630
+ * XREFs of IvtDisableInterrupt @ 0x1407021F0
  * Callers:
  *     <none>
  * Callees:

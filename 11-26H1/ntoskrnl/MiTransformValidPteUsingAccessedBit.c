@@ -1,10 +1,10 @@
 /*
- * XREFs of MiTransformValidPteUsingAccessedBit @ 0x140342588
+ * XREFs of MiTransformValidPteUsingAccessedBit @ 0x140344608
  * Callers:
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiTradeBootImagePage @ 0x140D00E4C (MiTradeBootImagePage.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiTradeBootImagePage @ 0x140D071EC (MiTradeBootImagePage.c)
  * Callees:
- *     MiFlushValidPteFromTb @ 0x140343898 (MiFlushValidPteFromTb.c)
+ *     MiFlushValidPteFromTb @ 0x140345918 (MiFlushValidPteFromTb.c)
  */
 
 __int64 __fastcall MiTransformValidPteUsingAccessedBit(

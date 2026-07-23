@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTranslateCacheType @ 0x140412140
+ * XREFs of MiTranslateCacheType @ 0x140394580
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x140410510 (MmMapLockedPagesWithReservedMapping.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140411FD0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmMapLockedRestartPages @ 0x1407E81C0 (MmMapLockedRestartPages.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140394410 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14041D8B0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x1407E8790 (MmMapLockedRestartPages.c)
  * Callees:
  *     <none>
  */

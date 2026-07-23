@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReadConfigParameters @ 0x140CE1048
+ * XREFs of EtwpReadConfigParameters @ 0x140CE73E8
  * Callers:
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlQueryRegistryValuesEx @ 0x140A10F30 (RtlQueryRegistryValuesEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlQueryRegistryValuesEx @ 0x140A10120 (RtlQueryRegistryValuesEx.c)
  */
 
 NTSTATUS EtwpReadConfigParameters()
@@ -24,12 +24,11 @@ NTSTATUS EtwpReadConfigParameters()
   unsigned int *v8; // [rsp+88h] [rbp-78h]
   int v9; // [rsp+90h] [rbp-70h] BYREF
   unsigned int *v10; // [rsp+98h] [rbp-68h]
-  _QWORD v11[4]; // [rsp+B0h] [rbp-50h] BYREF
-  int v12; // [rsp+D0h] [rbp-30h]
-  __int64 (__fastcall *v13)(__int64, int, const WCHAR *, unsigned int, __int64, __int64); // [rsp+E8h] [rbp-18h]
-  const wchar_t *v14; // [rsp+F8h] [rbp-8h]
-  int *v15; // [rsp+100h] [rbp+0h]
-  int v16; // [rsp+108h] [rbp+8h]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 (__fastcall *v12)(__int64, int, const WCHAR *, unsigned int, __int64, __int64); // [rsp+E8h] [rbp-18h]
+  const wchar_t *v13; // [rsp+F8h] [rbp-8h]
+  int *v14; // [rsp+100h] [rbp+0h]
+  int v15; // [rsp+108h] [rbp+8h]
 
   KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
@@ -45,20 +44,20 @@ NTSTATUS EtwpReadConfigParameters()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_10;
-  memset_0(v11, 0, 0xA8uLL);
-  v12 = 4;
-  v11[0] = EtwpQueryRegistryCallback;
-  v11[3] = &v7;
+  memset_0(&QueryTable, 0, 0xA8uLL);
+  QueryTable.DefaultType = 4;
+  QueryTable.QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))EtwpQueryRegistryCallback;
+  QueryTable.EntryContext = &v7;
   v7 = 4;
-  v11[2] = L"MaxNonPagedPoolUsage";
-  v13 = EtwpQueryRegistryCallback;
+  QueryTable.Name = L"MaxNonPagedPoolUsage";
+  v12 = EtwpQueryRegistryCallback;
   v8 = &v2;
-  v16 = 4;
-  v15 = &v9;
-  v14 = L"StackCaptureTimeout";
+  v15 = 4;
+  v14 = &v9;
+  v13 = L"StackCaptureTimeout";
   v9 = 4;
   v10 = &v3;
-  if ( (int)RtlQueryRegistryValuesEx(0x40000000, (int)KeyHandle, (int)v11, 0) < 0 )
+  if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, &QueryTable, 0LL, 0LL) < 0 )
   {
 LABEL_10:
     result = v2;

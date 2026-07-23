@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiInitializeProcessorGroupSchedulingData@@YAXPEAU_KPRCB@@@Z @ 0x1405C7600
+ * XREFs of ?KiInitializeProcessorGroupSchedulingData@@YAXPEAU_KPRCB@@@Z @ 0x1405C4D30
  * Callers:
- *     KiAddProcessorToGroupSchedulingDatabase @ 0x140B5AD94 (KiAddProcessorToGroupSchedulingDatabase.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140B5CE04 (KiAddProcessorToGroupSchedulingDatabase.c)
  * Callees:
  *     <none>
  */

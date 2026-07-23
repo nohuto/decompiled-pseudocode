@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryModuleInformationImageEx @ 0x140A92E50
+ * XREFs of ExpQueryModuleInformationImageEx @ 0x140A8F600
  * Callers:
  *     <none>
  * Callees:
- *     ExpConvertLdrEntryToModuleInfo @ 0x140A92EF4 (ExpConvertLdrEntryToModuleInfo.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x140A8F6A4 (ExpConvertLdrEntryToModuleInfo.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformationImageEx(int a1, __int64 a2)

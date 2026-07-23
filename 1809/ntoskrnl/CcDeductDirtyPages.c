@@ -3,11 +3,11 @@
  * Callers:
  *     CcAcquireByteRangeForWrite @ 0x14001F590 (CcAcquireByteRangeForWrite.c)
  *     CcUnpinFileDataEx @ 0x140020910 (CcUnpinFileDataEx.c)
- *     CcDeleteMbcb @ 0x140125988 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x14016049C (CcDeleteBcbs.c)
+ *     CcDeleteMbcb @ 0x140125A58 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x14016059C (CcDeleteBcbs.c)
  * Callees:
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcDeductDirtyPages(__int64 a1, unsigned int a2)

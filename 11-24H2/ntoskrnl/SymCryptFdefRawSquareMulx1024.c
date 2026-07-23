@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawSquareMulx1024 @ 0x140533AB0
+ * XREFs of SymCryptFdefRawSquareMulx1024 @ 0x14052DF50
  * Callers:
- *     SymCryptFdefModSquareMontgomeryMulx1024 @ 0x140536B50 (SymCryptFdefModSquareMontgomeryMulx1024.c)
+ *     SymCryptFdefModSquareMontgomeryMulx1024 @ 0x140530FF0 (SymCryptFdefModSquareMontgomeryMulx1024.c)
  * Callees:
  *     <none>
  */

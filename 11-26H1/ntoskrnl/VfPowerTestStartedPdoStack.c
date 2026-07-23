@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPowerTestStartedPdoStack @ 0x140C3B1F0
+ * XREFs of VfPowerTestStartedPdoStack @ 0x140C41200
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfIrpSendSynchronousIrp @ 0x140C2C5F0 (VfIrpSendSynchronousIrp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfIrpSendSynchronousIrp @ 0x140C32600 (VfIrpSendSynchronousIrp.c)
  */
 
 __int64 __fastcall VfPowerTestStartedPdoStack(struct _DEVICE_OBJECT *a1)

@@ -1,51 +1,51 @@
 /*
- * XREFs of KiGetSystemServiceTraceTable @ 0x140844B14
+ * XREFs of KiGetSystemServiceTraceTable @ 0x140845D74
  * Callers:
- *     KeSetSystemServiceCallback @ 0x140844960 (KeSetSystemServiceCallback.c)
+ *     KeSetSystemServiceCallback @ 0x140845BC0 (KeSetSystemServiceCallback.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x140844C64 (KiSystemServiceTraceTableCompareFunction.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x140845EC4 (KiSystemServiceTraceTableCompareFunction.c)
  */
 
 __int64 KiGetSystemServiceTraceTable()
 {
-  PVOID PoolWithTag; // rax
-  unsigned __int64 v1; // rdi
-  _BOOL8 v2; // r8
+  _RTL_RB_TREE *PoolWithTag; // rax
+  signed __int64 v1; // rdi
+  __int64 v2; // r8
   _QWORD *v3; // r15
   __int64 v4; // r12
-  unsigned __int64 v5; // r14
+  char *v5; // r14
   __int64 v6; // rbp
-  __int64 v7; // rax
+  _RTL_BALANCED_NODE *v7; // rax
   unsigned __int64 v8; // rbx
   int v9; // esi
   unsigned __int64 v10; // rax
 
   if ( !KiSystemServiceTraceCallbackTable )
   {
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x8290uLL, 0x7454694Bu);
-    v1 = (unsigned __int64)PoolWithTag;
+    PoolWithTag = (_RTL_RB_TREE *)ExAllocatePoolWithTag(PagedPool, 0x8290uLL, 0x7454694Bu);
+    v1 = (signed __int64)PoolWithTag;
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, 0x8290uLL);
-      v3 = &off_14090E1B8;
+      v3 = &off_14090F478;
       v4 = 464LL;
-      v5 = v1 + 40;
+      v5 = (char *)(v1 + 40);
       do
       {
-        *(_DWORD *)(v5 + 12) = *((_DWORD *)v3 - 2);
+        *((_DWORD *)v5 + 3) = *((_DWORD *)v3 - 2);
         v6 = *v3;
         *(_QWORD *)v5 = *v3;
-        *(_DWORD *)(v5 + 8) = *((_DWORD *)v3 - 1);
-        v7 = *(_QWORD *)(v1 + 8);
+        *((_DWORD *)v5 + 2) = *((_DWORD *)v3 - 1);
+        v7 = *(_RTL_BALANCED_NODE **)(v1 + 8);
         v8 = *(_QWORD *)v1;
-        if ( (v7 & 1) != 0 && v8 )
+        if ( ((unsigned __int8)v7 & 1) != 0 && v8 )
           v8 ^= v1;
         LOBYTE(v2) = 0;
-        v9 = v7 & 1;
+        v9 = (unsigned __int8)v7 & 1;
         if ( v8 )
         {
           while ( 1 )
@@ -85,8 +85,8 @@ LABEL_13:
             v8 = v10;
           }
         }
-        RtlRbInsertNodeEx(v1, v8, v2, (_QWORD *)(v5 - 24));
-        v5 += 72LL;
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v1, (PRTL_BALANCED_NODE)v8, v2, (PRTL_BALANCED_NODE)v5 - 1);
+        v5 += 72;
         v3 += 2;
         --v4;
       }

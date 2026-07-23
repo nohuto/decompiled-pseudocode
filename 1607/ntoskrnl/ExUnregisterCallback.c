@@ -1,19 +1,19 @@
 /*
- * XREFs of ExUnregisterCallback @ 0x140131758
+ * XREFs of ExUnregisterCallback @ 0x140131CC8
  * Callers:
- *     IopCleanupNotifications @ 0x1401302A4 (IopCleanupNotifications.c)
- *     KeRegisterProcessorChangeCallback @ 0x140578064 (KeRegisterProcessorChangeCallback.c)
- *     IoRegisterContainerNotification @ 0x14057C124 (IoRegisterContainerNotification.c)
- *     IoUnregisterContainerNotification @ 0x140624484 (IoUnregisterContainerNotification.c)
- *     KeDeregisterProcessorChangeCallback @ 0x14064FA40 (KeDeregisterProcessorChangeCallback.c)
- *     SeUnregisterImageVerificationCallback @ 0x14068C9B8 (SeUnregisterImageVerificationCallback.c)
+ *     IopCleanupNotifications @ 0x140130814 (IopCleanupNotifications.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1405785A4 (KeRegisterProcessorChangeCallback.c)
+ *     IoRegisterContainerNotification @ 0x14057C5D0 (IoRegisterContainerNotification.c)
+ *     IoUnregisterContainerNotification @ 0x140624538 (IoUnregisterContainerNotification.c)
+ *     KeDeregisterProcessorChangeCallback @ 0x14064FB24 (KeDeregisterProcessorChangeCallback.c)
+ *     SeUnregisterImageVerificationCallback @ 0x14068CA9C (SeUnregisterImageVerificationCallback.c)
  *     PopUmpoInitializeMonitorChannel @ 0x1407BA6CC (PopUmpoInitializeMonitorChannel.c)
  *     IoUnregisterBootDriverCallback @ 0x1407BD3C4 (IoUnregisterBootDriverCallback.c)
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

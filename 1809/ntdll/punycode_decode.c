@@ -6,7 +6,7 @@
  *     adapt @ 0x1800022F4 (adapt.c)
  *     InsertChar @ 0x180002664 (InsertChar.c)
  *     FindLabelEnd @ 0x180047C50 (FindLabelEnd.c)
- *     _wcsnicmp @ 0x180091A20 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x180091A30 (_wcsnicmp.c)
  *     ValidateStd3Range @ 0x1800FAF44 (ValidateStd3Range.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateEnclavePfnProtection @ 0x1402BE994
+ * XREFs of MiUpdateEnclavePfnProtection @ 0x1402BEB84
  * Callers:
- *     MiProtectEnclavePages @ 0x1402BE120 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x1402BE310 (MiProtectEnclavePages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateEnclavePfnProtection(__int64 a1, int a2)

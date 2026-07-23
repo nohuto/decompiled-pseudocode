@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x140AD5B40
+ * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x140AD5B30
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC05B0 (VfKeIrqlTransitionReserveLogEntry.c)
- *     VfKeIrqlLogLower @ 0x140AD5CB4 (VfKeIrqlLogLower.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC05A0 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140AD5CA4 (VfKeIrqlLogLower.c)
  */
 
 __int64 __fastcall VerifierPortKeReleaseSpinLockNoXdv(volatile signed __int64 *a1, unsigned __int8 a2)
@@ -27,10 +27,13 @@ __int64 __fastcall VerifierPortKeReleaseSpinLockNoXdv(volatile signed __int64 *a
   if ( (MmVerifierData & 1) != 0 )
     v2 = VfKeIrqlTransitionReserveLogEntry(KeGetCurrentIrql(), a2);
   KxReleaseSpinLock(v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

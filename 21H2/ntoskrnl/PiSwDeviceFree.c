@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwDeviceFree @ 0x140733F90
+ * XREFs of PiSwDeviceFree @ 0x140734150
  * Callers:
- *     PiSwDeviceDereference @ 0x14074CF94 (PiSwDeviceDereference.c)
+ *     PiSwDeviceDereference @ 0x14074D154 (PiSwDeviceDereference.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PnpFreeDevPropertyArray @ 0x140633680 (PnpFreeDevPropertyArray.c)
- *     PiSwPdoAssociationFree @ 0x140732DDC (PiSwPdoAssociationFree.c)
- *     PiSwPnPInfoFree @ 0x140734050 (PiSwPnPInfoFree.c)
- *     PiSwInstanceInfoFree @ 0x1407340C4 (PiSwInstanceInfoFree.c)
- *     PiSwFreeInterfaceList @ 0x14074D944 (PiSwFreeInterfaceList.c)
- *     PiSwQueuedCreateInfoFree @ 0x1408AEC48 (PiSwQueuedCreateInfoFree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpFreeDevPropertyArray @ 0x140628848 (PnpFreeDevPropertyArray.c)
+ *     PiSwPdoAssociationFree @ 0x140732F9C (PiSwPdoAssociationFree.c)
+ *     PiSwPnPInfoFree @ 0x140734210 (PiSwPnPInfoFree.c)
+ *     PiSwInstanceInfoFree @ 0x140734284 (PiSwInstanceInfoFree.c)
+ *     PiSwFreeInterfaceList @ 0x14074DB04 (PiSwFreeInterfaceList.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1408AEDA8 (PiSwQueuedCreateInfoFree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwDeviceFree(__int64 a1)
@@ -27,6 +27,9 @@ void __fastcall PiSwDeviceFree(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   PADAPTER_OBJECT v10; // rdx
   PADAPTER_OBJECT **v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
 
   PiSwInstanceInfoFree(a1 + 8);
   PiSwPnPInfoFree(a1 + 24);
@@ -81,7 +84,7 @@ LABEL_16:
     *v11 = (PADAPTER_OBJECT *)v10;
     v10->DmaOperations = (_DMA_OPERATIONS *)v11;
     ExReleaseResourceLite(&PiSwLockObj);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
     PiSwPdoAssociationFree(v7);
   }
 }

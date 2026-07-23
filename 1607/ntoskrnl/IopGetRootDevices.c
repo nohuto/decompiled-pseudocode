@@ -1,27 +1,27 @@
 /*
- * XREFs of IopGetRootDevices @ 0x14049DC40
+ * XREFs of IopGetRootDevices @ 0x14051604C
  * Callers:
- *     IopPnPDispatch @ 0x1404E7998 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x1404C9D24 (IopPnPDispatch.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopInitializeDeviceInstanceKey @ 0x14049DE94 (IopInitializeDeviceInstanceKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1404DD2A0 (_CmGetMatchingFilteredDeviceList.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1404C08A4 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1405162A0 (IopInitializeDeviceInstanceKey.c)
  */
 
 __int64 __fastcall IopGetRootDevices(_QWORD *a1)
 {
   _WORD *PoolWithTag; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS inited; // ebx
+  int inited; // ebx
   unsigned int v5; // edi
   int MatchingFilteredDeviceList; // eax
   const WCHAR *v7; // rdi
@@ -35,7 +35,7 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
   __int64 v15; // r9
   PVOID *v17; // r14
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-30h] BYREF
-  NTSTATUS v19; // [rsp+60h] [rbp-20h]
+  int v19; // [rsp+60h] [rbp-20h]
   __int64 v20; // [rsp+64h] [rbp-1Ch]
   void *Src; // [rsp+70h] [rbp-10h]
   unsigned int v22; // [rsp+C0h] [rbp+40h] BYREF
@@ -64,10 +64,10 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
       break;
     }
     MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(
-                                   PiPnpRtlCtx,
-                                   (unsigned int)L"Root",
+                                   *(__int64 *)&PiPnpRtlCtx,
+                                   (__int64)L"Root",
                                    1,
-                                   0,
+                                   0LL,
                                    0LL,
                                    (__int64)PoolWithTag,
                                    v22,
@@ -85,7 +85,7 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
       {
         while ( 1 )
         {
-          inited = CmOpenDeviceRegKey(PiPnpRtlCtx, (_DWORD)v7, 16, 0, 983103, 0, (__int64)&Handle, 0LL);
+          inited = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v7, 0x10u, 0, 983103, 0, (__int64)&Handle, 0LL);
           if ( inited < 0 )
             break;
           inited = RtlInitUnicodeStringEx(&DestinationString, v7);

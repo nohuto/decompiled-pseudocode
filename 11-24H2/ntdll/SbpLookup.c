@@ -1,9 +1,9 @@
 /*
- * XREFs of SbpLookup @ 0x18015CA68
+ * XREFs of SbpLookup @ 0x18015AE28
  * Callers:
- *     SbpResolveBasedOnName @ 0x1801183E4 (SbpResolveBasedOnName.c)
+ *     SbpResolveBasedOnName @ 0x180113358 (SbpResolveBasedOnName.c)
  * Callees:
- *     _strnicmp @ 0x1801226C0 (_strnicmp.c)
+ *     _strnicmp @ 0x1801208F0 (_strnicmp.c)
  */
 
 __int64 __fastcall SbpLookup(__int64 a1, unsigned __int16 *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PspQueryProcessAccountingInformationCallback @ 0x1408ED3B0
+ * XREFs of PspQueryProcessAccountingInformationCallback @ 0x14085EBE0
  * Callers:
- *     PspCallJobHierarchyCallbacks @ 0x1408EBFF8 (PspCallJobHierarchyCallbacks.c)
+ *     PspCallJobHierarchyCallbacks @ 0x14085D828 (PspCallJobHierarchyCallbacks.c)
  * Callees:
- *     PoEnergyEstimationEnabled @ 0x140448760 (PoEnergyEstimationEnabled.c)
- *     PsAddProcessEnergyValues @ 0x1404EE7B4 (PsAddProcessEnergyValues.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsQueryStatisticsProcess @ 0x1408EC910 (PsQueryStatisticsProcess.c)
- *     PspAddAccountingValues @ 0x1408ED2FC (PspAddAccountingValues.c)
- *     PsQueryProcessEnergyValues @ 0x1408ED600 (PsQueryProcessEnergyValues.c)
+ *     PoEnergyEstimationEnabled @ 0x140440E80 (PoEnergyEstimationEnabled.c)
+ *     PsAddProcessEnergyValues @ 0x1404E5EF8 (PsAddProcessEnergyValues.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsQueryStatisticsProcess @ 0x14085E140 (PsQueryStatisticsProcess.c)
+ *     PspAddAccountingValues @ 0x14085EB2C (PspAddAccountingValues.c)
+ *     PsQueryProcessEnergyValues @ 0x14085EE30 (PsQueryProcessEnergyValues.c)
  */
 
 __int64 __fastcall PspQueryProcessAccountingInformationCallback(__int64 a1, __int64 a2)

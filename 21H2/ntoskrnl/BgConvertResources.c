@@ -1,9 +1,9 @@
 /*
- * XREFs of BgConvertResources @ 0x1409F6550
+ * XREFs of BgConvertResources @ 0x1409F7550
  * Callers:
- *     BgkSetVirtualFrameBuffer @ 0x1403CCD00 (BgkSetVirtualFrameBuffer.c)
+ *     BgkSetVirtualFrameBuffer @ 0x1403CCE70 (BgkSetVirtualFrameBuffer.c)
  * Callees:
- *     BgpGxConvertRectangle @ 0x1403CE694 (BgpGxConvertRectangle.c)
+ *     BgpGxConvertRectangle @ 0x1403CE804 (BgpGxConvertRectangle.c)
  */
 
 __int64 __fastcall BgConvertResources(unsigned int a1)

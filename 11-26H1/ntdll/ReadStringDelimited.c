@@ -1,9 +1,9 @@
 /*
- * XREFs of ReadStringDelimited @ 0x180131BA0
+ * XREFs of ReadStringDelimited @ 0x180131910
  * Callers:
- *     _input_l @ 0x180131D30 (_input_l.c)
+ *     _input_l @ 0x180131AA0 (_input_l.c)
  * Callees:
- *     ReadString @ 0x1801319C8 (ReadString.c)
+ *     ReadString @ 0x180131738 (ReadString.c)
  */
 
 __int64 __fastcall ReadStringDelimited(

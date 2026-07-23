@@ -15,7 +15,7 @@ __int64 __fastcall sub_180079304(__int64 a1)
 
   v2 = 0;
   v3 = 0;
-  RtlEnterCriticalSection((__int64)&unk_180163BE0);
+  RtlEnterCriticalSection(&stru_180163BE0);
   v4 = 28LL;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
     v4 = 208LL;
@@ -25,17 +25,17 @@ __int64 __fastcall sub_180079304(__int64 a1)
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v2 = 1;
     if ( !*(_BYTE *)(a1 + 419) )
     {
       *(_BYTE *)(a1 + 419) = 2;
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v2 = 0;
     }
   }
   if ( v2 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  RtlLeaveCriticalSection((__int64)&unk_180163BE0);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
+  RtlLeaveCriticalSection(&stru_180163BE0);
   return v3;
 }

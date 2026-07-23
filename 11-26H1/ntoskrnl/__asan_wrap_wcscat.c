@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_wrap_wcscat @ 0x1405E25F0
+ * XREFs of __asan_wrap_wcscat @ 0x1405E4F60
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
  */
 
 ULONG_PTR __fastcall _asan_wrap_wcscat(ULONG_PTR BugCheckParameter1, ULONG_PTR a2)

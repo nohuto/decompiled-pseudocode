@@ -1,19 +1,19 @@
 /*
- * XREFs of MiResetAccessBitPte @ 0x14039B7F0
+ * XREFs of MiResetAccessBitPte @ 0x14039B940
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiIsPageTableLocked @ 0x1402BD028 (MiIsPageTableLocked.c)
- *     MiGetVaAge @ 0x1403090F0 (MiGetVaAge.c)
- *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
- *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
- *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
- *     MiResetAccessBitsTail @ 0x14039D580 (MiResetAccessBitsTail.c)
- *     MiInsertVmAccessedEntry @ 0x14053B400 (MiInsertVmAccessedEntry.c)
+ *     MiIsPageTableLocked @ 0x14023B6D8 (MiIsPageTableLocked.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiGetVaAge @ 0x140313E40 (MiGetVaAge.c)
+ *     MiSetVaAgeList @ 0x140338400 (MiSetVaAgeList.c)
+ *     MiClearPteAccessed @ 0x140344B50 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x1403453A0 (MiLogPageAccess.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiDemoteCombinedPte @ 0x14036B410 (MiDemoteCombinedPte.c)
+ *     MiResetAccessBitsTail @ 0x14039D6D0 (MiResetAccessBitsTail.c)
+ *     MiInsertVmAccessedEntry @ 0x14053B640 (MiInsertVmAccessedEntry.c)
  */
 
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -95,7 +95,7 @@ __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
   if ( !v17 || (unsigned __int64)((__int64)(a2 << 25) >> 16) > 0x7FFFFFFEFFFFLL )
   {
     VaAge = (unsigned __int8)MiGetVaAge(v17, (__int64)(a2 << 25) >> 16);
-    if ( VaAge == 7 && (unsigned int)MiGetPfnPriority((__int64)v15) < dword_140C4E82C )
+    if ( VaAge == 7 && (unsigned int)MiGetPfnPriority((__int64)v15) < dword_140C4E86C )
     {
       v20 = 0;
     }
@@ -103,7 +103,7 @@ __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
     {
       v20 = 1;
       if ( (unsigned int)(VaAge - 1) <= 5 )
-        MiSetVaAgeList(v5, (__int64)(a2 << 25) >> 16, 1LL, 0);
+        MiSetVaAgeList(v5, (__int64)(a2 << 25) >> 16, 1u, 0);
     }
     v21 = *(_QWORD *)(v3 + 8);
     if ( !(unsigned int)MiClearPteAccessed(v5, (__int64)v15, a2, v21, *(_DWORD *)v3, 0) )
@@ -120,7 +120,7 @@ __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
     {
       return 0LL;
     }
-    v22 = qword_140C4DF90;
+    v22 = qword_140C4DFD0;
     if ( (*(_BYTE *)(v21 + 4) & 2) == 0
       && *(_DWORD *)v21 == 1
       && KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5] )

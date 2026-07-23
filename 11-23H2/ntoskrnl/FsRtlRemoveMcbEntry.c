@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlRemoveMcbEntry @ 0x14053CCB0
+ * XREFs of FsRtlRemoveMcbEntry @ 0x14053D200
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlRemoveLargeMcbEntry @ 0x1403ABE60 (FsRtlRemoveLargeMcbEntry.c)
+ *     FsRtlRemoveLargeMcbEntry @ 0x1403AC040 (FsRtlRemoveLargeMcbEntry.c)
  */
 
 void __stdcall FsRtlRemoveMcbEntry(PMCB Mcb, VBN Vbn, ULONG SectorCount)

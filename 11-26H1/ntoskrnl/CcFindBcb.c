@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFindBcb @ 0x1403E3240
+ * XREFs of CcFindBcb @ 0x1403E6430
  * Callers:
- *     CcAcquireByteRangeForWrite @ 0x1403E2360 (CcAcquireByteRangeForWrite.c)
+ *     CcAcquireByteRangeForWrite @ 0x1403E5550 (CcAcquireByteRangeForWrite.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcFindBcb(__int64 a1, __int64 a2, _QWORD *a3, __int64 *a4)

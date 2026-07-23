@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpCloseWorkerFactory @ 0x140AE94C0
+ * XREFs of ExpCloseWorkerFactory @ 0x140AEB870
  * Callers:
  *     <none>
  * Callees:
- *     ExpShutdownWorkerFactory @ 0x1403A9ED0 (ExpShutdownWorkerFactory.c)
+ *     ExpShutdownWorkerFactory @ 0x1403B3AE0 (ExpShutdownWorkerFactory.c)
  */
 
 __int64 __fastcall ExpCloseWorkerFactory(__int64 a1, ULONG_PTR a2, __int64 a3, __int64 a4)

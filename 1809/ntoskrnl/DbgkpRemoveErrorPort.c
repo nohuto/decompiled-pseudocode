@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpRemoveErrorPort @ 0x140706C60
+ * XREFs of DbgkpRemoveErrorPort @ 0x140707F00
  * Callers:
- *     DbgkFlushErrorPort @ 0x140607444 (DbgkFlushErrorPort.c)
- *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
+ *     DbgkFlushErrorPort @ 0x140608444 (DbgkFlushErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x140811FCC (DbgkpSendErrorMessage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     DbgkpDeleteErrorPort @ 0x1407070E4 (DbgkpDeleteErrorPort.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     DbgkpDeleteErrorPort @ 0x140708384 (DbgkpDeleteErrorPort.c)
  */
 
 int __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __int32 *a3)

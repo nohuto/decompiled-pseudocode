@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x180102680
+ * XREFs of RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x180102640
  * Callers:
  *     <none>
  * Callees:
- *     NtWaitForSingleObject @ 0x18009D6C0 (NtWaitForSingleObject.c)
- *     RtlpCtContextFree @ 0x180102508 (RtlpCtContextFree.c)
+ *     NtWaitForSingleObject @ 0x18009D680 (NtWaitForSingleObject.c)
+ *     RtlpCtContextFree @ 0x1801024C8 (RtlpCtContextFree.c)
  */
 
-__int64 __fastcall RtlpRtlpCtWaitForWnfQuiescentWorker(__int64 a1, __int64 a2)
+void __fastcall RtlpRtlpCtWaitForWnfQuiescentWorker(PTP_CALLBACK_INSTANCE a1, HANDLE *a2, PTP_WORK a3)
 {
-  NtWaitForSingleObject(*(HANDLE *)(a2 + 16), 0, 0LL);
-  RtlpCtContextFree((__int64 *)a2);
-  return (unsigned int)_InterlockedExchange(&RtlpCtPublishInProgress, 0);
+  NtWaitForSingleObject(a2[2], 0, 0LL);
+  RtlpCtContextFree((__int64)a2);
+  _InterlockedExchange(&RtlpCtPublishInProgress, 0);
 }

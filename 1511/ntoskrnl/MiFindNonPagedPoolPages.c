@@ -19,7 +19,7 @@
 _QWORD *__fastcall MiFindNonPagedPoolPages(unsigned int a1, unsigned __int64 a2)
 {
   unsigned __int64 v3; // rdi
-  union _SLIST_HEADER *v4; // rbx
+  _SLIST_HEADER *v4; // rbx
   _QWORD *v5; // rsi
   _QWORD *v6; // r14
   _WORD *v7; // rbx

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmUnregisterMachineHiveLoadedNotification @ 0x1407D1D00
+ * XREFs of CmUnregisterMachineHiveLoadedNotification @ 0x1407D21F0
  * Callers:
  *     <none>
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpWorkItemRundown @ 0x1406F778C (CmpWorkItemRundown.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpWorkItemRundown @ 0x1406F578C (CmpWorkItemRundown.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmUnregisterMachineHiveLoadedNotification(unsigned int *P)
@@ -17,8 +17,8 @@ void __fastcall CmUnregisterMachineHiveLoadedNotification(unsigned int *P)
   ULONG_PTR v1; // r8
   __int64 v3; // rcx
   unsigned __int64 *v4; // rdi
-  _QWORD *v5; // rax
-  _QWORD *v6; // rsi
+  char *v5; // rax
+  char *v6; // rsi
   struct _KTHREAD *v7; // rcx
   PVOID *v8; // rax
   signed __int64 v9; // rax
@@ -31,13 +31,13 @@ void __fastcall CmUnregisterMachineHiveLoadedNotification(unsigned int *P)
     v3 = 184 * v1;
     if ( *((struct _KTHREAD **)P + 12) == KeGetCurrentThread() )
       KeBugCheckEx(0x51u, 0x28uLL, v1, 0LL, 0LL);
-    v4 = (unsigned __int64 *)((char *)&unk_140E098C0 + v3);
-    v5 = KeAbPreAcquire((__int64)&unk_140E098C0 + v3, 0LL);
+    v4 = (unsigned __int64 *)((char *)&unk_140E09930 + v3);
+    v5 = (char *)KeAbPreAcquire((__int64)&unk_140E09930 + v3, 0LL);
     v6 = v5;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v4, (__int64)v5, (__int64)v4);
+      ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
     if ( v6 )
-      *((_BYTE *)v6 + 10) = 1;
+      v6[10] = 1;
     if ( *((_BYTE *)P + 109) )
     {
       v7 = *(struct _KTHREAD **)P;

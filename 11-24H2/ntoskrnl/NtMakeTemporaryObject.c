@@ -1,15 +1,15 @@
 /*
- * XREFs of NtMakeTemporaryObject @ 0x140A682C0
+ * XREFs of NtMakeTemporaryObject @ 0x1409B92A0
  * Callers:
- *     IopReassignSystemRoot @ 0x140C1CFA0 (IopReassignSystemRoot.c)
+ *     IopReassignSystemRoot @ 0x140C1EFE0 (IopReassignSystemRoot.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObMakeTemporaryObject @ 0x140A68350 (ObMakeTemporaryObject.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x140A98130 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x140863C20 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     ObMakeTemporaryObject @ 0x1409B9330 (ObMakeTemporaryObject.c)
  */
 
-NTSTATUS __fastcall NtMakeTemporaryObject(HANDLE Handle)
+NTSTATUS __cdecl NtMakeTemporaryObject(HANDLE Handle)
 {
   NTSTATUS result; // eax
   NTSTATUS v3; // edi

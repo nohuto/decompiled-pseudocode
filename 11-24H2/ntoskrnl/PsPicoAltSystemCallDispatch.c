@@ -1,9 +1,9 @@
 /*
- * XREFs of PsPicoAltSystemCallDispatch @ 0x1405E6120
+ * XREFs of PsPicoAltSystemCallDispatch @ 0x1405E3720
  * Callers:
  *     <none>
  * Callees:
- *     PsPicoSystemCallDispatch @ 0x140A9D598 (PsPicoSystemCallDispatch.c)
+ *     PsPicoSystemCallDispatch @ 0x140A98B08 (PsPicoSystemCallDispatch.c)
  */
 
 __int64 PsPicoAltSystemCallDispatch()

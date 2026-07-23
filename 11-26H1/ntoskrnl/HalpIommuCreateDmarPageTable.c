@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuCreateDmarPageTable @ 0x1405A089C
+ * XREFs of HalpIommuCreateDmarPageTable @ 0x1405A30AC
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x14058D094 (HalpIommuAllocateDmaDomain.c)
- *     HalpIommuConstructReservedPageTable @ 0x140BEBC40 (HalpIommuConstructReservedPageTable.c)
+ *     HalpIommuAllocateDmaDomain @ 0x14058F814 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuConstructReservedPageTable @ 0x140BF1C40 (HalpIommuConstructReservedPageTable.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpIommuInitializeDmarPageTable @ 0x1405A0B74 (HalpIommuInitializeDmarPageTable.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x1405A3384 (HalpIommuInitializeDmarPageTable.c)
  */
 
 __int64 __fastcall HalpIommuCreateDmarPageTable(

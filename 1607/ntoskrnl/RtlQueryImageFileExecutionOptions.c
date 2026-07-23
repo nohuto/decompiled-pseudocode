@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlQueryImageFileExecutionOptions @ 0x14055E260
+ * XREFs of RtlQueryImageFileExecutionOptions @ 0x14055E7A0
  * Callers:
- *     PsBootPhaseComplete @ 0x14055DFD0 (PsBootPhaseComplete.c)
+ *     PsBootPhaseComplete @ 0x14055E510 (PsBootPhaseComplete.c)
  * Callees:
- *     RtlQueryImageFileKeyOption @ 0x1404732C4 (RtlQueryImageFileKeyOption.c)
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1404D3228 (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x140472194 (RtlQueryImageFileKeyOption.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1404B6CC8 (RtlpOpenBaseImageFileOptionsKey.c)
  */
 
 int __fastcall RtlQueryImageFileExecutionOptions(void *a1, const WCHAR *a2, __int64 a3, ULONG *a4)

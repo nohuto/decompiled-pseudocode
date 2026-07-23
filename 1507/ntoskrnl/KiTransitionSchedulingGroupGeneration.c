@@ -36,7 +36,7 @@ unsigned __int64 __fastcall KiTransitionSchedulingGroupGeneration(__int64 a1, un
   _QWORD *v26; // rcx
   _QWORD *v27; // rbx
   __int64 v28; // rax
-  __int64 v29; // rax
+  _RTL_RB_TREE *v29; // rax
   unsigned int v30; // r10d
   unsigned int v31; // eax
   __int64 v32; // r8
@@ -168,11 +168,11 @@ LABEL_40:
               v27 = v26 + 49;
               v28 = v26[49];
               if ( v28 )
-                v29 = v28 + 376;
+                v29 = (_RTL_RB_TREE *)(v28 + 376);
               else
-                v29 = a1 + 22768;
+                v29 = (_RTL_RB_TREE *)(a1 + 22768);
               *((_BYTE *)v26 + 112) &= ~1u;
-              RtlRbRemoveNode(v29, v26 + 11);
+              RtlRbRemoveNode(v29, (PRTL_BALANCED_NODE)(v26 + 11));
               v26 = (_QWORD *)*v27;
             }
             while ( *v27 && (v26[14] & 1) != 0 && !v26[47] && !*((_WORD *)v26 + 57) );

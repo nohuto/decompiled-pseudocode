@@ -1,13 +1,13 @@
 /*
- * XREFs of PspLockQuotaListExclusive @ 0x14014C804
+ * XREFs of PspLockQuotaListExclusive @ 0x14014CD74
  * Callers:
- *     PspLookupProcessQuotaBlock @ 0x1404D7A50 (PspLookupProcessQuotaBlock.c)
- *     PspRemoveQuotaBlock @ 0x14067CF60 (PspRemoveQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x1404BB054 (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x14067D044 (PspRemoveQuotaBlock.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PspLockQuotaListExclusive(__int64 a1, ULONG_PTR a2)
@@ -51,8 +51,8 @@ LABEL_20:
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xFu);
     goto LABEL_23;
   }
-  if ( a2 < qword_140326910
-    || a2 >= qword_140326910 + 0x8000000000LL
+  if ( a2 < qword_140326950
+    || a2 >= qword_140326950 + 0x8000000000LL
     || (Process = CurrentThread->ApcState.Process, (v10 = Process[1].ActiveProcessors.Bitmap[2]) == 0)
     || Process == PsInitialSystemProcess )
   {

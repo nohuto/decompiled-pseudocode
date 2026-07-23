@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpWow64CtxFromAmd64 @ 0x180111A40 (RtlpWow64CtxFromAmd64.c)
+ *     RtlpWow64CtxFromAmd64 @ 0x180111A10 (RtlpWow64CtxFromAmd64.c)
  */
 
 __int64 __fastcall RtlpWow64GetContextOnAmd64(__int64 a1, __int64 a2, int *a3)

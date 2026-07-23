@@ -1,10 +1,10 @@
 /*
- * XREFs of LZ4_compress_fast_extState @ 0x14038A470
+ * XREFs of LZ4_compress_fast_extState @ 0x140383DB0
  * Callers:
- *     RtlCompressBufferLz4 @ 0x14038A3F0 (RtlCompressBufferLz4.c)
+ *     RtlCompressBufferLz4 @ 0x140383D30 (RtlCompressBufferLz4.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall LZ4_compress_fast_extState(unsigned int *a1, _QWORD *a2, _BYTE *a3, int a4, int a5)

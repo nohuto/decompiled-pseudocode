@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetCurrentPeb @ 0x1800F8D20
+ * XREFs of RtlGetCurrentPeb @ 0x1800F84F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_PEB *RtlGetCurrentPeb()
+PPEB RtlGetCurrentPeb(void)
 {
   return NtCurrentTeb()->ProcessEnvironmentBlock;
 }

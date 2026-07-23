@@ -1,19 +1,19 @@
 /*
- * XREFs of ZwPrivilegeCheck @ 0x180161790
+ * XREFs of ZwPrivilegeCheck @ 0x180161690
  * Callers:
- *     RtlpValidOwnerSubjectContext @ 0x18005AD80 (RtlpValidOwnerSubjectContext.c)
- *     RtlpValidLabelSubjectContext @ 0x18005B27C (RtlpValidLabelSubjectContext.c)
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
- *     RtlNewSecurityGrantedAccess @ 0x180112C60 (RtlNewSecurityGrantedAccess.c)
+ *     RtlpValidOwnerSubjectContext @ 0x180045300 (RtlpValidOwnerSubjectContext.c)
+ *     RtlpValidLabelSubjectContext @ 0x1800457FC (RtlpValidLabelSubjectContext.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
+ *     RtlNewSecurityGrantedAccess @ 0x180112710 (RtlNewSecurityGrantedAccess.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwPrivilegeCheck()
+NTSTATUS __cdecl ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 323LL;
+  result = 323;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

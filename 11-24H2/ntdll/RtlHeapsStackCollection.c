@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlHeapsStackCollection @ 0x1800E5C44
+ * XREFs of RtlHeapsStackCollection @ 0x1800E10F4
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x1800E599C (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x1800E0E4C (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x1800469B0 (RtlpEnumProcessHeaps.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpEnumProcessHeaps @ 0x18002A930 (RtlpEnumProcessHeaps.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 RtlHeapsStackCollection()

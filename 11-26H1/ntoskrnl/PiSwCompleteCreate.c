@@ -1,47 +1,47 @@
 /*
- * XREFs of PiSwCompleteCreate @ 0x14090F730
+ * XREFs of PiSwCompleteCreate @ 0x1409B1860
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x14090C0D0 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x1409AE200 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14049E7E8 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405DC324 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiSwLock @ 0x14090DC3C (PiSwLock.c)
- *     PiSwInterfaceFree @ 0x14090FC1C (PiSwInterfaceFree.c)
- *     PnpAllocatePWSTR @ 0x140990AC0 (PnpAllocatePWSTR.c)
- *     PnpFreeDevPropertyArray @ 0x140990C90 (PnpFreeDevPropertyArray.c)
- *     _CmGetDeviceInterfaceClassGuid @ 0x1409A2474 (_CmGetDeviceInterfaceClassGuid.c)
- *     PiSwPropertySet @ 0x1409DAD84 (PiSwPropertySet.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1409DB608 (_CmGetDeviceInterfaceReferenceString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     PiSwInterfaceCreate @ 0x140A7B574 (PiSwInterfaceCreate.c)
- *     PnpCopyDevPropertyArray @ 0x140A7C5A0 (PnpCopyDevPropertyArray.c)
- *     IoRegisterDeviceInterface @ 0x140AFA280 (IoRegisterDeviceInterface.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140498338 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405DEBD4 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PnpAllocatePWSTR @ 0x140951520 (PnpAllocatePWSTR.c)
+ *     PnpFreeDevPropertyArray @ 0x1409516F0 (PnpFreeDevPropertyArray.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x140962ED4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     IoRegisterDeviceInterface @ 0x1409AB500 (IoRegisterDeviceInterface.c)
+ *     PiSwLock @ 0x1409AFD6C (PiSwLock.c)
+ *     PiSwInterfaceFree @ 0x1409B1D4C (PiSwInterfaceFree.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     PiSwPropertySet @ 0x140A17FD4 (PiSwPropertySet.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x140A18858 (_CmGetDeviceInterfaceReferenceString.c)
+ *     PiSwInterfaceCreate @ 0x140A8C6B4 (PiSwInterfaceCreate.c)
+ *     PnpCopyDevPropertyArray @ 0x140A8D6D0 (PnpCopyDevPropertyArray.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwCompleteCreate(_QWORD *a1)
 {
   __int64 v2; // r15
   const wchar_t **v3; // rsi
-  __int64 v4; // r14
+  PVOID *v4; // r14
   unsigned int v5; // r12d
   __int64 v6; // rcx
   __int64 v7; // r8
   __int64 *v8; // rax
   __int64 v9; // rdi
   void *v10; // rcx
-  const wchar_t *v11; // rcx
+  wchar_t *v11; // rcx
   unsigned __int64 v12; // rdx
-  NTSTATUS DeviceInterfaceClassGuid; // ebx
+  signed int PWSTR; // ebx
   __int64 v14; // r8
   __int64 v15; // rcx
   __int64 *j; // rsi
@@ -51,7 +51,7 @@ void __fastcall PiSwCompleteCreate(_QWORD *a1)
   PVOID v20; // rcx
   __int64 v21; // rax
   PVOID v22; // rcx
-  PVOID *v23; // rsi
+  const WCHAR *v23; // rsi
   struct _DEVICE_OBJECT *v24; // rdi
   __int64 v25; // rax
   __int64 v26; // rsi
@@ -71,7 +71,7 @@ void __fastcall PiSwCompleteCreate(_QWORD *a1)
   __int64 v40; // [rsp+58h] [rbp-B0h] BYREF
   const wchar_t **v41; // [rsp+60h] [rbp-A8h]
   __int64 v42; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v43; // [rsp+70h] [rbp-98h] BYREF
+  PVOID *v43; // [rsp+70h] [rbp-98h] BYREF
   PVOID Object; // [rsp+78h] [rbp-90h]
   PCWSTR SourceString; // [rsp+80h] [rbp-88h] BYREF
   PVOID **v46; // [rsp+88h] [rbp-80h] BYREF
@@ -109,14 +109,14 @@ void __fastcall PiSwCompleteCreate(_QWORD *a1)
   v47 = v9;
   if ( !v9 )
   {
-    DeviceInterfaceClassGuid = -1073741811;
+    PWSTR = -1073741811;
     v17 = 0LL;
     goto LABEL_15;
   }
   *((_DWORD *)v8 + 2) &= 0xFFFFFFF9;
   v3 = (const wchar_t **)(*(_QWORD *)(a1[39] + 40LL) + 40LL);
   v41 = v3;
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzz_EtwWriteTransfer(
       v6,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_DeviceEnumerated,
@@ -130,11 +130,11 @@ void __fastcall PiSwCompleteCreate(_QWORD *a1)
     ExFreePoolWithTag(v10, 0x57706E50u);
     *(_OWORD *)(v9 + 72) = 0LL;
   }
-  v11 = v3[1];
+  v11 = (wchar_t *)v3[1];
   v12 = ((unsigned __int64)*(unsigned __int16 *)v3 >> 1) + 1;
   SourceString = 0LL;
-  DeviceInterfaceClassGuid = PnpAllocatePWSTR(v11, v12, 1466986064LL, &SourceString);
-  if ( DeviceInterfaceClassGuid < 0 )
+  PWSTR = PnpAllocatePWSTR(v11, v12, 0x57706E50u, (PVOID *)&SourceString);
+  if ( PWSTR < 0 )
   {
     v17 = 0LL;
     goto LABEL_15;
@@ -153,16 +153,16 @@ void __fastcall PiSwCompleteCreate(_QWORD *a1)
       if ( v2 )
       {
         v26 = *(_QWORD *)(v2 + 184);
-        DeviceInterfaceClassGuid = RtlStringCbCopyW(
-                                     *(NTSTRSAFE_PWSTR *)(v2 + 24),
-                                     *(unsigned int *)(v26 + 8),
-                                     *(NTSTRSAFE_PCWSTR *)(v9 + 80));
-        if ( DeviceInterfaceClassGuid >= 0 )
+        PWSTR = RtlStringCbCopyW(
+                  *(NTSTRSAFE_PWSTR *)(v2 + 24),
+                  *(unsigned int *)(v26 + 8),
+                  *(NTSTRSAFE_PCWSTR *)(v9 + 80));
+        if ( PWSTR >= 0 )
         {
           v27 = *(_WORD **)(v2 + 24);
           if ( !v27 )
           {
-            DeviceInterfaceClassGuid = -1073741811;
+            PWSTR = -1073741811;
 LABEL_14:
             v3 = v41;
             v17 = 0LL;
@@ -176,7 +176,7 @@ LABEL_14:
               break;
             ++v27;
           }
-          DeviceInterfaceClassGuid = v28 == 0 ? 0xC000000D : 0;
+          PWSTR = v28 == 0 ? 0xC000000D : 0;
           if ( v28 )
             v30 = i - v28;
           else
@@ -200,18 +200,13 @@ LABEL_9:
   *((_QWORD *)&v52 + 1) = &v40;
   v50 = DEVPKEY_Device_CreatorProcessId;
   *(_QWORD *)&v52 = 0x400000007LL;
-  DeviceInterfaceClassGuid = PnpCopyDevPropertyArray(
-                               *(_DWORD *)(v9 + 176),
-                               *(_QWORD *)(v9 + 168),
-                               v14,
-                               (unsigned int)&v37,
-                               (__int64)&v43);
-  if ( DeviceInterfaceClassGuid >= 0 )
+  PWSTR = PnpCopyDevPropertyArray(*(_DWORD *)(v9 + 176), *(_QWORD *)(v9 + 168), v14, (unsigned int)&v37, (__int64)&v43);
+  if ( PWSTR >= 0 )
   {
     for ( j = *(__int64 **)(v9 + 184); j != (__int64 *)(v9 + 184); j = (__int64 *)*j )
     {
-      DeviceInterfaceClassGuid = PiSwInterfaceCreate(j[2], j[3], *((unsigned int *)j + 8), &v46);
-      if ( DeviceInterfaceClassGuid < 0 )
+      PWSTR = PiSwInterfaceCreate(j[2], j[3], *((unsigned int *)j + 8), &v46);
+      if ( PWSTR < 0 )
         goto LABEL_13;
       v31 = v39;
       if ( *v39 != &v38 )
@@ -234,24 +229,28 @@ LABEL_13:
 LABEL_15:
   ExReleaseResourceLite(&PiSwLockObj);
   KeLeaveCriticalRegion();
-  if ( DeviceInterfaceClassGuid >= 0 )
+  if ( PWSTR >= 0 )
   {
-    if ( !*((_QWORD *)&v52 + 1)
-      || (DeviceInterfaceClassGuid = PiSwPropertySet(v3[1], 1LL, &v50, 1LL), DeviceInterfaceClassGuid >= 0) )
+    if ( !*((_QWORD *)&v52 + 1) || (PWSTR = PiSwPropertySet(v3[1], 1LL, &v50, 1LL), PWSTR >= 0) )
     {
-      if ( !v4 || (DeviceInterfaceClassGuid = PiSwPropertySet(v3[1], 1LL, v4, v5), DeviceInterfaceClassGuid >= 0) )
+      if ( !v4 || (PWSTR = PiSwPropertySet(v3[1], 1LL, v4, v5), PWSTR >= 0) )
       {
-        v23 = (PVOID *)v38;
+        v23 = (const WCHAR *)v38;
         if ( v38 != &v38 )
         {
           v24 = (struct _DEVICE_OBJECT *)Object;
           do
           {
-            DeviceInterfaceClassGuid = CmGetDeviceInterfaceClassGuid(v18, v23[2], &InterfaceClassGuid);
-            if ( DeviceInterfaceClassGuid < 0 )
+            PWSTR = CmGetDeviceInterfaceClassGuid(v18, *((const WCHAR **)v23 + 2), (__int64)&InterfaceClassGuid);
+            if ( PWSTR < 0 )
               break;
-            DeviceInterfaceReferenceString = CmGetDeviceInterfaceReferenceString(v33, v23[2], v54, 260LL, &v42);
-            DeviceInterfaceClassGuid = DeviceInterfaceReferenceString;
+            DeviceInterfaceReferenceString = CmGetDeviceInterfaceReferenceString(
+                                               v33,
+                                               *((_QWORD *)v23 + 2),
+                                               v54,
+                                               260LL,
+                                               &v42);
+            PWSTR = DeviceInterfaceReferenceString;
             if ( DeviceInterfaceReferenceString == -1073741772 )
             {
               v35 = 0;
@@ -263,20 +262,20 @@ LABEL_15:
               v35 = 1;
               RtlInitUnicodeString(&DestinationString, v54);
             }
-            DeviceInterfaceClassGuid = IoRegisterDeviceInterface(
-                                         v24,
-                                         &InterfaceClassGuid,
-                                         (PUNICODE_STRING)((unsigned __int64)&DestinationString & -(__int64)(v35 != 0)),
-                                         (PUNICODE_STRING)P);
-            if ( DeviceInterfaceClassGuid < 0 )
+            PWSTR = IoRegisterDeviceInterface(
+                      v24,
+                      &InterfaceClassGuid,
+                      (PUNICODE_STRING)((unsigned __int64)&DestinationString & -(__int64)(v35 != 0)),
+                      (PUNICODE_STRING)P);
+            if ( PWSTR < 0 )
               break;
-            DeviceInterfaceClassGuid = PiSwPropertySet(v23[2], 3LL, v23[3], *((unsigned int *)v23 + 8));
-            if ( DeviceInterfaceClassGuid < 0 )
+            PWSTR = PiSwPropertySet(*((_QWORD *)v23 + 2), 3LL, *((_QWORD *)v23 + 3), *((unsigned int *)v23 + 8));
+            if ( PWSTR < 0 )
               break;
-            v23 = (PVOID *)*v23;
+            v23 = *(const WCHAR **)v23;
             RtlFreeAnsiString((PUNICODE_STRING)P);
           }
-          while ( v23 != &v38 );
+          while ( v23 != (const WCHAR *)&v38 );
           v9 = v47;
           v17 = v36;
         }
@@ -286,7 +285,7 @@ LABEL_15:
   if ( Object )
     ObfDereferenceObject(Object);
   if ( v4 )
-    PnpFreeDevPropertyArray(v5, v4, 1466986064LL);
+    PnpFreeDevPropertyArray(v5, v4, 0x57706E50u);
   while ( 1 )
   {
     v20 = v38;
@@ -307,18 +306,18 @@ LABEL_15:
   if ( v2 )
   {
     v25 = v17 + 2;
-    if ( DeviceInterfaceClassGuid < 0 )
+    if ( PWSTR < 0 )
       v25 = 0LL;
     *(_QWORD *)(v2 + 56) = v25;
-    *(_DWORD *)(v2 + 48) = DeviceInterfaceClassGuid;
+    *(_DWORD *)(v2 + 48) = PWSTR;
     IofCompleteRequest((PIRP)v2, 0);
   }
-  if ( v9 && (byte_140EF3DCC & 0x40) != 0 )
+  if ( v9 && (byte_140EF412C & 0x40) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       (__int64)v22,
       (__int64)KMPnPEvt_SwDevice_DeviceEnumerated_Status,
       v19,
       *(const wchar_t **)(v9 + 8),
       *(const wchar_t **)(v9 + 16),
-      DeviceInterfaceClassGuid);
+      PWSTR);
 }

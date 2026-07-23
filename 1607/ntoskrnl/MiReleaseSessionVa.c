@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseSessionVa @ 0x1400ADE10
+ * XREFs of MiReleaseSessionVa @ 0x1400AC378
  * Callers:
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MiReleaseSessionVa(__int64 a1, ULONG a2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, ULONG a2)
   unsigned __int64 v9; // rdi
 
   CurrentThread = KeGetCurrentThread();
-  v4 = (unsigned __int64)(a1 - qword_1403268C0) >> 21;
+  v4 = (unsigned __int64)(a1 - qword_140326900) >> 21;
   v5 = CurrentThread->ApcState.Process[1].ActiveProcessors.Bitmap[2];
   --CurrentThread->SpecialApcDisable;
   v6 = (volatile signed __int32 *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 7816);

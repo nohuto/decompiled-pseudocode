@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpAddDeviceToPdoDeviceListEnumContext @ 0x1406C0A50
+ * XREFs of PiPnpAddDeviceToPdoDeviceListEnumContext @ 0x14061F960
  * Callers:
- *     PiPnpPdoDeviceListEnumCallback @ 0x1406C0A10 (PiPnpPdoDeviceListEnumCallback.c)
+ *     PiPnpPdoDeviceListEnumCallback @ 0x14061F920 (PiPnpPdoDeviceListEnumCallback.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpAddDeviceToPdoDeviceListEnumContext(unsigned int *a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDeleteDependencyNode @ 0x14062B21C
+ * XREFs of PipDeleteDependencyNode @ 0x14062B2D0
  * Callers:
- *     PipDereferenceDependencyNode @ 0x140567ECC (PipDereferenceDependencyNode.c)
- *     PipCreateDependencyNode @ 0x140567ED8 (PipCreateDependencyNode.c)
+ *     PipDereferenceDependencyNode @ 0x14056840C (PipDereferenceDependencyNode.c)
+ *     PipCreateDependencyNode @ 0x140568418 (PipCreateDependencyNode.c)
  * Callees:
- *     PipDeleteBindingIds @ 0x14062B1E0 (PipDeleteBindingIds.c)
+ *     PipDeleteBindingIds @ 0x14062B294 (PipDeleteBindingIds.c)
  */
 
 void __fastcall PipDeleteDependencyNode(_QWORD *a1)

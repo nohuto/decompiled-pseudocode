@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRevertMemoryStream @ 0x1800D5A80
+ * XREFs of RtlRevertMemoryStream @ 0x1800D5A40
  * Callers:
  *     <none>
  * Callees:

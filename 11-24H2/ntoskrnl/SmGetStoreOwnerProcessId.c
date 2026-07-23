@@ -1,17 +1,17 @@
 /*
- * XREFs of SmGetStoreOwnerProcessId @ 0x14060EE3C
+ * XREFs of SmGetStoreOwnerProcessId @ 0x14060D3FC
  * Callers:
- *     ?SmStEtwFillStoreEvent@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x14060E57C (-SmStEtwFillStoreEvent@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
+ *     ?SmStEtwFillStoreEvent@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x14060CB3C (-SmStEtwFillStoreEvent@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
  * Callees:
- *     SmpKeyedStoreEntryGet @ 0x1402457A0 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreReference @ 0x140247170 (SmKmStoreReference.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14042B6B0 (SmKmStoreRefFromStoreIndex.c)
+ *     SmpKeyedStoreEntryGet @ 0x14020DF80 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     SmKmStoreReference @ 0x1402F6020 (SmKmStoreReference.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14041E240 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmGetStoreOwnerProcessId(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall SmGetStoreOwnerProcessId(__int64 a1)
   __int64 v5; // rax
   unsigned int v6; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v8; // rbx
+  char *v8; // rbx
   __int64 v9; // rax
   __int64 v11; // [rsp+58h] [rbp+10h] BYREF
 
@@ -38,11 +38,11 @@ __int64 __fastcall SmGetStoreOwnerProcessId(__int64 a1)
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v8 = KeAbPreAcquire(v1 + 2232, 0LL);
+      v8 = (char *)KeAbPreAcquire(v1 + 2232, 0LL);
       if ( _InterlockedCompareExchange64(v4, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(v1 + 2232), 0, v8, v1 + 2232);
       if ( v8 )
-        *((_BYTE *)v8 + 10) = 1;
+        v8[10] = 1;
       v9 = SmpKeyedStoreEntryGet(v1 + 2232, &v11, 0, 1);
       if ( v9 && *(unsigned __int16 *)(v9 + 16) == *(_DWORD *)(a1 + 6832) )
         v6 = *(_DWORD *)(v11 + 464);

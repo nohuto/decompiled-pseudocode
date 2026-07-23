@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCCSwapStart @ 0x140ABF2B8
+ * XREFs of EtwpCCSwapStart @ 0x140ABA320
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14048FBCC (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x14048A210 (EtwpUpdateSelectedGroupMasks.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCCSwapStart(unsigned int a1)
@@ -31,7 +31,7 @@ __int64 __fastcall EtwpCCSwapStart(unsigned int a1)
       }
       else
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0x400uLL, 0x77734343u);
         *(_QWORD *)(v4 + 8 * v2 + 408) = Pool2;
         if ( !Pool2 )
         {

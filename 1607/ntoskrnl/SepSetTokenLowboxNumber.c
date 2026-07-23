@@ -1,22 +1,22 @@
 /*
- * XREFs of SepSetTokenLowboxNumber @ 0x140476A64
+ * XREFs of SepSetTokenLowboxNumber @ 0x140475934
  * Callers:
- *     SepGetAnonymousToken @ 0x14007F884 (SepGetAnonymousToken.c)
- *     SeSubProcessToken @ 0x14046EA48 (SeSubProcessToken.c)
- *     SeSetSessionIdToken @ 0x14047AA4C (SeSetSessionIdToken.c)
- *     NtCreateLowBoxToken @ 0x14047BBD8 (NtCreateLowBoxToken.c)
- *     SeExchangePrimaryToken @ 0x140692774 (SeExchangePrimaryToken.c)
+ *     SepGetAnonymousToken @ 0x14007F904 (SepGetAnonymousToken.c)
+ *     SeSubProcessToken @ 0x14046D918 (SeSubProcessToken.c)
+ *     SeSetSessionIdToken @ 0x14047991C (SeSetSessionIdToken.c)
+ *     NtCreateLowBoxToken @ 0x14047AAA8 (NtCreateLowBoxToken.c)
+ *     SeExchangePrimaryToken @ 0x140692858 (SeExchangePrimaryToken.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x14021B2F8 (SepGetTokenSessionMapEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x140476BFC (SepGetLowBoxNumberEntry.c)
- *     SepInitializeLowBoxNumberTable @ 0x14054847C (SepInitializeLowBoxNumberTable.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SepGetTokenSessionMapEntry @ 0x14021B124 (SepGetTokenSessionMapEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x140475ACC (SepGetLowBoxNumberEntry.c)
+ *     SepInitializeLowBoxNumberTable @ 0x1405489BC (SepInitializeLowBoxNumberTable.c)
  */
 
 __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtQueryBootOptions()
+NTSTATUS __cdecl NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 297LL;
+  result = 297;
   __asm { syscall; Low latency system call }
   return result;
 }

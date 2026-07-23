@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmaGuardProcessPostRemove @ 0x1406ED60C
+ * XREFs of PiDmaGuardProcessPostRemove @ 0x1406EE8AC
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x14015A95C (PnpRemoveLockedDeviceNode.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED428 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14015AA5C (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406EE6C8 (PnpSurpriseRemoveLockedDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PiDmaGuardQueueRemoveEntry @ 0x14028B958 (PiDmaGuardQueueRemoveEntry.c)
- *     PipDmgDestroyIommuExtension @ 0x1406F92A4 (PipDmgDestroyIommuExtension.c)
- *     PipDmgReevaluateQueue @ 0x140839464 (PipDmgReevaluateQueue.c)
- *     PiDmaGuardQueueInsertEntry @ 0x140840A80 (PiDmaGuardQueueInsertEntry.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x14028BB48 (PiDmaGuardQueueRemoveEntry.c)
+ *     PipDmgDestroyIommuExtension @ 0x1406FA544 (PipDmgDestroyIommuExtension.c)
+ *     PipDmgReevaluateQueue @ 0x14083A6C4 (PipDmgReevaluateQueue.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x140841CE0 (PiDmaGuardQueueInsertEntry.c)
  */
 
 void __fastcall PiDmaGuardProcessPostRemove(ULONG_PTR BugCheckParameter4, int a2, char a3)
@@ -27,7 +27,7 @@ void __fastcall PiDmaGuardProcessPostRemove(ULONG_PTR BugCheckParameter4, int a2
     {
       if ( (*(_BYTE *)(v3 + 16) & 2) != 0 )
       {
-        v7 = ((__int64 (__fastcall *)(_QWORD))off_1403FE700[0])(*(_QWORD *)(v3 + 8));
+        v7 = ((__int64 (__fastcall *)(_QWORD))off_1403FF700[0])(*(_QWORD *)(v3 + 8));
         if ( v7 >= 0 )
           *(_BYTE *)(v3 + 16) &= ~2u;
         *(_QWORD *)(v3 + 8) = 0LL;

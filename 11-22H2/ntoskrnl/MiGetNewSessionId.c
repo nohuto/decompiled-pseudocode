@@ -26,8 +26,8 @@ __int64 MiGetNewSessionId()
   char v6; // al
   bool v7; // zf
   unsigned int v9; // ebp
-  RTL_BITMAP *Pool; // rax
-  RTL_BITMAP *v11; // r14
+  _RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *v11; // r14
   unsigned __int64 SizeOfBitMap; // rcx
 
   CurrentThread = KeGetCurrentThread();
@@ -46,7 +46,7 @@ __int64 MiGetNewSessionId()
     v9 = qword_140C69A10->SizeOfBitMap + 128;
     if ( v9 > 0x7FFFF )
       v9 = 0x7FFFF;
-    Pool = (RTL_BITMAP *)MiAllocatePool(256, 8 * ((v9 >> 6) + ((v9 & 0x3F) != 0) + 2), 0x20206D4Du);
+    Pool = (_RTL_BITMAP *)MiAllocatePool(256, 8 * ((v9 >> 6) + ((v9 & 0x3F) != 0) + 2), 0x20206D4Du);
     v11 = Pool;
     if ( Pool )
     {

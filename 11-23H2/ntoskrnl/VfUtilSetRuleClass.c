@@ -1,8 +1,8 @@
 /*
- * XREFs of VfUtilSetRuleClass @ 0x1405CE35C
+ * XREFs of VfUtilSetRuleClass @ 0x1405CE8CC
  * Callers:
- *     ViSetDifPluginMode @ 0x140ABD5A8 (ViSetDifPluginMode.c)
- *     VfVolatileSetDifRuleClass @ 0x140ADDC1C (VfVolatileSetDifRuleClass.c)
+ *     ViSetDifPluginMode @ 0x140ABD598 (ViSetDifPluginMode.c)
+ *     VfVolatileSetDifRuleClass @ 0x140ADDC0C (VfVolatileSetDifRuleClass.c)
  * Callees:
  *     <none>
  */

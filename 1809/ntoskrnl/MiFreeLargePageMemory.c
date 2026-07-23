@@ -2,21 +2,21 @@
  * XREFs of MiFreeLargePageMemory @ 0x140026200
  * Callers:
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
- *     MiDeleteSubsectionPages @ 0x140094F80 (MiDeleteSubsectionPages.c)
- *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
- *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
- *     MiFreeSlabEntry @ 0x1402C2328 (MiFreeSlabEntry.c)
- *     MiFreeLargePages @ 0x1402C55CC (MiFreeLargePages.c)
+ *     MiDeleteSubsectionPages @ 0x140094EC0 (MiDeleteSubsectionPages.c)
+ *     MiFreeContiguousPages @ 0x1401231C4 (MiFreeContiguousPages.c)
+ *     MiDecommitLargePoolVa @ 0x14015B3E0 (MiDecommitLargePoolVa.c)
+ *     MiFreeSlabEntry @ 0x1402C2518 (MiFreeSlabEntry.c)
+ *     MiFreeLargePages @ 0x1402C57BC (MiFreeLargePages.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiInsertLargePageInNodeList @ 0x140028C1C (MiInsertLargePageInNodeList.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeLargePageMemory(ULONG_PTR a1, unsigned int a2, int a3)
@@ -92,7 +92,7 @@ __int64 __fastcall MiFreeLargePageMemory(ULONG_PTR a1, unsigned int a2, int a3)
     v11 = a1 & 0xFFFFFE00;
     v12 = 512;
   }
-  MiUpdateLargePageBitMap(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL)), v11, v12, 0, 0);
+  MiUpdateLargePageBitMap(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v9 + 40) >> 40) & 0x3FFLL)), v11, v12, 0, 0);
   CurrentIrql = KeGetCurrentIrql();
   v36 = CurrentIrql;
   __writecr8(2uLL);

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInitializePoolTracker @ 0x140A68AF4
+ * XREFs of ExInitializePoolTracker @ 0x140A69AF4
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1403C3924 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x1403C3D54 (ExInitializePoolHeapManagement.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocateHeapPages @ 0x1403756C8 (ExAllocateHeapPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocateHeapPages @ 0x140375218 (ExAllocateHeapPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
- *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
- *     ExpSeedHotTags @ 0x140A68D80 (ExpSeedHotTags.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140644560 (MmGetNumberOfPhysicalPages.c)
+ *     ExpSeedHotTags @ 0x140A69D80 (ExpSeedHotTags.c)
  */
 
 __int64 ExInitializePoolTracker()

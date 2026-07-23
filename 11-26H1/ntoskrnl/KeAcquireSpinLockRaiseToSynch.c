@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x1405F05D0
+ * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x1405F2F40
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 KIRQL __stdcall KeAcquireSpinLockRaiseToSynch(PKSPIN_LOCK SpinLock)

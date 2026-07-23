@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampStackHashCheck @ 0x14090090C
+ * XREFs of EtwpCovSampStackHashCheck @ 0x1409231EC
  * Callers:
- *     EtwpCovSampCaptureBufferProcess @ 0x140900208 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140900430 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409022F4 (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x140922AE8 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140922D10 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140924BD4 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpCovSampStackHashLookup @ 0x1407B27D8 (EtwpCovSampStackHashLookup.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpCovSampStackHashLookup @ 0x1407B2C28 (EtwpCovSampStackHashLookup.c)
  */
 
 __int64 __fastcall EtwpCovSampStackHashCheck(ULONG_PTR *a1, __int64 a2, unsigned __int8 *a3, unsigned int a4)
@@ -34,15 +34,15 @@ __int64 __fastcall EtwpCovSampStackHashCheck(ULONG_PTR *a1, __int64 a2, unsigned
   unsigned __int64 v19; // r9
   unsigned __int64 v20; // r9
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v22; // r15
+  char *v22; // r15
   unsigned int v23; // eax
   unsigned int v24; // ecx
   struct _KTHREAD *v25; // rax
-  _QWORD *v26; // rax
-  _QWORD *v27; // rdi
+  char *v26; // rax
+  char *v27; // rdi
   size_t v28; // r8
   struct _KTHREAD *v29; // rax
-  _QWORD *v30; // r15
+  char *v30; // r15
   signed __int64 *v31; // rcx
   volatile signed __int32 *v32; // [rsp+68h] [rbp+10h] BYREF
 
@@ -119,11 +119,11 @@ LABEL_16:
 LABEL_22:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v22 = KeAbPreAcquire(v6, 0LL);
+  v22 = (char *)KeAbPreAcquire(v6, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v6, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)v6, 0, v22, v6);
   if ( v22 )
-    *((_BYTE *)v22 + 10) = 1;
+    v22[10] = 1;
   if ( (unsigned int)EtwpCovSampStackHashLookup(v6, v10, &v32) )
   {
     v7 = 1;
@@ -148,11 +148,11 @@ LABEL_22:
         }
         v29 = KeGetCurrentThread();
         --v29->KernelApcDisable;
-        v30 = KeAbPreAcquire(v8, 0LL);
+        v30 = (char *)KeAbPreAcquire(v8, 0LL);
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8, 17LL, 0LL) )
           ExfAcquirePushLockSharedEx((signed __int64 *)v8, 0, v30, v8);
         if ( v30 )
-          *((_BYTE *)v30 + 10) = 1;
+          v30[10] = 1;
         LOBYTE(v7) = (unsigned int)EtwpCovSampStackHashLookup(v8, v10, &v32) != 0;
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared(v31);
@@ -170,12 +170,12 @@ LABEL_36:
   {
     v25 = KeGetCurrentThread();
     --v25->KernelApcDisable;
-    v26 = KeAbPreAcquire(v8, 0LL);
+    v26 = (char *)KeAbPreAcquire(v8, 0LL);
     v27 = v26;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v8, (__int64)v26, v8);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v8, v26, v8);
     if ( v27 )
-      *((_BYTE *)v27 + 10) = 1;
+      v27[10] = 1;
     v28 = 4LL * *(unsigned int *)(v8 + 20);
     *(_QWORD *)(v8 + 8) = KeGetCurrentThread();
     memset_0((void *)(v8 + 24), 0, v28);

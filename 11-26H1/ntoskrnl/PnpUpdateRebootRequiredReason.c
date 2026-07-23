@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpUpdateRebootRequiredReason @ 0x1407A4B70
+ * XREFs of PnpUpdateRebootRequiredReason @ 0x1407A76B0
  * Callers:
- *     PnpReallocateResources @ 0x1407B33A8 (PnpReallocateResources.c)
- *     PipProcessRestartPhase2 @ 0x1407B4DF4 (PipProcessRestartPhase2.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     PipProcessStartPhase2 @ 0x140B0AC1C (PipProcessStartPhase2.c)
+ *     PnpReallocateResources @ 0x1407B6408 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase2 @ 0x1407B7E54 (PipProcessRestartPhase2.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     PipProcessStartPhase2 @ 0x140B0C368 (PipProcessStartPhase2.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PnpUpdateRebootRequiredReason(int a1, __int64 a2, __int64 a3)
@@ -68,7 +68,6 @@ __int64 __fastcall PnpUpdateRebootRequiredReason(int a1, __int64 a2, __int64 a3)
                            PiPnpRtlCtx,
                            a1,
                            1,
-                           0,
                            0LL,
                            (__int64)DEVPKEY_Device_RebootRequiredReason,
                            9,
@@ -76,6 +75,6 @@ __int64 __fastcall PnpUpdateRebootRequiredReason(int a1, __int64 a2, __int64 a3)
                            8,
                            0);
   else
-    PnpSetObjectProperty(PiPnpRtlCtx, a1, 1, 0, 0LL, (__int64)DEVPKEY_Device_RebootRequiredReason, 0, 0LL, 0, 0);
+    PnpSetObjectProperty(PiPnpRtlCtx, a1, 1, 0LL, (__int64)DEVPKEY_Device_RebootRequiredReason, 0, 0LL, 0, 0);
   return v3;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of ResFwFindMessage @ 0x140C50D2C
+ * XREFs of ResFwFindMessage @ 0x140C56D2C
  * Callers:
- *     BcpFindMessage @ 0x140D146E4 (BcpFindMessage.c)
+ *     BcpFindMessage @ 0x140D1A8AC (BcpFindMessage.c)
  * Callees:
- *     RtlFindMessage @ 0x140A86CF0 (RtlFindMessage.c)
+ *     RtlFindMessage @ 0x140A8DE20 (RtlFindMessage.c)
  */
 
-unsigned __int16 *__fastcall ResFwFindMessage(unsigned int a1)
+BYTE *__fastcall ResFwFindMessage(ULONG MessageId)
 {
-  unsigned __int16 *v2; // [rsp+48h] [rbp+10h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = 0LL;
+  MessageEntry = 0LL;
   if ( *(_QWORD *)&gLoadedDiffHivesLock.AffinityPrimaryGroup
     && **(_QWORD **)&gLoadedDiffHivesLock.AffinityPrimaryGroup
-    && (int)RtlFindMessage(**(_QWORD **)&gLoadedDiffHivesLock.AffinityPrimaryGroup, 0xBu, 0, a1, &v2) >= 0
-    && (v2[1] & 1) != 0 )
+    && RtlFindMessage(**(PVOID **)&gLoadedDiffHivesLock.AffinityPrimaryGroup, 0xBu, 0, MessageId, &MessageEntry) >= 0
+    && (MessageEntry->Flags & 1) != 0 )
   {
-    return v2 + 2;
+    return MessageEntry->Text;
   }
   else
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExAcquireFastMutexUnsafe @ 0x140942110
+ * XREFs of VerifierExAcquireFastMutexUnsafe @ 0x140943110
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
- *     VerifierExAcquireFastMutexUnsafeNoReboot @ 0x140942150 (VerifierExAcquireFastMutexUnsafeNoReboot.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
+ *     VerifierExAcquireFastMutexUnsafeNoReboot @ 0x140943150 (VerifierExAcquireFastMutexUnsafeNoReboot.c)
  */
 
 void __fastcall VerifierExAcquireFastMutexUnsafe(ULONG_PTR a1)

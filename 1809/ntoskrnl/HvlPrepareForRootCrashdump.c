@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlPrepareForRootCrashdump @ 0x140274CF0
+ * XREFs of HvlPrepareForRootCrashdump @ 0x140274EE0
  * Callers:
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvlNotifyRootCrashdump @ 0x140274C2C (HvlNotifyRootCrashdump.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvlNotifyRootCrashdump @ 0x140274E1C (HvlNotifyRootCrashdump.c)
  */
 
 __int64 HvlPrepareForRootCrashdump()
@@ -26,6 +26,6 @@ __int64 HvlPrepareForRootCrashdump()
   }
   if ( (HvlpFlags & 2) != 0 )
     HvlNotifyRootCrashdump(1);
-  off_1403FE4E0[0]();
-  return ((__int64 (__fastcall *)(__int64))off_1403FE3D8[0])(1LL);
+  off_1403FF4E0[0]();
+  return ((__int64 (__fastcall *)(__int64))off_1403FF3D8[0])(1LL);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFaultsInitPhase1 @ 0x140B96468
+ * XREFs of VfFaultsInitPhase1 @ 0x140B98468
  * Callers:
- *     VfRlrsEntry @ 0x140615080 (VfRlrsEntry.c)
- *     VerifierInitSystem @ 0x140C3B1B8 (VerifierInitSystem.c)
+ *     VfRlrsEntry @ 0x140613640 (VfRlrsEntry.c)
+ *     VerifierInitSystem @ 0x140C3D310 (VerifierInitSystem.c)
  * Callees:
- *     PsSetCreateProcessNotifyRoutine @ 0x14077A210 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x14077A310 (PsSetCreateProcessNotifyRoutine.c)
  */
 
 NTSTATUS VfFaultsInitPhase1()

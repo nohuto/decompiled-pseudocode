@@ -15,7 +15,7 @@
 __int64 __fastcall DifZwSetTimerWrapper(
         void *a1,
         LARGE_INTEGER *a2,
-        void (__stdcall *a3)(PVOID TimerContext, ULONG TimerLowValue, LONG TimerHighValue),
+        void (__cdecl *a3)(PVOID, ULONG, LONG),
         void *a4,
         BOOLEAN ResumeTimer,
         LONG Period,
@@ -33,7 +33,7 @@ __int64 __fastcall DifZwSetTimerWrapper(
   LONG v20; // [rsp+50h] [rbp-30h]
   BOOLEAN v21; // [rsp+54h] [rbp-2Ch]
   void *v22; // [rsp+58h] [rbp-28h]
-  void (__stdcall *v23)(PVOID, ULONG, LONG); // [rsp+60h] [rbp-20h]
+  void (__cdecl *v23)(PVOID, ULONG, LONG); // [rsp+60h] [rbp-20h]
   LARGE_INTEGER *v24; // [rsp+68h] [rbp-18h]
   void *v25; // [rsp+70h] [rbp-10h]
   unsigned int v26; // [rsp+78h] [rbp-8h]

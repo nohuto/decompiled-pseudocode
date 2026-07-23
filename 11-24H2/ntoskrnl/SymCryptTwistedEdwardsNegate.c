@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptTwistedEdwardsNegate @ 0x14052BE70
+ * XREFs of SymCryptTwistedEdwardsNegate @ 0x140535E30
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementCreate @ 0x140523BD8 (SymCryptModElementCreate.c)
- *     SymCryptModElementMaskedCopy @ 0x140523C54 (SymCryptModElementMaskedCopy.c)
- *     SymCryptModNeg @ 0x140523EBC (SymCryptModNeg.c)
+ *     SymCryptModElementCreate @ 0x1405214F0 (SymCryptModElementCreate.c)
+ *     SymCryptModElementMaskedCopy @ 0x14052156C (SymCryptModElementMaskedCopy.c)
+ *     SymCryptModNeg @ 0x1405217D4 (SymCryptModNeg.c)
  */
 
 __int64 __fastcall SymCryptTwistedEdwardsNegate(__int64 a1)

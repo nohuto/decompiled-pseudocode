@@ -1,13 +1,13 @@
 /*
- * XREFs of KeEnumerateNextSchedulerSubNodeInNode @ 0x140470DF0
+ * XREFs of KeEnumerateNextSchedulerSubNodeInNode @ 0x14046A570
  * Callers:
- *     KeQueryNodeActiveAffinity2 @ 0x14050E130 (KeQueryNodeActiveAffinity2.c)
- *     KeUpdateProcessorRestrictions @ 0x1405E9610 (KeUpdateProcessorRestrictions.c)
- *     KiDoesNodeIntersectAffinity @ 0x1405EF7EC (KiDoesNodeIntersectAffinity.c)
- *     PpmParkRegisterParking @ 0x14060FE58 (PpmParkRegisterParking.c)
- *     KiSynchNumaCounterSetCallback @ 0x140A67EF0 (KiSynchNumaCounterSetCallback.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140507BA0 (KeQueryNodeActiveAffinity2.c)
+ *     KeUpdateProcessorRestrictions @ 0x1405EBF80 (KeUpdateProcessorRestrictions.c)
+ *     KiDoesNodeIntersectAffinity @ 0x1405F215C (KiDoesNodeIntersectAffinity.c)
+ *     PpmParkRegisterParking @ 0x1406130BC (PpmParkRegisterParking.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140A74EC0 (KiSynchNumaCounterSetCallback.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     KiCountNodeZeroSetBitsGroupAffinity @ 0x140CCFB30 (KiCountNodeZeroSetBitsGroupAffinity.c)
  * Callees:
  *     <none>
  */

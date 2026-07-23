@@ -3,10 +3,10 @@
  * Callers:
  *     RtlpHpAllocWithExceptionProtection @ 0x180010D10 (RtlpHpAllocWithExceptionProtection.c)
  *     RtlpHpTagContextAllocateTag @ 0x180064ED0 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpTagQueryTags @ 0x18007B470 (RtlpHpTagQueryTags.c)
+ *     RtlpHpTagQueryTags @ 0x18007B480 (RtlpHpTagQueryTags.c)
  *     RtlpHpTagContextGetTag @ 0x180106E98 (RtlpHpTagContextGetTag.c)
  * Callees:
- *     RtlpHpTagMappingComparison @ 0x18007A0D4 (RtlpHpTagMappingComparison.c)
+ *     RtlpHpTagMappingComparison @ 0x18007A0E4 (RtlpHpTagMappingComparison.c)
  */
 
 __int64 __fastcall RtlpHpTagContextFindMapping(__int64 a1, __int64 a2, __int64 a3)

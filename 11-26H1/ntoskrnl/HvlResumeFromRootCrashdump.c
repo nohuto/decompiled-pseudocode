@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlResumeFromRootCrashdump @ 0x1405BDF50
+ * XREFs of HvlResumeFromRootCrashdump @ 0x1405C07C0
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x1405F9A74 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x1405FC494 (KiBugCheckRecoveryCleanupFromCrashDump.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x1404851C8 (HvlQueryVsmConnection.c)
- *     HvlNotifyRootCrashdump @ 0x1405BDAC8 (HvlNotifyRootCrashdump.c)
- *     VslResumeFromCrashdump @ 0x1405C3F1C (VslResumeFromCrashdump.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvlQueryVsmConnection @ 0x14047EB38 (HvlQueryVsmConnection.c)
+ *     HvlNotifyRootCrashdump @ 0x1405C0338 (HvlNotifyRootCrashdump.c)
+ *     VslResumeFromCrashdump @ 0x1405C678C (VslResumeFromCrashdump.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HvlResumeFromRootCrashdump(char a1)
@@ -17,7 +17,7 @@ char __fastcall HvlResumeFromRootCrashdump(char a1)
   __int64 v4; // rcx
 
   if ( VslVsmEnabled )
-    *(_DWORD *)&VslpReservedTransferLock.ApcStateFill[32] >>= 1;
+    LODWORD(VslpReservedTransferLock.Queue) >>= 1;
   result = HvlQueryVsmConnection(0LL);
   if ( !result || a1 )
   {

@@ -8,58 +8,58 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpValidFilterAclSubjectContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlpValidFilterAclSubjectContext(__int64 a1, void *a2)
 {
-  __int64 result; // rax
-  unsigned int v5; // ebx
-  __int64 v8; // rdi
+  NTSTATUS result; // eax
+  unsigned int v3; // ebx
+  __int64 v6; // rdi
   unsigned int i; // edx
-  unsigned int v10; // ebx
-  int v11; // r8d
-  _BYTE v12[4]; // [rsp+20h] [rbp-38h] BYREF
-  int v13; // [rsp+24h] [rbp-34h]
-  unsigned __int16 v14; // [rsp+28h] [rbp-30h]
+  unsigned int v8; // ebx
+  int v9; // r8d
+  BOOLEAN DominatesTrust[4]; // [rsp+20h] [rbp-38h] BYREF
+  int v11; // [rsp+24h] [rbp-34h]
+  unsigned __int16 v12; // [rsp+28h] [rbp-30h]
 
-  result = 0LL;
-  v14 = 256;
-  v5 = 0;
-  v13 = 0;
+  result = 0;
+  v12 = 256;
+  v3 = 0;
+  v11 = 0;
   if ( a1 )
   {
     do
     {
-      v8 = a1 + 8;
+      v6 = a1 + 8;
       for ( i = 0; ; ++i )
       {
         if ( i >= *(unsigned __int16 *)(a1 + 4) )
           return result;
-        if ( i >= v5 && *(_BYTE *)v8 == 21 )
+        if ( i >= v3 && *(_BYTE *)v6 == 21 )
           break;
-        v8 += *(unsigned __int16 *)(v8 + 2);
+        v6 += *(unsigned __int16 *)(v6 + 2);
       }
-      v10 = i;
-      if ( (*(_DWORD *)(v8 + 4) & 0xFF000000) != 0 )
-        return 3221225485LL;
-      if ( (*(_BYTE *)(v8 + 1) & 0x40) != 0 )
+      v8 = i;
+      if ( (*(_DWORD *)(v6 + 4) & 0xFF000000) != 0 )
+        return -1073741811;
+      if ( (*(_BYTE *)(v6 + 1) & 0x40) != 0 )
       {
-        v12[0] = 0;
+        DominatesTrust[0] = 0;
         if ( !a2 )
-          return 3221225506LL;
-        result = RtlSidDominatesForTrust(a2, v8 + 8, v12, a4);
-        if ( !v12[0] )
-          return 3221225506LL;
+          return -1073741790;
+        result = RtlSidDominatesForTrust(a2, (PSID)(v6 + 8), DominatesTrust);
+        if ( !DominatesTrust[0] )
+          return -1073741790;
       }
       else
       {
-        v11 = *(_DWORD *)(v8 + 10) - v13;
-        if ( !v11 )
-          v11 = *(unsigned __int16 *)(v8 + 14) - v14;
-        if ( v11 || *(_BYTE *)(v8 + 9) != 1 || *(_DWORD *)(v8 + 16) )
-          return 3221225485LL;
+        v9 = *(_DWORD *)(v6 + 10) - v11;
+        if ( !v9 )
+          v9 = *(unsigned __int16 *)(v6 + 14) - v12;
+        if ( v9 || *(_BYTE *)(v6 + 9) != 1 || *(_DWORD *)(v6 + 16) )
+          return -1073741811;
       }
-      v5 = v10 + 1;
+      v3 = v8 + 1;
     }
-    while ( v8 );
+    while ( v6 );
   }
   return result;
 }

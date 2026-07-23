@@ -21,19 +21,19 @@ char CcInitializeBcbProfiler()
 {
   unsigned __int64 Pool2; // rax
   const char *LoadOptions; // rax
-  unsigned __int64 v2; // r9
+  _IMAGE_NT_HEADERS64 *v2; // r9
   unsigned __int64 v3; // rax
   void (__fastcall *v4)(__int64, __int64); // r8
   unsigned __int128 v5; // rax
   __int64 v6; // rsi
   unsigned __int64 v7; // rsi
-  _DWORD *v8; // rbx
+  PIMAGE_SECTION_HEADER v8; // rbx
   unsigned int *v9; // r8
   unsigned int *v10; // rdi
   int v11; // r14d
-  unsigned int v12; // edx
+  unsigned int VirtualAddress; // edx
   unsigned int *v13; // r9
-  unsigned int v14; // ecx
+  unsigned int SizeOfRawData; // ecx
   unsigned int v15; // ecx
   unsigned int v16; // eax
   ULONG_PTR v17; // r9
@@ -131,7 +131,7 @@ char CcInitializeBcbProfiler()
     Pool2 = (unsigned __int64)strstr(LoadOptions, SubStr);
     if ( !Pool2 )
     {
-      v2 = RtlImageNtHeader(0x140000000uLL);
+      v2 = RtlImageNtHeader((PVOID)0x140000000LL);
       v3 = __rdtsc();
       v4 = CcBcbProfiler;
       v5 = (__ROR8__(v3, 3) ^ v3) * (unsigned __int128)0x7010008004002001uLL;
@@ -143,7 +143,7 @@ char CcInitializeBcbProfiler()
       v78 = v7 >= 0x32;
       if ( v7 >= 0x32 )
         LODWORD(v4) = (unsigned int)sub_1406F0690;
-      v8 = (_DWORD *)RtlSectionTableFromVirtualAddress(v2, 0x140000000LL, (unsigned int)v4 - 0x40000000);
+      v8 = RtlSectionTableFromVirtualAddress(v2, (PVOID)0x140000000LL, (unsigned int)v4 - 0x40000000);
       v9 = (unsigned int *)RtlLookupFunctionTable((unsigned __int64)v8, v81, &v82);
       if ( !v9 || v82 < 0xC )
       {
@@ -153,16 +153,16 @@ LABEL_69:
       }
       v10 = 0LL;
       v11 = 0;
-      v12 = v8[3];
+      VirtualAddress = v8->VirtualAddress;
       v13 = &v9[3 * (v82 / 0xC)];
-      v14 = v8[4];
-      if ( v14 <= v8[2] )
-        v14 = v8[2];
-      v15 = v12 + v14;
+      SizeOfRawData = v8->SizeOfRawData;
+      if ( SizeOfRawData <= v8->Misc.PhysicalAddress )
+        SizeOfRawData = v8->Misc.PhysicalAddress;
+      v15 = VirtualAddress + SizeOfRawData;
       do
       {
         v16 = *v9;
-        if ( *v9 < v12 )
+        if ( *v9 < VirtualAddress )
         {
           if ( v16 >= v15 )
             break;

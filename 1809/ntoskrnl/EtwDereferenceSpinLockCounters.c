@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwDereferenceSpinLockCounters @ 0x1408BDCEC
+ * XREFs of EtwDereferenceSpinLockCounters @ 0x1408BEFAC
  * Callers:
- *     KiSynchCounterSetCallback @ 0x1408434D0 (KiSynchCounterSetCallback.c)
- *     KiSynchNumaCounterSetCallback @ 0x1408435E0 (KiSynchNumaCounterSetCallback.c)
+ *     KiSynchCounterSetCallback @ 0x140844730 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140844840 (KiSynchNumaCounterSetCallback.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C6838 (EtwpUpdateGlobalGroupMasks.c)
  */
 
 LONG EtwDereferenceSpinLockCounters()

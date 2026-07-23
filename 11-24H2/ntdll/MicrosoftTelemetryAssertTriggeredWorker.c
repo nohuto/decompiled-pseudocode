@@ -1,329 +1,331 @@
 /*
- * XREFs of MicrosoftTelemetryAssertTriggeredWorker @ 0x1800ADB9C
+ * XREFs of MicrosoftTelemetryAssertTriggeredWorker @ 0x1800E3360
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredUM @ 0x18010D860 (MicrosoftTelemetryAssertTriggeredUM.c)
+ *     MicrosoftTelemetryAssertTriggeredUM @ 0x180108740 (MicrosoftTelemetryAssertTriggeredUM.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     EtwNotificationUnregister @ 0x18001D140 (EtwNotificationUnregister.c)
- *     EtwNotificationRegister @ 0x18001D450 (EtwNotificationRegister.c)
- *     EtwEventWriteTransfer @ 0x18003AD80 (EtwEventWriteTransfer.c)
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     GetImageTuple @ 0x1800AE238 (GetImageTuple.c)
- *     _tlgCreate1Sz_char @ 0x1800AE2D0 (_tlgCreate1Sz_char.c)
- *     EtwEventProviderEnabled @ 0x1800AE310 (EtwEventProviderEnabled.c)
- *     toupper @ 0x180127570 (toupper.c)
- *     ZwDelayExecution @ 0x180162310 (ZwDelayExecution.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x180171498 (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     EtwEventWriteTransfer @ 0x18001B000 (EtwEventWriteTransfer.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     EtwNotificationUnregister @ 0x180049B40 (EtwNotificationUnregister.c)
+ *     EtwNotificationRegister @ 0x180049E50 (EtwNotificationRegister.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     GetImageTuple @ 0x1800E39FC (GetImageTuple.c)
+ *     _tlgCreate1Sz_char @ 0x1800E3A94 (_tlgCreate1Sz_char.c)
+ *     EtwEventProviderEnabled @ 0x1800E3AD0 (EtwEventProviderEnabled.c)
+ *     toupper @ 0x1801257A0 (toupper.c)
+ *     ZwDelayExecution @ 0x1801606D0 (ZwDelayExecution.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x180170498 (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  */
 
-__int64 __fastcall MicrosoftTelemetryAssertTriggeredWorker(
-        __int64 a1,
-        volatile signed __int32 **a2,
-        unsigned __int64 a3)
+void __fastcall MicrosoftTelemetryAssertTriggeredWorker(ULONGLONG a1)
 {
-  unsigned __int64 v3; // rbx
-  unsigned __int64 v4; // r14
-  __int64 v5; // r15
-  BOOL v6; // r12d
-  __int64 v7; // r8
+  unsigned __int64 v1; // rbx
+  unsigned __int64 v2; // r14
+  ULONGLONG v3; // r15
+  BOOL v4; // r12d
+  __int64 v5; // r8
   __int64 i; // rdi
-  __int64 Heap; // rax
-  unsigned __int64 v10; // rdx
-  char v11; // si
+  char *Heap; // rax
+  unsigned __int64 v8; // rdx
+  char v9; // si
   char ImageTuple; // al
-  char v13; // r13
-  __int64 v14; // rbx
-  unsigned int v15; // r14d
-  __int64 v16; // rcx
-  int v17; // ebx
-  char v19; // al
-  const char *v20; // rdx
-  int v21; // ecx
-  __int64 v22; // r9
-  __int64 v23; // r8
-  __int64 v24; // rcx
-  const char *v25; // rdx
+  char v11; // r13
+  __int64 v12; // rbx
+  unsigned int v13; // r14d
+  REGHANDLE v14; // rcx
+  unsigned int v15; // ebx
+  char v16; // al
+  const char *v17; // rdx
+  int v18; // ecx
+  __int64 v19; // r9
+  unsigned __int64 v20; // r8
+  REGHANDLE v21; // rcx
+  const char *v22; // rdx
+  int v23; // ecx
+  __int64 v24; // rdx
+  __int64 v25; // r9
   int v26; // ecx
-  __int64 v27; // rdx
-  __int64 v28; // r9
-  int v29; // ecx
-  __int64 v30; // r9
-  __int64 v31; // r8
-  unsigned __int64 v32; // rdx
-  char v33; // dl
-  unsigned int v34; // r13d
-  _BYTE *v35; // r15
-  unsigned int v36; // ecx
-  unsigned int v37; // eax
-  char v38; // bl
-  char v39; // [rsp+38h] [rbp-D0h]
-  int v40; // [rsp+3Ch] [rbp-CCh]
-  unsigned int v41; // [rsp+40h] [rbp-C8h] BYREF
-  int v42; // [rsp+44h] [rbp-C4h] BYREF
-  unsigned int v43; // [rsp+48h] [rbp-C0h] BYREF
-  int v44; // [rsp+4Ch] [rbp-BCh] BYREF
-  int v45; // [rsp+50h] [rbp-B8h] BYREF
-  int v46; // [rsp+54h] [rbp-B4h] BYREF
-  int v47; // [rsp+58h] [rbp-B0h] BYREF
-  int v48; // [rsp+5Ch] [rbp-ACh] BYREF
-  int v49; // [rsp+60h] [rbp-A8h] BYREF
-  BOOL v50; // [rsp+64h] [rbp-A4h] BYREF
-  __int64 v51; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v52; // [rsp+70h] [rbp-98h] BYREF
-  int v53; // [rsp+78h] [rbp-90h] BYREF
-  __int128 v54; // [rsp+80h] [rbp-88h] BYREF
-  __int64 v55; // [rsp+90h] [rbp-78h] BYREF
-  int v56; // [rsp+98h] [rbp-70h]
-  int v57; // [rsp+9Ch] [rbp-6Ch]
-  void *v58; // [rsp+A8h] [rbp-60h] BYREF
-  int v59; // [rsp+B0h] [rbp-58h]
-  int v60; // [rsp+B4h] [rbp-54h]
-  void *v61; // [rsp+B8h] [rbp-50h]
-  int v62; // [rsp+C0h] [rbp-48h]
-  int v63; // [rsp+C4h] [rbp-44h]
-  __int64 *v64; // [rsp+C8h] [rbp-40h]
-  __int64 v65; // [rsp+D0h] [rbp-38h]
-  unsigned int *v66; // [rsp+D8h] [rbp-30h]
-  __int64 v67; // [rsp+E0h] [rbp-28h]
-  int *v68; // [rsp+E8h] [rbp-20h]
-  __int64 v69; // [rsp+F0h] [rbp-18h]
-  int *v70; // [rsp+F8h] [rbp-10h]
-  __int64 v71; // [rsp+100h] [rbp-8h]
-  _BYTE v72[16]; // [rsp+108h] [rbp+0h] BYREF
-  int *v73; // [rsp+118h] [rbp+10h]
-  __int64 v74; // [rsp+120h] [rbp+18h]
-  int *v75; // [rsp+128h] [rbp+20h]
-  __int64 v76; // [rsp+130h] [rbp+28h]
-  _QWORD v77[2]; // [rsp+138h] [rbp+30h] BYREF
-  int *v78; // [rsp+148h] [rbp+40h]
-  __int64 v79; // [rsp+150h] [rbp+48h]
-  int *v80; // [rsp+158h] [rbp+50h]
-  __int64 v81; // [rsp+160h] [rbp+58h]
-  BOOL *v82; // [rsp+168h] [rbp+60h]
-  __int64 v83; // [rsp+170h] [rbp+68h]
-  __int64 *v84; // [rsp+178h] [rbp+70h]
-  int v85; // [rsp+180h] [rbp+78h]
-  int v86; // [rsp+184h] [rbp+7Ch]
-  _BYTE v87[272]; // [rsp+188h] [rbp+80h] BYREF
+  __int64 v27; // r9
+  __int64 v28; // r8
+  unsigned __int64 v29; // rdx
+  char v30; // dl
+  unsigned int v31; // r13d
+  _BYTE *v32; // r15
+  unsigned int v33; // ecx
+  LONG v34; // eax
+  BOOLEAN v35; // bl
+  char v36; // [rsp+38h] [rbp-D0h]
+  unsigned int v37; // [rsp+3Ch] [rbp-CCh]
+  unsigned int v38; // [rsp+40h] [rbp-C8h] BYREF
+  int v39; // [rsp+44h] [rbp-C4h] BYREF
+  unsigned int v40; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned int v41; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v42; // [rsp+50h] [rbp-B8h] BYREF
+  int v43; // [rsp+54h] [rbp-B4h] BYREF
+  int v44; // [rsp+58h] [rbp-B0h] BYREF
+  int v45; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v46; // [rsp+60h] [rbp-A8h] BYREF
+  BOOL v47; // [rsp+64h] [rbp-A4h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+68h] [rbp-A0h] BYREF
+  ULONGLONG RegHandle; // [rsp+70h] [rbp-98h] BYREF
+  unsigned int v50; // [rsp+78h] [rbp-90h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+80h] [rbp-88h] BYREF
+  GUID Guid; // [rsp+90h] [rbp-78h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+A8h] [rbp-60h] BYREF
+  void *v54; // [rsp+B8h] [rbp-50h]
+  int v55; // [rsp+C0h] [rbp-48h]
+  int v56; // [rsp+C4h] [rbp-44h]
+  LARGE_INTEGER *v57; // [rsp+C8h] [rbp-40h]
+  __int64 v58; // [rsp+D0h] [rbp-38h]
+  unsigned int *v59; // [rsp+D8h] [rbp-30h]
+  __int64 v60; // [rsp+E0h] [rbp-28h]
+  unsigned int *v61; // [rsp+E8h] [rbp-20h]
+  __int64 v62; // [rsp+F0h] [rbp-18h]
+  int *v63; // [rsp+F8h] [rbp-10h]
+  __int64 v64; // [rsp+100h] [rbp-8h]
+  _BYTE v65[16]; // [rsp+108h] [rbp+0h] BYREF
+  int *v66; // [rsp+118h] [rbp+10h]
+  __int64 v67; // [rsp+120h] [rbp+18h]
+  int *v68; // [rsp+128h] [rbp+20h]
+  __int64 v69; // [rsp+130h] [rbp+28h]
+  _QWORD v70[2]; // [rsp+138h] [rbp+30h] BYREF
+  unsigned int *v71; // [rsp+148h] [rbp+40h]
+  __int64 v72; // [rsp+150h] [rbp+48h]
+  int *v73; // [rsp+158h] [rbp+50h]
+  __int64 v74; // [rsp+160h] [rbp+58h]
+  BOOL *v75; // [rsp+168h] [rbp+60h]
+  __int64 v76; // [rsp+170h] [rbp+68h]
+  LARGE_INTEGER *p_DelayInterval; // [rsp+178h] [rbp+70h]
+  int v78; // [rsp+180h] [rbp+78h]
+  int v79; // [rsp+184h] [rbp+7Ch]
+  _BYTE v80[272]; // [rsp+188h] [rbp+80h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 8);
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = a1;
-  v52 = a1;
-  v6 = 0;
-  v40 = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&g_MicrosoftTelemetryAssertLock, a2, a3);
+  v1 = *(_QWORD *)(a1 + 8);
+  v2 = *(_QWORD *)(a1 + 16);
+  v3 = a1;
+  RegHandle = a1;
+  v4 = 0;
+  v37 = 0;
+  RtlAcquireSRWLockExclusive(&g_MicrosoftTelemetryAssertLock);
   for ( i = g_MicrosoftTelemetryAssertsTriggeredList; i; i = *(_QWORD *)(i + 24) )
   {
-    if ( *(_QWORD *)i == v4 )
+    if ( *(_QWORD *)i == v2 )
       goto LABEL_5;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
-  i = Heap;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
+  i = (__int64)Heap;
   if ( !Heap )
-    return RtlReleaseSRWLockExclusive(&g_MicrosoftTelemetryAssertLock);
-  *(_QWORD *)Heap = v4;
-  v10 = MEMORY[0x7FFE0320] * MEMORY[0x7FFE0004];
+    goto LABEL_20;
+  *(_QWORD *)Heap = v2;
+  v8 = MEMORY[0x7FFE0320] * MEMORY[0x7FFE0004];
   *(_QWORD *)(Heap + 12) = 0LL;
-  *(_DWORD *)(Heap + 8) = (v10 >> 24) - 60001;
-  *(_QWORD *)(Heap + 24) = g_MicrosoftTelemetryAssertsTriggeredList;
-  g_MicrosoftTelemetryAssertsTriggeredList = Heap;
+  *((_DWORD *)Heap + 2) = (v8 >> 24) - 60001;
+  *((_QWORD *)Heap + 3) = g_MicrosoftTelemetryAssertsTriggeredList;
+  g_MicrosoftTelemetryAssertsTriggeredList = (__int64)Heap;
 LABEL_5:
-  v11 = 1;
+  v9 = 1;
   ++*(_DWORD *)(i + 12);
   ++*(_DWORD *)(i + 16);
   if ( (unsigned int)((MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24) - *(_DWORD *)(i + 8) > 0xEA60 )
   {
-    v42 = 0;
+    v39 = 0;
     *(_DWORD *)(i + 8) = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-    v41 = 0;
-    ImageTuple = GetImageTuple(v3, v87, v7, &v42, &v41);
-    v39 = ImageTuple;
-    v13 = ImageTuple;
-    if ( ImageTuple && v4 >= v3 && (v32 = v3 + v41, v32 > v3) && v4 <= v32 )
+    v38 = 0;
+    ImageTuple = GetImageTuple(v1, v80, v5, &v39, &v38);
+    v36 = ImageTuple;
+    v11 = ImageTuple;
+    if ( ImageTuple && v2 >= v1 && (v29 = v1 + v38, v29 > v1) && v2 <= v29 )
     {
-      v15 = v4 - v3;
-      v14 = 0LL;
+      v13 = v2 - v1;
+      v12 = 0LL;
     }
     else
     {
-      v14 = 0LL;
-      v15 = 0;
+      v12 = 0LL;
+      v13 = 0;
     }
-    if ( !*(_QWORD *)(v5 + 32) && ImageTuple )
-      *(_QWORD *)(v5 + 32) = v87;
+    if ( !*(_QWORD *)(v3 + 32) && ImageTuple )
+      *(_QWORD *)(v3 + 32) = v80;
     if ( *(_DWORD *)(i + 16) == 1
-      && !(unsigned int)TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801CC758) )
+      && !(unsigned int)TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801CB758) )
     {
-      if ( dword_1801CC758 )
+      if ( dword_1801CB758 )
       {
-        v33 = v87[0];
-        v6 = 1;
-        v40 = 1;
-        v34 = 0;
-        v55 = 0x4E2792C81D1727A6LL;
-        v56 = -1961924164;
-        v57 = -1655403451;
-        if ( v87[0] )
+        v30 = v80[0];
+        v4 = 1;
+        v37 = 1;
+        v31 = 0;
+        Guid.Data1 = 488056742;
+        *(_DWORD *)&Guid.Data2 = 1311216328;
+        *(_DWORD *)Guid.Data4 = -1961924164;
+        *(_DWORD *)&Guid.Data4[4] = -1655403451;
+        if ( v80[0] )
         {
-          v35 = v87;
+          v32 = v80;
           do
           {
-            *((_BYTE *)&v55 + v14) += toupper(v33);
-            v36 = v34 + 1;
-            v33 = *++v35;
-            v34 = v36 < 0x10 ? v36 : 0;
-            v14 = (v14 + 1) & -(__int64)(v36 < 0x10);
+            *((_BYTE *)&Guid.Data1 + v12) += toupper(v30);
+            v33 = v31 + 1;
+            v30 = *++v32;
+            v31 = v33 < 0x10 ? v33 : 0;
+            v12 = (v12 + 1) & -(__int64)(v33 < 0x10);
           }
-          while ( *v35 );
-          v5 = v52;
+          while ( *v32 );
+          v3 = RegHandle;
         }
-        v52 = 0LL;
-        v37 = EtwNotificationRegister(&v55, 3u, 0LL, 0LL, (unsigned __int64 *)&v52);
-        if ( v37 )
+        RegHandle = 0LL;
+        v34 = EtwNotificationRegister(&Guid, 3u, 0LL, 0LL, &RegHandle);
+        if ( v34 )
         {
-          RtlSetLastWin32Error(v37);
+          RtlSetLastWin32Error(v34);
         }
         else
         {
-          v38 = EtwEventProviderEnabled(v52, 0LL, 0LL);
-          EtwNotificationUnregister(v52, 0LL);
-          v6 = v38 == 0;
+          v35 = EtwEventProviderEnabled(RegHandle, 0, 0LL);
+          EtwNotificationUnregister(RegHandle, 0LL);
+          v4 = v35 == 0;
         }
-        v13 = v39;
+        v11 = v36;
       }
-      v16 = qword_1801CC778;
-      qword_1801CC778 = 0LL;
-      dword_1801CC758 = 0;
-      EtwNotificationUnregister(v16, 0LL);
+      v14 = qword_1801CB778;
+      qword_1801CB778 = 0LL;
+      dword_1801CB758 = 0;
+      EtwNotificationUnregister(v14, 0LL);
     }
-    if ( (unsigned int)TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801CC790) )
+    if ( (unsigned int)TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801CB790) )
     {
-      v17 = v40;
+      v15 = v37;
       goto LABEL_15;
     }
-    if ( *(_BYTE *)(v5 + 24) )
+    if ( *(_BYTE *)(v3 + 24) )
     {
-      if ( (unsigned int)dword_1801CC790 > 5 )
+      if ( (unsigned int)dword_1801CB790 > 5 )
       {
-        if ( (qword_1801CC7A0 & 0x400000000000LL) == 0 || (qword_1801CC7A8 & 0x400000000000LL) != qword_1801CC7A8 )
-          v11 = 0;
-        if ( v11 )
+        if ( (qword_1801CB7A0 & 0x400000000000LL) == 0 || (qword_1801CB7A8 & 0x400000000000LL) != qword_1801CB7A8 )
+          v9 = 0;
+        if ( v9 )
         {
-          v25 = v87;
-          v53 = *(_DWORD *)v5;
-          v65 = 4LL;
-          v64 = (__int64 *)&v53;
+          v22 = v80;
+          v50 = *(_DWORD *)v3;
+          v58 = 4LL;
+          v57 = (LARGE_INTEGER *)&v50;
+          v59 = &v40;
+          v40 = v13;
+          v60 = 4LL;
+          v61 = &v41;
+          v41 = v11 != 0 ? v39 : 0;
+          v62 = 4LL;
+          v63 = &v42;
+          v42 = v11 != 0 ? v38 : 0;
+          v64 = 4LL;
+          if ( !v11 )
+            v22 = "<unknown>";
+          tlgCreate1Sz_char(v65, v22);
+          v23 = *(_DWORD *)(i + 12);
+          v24 = *(_QWORD *)(v3 + 32);
           v66 = &v43;
-          v43 = v15;
-          v67 = 4LL;
+          v44 = *(_DWORD *)(i + 16);
+          v43 = v23;
           v68 = &v44;
-          v44 = v13 != 0 ? v42 : 0;
-          v69 = 4LL;
-          v70 = &v45;
-          v45 = v13 != 0 ? v41 : 0;
-          v71 = 4LL;
-          if ( !v13 )
-            v25 = "<unknown>";
-          tlgCreate1Sz_char(v72, v25);
-          v26 = *(_DWORD *)(i + 12);
-          v27 = *(_QWORD *)(v5 + 32);
+          v67 = v25;
+          v69 = v25;
+          tlgCreate1Sz_char(v70, v24);
+          v26 = *(_DWORD *)(v3 + 40);
+          v15 = v37;
+          v79 = 0;
+          v71 = (unsigned int *)&v45;
+          v46 = *(_DWORD *)(v3 + 44);
           v73 = &v46;
-          v47 = *(_DWORD *)(i + 16);
-          v46 = v26;
           v75 = &v47;
-          v74 = v28;
-          v76 = v28;
-          tlgCreate1Sz_char(v77, v27);
-          v29 = *(_DWORD *)(v5 + 40);
-          v17 = v40;
-          v86 = 0;
-          v78 = &v48;
-          v49 = *(_DWORD *)(v5 + 44);
-          v80 = &v49;
-          v82 = &v50;
-          v84 = &v51;
-          v48 = v29;
-          v79 = v30;
-          v81 = v30;
-          v50 = v6;
-          v83 = v30;
-          LODWORD(v51) = v40;
-          v85 = v30;
-          tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CC790, byte_1801A260C, v31, v30, 14, (__int64)&v58);
+          p_DelayInterval = &DelayInterval;
+          v45 = v26;
+          v72 = v27;
+          v74 = v27;
+          v47 = v4;
+          v76 = v27;
+          DelayInterval.LowPart = v37;
+          v78 = v27;
+          tlgWriteTransfer_EtwEventWriteTransfer(
+            (__int64)&dword_1801CB790,
+            (unsigned __int8 *)dword_1801A17AC,
+            v28,
+            v27,
+            0xEu,
+            &UserData);
           goto LABEL_31;
         }
       }
     }
-    else if ( (unsigned int)dword_1801CC790 > 5 )
+    else if ( (unsigned int)dword_1801CB790 > 5 )
     {
-      if ( (qword_1801CC7A0 & 0x400000000000LL) == 0
-        || (v19 = 1, (qword_1801CC7A8 & 0x400000000000LL) != qword_1801CC7A8) )
+      if ( (qword_1801CB7A0 & 0x400000000000LL) == 0
+        || (v16 = 1, (qword_1801CB7A8 & 0x400000000000LL) != qword_1801CB7A8) )
       {
-        v19 = 0;
+        v16 = 0;
       }
-      if ( v19 )
+      if ( v16 )
       {
-        v20 = v87;
-        LODWORD(v51) = *(_DWORD *)v5;
-        v65 = 4LL;
-        v64 = &v51;
-        v66 = (unsigned int *)&v50;
-        v50 = v15;
-        v67 = 4LL;
-        v68 = &v49;
-        v49 = v13 != 0 ? v42 : 0;
-        v69 = 4LL;
-        v70 = &v48;
-        v48 = v13 != 0 ? v41 : 0;
-        v71 = 4LL;
-        if ( !v13 )
-          v20 = "<unknown>";
-        tlgCreate1Sz_char(v72, v20);
-        v21 = *(_DWORD *)(i + 12);
-        v17 = v40;
-        v73 = &v47;
-        v46 = *(_DWORD *)(i + 16);
-        v75 = &v46;
-        v77[0] = &v45;
-        v78 = &v44;
-        v58 = off_1801CC798;
-        v47 = v21;
-        v74 = v22;
-        v76 = v22;
-        v77[1] = v22;
-        v79 = (unsigned int)v22;
-        *((_QWORD *)&v54 + 1) = v23;
-        v45 = v6;
-        v44 = v40;
-        *(_QWORD *)&v54 = 0x50B000000LL;
-        v59 = *(unsigned __int16 *)off_1801CC798;
-        v61 = &unk_1801A26D6;
-        v60 = 2;
-        v62 = 118;
-        v63 = 1;
-        v43 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-        EtwEventWriteTransfer(qword_1801CC7B0, &v54, 0LL, 0LL, 11, (__int64)&v58);
+        v17 = v80;
+        DelayInterval.LowPart = *(_DWORD *)v3;
+        v58 = 4LL;
+        v57 = &DelayInterval;
+        v59 = (unsigned int *)&v47;
+        v47 = v13;
+        v60 = 4LL;
+        v61 = (unsigned int *)&v46;
+        v46 = v11 != 0 ? v39 : 0;
+        v62 = 4LL;
+        v63 = &v45;
+        v45 = v11 != 0 ? v38 : 0;
+        v64 = 4LL;
+        if ( !v11 )
+          v17 = "<unknown>";
+        tlgCreate1Sz_char(v65, v17);
+        v18 = *(_DWORD *)(i + 12);
+        v15 = v37;
+        v66 = &v44;
+        v43 = *(_DWORD *)(i + 16);
+        v68 = &v43;
+        v70[0] = &v42;
+        v71 = &v41;
+        *(_DWORD *)&EventDescriptor.Level = 5;
+        UserData.Ptr = (unsigned __int64)off_1801CB798;
+        v44 = v18;
+        v67 = v19;
+        v69 = v19;
+        v70[1] = v19;
+        v72 = (unsigned int)v19;
+        EventDescriptor.Keyword = v20;
+        v42 = v4;
+        v41 = v37;
+        *(_DWORD *)&EventDescriptor.Id = 184549376;
+        UserData.Size = *(unsigned __int16 *)off_1801CB798;
+        v54 = &unk_1801A1876;
+        UserData.Reserved = 2;
+        v55 = 118;
+        v56 = 1;
+        v40 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
+        EtwEventWriteTransfer(qword_1801CB7B0, &EventDescriptor, 0LL, 0LL, 0xBu, &UserData);
         goto LABEL_31;
       }
     }
-    v17 = v40;
+    v15 = v37;
 LABEL_31:
-    v24 = qword_1801CC7B0;
-    qword_1801CC7B0 = 0LL;
-    dword_1801CC790 = 0;
-    EtwNotificationUnregister(v24, 0LL);
+    v21 = qword_1801CB7B0;
+    qword_1801CB7B0 = 0LL;
+    dword_1801CB790 = 0;
+    EtwNotificationUnregister(v21, 0LL);
 LABEL_15:
-    if ( v17 && v6 && *(_BYTE *)(v5 + 48) )
+    if ( v15 && v4 && *(_BYTE *)(v3 + 48) )
     {
-      v51 = -10000000LL;
-      ZwDelayExecution(0LL, &v51);
+      DelayInterval.QuadPart = -10000000LL;
+      ZwDelayExecution(0, &DelayInterval);
     }
     *(_DWORD *)(i + 12) = 0;
   }
-  return RtlReleaseSRWLockExclusive(&g_MicrosoftTelemetryAssertLock);
+LABEL_20:
+  RtlReleaseSRWLockExclusive(&g_MicrosoftTelemetryAssertLock);
 }

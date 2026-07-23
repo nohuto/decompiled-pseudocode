@@ -1,22 +1,22 @@
 /*
- * XREFs of CcPurgeCacheSection @ 0x140072920
+ * XREFs of CcPurgeCacheSection @ 0x1400724A0
  * Callers:
- *     CcZeroEndOfLastPage @ 0x140024850 (CcZeroEndOfLastPage.c)
- *     CcPurgeAndClearCacheSection @ 0x14006C840 (CcPurgeAndClearCacheSection.c)
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     CcSetFileSizesEx @ 0x14007344C (CcSetFileSizesEx.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x14008F364 (CcCoherencyFlushAndPurgeCache.c)
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
+ *     CcZeroEndOfLastPage @ 0x1400243D0 (CcZeroEndOfLastPage.c)
+ *     CcPurgeAndClearCacheSection @ 0x14006C3C0 (CcPurgeAndClearCacheSection.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     CcSetFileSizesEx @ 0x140072FCC (CcSetFileSizesEx.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x14008EAC4 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x140017FC0 (CcUnmapVacbArray.c)
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     MmCanFileBeTruncated @ 0x1400736F4 (MmCanFileBeTruncated.c)
- *     MmTrimSection @ 0x14008F450 (MmTrimSection.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     CcUnmapVacbArray @ 0x140017B40 (CcUnmapVacbArray.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     MmCanFileBeTruncated @ 0x140073274 (MmCanFileBeTruncated.c)
+ *     MmTrimSection @ 0x14008EBB0 (MmTrimSection.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 BOOLEAN __stdcall CcPurgeCacheSection(

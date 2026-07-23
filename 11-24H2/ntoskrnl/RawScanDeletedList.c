@@ -1,13 +1,13 @@
 /*
- * XREFs of RawScanDeletedList @ 0x1409A4080
+ * XREFs of RawScanDeletedList @ 0x1408ACE04
  * Callers:
- *     RawShutdown @ 0x14077CA40 (RawShutdown.c)
- *     RawMountVolume @ 0x1409A3134 (RawMountVolume.c)
+ *     RawShutdown @ 0x14077C8F0 (RawShutdown.c)
+ *     RawMountVolume @ 0x1408ACB4C (RawMountVolume.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ExTryToAcquireFastMutex @ 0x140445730 (ExTryToAcquireFastMutex.c)
- *     RawCheckForDeleteVolume @ 0x1404BC1EC (RawCheckForDeleteVolume.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     ExTryToAcquireFastMutex @ 0x14043D8E0 (ExTryToAcquireFastMutex.c)
+ *     RawCheckForDeleteVolume @ 0x1404B6EAC (RawCheckForDeleteVolume.c)
  */
 
 void RawScanDeletedList()

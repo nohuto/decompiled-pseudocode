@@ -1,10 +1,10 @@
 /*
- * XREFs of KeProcessorProfileControlArea @ 0x14056C58C
+ * XREFs of KeProcessorProfileControlArea @ 0x14056CC4C
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     KiIsIntelPebsSupported @ 0x1403AA330 (KiIsIntelPebsSupported.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIsIntelPebsSupported @ 0x1403AA510 (KiIsIntelPebsSupported.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -44,7 +44,7 @@ __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v9 = 4;
@@ -82,10 +82,10 @@ LABEL_20:
   }
   v13 = -1073741664;
 LABEL_21:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= v12 && CurrentIrql <= v12 && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= v12 && CurrentIrql <= v12 && v15 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v17 = CurrentPrcb->SchedulerAssist;
@@ -93,7 +93,7 @@ LABEL_21:
       v19 = (v18 & v17[5]) == 0;
       v17[5] &= v18;
       if ( v19 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

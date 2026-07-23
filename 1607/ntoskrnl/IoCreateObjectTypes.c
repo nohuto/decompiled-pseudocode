@@ -3,10 +3,10 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
- *     ObCreateObjectTypeEx @ 0x140552054 (ObCreateObjectTypeEx.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
+ *     ObCreateObjectTypeEx @ 0x140552594 (ObCreateObjectTypeEx.c)
  */
 
 bool IoCreateObjectTypes()

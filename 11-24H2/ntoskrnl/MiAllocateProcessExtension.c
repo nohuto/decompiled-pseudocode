@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateProcessExtension @ 0x1406FC05C
+ * XREFs of MiAllocateProcessExtension @ 0x1406F9C9C
  * Callers:
- *     MiInitializeBootProcess @ 0x140C4E3F8 (MiInitializeBootProcess.c)
+ *     MiInitializeBootProcess @ 0x140C50588 (MiInitializeBootProcess.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 __int64 MiAllocateProcessExtension()

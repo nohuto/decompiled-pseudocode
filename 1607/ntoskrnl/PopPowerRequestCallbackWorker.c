@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestCallbackWorker @ 0x1400FBE30
+ * XREFs of PopPowerRequestCallbackWorker @ 0x1400F9BB0
  * Callers:
- *     PoClearPowerRequestInternal @ 0x1400FB9D0 (PoClearPowerRequestInternal.c)
- *     PoSetPowerRequestInternal @ 0x1400FBB0C (PoSetPowerRequestInternal.c)
+ *     PoClearPowerRequestInternal @ 0x1400F9750 (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1400F988C (PoSetPowerRequestInternal.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PopPowerRequestExecuteCallbacks @ 0x1400FBF2C (PopPowerRequestExecuteCallbacks.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PopPowerRequestExecuteCallbacks @ 0x1400F9CAC (PopPowerRequestExecuteCallbacks.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PopPowerRequestCallbackWorker()
@@ -33,11 +33,11 @@ void PopPowerRequestCallbackWorker()
     }
     else
     {
-      v0 = *(_QWORD **)(qword_140304C38 + 8);
-      if ( *(__int64 **)qword_140304C38 != &PopPowerRequestCallbacks || *v0 != qword_140304C38 )
+      v0 = *(_QWORD **)(qword_140304C78 + 8);
+      if ( *(__int64 **)qword_140304C78 != &PopPowerRequestCallbacks || *v0 != qword_140304C78 )
         __fastfail(3u);
-      v1 = qword_140304C38 - 56;
-      qword_140304C38 = *(_QWORD *)(qword_140304C38 + 8);
+      v1 = qword_140304C78 - 56;
+      qword_140304C78 = *(_QWORD *)(qword_140304C78 + 8);
       v2 = 0;
       *v0 = &PopPowerRequestCallbacks;
       v3 = (char *)(v1 + 72);

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiZeroPageCalibrate @ 0x1403AA5F0
+ * XREFs of MiZeroPageCalibrate @ 0x1403AA7D0
  * Callers:
- *     MiInitializeZeroEngines @ 0x1406B27F4 (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x1406B2824 (MiInitializeZeroEngines.c)
  * Callees:
  *     MiIsCalibrationWorthwhile @ 0x14021F624 (MiIsCalibrationWorthwhile.c)
  *     MiAllocateAcceleratorDescriptor @ 0x1402220E0 (MiAllocateAcceleratorDescriptor.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x1403AA918 (MiAllocateZeroCalibrationBuffer.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDeleteAcceleratorDescriptor @ 0x1406549FC (MiDeleteAcceleratorDescriptor.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x1403AAAF8 (MiAllocateZeroCalibrationBuffer.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140654F4C (MiDeleteAcceleratorDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -53,8 +53,8 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
   unsigned __int64 v29; // r14
   void *v30; // rdi
   int AcceleratorDescriptor; // eax
-  struct _SLIST_ENTRY *v33; // r14
-  struct _SLIST_ENTRY *v34; // rdx
+  _SLIST_ENTRY *v33; // r14
+  _SLIST_ENTRY *v34; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -101,7 +101,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
       RtlRaiseStatus(-2147483646);
     *(_OWORD *)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x130) = 0LL;
     AcceleratorDescriptor = MiAllocateAcceleratorDescriptor(0LL, v8, v13, (_QWORD *)(v1 + 24));
-    v33 = *(struct _SLIST_ENTRY **)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18);
+    v33 = *(_SLIST_ENTRY **)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18);
     *(_DWORD *)v1 = AcceleratorDescriptor;
     if ( v33 )
     {
@@ -209,10 +209,13 @@ LABEL_40:
         v30 = *(void **)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x78);
       }
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v28 + 48));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v29 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v29 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

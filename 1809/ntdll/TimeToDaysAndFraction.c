@@ -1,9 +1,9 @@
 /*
- * XREFs of TimeToDaysAndFraction @ 0x18007F258
+ * XREFs of TimeToDaysAndFraction @ 0x18007F268
  * Callers:
- *     RtlTimeToElapsedTimeFields @ 0x18007F1C0 (RtlTimeToElapsedTimeFields.c)
+ *     RtlTimeToElapsedTimeFields @ 0x18007F1D0 (RtlTimeToElapsedTimeFields.c)
  * Callees:
- *     RtlExtendedMagicDivide @ 0x18007F2F0 (RtlExtendedMagicDivide.c)
+ *     RtlExtendedMagicDivide @ 0x18007F300 (RtlExtendedMagicDivide.c)
  */
 
 __int64 __fastcall TimeToDaysAndFraction(_QWORD *a1, __int64 a2, _DWORD *a3)

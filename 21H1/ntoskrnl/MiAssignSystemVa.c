@@ -16,7 +16,7 @@ __int64 __fastcall MiAssignSystemVa(ULONG NumberToFind, unsigned int a2)
   ULONG ClearBitsAndSet; // eax
   ULONG v8; // edi
   ULONG v10; // ebx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
   BitMapHeader.SizeOfBitMap = 256;

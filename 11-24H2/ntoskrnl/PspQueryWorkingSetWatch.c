@@ -1,13 +1,13 @@
 /*
- * XREFs of PspQueryWorkingSetWatch @ 0x140A147AC
+ * XREFs of PspQueryWorkingSetWatch @ 0x140A0D6C8
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ExIsRestrictedCaller @ 0x140A14B1C (ExIsRestrictedCaller.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExIsRestrictedCaller @ 0x140A0DA38 (ExIsRestrictedCaller.c)
  */
 
 __int64 __fastcall PspQueryWorkingSetWatch(
@@ -20,19 +20,19 @@ __int64 __fastcall PspQueryWorkingSetWatch(
 {
   ULONG_PTR v7; // rbx
   __int64 result; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  PVOID v12; // rcx
-  __int64 v13; // rsi
-  int v14; // r14d
-  __int64 v15; // r12
-  signed __int32 v16; // ebx
-  unsigned int v17; // r13d
-  int v18; // r11d
-  unsigned int v19; // ecx
-  char v20; // al
-  __int64 v21; // rcx
+  PVOID v9; // rcx
+  __int64 v10; // rsi
+  int v11; // r14d
+  __int64 v12; // r12
+  signed __int32 v13; // ebx
+  unsigned int v14; // r13d
+  int v15; // r11d
+  unsigned int v16; // ecx
+  __int64 v17; // r8
+  unsigned int v18; // r9d
+  char v19; // al
+  __int64 v20; // rcx
+  __int64 v21; // rdx
   char v22; // al
   int v23; // [rsp+44h] [rbp-64h] BYREF
   int v24; // [rsp+48h] [rbp-60h]
@@ -62,125 +62,125 @@ __int64 __fastcall PspQueryWorkingSetWatch(
   result = ObpReferenceObjectByHandleWithTag(v7, 1024, (__int64)PsProcessType, a6, 0x79517350u, &Object, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
-    v12 = Object;
-    v13 = *((_QWORD *)Object + 88);
-    v29 = v13;
-    if ( !v13 )
+    v9 = Object;
+    v10 = *((_QWORD *)Object + 88);
+    v29 = v10;
+    if ( !v10 )
     {
-      v14 = -1073741823;
+      v11 = -1073741823;
       goto LABEL_10;
     }
     CurrentThread = KeGetCurrentThread();
-    v14 = 0;
-    v15 = 0LL;
+    v11 = 0;
+    v12 = 0LL;
     v26 = 0LL;
     --CurrentThread->KernelApcDisable;
-    _m_prefetchw((const void *)v13);
-    v16 = _InterlockedOr((volatile signed __int32 *)v13, 1u);
-    if ( (v16 & 1) != 0 )
+    _m_prefetchw((const void *)v10);
+    v13 = _InterlockedOr((volatile signed __int32 *)v10, 1u);
+    if ( (v13 & 1) != 0 )
     {
-      v14 = -2147483622;
+      v11 = -2147483622;
       goto LABEL_9;
     }
-    v17 = (unsigned __int16)v16 >> 1;
-    if ( !((unsigned __int16)v16 >> 1) )
+    v14 = (unsigned __int16)v13 >> 1;
+    if ( !((unsigned __int16)v13 >> 1) )
     {
-      v14 = -2147483622;
+      v11 = -2147483622;
       goto LABEL_25;
     }
-    if ( (v16 & 0x7FFF0000) != 0 )
-      KeWaitForGate(v13 + 16, 0LL, 0);
-    v18 = (int)v25;
-    v19 = (_DWORD)v25 * (v17 + 1);
-    if ( a4 < v19 )
+    if ( (v13 & 0x7FFF0000) != 0 )
+      KeWaitForGate(v10 + 16, 0LL);
+    v15 = (int)v25;
+    v16 = (_DWORD)v25 * (v14 + 1);
+    if ( a4 < v16 )
     {
-      v14 = -1073741789;
+      v11 = -1073741789;
       if ( a5 )
-        *a5 = v19;
+        *a5 = v16;
       goto LABEL_21;
     }
-    _m_prefetchw((const void *)(v13 + 8));
-    v15 = *(_QWORD *)(v13 + 8);
-    v26 = v15;
+    _m_prefetchw((const void *)(v10 + 8));
+    v12 = *(_QWORD *)(v10 + 8);
+    v26 = v12;
     if ( a2 == 42 )
     {
       v25 = a3;
-      v10 = 0LL;
+      v17 = 0LL;
       v24 = 0;
-      v11 = 0LL;
+      v18 = 0;
       while ( 1 )
       {
-        if ( (unsigned int)v10 >= v17 )
+        if ( (unsigned int)v17 >= v14 )
         {
-          a3 += 4 * (unsigned int)v11;
+          a3 += 4 * v18;
           v28 = a3;
           a3[2] = 0LL;
           a3[3] = 0LL;
 LABEL_38:
           *a3 = 0LL;
-          a3[1] = v15;
+          a3[1] = v12;
           if ( a5 )
-            *a5 = v18 * (v11 + 1);
+            *a5 = v15 * (v18 + 1);
 LABEL_21:
-          if ( v14 >= 0 )
+          if ( v11 >= 0 )
           {
-            _InterlockedAdd64((volatile signed __int64 *)(v13 + 8), -v15);
-            *(_DWORD *)v13 = 0;
+            _InterlockedAdd64((volatile signed __int64 *)(v10 + 8), -v12);
+            *(_DWORD *)v10 = 0;
             goto LABEL_9;
           }
 LABEL_25:
-          _interlockedbittestandreset((volatile signed __int32 *)v13, 0);
+          _interlockedbittestandreset((volatile signed __int32 *)v10, 0);
 LABEL_9:
-          KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v9, v10, v11);
-          v12 = Object;
+          KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+          v9 = Object;
 LABEL_10:
-          ObfDereferenceObjectWithTag(v12, 0x79517350u);
-          return (unsigned int)v14;
+          ObfDereferenceObjectWithTag(v9, 0x79517350u);
+          return (unsigned int)v11;
         }
-        v20 = 1;
+        v19 = 1;
         if ( v23 )
         {
-          if ( *(_QWORD *)(v13 + 24 * v10 + 40) <= 0x7FFFFFFEFFFFuLL
-            && *(_QWORD *)(v13 + 24 * v10 + 48) <= 0x7FFFFFFEFFFFuLL )
+          if ( *(_QWORD *)(v10 + 24 * v17 + 40) <= 0x7FFFFFFEFFFFuLL
+            && *(_QWORD *)(v10 + 24 * v17 + 48) <= 0x7FFFFFFEFFFFuLL )
           {
 LABEL_32:
-            v21 = 4LL * (unsigned int)v11;
-            *(_OWORD *)&a3[v21] = *(_OWORD *)(v13 + 24 * v10 + 40);
-            a3[v21 + 2] = *(_QWORD *)(v13 + 24 * v10 + 56);
-            a3[v21 + 3] = 0LL;
-            v11 = (unsigned int)(v11 + 1);
+            v20 = 4LL * v18;
+            *(_OWORD *)&a3[v20] = *(_OWORD *)(v10 + 24 * v17 + 40);
+            a3[v20 + 2] = *(_QWORD *)(v10 + 24 * v17 + 56);
+            a3[v20 + 3] = 0LL;
+            ++v18;
             goto LABEL_33;
           }
-          v20 = 0;
+          v19 = 0;
         }
-        if ( v20 )
+        if ( v19 )
           goto LABEL_32;
 LABEL_33:
-        v10 = (unsigned int)(v10 + 1);
-        v24 = v10;
+        v17 = (unsigned int)(v17 + 1);
+        v24 = v17;
       }
     }
     v28 = a3;
-    v9 = 0LL;
+    v21 = 0LL;
     v24 = 0;
-    v11 = 0LL;
+    v18 = 0;
     while ( 1 )
     {
-      if ( (unsigned int)v9 >= (unsigned __int16)v16 >> 1 )
+      if ( (unsigned int)v21 >= (unsigned __int16)v13 >> 1 )
         goto LABEL_38;
       v22 = 1;
       if ( !v23 )
         goto LABEL_46;
-      if ( *(_QWORD *)(v13 + 24 * v9 + 40) > 0x7FFFFFFEFFFFuLL || *(_QWORD *)(v13 + 24 * v9 + 48) > 0x7FFFFFFEFFFFuLL )
+      if ( *(_QWORD *)(v10 + 24 * v21 + 40) > 0x7FFFFFFEFFFFuLL || *(_QWORD *)(v10 + 24 * v21 + 48) > 0x7FFFFFFEFFFFuLL )
         break;
 LABEL_47:
-      *(_OWORD *)a3 = *(_OWORD *)(v13 + 24 * v9 + 40);
+      *(_OWORD *)a3 = *(_OWORD *)(v10 + 24 * v21 + 40);
       a3 += 2;
       v28 = a3;
-      v11 = (unsigned int)(v11 + 1);
+      ++v18;
 LABEL_48:
-      v9 = (unsigned int)(v9 + 1);
-      v24 = v9;
+      v21 = (unsigned int)(v21 + 1);
+      v24 = v21;
     }
     v22 = 0;
 LABEL_46:

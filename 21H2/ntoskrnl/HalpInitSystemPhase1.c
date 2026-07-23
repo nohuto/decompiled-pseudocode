@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInitSystemPhase1 @ 0x14099C08C
+ * XREFs of HalpInitSystemPhase1 @ 0x14099D08C
  * Callers:
- *     HalInitSystem @ 0x14099C050 (HalInitSystem.c)
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     HalInitSystem @ 0x14099D050 (HalInitSystem.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x14099C0C8 (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x14099D0C8 (HalpInitSystemHelper.c)
  */
 
 bool HalpInitSystemPhase1()

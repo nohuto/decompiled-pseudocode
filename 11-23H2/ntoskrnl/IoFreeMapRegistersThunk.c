@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeMapRegistersThunk @ 0x1405010C4
+ * XREFs of IoFreeMapRegistersThunk @ 0x140501614
  * Callers:
- *     HalpAllocateMapRegisters @ 0x140933640 (HalpAllocateMapRegisters.c)
+ *     HalpAllocateMapRegisters @ 0x140933840 (HalpAllocateMapRegisters.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x1403B9834 (HalpDmaGetAdapterVersion.c)
- *     IoFreeMapRegistersV2 @ 0x14045DAC0 (IoFreeMapRegistersV2.c)
- *     IoFreeMapRegistersV3 @ 0x1405102D0 (IoFreeMapRegistersV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x1403B9A14 (HalpDmaGetAdapterVersion.c)
+ *     IoFreeMapRegistersV2 @ 0x14045DEC0 (IoFreeMapRegistersV2.c)
+ *     IoFreeMapRegistersV3 @ 0x140510820 (IoFreeMapRegistersV3.c)
  */
 
 void __fastcall IoFreeMapRegistersThunk(__int64 a1)

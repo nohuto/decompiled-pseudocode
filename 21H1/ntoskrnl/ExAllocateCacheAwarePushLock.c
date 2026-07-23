@@ -34,8 +34,8 @@ ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
   _QWORD *v17; // rdi
   unsigned int v18; // [rsp+30h] [rbp-68h]
   _QWORD *v19; // [rsp+38h] [rbp-60h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
 
   v1 = 0;
   v2 = a1 & 1;

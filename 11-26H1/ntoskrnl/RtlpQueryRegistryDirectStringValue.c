@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRegistryDirectStringValue @ 0x140805040
+ * XREFs of RtlpQueryRegistryDirectStringValue @ 0x14080AAE0
  * Callers:
- *     RtlpQueryRegistryDirect @ 0x140A11808 (RtlpQueryRegistryDirect.c)
+ *     RtlpQueryRegistryDirect @ 0x140A109F8 (RtlpQueryRegistryDirect.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirectStringValue(_WORD *Src, unsigned int a2, __int64 a3)

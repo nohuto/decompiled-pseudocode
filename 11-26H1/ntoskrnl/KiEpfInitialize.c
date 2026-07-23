@@ -1,13 +1,13 @@
 /*
- * XREFs of KiEpfInitialize @ 0x140CCB9E4
+ * XREFs of KiEpfInitialize @ 0x140CD1B44
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x1405B9830 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     KiEpfDrainCompletionQueue @ 0x1405F6EAC (KiEpfDrainCompletionQueue.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x1405BC0A0 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405F986C (KiEpfDrainCompletionQueue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void KiEpfInitialize()
@@ -40,10 +40,10 @@ void KiEpfInitialize()
       }
       while ( v3 );
       LODWORD(KiEpfCompletionDpc) = 275;
-      qword_140F14BD8 = (__int64)KiEpfCompletionDpcRoutine;
-      qword_140F14BE0 = 0LL;
-      qword_140F14BF8 = 0LL;
-      qword_140F14BD0 = 0LL;
+      qword_140F14EF8 = (__int64)KiEpfCompletionDpcRoutine;
+      qword_140F14F00 = 0LL;
+      qword_140F14F18 = 0LL;
+      qword_140F14EF0 = 0LL;
       if ( (int)HvlSetupPhysicalFaultNotificationQueue(&v6, &v5, v1, v2) >= 0 )
       {
         KiEpfCompletionQueueSize = (unsigned int)(v5 - 16) >> 3;

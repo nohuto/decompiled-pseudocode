@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetDanglingExtent @ 0x14067B174
+ * XREFs of MiGetDanglingExtent @ 0x14067C354
  * Callers:
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlinkPageChainHead @ 0x1402E8490 (MiUnlinkPageChainHead.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlinkPageChainHead @ 0x140349AD0 (MiUnlinkPageChainHead.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
@@ -27,18 +27,18 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   *a1 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  ExAcquireSpinLockExclusive(dword_140E3A7A0);
+  ExAcquireSpinLockExclusive(dword_140E3A8E0);
   do
   {
-    v4 = MiUnlinkPageChainHead((__int64)&qword_140E2D5A8);
+    v4 = MiUnlinkPageChainHead((__int64)&qword_140E2D6E8);
     if ( !v4 )
       break;
     if ( !v2 )
       v3 = v4;
     ++v2;
   }
-  while ( (__int64 *)qword_140E2D5A8 == v4 - 6 );
-  MiReleaseSpinLockExclusive(dword_140E3A7A0, v5);
+  while ( (__int64 *)qword_140E2D6E8 == v4 - 6 );
+  MiReleaseSpinLockExclusive(dword_140E3A8E0, v5);
   if ( !v2 )
     return -1LL;
   v7 = &v3[-6 * v2];

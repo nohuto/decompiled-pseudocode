@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_DriverSetup_ReofferFingerprinting_v2__private_IsEnabledDeviceUsageNoInline @ 0x180136758
+ * XREFs of Feature_DriverSetup_ReofferFingerprinting_v2__private_IsEnabledDeviceUsageNoInline @ 0x180134988
  * Callers:
- *     ApiSetpIsFeatureEnabled @ 0x180136718 (ApiSetpIsFeatureEnabled.c)
+ *     ApiSetpIsFeatureEnabled @ 0x180134948 (ApiSetpIsFeatureEnabled.c)
  * Callees:
  *     <none>
  */

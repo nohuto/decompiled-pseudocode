@@ -52,7 +52,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3
   unsigned __int64 v28; // r10
   unsigned __int64 v29; // rax
   char v30; // al
-  struct _SLIST_ENTRY *v31; // rsi
+  _SLIST_ENTRY *v31; // rsi
   signed __int32 v33[8]; // [rsp+0h] [rbp-A8h] BYREF
   void *retaddr; // [rsp+A8h] [rbp+0h]
 
@@ -218,7 +218,7 @@ LABEL_53:
   }
   if ( qword_14034F240 )
   {
-    v31 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_14034F240, 0LL);
+    v31 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_14034F240, 0LL);
     if ( v31 )
     {
       if ( v18 - (unsigned __int64)v31[1].Next > PfKernelGlobals || (a3 & 0x18) != 0 )

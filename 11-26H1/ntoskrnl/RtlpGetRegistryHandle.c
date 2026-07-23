@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpGetRegistryHandle @ 0x140A11948
+ * XREFs of RtlpGetRegistryHandle @ 0x140A10B38
  * Callers:
- *     RtlCreateRegistryKey @ 0x140804BF0 (RtlCreateRegistryKey.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x140804F78 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlpUpdateDynamicTimeZones @ 0x1408054A0 (RtlpUpdateDynamicTimeZones.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x14093C97C (PerfDiagpSaveActiveDCLLogFileName.c)
- *     RtlCheckRegistryKey @ 0x140A10F50 (RtlCheckRegistryKey.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     RtlWriteRegistryValue @ 0x140A11D10 (RtlWriteRegistryValue.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x140A13574 (RtlpGetTimeZoneInfoHandle.c)
- *     EtwpEnableAutoLoggerProvider @ 0x140AD7C68 (EtwpEnableAutoLoggerProvider.c)
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
- *     RtlDeleteRegistryValue @ 0x140B46070 (RtlDeleteRegistryValue.c)
+ *     RtlCreateRegistryKey @ 0x14080A690 (RtlCreateRegistryKey.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14080AA18 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x14080AF40 (RtlpUpdateDynamicTimeZones.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x14091851C (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     RtlCheckRegistryKey @ 0x140A10140 (RtlCheckRegistryKey.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x140A10F00 (RtlWriteRegistryValue.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x140A12764 (RtlpGetTimeZoneInfoHandle.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140AD4710 (EtwpEnableAutoLoggerProvider.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
+ *     RtlDeleteRegistryValue @ 0x140B480A0 (RtlDeleteRegistryValue.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlFormatCurrentUserKeyPath @ 0x140925F40 (RtlFormatCurrentUserKeyPath.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140901A50 (RtlFormatCurrentUserKeyPath.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDLE *a4)
@@ -38,13 +38,13 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
   _GENERAL_LOOKASIDE *v16; // rcx
   _GENERAL_LOOKASIDE *L; // rdi
   UNICODE_STRING Destination; // [rsp+48h] [rbp-19h] BYREF
-  UNICODE_STRING Source; // [rsp+58h] [rbp-9h] BYREF
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
 
   result = 0LL;
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   memset(&ObjectAttributes, 0, 44);
-  Source = 0LL;
+  CurrentUserKeyPath = 0LL;
   if ( (a1 & 0x40000000) != 0 )
   {
     *a4 = (HANDLE)a2;
@@ -81,11 +81,11 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
         *(_DWORD *)&Destination.Length = 34340864;
         if ( !(_DWORD)v8 )
           goto LABEL_9;
-        if ( (_DWORD)v8 == 5 && RtlFormatCurrentUserKeyPath(&Source) >= 0 )
+        if ( (_DWORD)v8 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(&Destination, &Source);
-          if ( Source.Buffer )
-            ExFreePool(Source.Buffer);
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          if ( CurrentUserKeyPath.Buffer )
+            ExFreePool(CurrentUserKeyPath.Buffer);
         }
         else
         {

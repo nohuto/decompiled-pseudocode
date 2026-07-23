@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsIsTagTarget @ 0x140AD6BCC
+ * XREFs of ViFaultsIsTagTarget @ 0x140AD6BBC
  * Callers:
- *     VfFaultsInjectPoolAllocationFailure @ 0x140AD5EF8 (VfFaultsInjectPoolAllocationFailure.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140AD5EE8 (VfFaultsInjectPoolAllocationFailure.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14046B15E (ExCheckSingleFilter.c)
- *     ViFaultsIsTagPresentInList @ 0x140AD6B80 (ViFaultsIsTagPresentInList.c)
+ *     ExCheckSingleFilter @ 0x14046B55E (ExCheckSingleFilter.c)
+ *     ViFaultsIsTagPresentInList @ 0x140AD6B70 (ViFaultsIsTagPresentInList.c)
  */
 
 __int64 __fastcall ViFaultsIsTagTarget(int a1)

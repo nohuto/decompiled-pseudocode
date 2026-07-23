@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetCacheAttributeEx @ 0x140532020
+ * XREFs of MmGetCacheAttributeEx @ 0x140532260
  * Callers:
- *     MmGetCacheAttribute @ 0x140532000 (MmGetCacheAttribute.c)
+ *     MmGetCacheAttribute @ 0x140532240 (MmGetCacheAttribute.c)
  * Callees:
- *     MiLookupIoPageNode @ 0x14029859C (MiLookupIoPageNode.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiLookupIoPageNode @ 0x14021901C (MiLookupIoPageNode.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3
   v5 = a1 >> 12;
   if ( a1 >> 12 <= 0xFFFFFFFFFLL && ((*(_QWORD *)(48 * v5 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
   {
-    if ( !*(_WORD *)(48 * v5 - 0x57FFFFFFFE0LL) && (struct _KTHREAD *)qword_140C4E708 != KeGetCurrentThread() )
+    if ( !*(_WORD *)(48 * v5 - 0x57FFFFFFFE0LL) && (struct _KTHREAD *)qword_140C4E748 != KeGetCurrentThread() )
       KeBugCheckEx(0x1Au, 0x1232uLL, v5, *(_BYTE *)(48 * v5 - 0x57FFFFFFFDELL) & 7, 0LL);
     v6 = *(unsigned __int8 *)(48 * v5 - 0x57FFFFFFFDELL) >> 6;
   }

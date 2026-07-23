@@ -8,14 +8,14 @@
  *     _RtlSidDominatesForTrust@12 @ 0x4B2D9290 (_RtlSidDominatesForTrust@12.c)
  */
 
-bool __fastcall RtlpValidTrustSubjectContext(int a1, int a2, int a3, int *a4)
+BOOLEAN __fastcall RtlpValidTrustSubjectContext(PSID Sid1, PSID Sid2, int a3, NTSTATUS *a4)
 {
-  bool result; // al
-  bool v5; // [esp+7h] [ebp-1h] BYREF
+  BOOLEAN result; // al
+  BOOLEAN DominatesTrust; // [esp+7h] [ebp-1h] BYREF
 
   result = 0;
-  v5 = 0;
-  if ( !a1 || (*a4 = RtlSidDominatesForTrust(a1, a2, &v5), !(result = v5)) )
+  DominatesTrust = 0;
+  if ( !Sid1 || (*a4 = RtlSidDominatesForTrust(Sid1, Sid2, &DominatesTrust), (result = DominatesTrust) == 0) )
     *a4 = -1073741790;
   return result;
 }

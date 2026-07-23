@@ -1,10 +1,10 @@
 /*
- * XREFs of RaspLoadBearings @ 0x140386ACC
+ * XREFs of RaspLoadBearings @ 0x140386CAC
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x140386158 (RaspGetUnscaledGlyphData.c)
+ *     RaspGetUnscaledGlyphData @ 0x140386338 (RaspGetUnscaledGlyphData.c)
  * Callees:
- *     FioFwReadUshortAtOffset @ 0x140386DE8 (FioFwReadUshortAtOffset.c)
- *     FioFwReadBytesAtOffset @ 0x1403871C8 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadUshortAtOffset @ 0x140386FC8 (FioFwReadUshortAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403873A8 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall RaspLoadBearings(__int64 a1, unsigned int a2, __int64 a3, int *a4)

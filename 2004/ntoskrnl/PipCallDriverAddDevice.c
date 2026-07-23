@@ -83,7 +83,7 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
   int v40; // eax
   __int64 v41; // rdx
   __int64 v42; // rdx
-  char *v43; // rbx
+  const WNF_STATE_NAME *v43; // rbx
   int v44; // esi
   __int64 v45; // rdx
   int v46; // eax
@@ -273,7 +273,7 @@ LABEL_112:
     && (_DWORD)NumberOfBytes )
   {
     RtlInitUnicodeStringEx(&DestinationString, SourceString);
-    if ( (_DWORD)InitSafeBootMode )
+    if ( InitSafeBootMode )
     {
       if ( !(unsigned __int8)IopSafebootDriverLoad(&DestinationString) )
       {
@@ -386,12 +386,11 @@ LABEL_112:
         {
           if ( v58 == 4099 && (NumberOfBytes & 0x700000000LL) == 0 && HIDWORD(NumberOfBytes) )
           {
-            v43 = (char *)P;
+            v43 = (const WNF_STATE_NAME *)P;
             v44 = HIDWORD(NumberOfBytes) >> 3;
             do
             {
-              ZwUpdateWnfStateData((__int64)v43, 0LL);
-              v43 += 8;
+              ZwUpdateWnfStateData(v43++, 0LL, 0, 0LL, 0LL, 0, 0);
               --v44;
             }
             while ( v44 );

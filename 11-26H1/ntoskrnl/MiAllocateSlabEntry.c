@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateSlabEntry @ 0x140206EC0
+ * XREFs of MiAllocateSlabEntry @ 0x140206FA0
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     MiCreateBootSlabEntries @ 0x140CFE048 (MiCreateBootSlabEntries.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     MiCreateBootSlabEntries @ 0x140D043F0 (MiCreateBootSlabEntries.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KcsanMarkAddressIgnored @ 0x1404F7F60 (KcsanMarkAddressIgnored.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KcsanMarkAddressIgnored @ 0x1404F1570 (KcsanMarkAddressIgnored.c)
  */
 
 __int64 __fastcall MiAllocateSlabEntry(__int64 a1)

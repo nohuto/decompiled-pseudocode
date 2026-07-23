@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAllocateTimerInternal2 @ 0x1403BF320
+ * XREFs of ExAllocateTimerInternal2 @ 0x1403ADEE0
  * Callers:
- *     ExAllocateTimer @ 0x1403BF2E0 (ExAllocateTimer.c)
- *     ExAllocateTimerInternal @ 0x140657220 (ExAllocateTimerInternal.c)
+ *     ExAllocateTimer @ 0x1403ADEA0 (ExAllocateTimer.c)
+ *     ExAllocateTimerInternal @ 0x140655920 (ExAllocateTimerInternal.c)
  * Callees:
- *     ExpExTimerAttributesAreValid @ 0x1403BF45C (ExpExTimerAttributesAreValid.c)
- *     KiInitializeTimer2 @ 0x1403BF498 (KiInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x1404C1B3C (KeInitializeIRTimer.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExpExTimerAttributesAreValid @ 0x1403AE01C (ExpExTimerAttributesAreValid.c)
+ *     KiInitializeTimer2 @ 0x1403AE058 (KiInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x1404BD12C (KeInitializeIRTimer.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExAllocateTimerInternal2(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4)
@@ -22,7 +22,7 @@ __int64 __fastcall ExAllocateTimerInternal2(__int64 a1, __int64 a2, _WORD *a3, u
   v5 = a4;
   if ( !(unsigned __int8)ExpExTimerAttributesAreValid(a4) || ((v5 & 2) != 0) != (a3 != 0LL) )
     KeBugCheckEx(0xC7u, 9uLL, 0LL, v5, 0LL);
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0xA0uLL, 0x6D547845u);
   v9 = Pool2;
   if ( Pool2 )
   {

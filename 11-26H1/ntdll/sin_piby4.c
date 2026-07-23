@@ -1,8 +1,8 @@
 /*
- * XREFs of sin_piby4 @ 0x18012AA70
+ * XREFs of sin_piby4 @ 0x18012A7E0
  * Callers:
- *     cos @ 0x18012A350 (cos.c)
- *     sin @ 0x18012A6F0 (sin.c)
+ *     cos @ 0x18012A0C0 (cos.c)
+ *     sin @ 0x18012A460 (sin.c)
  * Callees:
  *     <none>
  */

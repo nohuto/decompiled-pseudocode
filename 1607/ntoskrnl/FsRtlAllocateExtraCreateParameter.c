@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1405009C0
+ * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1404E3950
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14045C848 (PspCreateUserProcessEcp.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x140580310 (IopSymlinkEnforceEnabledTypes.c)
+ *     PspCreateUserProcessEcp @ 0x14045B718 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x1405807BC (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

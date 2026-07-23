@@ -17,7 +17,7 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __stdcall LdrResGetRCConfig(int a1, int a2, _DWORD *a3, int a4, char a5)
+NTSTATUS __stdcall LdrResGetRCConfig(int a1, unsigned int a2, _DWORD *a3, int a4, char a5)
 {
   int v5; // edx
   int v6; // esi
@@ -27,8 +27,8 @@ int __stdcall LdrResGetRCConfig(int a1, int a2, _DWORD *a3, int a4, char a5)
   int *v10; // eax
   _DWORD *v11; // eax
   int v12; // eax
-  int result; // eax
-  int v14; // eax
+  NTSTATUS result; // eax
+  NTSTATUS v14; // eax
   int v15; // edi
   int v16; // esi
   unsigned int v17; // edx
@@ -58,7 +58,7 @@ int __stdcall LdrResGetRCConfig(int a1, int a2, _DWORD *a3, int a4, char a5)
   unsigned int v41; // [esp+24h] [ebp-44h] BYREF
   _DWORD *v42; // [esp+28h] [ebp-40h]
   int v43; // [esp+2Ch] [ebp-3Ch]
-  int v44; // [esp+30h] [ebp-38h] BYREF
+  unsigned int v44; // [esp+30h] [ebp-38h] BYREF
   int v45; // [esp+34h] [ebp-34h]
   int *v46; // [esp+38h] [ebp-30h] BYREF
   int v47; // [esp+3Ch] [ebp-2Ch]
@@ -122,11 +122,11 @@ int __stdcall LdrResGetRCConfig(int a1, int a2, _DWORD *a3, int a4, char a5)
     }
     if ( !a2 && !v43 )
     {
-      result = LdrpResGetMappingSize(v5, (unsigned int *)&v44, a4, 0);
+      result = LdrpResGetMappingSize(v5, &v44, a4, 0);
       if ( result < 0 )
         return result;
     }
-    v14 = LdrpResSearchResourceMappedFile(v45, v44, v6 | 0x200030, v48, 3, &v46, &v41, 0, 0);
+    v14 = LdrpResSearchResourceMappedFile((void *)v45, v44, v6 | 0x200030, v48, 3, &v46, &v41, 0, 0);
     v15 = v14;
     v47 = v14;
     if ( v14 < 0 )

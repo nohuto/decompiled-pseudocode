@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpIvtProcessDrhdEntry @ 0x14037E8B4
+ * XREFs of HalpIvtProcessDrhdEntry @ 0x14037EA54
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x14037EF08 (HalpIvtProcessDmarTable.c)
+ *     HalpIvtProcessDmarTable @ 0x14037F0A8 (HalpIvtProcessDmarTable.c)
  * Callees:
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x14037E180 (HalpUnmapVirtualAddress.c)
- *     DmrEnumerateRmrrDomains @ 0x14037F0D0 (DmrEnumerateRmrrDomains.c)
- *     DmrValidateDeviceScope @ 0x14037F22C (DmrValidateDeviceScope.c)
- *     DmrGetNextDrhdDeviceScope @ 0x14037F320 (DmrGetNextDrhdDeviceScope.c)
- *     HalpIvtAllocateReservedDomainList @ 0x14037F9E4 (HalpIvtAllocateReservedDomainList.c)
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     HalRegisterPermanentAddressUsage @ 0x14037FD90 (HalRegisterPermanentAddressUsage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExtEnvFreeMemory @ 0x14051F5AC (ExtEnvFreeMemory.c)
- *     DmrFreeRmrrTree @ 0x14053507C (DmrFreeRmrrTree.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x14037E320 (HalpUnmapVirtualAddress.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037F270 (DmrEnumerateRmrrDomains.c)
+ *     DmrValidateDeviceScope @ 0x14037F3CC (DmrValidateDeviceScope.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x14037F4C0 (DmrGetNextDrhdDeviceScope.c)
+ *     HalpIvtAllocateReservedDomainList @ 0x14037FB84 (HalpIvtAllocateReservedDomainList.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14037FF30 (HalRegisterPermanentAddressUsage.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExtEnvFreeMemory @ 0x14051FAFC (ExtEnvFreeMemory.c)
+ *     DmrFreeRmrrTree @ 0x1405355CC (DmrFreeRmrrTree.c)
  *     ExtEnvRegisterIommu @ 0x140B47FE4 (ExtEnvRegisterIommu.c)
  */
 

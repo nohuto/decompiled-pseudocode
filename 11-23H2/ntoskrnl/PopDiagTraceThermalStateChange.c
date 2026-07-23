@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceThermalStateChange @ 0x140594C24
+ * XREFs of PopDiagTraceThermalStateChange @ 0x140595114
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403A1854 (PopCheckAndHandleThermalConditions.c)
- *     PopDiagTraceThermalOverthrottleState @ 0x140594BEC (PopDiagTraceThermalOverthrottleState.c)
- *     PopDiagTraceThermalStandbyState @ 0x140594C08 (PopDiagTraceThermalStandbyState.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403A1A34 (PopCheckAndHandleThermalConditions.c)
+ *     PopDiagTraceThermalOverthrottleState @ 0x1405950DC (PopDiagTraceThermalOverthrottleState.c)
+ *     PopDiagTraceThermalStandbyState @ 0x1405950F8 (PopDiagTraceThermalStandbyState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceThermalStateChange(__int64 a1, int a2, const EVENT_DESCRIPTOR *a3)

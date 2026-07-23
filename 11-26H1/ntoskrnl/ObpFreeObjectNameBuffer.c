@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpFreeObjectNameBuffer @ 0x1408F17F0
+ * XREFs of ObpFreeObjectNameBuffer @ 0x1408F7DB0
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     NtCreateEvent @ 0x1408EF8C0 (NtCreateEvent.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     NtCreateEvent @ 0x1408F5E80 (NtCreateEvent.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rax
+  _SLIST_ENTRY *v1; // rax
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // r8
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
+  v1 = *(_SLIST_ENTRY **)(a1 + 8);
   if ( *(_WORD *)(a1 + 2) == 248 )
   {
     CurrentPrcb = KeGetCurrentPrcb();

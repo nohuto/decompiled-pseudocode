@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipSemFreePool @ 0x1409DDFF0
+ * XREFs of WdipSemFreePool @ 0x1409DE1F0
  * Callers:
- *     WdipSemShutdown @ 0x1409DDBF0 (WdipSemShutdown.c)
+ *     WdipSemShutdown @ 0x1409DDDF0 (WdipSemShutdown.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
@@ -11,7 +11,7 @@ void WdipSemFreePool()
 {
   PVOID *v0; // rax
   _QWORD *v1; // rcx
-  union _SLIST_HEADER *v2; // rbx
+  _SLIST_HEADER *v2; // rbx
   __int64 v3; // rdi
 
   v0 = (PVOID *)WdipSemPool;

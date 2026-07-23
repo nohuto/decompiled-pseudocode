@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLoadSectionIntoVsmEnclave @ 0x1408DA8E0
+ * XREFs of MiLoadSectionIntoVsmEnclave @ 0x140A2A370
  * Callers:
- *     NtLoadEnclaveData @ 0x1408D9D70 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x140A29800 (NtLoadEnclaveData.c)
  * Callees:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiCountCommittedPages @ 0x140492104 (MiCountCommittedPages.c)
- *     VslLoadEnclaveModule @ 0x1408DAF58 (VslLoadEnclaveModule.c)
- *     MiMapImageForEnclaveUse @ 0x1408DB088 (MiMapImageForEnclaveUse.c)
- *     MiDecommitRegion @ 0x1408DC180 (MiDecommitRegion.c)
- *     MiPrefetchControlArea @ 0x1409572D4 (MiPrefetchControlArea.c)
- *     MiUnmapImageForEnclaveUse @ 0x140AA1BA4 (MiUnmapImageForEnclaveUse.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiCountCommittedPages @ 0x14048CFA4 (MiCountCommittedPages.c)
+ *     MiDecommitRegion @ 0x1408DA3B0 (MiDecommitRegion.c)
+ *     MiPrefetchControlArea @ 0x14093AC84 (MiPrefetchControlArea.c)
+ *     VslLoadEnclaveModule @ 0x140A2A9E8 (VslLoadEnclaveModule.c)
+ *     MiMapImageForEnclaveUse @ 0x140A2AB18 (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A9CF34 (MiUnmapImageForEnclaveUse.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLoadSectionIntoVsmEnclave(
@@ -39,7 +39,7 @@ __int64 __fastcall MiLoadSectionIntoVsmEnclave(
   __int64 v20; // r14
   __int64 v21; // rax
   _QWORD *v22; // rcx
-  _WORD v23[2]; // [rsp+60h] [rbp-20h] BYREF
+  __int16 v23[2]; // [rsp+60h] [rbp-20h] BYREF
   int v24; // [rsp+64h] [rbp-1Ch] BYREF
   __int64 v25; // [rsp+68h] [rbp-18h] BYREF
   __int64 v26; // [rsp+70h] [rbp-10h] BYREF
@@ -106,7 +106,7 @@ LABEL_3:
       v20 = *(_QWORD *)(v20 + 16);
       v21 = v26;
     }
-    MiPrefetchControlArea(v17, CLFS_LSN_NULL_EXT, 0, 1, 0, -1);
+    MiPrefetchControlArea(v17, CLFS_LSN_NULL_EXT, 0LL, 1u, 0, 0xFFFFFFFF);
     EnclaveModule = VslLoadEnclaveModule(
                       *(_QWORD *)(v27 + 24),
                       v18,
@@ -120,7 +120,7 @@ LABEL_3:
     if ( EnclaveModule < 0 )
     {
 LABEL_24:
-      MiDecommitRegion(a2, v18, v19 + v18 - 1);
+      MiDecommitRegion((__int64)a2, v18);
       goto LABEL_4;
     }
     if ( v29 )

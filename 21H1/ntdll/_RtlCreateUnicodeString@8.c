@@ -19,28 +19,30 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-char __stdcall RtlCreateUnicodeString(int a1, const unsigned __int16 *Src)
+BOOLEAN __cdecl RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
 {
   unsigned int v2; // ecx
-  size_t v3; // ebx
-  void *StringRoutine; // eax
-  char result; // al
-  __int16 v6; // [esp+14h] [ebp-1Ch]
+  unsigned int v3; // ebx
+  wchar_t *StringRoutine; // eax
+  BOOLEAN result; // al
+  size_t v6; // [esp-4h] [ebp-34h]
+  __int16 v7; // [esp+14h] [ebp-1Ch]
 
-  v2 = wcslen(Src);
-  v6 = 2 * v2;
+  v2 = wcslen((const unsigned __int16 *)SourceString);
+  v7 = 2 * v2;
   v3 = 2 * v2 + 2;
   if ( v3 > 0xFFFE )
     return 0;
   if ( 2 * v2 == -2 )
     return 0;
-  StringRoutine = (void *)NtdllpAllocateStringRoutine(2 * v2 + 2);
-  *(_DWORD *)(a1 + 4) = StringRoutine;
+  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(2 * v2 + 2);
+  DestinationString->Buffer = StringRoutine;
   if ( !StringRoutine )
     return 0;
-  *(_WORD *)(a1 + 2) = v3;
-  memcpy(StringRoutine, Src, v3);
-  result = v6;
-  *(_WORD *)a1 = v6;
+  DestinationString->MaximumLength = v3;
+  LODWORD(v6) = v3;
+  memcpy(StringRoutine, SourceString, v6);
+  result = v7;
+  DestinationString->Length = v7;
   return result;
 }

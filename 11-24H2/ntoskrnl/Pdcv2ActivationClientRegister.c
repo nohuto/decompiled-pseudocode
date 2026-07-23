@@ -1,20 +1,20 @@
 /*
- * XREFs of Pdcv2ActivationClientRegister @ 0x14078D95C
+ * XREFs of Pdcv2ActivationClientRegister @ 0x14078D88C
  * Callers:
- *     PnpBootPhaseComplete @ 0x14071A5C4 (PnpBootPhaseComplete.c)
- *     PopAdaptiveStandbyInitializeActivator @ 0x140761B4C (PopAdaptiveStandbyInitializeActivator.c)
- *     PopInitializeWin32kActivator @ 0x140C2E3A4 (PopInitializeWin32kActivator.c)
+ *     PnpBootPhaseComplete @ 0x140718154 (PnpBootPhaseComplete.c)
+ *     PopAdaptiveStandbyInitializeActivator @ 0x140760F10 (PopAdaptiveStandbyInitializeActivator.c)
+ *     PopInitializeWin32kActivator @ 0x140C304C4 (PopInitializeWin32kActivator.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeInitializeMutex @ 0x140476AE0 (KeInitializeMutex.c)
- *     PdcInitializeETW @ 0x140607A64 (PdcInitializeETW.c)
- *     Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER @ 0x140607D48 (Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER.c)
- *     PdcPortOpenCommon @ 0x14078DF44 (PdcPortOpenCommon.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
- *     PdcAcquireRwLockExclusive2 @ 0x140A4F154 (PdcAcquireRwLockExclusive2.c)
- *     PdcReleaseRwLockExclusive2 @ 0x140A5AF2C (PdcReleaseRwLockExclusive2.c)
- *     PdcAllocate @ 0x140A77870 (PdcAllocate.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeInitializeMutex @ 0x140473080 (KeInitializeMutex.c)
+ *     PdcInitializeETW @ 0x14060506C (PdcInitializeETW.c)
+ *     Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER @ 0x140605350 (Pdcv2EventWrite_ACTIVATION_CLIENT_REGISTER.c)
+ *     PdcPortOpenCommon @ 0x14078DE74 (PdcPortOpenCommon.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x140A45F04 (PdcAcquireRwLockExclusive2.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x140A52844 (PdcReleaseRwLockExclusive2.c)
+ *     PdcAllocate @ 0x140A71990 (PdcAllocate.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall Pdcv2ActivationClientRegister(__int64 a1, __int128 *a2, _QWORD *a3)

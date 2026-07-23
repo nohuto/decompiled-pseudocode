@@ -6,16 +6,14 @@
  *     NtdllpFreeStringRoutine @ 0x180039640 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall RtlFreeUTF8String(__int64 a1)
+void __cdecl RtlFreeUTF8String(PUTF8_STRING Utf8String)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  char *Buffer; // rcx
 
-  v2 = *(_QWORD *)(a1 + 8);
-  if ( v2 )
+  Buffer = Utf8String->Buffer;
+  if ( Buffer )
   {
-    result = NtdllpFreeStringRoutine(v2);
-    *(_OWORD *)a1 = 0LL;
+    NtdllpFreeStringRoutine(Buffer);
+    *Utf8String = 0LL;
   }
-  return result;
 }

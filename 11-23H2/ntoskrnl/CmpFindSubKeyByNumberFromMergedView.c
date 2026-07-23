@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x140A19608
+ * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x140A198B8
  * Callers:
- *     CmQueryKey @ 0x1406D71D0 (CmQueryKey.c)
- *     CmEnumerateKey @ 0x1406DC440 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1406D7200 (CmQueryKey.c)
+ *     CmEnumerateKey @ 0x1406DC470 (CmEnumerateKey.c)
  * Callees:
- *     CmpDelayDerefKeyControlBlock @ 0x1406D86A0 (CmpDelayDerefKeyControlBlock.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DAFD0 (CmpFindSubKeyByNumberEx.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpCompareKeysByName @ 0x140A1F6C4 (CmpCompareKeysByName.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1406D86D0 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406DB000 (CmpFindSubKeyByNumberEx.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpCompareKeysByName @ 0x140A1F974 (CmpCompareKeysByName.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberFromMergedView(

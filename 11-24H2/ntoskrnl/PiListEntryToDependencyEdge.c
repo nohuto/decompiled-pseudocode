@@ -1,17 +1,17 @@
 /*
- * XREFs of PiListEntryToDependencyEdge @ 0x1404F8618
+ * XREFs of PiListEntryToDependencyEdge @ 0x1404F5EF8
  * Callers:
- *     PiEnumerateDependentListEntry @ 0x1406F996C (PiEnumerateDependentListEntry.c)
- *     IoDuplicateDependency @ 0x14071E100 (IoDuplicateDependency.c)
- *     PiEnumerateProviderListEntry @ 0x14071E364 (PiEnumerateProviderListEntry.c)
- *     PipCheckValidNewDependencyEdge @ 0x14071E600 (PipCheckValidNewDependencyEdge.c)
- *     PipMergeDependencyEdgeList @ 0x14071E8CC (PipMergeDependencyEdgeList.c)
- *     PipAttemptDependentsStart @ 0x14098EA5C (PipAttemptDependentsStart.c)
- *     PnpGetDeviceDependencyList @ 0x140A0DA98 (PnpGetDeviceDependencyList.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x140A0ECA8 (PnpNewDeviceNodeDependencyCheck.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140A0F1D8 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipDeleteAllDependencyRelations @ 0x140A0F350 (PipDeleteAllDependencyRelations.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140A113DC (PnpRequestDeviceRemovalWorker.c)
+ *     PiEnumerateDependentListEntry @ 0x1406F75AC (PiEnumerateDependentListEntry.c)
+ *     IoDuplicateDependency @ 0x14071BC90 (IoDuplicateDependency.c)
+ *     PiEnumerateProviderListEntry @ 0x14071BEF4 (PiEnumerateProviderListEntry.c)
+ *     PipCheckValidNewDependencyEdge @ 0x14071C190 (PipCheckValidNewDependencyEdge.c)
+ *     PipMergeDependencyEdgeList @ 0x14071C45C (PipMergeDependencyEdgeList.c)
+ *     PipAttemptDependentsStart @ 0x140979A94 (PipAttemptDependentsStart.c)
+ *     PnpGetDeviceDependencyList @ 0x1409BBE9C (PnpGetDeviceDependencyList.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x1409BD0AC (PnpNewDeviceNodeDependencyCheck.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1409BD5E8 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipDeleteAllDependencyRelations @ 0x1409BD760 (PipDeleteAllDependencyRelations.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1409BF7EC (PnpRequestDeviceRemovalWorker.c)
  * Callees:
  *     <none>
  */

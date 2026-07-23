@@ -39,12 +39,12 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   int v17; // [rsp+54h] [rbp-B4h] BYREF
   HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-90h] BYREF
   int v22; // [rsp+A8h] [rbp-60h] BYREF
   const wchar_t *v23; // [rsp+B0h] [rbp-58h]
   int v24[20]; // [rsp+B8h] [rbp-50h] BYREF
-  unsigned int v25[4]; // [rsp+108h] [rbp+0h] BYREF
+  GUID Guid; // [rsp+108h] [rbp+0h] BYREF
 
   memset(v24, 0, 0x48uLL);
   v17 = 1;
@@ -53,8 +53,8 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   v3 = 0;
   KeyHandle = 0LL;
   v4 = 0;
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   P = 0;
   v16 = 0LL;
   if ( !PiDevCfgMode )
@@ -74,7 +74,7 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   memset(&ObjectAttributes, 0, 0x28uLL);
   v7 = *(_QWORD *)(a1 + 48);
   *(_QWORD *)&ObjectAttributes.Length = &DEVPKEY_Device_ClassGuid;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v25;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&Guid;
   LODWORD(ObjectAttributes.RootDirectory) = 13;
   ObjectAttributes.Attributes = 16;
   inited = PiDevCfgQueryObjectProperties(1LL, v7, 1u, *(void **)&v24[4], (__int64)&ObjectAttributes, 1u);
@@ -82,13 +82,13 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
     goto LABEL_29;
   if ( SLODWORD(ObjectAttributes.SecurityDescriptor) < 0 )
     goto LABEL_12;
-  inited = RtlStringFromGUIDEx(v25, (__int64)&UnicodeString, 1);
+  inited = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
   if ( inited < 0 )
     goto LABEL_29;
-  Buffer = UnicodeString.Buffer;
+  Buffer = GuidString.Buffer;
   v8 = PnpOpenObjectRegKey(
          *(__int64 *)&PiPnpRtlCtx,
-         (__int64)UnicodeString.Buffer,
+         (__int64)GuidString.Buffer,
          2u,
          131097,
          0,
@@ -161,7 +161,7 @@ LABEL_17:
     PiDevCfgSetDeviceRegProp(v12, (__int64)v24, 0xBu, 4, (__int64)&P, 4);
   }
 LABEL_29:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&GuidString);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )

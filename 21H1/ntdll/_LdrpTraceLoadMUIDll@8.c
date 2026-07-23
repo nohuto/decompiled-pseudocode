@@ -27,24 +27,33 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall LdrpTraceLoadMUIDll(unsigned __int16 *a1, int a2)
+NTSTATUS __fastcall LdrpTraceLoadMUIDll(unsigned __int16 *a1, void *a2)
 {
   int v3; // ebx
-  _DWORD v6[12]; // [esp+10h] [ebp-250h] BYREF
-  _WORD v7[270]; // [esp+40h] [ebp-220h] BYREF
+  size_t v5; // [esp-4h] [ebp-264h]
+  size_t v6; // [esp-4h] [ebp-264h]
+  __int16 Fields; // [esp+10h] [ebp-250h] BYREF
+  char v9; // [esp+14h] [ebp-24Ch]
+  int v10; // [esp+28h] [ebp-238h]
+  int v11; // [esp+2Ch] [ebp-234h]
+  int v12; // [esp+30h] [ebp-230h]
+  int v13; // [esp+34h] [ebp-22Ch]
+  _WORD v14[270]; // [esp+40h] [ebp-220h] BYREF
 
-  memset(v6, 0, sizeof(v6));
+  LODWORD(v5) = 48;
+  memset(&Fields, 0, v5);
   if ( (*a1 & 0xFFFEu) >= 0x212 )
     v3 = 265;
   else
     v3 = *a1 >> 1;
-  memcpy(v7, *((const void **)a1 + 1), 2 * v3);
-  v7[v3] = 0;
-  LOBYTE(v6[1]) = 0;
-  v6[6] = LoadMUIDllGuid[0];
-  v6[7] = LoadMUIDllGuid[1];
-  v6[8] = LoadMUIDllGuid[2];
-  v6[9] = LoadMUIDllGuid[3];
-  LOWORD(v6[0]) = 2 * v3 + 50;
-  return NtTraceEvent(a2, 256, 48, (int)v6);
+  LODWORD(v6) = 2 * v3;
+  memcpy(v14, *((const void **)a1 + 1), v6);
+  v14[v3] = 0;
+  v9 = 0;
+  v10 = LoadMUIDllGuid[0];
+  v11 = LoadMUIDllGuid[1];
+  v12 = LoadMUIDllGuid[2];
+  v13 = LoadMUIDllGuid[3];
+  Fields = 2 * v3 + 50;
+  return NtTraceEvent(a2, 0x100u, 0x30u, &Fields);
 }

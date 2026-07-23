@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetInitialStack @ 0x140A6D770
+ * XREFs of IoGetInitialStack @ 0x140A66E30
  * Callers:
- *     DifIoGetInitialStackWrapper @ 0x140629170 (DifIoGetInitialStackWrapper.c)
+ *     DifIoGetInitialStackWrapper @ 0x140627730 (DifIoGetInitialStackWrapper.c)
  * Callees:
  *     <none>
  */

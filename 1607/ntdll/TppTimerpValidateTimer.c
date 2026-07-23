@@ -1,13 +1,13 @@
 /*
- * XREFs of TppTimerpValidateTimer @ 0x18003C1C8
+ * XREFs of TppTimerpValidateTimer @ 0x18003C1B8
  * Callers:
- *     TpReleaseTimer @ 0x18003A490 (TpReleaseTimer.c)
- *     TpWaitForTimer @ 0x18003B8F0 (TpWaitForTimer.c)
- *     TpIsTimerSet @ 0x18003BF60 (TpIsTimerSet.c)
- *     TpSetTimerEx @ 0x18003C000 (TpSetTimerEx.c)
- *     TpTimerOutstandingCallbackCount @ 0x1800647E0 (TpTimerOutstandingCallbackCount.c)
+ *     TpReleaseTimer @ 0x18003A480 (TpReleaseTimer.c)
+ *     TpWaitForTimer @ 0x18003B8E0 (TpWaitForTimer.c)
+ *     TpIsTimerSet @ 0x18003BF50 (TpIsTimerSet.c)
+ *     TpSetTimerEx @ 0x18003BFF0 (TpSetTimerEx.c)
+ *     TpTimerOutstandingCallbackCount @ 0x1800647D0 (TpTimerOutstandingCallbackCount.c)
  * Callees:
- *     TppValidateCleanupGroupMember @ 0x18003C240 (TppValidateCleanupGroupMember.c)
+ *     TppValidateCleanupGroupMember @ 0x18003C230 (TppValidateCleanupGroupMember.c)
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  */
 

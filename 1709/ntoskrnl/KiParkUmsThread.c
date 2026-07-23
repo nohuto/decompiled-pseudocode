@@ -39,7 +39,7 @@ NTSTATUS __fastcall KiParkUmsThread(__int64 *SparePtr)
   unsigned __int8 CurrentIrql; // [rsp+38h] [rbp+8h]
   unsigned __int64 NpxState; // [rsp+38h] [rbp+8h]
   __int64 v16; // [rsp+68h] [rbp+38h] BYREF
-  struct _EXCEPTION_RECORD ExitStatus; // [rsp+70h] [rbp+40h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+70h] [rbp+40h] BYREF
   unsigned __int64 v18; // [rsp+110h] [rbp+E0h] BYREF
   _DWORD v19[4]; // [rsp+C00h] [rbp+BD0h] BYREF
   _QWORD v20[2]; // [rsp+C10h] [rbp+BE0h] BYREF

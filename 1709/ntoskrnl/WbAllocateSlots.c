@@ -19,14 +19,14 @@ __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned
   __int64 v4; // r12
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v10; // rdi
-  unsigned __int64 v11; // rbp
+  PRTL_BALANCED_NODE v11; // rbp
   signed __int64 v12; // r11
   unsigned int v13; // r10d
   _BYTE *v14; // rcx
   int v15; // eax
   struct _KTHREAD *v16; // rax
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rbp
+  PRTL_BALANCED_NODE v17; // rax
+  PRTL_BALANCED_NODE v18; // rbp
   char v19; // bl
 
   v4 = 0LL;
@@ -35,10 +35,10 @@ __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned
   v10 = (signed __int64 *)(a1 + 1072);
   v11 = KeAbPreAcquire(a1 + 1072, 0LL, 0);
   if ( _InterlockedCompareExchange64(v10, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v10, v11, (unsigned __int64)v10);
+    ExfAcquirePushLockSharedEx(v10, (__int64)v11, (ULONG_PTR)v10);
   v12 = 0LL;
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   v13 = a3 + 1;
   while ( 1 )
   {
@@ -76,9 +76,9 @@ LABEL_10:
     v17 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
     v18 = v17;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, v17, (__int16 *)v10);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, (__int64)v17, (__int16 *)v10);
     if ( v18 )
-      *(_BYTE *)(v18 + 26) |= 1u;
+      BYTE2(v18[1].Left) |= 1u;
     if ( (unsigned int)sub_140503864(a1, a2, a4) == -1 )
     {
       v4 = *(_QWORD *)(a1 + 32) + (a2 << 6);

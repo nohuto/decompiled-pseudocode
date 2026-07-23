@@ -15,36 +15,51 @@
 
 __int64 __fastcall EtwpQueryRegString(__int64 a1, void *a2, void *a3)
 {
-  int ValueKey; // edi
-  unsigned __int64 Heap; // rbx
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-1h] BYREF
-  UNICODE_STRING v8; // [rsp+50h] [rbp+Fh] BYREF
-  _OWORD v9[3]; // [rsp+60h] [rbp+1Fh] BYREF
+  NTSTATUS v4; // edi
+  unsigned __int64 v5; // rax
+  ULONG Length; // edi
+  unsigned int *Heap; // rbx
+  ULONG ResultLength; // [rsp+38h] [rbp-9h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-1h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+50h] [rbp+Fh] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+1Fh] BYREF
+  HANDLE KeyHandle; // [rsp+B0h] [rbp+6Fh] BYREF
 
+  KeyHandle = a2;
+  ResultLength = 260;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion");
-  memset(v9, 0, sizeof(v9));
-  *((_QWORD *)&v9[0] + 1) = 0LL;
-  *(_QWORD *)&v9[1] = &DestinationString;
-  LODWORD(v9[0]) = 48;
-  DWORD2(v9[1]) = 64;
-  v9[2] = 0LL;
-  ValueKey = NtOpenKey();
-  if ( ValueKey >= 0 )
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v4 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( v4 < 0 )
+    return (unsigned int)v4;
+  v5 = 2LL * ResultLength;
+  if ( v5 <= 0xFFFFFFFF )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 532LL);
-    if ( Heap )
+    Length = v5 + 12;
+    if ( (int)v5 + 12 >= (unsigned int)v5 )
     {
-      RtlInitUnicodeString(&v8, L"BuildLabEx");
-      ValueKey = NtQueryValueKey();
-      if ( ValueKey >= 0 )
-        memmove(a3, (const void *)(Heap + 12), *(unsigned int *)(Heap + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
+      if ( Heap )
+      {
+        RtlInitUnicodeString(&ValueName, L"BuildLabEx");
+        v4 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
+        if ( v4 >= 0 )
+          memmove(a3, Heap + 3, Heap[2]);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      }
+      else
+      {
+        v4 = -1073741801;
+      }
+      NtClose(KeyHandle);
+      return (unsigned int)v4;
     }
-    else
-    {
-      ValueKey = -1073741801;
-    }
-    NtClose(a2);
   }
-  return (unsigned int)ValueKey;
+  NtClose(KeyHandle);
+  return 3221225621LL;
 }

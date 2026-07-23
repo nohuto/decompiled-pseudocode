@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpFindFastCacheDescriptor @ 0x1406AEFD0
+ * XREFs of ExpFindFastCacheDescriptor @ 0x1406AF108
  * Callers:
- *     sub_1406ADEF4 @ 0x1406ADEF4 (sub_1406ADEF4.c)
- *     sub_1406AF038 @ 0x1406AF038 (sub_1406AF038.c)
+ *     sub_1406AE02C @ 0x1406AE02C (sub_1406AE02C.c)
+ *     sub_1406AF170 @ 0x1406AF170 (sub_1406AF170.c)
  * Callees:
- *     bsearch @ 0x14014DAA0 (bsearch.c)
+ *     bsearch @ 0x14014E010 (bsearch.c)
  */
 
 __int64 __fastcall ExpFindFastCacheDescriptor(unsigned int a1, __int64 a2)

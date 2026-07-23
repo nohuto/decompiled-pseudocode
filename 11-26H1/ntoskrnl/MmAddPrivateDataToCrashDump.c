@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x1406F677C
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x1406FB3EC
  * Callers:
- *     IopLiveDumpAddPfnDatabase @ 0x1405CC5B0 (IopLiveDumpAddPfnDatabase.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x1405D0778 (IopLiveDumpMarkRequiredDumpData.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPfnDatabase @ 0x1405CEDC0 (IopLiveDumpAddPfnDatabase.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1405D2F88 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0 (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MiAddPartitionDataToCrashDump @ 0x1406F5D34 (MiAddPartitionDataToCrashDump.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiAddPartitionDataToCrashDump @ 0x1406FA9A4 (MiAddPartitionDataToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
@@ -24,7 +24,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
   v2 = 0;
   if ( (a2 & 1) != 0 )
   {
-    v5 = MiAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140E2D7A0 + 1), 0);
+    v5 = MiAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140E2D920 + 1), 0);
     if ( v5 < 0 )
       v2 = v5;
   }
@@ -43,13 +43,13 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
   }
   if ( (a2 & 4) != 0 )
   {
-    v9 = MiAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - PsNtosImageBase, 0);
+    v9 = MiAddRangeToCrashDump(a1, (unsigned __int64)PsNtosImageBase, PsNtosImageEnd - (_QWORD)PsNtosImageBase, 0);
     if ( v9 < 0 )
       v2 = v9;
   }
   if ( (a2 & 8) != 0 )
   {
-    v10 = MiAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - PsHalImageBase, 0);
+    v10 = MiAddRangeToCrashDump(a1, (unsigned __int64)PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase, 0);
     if ( v10 < 0 )
       v2 = v10;
   }

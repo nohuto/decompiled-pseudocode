@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmRegisterProvSocIdentifier @ 0x1407D62E0
+ * XREFs of PpmRegisterProvSocIdentifier @ 0x1407D9490
  * Callers:
  *     <none>
  * Callees:
- *     RtlDuplicateUnicodeString @ 0x14091E750 (RtlDuplicateUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1409791B0 (RtlDuplicateUnicodeString.c)
  */
 
 NTSTATUS __fastcall PpmRegisterProvSocIdentifier(PCUNICODE_STRING StringIn)
 {
   if ( !StringIn || !StringIn->Buffer )
     return -1073741811;
-  if ( unk_140F10DD0.Length )
+  if ( PopProvSocIdentifier.Length )
     return -1073740008;
-  return RtlDuplicateUnicodeString(1u, StringIn, &unk_140F10DD0);
+  return RtlDuplicateUnicodeString(1u, StringIn, &PopProvSocIdentifier);
 }

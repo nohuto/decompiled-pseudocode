@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRestoreExtendedProcessorState @ 0x1403D30F0
+ * XREFs of KeRestoreExtendedProcessorState @ 0x1403D60C0
  * Callers:
- *     SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1405533A8 (SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater @ 0x140555838 (SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
- *     KeRestoreExtendedAndSupervisorState @ 0x1403D3108 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1403D60D8 (KeRestoreExtendedAndSupervisorState.c)
  */
 
 void __stdcall KeRestoreExtendedProcessorState(PXSTATE_SAVE XStateSave)

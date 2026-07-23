@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegLargeRangeAllocate @ 0x14051C3D4
+ * XREFs of RtlpHpSegLargeRangeAllocate @ 0x140518FC4
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14034B898 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14034D918 (RtlpHpSegPageRangeAllocate.c)
  * Callees:
- *     RtlpHpSegFreeRangeInsert @ 0x14034B28C (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegPageRangeSplit @ 0x14034B3E0 (RtlpHpSegPageRangeSplit.c)
- *     RtlpHpSegFreeRangeRemove @ 0x140377C00 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14034D30C (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegPageRangeSplit @ 0x14034D460 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x1403799B0 (RtlpHpSegFreeRangeRemove.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegLargeRangeAllocate(__int64 a1, unsigned __int64 a2, int a3, int a4)
@@ -91,7 +91,7 @@ LABEL_27:
   {
     LOBYTE(j) = *(_BYTE *)(a1 + 8);
     v21 = RtlpHpSegPageRangeSplit(j, a2, v20 << j);
-    RtlpHpSegFreeRangeInsert(a1, a2, 0LL);
+    RtlpHpSegFreeRangeInsert(a1, a2, 0);
     return v21;
   }
   return a2;

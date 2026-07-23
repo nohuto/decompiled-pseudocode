@@ -1,11 +1,11 @@
 /*
- * XREFs of MiEmptyCacheSlice @ 0x140711A5C
+ * XREFs of MiEmptyCacheSlice @ 0x14071675C
  * Callers:
- *     MiFreeLargeProcessPagesToCache @ 0x140711B98 (MiFreeLargeProcessPagesToCache.c)
- *     MiFreeProcessLargePageCache @ 0x140711EB0 (MiFreeProcessLargePageCache.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140716898 (MiFreeLargeProcessPagesToCache.c)
+ *     MiFreeProcessLargePageCache @ 0x140716BA8 (MiFreeProcessLargePageCache.c)
  * Callees:
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiInitializeLargePfnList @ 0x1404617F0 (MiInitializeLargePfnList.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiInitializeLargePfnList @ 0x14045A7B0 (MiInitializeLargePfnList.c)
  */
 
 unsigned __int64 __fastcall MiEmptyCacheSlice(__int64 a1, __int64 a2, __int64 a3)

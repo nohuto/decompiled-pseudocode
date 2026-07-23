@@ -12,12 +12,12 @@ __int64 __fastcall sub_18000EC54(__int64 a1)
 {
   int v1; // r8d
   struct _TEB *v4; // rdx
-  int SpareUlong0; // eax
+  int WowTebOffset; // eax
   struct _TEB *v6; // r9
   __int64 v7; // rax
   struct _TEB *v8; // rcx
   __int64 v9; // rax
-  unsigned int MuiImpersonation; // eax
+  ULONG MuiImpersonation; // eax
   __int64 v11; // rcx
   struct _TEB *v12; // rdx
   int v13; // eax
@@ -25,7 +25,7 @@ __int64 __fastcall sub_18000EC54(__int64 a1)
   __int64 v15; // rax
   struct _TEB *v16; // rcx
   __int64 v17; // rax
-  unsigned int v18; // eax
+  ULONG v18; // eax
   struct _TEB *v19; // rdx
   int v20; // eax
   struct _TEB *v21; // r9
@@ -46,15 +46,15 @@ __int64 __fastcall sub_18000EC54(__int64 a1)
       if ( v1 >= 0 )
       {
         v4 = NtCurrentTeb();
-        SpareUlong0 = v4->SpareUlong0;
-        if ( SpareUlong0 < 0 )
-          LODWORD(v4) = SpareUlong0 + (_DWORD)v4;
+        WowTebOffset = v4->WowTebOffset;
+        if ( WowTebOffset < 0 )
+          LODWORD(v4) = WowTebOffset + (_DWORD)v4;
         v6 = NtCurrentTeb();
-        v7 = (int)v6->SpareUlong0;
+        v7 = v6->WowTebOffset;
         if ( (int)v7 < 0 )
           v6 = (struct _TEB *)((char *)v6 + v7);
         v8 = NtCurrentTeb();
-        v9 = (int)v8->SpareUlong0;
+        v9 = v8->WowTebOffset;
         if ( (_DWORD)v4 == LODWORD(v6->NtTib.SubSystemTib) )
         {
           if ( (int)v9 < 0 )
@@ -77,15 +77,15 @@ __int64 __fastcall sub_18000EC54(__int64 a1)
           if ( v1 >= 0 && v26 )
             v1 = sub_18007C1B8(0LL, v26, 5LL);
           v12 = NtCurrentTeb();
-          v13 = v12->SpareUlong0;
+          v13 = v12->WowTebOffset;
           if ( v13 < 0 )
             LODWORD(v12) = v13 + (_DWORD)v12;
           v14 = NtCurrentTeb();
-          v15 = (int)v14->SpareUlong0;
+          v15 = v14->WowTebOffset;
           if ( (int)v15 < 0 )
             v14 = (struct _TEB *)((char *)v14 + v15);
           v16 = NtCurrentTeb();
-          v17 = (int)v16->SpareUlong0;
+          v17 = v16->WowTebOffset;
           if ( (_DWORD)v12 == LODWORD(v14->NtTib.SubSystemTib) )
           {
             if ( (int)v17 < 0 )
@@ -101,15 +101,15 @@ __int64 __fastcall sub_18000EC54(__int64 a1)
           if ( !v18 )
           {
             v19 = NtCurrentTeb();
-            v20 = v19->SpareUlong0;
+            v20 = v19->WowTebOffset;
             if ( v20 < 0 )
               LODWORD(v19) = v20 + (_DWORD)v19;
             v21 = NtCurrentTeb();
-            v22 = (int)v21->SpareUlong0;
+            v22 = v21->WowTebOffset;
             if ( (int)v22 < 0 )
               v21 = (struct _TEB *)((char *)v21 + v22);
             v23 = NtCurrentTeb();
-            v24 = (int)v23->SpareUlong0;
+            v24 = v23->WowTebOffset;
             if ( (_DWORD)v19 == LODWORD(v21->NtTib.SubSystemTib) )
             {
               if ( (int)v24 < 0 )

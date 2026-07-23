@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwPowerInformation @ 0x14015A860
+ * XREFs of ZwPowerInformation @ 0x14015ADD0
  * Callers:
- *     PoGetLightestSystemStateForEject @ 0x14066A180 (PoGetLightestSystemStateForEject.c)
+ *     PoGetLightestSystemStateForEject @ 0x14066A264 (PoGetLightestSystemStateForEject.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwPowerInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationLevel, InputBuffer, *(_QWORD *)&InputBufferLength);
+  return KiServiceInternal(*(_QWORD *)&InformationLevel);
 }

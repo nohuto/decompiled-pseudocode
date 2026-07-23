@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreatePageChains @ 0x1403C35B8
+ * XREFs of MiCreatePageChains @ 0x1403CD4B8
  * Callers:
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     MiInitializeFastLargePagesMdlPfns @ 0x1406EE130 (MiInitializeFastLargePagesMdlPfns.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1406EE640 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiGroupZeroHugeRange @ 0x140705024 (MiGroupZeroHugeRange.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeFastLargePagesMdlPfns @ 0x1406F2DD0 (MiInitializeFastLargePagesMdlPfns.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1406F32E0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiGroupZeroHugeRange @ 0x140709CF4 (MiGroupZeroHugeRange.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
  * Callees:
- *     MiFindClosestNode @ 0x14050424C (MiFindClosestNode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFindClosestNode @ 0x1404FDFBC (MiFindClosestNode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3, __int64 a4, int a5)

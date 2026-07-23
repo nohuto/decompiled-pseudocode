@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkStandbyPfn @ 0x14033E81C
+ * XREFs of MiUnlinkStandbyPfn @ 0x14033EAAC
  * Callers:
- *     MmCopyToCachedPage @ 0x1402CD7D0 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x1402CDA60 (MmCopyToCachedPage.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPfn(unsigned __int64 *a1, char a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopReleasePowerRequestSpinLock @ 0x140565464
+ * XREFs of PopReleasePowerRequestSpinLock @ 0x1405656A4
  * Callers:
- *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
- *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
+ *     PoClearPowerRequestInternal @ 0x1402701DC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1402703A0 (PoSetPowerRequestInternal.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

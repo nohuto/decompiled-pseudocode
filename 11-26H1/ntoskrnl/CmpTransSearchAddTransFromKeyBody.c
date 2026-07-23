@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpTransSearchAddTransFromKeyBody @ 0x1408ECB1C
+ * XREFs of CmpTransSearchAddTransFromKeyBody @ 0x1408F30DC
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1408B09D8 (CmSetKeyFlags.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
- *     CmDeleteValueKey @ 0x1408BB780 (CmDeleteValueKey.c)
- *     CmpSetKeySecurity @ 0x1408BE00C (CmpSetKeySecurity.c)
- *     CmEnumerateKey @ 0x1408C21A0 (CmEnumerateKey.c)
- *     CmSetValueKey @ 0x1408CEE30 (CmSetValueKey.c)
- *     CmQueryValueKey @ 0x1408D88E0 (CmQueryValueKey.c)
- *     CmQueryMultipleValueKey @ 0x14097EB2C (CmQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14097F290 (NtEnumerateValueKey.c)
- *     NtDeleteKey @ 0x140AB2390 (NtDeleteKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140AFF7BC (CmEnumerateValueKeyFromMergedView.c)
- *     CmSetLastWriteTimeKey @ 0x140B53BB0 (CmSetLastWriteTimeKey.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1408B6EC8 (CmSetKeyFlags.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
+ *     CmDeleteValueKey @ 0x1408C1D50 (CmDeleteValueKey.c)
+ *     CmpSetKeySecurity @ 0x1408C45DC (CmpSetKeySecurity.c)
+ *     CmEnumerateKey @ 0x1408C8770 (CmEnumerateKey.c)
+ *     CmSetValueKey @ 0x1408D53E0 (CmSetValueKey.c)
+ *     CmQueryValueKey @ 0x1408DEEA0 (CmQueryValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x140940B3C (CmQueryMultipleValueKey.c)
+ *     NtEnumerateValueKey @ 0x1409412A0 (NtEnumerateValueKey.c)
+ *     NtDeleteKey @ 0x140AB0060 (NtDeleteKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140B0144C (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSetLastWriteTimeKey @ 0x140B56450 (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
- *     CmpTransDereferenceTransaction @ 0x1408ECC08 (CmpTransDereferenceTransaction.c)
- *     CmpTransReferenceTransaction @ 0x1408EE304 (CmpTransReferenceTransaction.c)
+ *     CmpTransSearchAddTrans @ 0x1408F2710 (CmpTransSearchAddTrans.c)
+ *     CmpTransDereferenceTransaction @ 0x1408F31C8 (CmpTransDereferenceTransaction.c)
+ *     CmpTransReferenceTransaction @ 0x1408F48C4 (CmpTransReferenceTransaction.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTransFromKeyBody(_QWORD *a1, _QWORD *a2)

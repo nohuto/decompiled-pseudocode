@@ -1,9 +1,9 @@
 /*
- * XREFs of XmNegOp @ 0x140575A30
+ * XREFs of XmNegOp @ 0x140572EC0
  * Callers:
  *     <none>
  * Callees:
- *     XmSubOperands @ 0x140468260 (XmSubOperands.c)
+ *     XmSubOperands @ 0x140460C10 (XmSubOperands.c)
  */
 
 __int64 __fastcall XmNegOp(_DWORD *a1)

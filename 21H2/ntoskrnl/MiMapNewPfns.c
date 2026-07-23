@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapNewPfns @ 0x1408C5CD4
+ * XREFs of MiMapNewPfns @ 0x1408C5E34
  * Callers:
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     MiUnlockDynamicMemoryShared @ 0x14029BEF0 (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1402A72BC (MiLockDynamicMemoryShared.c)
- *     MiPageToNode @ 0x1402D03D4 (MiPageToNode.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
- *     MiGetClosestImplicitNode @ 0x14030C4D0 (MiGetClosestImplicitNode.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiIncreaseCommitLimits @ 0x1403BF7AC (MiIncreaseCommitLimits.c)
- *     KeConfigureDynamicMemory @ 0x140512D48 (KeConfigureDynamicMemory.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402138C0 (MiUnlockDynamicMemoryShared.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     MiLockDynamicMemoryShared @ 0x1402253FC (MiLockDynamicMemoryShared.c)
+ *     MiPageToNode @ 0x14024E754 (MiPageToNode.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
+ *     MiGetClosestImplicitNode @ 0x140317220 (MiGetClosestImplicitNode.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiIncreaseCommitLimits @ 0x1403BFBD8 (MiIncreaseCommitLimits.c)
+ *     KeConfigureDynamicMemory @ 0x140512F88 (KeConfigureDynamicMemory.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
  */
 
 __int64 __fastcall MiMapNewPfns(ULONG_PTR BugCheckParameter2, __int64 a2, __int16 *a3, unsigned int a4, __int64 a5)
@@ -37,7 +37,7 @@ __int64 __fastcall MiMapNewPfns(ULONG_PTR BugCheckParameter2, __int64 a2, __int1
   v10 = MiGetPteAddress(v9 - 1 + 48 * v8);
   v11 = v10;
   v13 = v12 - BugCheckParameter2;
-  if ( v12 - BugCheckParameter2 >= 0x40000 && qword_140C52890 >= 0x200000 )
+  if ( v12 - BugCheckParameter2 >= 0x40000 && qword_140C528D0 >= 0x200000 )
   {
     v14 = PteAddress & 0xFFFFFFFFFFFFF000uLL;
     if ( PteAddress == (PteAddress & 0xFFFFFFFFFFFFF000uLL) )

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoRaiseInformationalHardErrorWrapper @ 0x1405E0790
+ * XREFs of DifIoRaiseInformationalHardErrorWrapper @ 0x1405E0D00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     IoRaiseInformationalHardError @ 0x140556D60 (IoRaiseInformationalHardError.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     IoRaiseInformationalHardError @ 0x140557420 (IoRaiseInformationalHardError.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 BOOLEAN __fastcall DifIoRaiseInformationalHardErrorWrapper(

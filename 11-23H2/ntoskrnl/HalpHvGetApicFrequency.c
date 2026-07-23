@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvGetApicFrequency @ 0x14050B420
+ * XREFs of HalpHvGetApicFrequency @ 0x14050B970
  * Callers:
  *     <none>
  * Callees:
- *     HalpHvIsFrequencyAvailable @ 0x14037975C (HalpHvIsFrequencyAvailable.c)
+ *     HalpHvIsFrequencyAvailable @ 0x1403798FC (HalpHvIsFrequencyAvailable.c)
  */
 
 unsigned __int64 __fastcall HalpHvGetApicFrequency(__int64 a1, __int64 a2)

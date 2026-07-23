@@ -5,7 +5,7 @@
  * Callees:
  *     EtwpReserveTraceBuffer @ 0x18005A758 (EtwpReserveTraceBuffer.c)
  *     memmove @ 0x1800A7A40 (memmove.c)
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
  */
 
 __int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int32 *a3, __int16 a4, _QWORD *a5)
@@ -91,7 +91,7 @@ __int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int
             v8,
             v13,
             v36->CurrentIdealProcessor.Reserved,
-            (unsigned __int64 *)((unsigned __int64)&v30 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v30 & -(__int64)(v10 != 0)),
             &v31);
     v35 = v16;
     v17 = 0;

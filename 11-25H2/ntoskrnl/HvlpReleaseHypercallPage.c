@@ -79,7 +79,7 @@ __int64 __fastcall HvlpReleaseHypercallPage(unsigned int *a1)
 {
   __int64 result; // rax
   __int64 HypercallCachedPages; // rdx
-  struct _SLIST_ENTRY *v3; // rdx
+  _SLIST_ENTRY *v3; // rdx
   unsigned __int64 v4; // rbx
   struct _KPRCB *CurrentPrcb; // rax
   unsigned int v6; // r8d
@@ -91,7 +91,7 @@ __int64 __fastcall HvlpReleaseHypercallPage(unsigned int *a1)
   HypercallCachedPages = 0LL;
   if ( (result & 1) != 0 )
   {
-    v3 = (struct _SLIST_ENTRY *)*((_QWORD *)a1 + 2);
+    v3 = (_SLIST_ENTRY *)*((_QWORD *)a1 + 2);
     v3[1].Next = (_SLIST_ENTRY *)*((_QWORD *)a1 + 3);
     return (__int64)RtlpInterlockedPushEntrySList((PSLIST_HEADER)(*((_QWORD *)a1 + 1) + 35776LL), v3);
   }

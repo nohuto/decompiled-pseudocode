@@ -1,10 +1,10 @@
 /*
  * XREFs of ExSlowReplenishHandleTableEntry @ 0x140003BE0
  * Callers:
- *     ObWaitForMultipleObjects @ 0x14058A3E0 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     NtWriteFile @ 0x140638C40 (NtWriteFile.c)
- *     PspReferenceCidTableEntry @ 0x140646D10 (PspReferenceCidTableEntry.c)
+ *     ObWaitForMultipleObjects @ 0x14058B3E0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtWriteFile @ 0x140639C60 (NtWriteFile.c)
+ *     PspReferenceCidTableEntry @ 0x140647D30 (PspReferenceCidTableEntry.c)
  * Callees:
  *     <none>
  */

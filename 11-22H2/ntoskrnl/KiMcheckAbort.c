@@ -178,7 +178,7 @@ LABEL_20:
   __incgsdword(0x82C0u);
   if ( (_BYTE)KeSmapEnabled )
     __asm { clac }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(15LL);
   }
@@ -231,7 +231,7 @@ LABEL_38:
   }
   __writegsbyte(0x8027u, KeGetPcr()->Prcb.MceActive - 1);
   _disable();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
     KzSetIrqlUnsafe(v49);
   else
     __writecr8(v49);

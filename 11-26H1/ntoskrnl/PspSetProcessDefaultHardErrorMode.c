@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessDefaultHardErrorMode @ 0x140A7E80C
+ * XREFs of PspSetProcessDefaultHardErrorMode @ 0x140A8467C
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspSetProcessDefaultHardErrorMode(__int64 a1, __int64 a2, int a3, struct _KLOCK_ENTRIES *a4)
@@ -17,8 +17,6 @@ __int64 __fastcall PspSetProcessDefaultHardErrorMode(__int64 a1, __int64 a2, int
   AutoBoost *v8; // rax
   void *v9; // rdx
   AutoBoost *v10; // rbp
-  __int64 v11; // rdx
-  __int64 v12; // r8
 
   v4 = (unsigned __int64 *)(a1 + 456);
   --*(_WORD *)(a2 + 484);
@@ -44,5 +42,5 @@ __int64 __fastcall PspSetProcessDefaultHardErrorMode(__int64 a1, __int64 a2, int
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)v4);
   KeAbPostRelease((unsigned __int64)v4);
-  return KeLeaveCriticalRegionThread(a2, v11, v12);
+  return KeLeaveCriticalRegionThread(a2);
 }

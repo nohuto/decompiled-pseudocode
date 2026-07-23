@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetupTimeIncrement @ 0x1405B11F4
+ * XREFs of KiSetupTimeIncrement @ 0x1405AE164
  * Callers:
- *     KeInitializeClock @ 0x140C60350 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x140C624A0 (KeInitializeClock.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     RtlGenerateQpcToIncrementConstants @ 0x1404B29B0 (RtlGenerateQpcToIncrementConstants.c)
- *     RtlpComputeFraction @ 0x1405F08C8 (RtlpComputeFraction.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x1404AD240 (RtlGenerateQpcToIncrementConstants.c)
+ *     RtlpComputeFraction @ 0x1405EDEA8 (RtlpComputeFraction.c)
  */
 
 __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
@@ -65,8 +65,8 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   *(_BYTE *)(MmWriteableSharedUserData + 872) = MEMORY[0xFFFFF78000000369];
   *(LARGE_INTEGER *)(MmWriteableSharedUserData + 840) = v9;
   *(LARGE_INTEGER *)(MmWriteableSharedUserData + 848) = v9;
-  result = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerPeriod = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerCount = 0x989680u / KeMaximumIncrement;
+  result = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerPeriod = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerCount = 0x989680 / KeMaximumIncrement;
   return result;
 }

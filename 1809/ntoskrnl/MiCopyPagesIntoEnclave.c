@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCopyPagesIntoEnclave @ 0x14085948C
+ * XREFs of MiCopyPagesIntoEnclave @ 0x14085A6EC
  * Callers:
- *     NtLoadEnclaveData @ 0x14085AFB0 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x14085C210 (NtLoadEnclaveData.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -10,23 +10,23 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     KeAddEnclavePage @ 0x14028F7B4 (KeAddEnclavePage.c)
- *     MiGetVmPartition @ 0x1402B4580 (MiGetVmPartition.c)
- *     MiGetPageForEnclave @ 0x1402BDFCC (MiGetPageForEnclave.c)
- *     MiInitializeEnclavePfn @ 0x1402BE030 (MiInitializeEnclavePfn.c)
- *     MiReturnEnclavePage @ 0x1402BE8E0 (MiReturnEnclavePage.c)
- *     MiWriteEnclavePte @ 0x1402BEA28 (MiWriteEnclavePte.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D8D8 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012ECB0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131930 (MiReleasePteCopyList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     KeAddEnclavePage @ 0x14028F9A4 (KeAddEnclavePage.c)
+ *     MiGetVmPartition @ 0x1402B4770 (MiGetVmPartition.c)
+ *     MiGetPageForEnclave @ 0x1402BE1BC (MiGetPageForEnclave.c)
+ *     MiInitializeEnclavePfn @ 0x1402BE220 (MiInitializeEnclavePfn.c)
+ *     MiReturnEnclavePage @ 0x1402BEAD0 (MiReturnEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x1402BEC18 (MiWriteEnclavePte.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCopyPagesIntoEnclave(
@@ -183,7 +183,7 @@ __int64 __fastcall MiCopyPagesIntoEnclave(
           if ( (unsigned int)MiPteHasShadow() )
           {
             v36 = 1;
-            if ( HIBYTE(word_14043A1AC) )
+            if ( HIBYTE(word_14043B26C) )
               goto LABEL_55;
             v37 = (v35 & 1) == 0;
           }

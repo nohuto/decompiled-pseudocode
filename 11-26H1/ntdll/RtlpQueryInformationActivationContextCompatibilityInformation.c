@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryInformationActivationContextCompatibilityInformation @ 0x1800E6F88
+ * XREFs of RtlpQueryInformationActivationContextCompatibilityInformation @ 0x1800E59E8
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18004DED0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x180038450 (RtlQueryInformationActivationContext.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x180041090 (RtlpLocateActivationContextSection.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpLocateActivationContextSection @ 0x18002B600 (RtlpLocateActivationContextSection.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryInformationActivationContextCompatibilityInformation(

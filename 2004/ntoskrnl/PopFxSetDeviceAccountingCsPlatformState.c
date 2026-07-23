@@ -18,11 +18,11 @@
  *     PopPepGetMinimumDevicePowerState @ 0x14056F450 (PopPepGetMinimumDevicePowerState.c)
  */
 
-__int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
+NTSTATUS __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
 {
   unsigned int v1; // r14d
-  __int64 result; // rax
-  int v3; // r12d
+  NTSTATUS result; // eax
+  NTSTATUS v3; // r12d
   struct _KTHREAD *CurrentThread; // rcx
   ULONG_PTR i; // rsi
   __int64 v6; // rax
@@ -44,15 +44,15 @@ __int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)
   struct _KPRCB *v22; // r10
   _DWORD *v23; // r9
   int v24; // eax
-  char v26; // [rsp+98h] [rbp+10h] BYREF
+  char Buffer; // [rsp+98h] [rbp+10h] BYREF
   int v27; // [rsp+A0h] [rbp+18h] BYREF
   __int64 v28; // [rsp+A8h] [rbp+20h]
 
   v1 = a1;
   v27 = 0;
-  result = (unsigned int)_InterlockedCompareExchange(&PopFxDeviceAccountingLevel, 0, 0);
+  result = _InterlockedCompareExchange(&PopFxDeviceAccountingLevel, 0, 0);
   v3 = result;
-  if ( (int)result <= 0 )
+  if ( result <= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -161,8 +161,8 @@ LABEL_30:
       ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
     KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v26 = 1;
-    return ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, (__int64)&v26);
+    Buffer = 1;
+    return ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &Buffer, 1u, 0LL, 0LL, 0, 0);
   }
   return result;
 }

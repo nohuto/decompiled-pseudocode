@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpOwnerAcesPresent @ 0x14029C4D0
+ * XREFs of RtlpOwnerAcesPresent @ 0x140214630
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     RtlOwnerAcesPresent @ 0x14029C4B0 (RtlOwnerAcesPresent.c)
- *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     RtlOwnerAcesPresent @ 0x140214610 (RtlOwnerAcesPresent.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeComputeCreatorDeniedRights @ 0x14035A9E0 (SeComputeCreatorDeniedRights.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     RtlpNewSecurityObject @ 0x1407169D0 (RtlpNewSecurityObject.c)
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
  */
 
 char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2)

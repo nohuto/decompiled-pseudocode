@@ -23,12 +23,12 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
   _QWORD *v3; // r14
   ULONG Length; // esi
   int v8; // r15d
-  PVOID Buffer; // rdi
+  LARGE_INTEGER *Buffer; // rdi
   NTSTATUS v10; // ebp
   bool v11; // zf
   int v12; // eax
   _QWORD *v13; // rbp
-  unsigned int v14; // eax
+  unsigned int HighPart; // eax
   NTSTATUS v15; // eax
   int v16; // eax
   NTSTATUS result; // eax
@@ -55,7 +55,7 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
     Length = *(_DWORD *)(a1 + 4);
   }
   v8 = 1;
-  Buffer = ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
+  Buffer = (LARGE_INTEGER *)ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
   if ( !Buffer )
     return -1073741801;
   ByteOffset.QuadPart = 0LL;
@@ -64,26 +64,26 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
   {
     if ( !a3 )
     {
-      *((_DWORD *)Buffer + 35) = *(_DWORD *)(a1 + 264);
+      Buffer[17].HighPart = *(_DWORD *)(a1 + 264);
       if ( (*(_DWORD *)(a1 + 12) & 0x10000000) == 0 )
         v8 = KeNumberProcessors_0;
-      *((_DWORD *)Buffer + 29) = v8;
-      *((_DWORD *)Buffer + 38) += *(_DWORD *)(a1 + 256);
-      KeQuerySystemTimePrecise((__int64 *)Buffer + 15);
+      Buffer[14].HighPart = v8;
+      Buffer[19].LowPart += *(_DWORD *)(a1 + 256);
+      KeQuerySystemTimePrecise(Buffer + 15);
       v11 = (unsigned __int8)EtwpIsWow64Logger(a1) == 0;
       v12 = *(_DWORD *)(a1 + 268);
       if ( v11 )
-        *((_DWORD *)Buffer + 95) += v12;
+        Buffer[47].HighPart += v12;
       else
-        *((_DWORD *)Buffer + 93) += v12;
+        Buffer[46].HighPart += v12;
     }
     v13 = (_QWORD *)(a1 + 872);
     if ( (_QWORD *)*v13 != v13 || (_QWORD *)*v3 != v3 )
     {
-      v14 = *((_DWORD *)Buffer + 1);
-      if ( v14 < Length && v14 >= 0x178 )
+      HighPart = Buffer->HighPart;
+      if ( HighPart < Length && HighPart >= 0x178 )
       {
-        *((_DWORD *)Buffer + 12) = v14;
+        Buffer[6].LowPart = HighPart;
         if ( (_QWORD *)*v3 != v3 )
           EtwpAddDebugInfoEvents(a1, (_DWORD)Buffer, Length, (_DWORD)Buffer + 88, 3);
         if ( (_QWORD *)*v13 != v13 )

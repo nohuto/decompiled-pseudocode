@@ -1,9 +1,9 @@
 /*
- * XREFs of VslpSkCreateBuffers @ 0x140890814
+ * XREFs of VslpSkCreateBuffers @ 0x140890974
  * Callers:
- *     VslpSkStartProfiling @ 0x140890A20 (VslpSkStartProfiling.c)
+ *     VslpSkStartProfiling @ 0x140890B80 (VslpSkStartProfiling.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall VslpSkCreateBuffers(int a1, unsigned int a2)

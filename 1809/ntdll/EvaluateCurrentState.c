@@ -1,15 +1,13 @@
 /*
- * XREFs of EvaluateCurrentState @ 0x18009F194
+ * XREFs of EvaluateCurrentState @ 0x18009F1A4
  * Callers:
  *     RtlQueryAtomInAtomTable @ 0x180072F60 (RtlQueryAtomInAtomTable.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x180114174 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x180114744 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
- *     EvaluateFeature @ 0x18009F23C (EvaluateFeature.c)
+ *     EvaluateFeature @ 0x18009F24C (EvaluateFeature.c)
  */
 
-_BOOL8 __fastcall EvaluateCurrentState(_DWORD **a1)
+_BOOL8 EvaluateCurrentState()
 {
   EvaluateFeature();
-  return **a1 != 1;
+  return *(_DWORD *)g_Feature_2683562299_61252281_FeatureDescriptorDetails != 1;
 }

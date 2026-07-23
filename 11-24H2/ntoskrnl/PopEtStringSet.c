@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtStringSet @ 0x1409052BC
+ * XREFs of PopEtStringSet @ 0x14099BF40
  * Callers:
- *     PopEtEnergyContextSetState @ 0x140904E6C (PopEtEnergyContextSetState.c)
+ *     PopEtEnergyContextSetState @ 0x14099BAF0 (PopEtEnergyContextSetState.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x140905B7C (RtlInternEntryDereference.c)
- *     PopEtStringReference @ 0x140905D18 (PopEtStringReference.c)
+ *     RtlInternEntryDereference @ 0x14099C800 (RtlInternEntryDereference.c)
+ *     PopEtStringReference @ 0x14099C99C (PopEtStringReference.c)
  */
 
 __int64 __fastcall PopEtStringSet(__int64 *a1, __int64 a2, __int64 a3)

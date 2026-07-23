@@ -1,9 +1,9 @@
 /*
- * XREFs of KiShouldActivateHRTimerClock @ 0x1400FBDA8
+ * XREFs of KiShouldActivateHRTimerClock @ 0x1400FBE28
  * Callers:
- *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14016FE34 (KiAdjustTimer2DueTimes.c)
+ *     KiTimer2Expiration @ 0x1400FB470 (KiTimer2Expiration.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14016FF34 (KiAdjustTimer2DueTimes.c)
  * Callees:
  *     <none>
  */

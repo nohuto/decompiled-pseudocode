@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88
+ * XREFs of ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3F08
  * Callers:
- *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066BFB4 (SmProcessCreateRequest.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -13,23 +13,23 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmFpCleanup @ 0x14011D6A0 (SmFpCleanup.c)
- *     MmStoreChargeResidentAvailableForRead @ 0x140175E1C (MmStoreChargeResidentAvailableForRead.c)
- *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x14018E500 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14018E574 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140302614 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MmStoreRegister @ 0x14074BD2C (MmStoreRegister.c)
- *     MmStoreCheckPagefiles @ 0x14074CF5C (MmStoreCheckPagefiles.c)
- *     ExAllocatePrivateWorkerPool @ 0x140754920 (ExAllocatePrivateWorkerPool.c)
- *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
- *     SmRegistrationCtxStart @ 0x14076112C (SmRegistrationCtxStart.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     SmFpCleanup @ 0x14011D710 (SmFpCleanup.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x140175F1C (MmStoreChargeResidentAvailableForRead.c)
+ *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x14018E640 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14018E6B4 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     SmFpPreAllocate @ 0x14018E748 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140302804 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     MmStoreRegister @ 0x14074CF1C (MmStoreRegister.c)
+ *     MmStoreCheckPagefiles @ 0x14074E14C (MmStoreCheckPagefiles.c)
+ *     ExAllocatePrivateWorkerPool @ 0x140755B10 (ExAllocatePrivateWorkerPool.c)
+ *     PsCreateMinimalProcess @ 0x14075871C (PsCreateMinimalProcess.c)
+ *     SmRegistrationCtxStart @ 0x14076231C (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmFirstTimeInit(int a1, int a2)
@@ -68,10 +68,10 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
   v30 = 1048578;
   --CurrentThread->KernelApcDisable;
   v31 = 1048596;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14055B160, 0LL);
-  if ( dword_14055B148 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14055C160, 0LL);
+  if ( dword_14055C148 )
   {
-    if ( dword_14055B148 != a2 )
+    if ( dword_14055C148 != a2 )
     {
       MinimalProcess = -1073741217;
       goto LABEL_12;
@@ -79,14 +79,14 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
   }
   else
   {
-    dword_14055B148 = a2;
+    dword_14055C148 = a2;
   }
-  if ( (dword_14055B140 & 8) == 0 )
+  if ( (dword_14055C140 & 8) == 0 )
   {
-    MinimalProcess = SmRegistrationCtxStart(&qword_14055B3F0);
+    MinimalProcess = SmRegistrationCtxStart(&qword_14055C3F0);
     if ( MinimalProcess < 0 )
       goto LABEL_12;
-    dword_14055B140 |= 8u;
+    dword_14055C140 |= 8u;
   }
   v5 = ::Handle;
   if ( !::Handle )
@@ -100,7 +100,7 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
     LOBYTE(v21) = BYTE2(PsInitialSystemProcess[2].ActiveProcessors.Bitmap[0]);
     MinimalProcess = PsCreateMinimalProcess(
                        (int)PsInitialSystemProcess,
-                       (int)&dword_1403FF9C8,
+                       (int)&dword_1404009C8,
                        0,
                        v21,
                        0LL,
@@ -120,18 +120,18 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
     }
     v5 = Handle;
     ::Handle = Handle;
-    qword_14055B158 = Object;
+    qword_14055C158 = Object;
   }
-  v6 = (unsigned int)dword_14055B140;
-  if ( (dword_14055B140 & 2) == 0 )
+  v6 = (unsigned int)dword_14055C140;
+  if ( (dword_14055C140 & 2) == 0 )
   {
-    v22 = dword_14055B148;
-    qword_14055B100 = (__int64)v5;
+    v22 = dword_14055C148;
+    qword_14055C100 = (__int64)v5;
     MinimalProcess = SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(&SmGlobals);
     if ( MinimalProcess >= 0 )
     {
-      if ( (dword_14055B0F0 & 0x20) == 0
-        || (MinimalProcess = SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxStart(&unk_14055AEB0, &SmGlobals, v22),
+      if ( (dword_14055C0F0 & 0x20) == 0
+        || (MinimalProcess = SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxStart(&unk_14055BEB0, &SmGlobals, v22),
             MinimalProcess >= 0) )
       {
         MinimalProcess = 0;
@@ -140,23 +140,23 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
     if ( MinimalProcess < 0 )
     {
       SMKM_STORE_MGR<SM_TRAITS>::SmReInitialize(&SmGlobals);
-      ObfDereferenceObjectWithTag(qword_14055B158, 0x746C6644u);
+      ObfDereferenceObjectWithTag(qword_14055C158, 0x746C6644u);
       ZwClose(::Handle);
-      qword_14055B158 = 0LL;
+      qword_14055C158 = 0LL;
       ::Handle = 0LL;
       goto LABEL_12;
     }
-    v6 = dword_14055B140 | 2u;
-    dword_14055B140 |= 2u;
+    v6 = dword_14055C140 | 2u;
+    dword_14055C140 |= 2u;
   }
   if ( (v6 & 0x10) != 0
-    || (v6 = ((unsigned __int8)dword_14055B140 ^ (unsigned __int8)(16 * MmStoreChargeResidentAvailableForRead(1LL))) & 0x10 ^ (unsigned int)dword_14055B140,
-        dword_14055B140 = v6,
+    || (v6 = ((unsigned __int8)dword_14055C140 ^ (unsigned __int8)(16 * MmStoreChargeResidentAvailableForRead(1LL))) & 0x10 ^ (unsigned int)dword_14055C140,
+        dword_14055C140 = v6,
         (v6 & 0x10) != 0) )
   {
-    if ( dword_14055B144 )
+    if ( dword_14055C144 )
     {
-      if ( a1 != dword_14055B144 )
+      if ( a1 != dword_14055C144 )
       {
         MinimalProcess = -1073741800;
         goto LABEL_12;
@@ -167,38 +167,38 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
       v24 = (a1 & 0xFFFF000 | 0x10000300u) >> 8;
       v30 = v24 & 0xFFFF0 | 0x100002;
       v29 = v24 & 0xFFFF0 | 0x100005;
-      MinimalProcess = SmFpPreAllocate(&dword_14055B410);
+      MinimalProcess = SmFpPreAllocate(&dword_14055C410);
       if ( MinimalProcess < 0 )
         goto LABEL_12;
-      MinimalProcess = SmFpPreAllocate(&dword_14055B480);
+      MinimalProcess = SmFpPreAllocate(&dword_14055C480);
       if ( MinimalProcess < 0 )
       {
-        SmFpCleanup(&dword_14055B410);
-        memset(&dword_14055B410, 0, 0x70uLL);
-        word_14055B418 = 1;
-        qword_14055B428 = (__int64)&qword_14055B420;
-        qword_14055B420 = (__int64)&qword_14055B420;
-        byte_14055B41A = 6;
-        dword_14055B41C = 0;
+        SmFpCleanup(&dword_14055C410);
+        memset(&dword_14055C410, 0, 0x70uLL);
+        word_14055C418 = 1;
+        qword_14055C428 = (__int64)&qword_14055C420;
+        qword_14055C420 = (__int64)&qword_14055C420;
+        byte_14055C41A = 6;
+        dword_14055C41C = 0;
         goto LABEL_12;
       }
-      dword_14055B144 = a1;
+      dword_14055C144 = a1;
     }
-    v7 = dword_14055B140;
-    if ( (dword_14055B140 & 0x20) == 0 )
+    v7 = dword_14055C140;
+    if ( (dword_14055C140 & 0x20) == 0 )
     {
-      MinimalProcess = ExAllocatePrivateWorkerPool(&qword_14055B170);
+      MinimalProcess = ExAllocatePrivateWorkerPool(&qword_14055C170);
       if ( MinimalProcess < 0 )
         goto LABEL_12;
-      v7 = dword_14055B140 | 0x20;
-      dword_14055B140 |= 0x20u;
+      v7 = dword_14055C140 | 0x20;
+      dword_14055C140 |= 0x20u;
     }
     if ( (v7 & 1) == 0 )
     {
-      MinimalProcess = MmStoreRegister(v6, v5, qword_14055B158, ((unsigned int)dword_14055B180 >> 7) & 1);
+      MinimalProcess = MmStoreRegister(v6, v5, qword_14055C158, ((unsigned int)dword_14055C180 >> 7) & 1);
       if ( MinimalProcess < 0 )
         goto LABEL_12;
-      dword_14055B140 |= 1u;
+      dword_14055C140 |= 1u;
     }
     MinimalProcess = 0;
   }
@@ -207,11 +207,11 @@ __int64 __fastcall SmFirstTimeInit(int a1, int a2)
     MinimalProcess = -1073741670;
   }
 LABEL_12:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14055B160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14055B160);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14055C160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14055C160);
   v23 = 0;
   v9 = KeGetCurrentThread();
-  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14055B160) == 1 )
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_14055C160) == 1 )
     SessionId = (unsigned int)MmGetSessionIdEx((__int64)v9->ApcState.Process);
   else
     SessionId = 0xFFFFFFFFLL;
@@ -230,7 +230,7 @@ LABEL_12:
     v12 &= ~v15;
     if ( (v17->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v17->LockState.0 & 1) == 0
-      && (*(_QWORD *)&v17->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14055B160 & 0x7FFFFFFFFFFFFFFCLL)
+      && (*(_QWORD *)&v17->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14055C160 & 0x7FFFFFFFFFFFFFFCLL)
       && v17->LockState.SessionId == (_DWORD)SessionId )
     {
       v17->AcquiredByte &= ~1u;
@@ -240,7 +240,7 @@ LABEL_12:
         {
           v17->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v17->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v9->LockEntries[v16], SessionId);
+            KiAbEntryRemoveFromTree(&v9->LockEntries[v16].TreeNode, SessionId);
           v23 = 0;
           v23 = v17->BoostBitmap.AllFields & 0x1FFFF;
           v17->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -258,10 +258,10 @@ LABEL_12:
     }
   }
   if ( (*((_DWORD *)&v9->0 + 1) & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)v9, (ULONG_PTR)&qword_14055B160, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)v9, (ULONG_PTR)&qword_14055C160, (unsigned int)SessionId, 0LL);
 LABEL_28:
   --v9->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v9, (__int64)&qword_14055B160, (__int64)&v23);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v9, (__int64)&qword_14055C160, (__int64)&v23);
   v13 = v9->SpecialApcDisable++ == -1;
   if ( v13 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
     KiCheckForKernelApcDelivery(v19);

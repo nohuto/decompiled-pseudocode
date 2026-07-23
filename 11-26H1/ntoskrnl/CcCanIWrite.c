@@ -1,33 +1,33 @@
 /*
- * XREFs of CcCanIWrite @ 0x140383700
+ * XREFs of CcCanIWrite @ 0x1403854B0
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14078DB20 (FsRtlPrepareMdlWriteDev.c)
- *     FsRtlCopyWrite @ 0x140ABE620 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140790650 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x140AC06C0 (FsRtlCopyWrite.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcCanIWriteStreamEx @ 0x140383E50 (CcCanIWriteStreamEx.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     CcDecrementVolumeUseCountWithDelete @ 0x140384440 (CcDecrementVolumeUseCountWithDelete.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     CcIsFileObjectDirectMapped @ 0x1403845D4 (CcIsFileObjectDirectMapped.c)
- *     CcReferencePartitionFromFileObject @ 0x14038462C (CcReferencePartitionFromFileObject.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1403856E4 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     ExInterlockedInsertHeadList @ 0x1403DE3D0 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x1403DE450 (ExInterlockedInsertTailList.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
- *     CcPerfLogCanWriteFail @ 0x140512E00 (CcPerfLogCanWriteFail.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcCanIWriteStreamEx @ 0x140385C00 (CcCanIWriteStreamEx.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x1403861F0 (CcDecrementVolumeUseCountWithDelete.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     CcIsFileObjectDirectMapped @ 0x140386384 (CcIsFileObjectDirectMapped.c)
+ *     CcReferencePartitionFromFileObject @ 0x1403863DC (CcReferencePartitionFromFileObject.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140387494 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     ExInterlockedInsertHeadList @ 0x1403E15C0 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x1403E1640 (ExInterlockedInsertTailList.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
+ *     CcPerfLogCanWriteFail @ 0x14050C870 (CcPerfLogCanWriteFail.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -35,16 +35,16 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
 {
   __int64 v4; // r8
   int v6; // r13d
-  struct _LIST_ENTRY *v7; // r14
+  _QWORD *v7; // r14
   __int64 v8; // r8
   unsigned __int8 CurrentIrql; // bl
   __int64 v10; // rdx
   __int64 v11; // rax
   char v12; // cl
-  struct _LIST_ENTRY *v13; // rdx
+  _LIST_ENTRY *v13; // rdx
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rbx
   _QWORD *SharedCacheMap; // rbx
-  struct _LIST_ENTRY *v16; // rbx
+  _QWORD *v16; // rbx
   char *v17; // rax
   char *v18; // rax
   char IsFileObjectDirectMapped; // r12
@@ -57,10 +57,10 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   BOOLEAN CanIWriteStream; // al
   __int64 v27; // rcx
   _QWORD *p_Type; // rax
-  struct _LIST_ENTRY *v30; // rcx
-  struct _LIST_ENTRY *i; // rax
-  struct _LIST_ENTRY *v32; // rcx
-  struct _LIST_ENTRY *j; // rax
+  __int64 v30; // rcx
+  unsigned __int64 i; // rax
+  _QWORD *v32; // rcx
+  _QWORD *j; // rax
   KSPIN_LOCK *v34; // r8
   __int64 v35; // rdx
   _BYTE *v36; // rdi
@@ -81,10 +81,10 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v51; // [rsp+C8h] [rbp-40h] BYREF
   PFILE_OBJECT v52; // [rsp+D0h] [rbp-38h]
   ULONG v53; // [rsp+D8h] [rbp-30h]
-  struct _LIST_ENTRY ListEntry; // [rsp+E0h] [rbp-28h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+E0h] [rbp-28h] BYREF
   __int64 *p_Object; // [rsp+F0h] [rbp-18h]
   __int64 v56; // [rsp+110h] [rbp+8h]
-  struct _LIST_ENTRY *v57; // [rsp+118h] [rbp+10h]
+  _QWORD *v57; // [rsp+118h] [rbp+10h]
   char v58; // [rsp+120h] [rbp+18h]
   __int64 v59; // [rsp+128h] [rbp+20h]
   ULONG v60; // [rsp+180h] [rbp+78h]
@@ -122,7 +122,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v10 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&LockHandle);
     if ( v10 )
@@ -134,17 +134,17 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   }
   v11 = CcReferencePartitionFromFileObject(FileObject);
   v12 = CcEnablePerVolumeLazyWriter;
-  v13 = (struct _LIST_ENTRY *)v11;
+  v13 = (_LIST_ENTRY *)v11;
   v43 = v11;
   if ( CcEnablePerVolumeLazyWriter )
   {
     SectionObjectPointer = FileObject->SectionObjectPointer;
     if ( SectionObjectPointer && (SharedCacheMap = SectionObjectPointer->SharedCacheMap) != 0LL )
     {
-      v16 = (struct _LIST_ENTRY *)SharedCacheMap[75];
+      v16 = (_QWORD *)SharedCacheMap[75];
 LABEL_16:
       v7 = v16;
-      if ( v16 && _InterlockedIncrement64((volatile signed __int64 *)&v16->Blink) <= 1 )
+      if ( v16 && _InterlockedIncrement64(v16 + 1) <= 1 )
         __fastfail(0xEu);
     }
     else
@@ -152,18 +152,16 @@ LABEL_16:
       p_Type = &FileObject->Type;
       if ( FileObject->Vpb )
         p_Type = &FileObject->Vpb->Type;
-      v30 = (struct _LIST_ENTRY *)p_Type[1];
-      for ( i = EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-            i != (struct _LIST_ENTRY *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
-            i = i->Flink )
+      v30 = p_Type[1];
+      for ( i = EmpParseLock.KernelWaitTime; (unsigned __int64 *)i != &EmpParseLock.KernelWaitTime; i = *(_QWORD *)i )
       {
-        if ( i[-1].Blink == v30 )
+        if ( *(_QWORD *)(i - 8) == v30 )
         {
-          v32 = i + 12;
-          for ( j = i[12].Flink; j != v32; j = j->Flink )
+          v32 = (_QWORD *)(i + 192);
+          for ( j = *(_QWORD **)(i + 192); j != v32; j = (_QWORD *)*j )
           {
-            v16 = j - 37;
-            if ( j[-35].Flink == v13 )
+            v16 = j - 74;
+            if ( (_LIST_ENTRY *)*(j - 70) == v13 )
               goto LABEL_16;
           }
           break;
@@ -174,8 +172,8 @@ LABEL_16:
     v12 = CcEnablePerVolumeLazyWriter;
     if ( CcEnablePerVolumeLazyWriter )
     {
-      ListHead = v16 + 69;
-      v17 = (char *)&v16[44].Flink + 4;
+      ListHead = (PLIST_ENTRY)(v16 + 138);
+      v17 = (char *)v16 + 708;
       goto LABEL_20;
     }
   }
@@ -187,13 +185,13 @@ LABEL_16:
   v17 = (char *)&v13[48].Blink + 4;
 LABEL_20:
   v45 = v17;
-  v18 = (char *)&v16[73].Flink + 4;
+  v18 = (char *)v16 + 1172;
   if ( !v12 )
     v18 = (char *)&v13[80].Blink + 4;
   v44 = v18;
   HIBYTE(v40) = 1;
   IsFileObjectDirectMapped = CcIsFileObjectDirectMapped(FileObject, v13);
-  if ( !BYTE1(EmpParseLock.Timer.DueTime.LowPart) )
+  if ( !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink) )
   {
     v20 = FileObject->SectionObjectPointer;
     if ( v20 )
@@ -241,7 +239,7 @@ LABEL_31:
           if ( v6 == 2 && CanIWriteStream )
             break;
         }
-        if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+        if ( (xmmword_140FC0C10 & 0x20000) != 0 )
           CcPerfLogCanWriteFail(FileObject, v60, *(_QWORD *)(v23 + 1056), *(_QWORD *)(v23 + 1080));
         LOBYTE(BytesToWrite) = 1;
         CcAdjustWriteBehindThreadPoolIfNeeded(v23, *(_QWORD *)&BytesToWrite, v4);
@@ -269,11 +267,11 @@ LABEL_31:
           v35 = 16LL;
           if ( CcEnablePerVolumeLazyWriter )
           {
-            if ( !BYTE4(v7[73].Flink) )
+            if ( !*((_BYTE *)v7 + 1172) )
               v35 = 4LL;
             CcNotifyWriteBehindVolume(v7, v35);
-            if ( !BYTE4(v7[73].Flink) )
-              BYTE1(v7[61].Blink) = 1;
+            if ( !*((_BYTE *)v7 + 1172) )
+              *((_BYTE *)v7 + 985) = 1;
           }
           else
           {
@@ -347,7 +345,7 @@ LABEL_41:
     CcDereferencePartition(v43);
     if ( v7 )
     {
-      if ( _InterlockedDecrement64((volatile signed __int64 *)&v7->Blink) <= -1 )
+      if ( _InterlockedDecrement64(v7 + 1) <= -1 )
         __fastfail(0xEu);
     }
   }

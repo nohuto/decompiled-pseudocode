@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHvTimerSetInterruptVector @ 0x1404D4AB0
+ * XREFs of HalpHvTimerSetInterruptVector @ 0x1404D4CF0
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpOpenHandleCreate @ 0x14050A388
+ * XREFs of PfpOpenHandleCreate @ 0x1404ED318
  * Callers:
- *     PfpPrefetchDirectoryStream @ 0x1403ED670 (PfpPrefetchDirectoryStream.c)
- *     PfpVolumeOpenAndVerify @ 0x1403ED8D0 (PfpVolumeOpenAndVerify.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1404F4E8C (PfSnOpenVolumesForPrefetch.c)
- *     PfSnQueryVolumeInfo @ 0x1404F54AC (PfSnQueryVolumeInfo.c)
- *     PfpPrefetchEntireDirectory @ 0x140508800 (PfpPrefetchEntireDirectory.c)
- *     PfpFileBuildReadSupport @ 0x140509310 (PfpFileBuildReadSupport.c)
- *     PfSnGetSectionObject @ 0x14050ACA0 (PfSnGetSectionObject.c)
- *     PfpQueryFileExtentsRequest @ 0x140669118 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchDirectoryStream @ 0x1403EECA0 (PfpPrefetchDirectoryStream.c)
+ *     PfpVolumeOpenAndVerify @ 0x1403EEF00 (PfpVolumeOpenAndVerify.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1404D7E18 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnQueryVolumeInfo @ 0x1404D8438 (PfSnQueryVolumeInfo.c)
+ *     PfpPrefetchEntireDirectory @ 0x1404EB790 (PfpPrefetchEntireDirectory.c)
+ *     PfpFileBuildReadSupport @ 0x1404EC2A0 (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x1404EDC30 (PfSnGetSectionObject.c)
+ *     PfpQueryFileExtentsRequest @ 0x1406691FC (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x14001FEA4 (PfpCheckPrefetchAbort.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PfpCheckPrefetchAbort @ 0x14001FA24 (PfpCheckPrefetchAbort.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PfpOpenHandleCreate(
@@ -69,7 +69,7 @@ __int64 __fastcall PfpOpenHandleCreate(
       *(_QWORD *)((char *)&v19[4] + 4) = __PAIR64__(v14, v13);
       if ( v12 )
         *((_QWORD *)&v19[0] + 1) = *(_QWORD *)(v12 + 8);
-      v17 = (*(__int64 (__fastcall **)(_OWORD *))qword_140328678)(v19);
+      v17 = (*(__int64 (__fastcall **)(_OWORD *))qword_1403286B8)(v19);
       if ( (v17 & 0x80000000) == 0 )
       {
         *(_OWORD *)a1 = v19[5];

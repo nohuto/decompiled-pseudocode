@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x1401CCCA0
+ * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x1401CF4A8
  * Callers:
- *     RtlUnicodeStringCopyStringEx @ 0x14013BFF4 (RtlUnicodeStringCopyStringEx.c)
- *     RtlUnicodeStringPrintfEx @ 0x1401CF714 (RtlUnicodeStringPrintfEx.c)
+ *     RtlUnicodeStringCopyStringEx @ 0x14013C564 (RtlUnicodeStringCopyStringEx.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1401CF540 (RtlUnicodeStringPrintfEx.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringExHandleOtherFlags(

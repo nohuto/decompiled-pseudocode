@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpWheaReadMsrStatus @ 0x1403A0E1C
+ * XREFs of HalpWheaReadMsrStatus @ 0x1403A0F6C
  * Callers:
- *     HalpMcaReadErrorPresence @ 0x1403A0D98 (HalpMcaReadErrorPresence.c)
- *     HalpMcaReadError @ 0x1404BA810 (HalpMcaReadError.c)
- *     HalpMcaProcessorBankClearAMD @ 0x1404BD2C8 (HalpMcaProcessorBankClearAMD.c)
+ *     HalpMcaReadErrorPresence @ 0x1403A0EE8 (HalpMcaReadErrorPresence.c)
+ *     HalpMcaReadError @ 0x1404BAA50 (HalpMcaReadError.c)
+ *     HalpMcaProcessorBankClearAMD @ 0x1404BD508 (HalpMcaProcessorBankClearAMD.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpGetCpuVendor @ 0x1403A108C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpWheaReadMsrStatus(__int64 a1, int a2, __int64 a3)

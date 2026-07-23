@@ -1,9 +1,9 @@
 /*
- * XREFs of PoEndPartitionReplace @ 0x1408E7598
+ * XREFs of PoEndPartitionReplace @ 0x1408E76F8
  * Callers:
- *     PnprWakeDevices @ 0x1409AED9C (PnprWakeDevices.c)
+ *     PnprWakeDevices @ 0x1409AFCCC (PnprWakeDevices.c)
  * Callees:
- *     PopDispatchStateCallout @ 0x14067E9C8 (PopDispatchStateCallout.c)
+ *     PopDispatchStateCallout @ 0x140672878 (PopDispatchStateCallout.c)
  */
 
 __int64 __fastcall PoEndPartitionReplace(_DWORD *a1, int a2)

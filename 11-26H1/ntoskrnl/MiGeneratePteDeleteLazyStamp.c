@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGeneratePteDeleteLazyStamp @ 0x140526874
+ * XREFs of MiGeneratePteDeleteLazyStamp @ 0x140528EE4
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiSetPteTimeStamp @ 0x14048051C (MiSetPteTimeStamp.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiSetPteTimeStamp @ 0x140479E5C (MiSetPteTimeStamp.c)
  */
 
 unsigned __int64 MiGeneratePteDeleteLazyStamp()
@@ -25,8 +25,8 @@ unsigned __int64 MiGeneratePteDeleteLazyStamp()
   v1 = MiSetPteTimeStamp(PteShadow, KiTbFlushTimeStamp);
   v6[0] = v1;
   v3 = v1;
-  if ( qword_140E2D740 && (v1 & 0x10) == 0 )
-    v1 &= qword_140E2D748;
+  if ( qword_140E2D8C0 && (v1 & 0x10) == 0 )
+    v1 &= qword_140E2D8C8;
   if ( !(unsigned int)(v1 >> 31) )
   {
     MiIssueFlushTbEntire((_KPROCESS *)2, (volatile _KAFFINITY_EX *)1, v2);

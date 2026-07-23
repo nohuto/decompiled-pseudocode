@@ -28,7 +28,7 @@
  *     RtlpAcquireSRWLockExclusiveContended @ 0x18009E150 (RtlpAcquireSRWLockExclusiveContended.c)
  */
 
-__int64 __fastcall LdrProtectMrdata(int a1)
+void __fastcall LdrProtectMrdata(int a1)
 {
   char *SchedulerSharedDataSlot; // r8
   __int64 i; // rdx
@@ -68,12 +68,13 @@ LABEL_17:
       LdrpChangeMrdataProtection(4LL);
     }
     LdrpMrdataUnprotected = v6 + 1;
-    return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+    goto LABEL_13;
   }
   if ( !LdrpMrdataUnprotected )
     goto LABEL_17;
   --LdrpMrdataUnprotected;
   if ( v6 == 1 )
     LdrpChangeMrdataProtection(2LL);
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+LABEL_13:
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcInitSystem1 @ 0x140A59F60
+ * XREFs of CmFcInitSystem1 @ 0x140A5AF60
  * Callers:
- *     CmInitSystem0 @ 0x140A5F694 (CmInitSystem0.c)
+ *     CmInitSystem0 @ 0x140A60694 (CmInitSystem0.c)
  * Callees:
  *     wil_RegisterFeatureStagingChangeNotification @ 0x1405CC564 (wil_RegisterFeatureStagingChangeNotification.c)
  */
 
-_BYTE *CmFcInitSystem1()
+int CmFcInitSystem1()
 {
   return wil_RegisterFeatureStagingChangeNotification();
 }

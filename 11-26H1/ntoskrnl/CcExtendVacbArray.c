@@ -1,23 +1,23 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x1403B68EC
+ * XREFs of CcExtendVacbArray @ 0x1403C07EC
  * Callers:
- *     CcSetFileSizesEx @ 0x14039E300 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x1403A0060 (CcSetFileSizesEx.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1402E0E50 (CcAcquireBcbLockAndVacbLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1402E0ED0 (CcReleaseBcbLockAndVacbLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     CcFreeUnusedVacbLevels @ 0x1403B6E84 (CcFreeUnusedVacbLevels.c)
- *     VacbLevelReference @ 0x1403B76DC (VacbLevelReference.c)
- *     CcCalculateVacbLevelLockCount @ 0x1403B9270 (CcCalculateVacbLevelLockCount.c)
- *     CcAllocateVacbLevel @ 0x1404B6CD4 (CcAllocateVacbLevel.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1402C2C60 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1402C2CE0 (CcReleaseBcbLockAndVacbLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     CcFreeUnusedVacbLevels @ 0x1403C0D84 (CcFreeUnusedVacbLevels.c)
+ *     VacbLevelReference @ 0x1403C15DC (VacbLevelReference.c)
+ *     CcCalculateVacbLevelLockCount @ 0x1403C3170 (CcCalculateVacbLevelLockCount.c)
+ *     CcAllocateVacbLevel @ 0x1404B0124 (CcAllocateVacbLevel.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcExtendVacbArray(__int64 a1, __int64 a2)

@@ -1,29 +1,29 @@
 /*
- * XREFs of KiLockExtendedServiceTable @ 0x140508278
+ * XREFs of KiLockExtendedServiceTable @ 0x140505B38
  * Callers:
- *     KiLockServiceTable @ 0x1406953D8 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x1406964A8 (KiLockServiceTable.c)
  * Callees:
- *     RtlpConvertFunctionEntry @ 0x14040E640 (RtlpConvertFunctionEntry.c)
- *     RtlCaptureImageExceptionValues @ 0x14042CAB0 (RtlCaptureImageExceptionValues.c)
- *     RtlSectionTableFromVirtualAddress @ 0x14042CF10 (RtlSectionTableFromVirtualAddress.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     KiSwInterruptPresent @ 0x140BDEBD4 (KiSwInterruptPresent.c)
+ *     RtlCaptureImageExceptionValues @ 0x1402EEB24 (RtlCaptureImageExceptionValues.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1402EEF90 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlpConvertFunctionEntry @ 0x140406840 (RtlpConvertFunctionEntry.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     KiSwInterruptPresent @ 0x140BE0BD4 (KiSwInterruptPresent.c)
  */
 
 void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v4; // rsi
-  unsigned __int64 v5; // r15
-  _DWORD *v6; // r12
-  unsigned __int64 v7; // r8
-  _DWORD *v8; // rbx
-  _DWORD *v9; // rdi
+  PIMAGE_NT_HEADERS v5; // r15
+  _IMAGE_SECTION_HEADER *v6; // r12
+  char *v7; // r8
+  _IMAGE_SECTION_HEADER *v8; // rbx
+  char *v9; // rdi
   unsigned __int64 v10; // r10
   unsigned __int64 v11; // rax
   __int64 v12; // r8
   unsigned int v13; // ebx
   _QWORD *v14; // rdi
-  unsigned __int64 v15; // rax
+  PIMAGE_SECTION_HEADER v15; // rax
   char v16; // r11
   unsigned __int64 v17; // rcx
   _QWORD *v18; // r9
@@ -42,30 +42,30 @@ void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, i
   unsigned __int64 v31; // [rsp+48h] [rbp-38h]
   unsigned __int64 v32; // [rsp+50h] [rbp-30h]
   unsigned __int64 *v33; // [rsp+58h] [rbp-28h]
-  unsigned int v34; // [rsp+C8h] [rbp+48h] BYREF
+  ULONG v34; // [rsp+C8h] [rbp+48h] BYREF
 
   if ( !a4 )
   {
-    v4 = (unsigned __int64)&qword_140E0F200;
-    v5 = RtlImageNtHeader(0x140000000uLL);
+    v4 = (unsigned __int64)&qword_140E0F2C0;
+    v5 = RtlImageNtHeader((PVOID)0x140000000LL);
     v6 = 0LL;
-    v7 = v5 + *(unsigned __int16 *)(v5 + 20);
-    v8 = (_DWORD *)(v7 + 24);
-    v9 = (_DWORD *)(v7 + 8 * (*(unsigned __int16 *)(v5 + 6) + 4LL * *(unsigned __int16 *)(v5 + 6) + 3));
+    v7 = (char *)v5 + v5->FileHeader.SizeOfOptionalHeader;
+    v8 = (_IMAGE_SECTION_HEADER *)(v7 + 24);
+    v9 = &v7[32 * v5->FileHeader.NumberOfSections + 24 + 8 * v5->FileHeader.NumberOfSections];
     if ( (int)KiSwInterruptPresent() >= 0 )
     {
-      while ( v8 != v9 )
+      while ( v8 != (_IMAGE_SECTION_HEADER *)v9 )
       {
-        if ( *v8 == 1346589515 && !v8[1] )
+        if ( *(_DWORD *)v8->Name == 1346589515 && !*(_DWORD *)&v8->Name[4] )
         {
           v6 = v8;
           break;
         }
-        v8 += 10;
+        ++v8;
       }
     }
-    RtlImageNtHeader(0x140000000uLL);
-    RtlCaptureImageExceptionValues(0x140000000LL, (__int64 *)&v30, &v34);
+    RtlImageNtHeader((PVOID)0x140000000LL);
+    RtlCaptureImageExceptionValues((void *)0x140000000LL, &v30, &v34);
     v10 = v30;
     v31 = 0x140000000uLL;
     v34 /= 0xCu;
@@ -82,12 +82,12 @@ void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, i
       v14 = (_QWORD *)(0x140000000LL + v12);
       if ( v6 )
       {
-        v15 = RtlSectionTableFromVirtualAddress(v5, 0x140000000LL, v12);
+        v15 = RtlSectionTableFromVirtualAddress(v5, (PVOID)0x140000000LL, v12);
         v10 = v30;
-        if ( (_DWORD *)v15 == v6 )
+        if ( v15 == v6 )
           continue;
       }
-      v16 = (unsigned __int64)&qword_140E0F200 & 0x3F;
+      v16 = (unsigned __int64)&qword_140E0F2C0 & 0x3F;
       v17 = (unsigned __int64)v14 + v13;
       v18 = v14;
       v19 = (const char *)v14;
@@ -139,6 +139,6 @@ void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, i
       }
       v4 = v20;
     }
-    qword_140E0F200 = v4;
+    qword_140E0F2C0 = v4;
   }
 }

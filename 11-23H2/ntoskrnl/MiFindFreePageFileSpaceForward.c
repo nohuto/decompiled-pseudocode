@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindFreePageFileSpaceForward @ 0x1406397B0
+ * XREFs of MiFindFreePageFileSpaceForward @ 0x140639D00
  * Callers:
- *     MiFindFreePageFileSpace @ 0x1402946D4 (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x140294964 (MiFindFreePageFileSpace.c)
  * Callees:
- *     RtlFindNextClearRunUlong @ 0x140293BAC (RtlFindNextClearRunUlong.c)
+ *     RtlFindNextClearRunUlong @ 0x140293E3C (RtlFindNextClearRunUlong.c)
  */
 
 __int64 __fastcall MiFindFreePageFileSpaceForward(__int64 a1, unsigned int *a2, __int64 a3, char a4)

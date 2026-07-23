@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x14070FF0C
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x1406BE55C
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x1407100D0 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x1406BE720 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     NtOpenSession @ 0x1406C0670 (NtOpenSession.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
- *     NtOpenProcess @ 0x1407100A0 (NtOpenProcess.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     NtOpenSession @ 0x14061F580 (NtOpenSession.c)
+ *     NtOpenProcess @ 0x1406BE6F0 (NtOpenProcess.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   int v6; // ecx
   int v8; // ecx
   unsigned __int64 v9; // rax
-  int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // eax
   __int64 v12; // rdx
   PVOID Object; // [rsp+40h] [rbp-89h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 512;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v10 = NtOpenSession(&ClientId, 983043, (__int64)&ObjectAttributes);
+    v10 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
     if ( v10 < 0 )
     {
       UniqueProcess = ClientId.UniqueProcess;
@@ -79,15 +79,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   if ( v10 >= 0 )
   {
     v3 = ProcessHandle;
-    v11 = ObpReferenceObjectByHandleWithTag(
-            (ULONG_PTR)ProcessHandle,
-            0x1FFFFF,
-            (__int64)PsProcessType,
-            0,
-            0x73576650u,
-            &Object,
-            0LL,
-            0LL);
+    v11 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessHandle, 0x73576650u, (__int64)&Object, 0LL, 0LL);
     v2 = Object;
     v10 = v11;
     if ( v11 < 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMapNvsArea @ 0x140B6D6A0
+ * XREFs of HalpMapNvsArea @ 0x140B6EF40
  * Callers:
- *     HalpPowerStateCallback @ 0x1404AE270 (HalpPowerStateCallback.c)
+ *     HalpPowerStateCallback @ 0x1404A8B80 (HalpPowerStateCallback.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpFreeNvsBuffers @ 0x140B6C400 (HalpFreeNvsBuffers.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpFreeNvsBuffers @ 0x140B6DCA4 (HalpFreeNvsBuffers.c)
  */
 
 void __fastcall HalpMapNvsArea(__int64 a1)
@@ -26,7 +26,7 @@ void __fastcall HalpMapNvsArea(__int64 a1)
         v2 = MmMapIoSpaceEx(
                *(_QWORD *)(HalpNvsRegionData + 24 * i),
                *(unsigned int *)(HalpNvsRegionData + 24 * i + 8),
-               0x204u);
+               516LL);
         *(_QWORD *)(HalpNvsRegionData + 24 * i + 16) = v2;
         if ( !v2 )
           goto LABEL_8;

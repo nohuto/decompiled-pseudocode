@@ -1,10 +1,10 @@
 /*
- * XREFs of KiEndThreadAccountingPeriodEx @ 0x14034C1B0
+ * XREFs of KiEndThreadAccountingPeriodEx @ 0x14036A690
  * Callers:
- *     KiEndThreadAccountingPeriod @ 0x1405C2BB0 (KiEndThreadAccountingPeriod.c)
+ *     KiEndThreadAccountingPeriod @ 0x1405C0180 (KiEndThreadAccountingPeriod.c)
  * Callees:
- *     KiEndCounterAccumulation @ 0x14034C52C (KiEndCounterAccumulation.c)
- *     KiUpdateThreadHgsFeedback @ 0x14034E8CC (KiUpdateThreadHgsFeedback.c)
+ *     KiEndCounterAccumulation @ 0x14036AA0C (KiEndCounterAccumulation.c)
+ *     KiUpdateThreadHgsFeedback @ 0x14036CDAC (KiUpdateThreadHgsFeedback.c)
  */
 
 void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int8 a4)

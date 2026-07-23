@@ -1,12 +1,12 @@
 /*
- * XREFs of EmonInitializeProfiling @ 0x140BED3D0
+ * XREFs of EmonInitializeProfiling @ 0x140BF33D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     EmonFreeCounter @ 0x140595658 (EmonFreeCounter.c)
- *     EmonInitializeProfilingBSP @ 0x1405957E4 (EmonInitializeProfilingBSP.c)
- *     EmonSetAllocatedCounters @ 0x140596960 (EmonSetAllocatedCounters.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     EmonFreeCounter @ 0x140597DD8 (EmonFreeCounter.c)
+ *     EmonInitializeProfilingBSP @ 0x140597F64 (EmonInitializeProfilingBSP.c)
+ *     EmonSetAllocatedCounters @ 0x1405990E0 (EmonSetAllocatedCounters.c)
  */
 
 __int64 EmonInitializeProfiling()
@@ -107,7 +107,7 @@ __int64 EmonInitializeProfiling()
       if ( _bittest((const int *)&v14, result) )
         goto LABEL_21;
     }
-    else if ( (_BYTE)result != 0xFF && _bittest(&v16, result) || *((_DWORD *)v40 - 77) == 32 && byte_140F87640 )
+    else if ( (_BYTE)result != 0xFF && _bittest(&v16, result) || *((_DWORD *)v40 - 77) == 32 && byte_140F87A20 )
     {
 LABEL_21:
       result = KeAddProcessorAffinityEx(v40 - 138, Number);

@@ -1,14 +1,14 @@
 /*
- * XREFs of PsSyscallProviderDispatch @ 0x1409B46A0
+ * XREFs of PsSyscallProviderDispatch @ 0x1409B48A0
  * Callers:
- *     KiSystemCall64 @ 0x140433B00 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140433F00 (KiSystemCall64.c)
  * Callees:
- *     IoThreadToProcess @ 0x140289F80 (IoThreadToProcess.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PspSyscallProviderServiceDispatch @ 0x140428DA0 (PspSyscallProviderServiceDispatch.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B4BA8 (PspEnsureGuiThreadAndBatchFlush.c)
- *     PspSyscallProviderServiceDispatchGeneric @ 0x1409B5078 (PspSyscallProviderServiceDispatchGeneric.c)
+ *     IoThreadToProcess @ 0x14028A210 (IoThreadToProcess.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PspSyscallProviderServiceDispatch @ 0x140429130 (PspSyscallProviderServiceDispatch.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B4DA8 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     PspSyscallProviderServiceDispatchGeneric @ 0x1409B5278 (PspSyscallProviderServiceDispatchGeneric.c)
  */
 
 __int64 __fastcall PsSyscallProviderDispatch(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall PsSyscallProviderDispatch(__int64 a1)
   if ( (CurrentThread->Header.Reserved1 & 4) != 0 )
   {
     v16 = a1;
-    ((void (__fastcall *)(__int64 *))qword_140C38148)(&v16);
+    ((void (__fastcall *)(__int64 *))qword_140C380E8)(&v16);
     return 0LL;
   }
   v4 = IoThreadToProcess(CurrentThread);

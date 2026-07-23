@@ -3,8 +3,8 @@
  * Callers:
  *     KseInitialize @ 0x14079DAE8 (KseInitialize.c)
  * Callees:
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
- *     KsepCacheUninitialize @ 0x140653E60 (KsepCacheUninitialize.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
+ *     KsepCacheUninitialize @ 0x140653F44 (KsepCacheUninitialize.c)
  */
 
 void __fastcall KsepEngineUninitialize(__int64 a1)

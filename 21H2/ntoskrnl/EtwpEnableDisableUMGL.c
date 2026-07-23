@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEnableDisableUMGL @ 0x140934218
+ * XREFs of EtwpEnableDisableUMGL @ 0x1409343E8
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x1406E2E4C (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x1406BA12C (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  */
 
 __int64 __fastcall EtwpEnableDisableUMGL(__int64 a1, char a2, unsigned __int16 a3, char a4, unsigned int a5)

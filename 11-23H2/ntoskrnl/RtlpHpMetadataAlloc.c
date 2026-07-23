@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpMetadataAlloc @ 0x140324528
+ * XREFs of RtlpHpMetadataAlloc @ 0x1403247B8
  * Callers:
- *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapAllocate @ 0x140389128 (RtlpHpHeapAllocate.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B5F20 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpLargeAlloc @ 0x14032432C (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapAllocate @ 0x140389308 (RtlpHpHeapAllocate.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B6490 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
  * Callees:
- *     RtlpHpAllocateHeap @ 0x14024D420 (RtlpHpAllocateHeap.c)
- *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
- *     RtlpHpMetadataHeapCtxGet @ 0x140324628 (RtlpHpMetadataHeapCtxGet.c)
- *     RtlpHpMetadataHeapStart @ 0x140324654 (RtlpHpMetadataHeapStart.c)
+ *     RtlpHpAllocateHeap @ 0x14024D4F0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpSegAlloc @ 0x14024DC10 (RtlpHpSegAlloc.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1403248B8 (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpMetadataHeapStart @ 0x1403248E4 (RtlpHpMetadataHeapStart.c)
  */
 
 char *__fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)

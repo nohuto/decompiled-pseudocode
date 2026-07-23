@@ -8,7 +8,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpAllocationSize(__int64 a1)
+SIZE_T __fastcall RtlpAllocationSize(void *a1)
 {
-  return RtlSizeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

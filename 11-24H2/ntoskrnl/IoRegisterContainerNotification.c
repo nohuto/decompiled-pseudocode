@@ -1,23 +1,23 @@
 /*
- * XREFs of IoRegisterContainerNotification @ 0x140715330
+ * XREFs of IoRegisterContainerNotification @ 0x140712EC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     IopGetDevicePDO @ 0x1402D488C (IopGetDevicePDO.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetSessionObjectById @ 0x1403493A0 (PsGetSessionObjectById.c)
- *     IopSetFileObjectExtensionFlag @ 0x140434650 (IopSetFileObjectExtensionFlag.c)
- *     ExUnregisterCallback @ 0x1404ADD30 (ExUnregisterCallback.c)
- *     ExRegisterCallback @ 0x1404B3D50 (ExRegisterCallback.c)
- *     IopGetSessionIdFromPDO @ 0x140A11704 (IopGetSessionIdFromPDO.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopGetDevicePDO @ 0x140355B0C (IopGetDevicePDO.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetSessionObjectById @ 0x1403C2DE0 (PsGetSessionObjectById.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1404278D0 (IopSetFileObjectExtensionFlag.c)
+ *     ExUnregisterCallback @ 0x1404A8640 (ExUnregisterCallback.c)
+ *     ExRegisterCallback @ 0x1404AE560 (ExRegisterCallback.c)
+ *     IopGetSessionIdFromPDO @ 0x1409BFB14 (IopGetSessionIdFromPDO.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterContainerNotification(
@@ -31,8 +31,8 @@ NTSTATUS __stdcall IoRegisterContainerNotification(
   NTSTATUS v7; // ebx
   __int64 v9; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
+  char *v11; // rax
+  char *v12; // rdi
   PVOID *v13; // rcx
   PVOID *v14; // rax
   _QWORD *Pool2; // rax
@@ -55,12 +55,12 @@ NTSTATUS __stdcall IoRegisterContainerNotification(
   v9 = *((_QWORD *)NotificationInformation + 1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v11 = KeAbPreAcquire((__int64)&IopSessionNotificationLock, 0LL);
+  v11 = (char *)KeAbPreAcquire((__int64)&IopSessionNotificationLock, 0LL);
   v12 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&IopSessionNotificationLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&IopSessionNotificationLock, (__int64)v11, (__int64)&IopSessionNotificationLock);
+    ExfAcquirePushLockExclusiveEx(&IopSessionNotificationLock, v11, (__int64)&IopSessionNotificationLock);
   if ( v12 )
-    *((_BYTE *)v12 + 10) = 1;
+    v12[10] = 1;
   v13 = (PVOID *)IopSessionNotificationQueueHead;
   if ( IopSessionNotificationQueueHead != &IopSessionNotificationQueueHead )
   {
@@ -75,7 +75,7 @@ NTSTATUS __stdcall IoRegisterContainerNotification(
       }
     }
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x48uLL, 0x6E536F49u);
   v16 = Pool2;
   if ( Pool2 )
   {
@@ -132,13 +132,13 @@ LABEL_22:
     v16[3] = v6;
     v16[6] = SessionObjectById;
     *(_QWORD *)CallbackRegistration = v17;
-    v24 = (_QWORD *)qword_140F8CAD8;
-    if ( *(PVOID **)qword_140F8CAD8 != &IopSessionNotificationQueueHead )
+    v24 = (_QWORD *)qword_140F8CC88;
+    if ( *(PVOID **)qword_140F8CC88 != &IopSessionNotificationQueueHead )
       __fastfail(3u);
     *v16 = &IopSessionNotificationQueueHead;
     v16[1] = v24;
     *v24 = v16;
-    qword_140F8CAD8 = (__int64)v16;
+    qword_140F8CC88 = (__int64)v16;
     goto LABEL_24;
   }
   v7 = -1073741670;

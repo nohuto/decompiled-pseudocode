@@ -1,26 +1,26 @@
 /*
- * XREFs of ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1403CAED4
+ * XREFs of ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x140484B24
  * Callers:
- *     ?KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1403CAE10 (-KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
- *     ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404BBDB0 (-KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x140484A60 (-KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404B6CC0 (-KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiCheckPrcbAffinityEx @ 0x1403B44C0 (KiCheckPrcbAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiSendSoftwareInterrupt @ 0x14041B640 (KiSendSoftwareInterrupt.c)
- *     KeRemoveQueueDpcEx @ 0x140464090 (KeRemoveQueueDpcEx.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404B2F48 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
- *     Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline @ 0x1405C72C4 (Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KiCheckPrcbAffinityEx @ 0x140370D80 (KiCheckPrcbAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiSendSoftwareInterrupt @ 0x14040F180 (KiSendSoftwareInterrupt.c)
+ *     KeRemoveQueueDpcEx @ 0x14045A7C0 (KeRemoveQueueDpcEx.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404AD758 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline @ 0x1405C49F4 (Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
@@ -35,11 +35,11 @@ void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
   __int64 Prcb; // rbx
   struct _KPRCB *v9; // rdx
   char v10; // r14
-  __int64 v11; // rcx
+  int v11; // ecx
   signed __int32 v12[8]; // [rsp+8h] [rbp-100h] BYREF
   unsigned int v13; // [rsp+28h] [rbp-E0h] BYREF
-  int v14; // [rsp+2Ch] [rbp-DCh] BYREF
-  _QWORD v15[2]; // [rsp+30h] [rbp-D8h] BYREF
+  unsigned int v14; // [rsp+2Ch] [rbp-DCh] BYREF
+  unsigned __int16 *v15[2]; // [rsp+30h] [rbp-D8h] BYREF
   __int16 v16; // [rsp+40h] [rbp-C8h]
   int v17; // [rsp+42h] [rbp-C6h]
   __int16 v18; // [rsp+46h] [rbp-C2h]
@@ -56,7 +56,7 @@ void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
   {
     for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
     {
-      if ( (unsigned __int8)KeRemoveQueueDpcEx(KiProcessorBlock[i] + 35480, 0LL) )
+      if ( KeRemoveQueueDpcEx(KiProcessorBlock[i] + 35480, 0) )
         _InterlockedDecrement(&KiForceIdlePendingDpcCount);
       else
         KeAddProcessorAffinityEx(&v20.Count, i);
@@ -121,20 +121,17 @@ void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
         _InterlockedAnd64((volatile signed __int64 *)(Prcb + 48), 0LL);
         if ( v10 )
         {
-          v11 = *(unsigned int *)(Prcb + 36);
-          if ( KeGetPcr()->Prcb.Number != (_DWORD)v11 )
-          {
-            LOBYTE(v9) = 2;
-            KiSendSoftwareInterrupt(v11, v9);
-          }
+          v11 = *(_DWORD *)(Prcb + 36);
+          if ( KeGetPcr()->Prcb.Number != v11 )
+            KiSendSoftwareInterrupt(v11, 2);
         }
       }
     }
   }
   else
   {
-    v15[1] = v19.Bitmap[0];
-    v15[0] = &v19;
+    v15[1] = (unsigned __int16 *)v19.Bitmap[0];
+    v15[0] = (unsigned __int16 *)&v19;
     v13 = 0;
     v17 = 0;
     v18 = 0;

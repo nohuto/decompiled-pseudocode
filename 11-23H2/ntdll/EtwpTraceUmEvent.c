@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceUmEvent @ 0x180125BE4
+ * XREFs of EtwpTraceUmEvent @ 0x180125BB4
  * Callers:
  *     EtwLogTraceEvent @ 0x1800B1D50 (EtwLogTraceEvent.c)
- *     EtwTraceEventInstance @ 0x180125210 (EtwTraceEventInstance.c)
+ *     EtwTraceEventInstance @ 0x1801251E0 (EtwTraceEventInstance.c)
  * Callees:
  *     EtwpReserveTraceBuffer @ 0x18005A758 (EtwpReserveTraceBuffer.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
  *     memmove @ 0x1800A7A40 (memmove.c)
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
- *     EtwpRelogEvent @ 0x1801259F4 (EtwpRelogEvent.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpRelogEvent @ 0x1801259C4 (EtwpRelogEvent.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, u
   unsigned int i; // ecx
   int v16; // r13d
   struct _TEB *v17; // rax
-  unsigned __int64 *v18; // r9
+  LARGE_INTEGER *v18; // r9
   size_t v19; // r14
   char *v20; // rax
   char *v21; // rdi
@@ -129,7 +129,7 @@ __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, u
         v16 = v10 & 0x200;
         v17 = NtCurrentTeb();
         v44 = v17;
-        v18 = &v40;
+        v18 = (LARGE_INTEGER *)&v40;
         if ( v16 )
           v18 = 0LL;
         v19 = v31;

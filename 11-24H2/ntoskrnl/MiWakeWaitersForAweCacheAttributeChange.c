@@ -1,64 +1,62 @@
 /*
- * XREFs of MiWakeWaitersForAweCacheAttributeChange @ 0x140683208
+ * XREFs of MiWakeWaitersForAweCacheAttributeChange @ 0x1406843F8
  * Callers:
- *     MiResolveAwePageConflict @ 0x140682F08 (MiResolveAwePageConflict.c)
+ *     MiResolveAwePageConflict @ 0x1406840F8 (MiResolveAwePageConflict.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     KeSignalGate @ 0x14030AB68 (KeSignalGate.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     KeSignalGate @ 0x140314A48 (KeSignalGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
-__int64 __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a2)
+void __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD **v3; // r14
-  _QWORD *v5; // rdi
-  unsigned __int8 v6; // bp
-  _QWORD *v7; // rcx
-  _QWORD *v8; // rax
-  __int64 result; // rax
-  _QWORD *v10; // rbx
-  int v11; // [rsp+40h] [rbp+8h]
+  volatile signed __int32 **v5; // r14
+  volatile signed __int32 *v7; // rdi
+  unsigned __int8 v8; // bp
+  volatile signed __int32 *v9; // rcx
+  volatile signed __int32 *v10; // rax
+  volatile signed __int32 *v11; // rbx
+  int v12; // [rsp+40h] [rbp+8h]
 
-  v3 = (_QWORD **)(a1 + 80);
-  v5 = 0LL;
-  v6 = MiLockPageInline(a2);
-  v11 = *(_DWORD *)(a2 + 32);
-  BYTE2(v11) &= ~0x20u;
-  *(_DWORD *)(a2 + 32) = v11;
+  v5 = (volatile signed __int32 **)(a1 + 80);
+  v7 = 0LL;
+  v8 = MiLockPageInline(a2, a2, a3, a4);
+  v12 = *(_DWORD *)(a2 + 32);
+  BYTE2(v12) &= ~0x20u;
+  *(_DWORD *)(a2 + 32) = v12;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 48));
-  v7 = *v3;
-  if ( *v3 )
+  v9 = *v5;
+  if ( *v5 )
   {
     do
     {
-      v8 = (_QWORD *)*v7;
-      if ( v7[1] == a2 )
+      v10 = *(volatile signed __int32 **)v9;
+      if ( *((_QWORD *)v9 + 1) == a2 )
       {
-        *v7 = v5;
-        v5 = v7;
-        *v3 = v8;
+        *(_QWORD *)v9 = v7;
+        v7 = v9;
+        *v5 = v10;
       }
       else
       {
-        v3 = (_QWORD **)v7;
+        v5 = (volatile signed __int32 **)v9;
       }
-      v7 = v8;
-    }
-    while ( v8 );
-  }
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 48));
-  result = MiUnlockPage(a2, v6);
-  if ( v5 )
-  {
-    do
-    {
-      v10 = (_QWORD *)*v5;
-      result = KeSignalGate((_DWORD *)v5 + 4, 1LL);
-      v5 = v10;
+      v9 = v10;
     }
     while ( v10 );
   }
-  return result;
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 48));
+  MiUnlockPage(a2, v8);
+  if ( v7 )
+  {
+    do
+    {
+      v11 = *(volatile signed __int32 **)v7;
+      KeSignalGate(v7 + 4, 1LL);
+      v7 = v11;
+    }
+    while ( v11 );
+  }
 }

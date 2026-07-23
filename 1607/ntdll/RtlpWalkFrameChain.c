@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpWalkFrameChain @ 0x1800326D0
+ * XREFs of RtlpWalkFrameChain @ 0x1800326C0
  * Callers:
- *     RtlWalkFrameChain @ 0x180032650 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x180032640 (RtlWalkFrameChain.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x180032690 (RtlpGetStackLimits.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1800336A0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlpSameFunction @ 0x180078BE4 (RtlpSameFunction.c)
- *     RtlpUnwindOpSlots @ 0x180088E64 (RtlpUnwindOpSlots.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     RtlpTrivialFunction @ 0x1800A5B88 (RtlpTrivialFunction.c)
- *     RtlpUnwindEpilogue @ 0x1800A5BE0 (RtlpUnwindEpilogue.c)
+ *     RtlpGetStackLimits @ 0x180032680 (RtlpGetStackLimits.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x180033690 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpSameFunction @ 0x180078BD4 (RtlpSameFunction.c)
+ *     RtlpUnwindOpSlots @ 0x180088E54 (RtlpUnwindOpSlots.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     RtlpTrivialFunction @ 0x1800A5B7C (RtlpTrivialFunction.c)
+ *     RtlpUnwindEpilogue @ 0x1800A5BD4 (RtlpUnwindEpilogue.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     ZwQueryVirtualMemory @ 0x1800A6880 (ZwQueryVirtualMemory.c)
  *     RtlpCaptureContext @ 0x1800AA0D0 (RtlpCaptureContext.c)
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   __int64 v22; // r8
   _BYTE *v23; // rdx
   char *v24; // rcx
-  int VirtualMemory; // eax
+  NTSTATUS VirtualMemory; // eax
   unsigned int *v26; // r13
   unsigned __int64 *v27; // r9
   _BYTE *v28; // rcx
@@ -84,7 +84,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   char v68; // al
   char *v69; // rcx
   __int64 v70; // rcx
-  _QWORD v72[6]; // [rsp+0h] [rbp-658h] BYREF
+  _BYTE v72[32]; // [rsp+0h] [rbp-658h] BYREF
   char v73; // [rsp+40h] [rbp-618h] BYREF
   int v74; // [rsp+44h] [rbp-614h]
   char v75; // [rsp+48h] [rbp-610h]
@@ -96,7 +96,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   char *v81; // [rsp+68h] [rbp-5F0h] BYREF
   __int16 v82; // [rsp+70h] [rbp-5E8h]
   unsigned int i; // [rsp+74h] [rbp-5E4h]
-  int v84; // [rsp+78h] [rbp-5E0h]
+  NTSTATUS v84; // [rsp+78h] [rbp-5E0h]
   unsigned int v85; // [rsp+7Ch] [rbp-5DCh]
   int v86; // [rsp+80h] [rbp-5D8h]
   int v87; // [rsp+84h] [rbp-5D4h]
@@ -104,7 +104,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   char *v89; // [rsp+90h] [rbp-5C8h]
   int v90; // [rsp+98h] [rbp-5C0h]
   unsigned int v91; // [rsp+9Ch] [rbp-5BCh]
-  __int128 v92; // [rsp+A0h] [rbp-5B8h] BYREF
+  __int128 v92; // [rsp+A0h] [rbp-5B8h]
   __int64 v93; // [rsp+B0h] [rbp-5A8h]
   int v94; // [rsp+B8h] [rbp-5A0h]
   int v95; // [rsp+BCh] [rbp-59Ch]
@@ -117,10 +117,10 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   _BYTE *v102; // [rsp+F8h] [rbp-560h]
   _BYTE *v103; // [rsp+100h] [rbp-558h]
   unsigned int *v104; // [rsp+118h] [rbp-540h]
-  _BYTE v105[48]; // [rsp+120h] [rbp-538h] BYREF
+  _BYTE MemoryInformation[48]; // [rsp+120h] [rbp-538h] BYREF
   _BYTE v106[152]; // [rsp+150h] [rbp-508h] BYREF
   char *v107; // [rsp+1E8h] [rbp-470h]
-  char *v108; // [rsp+248h] [rbp-410h]
+  PVOID BaseAddress; // [rsp+248h] [rbp-410h]
   _QWORD v109[102]; // [rsp+2F0h] [rbp-368h] BYREF
 
   v4 = a4;
@@ -142,7 +142,7 @@ LABEL_54:
   if ( ((unsigned __int8)v8 & 7) == 0 && (unsigned __int64)v8 >= v79 && v8 < v81 )
   {
     v75 = 1;
-    v26 = (unsigned int *)RtlpLookupFunctionEntryForStackWalks(v108, &v92);
+    v26 = (unsigned int *)RtlpLookupFunctionEntryForStackWalks(BaseAddress);
     v104 = v26;
     if ( !v26 )
       return v7;
@@ -154,11 +154,15 @@ LABEL_54:
     v102 = v28;
     if ( !v28[2] && !v28[1] && (*v28 & 0x20) == 0 )
     {
-      v72[5] = 0LL;
-      v72[4] = 48LL;
-      VirtualMemory = ZwQueryVirtualMemory(-1LL, v108, 0LL, v105);
+      VirtualMemory = ZwQueryVirtualMemory(
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        BaseAddress,
+                        MemoryBasicInformation,
+                        MemoryInformation,
+                        0x30uLL,
+                        0LL);
       v87 = VirtualMemory;
-      if ( VirtualMemory >= 0 && (v105[36] & 0x40) != 0 )
+      if ( VirtualMemory >= 0 && (MemoryInformation[36] & 0x40) != 0 )
       {
         v87 = -1073741823;
         return v7;
@@ -171,7 +175,7 @@ LABEL_54:
       v8 = v107;
       goto LABEL_49;
     }
-    v29 = v108;
+    v29 = (char *)BaseAddress;
     v100 = v26;
     v30 = 0;
     v90 = 0;
@@ -184,7 +188,7 @@ LABEL_54:
     }
     LODWORD(v9) = 0;
     v95 = 0;
-    v10 = (_DWORD)v108 - DWORD2(v92) - *v26;
+    v10 = (_DWORD)BaseAddress - DWORD2(v92) - *v26;
     v11 = (unsigned __int8)v31[3];
     if ( (v11 & 0xF) != 0 )
     {
@@ -268,7 +272,7 @@ LABEL_98:
                 0LL,
                 (__int64)&v79,
                 (__int64)&v81);
-              if ( v72 != (_QWORD *)-64LL )
+              if ( v72 != (_BYTE *)-64LL )
                 v73 = 0;
               v8 = v107;
               goto LABEL_47;
@@ -401,7 +405,7 @@ LABEL_20:
                       v74 = v18;
                       v76 = 8 * *(unsigned __int16 *)&v21[2 * v18 + 4];
                       v24 = &v89[v76];
-                      if ( v72 != (_QWORD *)-88LL && ((unsigned __int64)v24 < v79 || v24 > v81 - 8) )
+                      if ( v72 != (_BYTE *)-88LL && ((unsigned __int64)v24 < v79 || v24 > v81 - 8) )
                         goto LABEL_199;
                       *(_QWORD *)&v106[8 * v22 + 120] = *(_QWORD *)v24;
                       v8 = v107;
@@ -440,7 +444,7 @@ LABEL_20:
                         v76 = *(unsigned __int16 *)&v21[2 * (unsigned int)(v18 - 1) + 4];
                         v76 += *(unsigned __int16 *)&v21[2 * v18 + 4] << 16;
                         v69 = &v89[v76];
-                        if ( v72 != (_QWORD *)-88LL && ((unsigned __int64)v69 < v79 || v69 > v81 - 8) )
+                        if ( v72 != (_BYTE *)-88LL && ((unsigned __int64)v69 < v79 || v69 > v81 - 8) )
                           goto LABEL_199;
                         *(_QWORD *)&v106[8 * v22 + 120] = *(_QWORD *)v69;
                         v8 = v107;
@@ -458,7 +462,7 @@ LABEL_20:
                         v74 = v18;
                         v76 = 16 * *(unsigned __int16 *)&v21[2 * v18 + 4];
                         v52 = &v89[v76];
-                        if ( v72 != (_QWORD *)-88LL && ((unsigned __int64)v52 < v79 || v52 > v81 - 16) )
+                        if ( v72 != (_BYTE *)-88LL && ((unsigned __int64)v52 < v79 || v52 > v81 - 16) )
                           goto LABEL_199;
                         v53 = 2LL * (unsigned int)v22;
                         v109[v53] = *(_QWORD *)v52;
@@ -471,11 +475,8 @@ LABEL_20:
                         v76 = *(unsigned __int16 *)&v21[2 * (unsigned int)(v18 - 1) + 4];
                         v76 += *(unsigned __int16 *)&v21[2 * v18 + 4] << 16;
                         v27 = (unsigned __int64 *)&v89[v76];
-                        if ( v72 != (_QWORD *)-88LL
-                          && ((unsigned __int64)v27 < v79 || v27 > (unsigned __int64 *)v81 - 2) )
-                        {
+                        if ( v72 != (_BYTE *)-88LL && ((unsigned __int64)v27 < v79 || v27 > (unsigned __int64 *)v81 - 2) )
                           goto LABEL_199;
-                        }
                         v70 = 2LL * (unsigned int)v22;
                         v109[v70] = *v27;
                         v109[v70 + 1] = v27[1];
@@ -510,11 +511,11 @@ LABEL_20:
                         }
                         if ( &v79 && ((unsigned __int64)v61 < v79 || v61 > v62 - 1) )
                           goto LABEL_199;
-                        v108 = *(char **)v60;
+                        BaseAddress = *(PVOID *)v60;
                         v8 = *v61;
                         break;
                       default:
-                        RtlRaiseStatus(3221225727LL);
+                        RtlRaiseStatus(-1073741569);
                     }
                   }
                   else
@@ -552,7 +553,7 @@ LABEL_199:
                       goto LABEL_48;
                     }
                   }
-                  v108 = *(char **)v8;
+                  BaseAddress = *(PVOID *)v8;
                   v8 += 8;
                   v107 = v8;
                 }
@@ -582,7 +583,7 @@ LABEL_199:
               ++v91;
               v27 = (unsigned __int64 *)*((_QWORD *)&v92 + 1);
               if ( v91 > 0x20 )
-                RtlRaiseStatus(3221225727LL);
+                RtlRaiseStatus(-1073741569);
             }
           }
 LABEL_125:
@@ -650,10 +651,10 @@ LABEL_129:
                     goto LABEL_48;
                   }
                 }
-                v108 = *(char **)v8;
+                BaseAddress = *(PVOID *)v8;
                 v8 += 8;
                 v107 = v8;
-                if ( v72 != (_QWORD *)-64LL )
+                if ( v72 != (_BYTE *)-64LL )
                   v73 = 0;
 LABEL_47:
                 VirtualMemory = 0;
@@ -665,11 +666,11 @@ LABEL_48:
                 v5 = v96;
                 v6 = v101;
 LABEL_49:
-                if ( VirtualMemory < 0 || !v108 )
+                if ( VirtualMemory < 0 || !BaseAddress )
                   return v7;
                 if ( v7 >= v4 )
                 {
-                  *(_QWORD *)(v6 + 8LL * (v7 - v4)) = v108;
+                  *(_QWORD *)(v6 + 8LL * (v7 - v4)) = BaseAddress;
                   v8 = v107;
                 }
                 v88 = ++v7;

@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpStartSiloRegistryNamespace @ 0x1407307B8
+ * XREFs of CmpStartSiloRegistryNamespace @ 0x1407319A8
  * Callers:
- *     CmInitServerSiloState @ 0x140730704 (CmInitServerSiloState.c)
- *     CmInitSiloNamespace @ 0x1407F6C48 (CmInitSiloNamespace.c)
+ *     CmInitServerSiloState @ 0x1407318F4 (CmInitServerSiloState.c)
+ *     CmInitSiloNamespace @ 0x1407F7E48 (CmInitSiloNamespace.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpLockKcbStackExclusive @ 0x1405AA5D8 (CmpLockKcbStackExclusive.c)
- *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpCreateKeyBody @ 0x1405E0970 (CmpCreateKeyBody.c)
- *     CmpCleanupKcbStack @ 0x140643FB0 (CmpCleanupKcbStack.c)
- *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpLockKcbStackExclusive @ 0x1405AB5D8 (CmpLockKcbStackExclusive.c)
+ *     CmpCleanupParseContext @ 0x1405B6FC4 (CmpCleanupParseContext.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1405CCDE0 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpCreateKeyBody @ 0x1405E1970 (CmpCreateKeyBody.c)
+ *     CmpCleanupKcbStack @ 0x140644FD0 (CmpCleanupKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x1406450E0 (CmpUnlockKcbStack.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpStartSiloRegistryNamespace(__int64 a1)

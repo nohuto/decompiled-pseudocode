@@ -18,61 +18,77 @@
  *     _RtlpQueryExtendedInformationHeap@8 @ 0x4B358EC0 (_RtlpQueryExtendedInformationHeap@8.c)
  */
 
-int __fastcall RtlpQueryExtendedHeapInformation(int *a1, int a2, _DWORD *a3)
+int __fastcall RtlpQueryExtendedHeapInformation(int a1, int a2, _DWORD *a3)
 {
   int result; // eax
   _DWORD *v6; // eax
   int v7; // eax
   int v8; // esi
   __int16 v9; // di
-  void *v10; // ecx
-  int v11; // ecx
-  unsigned int v12; // esi
-  unsigned int v13; // edi
-  int v14; // ecx
-  int v15; // eax
-  int Section; // esi
-  _DWORD *v17; // eax
-  unsigned int v18; // edi
-  _DWORD *v19; // ebx
+  int v10; // ecx
+  unsigned int v11; // esi
+  unsigned int v12; // edi
+  void *v13; // ecx
+  NTSTATUS v14; // eax
+  NTSTATUS v15; // esi
+  _DWORD *v16; // eax
+  unsigned int v17; // edi
+  _DWORD *v18; // ebx
+  ULONG_PTR v19; // [esp-1Ch] [ebp-DCh]
+  SIZE_T v20; // [esp-14h] [ebp-D4h]
+  SIZE_T v21; // [esp-14h] [ebp-D4h]
+  size_t v22; // [esp-4h] [ebp-C4h]
+  size_t v23; // [esp-4h] [ebp-C4h]
+  ULONG v24; // [esp+0h] [ebp-C0h]
+  ULONG v25; // [esp+4h] [ebp-BCh]
+  ULONG v26; // [esp+4h] [ebp-BCh]
   HANDLE Handle; // [esp+10h] [ebp-B0h] BYREF
-  _DWORD *v21; // [esp+14h] [ebp-ACh] BYREF
-  signed __int64 v22; // [esp+18h] [ebp-A8h] BYREF
-  unsigned int v23; // [esp+20h] [ebp-A0h] BYREF
-  int v24; // [esp+24h] [ebp-9Ch]
-  __int64 v25; // [esp+28h] [ebp-98h] BYREF
-  int (__stdcall *v26)(_DWORD *, _DWORD *); // [esp+34h] [ebp-8Ch]
-  _DWORD *v27; // [esp+38h] [ebp-88h]
-  int v28; // [esp+3Ch] [ebp-84h] BYREF
-  int (__stdcall *v29)(_DWORD *, _DWORD *); // [esp+40h] [ebp-80h]
-  _DWORD *v30; // [esp+44h] [ebp-7Ch]
-  _DWORD v31[12]; // [esp+48h] [ebp-78h] BYREF
-  _QWORD v32[9]; // [esp+78h] [ebp-48h] BYREF
+  PVOID BaseAddress; // [esp+14h] [ebp-ACh] BYREF
+  LARGE_INTEGER MaximumSize; // [esp+18h] [ebp-A8h] BYREF
+  unsigned int v30; // [esp+20h] [ebp-A0h] BYREF
+  int v31; // [esp+24h] [ebp-9Ch]
+  SIZE_T CommitSize; // [esp+28h] [ebp-98h] BYREF
+  int (__stdcall *v33)(_DWORD *, _DWORD *); // [esp+34h] [ebp-8Ch]
+  _DWORD *v34; // [esp+38h] [ebp-88h]
+  int v35; // [esp+3Ch] [ebp-84h] BYREF
+  int (__stdcall *v36)(_DWORD *, _DWORD *); // [esp+40h] [ebp-80h]
+  _DWORD *v37; // [esp+44h] [ebp-7Ch]
+  _DWORD v38[9]; // [esp+48h] [ebp-78h] BYREF
+  int v39; // [esp+6Ch] [ebp-54h]
+  unsigned int v40; // [esp+70h] [ebp-50h]
+  unsigned int v41; // [esp+74h] [ebp-4Ch]
+  HANDLE v42[2]; // [esp+78h] [ebp-48h] BYREF
+  LARGE_INTEGER v43; // [esp+80h] [ebp-40h]
+  int v44; // [esp+88h] [ebp-38h]
+  int v45; // [esp+8Ch] [ebp-34h]
+  int v46; // [esp+94h] [ebp-2Ch]
+  unsigned int v47; // [esp+98h] [ebp-28h]
 
-  v24 = a2;
-  if ( ((unsigned __int8)a1 & 3) != 0 )
+  v31 = a2;
+  if ( (a1 & 3) != 0 )
     return -1073741811;
-  if ( *a1 == -1 )
+  if ( *(_DWORD *)a1 == -1 )
   {
-    v28 = a1[2];
-    memset(v31, 0, sizeof(v31));
-    if ( a1[3] )
+    LODWORD(v22) = 48;
+    v35 = *(_DWORD *)(a1 + 8);
+    memset(v38, 0, v22);
+    if ( *(_DWORD *)(a1 + 12) )
     {
-      v29 = (int (__stdcall *)(_DWORD *, _DWORD *))a1[3];
-      v6 = (_DWORD *)a1[4];
+      v36 = *(int (__stdcall **)(_DWORD *, _DWORD *))(a1 + 12);
+      v6 = *(_DWORD **)(a1 + 16);
     }
     else
     {
-      v31[0] = a1;
-      v31[10] = a1 + 5;
-      v31[11] = (char *)a1 + a2;
-      v6 = v31;
-      v31[9] = a1;
-      v29 = RtlpExtendedHeapInformationGenerator;
+      v38[0] = a1;
+      v40 = a1 + 20;
+      v41 = a1 + a2;
+      v6 = v38;
+      v39 = a1;
+      v36 = RtlpExtendedHeapInformationGenerator;
     }
-    v30 = v6;
-    RtlEnterCriticalSection((int)&RtlpProcessHeapsListLock);
-    v7 = a1[1];
+    v37 = v6;
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+    v7 = *(_DWORD *)(a1 + 4);
     if ( v7 )
     {
       if ( *(_DWORD *)(v7 + 8) == -571548178 )
@@ -81,29 +97,29 @@ int __fastcall RtlpQueryExtendedHeapInformation(int *a1, int a2, _DWORD *a3)
         v9 = *(_WORD *)(v7 + 124);
       if ( v9 != -1 )
       {
-        RtlLockHeap(a1[1]);
-        v7 = a1[1];
+        RtlLockHeap(*(PVOID *)(a1 + 4));
+        v7 = *(_DWORD *)(a1 + 4);
       }
-      v8 = RtlpQueryExtendedInformationHeap(v7, &v28);
+      v8 = RtlpQueryExtendedInformationHeap(v7, &v35);
       if ( v9 != -1 )
-        RtlUnlockHeap(v10, a1[1]);
+        RtlUnlockHeap(*(PVOID *)(a1 + 4));
     }
     else
     {
-      v8 = RtlpQueryExtendedInformationAllHeaps(&v28);
+      v8 = RtlpQueryExtendedInformationAllHeaps(&v35);
     }
-    RtlLeaveCriticalSection((int)&RtlpProcessHeapsListLock);
-    v11 = v8 != -2147483622 ? v8 : 0;
-    result = v11;
-    if ( v29 == RtlpExtendedHeapInformationGenerator )
+    RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
+    v10 = v8 != -2147483622 ? v8 : 0;
+    result = v10;
+    if ( v36 == RtlpExtendedHeapInformationGenerator )
     {
-      if ( v11 >= 0 )
+      if ( v10 >= 0 )
       {
-        v12 = v31[10];
+        v11 = v40;
         if ( a3 )
-          *a3 = v31[10] - v31[9];
-        result = v11;
-        if ( v12 > v31[11] )
+          *a3 = v40 - v39;
+        result = v10;
+        if ( v11 > v41 )
           return -1073741789;
       }
     }
@@ -115,91 +131,120 @@ int __fastcall RtlpQueryExtendedHeapInformation(int *a1, int a2, _DWORD *a3)
   }
   else
   {
-    v13 = 0;
-    LODWORD(v22) = 0x10000;
-    v21 = 0;
+    v12 = 0;
+    MaximumSize.LowPart = 0x10000;
+    BaseAddress = 0;
     while ( 1 )
     {
       Handle = 0;
-      HIDWORD(v22) = 0;
-      Section = NtCreateSection((int)&Handle, 983071, 0, (int)&v22, 4, 0x8000000, 0);
-      if ( Section < 0 )
+      MaximumSize.HighPart = 0;
+      v15 = NtCreateSection(&Handle, 0xF001Fu, 0, &MaximumSize, 4u, 0x8000000u, 0);
+      if ( v15 < 0 )
         break;
-      memset(v32, 0, sizeof(v32));
-      v14 = *a1;
-      v32[2] = *(_QWORD *)(a1 + 1);
-      v32[1] = v22;
-      LODWORD(v32[0]) = Handle;
-      v15 = RtlpHeapPerformCrossProcessQuery(v14, (int *)v32);
-      Section = v15;
-      if ( v15 != -1073741789 )
+      LODWORD(v22) = 72;
+      memset(v42, 0, v22);
+      v13 = *(void **)a1;
+      v44 = *(_DWORD *)(a1 + 4);
+      v45 = *(_DWORD *)(a1 + 8);
+      v43 = MaximumSize;
+      v42[0] = Handle;
+      v14 = RtlpHeapPerformCrossProcessQuery(v13, v42);
+      v15 = v14;
+      if ( v14 != -1073741789 )
       {
-        if ( v15 >= 0 )
+        if ( v14 >= 0 )
         {
-          v25 = 0LL;
-          v23 = 0x10000;
-          Section = ZwMapViewOfSection((int)Handle, -1, (int)&v21, 0, 0x10000, (int)&v25, (int)&v23, 2, 0, 4);
-          if ( Section >= 0 )
+          CommitSize = 0LL;
+          HIDWORD(v20) = &v30;
+          LODWORD(v20) = &CommitSize;
+          v30 = 0x10000;
+          v15 = ZwMapViewOfSection(
+                  Handle,
+                  (HANDLE)0xFFFFFFFF,
+                  &BaseAddress,
+                  0x1000000000000uLL,
+                  v20,
+                  (PLARGE_INTEGER)2,
+                  0,
+                  (SECTION_INHERIT)4,
+                  HIDWORD(v22),
+                  v25);
+          if ( v15 >= 0 )
           {
-            memset(v31, 0, sizeof(v31));
-            v26 = (int (__stdcall *)(_DWORD *, _DWORD *))a1[3];
-            if ( v26 )
+            LODWORD(v23) = 48;
+            memset(v38, 0, v23);
+            v33 = *(int (__stdcall **)(_DWORD *, _DWORD *))(a1 + 12);
+            if ( v33 )
             {
-              v17 = (_DWORD *)a1[4];
+              v16 = *(_DWORD **)(a1 + 16);
             }
             else
             {
-              v31[0] = a1;
-              v31[10] = a1 + 5;
-              v31[9] = a1;
-              v31[11] = (char *)a1 + v24;
-              v17 = v31;
-              v26 = RtlpExtendedHeapInformationGenerator;
+              v38[0] = a1;
+              v40 = a1 + 20;
+              v39 = a1;
+              v41 = a1 + v31;
+              v16 = v38;
+              v33 = RtlpExtendedHeapInformationGenerator;
             }
-            v24 = 0;
-            v27 = v17;
-            if ( LODWORD(v32[4]) )
+            v31 = 0;
+            v34 = v16;
+            if ( v47 )
             {
               while ( 1 )
               {
-                v18 = (v13 + 3) & 0xFFFFFFFC;
-                if ( v18 >= (unsigned int)v22 || v18 >= 2 * v23 || v25 + v23 > v22 )
+                v17 = (v12 + 3) & 0xFFFFFFFC;
+                if ( v17 >= MaximumSize.LowPart || v17 >= 2 * v30 || (__int64)(CommitSize + v30) > MaximumSize.QuadPart )
                   break;
-                v19 = (_DWORD *)((char *)v21 + v18);
-                if ( v18 + 8 >= v23 || !*v19 )
+                v18 = (char *)BaseAddress + v17;
+                if ( v17 + 8 >= v30 || !*v18 )
                 {
-                  NtUnmapViewOfSection(-1, (int)v21);
-                  v25 += v23;
-                  v21 = 0;
-                  Section = ZwMapViewOfSection((int)Handle, -1, (int)&v21, 0, v23, (int)&v25, (int)&v23, 2, 0, 4);
-                  if ( Section < 0 )
+                  NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
+                  CommitSize += v30;
+                  HIDWORD(v21) = &v30;
+                  BaseAddress = 0;
+                  LODWORD(v21) = &CommitSize;
+                  HIDWORD(v19) = v30;
+                  LODWORD(v19) = 0;
+                  v15 = ZwMapViewOfSection(
+                          Handle,
+                          (HANDLE)0xFFFFFFFF,
+                          &BaseAddress,
+                          v19,
+                          v21,
+                          (PLARGE_INTEGER)2,
+                          0,
+                          (SECTION_INHERIT)4,
+                          v24,
+                          v26);
+                  if ( v15 < 0 )
                     goto LABEL_46;
-                  v18 = 0;
-                  v19 = v21;
+                  v17 = 0;
+                  v18 = BaseAddress;
                 }
-                Section = ((int (__thiscall *)(int (__stdcall *)(_DWORD *, _DWORD *), _DWORD *, _DWORD *))v26)(
-                            v26,
-                            v19,
-                            v27);
-                if ( Section >= 0 )
+                v15 = ((int (__thiscall *)(int (__stdcall *)(_DWORD *, _DWORD *), _DWORD *, _DWORD *))v33)(
+                        v33,
+                        v18,
+                        v34);
+                if ( v15 >= 0 )
                 {
-                  v13 = v19[1] + v18;
-                  if ( (unsigned int)++v24 < LODWORD(v32[4]) )
+                  v12 = v18[1] + v17;
+                  if ( ++v31 < v47 )
                     continue;
                 }
                 goto LABEL_46;
               }
-              Section = -1073741762;
+              v15 = -1073741762;
             }
 LABEL_46:
-            if ( v26 == RtlpExtendedHeapInformationGenerator )
+            if ( v33 == RtlpExtendedHeapInformationGenerator )
             {
-              if ( Section >= 0 )
+              if ( v15 >= 0 )
               {
                 if ( a3 )
-                  *a3 = v31[10] - v31[9];
-                if ( v31[10] > v31[11] )
-                  Section = -1073741789;
+                  *a3 = v40 - v39;
+                if ( v40 > v41 )
+                  v15 = -1073741789;
               }
             }
             else if ( a3 )
@@ -211,13 +256,13 @@ LABEL_46:
         break;
       }
       NtClose(Handle);
-      LODWORD(v22) = (HIDWORD(v32[3]) + 0xFFFF) & 0xFFFF0000;
+      MaximumSize.LowPart = (v46 + 0xFFFF) & 0xFFFF0000;
     }
-    if ( v21 )
-      NtUnmapViewOfSection(-1, (int)v21);
+    if ( BaseAddress )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
     if ( Handle )
       NtClose(Handle);
-    return Section;
+    return v15;
   }
   return result;
 }

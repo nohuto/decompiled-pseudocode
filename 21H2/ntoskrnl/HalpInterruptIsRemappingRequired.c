@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptIsRemappingRequired @ 0x14037903C
+ * XREFs of HalpInterruptIsRemappingRequired @ 0x140378B8C
  * Callers:
- *     HalpInterruptUnmap @ 0x140761838 (HalpInterruptUnmap.c)
- *     HalpInterruptQueryControllerInfo @ 0x1407D1E5C (HalpInterruptQueryControllerInfo.c)
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
- *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A8C54 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptUnmap @ 0x1407619F8 (HalpInterruptUnmap.c)
+ *     HalpInterruptQueryControllerInfo @ 0x1407D1FCC (HalpInterruptQueryControllerInfo.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A9B84 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
  *     <none>
  */

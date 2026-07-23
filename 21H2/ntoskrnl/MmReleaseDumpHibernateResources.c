@@ -1,12 +1,12 @@
 /*
- * XREFs of MmReleaseDumpHibernateResources @ 0x1407771A0
+ * XREFs of MmReleaseDumpHibernateResources @ 0x140777360
  * Callers:
- *     PopFreeHiberContext @ 0x140776FBC (PopFreeHiberContext.c)
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
- *     IopLiveDumpFreeMappingResources @ 0x1408980FC (IopLiveDumpFreeMappingResources.c)
+ *     PopFreeHiberContext @ 0x14077717C (PopFreeHiberContext.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
+ *     IopLiveDumpFreeMappingResources @ 0x14089825C (IopLiveDumpFreeMappingResources.c)
  * Callees:
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
  */
 
 unsigned __int64 __fastcall MmReleaseDumpHibernateResources(unsigned __int64 a1)
@@ -15,5 +15,5 @@ unsigned __int64 __fastcall MmReleaseDumpHibernateResources(unsigned __int64 a1)
   unsigned int v2; // r8d
 
   PteAddress = (_QWORD *)MiGetPteAddress(a1);
-  return MiReleasePtes((__int64)&qword_140C4EF40, PteAddress, v2);
+  return MiReleasePtes((__int64)&qword_140C4EF80, PteAddress, v2);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepUpdateLogonSessionTrack @ 0x1407C7694
+ * XREFs of SepUpdateLogonSessionTrack @ 0x1407C7964
  * Callers:
- *     SepRmAddLogonSessionInfoWrkr @ 0x1407C7670 (SepRmAddLogonSessionInfoWrkr.c)
+ *     SepRmAddLogonSessionInfoWrkr @ 0x1407C7940 (SepRmAddLogonSessionInfoWrkr.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

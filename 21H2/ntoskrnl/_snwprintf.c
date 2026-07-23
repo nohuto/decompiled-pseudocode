@@ -1,11 +1,11 @@
 /*
- * XREFs of _snwprintf @ 0x1403D1C90
+ * XREFs of _snwprintf @ 0x1403D1E00
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     _flsbuf @ 0x1403D4998 (_flsbuf.c)
- *     _woutput_l @ 0x1403D49A8 (_woutput_l.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D4B08 (_flsbuf.c)
+ *     _woutput_l @ 0x1403D4B18 (_woutput_l.c)
  */
 
 int snwprintf(wchar_t *Dest, size_t Count, const wchar_t *Format, ...)

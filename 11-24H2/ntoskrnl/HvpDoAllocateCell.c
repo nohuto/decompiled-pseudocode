@@ -1,21 +1,21 @@
 /*
- * XREFs of HvpDoAllocateCell @ 0x140882054
+ * XREFs of HvpDoAllocateCell @ 0x140885F04
  * Callers:
- *     HvReallocateCell @ 0x1408814EC (HvReallocateCell.c)
+ *     HvReallocateCell @ 0x14088539C (HvReallocateCell.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpDelistFreeCell @ 0x140881E74 (HvpDelistFreeCell.c)
- *     HvpFindFreeCell @ 0x1408825A0 (HvpFindFreeCell.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     HvpGetCellContextMove @ 0x140882E60 (HvpGetCellContextMove.c)
- *     HvpRemoveFreeCellHint @ 0x140882EB0 (HvpRemoveFreeCellHint.c)
- *     HvpEnlistFreeCell @ 0x140883070 (HvpEnlistFreeCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpDelistFreeCell @ 0x140885D24 (HvpDelistFreeCell.c)
+ *     HvpFindFreeCell @ 0x140886450 (HvpFindFreeCell.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     HvpGetCellContextMove @ 0x140886D10 (HvpGetCellContextMove.c)
+ *     HvpRemoveFreeCellHint @ 0x140886D60 (HvpRemoveFreeCellHint.c)
+ *     HvpEnlistFreeCell @ 0x140886F20 (HvpEnlistFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
  */
 
 __int64 __fastcall HvpDoAllocateCell(

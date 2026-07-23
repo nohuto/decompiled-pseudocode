@@ -1,32 +1,33 @@
 /*
- * XREFs of MiMapViewOfPhysicalSection @ 0x1407C2C08
+ * XREFs of MiMapViewOfPhysicalSection @ 0x1407C3128
  * Callers:
- *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x140702E10 (MiMapViewOfSection.c)
  * Callees:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025AE28 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MiSanitizePage @ 0x140295E68 (MiSanitizePage.c)
- *     MiDereferenceIoPages @ 0x140297968 (MiDereferenceIoPages.c)
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403C6DC8 (MiInsertViewOfPhysicalSection.c)
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
- *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
- *     MiIsVaRangeAvailable @ 0x14061DBD8 (MiIsVaRangeAvailable.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x1406ECF60 (MiAdvanceVadHint.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MiSanitizePage @ 0x140217B28 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x1402183E8 (MiDereferenceIoPages.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14027C398 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiIsProcessCfgEnabled @ 0x14027C590 (MiIsProcessCfgEnabled.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C6F68 (MiInsertViewOfPhysicalSection.c)
+ *     MiCommitVadCfgBits @ 0x14068592C (MiCommitVadCfgBits.c)
+ *     MiIsVaRangeAvailable @ 0x140687848 (MiIsVaRangeAvailable.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140704340 (MiAdvanceVadHint.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, _QWORD *a3, unsigned int a4, char *a5)
 {
+  char v5; // r14
   __int64 v8; // r15
   unsigned int v9; // r13d
   struct _KTHREAD *CurrentThread; // rbp
@@ -68,6 +69,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, 
 
   v46 = a3;
   v45 = a2;
+  v5 = a4;
   if ( (*(_DWORD *)(a1 + 60) & 2) != 0 || *(_QWORD *)(a1 + 80) )
     return 3221225485LL;
   v8 = *(_QWORD *)(a1 + 88);
@@ -84,7 +86,7 @@ __int64 __fastcall MiMapViewOfPhysicalSection(__int64 a1, unsigned __int64 *a2, 
   Pool[2] = -2LL;
   v13 = Pool[6] & 0xFFFFF01F;
   *(_QWORD *)(v12 + 40) = 0LL;
-  *(_DWORD *)(v12 + 48) = v13 | ((a4 & 0x1F) << 7) | 0x100010;
+  *(_DWORD *)(v12 + 48) = v13 | ((v5 & 0x1F) << 7) | 0x100010;
   v14 = MiSanitizePage(*a3 >> 12);
   v44 = 0LL;
   v40 = -1LL;
@@ -118,7 +120,7 @@ LABEL_11:
         LODWORD(v44) = 1;
         if ( v9 == 3 )
         {
-          if ( (a4 & 7) == 0 )
+          if ( (v5 & 7) == 0 )
           {
 LABEL_14:
             v36 = -1LL;
@@ -165,7 +167,7 @@ LABEL_14:
               MiInsertViewOfPhysicalSection(v8, v12, v15);
               if ( v41 )
                 MiAdvanceVadHint(v43, v42, v41);
-              if ( (a4 & 2) != 0 && MiIsProcessCfgEnabled() )
+              if ( (v5 & 2) != 0 && MiIsProcessCfgEnabled() )
               {
                 MiLockVad(v37, v12);
                 UNLOCK_ADDRESS_SPACE_UNORDERED(v37, v8);
@@ -208,7 +210,7 @@ LABEL_14:
                    v38,
                    *(_QWORD *)(a1 + 16),
                    0LL,
-                   a4,
+                   v5,
                    0,
                    (__int64 *)&v41,
                    &v44);

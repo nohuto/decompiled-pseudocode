@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUpdateLargePageCandidateValue @ 0x140272210
+ * XREFs of MiUpdateLargePageCandidateValue @ 0x1402277A0
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiUpdateLargePageCandidates @ 0x14026A2B0 (MiUpdateLargePageCandidates.c)
- *     MiUnlinkStandbyPage @ 0x140270760 (MiUnlinkStandbyPage.c)
- *     MiInsertPagesInList @ 0x140271500 (MiInsertPagesInList.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
- *     MiMirrorZeroFreeListsCallback @ 0x140429090 (MiMirrorZeroFreeListsCallback.c)
- *     MiWalkPagesOnLists @ 0x140489D48 (MiWalkPagesOnLists.c)
- *     MiReplenishPageSlist @ 0x1404F40C0 (MiReplenishPageSlist.c)
+ *     MiUpdateLargePageCandidates @ 0x14021F840 (MiUpdateLargePageCandidates.c)
+ *     MiUnlinkStandbyPage @ 0x140225CF0 (MiUnlinkStandbyPage.c)
+ *     MiInsertPagesInList @ 0x140226A90 (MiInsertPagesInList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiWalkPagesOnLists @ 0x14026E7E0 (MiWalkPagesOnLists.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
+ *     MiMirrorZeroFreeListsCallback @ 0x14041D1E0 (MiMirrorZeroFreeListsCallback.c)
+ *     MiReplenishPageSlist @ 0x1404F1A70 (MiReplenishPageSlist.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiRecordLargePageCandidate @ 0x1403096C4 (MiRecordLargePageCandidate.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiRecordLargePageCandidate @ 0x1403135A4 (MiRecordLargePageCandidate.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUpdateLargePageCandidateValue(__int64 a1, ULONG_PTR a2, int a3, char a4, volatile signed __int16 *a5)
@@ -72,17 +72,17 @@ void __fastcall MiUpdateLargePageCandidateValue(__int64 a1, ULONG_PTR a2, int a3
       v10 = -v10;
     v11 = 1;
     v12 = ((_BYTE)v10
-         + (unsigned __int8)_InterlockedExchangeAdd16((volatile signed __int16 *)(qword_140E3CBF8 + 2 * v9), v10)) & 0x1F;
+         + (unsigned __int8)_InterlockedExchangeAdd16((volatile signed __int16 *)(qword_140E3CD38 + 2 * v9), v10)) & 0x1F;
     if ( v12 != 16 )
     {
       if ( v12 == 15 && (a4 & 3) == 0 )
         MiRecordLargePageCandidate(a1, a2, 2LL, 1LL);
       goto LABEL_23;
     }
-    v13 = dword_140E2DAC4;
-    if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-      || (v14 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, a2 < *(_QWORD *)v14)
-      || dword_140E2DAC0 != dword_140E2DAC4 && a2 >= *((_QWORD *)v14 + 2) )
+    v13 = dword_140E2DC04;
+    if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+      || (v14 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, a2 < *(_QWORD *)v14)
+      || dword_140E2DC00 != dword_140E2DC04 && a2 >= *((_QWORD *)v14 + 2) )
     {
       for ( i = 0; ; i = v16 + 1 )
       {
@@ -91,20 +91,20 @@ void __fastcall MiUpdateLargePageCandidateValue(__int64 a1, ULONG_PTR a2, int a3
           if ( v13 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, a2, 0LL, 0LL);
           v16 = (i + v13) >> 1;
-          v14 = (char *)qword_140E2DB20 + 16 * v16;
+          v14 = (char *)qword_140E2DC60 + 16 * v16;
           if ( a2 >= *(_QWORD *)v14 )
             break;
           if ( !v16 )
             KeBugCheckEx(0x1Au, 0x5180uLL, a2, (ULONG_PTR)v14, 0LL);
           v13 = v16 - 1;
         }
-        if ( v16 == dword_140E2DAC4 || a2 < *((_QWORD *)v14 + 2) )
+        if ( v16 == dword_140E2DC04 || a2 < *((_QWORD *)v14 + 2) )
           break;
       }
-      dword_140E2DAC0 = (i + v13) >> 1;
+      dword_140E2DC00 = (i + v13) >> 1;
     }
     v17 = 57216LL * *((unsigned int *)v14 + 2);
-    v18 = qword_140E38C10;
+    v18 = qword_140E38D50;
     _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(a1 + 16) + v17 + 57152));
     _InterlockedIncrement64((volatile signed __int64 *)(v17 + v18 + 57128));
     LOBYTE(v19) = 1;

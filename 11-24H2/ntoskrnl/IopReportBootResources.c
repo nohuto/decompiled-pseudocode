@@ -1,13 +1,13 @@
 /*
- * XREFs of IopReportBootResources @ 0x140C240C0
+ * XREFs of IopReportBootResources @ 0x140C260F0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopAllocateBootResources @ 0x140725220 (IopAllocateBootResources.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopAllocateBootResources @ 0x140722DB0 (IopAllocateBootResources.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopReportBootResources(unsigned int a1, __int64 a2, _DWORD *a3)

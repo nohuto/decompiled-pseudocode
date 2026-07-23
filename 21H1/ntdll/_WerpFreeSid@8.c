@@ -7,15 +7,15 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __thiscall WerpFreeSid(void *this)
+NTSTATUS __thiscall WerpFreeSid(void *this)
 {
-  void *v2; // [esp+0h] [ebp-8h] BYREF
-  int v3; // [esp+4h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+0h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+4h] [ebp-4h] BYREF
 
-  v2 = this;
-  v3 = 12;
+  BaseAddress = this;
+  LODWORD(RegionSize) = 12;
   if ( this )
-    return NtFreeVirtualMemory(-1, (int)&v2, (int)&v3, 0x8000);
+    return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
   else
     return -1073741811;
 }

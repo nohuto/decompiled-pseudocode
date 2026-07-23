@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPowerRequestCallbackWorker @ 0x14046C280
+ * XREFs of PopPowerRequestCallbackWorker @ 0x140464F00
  * Callers:
- *     PopPowerRequestReferenceRelease @ 0x14046BD60 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14046BE70 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestHandleClose @ 0x14046C044 (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestReferenceRelease @ 0x1404649E0 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x140464AF0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestHandleClose @ 0x140464CC4 (PopPowerRequestHandleClose.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopPowerRequestHandleRequestUpdate @ 0x140A4EFCC (PopPowerRequestHandleRequestUpdate.c)
- *     PopAcquirePowerRequestPushLock @ 0x140A50600 (PopAcquirePowerRequestPushLock.c)
- *     PopReleasePowerRequestPushLock @ 0x140A5A6BC (PopReleasePowerRequestPushLock.c)
- *     PopPowerRequestStatsSetActive @ 0x140A667D4 (PopPowerRequestStatsSetActive.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x140A45D7C (PopPowerRequestHandleRequestUpdate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140A473B0 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleasePowerRequestPushLock @ 0x140A51F7C (PopReleasePowerRequestPushLock.c)
+ *     PopPowerRequestStatsSetActive @ 0x140A5F5B8 (PopPowerRequestStatsSetActive.c)
  */
 
 void __fastcall PopPowerRequestCallbackWorker(__int64 *a1)
@@ -105,6 +105,6 @@ LABEL_18:
     }
   }
   if ( v1 == &PopPowerRequestUpdateQueue )
-    _InterlockedExchange(&dword_140F0DFA0, 0);
+    _InterlockedExchange(&dword_140F0E3E0, 0);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

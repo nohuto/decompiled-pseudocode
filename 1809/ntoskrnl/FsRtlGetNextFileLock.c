@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetNextFileLock @ 0x14026F0F0
+ * XREFs of FsRtlGetNextFileLock @ 0x14026F2E0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x14008D364 (FsRtlFindFirstOverlappingSharedNode.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140122590 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     RtlRealSuccessor @ 0x14012EF60 (RtlRealSuccessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x14008D2A4 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140122660 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlRealSuccessor @ 0x14012F030 (RtlRealSuccessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Restart)
@@ -18,7 +18,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   PRTL_SPLAY_LINKS LastReturnedLock; // rdi
   char v6; // r14
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  struct _RTL_SPLAY_LINKS *v8; // rcx
+  _RTL_SPLAY_LINKS *v8; // rcx
   __int64 v9; // r14
   __int64 v10; // r15
   __int32 v11; // r12d
@@ -27,12 +27,12 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int64 v14; // rcx
   __int64 j; // rax
   __int128 v16; // xmm0
-  struct _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
-  struct _RTL_SPLAY_LINKS *v18; // rcx
+  _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *v18; // rcx
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v20; // cf
   PRTL_SPLAY_LINKS v21; // rax
-  struct _RTL_SPLAY_LINKS *v22; // rax
+  _RTL_SPLAY_LINKS *v22; // rax
   __int64 v23; // rax
   __int64 i; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
@@ -66,7 +66,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   v38 = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v22 = (struct _RTL_SPLAY_LINKS *)LockInformation[5];
+    v22 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v22 )
     {
       do
@@ -167,12 +167,12 @@ LABEL_22:
     }
     goto LABEL_23;
   }
-  FirstOverlappingSharedNode = (struct _RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                            LockInformation[4],
-                                                            (unsigned __int64 *)&v31,
-                                                            &v32.m256i_u64[3],
-                                                            &Links,
-                                                            &v39);
+  FirstOverlappingSharedNode = (_RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
+                                                     LockInformation[4],
+                                                     (unsigned __int64 *)&v31,
+                                                     &v32.m256i_u64[3],
+                                                     &Links,
+                                                     &v39);
   if ( !FirstOverlappingSharedNode )
   {
     if ( !v39 )
@@ -191,7 +191,7 @@ LABEL_22:
   }
   v18 = FirstOverlappingSharedNode;
 LABEL_34:
-  if ( v18 == (struct _RTL_SPLAY_LINKS *)24 )
+  if ( v18 == (_RTL_SPLAY_LINKS *)24 )
     goto LABEL_64;
   Parent = v18[-1].Parent;
   if ( !Parent )

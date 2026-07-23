@@ -17,7 +17,7 @@
  *     _RtlpLogHeapSubSegmentFreeCached@16 @ 0x4B36F457 (_RtlpLogHeapSubSegmentFreeCached@16.c)
  */
 
-int __fastcall RtlpFreeUserBlock(int a1, int a2, int a3)
+int __fastcall RtlpFreeUserBlock(int a1, int *a2, int a3)
 {
   unsigned int v5; // edi
   int v6; // eax
@@ -39,23 +39,23 @@ int __fastcall RtlpFreeUserBlock(int a1, int a2, int a3)
   unsigned int v23; // [esp+18h] [ebp-8h]
   unsigned int v24; // [esp+1Ch] [ebp-4h]
 
-  v19 = *(_DWORD *)a2;
-  v5 = 32 * *(unsigned __int8 *)(a2 + 8) + a1 - 168;
+  v19 = *a2;
+  v5 = 32 * *((unsigned __int8 *)a2 + 8) + a1 - 168;
   v6 = *(_DWORD *)(a1 + 12);
   v20 = v6;
   if ( *(_WORD *)(v6 + 232) && (*(_BYTE *)(v6 + 64) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_DWORD *)(v6 + 200));
-    RtlLeaveCriticalSection(*(_DWORD *)(v20 + 200));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(v6 + 200));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v20 + 200));
   }
   v7 = *(unsigned __int16 *)(v5 + 4);
   v22 = v7;
   if ( v7 <= *(_DWORD *)(v5 + 12) || (v12 = *(_DWORD *)(v5 + 16), v7 <= *(_DWORD *)(v5 + 8) >> v12) )
   {
-    v8 = 1 << *(_BYTE *)(a2 + 8);
+    v8 = 1 << *((_BYTE *)a2 + 8);
     if ( v8 > 0x78000 )
       v8 = 491520;
-    v24 = v8 + *(unsigned __int16 *)(a2 + 10);
+    v24 = v8 + *((unsigned __int16 *)a2 + 5);
     _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 44), v24);
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
@@ -67,22 +67,22 @@ int __fastcall RtlpFreeUserBlock(int a1, int a2, int a3)
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
         RtlpLogHeapSubSegmentFreeCached(v24, 8 * *(unsigned __int16 *)(v19 + 20));
     }
-    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[(v5 >> 2) & 0x1F]);
-    *(_DWORD *)a2 = *(_DWORD *)v5;
+    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + ((v5 >> 2) & 0x1F));
+    *a2 = *(_DWORD *)v5;
     ++*(_WORD *)(v5 + 4);
     *(_DWORD *)v5 = a2;
-    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[(v5 >> 2) & 0x1F]);
+    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + ((v5 >> 2) & 0x1F));
     result = 1;
     ++*(_WORD *)(v5 + 22);
   }
   else
   {
-    LOBYTE(v12) = *(_BYTE *)(a2 + 8);
+    LOBYTE(v12) = *((_BYTE *)a2 + 8);
     v13 = 1 << v12;
     if ( (unsigned int)(1 << v12) > 0x78000 )
       v13 = 491520;
-    v21 = v13 + *(unsigned __int16 *)(a2 + 10);
-    RtlpFreeUserBlockToHeap(*(_DWORD *)(a1 + 12), a2, v12);
+    v21 = v13 + *((unsigned __int16 *)a2 + 5);
+    RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 12), a2, v12);
     if ( RtlGetCurrentServiceSessionId() )
       v14 = (int)NtCurrentPeb()->SharedData + 550;
     else
@@ -108,8 +108,8 @@ int __fastcall RtlpFreeUserBlock(int a1, int a2, int a3)
           v16 = 491520;
         v23 = v16 + *(unsigned __int16 *)(result + 10);
         RtlpFreeUserBlockToHeap(
-          *(_DWORD *)(v15 + 12),
-          result,
+          *(PVOID *)(v15 + 12),
+          (_BYTE *)result,
           _InterlockedExchangeAdd((volatile signed __int32 *)(v15 + 44), -v23));
         if ( RtlGetCurrentServiceSessionId() )
           v17 = (int)NtCurrentPeb()->SharedData + 550;

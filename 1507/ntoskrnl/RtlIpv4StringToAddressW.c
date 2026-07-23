@@ -142,6 +142,6 @@ LABEL_15:
     v15 = v23;
   }
   *Terminator = S;
-  Addr->S_un.S_addr = _byteswap_ulong(v15);
+  *(_DWORD *)Addr = _byteswap_ulong(v15);
   return 0;
 }

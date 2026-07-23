@@ -1,17 +1,17 @@
 /*
- * XREFs of KiRaiseException @ 0x1403D3C10
+ * XREFs of KiRaiseException @ 0x1403D6BE0
  * Callers:
- *     NtRaiseException @ 0x1407278B0 (NtRaiseException.c)
+ *     NtRaiseException @ 0x14072C480 (NtRaiseException.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
- *     KyRaiseException @ 0x1403D3E8C (KyRaiseException.c)
- *     KiSetupForInstrumentationReturn @ 0x140488168 (KiSetupForInstrumentationReturn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
+ *     KyRaiseException @ 0x1403D6E5C (KyRaiseException.c)
+ *     KiSetupForInstrumentationReturn @ 0x140481CA8 (KiSetupForInstrumentationReturn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
  */
 
 __int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, void *a3, __int64 a4, char a5)

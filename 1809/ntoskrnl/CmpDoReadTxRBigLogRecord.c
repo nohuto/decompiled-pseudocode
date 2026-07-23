@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpDoReadTxRBigLogRecord @ 0x1407F8D54
+ * XREFs of CmpDoReadTxRBigLogRecord @ 0x1407F9F54
  * Callers:
- *     CmpRmReDoPhase @ 0x1407F91E4 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x1407FA3E4 (CmpRmReDoPhase.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpVerifyBigLogRecordChunk @ 0x140580D88 (CmpVerifyBigLogRecordChunk.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpVerifyBigLogRecordChunk @ 0x140581D88 (CmpVerifyBigLogRecordChunk.c)
  */
 
 __int64 __fastcall CmpDoReadTxRBigLogRecord(

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCopyRangeListEntry @ 0x140A52210
+ * XREFs of RtlpCopyRangeListEntry @ 0x140A4A140
  * Callers:
- *     RtlMergeRangeLists @ 0x14077D3B0 (RtlMergeRangeLists.c)
- *     RtlpAddIntersectingRanges @ 0x14077D4BC (RtlpAddIntersectingRanges.c)
- *     RtlCopyRangeList @ 0x140A52170 (RtlCopyRangeList.c)
+ *     RtlMergeRangeLists @ 0x14077D2E0 (RtlMergeRangeLists.c)
+ *     RtlpAddIntersectingRanges @ 0x14077D3EC (RtlpAddIntersectingRanges.c)
+ *     RtlCopyRangeList @ 0x140A4A0A0 (RtlCopyRangeList.c)
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     RtlpDeleteRangeListEntry @ 0x140A523A8 (RtlpDeleteRangeListEntry.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     RtlpDeleteRangeListEntry @ 0x140A4A2D8 (RtlpDeleteRangeListEntry.c)
  */
 
 char *__fastcall RtlpCopyRangeListEntry(__int64 a1)

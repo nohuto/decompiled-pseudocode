@@ -3,8 +3,8 @@
  * Callers:
  *     PipInitComputerIds @ 0x140799740 (PipInitComputerIds.c)
  * Callees:
- *     strchr @ 0x14014E738 (strchr.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
+ *     strchr @ 0x14014ECF8 (strchr.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall PipSmBiosGetString(
@@ -21,7 +21,7 @@ NTSTATUS __fastcall PipSmBiosGetString(
   char *v11; // rdi
   char v12; // al
   bool v13; // zf
-  STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
 
   if ( !a2 )
     return -1073741275;

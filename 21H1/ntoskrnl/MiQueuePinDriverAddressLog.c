@@ -17,9 +17,9 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
   unsigned int v7; // esi
   unsigned int v8; // edi
   unsigned int v9; // r8d
-  int v10; // edx
+  unsigned int v10; // edx
   int v11; // r9d
-  __int64 v12; // r10
+  char *v12; // r10
   unsigned int v13; // r11d
   unsigned int v14; // ecx
   __int64 *v15; // rsi
@@ -32,7 +32,7 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
   unsigned __int64 v22; // rax
   int v23; // edi
   _DWORD *SchedulerAssist; // r9
-  int v25; // edx
+  unsigned int SizeOfBitMap; // edx
   char *v26; // rdx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v28; // r8
@@ -66,10 +66,10 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
   do
   {
     v8 = v7 + 1;
-    v9 = v8 < dword_140C2A080 ? v8 : 0;
-    v10 = dword_140C2A080 - 1;
-    v11 = (qword_140C2A088 & 4) != 0 ? 0x20 : 0;
-    v12 = qword_140C2A088 - ((qword_140C2A088 & 4) != 0 ? 4 : 0);
+    v9 = v8 < stru_140C2A080.SizeOfBitMap ? v8 : 0;
+    v10 = stru_140C2A080.SizeOfBitMap - 1;
+    v11 = ((__int64)stru_140C2A080.Buffer & 4) != 0LL ? 0x20 : 0;
+    v12 = (char *)stru_140C2A080.Buffer - (((__int64)stru_140C2A080.Buffer & 4) != 0LL ? 4 : 0);
     while ( 1 )
     {
       v33 = 0;
@@ -81,20 +81,20 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
 LABEL_47:
       if ( !v9 )
         goto LABEL_17;
-      v25 = v8 + 1;
-      if ( v8 + 1 > dword_140C2A080 )
-        v25 = dword_140C2A080;
-      v10 = v25 - 1;
+      SizeOfBitMap = v8 + 1;
+      if ( v8 + 1 > stru_140C2A080.SizeOfBitMap )
+        SizeOfBitMap = stru_140C2A080.SizeOfBitMap;
+      v10 = SizeOfBitMap - 1;
       v9 = 0;
     }
-    v15 = (__int64 *)(v12 + 8 * ((unsigned __int64)v14 >> 6));
+    v15 = (__int64 *)&v12[8 * ((unsigned __int64)v14 >> 6)];
     for ( i = ((1LL << (v14 & 0x3F)) - 1) | *v15; i == -1; i = *v15 )
     {
-      if ( (unsigned __int64)++v15 > v12 + 8 * ((unsigned __int64)v13 >> 6) )
+      if ( ++v15 > (__int64 *)&v12[8 * ((unsigned __int64)v13 >> 6)] )
         goto LABEL_40;
     }
     _BitScanForward64((unsigned __int64 *)&i, ~i);
-    v7 = i + ((unsigned int)(((__int64)v15 - v12) >> 3) << 6);
+    v7 = i + ((unsigned int)(((char *)v15 - v12) >> 3) << 6);
     v33 = i;
     if ( v7 > v13 )
     {
@@ -108,7 +108,7 @@ LABEL_40:
 LABEL_17:
     ;
   }
-  while ( v7 != -1 && !(unsigned int)RtlInterlockedSetClearRun((__int64)&dword_140C2A080, v7, 1u) );
+  while ( v7 != -1 && !(unsigned int)RtlInterlockedSetClearRun((__int64)&stru_140C2A080, v7, 1u) );
   if ( v7 >= 0x800 )
   {
 LABEL_63:

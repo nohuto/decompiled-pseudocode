@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpExtrasReportBusyBlock @ 0x180123260
+ * XREFs of RtlpHpExtrasReportBusyBlock @ 0x180123230
  * Callers:
  *     RtlpHpSegReportBusyBlock @ 0x18008CBFC (RtlpHpSegReportBusyBlock.c)
- *     RtlpHpLargeAllocReport @ 0x1801234F0 (RtlpHpLargeAllocReport.c)
+ *     RtlpHpLargeAllocReport @ 0x1801234C0 (RtlpHpLargeAllocReport.c)
  * Callees:
  *     <none>
  */

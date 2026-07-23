@@ -92,7 +92,7 @@ LABEL_27:
       v9 = v14 - 1;
     }
     if ( v9 != 2 )
-      return RtlpHpSegFree(v8);
+      return RtlpHpSegFree(&a1[32 * v9 + 64], v8);
     goto LABEL_27;
   }
   return v9;

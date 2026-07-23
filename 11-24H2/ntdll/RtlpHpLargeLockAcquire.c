@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpLargeLockAcquire @ 0x180093A88
+ * XREFs of RtlpHpLargeLockAcquire @ 0x18009EEEC
  * Callers:
- *     RtlpHpLargeFree @ 0x1800938E4 (RtlpHpLargeFree.c)
- *     RtlpHpLargeReAlloc @ 0x180093AA4 (RtlpHpLargeReAlloc.c)
- *     RtlpHpLargeAlloc @ 0x180093F08 (RtlpHpLargeAlloc.c)
- *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x1800944B4 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpLargeAlloc @ 0x18009A714 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeReAlloc @ 0x18009E474 (RtlpHpLargeReAlloc.c)
+ *     RtlpHpLargeFree @ 0x18009E878 (RtlpHpLargeFree.c)
+ *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x18009EF68 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpLargeLockAcquire(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+char __fastcall RtlpHpLargeLockAcquire(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64), a2, a3);
+  RtlAcquireSRWLockExclusive(a1 + 8);
   return -1;
 }

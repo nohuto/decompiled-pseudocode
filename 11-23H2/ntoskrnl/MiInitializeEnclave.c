@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeEnclave @ 0x140A3DE98
+ * XREFs of MiInitializeEnclave @ 0x140A3E148
  * Callers:
- *     NtInitializeEnclave @ 0x140A3EF90 (NtInitializeEnclave.c)
+ *     NtInitializeEnclave @ 0x140A3F240 (NtInitializeEnclave.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     KeInitializeEnclave @ 0x140974630 (KeInitializeEnclave.c)
- *     MiInitializeVsmEnclave @ 0x140A3DFA0 (MiInitializeVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x140AAD6B0 (MiReturnReservedEnclavePages.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     KeInitializeEnclave @ 0x140974830 (KeInitializeEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x140A3E250 (MiInitializeVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140AAD520 (MiReturnReservedEnclavePages.c)
  */
 
 __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)

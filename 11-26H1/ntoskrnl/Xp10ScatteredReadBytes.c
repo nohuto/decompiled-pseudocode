@@ -1,16 +1,16 @@
 /*
- * XREFs of Xp10ScatteredReadBytes @ 0x14080EE58
+ * XREFs of Xp10ScatteredReadBytes @ 0x1408148E8
  * Callers:
- *     RtlDecompressBuffer2Xp10 @ 0x14080A530 (RtlDecompressBuffer2Xp10.c)
- *     Xp10Compute2Crc32 @ 0x14080C22C (Xp10Compute2Crc32.c)
- *     Xp10Compute2Crc64 @ 0x14080C334 (Xp10Compute2Crc64.c)
- *     Xp10ExecuteHuffmanDecode @ 0x14080C570 (Xp10ExecuteHuffmanDecode.c)
- *     Xp10ReadAndDecodeHuffmanTables @ 0x14080DFDC (Xp10ReadAndDecodeHuffmanTables.c)
- *     Xp10ReadMtfHeader @ 0x14080E87C (Xp10ReadMtfHeader.c)
- *     Xp10ScatteredBitBufferReadBytes @ 0x14080E9F4 (Xp10ScatteredBitBufferReadBytes.c)
+ *     RtlDecompressBuffer2Xp10 @ 0x14080FFC0 (RtlDecompressBuffer2Xp10.c)
+ *     Xp10Compute2Crc32 @ 0x140811CBC (Xp10Compute2Crc32.c)
+ *     Xp10Compute2Crc64 @ 0x140811DC4 (Xp10Compute2Crc64.c)
+ *     Xp10ExecuteHuffmanDecode @ 0x140812000 (Xp10ExecuteHuffmanDecode.c)
+ *     Xp10ReadAndDecodeHuffmanTables @ 0x140813A6C (Xp10ReadAndDecodeHuffmanTables.c)
+ *     Xp10ReadMtfHeader @ 0x14081430C (Xp10ReadMtfHeader.c)
+ *     Xp10ScatteredBitBufferReadBytes @ 0x140814484 (Xp10ScatteredBitBufferReadBytes.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     Xp10ScatteredNextBuffer @ 0x14080EE04 (Xp10ScatteredNextBuffer.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     Xp10ScatteredNextBuffer @ 0x140814894 (Xp10ScatteredNextBuffer.c)
  */
 
 __int64 __fastcall Xp10ScatteredReadBytes(__int64 a1, char *a2, int a3)

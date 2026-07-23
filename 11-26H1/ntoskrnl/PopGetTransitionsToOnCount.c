@@ -1,18 +1,18 @@
 /*
- * XREFs of PopGetTransitionsToOnCount @ 0x14043598C
+ * XREFs of PopGetTransitionsToOnCount @ 0x140424E54
  * Callers:
- *     PopSetSleepMarker @ 0x140B2ECDC (PopSetSleepMarker.c)
+ *     PopSetSleepMarker @ 0x140B30AB8 (PopSetSleepMarker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 PopGetTransitionsToOnCount()
 {
-  unsigned int KernelShadowStack; // ebx
+  unsigned int v0; // ebx
 
-  PopAcquireRwLockExclusive(PopSleepstudySessionLock.TracingPrivate);
-  KernelShadowStack = (unsigned int)PopSleepstudySessionLock.KernelShadowStack;
-  PopReleaseRwLock((struct _KTHREAD *)PopSleepstudySessionLock.TracingPrivate);
-  return KernelShadowStack;
+  PopAcquireRwLockExclusive(&PopTelemetryOsState);
+  v0 = dword_140F0F7A8;
+  PopReleaseRwLock((struct _KTHREAD *)&PopTelemetryOsState);
+  return v0;
 }

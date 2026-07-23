@@ -1,10 +1,10 @@
 /*
- * XREFs of KePrepareToDispatchVirtualProcessor @ 0x14047A440
+ * XREFs of KePrepareToDispatchVirtualProcessor @ 0x140473DB0
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateStibpPairing @ 0x140402530 (KiUpdateStibpPairing.c)
- *     KiFlushCurrentRsb @ 0x14073D180 (KiFlushCurrentRsb.c)
+ *     KiUpdateStibpPairing @ 0x1403F42E0 (KiUpdateStibpPairing.c)
+ *     KiFlushCurrentRsb @ 0x140741D80 (KiFlushCurrentRsb.c)
  */
 
 void __fastcall KePrepareToDispatchVirtualProcessor(

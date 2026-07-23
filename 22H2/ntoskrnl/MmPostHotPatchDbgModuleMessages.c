@@ -39,8 +39,8 @@ __int64 __fastcall MmPostHotPatchDbgModuleMessages(struct _EX_RUNDOWN_REF *a1, v
   char *v22; // r12
   __int64 v23; // rax
   _QWORD *v24; // rdi
-  _QWORD *k; // rsi
-  __int64 v26; // rax
+  __int64 **k; // rsi
+  PIMAGE_NT_HEADERS v26; // rax
   _QWORD *v27; // rcx
   _QWORD **v28; // rax
   _QWORD *m; // rcx
@@ -125,15 +125,15 @@ __int64 __fastcall MmPostHotPatchDbgModuleMessages(struct _EX_RUNDOWN_REF *a1, v
       }
       while ( v24 )
       {
-        for ( k = (_QWORD *)v24[7]; k; k = (_QWORD *)*k )
+        for ( k = (__int64 **)v24[7]; k; k = (__int64 **)*k )
         {
           *(_OWORD *)v21 = 0LL;
           *(_QWORD *)v21 = k[1];
           v26 = RtlImageNtHeader(k[1]);
           if ( v26 )
           {
-            *((_DWORD *)v21 + 2) = *(_DWORD *)(v26 + 12);
-            *((_DWORD *)v21 + 3) = *(_DWORD *)(v26 + 16);
+            *((_DWORD *)v21 + 2) = v26->FileHeader.PointerToSymbolTable;
+            *((_DWORD *)v21 + 3) = v26->FileHeader.NumberOfSymbols;
           }
           v21 += 16;
         }

@@ -6,26 +6,27 @@
  *     ZwQueryVirtualMemory @ 0x18009F250 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlGetNonVolatileToken(__int64 a1, __int64 a2, __int64 *a3)
+DWORD __cdecl RtlGetNonVolatileToken(PVOID NvBuffer, SIZE_T Size, PVOID *NvToken)
 {
   __int64 v4; // rbx
-  __int64 result; // rax
-  char v6; // [rsp+3Ch] [rbp-2Ch]
+  DWORD result; // eax
+  _BYTE v6[56]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR v7; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = 1LL;
-  result = ZwQueryVirtualMemory();
-  if ( (int)result >= 0 )
+  result = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, NvBuffer, MemoryRegionInformationEx, v6, 0x30uLL, &v7);
+  if ( (result & 0x80000000) == 0 )
   {
-    if ( (v6 & 0x20) != 0 )
+    if ( (v6[12] & 0x20) != 0 )
     {
       if ( RtlpIsFlushRequired )
         v4 = 3LL;
-      result = 0LL;
-      *a3 = v4;
+      result = 0;
+      *NvToken = (PVOID)v4;
     }
     else
     {
-      return 3221225485LL;
+      return -1073741811;
     }
   }
   return result;

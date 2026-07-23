@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpExtGetRegisteredResourceIdString @ 0x1404C42FC
+ * XREFs of HalpExtGetRegisteredResourceIdString @ 0x1404C453C
  * Callers:
- *     HalpExtRegisterResourceDescriptor @ 0x1404C4350 (HalpExtRegisterResourceDescriptor.c)
+ *     HalpExtRegisterResourceDescriptor @ 0x1404C4590 (HalpExtRegisterResourceDescriptor.c)
  * Callees:
- *     HalpExtBuildResourceIdString @ 0x1403ABF68 (HalpExtBuildResourceIdString.c)
+ *     HalpExtBuildResourceIdString @ 0x1403ACCF8 (HalpExtBuildResourceIdString.c)
  */
 
 __int64 __fastcall HalpExtGetRegisteredResourceIdString(__int64 a1, __int64 a2, wchar_t *Dst)

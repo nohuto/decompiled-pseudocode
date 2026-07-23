@@ -26,7 +26,7 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   __int64 v6; // r9
   const wchar_t *v7; // rcx
   int updated; // eax
-  char v9; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
@@ -45,13 +45,7 @@ LABEL_10:
     {
       case 1:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(
-          2u,
-          (char *)dword_1403A2690,
-          dword_1403A2690[0],
-          dword_1403A2690,
-          dword_1403A2690[0],
-          (unsigned __int64)&v9);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         v7 = L"Diagnostics\\Performance\\BootCKCLSettings";
         break;
       case 2:
@@ -64,38 +58,20 @@ LABEL_10:
         goto LABEL_18;
       case 5:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(
-          2u,
-          (char *)dword_1403A2690,
-          dword_1403A2690[0],
-          dword_1403A2690,
-          dword_1403A2690[0],
-          (unsigned __int64)&v9);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         v7 = L"Diagnostics\\Performance\\SecondaryLogonCKCLSettings";
         break;
       case 6:
 LABEL_18:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(
-          2u,
-          (char *)dword_1403A2690,
-          dword_1403A2690[0],
-          dword_1403A2690,
-          dword_1403A2690[0],
-          (unsigned __int64)&v9);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         v2 = 1;
         dword_1403A2648 = v1;
         goto LABEL_27;
       case 7:
         PerfDiagpSaveActiveDCLLogFileName();
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(
-          2u,
-          (char *)dword_1403A2690,
-          dword_1403A2690[0],
-          dword_1403A2690,
-          dword_1403A2690[0],
-          (unsigned __int64)&v9);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         v7 = L"Diagnostics\\Performance\\ShutdownCKCLSettings";
         break;
       default:

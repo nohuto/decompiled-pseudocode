@@ -1,10 +1,10 @@
 /*
- * XREFs of PopReadProducerConsumerBuffer @ 0x1409B16F0
+ * XREFs of PopReadProducerConsumerBuffer @ 0x1409B2620
  * Callers:
- *     PopDecompressHiberBlocks @ 0x140994874 (PopDecompressHiberBlocks.c)
- *     PopHiberPeekRangeTable @ 0x1409B132C (PopHiberPeekRangeTable.c)
+ *     PopDecompressHiberBlocks @ 0x140995874 (PopDecompressHiberBlocks.c)
+ *     PopHiberPeekRangeTable @ 0x1409B225C (PopHiberPeekRangeTable.c)
  * Callees:
- *     ProducerConsumerCopyFromContextBuffer @ 0x1409B1F40 (ProducerConsumerCopyFromContextBuffer.c)
+ *     ProducerConsumerCopyFromContextBuffer @ 0x1409B2E70 (ProducerConsumerCopyFromContextBuffer.c)
  */
 
 __int64 __fastcall PopReadProducerConsumerBuffer(

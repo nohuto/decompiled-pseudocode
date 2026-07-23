@@ -1,28 +1,28 @@
 /*
- * XREFs of LdrpMapResourceFile @ 0x1405E7AAC
+ * XREFs of LdrpMapResourceFile @ 0x1405E509C
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x14044EDC4 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402DCE08 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateSection @ 0x1406A6D50 (ZwCreateSection.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSessionSpace @ 0x140946C00 (MmMapViewInSessionSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x140A4AE00 (MmUnmapViewInSystemSpace.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateSection @ 0x1406A7CF0 (ZwCreateSection.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSessionSpace @ 0x1408EB520 (MmMapViewInSessionSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x140A41A80 (MmUnmapViewInSystemSpace.c)
  */
 
 __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a3, _QWORD *a4, ULONG_PTR *a5)
 {
   PVOID v8; // rdi
   NTSTATUS v9; // ebx
-  unsigned __int16 v10; // si
-  PVOID v11; // rsi
+  unsigned __int16 MajorSubsystemVersion; // si
+  PIMAGE_NT_HEADERS v11; // rsi
   NTSTATUS v12; // eax
   int v13; // eax
   ULONG_PTR *v14; // rcx
-  PVOID Object; // [rsp+60h] [rbp-41h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp-41h] BYREF
   HANDLE SectionHandle; // [rsp+68h] [rbp-39h] BYREF
   PVOID MappedBase; // [rsp+70h] [rbp-31h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-29h] BYREF
@@ -41,11 +41,11 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
   IoStatusBlock = 0LL;
   if ( a1 && a2 && a4 )
   {
-    Object = 0LL;
-    RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &Object);
-    if ( Object )
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
+    if ( OutHeaders )
     {
-      v10 = *((_WORD *)Object + 36);
+      MajorSubsystemVersion = OutHeaders->OptionalHeader.MajorSubsystemVersion;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
@@ -64,26 +64,26 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
                0xF0005u,
                &ObjectAttributes,
                &MaximumSize,
-               v10 < 6u ? 8 : 2,
+               MajorSubsystemVersion < 6u ? 8 : 2,
                0x8000000u,
                FileHandle);
         if ( v9 >= 0 )
         {
-          Object = 0LL;
-          v9 = ObReferenceObjectByHandle(SectionHandle, 0, 0LL, 0, &Object, 0LL);
+          OutHeaders = 0LL;
+          v9 = ObReferenceObjectByHandle(SectionHandle, 0, 0LL, 0, (PVOID *)&OutHeaders, 0LL);
           ZwClose(SectionHandle);
-          v11 = Object;
+          v11 = OutHeaders;
           if ( v9 >= 0 )
           {
-            v12 = MmMapViewInSessionSpace(Object, &MappedBase, &ViewSize);
+            v12 = MmMapViewInSessionSpace(OutHeaders, &MappedBase, &ViewSize);
             v8 = MappedBase;
             v9 = v12;
             if ( v12 >= 0 )
             {
-              Object = 0LL;
-              RtlImageNtHeaderEx(1, (unsigned __int64)MappedBase, 0LL, &Object);
+              OutHeaders = 0LL;
+              RtlImageNtHeaderEx(1u, MappedBase, 0LL, &OutHeaders);
               v13 = v9;
-              if ( !Object )
+              if ( !OutHeaders )
                 v13 = -1073741701;
               v9 = v13;
             }

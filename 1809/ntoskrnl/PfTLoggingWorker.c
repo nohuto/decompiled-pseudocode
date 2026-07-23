@@ -1,17 +1,17 @@
 /*
- * XREFs of PfTLoggingWorker @ 0x14073F930
+ * XREFs of PfTLoggingWorker @ 0x140740B20
  * Callers:
  *     <none>
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PfpFlushBuffers @ 0x140669E70 (PfpFlushBuffers.c)
- *     PfTGenerateTrace @ 0x140683A70 (PfTGenerateTrace.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSetBasePriorityThread @ 0x1400CD3F0 (KeSetBasePriorityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PfpFlushBuffers @ 0x14066B030 (PfpFlushBuffers.c)
+ *     PfTGenerateTrace @ 0x140684C30 (PfTGenerateTrace.c)
  */
 
 LONG __fastcall PfTLoggingWorker(__int64 a1)
@@ -41,7 +41,7 @@ LONG __fastcall PfTLoggingWorker(__int64 a1)
   Object[1] = (PVOID)(a1 + 32);
   Object[2] = (PVOID)(a1 + 8);
   Object[3] = &Event;
-  qword_14043BC00 = KiQueryUnbiasedInterruptTime();
+  qword_14043CCC0 = KiQueryUnbiasedInterruptTime();
   while ( 1 )
   {
     do
@@ -54,7 +54,7 @@ LONG __fastcall PfTLoggingWorker(__int64 a1)
     result = KeResetEvent((PRKEVENT)Object[v2]);
     if ( !v2 )
       return result;
-    if ( dword_14043BD58 >= (unsigned int)dword_14043BD5C )
+    if ( dword_14043CE18 >= (unsigned int)dword_14043CE1C )
     {
       if ( v2 == 1 )
         goto LABEL_20;
@@ -82,7 +82,7 @@ LONG __fastcall PfTLoggingWorker(__int64 a1)
             }
             KeDelayExecutionThread(0, 0, &Interval);
 LABEL_13:
-            if ( (unsigned __int64)(KiQueryUnbiasedInterruptTime() - qword_14043BC00) > 0xB2D05E00 )
+            if ( (unsigned __int64)(KiQueryUnbiasedInterruptTime() - qword_14043CCC0) > 0xB2D05E00 )
               PfTGenerateTrace();
           }
         }

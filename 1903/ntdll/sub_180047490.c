@@ -51,39 +51,38 @@ __int64 __fastcall sub_180047490(__int64 a1, __int64 a2, unsigned int a3, int a4
   unsigned int v39; // edx
   int v40; // r11d
   int v41; // eax
-  int v42; // ecx
-  __int64 v43; // rsi
-  unsigned int v44; // edi
-  int v45; // eax
+  __int64 v42; // rsi
+  unsigned int v43; // edi
+  int v44; // eax
   __int64 result; // rax
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v47; // rcx
-  __int64 v48; // rcx
-  __int64 v49; // rdx
-  __int64 v50; // r8
-  unsigned int v51; // [rsp+40h] [rbp-68h]
-  unsigned int v52; // [rsp+44h] [rbp-64h]
-  int v53; // [rsp+48h] [rbp-60h]
-  unsigned int v54; // [rsp+50h] [rbp-58h]
-  int v55; // [rsp+B0h] [rbp+8h]
-  int v56; // [rsp+B8h] [rbp+10h]
-  int v57; // [rsp+C0h] [rbp+18h] BYREF
-  int v58; // [rsp+C8h] [rbp+20h] BYREF
+  __int64 v48; // rdx
+  __int64 v49; // r8
+  unsigned int v50; // [rsp+40h] [rbp-68h]
+  unsigned int v51; // [rsp+44h] [rbp-64h]
+  int v52; // [rsp+48h] [rbp-60h]
+  unsigned int v53; // [rsp+50h] [rbp-58h]
+  int v54; // [rsp+B0h] [rbp+8h]
+  int v55; // [rsp+B8h] [rbp+10h]
+  int v56; // [rsp+C0h] [rbp+18h] BYREF
+  int v57; // [rsp+C8h] [rbp+20h] BYREF
 
-  v56 = (a5 >> 22) & 2;
+  v55 = (a5 >> 22) & 2;
   v9 = a3;
   v10 = 511;
   if ( (*(_BYTE *)(a1 + 13) & 7) == 0 )
     v10 = 0x7FFF;
-  v53 = v10;
+  v52 = v10;
   v11 = a3 - a4;
   v12 = (unsigned int)((a2 - (a2 & *(_QWORD *)a1)) >> 5) << *(_BYTE *)(a1 + 9);
   v13 = a4 + a3;
-  v54 = v12;
+  v53 = v12;
   if ( a4 <= 0 )
     v13 = v11;
   v14 = 0;
-  v52 = v13;
-  v55 = 0;
+  v51 = v13;
+  v54 = 0;
   if ( v9 < v13 )
   {
     while ( 1 )
@@ -95,7 +94,7 @@ __int64 __fastcall sub_180047490(__int64 a1, __int64 a2, unsigned int a3, int a4
       if ( v18 >= v17 )
         v18 = v17;
       v19 = 1 << v16;
-      v51 = v18;
+      v50 = v18;
       v20 = (unsigned __int64)v9 >> v16 << v16;
       v21 = a2 + 32 * ((unsigned __int64)v9 >> v16);
       v22 = v9 & ((1 << v16) - 1);
@@ -176,53 +175,52 @@ LABEL_44:
       }
       if ( v24 )
       {
-        v42 = v25 - v27;
-        v43 = a2 & *(_QWORD *)a1;
-        v44 = v27 + v54;
-        v57 = v27;
-        v58 = v42;
+        v42 = a2 & *(_QWORD *)a1;
+        v43 = v27 + v53;
+        v56 = v27;
+        v57 = v25 - v27;
         if ( v24 > 0 )
         {
-          v45 = 4096;
+          v44 = 4096;
           if ( (a5 & 2) != 0 )
-            v45 = 1073745920;
+            v44 = 1073745920;
         }
         else
         {
-          v45 = 0x4000;
+          v44 = 0x4000;
         }
-        result = sub_180047844(a1, v43, v44, v42, v24, v45, v56);
+        result = sub_180047844(a1, v24, v44, v55);
         if ( (int)result < 0 )
           return result;
         if ( v24 > 0 )
-          sub_180047D28(a1, a2, (unsigned int)&v57, (unsigned int)&v58, 1);
+          sub_180047D28(a1, a2, (unsigned int)&v56, (unsigned int)&v57, 1);
         _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v24);
         if ( (byte_180166058 & 8) != 0 )
           sub_1801072F0(*(_QWORD *)(a1 + 56), a1 + *(__int16 *)(a1 + 22));
         *(_WORD *)(a2 + 28) = ~(v24 + ~*(_WORD *)(a2 + 28));
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v47 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+        if ( RtlGetCurrentServiceSessionId() )
+          UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
         else
-          v47 = 2147353472LL;
-        if ( *(_BYTE *)v47 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+          UserModeGlobalLogger = 2147353472LL;
+        if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
         {
-          v48 = *(_QWORD *)(a1 + 56);
-          v49 = v43 + (v44 << 12);
-          v50 = (unsigned int)(v58 << 12);
+          v47 = *(_QWORD *)(a1 + 56);
+          v48 = v42 + (v43 << 12);
+          v49 = (unsigned int)(v57 << 12);
           if ( v24 <= 0 )
-            sub_180103318(v48, v49, v50, 13LL);
+            sub_180103318(v47, v48, v49, 13LL);
           else
-            sub_18010313C(v48, v49, v50, 10LL);
+            sub_18010313C(v47, v48, v49, 10LL);
         }
       }
-      v9 += v51;
-      v14 = v24 + v55;
-      v13 = v52;
-      v55 += v24;
-      if ( v9 >= v52 )
+      v9 += v50;
+      v14 = v24 + v54;
+      v13 = v51;
+      v54 += v24;
+      if ( v9 >= v51 )
         goto LABEL_68;
-      v12 = v54;
-      v10 = v53;
+      v12 = v53;
+      v10 = v52;
     }
     v30 = *(unsigned __int8 *)(v21 + 25);
     v31 = v19;

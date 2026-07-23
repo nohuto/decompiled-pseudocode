@@ -15,14 +15,14 @@
 
 __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, int a3, int a4)
 {
-  __int64 v6; // rcx
-  int v7; // eax
-  int v8; // edi
+  void *v6; // rcx
+  ULONG Protect; // eax
+  NTSTATUS v8; // edi
   int v9; // edi
   _DWORD *SharedData; // rcx
   __int64 v11; // rcx
-  __int64 v13; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-8h] BYREF
   int v15; // [rsp+70h] [rbp+30h] BYREF
   int v16; // [rsp+78h] [rbp+38h] BYREF
 
@@ -30,15 +30,15 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, int a3, int 
   v15 = a3;
   if ( !(unsigned int)RtlpHpSegPageRangeHandleCommit(a1, a2, (unsigned int)&v15, (unsigned int)&v16, 0) )
     return 0;
-  v6 = (a2 & *(_QWORD *)a1) + ((a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)) + (unsigned int)(v15 << 12);
-  v13 = (unsigned int)(v16 << 12);
-  v14 = v6;
-  v7 = RtlpHpHeapValidateProtection(
-         *(_QWORD *)(a1 + 96),
-         (*(_DWORD *)(*(_QWORD *)(a1 + 96) + 20LL) & 0x40000000) != 0 ? 64 : 4);
-  v8 = ZwAllocateVirtualMemory(-1LL, &v14, 0LL, &v13, 4096, v7);
+  v6 = (void *)((a2 & *(_QWORD *)a1)
+              + ((a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8))
+              + (unsigned int)(v15 << 12));
+  RegionSize = (unsigned int)(v16 << 12);
+  BaseAddress = v6;
+  Protect = RtlpHpHeapValidateProtection(*(PVOID *)(a1 + 96));
+  v8 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, Protect);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(4096LL, v13, v14);
+    RtlpHpTlLogVAChange(4096LL, RegionSize, BaseAddress);
   if ( v8 >= 0 )
   {
     v9 = RtlpHpSegPageRangeHandleCommit(a1, a2, (unsigned int)&v15, (unsigned int)&v16, 1);
@@ -52,7 +52,7 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, int a3, int 
     else
       v11 = 2147353472LL;
     if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapCommit(*(_QWORD *)(a1 + 96), v14, v13, 10LL);
+      RtlpLogHeapCommit(*(_QWORD *)(a1 + 96), BaseAddress, RegionSize, 10LL);
     return 0;
   }
   return (unsigned int)v8;

@@ -63,10 +63,10 @@ void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int
           {
             ++*((_DWORD *)v10 + 10);
             KxReleaseSpinLock(v8);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -90,10 +90,10 @@ void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int
         }
       }
       KxReleaseSpinLock(v8);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v11 <= 0xFu && v18 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v11 <= 0xFu && v18 >= 2u )
         {
           v19 = KeGetCurrentPrcb();
           v20 = v19->SchedulerAssist;

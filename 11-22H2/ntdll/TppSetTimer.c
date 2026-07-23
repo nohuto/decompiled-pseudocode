@@ -13,65 +13,57 @@
  *     TppETWTimerSet @ 0x1801265A8 (TppETWTimerSet.c)
  */
 
-__int64 __fastcall TppSetTimer(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, int a5)
+void __fastcall TppSetTimer(__int64 a1, _RTL_SRWLOCK *a2, __int64 *a3, int a4, int a5)
 {
   __int64 *v5; // rbx
-  __int64 v6; // rbp
-  __int64 v8; // rdx
-  char v9; // bp
-  _QWORD *v10; // r14
-  unsigned __int64 v12; // rsi
+  unsigned __int64 v6; // rbp
+  char v8; // bp
+  unsigned __int64 v11; // rsi
+  __int64 v12; // rax
   __int64 v13; // rcx
-  __int64 v14; // rax
+  __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 v16; // rdx
-  unsigned int v18; // eax
+  LONG v16; // eax
 
   v5 = (__int64 *)(a1 + 328);
-  v6 = *a3 >> 63;
-  v8 = 1LL;
+  v6 = (unsigned __int64)*a3 >> 63;
   *(_DWORD *)(a1 + 348) = a4;
-  v9 = v6 ^ 1;
-  v10 = a3;
+  v8 = v6 ^ 1;
   *(_DWORD *)(a1 + 344) = a5;
-  v12 = (-(__int64)(v9 != 0) & 0xFFFFFFFFFFFFFF88uLL) + a2 + 128;
-  if ( v9 )
+  v11 = (unsigned __int64)&a2[16] + (-(__int64)(v8 != 0) & 0xFFFFFFFFFFFFFF88uLL);
+  if ( v8 )
   {
     *(_BYTE *)(a1 + 354) |= 2u;
-    v13 = *a3;
+    v15 = *a3;
     if ( !*a3 )
-      v13 = 1LL;
-    *v5 = v13;
+      v15 = 1LL;
+    *v5 = v15;
   }
   else
   {
     if ( a1 == -328 )
     {
-      v18 = RtlNtStatusToDosErrorNoTeb(3221225485LL);
-      RtlSetLastWin32Error(v18);
+      v16 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v16);
     }
     else
     {
-      a4 = 2147353520LL;
-      v8 = RtlpFreezeTimeBias;
-      a3 = (_QWORD *)MEMORY[0x7FFE03B0];
       *v5 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
     }
-    v13 = 0x7FFFFFFFFFFFFFFFLL;
-    v14 = *v5 - *v10;
-    if ( v14 < *v5 )
-      v14 = 0x7FFFFFFFFFFFFFFFLL;
-    *v5 = v14;
+    v12 = *v5 - *a3;
+    if ( v12 < *v5 )
+      v12 = 0x7FFFFFFFFFFFFFFFLL;
+    *v5 = v12;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v13, v8, a3, a4) )
-    v15 = (__int64)NtCurrentPeb()->SharedData + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v13 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
-    v15 = 2147353478LL;
-  if ( *(_BYTE *)v15 )
-    TppETWTimerSet(v12, a1);
+    v13 = 2147353478LL;
+  if ( *(_BYTE *)v13 )
+    TppETWTimerSet(v11, a1);
   RtlAcquireSRWLockExclusive(a2);
-  TppEnqueueTimer(v12, a1);
-  LOBYTE(v16) = v9;
-  TppUpdateSubQueueTimer(v12, v16);
-  return RtlReleaseSRWLockExclusive(a2);
+  TppEnqueueTimer(v11, a1);
+  LOBYTE(v14) = v8;
+  TppUpdateSubQueueTimer(v11, v14);
+  RtlReleaseSRWLockExclusive(a2);
 }

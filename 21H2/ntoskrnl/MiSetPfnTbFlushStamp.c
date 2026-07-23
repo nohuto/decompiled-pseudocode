@@ -1,25 +1,25 @@
 /*
- * XREFs of MiSetPfnTbFlushStamp @ 0x140240160
+ * XREFs of MiSetPfnTbFlushStamp @ 0x1402E49B0
  * Callers:
- *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
- *     MiInitializeHardFaultPfn @ 0x14023E5A0 (MiInitializeHardFaultPfn.c)
- *     MiAllocateKernelStackPages @ 0x14023E800 (MiAllocateKernelStackPages.c)
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MiFinalizePageAttribute @ 0x14026E434 (MiFinalizePageAttribute.c)
- *     MiGetPoolPages @ 0x140274A0C (MiGetPoolPages.c)
- *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
- *     MiMapPageFileHash @ 0x1402CDE38 (MiMapPageFileHash.c)
- *     MiChangePageAttributeContiguous @ 0x1402CF8B8 (MiChangePageAttributeContiguous.c)
- *     MiGetPageTablePages @ 0x1402E59A0 (MiGetPageTablePages.c)
- *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
+ *     MiSwapStackPage @ 0x14024483C (MiSwapStackPage.c)
+ *     MiMapPageFileHash @ 0x14024C338 (MiMapPageFileHash.c)
+ *     MiChangePageAttributeContiguous @ 0x14024DC38 (MiChangePageAttributeContiguous.c)
+ *     MiFinalizePageAttribute @ 0x14025C3D4 (MiFinalizePageAttribute.c)
+ *     MiGetPoolPages @ 0x1402629AC (MiGetPoolPages.c)
+ *     MiGetPageTablePages @ 0x140296CF0 (MiGetPageTablePages.c)
+ *     MiMigratePfn @ 0x1402BCEF0 (MiMigratePfn.c)
+ *     MiInitializeHardFaultPfn @ 0x1402E2DF0 (MiInitializeHardFaultPfn.c)
+ *     MiAllocateKernelStackPages @ 0x1402E3050 (MiAllocateKernelStackPages.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MiTradePage @ 0x14030B930 (MiTradePage.c)
  *     MiUpdateLargePageSectionPfns @ 0x1403F41AC (MiUpdateLargePageSectionPfns.c)
  *     MiConvertLargePfnToSmall @ 0x1403F5FC8 (MiConvertLargePfnToSmall.c)
  *     MiConvertLockedSmallPageToLarge @ 0x1403F606C (MiConvertLockedSmallPageToLarge.c)
  *     MiDeleteSubsectionLargePages @ 0x1403F6534 (MiDeleteSubsectionLargePages.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
- *     MiPerformFinalZeroing @ 0x14054F348 (MiPerformFinalZeroing.c)
- *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
- *     MiAllocateDummyPage @ 0x140A55B98 (MiAllocateDummyPage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541B30 (MiPurgeBadFileOnlyPages.c)
+ *     MiPerformFinalZeroing @ 0x14054F588 (MiPerformFinalZeroing.c)
+ *     MiSwapNumaStandbyPage @ 0x140551610 (MiSwapNumaStandbyPage.c)
+ *     MiAllocateDummyPage @ 0x140A56B98 (MiAllocateDummyPage.c)
  * Callees:
  *     <none>
  */

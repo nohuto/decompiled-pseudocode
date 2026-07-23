@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpReleaseSearchDBContext @ 0x140754BFC
+ * XREFs of SdbpReleaseSearchDBContext @ 0x140754DBC
  * Callers:
- *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
- *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x140754F1C (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x14077E808 (SdbGetDatabaseMatch.c)
  * Callees:
- *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F989C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
  *     SdbpFreeAppAttributes @ 0x1405D1E50 (SdbpFreeAppAttributes.c)
- *     AslHashFree @ 0x140968478 (AslHashFree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     AslHashFree @ 0x140968658 (AslHashFree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbpReleaseSearchDBContext(_QWORD *a1)

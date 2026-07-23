@@ -3,22 +3,23 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1403614E0 @ 0x1403614E0 (sub_1403614E0.c)
+ *     sub_1403614FC @ 0x1403614FC (sub_1403614FC.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 __fastcall LsaLookupAuthenticationPackage(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl LsaLookupAuthenticationPackage(
+        HANDLE LsaHandle,
+        PLSA_STRING PackageName,
+        PULONG AuthenticationPackage)
 {
-  unsigned int v6; // ebx
-  unsigned __int64 ExtensionTable; // rax
+  NTSTATUS v5; // ebx
 
-  v6 = -1073741822;
-  ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
-  if ( ExtensionTable )
+  v5 = -1073741822;
+  if ( sub_1403614FC((struct _EX_RUNDOWN_REF *)qword_140C1B888) )
   {
-    v6 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(ExtensionTable + 32))(a1, a2, a3);
-    ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
+    v5 = sub_14042A5E0(LsaHandle, PackageName);
+    sub_1403614E0((struct _EX_RUNDOWN_REF *)qword_140C1B888);
   }
-  return v6;
+  return v5;
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of LdrpFindOrPrepareLoadingModule @ 0x18000FA80
+ * XREFs of LdrpFindOrPrepareLoadingModule @ 0x18003C480
  * Callers:
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
  * Callees:
- *     LdrpReleaseTlsEntry @ 0x1800049CC (LdrpReleaseTlsEntry.c)
- *     LdrpDestroyNode @ 0x180004B28 (LdrpDestroyNode.c)
- *     LdrpUnmapModule @ 0x1800067C8 (LdrpUnmapModule.c)
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     LdrpAllocateModuleEntry @ 0x180010680 (LdrpAllocateModuleEntry.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     LdrpFindLoadedDllByName @ 0x180018180 (LdrpFindLoadedDllByName.c)
- *     LdrpIncrementModuleLoadCount @ 0x180019B00 (LdrpIncrementModuleLoadCount.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlReleaseActivationContext @ 0x18005E4D0 (RtlReleaseActivationContext.c)
- *     LdrpLoadKnownDll @ 0x180074A60 (LdrpLoadKnownDll.c)
- *     LdrpFreeUnicodeString @ 0x18007625C (LdrpFreeUnicodeString.c)
- *     LdrpLogEtwEvent @ 0x18009B2F0 (LdrpLogEtwEvent.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     LdrpLogEtwEvent @ 0x180030140 (LdrpLogEtwEvent.c)
+ *     LdrpDestroyNode @ 0x180031528 (LdrpDestroyNode.c)
+ *     LdrpUnmapModule @ 0x1800331C8 (LdrpUnmapModule.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     LdrpAllocateModuleEntry @ 0x18003D080 (LdrpAllocateModuleEntry.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     LdrpFindLoadedDllByName @ 0x180044B80 (LdrpFindLoadedDllByName.c)
+ *     LdrpIncrementModuleLoadCount @ 0x180046500 (LdrpIncrementModuleLoadCount.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReleaseActivationContext @ 0x1800740B0 (RtlReleaseActivationContext.c)
+ *     LdrpLoadKnownDll @ 0x180091340 (LdrpLoadKnownDll.c)
+ *     LdrpFreeUnicodeString @ 0x180092B3C (LdrpFreeUnicodeString.c)
+ *     LdrpReleaseTlsEntry @ 0x1800D73C8 (LdrpReleaseTlsEntry.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall LdrpFindOrPrepareLoadingModule(
@@ -64,45 +64,44 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
   __int64 v34; // rcx
   __int64 v35; // rdi
   __int64 v36; // rax
-  __int64 v38; // rcx
-  int v39; // edx
-  __int64 Heap; // rax
-  __int64 v41; // rbx
+  PVOID v38; // rcx
+  ULONG v39; // edx
+  unsigned __int16 *Heap; // rax
+  unsigned __int16 *v41; // rbx
   __int64 ModuleEntry; // rax
   _DWORD *v43; // rcx
   __int64 v44; // rcx
   __int64 v45; // r8
   _QWORD *v46; // rdx
   char *v47; // rcx
-  int v48; // r9d
+  char v48; // r9
   size_t v49; // rax
   _QWORD *v50; // rsi
   _QWORD *v51; // rbp
-  __int64 v52; // rdx
-  __int64 v53; // rcx
-  int v54; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v55; // [rsp+48h] [rbp-50h] BYREF
+  _ACTIVATION_CONTEXT *v52; // rcx
+  int v53; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v54; // [rsp+48h] [rbp-50h] BYREF
 
   v7 = a6;
   v8 = 0;
-  v54 = 0;
+  v53 = 0;
   v9 = a4;
   v10 = a3;
   v11 = a2;
   v12 = a1;
   *a6 = 0LL;
-  v55 = 0LL;
+  v54 = 0LL;
   if ( a4 == 9 )
   {
-    DWORD1(v55) = 0;
-    *((_QWORD *)&v55 + 1) = ModuleNamePlaceholderBuffer;
+    DWORD1(v54) = 0;
+    *((_QWORD *)&v54 + 1) = ModuleNamePlaceholderBuffer;
     v49 = 2 * wcslen(ModuleNamePlaceholderBuffer);
-    v12 = (unsigned __int16 *)&v55;
+    v12 = (unsigned __int16 *)&v54;
     v13 = 2147353476LL;
     if ( v49 >= 0xFFFE )
       LOWORD(v49) = -4;
-    LOWORD(v55) = v49;
-    WORD1(v55) = v49 + 2;
+    LOWORD(v54) = v49;
+    WORD1(v54) = v49 + 2;
     v14 = 2147353477LL;
     goto LABEL_59;
   }
@@ -110,7 +109,7 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
   v14 = 2147353477LL;
   if ( (a3 & 0x20) != 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName((_DWORD)a1, 0, a3, (_DWORD)a6, (__int64)&v54);
+    LoadedDllByName = LdrpFindLoadedDllByName((_DWORD)a1, 0, a3, (_DWORD)a6, (__int64)&v53);
   }
   else
   {
@@ -144,14 +143,14 @@ __int64 __fastcall LdrpFindOrPrepareLoadingModule(
         {
           if ( (unsigned int)v21 > 0x7A )
           {
-            if ( qword_1801CD038 && (unsigned __int16)v21 >= 0xC0u )
-              LOWORD(v21) = *(_WORD *)(qword_1801CD038
+            if ( qword_1801CC038 && (unsigned __int16)v21 >= 0xC0u )
+              LOWORD(v21) = *(_WORD *)(qword_1801CC038
                                      + 2
                                      * ((v21 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801CD038
+                                      + *(unsigned __int16 *)(qword_1801CC038
                                                             + 2LL
                                                             * (((unsigned __int8)v21 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                                  + 2 * (v21 >> 8))))))
                           + v21;
           }
@@ -199,14 +198,14 @@ LABEL_58:
         {
           if ( (unsigned int)v29 > 0x7A )
           {
-            if ( qword_1801CD038 && (unsigned __int16)v29 >= 0xC0u )
-              LOWORD(v29) = *(_WORD *)(qword_1801CD038
+            if ( qword_1801CC038 && (unsigned __int16)v29 >= 0xC0u )
+              LOWORD(v29) = *(_WORD *)(qword_1801CC038
                                      + 2
                                      * ((v29 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801CD038
+                                      + *(unsigned __int16 *)(qword_1801CC038
                                                             + 2LL
                                                             * (((unsigned __int8)v29 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                                  + 2 * (v29 >> 8))))))
                           + v29;
           }
@@ -219,16 +218,16 @@ LABEL_58:
         {
           if ( (unsigned int)v30 > 0x7A )
           {
-            if ( qword_1801CD038 )
+            if ( qword_1801CC038 )
             {
               if ( (unsigned __int16)v30 >= 0xC0u )
-                LOWORD(v30) = *(_WORD *)(qword_1801CD038
+                LOWORD(v30) = *(_WORD *)(qword_1801CC038
                                        + 2
                                        * ((v30 & 0xF)
-                                        + *(unsigned __int16 *)(qword_1801CD038
+                                        + *(unsigned __int16 *)(qword_1801CC038
                                                               + 2LL
                                                               * (((unsigned __int8)v30 >> 4)
-                                                               + (unsigned int)*(unsigned __int16 *)(qword_1801CD038 + 2 * (v30 >> 8))))))
+                                                               + (unsigned int)*(unsigned __int16 *)(qword_1801CC038 + 2 * (v30 >> 8))))))
                             + v30;
             }
           }
@@ -251,7 +250,7 @@ LABEL_58:
     v10 = a3;
     *v7 = (__int64)v24;
     LoadedDllByName = 0;
-    v54 = *(_DWORD *)(v24[19] + 56LL);
+    v53 = *(_DWORD *)(v24[19] + 56LL);
 LABEL_43:
     RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
     SharedData = NtCurrentPeb()->SharedData;
@@ -267,15 +266,13 @@ LABEL_43:
     }
     if ( *(_BYTE *)v34 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v47 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
+      v47 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v47 & 0x20) != 0 )
       {
         v48 = 0;
         if ( LoadedDllByName < 0 )
           v48 = 3;
-        LdrpLogEtwEvent(5280, 0, 0, v48, (__int64)v12, 0LL);
+        LdrpLogEtwEvent(5280, 0LL, 0, v48, v12, 0LL);
       }
     }
     v9 = a4;
@@ -284,19 +281,20 @@ LABEL_43:
   }
   if ( LoadedDllByName != -1073741515 )
   {
-    if ( v54 >= 0 )
+    if ( v53 >= 0 )
     {
       LdrpIncrementModuleLoadCount(*v7);
     }
     else
     {
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrmap.c",
-        3390,
-        (int)"LdrpFindOrPrepareLoadingModule",
-        0,
+        "minkernel\\ldr\\ldrmap.c",
+        3390LL,
+        "LdrpFindOrPrepareLoadingModule",
+        0LL,
         "Found circular dependent DLL: \"%wZ\" that failed to load previously, ModuleState: %d\n",
-        *v7 + 72);
+        *v7 + 72,
+        v53);
       v35 = *v7;
       LoadedDllByName = -1073741595;
       v36 = *(_QWORD *)(*v7 + 152);
@@ -315,15 +313,15 @@ LABEL_43:
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
         if ( *(_WORD *)(v35 + 110) )
           LdrpReleaseTlsEntry(v35, 0LL);
-        LdrpUnmapModule(v35, v52);
-        v53 = *(_QWORD *)(v35 + 136);
-        if ( (unsigned __int64)(v53 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext(v53);
+        LdrpUnmapModule(v35);
+        v52 = *(_ACTIVATION_CONTEXT **)(v35 + 136);
+        if ( (unsigned __int64)&v52[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v52);
         if ( *(_QWORD *)(v35 + 80) )
           LdrpFreeUnicodeString(v35 + 72);
-        RtlFreeHeap(LdrpHeap, 0LL, v35);
+        RtlFreeHeap(LdrpHeap, 0, (PVOID)v35);
         if ( v51 == v50 )
-          LdrpDestroyNode((__int64)v50);
+          LdrpDestroyNode(v50);
       }
       *v7 = 0LL;
     }
@@ -333,20 +331,20 @@ LABEL_59:
   v38 = LdrpHeap;
   v39 = NtdllBaseTag + 0x40000;
   *v7 = 0LL;
-  Heap = RtlAllocateHeap(v38, v39 | 8u, *v12 + 210LL);
+  Heap = (unsigned __int16 *)RtlAllocateHeap(v38, v39 | 8, *v12 + 210LL);
   v41 = Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 40) = a7;
-    *(_QWORD *)(Heap + 48) = a5;
-    *(_DWORD *)(Heap + 32) = v10 | 0x8000;
-    *(_QWORD *)(Heap + 16) = v11;
-    *(_QWORD *)(Heap + 184) = -1LL;
-    *(_QWORD *)(Heap + 8) = Heap + 208;
-    *(_WORD *)Heap = *v12;
-    *(_WORD *)(Heap + 2) = *v12 + 2;
-    memmove((void *)(Heap + 208), *((const void **)v12 + 1), *v12);
-    *(_WORD *)(*(_QWORD *)(v41 + 8) + 2 * ((unsigned __int64)*v12 >> 1)) = 0;
+    *((_QWORD *)Heap + 5) = a7;
+    *((_QWORD *)Heap + 6) = a5;
+    *((_DWORD *)Heap + 8) = v10 | 0x8000;
+    *((_QWORD *)Heap + 2) = v11;
+    *((_QWORD *)Heap + 23) = -1LL;
+    *((_QWORD *)Heap + 1) = Heap + 104;
+    *Heap = *v12;
+    Heap[1] = *v12 + 2;
+    memmove(Heap + 104, *((const void **)v12 + 1), *v12);
+    *(_WORD *)(*((_QWORD *)v41 + 1) + 2 * ((unsigned __int64)*v12 >> 1)) = 0;
     ModuleEntry = LdrpAllocateModuleEntry(v41);
     *v7 = ModuleEntry;
     if ( ModuleEntry )
@@ -359,15 +357,15 @@ LABEL_59:
         v13 = (__int64)NtCurrentPeb()->SharedData + 554;
       if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v14 = (__int64)NtCurrentPeb()->SharedData + 555;
         if ( (*(_BYTE *)v14 & 0x20) != 0 )
-          LdrpLogEtwEvent(5292, 0, 0, 0, v41, 0LL);
+          LdrpLogEtwEvent(5292, 0LL, 0, 0, v41, 0LL);
       }
     }
     else
     {
-      RtlFreeHeap(LdrpHeap, 0LL, v41);
+      RtlFreeHeap(LdrpHeap, 0, v41);
     }
   }
   v44 = *v7;

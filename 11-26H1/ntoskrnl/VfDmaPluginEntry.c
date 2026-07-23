@@ -1,12 +1,12 @@
 /*
- * XREFs of VfDmaPluginEntry @ 0x1406476A0
+ * XREFs of VfDmaPluginEntry @ 0x14064B280
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PpvDmaInit @ 0x140C21134 (PpvDmaInit.c)
- *     ViDmaInit @ 0x140C397DC (ViDmaInit.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PpvDmaInit @ 0x140C27144 (PpvDmaInit.c)
+ *     ViDmaInit @ 0x140C3F7EC (ViDmaInit.c)
  */
 
 __int64 VfDmaPluginEntry()
@@ -31,7 +31,7 @@ __int64 VfDmaPluginEntry()
   __int64 v18; // [rsp+98h] [rbp+3Fh]
 
   v4 = 373;
-  qword_140F08248 = (__int64)ViDmaUninit;
+  qword_140F085A8 = (__int64)ViDmaUninit;
   v5 = 0LL;
   v6 = 0LL;
   v7 = "HalDmaAllocateCrashDumpRegistersEx";

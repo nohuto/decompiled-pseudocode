@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAllocateLocallyUniqueId()
+NTSTATUS __cdecl ZwAllocateLocallyUniqueId(PLUID Luid)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 111LL;
+  result = 111;
   __asm { syscall; Low latency system call }
   return result;
 }

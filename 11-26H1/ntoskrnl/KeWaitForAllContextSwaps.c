@@ -1,9 +1,9 @@
 /*
- * XREFs of KeWaitForAllContextSwaps @ 0x14052E2F8
+ * XREFs of KeWaitForAllContextSwaps @ 0x140530818
  * Callers:
- *     MmOutSwapProcess @ 0x14049A5C8 (MmOutSwapProcess.c)
+ *     MmOutSwapProcess @ 0x140494118 (MmOutSwapProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KeWaitForAllContextSwaps(__int64 a1)

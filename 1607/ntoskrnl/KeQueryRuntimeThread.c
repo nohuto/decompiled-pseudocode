@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryRuntimeThread @ 0x1400B5AB0
+ * XREFs of KeQueryRuntimeThread @ 0x1400B38D8
  * Callers:
  *     <none>
  * Callees:

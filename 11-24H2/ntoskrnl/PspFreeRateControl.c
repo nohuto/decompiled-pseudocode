@@ -1,15 +1,15 @@
 /*
- * XREFs of PspFreeRateControl @ 0x14098CF0C
+ * XREFs of PspFreeRateControl @ 0x14097782C
  * Callers:
- *     PspRemoveRateControl @ 0x140777BF8 (PspRemoveRateControl.c)
- *     PspSetJobRateControl @ 0x14077800C (PspSetJobRateControl.c)
- *     PspAddSchedulingGroupToJobChain @ 0x14098CBAC (PspAddSchedulingGroupToJobChain.c)
- *     PspRemoveCpuRateControl @ 0x14098CE84 (PspRemoveCpuRateControl.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspRemoveRateControl @ 0x140777DB8 (PspRemoveRateControl.c)
+ *     PspSetJobRateControl @ 0x1407781CC (PspSetJobRateControl.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x1409774CC (PspAddSchedulingGroupToJobChain.c)
+ *     PspRemoveCpuRateControl @ 0x1409777A4 (PspRemoveCpuRateControl.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     PsReturnSharedPoolQuota @ 0x14085A690 (PsReturnSharedPoolQuota.c)
- *     PspGetRateControlSize @ 0x14098CFE0 (PspGetRateControlSize.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnSharedPoolQuota @ 0x140856970 (PsReturnSharedPoolQuota.c)
+ *     PspGetRateControlSize @ 0x140977900 (PspGetRateControlSize.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspFreeRateControl(char **P, unsigned int a2)

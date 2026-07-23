@@ -1,23 +1,23 @@
 /*
- * XREFs of KiResumeThread @ 0x14029646C
+ * XREFs of KiResumeThread @ 0x1402DD2DC
  * Callers:
- *     KiThawSingleThread @ 0x140296388 (KiThawSingleThread.c)
- *     KeResumeThread @ 0x140460900 (KeResumeThread.c)
- *     KeForceResumeThread @ 0x140479A40 (KeForceResumeThread.c)
- *     KiAdjustThreadTimer @ 0x1405C259C (KiAdjustThreadTimer.c)
+ *     KiThawSingleThread @ 0x1402DD1F8 (KiThawSingleThread.c)
+ *     KeResumeThread @ 0x140455D98 (KeResumeThread.c)
+ *     KeForceResumeThread @ 0x1404752D0 (KeForceResumeThread.c)
+ *     KiAdjustThreadTimer @ 0x1405BFB6C (KiAdjustThreadTimer.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSignalThreadForApc @ 0x140296870 (KiSignalThreadForApc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiSignalThread @ 0x140324240 (KiSignalThread.c)
- *     KiInsertTimerTable @ 0x140334E60 (KiInsertTimerTable.c)
- *     KiTimerWaitTest @ 0x140335E10 (KiTimerWaitTest.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiTraceSetTimer @ 0x140401CDC (KiTraceSetTimer.c)
- *     KiComputeDueTime @ 0x14043F680 (KiComputeDueTime.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiSignalThread @ 0x1402CCDD0 (KiSignalThread.c)
+ *     KiSignalThreadForApc @ 0x1402DD8B0 (KiSignalThreadForApc.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiComputeDueTime @ 0x140316E40 (KiComputeDueTime.c)
+ *     KiInsertTimerTable @ 0x140316F50 (KiInsertTimerTable.c)
+ *     KiTimerWaitTest @ 0x140317320 (KiTimerWaitTest.c)
+ *     KiTraceSetTimer @ 0x140471C1C (KiTraceSetTimer.c)
  */
 
 void __fastcall KiResumeThread(__int64 a1, __int64 a2, __int64 a3)
@@ -84,7 +84,7 @@ void __fastcall KiResumeThread(__int64 a1, __int64 a2, __int64 a3)
       {
         v17 = *(_QWORD *)(v16 + 32);
         *(_BYTE *)(v16 + 17) = 4;
-        KiAcquireKobjectLockSafe(v17);
+        KiAcquireKobjectLockSafe((volatile signed __int32 *)v17);
         if ( *(int *)(v17 + 4) > 0 || (*(_BYTE *)v17 & 0x7F) == 2 )
         {
           _InterlockedAnd((volatile signed __int32 *)v17, 0xFFFFFF7F);

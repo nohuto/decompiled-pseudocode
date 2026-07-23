@@ -1,15 +1,15 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006FC80
+ * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006F800
  * Callers:
- *     CcCanIWrite @ 0x1400209F0 (CcCanIWrite.c)
- *     CcChargeDirtyPages @ 0x14006FBF4 (CcChargeDirtyPages.c)
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     CcQueueLazyWriteScanThread @ 0x14013FDAC (CcQueueLazyWriteScanThread.c)
+ *     CcCanIWrite @ 0x140020570 (CcCanIWrite.c)
+ *     CcChargeDirtyPages @ 0x14006F774 (CcChargeDirtyPages.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     CcQueueLazyWriteScanThread @ 0x14014031C (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     CcBoostLowPriorityWorkerThread @ 0x14006B550 (CcBoostLowPriorityWorkerThread.c)
- *     CcAdjustWriteBehindThreadPool @ 0x14006FE70 (CcAdjustWriteBehindThreadPool.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14006B0D0 (CcBoostLowPriorityWorkerThread.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x14006F9F0 (CcAdjustWriteBehindThreadPool.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 void __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(char a1)

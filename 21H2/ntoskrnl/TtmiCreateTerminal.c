@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmiCreateTerminal @ 0x1408FD52C
+ * XREFs of TtmiCreateTerminal @ 0x1408FD68C
  * Callers:
- *     TtmInitCurrentSession @ 0x1408FE65C (TtmInitCurrentSession.c)
- *     TtmpDispatchCreateTerminal @ 0x140900C74 (TtmpDispatchCreateTerminal.c)
+ *     TtmInitCurrentSession @ 0x1408FE7BC (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x140900DD4 (TtmpDispatchCreateTerminal.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     TtmpSetTerminalPendingCleanup @ 0x1408FE0C0 (TtmpSetTerminalPendingCleanup.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1408FF490 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     TtmiLogTerminalCreated @ 0x1409046FC (TtmiLogTerminalCreated.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1408FE220 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408FF5F0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     TtmiLogTerminalCreated @ 0x14090485C (TtmiLogTerminalCreated.c)
  */
 
 __int64 __fastcall TtmiCreateTerminal(

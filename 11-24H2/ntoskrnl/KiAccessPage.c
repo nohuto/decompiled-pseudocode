@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAccessPage @ 0x140BDA740
+ * XREFs of KiAccessPage @ 0x140BDC740
  * Callers:
- *     sub_140BD8680 @ 0x140BD8680 (sub_140BD8680.c)
+ *     sub_140BDA680 @ 0x140BDA680 (sub_140BDA680.c)
  * Callees:
  *     <none>
  */

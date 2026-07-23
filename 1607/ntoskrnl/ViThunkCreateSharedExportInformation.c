@@ -3,7 +3,7 @@
  * Callers:
  *     VfThunkAddTargetNotify @ 0x1406FDDDC (VfThunkAddTargetNotify.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x140076A5C (RtlNumberOfClearBits.c)
+ *     RtlNumberOfClearBits @ 0x140076ADC (RtlNumberOfClearBits.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     ViThunkSnapSharedExports @ 0x1406FDF64 (ViThunkSnapSharedExports.c)
  *     ViThunkFreeSharedThunksArray @ 0x1406FE100 (ViThunkFreeSharedThunksArray.c)
@@ -13,7 +13,7 @@ __int64 __fastcall ViThunkCreateSharedExportInformation(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        struct _RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         _QWORD *a5)
 {
   unsigned int v9; // ebx

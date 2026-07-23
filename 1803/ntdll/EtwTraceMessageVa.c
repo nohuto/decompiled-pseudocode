@@ -9,21 +9,21 @@
  *     sub_1801070E0 @ 0x1801070E0 (sub_1801070E0.c)
  */
 
-__int64 __fastcall EtwTraceMessageVa(__int64 a1, int a2, _DWORD *a3, __int16 a4, _QWORD *a5)
+__int64 __fastcall EtwTraceMessageVa(HANDLE TraceHandle, int a2, _DWORD *a3, __int16 a4, _QWORD *a5)
 {
   unsigned int v6; // ebx
   int v7; // ecx
   _QWORD *v8; // rax
   NTSTATUS v9; // eax
-  _BYTE v11[4]; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE Fields[4]; // [rsp+30h] [rbp-38h] BYREF
   __int16 v12; // [rsp+34h] [rbp-34h]
   __int128 v13; // [rsp+38h] [rbp-30h]
   int v14; // [rsp+48h] [rbp-20h]
   int v15; // [rsp+4Ch] [rbp-1Ch]
   _QWORD *v16; // [rsp+50h] [rbp-18h]
 
-  if ( (a1 & 0x1000000) != 0 )
-    return sub_1801070E0(a1, a2, (_DWORD)a3, a4, (__int64)a5);
+  if ( (BYTE3(TraceHandle) & 1) != 0 )
+    return sub_1801070E0((_DWORD)TraceHandle, a2, (_DWORD)a3, a4, (__int64)a5);
   v6 = 0;
   v7 = 0;
   if ( *a5 )
@@ -48,7 +48,7 @@ __int64 __fastcall EtwTraceMessageVa(__int64 a1, int a2, _DWORD *a3, __int16 a4,
   }
   v16 = a5;
   v15 = 16 * v7 + 8;
-  v9 = ZwTraceEvent(a1, 512LL, 40LL, v11);
+  v9 = ZwTraceEvent(TraceHandle, 0x200u, 0x28u, Fields);
   if ( v9 )
     return RtlNtStatusToDosError(v9);
   return v6;

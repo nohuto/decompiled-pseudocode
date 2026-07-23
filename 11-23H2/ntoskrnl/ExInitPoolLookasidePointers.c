@@ -16,8 +16,8 @@ __int64 ExInitPoolLookasidePointers()
   CurrentPrcb = KeGetCurrentPrcb();
   if ( !CurrentPrcb->Number )
   {
-    qword_140C2D698 = (__int64)&ExPoolLookasideListHead;
-    qword_140C2D648 = (__int64)&ExSystemLookasideListHead;
+    qword_140C2D638 = (__int64)&ExPoolLookasideListHead;
+    qword_140C2D5E8 = (__int64)&ExSystemLookasideListHead;
     ExSystemLookasideListHead = (__int64)&ExSystemLookasideListHead;
     ExPoolLookasideListHead = (__int64)&ExPoolLookasideListHead;
     ExInitializeSystemLookasideList(

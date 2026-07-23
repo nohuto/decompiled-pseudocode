@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPepInitializeVetoMasks @ 0x1404E1A2C
+ * XREFs of PopPepInitializeVetoMasks @ 0x1404DB10C
  * Callers:
- *     PopPepDeviceStarted @ 0x1404EADE4 (PopPepDeviceStarted.c)
- *     PopPepPlatformStateRegistered @ 0x140611864 (PopPepPlatformStateRegistered.c)
+ *     PopPepDeviceStarted @ 0x1404E4194 (PopPepDeviceStarted.c)
+ *     PopPepPlatformStateRegistered @ 0x1406146A4 (PopPepPlatformStateRegistered.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopPepUpdateIdleStateRefCount @ 0x1403B2278 (PopPepUpdateIdleStateRefCount.c)
- *     PopPluginRequestDeviceIdleConstraints @ 0x1404E1FA0 (PopPluginRequestDeviceIdleConstraints.c)
- *     PopFxReinitializeAccountingInstance @ 0x1404E23A0 (PopFxReinitializeAccountingInstance.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1404E2438 (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPluginRequestComponentIdleConstraints @ 0x14052C864 (PopPluginRequestComponentIdleConstraints.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     EmClientRuleEvaluate @ 0x140C03A80 (EmClientRuleEvaluate.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403BBF88 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPluginRequestDeviceIdleConstraints @ 0x1404DB680 (PopPluginRequestDeviceIdleConstraints.c)
+ *     PopFxReinitializeAccountingInstance @ 0x1404DBA80 (PopFxReinitializeAccountingInstance.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1404DBB18 (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPluginRequestComponentIdleConstraints @ 0x14052ED84 (PopPluginRequestComponentIdleConstraints.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     EmClientRuleEvaluate @ 0x140C09C90 (EmClientRuleEvaluate.c)
  */
 
 void __fastcall PopPepInitializeVetoMasks(__int64 a1, unsigned int a2)

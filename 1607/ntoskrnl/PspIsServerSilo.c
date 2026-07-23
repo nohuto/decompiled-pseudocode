@@ -1,20 +1,20 @@
 /*
- * XREFs of PspIsServerSilo @ 0x1400B2DF8
+ * XREFs of PspIsServerSilo @ 0x1400B0D44
  * Callers:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     PspIsSiloInServerSilo @ 0x14020F6C8 (PspIsSiloInServerSilo.c)
- *     PspTerminateProcessesJobCallback @ 0x1404580A8 (PspTerminateProcessesJobCallback.c)
- *     PspEstablishJobHierarchy @ 0x1404F2FFC (PspEstablishJobHierarchy.c)
- *     PspImplicitAssignProcessToJob @ 0x1404F3670 (PspImplicitAssignProcessToJob.c)
- *     PspGetNextSilo @ 0x14055F95C (PspGetNextSilo.c)
- *     PsIsProcessInAppSilo @ 0x14067DF9C (PsIsProcessInAppSilo.c)
- *     PsTerminateServerSilo @ 0x14067E178 (PsTerminateServerSilo.c)
- *     PspDeleteSilo @ 0x14067E8C0 (PspDeleteSilo.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     PspIsSiloInServerSilo @ 0x14020F4F4 (PspIsSiloInServerSilo.c)
+ *     PspTerminateProcessesJobCallback @ 0x140456F78 (PspTerminateProcessesJobCallback.c)
+ *     PspEstablishJobHierarchy @ 0x1404D5F88 (PspEstablishJobHierarchy.c)
+ *     PspImplicitAssignProcessToJob @ 0x1404D65FC (PspImplicitAssignProcessToJob.c)
+ *     PspGetNextSilo @ 0x14055FE9C (PspGetNextSilo.c)
+ *     PsIsProcessInAppSilo @ 0x14067E080 (PsIsProcessInAppSilo.c)
+ *     PsTerminateServerSilo @ 0x14067E25C (PsTerminateServerSilo.c)
+ *     PspDeleteSilo @ 0x14067E9A4 (PspDeleteSilo.c)
  * Callees:
  *     <none>
  */

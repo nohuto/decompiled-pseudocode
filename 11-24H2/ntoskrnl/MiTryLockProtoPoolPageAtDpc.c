@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x1402F6DBC
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x14033EECC
  * Callers:
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
- *     MiCopyDataPageToImagePage @ 0x1403142D8 (MiCopyDataPageToImagePage.c)
- *     MiCopyHeaderIfResident @ 0x1404765F4 (MiCopyHeaderIfResident.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14047FE9C (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
+ *     MiCopyHeaderIfResident @ 0x1403F0510 (MiCopyHeaderIfResident.c)
+ *     MiCopyDataPageToImagePage @ 0x1403F1624 (MiCopyDataPageToImagePage.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14047AADC (MiCopyFileOnlyGlobalSubsectionPage.c)
  * Callees:
- *     MiWriteValidPteVolatile @ 0x140232800 (MiWriteValidPteVolatile.c)
- *     MiAddLockedPageCharge @ 0x1402F6F40 (MiAddLockedPageCharge.c)
- *     MiTryLockLeafPage @ 0x14030245C (MiTryLockLeafPage.c)
+ *     MiWriteValidPteVolatile @ 0x140203330 (MiWriteValidPteVolatile.c)
+ *     MiAddLockedPageCharge @ 0x14033F050 (MiAddLockedPageCharge.c)
+ *     MiTryLockLeafPage @ 0x1403460BC (MiTryLockLeafPage.c)
  */
 
 __int64 __fastcall MiTryLockProtoPoolPageAtDpc(unsigned __int64 a1, __int64 a2, __int64 *a3, __int64 a4)
@@ -25,7 +25,7 @@ __int64 __fastcall MiTryLockProtoPoolPageAtDpc(unsigned __int64 a1, __int64 a2, 
   if ( (*v7 & 1) == 0 )
     return 3221435187LL;
   v8 = ((unsigned __int64)*v7 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v8 > qword_140E2DBE0 )
+  if ( v8 > qword_140E2DD20 )
     return 3221225557LL;
   if ( ((*(_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
     return 3221225557LL;
@@ -45,7 +45,7 @@ __int64 __fastcall MiTryLockProtoPoolPageAtDpc(unsigned __int64 a1, __int64 a2, 
   {
     if ( (v11 & 0x20) == 0 )
       MiWriteValidPteVolatile(v7, 1, 0);
-    if ( !a4 || (v9 = MiTryLockLeafPage(a1, 1LL, a4), v9 >= 0) )
+    if ( !a4 || (v9 = MiTryLockLeafPage(a1, 1LL, a4, a4), v9 >= 0) )
     {
       MiAddLockedPageCharge(v10, 1LL);
       v13 = *(_DWORD *)(v10 + 32);

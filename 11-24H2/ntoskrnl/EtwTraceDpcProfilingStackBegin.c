@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceDpcProfilingStackBegin @ 0x14044775C
+ * XREFs of EtwTraceDpcProfilingStackBegin @ 0x14043FE7C
  * Callers:
- *     KeAccumulateTicks @ 0x14029C3C0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402AAEB0 (KeAccumulateTicks.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall EtwTraceDpcProfilingStackBegin(int a1, int a2, int a3, int a4, char a5)

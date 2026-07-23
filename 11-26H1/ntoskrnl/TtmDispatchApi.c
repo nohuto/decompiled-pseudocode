@@ -1,25 +1,25 @@
 /*
- * XREFs of TtmDispatchApi @ 0x140A3A3D0
+ * XREFs of TtmDispatchApi @ 0x1409F5FD0
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     TtmpDispatchAssignDevice @ 0x1407E7C84 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x1407E7D34 (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x1407E7E84 (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x1407E7F68 (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchGetTerminalEvent @ 0x1407E8018 (TtmpDispatchGetTerminalEvent.c)
- *     TtmpDispatchOpenTerminal @ 0x1407E80E4 (TtmpDispatchOpenTerminal.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1407E8180 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayPowerRequest @ 0x1407E8240 (TtmpDispatchSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x1407E82F4 (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x1407E83B0 (TtmpDispatchSetDisplayTimeouts.c)
- *     TtmpDispatchSetInputWakeCapability @ 0x1407E8470 (TtmpDispatchSetInputWakeCapability.c)
- *     TtmiLogDispatchApiStart @ 0x140A3A67C (TtmiLogDispatchApiStart.c)
- *     TtmiLogDispatchApiStop @ 0x140A3A730 (TtmiLogDispatchApiStop.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     TtmpDispatchAssignDevice @ 0x1407ED7E4 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x1407ED894 (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x1407ED9E4 (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x1407EDAC8 (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x1407EDB78 (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchOpenTerminal @ 0x1407EDC44 (TtmpDispatchOpenTerminal.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1407EDCE0 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x1407EDDA0 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x1407EDE54 (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x1407EDF10 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpDispatchSetInputWakeCapability @ 0x1407EDFD0 (TtmpDispatchSetInputWakeCapability.c)
+ *     TtmiLogDispatchApiStart @ 0x1409F627C (TtmiLogDispatchApiStart.c)
+ *     TtmiLogDispatchApiStop @ 0x1409F6330 (TtmiLogDispatchApiStop.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmDispatchApi(
@@ -34,13 +34,10 @@ __int64 __fastcall TtmDispatchApi(
 {
   unsigned int v12; // esi
   _QWORD *Pool2; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r8
-  unsigned int v18; // edi
-  __int64 v19; // rdx
-  unsigned int v20; // eax
+  __int64 v14; // r8
+  unsigned int v15; // edi
+  __int64 v16; // rdx
+  unsigned int v17; // eax
   unsigned int Terminal; // eax
 
   TtmiLogDispatchApiStart();
@@ -49,12 +46,12 @@ __int64 __fastcall TtmDispatchApi(
   *a6 = 0LL;
   *a7 = 0;
   *a8 = 0;
-  if ( !(unsigned __int8)TtmIsEnabled(v15, v14, v16) )
+  if ( !(unsigned __int8)TtmIsEnabled() )
   {
-    v18 = -1073741637;
-    v19 = 1055LL;
+    v15 = -1073741637;
+    v16 = 1055LL;
 LABEL_58:
-    TtmiLogError("TtmDispatchApi", v19, 0xFFFFFFFFLL, v18);
+    TtmiLogError("TtmDispatchApi", v16, 0xFFFFFFFFLL, v15);
     goto LABEL_59;
   }
   if ( a1 > 4101 )
@@ -67,10 +64,10 @@ LABEL_58:
   {
     case 4101:
 LABEL_15:
-      v20 = 24;
+      v17 = 24;
       goto LABEL_16;
     case 4096:
-      v20 = 12;
+      v17 = 12;
 LABEL_12:
       v12 = 8;
       goto LABEL_16;
@@ -84,24 +81,24 @@ LABEL_12:
     {
       if ( a1 == 4100 )
       {
-        v20 = 16;
+        v17 = 16;
         v12 = 544;
         goto LABEL_16;
       }
 LABEL_28:
-      v18 = -1073741811;
-      v19 = 1124LL;
+      v15 = -1073741811;
+      v16 = 1124LL;
       goto LABEL_58;
     }
-    v20 = 16;
+    v17 = 16;
     goto LABEL_12;
   }
-  v20 = 16;
+  v17 = 16;
 LABEL_16:
-  if ( a3 < v20 || !a4 && v12 || a5 < v12 )
+  if ( a3 < v17 || !a4 && v12 || a5 < v12 )
   {
-    v18 = -1073741789;
-    v19 = 1135LL;
+    v15 = -1073741789;
+    v16 = 1135LL;
     goto LABEL_58;
   }
   if ( v12 )
@@ -109,8 +106,8 @@ LABEL_16:
     Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
     if ( !Pool2 )
     {
-      v18 = -1073741801;
-      v19 = 1150LL;
+      v15 = -1073741801;
+      v16 = 1150LL;
       goto LABEL_58;
     }
   }
@@ -134,7 +131,7 @@ LABEL_16:
         Terminal = TtmpDispatchSetInputWakeCapability(a2);
         break;
       default:
-        v18 = -1073741811;
+        v15 = -1073741811;
         TtmiLogError("TtmDispatchApi", 1219LL, 0xFFFFFFFFLL, 3221225485LL);
         goto LABEL_53;
     }
@@ -147,7 +144,7 @@ LABEL_16:
         Terminal = TtmpDispatchSetDefaultDeviceAssignment(a2);
         break;
       case 4096:
-        Terminal = TtmpDispatchOpenTerminal(a2, (__int64)Pool2, v17);
+        Terminal = TtmpDispatchOpenTerminal(a2, (__int64)Pool2, v14);
         break;
       case 4097:
         Terminal = TtmpDispatchCreateTerminal(a2, (__int64)Pool2);
@@ -163,11 +160,11 @@ LABEL_16:
         break;
     }
   }
-  v18 = Terminal;
+  v15 = Terminal;
 LABEL_53:
   if ( Pool2 )
   {
-    if ( (v18 & 0x80000000) != 0 )
+    if ( (v15 & 0x80000000) != 0 )
     {
       ExFreePoolWithTag(Pool2, 0x206D654Du);
     }
@@ -179,6 +176,6 @@ LABEL_53:
     }
   }
 LABEL_59:
-  TtmiLogDispatchApiStop((unsigned int)a1, v18);
-  return v18;
+  TtmiLogDispatchApiStop((unsigned int)a1, v15);
+  return v15;
 }

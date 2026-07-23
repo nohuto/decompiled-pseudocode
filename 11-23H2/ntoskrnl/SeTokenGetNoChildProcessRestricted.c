@@ -1,12 +1,12 @@
 /*
- * XREFs of SeTokenGetNoChildProcessRestricted @ 0x1402265DC
+ * XREFs of SeTokenGetNoChildProcessRestricted @ 0x1402266EC
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     PspGetNoChildProcessRestrictedPolicy @ 0x1407E9E80 (PspGetNoChildProcessRestrictedPolicy.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
+ *     PspGetNoChildProcessRestrictedPolicy @ 0x1407EA150 (PspGetNoChildProcessRestrictedPolicy.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
  */
 
 bool __fastcall SeTokenGetNoChildProcessRestricted(__int64 a1, bool *a2, bool *a3, bool *a4)

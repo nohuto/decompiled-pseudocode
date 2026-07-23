@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInswapAndReadyThread @ 0x140338374
+ * XREFs of KiInswapAndReadyThread @ 0x1402DE624
  * Callers:
- *     KiProcessThreadWaitList @ 0x14031EA20 (KiProcessThreadWaitList.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiProcessThreadWaitList @ 0x1402C75B0 (KiProcessThreadWaitList.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiRequestProcessInSwap @ 0x140338230 (KiRequestProcessInSwap.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     KiRequestProcessInSwap @ 0x1402DFA90 (KiRequestProcessInSwap.c)
  */
 
-char __fastcall KiInswapAndReadyThread(struct _KPRCB *a1, unsigned __int64 a2, __int64 a3)
+int __fastcall KiInswapAndReadyThread(struct _KPRCB *a1, unsigned __int64 a2, __int64 a3)
 {
   int v3; // eax
   struct _SINGLE_LIST_ENTRY *Next; // rbx
@@ -55,11 +55,11 @@ LABEL_3:
         }
         while ( Next );
       }
-      LOBYTE(v9) = KiFlushSoftwareInterruptBatch((char *)&a1->DeferredDispatchInterrupts);
+      LODWORD(v9) = KiFlushSoftwareInterruptBatch((char *)&a1->DeferredDispatchInterrupts);
       return v9;
     }
 LABEL_13:
-    LOBYTE(v9) = KiRequestProcessInSwap(a2, (__int64)v10);
+    LODWORD(v9) = KiRequestProcessInSwap(a2, v10);
     return v9;
   }
   v10 = *(volatile signed __int32 **)(a2 + 184);
@@ -81,6 +81,6 @@ LABEL_13:
   }
   while ( v9 != v12 );
   if ( !v9 )
-    LOBYTE(v9) = KeSetEvent(&KiSwapEvent, 10, 0);
+    LODWORD(v9) = KeSetEvent(&KiSwapEvent, 10, 0);
   return v9;
 }

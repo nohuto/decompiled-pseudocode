@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwCreateKeyTransacted @ 0x14041CDC0
  * Callers:
- *     DifZwCreateKeyTransactedWrapper @ 0x14061E990 (DifZwCreateKeyTransactedWrapper.c)
+ *     sub_14061E990 @ 0x14061E990 (sub_14061E990.c)
  * Callees:
  *     <none>
  */
@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwCreateKeyTransacted(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(KeyHandle, *(_QWORD *)&DesiredAccess);
 }

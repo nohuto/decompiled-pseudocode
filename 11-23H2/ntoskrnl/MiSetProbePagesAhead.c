@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetProbePagesAhead @ 0x140236FD0
+ * XREFs of MiSetProbePagesAhead @ 0x1402370A0
  * Callers:
- *     MiProbeAndLockPacket @ 0x140236260 (MiProbeAndLockPacket.c)
- *     MiProbeLeafFrame @ 0x1403D5604 (MiProbeLeafFrame.c)
+ *     MiProbeAndLockPacket @ 0x140236330 (MiProbeAndLockPacket.c)
+ *     MiProbeLeafFrame @ 0x1403D57E4 (MiProbeLeafFrame.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
  */
 
 char __fastcall MiSetProbePagesAhead(__int64 a1)

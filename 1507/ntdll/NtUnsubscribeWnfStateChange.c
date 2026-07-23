@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtUnsubscribeWnfStateChange()
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 432LL;
+  result = 432;
   __asm { syscall; Low latency system call }
   return result;
 }

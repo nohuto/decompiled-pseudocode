@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeLoadedModuleList @ 0x140A55E9C
+ * XREFs of MiInitializeLoadedModuleList @ 0x140A56E9C
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
- *     MiLockdownSections @ 0x14075E564 (MiLockdownSections.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5390 (MiCaptureBootDriverRetpolineInfo.c)
- *     NtSetDebugFilterState @ 0x1407A54C0 (NtSetDebugFilterState.c)
- *     MiBuildImportsForBootDrivers @ 0x140A56038 (MiBuildImportsForBootDrivers.c)
- *     RtlCreateInvertedFunctionTableCacheEntry @ 0x140A56360 (RtlCreateInvertedFunctionTableCacheEntry.c)
- *     MiLocateKernelSections @ 0x140A56418 (MiLocateKernelSections.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     MiConstructLoaderEntry @ 0x14075DF90 (MiConstructLoaderEntry.c)
+ *     MiLockdownSections @ 0x14075E724 (MiLockdownSections.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5590 (MiCaptureBootDriverRetpolineInfo.c)
+ *     NtSetDebugFilterState @ 0x1407A56C0 (NtSetDebugFilterState.c)
+ *     MiBuildImportsForBootDrivers @ 0x140A57038 (MiBuildImportsForBootDrivers.c)
+ *     RtlCreateInvertedFunctionTableCacheEntry @ 0x140A57360 (RtlCreateInvertedFunctionTableCacheEntry.c)
+ *     MiLocateKernelSections @ 0x140A57418 (MiLocateKernelSections.c)
  */
 
 __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
@@ -24,16 +24,16 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
   unsigned int *v9; // [rsp+50h] [rbp+8h] BYREF
 
   v9 = 0LL;
-  qword_140C4CCC8 = (__int64)&qword_140C4CCC0;
-  qword_140C4CCC0 = (__int64)&qword_140C4CCC0;
+  qword_140C4CD08 = (__int64)&qword_140C4CD00;
+  qword_140C4CD00 = (__int64)&qword_140C4CD00;
   v2 = (KiSpeculationFeatures & 0x20000000000LL) != 0 || (KiSpeculationFeatures & 0x40000000000LL) != 0;
   ExInitializeResourceLite(&PsLoadedModuleResource);
   ExpCovPushLock = 0LL;
   *(&PsLoadedModuleList + 1) = &PsLoadedModuleList;
   PsLoadedModuleList = &PsLoadedModuleList;
-  qword_140C16248 = (__int64)&ExpCovUnloadedModuleList;
+  qword_140C16268 = (__int64)&ExpCovUnloadedModuleList;
   ExpCovUnloadedModuleList = (__int64)&ExpCovUnloadedModuleList;
-  NtSetDebugFilterState(0x7Eu, 0, 1);
+  NtSetDebugFilterState(0x7Eu, 0, 1u);
   v3 = (__int64 *)(a1 + 16);
   v4 = *v3;
   MiLocateKernelSections(*v3);
@@ -49,7 +49,7 @@ LABEL_11:
     {
       v5 = v9;
       v6 = v9 + 40;
-      if ( *((_QWORD *)v9 + 6) == PsNtosImageBase && (MiFlags & 0x80000) == 0 )
+      if ( *((PVOID *)v9 + 6) == PsNtosImageBase && (MiFlags & 0x80000) == 0 )
       {
         RtlCreateInvertedFunctionTableCacheEntry(*((_QWORD *)v9 + 6), v9[16]);
         v5 = v9;
@@ -57,7 +57,7 @@ LABEL_11:
       MiLockdownSections((__int64)v5);
       if ( v2 && (v9[26] & 0x800000) == 0 )
       {
-        v7 = MiCaptureBootDriverRetpolineInfo(*((_QWORD *)v9 + 6), v9[16], (_QWORD *)v6 + 17);
+        v7 = MiCaptureBootDriverRetpolineInfo(*((PVOID *)v9 + 6), v9[16], (_QWORD *)v6 + 17);
         if ( ((v7 + 0x80000000) & 0x80000000) == 0 && v7 != -1073741637 )
           break;
       }

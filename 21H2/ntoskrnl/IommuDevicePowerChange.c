@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuDevicePowerChange @ 0x1404D7E50
+ * XREFs of IommuDevicePowerChange @ 0x1404D8090
  * Callers:
  *     <none>
  * Callees:
- *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExRundownCompleted @ 0x1402F6750 (ExRundownCompleted.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommuDevicePowerChange(__int64 a1, __int64 a2, char a3)

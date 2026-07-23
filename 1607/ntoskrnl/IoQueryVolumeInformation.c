@@ -1,10 +1,10 @@
 /*
- * XREFs of IoQueryVolumeInformation @ 0x14052AED4
+ * XREFs of IoQueryVolumeInformation @ 0x14052BB24
  * Callers:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     MiAttemptPageFileExtension @ 0x14065ACD8 (MiAttemptPageFileExtension.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     MiAttemptPageFileExtension @ 0x14065ADBC (MiAttemptPageFileExtension.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x14050A128 (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x1404ED0B8 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryVolumeInformation(

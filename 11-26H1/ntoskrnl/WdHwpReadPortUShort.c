@@ -1,5 +1,5 @@
 /*
- * XREFs of WdHwpReadPortUShort @ 0x1405A5040
+ * XREFs of WdHwpReadPortUShort @ 0x1405A7850
  * Callers:
  *     <none>
  * Callees:

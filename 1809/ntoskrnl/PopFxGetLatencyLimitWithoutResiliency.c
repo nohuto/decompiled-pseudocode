@@ -10,11 +10,11 @@ __int64 PopFxGetLatencyLimitWithoutResiliency()
 {
   __int64 result; // rax
 
-  if ( byte_14041810E )
-    return (unsigned int)dword_140540348;
+  if ( byte_1404191CE )
+    return (unsigned int)dword_140541348;
   if ( PpmDisableVsyncLatencyUpdate )
     return (unsigned int)PpmLatencyToleranceLimit;
-  result = (unsigned int)dword_140540344;
+  result = (unsigned int)dword_140541344;
   if ( !PopFxVSyncEnabled )
     return (unsigned int)PpmLatencyToleranceLimit;
   return result;

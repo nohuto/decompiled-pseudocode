@@ -1,15 +1,15 @@
 /*
- * XREFs of PopHandleWakeSources @ 0x140B5BE24
+ * XREFs of PopHandleWakeSources @ 0x140B5DE94
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopAcquireWakeSourceSpinLock @ 0x1404BC574 (PopAcquireWakeSourceSpinLock.c)
- *     PopReleaseWakeSourceSpinLock @ 0x1404CA254 (PopReleaseWakeSourceSpinLock.c)
- *     ExCopyWakeTimerInfo @ 0x140657250 (ExCopyWakeTimerInfo.c)
- *     PopNewWakeSource @ 0x1406F9544 (PopNewWakeSource.c)
- *     PopUnlinkWakeSources @ 0x140AA0388 (PopUnlinkWakeSources.c)
- *     PopValidateRTCWake @ 0x140B6D334 (PopValidateRTCWake.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x1404B7484 (PopAcquireWakeSourceSpinLock.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x1404C35A4 (PopReleaseWakeSourceSpinLock.c)
+ *     ExCopyWakeTimerInfo @ 0x140655950 (ExCopyWakeTimerInfo.c)
+ *     PopNewWakeSource @ 0x1406F7184 (PopNewWakeSource.c)
+ *     PopUnlinkWakeSources @ 0x140A9B718 (PopUnlinkWakeSources.c)
+ *     PopValidateRTCWake @ 0x140B6EBD4 (PopValidateRTCWake.c)
  */
 
 LONG PopHandleWakeSources()
@@ -18,7 +18,7 @@ LONG PopHandleWakeSources()
   bool v1; // bl
   __int64 v2; // rdx
   int v3; // r14d
-  _QWORD *v4; // rbp
+  ULONG_PTR *v4; // rbp
   int v5; // ecx
   __int64 v6; // rdi
   __int64 *v7; // rcx
@@ -62,10 +62,10 @@ LONG PopHandleWakeSources()
     LOBYTE(v2) = v21;
     v3 = 4;
 LABEL_9:
-    if ( dword_140F0B170 < 0 || (unsigned __int64)dword_140F0B170 >= 3 )
+    if ( dword_140F0B9F0 < 0 || (unsigned __int64)dword_140F0B9F0 >= 3 )
       v4 = 0LL;
     else
-      v4 = (_QWORD *)qword_140F0B188[3 * dword_140F0B170];
+      v4 = (ULONG_PTR *)qword_140F0BA08[3 * dword_140F0B9F0];
     if ( v3 == 4 )
     {
       if ( (unsigned __int64)v4 > 0xFFFFFFFFFFFFFFFCuLL )
@@ -85,17 +85,17 @@ LABEL_9:
       {
         ExCopyWakeTimerInfo(v4, (_QWORD *)(v6 + 24));
       }
-      else if ( v4 == (_QWORD *)-1LL )
+      else if ( v4 == (ULONG_PTR *)-1LL )
       {
         *(_DWORD *)(v6 + 24) = 0;
       }
-      else if ( v4 == (_QWORD *)-2LL )
+      else if ( v4 == (ULONG_PTR *)-2LL )
       {
         *(_DWORD *)(v6 + 24) = 1;
       }
       else
       {
-        if ( v4 == (_QWORD *)-3LL )
+        if ( v4 == (ULONG_PTR *)-3LL )
           v3 = 2;
         *(_DWORD *)(v6 + 24) = v3;
       }

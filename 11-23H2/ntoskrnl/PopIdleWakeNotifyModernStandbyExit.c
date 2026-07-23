@@ -1,14 +1,14 @@
 /*
- * XREFs of PopIdleWakeNotifyModernStandbyExit @ 0x14059DAF4
+ * XREFs of PopIdleWakeNotifyModernStandbyExit @ 0x14059DFE4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x14059DC9C (PopIdleWakeStopActiveIntervalAccounting.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14059E18C (PopIdleWakeStopActiveIntervalAccounting.c)
  */
 
 void PopIdleWakeNotifyModernStandbyExit()
@@ -23,19 +23,22 @@ void PopIdleWakeNotifyModernStandbyExit()
   int v7; // eax
   bool v8; // zf
   LARGE_INTEGER v9; // rbx
-  LARGE_INTEGER v10; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = PopWnfCsEnterScenarioId;
-  v10.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v2 = (char *)PopIdleWakeContext;
   PopIdleWakeContext = 0LL;
   v3 = v1;
   KxReleaseSpinLock((volatile signed __int64 *)&PopIdleWakeContextLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -49,8 +52,8 @@ void PopIdleWakeNotifyModernStandbyExit()
   __writecr8(v3);
   if ( v2 )
   {
-    RtlGetInterruptTimePrecise(&v10);
-    v9 = v10;
+    RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v9 = PerformanceCounter;
     PopIdleWakeStopActiveIntervalAccounting(v2);
     *((_QWORD *)v2 + 4758) = v0;
     *((LARGE_INTEGER *)v2 + 4759) = v9;

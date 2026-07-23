@@ -101,7 +101,7 @@ ULONG_PTR __fastcall MiWritePteHighLevelIsr(ULONG_PTR Argument)
   CurrentIrql = KeGetCurrentIrql();
   v51 = CurrentIrql;
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -301,10 +301,10 @@ LABEL_80:
     MiInsertTbFlushEntry((__int64)v58, qword_140C685E8 << 25 >> 16, 1LL, 0);
     MiFlushTbList((int *)v58);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v46 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && v51 <= 0xFu && v46 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && v51 <= 0xFu && v46 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v48 = CurrentPrcb->SchedulerAssist;

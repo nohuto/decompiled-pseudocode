@@ -1,21 +1,21 @@
 /*
- * XREFs of KiExecuteAllDpcs @ 0x1400C6D40
+ * XREFs of KiExecuteAllDpcs @ 0x1400C6C80
  * Callers:
- *     KiRetireDpcList @ 0x1400C64C0 (KiRetireDpcList.c)
- *     KiExecuteDpc @ 0x1401814F0 (KiExecuteDpc.c)
+ *     KiRetireDpcList @ 0x1400C6400 (KiRetireDpcList.c)
+ *     KiExecuteDpc @ 0x140181630 (KiExecuteDpc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     RtlGetSystemTimePrecise @ 0x14008A500 (RtlGetSystemTimePrecise.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14008CF10 (KxWaitForSpinLockAndAcquire.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140291018 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned int a4)
@@ -65,7 +65,7 @@ __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned
   int v47; // eax
   int v48; // eax
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 SystemTimePrecise; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   size_t v51; // r8
   __int64 *v53; // [rsp+38h] [rbp-C8h]
   __int64 *v54; // [rsp+40h] [rbp-C0h]
@@ -82,7 +82,7 @@ __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned
   ULONG_PTR v65; // [rsp+88h] [rbp-78h] BYREF
   __int64 v66; // [rsp+90h] [rbp-70h] BYREF
   LARGE_INTEGER v67; // [rsp+98h] [rbp-68h]
-  __int64 v68; // [rsp+A0h] [rbp-60h]
+  LARGE_INTEGER v68; // [rsp+A0h] [rbp-60h]
   unsigned __int64 v69; // [rsp+A8h] [rbp-58h]
   __int64 v70; // [rsp+B0h] [rbp-50h]
   _QWORD v71[2]; // [rsp+B8h] [rbp-48h] BYREF
@@ -234,11 +234,11 @@ LABEL_10:
     }
     if ( v12 )
     {
-      v26 = qword_14055B8A0;
+      v26 = qword_14055C8A0;
       v27 = 0;
-      if ( qword_14055B8A0 )
+      if ( qword_14055C8A0 )
       {
-        v25 = *(unsigned int *)(qword_14055B8A0 + 4224);
+        v25 = *(unsigned int *)(qword_14055C8A0 + 4224);
         v28 = !_BitScanForward((unsigned int *)&v29, v25);
         v59 = v29;
         if ( !v28 )
@@ -246,9 +246,9 @@ LABEL_10:
           do
           {
             v25 = ((_DWORD)v25 - 1) & (unsigned int)v25;
-            v30 = 32LL * (unsigned int)v29 + qword_14055B8A0 + 4260;
+            v30 = 32LL * (unsigned int)v29 + qword_14055C8A0 + 4260;
             if ( v30 && (*(_DWORD *)(v30 + 4) & 0x80u) != 0 )
-              v27 |= 1 << *(_BYTE *)(qword_14055B8A0 + 2 * v29 + 4209);
+              v27 |= 1 << *(_BYTE *)(qword_14055C8A0 + 2 * v29 + 4209);
             v28 = !_BitScanForward((unsigned int *)&v29, v25);
           }
           while ( !v28 );
@@ -283,7 +283,7 @@ LABEL_10:
       }
       else
       {
-        v68 = 0LL;
+        v68.QuadPart = 0LL;
       }
       if ( (v27 & 8) != 0 )
       {
@@ -298,7 +298,7 @@ LABEL_10:
       if ( (v27 & 0x10) != 0 )
       {
         v61 = 0LL;
-        ((void (__fastcall *)(__int64 *, unsigned __int64, __int64, __int64 *))off_1403FE720[0])(&v61, v25, v26, v23);
+        ((void (__fastcall *)(__int64 *, unsigned __int64, __int64, __int64 *))off_1403FF720[0])(&v61, v25, v26, v23);
         v21 = v53;
         v5 = a3;
         v70 = v61;

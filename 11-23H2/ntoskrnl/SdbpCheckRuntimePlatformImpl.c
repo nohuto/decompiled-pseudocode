@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCheckRuntimePlatformImpl @ 0x140A50978
+ * XREFs of SdbpCheckRuntimePlatformImpl @ 0x140A50C28
  * Callers:
- *     SdbpCheckRuntimePlatform @ 0x140A50920 (SdbpCheckRuntimePlatform.c)
+ *     SdbpCheckRuntimePlatform @ 0x140A50BD0 (SdbpCheckRuntimePlatform.c)
  * Callees:
- *     SdbpCheckRuntimePlatformV2Impl @ 0x140A509B0 (SdbpCheckRuntimePlatformV2Impl.c)
+ *     SdbpCheckRuntimePlatformV2Impl @ 0x140A50C60 (SdbpCheckRuntimePlatformV2Impl.c)
  */
 
 __int64 __fastcall SdbpCheckRuntimePlatformImpl(_DWORD *a1, char a2, unsigned int a3, unsigned int a4)

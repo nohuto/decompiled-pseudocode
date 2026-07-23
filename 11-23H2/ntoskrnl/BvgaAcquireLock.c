@@ -1,15 +1,15 @@
 /*
- * XREFs of BvgaAcquireLock @ 0x14054F130
+ * XREFs of BvgaAcquireLock @ 0x14054F7F0
  * Callers:
- *     BvgaBitBlt @ 0x14054F1D0 (BvgaBitBlt.c)
- *     BvgaDisplayString @ 0x14054F250 (BvgaDisplayString.c)
- *     BvgaEnableBootDriver @ 0x14054F2C0 (BvgaEnableBootDriver.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x14054F3C0 (BvgaNotifyDisplayOwnershipLost.c)
- *     BvgaSolidColorFill @ 0x14054F570 (BvgaSolidColorFill.c)
- *     BvgaUpdateProgressBar @ 0x14054F630 (BvgaUpdateProgressBar.c)
+ *     BvgaBitBlt @ 0x14054F890 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14054F910 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14054F980 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14054FA80 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14054FC30 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14054FCF0 (BvgaUpdateProgressBar.c)
  * Callees:
- *     KeTestSpinLock @ 0x140226EF0 (KeTestSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     KeTestSpinLock @ 0x140227000 (KeTestSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  */
 
 void BvgaAcquireLock()
@@ -25,9 +25,9 @@ void BvgaAcquireLock()
       ;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v2) = 4;

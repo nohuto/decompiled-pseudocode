@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetupUserShadowStack @ 0x1409B1B0C
+ * XREFs of PspSetupUserShadowStack @ 0x1409B1D0C
  * Callers:
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlLocateExtendedFeature @ 0x140464210 (RtlLocateExtendedFeature.c)
- *     MmFreeVirtualMemory @ 0x1407450C0 (MmFreeVirtualMemory.c)
- *     RtlCalculateUserShadowStackSizes @ 0x1408A5F54 (RtlCalculateUserShadowStackSizes.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409B1750 (PspReserveAndCommitUserShadowStack.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlLocateExtendedFeature @ 0x140464610 (RtlLocateExtendedFeature.c)
+ *     MmFreeVirtualMemory @ 0x1407452B0 (MmFreeVirtualMemory.c)
+ *     RtlCalculateUserShadowStackSizes @ 0x1408A61A4 (RtlCalculateUserShadowStackSizes.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409B1950 (PspReserveAndCommitUserShadowStack.c)
  */
 
 NTSTATUS __fastcall PspSetupUserShadowStack(
@@ -47,7 +47,7 @@ NTSTATUS __fastcall PspSetupUserShadowStack(
     {
       if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 )
       {
-        ExtendedFeature = (_QWORD *)RtlLocateExtendedFeature(a2 + 1232, 11LL);
+        ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
         if ( ExtendedFeature )
         {
           *(_QWORD *)(*(int *)(a2 + 1248) + a2 + 1232) |= 0x800uLL;

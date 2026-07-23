@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwChangeThreadState(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwChangeThreadState(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE ThreadHandle,
+        THREAD_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadStateChangeHandle);
 }

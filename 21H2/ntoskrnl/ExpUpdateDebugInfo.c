@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpUpdateDebugInfo @ 0x14094CE04
+ * XREFs of ExpUpdateDebugInfo @ 0x14094CFD4
  * Callers:
  *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
- *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
- *     ExDestroyHandle @ 0x140619D78 (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ExCreateHandleEx @ 0x1405E38B0 (ExCreateHandleEx.c)
+ *     ExDestroyHandle @ 0x1406839D8 (ExDestroyHandle.c)
+ *     ExDupHandleTable @ 0x140695BF0 (ExDupHandleTable.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExDereferenceHandleDebugInfo @ 0x14094C654 (ExDereferenceHandleDebugInfo.c)
- *     ExReferenceHandleDebugInfo @ 0x14094CAA4 (ExReferenceHandleDebugInfo.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RtlWalkFrameChain @ 0x1402C17B0 (RtlWalkFrameChain.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExDereferenceHandleDebugInfo @ 0x14094C824 (ExDereferenceHandleDebugInfo.c)
+ *     ExReferenceHandleDebugInfo @ 0x14094CC74 (ExReferenceHandleDebugInfo.c)
  */
 
 void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -19,18 +19,18 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAddressInSectionTable(__int64 a1, __int64 a2, unsigned int a3)
+PVOID __cdecl RtlAddressInSectionTable(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG VirtualAddress)
 {
   unsigned int *v3; // r10
   unsigned int i; // r9d
   __int64 v5; // rax
 
-  v3 = (unsigned int *)(a1 + *(unsigned __int16 *)(a1 + 20) + 24LL);
-  for ( i = 0; i < *(unsigned __int16 *)(a1 + 6); ++i )
+  v3 = (unsigned int *)((char *)&NtHeaders->OptionalHeader.Magic + NtHeaders->FileHeader.SizeOfOptionalHeader);
+  for ( i = 0; i < NtHeaders->FileHeader.NumberOfSections; ++i )
   {
     v5 = v3[3];
-    if ( a3 >= (unsigned int)v5 && a3 < (unsigned int)v5 + v3[4] )
-      return a2 + v3[5] - v5 + a3;
+    if ( VirtualAddress >= (unsigned int)v5 && VirtualAddress < (unsigned int)v5 + v3[4] )
+      return (char *)BaseOfImage + v3[5] - v5 + VirtualAddress;
     v3 += 10;
   }
   return 0LL;

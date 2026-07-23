@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmInstallNewIdleStates @ 0x1403C4210
+ * XREFs of PpmInstallNewIdleStates @ 0x1403C4640
  * Callers:
- *     PpmIdleInstallDefaultStates @ 0x1403C41F0 (PpmIdleInstallDefaultStates.c)
+ *     PpmIdleInstallDefaultStates @ 0x1403C4620 (PpmIdleInstallDefaultStates.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PpmDeepestHardwareIdleState @ 0x1403C475C (PpmDeepestHardwareIdleState.c)
- *     PpmResetIdlePolicy @ 0x1403C4798 (PpmResetIdlePolicy.c)
- *     PpmUpdateProcessorIdleAccounting @ 0x1403C4928 (PpmUpdateProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     PpmDeepestHardwareIdleState @ 0x1403C4B8C (PpmDeepestHardwareIdleState.c)
+ *     PpmResetIdlePolicy @ 0x1403C4BC8 (PpmResetIdlePolicy.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x1403C4D58 (PpmUpdateProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
@@ -235,8 +235,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
       else
       {
         v32 = a1;
-        *((_QWORD *)v28 + 3) = (unsigned int)KeMaximumIncrement
-                             * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
+        *((_QWORD *)v28 + 3) = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
       }
       PpmResetIdlePolicy(v46);
       if ( v31 )

@@ -1,55 +1,55 @@
 /*
- * XREFs of MmCheckCachedPageStates @ 0x140265320
+ * XREFs of MmCheckCachedPageStates @ 0x1402655B0
  * Callers:
- *     CcFetchDataForRead @ 0x1402622C0 (CcFetchDataForRead.c)
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     CcMapAndRead @ 0x140265190 (CcMapAndRead.c)
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     CcMapDataForOverwrite @ 0x1402FC384 (CcMapDataForOverwrite.c)
+ *     CcFetchDataForRead @ 0x140262550 (CcFetchDataForRead.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     CcMapAndRead @ 0x140265420 (CcMapAndRead.c)
+ *     CcMapAndCopyInToCache @ 0x1402CCB80 (CcMapAndCopyInToCache.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     CcMapDataForOverwrite @ 0x1402FC614 (CcMapDataForOverwrite.c)
  * Callees:
  *     MiWriteValidPteVolatile @ 0x140217020 (MiWriteValidPteVolatile.c)
  *     MiPfnZeroingNeeded @ 0x14021AEF4 (MiPfnZeroingNeeded.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiReferenceControlAreaPfn @ 0x14025B320 (MiReferenceControlAreaPfn.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiMakeSystemCacheRangeValid @ 0x140267860 (MiMakeSystemCacheRangeValid.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiSetNonResidentPteHeat @ 0x1402D90B0 (MiSetNonResidentPteHeat.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiLockOwnedProtoPage @ 0x1402DD410 (MiLockOwnedProtoPage.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiFinalizePageAttribute @ 0x1402E15E4 (MiFinalizePageAttribute.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiChargePartitionResidentAvailable @ 0x1402E6278 (MiChargePartitionResidentAvailable.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiUserPdeOrAbove @ 0x14033C630 (MiUserPdeOrAbove.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     MiMarkPteDirty @ 0x14034B510 (MiMarkPteDirty.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiBadRefCount @ 0x14064D640 (MiBadRefCount.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
- *     MiFreeTransitionPageHeatList @ 0x140653EA8 (MiFreeTransitionPageHeatList.c)
- *     MiMakeTransitionHeatBatch @ 0x1406542B8 (MiMakeTransitionHeatBatch.c)
- *     MiProcessTransitionHeatBatch @ 0x140654634 (MiProcessTransitionHeatBatch.c)
- *     MiReplenishTransitionPageHeatList @ 0x14065485C (MiReplenishTransitionPageHeatList.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiReferenceControlAreaPfn @ 0x14025B5B0 (MiReferenceControlAreaPfn.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140267AF0 (MiMakeSystemCacheRangeValid.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiSetNonResidentPteHeat @ 0x1402D9340 (MiSetNonResidentPteHeat.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiLockOwnedProtoPage @ 0x1402DD6A0 (MiLockOwnedProtoPage.c)
+ *     MiLockProtoPoolPageForce @ 0x1402DE264 (MiLockProtoPoolPageForce.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1402E1780 (MiGetEffectivePagePriorityThread.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E17F0 (MiProtectionToCacheAttribute.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiFinalizePageAttribute @ 0x1402E1874 (MiFinalizePageAttribute.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402E6508 (MiChargePartitionResidentAvailable.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiUserPdeOrAbove @ 0x14033C8C0 (MiUserPdeOrAbove.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     MiMarkPteDirty @ 0x14034B6B0 (MiMarkPteDirty.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiBadRefCount @ 0x14064DB90 (MiBadRefCount.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
+ *     MiFreeTransitionPageHeatList @ 0x1406543F8 (MiFreeTransitionPageHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x140654808 (MiMakeTransitionHeatBatch.c)
+ *     MiProcessTransitionHeatBatch @ 0x140654B84 (MiProcessTransitionHeatBatch.c)
+ *     MiReplenishTransitionPageHeatList @ 0x140654DAC (MiReplenishTransitionPageHeatList.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
  */
 
 __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, int a3, char *a4)
@@ -161,7 +161,7 @@ __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, int 
   _DWORD *v109; // r9
   int v110; // edx
   __int64 v111; // rax
-  struct _SLIST_ENTRY *TransitionHeatBatch; // rdi
+  _SLIST_ENTRY *TransitionHeatBatch; // rdi
   int v113; // eax
   unsigned __int8 v114; // cl
   struct _KPRCB *v115; // r10
@@ -323,7 +323,7 @@ LABEL_19:
         CurrentIrql = KeGetCurrentIrql();
         v141 = CurrentIrql;
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( (_BYTE)CurrentIrql == 2 )
@@ -351,10 +351,13 @@ LABEL_19:
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( (_BYTE)CurrentIrql != 17 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v103 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v103 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v103 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && v103 <= 0xFu
+              && (unsigned __int8)CurrentIrql <= 0xFu
+              && v103 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v105 = CurrentPrcb->SchedulerAssist;
@@ -380,10 +383,13 @@ LABEL_245:
       v88 = (unsigned __int64 *)(((BugCheckParameter1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
       if ( (_BYTE)CurrentIrql != 17 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v99 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v99 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v99 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && v99 <= 0xFu
+            && (unsigned __int8)CurrentIrql <= 0xFu
+            && v99 >= 2u )
           {
             v100 = KeGetCurrentPrcb();
             ValidPte = -1LL << ((unsigned __int8)CurrentIrql + 1);
@@ -495,10 +501,10 @@ LABEL_41:
         do
         {
           _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v107 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v107 <= 0xFu && v93 <= 0xFu && v107 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v107 <= 0xFu && v93 <= 0xFu && v107 >= 2u )
             {
               v108 = KeGetCurrentPrcb();
               v109 = v108->SchedulerAssist;
@@ -627,7 +633,7 @@ LABEL_51:
 LABEL_102:
           v64 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v64 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v64 <= 0xFu )
           {
             v86 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v64 == 2 )
@@ -650,10 +656,10 @@ LABEL_102:
           }
           *(_QWORD *)(v13 + 24) ^= (*(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
           _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v114 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v114 <= 0xFu && v64 <= 0xFu && v114 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v114 <= 0xFu && v64 <= 0xFu && v114 >= 2u )
             {
               v115 = KeGetCurrentPrcb();
               v116 = v115->SchedulerAssist;
@@ -836,7 +842,7 @@ LABEL_191:
       v56 = v55 >> 3;
     if ( (v56 & 1) != 0 )
     {
-      TransitionHeatBatch = (struct _SLIST_ENTRY *)MiMakeTransitionHeatBatch(v54, 0LL, ((__int64)(v12 - v11) >> 3) + 1);
+      TransitionHeatBatch = (_SLIST_ENTRY *)MiMakeTransitionHeatBatch(v54, 0LL, ((__int64)(v12 - v11) >> 3) + 1);
       if ( !TransitionHeatBatch )
       {
         v54 = v130;
@@ -845,7 +851,7 @@ LABEL_191:
       _InterlockedAnd64((volatile signed __int64 *)(v130 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       MiUnlockProtoPoolPage(v10, v123);
       v10 = 0LL;
-      if ( TransitionHeatBatch == (struct _SLIST_ENTRY *)-1LL )
+      if ( TransitionHeatBatch == (_SLIST_ENTRY *)-1LL )
       {
         MiReplenishTransitionPageHeatList();
       }
@@ -1049,10 +1055,10 @@ LABEL_151:
   v85 = v123;
   if ( v123 != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v119 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v119 <= 0xFu && v123 <= 0xFu && v119 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v119 <= 0xFu && v123 <= 0xFu && v119 >= 2u )
       {
         v120 = KeGetCurrentPrcb();
         v121 = v120->SchedulerAssist;

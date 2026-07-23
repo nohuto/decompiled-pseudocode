@@ -18,8 +18,8 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v7; // rdi
-  __int64 v8; // rax
-  __int64 v9; // rbx
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rbx
   int v10; // eax
   int v11; // r8d
   int v12; // ebx
@@ -37,7 +37,7 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     ExfAcquirePushLockExclusiveEx(v7, v8, (ULONG_PTR)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = sub_1405CAAE8(a1, *(_QWORD *)(a2 + 48), &v16, (__int64)&v15);
   v12 = v10;
   if ( v10 >= 0 )

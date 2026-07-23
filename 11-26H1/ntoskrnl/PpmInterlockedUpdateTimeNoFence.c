@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInterlockedUpdateTimeNoFence @ 0x1404891E8
+ * XREFs of PpmInterlockedUpdateTimeNoFence @ 0x140482D28
  * Callers:
- *     PoLatencySensitivityHint @ 0x140530410 (PoLatencySensitivityHint.c)
+ *     PoLatencySensitivityHint @ 0x140532910 (PoLatencySensitivityHint.c)
  * Callees:
  *     <none>
  */

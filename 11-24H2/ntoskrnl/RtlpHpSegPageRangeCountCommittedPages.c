@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x1402C1BC0
+ * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x14035E260
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x1402C17F4 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14035DE94 (RtlpHpSegPageRangeAllocate.c)
  * Callees:
  *     <none>
  */

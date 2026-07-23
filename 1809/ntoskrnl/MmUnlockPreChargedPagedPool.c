@@ -1,10 +1,10 @@
 /*
- * XREFs of MmUnlockPreChargedPagedPool @ 0x1406E01C0
+ * XREFs of MmUnlockPreChargedPagedPool @ 0x1406E1460
  * Callers:
- *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     PopFreeHiberContext @ 0x1406E1240 (PopFreeHiberContext.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x14009C6B0 (MiUnlockCodePage.c)
  */
 
 void __fastcall MmUnlockPreChargedPagedPool(unsigned __int64 a1)

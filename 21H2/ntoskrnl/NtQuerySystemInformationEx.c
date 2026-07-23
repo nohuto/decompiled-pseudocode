@@ -1,116 +1,132 @@
 /*
- * XREFs of NtQuerySystemInformationEx @ 0x14064E9A0
+ * XREFs of NtQuerySystemInformationEx @ 0x1406437C0
  * Callers:
  *     <none>
  * Callees:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySystemInformationEx(int a1, unsigned __int64 a2, unsigned int a3)
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  int v5; // ecx
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rcx
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  int v17; // ecx
+  __int32 v8; // ecx
+  __int64 v9; // rdx
+  char *v10; // rcx
+  __int32 v12; // ecx
+  __int32 v13; // ecx
+  __int32 v14; // ecx
+  __int32 v15; // ecx
+  __int32 v16; // ecx
+  __int32 v17; // ecx
+  __int32 v18; // ecx
+  __int32 v19; // ecx
+  __int32 v20; // ecx
 
-  if ( !a2 || !a3 )
-    return 3221225485LL;
-  if ( a1 <= 121 )
+  if ( !InputBuffer || !InputBufferLength )
+    return -1073741811;
+  if ( SystemInformationClass <= SystemNodeDistanceInformation )
   {
-    if ( a1 != 121 )
+    if ( SystemInformationClass != SystemNodeDistanceInformation )
     {
-      if ( a1 <= 73 )
+      if ( SystemInformationClass <= SystemLogicalProcessorInformation )
       {
-        if ( a1 != 73 && a1 != 8 && a1 != 23 && a1 != 42 && a1 != 61 )
+        if ( SystemInformationClass != SystemLogicalProcessorInformation
+          && SystemInformationClass != SystemProcessorPerformanceInformation
+          && SystemInformationClass != SystemInterruptInformation
+          && SystemInformationClass != SystemProcessorIdleInformation
+          && SystemInformationClass != SystemProcessorPowerInformation )
         {
-          if ( a1 != 72 )
-            return 3221225475LL;
+          if ( SystemInformationClass != SystemWatchdogTimerInformation )
+            return -1073741821;
           goto LABEL_19;
         }
       }
       else
       {
-        v9 = a1 - 83;
-        if ( v9 )
+        v12 = SystemInformationClass - 83;
+        if ( v12 )
         {
-          v10 = v9 - 17;
-          if ( v10 )
+          v13 = v12 - 17;
+          if ( v13 )
           {
-            v11 = v10 - 7;
-            if ( !v11 )
+            v14 = v13 - 7;
+            if ( !v14 )
               goto LABEL_19;
-            if ( v11 != 1 )
-              return 3221225475LL;
+            if ( v14 != 1 )
+              return -1073741821;
           }
         }
       }
     }
     goto LABEL_25;
   }
-  if ( a1 <= 180 )
+  if ( SystemInformationClass <= SystemInterruptSteeringInformation )
   {
-    if ( a1 == 180 )
+    if ( SystemInformationClass == SystemInterruptSteeringInformation )
       goto LABEL_19;
-    v14 = a1 - 141;
-    if ( v14 )
+    v17 = SystemInformationClass - 141;
+    if ( v17 )
     {
-      v15 = v14 - 19;
-      if ( v15 )
+      v18 = v17 - 19;
+      if ( v18 )
       {
-        v16 = v15 - 5;
-        if ( v16 )
+        v19 = v18 - 5;
+        if ( v19 )
         {
-          v17 = v16 - 10;
-          if ( v17 )
+          v20 = v19 - 10;
+          if ( v20 )
           {
-            if ( v17 != 3 )
-              return 3221225475LL;
+            if ( v20 != 3 )
+              return -1073741821;
           }
         }
         goto LABEL_6;
       }
     }
 LABEL_25:
-    v6 = 1LL;
+    v9 = 1LL;
     goto LABEL_7;
   }
-  v5 = a1 - 181;
-  if ( v5 )
+  v8 = SystemInformationClass - 181;
+  if ( v8 )
   {
-    v12 = v5 - 28;
-    if ( v12 )
+    v15 = v8 - 28;
+    if ( v15 )
     {
-      v13 = v12 - 1;
-      if ( v13 )
+      v16 = v15 - 1;
+      if ( v16 )
       {
-        if ( v13 != 1 )
-          return 3221225475LL;
+        if ( v16 != 1 )
+          return -1073741821;
         goto LABEL_6;
       }
 LABEL_19:
-      v6 = 3LL;
+      v9 = 3LL;
       goto LABEL_7;
     }
   }
 LABEL_6:
-  v6 = 7LL;
+  v9 = 7LL;
 LABEL_7:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (v6 & a2) != 0 )
+    if ( (v9 & (unsigned __int64)InputBuffer) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = a2 + a3;
-    if ( v7 > 0x7FFFFFFF0000LL || v7 < a2 )
+    v10 = (char *)InputBuffer + InputBufferLength;
+    if ( (unsigned __int64)v10 > 0x7FFFFFFF0000LL || v10 < InputBuffer )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  return ExpQuerySystemInformation((unsigned int)a1, a2);
+  return ExpQuerySystemInformation(
+           (unsigned int)SystemInformationClass,
+           InputBuffer,
+           InputBufferLength,
+           SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

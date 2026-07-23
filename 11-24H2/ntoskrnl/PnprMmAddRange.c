@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMmAddRange @ 0x14073030C
+ * XREFs of PnprMmAddRange @ 0x14072E31C
  * Callers:
- *     PnprMmConstruct @ 0x140730440 (PnprMmConstruct.c)
+ *     PnprMmConstruct @ 0x14072E450 (PnprMmConstruct.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E5D90 (RtlSetAllBits.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlSetAllBits @ 0x140347620 (RtlSetAllBits.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnprMmAddRange(_QWORD *a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PnprMmAddRange(_QWORD *a1, unsigned __int64 a2, unsigned __in
     v7 = v5;
     if ( v5 > 0x80000000 )
       v7 = 0x80000000LL;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, ((((_DWORD)v7 + 32) & 0xFFFFFFE0) >> 3) + 48, 0x52706E50u);
     v9 = (_QWORD *)Pool2;
     if ( !Pool2 )
     {

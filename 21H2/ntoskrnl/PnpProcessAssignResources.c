@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x14074058C
+ * XREFs of PnpProcessAssignResources @ 0x14074074C
  * Callers:
- *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1407413C4 (PipProcessDevNodeTree.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     KeAcquireGuardedMutex @ 0x1402EF360 (KeAcquireGuardedMutex.c)
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
- *     memset @ 0x140414200 (memset.c)
- *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
- *     PnpProcessAssignResourcesWorker @ 0x140740770 (PnpProcessAssignResourcesWorker.c)
- *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
- *     PipClearDevNodeUserFlags @ 0x140749BB4 (PipClearDevNodeUserFlags.c)
- *     PnpAssignResourcesToDevices @ 0x14074FBD0 (PnpAssignResourcesToDevices.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeAcquireGuardedMutex @ 0x1402FA0B0 (KeAcquireGuardedMutex.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PipSetDevNodeProblem @ 0x1407396AC (PipSetDevNodeProblem.c)
+ *     PnpProcessAssignResourcesWorker @ 0x140740930 (PnpProcessAssignResourcesWorker.c)
+ *     PipSetDevNodeFlags @ 0x1407457DC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140749D74 (PipClearDevNodeUserFlags.c)
+ *     PnpAssignResourcesToDevices @ 0x14074FD90 (PnpAssignResourcesToDevices.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)

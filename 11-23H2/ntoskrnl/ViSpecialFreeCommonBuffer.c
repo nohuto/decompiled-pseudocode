@@ -1,17 +1,17 @@
 /*
- * XREFs of ViSpecialFreeCommonBuffer @ 0x140AC9FD8
+ * XREFs of ViSpecialFreeCommonBuffer @ 0x140AC9FC8
  * Callers:
- *     VfFreeCommonBuffer @ 0x140AC62B0 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x140AC62A0 (VfFreeCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     DECREMENT_COMMON_BUFFERS @ 0x140AC435C (DECREMENT_COMMON_BUFFERS.c)
- *     VF_FIND_BUFFER @ 0x140AC47D8 (VF_FIND_BUFFER.c)
- *     ViCheckPadding @ 0x140AC8394 (ViCheckPadding.c)
+ *     DECREMENT_COMMON_BUFFERS @ 0x140AC434C (DECREMENT_COMMON_BUFFERS.c)
+ *     VF_FIND_BUFFER @ 0x140AC47C8 (VF_FIND_BUFFER.c)
+ *     ViCheckPadding @ 0x140AC8384 (ViCheckPadding.c)
  */
 
 unsigned __int16 *__fastcall ViSpecialFreeCommonBuffer(
@@ -45,10 +45,13 @@ unsigned __int16 *__fastcall ViSpecialFreeCommonBuffer(
     *v12 = (unsigned __int16 *)v11;
     *(_QWORD *)(v11 + 8) = v12;
     KxReleaseSpinLock((volatile signed __int64 *)(a2 + 128));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

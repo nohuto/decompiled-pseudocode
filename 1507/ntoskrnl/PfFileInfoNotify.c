@@ -54,7 +54,7 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1, __int64 a2, __int64 a3, __int64 
   unsigned __int64 v25; // rax
   __int128 v26; // xmm0
   __int128 v27; // xmm1
-  union _SLIST_HEADER *Next; // rsi
+  _SLIST_HEADER *Next; // rsi
   unsigned __int64 v29; // rtt
   __int64 v31; // r14
   unsigned __int64 v32; // r12
@@ -115,7 +115,7 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1, __int64 a2, __int64 a3, __int64 
   struct _KTHREAD *v87; // rcx
   __int16 v88; // ax
   unsigned __int64 v89; // rax
-  struct _SLIST_ENTRY *v90; // rcx
+  _SLIST_ENTRY *v90; // rcx
   unsigned __int64 v91; // rtt
   _QWORD v92[3]; // [rsp+30h] [rbp-39h] BYREF
   _QWORD v93[3]; // [rsp+48h] [rbp-21h] BYREF
@@ -434,7 +434,7 @@ LABEL_16:
           v19[6] = v26;
           *((_QWORD *)&v20[1].Next + 1) += 64LL;
           ++*((_DWORD *)&v20[2].Next + 2);
-          Next = (union _SLIST_HEADER *)v20[1].Next;
+          Next = (_SLIST_HEADER *)v20[1].Next;
           if ( (__int64)v20[2].Next - *((_QWORD *)&v20[1].Next + 1) < SLODWORD(Next[5].Alignment) )
           {
             ((void (__fastcall *)(PSLIST_ENTRY))Next[6].Alignment)(v20);

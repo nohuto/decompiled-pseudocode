@@ -26,28 +26,26 @@ __int64 PopUmpoInitializeChannel()
   ULONG v1; // ebx
   ACL *PoolWithTag; // rax
   ACL *v3; // rdi
-  int Acl; // ebx
+  NTSTATUS Acl; // ebx
   PCALLBACK_OBJECT v5; // rsi
-  PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-89h] BYREF
-  OBJECT_ATTRIBUTES CallbackObject_8; // [rsp+30h] [rbp-81h] BYREF
-  __int128 v9; // [rsp+60h] [rbp-51h]
+  PCALLBACK_OBJECT ObjectAttributes[7]; // [rsp+28h] [rbp-89h] BYREF
+  __int128 PortInformation; // [rsp+60h] [rbp-51h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-41h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+80h] [rbp-31h] BYREF
-  __int64 v12; // [rsp+A0h] [rbp-11h]
-  _QWORD v13[9]; // [rsp+A8h] [rbp-9h] BYREF
+  __int64 v11; // [rsp+A0h] [rbp-11h]
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+A8h] [rbp-9h] BYREF
 
-  memset(&CallbackObject_8, 0, sizeof(CallbackObject_8));
-  memset(v13, 0, sizeof(v13));
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
   PopAlpcServerPort = 0LL;
   PopAlpcClientPort = 0LL;
   PopUmpoPushLock = 0LL;
-  CallbackObject = 0LL;
-  v12 = 0LL;
+  memset(ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v11 = 0LL;
   PopUmpoAlpcClientConnected = 0;
   DestinationString = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v0 = *((unsigned __int8 *)SeLocalSystemSid + 1);
-  v9 = 0LL;
+  PortInformation = 0LL;
   v1 = 4 * v0 + 28;
   PoolWithTag = (ACL *)ExAllocatePoolWithTag(NonPagedPoolNx, v1, 0x6F706D55u);
   v3 = PoolWithTag;
@@ -66,29 +64,34 @@ __int64 PopUmpoInitializeChannel()
           if ( Acl >= 0 )
           {
             RtlInitUnicodeString(&DestinationString, L"\\PowerPort");
-            CallbackObject_8.RootDirectory = 0LL;
-            CallbackObject_8.ObjectName = &DestinationString;
-            v13[2] = 4096LL;
-            *(_OWORD *)&CallbackObject_8.SecurityDescriptor = (unsigned __int64)SecurityDescriptor;
-            LODWORD(v13[0]) = 0x100000;
-            CallbackObject_8.Length = 48;
-            CallbackObject_8.Attributes = 512;
-            Acl = ZwAlpcCreatePort((__int64)&PopAlpcServerPort, (__int64)&CallbackObject_8);
+            ObjectAttributes[2] = 0LL;
+            ObjectAttributes[6] = 0LL;
+            ObjectAttributes[3] = (PCALLBACK_OBJECT)&DestinationString;
+            PortAttributes.MaxMessageLength = 4096LL;
+            ObjectAttributes[5] = (PCALLBACK_OBJECT)SecurityDescriptor;
+            PortAttributes.Flags = 0x100000;
+            LODWORD(ObjectAttributes[1]) = 48;
+            LODWORD(ObjectAttributes[4]) = 512;
+            Acl = ZwAlpcCreatePort(&PopAlpcServerPort, (POBJECT_ATTRIBUTES)&ObjectAttributes[1], &PortAttributes);
             if ( Acl >= 0 )
             {
-              CallbackObject_8.RootDirectory = 0LL;
-              CallbackObject_8.ObjectName = 0LL;
-              CallbackObject_8.Length = 48;
-              CallbackObject_8.Attributes = 512;
-              *(_OWORD *)&CallbackObject_8.SecurityDescriptor = 0LL;
-              Acl = ExCreateCallback(&CallbackObject, &CallbackObject_8, 1u, 0);
+              ObjectAttributes[2] = 0LL;
+              ObjectAttributes[3] = 0LL;
+              LODWORD(ObjectAttributes[1]) = 48;
+              LODWORD(ObjectAttributes[4]) = 512;
+              *(_OWORD *)&ObjectAttributes[5] = 0LL;
+              Acl = ExCreateCallback(ObjectAttributes, (POBJECT_ATTRIBUTES)&ObjectAttributes[1], 1u, 0);
               if ( Acl >= 0 )
               {
-                v5 = CallbackObject;
-                if ( ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)PopUmpoMessageCallback, 0LL) )
+                v5 = ObjectAttributes[0];
+                if ( ExRegisterCallback(ObjectAttributes[0], (PCALLBACK_FUNCTION)PopUmpoMessageCallback, 0LL) )
                 {
-                  v9 = (unsigned __int64)v5;
-                  Acl = ZwAlpcSetInformation(PopAlpcServerPort, 9LL);
+                  PortInformation = (unsigned __int64)v5;
+                  Acl = ZwAlpcSetInformation(
+                          PopAlpcServerPort,
+                          AlpcRegisterCallbackInformation,
+                          &PortInformation,
+                          0x10u);
                   ObfDereferenceObjectWithTag(v5, 0x746C6644u);
                   if ( Acl >= 0 )
                   {

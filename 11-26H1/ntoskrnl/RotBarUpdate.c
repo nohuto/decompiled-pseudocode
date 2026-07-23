@@ -1,10 +1,10 @@
 /*
- * XREFs of RotBarUpdate @ 0x1405C50E0
+ * XREFs of RotBarUpdate @ 0x1405C7950
  * Callers:
- *     InbvRotateGuiBootDisplay @ 0x1405C4F80 (InbvRotateGuiBootDisplay.c)
+ *     InbvRotateGuiBootDisplay @ 0x1405C77F0 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     InbvGetDisplayState @ 0x1405C4C7C (InbvGetDisplayState.c)
- *     FadePalette @ 0x1405C4E98 (FadePalette.c)
+ *     InbvGetDisplayState @ 0x1405C74EC (InbvGetDisplayState.c)
+ *     FadePalette @ 0x1405C7708 (FadePalette.c)
  */
 
 void __fastcall RotBarUpdate(__int64 a1, __int64 a2)

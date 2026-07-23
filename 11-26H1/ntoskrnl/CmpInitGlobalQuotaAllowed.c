@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitGlobalQuotaAllowed @ 0x140CEC908
+ * XREFs of CmpInitGlobalQuotaAllowed @ 0x140CF2C0C
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
  *     <none>
  */
@@ -14,16 +14,17 @@ __int64 CmpInitGlobalQuotaAllowed()
   __int64 v3; // rax
   __int64 result; // rax
 
-  PspSiloMonitorLock.Timer.DueTime.QuadPart = MmSizeOfPagedPoolInBytes;
+  PspSiloMonitorLock.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)MmSizeOfPagedPoolInBytes;
   SchedulingGroup = (((unsigned __int64)MmSizeOfPagedPoolInBytes * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( ExpPlatformBinaryLock.CycleTime == 0x400000004LL && ExpPlatformBinaryLock.SchedulingGroup )
+  if ( ExpPlatformBinaryLock.CycleTime == (HIDWORD(ExpPlatformBinaryLock.CycleTime) | 0x400000000LL)
+    && ExpPlatformBinaryLock.SchedulingGroup )
   {
     v1 = 1;
   }
   else
   {
     v1 = 0;
-    if ( ExpPlatformBinaryLock.CycleTime == 0xB00000008LL && ExpPlatformBinaryLock.SchedulingGroup )
+    if ( ExpPlatformBinaryLock.CycleTime == 0x80000000BLL && ExpPlatformBinaryLock.SchedulingGroup )
       goto LABEL_8;
   }
   if ( !v1 )
@@ -54,19 +55,19 @@ LABEL_11:
   {
     CmpGlobalQuota = 0xFFFFFFFFLL;
   }
-  ExpPlatformBinaryLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)(95 * (v2 / 0x64));
-  if ( LODWORD(WheapPfaLock.FirstArgument) )
+  *(_QWORD *)&ExpPlatformBinaryLock.Timer.Header.Lock = 95 * (v2 / 0x64);
+  if ( *(_DWORD *)&WheapPfaLock.ApcStateFill[8] )
   {
-    result = (unsigned int)(LODWORD(WheapPfaLock.FirstArgument) << 20);
+    result = (unsigned int)(*(_DWORD *)&WheapPfaLock.ApcStateFill[8] << 20);
   }
   else
   {
-    if ( (*(_QWORD *)(*(_QWORD *)stru_140E2EB88.ThreadLock + 22288LL) & 0xFFFFFFFFFFFFFFFEuLL) >= 0xC0000 )
+    if ( (*(_QWORD *)(*(_QWORD *)stru_140E2ED08.ThreadLock + 22288LL) & 0xFFFFFFFFFFFFFFFEuLL) >= 0xC0000 )
       LODWORD(v3) = 393216;
     else
-      v3 = *(_QWORD *)(*(_QWORD *)stru_140E2EB88.ThreadLock + 22288LL) >> 1;
+      v3 = *(_QWORD *)(*(_QWORD *)stru_140E2ED08.ThreadLock + 22288LL) >> 1;
     result = (unsigned int)((_DWORD)v3 << 12);
   }
-  LODWORD(WheapPfaLock.FirstArgument) = result;
+  *(_DWORD *)&WheapPfaLock.ApcStateFill[8] = result;
   return result;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiInsertPartitionPages @ 0x14087C1C4
+ * XREFs of MiInsertPartitionPages @ 0x1408825C4
  * Callers:
- *     MmRemovePhysicalMemory @ 0x140867460 (MmRemovePhysicalMemory.c)
- *     MiHotAddPartitionMemory @ 0x14087BE70 (MiHotAddPartitionMemory.c)
- *     MiPartitionTransferAllocateFinish @ 0x14087C7EC (MiPartitionTransferAllocateFinish.c)
+ *     MmRemovePhysicalMemory @ 0x14086D840 (MmRemovePhysicalMemory.c)
+ *     MiHotAddPartitionMemory @ 0x140882270 (MiHotAddPartitionMemory.c)
+ *     MiPartitionTransferAllocateFinish @ 0x140882BEC (MiPartitionTransferAllocateFinish.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiComputeCommitThresholds @ 0x1404FA2DC (MiComputeCommitThresholds.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x1406EA148 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiInitializeHugePfnDatabase @ 0x1406EC450 (MiInitializeHugePfnDatabase.c)
- *     MiChargeExposedCommitOnly @ 0x1407057D0 (MiChargeExposedCommitOnly.c)
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
- *     MiClearPartitionPageBitMap @ 0x140708808 (MiClearPartitionPageBitMap.c)
- *     MiDeletePartitionPageNodes @ 0x140708B00 (MiDeletePartitionPageNodes.c)
- *     MiDuplicatePartitionNodeTree @ 0x140708B94 (MiDuplicatePartitionNodeTree.c)
- *     MiFreePartitionTree @ 0x140708D7C (MiFreePartitionTree.c)
- *     MiInsertHugeRangeInPartition @ 0x140708E54 (MiInsertHugeRangeInPartition.c)
- *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
- *     MiReflectCommitRemovedFromPartition @ 0x140709640 (MiReflectCommitRemovedFromPartition.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x14087CD4C (MiUpdatePartitionLargePfnBitMap.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiComputeCommitThresholds @ 0x1404F38EC (MiComputeCommitThresholds.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x1406EEDE8 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiInitializeHugePfnDatabase @ 0x1406F10F0 (MiInitializeHugePfnDatabase.c)
+ *     MiChargeExposedCommitOnly @ 0x14070A4A0 (MiChargeExposedCommitOnly.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
+ *     MiClearPartitionPageBitMap @ 0x14070D4BC (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionPageNodes @ 0x14070D7B4 (MiDeletePartitionPageNodes.c)
+ *     MiDuplicatePartitionNodeTree @ 0x14070D848 (MiDuplicatePartitionNodeTree.c)
+ *     MiFreePartitionTree @ 0x14070DA30 (MiFreePartitionTree.c)
+ *     MiInsertHugeRangeInPartition @ 0x14070DB08 (MiInsertHugeRangeInPartition.c)
+ *     MiInsertPartitionPageNodes @ 0x14070DBDC (MiInsertPartitionPageNodes.c)
+ *     MiReflectCommitRemovedFromPartition @ 0x14070E2F4 (MiReflectCommitRemovedFromPartition.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x14088314C (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiInsertPartitionPages(ULONG *a1, ULONG *a2, __int64 a3, unsigned __int64 a4)
@@ -130,7 +130,7 @@ LABEL_3:
             v15 = v12;
           }
         }
-        MiActOnPartitionNodePages(v14, 0xAu, 0, (__int64)v43);
+        MiActOnPartitionNodePages(v14, 0xAu, 0, v43);
       }
       while ( v12 );
       v10 = (unsigned int *)(a3 + 24);
@@ -244,7 +244,7 @@ LABEL_3:
         }
         RtlNumberOfSetBitsEx((__int64 *)(v31 + 32));
         if ( (*(_DWORD *)(a3 + 24) & 2) != 0 )
-          MiActOnPartitionNodePages(v31, 0xAu, 0, (__int64)v45);
+          MiActOnPartitionNodePages(v31, 0xAu, 0, v45);
       }
       while ( v26 );
       v22 = v51;

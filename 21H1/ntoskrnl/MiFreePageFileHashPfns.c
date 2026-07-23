@@ -15,9 +15,9 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
 {
   unsigned __int64 v1; // rdi
   unsigned __int64 result; // rax
-  union _SLIST_HEADER **v3; // r15
+  _SLIST_HEADER **v3; // r15
   __int64 v4; // rbp
-  union _SLIST_HEADER *v5; // rcx
+  _SLIST_HEADER *v5; // rcx
   __int64 v6; // r8
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // r13
@@ -34,7 +34,7 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)
   result = *(unsigned int *)(a1 + 6936);
   if ( (_DWORD)result )
   {
-    v3 = (union _SLIST_HEADER **)(a1 + 6944);
+    v3 = (_SLIST_HEADER **)(a1 + 6944);
     v4 = (unsigned int)result;
     do
     {

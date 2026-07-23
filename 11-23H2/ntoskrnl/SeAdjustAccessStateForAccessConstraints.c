@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAdjustAccessStateForAccessConstraints @ 0x1407AB2C0
+ * XREFs of SeAdjustAccessStateForAccessConstraints @ 0x1407AB4B0
  * Callers:
  *     <none>
  * Callees:
- *     SepAdjustAccessStateForConstraints @ 0x1407AB2E0 (SepAdjustAccessStateForConstraints.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1407AB4D0 (SepAdjustAccessStateForConstraints.c)
  */
 
 __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a2, __int64 a3)

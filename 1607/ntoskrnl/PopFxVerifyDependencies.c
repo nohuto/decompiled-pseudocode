@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxVerifyDependencies @ 0x14066D78C
+ * XREFs of PopFxVerifyDependencies @ 0x14066D870
  * Callers:
- *     PopFxRegisterDeviceWorker @ 0x140566D28 (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x140567268 (PopFxRegisterDeviceWorker.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)

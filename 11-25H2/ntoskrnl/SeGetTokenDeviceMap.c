@@ -36,7 +36,7 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
   NTSTATUS result; // eax
   unsigned int ServerSiloServiceSessionId; // eax
   void *v8; // r13
-  int SymbolicLinkObject; // esi
+  NTSTATUS v9; // esi
   PVOID v10; // r14
   __int64 v11; // rax
   __int64 Pool2; // rax
@@ -52,7 +52,7 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
   unsigned __int64 v22; // rdx
   HANDLE DirectoryHandle; // [rsp+40h] [rbp-C0h] BYREF
   PVOID Object; // [rsp+48h] [rbp-B8h] BYREF
-  HANDLE Handle; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE LinkHandle; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
   _QWORD *v28; // [rsp+98h] [rbp-68h]
@@ -64,7 +64,7 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DirectoryHandle = 0LL;
-  Handle = 0LL;
+  LinkHandle = 0LL;
   *a2 = 0LL;
   DestinationString = 0LL;
   v29 = 0LL;
@@ -104,14 +104,14 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
     {
       v8 = *(void **)(v4 + 160);
       Object = 0LL;
-      SymbolicLinkObject = ObReferenceObjectByHandle(DirectoryHandle, 2u, ObpDirectoryObjectType, 0, &Object, 0LL);
-      if ( SymbolicLinkObject >= 0 )
+      v9 = ObReferenceObjectByHandle(DirectoryHandle, 2u, ObpDirectoryObjectType, 0, &Object, 0LL);
+      if ( v9 >= 0 )
       {
         v10 = Object;
         if ( (*((_DWORD *)Object + 84) & 4) != 0 )
         {
           ObfDereferenceObject(Object);
-          SymbolicLinkObject = -1073741811;
+          v9 = -1073741811;
         }
         else
         {
@@ -121,15 +121,8 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
           {
             *(_QWORD *)Pool2 = v10;
             *(_QWORD *)(Pool2 + 240) = 1LL;
-            SymbolicLinkObject = ObOpenObjectByPointer(
-                                   v10,
-                                   0x200u,
-                                   0LL,
-                                   0xF000Fu,
-                                   ObpDirectoryObjectType,
-                                   0,
-                                   (PHANDLE)(Pool2 + 248));
-            if ( SymbolicLinkObject >= 0 )
+            v9 = ObOpenObjectByPointer(v10, 0x200u, 0LL, 0xF000Fu, ObpDirectoryObjectType, 0, (PHANDLE)(Pool2 + 248));
+            if ( v9 >= 0 )
             {
               if ( v8 )
               {
@@ -184,14 +177,14 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
               ObjectAttributes.ObjectName = &v29;
               ObjectAttributes.Attributes = 720;
               *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-              SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-              if ( SymbolicLinkObject < 0 )
+              v9 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &DestinationString);
+              if ( v9 < 0 )
               {
                 ObDereferenceDeviceMap(v13);
               }
               else
               {
-                ZwClose(Handle);
+                ZwClose(LinkHandle);
                 if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 40), (signed __int64)v13, 0LL) )
                   ObDereferenceDeviceMap(v13);
                 v11 = *(_QWORD *)(v4 + 40);
@@ -209,12 +202,12 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
           else
           {
             ObfDereferenceObject(v10);
-            SymbolicLinkObject = -1073741670;
+            v9 = -1073741670;
           }
         }
       }
       ZwClose(DirectoryHandle);
-      return SymbolicLinkObject;
+      return v9;
     }
   }
   return result;

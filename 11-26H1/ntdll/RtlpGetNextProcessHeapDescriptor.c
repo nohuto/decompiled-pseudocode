@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetNextProcessHeapDescriptor @ 0x1800DBCA0
+ * XREFs of RtlpGetNextProcessHeapDescriptor @ 0x1800D8C10
  * Callers:
- *     RtlLockHeapManagerForCloning @ 0x180144390 (RtlLockHeapManagerForCloning.c)
- *     RtlUnlockHeapManagerForCloning @ 0x1801445D0 (RtlUnlockHeapManagerForCloning.c)
+ *     RtlLockHeapManagerForCloning @ 0x180144290 (RtlLockHeapManagerForCloning.c)
+ *     RtlUnlockHeapManagerForCloning @ 0x1801444C0 (RtlUnlockHeapManagerForCloning.c)
  * Callees:
  *     <none>
  */

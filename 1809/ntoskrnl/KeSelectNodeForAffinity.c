@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSelectNodeForAffinity @ 0x140115768
+ * XREFs of KeSelectNodeForAffinity @ 0x1401157D8
  * Callers:
- *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KeStartThread @ 0x1400D39B4 (KeStartThread.c)
- *     KiSetIdealNodeProcessByGroup @ 0x1400D8A04 (KiSetIdealNodeProcessByGroup.c)
- *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     KiComputeThreadAffinity @ 0x14008A420 (KiComputeThreadAffinity.c)
+ *     KeStartThread @ 0x1400D3A34 (KeStartThread.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x1400D8A84 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetAffinityThread @ 0x1401154EC (KiSetAffinityThread.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

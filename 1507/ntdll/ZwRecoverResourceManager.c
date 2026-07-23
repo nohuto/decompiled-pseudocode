@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRecoverResourceManager()
+NTSTATUS __cdecl ZwRecoverResourceManager(HANDLE ResourceManagerHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 336LL;
+  result = 336;
   __asm { syscall; Low latency system call }
   return result;
 }

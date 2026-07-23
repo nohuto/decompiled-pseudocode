@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x140A28CF0
+ * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x140A28FA0
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C8AC (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140A1CB5C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpAddSubKeyToList @ 0x1407087D4 (CmpAddSubKeyToList.c)
- *     HvAllocateCell @ 0x14070A3C8 (HvAllocateCell.c)
- *     CmpFreeKeyByCell @ 0x14070B214 (CmpFreeKeyByCell.c)
- *     HvpMarkCellDirty @ 0x140746FA0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     CmpCopyKeyPartial @ 0x1407DD858 (CmpCopyKeyPartial.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27F04 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x140A289F8 (CmpLightWeightCreateModificationData.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpAddSubKeyToList @ 0x1407089E4 (CmpAddSubKeyToList.c)
+ *     HvAllocateCell @ 0x14070A5D8 (HvAllocateCell.c)
+ *     CmpFreeKeyByCell @ 0x14070B424 (CmpFreeKeyByCell.c)
+ *     HvpMarkCellDirty @ 0x140747190 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     CmpCopyKeyPartial @ 0x1407DDB28 (CmpCopyKeyPartial.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A281B4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x140A28CA8 (CmpLightWeightCreateModificationData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareAddKeyUoW(__int64 a1)

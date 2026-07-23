@@ -1,9 +1,9 @@
 /*
- * XREFs of MiQuantifyZeroWork @ 0x1404158F8
+ * XREFs of MiQuantifyZeroWork @ 0x140271758
  * Callers:
- *     MiInitializeZeroGroup @ 0x140415664 (MiInitializeZeroGroup.c)
+ *     MiInitializeZeroGroup @ 0x1402714C4 (MiInitializeZeroGroup.c)
  * Callees:
- *     MiComputeSoloZeroingTime @ 0x140415A50 (MiComputeSoloZeroingTime.c)
+ *     MiComputeSoloZeroingTime @ 0x1402718B0 (MiComputeSoloZeroingTime.c)
  */
 
 _DWORD *__fastcall MiQuantifyZeroWork(__int64 a1)

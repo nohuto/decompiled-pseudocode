@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveHugeRangeAnyColor @ 0x1406ED810
+ * XREFs of MiRemoveHugeRangeAnyColor @ 0x1406F24B0
  * Callers:
- *     MiGetBestHugeRangeFromNode @ 0x1406EB5A4 (MiGetBestHugeRangeFromNode.c)
+ *     MiGetBestHugeRangeFromNode @ 0x1406F0244 (MiGetBestHugeRangeFromNode.c)
  * Callees:
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiGetColorHeadHugeRangeBase @ 0x14048E87C (MiGetColorHeadHugeRangeBase.c)
- *     MiGetPerfectColorHeadHugeRange @ 0x1406EBC70 (MiGetPerfectColorHeadHugeRange.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404883BC (MiGetColorHeadHugeRangeBase.c)
+ *     MiGetPerfectColorHeadHugeRange @ 0x1406F0910 (MiGetPerfectColorHeadHugeRange.c)
  */
 
 _QWORD *__fastcall MiRemoveHugeRangeAnyColor(__int64 a1, __int64 a2, int a3)
@@ -65,7 +65,7 @@ _QWORD *__fastcall MiRemoveHugeRangeAnyColor(__int64 a1, __int64 a2, int a3)
   v30[1] = MiGetColorHeadHugeRangeBase(v8, a2, v7);
   v36 = 0LL;
   v37 = v10 + 16 * (v7 + 872);
-  v11 = dword_140E2D780[HIWORD(v6) & 3];
+  v11 = dword_140E2D900[HIWORD(v6) & 3];
   Cache = MiColorGetCache(v6);
   v15 = 0LL;
   v16 = 0LL;

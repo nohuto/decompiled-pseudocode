@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCompareAndApplyPolicySettings @ 0x140992E4C
+ * XREFs of PpmCompareAndApplyPolicySettings @ 0x14099304C
  * Callers:
- *     PpmApplyProfile @ 0x14099D020 (PpmApplyProfile.c)
- *     PpmProfileAcDcUpdate @ 0x14099D57C (PpmProfileAcDcUpdate.c)
+ *     PpmApplyProfile @ 0x14099D220 (PpmApplyProfile.c)
+ *     PpmProfileAcDcUpdate @ 0x14099D77C (PpmProfileAcDcUpdate.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     PpmReapplyPerfPolicy @ 0x14082C6C0 (PpmReapplyPerfPolicy.c)
- *     PpmGetPolicyAction @ 0x14082C9C4 (PpmGetPolicyAction.c)
- *     PpmReapplyIdlePolicy @ 0x140982AC4 (PpmReapplyIdlePolicy.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     PpmReapplyPerfPolicy @ 0x14082C9C0 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x14082CCC4 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x140982CC4 (PpmReapplyIdlePolicy.c)
  */
 
 void __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int64 a3)

@@ -3,7 +3,7 @@
  * Callers:
  *     SeInitSystem @ 0x140B53278 (SeInitSystem.c)
  * Callees:
- *     ObInitializeFastReference @ 0x1406B69CC (ObInitializeFastReference.c)
+ *     ObInitializeFastReference @ 0x1406B6B7C (ObInitializeFastReference.c)
  *     SeMakeSystemToken @ 0x140B53B60 (SeMakeSystemToken.c)
  *     SepInitializeWorkList @ 0x140B54374 (SepInitializeWorkList.c)
  *     SepTokenInitialization @ 0x140B54424 (SepTokenInitialization.c)

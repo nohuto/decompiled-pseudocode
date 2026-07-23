@@ -1,29 +1,29 @@
 /*
- * XREFs of MiDeleteShadowStackPtes @ 0x140269284
+ * XREFs of MiDeleteShadowStackPtes @ 0x14021EA48
  * Callers:
- *     MiDeleteKernelStackPages @ 0x14026A1A4 (MiDeleteKernelStackPages.c)
+ *     MiDeleteKernelStackPages @ 0x14021F734 (MiDeleteKernelStackPages.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiValidateKernelShadowStackPage @ 0x14026C2A8 (MiValidateKernelShadowStackPage.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1402E3A1C (MiLockWorkingSetSharedAtDpc.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x14039F0B8 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiDecreaseUsedPtes @ 0x1403A4830 (MiDecreaseUsedPtes.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     VslFreeKernelShadowStack @ 0x140A4DA2C (VslFreeKernelShadowStack.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x14020BF58 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiDecreaseUsedPtes @ 0x14021C060 (MiDecreaseUsedPtes.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x14021D558 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MiValidateKernelShadowStackPage @ 0x140221838 (MiValidateKernelShadowStackPage.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     VslFreeKernelShadowStack @ 0x140A445BC (VslFreeKernelShadowStack.c)
  */
 
 __int64 __fastcall MiDeleteShadowStackPtes(__int64 a1, __int64 a2, ULONG_PTR a3, __int64 a4, __int64 a5, _QWORD *a6)
 {
-  __int64 v6; // rdi
+  unsigned __int64 v6; // rdi
   unsigned int v7; // r14d
   ULONG_PTR v9; // r15
   __int64 v11; // rdx
@@ -40,32 +40,35 @@ __int64 __fastcall MiDeleteShadowStackPtes(__int64 a1, __int64 a2, ULONG_PTR a3,
   unsigned __int8 CurrentIrql; // si
   _QWORD *v23; // rsi
   __int64 v24; // r15
-  _QWORD *v25; // rbx
-  __int64 v26; // rcx
+  __int64 v25; // rbx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // r9
   int IsPfnFromChargedSlabAllocation; // r14d
-  volatile signed __int32 *v28; // rdi
-  __int64 v29; // rax
-  unsigned int v30; // ebp
-  bool v31; // zf
-  unsigned __int8 v33; // [rsp+80h] [rbp+8h]
-  int v35; // [rsp+90h] [rbp+18h]
-  int v36; // [rsp+90h] [rbp+18h]
-  _QWORD *v37; // [rsp+98h] [rbp+20h]
+  volatile signed __int32 *v31; // rdi
+  __int64 v32; // rax
+  unsigned int v33; // ebp
+  bool v34; // zf
+  unsigned __int8 v36; // [rsp+80h] [rbp+8h]
+  int v38; // [rsp+90h] [rbp+18h]
+  int v39; // [rsp+90h] [rbp+18h]
+  _QWORD *v40; // [rsp+98h] [rbp+20h]
 
   v6 = 0LL;
   v7 = 0;
-  v37 = 0LL;
+  v40 = 0LL;
   v9 = a3;
   if ( KeGetCurrentIrql() == 2 )
   {
     v13 = 17;
-    v33 = 17;
+    v36 = 17;
     MiLockWorkingSetSharedAtDpc(a2);
   }
   else
   {
     v13 = MiLockWorkingSetShared(a2);
-    v33 = v13;
+    v36 = v13;
   }
   v14 = v9 + 8 * a4;
   v15 = v9;
@@ -100,9 +103,9 @@ LABEL_6:
     v15 += 8LL;
   }
   while ( v15 < v14 );
-  v13 = v33;
+  v13 = v36;
   v9 = a3;
-  v37 = v18;
+  v40 = v18;
   if ( v6 )
   {
     if ( v7 )
@@ -125,7 +128,7 @@ LABEL_12:
   if ( v13 != 17 )
   {
     CurrentIrql = KeGetCurrentIrql();
-    v33 = CurrentIrql;
+    v36 = CurrentIrql;
     __writecr8(2uLL);
     if ( KiIrqlFlags )
     {
@@ -134,67 +137,67 @@ LABEL_12:
       KiRaiseIrqlProcessIrqlFlags(v20, v19);
     }
   }
-  v23 = v37;
+  v23 = v40;
   v24 = 0LL;
   while ( 1 )
   {
-    v25 = v23;
+    v25 = (__int64)v23;
     if ( !v23 )
       break;
     v23 = (_QWORD *)*v23;
     IsPfnFromChargedSlabAllocation = MiIsPfnFromChargedSlabAllocation(v25);
-    v28 = (volatile signed __int32 *)(v25 + 3);
-    v29 = v24 + 1;
+    v31 = (volatile signed __int32 *)(v25 + 24);
+    v32 = v24 + 1;
     if ( !IsPfnFromChargedSlabAllocation )
-      v29 = v24;
-    v30 = 0;
-    v24 = v29;
-    while ( _interlockedbittestandset64(v28, 0x3FuLL) )
+      v32 = v24;
+    v33 = 0;
+    v24 = v32;
+    while ( _interlockedbittestandset64(v31, 0x3FuLL) )
     {
       do
       {
-        if ( (++v30 & HvlLongSpinCountMask) == 0
+        if ( (++v33 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v26) )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v27, v26, v28, v29) )
         {
-          HvlNotifyLongSpinWait(v30);
+          HvlNotifyLongSpinWait(v33);
         }
         else
         {
           _mm_pause();
         }
       }
-      while ( *(__int64 *)v28 < 0 );
+      while ( *(__int64 *)v31 < 0 );
     }
-    MiSetPfnIdentity(v25, 0LL);
-    v25[3] = *(_QWORD *)v28 & 0xC000000000000000uLL;
-    v35 = *((_DWORD *)v25 + 8);
-    v31 = (_WORD)v35 == 2;
-    LOWORD(v35) = v35 - 2;
-    *((_DWORD *)v25 + 8) = v35;
-    if ( v31 )
+    MiSetPfnIdentity(v25, 0);
+    *(_QWORD *)(v25 + 24) = *(_QWORD *)v31 & 0xC000000000000000uLL;
+    v38 = *(_DWORD *)(v25 + 32);
+    v34 = (_WORD)v38 == 2;
+    LOWORD(v38) = v38 - 2;
+    *(_DWORD *)(v25 + 32) = v38;
+    if ( v34 )
     {
-      MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v25 + 0x44000000000LL) >> 4), 2LL);
+      MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((v25 + 0x220000000000LL) >> 4));
     }
     else
     {
-      v36 = *((_DWORD *)v25 + 8);
-      BYTE2(v36) |= 7u;
-      *((_DWORD *)v25 + 8) = v36;
-      v25[3] = *(_QWORD *)v28 | 0x4000000000000000LL;
+      v39 = *(_DWORD *)(v25 + 32);
+      BYTE2(v39) |= 7u;
+      *(_DWORD *)(v25 + 32) = v39;
+      *(_QWORD *)(v25 + 24) = *(_QWORD *)v31 | 0x4000000000000000LL;
       if ( !IsPfnFromChargedSlabAllocation )
         ++a6[1];
     }
-    _InterlockedAnd64((volatile signed __int64 *)v28, 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)v31, 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( v33 != 17 )
+  if ( v36 != 17 )
   {
     if ( KiIrqlFlags )
     {
-      LOBYTE(v19) = v33;
+      LOBYTE(v19) = v36;
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v19);
     }
-    __writecr8(v33);
+    __writecr8(v36);
   }
   return v24;
 }

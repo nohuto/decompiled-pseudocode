@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeNewUltraHugeContext @ 0x14039A6C4
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x14039A814
  * Callers:
- *     MiGetHugePageToZero @ 0x14022FCB0 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x1402D4500 (MiGetHugePageToZero.c)
  * Callees:
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1402E020C (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2, __int64 a3)
@@ -30,9 +30,8 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2, __int
   int ProtectionPfnCompatible; // eax
   unsigned __int64 ValidPte; // rbx
   int v20; // r15d
-  __int64 v21; // r8
-  __int64 v22; // rcx
-  int v23; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v21; // rcx
+  int v22; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)(a2 + 88) = 512;
   *(_QWORD *)(a2 + 96) = a2 + 104;
@@ -43,11 +42,11 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2, __int
   *(_QWORD *)(a2 + 168) = a3;
   *(_DWORD *)(a2 + 188) = 1;
   *v11 |= 1u;
-  v23 = 0;
+  v22 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a3 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v23, v7, v9, v10);
+      KeYieldProcessorEx(&v22, v7, v9, v10);
     while ( *(__int64 *)(a3 + 24) < 0 );
   }
   if ( *(_BYTE *)(a2 + 69) == 1 )
@@ -76,7 +75,7 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2, __int
     if ( (unsigned int)MiPteHasShadow() )
     {
       v20 = 1;
-      if ( !HIBYTE(word_140C4E008) )
+      if ( !HIBYTE(word_140C4E048) )
       {
 LABEL_13:
         if ( (ValidPte & 1) != 0 )
@@ -90,10 +89,10 @@ LABEL_13:
   }
   *v17 = ValidPte;
   if ( v20 )
-    MiWritePteShadow((__int64)v17, ValidPte, v21);
-  v22 = *(_QWORD *)(a2 + 40);
+    MiWritePteShadow((__int64)v17, ValidPte);
+  v21 = *(_QWORD *)(a2 + 40);
   *(_DWORD *)(a2 + 64) = 0;
-  *(_QWORD *)(a2 + 48) = v22 + 0x3FFFFFFF;
+  *(_QWORD *)(a2 + 48) = v21 + 0x3FFFFFFF;
   *(_QWORD *)(a2 + 32) = v17;
   _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   *(_DWORD *)(a1 + 64) = 0;

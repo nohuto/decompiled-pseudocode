@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSetActiveConsoleId @ 0x14078EA60
+ * XREFs of RtlSetActiveConsoleId @ 0x14078EC20
  * Callers:
  *     <none>
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
  */
 
 unsigned __int64 __fastcall RtlSetActiveConsoleId(__int64 a1, __int64 a2)

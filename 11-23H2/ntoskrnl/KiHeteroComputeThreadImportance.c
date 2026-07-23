@@ -1,11 +1,11 @@
 /*
- * XREFs of KiHeteroComputeThreadImportance @ 0x140461C32
+ * XREFs of KiHeteroComputeThreadImportance @ 0x140462032
  * Callers:
- *     KiHeteroComputeThreadWorkloadProperties @ 0x140461C9C (KiHeteroComputeThreadWorkloadProperties.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140577010 (KiEvaluatePreemptionSwapTarget.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057739C (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14046209C (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140577500 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057788C (KiHeteroScanQueueForPreemptionSwapTarget.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiHeteroComputeThreadImportance(int a1, char a2)

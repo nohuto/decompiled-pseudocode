@@ -4,7 +4,7 @@
  *     IoVerifierInit @ 0x140700648 (IoVerifierInit.c)
  *     ViSettingsIoCheckForChanges @ 0x140716890 (ViSettingsIoCheckForChanges.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
  */
 
 __int64 __fastcall IoVerifierCheckForSettingsChange(char a1)

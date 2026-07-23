@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsDeepSleepWatchdog @ 0x140608168
+ * XREFs of PopDiagTraceCsDeepSleepWatchdog @ 0x14060AD28
  * Callers:
- *     PopDeepSleepWatchdogTakeAction @ 0x1407E3A00 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1407E8D4C (PopDeepSleepWatchdogTakeAction.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsDeepSleepWatchdog(
@@ -41,11 +41,9 @@ char __fastcall PopDiagTraceCsDeepSleepWatchdog(
   v24 = a2;
   v23 = a1;
   v7 = a4;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v6) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_CS_DEEP_SLEEP_WATCHDOG);
+    LOBYTE(v6) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_CS_DEEP_SLEEP_WATCHDOG);
     if ( (_BYTE)v6 )
     {
       UserData.Ptr = (ULONGLONG)&v23;
@@ -62,15 +60,7 @@ char __fastcall PopDiagTraceCsDeepSleepWatchdog(
       v17 = 4LL;
       v19 = 4LL;
       v21 = 4LL;
-      LOBYTE(v6) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_CS_DEEP_SLEEP_WATCHDOG,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     6u,
-                     &UserData);
+      LOBYTE(v6) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_CS_DEEP_SLEEP_WATCHDOG, 0LL, 0, 0LL, 0LL, 6u, &UserData);
     }
   }
   return (char)v6;

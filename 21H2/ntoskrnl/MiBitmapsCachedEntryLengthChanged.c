@@ -1,16 +1,16 @@
 /*
- * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x140268308
+ * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x1402562A8
  * Callers:
- *     MiCoalescePageFileBitmapsCache @ 0x140267EB0 (MiCoalescePageFileBitmapsCache.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x14026ABE0 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140255E50 (MiCoalescePageFileBitmapsCache.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140258B80 (MiInvalidatePageFileBitmapsCache.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14034B1D0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
  */
 
-void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, __int64 a3)
+void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, int a3)
 {
-  char v3; // bl
+  BOOLEAN v3; // bl
   unsigned __int64 *v4; // rdi
   unsigned __int64 v6; // r9
   unsigned __int64 i; // r9
@@ -20,13 +20,12 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   unsigned __int64 v11; // rcx
   unsigned __int64 j; // r9
   __int64 v13; // rsi
-  __int64 v14; // r8
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // rax
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // rax
 
   v3 = 0;
   v4 = a2;
-  if ( (_DWORD)a3 )
+  if ( a3 )
   {
     v6 = a2[1];
     if ( v6 )
@@ -77,7 +76,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   }
   v9 = *(_DWORD *)(v6 + 52);
   v10 = *((_DWORD *)v4 + 13);
-  if ( (_DWORD)a3 )
+  if ( a3 )
   {
     if ( v9 > v10 )
       return;
@@ -87,51 +86,49 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
     return;
   }
   v13 = a1 + 144;
-  RtlRbRemoveNode(v13, v4, a3, v6);
-  v15 = *(_QWORD *)v13;
+  RtlRbRemoveNode((PRTL_RB_TREE)v13, (PRTL_BALANCED_NODE)v4);
+  v14 = *(_QWORD *)v13;
   if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
   {
-    if ( v15 )
-      v15 ^= v13;
+    if ( v14 )
+      v14 ^= v13;
     else
-      v15 = 0LL;
+      v14 = 0LL;
   }
-  if ( v15 )
+  if ( v14 )
   {
-    v14 = *((unsigned int *)v4 + 13);
     while ( 1 )
     {
-      if ( v4[6] < *(_QWORD *)(v15 + 48) )
+      if ( v4[6] < *(_QWORD *)(v14 + 48) )
       {
-        v16 = *(_QWORD *)v15;
+        v15 = *(_QWORD *)v14;
         if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
         {
-          if ( !v16 )
+          if ( !v15 )
             break;
-          v16 ^= v15;
+          v15 ^= v14;
         }
-        if ( !v16 )
+        if ( !v15 )
           break;
       }
       else
       {
-        v16 = *(_QWORD *)(v15 + 8);
+        v15 = *(_QWORD *)(v14 + 8);
         if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
         {
-          if ( !v16 )
-            goto LABEL_38;
-          v16 ^= v15;
+          if ( !v15 )
+            goto LABEL_37;
+          v15 ^= v14;
         }
-        if ( !v16 )
+        if ( !v15 )
         {
-LABEL_38:
+LABEL_37:
           v3 = 1;
           break;
         }
       }
-      v15 = v16;
+      v14 = v15;
     }
   }
-  LOBYTE(v14) = v3;
-  RtlRbInsertNodeEx(v13, v15, v14, v4);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v13, (PRTL_BALANCED_NODE)v14, v3, (PRTL_BALANCED_NODE)v4);
 }

@@ -10,10 +10,10 @@
  *     sub_1801086C8 @ 0x1801086C8 (sub_1801086C8.c)
  */
 
-__int64 __fastcall sub_180025900(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+__int64 __fastcall sub_180025900(PPEB_LDR_DATA Ldr, __int64 a2, __int64 a3)
 {
   int v3; // r10d
-  struct _PEB_LDR_DATA *v4; // r9
+  PPEB_LDR_DATA v4; // r9
 
   v3 = a3;
   v4 = Ldr;
@@ -21,7 +21,7 @@ __int64 __fastcall sub_180025900(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 
   {
     if ( (unsigned int)sub_18002601C(Ldr, a2, a3, Ldr) )
     {
-      if ( v4->SsHandle == off_180110130 )
+      if ( v4->SsHandle == &off_180110130 )
       {
         Ldr = NtCurrentPeb()->Ldr;
         if ( !Ldr->ShutdownInProgress )

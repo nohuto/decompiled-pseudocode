@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpBounceContextStart @ 0x1406DC320
+ * XREFs of CmpBounceContextStart @ 0x1406DC350
  * Callers:
- *     NtQueryKey @ 0x1406D6BB0 (NtQueryKey.c)
- *     NtEnumerateKey @ 0x1406DBE10 (NtEnumerateKey.c)
- *     NtQueryMultipleValueKey @ 0x14070DD60 (NtQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14070E330 (NtEnumerateValueKey.c)
+ *     NtQueryKey @ 0x1406D6BE0 (NtQueryKey.c)
+ *     NtEnumerateKey @ 0x1406DBE40 (NtEnumerateKey.c)
+ *     NtQueryMultipleValueKey @ 0x14070DF70 (NtQueryMultipleValueKey.c)
+ *     NtEnumerateValueKey @ 0x14070E540 (NtEnumerateValueKey.c)
  * Callees:
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     ExAllocateFromLookasideListEx @ 0x14022D080 (ExAllocateFromLookasideListEx.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1402975FC (CmpAllocateTransientPoolWithQuota.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CmpIsBufferGloballyVisible @ 0x14073E690 (CmpIsBufferGloballyVisible.c)
+ *     ExAllocateFromLookasideListEx @ 0x14022D190 (ExAllocateFromLookasideListEx.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14029788C (CmpAllocateTransientPoolWithQuota.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpIsBufferGloballyVisible @ 0x14073E880 (CmpIsBufferGloballyVisible.c)
  */
 
 __int64 __fastcall CmpBounceContextStart(__int64 a1, void *a2, size_t a3, int a4, char a5)
@@ -45,7 +45,7 @@ LABEL_10:
     *(_QWORD *)(a1 + 8) = v6;
     return 0LL;
   }
-  if ( (unsigned int)dword_140C043C8 > 5 && (byte_140C043D8 & 4) != 0 && (qword_140C043E0 & 4) == qword_140C043E0 )
+  if ( (unsigned int)dword_140C04390 > 5 && (byte_140C043A0 & 4) != 0 && (qword_140C043A8 & 4) == qword_140C043A8 )
   {
     v14 = 1LL;
     v17 = &v14;
@@ -71,7 +71,7 @@ LABEL_10:
     v15 = v11;
     v22 = 8LL;
     v21 = &v15;
-    tlgWriteAgg((__int64)&dword_140C043C8, (unsigned __int8 *)&byte_140036B81, a3, 5u, &v16);
+    tlgWriteAgg((__int64)&dword_140C04390, (unsigned __int8 *)&byte_140036C69, a3, 5u, &v16);
   }
   if ( a3 <= 0x40 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddPageRangeToPageMaps @ 0x14050385C
+ * XREFs of IopAddPageRangeToPageMaps @ 0x1405037DC
  * Callers:
- *     IopAddPageToPageMap @ 0x140503940 (IopAddPageToPageMap.c)
+ *     IopAddPageToPageMap @ 0x1405038C0 (IopAddPageToPageMap.c)
  * Callees:
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
  */
 
 void __fastcall IopAddPageRangeToPageMaps(

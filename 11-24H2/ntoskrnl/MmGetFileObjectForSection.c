@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetFileObjectForSection @ 0x1408FF7D0
+ * XREFs of MmGetFileObjectForSection @ 0x1409220B0
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x14044C520 (FsRtlCreateSectionForDataScan.c)
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
- *     PsReferenceProcessFilePointer @ 0x1408FF760 (PsReferenceProcessFilePointer.c)
- *     PspInitializeFullProcessImageName @ 0x140A346EC (PspInitializeFullProcessImageName.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140443420 (FsRtlCreateSectionForDataScan.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
+ *     PsReferenceProcessFilePointer @ 0x140922040 (PsReferenceProcessFilePointer.c)
+ *     PspInitializeFullProcessImageName @ 0x140A286FC (PspInitializeFullProcessImageName.c)
  * Callees:
- *     MiReferenceControlAreaFileWithTag @ 0x1402440D0 (MiReferenceControlAreaFileWithTag.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x14020C860 (MiReferenceControlAreaFileWithTag.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
  */
 
 ULONG_PTR __fastcall MmGetFileObjectForSection(__int64 a1)

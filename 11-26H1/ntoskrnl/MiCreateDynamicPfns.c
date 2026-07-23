@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCreateDynamicPfns @ 0x140865E98
+ * XREFs of MiCreateDynamicPfns @ 0x14086C278
  * Callers:
- *     MiMapNewPfns @ 0x140866674 (MiMapNewPfns.c)
+ *     MiMapNewPfns @ 0x14086CA54 (MiMapNewPfns.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiInitializeAllResidentPageBasePfns @ 0x14028E4A4 (MiInitializeAllResidentPageBasePfns.c)
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiCreatePageChains @ 0x1403C35B8 (MiCreatePageChains.c)
- *     MiUseThreads @ 0x1403C3644 (MiUseThreads.c)
- *     MiDereferencePageChains @ 0x1403C36A4 (MiDereferencePageChains.c)
- *     MiAddMemorySubsectionRefs @ 0x1406E7D60 (MiAddMemorySubsectionRefs.c)
- *     MiEstimateTimeToFillPfns @ 0x1406E884C (MiEstimateTimeToFillPfns.c)
- *     MiInitializeDynamicPfnsWorker @ 0x1406E9410 (MiInitializeDynamicPfnsWorker.c)
- *     MiUpdatePartitionChildPageCounts @ 0x140709E5C (MiUpdatePartitionChildPageCounts.c)
- *     MiUpdatePhysicalPages @ 0x140709FC0 (MiUpdatePhysicalPages.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x14028DA04 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiCreatePageChains @ 0x1403CD4B8 (MiCreatePageChains.c)
+ *     MiUseThreads @ 0x1403CD544 (MiUseThreads.c)
+ *     MiDereferencePageChains @ 0x1403CD5A4 (MiDereferencePageChains.c)
+ *     MiAddMemorySubsectionRefs @ 0x1406ECA10 (MiAddMemorySubsectionRefs.c)
+ *     MiEstimateTimeToFillPfns @ 0x1406ED4E8 (MiEstimateTimeToFillPfns.c)
+ *     MiInitializeDynamicPfnsWorker @ 0x1406EE0B0 (MiInitializeDynamicPfnsWorker.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14070EB10 (MiUpdatePartitionChildPageCounts.c)
+ *     MiUpdatePhysicalPages @ 0x14070EC74 (MiUpdatePhysicalPages.c)
  */
 
 void __fastcall MiCreateDynamicPfns(

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRebuildPageTableLeafAges @ 0x14007AE10
+ * XREFs of MiRebuildPageTableLeafAges @ 0x14007AE00
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)
- *     MiTerminateWsleCluster @ 0x14007B968 (MiTerminateWsleCluster.c)
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
+ *     MiTerminateWsle @ 0x14007AC90 (MiTerminateWsle.c)
+ *     MiTerminateWsleCluster @ 0x14007B958 (MiTerminateWsleCluster.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
  * Callees:
- *     MiCountWslesInPageTable @ 0x1400F8230 (MiCountWslesInPageTable.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiCountWslesInPageTable @ 0x1400F82B0 (MiCountWslesInPageTable.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiRebuildPageTableLeafAges(__int64 a1, unsigned __int64 a2)

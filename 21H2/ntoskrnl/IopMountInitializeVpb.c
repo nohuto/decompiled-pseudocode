@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMountInitializeVpb @ 0x1402EE2C0
+ * XREFs of IopMountInitializeVpb @ 0x14020DC90
  * Callers:
- *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
+ *     IopMountVolume @ 0x1405DB490 (IopMountVolume.c)
  * Callees:
- *     IopIncrementVpbRefCount @ 0x14030F0A8 (IopIncrementVpbRefCount.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     IopIncrementVpbRefCount @ 0x140319DF8 (IopIncrementVpbRefCount.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
  */
 
 ULONG_PTR __fastcall IopMountInitializeVpb(__int64 a1, __int64 a2, int a3, char a4)

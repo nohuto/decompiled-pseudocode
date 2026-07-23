@@ -31,7 +31,7 @@ char __fastcall EtwpTraceStackWalk(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
   PSLIST_ENTRY v10; // rsi
   int v11; // edx
   unsigned int v12; // r12d
-  struct _SLIST_ENTRY *v13; // r13
+  _SLIST_ENTRY *v13; // r13
   unsigned int v14; // ebx
   ULONG v15; // r12d
   ULONG_PTR v16; // r13
@@ -42,7 +42,7 @@ char __fastcall EtwpTraceStackWalk(__int64 a1, __int64 a2, __int64 a3, _QWORD *a
   unsigned int v21; // ebx
   ULONG_PTR v22; // r8
   __int64 Next_low; // rcx
-  union _SLIST_HEADER *v24; // rcx
+  _SLIST_HEADER *v24; // rcx
   unsigned int v25; // r14d
   bool v26; // zf
   unsigned int v27; // r8d
@@ -213,7 +213,7 @@ LABEL_20:
           _mm_lfence();
           v4 = KiProcessorBlock[Next_low];
         }
-        v24 = (union _SLIST_HEADER *)(*(_QWORD *)(v4 + 35752) + 384LL);
+        v24 = (_SLIST_HEADER *)(*(_QWORD *)(v4 + 35752) + 384LL);
       }
       LOBYTE(v8) = (unsigned __int8)RtlpInterlockedPushEntrySList(v24, v10);
       return v8;

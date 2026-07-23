@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwTraceAppStateChange @ 0x1409540B8
+ * XREFs of EtwTraceAppStateChange @ 0x1409CF9F8
  * Callers:
- *     PsSetProcessTelemetryAppState @ 0x140953E54 (PsSetProcessTelemetryAppState.c)
+ *     PsSetProcessTelemetryAppState @ 0x1409CF794 (PsSetProcessTelemetryAppState.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsQueryStatisticsProcess @ 0x140952680 (PsQueryStatisticsProcess.c)
- *     ObGetProcessHandleCount @ 0x1409533C0 (ObGetProcessHandleCount.c)
- *     EtwpInitStateChangeInfo @ 0x140954454 (EtwpInitStateChangeInfo.c)
- *     EtwpWriteAppStateChangeWithStats @ 0x140954510 (EtwpWriteAppStateChangeWithStats.c)
- *     EtwpWriteAppStateChangeSummary @ 0x1409546CC (EtwpWriteAppStateChangeSummary.c)
- *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x140955400 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
- *     EtwpWriteAppStateChange @ 0x14095549C (EtwpWriteAppStateChange.c)
- *     EtwpQueryTokenPackageInfo @ 0x14096DBF8 (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14096DF08 (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryProcessCommandLine @ 0x14096DF60 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1408FBFFC (EtwpQueryTokenPackageInfo.c)
+ *     PsQueryStatisticsProcess @ 0x1409CDFC0 (PsQueryStatisticsProcess.c)
+ *     ObGetProcessHandleCount @ 0x1409CED00 (ObGetProcessHandleCount.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x1409D0688 (EtwpWriteAppStateChangeSummary.c)
+ *     EtwpInitStateChangeInfo @ 0x1409D0CD8 (EtwpInitStateChangeInfo.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1409D0D94 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpWriteAppStateChange @ 0x1409D1170 (EtwpWriteAppStateChange.c)
+ *     EtwpQueryProcessCommandLine @ 0x1409D37CC (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x1409D3984 (EtwpQueryProcessOtherInfo.c)
+ *     EtwpWriteAppStateChangeWithStats @ 0x140AFF404 (EtwpWriteAppStateChangeWithStats.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 a2)
@@ -43,7 +43,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
   struct _KLOCK_ENTRIES *v18; // r9
   char v19; // r14
   char v20; // si
-  ULONG_PTR v21; // rbx
+  void *v21; // rbx
   int v22; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v23; // [rsp+38h] [rbp-C8h] BYREF
   PVOID P[2]; // [rsp+40h] [rbp-C0h] BYREF
@@ -62,15 +62,15 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
   unsigned __int64 v37; // [rsp+12Dh] [rbp+2Dh]
   unsigned __int64 v38; // [rsp+135h] [rbp+35h]
   struct _KAPC_STATE ApcState; // [rsp+150h] [rbp+50h] BYREF
-  _BYTE v40[672]; // [rsp+180h] [rbp+80h] BYREF
+  WCHAR PackageSize[336]; // [rsp+180h] [rbp+80h] BYREF
 
   memset_0(v33, 0, 0x62uLL);
   memset(v30, 0, sizeof(v30));
   v31 = 0LL;
   v32 = 0;
-  if ( dword_140E08F80
-    && (qword_140E08F90 & 0x600000000001LL) != 0
-    && (qword_140E08F98 & 0x600000000001LL) == qword_140E08F98 )
+  if ( dword_140E08F40
+    && (qword_140E08F50 & 0x600000000001LL) != 0
+    && (qword_140E08F58 & 0x600000000001LL) == qword_140E08F58 )
   {
     EtwpInitStateChangeInfo(PROCESS, v33);
     v4 = *(_QWORD *)a2 - *(_QWORD *)(a2 + 16);
@@ -118,11 +118,11 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
       EtwpWriteAppStateChange(v33);
       LODWORD(v16) = 0;
     }
-    if ( dword_140E08F80
-      && (qword_140E08F90 & 0x400000000000LL) != 0
-      && (qword_140E08F98 & 0x400000000000LL) == qword_140E08F98 )
+    if ( dword_140E08F40
+      && (qword_140E08F50 & 0x400000000000LL) != 0
+      && (qword_140E08F58 & 0x400000000000LL) == qword_140E08F58 )
     {
-      memset_0(v40, 0, sizeof(v40));
+      memset_0(PackageSize, 0, sizeof(PackageSize));
       v23 = 0LL;
       memset(&ApcState, 0, sizeof(ApcState));
       v19 = 0;
@@ -141,9 +141,9 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
           v20 = 0;
         }
       }
-      v21 = PsReferencePrimaryTokenWithTag((__int64)PROCESS, 0x746C6644u, v17, v18);
-      EtwpQueryTokenPackageInfo(v21, v40, &v22);
-      ObFastDereferenceObject((signed __int64 *)&PROCESS[73], v21, 0x746C6644u);
+      v21 = (void *)PsReferencePrimaryTokenWithTag((__int64)PROCESS, 0x746C6644u, v17, v18);
+      EtwpQueryTokenPackageInfo(v21, PackageSize, &v22);
+      ObFastDereferenceObject((signed __int64 *)&PROCESS[73], (ULONG_PTR)v21, 0x746C6644u);
       if ( v20 )
       {
         if ( PROCESS[92].Count && (unsigned __int8)EtwpAppStateChangeSummaryShouldLogCommandLine(PROCESS) )
@@ -159,7 +159,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *PROCESS, __int64 
         (_DWORD)PROCESS,
         (unsigned int)v33,
         (_DWORD)v16,
-        (unsigned int)v40,
+        (unsigned int)PackageSize,
         (__int64)&v23,
         (__int64)P);
       if ( P[1] )

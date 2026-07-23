@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringValidateEx @ 0x1402EC6F8
+ * XREFs of RtlUnicodeStringValidateEx @ 0x1402EC8E8
  * Callers:
- *     NtSetCachedSigningLevel2 @ 0x14089B280 (NtSetCachedSigningLevel2.c)
+ *     NtSetCachedSigningLevel2 @ 0x14089C4E0 (NtSetCachedSigningLevel2.c)
  * Callees:
  *     <none>
  */

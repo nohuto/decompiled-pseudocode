@@ -11,63 +11,62 @@
  *     PopMarshalSettingValues @ 0x140966268 (PopMarshalSettingValues.c)
  */
 
-struct _KTHREAD *__fastcall PopDispatchNotificationsToList(__int64 *a1)
+struct _KTHREAD *__fastcall PopDispatchNotificationsToList(WNF_STATE_NAME **a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rdi
-  __int64 v4; // rsi
-  int v5; // eax
-  __int64 *v6; // rax
+  WNF_STATE_NAME *v2; // rdi
+  WNF_STATE_NAME *v3; // rsi
+  int v4; // eax
+  WNF_STATE_NAME **v5; // rax
   struct _KTHREAD *result; // rax
-  int v8; // ebx
-  unsigned int v9; // r8d
-  int updated; // ebx
-  unsigned int v11; // eax
-  unsigned int v12; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-50h] BYREF
-  _DWORD v14[10]; // [rsp+50h] [rbp-48h] BYREF
+  int v7; // ebx
+  ULONG v8; // r8d
+  NTSTATUS updated; // ebx
+  unsigned int v10; // eax
+  ULONG v11; // [rsp+40h] [rbp-58h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-50h] BYREF
+  _DWORD Buffer[10]; // [rsp+50h] [rbp-48h] BYREF
 
-  v12 = 0;
-  v13 = 0LL;
+  v11 = 0;
+  StateName = 0LL;
   ExAcquireFastMutex(&PopSettingLock);
-  v3 = *a1;
-  while ( (__int64 *)v3 != a1 )
+  v2 = *a1;
+  while ( v2 != (WNF_STATE_NAME *)a1 )
   {
-    v4 = v3;
+    v3 = v2;
     while ( 1 )
     {
-      v5 = *(_DWORD *)(v3 + 52);
-      if ( (v5 & 1) == 0 || (v5 & 2) != 0 )
+      v4 = v2[6].Data[1];
+      if ( (v4 & 1) == 0 || (v4 & 2) != 0 )
         break;
-      v13 = *(_QWORD *)(v3 + 56);
-      *(_DWORD *)(v3 + 52) = *(_DWORD *)(v3 + 52) & 0xFFFFFFFC | 2;
-      v8 = PopMarshalSettingValues(v3, v14, 0x24u, &v12);
+      StateName = v2[7];
+      v2[6].Data[1] = v2[6].Data[1] & 0xFFFFFFFC | 2;
+      v7 = PopMarshalSettingValues((__int64)v2, Buffer, 0x24u, &v11);
       KeReleaseGuardedMutex(&PopSettingLock);
-      v9 = v12;
-      if ( v8 < 0 )
-        v9 = 0;
-      v12 = v9;
-      updated = ZwUpdateWnfStateData((__int64)&v13, (__int64)v14);
+      v8 = v11;
+      if ( v7 < 0 )
+        v8 = 0;
+      v11 = v8;
+      updated = ZwUpdateWnfStateData(&StateName, Buffer, v8, 0LL, 0LL, 0, 0);
       if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
         goto LABEL_18;
       ExAcquireFastMutex(&PopSettingLock);
-      v11 = *(_DWORD *)(v3 + 52) & 0xFFFFFFFD;
-      *(_DWORD *)(v3 + 52) = v11;
+      v10 = v2[6].Data[1] & 0xFFFFFFFD;
+      v2[6].Data[1] = v10;
       if ( updated < 0 )
       {
-        v5 = v11 | 1;
-        *(_DWORD *)(v3 + 52) = v5;
+        v4 = v10 | 1;
+        v2[6].Data[1] = v4;
         break;
       }
     }
-    v3 = *(_QWORD *)v3;
-    if ( (v5 & 2) == 0 && (v5 & 4) != 0 )
+    v2 = (WNF_STATE_NAME *)*v2;
+    if ( (v4 & 2) == 0 && (v4 & 4) != 0 )
     {
-      if ( *(_QWORD *)(v3 + 8) != v4 || (v6 = *(__int64 **)(v4 + 8), *v6 != v4) )
+      if ( (WNF_STATE_NAME *)v2[1] != v3 || (v5 = (WNF_STATE_NAME **)v3[1], *v5 != v3) )
         __fastfail(3u);
-      *v6 = v3;
-      *(_QWORD *)(v3 + 8) = v6;
-      PopFreeRegistration((_DWORD *)v4, v2);
+      *v5 = v2;
+      v2[1] = (WNF_STATE_NAME)v5;
+      PopFreeRegistration(v3);
     }
   }
   KeReleaseGuardedMutex(&PopSettingLock);

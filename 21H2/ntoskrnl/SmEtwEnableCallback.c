@@ -1,12 +1,12 @@
 /*
- * XREFs of SmEtwEnableCallback @ 0x1407BCBB0
+ * XREFs of SmEtwEnableCallback @ 0x1407BD340
  * Callers:
  *     <none>
  * Callees:
- *     SmKmStoreReferenceEx @ 0x1402D959C (SmKmStoreReferenceEx.c)
- *     SmEtwEnabled @ 0x1402DAE08 (SmEtwEnabled.c)
- *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x14059F764 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
- *     SmKmEtwLogStoreRundown @ 0x1407BCC08 (SmKmEtwLogStoreRundown.c)
+ *     SmKmStoreReferenceEx @ 0x14028A8EC (SmKmStoreReferenceEx.c)
+ *     SmEtwEnabled @ 0x14028C158 (SmEtwEnabled.c)
+ *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x14059F994 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
+ *     SmKmEtwLogStoreRundown @ 0x1407BD398 (SmKmEtwLogStoreRundown.c)
  */
 
 void __fastcall SmEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, __int64 Level, ULONGLONG MatchAnyKeyword)

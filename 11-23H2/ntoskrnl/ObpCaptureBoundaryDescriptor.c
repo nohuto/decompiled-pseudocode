@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpCaptureBoundaryDescriptor @ 0x1407C8CB4
+ * XREFs of ObpCaptureBoundaryDescriptor @ 0x1407C8F84
  * Callers:
- *     NtOpenPrivateNamespace @ 0x1407C86D0 (NtOpenPrivateNamespace.c)
- *     NtCreatePrivateNamespace @ 0x1407C88A0 (NtCreatePrivateNamespace.c)
+ *     NtOpenPrivateNamespace @ 0x1407C89A0 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1407C8B70 (NtCreatePrivateNamespace.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     ObpCheckDuplicateEntries @ 0x1407C8F2C (ObpCheckDuplicateEntries.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1407C8FE8 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     ObpCheckDuplicateEntries @ 0x1407C91FC (ObpCheckDuplicateEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x1407C92B8 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -89,10 +89,13 @@ LABEL_20:
   _InterlockedAdd(&ExpPoolBigEntriesInUse, 0xFFFFFFFF);
   _InterlockedIncrement64((volatile signed __int64 *)v14);
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

@@ -1,9 +1,9 @@
 /*
- * XREFs of IntpAddNextProcessorToPartition @ 0x140D024B8
+ * XREFs of IntpAddNextProcessorToPartition @ 0x140D08858
  * Callers:
- *     IntpAssignProcessorsToPartitions @ 0x140D0240C (IntpAssignProcessorsToPartitions.c)
+ *     IntpAssignProcessorsToPartitions @ 0x140D087AC (IntpAssignProcessorsToPartitions.c)
  * Callees:
- *     IntPartCriticalFailure @ 0x1405F3528 (IntPartCriticalFailure.c)
+ *     IntPartCriticalFailure @ 0x1405F5EE8 (IntPartCriticalFailure.c)
  */
 
 __int64 __fastcall IntpAddNextProcessorToPartition(ULONG_PTR BugCheckParameter4, unsigned __int64 *a2)

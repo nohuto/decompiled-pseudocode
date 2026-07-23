@@ -1,14 +1,14 @@
 /*
- * XREFs of MmZeroPageFileAtShutdown @ 0x1408C4BF4
+ * XREFs of MmZeroPageFileAtShutdown @ 0x1408C4D54
  * Callers:
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
  */
 
 __int64 MmZeroPageFileAtShutdown()
@@ -47,6 +47,6 @@ __int64 MmZeroPageFileAtShutdown()
   ObCloseHandle(KeyHandle, 0);
   if ( !v0 )
     return 0LL;
-  byte_140C4E6C2 = 1;
+  byte_140C4E702 = 1;
   return 1LL;
 }

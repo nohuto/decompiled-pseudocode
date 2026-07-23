@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcpFlushCancelQueue @ 0x14088A3C8
+ * XREFs of AlpcpFlushCancelQueue @ 0x14088E278
  * Callers:
- *     AlpcpFlushMessagesPort @ 0x14088BE6C (AlpcpFlushMessagesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x14088EE5C (AlpcpFlushMessagesPort.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcpFlushCancelQueue(__int64 a1, __int64 a2)
 {
   unsigned __int64 *v2; // rbx
   _QWORD **v5; // rsi
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v6; // rax
+  char *v7; // rdi
   _QWORD *v8; // rdi
   _QWORD **v10; // r9
   ULONG_PTR v11; // r8
 
   v2 = (unsigned __int64 *)(a1 + 136);
   v5 = (_QWORD **)(a1 + 384);
-  v6 = KeAbPreAcquire(a1 + 136, 0LL);
+  v6 = (char *)KeAbPreAcquire(a1 + 136, 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v6, (__int64)v2);
+    ExfAcquirePushLockExclusiveEx(v2, v6, (__int64)v2);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   v8 = *v5;
   while ( v8 != v5 )
   {

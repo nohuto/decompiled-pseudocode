@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInitMachineDependent @ 0x1405C0470
+ * XREFs of KiInitMachineDependent @ 0x1405BDA44
  * Callers:
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1405C30E8 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KiInitializeMTRR @ 0x140C2984C (KiInitializeMTRR.c)
- *     KiInitializeCacheErrataSupport @ 0x140C29F00 (KiInitializeCacheErrataSupport.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x1405C06B8 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KiInitializeMTRR @ 0x140C2B8EC (KiInitializeMTRR.c)
+ *     KiInitializeCacheErrataSupport @ 0x140C2C020 (KiInitializeCacheErrataSupport.c)
  */
 
 char KiInitMachineDependent()
@@ -19,7 +19,7 @@ char KiInitMachineDependent()
   unsigned int i; // edi
   __int64 v4; // rcx
   char result; // al
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   PreviousAffinity = 0LL;
   if ( (KiCacheErrataMonitor & 3) != 0 )
@@ -82,18 +82,18 @@ char KiInitMachineDependent()
   KiUserCodePatchMutex.Event.Header.WaitListHead.Flink = &KiUserCodePatchMutex.Event.Header.WaitListHead;
   memset_0(&KiAltContextWorkQueue, 0, 0x80uLL);
   KiAltContextWorkQueue.Blink = &KiAltContextWorkQueue;
-  stru_140F0F8F8.DeferredRoutine = (PKDEFERRED_ROUTINE)KiAltReturnDpcRoutine;
+  stru_140F0FBB8.DeferredRoutine = (PKDEFERRED_ROUTINE)KiAltReturnDpcRoutine;
   result = 1;
   KiAltContextWorkQueue.Flink = &KiAltContextWorkQueue;
-  stru_140F0F938.WorkerRoutine = (void (__fastcall *)(void *))KiAltReturnWorkerRoutine;
-  qword_140F0F958 = (__int64)KiAltContextProcessMcheckAltReturn;
+  stru_140F0FBF8.WorkerRoutine = (void (__fastcall *)(void *))KiAltReturnWorkerRoutine;
+  qword_140F0FC18 = (__int64)KiAltContextProcessMcheckAltReturn;
   Lock = 0LL;
-  stru_140F0F8F8.TargetInfoAsUlong = 275;
-  stru_140F0F8F8.DeferredContext = &KiAltContextWorkQueue;
-  stru_140F0F8F8.DpcData = 0LL;
-  stru_140F0F8F8.ProcessorHistory = 0LL;
-  stru_140F0F938.Parameter = &KiAltContextWorkQueue;
-  stru_140F0F938.List.Flink = 0LL;
+  stru_140F0FBB8.TargetInfoAsUlong = 275;
+  stru_140F0FBB8.DeferredContext = &KiAltContextWorkQueue;
+  stru_140F0FBB8.DpcData = 0LL;
+  stru_140F0FBB8.ProcessorHistory = 0LL;
+  stru_140F0FBF8.Parameter = &KiAltContextWorkQueue;
+  stru_140F0FBF8.List.Flink = 0LL;
   KiAltReturnInitialized = 1;
   return result;
 }

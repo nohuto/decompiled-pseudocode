@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpConstructIndirectRelocationFixup @ 0x14067A9F0
+ * XREFs of RtlpConstructIndirectRelocationFixup @ 0x14067AF40
  * Callers:
- *     RtlApplyIndirectRelocationToPage @ 0x14067A494 (RtlApplyIndirectRelocationToPage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067A62C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x14067A9E4 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067AB7C (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
- *     RtlSizeOfRetpolineIndirectFixup @ 0x14046FB6A (RtlSizeOfRetpolineIndirectFixup.c)
+ *     RtlSizeOfRetpolineIndirectFixup @ 0x14046FF6A (RtlSizeOfRetpolineIndirectFixup.c)
  */
 
 __int16 __fastcall RtlpConstructIndirectRelocationFixup(

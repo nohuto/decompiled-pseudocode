@@ -1,19 +1,25 @@
 /*
- * XREFs of NtQueueApcThreadEx @ 0x140677690
+ * XREFs of NtQueueApcThreadEx @ 0x140678850
  * Callers:
- *     NtQueueApcThread @ 0x140677850 (NtQueueApcThread.c)
+ *     NtQueueApcThread @ 0x140678A10 (NtQueueApcThread.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KeInitializeApc @ 0x14008A350 (KeInitializeApc.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl NtQueueApcThreadEx(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  void *v6; // rbx
+  HANDLE v6; // rbx
   KPROCESSOR_MODE PreviousMode; // si
   char v11; // r14
   NTSTATUS result; // eax
@@ -22,7 +28,7 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
   char *PoolWithQuotaTag; // rbx
   __int64 (__fastcall *v16)(); // r9
   void (__stdcall *v17)(PVOID); // rsi
-  NTSTATUS v18; // ebx
+  int v18; // ebx
   __int16 v19; // ax
   __int64 v20; // rcx
   PVOID v21; // [rsp+40h] [rbp-38h] BYREF
@@ -30,10 +36,10 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
 
   v6 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != (void *)1 )
-    v6 = a2;
+  if ( ReserveHandle != (HANDLE)1 )
+    v6 = ReserveHandle;
   v11 = 1;
-  result = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v13 = Object;
@@ -41,7 +47,7 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
       || (v13 = Object, (v14 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[7]) != 0)
       && ((v19 = *(_WORD *)(v14 + 8), v19 == 332) || v19 == 452)
       && ((v20 = *(_QWORD *)(*((_QWORD *)Object + 68) + 1064LL)) == 0 || *(_WORD *)(v20 + 8) == 0x8664)
-      && (unsigned __int64)-(a3 >> 2) <= 0xFFFFFFFF )
+      && (unsigned __int64)-((__int64)ApcRoutine >> 2) <= 0xFFFFFFFF )
     {
       v18 = -1073741816;
     }
@@ -57,8 +63,16 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
           v17 = (void (__stdcall *)(PVOID))PspUserApcReserveKernelRoutine;
           PoolWithQuotaTag = (char *)v21 + 8;
 LABEL_10:
-          KeInitializeApc((__int64)PoolWithQuotaTag, (__int64)v13, 0, (__int64)v16, (__int64)v17, a3, v11, a4);
-          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, a5, a6, 0) )
+          KeInitializeApc(
+            (__int64)PoolWithQuotaTag,
+            (__int64)v13,
+            0,
+            (__int64)v16,
+            (__int64)v17,
+            (__int64)ApcRoutine,
+            v11,
+            (__int64)ApcArgument1);
+          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, (__int64)ApcArgument2, (__int64)ApcArgument3, 0) )
           {
             v18 = 0;
           }
@@ -80,9 +94,9 @@ LABEL_10:
       if ( PoolWithQuotaTag )
       {
         v16 = (__int64 (__fastcall *)())KeSpecialUserApcKernelRoutine;
-        v11 = a2 != (void *)1;
+        v11 = ReserveHandle != (HANDLE)1;
         v17 = ExFreePool;
-        if ( a2 != (void *)1 )
+        if ( ReserveHandle != (HANDLE)1 )
           v16 = (__int64 (__fastcall *)())SC_ENV::Free;
         goto LABEL_10;
       }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlLockBootStatusData @ 0x18013E5D0
+ * XREFs of RtlLockBootStatusData @ 0x18013C7C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlLockBootStatusData(_QWORD *a1)
+NTSTATUS __cdecl RtlLockBootStatusData(PHANDLE FileHandle)
 {
-  if ( a1 )
-    *a1 = 0LL;
-  return 3221225659LL;
+  if ( FileHandle )
+    *FileHandle = 0LL;
+  return -1073741637;
 }

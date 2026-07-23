@@ -1,8 +1,8 @@
 /*
- * XREFs of StringCchCopyW @ 0x1800D90D0
+ * XREFs of StringCchCopyW @ 0x1800D9190
  * Callers:
- *     EtwpAddInstanceIdToLogFileName @ 0x1800554F0 (EtwpAddInstanceIdToLogFileName.c)
- *     WerEscalationLazyInit @ 0x1800D91C8 (WerEscalationLazyInit.c)
+ *     EtwpAddInstanceIdToLogFileName @ 0x1800554E0 (EtwpAddInstanceIdToLogFileName.c)
+ *     WerEscalationLazyInit @ 0x1800D9288 (WerEscalationLazyInit.c)
  *     SbpParseFuncName @ 0x1800FEB50 (SbpParseFuncName.c)
  * Callees:
  *     <none>

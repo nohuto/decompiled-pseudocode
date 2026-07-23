@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetQuerySchemaInfo @ 0x18011F6DC
+ * XREFs of ApiSetQuerySchemaInfo @ 0x18011F48C
  * Callers:
- *     ApiSetQueryApiSetPresenceEx @ 0x1800E4AA0 (ApiSetQueryApiSetPresenceEx.c)
+ *     ApiSetQueryApiSetPresenceEx @ 0x1800E2950 (ApiSetQueryApiSetPresenceEx.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x180047120 (ApiSetpSearchForApiSet.c)
- *     RtlCompareUnicodeStrings @ 0x180083D00 (RtlCompareUnicodeStrings.c)
- *     ApiSetQuerySchemaInfo_V7 @ 0x180117718 (ApiSetQuerySchemaInfo_V7.c)
+ *     ApiSetpSearchForApiSet @ 0x180031690 (ApiSetpSearchForApiSet.c)
+ *     RtlCompareUnicodeStrings @ 0x18007B0A0 (RtlCompareUnicodeStrings.c)
+ *     ApiSetQuerySchemaInfo_V7 @ 0x180116F14 (ApiSetQuerySchemaInfo_V7.c)
  */
 
 __int64 __fastcall ApiSetQuerySchemaInfo(__int64 a1, unsigned __int16 *a2, bool *a3, bool *a4)
@@ -133,13 +133,15 @@ __int64 __fastcall ApiSetQuerySchemaInfo(__int64 a1, unsigned __int16 *a2, bool 
   }
   if ( (unsigned __int16)v12 >= 0x14u )
     LOWORD(v12) = 20;
-  if ( (unsigned int)RtlCompareUnicodeStrings(
-                       *((unsigned __int16 **)a2 + 1),
-                       (unsigned __int64)(unsigned __int16)v12 >> 1,
-                       L"schemaext-",
-                       0xAuLL,
-                       1) )
+  if ( RtlCompareUnicodeStrings(
+         *((PCWCH *)a2 + 1),
+         (unsigned __int64)(unsigned __int16)v12 >> 1,
+         L"schemaext-",
+         0xAuLL,
+         1u) )
+  {
     return (unsigned int)-1073741811;
+  }
   v9 = ApiSetpSearchForApiSet(v8, *((unsigned __int16 **)a2 + 1), *a2 >> 1) != 0;
   v10 = v9;
 LABEL_35:

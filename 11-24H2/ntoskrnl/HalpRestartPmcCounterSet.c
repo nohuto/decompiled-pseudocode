@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpRestartPmcCounterSet @ 0x1404B3084
+ * XREFs of HalpRestartPmcCounterSet @ 0x1404AD894
  * Callers:
- *     HalpRestartProfiling @ 0x1404B3050 (HalpRestartProfiling.c)
+ *     HalpRestartProfiling @ 0x1404AD860 (HalpRestartProfiling.c)
  * Callees:
  *     <none>
  */

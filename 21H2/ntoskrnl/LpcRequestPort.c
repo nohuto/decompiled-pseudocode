@@ -1,12 +1,12 @@
 /*
- * XREFs of LpcRequestPort @ 0x1405E3D10
+ * XREFs of LpcRequestPort @ 0x1406D3470
  * Callers:
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
  */
 
 __int64 __fastcall LpcRequestPort(__int64 a1, __int64 a2)

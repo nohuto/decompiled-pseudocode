@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAbThreadUnboostIoPriority @ 0x140318864
+ * XREFs of KiAbThreadUnboostIoPriority @ 0x140318AF4
  * Callers:
- *     KiAbThreadRemoveBoostsSlow @ 0x140317E40 (KiAbThreadRemoveBoostsSlow.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1403180D0 (KiAbThreadRemoveBoostsSlow.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     PsBoostThreadIoQoS @ 0x14031A70C (PsBoostThreadIoQoS.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x14031A99C (PsBoostThreadIoQoS.c)
  */
 
 void __fastcall KiAbThreadUnboostIoPriority(__int64 a1, int a2)

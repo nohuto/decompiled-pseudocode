@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPurgeSlabEntry @ 0x1404829DC
+ * XREFs of MiPurgeSlabEntry @ 0x14047DBD4
  * Callers:
- *     MiPurgeSlabEntries @ 0x1404827F0 (MiPurgeSlabEntries.c)
- *     MiEstablishDefragSlabEntries @ 0x14068781C (MiEstablishDefragSlabEntries.c)
+ *     MiPurgeSlabEntries @ 0x14047D9E8 (MiPurgeSlabEntries.c)
+ *     MiEstablishDefragSlabEntries @ 0x14068894C (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDiscardTransitionPteEx @ 0x1403A1C98 (MiDiscardTransitionPteEx.c)
- *     MiIsFreeSlabPage @ 0x1404FB1F4 (MiIsFreeSlabPage.c)
+ *     MiDiscardTransitionPteEx @ 0x1402188CC (MiDiscardTransitionPteEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiIsFreeSlabPage @ 0x1404F8AD4 (MiIsFreeSlabPage.c)
  */
 
 __int64 __fastcall MiPurgeSlabEntry(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -55,7 +55,7 @@ __int64 __fastcall MiPurgeSlabEntry(unsigned __int64 a1, unsigned __int64 a2, __
           }
           while ( *(__int64 *)v9 < 0 );
         }
-        if ( v7 > qword_140E2DBE0 || ((*v10 >> 54) & 1) == 0 || (unsigned int)MiGetPfnSlabType(v8) == 9 )
+        if ( v7 > qword_140E2DD20 || ((*v10 >> 54) & 1) == 0 || (unsigned int)MiGetPfnSlabType(v8) == 9 )
           goto LABEL_15;
         if ( (*(_BYTE *)(v9 + 10) & 7) != 2
           || (unsigned __int16)*(_DWORD *)(v9 + 8)
@@ -64,7 +64,7 @@ __int64 __fastcall MiPurgeSlabEntry(unsigned __int64 a1, unsigned __int64 a2, __
           break;
         }
         MiUnlinkPageFromListEx(v8, 0);
-        MiDiscardTransitionPteEx(v8, 0);
+        MiDiscardTransitionPteEx(v8);
         --v6;
 LABEL_16:
         result = 0x7FFFFFFFFFFFFFFFLL;

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepDereferenceCachedHandlesEntryInternal @ 0x140A08D24
+ * XREFs of SepDereferenceCachedHandlesEntryInternal @ 0x140A05254
  * Callers:
- *     SepDereferenceCachedHandlesEntry @ 0x140A08D00 (SepDereferenceCachedHandlesEntry.c)
- *     SepDeleteCachedHandlesTable @ 0x140A64838 (SepDeleteCachedHandlesTable.c)
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
- *     SepTokenDeleteMethod @ 0x140AD88D0 (SepTokenDeleteMethod.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140A05230 (SepDereferenceCachedHandlesEntry.c)
+ *     SepDeleteCachedHandlesTable @ 0x140A5D138 (SepDeleteCachedHandlesTable.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x140AD6F50 (SepTokenDeleteMethod.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlRemoveEntryHashTable @ 0x140357120 (RtlRemoveEntryHashTable.c)
- *     SepCloseCachedTokenHandles @ 0x1404977F8 (SepCloseCachedTokenHandles.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlRemoveEntryHashTable @ 0x1403E3160 (RtlRemoveEntryHashTable.c)
+ *     SepCloseCachedTokenHandles @ 0x140492308 (SepCloseCachedTokenHandles.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceCachedHandlesEntryInternal(
@@ -24,8 +24,8 @@ __int64 __fastcall SepDereferenceCachedHandlesEntryInternal(
 {
   unsigned int v4; // r12d
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbp
+  char *v10; // rax
+  char *v11; // rbp
   __int64 v12; // rax
   BOOLEAN v14; // bp
   void *v15; // rcx
@@ -37,12 +37,12 @@ __int64 __fastcall SepDereferenceCachedHandlesEntryInternal(
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+    v10 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v10, BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v10, BugCheckParameter2);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
   }
   v12 = _InterlockedDecrement64((volatile signed __int64 *)(a3 + 24));
   if ( v12 > 0 )

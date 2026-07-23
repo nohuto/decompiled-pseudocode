@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpSaInitialize @ 0x140148E68
+ * XREFs of ExpSaInitialize @ 0x1401493D8
  * Callers:
  *     ExpInitSystemPhase1 @ 0x14079EB74 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x140085F34 (KeQueryMaximumProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     ExpSaAllocatorInitialize @ 0x14014909C (ExpSaAllocatorInitialize.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140087824 (KeQueryMaximumProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     ExpSaAllocatorInitialize @ 0x14014960C (ExpSaAllocatorInitialize.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

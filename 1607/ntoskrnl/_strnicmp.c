@@ -1,8 +1,8 @@
 /*
- * XREFs of _strnicmp @ 0x14014D40C
+ * XREFs of _strnicmp @ 0x14014D97C
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
- *     CmpPreserveSystemHiveData @ 0x140609150 (CmpPreserveSystemHiveData.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
+ *     CmpPreserveSystemHiveData @ 0x140609204 (CmpPreserveSystemHiveData.c)
  *     IopStoreArcInformation @ 0x14079A6CC (IopStoreArcInformation.c)
  *     EmpInfParseGetValueFromSectionAndKeyName @ 0x1407A8B68 (EmpInfParseGetValueFromSectionAndKeyName.c)
  *     CmpProcessForSimpleStringSub @ 0x1407A8D00 (CmpProcessForSimpleStringSub.c)

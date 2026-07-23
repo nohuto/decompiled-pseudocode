@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeApiSets @ 0x140C5B068
+ * XREFs of MiInitializeApiSets @ 0x140C5D1F8
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     MmCreateSection @ 0x140940B50 (MmCreateSection.c)
- *     MmMapViewInSessionSpace @ 0x140946C00 (MmMapViewInSessionSpace.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     MmMapViewInSessionSpace @ 0x1408EB520 (MmMapViewInSessionSpace.c)
+ *     MmCreateSection @ 0x14098ADB0 (MmCreateSection.c)
  */
 
 __int64 __fastcall MiInitializeApiSets(__int64 a1)
@@ -37,10 +37,10 @@ __int64 __fastcall MiInitializeApiSets(__int64 a1)
         MappedBase,
         *(const void **)(*(_QWORD *)(a1 + 240) + 2720LL),
         *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2728LL));
-      qword_140E2D6D8 = (__int64)v4;
-      qword_140E2D6E0 = (__int64)v6;
+      qword_140E2D818 = (__int64)v4;
+      qword_140E2D820 = (__int64)v6;
       result = 0LL;
-      qword_140E2D6E8 = *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2728LL);
+      qword_140E2D828 = *(unsigned int *)(*(_QWORD *)(a1 + 240) + 2728LL);
     }
     else
     {

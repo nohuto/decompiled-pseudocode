@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlFirstFreeAce @ 0x140A47520
+ * XREFs of RtlFirstFreeAce @ 0x140A50810
  * Callers:
- *     RtlAddAccessFilterAce @ 0x140803130 (RtlAddAccessFilterAce.c)
- *     RtlAddResourceAttributeAce @ 0x140803440 (RtlAddResourceAttributeAce.c)
- *     RtlpAddKnownObjectAce @ 0x140803804 (RtlpAddKnownObjectAce.c)
- *     SddlAddAccessFilterAce @ 0x1408181E8 (SddlAddAccessFilterAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x14081840C (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x140818554 (SddlAddScopedPolicyIDAce.c)
+ *     RtlAddAccessFilterAce @ 0x140808BD0 (RtlAddAccessFilterAce.c)
+ *     RtlAddResourceAttributeAce @ 0x140808EE0 (RtlAddResourceAttributeAce.c)
+ *     RtlpAddKnownObjectAce @ 0x1408092A4 (RtlpAddKnownObjectAce.c)
+ *     SddlAddAccessFilterAce @ 0x14081E3F8 (SddlAddAccessFilterAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x14081E61C (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x14081E764 (SddlAddScopedPolicyIDAce.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlFirstFreeAce(__int64 a1, unsigned __int64 *a2)
+BOOLEAN __cdecl RtlFirstFreeAce(PACL Acl, PVOID *FirstFree)
 {
   unsigned int v2; // eax
-  unsigned __int64 v3; // r9
-  unsigned __int64 v4; // r11
+  PACL v3; // r9
+  ACL *v4; // r11
 
   v2 = 0;
-  v3 = a1 + 8;
-  *a2 = 0LL;
-  v4 = a1 + *(unsigned __int16 *)(a1 + 2);
-  while ( v2 < *(unsigned __int16 *)(a1 + 4) )
+  v3 = Acl + 1;
+  *FirstFree = 0LL;
+  v4 = (PACL)((char *)Acl + Acl->AclSize);
+  while ( v2 < Acl->AceCount )
   {
     if ( v3 >= v4 )
       return 0;
     ++v2;
-    v3 += *(unsigned __int16 *)(v3 + 2);
+    v3 = (PACL)((char *)v3 + v3->AclSize);
   }
   if ( v3 <= v4 )
-    *a2 = v3;
+    *FirstFree = v3;
   return 1;
 }

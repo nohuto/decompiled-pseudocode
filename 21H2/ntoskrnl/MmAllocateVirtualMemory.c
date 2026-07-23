@@ -1,17 +1,17 @@
 /*
- * XREFs of MmAllocateVirtualMemory @ 0x1405F94E0
+ * XREFs of MmAllocateVirtualMemory @ 0x1406E8C40
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     NtAllocateVirtualMemoryEx @ 0x1405F9480 (NtAllocateVirtualMemoryEx.c)
- *     WbAllocateMemoryBlock @ 0x1406868C4 (WbAllocateMemoryBlock.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     WbAllocateMemoryBlock @ 0x1405E5A24 (WbAllocateMemoryBlock.c)
+ *     NtAllocateVirtualMemoryEx @ 0x1406E8BE0 (NtAllocateVirtualMemoryEx.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MiCaptureAllocateMapExtendedParameters @ 0x1405F9738 (MiCaptureAllocateMapExtendedParameters.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1405F99F0 (MiAllocateVirtualMemoryPrepare.c)
- *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsReferencePartitionByHandle @ 0x14067CE44 (PsReferencePartitionByHandle.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1406E8E98 (MiCaptureAllocateMapExtendedParameters.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1406E9150 (MiAllocateVirtualMemoryPrepare.c)
  */
 
 __int64 __fastcall MmAllocateVirtualMemory(
@@ -40,7 +40,7 @@ __int64 __fastcall MmAllocateVirtualMemory(
   PVOID Object; // [rsp+98h] [rbp-110h] BYREF
   __int64 v25; // [rsp+A0h] [rbp-108h] BYREF
   _QWORD v26[16]; // [rsp+B0h] [rbp-F8h] BYREF
-  _QWORD v27[10]; // [rsp+130h] [rbp-78h] BYREF
+  ULONG_PTR v27[10]; // [rsp+130h] [rbp-78h] BYREF
 
   memset(v27, 0, 0x48uLL);
   v13 = 0LL;
@@ -92,7 +92,7 @@ __int64 __fastcall MmAllocateVirtualMemory(
       }
       else
       {
-        MapExtendedParameters = PsReferencePartitionByHandle(v27[3], 2LL, a8, 1633054029LL, &v20);
+        MapExtendedParameters = PsReferencePartitionByHandle(v27[3], 2LL, a8, 0x61566D4Du, &v20);
         v13 = v20;
         if ( MapExtendedParameters < 0 )
           goto LABEL_15;
@@ -145,9 +145,9 @@ LABEL_16:
     }
 LABEL_29:
     if ( v26[0] )
-      ++dword_140C4E7EC;
+      ++dword_140C4E82C;
     else
-      ++dword_140C4E7E8;
+      ++dword_140C4E828;
     goto LABEL_16;
   }
   return (unsigned int)MapExtendedParameters;

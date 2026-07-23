@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetLargePagesForSystemMapping @ 0x140B4CC00
+ * XREFs of MiGetLargePagesForSystemMapping @ 0x140B4E990
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x140206AD0 (MiInitializeDemandCoalesceContext.c)
- *     MiThreadIdealNode @ 0x14030EB24 (MiThreadIdealNode.c)
- *     MiObtainSystemCharges @ 0x14033AAF0 (MiObtainSystemCharges.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     MiReturnSystemCharges @ 0x1404B3278 (MiReturnSystemCharges.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiInitializeDemandCoalesceContext @ 0x140206BB0 (MiInitializeDemandCoalesceContext.c)
+ *     MiThreadIdealNode @ 0x1402F0BA4 (MiThreadIdealNode.c)
+ *     MiObtainSystemCharges @ 0x14033CB70 (MiObtainSystemCharges.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     MiReturnSystemCharges @ 0x1404AC8F8 (MiReturnSystemCharges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, __int64 a2, __int64 a3)
@@ -83,7 +83,7 @@ __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, __int64 a2, __int
   v22 = v8;
   v25 = v13;
   v26 = 4;
-  v17 = (int *)(qword_140E2D690 + 4LL * v13 * (unsigned int)(unsigned __int16)KeNumberNodes);
+  v17 = (int *)(qword_140E2D810 + 4LL * v13 * (unsigned int)(unsigned __int16)KeNumberNodes);
   v29 = v5;
   v27 = -1LL;
   v18 = &v17[v14];

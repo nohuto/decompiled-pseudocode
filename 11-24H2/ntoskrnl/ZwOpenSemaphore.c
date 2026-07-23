@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwOpenSemaphore @ 0x1406A8AD0
+ * XREFs of ZwOpenSemaphore @ 0x1406A9A70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenSemaphore(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SemaphoreHandle);
 }

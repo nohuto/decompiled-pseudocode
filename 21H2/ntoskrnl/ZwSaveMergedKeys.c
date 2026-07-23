@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSaveMergedKeys @ 0x1403FD460
+ * XREFs of ZwSaveMergedKeys @ 0x1403FD640
  * Callers:
- *     NtSaveMergedKeys @ 0x1408697A0 (NtSaveMergedKeys.c)
+ *     NtSaveMergedKeys @ 0x140869900 (NtSaveMergedKeys.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSaveMergedKeys(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(HighPrecedenceKeyHandle);
 }

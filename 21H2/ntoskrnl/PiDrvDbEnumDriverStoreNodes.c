@@ -1,30 +1,34 @@
 /*
- * XREFs of PiDrvDbEnumDriverStoreNodes @ 0x1407A43FC
+ * XREFs of PiDrvDbEnumDriverStoreNodes @ 0x1407A45FC
  * Callers:
- *     PiPnpRtlInit @ 0x1407A3350 (PiPnpRtlInit.c)
- *     PiDrvDbInit @ 0x1407A350C (PiDrvDbInit.c)
+ *     PiPnpRtlInit @ 0x1407A3550 (PiPnpRtlInit.c)
+ *     PiDrvDbInit @ 0x1407A370C (PiDrvDbInit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1403FAEA0 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x1403FCC20 (ZwQueryDirectoryObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1403FB080 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1403FCE00 (ZwQueryDirectoryObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbEnumDriverStoreNodes(unsigned __int8 (__fastcall *a1)(_QWORD, __int64), __int64 a2)
 {
-  _QWORD *PoolWithTag; // rdi
+  _WORD *PoolWithTag; // rdi
   NTSTATUS v5; // ebx
-  int DirectoryObject; // eax
-  _QWORD *i; // rbx
+  NTSTATUS i; // eax
+  _QWORD *v7; // rbx
   HANDLE DirectoryHandle; // [rsp+40h] [rbp-19h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-1h] BYREF
+  ULONG ReturnLength; // [rsp+D0h] [rbp+77h] BYREF
+  ULONG Context; // [rsp+D8h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DirectoryHandle = 0LL;
+  Context = 0;
+  ReturnLength = 0;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   PoolWithTag = 0LL;
   DestinationString = 0LL;
@@ -38,18 +42,25 @@ __int64 __fastcall PiDrvDbEnumDriverStoreNodes(unsigned __int8 (__fastcall *a1)(
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x400uLL, 0x62647050u);
     if ( PoolWithTag )
     {
-      while ( 1 )
+      for ( i = ZwQueryDirectoryObject(DirectoryHandle, PoolWithTag, 0x400u, 1u, 1u, &Context, &ReturnLength);
+            ;
+            i = ZwQueryDirectoryObject(DirectoryHandle, PoolWithTag, 0x400u, 1u, 0, &Context, &ReturnLength) )
       {
-        DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)PoolWithTag);
-        v5 = DirectoryObject;
-        if ( DirectoryObject == -2147483622 )
+        v5 = i;
+        if ( i == -2147483622 )
           break;
-        if ( DirectoryObject < 0 )
-          goto LABEL_10;
-        for ( i = PoolWithTag; *(_WORD *)i; i += 4 )
+        if ( i < 0 )
+          goto LABEL_11;
+        v7 = PoolWithTag;
+        if ( *PoolWithTag )
         {
-          if ( !a1(i[1], a2) )
-            break;
+          do
+          {
+            if ( !a1(v7[1], a2) )
+              break;
+            v7 += 4;
+          }
+          while ( *(_WORD *)v7 );
         }
       }
       v5 = 0;
@@ -59,7 +70,7 @@ __int64 __fastcall PiDrvDbEnumDriverStoreNodes(unsigned __int8 (__fastcall *a1)(
       v5 = -1073741670;
     }
   }
-LABEL_10:
+LABEL_11:
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
   if ( PoolWithTag )

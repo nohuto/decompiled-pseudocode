@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x1407A7F50
+ * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x1407A8140
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7D30 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7F20 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     PsGetCurrentProcess @ 0x140317770 (PsGetCurrentProcess.c)
- *     strncmp @ 0x1403D8E90 (strncmp.c)
+ *     PsGetCurrentProcess @ 0x140317A00 (PsGetCurrentProcess.c)
+ *     strncmp @ 0x1403D9070 (strncmp.c)
  */
 
 char __fastcall PopPowerRequestStatsIsDetailedRequestReason(__int64 a1)

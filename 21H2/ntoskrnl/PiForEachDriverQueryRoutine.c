@@ -1,11 +1,11 @@
 /*
- * XREFs of PiForEachDriverQueryRoutine @ 0x14074C2A8
+ * XREFs of PiForEachDriverQueryRoutine @ 0x14074C468
  * Callers:
- *     PpForEachDeviceInstanceDriver @ 0x14074BFA4 (PpForEachDeviceInstanceDriver.c)
+ *     PpForEachDeviceInstanceDriver @ 0x14074C164 (PpForEachDeviceInstanceDriver.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlULongSub @ 0x14028FDDC (RtlULongSub.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlULongSub @ 0x14020DD44 (RtlULongSub.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PiForEachDriverQueryRoutine(int a1, const WCHAR *a2, ULONG a3, _QWORD *a4)

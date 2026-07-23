@@ -35,9 +35,9 @@ NTSTATUS __stdcall NtSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUN
   signed __int32 v17; // eax
   struct _KTHREAD *v18; // rcx
   __int16 v19; // ax
-  STRING DestinationString; // [rsp+28h] [rbp-70h] BYREF
+  _STRING DestinationString; // [rsp+28h] [rbp-70h] BYREF
   int v21; // [rsp+38h] [rbp-60h]
-  STRING v22; // [rsp+40h] [rbp-58h] BYREF
+  _STRING v22; // [rsp+40h] [rbp-58h] BYREF
   UNICODE_STRING SourceString; // [rsp+50h] [rbp-48h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-38h] BYREF
   int v25; // [rsp+78h] [rbp-20h]

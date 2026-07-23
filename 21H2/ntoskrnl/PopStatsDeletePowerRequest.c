@@ -1,14 +1,14 @@
 /*
- * XREFs of PopStatsDeletePowerRequest @ 0x14062B904
+ * XREFs of PopStatsDeletePowerRequest @ 0x14066FAA8
  * Callers:
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopLogPowerRequestAction @ 0x14062B588 (PopLogPowerRequestAction.c)
- *     PopPausePowerRequestStats @ 0x14062BE30 (PopPausePowerRequestStats.c)
- *     PopIsDataAccruedByPowerRequestStats @ 0x14062BE80 (PopIsDataAccruedByPowerRequestStats.c)
- *     PopAvlDeleteStatsForPowerRequest @ 0x14062DB80 (PopAvlDeleteStatsForPowerRequest.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopLogPowerRequestAction @ 0x14066FB30 (PopLogPowerRequestAction.c)
+ *     PopPausePowerRequestStats @ 0x140670A58 (PopPausePowerRequestStats.c)
+ *     PopIsDataAccruedByPowerRequestStats @ 0x140670AA8 (PopIsDataAccruedByPowerRequestStats.c)
+ *     PopAvlDeleteStatsForPowerRequest @ 0x140670FF8 (PopAvlDeleteStatsForPowerRequest.c)
  */
 
 void __fastcall PopStatsDeletePowerRequest(__int64 a1)
@@ -16,7 +16,7 @@ void __fastcall PopStatsDeletePowerRequest(__int64 a1)
   void *v2; // rbx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PowerReqestStatsLock);
-  PopLogPowerRequestAction("Delete PowerRequest", a1);
+  PopLogPowerRequestAction("Delete PowerRequest", a1, 0LL);
   v2 = *(void **)(a1 + 144);
   if ( v2 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoSetIoAttributionIrp @ 0x1405570F0
+ * XREFs of IoSetIoAttributionIrp @ 0x1405577B0
  * Callers:
  *     <none>
  * Callees:
- *     IopSetDiskIoAttributionFromProcess @ 0x1402902F4 (IopSetDiskIoAttributionFromProcess.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1402A7C30 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x140290584 (IopSetDiskIoAttributionFromProcess.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1402A7EC0 (IoSetDiskIoAttributionFromThread.c)
  */
 
 __int64 __fastcall IoSetIoAttributionIrp(__int64 a1, struct _KTHREAD *a2, int a3)

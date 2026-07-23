@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDispatchSessionNotifications @ 0x140894D40
+ * XREFs of IopDispatchSessionNotifications @ 0x140894EA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall IopDispatchSessionNotifications(_QWORD *CallbackContext, int *Argument1, PVOID Argument2)

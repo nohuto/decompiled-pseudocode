@@ -15,7 +15,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __fastcall SepFindMatchingLuidEntry(
 {
   ULONG_PTR v5; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = *a2;
   if ( !v5 )

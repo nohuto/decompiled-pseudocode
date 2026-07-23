@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpWnfReadStateData @ 0x14060FFDC
+ * XREFs of ExpWnfReadStateData @ 0x140610FDC
  * Callers:
- *     ExpWnfDeliverThreadNotifications @ 0x14060E5F4 (ExpWnfDeliverThreadNotifications.c)
- *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x14060F5F4 (ExpWnfDeliverThreadNotifications.c)
+ *     NtQueryWnfStateData @ 0x1406103C0 (NtQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x1406C9520 (ExQueryWnfStateData.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigned int a4, _DWORD *a5)
 {
   unsigned __int64 *v9; // rbx
-  __int64 v10; // rdi
+  PRTL_BALANCED_NODE v10; // rdi
   _DWORD *v11; // rdx
   unsigned int v12; // eax
   unsigned int v14; // [rsp+20h] [rbp-48h]
@@ -26,7 +26,7 @@ __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigne
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v9, v10, (ULONG_PTR)v9);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   v11 = *(_DWORD **)(a1 + 88);
   if ( !v11 )
   {

@@ -51,14 +51,14 @@ unsigned __int64 MiMapLockedPagesInUserSpace(__int64 a1, __int16 a2, int a3, ...
   __int64 v25; // r8
   __int64 v26; // r9
   __int64 v27; // r9
-  struct _RTL_BITMAP *v28; // r8
+  _RTL_BITMAP *v28; // r8
   __int64 v30; // rax
   _DWORD *v31; // r11
   unsigned __int64 v32; // rbp
   unsigned __int64 v33; // rbx
   __int64 v34; // r9
   unsigned __int64 *v35; // [rsp+50h] [rbp-68h]
-  struct _RTL_BITMAP *v36; // [rsp+58h] [rbp-60h] BYREF
+  _RTL_BITMAP *v36; // [rsp+58h] [rbp-60h] BYREF
   unsigned __int64 v37; // [rsp+60h] [rbp-58h]
   unsigned __int64 v38; // [rsp+68h] [rbp-50h]
   char v40; // [rsp+C8h] [rbp+10h]

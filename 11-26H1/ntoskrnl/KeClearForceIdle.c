@@ -1,13 +1,13 @@
 /*
- * XREFs of KeClearForceIdle @ 0x1404C533C
+ * XREFs of KeClearForceIdle @ 0x1404BECEC
  * Callers:
- *     PopDeepSleepSetDisengageReason @ 0x1403B40FC (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1403BE008 (PopDeepSleepSetDisengageReason.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiResetForceIdle @ 0x140336934 (KiResetForceIdle.c)
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
- *     KiSetForceIdleState @ 0x1404C5428 (KiSetForceIdleState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiResetForceIdle @ 0x1403389B4 (KiResetForceIdle.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
+ *     KiSetForceIdleState @ 0x1404BEDD8 (KiSetForceIdleState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeClearForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -21,11 +21,11 @@ void __fastcall KeClearForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 
   _disable();
   v9 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+  while ( _interlockedbittestandset64(&KiSupervisorXStateFeaturesLock.Timer.Header.LockNV, 0LL) )
   {
     do
       KeYieldProcessorEx(&v9);
-    while ( KiForceIdleLock );
+    while ( *(_QWORD *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock );
   }
   if ( KiForceIdleDisabled )
     goto LABEL_6;
@@ -33,15 +33,15 @@ void __fastcall KeClearForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   {
     case 1:
       KiSetForceIdleState(0LL);
-      KeRemoveQueueDpcEx((int *)&KiForceIdleStartDpc, 0);
+      KeRemoveQueueDpcEx((int *)&KiSupervisorXStateFeaturesLock.ApcStateFill[40], 0);
       goto LABEL_14;
     case 2:
       KiSetForceIdleState(0LL);
 LABEL_14:
-      KiForceIdleStartTime = 0LL;
+      KiSupervisorXStateFeaturesLock.ApcState.ApcListHead[0].Blink = 0LL;
       break;
     case 3:
-      if ( !KiForceIdleStartTime )
+      if ( !KiSupervisorXStateFeaturesLock.ApcState.ApcListHead[0].Blink )
         break;
       goto LABEL_14;
     case 4:
@@ -49,7 +49,7 @@ LABEL_14:
       break;
   }
 LABEL_6:
-  _InterlockedAnd64(&KiForceIdleLock, 0LL);
+  _InterlockedAnd64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = (unsigned __int32 *)CurrentPrcb->SchedulerAssist;
   if ( SchedulerAssist )

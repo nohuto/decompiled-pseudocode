@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaQuerySystemInformation @ 0x14077BCA4
+ * XREFs of WheaQuerySystemInformation @ 0x14077E8E4
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x140532728 (IpmiHwContextInitialized.c)
+ *     IpmiHwContextInitialized @ 0x140534BC8 (IpmiHwContextInitialized.c)
  */
 
 __int64 WheaQuerySystemInformation()

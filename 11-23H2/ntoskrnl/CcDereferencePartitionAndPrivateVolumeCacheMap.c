@@ -1,9 +1,9 @@
 /*
- * XREFs of CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x140369D44
+ * XREFs of CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x140369EE4
  * Callers:
- *     CcDeletePrivateVolumeCacheMap @ 0x1403C2074 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403C2254 (CcDeletePrivateVolumeCacheMap.c)
  * Callees:
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
  */
 
 char __fastcall CcDereferencePartitionAndPrivateVolumeCacheMap(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeRemoveLockEx @ 0x1403C50A0
+ * XREFs of IoInitializeRemoveLockEx @ 0x1403C5280
  * Callers:
- *     PopFxCreateDeviceCommon @ 0x140397224 (PopFxCreateDeviceCommon.c)
- *     DifIoInitializeRemoveLockExWrapper @ 0x1405DFE00 (DifIoInitializeRemoveLockExWrapper.c)
- *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
- *     VfFilterAttach @ 0x140ADF23C (VfFilterAttach.c)
+ *     PopFxCreateDeviceCommon @ 0x140397404 (PopFxCreateDeviceCommon.c)
+ *     DifIoInitializeRemoveLockExWrapper @ 0x1405E0370 (DifIoInitializeRemoveLockExWrapper.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408369AC (PopFxRegisterDeviceWorker.c)
+ *     VfFilterAttach @ 0x140ADF22C (VfFilterAttach.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ LABEL_3:
     {
       *(_DWORD *)&Lock[1].Common.Removed = 1129270354;
       Lock[1].Common.IoCount = HighWatermark;
-      v6 = MaxLockedMinutes * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      v6 = MaxLockedMinutes * (unsigned __int64)KeMaximumIncrement;
       LODWORD(Lock[1].Common.RemoveEvent.Header.WaitListHead.Flink) = AllocateTag;
       *(_QWORD *)&Lock[2].Common.RemoveEvent.Header.Lock = 0LL;
       *(_QWORD *)&Lock[1].Common.RemoveEvent.Header.Lock = 600000000 * v6;

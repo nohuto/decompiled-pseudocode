@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpAllocateHandleTableEntrySlow @ 0x14093CBE8
+ * XREFs of ExpAllocateHandleTableEntrySlow @ 0x14094D498
  * Callers:
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ExDupHandleTable @ 0x14093D080 (ExDupHandleTable.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ExDupHandleTable @ 0x140891770 (ExDupHandleTable.c)
  * Callees:
- *     ExpFreeTablePagedPool @ 0x14084D4E4 (ExpFreeTablePagedPool.c)
- *     ExpAllocateMidLevelTable @ 0x14093BC7C (ExpAllocateMidLevelTable.c)
- *     ExpAllocateTablePagedPool @ 0x14093BCFC (ExpAllocateTablePagedPool.c)
- *     ExpAllocateLowLevelTable @ 0x14093C120 (ExpAllocateLowLevelTable.c)
- *     ExpInsertLowLevelTableIntoFreeList @ 0x14093CD5C (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpFreeTablePagedPool @ 0x1408497A4 (ExpFreeTablePagedPool.c)
+ *     ExpAllocateLowLevelTable @ 0x14094D3F8 (ExpAllocateLowLevelTable.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x14094D60C (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateMidLevelTable @ 0x14094D750 (ExpAllocateMidLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x14094D7D0 (ExpAllocateTablePagedPool.c)
  */
 
 char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
@@ -23,15 +23,15 @@ char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
   __int64 v9; // rsi
   _QWORD *v10; // rax
   __int64 v11; // r9
-  __int64 v12; // rdx
-  __int64 *MidLevelTable; // rax
+  _QWORD *v12; // rdx
+  __int64 v14; // rax
   __int64 v15; // rax
   __int64 v16; // r15
   __int64 v17; // rsi
   _QWORD *LowLevelTable; // rax
-  unsigned __int64 TablePagedPool; // rsi
-  __int64 *v20; // rax
-  __int64 *v21; // rax
+  __int64 TablePagedPool; // rsi
+  __int64 v20; // rax
+  __int64 v21; // rax
   _QWORD *v22; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *((_QWORD *)a1 + 1);
@@ -42,12 +42,12 @@ char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
   v8 = v6 & 3;
   if ( !v8 )
   {
-    MidLevelTable = ExpAllocateMidLevelTable((__int64)a1, (__int64 *)&v22, *a1);
-    if ( !MidLevelTable )
+    v14 = ExpAllocateMidLevelTable(a1, &v22, *a1);
+    if ( !v14 )
       return 0;
-    MidLevelTable[1] = *MidLevelTable;
-    *MidLevelTable = v7;
-    _InterlockedExchange64((volatile __int64 *)a1 + 1, (unsigned __int64)MidLevelTable | 1);
+    *(_QWORD *)(v14 + 8) = *(_QWORD *)v14;
+    *(_QWORD *)v14 = v7;
+    _InterlockedExchange64((volatile __int64 *)a1 + 1, v14 | 1);
     goto LABEL_9;
   }
   if ( v8 != 1 )
@@ -61,7 +61,7 @@ char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
     {
       LowLevelTable = ExpAllocateLowLevelTable((__int64)a1, *a1);
       v22 = LowLevelTable;
-      v12 = (__int64)LowLevelTable;
+      v12 = LowLevelTable;
       if ( LowLevelTable )
       {
         *(_QWORD *)(v16 + 8 * ((v5 >> 10) & 0x1FF)) = LowLevelTable;
@@ -69,21 +69,21 @@ char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
       }
       return 0;
     }
-    v21 = ExpAllocateMidLevelTable((__int64)a1, (__int64 *)&v22, *a1);
+    v21 = ExpAllocateMidLevelTable(a1, &v22, *a1);
     if ( !v21 )
       return 0;
     *(_QWORD *)(v7 + 8 * v17) = v21;
 LABEL_9:
-    v12 = (__int64)v22;
+    v12 = v22;
     goto LABEL_6;
   }
   v9 = (unsigned int)v5 >> 10;
   if ( (unsigned int)v9 >= 0x200 )
   {
-    TablePagedPool = (unsigned __int64)ExpAllocateTablePagedPool(*((_QWORD *)a1 + 2), 0x400uLL);
+    TablePagedPool = ExpAllocateTablePagedPool(*((_QWORD *)a1 + 2), 1024LL);
     if ( !TablePagedPool )
       return 0;
-    v20 = ExpAllocateMidLevelTable((__int64)a1, (__int64 *)&v22, v5);
+    v20 = ExpAllocateMidLevelTable(a1, &v22, v5);
     if ( !v20 )
     {
       ExpFreeTablePagedPool(*((_QWORD *)a1 + 2), (PVOID)TablePagedPool, 0x400uLL);
@@ -96,7 +96,7 @@ LABEL_9:
   }
   v10 = ExpAllocateLowLevelTable((__int64)a1, (unsigned int)v5);
   v22 = v10;
-  v12 = (__int64)v10;
+  v12 = v10;
   if ( v10 )
   {
     *(_QWORD *)(v7 + 8 * v9) = v10;

@@ -7,12 +7,12 @@
  *     RtlGetCurrentServiceSessionId @ 0x180024AB0 (RtlGetCurrentServiceSessionId.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   int v0; // eax
 
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    LOBYTE(v0) = *((_BYTE *)NtCurrentPeb()->HotpatchInformation + 28);
+  if ( RtlGetCurrentServiceSessionId() )
+    LOBYTE(v0) = NtCurrentPeb()->SharedData->IsMultiSessionSku;
   else
     return (MEMORY[0x7FFE02F0] >> 8) & 1;
   return v0;

@@ -1,89 +1,90 @@
 /*
- * XREFs of MiDeletePerSessionProtos @ 0x140495AB0
+ * XREFs of MiDeletePerSessionProtos @ 0x140490370
  * Callers:
- *     MiDereferencePerSessionProtos @ 0x140A24458 (MiDereferencePerSessionProtos.c)
- *     MiFreeSubsectionProtos @ 0x140A89E54 (MiFreeSubsectionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140A18828 (MiDereferencePerSessionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x140A86254 (MiFreeSubsectionProtos.c)
  * Callees:
- *     MiLockProtoPoolPageForce @ 0x140215A80 (MiLockProtoPoolPageForce.c)
- *     MiDeleteTransitionPte @ 0x14023D260 (MiDeleteTransitionPte.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026047C (MiUpdateSystemProtoPtesTree.c)
- *     MiUnlockProtoPoolPage @ 0x14028CBF0 (MiUnlockProtoPoolPage.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiLockLeafPage @ 0x1402E8100 (MiLockLeafPage.c)
- *     MiReleasePageFileSpace @ 0x1403E4F90 (MiReleasePageFileSpace.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiDeleteTransitionPte @ 0x140204FF0 (MiDeleteTransitionPte.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140290A8C (MiUpdateSystemProtoPtesTree.c)
+ *     MiUnlockProtoPoolPage @ 0x14029C7F0 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiLockProtoPoolPageForce @ 0x140333E20 (MiLockProtoPoolPageForce.c)
+ *     MiLockLeafPage @ 0x140349740 (MiLockLeafPage.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiReleasePageFileSpace @ 0x1403D2B30 (MiReleasePageFileSpace.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiDeletePerSessionProtos(PVOID P)
+__int64 __fastcall MiDeletePerSessionProtos(PVOID P, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int *v1; // r8
-  ULONG_PTR v2; // rdi
-  ULONG_PTR v3; // rbx
-  __int64 v5; // rbp
-  ULONG_PTR v6; // r14
-  __int64 v7; // r15
-  unsigned __int64 v8; // rdx
-  ULONG_PTR v9; // rax
-  int v11; // eax
-  __int64 v12; // rcx
+  unsigned int *v4; // r8
+  __int64 v5; // rdi
+  ULONG_PTR v6; // rbx
+  __int64 v8; // rbp
+  ULONG_PTR v9; // r14
+  __int64 v10; // r15
+  unsigned __int64 v11; // rdx
+  ULONG_PTR v12; // rax
+  int v14; // eax
+  __int64 v15; // rcx
   __int64 DemandZeroPte; // rax
-  unsigned __int8 v14; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int8 v17; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = (unsigned int *)*((_QWORD *)P + 8);
-  v2 = 0LL;
-  v3 = *((_QWORD *)P + 9);
-  v5 = v1[11];
-  v6 = v3 + 8 * v5;
-  v8 = *(_WORD *)(*(_QWORD *)v1 + 60LL) & 0x3FF;
-  v7 = *((_QWORD *)qword_140E2FF88 + v8);
-  LOBYTE(v8) = 17;
-  v14 = 17;
-  if ( v3 < v6 )
+  v4 = (unsigned int *)*((_QWORD *)P + 8);
+  v5 = 0LL;
+  v6 = *((_QWORD *)P + 9);
+  v8 = v4[11];
+  v9 = v6 + 8 * v8;
+  v11 = *(_WORD *)(*(_QWORD *)v4 + 60LL) & 0x3FF;
+  v10 = *((_QWORD *)qword_140E300C8 + v11);
+  LOBYTE(v11) = 17;
+  v17 = 17;
+  if ( v6 < v9 )
   {
     while ( 1 )
     {
-      if ( (v3 & 0xFFF) == 0 || !v2 )
+      if ( (v6 & 0xFFF) == 0 || !v5 )
       {
-        if ( v2 )
-          MiUnlockProtoPoolPage(v2, v8, (__int64)v1);
-        v2 = MiLockProtoPoolPageForce(v3, &v14);
+        if ( v5 )
+          MiUnlockProtoPoolPage(v5, v11, (__int64)v4, a4);
+        v5 = MiLockProtoPoolPageForce(v6, &v17);
       }
-      v9 = MiLockLeafPage((unsigned __int64 *)v3, 0);
-      v8 = *(_QWORD *)v3;
-      if ( v9 )
+      v12 = MiLockLeafPage((unsigned __int64 *)v6, 0);
+      v11 = *(_QWORD *)v6;
+      if ( v12 )
       {
-        v11 = MiDeleteTransitionPte((__int64 *)v3, v9, 0x11u, 0);
-        v12 = v5 - 1;
-        if ( v11 != 3 )
-          v12 = v5;
-        v5 = v12;
+        LOBYTE(v4) = 17;
+        v14 = MiDeleteTransitionPte((__int64 *)v6, v12, (__int64)v4, 0);
+        v15 = v8 - 1;
+        if ( v14 != 3 )
+          v15 = v8;
+        v8 = v15;
       }
       else
       {
-        if ( !v8 )
+        if ( !v11 )
           break;
-        if ( (v8 & 0x400) == 0 )
+        if ( (v11 & 0x400) == 0 )
         {
           DemandZeroPte = MiMakeDemandZeroPte(24);
-          if ( v8 != DemandZeroPte )
-            MiReleasePageFileSpace(v7, v8, 1);
+          if ( v11 != DemandZeroPte )
+            MiReleasePageFileSpace(v10, v11, 1);
         }
       }
-      v3 += 8LL;
-      if ( v3 >= v6 )
+      v6 += 8LL;
+      if ( v6 >= v9 )
         break;
-      LOBYTE(v8) = v14;
+      LOBYTE(v11) = v17;
     }
-    if ( v2 )
+    if ( v5 )
     {
-      LOBYTE(v8) = v14;
-      MiUnlockProtoPoolPage(v2, v8, (__int64)v1);
+      LOBYTE(v11) = v17;
+      MiUnlockProtoPoolPage(v5, v11, (__int64)v4, a4);
     }
   }
-  MiReturnCommit(v7, v5, 0);
+  MiReturnCommit(v10, v8, 0);
   MiUpdateSystemProtoPtesTree((__int64)P + 24, 0);
   ExFreePoolWithTag(*((PVOID *)P + 9), 0);
   ExFreePoolWithTag(P, 0);
-  return v5;
+  return v8;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCommitEnlistment @ 0x14015AEC0
+ * XREFs of ZwCommitEnlistment @ 0x14015B430
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwCommitEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock, v2);
+  return KiServiceInternal(EnlistmentHandle);
 }

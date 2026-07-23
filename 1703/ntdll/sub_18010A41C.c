@@ -29,7 +29,7 @@ _QWORD *__fastcall sub_18010A41C(__int64 a1, unsigned __int8 *a2, unsigned int a
   int v14; // r8d
   int v15; // r8d
   int v16; // r8d
-  volatile signed __int64 *v17; // r15
+  _RTL_SRWLOCK *v17; // r15
   __int64 v18; // rsi
   __int64 v19; // rbx
   unsigned int v20; // r10d
@@ -131,8 +131,8 @@ LABEL_16:
     }
   }
 LABEL_22:
-  v17 = (volatile signed __int64 *)(a1 + 32);
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 32));
+  v17 = (_RTL_SRWLOCK *)(a1 + 32);
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 32));
   v18 = a1 + 16;
   v19 = 0LL;
   while ( 1 )
@@ -176,11 +176,11 @@ LABEL_34:
   if ( !v19 )
   {
 LABEL_38:
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 32));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 32));
     v3 = (_QWORD *)sub_18010ABF8(a1, &v40, v6);
     if ( !v3 )
       return 0LL;
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
     v19 = 0LL;
     while ( 1 )
     {
@@ -297,7 +297,7 @@ LABEL_55:
         {
           v19 = 0LL;
 LABEL_81:
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
           sub_18010AB7C(a1, v3);
           return (_QWORD *)v19;
         }
@@ -322,6 +322,6 @@ LABEL_81:
   }
   if ( !(unsigned int)sub_18010ADA8(v19 + 16) )
     v19 = 0LL;
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 32));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 32));
   return (_QWORD *)v19;
 }

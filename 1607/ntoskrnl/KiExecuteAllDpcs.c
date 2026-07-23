@@ -1,18 +1,18 @@
 /*
- * XREFs of KiExecuteAllDpcs @ 0x140059280
+ * XREFs of KiExecuteAllDpcs @ 0x140058E00
  * Callers:
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiExecuteDpc @ 0x140139238 (KiExecuteDpc.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiExecuteDpc @ 0x1401397A8 (KiExecuteDpc.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1400D8260 (KxWaitForSpinLockAndAcquire.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     KiAcquireSpinLockInstrumented @ 0x1401D3CDC (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x1401D3D8C (KiReleaseSpinLockInstrumented.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1400D6100 (KxWaitForSpinLockAndAcquire.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1401D3B08 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x1401D3BB8 (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned int a4)
@@ -167,7 +167,7 @@ LABEL_14:
         v19 &= v19 - 1;
         v23 = (char *)&EtwpGroupMasks + 32 * (unsigned int)v22;
         if ( v23 && (*((_DWORD *)v23 + 1) & 0x80u) != 0 )
-          v20 |= 1 << LOBYTE(word_1402FD362[2 * v22]);
+          v20 |= 1 << LOBYTE(word_1402FD342[2 * v22]);
       }
       v24 = 0;
       v25 = 0LL;
@@ -236,7 +236,7 @@ LABEL_14:
           {
             if ( (*((_DWORD *)v36 + 1) & 0x80u) != 0 )
             {
-              v37 = (unsigned __int16)word_1402FD362[2 * v35];
+              v37 = (unsigned __int16)word_1402FD342[2 * v35];
               v38 = (unsigned __int16)EtwpSystemLogger[2 * v35];
               v57[1] = 8LL;
               v57[0] = &v56[v37 + 2];

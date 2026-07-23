@@ -12,27 +12,25 @@
  *     LdrpInitializeImportRedirection @ 0x180082514 (LdrpInitializeImportRedirection.c)
  *     LdrpCorInitialize @ 0x1800832C4 (LdrpCorInitialize.c)
  *     LdrpLoadWow64 @ 0x180083824 (LdrpLoadWow64.c)
- *     LdrLoadEnclaveModule @ 0x1800CCFC0 (LdrLoadEnclaveModule.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1800D0920 (LdrpGetProcApphelpCheckModule.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrLoadEnclaveModule @ 0x1800CCF80 (LdrLoadEnclaveModule.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800D08E0 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlReleasePath(__int64 a1)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  __int64 v2; // rdi
-  __int64 result; // rax
+  PWSTR v2; // rdi
 
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  --*(_QWORD *)(a1 - 48);
-  v2 = a1 - 128;
-  if ( *(_QWORD *)(a1 - 48) )
+  --*((_QWORD *)Path - 6);
+  v2 = Path - 64;
+  if ( *((_QWORD *)Path - 6) )
     v2 = 0LL;
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   if ( v2 )
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v2);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

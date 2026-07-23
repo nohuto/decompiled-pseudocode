@@ -1,18 +1,18 @@
 /*
- * XREFs of MiResolvePageTablePage @ 0x140236020
+ * XREFs of MiResolvePageTablePage @ 0x1402360F0
  * Callers:
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
  * Callees:
- *     MiFastLockLeafPageTable @ 0x140237280 (MiFastLockLeafPageTable.c)
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiUnlockFaultPageTable @ 0x1402A1748 (MiUnlockFaultPageTable.c)
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiIsPdeOrAboveAccessible @ 0x14034F550 (MiIsPdeOrAboveAccessible.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiLargePageFault @ 0x14064646C (MiLargePageFault.c)
+ *     MiFastLockLeafPageTable @ 0x140237350 (MiFastLockLeafPageTable.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiUnlockFaultPageTable @ 0x1402A19D8 (MiUnlockFaultPageTable.c)
+ *     MiInPagePageTable @ 0x1402E5000 (MiInPagePageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiIsPdeOrAboveAccessible @ 0x14034F6F0 (MiIsPdeOrAboveAccessible.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiLargePageFault @ 0x1406469BC (MiLargePageFault.c)
  */
 
 __int64 __fastcall MiResolvePageTablePage(__int64 a1)

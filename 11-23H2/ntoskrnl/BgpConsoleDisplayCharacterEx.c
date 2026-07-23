@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpConsoleDisplayCharacterEx @ 0x140AF15D4
+ * XREFs of BgpConsoleDisplayCharacterEx @ 0x140AF15E4
  * Callers:
- *     BgpConsoleDisplayString @ 0x140AF1870 (BgpConsoleDisplayString.c)
+ *     BgpConsoleDisplayString @ 0x140AF1880 (BgpConsoleDisplayString.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140671C34 (BgpDisplayCharacterEx.c)
- *     BgpConsoleScrollScreen @ 0x140AF1AC0 (BgpConsoleScrollScreen.c)
+ *     BgpDisplayCharacterEx @ 0x140672184 (BgpDisplayCharacterEx.c)
+ *     BgpConsoleScrollScreen @ 0x140AF1AD0 (BgpConsoleScrollScreen.c)
  */
 
 __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsigned int a3, int a4, int a5, ...)
@@ -36,12 +36,12 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
   v5 = a1;
   if ( a2 > 0x50 )
     return 3221225485LL;
-  v7 = qword_140CF7AE8;
-  if ( a3 > *(_DWORD *)(qword_140CF7AE8 + 4) )
+  v7 = qword_140CF7AE0;
+  if ( a3 > *(_DWORD *)(qword_140CF7AE0 + 4) )
     return 3221225485LL;
-  v8 = (int *)(qword_140CF7AE8 + 68);
-  v9 = (_DWORD *)(qword_140CF7AE8 + 60);
-  v10 = (_DWORD *)(qword_140CF7AE8 + 48);
+  v8 = (int *)(qword_140CF7AE0 + 68);
+  v9 = (_DWORD *)(qword_140CF7AE0 + 60);
+  v10 = (_DWORD *)(qword_140CF7AE0 + 48);
   v11 = 0;
   v12 = (unsigned int)a1 - 8;
   if ( v5 == 8 )
@@ -63,10 +63,10 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
             v26);
     if ( v11 >= 0 )
     {
-      v7 = qword_140CF7AE8;
+      v7 = qword_140CF7AE0;
       v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
       v23 = 3 * v12;
-      *(_WORD *)(qword_140CF7AE8 + 4 * v23 + 88) = 32;
+      *(_WORD *)(qword_140CF7AE0 + 4 * v23 + 88) = 32;
       *(_DWORD *)(v7 + 4 * v23 + 80) = a4;
       *(_DWORD *)(v7 + 4 * v23 + 84) = v21;
       goto LABEL_20;
@@ -92,9 +92,9 @@ LABEL_22:
     v14 = a5;
     v11 = BgpDisplayCharacterEx(
             v5,
-            *(__int64 **)(qword_140CF7AE8 + 40),
-            *(_DWORD *)(qword_140CF7AE8 + 60) + *v8 * *v10,
-            *(_DWORD *)(qword_140CF7AE8 + 64) + *(_DWORD *)(qword_140CF7AE8 + 72) * *(_DWORD *)(qword_140CF7AE8 + 52),
+            *(__int64 **)(qword_140CF7AE0 + 40),
+            *(_DWORD *)(qword_140CF7AE0 + 60) + *v8 * *v10,
+            *(_DWORD *)(qword_140CF7AE0 + 64) + *(_DWORD *)(qword_140CF7AE0 + 72) * *(_DWORD *)(qword_140CF7AE0 + 52),
             a5,
             a4,
             (int *)va,
@@ -103,15 +103,15 @@ LABEL_22:
     if ( v11 >= 0 )
     {
       v12 = 3 * ((unsigned int)v8[1] + 25LL * (unsigned int)*v8);
-      v7 = qword_140CF7AE8;
-      *(_WORD *)(qword_140CF7AE8 + 4 * v12 + 88) = v5;
+      v7 = qword_140CF7AE0;
+      *(_WORD *)(qword_140CF7AE0 + 4 * v12 + 88) = v5;
       *(_DWORD *)(v7 + 4 * v12 + 80) = a4;
       *(_DWORD *)(v7 + 4 * v12 + 84) = v14;
       ++*v8;
       goto LABEL_20;
     }
 LABEL_19:
-    v7 = qword_140CF7AE8;
+    v7 = qword_140CF7AE0;
     goto LABEL_20;
   }
   v15 = *v8;
@@ -133,13 +133,13 @@ LABEL_19:
               (int *)va,
               &v27,
               v26);
-      v7 = qword_140CF7AE8;
+      v7 = qword_140CF7AE0;
       v11 = v19;
       if ( v19 >= 0 )
       {
         v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
         v20 = 3 * v12;
-        *(_WORD *)(qword_140CF7AE8 + 4 * v20 + 88) = 32;
+        *(_WORD *)(qword_140CF7AE0 + 4 * v20 + 88) = 32;
         *(_DWORD *)(v7 + 4 * v20 + 80) = a4;
         *(_DWORD *)(v7 + 4 * v20 + 84) = v17;
       }

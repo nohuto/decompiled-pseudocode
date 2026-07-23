@@ -1,34 +1,29 @@
 /*
- * XREFs of EvaluateFeature @ 0x18009F23C
+ * XREFs of EvaluateFeature @ 0x18009F24C
  * Callers:
- *     EvaluateCurrentState @ 0x18009F194 (EvaluateCurrentState.c)
+ *     EvaluateCurrentState @ 0x18009F1A4 (EvaluateCurrentState.c)
  * Callees:
- *     EvaluateCurrentStateFromRegistry @ 0x18009F1BC (EvaluateCurrentStateFromRegistry.c)
+ *     EvaluateCurrentStateFromRegistry @ 0x18009F1CC (EvaluateCurrentStateFromRegistry.c)
  */
 
-__int64 __fastcall EvaluateFeature(unsigned int **a1)
+__int64 __fastcall EvaluateFeature(__int64 a1)
 {
-  volatile signed __int32 *v1; // rbx
-  volatile signed __int32 *v2; // rdi
-  int v3; // r11d
-  __int64 v4; // rdx
   __int64 result; // rax
-  int v6; // r8d
-  char v7; // r9
-  unsigned __int8 v8; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v2; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = (volatile signed __int32 *)*a1;
-  v2 = (volatile signed __int32 *)a1[3];
-  v3 = *((_DWORD *)a1 + 2);
-  v4 = *((unsigned int *)a1 + 4);
-  result = **a1;
-  v6 = *((_DWORD *)a1 + 3);
-  v7 = *((_BYTE *)a1 + 32);
-  if ( !(_DWORD)result && *v2 == 0x80000000 )
+  v2 = a1;
+  result = *(unsigned int *)g_Feature_2683562299_61252281_FeatureDescriptorDetails;
+  if ( !(_DWORD)result && g_Feature_2683562299_cachedvariant == 0x80000000 )
   {
-    v8 = *((_BYTE *)a1 + 32);
-    _InterlockedCompareExchange(v1, EvaluateCurrentStateFromRegistry(v3, v4, v6, v7, &v8) + 1, 0);
-    return (unsigned int)_InterlockedCompareExchange(v2, v8, 0x80000000);
+    LOBYTE(v2) = 0;
+    _InterlockedCompareExchange(
+      (volatile signed __int32 *)g_Feature_2683562299_61252281_FeatureDescriptorDetails,
+      EvaluateCurrentStateFromRegistry(61252281, 0LL, 2, 0, &v2) + 1,
+      0);
+    return (unsigned int)_InterlockedCompareExchange(
+                           &g_Feature_2683562299_cachedvariant,
+                           (unsigned __int8)v2,
+                           0x80000000);
   }
   return result;
 }

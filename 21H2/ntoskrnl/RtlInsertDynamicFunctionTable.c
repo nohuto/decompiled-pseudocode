@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlInsertDynamicFunctionTable @ 0x1402A75C8
+ * XREFs of RtlInsertDynamicFunctionTable @ 0x140225708
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
@@ -42,35 +42,34 @@ __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
   __int64 v22; // rcx
   __int64 v23; // rcx
   __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r12
-  unsigned __int64 v27; // rcx
-  unsigned __int64 v28; // rsi
+  __int64 v25; // r12
+  unsigned __int64 v26; // rcx
+  unsigned __int64 v27; // rsi
   char *PoolWithQuotaTag; // rax
-  _OWORD *v30; // rcx
-  int v31; // [rsp+30h] [rbp-68h]
-  int v32; // [rsp+34h] [rbp-64h]
-  unsigned __int64 v33; // [rsp+38h] [rbp-60h]
-  unsigned __int64 v34; // [rsp+40h] [rbp-58h]
+  _OWORD *v29; // rcx
+  int v30; // [rsp+30h] [rbp-68h]
+  int v31; // [rsp+34h] [rbp-64h]
+  unsigned __int64 v32; // [rsp+38h] [rbp-60h]
+  unsigned __int64 v33; // [rsp+40h] [rbp-58h]
   _KPROCESS *Process; // [rsp+48h] [rbp-50h]
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-48h]
   PVOID P; // [rsp+B8h] [rbp+20h]
 
   if ( (a1 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v33 = *(_QWORD *)(a1 + 48);
+  v32 = *(_QWORD *)(a1 + 48);
   v2 = *(_QWORD *)(a1 + 40);
-  v34 = v2;
-  if ( v2 < v33 )
+  v33 = v2;
+  if ( v2 < v32 )
     return 3221225621LL;
-  v3 = v2 - v33;
+  v3 = v2 - v32;
   if ( v3 > 0xFFFFFFFF )
     return 3221225621LL;
-  v32 = v3;
+  v31 = v3;
   v4 = *(_DWORD *)(a1 + 84);
   if ( v4 > 0x15555555 )
     return 3221225621LL;
-  v31 = 12 * v4;
+  v30 = 12 * v4;
   P = 0LL;
   v6 = 0;
   CurrentThread = KeGetCurrentThread();
@@ -91,31 +90,31 @@ __int64 __fastcall RtlInsertDynamicFunctionTable(__int64 a1)
   }
   if ( v9 + 1 <= v10 )
     goto LABEL_11;
-  v26 = v10 + 10;
-  if ( (unsigned int)v26 < v10 || (v27 = 24 * v26 + 16, v27 >= 0xFFFFFFFF) )
+  v25 = v10 + 10;
+  if ( (unsigned int)v25 < v10 || (v26 = 24 * v25 + 16, v26 >= 0xFFFFFFFF) )
   {
     v6 = -1073741675;
     goto LABEL_22;
   }
-  v28 = Process[1].EndPadding[3];
-  P = (PVOID)v28;
-  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)v27, 0x46447452u);
+  v27 = Process[1].EndPadding[3];
+  P = (PVOID)v27;
+  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)v26, 0x46447452u);
   v8 = PoolWithQuotaTag;
   if ( PoolWithQuotaTag )
   {
-    v30 = PoolWithQuotaTag + 16;
+    v29 = PoolWithQuotaTag + 16;
     if ( v9 )
     {
-      memmove(v30, (const void *)(v28 + 16), 24LL * v9);
+      memmove(v29, (const void *)(v27 + 16), 24LL * v9);
     }
     else
     {
-      *v30 = 0LL;
+      *v29 = 0LL;
       *((_QWORD *)PoolWithQuotaTag + 4) = 0LL;
       v9 = 1;
     }
     *(_DWORD *)v8 = v9;
-    *((_DWORD *)v8 + 1) = v26;
+    *((_DWORD *)v8 + 1) = v25;
     v8[12] = 0;
     Process[1].EndPadding[3] = (unsigned __int64)v8;
 LABEL_11:
@@ -125,14 +124,14 @@ LABEL_11:
       v12 = (unsigned __int64 *)(v8 + 48);
       do
       {
-        if ( v33 < *v12 )
+        if ( v32 < *v12 )
           break;
         ++v11;
         v12 += 3;
       }
       while ( v11 < v9 );
     }
-    if ( *(_QWORD *)&v8[24 * v11] + (unsigned __int64)*(unsigned int *)&v8[24 * v11 + 8] <= v33 )
+    if ( *(_QWORD *)&v8[24 * v11] + (unsigned __int64)*(unsigned int *)&v8[24 * v11 + 8] <= v32 )
     {
       v13 = v11;
       v14 = v11 == v9;
@@ -143,13 +142,13 @@ LABEL_19:
           memmove(&v8[16 * v11 + 40 + 8 * v11], &v8[16 * v11 + 16 + 8 * v11], 24LL * (v9 - v11));
         v15 = 3 * v13;
         *(_QWORD *)&v8[8 * v15 + 16] = a1;
-        *(_QWORD *)&v8[8 * v15 + 24] = v33;
-        *(_DWORD *)&v8[8 * v15 + 32] = v32;
-        *(_DWORD *)&v8[8 * v15 + 36] = v31;
+        *(_QWORD *)&v8[8 * v15 + 24] = v32;
+        *(_DWORD *)&v8[8 * v15 + 32] = v31;
+        *(_DWORD *)&v8[8 * v15 + 36] = v30;
         *(_DWORD *)v8 = v9 + 1;
         goto LABEL_22;
       }
-      if ( *(_QWORD *)&v8[24 * v11 + 24] >= v34 )
+      if ( *(_QWORD *)&v8[24 * v11 + 24] >= v33 )
       {
         v14 = v11 == v9;
         goto LABEL_19;
@@ -198,7 +197,7 @@ LABEL_23:
   {
     *(_BYTE *)(v20 + 32) |= 2u;
     if ( *(__int64 *)(v20 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v20);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
     *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v20 + 25) &= ~1u;
     *(_QWORD *)(v20 + 32) = 0LL;
@@ -216,7 +215,7 @@ LABEL_23:
   KiAbThreadRemoveBoosts((ULONG_PTR)v17);
   v14 = v17->SpecialApcDisable++ == -1;
   if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v17->ApcState.ApcListHead[0].Flink != &v17->152 )
-    KiCheckForKernelApcDelivery(v25);
+    KiCheckForKernelApcDelivery();
   KiLeaveGuardedRegionUnsafe(CurrentThread);
   if ( v16 )
     ExFreePoolWithTag(v16, 0x46447452u);

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgFindDeviceDriver @ 0x14087D3B4
+ * XREFs of PiDevCfgFindDeviceDriver @ 0x14087D5F4
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A1F0 (PiDevCfgProcessDevice.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C8D0 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140962C74 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgProcessDevice @ 0x14087A430 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095CAD0 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x140962E74 (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     PnpMultiSzContainsString @ 0x1403CE590 (PnpMultiSzContainsString.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     PiDevCfgCompareDrivers @ 0x140561CCC (PiDevCfgCompareDrivers.c)
- *     PiDevCfgMatchDriverConfigurationId @ 0x140561FEC (PiDevCfgMatchDriverConfigurationId.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     PnpIsNullGuid @ 0x140786834 (PnpIsNullGuid.c)
- *     PiDevCfgFreeDriverNode @ 0x140879210 (PiDevCfgFreeDriverNode.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087D7E4 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     PiDevCfgQueryDriverNode @ 0x14087D8E0 (PiDevCfgQueryDriverNode.c)
+ *     PnpMultiSzContainsString @ 0x1403CE770 (PnpMultiSzContainsString.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     PiDevCfgCompareDrivers @ 0x14056238C (PiDevCfgCompareDrivers.c)
+ *     PiDevCfgMatchDriverConfigurationId @ 0x1405626AC (PiDevCfgMatchDriverConfigurationId.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     PnpIsNullGuid @ 0x140786A24 (PnpIsNullGuid.c)
+ *     PiDevCfgFreeDriverNode @ 0x140879450 (PiDevCfgFreeDriverNode.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087DA24 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     PiDevCfgQueryDriverNode @ 0x14087DB20 (PiDevCfgQueryDriverNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

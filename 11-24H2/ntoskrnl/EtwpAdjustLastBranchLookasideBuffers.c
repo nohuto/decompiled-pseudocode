@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAdjustLastBranchLookasideBuffers @ 0x14048ED14
+ * XREFs of EtwpAdjustLastBranchLookasideBuffers @ 0x140489144
  * Callers:
- *     EtwpAdjustTraceBuffers @ 0x14048EAC0 (EtwpAdjustTraceBuffers.c)
+ *     EtwpAdjustTraceBuffers @ 0x140488EF0 (EtwpAdjustTraceBuffers.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY EtwpAdjustLastBranchLookasideBuffers()
@@ -12,7 +12,7 @@ PSLIST_ENTRY EtwpAdjustLastBranchLookasideBuffers()
   PSLIST_ENTRY result; // rax
 
   result = (PSLIST_ENTRY)(unsigned int)KeNumberProcessors_0;
-  if ( dword_140E28EC4 > 2 * (int)KeNumberProcessors_0 * dword_140E28EC0 )
+  if ( dword_140E29004 > 2 * (int)KeNumberProcessors_0 * dword_140E29000 )
   {
     do
     {
@@ -22,7 +22,7 @@ PSLIST_ENTRY EtwpAdjustLastBranchLookasideBuffers()
       ExFreePoolWithTag(result, 0);
       result = (PSLIST_ENTRY)(unsigned int)KeNumberProcessors_0;
     }
-    while ( _InterlockedDecrement(&dword_140E28EC4) > 2 * (int)KeNumberProcessors_0 * dword_140E28EC0 );
+    while ( _InterlockedDecrement(&dword_140E29004) > 2 * (int)KeNumberProcessors_0 * dword_140E29000 );
   }
   return result;
 }

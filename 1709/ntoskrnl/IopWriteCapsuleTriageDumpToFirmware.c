@@ -54,7 +54,7 @@ bool __fastcall IopWriteCapsuleTriageDumpToFirmware(
     v24[2] = v13;
     IopUpdateMinidumpContext(v14, a2, a3, v13, a5, a6);
     MmSnapTriageDumpInformation(a6, v24);
-    IoFillDumpHeader((enum _NT_PRODUCT_TYPE *)v8 + 1031, 4, a1, a2, (__int64)a3, a4, a5, v22);
+    IoFillDumpHeader((_NT_PRODUCT_TYPE *)v8 + 1031, 4, a1, a2, (__int64)a3, a4, a5, v22);
     v20 = (unsigned int)IopNumTriageDumpDataBlocks | 0x10000000000LL;
     v21 = &IopTriageDumpDataBlocks;
     v15 = IoFillTriageDumpBuffer(

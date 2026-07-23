@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetCachedPath @ 0x18000CAF0
+ * XREFs of RtlpGetCachedPath @ 0x18000CAE0
  * Callers:
- *     RtlGetExePath @ 0x180009210 (RtlGetExePath.c)
- *     RtlGetSearchPath @ 0x1800093B0 (RtlGetSearchPath.c)
- *     LdrpGetDllPath @ 0x18000C808 (LdrpGetDllPath.c)
+ *     RtlGetExePath @ 0x180009200 (RtlGetExePath.c)
+ *     RtlGetSearchPath @ 0x1800093A0 (RtlGetSearchPath.c)
+ *     LdrpGetDllPath @ 0x18000C7F8 (LdrpGetDllPath.c)
  * Callees:
- *     RtlpComputeDllPathWithOptions @ 0x18000CC30 (RtlpComputeDllPathWithOptions.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlpComputeDllPathWithOptions @ 0x18000CC20 (RtlpComputeDllPathWithOptions.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
   __int64 v9; // rbx
   __int64 result; // rax
   __int64 v11; // rdi
-  __int64 v12; // rsi
+  void *v12; // rsi
 
   if ( a3 || a4 )
   {
@@ -57,12 +57,12 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
         if ( v9 )
         {
           if ( (*(_QWORD *)(v9 + 80))-- == 1LL )
-            v12 = v9;
+            v12 = (void *)v9;
         }
       }
       RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
       if ( v12 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v12);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     }
     return v11;
   }

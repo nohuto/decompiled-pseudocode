@@ -12,9 +12,9 @@
 __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2, const void **a3, _QWORD *a4)
 {
   __int64 v4; // rbp
-  unsigned __int64 v8; // rdi
+  signed __int64 v8; // rdi
   __int64 v9; // r8
-  __int64 Heap; // rax
+  _WORD *Heap; // rax
   unsigned int v11; // ebx
   const void *v13; // rdx
   int v14; // ecx
@@ -42,8 +42,8 @@ LABEL_21:
       else
         v15 = 0;
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS: %s() bad parameters\n"
         "SXS:  Map                    : %p\n"
         "SXS:  AssemblyRosterIndex    : 0x%lx\n"
@@ -70,15 +70,15 @@ LABEL_20:
   v9 = *(unsigned __int16 *)a3;
   if ( (unsigned __int64)(v9 + 2) > 0xFFFE )
     return (unsigned int)-1073741562;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9 + 34);
-  v8 = Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9 + 34);
+  v8 = (signed __int64)Heap;
   if ( !Heap )
     return (unsigned int)-1073741801;
   *(_DWORD *)Heap = 0;
-  *(_WORD *)(Heap + 8) = *(_WORD *)a3;
-  *(_QWORD *)(Heap + 16) = Heap + 32;
-  *(_WORD *)(Heap + 10) = *(_WORD *)a3 + 2;
-  memmove((void *)(Heap + 32), a3[1], *(unsigned __int16 *)a3);
+  Heap[4] = *(_WORD *)a3;
+  *((_QWORD *)Heap + 2) = Heap + 16;
+  Heap[5] = *(_WORD *)a3 + 2;
+  memmove(Heap + 16, a3[1], *(unsigned __int16 *)a3);
   *(_WORD *)(*(_QWORD *)(v8 + 16) + 2 * ((unsigned __int64)*(unsigned __int16 *)(v8 + 8) >> 1)) = 0;
   *(_QWORD *)(v8 + 24) = *a4;
   if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)(a1 + 8) + 8 * v4), v8, 0LL) )
@@ -89,6 +89,6 @@ LABEL_20:
   v11 = 0;
 LABEL_13:
   if ( v8 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v8);
   return v11;
 }

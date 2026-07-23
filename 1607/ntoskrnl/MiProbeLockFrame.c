@@ -1,23 +1,23 @@
 /*
- * XREFs of MiProbeLockFrame @ 0x14002F730
+ * XREFs of MiProbeLockFrame @ 0x14002F2B0
  * Callers:
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x14009A5D4 (MmProbeAndLockSelectedPages.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140099DD4 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiLockNonPagedPoolPte @ 0x140024750 (MiLockNonPagedPoolPte.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiLockPageTablePage @ 0x140030530 (MiLockPageTablePage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReferenceIoPages @ 0x14009C300 (MiReferenceIoPages.c)
- *     MiChargePartitionResidentAvailable @ 0x1401034A4 (MiChargePartitionResidentAvailable.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiLockNonPagedPoolPte @ 0x1400242D0 (MiLockNonPagedPoolPte.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiLockPageTablePage @ 0x1400300B0 (MiLockPageTablePage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReferenceIoPages @ 0x14009BB00 (MiReferenceIoPages.c)
+ *     MiChargePartitionResidentAvailable @ 0x140101224 (MiChargePartitionResidentAvailable.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 __int64 __fastcall MiProbeLockFrame(__int64 a1)
@@ -57,7 +57,7 @@ __int64 __fastcall MiProbeLockFrame(__int64 a1)
   int v34; // [rsp+88h] [rbp+10h] BYREF
 
   v1 = *(_QWORD *)(a1 + 96);
-  if ( v1 > qword_140326A90
+  if ( v1 > qword_140326AD0
     || MmPhysicalMemoryBlock && (*(_QWORD *)(48 * v1 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 )
   {
     if ( !*(_QWORD *)(a1 + 72)
@@ -72,12 +72,12 @@ __int64 __fastcall MiProbeLockFrame(__int64 a1)
       }
       else
       {
-        ++dword_1403270EC;
+        ++dword_14032712C;
       }
     }
     else
     {
-      ++dword_1403270E8;
+      ++dword_140327128;
       return 3221225477LL;
     }
     return result;
@@ -123,7 +123,7 @@ __int64 __fastcall MiProbeLockFrame(__int64 a1)
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       __writecr8(v33);
     }
-    ++dword_1403270DC;
+    ++dword_14032711C;
     return 3221225477LL;
   }
   v11 = *(_QWORD *)(a1 + 48);
@@ -169,7 +169,7 @@ LABEL_27:
       if ( v15 == 1023 )
         v16 = MiSystemPartition;
       else
-        v16 = *(int **)(qword_140326FF8 + 8LL * v15);
+        v16 = *(int **)(qword_140327038 + 8LL * v15);
       if ( !v3 || (unsigned int)MiChargeCommit((__int64)v16, 1uLL, 8) )
       {
         if ( v16 == MiSystemPartition )
@@ -202,7 +202,7 @@ LABEL_78:
         _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         __writecr8(v33);
       }
-      ++dword_1403270E0;
+      ++dword_140327120;
       return 3221225633LL;
     }
   }
@@ -261,7 +261,7 @@ LABEL_47:
               MiLockPageAtDpcInline(v7);
               MiRemoveLockedPageChargeAndDecRef(v7);
               _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              ++dword_1403270E4;
+              ++dword_140327124;
               return 3221225633LL;
             }
             *(_QWORD *)(a1 + 104) = *(_QWORD *)(v7 + 40) & 0xFFFFFFFFFLL;

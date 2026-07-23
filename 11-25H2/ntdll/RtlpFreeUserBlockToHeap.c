@@ -10,42 +10,48 @@
  *     ZwProtectVirtualMemory @ 0x180163C20 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpFreeUserBlockToHeap(__int64 a1, __int64 a2)
+LOGICAL __fastcall RtlpFreeUserBlockToHeap(_DWORD *BaseAddress, _BYTE *a2)
 {
   unsigned __int64 v4; // rdx
-  unsigned int v5; // esi
+  ULONG v5; // esi
   bool v6; // zf
-  _OWORD v8[2]; // [rsp+30h] [rbp-58h] BYREF
+  _OWORD MemoryInformation[2]; // [rsp+30h] [rbp-58h] BYREF
   __int128 v9; // [rsp+50h] [rbp-38h]
-  __int64 v10; // [rsp+98h] [rbp+10h] BYREF
-  int v11; // [rsp+A0h] [rbp+18h]
-  __int64 v12; // [rsp+A8h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+10h] BYREF
+  ULONG OldProtect; // [rsp+A0h] [rbp+18h] BYREF
+  PVOID BaseAddressa; // [rsp+A8h] [rbp+20h] BYREF
 
-  v12 = 0LL;
-  v11 = 0;
-  v10 = 0LL;
-  if ( *(_BYTE *)(a2 + 17) )
+  BaseAddressa = 0LL;
+  OldProtect = 0;
+  RegionSize = 0LL;
+  if ( a2[17] )
   {
-    v4 = 1LL << *(_BYTE *)(a2 + 16);
+    v4 = 1LL << a2[16];
     v5 = 64;
-    v10 = 4096LL;
+    RegionSize = 4096LL;
     if ( v4 > 0xF0000 )
       v4 = 983040LL;
-    v6 = (*(_DWORD *)(a1 + 112) & 0x40000) == 0;
-    v12 = a2 + v4 + *(unsigned __int16 *)(a2 + 18);
+    v6 = (BaseAddress[28] & 0x40000) == 0;
+    BaseAddressa = &a2[v4 + *((unsigned __int16 *)a2 + 9)];
     if ( v6 )
       v5 = 4;
-    memset(v8, 0, sizeof(v8));
+    memset(MemoryInformation, 0, sizeof(MemoryInformation));
     v9 = 0LL;
     if ( !v6
-      && ((int)ZwQueryVirtualMemory(-1LL, a1, 0LL, v8, 48LL, 0LL) < 0
+      && (ZwQueryVirtualMemory(
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            BaseAddress,
+            MemoryBasicInformation,
+            MemoryInformation,
+            0x30uLL,
+            0LL) < 0
        || (BYTE4(v9) & 0x60) == 0
-       || *(_QWORD *)&v8[0] != a1) )
+       || *(_DWORD **)&MemoryInformation[0] != BaseAddress) )
     {
-      RtlpLogHeapFailure(0, a1, 1, DWORD1(v9), 0LL, 0LL);
+      RtlpLogHeapFailure(0, (_DWORD)BaseAddress, 1, DWORD1(v9), 0LL, 0LL);
       v5 = 4;
     }
-    ZwProtectVirtualMemory(-1LL, &v12, &v10, v5);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v5, &OldProtect);
   }
-  return RtlFreeHeap(a1, 0x800000LL, a2);
+  return RtlFreeHeap(BaseAddress, 0x800000u, a2);
 }

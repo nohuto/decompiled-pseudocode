@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCopyCell @ 0x1408DCB64
+ * XREFs of CmpCopyCell @ 0x1408E3124
  * Callers:
- *     CmpCopyValue @ 0x1408DCE6C (CmpCopyValue.c)
- *     CmpCopyKeyPartial @ 0x1408DDBFC (CmpCopyKeyPartial.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1409812B8 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x14098335C (CmpCopyMergeOfLayeredKeyNode.c)
- *     CmpLightWeightCreateSetValueData @ 0x140AE8DA0 (CmpLightWeightCreateSetValueData.c)
- *     CmpSyncKeyValues @ 0x140B62A58 (CmpSyncKeyValues.c)
+ *     CmpCopyValue @ 0x1408E342C (CmpCopyValue.c)
+ *     CmpCopyKeyPartial @ 0x1408E41BC (CmpCopyKeyPartial.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1409432C8 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x14094536C (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpLightWeightCreateSetValueData @ 0x140AEAFF0 (CmpLightWeightCreateSetValueData.c)
+ *     CmpSyncKeyValues @ 0x140B65AF8 (CmpSyncKeyValues.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpCopyCell(ULONG_PTR BugCheckParameter3, __int64 a2, ULONG_PTR a3, unsigned int a4, _DWORD *a5)

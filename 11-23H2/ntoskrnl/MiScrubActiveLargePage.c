@@ -1,13 +1,13 @@
 /*
- * XREFs of MiScrubActiveLargePage @ 0x140A46368
+ * XREFs of MiScrubActiveLargePage @ 0x140A46618
  * Callers:
- *     MiScrubLargePageRegions @ 0x140A46410 (MiScrubLargePageRegions.c)
+ *     MiScrubLargePageRegions @ 0x140A466C0 (MiScrubLargePageRegions.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiScrubInterrupted @ 0x14065E410 (MiScrubInterrupted.c)
- *     MiScrubProcessLargePage @ 0x140A46994 (MiScrubProcessLargePage.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiScrubInterrupted @ 0x14065E960 (MiScrubInterrupted.c)
+ *     MiScrubProcessLargePage @ 0x140A46C44 (MiScrubProcessLargePage.c)
  */
 
 void __fastcall MiScrubActiveLargePage(__int64 *a1, __int64 a2, unsigned int a3)

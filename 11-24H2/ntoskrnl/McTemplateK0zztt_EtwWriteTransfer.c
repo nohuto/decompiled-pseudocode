@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0zztt_EtwWriteTransfer @ 0x1405A8460
+ * XREFs of McTemplateK0zztt_EtwWriteTransfer @ 0x1405A5450
  * Callers:
- *     PiSwIrpSetAttributes @ 0x140730C14 (PiSwIrpSetAttributes.c)
- *     PiSwIrpSetLifetime @ 0x140730D50 (PiSwIrpSetLifetime.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwGetChildPdo @ 0x140AC3B1C (PiSwGetChildPdo.c)
+ *     PiSwIrpSetAttributes @ 0x14072EC24 (PiSwIrpSetAttributes.c)
+ *     PiSwIrpSetLifetime @ 0x14072ED60 (PiSwIrpSetLifetime.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwGetChildPdo @ 0x140AC1360 (PiSwGetChildPdo.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zztt_EtwWriteTransfer(

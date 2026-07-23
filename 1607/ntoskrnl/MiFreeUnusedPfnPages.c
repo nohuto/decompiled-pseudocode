@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreeUnusedPfnPages @ 0x14013E234
+ * XREFs of MiFreeUnusedPfnPages @ 0x14013E7A4
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     MiLockDynamicMemoryExclusive @ 0x140132E08 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x140132E74 (MiUnlockDynamicMemoryExclusive.c)
- *     MiPfnRangeIsZero @ 0x14013E6D4 (MiPfnRangeIsZero.c)
- *     RtlCompareMemoryUlong @ 0x1401674E0 (RtlCompareMemoryUlong.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140133378 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1401333E4 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiPfnRangeIsZero @ 0x14013EC44 (MiPfnRangeIsZero.c)
+ *     RtlCompareMemoryUlong @ 0x140167A50 (RtlCompareMemoryUlong.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiFreeUnusedPfnPages(int *a1)
@@ -78,7 +78,7 @@ __int64 __fastcall MiFreeUnusedPfnPages(int *a1)
   while ( 1 )
   {
     CurrentThread = KeGetCurrentThread();
-    v8 = (v4 & ((unsigned __int64)(48 * qword_140326A90 - 0x57FFFFFFFD0LL) >> 9)) + v5 - 8;
+    v8 = (v4 & ((unsigned __int64)(48 * qword_140326AD0 - 0x57FFFFFFFD0LL) >> 9)) + v5 - 8;
     v36 = CurrentThread;
     v35 = v8;
     MiLockDynamicMemoryExclusive((__int64)v1, (__int64)CurrentThread);

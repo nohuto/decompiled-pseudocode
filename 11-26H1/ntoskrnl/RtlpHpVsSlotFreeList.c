@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpVsSlotFreeList @ 0x140352F9C
+ * XREFs of RtlpHpVsSlotFreeList @ 0x14035501C
  * Callers:
- *     RtlpHpVsContextCompact @ 0x140347BE4 (RtlpHpVsContextCompact.c)
- *     RtlpHpVsContextFree @ 0x140352D10 (RtlpHpVsContextFree.c)
+ *     RtlpHpVsContextCompact @ 0x140349C64 (RtlpHpVsContextCompact.c)
+ *     RtlpHpVsContextFree @ 0x140354D90 (RtlpHpVsContextFree.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14027D330 (RtlpHpReleaseQueuedLockExclusive.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlpHpVsChunkFree @ 0x1403532B0 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsSubsegmentFree @ 0x140353CE8 (RtlpHpVsSubsegmentFree.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14027C8A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlpHpVsChunkFree @ 0x140355330 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSubsegmentFree @ 0x140355D68 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
  */
 
 __int64 **__fastcall RtlpHpVsSlotFreeList(__int64 a1, __int64 a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)

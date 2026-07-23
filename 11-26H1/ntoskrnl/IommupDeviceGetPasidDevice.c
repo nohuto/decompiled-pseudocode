@@ -1,16 +1,16 @@
 /*
- * XREFs of IommupDeviceGetPasidDevice @ 0x140587E80
+ * XREFs of IommupDeviceGetPasidDevice @ 0x14058A458
  * Callers:
- *     IommuDomainAttachDeviceEx @ 0x14059ED10 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainDetachDeviceEx @ 0x14059F030 (IommuDomainDetachDeviceEx.c)
- *     IommupDeviceDisablePasidTaggedDma @ 0x140782558 (IommupDeviceDisablePasidTaggedDma.c)
- *     IommuDeviceDelete @ 0x140786CC0 (IommuDeviceDelete.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405A14F0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405A1820 (IommuDomainDetachDeviceEx.c)
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140785058 (IommupDeviceDisablePasidTaggedDma.c)
+ *     IommuDeviceDelete @ 0x1407897F0 (IommuDeviceDelete.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 char __fastcall IommupDeviceGetPasidDevice(__int64 a1, __int64 a2, char a3, struct _KLOCK_ENTRIES *a4)

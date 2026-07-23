@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobTimeLimitCallback @ 0x140909880
+ * XREFs of PspSetJobTimeLimitCallback @ 0x1409099E0
  * Callers:
  *     <none>
  * Callees:
- *     PsQueryRuntimeProcess @ 0x1406211D0 (PsQueryRuntimeProcess.c)
+ *     PsQueryRuntimeProcess @ 0x14068AE40 (PsQueryRuntimeProcess.c)
  */
 
 __int64 __fastcall PspSetJobTimeLimitCallback(__int64 a1, _QWORD *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall PspSetJobTimeLimitCallback(__int64 a1, _QWORD *a2)
   if ( (*(_DWORD *)(a1 + 1120) & 2) == 0 )
   {
     PsQueryRuntimeProcess(a1, &v4);
-    *a2 += v4 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+    *a2 += v4 * (unsigned __int64)KeMaximumIncrement;
   }
   return 0LL;
 }

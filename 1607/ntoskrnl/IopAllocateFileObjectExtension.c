@@ -1,20 +1,20 @@
 /*
- * XREFs of IopAllocateFileObjectExtension @ 0x1400EB590
+ * XREFs of IopAllocateFileObjectExtension @ 0x1400E9400
  * Callers:
- *     IoSetOplockPrivateFoExt @ 0x140078384 (IoSetOplockPrivateFoExt.c)
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     IopSetFileObjectExtensionFlag @ 0x140079F70 (IopSetFileObjectExtensionFlag.c)
- *     IopGetSetSpecificExtension @ 0x14007AE90 (IopGetSetSpecificExtension.c)
- *     IoGetFileObjectFilterContext @ 0x14007B55C (IoGetFileObjectFilterContext.c)
- *     IoSetOplockKeyContext @ 0x140133160 (IoSetOplockKeyContext.c)
- *     IoSetIoPriorityHintIntoFileObject @ 0x1401C9268 (IoSetIoPriorityHintIntoFileObject.c)
- *     IopSymlinkSetFoExtension @ 0x140533B70 (IopSymlinkSetFoExtension.c)
- *     IopSetFileObjectIosbRange @ 0x140622BE4 (IopSetFileObjectIosbRange.c)
+ *     IoSetOplockPrivateFoExt @ 0x140078404 (IoSetOplockPrivateFoExt.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140079FF0 (IopSetFileObjectExtensionFlag.c)
+ *     IopGetSetSpecificExtension @ 0x14007AF10 (IopGetSetSpecificExtension.c)
+ *     IoGetFileObjectFilterContext @ 0x14007B5DC (IoGetFileObjectFilterContext.c)
+ *     IoSetOplockKeyContext @ 0x1401336D0 (IoSetOplockKeyContext.c)
+ *     IoSetIoPriorityHintIntoFileObject @ 0x1401C9108 (IoSetIoPriorityHintIntoFileObject.c)
+ *     IopSymlinkSetFoExtension @ 0x1405340B0 (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140622C98 (IopSetFileObjectIosbRange.c)
  * Callees:
- *     IopVerifierExAllocatePool @ 0x14007B610 (IopVerifierExAllocatePool.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     IopVerifierExAllocatePool @ 0x14007B690 (IopVerifierExAllocatePool.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

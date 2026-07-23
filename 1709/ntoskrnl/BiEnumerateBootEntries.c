@@ -12,7 +12,7 @@
 
 __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
 {
-  int v4; // edi
+  NTSTATUS v4; // edi
   PVOID PoolWithTag; // rax
   void *v6; // rbx
   SIZE_T NumberOfBytes; // [rsp+50h] [rbp+18h] BYREF

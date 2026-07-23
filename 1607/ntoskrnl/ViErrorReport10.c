@@ -1,16 +1,16 @@
 /*
- * XREFs of ViErrorReport10 @ 0x1402236DC
+ * XREFs of ViErrorReport10 @ 0x140223508
  * Callers:
- *     IovpCallDriver2 @ 0x14070ADA0 (IovpCallDriver2.c)
+ *     IovpCallDriver2 @ 0x14070ADD0 (IovpCallDriver2.c)
  *     VfPnpVerifyIrpStackUpward @ 0x140718A78 (VfPnpVerifyIrpStackUpward.c)
  *     ViPnpVerifyMinorWasProcessedProperly @ 0x140718D44 (ViPnpVerifyMinorWasProcessedProperly.c)
  *     VfWmiVerifyIrpStackUpward @ 0x1407192D8 (VfWmiVerifyIrpStackUpward.c)
  * Callees:
- *     RtlStringCbPrintfA @ 0x140139A14 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     ViErrorDisplayDescription @ 0x14070EB74 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x14070EBC4 (ViErrorFinishReport.c)
+ *     RtlStringCbPrintfA @ 0x140139F84 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     ViErrorDisplayDescription @ 0x14070EBA4 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x14070EBF4 (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall ViErrorReport10(unsigned int a1, const void *a2, const void *a3, const void *a4)

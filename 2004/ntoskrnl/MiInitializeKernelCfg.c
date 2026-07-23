@@ -23,8 +23,8 @@ NTSTATUS __fastcall MiInitializeKernelCfg(__int64 a1, __int64 a2, __int64 a3, un
   ULONG_PTR v6; // rax
   struct _KTHREAD *CurrentThread; // rdi
   PVOID *i; // rbx
-  __int64 v9; // rcx
-  __int64 v10; // rax
+  PVOID v9; // rcx
+  PIMAGE_NT_HEADERS v10; // rax
 
   if ( (MiFlags & 0x80000) == 0 )
     return 0;
@@ -52,11 +52,11 @@ NTSTATUS __fastcall MiInitializeKernelCfg(__int64 a1, __int64 a2, __int64 a3, un
       {
         if ( ((_DWORD)i[13] & 0x2000) == 0 )
         {
-          v9 = (__int64)i[6];
+          v9 = i[6];
           if ( v9 == PsNtosImageBase )
           {
             v10 = RtlImageNtHeader(v9);
-            MiMarkKernelImageCfgBits((__int64)i, v10);
+            MiMarkKernelImageCfgBits((__int64)i, (__int64)v10);
             *((_DWORD *)i + 26) |= 0x2000u;
           }
           else

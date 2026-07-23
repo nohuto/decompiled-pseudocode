@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwOpenTransactionManager()
+NTSTATUS __cdecl ZwOpenTransactionManager(
+        PHANDLE TmHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LogFileName,
+        LPGUID TmIdentity,
+        ULONG OpenOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 300LL;
+  result = 300;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

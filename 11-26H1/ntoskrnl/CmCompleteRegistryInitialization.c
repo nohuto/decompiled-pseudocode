@@ -1,31 +1,31 @@
 /*
- * XREFs of CmCompleteRegistryInitialization @ 0x14084E49C
+ * XREFs of CmCompleteRegistryInitialization @ 0x1408547AC
  * Callers:
- *     NtInitializeRegistry @ 0x14084EE60 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x140855170 (NtInitializeRegistry.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     IopCopyBootLogRegistryToFile @ 0x1407946FC (IopCopyBootLogRegistryToFile.c)
- *     PnpBootPhaseComplete @ 0x14079BF3C (PnpBootPhaseComplete.c)
- *     PoInitHiberServices @ 0x1407C8370 (PoInitHiberServices.c)
- *     PoClearTransitionMarker @ 0x1407C881C (PoClearTransitionMarker.c)
- *     PsBootPhaseComplete @ 0x1407EDCC0 (PsBootPhaseComplete.c)
- *     EtwInitialize @ 0x140824718 (EtwInitialize.c)
- *     ExNotifyPlatformBinaryExecuted @ 0x14083297C (ExNotifyPlatformBinaryExecuted.c)
- *     ExpRefreshSystemTime @ 0x140836324 (ExpRefreshSystemTime.c)
- *     CmpInitializeSystemHivesLoad @ 0x14084B198 (CmpInitializeSystemHivesLoad.c)
- *     CmpCmdInit @ 0x140854874 (CmpCmdInit.c)
- *     CmpCreateRegistryThread @ 0x140856F70 (CmpCreateRegistryThread.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     RtlLockBootStatusData @ 0x140B12DA0 (RtlLockBootStatusData.c)
- *     PopCancelIgnoreBatteryStatusChange @ 0x140B607C0 (PopCancelIgnoreBatteryStatusChange.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14079722C (IopCopyBootLogRegistryToFile.c)
+ *     PnpBootPhaseComplete @ 0x14079EA7C (PnpBootPhaseComplete.c)
+ *     PoInitHiberServices @ 0x1407CB3D0 (PoInitHiberServices.c)
+ *     PoClearTransitionMarker @ 0x1407CB8BC (PoClearTransitionMarker.c)
+ *     PsBootPhaseComplete @ 0x1407F3820 (PsBootPhaseComplete.c)
+ *     EtwInitialize @ 0x14082A958 (EtwInitialize.c)
+ *     ExNotifyPlatformBinaryExecuted @ 0x140838BBC (ExNotifyPlatformBinaryExecuted.c)
+ *     ExpRefreshSystemTime @ 0x14083C564 (ExpRefreshSystemTime.c)
+ *     CmpInitializeSystemHivesLoad @ 0x1408514A8 (CmpInitializeSystemHivesLoad.c)
+ *     CmpCmdInit @ 0x14085AB84 (CmpCmdInit.c)
+ *     CmpCreateRegistryThread @ 0x14085D308 (CmpCreateRegistryThread.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     RtlLockBootStatusData @ 0x140B14C40 (RtlLockBootStatusData.c)
+ *     PopCancelIgnoreBatteryStatusChange @ 0x140B63860 (PopCancelIgnoreBatteryStatusChange.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
@@ -59,16 +59,16 @@ __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
   {
     EtwInitialize(3u, 0LL);
     CmCompleteInitMachineConfig(&IopAutoReboot);
-    if ( !WheapPfaLock.CurrentRunTime )
+    if ( !LODWORD(WheapPfaLock.StateSaveArea) )
       CmpInitializeSystemHivesLoad();
     CmpLockRegistryExclusive(v4);
     LOBYTE(v5) = v3;
     CmpCmdInit(v5);
     CmpUnlockRegistry(v6);
-    if ( a1 != 1 && !WheapPfaLock.CurrentRunTime )
+    if ( a1 != 1 && !LODWORD(WheapPfaLock.StateSaveArea) )
     {
-      BYTE4(WheapPfaLock.InitialStack) = 1;
-      if ( LOBYTE(WheapPfaLock.ThreadLock) || (v7 = 0, CmpForceSynchronousMachineHiveLoad) )
+      LOBYTE(WheapPfaLock.StackLimit) = 1;
+      if ( LOBYTE(WheapPfaLock.CurrentRunTime) || (v7 = 0, CmpForceSynchronousMachineHiveLoad) )
         v7 = 1;
       KeInitializeEvent(&Event, NotificationEvent, 0);
       v9 = CmpCreateRegistryThread(
@@ -92,15 +92,15 @@ __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
     PnpBootPhaseComplete();
     PoInitHiberServices();
     PoClearTransitionMarker();
-    PopAcquireRwLockExclusive(&stru_140F0F620.Spare35[1], v13, v14, v15);
-    BYTE4(stru_140F0F620.SystemAffinityTokenListHead.Next) = 1;
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.Spare35[1]);
-    PopQueueWorkItem((__int64)&stru_140F0F620.SavedApcState.ApcListHead[0].Blink, DelayedWorkQueue);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext, v13, v14, v15);
+    byte_140F0FCF4 = 1;
+    PopReleaseRwLock((struct _KTHREAD *)&PopThermalStateTransitionContext);
+    PopQueueWorkItem((__int64)&PopThermalStateTransitionWorkItem, DelayedWorkQueue);
     PopCancelIgnoreBatteryStatusChange();
     Flink = PsGetCurrentServerSiloGlobals()[64].Flink;
     Flink->Blink = (struct _LIST_ENTRY *)1;
     ExNotifyPlatformBinaryExecuted((__int64)Flink, v17, v18, v19);
-    RtlpBootStatHandleLock.SchedulerApcFill3[44] = 1;
+    RtlpBootStatHandleLock.SchedulerApc.ApcStateIndex = 1;
     if ( a1 != 1 )
       IopCopyBootLogRegistryToFile();
   }

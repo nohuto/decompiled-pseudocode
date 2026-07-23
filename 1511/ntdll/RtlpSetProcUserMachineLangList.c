@@ -32,7 +32,7 @@ __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, __int64 a2, __int6
   if ( (_DWORD)a2 == 1 && *(_QWORD *)(a1 + 64) || *(_QWORD *)(a1 + 56) && !(_DWORD)a2 )
     return 0LL;
   RtlpInitMuiCriticalSection(a1, a2, a3);
-  RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+  RtlEnterCriticalSection(&RegistryInfoCritSect);
   if ( (!*(_QWORD *)(a1 + 64) || v3 != 1) && (!*(_QWORD *)(a1 + 56) || v3) )
   {
     v5 = RtlpMuiRegLoadPreferredUILanguages(a1, v7, v3, 3, &v10, &v11);
@@ -67,6 +67,6 @@ __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, __int64 a2, __int6
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+  RtlLeaveCriticalSection(&RegistryInfoCritSect);
   return (unsigned int)v5;
 }

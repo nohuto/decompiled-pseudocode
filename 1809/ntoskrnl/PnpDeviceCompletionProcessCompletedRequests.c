@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionProcessCompletedRequests @ 0x1406E6AF0
+ * XREFs of PnpDeviceCompletionProcessCompletedRequests @ 0x1406E7D90
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpDeviceCompletionQueueIsEmpty @ 0x140159B3C (PnpDeviceCompletionQueueIsEmpty.c)
- *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x14018D968 (PnpDeviceCompletionQueueGetCompletedRequest.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E24 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDeviceCompletionQueueIsEmpty @ 0x140159C3C (PnpDeviceCompletionQueueIsEmpty.c)
+ *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x14018DAA8 (PnpDeviceCompletionQueueGetCompletedRequest.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E90C4 (PnpDeviceCompletionProcessCompletedRequest.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionProcessCompletedRequests(int a1, int a2, _BYTE *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PnpDeviceCompletionProcessCompletedRequests(int a1, int a2, _
   v6 = 0;
   while ( !PnpDeviceCompletionQueueIsEmpty() )
   {
-    if ( !dword_140434BAC && (!a2 || !a1 && *a3) )
+    if ( !dword_140435C4C && (!a2 || !a1 && *a3) )
       break;
     CompletedRequest = (void *)PnpDeviceCompletionQueueGetCompletedRequest();
     v9 = PnpDeviceCompletionProcessCompletedRequest(CompletedRequest);

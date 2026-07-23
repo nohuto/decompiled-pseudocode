@@ -43,30 +43,30 @@
  *     EtwpQueryReferenceTime @ 0x1406E2A94 (EtwpQueryReferenceTime.c)
  */
 
-__int64 __fastcall NtTraceControl(
-        unsigned int a1,
-        unsigned int *a2,
-        unsigned int a3,
-        _QWORD *a4,
-        unsigned int Length,
-        ULONG64 a6)
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   unsigned __int64 v8; // r14
   unsigned int *v9; // rbx
-  _DWORD *v10; // rsi
+  PULONG v10; // rsi
   _DWORD *v11; // rcx
-  int TraceGuidList; // edi
+  NTSTATUS TraceGuidList; // edi
   int v13; // eax
   unsigned int v14; // r15d
-  unsigned int v15; // r13d
-  unsigned int v16; // eax
+  ULONG v15; // r13d
+  ULONG v16; // eax
   unsigned int *PoolWithQuotaTag; // rax
-  int updated; // eax
+  NTSTATUS updated; // eax
   __int64 v19; // rcx
   unsigned __int64 v21; // rdx
   __int64 v22; // rcx
   __int64 v23; // rcx
-  int Trace; // eax
+  NTSTATUS Trace; // eax
   __int64 v25; // rdx
   _DWORD *v26; // rax
   size_t v27; // [rsp+20h] [rbp-68h] BYREF
@@ -74,59 +74,63 @@ __int64 __fastcall NtTraceControl(
   unsigned int *v29; // [rsp+30h] [rbp-58h]
   __int64 v30; // [rsp+38h] [rbp-50h]
   __int64 v31; // [rsp+40h] [rbp-48h]
-  unsigned int Size; // [rsp+A0h] [rbp+18h]
+  ULONG Size; // [rsp+A0h] [rbp+18h]
 
-  Size = a3;
-  v8 = a1;
+  Size = InputBufferLength;
+  v8 = (unsigned int)FunctionCode;
   v9 = 0LL;
   v29 = 0LL;
   v27 = 0LL;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( a2 )
+    if ( InputBuffer )
     {
-      if ( a3 && ((unsigned __int64)a2 + a3 > MmUserProbeAddress || (unsigned int *)((char *)a2 + a3) < a2) )
+      if ( InputBufferLength
+        && ((unsigned __int64)InputBuffer + InputBufferLength > MmUserProbeAddress
+         || (char *)InputBuffer + InputBufferLength < InputBuffer) )
+      {
         *(_BYTE *)MmUserProbeAddress = 0;
+      }
     }
     else
     {
       Size = 0;
     }
-    if ( a4 )
-      ProbeForWrite(a4, Length, 1u);
+    if ( OutputBuffer )
+      ProbeForWrite(OutputBuffer, OutputBufferLength, 1u);
     else
-      Length = 0;
-    v10 = (_DWORD *)a6;
-    if ( !a6 )
+      OutputBufferLength = 0;
+    v10 = ReturnLength;
+    if ( !ReturnLength )
     {
       TraceGuidList = -1073741811;
       HIDWORD(v27) = -1073741811;
       goto LABEL_41;
     }
-    v11 = (_DWORD *)a6;
-    if ( a6 >= MmUserProbeAddress )
+    v11 = ReturnLength;
+    if ( (unsigned __int64)ReturnLength >= MmUserProbeAddress )
       v11 = (_DWORD *)MmUserProbeAddress;
     *v11 = *v11;
   }
   else
   {
-    v10 = (_DWORD *)a6;
+    v10 = ReturnLength;
   }
   if ( (unsigned int)v8 <= 0x1B && (v13 = 134238208, _bittest(&v13, v8)) )
   {
-    v15 = Length;
+    v15 = OutputBufferLength;
     v14 = Size;
   }
   else
   {
     v14 = Size;
-    v15 = Length;
-    if ( Size || Length )
+    v15 = OutputBufferLength;
+    if ( Size || OutputBufferLength )
     {
-      if ( Size > Length )
+      if ( Size > OutputBufferLength )
         v16 = Size;
       else
-        v16 = Length;
+        v16 = OutputBufferLength;
       PoolWithQuotaTag = (unsigned int *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v16, 0x50777445u);
       v9 = PoolWithQuotaTag;
       v29 = PoolWithQuotaTag;
@@ -135,9 +139,9 @@ __int64 __fastcall NtTraceControl(
         TraceGuidList = -1073741801;
         goto LABEL_41;
       }
-      memset(PoolWithQuotaTag, 0, Length);
-      if ( a2 )
-        memmove(v9, a2, Size);
+      memset(PoolWithQuotaTag, 0, OutputBufferLength);
+      if ( InputBuffer )
+        memmove(v9, InputBuffer, Size);
     }
   }
   if ( (_DWORD)v8 != 15 )
@@ -147,7 +151,7 @@ __int64 __fastcall NtTraceControl(
       if ( v15 == 16 )
       {
         TraceGuidList = 0;
-        EtwpCreateActivityId(a4);
+        EtwpCreateActivityId(OutputBuffer);
         goto LABEL_29;
       }
       goto LABEL_124;
@@ -224,7 +228,7 @@ LABEL_79:
       case 14:
         if ( v14 != 8 || v15 )
           goto LABEL_124;
-        v30 = *a2;
+        v30 = *(unsigned int *)InputBuffer;
         TraceGuidList = EtwpRealtimeDisconnectConsumerByHandle();
         goto LABEL_29;
       case 16:
@@ -300,7 +304,7 @@ LABEL_79:
       case 27:
         if ( v14 != 4 )
           goto LABEL_124;
-        v22 = *a2;
+        v22 = *(unsigned int *)InputBuffer;
         v31 = v22;
         if ( !v22 )
           goto LABEL_124;
@@ -354,7 +358,7 @@ LABEL_29:
   if ( TraceGuidList >= 0 )
   {
     if ( (_DWORD)v27 )
-      memmove(a4, v9, (unsigned int)v27);
+      memmove(OutputBuffer, v9, (unsigned int)v27);
     *v10 = v27;
   }
   if ( TraceGuidList == -1073741789 && ((unsigned int)(v8 - 15) <= 1 || (unsigned int)(v8 - 21) <= 1)
@@ -365,5 +369,5 @@ LABEL_29:
 LABEL_41:
   if ( v9 )
     ExFreePoolWithTag(v9, 0);
-  return (unsigned int)TraceGuidList;
+  return TraceGuidList;
 }

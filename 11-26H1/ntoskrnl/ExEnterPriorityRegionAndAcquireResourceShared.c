@@ -1,15 +1,15 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402B39B0
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402FE680
  * Callers:
- *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x140651770 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
+ *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x140655350 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x1402B26BC (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExIsFastResourceHeldExclusive @ 0x1402B2710 (ExIsFastResourceHeldExclusive.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B4158 (ExpAcquireResourceSharedLite.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x1402FD38C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1402FD3E0 (ExIsFastResourceHeldExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402FEE28 (ExpAcquireResourceSharedLite.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceShared(ULONG_PTR BugCheckParameter2)

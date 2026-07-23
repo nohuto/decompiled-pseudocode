@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepEngineGetShimsFromRegistry @ 0x140A25360
+ * XREFs of KsepEngineGetShimsFromRegistry @ 0x140A38400
  * Callers:
- *     KsepGetShimsForDriver @ 0x140A255BC (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140A3865C (KsepGetShimsForDriver.c)
  * Callees:
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     KsepDbGetShimInfo @ 0x1407BCA3C (KsepDbGetShimInfo.c)
- *     KsepStringSplitMultiString @ 0x1407BE83C (KsepStringSplitMultiString.c)
- *     KsepRegistryQueryDriverShims @ 0x1409E4314 (KsepRegistryQueryDriverShims.c)
- *     KsepStringFree @ 0x1409E5588 (KsepStringFree.c)
- *     KsepStringDuplicate @ 0x1409E5E2C (KsepStringDuplicate.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     KsepDbGetShimInfo @ 0x1407BFA9C (KsepDbGetShimInfo.c)
+ *     KsepStringSplitMultiString @ 0x1407C189C (KsepStringSplitMultiString.c)
+ *     KsepStringDuplicate @ 0x1409D73AC (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x1409D7848 (KsepStringFree.c)
+ *     KsepRegistryQueryDriverShims @ 0x1409D8644 (KsepRegistryQueryDriverShims.c)
  */
 
 __int64 __fastcall KsepEngineGetShimsFromRegistry(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -52,7 +52,7 @@ LABEL_7:
     ShimInfo = -1073741801;
     goto LABEL_7;
   }
-  ShimInfo = KsepRegistryQueryDriverShims(*(_QWORD *)(a2 + 8), Paged, v9, &v20);
+  ShimInfo = KsepRegistryQueryDriverShims(*(_WORD **)(a2 + 8), Paged, v9, &v20);
   if ( ShimInfo >= 0 )
   {
     v13 = KsepStringSplitMultiString((__int64)v10, v20, &v21, &v22);
@@ -81,12 +81,12 @@ LABEL_7:
         else
         {
           v18 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v18 + 4] = ShimInfo;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v18) = 132091;
-          if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v18) = ShimInfo;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v18) = 132071;
+          if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
             KsepDebugPrint(0LL, (int)"KSE: Cannot resolve registry shims to Sdb: 0x%x\n", (unsigned int)ShimInfo);
           KsepLogError(0LL, (__int64)"KSE: Cannot resolve registry shims to Sdb: 0x%x\n", ShimInfo);
         }

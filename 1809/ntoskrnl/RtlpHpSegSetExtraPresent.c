@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegSetExtraPresent @ 0x1402FD174
+ * XREFs of RtlpHpSegSetExtraPresent @ 0x1402FD364
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x1402FCA8C (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x1402FCC7C (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x1400BECD0 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpVsChunkSetExtraPresent @ 0x1402FE1C8 (RtlpHpVsChunkSetExtraPresent.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1400BEC10 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpVsChunkSetExtraPresent @ 0x1402FE3B8 (RtlpHpVsChunkSetExtraPresent.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int64 a2)
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int6
     v7 = ((__int64)(result - v6) >> 5 << *(_BYTE *)(v4 + 8)) + v6;
     if ( v5 == 8 )
     {
-      v8 = (unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(v7 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)v7 >> 12);
+      v8 = (unsigned __int16)qword_14040F0E8 ^ *(unsigned __int16 *)(v7 + 40) ^ (unsigned __int64)(unsigned __int16)((unsigned int)v7 >> 12);
       result = 0x4000LL;
       *(_WORD *)(v8 + v3 - 2) |= 0x4000u;
     }

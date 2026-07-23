@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCopyEffectiveAce @ 0x180060EA0
+ * XREFs of RtlpCopyEffectiveAce @ 0x18004B420
  * Callers:
- *     RtlpGenerateInheritedAce @ 0x180060A00 (RtlpGenerateInheritedAce.c)
- *     RtlpCopyAces @ 0x180061840 (RtlpCopyAces.c)
+ *     RtlpGenerateInheritedAce @ 0x18004AF80 (RtlpGenerateInheritedAce.c)
+ *     RtlpCopyAces @ 0x18004BDC0 (RtlpCopyAces.c)
  * Callees:
- *     RtlEqualPrefixSid @ 0x180061EA0 (RtlEqualPrefixSid.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlEqualPrefixSid @ 0x18004C420 (RtlEqualPrefixSid.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 char __fastcall RtlpCopyEffectiveAce(
@@ -14,7 +14,7 @@ char __fastcall RtlpCopyEffectiveAce(
         char a2,
         char a3,
         unsigned __int8 *a4,
-        unsigned __int8 *a5,
+        unsigned __int16 *a5,
         __int64 a6,
         __int64 a7,
         _DWORD *a8,
@@ -35,7 +35,7 @@ char __fastcall RtlpCopyEffectiveAce(
   unsigned __int8 v22; // cl
   __int64 v23; // rsi
   unsigned int v24; // r12d
-  unsigned __int8 *v25; // rdi
+  unsigned __int16 *v25; // rdi
   int v26; // eax
   unsigned int v27; // ecx
   int v28; // r14d
@@ -48,7 +48,7 @@ char __fastcall RtlpCopyEffectiveAce(
   int v35; // esi
   _BYTE *v36; // rcx
   int v38; // eax
-  char v39; // al
+  BOOLEAN v39; // al
   int v40; // r8d
   int v41; // eax
   int v42; // eax
@@ -71,10 +71,10 @@ char __fastcall RtlpCopyEffectiveAce(
   char *Srca; // [rsp+40h] [rbp-B9h]
   unsigned __int8 *v61; // [rsp+48h] [rbp-B1h]
   int v62; // [rsp+58h] [rbp-A1h]
-  unsigned __int8 *v63; // [rsp+68h] [rbp-91h]
-  unsigned __int8 *v64; // [rsp+70h] [rbp-89h]
+  unsigned __int16 *v63; // [rsp+68h] [rbp-91h]
+  unsigned __int16 *v64; // [rsp+70h] [rbp-89h]
   char *v66; // [rsp+88h] [rbp-71h]
-  int v67; // [rsp+A0h] [rbp-59h] BYREF
+  int Sid2; // [rsp+A0h] [rbp-59h] BYREF
   __int64 v68; // [rsp+A4h] [rbp-55h]
   char v69[8]; // [rsp+D0h] [rbp-29h] BYREF
   int v70; // [rsp+D8h] [rbp-21h]
@@ -88,11 +88,11 @@ char __fastcall RtlpCopyEffectiveAce(
   if ( !a7 )
     v17 = (__int64)a5;
   v21 = a13;
-  v63 = (unsigned __int8 *)v17;
+  v63 = (unsigned __int16 *)v17;
   v58 = 0;
-  v67 = 257;
+  Sid2 = 257;
   v68 = 50331648LL;
-  v64 = (unsigned __int8 *)v16;
+  v64 = (unsigned __int16 *)v16;
   *a15 = 0;
   if ( a14 )
     *a14 = 0;
@@ -120,7 +120,7 @@ LABEL_55:
     v24 = 8;
     Srca = (char *)Src;
     Size = 8;
-    v25 = (unsigned __int8 *)(Src + 4);
+    v25 = Src + 4;
     goto LABEL_10;
   }
   if ( (unsigned __int8)(v22 - 9) <= 1u )
@@ -130,7 +130,7 @@ LABEL_55:
     if ( v22 <= 0xEu )
     {
 LABEL_71:
-      v25 = (unsigned __int8 *)(Src + 4);
+      v25 = Src + 4;
       v24 = 8;
       Srca = (char *)Src;
       Size = 8;
@@ -147,8 +147,8 @@ LABEL_71:
     Size = 12;
     v47 = 4 * *((unsigned __int8 *)Src + 13);
     v48 = v47 + 8;
-    v25 = (unsigned __int8 *)Src + (unsigned int)(v47 + 8) + 12;
-    if ( !(unsigned __int8)RtlEqualPrefixSid(Src + 6, &v67) )
+    v25 = (unsigned __int16 *)((char *)Src + (unsigned int)(v47 + 8) + 12);
+    if ( !RtlEqualPrefixSid(Src + 6, &Sid2) )
     {
       v20 = a15;
       v24 = v47 + 20;
@@ -211,7 +211,7 @@ LABEL_74:
   v45 = 14LL;
   if ( (v44 & 2) == 0 )
     v45 = 6LL;
-  v25 = (unsigned __int8 *)&Src[8 * (*((_DWORD *)Src + 2) & 1) + v45];
+  v25 = &Src[8 * (*((_DWORD *)Src + 2) & 1) + v45];
   v24 = v45 * 2 + 16 * (*((_DWORD *)Src + 2) & 1);
   Size = v24;
   if ( (v44 & 2) != 0 )
@@ -302,7 +302,7 @@ LABEL_10:
   v29 = v28 & 0x11FFFFF;
   if ( !v29 )
   {
-    v39 = RtlEqualPrefixSid(v25, &v67);
+    v39 = RtlEqualPrefixSid(v25, &Sid2);
     v21 = a13;
     if ( !v39 )
     {
@@ -310,12 +310,21 @@ LABEL_10:
       goto LABEL_41;
     }
   }
-  if ( *v25 != 1 || v25[2] || v25[3] || v25[4] || v25[5] || v25[6] || v25[7] != 3 || v25[1] != 1 )
+  if ( *(_BYTE *)v25 != 1
+    || *((_BYTE *)v25 + 2)
+    || *((_BYTE *)v25 + 3)
+    || *((_BYTE *)v25 + 4)
+    || *((_BYTE *)v25 + 5)
+    || *((_BYTE *)v25 + 6)
+    || *((_BYTE *)v25 + 7) != 3
+    || *((_BYTE *)v25 + 1) != 1 )
+  {
     goto LABEL_31;
+  }
   v38 = *((_DWORD *)v25 + 2);
   if ( !v38 )
   {
-    v25 = a4;
+    v25 = (unsigned __int16 *)a4;
     v30 = a15;
     LODWORD(v23) = v23 + 4 * a4[1] - 4;
     *a15 = 1;
@@ -331,7 +340,7 @@ LABEL_10:
       {
         v25 = v63;
         v30 = a15;
-        LODWORD(v23) = v23 + 4 * v63[1] - 4;
+        LODWORD(v23) = v23 + 4 * *((unsigned __int8 *)v63 + 1) - 4;
         *a15 = 1;
         goto LABEL_32;
       }
@@ -341,7 +350,7 @@ LABEL_31:
     }
     v25 = v64;
     v30 = a15;
-    LODWORD(v23) = v23 + 4 * v64[1] - 4;
+    LODWORD(v23) = v23 + 4 * *((unsigned __int8 *)v64 + 1) - 4;
     *a15 = 1;
   }
   else
@@ -350,7 +359,7 @@ LABEL_31:
       goto LABEL_31;
     v25 = a5;
     v30 = a15;
-    LODWORD(v23) = v23 + 4 * a5[1] - 4;
+    LODWORD(v23) = v23 + 4 * *((unsigned __int8 *)a5 + 1) - 4;
     *a15 = 1;
   }
 LABEL_32:
@@ -390,11 +399,11 @@ LABEL_32:
     memmove(v34, v61, 4LL * v61[1] + 8);
     v34 += 4 * v61[1] + 8;
   }
-  memmove(v34, v25, 4LL * v25[1] + 8);
-  v35 = (_DWORD)v34 + 4 * (v25[1] + 2);
+  memmove(v34, v25, 4LL * *((unsigned __int8 *)v25 + 1) + 8);
+  v35 = (_DWORD)v34 + 4 * (*((unsigned __int8 *)v25 + 1) + 2);
   if ( v66 && v62 > 0 )
   {
-    memmove(&v34[4 * v25[1] + 8], v66, v62);
+    memmove(&v34[4 * *((unsigned __int8 *)v25 + 1) + 8], v66, v62);
     v35 += v62;
   }
   LODWORD(v23) = v35 - *(_DWORD *)a11;

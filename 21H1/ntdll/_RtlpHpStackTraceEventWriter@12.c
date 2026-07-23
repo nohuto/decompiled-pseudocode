@@ -15,11 +15,12 @@ int __stdcall RtlpHpStackTraceEventWriter(char *Src, int a2, int *a3)
   void *v4; // edi
   unsigned int v5; // ecx
   bool v6; // zf
-  size_t v7; // ebx
-  int v9; // [esp+Ch] [ebp-4h]
+  unsigned int v7; // ebx
+  size_t v9; // [esp-4h] [ebp-14h]
+  int v10; // [esp+Ch] [ebp-4h]
 
   v3 = a2;
-  v9 = a2;
+  v10 = a2;
   v4 = a3 + 4;
   if ( a2 )
   {
@@ -32,21 +33,23 @@ int __stdcall RtlpHpStackTraceEventWriter(char *Src, int a2, int *a3)
         v7 = 0x4000 - v5;
         if ( 0x4000 - v5 >= v3 )
           v7 = v3;
+        LODWORD(v9) = v7;
         v4 = a3 + 4;
-        memcpy((char *)a3 + v5 + 16, Src, v7);
+        memcpy((char *)a3 + v5 + 16, Src, v9);
         a3[2] += v7;
-        v3 = v9 - v7;
+        v3 = v10 - v7;
         a3[3] += v7;
         Src += v7;
         v6 = a3[2] == 0x4000;
-        v9 -= v7;
+        v10 -= v7;
       }
       if ( v6 )
       {
         RtlpHpStackDbLogStackDbSnapshot(*a3, a3[1]++, 0x4000, (int)v4);
         a3[2] = 0;
-        memset(v4, 0, 0x4000u);
-        v3 = v9;
+        LODWORD(v9) = 0x4000;
+        memset(v4, 0, v9);
+        v3 = v10;
       }
       else
       {
@@ -61,7 +64,8 @@ int __stdcall RtlpHpStackTraceEventWriter(char *Src, int a2, int *a3)
     {
       RtlpHpStackDbLogStackDbSnapshot(*a3, a3[1]++, a3[2], (int)v4);
       a3[2] = 0;
-      memset(v4, 0, 0x4000u);
+      LODWORD(v9) = 0x4000;
+      memset(v4, 0, v9);
     }
     RtlpHpStackDbLogStackDbEnd(*a3, a3[3]);
   }

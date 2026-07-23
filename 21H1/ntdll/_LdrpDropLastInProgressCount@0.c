@@ -21,14 +21,14 @@
  *     _NtSetEvent@8 @ 0x4B2F2A40 (_NtSetEvent@8.c)
  */
 
-int __stdcall LdrpDropLastInProgressCount()
+NTSTATUS __stdcall LdrpDropLastInProgressCount()
 {
   struct _TEB *v0; // eax
 
   v0 = NtCurrentTeb();
   v0->SameTebFlags &= ~0x1000u;
-  RtlEnterCriticalSection((int)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   LdrpWorkInProgress = 0;
-  RtlLeaveCriticalSection((int)&LdrpWorkQueueLock);
+  RtlLeaveCriticalSection(&LdrpWorkQueueLock);
   return NtSetEvent(LdrpLoadCompleteEvent, 0);
 }

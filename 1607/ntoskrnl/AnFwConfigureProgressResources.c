@@ -3,10 +3,10 @@
  * Callers:
  *     BgpFwLibraryInitialize @ 0x140725E8C (BgpFwLibraryInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     BgpGetBitsPerPixel @ 0x140127790 (BgpGetBitsPerPixel.c)
- *     BgpGxRectangleSize @ 0x1401297C4 (BgpGxRectangleSize.c)
- *     BgpTxtRegionSize @ 0x140129BF0 (BgpTxtRegionSize.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     BgpGetBitsPerPixel @ 0x140127D00 (BgpGetBitsPerPixel.c)
+ *     BgpGxRectangleSize @ 0x140129D34 (BgpGxRectangleSize.c)
+ *     BgpTxtRegionSize @ 0x14012A160 (BgpTxtRegionSize.c)
  *     BgpTxtCreateRegion @ 0x140726BC4 (BgpTxtCreateRegion.c)
  *     BgpFoGetFontHandle @ 0x1407279B8 (BgpFoGetFontHandle.c)
  */
@@ -19,7 +19,7 @@ __int64 __fastcall AnFwConfigureProgressResources(_DWORD *a1)
   int v6; // [rsp+44h] [rbp-14h]
   __int64 v7; // [rsp+60h] [rbp+8h] BYREF
 
-  KeInitializeEvent(&stru_1403404A0, NotificationEvent, 1u);
+  KeInitializeEvent(&stru_1403404E0, NotificationEvent, 1u);
   if ( !a1 )
     return 0LL;
   if ( (a1[6] & 1) == 0 )

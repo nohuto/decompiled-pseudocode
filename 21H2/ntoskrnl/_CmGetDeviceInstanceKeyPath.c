@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmGetDeviceInstanceKeyPath @ 0x140642C40
+ * XREFs of _CmGetDeviceInstanceKeyPath @ 0x140637A50
  * Callers:
- *     _CmGetDeviceRegKeyPath @ 0x1406420EC (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x140636EFC (_CmGetDeviceRegKeyPath.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
  */
 
 NTSTATUS __fastcall CmGetDeviceInstanceKeyPath(

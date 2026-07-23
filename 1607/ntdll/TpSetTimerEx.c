@@ -1,66 +1,63 @@
 /*
- * XREFs of TpSetTimerEx @ 0x18003C000
+ * XREFs of TpSetTimerEx @ 0x18003BFF0
  * Callers:
- *     TpSetTimer @ 0x18003BFF0 (TpSetTimer.c)
- *     RtlUpdateTimer @ 0x180064310 (RtlUpdateTimer.c)
- *     RtlDeleteTimer @ 0x180064690 (RtlDeleteTimer.c)
- *     RtlCreateTimer @ 0x180064830 (RtlCreateTimer.c)
- *     RtlpWnfSetRetryTimer @ 0x1800D9EEC (RtlpWnfSetRetryTimer.c)
+ *     TpSetTimer @ 0x18003BFE0 (TpSetTimer.c)
+ *     RtlUpdateTimer @ 0x180064300 (RtlUpdateTimer.c)
+ *     RtlDeleteTimer @ 0x180064680 (RtlDeleteTimer.c)
+ *     RtlCreateTimer @ 0x180064820 (RtlCreateTimer.c)
+ *     RtlpWnfSetRetryTimer @ 0x1800D9FAC (RtlpWnfSetRetryTimer.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     TpIsTimerSet @ 0x18003BF60 (TpIsTimerSet.c)
- *     TppTimerpValidateTimer @ 0x18003C1C8 (TppTimerpValidateTimer.c)
- *     TppCancelTimer @ 0x18003C268 (TppCancelTimer.c)
- *     TppSetTimer @ 0x18003C388 (TppSetTimer.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     TpIsTimerSet @ 0x18003BF50 (TpIsTimerSet.c)
+ *     TppTimerpValidateTimer @ 0x18003C1B8 (TppTimerpValidateTimer.c)
+ *     TppCancelTimer @ 0x18003C258 (TppCancelTimer.c)
+ *     TppSetTimer @ 0x18003C378 (TppSetTimer.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpSetTimerEx(__int64 a1, __int64 a2, int a3, int a4)
+NTSTATUS __cdecl TpSetTimerEx(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  char *v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // r14
-  bool v12; // di
-  __int64 v13; // r8
-  unsigned __int8 v14; // si
+  __int64 v8; // r14
+  bool v9; // di
+  __int64 v10; // r8
+  unsigned __int8 v11; // si
 
-  if ( (unsigned int)TppTimerpValidateTimer(a1, 0LL) )
+  if ( (unsigned int)TppTimerpValidateTimer(Timer, 0LL) )
   {
-    v11 = *(_QWORD *)(a1 + 144);
-    v12 = a2 != 0;
-    RtlAcquireSRWLockExclusive(a1 + 240, v8, v9, v10);
-    LOBYTE(v13) = a2 != 0;
-    v14 = TppCancelTimer(a1, v11 + 112, v13);
-    if ( a2 && *(_BYTE *)(a1 + 355) )
+    v8 = *((_QWORD *)Timer + 18);
+    v9 = DueTime != 0LL;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+    LOBYTE(v10) = DueTime != 0LL;
+    v11 = TppCancelTimer(Timer, v8 + 112, v10);
+    if ( DueTime && *((_BYTE *)Timer + 355) )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-      v12 = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+      v9 = 0;
     }
-    if ( !v14 )
+    if ( !v11 )
     {
-      if ( !v12 )
-        return v14;
-      if ( (unsigned int)TpIsTimerSet(a1) )
+      if ( !v9 )
+        return v11;
+      if ( TpIsTimerSet(Timer) )
       {
 LABEL_11:
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-        return v14;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+        return v11;
       }
-      _InterlockedIncrement((volatile signed __int32 *)a1);
+      _InterlockedIncrement((volatile signed __int32 *)Timer);
     }
-    if ( !v12 )
+    if ( !v9 )
     {
-      if ( v14 )
+      if ( v11 )
       {
-        if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-          (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) == 1 )
+          (**((void (__fastcall ***)(PTP_TIMER))Timer + 1))(Timer);
       }
-      return v14;
+      return v11;
     }
-    TppSetTimer(a1, v11 + 112, a2, a3, a4);
+    TppSetTimer(Timer, v8 + 112, DueTime, Period, WindowLength);
     goto LABEL_11;
   }
-  return 0LL;
+  return 0;
 }

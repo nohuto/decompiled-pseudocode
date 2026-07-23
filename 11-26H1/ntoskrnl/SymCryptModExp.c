@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptModExp @ 0x14055C7AC
+ * XREFs of SymCryptModExp @ 0x14055EC94
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x1405598D8 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptRsaCoreDecCrt @ 0x14055E3DC (SymCryptRsaCoreDecCrt.c)
- *     SymCryptRsaCoreEnc @ 0x14055E8B4 (SymCryptRsaCoreEnc.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14055BD68 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptRsaCoreDecCrt @ 0x140560900 (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptRsaCoreEnc @ 0x140560DD8 (SymCryptRsaCoreEnc.c)
  * Callees:
- *     SymCryptModExpGeneric @ 0x140570FD4 (SymCryptModExpGeneric.c)
+ *     SymCryptModExpGeneric @ 0x1405701B4 (SymCryptModExpGeneric.c)
  */
 
 __int64 __fastcall SymCryptModExp(int a1, int a2, int a3, int a4, char a5, __int64 a6, __int64 a7, __int64 a8)

@@ -1,18 +1,18 @@
 /*
- * XREFs of HvHiveCleanup @ 0x1407096D0
+ * XREFs of HvHiveCleanup @ 0x1407098E0
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E1C (CmShutdownSystem2.c)
+ *     CmShutdownSystem2 @ 0x14061636C (CmShutdownSystem2.c)
  *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x140A1CCA0 (CmpDestroyHive.c)
+ *     CmpDestroyHive @ 0x140A1CF50 (CmpDestroyHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     CmpFreeBootRegistry @ 0x140617778 (CmpFreeBootRegistry.c)
- *     CmpReleaseGlobalQuota @ 0x140709928 (CmpReleaseGlobalQuota.c)
- *     HvpMapEntryGetFreeBin @ 0x14070A930 (HvpMapEntryGetFreeBin.c)
- *     HvpFreeHiveFreeDisplay @ 0x1407CBF54 (HvpFreeHiveFreeDisplay.c)
- *     HvpViewMapCleanup @ 0x1407DAB74 (HvpViewMapCleanup.c)
- *     HvpFreeMap @ 0x1407E0DC8 (HvpFreeMap.c)
- *     HvpFreeBin @ 0x1407E9958 (HvpFreeBin.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     CmpFreeBootRegistry @ 0x140617CC8 (CmpFreeBootRegistry.c)
+ *     CmpReleaseGlobalQuota @ 0x140709B38 (CmpReleaseGlobalQuota.c)
+ *     HvpMapEntryGetFreeBin @ 0x14070AB40 (HvpMapEntryGetFreeBin.c)
+ *     HvpFreeHiveFreeDisplay @ 0x1407CC224 (HvpFreeHiveFreeDisplay.c)
+ *     HvpViewMapCleanup @ 0x1407DAE44 (HvpViewMapCleanup.c)
+ *     HvpFreeMap @ 0x1407E1098 (HvpFreeMap.c)
+ *     HvpFreeBin @ 0x1407E9C28 (HvpFreeBin.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)
  */

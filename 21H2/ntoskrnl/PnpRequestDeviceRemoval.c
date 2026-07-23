@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpRequestDeviceRemoval @ 0x140736688
+ * XREFs of PnpRequestDeviceRemoval @ 0x140736848
  * Callers:
- *     PipProcessStartPhase2 @ 0x14073DCFC (PipProcessStartPhase2.c)
- *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
- *     PipEnumerateCompleted @ 0x140745380 (PipEnumerateCompleted.c)
- *     PiProcessQueryDeviceState @ 0x140749A3C (PiProcessQueryDeviceState.c)
- *     PiUpdateGuestAssignedState @ 0x140749CAC (PiUpdateGuestAssignedState.c)
- *     PiProcessHaltDevice @ 0x1408A265C (PiProcessHaltDevice.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB080 (PiProfileUpdateDeviceTreeCallback.c)
- *     PipDmaGuardBlockAddDevice @ 0x1408B12BC (PipDmaGuardBlockAddDevice.c)
- *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
- *     PipProcessRestartPhase2 @ 0x1408B5330 (PipProcessRestartPhase2.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5424 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PipProcessStartPhase2 @ 0x14073DEBC (PipProcessStartPhase2.c)
+ *     PipCallDriverAddDevice @ 0x140741B48 (PipCallDriverAddDevice.c)
+ *     PipEnumerateCompleted @ 0x140745540 (PipEnumerateCompleted.c)
+ *     PiProcessQueryDeviceState @ 0x140749BFC (PiProcessQueryDeviceState.c)
+ *     PiUpdateGuestAssignedState @ 0x140749E6C (PiUpdateGuestAssignedState.c)
+ *     PiProcessHaltDevice @ 0x1408A27BC (PiProcessHaltDevice.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB1E0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PipDmaGuardBlockAddDevice @ 0x1408B141C (PipDmaGuardBlockAddDevice.c)
+ *     PnpReallocateResources @ 0x1408B32C0 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase2 @ 0x1408B5490 (PipProcessRestartPhase2.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5584 (PiProcessDriversLoadedOnSecureDevice.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
- *     PnpRequestDeviceRemovalWorker @ 0x1407365C8 (PnpRequestDeviceRemovalWorker.c)
- *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14062EA2C (PnpAcquireDependencyRelationsLock.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x140736788 (PnpRequestDeviceRemovalWorker.c)
+ *     PnpSetTargetDeviceRemove @ 0x140739194 (PnpSetTargetDeviceRemove.c)
  */
 
 __int64 __fastcall PnpRequestDeviceRemoval(__int64 a1, char a2, int a3, int a4)

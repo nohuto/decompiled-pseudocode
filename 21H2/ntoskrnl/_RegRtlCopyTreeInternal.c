@@ -1,26 +1,26 @@
 /*
- * XREFs of _RegRtlCopyTreeInternal @ 0x14097C460
+ * XREFs of _RegRtlCopyTreeInternal @ 0x14097C640
  * Callers:
- *     PiDevCfgConfigureDeviceFilters @ 0x140767840 (PiDevCfgConfigureDeviceFilters.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x1407678F8 (PiDevCfgConfigureSoftwareDevices.c)
- *     _PnpCtxRegCopyTree @ 0x14097486C (_PnpCtxRegCopyTree.c)
- *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
+ *     PiDevCfgConfigureDeviceFilters @ 0x140767A00 (PiDevCfgConfigureDeviceFilters.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140767AB8 (PiDevCfgConfigureSoftwareDevices.c)
+ *     _PnpCtxRegCopyTree @ 0x140974A4C (_PnpCtxRegCopyTree.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C640 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     IoGetStackLimits @ 0x140350420 (IoGetStackLimits.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
- *     ZwQuerySecurityObject @ 0x1403FCF20 (ZwQuerySecurityObject.c)
- *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
- *     _RegRtlCreateKeyTransacted @ 0x14063E55C (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406426FC (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlEnumValue @ 0x1406B18A4 (_RegRtlEnumValue.c)
- *     _RegRtlQueryInfoKey @ 0x1406B69A8 (_RegRtlQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
- *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
- *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoGetStackLimits @ 0x14035B170 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403FA840 (ZwQueryKey.c)
+ *     ZwQuerySecurityObject @ 0x1403FD100 (ZwQuerySecurityObject.c)
+ *     ZwSetSecurityObject @ 0x1403FDAA0 (ZwSetSecurityObject.c)
+ *     _RegRtlEnumValue @ 0x1406108EC (_RegRtlEnumValue.c)
+ *     _RegRtlQueryInfoKey @ 0x140615E68 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14063336C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x14063750C (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x140766D3C (_RegRtlEnumKey.c)
+ *     _RegRtlSetValue @ 0x140768CB4 (_RegRtlSetValue.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C640 (_RegRtlCopyTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCopyTreeInternal(

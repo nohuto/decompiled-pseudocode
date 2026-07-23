@@ -34,7 +34,7 @@ __int64 __fastcall PiDevCfgBuildDriverConfigurationId(__int64 a1, UNICODE_STRING
   __int64 dwFlags; // [rsp+30h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-30h] BYREF
   UNICODE_STRING RemainingString; // [rsp+60h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+70h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+70h] [rbp-10h] BYREF
   wchar_t *v26; // [rsp+C0h] [rbp+40h] BYREF
   size_t v27; // [rsp+D0h] [rbp+50h] BYREF
   size_t pcchNewDestLength; // [rsp+D8h] [rbp+58h] BYREF

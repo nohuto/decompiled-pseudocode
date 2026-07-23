@@ -1,5 +1,5 @@
 /*
- * XREFs of KiRaiseAssertionShadow @ 0x140BBBDC0
+ * XREFs of KiRaiseAssertionShadow @ 0x140BBDDC0
  * Callers:
  *     <none>
  * Callees:

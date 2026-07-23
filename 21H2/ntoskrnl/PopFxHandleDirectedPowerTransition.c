@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxHandleDirectedPowerTransition @ 0x14056ACA8
+ * XREFs of PopFxHandleDirectedPowerTransition @ 0x14056AEE8
  * Callers:
- *     PopFxDirectedPowerTransitionWorker @ 0x14056A9A0 (PopFxDirectedPowerTransitionWorker.c)
+ *     PopFxDirectedPowerTransitionWorker @ 0x14056ABE0 (PopFxDirectedPowerTransitionWorker.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     PopFxEnableWorkOrderWatchdog @ 0x140263834 (PopFxEnableWorkOrderWatchdog.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopFxCompleteDirectedPowerTransition @ 0x14056A55C (PopFxCompleteDirectedPowerTransition.c)
- *     PopDiagTraceFxDeviceDirectedTransition @ 0x140572364 (PopDiagTraceFxDeviceDirectedTransition.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x140284D08 (PopFxEnableWorkOrderWatchdog.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x14056A79C (PopFxCompleteDirectedPowerTransition.c)
+ *     PopDiagTraceFxDeviceDirectedTransition @ 0x1405725A4 (PopDiagTraceFxDeviceDirectedTransition.c)
  */
 
 void __fastcall PopFxHandleDirectedPowerTransition(ULONG_PTR BugCheckParameter3)

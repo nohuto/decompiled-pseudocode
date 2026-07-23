@@ -1,8 +1,8 @@
 /*
- * XREFs of KeIsImageIATProtected @ 0x1405B07E8
+ * XREFs of KeIsImageIATProtected @ 0x1405AD758
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
- *     VfUtilIsProtectedDriver @ 0x140B834AC (VfUtilIsProtectedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
+ *     VfUtilIsProtectedDriver @ 0x140B854AC (VfUtilIsProtectedDriver.c)
  * Callees:
  *     <none>
  */

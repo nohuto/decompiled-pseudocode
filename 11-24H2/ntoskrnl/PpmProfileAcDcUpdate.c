@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmProfileAcDcUpdate @ 0x140A46B88
+ * XREFs of PpmProfileAcDcUpdate @ 0x140A3CAF8
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140A4706C (PpmCompareAndApplyPolicySettings.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x140A3CFDC (PpmCompareAndApplyPolicySettings.c)
  */
 
 __int64 __fastcall PpmProfileAcDcUpdate(__int64 a1, __int64 a2, unsigned int a3)
@@ -15,7 +15,7 @@ __int64 __fastcall PpmProfileAcDcUpdate(__int64 a1, __int64 a2, unsigned int a3)
   __int64 *v4; // r9
   __int128 v6; // [rsp+20h] [rbp-28h] BYREF
 
-  v3 = dword_140F0BA4C;
+  v3 = dword_140F0B38C;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock, a2, a3);
   PopAcquireRwLockExclusive(&PpmIdlePolicyLock);
   v4 = PpmCurrentProfile[0];

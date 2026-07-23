@@ -7,12 +7,12 @@
  *     _RtlpGetChainHead@8 @ 0x4B35B57F (_RtlpGetChainHead@8.c)
  */
 
-char __stdcall RtlContractHashTable(_DWORD *a1)
+BOOLEAN __cdecl RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  _DWORD *v1; // esi
-  int v2; // edx
-  int v3; // eax
-  int v4; // eax
+  PRTL_DYNAMIC_HASH_TABLE v1; // esi
+  unsigned int TableSize; // edx
+  unsigned int Pivot; // eax
+  unsigned int DivisorMask; // eax
   _DWORD *ChainHead; // edi
   int v6; // ecx
   _DWORD *v7; // eax
@@ -24,31 +24,31 @@ char __stdcall RtlContractHashTable(_DWORD *a1)
   _DWORD *v13; // eax
   unsigned int v14; // eax
   int v15; // edi
-  _DWORD *v16; // ebx
+  void **Directory; // ebx
   _DWORD *v18; // [esp+4h] [ebp-8h]
 
-  v1 = a1;
-  v2 = a1[2];
-  if ( v2 == 128 || a1[7] )
+  v1 = HashTable;
+  TableSize = HashTable->TableSize;
+  if ( TableSize == 128 || HashTable->NumEnumerators )
     return 0;
-  v3 = a1[3];
-  if ( v3 )
+  Pivot = HashTable->Pivot;
+  if ( Pivot )
   {
-    v4 = v3 - 1;
+    DivisorMask = Pivot - 1;
   }
   else
   {
-    a1[4] >>= 1;
-    v4 = a1[4];
+    HashTable->DivisorMask >>= 1;
+    DivisorMask = HashTable->DivisorMask;
   }
-  a1[3] = v4;
-  ChainHead = (_DWORD *)RtlpGetChainHead(a1, v2 - 1);
+  HashTable->Pivot = DivisorMask;
+  ChainHead = (_DWORD *)RtlpGetChainHead(HashTable, TableSize - 1);
   v18 = ChainHead;
-  v7 = (_DWORD *)RtlpGetChainHead(v6, a1[3]);
-  --a1[2];
+  v7 = (_DWORD *)RtlpGetChainHead(v6, HashTable->Pivot);
+  --HashTable->TableSize;
   v8 = v7;
   if ( (_DWORD *)*ChainHead != ChainHead && (_DWORD *)*v7 != v7 )
-    --a1[6];
+    --HashTable->NonEmptyBuckets;
   for ( i = v7; ; *i = v10 )
   {
     v10 = (_DWORD *)*ChainHead;
@@ -72,7 +72,7 @@ char __stdcall RtlContractHashTable(_DWORD *a1)
         v12 = (_DWORD *)*v12;
       }
       while ( v12 != v8 );
-      v1 = a1;
+      v1 = HashTable;
       ChainHead = v18;
     }
     v13 = (_DWORD *)*i;
@@ -83,17 +83,17 @@ LABEL_20:
     v10[1] = i;
     v13[1] = v10;
   }
-  v14 = v1[2] + 128;
+  v14 = v1->TableSize + 128;
   _BitScanReverse((unsigned int *)&v15, v14);
   if ( v14 == 1 << v15 )
   {
-    v16 = (_DWORD *)v1[8];
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v16[v15 - 7]);
-    v16[v15 - 7] = 0;
-    if ( v1[2] == 128 )
+    Directory = (void **)v1->Directory;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Directory[v15 - 7]);
+    Directory[v15 - 7] = 0;
+    if ( v1->TableSize == 128 )
     {
-      v1[8] = *v16;
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v16);
+      v1->Directory = *Directory;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Directory);
     }
   }
   return 1;

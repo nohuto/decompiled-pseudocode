@@ -1,12 +1,12 @@
 /*
- * XREFs of MmReadProcessPageTables @ 0x1402BB89C
+ * XREFs of MmReadProcessPageTables @ 0x1402BBA8C
  * Callers:
- *     KiMonitorCacheErrata @ 0x14029A490 (KiMonitorCacheErrata.c)
+ *     KiMonitorCacheErrata @ 0x14029A680 (KiMonitorCacheErrata.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14031C020 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeFlushSingleCurrentTb @ 0x140156FD8 (KeFlushSingleCurrentTb.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14031C210 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall MmReadProcessPageTables(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MmReadProcessPageTables(__int64 a1)
   CurrentPrcb = KeGetCurrentPrcb();
   v3 = ValidPte;
   __wbinvd();
-  result = ExTryAcquireSpinLockSharedAtDpcLevel(&dword_14043CA00);
+  result = ExTryAcquireSpinLockSharedAtDpcLevel(&dword_14043DAC0);
   v5 = 0;
   if ( (_DWORD)result )
   {
@@ -102,7 +102,7 @@ LABEL_16:
 LABEL_17:
     _InterlockedExchange64(v7, v8);
     KeFlushSingleCurrentTb(v6, 0);
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_14043CA00);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_14043DAC0);
     return 1LL;
   }
   return result;

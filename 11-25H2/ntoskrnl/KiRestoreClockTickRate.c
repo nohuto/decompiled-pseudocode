@@ -43,11 +43,11 @@ unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, _QWORD *a
       KiRaiseIrqlProcessIrqlFlags(a1);
     }
     CurrentPrcb->ClockTimerState.ClockArmedForIdle = 0;
-    if ( KiShouldRearmClockTimer((__int64)CurrentPrcb, v6, 1) )
+    if ( KiShouldRearmClockTimer((__int64)CurrentPrcb, (LARGE_INTEGER)v6, 1) )
     {
       LOBYTE(v8) = 1;
       CurrentPrcb->ClockTimerState.OneShotState = KClockTimerOneShotRearmRequired;
-      KiSetNextClockTickDueTime(v6, v8, v9);
+      KiSetNextClockTickDueTime((LARGE_INTEGER)v6, v8, v9);
     }
     *(_QWORD *)a3 = CurrentPrcb->ClockTimerState.TimeIncrement;
     LastRequestedTimeIncrement = CurrentPrcb->ClockTimerState.LastRequestedTimeIncrement;

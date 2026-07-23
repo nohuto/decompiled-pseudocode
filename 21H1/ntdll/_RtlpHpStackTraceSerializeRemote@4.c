@@ -12,95 +12,118 @@
  *     _RtlpHeapPerformCrossProcessQuery@8 @ 0x4B358165 (_RtlpHeapPerformCrossProcessQuery@8.c)
  */
 
-int __thiscall RtlpHpStackTraceSerializeRemote(int this)
+NTSTATUS __thiscall RtlpHpStackTraceSerializeRemote(int this)
 {
   int v1; // ebx
-  int Section; // esi
-  int v4; // eax
-  unsigned __int64 v5; // kr08_8
+  NTSTATUS v3; // esi
+  NTSTATUS v4; // eax
+  SIZE_T v5; // kr08_8
   signed __int64 v6; // kr00_8
   int v7; // ecx
-  int v9; // [esp+Ch] [ebp-64h] BYREF
-  HANDLE Handle; // [esp+10h] [ebp-60h] BYREF
-  int v11; // [esp+14h] [ebp-5Ch] BYREF
-  __int64 v12; // [esp+18h] [ebp-58h] BYREF
-  signed __int64 v13; // [esp+20h] [ebp-50h] BYREF
-  _QWORD v14[9]; // [esp+28h] [ebp-48h] BYREF
+  ULONG_PTR v9; // [esp-1Ch] [ebp-8Ch]
+  SIZE_T v10; // [esp-14h] [ebp-84h]
+  size_t v11; // [esp-4h] [ebp-74h]
+  ULONG v12; // [esp+4h] [ebp-6Ch]
+  PVOID BaseAddress; // [esp+Ch] [ebp-64h] BYREF
+  HANDLE SectionHandle; // [esp+10h] [ebp-60h] BYREF
+  int v15; // [esp+14h] [ebp-5Ch] BYREF
+  LARGE_INTEGER MaximumSize; // [esp+18h] [ebp-58h] BYREF
+  SIZE_T CommitSize; // [esp+20h] [ebp-50h] BYREF
+  HANDLE v18[2]; // [esp+28h] [ebp-48h] BYREF
+  LARGE_INTEGER v19; // [esp+30h] [ebp-40h]
+  int v20; // [esp+3Ch] [ebp-34h]
+  unsigned int v21; // [esp+44h] [ebp-2Ch]
+  char v22; // [esp+68h] [ebp-8h]
 
   v1 = 0x10000;
-  Handle = 0;
-  v9 = 0;
-  for ( LODWORD(v12) = 0x10000; ; LODWORD(v12) = (HIDWORD(v14[3]) + 0xFFFF) & 0xFFFF0000 )
+  SectionHandle = 0;
+  BaseAddress = 0;
+  for ( MaximumSize.LowPart = 0x10000; ; MaximumSize.LowPart = (v21 + 0xFFFF) & 0xFFFF0000 )
   {
-    HIDWORD(v12) = 0;
-    memset(v14, 0, sizeof(v14));
+    LODWORD(v11) = 72;
+    MaximumSize.HighPart = 0;
+    memset(v18, 0, v11);
     if ( *(_BYTE *)(this + 16) == 2 )
     {
-      Section = NtCreateSection((int)&Handle, 983071, 0, (int)&v12, 4, 0x8000000, 0);
-      if ( Section < 0 )
+      v3 = NtCreateSection(&SectionHandle, 0xF001Fu, 0, &MaximumSize, 4u, 0x8000000u, 0);
+      if ( v3 < 0 )
         goto LABEL_23;
-      LODWORD(v14[0]) = Handle;
-      v14[1] = v12;
-      HIDWORD(v14[2]) = 0x20000000;
+      v18[0] = SectionHandle;
+      v19 = MaximumSize;
+      v20 = 0x20000000;
     }
     else
     {
-      HIDWORD(v14[2]) = 0x8000000;
+      v20 = 0x8000000;
     }
-    v4 = RtlpHeapPerformCrossProcessQuery(*(_DWORD *)(this + 4), (int *)v14);
-    Section = v4;
+    v4 = RtlpHeapPerformCrossProcessQuery(*(HANDLE *)(this + 4), v18);
+    v3 = v4;
     if ( v4 >= 0 )
       break;
     if ( v4 != -1073741789 )
       goto LABEL_23;
-    NtClose(Handle);
+    NtClose(SectionHandle);
   }
-  if ( (v14[8] & 1) != 0 )
+  if ( (v22 & 1) != 0 )
     *(_BYTE *)(this + 17) |= 1u;
   if ( *(_BYTE *)(this + 16) != 1 )
   {
-    v11 = 0x10000;
-    v13 = 0LL;
+    v15 = 0x10000;
+    CommitSize = 0LL;
     v5 = 0LL;
-    if ( v12 > 0 )
+    if ( MaximumSize.QuadPart > 0 )
     {
-      while ( v5 < HIDWORD(v14[3]) )
+      while ( v5 < v21 )
       {
-        Section = ZwMapViewOfSection((int)Handle, -1, (int)&v9, 0, v1, (int)&v13, (int)&v11, 2, 0, 4);
-        if ( Section < 0 )
+        HIDWORD(v10) = &v15;
+        LODWORD(v10) = &CommitSize;
+        HIDWORD(v9) = v1;
+        LODWORD(v9) = 0;
+        v3 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFF,
+               &BaseAddress,
+               v9,
+               v10,
+               (PLARGE_INTEGER)2,
+               0,
+               (SECTION_INHERIT)4,
+               HIDWORD(v11),
+               v12);
+        if ( v3 < 0 )
           goto LABEL_23;
-        v6 = v13 + (unsigned int)v11;
+        v6 = CommitSize + (unsigned int)v15;
         if ( v6 < 0
-          || (v6 < 0) ^ __OFADD__(HIDWORD(v13), HIDWORD(v6)) | (HIDWORD(v6) == 0) && (unsigned int)v6 <= HIDWORD(v14[3]) )
+          || (v6 < 0) ^ __OFADD__(HIDWORD(CommitSize), HIDWORD(v6)) | (HIDWORD(v6) == 0) && (unsigned int)v6 <= v21 )
         {
-          v7 = v11;
+          v7 = v15;
         }
         else
         {
-          v7 = HIDWORD(v14[3]) - v13;
+          v7 = v21 - CommitSize;
         }
-        Section = (*(int (__thiscall **)(_DWORD, int, int, _DWORD))(this + 8))(
-                    *(_DWORD *)(this + 8),
-                    v9,
-                    v7,
-                    *(_DWORD *)(this + 12));
-        if ( Section < 0 )
+        v3 = (*(int (__thiscall **)(_DWORD, PVOID, int, _DWORD))(this + 8))(
+               *(_DWORD *)(this + 8),
+               BaseAddress,
+               v7,
+               *(_DWORD *)(this + 12));
+        if ( v3 < 0 )
           goto LABEL_23;
-        NtUnmapViewOfSection(-1, v9);
-        v1 = v11;
-        v9 = 0;
-        v13 += (unsigned int)v11;
-        v5 = v13;
-        if ( v13 >= v12 )
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
+        v1 = v15;
+        BaseAddress = 0;
+        CommitSize += (unsigned int)v15;
+        v5 = CommitSize;
+        if ( (__int64)CommitSize >= MaximumSize.QuadPart )
           break;
       }
     }
-    Section = 0;
+    v3 = 0;
   }
 LABEL_23:
-  if ( v9 )
-    NtUnmapViewOfSection(-1, v9);
-  if ( Handle )
-    NtClose(Handle);
-  return Section;
+  if ( BaseAddress )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  return v3;
 }

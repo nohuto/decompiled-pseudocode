@@ -1,27 +1,27 @@
 /*
- * XREFs of CmEnumerateValueKey @ 0x1405F4EF0
+ * XREFs of CmEnumerateValueKey @ 0x1406E4650
  * Callers:
- *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
+ *     NtEnumerateValueKey @ 0x1406E4050 (NtEnumerateValueKey.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     PsBoostThreadIo @ 0x14034D7E0 (PsBoostThreadIo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpQueryKeyValueData @ 0x1405F7EB0 (CmpQueryKeyValueData.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1406A3094 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
- *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     PsBoostThreadIo @ 0x140358530 (PsBoostThreadIo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1405DED94 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpFreeKeyControlBlock @ 0x1405E0C60 (CmpFreeKeyControlBlock.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpQueryKeyValueData @ 0x1406E7610 (CmpQueryKeyValueData.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1407139E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C3C0 (CmEnumerateValueFromLayeredKey.c)
  */
 
-__int64 __fastcall CmEnumerateValueKey(__int64 a1, unsigned int a2, int a3, _DWORD *a4, int a5, __int64 a6)
+__int64 __fastcall CmEnumerateValueKey(__int64 a1, unsigned int a2, int a3, size_t a4, int a5, __int64 a6)
 {
   __int64 v6; // r15
   _KPROCESS *Process; // rcx
@@ -52,8 +52,8 @@ __int64 __fastcall CmEnumerateValueKey(__int64 a1, unsigned int a2, int a3, _DWO
   memset(v27, 0, sizeof(v27));
   if ( !*((_QWORD *)&CmpRegistryProcess + 1) )
     Process = KeGetCurrentThread()->ApcState.Process;
-  KiStackAttachProcess(Process, 0LL, (__int64)v27, a4);
-  if ( !BYTE6(NlsMbCodePageTag) )
+  KiStackAttachProcess(Process, 0, (__int64)v27);
+  if ( !CmpPuntBoot )
   {
     PsBoostThreadIo((__int64)KeGetCurrentThread(), 0LL);
     CurrentThread = KeGetCurrentThread();
@@ -63,7 +63,7 @@ __int64 __fastcall CmEnumerateValueKey(__int64 a1, unsigned int a2, int a3, _DWO
   v13 = *(_QWORD *)(a1 + 8);
   if ( *(_WORD *)(v13 + 66) )
   {
-    KeyValueData = CmEnumerateValueFromLayeredKey(a1, v10, a3, (_DWORD)a4, a5, a6);
+    KeyValueData = CmEnumerateValueFromLayeredKey(a1, v10, a3, a4, a5, a6);
     goto LABEL_18;
   }
   ExAcquirePushLockSharedEx(v13 + 48, 0LL);
@@ -79,7 +79,7 @@ __int64 __fastcall CmEnumerateValueKey(__int64 a1, unsigned int a2, int a3, _DWO
   {
     if ( !*(_QWORD *)(a1 + 56) && !*(_QWORD *)(a1 + 64) )
       goto LABEL_9;
-    KeyValueData = CmpTransSearchAddTransFromKeyBody(a1, &v26);
+    KeyValueData = CmpTransSearchAddTransFromKeyBody((_QWORD *)a1, &v26);
     if ( KeyValueData >= 0 )
     {
       v22 = v26;
@@ -108,7 +108,7 @@ LABEL_10:
                       *(_QWORD *)(v13 + 32),
                       v16,
                       &v23);
-              KeyValueData = CmpQueryKeyValueData(v13, v16, v17, a3, (size_t)a4, a5, v6);
+              KeyValueData = CmpQueryKeyValueData(v13, v16, v17, a3, a4, a5, v6);
               if ( v17 )
                 (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(v13 + 32) + 16LL))(*(_QWORD *)(v13 + 32), &v23);
               if ( v15 )
@@ -133,13 +133,13 @@ LABEL_15:
   if ( v19 && (*(_DWORD *)(v13 + 8) & 0x80000) != 0 )
     CmpFreeKeyControlBlock(v13);
 LABEL_18:
-  if ( !BYTE6(NlsMbCodePageTag) )
+  if ( !CmpPuntBoot )
   {
     ExReleaseResourceLite((PERESOURCE)&CmpRegistryLock);
     KeLeaveCriticalRegion();
     LOBYTE(v20) = 1;
     PsBoostThreadIo((__int64)KeGetCurrentThread(), v20);
   }
-  KiUnstackDetachProcess((__int64)v27, 0);
+  KiUnstackDetachProcess((__int64)v27, 0LL);
   return (unsigned int)KeyValueData;
 }

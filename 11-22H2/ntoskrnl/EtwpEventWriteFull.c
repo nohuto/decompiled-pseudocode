@@ -63,7 +63,7 @@ __int64 __fastcall EtwpEventWriteFull(
         unsigned __int64 *a17)
 {
   __int64 v19; // rbx
-  struct _SLIST_ENTRY *v20; // r15
+  _SLIST_ENTRY *v20; // r15
   __int16 v21; // dx
   __int64 v23; // rax
   int v24; // ecx
@@ -233,7 +233,7 @@ __int64 __fastcall EtwpEventWriteFull(
   struct _KTHREAD *v188; // [rsp+778h] [rbp+128h]
   unsigned __int64 HighLimit; // [rsp+780h] [rbp+130h] BYREF
   unsigned __int64 LowLimit; // [rsp+788h] [rbp+138h] BYREF
-  __int64 v191; // [rsp+790h] [rbp+140h] BYREF
+  LARGE_INTEGER v191; // [rsp+790h] [rbp+140h] BYREF
   __int64 v192; // [rsp+798h] [rbp+148h]
   unsigned __int64 *v193; // [rsp+7A0h] [rbp+150h]
   char *v194; // [rsp+7A8h] [rbp+158h]
@@ -338,7 +338,7 @@ LABEL_25:
     v195 = 0LL;
     v196 = 0LL;
     ListEntry = 0LL;
-    v191 = 0LL;
+    v191.QuadPart = 0LL;
     v34 = 80;
     Size = 80;
     v150 = 80;
@@ -767,7 +767,7 @@ LABEL_154:
       }
       if ( (_BYTE)v157 )
         ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v169 + 448) + 8 * v176), 1u);
-      v20 = (struct _SLIST_ENTRY *)Src;
+      v20 = (_SLIST_ENTRY *)Src;
       v31 = v165;
       v29 = 80LL;
       if ( ReserveTraceBufferStatus != -1073741675 )
@@ -802,7 +802,7 @@ LABEL_154:
       v105 = NullGuid;
     *(GUID *)(v94 + 64) = v105;
     v199 = (_QWORD *)(v94 + 16);
-    *(_QWORD *)(v94 + 16) = v191;
+    *(LARGE_INTEGER *)(v94 + 16) = v191;
     v106 = v185;
     *(_DWORD *)(v94 + 8) = v185[308];
     *(_DWORD *)(v94 + 12) = v106[306];
@@ -1042,7 +1042,7 @@ LABEL_154:
           }
           if ( *(_QWORD *)(v139 + 1288) )
             EtwpInvokeEventCallback(v139, &v195, v174 + 5, 0LL);
-          v20 = (struct _SLIST_ENTRY *)Src;
+          v20 = (_SLIST_ENTRY *)Src;
           v30 = v160;
           v31 = v165;
           v29 = 80LL;
@@ -1159,7 +1159,7 @@ LABEL_84:
         v55 = ++v153;
       }
       while ( v153 < LODWORD(v200[24]) );
-      v20 = (struct _SLIST_ENTRY *)Src;
+      v20 = (_SLIST_ENTRY *)Src;
     }
   }
   if ( v155 )
@@ -1180,7 +1180,7 @@ LABEL_84:
     else
     {
       ++v141->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *, struct _KPRCB *, __int64, unsigned __int64))v141->FreeEx)(
+      ((void (__fastcall *)(_SLIST_ENTRY *, struct _KPRCB *, __int64, unsigned __int64))v141->FreeEx)(
         v20,
         v140,
         v29,

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeCombinePool @ 0x1403F8550
+ * XREFs of MiFreeCombinePool @ 0x1403EE660
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockPagedAddress @ 0x1403F85B4 (MiUnlockPagedAddress.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockPagedAddress @ 0x1403EE6C4 (MiUnlockPagedAddress.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeCombinePool(__int64 a1)

@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x140890950
+ * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x140899F40
  * Callers:
- *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
+ *     AlpcpSendMessage @ 0x140898440 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14089BE90 (AlpcpDispatchMessage.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     AlpcpLogWaitForReply @ 0x140742AB0 (AlpcpLogWaitForReply.c)
- *     AlpcpCaptureMessageDataSafe @ 0x140892480 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x1408926D0 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcpLogSendMessage @ 0x140AA9904 (AlpcpLogSendMessage.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     AlpcpLogWaitForReply @ 0x1407409E0 (AlpcpLogWaitForReply.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x14089BA70 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x14089BCC0 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcpLogSendMessage @ 0x140AA49B4 (AlpcpLogSendMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
@@ -28,25 +28,25 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
   __int64 v5; // rbp
   int v6; // ecx
   int v7; // r12d
-  _QWORD *v8; // rax
-  _QWORD *v9; // r13
+  char *v8; // rax
+  char *v9; // r13
   struct _KTHREAD *CurrentThread; // r8
   __int16 v11; // dx
   __int16 v12; // dx
   unsigned int v13; // ecx
   __int64 v14; // rax
   unsigned __int64 *v15; // r15
-  _QWORD *v16; // rax
-  _QWORD *v17; // r13
+  char *v16; // rax
+  char *v17; // r13
   signed __int32 v18; // eax
   int v19; // ecx
   int v20; // r12d
-  _QWORD *v21; // r14
+  char *v21; // r14
   __int64 v22; // r9
   bool v24; // zf
   __int64 v25; // r15
   signed __int64 *v26; // rbx
-  _QWORD *v27; // r14
+  char *v27; // r14
   __int64 v28; // rax
   __int64 v29; // rcx
   __int64 v30; // [rsp+30h] [rbp-58h]
@@ -78,12 +78,12 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
     *(_QWORD *)(v1 + 200) = 0LL;
     if ( *(_WORD *)(a1 + 54) == 11 )
     {
-      v8 = KeAbPreAcquire(v5 + 352, 0LL);
+      v8 = (char *)KeAbPreAcquire(v5 + 352, 0LL);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 352), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 352), (__int64)v8, v5 + 352);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 352), v8, v5 + 352);
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       *(_DWORD *)(v5 + 416) &= ~8u;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 352), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 352));
@@ -126,12 +126,12 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
     if ( v14 )
     {
       v15 = (unsigned __int64 *)(v14 + 176);
-      v16 = KeAbPreAcquire(v14 + 176, 0LL);
+      v16 = (char *)KeAbPreAcquire(v14 + 176, 0LL);
       v17 = v16;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v15, (__int64)v16, (__int64)v15);
+        ExfAcquirePushLockExclusiveEx(v15, v16, (__int64)v15);
       if ( v17 )
-        *((_BYTE *)v17 + 10) = 1;
+        v17[10] = 1;
       --*(_DWORD *)(v30 + 456);
       *(_DWORD *)(v1 + 40) &= 0xFFFFFFF8;
       *(_QWORD *)(v1 + 16) = 0LL;
@@ -153,11 +153,11 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
     {
       v25 = *(_QWORD *)(v5 + 16);
       v26 = (signed __int64 *)(v25 - 16);
-      v27 = KeAbPreAcquire(v25 - 16, 0LL);
+      v27 = (char *)KeAbPreAcquire(v25 - 16, 0LL);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v25 - 16), 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(v25 - 16), 0, v27, v25 - 16);
       if ( v27 )
-        *((_BYTE *)v27 + 10) = 1;
+        v27[10] = 1;
       v28 = *(_QWORD *)(v25 + 8);
       v29 = 0LL;
       if ( v28 )
@@ -176,11 +176,11 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
       AlpcpCaptureMessageDataSafe(v1);
       *(_QWORD *)(v1 + 176) = 0LL;
     }
-    v21 = KeAbPreAcquire(v5 + 352, 0LL);
+    v21 = (char *)KeAbPreAcquire(v5 + 352, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 352), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(v5 + 352), 0, v21, v5 + 352);
     if ( v21 )
-      *((_BYTE *)v21 + 10) = 1;
+      v21[10] = 1;
     if ( *(_QWORD *)(v1 + 144) )
       AlpcpExposeViewAttributeInSenderContext(v5, v1);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 352), 0LL, 17LL) != 17 )

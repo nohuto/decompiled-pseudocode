@@ -1,22 +1,22 @@
 /*
- * XREFs of KiCalibrateTimeAdjustment @ 0x140A9EF40
+ * XREFs of KiCalibrateTimeAdjustment @ 0x140A9EDB0
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KeRemoveQueueDpc @ 0x14031F0B0 (KeRemoveQueueDpc.c)
- *     KiSelectActiveTimerTable @ 0x14033BE80 (KiSelectActiveTimerTable.c)
- *     RtlWriteReleaseTickLock @ 0x140381520 (RtlWriteReleaseTickLock.c)
- *     KiUpdateSystemTime @ 0x1403C14F8 (KiUpdateSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x1403C16E0 (RtlWriteAcquireTickLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE120 (HalCalibratePerformanceCounter.c)
- *     KeRebaselineInterruptTime @ 0x14056AEAC (KeRebaselineInterruptTime.c)
- *     RtlEnlargedUnsignedDivide @ 0x14056D164 (RtlEnlargedUnsignedDivide.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiPollFreezeExecution @ 0x140576C70 (KiPollFreezeExecution.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KeRemoveQueueDpc @ 0x14031F340 (KeRemoveQueueDpc.c)
+ *     KiSelectActiveTimerTable @ 0x14033C110 (KiSelectActiveTimerTable.c)
+ *     RtlWriteReleaseTickLock @ 0x1403816C0 (RtlWriteReleaseTickLock.c)
+ *     KiUpdateSystemTime @ 0x1403C16D8 (KiUpdateSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1403C18C0 (RtlWriteAcquireTickLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FE670 (HalCalibratePerformanceCounter.c)
+ *     KeRebaselineInterruptTime @ 0x14056B56C (KeRebaselineInterruptTime.c)
+ *     RtlEnlargedUnsignedDivide @ 0x14056D824 (RtlEnlargedUnsignedDivide.c)
+ *     KiPollFreezeExecution @ 0x140577160 (KiPollFreezeExecution.c)
  */
 
 ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
@@ -32,7 +32,7 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
   unsigned __int64 v10; // rcx
   unsigned int v11; // edi
   __int64 v12; // r11
-  int v13; // r9d
+  ULONG v13; // r9d
   unsigned __int64 v14; // rdx
   __int64 v15; // r9
   int v16; // eax
@@ -88,8 +88,8 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_QWORD *)(Argument + 16) += v12;
     }
     v13 = KeMaximumIncrement;
-    v29 = v8 / (unsigned int)KeMaximumIncrement;
-    v14 = v8 % (unsigned int)KeMaximumIncrement;
+    v29 = v8 / KeMaximumIncrement;
+    v14 = v8 % KeMaximumIncrement;
     *(_QWORD *)(MmWriteableSharedUserData + 944) += *(_QWORD *)(Argument + 8);
     KiTickOffset = v13 - v14;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )

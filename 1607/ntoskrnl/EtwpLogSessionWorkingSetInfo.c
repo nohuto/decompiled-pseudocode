@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1406A258C
+ * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1406A26C4
  * Callers:
- *     EtwpLogMemInfoWs @ 0x1406A1FFC (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x1406A2134 (EtwpLogMemInfoWs.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MmQuerySessionWorkingSetInformation @ 0x1401EA408 (MmQuerySessionWorkingSetInformation.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MmQuerySessionWorkingSetInformation @ 0x1401EA234 (MmQuerySessionWorkingSetInformation.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -82,7 +82,7 @@ void __fastcall EtwpLogSessionWorkingSetInfo(unsigned int *a1)
           {
             if ( (DWORD1(PerfGlobalGroupMask) & 0x800000) != 0 )
               EtwTraceKernelEvent((int)&UserData, 2, 0x20800000u, 638, 4200452);
-            if ( (dword_1402FD544 & 0x800000) != 0 )
+            if ( (dword_1402FD524 & 0x800000) != 0 )
               EtwWrite(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_SESSIONWS, 0LL, 2u, &UserData);
           }
           ExFreePoolWithTag(v4, 0);

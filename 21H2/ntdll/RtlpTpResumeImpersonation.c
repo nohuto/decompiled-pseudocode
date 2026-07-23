@@ -9,22 +9,22 @@
  *     RtlUpdateTimer @ 0x180082400 (RtlUpdateTimer.c)
  *     RtlCreateTimerQueue @ 0x180083040 (RtlCreateTimerQueue.c)
  *     RtlDeleteTimerQueueEx @ 0x180084D60 (RtlDeleteTimerQueueEx.c)
- *     RtlSetIoCompletionCallback @ 0x180112FC0 (RtlSetIoCompletionCallback.c)
+ *     RtlSetIoCompletionCallback @ 0x180112F80 (RtlSetIoCompletionCallback.c)
  * Callees:
- *     NtSetInformationThread @ 0x18009D7E0 (NtSetInformationThread.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
+ *     NtSetInformationThread @ 0x18009D7A0 (NtSetInformationThread.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
  */
 
 NTSTATUS __fastcall RtlpTpResumeImpersonation(void *a1)
 {
   NTSTATUS result; // eax
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  HANDLE ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 )
   {
-    Handle = a1;
-    NtSetInformationThread(-2LL, 5LL, &Handle, 8LL);
-    return NtClose(Handle);
+    ThreadInformation = a1;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    return NtClose(ThreadInformation);
   }
   return result;
 }

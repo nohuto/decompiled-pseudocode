@@ -205,11 +205,11 @@ LABEL_21:
       ZwClose(ThreadHandle);
     }
     v23 = PopPushPowerStateTransitionRecordWithCallback(
-            (__int64)KeGetCurrentThread()->ApcState.Process,
-            (__int64)KeGetCurrentThread(),
-            (__int64)&StartContext,
-            1,
-            (__int64)PopFlushVolumeBlameResolverCallback);
+            (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process,
+            (LONGLONG)KeGetCurrentThread(),
+            (LARGE_INTEGER)&StartContext,
+            1u,
+            (LARGE_INTEGER)PopFlushVolumeBlameResolverCallback);
     PopFlushVolumeWorker(&StartContext);
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     if ( v23 >= 0 )

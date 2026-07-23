@@ -11,7 +11,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
         __int64 a1,
         __int64 a2,
         unsigned int a3,
-        unsigned __int64 a4,
+        int a4,
         _DWORD *a5,
         int a6,
         char *a7)
@@ -26,10 +26,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
   __int64 v16; // rbx
   int v17; // ebp
   __int64 v18; // rax
-  unsigned __int64 v19; // rdx
-  signed __int16 *v20; // r12
-  signed __int16 v21; // ax
-  signed __int16 v23; // tt
+  signed __int16 *v19; // r12
+  signed __int16 v20; // ax
+  signed __int16 v22; // tt
 
   v7 = a6;
   if ( a6 )
@@ -44,30 +43,29 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
   v15 = -1;
   LODWORD(v16) = 0;
   v17 = 0;
-  v18 = ((a3 + (_DWORD)a4 - 1) >> v11) - (unsigned int)v12 + 1;
-  v19 = (unsigned __int64)&v14[v18];
-  if ( (unsigned __int64)v14 >= v19 )
+  v18 = ((a3 + a4 - 1) >> v11) - (unsigned int)v12 + 1;
+  if ( v14 >= &v14[v18] )
     goto LABEL_16;
-  v20 = &v14[v18];
+  v19 = &v14[v18];
   do
   {
     while ( 1 )
     {
-      v21 = *v14;
-      while ( v21 > 0 )
+      v20 = *v14;
+      while ( v20 > 0 )
       {
-        v23 = v21;
-        v21 = _InterlockedCompareExchange16(v14, v21 + 1, v21);
-        if ( v23 == v21 )
+        v22 = v20;
+        v20 = _InterlockedCompareExchange16(v14, v20 + 1, v20);
+        if ( v22 == v20 )
           goto LABEL_11;
       }
       if ( v7 )
         break;
       v7 = 1;
-      RtlAcquireSRWLockExclusive(a2 + 24, v19, 1uLL, a4);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
       v10 = -1;
     }
-    if ( v21 )
+    if ( v20 )
     {
       ++v17;
       v16 = v13 >> 1;
@@ -78,12 +76,12 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
     {
       --v17;
     }
-    *v14 = v21 + 1;
+    *v14 = v20 + 1;
 LABEL_11:
     ++v14;
     v13 += 2LL;
   }
-  while ( v14 < v20 );
+  while ( v14 < v19 );
   if ( v17 && (RtlpHpLfhPerfFlags & 0x20) != 0 )
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 58) + a1 + 24),
@@ -92,7 +90,7 @@ LABEL_11:
   {
 LABEL_16:
     if ( v7 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 24));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
   }
   else
   {

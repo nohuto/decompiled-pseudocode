@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddSecurityCellToCache @ 0x1403FB3A8
+ * XREFs of CmpAddSecurityCellToCache @ 0x1403FA268
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
- *     CmpInsertSecurityCellList @ 0x1404E5AC4 (CmpInsertSecurityCellList.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpInsertSecurityCellList @ 0x1404C84F8 (CmpInsertSecurityCellList.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpSecConvKey @ 0x1403FD54C (CmpSecConvKey.c)
- *     CmpFindSecurityCellCacheIndex @ 0x1403FDF60 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpSecConvKey @ 0x1403FC40C (CmpSecConvKey.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1403FCE20 (CmpFindSecurityCellCacheIndex.c)
  */
 
 __int64 CmpAddSecurityCellToCache(__int64 a1, __int64 a2, char a3, ...)

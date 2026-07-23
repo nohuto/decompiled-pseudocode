@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlStartBootLogicalProcessors @ 0x14017EA90
+ * XREFs of HvlStartBootLogicalProcessors @ 0x14017EBD0
  * Callers:
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     HvlpCommitLpIndices @ 0x1401B3CBC (HvlpCommitLpIndices.c)
- *     HvlpUpdateLpcbIndex @ 0x1401B3DC0 (HvlpUpdateLpcbIndex.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlpEnableNextLogicalProcessor @ 0x140271D9C (HvlpEnableNextLogicalProcessor.c)
- *     HvlpGetLpcbByApicId @ 0x140271F7C (HvlpGetLpcbByApicId.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x140272328 (HvlpQueryApicIdAndNumaNode.c)
- *     HvlpSelectLpSet @ 0x140272450 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x140272894 (HvlpSelectVpSet.c)
- *     HvlNotifyAllProcessorsStarted @ 0x140274A64 (HvlNotifyAllProcessorsStarted.c)
- *     HvlpDiscoverTopologyLocal @ 0x140817998 (HvlpDiscoverTopologyLocal.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     HvlpCommitLpIndices @ 0x1401B3B5C (HvlpCommitLpIndices.c)
+ *     HvlpUpdateLpcbIndex @ 0x1401B3C60 (HvlpUpdateLpcbIndex.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x140271F8C (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x14027216C (HvlpGetLpcbByApicId.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x140272518 (HvlpQueryApicIdAndNumaNode.c)
+ *     HvlpSelectLpSet @ 0x140272640 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x140272A84 (HvlpSelectVpSet.c)
+ *     HvlNotifyAllProcessorsStarted @ 0x140274C54 (HvlNotifyAllProcessorsStarted.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140818B98 (HvlpDiscoverTopologyLocal.c)
  */
 
 __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
@@ -50,7 +50,7 @@ __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
   if ( (HvlpFlags & 2) == 0 )
     return 0LL;
   v25 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, char *, int *))off_140400458[0])(11LL, 64LL, v20, &v25) >= 0 && v25 == 64 )
+  if ( ((int (__fastcall *)(__int64, __int64, char *, int *))off_140401458[0])(11LL, 64LL, v20, &v25) >= 0 && v25 == 64 )
   {
     HvlpQueryProcessorNode = v21;
     HvlpQueryProximityId = v23;
@@ -73,14 +73,14 @@ __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
   {
     memset(IndependentPages, 0, v4);
     CurrentPrcb = KeGetCurrentPrcb();
-    dword_140548744 = 0;
-    ApicIdAndNumaNode = HvlpQueryApicIdAndNumaNode(0LL, &dword_140548748, &unk_14054874C);
+    dword_140549744 = 0;
+    ApicIdAndNumaNode = HvlpQueryApicIdAndNumaNode(0LL, &dword_140549748, &unk_14054974C);
     if ( ApicIdAndNumaNode < 0 )
       goto LABEL_35;
-    qword_140548760 = (__int64)CurrentPrcb->StatisticsPage;
-    dword_140548758 = CurrentPrcb->Number;
+    qword_140549760 = (__int64)CurrentPrcb->StatisticsPage;
+    dword_140549758 = CurrentPrcb->Number;
     HvlpCpuVendor = CurrentPrcb->CpuVendor;
-    HvlpDiscoverTopologyLocal(v9, (unsigned int)dword_140548748, &unk_140548750, &unk_140548754);
+    HvlpDiscoverTopologyLocal(v9, (unsigned int)dword_140549748, &unk_140549750, &unk_140549754);
     LODWORD(HvlpLogicalProcessorCount) = 1;
     HvlpLogicalProcessorRegions[0] = 1;
     ApicIdAndNumaNode = HvlpSelectLpSet((unsigned int)v3, v6);

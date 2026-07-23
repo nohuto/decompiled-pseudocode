@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIsImageFullyRetpolined @ 0x1404C1FC4
+ * XREFs of RtlIsImageFullyRetpolined @ 0x1404BD5B4
  * Callers:
- *     MiLogRetpolineImageLoadEvents @ 0x140A82C1C (MiLogRetpolineImageLoadEvents.c)
- *     MiIsImageFullyRetpolined @ 0x140A984B4 (MiIsImageFullyRetpolined.c)
- *     MiApplyRetpolineToBootDriver @ 0x140C5560C (MiApplyRetpolineToBootDriver.c)
- *     MiInitializeRetpoline @ 0x140C558EC (MiInitializeRetpoline.c)
- *     MiIsBootImageTargetFullyRetpolined @ 0x140C55A10 (MiIsBootImageTargetFullyRetpolined.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x140A7D73C (MiLogRetpolineImageLoadEvents.c)
+ *     MiIsImageFullyRetpolined @ 0x140A94C70 (MiIsImageFullyRetpolined.c)
+ *     MiApplyRetpolineToBootDriver @ 0x140C5779C (MiApplyRetpolineToBootDriver.c)
+ *     MiInitializeRetpoline @ 0x140C57A7C (MiInitializeRetpoline.c)
+ *     MiIsBootImageTargetFullyRetpolined @ 0x140C57BA0 (MiIsBootImageTargetFullyRetpolined.c)
  * Callees:
- *     LdrImageDirectoryEntryToLoadConfig @ 0x140A659D8 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140A5E1A8 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlIsImageFullyRetpolined(__int64 a1)

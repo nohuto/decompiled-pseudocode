@@ -11,16 +11,16 @@
 
 void __fastcall sub_18010EF18(int a1, ULONG_PTR a2, ULONG_PTR a3)
 {
-  __int64 (__fastcall *v3)(__int64, __int64, __int64, int); // r9
-  __int64 (__fastcall *v4)(__int64, __int64, __int64, int); // r10
+  void (__fastcall *v3)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, int); // r9
+  void (__fastcall *v4)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, int); // r10
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   if ( a3 )
   {
-    v3 = *(__int64 (__fastcall **)(__int64, __int64, __int64, int))(a3 + 80);
+    v3 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, int))(a3 + 80);
     ExceptionRecord.NumberParameters = 5;
-    if ( v3 == sub_18002EA00 )
-      v4 = *(__int64 (__fastcall **)(__int64, __int64, __int64, int))(*(_QWORD *)(a3 + 88) + 32LL);
+    if ( v3 == Callback )
+      v4 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, int))(*(_QWORD *)(a3 + 88) + 32LL);
     else
       v4 = 0LL;
     if ( v4 )

@@ -14,29 +14,32 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-int *__fastcall RtlDebugQueryTagHeap(_DWORD *a1, int a2, int a3, int a4, _DWORD *a5)
+PWSTR __fastcall RtlDebugQueryTagHeap(
+        int a1,
+        int a2,
+        USHORT TagIndex,
+        BOOLEAN ResetCounters,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
-  int v7; // edx
-  int v8; // ebx
-  int *TagHeap; // [esp+18h] [ebp-24h]
-  char v12; // [esp+23h] [ebp-19h]
+  ULONG v7; // ebx
+  PWSTR TagHeap; // [esp+18h] [ebp-24h]
+  char v11; // [esp+23h] [ebp-19h]
 
-  v12 = 0;
+  v11 = 0;
   TagHeap = 0;
-  if ( RtlpCheckHeapSignature(a1, "RtlQueryTagHeap") )
+  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlQueryTagHeap") )
   {
-    v8 = a1[17] | 0x10000000 | a2;
-    if ( (v8 & 1) == 0 )
+    v7 = *(_DWORD *)(a1 + 68) | 0x10000000 | a2;
+    if ( (v7 & 1) == 0 )
     {
-      RtlEnterCriticalSection(a1[50]);
-      v12 = 1;
-      v8 |= 1u;
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+      v11 = 1;
+      v7 |= 1u;
     }
-    LOBYTE(v7) = 0;
-    if ( (unsigned __int8)RtlpValidateHeap(a1, v7) )
-      TagHeap = RtlQueryTagHeap((int)a1, v8, a3, a4, a5);
+    if ( (unsigned __int8)RtlpValidateHeap((PVOID)a1) )
+      TagHeap = RtlQueryTagHeap((PVOID)a1, v7, TagIndex, ResetCounters, TagInfo);
   }
-  if ( v12 )
-    RtlLeaveCriticalSection(a1[50]);
+  if ( v11 )
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
   return TagHeap;
 }

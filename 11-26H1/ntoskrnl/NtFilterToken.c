@@ -1,19 +1,19 @@
 /*
- * XREFs of NtFilterToken @ 0x140A45140
+ * XREFs of NtFilterToken @ 0x1409E32D0
  * Callers:
- *     DifNtFilterTokenWrapper @ 0x1406779B0 (DifNtFilterTokenWrapper.c)
+ *     DifNtFilterTokenWrapper @ 0x14067B590 (DifNtFilterTokenWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SepFinalizeTokenAcls @ 0x140926FDC (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeCaptureLuidAndAttributesArray @ 0x140A43158 (SeCaptureLuidAndAttributesArray.c)
- *     SeReleaseLuidAndAttributesArray @ 0x140A43238 (SeReleaseLuidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x140A44CF8 (SeCaptureSidAndAttributesArray.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     SepFinalizeTokenAcls @ 0x140902AEC (SepFinalizeTokenAcls.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x1409E2108 (SeCaptureLuidAndAttributesArray.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1409E21E8 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1409E2E88 (SeCaptureSidAndAttributesArray.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
  */
 
 NTSTATUS __stdcall NtFilterToken(

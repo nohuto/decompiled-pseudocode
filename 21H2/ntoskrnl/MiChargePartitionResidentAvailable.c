@@ -1,15 +1,15 @@
 /*
- * XREFs of MiChargePartitionResidentAvailable @ 0x1402B0CC8
+ * XREFs of MiChargePartitionResidentAvailable @ 0x14022F028
  * Callers:
- *     MiLockPageTablePage @ 0x140209DF0 (MiLockPageTablePage.c)
- *     MiProbeLockFrame @ 0x14020ACD0 (MiProbeLockFrame.c)
- *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MiObtainFaultCharges @ 0x14021BA90 (MiObtainFaultCharges.c)
- *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MiChargeForLockedPage @ 0x140328AA0 (MiChargeForLockedPage.c)
+ *     MiChargeResident @ 0x14027BBC8 (MiChargeResident.c)
+ *     MiLockPageTablePage @ 0x1402AE6F0 (MiLockPageTablePage.c)
+ *     MiProbeLockFrame @ 0x1402AF5D0 (MiProbeLockFrame.c)
+ *     MiResolveProtoPteFault @ 0x1402B9CD0 (MiResolveProtoPteFault.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MiObtainFaultCharges @ 0x1402C0390 (MiObtainFaultCharges.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MiChargeForLockedPage @ 0x1403337F0 (MiChargeForLockedPage.c)
  * Callees:
  *     <none>
  */
@@ -71,7 +71,7 @@ LABEL_45:
       if ( a3 != 0xFFFFFFFFLL )
       {
 LABEL_46:
-        ++dword_140C4E7F4;
+        ++dword_140C4E834;
         if ( v6 )
           _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v6);
         return 0LL;
@@ -151,6 +151,6 @@ LABEL_9:
     }
     return (unsigned int)(v9 + 2);
   }
-  ++dword_140C4E7F0;
+  ++dword_140C4E830;
   return 0LL;
 }

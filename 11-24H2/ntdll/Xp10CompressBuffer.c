@@ -1,14 +1,14 @@
 /*
- * XREFs of Xp10CompressBuffer @ 0x18014E970
+ * XREFs of Xp10CompressBuffer @ 0x18014CD30
  * Callers:
- *     RtlCompressBufferXp10 @ 0x18014D340 (RtlCompressBufferXp10.c)
+ *     RtlCompressBufferXp10 @ 0x18014B700 (RtlCompressBufferXp10.c)
  * Callees:
- *     Xp10ComputeAndWriteCrc @ 0x18014EF38 (Xp10ComputeAndWriteCrc.c)
- *     Xp10ExecuteHuffmanEncode @ 0x18014F05C (Xp10ExecuteHuffmanEncode.c)
- *     Xp10ExecuteLz77PassMinMatchLen3 @ 0x18014F4F0 (Xp10ExecuteLz77PassMinMatchLen3.c)
- *     Xp10ExecuteLz77PassMinMatchLen4 @ 0x18014FC2C (Xp10ExecuteLz77PassMinMatchLen4.c)
- *     Xp10ValidateParametersAndFillFrameHeader @ 0x18015042C (Xp10ValidateParametersAndFillFrameHeader.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     Xp10ComputeAndWriteCrc @ 0x18014D2F8 (Xp10ComputeAndWriteCrc.c)
+ *     Xp10ExecuteHuffmanEncode @ 0x18014D41C (Xp10ExecuteHuffmanEncode.c)
+ *     Xp10ExecuteLz77PassMinMatchLen3 @ 0x18014D8B0 (Xp10ExecuteLz77PassMinMatchLen3.c)
+ *     Xp10ExecuteLz77PassMinMatchLen4 @ 0x18014DFEC (Xp10ExecuteLz77PassMinMatchLen4.c)
+ *     Xp10ValidateParametersAndFillFrameHeader @ 0x18014E7EC (Xp10ValidateParametersAndFillFrameHeader.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall Xp10CompressBuffer(
@@ -157,7 +157,7 @@ LABEL_13:
       v30 = v29;
       if ( v29 >= v25 )
         v30 = v25;
-      *v28 |= ((unsigned __int8)(v48.m128i_i8[8] - v17) & (unsigned __int8)byte_180185FA8[4 * v30]) << v27;
+      *v28 |= ((unsigned __int8)(v48.m128i_i8[8] - v17) & (unsigned __int8)byte_1801847A8[4 * v30]) << v27;
       v31 = v25 - (unsigned int)v30;
       v32 = v26 >> v29;
       v33 = v28 + 1;
@@ -175,7 +175,7 @@ LABEL_13:
         while ( v34 );
       }
       if ( (_DWORD)v31 )
-        *v33 |= (unsigned __int8)v32 & byte_180185FA8[4 * v31];
+        *v33 |= (unsigned __int8)v32 & byte_1801847A8[4 * v31];
       v17 += v25;
     }
     v19 += v46;
@@ -193,7 +193,7 @@ LABEL_13:
     if ( v40 >= v39 )
       v41 = v39;
     v42 = v39 - (unsigned int)v41;
-    *v37++ |= (byte_180185FA8[4 * v41] & 1) << v38;
+    *v37++ |= (byte_1801847A8[4 * v41] & 1) << v38;
     v43 = 1u >> v40;
     if ( (unsigned int)v42 >= 8 )
     {
@@ -209,7 +209,7 @@ LABEL_13:
       while ( v44 );
     }
     if ( (_DWORD)v42 )
-      *v37 |= (unsigned __int8)v43 & byte_180185FA8[4 * v42];
+      *v37 |= (unsigned __int8)v43 & byte_1801847A8[4 * v42];
   }
   DWORD2(v49) = 0;
   *(_QWORD *)&v49 = a2;

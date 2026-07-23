@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWnfGetNameStoreRegistryRoot @ 0x14085AE94
+ * XREFs of ExpWnfGetNameStoreRegistryRoot @ 0x140833900
  * Callers:
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x1407C65A0 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
- *     ExpWnfLookupPermanentName @ 0x14085ACA8 (ExpWnfLookupPermanentName.c)
- *     ExpWnfRegisterPermanentName @ 0x140A64B40 (ExpWnfRegisterPermanentName.c)
- *     ExpWnfDeletePermanentName @ 0x140A82964 (ExpWnfDeletePermanentName.c)
- *     ExpWnfAllocateNextPersistentNameSequence @ 0x140AA5144 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x1407C6A00 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfDeletePermanentName @ 0x140832134 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfLookupPermanentName @ 0x140833714 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x140833C84 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     ExpWnfRegisterPermanentName @ 0x140833F7C (ExpWnfRegisterPermanentName.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall ExpWnfGetNameStoreRegistryRoot(int a1, volatile signed __int64 *a2)

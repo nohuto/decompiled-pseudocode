@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSingleStringCheck @ 0x1409D55FC
+ * XREFs of ExpSingleStringCheck @ 0x1409D65FC
  * Callers:
- *     ExpStringCheck @ 0x1409D5318 (ExpStringCheck.c)
+ *     ExpStringCheck @ 0x1409D6318 (ExpStringCheck.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlComputeCrc32 @ 0x14015B610 (RtlComputeCrc32.c)
  */
 
 ULONG __fastcall ExpSingleStringCheck(PCWSTR SourceString)

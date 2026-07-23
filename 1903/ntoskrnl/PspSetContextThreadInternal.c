@@ -26,10 +26,10 @@
  *     EtwTiLogSetContextThread @ 0x1406CA754 (EtwTiLogSetContextThread.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // r12
-  __int64 result; // rax
+  int result; // eax
   struct _KPROCESS *v11; // rbx
   int v12; // ebx
   char v13; // al
@@ -40,9 +40,9 @@ __int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char
   int v18; // edx
   int v19; // ecx
   _QWORD *v20; // [rsp+20h] [rbp-20h]
-  unsigned int v21; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v22; // [rsp+44h] [rbp+4h]
-  __int64 v23; // [rsp+48h] [rbp+8h]
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _QWORD v24[48]; // [rsp+50h] [rbp+10h] BYREF
 
   memset(v24, 0, sizeof(v24));
@@ -52,48 +52,48 @@ __int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char
     v15 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
-    v21 = *(_DWORD *)v15;
+    ContextFlags = *(_DWORD *)v15;
   }
   else
   {
-    v21 = *(_DWORD *)(a2 + 48);
+    ContextFlags = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags(&v21);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags);
+  if ( result >= 0 )
   {
     if ( !a3 )
     {
       v24[15] = a2;
       goto LABEL_6;
     }
-    result = RtlGetExtendedContextLength(v21);
-    if ( (int)result >= 0 )
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v16 = v22 + 15LL;
-      if ( v16 <= v22 )
+      v16 = ContextLength + 15LL;
+      if ( v16 <= ContextLength )
         v16 = 0xFFFFFFFFFFFFFF0LL;
       v17 = alloca(v16 & 0xFFFFFFFFFFFFFFF0uLL);
-      v24[15] = &v21;
-      memset(&v21, 0, v22);
-      result = RtlInitializeExtendedContext(v24[15], v21);
-      if ( (int)result >= 0 )
+      v24[15] = &ContextFlags;
+      memset(&ContextFlags, 0, ContextLength);
+      result = RtlInitializeExtendedContext((PCONTEXT)v24[15], ContextFlags, &ContextEx);
+      if ( result >= 0 )
       {
-        v24[15] = v23 - 1232;
+        v24[15] = (char *)ContextEx - 1232;
         LOBYTE(v18) = 1;
-        result = RtlpReadExtendedContext(v19, v18, v23, v21, a2, 0LL);
-        if ( (int)result >= 0 )
+        result = RtlpReadExtendedContext(v19, v18, (_DWORD)ContextEx, ContextFlags, a2, 0LL);
+        if ( result >= 0 )
         {
 LABEL_6:
           if ( a4 )
           {
             if ( (Thread->MiscFlags & 0x400) != 0 )
-              return (unsigned int)-1073741776;
+              return -1073741776;
             v11 = IoThreadToProcess(CurrentThread);
             if ( IoThreadToProcess(Thread) == v11 )
             {
               v12 = KeVerifyContextRecord((__int64)Thread, v24[15]);
               if ( v12 < 0 )
-                return (unsigned int)v12;
+                return v12;
             }
           }
           LOBYTE(v24[11]) = a4;
@@ -112,9 +112,9 @@ LABEL_12:
             if ( v24[11] >= 0 && a3 == 1 && a4 == 1 )
             {
               LOBYTE(v14) = KeGetCurrentThread()->PreviousMode;
-              EtwTiLogSetContextThread(v14, Thread, v24[15], v21, v20);
+              EtwTiLogSetContextThread(v14, Thread, v24[15], ContextFlags, v20);
             }
-            return (unsigned int)v12;
+            return v12;
           }
           BYTE1(v24[11]) = v13 | 1;
           KeInitializeGate((__int64)&v24[12]);
@@ -124,7 +124,7 @@ LABEL_12:
             KeWaitForGate((__int64)&v24[12], 0);
             goto LABEL_12;
           }
-          return (unsigned int)-1073741823;
+          return -1073741823;
         }
       }
     }

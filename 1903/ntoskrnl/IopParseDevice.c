@@ -122,7 +122,7 @@ __int64 __fastcall IopParseDevice(
   int v30; // r10d
   char v31; // r9
   char v32; // bl
-  int ActiveConsoleId; // edi
+  ULONG ActiveConsoleId; // edi
   unsigned __int64 v34; // rax
   int v35; // edi
   bool v36; // di

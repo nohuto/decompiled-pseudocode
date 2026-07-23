@@ -1,413 +1,379 @@
 /*
- * XREFs of LdrpMapAndSnapDependency @ 0x18011A660
+ * XREFs of LdrpMapAndSnapDependency @ 0x18011A410
  * Callers:
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     LdrpLoadDependentModuleA @ 0x18003ACC0 (LdrpLoadDependentModuleA.c)
- *     LdrpLoadDependentModuleInternal @ 0x18003AF90 (LdrpLoadDependentModuleInternal.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     RtlReleaseActivationContext @ 0x18004DE10 (RtlReleaseActivationContext.c)
- *     LdrpQueueWork @ 0x180067B50 (LdrpQueueWork.c)
- *     LdrpLogEtwHotPatchStatus @ 0x18006FB5C (LdrpLogEtwHotPatchStatus.c)
- *     LdrpPrepareImportAddressTableForSnap @ 0x180080000 (LdrpPrepareImportAddressTableForSnap.c)
- *     RtlImageDirectoryEntryToData @ 0x180081250 (RtlImageDirectoryEntryToData.c)
- *     LdrpQueryCurrentPatch @ 0x1800CDC50 (LdrpQueryCurrentPatch.c)
- *     LdrpCheckPagesForTampering @ 0x180108054 (LdrpCheckPagesForTampering.c)
- *     LdrpSnapModule @ 0x18011B530 (LdrpSnapModule.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtQueryInformationProcess @ 0x18015F260 (NtQueryInformationProcess.c)
- *     ZwMapViewOfSection @ 0x18015F440 (ZwMapViewOfSection.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     strlen @ 0x180164FE0 (strlen.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     LdrpLoadDependentModuleA @ 0x180025230 (LdrpLoadDependentModuleA.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180025500 (LdrpLoadDependentModuleInternal.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     RtlReleaseActivationContext @ 0x180038390 (RtlReleaseActivationContext.c)
+ *     LdrpPrepareImportAddressTableForSnap @ 0x1800773A0 (LdrpPrepareImportAddressTableForSnap.c)
+ *     RtlImageDirectoryEntryToData @ 0x1800785F0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpQueueWork @ 0x180087FA0 (LdrpQueueWork.c)
+ *     LdrpLogEtwHotPatchStatus @ 0x18008FFAC (LdrpLogEtwHotPatchStatus.c)
+ *     LdrpQueryCurrentPatch @ 0x1800CB3C0 (LdrpQueryCurrentPatch.c)
+ *     LdrpCheckPagesForTampering @ 0x180107A54 (LdrpCheckPagesForTampering.c)
+ *     LdrpSnapModule @ 0x18011B2E0 (LdrpSnapModule.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtQueryInformationProcess @ 0x18015F160 (NtQueryInformationProcess.c)
+ *     ZwMapViewOfSection @ 0x18015F340 (ZwMapViewOfSection.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     strlen @ 0x180164EE0 (strlen.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-char __fastcall LdrpMapAndSnapDependency(__int64 a1, __int64 a2)
+void __fastcall LdrpMapAndSnapDependency(__int64 a1)
 {
-  __int64 v2; // r14
-  char v3; // r15
-  unsigned int v4; // ebx
-  bool v5; // zf
-  _WORD *v7; // rdx
-  int v8; // eax
-  int DependentModuleInternal; // edi
-  __int64 v10; // rax
-  volatile signed __int32 *v11; // rcx
-  size_t Heap_0; // rax
-  int v13; // r13d
-  int v14; // eax
-  __int64 v15; // r15
-  __int64 v16; // r12
-  int v17; // r15d
-  int v18; // r15d
-  _DWORD *v19; // rdx
-  char *v20; // rdx
-  __int64 v21; // rcx
+  __int64 v1; // r14
+  char v2; // r15
+  unsigned int v3; // ebx
+  bool v4; // zf
+  _WORD *v6; // rdx
+  int v7; // eax
+  int CurrentPatch; // edi
+  __int64 v9; // rax
+  _ACTIVATION_CONTEXT *v10; // rcx
+  int v11; // r13d
+  int v12; // eax
+  __int64 v13; // r15
+  char *v14; // r12
+  NTSTATUS v15; // r15d
+  unsigned int v16; // r15d
+  _DWORD *v17; // rdx
+  PVOID Heap_0; // rax
+  char *v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
   unsigned int v22; // r12d
-  unsigned int *v23; // r15
+  unsigned int *i; // r15
   __int64 v24; // rcx
-  char *v25; // rcx
-  struct _TEB *v26; // rax
+  __int64 v25; // rax
+  char *v26; // rcx
+  size_t v27; // rax
+  struct _TEB *v28; // rax
   char *SchedulerSharedDataSlot; // rcx
-  _QWORD *v28; // rax
-  char v31[8]; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE ProcessInformation; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v33; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v34; // [rsp+68h] [rbp-98h] BYREF
-  size_t v35; // [rsp+70h] [rbp-90h]
-  STRING SourceString; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v37; // [rsp+88h] [rbp-78h] BYREF
-  _DWORD v38[2]; // [rsp+90h] [rbp-70h] BYREF
-  __int16 *v39; // [rsp+98h] [rbp-68h]
-  __int16 v40; // [rsp+A0h] [rbp-60h] BYREF
-  char v41[254]; // [rsp+A2h] [rbp-5Eh] BYREF
+  _QWORD *v30; // rax
+  char v32[8]; // [rsp+50h] [rbp-B0h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG Size[2]; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-98h] BYREF
+  char *v36; // [rsp+70h] [rbp-90h]
+  ANSI_STRING SourceString; // [rsp+78h] [rbp-88h] BYREF
+  ULONG_PTR ViewSize; // [rsp+88h] [rbp-78h] BYREF
+  _DWORD v39[2]; // [rsp+90h] [rbp-70h] BYREF
+  PVOID v40; // [rsp+98h] [rbp-68h]
+  __int16 v41; // [rsp+A0h] [rbp-60h] BYREF
+  char v42[254]; // [rsp+A2h] [rbp-5Eh] BYREF
 
-  v2 = *(_QWORD *)(a1 + 56);
+  v1 = *(_QWORD *)(a1 + 56);
+  v2 = 0;
   v3 = 0;
-  v4 = 0;
-  v31[0] = 0;
-  v5 = (*(_DWORD *)(a1 + 32) & 0x800000) == 0;
+  v32[0] = 0;
+  v4 = (*(_DWORD *)(a1 + 32) & 0x800000) == 0;
   SourceString = 0LL;
-  if ( v5 && *(_DWORD *)(v2 + 268) != 9 )
+  if ( !v4 )
+    goto LABEL_27;
+  if ( *(_DWORD *)(v1 + 268) == 9 )
+    goto LABEL_27;
+  *(_QWORD *)Size = 0LL;
+  if ( !LdrpManifestProberRoutine || NtCurrentPeb()->ActivationContextData && v1 == LdrpImageEntry )
+    goto LABEL_27;
+  v6 = *(_WORD **)(v1 + 80);
+  if ( v1 == LdrpImageEntry
+    && *v6 == 92
+    && v6[1] == 63
+    && v6[2] == 63
+    && v6[3] == 92
+    && v6[4]
+    && v6[5] == 58
+    && v6[6] == 92 )
   {
-    v33 = 0LL;
-    if ( LdrpManifestProberRoutine )
-    {
-      if ( !NtCurrentPeb()->ActivationContextData || v2 != LdrpImageEntry )
-      {
-        v7 = *(_WORD **)(v2 + 80);
-        if ( v2 == LdrpImageEntry
-          && *v7 == 92
-          && v7[1] == 63
-          && v7[2] == 63
-          && v7[3] == 92
-          && v7[4]
-          && v7[5] == 58
-          && v7[6] == 92 )
-        {
-          v7 += 4;
-        }
-        v8 = ((__int64 (__fastcall *)(_QWORD, _WORD *, __int64 *))LdrpManifestProberRoutine)(
-               *(_QWORD *)(v2 + 48),
-               v7,
-               &v33);
-        DependentModuleInternal = v8;
-        if ( v8 == -1073741809
-          || (unsigned int)(v8 + 1073741687) <= 2
-          || v8 == -1073741308
-          || v8 == -1073741822
-          || v8 == -1073741637 )
-        {
-          LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrsnap.c",
-            743,
-            (__int64)"LdrpFindDllActivationContext",
-            2,
-            "Probing for the manifest of DLL \"%wZ\" failed with status 0x%08lx\n",
-            v2 + 72,
-            v8);
-          DependentModuleInternal = 0;
-        }
-        v10 = v33;
-        if ( v33 )
-        {
-          v11 = *(volatile signed __int32 **)(v2 + 136);
-          if ( v11 )
-          {
-            RtlReleaseActivationContext(v11);
-            v10 = v33;
-          }
-          *(_QWORD *)(v2 + 136) = v10;
-        }
-        if ( DependentModuleInternal < 0 )
-        {
-          LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrsnap.c",
-            772,
-            (__int64)"LdrpFindDllActivationContext",
-            0,
-            "Querying the active activation context failed with status 0x%08lx\n",
-            DependentModuleInternal);
-LABEL_71:
-          Heap_0 = *(_QWORD *)(a1 + 40);
-          *(_DWORD *)Heap_0 = DependentModuleInternal;
-          return Heap_0;
-        }
-      }
-    }
+    v6 += 4;
   }
-  LODWORD(Heap_0) = LdrpPrepareImportAddressTableForSnap(a1, a2);
-  DependentModuleInternal = Heap_0;
-  if ( (Heap_0 & 0x80000000) != 0LL )
-    goto LABEL_71;
-  v13 = 0;
-  if ( LdrpIsHotPatchingEnabled && *(_QWORD *)(a1 + 56) )
+  v7 = ((__int64 (__fastcall *)(_QWORD, _WORD *, ULONG *))LdrpManifestProberRoutine)(*(_QWORD *)(v1 + 48), v6, Size);
+  CurrentPatch = v7;
+  if ( v7 == -1073741809
+    || (unsigned int)(v7 + 1073741687) <= 2
+    || v7 == -1073741308
+    || v7 == -1073741822
+    || v7 == -1073741637 )
   {
-    LODWORD(Heap_0) = LdrpQueryCurrentPatch(*(_QWORD *)(v2 + 48), v31);
-    DependentModuleInternal = Heap_0;
-    if ( (Heap_0 & 0x80000000) != 0LL )
+    LdrpLogInternal(
+      "minkernel\\ldr\\ldrsnap.c",
+      743,
+      (__int64)"LdrpFindDllActivationContext",
+      2,
+      "Probing for the manifest of DLL \"%wZ\" failed with status 0x%08lx\n",
+      v1 + 72,
+      v7);
+    CurrentPatch = 0;
+  }
+  v9 = *(_QWORD *)Size;
+  if ( *(_QWORD *)Size )
+  {
+    v10 = *(_ACTIVATION_CONTEXT **)(v1 + 136);
+    if ( v10 )
+    {
+      RtlReleaseActivationContext(v10);
+      v9 = *(_QWORD *)Size;
+    }
+    *(_QWORD *)(v1 + 136) = v9;
+  }
+  if ( CurrentPatch >= 0 )
+  {
+LABEL_27:
+    CurrentPatch = LdrpPrepareImportAddressTableForSnap(a1);
+    if ( CurrentPatch < 0 )
       goto LABEL_71;
-    v3 = v31[0];
-  }
-  if ( !*(_QWORD *)(a1 + 112) && !v3 )
-    goto LABEL_66;
-  if ( v2 && LdrpRedirectionModule && LdrpRedirectionModule != v2 )
-  {
-    if ( (NtCurrentPeb()->BitField & 0x10) != 0 )
+    v11 = 0;
+    if ( LdrpIsHotPatchingEnabled && *(_QWORD *)(a1 + 56) )
     {
-      v14 = *(_DWORD *)(v2 + 104) & 1;
+      CurrentPatch = LdrpQueryCurrentPatch(*(_QWORD *)(v1 + 48), v32);
+      if ( CurrentPatch < 0 )
+        goto LABEL_71;
+      v2 = v32[0];
     }
-    else
+    if ( !*(_QWORD *)(a1 + 112) && !v2 )
+      goto LABEL_66;
+    if ( v1 && LdrpRedirectionModule && LdrpRedirectionModule != v1 )
     {
-      if ( !LdrpRedirectionCalloutFunc )
+      if ( (NtCurrentPeb()->BitField & 0x10) != 0 )
       {
-LABEL_42:
-        *(_DWORD *)(a1 + 32) |= 0x2000000u;
-        goto LABEL_43;
+        v12 = *(_DWORD *)(v1 + 104) & 1;
       }
-      LOBYTE(v14) = LdrpRedirectionCalloutFunc(*(_QWORD *)(v2 + 80));
-    }
-    if ( (_BYTE)v14 )
-      goto LABEL_42;
-  }
-LABEL_43:
-  v15 = *(_QWORD *)(a1 + 56);
-  LODWORD(v33) = 0;
-  ProcessInformation = 0LL;
-  Heap_0 = (size_t)RtlImageDirectoryEntryToData(*(_QWORD *)(v15 + 48), 1, 1u, &v33);
-  v16 = Heap_0;
-  v35 = Heap_0;
-  if ( v15 == LdrpImageEntry )
-  {
-    LOBYTE(Heap_0) = ((unsigned __int64)qword_1801E3508 >> 44) & 3;
-    if ( (_BYTE)Heap_0 == 1 )
-    {
-      RtlImageNtHeaderEx(3, *(_QWORD *)(v15 + 48), 0LL, &ProcessInformation);
-      if ( LdrpCheckPagesForTampering((__int64)ProcessInformation + 144, 8LL)
-        || (LOBYTE(Heap_0) = LdrpCheckPagesForTampering(v16, (unsigned int)v33), (_BYTE)Heap_0) )
+      else
       {
-        LOBYTE(Heap_0) = LdrpImageEntry;
-        ProcessInformation = 0LL;
-        v34 = 0LL;
-        v37 = 0LL;
+        if ( !LdrpRedirectionCalloutFunc )
+        {
+LABEL_42:
+          *(_DWORD *)(a1 + 32) |= 0x2000000u;
+          goto LABEL_43;
+        }
+        LOBYTE(v12) = LdrpRedirectionCalloutFunc(*(_QWORD *)(v1 + 80));
+      }
+      if ( (_BYTE)v12 )
+        goto LABEL_42;
+    }
+LABEL_43:
+    v13 = *(_QWORD *)(a1 + 56);
+    Size[0] = 0;
+    OutHeaders = 0LL;
+    v14 = (char *)RtlImageDirectoryEntryToData(*(PVOID *)(v13 + 48), 1u, 1u, Size);
+    v36 = v14;
+    if ( v13 == LdrpImageEntry && ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 44) & 3) == 1 )
+    {
+      RtlImageNtHeaderEx(3u, *(PVOID *)(v13 + 48), 0LL, &OutHeaders);
+      if ( LdrpCheckPagesForTampering((__int64)&OutHeaders->OptionalHeader.DataDirectory[1], 8LL)
+        || LdrpCheckPagesForTampering((__int64)v14, Size[0]) )
+      {
+        OutHeaders = 0LL;
+        BaseAddress = 0LL;
+        ViewSize = 0LL;
         if ( *(_QWORD *)(a1 + 56) == LdrpImageEntry )
         {
-          LODWORD(Heap_0) = NtQueryInformationProcess(
-                              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                              (PROCESSINFOCLASS)89,
-                              &ProcessInformation,
-                              8u,
-                              0LL);
-          v17 = Heap_0;
-          if ( (Heap_0 & 0x80000000) == 0LL )
+          v15 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageSection, &OutHeaders, 8u, 0LL);
+          if ( v15 >= 0 )
           {
-            v17 = ZwMapViewOfSection(ProcessInformation, -1LL, &v34, 0LL, 0LL, 0LL, &v37, 1, 0x40000, 2);
-            if ( v17 >= 0 )
-              *(_QWORD *)(a1 + 192) = v34;
-            LOBYTE(Heap_0) = NtClose(ProcessInformation);
+            v15 = ZwMapViewOfSection(
+                    OutHeaders,
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    &BaseAddress,
+                    0LL,
+                    0LL,
+                    0LL,
+                    &ViewSize,
+                    ViewShare,
+                    0x40000u,
+                    2u);
+            if ( v15 >= 0 )
+              *(_QWORD *)(a1 + 192) = BaseAddress;
+            NtClose(OutHeaders);
           }
-          if ( v17 >= 0 )
+          if ( v15 >= 0 )
           {
-            Heap_0 = (size_t)RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 192), 1, 1u, &v33);
-            v16 = Heap_0;
-            v35 = Heap_0;
+            v14 = (char *)RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 192), 1u, 1u, Size);
+            v36 = v14;
           }
         }
       }
     }
-  }
-  v18 = 0;
-  if ( !v16 )
-    goto LABEL_62;
-  v19 = (_DWORD *)(v16 + 16);
-  do
-  {
-    if ( !*(v19 - 1) )
-      break;
-    LODWORD(Heap_0) = *v19;
-    if ( !*v19 )
-      break;
-    ++v18;
-    if ( *(_QWORD *)((unsigned int)Heap_0 + *(_QWORD *)(v2 + 48)) )
-      ++v13;
-    v19 += 5;
-    LOBYTE(Heap_0) = (_BYTE)v19 - 16;
-  }
-  while ( v19 != (_DWORD *)16 );
-  if ( !v13 )
-  {
-LABEL_62:
-    if ( !v31[0] )
-      goto LABEL_65;
-  }
-  Heap_0 = RtlAllocateHeap_0();
-  *(_QWORD *)(a1 + 88) = Heap_0;
-  if ( !Heap_0 )
-  {
-    DependentModuleInternal = -1073741801;
-LABEL_65:
-    v3 = v31[0];
-    goto LABEL_66;
-  }
-  LOBYTE(Heap_0) = v13 + 1;
-  *(_DWORD *)(a1 + 104) = v18;
-  *(_DWORD *)(a1 + 108) = v13 + 1;
-  *(_QWORD *)(a1 + 136) = v16;
-  if ( v31[0] )
-  {
-    LOBYTE(Heap_0) = v13 + 2;
-    *(_DWORD *)(a1 + 108) = v13 + 2;
-  }
-  v22 = 0;
-  ProcessInformation = 0LL;
-  if ( v35 )
-  {
-    v23 = (unsigned int *)(v35 + 16);
+    v16 = 0;
+    if ( !v14 )
+      goto LABEL_62;
+    v17 = v14 + 16;
     do
     {
-      v24 = *(v23 - 1);
-      if ( !(_DWORD)v24 )
+      if ( !*(v17 - 1) || !*v17 )
         break;
-      Heap_0 = *v23;
-      if ( !(_DWORD)Heap_0 )
-        break;
-      v20 = *(char **)(v2 + 48);
-      if ( *(_QWORD *)&v20[Heap_0] )
+      ++v16;
+      if ( *(_QWORD *)((unsigned int)*v17 + *(_QWORD *)(v1 + 48)) )
+        ++v11;
+      v17 += 5;
+    }
+    while ( v17 != (_DWORD *)16 );
+    if ( !v11 )
+    {
+LABEL_62:
+      if ( !v32[0] )
+        goto LABEL_65;
+    }
+    Heap_0 = RtlAllocateHeap_0(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8LL * v16);
+    *(_QWORD *)(a1 + 88) = Heap_0;
+    if ( !Heap_0 )
+    {
+      CurrentPatch = -1073741801;
+LABEL_65:
+      v2 = v32[0];
+      goto LABEL_66;
+    }
+    *(_DWORD *)(a1 + 104) = v16;
+    *(_DWORD *)(a1 + 108) = v11 + 1;
+    *(_QWORD *)(a1 + 136) = v14;
+    if ( v32[0] )
+      *(_DWORD *)(a1 + 108) = v11 + 2;
+    v22 = 0;
+    OutHeaders = 0LL;
+    if ( v36 )
+    {
+      for ( i = (unsigned int *)(v36 + 16); i != (unsigned int *)16; i += 5 )
       {
-        v5 = &v20[v24] == 0LL;
-        v25 = &v20[v24];
-        *(_QWORD *)&SourceString.Length = 0LL;
-        SourceString.Buffer = v25;
-        if ( !v5 )
-        {
-          Heap_0 = strlen(v25);
-          if ( Heap_0 > 0xFFFE )
-          {
-            DependentModuleInternal = -1073741562;
-            break;
-          }
-          SourceString.Length = Heap_0;
-          SourceString.MaximumLength = Heap_0 + 1;
-        }
-        LODWORD(Heap_0) = LdrpLoadDependentModuleA(
-                            &SourceString,
-                            a1,
-                            v2,
-                            0,
-                            (_QWORD *)(*(_QWORD *)(a1 + 88) + 8LL * v22),
-                            (__int64)&ProcessInformation);
-        DependentModuleInternal = Heap_0;
-        if ( (Heap_0 & 0x80000000) != 0LL )
+        v24 = *(i - 1);
+        if ( !(_DWORD)v24 )
           break;
+        v25 = *i;
+        if ( !(_DWORD)v25 )
+          break;
+        v19 = *(char **)(v1 + 48);
+        if ( *(_QWORD *)&v19[v25] )
+        {
+          v4 = &v19[v24] == 0LL;
+          v26 = &v19[v24];
+          *(_QWORD *)&SourceString.Length = 0LL;
+          SourceString.Buffer = v26;
+          if ( !v4 )
+          {
+            v27 = strlen(v26);
+            if ( v27 > 0xFFFE )
+            {
+              CurrentPatch = -1073741562;
+              break;
+            }
+            SourceString.Length = v27;
+            SourceString.MaximumLength = v27 + 1;
+          }
+          CurrentPatch = LdrpLoadDependentModuleA(
+                           &SourceString,
+                           a1,
+                           v1,
+                           0,
+                           (_QWORD *)(*(_QWORD *)(a1 + 88) + 8LL * v22),
+                           (__int64)&OutHeaders);
+          if ( CurrentPatch < 0 )
+            break;
+        }
+        ++v22;
       }
-      v23 += 5;
-      ++v22;
-      LOBYTE(Heap_0) = (_BYTE)v23 - 16;
     }
-    while ( v23 != (unsigned int *)16 );
-  }
-  v3 = v31[0];
-  if ( v31[0] )
-  {
-    v38[1] = 0;
-    memset_thunk_772440563353939046(v41, 0, 0xFEuLL);
-    v38[0] = 0x1000000;
-    v39 = &v40;
-    v40 = 0;
-    LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrsnap.c",
-      1829,
-      (__int64)"LdrpLoadDependentModuleW",
-      2,
-      "Loading a patch image.\n");
-    DependentModuleInternal = LdrpLoadDependentModuleInternal(
-                                (char)v38,
-                                a1,
-                                v2,
-                                9,
-                                (__int64 *)(a1 + 96),
-                                (__int64 *)&ProcessInformation);
-    if ( DependentModuleInternal < 0 )
+    v2 = v32[0];
+    if ( v32[0] )
     {
-      *(_QWORD *)(a1 + 96) = 0LL;
-      **(_DWORD **)(a1 + 40) = DependentModuleInternal;
-    }
-    if ( &v40 != v39 )
-      RtlFreeHeap_0();
-    v38[0] = 0x1000000;
-    Heap_0 = (size_t)&v40;
-    v39 = &v40;
-    v40 = 0;
-    if ( DependentModuleInternal < 0 )
-      LOBYTE(Heap_0) = LdrpLogEtwHotPatchStatus(
-                         (unsigned __int16 *)(LdrpImageEntry + 88),
-                         v2,
-                         (unsigned __int16 *)(v2 + 72),
-                         DependentModuleInternal,
-                         5);
-    v3 = v31[0];
-  }
-  if ( ProcessInformation )
-    LOBYTE(Heap_0) = RtlFreeHeap_0();
-  if ( DependentModuleInternal >= 0 )
-  {
-    v26 = NtCurrentTeb();
-    SchedulerSharedDataSlot = (char *)v26->SchedulerSharedDataSlot;
-    if ( SchedulerSharedDataSlot )
-    {
-      v28 = v26->SchedulerSharedDataSlot;
-      while ( *v28 )
+      v39[1] = 0;
+      memset_thunk_772440563353939046(v42, 0, 0xFEuLL);
+      v39[0] = 0x1000000;
+      v40 = &v41;
+      v41 = 0;
+      LdrpLogInternal(
+        "minkernel\\ldr\\ldrsnap.c",
+        1829,
+        (__int64)"LdrpLoadDependentModuleW",
+        2,
+        "Loading a patch image.\n");
+      CurrentPatch = LdrpLoadDependentModuleInternal((__int64)v39, a1, v1, 9, (PVOID *)(a1 + 96), &OutHeaders);
+      if ( CurrentPatch < 0 )
       {
-        ++v4;
-        ++v28;
-        if ( v4 >= 8 )
-          goto LABEL_105;
+        *(_QWORD *)(a1 + 96) = 0LL;
+        **(_DWORD **)(a1 + 40) = CurrentPatch;
       }
-      v20 = &SchedulerSharedDataSlot[8 * v4];
-      if ( v20 )
-        *(_QWORD *)v20 = &LdrpModuleDatatableLock;
+      if ( &v41 != v40 )
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v40);
+      v39[0] = 0x1000000;
+      v40 = &v41;
+      v41 = 0;
+      if ( CurrentPatch < 0 )
+        LdrpLogEtwHotPatchStatus(
+          (unsigned __int16 *)(LdrpImageEntry + 88),
+          v1,
+          (unsigned __int16 *)(v1 + 72),
+          CurrentPatch,
+          5);
+      v2 = v32[0];
     }
+    if ( OutHeaders )
+      RtlFreeHeap_0(LdrpHeap, 0, OutHeaders);
+    if ( CurrentPatch >= 0 )
+    {
+      v28 = NtCurrentTeb();
+      SchedulerSharedDataSlot = (char *)v28->SchedulerSharedDataSlot;
+      if ( SchedulerSharedDataSlot )
+      {
+        v30 = v28->SchedulerSharedDataSlot;
+        while ( *v30 )
+        {
+          ++v3;
+          ++v30;
+          if ( v3 >= 8 )
+            goto LABEL_105;
+        }
+        v19 = &SchedulerSharedDataSlot[8 * v3];
+        if ( v19 )
+          *(_QWORD *)v19 = &LdrpModuleDatatableLock;
+      }
 LABEL_105:
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&LdrpModuleDatatableLock, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(&LdrpModuleDatatableLock, (__int64)v20);
-    v13 = *(_DWORD *)(a1 + 108) - 1;
-    *(_DWORD *)(a1 + 108) = v13;
-    LOBYTE(Heap_0) = (unsigned __int8)RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-  }
+      if ( _interlockedbittestandset64((volatile signed __int32 *)&LdrpModuleDatatableLock, 0LL) )
+        RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)&LdrpModuleDatatableLock, (unsigned __int64)v19);
+      v11 = *(_DWORD *)(a1 + 108) - 1;
+      *(_DWORD *)(a1 + 108) = v11;
+      RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+    }
 LABEL_66:
-  v21 = *(_QWORD *)(a1 + 112);
-  if ( !v21 && v3 )
-  {
-    Heap_0 = *(_QWORD *)(v2 + 152);
+    v20 = *(_QWORD *)(a1 + 112);
+    if ( !v20 && v2 )
+    {
+      v21 = *(_QWORD *)(v1 + 152);
 LABEL_69:
-    *(_DWORD *)(Heap_0 + 56) = 5;
-    goto LABEL_70;
-  }
-  if ( !v13 )
-  {
-    Heap_0 = *(_QWORD *)(v2 + 152);
-    if ( !v21 )
-      goto LABEL_69;
-    *(_DWORD *)(Heap_0 + 56) = 4;
-    if ( *(_QWORD *)(a1 + 48) )
-    {
-      LOBYTE(Heap_0) = (unsigned __int8)LdrpQueueWork(a1);
+      *(_DWORD *)(v21 + 56) = 5;
+      goto LABEL_70;
     }
-    else
+    if ( !v11 )
     {
-      LODWORD(Heap_0) = LdrpSnapModule(a1);
-      DependentModuleInternal = Heap_0;
+      v21 = *(_QWORD *)(v1 + 152);
+      if ( !v20 )
+        goto LABEL_69;
+      *(_DWORD *)(v21 + 56) = 4;
+      if ( *(_QWORD *)(a1 + 48) )
+        LdrpQueueWork(a1);
+      else
+        CurrentPatch = LdrpSnapModule(a1);
     }
-  }
 LABEL_70:
-  if ( DependentModuleInternal < 0 )
+    if ( CurrentPatch >= 0 )
+      return;
     goto LABEL_71;
-  return Heap_0;
+  }
+  LdrpLogInternal(
+    "minkernel\\ldr\\ldrsnap.c",
+    772,
+    (__int64)"LdrpFindDllActivationContext",
+    0,
+    "Querying the active activation context failed with status 0x%08lx\n",
+    CurrentPatch);
+LABEL_71:
+  **(_DWORD **)(a1 + 40) = CurrentPatch;
 }

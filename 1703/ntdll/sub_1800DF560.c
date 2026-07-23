@@ -8,8 +8,28 @@
  *     ZwTraceEvent @ 0x1800A5EB0 (ZwTraceEvent.c)
  */
 
-__int64 sub_1800DF560()
+NTSTATUS __fastcall sub_1800DF560(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, int a6)
 {
-  RtlGetCurrentServiceSessionId();
-  return ZwTraceEvent();
+  __int64 v6; // rcx
+  _BYTE Fields[6]; // [rsp+30h] [rbp-19h] BYREF
+  __int16 v9; // [rsp+36h] [rbp-13h]
+  __int64 v10; // [rsp+50h] [rbp+7h]
+  __int64 v11; // [rsp+58h] [rbp+Fh]
+  __int64 v12; // [rsp+60h] [rbp+17h]
+  __int64 v13; // [rsp+68h] [rbp+1Fh]
+  int v14; // [rsp+70h] [rbp+27h]
+  int v15; // [rsp+74h] [rbp+2Bh]
+
+  v9 = 3361;
+  v10 = a1;
+  v15 = a6;
+  v11 = a2;
+  v12 = a3;
+  v14 = a4;
+  v13 = a5;
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[7];
+  else
+    v6 = 2147353486LL;
+  return ZwTraceEvent((HANDLE)*(unsigned __int8 *)v6, 0x20402u, 0x28u, Fields);
 }

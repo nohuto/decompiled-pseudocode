@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeCrossPartitionSectionCharges @ 0x140531EA8
+ * XREFs of MiComputeCrossPartitionSectionCharges @ 0x140534348
  * Callers:
- *     MiRemoveViewsFromSection @ 0x14036D750 (MiRemoveViewsFromSection.c)
- *     MiUnmapViewSubsections @ 0x14036D950 (MiUnmapViewSubsections.c)
- *     MiDecrementSubsections @ 0x14036E360 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x14045ED08 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiReleaseControlAreaCharges @ 0x1404808D0 (MiReleaseControlAreaCharges.c)
+ *     MiRemoveViewsFromSection @ 0x14036F4F0 (MiRemoveViewsFromSection.c)
+ *     MiUnmapViewSubsections @ 0x14036F6F0 (MiUnmapViewSubsections.c)
+ *     MiDecrementSubsections @ 0x140370100 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x140458404 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiReleaseControlAreaCharges @ 0x14047A210 (MiReleaseControlAreaCharges.c)
  * Callees:
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
  */
 
 __int64 __fastcall MiComputeCrossPartitionSectionCharges(__int64 *a1)

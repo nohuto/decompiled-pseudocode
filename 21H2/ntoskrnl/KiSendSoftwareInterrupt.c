@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSendSoftwareInterrupt @ 0x140293DEC
+ * XREFs of KiSendSoftwareInterrupt @ 0x140211D5C
  * Callers:
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     KiSignalThreadForApc @ 0x14027A6C0 (KiSignalThreadForApc.c)
- *     KiRequestTimer2Expiration @ 0x140293D24 (KiRequestTimer2Expiration.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x1402AAFD4 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiApplyForegroundBoostThread @ 0x1402EA08C (KiApplyForegroundBoostThread.c)
- *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C61EC (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetSelectedCpuSetsThread @ 0x14051CBE0 (KeSetSelectedCpuSetsThread.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FFF0 (KiSendHeteroRescheduleIntRequestHelper.c)
- *     KiSetHeteroPolicyThread @ 0x140520364 (KiSetHeteroPolicyThread.c)
+ *     KiRequestTimer2Expiration @ 0x140211C94 (KiRequestTimer2Expiration.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140229114 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiSignalThreadForApc @ 0x140268660 (KiSignalThreadForApc.c)
+ *     KiApplyForegroundBoostThread @ 0x14029B3DC (KiApplyForegroundBoostThread.c)
+ *     KiSetAffinityThread @ 0x14029D724 (KiSetAffinityThread.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C638C (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CE20 (KeSetSelectedCpuSetsThread.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x140520230 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiSetHeteroPolicyThread @ 0x1405205A4 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     HalSendSoftwareInterrupt @ 0x140293E10 (HalSendSoftwareInterrupt.c)
+ *     HalSendSoftwareInterrupt @ 0x140211D80 (HalSendSoftwareInterrupt.c)
  */
 
 __int64 KiSendSoftwareInterrupt()

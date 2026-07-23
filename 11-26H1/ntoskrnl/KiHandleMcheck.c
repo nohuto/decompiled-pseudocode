@@ -1,10 +1,10 @@
 /*
- * XREFs of KiHandleMcheck @ 0x1405EBA00
+ * XREFs of KiHandleMcheck @ 0x1405EE370
  * Callers:
- *     KxMcheckAbort @ 0x140738700 (KxMcheckAbort.c)
+ *     KxMcheckAbort @ 0x14073D300 (KxMcheckAbort.c)
  * Callees:
- *     HalHandleMcheck @ 0x14057E0B0 (HalHandleMcheck.c)
- *     KiFlushCurrentRsb @ 0x14073D180 (KiFlushCurrentRsb.c)
+ *     HalHandleMcheck @ 0x1405805D0 (HalHandleMcheck.c)
+ *     KiFlushCurrentRsb @ 0x140741D80 (KiFlushCurrentRsb.c)
  */
 
 __int64 __fastcall KiHandleMcheck(__int64 a1, __int64 a2, int *a3)

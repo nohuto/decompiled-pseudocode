@@ -125,13 +125,13 @@ NTSTATUS __stdcall NtGetWriteWatch(
   struct _KTHREAD *v76; // rsi
   signed __int64 v77; // rax
   struct _KTHREAD *v78; // rbx
-  _KLOCK_ENTRY *v79; // rdx
   unsigned int SessionId; // r10d
-  unsigned __int8 v81; // r12
-  _KLOCK_ENTRY *v82; // rdi
-  unsigned int v83; // r8d
+  unsigned __int8 v80; // r12
+  _KLOCK_ENTRY *v81; // rdi
+  unsigned int v82; // r8d
+  __int64 v83; // rcx
   __int64 v84; // rcx
-  __int64 v85; // rcx
+  _KLOCK_ENTRY *v85; // rdx
   unsigned __int8 v86; // al
   _BYTE *v87; // rdi
   unsigned __int64 v88; // rsi
@@ -875,46 +875,46 @@ LABEL_127:
     else
       SessionId = -1;
     --v78->SpecialApcDisable;
-    v81 = ++v78->AbAllocationRegionCount;
-    v82 = 0LL;
-    v83 = ((char)v78->AbEntrySummary | (char)v78->AbOrphanedEntrySummary) ^ 0x3F;
-    v64 = !_BitScanReverse((unsigned int *)&v84, v83);
-    v126 = v84;
+    v80 = ++v78->AbAllocationRegionCount;
+    v81 = 0LL;
+    v82 = ((char)v78->AbEntrySummary | (char)v78->AbOrphanedEntrySummary) ^ 0x3F;
+    v64 = !_BitScanReverse((unsigned int *)&v83, v82);
+    v126 = v83;
     if ( !v64 )
     {
       while ( 1 )
       {
-        v83 &= ~(1 << v84);
-        v85 = v84;
-        v79 = &v78->LockEntries[v85];
-        if ( (v79->AcquiredByte & 1) != 0
-          && (*(_DWORD *)&v79->LockState.0 & 1) == 0
-          && (*(_QWORD *)&v79->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)(v74 + 40) & 0x7FFFFFFFFFFFFFFCLL)
-          && v79->LockState.SessionId == SessionId )
+        v82 &= ~(1 << v83);
+        v84 = v83;
+        v85 = &v78->LockEntries[v84];
+        if ( (v85->AcquiredByte & 1) != 0
+          && (*(_DWORD *)&v85->LockState.0 & 1) == 0
+          && (*(_QWORD *)&v85->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)(v74 + 40) & 0x7FFFFFFFFFFFFFFCLL)
+          && v85->LockState.SessionId == SessionId )
         {
-          v79->AcquiredByte &= ~1u;
-          if ( v79->LockState.0 )
+          v85->AcquiredByte &= ~1u;
+          if ( v85->LockState.0 )
             break;
         }
-        v64 = !_BitScanReverse((unsigned int *)&v84, v83);
-        v126 = v84;
+        v64 = !_BitScanReverse((unsigned int *)&v83, v82);
+        v126 = v83;
         if ( v64 )
           goto LABEL_141;
       }
-      v82 = &v78->LockEntries[v85];
+      v81 = &v78->LockEntries[v84];
     }
 LABEL_141:
-    if ( v82 )
+    if ( v81 )
     {
-      v82->CrossThreadReleasableAndBusyByte |= 2u;
-      if ( (__int64)v82->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(v82, v79);
-      v115 = v82->BoostBitmap.AllFields & 0x1FFFF;
-      v82->BoostBitmap.AllFields &= 0xFFFE0000;
-      v82->ThreadLocalFlags &= ~1u;
-      v82->LockState.0 = 0LL;
-      v86 = 1 << (((char *)v82 - (char *)v78 - 800) / 96);
-      if ( v81 == 1 )
+      v81->CrossThreadReleasableAndBusyByte |= 2u;
+      if ( (__int64)v81->LockState.LockState < 0 )
+        KiAbEntryRemoveFromTree(&v81->TreeNode);
+      v115 = v81->BoostBitmap.AllFields & 0x1FFFF;
+      v81->BoostBitmap.AllFields &= 0xFFFE0000;
+      v81->ThreadLocalFlags &= ~1u;
+      v81->LockState.0 = 0LL;
+      v86 = 1 << (((char *)v81 - (char *)v78 - 800) / 96);
+      if ( v80 == 1 )
         v78->AbEntrySummary |= v86;
       else
         _InterlockedOr8((volatile signed __int8 *)&v78->AbOrphanedEntrySummary, v86);

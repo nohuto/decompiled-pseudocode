@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpAllocateResources @ 0x1404C82A4
+ * XREFs of PnpAllocateResources @ 0x14050B1A0
  * Callers:
- *     PnpAssignResourcesToDevices @ 0x1404C8194 (PnpAssignResourcesToDevices.c)
- *     IopLegacyResourceAllocation @ 0x1405549AC (IopLegacyResourceAllocation.c)
+ *     PnpAssignResourcesToDevices @ 0x14050B090 (PnpAssignResourcesToDevices.c)
+ *     IopLegacyResourceAllocation @ 0x140554EEC (IopLegacyResourceAllocation.c)
  * Callees:
- *     KeReleaseSemaphore @ 0x1400529B0 (KeReleaseSemaphore.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x1404C866C (PnpGetResourceRequirementsForAssignTable.c)
- *     IopCommitConfiguration @ 0x14055593C (IopCommitConfiguration.c)
- *     PnpBuildCmResourceLists @ 0x140555BD8 (PnpBuildCmResourceLists.c)
- *     PnpFindBestConfiguration @ 0x140555DBC (PnpFindBestConfiguration.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x1405560E4 (PnpFreeResourceRequirementsForAssignTable.c)
- *     IopReleaseFilteredBootResources @ 0x14055B33C (IopReleaseFilteredBootResources.c)
- *     PnpRebalance @ 0x1406303D0 (PnpRebalance.c)
+ *     KeReleaseSemaphore @ 0x140052530 (KeReleaseSemaphore.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14050D06C (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopCommitConfiguration @ 0x140555E7C (IopCommitConfiguration.c)
+ *     PnpBuildCmResourceLists @ 0x140556118 (PnpBuildCmResourceLists.c)
+ *     PnpFindBestConfiguration @ 0x1405562FC (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140556624 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopReleaseFilteredBootResources @ 0x14055B87C (IopReleaseFilteredBootResources.c)
+ *     PnpRebalance @ 0x140630484 (PnpRebalance.c)
  */
 
 __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, int a3, _DWORD *a4)

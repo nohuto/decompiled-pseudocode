@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlLookupFunctionTable @ 0x18004B210
+ * XREFs of RtlLookupFunctionTable @ 0x180035790
  * Callers:
  *     <none>
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x18004B2A0 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x180035820 (RtlpxLookupFunctionTable.c)
  */
 
-__int64 __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall RtlLookupFunctionTable(void *a1, _QWORD *a2, _DWORD *a3)
 {
   __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-18h]
+  __int128 v6; // [rsp+20h] [rbp-28h]
+  int v7; // [rsp+34h] [rbp-14h]
 
-  v7 = 0LL;
+  v7 = 0;
   v6 = 0LL;
-  if ( a1 < *((_QWORD *)&xmmword_1801E0450 + 1)
-    || a1 >= *((_QWORD *)&xmmword_1801E0450 + 1) + (unsigned __int64)(unsigned int)qword_1801E0460 )
+  if ( (unsigned __int64)a1 < *((_QWORD *)&xmmword_1801DF450 + 1)
+    || (unsigned __int64)a1 >= *((_QWORD *)&xmmword_1801DF450 + 1) + (unsigned __int64)(unsigned int)qword_1801DF460 )
   {
-    result = RtlpxLookupFunctionTable(a1, &v6);
+    result = RtlpxLookupFunctionTable(a1);
   }
   else
   {
-    result = xmmword_1801E0450;
-    v6 = xmmword_1801E0450;
-    v7 = qword_1801E0460;
+    *((_QWORD *)&v6 + 1) = *((_QWORD *)&xmmword_1801DF450 + 1);
+    result = xmmword_1801DF450;
+    v7 = HIDWORD(qword_1801DF460);
   }
   if ( result )
   {
     *a2 = *((_QWORD *)&v6 + 1);
-    *a3 = HIDWORD(v7);
+    *a3 = v7;
   }
   return result;
 }

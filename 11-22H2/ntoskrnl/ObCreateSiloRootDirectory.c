@@ -90,7 +90,7 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
         ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
         ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 592;
-        SilosRootDirectory = ZwCreateDirectoryObjectEx((__int64)&Handle, 983055LL);
+        SilosRootDirectory = ZwCreateDirectoryObjectEx(&Handle, 0xF000Fu, &ObjectAttributes, DirectoryHandle, 0);
         if ( SilosRootDirectory >= 0 )
         {
           Object = 0LL;

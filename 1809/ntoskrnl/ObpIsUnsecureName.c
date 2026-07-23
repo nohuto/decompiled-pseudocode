@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpIsUnsecureName @ 0x140860C14
+ * XREFs of ObpIsUnsecureName @ 0x140861E74
  * Callers:
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
  */
 
 char __fastcall ObpIsUnsecureName(PCUNICODE_STRING String2, BOOLEAN a2)

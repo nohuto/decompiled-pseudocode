@@ -4,11 +4,11 @@
  *     PopWakeDeviceList @ 0x1403CF194 (PopWakeDeviceList.c)
  *     PopSleepDeviceList @ 0x1403CF2F0 (PopSleepDeviceList.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     PopMapInternalActionToIrpAction @ 0x1401144F0 (PopMapInternalActionToIrpAction.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x14011450C (PoFxActivateDeviceForSystemTransition.c)
- *     PopAllocateIrp @ 0x14012AD80 (PopAllocateIrp.c)
- *     PopLogNotifyDevice @ 0x1402073C8 (PopLogNotifyDevice.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     PopMapInternalActionToIrpAction @ 0x140114A60 (PopMapInternalActionToIrpAction.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x140114A7C (PoFxActivateDeviceForSystemTransition.c)
+ *     PopAllocateIrp @ 0x14012B2F0 (PopAllocateIrp.c)
+ *     PopLogNotifyDevice @ 0x1402071F4 (PopLogNotifyDevice.c)
  */
 
 void __fastcall PopNotifyDevice(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ void __fastcall PopNotifyDevice(__int64 a1, __int64 a2)
   PIRP Irp; // [rsp+98h] [rbp+10h] BYREF
 
   v4 = *(_BYTE *)(a1 + 456) || **(_QWORD **)(a1 + 56) != *(_QWORD *)(a2 + 64);
-  v7 = PopMapInternalActionToIrpAction(qword_1403033E8, *(_DWORD *)(a1 + 4), v4);
+  v7 = PopMapInternalActionToIrpAction(qword_140303328, *(_DWORD *)(a1 + 4), v4);
   if ( v7 == 7 && *v6 == *(_QWORD *)(a2 + 64) && *(_BYTE *)a1 == 2 )
     *v6 = 0LL;
   v8 = *(_DWORD *)(a1 + 4);

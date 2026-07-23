@@ -1,13 +1,13 @@
 /*
- * XREFs of HalEfiResetSystem @ 0x140586B0C
+ * XREFs of HalEfiResetSystem @ 0x14058902C
  * Callers:
- *     HalpPowerWriteResetCommand @ 0x14057F824 (HalpPowerWriteResetCommand.c)
- *     HalpShutdown @ 0x14057FA90 (HalpShutdown.c)
+ *     HalpPowerWriteResetCommand @ 0x140581D44 (HalpPowerWriteResetCommand.c)
+ *     HalpShutdown @ 0x140581FB0 (HalpShutdown.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     HalpEfiStartRuntimeCode @ 0x140472300 (HalpEfiStartRuntimeCode.c)
- *     HalpEfiIncrementEfiCall @ 0x14048F3D0 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiDecrementEfiCall @ 0x1404AC694 (HalpEfiDecrementEfiCall.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     HalpEfiStartRuntimeCode @ 0x14046BA80 (HalpEfiStartRuntimeCode.c)
+ *     HalpEfiIncrementEfiCall @ 0x140488E18 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiDecrementEfiCall @ 0x1404A5D24 (HalpEfiDecrementEfiCall.c)
  */
 
 __int64 *HalEfiResetSystem()
@@ -20,13 +20,13 @@ __int64 *HalEfiResetSystem()
   if ( HalEfiRuntimeServicesTable && HalEfiRuntimeServicesTable[2] )
   {
     v1 = HalpDisableInterrupts();
-    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.Spare26);
-    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount);
+    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount + 1);
+    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount);
     HalpEfiStartRuntimeCode(4u);
     ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))HalEfiRuntimeServicesTable[2])(v2, 0LL, 0LL, 0LL);
     _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFFB);
-    HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount);
-    result = (__int64 *)HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.Spare26);
+    HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount);
+    result = (__int64 *)HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount + 1);
     if ( v1 )
       _enable();
   }

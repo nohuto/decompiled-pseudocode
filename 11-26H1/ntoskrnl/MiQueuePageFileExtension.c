@@ -1,16 +1,16 @@
 /*
- * XREFs of MiQueuePageFileExtension @ 0x1404E6668
+ * XREFs of MiQueuePageFileExtension @ 0x1404DFC08
  * Callers:
- *     MiIssuePageExtendRequest @ 0x1404A4ED0 (MiIssuePageExtendRequest.c)
- *     MiContractPagingFiles @ 0x1404E8970 (MiContractPagingFiles.c)
- *     MiContractWsSwapPageFileWorker @ 0x140704250 (MiContractWsSwapPageFileWorker.c)
- *     MiUpdateExistingPageFile @ 0x14086C380 (MiUpdateExistingPageFile.c)
+ *     MiIssuePageExtendRequest @ 0x14049E560 (MiIssuePageExtendRequest.c)
+ *     MiContractPagingFiles @ 0x1404E1D30 (MiContractPagingFiles.c)
+ *     MiContractWsSwapPageFileWorker @ 0x140708F20 (MiContractWsSwapPageFileWorker.c)
+ *     MiUpdateExistingPageFile @ 0x140872760 (MiUpdateExistingPageFile.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 LONG __fastcall MiQueuePageFileExtension(__int64 a1, KIRQL a2)

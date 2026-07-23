@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEstimateIdleDuration @ 0x1405659D4
+ * XREFs of PpmEstimateIdleDuration @ 0x140565C14
  * Callers:
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     PpmGetIdleConstrainedMask @ 0x1403907C0 (PpmGetIdleConstrainedMask.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeEstimateClockTickDuration @ 0x140513BA0 (KeEstimateClockTickDuration.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     PpmGetIdleConstrainedMask @ 0x140390910 (PpmGetIdleConstrainedMask.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeEstimateClockTickDuration @ 0x140513DE0 (KeEstimateClockTickDuration.c)
  */
 
 unsigned __int64 *__fastcall PpmEstimateIdleDuration(
@@ -30,7 +30,7 @@ unsigned __int64 *__fastcall PpmEstimateIdleDuration(
   unsigned int v18; // ecx
   unsigned int i; // eax
   unsigned __int64 v20; // rbx
-  unsigned int v21; // eax
+  ULONG v21; // eax
   unsigned __int64 v22; // rsi
   __int64 Prcb; // rax
   unsigned __int64 v24; // rcx

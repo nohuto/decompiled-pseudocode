@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDereferencePassiveInterruptBlock @ 0x1401CD9FC
+ * XREFs of IopDereferencePassiveInterruptBlock @ 0x1401CD848
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1401CDB94 (IopPassiveInterruptWorker.c)
- *     IopDestroyPassiveInterruptBlock @ 0x14062D190 (IopDestroyPassiveInterruptBlock.c)
+ *     IopPassiveInterruptWorker @ 0x1401CD9E0 (IopPassiveInterruptWorker.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x14062D244 (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1401CD9E0 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     IopReleaseGlobalPassiveInterruptListLock @ 0x1401CDCA4 (IopReleaseGlobalPassiveInterruptListLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x1401CD82C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopReleaseGlobalPassiveInterruptListLock @ 0x1401CDAF0 (IopReleaseGlobalPassiveInterruptListLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

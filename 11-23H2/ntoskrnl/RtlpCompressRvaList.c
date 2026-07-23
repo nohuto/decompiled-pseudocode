@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCompressRvaList @ 0x1406B1D00
+ * XREFs of RtlpCompressRvaList @ 0x1406B1D30
  * Callers:
  *     RtlCreateRvaList @ 0x1406A7CA0 (RtlCreateRvaList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlpSetRvaListRvaStateBits @ 0x1407CDA78 (RtlpSetRvaListRvaStateBits.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlpSetRvaListRvaStateBits @ 0x1407CDD48 (RtlpSetRvaListRvaStateBits.c)
  */
 
 __int64 __fastcall RtlpCompressRvaList(

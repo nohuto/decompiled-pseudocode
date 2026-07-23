@@ -71,10 +71,10 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__int6
       }
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -113,10 +113,10 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__int6
         }
         *v24 = *(_DWORD *)v24 & 7 | (unsigned __int64)(8 * v23);
         ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v25 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v25 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v25 >= 2u )
           {
             v26 = KeGetCurrentPrcb();
             v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v22 + 1));

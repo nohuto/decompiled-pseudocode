@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlpExtendListLookup @ 0x18007DDA4
+ * XREFs of RtlpExtendListLookup @ 0x18006CE74
  * Callers:
- *     RtlpActivateLowFragmentationHeap @ 0x18007DF18 (RtlpActivateLowFragmentationHeap.c)
+ *     RtlpActivateLowFragmentationHeap @ 0x18006C604 (RtlpActivateLowFragmentationHeap.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpPopulateListIndex @ 0x18007E1BC (RtlpPopulateListIndex.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpPopulateListIndex @ 0x18006C8A8 (RtlpPopulateListIndex.c)
  */
 
-void __fastcall RtlpExtendListLookup(__int64 a1, __int64 a2)
+void __fastcall RtlpExtendListLookup(__int64 *HeapHandle, __int64 a2)
 {
-  unsigned int v4; // ebp
-  __int64 Heap_0; // rax
+  unsigned __int64 v4; // rbp
+  _DWORD *Heap_0; // rax
 
   if ( !*(_QWORD *)a2 )
   {
     v4 = (1055 - *(_DWORD *)(a2 + 8)) & 0xFFFFFFE0;
-    Heap_0 = RtlAllocateHeap_0();
+    Heap_0 = RtlAllocateHeap_0(HeapHandle, 0x80000Au, v4 * (*(_DWORD *)(a2 + 12) != 0 ? 16LL : 8LL) + (v4 >> 3) + 56);
     if ( Heap_0 )
     {
-      *(_BYTE *)(Heap_0 - 1) = 1;
-      *(_DWORD *)(Heap_0 + 8) = v4 + *(_DWORD *)(a2 + 8);
-      *(_DWORD *)(Heap_0 + 24) = *(_DWORD *)(a2 + 8);
-      *(_DWORD *)(Heap_0 + 12) = *(_DWORD *)(a2 + 12);
-      *(_QWORD *)(Heap_0 + 40) = Heap_0 + 56;
-      *(_QWORD *)(Heap_0 + 48) = Heap_0 + ((unsigned __int64)v4 >> 3) + 56;
-      *(_QWORD *)(Heap_0 + 32) = *(_QWORD *)(a2 + 32);
+      *((_BYTE *)Heap_0 - 1) = 1;
+      Heap_0[2] = v4 + *(_DWORD *)(a2 + 8);
+      Heap_0[6] = *(_DWORD *)(a2 + 8);
+      Heap_0[3] = *(_DWORD *)(a2 + 12);
+      *((_QWORD *)Heap_0 + 5) = Heap_0 + 14;
+      *((_QWORD *)Heap_0 + 6) = (char *)Heap_0 + (v4 >> 3) + 56;
+      *((_QWORD *)Heap_0 + 4) = *(_QWORD *)(a2 + 32);
       *(_QWORD *)a2 = Heap_0;
-      RtlpPopulateListIndex(a1, *(_QWORD *)(a1 + 312));
+      RtlpPopulateListIndex((unsigned __int64)HeapHandle, HeapHandle[39]);
     }
   }
 }

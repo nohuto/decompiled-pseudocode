@@ -17,49 +17,56 @@
 
 __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
 {
-  int v1; // esi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v4; // edi
-  unsigned int v5; // esi
-  int v6; // r15d
+  unsigned int v3; // edi
+  int v4; // r15d
   int UserThread; // eax
+  HANDLE v6; // rsi
+  int v8; // [rsp+38h] [rbp-19h]
+  __int64 v9[2]; // [rsp+68h] [rbp+17h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+78h] [rbp+27h] BYREF
+  HANDLE ThreadHandle; // [rsp+B8h] [rbp+67h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 408);
+  ThreadHandle = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   CurrentThread = KeGetCurrentThread();
-  v4 = 128;
+  v3 = 128;
+  *(_OWORD *)v9 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v5 = (v1 & 0x800 | 0x80u) >> 7;
   if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 104)) )
   {
     KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
     if ( !*(_BYTE *)(*(_QWORD *)(a1 + 16) + 33LL) )
     {
       ++*(_DWORD *)(a1 + 392);
-      v6 = *(_DWORD *)(a1 + 408);
+      v4 = *(_DWORD *)(a1 + 408);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      UserThread = RtlpCreateUserThreadEx(*(_QWORD *)(a1 + 40), 0, v5, 0, *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64));
+      UserThread = RtlpCreateUserThreadEx(
+                     *(HANDLE *)(a1 + 40),
+                     *(_QWORD *)(a1 + 56),
+                     *(_QWORD *)(a1 + 64),
+                     v8,
+                     *(PUSER_THREAD_START_ROUTINE *)(a1 + 24),
+                     *(PVOID *)(a1 + 32),
+                     (__int64)&ThreadHandle,
+                     (__int64)v9);
       *(_DWORD *)(a1 + 416) = UserThread;
-      v4 = UserThread;
+      v3 = UserThread;
       if ( UserThread >= 0 )
       {
-        if ( (v6 & 0x8000) == 0 )
+        if ( (v4 & 0x8000) == 0 )
         {
           KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
           *(_DWORD *)(a1 + 408) |= 0x8000u;
           KeReleaseInStackQueuedSpinLock(&LockHandle);
         }
+        v6 = ThreadHandle;
         if ( *(_DWORD *)(a1 + 412) )
-          ZwSetInformationThread(0LL, ThreadBasePriority, (PVOID)(a1 + 412), 4u);
+          ZwSetInformationThread(ThreadHandle, ThreadBasePriority, (PVOID)(a1 + 412), 4u);
         if ( (*(_DWORD *)(a1 + 408) & 0x4000) != 0 )
-          ZwSetInformationThread(
-            0LL,
-            ThreadSuspendCount|ThreadAffinityMask,
-            (PVOID)(a1 + 120),
-            8 * (unsigned __int16)KiActiveGroups);
-        v4 = ZwResumeThread(0LL, 0LL);
-        ObCloseHandle(0LL, 0);
+          ZwSetInformationThread(v6, ThreadSelectedCpuSets, (PVOID)(a1 + 120), 8 * (unsigned __int16)KiActiveGroups);
+        v3 = ZwResumeThread(v6, 0LL);
+        ObCloseHandle(v6, 0);
         goto LABEL_11;
       }
       KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
@@ -70,5 +77,5 @@ LABEL_11:
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 104));
   }
   KeLeaveCriticalRegion();
-  return v4;
+  return v3;
 }

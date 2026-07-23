@@ -22,9 +22,9 @@ __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
   int v3; // r9d
   __int64 v4; // rdx
   int v6; // ecx
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   int v8; // ecx
-  int v9; // ebx
+  ULONG v9; // ebx
   int v10; // r14d
   void *NextSession; // rax
   __int128 v12; // [rsp+20h] [rbp-20h] BYREF

@@ -1,5 +1,5 @@
 /*
- * XREFs of IntpProcessorCompareEfficiencyClass @ 0x140D025E0
+ * XREFs of IntpProcessorCompareEfficiencyClass @ 0x140D08980
  * Callers:
  *     <none>
  * Callees:

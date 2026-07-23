@@ -4,34 +4,34 @@
  *     RtlNtPathNameToDosPathName @ 0x180001B80 (RtlNtPathNameToDosPathName.c)
  *     RtlpDosPathNameToRelativeNtPathName @ 0x18000D640 (RtlpDosPathNameToRelativeNtPathName.c)
  *     RtlpDetermineDosPathNameType4 @ 0x180071CF4 (RtlpDetermineDosPathNameType4.c)
- *     RtlpProcessIFEOKeyFilter @ 0x18007948C (RtlpProcessIFEOKeyFilter.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x18007949C (RtlpProcessIFEOKeyFilter.c)
  *     LdrpFindOrPrepareEnclaveModule @ 0x1800CF658 (LdrpFindOrPrepareEnclaveModule.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlPrefixUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  char *v3; // r9
-  char *v4; // r10
-  __int64 v5; // r11
+  wchar_t *Buffer; // r9
+  wchar_t *v4; // r10
+  char *v5; // r11
   unsigned __int64 v6; // r8
   unsigned __int64 v7; // rdx
-  __int64 v9; // rcx
+  char *v9; // rcx
 
-  v3 = (char *)*((_QWORD *)a1 + 1);
-  if ( *(_WORD *)a2 >= *a1 )
+  Buffer = String1->Buffer;
+  if ( String2->Length >= String1->Length )
   {
-    v4 = &v3[*a1];
-    if ( a3 )
+    v4 = (wchar_t *)((char *)Buffer + String1->Length);
+    if ( CaseInSensitive )
     {
-      if ( v3 < v4 )
+      if ( Buffer < v4 )
       {
-        v5 = *(_QWORD *)(a2 + 8) - (_QWORD)v3;
+        v5 = (char *)((char *)String2->Buffer - (char *)Buffer);
         while ( 1 )
         {
-          v6 = *(unsigned __int16 *)v3;
-          v7 = *(unsigned __int16 *)&v3[v5];
+          v6 = *Buffer;
+          v7 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v5);
           if ( (_DWORD)v6 != (_DWORD)v7 )
           {
             if ( (unsigned int)v6 >= 0x61 )
@@ -65,20 +65,18 @@ char __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3
             if ( (_DWORD)v6 != (_DWORD)v7 )
               break;
           }
-          v3 += 2;
-          if ( v3 >= v4 )
+          if ( ++Buffer >= v4 )
             return 1;
         }
         return 0;
       }
     }
-    else if ( v3 < v4 )
+    else if ( Buffer < v4 )
     {
-      v9 = *(_QWORD *)(a2 + 8) - (_QWORD)v3;
-      while ( *(_WORD *)v3 == *(_WORD *)&v3[v9] )
+      v9 = (char *)((char *)String2->Buffer - (char *)Buffer);
+      while ( *Buffer == *(wchar_t *)((char *)Buffer + (_QWORD)v9) )
       {
-        v3 += 2;
-        if ( v3 >= v4 )
+        if ( ++Buffer >= v4 )
           return 1;
       }
       return 0;

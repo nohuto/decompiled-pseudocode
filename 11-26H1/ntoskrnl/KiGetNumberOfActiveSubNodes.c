@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetNumberOfActiveSubNodes @ 0x1403EDDC0
+ * XREFs of KiGetNumberOfActiveSubNodes @ 0x1404528F0
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x1403ED9F4 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x140452524 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     KeEnumerateNextNodeInSystem @ 0x1403EE250 (KeEnumerateNextNodeInSystem.c)
+ *     KeEnumerateNextNodeInSystem @ 0x140452D80 (KeEnumerateNextNodeInSystem.c)
  */
 
 __int64 KiGetNumberOfActiveSubNodes()

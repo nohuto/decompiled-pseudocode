@@ -11,7 +11,7 @@
  *     _RtlpMuiRegLoadLicInformation@4 @ 0x4B2D50DF (_RtlpMuiRegLoadLicInformation@4.c)
  */
 
-int __thiscall RtlpMuiRegLoadRegistryInfo(void *this, _DWORD *a2, __int16 a3)
+int __thiscall RtlpMuiRegLoadRegistryInfo(void *this, LANGID *a2, __int16 a3)
 {
   int result; // eax
   void *v4; // [esp-4h] [ebp-14h]

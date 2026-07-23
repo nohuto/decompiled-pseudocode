@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFindHotPatchRecord @ 0x140ABFFE4
+ * XREFs of MiFindHotPatchRecord @ 0x140AC2084
  * Callers:
- *     MmInsertSecureImageActivePatch @ 0x140874B1C (MmInsertSecureImageActivePatch.c)
- *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A99998 (MiFindProcessImageHotPatchRecord.c)
- *     MiApplyRequiredDriverHotPatches @ 0x140B57160 (MiApplyRequiredDriverHotPatches.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     MmInsertSecureImageActivePatch @ 0x14087AF00 (MmInsertSecureImageActivePatch.c)
+ *     NtManageHotPatch @ 0x140A9D550 (NtManageHotPatch.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A9DB18 (MiFindProcessImageHotPatchRecord.c)
+ *     MiApplyRequiredDriverHotPatches @ 0x140B5A0B4 (MiApplyRequiredDriverHotPatches.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiDuplicateUnicodeString @ 0x140867860 (MiDuplicateUnicodeString.c)
- *     MiCompareHotPatchNodes @ 0x14086F6BC (MiCompareHotPatchNodes.c)
- *     RtlIsPatchMachineApplicable @ 0x1408AB31C (RtlIsPatchMachineApplicable.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiDuplicateUnicodeString @ 0x14086DC40 (MiDuplicateUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140875A8C (MiCompareHotPatchNodes.c)
+ *     RtlIsPatchMachineApplicable @ 0x1408B178C (RtlIsPatchMachineApplicable.c)
  */
 
 __int64 __fastcall MiFindHotPatchRecord(
@@ -53,9 +53,9 @@ __int64 __fastcall MiFindHotPatchRecord(
   if ( !a2 )
   {
     --CurrentThread->SpecialApcDisable;
-    v15 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E36558.Header.Lock, 0, v15, &stru_140E36558);
+    v15 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E366D8.Header.Lock, 0, v15, &stru_140E366D8);
     if ( v15 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -94,11 +94,11 @@ __int64 __fastcall MiFindHotPatchRecord(
   }
   if ( !a2 )
   {
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&stru_140E36558.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E36558);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&stru_140E366D8.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E366D8);
     v18 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v18 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v18 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v17, v16);
   }
   return (unsigned int)v12;

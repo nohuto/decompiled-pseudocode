@@ -1,8 +1,8 @@
 /*
- * XREFs of AdtpGetCategoryAndSubCategoryId @ 0x1407B8A28
+ * XREFs of AdtpGetCategoryAndSubCategoryId @ 0x1407B8F48
  * Callers:
- *     AdtpWriteToEtwEx @ 0x1405C2164 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x1407B86D8 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1405C2394 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x1407B8BF8 (AdtpWriteToEtw.c)
  * Callees:
  *     <none>
  */

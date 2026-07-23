@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFlushQueuedDpcsWorker @ 0x140363790
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x140363930
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x140318968 (KiRequestSoftwareInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRequestSoftwareInterrupt @ 0x140318BF8 (KiRequestSoftwareInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v5 = 4;
@@ -35,10 +35,10 @@ __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
       SchedulerAssist[5] |= v5;
     }
     KiRequestSoftwareInterrupt((struct _KPRCB *)a1, 2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = CurrentPrcb->SchedulerAssist;

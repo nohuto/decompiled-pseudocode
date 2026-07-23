@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIssueAsynchronousFlush @ 0x1401EAF10
+ * XREFs of MiIssueAsynchronousFlush @ 0x1401EAD3C
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     IoAsynchronousPageWrite @ 0x14008DEA4 (IoAsynchronousPageWrite.c)
- *     MiFlushComplete @ 0x1401EAD40 (MiFlushComplete.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     IoAsynchronousPageWrite @ 0x14008D604 (IoAsynchronousPageWrite.c)
+ *     MiFlushComplete @ 0x1401EAB6C (MiFlushComplete.c)
  */
 
 unsigned __int64 __fastcall MiIssueAsynchronousFlush(

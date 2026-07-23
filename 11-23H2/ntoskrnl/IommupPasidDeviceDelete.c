@@ -1,16 +1,16 @@
 /*
- * XREFs of IommupPasidDeviceDelete @ 0x14050E7F4
+ * XREFs of IommupPasidDeviceDelete @ 0x14050ED44
  * Callers:
- *     IommupDeviceDisableSvm @ 0x140933C1C (IommupDeviceDisableSvm.c)
- *     IommupDeviceEnableSvm @ 0x140933D34 (IommupDeviceEnableSvm.c)
- *     IommuPasidDeviceDelete @ 0x140935820 (IommuPasidDeviceDelete.c)
+ *     IommupDeviceDisableSvm @ 0x140933E1C (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140933F34 (IommupDeviceEnableSvm.c)
+ *     IommuPasidDeviceDelete @ 0x140935A20 (IommuPasidDeviceDelete.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     IommuFreeLibraryContext @ 0x140522EB8 (IommuFreeLibraryContext.c)
- *     ExpFreeAsid @ 0x14060D830 (ExpFreeAsid.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     IommuFreeLibraryContext @ 0x140523408 (IommuFreeLibraryContext.c)
+ *     ExpFreeAsid @ 0x14060DD80 (ExpFreeAsid.c)
  */
 
 __int64 __fastcall IommupPasidDeviceDelete(__int64 a1)

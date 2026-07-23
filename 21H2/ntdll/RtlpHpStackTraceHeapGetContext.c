@@ -1,37 +1,33 @@
 /*
- * XREFs of RtlpHpStackTraceHeapGetContext @ 0x18010938C
+ * XREFs of RtlpHpStackTraceHeapGetContext @ 0x18010934C
  * Callers:
- *     RtlpHpStackTraceAddStack @ 0x1801089C0 (RtlpHpStackTraceAddStack.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x180109400 (RtlpHpStackTraceHeapSerialize.c)
- *     RtlpHpStackTraceRemoveStack @ 0x1801095F8 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpHpStackTraceAddStack @ 0x180108980 (RtlpHpStackTraceAddStack.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x1801093C0 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x1801095B8 (RtlpHpStackTraceRemoveStack.c)
  * Callees:
  *     RtlRunOnceBeginInitialize @ 0x18000A530 (RtlRunOnceBeginInitialize.c)
  *     RtlRunOnceExecuteOnce @ 0x180043830 (RtlRunOnceExecuteOnce.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceHeapGetContext(__int64 a1, int a2, _QWORD *a3)
+NTSTATUS __fastcall RtlpHpStackTraceHeapGetContext(__int64 a1, int a2, PVOID *a3)
 {
   __int64 v4; // rax
-  volatile signed __int64 *v5; // rcx
-  __int64 result; // rax
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  _RTL_RUN_ONCE *v5; // rcx
+  NTSTATUS result; // eax
+  PVOID Context; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = 104LL;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
     v4 = 368LL;
-  v5 = (volatile signed __int64 *)(v4 + a1);
+  v5 = (_RTL_RUN_ONCE *)(v4 + a1);
   if ( a2 )
-    result = RtlRunOnceExecuteOnce(
-               v5,
-               (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpPerHeapStackTraceInitialize,
-               0LL,
-               &v7);
+    result = RtlRunOnceExecuteOnce(v5, (PRTL_RUN_ONCE_INIT_FN)RtlpHpPerHeapStackTraceInitialize, 0LL, &Context);
   else
-    result = RtlRunOnceBeginInitialize(v5, 1, &v7);
-  if ( (int)result >= 0 )
+    result = RtlRunOnceBeginInitialize(v5, 1u, &Context);
+  if ( result >= 0 )
   {
-    *a3 = v7;
-    return 0LL;
+    *a3 = Context;
+    return 0;
   }
   return result;
 }

@@ -28,7 +28,7 @@ __int64 __fastcall RtlpResolveAssemblyStorageMapEntry(
 {
   __int64 v5; // r14
   NTSTATUS v8; // ebx
-  __int64 v9; // r12
+  wchar_t *Buffer; // r12
   __int64 v11; // rdx
   char *v12; // r9
   char *v13; // rcx
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpResolveAssemblyStorageMapEntry(
   wchar_t *v24; // rax
   unsigned __int16 v25; // bx
   void **v26; // rcx
-  void *v27; // rax
+  HANDLE ContainingDirectory; // rax
   int v28; // eax
   int v29; // eax
   int v30; // eax
@@ -54,9 +54,9 @@ __int64 __fastcall RtlpResolveAssemblyStorageMapEntry(
   char v33; // [rsp+40h] [rbp-C0h]
   int *v34; // [rsp+48h] [rbp-B8h] BYREF
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v36; // [rsp+58h] [rbp-A8h]
+  wchar_t *v36; // [rsp+58h] [rbp-A8h]
   int v37; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 StringRoutine; // [rsp+68h] [rbp-98h]
+  PVOID StringRoutine; // [rsp+68h] [rbp-98h]
   unsigned int *v39; // [rsp+70h] [rbp-90h]
   unsigned int *v40; // [rsp+80h] [rbp-80h] BYREF
   __int64 v41; // [rsp+88h] [rbp-78h]
@@ -68,16 +68,15 @@ __int64 __fastcall RtlpResolveAssemblyStorageMapEntry(
   char v47; // [rsp+B8h] [rbp-48h]
   _WORD v48[4]; // [rsp+C0h] [rbp-40h] BYREF
   char *v49; // [rsp+C8h] [rbp-38h]
-  __int128 v50; // [rsp+D0h] [rbp-30h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+D0h] [rbp-30h] BYREF
   __int64 v51; // [rsp+E0h] [rbp-20h]
   int v52; // [rsp+E8h] [rbp-18h] BYREF
   char *v53; // [rsp+F0h] [rbp-10h]
-  __int128 v54; // [rsp+F8h] [rbp-8h] BYREF
-  void *v55; // [rsp+108h] [rbp+8h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+118h] [rbp+18h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+148h] [rbp+48h] BYREF
-  _BYTE v58[544]; // [rsp+160h] [rbp+60h] BYREF
-  char v59; // [rsp+380h] [rbp+280h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+F8h] [rbp-8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+118h] [rbp+18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+148h] [rbp+48h] BYREF
+  _BYTE v57[544]; // [rsp+160h] [rbp+60h] BYREF
+  char v58; // [rsp+380h] [rbp+280h] BYREF
 
   v5 = a3;
   v51 = a5;
@@ -85,13 +84,13 @@ __int64 __fastcall RtlpResolveAssemblyStorageMapEntry(
   FileHandle = 0LL;
   v8 = 0;
   v36 = 0LL;
-  v9 = 0LL;
+  Buffer = 0LL;
   v52 = 34078720;
-  v53 = &v59;
+  v53 = &v58;
   v37 = 0;
   StringRoutine = 0LL;
-  LODWORD(v50) = 0;
-  *((_QWORD *)&v50 + 1) = 0LL;
+  *(_DWORD *)&NtFileName.Length = 0;
+  NtFileName.Buffer = 0LL;
   v39 = 0LL;
   if ( !a1 )
   {
@@ -103,7 +102,7 @@ __int64 __fastcall RtlpResolveAssemblyStorageMapEntry(
     v30 = *(_DWORD *)(a1 + 4);
 LABEL_68:
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters\n"
       "SXS:   Map                : %p\n"
@@ -128,7 +127,7 @@ LABEL_68:
   if ( v14 > 0xFFFE )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: Assembly directory name stored in assembly information too long (%lu bytes) - ACTIVATION_CONTEXT_DATA at %p\n",
       v14,
@@ -145,7 +144,7 @@ LABEL_68:
     v40 = a2;
     v49 = &v13[v15];
     LODWORD(v41) = v5;
-    v44 = v58;
+    v44 = v57;
     v42 = 0LL;
     v43 = 34996224;
     v45 = 0;
@@ -171,7 +170,7 @@ LABEL_68:
           {
             LOWORD(v42) = 0;
             v40 = v19;
-            v44 = v58;
+            v44 = v57;
             v41 = v18;
             v43 = 34996224;
             RtlpAssemblyStorageMapResolutionDefaultCallback(2LL, &v40, v51);
@@ -209,14 +208,14 @@ LABEL_68:
                      (__int64)&FileHandle);
               if ( v8 >= 0 )
               {
-                v9 = 0LL;
+                Buffer = 0LL;
                 goto LABEL_20;
               }
               if ( v8 != -1072365564 )
               {
                 OpenOptions[0] = v8;
                 DbgPrintEx(
-                  51,
+                  0x33u,
                   0,
                   "SXS: Attempt to probe assembly storage root %wZ for assembly directory %wZ failed with status = 0x%08lx\n",
                   &v43,
@@ -230,56 +229,61 @@ LABEL_68:
               break;
             v19 = v39;
           }
-          v9 = v36;
+          Buffer = v36;
         }
 LABEL_20:
         if ( v18 == v17 )
         {
 LABEL_62:
-          DbgPrintEx(51, 0, "SXS: Unable to resolve storage root for assembly directory %wZ in %Iu tries\n", v48, v18);
+          DbgPrintEx(
+            0x33u,
+            0,
+            "SXS: Unable to resolve storage root for assembly directory %wZ in %Iu tries\n",
+            v48,
+            v18);
           v8 = -1072365564;
 LABEL_25:
           v40 = v39;
           RtlpAssemblyStorageMapResolutionDefaultCallback(4LL, &v40, v51);
-          v9 = v36;
+          Buffer = v36;
           goto LABEL_26;
         }
 LABEL_21:
         if ( !FileHandle )
         {
-          if ( !RtlDosPathNameToRelativeNtPathName_U(*((_QWORD *)v34 + 1), (int)&v50, 0, (__int64)&v54) )
+          if ( !RtlDosPathNameToRelativeNtPathName_U(*((PCWSTR *)v34 + 1), &NtFileName, 0LL, &RelativeName) )
           {
             DbgPrintEx(
-              51,
+              0x33u,
               0,
               "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n",
               *((const wchar_t **)v34 + 1));
             v8 = -1073741766;
             goto LABEL_24;
           }
-          v9 = *((_QWORD *)&v50 + 1);
-          v36 = *((_QWORD *)&v50 + 1);
-          if ( (_WORD)v54 )
+          Buffer = NtFileName.Buffer;
+          v36 = NtFileName.Buffer;
+          if ( RelativeName.RelativeName.Length )
           {
-            v27 = v55;
-            v50 = v54;
+            ContainingDirectory = RelativeName.ContainingDirectory;
+            NtFileName = RelativeName.RelativeName;
           }
           else
           {
-            v27 = 0LL;
-            v55 = 0LL;
+            ContainingDirectory = 0LL;
+            RelativeName.ContainingDirectory = 0LL;
           }
-          ObjectAttributes.RootDirectory = v27;
-          ObjectAttributes.ObjectName = (PUNICODE_STRING)&v50;
+          ObjectAttributes.RootDirectory = ContainingDirectory;
+          ObjectAttributes.ObjectName = &NtFileName;
           ObjectAttributes.Length = 48;
           ObjectAttributes.Attributes = 64;
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
           v8 = NtOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
-          RtlReleaseRelativeName((__int64)&v54);
+          RtlReleaseRelativeName(&RelativeName);
           if ( v8 < 0 )
           {
             DbgPrintEx(
-              51,
+              0x33u,
               0,
               "SXS: Unable to open assembly directory under storage root \"%S\"; Status = 0x%08lx\n",
               *((const wchar_t **)v34 + 1),
@@ -291,7 +295,7 @@ LABEL_21:
         v8 = inserted;
         if ( inserted < 0 )
           DbgPrintEx(
-            51,
+            0x33u,
             0,
             "SXS: Storage resolution failed to insert entry to storage map; Status = 0x%08lx\n",
             inserted);
@@ -319,7 +323,7 @@ LABEL_24:
           v8 = 0;
         else
           DbgPrintEx(
-            51,
+            0x33u,
             0,
             "SXS: Attempt to insert well known storage root into assembly storage map assembly roster index %lu failed; S"
             "tatus = 0x%08lx\n",
@@ -330,7 +334,7 @@ LABEL_24:
       {
         ShareAccess[0] = v28;
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: Attempt to probe known root of assembly storage (\"%wZ\") failed; Status = 0x%08lx\n",
           &v43,
@@ -374,7 +378,7 @@ LABEL_38:
 LABEL_28:
   if ( FileHandle )
     NtClose(FileHandle);
-  if ( v9 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+  if ( Buffer )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
   return (unsigned int)v8;
 }

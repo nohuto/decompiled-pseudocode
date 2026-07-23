@@ -10,55 +10,61 @@
  *     ZwSetValueKey @ 0x1800A5EF0 (ZwSetValueKey.c)
  */
 
-__int64 __fastcall sub_1800D79F0(unsigned __int16 *a1, int *a2)
+__int64 __fastcall sub_1800D79F0(unsigned __int16 *a1, _DWORD *a2)
 {
-  int v2; // esi
-  __int64 v4; // rax
-  int v5; // edx
-  int v7; // edi
-  __int64 v8; // [rsp+38h] [rbp-18h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  unsigned int v10; // [rsp+80h] [rbp+30h] BYREF
-  __int64 v11; // [rsp+88h] [rbp+38h] BYREF
+  __int16 v2; // r8
+  int v3; // esi
+  WCHAR *v5; // rax
+  int v6; // edx
+  NTSTATUS v8; // edi
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
+  int Data; // [rsp+70h] [rbp+20h] BYREF
+  ULONG ReturnedLength; // [rsp+80h] [rbp+30h] BYREF
+  HANDLE KeyHandle; // [rsp+88h] [rbp+38h] BYREF
 
-  v2 = 0;
-  v4 = *((_QWORD *)a1 + 1) + *a1;
-  v5 = *a1;
+  v2 = *a1;
+  v3 = 0;
+  v5 = (WCHAR *)(*((_QWORD *)a1 + 1) + *a1);
+  v6 = *a1;
   if ( *a1 )
   {
     do
     {
-      if ( *(_WORD *)(v4 - 2) == 92 )
+      if ( *(v5 - 1) == 92 )
         break;
-      v4 -= 2LL;
-      v5 -= 2;
+      --v5;
+      v6 -= 2;
     }
-    while ( v5 );
+    while ( v6 );
   }
-  v8 = v4;
+  ValueName.Buffer = v5;
+  ValueName.Length = v2 - v6;
+  ValueName.MaximumLength = v2 - v6 + 2;
   RtlInitUnicodeString(&DestinationString, L"\\VerifierCounter");
-  if ( (int)sub_18007C34C(&DestinationString.Length, 0xBu, (__int64)&v11) < 0 )
+  if ( sub_18007C34C(&DestinationString.Length, 0xBu, &KeyHandle) < 0 )
   {
-    if ( (int)sub_18007C34C(&DestinationString.Length, 9u, (__int64)&v11) < 0 )
+    if ( sub_18007C34C(&DestinationString.Length, 9u, &KeyHandle) < 0 )
     {
       *a2 = 1;
       return 0LL;
     }
-    v2 = 1;
+    v3 = 1;
   }
-  v7 = LdrQueryImageFileKeyOption(v11, v8, 4, a2, 4u, &v10);
-  if ( v7 >= 0 )
+  v8 = LdrQueryImageFileKeyOption(KeyHandle, ValueName.Buffer, 4u, a2, 4u, &ReturnedLength);
+  if ( v8 >= 0 )
   {
-    if ( v2 || !*a2 )
+    if ( v3 || !*a2 )
       goto LABEL_14;
-    ZwSetValueKey();
+    Data = *a2 - 1;
+    ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
   }
   else
   {
     *a2 = 1;
   }
-  v7 = 0;
+  v8 = 0;
 LABEL_14:
-  ZwClose();
-  return (unsigned int)v7;
+  ZwClose(KeyHandle);
+  return (unsigned int)v8;
 }

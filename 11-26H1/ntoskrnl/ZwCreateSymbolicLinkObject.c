@@ -1,23 +1,27 @@
 /*
- * XREFs of ZwCreateSymbolicLinkObject @ 0x140724CF0
+ * XREFs of ZwCreateSymbolicLinkObject @ 0x1407298C0
  * Callers:
- *     DifZwCreateSymbolicLinkObjectWrapper @ 0x1406A1EE0 (DifZwCreateSymbolicLinkObjectWrapper.c)
- *     IoCreateUnprotectedSymbolicLink @ 0x140796360 (IoCreateUnprotectedSymbolicLink.c)
- *     PiDrvDbRegisterNode @ 0x1407B6B90 (PiDrvDbRegisterNode.c)
- *     ObpCreateDosDevicesDirectory @ 0x1407C2A4C (ObpCreateDosDevicesDirectory.c)
- *     ObpInitializeRootNamespace @ 0x1407C2F9C (ObpInitializeRootNamespace.c)
- *     PspSiloInitializeSystemRootSymlink @ 0x1407EF710 (PspSiloInitializeSystemRootSymlink.c)
- *     IopProcessSetInterfaceState @ 0x1409D82B0 (IopProcessSetInterfaceState.c)
- *     SeGetTokenDeviceMap @ 0x140A18788 (SeGetTokenDeviceMap.c)
- *     PiCreateDriverDataDirectoryRoot @ 0x140CC3BBC (PiCreateDriverDataDirectoryRoot.c)
- *     CmpInitializeDriverStores @ 0x140CEAB70 (CmpInitializeDriverStores.c)
+ *     DifZwCreateSymbolicLinkObjectWrapper @ 0x1406A5AC0 (DifZwCreateSymbolicLinkObjectWrapper.c)
+ *     IoCreateUnprotectedSymbolicLink @ 0x140798E90 (IoCreateUnprotectedSymbolicLink.c)
+ *     PiDrvDbRegisterNode @ 0x1407B9BF0 (PiDrvDbRegisterNode.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407C5AAC (ObpCreateDosDevicesDirectory.c)
+ *     ObpInitializeRootNamespace @ 0x1407C5FFC (ObpInitializeRootNamespace.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x1407F5270 (PspSiloInitializeSystemRootSymlink.c)
+ *     IopProcessSetInterfaceState @ 0x1409A91A0 (IopProcessSetInterfaceState.c)
+ *     SeGetTokenDeviceMap @ 0x140A21DB8 (SeGetTokenDeviceMap.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x140CC9C90 (PiCreateDriverDataDirectoryRoot.c)
+ *     CmpInitializeDriverStores @ 0x140CF0F10 (CmpInitializeDriverStores.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateSymbolicLinkObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LinkTarget)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(LinkHandle);
 }

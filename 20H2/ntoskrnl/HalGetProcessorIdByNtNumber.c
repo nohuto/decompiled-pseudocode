@@ -18,7 +18,7 @@ NTSTATUS __fastcall HalGetProcessorIdByNtNumber(ULONG a1, _DWORD *a2)
   NTSTATUS result; // eax
   int v5; // edx
   ULONG_PTR i; // rcx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   v3 = HalpInterruptProcessorCount;

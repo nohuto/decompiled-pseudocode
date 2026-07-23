@@ -1,14 +1,14 @@
 /*
- * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x1403CB24C
+ * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x1403B212C
  * Callers:
- *     SepInitSingletonEntry @ 0x1403CB190 (SepInitSingletonEntry.c)
- *     SepCleanSingletonEntry @ 0x1403CB1DC (SepCleanSingletonEntry.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403CC2F0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepValidateAndCopyGlobalEntry @ 0x140529F94 (SepValidateAndCopyGlobalEntry.c)
- *     SepSetSingletonEntry @ 0x14063BB00 (SepSetSingletonEntry.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B0C10 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepCleanSingletonEntry @ 0x1403B2248 (SepCleanSingletonEntry.c)
+ *     SepInitSingletonEntry @ 0x1403B22B8 (SepInitSingletonEntry.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x14052C4B4 (SepValidateAndCopyGlobalEntry.c)
+ *     SepSetSingletonEntry @ 0x14063F600 (SepSetSingletonEntry.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall SepGetSingletonEntryFromIndexNumber(unsigned int a1)

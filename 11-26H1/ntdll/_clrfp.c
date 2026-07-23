@@ -1,10 +1,10 @@
 /*
- * XREFs of _clrfp @ 0x1801316C0
+ * XREFs of _clrfp @ 0x180131430
  * Callers:
- *     _raise_exc_ex @ 0x180131070 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x180130DE0 (_raise_exc_ex.c)
  * Callees:
- *     _get_fpsr @ 0x1801327A0 (_get_fpsr.c)
- *     _fclrf @ 0x1801327C0 (_fclrf.c)
+ *     _get_fpsr @ 0x180132510 (_get_fpsr.c)
+ *     _fclrf @ 0x180132530 (_fclrf.c)
  */
 
 __int64 clrfp()

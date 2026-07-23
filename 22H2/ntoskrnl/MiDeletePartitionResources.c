@@ -84,7 +84,7 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
   struct _KTHREAD *v41; // rbx
   unsigned __int8 v42; // r14
   unsigned int v43; // edx
-  unsigned __int64 v44; // rsi
+  __int64 v44; // rsi
   __int64 v45; // rcx
   int v46; // eax
   unsigned int v47; // ecx
@@ -202,7 +202,7 @@ LABEL_14:
     --v17;
   }
   while ( v17 );
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   v19 = **(_QWORD **)(*(_QWORD *)(a1 + 176) + 56LL);
   *(_QWORD *)(a1 + 7592) -= MiDeletePagingFiles(a1);
   MiEnumerateSlabAllocators(
@@ -371,7 +371,7 @@ LABEL_69:
     v7 = !_BitScanReverse((unsigned int *)&v45, v43);
     if ( v7 )
       goto LABEL_80;
-    v44 = (unsigned __int64)&v41->LockEntries[v45];
+    v44 = (__int64)&v41->LockEntries[v45];
     v43 &= ~(1 << v45);
     if ( (*(_BYTE *)(v44 + 26) & 1) != 0
       && (*(_DWORD *)(v44 + 32) & 1) == 0
@@ -392,14 +392,14 @@ LABEL_80:
   }
   *(_BYTE *)(v44 + 32) |= 2u;
   if ( *(__int64 *)(v44 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v44);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v44);
   v46 = *(_DWORD *)(v44 + 88) & 0x1FFFF;
   v47 = *(_DWORD *)(v44 + 88) & 0xFFFE0000;
   *(_BYTE *)(v44 + 25) &= ~1u;
   v66 = v46;
   *(_DWORD *)(v44 + 88) = v47;
   *(_QWORD *)(v44 + 32) = 0LL;
-  v48 = (__int64)(v44 - (unsigned __int64)v41->LockEntries) / 96;
+  v48 = (signed __int64)(v44 - (unsigned __int64)v41->LockEntries) / 96;
   if ( v42 == 1 )
     v41->AbEntrySummary |= 1 << v48;
   else

@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpAllocateOplock @ 0x140A28938
+ * XREFs of FsRtlpAllocateOplock @ 0x1409E1594
  * Callers:
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1403DA480 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1404E4608 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpRequestShareableOplock @ 0x1404E4EB0 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140A20DD0 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1403CF540 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1404DAE94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1404DB6D0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1409E0F60 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 FsRtlpAllocateOplock()
@@ -16,8 +16,8 @@ __int64 FsRtlpAllocateOplock()
   __int64 v0; // rax
   __int64 Pool2; // [rsp+20h] [rbp-18h]
 
-  Pool2 = ExAllocatePool2(0x120uLL);
-  v0 = ExAllocatePool2(0x60uLL);
+  Pool2 = ExAllocatePool2(0x120uLL, 0xB8uLL, 0x6F725346u);
+  v0 = ExAllocatePool2(0x60uLL, 0x38uLL, 0x6F725346u);
   *(_QWORD *)(Pool2 + 152) = v0;
   *(_DWORD *)v0 = 1;
   *(_QWORD *)(v0 + 8) = 0LL;

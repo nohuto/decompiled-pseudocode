@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCheckKey @ 0x1405F11F0
+ * XREFs of CmpCheckKey @ 0x1406E0950
  * Callers:
- *     CmpCheckRegistry2 @ 0x1405F0040 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1406DF7A0 (CmpCheckRegistry2.c)
  * Callees:
  *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
- *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x1403F07DC (CmpKeySecurityIncrementReferenceCount.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpCheckLeaf @ 0x1405EBF20 (CmpCheckLeaf.c)
- *     CmpCheckValueList @ 0x1405F0460 (CmpCheckValueList.c)
- *     HvIsCellAllocated @ 0x1405F2B70 (HvIsCellAllocated.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1402AB7E0 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x1403F094C (CmpKeySecurityIncrementReferenceCount.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpCheckLeaf @ 0x1406DB680 (CmpCheckLeaf.c)
+ *     CmpCheckValueList @ 0x1406DFBC0 (CmpCheckValueList.c)
+ *     HvIsCellAllocated @ 0x1406E22D0 (HvIsCellAllocated.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckKey(
@@ -29,7 +29,7 @@ __int64 __fastcall CmpCheckKey(
   unsigned int v16; // edx
   unsigned int v17; // ecx
   char v18; // r12
-  int v19; // edi
+  signed int v19; // edi
   unsigned int v20; // edx
   unsigned int v21; // ecx
   unsigned int v22; // ecx
@@ -42,7 +42,7 @@ __int64 __fastcall CmpCheckKey(
   __int64 v29; // rax
   __int64 v30; // r15
   __int64 v31; // rdi
-  int v32; // eax
+  signed int v32; // eax
   __int64 v33; // rax
   __int64 v34; // r15
   int v35; // eax
@@ -62,7 +62,7 @@ __int64 __fastcall CmpCheckKey(
   unsigned int v49; // edi
   int v50; // r15d
   __int64 v51; // rax
-  int v52; // eax
+  unsigned int v52; // eax
   PRTL_BITMAP v53; // r15
   __int16 *v54; // rax
   __int16 *v55; // r10
@@ -89,10 +89,10 @@ __int64 __fastcall CmpCheckKey(
   unsigned int v76; // r13d
   bool v77; // cl
   bool v78; // al
-  int v79; // [rsp+20h] [rbp-91h]
-  int v80; // [rsp+20h] [rbp-91h]
-  int v81; // [rsp+20h] [rbp-91h]
-  int v82; // [rsp+20h] [rbp-91h]
+  unsigned int v79; // [rsp+20h] [rbp-91h]
+  unsigned int v80; // [rsp+20h] [rbp-91h]
+  unsigned int v81; // [rsp+20h] [rbp-91h]
+  unsigned int v82; // [rsp+20h] [rbp-91h]
   unsigned int v83; // [rsp+50h] [rbp-61h]
   int v84; // [rsp+50h] [rbp-61h]
   __int16 *v85; // [rsp+58h] [rbp-59h]
@@ -133,14 +133,14 @@ __int64 __fastcall CmpCheckKey(
   }
   if ( !(unsigned __int8)HvIsCellAllocated(a1, a3, BitMapHeader) )
   {
-    SetFailureLocation(a7, 0, 14, -1073741492, 0);
+    SetFailureLocation(a7, 0, 14, 0xC000014C, 0);
     return 3221225804LL;
   }
   v13 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, _DWORD *))(a1 + 8))(a1, a3, v96);
   v14 = v13;
   if ( !v13 )
   {
-    SetFailureLocation(a7, 0, 14, -1073741670, 16);
+    SetFailureLocation(a7, 0, 14, 0xC000009A, 0x10u);
     return 3221225626LL;
   }
   if ( a7 )
@@ -209,7 +209,7 @@ __int64 __fastcall CmpCheckKey(
     v79 = 1296;
 LABEL_357:
     v19 = -1073741492;
-    SetFailureLocation(a7, 0, 14, -1073741492, v79);
+    SetFailureLocation(a7, 0, 14, 0xC000014C, v79);
     goto LABEL_358;
   }
 LABEL_20:
@@ -220,14 +220,14 @@ LABEL_20:
     v19 = -1073741492;
     if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
     {
-      SetFailureLocation(a7, 1, 14, -1073741492, 144);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x90u);
       goto LABEL_358;
     }
-    SetFailureLocation(a7, 1, 14, -1073741492, 112);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x70u);
     if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
     {
       v19 = -1073741443;
-      SetFailureLocation(a7, 0, 14, -1073741443, 128);
+      SetFailureLocation(a7, 0, 14, 0xC000017D, 0x80u);
       goto LABEL_358;
     }
     *(_WORD *)v14 = 27502;
@@ -239,14 +239,14 @@ LABEL_20:
     v19 = -1073741492;
     if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
     {
-      SetFailureLocation(a7, 0, 14, -1073741492, 148);
+      SetFailureLocation(a7, 0, 14, 0xC000014C, 0x94u);
       goto LABEL_358;
     }
-    SetFailureLocation(a7, 1, 14, -1073741492, 146);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x92u);
     if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
     {
       v19 = -1073741443;
-      SetFailureLocation(a7, 0, 14, -1073741443, 150);
+      SetFailureLocation(a7, 0, 14, 0xC000017D, 0x96u);
       goto LABEL_358;
     }
     *(_BYTE *)(v14 + 13) &= 0xFCu;
@@ -260,14 +260,14 @@ LABEL_20:
       v19 = -1073741492;
       if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
-        SetFailureLocation(a7, 0, 14, -1073741492, 492);
+        SetFailureLocation(a7, 0, 14, 0xC000014C, 0x1ECu);
         goto LABEL_358;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 484);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x1E4u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
-        SetFailureLocation(a7, 0, 14, -1073741443, 488);
+        SetFailureLocation(a7, 0, 14, 0xC000017D, 0x1E8u);
         goto LABEL_358;
       }
       *(_BYTE *)(v14 + 13) = *(_BYTE *)(v14 + 13) & 0xFC | 2;
@@ -284,14 +284,14 @@ LABEL_20:
       v19 = -1073741492;
       if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
-        SetFailureLocation(a7, 0, 14, -1073741492, 156);
+        SetFailureLocation(a7, 0, 14, 0xC000014C, 0x9Cu);
         goto LABEL_358;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 152);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x98u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
-        SetFailureLocation(a7, 0, 14, -1073741443, 154);
+        SetFailureLocation(a7, 0, 14, 0xC000017D, 0x9Au);
         goto LABEL_358;
       }
       *(_BYTE *)(v14 + 13) |= 3u;
@@ -316,14 +316,14 @@ LABEL_59:
       v101 = 1;
       if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
-        SetFailureLocation(a7, 0, 14, -1073741492, 157);
+        SetFailureLocation(a7, 0, 14, 0xC000014C, 0x9Du);
         goto LABEL_358;
       }
-      SetFailureLocation(a7, 0, 14, -1073741492, 155);
+      SetFailureLocation(a7, 0, 14, 0xC000014C, 0x9Bu);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
-        SetFailureLocation(a7, 0, 14, -1073741443, 159);
+        SetFailureLocation(a7, 0, 14, 0xC000017D, 0x9Fu);
         goto LABEL_358;
       }
       v83 = 0;
@@ -332,7 +332,7 @@ LABEL_59:
     }
     if ( (*(_BYTE *)(v14 + 13) & 3) == 1 )
     {
-      SetFailureLocation(a7, 1, 14, -1073741492, 158);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x9Eu);
       goto LABEL_80;
     }
     if ( !(unsigned __int8)HvIsCellAllocated(a1, v23, BitMapHeader) )
@@ -340,15 +340,15 @@ LABEL_59:
 LABEL_80:
       if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
-        SetFailureLocation(a7, 0, 14, -1073741492, 192);
+        SetFailureLocation(a7, 0, 14, 0xC000014C, 0xC0u);
         v19 = -1073741492;
         goto LABEL_358;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 160);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0xA0u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
-        SetFailureLocation(a7, 0, 14, -1073741443, 176);
+        SetFailureLocation(a7, 0, 14, 0xC000017D, 0xB0u);
         goto LABEL_358;
       }
       v101 = 1;
@@ -362,7 +362,7 @@ LABEL_80:
     if ( !v25 )
     {
       v19 = -1073741670;
-      SetFailureLocation(a7, 0, 14, -1073741670, 208);
+      SetFailureLocation(a7, 0, 14, 0xC000009A, 0xD0u);
       goto LABEL_358;
     }
     v26 = v83 <= -4 - *(_DWORD *)(v25 - 4);
@@ -370,7 +370,7 @@ LABEL_80:
     if ( !v26 )
     {
       v27(a1, v97);
-      SetFailureLocation(a7, 1, 14, -1073741492, 224);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0xE0u);
       goto LABEL_80;
     }
     v27(a1, v97);
@@ -381,14 +381,14 @@ LABEL_80:
     v101 = 1;
     if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
     {
-      SetFailureLocation(a7, 0, 14, -1073741492, 228);
+      SetFailureLocation(a7, 0, 14, 0xC000014C, 0xE4u);
       goto LABEL_358;
     }
-    SetFailureLocation(a7, 1, 14, -1073741492, 232);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0xE8u);
     if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
     {
       v19 = -1073741443;
-      SetFailureLocation(a7, 1, 14, -1073741443, 236);
+      SetFailureLocation(a7, 1, 14, 0xC000017D, 0xECu);
       goto LABEL_358;
     }
     *(_DWORD *)(v14 + 48) = -1;
@@ -399,7 +399,7 @@ LABEL_80:
 LABEL_92:
   if ( v24 == -1 )
   {
-    SetFailureLocation(a7, 1, 14, -1073741492, 256);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x100u);
     goto LABEL_110;
   }
   v28 = a2;
@@ -418,7 +418,7 @@ LABEL_92:
         v80 = 480;
         goto LABEL_351;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 448);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x1C0u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
@@ -445,7 +445,7 @@ LABEL_92:
         v80 = 352;
         goto LABEL_351;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 320);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x140u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
@@ -474,10 +474,10 @@ LABEL_92:
       v19 = -1073741492;
       if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
-        SetFailureLocation(a7, 0, 14, -1073741492, 370);
+        SetFailureLocation(a7, 0, 14, 0xC000014C, 0x172u);
         goto LABEL_167;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 372);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x174u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a4, 0LL) )
       {
         v81 = 374;
@@ -497,17 +497,17 @@ LABEL_92:
     v19 = -1073741492;
     if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
     {
-      SetFailureLocation(a7, 0, 14, -1073741492, 376);
+      SetFailureLocation(a7, 0, 14, 0xC000014C, 0x178u);
       goto LABEL_167;
     }
-    SetFailureLocation(a7, 1, 14, -1073741492, 378);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x17Au);
     if ( !(unsigned __int8)HvMarkCellDirty(a1, a4, 0LL) )
     {
       v81 = 380;
       v43 = 0;
 LABEL_166:
       v19 = -1073741443;
-      SetFailureLocation(a7, v43, 14, -1073741443, v81);
+      SetFailureLocation(a7, v43, 14, 0xC000017D, v81);
 LABEL_167:
       (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(a1 + 16))(a1, v90);
       goto LABEL_353;
@@ -526,7 +526,7 @@ LABEL_144:
         v80 = 416;
         goto LABEL_351;
       }
-      SetFailureLocation(a7, 1, 14, -1073741492, 384);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x180u);
       if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
       {
         v19 = -1073741443;
@@ -550,13 +550,13 @@ LABEL_158:
       if ( v41 != -1073741275 )
         break;
     }
-    SetFailureLocation(a7, 1, 14, -1073741492, 496);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x1F0u);
 LABEL_110:
     v28 = a2;
 LABEL_111:
     if ( (v28 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
     {
-      SetFailureLocation(a7, 0, 14, -1073741492, 304);
+      SetFailureLocation(a7, 0, 14, 0xC000014C, 0x130u);
       v19 = -1073741492;
       goto LABEL_353;
     }
@@ -583,7 +583,7 @@ LABEL_350:
     if ( !v31 )
     {
       v19 = -1073741670;
-      SetFailureLocation(a7, 0, 14, -1073741670, 280);
+      SetFailureLocation(a7, 0, 14, 0xC000009A, 0x118u);
       goto LABEL_347;
     }
     if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
@@ -591,7 +591,7 @@ LABEL_350:
       v82 = 284;
 LABEL_344:
       v19 = -1073741443;
-      SetFailureLocation(a7, 0, 14, -1073741443, v82);
+      SetFailureLocation(a7, 0, 14, 0xC000017D, v82);
 LABEL_345:
       (*(void (__fastcall **)(ULONG_PTR, int *))(a1 + 16))(a1, &v88);
 LABEL_347:
@@ -607,7 +607,7 @@ LABEL_347:
     v19 = v32;
     if ( v32 < 0 )
     {
-      SetFailureLocation(a7, 0, 14, v32, 292);
+      SetFailureLocation(a7, 0, 14, v32, 0x124u);
       goto LABEL_345;
     }
     *(_DWORD *)(v14 + 44) = *(_DWORD *)(v30 + 44);
@@ -621,7 +621,7 @@ LABEL_347:
   if ( v41 < 0 )
   {
     v19 = -1073741492;
-    SetFailureLocation(a7, 1, 14, -1073741492, 500);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x1F4u);
     goto LABEL_353;
   }
   if ( (*(_BYTE *)(v14 + 2) & 0x40) != 0 )
@@ -687,7 +687,7 @@ LABEL_240:
         if ( !v54 )
         {
           v19 = -1073741670;
-          SetFailureLocation(a7, 0, 14, -1073741670, 736);
+          SetFailureLocation(a7, 0, 14, 0xC000009A, 0x2E0u);
           goto LABEL_358;
         }
         v56 = -4 - *((_DWORD *)v54 - 1);
@@ -822,7 +822,7 @@ LABEL_315:
                   v80 = 1040;
                   goto LABEL_351;
                 }
-                SetFailureLocation(a7, 1, 14, v19, 1008);
+                SetFailureLocation(a7, 1, 14, v19, 0x3F0u);
                 v76 = a3;
                 if ( !(unsigned __int8)HvMarkCellDirty(a1, a3, 0LL) )
                 {
@@ -928,7 +928,7 @@ LABEL_198:
   if ( (*(_BYTE *)(v14 + 13) & 3) == 1 )
   {
     v19 = -1073741492;
-    SetFailureLocation(a7, 1, 14, -1073741492, 504);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x1F8u);
     v44 = a2;
     goto LABEL_202;
   }
@@ -936,7 +936,7 @@ LABEL_198:
   if ( !(unsigned __int8)HvIsCellAllocated(a1, v98, BitMapHeader) )
   {
     v19 = -1073741492;
-    SetFailureLocation(a7, 1, 14, -1073741492, 512);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x200u);
     v44 = a2;
     goto LABEL_202;
   }
@@ -955,7 +955,7 @@ LABEL_198:
   {
     (*(void (__fastcall **)(ULONG_PTR, int *))(a1 + 16))(a1, &v88);
     v19 = -1073741492;
-    SetFailureLocation(a7, 1, 14, -1073741492, 544);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x220u);
     v44 = a2;
     while ( 1 )
     {
@@ -986,7 +986,7 @@ LABEL_199:
         break;
       }
       v19 = -1073741492;
-      SetFailureLocation(a7, 1, 14, -1073741492, 608);
+      SetFailureLocation(a7, 1, 14, 0xC000014C, 0x260u);
     }
     if ( *(_DWORD *)(v14 + 60) < (unsigned int)v87 )
     {
@@ -1068,7 +1068,7 @@ LABEL_199:
   {
     if ( a7 )
       *(_QWORD *)(a7 + 248) = v47;
-    SetFailureLocation(a7, 1, 14, -1073741492, 560);
+    SetFailureLocation(a7, 1, 14, 0xC000014C, 0x230u);
     goto LABEL_202;
   }
 LABEL_353:

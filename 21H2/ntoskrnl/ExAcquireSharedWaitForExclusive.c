@@ -1,23 +1,23 @@
 /*
- * XREFs of ExAcquireSharedWaitForExclusive @ 0x1405B4D70
+ * XREFs of ExAcquireSharedWaitForExclusive @ 0x1405B4FA0
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x1402559CC (FsRtlAcquireFileForModWriteEx.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1405B5350 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x140276F3C (FsRtlAcquireFileForModWriteEx.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x1405B5580 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpBoostIoAfterAcquire @ 0x1402872F0 (ExpBoostIoAfterAcquire.c)
- *     ExpApplyPrewaitBoost @ 0x1402B73B0 (ExpApplyPrewaitBoost.c)
- *     ExpFindEmptyEntry @ 0x1402B85BC (ExpFindEmptyEntry.c)
- *     ExpPrepareToWaitForResourceShared @ 0x1402D0DCC (ExpPrepareToWaitForResourceShared.c)
- *     ExpGetThreadResourceHint @ 0x14031E500 (ExpGetThreadResourceHint.c)
- *     ExpWaitForResource @ 0x1403423D0 (ExpWaitForResource.c)
- *     ExpFindCurrentThread @ 0x14034DA50 (ExpFindCurrentThread.c)
- *     ExpTryAcquireResourceShared @ 0x14038F68C (ExpTryAcquireResourceShared.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpBoostIoAfterAcquire @ 0x140204490 (ExpBoostIoAfterAcquire.c)
+ *     ExpApplyPrewaitBoost @ 0x140235590 (ExpApplyPrewaitBoost.c)
+ *     ExpFindEmptyEntry @ 0x1402367CC (ExpFindEmptyEntry.c)
+ *     ExpPrepareToWaitForResourceShared @ 0x14024F25C (ExpPrepareToWaitForResourceShared.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpGetThreadResourceHint @ 0x140329250 (ExpGetThreadResourceHint.c)
+ *     ExpWaitForResource @ 0x14034D120 (ExpWaitForResource.c)
+ *     ExpFindCurrentThread @ 0x1403587A0 (ExpFindCurrentThread.c)
+ *     ExpTryAcquireResourceShared @ 0x14038F7DC (ExpTryAcquireResourceShared.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PerfLogExecutiveResourceAcquire @ 0x1405AAD8C (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x1405AB258 (PerfLogExecutiveResourceWait.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405AAFBC (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1405AB488 (PerfLogExecutiveResourceWait.c)
  */
 
 BOOLEAN __stdcall ExAcquireSharedWaitForExclusive(PERESOURCE Resource, BOOLEAN Wait)

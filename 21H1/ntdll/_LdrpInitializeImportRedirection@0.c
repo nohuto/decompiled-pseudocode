@@ -23,8 +23,11 @@ int __stdcall LdrpInitializeImportRedirection()
   int Dll; // esi
   char v3; // al
   int v4; // ecx
-  char v5; // [esp+13h] [ebp-5Dh] BYREF
-  _DWORD v6[22]; // [esp+14h] [ebp-5Ch] BYREF
+  size_t v5; // [esp-4h] [ebp-74h]
+  char v6; // [esp+13h] [ebp-5Dh] BYREF
+  int v7; // [esp+14h] [ebp-5Ch] BYREF
+  PWSTR Path[19]; // [esp+18h] [ebp-58h] BYREF
+  char v9; // [esp+64h] [ebp-Ch]
 
   p_RedirectionDllName = &NtCurrentPeb()->ProcessParameters->RedirectionDllName;
   Dll = 0;
@@ -38,27 +41,28 @@ int __stdcall LdrpInitializeImportRedirection()
         2,
         "Loading import redirection DLL: '%wZ'\n",
         p_RedirectionDllName);
-    memset(&v6[1], 0, 0x50u);
-    Dll = LdrpLoadDll(16777217, (int)v6);
-    if ( LOBYTE(v6[20]) )
-      RtlReleasePath(v6[1]);
+    LODWORD(v5) = 80;
+    memset(Path, 0, v5);
+    Dll = LdrpLoadDll(p_RedirectionDllName, 16777217, (int)&v7);
+    if ( v9 )
+      RtlReleasePath(Path[0]);
     if ( Dll >= 0 )
     {
-      Dll = LdrpBuildImportRedirection(v6[0]);
+      Dll = LdrpBuildImportRedirection(v7);
       if ( Dll >= 0 )
       {
         LdrpDrainWorkQueue(0);
         LdrpAcquireLoaderLock();
-        v5 = 0;
-        Dll = LdrpInitializeGraphRecurse(*(_DWORD **)(v6[0] + 80), 0, &v5);
+        v6 = 0;
+        Dll = LdrpInitializeGraphRecurse(*(_DWORD **)(v7 + 80), 0, &v6);
         LdrpReleaseLoaderLock(v4, 2, Dll, v4);
         LdrpDropLastInProgressCount();
         if ( Dll >= 0 )
         {
-          *(_DWORD *)(*(_DWORD *)(v6[0] + 80) + 12) = -1;
-          *(_WORD *)(**(_DWORD **)(v6[0] + 80) - 28) = -1;
-          LdrpLogImportRedirectionTelemetry(v6[0]);
-          LdrpRedirectionModule = v6[0];
+          *(_DWORD *)(*(_DWORD *)(v7 + 80) + 12) = -1;
+          *(_WORD *)(**(_DWORD **)(v7 + 80) - 28) = -1;
+          LdrpLogImportRedirectionTelemetry(v7);
+          LdrpRedirectionModule = v7;
         }
       }
       else

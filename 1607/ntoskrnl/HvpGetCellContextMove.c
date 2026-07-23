@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpGetCellContextMove @ 0x1401716BC
+ * XREFs of HvpGetCellContextMove @ 0x140171BBC
  * Callers:
- *     CmpRemoveSubKeyFromList @ 0x1404D4CD4 (CmpRemoveSubKeyFromList.c)
+ *     CmpRemoveSubKeyFromList @ 0x1404B82D8 (CmpRemoveSubKeyFromList.c)
  * Callees:
  *     <none>
  */
